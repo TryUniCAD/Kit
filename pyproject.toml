@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 [build-system]
 requires = ["hatchling==1.32.0"]
@@ -16,11 +11,12 @@ version = "0.1.0"
 description = "CAD interchange SDK by Parashell."
 readme = "README.md"
 requires-python = ">=3.11"
-license = "LicenseRef-PolyForm-Strict-1.0.0"
+license = "MIT"
 license-files = ["LICENSE"]
 authors = [
     { name = "Parashell" },
     { name = "Odin Glynn-Martin", email = "odin.glynn@parashell.cloud" },
+    { name = "Stephen Harcourt" },
 ]
 maintainers = [
     { name = "Odin Glynn-Martin", email = "odin.glynn@parashell.cloud" },
