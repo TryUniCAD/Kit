@@ -1,11 +1,3 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
-
 version = 1
 revision = 3
 requires-python = ">=3.11"
@@ -394,16 +386,16 @@ wheels = [
 
 [[package]]
 name = "bc-detect-secrets"
-version = "1.5.49"
+version = "1.5.52"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pyyaml" },
     { name = "requests" },
     { name = "unidiff" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/86/56/3644fe36816d3cdaa3a1ca52d1026068e4ebd93ccf0591a77c256f33f6e0/bc_detect_secrets-1.5.49.tar.gz", hash = "sha256:74412fde2f617b61f28312f0106a9f8902be80db0084fd3d7c88f673ee707d7b", size = 99378, upload-time = "2026-08-13T15:02:48.493Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/da/a6/8833c273f54c33e5d6fa421dc38117f35a9fc36b60c8c2cd7d8958628702/bc_detect_secrets-1.5.52.tar.gz", hash = "sha256:bb437db4b4ad81b19d52feaf8e0ebaf6ca0421ee6fefbdd9d41210bd4983e16b", size = 99702, upload-time = "2026-09-30T13:46:52.898Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/4c/14/a1714965e616abb14b0173a088c837541ef360f30948e7be7bdf27edb8dc/bc_detect_secrets-1.5.49-py3-none-any.whl", hash = "sha256:5a19c329969f9679ce40c1cf0b595d4fa749e2cc8169987ffda14da80f818484", size = 126599, upload-time = "2026-08-13T15:02:47.481Z" },
+    { url = "https://files.pythonhosted.org/packages/b8/fe/49953a7263c4b56c2c51dd26fb4cd4adc4aff942733f6c2c5fdeeae63bdd/bc_detect_secrets-1.5.52-py3-none-any.whl", hash = "sha256:772353c949a131b7b5efd2b20473e0128af9c25ea27cdb15a3a6a6727ca73c4e", size = 126742, upload-time = "2026-09-30T13:46:51.726Z" },
 ]
 
 [[package]]
@@ -846,7 +838,7 @@ wheels = [
 
 [[package]]
 name = "checkov"
-version = "3.3.11"
+version = "3.3.29"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiodns" },
@@ -894,9 +886,9 @@ dependencies = [
     { name = "urllib3" },
     { name = "yarl" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/46/61/724a2ce13d6e425de093ced04afd20464c043b2adf094530d9c3db76efc5/checkov-3.3.11.tar.gz", hash = "sha256:1c1578a97f581791aab18c5fc9a3e17aa8e9c79f2adac8096858ce5e5df63558", size = 1008145, upload-time = "2026-08-13T17:30:57.465Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/7b/2b/9bc703006199045a2f2b148731e563e62c97be67ef009330ed0843cccb73/checkov-3.3.29.tar.gz", hash = "sha256:ad9f8606a6de0756be93edd5588e3365486eb53a3f68247396a68b02929353ce", size = 1016122, upload-time = "2026-10-13T11:40:05.009Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/db/03/035a6feb0bc1401702f9cfa35d1492228d249b69a7455e3bfe74d13f6d64/checkov-3.3.11-py3-none-any.whl", hash = "sha256:6926fc9c4ca7cc394c8c8250cb747141be9ec2f1c1b69b294b6650d7d3b12042", size = 2322554, upload-time = "2026-08-13T17:30:53.826Z" },
+    { url = "https://files.pythonhosted.org/packages/63/4a/26ecbf2abac34993b7dba06379c6b8a03f078323856a917ed47370610a67/checkov-3.3.29-py3-none-any.whl", hash = "sha256:9a8b3918788faf8e18b181d826d284744b22b9d99c53cf1b67a2e84f0596796f", size = 2330210, upload-time = "2026-10-13T11:40:02.495Z" },
 ]
 
 [[package]]
@@ -1607,7 +1599,7 @@ provides-extras = ["dev"]
 dev = [
     { name = "bandit", specifier = ">=1.9.4" },
     { name = "black", specifier = "==26.3.1" },
-    { name = "checkov", specifier = ">=3.3.11" },
+    { name = "checkov", specifier = ">=3.3.29" },
     { name = "cyclonedx-bom", specifier = ">=4.6.1" },
     { name = "defusedxml", specifier = ">=0.7.1" },
     { name = "detect-secrets", specifier = ">=1.5.0" },
