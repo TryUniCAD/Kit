@@ -320,7 +320,6 @@ from convert.adapters.solidworks.programs.configuration.default.Methods.Syntheti
     KMethodProgram as KMethodDA,
 )
 
-
 # explicit ordering keeps generated imports deterministic while offsets govern composition
 KMethodPrograms = (
     KMethodA,

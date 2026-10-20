@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-
 # exact trace spellings stay centralized so variant tables never duplicate owners
 KOwnerSites = {
     1007: "SLDMFCU!moGTolDlgDataFrame_c::Serialize+0x3ef",

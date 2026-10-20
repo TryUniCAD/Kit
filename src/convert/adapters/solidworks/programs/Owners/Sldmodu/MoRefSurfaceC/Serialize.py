@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-
 # exact trace spellings stay centralized so variant tables never duplicate owners
 KOwnerSites = {
     2857: "SLDMODU!moRefSurface_c::Serialize+0xb29",

@@ -7,7 +7,6 @@ from convert.adapters.solidworks.programs.Owners.Sldmgu.MgXformC.Restore import 
     KOwnerSites,
 )
 
-
 # isolated method data lets new reverse engineered serializers compose independently
 KMethodProgram = (
     KOwnerSites,

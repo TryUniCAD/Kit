@@ -221,7 +221,6 @@ from convert.adapters.solidworks.programs.resolved.revolve.default.Methods.Synth
     KMethodProgram as KMethodBT,
 )
 
-
 # explicit ordering keeps generated imports deterministic while offsets govern composition
 KMethodPrograms = (
     KMethodA,

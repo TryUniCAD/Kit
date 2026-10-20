@@ -7,7 +7,6 @@ from convert.adapters.solidworks.programs.Owners.Sldmodu.MoBaseSwiftFGeomRefC.Se
     KOwnerSites,
 )
 
-
 # isolated method data lets new reverse engineered serializers compose independently
 KMethodProgram = (
     KOwnerSites,

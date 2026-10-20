@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 """Resolve the four externally defined classes referenced by Contents/Config-0-ResolvedFeatures."""
+
 from __future__ import annotations
 import json as JsonData
 import pathlib as Pathlib

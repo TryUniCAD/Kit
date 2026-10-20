@@ -4,7 +4,6 @@
 from interchange.compatibility.PythonCompat import BindCompatMut
 from interchange.mesh.SurfaceMesh import SurfaceMesh
 
-
 BindCompatMut((SurfaceMesh,), {__name__: globals()})
 
 # mesh consumers need one intentional historical public contract

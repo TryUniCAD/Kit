@@ -7,7 +7,6 @@ from types import MappingProxyType as FrozenMap
 from typing import Any as AnyValue
 from typing import Mapping as TypeMap
 
-
 # recursive scalar typing exists because payload contracts must reject unsupported primitive values
 KJsonScalar = str | int | float | bool | None
 

@@ -7,7 +7,6 @@ from convert.adapters.solidworks.programs.Owners.Sldmfcu.MoConfigC.Serialize imp
     KOwnerSites,
 )
 
-
 # isolated method data lets new reverse engineered serializers compose independently
 KMethodProgram = (
     KOwnerSites,

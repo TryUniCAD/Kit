@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-
 # exact trace spellings stay centralized so variant tables never duplicate owners
 KOwnerSites = {
     488: "SLDMODU!moToolboxPartSpecArray_c::setDialogSettings+0x1e8",

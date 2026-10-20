@@ -16,7 +16,6 @@ from .Registry import (
     KResolvedOps,
 )
 
-
 # the exact stream length detects accidental grammar drift
 KReferenceLength = 12265
 

@@ -3,7 +3,6 @@
 
 from typing import Mapping as TypeMap
 
-
 # historical api identity set 1 keeps pickle globals stable after module splits
 KLegacyApiOne: TypeMap[str, tuple[str, str]] = {
     "CadDocument": ("CadDocument", "interchange.document"),

@@ -7,7 +7,6 @@ from convert.adapters.solidworks.programs.Owners.Synthetic.PerBodyChooserIndex i
     KOwnerSites,
 )
 
-
 # isolated method data lets new reverse engineered serializers compose independently
 KMethodProgram = (
     KOwnerSites,

@@ -314,7 +314,6 @@ from convert.adapters.solidworks.programs.configuration.revolve.pin.front.Method
     KMethodProgram as KMethodCY,
 )
 
-
 # explicit ordering keeps generated imports deterministic while offsets govern composition
 KMethodPrograms = (
     KMethodA,

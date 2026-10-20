@@ -16,7 +16,6 @@ from .Registry import (
     ResolvedOps,
 )
 
-
 # legacy format access remains available while shared encoding owns the mapping
 globals()["PrimitiveFormats"] = KPrimitiveFormats
 

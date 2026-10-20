@@ -19,7 +19,6 @@ from convert.adapters.solidworks.programs.assembly.default.Repeat import (
 )
 from convert.adapters.solidworks.container.Container import SldprtFormatError
 
-
 # recovered boundaries separate stable fields from unique component records
 KInsertSpecs = MappingProxyType(
     {

@@ -13,7 +13,6 @@ from .Registry import (
     KConfigOps,
 )
 
-
 # exact closure proves the fixed program accounts for the complete stream
 KReferenceLength = 24902
 

@@ -10,7 +10,6 @@ from .Registry import (
     AnnotationOps,
 )
 
-
 # the source interval records where the reusable manager was observed
 KSourceRange = (24240, 24822)
 

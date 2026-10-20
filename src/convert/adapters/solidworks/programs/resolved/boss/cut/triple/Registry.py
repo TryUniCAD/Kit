@@ -209,7 +209,6 @@ from convert.adapters.solidworks.programs.resolved.boss.cut.triple.Methods.Synth
     KMethodProgram as KMethodBP,
 )
 
-
 # explicit ordering keeps generated imports deterministic while offsets govern composition
 KMethodPrograms = (
     KMethodA,

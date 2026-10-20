@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-
 # exact trace spellings stay centralized so variant tables never duplicate owners
 KOwnerSites = {
     1764: "SLDMODU!moAtom_c::GetRuntimeClass+0x6e4",

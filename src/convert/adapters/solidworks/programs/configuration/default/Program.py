@@ -22,7 +22,6 @@ from .Registry import (
     ConfigOps,
 )
 
-
 # recovered stream length detects accidental configuration grammar drift
 KReferenceLength = 25214
 

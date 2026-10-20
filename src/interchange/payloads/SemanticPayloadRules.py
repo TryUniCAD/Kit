@@ -4,7 +4,6 @@
 from interchange.payloads.PayloadRoles import PayloadRole
 from interchange.payloads.PayloadRuleModel import PayloadRule
 
-
 # semantic evidence recovers payload roles when native format tags are incomplete
 KSemanticPayloadRules = (
     PayloadRule(

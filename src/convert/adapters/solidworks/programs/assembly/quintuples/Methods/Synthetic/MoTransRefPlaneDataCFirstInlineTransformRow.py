@@ -7,7 +7,6 @@ from convert.adapters.solidworks.programs.Owners.Synthetic.MoTransRefPlaneDataCF
     KOwnerSites,
 )
 
-
 # isolated method data lets new reverse engineered serializers compose independently
 KMethodProgram = (
     KOwnerSites,

@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-
 # exact trace spellings stay centralized so variant tables never duplicate owners
 KOwnerSites = {
     136: "SLDMODU!moAssembly_c::LoadSmartReplacementData+0x88",

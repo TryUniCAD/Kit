@@ -10,7 +10,6 @@ from tools.audit.FcstdContext import EnableSource
 from tools.audit.FcstdFeatures import FeatureTypes
 from tools.audit.FcstdResult import GetDisplayPath, MakeFailure, MakeUnsupported
 
-
 EnableSource()
 
 from convert import write_document as WriteDocument

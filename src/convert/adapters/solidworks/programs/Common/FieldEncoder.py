@@ -15,7 +15,6 @@ from convert.adapters.solidworks.container.Archive import (
 )
 from convert.adapters.solidworks.container.Container import SldprtFormatError
 
-
 # primitive format mapping preserves signed and floating field widths
 KPrimitiveFormats = {
     "char": "b",

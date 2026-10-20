@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-
 # exact trace spellings stay centralized so variant tables never duplicate owners
 KOwnerSites = {
     1016: "SLDMODU!moRefPlnData_c::serializePlaneData+0x3f8",

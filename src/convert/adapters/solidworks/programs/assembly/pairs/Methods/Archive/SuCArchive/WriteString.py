@@ -7,7 +7,6 @@ from convert.adapters.solidworks.programs.Owners.Archive.SuCArchive.WriteString 
     KOwnerSites,
 )
 
-
 # isolated method data lets new reverse engineered serializers compose independently
 KMethodProgram = (
     KOwnerSites,

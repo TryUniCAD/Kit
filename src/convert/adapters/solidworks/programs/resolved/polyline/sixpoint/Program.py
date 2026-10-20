@@ -18,7 +18,6 @@ from .Registry import (
     KResolvedOps,
 )
 
-
 # six unique vertices drive the closed line chain without duplicated endpoints
 KPointOffsets = (
     6119,

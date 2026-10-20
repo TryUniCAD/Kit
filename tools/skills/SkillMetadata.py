@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-
 # kiro specific metadata stays explicit because agent skills frontmatter cannot infer source inclusion
 KSkillMetadata = {
     "workos-token-verification": {
