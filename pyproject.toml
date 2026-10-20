@@ -166,5 +166,6 @@ reportUnusedVariable = "error"
 exclude-newer = "7 days"
 override-dependencies = [
     "click>=8.3.3,<8.5",
+    "nltk @ git+https://github.com/nltk/nltk.git@ba6b259aa94a85168c031ad60e4072538c30b513",
     "protobuf>=5.29.6,<6",
 ]
