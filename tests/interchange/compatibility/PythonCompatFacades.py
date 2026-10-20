@@ -88,6 +88,7 @@ KPythonCompatFacades = (
             "NativeGeometry",
             "ParabolaGeometry",
             "PointGeometry",
+            "PlaneVector",
             "Selection",
             "SelectionPathElement",
             "Sketch",
@@ -95,6 +96,7 @@ KPythonCompatFacades = (
             "SketchEntity",
             "SplineGeometry",
             "SupportPlane",
+            "SpaceVector",
         ),
     ),
     (

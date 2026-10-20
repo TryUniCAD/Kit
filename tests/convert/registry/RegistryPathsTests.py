@@ -35,9 +35,9 @@ def BuildRegistry(FormatId: str) -> tuple[AdapterRegistry, AdapterInfo]:
 def CheckExisting(TmpPath: FilePath) -> None:
     RegistryData, InfoData = BuildRegistry("format.path-carrier")
     TargetPath = TmpPath / "existing.carrier"
-    TargetPath.write_bytes(b"original")
+    _ = TargetPath.write_bytes(b"original")
     with Pytest.raises(ApplicationUsabilityError):
-        RegistryData.write(
+        _ = RegistryData.write(
             BuildSource(),
             TargetPath,
             format_id=InfoData.format_id,
@@ -51,7 +51,7 @@ def CheckExisting(TmpPath: FilePath) -> None:
 def CheckCommit(TmpPath: FilePath) -> None:
     RegistryData, InfoData = BuildRegistry("format.path-carrier")
     TargetPath = TmpPath / "existing.carrier"
-    TargetPath.write_bytes(b"original")
+    _ = TargetPath.write_bytes(b"original")
     ResultData = RegistryData.write(
         BuildSource(),
         TargetPath,
@@ -73,7 +73,7 @@ def CheckNewFolders(TmpPath: FilePath) -> None:
     RegistryData, InfoData = BuildRegistry("format.nested-carrier")
     AbsentRoot = TmpPath / "absent"
     with Pytest.raises(ApplicationUsabilityError):
-        RegistryData.write(
+        _ = RegistryData.write(
             BuildSource(),
             AbsentRoot / "one" / "two" / "blocked.carrier",
             format_id=InfoData.format_id,
@@ -82,7 +82,7 @@ def CheckNewFolders(TmpPath: FilePath) -> None:
     ExistingRoot = TmpPath / "existing"
     ExistingRoot.mkdir()
     with Pytest.raises(ApplicationUsabilityError):
-        RegistryData.write(
+        _ = RegistryData.write(
             BuildSource(),
             ExistingRoot / "one" / "two" / "blocked.carrier",
             format_id=InfoData.format_id,
@@ -92,21 +92,28 @@ def CheckNewFolders(TmpPath: FilePath) -> None:
 
 
 # injected creation failure proves partial directory setup remains transactionally clean
-def CheckPartMake(TmpPath: FilePath, MonkeyPatch) -> None:
+def CheckPartMake(TmpPath: FilePath, MonkeyPatch: Pytest.MonkeyPatch) -> None:
     RegistryData, InfoData = BuildRegistry("format.partial-directory")
     TargetPath = TmpPath / "partial" / "one" / "two" / "blocked.partial"
     FailurePath = TmpPath / "partial" / "one"
     OriginalMake = FilePath.mkdir
 
     # forced failure isolates cleanup after only some ancestors were created
-    def FailMakeMut(PathValue: FilePath, *ArgValues, **NamedValues) -> None:
-        if PathValue == FailurePath:
+    def FailMakeMut(
+        TargetValue: FilePath,
+        ModeValue: int = 0o777,
+        ParentsValue: bool = False,
+        ExistOkValue: bool = False,
+    ) -> None:
+        if TargetValue == FailurePath:
             raise OSError("forced staging directory failure")
-        OriginalMake(PathValue, *ArgValues, **NamedValues)
+        OriginalMake(
+            TargetValue, mode=ModeValue, parents=ParentsValue, exist_ok=ExistOkValue
+        )
 
     MonkeyPatch.setattr(FilePath, "mkdir", FailMakeMut)
     with Pytest.raises(OSError, match="forced staging directory failure"):
-        RegistryData.write(
+        _ = RegistryData.write(
             BuildSource(),
             TargetPath,
             format_id=InfoData.format_id,
@@ -115,7 +122,7 @@ def CheckPartMake(TmpPath: FilePath, MonkeyPatch) -> None:
 
 
 # racing directory creation must preserve the peer owned ancestor during rollback
-def CheckConcurrent(TmpPath: FilePath, MonkeyPatch) -> None:
+def CheckConcurrent(TmpPath: FilePath, MonkeyPatch: Pytest.MonkeyPatch) -> None:
     RegistryData, InfoData = BuildRegistry("format.concurrent-directory")
     SharedPath = TmpPath / "concurrent"
     TargetPath = SharedPath / "one" / "two" / "blocked.concurrent"
@@ -123,17 +130,22 @@ def CheckConcurrent(TmpPath: FilePath, MonkeyPatch) -> None:
     InjectedFlag = False
 
     # simulated peer ownership prevents cleanup from deleting a concurrently created folder
-    def RaceMakeMut(PathValue: FilePath, *ArgValues, **NamedValues) -> None:
+    def RaceMakeMut(
+        TargetValue: FilePath,
+        mode: int = 0o777,
+        parents: bool = False,
+        exist_ok: bool = False,
+    ) -> None:
         nonlocal InjectedFlag
-        if PathValue == SharedPath and not InjectedFlag:
+        if TargetValue == SharedPath and not InjectedFlag:
             InjectedFlag = True
-            OriginalMake(PathValue, *ArgValues, **NamedValues)
-            raise FileExistsError(PathValue)
-        OriginalMake(PathValue, *ArgValues, **NamedValues)
+            OriginalMake(TargetValue, mode=mode, parents=parents, exist_ok=exist_ok)
+            raise FileExistsError(TargetValue)
+        OriginalMake(TargetValue, mode=mode, parents=parents, exist_ok=exist_ok)
 
     MonkeyPatch.setattr(FilePath, "mkdir", RaceMakeMut)
     with Pytest.raises(ApplicationUsabilityError):
-        RegistryData.write(
+        _ = RegistryData.write(
             BuildSource(),
             TargetPath,
             format_id=InfoData.format_id,

@@ -7,7 +7,15 @@ from collections import Counter
 from collections.abc import Mapping, Sequence
 from pathlib import PureWindowsPath
 from types import MappingProxyType
-from typing import Any as AnyValue
+from convert.adapters.solidworks.programs.Common.ProgramContract import (
+    BuildOverrides,
+    KFieldOp,
+    KFieldOverrides,
+)
+from convert.adapters.solidworks.programs.Common.FieldEncoder import (
+    BuildShiftMap,
+    RequireInt,
+)
 
 from convert.adapters.solidworks.programs.assembly.distinct.default.Repeat import (
     KConfigShiftFive as ConfigShiftMap,
@@ -18,7 +26,7 @@ from convert.adapters.solidworks.programs.assembly.distinct.default.Repeat impor
 )
 from convert.adapters.solidworks.programs.assembly.hybrid.quintuples.Program import (
     EncodeField,
-    StreamPrograms,
+    KStreamPrograms,
 )
 from convert.adapters.solidworks.programs.assembly.default.Repeat import (
     IsIdentityBasis,
@@ -61,19 +69,20 @@ KHeaderTailStart = 2718
 
 # operation emission preserves typed ownership while applying semantic values
 def EncodeOps(
-    Operations: Sequence[tuple[int, int, int, str, AnyValue]],
-    Overrides: Mapping[int, AnyValue],
+    Operations: Sequence[KFieldOp],
+    Overrides: KFieldOverrides,
     BasePos: int = 0,
     BasisValues: Mapping[int, tuple[float, ...]] | None = None,
 ) -> bytes:
     OutputData = bytearray()
     BasisMap = BasisValues or {}
-    for StartPos, FieldWidth, OwnerIndex, KindName, DefaultValue in Operations:
-        FieldValue = Overrides.get(StartPos - BasePos, DefaultValue)
-        OutputData.extend(EncodeField(KindName, FieldValue))
+    for Operation in Operations:
+        StartPos, KindName, DefaultValue = Operation[0], Operation[3], Operation[4]
+        KFieldValue = Overrides.get(StartPos - BasePos, DefaultValue)
+        OutputData.extend(EncodeField(KindName, KFieldValue))
         BasisValue = BasisMap.get(StartPos - BasePos)
         if BasisValue is not None:
-            if KindName != "primitive:uchar" or FieldValue != 1:
+            if KindName != "primitive:uchar" or KFieldValue != 1:
                 raise SldprtFormatError("assembly transform basis marker is invalid")
             OutputData.extend(EncodeField("direct:9d", BasisValue))
     return bytes(OutputData)
@@ -84,10 +93,10 @@ def SliceOps(
     StreamName: str,
     StartPos: int,
     EndPos: int | None = None,
-) -> tuple[tuple[int, int, int, str, AnyValue], ...]:
+) -> tuple[KFieldOp, ...]:
     return tuple(
         Operation
-        for Operation in StreamPrograms[StreamName]
+        for Operation in KStreamPrograms[StreamName]
         if Operation[0] >= StartPos and (EndPos is None or Operation[0] < EndPos)
     )
 
@@ -259,13 +268,15 @@ def EncodeConfig(
         )
     SuffixStart = InsertPos + ((KTracedCount - 1) * UnitWidth)
     SuffixOps = SliceOps("Contents/Config-0", SuffixStart)
-    SuffixOverrides: dict[int, AnyValue] = {}
-    for StartPos, FieldWidth, OwnerIndex, KindValue, DefaultValue in SuffixOps:
-        RelativePos = StartPos - SuffixStart
-        if RelativePos in ConfigShiftMap:
-            SuffixOverrides[RelativePos] = DefaultValue + MapShift
-        elif RelativePos in ConfigShiftUnique:
-            SuffixOverrides[RelativePos] = DefaultValue + UniqueShift
+    SuffixOverrides = BuildShiftMap(
+        SuffixOps,
+        SuffixStart,
+        (
+            (ConfigShiftMap, MapShift),
+            (ConfigShiftUnique, UniqueShift),
+        ),
+        "configuration suffix reference",
+    )
     SuffixOverrides[23442] = ItemCount
     SuffixData = EncodeOps(SuffixOps, SuffixOverrides, SuffixStart)
     return PrefixData + bytes(UnitData) + SuffixData
@@ -305,9 +316,11 @@ def EncodeResolved(
             UnitStart + UnitWidth,
         )
         RefValues = {
-            StartPos - UnitStart: DefaultValue + MapShift
-            for StartPos, FieldWidth, OwnerIndex, KindName, DefaultValue in UnitOps
-            if KindName == "classref"
+            Operation[0]
+            - UnitStart: RequireInt(Operation[4], "resolved unit reference")
+            + MapShift
+            for Operation in UnitOps
+            if Operation[3] == "classref"
         }
         UnitData.extend(
             EncodeOps(
@@ -322,15 +335,16 @@ def EncodeResolved(
         )
     SuffixStart = InsertPos + ((KTracedCount - 1) * UnitWidth)
     SuffixOps = SliceOps("Contents/Config-0-ResolvedFeatures", SuffixStart)
-    SuffixOverrides: dict[int, AnyValue] = {}
-    for StartPos, FieldWidth, OwnerIndex, KindValue, DefaultValue in SuffixOps:
-        RelativePos = StartPos - SuffixStart
-        if RelativePos in ResolvedShiftLink:
-            SuffixOverrides[RelativePos] = DefaultValue + LinkShift
-        elif RelativePos in ResolvedShiftMap:
-            SuffixOverrides[RelativePos] = DefaultValue + MapShift
-        elif RelativePos in ResolvedShiftUnique:
-            SuffixOverrides[RelativePos] = DefaultValue + UniqueShift
+    SuffixOverrides = BuildShiftMap(
+        SuffixOps,
+        SuffixStart,
+        (
+            (ResolvedShiftLink, LinkShift),
+            (ResolvedShiftMap, MapShift),
+            (ResolvedShiftUnique, UniqueShift),
+        ),
+        "resolved suffix reference",
+    )
     SuffixData = EncodeOps(SuffixOps, SuffixOverrides, SuffixStart)
     return PrefixData + bytes(UnitData) + SuffixData
 
@@ -371,14 +385,16 @@ def EncodeHeader(
         )
     FirstItem = UniqueItems[0]
     FirstStem = PureWindowsPath(FirstItem.CompPath).stem
-    ExtOverrides = {
-        4: 24 + ItemCount,
-        31: UniqueCount,
-        75: FirstItem.CompPath,
-        225: 64 + (2 * ItemCount),
-        227: FirstStem,
-        268: PathCounts[PathKey(FirstItem.CompPath)],
-    }
+    ExtOverrides = BuildOverrides(
+        {
+            4: 24 + ItemCount,
+            31: UniqueCount,
+            75: FirstItem.CompPath,
+            225: 64 + (2 * ItemCount),
+            227: FirstStem,
+            268: PathCounts[PathKey(FirstItem.CompPath)],
+        }
+    )
     if FirstItem.FileStamp > 0:
         ExtOverrides[246] = FirstItem.FileStamp
     ExtPrefix = EncodeOps(
@@ -395,15 +411,17 @@ def EncodeHeader(
         TemplateIndex = min(FileIndex, KTracedUnique)
         FileStart = KHeaderFileStart + ((TemplateIndex - 2) * KHeaderFileWidth)
         FileStem = PureWindowsPath(ItemValue.CompPath).stem
-        FileOverrides = {
-            0: 62 + (2 * ItemCount),
-            2: 64 + (2 * ItemCount),
-            4: ItemValue.CompPath,
-            154: 64 + (2 * ItemCount),
-            156: FileStem,
-            197: PathCounts[PathKey(ItemValue.CompPath)],
-            205: FileIndex - 1,
-        }
+        FileOverrides = BuildOverrides(
+            {
+                0: 62 + (2 * ItemCount),
+                2: 64 + (2 * ItemCount),
+                4: ItemValue.CompPath,
+                154: 64 + (2 * ItemCount),
+                156: FileStem,
+                197: PathCounts[PathKey(ItemValue.CompPath)],
+                205: FileIndex - 1,
+            }
+        )
         if ItemValue.FileStamp > 0:
             FileOverrides[175] = ItemValue.FileStamp
         FileData.extend(
@@ -434,26 +452,23 @@ def EncodeHeader(
 
 
 # legacy aliases preserve recovered hybrid helpers and existing external callers
-KLegacyAliases = {
-    "InsertSpecs": KInsertSpecs,
-    "TracedCount": KTracedCount,
-    "TracedUnique": KTracedUnique,
-    "HeaderExtStart": KHeaderExtStart,
-    "HeaderExtWidth": KHeaderExtWidth,
-    "HeaderFileStart": KHeaderFileStart,
-    "HeaderFileWidth": KHeaderFileWidth,
-    "HeaderTailStart": KHeaderTailStart,
-    "_EmitOps": EncodeOps,
-    "_SliceOps": SliceOps,
-    "_PathKey": PathKey,
-    "_UniqueItems": UniqueItems,
-    "_PathIndex": PathIndex,
-    "_EncodeCMgr": EncodeCmgr,
-    "_EncodeConfig": EncodeConfig,
-    "_EncodeResolved": EncodeResolved,
-    "_EncodeHeader": EncodeHeader,
-}
-globals().update(KLegacyAliases)
+InsertSpecs = KInsertSpecs
+TracedCount = KTracedCount
+TracedUnique = KTracedUnique
+HeaderExtStart = KHeaderExtStart
+HeaderExtWidth = KHeaderExtWidth
+HeaderFileStart = KHeaderFileStart
+HeaderFileWidth = KHeaderFileWidth
+HeaderTailStart = KHeaderTailStart
+_EmitOps = EncodeOps  # lgtm[py/unused-global-variable]
+_SliceOps = SliceOps  # lgtm[py/unused-global-variable]
+_PathKey = PathKey  # lgtm[py/unused-global-variable]
+_UniqueItems = UniqueItems  # lgtm[py/unused-global-variable]
+_PathIndex = PathIndex  # lgtm[py/unused-global-variable]
+_EncodeCMgr = EncodeCmgr  # lgtm[py/unused-global-variable]
+_EncodeConfig = EncodeConfig  # lgtm[py/unused-global-variable]
+_EncodeResolved = EncodeResolved  # lgtm[py/unused-global-variable]
+_EncodeHeader = EncodeHeader  # lgtm[py/unused-global-variable]
 
 
 # canonical hybrid programs scale repeated paths with distinct internal identities
@@ -483,7 +498,7 @@ def EncodeHybCore(
         ),
         "Contents/Config-0-ResolvedFeatures": EncodeResolved(CoreItems, UniqueValues),
         "Contents/Definition": EncodeOps(
-            StreamPrograms["Contents/Definition"], {3479: len(CoreItems)}
+            KStreamPrograms["Contents/Definition"], {3479: len(CoreItems)}
         ),
         "Contents/Config-0-ModelHeader": EncodeHeader(
             ModelName, ConfigName, CoreItems, UniqueValues

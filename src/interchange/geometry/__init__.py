@@ -27,9 +27,11 @@ from interchange.geometry.models.Sketch import (
     SketchRelation,
 )
 from interchange.geometry.models.SupportPlane import SupportPlane
+from interchange.geometry.models.VectorPlane import PlaneVector
+from interchange.geometry.models.VectorSpace import SpaceVector
 
 # historical geometry typing remains available because consumers inspect union coverage
-globals()["Geometry"] = KGeometryTypes
+Geometry = KGeometryTypes
 
 BindCompatMut(
     (
@@ -56,6 +58,15 @@ BindCompatMut(
     {__name__: globals()},
 )
 
+ArcEllipseGeometry = ArcEllipseGeom
+ArcHyperbolaGeometry = ArcHyperGeom
+ArcParabolaGeometry = ArcParabGeom
+ConstraintReference = ConstraintRef
+HyperbolaGeometry = HyperbolaGeom
+ParabolaGeometry = ParabolaGeom
+SelectionPathElement = SelectPathElem
+SketchConstraint = SketchRelation
+
 # geometry consumers need one intentional historical public contract
 __all__ = (
     "ArcEllipseGeometry",
@@ -71,6 +82,7 @@ __all__ = (
     "NativeGeometry",
     "ParabolaGeometry",
     "PointGeometry",
+    "PlaneVector",
     "Selection",
     "SelectionPathElement",
     "Sketch",
@@ -78,4 +90,5 @@ __all__ = (
     "SketchEntity",
     "SplineGeometry",
     "SupportPlane",
+    "SpaceVector",
 )

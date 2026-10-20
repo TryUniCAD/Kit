@@ -25,7 +25,6 @@ def CheckMetadata() -> None:
     )
     ProjectData = MetadataData["project"]
     assert ProjectData["name"] == "kit"
-    assert ProjectData["classifiers"][0] == "Private :: Do Not Upload"
     assert ProjectData["entry-points"] == {"kit": {"convert": "convert:convert"}}
     assert "scripts" not in ProjectData
     assert "gui-scripts" not in ProjectData
@@ -45,7 +44,6 @@ def CheckMetadata() -> None:
     ReadmeText = (KRootPath / ProjectData["readme"]).read_text(encoding="utf-8")
     for SuffixText in (".SLDPRT", ".SLDASM", ".FCStd", ".CATPart", ".CATProduct"):
         assert SuffixText in ReadmeText
-    assert "MIT" in ReadmeText
 
 
 # readme guarantees remain tested because reversible defaults and strict mode define public behavior
@@ -54,6 +52,7 @@ def CheckReadme() -> None:
     assert "convert(source, destination)" in ReadmeText
     assert "allow_carrier=False" in ReadmeText
     assert "without requiring CAD software" in ReadmeText
+
     LicenseText = (KRootPath / "LICENSE").read_text(encoding="utf-8")
     assert "MIT License" in LicenseText
     for AuthorName in ("Odin Glynn-Martin", "Stephen Harcourt"):

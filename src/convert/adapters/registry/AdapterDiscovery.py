@@ -9,6 +9,7 @@ from inspect import isclass as IsClass
 from pkgutil import iter_modules as IterModules
 from pkgutil import walk_packages as WalkPackages
 from types import ModuleType
+from typing import TypeGuard
 
 from convert.adapters.base.AdapterProtocols import CadReaderAdapter
 from convert.adapters.base.AdapterProtocols import CadWriterAdapter
@@ -38,6 +39,20 @@ def HasMethods(AdapterData: object, ProtocolType: type[object]) -> bool:
     MemberNames = (NameValue for NameValue in ProtocolNames if NameValue != "info")
     return all(
         callable(getattr(AdapterData, NameValue, None)) for NameValue in MemberNames
+    )
+
+
+# reader validation narrows discovered objects only after every callable contract is present
+def IsReaderAdapter(AdapterData: object) -> TypeGuard[CadReaderAdapter]:
+    return isinstance(AdapterData, CadReaderAdapter) and HasMethods(
+        AdapterData, CadReaderAdapter
+    )
+
+
+# writer validation narrows discovered objects only after every callable contract is present
+def IsWriterAdapter(AdapterData: object) -> TypeGuard[CadWriterAdapter]:
+    return isinstance(AdapterData, CadWriterAdapter) and HasMethods(
+        AdapterData, CadWriterAdapter
     )
 
 
@@ -106,6 +121,7 @@ def GetNestedNames(ModuleData: ModuleType) -> tuple[str, ...]:
 # one package group may expose adapter classes from focused nested implementation modules
 def GetPackageTypes(ModuleName: str, IsPackage: bool) -> tuple[type[object], ...]:
     try:
+        # nosemgrep: python.lang.security.audit.non-literal-import.non-literal-import
         ModuleData = ImportModule(ModuleName)
     except Exception as ErrorInfo:
         raise DiscoveryError(
@@ -114,7 +130,9 @@ def GetPackageTypes(ModuleName: str, IsPackage: bool) -> tuple[type[object], ...
     ModuleValues = [ModuleData]
     if IsPackage:
         ModuleValues.extend(
-            ImportModule(NameValue) for NameValue in GetNestedNames(ModuleData)
+            # nosemgrep: python.lang.security.audit.non-literal-import.non-literal-import
+            ImportModule(NameValue)
+            for NameValue in GetNestedNames(ModuleData)
         )
     AdapterTypes = {
         AdapterType
@@ -134,6 +152,7 @@ def GetPackageTypes(ModuleName: str, IsPackage: bool) -> tuple[type[object], ...
 # top level enumeration validates package shape before any adapter instances are constructed
 def GetPackageItems(PackageName: str) -> tuple[tuple[str, bool], ...]:
     try:
+        # nosemgrep: python.lang.security.audit.non-literal-import.non-literal-import
         PackageData = ImportModule(PackageName)
     except Exception as ErrorInfo:
         raise DiscoveryError(

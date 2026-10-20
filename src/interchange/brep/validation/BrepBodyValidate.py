@@ -12,7 +12,7 @@ def GetBodyErrors(
     DesignBodyIds: frozenset[str],
 ) -> tuple[str, ...]:
     ErrorValues: list[str] = []
-    for RegionValue in ModelValue.Regions:
+    for RegionValue in ModelValue.regions:
         if not RegionValue.ShellUseIds:
             ErrorValues.append(f"B-rep region {RegionValue.EntityId} is empty")
         for ShellUseId in RegionValue.ShellUseIds:
@@ -20,7 +20,7 @@ def GetBodyErrors(
                 ErrorValues.append(
                     f"B-rep region {RegionValue.EntityId} references a missing shell use"
                 )
-    for BodyValue in ModelValue.Bodies:
+    for BodyValue in ModelValue.bodies:
         if (
             not BodyValue.RegionIds
             and not BodyValue.WireIds
@@ -50,6 +50,6 @@ def GetBodyErrors(
             ErrorValues.append(
                 f"B-rep body {BodyValue.EntityId} references a missing design body"
             )
-    if not ModelValue.Bodies:
+    if not ModelValue.bodies:
         ErrorValues.append("B-rep model has no bodies")
     return tuple(ErrorValues)

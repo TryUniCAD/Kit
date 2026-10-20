@@ -3,25 +3,27 @@
 
 from __future__ import annotations
 from collections import Counter
+from collections.abc import Mapping
 from dataclasses import replace as ReplaceData
 from pathlib import Path as FilePath
 import struct as StructLib
+from typing import cast as CastValue
 import pytest as PytestLib
-from convert.adapters.base import ReadOptions
 from convert.adapters.solidworks import (
-    SldprtAdapter,
     SldprtArchive,
     build_sldprt as BuildSldprt,
 )
+from convert.adapters.base.ReadOptions import ReadOptions
+from convert.adapters.solidworks.core.Adapter import SldprtAdapter
 from convert.adapters.solidworks.core.Adapter import (
-    _companion_payloads as CompanionPayloads,
-    _mate_groups as MateGroups,
-    _mate_instance_path as MateInstancePath,
-    _mate_payload as MatePayload,
-    _neutral_mate_alignment as NeutralMateAlignment,
-    _neutral_mate_entity_kind as NeutralMateEntityKind,
-    _neutral_mate_kind as NeutralMateKind,
-    _neutral_mate_value as NeutralMateValue,
+    Companion as CompanionPayloads,
+    MateGroups,
+    MateInstance as MateInstancePath,
+    MatePayload,
+    NeutralMate as NeutralMateAlignment,
+    NeutralMateKind as NeutralMateEntityKind,
+    NeutralMateKinA as NeutralMateKind,
+    NeutralMateA as NeutralMateValue,
 )
 from convert.adapters.solidworks.assembly.Assembly import (
     MATE_VALUE_SEMANTICS as Semantics,
@@ -38,17 +40,18 @@ from convert.adapters.solidworks.assembly.Assembly import (
     NativeMate,
     NativeMateAlignmentCode,
     NativeMateDimension,
-    _MATE_KIND_BY_CLASS as Class,
-    _MATE_KIND_BY_NAME as NameInfo,
-    _mate_alignment as MateAlignmentA,
-    _mate_entities as MateEntities,
-    _mate_kind as MateKindA,
-    _native_feature_id as NativeFeatureId,
+    KMateKindByClass as Class,
+    KMateKindByName as NameInfo,
+    MateAlignmentA,
+    MateEntities,
+    MateKind as MateKindA,
+    NativeFeatureId,
     decode_mate_list as DecodeMateList,
     decode_native_assembly as DecodeNativeAssembly,
 )
 from convert.adapters.solidworks.assembly.AssemblyCore import AsmCoreItem, EncodeAsmCore
 from interchange import (
+    CadDocument,
     Capability,
     ComponentInstance,
     ComponentKind,
@@ -192,7 +195,7 @@ def TestSCRNB(CoreItems: tuple[AsmCoreItem, ...]) -> None:
     QuarterTurn = (0.0, 1.0, 0.0, -1.0, 0.0, 0.0, 0.0, 0.0, 1.0)
     RotatedItems = (ReplaceData(CoreItems[0], BasisVals=QuarterTurn), *CoreItems[1:])
     with PytestLib.raises(ValueError, match="requires identity component bases"):
-        EncodeAsmCore("StaticCore", "Default", RotatedItems)
+        _ = EncodeAsmCore("StaticCore", "Default", RotatedItems)
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
@@ -206,12 +209,14 @@ def TestNFIDNIFS() -> None:
 
 # keeps this focused behavior isolated so regressions remain immediately visible
 @PytestLib.fixture(scope="module")
-def Document():
+def Document() -> CadDocument:
+    if not KAssembly.is_file():
+        PytestLib.skip("random assembly corpus is unavailable")
     return SldprtAdapter().read(KAssembly, ReadOptions(include_brep=False))
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
-def TestMARHDAH(Document) -> None:
+def TestMARHDAH(Document: CadDocument) -> None:
     Assembly = Document.assembly
     assert Assembly is not None
     assert Document.validate() == ()
@@ -242,7 +247,7 @@ def TestMARHDAH(Document) -> None:
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
-def TestACRTDD(Document) -> None:
+def TestACRTDD(Document: CadDocument) -> None:
     assert Document.capabilities == frozenset(
         {
             Capability.ASSEMBLIES,
@@ -523,7 +528,7 @@ def TestMNFDNMCN() -> None:
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
-def TestMARETAS(Document) -> None:
+def TestMARETAS(Document: CadDocument) -> None:
     Assembly = Document.assembly
     assert Assembly is not None
     RingInfo = next(
@@ -574,7 +579,7 @@ def TestMARETAS(Document) -> None:
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
-def TestMARRANML(Document) -> None:
+def TestMARRANML(Document: CadDocument) -> None:
     Assembly = Document.assembly
     assert Assembly is not None
     assert len(Assembly.mates) == 632
@@ -597,14 +602,19 @@ def TestMARRANML(Document) -> None:
         if Payload.format_id == "solidworks.mates"
     ]
     assert [len(Payload.data or b"") for Payload in Payloads] == [2202551, 18893, 43184]
-    assert sum((Payload.attributes["declared_count"] for Payload in Payloads)) == 638
+    DeclaredCount = 0
+    for Payload in Payloads:
+        CountValue = Payload.attributes["declared_count"]
+        assert isinstance(CountValue, int)
+        DeclaredCount += CountValue
+    assert DeclaredCount == 638
     assert all(
         (MateInfo.attributes["native_payload_id"] for MateInfo in Assembly.mates)
     )
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
-def TestMARDMVAA(Document) -> None:
+def TestMARDMVAA(Document: CadDocument) -> None:
     Assembly = Document.assembly
     assert Assembly is not None
     Distance = next(
@@ -626,27 +636,45 @@ def TestMARDMVAA(Document) -> None:
     assert GearInfo.value is not None
     assert GearInfo.value.value == PytestLib.approx(1.0)
     assert GearInfo.value.kind == ValueKind.NUMBER
-    assert [
-        ItemValueA["name"] for ItemValueA in GearInfo.attributes["native_dimensions"]
-    ] == ["D1", "D2"]
+    NativeDimensionsValue = GearInfo.attributes["native_dimensions"]
+    assert isinstance(NativeDimensionsValue, tuple)
+    NativeDimensions = CastValue(tuple[object, ...], NativeDimensionsValue)
+    DimensionNames: list[str] = []
+    for DimensionInfo in NativeDimensions:
+        assert isinstance(DimensionInfo, Mapping)
+        DimensionMap = CastValue(Mapping[str, object], DimensionInfo)
+        NameValue = DimensionMap.get("name")
+        assert isinstance(NameValue, str)
+        DimensionNames.append(NameValue)
+    assert DimensionNames == ["D1", "D2"]
     assert GearInfo.alignment == MateAlignment.UNKNOWN
     Belts = [MateInfo for MateInfo in Assembly.mates if MateInfo.kind == MateKind.BELT]
-    assert all((MateInfo.value is not None for MateInfo in Belts))
     assert all((MateInfo.alignment == MateAlignment.UNKNOWN for MateInfo in Belts))
-    assert all(
-        (
-            MateInfo.value.value
-            == PytestLib.approx(
-                MateInfo.attributes["native_dimensions"][0]["value"]
-                / MateInfo.attributes["native_dimensions"][1]["value"]
-            )
-            for MateInfo in Belts
-        )
-    )
+    for MateInfo in Belts:
+        MateValue = MateInfo.value
+        assert MateValue is not None
+        BeltDimensionsValue = MateInfo.attributes["native_dimensions"]
+        assert isinstance(BeltDimensionsValue, tuple)
+        BeltDimensions = CastValue(tuple[object, ...], BeltDimensionsValue)
+        assert len(BeltDimensions) >= 2
+        FirstDimension = BeltDimensions[0]
+        SecondDimension = BeltDimensions[1]
+        assert isinstance(FirstDimension, Mapping)
+        assert isinstance(SecondDimension, Mapping)
+        FirstMap = CastValue(Mapping[str, object], FirstDimension)
+        SecondMap = CastValue(Mapping[str, object], SecondDimension)
+        FirstValue = FirstMap.get("value")
+        SecondValue = SecondMap.get("value")
+        assert isinstance(FirstValue, (int, float))
+        assert isinstance(SecondValue, (int, float))
+        assert MateValue.value == PytestLib.approx(FirstValue / SecondValue)
 
 
-# keeps this focused behavior isolated so regressions remain immediately visible
-def TestMTUNCWLFR() -> None:
+# keeps rename recovery isolated so regressions remain immediately visible
+@PytestLib.mark.skipif(
+    not KConrod.is_file(), reason="conrod assembly corpus is unavailable"
+)
+def TestMTRNM() -> None:
     Archive = SldprtArchive.open(KConrod)
     RecordInfo = next(
         (
@@ -667,6 +695,21 @@ def TestMTUNCWLFR() -> None:
     assert RenamedList.mates[0].name == "CustomMate1"
     assert RenamedList.mates[0].kind == "concentric"
     assert RenamedList.mates[0].class_name == "moMateConcentric"
+
+
+# keeps unknown class handling isolated so regressions remain immediately visible
+@PytestLib.mark.skipif(
+    not KConrod.is_file(), reason="conrod assembly corpus is unavailable"
+)
+def TestMTUNKCLS() -> None:
+    Archive = SldprtArchive.open(KConrod)
+    RecordInfo = next(
+        (
+            ItemValueA
+            for ItemValueA in Archive.records
+            if ItemValueA.name.endswith("-MatesList")
+        )
+    )
     OldClass = b"moMateConcentric"
     NewClass = b"moMateVendorType"
     OriginalClassOffset = RecordInfo.data.index(OldClass)
@@ -678,8 +721,31 @@ def TestMTUNCWLFR() -> None:
     UnknownClassList = DecodeMateList(UnknownClass, RecordInfo.name, 7)
     assert UnknownClassList.mates[0].name == "Concentric1"
     assert UnknownClassList.mates[0].kind == "native"
-    ClassOffset = Renamed.index(OldClass)
-    Future = Renamed[:ClassOffset] + NewClass + Renamed[ClassOffset + len(OldClass) :]
+
+
+# keeps future class payloads isolated so regressions remain immediately visible
+@PytestLib.mark.skipif(
+    not KConrod.is_file(), reason="conrod assembly corpus is unavailable"
+)
+def TestMTFUTPAY() -> None:
+    Archive = SldprtArchive.open(KConrod)
+    RecordInfo = next(
+        (
+            ItemValueA
+            for ItemValueA in Archive.records
+            if ItemValueA.name.endswith("-MatesList")
+        )
+    )
+    OldName = "Concentric1".encode("utf-16le")
+    NewName = "CustomMate1".encode("utf-16le")
+    NameOffset = RecordInfo.data.index(OldName)
+    Renamed = (
+        RecordInfo.data[:NameOffset]
+        + NewName
+        + RecordInfo.data[NameOffset + len(OldName) :]
+    )
+    ClassOffset = Renamed.index(b"moMateConcentric")
+    Future = Renamed[:ClassOffset] + b"moMateVendorType" + Renamed[ClassOffset + 16 :]
     FutureList = DecodeMateList(Future, RecordInfo.name, 7)
     MateInfo = FutureList.mates[0]
     assert MateInfo.name == "CustomMate1"
@@ -689,7 +755,13 @@ def TestMTUNCWLFR() -> None:
     assert NeutralMateKind(MateInfo.kind) == MateKind.NATIVE
     Payload = MatePayload("future", RecordInfo.name, Future, FutureList, 7, "fixture")
     assert Payload.data == Future
-    assert Payload.attributes["records"][0] == {
+    PayloadRecordsValue = Payload.attributes["records"]
+    assert isinstance(PayloadRecordsValue, tuple)
+    PayloadRecords = CastValue(tuple[object, ...], PayloadRecordsValue)
+    assert PayloadRecords
+    FirstRecord = PayloadRecords[0]
+    assert isinstance(FirstRecord, Mapping)
+    assert FirstRecord == {
         "name": "CustomMate1",
         "kind": "native",
         "class_name": "moMateVendorType",
@@ -700,6 +772,9 @@ def TestMTUNCWLFR() -> None:
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
+@PytestLib.mark.skipif(
+    not KConrod.is_file(), reason="conrod assembly corpus is unavailable"
+)
 def TestRMCTSARI() -> None:
     Archive = SldprtArchive.open(KConrod)
     RecordInfo = next(
@@ -724,6 +799,9 @@ def TestRMCTSARI() -> None:
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
+@PytestLib.mark.skipif(
+    not KAssembly.is_file(), reason="random assembly corpus is unavailable"
+)
 def TestMGBAS() -> None:
     Archive = SldprtArchive.open(KAssembly)
     RecordInfo = next(
@@ -763,6 +841,9 @@ def TestMGBAS() -> None:
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
+@PytestLib.mark.skipif(
+    not KConrod.is_file(), reason="conrod assembly corpus is unavailable"
+)
 def TestCCPRWNS() -> None:
     Archive = SldprtArchive.open(KConrod)
     Native = DecodeNativeAssembly(Archive)
@@ -798,6 +879,9 @@ def TestCCPRWNS() -> None:
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
+@PytestLib.mark.skipif(
+    not KConrod.is_file(), reason="conrod assembly corpus is unavailable"
+)
 def TestMLDUSWTSIR() -> None:
     BlobInfo = KConrod.read_bytes()
     Archive = SldprtArchive.from_bytes(BlobInfo, KConrod)
@@ -825,13 +909,17 @@ def TestMLDUSWTSIR() -> None:
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
-def TestMARERM(Document) -> None:
+def TestMARERM(Document: CadDocument) -> None:
     Assembly = Document.assembly
     assert Assembly is not None
     assert len(Document.meshes) == 65
-    assert (
-        sum((len(MeshInfo.attributes["faces"]) for MeshInfo in Document.meshes)) == 4391
-    )
+    FaceCount = 0
+    for MeshInfo in Document.meshes:
+        FacesValue = MeshInfo.attributes["faces"]
+        assert isinstance(FacesValue, tuple)
+        FacesInfo = CastValue(tuple[object, ...], FacesValue)
+        FaceCount += len(FacesInfo)
+    assert FaceCount == 4391
     assert sum((len(MeshInfo.vertices) for MeshInfo in Document.meshes)) == 492148
     assert sum((len(MeshInfo.triangles) for MeshInfo in Document.meshes)) == 391218
     PartDefinitions = {
@@ -846,7 +934,7 @@ def TestMARERM(Document) -> None:
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
-def TestNADPTOT(Document) -> None:
+def TestNADPTOT(Document: CadDocument) -> None:
     Assembly = Document.assembly
     assert Assembly is not None
     Nested = [
@@ -858,8 +946,13 @@ def TestNADPTOT(Document) -> None:
         27,
         29,
     ]
-    assert sorted((len(ItemValueA.assembly.mates) for ItemValueA in Nested)) == [6, 13]
-    assert all((not ItemValueA.assembly.documents for ItemValueA in Nested))
+    MateCounts: list[int] = []
+    for ItemValueA in Nested:
+        NestedAssembly = ItemValueA.assembly
+        assert NestedAssembly is not None
+        MateCounts.append(len(NestedAssembly.mates))
+        assert not NestedAssembly.documents
+    assert sorted(MateCounts) == [6, 13]
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible

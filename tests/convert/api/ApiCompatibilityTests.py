@@ -17,6 +17,7 @@ from convert.adapters import ReadOptions
 from convert.adapters import Source
 from convert.adapters import WriteOptions
 from convert.adapters import WriteResult
+from convert.engine.EngineResult import ConversionResult
 from interchange import CadDocument
 from interchange import PayloadRole
 
@@ -189,7 +190,7 @@ KEngineHints = {
         "destination_format": str | None,
         "read_options": ReadOptions | None,
         "write_options": WriteOptions | None,
-        "return": EngineModule.ConversionResult,
+        "return": ConversionResult,
     },
 }
 
@@ -262,7 +263,7 @@ def CheckEngineApi() -> None:
 
 # result identity must remain exact because dataclass reflection pattern matching and pickle all expose it
 def CheckResultData() -> None:
-    ResultType = EngineModule.ConversionResult
+    ResultType = ConversionResult
     assert (ResultType.__module__, ResultType.__name__, ResultType.__qualname__) == (
         "convert.engine",
         "ConversionResult",
@@ -298,7 +299,7 @@ def CheckResultData() -> None:
 
 # result descriptors must remain direct because inspect static and schema tools do not infer split ownership
 def CheckResultMeta() -> None:
-    ResultType = EngineModule.ConversionResult
+    ResultType = ConversionResult
     for PublicName in KPropertyNames:
         PropertyValue = ResultType.__dict__[PublicName]
         assert isinstance(PropertyValue, property)

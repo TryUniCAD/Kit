@@ -19,11 +19,13 @@ KToolPathSet = frozenset(
         ".github/PULL_REQUEST_TEMPLATE.md",
         ".github/dependabot.yml",
         ".gitignore",
+        ".gitleaksignore",
         ".hoplite/settings.json",
         ".kiro/settings/mcp.json",
         "HEADER_NOTICE",
         "pyproject.toml",
         "uv.lock",
+        "typings/defusedxml/__init__.pyi",
     }
 )
 

@@ -72,7 +72,7 @@ result = convert("bracket.SLDPRT", "bracket.FCStd", allow_carrier=False)
 
 ## Distribution
 
-Kit is licensed under the [MIT License](LICENSE) and is not published to any public package index.
+Kit is licensed under the [MIT License](LICENSE).
 
 Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt.
 

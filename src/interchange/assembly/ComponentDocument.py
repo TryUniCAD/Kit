@@ -1,13 +1,9 @@
 # SPDX-License-Identifier: MIT
 # SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
-from typing import Any as AnyValue
+from interchange.document.models.DocumentModel import (
+    ComponentDoc,
+)
 
-from interchange.core.ModelBase import ModelBase, ModelDataMut
-
-
-# component documents embed linked portable documents without weakening graph typing
-@ModelDataMut
-class ComponentDoc(ModelBase):
-    EntityId: str
-    Document: AnyValue
+# historical import paths stay importable because pickles and adapters resolve component records here
+__all__ = ("ComponentDoc",)

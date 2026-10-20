@@ -1,8 +1,7 @@
 # SPDX-License-Identifier: MIT
 # SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
-from functools import reduce as ReduceValues
-from operator import or_ as UnionValues
+from typing import TypeAlias
 
 from interchange.geometry.models.GeometryConics import (
     ArcEllipseGeom,
@@ -22,20 +21,17 @@ from interchange.geometry.models.GeometryCurves import (
 )
 
 # exhaustive geometry typing prevents new classes from escaping sketch validation
-KGeometryTypes = ReduceValues(
-    UnionValues,
-    (
-        PointGeometry,
-        LineGeometry,
-        CircleGeometry,
-        ArcGeometry,
-        EllipseGeometry,
-        ArcEllipseGeom,
-        HyperbolaGeom,
-        ArcHyperGeom,
-        ParabolaGeom,
-        ArcParabGeom,
-        SplineGeometry,
-        NativeGeometry,
-    ),
+KGeometryTypes: TypeAlias = (  # lgtm[py/unused-global-variable]
+    PointGeometry
+    | LineGeometry
+    | CircleGeometry
+    | ArcGeometry
+    | EllipseGeometry
+    | ArcEllipseGeom
+    | HyperbolaGeom
+    | ArcHyperGeom
+    | ParabolaGeom
+    | ArcParabGeom
+    | SplineGeometry
+    | NativeGeometry
 )
