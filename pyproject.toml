@@ -91,7 +91,7 @@ dev = [
     "semgrep>=1.136.0",
     "setuptools==80.9.0",
     "typing-extensions>=4.12",
-    "types-pywin32>=312.0.0.20260724",
+    "types-pywin32>=312.0.0.20261006",
     "zizmor>=1.29.0",
 ]
 [tool.ruff]
