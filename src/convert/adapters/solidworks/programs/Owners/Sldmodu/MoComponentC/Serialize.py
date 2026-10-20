@@ -8,7 +8,6 @@
 
 from __future__ import annotations
 
-
 # exact trace spellings stay centralized so variant tables never duplicate owners
 KOwnerSites = {
     13031: "SLDMODU!moComponent_c::Serialize+0x32e7",

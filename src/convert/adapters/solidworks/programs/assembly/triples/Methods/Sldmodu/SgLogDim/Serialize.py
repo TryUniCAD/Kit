@@ -12,7 +12,6 @@ from convert.adapters.solidworks.programs.Owners.Sldmodu.SgLogDim.Serialize impo
     KOwnerSites,
 )
 
-
 # isolated method data lets new reverse engineered serializers compose independently
 KMethodProgram = (
     KOwnerSites,

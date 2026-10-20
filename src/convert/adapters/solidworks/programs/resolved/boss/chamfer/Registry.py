@@ -229,7 +229,6 @@ from convert.adapters.solidworks.programs.resolved.boss.chamfer.Methods.Syntheti
     KMethodProgram as KMethodBU,
 )
 
-
 # explicit ordering keeps generated imports deterministic while offsets govern composition
 KMethodPrograms = (
     KMethodA,

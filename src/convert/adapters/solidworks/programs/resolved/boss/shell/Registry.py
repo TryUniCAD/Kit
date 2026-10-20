@@ -223,7 +223,6 @@ from convert.adapters.solidworks.programs.resolved.boss.shell.Methods.Synthetic.
     KMethodProgram as KMethodBS,
 )
 
-
 # explicit ordering keeps generated imports deterministic while offsets govern composition
 KMethodPrograms = (
     KMethodA,

@@ -12,7 +12,6 @@ from convert.adapters.solidworks.programs.Owners.Sldmodu.MoIgnorableCompareObj.S
     KOwnerSites,
 )
 
-
 # isolated method data lets new reverse engineered serializers compose independently
 KMethodProgram = (
     KOwnerSites,

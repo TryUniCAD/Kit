@@ -15,7 +15,6 @@ from typing import Mapping as TypeMap
 
 from interchange.serialization.Wire import GetModelField, GetSlotNames, ResolveField
 
-
 # historical method names remain reachable so identifier cleanup does not break existing callers
 KMethodAliases: TypeMap[str, str] = {
     "assert_valid": "AssertValid",

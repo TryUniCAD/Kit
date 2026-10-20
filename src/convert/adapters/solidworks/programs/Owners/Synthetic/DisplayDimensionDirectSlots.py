@@ -8,7 +8,6 @@
 
 from __future__ import annotations
 
-
 # exact trace spellings stay centralized so variant tables never duplicate owners
 KOwnerSites = {
     "DisplayDimensionFiveDirectSlot": "display dimension 5 direct slot",

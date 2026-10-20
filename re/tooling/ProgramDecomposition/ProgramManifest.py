@@ -8,7 +8,6 @@
 
 from __future__ import annotations
 
-
 # global counts catch missing variants streams owners methods or recovered operations
 KGlobalStats = (43, 75, 212, 2078, 3857, 185090)
 

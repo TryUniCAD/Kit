@@ -214,7 +214,6 @@ from convert.adapters.solidworks.programs.resolved.planes.right.Methods.Syntheti
     KMethodProgram as KMethodBP,
 )
 
-
 # explicit ordering keeps generated imports deterministic while offsets govern composition
 KMethodPrograms = (
     KMethodA,

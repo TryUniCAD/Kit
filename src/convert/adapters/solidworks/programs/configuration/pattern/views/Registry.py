@@ -34,7 +34,6 @@ from convert.adapters.solidworks.programs.configuration.pattern.views.Methods.Sw
     KMethodProgram as KMethodH,
 )
 
-
 # explicit ordering keeps generated imports deterministic while offsets govern composition
 KMethodPrograms = (
     KMethodA,

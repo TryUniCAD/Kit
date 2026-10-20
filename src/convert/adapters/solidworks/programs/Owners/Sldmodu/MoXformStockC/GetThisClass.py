@@ -8,7 +8,6 @@
 
 from __future__ import annotations
 
-
 # exact trace spellings stay centralized so variant tables never duplicate owners
 KOwnerSites = {
     10226: "SLDMODU!moXformStock_c::GetThisClass+0x27f2",

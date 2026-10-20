@@ -20,7 +20,6 @@ from convert.adapters.solidworks.programs.assembly.quintuples.Program import (
 )
 from convert.adapters.solidworks.container.Container import SldprtFormatError
 
-
 # recovered insertion boundaries split stable fields from occurrence records
 KInsertSpecs = MappingProxyType(
     {

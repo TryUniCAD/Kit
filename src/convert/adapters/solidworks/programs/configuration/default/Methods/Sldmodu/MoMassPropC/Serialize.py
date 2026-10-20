@@ -12,7 +12,6 @@ from convert.adapters.solidworks.programs.Owners.Sldmodu.MoMassPropC.Serialize i
     KOwnerSites,
 )
 
-
 # isolated method data lets new reverse engineered serializers compose independently
 KMethodProgram = (
     KOwnerSites,

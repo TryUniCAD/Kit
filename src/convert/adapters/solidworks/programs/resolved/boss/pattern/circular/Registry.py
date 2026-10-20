@@ -247,7 +247,6 @@ from convert.adapters.solidworks.programs.resolved.boss.pattern.circular.Methods
     KMethodProgram as KMethodCA,
 )
 
-
 # explicit ordering keeps generated imports deterministic while offsets govern composition
 KMethodPrograms = (
     KMethodA,

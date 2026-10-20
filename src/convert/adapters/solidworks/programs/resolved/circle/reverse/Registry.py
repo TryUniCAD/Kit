@@ -229,7 +229,6 @@ from convert.adapters.solidworks.programs.resolved.circle.reverse.Methods.Synthe
     KMethodProgram as KMethodBU,
 )
 
-
 # explicit ordering keeps generated imports deterministic while offsets govern composition
 KMethodPrograms = (
     KMethodA,

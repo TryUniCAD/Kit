@@ -21,7 +21,6 @@ from .Registry import (
     KResolvedOps,
 )
 
-
 # the fixed program length prevents an accidental structural family change
 KReferenceLength = 12537
 

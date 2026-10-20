@@ -8,7 +8,6 @@
 
 from __future__ import annotations
 
-
 # exact trace spellings stay centralized so variant tables never duplicate owners
 KOwnerSites = {
     378: "sldasmu!uiAssemblyDoc_c::Serialize+0x17a",
