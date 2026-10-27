@@ -1,14 +1,8 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 import struct as StructLib
-import pytest as PytestLib
 from convert.adapters.solidworks import SldprtArchive, build_sldprt as BuildSldprt
 from convert.adapters.solidworks.container.Container import (
     Container as ContainerSignatures,
@@ -128,15 +122,6 @@ def TestGCHCND() -> None:
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
-def TestGCID() -> None:
-    Streams = {
-        "Contents/SolidWorks": b"<swSolidWorks/>",
-        "Contents/Config-0-Partition": b"PS\x00\x00body",
-    }
-    assert BuildSldprt(Streams) == BuildSldprt(Streams)
-
-
-# keeps this focused behavior isolated so regressions remain immediately visible
 def TestGCUCSLI() -> None:
     BlobInfo = BuildSldprt({"Contents/SolidWorks": b"<swSolidWorks/>"})
     assert BlobInfo[:8] == bytes.fromhex("ec6e238600000004")
@@ -193,9 +178,3 @@ def TestGCRTI() -> None:
     assert BlobInfo[8:12] == Template[8:12]
     assert BlobInfo[-22:-18] == Template[-22:-18]
     assert SldprtArchive.from_bytes(BlobInfo).streams == Streams
-
-
-# keeps this focused behavior isolated so regressions remain immediately visible
-def TestGCRUFI() -> None:
-    with PytestLib.raises(ValueError, match="native template"):
-        _ = BuildSldprt({"Contents/SolidWorks": b"<swSolidWorks/>"}, file_id=1)

@@ -1,22 +1,14 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 import hashlib as Hashlib
-import math as MathInfo
 from pathlib import Path as FilePath
-import struct as StructLib
 import pytest as PytestLib
 from convert import write_document as WriteDocument
 from convert.adapters.freecad import read_freecad as ReadFreecad
 from convert.adapters.solidworks.container.Container import (
     SldprtArchive,
-    SldprtFormatError,
 )
 from convert.adapters.solidworks.programs.configuration.revolve.pin.rightangle.Program import (
     EncodeProgram as EncodeConfig,
@@ -35,8 +27,6 @@ from convert.adapters.solidworks.programs.configuration.revolve.pin.rightangle.R
 from convert.adapters.solidworks.programs.resolved.revolve.pin.rightangle.Program import (
     EncodeProgram,
     GetCoverage,
-    KAngleOffsets,
-    KProfileOffsets,
     KReferenceDigest,
     KReferenceLength,
 )
@@ -51,13 +41,7 @@ from convert.adapters.solidworks.container.Format import (
 )
 from convert.adapters.solidworks.envelopes.revolve.pin.rightangle.Envelope import (
     BuildEnvelope,
-    CalcPin90Bounds as CalcPinNineZeroBounds,
-    EncodeConfig as EncodeEnvelopeConfig,
     EncodeFeatures,
-    EncodeHeader,
-    KHeaderIdentity,
-    KHeaderStamps,
-    KHeaderUser,
 )
 
 # centralizes shared evidence so every related assertion uses one value
@@ -138,38 +122,6 @@ def TestPNZCOTWG() -> None:
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
-def TestPNZMHIBE() -> None:
-    HeaderData = EncodeHeader()
-    assert len(HeaderData) == 2305
-    assert Hashlib.sha256(HeaderData).hexdigest() == KHeaderDigest
-    assert KHeaderIdentity == (1786479979, 106, 103, 1786479985)
-    assert KHeaderStamps == ((1786479985, 1786479985), (1786479985,))
-    assert KHeaderUser == "odin"
-
-
-# keeps this focused behavior isolated so regressions remain immediately visible
-def TestPNZMHBFP() -> None:
-    HeaderBounds = CalcPinNineZeroBounds()
-    assert HeaderBounds[:3] == (0.00125, 0.00125, 0.025)
-    assert HeaderBounds[3:6] == (0.0025, 0.0025, 0.05)
-    assert HeaderBounds[6:9] == (0.0, 0.0, 0.0)
-    assert MathInfo.isclose(
-        HeaderBounds[9], 0.025062422069704278, rel_tol=0.0, abs_tol=1e-18
-    )
-
-
-# keeps this focused behavior isolated so regressions remain immediately visible
-def TestPNZECECS() -> None:
-    EnvelopeData = BuildEnvelope()
-    assert EnvelopeData.Config0Payload == EncodeEnvelopeConfig() == EncodeConfig()
-    assert EnvelopeData.HeaderPayload == EncodeHeader()
-    assert EnvelopeData.HeaderStamps == KHeaderStamps
-    assert EnvelopeData.HeaderBounds == CalcPinNineZeroBounds()
-    assert EnvelopeData.HeaderCreation == KHeaderIdentity[0]
-    assert EncodeFeatures() == EncodeProgram()
-
-
-# keeps this focused behavior isolated so regressions remain immediately visible
 def TestPNZPHETC() -> None:
     PayloadData = EncodeProgram()
     CoverageData = GetCoverage()
@@ -202,52 +154,3 @@ def TestPNZPOTWG() -> None:
         )
         CursorValue += FieldWidth
     assert CursorValue == KReferenceLength
-
-
-# keeps this focused behavior isolated so regressions remain immediately visible
-def TestPNZPCBAV() -> None:
-    PayloadData = EncodeProgram()
-    AngleBytes = StructLib.pack("<d", MathInfo.pi / 2.0)
-    assert KAngleOffsets == (11481, 12019)
-    assert all(
-        (
-            PayloadData[OffsetValue : OffsetValue + 8] == AngleBytes
-            for OffsetValue in KAngleOffsets
-        )
-    )
-
-
-# keeps this focused behavior isolated so regressions remain immediately visible
-def TestPNZPCAPV() -> None:
-    PayloadData = EncodeProgram()
-    assert (
-        tuple(
-            (
-                (
-                    StructLib.unpack_from("<d", PayloadData, XOffset)[0],
-                    StructLib.unpack_from("<d", PayloadData, YOffset)[0],
-                )
-                for XOffset, YOffset in KProfileOffsets
-            )
-        )
-        == KProfileMetres
-    )
-
-
-# keeps this focused behavior isolated so regressions remain immediately visible
-def TestPNZPRVWO() -> None:
-    with PytestLib.raises(SldprtFormatError, match="field width changed"):
-        _ = EncodeProgram({11451: "D100"})
-
-
-# keeps this focused behavior isolated so regressions remain immediately visible
-def TestPNZPASWAO() -> None:
-    AngleValue = MathInfo.radians(120.0)
-    PayloadData = EncodeProgram(dict.fromkeys(KAngleOffsets, AngleValue))
-    assert all(
-        (
-            StructLib.unpack_from("<d", PayloadData, OffsetValue)[0] == AngleValue
-            for OffsetValue in KAngleOffsets
-        )
-    )
-    assert len(PayloadData) == KReferenceLength

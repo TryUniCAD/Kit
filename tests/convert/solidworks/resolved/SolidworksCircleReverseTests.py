@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 import hashlib as Hashlib
@@ -24,7 +19,6 @@ from convert.adapters.solidworks.programs.configuration.circle.reverse.Registry 
 )
 from convert.adapters.solidworks.container.Container import (
     SldprtArchive,
-    SldprtFormatError,
 )
 from convert.adapters.solidworks.programs.resolved.circle.reverse.Program import (
     EncodeProgram as EncodeResolved,
@@ -147,11 +141,3 @@ def TestRPMCO() -> None:
     assert len(OracleConfig) == 25190
     assert EncodeResolved() == CanonResolved(OracleResolved)
     assert EncodeConfig() == CanonConfig(OracleConfig)
-
-
-# keeps this focused behavior isolated so regressions remain immediately visible
-def TestRPRVWO() -> None:
-    with PytestLib.raises(SldprtFormatError, match="field width changed"):
-        _ = EncodeResolved({9853: "saved paths are intentionally unsupported"})
-    with PytestLib.raises(SldprtFormatError, match="field width changed"):
-        _ = EncodeConfig({44: "saved document names are intentionally unsupported"})

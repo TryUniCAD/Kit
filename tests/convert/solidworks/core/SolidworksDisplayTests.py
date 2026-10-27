@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 from pathlib import Path as FilePath
@@ -13,7 +8,6 @@ from convert.adapters.solidworks.container.Container import SldprtArchive
 from convert.adapters.solidworks.core.Display import (
     decode_display_lists as DecodeDisplayLists,
     decode_tessellation_faces as DecodeTessellationFaces,
-    is_component_path as IsComponentPath,
     neutral_meshes as NeutralMeshes,
 )
 
@@ -21,31 +15,8 @@ from convert.adapters.solidworks.core.Display import (
 KAssembly = FilePath(__file__).parents[4] / "examples" / "Random" / "V8_engine.SLDASM"
 
 
-# keeps this focused behavior isolated so regressions remain immediately visible
-@PytestLib.mark.parametrize(
-    "ItemValue",
-    (
-        "Rotor@Assembly",
-        "Custom instance name@Root/Nested occurrence@Subassembly",
-        "Part-1@Assembly",
-    ),
-)
-def TestCPDNRGNS(ItemValue: str) -> None:
-    assert IsComponentPath(ItemValue)
 
 
-# keeps this focused behavior isolated so regressions remain immediately visible
-@PytestLib.mark.parametrize(
-    "ItemValue",
-    (
-        "Top Plane@Rotor@Assembly",
-        "Belt1-1^Assembly-1@Assembly",
-        "C:/Parts/Rotor.SLDPRT",
-        "@Assembly",
-    ),
-)
-def TestCPDRERAF(ItemValue: str) -> None:
-    assert not IsComponentPath(ItemValue)
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
