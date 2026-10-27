@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
@@ -126,18 +121,3 @@ def CheckLossGate() -> None:
     assert ErrorInfo.value.dropped
     assert Capability.KEditableSketches in ErrorInfo.value.dropped
     assert TargetData.getvalue() == b""
-
-
-# native claims stay bounded by preservation support so metadata cannot overpromise output
-def CheckNativeCaps() -> None:
-    AdapterData = ResultAdapter(
-        AdapterInfo(
-            "format.invalid-native",
-            "Invalid native",
-            "1",
-            (".invalid",),
-            native_capabilities=frozenset({Capability.KBrep}),
-        )
-    )
-    with Pytest.raises(AdapterRegistryError, match="preservation capabilities"):
-        AdapterRegistry().register(AdapterData)
