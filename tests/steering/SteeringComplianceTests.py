@@ -423,7 +423,10 @@ KOtherLimit = 3  # explains the assignment
             for FindingInfo in FindingList
             if FindingInfo.RuleCode == "CMT001"
         }
-        CaseSelf.assertEqual(CommentLines, {9, 17})
+        CaseSelf.assertEqual(
+            CommentLines,
+            {len(KPythonHeader.splitlines()) + Offset for Offset in (2, 10)},
+        )
 
     # forbidden words need coverage because mandated rationale syntax cannot hide incomplete work
     @staticmethod

@@ -192,10 +192,31 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          uv run --frozen python .github/scripts/VerifySpdxHeaders.py \
+          uv run --frozen python - \
             --base "$BASE_SHA" \
             --head "$HEAD_SHA" \
-            --worktree "$SOURCE_ROOT"
+            --worktree "$SOURCE_ROOT" <<'PY'
+          import os
+          import sys
+          from pathlib import Path
+
+          sys.path.insert(0, str(Path(".github/scripts").resolve()))
+          import VerifySpdxHeaders as SpdxChecker
+
+          NoticeText = (
+              "SPDX-License-Identifier: MIT\n"
+              "SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, "
+              "Odin Glynn-Martin, Stephen Harcourt\n"
+          )
+          NoticePath = SpdxChecker.ResolvePath(
+              Path(os.environ["SOURCE_ROOT"]).resolve(), "HEADER_NOTICE"
+          )
+          if NoticePath is None or NoticePath.read_text(encoding="utf-8") != NoticeText:
+              raise SystemExit("The canonical notice must match the MIT policy exactly")
+          SpdxChecker.KHeaderNoticePath.write_text(NoticeText, encoding="utf-8")
+          SpdxChecker.KSkillLicenseField = "license: MIT"
+          raise SystemExit(SpdxChecker.MainRun())
+          PY
 
   remediate-missing-headers:
     name: Remediate missing SPDX headers
