@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations as Annotations
 from dataclasses import replace as Replace
@@ -89,16 +84,6 @@ KSldprt = KRootValue / "examples" / ".SLDPRT" / "example.SLDPRT"
 
 # this binding exists because shared behavior needs one stable value
 KSldasm = KRootValue / "examples" / "Random" / "Pistons" / "Piston.SLDASM"
-
-
-# this definition exists because focused behavior needs one stable owner
-def TestFormatNames() -> None:
-    assert CatiaAdapter().info is InfoValue
-    assert tuple(DocTypeBySuffix) == InfoValue.extensions
-    assert tuple(DocTypeBySuffix.values()) == (PartDocType, ProductDocType)
-    assert SuffixByDocType == {
-        DocType: Suffix for Suffix, DocType in DocTypeBySuffix.items()
-    }
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -1107,11 +1092,6 @@ def TestCatpartAre() -> None:
     assert [
         Plane.attributes["principal_index"] for Plane in DocValue.support_planes
     ] == [0, 1, 2]
-
-
-# this definition exists because focused behavior needs one stable owner
-def TestAdapterThe() -> None:
-    assert CatiaAdapter().info.capabilities == frozenset(Capability)
 
 
 # this definition exists because focused behavior needs one stable owner

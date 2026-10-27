@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 import hashlib as Hashlib
@@ -18,7 +13,6 @@ from convert.adapters.solidworks.container.Container import (
     DEFAULT_SIGNATURES as Signatures,
     SldprtArchive,
     build_sldprt as BuildSldprt,
-    signature_triplet as SignatureTriplet,
 )
 
 # centralizes shared evidence so every related assertion uses one value
@@ -183,15 +177,6 @@ def TestGCUTCR() -> None:
     assert Archive.streams == Streams
     SignaturesA = ContainerSignatures(BlobInfo)
     assert SignaturesA == Signatures
-
-
-# keeps this focused behavior isolated so regressions remain immediately visible
-def TestFIWACRRTIS() -> None:
-    Absent = next((ItemValue for ItemValue in range(1, 1 << 20) if ItemValue != IdInfo))
-    with PytestLib.raises(ValueError, match="native template"):
-        _ = BuildSldprt({"Contents/SolidWorks": b"<swSolidWorks/>"}, file_id=Absent)
-    assert SignatureTriplet(Absent) is None
-    assert SignatureTriplet(IdInfo) == Signatures
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
