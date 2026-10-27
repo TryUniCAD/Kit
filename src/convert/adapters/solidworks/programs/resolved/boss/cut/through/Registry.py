@@ -209,6 +209,7 @@ from convert.adapters.solidworks.programs.resolved.boss.cut.through.Methods.Synt
     KMethodProgram as KMethodBP,
 )
 
+
 # explicit ordering keeps generated imports deterministic while offsets govern composition
 KMethodPrograms = (
     KMethodA,

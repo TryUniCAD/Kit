@@ -227,6 +227,7 @@ from convert.adapters.solidworks.programs.resolved.boss.revolvecut.Methods.Synth
     KMethodProgram as KMethodBV,
 )
 
+
 # explicit ordering keeps generated imports deterministic while offsets govern composition
 KMethodPrograms = (
     KMethodA,

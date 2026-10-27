@@ -503,6 +503,7 @@ from convert.adapters.solidworks.programs.assembly.quintuples.Methods.Synthetic.
     KMethodProgram as KMethodFJ,
 )
 
+
 # explicit ordering keeps generated imports deterministic while offsets govern composition
 KMethodPrograms = (
     KMethodA,

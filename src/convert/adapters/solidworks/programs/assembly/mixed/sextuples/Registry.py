@@ -500,6 +500,7 @@ from convert.adapters.solidworks.programs.assembly.mixed.sextuples.Methods.Synth
     KMethodProgram as KMethodFI,
 )
 
+
 # explicit ordering keeps generated imports deterministic while offsets govern composition
 KMethodPrograms = (
     KMethodA,

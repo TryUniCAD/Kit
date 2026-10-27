@@ -221,6 +221,7 @@ from convert.adapters.solidworks.programs.resolved.polyline.sixpoint.Methods.Syn
     KMethodProgram as KMethodBT,
 )
 
+
 # explicit ordering keeps generated imports deterministic while offsets govern composition
 KMethodPrograms = (
     KMethodA,

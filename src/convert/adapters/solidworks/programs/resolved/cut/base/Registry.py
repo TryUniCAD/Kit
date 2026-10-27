@@ -212,6 +212,7 @@ from convert.adapters.solidworks.programs.resolved.cut.base.Methods.Synthetic.Sk
     KMethodProgram as KMethodBQ,
 )
 
+
 # explicit ordering keeps generated imports deterministic while offsets govern composition
 KMethodPrograms = (
     KMethodA,
