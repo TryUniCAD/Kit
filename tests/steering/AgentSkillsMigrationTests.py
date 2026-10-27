@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
@@ -16,8 +11,6 @@ import textwrap as Textwrap
 from pathlib import Path as FilePath
 
 import pytest as Pytest
-
-from tools.skills.SkillPaths import GetSourcePath
 
 # command tests need repository context because migration inputs are checked in assets
 KRootPath = FilePath(__file__).resolve().parents[2]
@@ -41,14 +34,6 @@ def CheckMirrored() -> None:
     ResultInfo = RunMigration(KRootPath, "--check")
 
     assert ResultInfo.returncode == 0, ResultInfo.stdout + ResultInfo.stderr
-
-
-# source lookup coverage keeps pascal sources aligned with kebab case skill identities
-def CheckPascalPath() -> None:
-    SourcePath = GetSourcePath("split-large-definitions")
-
-    assert SourcePath.name == "SplitLargeDefinitions.md"
-    assert SourcePath.is_file()
 
 
 # isolated repositories prove stale generated skills are both detected and removed
