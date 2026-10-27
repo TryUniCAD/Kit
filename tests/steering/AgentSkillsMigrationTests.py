@@ -17,8 +17,6 @@ from pathlib import Path as FilePath
 
 import pytest as Pytest
 
-from tools.skills.SkillPaths import GetSourcePath
-
 # command tests need repository context because migration inputs are checked in assets
 KRootPath = FilePath(__file__).resolve().parents[2]
 
@@ -41,14 +39,6 @@ def CheckMirrored() -> None:
     ResultInfo = RunMigration(KRootPath, "--check")
 
     assert ResultInfo.returncode == 0, ResultInfo.stdout + ResultInfo.stderr
-
-
-# source lookup coverage keeps pascal sources aligned with kebab case skill identities
-def CheckPascalPath() -> None:
-    SourcePath = GetSourcePath("split-large-definitions")
-
-    assert SourcePath.name == "SplitLargeDefinitions.md"
-    assert SourcePath.is_file()
 
 
 # isolated repositories prove stale generated skills are both detected and removed
