@@ -20,6 +20,7 @@ from interchange import (
     PayloadRole,
 )
 from interchange.payloads.PayloadRecord import BrepPayload
+from interchange.features.FeatureAngleRev import AngularRevolve
 from interchange.features.FeaturePlaneRev import PlaneRevolve
 from interchange.serialization.Deserialize import FromData
 from interchange.serialization.EncodeData import ToData
@@ -76,7 +77,7 @@ def CheckRegistry() -> None:
         if isinstance(ItemValue, type)
         and (IsDataClass(ItemValue) or issubclass(ItemValue, EnumBase))
     }
-    ExpectedValues.add(PlaneRevolve)
+    ExpectedValues.update((AngularRevolve, PlaneRevolve))
     assert set(KTypeRegistry.values()) == ExpectedValues
 
 
