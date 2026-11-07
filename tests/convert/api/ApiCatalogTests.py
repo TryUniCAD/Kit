@@ -11,6 +11,11 @@ from convert.adapters import AdapterInfo, AdapterRegistry
 from interchange import Capability
 from tests.convert.api.ApiTestHelpers import GetPackNames, ListFormatPacks
 
+# existing bidirectional formats retain their established reader and writer capabilities
+KLegacyFormats = frozenset(
+    {"catia.v5", "freecad.fcstd", "interchange.json", "solidworks.sldprt"}
+)
+
 
 # deterministic introspection prevents import order from changing the public format catalog
 def CheckDiscovery() -> None:
@@ -22,11 +27,17 @@ def CheckDiscovery() -> None:
     ReaderValues = FirstRegistry.readers()
     WriterValues = FirstRegistry.writers()
     assert PackageNames
-    assert GetPackNames(ReaderValues, PackageNames) == set(PackageNames)
-    assert GetPackNames(WriterValues, PackageNames) == set(PackageNames)
-    assert FirstIds == SecondIds == tuple(sorted(FirstIds))
-    assert tuple(ValueData.info.format_id for ValueData in ReaderValues) == FirstIds
-    assert tuple(ValueData.info.format_id for ValueData in WriterValues) == FirstIds
+    assert GetPackNames((*ReaderValues, *WriterValues), PackageNames) == set(
+        PackageNames
+    )
+    ReaderIds = tuple(ValueData.info.format_id for ValueData in ReaderValues)
+    WriterIds = tuple(ValueData.info.format_id for ValueData in WriterValues)
+    assert ReaderIds == tuple(sorted(set(ReaderIds)))
+    assert WriterIds == tuple(sorted(set(WriterIds)))
+    assert FirstIds == SecondIds == tuple(sorted(set(ReaderIds) | set(WriterIds)))
+    assert KLegacyFormats <= set(ReaderIds) & set(WriterIds)
+    assert "fusion.f3d" in ReaderIds
+    assert "fusion.f3d" not in WriterIds
     for ReaderData in ReaderValues:
         for FormatId in (ReaderData.info.format_id, *ReaderData.info.aliases):
             assert FirstRegistry.reader(FormatId) is ReaderData
@@ -42,13 +53,14 @@ def CheckDiscovery() -> None:
         for AdapterData in (*ReaderValues, *WriterValues)
     )
     assert all(
-        ReaderData.info.capabilities == frozenset(Capability)
-        for ReaderData in ReaderValues
+        AdapterData.info.capabilities == frozenset(Capability)
+        for AdapterData in (*ReaderValues, *WriterValues)
+        if AdapterData.info.format_id in KLegacyFormats
     )
-    assert all(
-        WriterData.info.capabilities == frozenset(Capability)
-        for WriterData in WriterValues
-    )
+    FusionCaps = FirstRegistry.reader("fusion.f3d").info.capabilities
+    assert {Capability.KNativePayloads, Capability.KProvenance} <= FusionCaps
+    assert Capability.KAssemblies not in FusionCaps
+    assert FusionCaps < frozenset(Capability)
 
 
 # document kind extensions remain introspective so clients need no format specific branches
@@ -60,6 +72,10 @@ def CheckDocExts() -> None:
     assert AdapterMap["catia.v5"].assembly_extensions == (".catproduct",)
     assert AdapterMap["freecad.fcstd"].part_extensions == (".FCStd",)
     assert AdapterMap["freecad.fcstd"].assembly_extensions == (".FCStd",)
+    FusionInfo = AdapterMap["fusion.f3d"]
+    assert FusionInfo.extensions == FusionInfo.part_extensions == (".f3d",)
+    assert FusionInfo.assembly_extensions == ()
+    assert "f3d" in FusionInfo.aliases
     for InfoData in AdapterMap.values():
         assert set(InfoData.extensions_for(assembly=False)) <= set(InfoData.extensions)
         assert set(InfoData.extensions_for(assembly=True)) <= set(InfoData.extensions)
