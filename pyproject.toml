@@ -73,12 +73,12 @@ force-exclude = "(examples|Parashell|modules|re|src/convert/adapters/solidworks/
 dev = [
     "bandit>=1.9.4",
     "black==26.10.1",
-    "checkov>=3.3.11",
+    "checkov>=3.3.29",
     "cyclonedx-bom>=4.6.1",
     "defusedxml>=0.7.1",
     "detect-secrets>=1.5.0",
     "dlint>=0.16.0",
-    "mypy>=2.3.1",
+    "mypy>=2.4.0",
     "numpy<2.5",
     "pip-audit>=2.9.0",
     "pyright==1.1.411",
@@ -88,7 +88,7 @@ dev = [
     "setuptools==84.1.0",
     "typing-extensions>=4.12",
     "types-pywin32>=312.0.0.20260724",
-    "zizmor>=1.29.0",
+    "zizmor>=1.30.1",
 ]
 [tool.ruff]
 target-version = "py311"
