@@ -116,6 +116,7 @@ from interchange.features.FeatureKinds import (
     ScaleFeature,
     ShellFeature,
 )
+from interchange.features.FeaturePlaneRev import PlaneRevolve
 from interchange.features.FeatureStep import FeatureCfgState, FeatureStep
 from interchange.geometry.models.GeometryConics import (
     ArcEllipseGeom,
@@ -365,6 +366,7 @@ BindTypeGlobals(
 )
 
 RegisterTypes(
+    PlaneRevolve,
     *(
         # nosemgrep: python.lang.security.dangerous-globals-use.dangerous-globals-use
         globals()[NameValue]
@@ -377,7 +379,7 @@ RegisterTypes(
             # nosemgrep: python.lang.security.dangerous-globals-use.dangerous-globals-use
             or issubclass(globals()[NameValue], EnumBase)
         )
-    )
+    ),
 )
 
 RegMigration(BrepPayload, MigratePayload)
