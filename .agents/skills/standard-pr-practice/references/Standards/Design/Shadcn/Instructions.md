@@ -5,6 +5,24 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 
 original source: `.kiro/skills/shadcn/SKILL.md`
 
+## Current references
+
+Use these consolidated links when reading the unchanged original guide below.
+Its original link destinations are preserved as source text for lossless provenance.
+
+| Original reference | Current target |
+| --- | --- |
+| `./rules/styling.md` | [Styling and Tailwind](Rules/Styling.md) |
+| `./rules/forms.md` | [Forms and inputs](Rules/Forms.md) |
+| `./rules/composition.md` | [Component composition](Rules/Composition.md) |
+| `./rules/base-vs-radix.md` | [Base and Radix primitives](Rules/BaseVsRadix.md) |
+| `./rules/icons.md` | [Icons](Rules/Icons.md) |
+| `./cli.md` | [CLI and project info](Cli.md) |
+| `./registry.md` | [Registries](Registry.md) |
+| `./customization.md` | [Customization](Customization.md) |
+
+## Unabridged original guide
+
 ---
 name: shadcn
 description: Manages shadcn components and projects — adding, searching, fixing, debugging, styling, and composing UI. Provides project context, component docs, and usage examples. Applies when working with shadcn/ui, component registries, presets, --preset codes, or any project with a components.json file. Also triggers for "shadcn init", "create an app with --preset", or "switch to --preset".

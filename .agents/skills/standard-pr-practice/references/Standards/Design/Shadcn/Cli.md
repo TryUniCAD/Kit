@@ -5,6 +5,14 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 
 original source: `.kiro/skills/shadcn/cli.md`
 
+## Current references
+
+Use [Updating components](Instructions.md#updating-components) for the original
+`./SKILL.md#updating-components` links, and [Registries](Registry.md) for
+`./registry.md`. The original guide below is preserved unchanged.
+
+## Unabridged original guide
+
 # shadcn CLI Reference
 
 Configuration is read from `components.json`.

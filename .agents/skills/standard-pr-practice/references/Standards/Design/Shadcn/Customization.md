@@ -5,6 +5,14 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 
 original source: `.kiro/skills/shadcn/customization.md`
 
+## Current references
+
+Use [Styling](Rules/Styling.md) for `./rules/styling.md` and
+[Updating components](Instructions.md#updating-components) for
+`./SKILL.md#updating-components`. The original guide below is preserved unchanged.
+
+## Unabridged original guide
+
 # Customization & Theming
 
 Components reference semantic CSS variable tokens. Change the variables to change every component.

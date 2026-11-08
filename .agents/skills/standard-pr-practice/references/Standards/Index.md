@@ -50,6 +50,8 @@ requirements retain their original force and scope. In particular:
   resolve through the source-to-document mapping in `Manifest.json` relative to
   the document's declared original source path. Those original path strings are
   preserved intentionally; they are not instructions to restore old directories.
+  Documents with moved relative links provide current clickable reference tables
+  before the preserved payload. Use those links instead of its original paths.
 - The original `re/` exemption remains unchanged. Do not expand the scope or
   infer external writes, messages, installations, or permission from copied text.
 

@@ -5,6 +5,14 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 
 original source: `.kiro/skills/shadcn/rules/forms.md`
 
+## Current references
+
+Use [ToggleGroup primitive differences](BaseVsRadix.md#togglegroup) for the
+original `./base-vs-radix.md#togglegroup` link. The original guide below is
+preserved unchanged.
+
+## Unabridged original guide
+
 # Forms & Inputs
 
 ## Contents

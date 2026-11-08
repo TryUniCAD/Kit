@@ -5,6 +5,13 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 
 original source: `.kiro/skills/shadcn/rules/styling.md`
 
+## Current references
+
+Use [Customization](../Customization.md) for the original `../customization.md`
+links. The original guide below is preserved unchanged.
+
+## Unabridged original guide
+
 # Styling & Customization
 
 See [customization.md](../customization.md) for theming, CSS variables, and adding custom colors.

@@ -95,6 +95,7 @@ Use the exact top-level comment above to request review after opening the PR and
 ## Conflict mechanics and read-only merge state
 
 ```sh
+git status
 git rev-parse --git-path MERGE_HEAD
 git rev-parse --git-path rebase-merge
 git rev-parse --git-path rebase-apply
@@ -109,6 +110,8 @@ git diff --cached fetched-base-sha
 git merge-base --is-ancestor remote-head-sha HEAD
 gh api repos/base-owner/base-repo/pulls/123
 ```
+
+Read `git status` before any mutation to detect an interrupted operation. The `rev-parse --git-path` commands only locate metadata paths; they succeed even when the paths do not exist. Inspect filesystem metadata at each returned path before inferring operation state: `MERGE_HEAD` is a file, while `rebase-merge`, `rebase-apply`, and `sequencer` are directories. Preserve an unrelated active operation in its original worktree.
 
 Check fresh remote mergeability before starting a merge. In an ordinary merge the index stages are ancestor, checked-out head, and merged base; a stage can be absent for additions/deletions. In a rebase stage 2 is the rebased series and stage 3 the replayed commit. Empty unmerged output and clean `diff --check` are mechanical evidence only. `merge-base --is-ancestor` exits 0 for ancestry, 1 for non-ancestry, and other nonzero for errors; ancestry alone does not prove outgoing commits are in scope.
 
