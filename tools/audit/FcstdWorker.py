@@ -1,19 +1,14 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
+import argparse as Argparse
 import json as JsonData
-from typing import Any as AnyValue
 
 
 # worker mode isolates risky documents while retaining one public command entry point
-def RunWorker(ArgumentsData: AnyValue) -> int:
+def RunWorker(ArgumentsData: Argparse.Namespace) -> int:
     from tools.audit.FcstdAudit import AuditSource
 
     WorkerSource = ArgumentsData.worker_source

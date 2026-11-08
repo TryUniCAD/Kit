@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from .api import (
     available_adapters as AvailableAdapters,
@@ -29,19 +24,19 @@ __all__ = [
 ]
 
 # this binding preserves the historical public adapter listing name
-globals()["available_adapters"] = AvailableAdapters
+available_adapters = AvailableAdapters
 
 # this binding preserves the historical public conversion name
-globals()["convert"] = ConvertDoc
+convert = ConvertDoc
 
 # this binding preserves the historical public boundary extraction name
-globals()["extract_brep"] = ExtractBrep
+extract_brep = ExtractBrep
 
 # this binding preserves the historical public document reader name
-globals()["open_document"] = OpenDoc
+open_document = OpenDoc
 
 # this binding preserves the historical public registry name
-globals()["registry"] = RegistryValue
+registry = RegistryValue
 
 # this binding preserves the historical public document writer name
-globals()["write_document"] = WriteDoc
+write_document = WriteDoc

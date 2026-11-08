@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
@@ -22,9 +17,9 @@ from convert.adapters import ReadOptions
 from convert.adapters import Source
 from convert.adapters import WriteOptions
 from convert.adapters import WriteResult
+from convert.engine.EngineResult import ConversionResult
 from interchange import CadDocument
 from interchange import PayloadRole
-
 
 # api signatures stay explicit because generated wrappers must match every historical parameter exactly
 KApiSigns = {
@@ -195,7 +190,7 @@ KEngineHints = {
         "destination_format": str | None,
         "read_options": ReadOptions | None,
         "write_options": WriteOptions | None,
-        "return": EngineModule.ConversionResult,
+        "return": ConversionResult,
     },
 }
 
@@ -268,7 +263,7 @@ def CheckEngineApi() -> None:
 
 # result identity must remain exact because dataclass reflection pattern matching and pickle all expose it
 def CheckResultData() -> None:
-    ResultType = EngineModule.ConversionResult
+    ResultType = ConversionResult
     assert (ResultType.__module__, ResultType.__name__, ResultType.__qualname__) == (
         "convert.engine",
         "ConversionResult",
@@ -304,7 +299,7 @@ def CheckResultData() -> None:
 
 # result descriptors must remain direct because inspect static and schema tools do not infer split ownership
 def CheckResultMeta() -> None:
-    ResultType = EngineModule.ConversionResult
+    ResultType = ConversionResult
     for PublicName in KPropertyNames:
         PropertyValue = ResultType.__dict__[PublicName]
         assert isinstance(PropertyValue, property)

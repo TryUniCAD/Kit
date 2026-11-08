@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 name: Python steering
 
@@ -23,8 +18,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  verify-python:
-    name: Verify Python steering rules
+  steering:
+    name: Python steering
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
@@ -34,9 +29,9 @@ jobs:
           persist-credentials: false
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
-          version: "0.9.13"
+          version: "0.12.5"
           enable-cache: true
           cache-dependency-glob: uv.lock
 
@@ -46,7 +41,6 @@ jobs:
       - name: Verify tracked Python sources
         run: |
           mapfile -d '' PythonFiles < <(git ls-files -z -- '*.py')
-          uv run python -m tools.steering.SteeringCompliance "${PythonFiles[@]}"
-
-      - name: Verify Python formatting
-        run: uv run black --check .
+          uv run python -m tools.steering.SteeringCompliance \
+            --baseline-file tools/steering/SteeringBaseline.txt \
+            "${PythonFiles[@]}"

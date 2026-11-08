@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
@@ -12,11 +7,9 @@ import json as JsonData
 from pathlib import Path as FilePath
 import subprocess as Subprocess
 import sys as System
-from typing import Any as AnyValue
 
 from tools.audit.FcstdContext import KRepositoryRoot
-from tools.audit.FcstdResult import MakeFailure
-
+from tools.audit.FcstdResult import AuditRecord, MakeFailure, ReadAuditRecord
 
 # bounded diagnostics keep failed workers useful without flooding recursive audit output
 KErrorLimit = 1000
@@ -28,7 +21,7 @@ KWorkerTimeout = 300
 # worker invocation stays separate so timeout handling and result decoding remain focused
 def RunProcess(
     SourcePath: FilePath, OutputRoot: FilePath, SourceIndex: int
-) -> AnyValue:
+) -> Subprocess.CompletedProcess[str]:
     return Subprocess.run(
         (
             System.executable,
@@ -55,7 +48,7 @@ def AuditIsolated(
     SourcePath: FilePath,
     OutputRoot: FilePath,
     SourceIndex: int,
-) -> dict[str, AnyValue]:
+) -> AuditRecord:
     try:
         ProcessData = RunProcess(SourcePath, OutputRoot, SourceIndex)
     except Subprocess.TimeoutExpired as ErrorInfo:
@@ -68,11 +61,12 @@ def AuditIsolated(
     )
     if ProcessData.returncode == 0 and OutputLines:
         try:
-            ResultData = JsonData.loads(OutputLines[-1])
+            ResultData: object = JsonData.loads(OutputLines[-1])
         except JsonData.JSONDecodeError:
             ResultData = None
-        if isinstance(ResultData, dict):
-            return ResultData
+        ParsedResult = ReadAuditRecord(ResultData)
+        if ParsedResult is not None:
+            return ParsedResult
     ErrorText = ProcessData.stderr.strip() or ProcessData.stdout.strip()
     if len(ErrorText) > KErrorLimit:
         ErrorText = ErrorText[-KErrorLimit:]

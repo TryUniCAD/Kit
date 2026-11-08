@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from .base import AdapterInfo
 from .base import CarrierReason
@@ -20,17 +15,17 @@ from .base import TransferMode
 from .base import WriteOptions
 from .base import WriteResult
 from .base import is_windows_device_name as IsDeviceName
-from .registry import AdapterBinding
-from .registry import AdapterDiscoveryError
-from .registry import AdapterNotFoundError
 from .registry import AdapterRegistry
-from .registry import AdapterRegistryError
-from .registry import AmbiguousAdapterError
-from .registry import ApplicationUsabilityError
-from .registry import CapabilityLossError
+from .registry.RegistryBinding import AdapterBinding
+from .registry.RegistryErrors import AdapterDiscoveryError
+from .registry.RegistryErrors import AdapterNotFoundError
+from .registry.RegistryErrors import AdapterRegistryError
+from .registry.RegistryErrors import AmbiguousAdapterError
+from .registry.RegistryErrors import CapabilityLossError
+from .base.UsabilityError import ApplicationUsabilityError
 
 # legacy helper spelling remains available because payload validation imports this public name
-globals()["is_windows_device_name"] = IsDeviceName
+is_windows_device_name = IsDeviceName
 
 # package exports stay explicit so split implementation modules never leak into wildcard imports
 __all__ = (
@@ -79,5 +74,3 @@ for ModuleName in tuple(globals()):
         "registry",
     }:
         globals().pop(ModuleName, None)
-
-del ModuleName

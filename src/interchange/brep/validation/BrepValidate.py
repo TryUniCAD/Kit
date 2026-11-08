@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from interchange.brep.validation.BrepBodyValidate import GetBodyErrors
 from interchange.brep.validation.BrepCurveValidate import GetCurveErrors
@@ -24,18 +19,17 @@ def GetBrepErrors(
 ) -> tuple[str, ...]:
     ErrorValues: list[str] = []
     if (
-        not isinstance(ModelValue.SchemaVersion, str)
-        or not ModelValue.SchemaVersion.strip()
-        or ModelValue.SchemaVersion != ModelValue.SchemaVersion.strip()
+        not ModelValue.schema_version.strip()
+        or ModelValue.schema_version != ModelValue.schema_version.strip()
     ):
         ErrorValues.append("B-rep schema version must be a non-empty string")
     IdentitySets, IdentityErrors = GetBrepIds(ModelValue)
     ErrorValues.extend(IdentityErrors)
-    for CurveValue in ModelValue.Curves:
+    for CurveValue in ModelValue.curves:
         ErrorValues.extend(GetCurveErrors(CurveValue, IdentitySets["Surfaces"]))
-    for PcurveValue in ModelValue.Pcurves:
+    for PcurveValue in ModelValue.pcurves:
         ErrorValues.extend(GetPcurveErrors(PcurveValue))
-    for SurfaceValue in ModelValue.Surfaces:
+    for SurfaceValue in ModelValue.surfaces:
         ErrorValues.extend(GetSurfErrors(SurfaceValue, IdentitySets["Surfaces"]))
     ErrorValues.extend(GetEdgeErrors(ModelValue, IdentitySets))
     ErrorValues.extend(GetLoopErrors(ModelValue, IdentitySets))

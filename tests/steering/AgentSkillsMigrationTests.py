@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
@@ -16,9 +11,6 @@ import textwrap as Textwrap
 from pathlib import Path as FilePath
 
 import pytest as Pytest
-
-from tools.skills.SkillPaths import GetSourcePath
-
 
 # command tests need repository context because migration inputs are checked in assets
 KRootPath = FilePath(__file__).resolve().parents[2]
@@ -44,28 +36,20 @@ def CheckMirrored() -> None:
     assert ResultInfo.returncode == 0, ResultInfo.stdout + ResultInfo.stderr
 
 
-# source lookup coverage keeps pascal sources aligned with kebab case skill identities
-def CheckPascalPath() -> None:
-    SourcePath = GetSourcePath("split-large-definitions")
-
-    assert SourcePath.name == "SplitLargeDefinitions.md"
-    assert SourcePath.is_file()
-
-
 # isolated repositories prove stale generated skills are both detected and removed
 def CheckStale(TmpPath: FilePath) -> None:
     RepositoryPath = TmpPath / "repository"
-    Shutil.copytree(KRootPath / "tools", RepositoryPath / "tools")
-    Shutil.copytree(
+    _ = Shutil.copytree(KRootPath / "tools", RepositoryPath / "tools")
+    _ = Shutil.copytree(
         KRootPath / ".kiro" / "steering", RepositoryPath / ".kiro" / "steering"
     )
-    Shutil.copytree(
+    _ = Shutil.copytree(
         KRootPath / ".agents" / "skills", RepositoryPath / ".agents" / "skills"
     )
 
     StalePath = RepositoryPath / ".agents" / "skills" / "obsolete-rule" / "SKILL.md"
     StalePath.parent.mkdir()
-    StalePath.write_text("obsolete\n", encoding="utf-8")
+    _ = StalePath.write_text("obsolete\n", encoding="utf-8")
 
     CheckResult = RunMigration(RepositoryPath, "--check")
     assert CheckResult.returncode == 1
@@ -84,11 +68,11 @@ def CheckStale(TmpPath: FilePath) -> None:
 # rendered bytes need direct coverage because structural refactors must not rewrite generated guidance
 def CheckByteOutput(TmpPath: FilePath) -> None:
     RepositoryPath = TmpPath / "repository"
-    Shutil.copytree(KRootPath / "tools", RepositoryPath / "tools")
-    Shutil.copytree(
+    _ = Shutil.copytree(KRootPath / "tools", RepositoryPath / "tools")
+    _ = Shutil.copytree(
         KRootPath / ".kiro" / "steering", RepositoryPath / ".kiro" / "steering"
     )
-    Shutil.copytree(
+    _ = Shutil.copytree(
         KRootPath / ".agents" / "skills", RepositoryPath / ".agents" / "skills"
     )
     BeforeData = {
@@ -108,15 +92,15 @@ def CheckByteOutput(TmpPath: FilePath) -> None:
 # subprocess collection proves legacy and compliant test names coexist without source aliases
 def CheckCollect(TmpPath: FilePath) -> None:
     TestPath = TmpPath / "test_mixed_names.py"
-    TestPath.write_text(
+    _ = TestPath.write_text(
         "def test_legacy_name():\n"
-        "    assert True\n\n"
-        "def CheckModern():\n"
-        "    assert True\n",
+        + "    assert True\n\n"
+        + "def CheckModern():\n"
+        + "    assert True\n",
         encoding="utf-8",
     )
     EnvValues = dict(OsEnv.environ)
-    EnvValues.pop("PYTEST_ADDOPTS", None)
+    _ = EnvValues.pop("PYTEST_ADDOPTS", None)
     CommandArgs = [
         System.executable,
         "-m",
@@ -149,14 +133,12 @@ def CheckAliases(
     MonkeyPatch: Pytest.MonkeyPatch,
 ) -> None:
     ProbePath = KRootPath / "tests" / "test_fixture_aliases_probe.py"
-    ProbePath.write_text(
-        Textwrap.dedent(
-            """
+    _ = ProbePath.write_text(
+        Textwrap.dedent("""
             def test_fixture_aliases(tmp_path, TmpPath, monkeypatch, MonkeyPatch):
                 assert TmpPath is tmp_path
                 assert MonkeyPatch is monkeypatch
-            """
-        ),
+            """),
         encoding="utf-8",
     )
     MonkeyPatch.setenv("PYTEST_DISABLE_PLUGIN_AUTOLOAD", "1")

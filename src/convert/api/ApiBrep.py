@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
@@ -37,9 +32,12 @@ def ExtractBrep(
     UsedNames: set[str] = set()
     for IndexValue, PayloadData in enumerate(GetBrepPayloads(DocumentData), start=1):
         OutputName = MakeBrepNameMut(PayloadData, IndexValue, UsedNames)
-        OutputPath = TargetPath / f"{OutputName}{PayloadData.file_extension}"
+        OutputPath = TargetPath / f"{OutputName}{PayloadData.FileExtension}"
         if OutputPath.exists() and not Overwrite:
             raise FileExistsError(OutputPath)
-        OutputPath.write_bytes(PayloadData.data)
+        PayloadBytes = PayloadData.PayloadData
+        if PayloadBytes is None:
+            continue
+        _ = OutputPath.write_bytes(PayloadBytes)
         OutputPaths.append(OutputPath)
     return tuple(OutputPaths)

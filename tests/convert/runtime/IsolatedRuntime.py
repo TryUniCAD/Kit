@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 
 # isolated execution proves the wheel needs no cad application or external runtime hook
@@ -90,7 +85,10 @@ cases = (
     (output / "conversion_0.FCStd", ".CATPart"),
     (root / "examples" / ".CATPart" / "Banjo.CATPart", ".SLDPRT"),
     (
-        root / "examples" / "Random" / "Pistons" / "Piston.SLDASM",
+        root
+        / "examples"
+        / "Single Turbo Dual Overhead Cam V8 - KDP - 2024"
+        / "Cylinder Head Assy 1.SLDASM",
         ".CATProduct",
     ),
     (

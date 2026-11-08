@@ -1,11 +1,6 @@
 <!--
-SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-
-This SPDX license identifier and copyright notice must not be
-removed, altered, or obscured. Doing so is a material breach of
-the PolyForm Strict License 1.0.0 and voids all licenses granted
-to you under it immediately and permanently.
+SPDX-License-Identifier: MIT
+SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 -->
 
 # Agent guidance
@@ -41,6 +36,32 @@ Each kebab-case skill is generated from its mapped PascalCase source file in
   file, and background Git operation as user-owned state. Preserve it and work
   around it unless the user explicitly says otherwise.
 
+## Reverse engineering workspace exemption
+
+The repository-root `re/` tree is an unrestricted research workspace. Do not
+apply unit-test requirements or code standards there, including naming,
+formatting, typing, imports, rationale comments, SPDX headers, declaration
+splitting, architecture, or directory-density rules. Do not add unit tests or
+run code-quality checks for `re/` as part of repository compliance.
+
+This exemption takes precedence over all code and testing guidance in this
+file, `.kiro/steering/`, and `.agents/skills/`. It applies only to `re/` and its
+descendants; code promoted into other directories follows their normal rules.
+Git isolation and preservation of user-owned work still apply.
+
+## Test policy
+
+- Unit tests are prohibited. Do not add, restore, generate, or request tests of
+  individual functions, methods, classes, or internal helpers in isolation.
+- This ban also covers policy, security, and tooling unit tests. Do not relabel
+  isolated tests as integration tests to bypass it.
+- Validate behavior through integration, end-to-end, smoke, compatibility, and
+  repository-wide policy checks at real component or process boundaries.
+- Run tests only in pull request CI, never locally. Keep all applicable CI checks
+  enabled and require them to pass.
+- This policy takes precedence over any skill requesting unit tests or a test
+  file for each implementation module.
+
 ## Skill routing
 
 | When working on…                                                               | Activate these skills                                                                                                                             |
@@ -49,9 +70,10 @@ Each kebab-case skill is generated from its mapped PascalCase source file in
 | Any code or related text change                                                | `code-formatting`, `no-stubs`, `spdx-header`                                                                                                      |
 | Any source-code structure, declaration, module, or import change               | `split-large-definitions`                                                                                                                         |
 | Any file creation, rename, move, import, extension, or security-quality change | `repository-structure`                                                                                                                            |
-| Shared workspace state or unknown concurrent Git and file changes               | `user-owned-workspace`                                                                                                                            |
+| Shared workspace state or unknown concurrent Git and file changes              | `user-owned-workspace`                                                                                                                            |
 | A reported error, stack trace, failed test, or broken behavior                 | `fix-errors-dont-ask`                                                                                                                             |
 | Git history or a write-capable Git operation                                   | `git-never-touch-main`                                                                                                                            |
+| Creating, invoking, or handing off repository-changing agent work              | `isolated-agent-worktrees`                                                                                                                        |
 | Python dependencies, `pyproject.toml`, `uv.lock`, or Python CI                 | `python-package-manager`                                                                                                                          |
 | GitHub Actions or runner configuration                                         | `pin-dependencies`                                                                                                                                |
 | `pixi.toml`                                                                    | `pixi-lockfiles`                                                                                                                                  |
@@ -67,6 +89,6 @@ Each kebab-case skill is generated from its mapped PascalCase source file in
 
 `SKILL.md` files must begin with their required YAML frontmatter to remain
 Agent Skills-compatible. For `.agents/skills/**/SKILL.md`, use the required
-`license: LicenseRef-PolyForm-Strict-1.0.0` frontmatter field instead of
+`license: MIT` frontmatter field instead of
 placing the normal comment notice before the frontmatter. All other new files
 continue to use the exact `HEADER_NOTICE` block.

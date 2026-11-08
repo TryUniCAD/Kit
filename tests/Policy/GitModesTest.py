@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
@@ -23,7 +18,7 @@ from tools.Policy.LoadTree import LoadTree
 class TestGitModes(UnitTest.TestCase):
 
     # rename detection must expose only the destination while full scans retain the complete head tree
-    def CheckGitModes(CaseSelf) -> None:
+    def CheckGitModes(self) -> None:
         with Tempfile.TemporaryDirectory() as TmpPath:
             RootPath = FilePath(TmpPath)
             FixtureInfo = RepoFixture(RootPath)
@@ -37,11 +32,11 @@ class TestGitModes(UnitTest.TestCase):
             TrackedPaths = LoadTracked(NestedPath)
             TreePaths = LoadTree(NestedPath, HeadRef)
             ChangedPaths = LoadChanged(NestedPath, BaseRef, HeadRef)
-        CaseSelf.assertEqual(set(TrackedPaths), {"Bravo.py", "bad_name.py"})
-        CaseSelf.assertEqual(set(TreePaths), {"Bravo.py", "bad_name.py"})
-        CaseSelf.assertEqual(set(ChangedPaths), {"Bravo.py", "bad_name.py"})
+        self.assertEqual(set(TrackedPaths), {"Bravo.py", "bad_name.py"})
+        self.assertEqual(set(TreePaths), {"Bravo.py", "bad_name.py"})
+        self.assertEqual(set(ChangedPaths), {"Bravo.py", "bad_name.py"})
         FindingList = CheckPathPolicy(TreePaths, ChangedPaths)
-        CaseSelf.assertEqual(
+        self.assertEqual(
             [FindingInfo.RepoPath for FindingInfo in FindingList],
             ["bad_name.py"],
         )

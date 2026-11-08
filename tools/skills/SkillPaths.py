@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
@@ -13,7 +8,6 @@ from pathlib import Path as FilePath
 
 from tools.skills.Descriptions import KDescriptions
 from tools.skills.SkillNames import GetSourceStem
-
 
 # repository location anchors generation so copied tools resolve their local assets
 KRootPath = FilePath(__file__).resolve().parents[2]

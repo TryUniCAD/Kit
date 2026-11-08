@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations as Annotations
 import math as MathValue
@@ -94,23 +89,29 @@ def EncodeFeatures() -> bytes:
 
 # this definition exists because focused behavior needs one stable owner
 def EncodeHeader() -> bytes:
-    from convert.adapters.solidworks.core import Native as NativeMod
+    from convert.adapters.solidworks.core.Native import (
+        HeaderPayload,
+        KHeaderObjects,
+        KSolidworksConfigFlags,
+        NativeIdentity,
+        Serialized,
+    )
 
     CreatedStamp, ModifiedStamp, BaselineStamp, HeaderStamp = KHeaderIdentity
-    IdentityData = NativeMod._NativeIdentity(
+    IdentityData = NativeIdentity(
         CreatedStamp,
         ModifiedStamp,
         BaselineStamp,
         HeaderStamp,
-        NativeMod._SOLIDWORKS_CONFIGURATION_FLAGS,
+        KSolidworksConfigFlags,
         KHeaderLogRef,
     )
     HeaderData = bytearray(
-        NativeMod._header_payload(
+        HeaderPayload(
             IdentityData,
             "Default",
             (
-                *NativeMod._HEADER_OBJECTS,
+                *KHeaderObjects,
                 (26, "Sketch1", True),
                 (31, "Revolve1", False),
             ),
@@ -121,8 +122,8 @@ def EncodeHeader() -> bytes:
             CalcPinFront(),
         )
     )
-    LogRefData = NativeMod._serialized_string(KHeaderLogRef)
-    ModelRefData = NativeMod._serialized_string(KHeaderModelRef)
+    LogRefData = Serialized(KHeaderLogRef)
+    ModelRefData = Serialized(KHeaderModelRef)
     RefPositions: list[int] = []
     SearchStart = 0
     while True:
@@ -151,16 +152,16 @@ def BuildEnvelope() -> PinEnvelope:
 
 
 # this binding exists because shared behavior needs one stable value
-globals()["CalcPinFrontBounds"] = CalcPinFront
+CalcPinFrontBounds = CalcPinFront
 
 # this binding exists because shared behavior needs one stable value
-globals()["KHeaderLogReference"] = KHeaderLogRef
+KHeaderLogReference = KHeaderLogRef
 
 # this binding exists because shared behavior needs one stable value
-globals()["KHeaderModelReference"] = KHeaderModelRef
+KHeaderModelReference = KHeaderModelRef
 
 # this binding exists because shared behavior needs one stable value
-globals()["annotations"] = Annotations
+annotations = Annotations
 
 # this binding exists because shared behavior needs one stable value
-globals()["math"] = MathValue
+math = MathValue

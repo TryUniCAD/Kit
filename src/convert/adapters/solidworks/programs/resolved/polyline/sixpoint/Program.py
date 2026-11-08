@@ -1,16 +1,13 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
 from collections.abc import Mapping
 import math as MathLib
-from typing import Any as AnyValue
+from convert.adapters.solidworks.programs.Common.ProgramContract import (
+    KFieldValue as FieldType,
+)
 
 from convert.adapters.solidworks.container.Container import SldprtFormatError
 from convert.adapters.solidworks.programs.Common.FieldEncoder import (
@@ -18,11 +15,14 @@ from convert.adapters.solidworks.programs.Common.FieldEncoder import (
     ReplayResolved,
 )
 
-from .Registry import (
-    KFieldOwners,
-    KResolvedOps,
+from .Registry import (  # lgtm[py/unused-import]
+    KFieldOwners as KFieldOwners,
+    KResolvedOps as KResolvedOps,
 )
 
+
+# compatibility binding preserves the generated owner catalog facade
+FieldOwners = KFieldOwners
 
 # six unique vertices drive the closed line chain without duplicated endpoints
 KPointOffsets = (
@@ -144,6 +144,6 @@ def PadFieldMap(
 
 
 # callers can replace semantic fields while retaining recovered object framing
-def EncodeProgram(Overrides: Mapping[int, AnyValue] | None = None) -> bytes:
+def EncodeProgram(Overrides: Mapping[int, FieldType] | None = None) -> bytes:
     ExpectedLength = KResolvedOps[-1][0] + KResolvedOps[-1][1]
     return ReplayResolved(KResolvedOps, ExpectedLength, Overrides, KPrimitiveFormats)

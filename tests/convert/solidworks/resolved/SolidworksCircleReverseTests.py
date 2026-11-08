@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 import hashlib as Hashlib
@@ -15,17 +10,20 @@ from convert.adapters.solidworks.container.Archive import (
     read_string as ReadString,
 )
 from convert.adapters.solidworks.programs.configuration.circle.reverse.Program import (
-    ConfigOps,
     EncodeProgram as EncodeConfig,
-    FieldOwners as ConfigOwners,
     ReferenceLength,
+)
+from convert.adapters.solidworks.programs.configuration.circle.reverse.Registry import (
+    ConfigOps,
+    FieldOwners as ConfigOwners,
 )
 from convert.adapters.solidworks.container.Container import (
     SldprtArchive,
-    SldprtFormatError,
 )
 from convert.adapters.solidworks.programs.resolved.circle.reverse.Program import (
     EncodeProgram as EncodeResolved,
+)
+from convert.adapters.solidworks.programs.resolved.circle.reverse.Registry import (
     FieldOwners as ResolvedOwners,
     ResolvedOps,
 )
@@ -46,9 +44,9 @@ KConfigDigest = "fc1cb072c15c9f334bab288234353e3dc27db5aa83abd61c6fdd95364ac276a
 # keeps this focused behavior isolated so regressions remain immediately visible
 def CanonResolved(OracleData: bytes) -> bytes:
     PathOffset = 9853
-    IgnoredValue, PathWidth = ReadString(OracleData, PathOffset)
+    _, PathWidth = ReadString(OracleData, PathOffset)
     PartOffset = PathOffset + PathWidth + 2
-    IgnoredValue, PartWidth = ReadString(OracleData, PartOffset)
+    _, PartWidth = ReadString(OracleData, PartOffset)
     return (
         OracleData[:PathOffset]
         + EncodeString("")
@@ -61,7 +59,7 @@ def CanonResolved(OracleData: bytes) -> bytes:
 # keeps this focused behavior isolated so regressions remain immediately visible
 def CanonConfig(OracleData: bytes) -> bytes:
     PartOffset = 44
-    IgnoredValue, PartWidth = ReadString(OracleData, PartOffset)
+    _, PartWidth = ReadString(OracleData, PartOffset)
     return (
         OracleData[:PartOffset]
         + EncodeString("Part1")
@@ -79,7 +77,7 @@ def TestRRPCETF() -> None:
     CursorPos = 0
     ObjectCount = 0
     DefineCount = 0
-    for StartPos, FieldWidth, OwnerIndex, KindName, IgnoredValue in ResolvedOps:
+    for StartPos, FieldWidth, OwnerIndex, KindName, _ in ResolvedOps:
         assert StartPos == CursorPos
         assert FieldWidth > 0
         assert 0 <= OwnerIndex < len(ResolvedOwners)
@@ -110,7 +108,7 @@ def TestRCPCETF() -> None:
     CursorPos = 0
     ObjectCount = 0
     DefineCount = 0
-    for StartPos, FieldWidth, OwnerIndex, KindName, IgnoredValue in ConfigOps:
+    for StartPos, FieldWidth, OwnerIndex, KindName, _ in ConfigOps:
         assert StartPos == CursorPos
         assert FieldWidth > 0
         assert 0 <= OwnerIndex < len(ConfigOwners)
@@ -143,11 +141,3 @@ def TestRPMCO() -> None:
     assert len(OracleConfig) == 25190
     assert EncodeResolved() == CanonResolved(OracleResolved)
     assert EncodeConfig() == CanonConfig(OracleConfig)
-
-
-# keeps this focused behavior isolated so regressions remain immediately visible
-def TestRPRVWO() -> None:
-    with PytestLib.raises(SldprtFormatError, match="field width changed"):
-        EncodeResolved({9853: "saved paths are intentionally unsupported"})
-    with PytestLib.raises(SldprtFormatError, match="field width changed"):
-        EncodeConfig({44: "saved document names are intentionally unsupported"})

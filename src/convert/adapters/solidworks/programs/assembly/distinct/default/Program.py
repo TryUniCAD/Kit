@@ -1,15 +1,12 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import Any as AnyValue
+from convert.adapters.solidworks.programs.Common.ProgramContract import (
+    KFieldValue as FieldType,
+)
 
 from convert.adapters.solidworks.container.Container import SldprtFormatError
 from convert.adapters.solidworks.programs.Common.FieldEncoder import (
@@ -18,27 +15,28 @@ from convert.adapters.solidworks.programs.Common.FieldEncoder import (
     ReplayAssembly,
 )
 
-from .Registry import (
-    FieldOwners,
-    StreamPrograms,
+from .Registry import (  # lgtm[py/unused-import]
+    FieldOwners as FieldOwners,
+    KFieldOwners as KFieldOwners,
+    KStreamPrograms as KStreamPrograms,
+    StreamPrograms as StreamPrograms,
 )
 
-
 # legacy format access remains available while shared encoding owns the mapping
-globals()["PrimitiveFormats"] = KPrimitiveFormats
+PrimitiveFormats = KPrimitiveFormats
 
 
 # each operation serializes one recovered value through its typed contract
-def EncodeField(KindName: str, FieldValue: AnyValue) -> bytes:
-    return EncodeValue(KindName, FieldValue, "assembly")
+def EncodeField(KindName: str, KFieldValue: FieldType) -> bytes:
+    return EncodeValue(KindName, KFieldValue, "assembly")
 
 
 # callers may replace semantic fields while source offsets preserve field order
 def EncodeProgram(
-    StreamName: str, Overrides: Mapping[int, AnyValue] | None = None
+    StreamName: str, Overrides: Mapping[int, FieldType] | None = None
 ) -> bytes:
     try:
-        Operations = StreamPrograms[StreamName]
+        Operations = KStreamPrograms[StreamName]
     except KeyError as ErrorData:
         raise SldprtFormatError(
             f"unknown assembly stream {StreamName!r}"

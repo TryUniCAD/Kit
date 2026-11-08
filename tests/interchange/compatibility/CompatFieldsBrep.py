@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 # historical brep fields stay isolated so dataclass reflection expectations remain reviewable
 KCompatFieldsBrep = (
@@ -25,7 +20,6 @@ KCompatFieldsBrep = (
         "interchange.brep.BrepCoedge",
         ("id", "provenance", "attributes", "edge_id", "pcurve_id", "reversed"),
     ),
-    ("interchange.brep.BrepCurve", ("id", "provenance", "attributes")),
     (
         "interchange.brep.BrepEdge",
         (
@@ -41,7 +35,6 @@ KCompatFieldsBrep = (
             "degenerate",
         ),
     ),
-    ("interchange.brep.BrepEntity", ("id", "provenance", "attributes")),
     (
         "interchange.brep.BrepFace",
         (
@@ -82,7 +75,6 @@ KCompatFieldsBrep = (
             "schema_version",
         ),
     ),
-    ("interchange.brep.BrepPcurve", ("id", "provenance", "attributes")),
     (
         "interchange.brep.BrepRegion",
         ("id", "provenance", "attributes", "shell_use_ids", "solid"),
@@ -95,7 +87,6 @@ KCompatFieldsBrep = (
         "interchange.brep.BrepShellUse",
         ("id", "provenance", "attributes", "shell_id", "reversed"),
     ),
-    ("interchange.brep.BrepSurface", ("id", "provenance", "attributes")),
     (
         "interchange.brep.BrepVertex",
         ("id", "provenance", "attributes", "point", "tolerance"),

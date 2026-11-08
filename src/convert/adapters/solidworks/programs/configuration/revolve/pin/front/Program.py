@@ -1,23 +1,19 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import Any as AnyValue
+from convert.adapters.solidworks.programs.Common.ProgramContract import (
+    KFieldValue as FieldType,
+)
 
 from convert.adapters.solidworks.programs.Common.FieldEncoder import ReplayFixed
 
-from .Registry import (
-    KFieldOwners,
-    KConfigOps,
+from .Registry import (  # lgtm[py/unused-import]
+    KConfigOps as KConfigOps,
+    KFieldOwners as KFieldOwners,
 )
-
 
 # the exact stream length detects accidental grammar drift
 KReferenceLength = 24976
@@ -30,7 +26,7 @@ KAnnotationMatrixOffset = 24315
 
 
 # typed replay emits the fixed configuration without retaining vendor byte spans
-def EncodeProgram(Overrides: Mapping[int, AnyValue] | None = None) -> bytes:
+def EncodeProgram(Overrides: Mapping[int, FieldType] | None = None) -> bytes:
     return ReplayFixed(KConfigOps, KReferenceLength, "Config-0", Overrides)
 
 

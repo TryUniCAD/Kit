@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 import os as OsInfo
@@ -39,8 +34,8 @@ def TestFRPOISWEV(TmpPath: FilePath) -> None:
     Document = FreecadRPD()
     TargetDoc = TmpPath / "FreeCADRectanglePad.SLDPRT"
     ResultInfo = WriteDocument(Document, TargetDoc, allow_carrier=False)
-    assert ResultInfo.application_usable is True
-    assert ResultInfo.vendor_loadable is True
+    assert ResultInfo.IsAppUsable is True
+    assert ResultInfo.IsVendorLoadable is True
     Archive = SldprtArchive.from_bytes(TargetDoc.read_bytes())
     Layout = LocateRectanglePad(Archive.require(StreamA))
     assert Layout is not None
@@ -63,7 +58,7 @@ def TestFRPOISWEV(TmpPath: FilePath) -> None:
 def TestSRGWACP(TmpPath: FilePath) -> None:
     Document = FreecadRPD()
     TargetDoc = TmpPath / "NoPartition.SLDPRT"
-    WriteDocument(Document, TargetDoc, allow_carrier=False)
+    _ = WriteDocument(Document, TargetDoc, allow_carrier=False)
     Archive = SldprtArchive.from_bytes(TargetDoc.read_bytes())
     assert Archive.get(Stream) is not None
     Layout = LocateRectanglePad(Archive.require(StreamA))

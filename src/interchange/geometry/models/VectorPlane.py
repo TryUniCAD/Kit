@@ -1,10 +1,6 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
+
 
 from interchange.core.ModelBase import ModelBase, ModelDataMut
 
@@ -12,5 +8,15 @@ from interchange.core.ModelBase import ModelBase, ModelDataMut
 # planar vectors keep sketch coordinates distinct from spatial geometry
 @ModelDataMut
 class PlaneVector(ModelBase):
-    XCoord: float
-    YCoord: float
+    x: float
+    y: float
+
+    # component access keeps vector math readable without tuple indexing
+    @property
+    def XCoord(self) -> float:
+        return self.x
+
+    # component access keeps vector math readable without tuple indexing
+    @property
+    def YCoord(self) -> float:
+        return self.y

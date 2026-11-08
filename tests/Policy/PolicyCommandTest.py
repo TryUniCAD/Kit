@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
@@ -21,7 +16,7 @@ from tests.Policy.RepoFixture import RepoFixture
 class TestCommand(UnitTest.TestCase):
 
     # full and changed invocations must distinguish legacy paths new destinations and invalid arguments
-    def CheckExitCodes(CaseSelf) -> None:
+    def CheckExitCodes(self) -> None:
         with Tempfile.TemporaryDirectory() as TmpPath:
             RootPath = FilePath(TmpPath)
             FixtureInfo = RepoFixture(RootPath)
@@ -58,11 +53,11 @@ class TestCommand(UnitTest.TestCase):
                 text=True,
                 check=False,
             )
-        CaseSelf.assertEqual(FullResult.returncode, 1)
-        CaseSelf.assertIn("bad_name.py", FullResult.stdout)
-        CaseSelf.assertEqual(
+        self.assertEqual(FullResult.returncode, 1)
+        self.assertIn("bad_name.py", FullResult.stdout)
+        self.assertEqual(
             ChangeResult.returncode,
             0,
             ChangeResult.stdout + ChangeResult.stderr,
         )
-        CaseSelf.assertEqual(InvalidResult.returncode, 2)
+        self.assertEqual(InvalidResult.returncode, 2)

@@ -1,14 +1,8 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
-from typing import Any as AnyValue
 from typing import Mapping as TypeMap
 
 from interchange import CadDocument
@@ -30,25 +24,17 @@ def WriteDocument(
     Overwrite: bool = False,
     ValidateData: bool = True,
     AllowCarrier: bool = True,
-    InputValues: TypeMap[str, AnyValue] | None = None,
+    InputValues: TypeMap[str, object] | None = None,
 ) -> WriteResult:
-    EngineCall = getattr(KConvertEngine, "write", None)
     WriteOpts = WriteOptions(
         configuration=Configuration,
         overwrite=Overwrite,
         validate=ValidateData,
         values=BuildWriteVals(InputValues, AllowCarrier),
     )
-    if EngineCall is not None:
-        return EngineCall(
-            DocumentData,
-            TargetData,
-            format_id=DestFormat,
-            options=WriteOpts,
-        )
-    return KConvertEngine.WriteTarget(
+    return KConvertEngine.write(
         DocumentData,
         TargetData,
-        FormatId=DestFormat,
-        WriteOpts=WriteOpts,
+        format_id=DestFormat,
+        options=WriteOpts,
     )

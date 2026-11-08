@@ -1,14 +1,9 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
-from typing import Any as AnyValue
+from dataclasses import field as MakeDataField
 from typing import Mapping as TypeMap
 
 from interchange.core.Common import FreezeMapping
@@ -18,18 +13,41 @@ from interchange.records.RecordProvenance import Provenance
 
 
 # diagnostics carry recoverable translation issues without invalidating useful documents
-@ModelDataMut(
-    DefaultMap={
-        "Level": Severity.KWarning,
-        "EntityId": "",
-        "Provenance": None,
-    },
-    FactoryMap={"Attributes": FreezeMapping},
-)
+@ModelDataMut
 class Diagnostic(ModelBase):
-    ErrorCode: str
-    MessageText: str
-    Level: Severity
-    EntityId: str
-    Provenance: Provenance | None
-    Attributes: TypeMap[str, AnyValue]
+    code: str
+    message: str
+    severity: Severity = Severity.KWarning
+    entity_id: str = ""
+    provenance: Provenance | None = None
+    attributes: TypeMap[str, object] = MakeDataField(default_factory=FreezeMapping)
+
+    # stable code lets tooling filter failures without parsing prose
+    @property
+    def ErrorCode(self) -> str:
+        return self.code
+
+    # human message explains failures in words codes cannot carry
+    @property
+    def MessageText(self) -> str:
+        return self.message
+
+    # severity ranking lets callers triage what blocks conversion
+    @property
+    def Level(self) -> Severity:
+        return self.severity
+
+    # stable identity lets records reference each other without holding full objects
+    @property
+    def EntityId(self) -> str:
+        return self.entity_id
+
+    # origin details stay optional so synthesized records can omit source facts safely
+    @property
+    def Provenance(self) -> Provenance | None:
+        return self.provenance
+
+    # open attribute bag preserves vendor extras that typed fields cannot express yet
+    @property
+    def Attributes(self) -> TypeMap[str, object]:
+        return self.attributes

@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from math import isfinite as IsFiniteNum
 from math import pi as KPiValue
@@ -79,8 +74,8 @@ def IsSplineSurf(SurfaceValue: NurbsSurface) -> bool:
     ControlRows = SurfaceValue.ControlPoints
     RowSize = len(ControlRows[0]) if ControlRows else 0
     WeightRows = SurfaceValue.Weights
-    UWeights = tuple(1.0 for UnusedValue in ControlRows) if WeightRows else ()
-    VWeights = tuple(1.0 for UnusedValue in range(RowSize)) if WeightRows else ()
+    UWeights = (1.0,) * len(ControlRows) if WeightRows else ()
+    VWeights = (1.0,) * RowSize if WeightRows else ()
     return (
         bool(ControlRows)
         and RowSize > 0

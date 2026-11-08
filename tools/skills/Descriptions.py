@@ -1,13 +1,7 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
-
 
 # task triggers stay centralized because generated frontmatter must remain deterministic across runtimes
 KDescriptions = {
@@ -21,6 +15,7 @@ KDescriptions = {
     "git-never-touch-main": "Protect the main branch. Use before any Git commit, push, pull, merge, rebase, reset, cherry-pick, or revert operation.",
     "hostcontrol-contract": "Keep HostControl services, schemas, tests, documentation, and consumers synchronized. Use when changing a HostControl service contract.",
     "identifier-markers": "Prefix boolean-returning functions and methods with Is, Has, or Can. Use when naming or renaming any function or method that returns a bool.",
+    "isolated-agent-worktrees": "Run every repository-changing delegated agent in its own isolated worktree and finish with a draft pull request. Use when creating, invoking, or handing off work to another agent.",
     "layout-system": "Use existing global layout primitives and avoid hand-rolled layout. Use when changing React or Next.js page layout, shells, or spacing.",
     "linear-issue-tracking": "Track work end-to-end in Linear. Use when starting, updating, or completing a task that requires a Linear issue workflow.",
     "lossless-translation": "Hold every format translation to lossless, vendor loadable, application usable, and parametric output verified in the target application. Use when converting between CAD formats or reporting translation results.",

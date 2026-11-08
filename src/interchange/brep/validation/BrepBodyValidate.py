@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from interchange.brep.topology.BrepMath import IsFiniteFrame
 from interchange.brep.validation.BrepView import BrepView
@@ -17,7 +12,7 @@ def GetBodyErrors(
     DesignBodyIds: frozenset[str],
 ) -> tuple[str, ...]:
     ErrorValues: list[str] = []
-    for RegionValue in ModelValue.Regions:
+    for RegionValue in ModelValue.regions:
         if not RegionValue.ShellUseIds:
             ErrorValues.append(f"B-rep region {RegionValue.EntityId} is empty")
         for ShellUseId in RegionValue.ShellUseIds:
@@ -25,7 +20,7 @@ def GetBodyErrors(
                 ErrorValues.append(
                     f"B-rep region {RegionValue.EntityId} references a missing shell use"
                 )
-    for BodyValue in ModelValue.Bodies:
+    for BodyValue in ModelValue.bodies:
         if (
             not BodyValue.RegionIds
             and not BodyValue.WireIds
@@ -55,6 +50,6 @@ def GetBodyErrors(
             ErrorValues.append(
                 f"B-rep body {BodyValue.EntityId} references a missing design body"
             )
-    if not ModelValue.Bodies:
+    if not ModelValue.bodies:
         ErrorValues.append("B-rep model has no bodies")
     return tuple(ErrorValues)

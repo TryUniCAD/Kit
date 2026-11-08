@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations as Annotations
 import math as MathValue
@@ -89,21 +84,26 @@ def EncodeFeatures() -> bytes:
 
 # this definition exists because focused behavior needs one stable owner
 def EncodeHeader() -> bytes:
-    from convert.adapters.solidworks.core import Native as NativeMod
+    from convert.adapters.solidworks.core.Native import (
+        HeaderPayload,
+        KHeaderObjects,
+        KSolidworksConfigFlags,
+        NativeIdentity,
+    )
 
     CreatedStamp, ModifiedStamp, BaselineStamp, HeaderStamp = KHeaderIdentity
-    IdentityData = NativeMod._NativeIdentity(
+    IdentityData = NativeIdentity(
         CreatedStamp,
         ModifiedStamp,
         BaselineStamp,
         HeaderStamp,
-        NativeMod._SOLIDWORKS_CONFIGURATION_FLAGS,
+        KSolidworksConfigFlags,
         "Part1",
     )
-    return NativeMod._header_payload(
+    return HeaderPayload(
         IdentityData,
         "Default",
-        (*NativeMod._HEADER_OBJECTS, (26, "Sketch1", True), (31, "Revolve1", False)),
+        (*KHeaderObjects, (26, "Sketch1", True), (31, "Revolve1", False)),
         "",
         KHeaderUser,
         32,
@@ -125,16 +125,16 @@ def BuildEnvelope() -> PinEnvelope:
 
 
 # this binding exists because shared behavior needs one stable value
-globals()["CalcPin90Bounds"] = CalcPinNineZero
+CalcPin90Bounds = CalcPinNineZero
 
 # this binding exists because shared behavior needs one stable value
-globals()["EncodePin90Config"] = EncodePinNineZeroConfig
+EncodePin90Config = EncodePinNineZeroConfig
 
 # this binding exists because shared behavior needs one stable value
-globals()["EncodePin90Features"] = EncodePinNineZeroFeatures
+EncodePin90Features = EncodePinNineZeroFeatures
 
 # this binding exists because shared behavior needs one stable value
-globals()["annotations"] = Annotations
+annotations = Annotations
 
 # this binding exists because shared behavior needs one stable value
-globals()["math"] = MathValue
+math = MathValue

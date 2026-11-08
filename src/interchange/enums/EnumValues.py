@@ -1,16 +1,18 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from interchange.enums.EnumBase import WireEnum
 
 
 # value categories preserve parameter meaning beyond primitive python representation
 class ValueKind(WireEnum):
+    LENGTH = "length"
+    ANGLE = "angle"
+    QUANTITY = "quantity"
+    NUMBER = "number"
+    INTEGER = "integer"
+    BOOLEAN = "boolean"
+    STRING = "string"
     KLength = "length"
     KAngle = "angle"
     KQuantity = "quantity"
@@ -22,6 +24,10 @@ class ValueKind(WireEnum):
 
 # parameter roles retain whether downstream systems may drive each value
 class ParameterRole(WireEnum):
+    DRIVING = "driving"
+    DRIVEN = "driven"
+    REFERENCE = "reference"
+    DERIVED = "derived"
     KDriving = "driving"
     KDriven = "driven"
     KReference = "reference"

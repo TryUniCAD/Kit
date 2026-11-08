@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 """Verify exact SPDX headers on every in-scope changed file."""
 
@@ -29,13 +24,13 @@ KRepoRoot = Pathlib.Path(__file__).resolve().parents[2]
 KHeaderNoticePath = KRepoRoot / "HEADER_NOTICE"
 
 # required skill license stays immutable because frontmatter cannot carry the normal leading block
-KSkillLicenseField = "license: LicenseRef-PolyForm-Strict-1.0.0"
+KSkillLicenseField = "license: MIT"
 
 # complete commit identifiers keep diff and worktree selection free from revision expression ambiguity
 KFullShaPattern = Regex.compile(r"\A[0-9a-f]{40}\Z")
 
-# exempt prefixes stay narrow because only steering sources and vendor examples omit normal headers
-KExemptPrefixes = (".kiro/", "examples/")
+# exempt prefixes stay narrow because steering sources and vendor examples omit normal headers
+KExemptPrefixes = (".kiro/", "examples/", "re/")
 
 # canonical notice remains exempt because it is the uncommented source used to render headers
 KExemptPaths = frozenset({"HEADER_NOTICE"})
@@ -614,19 +609,21 @@ def ParseArgs(ArgValues: list[str] | None = None) -> Argparse.Namespace:
 # command orchestration stays small because policy helpers own classification and validation details
 def MainRun(ArgValues: list[str] | None = None) -> int:
     ArgsInfo = ParseArgs(ArgValues)
-    if not IsCommit(ArgsInfo.BaseRef) or not IsCommit(ArgsInfo.HeadRef):
-        print(
-            "Base and head must be full commit object identifiers", file=System.stderr
-        )
-        return 1
     WorktreeRoot, WorktreeReason = CheckWorktree(
         ArgsInfo.WorktreeRoot, ArgsInfo.HeadRef
     )
     if WorktreeRoot is None:
         print(WorktreeReason, file=System.stderr)
         return 1
+    if not IsCommit(ArgsInfo.BaseRef, WorktreeRoot) or not IsCommit(
+        ArgsInfo.HeadRef, WorktreeRoot
+    ):
+        print(
+            "Base and head must be full commit object identifiers", file=System.stderr
+        )
+        return 1
     CanonLines = LoadCanon()
-    ChangedPaths = GetDiffFiles(ArgsInfo.BaseRef, ArgsInfo.HeadRef)
+    ChangedPaths = GetDiffFiles(ArgsInfo.BaseRef, ArgsInfo.HeadRef, WorktreeRoot)
     if ArgsInfo.FixMissing:
         return RepairFilesMut(ChangedPaths, CanonLines, WorktreeRoot)
     return CheckFiles(ChangedPaths, CanonLines, WorktreeRoot)

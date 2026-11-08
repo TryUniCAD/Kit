@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from interchange.core.Common import FreezeMapping, KJsonScalar, KJsonValue
 from interchange.enums.EnumDocument import Capability, Severity
@@ -67,17 +62,14 @@ BindCompatMut(
     {__name__: globals()},
 )
 
-globals().update(
-    {
-        "JsonScalar": KJsonScalar,
-        "JsonValue": KJsonValue,
-        "ParameterOverride": ParamOverride,
-        "TopologySummary": TopologyCounts,
-        "Vector2": PlaneVector,
-        "Vector3": SpaceVector,
-        "frozen_mapping": FreezeMapping,
-    }
-)
+JsonScalar = KJsonScalar
+JsonValue = KJsonValue
+BooleanOperation = BooleanOp
+ParameterOverride = ParamOverride
+TopologySummary = TopologyCounts
+Vector2 = PlaneVector
+Vector3 = SpaceVector
+frozen_mapping = FreezeMapping
 
 BindFunctionMut(
     FreezeMapping,

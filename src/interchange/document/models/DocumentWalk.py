@@ -1,23 +1,14 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING as TypeChecking
 from typing import Iterator as ValueIterator
-
-if TypeChecking:
-    from interchange.document.models.DocumentModel import CadDocument
 
 
 # nested assembly documents need cycle safe traversal for aggregate operations
 def WalkDocuments(DocumentValue: CadDocument) -> ValueIterator[CadDocument]:
-    from interchange.document.models.DocumentModel import CadDocument
+    from interchange.document.validation.DocumentBoundary import GetDocument
 
     PendingValues = [DocumentValue]
     SeenValues: set[int] = set()
@@ -28,10 +19,12 @@ def WalkDocuments(DocumentValue: CadDocument) -> ValueIterator[CadDocument]:
             continue
         SeenValues.add(IdentityValue)
         yield ItemValue
-        if ItemValue.Assembly is None:
+        if ItemValue.assembly is None:
             continue
-        PendingValues.extend(
-            ComponentValue.Document
-            for ComponentValue in reversed(ItemValue.Assembly.Documents)
-            if isinstance(ComponentValue.Document, CadDocument)
-        )
+        for ComponentValue in reversed(ItemValue.assembly.documents):
+            NestedValue = GetDocument(ComponentValue.document)
+            if NestedValue is not None:
+                PendingValues.append(NestedValue)
+
+
+from interchange.document.models.DocumentModel import CadDocument  # noqa: E402

@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from convert.adapters.freecad.Adapter import (
     FreeCADAdapter as FreeCadAdapter,
@@ -32,25 +27,25 @@ KAllValue = [
 ]
 
 # this binding exists because shared behavior needs one stable value
-globals()["FreeCADAdapter"] = FreeCadAdapter
+FreeCADAdapter = FreeCadAdapter
 
 # this binding exists because shared behavior needs one stable value
-globals()["FreeCADAdapterError"] = FreeCadAdapterError
+FreeCADAdapterError = FreeCadAdapterError
 
 # this binding exists because shared behavior needs one stable value
-globals()["build_fcstd_archive"] = BuildFcstdArchive
+build_fcstd_archive = BuildFcstdArchive
 
 # this binding exists because shared behavior needs one stable value
-globals()["document_to_manifest"] = DocToManifest
+document_to_manifest = DocToManifest
 
 # this binding exists because shared behavior needs one stable value
-globals()["extract_freecad_manifest"] = ExtractFreecadManifest
+extract_freecad_manifest = ExtractFreecadManifest
 
 # this binding exists because shared behavior needs one stable value
-globals()["extract_manifest_from_fcstd"] = ExtractManifestFromFcstd
+extract_manifest_from_fcstd = ExtractManifestFromFcstd
 
 # this binding exists because shared behavior needs one stable value
-globals()["read_freecad"] = ReadFreecad
+read_freecad = ReadFreecad
 
 # this binding exists because shared behavior needs one stable value
-globals()["write_freecad"] = WriteFreecad
+write_freecad = WriteFreecad

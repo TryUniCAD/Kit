@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from pathlib import Path as FilePath
 
@@ -15,7 +10,6 @@ from convert.adapters.base import Source
 from convert.adapters.json.StreamIo import ReadPrefixMut
 from interchange import CadDocument
 from interchange import Capability
-
 
 # this suffix is shared by probing registry metadata and path support checks
 KSuffix = ".json"
@@ -39,11 +33,11 @@ class JsonMetadata:
 
     # this property gives the registry stable adapter metadata
     @property
-    def InfoAction(Instance) -> AdapterInfo:
+    def InfoAction(self) -> AdapterInfo:
         return KInfoValue
 
     # this probe reads only enough data to identify an interchange document
-    def Probe(Instance, SourceValue: Source) -> ProbeResult:
+    def InspectSource(self, SourceValue: Source) -> ProbeResult:
         Suffix = ""
         if isinstance(SourceValue, (str, FilePath)):
             Suffix = FilePath(SourceValue).suffix.lower()
@@ -58,11 +52,7 @@ class JsonMetadata:
         return ProbeResult(KInfoValue.format_id, Confidence, Reason)
 
     # this check accepts matching paths and writable stream objects
-    def CanSupport(Instance, DocValue: CadDocument, Target: Destination) -> bool:
+    def CanSupport(self, DocValue: CadDocument, Target: Destination) -> bool:
         if isinstance(Target, (str, FilePath)):
             return FilePath(Target).suffix.lower() in KInfoValue.extensions
         return callable(getattr(Target, "write", None))
-
-    locals()["info"] = InfoAction
-    locals()["probe"] = Probe
-    locals()["supports"] = CanSupport

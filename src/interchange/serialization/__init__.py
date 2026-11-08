@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from inspect import Parameter as FuncParam
 from inspect import Signature as FuncSig
@@ -13,24 +8,22 @@ from interchange.compatibility.PublicMetadata import BindFunctionMut
 from interchange.serialization.Deserialize import FromData
 from interchange.serialization.EncodeData import ToData
 from interchange.serialization.JsonCodec import DumpJson, LoadJson
-from interchange.serialization.MigrationRegistry import (
-    KMigrationRegistry,
-    RegMigration,
-)
-from interchange.serialization.TypeRegistry import KTypeRegistry, RegisterTypes
+from interchange.serialization.MigrationRegistry import RegMigration
+from interchange.serialization.TypeRegistry import KTypeRegistry as RegisteredTypes
+from interchange.serialization.TypeRegistry import RegisterTypes
 
 BindFunctionMut(
     DumpJson,
     __name__,
     "dumps",
     {
-        "value": "Any",
+        "value": "object",
         "indent": "int | None",
         "return": "str",
     },
     FuncSig(
         (
-            FuncParam("value", FuncParam.POSITIONAL_OR_KEYWORD, annotation="Any"),
+            FuncParam("value", FuncParam.POSITIONAL_OR_KEYWORD, annotation="object"),
             FuncParam(
                 "indent",
                 FuncParam.KEYWORD_ONLY,
@@ -47,12 +40,12 @@ BindFunctionMut(
     __name__,
     "from_data",
     {
-        "value": "Any",
-        "return": "Any",
+        "value": "object",
+        "return": "object",
     },
     FuncSig(
-        (FuncParam("value", FuncParam.POSITIONAL_OR_KEYWORD, annotation="Any"),),
-        return_annotation="Any",
+        (FuncParam("value", FuncParam.POSITIONAL_OR_KEYWORD, annotation="object"),),
+        return_annotation="object",
     ),
     globals(),
 )
@@ -62,11 +55,11 @@ BindFunctionMut(
     "loads",
     {
         "source": "str",
-        "return": "Any",
+        "return": "object",
     },
     FuncSig(
         (FuncParam("source", FuncParam.POSITIONAL_OR_KEYWORD, annotation="str"),),
-        return_annotation="Any",
+        return_annotation="object",
     ),
     globals(),
 )
@@ -76,7 +69,7 @@ BindFunctionMut(
     "register_migration",
     {
         "target": "type",
-        "migration": "Callable[[Mapping[str, Any]], Mapping[str, Any]]",
+        "migration": "Callable[[Mapping[str, object]], Mapping[str, object]]",
         "return": "None",
     },
     FuncSig(
@@ -85,7 +78,7 @@ BindFunctionMut(
             FuncParam(
                 "migration",
                 FuncParam.POSITIONAL_OR_KEYWORD,
-                annotation="Callable[[Mapping[str, Any]], Mapping[str, Any]]",
+                annotation="Callable[[Mapping[str, object]], Mapping[str, object]]",
             ),
         ),
         return_annotation="None",
@@ -111,15 +104,23 @@ BindFunctionMut(
     __name__,
     "to_data",
     {
-        "value": "Any",
-        "return": "Any",
+        "value": "object",
+        "return": "WireData",
     },
     FuncSig(
-        (FuncParam("value", FuncParam.POSITIONAL_OR_KEYWORD, annotation="Any"),),
-        return_annotation="Any",
+        (FuncParam("value", FuncParam.POSITIONAL_OR_KEYWORD, annotation="object"),),
+        return_annotation="WireData",
     ),
     globals(),
 )
+
+dumps = DumpJson
+from_data = FromData
+KTypeRegistry = RegisteredTypes
+loads = LoadJson
+register_migration = RegMigration
+register_types = RegisterTypes
+to_data = ToData
 
 
 # serialization consumers need one intentional historical public contract

@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from pathlib import Path as FilePath
 
@@ -20,8 +15,8 @@ from interchange import CadDocument
 class JsonWriter:
 
     # this writer validates and emits deterministic utf eight json
-    def Write(
-        Instance,
+    def EmitTarget(
+        self,
         DocValue: CadDocument,
         Target: Destination,
         Options: WriteOptions | None = None,
@@ -35,7 +30,7 @@ class JsonWriter:
             if Output.exists() and not Settings.overwrite:
                 raise FileExistsError(Output)
             Output.parent.mkdir(parents=True, exist_ok=True)
-            Output.write_bytes(Payload)
+            _ = Output.write_bytes(Payload)
             return WriteResult(
                 Output,
                 KInfoValue.format_id,
@@ -51,5 +46,3 @@ class JsonWriter:
             application_usable=True,
             vendor_loadable=True,
         )
-
-    locals()["write"] = Write

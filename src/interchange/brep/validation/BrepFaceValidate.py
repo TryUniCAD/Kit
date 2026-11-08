@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from interchange.brep.topology.BrepMath import IsValidTol
 from interchange.brep.validation.BrepView import BrepView
@@ -15,7 +10,7 @@ def GetFaceErrors(
     ModelValue: BrepView, IdentitySets: dict[str, frozenset[str]]
 ) -> tuple[str, ...]:
     ErrorValues: list[str] = []
-    for FaceValue in ModelValue.Faces:
+    for FaceValue in ModelValue.faces:
         if FaceValue.SurfaceId not in IdentitySets["Surfaces"]:
             ErrorValues.append(
                 f"B-rep face {FaceValue.EntityId} references a missing surface"
@@ -31,7 +26,7 @@ def GetFaceErrors(
             ErrorValues.append(
                 f"B-rep face {FaceValue.EntityId} has an invalid tolerance"
             )
-    for FaceUseValue in ModelValue.FaceUses:
+    for FaceUseValue in ModelValue.face_uses:
         if FaceUseValue.FaceId not in IdentitySets["Faces"]:
             ErrorValues.append(
                 f"B-rep face use {FaceUseValue.EntityId} references a missing face"

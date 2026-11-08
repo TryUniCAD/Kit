@@ -1,19 +1,16 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
 import json as JsonData
-from typing import Any as AnyValue
+
+from tools.audit.FcstdResult import AuditRecord
+from tools.audit.FcstdSummary import AuditSummary
 
 
 # state classification keeps human output aligned with machine readable verdict fields
-def GetState(ResultData: dict[str, AnyValue]) -> str:
+def GetState(ResultData: AuditRecord) -> str:
     if ResultData["application_usable"]:
         return "usable"
     if ResultData["vendor_loadable"]:
@@ -24,7 +21,7 @@ def GetState(ResultData: dict[str, AnyValue]) -> str:
 
 
 # detail selection gives failures priority while retaining feature or requirement evidence
-def GetDetail(ResultData: dict[str, AnyValue]) -> str:
+def GetDetail(ResultData: AuditRecord) -> str:
     return (
         ResultData["error"]
         or ",".join(ResultData["feature_types"])
@@ -34,8 +31,8 @@ def GetDetail(ResultData: dict[str, AnyValue]) -> str:
 
 # report rendering keeps json and concise terminal formats semantically equivalent
 def PrintReport(
-    ResultsData: tuple[dict[str, AnyValue], ...],
-    SummaryData: dict[str, AnyValue],
+    ResultsData: tuple[AuditRecord, ...],
+    SummaryData: AuditSummary,
     IsJson: bool,
 ) -> None:
     if IsJson:

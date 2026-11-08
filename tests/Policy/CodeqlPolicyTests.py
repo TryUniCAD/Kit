@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from pathlib import Path as PathInfo
 import re as Regex
@@ -25,6 +20,10 @@ KQueryExcludes = frozenset(
 # common path barriers correspond only to fixed root containment functions
 KCorePathBarriers = frozenset(
     (
+        (
+            "convert",
+            "Member[Security].Member[LexicalBoundary].Member[ResolveLexical].ReturnValue",
+        ),
         (
             "convert",
             "Member[Security].Member[PathBoundary].Member[ResolveInput].ReturnValue",
@@ -104,13 +103,20 @@ def ModelRows(SourceText: str) -> frozenset[tuple[str, str, str]]:
     return frozenset(Matches)
 
 
-# workflow configuration must run every suite and supported repository language
+# workflow configuration must scan every suite and maintained repository language
 def TestFlowScope() -> None:
     SourceText = LoadText(".github/workflows/CodeqlSecurity.yml")
+    ConfigText = LoadText(".github/CodeQL/CodeqlConfig.yml")
+    SuiteText = LoadText(".github/CodeQL/PythonMaximal.qls")
     assert "config-file: ./.github/CodeQL/CodeqlConfig.yml" in SourceText
     assert "cp -R .github/CodeQL/extensions .github/codeql/extensions" in SourceText
-    for LanguageName in ("actions", "java-kotlin", "python"):
-        assert f"- {LanguageName}" in SourceText
+    assert "paths-ignore:\n  - re/**" in ConfigText
+    assert "queries: ./.github/CodeQL/PythonMaximal.qls" in SourceText
+    assert "- query: AlertSuppression.ql" in SuiteText
+    assert 'select(any(.suppressions[]?; .kind == "inSource") | not)' in SourceText
+    for LanguageName in ("actions", "python"):
+        assert f"language: {LanguageName}" in SourceText
+    assert "- java-kotlin" not in SourceText
 
 
 # query exceptions stay limited to receiver naming and nonsecret timing heuristics

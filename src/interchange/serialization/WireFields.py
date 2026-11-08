@@ -1,13 +1,7 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from typing import Mapping as TypeMap
-
 
 # renamed fields retain historical keys so serialized documents remain byte compatible
 KWireFields: TypeMap[str, str] = {
@@ -66,9 +60,13 @@ KWireFields: TypeMap[str, str] = {
 
 # record specific names resolve collisions without weakening the historical wire contract
 KTypeWireFields: TypeMap[str, TypeMap[str, str]] = {
+    "BrepVertex": {"Point": "point"},
+    "CadSource": {"FilePath": "path"},
     "ComponentDef": {"SourceDigest": "source_sha256"},
     "ConstraintRef": {"EntityId": "entity_id"},
     "Diagnostic": {"EntityId": "entity_id"},
+    "PointGeometry": {"Point": "point"},
+    "Selection": {"Point": "point", "SelectionPath": "path"},
     "SelectPathElem": {
         "EntityId": "entity_id",
         "EntityKind": "entity_kind",

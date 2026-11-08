@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from dataclasses import replace as Replace
 
@@ -20,7 +15,7 @@ class JsonReader:
 
     # this reader restores filters and validates one interchange document
     def ReadAction(
-        Instance, SourceValue: Source, Options: ReadOptions | None = None
+        self, SourceValue: Source, Options: ReadOptions | None = None
     ) -> CadDocument:
         Settings = Options or ReadOptions()
         Document = CadDocument.from_json(ReadText(SourceValue))
@@ -48,5 +43,3 @@ class JsonReader:
         if Settings.strict:
             Document.assert_valid()
         return Document
-
-    locals()["read"] = ReadAction

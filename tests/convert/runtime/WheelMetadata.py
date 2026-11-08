@@ -1,18 +1,13 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from email.parser import BytesParser as MailParser
 from email.policy import default as DefaultPolicy
-from typing import Any as AnyValue
+from zipfile import ZipFile
 
 
 # wheel metadata must keep runtime dependencies optional and entry points deterministic
-def CheckWheelMeta(ArchiveData: AnyValue, EntryNames: tuple[str, ...]) -> None:
+def CheckWheelMeta(ArchiveData: ZipFile, EntryNames: tuple[str, ...]) -> None:
     WheelName = next(
         NameValue for NameValue in EntryNames if NameValue.endswith("/WHEEL")
     )

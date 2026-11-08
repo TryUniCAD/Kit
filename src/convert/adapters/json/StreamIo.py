@@ -1,16 +1,31 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from io import TextIOBase as TextIoBase
 from pathlib import Path as FilePath
+from typing import Protocol
+from typing import runtime_checkable as RuntimeCheck
 
 from convert.adapters.base import Destination
 from convert.adapters.base import Source
+
+
+# position preservation needs a runtime detectable contract for optional stream support
+@RuntimeCheck
+class TellSource(Protocol):
+
+    # temporary reads need the original offset when a stream can report it
+    def tell(self) -> int:
+        raise TypeError("position sources require a concrete tell implementation")
+
+
+# position restoration needs a separate contract because some readable streams cannot seek
+@RuntimeCheck
+class SeekSource(Protocol):
+
+    # temporary reads restore offsets only when the source explicitly supports seeking
+    def seek(self, offset: int, whence: int = 0) -> int:
+        raise TypeError("seekable sources require a concrete seek implementation")
 
 
 # this function enforces the destination complete write contract
@@ -39,10 +54,10 @@ def ReadPrefixMut(SourceValue: Source, Limit: int) -> bytes:
     if isinstance(SourceValue, (str, FilePath)):
         with FilePath(SourceValue).expanduser().open("rb") as Handle:
             return Handle.read(Limit)
-    Position = SourceValue.tell() if hasattr(SourceValue, "tell") else None
+    Position = SourceValue.tell() if isinstance(SourceValue, TellSource) else None
     Value = SourceValue.read(Limit)
-    if Position is not None and hasattr(SourceValue, "seek"):
-        SourceValue.seek(Position)
+    if Position is not None and isinstance(SourceValue, SeekSource):
+        _ = SourceValue.seek(Position)
     return Value.encode("utf-8") if isinstance(Value, str) else bytes(Value)
 
 

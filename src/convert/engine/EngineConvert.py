@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
@@ -14,7 +9,7 @@ from convert.adapters.base.ContractTypes import (
 )
 from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.base.WriteOptions import WriteOptions
-from convert.engine import ConversionResult as ConvertResult
+from convert.engine.EngineResult import ConversionResult as ConvertResult
 from convert.formats.SourceFormat import ResolveFormat
 
 
@@ -23,7 +18,7 @@ class EngineConvert:
 
     # one neutral document boundary prevents direct coupling between independent format adapters
     def ConvertData(
-        SelfValue,
+        self,
         SourceData: Source,
         TargetData: Destination,
         *,
@@ -32,7 +27,7 @@ class EngineConvert:
         ReadOpts: ReadOptions | None = None,
         WriteOpts: WriteOptions | None = None,
     ) -> ConvertResult:
-        RegistryData = getattr(SelfValue, "registry")
+        RegistryData = getattr(self, "registry")
         DocumentData, ReaderData = RegistryData.read_with_adapter(
             SourceData,
             format_id=SourceFormat,

@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
@@ -12,20 +7,27 @@ from interchange import CadDocument
 
 from convert.adapters.base.ContractTypes import KSourceType as Source
 from convert.adapters.base.ReadOptions import ReadOptions
+from convert.adapters.registry import AdapterRegistry
 
 
 # read delegation stays isolated because format discovery belongs entirely to the registry
 class EngineRead:
+    registry: AdapterRegistry
+
+    # direct initialization keeps each engine half usable in isolation
+    def __init__(self, Registry: AdapterRegistry) -> None:
+        super().__init__()
+        self.registry = Registry
 
     # registry delegation preserves one validation path for every public document read
     def ReadSource(
-        SelfValue,
+        self,
         SourceData: Source,
         *,
         FormatId: str | None = None,
         ReadOpts: ReadOptions | None = None,
     ) -> CadDocument:
-        return getattr(SelfValue, "registry").read(
+        return self.registry.read(
             SourceData,
             format_id=FormatId,
             options=ReadOpts or ReadOptions(),

@@ -1,7 +1,7 @@
 ---
 name: split-large-definitions
 description: "Split substantial declarations into focused files with exact symbol imports. Use when adding or changing code structure, modules, classes, functions, variables, registries, or imports."
-license: LicenseRef-PolyForm-Strict-1.0.0
+license: MIT
 metadata:
   source: ".kiro/steering/SplitLargeDefinitions.md"
   kiro-inclusion: "always"
@@ -36,7 +36,7 @@ Small declarations may share a file only when they form one inseparable concept 
 - Split large constant tables schemas and generated programs from the behavior that consumes them.
 - Keep one deterministic generated SOLIDWORKS serializer method table intact when that file represents exactly one natural recovered method. The same narrow allowance applies to its deduplicated owner catalog and explicit generated registry. It is valid only under the generated `programs` tree when regeneration checks and decomposition equivalence pass; it never applies to handwritten behavior facades or arbitrary chunks.
 - Put shared contracts and types in focused contract modules only when multiple implementations genuinely depend on them.
-- Keep tests focused by module and feature so a new implementation normally adds a new test file rather than expanding an unrelated large suite.
+- Keep integration and end-to-end tests focused on observable behavior across real component or process boundaries. Unit tests are prohibited; a new implementation module does not require its own test file.
 
 ## Explicit imports
 

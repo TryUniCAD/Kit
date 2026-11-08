@@ -1,14 +1,9 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 
-from typing import Any as AnyValue
+from dataclasses import field as MakeDataField
 from typing import Mapping as TypeMap
 
 from interchange.core.Common import FreezeMapping
@@ -18,15 +13,47 @@ from interchange.records.RecordProvenance import Provenance
 
 
 # surface meshes retain triangulation normals and source evidence for preview and exchange
-@ModelDataMut(
-    DefaultMap={"Normals": (), "Provenance": None},
-    FactoryMap={"Attributes": FreezeMapping},
-)
+@ModelDataMut
 class SurfaceMesh(ModelBase):
-    EntityId: str
-    EntityName: str
-    Vertices: tuple[SpaceVector, ...]
-    Triangles: tuple[tuple[int, int, int], ...]
-    Normals: tuple[SpaceVector, ...]
-    Provenance: Provenance | None
-    Attributes: TypeMap[str, AnyValue]
+    id: str
+    name: str
+    vertices: tuple[SpaceVector, ...]
+    triangles: tuple[tuple[int, int, int], ...]
+    normals: tuple[SpaceVector, ...] = ()
+    provenance: Provenance | None = None
+    attributes: TypeMap[str, object] = MakeDataField(default_factory=FreezeMapping)
+
+    # stable identity lets records reference each other without holding full objects
+    @property
+    def EntityId(self) -> str:
+        return self.id
+
+    # human readable label keeps diagnostics and diffs meaningful for reviewers
+    @property
+    def EntityName(self) -> str:
+        return self.name
+
+    # vertex table keeps triangle resolution independent of cad precision
+    @property
+    def Vertices(self) -> tuple[SpaceVector, ...]:
+        return self.vertices
+
+    # indexed triangles avoid repeating coordinates for compact transfer
+    @property
+    def Triangles(self) -> tuple[tuple[int, int, int], ...]:
+        return self.triangles
+
+    # stored normals preserve shading intent without recomputation drift
+    @property
+    def Normals(self) -> tuple[SpaceVector, ...]:
+        return self.normals
+
+    # origin details stay optional so synthesized records can omit source facts safely
+    @property
+    def Provenance(self) -> Provenance | None:
+        return self.provenance
+
+    # open attribute bag preserves vendor extras that typed fields cannot express yet
+    @property
+    def Attributes(self) -> TypeMap[str, object]:
+        return self.attributes

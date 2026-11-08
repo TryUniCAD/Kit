@@ -1,16 +1,26 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from interchange.enums.EnumBase import WireEnum
 
 
 # geometry categories preserve editable sketch entity intent across vendor formats
 class GeometryKind(WireEnum):
+    POINT = "point"
+    LINE = "line"
+    CIRCLE = "circle"
+    ARC = "arc"
+    ELLIPSE = "ellipse"
+    ARC_ELLIPSE = "arc_ellipse"
+    HYPERBOLA = "hyperbola"
+    ARC_HYPERBOLA = "arc_hyperbola"
+    PARABOLA = "parabola"
+    ARC_PARABOLA = "arc_parabola"
+    BEZIER = "bezier"
+    SPLINE = "spline"
+    OFFSET = "offset"
+    TRIMMED = "trimmed"
+    NATIVE = "native"
     KPoint = "point"
     KLine = "line"
     KCircle = "circle"
@@ -30,6 +40,31 @@ class GeometryKind(WireEnum):
 
 # constraint categories retain solver semantics without vendor specific identifiers
 class ConstraintKind(WireEnum):
+    COINCIDENT = "coincident"
+    HORIZONTAL = "horizontal"
+    VERTICAL = "vertical"
+    PARALLEL = "parallel"
+    PERPENDICULAR = "perpendicular"
+    TANGENT = "tangent"
+    EQUAL = "equal"
+    CONCENTRIC = "concentric"
+    POINT_ON_OBJECT = "point_on_object"
+    SYMMETRIC = "symmetric"
+    MIDPOINT = "midpoint"
+    DISTANCE = "distance"
+    DISTANCE_X = "distance_x"
+    DISTANCE_Y = "distance_y"
+    ANGLE = "angle"
+    RADIUS = "radius"
+    DIAMETER = "diameter"
+    FIXED = "fixed"
+    INTERNAL_ALIGNMENT = "internal_alignment"
+    SNELLS_LAW = "snells_law"
+    BLOCK = "block"
+    WEIGHT = "weight"
+    GROUP = "group"
+    TEXT = "text"
+    NATIVE = "native"
     KCoincident = "coincident"
     KHorizontal = "horizontal"
     KVertical = "vertical"

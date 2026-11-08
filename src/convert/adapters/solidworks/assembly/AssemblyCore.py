@@ -1,21 +1,16 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations as Annotations
 from dataclasses import dataclass as DataClass
 from pathlib import PureWindowsPath
 import struct as Struct
 from types import MappingProxyType
-from typing import Callable as CallableType, Mapping
+from typing import Mapping, Protocol
 from convert.adapters.solidworks.programs.assembly.default.Program import (
     EncodeProgram,
     FieldOwners,
-    StreamPrograms,
+    KStreamPrograms,
 )
 from convert.adapters.solidworks.programs.assembly.pairs.Program import (
     EncodeProgram as EncodeProgramTwo,
@@ -52,11 +47,24 @@ KCoreStreamNames = (
 
 # this binding exists because shared behavior needs one stable value
 KCoreFieldCount = sum(
-    (len(StreamPrograms[StreamName]) for StreamName in KCoreStreamNames)
+    (len(KStreamPrograms[StreamName]) for StreamName in KCoreStreamNames)
 )
 
 # this binding exists because shared behavior needs one stable value
 KCoreOpaqueBytes = 0
+
+
+# repeated core programs need one exact callback boundary across recovered encoder families
+class CoreEncoder(Protocol):
+
+    # callback typing prevents generated encoder signatures from degrading into variadic values
+    def __call__(
+        self,
+        ModelName: str,
+        ConfigName: str,
+        CoreItems: tuple[RepeatItem, ...],
+    ) -> Mapping[str, bytes]:
+        raise TypeError("core encoder protocol requires a concrete callback")
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -84,7 +92,7 @@ def BuildRepeatCore(
     ModelName: str,
     ConfigName: str,
     CoreItems: tuple[AsmCoreItem, ...],
-    Encoder: CallableType[[str, str, tuple[RepeatItem, ...]], Mapping[str, bytes]],
+    Encoder: CoreEncoder,
 ) -> Mapping[str, bytes]:
     RepeatItems = tuple(
         (
@@ -445,25 +453,25 @@ def CoreCoverage() -> Mapping[str, int]:
 
 
 # this binding exists because shared behavior needs one stable value
-globals()["CoreFieldCount"] = KCoreFieldCount
+CoreFieldCount = KCoreFieldCount
 
 # this binding exists because shared behavior needs one stable value
-globals()["CoreOpaqueBytes"] = KCoreOpaqueBytes
+CoreOpaqueBytes = KCoreOpaqueBytes
 
 # this binding exists because shared behavior needs one stable value
-globals()["CoreStreamNames"] = KCoreStreamNames
+CoreStreamNames = KCoreStreamNames
 
 # this binding exists because shared behavior needs one stable value
-globals()["EncodeProgram2"] = EncodeProgramTwo
+EncodeProgram2 = EncodeProgramTwo
 
 # this binding exists because shared behavior needs one stable value
-globals()["EncodeProgram3"] = EncodeProgramThree
+EncodeProgram3 = EncodeProgramThree
 
 # this binding exists because shared behavior needs one stable value
-globals()["annotations"] = Annotations
+annotations = Annotations
 
 # this binding exists because shared behavior needs one stable value
-globals()["dataclass"] = DataClass
+dataclass = DataClass
 
 # this binding exists because shared behavior needs one stable value
-globals()["struct"] = Struct
+struct = Struct

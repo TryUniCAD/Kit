@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations as Annotations
 import math as MathValue
@@ -13,8 +8,10 @@ from dataclasses import dataclass as Dataclass
 from convert.adapters.solidworks.programs.configuration.revolve.pin.default.Program import (
     EncodeProgram as EncodePinConfig,
     KConfigOps,
-    KFieldOwners,
     KReferenceLength as KRefLength,
+)
+from convert.adapters.solidworks.programs.configuration.revolve.pin.default.Registry import (
+    KFieldOwners,
 )
 from convert.adapters.solidworks.container.Container import SldprtFormatError
 
@@ -50,12 +47,11 @@ KHeaderUser = "odin"
 # this definition exists because focused behavior needs one stable owner
 @Dataclass(frozen=True, slots=True)
 class PinEnvelope:
-    locals().setdefault("__annotations__", {})
-    __annotations__["Config0Payload"] = "bytes"
-    __annotations__["HeaderPayload"] = "bytes"
-    __annotations__["HeaderStamps"] = "tuple[tuple[int, ...], ...]"
-    __annotations__["HeaderBounds"] = "tuple[float, ...]"
-    __annotations__["HeaderCreation"] = "int"
+    Config0Payload: bytes
+    HeaderPayload: bytes
+    HeaderStamps: tuple[tuple[int, ...], ...]
+    HeaderBounds: tuple[float, ...]
+    HeaderCreation: int
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -110,21 +106,26 @@ def EncodeConfig() -> bytes:
 
 # this definition exists because focused behavior needs one stable owner
 def EncodeHeader() -> bytes:
-    from convert.adapters.solidworks.core import Native as NativeMod
+    from convert.adapters.solidworks.core.Native import (
+        HeaderPayload,
+        KHeaderObjects,
+        KSolidworksConfigFlags,
+        NativeIdentity,
+    )
 
     CreatedStamp, ModifiedStamp, BaselineStamp, HeaderStamp = KHeaderIdentity
-    IdentityData = NativeMod._NativeIdentity(
+    IdentityData = NativeIdentity(
         CreatedStamp,
         ModifiedStamp,
         BaselineStamp,
         HeaderStamp,
-        NativeMod._SOLIDWORKS_CONFIGURATION_FLAGS,
+        KSolidworksConfigFlags,
         "Part1",
     )
-    return NativeMod._header_payload(
+    return HeaderPayload(
         IdentityData,
         "Default",
-        (*NativeMod._HEADER_OBJECTS, (26, "Sketch1", True), (31, "Revolve1", False)),
+        (*KHeaderObjects, (26, "Sketch1", True), (31, "Revolve1", False)),
         "",
         KHeaderUser,
         32,
@@ -158,13 +159,13 @@ def GetCoverage() -> dict[str, int]:
 
 
 # this binding exists because shared behavior needs one stable value
-globals()["KReferenceLength"] = KRefLength
+KReferenceLength = KRefLength
 
 # this binding exists because shared behavior needs one stable value
-globals()["annotations"] = Annotations
+annotations = Annotations
 
 # this binding exists because shared behavior needs one stable value
-globals()["dataclass"] = Dataclass
+dataclass = Dataclass
 
 # this binding exists because shared behavior needs one stable value
-globals()["math"] = MathValue
+math = MathValue

@@ -1,31 +1,43 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from inspect import Parameter as FuncParam
+from typing import Mapping as TypeMap
+from typing import TypeAlias
 
 from interchange.document.validation.DocumentAssemblyValidate import GetAssemblyErrs
+from interchange.document.validation.DocumentBoundary import GetDocument
+from interchange.document.validation.DocumentValidate import (
+    AssertValid,
+    GetDocErrors,
+)
 from interchange.document.behavior.DocumentLookup import FindEntity
+from interchange.document.behavior.DocumentValidBehavior import BindValidator
 from interchange.compatibility.PythonCompatMethods import (
     BindAliasMut,
     BindDirectMut,
     BindStaticMut,
+    KCompatParam,
     MakeLegacySig,
 )
 
+# document compatibility rows share one concrete shape so empty metadata remains typed
+KCompatMethod: TypeAlias = tuple[
+    str,
+    str,
+    TypeMap[str, str],
+    tuple[KCompatParam, ...],
+    str,
+]
 
 # method contracts stay declarative because exact historical reflection spans several split behaviors
-KDocumentMethods = (
-    ("ToMapping", "to_dict", {}, (), "dict[str, Any]"),
+KDocumentMethods: tuple[KCompatMethod, ...] = (
+    ("ToMapping", "to_dict", {}, (), "dict[str, KWireData]"),
     (
         "FromMapping",
         "from_dict",
-        {"value": "Mapping[str, Any]"},
-        (("value", "Mapping[str, Any]"),),
+        {"value": "Mapping[str, KWireData]"},
+        (("value", "Mapping[str, KWireData]"),),
         "CadDocument",
     ),
     (
@@ -89,8 +101,46 @@ KDocumentMethods = (
 )
 
 
+# bound validation keeps document methods concrete while validation stays independently reviewable
+def ValidateDoc(SelfValue: object) -> tuple[str, ...]:
+    DocumentValue = GetDocument(SelfValue)
+    if DocumentValue is None:
+        raise TypeError("validation requires a CadDocument")
+    return GetDocErrors(DocumentValue)
+
+
+# bound assertion gives document callers one aggregate failure without importing validation upward
+def AssertDocValid(SelfValue: object) -> None:
+    DocumentValue = GetDocument(SelfValue)
+    if DocumentValue is None:
+        raise TypeError("validation requires a CadDocument")
+    AssertValid(DocumentValue)
+
+
 # document callers retain historical methods while implementation remains split by responsibility
 def BindDocumentMut(DocumentType: type) -> None:
+    BindValidator("validate", ValidateDoc)
+    BindValidator("assert_valid", AssertDocValid)
+    BindDirectMut(
+        DocumentType,
+        ValidateDoc,
+        "validate",
+        {"return": "tuple[str, ...]"},
+        MakeLegacySig(
+            (("self",),),
+            "tuple[str, ...]",
+        ),
+    )
+    BindDirectMut(
+        DocumentType,
+        AssertDocValid,
+        "assert_valid",
+        {"return": "None"},
+        MakeLegacySig(
+            (("self",),),
+            "None",
+        ),
+    )
     for (
         SourceName,
         LegacyName,
@@ -128,17 +178,17 @@ def BindDocumentMut(DocumentType: type) -> None:
         FindEntity,
         "_lookup",
         {
-            "items": "tuple[Any, ...]",
+            "items": "tuple[EntityType, ...]",
             "entity_id": "str",
             "label": "str",
-            "return": "Any",
+            "return": "EntityType",
         },
         MakeLegacySig(
             (
-                ("items", "tuple[Any, ...]"),
+                ("items", "tuple[EntityType, ...]"),
                 ("entity_id", "str"),
                 ("label", "str"),
             ),
-            "Any",
+            "EntityType",
         ),
     )

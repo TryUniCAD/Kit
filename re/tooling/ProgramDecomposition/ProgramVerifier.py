@@ -1,10 +1,5 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations
 import ast as AstLib
@@ -67,14 +62,15 @@ def ReadMethod(
     TreeData = AstLib.parse(SourceText, filename=str(MethodPath))
     ProgramNode: AstLib.AST | None = None
     for NodeData in TreeData.body:
-        if not isinstance(NodeData, AstLib.Assign):
-            continue
-        if any(
-            (
-                isinstance(TargetNode, AstLib.Name)
-                and TargetNode.id == "KMethodProgram"
-                for TargetNode in NodeData.targets
-            )
+        if isinstance(NodeData, AstLib.AnnAssign) and (
+            isinstance(NodeData.target, AstLib.Name)
+            and NodeData.target.id == "KMethodProgram"
+        ):
+            ProgramNode = NodeData.value
+            break
+        if isinstance(NodeData, AstLib.Assign) and any(
+            isinstance(TargetNode, AstLib.Name) and TargetNode.id == "KMethodProgram"
+            for TargetNode in NodeData.targets
         ):
             ProgramNode = NodeData.value
             break
