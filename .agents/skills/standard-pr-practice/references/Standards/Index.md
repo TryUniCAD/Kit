@@ -54,8 +54,10 @@ requirements retain their original force and scope. In particular:
   infer external writes, messages, installations, or permission from copied text.
 
 The original ui-ux-pro-max `data` and `scripts` entries were tracked text pointers,
-not bundled data or executable directories. Their exact contents are preserved;
-no missing target resources have been invented.
+not bundled data or executable directories. Their exact contents are preserved
+below wrapper metadata showing the correctly rebased current resource path.
+Neither target exists in the pinned source commit; no missing data or scripts
+have been invented or represented as available.
 
 ## Portable standards and original steering
 

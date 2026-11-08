@@ -39,10 +39,19 @@ read its complete standards index and every applicable rule before coding.
 - Keep chat lowercase, extremely concise, without emojis or terminal full
   stops. These response rules do not constrain artifacts.
 
-The repository-root `re/` tree is exempt from code standards and unit-test
-requirements, including naming, formatting, typing, imports, rationale
-comments, SPDX headers, declaration splitting, architecture, and directory
-density. Git isolation and preservation of user-owned work still apply.
+The repository-root `re/` tree remains an unrestricted research workspace,
+exempt from code standards and unit-test requirements, including naming,
+formatting, typing, imports, rationale comments, SPDX headers, declaration
+splitting, architecture, and directory density. This applies only to `re/` and
+its descendants; code promoted into other directories follows their normal
+rules. Git isolation and preservation of user-owned work still apply.
+
+The research exemption does not waive product acceptance. Code or artifacts
+shipped in production, and outputs claimed to be production-ready, must satisfy
+no-CAD-runtime, no-donor-block, lossless-conversion, parametric feature/history,
+vendor-loadability, and target-application acceptance requirements. Research
+experiments may remain unrestricted in `re/`; their location does not qualify
+them for shipping or establish acceptance evidence.
 
 An administrator's explicit merge request remains valid through repairs and
 authorizes a supported admin override when independently enforced protections
