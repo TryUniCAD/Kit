@@ -62,7 +62,7 @@ checks as completed acceptance.
 3. Read back the returned ruleset ID and
    `gh api repos/TryUniCAD/Kit/rules/branches/main --paginate`. Verify the native
    queue is active, has no bypass actors, and requires `Merge queue acceptance`
-   and every listed static check from the GitHub Actions integration (`15368`).
+   and every listed static check, including the final SPDX failure gate from the GitHub Actions integration (`15368`).
    The manifest is additive; do not replace unrelated protections.
 4. With explicit merge authorization from a verified administrator, enqueue a
    ready normal PR. Verify that GitHub creates a `merge_group` run on its

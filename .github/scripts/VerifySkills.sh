@@ -10,11 +10,10 @@ if [ "${#SkillPaths[@]}" -ne 1 ] || [ "${SkillPaths[0]}" != "$ExpectedPath" ]; t
   exit 1
 fi
 test "$(head -n 1 "$ExpectedPath")" = '---'
-rg --quiet '^name: standard-pr-practice$' "$ExpectedPath"
-rg --quiet '^license: MIT$' "$ExpectedPath"
-test -L .claude/skills/standard-pr-practice
-test "$(readlink .claude/skills/standard-pr-practice)" = '../../.agents/skills/standard-pr-practice'
-test -f .claude/skills/standard-pr-practice/SKILL.md
+grep --quiet '^name: standard-pr-practice$' "$ExpectedPath"
+grep --quiet '^license: MIT$' "$ExpectedPath"
+test -f CLAUDE.md
+grep --quiet '.agents/skills/standard-pr-practice/SKILL.md' CLAUDE.md
 if [ -n "$(git ls-files -- .kiro/steering .kiro/skills tools/skills)" ]; then
   echo '::error::legacy skills and their generator must not be restored'
   exit 1

@@ -83,6 +83,10 @@
           {
             "context": "actionlint",
             "integration_id": 15368
+          },
+          {
+            "context": "Reject unresolved SPDX header failure",
+            "integration_id": 15368
           }
         ]
       }

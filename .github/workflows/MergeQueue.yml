@@ -18,18 +18,15 @@ concurrency:
 jobs:
   acceptance:
     if: github.event_name == 'merge_group'
-    uses: ./.github/workflows/EndToEnd.yml
+    uses: $/.github/workflows/EndToEnd.yml
 
   codeql:
     if: github.event_name == 'merge_group'
-    uses: ./.github/workflows/CodeqlSecurity.yml
-    permissions:
-      actions: read
-      contents: read
+    uses: $/.github/workflows/CodeqlSecurity.yml
 
   security:
     if: github.event_name == 'merge_group'
-    uses: ./.github/workflows/SecurityStack.yml
+    uses: $/.github/workflows/SecurityStack.yml
 
   gate:
     name: Merge queue acceptance
