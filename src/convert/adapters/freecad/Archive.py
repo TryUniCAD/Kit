@@ -20,6 +20,7 @@ import zipfile as Zipfile
 import zlib as ZlibValue
 from typing import Iterator, Mapping, TypeGuard, cast as CastValue
 from interchange import CadDocument as CadDoc
+from interchange.serialization.EncodeData import ToData
 from interchange.serialization.WireData import ValidateWireMap
 from convert.adapters.base import ParseUntrusted
 from convert.adapters.freecad.Brep import (
@@ -33,6 +34,13 @@ from convert.adapters.freecad.ArchiveEditPlan import (
     KProfileBinding,
     ReadArchiveEdit,
 )
+from convert.adapters.freecad.EditPlaneRev.PlanePoseExpr import PlanePoseExpr
+from convert.adapters.freecad.EditPlaneRev.PlaneRevBinding import KPlaneRevBinding
+from convert.adapters.freecad.EditPlaneRev.PlaneRevPlan import (
+    PlaneRevPlan,
+    ReadPlaneRev,
+)
+from convert.adapters.freecad.EditPlaneRev.PlaneSweepExpr import PlaneSweepExpr
 from convert.adapters.freecad.EditRev.RevBinding import KRevBinding
 from convert.adapters.freecad.EditRev.RevExpressions import RevExpressions
 from convert.adapters.freecad.EditRev.RevolveProps import MakeRevProps
@@ -6370,6 +6378,7 @@ class DocFeatures:
     EditableFeatureId: str = ""
     EditableProfileId: str = ""
     EditableRevId: str = ""
+    EditablePlaneSteps: tuple[str, ...] = ()
 
 
 # this definition exists because native replay objects need stable source ordering
@@ -7300,15 +7309,34 @@ def HasEditRevMut(
     Geometry: DocGeometry,
     Features: DocFeatures,
     FeatureInfo: FeatureData,
-    PlanValue: EditRevolve,
+    PlanValue: EditRevolve | PlaneRevPlan,
     ShapeData: bytes,
 ) -> bool:
     Sketch = EditProfile(Context, Geometry, FeatureInfo, PlanValue.SketchId)
     if Sketch is None or not ShapeData:
         return False
-    Expressions = RevExpressionsMut(Context, PlanValue)
-    if not Expressions:
-        return False
+    if isinstance(PlanValue, PlaneRevPlan):
+        TargetNames = BindPlaneTargetsMut(Context, Geometry, Features, PlanValue)
+        if not TargetNames:
+            return False
+        Expressions = PlaneSweepExpr(
+            TargetNames,
+            PlanValue.AxisOrigin,
+            PlanValue.AxisDirection,
+            PlanValue.SketchFrame.z_axis,
+        )
+        AngleDeg = MathValue.degrees(PlanValue.EndRadians - PlanValue.StartRadians)
+        Symmetric = len(TargetNames) == 2
+        Dependencies = TargetNames
+        Features.EditablePlaneSteps = tuple(
+            Target.StepId for Target in PlanValue.Targets
+        )
+    else:
+        Expressions = RevExpressionsMut(Context, PlanValue)
+        if not Expressions:
+            return False
+        AngleDeg, Symmetric = PlanValue.AngleDeg, PlanValue.Symmetric
+        Dependencies = (Context.ParamSheet.name,)
     Revolution = Context.Graph.add(
         "Part::Revolution", FeatureInfo.FeatureName, "Revolution", Touched=True
     )
@@ -7320,8 +7348,8 @@ def HasEditRevMut(
                 Sketch.name,
                 PlanValue.AxisOrigin,
                 PlanValue.AxisDirection,
-                PlanValue.AngleDeg,
-                PlanValue.Symmetric,
+                AngleDeg,
+                Symmetric,
             ),
             ExpressionProp(Expressions),
             ShapeProp(ShapeFile),
@@ -7329,13 +7357,55 @@ def HasEditRevMut(
             BoolProp("Visibility", True),
         ]
     )
-    Revolution.dependencies.extend((Sketch.name, Context.ParamSheet.name))
+    Revolution.dependencies.extend((Sketch.name, *Dependencies))
     ReplaceNameMut(Sketch.properties, "Visibility", BoolProp("Visibility", False))
     SetProfRulesMut(Context, Geometry, Sketch, PlanValue.SketchId)
     TrackSolidMut(Features, FeatureInfo, Revolution)
     Features.FinalShapeFile = ShapeFile
     Features.EditableRevId = FeatureInfo.FeatureId
     return True
+
+
+# each original construction feature owns the plane moved by its authored angle
+def BindPlaneTargetsMut(
+    Context: DocContext,
+    Geometry: DocGeometry,
+    Features: DocFeatures,
+    PlanValue: PlaneRevPlan,
+) -> tuple[str, ...]:
+    if Context.ParamSheet.name != "Parameters":
+        return ()
+    Objects = {Value.name: Value for Value in Context.Graph.Objects}
+    Bindings: list[tuple[Object, Object, XmlTree.Element]] = []
+    for Target in PlanValue.Targets:
+        Plane = Objects.get(Geometry.PlaneNames.get(Target.PlaneId, ""))
+        StepValue = Objects.get(Features.FeatureNames.get(Target.StepId, ""))
+        ParamRef = Context.Parameters.expression(Target.AngleParamId)
+        ZeroFrame = ToData(Target.ZeroFrame)
+        if (
+            Plane is None
+            or Plane.type_id != "App::Plane"
+            or StepValue is None
+            or ParamRef is None
+            or not IsPayloadMap(ZeroFrame)
+        ):
+            return ()
+        Pose = PlanePoseExpr(
+            PlanValue.AxisOrigin,
+            Target.RotationAxis,
+            Target.ZeroFrame.origin,
+            Quaternion(ZeroFrame),
+            ParamRef,
+        )
+        Bindings.append((Plane, StepValue, ExpressionProp([("Placement", Pose)])))
+    for Plane, StepValue, Expression in Bindings:
+        ReplaceNameMut(Plane.properties, "ExpressionEngine", Expression)
+        Plane.dependencies.append(Context.ParamSheet.name)
+        StepValue.properties.append(
+            LinkProp("ConstructionPlane", Plane.name, Dynamic=True)
+        )
+        StepValue.dependencies.append(Plane.name)
+    return tuple(Plane.name for Plane, _, _ in Bindings)
 
 
 # this definition exists because solidworks fillets require nonexecuting topology carriers
@@ -7565,7 +7635,7 @@ def AddFeaturesMut(
     Context: DocContext,
     Geometry: DocGeometry,
     Features: DocFeatures,
-    EditPlan: tuple[str, EditExtrude | EditRevolve] | None,
+    EditPlan: tuple[str, EditExtrude | EditRevolve | PlaneRevPlan] | None,
     ShapeData: bytes,
 ) -> None:
     for Feature in Features.FeatureItems:
@@ -7573,11 +7643,11 @@ def AddFeaturesMut(
             FeatureInfo = FeatureDataOf(Geometry, Features, Feature)
             PlanValue = EditPlan[1]
             Added = (
-                HasEditRevMut(
+                HasEditExtMut(
                     Context, Geometry, Features, FeatureInfo, PlanValue, ShapeData
                 )
-                if isinstance(PlanValue, EditRevolve)
-                else HasEditExtMut(
+                if isinstance(PlanValue, EditExtrude)
+                else HasEditRevMut(
                     Context, Geometry, Features, FeatureInfo, PlanValue, ShapeData
                 )
             )
@@ -8154,7 +8224,11 @@ def SetOuterMut(Context: DocContext, Features: DocFeatures) -> None:
         )
     if Features.EditableRevId:
         Context.MetaObject.properties.append(
-            StringProp(KRevBinding, Features.EditableRevId, Dynamic=True)
+            StringProp(
+                KPlaneRevBinding if Features.EditablePlaneSteps else KRevBinding,
+                Features.EditableRevId,
+                Dynamic=True,
+            )
         )
     if not Context.NativeReplay and CanEditSheet(
         Context.Manifest, Context.ParametersData, Context.Parameters.FusionExpressions
@@ -8309,11 +8383,15 @@ def SerializeDoc(Context: DocContext, Features: DocFeatures) -> bytes:
 
 
 # only the final timeline step can own the single native revolution solid
-def ReadArchiveRev(DocValue: CadDoc | None) -> tuple[str, EditRevolve] | None:
+def ReadArchiveRev(
+    DocValue: CadDoc | None,
+) -> tuple[str, EditRevolve | PlaneRevPlan] | None:
     if DocValue is None or not DocValue.feature_timeline:
         return None
     FeatureValue = DocValue.feature_timeline[-1]
-    PlanValue = ReadEditRevolve(DocValue, FeatureValue)
+    PlanValue = ReadEditRevolve(DocValue, FeatureValue) or ReadPlaneRev(
+        DocValue, FeatureValue
+    )
     return (FeatureValue.id, PlanValue) if PlanValue is not None else None
 
 
@@ -8369,7 +8447,11 @@ def BuildDocXmlMut(
     if EditableFeatures is not None:
         EditableFeatures.update(
             Value
-            for Value in (Features.EditableFeatureId, Features.EditableRevId)
+            for Value in (
+                Features.EditableFeatureId,
+                Features.EditableRevId,
+                *Features.EditablePlaneSteps,
+            )
             if Value
         )
     return (XmlData, Features.PayloadEntries)
