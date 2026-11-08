@@ -21,6 +21,7 @@ from interchange import (
 )
 from interchange.payloads.PayloadRecord import BrepPayload
 from interchange.features.FeatureAngleRev import AngularRevolve
+from interchange.features.FeatureBoundPlane import BoundConstructionPlane
 from interchange.features.FeatureBoundScale import BoundScale
 from interchange.features.FeatureDistExt import DistanceExtrude
 from interchange.features.FeaturePlaneExt import PlaneExtrude
@@ -81,7 +82,14 @@ def CheckRegistry() -> None:
         and (IsDataClass(ItemValue) or issubclass(ItemValue, EnumBase))
     }
     ExpectedValues.update(
-        (AngularRevolve, BoundScale, DistanceExtrude, PlaneExtrude, PlaneRevolve)
+        (
+            AngularRevolve,
+            BoundConstructionPlane,
+            BoundScale,
+            DistanceExtrude,
+            PlaneExtrude,
+            PlaneRevolve,
+        )
     )
     assert set(KTypeRegistry.values()) == ExpectedValues
 
