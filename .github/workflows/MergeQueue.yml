@@ -612,7 +612,10 @@ jobs:
         trufflehog,
       ]
     runs-on: ubuntu-24.04
-    timeout-minutes: 5
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      checks: read # Requires the queue's static CI aggregate before acceptance passes.
     env:
       EVENT_NAME: ${{ github.event_name }}
       JOB_RESULTS: ${{ toJSON(needs) }}
@@ -631,3 +634,25 @@ jobs:
             echo "::error::Unsupported validation phase"
             exit 1
           fi
+
+      - name: Require the queue candidate CI aggregate
+        if: github.event_name == 'merge_group'
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const Deadline = Date.now() + 25 * 60000;
+            for (;;) {
+              const Checks = await github.paginate(github.rest.checks.listForRef, {
+                ...context.repo, ref: context.payload.merge_group.head_sha,
+                filter: "latest", per_page: 100,
+              });
+              const Aggregate = Checks.filter((Check) => Check.name === "CI Agg" && Check.app?.id === 15368)
+                .sort((Left, Right) => Right.id - Left.id)[0];
+              if (Aggregate?.status === "completed") {
+                if (Aggregate.conclusion !== "success") throw new Error(`CI Agg did not pass: ${Aggregate.conclusion}`);
+                await core.summary.addRaw(`Candidate static CI aggregate passed: ${Aggregate.html_url}\n`).write();
+                break;
+              }
+              if (Date.now() >= Deadline) throw new Error("Missing or pending candidate CI Agg");
+              await new Promise((Resolve) => setTimeout(Resolve, 30000));
+            }

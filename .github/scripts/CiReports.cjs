@@ -92,6 +92,11 @@ async function ReadReports(Github, Context, Refs, Expected, Reused = false) {
     if (Seen.has(Check.id) || Check.app?.id === 1082092) continue;
     Seen.add(Check.id);
     const Run = RunsBySuite.get(Check.check_suite.id);
+    if (
+      Run?.event === "merge_group" &&
+      Run.path?.split("@")[0] === ".github/workflows/MergeQueue.yml"
+    )
+      continue;
     if (Run && (!LatestIds.has(Run.id) || Run.id === Context.runId)) continue;
     if (Check.details_url?.includes(`/actions/runs/${Context.runId}/`))
       continue;
@@ -139,6 +144,11 @@ async function ReadReports(Github, Context, Refs, Expected, Reused = false) {
     });
   for (const Run of LatestRuns.values()) {
     if (Run.id === Context.runId) continue;
+    if (
+      Run.event === "merge_group" &&
+      Run.path?.split("@")[0] === ".github/workflows/MergeQueue.yml"
+    )
+      continue;
     if (
       Run.status !== "completed" ||
       !["success", "skipped"].includes(Run.conclusion)
@@ -388,8 +398,7 @@ async function Aggregate({ github: Github, context: Context, core: Core }) {
     : [Context.sha];
   const Expected = [
     ...StaticChecks,
-    "Merge queue acceptance",
-    ...(IsPull ? PrChecks : []),
+    ...(IsPull ? ["Merge queue acceptance", ...PrChecks] : []),
   ];
   let Reuse = { reuse: false };
   if (!IsPull) {
@@ -480,7 +489,6 @@ async function Aggregate({ github: Github, context: Context, core: Core }) {
           tree_sha: Tested.tree.sha,
           run_id: Context.runId,
           run_attempt: Number(process.env.GITHUB_RUN_ATTEMPT),
-          reports: Rows,
         },
         null,
         2,

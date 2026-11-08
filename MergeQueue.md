@@ -56,6 +56,12 @@ not match, static checks execute on the candidate instead. Missing or expired
 evidence never produces a cached success. Trusted header checks, acceptance, and heavy security always
 execute on the actual merge group. No acceptance result is inferred from PR CI.
 
+On merge groups, `CI Agg` covers static validation and verified reuse. The
+existing required `Merge queue acceptance` gate combines that result with every
+heavy job, so missing or failing aggregate evidence blocks acceptance too. This
+avoids a dependency cycle: the static aggregate does not wait for heavy jobs on
+the queue. No additional live ruleset changes are needed for this dependency.
+
 [MergeQueue.yml](.github/workflows/MergeQueue.yml) reports the required
 `Merge queue acceptance` context on PRs with an explicit deferral summary. Its
 acceptance jobs are deliberately skipped at this stage, so green PR checks
