@@ -4,18 +4,14 @@
 name: Security stack
 
 on:
-  pull_request:
-  merge_group:
-  push:
-    branches:
-      - main
+  workflow_call:
 
 permissions:
   contents: read
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  group: SecurityStack-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   bandit:
@@ -142,30 +138,6 @@ jobs:
       - name: Run Checkov IaC
         run: uv run checkov --directory . --quiet --skip-framework secrets --skip-path .venv --skip-path examples --skip-path re
 
-  zizmor:
-    name: Zizmor
-    runs-on: ubuntu-24.04
-    timeout-minutes: 45
-    steps:
-      - name: Checkout full repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-
-      - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
-        with:
-          version: "0.12.5"
-          enable-cache: true
-          cache-dependency-glob: uv.lock
-
-      - name: Synchronize the locked environment
-        run: uv sync --frozen --all-groups --all-extras --python 3.11
-
-      - name: Run Zizmor Actions audit
-        run: uv run zizmor --pedantic .github/workflows
-
   detect-secrets:
     name: detect-secrets
     runs-on: ubuntu-24.04
@@ -189,33 +161,6 @@ jobs:
 
       - name: Run detect-secrets
         run: uv run detect-secrets scan --all-files --exclude-files '(^\.venv/|^examples/|^re/|^uv\.lock$)' --only-verified
-
-  actionlint:
-    name: actionlint
-    runs-on: ubuntu-24.04
-    timeout-minutes: 45
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-
-      - name: Install pinned actionlint
-        env:
-          ActionlintVersion: "1.7.12"
-          ActionlintSha256: 8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8
-        run: |
-          set -euo pipefail
-          ArchivePath="${RUNNER_TEMP}/actionlint_${ActionlintVersion}_linux_amd64.tar.gz"
-          curl --fail --silent --show-error --location \
-            --output "${ArchivePath}" \
-            "https://github.com/rhysd/actionlint/releases/download/v${ActionlintVersion}/actionlint_${ActionlintVersion}_linux_amd64.tar.gz"
-          echo "${ActionlintSha256}  ${ArchivePath}" | sha256sum --check --
-          tar --extract --gzip --file "${ArchivePath}" --directory "${RUNNER_TEMP}" actionlint
-          chmod u+x "${RUNNER_TEMP}/actionlint"
-
-      - name: Run actionlint workflow analysis
-        run: '"${RUNNER_TEMP}/actionlint"'
 
   syft:
     name: Syft

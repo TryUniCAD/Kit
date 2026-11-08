@@ -13,6 +13,8 @@ KStemPattern = r"^[A-Z][A-Za-z]*$"
 KToolPathSet = frozenset(
     {
         ".gitattributes",
+        ".agents/skills/standard-pr-practice/agents/openai.yaml",
+        ".claude/skills/standard-pr-practice",
         ".github/CODE_OF_CONDUCT.md",
         ".github/CodeQL/extensions/KitPython/codeql-pack.yml",
         ".github/ISSUE_TEMPLATE/config.yml",

@@ -1,0 +1,66 @@
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
+
+name: Merge queue
+
+on:
+  pull_request:
+  merge_group:
+    types: [checks_requested]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.merge_group.head_sha || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  acceptance:
+    if: github.event_name == 'merge_group'
+    uses: ./.github/workflows/EndToEnd.yml
+
+  codeql:
+    if: github.event_name == 'merge_group'
+    uses: ./.github/workflows/CodeqlSecurity.yml
+    permissions:
+      actions: read
+      contents: read
+
+  security:
+    if: github.event_name == 'merge_group'
+    uses: ./.github/workflows/SecurityStack.yml
+
+  gate:
+    name: Merge queue acceptance
+    if: always()
+    needs: [acceptance, codeql, security]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      EVENT_NAME: ${{ github.event_name }}
+      ACCEPTANCE_RESULT: ${{ needs.acceptance.result }}
+      CODEQL_RESULT: ${{ needs.codeql.result }}
+      SECURITY_RESULT: ${{ needs.security.result }}
+    steps:
+      - name: Enforce the validation phase
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "$EVENT_NAME" = pull_request ]; then
+            for Result in "$ACCEPTANCE_RESULT" "$CODEQL_RESULT" "$SECURITY_RESULT"; do
+              test "$Result" = skipped
+            done
+            echo "Acceptance and heavy security scans are deferred to the merge queue" >> "$GITHUB_STEP_SUMMARY"
+          elif [ "$EVENT_NAME" = merge_group ]; then
+            for Result in "$ACCEPTANCE_RESULT" "$CODEQL_RESULT" "$SECURITY_RESULT"; do
+              if [ "$Result" != success ]; then
+                echo "::error::Every merge-group acceptance and security workflow must succeed"
+                exit 1
+              fi
+            done
+            echo "Every acceptance and heavy security workflow passed on this merge-group candidate" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::error::Unsupported validation phase"
+            exit 1
+          fi

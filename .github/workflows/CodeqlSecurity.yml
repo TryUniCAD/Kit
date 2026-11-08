@@ -5,17 +5,13 @@
 name: CodeQL security and quality
 
 "on":
-  pull_request:
-  merge_group:
-  push:
-    branches:
-      - main
+  workflow_call:
 
 permissions: {}
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  group: CodeqlSecurity-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   analyze:

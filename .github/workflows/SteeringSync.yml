@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   verify-steering-sync:
-    name: Verify generated Agent Skills
+    name: Verify repository skill
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
@@ -39,4 +39,4 @@ jobs:
         run: uv sync --frozen --python 3.11
 
       - name: Verify steering synchronization
-        run: uv run python -m tools.skills.MigrateKiroSteering --check
+        run: bash .github/scripts/VerifySkills.sh
