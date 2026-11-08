@@ -8,7 +8,9 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 Use [standard-pr-practice](.agents/skills/standard-pr-practice/SKILL.md) for
 repository changes and PR follow-up. It is the only repository skill and the
 canonical source for Codex and Claude Code. Edit it directly. Do not restore
-the removed Kiro skills, steering sources, or skill generator.
+the removed Kiro skill registrations, steering directories, or skill generator.
+All prior rules and resources are preserved in full inside standard-pr-practice;
+read its complete standards index and every applicable rule before coding.
 
 - Use an isolated worktree and a separate normal PR for each task. Preserve
   user-owned changes and never write directly to `main`.

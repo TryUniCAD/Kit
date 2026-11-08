@@ -7,6 +7,11 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 
 [standard-pr-practice](skills/standard-pr-practice/SKILL.md) is the only
 repository skill. Edit it directly; it is no longer generated from Kiro steering.
+All previous coding, formatting, quality, security, architecture, CAD, frontend,
+and design rules and resources are incorporated without abridgment in its
+[complete standards index](skills/standard-pr-practice/references/Standards/Index.md).
+A pinned manifest and byte-exact provenance archive cover all 102 original files;
+remote CI verifies that no original bytes or resources disappear.
 Claude Code follows `CLAUDE.md` to the same canonical skill.
 
 Cubic is the only automated reviewer. Request it once per head with

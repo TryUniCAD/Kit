@@ -26,6 +26,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          fetch-depth: 0
           persist-credentials: false
 
       - name: Set up uv
@@ -40,3 +41,69 @@ jobs:
 
       - name: Verify steering synchronization
         run: bash .github/scripts/VerifySkills.sh
+
+      - name: Verify lossless standards consolidation
+        run: |
+          uv run python - <<'PYTHON'
+          import hashlib as Hashlib
+          import json as Json
+          import subprocess as Subprocess
+          import zipfile as Zipfile
+          from pathlib import Path as FilePath
+
+          PackageRoot = FilePath(".agents/skills/standard-pr-practice").resolve()
+          SourceCommit = "bc47bd1a43916f664a11e3be9698b36ec723d8d2"
+          Manifest = Json.loads((PackageRoot / "references/Standards/Manifest.json").read_text())
+          if Manifest["source_commit"] != SourceCommit:
+              raise SystemExit("The original standards source commit must remain pinned")
+          SourceTree = Subprocess.check_output([
+              "git", "ls-tree", "-r", "-z", SourceCommit, "--",
+              ".agents", ".kiro/skills", ".kiro/steering",
+          ])
+          Expected = {}
+          for Record in SourceTree.split(b"\0"):
+              if not Record:
+                  continue
+              Metadata, SourcePath = Record.split(b"\t", 1)
+              Mode, Kind, Blob = Metadata.decode().split()
+              if Kind != "blob":
+                  raise SystemExit("Unexpected object in the original standards tree")
+              Expected[SourcePath.decode()] = (Mode, Blob)
+          Entries = Manifest["entries"]
+          SourceNames = [Entry["source"] for Entry in Entries]
+          DocumentNames = [Entry["document"] for Entry in Entries]
+          if len(SourceNames) != len(set(SourceNames)) or set(SourceNames) != set(Expected):
+              raise SystemExit("Every original standards file must appear exactly once")
+          if len(DocumentNames) != len(set(DocumentNames)):
+              raise SystemExit("Original standards need distinct readable copies")
+          ArchivePath = PackageRoot / "assets/OriginalStandards.zip"
+          if Hashlib.sha256(ArchivePath.read_bytes()).hexdigest() != Manifest["archive_sha256"]:
+              raise SystemExit("The original standards archive digest changed")
+          with Zipfile.ZipFile(ArchivePath) as Archive:
+              if len(Archive.namelist()) != len(Expected) or set(Archive.namelist()) != set(Expected):
+                  raise SystemExit("The archive must contain the complete original inventory")
+              for Entry in Entries:
+                  SourceName = Entry["source"]
+                  Mode, Blob = Expected[SourceName]
+                  if (Entry["mode"], Entry["git_blob"]) != (Mode, Blob):
+                      raise SystemExit(f"Original provenance changed: {SourceName}")
+                  Member = Archive.getinfo(SourceName)
+                  if Member.file_size != Entry["size"] or Member.external_attr >> 16 != int(Mode, 8):
+                      raise SystemExit(f"Original size or mode changed: {SourceName}")
+                  Original = Archive.read(SourceName)
+                  ActualBlob = Subprocess.check_output(["git", "hash-object", "--stdin"], input=Original).decode().strip()
+                  if ActualBlob != Blob or Hashlib.sha256(Original).hexdigest() != Entry["sha256"]:
+                      raise SystemExit(f"Original bytes changed: {SourceName}")
+                  DocumentPath = (PackageRoot / Entry["document"]).resolve()
+                  _ = DocumentPath.relative_to(PackageRoot)
+                  Document = DocumentPath.read_bytes()
+                  if Entry["encoding"] == "raw":
+                      Preserved = Document == Original
+                  elif Entry["encoding"] in {"markdown-wrapper", "notice-wrapper"}:
+                      Preserved = Document.endswith(Original)
+                  else:
+                      raise SystemExit(f"Unknown preservation format: {SourceName}")
+                  if not Preserved:
+                      raise SystemExit(f"Readable standards were abridged or altered: {SourceName}")
+          print(f"Verified every original byte, mode, and readable copy for {len(Expected)} standards files")
+          PYTHON
