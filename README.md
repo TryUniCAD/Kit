@@ -19,7 +19,7 @@ Kit by Parashell is an open-source CAD interchange SDK for translating geometry,
 
 ## _Planned_ (in-order)
 
-1. Fusion360
+1. Fusion (full translation)
 2. CATIA
 3. NX
 4. Rhino
