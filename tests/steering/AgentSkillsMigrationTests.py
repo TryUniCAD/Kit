@@ -68,6 +68,8 @@ def CheckAliases(
         encoding="utf-8",
     )
     MonkeyPatch.setenv("PYTEST_DISABLE_PLUGIN_AUTOLOAD", "1")
+    EnvValues = dict(OsEnv.environ)
+    _ = EnvValues.pop("PYTEST_ADDOPTS", None)
     try:
         ResultInfo = Subprocess.run(
             [System.executable, "-m", "pytest", "-q", str(ProbePath)],
@@ -75,6 +77,7 @@ def CheckAliases(
             capture_output=True,
             text=True,
             check=False,
+            env=EnvValues,
         )
     finally:
         ProbePath.unlink(missing_ok=True)

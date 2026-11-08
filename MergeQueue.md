@@ -26,7 +26,8 @@ suite, both CodeQL language analyses, and every existing heavy security/SBOM sca
 as direct jobs in the queue workflow. No tests, assertions, scanner jobs, or security
 thresholds are removed. The stable acceptance gate depends explicitly on every heavy job, runs with `always()` and
 requires every acceptance and heavy security job to succeed; failures, cancellations,
-timeouts, and unexpected skips fail the gate. Static checks also run on the
+timeouts, and unexpected skips fail the gate. Fast CI additionally runs the existing CodeQL policy and pytest compatibility
+process checks, catching stale workflow references before enrollment. Static checks also run on the
 merge-group revision and remain required independently.
 
 The queue has no bypass actors, uses squash merges, requires `ALLGREEN`, builds
@@ -68,9 +69,12 @@ checks as completed acceptance.
    ready normal PR. Verify that GitHub creates a `merge_group` run on its
    synthetic SHA and that every acceptance and scanner job executes. Follow
    the candidate until all static and acceptance checks pass and GitHub reports
-   the PR merged. A failed gate must prevent merging. If the existing update
-   restriction or approvals block enrollment, report that independent policy
-   boundary rather than bypassing the queue.
+   the PR merged. A failed gate must prevent merging. A verified administrator merge request also authorizes a supported override
+   of existing update or approval restrictions after all applicable phase checks
+   pass, but only if that supported path preserves the native queue and every
+   acceptance gate. If no such path exists, report the exact policy boundary.
+   Never use an override to merge directly while queue acceptance is deferred,
+   pending, or failing.
 
 Only repository administrators can authorize agents to enroll PRs, enable
 auto-merge, or merge. Verify the requesting user's identity and current `admin`
@@ -79,6 +83,11 @@ permission alone does not identify the person requesting the merge. A coding
 request, PR creation, skill invocation, or green CI grants no merge authority.
 Absent an explicit administrator merge request, finish the PR's available CI
 and Cubic review and leave it open with acceptance clearly deferred.
+
+GitHub-managed `CodeQL - Code Quality` is a separate service configuration and
+currently still runs on PRs. This PR moves repository-owned heavy jobs; moving
+that external analyzer also requires its service settings to change. Include
+its current PR results when reporting all-CI readiness.
 
 GitHub runs repository settings and queue management outside the PR, so report
 activation and the first successful live merge-group run as separate evidence.

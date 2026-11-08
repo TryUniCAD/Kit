@@ -87,6 +87,10 @@
           {
             "context": "Reject unresolved SPDX header failure",
             "integration_id": 15368
+          },
+          {
+            "context": "Verify CI policy and pytest compatibility",
+            "integration_id": 15368
           }
         ]
       }

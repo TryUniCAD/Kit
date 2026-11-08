@@ -17,6 +17,29 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  policy:
+    name: Verify CI policy and pytest compatibility
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: "0.12.5"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Synchronize the locked environment
+        run: uv sync --frozen --all-groups --all-extras --python 3.11
+
+      - name: Verify repository CI contracts at process boundaries
+        run: uv run pytest tests/Policy/CodeqlPolicyTests.py tests/steering/AgentSkillsMigrationTests.py
+
   zizmor:
     name: Zizmor
     runs-on: ubuntu-24.04
