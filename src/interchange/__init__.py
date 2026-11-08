@@ -101,6 +101,7 @@ from interchange.enums.EnumValues import ParameterRole, ValueKind
 from interchange.features.FeatureAngleRev import AngularRevolve
 from interchange.features.FeatureBody import DesignBody
 from interchange.features.FeatureContract import FeatureDef
+from interchange.features.FeatureBoundScale import BoundScale
 from interchange.features.FeatureDistExt import DistanceExtrude
 from interchange.features.FeatureExtrude import ExtrudeEnd, ExtrudeFeature
 from interchange.features.FeatureKinds import (
@@ -370,6 +371,7 @@ BindTypeGlobals(
 
 RegisterTypes(
     AngularRevolve,
+    BoundScale,
     DistanceExtrude,
     PlaneExtrude,
     PlaneRevolve,
