@@ -102,6 +102,8 @@ Preserve unrelated files, staged changes, unpublished commits, and interrupted G
 
 Read [../../../MergeQueue.md](../../../MergeQueue.md) for the checked-in queue configuration and activation sequence. PR checks cover static validation and policy. The `Merge queue acceptance` check records deferral on pull requests and fails closed on merge groups unless every acceptance and heavy security job succeeds. A green PR is eligible for enrollment, not proof that acceptance passed. Do not wait for deferred heavy jobs before authorized enrollment, and never bypass them to merge.
 
+Every PR to the default branch requires Cubic's actual approval on its current head, enforced by the metadata-only `Cubic approval` check. No human or code-owner approval is required. The separate no-bypass approval ruleset remains mandatory for administrator-requested merges too. Follow [references/ReviewFindings.md](references/ReviewFindings.md) for immutable reviewer identity and decisive-review checks.
+
 The repository-root `re/` workspace remains exempt from code standards and unit-test requirements. Git isolation and preservation of user-owned work still apply. Prefer Python for backend work and React for frontend work. Preserve the repository MIT notices. New skill frontmatter uses `license: MIT`.
 
 ## Local execution rules
@@ -165,7 +167,7 @@ If either ref moves, invalidate stale evidence and inspect the new head/base pai
 Immediately before handoff, refresh PR identity, exact head/base SHAs, the full CI inventory, all `@cubic-dev-ai` outputs and threads, repository merge requirements, mergeability, and read-only auto-merge/queue state. Repeat if the candidate changes during verification. Require all of the following:
 
 - Every expected applicable CI check has completed successfully for the current revision, including external and non-required CI; any legitimate skip/neutral is explained from unchanged conditional configuration
-- `@cubic-dev-ai` has completed a review attributable to the current head, with every reported finding either fixed or answered with concrete evidence; no invented score or formal approval requirement is added
+- `@cubic-dev-ai` has submitted an actual `APPROVED` review on the current head, with every reported finding either fixed or answered with concrete evidence; a comment, green reviewer check, stale approval, or human approval cannot substitute, and no invented score requirement is added
 - All actionable findings from `@cubic-dev-ai` are addressed, including findings in top-level comments and outdated threads; no unresolved threads from the bot or unevaluated concerns remain, and no blocking verdict is silently dismissed. A green or neutral check alone cannot clear a report containing findings
 - GitHub reports `MERGEABLE` or `mergeable: true` for the fresh head/base pair; `UNKNOWN`/`null` is pending, and `BLOCKED` is investigated for approvals/checks rather than assumed to mean conflicts
 - Required approvals and repository merge requirements are satisfied before merging; before queue enrollment, every gate that can run outside the queue must pass, and applicable merge-group checks must pass before the queued PR merges

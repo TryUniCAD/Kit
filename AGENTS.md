@@ -25,7 +25,10 @@ read its complete standards index and every applicable rule before coding.
 - Cubic is the only automated PR reviewer. Request exactly
   `@cubic-dev-ai review this PR` once per accepted head unless that head already
   has a request or review. Verify the responding account/app and reviewed SHA,
-  address all findings, and report unavailable review evidence separately.
+  address all findings, and require its actual `APPROVED` review on the current
+  head. Comments and a green reviewer check do not substitute for approval.
+  No human or code-owner approval is required. Report unavailable review
+  evidence separately.
 - Only an explicit merge request from a verified repository administrator
   authorizes an agent to enroll a PR in the queue, enable auto-merge, or merge.
   Verify the requester's identity and current repository `admin` permission.

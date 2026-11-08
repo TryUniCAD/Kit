@@ -14,7 +14,36 @@ outside Git history: merging this configuration PR does not activate them.
 PRs run Python lint, formatting, types, steering, import, SPDX, path, skill, and
 workflow policies, including actionlint and Zizmor. Existing metadata labeling continues. Cubic is the only
 automated reviewer; request `@cubic-dev-ai review this PR` once per head and
-address every finding from its verified account or app on that revision.
+address every finding from its verified account or app on that revision. Cubic
+must submit an actual `APPROVED` review on that exact head. No human or
+code-owner approval is required; the repository has no code-owner entries.
+
+The metadata-only [Cubic approval workflow](.github/workflows/CubicApproval.yml)
+checks the latest submitted review from `cubic-dev-ai[bot]` (GitHub user ID
+`191113872`, type `Bot`). It rejects missing, stale, dismissed, or changes-requested
+reviews. A comment, human approval, or successful Cubic scanner check cannot
+satisfy it. Review submissions and dismissals refresh the gate. Merge-group
+runs identify queued PR heads contained in the candidate and verify each one's
+current Cubic approval again. The workflow never checks out or executes PR code.
+
+The separate [Cubic approval ruleset](.github/CubicApproval.json) requires this
+check from GitHub Actions (`15368`) with no bypass actors. GitHub's general PR
+approval count is zero, code-owner approval and last-pusher approval are disabled,
+and no specific human reviewer is required. Preserve unrelated `Protect` rules,
+including thread resolution, linear history, and restrictions on updates.
+
+[`cubic.yaml`](cubic.yaml) enables live approval for every clean PR and allows no
+open Cubic issues. Cubic reads this file only from the default branch; feature
+branch configuration does not take effect until merged. Before then, a repository
+administrator must enable the equivalent live approval settings in Cubic. If
+Cubic still emits `COMMENTED` reviews, the required check correctly stays red.
+
+The live `Protect` ruleset (`25490615`) has the human approval requirements
+disabled. The live `Cubic approval` ruleset (`26817553`) requires the no-bypass
+approval check. These settings were applied separately from the PR under the
+repository administrator's explicit request. Until the workflow lands on `main`,
+branches without it will wait for the required check. The code-owner entry is
+removed by this PR and disappears from the default branch when it merges.
 
 [MergeQueue.yml](.github/workflows/MergeQueue.yml) reports the required
 `Merge queue acceptance` context on PRs with an explicit deferral summary. Its
@@ -50,8 +79,9 @@ checks as completed acceptance.
    repository permission and preserve the existing `Protect` ruleset.
 2. Inspect current rulesets to avoid creating duplicate queue rules. Add the
    manifest as the separate `Merge queue` ruleset, or update that exact
-   existing ruleset using its observed ID. This preserves existing approval,
-   code-owner, linear-history, update, and conversation protections.
+   existing ruleset using its observed ID. Preserve the separate Cubic approval
+   ruleset and unrelated linear-history, update, and conversation protections.
+   Keep generic human and code-owner approval requirements disabled.
 
    ```sh
    gh api user --jq .login
@@ -63,14 +93,15 @@ checks as completed acceptance.
 3. Read back the returned ruleset ID and
    `gh api repos/TryUniCAD/Kit/rules/branches/main --paginate`. Verify the native
    queue is active, has no bypass actors, and requires `Merge queue acceptance`
-   and every listed static check, including the final SPDX failure gate from the GitHub Actions integration (`15368`).
+   and every listed static check, including `Cubic approval` and the final SPDX
+   failure gate from the GitHub Actions integration (`15368`).
    The manifest is additive; do not replace unrelated protections.
 4. With explicit merge authorization from a verified administrator, enqueue a
    ready normal PR. Verify that GitHub creates a `merge_group` run on its
    synthetic SHA and that every acceptance and scanner job executes. Follow
    the candidate until all static and acceptance checks pass and GitHub reports
    the PR merged. A failed gate must prevent merging. A verified administrator merge request also authorizes a supported override
-   of existing update or approval restrictions after all applicable phase checks
+   of existing update restrictions after all applicable phase checks
    pass, but only if that supported path preserves the native queue and every
    acceptance gate. If no such path exists, report the exact policy boundary.
    Never use an override to merge directly while queue acceptance is deferred,
@@ -97,3 +128,5 @@ Do not describe this configuration as active until the settings are read back.
 
 - [GitHub merge queue and coupled PR/merge-group checks](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue)
 - [Repository rulesets API](https://docs.github.com/en/rest/repos/rules)
+- [Cubic live approval](https://docs.cubic.dev/ai-review/auto-approval)
+- [Cubic default-branch configuration](https://docs.cubic.dev/configure/cubic-yaml)

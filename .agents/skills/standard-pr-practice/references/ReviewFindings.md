@@ -33,7 +33,9 @@ Poll in responsive intervals around 30–60 seconds and inspect new findings pro
 
 ## Verify completion
 
-Require a completed review attributable to the current head, all reported findings fixed or answered with evidence, no unresolved reviewer threads including outdated ones, and no outstanding blocking verdict. Read the substance of the report: a successful or neutral check with actionable findings is not a clean review. The service need not publish a numeric score or formal approval; do not invent either requirement.
+Require Cubic's actual `APPROVED` review attributable to the current head, all reported findings fixed or answered with evidence, no unresolved reviewer threads including outdated ones, and no outstanding blocking verdict. Read the substance of the report: a successful or neutral check with actionable findings is not a clean review. A `COMMENTED` review, a green Cubic check, or a human approval cannot satisfy this repository's `Cubic approval` gate. Do not invent a numeric score requirement.
+
+Verify `cubic-dev-ai[bot]`, immutable GitHub user ID `191113872`, and account type `Bot`; its verified app is `cubic-dev-ai`, app ID `1082092`. The latest submitted review must be `APPROVED` with `commit_id` equal to the current PR head. A stale or dismissed approval is insufficient, and a later comment-only review does not retain an earlier pass. No human or code-owner approval is required. The metadata-only GitHub Actions approval gate is enforcement, not an additional reviewer.
 
 Keep “findings addressed”, “current-head review completed”, “CI passed”, “mergeable”, “required approvals satisfied”, and “queued/merged/deployed” as separate facts. Unknown revision attribution or a missing current-head review remains unavailable evidence, not a clean pass. If the head changes, refresh the report and CI inventory. If the PR merges or closes externally, report that change and any unresolved review evidence before further publication.
 
