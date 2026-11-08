@@ -31,6 +31,7 @@ from convert.adapters.freecad.Brep import (
 from convert.adapters.freecad.ArchiveEditPlan import KEditableBinding, ReadArchiveEdit
 from convert.adapters.freecad.EditableExt import EditExtrude
 from convert.adapters.freecad.Format import FORMAT_ID as FormatId
+from convert.adapters.freecad.FormulaSheet.FormulaClosure import BuildFusionExpr
 from convert.adapters.freecad.LiteralQuantity import IsLiteralQty
 from convert.adapters.freecad.Protocol import (
     ASSEMBLY_CONNECTOR_PROPERTY_PREFIXES as AsmConnectorPropPrefixes,
@@ -1015,6 +1016,7 @@ def InitCatalogMut(Instance: ParamCatalog, Parameters: list[dict[str, object]]) 
             Suffix += 1
         UsedValue.add(Alias)
         Instance.Aliases[ParamId] = Alias
+    Instance.FusionExpressions = BuildFusionExpr(Parameters, Instance.Aliases)
 
 
 # this definition exists because feature properties reference spreadsheet aliases
@@ -1136,7 +1138,7 @@ def NativeExpr(Instance: ParamCatalog, ItemValue: Mapping[str, object]) -> str |
             )
         ):
             return Source
-        return None
+        return Instance.FusionExpressions.get(TextAction(ItemValue.get("id")))
     if Language != "kit":
         return None
     References = [
@@ -1248,6 +1250,7 @@ class ParamCatalog(PairProtocol):
         self.Parameters: list[dict[str, object]] = []
         self.ByIdentifier: dict[str, dict[str, object]] = {}
         self.Aliases: dict[str, str] = {}
+        self.FusionExpressions: dict[str, str] = {}
         InitCatalogMut(self, Parameters)
 
     # this definition exists because focused behavior needs one stable owner
