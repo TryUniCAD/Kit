@@ -268,17 +268,6 @@ async function FindReuse(Github, Context, Core) {
     ).data;
     if (Current.state !== "open" || Current.head.sha !== Pull.headRefOid)
       return { reuse: false, reason: "A queued PR changed" };
-    const Health = await ReadReports(
-      Github,
-      Context,
-      [Pull.headRefOid],
-      [...StaticChecks, ...PrChecks, "CI Agg", "Merge queue acceptance"],
-    );
-    if (Health.some((Row) => Row.state !== "pass"))
-      return {
-        reuse: false,
-        reason: `PR #${Pull.number} lacks current healthy CI`,
-      };
     const Runs = await Github.paginate(
       Github.rest.actions.listWorkflowRunsForRepo,
       {
@@ -329,6 +318,18 @@ async function FindReuse(Github, Context, Core) {
       Tested.tree.sha !== Evidence.tree_sha
     )
       continue;
+    const Health = await ReadReports(
+      Github,
+      Context,
+      [Pull.headRefOid, Evidence.tested_sha],
+      [...StaticChecks, ...PrChecks, "CI Agg", "Merge queue acceptance"],
+    );
+    if (Health.some((Row) => Row.state !== "pass")) {
+      return {
+        reuse: false,
+        reason: `PR #${Pull.number} lacks current healthy CI`,
+      };
+    }
     const HeadCommit = (
       await Github.rest.git.getCommit({
         ...Repository,

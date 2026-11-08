@@ -27,6 +27,9 @@ health for the exact PR revision, excluding Cubic by verified app identity. It
 waits for every expected static, policy, label, and GitHub-managed Code Quality
 check, and inventories additional check runs and commit statuses. Failed,
 cancelled, timed-out, missing, and unexpectedly skipped reports cannot pass.
+The managed Code Quality workflow's required check names are `Analyze (python)`
+and `Analyze (java-kotlin)`; `Code Quality` is a workflow label, not an additional
+check context. Both actual check names are explicitly expected by the aggregate.
 The summary links the individual reports. CI execution stays in the existing
 workflows; the aggregate does not replace their assertions or thresholds.
 
@@ -104,8 +107,14 @@ checks as completed acceptance.
    gh api user --jq .login
    gh repo view TryUniCAD/Kit --json viewerPermission
    gh api repos/TryUniCAD/Kit/rulesets --paginate
-   gh api --method POST repos/TryUniCAD/Kit/rulesets --input .github/MergeQueue.json
    ```
+
+   These commands are read-only. An administrator manages settings separately
+   in GitHub Settings, updating an observed existing queue configuration instead
+   of creating a duplicate. If queue rules already live inside `Protect` or
+   another mixed ruleset, preserve all its unrelated rules; never replace it
+   wholesale with the standalone manifest. No ruleset mutations are part of CI,
+   ordinary PR follow-up, or an agent's merge authorization.
 
 3. Read back the returned ruleset ID and
    `gh api repos/TryUniCAD/Kit/rules/branches/main --paginate`. Verify the native

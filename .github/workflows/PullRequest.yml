@@ -22,6 +22,7 @@ jobs:
     permissions:
       contents: read
       actions: read # Reads exact-revision workflow runs and PR CI evidence.
+      statuses: read # Reads legacy commit-status contexts.
       checks: read # Aggregates current check results without modifying them.
       pull-requests: read # Verifies PR heads and native queue membership.
     steps:

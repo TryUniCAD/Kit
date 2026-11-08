@@ -26,6 +26,7 @@ jobs:
     permissions:
       contents: read
       actions: read # Reads immutable PR CI evidence from its originating run.
+      statuses: read # Reads legacy commit-status contexts.
       checks: read # Verifies current PR check health before reuse.
       pull-requests: read # Reads queued PR heads and compares candidate membership.
     outputs:
