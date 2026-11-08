@@ -16,34 +16,45 @@ workflow policies, including actionlint and Zizmor. Existing metadata labeling c
 automated reviewer; request `@cubic-dev-ai review this PR` once per head and
 address every finding from its verified account or app on that revision. Cubic
 must submit an actual `APPROVED` review on that exact head. No human or
-code-owner approval is required; the repository has no code-owner entries.
+code-owner approval is required. `@cubic-dev-ai` is the wildcard owner in
+`CODEOWNERS`; `@odinglyn0` is not listed.
 
-The metadata-only [Cubic approval workflow](.github/workflows/CubicApproval.yml)
-checks the latest submitted review from `cubic-dev-ai[bot]` (GitHub user ID
-`191113872`, type `Bot`). It rejects missing, stale, dismissed, or changes-requested
-reviews. A comment, human approval, or successful Cubic scanner check cannot
-satisfy it. Review submissions and dismissals refresh the gate. Merge-group
-runs identify queued PR heads contained in the candidate and verify each one's
-current Cubic approval again. The workflow never checks out or executes PR code.
+Use Cubic's existing native review and status indicator. There is no duplicate
+Cubic approval workflow. Review evidence and approval remain separate from CI.
 
-The separate [Cubic approval ruleset](.github/CubicApproval.json) requires this
-check from GitHub Actions (`15368`) with no bypass actors. GitHub's general PR
-approval count is zero, code-owner approval and last-pusher approval are disabled,
-and no specific human reviewer is required. Preserve unrelated `Protect` rules,
-including thread resolution, linear history, and restrictions on updates.
+[`Pull Request / CI Agg`](.github/workflows/PullRequest.yml) reports overall CI
+health for the exact PR revision, excluding Cubic by verified app identity. It
+waits for every expected static, policy, label, and GitHub-managed Code Quality
+check, and inventories additional check runs and commit statuses. Failed,
+cancelled, timed-out, missing, and unexpectedly skipped reports cannot pass.
+The summary links the individual reports. CI execution stays in the existing
+workflows; the aggregate does not replace their assertions or thresholds.
 
 [`cubic.yaml`](cubic.yaml) enables live approval for every clean PR and allows no
 open Cubic issues. Cubic reads this file only from the default branch; feature
 branch configuration does not take effect until merged. Before then, a repository
-administrator must enable the equivalent live approval settings in Cubic. If
-Cubic still emits `COMMENTED` reviews, the required check correctly stays red.
+administrator manages the equivalent approval setting in Cubic. Do not change
+live rulesets as part of this workflow. The code-owner replacement takes effect
+when this PR merges. GitHub requires the named user to have repository write
+access before it recognizes ownership; the installed review app's access does
+not grant that separate user write permission.
 
-The live `Protect` ruleset (`25490615`) has the human approval requirements
-disabled. The live `Cubic approval` ruleset (`26817553`) requires the no-bypass
-approval check. These settings were applied separately from the PR under the
-repository administrator's explicit request. Until the workflow lands on `main`,
-branches without it will wait for the required check. The code-owner entry is
-removed by this PR and disappears from the default branch when it merges.
+## Reuse healthy PR CI
+
+A successful PR aggregate publishes a small immutable evidence artifact bound
+to its repository, PR number, head repository, head SHA, event base SHA, tested
+merge commit, complete tree SHA, workflow run, and attempt. The merge queue
+checks current CI health for every included PR and validates the artifact's
+origin and SHA-256 digest. Reuse additionally requires identical candidate,
+PR-head, and tested merge trees, identical base commits, verified test-merge
+parents, and ancestry from that base to the PR head.
+
+When that proof succeeds, eligible static jobs retain their check names but explicitly
+skip duplicate execution. The aggregate independently verifies reuse before
+accepting those skips. If a head, base, tree, report, or evidence artifact does
+not match, static checks execute on the candidate instead. Missing or expired
+evidence never produces a cached success. Trusted header checks, acceptance, and heavy security always
+execute on the actual merge group. No acceptance result is inferred from PR CI.
 
 [MergeQueue.yml](.github/workflows/MergeQueue.yml) reports the required
 `Merge queue acceptance` context on PRs with an explicit deferral summary. Its
@@ -56,8 +67,8 @@ as direct jobs in the queue workflow. No tests, assertions, scanner jobs, or sec
 thresholds are removed. The stable acceptance gate depends explicitly on every heavy job, runs with `always()` and
 requires every acceptance and heavy security job to succeed; failures, cancellations,
 timeouts, and unexpected skips fail the gate. Fast CI additionally runs the existing CodeQL policy and pytest compatibility
-process checks, catching stale workflow references before enrollment. Static checks also run on the
-merge-group revision and remain required independently.
+process checks, catching stale workflow references before enrollment. Static checks retain their required
+contexts on the merge group and either execute or use verified equivalent PR evidence.
 
 The queue has no bypass actors, uses squash merges, requires `ALLGREEN`, builds
 at most two candidates concurrently, and merges one entry at a time. Its
@@ -79,8 +90,8 @@ checks as completed acceptance.
    repository permission and preserve the existing `Protect` ruleset.
 2. Inspect current rulesets to avoid creating duplicate queue rules. Add the
    manifest as the separate `Merge queue` ruleset, or update that exact
-   existing ruleset using its observed ID. Preserve the separate Cubic approval
-   ruleset and unrelated linear-history, update, and conversation protections.
+   existing ruleset using its observed ID. Preserve unrelated linear-history,
+   update, and conversation protections.
    Keep generic human and code-owner approval requirements disabled.
 
    ```sh
@@ -93,7 +104,7 @@ checks as completed acceptance.
 3. Read back the returned ruleset ID and
    `gh api repos/TryUniCAD/Kit/rules/branches/main --paginate`. Verify the native
    queue is active, has no bypass actors, and requires `Merge queue acceptance`
-   and every listed static check, including `Cubic approval` and the final SPDX
+   and every listed static check, including the final SPDX
    failure gate from the GitHub Actions integration (`15368`).
    The manifest is additive; do not replace unrelated protections.
 4. With explicit merge authorization from a verified administrator, enqueue a

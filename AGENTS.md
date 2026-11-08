@@ -22,6 +22,10 @@ read its complete standards index and every applicable rule before coding.
 - Run heavy acceptance and security checks on the merge-group candidate through
   [the native merge queue](MergeQueue.md). Keep every applicable CI gate enabled.
   Distinguish green PR checks from successful queue acceptance.
+- Use `Pull Request / CI Agg` for overall CI health, excluding Cubic. Reuse healthy
+  PR reports in the queue only with verified identical inputs; otherwise rerun.
+  Header verification and heavy acceptance always execute on the candidate.
+  Use Cubic's existing status indicator without a duplicate approval workflow.
 - Cubic is the only automated PR reviewer. Request exactly
   `@cubic-dev-ai review this PR` once per accepted head unless that head already
   has a request or review. Verify the responding account/app and reviewed SHA,
