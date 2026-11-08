@@ -78,7 +78,7 @@ jobs:
                   UseMatch = UsePattern.match(LineText)
                   if UseMatch is not None:
                       UseText, VersionText = UseMatch.groups()
-                      if not UseText.startswith(("./", "$/")):
+                      if not UseText.startswith("./"):
                           ActionText, MarkerText, RefText = UseText.rpartition("@")
                           if (
                               not ActionText

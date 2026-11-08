@@ -23,9 +23,9 @@ establish eligibility for queue enrollment, not acceptance success.
 
 On `merge_group.checks_requested`, the same workflow runs the complete pytest
 suite, both CodeQL language analyses, and every existing heavy security/SBOM scanner
-through reusable workflows. No tests, assertions, scanner jobs, or security
-thresholds are removed. The stable acceptance gate runs with `always()` and
-requires all three reusable workflows to succeed; failures, cancellations,
+as direct jobs in the queue workflow. No tests, assertions, scanner jobs, or security
+thresholds are removed. The stable acceptance gate depends explicitly on every heavy job, runs with `always()` and
+requires every acceptance and heavy security job to succeed; failures, cancellations,
 timeouts, and unexpected skips fail the gate. Static checks also run on the
 merge-group revision and remain required independently.
 

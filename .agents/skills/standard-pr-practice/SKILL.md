@@ -60,7 +60,7 @@ Preserve unrelated files, staged changes, unpublished commits, and interrupted G
 
 ## Kit merge queue
 
-Read [../../../MergeQueue.md](../../../MergeQueue.md) for the checked-in queue configuration and activation sequence. PR checks cover static validation and policy. The `Merge queue acceptance` check records deferral on pull requests and fails closed on merge groups unless every acceptance and heavy security workflow succeeds. A green PR is eligible for enrollment, not proof that acceptance passed. Do not wait for deferred heavy jobs before authorized enrollment, and never bypass them to merge.
+Read [../../../MergeQueue.md](../../../MergeQueue.md) for the checked-in queue configuration and activation sequence. PR checks cover static validation and policy. The `Merge queue acceptance` check records deferral on pull requests and fails closed on merge groups unless every acceptance and heavy security job succeeds. A green PR is eligible for enrollment, not proof that acceptance passed. Do not wait for deferred heavy jobs before authorized enrollment, and never bypass them to merge.
 
 The repository-root `re/` workspace remains exempt from code standards and unit-test requirements. Git isolation and preservation of user-owned work still apply. Prefer Python for backend work and React for frontend work. Preserve the repository MIT notices. New skill frontmatter uses `license: MIT`.
 
