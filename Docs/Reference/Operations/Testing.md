@@ -103,9 +103,12 @@ sequenceDiagram
     participant Test as Test Suite
     participant Conv as Converter
     participant Trace as Research Tracer
-    Test->>Conv: Read Source File
-    Conv->>Trace: Hook Reader Entry Points
-    Trace-->>Conv: Log Object Boundaries/Indices
+    participant Vendor as Isolated Vendor Reader
+    Test->>Trace: Observe research candidate
+    Trace->>Vendor: Trace reader entry points
+    Vendor-->>Trace: Record object spans and indices
+    Trace-->>Test: Store format findings
+    Test->>Conv: Read source with recovered grammar
     Conv->>Conv: Reparse to Symbolic Model
     Conv->>Conv: Re-emit with New Indices
     Conv-->>Test: Compare Bytes (Byte-Identity)
