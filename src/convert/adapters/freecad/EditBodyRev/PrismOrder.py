@@ -103,7 +103,7 @@ def ReadPrismOrder(
     if not isinstance(Curve, LineCurve) or Curve.id != Edge.curve_id:
         raise ValueError("FreeCAD linked extrusion needs a straight selected edge")
     Rim, FarRim = (2, 0) if Negative else (0, 2)
-    Children = {
+    Children: dict[str, tuple[int, ...]] = {
         f"loop:{Model.loops[Wall + 2].id}": (
             *((3, 1) if IsForward else (1, 3)),
             Rim,

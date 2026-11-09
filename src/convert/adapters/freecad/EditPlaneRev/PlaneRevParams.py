@@ -29,8 +29,8 @@ def ReadInactive(FeatureValue: FeatureStep, Params: dict[str, Parameter]) -> str
         or not isinstance(Identity, str)
         or FeatureValue.parameter_ids != (Identity,)
         or ReadRevAngle(Params[Identity], FeatureValue, "AlongAngle") != 0.0
-        or Params[Identity].expression is None
-        or Params[Identity].expression.language != "fusion"
+        or (Expression := Params[Identity].expression) is None
+        or Expression.language != "fusion"
     ):
         raise ValueError("FreeCAD editable plane Revolve inactive angle is unresolved")
     return Identity
@@ -57,7 +57,10 @@ def ReadTargetPars(
         or Extra.expression.language != "fusion"
     ):
         raise ValueError("FreeCAD editable plane has unsupported extra offset")
-    return Angle.id, Angle.value.value, Extra.id
+    AngleValue = Angle.value.value
+    if type(AngleValue) is not float:
+        raise ValueError("FreeCAD editable plane angle must be a float")
+    return Angle.id, AngleValue, Extra.id
 
 
 # both the native and edited literal preserve ownership and the original binding identity

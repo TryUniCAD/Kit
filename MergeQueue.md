@@ -58,10 +58,8 @@ are included only after their parents match the recorded head and base.
 Normal PR aggregation runs on `pull_request_target` using the trusted default
 branch's workflow and reporter, without checking out or executing PR code. Its
 artifact records the PR head input tree rather than treating the event's base
-SHA as a tested PR merge. This installation PR, #49, has a one-time read-only
-`pull_request` preview so the pipeline can be exercised before it exists on
-`main`. Other PRs do not run that preview. Bootstrap artifacts are never eligible
-for queue reuse; only successful trusted `pull_request_target` runs qualify.
+SHA as a tested PR merge. Only successful trusted `pull_request_target` runs
+qualify for queue reuse.
 
 Queue preflights and the queue aggregate load the verifier from the exact trusted
 merge-group base commit. PR changes to the helper are not executed by those

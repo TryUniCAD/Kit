@@ -27,15 +27,16 @@ KScopeIndex = dict[tuple[str, str], tuple[int, KScopeRecord]]
 
 # stable source positions preserve the ordering of detached records
 def IndexScope(Document: CadDocument) -> KScopeIndex:
+    Groups: tuple[tuple[str, tuple[KScopeRecord, ...]], ...] = (
+        ("step", Document.feature_timeline),
+        ("sketch", Document.sketches),
+        ("plane", Document.support_planes),
+        ("selection", Document.selections),
+        ("parameter", Document.parameters),
+    )
     return {
         (RecordKind, Value.id): (Order, Value)
-        for RecordKind, Records in (
-            ("step", Document.feature_timeline),
-            ("sketch", Document.sketches),
-            ("plane", Document.support_planes),
-            ("selection", Document.selections),
-            ("parameter", Document.parameters),
-        )
+        for RecordKind, Records in Groups
         for Order, Value in enumerate(Records)
     }
 

@@ -107,12 +107,9 @@ def ReadScalePlan(
 
 # unrelated feature families retain the normal archive strategy
 def GetScalePlan(Document: CadDocument) -> ScaleWritePlan | None:
-    if not Document.feature_timeline:
+    if Document.source.format_id != "fusion.f3d" or not Document.feature_timeline:
         return None
     Feature = Document.feature_timeline[-1]
     if not isinstance(Feature.definition, BoundScale):
         return None
-    try:
-        return ReadScalePlan(Document, Feature, Feature.definition)
-    except ValueError:
-        return None
+    return ReadScalePlan(Document, Feature, Feature.definition)

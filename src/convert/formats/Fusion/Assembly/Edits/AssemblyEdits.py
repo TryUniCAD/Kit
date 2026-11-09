@@ -79,15 +79,15 @@ def ReadAsmEdits(
     Snapshots: dict[int, int] = {}
     Verified: dict[str, int] = {}
     for Identity, StepId in StepIds.items():
-        SpanValue = Owners.get(Identity)
-        if SpanValue is None:
+        EditSpan = Owners.get(Identity)
+        if EditSpan is None:
             continue
         try:
-            if SpanValue.ClassGuid == KEditSnapshot:
+            if EditSpan.ClassGuid == KEditSnapshot:
                 OccurrenceId = ReadEditSnap(BulkData, IndexValue, Identity, TimelineIds)
                 Snapshots[Identity] = OccurrenceId
                 Verified[StepId] = OccurrenceId
-            elif SpanValue.ClassGuid == KCopyOccurrence:
+            elif EditSpan.ClassGuid == KCopyOccurrence:
                 Verified[StepId] = ReadEditCopy(
                     BulkData, IndexValue, Identity, Snapshots
                 )

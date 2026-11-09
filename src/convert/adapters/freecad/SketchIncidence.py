@@ -17,7 +17,7 @@ def GetIncidence(
         return ((Attrs.get("fusion.circle_native_center_id"), 3),)
     if GeometryType == "LineGeometry":
         PointRefs = Attrs.get("fusion.line_native_point_ids")
-        Slots = (1, 2)
+        Slots: tuple[int, ...] = (1, 2)
     elif GeometryType == "ArcGeometry":
         PointRefs = Attrs.get("fusion.arc_native_point_ids")
         Slots = (

@@ -15,7 +15,7 @@ from convert.geometry.Formula.FormulaUnits import GetQuantity
 # exact linked names and a verified dependency closure protect against cached formula coincidences
 def ReadProvenNumbers(Rows: tuple[NumberProofRow, ...]) -> tuple[NumberProofRow, ...]:
     Graph = GetFormulaGraph(tuple(Row.Raw for Row in Rows))
-    Edges = {}
+    Edges: dict[str, tuple[str, ...]] = {}
     for Row in Rows:
         Expression = Row.Actual.expression
         Identity = Row.Raw.id

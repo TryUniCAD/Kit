@@ -29,7 +29,8 @@ def ReadEditFormula(
             "FreeCAD editable spreadsheet parameter identities are ambiguous"
         )
     Plans, Order = ReadPlanOrder(Original, Aliases, DepthId)
-    Current, Changes = dict(Original), set()
+    Current = dict(Original)
+    Changes: set[str] = set()
     for Identity in Order:
         Param, PlanValue = Original[Identity], Plans[Identity]
         Alias = Aliases[Identity]

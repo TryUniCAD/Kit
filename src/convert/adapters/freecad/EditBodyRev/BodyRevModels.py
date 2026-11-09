@@ -22,11 +22,11 @@ from interchange.records.RecordTopology import TopologyCounts
 # inventory evidence covers exactly the two saved bodies with reciprocal native ownership
 def CheckMembers(DocValue: CadDocument, Component: int) -> None:
     Inventory = DocValue.metadata.get("fusion.body_inventory")
-    Members = Inventory.get("members") if isinstance(Inventory, Mapping) else None
     if (
-        not isinstance(Members, tuple)
-        or len(Members) != 2
+        not isinstance(Inventory, Mapping)
         or Inventory.get("component_id") != Component
+        or not isinstance((Members := Inventory.get("members")), tuple)
+        or len(Members) != 2
     ):
         raise ValueError(
             "FreeCAD editable body axis Revolve body inventory is unresolved"
@@ -86,7 +86,7 @@ def CheckBodyRecord(
         or BodyValue.final_feature_id != FeatureValue.id
         or Attrs.get("fusion.geometry_source") != SourceKind
         or any(
-            type(Attrs.get(Field)) is not int or Attrs[Field] <= 0
+            type(NativeId := Attrs.get(Field)) is not int or NativeId <= 0
             for Field in (
                 "fusion.native_body_anchor_id",
                 "fusion.native_body_collection_id",

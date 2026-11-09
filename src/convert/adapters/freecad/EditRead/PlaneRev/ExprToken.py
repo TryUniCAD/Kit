@@ -36,7 +36,7 @@ def ReadExprTokens(TextValue: str) -> tuple[KExprToken, ...]:
     if not isinstance(TextValue, str) or len(TextValue) > KMaxTextSize:
         raise ValueError("invalid plane expression size")
     TextValue = TextValue.rstrip(" \t\r\n")
-    Tokens = []
+    Tokens: list[KExprToken] = []
     Index = 0
     while Index < len(TextValue):
         Match = KTokenPattern.match(TextValue, Index)

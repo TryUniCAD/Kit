@@ -64,6 +64,7 @@ def MatchClaims(
     Result: dict[ArchiveMember | RecordSpan, ProofClaim] = {}
     for Claim in Claims:
         Target = Claim.Target
+        Found: ArchiveMember | RecordSpan | None
         if isinstance(Target, ArchiveMember):
             Found = MemberIndex.get(Target.Name)
             IsDesign = Target.Name in KDesignStreams
