@@ -85,38 +85,8 @@ def ReadPrimitive(
             Geometry, Extras = ReadSketchArc(BodyValue, Offset, Points)
             KindValue = GeometryKind.KArcGeometry
         else:
-            Origin = ReadPoint(BodyValue, Offset)
-            TargetId, Target = ReadPointRef(BodyValue, Offset + 96, Points)
-            if KindValue == GeometryKind.KLine:
-                StartId, Start = ReadPointRef(BodyValue, Offset + 107, Points)
-                Delta = ReadPoint(BodyValue, Offset + 24)
-                EndValue = PlaneVector(Origin.x + Delta.x, Origin.y + Delta.y)
-                if not IsSamePoint(Origin, Start) or not IsSamePoint(EndValue, Target):
-                    raise ValueError("Fusion line endpoint cache disagrees")
-                Geometry = LineGeometry(Start, Target)
-                Extras = {"fusion.line_native_point_ids": (StartId, TargetId)}
-            else:
-                Radius = float(UnpackFrom("<d", BodyValue, Offset + 72)[0]) * 10
-                Normal = UnpackFrom("<3d", BodyValue, Offset + 24)
-                RefAxis = UnpackFrom("<3d", BodyValue, Offset + 48)
-                if (
-                    not IsFinite(Radius)
-                    or Radius <= 0.0
-                    or not IsSamePoint(Origin, Target)
-                    or not IsCircleFrame(Normal, RefAxis)
-                ):
-                    raise ValueError("Invalid Fusion sketch circle geometry")
-                Geometry = CircleGeometry(Target, Radius)
-                Extras = {
-                    "fusion.circle_native_center_id": TargetId,
-                    "fusion.circle_native_normal": Normal,
-                    "fusion.circle_native_reference_axis": RefAxis,
-                }
-        FixedFlag = UnpackFrom("<I", BodyValue, len(BodyValue) - 51)[0]
-        ConstructionFlag = UnpackFrom("<I", BodyValue, len(BodyValue) - 46)[0]
-        if FixedFlag not in (0, 1) or ConstructionFlag not in (0, 1):
-            raise ValueError("Unsupported Fusion sketch curve state")
-        Fixed, Construction = bool(FixedFlag), bool(ConstructionFlag)
+            Geometry, Extras = ReadSketchCurve(BodyValue, Offset, Points, KindValue)
+        Fixed, Construction = ReadCurveFlags(BodyValue)
     return SketchEntity(
         id=f"fusion-sketch-entity-{SpanValue.ObjectId}",
         kind=KindValue,
@@ -128,3 +98,51 @@ def ReadPrimitive(
             {"fusion.entity_tag": TagValue, "fusion.entity_genesis": Genesis, **Extras}
         ),
     )
+
+
+# only native binary fixed and construction flags can qualify a sketch curve
+def ReadCurveFlags(BodyValue: bytes) -> tuple[bool, bool]:
+    FixedFlag = UnpackFrom("<I", BodyValue, len(BodyValue) - 51)[0]
+    ConstructionFlag = UnpackFrom("<I", BodyValue, len(BodyValue) - 46)[0]
+    if FixedFlag not in (0, 1) or ConstructionFlag not in (0, 1):
+        raise ValueError("Unsupported Fusion sketch curve state")
+    return bool(FixedFlag), bool(ConstructionFlag)
+
+
+# the neutral line or circle must reproduce its referenced native point geometry
+def ReadSketchCurve(
+    BodyValue: bytes,
+    Offset: int,
+    Points: dict[int, PlaneVector],
+    KindValue: GeometryKind,
+) -> tuple[LineGeometry | CircleGeometry, dict[str, object]]:
+    Geometry: LineGeometry | CircleGeometry
+    Extras: dict[str, object]
+    Origin = ReadPoint(BodyValue, Offset)
+    TargetId, Target = ReadPointRef(BodyValue, Offset + 96, Points)
+    if KindValue == GeometryKind.KLine:
+        StartId, Start = ReadPointRef(BodyValue, Offset + 107, Points)
+        Delta = ReadPoint(BodyValue, Offset + 24)
+        EndValue = PlaneVector(Origin.x + Delta.x, Origin.y + Delta.y)
+        if not IsSamePoint(Origin, Start) or not IsSamePoint(EndValue, Target):
+            raise ValueError("Fusion line endpoint cache disagrees")
+        Geometry = LineGeometry(Start, Target)
+        Extras = {"fusion.line_native_point_ids": (StartId, TargetId)}
+    else:
+        Radius = float(UnpackFrom("<d", BodyValue, Offset + 72)[0]) * 10
+        Normal = UnpackFrom("<3d", BodyValue, Offset + 24)
+        RefAxis = UnpackFrom("<3d", BodyValue, Offset + 48)
+        if (
+            not IsFinite(Radius)
+            or Radius <= 0.0
+            or not IsSamePoint(Origin, Target)
+            or not IsCircleFrame(Normal, RefAxis)
+        ):
+            raise ValueError("Invalid Fusion sketch circle geometry")
+        Geometry = CircleGeometry(Target, Radius)
+        Extras = {
+            "fusion.circle_native_center_id": TargetId,
+            "fusion.circle_native_normal": Normal,
+            "fusion.circle_native_reference_axis": RefAxis,
+        }
+    return Geometry, Extras

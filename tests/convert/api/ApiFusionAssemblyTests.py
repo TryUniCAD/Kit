@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from interchange.document.models.DocumentModel import AssemblyData
 from json import loads as LoadJson
 from pathlib import Path as FilePath
 from sys import version_info as PythonVersion
@@ -42,17 +43,7 @@ def CheckAsmRead() -> None:
     Document = OpenDocument(InputPath, strict=False, include_brep=False)
     Assembly = Document.assembly
     assert Assembly is not None and Capability.KAssemblies in Document.capabilities
-    assert len(Assembly.definitions) == len(Assembly.instances) == 4
-    assert {Definition.name for Definition in Assembly.definitions} == {
-        "(Unsaved)",
-        "ComponentA",
-        "ComponentB",
-        "ComponentC",
-    }
-    assert {
-        Definition.attributes["fusion.history_id"]
-        for Definition in Assembly.definitions
-    } == {35, 233, 361, 502}
+    AssertAsmDefs(Assembly)
     assert Document.metadata["fusion.history_id"] == 35
     assert len(Document.feature_timeline) == len(Oracle["timeline"])
     Children = Assembly.children(Assembly.root_definition_id)
@@ -87,12 +78,37 @@ def CheckAsmRead() -> None:
             ConvertPose(Occurrence["native_transform2"])
         )
         assert World == Pytest.approx(ConvertPose(Occurrence["transform2"]))
-    assert Document.validate() == ()
-    assert CadDocument.from_json(Document.to_json()) == Document
-    assert Document.brep_payloads[0].data == InputPath.read_bytes()
+    AssertAsmZip(Document, InputPath)
+    AssertChildDoc(InputPath)
+
+
+# the selected child configuration must retain its own native history
+def AssertChildDoc(InputPath: FilePath) -> None:
     ChildDoc = OpenDocument(InputPath, strict=False, configuration="233")
     assert ChildDoc.assembly is None and ChildDoc.feature_timeline == ()
     assert ChildDoc.metadata["fusion.history_id"] == 233
+
+
+# definition count names and native history ids must match the captured assembly
+def AssertAsmDefs(Assembly: AssemblyData) -> None:
+    assert len(Assembly.definitions) == len(Assembly.instances) == 4
+    assert {Definition.name for Definition in Assembly.definitions} == {
+        "(Unsaved)",
+        "ComponentA",
+        "ComponentB",
+        "ComponentC",
+    }
+    assert {
+        Definition.attributes["fusion.history_id"]
+        for Definition in Assembly.definitions
+    } == {35, 233, 361, 502}
+
+
+# assembly round trip preserves both the document and its native payload bytes
+def AssertAsmZip(Document: CadDocument, InputPath: FilePath) -> None:
+    assert Document.validate() == ()
+    assert CadDocument.from_json(Document.to_json()) == Document
+    assert Document.brep_payloads[0].data == InputPath.read_bytes()
 
 
 # joint cached transforms are not substituted for independently solved placements

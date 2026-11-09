@@ -56,6 +56,11 @@ def FindLineCuts(Sources: dict[str, KTrimLine]) -> dict[str, tuple[float, ...]]:
             raise ValueError(
                 "Fusion trimmed line contact is not a shared native corner"
             )
+    return FinishLineCuts(CutValues)
+
+
+# coincident intersections are rejected before their sorted intervals become profile edges
+def FinishLineCuts(CutValues: dict[str, list[float]]) -> dict[str, tuple[float, ...]]:
     Result: dict[str, tuple[float, ...]] = {}
     for Identity, Values in CutValues.items():
         Values.sort()

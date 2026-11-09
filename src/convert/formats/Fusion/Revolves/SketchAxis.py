@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 
+from interchange.geometry.models.Transform import Transform
 from math import hypot as Hypot, isfinite as IsFinite
 
 from convert.formats.Fusion.HistoryRef import ReadNativeRef
@@ -101,6 +102,13 @@ def ReadSketchAxis(
     if FrameComponent != ComponentId or FrameValue.transform != Frame:
         raise ValueError("Fusion Revolve sketch axis component or frame disagrees")
     _ = SelectCursor(BulkData, Owners, FrameComponent, KComponentGuid)
+    return MakeSketchAxis(Geometry, Frame)
+
+
+# world axis construction rejects coincident or nonfinite endpoints
+def MakeSketchAxis(
+    Geometry: LineGeometry, Frame: Transform
+) -> tuple[SpaceVector, SpaceVector]:
     Start, Finish = Geometry.start, Geometry.end
     OriginPoint = OffsetVector(
         OffsetVector(Frame.origin, Frame.x_axis, Start.x), Frame.y_axis, Start.y

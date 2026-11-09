@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.formats.Fusion.RecordSpan import RecordSpan
 from convert.formats.Fusion.Assembly.Edits.AsmEditIndex import AsmEditIndex
 from convert.formats.Fusion.Assembly.Edits.EditCreation import KNilNamespace
 from convert.formats.Fusion.Assembly.OccurTransform import ReadOccurMatrix
@@ -48,6 +49,14 @@ def ReadCopyFrame(
     WrapperId = ReadNativeRef(Cursor)
     if Cursor.TakeBytes(6) != bytes(6) or Cursor.Offset != len(Cursor.DataValue):
         raise ValueError("Unsupported Fusion copy context suffix")
+    NativeGuid, Terminal = ReadCopyRoute(BulkData, Owners, WrapperId, Populated)
+    return LinkId, Matrix, NativeGuid, Terminal
+
+
+# route ownership and namespace have their own record framing
+def ReadCopyRoute(
+    BulkData: bytes, Owners: dict[int, RecordSpan], WrapperId: int, Populated: bool
+) -> tuple[str, tuple[str, str]]:
     Wrapper = SelectCursor(BulkData, Owners, WrapperId, KCopyRouteList)
     if (
         len(Wrapper.DataValue) != 18
@@ -75,4 +84,4 @@ def ReadCopyFrame(
         or Route.Offset != len(Route.DataValue)
     ):
         raise ValueError("Fusion copy context route terminal disagrees")
-    return LinkId, Matrix, NativeGuid, Terminal
+    return NativeGuid, Terminal

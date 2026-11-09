@@ -59,6 +59,36 @@ def ProjectPlaneExt(
     ByParam = {Param.id: Param for Param in Params}
     ByFrame = {Frame.id: Frame for Frame in Frames}
     BySketch = {SketchValue.id: SketchValue for SketchValue in Sketches}
+    Updated, Selections, Diagnostics = ReadPlaneSteps(
+        BulkData,
+        OwnerId,
+        Owners,
+        ByNative,
+        NativePlanes,
+        ByStep,
+        ByParam,
+        ByFrame,
+        BySketch,
+    )
+    return (
+        tuple(Updated.get(StepData.id, StepData) for StepData in Steps),
+        tuple(Selections),
+        tuple(Diagnostics),
+    )
+
+
+# only supported plane extents replace the unresolved native feature and expose a selection
+def ReadPlaneSteps(
+    BulkData: bytes,
+    OwnerId: int,
+    Owners: dict[int, RecordSpan],
+    ByNative: dict[int, FeatureStep],
+    NativePlanes: dict[int, SupportPlane],
+    ByStep: dict[str, FeatureStep],
+    ByParam: dict[str, Parameter],
+    ByFrame: dict[str, SupportPlane],
+    BySketch: dict[str, Sketch],
+) -> tuple[dict[str, FeatureStep], list[Selection], list[Diagnostic]]:
     Scopes = None
     Updated: dict[str, FeatureStep] = {}
     Selections: list[Selection] = []
@@ -94,16 +124,7 @@ def ProjectPlaneExt(
                 ByParam,
                 Owners,
             )
-            Definition = StepValue.definition
-            assert isinstance(Definition, PlaneExtrude)
-            _ = GetPlaneExt(
-                StepValue,
-                Definition,
-                ByParam,
-                {PickValue.id: PickValue},
-                ByFrame,
-                BySketch,
-            )
+            CheckPlaneGeom(StepValue, PickValue, ByParam, ByFrame, BySketch)
         except ValueError as ErrorInfo:
             Diagnostics.append(
                 Diagnostic(
@@ -116,8 +137,24 @@ def ProjectPlaneExt(
             continue
         Updated[StepData.id] = StepValue
         Selections.append(PickValue)
-    return (
-        tuple(Updated.get(StepData.id, StepData) for StepData in Steps),
-        tuple(Selections),
-        tuple(Diagnostics),
+    return Updated, Selections, Diagnostics
+
+
+# the attached extent must evaluate against its projected support and source sketch
+def CheckPlaneGeom(
+    StepValue: FeatureStep,
+    PickValue: Selection,
+    ByParam: dict[str, Parameter],
+    ByFrame: dict[str, SupportPlane],
+    BySketch: dict[str, Sketch],
+) -> None:
+    Definition = StepValue.definition
+    assert isinstance(Definition, PlaneExtrude)
+    _ = GetPlaneExt(
+        StepValue,
+        Definition,
+        ByParam,
+        {PickValue.id: PickValue},
+        ByFrame,
+        BySketch,
     )

@@ -79,7 +79,12 @@ def ReadRimShadow(
         or sum(TagValue in RowValue.split() for RowValue in EdgeRows) != 1
     ):
         raise ValueError("FreeCAD editable body axis source edge map slot changed")
-    TailValue = Names[len(Header) + len(EdgeRows) :]
+    CheckMapTail(Names[len(Header) + len(EdgeRows) :], Sides)
+    return f";#b:{GeoId:x}{KRimPostfix}.Edge{SlotValue}"
+
+
+# face and vertex map tails must match the exact declared inventory
+def CheckMapTail(TailValue: list[str], Sides: int) -> None:
     for KindValue, RowsCount in (("Face", Sides + 3), ("Vertex", 2 * Sides + 1)):
         if TailValue[:4] != [KindValue, "ChildCount 0", f"NameCount {RowsCount}", "0"]:
             raise ValueError(
@@ -90,4 +95,3 @@ def ReadRimShadow(
         raise ValueError(
             "FreeCAD editable body axis source edge map has additional data"
         )
-    return f";#b:{GeoId:x}{KRimPostfix}.Edge{SlotValue}"

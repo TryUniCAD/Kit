@@ -46,6 +46,12 @@ def ReadLineGraph(Lines: tuple[SketchEntity, ...]) -> dict[str, KTrimLine]:
         Adjacent.setdefault(StartId, set()).add(EndId)
         Adjacent.setdefault(EndId, set()).add(StartId)
         Sources[Entity.id] = (Geometry, (StartId, EndId))
+    CheckLineCycles(Adjacent)
+    return Sources
+
+
+# native shared endpoints must form exactly two four sided cycles
+def CheckLineCycles(Adjacent: dict[int, set[int]]) -> None:
     if len(Adjacent) != 8 or any(
         len(Neighbors) != 2 for Neighbors in Adjacent.values()
     ):
@@ -62,4 +68,3 @@ def ReadLineGraph(Lines: tuple[SketchEntity, ...]) -> dict[str, KTrimLine]:
         if len(Cycle) != 4:
             raise ValueError("Fusion trimmed lines require two four side cycles")
         Remaining.difference_update(Cycle)
-    return Sources

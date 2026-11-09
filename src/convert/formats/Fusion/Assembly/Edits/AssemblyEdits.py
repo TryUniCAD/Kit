@@ -64,6 +64,13 @@ def ReadAsmEdits(
     ):
         return {}
     IndexValue = AsmEditIndex(Owners, ComponentSpans, Definitions, Occurrences)
+    return ReadAsmTimeline(BulkData, IndexValue, Steps)
+
+
+# only ordered edit steps with unique proven occurrences qualify as replayed assembly changes
+def ReadAsmTimeline(
+    BulkData: bytes, IndexValue: AsmEditIndex, Steps: tuple[FeatureStep, ...]
+) -> dict[str, int]:
     StepIds = {
         int(StepValue.provenance.native_id): StepValue.id
         for StepValue in Steps
@@ -79,7 +86,7 @@ def ReadAsmEdits(
     Snapshots: dict[int, int] = {}
     Verified: dict[str, int] = {}
     for Identity, StepId in StepIds.items():
-        EditSpan = Owners.get(Identity)
+        EditSpan = IndexValue.Owners.get(Identity)
         if EditSpan is None:
             continue
         try:

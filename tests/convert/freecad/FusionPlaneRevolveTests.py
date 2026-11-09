@@ -77,53 +77,52 @@ def TestLiveRev(TmpPath: FilePath, SampleName: str, AngleDeg: float) -> None:
     Result = WriteDocument(DocValue, Output)
     assert Result.application_usable and Capability.BREP in Result.native_capabilities
     with ZipFile(Output) as Archive:
-        RootValue = ParseXml(Archive.read("Document.xml"))
-        Objects = {
-            Value.get("name"): Value
-            for Value in RootValue.findall("./ObjectData/Object")
-        }
-        (Revolution,) = RootValue.findall("./Objects/Object[@type='Part::Revolution']")
-        NativeName = Revolution.get("name")
-        Props = Objects[NativeName]
-        Binding = Objects["KitMetadata"].find(
-            f"./Properties/Property[@name='{KPlaneRevBinding}']/String"
-        )
-        assert Binding is not None and Binding.get("value") == StepValue.id
-        Angle = Props.find("./Properties/Property[@name='Angle']/Float")
-        assert Angle is not None and float(Angle.attrib["value"]) == Pytest.approx(
-            AngleDeg
-        )
-        Expressions = {
-            Value.attrib["path"]: Value.attrib["expression"]
-            for Value in Props.findall(
-                "./Properties/Property/ExpressionEngine/Expression"
-            )
-        }
-        PlaneLinks = [
-            Value.attrib["value"]
-            for NodeValue in Objects.values()
-            for Value in NodeValue.findall(
-                "./Properties/Property[@name='ConstructionPlane']/Link"
-            )
-        ]
-        assert len(PlaneLinks) == len(Definition.PlaneSelectionIds)
-        for PlaneName in PlaneLinks:
-            Placement = Objects[PlaneName].find(
-                "./Properties/Property/ExpressionEngine/Expression[@path='Placement']"
-            )
-            assert (
-                Placement is not None
-                and "Parameters." in Placement.attrib["expression"]
-            )
-            assert f"{PlaneName}.Placement.Rotation" in Expressions["Angle"]
-            if len(PlaneLinks) == 2:
-                assert f"{PlaneName}.Placement.Rotation" in Expressions["Placement"]
-        assert [
-            NameValue
-            for NameValue in Archive.namelist()
-            if NameValue.endswith(".Shape.brp")
-        ] == [f"{NativeName}.Shape.brp"]
+        AssertPlaneZip(Archive, StepValue.id, Definition, AngleDeg)
     assert OpenDocument(Output) == DocValue
+
+
+# the native plane sweep must retain its linked editable placements and shape cache
+def AssertPlaneZip(
+    Archive: ZipFile, StepId: str, Definition: PlaneRevolve, AngleDeg: float
+) -> None:
+    RootValue = ParseXml(Archive.read("Document.xml"))
+    Objects = {
+        Value.get("name"): Value for Value in RootValue.findall("./ObjectData/Object")
+    }
+    (Revolution,) = RootValue.findall("./Objects/Object[@type='Part::Revolution']")
+    NativeName = Revolution.get("name")
+    Props = Objects[NativeName]
+    Binding = Objects["KitMetadata"].find(
+        f"./Properties/Property[@name='{KPlaneRevBinding}']/String"
+    )
+    assert Binding is not None and Binding.get("value") == StepId
+    Angle = Props.find("./Properties/Property[@name='Angle']/Float")
+    assert Angle is not None and float(Angle.attrib["value"]) == Pytest.approx(AngleDeg)
+    Expressions = {
+        Value.attrib["path"]: Value.attrib["expression"]
+        for Value in Props.findall("./Properties/Property/ExpressionEngine/Expression")
+    }
+    PlaneLinks = [
+        Value.attrib["value"]
+        for NodeValue in Objects.values()
+        for Value in NodeValue.findall(
+            "./Properties/Property[@name='ConstructionPlane']/Link"
+        )
+    ]
+    assert len(PlaneLinks) == len(Definition.PlaneSelectionIds)
+    for PlaneName in PlaneLinks:
+        Placement = Objects[PlaneName].find(
+            "./Properties/Property/ExpressionEngine/Expression[@path='Placement']"
+        )
+        assert Placement is not None and "Parameters." in Placement.attrib["expression"]
+        assert f"{PlaneName}.Placement.Rotation" in Expressions["Angle"]
+        if len(PlaneLinks) == 2:
+            assert f"{PlaneName}.Placement.Rotation" in Expressions["Placement"]
+    assert [
+        NameValue
+        for NameValue in Archive.namelist()
+        if NameValue.endswith(".Shape.brp")
+    ] == [f"{NativeName}.Shape.brp"]
 
 
 # losing the live binding must not silently restore the original plane snapshot

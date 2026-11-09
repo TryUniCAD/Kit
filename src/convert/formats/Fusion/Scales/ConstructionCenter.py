@@ -68,6 +68,24 @@ def ReadWorkPoint(
         raise ValueError(
             "Fusion construction point lacks a preceding same scope feature"
         )
+    Derived, SketchId, EntityId = ReadPointLeaf(
+        BulkData, Context, Document, Source, Scope, PointId, FeatureId
+    )
+    CheckCenterPt(Derived, Cached)
+    return Derived, Source.id, SketchId, EntityId
+
+
+# the authored point feature must prove its sketch entity before cached coordinates can be trusted
+def ReadPointLeaf(
+    BulkData: bytes,
+    Context: InputContext,
+    Document: CadDocument,
+    Source: FeatureStep,
+    Scope: CreatorScope,
+    PointId: int,
+    FeatureId: int,
+) -> tuple[SpaceVector, str, str]:
+    Owners = Context.Owners
     Feature = SelectCursor(BulkData, Owners, FeatureId, KWorkPointStep)
     if (
         Feature.TakeBytes(11) != b"\x00\x00\x01" + bytes(8)
@@ -84,5 +102,4 @@ def ReadWorkPoint(
         BulkData, Context, Document, Source, Scope, LeafId
     )
     CheckCenterPt(Derived, Point)
-    CheckCenterPt(Derived, Cached)
-    return Derived, Source.id, SketchValue.id, Entity.id
+    return Derived, SketchValue.id, Entity.id

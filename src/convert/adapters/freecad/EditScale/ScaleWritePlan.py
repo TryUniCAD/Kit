@@ -82,6 +82,22 @@ def ReadScalePlan(
         SketchIds.add(PlanValue.SketchId)
         BodyPlans.append(PlanValue)
         Models.append(Model)
+    CheckStepsMut(Feature, Point, Steps, Sources, SketchIds, Models, Document)
+    return ScaleWritePlan(
+        Feature.id, Definition.FactorParameterIds, Factors, Point, tuple(BodyPlans)
+    )
+
+
+# native timeline ownership and the rebuilt solid must agree before emission
+def CheckStepsMut(
+    Feature: FeatureStep,
+    Point: ScalePointPlan,
+    Steps: dict[str, FeatureStep],
+    Sources: set[str],
+    SketchIds: set[str],
+    Models: list[BrepModel],
+    Document: CadDocument,
+) -> None:
     if Point.SketchId:
         SketchIds.add(Point.SketchId)
     SketchSteps = {
@@ -103,9 +119,6 @@ def ReadScalePlan(
         Allowed.add(Point.FeatureId)
     if Allowed != Steps.keys() or JoinRevModels(tuple(Models)) != Document.brep:
         raise ValueError("FreeCAD Scale source timeline or final solid model disagrees")
-    return ScaleWritePlan(
-        Feature.id, Definition.FactorParameterIds, Factors, Point, tuple(BodyPlans)
-    )
 
 
 # unrelated feature families retain the normal archive strategy

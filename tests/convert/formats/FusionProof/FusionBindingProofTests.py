@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from interchange.features.FeatureStep import FeatureStep
+from convert.formats.Fusion.NativeParam import NativeParam
 from dataclasses import replace as Replace
 
 from typing import cast as CastValue
@@ -144,6 +146,61 @@ def TestBindGuard() -> None:
         _ = ReadBindProof(
             bytes(EditData), Owners, Document, Native, SpanValue, Along, 1
         )
+    AssertWireFlips(
+        BulkData,
+        Owners,
+        Document,
+        Native,
+        SpanValue,
+        Along,
+        Header,
+        BodyValue,
+        Workbook,
+    )
+    AssertBindRoute(BulkData, Owners, Document, Native, SpanValue, Along, StepValue)
+    EditData = bytearray(BulkData)
+    EditData[Workbook.PayloadOffset + 4 + 23] ^= 1
+    assert (
+        ReadBindProof(bytes(EditData), Owners, Document, Native, SpanValue, Along, 1)
+        == Binding
+    )
+
+
+# source owner routing and parameter rank are validated separately from the record layout
+def AssertBindRoute(
+    BulkData: bytes,
+    Owners: dict[int, RecordSpan],
+    Document: CadDocument,
+    Native: NativeParam,
+    SpanValue: RecordSpan,
+    Along: Parameter,
+    StepValue: FeatureStep,
+) -> None:
+    with Pytest.raises(ValueError, match="parameter rank"):
+        _ = ReadBindProof(BulkData, Owners, Document, Native, SpanValue, Along, 2)
+    Unsupported = Replace(
+        Document,
+        feature_timeline=(
+            *Document.feature_timeline[:-1],
+            Replace(StepValue, definition=None),
+        ),
+    )
+    with Pytest.raises(ValueError, match="owner control route"):
+        _ = ReadBindProof(BulkData, Owners, Unsupported, Native, SpanValue, Along, 1)
+
+
+# the binding verifier must reject mutations to every required native witness
+def AssertWireFlips(
+    BulkData: bytes,
+    Owners: dict[int, RecordSpan],
+    Document: CadDocument,
+    Native: NativeParam,
+    SpanValue: RecordSpan,
+    Along: Parameter,
+    Header: int,
+    BodyValue: int,
+    Workbook: RecordSpan,
+) -> None:
     for Offset in (
         Header,
         BodyValue + 14,
@@ -160,20 +217,3 @@ def TestBindGuard() -> None:
             _ = ReadBindProof(
                 bytes(EditData), Owners, Document, Native, SpanValue, Along, 1
             )
-    with Pytest.raises(ValueError, match="parameter rank"):
-        _ = ReadBindProof(BulkData, Owners, Document, Native, SpanValue, Along, 2)
-    Unsupported = Replace(
-        Document,
-        feature_timeline=(
-            *Document.feature_timeline[:-1],
-            Replace(StepValue, definition=None),
-        ),
-    )
-    with Pytest.raises(ValueError, match="owner control route"):
-        _ = ReadBindProof(BulkData, Owners, Unsupported, Native, SpanValue, Along, 1)
-    EditData = bytearray(BulkData)
-    EditData[Workbook.PayloadOffset + 4 + 23] ^= 1
-    assert (
-        ReadBindProof(bytes(EditData), Owners, Document, Native, SpanValue, Along, 1)
-        == Binding
-    )

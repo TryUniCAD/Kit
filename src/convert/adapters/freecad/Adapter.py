@@ -2344,18 +2344,7 @@ def ReadSource(Source: Source, Options: ReadOptions | None = None) -> CadDoc:
         Archive, Members = ValidatedArchiveMembers(DataValue)
         with Archive:
             RootValue, _ = ValidatedDocXml(Archive, Members)
-            Value = ReadZipManifest(Archive, Members, RootValue)
-            DocValue = ManifestDoc(Value)
-            from convert.adapters.freecad.EditDatum.ReconcileDatum import ReconcileDatum
-            from convert.adapters.freecad.EditScale.ScaleReadGuard import ReconcileScale
-
-            DocValue = ReconcileDatum(DocValue, Value, RootValue, Archive, Members)
-            DocValue = ReconcileScale(DocValue, Value, RootValue, Archive, Members)
-            DocValue = ReconcileEdit(DocValue, RootValue, Archive, Members)
-            DocValue = ReconcileRev(DocValue, Value, RootValue, Archive, Members)
-            DocValue = ReconcilePlane(DocValue, RootValue, Archive, Members)
-            DocValue = ReconcileSheet(DocValue, Value, RootValue)
-            DocValue = ReconcileSketch(DocValue, Value, RootValue, Archive, Members)
+            DocValue = ReadEmbedded(Archive, Members, RootValue)
     except ValueError as ErrorInfo:
         if str(ErrorInfo) != "FCStd archive has no embedded Kit interchange document":
             raise FreeCadAdapterA(str(ErrorInfo)) from ErrorInfo
@@ -2373,6 +2362,27 @@ def ReadSource(Source: Source, Options: ReadOptions | None = None) -> CadDoc:
     DocValue = FilteredDoc(DocValue, Settings)
     if Settings.StrictMode:
         DocValue.assert_valid()
+    return DocValue
+
+
+# embedded archives must reconcile every editable native record before filtering
+def ReadEmbedded(
+    Archive: Zipfile.ZipFile,
+    Members: dict[str, Zipfile.ZipInfo],
+    RootValue: XmlTree.Element,
+) -> CadDoc:
+    Value = ReadZipManifest(Archive, Members, RootValue)
+    DocValue = ManifestDoc(Value)
+    from convert.adapters.freecad.EditDatum.ReconcileDatum import ReconcileDatum
+    from convert.adapters.freecad.EditScale.ScaleReadGuard import ReconcileScale
+
+    DocValue = ReconcileDatum(DocValue, Value, RootValue, Archive, Members)
+    DocValue = ReconcileScale(DocValue, Value, RootValue, Archive, Members)
+    DocValue = ReconcileEdit(DocValue, RootValue, Archive, Members)
+    DocValue = ReconcileRev(DocValue, Value, RootValue, Archive, Members)
+    DocValue = ReconcilePlane(DocValue, RootValue, Archive, Members)
+    DocValue = ReconcileSheet(DocValue, Value, RootValue)
+    DocValue = ReconcileSketch(DocValue, Value, RootValue, Archive, Members)
     return DocValue
 
 

@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from interchange.geometry.models.Sketch import SketchEntity
 from dataclasses import replace as Replace
 
 from convert.formats.Fusion.HistoryPart import HistoryPart
@@ -66,19 +67,27 @@ def ProjectSketches(
             continue
         Entities, Issues = ProjectGeom(BulkData, Geometry.get(RootSpan.ObjectId, []))
         Diagnostics.extend(Issues)
-        SketchId = f"fusion-sketch-{RootSpan.ObjectId}"
         Planes.append(Frame)
-        Sketches.append(
-            Sketch(
-                id=SketchId,
-                name=Frame.name,
-                support_plane_id=Frame.id,
-                entities=Entities,
-                parameter_ids=StepValue.parameter_ids,
-                suppressed=StepValue.suppressed,
-                provenance=RecordOrigin(RootSpan),
-                attributes=FreezeMapping({"fusion.geometry_partial": True}),
-            )
-        )
-        Steps[-1] = Replace(StepValue, name=Frame.name, sketch_id=SketchId)
+        Sketches.append(BuildSketch(StepValue, RootSpan, Frame, Entities))
+        Steps[-1] = Replace(StepValue, name=Frame.name, sketch_id=Sketches[-1].id)
     return tuple(Planes), tuple(Sketches), tuple(Steps), tuple(Diagnostics)
+
+
+# the neutral sketch retains the proven native identity frame and source step
+def BuildSketch(
+    StepValue: FeatureStep,
+    RootSpan: RecordSpan,
+    Frame: SupportPlane,
+    Entities: tuple[SketchEntity, ...],
+) -> Sketch:
+    SketchId = f"fusion-sketch-{RootSpan.ObjectId}"
+    return Sketch(
+        id=SketchId,
+        name=Frame.name,
+        support_plane_id=Frame.id,
+        entities=Entities,
+        parameter_ids=StepValue.parameter_ids,
+        suppressed=StepValue.suppressed,
+        provenance=RecordOrigin(RootSpan),
+        attributes=FreezeMapping({"fusion.geometry_partial": True}),
+    )

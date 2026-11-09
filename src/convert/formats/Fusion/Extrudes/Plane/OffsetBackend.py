@@ -45,29 +45,9 @@ def CheckOffsetDef(
     if Feature.TakeBytes(1) != b"\1" or ReadNativeRef(Feature) != PlaneId:
         raise ValueError("Fusion Offset plane feature geometry disagrees")
     BackendId = ReadNativeRef(Feature)
-    Backend = SelectCursor(BulkData, Owners, BackendId, KOffsetBackend)
-    if (
-        Backend.TakeBytes(36) != bytes(36)
-        or Backend.TakeBytes(2) != b"\1\0"
-        or ReadNativeRef(Backend) != ExtraId
-    ):
-        raise ValueError("Unsupported Fusion Offset plane backend framing")
-    _ = Backend.TakeBytes(171)
-    if (
-        Backend.ReadWord() != 2
-        or Backend.TakeBytes(1) != bytes(1)
-        or Backend.ReadWord() != 1
-    ):
-        raise ValueError("Unsupported Fusion selected plane definition method")
-    ScalarId = ReadNativeRef(Backend)
-    if Backend.ReadWord() != 1:
-        raise ValueError("Fusion Offset plane requires one origin support")
-    SupportId = ReadNativeRef(Backend)
-    if len(Backend.DataValue) - Backend.Offset != 88:
-        raise ValueError("Unsupported Fusion Offset plane backend extent")
-    Backend.Offset = len(Backend.DataValue) - 11
-    if ReadNativeRef(Backend) != FeatureId:
-        raise ValueError("Fusion Offset plane backend owner disagrees")
+    ScalarId, SupportId = ReadOffsetWire(
+        BulkData, Owners, BackendId, ExtraId, FeatureId
+    )
     Extra = CheckExtBinding(BulkData, Owners, FeatureId, ExtraId, "ExtraOffset")
     Scalar = CheckExtBinding(BulkData, Owners, FeatureId, ScalarId, "AlongDistance")
     if (
@@ -96,3 +76,37 @@ def CheckOffsetDef(
             "Fusion Offset plane scalar and origin frame disagree with cache"
         )
     return BackendId, ExtraId, ScalarId, SupportId, LeafId, OriginId, ContainerId
+
+
+# the offset backend must identify the same owner and expose exactly one origin support
+def ReadOffsetWire(
+    BulkData: bytes,
+    Owners: dict[int, RecordSpan],
+    BackendId: int,
+    ExtraId: int,
+    FeatureId: int,
+) -> tuple[int, int]:
+    Backend = SelectCursor(BulkData, Owners, BackendId, KOffsetBackend)
+    if (
+        Backend.TakeBytes(36) != bytes(36)
+        or Backend.TakeBytes(2) != b"\1\0"
+        or ReadNativeRef(Backend) != ExtraId
+    ):
+        raise ValueError("Unsupported Fusion Offset plane backend framing")
+    _ = Backend.TakeBytes(171)
+    if (
+        Backend.ReadWord() != 2
+        or Backend.TakeBytes(1) != bytes(1)
+        or Backend.ReadWord() != 1
+    ):
+        raise ValueError("Unsupported Fusion selected plane definition method")
+    ScalarId = ReadNativeRef(Backend)
+    if Backend.ReadWord() != 1:
+        raise ValueError("Fusion Offset plane requires one origin support")
+    SupportId = ReadNativeRef(Backend)
+    if len(Backend.DataValue) - Backend.Offset != 88:
+        raise ValueError("Unsupported Fusion Offset plane backend extent")
+    Backend.Offset = len(Backend.DataValue) - 11
+    if ReadNativeRef(Backend) != FeatureId:
+        raise ValueError("Fusion Offset plane backend owner disagrees")
+    return ScalarId, SupportId

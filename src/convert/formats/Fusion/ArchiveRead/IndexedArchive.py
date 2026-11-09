@@ -101,33 +101,11 @@ class IndexedArchive:
 
     # the internal reader records only successful bounded decompressions
     def ReadEntryMut(self, Member: ZipInfo) -> bytes:
-        if self.ZipValue.fp is None:
-            raise ValueError("Fusion ZIP session is closed")
-        Value = ReadFusionItem(
-            self.DataValue,
-            self.ZipValue,
-            self.Entries,
-            Member,
-            self.Codec,
-            Boundary=self.Boundaries.get(Member.header_offset),
-        )
-        self.ReadSet.add(Member.filename)
-        return Value
+        return LoadZipEntryMut(self, Member)
 
     # proof readers can examine an exact auxiliary member within their own tighter bound
     def ReadMember(self, Name: str, Maximum: int) -> bytes:
-        Member = self.Entries.get(Name)
-        if (
-            Member is None
-            or Member.is_dir()
-            or type(Maximum) is not int
-            or not 0 <= Member.file_size <= Maximum
-        ):
-            raise ValueError("Missing or oversized Fusion archive member")
-        try:
-            return self.ReadEntryMut(Member)
-        except (BadZipFile, OSError, RuntimeError) as ErrorInfo:
-            raise ValueError("Unreadable Fusion archive member") from ErrorInfo
+        return ReadZipMember(self, Name, Maximum)
 
     # design decoding checks both mandatory streams before interpreting record spans
     def ReadDesign(self) -> tuple[bytes, tuple[RecordSpan, ...]]:
@@ -136,19 +114,52 @@ class IndexedArchive:
 
     # body lookups keep current mapping validation and recoverable decode errors
     def ReadBody(self, FileName: str) -> bytes:
-        if KAsmName.fullmatch(FileName) is None:
-            raise ValueError("Invalid Fusion body history reference")
-        try:
-            Member = self.Entries.get(KHistoryPrefix + FileName)
-            if (
-                Member is None
-                or Member.is_dir()
-                or not 0 < Member.file_size <= KMaxAsmSize
-            ):
-                raise ValueError("Missing or oversized Fusion body history stream")
-            return self.ReadEntryMut(Member)
-        except (BadZipFile, OSError, NotImplementedError, RuntimeError) as ErrorInfo:
-            raise ValueError("Unreadable Fusion body history stream") from ErrorInfo
+        return ReadZipBody(self, FileName)
+
+
+# the read ledger records a member only after bounded decompression succeeds
+def LoadZipEntryMut(Archive: IndexedArchive, Member: ZipInfo) -> bytes:
+    if Archive.ZipValue.fp is None:
+        raise ValueError("Fusion ZIP session is closed")
+    Value = ReadFusionItem(
+        Archive.DataValue,
+        Archive.ZipValue,
+        Archive.Entries,
+        Member,
+        Archive.Codec,
+        Boundary=Archive.Boundaries.get(Member.header_offset),
+    )
+    Archive.ReadSet.add(Member.filename)
+    return Value
+
+
+# proof readers can apply their own upper bound to an exact archive member
+def ReadZipMember(Archive: IndexedArchive, NameValue: str, Maximum: int) -> bytes:
+    Member = Archive.Entries.get(NameValue)
+    if (
+        Member is None
+        or Member.is_dir()
+        or type(Maximum) is not int
+        or not 0 <= Member.file_size <= Maximum
+    ):
+        raise ValueError("Missing or oversized Fusion archive member")
+    try:
+        return Archive.ReadEntryMut(Member)
+    except (BadZipFile, OSError, RuntimeError) as ErrorInfo:
+        raise ValueError("Unreadable Fusion archive member") from ErrorInfo
+
+
+# body lookup accepts only bounded indexed history streams and normalizes read failures
+def ReadZipBody(Archive: IndexedArchive, FileName: str) -> bytes:
+    if KAsmName.fullmatch(FileName) is None:
+        raise ValueError("Invalid Fusion body history reference")
+    try:
+        Member = Archive.Entries.get(KHistoryPrefix + FileName)
+        if Member is None or Member.is_dir() or not 0 < Member.file_size <= KMaxAsmSize:
+            raise ValueError("Missing or oversized Fusion body history stream")
+        return Archive.ReadEntryMut(Member)
+    except (BadZipFile, OSError, NotImplementedError, RuntimeError) as ErrorInfo:
+        raise ValueError("Unreadable Fusion body history stream") from ErrorInfo
 
 
 # source projection owns the zip lifetime across design and lazy body lookups

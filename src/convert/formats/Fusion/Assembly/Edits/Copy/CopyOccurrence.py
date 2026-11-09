@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.formats.Fusion.MetaCursor import MetaCursor
 from convert.formats.Fusion.Assembly.Edits.AsmEditIndex import AsmEditIndex
 from convert.formats.Fusion.Assembly.Edits.AsmEditOccur import (
     HasSameMatrix,
@@ -49,30 +50,7 @@ def ReadEditCopy(
     Cursor = SelectCursor(BulkData, IndexValue.Owners, FeatureId, KCopyOccurrence)
     if len(Cursor.DataValue) != 507 or Cursor.TakeBytes(3) != bytes(3):
         raise ValueError("Unsupported Fusion copy feature framing")
-    SourceFrameId = ReadNativeRef(Cursor)
-    if Cursor.DataValue[Cursor.Offset : Cursor.Offset + 1] != bytes(1):
-        raise ValueError("Unsupported Fusion copy relative matrix")
-    Relative = ReadOccurMatrix(Cursor)
-    TargetFrameId = ReadNativeRef(Cursor)
-    if Cursor.TakeBytes(4) != bytes(4):
-        raise ValueError("Unsupported Fusion copy datum marker")
-    DatumId = ReadNativeRef(Cursor)
-    if Cursor.TakeBytes(1) != b"\1" or Cursor.DataValue[
-        Cursor.Offset : Cursor.Offset + 1
-    ] != bytes(1):
-        raise ValueError("Unsupported Fusion copy result matrix")
-    Result = ReadOccurMatrix(Cursor)
-    if (
-        ReadSelectUuid(Cursor) != KNilNamespace
-        or Cursor.TakeBytes(7) != b"\0\0\0\1\0\0\0"
-        or ReadNativeRef(Cursor) != DatumId
-        or Cursor.TakeBytes(4) != b"\xff" * 4
-        or Cursor.ReadText(True, Maximum=9) != "CopyPaste"
-        or Cursor.ReadLong() > 0xFFFFFFFF
-        or Cursor.ReadText(True, Maximum=0)
-        or Cursor.Offset != len(Cursor.DataValue) - 76
-    ):
-        raise ValueError("Fusion copy repeated result datum or label disagrees")
+    SourceFrameId, TargetFrameId, DatumId, Relative, Result = ReadCopyDataMut(Cursor)
     SourceLink, SourceMatrix, SourceGuid, SourceTerminal = ReadCopyFrame(
         BulkData, IndexValue, SourceFrameId, FeatureId, True
     )
@@ -103,3 +81,34 @@ def ReadEditCopy(
         raise ValueError("Fusion copy source and created occurrence evidence disagrees")
     CheckEditState(BulkData, IndexValue, Cursor.DataValue, FeatureId, None, True)
     return Target.ObjectId
+
+
+# copy record framing determines matrix and datum boundaries before cross record validation
+def ReadCopyDataMut(
+    Cursor: MetaCursor,
+) -> tuple[int, int, int, tuple[float, ...], tuple[float, ...]]:
+    SourceFrameId = ReadNativeRef(Cursor)
+    if Cursor.DataValue[Cursor.Offset : Cursor.Offset + 1] != bytes(1):
+        raise ValueError("Unsupported Fusion copy relative matrix")
+    Relative = ReadOccurMatrix(Cursor)
+    TargetFrameId = ReadNativeRef(Cursor)
+    if Cursor.TakeBytes(4) != bytes(4):
+        raise ValueError("Unsupported Fusion copy datum marker")
+    DatumId = ReadNativeRef(Cursor)
+    if Cursor.TakeBytes(1) != b"\1" or Cursor.DataValue[
+        Cursor.Offset : Cursor.Offset + 1
+    ] != bytes(1):
+        raise ValueError("Unsupported Fusion copy result matrix")
+    Result = ReadOccurMatrix(Cursor)
+    if (
+        ReadSelectUuid(Cursor) != KNilNamespace
+        or Cursor.TakeBytes(7) != b"\0\0\0\1\0\0\0"
+        or ReadNativeRef(Cursor) != DatumId
+        or Cursor.TakeBytes(4) != b"\xff" * 4
+        or Cursor.ReadText(True, Maximum=9) != "CopyPaste"
+        or Cursor.ReadLong() > 0xFFFFFFFF
+        or Cursor.ReadText(True, Maximum=0)
+        or Cursor.Offset != len(Cursor.DataValue) - 76
+    ):
+        raise ValueError("Fusion copy repeated result datum or label disagrees")
+    return SourceFrameId, TargetFrameId, DatumId, Relative, Result

@@ -61,6 +61,20 @@ def CheckTrimSolid(FolderName: str, Capture: str, Count: int) -> None:
             (1, 2),
             (2, 2),
         }
+    AssertTrimShape(
+        Document, Capture, Count, TruthBody["volume_cm3"], TruthBody["bounds_cm"]
+    )
+    AssertTrimRound(Document)
+
+
+# trimmed solids must match captured topology volume and bounds
+def AssertTrimShape(
+    Document: CadDocument,
+    Capture: str,
+    Count: int,
+    VolumeCm: float,
+    BoundsCm: list[list[float]],
+) -> None:
     (BodyValue,) = Document.bodies
     Model = Document.brep
     assert Model is not None and Model.shells[0].closed
@@ -81,14 +95,16 @@ def CheckTrimSolid(FolderName: str, Capture: str, Count: int) -> None:
             if FaceValue.surface_id in Curved
         } == {False, True}
     Topology = BodyValue.topology
-    assert Topology.volume == Pytest.approx(TruthBody["volume_cm3"] * 1000)
+    assert Topology.volume == Pytest.approx(VolumeCm * 1000)
     Bounds = Topology.bounding_box
     assert Bounds is not None
-    for Corner, Expected in zip(
-        (Bounds.minimum, Bounds.maximum), TruthBody["bounds_cm"]
-    ):
+    for Corner, Expected in zip((Bounds.minimum, Bounds.maximum), BoundsCm):
         assert (Corner.x, Corner.y, Corner.z) == Pytest.approx(
             tuple(Value * 10 for Value in Expected), abs=1e-8
         )
+
+
+# trimmed profile provenance must survive neutral validation and serialization
+def AssertTrimRound(Document: CadDocument) -> None:
     assert Document.validate() == ()
     assert CadDocument.from_json(Document.to_json()) == Document

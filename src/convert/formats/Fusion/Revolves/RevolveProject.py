@@ -98,58 +98,88 @@ def ProjectRevolves(
             else:
                 Selections.extend(Picks)
                 Diagnostics.extend(Issues)
-                Extent = StepValue.attributes.get("fusion.revolve.extent")
-                try:
-                    if Extent == "to_entity":
-                        StepValue, AxisPick = AttachPlaneRev(
-                            BulkData,
-                            Owners,
-                            StepValue,
-                            Picks,
-                            ByFrame,
-                            BySketch.get(StepValue.sketch_id or ""),
-                        )
-                    else:
-                        LoadEdge = (
-                            BindArgs(
-                                ReadEdgeAxis,
-                                BulkData,
-                                Owners,
-                                StepValue,
-                                ByNative,
-                                ByFrame,
-                                BySketch,
-                                ByParam,
-                                LoadBody,
-                            )
-                            if "fusion.revolve.axis_edge_source" in StepValue.attributes
-                            else None
-                        )
-                        StepValue, AxisPick = AttachAngleRev(
-                            BulkData,
-                            Owners,
-                            StepValue,
-                            Picks,
-                            ByFrame,
-                            BySketch,
-                            ByParam,
-                            LoadEdge,
-                        )
-                except ValueError as ErrorInfo:
-                    Diagnostics.append(
-                        Diagnostic(
-                            code=(
-                                "fusion.revolve.plane_extent_unsupported"
-                                if Extent == "to_entity"
-                                else "fusion.revolve.angular_extent_unsupported"
-                            ),
-                            message=str(ErrorInfo),
-                            entity_id=StepValue.id,
-                            provenance=StepValue.provenance,
-                        )
-                    )
-                else:
-                    if all(PickValue.id != AxisPick.id for PickValue in Picks):
-                        Selections.append(AxisPick)
+                StepValue = AttachExtentMut(
+                    BulkData,
+                    Owners,
+                    StepValue,
+                    Picks,
+                    ByNative,
+                    ByFrame,
+                    BySketch,
+                    ByParam,
+                    LoadBody,
+                    Selections,
+                    Diagnostics,
+                )
         Projected.append(StepValue)
     return tuple(Projected), tuple(Selections), tuple(Diagnostics)
+
+
+# the extent branch preserves partial selection evidence when native projection fails
+def AttachExtentMut(
+    BulkData: bytes,
+    Owners: dict[int, RecordSpan],
+    StepValue: FeatureStep,
+    Picks: tuple[Selection, ...],
+    ByNative: dict[int, FeatureStep],
+    ByFrame: dict[str, SupportPlane],
+    BySketch: dict[str, Sketch],
+    ByParam: dict[str, Parameter],
+    LoadBody: Callable[[str], bytes],
+    Selections: list[Selection],
+    Diagnostics: list[Diagnostic],
+) -> FeatureStep:
+    Extent = StepValue.attributes.get("fusion.revolve.extent")
+    try:
+        if Extent == "to_entity":
+            StepValue, AxisPick = AttachPlaneRev(
+                BulkData,
+                Owners,
+                StepValue,
+                Picks,
+                ByFrame,
+                BySketch.get(StepValue.sketch_id or ""),
+            )
+        else:
+            LoadEdge = (
+                BindArgs(
+                    ReadEdgeAxis,
+                    BulkData,
+                    Owners,
+                    StepValue,
+                    ByNative,
+                    ByFrame,
+                    BySketch,
+                    ByParam,
+                    LoadBody,
+                )
+                if "fusion.revolve.axis_edge_source" in StepValue.attributes
+                else None
+            )
+            StepValue, AxisPick = AttachAngleRev(
+                BulkData,
+                Owners,
+                StepValue,
+                Picks,
+                ByFrame,
+                BySketch,
+                ByParam,
+                LoadEdge,
+            )
+    except ValueError as ErrorInfo:
+        Diagnostics.append(
+            Diagnostic(
+                code=(
+                    "fusion.revolve.plane_extent_unsupported"
+                    if Extent == "to_entity"
+                    else "fusion.revolve.angular_extent_unsupported"
+                ),
+                message=str(ErrorInfo),
+                entity_id=StepValue.id,
+                provenance=StepValue.provenance,
+            )
+        )
+    else:
+        if all(PickValue.id != AxisPick.id for PickValue in Picks):
+            Selections.append(AxisPick)
+    return StepValue

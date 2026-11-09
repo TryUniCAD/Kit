@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from xml.etree.ElementTree import Element
 from io import BytesIO
 from math import pi as HalfTurn, tau as FullTurn
 from pathlib import Path as FilePath
@@ -88,17 +89,7 @@ def WriteProfile(
     NameValue = NativeSketch.attrib["name"]
     Props = RootValue.find(f"./ObjectData/Object[@name='{NameValue}']/Properties")
     assert Props is not None
-    Geometries = Props.find("./Property[@name='Geometry']/GeometryList")
-    assert Geometries is not None
-    Circle = Geometries.find("./Geometry/Circle")
-    Center = Geometries[SketchValue.entities.index(OldCenter)].find("./GeomPoint")
-    assert Circle is not None and Center is not None
-    Circle.attrib.update(
-        CenterX=str(Profile.center.x),
-        CenterY=str(Profile.center.y),
-        Radius=str(Profile.radius),
-    )
-    Center.attrib.update(X=str(Profile.center.x), Y=str(Profile.center.y))
+    SetCircleMut(Props, SketchValue.entities.index(OldCenter), Profile)
     if Stale != "missing":
         PartValue = Props.find("./Property[@name='Shape']/Part")
         assert PartValue is not None
@@ -109,6 +100,21 @@ def WriteProfile(
     with ZipFile(Target, "w") as Archive:
         for Entry, Payload in Entries.items():
             Archive.writestr(Entry, Payload)
+
+
+# the edited native curve and its shared center must move together
+def SetCircleMut(Props: Element, CenterIndex: int, Profile: CircleGeometry) -> None:
+    Geometries = Props.find("./Property[@name='Geometry']/GeometryList")
+    assert Geometries is not None
+    Circle = Geometries.find("./Geometry/Circle")
+    Center = Geometries[CenterIndex].find("./GeomPoint")
+    assert Circle is not None and Center is not None
+    Circle.attrib.update(
+        CenterX=str(Profile.center.x),
+        CenterY=str(Profile.center.y),
+        Radius=str(Profile.radius),
+    )
+    Center.attrib.update(X=str(Profile.center.x), Y=str(Profile.center.y))
 
 
 # profile edits rebuild the solid and leave a profile only depth control untouched

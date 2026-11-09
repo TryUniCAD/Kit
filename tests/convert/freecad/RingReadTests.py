@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from xml.etree.ElementTree import Element
 from io import BytesIO
 from pathlib import Path as FilePath
 from xml.etree.ElementTree import fromstring as ParseXml, tostring as XmlBytes
@@ -47,14 +48,7 @@ def TestRingDepth(TmpPath: FilePath, DepthMm: float) -> None:
     _ = WriteDocument(Document, Output)
     with ZipFile(Output) as Archive:
         RootValue = ParseXml(Archive.read("Document.xml"))
-    assert RootValue.find("./Objects/Object[@type='Part::Extrusion']") is not None
-    for Property, Expected in (
-        (KEditableBinding, Feature.id),
-        (KProfileBinding, Sketch.id),
-    ):
-        Binding = RootValue.find(f".//Property[@name='{Property}']/String")
-        assert Binding is not None and Binding.get("value") == Expected
-    assert len(RootValue.findall(".//ConstraintList/Constrain")) == 8
+    AssertRingXml(RootValue, Feature.id, Sketch.id)
     assert OpenDocument(Output) == Document
     Model, Volume, AreaValue, Bounds = BuildEditSolid(
         Document.bodies[0].id, Plane.transform, RingValue, DepthMm
@@ -76,6 +70,18 @@ def TestRingDepth(TmpPath: FilePath, DepthMm: float) -> None:
     assert Volume == 1200 * abs(DepthMm)
     _ = WriteDocument(Readback, Output, overwrite=True)
     assert OpenDocument(Output) == Readback
+
+
+# the emitted sketch retains its native constraints and extrusion controls
+def AssertRingXml(RootValue: Element, FeatureId: str, SketchId: str) -> None:
+    assert RootValue.find("./Objects/Object[@type='Part::Extrusion']") is not None
+    for Property, Expected in (
+        (KEditableBinding, FeatureId),
+        (KProfileBinding, SketchId),
+    ):
+        Binding = RootValue.find(f".//Property[@name='{Property}']/String")
+        assert Binding is not None and Binding.get("value") == Expected
+    assert len(RootValue.findall(".//ConstraintList/Constrain")) == 8
 
 
 # a new depth cell alone cannot override a solid that still uses the original depth
@@ -131,6 +137,24 @@ def TestMovedRing(TmpPath: FilePath) -> None:
     )
     with ZipFile(BytesIO(Saved)) as Archive:
         Entries = {Value: Archive.read(Value) for Value in Archive.namelist()}
+    MoveRingZipMut(Entries, Before, After, CapModel, len(RingValue), Output)
+    Readback = OpenDocument(Output)
+    assert GetEditRing(StepValue, Readback.sketches[0]) == ChangedRing
+    assert Readback.brep == Model
+    assert Readback.bodies[0].topology.volume == Volume == 4995.0
+    _ = WriteDocument(Readback, Output, overwrite=True)
+    assert OpenDocument(Output) == Readback
+
+
+# the edited ring archive updates native incidence and its matching shape cache
+def MoveRingZipMut(
+    Entries: dict[str, bytes],
+    Before: PlaneVector,
+    After: PlaneVector,
+    CapModel: BrepModel,
+    EdgeCount: int,
+    Output: FilePath,
+) -> None:
     RootValue = ParseXml(Entries["Document.xml"])
     Native = RootValue.find("./Objects/Object[@type='Sketcher::SketchObject']")
     assert Native is not None
@@ -153,14 +177,8 @@ def TestMovedRing(TmpPath: FilePath) -> None:
     assert PartValue is not None
     CacheName = f"{NameValue}.Shape.brp"
     PartValue.set("file", CacheName)
-    Entries[CacheName] = CapWire(CapModel, len(RingValue))
+    Entries[CacheName] = CapWire(CapModel, EdgeCount)
     Entries["Document.xml"] = XmlBytes(RootValue, encoding="utf-8")
     with ZipFile(Output, "w") as Archive:
         for Entry, Payload in Entries.items():
             Archive.writestr(Entry, Payload)
-    Readback = OpenDocument(Output)
-    assert GetEditRing(StepValue, Readback.sketches[0]) == ChangedRing
-    assert Readback.brep == Model
-    assert Readback.bodies[0].topology.volume == Volume == 4995.0
-    _ = WriteDocument(Readback, Output, overwrite=True)
-    assert OpenDocument(Output) == Readback

@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from interchange.brep.topology.BrepTopology import BrepEdge
 from collections.abc import Callable
 
 from convert.adapters.freecad.BrepGraph import ModelGraph
@@ -75,19 +76,8 @@ def CapRingArea(
             )
             Geometries.append((LineValue, Coedge.reversed))
         elif isinstance(Curve, CircleCurve):
-            CircleFrame = MakeFrame(
-                Curve.axis, Curve.reference_direction, f"circle curve {Curve.id}"
-            )
-            CircleAxis, CircleX, CircleY = (
-                SpaceVector(*AxisValue) for AxisValue in CircleFrame
-            )
-            ArcValue = ArcInPlane(
-                Curve,
-                EdgeValue,
-                Surface.origin,
-                (Normal, PlaneX, PlaneY),
-                (CircleAxis, CircleX, CircleY),
-                Allowed,
+            ArcValue = ReadRingArc(
+                Curve, EdgeValue, Surface, (Normal, PlaneX, PlaneY), Allowed, MakeFrame
             )
             if ArcValue is None:
                 return None
@@ -96,3 +86,29 @@ def CapRingArea(
         else:
             return None
     return CurvedRingArea(tuple(Geometries), Allowed)
+
+
+# circular coedges retain their orientation while being projected into the cap plane
+def ReadRingArc(
+    Curve: CircleCurve,
+    EdgeValue: BrepEdge,
+    Surface: PlaneSurface,
+    PlaneFrame: tuple[SpaceVector, SpaceVector, SpaceVector],
+    Allowed: float,
+    MakeFrame: KFrameFactory,
+) -> tuple[ArcGeometry, bool] | None:
+    CircleFrame = MakeFrame(
+        Curve.axis, Curve.reference_direction, f"circle curve {Curve.id}"
+    )
+    CircleAxis, CircleX, CircleY = (
+        SpaceVector(*AxisValue) for AxisValue in CircleFrame
+    )
+    ArcValue = ArcInPlane(
+        Curve,
+        EdgeValue,
+        Surface.origin,
+        PlaneFrame,
+        (CircleAxis, CircleX, CircleY),
+        Allowed,
+    )
+    return ArcValue

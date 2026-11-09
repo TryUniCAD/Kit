@@ -17,7 +17,7 @@ from convert.adapters.freecad.Adapter import FreeCadAdapterA
 from convert.adapters.freecad.EditScale.ScaleBinding import KScaleBinding
 from interchange.enums.EnumDocument import Capability
 from tests.convert.api.ApiFusionAssemblyTests import KRequiresCodec, KStudyPath
-from tests.convert.api.ApiFusionScaleTests import KScaleCases
+from tests.convert.api.ScaleCases import KScaleCases
 
 # every reconstructed source has a live scale graph with its original body count
 KScaleFiles = tuple((Value[0], Value[-1]) for Value in KScaleCases)

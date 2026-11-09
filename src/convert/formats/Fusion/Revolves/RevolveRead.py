@@ -39,6 +39,31 @@ def ReadRevInputs(BodyValue: bytes) -> RevolveInput:
     TargetOne = ReadOptRefMut(Cursor)
     if AlongId is None:
         raise ValueError("Missing Fusion Revolve along-angle binding")
+    ModeValue, Targets = GetRevExtent(
+        ExtentCode, Symmetric, TwoSided, AgainstId, TargetOne, TargetTwo
+    )
+    return RevolveInput(
+        Operation,
+        "to_entity" if Targets else "angle",
+        ModeValue,
+        bool(Projected),
+        bool(Solid),
+        AlongId,
+        AgainstId,
+        AxisId,
+        Targets,
+    )
+
+
+# entity and angle modes impose different ownership and inactive control requirements
+def GetRevExtent(
+    ExtentCode: int,
+    Symmetric: int,
+    TwoSided: int,
+    AgainstId: int | None,
+    TargetOne: int | None,
+    TargetTwo: int | None,
+) -> tuple[str, tuple[int, ...]]:
     Targets: tuple[int, ...] = ()
     if ExtentCode == 1:
         if Symmetric or TwoSided or AgainstId is not None or TargetOne is None:
@@ -56,14 +81,4 @@ def ReadRevInputs(BodyValue: bytes) -> RevolveInput:
         ModeValue = (
             "symmetric" if Symmetric else "two_sided" if TwoSided else "one_sided"
         )
-    return RevolveInput(
-        Operation,
-        "to_entity" if Targets else "angle",
-        ModeValue,
-        bool(Projected),
-        bool(Solid),
-        AlongId,
-        AgainstId,
-        AxisId,
-        Targets,
-    )
+    return ModeValue, Targets

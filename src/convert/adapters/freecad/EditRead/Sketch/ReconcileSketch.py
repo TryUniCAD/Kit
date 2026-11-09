@@ -6,6 +6,9 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from interchange.records.RecordParameter import Parameter
+from interchange.geometry.models.Transform import Transform
+from convert.adapters.freecad.Native import NativeObject
 from collections.abc import Mapping
 from dataclasses import replace as Replace
 from xml.etree.ElementTree import Element
@@ -59,32 +62,48 @@ def ReconcileSketch(
     Sketches: list[Sketch] = []
     NativeObjects = IndexSketchObjs(Objects.values())
     for Original in Document.sketches:
-        Native = NativeObjects.get(Original.id)
-        Plane = NativeObjects.get(Original.support_plane_id)
-        if (
-            Native is None
-            or Native.type_id != "Sketcher::SketchObject"
-            or Plane is None
-            or Plane.type_id != "App::Plane"
-        ):
-            raise ValueError("FreeCAD editable sketch or support identity is missing")
-        Frame = Planes[Original.support_plane_id]
-        CheckEditFrame(Native, "Placement", Frame)
-        CheckEditFrame(Plane, "Placement", Frame)
-        Edited = ReadSketchGeom(Native, Original)
-        References = CheckSavedRules(
-            Native,
-            Expected[Native.name].properties["Constraints"],
-            Original,
-            Edited,
-            Parameters,
+        Edited = ReadSketchMut(
+            Original, NativeObjects, Expected, Planes, Parameters, Archive, Members
         )
-        CheckSketchFile(Archive, Members, Native, Original, Edited, Frame)
-        for ParamId, Measure in References.items():
-            Parameters[ParamId] = KeepSketchRef(Parameters[ParamId], Measure)
         Sketches.append(Edited)
     FinalParams = tuple(Parameters[Value.id] for Value in Document.parameters)
     FinalSketches = tuple(Sketches)
     if FinalParams == Document.parameters and FinalSketches == Document.sketches:
         return Document
     return Replace(Document, parameters=FinalParams, sketches=FinalSketches)
+
+
+# an editable sketch updates reference measures only after its native geometry is verified
+def ReadSketchMut(
+    Original: Sketch,
+    NativeObjects: dict[str, NativeObject],
+    Expected: dict[str, NativeObject],
+    Planes: dict[str, Transform],
+    Parameters: dict[str, Parameter],
+    Archive: ZipFile,
+    Members: Mapping[str, ZipInfo],
+) -> Sketch:
+    Native = NativeObjects.get(Original.id)
+    Plane = NativeObjects.get(Original.support_plane_id)
+    if (
+        Native is None
+        or Native.type_id != "Sketcher::SketchObject"
+        or Plane is None
+        or Plane.type_id != "App::Plane"
+    ):
+        raise ValueError("FreeCAD editable sketch or support identity is missing")
+    Frame = Planes[Original.support_plane_id]
+    CheckEditFrame(Native, "Placement", Frame)
+    CheckEditFrame(Plane, "Placement", Frame)
+    Edited = ReadSketchGeom(Native, Original)
+    References = CheckSavedRules(
+        Native,
+        Expected[Native.name].properties["Constraints"],
+        Original,
+        Edited,
+        Parameters,
+    )
+    CheckSketchFile(Archive, Members, Native, Original, Edited, Frame)
+    for ParamId, Measure in References.items():
+        Parameters[ParamId] = KeepSketchRef(Parameters[ParamId], Measure)
+    return Edited

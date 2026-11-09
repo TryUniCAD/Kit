@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from __future__ import annotations as Annotations
+from interchange.geometry.models.VectorSpace import SpaceVector
 from collections.abc import Sequence as ValueSequence
 import base64 as BaseSixFour
 import copy as CopyValue
@@ -6385,7 +6386,7 @@ class DocGeometry:
 
 # this class exists because document feature phases share emitted names payloads and representations
 @Dataclass
-class DocFeatures:
+class DocInventory:
     FeatureItems: list[dict[str, object]]
     FeatureNames: dict[str, str]
     SolidNames: dict[str, str]
@@ -6407,6 +6408,11 @@ class DocFeatures:
     AssemblyItems: int
     AssemblyMates: int
     OuterTarget: str
+
+
+# editable feature bindings extend the emitted document inventory
+@Dataclass
+class DocFeatures(DocInventory):
     EditableFeatureId: str = ""
     EditableProfileId: str = ""
     EditableRevId: str = ""
@@ -7373,57 +7379,18 @@ def HasEditRevMut(
     Sketch = EditProfile(Context, Geometry, FeatureInfo, Sweep.SketchId)
     if Sketch is None or not ShapeData:
         return False
-    AxisSketch = ""
-    AxisOrigin = Sweep.AxisOrigin
-    ProfilePairs: tuple[tuple[str, str], ...] = ()
-    if isinstance(Sweep, PlaneRevPlan):
-        TargetNames = BindRevPlaneMut(Context, Geometry, Features, Sweep)
-        if not TargetNames:
-            return False
-        Expressions = PlaneSweepExpr(
-            TargetNames,
-            Sweep.AxisOrigin,
-            Sweep.AxisDirection,
-            Sweep.SketchFrame.z_axis,
-        )
-        AngleDeg = MathValue.degrees(Sweep.EndRadians - Sweep.StartRadians)
-        Symmetric = len(TargetNames) == 2
-        Dependencies = TargetNames
-        Features.EditablePlaneSteps = tuple(Target.StepId for Target in Sweep.Targets)
-        Features.RevBinding = KPlaneRevBinding
-    else:
-        Expressions = SetRevExprMut(Context, Sweep)
-        if not Expressions:
-            return False
-        AngleDeg, Symmetric = Sweep.AngleDeg, Sweep.Symmetric
-        Dependencies = (Context.ParamSheet.name,)
-        if AxisPlan is not None:
-            ProfileLines = GetProfLines(Sketch)
-            if not ProfileLines:
-                return False
-            Reverse = AxisPlan.AxisSense < 0
-            Guide = BindRevAxis(
-                Context, Geometry, AxisPlan.AxisSketchId, AxisPlan.AxisLineId, Reverse
-            )
-            if Guide is None:
-                return False
-            AxisSketch, AxisIndex = Guide
-            Expressions = [
-                (
-                    "Angle",
-                    AxisAngleExpr(
-                        AxisSketch,
-                        AxisIndex,
-                        Sketch.name,
-                        ProfileLines,
-                        Expressions[0][1],
-                    ),
-                )
-            ]
-            AxisOrigin = AxisPlan.AxisStart if Reverse else AxisPlan.AxisEnd
-            ProfilePairs = AxisPlan.ProfilePairs
-            Dependencies += (AxisSketch,)
-            Features.RevBinding = KAxisRevBinding
+    Controls = ReadRevGraphMut(Context, Geometry, Features, Sweep, AxisPlan, Sketch)
+    if Controls is None:
+        return False
+    (
+        Expressions,
+        AngleDeg,
+        Symmetric,
+        Dependencies,
+        AxisSketch,
+        AxisOrigin,
+        ProfilePairs,
+    ) = Controls
     Revolution = Context.Graph.add(
         "Part::Revolution", FeatureInfo.FeatureName, "Revolution", Touched=True
     )
@@ -7452,6 +7419,105 @@ def HasEditRevMut(
     Features.FinalShapeFile = ShapeFile
     Features.EditableRevId = FeatureInfo.FeatureId
     return True
+
+
+# the live sweep must bind authored controls before the native feature is emitted
+def ReadRevGraphMut(
+    Context: DocContext,
+    Geometry: DocGeometry,
+    Features: DocFeatures,
+    Sweep: EditRevolve | PlaneRevPlan,
+    AxisPlan: AxisRevPlan | None,
+    Sketch: Object,
+) -> (
+    tuple[
+        list[tuple[str, str]],
+        float,
+        bool,
+        tuple[str, ...],
+        str,
+        SpaceVector,
+        tuple[tuple[str, str], ...],
+    ]
+    | None
+):
+    AxisSketch = ""
+    AxisOrigin = Sweep.AxisOrigin
+    ProfilePairs: tuple[tuple[str, str], ...] = ()
+    if isinstance(Sweep, PlaneRevPlan):
+        TargetNames = BindRevPlaneMut(Context, Geometry, Features, Sweep)
+        if not TargetNames:
+            return None
+        Expressions = PlaneSweepExpr(
+            TargetNames,
+            Sweep.AxisOrigin,
+            Sweep.AxisDirection,
+            Sweep.SketchFrame.z_axis,
+        )
+        AngleDeg = MathValue.degrees(Sweep.EndRadians - Sweep.StartRadians)
+        Symmetric = len(TargetNames) == 2
+        Dependencies = TargetNames
+        Features.EditablePlaneSteps = tuple(Target.StepId for Target in Sweep.Targets)
+        Features.RevBinding = KPlaneRevBinding
+    else:
+        Expressions = SetRevExprMut(Context, Sweep)
+        if not Expressions:
+            return None
+        AngleDeg, Symmetric = Sweep.AngleDeg, Sweep.Symmetric
+        Dependencies = (Context.ParamSheet.name,)
+        if AxisPlan is not None:
+            AxisControls = ReadAxisRevExpr(
+                Context, Geometry, AxisPlan, Sketch, Expressions
+            )
+            if AxisControls is None:
+                return None
+            AxisSketch, Expressions, AxisOrigin = AxisControls
+            ProfilePairs = AxisPlan.ProfilePairs
+            Dependencies += (AxisSketch,)
+            Features.RevBinding = KAxisRevBinding
+    return (
+        Expressions,
+        AngleDeg,
+        Symmetric,
+        Dependencies,
+        AxisSketch,
+        AxisOrigin,
+        ProfilePairs,
+    )
+
+
+# the selected line supplies the same direction and native angle expression
+def ReadAxisRevExpr(
+    Context: DocContext,
+    Geometry: DocGeometry,
+    AxisPlan: AxisRevPlan,
+    Sketch: Object,
+    Expressions: list[tuple[str, str]],
+) -> tuple[str, list[tuple[str, str]], SpaceVector] | None:
+    ProfileLines = GetProfLines(Sketch)
+    if not ProfileLines:
+        return None
+    Reverse = AxisPlan.AxisSense < 0
+    Guide = BindRevAxis(
+        Context, Geometry, AxisPlan.AxisSketchId, AxisPlan.AxisLineId, Reverse
+    )
+    if Guide is None:
+        return None
+    AxisSketch, AxisIndex = Guide
+    Expressions = [
+        (
+            "Angle",
+            AxisAngleExpr(
+                AxisSketch,
+                AxisIndex,
+                Sketch.name,
+                ProfileLines,
+                Expressions[0][1],
+            ),
+        )
+    ]
+    AxisOrigin = AxisPlan.AxisStart if Reverse else AxisPlan.AxisEnd
+    return AxisSketch, Expressions, AxisOrigin
 
 
 # each original construction feature owns the plane moved by its authored angle
@@ -8648,13 +8714,7 @@ def BuildDocXmlMut(
         )
     ):
         AddFeaturesMut(Context, Geometry, Features, EditPlan, ShapeData)
-    AddBodiesMut(Context, Geometry, Features)
-    AddSelectMut(Context, Geometry, Features)
-    AddConfigsMut(Context, Features)
-    AddPayloadsMut(Context, Features)
-    AddRepresentMut(Context, Features, NeutralDoc, ShapeData)
-    SetDocGroupsMut(Context, Geometry, Features)
-    SetOuterMut(Context, Features)
+    AddDocViewsMut(Context, Geometry, Features, NeutralDoc, ShapeData)
     if (
         Context.SourceFormat == "fusion.f3d"
         and not Context.NativeReplay
@@ -8666,19 +8726,43 @@ def BuildDocXmlMut(
         )
     XmlData = SerializeDoc(Context, Features)
     if EditableFeatures is not None:
-        EditableFeatures.update(
-            Value
-            for Value in (
-                Features.EditableFeatureId,
-                Features.EditableBodySeed,
-                Features.EditableRevId,
-                *Features.EditablePlaneSteps,
-                *Features.EditableScaleSteps,
-                *Datums,
-            )
-            if Value
-        )
+        CollectEditsMut(EditableFeatures, Features, Datums)
     return (XmlData, Features.PayloadEntries)
+
+
+# document views and representations depend on the complete emitted feature inventory
+def AddDocViewsMut(
+    Context: DocContext,
+    Geometry: DocGeometry,
+    Features: DocFeatures,
+    NeutralDoc: CadDoc | None,
+    ShapeData: bytes,
+) -> None:
+    AddBodiesMut(Context, Geometry, Features)
+    AddSelectMut(Context, Geometry, Features)
+    AddConfigsMut(Context, Features)
+    AddPayloadsMut(Context, Features)
+    AddRepresentMut(Context, Features, NeutralDoc, ShapeData)
+    SetDocGroupsMut(Context, Geometry, Features)
+    SetOuterMut(Context, Features)
+
+
+# only emitted native edits enter the caller editable feature inventory
+def CollectEditsMut(
+    EditableFeatures: set[str], Features: DocFeatures, Datums: Mapping[str, object]
+) -> None:
+    EditableFeatures.update(
+        Value
+        for Value in (
+            Features.EditableFeatureId,
+            Features.EditableBodySeed,
+            Features.EditableRevId,
+            *Features.EditablePlaneSteps,
+            *Features.EditableScaleSteps,
+            *Datums,
+        )
+        if Value
+    )
 
 
 # this definition exists because focused behavior needs one stable owner

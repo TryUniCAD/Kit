@@ -48,6 +48,25 @@ def CheckPlaneExt(
         StepValue, Definition, Parameters, Selections, Frames, Sketches
     )
     assert (Values.LowerMm, Values.UpperMm) == Pytest.approx(Bounds)
+    AssertPlaneBrep(Document, Bounds, NativeId)
+    Offset = Parameters[Definition.OffsetParameterId]
+    Parameters[Offset.id] = Replace(
+        Offset, value=Replace(Offset.value, value=float(Offset.value.value) + 0.2)
+    )
+    Edited = GetPlaneExt(
+        StepValue, Definition, Parameters, Selections, Frames, Sketches
+    )
+    assert Edited.UpperMm == Pytest.approx(Bounds[1] + 2)
+    assert Edited.LowerMm == Pytest.approx(
+        Bounds[0] + (2 if RoleName == "start" else 0)
+    )
+    assert CadDocument.from_json(Document.to_json()) == Document
+
+
+# rebuilt plane extrusion topology and measures must match the selected bounds
+def AssertPlaneBrep(
+    Document: CadDocument, Bounds: tuple[float, float], NativeId: str
+) -> None:
     (BodyValue,) = Document.bodies
     assert (
         BodyValue.provenance is not None and BodyValue.provenance.native_id == NativeId
@@ -63,15 +82,3 @@ def CheckPlaneExt(
     BoxValue = Topology.bounding_box
     assert BoxValue is not None
     assert (BoxValue.minimum.z, BoxValue.maximum.z) == Pytest.approx(Bounds)
-    Offset = Parameters[Definition.OffsetParameterId]
-    Parameters[Offset.id] = Replace(
-        Offset, value=Replace(Offset.value, value=float(Offset.value.value) + 0.2)
-    )
-    Edited = GetPlaneExt(
-        StepValue, Definition, Parameters, Selections, Frames, Sketches
-    )
-    assert Edited.UpperMm == Pytest.approx(Bounds[1] + 2)
-    assert Edited.LowerMm == Pytest.approx(
-        Bounds[0] + (2 if RoleName == "start" else 0)
-    )
-    assert CadDocument.from_json(Document.to_json()) == Document

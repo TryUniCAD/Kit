@@ -146,17 +146,13 @@ def ProjectFusDoc(
     else:
         Bodies, Model, BodyIssues = (), None, ()
     Digest = ShaDigest(DataValue).hexdigest()
-    Capabilities = {Capability.KNativePayloads, Capability.KProvenance}
-    if Parameters:
-        Capabilities.add(Capability.KParameters)
-    if Planes or Frames:
-        Capabilities.add(Capability.KSupportPlanes)
-    if Selections:
-        Capabilities.add(Capability.KSelections)
-    if Model is not None:
-        Capabilities.update((Capability.KBodyStructure, Capability.KBrep))
-    if Assembly is not None:
-        Capabilities.add(Capability.KAssemblies)
+    Capabilities = GetFusionCaps(
+        bool(Parameters),
+        bool(Planes or Frames),
+        bool(Selections),
+        Model is not None,
+        Assembly is not None,
+    )
     Document = CadDocument(
         source=CadSource(format_id="fusion.f3d", path=SourceName, sha256=Digest),
         configurations=(
@@ -201,7 +197,7 @@ def ProjectFusDoc(
                 + "Additional feature definitions, bodies, and assemblies require further decoding.",
             ),
         ),
-        capabilities=frozenset(Capabilities),
+        capabilities=Capabilities,
         metadata=FreezeMapping(
             {
                 "fusion.history_id": History.HistoryId,
@@ -221,8 +217,41 @@ def ProjectFusDoc(
             }
         ),
     )
+    return FinishFusionDoc(Document, BulkData, Spans, History, LoadBlob)
+
+
+# later body and feature associations must resolve before document validation
+def FinishFusionDoc(
+    Document: CadDocument,
+    BulkData: bytes,
+    Spans: tuple[RecordSpan, ...],
+    History: HistoryPart,
+    LoadBlob: Callable[[str], bytes],
+) -> CadDocument:
     Document = ProjectBodyList(Document, BulkData, Spans, History)
     Document = ProjectPicks(Document, BulkData, Spans, History)
     Document = ProjectScale(Document, BulkData, Spans, History, LoadBlob)
     Document.AssertValid()
     return Document
+
+
+# capabilities reflect the evidence retained in the completed neutral document
+def GetFusionCaps(
+    Parameters: bool,
+    HasPlanes: bool,
+    Selections: bool,
+    HasModel: bool,
+    HasAssembly: bool,
+) -> frozenset[Capability]:
+    Capabilities = {Capability.KNativePayloads, Capability.KProvenance}
+    if Parameters:
+        Capabilities.add(Capability.KParameters)
+    if HasPlanes:
+        Capabilities.add(Capability.KSupportPlanes)
+    if Selections:
+        Capabilities.add(Capability.KSelections)
+    if HasModel:
+        Capabilities.update((Capability.KBodyStructure, Capability.KBrep))
+    if HasAssembly:
+        Capabilities.add(Capability.KAssemblies)
+    return frozenset(Capabilities)

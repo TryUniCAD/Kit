@@ -95,6 +95,21 @@ def ChangeEditFile(
         ResultCell = RootValue.find(".//Cell[@alias='fusion_parameter_276']")
         assert ResultCell is not None
         ResultCell.set("content", "=fusion_parameter_202 + 13.5 mm")
+    ChangeBindMut(RootValue, ChangeMode, FeaturePath)
+    if ChangeMode in {"carrier-shape", "sketch-shape"}:
+        SetCarrierMut(RootValue, ChangeMode, Shape.attrib["file"])
+    Entries["Document.xml"] = XmlTree.tostring(RootValue, encoding="utf-8")
+    Buffer = BytesIO()
+    with ZipFile(Buffer, "w") as Archive:
+        for NameValue, DataValue in Entries.items():
+            Archive.writestr(NameValue, DataValue)
+    return Buffer.getvalue()
+
+
+# legacy archive mutations retain the exact original binding and incidence cases
+def ChangeBindMut(
+    RootValue: XmlTree.Element, ChangeMode: str, FeaturePath: str
+) -> None:
     if ChangeMode in {"unmarked", "legacy-identity", "legacy-bound"}:
         Metadata = RootValue.find("./ObjectData/Object[@name='KitMetadata']/Properties")
         assert Metadata is not None
@@ -115,36 +130,31 @@ def ChangeEditFile(
         Identity = RootValue.find(f"{FeaturePath}/Property[@name='KitId']/String")
         assert Identity is not None
         Identity.set("value", "removed-binding")
-    if ChangeMode in {"carrier-shape", "sketch-shape"}:
-        TypeName = (
-            "Part::Feature"
-            if ChangeMode == "carrier-shape"
-            else "Sketcher::SketchObject"
+
+
+# carrier shapes simulate a saved cache attached to the wrong native object
+def SetCarrierMut(RootValue: XmlTree.Element, ChangeMode: str, ShapeFile: str) -> None:
+    TypeName = (
+        "Part::Feature" if ChangeMode == "carrier-shape" else "Sketcher::SketchObject"
+    )
+    Other = RootValue.find(f"./Objects/Object[@type='{TypeName}']")
+    assert Other is not None
+    OtherProps = RootValue.find(
+        f"./ObjectData/Object[@name='{Other.attrib['name']}']/Properties"
+    )
+    assert OtherProps is not None
+    OtherShape = OtherProps.find("Property[@name='Shape']")
+    if OtherShape is None:
+        OtherShape = XmlTree.SubElement(
+            OtherProps,
+            "Property",
+            {"name": "Shape", "type": "Part::PropertyPartShape"},
         )
-        Other = RootValue.find(f"./Objects/Object[@type='{TypeName}']")
-        assert Other is not None
-        OtherProps = RootValue.find(
-            f"./ObjectData/Object[@name='{Other.attrib['name']}']/Properties"
-        )
-        assert OtherProps is not None
-        OtherShape = OtherProps.find("Property[@name='Shape']")
-        if OtherShape is None:
-            OtherShape = XmlTree.SubElement(
-                OtherProps,
-                "Property",
-                {"name": "Shape", "type": "Part::PropertyPartShape"},
-            )
-            OtherProps.set("Count", str(len(OtherProps)))
-        OtherPart = OtherShape.find("Part")
-        if OtherPart is None:
-            OtherPart = XmlTree.SubElement(OtherShape, "Part")
-        OtherPart.set("file", Shape.attrib["file"])
-    Entries["Document.xml"] = XmlTree.tostring(RootValue, encoding="utf-8")
-    Buffer = BytesIO()
-    with ZipFile(Buffer, "w") as Archive:
-        for NameValue, DataValue in Entries.items():
-            Archive.writestr(NameValue, DataValue)
-    return Buffer.getvalue()
+        OtherProps.set("Count", str(len(OtherProps)))
+    OtherPart = OtherShape.find("Part")
+    if OtherPart is None:
+        OtherPart = XmlTree.SubElement(OtherShape, "Part")
+    OtherPart.set("file", ShapeFile)
 
 
 # signed edits must update measures and preserve identities before applying public read filters

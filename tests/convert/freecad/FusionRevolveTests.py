@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from xml.etree.ElementTree import Element
 from dataclasses import replace as Replace
 from io import BytesIO
 from math import pi as HalfTurn, radians as Radians
@@ -87,80 +88,90 @@ def TestNativeRev(
     assert Transfers[Capability.BREP] is TransferMode.NATIVE
     assert Transfers[Capability.PARAMETRIC_HISTORY] is TransferMode.MIXED
     with ZipFile(Output) as Archive:
-        RootValue = ParseXml(Archive.read("Document.xml"))
-        Binding = RootValue.find(
-            f"./ObjectData/Object[@name='KitMetadata']/Properties/Property[@name='{KRevBinding}']/String"
-        )
-        assert Binding is not None and Binding.get("value") == StepValue.id
-        Objects = {
-            Value.attrib["name"]: Value.attrib["type"]
-            for Value in RootValue.findall("./Objects/Object")
-        }
-        (Revolution,) = (
-            NameValue
-            for NameValue, TypeValue in Objects.items()
-            if TypeValue == "Part::Revolution"
-        )
-        Props = f"./ObjectData/Object[@name='{Revolution}']/Properties"
-        Source = RootValue.find(f"{Props}/Property[@name='Source']/Link")
-        assert Source is not None
-        assert Objects[Source.attrib["value"]] == "Sketcher::SketchObject"
-        SketchProps = (
-            f"./ObjectData/Object[@name='{Source.attrib['value']}']/Properties"
-        )
-        Constraints = RootValue.find(
-            f"{SketchProps}/Property[@name='Constraints']/ConstraintList"
-        )
-        assert Constraints is not None and int(Constraints.attrib["count"]) == 8
-        Angle = RootValue.find(f"{Props}/Property[@name='Angle']")
-        assert (
-            Angle is not None and Angle.attrib["type"] == "App::PropertyFloatConstraint"
-        )
-        AngleValue = Angle.find("Float")
-        assert AngleValue is not None and float(
-            AngleValue.attrib["value"]
-        ) == Pytest.approx(AngleDeg)
-        Symmetric = RootValue.find(f"{Props}/Property[@name='Symmetric']/Bool")
-        assert Symmetric is not None
-        assert Symmetric.attrib["value"] == str(SideMode != "one_sided").lower()
-        AxisValue = RootValue.find(f"{Props}/Property[@name='Axis']/PropertyVector")
-        assert AxisValue is not None
-        Direction = Definition.AxisDirection
-        assert tuple(
-            float(AxisValue.attrib[f"value{Dimension}"]) for Dimension in "XYZ"
-        ) == (
-            Direction.x,
-            Direction.y,
-            Direction.z,
-        )
-        Expressions = {
-            Value.attrib["path"]: Value.attrib["expression"]
-            for Value in RootValue.findall(
-                f"{Props}/Property/ExpressionEngine/Expression"
-            )
-        }
-        Along = Definition.AlongParameterId.replace("-", "_")
-        Against = (Definition.AgainstParameterId or "").replace("-", "_")
-        if SideMode == "symmetric":
-            CellValue = RootValue.find(f".//Cell[@alias='{Against}']")
-            assert CellValue is not None and CellValue.attrib["content"] == f"={Along}"
-            assert Expressions == {"Angle": f"Parameters.{Along} * 2"}
-        elif SideMode == "two_sided":
-            assert Expressions["Angle"] == f"Parameters.{Along} + Parameters.{Against}"
-            assert (
-                f"(Parameters.{Along} - Parameters.{Against}) / 2"
-                in Expressions["Placement"]
-            )
-        else:
-            assert Expressions == {"Angle": f"Parameters.{Along}"}
-        Shape = RootValue.find(f"{Props}/Property[@name='Shape']/Part")
-        assert Shape is not None
-        assert [
-            NameData
-            for NameData in Archive.namelist()
-            if NameData.endswith(".Shape.brp")
-        ] == [Shape.attrib["file"]]
+        AssertRevZip(Archive, StepValue.id, Definition, AngleDeg, SideMode)
     assert OpenDocument(Output) == DocValue
+
+
+# native revolution properties must encode the same authored extent and axis
+def AssertRevZip(
+    Archive: ZipFile,
+    StepId: str,
+    Definition: AngularRevolve,
+    AngleDeg: float,
+    SideMode: str,
+) -> None:
+    RootValue = ParseXml(Archive.read("Document.xml"))
+    Binding = RootValue.find(
+        f"./ObjectData/Object[@name='KitMetadata']/Properties/Property[@name='{KRevBinding}']/String"
+    )
+    assert Binding is not None and Binding.get("value") == StepId
+    Objects = {
+        Value.attrib["name"]: Value.attrib["type"]
+        for Value in RootValue.findall("./Objects/Object")
+    }
+    (Revolution,) = (
+        NameValue
+        for NameValue, TypeValue in Objects.items()
+        if TypeValue == "Part::Revolution"
+    )
+    Props = f"./ObjectData/Object[@name='{Revolution}']/Properties"
+    Source = RootValue.find(f"{Props}/Property[@name='Source']/Link")
+    assert Source is not None
+    assert Objects[Source.attrib["value"]] == "Sketcher::SketchObject"
+    SketchProps = f"./ObjectData/Object[@name='{Source.attrib['value']}']/Properties"
+    Constraints = RootValue.find(
+        f"{SketchProps}/Property[@name='Constraints']/ConstraintList"
+    )
+    assert Constraints is not None and int(Constraints.attrib["count"]) == 8
+    Angle = RootValue.find(f"{Props}/Property[@name='Angle']")
+    assert Angle is not None and Angle.attrib["type"] == "App::PropertyFloatConstraint"
+    AngleValue = Angle.find("Float")
+    assert AngleValue is not None and float(
+        AngleValue.attrib["value"]
+    ) == Pytest.approx(AngleDeg)
+    Symmetric = RootValue.find(f"{Props}/Property[@name='Symmetric']/Bool")
+    assert Symmetric is not None
+    assert Symmetric.attrib["value"] == str(SideMode != "one_sided").lower()
+    AxisValue = RootValue.find(f"{Props}/Property[@name='Axis']/PropertyVector")
+    assert AxisValue is not None
+    Direction = Definition.AxisDirection
+    assert tuple(
+        float(AxisValue.attrib[f"value{Dimension}"]) for Dimension in "XYZ"
+    ) == (
+        Direction.x,
+        Direction.y,
+        Direction.z,
+    )
+    AssertRevExpr(RootValue, Props, Definition, SideMode)
+    Shape = RootValue.find(f"{Props}/Property[@name='Shape']/Part")
+    assert Shape is not None
+    assert [
+        NameData for NameData in Archive.namelist() if NameData.endswith(".Shape.brp")
+    ] == [Shape.attrib["file"]]
+
+
+# the expression layout keeps asymmetric and symmetric source controls independently editable
+def AssertRevExpr(
+    RootValue: Element, Props: str, Definition: AngularRevolve, SideMode: str
+) -> None:
+    Expressions = {
+        Value.attrib["path"]: Value.attrib["expression"]
+        for Value in RootValue.findall(f"{Props}/Property/ExpressionEngine/Expression")
+    }
+    Along = Definition.AlongParameterId.replace("-", "_")
+    Against = (Definition.AgainstParameterId or "").replace("-", "_")
+    if SideMode == "symmetric":
+        CellValue = RootValue.find(f".//Cell[@alias='{Against}']")
+        assert CellValue is not None and CellValue.attrib["content"] == f"={Along}"
+        assert Expressions == {"Angle": f"Parameters.{Along} * 2"}
+    elif SideMode == "two_sided":
+        assert Expressions["Angle"] == f"Parameters.{Along} + Parameters.{Against}"
+        assert (
+            f"(Parameters.{Along} - Parameters.{Against}) / 2"
+            in Expressions["Placement"]
+        )
+    else:
+        assert Expressions == {"Angle": f"Parameters.{Along}"}
 
 
 # a broken neutral edge identity can retain geometry without claiming live history

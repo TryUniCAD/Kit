@@ -63,23 +63,7 @@ def ReadMetaIndex(
     Cursor = MetaCursor(MetaData)
     CheckMetaHeader(Cursor, Segment)
 
-    Classes: dict[int, tuple[str, str, str]] = {}
-    Owners: dict[int, int] = {}
-    KnownGuids: set[str] = set()
-    for CodeValue in range(256, 256 + Cursor.ReadCount(100000)):
-        ClassGuid, BaseGuid = Cursor.ReadText(), Cursor.ReadText()
-        _ = Cursor.ReadWord()
-        ClassSpace = Cursor.ReadText()
-        if not ClassGuid or ClassGuid in KnownGuids:
-            raise ValueError("Missing or duplicate Fusion class GUID")
-        KnownGuids.add(ClassGuid)
-        Classes[CodeValue] = ClassGuid, BaseGuid, ClassSpace
-        for _ in range(Cursor.ReadCount(1000000)):
-            Identity = Cursor.ReadLong()
-            if Identity in Owners:
-                raise ValueError("Duplicate primary Fusion object identity")
-            Owners[Identity] = CodeValue
-
+    Classes, Owners = ReadMetaKeysMut(Cursor)
     _ = Cursor.TakeBytes(8 * Cursor.ReadCount(1000000))
     Entries: list[tuple[int, int, bool]] = []
     PrimaryIds: set[int] = set()
@@ -103,3 +87,26 @@ def ReadMetaIndex(
     if Cursor.Offset != len(MetaData):
         raise ValueError("Trailing Fusion MetaStream data")
     return Classes, Owners, Entries
+
+
+# class ownership must be complete before validating indexed object offsets
+def ReadMetaKeysMut(
+    Cursor: MetaCursor,
+) -> tuple[dict[int, tuple[str, str, str]], dict[int, int]]:
+    Classes: dict[int, tuple[str, str, str]] = {}
+    Owners: dict[int, int] = {}
+    KnownGuids: set[str] = set()
+    for CodeValue in range(256, 256 + Cursor.ReadCount(100000)):
+        ClassGuid, BaseGuid = Cursor.ReadText(), Cursor.ReadText()
+        _ = Cursor.ReadWord()
+        ClassSpace = Cursor.ReadText()
+        if not ClassGuid or ClassGuid in KnownGuids:
+            raise ValueError("Missing or duplicate Fusion class GUID")
+        KnownGuids.add(ClassGuid)
+        Classes[CodeValue] = ClassGuid, BaseGuid, ClassSpace
+        for _ in range(Cursor.ReadCount(1000000)):
+            Identity = Cursor.ReadLong()
+            if Identity in Owners:
+                raise ValueError("Duplicate primary Fusion object identity")
+            Owners[Identity] = CodeValue
+    return Classes, Owners

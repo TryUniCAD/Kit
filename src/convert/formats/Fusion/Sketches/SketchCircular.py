@@ -63,28 +63,13 @@ def ReadSketchArc(
         for Value, Expected in zip((Center.x, Center.y), CenterCoords[:2])
     ):
         raise ValueError("Fusion sketch arc center or point references disagree")
-    CrossAxis = (
-        Normal[1] * RefAxis[2] - Normal[2] * RefAxis[1],
-        Normal[2] * RefAxis[0] - Normal[0] * RefAxis[2],
-        Normal[0] * RefAxis[1] - Normal[1] * RefAxis[0],
+    Radians = ReadArcAngles(
+        Normal,
+        RefAxis,
+        CenterCoords,
+        Radius,
+        ((NativeStart, StartPoint), (NativeEnd, EndPoint)),
     )
-    Radians: list[float] = []
-    for Angle, PointValue in ((NativeStart, StartPoint), (NativeEnd, EndPoint)):
-        Cosine, SineData = CosData(Angle), SineValue(Angle)
-        Radial = tuple(
-            Cosine * First + SineData * Second
-            for First, Second in zip(RefAxis, CrossAxis)
-        )
-        Expected = tuple(
-            CenterValue + Radius * RadialValue
-            for CenterValue, RadialValue in zip(CenterCoords, Radial)
-        )
-        if not all(
-            IsClose(Value, Target, abs_tol=1e-8)
-            for Value, Target in zip((PointValue.x, PointValue.y, 0.0), Expected)
-        ):
-            raise ValueError("Fusion sketch arc endpoint reference disagrees")
-        Radians.append(AtanTwo(Radial[1], Radial[0]) % FullTurn)
     Clockwise = Normal[2] < 0.0
     StartAngle = Radians[1 if Clockwise else 0]
     EndAngle = StartAngle + SpanValue
@@ -100,3 +85,36 @@ def ReadSketchArc(
             "fusion.arc_native_clockwise": Clockwise,
         },
     )
+
+
+# the analytic arc must reproduce both referenced endpoints in the native frame
+def ReadArcAngles(
+    Normal: tuple[float, ...],
+    RefAxis: tuple[float, ...],
+    CenterCoords: tuple[float, ...],
+    Radius: float,
+    EndsValue: tuple[tuple[float, PlaneVector], tuple[float, PlaneVector]],
+) -> list[float]:
+    CrossAxis = (
+        Normal[1] * RefAxis[2] - Normal[2] * RefAxis[1],
+        Normal[2] * RefAxis[0] - Normal[0] * RefAxis[2],
+        Normal[0] * RefAxis[1] - Normal[1] * RefAxis[0],
+    )
+    Radians: list[float] = []
+    for Angle, PointValue in EndsValue:
+        Cosine, SineData = CosData(Angle), SineValue(Angle)
+        Radial = tuple(
+            Cosine * First + SineData * Second
+            for First, Second in zip(RefAxis, CrossAxis)
+        )
+        Expected = tuple(
+            CenterValue + Radius * RadialValue
+            for CenterValue, RadialValue in zip(CenterCoords, Radial)
+        )
+        if not all(
+            IsClose(Value, Target, abs_tol=1e-8)
+            for Value, Target in zip((PointValue.x, PointValue.y, 0.0), Expected)
+        ):
+            raise ValueError("Fusion sketch arc endpoint reference disagrees")
+        Radians.append(AtanTwo(Radial[1], Radial[0]) % FullTurn)
+    return Radians

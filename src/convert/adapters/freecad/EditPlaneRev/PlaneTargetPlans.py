@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 
+from interchange.records.RecordParameter import Parameter
 from collections.abc import Mapping
 from math import isclose as IsClose, pi as HalfTurn
 from typing import cast as CastValue
@@ -108,6 +109,18 @@ def ReadTargetPlans(
             )
         )
         Roots.append(RootValue)
+    CheckTargetSet(Params, DocValue, Targets, Inactive, SketchPlane)
+    return Targets, Roots, Inactive
+
+
+# exact parameter and plane coverage keeps unrelated controls outside editable revolve
+def CheckTargetSet(
+    Params: dict[str, Parameter],
+    DocValue: CadDocument,
+    Targets: list[PlaneRevTarget],
+    Inactive: str,
+    SketchPlane: SupportPlane,
+) -> None:
     if (
         len(Params) != len(DocValue.parameters)
         or Params.keys()
@@ -125,4 +138,3 @@ def ReadTargetPlans(
         != {Value.id for Value in DocValue.support_planes}
     ):
         raise ValueError("FreeCAD editable plane Revolve has unrelated controls")
-    return Targets, Roots, Inactive

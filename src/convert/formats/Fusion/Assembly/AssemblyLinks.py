@@ -56,6 +56,14 @@ def LinkOccurrences(IndexValue: AssemblyIndex) -> tuple[NativeOccur, ...]:
                     Occurrence.Transform,
                 )
             )
+    CheckAsmOwners(IndexValue, ByOwner, Claimed)
+    return tuple(Linked)
+
+
+# reciprocal collection coverage catches missing parents and unclaimed occurrences
+def CheckAsmOwners(
+    IndexValue: AssemblyIndex, ByOwner: set[int], Claimed: set[int]
+) -> None:
     if ByOwner != IndexValue.Components.keys():
         raise ValueError("Missing Fusion component occurrence collection")
     if Claimed != {
@@ -64,4 +72,3 @@ def LinkOccurrences(IndexValue: AssemblyIndex) -> tuple[NativeOccur, ...]:
         if Record.CollectionId is not None
     }:
         raise ValueError("Fusion occurrence is absent from its declared collection")
-    return tuple(Linked)

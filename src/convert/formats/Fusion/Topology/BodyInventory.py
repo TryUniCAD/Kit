@@ -18,25 +18,7 @@ from convert.formats.Fusion.Topology.NativeBody import NativeBody
 def ReadNativeList(
     BulkData: bytes, Spans: tuple[RecordSpan, ...], ComponentIds: frozenset[int]
 ) -> tuple[dict[int, tuple[NativeBody, ...]], dict[int, str]]:
-    Owners: dict[int, RecordSpan] = {}
-    UnusableIds: set[int] = set()
-    Bases: dict[int, list[RecordSpan]] = {}
-    for SpanValue in Spans:
-        Identity = SpanValue.ObjectId
-        if SpanValue.IsPrimary:
-            if (
-                Identity in Owners
-                or not 0 <= SpanValue.PayloadOffset <= SpanValue.EndOffset - 4
-                or SpanValue.EndOffset > len(BulkData)
-            ):
-                UnusableIds.add(Identity)
-            else:
-                Owners[Identity] = SpanValue
-        elif Identity in ComponentIds and SpanValue.ClassGuid == KComponentBase:
-            Bases.setdefault(Identity, []).append(SpanValue)
-    for Identity in UnusableIds:
-        _ = Owners.pop(Identity, None)
-
+    Owners, Bases = IndexBodyOwners(Spans, len(BulkData), ComponentIds)
     Inventory: dict[int, tuple[NativeBody, ...]] = {}
     Issues: dict[int, str] = {}
     for ComponentId in sorted(ComponentIds):
@@ -65,6 +47,33 @@ def ReadNativeList(
         except ValueError as Error:
             Issues[ComponentId] = str(Error)
     return Inventory, Issues
+
+
+# duplicate and malformed records cannot contribute body ownership claims
+def IndexBodyOwners(
+    Spans: tuple[RecordSpan, ...],
+    ByteCount: int,
+    ComponentIds: frozenset[int],
+) -> tuple[dict[int, RecordSpan], dict[int, list[RecordSpan]]]:
+    Owners: dict[int, RecordSpan] = {}
+    UnusableIds: set[int] = set()
+    Bases: dict[int, list[RecordSpan]] = {}
+    for SpanValue in Spans:
+        Identity = SpanValue.ObjectId
+        if SpanValue.IsPrimary:
+            if (
+                Identity in Owners
+                or not 0 <= SpanValue.PayloadOffset <= SpanValue.EndOffset - 4
+                or SpanValue.EndOffset > ByteCount
+            ):
+                UnusableIds.add(Identity)
+            else:
+                Owners[Identity] = SpanValue
+        elif Identity in ComponentIds and SpanValue.ClassGuid == KComponentBase:
+            Bases.setdefault(Identity, []).append(SpanValue)
+    for Identity in UnusableIds:
+        _ = Owners.pop(Identity, None)
+    return Owners, Bases
 
 
 # component body readers share one entry point for ordered native membership and label evidence

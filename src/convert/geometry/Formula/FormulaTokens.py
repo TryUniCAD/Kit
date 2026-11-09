@@ -53,19 +53,30 @@ def ReadTokens(Source: str) -> tuple[str | FormulaAtom, ...] | None:
         elif Match.lastgroup == "name":
             Values.append(FormulaAtom(TextValue))
         else:
-            UnitStart = Cursor
-            while UnitStart < len(Source) and Source[UnitStart] in " \t":
-                UnitStart += 1
-            UnitMatch = KNamePattern.match(Source, UnitStart)
-            UnitName = UnitMatch.group() if UnitMatch is not None else ""
-            if UnitMatch is not None and UnitName in KFormulaUnits:
-                Cursor = UnitMatch.end()
-                Display = f"{TextValue} {UnitName}"
-            else:
-                UnitName, Display = "", TextValue
-            Factor, Dimension = KFormulaUnits[UnitName]
-            Magnitude = float(TextValue) * Factor
-            if not IsFinite(Magnitude):
+            Quantity = ReadQuantity(Source, Cursor, TextValue)
+            if Quantity is None:
                 return None
-            Values.append(FormulaAtom(Display, (Magnitude, Dimension)))
+            Cursor, AtomValue = Quantity
+            Values.append(AtomValue)
     return tuple(Values)
+
+
+# a recognized unit is consumed with its numeric token to preserve native expression semantics
+def ReadQuantity(
+    Source: str, Cursor: int, TextValue: str
+) -> tuple[int, FormulaAtom] | None:
+    UnitStart = Cursor
+    while UnitStart < len(Source) and Source[UnitStart] in " \t":
+        UnitStart += 1
+    UnitMatch = KNamePattern.match(Source, UnitStart)
+    UnitName = UnitMatch.group() if UnitMatch is not None else ""
+    if UnitMatch is not None and UnitName in KFormulaUnits:
+        Cursor = UnitMatch.end()
+        Display = f"{TextValue} {UnitName}"
+    else:
+        UnitName, Display = "", TextValue
+    Factor, Dimension = KFormulaUnits[UnitName]
+    Magnitude = float(TextValue) * Factor
+    if not IsFinite(Magnitude):
+        return None
+    return Cursor, FormulaAtom(Display, (Magnitude, Dimension))

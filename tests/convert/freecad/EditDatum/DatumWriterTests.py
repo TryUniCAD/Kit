@@ -7,6 +7,9 @@
 # to you under it immediately and permanently.
 
 
+from xml.etree.ElementTree import Element
+from interchange.features.FeatureStep import FeatureStep
+from interchange.document.models.DocumentModel import CadDocument
 from dataclasses import replace as Replace
 from json import loads as LoadJson
 from xml.etree.ElementTree import fromstring as ParseXml  # noqa: DUO107
@@ -65,6 +68,11 @@ def CheckMultiDatum() -> None:
         Document.to_dict(), "", "", EditableFeatures=Editable
     )
     assert Editable == {"plane", "second"} and not Entries
+    AssertDatumXml(DataValue, Document)
+
+
+# the emitted datum group preserves both live parameter references and source identities
+def AssertDatumXml(DataValue: bytes, Document: CadDocument) -> None:
     RootValue = ParseXml(DataValue)
     Objects = RootValue.findall("./Objects/Object")
     Planes = [
@@ -94,30 +102,38 @@ def CheckMultiDatum() -> None:
     )
     assert [Value.get("value") for Value in Timeline] == Planes
     for NameValue, StepValue in zip(Planes, Document.feature_timeline, strict=True):
-        Properties = RootValue.find(
-            f"./ObjectData/Object[@name='{NameValue}']/Properties"
-        )
-        assert Properties is not None
-        FeatureId = Properties.find("./Property[@name='KitFeatureId']/String")
-        assert FeatureId is not None and FeatureId.get("value") == StepValue.id
-        Definition = StepValue.definition
-        assert isinstance(Definition, BoundDatum)
-        PlaneId = Properties.find("./Property[@name='KitId']/String")
-        assert PlaneId is not None and PlaneId.get("value") == Definition.SupportPlaneId
-        Visibility = Properties.find("./Property[@name='Visibility']/Bool")
-        assert Visibility is not None and Visibility.get("value") == "true"
-        Placement = Properties.find("./Property[@name='Placement']/PropertyPlacement")
-        assert Placement is not None
-        assert float(Placement.get("Px", "")) == (
-            -22.0 if Definition.Method == "offset" else 3.0
-        )
-        (ExprData,) = Properties.findall(
-            "./Property[@name='ExpressionEngine']/ExpressionEngine/Expression"
-        )
-        assert ExprData.get("path") == "Placement"
-        assert f"Parameters.{Aliases[Definition.ScalarParameterId]}" in ExprData.get(
-            "expression", ""
-        )
+        AssertDatumProp(RootValue, NameValue, StepValue, Aliases)
+
+
+# each live datum must retain its own native placement expression and neutral identity
+def AssertDatumProp(
+    RootValue: Element,
+    NameValue: str | None,
+    StepValue: FeatureStep,
+    Aliases: dict[str, str],
+) -> None:
+    Properties = RootValue.find(f"./ObjectData/Object[@name='{NameValue}']/Properties")
+    assert Properties is not None
+    FeatureId = Properties.find("./Property[@name='KitFeatureId']/String")
+    assert FeatureId is not None and FeatureId.get("value") == StepValue.id
+    Definition = StepValue.definition
+    assert isinstance(Definition, BoundDatum)
+    PlaneId = Properties.find("./Property[@name='KitId']/String")
+    assert PlaneId is not None and PlaneId.get("value") == Definition.SupportPlaneId
+    Visibility = Properties.find("./Property[@name='Visibility']/Bool")
+    assert Visibility is not None and Visibility.get("value") == "true"
+    Placement = Properties.find("./Property[@name='Placement']/PropertyPlacement")
+    assert Placement is not None
+    assert float(Placement.get("Px", "")) == (
+        -22.0 if Definition.Method == "offset" else 3.0
+    )
+    (ExprData,) = Properties.findall(
+        "./Property[@name='ExpressionEngine']/ExpressionEngine/Expression"
+    )
+    assert ExprData.get("path") == "Placement"
+    assert f"Parameters.{Aliases[Definition.ScalarParameterId]}" in ExprData.get(
+        "expression", ""
+    )
 
 
 # unverified expressions and historical state must stay in the legacy support route

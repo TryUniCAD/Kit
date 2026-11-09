@@ -58,27 +58,13 @@ def ProjectRevBody(
     Issues: list[Diagnostic] = []
     for StepValue in Creators:
         try:
-            Definition = StepValue.definition
-            if not isinstance(Definition, (AngularRevolve, PlaneRevolve)):
-                raise ValueError(
-                    "Missing supported definition for the Fusion result body"
-                )
-            SketchValue = BySketch.get(StepValue.sketch_id or "")
-            FrameValue = (
-                None
-                if SketchValue is None
-                else ByFrame.get(SketchValue.support_plane_id)
-            )
-            if SketchValue is None or FrameValue is None:
-                raise ValueError("Missing Fusion Revolve profile sketch frame")
-            BodyValue, Model = BuildRevBody(
+            BodyValue, Model = ReadRevModel(
                 Owners,
                 StepValue,
-                Definition,
                 ByParam,
-                SketchValue,
-                FrameValue,
-                Links[StepValue.id],
+                BySketch,
+                ByFrame,
+                Links,
                 CollectionId,
                 ComponentId,
             )
@@ -96,3 +82,37 @@ def ProjectRevBody(
         Models.append(Model)
     Combined = JoinRevModels(tuple(Models)) if Models else None
     return tuple(Bodies), Combined, tuple(Issues)
+
+
+# each saved solid must resolve its own supported sweep and source frame
+def ReadRevModel(
+    Owners: dict[int, RecordSpan],
+    StepValue: FeatureStep,
+    ByParam: dict[str, Parameter],
+    BySketch: dict[str, Sketch],
+    ByFrame: dict[str, SupportPlane],
+    Links: dict[str, tuple[int, int]],
+    CollectionId: int,
+    ComponentId: int,
+) -> tuple[DesignBody, BrepModel]:
+    Definition = StepValue.definition
+    if not isinstance(Definition, (AngularRevolve, PlaneRevolve)):
+        raise ValueError("Missing supported definition for the Fusion result body")
+    SketchValue = BySketch.get(StepValue.sketch_id or "")
+    FrameValue = (
+        None if SketchValue is None else ByFrame.get(SketchValue.support_plane_id)
+    )
+    if SketchValue is None or FrameValue is None:
+        raise ValueError("Missing Fusion Revolve profile sketch frame")
+    BodyValue, Model = BuildRevBody(
+        Owners,
+        StepValue,
+        Definition,
+        ByParam,
+        SketchValue,
+        FrameValue,
+        Links[StepValue.id],
+        CollectionId,
+        ComponentId,
+    )
+    return BodyValue, Model

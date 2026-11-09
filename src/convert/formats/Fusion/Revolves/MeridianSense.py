@@ -51,6 +51,14 @@ def ChooseMeridian(
     Radii = tuple(
         Distance + RadialX * Point.x + RadialY * Point.y for Point in ProfilePoints
     )
+    Sense = ChooseRadial(Radii, Clearance)
+    if Sense > 0:
+        return AxisTuple, Radial
+    return (-AxisX, -AxisY, -AxisZ), (-Radial[0], -Radial[1], -Radial[2])
+
+
+# the signed profile radii determine which side can safely become the meridian
+def ChooseRadial(Radii: tuple[float, ...], Clearance: float) -> int:
     if not all(map(IsFinite, Radii)):
         raise ValueError("Non-finite Fusion Revolve profile radius")
     Minimum, Maximum = min(Radii), max(Radii)
@@ -61,7 +69,7 @@ def ChooseMeridian(
         Positive = Minimum >= -1e-8 and Maximum > 1e-8
         Negative = Maximum <= 1e-8 and Minimum < -1e-8
     if Positive:
-        return AxisTuple, Radial
+        return 1
     if Negative:
-        return (-AxisX, -AxisY, -AxisZ), (-Radial[0], -Radial[1], -Radial[2])
+        return -1
     raise ValueError("Fusion Revolve profile crosses or lies on the axis")

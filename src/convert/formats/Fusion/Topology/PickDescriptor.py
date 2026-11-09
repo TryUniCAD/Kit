@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 
+from convert.formats.Fusion.MetaCursor import MetaCursor
 from convert.formats.Fusion.HistoryRef import ReadNativeRef
 from convert.formats.Fusion.RecordSpan import RecordSpan
 from convert.formats.Fusion.SelectionProxy import SelectCursor
@@ -41,6 +42,17 @@ def ReadTopoPick(
     if Cursor.ReadWord() != 1:
         raise ValueError("Unsupported Fusion topology selection anchor count")
     AnchorId = ReadNativeRef(Cursor)
+    HelperId, SupportId = ReadPickTailMut(Cursor, FeatureId)
+    Helper = SelectCursor(BulkData, Owners, HelperId, KPickHelper)
+    if Helper.DataValue not in (bytes(10), b"\0\1" + bytes(12)):
+        raise ValueError("Unsupported Fusion topology selection helper")
+    return TopologyPick(
+        RecipeId, ContextId, AnchorId, HelperId, SupportId, Namespace, EntityGuid
+    )
+
+
+# trailer framing proves helper and support ownership before resolving those records
+def ReadPickTailMut(Cursor: MetaCursor, FeatureId: int) -> tuple[int, int]:
     _ = Cursor.TakeBytes(14)
     if Cursor.TakeBytes(4) != b"\1\1\0\0":
         raise ValueError("Unsupported Fusion topology selection trailer")
@@ -53,9 +65,4 @@ def ReadTopoPick(
     SupportId = ReadNativeRef(Cursor)
     if Cursor.TakeBytes(1) != b"\0" or ReadNativeRef(Cursor) != FeatureId:
         raise ValueError("Fusion topology selection owner disagrees")
-    Helper = SelectCursor(BulkData, Owners, HelperId, KPickHelper)
-    if Helper.DataValue not in (bytes(10), b"\0\1" + bytes(12)):
-        raise ValueError("Unsupported Fusion topology selection helper")
-    return TopologyPick(
-        RecipeId, ContextId, AnchorId, HelperId, SupportId, Namespace, EntityGuid
-    )
+    return HelperId, SupportId

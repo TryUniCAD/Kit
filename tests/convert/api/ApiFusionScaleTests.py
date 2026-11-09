@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from tests.convert.api.ScaleCases import KScaleCases
 from io import BytesIO as ByteStream
 from zipfile import ZipFile
 
@@ -19,44 +20,6 @@ from interchange.features.BoundScaleValues import GetScaleValues
 from interchange.features.FeatureBoundScale import BoundScale
 from interchange.geometry.models.VectorSpace import SpaceVector
 from tests.convert.api.ApiFusionAssemblyTests import KRequiresCodec, KStudyPath
-
-# real saved controls exercise every supported parameter and center route
-KScaleCases = (
-    ("tools-fda3948848f4/Scale.f3d", (1.25,) * 3, (0, 0, 0), 46875, 8125, 1),
-    (
-        "bodymodes-df9b7113539f/scale_uniform.f3d",
-        (1.75,) * 3,
-        (0, 0, 0),
-        128625,
-        15925,
-        1,
-    ),
-    (
-        "bodymodes-df9b7113539f/scale_nonuniform.f3d",
-        (1.2, 0.8, 1.6),
-        (0, 0, 0),
-        36864,
-        6912,
-        1,
-    ),
-    ("bodymodes-d696a14d5f0b/scale_holdout.f3d", (0.65,) * 3, (0, 0, 0), 6591, 2197, 1),
-    (
-        "bodyselections-62e42366c722/scale_two_bodies_point.f3d",
-        (1.4,) * 3,
-        (10, -10, 0),
-        49392,
-        8232,
-        2,
-    ),
-    (
-        "scaleshellinputs-97ef1cfd19e4/scale_construction_point.f3d",
-        (1.3,) * 3,
-        (20, -10, 0),
-        39546,
-        7098,
-        1,
-    ),
-)
 
 
 # the public reader retains editable controls and exposes only fully verified final bodies
