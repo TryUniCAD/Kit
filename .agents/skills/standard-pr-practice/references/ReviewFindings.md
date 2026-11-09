@@ -29,6 +29,11 @@ Reply inside an existing review thread, then resolve it only after the finding i
 
 After opening the PR and after each accepted push that changes its head, post one top-level PR comment whose entire body is `@cubic-dev-ai review this PR`, unless that revision already has a request to or a review from `@cubic-dev-ai`. Record the accepted head SHA and the request URL separately. A posted comment or reaction does not establish that a review ran. Verify the responding GitHub account or app and the revision it reviewed. Do not send a duplicate request for the same head or fall back to another reviewer.
 
+Tag the initial PR once. On later heads, a verified native Cubic run already
+queued or in progress on that exact SHA counts as an existing automatic review
+request. Follow it without posting a duplicate full re-review trigger. It remains
+pending evidence until the current-head verdict and findings are available.
+
 Poll in responsive intervals around 30–60 seconds and inspect new findings promptly. Do not manufacture commits to provoke a review. Report missing integration, inaccessible evidence, or a persistently unavailable result; do not install or reconfigure the service as part of repair.
 
 ## Verify completion

@@ -37,12 +37,15 @@ const PrChecks = [
 const ConditionalChecks = new Set([
   "Remediate missing SPDX headers",
   "Reject unresolved SPDX header failure",
+  "Inactive aggregate bootstrap",
 ]);
 const ReusableChecks = StaticChecks.filter(
   (Name) =>
     ![
       "Verify changed file headers",
       "Reject unresolved SPDX header failure",
+      "Verify path policies",
+      "Verify rationale comments on changed sources",
     ].includes(Name),
 );
 const WorkflowPath = ".github/workflows/PullRequest.yml";
@@ -149,9 +152,19 @@ async function ReadReports(Github, Context, Refs, Expected, Reused = false) {
       Run.path?.split("@")[0] === ".github/workflows/MergeQueue.yml"
     )
       continue;
+    const InactiveBootstrap =
+      Run.event === "pull_request" &&
+      Run.path?.split("@")[0] === WorkflowPath &&
+      Checks.some(
+        (Check) =>
+          Check.check_suite.id === Run.check_suite_id &&
+          Check.name === "Inactive aggregate bootstrap" &&
+          Check.conclusion === "skipped",
+      );
     if (
       Run.status !== "completed" ||
-      !["success", "skipped"].includes(Run.conclusion)
+      (Run.conclusion !== "success" &&
+        !(Run.conclusion === "skipped" && InactiveBootstrap))
     )
       Rows.push({
         name: Run.name,
@@ -273,7 +286,7 @@ async function FindReuse(Github, Context, Core) {
       {
         ...Repository,
         head_sha: Pull.headRefOid,
-        event: "pull_request",
+        event: "pull_request_target",
         per_page: 100,
       },
     );
@@ -298,6 +311,8 @@ async function FindReuse(Github, Context, Core) {
     const Evidence = await LoadEvidence(Github, Repository, Artifact);
     if (
       Evidence.repository_id !== Context.payload.repository.id ||
+      Evidence.format !== "pr-head-tree-v1" ||
+      Evidence.workflow_event !== "pull_request_target" ||
       Evidence.pull_number !== Pull.number ||
       Evidence.head_sha !== Pull.headRefOid ||
       Evidence.head_repository_id !== Current.head.repo.id ||
@@ -305,25 +320,27 @@ async function FindReuse(Github, Context, Core) {
       Evidence.run_attempt !== Run.run_attempt
     )
       continue;
-    const Tested = (
-      await Github.rest.git.getCommit({
-        ...Repository,
-        commit_sha: Evidence.tested_sha,
-      })
-    ).data;
-    const Parents = Tested.parents.map((Parent) => Parent.sha);
-    if (
-      !Parents.includes(Evidence.head_sha) ||
-      !Parents.includes(Evidence.base_sha) ||
-      Tested.tree.sha !== Evidence.tree_sha
-    )
-      continue;
-    const Health = await ReadReports(
-      Github,
-      Context,
-      [Pull.headRefOid, Evidence.tested_sha],
-      [...StaticChecks, ...PrChecks, "CI Agg", "Merge queue acceptance"],
-    );
+    const HealthRefs = [Pull.headRefOid];
+    if (Evidence.report_merge_sha) {
+      const Merge = (
+        await Github.rest.git.getCommit({
+          ...Repository,
+          commit_sha: Evidence.report_merge_sha,
+        })
+      ).data;
+      if (
+        !Merge.parents.some((Parent) => Parent.sha === Evidence.head_sha) ||
+        !Merge.parents.some((Parent) => Parent.sha === Evidence.base_sha)
+      )
+        continue;
+      HealthRefs.push(Evidence.report_merge_sha);
+    }
+    const Health = await ReadReports(Github, Context, HealthRefs, [
+      ...StaticChecks,
+      ...PrChecks,
+      "CI Agg",
+      "Merge queue acceptance",
+    ]);
     if (Health.some((Row) => Row.state !== "pass")) {
       return {
         reuse: false,
@@ -343,7 +360,8 @@ async function FindReuse(Github, Context, Core) {
     });
     if (
       Evidence.base_sha === Group.base_sha &&
-      Evidence.tree_sha === Candidate.tree.sha &&
+      Evidence.base_is_ancestor === true &&
+      Evidence.head_tree_sha === Candidate.tree.sha &&
       HeadCommit.tree.sha === Candidate.tree.sha &&
       ["ahead", "identical"].includes(BaseComparison.data.status)
     )
@@ -392,10 +410,47 @@ async function SetReuse({ github: Github, context: Context, core: Core }) {
     .write();
 }
 
+async function PullMergeRef(Github, Context) {
+  const Pull = Context.payload.pull_request;
+  const Candidates = [
+    Context.eventName === "pull_request" ? Context.sha : null,
+    Pull.merge_commit_sha,
+  ];
+  const Current = (
+    await Github.rest.pulls.get({ ...Context.repo, pull_number: Pull.number })
+  ).data;
+  if (Current.head.sha === Pull.head.sha && Current.base.sha === Pull.base.sha)
+    Candidates.push(Current.merge_commit_sha);
+  for (const Sha of new Set(Candidates)) {
+    if (typeof Sha !== "string" || !/^[0-9a-f]{40}$/.test(Sha)) continue;
+    let Commit;
+    try {
+      Commit = (
+        await Github.rest.git.getCommit({ ...Context.repo, commit_sha: Sha })
+      ).data;
+    } catch (ErrorInfo) {
+      if (ErrorInfo.status === 404) continue;
+      throw ErrorInfo;
+    }
+    if (
+      Commit.parents.some((Parent) => Parent.sha === Pull.head.sha) &&
+      Commit.parents.some((Parent) => Parent.sha === Pull.base.sha)
+    )
+      return Sha;
+  }
+  return null;
+}
+
 async function Aggregate({ github: Github, context: Context, core: Core }) {
-  const IsPull = Context.eventName === "pull_request";
+  const IsPull = ["pull_request", "pull_request_target"].includes(
+    Context.eventName,
+  );
+  const ReportMerge = IsPull ? await PullMergeRef(Github, Context) : null;
   const Refs = IsPull
-    ? [Context.payload.pull_request.head.sha, Context.sha]
+    ? [
+        Context.payload.pull_request.head.sha,
+        ...(ReportMerge ? [ReportMerge] : []),
+      ]
     : [Context.sha];
   const Expected = [
     ...StaticChecks,
@@ -462,32 +517,35 @@ async function Aggregate({ github: Github, context: Context, core: Core }) {
     .write();
   if (IsPull) {
     const Pull = Context.payload.pull_request;
-    const Tested = (
+    const Head = (
       await Github.rest.git.getCommit({
         ...Context.repo,
-        commit_sha: Context.sha,
+        commit_sha: Pull.head.sha,
       })
     ).data;
-    if (
-      !Tested.parents.some((Parent) => Parent.sha === Pull.head.sha) ||
-      !Tested.parents.some((Parent) => Parent.sha === Pull.base.sha)
-    )
-      throw new Error(
-        "The tested commit does not match the PR event head and base",
-      );
+    const Comparison = await Github.rest.repos.compareCommits({
+      ...Context.repo,
+      base: Pull.base.sha,
+      head: Pull.head.sha,
+    });
     const Directory = Path.join(process.env.RUNNER_TEMP, "PrCiEvidence");
     Fs.mkdirSync(Directory, { recursive: true });
     Fs.writeFileSync(
       Path.join(Directory, "Evidence.json"),
       JSON.stringify(
         {
+          format: "pr-head-tree-v1",
+          workflow_event: Context.eventName,
           repository_id: Context.payload.repository.id,
           head_repository_id: Pull.head.repo.id,
           pull_number: Pull.number,
           head_sha: Pull.head.sha,
           base_sha: Pull.base.sha,
-          tested_sha: Context.sha,
-          tree_sha: Tested.tree.sha,
+          head_tree_sha: Head.tree.sha,
+          base_is_ancestor: ["ahead", "identical"].includes(
+            Comparison.data.status,
+          ),
+          report_merge_sha: ReportMerge,
           run_id: Context.runId,
           run_attempt: Number(process.env.GITHUB_RUN_ATTEMPT),
         },
@@ -515,29 +573,57 @@ async function VerifyEvidence({
   const Evidence = await LoadEvidence(Github, Context.repo, Artifact);
   const Pull = Context.payload.pull_request;
   if (
+    Evidence.format !== "pr-head-tree-v1" ||
+    Evidence.workflow_event !== Context.eventName ||
     Evidence.repository_id !== Context.payload.repository.id ||
     Evidence.head_repository_id !== Pull.head.repo.id ||
     Evidence.pull_number !== Pull.number ||
     Evidence.head_sha !== Pull.head.sha ||
     Evidence.base_sha !== Pull.base.sha ||
-    Evidence.tested_sha !== Context.sha ||
     Evidence.run_id !== Context.runId ||
     Evidence.run_attempt !== Number(process.env.GITHUB_RUN_ATTEMPT)
   ) {
     throw new Error("Published CI evidence does not match this exact PR run");
   }
-  const Tested = (
+  const Head = (
     await Github.rest.git.getCommit({
       ...Context.repo,
-      commit_sha: Evidence.tested_sha,
+      commit_sha: Evidence.head_sha,
     })
   ).data;
+  const Comparison = await Github.rest.repos.compareCommits({
+    ...Context.repo,
+    base: Evidence.base_sha,
+    head: Evidence.head_sha,
+  });
   if (
-    Tested.tree.sha !== Evidence.tree_sha ||
-    !Tested.parents.some((Parent) => Parent.sha === Evidence.head_sha) ||
-    !Tested.parents.some((Parent) => Parent.sha === Evidence.base_sha)
+    Head.tree.sha !== Evidence.head_tree_sha ||
+    Evidence.base_is_ancestor !==
+      ["ahead", "identical"].includes(Comparison.data.status)
   ) {
     throw new Error("Published CI evidence has inconsistent commit provenance");
+  }
+  if (Evidence.report_merge_sha) {
+    const Merge = (
+      await Github.rest.git.getCommit({
+        ...Context.repo,
+        commit_sha: Evidence.report_merge_sha,
+      })
+    ).data;
+    if (
+      !Merge.parents.some((Parent) => Parent.sha === Pull.head.sha) ||
+      !Merge.parents.some((Parent) => Parent.sha === Pull.base.sha)
+    ) {
+      throw new Error("Published CI evidence has inconsistent report refs");
+    }
+  }
+  if (
+    Context.eventName === "pull_request" &&
+    Evidence.report_merge_sha !== Context.sha
+  ) {
+    throw new Error(
+      "Bootstrap evidence does not identify its actual PR merge ref",
+    );
   }
   await Core.summary
     .addRaw(

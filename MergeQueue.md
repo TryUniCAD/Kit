@@ -45,12 +45,23 @@ not grant that separate user write permission.
 ## Reuse healthy PR CI
 
 A successful PR aggregate publishes a small immutable evidence artifact bound
-to its repository, PR number, head repository, head SHA, event base SHA, tested
-merge commit, complete tree SHA, workflow run, and attempt. The merge queue
+to its repository, PR number, head repository, head SHA and tree, event base SHA,
+base ancestry, workflow event, workflow run, and attempt. The merge queue
 checks current CI health for every included PR and validates the artifact's
-origin and SHA-256 digest. Reuse additionally requires identical candidate,
-PR-head, and tested merge trees, identical base commits, verified test-merge
-parents, and ancestry from that base to the PR head.
+origin and SHA-256 digest. Reuse requires identical candidate and PR-head trees,
+identical base commits, and ancestry from that base to the PR head. With that
+ancestry, merging the base into the PR head adds no files or content. Only
+whole-tree checks are reusable. Header, path-diff, and rationale-diff checks
+always execute freshly on the queue candidate. Supplementary merge-ref reports
+are included only after their parents match the recorded head and base.
+
+Normal PR aggregation runs on `pull_request_target` using the trusted default
+branch's workflow and reporter, without checking out or executing PR code. Its
+artifact records the PR head input tree rather than treating the event's base
+SHA as a tested PR merge. This installation PR, #49, has a one-time read-only
+`pull_request` preview so the pipeline can be exercised before it exists on
+`main`. Other PRs do not run that preview. Bootstrap artifacts are never eligible
+for queue reuse; only successful trusted `pull_request_target` runs qualify.
 
 Queue preflights and the queue aggregate load the verifier from the exact trusted
 merge-group base commit. PR changes to the helper are not executed by those
@@ -62,7 +73,7 @@ When that proof succeeds, eligible static jobs retain their check names but expl
 skip duplicate execution. The aggregate independently verifies reuse before
 accepting those skips. If a head, base, tree, report, or evidence artifact does
 not match, static checks execute on the candidate instead. Missing or expired
-evidence never produces a cached success. Trusted header checks, acceptance, and heavy security always
+evidence never produces a cached success. Header and change-range checks, acceptance, and heavy security always
 execute on the actual merge group. No acceptance result is inferred from PR CI.
 
 On merge groups, `CI Agg` covers static validation and verified reuse. The
@@ -163,5 +174,6 @@ Do not describe this configuration as active until the settings are read back.
 
 - [GitHub merge queue and coupled PR/merge-group checks](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue)
 - [Repository rulesets API](https://docs.github.com/en/rest/repos/rules)
+- [Trusted pull-request metadata workflows](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request_target)
 - [Cubic live approval](https://docs.cubic.dev/ai-review/auto-approval)
 - [Cubic default-branch configuration](https://docs.cubic.dev/configure/cubic-yaml)

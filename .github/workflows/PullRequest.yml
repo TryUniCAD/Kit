@@ -5,18 +5,21 @@ name: Pull Request
 
 on:
   pull_request:
+  pull_request_target: # zizmor: ignore[dangerous-triggers] Reads metadata with trusted base code, read-only permissions, and no PR code checkout.
+    types: [opened, reopened, synchronize]
   merge_group:
     types: [checks_requested]
 
 permissions: {}
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.merge_group.head_sha || github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.merge_group.head_sha || github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name != 'merge_group' }}
 
 jobs:
   ci-agg:
-    name: CI Agg
+    name: ${{ github.event_name == 'pull_request' && github.event.pull_request.number != 49 && 'Inactive aggregate bootstrap' || 'CI Agg' }}
+    if: github.event_name != 'pull_request' || github.event.pull_request.number == 49
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     permissions:
@@ -30,7 +33,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          ref: ${{ github.event.merge_group.base_sha || github.sha }}
+          ref: ${{ github.event_name == 'merge_group' && github.event.merge_group.base_sha || github.sha }}
 
       - name: Aggregate all applicable CI except Cubic
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
@@ -41,7 +44,7 @@ jobs:
 
       - name: Publish immutable PR CI evidence
         id: evidence
-        if: github.event_name == 'pull_request'
+        if: github.event_name != 'merge_group'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: PrCiEvidence-${{ github.run_attempt }}
@@ -50,7 +53,7 @@ jobs:
           retention-days: 14
 
       - name: Verify the published evidence through GitHub
-        if: github.event_name == 'pull_request'
+        if: github.event_name != 'merge_group'
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
           PR_CI_ARTIFACT_ID: ${{ steps.evidence.outputs.artifact-id }}
