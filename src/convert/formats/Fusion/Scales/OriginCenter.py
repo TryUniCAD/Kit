@@ -26,7 +26,7 @@ def ReadOriginPt(
     if len(Cursor.DataValue) != 146 or ReadGeomAttrs(Cursor) != {"EntityGenesis": 0}:
         raise ValueError("Unsupported Fusion origin point")
     Point = ReadSpatialPt(Cursor)
-    Cursor.TakeBytes(10)
+    _ = Cursor.TakeBytes(10)
     if Cursor.ReadText(True, Maximum=1) != "O" or Point != SpaceVector(0.0, 0.0, 0.0):
         raise ValueError("Fusion selected origin point label or coordinates disagree")
     Cursor.Offset = 135

@@ -110,7 +110,7 @@ def TestAuxFrames() -> None:
         )
     BrowserMeta = Values[KBrowserPrefix + "MetaStream.dat"]
     with Raises(ValueError, match="design MetaStream"):
-        ReadBulkSpans(KProofBulk, BrowserMeta)
+        _ = ReadBulkSpans(KProofBulk, BrowserMeta)
 
 
 # wrong browser header fields and contradictory record extents leave the pair unresolved

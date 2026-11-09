@@ -95,7 +95,7 @@ def ReadRuleRow(Saved: Element, Expected: Element) -> SavedRuleRow:
             "FreeCAD editable sketch native constraint element slots changed"
         )
     for Field in KRuleLabelFields & Saved.attrib.keys():
-        EditFloat(Saved, Field)
+        _ = EditFloat(Saved, Field)
     return SavedRuleRow(
         EditAttr(Saved, "Name"),
         int(EditAttr(Saved, "Type")),

@@ -30,7 +30,7 @@ def CheckBoundPlane(
     if PlaneValue is None:
         raise ValueError("construction plane is missing its support frame")
     Actual = PlaneValue.transform
-    GetExtFrame(Actual)
+    _ = GetExtFrame(Actual)
     Expected = GetConstructionFrame(StepValue, Definition, Parameters)
     PositionTol, DirectionTol = (
         (1e-8, 1e-9) if Definition.Method == "angle" else (1e-9, 1e-10)

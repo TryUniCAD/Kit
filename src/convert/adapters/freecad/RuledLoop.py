@@ -56,9 +56,10 @@ def IsRuledLoop(
     Edges = tuple(Graph.edges[Value.edge_id] for Value in Coedges)
     Directions = tuple((1, 0) if UseValue.reversed else (0, 1) for UseValue in Coedges)
     Pairs = tuple(
-        tuple(
-            (EdgeValue.start_vertex_id, EdgeValue.end_vertex_id)[Index]
-            for Index in Order
+        (
+            (EdgeValue.end_vertex_id, EdgeValue.start_vertex_id)
+            if Order == (1, 0)
+            else (EdgeValue.start_vertex_id, EdgeValue.end_vertex_id)
         )
         for EdgeValue, Order in zip(Edges, Directions)
     )

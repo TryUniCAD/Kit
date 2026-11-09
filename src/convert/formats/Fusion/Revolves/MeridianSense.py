@@ -63,5 +63,5 @@ def ChooseMeridian(
     if Positive:
         return AxisTuple, Radial
     if Negative:
-        return (-AxisX, -AxisY, -AxisZ), tuple(-Value for Value in Radial)
+        return (-AxisX, -AxisY, -AxisZ), (-Radial[0], -Radial[1], -Radial[2])
     raise ValueError("Fusion Revolve profile crosses or lies on the axis")

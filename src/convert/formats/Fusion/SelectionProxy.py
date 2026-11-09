@@ -48,8 +48,8 @@ def ReadSelectIds(
     if Cursor.TakeBytes(2) != bytes(2):
         raise ValueError("Unsupported Fusion secondary selection prefix")
     if Cursor.ReadCount(1):
-        ReadNativeRef(Cursor)
-    Cursor.TakeBytes(60)
+        _ = ReadNativeRef(Cursor)
+    _ = Cursor.TakeBytes(60)
     if ReadNativeRef(Cursor) != FeatureId or Cursor.Offset != len(Cursor.DataValue):
         raise ValueError("Fusion selection proxy owner or width disagrees")
     return Descriptors, Attributes

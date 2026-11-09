@@ -90,4 +90,4 @@ def TestAngleAxisPick() -> None:
     assert Direction == SpaceVector(0.0, 1.0, 0.0)
     BulkData[Start + 35 : Start + 46] = NativeRef(22)
     with Raises(ValueError, match="support owner disagrees"):
-        ResolveAngleAxis(bytes(BulkData), Owners, StepValue, (), {}, {}, Frame)
+        _ = ResolveAngleAxis(bytes(BulkData), Owners, StepValue, (), {}, {}, Frame)

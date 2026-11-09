@@ -62,7 +62,7 @@ def ReadCopyFrame(
     Namespace = None
     if Populated:
         Namespace = ReadSelectUuid(Route)
-        ReadSelectUuid(Route)
+        _ = ReadSelectUuid(Route)
         if NativeGuid == KNilNamespace or Route.ReadLong() != 2:
             raise ValueError("Unsupported Fusion copy populated route")
     elif NativeGuid != KNilNamespace or Route.ReadWord() != 0 or Route.ReadLong() != 1:

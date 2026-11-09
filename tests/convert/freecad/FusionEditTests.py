@@ -132,7 +132,7 @@ def TestFormulaExt(TmpPath: FilePath) -> None:
         )
     StrictOutput = TmpPath / "strict.FCStd"
     with Pytest.raises(AppUsabilityError):
-        WriteDocument(Document, StrictOutput, allow_carrier=False)
+        _ = WriteDocument(Document, StrictOutput, allow_carrier=False)
     assert not StrictOutput.exists()
 
 

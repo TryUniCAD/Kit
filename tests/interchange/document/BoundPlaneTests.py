@@ -132,11 +132,11 @@ def TestBoundParams() -> None:
         (Scalar, Replace(Extra, value=ParameterValue(0.25, ValueKind.KLength, "mm"))),
     ):
         with Raises(ValueError, match="construction plane"):
-            GetConstructionFrame(
+            _ = GetConstructionFrame(
                 StepValue, Definition, {Scalar.id: BadScalar, Extra.id: BadExtra}
             )
     with Raises(ValueError, match="reference feature"):
-        GetConstructionFrame(
+        _ = GetConstructionFrame(
             Replace(StepValue, kind=FeatureKind.KNative),
             Definition,
             {Scalar.id: Scalar, Extra.id: Extra},

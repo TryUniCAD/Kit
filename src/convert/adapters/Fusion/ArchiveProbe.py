@@ -42,7 +42,7 @@ def CheckDesignMut(Handle: BinaryIO) -> None:
                 if Entry is None or Entry.is_dir():
                     raise ValueError(f"Missing active Fusion design {NameValue}")
     finally:
-        Handle.seek(StartOffset)
+        _ = Handle.seek(StartOffset)
 
 
 # stream probing only borrows sources that can restore the original position

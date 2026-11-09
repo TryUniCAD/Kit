@@ -46,7 +46,7 @@ def ReadScopeEdges(
 def ReadScopeGraph(
     BulkData: bytes, Owners: dict[int, RecordSpan], OwnerId: int
 ) -> Counter[tuple[int, int, int]]:
-    SelectCursor(BulkData, Owners, OwnerId, KContainerGuid)
+    _ = SelectCursor(BulkData, Owners, OwnerId, KContainerGuid)
     GraphId = HistoryLink(BulkData, Owners[OwnerId], 44)
     Cursor = SelectCursor(BulkData, Owners, GraphId, KDependencyGraph)
     if Cursor.TakeBytes(3) != b"\0\0\1":

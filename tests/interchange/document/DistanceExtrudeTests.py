@@ -119,13 +119,13 @@ def CheckDistSpan() -> None:
     assert GetDistSpan(12.0, None, 0.0, "symmetric_half") == (-12.0, 12.0)
     assert GetDistSpan(8.0, None, -2.0, "one_sided") == (-2.0, 6.0)
     with Raises(ValueError, match="must be positive"):
-        GetDistSpan(7.0, -11.0, 0.0, "two_sided")
+        _ = GetDistSpan(7.0, -11.0, 0.0, "two_sided")
     with Raises(ValueError, match="finite distinct"):
-        GetDistSpan(0.0, None, 0.0, "one_sided")
+        _ = GetDistSpan(0.0, None, 0.0, "one_sided")
     with Raises(ValueError, match="finite distinct"):
-        GetDistSpan(10**308, None, 10**308, "one_sided")
+        _ = GetDistSpan(10**308, None, 10**308, "one_sided")
     with Raises(ValueError, match="finite axial controls"):
-        GetDistSpan(float("inf"), None, 0.0, "one_sided")
+        _ = GetDistSpan(float("inf"), None, 0.0, "one_sided")
 
 
 # profiles operations and parameter ownership must survive neutral validation
@@ -173,13 +173,13 @@ def CheckDistModes() -> None:
     )
     assert Mirrored.TaperParameterId == Mirrored.SecondTaperId
     with Raises(ValueError, match="second taper disagree"):
-        ReplaceValue(Mirrored, SecondTaperId="offset")
+        _ = ReplaceValue(Mirrored, SecondTaperId="offset")
     with Raises(ValueError, match="must be distinct"):
-        ReplaceValue(Definition, StartOffsetId="along")
+        _ = ReplaceValue(Definition, StartOffsetId="along")
     with Raises(ValueError, match="unit vector"):
-        ReplaceValue(Definition, Direction=SpaceVector(0.0, 0.0, 2.0))
+        _ = ReplaceValue(Definition, Direction=SpaceVector(0.0, 0.0, 2.0))
     with Raises(ValueError, match="against parameter disagree"):
-        ReplaceValue(Definition, SideMode="two_sided")
+        _ = ReplaceValue(Definition, SideMode="two_sided")
     Taper = ReplaceValue(
         Document.parameters[-1], value=ParameterValue(Pi / 2.0, ValueKind.KAngle, "rad")
     )

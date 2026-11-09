@@ -36,7 +36,7 @@ def ReadCurrentLink(
     BaseSpan: RecordSpan,
     ComponentId: int,
 ) -> int:
-    SelectCursor(BulkData, Owners, ComponentId, KBodyComponent)
+    _ = SelectCursor(BulkData, Owners, ComponentId, KBodyComponent)
     if (
         BaseSpan.IsPrimary
         or BaseSpan.ObjectId != ComponentId

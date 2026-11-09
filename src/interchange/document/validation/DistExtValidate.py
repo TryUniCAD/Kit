@@ -25,7 +25,7 @@ def GetDistExtErrs(
     if StepValue.sketch_id is None or StepValue.sketch_id not in SketchIds:
         Errors.append(f"distance extrusion {StepValue.id} requires a profile sketch")
     try:
-        GetDistValues(StepValue, Definition, Parameters)
+        _ = GetDistValues(StepValue, Definition, Parameters)
     except ValueError as ErrorInfo:
         Errors.append(f"distance extrusion {StepValue.id} is invalid: {ErrorInfo}")
     return tuple(Errors)

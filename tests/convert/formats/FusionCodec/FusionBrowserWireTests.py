@@ -104,7 +104,7 @@ def TestWireRejects(Offset: int, Replacement: bytes) -> None:
     Changed = Payload[:Offset] + Replacement + Payload[Offset + len(Replacement) :]
     assert Changed != Payload
     with Raises(ValueError):
-        ReadBrowserRoot(Changed)
+        _ = ReadBrowserRoot(Changed)
 
 
 # every nested field must be present and extra bytes stay outside the supported root
@@ -112,11 +112,11 @@ def TestWireExtent() -> None:
     Payload = EmitBrowserRoot(KSyntheticRoot)
     for Length in range(len(Payload)):
         with Raises(ValueError):
-            ReadBrowserRoot(Payload[:Length])
+            _ = ReadBrowserRoot(Payload[:Length])
     with Raises(ValueError, match="trailing data"):
-        ReadBrowserRoot(Payload + b"\x00")
+        _ = ReadBrowserRoot(Payload + b"\x00")
     with Raises(ValueError, match="payload size"):
-        ReadBrowserRoot(bytes(KMaxRootLength + 1))
+        _ = ReadBrowserRoot(bytes(KMaxRootLength + 1))
 
 
 # programmatic writes reject malformed identities and unbounded text before packing
@@ -138,7 +138,7 @@ def TestBadModel() -> None:
         ),
     ):
         with Raises(ValueError):
-            EmitBrowserRoot(RootValue)
+            _ = EmitBrowserRoot(RootValue)
 
 
 # representative saved roots preserve both serialized orders and the alternate key

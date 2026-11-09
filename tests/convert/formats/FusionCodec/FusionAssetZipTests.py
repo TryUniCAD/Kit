@@ -124,11 +124,11 @@ def TestZipCorrupt() -> None:
         DataValue[Archive.start_dir - 1] ^= 1
     with OpenFusionArchive(bytes(DataValue), InflateZstd) as Archive:
         with Raises(ValueError, match="size or CRC mismatch"):
-            Archive.ReadMember("entry.dat", 5)
+            _ = Archive.ReadMember("entry.dat", 5)
     DataValue[6] ^= 0x08
     with OpenFusionArchive(bytes(DataValue), InflateZstd) as Archive:
         with Raises(ValueError, match="local and central entries disagree"):
-            Archive.ReadMember("entry.dat", 5)
+            _ = Archive.ReadMember("entry.dat", 5)
 
 
 # portable member names must be exact paths without aliases or special files
@@ -158,7 +158,7 @@ def TestZipCorrupt() -> None:
 )
 def TestZipBadName(NameValue: str) -> None:
     with Raises(ValueError, match="Unsafe"):
-        EmitAssetZip((ZipAssetRow(NameValue, b"", False),))
+        _ = EmitAssetZip((ZipAssetRow(NameValue, b"", False),))
 
 
 # path aliases and nonempty directories cannot be repaired by zip metadata
@@ -175,36 +175,36 @@ def TestZipBadName(NameValue: str) -> None:
 )
 def TestZipBadRows(Members: tuple[ZipAssetRow, ...]) -> None:
     with Raises(ValueError):
-        EmitAssetZip(Members)
+        _ = EmitAssetZip(Members)
 
 
 # preflight must reject each bound before producing an incomplete archive
 def TestZipLimits(MonkeyPatch: PatchContext) -> None:
     with Raises(ValueError, match="entry count"):
-        EmitAssetZip(())
+        _ = EmitAssetZip(())
     Member = ZipAssetRow("entry", b"data", False)
     MonkeyPatch.setattr(
         "convert.formats.Fusion.AssetCodec.Zip.PlanZipRows.KMaxZipEntries", 1
     )
     with Raises(ValueError, match="entry count"):
-        EmitAssetZip((Member, Member))
+        _ = EmitAssetZip((Member, Member))
     MonkeyPatch.setattr(
         "convert.formats.Fusion.AssetCodec.Zip.PlanZipRow.KMaxMemberBytes", 3
     )
     with Raises(ValueError, match="member exceeds size limit"):
-        EmitAssetZip((Member,))
+        _ = EmitAssetZip((Member,))
     MonkeyPatch.setattr(
         "convert.formats.Fusion.AssetCodec.Zip.PlanZipRow.KMaxMemberBytes", 12
     )
     with Raises(ValueError, match="encoded member exceeds size limit"):
-        EmitAssetZip((ZipAssetRow(Member.Name, Member.Data, True),))
+        _ = EmitAssetZip((ZipAssetRow(Member.Name, Member.Data, True),))
     MonkeyPatch.setattr(
         "convert.formats.Fusion.AssetCodec.Zip.PlanZipRows.KMaxArchiveSize", 111
     )
     with Raises(ValueError, match="archive exceeds size limit"):
-        EmitAssetZip((Member,))
+        _ = EmitAssetZip((Member,))
     MonkeyPatch.setattr(
         "convert.formats.Fusion.AssetCodec.Zip.PlanZipRows.KMaxCentralSize", 50
     )
     with Raises(ValueError, match="central directory exceeds limit"):
-        EmitAssetZip((Member,))
+        _ = EmitAssetZip((Member,))

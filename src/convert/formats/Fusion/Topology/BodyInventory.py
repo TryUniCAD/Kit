@@ -35,7 +35,7 @@ def ReadNativeList(
         elif Identity in ComponentIds and SpanValue.ClassGuid == KComponentBase:
             Bases.setdefault(Identity, []).append(SpanValue)
     for Identity in UnusableIds:
-        Owners.pop(Identity, None)
+        _ = Owners.pop(Identity, None)
 
     Inventory: dict[int, tuple[NativeBody, ...]] = {}
     Issues: dict[int, str] = {}

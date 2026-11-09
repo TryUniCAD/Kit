@@ -37,7 +37,7 @@ def ReadOffsetOrg(
     Start = Cursor.Offset
     if Cursor.ReadWord() != 0:
         raise ValueError("Unsupported Fusion Offset origin plane type")
-    Cursor.TakeBytes(16)
+    _ = Cursor.TakeBytes(16)
     if Cursor.TakeBytes(1) != bytes(1):
         raise ValueError("Unsupported Fusion Offset origin plane frame marker")
     Frame = ReadPlaneAxes(Cursor.TakeBytes(72))

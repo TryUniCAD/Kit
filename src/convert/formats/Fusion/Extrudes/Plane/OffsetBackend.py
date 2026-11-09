@@ -52,7 +52,7 @@ def CheckOffsetDef(
         or ReadNativeRef(Backend) != ExtraId
     ):
         raise ValueError("Unsupported Fusion Offset plane backend framing")
-    Backend.TakeBytes(171)
+    _ = Backend.TakeBytes(171)
     if (
         Backend.ReadWord() != 2
         or Backend.TakeBytes(1) != bytes(1)

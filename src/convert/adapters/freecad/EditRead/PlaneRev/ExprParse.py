@@ -88,14 +88,14 @@ def ParseCall(Parser: ExprParser, NameValue: str, Depth: int) -> None:
     Arities = KCallArities.get(NameValue)
     if Arities is None:
         raise ValueError("unsupported plane expression function")
-    Parser.TakeToken("(")
+    _ = Parser.TakeToken("(")
     ParseBranch(Parser, 0, Depth + 1)
     Count = 1
     while Parser.PeekText() == ";":
-        Parser.TakeToken(";")
+        _ = Parser.TakeToken(";")
         ParseBranch(Parser, 0, Depth + 1)
         Count += 1
-    Parser.TakeToken(")")
+    _ = Parser.TakeToken(")")
     if Count not in Arities:
         raise ValueError("invalid plane expression function arity")
     Parser.EmitNode((NameValue, Count))
@@ -106,14 +106,14 @@ def ParseOperand(Parser: ExprParser, Depth: int) -> None:
     KindValue, TextValue = Parser.TakeToken()
     if TextValue == "(":
         ParseBranch(Parser, 0, Depth + 1)
-        Parser.TakeToken(")")
+        _ = Parser.TakeToken(")")
     elif TextValue in ("+", "-"):
         ParseBranch(Parser, KSignPriority, Depth + 1)
         Parser.EmitNode("u" + TextValue)
     elif KindValue == "Number":
         UnitValue = Parser.PeekText()
         if UnitValue in ("mm", "deg"):
-            Parser.TakeToken()
+            _ = Parser.TakeToken()
         else:
             UnitValue = ""
         Parser.EmitNode((ReadExprNumber(TextValue), UnitValue))
@@ -134,16 +134,16 @@ def ParseBranch(Parser: ExprParser, Minimum: int, Depth: int) -> None:
     ParseOperand(Parser, Depth)
     while TextValue := Parser.PeekText():
         if TextValue == "?" and Minimum <= KChoicePriority:
-            Parser.TakeToken("?")
+            _ = Parser.TakeToken("?")
             ParseBranch(Parser, 0, Depth + 1)
-            Parser.TakeToken(":")
+            _ = Parser.TakeToken(":")
             ParseBranch(Parser, KChoicePriority, Depth + 1)
             Parser.EmitNode("?:")
             continue
         Priority = KInfixPriority.get(TextValue)
         if Priority is None or Priority < Minimum:
             break
-        Parser.TakeToken()
+        _ = Parser.TakeToken()
         ParseBranch(Parser, Priority + 1, Depth + 1)
         Parser.EmitNode(TextValue)
 

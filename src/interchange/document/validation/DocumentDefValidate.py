@@ -52,12 +52,12 @@ def GetDefErrors(
             return (f"construction plane {StepValue.id} is invalid: {ErrorInfo}",)
     if isinstance(Definition, BoundScale):
         try:
-            GetScaleValues(StepValue, Definition, Params, Selections)
+            _ = GetScaleValues(StepValue, Definition, Params, Selections)
         except ValueError as ErrorInfo:
             return (f"scale {StepValue.id} is invalid: {ErrorInfo}",)
     if isinstance(Definition, PlaneExtrude):
         try:
-            GetPlaneExt(StepValue, Definition, Params, Selections, Frames, Sketches)
+            _ = GetPlaneExt(StepValue, Definition, Params, Selections, Frames, Sketches)
         except ValueError as ErrorInfo:
             return (f"plane extrusion {StepValue.id} is invalid: {ErrorInfo}",)
     return ()

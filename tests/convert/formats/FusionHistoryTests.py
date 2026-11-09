@@ -88,7 +88,7 @@ def TestHistoryLinks() -> None:
 def TestHistoryGroup() -> None:
     BulkData, Owners = HistoryFixture(101)
     with Raises(ValueError, match="history group membership"):
-        ProjectHistory(BulkData, Owners[104], Owners, {})
+        _ = ProjectHistory(BulkData, Owners[104], Owners, {})
 
 
 # serialize independent index and payload records for an archive level document check
@@ -136,4 +136,4 @@ def TestFusionDoc() -> None:
     assert Document.diagnostics[-1].code == "fusion.history.partial"
     assert CadDocument.from_json(Document.to_json()) == Document
     with Raises(ValueError, match="Select exactly one Fusion history"):
-        ReadFusionDoc(DataValue, HistoryId=42)
+        _ = ReadFusionDoc(DataValue, HistoryId=42)

@@ -56,4 +56,4 @@ def CheckRevMembers(FeatureValue: FeatureStep, SketchValue: Sketch) -> None:
 # shared endpoint identities qualify the default editable line ring
 def CheckRevProfile(FeatureValue: FeatureStep, SketchValue: Sketch) -> None:
     CheckRevMembers(FeatureValue, SketchValue)
-    ReadRingInput(SketchValue)
+    _ = ReadRingInput(SketchValue)

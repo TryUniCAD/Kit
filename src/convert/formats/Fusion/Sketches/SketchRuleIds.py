@@ -44,7 +44,7 @@ def ReadSketchRules(
         or not Cursor.ReadText(True, Maximum=1024)
     ):
         raise ValueError("Unsupported Fusion sketch relation root attributes")
-    Cursor.ReadLong()
+    _ = Cursor.ReadLong()
     Geometric, Dimensions = ReadRuleIds(Cursor), ReadRuleIds(Cursor)
     Combined = Geometric + Dimensions
     Trailer = Cursor.DataValue[Cursor.Offset :]
@@ -55,5 +55,5 @@ def ReadSketchRules(
         or Trailer[-4:] != b"\0\0\1\1"
     ):
         raise ValueError("Invalid Fusion sketch relation membership")
-    ReadNativeRef(MetaCursor(Trailer[-15:-4]))
+    _ = ReadNativeRef(MetaCursor(Trailer[-15:-4]))
     return Geometric, Dimensions

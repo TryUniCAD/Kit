@@ -91,5 +91,5 @@ def AttachDistExt(
             )
         ),
     )
-    GetDistValues(Updated, Definition, Params)
+    _ = GetDistValues(Updated, Definition, Params)
     return Updated

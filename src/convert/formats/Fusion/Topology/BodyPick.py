@@ -45,7 +45,7 @@ class BodyPick:
 
 # the tail holds explicit helper and support links followed by the owning feature
 def ReadBodyTail(Cursor: MetaCursor, FeatureId: int) -> tuple[int, int]:
-    Cursor.TakeBytes(14)
+    _ = Cursor.TakeBytes(14)
     if Cursor.TakeBytes(4) != b"\1\1\0\0" or not IsFinite(
         Unpack("<d", Cursor.TakeBytes(8))[0]
     ):
@@ -75,7 +75,7 @@ def ReadBodyPick(
         or Cursor.TakeBytes(6) != b"\0\0\1\0\0\0"
     ):
         raise ValueError("Unsupported Fusion body pick prefix")
-    Cursor.ReadLong()
+    _ = Cursor.ReadLong()
     if Cursor.ReadWord() != 33:
         raise ValueError("Unsupported Fusion body pick kind")
     RecipeId = ReadNativeRef(Cursor)
@@ -96,7 +96,7 @@ def ReadBodyPick(
     for ContextId in ContextIds:
         CheckBodyCtx(BulkData, Owners, ContextId, Namespace, EntityGuid, BodyId)
     Anchor = SelectCursor(BulkData, Owners, AnchorId, KAnchorGuid)
-    Anchor.TakeBytes(2)
+    _ = Anchor.TakeBytes(2)
     AnchorGuid = ReadSelectUuid(Anchor)
     CheckBodySup(BulkData, Owners, SupportId, DescriptorId, SourceId, AnchorGuid)
     RecipeName = ReadBodyRecipe(BulkData, Owners, RecipeId)

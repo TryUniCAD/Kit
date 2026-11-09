@@ -22,7 +22,7 @@ def CheckBodyGuid(
 ) -> None:
     Cursor = SelectCursor(BulkData, Owners, BodyId, KBodyGuid)
     if Cursor.DataValue[:2] == b"\x00\x01":
-        ReadGeomAttrs(Cursor)
+        _ = ReadGeomAttrs(Cursor)
     elif Cursor.TakeBytes(2) != bytes(2):
         raise ValueError("Unsupported Fusion historical BODY prefix")
     if not Cursor.ReadText(True).startswith("0_"):

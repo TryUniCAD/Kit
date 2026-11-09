@@ -41,7 +41,7 @@ def GetQuantity(Value: ParameterValue) -> KQuantity | None:
     if UnitData is None or KFormulaKinds.get(Value.kind) != UnitData[1]:
         return None
     Magnitude = Value.value
-    if type(Magnitude) not in (int, float):
+    if type(Magnitude) is not int and type(Magnitude) is not float:
         return None
     try:
         Scalar = Magnitude * UnitData[0]

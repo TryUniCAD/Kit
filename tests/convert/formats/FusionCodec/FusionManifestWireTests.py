@@ -101,7 +101,7 @@ def TestFreshWire() -> None:
 )
 def TestBadRoot(Value: RootManifest) -> None:
     with Raises(ValueError):
-        EmitRootWire(Value)
+        _ = EmitRootWire(Value)
 
 
 # unsupported active values cannot emit contradictory manifest fields
@@ -116,7 +116,7 @@ def TestBadRoot(Value: RootManifest) -> None:
 )
 def TestBadAsset(Value: AssetManifest) -> None:
     with Raises(ValueError):
-        EmitAssetWire(Value)
+        _ = EmitAssetWire(Value)
 
 
 # byte checks cover exact grammar without accepting unrelated fields or stream tails
@@ -136,14 +136,14 @@ def TestReadGuards() -> None:
     ):
         assert Before in Payload
         with Raises(ValueError):
-            Reader(Payload.replace(Before, After, 1))
+            _ = Reader(Payload.replace(Before, After, 1))
         with Raises(ValueError, match="trailing data"):
-            Reader(Payload + b"\0")
+            _ = Reader(Payload + b"\0")
         with Raises(ValueError, match="payload size"):
-            Reader(bytes(KMaxManifestBytes + 1))
+            _ = Reader(bytes(KMaxManifestBytes + 1))
         for Count in range(len(Payload)):
             with Raises(ValueError):
-                Reader(Payload[:Count])
+                _ = Reader(Payload[:Count])
 
 
 # both saved header variants replay with their original typed opaque fields

@@ -113,16 +113,16 @@ def TestProofClaims() -> None:
         (Replace(Claim, Target=Replace(KProofSpans[3], IsPrimary=True)),),
     ):
         with Raises(ValueError, match="unique census entry"):
-            BuildLedger(KProofScope, KProofMembers, KProofSpans, Candidates)
+            _ = BuildLedger(KProofScope, KProofMembers, KProofSpans, Candidates)
     with Raises(ValueError, match="design root"):
-        BuildLedger(
+        _ = BuildLedger(
             KProofScope,
             KProofMembers,
             KProofSpans,
             (Replace(Claim, Category=ProofCategory.KVerifiedAuxiliary),),
         )
     with Raises(ValueError, match="proof scope"):
-        Replace(KProofScope, SourceDigest="invalid")
+        _ = Replace(KProofScope, SourceDigest="invalid")
 
 
 # missing archive facts and omitted design records cannot masquerade as a complete census
@@ -138,7 +138,7 @@ def TestProofCensus() -> None:
         ),
     ):
         with Raises(ValueError, match="archive census"):
-            BuildLedger(KProofScope, Members, KProofSpans)
+            _ = BuildLedger(KProofScope, Members, KProofSpans)
     for Spans in (
         KProofSpans[:-1],
         (*KProofSpans[:2], KProofSpans[3]),
@@ -147,4 +147,4 @@ def TestProofCensus() -> None:
         (Replace(KProofSpans[0], ClassGuid="Other"), *KProofSpans[1:]),
     ):
         with Raises(ValueError, match="record census"):
-            BuildLedger(KProofScope, KProofMembers, Spans)
+            _ = BuildLedger(KProofScope, KProofMembers, Spans)

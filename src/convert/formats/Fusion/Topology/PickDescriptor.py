@@ -41,10 +41,10 @@ def ReadTopoPick(
     if Cursor.ReadWord() != 1:
         raise ValueError("Unsupported Fusion topology selection anchor count")
     AnchorId = ReadNativeRef(Cursor)
-    Cursor.TakeBytes(14)
+    _ = Cursor.TakeBytes(14)
     if Cursor.TakeBytes(4) != b"\1\1\0\0":
         raise ValueError("Unsupported Fusion topology selection trailer")
-    Cursor.TakeBytes(8)
+    _ = Cursor.TakeBytes(8)
     if Cursor.TakeBytes(4) != b"\1\1\0\0":
         raise ValueError("Unsupported Fusion topology selection helper marker")
     HelperId = ReadNativeRef(Cursor)

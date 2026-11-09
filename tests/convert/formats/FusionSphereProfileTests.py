@@ -36,4 +36,4 @@ def TestSphereAxis() -> None:
         SpaceVector(-1.0, 0.0, 0.0),
     )
     with Raises(ValueError, match="diameter is outside"):
-        ReadSphereAxis(Transform(), ArcValue, SpaceVector(1.0, 0.0, 0.0), Axis)
+        _ = ReadSphereAxis(Transform(), ArcValue, SpaceVector(1.0, 0.0, 0.0), Axis)

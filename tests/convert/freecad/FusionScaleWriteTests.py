@@ -65,7 +65,7 @@ def TestScaleWrite(Sample: str, Count: int, TmpPath: FilePath) -> None:
 def TestScaleEditGate(TmpPath: FilePath) -> None:
     Document = OpenDocument(KStudyPath / KScaleFiles[1][0], strict=False)
     Output, Modified = TmpPath / "scale.FCStd", TmpPath / "changed.FCStd"
-    WriteDocument(Document, Output, destination_format="freecad.fcstd")
+    _ = WriteDocument(Document, Output, destination_format="freecad.fcstd")
     with ZipFile(Output) as Original, ZipFile(Modified, "w") as Archive:
         Root = ParseXml(Original.read("Document.xml"))
         (Value,) = Root.findall(
@@ -83,4 +83,4 @@ def TestScaleEditGate(TmpPath: FilePath) -> None:
                 ),
             )
     with Pytest.raises(FreeCadAdapterA, match=r"FreeCAD editable Scale .*UniformScale"):
-        OpenDocument(Modified, strict=False)
+        _ = OpenDocument(Modified, strict=False)

@@ -31,13 +31,13 @@ def ReadRootMeta(DataValue: bytes) -> tuple[str, tuple[tuple[str, int], ...]]:
         or Cursor.ReadText(True) != ".f3d"
     ):
         raise ValueError("Unsupported Fusion root manifest format")
-    Cursor.ReadText(True)
-    Cursor.ReadText(True, AllowControls=True)
-    Cursor.ReadGuid()
-    Cursor.ReadGuid()
+    _ = Cursor.ReadText(True)
+    _ = Cursor.ReadText(True, AllowControls=True)
+    _ = Cursor.ReadGuid()
+    _ = Cursor.ReadGuid()
     if Cursor.ReadWord() != 1234 or Cursor.ReadWord() != 20:
         raise ValueError("Unsupported Fusion root manifest header")
-    Cursor.ReadLong()
+    _ = Cursor.ReadLong()
     Versions = Cursor.ReadVersions(KRootKeys)
     if Cursor.ReadWord() != 0 or Cursor.TakeBytes(1) != b"\x00":
         raise ValueError("Unsupported Fusion root manifest asset header")

@@ -27,7 +27,7 @@ def CheckExtAnchor(
     Cursor = SelectCursor(BulkData, Owners, FeatureId, KExtrudeGuid)
     if ResultOffset is None:
         Fields = ReadExtControls(Cursor)
-        ReadExtProfile(BulkData, Owners, Cursor, FeatureId, Fields.SideMode)
+        _ = ReadExtProfile(BulkData, Owners, Cursor, FeatureId, Fields.SideMode)
     else:
         Cursor.Offset = ResultOffset
     if (
@@ -37,7 +37,7 @@ def CheckExtAnchor(
         or Cursor.TakeBytes(8) != bytes(8)
     ):
         raise ValueError("Fusion Extrude result anchor does not match the creator")
-    ReadSelectUuid(Cursor)
+    _ = ReadSelectUuid(Cursor)
 
 
 # final geometry requires a reciprocal creator link and an active result anchor

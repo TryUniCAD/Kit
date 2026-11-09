@@ -40,7 +40,7 @@ def ReadAssetMeta(DataValue: bytes) -> tuple[str, str, tuple[tuple[str, int], ..
         or Cursor.ReadText() != "physicalChangeGuid"
     ):
         raise ValueError("Unsupported Fusion active manifest properties")
-    Cursor.ReadGuid()
+    _ = Cursor.ReadGuid()
     if Cursor.ReadWord() != 0 or Cursor.ReadWord() not in (5, 7):
         raise ValueError("Unsupported Fusion active manifest segment header")
     if Cursor.ReadCount(len(KAssetSegments)) != len(KAssetSegments):

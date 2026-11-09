@@ -61,7 +61,7 @@ def TestDependentDatumGate() -> None:
     assert History.carrier_reason is CarrierReason.WRITER_UNIMPLEMENTED
     Strict = BytesIO()
     with Pytest.raises(ApplicationUsabilityError) as Captured:
-        WriteDocument(
+        _ = WriteDocument(
             Source, Strict, destination_format="freecad.fcstd", allow_carrier=False
         )
     assert "unimplemented_translation" in Captured.value.issues
@@ -77,7 +77,7 @@ def TestFusionDatumGate() -> None:
     assert Capability.PARAMETRIC_HISTORY in Result.native_capabilities
     Strict = BytesIO()
     with Pytest.raises(ApplicationUsabilityError) as Captured:
-        WriteDocument(
+        _ = WriteDocument(
             Document, Strict, destination_format="freecad.fcstd", allow_carrier=False
         )
     assert "opaque_source_data" in Captured.value.issues

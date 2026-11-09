@@ -62,10 +62,10 @@ def TestCodecEntry() -> None:
         return bytes(SizeValue)
 
     with Raises(ValueError, match="size or CRC"):
-        ReadDesignZip(bytes(Modified), CorruptCodec)
+        _ = ReadDesignZip(bytes(Modified), CorruptCodec)
     Modified[30] ^= 1
     with Raises(ValueError, match="local member name differs"):
-        ReadDesignZip(bytes(Modified), StoredCodec)
+        _ = ReadDesignZip(bytes(Modified), StoredCodec)
 
 
 # archive framing errors must be reported before any feature data is returned
@@ -74,4 +74,4 @@ def TestMissingMeta() -> None:
     with ZipFile(Buffer, "w") as Archive:
         Archive.writestr(KDesignPrefix + "BulkStream.dat", b"")
     with Raises(ValueError, match="Missing active Fusion design MetaStream"):
-        ReadDesignZip(Buffer.getvalue())
+        _ = ReadDesignZip(Buffer.getvalue())

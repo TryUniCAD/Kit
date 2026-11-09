@@ -26,7 +26,7 @@ def ReadSelectUuid(Cursor: MetaCursor) -> str:
     GuidText = Cursor.ReadText(True, Maximum=36)
     if len(GuidText) != 36:
         raise ValueError("Unsupported Fusion selection GUID")
-    UUID(GuidText)
+    _ = UUID(GuidText)
     return GuidText
 
 
@@ -48,8 +48,8 @@ def ReadDescLeaf(
     Terminal = ReadNativeRef(Cursor)
     if Cursor.ReadWord() != 1:
         raise ValueError("Unsupported Fusion entity selection namespace count")
-    ReadSelectUuid(Cursor)
-    ReadSelectUuid(Cursor)
+    _ = ReadSelectUuid(Cursor)
+    _ = ReadSelectUuid(Cursor)
     Cursor.Offset = 252
     if ReadNativeRef(Cursor) != FeatureId:
         raise ValueError("Fusion entity selection descriptor owner disagrees")

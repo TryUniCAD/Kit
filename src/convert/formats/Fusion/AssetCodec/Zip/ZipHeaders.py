@@ -45,14 +45,14 @@ def ZipHeadFields(RowValue: ZipPlanRow) -> tuple[int, ...]:
 
 # the local entry owns exact sizes so no data descriptor is needed
 def WriteLocalMut(Output: BytesIO, RowValue: ZipPlanRow) -> None:
-    Output.write(PackValue("<I5H3I2H", 0x04034B50, *ZipHeadFields(RowValue)))
-    Output.write(RowValue.NameBytes)
+    _ = Output.write(PackValue("<I5H3I2H", 0x04034B50, *ZipHeadFields(RowValue)))
+    _ = Output.write(RowValue.NameBytes)
 
 
 # directory order mirrors physical order and points directly at local entries
 def WriteCentralMut(Output: BytesIO, RowValue: ZipPlanRow) -> None:
     AttrValue = KDirectoryAttr if RowValue.NameBytes.endswith(b"/") else KRegularAttr
-    Output.write(
+    _ = Output.write(
         PackValue(
             "<I6H3I5H2I",
             0x02014B50,
@@ -65,4 +65,4 @@ def WriteCentralMut(Output: BytesIO, RowValue: ZipPlanRow) -> None:
             RowValue.Offset,
         )
     )
-    Output.write(RowValue.NameBytes)
+    _ = Output.write(RowValue.NameBytes)

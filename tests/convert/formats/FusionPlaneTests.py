@@ -88,10 +88,10 @@ def TestNativePlane() -> None:
 def TestRejectPlane() -> None:
     BulkData, Feature, Owners = PlaneFixture(OwnerId=102)
     with Raises(ValueError, match="owner or ordinal disagrees"):
-        ReadNativePlane(BulkData, Feature, Owners)
+        _ = ReadNativePlane(BulkData, Feature, Owners)
     BulkData, Feature, Owners = PlaneFixture(AxisXX=1.0)
     with Raises(ValueError, match="axes are not orthonormal"):
-        ReadNativePlane(BulkData, Feature, Owners)
+        _ = ReadNativePlane(BulkData, Feature, Owners)
 
 
 # the component is usable only when both native membership copies agree
@@ -122,4 +122,4 @@ def TestPlaneScope() -> None:
     Repeated = Owners[900].EndOffset - 22
     BadBulk = BulkData[:Repeated] + NativeRef(102) + BulkData[Repeated + 11 :]
     with Raises(ValueError, match="membership disagrees"):
-        ReadPlaneComp(BadBulk, Owners, PlaneValue)
+        _ = ReadPlaneComp(BadBulk, Owners, PlaneValue)

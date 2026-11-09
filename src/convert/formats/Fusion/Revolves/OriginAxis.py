@@ -40,7 +40,7 @@ def ReadOriginAxis(
     if len(Attributes) != 1 or type(Genesis) is not int or Genesis != 0:
         raise ValueError("Unsupported Fusion origin axis attributes")
     Origin, Direction = (Unpack("<3d", AxisCursor.TakeBytes(24)) for _ in range(2))
-    AxisCursor.TakeBytes(26)
+    _ = AxisCursor.TakeBytes(26)
     AxisName = AxisCursor.ReadText(True, Maximum=1)
     if AxisName not in ("X", "Y", "Z") or not all(
         IsClose(Value, Expected, rel_tol=0.0, abs_tol=1e-9)
@@ -62,7 +62,7 @@ def ReadOriginAxis(
         or ReadNativeRef(Container) != ComponentId
     ):
         raise ValueError("Fusion origin axis is not owned by the sketch component")
-    SelectCursor(BulkData, Owners, ComponentId, KComponentGuid)
+    _ = SelectCursor(BulkData, Owners, ComponentId, KComponentGuid)
     return (
         AxisName,
         SpaceVector(*(Value * 10.0 for Value in Origin)),

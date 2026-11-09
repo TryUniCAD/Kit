@@ -86,9 +86,9 @@ def GetSlotAliases(
     Aliases: dict[str, str] = {}
     TypeFields = KTypeWireFields.get(ModelName, {})
     for FieldName in SlotNames:
-        Positions.setdefault(FieldName, len(Positions))
+        _ = Positions.setdefault(FieldName, len(Positions))
         WireName = TypeFields.get(FieldName, GetWireField(FieldName))
-        Aliases.setdefault(WireName, FieldName)
+        _ = Aliases.setdefault(WireName, FieldName)
     for WireName, FieldName in Aliases.items():
         Converted = TypeFields.get(WireName, GetWireField(WireName))
         if Converted in Positions and Positions[Converted] < Positions[FieldName]:

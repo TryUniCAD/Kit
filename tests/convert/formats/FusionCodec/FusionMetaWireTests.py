@@ -113,9 +113,9 @@ def TestMetaReadBad() -> None:
     BadOffset = DataValue.replace(PackValue("<QQ", 41, 15), PackValue("<QQ", 41, 30), 1)
     for Entry in (b"", DataValue[:-1], DataValue + b"x", BadCount, BadClass, BadOffset):
         with Raises(ValueError):
-            ReadMetaWire(Entry)
+            _ = ReadMetaWire(Entry)
     with Raises(ValueError, match="segment kind"):
-        ReadMetaWire(DataValue, Segment=SegmentKind.KAct)
+        _ = ReadMetaWire(DataValue, Segment=SegmentKind.KAct)
 
 
 # invalid model fields cannot reach binary output through the typed emitter
@@ -141,4 +141,4 @@ def TestMetaEmitBad() -> None:
         ),
     ):
         with Raises(ValueError):
-            WriteMetaWire(Invalid)
+            _ = WriteMetaWire(Invalid)

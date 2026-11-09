@@ -55,7 +55,7 @@ def ReadBodyAux(
     Auxiliary = SelectCursor(BulkData, Owners, Identity, KBodyAuxiliary)
     if Auxiliary.TakeBytes(6) != bytes(6):
         raise ValueError("Unsupported Fusion body collection auxiliary prefix")
-    Auxiliary.TakeBytes(8)
+    _ = Auxiliary.TakeBytes(8)
     if ReadNativeRef(Auxiliary) != CollectionId or Auxiliary.TakeBytes(1) != bytes(1):
         raise ValueError("Fusion body collection auxiliary owner disagrees")
     Count = Auxiliary.ReadCount(100000)

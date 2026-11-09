@@ -27,7 +27,7 @@ def CheckZipTailMut(Handle: BinaryIO, StartOffset: int) -> int:
     if not 22 <= SizeValue <= KArchiveLimit:
         raise ValueError("Fusion ZIP size is outside the supported range")
     TailSize = min(SizeValue, KFooterWindow)
-    Handle.seek(EndOffset - TailSize)
+    _ = Handle.seek(EndOffset - TailSize)
     TailBytes = Handle.read(TailSize)
     Footer = TailBytes.rfind(b"PK\x05\x06")
     if Footer < 0 or Footer + 22 > len(TailBytes):
@@ -51,4 +51,4 @@ def CheckZipTailMut(Handle: BinaryIO, StartOffset: int) -> int:
         or (Footer >= 20 and TailBytes[Footer - 20 : Footer - 16] == b"PK\x06\x07")
     ):
         raise ValueError("Unsupported Fusion ZIP central directory bounds")
-    return TotalCount
+    return int(TotalCount)

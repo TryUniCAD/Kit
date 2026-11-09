@@ -42,7 +42,7 @@ def ReadPlaneComp(
     Members = tuple(ReadNativeRef(Cursor) for _ in range(Count))
     if PlaneId not in Members or len(set(Members)) != Count:
         raise ValueError("Missing or duplicate Fusion construction collection member")
-    Cursor.TakeBytes(30)
+    _ = Cursor.TakeBytes(30)
     if (
         Cursor.ReadWord() != Count
         or tuple(ReadNativeRef(Cursor) for _ in range(Count)) != Members

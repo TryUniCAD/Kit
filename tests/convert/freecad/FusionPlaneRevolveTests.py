@@ -148,7 +148,7 @@ def TestPlaneBinding(TmpPath: FilePath, RemoveBinding: bool) -> None:
         for Name, DataValue in Members.items():
             Archive.writestr(Name, DataValue)
     with Pytest.raises(FreeCadAdapterA, match="plane Revolve binding"):
-        OpenDocument(Buffer.getvalue())
+        _ = OpenDocument(Buffer.getvalue())
 
 
 # both construction plane controls move the native angular placement after a save

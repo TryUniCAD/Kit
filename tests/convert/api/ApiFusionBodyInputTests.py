@@ -141,7 +141,7 @@ def TestBodyMismatch() -> None:
         Mutated.writestr(KDesignPrefix + "BulkStream.dat", Wrong)
         MetaName = KDesignPrefix + "MetaStream.dat"
         Mutated.writestr(MetaName, Original.read(MetaName))
-    Stream.seek(0)
+    _ = Stream.seek(0)
     Document = OpenDocument(Stream, strict=False)
     StepValue = Document.feature_timeline[-1]
     assert StepValue.kind == FeatureKind.KNative and not StepValue.selection_ids

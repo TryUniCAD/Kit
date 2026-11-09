@@ -50,7 +50,7 @@ def TestTargetOrder() -> None:
     assert Controls.AxisId == 20
     assert Controls.TargetIds == (50, 30)
     with Raises(ValueError, match="Truncated"):
-        ReadRevInputs(BodyValue[:-1])
+        _ = ReadRevInputs(BodyValue[:-1])
 
 
 # a common descriptor can select either a construction object or a sketch tag
@@ -93,7 +93,7 @@ def TestOwnedSelect() -> None:
     OwnerOffset = Owners[21].EndOffset - 11
     BulkData[OwnerOffset : OwnerOffset + 11] = NativeRef(99)
     with Raises(ValueError, match="descriptor owner"):
-        ReadEntityRef(bytes(BulkData), Owners, 20, 10)
+        _ = ReadEntityRef(bytes(BulkData), Owners, 20, 10)
 
 
 # a sketch pick keeps its directed entity and depends only on a preceding sketch
@@ -122,4 +122,4 @@ def TestSketchAxis() -> None:
         ("sketch_entity", Entity.id),
     )
     with Raises(ValueError, match="outside prior history"):
-        ResolveRevAxis(bytes(BulkData), Owners, 20, 10, 1, Links, {})
+        _ = ResolveRevAxis(bytes(BulkData), Owners, 20, 10, 1, Links, {})

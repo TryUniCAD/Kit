@@ -109,7 +109,7 @@ def ReadEditText(
         TaperAlias = Catalog.Aliases.get(Definition.TaperParameterId)
         if TaperAlias is None:
             raise ValueError("FreeCAD editable taper has no original parameter alias")
-        ReadCellText(Cells, TaperAlias, ValueKind.KAngle, 0.0, "rad")
+        _ = ReadCellText(Cells, TaperAlias, ValueKind.KAngle, 0.0, "rad")
     if IsLinked:
         if set(Cells) != set(Catalog.Aliases.values()):
             raise ValueError(

@@ -56,7 +56,7 @@ def ReadTrimSource(SketchValue: Sketch) -> dict[int, SketchEntity]:
             raise ValueError("Unsupported or ambiguous Fusion trimmed profile source")
         Geometry = Entity.geometry
         if isinstance(Geometry, LineGeometry):
-            GetLinePoints(Entity)
+            _ = GetLinePoints(Entity)
             if not (
                 IsFinitePlane(Geometry.start)
                 and IsFinitePlane(Geometry.end)

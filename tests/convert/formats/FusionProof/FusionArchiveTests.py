@@ -92,7 +92,7 @@ def TestSharedIndex(MonkeyPatch: PatchContext) -> None:
         assert Session.ReadDesign()[0] == BulkData
         assert Session.ReadBody(KTestBody) == b"body bytes"
         with Pytest.raises(ValueError, match="oversized"):
-            Session.ReadMember(KOtherMember, 5)
+            _ = Session.ReadMember(KOtherMember, 5)
         assert KOtherMember not in Session.ReadNames
         assert Session.ReadMember(KOtherMember, 6) == b"unused"
         assert Session.ReadNames == frozenset(
@@ -105,7 +105,7 @@ def TestSharedIndex(MonkeyPatch: PatchContext) -> None:
         )
     assert Calls == [1]
     with Pytest.raises(ValueError, match="session is closed"):
-        Session.ReadBody(KTestBody)
+        _ = Session.ReadBody(KTestBody)
 
 
 # a supplied codec remains lazy and repeated requests retain no inflated body cache
@@ -141,7 +141,7 @@ def TestCodecFailure() -> None:
     with OpenFusionArchive(WithCodec(Packed), Corrupt) as Session:
         assert Session.ReadDesign()[0] == BulkData
         with Pytest.raises(ValueError, match="size or CRC"):
-            Session.ReadBody(KTestBody)
+            _ = Session.ReadBody(KTestBody)
         assert KHistoryPrefix + KTestBody not in Session.ReadNames
 
 
@@ -155,18 +155,18 @@ def TestAuxFailure() -> None:
 
     with OpenFusionArchive(WithCodec(Packed), FailCodec) as Session:
         with Pytest.raises(ValueError, match="Unreadable Fusion archive member"):
-            Session.ReadMember(KOtherMember, 6)
+            _ = Session.ReadMember(KOtherMember, 6)
         assert not Session.ReadNames
 
 
 # standalone callers keep distinct error contracts and the tighter body limit
 def TestArchiveErrors() -> None:
     with Pytest.raises(ValueError, match="Invalid Fusion ZIP archive"):
-        ReadDesignZip(b"broken")
+        _ = ReadDesignZip(b"broken")
     with Pytest.raises(ValueError, match="Unreadable Fusion body history stream"):
-        ReadBodyBlob(b"broken", KTestBody, None)
+        _ = ReadBodyBlob(b"broken", KTestBody, None)
     with Pytest.raises(ValueError, match="Invalid Fusion body history reference"):
-        ReadBodyBlob(b"broken", f"../{KTestBody}", None)
+        _ = ReadBodyBlob(b"broken", f"../{KTestBody}", None)
     Packed, _ = SharedZip()
     Modified = bytearray(Packed)
     with ZipFile(BytesIO(Packed)) as Archive:
@@ -176,4 +176,4 @@ def TestArchiveErrors() -> None:
     with Pytest.raises(
         ValueError, match="Missing or oversized Fusion body history stream"
     ):
-        ReadBodyBlob(bytes(Modified), KTestBody, None)
+        _ = ReadBodyBlob(bytes(Modified), KTestBody, None)

@@ -24,7 +24,7 @@ def ReadOccurColl(DataValue: bytes) -> tuple[int, tuple[int, ...]]:
         raise ValueError("Unsupported Fusion occurrence collection prefix")
     if Cursor.TakeBytes(1) != b"\1":
         raise ValueError("Invalid Fusion occurrence collection marker")
-    Cursor.ReadLong()
+    _ = Cursor.ReadLong()
     if Cursor.TakeBytes(7) != b"\0\1\1\0\0\0\0":
         raise ValueError("Invalid Fusion occurrence collection header")
     Count = Cursor.ReadCount(100000)

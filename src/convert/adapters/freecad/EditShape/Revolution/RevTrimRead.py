@@ -57,7 +57,7 @@ def ReadRevTrims(
     while Family := Cursor.ReadInteger(0, 3):
         if Family == 1:
             raise DecodeFailure("multiple Revolution edge carriers")
-        CurveIds = (Cursor.ReadInteger(1, Pcurves),)
+        CurveIds: tuple[int, ...] = (Cursor.ReadInteger(1, Pcurves),)
         if Family == 3:
             CurveIds += (ReadRevSecond(Cursor, Pcurves),)
         Surface = Cursor.ReadInteger(1, Surfaces)

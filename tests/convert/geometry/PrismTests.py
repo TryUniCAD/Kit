@@ -104,9 +104,9 @@ def CheckPrismGuard() -> None:
         ((0, 0), (4, 0), (4, 4), (2, 0), (0, 4)),
     ):
         with Raises(ValueError, match="intersects itself"):
-            BuildPrism("cross", KTransformIdentity, MakeRing(Corners), 0.0, 1.0)
+            _ = BuildPrism("cross", KTransformIdentity, MakeRing(Corners), 0.0, 1.0)
     with Raises(ValueError, match="collinear"):
-        BuildPrism(
+        _ = BuildPrism(
             "flat",
             KTransformIdentity,
             MakeRing(((0, 0), (2, 0), (3, 0), (3, 4), (0, 4))),
@@ -116,15 +116,15 @@ def CheckPrismGuard() -> None:
     Profile = MakeRing(((0, 0), (4, 0), (4, 3), (0, 3)))
     Broken = Profile[:-1] + (LineGeometry(PlaneVector(0, 3), PlaneVector(0, 1e-12)),)
     with Raises(ValueError, match="does not close"):
-        BuildPrism("open", KTransformIdentity, Broken, 0.0, 1.0)
+        _ = BuildPrism("open", KTransformIdentity, Broken, 0.0, 1.0)
     with Raises(ValueError, match="positive depth"):
-        BuildPrism("zero", KTransformIdentity, Profile, 1.0, 1.0)
+        _ = BuildPrism("zero", KTransformIdentity, Profile, 1.0, 1.0)
     with Raises(ValueError, match="right handed"):
-        BuildPrism(
+        _ = BuildPrism(
             "mirror", Transform(z_axis=SpaceVector(0.0, 0.0, -1.0)), Profile, 0.0, 1.0
         )
     with Raises(ValueError, match="loses precision"):
-        BuildPrism(
+        _ = BuildPrism(
             "imprecise",
             Transform(origin=SpaceVector(0.0, 1e16, 0.0)),
             Profile,

@@ -201,7 +201,7 @@ def TestDetached() -> None:
         ),
     )
     with Pytest.raises(ValueError, match="center point disagrees"):
-        ApplyDepthEdit(
+        _ = ApplyDepthEdit(
             Original,
             PlanValue[1].ParameterId,
             None,

@@ -55,9 +55,9 @@ def TestSphereGuard() -> None:
         "has no loops" in Error for Error in Unowned.validate(frozenset(("part",)))
     )
     with Raises(ValueError, match="orthonormal sphere"):
-        BuildSphere("part", Center, Axis, Axis, 2.0)
+        _ = BuildSphere("part", Center, Axis, Axis, 2.0)
     with Raises(ValueError, match="orthonormal sphere"):
-        BuildSphere("part", Center, Axis, Radial, 0.0)
+        _ = BuildSphere("part", Center, Axis, Radial, 0.0)
 
 
 # unproven native sphere topology must fail before target bytes are emitted
@@ -70,6 +70,6 @@ def TestSphereWriter() -> None:
         2.0,
     )[0]
     with Raises(FreeCADBrepWriteError, match="lacks a proven native topology"):
-        BrepModelBrep(Model)
+        _ = BrepModelBrep(Model)
     with Raises(ParaWriteError, match="first loop"):
-        EncodeBrepModel(Model)
+        _ = EncodeBrepModel(Model)

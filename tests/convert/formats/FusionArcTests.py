@@ -44,10 +44,10 @@ def TestArcEvidence() -> None:
     DataValue, Record, Points = MakeArc(1.0)
     EndPoint = Points.pop(13)
     with Raises(ValueError, match="same-sketch"):
-        ReadPrimitive(DataValue, Record, Points)
+        _ = ReadPrimitive(DataValue, Record, Points)
     Points[13] = PlaneVector(EndPoint.x + 0.1, EndPoint.y)
     with Raises(ValueError, match="endpoint reference disagrees"):
-        ReadPrimitive(DataValue, Record, Points)
+        _ = ReadPrimitive(DataValue, Record, Points)
 
 
 # synthetic circular records exercise the native frame without vendor payloads

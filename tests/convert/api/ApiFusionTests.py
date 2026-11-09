@@ -26,7 +26,7 @@ from tests.convert.formats.JsonTests import NonSeekable
 def CheckFusionRead(TmpPath: FilePath) -> None:
     Archive = HistoryArchive()
     SourcePath = TmpPath / "sample.f3d"
-    SourcePath.write_bytes(Archive)
+    _ = SourcePath.write_bytes(Archive)
     Document = OpenDocument(
         Archive, source_format="f3d", configuration="104", strict=False
     )
@@ -40,9 +40,9 @@ def CheckFusionRead(TmpPath: FilePath) -> None:
     assert Document.brep_payloads[0].data == Archive
     assert CadDocument.from_json(Document.to_json()) == Document
     with Pytest.raises(ValueError, match="strict=False"):
-        OpenDocument(SourcePath, configuration="104")
+        _ = OpenDocument(SourcePath, configuration="104")
     with Pytest.raises(ValueError, match="Fusion history"):
-        OpenDocument(
+        _ = OpenDocument(
             Archive, source_format="fusion.f3d", configuration="999", strict=False
         )
 
@@ -55,15 +55,15 @@ def RejectMember(*Values: object, **Keywords: object) -> None:
 # a seekable source can be shared with other probes and resume at the same byte
 def CheckFusionProbe(MonkeyPatch: Pytest.MonkeyPatch) -> None:
     Registry = AdapterRegistry()
-    Registry.introspect()
+    _ = Registry.introspect()
     Reader = Registry.reader("f3d")
     Prefix = b"prefix:"
     Source = ByteStream(Prefix + HistoryArchive())
-    Source.seek(len(Prefix))
+    _ = Source.seek(len(Prefix))
     MissingMember = ByteStream(Prefix)
     with ZipFile(MissingMember, "a") as Archive:
         Archive.writestr(KDesignPrefix + "BulkStream.dat", b"not design data")
-    MissingMember.seek(len(Prefix))
+    _ = MissingMember.seek(len(Prefix))
     MonkeyPatch.setattr(ZipFile, "open", RejectMember)
     Probe = Reader.probe(Source)
     assert Probe.format_id == "fusion.f3d"
@@ -78,7 +78,7 @@ def CheckFusionStream() -> None:
     Archive = HistoryArchive()
     Prefix = b"prefix:"
     Source = ByteStream(Prefix + Archive)
-    Source.seek(len(Prefix))
+    _ = Source.seek(len(Prefix))
     Document = OpenDocument(Source, configuration="104", strict=False)
     assert Source.tell() == len(Prefix) + len(Archive)
     assert Document == OpenDocument(
@@ -92,7 +92,7 @@ def CheckFusionWriter(TmpPath: FilePath) -> None:
     TargetPath = TmpPath / "blocked.f3d"
     for FormatId in ("fusion.f3d", "f3d"):
         with Pytest.raises(AdapterNotFoundError, match="no writer registered"):
-            WriteDocument(Document, TargetPath, destination_format=FormatId)
+            _ = WriteDocument(Document, TargetPath, destination_format=FormatId)
     with Pytest.raises(AdapterNotFoundError, match="no writer supports"):
-        WriteDocument(Document, TargetPath)
+        _ = WriteDocument(Document, TargetPath)
     assert tuple(TmpPath.iterdir()) == ()

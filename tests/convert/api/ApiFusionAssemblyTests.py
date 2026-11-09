@@ -98,6 +98,6 @@ def CheckAssemblyRead() -> None:
 def CheckJointPlacement() -> None:
     InputPath = KStudyPath / "jointmodes-20d3aef2a07d" / "slider.f3d"
     with Pytest.raises(ValueError, match="Select exactly one Fusion history"):
-        OpenDocument(InputPath, strict=False)
+        _ = OpenDocument(InputPath, strict=False)
     HistoryDoc = OpenDocument(InputPath, strict=False, configuration="35")
     assert HistoryDoc.assembly is None

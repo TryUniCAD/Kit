@@ -164,12 +164,14 @@ def TestScaleCache(
             == Ordinal
         )
         with Pytest.raises(ValueError, match="transformed"):
-            ReadAsmPrism(Table, Ordinal, len(CurveTags))
+            _ = ReadAsmPrism(Table, Ordinal, len(CurveTags))
 
     if len(Prisms) == 2:
         (Table, RefValue, Model, CurveTags), (_, OtherRef, _, _) = Prisms
         with Pytest.raises(ValueError, match="tags do not bind"):
-            ReadPrismCache(Table, OtherRef.Handle, RefValue.Handles, Model, CurveTags)
+            _ = ReadPrismCache(
+                Table, OtherRef.Handle, RefValue.Handles, Model, CurveTags
+            )
 
 
 # semantic token mutations exercise actual cache checks without altering a saved fixture
@@ -217,6 +219,8 @@ def TestBadScale() -> None:
     for Identity, Position, Token, Message in Mutations:
         Changed = ChangeAsmToken(Table, Identity, Position, Token)
         with Pytest.raises(ValueError, match=Message):
-            ReadPrismCache(Changed, RefValue.Handle, RefValue.Handles, Model, CurveTags)
+            _ = ReadPrismCache(
+                Changed, RefValue.Handle, RefValue.Handles, Model, CurveTags
+            )
     with Pytest.raises(ValueError, match="stored body handles"):
-        ReadPrismCache(Table, 2, frozenset({2}), Model, CurveTags)
+        _ = ReadPrismCache(Table, 2, frozenset({2}), Model, CurveTags)

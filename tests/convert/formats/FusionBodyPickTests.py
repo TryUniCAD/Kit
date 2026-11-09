@@ -75,7 +75,7 @@ def TestBodyPick(
         assert ReadSelectDesc(BulkData, Owners, ProxyId, FeatureId) == Descriptors[0]
     else:
         with Pytest.raises(ValueError, match="proxy count"):
-            ReadSelectDesc(BulkData, Owners, ProxyId, FeatureId)
+            _ = ReadSelectDesc(BulkData, Owners, ProxyId, FeatureId)
 
 
 # duplicate or mismatched primary references cannot become an ordered operand list
@@ -87,9 +87,9 @@ def TestBodyProxy() -> None:
     Second = Owners[ProxyId].PayloadOffset + 4 + 6 + 11
     WrongIds = BulkData[: Second + 1] + PackData("<Q", 396) + BulkData[Second + 9 :]
     with Pytest.raises(ValueError, match="missing or repeated"):
-        ReadSelectDescs(WrongIds, Owners, ProxyId, FeatureId)
+        _ = ReadSelectDescs(WrongIds, Owners, ProxyId, FeatureId)
     with Pytest.raises(ValueError, match="proxy owner"):
-        ReadSelectList(BulkData, Owners, ProxyId, FeatureId + 1)
+        _ = ReadSelectList(BulkData, Owners, ProxyId, FeatureId + 1)
 
 
 # descriptor support recipe and native context must remain mutually consistent
@@ -117,6 +117,6 @@ def TestBadBodyPick() -> None:
             BulkData[:Offset] + Replacement + BulkData[Offset + len(Replacement) :]
         )
         with Pytest.raises(ValueError, match=ErrorText):
-            ReadBodyPick(Modified, Owners, 440, FeatureId)
+            _ = ReadBodyPick(Modified, Owners, 440, FeatureId)
     with Pytest.raises(ValueError, match="descriptor owner"):
-        ReadBodyPick(BulkData, Owners, 440, FeatureId + 1)
+        _ = ReadBodyPick(BulkData, Owners, 440, FeatureId + 1)

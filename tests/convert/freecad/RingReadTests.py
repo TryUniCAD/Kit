@@ -85,7 +85,7 @@ def TestStaleRing(TmpPath: FilePath) -> None:
     _ = WriteDocument(Document, Output)
     Saved = ChangeEditFile(Output, -18.25, None, "bound", "fusion_parameter_287")
     with Pytest.raises(FreeCadAdapterA, match="shape disagrees"):
-        OpenDocument(Saved)
+        _ = OpenDocument(Saved)
 
 
 # the lower prism cap supplies independent first principles wire evidence for the sketch

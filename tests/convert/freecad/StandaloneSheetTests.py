@@ -113,4 +113,4 @@ def TestConflictingSheet(
         else:
             Driver.set("address", "C1")
     with Pytest.raises(FreeCadAdapterA, match="spreadsheet"):
-        OpenDocument(Saved)
+        _ = OpenDocument(Saved)

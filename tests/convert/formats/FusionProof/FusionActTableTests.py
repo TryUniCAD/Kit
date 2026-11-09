@@ -208,7 +208,7 @@ def TestActRoutes() -> None:
 )
 def TestActBadWire(TableData: bytes, FieldsData: tuple[bytes, ...]) -> None:
     with Raises(ValueError):
-        ReadActTable(*FrameAct(TableData, FieldsData))
+        _ = ReadActTable(*FrameAct(TableData, FieldsData))
 
 
 # indexed class namespace and exact extent must corroborate each data record
@@ -226,7 +226,7 @@ def TestActBadSpans() -> None:
         (TableSpan, ReplaceRecord(FieldsSpan, EndOffset=len(DataValue) + 1)),
     ):
         with Raises(ValueError):
-            ReadActTable(DataValue, BadSpans)
+            _ = ReadActTable(DataValue, BadSpans)
 
 
 # captured cases protect exceptional route prefixes and opaque field boundaries

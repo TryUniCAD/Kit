@@ -99,7 +99,7 @@ def TestPlaneBindGuard() -> None:
         ),
     )
     with Pytest.raises(ValueError, match="construction datum disagrees"):
-        PlaneBind(Bulk, Owners, Changed, Scalar, 1)
+        _ = PlaneBind(Bulk, Owners, Changed, Scalar, 1)
     NewDef = Replace(
         Definition,
         ReferenceFrame=Replace(Definition.ReferenceFrame, origin=SpaceVector(0, 1, 0)),
@@ -112,7 +112,7 @@ def TestPlaneBindGuard() -> None:
         ),
     )
     with Pytest.raises(ValueError, match="authoring frame disagrees"):
-        PlaneBind(Bulk, Owners, Changed, Scalar, 1)
+        _ = PlaneBind(Bulk, Owners, Changed, Scalar, 1)
     NewOffset = Replace(Offset, value=Replace(Offset.value, value=2.0))
     Changed = Replace(
         Document,
@@ -122,11 +122,11 @@ def TestPlaneBindGuard() -> None:
         ),
     )
     with Pytest.raises(ValueError, match="construction parameter disagrees"):
-        PlaneBind(Bulk, Owners, Changed, Scalar, 1)
+        _ = PlaneBind(Bulk, Owners, Changed, Scalar, 1)
     Owner = Owners[int(StepValue.provenance.native_id)]
     BackendStart = Owner.PayloadOffset + 4 + 31
     Backend = Owners[int.from_bytes(Bulk[BackendStart : BackendStart + 8], "little")]
     EditedBulk = bytearray(Bulk)
     EditedBulk[Backend.EndOffset - 10] ^= 1
     with Pytest.raises(ValueError, match="backend owner"):
-        PlaneBind(bytes(EditedBulk), Owners, Document, Scalar, 1)
+        _ = PlaneBind(bytes(EditedBulk), Owners, Document, Scalar, 1)

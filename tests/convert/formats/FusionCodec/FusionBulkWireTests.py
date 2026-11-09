@@ -87,7 +87,7 @@ def TestBulkHeader() -> None:
 )
 def TestBadHeader(TypeCode: int, ObjectId: int) -> None:
     with Raises(ValueError):
-        EmitBulkHeader(TypeCode, ObjectId)
+        _ = EmitBulkHeader(TypeCode, ObjectId)
 
 
 # invalid ownership can never generate metadata offsets for a broken stream
@@ -121,7 +121,7 @@ def TestBadHeader(TypeCode: int, ObjectId: int) -> None:
 )
 def TestBulkBadRows(Records: tuple[BulkRecord, ...], ErrorText: str) -> None:
     with Raises(ValueError, match=ErrorText):
-        EmitBulkStream(Records)
+        _ = EmitBulkStream(Records)
 
 
 # native frame length contributes to the bound even for a very small payload
@@ -130,10 +130,10 @@ def TestBulkLimit() -> None:
     Payload, _ = EmitBulkStream(Records, MaxBytes=16)
     assert len(Payload) == 16
     with Raises(ValueError, match="size exceeds limit"):
-        EmitBulkStream(Records, MaxBytes=15)
+        _ = EmitBulkStream(Records, MaxBytes=15)
     for LimitValue in (0, KMaxBulkBytes + 1, True):
         with Raises(ValueError, match="Invalid Fusion BulkStream size limit"):
-            EmitBulkStream(Records, MaxBytes=LimitValue)
+            _ = EmitBulkStream(Records, MaxBytes=LimitValue)
 
 
 # primary and continuation limits protect the two independently counted metadata tables
@@ -146,9 +146,9 @@ def TestIndexLimits(MonkeyPatch: PatchContext) -> None:
     Child = BulkRecord(256, 0, False, b"")
     assert len(EmitBulkStream((First, Child))[1]) == 2
     with Raises(ValueError, match="primary count exceeds index limit"):
-        EmitBulkStream((First, Extra))
+        _ = EmitBulkStream((First, Extra))
     with Raises(ValueError, match="continuation count exceeds index limit"):
-        EmitBulkStream((First, Child, Child))
+        _ = EmitBulkStream((First, Child, Child))
 
 
 # real records verify the new framing without relying on a guessed payload model

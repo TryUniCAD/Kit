@@ -64,10 +64,11 @@ def ResolveAuthAxis(
                 "Fusion Extrude authoring scope parent disagrees with its occurrence"
             )
         Values = Instance.transform.values
-        Axis = tuple(
+        AxisX, AxisY, AxisZ = (
             sum(Values[Row * 4 + Column] * Axis[Column] for Column in range(3))
             for Row in range(3)
         )
+        Axis = AxisX, AxisY, AxisZ
         Path.append(NativeId)
         Scope = Parent
     if not Path or Scope.SnapshotId is not None:

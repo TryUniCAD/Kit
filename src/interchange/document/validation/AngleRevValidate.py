@@ -68,7 +68,7 @@ def GetAngleRevErrs(
             if Definition.AgainstParameterId is None
             else GetLinkedAngle(StepValue, Definition.AgainstParameterId, Parameters)
         )
-        GetAngleSpan(Along, Against, Definition.SideMode)
+        _ = GetAngleSpan(Along, Against, Definition.SideMode)
     except ValueError as ErrorInfo:
         Errors.append(
             f"angular revolution {StepValue.id} has invalid angles: {ErrorInfo}"

@@ -206,7 +206,7 @@ def TestStaleRevolve(TmpPath: FilePath) -> None:
         for Name, DataValue in Members.items():
             Archive.writestr(Name, DataValue)
     with Pytest.raises(FreeCadAdapterA, match="angle"):
-        OpenDocument(Buffer.getvalue())
+        _ = OpenDocument(Buffer.getvalue())
 
 
 # a seed in world coordinates must survive loading and recomputing an edited placement

@@ -79,4 +79,4 @@ def TestFullCone() -> None:
 def TestAxisPinch() -> None:
     Profile = ((0.0, 0.0), (30.0, 0.0), (30.0, 40.0))
     with Raises(ValueError, match="one polygon side on the axis"):
-        BuildFullSweep("pinched", Profile, KOriginZero, KAxisZ, KAxisX)
+        _ = BuildFullSweep("pinched", Profile, KOriginZero, KAxisZ, KAxisX)

@@ -94,7 +94,7 @@ def ProjectPlaneExts(
             )
             Definition = StepValue.definition
             assert isinstance(Definition, PlaneExtrude)
-            GetPlaneExt(
+            _ = GetPlaneExt(
                 StepValue, Definition, ByParam, {Pick.id: Pick}, ByFrame, BySketch
             )
         except ValueError as ErrorInfo:

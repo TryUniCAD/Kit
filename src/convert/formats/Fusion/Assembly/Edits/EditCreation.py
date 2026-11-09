@@ -56,6 +56,6 @@ def ReadEditCreate(
     BookId = ReadNativeRef(Scope)
     if ReadNativeRef(Scope) != SnapshotId or Scope.TakeBytes(1) != bytes(1):
         raise ValueError("Fusion component creation scope snapshot disagrees")
-    SelectCursor(BulkData, Owners, ComponentId, KComponentGuid)
+    _ = SelectCursor(BulkData, Owners, ComponentId, KComponentGuid)
     CheckEditBook(BulkData, IndexValue, BookId, ScopeId, 0)
     return ComponentId

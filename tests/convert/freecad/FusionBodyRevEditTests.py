@@ -93,7 +93,7 @@ def TestRevPose() -> None:
         Value.topology.volume for Value in DocValue.bodies
     )
     with Pytest.raises(ValueError, match="outside the sketch plane"):
-        ApplyBodyRev(
+        _ = ApplyBodyRev(
             DocValue,
             PlanValue,
             Source,

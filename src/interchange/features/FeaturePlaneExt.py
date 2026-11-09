@@ -27,7 +27,7 @@ class PlaneExtrude(FeatureDef):
 
     # each control must remain independently editable through its exact identity
     def __post_init__(self) -> None:
-        GetExtAxis(self.Direction)
+        _ = GetExtAxis(self.Direction)
         if self.LimitRole not in ("start", "end"):
             raise ValueError("plane extrusion has an invalid limit role")
         if (self.LimitRole == "start") != (self.LengthParameterId is not None):

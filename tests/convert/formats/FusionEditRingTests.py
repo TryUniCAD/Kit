@@ -172,7 +172,7 @@ def CheckRingSync() -> None:
     assert Volume == 10500
     assert (Bounds.minimum.z, Bounds.maximum.z) == (-30, 0)
     with Pytest.raises(ValueError, match="same incidence"):
-        SyncRingEdit(Original, MoveRingCorner(Original, PlaneVector(20, -10)))
+        _ = SyncRingEdit(Original, MoveRingCorner(Original, PlaneVector(20, -10)))
 
 
 # unchanged neutral profile intent excludes changes to an unselected helper or entity metadata
@@ -190,7 +190,7 @@ def CheckRingGuards() -> None:
             ),
         )
     with Pytest.raises(ValueError, match="entity identity"):
-        SyncRingEdit(
+        _ = SyncRingEdit(
             Original,
             Replace(
                 Original,

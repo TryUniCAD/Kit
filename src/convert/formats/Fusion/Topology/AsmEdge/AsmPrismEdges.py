@@ -48,7 +48,7 @@ def ReadAsmEdge(
         or First.ProfileTag != Second.ProfileTag
     ):
         raise ValueError("Fusion ASM source edge coedge ownership disagrees")
-    RequireAsm(Table, ReadAsmPtr(Value, 8), "straight-curve")
+    _ = RequireAsm(Table, ReadAsmPtr(Value, 8), "straight-curve")
     return AsmPrismEdge(
         Identity,
         (Start, Finish),

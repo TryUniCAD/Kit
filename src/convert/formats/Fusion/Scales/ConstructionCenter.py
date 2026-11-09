@@ -50,7 +50,7 @@ def ReadWorkPoint(
     if not Cursor.ReadText(True, Maximum=128).startswith("0_"):
         raise ValueError("Unsupported Fusion construction point label")
     CollectionId = ReadNativeRef(Cursor)
-    Cursor.ReadLong()
+    _ = Cursor.ReadLong()
     if Cursor.TakeBytes(1) != bytes(1):
         raise ValueError("Unsupported Fusion construction point owner framing")
     FeatureId = ReadNativeRef(Cursor)

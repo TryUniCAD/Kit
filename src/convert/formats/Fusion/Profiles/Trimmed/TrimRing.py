@@ -34,7 +34,7 @@ def TrimEndpoint(
 def CheckTrimRing(
     Sources: dict[int, SketchEntity], Portions: tuple[TrimPortion, ...]
 ) -> None:
-    Endpoints = []
+    Endpoints: list[tuple[float, float]] = []
     for Portion in Portions:
         Geometry = Sources[Portion.Selector[1]].geometry
         if not isinstance(Geometry, (CircleGeometry, LineGeometry)):

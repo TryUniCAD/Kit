@@ -95,6 +95,6 @@ def TestTorusGuard() -> None:
 def TestTorusWriter() -> None:
     Model = TorusFixture()
     with Raises(FreeCADBrepWriteError, match="lacks a proven native topology"):
-        BrepModelBrep(Model)
+        _ = BrepModelBrep(Model)
     with Raises(ParaWriteError, match="first loop"):
-        EncodeBrepModel(Model)
+        _ = EncodeBrepModel(Model)

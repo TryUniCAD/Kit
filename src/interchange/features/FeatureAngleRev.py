@@ -36,7 +36,7 @@ class AngularRevolve(FeatureDef):
             raise ValueError(
                 "angular revolution side mode and against parameter disagree"
             )
-        Identities = (self.AxisSelectionId, self.AlongParameterId)
+        Identities: tuple[str, ...] = (self.AxisSelectionId, self.AlongParameterId)
         if Against is not None:
             Identities += (Against,)
         if not all(

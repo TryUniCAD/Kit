@@ -84,7 +84,7 @@ def TestSketchProof(
                 Circle.set("Radius", "18")
                 Datum.set("Value", "18")
     with Pytest.raises(FreeCadAdapterA, match=Reason):
-        OpenDocument(Target)
+        _ = OpenDocument(Target)
 
 
 # earlier unbound sketch archives retain their compatibility as source snapshots

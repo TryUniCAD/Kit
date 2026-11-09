@@ -26,12 +26,12 @@ def ReadBodyAnchor(
     Cursor = SelectCursor(BulkData, Owners, AnchorId, KAnchorGuid)
     if len(Cursor.DataValue) != 102 or Cursor.TakeBytes(2) != bytes(2):
         raise ValueError("Unsupported Fusion body anchor layout")
-    ReadSelectUuid(Cursor)
+    _ = ReadSelectUuid(Cursor)
     if any(Flag not in (0, 1) for Flag in Cursor.TakeBytes(2)):
         raise ValueError("Unsupported Fusion body anchor flags")
     BodyId = ReadNativeRef(Cursor)
     SourceId = ReadNativeRef(Cursor)
-    SelectCursor(BulkData, Owners, BodyId, KBodyGuid)
+    _ = SelectCursor(BulkData, Owners, BodyId, KBodyGuid)
     if SourceId not in Owners:
         raise ValueError("Missing Fusion body anchor source")
     return BodyId, SourceId

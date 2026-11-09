@@ -96,9 +96,9 @@ def TestCircularGuard() -> None:
     Profile = CircleGeometry(PlaneVector(0.0, 0.0), 2.0)
     FrameValue = Transform()
     with Raises(ValueError, match="ordered heights"):
-        BuildCircular("part", FrameValue, Profile, 0.0, 0.0, 2.0, 2.0)
+        _ = BuildCircular("part", FrameValue, Profile, 0.0, 0.0, 2.0, 2.0)
     with Raises(ValueError, match="positive radii"):
-        BuildCircular("part", FrameValue, Profile, 0.0, 4.0, 0.0, 2.0)
+        _ = BuildCircular("part", FrameValue, Profile, 0.0, 4.0, 0.0, 2.0)
     with Raises(ValueError, match="right handed"):
         BadFrame = ReplaceValue(FrameValue, y_axis=SpaceVector(0.0, -1.0, 0.0))
-        BuildCircular("part", BadFrame, Profile, 0.0, 4.0, 2.0, 2.0)
+        _ = BuildCircular("part", BadFrame, Profile, 0.0, 4.0, 2.0, 2.0)

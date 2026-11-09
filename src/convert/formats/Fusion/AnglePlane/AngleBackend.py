@@ -34,7 +34,7 @@ def ReadAngleBack(
         or ReadNativeRef(Backend) != ExtraId
     ):
         raise ValueError("Unsupported Fusion Angle plane backend framing")
-    Backend.TakeBytes(171)
+    _ = Backend.TakeBytes(171)
     if (
         Backend.ReadWord() != 3
         or Backend.TakeBytes(1) != b"\0"

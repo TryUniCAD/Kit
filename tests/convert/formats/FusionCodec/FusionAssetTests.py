@@ -118,4 +118,4 @@ def TestAssetGuards() -> None:
     )
     for Changed, Expected in Cases:
         with Pytest.raises(ValueError, match=Expected):
-            EmitAsset(Changed)
+            _ = EmitAsset(Changed)

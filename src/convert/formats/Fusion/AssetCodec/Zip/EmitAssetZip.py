@@ -27,12 +27,12 @@ def EmitAssetZip(Members: tuple[ZipAssetRow, ...]) -> bytes:
         if RowValue.UseZstd:
             WriteZstdMut(Output, RowValue.Data)
         else:
-            Output.write(RowValue.Data)
+            _ = Output.write(RowValue.Data)
     Central = Output.tell()
     for RowValue in Records:
         WriteCentralMut(Output, RowValue)
     Count = len(Records)
-    Output.write(
+    _ = Output.write(
         PackValue(
             "<I4H2IH",
             0x06054B50,

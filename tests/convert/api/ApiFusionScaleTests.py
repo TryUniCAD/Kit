@@ -136,7 +136,7 @@ def TestScaleSwap() -> None:
         BulkName = KDesignPrefix + "BulkStream.dat"
         for Name in Original.namelist():
             Mutated.writestr(Name, Wrong if Name == BulkName else Original.read(Name))
-    Stream.seek(0)
+    _ = Stream.seek(0)
     Document = OpenDocument(Stream, strict=False)
     assert Document.brep is None and not Document.bodies
     assert Document.feature_timeline[-1].definition is None

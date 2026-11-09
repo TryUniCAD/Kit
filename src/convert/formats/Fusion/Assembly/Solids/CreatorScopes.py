@@ -40,7 +40,7 @@ def ReadOwnerScope(
     if Cursor.TakeBytes(3) != b"\0\0\1":
         raise ValueError("Unsupported Fusion creator scope prefix")
     ComponentId = ReadNativeRef(Cursor)
-    SelectCursor(BulkData, Owners, ComponentId, KComponentGuid)
+    _ = SelectCursor(BulkData, Owners, ComponentId, KComponentGuid)
     if Cursor.TakeBytes(3) != b"\1\0\0":
         raise ValueError("Unsupported Fusion creator scope framing")
     Owner = SelectCursor(BulkData, Owners, ReadNativeRef(Cursor), KScopeOwner)
@@ -52,7 +52,7 @@ def ReadOwnerScope(
         raise ValueError("Fusion creator scope bookkeeping disagrees")
     SnapshotId = ReadOptionalRef(Cursor)
     if SnapshotId is not None:
-        SelectCursor(BulkData, Owners, SnapshotId, KScopeSnapshot)
+        _ = SelectCursor(BulkData, Owners, SnapshotId, KScopeSnapshot)
     if Cursor.TakeBytes(1) != bytes(1) or Cursor.Offset != len(Cursor.DataValue):
         raise ValueError("Unsupported Fusion creator scope suffix")
     return CreatorScope(Identity, ComponentId, SnapshotId)

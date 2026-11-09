@@ -16,7 +16,7 @@ def RunIsolated(
 ) -> ProcessLib.CompletedProcess[str]:
     OutputFolder = TmpPath / "runtime"
     OutputFolder.mkdir()
-    (OutputFolder / "runtime-fusion.f3d").write_bytes(HistoryArchive())
+    _ = (OutputFolder / "runtime-fusion.f3d").write_bytes(HistoryArchive())
     return ProcessLib.run(
         (
             SystemLib.executable,

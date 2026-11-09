@@ -100,7 +100,7 @@ def CheckSharedArc() -> None:
     assert Bounds.minimum == SpaceVector(-2.0, -2.0, 2.0)
     assert Bounds.maximum == SpaceVector(2.0, 2.0, 5.0)
     with Raises(ValueError, match="overlapping coincident"):
-        BuildTrimPrism("overlap", Transform(), (First, First), 2.0, 5.0)
+        _ = BuildTrimPrism("overlap", Transform(), (First, First), 2.0, 5.0)
 
 
 # generated lines make adversarial rings independent of source member order
@@ -127,10 +127,10 @@ def CheckLineTrim() -> None:
     assert (len(Model.faces), Volume, SurfaceArea) == (7, 24.0, 52.0)
     Overlap = JoinTestLines(((0, 0), (4, 0), (2, 0), (2, 3), (0, 3)))
     with Raises(ValueError, match="overlapping collinear"):
-        BuildTrimPrism("overlap", Transform(), Overlap, 0.0, 2.0)
+        _ = BuildTrimPrism("overlap", Transform(), Overlap, 0.0, 2.0)
     Crossed = JoinTestLines(((0, 0), (4, 3), (0, 3), (4, 0)))
     with Raises(ValueError, match="crosses or touches"):
-        BuildTrimPrism("crossed", Transform(), Crossed, 0.0, 2.0)
+        _ = BuildTrimPrism("crossed", Transform(), Crossed, 0.0, 2.0)
 
 
 # an arc cannot touch or cross any unrelated bounded line in the profile
@@ -144,7 +144,7 @@ def CheckArcContact() -> None:
         LineGeometry(ApexPoint, Second),
     )
     with Raises(ValueError, match="crosses or touches"):
-        BuildTrimPrism("crossed", Transform(), Crossing, 0.0, 2.0)
+        _ = BuildTrimPrism("crossed", Transform(), Crossing, 0.0, 2.0)
     UpperLeft, UpperRight = PlaneVector(-2.0, 2.0), PlaneVector(2.0, 2.0)
     Tangent = (
         ArcValue,
@@ -153,4 +153,4 @@ def CheckArcContact() -> None:
         LineGeometry(UpperRight, Second),
     )
     with Raises(ValueError, match="crosses or touches"):
-        BuildTrimPrism("tangent", Transform(), Tangent, 0.0, 2.0)
+        _ = BuildTrimPrism("tangent", Transform(), Tangent, 0.0, 2.0)

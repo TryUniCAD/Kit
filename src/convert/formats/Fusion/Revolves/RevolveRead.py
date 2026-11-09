@@ -20,7 +20,7 @@ KOperations = {1: "join", 2: "cut", 3: "intersect", 4: "new_body"}
 def ReadRevInputs(BodyValue: bytes) -> RevolveInput:
     Cursor = MetaCursor(BodyValue)
     if BodyValue[:2] == b"\0\1":
-        ReadGeomAttrs(Cursor)
+        _ = ReadGeomAttrs(Cursor)
     elif Cursor.TakeBytes(2) != bytes(2):
         raise ValueError("Unsupported Fusion Revolve prefix")
     Operation = KOperations.get(Cursor.ReadWord())
@@ -35,10 +35,11 @@ def ReadRevInputs(BodyValue: bytes) -> RevolveInput:
     AlongId = ReadOptionalRef(Cursor)
     AxisId = ReadNativeRef(Cursor)
     TargetTwo = ReadOptionalRef(Cursor)
-    ReadNativeRef(Cursor)
+    _ = ReadNativeRef(Cursor)
     TargetOne = ReadOptionalRef(Cursor)
     if AlongId is None:
         raise ValueError("Missing Fusion Revolve along-angle binding")
+    Targets: tuple[int, ...] = ()
     if ExtentCode == 1:
         if Symmetric or TwoSided or AgainstId is not None or TargetOne is None:
             raise ValueError("Fusion Revolve entity extent disagrees with its controls")
@@ -52,7 +53,6 @@ def ReadRevInputs(BodyValue: bytes) -> RevolveInput:
             or bool(Symmetric or TwoSided) != (AgainstId is not None)
         ):
             raise ValueError("Fusion Revolve angle extent disagrees with its controls")
-        Targets = ()
         ModeValue = (
             "symmetric" if Symmetric else "two_sided" if TwoSided else "one_sided"
         )

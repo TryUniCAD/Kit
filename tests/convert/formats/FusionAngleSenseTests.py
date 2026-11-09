@@ -26,7 +26,7 @@ def TestCircleSense() -> None:
         assert Axis == (0.0, -1.0, 0.0)
         assert Radial == (1.0, 0.0, 0.0)
         with Raises(ValueError, match="crosses or lies on"):
-            ChooseMeridian(Frame, Center, Origin, Direction, 10.0)
+            _ = ChooseMeridian(Frame, Center, Origin, Direction, 10.0)
 
 
 # only adjacent differences within projection roundoff can share a meridian level

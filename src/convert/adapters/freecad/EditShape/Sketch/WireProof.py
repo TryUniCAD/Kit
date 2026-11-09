@@ -65,7 +65,7 @@ def CheckVertMut(
     )
     if Match is None:
         raise DecodeFailure("saved sketch cache point disagrees with geometry")
-    Expected.pop(Match)
+    _ = Expected.pop(Match)
 
 
 # all cache wires share one edge assignment while free vertices retain independent ownership

@@ -31,9 +31,9 @@ def ReadActRoutes(
         raise ValueError("Fusion ACT table and fields inventory disagree")
     Routes: list[ActRoute] = []
     for FieldsId, KeyValue, Prefix, OwnerId in Entries:
-        FieldSpan = Fields.pop(FieldsId, None)
-        if FieldSpan is None:
+        EntrySpan = Fields.pop(FieldsId, None)
+        if EntrySpan is None:
             raise ValueError("Missing or duplicate Fusion ACT fields reference")
-        Roles, Residual = ReadActFields(ActData, FieldSpan, KeyValue)
-        Routes.append(ActRoute(KeyValue, Prefix, OwnerId, FieldSpan, Roles, Residual))
+        Roles, Residual = ReadActFields(ActData, EntrySpan, KeyValue)
+        Routes.append(ActRoute(KeyValue, Prefix, OwnerId, EntrySpan, Roles, Residual))
     return tuple(Routes)

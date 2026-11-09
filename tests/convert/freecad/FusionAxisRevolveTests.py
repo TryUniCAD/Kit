@@ -195,7 +195,7 @@ def TestAxisConflict(
     with Pytest.raises(
         FreeCadAdapterA, match="editable sketch axis|constraint identity"
     ):
-        OpenDocument(Buffer.getvalue())
+        _ = OpenDocument(Buffer.getvalue())
 
 
 # matching actual measures after a signed angle and axis move proves the link survived

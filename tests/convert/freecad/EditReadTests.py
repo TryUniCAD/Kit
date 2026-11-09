@@ -205,7 +205,7 @@ def TestStaleEdit(TmpPath: FilePath, ChangeMode: str, Reason: str) -> None:
     _ = WriteDocument(Document, Output)
     Stale = ChangeEditFile(Output, 25.0, None, ChangeMode)
     with Pytest.raises(FreeCadAdapterA, match=Reason):
-        OpenDocument(Stale)
+        _ = OpenDocument(Stale)
 
 
 # a valid edited solid must not hide a second solid on another native object
@@ -222,7 +222,7 @@ def TestExtraShape(TmpPath: FilePath, ChangeMode: str, Reason: str) -> None:
     _ = WriteDocument(Document, Output)
     Edited = ChangeEditFile(Output, 25.0, MakeEditShape(Document, 25.0), ChangeMode)
     with Pytest.raises(FreeCadAdapterA, match=Reason):
-        OpenDocument(Edited)
+        _ = OpenDocument(Edited)
 
 
 # dependent geometry must follow the native driver without flattening its formula
@@ -268,7 +268,7 @@ def TestBadFormula(TmpPath: FilePath, ChangeMode: str) -> None:
         Output, DistanceMm, ShapeData, ChangeMode, "fusion_parameter_202", "=12.5 mm"
     )
     with Pytest.raises(FreeCadAdapterA, match="formula|depth|quantity"):
-        OpenDocument(Edited)
+        _ = OpenDocument(Edited)
 
 
 # equivalent spreadsheet units must not change provenance after a native no op save

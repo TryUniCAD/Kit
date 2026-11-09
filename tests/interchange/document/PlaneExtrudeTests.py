@@ -174,7 +174,7 @@ def CheckPlaneAlign(Angle: float, Accepted: bool) -> None:
         assert EvalExtent(Edited).UpperMm == Approx(17.5)
     else:
         with Raises(ValueError, match="co-directed"):
-            EvalExtent(Edited)
+            _ = EvalExtent(Edited)
 
 
 # local selection paths and current feature state are part of the editable contract
@@ -257,12 +257,12 @@ def CheckPlaneParam() -> None:
         ),
     ):
         with Raises(ValueError, match=TextValue):
-            EvalExtent(ReplaceValue(Document, parameters=Params))
+            _ = EvalExtent(ReplaceValue(Document, parameters=Params))
     Definition = Document.feature_timeline[0].definition
     assert isinstance(Definition, PlaneExtrude)
     with Raises(ValueError, match="length parameter disagree"):
-        ReplaceValue(Definition, LimitRole="end")
+        _ = ReplaceValue(Definition, LimitRole="end")
     with Raises(ValueError, match="roles must be distinct"):
-        ReplaceValue(Definition, LengthParameterId="offset")
+        _ = ReplaceValue(Definition, LengthParameterId="offset")
     with Raises(ValueError, match="unit vector"):
-        ReplaceValue(Definition, Direction=SpaceVector(0.0, 0.0, 2.0))
+        _ = ReplaceValue(Definition, Direction=SpaceVector(0.0, 0.0, 2.0))

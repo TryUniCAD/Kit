@@ -18,7 +18,7 @@ KInertRootAttrs = (
 
 # unsupported active gates or child metadata could alter visible assembly placement
 def ReadOccurAttrs(Cursor: MetaCursor, NameValue: str) -> None:
-    Cursor.ReadWord()
+    _ = Cursor.ReadWord()
     if Cursor.TakeBytes(1) != b"\1":
         raise ValueError("Unsupported Fusion occurrence attribute marker")
     Count = Cursor.ReadCount(len(KInertRootAttrs))

@@ -146,7 +146,7 @@ def CheckRuleGuards(GuardName: str) -> None:
     )
     Start = Relation.PayloadOffset + 4
     Cursor = MetaCursor(BulkData[Start : Relation.EndOffset])
-    ReadRulePrefix(Cursor)
+    _ = ReadRulePrefix(Cursor)
     if GuardName == "owner":
         Offset, Content = Start + Cursor.Offset, MakeReference(203)
     elif GuardName == "roles":
@@ -183,7 +183,7 @@ def CheckPointCurve() -> None:
     Start = Relation.PayloadOffset + 4
     BodyValue = bytearray(BulkData[Start : Relation.EndOffset])
     Cursor = MetaCursor(bytes(BodyValue))
-    ReadRulePrefix(Cursor)
+    _ = ReadRulePrefix(Cursor)
     BodyValue[5:16] = MakeReference(240)
     BodyValue[20:31] = MakeReference(230)
     ArgStart = Cursor.Offset + 23

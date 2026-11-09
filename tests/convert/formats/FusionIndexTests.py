@@ -51,10 +51,10 @@ def TestBadIndex() -> None:
     Primary = Pack("<I3sQ", 3, b"257", 42) + b"x"
     Continuation = Pack("<I3sQ", 3, b"256", 42)
     with Raises(ValueError, match="record extent"):
-        ReadBulkSpans(Primary + Continuation, IndexFixture(0))
+        _ = ReadBulkSpans(Primary + Continuation, IndexFixture(0))
     with Raises(ValueError, match="header and index disagree"):
-        ReadBulkSpans(Primary + Pack("<I3sQ", 3, b"257", 42), IndexFixture())
+        _ = ReadBulkSpans(Primary + Pack("<I3sQ", 3, b"257", 42), IndexFixture())
     with Raises(ValueError, match="header and index disagree"):
-        ReadBulkSpans(Primary + Pack("<I3sQ", 3, b"256", 43), IndexFixture())
+        _ = ReadBulkSpans(Primary + Pack("<I3sQ", 3, b"256", 43), IndexFixture())
     with Raises(ValueError, match="Truncated"):
-        ReadBulkSpans(Primary + Continuation, IndexFixture()[:-1])
+        _ = ReadBulkSpans(Primary + Continuation, IndexFixture()[:-1])

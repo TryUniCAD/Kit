@@ -43,7 +43,7 @@ def ReadMirrorList(
         if Cursor.ReadWord() != 1:
             raise ValueError("Unsupported Fusion Mirror input association count")
         Association = ReadNativeRef(Cursor)
-        SelectCursor(BulkData, Owners, Association, KBodyContext)
+        _ = SelectCursor(BulkData, Owners, Association, KBodyContext)
         Slots.append((Descriptor, Association))
     FirstOwner = ReadNativeRef(Cursor)
     Cursor.Offset = len(Cursor.DataValue) - 11

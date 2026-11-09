@@ -29,4 +29,4 @@ def TestRecipeTerms() -> None:
     )
     Corrupt = Header + Term + Pack("<I", 1) + Suffix
     with Raises(ValueError, match="recipe term"):
-        ReadRecipe(MetaCursor(Corrupt))
+        _ = ReadRecipe(MetaCursor(Corrupt))

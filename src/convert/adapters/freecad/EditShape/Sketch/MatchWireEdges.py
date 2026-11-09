@@ -20,6 +20,7 @@ def IsEdgeMatch(
     for EdgeIndex in range(len(Edges)):
         Pending = Deque([EdgeIndex])
         Parents: dict[int, int] = {}
+        FreeCurve = None
         while Pending:
             Current = Pending.popleft()
             for CurveIndex, CurveValue in enumerate(Curves):
@@ -29,19 +30,18 @@ def IsEdgeMatch(
                     continue
                 Parents[CurveIndex] = Current
                 if CurveIndex not in Owners:
+                    FreeCurve = CurveIndex
                     break
                 Pending.append(Owners[CurveIndex])
             else:
                 continue
             break
-        else:
-            return False
-        while True:
-            Owner = Parents[CurveIndex]
-            Owners[CurveIndex] = Owner
+        while FreeCurve is not None:
+            Owner = Parents[FreeCurve]
+            Owners[FreeCurve] = Owner
             Previous = Assigned.get(Owner)
-            Assigned[Owner] = CurveIndex
-            if Previous is None:
-                break
-            CurveIndex = Previous
+            Assigned[Owner] = FreeCurve
+            FreeCurve = Previous
+        if EdgeIndex not in Assigned:
+            return False
     return len(Owners) == len(Curves)

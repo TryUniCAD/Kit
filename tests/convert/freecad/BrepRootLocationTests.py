@@ -70,4 +70,4 @@ def TestBrepLocZero() -> None:
     assert BrepModelBrep(Model, RootTranslation=SpaceVector(0.0, -0.0, 0.0)) == Original
     for Value in (float("inf"), float("nan")):
         with Pytest.raises(ValueError, match="finite coordinates"):
-            BrepModelBrep(Model, RootTranslation=SpaceVector(Value, 0.0, 0.0))
+            _ = BrepModelBrep(Model, RootTranslation=SpaceVector(Value, 0.0, 0.0))

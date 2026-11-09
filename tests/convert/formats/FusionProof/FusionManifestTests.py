@@ -100,7 +100,7 @@ def TestForeignMeta() -> None:
     Members[KActiveManifest] = CaptureMembers(KExampleFile)[KActiveManifest]
     with OpenFusionArchive(ManifestZip(Members)) as Archive:
         with Raises(ValueError, match="asset IDs disagree"):
-            ReadActiveMeta(Archive)
+            _ = ReadActiveMeta(Archive)
 
 
 # aliases and oversized members fail before the proof inflates either exact path
@@ -114,7 +114,7 @@ def TestMetaBounds() -> None:
     ):
         with OpenFusionArchive(ManifestZip(Changed)) as Archive:
             with Raises(ValueError, match="Missing or oversized"):
-                ReadActiveMeta(Archive)
+                _ = ReadActiveMeta(Archive)
             assert Archive.ReadNames == frozenset()
 
 
@@ -142,7 +142,7 @@ def TestMetaSchema(NameValue: str, Before: bytes, After: bytes) -> None:
     Members[NameValue] = Members[NameValue].replace(Before, After, 1)
     with OpenFusionArchive(ManifestZip(Members)) as Archive:
         with Raises(ValueError):
-            ReadActiveMeta(Archive)
+            _ = ReadActiveMeta(Archive)
 
 
 # extension bytes and truncated fields cannot masquerade as a completely parsed schema
@@ -155,4 +155,4 @@ def TestMetaExtent() -> None:
                 ManifestZip({**Members, NameValue: Changed})
             ) as Archive:
                 with Raises(ValueError):
-                    ReadActiveMeta(Archive)
+                    _ = ReadActiveMeta(Archive)

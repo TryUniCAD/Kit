@@ -38,6 +38,6 @@ def VerifyAsmGraph(
         Complete[ComponentId] = Size, Height
         return Size, Height
 
-    VisitBranch(RootId, 0)
+    _ = VisitBranch(RootId, 0)
     if Complete.keys() != ComponentIds:
         raise ValueError("Unreachable Fusion assembly component")

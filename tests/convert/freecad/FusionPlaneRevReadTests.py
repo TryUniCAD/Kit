@@ -34,7 +34,7 @@ def ReadPlaneSeed() -> tuple[Element, CadDocument, PlaneRevPlan]:
     assert PlanValue is not None
     with TempDirectory() as Folder:
         Destination = FilePath(Folder) / "plane.FCStd"
-        WriteDocument(DocValue, Destination, allow_carrier=True)
+        _ = WriteDocument(DocValue, Destination, allow_carrier=True)
         with ZipFile(Destination) as Archive:
             return ParseXml(Archive.read("Document.xml")), DocValue, PlanValue
 
@@ -120,4 +120,4 @@ def CheckPlaneGuard(
     assert NodeValue is not None
     NodeValue.set(Attribute, Replacement)
     with Pytest.raises(ValueError, match=Reason):
-        ReadPlaneRevFields(RootValue, DocValue, PlanValue)
+        _ = ReadPlaneRevFields(RootValue, DocValue, PlanValue)

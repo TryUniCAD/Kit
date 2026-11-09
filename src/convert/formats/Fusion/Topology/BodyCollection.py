@@ -33,7 +33,7 @@ def ReadBodyList(
     Cursor = SelectCursor(BulkData, Owners, CollectionId, KBodyCollection)
     if Cursor.TakeBytes(3) != bytes(3):
         raise ValueError("Unsupported Fusion body collection prefix")
-    Cursor.TakeBytes(4)
+    _ = Cursor.TakeBytes(4)
     Count = Cursor.ReadCount(100000)
     RepeatAt = len(Cursor.DataValue) - 15 - 11 * Count
     if RepeatAt < Cursor.Offset + 11 * Count:
@@ -47,7 +47,7 @@ def ReadBodyList(
     ):
         raise ValueError("Fusion body collection repeated membership disagrees")
     ComponentId = ReadNativeRef(Cursor)
-    SelectCursor(BulkData, Owners, ComponentId, KBodyComponent)
+    _ = SelectCursor(BulkData, Owners, ComponentId, KBodyComponent)
     if any(
         ReadBodyOwner(BulkData, Owners, BodyId) != CollectionId for BodyId in Members
     ):

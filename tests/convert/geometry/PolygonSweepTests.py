@@ -98,11 +98,11 @@ def TestSweepLimits() -> None:
     Direction = SpaceVector(0.0, 0.0, 1.0)
     Radial = SpaceVector(1.0, 0.0, 0.0)
     with Raises(ValueError, match="positive radii"):
-        BuildPolySweep(
+        _ = BuildPolySweep(
             "part", ((0, 0), (2, 0), (2, 2)), Origin, Direction, Radial, 0.0, 1.0
         )
     with Raises(ValueError, match="strictly convex"):
-        BuildPolySweep(
+        _ = BuildPolySweep(
             "part",
             ((1, 0), (2, 2), (1, 2), (2, 0)),
             Origin,
@@ -112,7 +112,7 @@ def TestSweepLimits() -> None:
             1.0,
         )
     with Raises(ValueError, match="partial turn"):
-        BuildPolySweep(
+        _ = BuildPolySweep(
             "part",
             ((1, 0), (2, 0), (2, 2)),
             Origin,

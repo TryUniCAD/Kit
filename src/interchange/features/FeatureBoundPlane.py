@@ -40,7 +40,7 @@ class BoundConstructionPlane(FeatureDef):
         ):
             raise ValueError("construction plane requires distinct parameter bindings")
         try:
-            GetExtFrame(self.ReferenceFrame)
+            _ = GetExtFrame(self.ReferenceFrame)
         except ValueError as ErrorInfo:
             raise ValueError(
                 "construction plane reference frame is invalid"

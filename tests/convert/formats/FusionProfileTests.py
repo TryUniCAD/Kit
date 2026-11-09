@@ -61,14 +61,14 @@ def TestProfileOrder() -> None:
     assert Directions == (0, 0, 0, 0)
     assert OrderLineRing(Members) == ("line-0", "line-1", "line-2", "line-3")
     with Raises(ValueError, match="owner disagrees"):
-        ReadProfileLoop(BodyValue, 100, Source)
+        _ = ReadProfileLoop(BodyValue, 100, Source)
 
 
 # connectivity alone must not approve a crossed ring or an open selection
 def TestRejectRing() -> None:
     Crossed = MakeLines(((0.0, 0.0), (2.0, 1.0), (0.0, 1.0), (2.0, 0.0)))
     with Raises(ValueError, match="crossed or nonconvex"):
-        OrderLineRing(Crossed)
+        _ = OrderLineRing(Crossed)
     Rectangle = MakeLines(((0.0, 0.0), (2.0, 0.0), (2.0, 1.0), (0.0, 1.0)))
     with Raises(ValueError, match="does not close"):
-        OrderLineRing(Rectangle[:3])
+        _ = OrderLineRing(Rectangle[:3])

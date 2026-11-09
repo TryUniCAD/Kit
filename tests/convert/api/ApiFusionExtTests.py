@@ -125,7 +125,7 @@ def CheckExtWrite(TmpPath: FilePath, Folder: str, Capture: str, Reason: bytes) -
     Document = OpenDocument(KStudyPath / Folder / f"{Capture}.f3d", strict=False)
     Target = TmpPath / "extrude.FCStd"
     with Pytest.raises(ApplicationUsabilityError):
-        WriteDocument(Document, Target, allow_carrier=False)
+        _ = WriteDocument(Document, Target, allow_carrier=False)
     assert not Target.exists()
     Result = WriteDocument(Document, Target)
     assert not Result.IsNearLossless

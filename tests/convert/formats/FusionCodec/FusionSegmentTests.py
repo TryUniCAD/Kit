@@ -103,7 +103,7 @@ def TestRelocation() -> None:
 )
 def TestOwnerGuard(Records: tuple[BulkRecord, ...]) -> None:
     with Pytest.raises(ValueError, match="class registry"):
-        EmitSegment(MakeMeta(SegmentKind.KDesign), Records)
+        _ = EmitSegment(MakeMeta(SegmentKind.KDesign), Records)
 
 
 # deep class trees must avoid recursion and disconnected cycles have no valid lineage
@@ -113,7 +113,7 @@ def TestLineage() -> None:
     assert (Ranges["0"], Ranges["3999"]) == ((0, 4000), (3999, 4000))
     Parents["0"] = "3999"
     with Pytest.raises(ValueError, match="Cyclic"):
-        MapLineage(Parents)
+        _ = MapLineage(Parents)
 
 
 # native fixtures tie segment composition to an independent saved index and browser layout

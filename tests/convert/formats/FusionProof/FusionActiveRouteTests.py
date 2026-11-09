@@ -140,7 +140,7 @@ def TestRevision() -> None:
     with OpenFusionArchive(KEarlyRevision.read_bytes()) as Earlier:
         Frame = ReadAuxFrame(Earlier, SegmentKind.KAct)
         with Raises(ValueError, match="disagrees with archive"):
-            ReadAssetRoutes(
+            _ = ReadAssetRoutes(
                 Earlier, BulkData, MetaData, ReadBulkSpans(BulkData, MetaData), Frame
             )
     Mixed = RepackRouteCase(

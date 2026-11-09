@@ -53,7 +53,7 @@ def ReadTrimBinds(
             _ = Cursor.ReadNumber()
             _ = Cursor.ReadNumber()
             continue
-        CurveIds = (Cursor.ReadInteger(1, CurveCount),)
+        CurveIds: tuple[int, ...] = (Cursor.ReadInteger(1, CurveCount),)
         if KindValue == 3:
             CurveIds += (ReadSecondTrim(Cursor, CurveCount),)
         Result.append(

@@ -86,7 +86,7 @@ def ProjectProfiles(
             continue
         Projected[-1] = Updated
         if LoopIds:
-            Closed.setdefault(SketchValue.id, {}).setdefault(
+            _ = Closed.setdefault(SketchValue.id, {}).setdefault(
                 frozenset(LoopIds), LoopIds
             )
     return (

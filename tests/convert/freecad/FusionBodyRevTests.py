@@ -123,7 +123,7 @@ def TestWrongBodyEdge(TmpPath: FilePath) -> None:
     Source = OpenDocument(KStudyPath / KBodyCases[0][0], strict=False)
     Output = TmpPath / "linked.FCStd"
     Wrong = TmpPath / "wrong.FCStd"
-    WriteDocument(Source, Output)
+    _ = WriteDocument(Source, Output)
     with ZipFile(Output) as Archive, ZipFile(Wrong, "w") as Mutated:
         Root = ParseXml(Archive.read("Document.xml"))
         AxisLink = Root.find(".//Property[@name='AxisLink']/LinkSub/Sub")
@@ -137,7 +137,7 @@ def TestWrongBodyEdge(TmpPath: FilePath) -> None:
             )
             Mutated.writestr(Member, Data)
     with Pytest.raises(FreeCadAdapterA, match="axis"):
-        OpenDocument(Wrong)
+        _ = OpenDocument(Wrong)
 
 
 # native save and reopen retain two solids and the correct phase after signed edits

@@ -42,17 +42,19 @@ def TestSweepGuards() -> None:
     Direction = SpaceVector(0.0, 1.0, 0.0)
     Positive = MakeTarget(45)
     with Raises(ValueError, match="profile crosses"):
-        DerivePlaneSpan(Transform(), MakeProfile(-10.0), Origin, Direction, (Positive,))
+        _ = DerivePlaneSpan(
+            Transform(), MakeProfile(-10.0), Origin, Direction, (Positive,)
+        )
     with Raises(ValueError, match="must contain the axis"):
-        DerivePlaneSpan(
+        _ = DerivePlaneSpan(
             Transform(), MakeProfile(10.0), Origin, Direction, (MakeTarget(45, 1.0),)
         )
     with Raises(ValueError, match="coincide"):
-        DerivePlaneSpan(
+        _ = DerivePlaneSpan(
             Transform(), MakeProfile(10.0), Origin, Direction, (Positive, Positive)
         )
     with Raises(ValueError, match="coincides with the sketch"):
-        DerivePlaneSpan(
+        _ = DerivePlaneSpan(
             Transform(), MakeProfile(10.0), Origin, Direction, (MakeTarget(0),)
         )
 

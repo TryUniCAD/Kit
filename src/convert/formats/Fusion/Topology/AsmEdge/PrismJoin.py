@@ -60,7 +60,11 @@ def JoinPrismVerts(
 ) -> dict[int, str]:
     Sides = len(CurveTags)
     Tagged = tuple(Value for Value in Edges.values() if Value.ProfileTag is not None)
-    NativeRim = {Value.ProfileTag: Value.Vertices for Value in Tagged}
+    NativeRim = {
+        TagValue: Value.Vertices
+        for Value in Tagged
+        if (TagValue := Value.ProfileTag) is not None
+    }
     if len(Tagged) != Sides or NativeRim.keys() != set(CurveTags):
         raise ValueError("Fusion ASM tags do not bind the complete source profile")
     NeutralRim = {

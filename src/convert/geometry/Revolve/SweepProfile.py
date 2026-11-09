@@ -73,7 +73,7 @@ def MeridianSense(
 def ProfileMetrics(
     Meridian: tuple[tuple[float, float], ...], *, AllowAxis: bool = False
 ) -> tuple[float, float, float]:
-    MeridianSense(Meridian, AllowAxis=AllowAxis)
+    _ = MeridianSense(Meridian, AllowAxis=AllowAxis)
     FirstRadius, FirstHeight = Meridian[0]
     Areas: list[float] = []
     Moments: list[float] = []

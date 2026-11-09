@@ -31,7 +31,7 @@ def CheckBodyCtx(
     Cursor = SelectCursor(BulkData, Owners, ContextId, KBodyContext)
     if len(Cursor.DataValue) != 181 or Cursor.TakeBytes(2) != bytes(2):
         raise ValueError("Unsupported Fusion body pick root context")
-    Cursor.ReadLong()
+    _ = Cursor.ReadLong()
     if (
         ReadSelectUuid(Cursor) != Namespace
         or ReadSelectUuid(Cursor) != EntityGuid

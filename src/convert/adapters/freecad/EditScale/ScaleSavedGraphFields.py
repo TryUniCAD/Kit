@@ -86,7 +86,7 @@ def CheckScaleAttr(Original: Element, Saved: Element) -> None:
         and "status" not in SourceAttrs
         and SavedAttrs.get("status") == NativeStatus
     ):
-        SavedAttrs.pop("status")
+        _ = SavedAttrs.pop("status")
     if SavedAttrs != SourceAttrs or (Saved.text or "").strip():
         raise ValueError(f"FreeCAD editable Scale native {Field} property changed")
 

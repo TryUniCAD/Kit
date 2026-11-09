@@ -119,7 +119,7 @@ def TestActWrongCls() -> None:
     BulkData, MetaData = MakeActPair("Design")
     Spans = ReadBulkSpans(BulkData, MetaData, Segment=SegmentKind.KAct)
     with Raises(ValueError, match="Invalid Fusion ACT primary record"):
-        ReadActTable(BulkData, Spans)
+        _ = ReadActTable(BulkData, Spans)
 
 
 # malformed keys cannot name segment lanes or native identities with alternative text
@@ -129,7 +129,7 @@ def TestActWrongCls() -> None:
 )
 def TestBadActKey(KeyValue: str) -> None:
     with Raises(ValueError, match="Invalid Fusion ACT route key"):
-        EmitActFields(KeyValue, KFieldRoles)
+        _ = EmitActFields(KeyValue, KFieldRoles)
 
 
 # route keys and field references each require their own unique canonical identity
@@ -148,7 +148,7 @@ def TestBadActKey(KeyValue: str) -> None:
 )
 def TestBadActRows(Routes: tuple[tuple[int, str], ...]) -> None:
     with Raises(ValueError):
-        EmitActTable(KSnapshot, KHeadGuid, Routes, KTestRoles)
+        _ = EmitActTable(KSnapshot, KHeadGuid, Routes, KTestRoles)
 
 
 # malformed tokens and conflicting roles must be rejected before returning bytes
@@ -166,17 +166,17 @@ def TestBadActRows(Routes: tuple[tuple[int, str], ...]) -> None:
 )
 def TestBadActRoles(Roles: tuple[tuple[ActRole, str], ...]) -> None:
     with Raises(ValueError):
-        EmitActFields("0_7", Roles)
+        _ = EmitActFields("0_7", Roles)
 
 
 # global snapshot identity and role membership are independent native checks
 def TestBadActHead() -> None:
     with Raises(ValueError, match="identifiers or roles"):
-        EmitActTable(KHeadGuid, KHeadGuid, KTestRoutes, KTestRoles)
+        _ = EmitActTable(KHeadGuid, KHeadGuid, KTestRoutes, KTestRoles)
     with Raises(ValueError, match="identifiers or roles"):
-        EmitActTable(KSnapshot, KHeadGuid, KTestRoutes, KTestRoles[1:])
+        _ = EmitActTable(KSnapshot, KHeadGuid, KTestRoutes, KTestRoles[1:])
     with Raises(ValueError, match="identifiers or roles"):
-        EmitActTable(KHeadGuid, KSnapshot, KTestRoutes, KTestRoles)
+        _ = EmitActTable(KHeadGuid, KSnapshot, KTestRoutes, KTestRoles)
 
 
 # source only residual bytes are never included in a freshly written field

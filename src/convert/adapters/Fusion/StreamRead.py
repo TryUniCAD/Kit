@@ -31,4 +31,4 @@ def ReadSourceMut(SourceData: KSourceType) -> str | FilePath | bytes:
             return Buffer.getvalue()
         if len(Block) > KArchiveLimit - Buffer.tell():
             raise ValueError("Fusion ZIP exceeds input size limit")
-        Buffer.write(Block)
+        _ = Buffer.write(Block)

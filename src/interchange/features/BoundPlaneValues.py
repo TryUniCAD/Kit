@@ -85,7 +85,7 @@ def GetConstructionFrame(
             Frame, origin=AddPlaneVector(Frame.origin, 1.0, Frame.z_axis, Scalar)
         )
     try:
-        GetExtFrame(Result)
+        _ = GetExtFrame(Result)
     except ValueError as ErrorInfo:
         raise ValueError("construction plane derived frame is invalid") from ErrorInfo
     return Result

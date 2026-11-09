@@ -129,15 +129,15 @@ def CheckAngleSpan() -> None:
     assert GetAngleSpan(HalfTurn, HalfTurn, "symmetric") == (-HalfTurn, HalfTurn)
     assert GetAngleSpan(FullTurn + 5e-11, None, "one_sided") == (0.0, FullTurn + 5e-11)
     with Raises(ValueError, match="at most one turn"):
-        GetAngleSpan(FullTurn + 2e-10, None, "one_sided")
+        _ = GetAngleSpan(FullTurn + 2e-10, None, "one_sided")
     with Raises(ValueError, match="exceed tolerance"):
-        GetAngleSpan(1e-9, None, "one_sided")
+        _ = GetAngleSpan(1e-9, None, "one_sided")
     with Raises(ValueError, match="must agree"):
-        GetAngleSpan(0.4, 0.4000000002, "symmetric")
+        _ = GetAngleSpan(0.4, 0.4000000002, "symmetric")
     with Raises(ValueError, match="must be positive"):
-        GetAngleSpan(0.4, -0.2, "two_sided")
+        _ = GetAngleSpan(0.4, -0.2, "two_sided")
     with Raises(ValueError, match="finite numbers"):
-        GetAngleSpan(float("inf"), None, "one_sided")
+        _ = GetAngleSpan(float("inf"), None, "one_sided")
 
 
 # angular limits are evaluated against parameters during document validation
@@ -147,9 +147,9 @@ def CheckRevMode() -> None:
     Definition = StepValue.definition
     assert isinstance(Definition, AngularRevolve)
     with Raises(ValueError, match="side mode and against parameter disagree"):
-        ReplaceValue(Definition, SideMode="one_sided")
+        _ = ReplaceValue(Definition, SideMode="one_sided")
     with Raises(ValueError, match="must be distinct"):
-        ReplaceValue(Definition, AgainstParameterId="along")
+        _ = ReplaceValue(Definition, AgainstParameterId="along")
     Invalid = ReplaceValue(
         Document,
         feature_timeline=(

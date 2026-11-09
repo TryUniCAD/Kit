@@ -90,7 +90,7 @@ def TestCurvedSense() -> None:
         Model, faces=(Replace(First, same_sense=not First.same_sense), *Others)
     )
     with Pytest.raises(FreeCadBrep, match="conflicting source orientations"):
-        BrepModelBrep(Conflicting)
+        _ = BrepModelBrep(Conflicting)
 
 
 # conical generators must agree with both exact circular orbits before serialization
@@ -116,4 +116,4 @@ def TestConicalSweep() -> None:
     with Pytest.raises(
         FreeCadBrep, match="no exact pcurve|lacks a proven native topology"
     ):
-        BrepModelBrep(Replace(Model, surfaces=WrongSlope))
+        _ = BrepModelBrep(Replace(Model, surfaces=WrongSlope))

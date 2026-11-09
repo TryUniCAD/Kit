@@ -91,7 +91,7 @@ def ReadAsmPrism(
             or IsAsmFlag(FaceValue, 9)
         ):
             raise ValueError("Fusion ASM prism face is not owned by its shell")
-        RequireAsm(Table, ReadAsmPtr(FaceValue, 7), "plane-surface")
+        _ = RequireAsm(Table, ReadAsmPtr(FaceValue, 7), "plane-surface")
         NameValue = ReadFaceName(Table, Current, FaceValue)
         if NameValue in Names:
             raise ValueError("Fusion ASM prism face names are ambiguous")

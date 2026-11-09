@@ -25,13 +25,13 @@ def ReadOccurrence(DataValue: bytes, ObjectId: int) -> OccurRecord:
         raise ValueError("Unsupported Fusion occurrence prefix")
     ComponentId = ReadNativeRef(Cursor)
     ReadOccurAttrs(Cursor, NameValue)
-    Cursor.TakeBytes(2)
+    _ = Cursor.TakeBytes(2)
     Instance = Cursor.ReadWord()
-    ReadSelectUuid(Cursor)
+    _ = ReadSelectUuid(Cursor)
     NativeGuid = ReadSelectUuid(Cursor)
     if Cursor.TakeBytes(1) != b"\1":
         raise ValueError("Invalid Fusion occurrence identity marker")
-    Cursor.ReadLong()
+    _ = Cursor.ReadLong()
     if Cursor.TakeBytes(7) != b"\0\1\1\0\0\0\0" or ReadNativeRef(Cursor) != ComponentId:
         raise ValueError("Fusion occurrence component references disagree")
     Matrix = ReadOccurMatrix(Cursor)

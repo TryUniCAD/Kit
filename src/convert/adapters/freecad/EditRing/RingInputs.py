@@ -93,5 +93,5 @@ def ReadRingInput(
             raise ValueError(
                 "FreeCAD editable ring line and native point geometry disagree"
             )
-    MeasureRing(ReadPrismRing(Profile))
+    _ = MeasureRing(ReadPrismRing(Profile))
     return Profile, PointIds

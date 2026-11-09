@@ -67,10 +67,10 @@ def CheckSweepInput() -> None:
     Radial = SpaceVector(1.0, 0.0, 0.0)
     with Raises(ValueError, match="convex polygon"):
         Crossed = (Meridian[0], Meridian[2], Meridian[1], Meridian[3])
-        MeasureSweep(Crossed, Origin, Axis, Radial, 0.0, 1.0)
+        _ = MeasureSweep(Crossed, Origin, Axis, Radial, 0.0, 1.0)
     with Raises(ValueError, match="positive radii"):
-        MeasureSweep(((0.0, 0.0), *Meridian[1:]), Origin, Axis, Radial, 0.0, 1.0)
+        _ = MeasureSweep(((0.0, 0.0), *Meridian[1:]), Origin, Axis, Radial, 0.0, 1.0)
     with Raises(ValueError, match="orthonormal"):
-        MeasureSweep(Meridian, Origin, Axis, Axis, 0.0, 1.0)
+        _ = MeasureSweep(Meridian, Origin, Axis, Axis, 0.0, 1.0)
     with Raises(ValueError, match="partial turn"):
-        MeasureSweep(Meridian, Origin, Axis, Radial, 0.0, 2.0 * HalfTurn)
+        _ = MeasureSweep(Meridian, Origin, Axis, Radial, 0.0, 2.0 * HalfTurn)

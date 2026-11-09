@@ -47,7 +47,7 @@ def TestSketchFrame() -> None:
     Modified = bytearray(BodyValue)
     Modified[3 + 8 * 10 : 3 + 8 * 11] = Pack("<d", -1.0)
     with Raises(ValueError, match="normal disagrees"):
-        ReadFrame(bytes(Modified))
+        _ = ReadFrame(bytes(Modified))
 
 
 # line caches must agree with the same sketch endpoint records
@@ -78,4 +78,4 @@ def TestSketchLine() -> None:
     Entity = ReadPrimitive(Payload, SpanValue, {11: Start, 12: EndValue})
     assert Entity.geometry == LineGeometry(Start, EndValue)
     with Raises(ValueError, match="endpoint cache disagrees"):
-        ReadPrimitive(Payload, SpanValue, {11: Start, 12: PlaneVector(20.0, 0.0)})
+        _ = ReadPrimitive(Payload, SpanValue, {11: Start, 12: PlaneVector(20.0, 0.0)})

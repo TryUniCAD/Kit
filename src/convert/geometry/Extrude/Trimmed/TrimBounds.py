@@ -33,19 +33,19 @@ def GetRimBounds(
         )
     Center = PlacePrismPoint(FrameValue, Geometry.center, Height)
     AxisX, AxisY = FrameValue.x_axis, FrameValue.y_axis
-    return tuple(
-        tuple(
-            Coordinate + Offset * Geometry.radius
-            for Offset in AngularBounds(
-                CoeffX, CoeffY, Geometry.start_angle, Geometry.end_angle
-            )
+    Bounds: list[tuple[float, float]] = []
+    for Coordinate, CoeffX, CoeffY in zip(
+        (Center.x, Center.y, Center.z),
+        (AxisX.x, AxisX.y, AxisX.z),
+        (AxisY.x, AxisY.y, AxisY.z),
+    ):
+        Lower, Upper = AngularBounds(
+            CoeffX, CoeffY, Geometry.start_angle, Geometry.end_angle
         )
-        for Coordinate, CoeffX, CoeffY in zip(
-            (Center.x, Center.y, Center.z),
-            (AxisX.x, AxisX.y, AxisX.z),
-            (AxisY.x, AxisY.y, AxisY.z),
+        Bounds.append(
+            (Coordinate + Lower * Geometry.radius, Coordinate + Upper * Geometry.radius)
         )
-    )
+    return tuple(Bounds)
 
 
 # linear translation reaches each cartesian extreme on one of the two rim stations

@@ -25,8 +25,8 @@ def CheckBrowGroups(
         IsScoped = GroupValue.ScopeId is not None
         if IsScoped != (len(GroupValue.Folders) == 5):
             raise ValueError("Fusion asset Browser folder group scope disagrees")
-        if IsScoped:
-            Scope = Design.Owners.get(GroupValue.ScopeId)
+        if (ScopeId := GroupValue.ScopeId) is not None:
+            Scope = Design.Owners.get(ScopeId)
             if Scope is None or (Scope.ClassGuid, Scope.ClassSpace) != (
                 KScopeClass,
                 "Component",

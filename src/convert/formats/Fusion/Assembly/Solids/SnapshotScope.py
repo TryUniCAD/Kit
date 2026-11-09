@@ -30,10 +30,10 @@ def ReadSnapParent(
     ):
         raise ValueError("Unsupported Fusion creation scope bookkeeping")
     Parent = ReadNativeRef(Book)
-    Book.TakeBytes(8)
+    _ = Book.TakeBytes(8)
     if ReadNativeRef(Book) != Scope.ScopeId:
         raise ValueError("Fusion creation snapshot own scope disagrees")
-    Book.TakeBytes(8)
+    _ = Book.TakeBytes(8)
     if ReadNativeRef(Book) != Scope.SnapshotId:
         raise ValueError("Fusion creation scope snapshot reference disagrees")
     Stamp = Book.TakeBytes(8)

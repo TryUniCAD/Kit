@@ -122,16 +122,16 @@ def TestBindGuard() -> None:
     assert StepValue.provenance is not None
     Owner = Owners[int(StepValue.provenance.native_id)]
     Control = MetaCursor(Bulk[Owner.PayloadOffset + 4 : Owner.EndOffset])
-    ReadExtrudeHead(Control)
-    ReadOptionalRef(Control)
-    ReadOptionalRef(Control)
+    _ = ReadExtrudeHead(Control)
+    _ = ReadOptionalRef(Control)
+    _ = ReadOptionalRef(Control)
     AlongOffset = Owner.PayloadOffset + 4 + Control.Offset + 1
     EditData = bytearray(Bulk)
     EditData[AlongOffset : AlongOffset + 8] = Taper.attributes[
         "fusion.binding_id"
     ].to_bytes(8, "little")
     with Pytest.raises(ValueError, match="owner control slot"):
-        ReadBindingProof(bytes(EditData), Owners, Document, Native, Span, Along, 1)
+        _ = ReadBindingProof(bytes(EditData), Owners, Document, Native, Span, Along, 1)
     for Offset in (
         Header,
         Body + 14,
@@ -145,9 +145,11 @@ def TestBindGuard() -> None:
         EditData = bytearray(Bulk)
         EditData[Offset] ^= 1
         with Pytest.raises(ValueError):
-            ReadBindingProof(bytes(EditData), Owners, Document, Native, Span, Along, 1)
+            _ = ReadBindingProof(
+                bytes(EditData), Owners, Document, Native, Span, Along, 1
+            )
     with Pytest.raises(ValueError, match="parameter rank"):
-        ReadBindingProof(Bulk, Owners, Document, Native, Span, Along, 2)
+        _ = ReadBindingProof(Bulk, Owners, Document, Native, Span, Along, 2)
     Unsupported = Replace(
         Document,
         feature_timeline=(
@@ -156,7 +158,7 @@ def TestBindGuard() -> None:
         ),
     )
     with Pytest.raises(ValueError, match="owner control route"):
-        ReadBindingProof(Bulk, Owners, Unsupported, Native, Span, Along, 1)
+        _ = ReadBindingProof(Bulk, Owners, Unsupported, Native, Span, Along, 1)
     EditData = bytearray(Bulk)
     EditData[Book.PayloadOffset + 4 + 23] ^= 1
     assert (

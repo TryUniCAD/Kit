@@ -30,7 +30,7 @@ def ReadCurrentBody(
         raise ValueError("Unsupported Fusion body collection attributes")
     if Prefix not in (b"\0\0", b"\0\1") or Cursor.TakeBytes(1) != bytes(1):
         raise ValueError("Unsupported Fusion body collection prefix")
-    Cursor.TakeBytes(4)
+    _ = Cursor.TakeBytes(4)
     Count = Cursor.ReadCount(100000)
     if Cursor.Offset + 11 * Count > len(Cursor.DataValue):
         raise ValueError("Truncated Fusion body collection membership")

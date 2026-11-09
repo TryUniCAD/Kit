@@ -6768,7 +6768,7 @@ def AddPlaneMut(
 # this definition exists because support planes must preserve their source ordering
 def AddPlanesMut(Context: DocContext, Geometry: DocGeometry) -> None:
     for Plane in Geometry.PlaneItems:
-        AddPlaneMut(Context, Geometry, Plane)
+        _ = AddPlaneMut(Context, Geometry, Plane)
 
 
 # this definition exists because one sketch coordinates profile evidence support and native replay

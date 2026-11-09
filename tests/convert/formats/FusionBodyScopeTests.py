@@ -56,7 +56,7 @@ def TestBodyList() -> None:
     Repeated = Owners[12].EndOffset - 33
     BulkData[Repeated : Repeated + 11] = NativeRef(11)
     with Raises(ValueError, match="repeated membership disagrees"):
-        ReadBodyList(bytes(BulkData), Owners, 12)
+        _ = ReadBodyList(bytes(BulkData), Owners, 12)
 
 
 # multiple independent creators are safe while an unverified modifying operation blocks publication
@@ -77,6 +77,6 @@ def TestBodyCreators() -> None:
         Second, attributes=FreezeMapping({**Attrs, "fusion.revolve.operation": "cut"})
     )
     with Raises(ValueError, match="outside independent solid Revolves"):
-        FindRevCreators((First, Modifying))
+        _ = FindRevCreators((First, Modifying))
     with Raises(ValueError, match="inactive or unverified"):
-        FindRevCreators((First, Replace(Second, suppressed=True)))
+        _ = FindRevCreators((First, Replace(Second, suppressed=True)))

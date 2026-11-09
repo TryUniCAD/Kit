@@ -189,11 +189,11 @@ def TestDatumGuards() -> None:
             assert Found is not None
             Found.set(Attribute, Changed)
             with Raises(ValueError):
-                ReconcileDatum(Document, Manifest, RootValue, Archive, Members)
+                _ = ReconcileDatum(Document, Manifest, RootValue, Archive, Members)
         RootValue = ParseUntrusted(XmlValue)
         WithShape = {**Members, "added.Shape.brp": ZipInfo("added.Shape.brp")}
         with Raises(ValueError, match="unexpected native data"):
-            ReconcileDatum(Document, Manifest, RootValue, Archive, WithShape)
+            _ = ReconcileDatum(Document, Manifest, RootValue, Archive, WithShape)
         Props = RootValue.find("./ObjectData/Object[@name='KitMetadata']/Properties")
         assert Props is not None
         Marker = Props.find(f"./Property[@name='{KDatumBinding}']")
@@ -201,7 +201,7 @@ def TestDatumGuards() -> None:
         Props.remove(Marker)
         Props.set("Count", str(len(Props)))
         with Raises(ValueError, match="binding is missing"):
-            ReconcileDatum(Document, Manifest, RootValue, Archive, Members)
+            _ = ReconcileDatum(Document, Manifest, RootValue, Archive, Members)
 
 
 # equivalent native unit spelling keeps original source decimal evidence and identities

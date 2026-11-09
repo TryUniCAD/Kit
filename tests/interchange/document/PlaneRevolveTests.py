@@ -101,10 +101,10 @@ def CheckRevLimits() -> None:
     Definition = BuildPlaneRev().feature_timeline[0].definition
     assert isinstance(Definition, PlaneRevolve)
     with Raises(ValueError, match="unit length"):
-        ReplaceValue(Definition, AxisDirection=SpaceVector(0.0, 0.0, 0.0))
+        _ = ReplaceValue(Definition, AxisDirection=SpaceVector(0.0, 0.0, 0.0))
     with Raises(ValueError, match="increasing partial turn"):
-        ReplaceValue(Definition, StartRadians=3.0)
+        _ = ReplaceValue(Definition, StartRadians=3.0)
     with Raises(ValueError, match="finite numbers"):
-        ReplaceValue(Definition, EndRadians=float("inf"))
+        _ = ReplaceValue(Definition, EndRadians=float("inf"))
     with Raises(ValueError, match="must be distinct"):
-        ReplaceValue(Definition, PlaneSelectionIds=("target-one", "target-one"))
+        _ = ReplaceValue(Definition, PlaneSelectionIds=("target-one", "target-one"))

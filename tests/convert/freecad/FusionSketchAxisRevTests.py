@@ -75,7 +75,7 @@ def CheckAxisPairs() -> None:
         ),
     )
     with Pytest.raises(ValueError, match="endpoint provenance disagrees"):
-        ReadAxisProfile(StepValue, Changed)
+        _ = ReadAxisProfile(StepValue, Changed)
 
 
 # unsupported edge sources and stale native scope cannot seed editable geometry

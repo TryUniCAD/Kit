@@ -40,7 +40,7 @@ def ReadExtProfile(
     if DescOwner(Profile.DataValue) != FeatureId:
         raise ValueError("Fusion Extrude profile descriptor owner disagrees")
     SketchId, LoopId = ReadProfileRef(Profile.DataValue)
-    SelectCursor(BulkData, Owners, SketchId, KExtrudeSketch)
+    _ = SelectCursor(BulkData, Owners, SketchId, KExtrudeSketch)
     Loop = SelectCursor(BulkData, Owners, LoopId, KLoopGuid)
     if Loop.TakeBytes(2) != bytes(2) or ReadNativeRef(Loop) != ProfileId:
         raise ValueError("Fusion Extrude profile loop owner disagrees")

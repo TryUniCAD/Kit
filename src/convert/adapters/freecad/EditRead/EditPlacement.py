@@ -22,7 +22,7 @@ def ReadEditFrame(ObjectValue: NativeObject, NameValue: str) -> Transform:
         ObjectValue, NameValue, "App::PropertyPlacement", "PropertyPlacement"
     )
     for Field in ("Px", "Py", "Pz"):
-        EditFloat(Placement, Field)
+        _ = EditFloat(Placement, Field)
     Quaternion = tuple(
         EditFloat(Placement, Field) for Field in ("Q0", "Q1", "Q2", "Q3")
     )

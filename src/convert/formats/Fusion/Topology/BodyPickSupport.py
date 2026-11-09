@@ -26,7 +26,7 @@ def CheckBodySup(
     Cursor = SelectCursor(BulkData, Owners, SupportId, KSupportGuid)
     if Cursor.TakeBytes(6) != b"\0\0\1\0\0\0" or ReadSelectUuid(Cursor) != AnchorGuid:
         raise ValueError("Fusion body pick support and anchor disagree")
-    Cursor.TakeBytes(8)
+    _ = Cursor.TakeBytes(8)
     Flags = Cursor.TakeBytes(2)
     Count = Cursor.ReadCount(1024)
     if (
@@ -38,7 +38,7 @@ def CheckBodySup(
     SourceIds = []
     for _ in range(Count):
         SourceIds.append(ReadNativeRef(Cursor))
-        Cursor.TakeBytes(8)
+        _ = Cursor.TakeBytes(8)
     if (
         SourceId not in SourceIds
         or len(set(SourceIds)) != Count
@@ -46,6 +46,6 @@ def CheckBodySup(
         or ReadNativeRef(Cursor) != DescriptorId
     ):
         raise ValueError("Fusion body pick support ownership disagrees")
-    Cursor.TakeBytes(8)
+    _ = Cursor.TakeBytes(8)
     if Cursor.TakeBytes(8) != bytes(8):
         raise ValueError("Unsupported Fusion body pick support suffix")

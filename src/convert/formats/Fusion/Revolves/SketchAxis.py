@@ -68,7 +68,7 @@ def ReadSketchAxis(
     RootCursor = SelectCursor(BulkData, Owners, SketchRoot, KSketchGuid)
     RootCursor.Offset = len(RootCursor.DataValue) - 15
     SketchOwner = ReadNativeRef(RootCursor)
-    SelectCursor(BulkData, Owners, SketchOwner, KSketchFeature)
+    _ = SelectCursor(BulkData, Owners, SketchOwner, KSketchFeature)
     ReadPickSupport(BulkData, Owners, SupportId, Descriptor, SketchOwner)
     LineValue = FindSketchCurve(SketchValue, CurveTag)
     Geometry = LineValue.geometry
@@ -100,7 +100,7 @@ def ReadSketchAxis(
     )
     if FrameComponent != ComponentId or FrameValue.transform != Frame:
         raise ValueError("Fusion Revolve sketch axis component or frame disagrees")
-    SelectCursor(BulkData, Owners, FrameComponent, KComponentGuid)
+    _ = SelectCursor(BulkData, Owners, FrameComponent, KComponentGuid)
     Start, Finish = Geometry.start, Geometry.end
     OriginPoint = OffsetVector(
         OffsetVector(Frame.origin, Frame.x_axis, Start.x), Frame.y_axis, Start.y

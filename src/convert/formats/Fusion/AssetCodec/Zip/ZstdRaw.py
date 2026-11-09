@@ -36,10 +36,10 @@ def ZstdFrameSize(DataSize: int) -> int:
 # independent raw blocks avoid a compressor dependency or a second payload copy
 def WriteZstdMut(Output: BytesIO, DataValue: bytes) -> None:
     DataSize = len(DataValue)
-    Output.write(ZstdFrameHead(DataSize))
+    _ = Output.write(ZstdFrameHead(DataSize))
     ViewValue = memoryview(DataValue)
     for Offset in range(0, max(1, DataSize), KRawBlockSize):
         Finish = min(Offset + KRawBlockSize, DataSize)
         Header = ((Finish - Offset) << 3) | (Finish == DataSize)
-        Output.write(Header.to_bytes(3, "little"))
-        Output.write(ViewValue[Offset:Finish])
+        _ = Output.write(Header.to_bytes(3, "little"))
+        _ = Output.write(ViewValue[Offset:Finish])

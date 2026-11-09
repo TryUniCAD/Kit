@@ -36,9 +36,9 @@ def CheckEditBook(
     for _ in range(Count):
         if ReadNativeRef(Cursor) not in Owners:
             raise ValueError("Unknown Fusion assembly edit bookkeeping member")
-        Cursor.ReadLong()
+        _ = Cursor.ReadLong()
     if ReadNativeRef(Cursor) != OwnerId:
         raise ValueError("Fusion assembly edit bookkeeping owner disagrees")
-    Cursor.ReadLong()
+    _ = Cursor.ReadLong()
     if Cursor.TakeBytes(8) != bytes(8):
         raise ValueError("Unsupported Fusion assembly edit bookkeeping suffix")

@@ -30,7 +30,7 @@ def DistBindRoles(
         (Native.SecondTaperId is None) != (Definition.SecondTaperId is None)
     ):
         raise ValueError("Fusion distance binding mirrored taper disagrees")
-    Roles = (
+    Roles: tuple[tuple[int | None, str | None, str, str], ...] = (
         (Native.StartId, Definition.StartOffsetId, "ProfileOffset", "cm"),
         (Native.AlongId, Definition.AlongParameterId, "AlongDistance", "cm"),
         (Native.TaperId, Definition.TaperParameterId, "TaperAngle", "rad"),

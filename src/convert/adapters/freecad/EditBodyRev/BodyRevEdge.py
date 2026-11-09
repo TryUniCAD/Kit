@@ -260,7 +260,7 @@ def ReadBoundAxis(
                 "FreeCAD editable body axis original source depth must be positive"
             )
         return ReadSeedAxis(PickValue, LineValue, Frame, RimStart, RimEnd)
-    BodyAxisVector(
+    _ = BodyAxisVector(
         ReadCachePoint(PickValue, "cached_start_cm"),
         ReadCachePoint(PickValue, "cached_end_cm"),
     )

@@ -66,7 +66,7 @@ def ReadBindRecord(
     SlotValue = Cursor.ReadWord()
     if Cursor.TakeBytes(1) != bytes(1):
         raise ValueError("Unsupported Fusion numeric binding slot framing")
-    Cursor.TakeBytes(8)
+    _ = Cursor.TakeBytes(8)
     if (
         ReadNativeRef(Cursor) != ParamSpan.ObjectId
         or Cursor.ReadWord() != BoundRank

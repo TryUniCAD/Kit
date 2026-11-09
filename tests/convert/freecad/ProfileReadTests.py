@@ -155,4 +155,4 @@ def TestProfileProof(TmpPath: FilePath, Stale: str, Reason: str) -> None:
         Stale,
     )
     with Pytest.raises(FreeCadAdapterA, match=Reason):
-        OpenDocument(Target)
+        _ = OpenDocument(Target)

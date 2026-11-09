@@ -69,4 +69,4 @@ def CheckExtInputs(
     )
     for Identity, RoleName in Bindings:
         if Identity is not None:
-            CheckExtBinding(BulkData, Owners, FeatureId, Identity, RoleName)
+            _ = CheckExtBinding(BulkData, Owners, FeatureId, Identity, RoleName)

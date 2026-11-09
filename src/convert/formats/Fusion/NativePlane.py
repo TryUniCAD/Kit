@@ -52,8 +52,8 @@ def ReadNativePlane(
     if ModeValue not in (1, 2) or Cursor.TakeBytes(1) != b"\0":
         raise ValueError("Unsupported Fusion construction plane frame")
     Transform = ReadPlaneAxes(Cursor.TakeBytes(72))
-    Cursor.TakeBytes(16)
-    Cursor.ReadText(True, Maximum=1024)
+    _ = Cursor.TakeBytes(16)
+    _ = Cursor.ReadText(True, Maximum=1024)
     CollectionId = ReadNativeRef(Cursor)
     if (
         Cursor.ReadLong() != LabelData[1]

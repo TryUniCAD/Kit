@@ -35,11 +35,14 @@ def ReadScaleFactor(
         not isinstance(DataValue, ParameterValue)
         or DataValue.kind != ValueKind.KNumber
         or DataValue.unit
-        or type(DataValue.value) not in (float, int)
-        or not 0 < DataValue.value <= FloatInfo.max
+        or (
+            type(Magnitude := DataValue.value) is not float
+            and type(Magnitude) is not int
+        )
+        or not 0 < Magnitude <= FloatInfo.max
     ):
         raise ValueError("scale factors must be finite positive dimensionless numbers")
-    return float(DataValue.value)
+    return float(Magnitude)
 
 
 # geometry and validation resolve the same ordered scale parameters and center

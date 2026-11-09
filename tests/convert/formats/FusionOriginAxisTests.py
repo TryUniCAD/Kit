@@ -32,10 +32,10 @@ def TestOriginOwner() -> None:
         37,
     )
     with Raises(ValueError, match="not owned"):
-        ReadOriginAxis(BulkData, Owners, 40, 4)
+        _ = ReadOriginAxis(BulkData, Owners, 40, 4)
     BulkData, Owners = AxisFixture(45)
     with Raises(ValueError, match="not owned"):
-        ReadOriginAxis(BulkData, Owners, 40, 3)
+        _ = ReadOriginAxis(BulkData, Owners, 40, 3)
 
 
 # synthetic reciprocal references let ownership failures vary independently of geometry

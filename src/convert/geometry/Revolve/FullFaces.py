@@ -46,9 +46,9 @@ def BuildFullFaces(
             (Edges.get(Following), True, Second[0]),
         )
         if isinstance(Surface, PlaneSurface):
-            Rings = tuple(reversed(Rings)) if First[0] < Second[0] else Rings
+            Rings = Rings[::-1] if First[0] < Second[0] else Rings
         elif First[0] == 0.0:
-            Rings = tuple(reversed(Rings))
+            Rings = Rings[::-1]
         FaceLoops: list[str] = []
         for EdgeValue, Reversed, Radius in Rings:
             if EdgeValue is None or (

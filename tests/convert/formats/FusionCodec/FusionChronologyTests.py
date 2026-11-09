@@ -97,7 +97,7 @@ def TestGroupOrder() -> None:
         SpanValue.ObjectId: SpanValue for SpanValue in ReadBulkSpans(BulkData, MetaData)
     }
     with Raises(ValueError, match="group membership"):
-        ReadHistory(BulkData, Owners[35], Owners)
+        _ = ReadHistory(BulkData, Owners[35], Owners)
 
 
 # unsigned boundary values and empty histories keep their native encoding
@@ -114,10 +114,10 @@ def TestHistWidths() -> None:
 def TestHistBad() -> None:
     for OwnerId in (-1, 1 << 64, False):
         with Raises(ValueError, match="reference"):
-            EmitHistory(OwnerId, ())
+            _ = EmitHistory(OwnerId, ())
     for Entries in ((-1,), (1 << 64,), (True,), (9, 9), (5,) * 100001, [5]):
         with Raises(ValueError, match="reference"):
-            EmitHistory(26, Entries)
+            _ = EmitHistory(26, Entries)
 
 
 # group validation protects exact state and name widths before packing records
@@ -135,4 +135,4 @@ def TestGroupBad() -> None:
         Replace(KSyntheticGroup, MemberIds=(5,) * 100001),
     ):
         with Raises(ValueError):
-            EmitGroup(Group)
+            _ = EmitGroup(Group)

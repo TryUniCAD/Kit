@@ -80,6 +80,7 @@ def MakeTrimRim(
 ) -> tuple[BrepCurve, BrepEdge]:
     CurveId = f"{Identity}-curve"
     Geometry = Operand.Geometry
+    Curve: CircleCurve | LineCurve
     if isinstance(Geometry, ArcGeometry):
         Center = PlacePrismPoint(FrameValue, Geometry.center, Height)
         Radius = Geometry.radius
@@ -96,8 +97,9 @@ def MakeTrimRim(
             for Angle in (Lower, Upper)
         )
     else:
-        Curve, Upper, Finish = MakeTrimLine(CurveId, Operand, FrameValue, Height)
-        Start = Curve.origin
+        LineValue, Upper, Finish = MakeTrimLine(CurveId, Operand, FrameValue, Height)
+        Start = LineValue.origin
+        Curve = LineValue
         Lower = 0.0
     Accuracy = GetEdgeTol(First, Second, Start, Finish, Tolerance)
     return Curve, BrepEdge(
