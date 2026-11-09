@@ -47,6 +47,7 @@ def ReadCurrentLink(
     Cursor = MetaCursor(BulkData[BaseSpan.PayloadOffset : BaseSpan.EndOffset])
     if Cursor.TakeBytes(4) != bytes(4):
         raise ValueError("Unsupported Fusion body component continuation prefix")
+    Identity = None
     for FieldIndex, ClassGuid in enumerate(KCurrentLinks):
         if FieldIndex == 2 and Cursor.TakeBytes(32) != KUnsetBounds:
             raise ValueError("Unsupported Fusion body component reference framing")
@@ -55,4 +56,6 @@ def ReadCurrentLink(
         Linked.Offset = len(Linked.DataValue) - 11
         if ReadNativeRef(Linked) != ComponentId:
             raise ValueError("Fusion body component reference owner disagrees")
+    if Identity is None:
+        raise ValueError("Missing Fusion body component links")
     return Identity

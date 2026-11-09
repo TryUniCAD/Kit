@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from typing import Mapping as TypeMap
 
 from interchange.features.FeatureStep import FeatureStep
@@ -43,7 +44,7 @@ def GetPlaneInputs(
         )
     (Element,) = PickValue.path
     if (
-        not isinstance(Element, SelectPathElem)
+        not isinstance(CastValue(object, Element), SelectPathElem)
         or Element.entity_kind != "support_plane"
         or Element.subelement
     ):

@@ -74,8 +74,8 @@ def CheckRevValues(
     Actual = EditFloat(
         EditChild(Native, "Angle", "App::PropertyFloatConstraint", "Float"), "value"
     )
-    Expected = Degrees(Along if Against is None else Along + Against)
-    if not IsClose(Actual, Expected, rel_tol=0.0, abs_tol=1e-9):
+    ExpectedAngle = Degrees(Along if Against is None else Along + Against)
+    if not IsClose(Actual, ExpectedAngle, rel_tol=0.0, abs_tol=1e-9):
         raise ValueError(
             "FreeCAD editable Revolve angle disagrees with its spreadsheet"
         )

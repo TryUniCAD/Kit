@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from convert.formats.Fusion.AssetCodec.SegmentFrame import SegmentFrame
 from convert.formats.Fusion.AssetCodec.SegmentPlan import SegmentPlan
 from convert.formats.Fusion.BulkSpans import ReadBulkSpans
@@ -21,9 +22,9 @@ def BuildSegFrame(
     Value: SegmentPlan, Segment: SegmentKind, SegmentId: int
 ) -> SegmentFrame:
     if (
-        not isinstance(Value, SegmentPlan)
-        or not isinstance(Value.Metadata, MetaSegment)
-        or not isinstance(Value.Metadata.Header, MetaHeader)
+        not isinstance(CastValue(object, Value), SegmentPlan)
+        or not isinstance(CastValue(object, Value.Metadata), MetaSegment)
+        or not isinstance(CastValue(object, Value.Metadata.Header), MetaHeader)
         or Value.Metadata.Header.Segment is not Segment
         or Value.Metadata.Header.SegmentId != SegmentId
         or type(Value.Records) is not tuple

@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from dataclasses import dataclass as MakeDataClass
 from math import hypot as Hypot
 from math import isclose as IsClose
@@ -65,7 +66,8 @@ class DistanceExtrude(FeatureDef):
             Identity for Identity in Extra if Identity is not None
         )
         if not all(
-            isinstance(Identity, str) and Identity.strip() for Identity in Identities
+            isinstance(CastValue(object, Identity), str) and Identity.strip()
+            for Identity in Identities
         ):
             raise ValueError("distance extrusion parameter ids must be nonempty text")
         if len(set(Identities)) != len(Identities):

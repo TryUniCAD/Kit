@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from convert.formats.Fusion.SegmentCodec.Manifest.ManifestLayout import (
     KAssetKind,
     KAssetName,
@@ -24,7 +25,7 @@ from convert.formats.Fusion.SourceProof.Auxiliary.Manifest.ReadAssetMeta import 
 
 # known ordered segment rows and counts are derived from the manifest grammar
 def EmitAssetWire(Value: AssetManifest) -> bytes:
-    if not isinstance(Value, AssetManifest) or (
+    if not isinstance(CastValue(object, Value), AssetManifest) or (
         type(Value.OpaqueWord) is not int or Value.OpaqueWord not in KOpaqueWords
     ):
         raise ValueError("Invalid typed Fusion active manifest")

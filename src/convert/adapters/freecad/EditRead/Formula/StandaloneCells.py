@@ -63,7 +63,8 @@ def ReadSavedSheet(
             "FreeCAD editable spreadsheet parameter aliases are missing or ambiguous"
         )
     Plans, Order = ReadSheetPlans(Original, Aliases)
-    Current, Changes = dict(Original), set()
+    Current = dict(Original)
+    Changes: set[str] = set()
     for Identity in Order:
         Param, PlanValue = Original[Identity], Plans[Identity]
         Alias = Aliases[Identity]

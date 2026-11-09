@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from math import isclose as IsClose, isfinite as IsFinite, pi as HalfTurn
 from re import compile as CompilePattern
 
@@ -26,7 +27,7 @@ def IsLiteralQty(
     SourceText: str, KindValue: ValueKind | str, StoredValue: object, StoredUnit: object
 ) -> bool:
     if (
-        not isinstance(SourceText, str)
+        not isinstance(CastValue(object, SourceText), str)
         or len(SourceText) > 128
         or not isinstance(StoredUnit, str)
         or not isinstance(StoredValue, (float, int))

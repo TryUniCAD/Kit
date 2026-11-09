@@ -20,6 +20,7 @@ KSketchTolerance = 1e-9
 # the only live loop remains the selected circle and its construction point coordinates
 def CheckEditGeom(NodeValue: Element, Entity: SketchEntity, Selected: bool) -> None:
     Geometry = Entity.geometry
+    Coordinates: tuple[tuple[str, float], ...]
     if Selected and isinstance(Geometry, CircleGeometry):
         TypeName, ChildName = "Part::GeomCircle", "Circle"
         Coordinates = (

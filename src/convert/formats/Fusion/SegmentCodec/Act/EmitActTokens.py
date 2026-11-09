@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from uuid import UUID
 
 from convert.formats.Fusion.SegmentCodec.Metadata.MetaSink import MetaSink
@@ -34,7 +35,10 @@ def EmitActRolesMut(
         if type(RoleRow) is not tuple or len(RoleRow) != 2:
             raise ValueError("Invalid Fusion ACT role row")
         RoleValue, TokenText = RoleRow
-        if not isinstance(RoleValue, ActRole) or RoleValue.value <= LastName:
+        if (
+            not isinstance(CastValue(object, RoleValue), ActRole)
+            or RoleValue.value <= LastName
+        ):
             raise ValueError("Invalid or unordered Fusion ACT roles")
         SinkValue.AddText(RoleValue.value)
         EmitActUuidMut(SinkValue, TokenText)

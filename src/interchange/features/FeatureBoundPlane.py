@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 
+from typing import cast as CastValue
 from dataclasses import dataclass as MakeDataClass
 
 from interchange.features.FeatureContract import FeatureDef
@@ -29,7 +30,7 @@ class BoundConstructionPlane(FeatureDef):
             raise ValueError("unsupported construction plane method")
         if (
             not all(
-                isinstance(Value, str) and Value.strip()
+                isinstance(CastValue(object, Value), str) and Value.strip()
                 for Value in (
                     self.SupportPlaneId,
                     self.ScalarParameterId,

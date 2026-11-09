@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from dataclasses import dataclass as MakeDataClass
 from math import tau as FullTurn
 from sys import float_info as FloatInfo
@@ -29,13 +30,14 @@ class PlaneRevolve(FeatureDef):
 
     # downstream writers need finite axis geometry and an unambiguous bounded interval
     def __post_init__(self) -> None:
-        if not isinstance(self.PlaneSelectionIds, tuple) or len(
+        if not isinstance(CastValue(object, self.PlaneSelectionIds), tuple) or len(
             self.PlaneSelectionIds
         ) not in (1, 2):
             raise ValueError("plane revolution requires one or two plane selections")
         Selections = (self.AxisSelectionId, *self.PlaneSelectionIds)
         if not all(
-            isinstance(Identity, str) and Identity.strip() for Identity in Selections
+            isinstance(CastValue(object, Identity), str) and Identity.strip()
+            for Identity in Selections
         ):
             raise ValueError("plane revolution selection ids must be nonempty text")
         if len(set(Selections)) != len(Selections):

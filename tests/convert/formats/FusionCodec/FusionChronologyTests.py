@@ -8,6 +8,7 @@
 
 
 from dataclasses import replace as Replace
+from typing import cast as CastValue
 from struct import pack as PackValue
 
 from pytest import raises as Raises
@@ -117,7 +118,7 @@ def TestHistBad() -> None:
             _ = EmitHistory(OwnerId, ())
     for Entries in ((-1,), (1 << 64,), (True,), (9, 9), (5,) * 100001, [5]):
         with Raises(ValueError, match="reference"):
-            _ = EmitHistory(26, Entries)
+            _ = EmitHistory(26, CastValue(tuple[int, ...], Entries))
 
 
 # group validation protects exact state and name widths before packing records

@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from dataclasses import dataclass as MakeDataClass
 from math import isfinite as IsFinite
 from re import compile as CompileRegex
@@ -31,7 +32,11 @@ class FormulaAtom:
 
 # the lexer validates every character before parsing or emitting native expressions
 def ReadTokens(Source: str) -> tuple[str | FormulaAtom, ...] | None:
-    if not isinstance(Source, str) or not Source or len(Source) > 1024:
+    if (
+        not isinstance(CastValue(object, Source), str)
+        or not Source
+        or len(Source) > 1024
+    ):
         return None
     Cursor = 0
     Values: list[str | FormulaAtom] = []

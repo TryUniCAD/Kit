@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from dataclasses import dataclass as MakeDataClass
 
 from interchange.features.FeatureContract import FeatureDef
@@ -38,7 +39,7 @@ class PlaneExtrude(FeatureDef):
             if Value is not None
         )
         if not all(
-            isinstance(Value, str) and Value.strip()
+            isinstance(CastValue(object, Value), str) and Value.strip()
             for Value in (self.PlaneSelectionId, *Bindings)
         ):
             raise ValueError(

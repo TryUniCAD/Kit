@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 
+from typing import cast as CastValue
 from struct import pack as PackValue
 
 from convert.formats.Fusion.HistoryGroup import HistoryGroup
@@ -19,9 +20,9 @@ from convert.formats.Fusion.SegmentCodec.Chronology.PackHistRefs import (
 # timeline groups emit their ordered members and encoded name independently of file offsets
 def EmitGroup(Group: HistoryGroup) -> bytes:
     if (
-        not isinstance(Group, HistoryGroup)
+        not isinstance(CastValue(object, Group), HistoryGroup)
         or not IsHistId(Group.ObjectId)
-        or type(Group.IsCollapsed) is not bool
+        or type(CastValue(object, Group.IsCollapsed)) is not bool
         or type(Group.GroupName) is not str
         or len(Group.GroupName) > 1024
         or not all(Letter.isprintable() for Letter in Group.GroupName)

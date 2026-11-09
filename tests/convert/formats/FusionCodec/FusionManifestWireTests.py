@@ -11,6 +11,7 @@ from io import BytesIO
 from pathlib import Path as FilePath
 from struct import pack as PackValue
 from sys import version_info as PythonVersion
+from typing import cast as CastValue
 from zipfile import ZipFile
 
 from pytest import mark as TestMark, raises as Raises
@@ -91,7 +92,10 @@ def TestFreshWire() -> None:
     "Value",
     (
         Replace(KSyntheticRoot, AssetId=KSyntheticRoot.AssetId.upper()),
-        Replace(KSyntheticRoot, OpaqueIds=KSyntheticRoot.OpaqueIds[:1]),
+        Replace(
+            KSyntheticRoot,
+            OpaqueIds=CastValue(tuple[str, str], KSyntheticRoot.OpaqueIds[:1]),
+        ),
         Replace(KSyntheticRoot, OpaqueWords=(0, 1 << 32)),
         Replace(KSyntheticRoot, Versions=KSyntheticRoot.Versions[::-1]),
         Replace(KSyntheticRoot, Title="Line\nbreak"),

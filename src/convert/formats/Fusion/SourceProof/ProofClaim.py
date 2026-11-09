@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 
+from typing import cast as CastValue
 from dataclasses import dataclass as MakeDataClass
 from enum import StrEnum
 
@@ -57,9 +58,11 @@ class ProofClaim:
     # complete dispositions must be explicit typed claims with a named evidence producer
     def __post_init__(self) -> None:
         if (
-            not isinstance(self.Scope, ProofScope)
-            or not isinstance(self.Target, (ArchiveMember, RecordSpan))
-            or not isinstance(self.Category, ProofCategory)
+            not isinstance(CastValue(object, self.Scope), ProofScope)
+            or not isinstance(
+                CastValue(object, self.Target), (ArchiveMember, RecordSpan)
+            )
+            or not isinstance(CastValue(object, self.Category), ProofCategory)
             or type(self.Evidence) is not str
             or len(self.Evidence) > 1024
             or not self.Evidence.strip()

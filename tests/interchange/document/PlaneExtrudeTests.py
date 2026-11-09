@@ -40,7 +40,7 @@ def BuildPlaneDoc(RoleValue: str) -> CadDocument:
         SpaceVector(0.0, 0.6, 0.8),
     )
     Limit = ReplaceValue(Frame, origin=SpaceVector(7.0, 23.0, 7.0))
-    Params = (
+    Params: tuple[Parameter, ...] = (
         Parameter(
             "offset",
             "Offset",

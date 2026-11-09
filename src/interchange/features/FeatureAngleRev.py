@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from dataclasses import dataclass as MakeDataClass
 
 from interchange.features.FeatureContract import FeatureDef
@@ -40,7 +41,8 @@ class AngularRevolve(FeatureDef):
         if Against is not None:
             Identities += (Against,)
         if not all(
-            isinstance(Identity, str) and Identity.strip() for Identity in Identities
+            isinstance(CastValue(object, Identity), str) and Identity.strip()
+            for Identity in Identities
         ):
             raise ValueError(
                 "angular revolution selection and parameter ids must be nonempty text"

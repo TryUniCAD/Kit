@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from math import hypot as Hypot
 from math import isclose as IsClose
 from sys import float_info as FloatInfo
@@ -15,8 +16,8 @@ from interchange.geometry.models.VectorSpace import SpaceVector
 
 # shared axis qualification keeps every revolution definition safe for geometry consumers
 def CheckRevAxis(AxisOrigin: SpaceVector, AxisDirection: SpaceVector) -> None:
-    if not isinstance(AxisOrigin, SpaceVector) or not isinstance(
-        AxisDirection, SpaceVector
+    if not isinstance(CastValue(object, AxisOrigin), SpaceVector) or not isinstance(
+        CastValue(object, AxisDirection), SpaceVector
     ):
         raise ValueError("revolution axis requires spatial vectors")
     Direction = (AxisDirection.x, AxisDirection.y, AxisDirection.z)

@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from math import isfinite as IsFinite
 from math import pi as Pi
 
@@ -26,7 +27,7 @@ def BuildSphere(
     Radial: SpaceVector,
     Radius: float,
 ) -> tuple[BrepModel, float, float, BoundingBox]:
-    if not isinstance(BodyId, str) or not BodyId.strip():
+    if not isinstance(CastValue(object, BodyId), str) or not BodyId.strip():
         raise ValueError("Sphere Revolve requires a design body identity")
     Surface = SphereSurface(
         f"{BodyId}-sweep-surface", Center, AxisDirection, Radial, Radius

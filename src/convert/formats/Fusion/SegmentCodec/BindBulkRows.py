@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from collections.abc import Iterable, Iterator
 
 from convert.formats.Fusion.SegmentCodec.Bulk.BulkBounds import KMinClassCode
@@ -29,7 +30,7 @@ def BindBulkRows(
     Owners: dict[int, int] = {}
     for CodeValue, Entry in Registry.items():
         if (
-            not isinstance(Entry, MetaClass)
+            not isinstance(CastValue(object, Entry), MetaClass)
             or type(Entry.ClassGuid) is not str
             or type(Entry.BaseGuid) is not str
             or not Entry.ClassGuid
@@ -46,7 +47,7 @@ def BindBulkRows(
     Ranges = MapLineage(Parents)
     for RecordValue in Records:
         if (
-            not isinstance(RecordValue, BulkRecord)
+            not isinstance(CastValue(object, RecordValue), BulkRecord)
             or type(RecordValue.TypeCode) is not int
             or type(RecordValue.ObjectId) is not int
             or type(RecordValue.IsPrimary) is not bool

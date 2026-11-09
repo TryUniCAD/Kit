@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from math import isfinite as IsFinite
 
 from convert.geometry.Extrude.Polygon.PrismFrame import CheckPrismFrame
@@ -37,7 +38,7 @@ def BuildTrimPrism(
 ) -> tuple[BrepModel, float, float, BoundingBox]:
     Height = UpperMm - LowerMm
     if (
-        not isinstance(BodyId, str)
+        not isinstance(CastValue(object, BodyId), str)
         or not BodyId.strip()
         or not (IsFinite(Height) and Height > 0.0)
     ):

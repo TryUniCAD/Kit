@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from zlib import crc32 as CrcValue
 
 from convert.formats.Fusion.AssetCodec.Zip.ZipAssetRow import ZipAssetRow
@@ -18,7 +19,7 @@ from convert.formats.Fusion.AssetCodec.Zip.ZstdRaw import ZstdFrameSize
 # validated entry facts make malformed directory rows and oversized frames impossible
 def PlanZipRow(Member: ZipAssetRow, Offset: int) -> ZipPlanRow:
     if (
-        not isinstance(Member, ZipAssetRow)
+        not isinstance(CastValue(object, Member), ZipAssetRow)
         or type(Member.Data) is not bytes
         or type(Member.UseZstd) is not bool
     ):

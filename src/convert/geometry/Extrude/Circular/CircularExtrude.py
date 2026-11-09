@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from math import dist as Distance
 from sys import float_info as FloatInfo
 
@@ -29,7 +30,7 @@ def BuildCircular(
     LowerRadius: float,
     UpperRadius: float,
 ) -> tuple[BrepModel, float, float, BoundingBox]:
-    if not isinstance(BodyId, str) or not BodyId.strip():
+    if not isinstance(CastValue(object, BodyId), str) or not BodyId.strip():
         raise ValueError("Circular extrusion requires a design body identity")
     Dimensions = (
         Profile.center.x,

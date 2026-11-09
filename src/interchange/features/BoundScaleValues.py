@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from math import isfinite as IsFinite
 from sys import float_info as FloatInfo
 from typing import Mapping as TypeMap
@@ -32,7 +33,7 @@ def ReadScaleFactor(
         raise ValueError("scale factor parameter is missing or unowned")
     DataValue = Param.value
     if (
-        not isinstance(DataValue, ParameterValue)
+        not isinstance(CastValue(object, DataValue), ParameterValue)
         or DataValue.kind != ValueKind.KNumber
         or DataValue.unit
         or (

@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from uuid import UUID as ParseUuid
 
 from convert.formats.Fusion.SegmentCodec.Metadata.MetaLimits import KMaxMetaText
@@ -50,7 +51,7 @@ class ManifestSink(MetaSink):
         for Entry, KeyName in zip(Values, KeysValue, strict=True):
             if (
                 type(Entry) is not tuple
-                or len(Entry) != 2
+                or len(CastValue(tuple[object, ...], Entry)) != 2
                 or type(Entry[0]) is not str
                 or Entry[0] != KeyName
             ):

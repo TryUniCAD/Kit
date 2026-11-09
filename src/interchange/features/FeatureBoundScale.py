@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from dataclasses import dataclass as MakeDataClass
 
 from interchange.features.FeatureContract import FeatureDef
@@ -22,7 +23,7 @@ class BoundScale(FeatureDef):
     def __post_init__(self) -> None:
         Picks = (self.CenterSelectionId, *self.BodySelectionIds)
         if not all(
-            isinstance(Value, str) and Value.strip()
+            isinstance(CastValue(object, Value), str) and Value.strip()
             for Value in (*self.FactorParameterIds, *Picks)
         ):
             raise ValueError("scale input identities must be nonempty text")

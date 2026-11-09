@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from collections.abc import Iterable
 
 from convert.formats.Fusion.SegmentCodec.Bulk.BulkBounds import KMaxBulkBytes
@@ -25,8 +26,8 @@ def EmitBulkStream(
     Owners = BulkOwners()
     for RecordValue in Records:
         if (
-            not isinstance(RecordValue, BulkRecord)
-            or type(RecordValue.IsPrimary) is not bool
+            not isinstance(CastValue(object, RecordValue), BulkRecord)
+            or type(CastValue(object, RecordValue.IsPrimary)) is not bool
             or type(RecordValue.Payload) is not bytes
         ):
             raise ValueError("Invalid Fusion BulkStream record")

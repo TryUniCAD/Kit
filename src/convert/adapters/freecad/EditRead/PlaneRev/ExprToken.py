@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from decimal import Decimal
 from math import isfinite as IsFinite
 from re import compile as CompilePattern
@@ -33,7 +34,10 @@ KExprToken = tuple[str, str]
 
 # expression text must fit the native grammar before structural comparison
 def ReadExprTokens(TextValue: str) -> tuple[KExprToken, ...]:
-    if not isinstance(TextValue, str) or len(TextValue) > KMaxTextSize:
+    if (
+        not isinstance(CastValue(object, TextValue), str)
+        or len(TextValue) > KMaxTextSize
+    ):
         raise ValueError("invalid plane expression size")
     TextValue = TextValue.rstrip(" \t\r\n")
     Tokens: list[KExprToken] = []

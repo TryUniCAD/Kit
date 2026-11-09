@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from convert.formats.Fusion.SegmentCodec.Manifest.ManifestLayout import (
     KAssetName,
     KExportLabel,
@@ -21,9 +22,9 @@ from convert.formats.Fusion.SourceProof.Auxiliary.Manifest.ReadRootMeta import K
 # a fresh typed document root can be packed without a captured manifest template
 def EmitRootWire(Value: RootManifest) -> bytes:
     if (
-        not isinstance(Value, RootManifest)
+        not isinstance(CastValue(object, Value), RootManifest)
         or type(Value.OpaqueIds) is not tuple
-        or len(Value.OpaqueIds) != 2
+        or len(CastValue(tuple[object, ...], Value.OpaqueIds)) != 2
         or type(Value.OpaqueWords) is not tuple
         or len(Value.OpaqueWords) != 2
     ):

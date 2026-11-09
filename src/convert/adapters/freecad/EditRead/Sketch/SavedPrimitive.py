@@ -82,14 +82,14 @@ def ReadPrimitive(NodeValue: Element, ChildName: str) -> KSketchPrimitive:
         raise ValueError("FreeCAD saved sketch circular radius is degenerate")
     if ChildName == "Circle":
         return CircleGeometry(Center, Radius)
-    Start, EndAngle = EditFloat(NodeValue, "StartAngle"), EditFloat(
+    StartAngle, EndAngle = EditFloat(NodeValue, "StartAngle"), EditFloat(
         NodeValue, "EndAngle"
     )
-    SpanValue = EndAngle - Start
+    SpanValue = EndAngle - StartAngle
     if (
-        max(abs(Start), abs(EndAngle)) > 2 * FullTurn
+        max(abs(StartAngle), abs(EndAngle)) > 2 * FullTurn
         or not KSketchTolerance < SpanValue < FullTurn - KSketchTolerance
     ):
         raise ValueError("FreeCAD saved sketch arc trim is degenerate")
-    StartAngle = Start % FullTurn
+    StartAngle %= FullTurn
     return ArcGeometry(Center, Radius, StartAngle, StartAngle + SpanValue)
