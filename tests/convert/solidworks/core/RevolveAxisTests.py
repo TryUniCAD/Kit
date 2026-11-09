@@ -39,7 +39,7 @@ def TestAxisOwner() -> None:
     Definition = Feature.definition
     assert isinstance(Definition, RevolutionFeature)
     if Operation.axis_marker_offset is None:
-        assert Definition.axis_entity_id == "sldprt:sketch-entity:63"
+        assert Definition.axis_entity_id == "sldprt:sketch:63"
     else:
         AxisSketch = next(
             ItemValue
