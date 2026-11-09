@@ -200,7 +200,7 @@ def ProjectFusionDoc(
             Diagnostic(
                 code="fusion.history.partial",
                 message="Fusion history projection covers ordering, numeric parameters, supported plane frames, a subset of sketch geometry and constraints, and supported Extrude and Revolve definitions and solids. "
-                "Additional feature definitions, bodies, and assemblies require further decoding.",
+                + "Additional feature definitions, bodies, and assemblies require further decoding.",
             ),
         ),
         capabilities=frozenset(Capabilities),

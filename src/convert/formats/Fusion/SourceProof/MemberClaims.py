@@ -22,8 +22,8 @@ KConfigUuid = r"[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}"
 # the observed active configuration names address the two separately stored json roles
 KConfigMember = CompilePattern(
     r"FusionAssetName\[Active\]/DesignConfigurationTable\.BlobParts/"
-    rf"(?:DesignConfigurationTable\.{KConfigUuid}\.dsgcfg|"
-    rf"DesignConfigurationRule\.{KConfigUuid}\.dsgcfgrule)"
+    + rf"(?:DesignConfigurationTable\.{KConfigUuid}\.dsgcfg|"
+    + rf"DesignConfigurationRule\.{KConfigUuid}\.dsgcfgrule)"
 )
 
 
@@ -32,7 +32,7 @@ def ReadMemberClaims(
     Archive: IndexedArchive, Scope: ProofScope
 ) -> tuple[ProofClaim, ...]:
     Loaded = Archive.ReadNames
-    Claims = []
+    Claims: list[ProofClaim] = []
     for Member in Archive.Members:
         if Member.Name in KDesignStreams:
             Claims.append(

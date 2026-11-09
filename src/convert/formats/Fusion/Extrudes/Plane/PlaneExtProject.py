@@ -59,8 +59,8 @@ def ProjectPlaneExts(
     BySketch = {SketchValue.id: SketchValue for SketchValue in Sketches}
     Scopes = None
     Updated = {}
-    Selections = []
-    Diagnostics = []
+    Selections: list[Selection] = []
+    Diagnostics: list[Diagnostic] = []
     for Identity, Step in ByNative.items():
         if Step.kind != FeatureKind.KExtrusion or Step.definition is not None:
             continue

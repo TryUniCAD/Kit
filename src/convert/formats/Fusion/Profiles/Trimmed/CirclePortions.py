@@ -40,7 +40,7 @@ def ReadCircleTrim(
         )
         for TagValue, Source in Circles.items()
     }
-    Portions = []
+    Portions: list[TrimPortion] = []
     for Entity, Selector in Members:
         Angles = Cuts[Selector[1]]
         Ordinal, Count = Selector[4:6]

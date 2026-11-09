@@ -187,7 +187,7 @@ def ReadPrismRaw(ShapeData: bytes, Sides: int, AllowRootTrim: bool = False) -> P
     if Pcurves and Datums and (not AllowRootTrim or len(Chains) != 2):
         raise DecodeFailure("located explicit prism pcurves are unsupported")
     Cursor = Tokens(ShapeData[ModelStart:])
-    Ignored, Curves = ReadModelCurves(Cursor, "freecad:edit-prism")
+    _, Curves = ReadModelCurves(Cursor, "freecad:edit-prism")
     ZeroTable(Cursor, b"Polygon3D")
     ZeroTable(Cursor, b"PolygonOnTriangulations")
     Surfaces = ReadModelSurfs(Cursor, "freecad:edit-prism")

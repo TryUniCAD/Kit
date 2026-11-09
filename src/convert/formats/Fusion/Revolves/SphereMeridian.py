@@ -33,7 +33,7 @@ def ReadSphereAxis(
         FrameValue, (First, Middle, Last), AxisOrigin, AxisDirection
     )
     Direction = SpaceVector(*Effective)
-    AxisPoints = []
+    AxisPoints: list[SpaceVector] = []
     for Local in (ArcValue.center, First, Last):
         World = OffsetVector(
             OffsetVector(FrameValue.origin, FrameValue.x_axis, Local.x),

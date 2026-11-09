@@ -60,7 +60,7 @@ def PrepScale(
         return None
     FactorRefs = tuple(Ref for Ref in Refs if Ref)
     Translation = ScaleOffset(Plan.Center.Point, Plan.Factors)
-    Caches = []
+    Caches: list[ScaleCache] = []
     for Body in Plan.Bodies:
         Source = Items.get(Body.SourceId)
         if Source is None:

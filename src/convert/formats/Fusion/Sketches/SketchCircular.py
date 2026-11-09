@@ -67,7 +67,7 @@ def ReadSketchArc(
         Normal[2] * RefAxis[0] - Normal[0] * RefAxis[2],
         Normal[0] * RefAxis[1] - Normal[1] * RefAxis[0],
     )
-    Radians = []
+    Radians: list[float] = []
     for Angle, PointValue in ((NativeStart, StartPoint), (NativeEnd, EndPoint)):
         Cosine, Sine = Cos(Angle), Sin(Angle)
         Radial = tuple(

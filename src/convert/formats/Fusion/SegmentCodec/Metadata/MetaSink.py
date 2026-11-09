@@ -20,29 +20,29 @@ class MetaSink:
     __slots__ = ("Buffer",)
 
     # a single mutable buffer avoids rebuilding the accumulated wire output
-    def __init__(SinkValue) -> None:
-        SinkValue.Buffer = bytearray()
+    def __init__(self) -> None:
+        self.Buffer = bytearray()
 
     # bytes from any field share the same cumulative member limit
-    def AddBytes(SinkValue, Content: bytes) -> None:
-        if len(SinkValue.Buffer) + len(Content) > KMaxMetaSize:
+    def AddBytes(self, Content: bytes) -> None:
+        if len(self.Buffer) + len(Content) > KMaxMetaSize:
             raise ValueError("Oversized Fusion MetaStream")
-        SinkValue.Buffer.extend(Content)
+        self.Buffer.extend(Content)
 
     # unsigned word validation keeps invalid typed values out of struct packing
-    def AddWord(SinkValue, Number: int) -> None:
+    def AddWord(self, Number: int) -> None:
         if type(Number) is not int or not 0 <= Number < 1 << 32:
             raise ValueError("Invalid Fusion MetaStream unsigned word")
-        SinkValue.AddBytes(PackValue("<I", Number))
+        self.AddBytes(PackValue("<I", Number))
 
     # full width identities and offsets must survive synthetic construction unchanged
-    def AddLong(SinkValue, Number: int) -> None:
+    def AddLong(self, Number: int) -> None:
         if type(Number) is not int or not 0 <= Number < 1 << 64:
             raise ValueError("Invalid Fusion MetaStream unsigned long")
-        SinkValue.AddBytes(PackValue("<Q", Number))
+        self.AddBytes(PackValue("<Q", Number))
 
     # text counts describe encoded units rather than unicode scalar values
-    def AddText(SinkValue, Content: str, *, WideText: bool = False) -> None:
+    def AddText(self, Content: str, *, WideText: bool = False) -> None:
         if (
             type(Content) is not str
             or len(Content) > KMaxMetaText
@@ -53,11 +53,11 @@ class MetaSink:
         Count = len(DataValue) // (2 if WideText else 1)
         if Count > KMaxMetaText:
             raise ValueError("Oversized Fusion MetaStream string")
-        SinkValue.AddWord(Count)
-        SinkValue.AddBytes(DataValue)
+        self.AddWord(Count)
+        self.AddBytes(DataValue)
 
     # sequence lengths are generated from immutable typed rows rather than copied bytes
-    def AddCount(SinkValue, Items: tuple[object, ...], Maximum: int) -> None:
+    def AddCount(self, Items: tuple[object, ...], Maximum: int) -> None:
         if type(Items) is not tuple or len(Items) > Maximum:
             raise ValueError("Invalid Fusion MetaStream sequence")
-        SinkValue.AddWord(len(Items))
+        self.AddWord(len(Items))

@@ -23,7 +23,7 @@ def ReadTableRefs(
 ) -> None:
     if Cursor.TakeBytes(1) != b"\1" or Cursor.ReadWord() != len(Members) + 1:
         raise ValueError("Unknown Fusion parameter registry header")
-    References = []
+    References: list[int] = []
     for _ in range(len(Members) + 1):
         References.append(ReadNativeRef(Cursor))
         if Cursor.TakeBytes(4) != bytes(4):

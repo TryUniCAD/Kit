@@ -89,7 +89,7 @@ def ReadNumberProofRows(
     ):
         raise ValueError("Fusion numeric scope does not account for all parameters")
     Rank = 0
-    Result = []
+    Result: list[NumberProofRow] = []
     for Index, Identity in enumerate(Order, start=1):
         Span = Owners[Identity]
         Native = ReadNativeNum(BulkData[Span.PayloadOffset + 4 : Span.EndOffset])

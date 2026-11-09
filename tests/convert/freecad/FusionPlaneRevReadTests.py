@@ -115,7 +115,7 @@ def CheckPlaneGuard(
     RootValue, DocValue, PlanValue = ReadPlaneSeed()
     NodeValue = RootValue.find(
         f"./ObjectData/Object[@name='{ObjectName}']/Properties/"
-        f"Property[@name='{Field}']/{ChildPath}"
+        + f"Property[@name='{Field}']/{ChildPath}"
     )
     assert NodeValue is not None
     NodeValue.set(Attribute, Replacement)

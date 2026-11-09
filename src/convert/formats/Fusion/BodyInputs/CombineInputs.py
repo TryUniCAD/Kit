@@ -62,7 +62,7 @@ def ReadCombInputs(
     CheckCombFrame(BulkData, Owners, Frames[0], FeatureId)
     Handle = Cursor.ReadLong()
     Tools = ReadPickRefs(Cursor, Owners, KSelectProxy)
-    for ListIndex in range(3):
+    for _ in range(3):
         _ = ReadPickRefs(Cursor, Owners, KAnchorGuid)
     Targets = ReadPickRefs(Cursor, Owners, KSelectProxy)
     if not Tools or len(Targets) != 1 or Targets[0] in Tools:

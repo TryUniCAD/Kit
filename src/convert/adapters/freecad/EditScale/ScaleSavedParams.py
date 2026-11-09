@@ -85,7 +85,7 @@ def ReadScaleParams(
 ) -> tuple[Parameter, ...]:
     Cells = ReadScaleCells(Sheet, Catalog)
     Original = ReadScaleCells(Expected, Catalog)
-    Result = []
+    Result: list[Parameter] = []
     for Param in Parameters:
         Alias = Catalog.Aliases[Param.id]
         Before = Original[Alias].get("content", "")

@@ -38,7 +38,7 @@ def ReadOriginPt(
         or Container.ReadWord() != 7
     ):
         raise ValueError("Unsupported Fusion origin point container")
-    Members = {ReadNativeRef(Container) for Index in range(7)}
+    Members = {ReadNativeRef(Container) for _ in range(7)}
     if (
         len(Members) != 7
         or PointId not in Members

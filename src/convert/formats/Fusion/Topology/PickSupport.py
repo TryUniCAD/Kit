@@ -30,7 +30,7 @@ def ReadPickSupport(
     Count = Cursor.ReadCount(2)
     if Count == 0 or Flags != b"\1\1" or len(Cursor.DataValue) != 39 + 19 * Count:
         raise ValueError("Unsupported Fusion topology selection support count")
-    Sources = []
+    Sources: list[int] = []
     for _ in range(Count):
         Sources.append(ReadNativeRef(Cursor))
         _ = Cursor.TakeBytes(8)

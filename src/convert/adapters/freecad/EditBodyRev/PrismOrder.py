@@ -43,7 +43,7 @@ def ReadWallOrder(
     if len(ByEnds) != Count:
         raise ValueError("FreeCAD linked extrusion has ambiguous base edges")
     Members = set(Profile)
-    Order = []
+    Order: list[tuple[int, bool, str]] = []
     for Entity in SketchValue.entities:
         if Entity.id not in Members:
             continue

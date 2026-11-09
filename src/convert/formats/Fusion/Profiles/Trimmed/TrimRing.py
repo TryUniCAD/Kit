@@ -43,7 +43,7 @@ def CheckTrimRing(
             TrimEndpoint(Geometry, Parameter)
             for Parameter in (Portion.Lower, Portion.Upper)
         )
-    Connections = []
+    Connections: list[int] = []
     for Index, PointValue in enumerate(Endpoints):
         Matches = [
             Candidate

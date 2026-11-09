@@ -38,6 +38,8 @@ def ProjectRules(
                 provenance=SketchValue.provenance,
             ),
         )
+    Relations: list[SketchRelation]
+    Diagnostics: list[Diagnostic]
     Relations, Diagnostics = [], []
     for MemberId in Members:
         SpanValue = Owners.get(MemberId)

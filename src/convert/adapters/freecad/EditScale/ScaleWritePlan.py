@@ -61,7 +61,7 @@ def ReadScalePlan(
     Steps = {Value.id: Value for Value in Document.feature_timeline}
     SketchIds = set()
     Sources = set()
-    BodyPlans = []
+    BodyPlans: list[ScaleBodyPlan] = []
     Models = []
     for Body, Identity in zip(
         Document.bodies, Definition.BodySelectionIds, strict=True

@@ -31,7 +31,7 @@ def ReadAssemblyProjection(
                 Diagnostic(
                     code="fusion.assembly.partial",
                     message="Fusion local definitions and occurrence placements are available. "
-                    "Additional component geometry and assembly editing semantics require further decoding.",
+                    + "Additional component geometry and assembly editing semantics require further decoding.",
                 ),
             ),
         )
@@ -39,7 +39,7 @@ def ReadAssemblyProjection(
         if len(Parts) != 1:
             raise ValueError(
                 f"{ErrorInfo}. Select exactly one Fusion history. Available IDs: "
-                f"{tuple(Part.HistoryId for Part in Parts)}"
+                + f"{tuple(Part.HistoryId for Part in Parts)}"
             ) from ErrorInfo
         return (
             None,

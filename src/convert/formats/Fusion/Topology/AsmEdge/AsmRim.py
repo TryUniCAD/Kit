@@ -39,7 +39,7 @@ def ReadAsmRim(
         raise ValueError("Fusion ASM prism loop owner disagrees")
     First = ReadAsmPtr(LoopValue, 4)
     Current = First
-    UseValues = []
+    UseValues: list[AsmUse] = []
     Visited: set[int] = set()
     for _ in range(Maximum):
         Value = RequireAsm(Table, Current, "coedge", 11)

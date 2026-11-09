@@ -55,7 +55,7 @@ def ReadDatumParams(
     Catalog = ParamCatalog(Items(Manifest.get("parameters", [])))
     Cells = ReadScaleCells(Native, Catalog)
     Original = ReadScaleCells(Expected, Catalog)
-    Result = []
+    Result: list[Parameter] = []
     for Param in Document.parameters:
         Alias = Catalog.Aliases[Param.id]
         Before = Original[Alias].get("content", "")

@@ -34,14 +34,14 @@ def ReadMetaWire(
     Value = MetaSegment(
         ReadWireHead(Cursor, Segment),
         ReadWireClasses(Cursor),
-        tuple(Cursor.ReadLong() for Index in range(Cursor.ReadCount(KMaxMetaIds))),
+        tuple(Cursor.ReadLong() for _ in range(Cursor.ReadCount(KMaxMetaIds))),
         ReadWireTable(Cursor),
         ReadWireTable(Cursor),
         Cursor.ReadLong(),
         Cursor.ReadWord(),
         tuple(
             MetaProperty(Cursor.ReadText(), Cursor.ReadWord())
-            for Index in range(Cursor.ReadCount(KMaxMetaProps))
+            for _ in range(Cursor.ReadCount(KMaxMetaProps))
         ),
     )
     if Cursor.Offset != len(DataValue):

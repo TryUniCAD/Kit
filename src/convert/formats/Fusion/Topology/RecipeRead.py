@@ -25,12 +25,12 @@ def ReadRecipe(
     TableCount = Cursor.ReadCount(100000)
     if not TableCount:
         raise ValueError("Empty Fusion topology recipe table")
-    Entries = []
+    Entries: list[tuple[tuple[str, int, tuple[int, ...]], ...]] = []
     for _ in range(TableCount):
         TermCount = Cursor.ReadCount(64)
         if not TermCount:
             raise ValueError("Empty Fusion topology recipe name entry")
-        Terms = []
+        Terms: list[tuple[str, int, tuple[int, ...]]] = []
         for _ in range(TermCount):
             NameValue = Cursor.ReadText(Maximum=128)
             Index = Cursor.ReadWord()

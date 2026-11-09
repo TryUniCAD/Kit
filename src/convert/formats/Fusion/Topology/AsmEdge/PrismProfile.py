@@ -14,7 +14,7 @@ from interchange.geometry.models.Sketch import SketchEntity
 
 # neutral prism rim order derives from authored profile winding and exact curve tags
 def ReadProfileTags(Profile: tuple[SketchEntity, ...]) -> tuple[int, ...]:
-    Lines = []
+    Lines: list[LineGeometry] = []
     CurveTags = {}
     for Entity in Profile:
         Geometry = Entity.geometry

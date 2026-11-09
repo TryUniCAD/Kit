@@ -12,7 +12,7 @@ from convert.formats.Fusion.Assembly.NativeOccurrence import NativeOccurrence
 
 # exact collection ownership supplies child order without expanding reused definitions
 def LinkOccurrences(IndexValue: AssemblyIndex) -> tuple[NativeOccurrence, ...]:
-    Linked = []
+    Linked: list[NativeOccurrence] = []
     Claimed = set()
     ByOwner = set()
     for CollectionId, (OwnerId, Members) in IndexValue.Collections.items():

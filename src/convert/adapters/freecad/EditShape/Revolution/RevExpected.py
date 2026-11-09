@@ -66,7 +66,7 @@ def ReadWantFaces(
             raise DecodeFailure("unsupported expected Revolution surface")
         UseSense = FaceSenses[FaceValue.id]
         Sense = UseSense if FaceValue.same_sense else -UseSense
-        Rings = []
+        Rings: list[KFaceLoop] = []
         for LoopId in FaceValue.loop_ids:
             UsesValue = tuple(Coedges[Index] for Index in Loops[LoopId].coedge_ids)
             RingValue = tuple(

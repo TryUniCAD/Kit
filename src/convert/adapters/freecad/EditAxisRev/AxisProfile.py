@@ -38,7 +38,7 @@ def ReadAxisProfile(
         for Identity, Value in Entities.items()
         if Identity not in MemberSet
     }
-    Endpoints = []
+    Endpoints: list[tuple[str, str]] = []
     for Identity in Members:
         Value = Entities[Identity]
         LineValue = ReadAxisGeom(Value, Construction=False)
@@ -64,7 +64,7 @@ def JoinAxisProfile(
     Endpoints: tuple[tuple[str, str], ...], Points: dict[str, PlaneVector]
 ) -> tuple[tuple[str, str], ...]:
     First, Current = Endpoints[0]
-    Pairs = []
+    Pairs: list[tuple[str, str]] = []
     for Start, Finish in Endpoints[1:]:
         if Points[Current] == Points[Finish] and Points[Current] != Points[Start]:
             Start, Finish = Finish, Start

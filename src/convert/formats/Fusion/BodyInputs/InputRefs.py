@@ -24,7 +24,7 @@ def ReadPickRefs(
     Cursor: MetaCursor, Owners: dict[int, RecordSpan], ClassGuid: str
 ) -> tuple[int, ...]:
     References = tuple(
-        ReadNativeRef(Cursor) for Count in range(Cursor.ReadCount(KMaxBodyInputs))
+        ReadNativeRef(Cursor) for _ in range(Cursor.ReadCount(KMaxBodyInputs))
     )
     if len(set(References)) != len(References) or any(
         Identity not in Owners or Owners[Identity].ClassGuid != ClassGuid

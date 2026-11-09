@@ -27,7 +27,7 @@ def PrismEdgeRefs(
     (Shell,) = Raw.Records[Raw.RootRef.RecordA].Children
     ShellPlace = Raw.Place(Shell, Raw.Place(Raw.RootRef))
     Seen: set[tuple[int, KLocationChain]] = set()
-    Edges = []
+    Edges: list[tuple[Reference, KLocationChain, bool]] = []
     for Face in Raw.Records[Shell.RecordA].Children:
         (Wire,) = Raw.Records[Face.RecordA].Children
         WirePlace = Raw.Place(Wire, Raw.Place(Face, ShellPlace))

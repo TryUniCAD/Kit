@@ -81,7 +81,7 @@ def ReadAsmRecord(Cursor: MetaCursor, NameValue: str) -> AsmRecord:
 
 # entity names can have one or more typed class prefixes
 def ReadAsmName(Cursor: MetaCursor) -> str:
-    Parts = []
+    Parts: list[str] = []
     for _ in range(8):
         TagValue, TextValue = ReadAsmToken(Cursor)
         if (

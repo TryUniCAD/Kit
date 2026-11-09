@@ -22,7 +22,7 @@ def ReadScaleParams(
         else ("ScaleX", "ScaleY", "ScaleZ")
     )
     Params = {Value.id: Value for Value in Document.parameters}
-    Identities = []
+    Identities: list[str] = []
     for BindingId, Role in zip(Fields.FactorIds, Roles, strict=True):
         Matches = tuple(
             Value.id

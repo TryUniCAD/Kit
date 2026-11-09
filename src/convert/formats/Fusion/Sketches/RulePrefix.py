@@ -21,6 +21,8 @@ def ReadRulePrefix(
     Count = Cursor.ReadCount(16)
     if not Count:
         raise ValueError("Empty Fusion sketch relation dependency list")
+    Identities: list[int]
+    Slots: list[int]
     Identities, Slots = [], []
     for _ in range(Count):
         Identities.append(ReadNativeRef(Cursor))

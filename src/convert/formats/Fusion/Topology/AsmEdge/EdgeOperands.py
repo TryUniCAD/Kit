@@ -24,7 +24,7 @@ class EdgeOperands:
 def ReadOperandRefs(
     Payload: bytes, Offset: int, Count: int, Terms: tuple[KNameTerms, ...]
 ) -> tuple[KNameTerms, ...]:
-    Indices = []
+    Indices: list[int] = []
     for Index in range(Count):
         Entry, Sentinel = UnpackFrom("<2i", Payload, Offset + 8 * Index)
         if Sentinel != -1 or not 0 <= Entry < len(Terms):
@@ -47,7 +47,7 @@ def ReadEdgeRecipe(Terms: tuple[KNameTerms, ...], Payload: bytes) -> EdgeOperand
     ):
         raise ValueError("Unsupported Fusion straight edge recipe")
     First, Second = ReadOperandRefs(Payload, 12, 2, Terms)
-    EndValues = []
+    EndValues: list[tuple[KNameTerms, ...]] = []
     for Offset in (32, 72):
         if UnpackFrom("<iI", Payload, Offset) != (-1, 3) or Payload[
             Offset + 32 : Offset + 40

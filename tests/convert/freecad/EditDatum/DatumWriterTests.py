@@ -88,7 +88,7 @@ def CheckMultipleDatums() -> None:
     assert Cells[Aliases["angle_scalar"]] == "=90 deg"
     Timeline = Root.findall(
         f"./ObjectData/Object[@name='{KDatumGroup}']/Properties/"
-        "Property[@name='Group']/LinkList/Link"
+        + "Property[@name='Group']/LinkList/Link"
     )
     assert [Value.get("value") for Value in Timeline] == Planes
     for Name, Step in zip(Planes, Document.feature_timeline, strict=True):

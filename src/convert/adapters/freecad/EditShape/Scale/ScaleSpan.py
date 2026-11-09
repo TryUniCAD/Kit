@@ -38,8 +38,8 @@ def ReadScaleSpan(Cursor: Tokens, Dimension: int) -> ScaleSpan:
     Bounds = (Cursor.ReadNumber(), Cursor.ReadNumber())
     for Token in (b"7", b"0", b"0", b"1", b"2", b"2"):
         Cursor.ExpectToken(Token)
-    Start = tuple(Cursor.ReadNumber() for Index in range(Dimension))
-    EndPoint = tuple(Cursor.ReadNumber() for Index in range(Dimension))
+    Start = tuple(Cursor.ReadNumber() for _ in range(Dimension))
+    EndPoint = tuple(Cursor.ReadNumber() for _ in range(Dimension))
     Domain = ReadScaleDomain(Cursor)
     if Bounds != Domain or Start == EndPoint:
         raise DecodeFailure("invalid bounded Scale spline curve")

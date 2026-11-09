@@ -29,7 +29,7 @@ def IsSavedActive(StepValue: FeatureStep) -> bool:
 # final geometry requires that all active modeling steps create independent solids
 def FindExtCreators(Steps: tuple[FeatureStep, ...]) -> tuple[FeatureStep, ...]:
     ByStep = {StepValue.id: StepValue for StepValue in Steps}
-    Creators = []
+    Creators: list[FeatureStep] = []
     for StepValue in Steps:
         Origin = StepValue.provenance
         if (

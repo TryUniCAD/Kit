@@ -37,8 +37,8 @@ def ReadMirrorList(
     Count = Cursor.ReadCount(KMaxBodyInputs)
     if not Count or len(Cursor.DataValue) != 74 + 26 * Count:
         raise ValueError("Unsupported Fusion Mirror input collection width")
-    Slots = []
-    for SlotIndex in range(Count):
+    Slots: list[tuple[int, int]] = []
+    for _ in range(Count):
         Descriptor = ReadNativeRef(Cursor)
         if Cursor.ReadWord() != 1:
             raise ValueError("Unsupported Fusion Mirror input association count")

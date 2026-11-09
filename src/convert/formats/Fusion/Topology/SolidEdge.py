@@ -47,7 +47,7 @@ def SelectAsmEdge(
     for Value in Edges.values():
         for Identity in Value.Vertices:
             VertexFaces.setdefault(Identity, set()).update(Value.Faces)
-    EndValues = []
+    EndValues: list[int] = []
     for Group in Recipe.Endpoints:
         Faces = {Prism.Names[Value] for Value in Group}
         Matches = tuple(

@@ -43,7 +43,7 @@ def ReadScaleData(
     if Factor is None:
         if CachedFactor != 0 or Cursor.TakeBytes(6) != b"\x01" + bytes(5):
             raise ValueError("Unsupported Fusion nonuniform Scale input layout")
-        Factors = tuple(ReadNativeRef(Cursor) for AxisIndex in range(3))
+        Factors = tuple(ReadNativeRef(Cursor) for _ in range(3))
         if Cursor.ReadWord() != 1:
             raise ValueError("Fusion Scale input collection count changed")
     else:

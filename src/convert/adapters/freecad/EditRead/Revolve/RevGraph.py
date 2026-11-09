@@ -71,7 +71,8 @@ def ReadRevFiles(
     Shape = ReadShapeFile(Feature, "Shape")
     SketchShape, Internal = ReadSketchFiles(Profile)
     if (
-        Shape != f"{Feature.name}.Shape.brp"
+        Shape is None
+        or Shape != f"{Feature.name}.Shape.brp"
         or (SketchShape is not None and SketchShape != f"{Profile.name}.Shape.brp")
         or (Internal is not None and Internal != f"{Profile.name}.InternalShape.brp")
     ):

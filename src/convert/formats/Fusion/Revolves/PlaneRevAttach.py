@@ -63,7 +63,7 @@ def AttachPlaneRev(
         BulkData, Owners, AxisId, ComponentId
     )
     Targets = TargetPlanes(StepValue, Picks, Frames)
-    Collections = []
+    Collections: list[int] = []
     for _, PlaneValue in Targets:
         PlaneComponent, CollectionId = ReadPlaneComp(BulkData, Owners, PlaneValue)
         if PlaneComponent != ComponentId:

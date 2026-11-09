@@ -23,8 +23,8 @@ from interchange.geometry.models.VectorSpace import SpaceVector
 def ScaleLines(
     Curves: tuple[ScaleSpan, ...], Records: dict[int, ShapeRecord]
 ) -> tuple[tuple[LineCurve, ...], dict[int, ShapeRecord]]:
-    Lines = []
-    Lengths = []
+    Lines: list[LineCurve] = []
+    Lengths: list[float] = []
     for Index, SpanValue in enumerate(Curves, 1):
         Origin = SpaceVector(*SpanValue.Start)
         EndPoint = SpaceVector(*SpanValue.EndPoint)

@@ -35,7 +35,7 @@ def TargetPlanes(
     if not isinstance(Ids, tuple) or len(Ids) not in (1, 2):
         raise ValueError("Fusion plane Revolve requires one or two targets")
     ById = {Value.id: Value for Value in Picks}
-    Targets = []
+    Targets: list[tuple[Selection, SupportPlane]] = []
     for RoleName, SelectId in zip(("target_one", "target_two"), Ids):
         PickValue = ById.get(f"fusion-selection-{SelectId}-{RoleName}")
         if PickValue is None or len(PickValue.path) != 1:

@@ -37,7 +37,7 @@ def ReadCurrentBody(
     Members = tuple(ReadNativeRef(Cursor) for _ in range(Count))
     if len(set(Members)) != Count:
         raise ValueError("Fusion body collection repeats member identity")
-    BodyIds = []
+    BodyIds: list[int] = []
     for Identity in Members:
         SpanValue = Owners.get(Identity)
         if SpanValue is None or SpanValue.ClassGuid not in (KBodyGuid, KMeshGuid):

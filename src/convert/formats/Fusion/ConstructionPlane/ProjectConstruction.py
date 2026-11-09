@@ -95,7 +95,7 @@ def ProjectConstructionPlanes(
     }
     Owners = {Span.ObjectId: Span for Span in Spans if Span.IsPrimary}
     Params = {Value.id: Value for Value in Parameters}
-    Result = []
+    Result: list[FeatureStep] = []
     for StepValue in Steps:
         Origin = StepValue.provenance
         Qualified = StepValue

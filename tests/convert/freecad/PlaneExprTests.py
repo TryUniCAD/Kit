@@ -17,15 +17,15 @@ from convert.adapters.freecad.EditRead.PlaneRev.ExprMatch import IsSamePlaneExpr
     (
         (
             "atan2(-(vdot((Plane.Placement.Rotation * vector(0; 0; 1)); "
-            "vector(0; 0; 1))); 1) % (180 deg)",
+            + "vector(0; 0; 1))); 1) % (180 deg)",
             "atan2(-vdot(Plane.Placement.Rotation * vector(0; 0; 1); "
-            "vector(0; 0; 1)); 1) % 180 deg",
+            + "vector(0; 0; 1)); 1) % 180 deg",
         ),
         (
             "placement(vector(12.125000000000002 mm; -0 mm; 0 mm); "
-            "rotation(vector(0; 1; 0); 89.999999999999986 deg))",
+            + "rotation(vector(0; 1; 0); 89.999999999999986 deg))",
             "placement(vector(12.125 mm; -0 mm; 0 mm); "
-            "rotation(vector(0; 1; 0); 90 deg))",
+            + "rotation(vector(0; 1; 0); 90 deg))",
         ),
         (
             "min(1 deg; 2 deg) <= 0.00000006 deg ? 0 deg : (1e-9 > 1e-7 ? 0 deg : 1 deg)",

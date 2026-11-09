@@ -6,7 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from collections.abc import Iterable
+from collections.abc import Collection, Iterable
 from xml.etree.ElementTree import Element
 
 from convert.adapters.freecad.EditRead.EditPlacement import CheckEditFrame
@@ -58,8 +58,8 @@ def CheckObjFields(
     Actual: NativeObject,
     Expected: NativeObject,
     *,
-    Mutable: frozenset[str] = frozenset(),
-    Optional: frozenset[str] = frozenset(),
+    Mutable: Collection[str] = (),
+    Optional: Collection[str] = (),
 ) -> None:
     Extra = KSketchObjExtra.get(Actual.type_id, {})
     Common = {

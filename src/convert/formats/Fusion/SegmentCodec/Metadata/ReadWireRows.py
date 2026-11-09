@@ -19,11 +19,11 @@ from convert.formats.Fusion.SegmentCodec.Metadata.MetaRows import MetaClass, Met
 def ReadWireClasses(Cursor: MetaCursor) -> tuple[MetaClass, ...]:
     RowsValue: list[MetaClass] = []
     Remaining = KMaxMetaIds
-    for Index in range(Cursor.ReadCount(KMaxMetaClasses)):
+    for _ in range(Cursor.ReadCount(KMaxMetaClasses)):
         ClassGuid, BaseGuid = Cursor.ReadText(), Cursor.ReadText()
         Flags, ClassSpace = Cursor.ReadWord(), Cursor.ReadText()
         Count = Cursor.ReadCount(Remaining)
-        OwnerIds = tuple(Cursor.ReadLong() for OwnerIndex in range(Count))
+        OwnerIds = tuple(Cursor.ReadLong() for _ in range(Count))
         RowsValue.append(MetaClass(ClassGuid, BaseGuid, Flags, ClassSpace, OwnerIds))
         Remaining -= Count
     return tuple(RowsValue)
@@ -33,5 +33,5 @@ def ReadWireClasses(Cursor: MetaCursor) -> tuple[MetaClass, ...]:
 def ReadWireTable(Cursor: MetaCursor) -> tuple[MetaOffset, ...]:
     return tuple(
         MetaOffset(Cursor.ReadLong(), Cursor.ReadLong())
-        for Index in range(Cursor.ReadCount(KMaxMetaIds))
+        for _ in range(Cursor.ReadCount(KMaxMetaIds))
     )

@@ -15,7 +15,7 @@ from interchange.features.FeatureStep import FeatureStep
 
 # active new body operations can be reconstructed independently without guessing boolean history
 def FindRevCreators(Steps: tuple[FeatureStep, ...]) -> tuple[FeatureStep, ...]:
-    Creators = []
+    Creators: list[FeatureStep] = []
     ById = {StepValue.id: StepValue for StepValue in Steps}
     for StepValue in Steps:
         Origin = StepValue.provenance

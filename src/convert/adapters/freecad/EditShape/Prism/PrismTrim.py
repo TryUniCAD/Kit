@@ -32,7 +32,7 @@ from interchange.brep.surfaces.BrepSurfaces import PlaneSurface
 # linear planar trims are the only stored edge representations used by kit prisms
 def ReadPrismCurves(Cursor: Tokens, Maximum: int) -> tuple[TrimCurve, ...]:
     Count = ReadCount(Cursor, b"Curve2ds", Maximum)
-    Curves = []
+    Curves: list[TrimCurve] = []
     for _ in range(Count):
         _ = Cursor.ReadInteger(1, 1)
         Origin = (Cursor.ReadNumber(), Cursor.ReadNumber())
@@ -57,7 +57,7 @@ def ReadEdgeBinds(
     _ = Cursor.ReadInteger(0, PlaceCount)
     _ = Cursor.ReadNumber()
     _ = Cursor.ReadNumber()
-    Bindings = []
+    Bindings: list[TrimBinding] = []
     for _ in range(2):
         Cursor.ExpectToken(b"2")
         CurveId = Cursor.ReadInteger(1, TrimCount)

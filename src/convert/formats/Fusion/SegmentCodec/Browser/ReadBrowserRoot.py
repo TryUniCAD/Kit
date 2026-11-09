@@ -37,11 +37,11 @@ def ReadBrowserRoot(Payload: bytes) -> BrowserRoot:
         raise ValueError("Invalid Fusion Browser route header")
     Routes = tuple(
         BrowserRoute(ReadDesignMut(Cursor), Cursor.ReadWord(), ReadNativeRef(Cursor))
-        for Index in range(Cursor.ReadCount(KMaxRoutes))
+        for _ in range(Cursor.ReadCount(KMaxRoutes))
     )
     BrowserRootId = ReadNativeRef(Cursor)
     Count = Cursor.ReadCount(len(KFolderSizes))
-    Groups = tuple(ReadGroupMut(Cursor) for Index in range(Count))
+    Groups = tuple(ReadGroupMut(Cursor) for _ in range(Count))
     if Cursor.Offset != len(Payload):
         raise ValueError("Unexpected Fusion Browser root trailing data")
     RootValue = BrowserRoot(DesignRootId, Routes, BrowserRootId, Groups)

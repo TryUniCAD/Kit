@@ -31,9 +31,7 @@ def ReadShellInputs(
     ):
         raise ValueError("Unsupported Fusion Shell input prefix")
     Thickness = tuple(
-        Identity
-        for SideIndex in range(2)
-        if (Identity := ReadOptionalRef(Cursor)) is not None
+        Identity for _ in range(2) if (Identity := ReadOptionalRef(Cursor)) is not None
     )
     if (
         not Thickness

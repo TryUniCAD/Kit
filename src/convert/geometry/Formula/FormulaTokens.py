@@ -19,7 +19,7 @@ KNamePattern = CompileRegex(r"[A-Za-z_][A-Za-z_0-9]*")
 # source arithmetic can contain only decimal quantities names and closed operators
 KTokenPattern = CompileRegex(
     r"(?P<number>(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)(?:[eE][+-]?[0-9]+)?)"
-    r"|(?P<name>[A-Za-z_][A-Za-z_0-9]*)|(?P<operator>[()+*/-])|(?P<space>[ \t]+)"
+    + r"|(?P<name>[A-Za-z_][A-Za-z_0-9]*)|(?P<operator>[()+*/-])|(?P<space>[ \t]+)"
 )
 
 

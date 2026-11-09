@@ -20,7 +20,7 @@ def ReadLineTrim(
     if len(Members) != 4 or len({Entity.id for Entity, _ in Members}) != 4:
         raise ValueError("Unsupported Fusion trimmed line membership")
     Cuts = FindLineCuts(ReadLineGraph(Lines))
-    Portions = []
+    Portions: list[TrimPortion] = []
     for Entity, Selector in Members:
         Ordinal, Count = Selector[4:6]
         Fractions = Cuts[Entity.id]

@@ -32,7 +32,7 @@ def LinkSolidBodies(
         raise ValueError("Fusion solid creators do not have distinct native identities")
     Links = IndexBodyLinks(BulkData, Owners, NativeIds)
     ByBody = {Member.ObjectId: Member for Member in Members}
-    Linked = {NativeId for NativeId, AnchorId in Links.values()}
+    Linked = {NativeId for NativeId, _ in Links.values()}
     if Linked != ByBody.keys() or len(Linked) != len(Creators):
         raise ValueError("Fusion solid creators do not cover the saved body inventory")
     Results = {}

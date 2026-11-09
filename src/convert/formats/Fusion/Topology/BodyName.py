@@ -30,7 +30,7 @@ def ReadBodyName(
     FieldData = BodyData[:-11]
     Cursor = MetaCursor(FieldData)
     Position = FieldData.find(Marker, 2)
-    Matches = []
+    Matches: list[tuple[str, int]] = []
     while Position != -1:
         Cursor.Offset = Position + len(Marker)
         Position = FieldData.find(Marker, Position + 1)

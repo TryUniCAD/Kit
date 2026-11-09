@@ -33,7 +33,7 @@ def CheckScaleRoot(RawValue: PrismRaw, RootShift: SpaceVector) -> None:
             Datum == RootId
             for Index, Chain in enumerate(RawValue.Chains)
             if Index != RootId
-            for Datum, Power in Chain
+            for Datum, _ in Chain
         )
         or any(
             any(Child.KLocation == RootId for Child in Record.Children)

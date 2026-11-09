@@ -35,7 +35,7 @@ def CheckBodySup(
         or (len(Cursor.DataValue) - Cursor.Offset != 19 * Count + 27)
     ):
         raise ValueError("Unsupported Fusion body pick support layout")
-    SourceIds = []
+    SourceIds: list[int] = []
     for _ in range(Count):
         SourceIds.append(ReadNativeRef(Cursor))
         _ = Cursor.TakeBytes(8)

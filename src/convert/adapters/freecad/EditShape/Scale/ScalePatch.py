@@ -57,7 +57,7 @@ class ScalePatch:
 def ReadScalePatch(Cursor: Tokens, Index: int) -> ScalePatch:
     for Token in (b"9", b"0", b"0", b"0", b"0", b"1", b"1", b"2", b"2", b"2", b"2"):
         Cursor.ExpectToken(Token)
-    Origin, AlongV, AlongU, Corner = (VectorValue(Cursor) for PoleIndex in range(4))
+    Origin, AlongV, AlongU, Corner = (VectorValue(Cursor) for _ in range(4))
     UDomain = ReadScaleDomain(Cursor)
     VDomain = ReadScaleDomain(Cursor)
     Across = OffsetVector(AlongU, Origin, -1.0)

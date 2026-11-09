@@ -39,7 +39,7 @@ def ReadScaleSketches(
     Profiles = {Body.SketchId for Body in Plan.Bodies}
     Frames = {Value.id: Value.transform for Value in Document.support_planes}
     Params = {Value.id: Value for Value in Document.parameters}
-    Result = []
+    Result: list[Sketch] = []
     for Original in Document.sketches:
         Native = SketchObjs[Original.id]
         Edited = ReadSketchGeom(Native, Original)

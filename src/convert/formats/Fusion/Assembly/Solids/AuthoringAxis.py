@@ -43,7 +43,7 @@ def ResolveAuthAxis(
             )
     RootId = Assembly.root_definition_id
     Axis = (Direction.x, Direction.y, Direction.z)
-    Path = []
+    Path: list[int] = []
     while (DefinitionId := f"fusion-component-{Scope.ComponentId}") != RootId:
         Creation = None if Scope.SnapshotId is None else Steps.get(Scope.SnapshotId)
         Candidates = ByComponent.get(DefinitionId, ())

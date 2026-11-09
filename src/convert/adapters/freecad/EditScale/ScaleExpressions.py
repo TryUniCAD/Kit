@@ -22,7 +22,7 @@ def ScaleOffset(Center: SpaceVector, Factors: SpaceVector) -> SpaceVector:
 def ScaleExprs(Refs: tuple[str, ...], PointName: str) -> list[tuple[str, str]]:
     Uniform = len(Refs) == 1
     Names = ("UniformScale",) if Uniform else ("XScale", "YScale", "ZScale")
-    Result = list(zip(Names, Refs, strict=True))
+    Result: list[tuple[str, str]] = list(zip(Names, Refs, strict=True))
     if PointName:
         Axes = Refs * 3 if Uniform else Refs
         Terms = "; ".join(

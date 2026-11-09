@@ -69,7 +69,7 @@ def ReadMixedTrim(
     ):
         raise ValueError("Unsupported Fusion mixed trimmed profile membership")
     LineBounds, CircleBounds = FindChordCuts(Circle, Line)
-    Portions = []
+    Portions: list[TrimPortion] = []
     for Entity, Selector in Members:
         IsLine = Entity.id == LineEntity.id
         if Selector[3:6] != (0, 2, 3 if IsLine else 2):

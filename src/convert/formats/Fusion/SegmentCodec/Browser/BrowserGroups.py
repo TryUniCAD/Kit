@@ -36,7 +36,7 @@ def ReadGroupMut(Cursor: MetaCursor) -> BrowserGroup:
             raise ValueError("Invalid Fusion Browser scope flag")
     Folders = tuple(
         BrowserFolder(Cursor.ReadText(Maximum=KMaxLabelLength), ReadNativeRef(Cursor))
-        for Index in range(Cursor.ReadCount(max(KFolderSizes)))
+        for _ in range(Cursor.ReadCount(max(KFolderSizes)))
     )
     return BrowserGroup(ScopeId, Folders)
 

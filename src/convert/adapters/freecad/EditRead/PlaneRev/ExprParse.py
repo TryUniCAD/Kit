@@ -57,30 +57,30 @@ KExprNode = str | tuple[Decimal, str] | tuple[str, int]
 class ExprParser:
 
     # a local cursor keeps each validation isolated from other expressions
-    def __init__(Parser, Tokens: tuple[KExprToken, ...]) -> None:
-        Parser.Tokens = Tokens
-        Parser.Index = 0
-        Parser.Nodes: list[KExprNode] = []
+    def __init__(self, Tokens: tuple[KExprToken, ...]) -> None:
+        self.Tokens = Tokens
+        self.Index = 0
+        self.Nodes: list[KExprNode] = []
 
     # a sentinel lets the parser distinguish a complete expression from extra text
-    def PeekText(Parser) -> str:
-        if Parser.Index == len(Parser.Tokens):
+    def PeekText(self) -> str:
+        if self.Index == len(self.Tokens):
             return ""
-        return Parser.Tokens[Parser.Index][1]
+        return self.Tokens[self.Index][1]
 
     # required punctuation is consumed through the same bounded token cursor
-    def TakeToken(Parser, Wanted: str = "") -> KExprToken:
-        if Parser.Index >= len(Parser.Tokens):
+    def TakeToken(self, Wanted: str = "") -> KExprToken:
+        if self.Index >= len(self.Tokens):
             raise ValueError("incomplete plane expression")
-        Token = Parser.Tokens[Parser.Index]
+        Token = self.Tokens[self.Index]
         if Wanted and Token[1] != Wanted:
             raise ValueError("unexpected plane expression token")
-        Parser.Index += 1
+        self.Index += 1
         return Token
 
     # one output cursor keeps flat trees independent of parser nesting depth
-    def EmitNode(Parser, NodeValue: KExprNode) -> None:
-        Parser.Nodes.append(NodeValue)
+    def EmitNode(self, NodeValue: KExprNode) -> None:
+        self.Nodes.append(NodeValue)
 
 
 # call identity and argument count prevent a different operand tree from matching
