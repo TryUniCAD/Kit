@@ -74,10 +74,7 @@ jobs:
       - name: Exercise native file reading and writing
         run: >-
           uv run pytest
-          tests/convert/solidworks/container/NativeCodecTests.py
-          tests/convert/solidworks/container/SolidworksContainerTests.py
-          tests/convert/solidworks/core/SolidworksTests.py
-          tests/convert/solidworks/core/SolidworksAdapterTests.py
+          tests/convert/solidworks
           tests/steering/RationaleCommentsTests.py
 
   zizmor:
