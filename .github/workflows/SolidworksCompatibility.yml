@@ -1,0 +1,44 @@
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
+
+name: Solidworks compatibility
+
+on:
+  pull_request:
+  merge_group:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  native-codec:
+    name: Native SOLIDWORKS codec compatibility
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2
+        with:
+          version: "0.12.5"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Synchronize the locked environment
+        run: uv sync --frozen --no-dev --extra dev --python 3.11
+
+      - name: Exercise native file reading and writing
+        run: >-
+          uv run --no-sync pytest
+          tests/convert/solidworks/container/NativeCodecTests.py
+          tests/convert/solidworks/container/SolidworksContainerTests.py
+          tests/convert/solidworks/core/SolidworksTests.py
+          tests/convert/solidworks/core/SolidworksAdapterTests.py
