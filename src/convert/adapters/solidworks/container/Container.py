@@ -292,6 +292,8 @@ def ValidateStreams(Items: list[tuple[str, bytes]]) -> None:
         raise ValueError("SLDPRT stream names must be unique")
     if len(Items) > KMaxFolderStreamCount:
         raise ValueError("SLDPRT stream count must fit in the native directory")
+    if sum(len(Payload) for _, Payload in Items) > KMaxUncompressedStream:
+        raise ValueError("SLDPRT decoded archive exceeds the size limit")
 
 
 # this definition exists because local record emission is separate from directory finalization
