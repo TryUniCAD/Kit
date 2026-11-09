@@ -1,3 +1,8 @@
+<!--
+SPDX-License-Identifier: MIT
+SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
+-->
+
 ---
 title: "Boundary Representation (B-Rep)"
 wiki_page_id: "page-interchange-brep"

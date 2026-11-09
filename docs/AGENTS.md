@@ -1,3 +1,8 @@
+<!--
+SPDX-License-Identifier: MIT
+SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
+-->
+
 # cubic Wiki Context
 
 This directory contains AI-generated repository documentation maintained by cubic.

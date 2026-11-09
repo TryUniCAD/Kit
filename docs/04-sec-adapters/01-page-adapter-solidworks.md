@@ -1,3 +1,8 @@
+<!--
+SPDX-License-Identifier: MIT
+SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
+-->
+
 ---
 title: "SOLIDWORKS Format Adapter"
 wiki_page_id: "page-adapter-solidworks"
