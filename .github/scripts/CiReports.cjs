@@ -411,7 +411,7 @@ async function Aggregate({ github: Github, context: Context, core: Core }) {
       );
     }
   }
-  const Deadline = Date.now() + (IsPull ? 20 : 80) * 60000;
+  const Deadline = Date.now() + 80 * 60000;
   let Rows;
   for (;;) {
     if (IsPull) {

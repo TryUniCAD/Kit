@@ -616,6 +616,7 @@ jobs:
     timeout-minutes: 90
     permissions:
       contents: read
+      actions: read # Correlates the aggregate with its originating workflow run.
       checks: read # Requires the queue's static CI aggregate before acceptance passes.
     env:
       EVENT_NAME: ${{ github.event_name }}
@@ -643,16 +644,30 @@ jobs:
           script: |
             const Deadline = Date.now() + 85 * 60000;
             for (;;) {
-              const Checks = await github.paginate(github.rest.checks.listForRef, {
-                ...context.repo, ref: context.payload.merge_group.head_sha,
-                filter: "latest", per_page: 100,
+              const HeadSha = context.payload.merge_group.head_sha;
+              const Runs = await github.paginate(github.rest.actions.listWorkflowRunsForRepo, {
+                ...context.repo, head_sha: HeadSha, event: "merge_group", per_page: 100,
               });
-              const Aggregate = Checks.filter((Check) => Check.name === "CI Agg" && Check.app?.id === 15368)
+              const Run = Runs.filter((Item) => Item.path?.split("@")[0] === ".github/workflows/PullRequest.yml")
                 .sort((Left, Right) => Right.id - Left.id)[0];
-              if (Aggregate?.status === "completed") {
-                if (Aggregate.conclusion !== "success") throw new Error(`CI Agg did not pass: ${Aggregate.conclusion}`);
-                await core.summary.addRaw(`Candidate static CI aggregate passed: ${Aggregate.html_url}\n`).write();
-                break;
+              if (Run) {
+                if (Run.status === "completed" && Run.conclusion !== "success") {
+                  throw new Error(`The aggregate workflow did not pass: ${Run.conclusion}`);
+                }
+                const Checks = await github.paginate(github.rest.checks.listForSuite, {
+                  ...context.repo, check_suite_id: Run.check_suite_id,
+                  filter: "latest", per_page: 100,
+                });
+                const Aggregate = Checks.filter((Check) => Check.name === "CI Agg" &&
+                  Check.app?.id === 15368 && Check.head_sha === HeadSha)
+                  .sort((Left, Right) => Right.id - Left.id)[0];
+                if (Aggregate?.status === "completed" && Aggregate.conclusion !== "success") {
+                  throw new Error(`CI Agg did not pass: ${Aggregate.conclusion}`);
+                }
+                if (Aggregate?.conclusion === "success" && Run.status === "completed" && Run.conclusion === "success") {
+                  await core.summary.addRaw(`Candidate static CI aggregate passed: ${Run.html_url}\n`).write();
+                  break;
+                }
               }
               if (Date.now() >= Deadline) throw new Error("Missing or pending candidate CI Agg");
               await new Promise((Resolve) => setTimeout(Resolve, 30000));

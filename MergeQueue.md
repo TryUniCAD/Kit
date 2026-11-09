@@ -52,6 +52,12 @@ origin and SHA-256 digest. Reuse additionally requires identical candidate,
 PR-head, and tested merge trees, identical base commits, verified test-merge
 parents, and ancestry from that base to the PR head.
 
+Queue preflights and the queue aggregate load the verifier from the exact trusted
+merge-group base commit. PR changes to the helper are not executed by those
+artifact-reading queue jobs. PR aggregation uses read-only permissions and does
+not receive repository secrets. The aggregate's 80-minute wait covers the
+45-minute audit jobs within its 90-minute job limit.
+
 When that proof succeeds, eligible static jobs retain their check names but explicitly
 skip duplicate execution. The aggregate independently verifies reuse before
 accepting those skips. If a head, base, tree, report, or evidence artifact does
@@ -64,6 +70,9 @@ existing required `Merge queue acceptance` gate combines that result with every
 heavy job, so missing or failing aggregate evidence blocks acceptance too. This
 avoids a dependency cycle: the static aggregate does not wait for heavy jobs on
 the queue. No additional live ruleset changes are needed for this dependency.
+The gate verifies the latest merge-group run from `PullRequest.yml`, its check
+suite, exact candidate SHA, and successful workflow completion. A passing check
+with the same display name from another workflow cannot substitute.
 
 [MergeQueue.yml](.github/workflows/MergeQueue.yml) reports the required
 `Merge queue acceptance` context on PRs with an explicit deferral summary. Its
