@@ -26,11 +26,9 @@ def TargetLimitExpr(
     Along = f"vdot({Normal}; {VectorExpr(Radial)})"
     Across = f"vdot({Normal}; {VectorExpr(Tangent)})"
     Tilt = f"abs(vdot({Normal}; {VectorExpr(AxisValue)}))"
-    Offset = (
-        f"abs(vdot({PlaneName}.Placement.Base - {VectorExpr(AxisOrigin)}; {Normal}))"
-    )
+    Offset = f"abs(vdot({PlaneName}.Placement.Base - {VectorExpr(AxisOrigin, ' mm')}; {Normal}))"
     Angle = f"atan2(-({Along}); {Across}) % (180 deg)"
-    return f"{Tilt} > 1e-9 ? 0 deg : ({Offset} > 1e-7 ? 0 deg : {Angle})"
+    return f"{Tilt} > 1e-9 ? 0 deg : ({Offset} > 1e-7 mm ? 0 deg : {Angle})"
 
 
 # fusion uses the interval between consecutive lifted plane roots beyond the sketch

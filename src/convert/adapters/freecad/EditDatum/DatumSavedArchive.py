@@ -31,13 +31,14 @@ def CheckDatumFiles(
     Members: Mapping[str, ZipInfo],
     Entries: Mapping[str, bytes],
 ) -> None:
+    Files = {NameValue for NameValue, Entry in Members.items() if not Entry.is_dir()}
     if (
-        Members.keys() - Entries.keys() - KDatumAuxFiles
-        or any(NameValue.lower().endswith((".brp", ".brep")) for NameValue in Members)
+        Files - Entries.keys() - KDatumAuxFiles
+        or any(NameValue.lower().endswith((".brp", ".brep")) for NameValue in Files)
         or any(Value.get("file") for Value in RootValue.findall(".//*[@file]"))
     ):
         raise ValueError("FreeCAD editable datum has unexpected native data")
-    for NameValue in Entries.keys() & Members.keys():
+    for NameValue in Entries.keys() & Files:
         DataValue = Entries[NameValue]
         try:
             if (

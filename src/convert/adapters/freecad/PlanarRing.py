@@ -45,7 +45,15 @@ def CapRingArea(
         Surface.normal, Surface.reference_direction, f"plane surface {Surface.id}"
     )
     Normal, PlaneX, PlaneY = (SpaceVector(*AxisValue) for AxisValue in FrameValue)
-    Allowed = max(Tolerance, FaceValue.tolerance, 1e-07)
+    Allowed = max(
+        Tolerance,
+        FaceValue.tolerance,
+        1e-07,
+        *(
+            Graph.edges[Graph.coedges[Identity].edge_id].tolerance
+            for Identity in LoopValue.coedge_ids
+        ),
+    )
     Geometries: list[tuple[LineGeometry | ArcGeometry, bool]] = []
     for CoedgeId in LoopValue.coedge_ids:
         Coedge = Graph.coedges[CoedgeId]

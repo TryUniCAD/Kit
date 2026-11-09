@@ -48,7 +48,9 @@ def CurvedRingArea(
         ):
             return None
         CheckTrimSimple(Parts, Points, Matches, Tolerance)
-        AreaValue, _ = MeasureTrim(tuple(Points[Entry] for Entry in Entries), RingUses)
+        AreaValue, _ = MeasureTrim(
+            tuple(Points[min(Entry, Matches[Entry])] for Entry in Entries), RingUses
+        )
     except (AttributeError, TypeError, ValueError, OverflowError):
         return None
     return AreaValue if abs(AreaValue) > Tolerance * Tolerance else None

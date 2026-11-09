@@ -34,10 +34,10 @@ def HasScaleMut(
 ) -> bool:
     if Document is None:
         return False
-    Plan = GetScalePlan(Document)
-    Prep = PrepScale(Context, Geometry, Features, Plan) if Plan is not None else None
-    if Plan is None or Prep is None:
+    if (Plan := GetScalePlan(Document)) is None:
         return False
+    if (Prep := PrepScale(Context, Geometry, Features, Plan)) is None:
+        raise ValueError("FreeCAD editable Scale native graph could not be prepared")
     CacheBySource = {Value.Body.SourceId: Value for Value in Prep.Bodies}
     Sketches = {Value.Body.SketchId: Value.Sketch for Value in Prep.Bodies}
     if Prep.PointSketch is not None:

@@ -7,12 +7,10 @@
 # to you under it immediately and permanently.
 
 
+from convert.adapters.freecad.EditShape.Sketch.MatchWireEdges import IsEdgeMatch
 from convert.adapters.freecad.EditShape.Sketch.SavedWireData import ReadSavedWire
 from convert.adapters.freecad.EditShape.Sketch.WireMatch import KSketchCurve
-from convert.adapters.freecad.EditShape.Sketch.WireProof import (
-    CheckPathMut,
-    CheckVertMut,
-)
+from convert.adapters.freecad.EditShape.Sketch.WireProof import ReadRootMut
 from convert.geometry.Extrude.Polygon.PrismFrame import PlacePrismPoint
 from convert.geometry.Opencascade import DecodeFailure
 from interchange.geometry.models.GeometryCurves import (
@@ -87,25 +85,8 @@ def IsSketchCache(
             RootValue.KindValue != b"Wi" or RootValue.FlagBits[4] != "1"
         ):
             return False
-        Children = (
-            RootValue.Children if RootValue.KindValue == b"Co" else (DataValue.RootRef,)
-        )
-        if len({Child.RecordA for Child in Children}) != len(Children):
-            return False
-        UsedEdges: set[int] = set()
-        for Child in Children:
-            KindValue = DataValue.Records[Child.RecordA].KindValue
-            if Child.Orientation != "+":
-                return False
-            if KindValue == b"Wi":
-                CheckPathMut(
-                    DataValue, Child, Curves, FrameValue, UsedEdges, DirectedLines
-                )
-            elif KindValue == b"Ve":
-                CheckVertMut(DataValue, Child, Points)
-            else:
-                return False
-        return not Curves and not Points
+        Edges = ReadRootMut(DataValue, Points, DirectedLines)
+        return not Points and IsEdgeMatch(Edges, Curves, FrameValue, DirectedLines)
     except (
         DecodeFailure,
         IndexError,

@@ -86,7 +86,8 @@ def ReadRuleRow(Saved: Element, Expected: Element) -> SavedRuleRow:
     ):
         raise ValueError("FreeCAD editable sketch native constraint identity changed")
     Arrays = ("ElementIds", "ElementPositions")
-    if any(Field in Saved.attrib for Field in Arrays) and any(
+    ExpectedSlots = len(Expected.get("ElementIds", "").split())
+    if (ExpectedSlots > 3 or any(Field in Saved.attrib for Field in Arrays)) and any(
         EditAttr(Saved, Field).split() != EditAttr(Expected, Field).split()
         for Field in Arrays
     ):

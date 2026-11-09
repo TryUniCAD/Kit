@@ -34,5 +34,5 @@ def GetRuleValue(CodeValue: int, Parameter: object, Value: float) -> float:
     SourceUnit = KFormulaUnits.get(UnitValue) if isinstance(UnitValue, str) else None
     TargetUnit = KFormulaUnits.get(Expected[1])
     if SourceUnit is None or TargetUnit is None or SourceUnit[1] != TargetUnit[1]:
-        return Value
+        raise ValueError("FreeCAD sketch constraint parameter unit is unsupported")
     return Value * SourceUnit[0] / TargetUnit[0]

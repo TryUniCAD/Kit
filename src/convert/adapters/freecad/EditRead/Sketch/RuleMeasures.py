@@ -83,7 +83,9 @@ def CheckDimRule(
     SignValue = GetRuleSign(Relation.kind, Relation.attributes)
     Tolerance = KSketchAngleTol if Expected[0] == ValueKind.KAngle else KSketchRuleTol
     Measured = RuleMeasure(Relation.kind, Operands)
-    if SignValue * Saved.Value <= 0.0 or not IsClose(
+    Signed = SignValue * Saved.Value
+    AllowsZero = Relation.kind in ("distance_x", "distance_y")
+    if (Signed < 0.0 or (Signed == 0.0 and not AllowsZero)) or not IsClose(
         Saved.Value, Measured, rel_tol=0.0, abs_tol=Tolerance
     ):
         raise ValueError(

@@ -31,16 +31,29 @@ def CheckMembers(DocValue: CadDocument, Component: int) -> None:
         raise ValueError(
             "FreeCAD editable body axis Revolve body inventory is unresolved"
         )
-    for Member, BodyValue in zip(Members, DocValue.bodies, strict=True):
+    Bodies = {BodyValue.id: BodyValue for BodyValue in DocValue.bodies}
+    if len(DocValue.bodies) != 2 or len(Bodies) != 2:
+        raise ValueError(
+            "FreeCAD editable body axis Revolve body identity is ambiguous"
+        )
+    NativeIds: set[int] = set()
+    for Member in Members:
+        if not isinstance(Member, Mapping):
+            raise ValueError(
+                "FreeCAD editable body axis Revolve body membership disagrees"
+            )
+        BodyId = Member.get("design_body_id")
+        NativeId = Member.get("object_id")
+        BodyValue = Bodies.pop(BodyId, None) if isinstance(BodyId, str) else None
+        if BodyValue is None or type(NativeId) is not int or NativeId <= 0:
+            raise ValueError(
+                "FreeCAD editable body axis Revolve body membership disagrees"
+            )
         Origin = BodyValue.provenance
         Attrs = BodyValue.attributes
         if (
-            not isinstance(Member, Mapping)
-            or Origin is None
-            or type(Member.get("object_id")) is not int
-            or Member["object_id"] <= 0
-            or Origin.native_id != str(Member["object_id"])
-            or Member.get("design_body_id") != BodyValue.id
+            Origin is None
+            or Origin.native_id != str(NativeId)
             or Member.get("collection_id")
             != Attrs.get("fusion.native_body_collection_id")
             or Attrs.get("fusion.component_object_id") != Component
@@ -48,7 +61,8 @@ def CheckMembers(DocValue: CadDocument, Component: int) -> None:
             raise ValueError(
                 "FreeCAD editable body axis Revolve body membership disagrees"
             )
-    if Members[0]["object_id"] == Members[1]["object_id"]:
+        NativeIds.add(NativeId)
+    if len(NativeIds) != 2:
         raise ValueError(
             "FreeCAD editable body axis Revolve body identity is ambiguous"
         )

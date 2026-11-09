@@ -61,7 +61,7 @@ def CheckExtraProp(TypeName: str, Property: Element, Field: str) -> None:
         )
     if Field == "Label2":
         Label = OnlyEditChild(Property, "String")
-        if len(Label) or Label.attrib.keys() != {"value"} or (Label.text or "").strip():
+        if len(Label) or Label.attrib != {"value": ""} or (Label.text or "").strip():
             raise ValueError("FreeCAD editable Scale native label is malformed")
 
 

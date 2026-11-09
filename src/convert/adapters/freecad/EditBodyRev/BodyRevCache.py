@@ -28,7 +28,7 @@ class BodyRevCache:
 
 
 # the ordered prism cache and the live result share one corroborated signed sweep
-def BuildBodyCache(DocValue: CadDocument, Plan: BodyRevPlan) -> BodyRevCache | None:
+def BuildBodyCache(DocValue: CadDocument, Plan: BodyRevPlan) -> BodyRevCache:
     try:
         Source = next(
             Value for Value in DocValue.sketches if Value.id == Plan.Extrude.SketchId
@@ -43,11 +43,19 @@ def BuildBodyCache(DocValue: CadDocument, Plan: BodyRevPlan) -> BodyRevCache | N
         )
         Alignment = DotVector(Order.Axis, Plan.Revolve.AxisDirection)
         if abs(abs(Alignment) - 1.0) > 1e-9:
-            return None
+            raise ValueError("saved edge and Revolve axes disagree")
         Extrude = BrepModelBrep(Plan.ExtrudeModel, ChildOrders=Order.Children)
         Revolve = BrepModelBrep(Plan.RevolveModel)
-    except (FreeCADBrepWriteError, IndexError, KeyError, StopIteration, ValueError):
-        return None
+    except (
+        FreeCADBrepWriteError,
+        IndexError,
+        KeyError,
+        StopIteration,
+        ValueError,
+    ) as ErrorInfo:
+        raise FreeCADBrepWriteError(
+            "FreeCAD editable body axis Revolve cache could not be built"
+        ) from ErrorInfo
     return BodyRevCache(
         Extrude,
         Revolve,

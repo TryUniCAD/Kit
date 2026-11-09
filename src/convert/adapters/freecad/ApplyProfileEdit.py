@@ -14,7 +14,7 @@ from convert.adapters.freecad.EditExtRing import GetEditRing
 from convert.adapters.freecad.EditExtSolid import KEditProfile
 from convert.adapters.freecad.EditRing.RingChange import CheckRingEdit
 from interchange.document.models.DocumentModel import CadDocument
-from interchange.geometry.models.GeometryCurves import CircleGeometry
+from interchange.geometry.models.GeometryCurves import CircleGeometry, PointGeometry
 from interchange.geometry.models.Sketch import Sketch
 from interchange.geometry.models.Transform import Transform
 
@@ -33,13 +33,19 @@ def CheckProfEdit(
         raise ValueError("FreeCAD editable extrusion sketch identity changed")
     ProfileId = Original.closed_profile_entity_ids[0][0]
     Allowed = {ProfileId}
-    if Before.center != After.center:
-        OldCenter = GetCenterPoint(Original)
-        NewCenter = GetCenterPoint(Edited)
-        if OldCenter is None or NewCenter is None or OldCenter.id != NewCenter.id:
-            raise ValueError(
-                "FreeCAD editable extrusion center point disagrees with the circle"
-            )
+    OldCenter = GetCenterPoint(Original)
+    NewCenter = GetCenterPoint(Edited)
+    Synchronized = (
+        OldCenter is not None
+        and NewCenter is not None
+        and OldCenter.id == NewCenter.id
+        and NewCenter.geometry == PointGeometry(After.center)
+    )
+    if Before.center != After.center and not Synchronized:
+        raise ValueError(
+            "FreeCAD editable extrusion center point disagrees with the circle"
+        )
+    if Synchronized and OldCenter is not None:
         Allowed.add(OldCenter.id)
     for Previous, Current in zip(Original.entities, Edited.entities, strict=True):
         if Replace(Current, geometry=Previous.geometry) != Previous:

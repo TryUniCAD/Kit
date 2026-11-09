@@ -144,9 +144,9 @@ def HasBodyRevMut(
         or not DepthRef
         or len(Angles) != 1
         or not (ProfileLines := GetProfLines(Profile))
-        or (Cache := BuildBodyCache(Document, Plan)) is None
     ):
         return False
+    Cache = BuildBodyCache(Document, Plan)
     AddFeatureMut(Context, Geometry, Features, SourceStep)
     Seed = AddBodySeedMut(
         Context, Geometry, Features, SeedInfo, SeedSketch, Plan, Cache, DepthRef

@@ -10,6 +10,7 @@ from __future__ import annotations
 
 from collections.abc import Callable, Mapping
 from zipfile import BadZipFile, ZipInfo
+from zlib import error as InflateError
 
 # native streams and evidence remain scoped to the same active asset
 KDesignPrefix = "FusionAssetName[Active]/FusionDesignSegmentType1/"
@@ -26,7 +27,7 @@ def ReadDesignPair(
             if Member is None or Member.is_dir():
                 raise ValueError(f"Missing active Fusion design {MemberName}")
             Streams.append(ReadEntry(Member))
-    except BadZipFile as ErrorInfo:
+    except (BadZipFile, InflateError) as ErrorInfo:
         raise ValueError("Invalid Fusion ZIP archive") from ErrorInfo
     except NotImplementedError as ErrorInfo:
         raise ValueError(

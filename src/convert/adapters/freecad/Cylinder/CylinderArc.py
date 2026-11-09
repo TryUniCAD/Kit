@@ -7,7 +7,7 @@
 # to you under it immediately and permanently.
 
 from math import cos as Cos, hypot as Hypot, isfinite as IsFinite
-from math import sin as Sin, tau as FullTurn
+from math import sin as Sin, tan as Tangent, tau as FullTurn
 
 from convert.adapters.freecad.Cylinder.CylinderFrame import (
     CylinderGap,
@@ -47,10 +47,13 @@ def ReadCylinderArc(
     Skew = Hypot(AxisCross.x, AxisCross.y, AxisCross.z)
     Station, CenterRadial = ProjectCylinder(Curve.center, Surface.origin, AxisValue)
     ExpectedRadius = RuledRadius(Surface, Station)
+    Slope = (
+        abs(Tangent(Surface.half_angle)) if isinstance(Surface, ConeSurface) else 0.0
+    )
     Deviation = (
         Hypot(CenterRadial.x, CenterRadial.y, CenterRadial.z)
         + abs(Curve.radius - ExpectedRadius)
-        + Curve.radius * Skew
+        + Curve.radius * Skew * (1.0 + Slope)
     )
     Sweep = Params[1] - Params[0]
     if (

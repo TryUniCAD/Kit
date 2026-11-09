@@ -60,8 +60,9 @@ def ReadPlaneScope(
         or Final.attributes.get("fusion.rolled_back") is not False
         or BodyValue.final_feature_id != Final.id
         or Final.sketch_id != SketchStep.sketch_id
-        or Final.input_feature_ids
-        != (SketchStep.id, *(StepValue.id for StepValue in Prior))
+        or len(Final.input_feature_ids) != TargetCount + 1
+        or set(Final.input_feature_ids)
+        != {SketchStep.id, *(StepValue.id for StepValue in Prior)}
         or any(
             First.order >= Second.order
             for First, Second in zip(

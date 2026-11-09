@@ -26,11 +26,11 @@ class TrimBinding:
 # native saves permit both packed and separated seam continuity tokens
 def ReadSecondTrim(Cursor: Tokens, CurveCount: int) -> int:
     Token = Cursor.TakeToken()
-    Match = FullMatch(rb"([1-9][0-9]*)(?:CN)?", Token)
+    Match = FullMatch(rb"([1-9][0-9]*)(?:CN|C0)?", Token)
     if Match is None:
         raise DecodeFailure("unsupported extrusion seam continuity")
-    if Token == Match.group(1):
-        Cursor.ExpectToken(b"CN")
+    if Token == Match.group(1) and Cursor.TakeToken() not in (b"CN", b"C0"):
+        raise DecodeFailure("unsupported extrusion seam continuity")
     Index = int(Match.group(1))
     if Index > CurveCount:
         raise DecodeFailure("extrusion seam curve is out of bounds")

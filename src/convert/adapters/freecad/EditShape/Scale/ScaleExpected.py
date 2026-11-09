@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 
+from convert.adapters.freecad.Cylinder.CylinderFrame import NormCylinder
 from convert.adapters.freecad.EditShape.Prism.PrismExpected import (
     ExpectedPrism,
     RingKey,
@@ -78,12 +79,14 @@ def ScaleExpected(Expected: BrepModel) -> ExpectedPrism:
     FaceSenses = {Value.face_id: Value.reversed for Value in Expected.face_uses}
     for FaceValue in Expected.faces:
         Surface = Surfaces[FaceValue.surface_id]
-        if not isinstance(Surface, PlaneSurface):
-            raise ValueError("Scale prism must have planar faces")
+        if (
+            not isinstance(Surface, PlaneSurface)
+            or (AxisValue := NormCylinder(Surface.normal)) is None
+        ):
+            raise ValueError("Scale prism must have planar faces with valid normals")
         (LoopId,) = FaceValue.loop_ids
         LoopPoints = ScaleFace(Loops[LoopId], Coedges, Edges, Indices)
         Reverse = FaceSenses[FaceValue.id]
-        AxisValue = Surface.normal
         if Reverse == FaceValue.same_sense:
             AxisValue = OffsetVector(SpaceVector(0, 0, 0), AxisValue, -1.0)
         Faces[RingKey(LoopPoints[::-1] if Reverse else LoopPoints)] = AxisValue
