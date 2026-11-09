@@ -16,7 +16,7 @@ def VerifyAsmGraph(
     Children: dict[int, list[int]] = {Identity: [] for Identity in ComponentIds}
     for Occurrence in Occurrences:
         Children[Occurrence.OwnerId].append(Occurrence.ComponentId)
-    Active = set()
+    Active: set[int] = set()
     Complete: dict[int, tuple[int, int]] = {}
 
     # memoized subtree limits preserve repeated components without exponential traversal

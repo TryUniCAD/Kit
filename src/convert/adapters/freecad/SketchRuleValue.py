@@ -8,6 +8,7 @@
 
 from collections.abc import Mapping
 
+from convert.adapters.base.WriteValidate import IsObjectMap
 from convert.adapters.freecad.Protocol import KRuleValueKindByCode
 from convert.geometry.Formula.FormulaUnits import KFormulaUnits
 
@@ -25,10 +26,10 @@ def GetRuleSign(KindValue: str, Attributes: Mapping[str, object]) -> int:
 # serialized sketch values use canonical solver units before expressions are evaluated
 def GetRuleValue(CodeValue: int, Parameter: object, Value: float) -> float:
     Expected = KRuleValueKindByCode.get(CodeValue)
-    if Expected is None or not isinstance(Parameter, Mapping):
+    if Expected is None or not IsObjectMap(Parameter):
         return Value
     DataValue = Parameter.get("value")
-    if not isinstance(DataValue, Mapping):
+    if not IsObjectMap(DataValue):
         return Value
     UnitValue = DataValue.get("unit")
     SourceUnit = KFormulaUnits.get(UnitValue) if isinstance(UnitValue, str) else None

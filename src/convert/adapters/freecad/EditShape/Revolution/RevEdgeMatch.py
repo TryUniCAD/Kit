@@ -57,9 +57,15 @@ class RevEdge:
 class RevProof:
     RawValue: RevRaw
     Expected: RevExpected
-    Edges: dict[KPlacedKey, RevEdge] = DataField(default_factory=dict)
-    MatchedEdges: dict[str, KPlacedKey] = DataField(default_factory=dict)
-    MatchedVerts: dict[str, KPlacedKey] = DataField(default_factory=dict)
+    Edges: dict[KPlacedKey, RevEdge] = DataField(
+        default_factory=dict[KPlacedKey, RevEdge]
+    )
+    MatchedEdges: dict[str, KPlacedKey] = DataField(
+        default_factory=dict[str, KPlacedKey]
+    )
+    MatchedVerts: dict[str, KPlacedKey] = DataField(
+        default_factory=dict[str, KPlacedKey]
+    )
 
 
 # placed native curve frames retain their original parameter direction

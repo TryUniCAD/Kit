@@ -54,7 +54,7 @@ def CheckTrimRing(
             raise ValueError("Fusion trimmed profile endpoint is open or ambiguous")
         Connections.append(Matches[0] // 2)
     Pending = [0]
-    Visited = set()
+    Visited: set[int] = set()
     while Pending:
         Index = Pending.pop()
         if Index not in Visited:

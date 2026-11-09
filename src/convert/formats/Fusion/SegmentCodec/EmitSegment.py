@@ -8,6 +8,7 @@
 
 from collections.abc import Iterable
 from dataclasses import replace as Replace
+from typing import cast as CastValue
 
 from convert.formats.Fusion.SegmentCodec.BindBulkRows import BindBulkRows
 from convert.formats.Fusion.SegmentCodec.Bulk.BulkRecord import BulkRecord
@@ -21,7 +22,7 @@ from convert.formats.Fusion.SegmentCodec.Metadata.WriteMetaWire import WriteMeta
 def EmitSegment(
     Metadata: MetaSegment, Records: Iterable[BulkRecord]
 ) -> tuple[bytes, bytes]:
-    if not isinstance(Metadata, MetaSegment):
+    if not isinstance(CastValue(object, Metadata), MetaSegment):
         raise ValueError("Expected typed metadata for Fusion segment")
     BulkData, Entries = EmitBulkStream(BindBulkRows(Metadata.Classes, Records))
     Primary: list[MetaOffset] = []

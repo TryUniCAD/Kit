@@ -7,6 +7,9 @@
 # to you under it immediately and permanently.
 
 from collections.abc import Mapping
+from typing import cast as CastValue
+
+from convert.adapters.base.WriteValidate import IsObjectMap
 
 
 # the target solver needs the stored incidence independently of the visible constraints
@@ -25,10 +28,10 @@ def GetIncidence(
         )
     else:
         return ()
-    Items = PointRefs.get("$tuple") if isinstance(PointRefs, Mapping) else None
-    if not isinstance(Items, list) or len(Items) != len(Slots):
+    Items = PointRefs.get("$tuple") if IsObjectMap(PointRefs) else None
+    if not isinstance(Items, list) or len(CastValue(list[object], Items)) != len(Slots):
         return ()
-    return tuple(zip(Items, Slots, strict=True))
+    return tuple(zip(CastValue(list[object], Items), Slots, strict=True))
 
 
 # identical native point ids connect helper points to the specific curve slots they control
@@ -40,7 +43,7 @@ def FindPointLinks(
         for Entity in Entities
         if isinstance(EntityId := Entity.get("id"), str)
         and EntityId in Indices
-        and isinstance(Geometry := Entity.get("geometry"), Mapping)
+        and IsObjectMap(Geometry := Entity.get("geometry"))
         and Geometry.get("$type") == "PointGeometry"
     }
     Links: list[tuple[tuple[int, int], tuple[int, int]]] = []
@@ -51,10 +54,12 @@ def FindPointLinks(
             not isinstance(EntityId, str)
             or EntityId not in Indices
             or not isinstance(Attrs, Mapping)
-            or not isinstance(Geometry, Mapping)
+            or not IsObjectMap(Geometry)
         ):
             continue
-        for NativeId, PointSlot in GetIncidence(Geometry.get("$type"), Attrs):
+        for NativeId, PointSlot in GetIncidence(
+            Geometry.get("$type"), CastValue(Mapping[str, object], Attrs)
+        ):
             if type(NativeId) is not int:
                 continue
             PointId = f"fusion-sketch-entity-{NativeId}"

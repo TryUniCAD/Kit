@@ -19,6 +19,7 @@ class BulkOwners:
 
     # separate tracking allows either native index table to be bounded independently
     def __init__(self) -> None:
+        super().__init__()
         self.Primary: dict[int, int] = {}
         self.Continues: set[tuple[int, int]] = set()
         self.OtherCount = 0

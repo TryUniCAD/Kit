@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from convert.formats.Fusion.Assembly.OccurRecord import OccurRecord
+from convert.formats.Fusion.Assembly.ComponentEntry import ComponentEntry
 from convert.formats.Fusion.Assembly.AssemblyIndex import AssemblyIndex
 from convert.formats.Fusion.Assembly.ComponentRead import (
     KComponentBase,
@@ -34,10 +36,10 @@ KConstraintGuids = frozenset(
 
 # index typed native records once without deriving links from coincidental ids
 def ReadAsmRecords(BulkData: bytes, Spans: tuple[RecordSpan, ...]) -> AssemblyIndex:
-    PrimaryIds = set()
-    Components = {}
-    Occurrences = {}
-    Collections = {}
+    PrimaryIds: set[int] = set()
+    Components: dict[int, ComponentEntry] = {}
+    Occurrences: dict[int, OccurRecord] = {}
+    Collections: dict[int, tuple[int, tuple[int, ...]]] = {}
     HasConstraints = False
     for SpanValue in Spans:
         ObjectId, ClassGuid = SpanValue.ObjectId, SpanValue.ClassGuid
@@ -71,7 +73,7 @@ def ReadAsmRecords(BulkData: bytes, Spans: tuple[RecordSpan, ...]) -> AssemblyIn
             Collections[ObjectId] = ReadOccurColl(
                 BulkData[Start + 4 : SpanValue.EndOffset]
             )
-    if Components.keys() != PrimaryIds and (Components or Occurrences or Collections):
+    if set(Components) != PrimaryIds and (Components or Occurrences or Collections):
         raise ValueError("Missing or mismatched Fusion component continuation")
     if HasConstraints and len(Occurrences) > 1:
         raise ValueError(

@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 from math import tan as Tangent
+from typing import cast as CastValue
 
 from convert.formats.Fusion.Extrudes.TrimmedParts import ReadTrimParts
 from convert.geometry.Extrude.Circular.CircularExtrude import BuildCircular
@@ -45,7 +46,9 @@ def BuildExtGeom(
     if not isinstance(EntityIds, tuple):
         raise ValueError("Missing Fusion Extrude solid profile")
     ByEntity = {Entity.id: Entity.geometry for Entity in SketchValue.entities}
-    Parts = tuple(ByEntity.get(Identity) for Identity in EntityIds)
+    Parts = tuple(
+        ByEntity.get(Identity) for Identity in CastValue(tuple[str, ...], EntityIds)
+    )
     if len(Parts) == 1 and isinstance(Parts[0], CircleGeometry):
         Profile = Parts[0]
         if HasTaper and (

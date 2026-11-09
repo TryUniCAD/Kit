@@ -11,7 +11,7 @@ def GetFaceErrors(
     ModelValue: BrepView, IdentitySets: dict[str, frozenset[str]]
 ) -> tuple[str, ...]:
     ErrorValues: list[str] = []
-    WholeFaces = (
+    WholeFaces: frozenset[str] = (
         GetWholeFaces(ModelValue)
         if any(not FaceValue.loop_ids for FaceValue in ModelValue.faces)
         else frozenset()

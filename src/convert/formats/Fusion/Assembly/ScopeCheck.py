@@ -35,7 +35,7 @@ def CheckScope(Records: tuple[KScopeRecord, ...], ComponentId: int) -> None:
         and Value.path
         and Value.path[-1].entity_kind == "support_plane"
     }
-    PlaneSources = set()
+    PlaneSources: set[str] = set()
     for PlaneValue in (Value for Value in Records if isinstance(Value, SupportPlane)):
         OwnerId = PlaneValue.attributes.get("fusion.component_object_id")
         PlaneSource = str(PlaneValue.attributes.get("fusion.feature_object_id", ""))

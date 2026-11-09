@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 from enum import StrEnum
+from typing import cast as CastValue
 
 from convert.formats.Fusion.MetaCursor import MetaCursor
 
@@ -28,7 +29,7 @@ KSegmentLayout = {
 
 # an expected segment kind prevents an unrelated index from validating this stream pair
 def CheckMetaHeader(Cursor: MetaCursor, Segment: SegmentKind) -> None:
-    if not isinstance(Segment, SegmentKind):
+    if not isinstance(CastValue(object, Segment), SegmentKind):
         raise ValueError("Unsupported Fusion MetaStream segment kind")
     KindValue = Cursor.ReadText()
     SegmentId, _ = Cursor.ReadWord(), Cursor.ReadText(True)

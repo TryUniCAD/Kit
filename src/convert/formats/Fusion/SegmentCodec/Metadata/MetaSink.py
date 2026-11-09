@@ -21,6 +21,7 @@ class MetaSink:
 
     # a single mutable buffer avoids rebuilding the accumulated wire output
     def __init__(self) -> None:
+        super().__init__()
         self.Buffer = bytearray()
 
     # bytes from any field share the same cumulative member limit

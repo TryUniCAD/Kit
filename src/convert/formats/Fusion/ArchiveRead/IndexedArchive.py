@@ -63,8 +63,8 @@ class IndexedArchive:
         ZipValue: ZipFile,
         InflateZstd: Callable[[bytes, int], bytes] | None,
     ) -> None:
-        self.DataValue = DataValue
-        self.ZipValue = ZipValue
+        super().__init__()
+        self.DataValue, self.ZipValue = DataValue, ZipValue
         self.Codec = InflateZstd
         self.Entries = IndexZipItems(ZipValue.infolist())
         self.Boundaries = (

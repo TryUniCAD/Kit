@@ -8,6 +8,7 @@
 
 from math import hypot as Hypot, isclose as IsClose
 from sys import float_info as FloatInfo
+from typing import cast as CastValue
 
 from interchange.geometry.models.VectorSpace import SpaceVector
 
@@ -17,7 +18,7 @@ KAxisTolerance = 1e-9
 
 # extent evaluation only uses finite numerical operands in component coordinates
 def GetExtVector(Vector: SpaceVector) -> tuple[float, float, float]:
-    if not isinstance(Vector, SpaceVector):
+    if not isinstance(CastValue(object, Vector), SpaceVector):
         raise ValueError("plane extrusion requires a spatial vector")
     Values = (Vector.x, Vector.y, Vector.z)
     if not all(

@@ -8,6 +8,7 @@
 
 from math import isclose as IsClose
 
+from convert.adapters.base.WriteValidate import IsObjectTuple
 from interchange.brep.topology.BrepMath import IsFinitePlane
 from interchange.enums.EnumGeometry import GeometryKind
 from interchange.features.FeatureStep import FeatureStep
@@ -29,7 +30,7 @@ def GetEditCircle(
         or type(DescriptorId) is not int
         or DescriptorId <= 0
         or "fusion.profile_portions" in FeatureValue.attributes
-        or not isinstance(Membership, tuple)
+        or not IsObjectTuple(Membership)
         or len(Membership) != 1
         or SketchValue.closed_profile_entity_ids != (Membership,)
         or FeatureValue.attributes.get("fusion.profile_native_members") != Membership

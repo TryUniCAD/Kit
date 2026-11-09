@@ -58,7 +58,7 @@ def ProjectPlaneExts(
     ByFrame = {Frame.id: Frame for Frame in Frames}
     BySketch = {SketchValue.id: SketchValue for SketchValue in Sketches}
     Scopes = None
-    Updated = {}
+    Updated: dict[str, FeatureStep] = {}
     Selections: list[Selection] = []
     Diagnostics: list[Diagnostic] = []
     for Identity, Step in ByNative.items():

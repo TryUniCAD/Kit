@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 
 from convert.formats.Fusion.SegmentCodec.Metadata.CheckWireBody import CheckWireBody
 from convert.formats.Fusion.SegmentCodec.Metadata.EmitWireHead import EmitWireHead
@@ -21,7 +22,7 @@ from convert.formats.Fusion.SegmentCodec.Metadata.MetaSink import MetaSink
 
 # typed models can originate new metadata bytes without borrowing a saved record
 def WriteMetaWire(Value: MetaSegment) -> bytes:
-    if not isinstance(Value, MetaSegment):
+    if not isinstance(CastValue(object, Value), MetaSegment):
         raise ValueError("Expected a typed Fusion MetaStream")
     SinkValue = MetaSink()
     EmitWireHead(SinkValue, Value.Header)

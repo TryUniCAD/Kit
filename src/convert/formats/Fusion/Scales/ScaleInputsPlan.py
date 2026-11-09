@@ -81,7 +81,7 @@ def ReadScalePicks(
         Feature,
         frozenset(Context.Steps[Identity].id for Identity in NativeIds),
     )
-    Result = []
+    Result: list[tuple[FeatureStep, NativeBody, int]] = []
     for Pick in Picks:
         SourceId = Pick.query.get("native_source_id")
         if type(SourceId) is not int or Pick.query.get("kind") != "historical_body":

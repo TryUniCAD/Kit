@@ -35,7 +35,7 @@ def JoinTolerance(Parts: tuple[TrimOperand, ...]) -> float:
 # mutual unique endpoint matches prove degree two without transitive snapping
 def MatchTrimEnds(Points: tuple[PlaneVector, ...], Tolerance: float) -> tuple[int, ...]:
     Positions = tuple((Point.x, Point.y) for Point in Points)
-    Matches = []
+    Matches: list[int] = []
     for Index, Position in enumerate(Positions):
         Nearby = tuple(
             Other
@@ -54,9 +54,9 @@ def WalkTrimRing(
     Points: tuple[PlaneVector, ...],
     Matches: tuple[int, ...],
 ) -> tuple[tuple[PlaneVector, ...], tuple[KTrimUse, ...]]:
-    Ordered = []
-    RingUses = []
-    Visited = set()
+    Ordered: list[PlaneVector] = []
+    RingUses: list[KTrimUse] = []
+    Visited: set[int] = set()
     Cursor = 0
     while Cursor // 2 not in Visited:
         Index = Cursor // 2

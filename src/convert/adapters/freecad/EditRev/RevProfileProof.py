@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 
+from convert.adapters.base.WriteValidate import IsObjectTuple
 from convert.adapters.freecad.EditRing.RingInputs import ReadRingInput
 from convert.formats.Fusion.DesignZip import KDesignPrefix
 from convert.formats.Fusion.Profiles.ProfileRef import KLoopGuid, KProfileGuid
@@ -28,16 +29,16 @@ def CheckRevMembers(FeatureValue: FeatureStep, SketchValue: Sketch) -> None:
         or type(Descriptor) is not int
         or Descriptor <= 0
         or "fusion.profile_portions" in Attrs
-        or not isinstance(Profile, tuple)
+        or not IsObjectTuple(Profile)
         or len(Profile) not in (3, 4)
         or any(not isinstance(Identity, str) for Identity in Profile)
         or len(set(Profile)) != len(Profile)
         or SketchValue.closed_profile_entity_ids != (Profile,)
-        or not isinstance(Members, tuple)
+        or not IsObjectTuple(Members)
         or len(Members) != len(Profile)
         or any(not isinstance(Identity, str) for Identity in Members)
         or set(Members) != set(Profile)
-        or not isinstance(Directions, tuple)
+        or not IsObjectTuple(Directions)
         or len(Directions) != len(Profile)
         or any(type(Value) is not int or Value not in (0, 1) for Value in Directions)
     ):

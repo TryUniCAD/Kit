@@ -35,7 +35,7 @@ def LinkSolidBodies(
     Linked = {NativeId for NativeId, _ in Links.values()}
     if Linked != ByBody.keys() or len(Linked) != len(Creators):
         raise ValueError("Fusion solid creators do not cover the saved body inventory")
-    Results = {}
+    Results: dict[str, tuple[NativeBody, int]] = {}
     for StepValue in Creators:
         FeatureId = FeatureIds[StepValue.id]
         NativeId, AnchorId = Links[FeatureId]

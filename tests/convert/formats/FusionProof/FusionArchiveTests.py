@@ -54,7 +54,7 @@ def WithCodec(DataValue: bytes) -> bytes:
 # a single central index serves lazy body reads and immutable member descriptions
 def TestSharedIndex(MonkeyPatch: PatchContext) -> None:
     Packed, BulkData = SharedZip()
-    Calls = []
+    Calls: list[int] = []
 
     # count validation at the real index boundary without replacing its behavior
     def CountIndex(Entries: list[ZipInfo]) -> dict[str, ZipInfo]:
@@ -111,7 +111,7 @@ def TestSharedIndex(MonkeyPatch: PatchContext) -> None:
 # a supplied codec remains lazy and repeated requests retain no inflated body cache
 def TestLazyCodec() -> None:
     Packed, BulkData = SharedZip()
-    Reads = []
+    Reads: list[bytes] = []
 
     # stored bytes let the test identify exactly which compressed input reached the callback
     def Inflate(Contents: bytes, SizeValue: int) -> bytes:

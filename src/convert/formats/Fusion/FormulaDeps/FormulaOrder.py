@@ -18,7 +18,7 @@ def GetProvenLinks(Graph: dict[str, tuple[str, ...]]) -> dict[str, tuple[str, ..
         for InputId in Inputs:
             Dependents.setdefault(InputId, []).append(ParamId)
     Ready = Deque(ParamId for ParamId, Count in Remaining.items() if Count == 0)
-    Proven = {}
+    Proven: dict[str, tuple[str, ...]] = {}
     while Ready:
         ParamId = Ready.popleft()
         if Graph[ParamId]:

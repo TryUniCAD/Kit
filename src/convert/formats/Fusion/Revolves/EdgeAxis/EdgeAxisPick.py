@@ -9,7 +9,9 @@
 from collections.abc import Callable, Mapping
 from dataclasses import replace as Replace
 from math import hypot as Hypot, isfinite as IsFinite
+from typing import cast as CastValue
 
+from convert.adapters.base.WriteValidate import IsObjectMap
 from convert.formats.Fusion.BodyBlob import KHistoryPrefix
 from convert.formats.Fusion.Extrudes.SolidCreators import IsSavedActive
 from convert.formats.Fusion.ParamProjection import ParamOrigin
@@ -49,7 +51,7 @@ def ReadEdgeAxis(
     Attrs = StepValue.attributes
     Evidence = Attrs.get("fusion.revolve.axis_edge_source")
     SelectId = Attrs.get("fusion.revolve.axis_selection_id")
-    if Origin is None or type(SelectId) is not int or not isinstance(Evidence, Mapping):
+    if Origin is None or type(SelectId) is not int or not IsObjectMap(Evidence):
         raise ValueError("Missing Fusion Revolve body edge selection evidence")
     BodyId = Evidence.get("native_body_id")
     SourceId = Evidence.get("native_source_feature_id")
@@ -133,6 +135,11 @@ def ReadEdgeAxis(
         path=(SelectPathElem("body", ResultId), SelectPathElem("edge", EdgeId)),
         query=FreezeMapping({"kind": "body_edge"}),
         provenance=Replace(SelectOrigin, spans=(*SelectOrigin.spans, *Spans, BlobSpan)),
-        attributes=FreezeMapping({**Evidence, "asm_body_handle": Asset.Handle}),
+        attributes=FreezeMapping(
+            {
+                **CastValue(Mapping[str, object], Evidence),
+                "asm_body_handle": Asset.Handle,
+            }
+        ),
     )
     return SelectionValue, AxisStart, SpaceVector(*(Value / Length for Value in Delta))

@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 
+from convert.adapters.base.WriteValidate import IsObjectTuple
 from interchange.geometry.models.Sketch import SketchEntity
 
 
@@ -14,7 +15,7 @@ from interchange.geometry.models.Sketch import SketchEntity
 def ReadRingEnds(Entity: SketchEntity) -> tuple[str, str]:
     PointIds = Entity.attributes.get("fusion.line_native_point_ids")
     if (
-        not isinstance(PointIds, tuple)
+        not IsObjectTuple(PointIds)
         or len(PointIds) != 2
         or any(type(Value) is not int or Value <= 0 for Value in PointIds)
         or PointIds[0] == PointIds[1]

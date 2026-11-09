@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 
+from convert.adapters.base.WriteValidate import IsObjectTuple
 from convert.adapters.freecad.EditRing.RingInputs import ReadRingInput
 from convert.formats.Fusion.Profiles.ProfileRef import KLoopGuid, KProfileGuid
 from interchange.enums.EnumFeatures import FeatureKind
@@ -32,16 +33,16 @@ def HasRingBinding(FeatureValue: FeatureStep, SketchValue: Sketch) -> bool:
         or type(Descriptor) is not int
         or Descriptor <= 0
         or "fusion.profile_portions" in Attributes
-        or not isinstance(Profile, tuple)
+        or not IsObjectTuple(Profile)
         or not 3 <= len(Profile) <= 64
         or any(not isinstance(Identity, str) for Identity in Profile)
         or SketchValue.closed_profile_entity_ids != (Profile,)
-        or not isinstance(Members, tuple)
+        or not IsObjectTuple(Members)
         or len(Members) != len(Profile)
         or any(not isinstance(Identity, str) for Identity in Members)
         or Members[0] != Profile[0]
         or set(Members) != set(Profile)
-        or not isinstance(Directions, tuple)
+        or not IsObjectTuple(Directions)
         or len(Directions) != len(Profile)
         or any(
             type(Direction) is not int or Direction not in (0, 1)

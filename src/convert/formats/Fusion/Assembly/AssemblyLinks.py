@@ -13,8 +13,8 @@ from convert.formats.Fusion.Assembly.NativeOccurrence import NativeOccurrence
 # exact collection ownership supplies child order without expanding reused definitions
 def LinkOccurrences(IndexValue: AssemblyIndex) -> tuple[NativeOccurrence, ...]:
     Linked: list[NativeOccurrence] = []
-    Claimed = set()
-    ByOwner = set()
+    Claimed: set[int] = set()
+    ByOwner: set[int] = set()
     for CollectionId, (OwnerId, Members) in IndexValue.Collections.items():
         Owner = IndexValue.Components.get(OwnerId)
         if Owner is None or Owner.CollectionId != CollectionId or OwnerId in ByOwner:
@@ -22,7 +22,7 @@ def LinkOccurrences(IndexValue: AssemblyIndex) -> tuple[NativeOccurrence, ...]:
                 "Fusion component and occurrence collection links disagree"
             )
         ByOwner.add(OwnerId)
-        Siblings = set()
+        Siblings: set[tuple[int, int]] = set()
         for Order, MemberId in enumerate(Members):
             Occurrence = IndexValue.Occurrences.get(MemberId)
             if (

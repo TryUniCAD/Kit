@@ -106,7 +106,7 @@ def OpenScalePrisms(
     Features = {Value.id: Value for Value in DocValue.feature_timeline}
     Sketches = {Value.id: Value for Value in DocValue.sketches}
     Params = {Value.id: Value for Value in DocValue.parameters}
-    Prisms = []
+    Prisms: list[KCachePrism] = []
     for PickValue in DocValue.selections:
         if PickValue.query.get("kind") != "historical_body":
             continue

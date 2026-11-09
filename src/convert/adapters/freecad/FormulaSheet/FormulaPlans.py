@@ -10,6 +10,7 @@ from collections import Counter as CountValues
 from dataclasses import dataclass as MakeDataClass
 from re import fullmatch as FullMatch
 from typing import Mapping
+from typing import cast as CastValue
 
 from convert.adapters.freecad.LiteralQuantity import IsLiteralQty
 from convert.geometry.Formula.Arithmetic import (
@@ -42,7 +43,7 @@ def ReadFusionRows(Parameters: list[dict[str, object]]) -> dict[str, Parameter]:
         ExpressionData = Value.get("expression")
         if (
             not isinstance(ExpressionData, dict)
-            or ExpressionData.get("language") != "fusion"
+            or CastValue(dict[str, object], ExpressionData).get("language") != "fusion"
         ):
             continue
         try:
@@ -57,7 +58,7 @@ def ReadFusionRows(Parameters: list[dict[str, object]]) -> dict[str, Parameter]:
         if (
             isinstance(TypedValue, Parameter)
             and isinstance(TypedValue.expression, Expression)
-            and isinstance(TypedValue.value, ParameterValue)
+            and isinstance(CastValue(object, TypedValue.value), ParameterValue)
         ):
             Result[Identity] = TypedValue
     return Result

@@ -6,11 +6,11 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from typing import cast as CastValue
 from dataclasses import dataclass as MakeDataClass
 from math import hypot as Hypot
 from math import isclose as IsClose
 from sys import float_info as FloatInfo
+from typing import cast as CastValue
 
 from interchange.features.DistanceSpan import KDistModes
 from interchange.features.FeatureContract import FeatureDef
@@ -32,7 +32,7 @@ class DistanceExtrude(FeatureDef):
 
     # distinct roles prevent a parameter from changing unrelated extrusion controls
     def __post_init__(self) -> None:
-        if not isinstance(self.Direction, SpaceVector):
+        if not isinstance(CastValue(object, self.Direction), SpaceVector):
             raise ValueError("distance extrusion requires a spatial direction")
         Vector = (self.Direction.x, self.Direction.y, self.Direction.z)
         if not all(

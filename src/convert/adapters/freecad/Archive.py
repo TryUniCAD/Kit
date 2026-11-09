@@ -6415,7 +6415,7 @@ class DocFeatures:
     EditableBodySeed: str = ""
     BodyAxisTarget: tuple[str, str, str] | None = None
     EditableScaleSteps: tuple[str, ...] = ()
-    ScaleBodyTips: dict[str, str] = Field(default_factory=dict)
+    ScaleBodyTips: dict[str, str] = Field(default_factory=dict[str, str])
 
 
 # this definition exists because native replay objects need stable source ordering

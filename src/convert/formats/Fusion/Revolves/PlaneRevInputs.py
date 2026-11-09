@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 
+from convert.adapters.base.WriteValidate import IsObjectTuple
 from convert.formats.Fusion.Revolves.RevProfile import ReadRevProfile
 from interchange.features.FeatureStep import FeatureStep
 from interchange.geometry.models.GeometryCurves import LineGeometry
@@ -32,7 +33,7 @@ def TargetPlanes(
     Frames: dict[str, SupportPlane],
 ) -> tuple[tuple[Selection, SupportPlane], ...]:
     Ids = StepValue.attributes.get("fusion.revolve.target_selection_ids")
-    if not isinstance(Ids, tuple) or len(Ids) not in (1, 2):
+    if not IsObjectTuple(Ids) or len(Ids) not in (1, 2):
         raise ValueError("Fusion plane Revolve requires one or two targets")
     ById = {Value.id: Value for Value in Picks}
     Targets: list[tuple[Selection, SupportPlane]] = []

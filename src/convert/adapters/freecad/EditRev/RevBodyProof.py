@@ -7,8 +7,8 @@
 # to you under it immediately and permanently.
 
 
-from collections.abc import Mapping
-
+from convert.adapters.base.WriteValidate import IsObjectTuple
+from convert.adapters.base.WriteValidate import IsObjectMap
 from convert.formats.Fusion.Revolves.BuildRevGeom import BuildRevGeom
 from convert.formats.Fusion.Topology.BodyAnchor import KBodyGuid
 from convert.formats.Fusion.Topology.BodyCollection import KBodyCollection
@@ -28,15 +28,15 @@ def CheckRevInv(
 ) -> None:
     Inventory = DocValue.metadata.get("fusion.body_inventory")
     if (
-        not isinstance(Inventory, Mapping)
+        not IsObjectMap(Inventory)
         or Inventory.get("component_id") != Component
-        or not isinstance((Members := Inventory.get("members")), tuple)
+        or not IsObjectTuple((Members := Inventory.get("members")))
         or len(Members) != 1
     ):
         raise ValueError("FreeCAD editable Revolve native body inventory is unresolved")
     (Member,) = Members
     if (
-        not isinstance(Member, Mapping)
+        not IsObjectMap(Member)
         or Member.get("object_id") != NativeId
         or Member.get("design_body_id") != BodyValue.id
         or Member.get("collection_id")

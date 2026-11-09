@@ -14,6 +14,7 @@ from math import (
     sin as SineValue,
     tau as FullTurn,
 )
+from typing import cast as CastValue
 
 from interchange.geometry.models.GeometryCurves import ArcGeometry, LineGeometry
 from interchange.geometry.models.VectorPlane import PlaneVector
@@ -35,7 +36,7 @@ KTrimUse = tuple[TrimOperand, bool]
 def ReadOperand(Geometry: LineGeometry | ArcGeometry) -> TrimOperand:
     if isinstance(Geometry, LineGeometry):
         Start, Finish = Geometry.start, Geometry.end
-    elif isinstance(Geometry, ArcGeometry):
+    elif isinstance(CastValue(object, Geometry), ArcGeometry):
         Center = Geometry.center
         Radius = Geometry.radius
         Lower, Upper = Geometry.start_angle, Geometry.end_angle

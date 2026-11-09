@@ -9,7 +9,9 @@
 
 from collections.abc import Mapping
 from math import isclose as IsClose, pi as HalfTurn
+from typing import cast as CastValue
 
+from convert.adapters.base.WriteValidate import IsObjectMap
 from convert.adapters.freecad.EditPlaneRev.PlaneRevParams import (
     ReadInactive,
     ReadTargetPars,
@@ -55,11 +57,18 @@ def ReadTargetPlans(
     for Index, (PickValue, PlaneValue) in enumerate(Inputs):
         StepValue = ReadTargetStep(FeatureValue, Steps, PickValue, PlaneValue, Index)
         Proof = PlaneValue.attributes.get("fusion.angle_plane")
-        if not isinstance(Proof, Mapping):
+        if not IsObjectMap(Proof):
             raise ValueError("FreeCAD editable plane has no authored angle evidence")
-        AngleId, Radians, ExtraId = ReadTargetPars(StepValue, Params, Proof)
+        AngleId, Radians, ExtraId = ReadTargetPars(
+            StepValue, Params, CastValue(Mapping[str, object], Proof)
+        )
         ZeroFrame = ReadTargetBase(
-            Proof, AxisPick, PlaneValue, SketchPlane, FeatureValue, Radians
+            CastValue(Mapping[str, object], Proof),
+            AxisPick,
+            PlaneValue,
+            SketchPlane,
+            FeatureValue,
+            Radians,
         )
         Construction = StepValue.definition
         if isinstance(Construction, BoundConstructionPlane) and (

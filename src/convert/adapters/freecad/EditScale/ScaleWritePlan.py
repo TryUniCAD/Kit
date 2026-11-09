@@ -20,6 +20,7 @@ from convert.adapters.freecad.EditScale.ScaleSourcePlan import ReadScaleBody
 from convert.formats.Fusion.Extrudes.SolidCreators import IsSavedActive
 from convert.formats.Fusion.Revolves.JoinRevModels import JoinRevModels
 from convert.formats.Fusion.Sketches.SketchPlacement import KSketchFeature
+from interchange.brep.topology.BrepModel import BrepModel
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.features.BoundScaleValues import GetScaleValues
 from interchange.features.FeatureBoundScale import BoundScale
@@ -59,10 +60,10 @@ def ReadScalePlan(
         raise ValueError("FreeCAD Scale requires literal writable factor controls")
     Point = ReadScalePoint(Document, Feature, Picks[Definition.CenterSelectionId])
     Steps = {Value.id: Value for Value in Document.feature_timeline}
-    SketchIds = set()
-    Sources = set()
+    SketchIds: set[str] = set()
+    Sources: set[str] = set()
     BodyPlans: list[ScaleBodyPlan] = []
-    Models = []
+    Models: list[BrepModel] = []
     for Body, Identity in zip(
         Document.bodies, Definition.BodySelectionIds, strict=True
     ):

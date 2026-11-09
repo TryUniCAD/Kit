@@ -15,6 +15,9 @@ from zipfile import ZipFile
 from pytest import mark as TestMarks, raises as Raises
 
 from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionArchive
+from convert.formats.Fusion.SourceProof.Auxiliary.Manifest.ActiveManifest import (
+    ActiveManifest,
+)
 from convert.formats.Fusion.SourceProof.Auxiliary.Manifest.ReadActiveMeta import (
     KActiveManifest,
     KMaxManifestBytes,
@@ -64,7 +67,7 @@ def ManifestZip(Members: dict[str, bytes]) -> bytes:
 # the same asset can legitimately have multiple distinct native snapshot identities
 @KRequiresCodec
 def TestAssetRevs() -> None:
-    Results = []
+    Results: list[ActiveManifest] = []
     for FileName in ("depth07_a.f3d", "depth13.f3d"):
         Capture = ManifestZip(CaptureMembers(KCaptureFolder / FileName))
         with OpenFusionArchive(Capture) as Archive:

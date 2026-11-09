@@ -4,8 +4,6 @@
 from inspect import isabstract as IsAbstract
 from typing import cast
 
-from typing import cast as CastValue
-
 import pytest as Pytest
 
 from convert import available_adapters as GetAdapters
@@ -55,15 +53,20 @@ def CheckDiscovery() -> None:
         and not getattr(type(AdapterData), "_is_protocol", False)
         for AdapterData in (*ReaderValues, *WriterValues)
     )
+    CheckCaps(FirstRegistry, (*ReaderValues, *WriterValues))
+
+
+# the registry advertises capabilities consistently across discovered adapter families
+def CheckCaps(
+    Registry: AdapterRegistry,
+    Adapters: tuple[CadReaderAdapter | CadWriterAdapter, ...],
+) -> None:
     assert all(
         AdapterData.info.capabilities == frozenset(Capability)
-        for AdapterData in CastValue(
-            tuple[CadReaderAdapter | CadWriterAdapter, ...],
-            (*ReaderValues, *WriterValues),
-        )
+        for AdapterData in Adapters
         if AdapterData.info.format_id in KLegacyFormats
     )
-    FusionCaps = FirstRegistry.reader("fusion.f3d").info.capabilities
+    FusionCaps = Registry.reader("fusion.f3d").info.capabilities
     assert {Capability.KNativePayloads, Capability.KProvenance} <= FusionCaps
     assert {Capability.KAssemblies, Capability.KComponentDocs} <= FusionCaps
     assert FusionCaps < frozenset(Capability)

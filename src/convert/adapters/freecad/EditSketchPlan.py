@@ -8,6 +8,7 @@
 
 from collections.abc import Mapping
 
+from convert.adapters.base.WriteValidate import IsObjectMap, IsObjectTuple
 from convert.adapters.freecad.EditExtScope import HasEditState
 from convert.geometry.Formula.Arithmetic import (
     EvalFormula,
@@ -88,7 +89,7 @@ def IsSketchScope(Document: CadDocument) -> bool:
             or Config.suppressed_feature_ids
             or Config.attributes
         )
-        and isinstance(Inventory, Mapping)
+        and IsObjectMap(Inventory)
         and Inventory.get("members") == ()
         and Document.metadata.get("fusion.history_groups") == ()
         and HasSketchHistory(Document)
@@ -99,7 +100,7 @@ def IsSketchScope(Document: CadDocument) -> bool:
 def HasSketchHistory(Document: CadDocument) -> bool:
     Entries = Document.metadata.get("fusion.history_entries")
     return (
-        isinstance(Entries, tuple)
+        IsObjectTuple(Entries)
         and len(Entries) == len(Document.feature_timeline)
         and tuple(str(Value) for Value in Entries)
         == tuple(

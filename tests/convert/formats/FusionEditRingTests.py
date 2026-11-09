@@ -21,7 +21,7 @@ from convert.adapters.freecad.EditRing.RingEndpoints import ReadRingEnds
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.features.FeatureDistExt import DistanceExtrude
 from interchange.geometry.models.GeometryCurves import LineGeometry, PointGeometry
-from interchange.geometry.models.Sketch import Sketch
+from interchange.geometry.models.Sketch import Sketch, SketchEntity
 from interchange.geometry.models.VectorPlane import PlaneVector
 from tests.convert.api.ApiFusionAssemblyTests import KRequiresCodec, KStudyPath
 
@@ -134,7 +134,7 @@ def CheckRingPoint() -> None:
 # one source point moves with both incident lines without relying on coordinate lookup
 def MoveRingCorner(Original: Sketch, NewPoint: PlaneVector) -> Sketch:
     PointId = "fusion-sketch-entity-232"
-    Entities = []
+    Entities: list[SketchEntity] = []
     for Value in Original.entities:
         Geometry = Value.geometry
         if Value.id == PointId:

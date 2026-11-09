@@ -9,6 +9,7 @@
 from collections.abc import Mapping
 from dataclasses import replace as Replace
 from math import isclose as IsClose
+from typing import cast as CastValue
 
 from convert.adapters.freecad.EditBodyRev.BodyRevModels import GetBodyTopology
 from convert.adapters.freecad.EditRead.EditExtrusion import ReadEditDepth
@@ -23,7 +24,9 @@ from convert.formats.Fusion.Revolves.JoinRevModels import JoinRevModels
 from convert.formats.Fusion.Scales.ScaleSeed import ReadScaleSeed
 from convert.geometry.Extrude.Polygon.PrismRing import ReadPrismRing
 from convert.geometry.Scale.ScalePrism import BuildScalePrism
+from interchange.brep.topology.BrepModel import BrepModel
 from interchange.document.models.DocumentModel import CadDocument
+from interchange.features.FeatureBody import DesignBody
 from interchange.features.FeatureBoundScale import BoundScale
 from interchange.geometry.models.Transform import Transform
 from interchange.geometry.models.VectorSpace import SpaceVector
@@ -71,7 +74,7 @@ def RebuildScaleSolids(
         if Value.type_id == "Part::Scale"
     }
     Shift = ScaleOffset(Center, Factors)
-    Bodies, Models = [], []
+    Bodies, Models = CastValue(tuple[list[DesignBody], list[BrepModel]], ([], []))
     for Body, BodyPlan, PickId in zip(
         Document.bodies, Plan.Bodies, Definition.BodySelectionIds, strict=True
     ):

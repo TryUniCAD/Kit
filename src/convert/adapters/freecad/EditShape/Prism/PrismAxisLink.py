@@ -53,7 +53,7 @@ def CheckPrismLink(Raw: PrismRaw, Link: KPrismLink) -> None:
         raise DecodeFailure("saved prism edge slot is missing")
     Edge, Place, Reverse = Refs[Slot - 1]
     Vertices = Raw.Records[Edge.RecordA].Children
-    Points = {}
+    Points: dict[str, SpaceVector] = {}
     for RefValue in Vertices:
         DataValue = Raw.Records[RefValue.RecordA].GeometryA
         if not isinstance(DataValue, VertexData):

@@ -7,8 +7,8 @@
 # to you under it immediately and permanently.
 
 
-from collections.abc import Mapping
-
+from convert.adapters.base.WriteValidate import IsObjectTuple
+from convert.adapters.base.WriteValidate import IsObjectMap
 from convert.formats.Fusion.Topology.BodyAnchor import KAnchorGuid, KBodyGuid
 from convert.formats.Fusion.Topology.BodyCollection import KBodyCollection
 from interchange.brep.topology.BrepModel import BrepModel
@@ -23,9 +23,9 @@ from interchange.records.RecordTopology import TopologyCounts
 def CheckMembers(DocValue: CadDocument, Component: int) -> None:
     Inventory = DocValue.metadata.get("fusion.body_inventory")
     if (
-        not isinstance(Inventory, Mapping)
+        not IsObjectMap(Inventory)
         or Inventory.get("component_id") != Component
-        or not isinstance((Members := Inventory.get("members")), tuple)
+        or not IsObjectTuple((Members := Inventory.get("members")))
         or len(Members) != 2
     ):
         raise ValueError(
@@ -38,7 +38,7 @@ def CheckMembers(DocValue: CadDocument, Component: int) -> None:
         )
     NativeIds: set[int] = set()
     for Member in Members:
-        if not isinstance(Member, Mapping):
+        if not IsObjectMap(Member):
             raise ValueError(
                 "FreeCAD editable body axis Revolve body membership disagrees"
             )

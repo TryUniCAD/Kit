@@ -9,6 +9,7 @@
 from math import isfinite as IsFinite
 from sys import float_info as FloatInfo
 from typing import Mapping as TypeMap
+from typing import cast as CastValue
 
 from interchange.enums.EnumValues import ValueKind
 from interchange.features.FeatureStep import FeatureStep
@@ -33,7 +34,7 @@ def GetDistParam(
     ):
         raise ValueError(f"unlinked or unowned extrusion parameter {Identity}")
     ValueData = Param.value
-    if not isinstance(ValueData, ParameterValue):
+    if not isinstance(CastValue(object, ValueData), ParameterValue):
         raise ValueError(f"extrusion parameter {Identity} has no typed value")
     Number = ValueData.value
     if (
@@ -46,7 +47,7 @@ def GetDistParam(
             f"extrusion parameter {Identity} requires a finite numeric {Kind.value}"
         )
     UnitName = ValueData.unit
-    if Kind == ValueKind.KLength and isinstance(UnitName, str):
+    if Kind == ValueKind.KLength and isinstance(CastValue(object, UnitName), str):
         Factor = KLengthFactors.get(UnitName)
     else:
         Factor = 1.0 if Kind == ValueKind.KAngle and UnitName == "rad" else None

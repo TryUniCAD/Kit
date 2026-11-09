@@ -34,8 +34,10 @@ KPlacedKey = tuple[int, KLocationChain]
 class PrismProof:
     RawValue: PrismRaw
     Expected: ExpectedPrism
-    Vertices: dict[KPlacedKey, int] = DataField(default_factory=dict)
-    Edges: dict[KPlacedKey, tuple[int, int]] = DataField(default_factory=dict)
+    Vertices: dict[KPlacedKey, int] = DataField(default_factory=dict[KPlacedKey, int])
+    Edges: dict[KPlacedKey, tuple[int, int]] = DataField(
+        default_factory=dict[KPlacedKey, tuple[int, int]]
+    )
 
 
 # each placed native vertex must resolve exactly one expected ring corner

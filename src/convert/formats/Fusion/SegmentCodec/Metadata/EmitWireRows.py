@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 
 from convert.formats.Fusion.SegmentCodec.Metadata.MetaLimits import (
     KMaxMetaClasses,
@@ -25,7 +26,7 @@ def EmitWireClasses(SinkValue: MetaSink, Items: tuple[MetaClass, ...]) -> None:
     SinkValue.AddCount(Items, KMaxMetaClasses)
     Remaining = KMaxMetaIds
     for Entry in Items:
-        if not isinstance(Entry, MetaClass):
+        if not isinstance(CastValue(object, Entry), MetaClass):
             raise ValueError("Invalid Fusion MetaStream class row")
         SinkValue.AddText(Entry.ClassGuid)
         SinkValue.AddText(Entry.BaseGuid)
@@ -41,7 +42,7 @@ def EmitWireClasses(SinkValue: MetaSink, Items: tuple[MetaClass, ...]) -> None:
 def EmitWireTable(SinkValue: MetaSink, Items: tuple[MetaOffset, ...]) -> None:
     SinkValue.AddCount(Items, KMaxMetaIds)
     for Entry in Items:
-        if not isinstance(Entry, MetaOffset):
+        if not isinstance(CastValue(object, Entry), MetaOffset):
             raise ValueError("Invalid Fusion MetaStream offset row")
         SinkValue.AddLong(Entry.ObjectId)
         SinkValue.AddLong(Entry.Offset)
@@ -51,7 +52,7 @@ def EmitWireTable(SinkValue: MetaSink, Items: tuple[MetaOffset, ...]) -> None:
 def EmitWireProps(SinkValue: MetaSink, Items: tuple[MetaProperty, ...]) -> None:
     SinkValue.AddCount(Items, KMaxMetaProps)
     for Entry in Items:
-        if not isinstance(Entry, MetaProperty):
+        if not isinstance(CastValue(object, Entry), MetaProperty):
             raise ValueError("Invalid Fusion MetaStream property row")
         SinkValue.AddText(Entry.PropName)
         SinkValue.AddWord(Entry.Value)

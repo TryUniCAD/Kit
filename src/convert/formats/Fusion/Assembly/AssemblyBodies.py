@@ -14,6 +14,7 @@ from convert.formats.Fusion.Topology.BodyEvidence import (
 )
 from convert.formats.Fusion.Topology.NativeBody import NativeBody
 from interchange.core.Common import FreezeMapping
+from interchange.assembly.ComponentDefinition import ComponentDef
 from interchange.document.models.DocumentModel import AssemblyData
 
 
@@ -23,7 +24,7 @@ def AttachBodyList(
     ComponentIds: dict[str, int],
     Inventory: dict[int, tuple[NativeBody, ...]],
 ) -> AssemblyData:
-    Definitions = []
+    Definitions: list[ComponentDef] = []
     for Definition in Assembly.definitions:
         ComponentId = ComponentIds.get(Definition.id)
         if ComponentId is not None and ComponentId in Inventory:

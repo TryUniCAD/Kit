@@ -126,7 +126,7 @@ def TestNativePair(Segment: SegmentKind) -> None:
         BulkData = Archive.read(Prefix + "BulkStream.dat")
         MetaData = Archive.read(Prefix + "MetaStream.dat")
     Spans = ReadBulkSpans(BulkData, MetaData, Segment=Segment)
-    Records = []
+    Records: list[BulkRecord] = []
     for SpanValue in Spans:
         Payload = BulkData[SpanValue.PayloadOffset : SpanValue.EndOffset]
         if (

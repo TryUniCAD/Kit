@@ -53,7 +53,7 @@ def ReadScaleExprs(Native: NativeObject) -> dict[str, str]:
     if Property is None:
         return {}
     Engine = OnlyEditChild(Property, "ExpressionEngine")
-    Result = {}
+    Result: dict[str, str] = {}
     if Engine.attrib != {"count": str(len(Engine))} or (Engine.text or "").strip():
         raise ValueError("FreeCAD editable Scale expression count changed")
     for Node in Engine:
@@ -143,7 +143,9 @@ def CheckScalePose(
 def CheckSavedProps(Original: NativeObject, Saved: NativeObject, IsSeed: bool) -> None:
     Expected = Original.properties
     Actual = Saved.properties
-    Optional = {"Placement"} if Saved.type_id == "App::DocumentObjectGroup" else set()
+    Optional: set[str] = (
+        {"Placement"} if Saved.type_id == "App::DocumentObjectGroup" else set()
+    )
     if Expected.keys() - Optional - Actual.keys():
         raise ValueError(f"FreeCAD editable Scale {Saved.name} lacks a native property")
     Expressions = ReadScaleExprs(Original)

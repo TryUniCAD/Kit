@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 
 from convert.adapters.freecad.EditAxisRev.AxisPrimitives import (
     ReadAxisGeom,
@@ -30,7 +31,9 @@ def ReadAxisProfile(
     NativeMembers = FeatureValue.attributes["fusion.profile_native_members"]
     if not isinstance(NativeMembers, tuple):
         raise ValueError("FreeCAD editable sketch axis profile members are unresolved")
-    Sources = tuple(Entities[Identity] for Identity in NativeMembers)
+    Sources = tuple(
+        Entities[Identity] for Identity in CastValue(tuple[str, ...], NativeMembers)
+    )
     if OrderLineRing(Sources) != Members:
         raise ValueError("FreeCAD editable sketch axis source profile order disagrees")
     Points = {

@@ -90,7 +90,7 @@ def SplineCache(ShapeData: bytes) -> bytes:
         for Record in RawValue.Records.values()
         if isinstance(Value := Record.GeometryA, EdgeData)
     }
-    CurveLines = []
+    CurveLines: list[bytes] = []
     for Index, Curve in enumerate(RawValue.Curves, 1):
         assert isinstance(Curve, LineCurve)
         EdgeValue = Edges[Index]

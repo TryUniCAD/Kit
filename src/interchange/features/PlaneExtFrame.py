@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 from math import isfinite as IsFinite
+from typing import cast as CastValue
 
 from interchange.features.PlaneExtAxis import GetExtAxis, GetExtVector, KAxisTolerance
 from interchange.geometry.models.Transform import Transform
@@ -20,7 +21,7 @@ KStationTolerance = 1e-8
 def GetExtFrame(
     FrameValue: Transform,
 ) -> tuple[tuple[float, float, float], tuple[float, float, float]]:
-    if not isinstance(FrameValue, Transform):
+    if not isinstance(CastValue(object, FrameValue), Transform):
         raise ValueError("plane extrusion requires a typed plane frame")
     Origin = GetExtVector(FrameValue.origin)
     First, Second, Normal = (

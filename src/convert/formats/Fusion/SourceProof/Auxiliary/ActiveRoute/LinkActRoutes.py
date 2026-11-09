@@ -27,7 +27,7 @@ def LinkActRoutes(
     ActOwners: dict[int, RecordSpan],
     Table: ActTable,
 ) -> tuple[ActiveRoute, ...]:
-    Routes = []
+    Routes: list[ActiveRoute] = []
     for RouteRow in Table.Routes:
         Roles = tuple(RoleValue for RoleValue, _ in RouteRow.Roles)
         Owner = None

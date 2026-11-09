@@ -28,7 +28,7 @@ def CheckBrowser(RootValue: BrowserRoot) -> None:
         or len(RootValue.Routes) > KMaxRoutes
     ):
         raise ValueError("Invalid Fusion Browser root")
-    KeysValue = set()
+    KeysValue: set[tuple[int, int]] = set()
     for Route in RootValue.Routes:
         if (
             type(Route) is not BrowserRoute

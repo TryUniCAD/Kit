@@ -8,6 +8,7 @@
 
 from math import isfinite as IsFinite
 
+from convert.adapters.base.WriteValidate import IsObjectTuple
 from interchange.brep.topology.BrepMath import IsFinitePlane
 from interchange.enums.EnumGeometry import GeometryKind
 from interchange.geometry.models.GeometryCurves import CircleGeometry, LineGeometry
@@ -24,7 +25,7 @@ KTrimParameter = 1e-9
 def GetLinePoints(Entity: SketchEntity) -> tuple[int, int]:
     Points = Entity.attributes.get("fusion.line_native_point_ids")
     if (
-        not isinstance(Points, tuple)
+        not IsObjectTuple(Points)
         or len(Points) != 2
         or type(Points[0]) is not int
         or type(Points[1]) is not int

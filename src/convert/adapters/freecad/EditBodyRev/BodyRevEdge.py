@@ -10,7 +10,9 @@
 from collections.abc import Mapping
 from math import isfinite as IsFinite
 from uuid import UUID as ParseUuid
+from typing import cast as CastValue
 
+from convert.adapters.base.WriteValidate import IsObjectTuple
 from convert.adapters.freecad.EditAxisRev.AxisEndpoints import WorldAxisLine
 from convert.adapters.freecad.EditBodyRev.BodyAxisEdit import (
     BodyAxisVector,
@@ -149,7 +151,7 @@ def CheckRecipe(Attrs: Mapping[str, object]) -> None:
                 "FreeCAD editable body axis Revolve native name is unresolved"
             )
     Terms = Attrs.get("recipe_terms")
-    if not isinstance(Terms, tuple) or len(Terms) != 4 or len(set(Terms)) != 4:
+    if not IsObjectTuple(Terms) or len(Terms) != 4 or len(set(Terms)) != 4:
         raise ValueError("FreeCAD editable body axis Revolve recipe names disagree")
 
 
@@ -208,7 +210,7 @@ def FindSeedEdge(
 def ReadCachePoint(SelectionValue: Selection, KeyName: str) -> SpaceVector:
     Value = SelectionValue.attributes.get(KeyName)
     if (
-        not isinstance(Value, tuple)
+        not IsObjectTuple(Value)
         or len(Value) != 3
         or any(
             type(PartValue) is not float or not IsFinite(PartValue)
@@ -216,7 +218,7 @@ def ReadCachePoint(SelectionValue: Selection, KeyName: str) -> SpaceVector:
         )
     ):
         raise ValueError("FreeCAD editable body axis Revolve line cache is malformed")
-    return AsmPointMm(SpaceVector(*Value))
+    return AsmPointMm(SpaceVector(*CastValue(tuple[float, float, float], Value)))
 
 
 # the native line cache proves endpoint direction independently of prism winding

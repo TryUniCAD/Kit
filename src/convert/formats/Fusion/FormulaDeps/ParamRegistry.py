@@ -30,7 +30,7 @@ def ReadTableRefs(
             raise ValueError("Unknown Fusion parameter registry reference")
     if (
         References[0] != CollectionId
-        or set(References[1:]) != Members
+        or frozenset(References[1:]) != Members
         or (MemberOrder is not None and tuple(References[1:]) != MemberOrder)
     ):
         raise ValueError("Fusion parameter registry references disagree")
@@ -48,7 +48,7 @@ def ReadNameTable(
     ReadTableRefs(Cursor, CollectionId, Members, MemberOrder)
     if Cursor.TakeBytes(1) != b"\0" or Cursor.ReadWord() != len(Members):
         raise ValueError("Invalid Fusion parameter registry name count")
-    Names = {}
+    Names: dict[int, str] = {}
     for _ in range(len(Members)):
         NameValue = Cursor.ReadText(True, Maximum=1024)
         Identity = ReadNativeRef(Cursor)

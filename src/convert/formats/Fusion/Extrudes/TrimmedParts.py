@@ -9,6 +9,7 @@
 from math import tau as FullTurn
 from sys import float_info as FloatInfo
 
+from convert.adapters.base.WriteValidate import IsObjectTuple
 from interchange.features.FeatureStep import FeatureStep
 from interchange.geometry.models.GeometryCurves import (
     ArcGeometry,
@@ -34,7 +35,7 @@ def ReadTrimParts(
     StepValue: FeatureStep, SketchValue: Sketch
 ) -> tuple[LineGeometry | ArcGeometry, ...]:
     Rows = StepValue.attributes.get("fusion.profile_portions")
-    if not isinstance(Rows, tuple) or len(Rows) not in (2, 4):
+    if not IsObjectTuple(Rows) or len(Rows) not in (2, 4):
         raise ValueError("Missing Fusion trimmed profile boundary")
     Sources = {
         Entity.id: Entity.geometry
@@ -43,15 +44,15 @@ def ReadTrimParts(
     }
     Parts: list[LineGeometry | ArcGeometry] = []
     for Row in Rows:
-        if not isinstance(Row, tuple) or len(Row) != 4:
+        if not IsObjectTuple(Row) or len(Row) != 4:
             raise ValueError("Invalid Fusion trimmed profile portion")
         EntityId, Lower, Upper, Selector = Row
         if (
             not isinstance(EntityId, str)
-            or type(Lower) not in (float, int)
-            or type(Upper) not in (float, int)
+            or (type(Lower) is not float and type(Lower) is not int)
+            or (type(Upper) is not float and type(Upper) is not int)
             or not 0 <= Lower < Upper <= FloatInfo.max
-            or not isinstance(Selector, tuple)
+            or not IsObjectTuple(Selector)
             or len(Selector) != 7
             or any(type(Value) is not int for Value in Selector)
         ):

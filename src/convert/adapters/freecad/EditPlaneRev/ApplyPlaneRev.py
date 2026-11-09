@@ -30,7 +30,7 @@ def ApplyPlaneRev(
 ) -> CadDocument:
     Feature = DocValue.feature_timeline[-1]
     Definition = Feature.definition
-    if not isinstance(Definition, PlaneRevolve) or AngleEdits.keys() != {
+    if not isinstance(Definition, PlaneRevolve) or set(AngleEdits) != {
         Target.AngleParamId for Target in Plan.Targets
     }:
         raise ValueError("FreeCAD editable plane Revolve source controls disagree")

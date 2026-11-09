@@ -22,7 +22,7 @@ def GetFusionOpts(
 ) -> tuple[int | None, Callable[[bytes, int], bytes] | None]:
     if Options.strict is not False:
         raise ValueError("Fusion F3D reading is partial. Pass strict=False to opt in.")
-    if not isinstance(Options.values, Mapping):
+    if not isinstance(CastValue(object, Options.values), Mapping):
         raise TypeError("Fusion read option values must be a mapping")
     ConfigId = None
     ConfigText = CastValue(object, Options.configuration)

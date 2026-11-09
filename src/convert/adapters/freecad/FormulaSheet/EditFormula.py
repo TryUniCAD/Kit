@@ -49,7 +49,7 @@ def IsEditFormula(
     if TaperId is not None:
         Expected.add(TaperId)
     return (
-        Expected == Parameters.keys()
+        Expected == set(Parameters)
         and bool(Plans[DepthId].References)
         and DepthId in CloseFormulas(Plans)
     )

@@ -58,6 +58,7 @@ class ExprParser:
 
     # a local cursor keeps each validation isolated from other expressions
     def __init__(self, Tokens: tuple[KExprToken, ...]) -> None:
+        super().__init__()
         self.Tokens = Tokens
         self.Index = 0
         self.Nodes: list[KExprNode] = []

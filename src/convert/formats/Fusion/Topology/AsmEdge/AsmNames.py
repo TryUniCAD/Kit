@@ -44,7 +44,7 @@ def ReadFaceName(Table: AsmTable, Owner: int, FaceValue: AsmRecord) -> KNameTerm
     ):
         raise ValueError("Unsupported Fusion ASM face name schema")
     Cursor = 11
-    Terms = []
+    Terms: list[tuple[str, int, tuple[int, ...]]] = []
     for _ in range(Count):
         SizeValue = ReadAsmInt(Value, Cursor)
         NameValue = ReadAsmText(Value, Cursor + 1)

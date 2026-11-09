@@ -50,7 +50,7 @@ def ReadNativeList(
                 BulkData, Owners, ComponentBases[0], ComponentId
             )
             BodyIds = ReadCurrentList(BulkData, Owners, CollectionId, ComponentId)
-            Bodies = []
+            Bodies: list[NativeBody] = []
             for BodyId in BodyIds:
                 try:
                     NameText, HelperId = ReadBodyName(

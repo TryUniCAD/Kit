@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 
+from interchange.geometry.models.VectorPlane import PlaneVector
 from convert.geometry.Extrude.Polygon.PrismRing import MeasureRing, ReadPrismRing
 from interchange.geometry.models.GeometryCurves import LineGeometry
 from interchange.geometry.models.Sketch import SketchEntity
@@ -15,7 +16,7 @@ from interchange.geometry.models.Sketch import SketchEntity
 # neutral prism rim order derives from authored profile winding and exact curve tags
 def ReadProfileTags(Profile: tuple[SketchEntity, ...]) -> tuple[int, ...]:
     Lines: list[LineGeometry] = []
-    CurveTags = {}
+    CurveTags: dict[frozenset[PlaneVector], int] = {}
     for Entity in Profile:
         Geometry = Entity.geometry
         TagValue = Entity.attributes.get("fusion.entity_tag")

@@ -14,6 +14,7 @@ class MetaCursor:
 
     # cursor state keeps sequential fields independent of caller slicing
     def __init__(self, DataValue: bytes) -> None:
+        super().__init__()
         self.DataValue = DataValue
         self.Offset = 0
 

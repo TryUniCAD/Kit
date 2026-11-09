@@ -7,7 +7,9 @@
 # to you under it immediately and permanently.
 
 from collections.abc import Mapping
+from typing import cast as CastValue
 
+from convert.adapters.base.WriteValidate import IsObjectMap, IsObjectTuple
 from convert.formats.Fusion.DesignZip import KDesignPrefix
 from convert.formats.Fusion.HistoryGroup import KGroupGuid
 from convert.formats.Fusion.HistoryPart import HistoryPart
@@ -36,13 +38,13 @@ def ReadChronologyClaims(
         raise ValueError("Fusion source proof history identity changed")
     OwnerId, Entries, Groups = ReadHistory(BulkData, History, Owners)
     SavedGroups = Document.metadata["fusion.history_groups"]
-    if not isinstance(SavedGroups, tuple) or not all(
-        isinstance(Group, Mapping) for Group in SavedGroups
+    if not IsObjectTuple(SavedGroups) or not all(
+        IsObjectMap(Group) for Group in SavedGroups
     ):
         raise ValueError("Fusion source proof chronology groups are invalid")
     Expected = tuple(
         (Group["id"], Group["name"], Group["collapsed"], Group["members"])
-        for Group in SavedGroups
+        for Group in CastValue(tuple[Mapping[object, object], ...], SavedGroups)
     )
     if (
         OwnerId != Scope.OwnerId

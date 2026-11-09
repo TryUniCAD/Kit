@@ -53,7 +53,7 @@ def CheckPrismBox() -> None:
         for Reverse in (False, True)
     }
     assert max(Counter(UseValue.edge_id for UseValue in Model.coedges).values()) == 2
-    Normals = set()
+    Normals: set[tuple[float, float, float]] = set()
     for Surface in Model.surfaces:
         assert isinstance(Surface, PlaneSurface)
         Normal = Surface.normal

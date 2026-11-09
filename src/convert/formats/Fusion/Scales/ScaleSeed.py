@@ -7,7 +7,9 @@
 # to you under it immediately and permanently.
 
 from dataclasses import dataclass as MakeDataClass
+from typing import cast as CastValue
 
+from convert.adapters.base.WriteValidate import IsObjectTuple
 from convert.formats.Fusion.Topology.AsmEdge.PrismProfile import ReadProfileTags
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.features.DistanceValues import GetDistValues
@@ -68,14 +70,16 @@ def ReadScaleSeed(
     ):
         raise ValueError("Fusion Scale source sketch component disagrees")
     Identities = Source.attributes.get("fusion.profile_entity_ids")
-    if not isinstance(Identities, tuple):
+    if not IsObjectTuple(Identities):
         raise ValueError("Fusion Scale source profile is missing")
     ById = {Value.id: Value for Value in SketchValue.entities}
     if any(
         not isinstance(Identity, str) or Identity not in ById for Identity in Identities
     ):
         raise ValueError("Fusion Scale source profile has an unresolved entity")
-    Profile = tuple(ById[Identity] for Identity in Identities)
+    Profile = tuple(
+        ById[Identity] for Identity in CastValue(tuple[str, ...], Identities)
+    )
     Tags = ReadProfileTags(Profile)
     Lines = tuple(
         Entity.geometry

@@ -9,7 +9,9 @@
 
 from collections.abc import Mapping
 from math import isclose as IsClose
+from typing import cast as CastValue
 
+from convert.adapters.base.WriteValidate import IsObjectTuple
 from convert.adapters.freecad.EditExtScope import HasEditState
 from convert.formats.Fusion.AnglePlane.AnglePlaneBasis import (
     IsSameAngPlane,
@@ -94,7 +96,7 @@ def ReadTargetStep(
         or PickOrigin is None
         or PickOrigin.adapter != "fusion.f3d"
         or PickValue.id != f"fusion-selection-{PickOrigin.native_id}-{RoleName}"
-        or not isinstance(TargetIds, tuple)
+        or not IsObjectTuple(TargetIds)
         or Index >= len(TargetIds)
         or TargetIds[Index] != int(PickOrigin.native_id)
         or tuple(SpanValue.record_kind for SpanValue in PickOrigin.spans)
@@ -197,9 +199,9 @@ def ReadTargetBase(
 # serialized construction evidence must have precise spatial coordinates
 def ReadProofVec(Value: object) -> SpaceVector:
     if (
-        not isinstance(Value, tuple)
+        not IsObjectTuple(Value)
         or len(Value) != 3
         or any(type(PartValue) is not float for PartValue in Value)
     ):
         raise ValueError("FreeCAD editable plane basis is unresolved")
-    return SpaceVector(*Value)
+    return SpaceVector(*CastValue(tuple[float, float, float], Value))

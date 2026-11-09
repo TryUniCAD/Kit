@@ -36,7 +36,7 @@ def ScaleFace(
             Indices[EdgeValue.start_vertex_id],
             Indices[EdgeValue.end_vertex_id],
         )
-        Uses.append(EndsValue[::-1] if UseValue.reversed else EndsValue)
+        Uses.append((EndsValue[1], EndsValue[0]) if UseValue.reversed else EndsValue)
     LoopPoints = tuple(First for First, _ in Uses)
     if (
         not LoopValue.outer

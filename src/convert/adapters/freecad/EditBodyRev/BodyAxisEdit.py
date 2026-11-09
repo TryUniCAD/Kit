@@ -10,7 +10,9 @@
 from collections.abc import Mapping
 from dataclasses import dataclass as MakeDataClass
 from math import hypot as Hypot, isfinite as IsFinite
+from typing import cast as CastValue
 
+from convert.adapters.base.WriteValidate import IsObjectMap, IsObjectTuple
 from convert.adapters.freecad.EditAxisRev.AxisEndpoints import WorldAxisLine
 from convert.adapters.freecad.EditRing.RingEndpoints import ReadRingEnds
 from interchange.core.Common import FreezeMapping
@@ -39,16 +41,20 @@ def ReadAxisEdit(
         return None
     RawValue = Metadata[KBodyAxisEdit]
     if (
-        not isinstance(RawValue, Mapping)
+        not IsObjectMap(RawValue)
         or set(RawValue) != {"selection_id", "line_id", "endpoint_ids"}
         or RawValue["selection_id"] != SelectionId
         or not isinstance(RawValue["line_id"], str)
-        or not isinstance(RawValue["endpoint_ids"], tuple)
-        or len(RawValue["endpoint_ids"]) != 2
-        or any(not isinstance(Value, str) for Value in RawValue["endpoint_ids"])
+        or not IsObjectTuple(Endpoints := RawValue["endpoint_ids"])
+        or len(Endpoints) != 2
+        or any(not isinstance(Value, str) for Value in Endpoints)
     ):
         raise ValueError("FreeCAD edited body axis source binding is malformed")
-    return BodyAxisEdit(SelectionId, RawValue["line_id"], RawValue["endpoint_ids"])
+    return BodyAxisEdit(
+        SelectionId,
+        RawValue["line_id"],
+        CastValue(tuple[str, str], Endpoints),
+    )
 
 
 # only a verified saved edit establishes a separate live line binding for reexport

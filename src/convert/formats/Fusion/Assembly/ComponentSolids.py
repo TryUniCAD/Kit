@@ -12,6 +12,7 @@ from convert.formats.Fusion.Assembly.ComponentScope import GetScopeRecords, Inde
 from convert.formats.Fusion.Assembly.PackScope import PackAsmDef
 from convert.formats.Fusion.Topology.NativeBody import NativeBody
 from interchange.brep.topology.BrepModel import BrepModel
+from interchange.assembly.ComponentDefinition import ComponentDef
 from interchange.document.models.DocumentModel import CadDocument, ComponentDoc
 from interchange.enums.EnumDocument import Capability
 from interchange.features.FeatureBody import DesignBody
@@ -37,7 +38,7 @@ def AttachAsmSolids(
         or Solids.keys() - Inventory.keys()
     ):
         raise ValueError("Fusion assembly solid scopes do not match native definitions")
-    Definitions = []
+    Definitions: list[ComponentDef] = []
     Documents = list(Assembly.documents)
     Index = IndexScope(Document)
     Sketches = {Value.id: Value for Value in Document.sketches}

@@ -32,8 +32,8 @@ def CheckGraphTree(Document: Element) -> None:
         or set(ObjectData.attrib) != {"Count"}
     ):
         raise ValueError("FreeCAD editable Scale native object framing changed")
-    DeclareNames = set()
-    DepNames = set()
+    DeclareNames: set[str] = set()
+    DepNames: set[str] = set()
     for Value in Objects:
         if Value.tag == "Object":
             NameValue = Value.get("name", "")
@@ -51,7 +51,7 @@ def CheckGraphTree(Document: Element) -> None:
                 for Link in Value
             ):
                 raise ValueError("FreeCAD editable Scale native dependency row changed")
-            DepNames.add(Value.get("Name"))
+            DepNames.add(Value.attrib["Name"])
         else:
             raise ValueError("FreeCAD editable Scale native dependency framing changed")
     if DeclareNames != DepNames:

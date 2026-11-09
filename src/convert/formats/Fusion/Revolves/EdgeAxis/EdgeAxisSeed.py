@@ -6,6 +6,9 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
+
+from convert.adapters.base.WriteValidate import IsObjectTuple
 from convert.formats.Fusion.Extrudes.BuildExtGeom import BuildExtGeom
 from convert.formats.Fusion.Extrudes.ExtrudeResult import CheckExtResult
 from convert.formats.Fusion.Extrudes.SolidCreators import IsSavedActive
@@ -83,7 +86,7 @@ def BuildEdgeSeed(
     Identities = Attrs.get("fusion.profile_entity_ids")
     Entities = {Value.id: Value for Value in SketchValue.entities}
     if (
-        not isinstance(Identities, tuple)
+        not IsObjectTuple(Identities)
         or len(Identities) < 3
         or any(
             not isinstance(Identity, str) or Identity not in Entities
@@ -92,7 +95,9 @@ def BuildEdgeSeed(
         or SketchValue.closed_profile_entity_ids != (Identities,)
     ):
         raise ValueError("Fusion Revolve edge source profile membership is unresolved")
-    Profile = tuple(Entities[Identity] for Identity in Identities)
+    Profile = tuple(
+        Entities[Identity] for Identity in CastValue(tuple[str, ...], Identities)
+    )
     if any(
         not isinstance(Value.geometry, LineGeometry) or Value.construction
         for Value in Profile
