@@ -158,7 +158,6 @@ from convert.adapters.solidworks.core.FeatureKindByNative import KFeatureKindByN
 from convert.adapters.solidworks.core.AxisSketchId import AxisSketchId
 from convert.adapters.solidworks.core.BuildRevolve import BuildRevolve as BuildRevolve
 from convert.adapters.solidworks.core.SketchIdentity import (
-    AxisSourceId as AxisSourceId,
     MarkerId as MarkerId,
 )
 from convert.adapters.solidworks.core.Display import NativeDisplay

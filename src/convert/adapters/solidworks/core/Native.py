@@ -14573,9 +14573,7 @@ Vector2 = VectorTwo
 _SKETCH_PLANE_ID_RELATIVE = KSketchPlaneIdRelative  # lgtm[py/unused-global-variable]
 
 # this binding exists because shared behavior needs one stable value
-_SKETCH_PLANE_REFERENCE_PREFIX = (
-    KSketchPlaneRefPrefix  # lgtm[py/unused-global-variable]
-)
+_SKETCH_PLANE_REFERENCE_PREFIX = KSketchPlaneRefPrefix  # lgtm[py/unused-global-variable]
 
 # this binding exists because shared behavior needs one stable value
 _SKETCH_PLANE_REFERENCE_TAG = KSketchPlaneRefTag  # lgtm[py/unused-global-variable]
@@ -14584,17 +14582,13 @@ _SKETCH_PLANE_REFERENCE_TAG = KSketchPlaneRefTag  # lgtm[py/unused-global-variab
 _SKETCH_PLANE_SCAN_BYTES = KSketchPlaneScanBytes  # lgtm[py/unused-global-variable]
 
 # this binding exists because shared behavior needs one stable value
-_SOLIDWORKS_CONFIGURATION_FLAGS = (
-    KSolidworksConfigFlags  # lgtm[py/unused-global-variable]
-)
+_SOLIDWORKS_CONFIGURATION_FLAGS = KSolidworksConfigFlags  # lgtm[py/unused-global-variable]
 
 # this binding exists because shared behavior needs one stable value
 _SOLIDWORKS_XML_NAMESPACE = KSolidworksXmlNamespace  # lgtm[py/unused-global-variable]
 
 # this binding exists because shared behavior needs one stable value
-_SURFACE_EXTRUSION_FEATURE_TYPES = (
-    KSurfaceExtrusionFeature  # lgtm[py/unused-global-variable]
-)
+_SURFACE_EXTRUSION_FEATURE_TYPES = KSurfaceExtrusionFeature  # lgtm[py/unused-global-variable]
 
 # this binding exists because shared behavior needs one stable value
 _SYSTEM_OBJECT_IDS = KSystemObjectIds  # lgtm[py/unused-global-variable]
