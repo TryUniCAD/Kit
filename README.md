@@ -13,10 +13,10 @@ Kit by Parashell is an open-source CAD interchange SDK for translating geometry,
 
 ## Documentation
 
-Read the [documentation index](Docs/Index.md), [getting-started guide](Docs/GettingStarted.md),
+Read the [documentation index](Documentation/Index.md), [getting-started guide](Documentation/GettingStarted.md),
 and [GitHub wiki](https://github.com/TryUniCAD/Kit/wiki). Contributors must add
-[documentation entries](Docs/Changes/Index.md) for new additions and record
-new discoveries in the [gotchas log](Docs/Gotchas/README.md).
+[documentation entries](Documentation/Changes/Index.md) for new additions and record
+new discoveries in the [gotchas log](Documentation/Gotchas/README.md).
 
 ## _Currently_ supported CAD software
 

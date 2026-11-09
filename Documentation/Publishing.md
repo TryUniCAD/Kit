@@ -7,9 +7,9 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 
 ## Ownership
 
-`Docs/` is the source of truth for maintained documentation. `Docs/Reference/` began as a reviewed import of Cubic wiki version 1; its [provenance record](Reference/Provenance.json) preserves original paths, generation time, source revision, and the original content hash. That hash describes the original export, not the edited Markdown.
+`Documentation/` is the source of truth for maintained documentation. `Documentation/Reference/` began as a reviewed import of Cubic wiki version 1; its [provenance record](Reference/Provenance.json) preserves original paths, generation time, source revision, and the original content hash. That hash describes the original export, not the edited Markdown.
 
-Cubic's configured repository sync destination is `docs/`. Do not put hand-maintained guides or gotchas there. Future sync PRs must be reviewed and normalized into the existing PascalCase reference paths, with source references checked and provenance updated. On case-insensitive systems use an isolated checkout and an intermediate rename when handling `docs/` and `Docs/`. Do not merge a duplicate generated tree or relax path policy to accommodate it.
+Cubic's configured repository sync destination is `docs/`. Do not put hand-maintained guides or gotchas there. Future sync PRs must be reviewed and normalized into the existing PascalCase reference paths, with source references checked and provenance updated. The distinct `Documentation/` name avoids collisions with `docs/` on case-insensitive filesystems. Do not merge a duplicate generated tree or relax path policy to accommodate it.
 
 [The hosted Cubic wiki](https://www.cubic.dev/wiki/TryUniCAD/Kit/1) is optional source material. Generation and auto-refresh settings are managed through [Cubic settings](https://www.cubic.dev/wiki/TryUniCAD/Kit); repository import does not enable scheduled refresh, and no scheduled refresh is claimed here. Keep generation separate from the authorized PR reviewer.
 
@@ -34,7 +34,7 @@ git clone https://github.com/TryUniCAD/Kit.wiki.git KitWiki
 git -C KitWiki switch -c docs/publish
 ```
 
-Copy the reviewed Markdown into that checkout. Use `Home.md` for `Docs/Index.md`; flatten each other repository-relative path into a unique page name, for example `Reference-Overview-ApiReference.md`. Convert local documentation links to wiki URLs without `.md`; convert source-code links to GitHub blob URLs pinned to the published commit. Preserve existing unrelated wiki pages and history.
+Copy the reviewed Markdown into that checkout. Use `Home.md` for `Documentation/Index.md`; flatten each other repository-relative path into a unique page name, for example `Reference-Overview-ApiReference.md`. Convert local documentation links to wiki URLs without `.md`; convert source-code links to GitHub blob URLs pinned to the published commit. Preserve existing unrelated wiki pages and history.
 
 Maintain `_Sidebar.md` with navigation and `_Footer.md` with the repository source SHA and maintenance link. Check every page target and anchor in the rendered wiki. Stage only the intended page files, commit, and push normally with `--no-verify` to the wiki's observed default branch. This publishing authorization applies to the separate wiki repository, never to direct pushes to the code repository's `main`.
 

@@ -9,21 +9,21 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 
 Every new feature, API, adapter, command, configuration option, workflow, tool,
 or other repository addition MUST include a new PascalCase Markdown entry in
-`Docs/Changes/` in the same PR. Describe behavior, usage or configuration,
+`Documentation/Changes/` in the same PR. Describe behavior, usage or configuration,
 limitations, and actual verification evidence. Update the relevant guide and
-[change index](Docs/Changes/Index.md), and link the entry in the PR. An update
+[change index](Documentation/Changes/Index.md), and link the entry in the PR. An update
 to an existing reference page does not replace the required new entry. Pure
 documentation corrections may update their existing entry.
 
-Read [Docs/Gotchas/README.md](Docs/Gotchas/README.md) before working in an
+Read [Documentation/Gotchas/README.md](Documentation/Gotchas/README.md) before working in an
 affected area. If you discover a new gotcha, unexpected API behavior, wrong
 assumption, or undocumented quirk while working on this codebase, you MUST add
 it to that bullet list before finishing your task. This is mandatory, not
 optional. Format: a short description of the gotcha, what you expected vs what
 actually happened, and the fix or workaround. Link evidence when available.
 
-Maintained documentation lives in `Docs/`. Follow
-[the publishing guide](Docs/Publishing.md) for Cubic imports and GitHub wiki
+Maintained documentation lives in `Documentation/`. Follow
+[the publishing guide](Documentation/Publishing.md) for Cubic imports and GitHub wiki
 updates; generated docs must be reviewed and must not overwrite manual entries.
 
 ## Repository workflow
