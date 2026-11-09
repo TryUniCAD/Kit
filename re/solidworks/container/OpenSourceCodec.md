@@ -23,8 +23,9 @@ cache records and trailing container state, so treating every document as a
 conventional ZIP with a terminal EOCD would be incorrect.
 
 Cache cells have CRC-slot = twice logical size modulo 2^32, compressed-size-slot
-= half logical size, and nonzero logical size. These are classified before
-inflation. Recognized data records now reject truncated payloads, bad CRCs,
+= half logical size, and nonzero logical size. These are recognized separately from data records when bounded decoding
+does not produce a valid stream. Valid compressed records take precedence over
+the cache-cell heuristic. Recognized data records now reject truncated payloads, bad CRCs,
 wrong decoded sizes, unfinished DEFLATE frames and trailing compressed bytes.
 Inflation is bounded to advertised size plus one, with an aggregate decoded
 size budget across accepted records.
@@ -51,6 +52,8 @@ feature families.
 using a real model's streams wrapped by an independent Python zipfile-based
 fixture encoder. It covers versions 3 and 4, wire name encoding, version
 preservation and override, embedded misleading records and damaged input.
-The focused compatibility workflow runs this and the existing native adapter
-checks on the PR. No tests are run locally. Full acceptance and the target
+The existing workflow quality job runs these and the existing native adapter
+checks on the PR. CI also enforces the current no-added-comments instruction
+while accepting retained legacy rationale comments; mandatory rationale
+insertion was an obsolete, conflicting check. No tests are run locally. Full acceptance and the target
 application oracle remain separate from the codec integration results.

@@ -13,8 +13,11 @@ from convert.adapters.solidworks.container.Format import (
     RELATIONSHIPS_STREAM as RelationshipsStream,
 )
 from convert.adapters.solidworks.container.DecodeScanned import DecodeScanned
+from convert.adapters.solidworks.container.DecodeName import DecodeName
 from convert.adapters.solidworks.container.SldprtFormat import SldprtFormat
-from convert.adapters.solidworks.container.StreamRecord import StreamRecord
+from convert.adapters.solidworks.container.StreamRecord import (
+    StreamRecord as StreamRecord,
+)
 from convert.adapters.solidworks.container.StreamLimits import (
     KMaxNameBytes,
     KMaxUncompressedStream,
@@ -222,11 +225,13 @@ def BuildSldprt(
     else:
         Signatures = None
     FileId = FileIdValue
-    FormatVersion = VersionValue
     Template = TemplateValue
     FileId, SignatureSet, TypeIds = ResolveBuild(FileId, Template, Signatures)
-    if FormatVersion is None:
-        FormatVersion = Struct.unpack_from(">I", Template, 4)[0] if Template else 4
+    FormatVersion = (
+        VersionValue
+        if VersionValue is not None
+        else Struct.unpack_from(">I", Template, 4)[0] if Template else 4
+    )
     if not 0 <= FileId <= 4294967295:
         raise ValueError("SLDPRT file id must fit in 32 bits")
     if FormatVersion not in ContainerVersions:
@@ -549,11 +554,8 @@ def CentralMarks(
         NameEnd = NameStart + NameSize
         if NameEnd > len(BlobValue):
             continue
-        try:
-            NameValue = RotateBytes(BlobValue[NameStart:NameEnd], BlobValue[7]).decode(
-                "utf-8"
-            )
-        except UnicodeDecodeError:
+        NameValue = DecodeName(BlobValue[NameStart:NameEnd], BlobValue[7])
+        if NameValue is None:
             continue
         if (NameValue, CrcThreeTwoValue, CompressedSize, SizeValue) in Expected:
             CentralMarkers.append(Marker)

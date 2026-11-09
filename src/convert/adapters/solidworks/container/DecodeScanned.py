@@ -2,9 +2,8 @@
 # SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from struct import unpack_from as UnpackFrom
-from zlib import crc32 as Checksum
-from convert.adapters.solidworks.container.InflateStream import InflateStream
-from convert.adapters.solidworks.container.RotateBytes import RotateBytes
+from convert.adapters.solidworks.container.DecodeName import DecodeName
+from convert.adapters.solidworks.container.DecodePayload import DecodePayload
 from convert.adapters.solidworks.container.SldprtFormat import SldprtFormat
 from convert.adapters.solidworks.container.StreamRecord import StreamRecord
 from convert.adapters.solidworks.container.StreamLimits import (
@@ -32,29 +31,31 @@ def DecodeScanned(
     PayloadEnd = PayloadOffset + CompressedSize
     if PayloadOffset > len(BlobValue):
         return None
-    try:
-        NameValue = RotateBytes(
-            BlobValue[NameOffset:PayloadOffset], BlobValue[7]
-        ).decode("utf-8")
-    except UnicodeDecodeError:
+    NameValue = DecodeName(BlobValue[NameOffset:PayloadOffset], BlobValue[7])
+    if NameValue is None:
         return None
-    if not NameValue or any((ord(Character) < 32 for Character in NameValue)):
-        return None
-    if (
+    IsCache = (
         UncompressedSize > 0
         and CrcThreeTwoValue == (UncompressedSize * 2) & 4294967295
         and CompressedSize == UncompressedSize // 2
-    ):
-        return None
+    )
     if UncompressedSize > SizeLimit:
+        if IsCache:
+            return None
         raise SldprtFormat(f"SLDPRT decoded size limit exceeded by {NameValue!r}")
     if PayloadEnd > len(BlobValue):
+        if IsCache:
+            return None
         raise SldprtFormat(f"truncated SLDPRT stream {NameValue!r}")
-    DataValue = InflateStream(BlobValue[PayloadOffset:PayloadEnd], UncompressedSize)
+    DataValue = DecodePayload(
+        BlobValue[PayloadOffset:PayloadEnd],
+        NameValue,
+        UncompressedSize,
+        CrcThreeTwoValue,
+        IsCache,
+    )
     if DataValue is None:
-        raise SldprtFormat(f"invalid compressed SLDPRT stream {NameValue!r}")
-    if Checksum(DataValue) & 4294967295 != CrcThreeTwoValue:
-        raise SldprtFormat(f"SLDPRT checksum mismatch for {NameValue!r}")
+        return None
     return StreamRecord(
         name=NameValue,
         data=DataValue,
