@@ -4,13 +4,12 @@
 from io import BytesIO
 from pathlib import Path as FilePath
 from interchange import RevolutionFeature
-from convert.adapters.solidworks.core.Adapter import ReadSldprt, WriteSldprt
-from convert.adapters.solidworks.core.Native import DecodeNative
-from convert.adapters.solidworks.container.Container import SldprtArchive
-from convert.adapters.solidworks.container.Format import (
-    KEYWORDS_STREAM as KeywordsStream,
-    RESOLVED_FEATURES_STREAM as ResolvedStream,
+from convert.adapters.solidworks.core.Adapter import (
+    NativePartModel,
+    ReadSldprt,
+    WriteSldprt,
 )
+from convert.adapters.solidworks.container.Container import SldprtArchive
 
 KSample = (
     FilePath(__file__).parents[4]
@@ -22,9 +21,7 @@ KSample = (
 
 def TestAxisOwner() -> None:
     Archive = SldprtArchive.open(KSample)
-    Model = DecodeNative(
-        Archive.require(KeywordsStream), Archive.require(ResolvedStream)
-    )
+    Model = NativePartModel(Archive, None)
     Operation = next(
         ItemValue for ItemValue in Model.operations if ItemValue.object_id == 144
     )
