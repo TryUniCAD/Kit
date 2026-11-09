@@ -31,7 +31,7 @@ def ReadFusionSourceProof(
 ) -> SourceCoverage:
     DataValue, SourceName = LoadFusionBytes(SourceData)
     with OpenFusionArchive(DataValue, InflateZstd) as Archive:
-        BulkData, MetaData = ReadDesignPair(Archive)
+        BulkData, MetaData = ReadDesignPair(Archive.Entries, Archive.ReadEntryMut)
         Spans = ReadBulkSpans(BulkData, MetaData)
         Document = ProjectFusionDoc(
             DataValue, SourceName, BulkData, Spans, HistoryId, Archive.ReadBody

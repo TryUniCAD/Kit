@@ -53,7 +53,9 @@ def SelectHistory(Parts: tuple[HistoryPart, ...], HistoryId: int | None) -> Hist
     )
     if len(Matches) != 1:
         Available = tuple(PartValue.HistoryId for PartValue in Parts)
-        raise ValueError(f"Select exactly one Fusion history from {Available}")
+        raise ValueError(
+            f"Select exactly one Fusion history. Available IDs: {Available}"
+        )
     return Matches[0]
 
 

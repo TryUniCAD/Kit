@@ -131,7 +131,7 @@ class IndexedArchive:
 
     # design decoding checks both mandatory streams before interpreting record spans
     def ReadDesign(self) -> tuple[bytes, tuple[RecordSpan, ...]]:
-        BulkData, MetaData = ReadDesignPair(self)
+        BulkData, MetaData = ReadDesignPair(self.Entries, self.ReadEntryMut)
         return BulkData, ReadBulkSpans(BulkData, MetaData)
 
     # body lookups keep current mapping validation and recoverable decode errors

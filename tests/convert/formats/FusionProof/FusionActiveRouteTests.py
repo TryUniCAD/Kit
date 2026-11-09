@@ -136,7 +136,7 @@ def TestRevision() -> None:
     Original = ReadFusionSourceProof(KEarlyRevision)
     assert Original.ActiveRoutes is not None
     with OpenFusionArchive(KLaterRevision.read_bytes()) as Later:
-        BulkData, MetaData = ReadDesignPair(Later)
+        BulkData, MetaData = ReadDesignPair(Later.Entries, Later.ReadEntryMut)
     with OpenFusionArchive(KEarlyRevision.read_bytes()) as Earlier:
         Frame = ReadAuxFrame(Earlier, SegmentKind.KAct)
         with Raises(ValueError, match="disagrees with archive"):

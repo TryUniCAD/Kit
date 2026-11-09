@@ -10,7 +10,7 @@
 from dataclasses import dataclass as MakeDataClass
 from math import cos as Cosine, hypot as Hypot, sin as SineValue, tau as TauValue
 
-from convert.geometry.Revolve.SweepVector import CrossVector, DotVector, OffsetVector
+from convert.geometry.Revolve.SweepVector import CrossVector, OffsetVector
 from interchange.brep.curves.BrepCurves import CircleCurve, LineCurve
 from interchange.brep.topology.BrepModel import BrepModel
 from interchange.brep.topology.BrepTopology import BrepEdge

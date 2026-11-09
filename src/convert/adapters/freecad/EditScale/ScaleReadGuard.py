@@ -7,9 +7,12 @@
 # to you under it immediately and permanently.
 
 from collections.abc import Mapping
-from xml.etree.ElementTree import Element, fromstring as ParseXml, tostring as XmlBytes
+from xml.etree.ElementTree import Element
+from xml.etree.ElementTree import tostring as XmlBytes
+
 from zipfile import ZipFile, ZipInfo
 
+from convert.adapters.base.SafeParsing import ParseUntrusted
 from convert.adapters.freecad.Archive import BuildDocXmlMut
 from convert.adapters.freecad.EditBinding import ReadEditBinding
 from convert.adapters.freecad.EditScale.ScaleBinding import KScaleBinding
@@ -66,7 +69,7 @@ def ReconcileScale(
     Expected, Entries = BuildDocXmlMut(Manifest, "", "", EditableFeatures=Features)
     if Feature.id not in Features:
         raise ValueError("FreeCAD editable Scale source timeline is unresolved")
-    Template = ParseXml(Expected)
+    Template = ParseUntrusted(Expected)
     if ScaleGraph(RootValue) != ScaleGraph(Template):
         from convert.adapters.freecad.EditScale.ScaleSavedRead import ReadSavedScale
 

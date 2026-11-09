@@ -8,25 +8,24 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-from zipfile import BadZipFile
-
-if TYPE_CHECKING:
-    from convert.formats.Fusion.ArchiveRead.IndexedArchive import IndexedArchive
+from collections.abc import Callable, Mapping
+from zipfile import BadZipFile, ZipInfo
 
 # native streams and evidence remain scoped to the same active asset
 KDesignPrefix = "FusionAssetName[Active]/FusionDesignSegmentType1/"
 
 
 # source projection and proof share the same mandatory member selection and errors
-def ReadDesignPair(Archive: IndexedArchive) -> tuple[bytes, bytes]:
+def ReadDesignPair(
+    Entries: Mapping[str, ZipInfo], ReadEntry: Callable[[ZipInfo], bytes]
+) -> tuple[bytes, bytes]:
     Streams: list[bytes] = []
     try:
         for MemberName in ("BulkStream.dat", "MetaStream.dat"):
-            Member = Archive.Entries.get(KDesignPrefix + MemberName)
+            Member = Entries.get(KDesignPrefix + MemberName)
             if Member is None or Member.is_dir():
                 raise ValueError(f"Missing active Fusion design {MemberName}")
-            Streams.append(Archive.ReadEntryMut(Member))
+            Streams.append(ReadEntry(Member))
     except BadZipFile as ErrorInfo:
         raise ValueError("Invalid Fusion ZIP archive") from ErrorInfo
     except NotImplementedError as ErrorInfo:

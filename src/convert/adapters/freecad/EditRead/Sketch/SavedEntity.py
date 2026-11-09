@@ -8,7 +8,7 @@
 
 
 from dataclasses import replace as Replace
-from math import remainder as Remainder, tau as FullTurn
+from math import fmod as TurnResidue, tau as FullTurn
 from xml.etree.ElementTree import Element
 
 from convert.adapters.freecad.EditRead.EditGeometry import KSketchTolerance
@@ -61,9 +61,11 @@ def IsSameGeom(First: KSketchPrimitive, Second: KSketchPrimitive) -> bool:
         ):
             return False
         if isinstance(First, ArcGeometry) and isinstance(Second, ArcGeometry):
+            Difference = abs(
+                TurnResidue(First.start_angle - Second.start_angle, FullTurn)
+            )
             return (
-                abs(Remainder(First.start_angle - Second.start_angle, FullTurn))
-                <= KSketchTolerance
+                min(Difference, FullTurn - Difference) <= KSketchTolerance
                 and abs(
                     (First.end_angle - First.start_angle)
                     - (Second.end_angle - Second.start_angle)

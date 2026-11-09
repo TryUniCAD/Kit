@@ -38,7 +38,7 @@ def ReadAssemblyProjection(
     except ValueError as ErrorInfo:
         if len(Parts) != 1:
             raise ValueError(
-                f"{ErrorInfo}. Select exactly one Fusion history from "
+                f"{ErrorInfo}. Select exactly one Fusion history. Available IDs: "
                 f"{tuple(Part.HistoryId for Part in Parts)}"
             ) from ErrorInfo
         return (
