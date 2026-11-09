@@ -75,6 +75,7 @@ jobs:
         run: >-
           uv run pytest
           tests/convert/solidworks
+          tests/convert/formats/ParasolidTests.py
           tests/steering/RationaleCommentsTests.py
 
   zizmor:

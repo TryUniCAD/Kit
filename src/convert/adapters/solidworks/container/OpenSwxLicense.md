@@ -12,6 +12,11 @@ recognition in `libopenswx/src/internal/modern_parser.cc`. Kit retains its own
 native writer and rejects ambiguous duplicate streams; openswx is a reader and
 its first-physical-copy selection is not adopted.
 
+`ReadParaSection.py` also adapts the chained-frame grammar from
+`ScanParasolidBlocks` in `libopenswx/src/container.cc` at the same revision.
+Kit validates every zlib member, preserves standalone wrappers, and rejects
+damaged sections through its existing strict/permissive reader boundary.
+
 The upstream license follows in full.
 
 ```text

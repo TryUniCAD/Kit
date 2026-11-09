@@ -48,12 +48,30 @@ feature families.
 
 ## Verification route
 
+The same pinned openswx implementation also supplies the Parasolid section
+grammar. `ReadParaSection.py` concatenates every length-prefixed zlib frame
+within a declared section, including splits inside the `PS\0\0` signature.
+Standalone wrappers and adjacent sections remain supported. Exact member
+consumption, checksums, section bounds and a 2 GiB cumulative decoded-size
+limit prevent silent truncation or partial geometry acceptance. Source spans
+now include continuation headers and section padding. Damaged geometry raises
+in strict reads and produces the existing diagnostic in permissive reads.
+
+The semantic reader now retains a revolution axis's actual owning sketch in
+its entity reference, direction selection and feature dependencies. The
+checked-in socket-screw model uses Sketch1 as Revolve1's axis and Sketch3 as
+its profile. Revolution reverse and symmetric direction remain unrecovered
+and are not newly claimed as supported.
+
 `NativeCodecTests.py` exercises the actual adapter and retained-source writer
 using a real model's streams wrapped by an independent Python zipfile-based
 fixture encoder. It covers versions 3 and 4, wire name encoding, version
 preservation and override, embedded misleading records and damaged input.
-The existing workflow quality job runs these and the existing native adapter
-checks on the PR. CI also enforces the current no-added-comments instruction
+The existing workflow quality job runs the complete SOLIDWORKS suite and
+Parasolid format suite on the PR. Archived trace tests now locate their
+checked-in renamed reports and resolve recorded Windows example paths against
+the checkout. Missing untracked research corpora and the licensed Windows
+application oracle are reported separately. CI also enforces the current no-added-comments instruction
 while accepting retained legacy rationale comments; mandatory rationale
 insertion was an obsolete, conflicting check. No tests are run locally. Full acceptance and the target
 application oracle remain separate from the codec integration results.
