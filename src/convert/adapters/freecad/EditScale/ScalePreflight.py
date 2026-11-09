@@ -38,40 +38,44 @@ def PrepScale(
     Context: DocContext,
     Geometry: DocGeometry,
     Features: DocFeatures,
-    Plan: ScaleWritePlan,
+    PlanValue: ScaleWritePlan,
 ) -> ScalePreflight | None:
     Items = {
         Value["id"]: Value
         for Value in Features.FeatureItems
         if isinstance(Value.get("id"), str)
     }
-    Item = Items.get(Plan.FeatureId)
-    if Item is None:
+    ItemValue = Items.get(PlanValue.FeatureId)
+    if ItemValue is None:
         return None
     PointSketch = None
-    if Plan.Center.SketchId:
-        PointSketch = FindScalePoint(Context, Geometry, Plan.Center)
+    if PlanValue.Center.SketchId:
+        PointSketch = FindScalePoint(Context, Geometry, PlanValue.Center)
         if PointSketch is None or (
-            Plan.Center.FeatureId and Plan.Center.FeatureId not in Items
+            PlanValue.Center.FeatureId and PlanValue.Center.FeatureId not in Items
         ):
             return None
-    Refs = tuple(Context.Parameters.expression(Identity) for Identity in Plan.FactorIds)
-    if not all(Refs):
+    References = tuple(
+        Context.Parameters.expression(Identity) for Identity in PlanValue.FactorIds
+    )
+    if not all(References):
         return None
-    FactorRefs = tuple(Ref for Ref in Refs if Ref)
-    Translation = ScaleOffset(Plan.Center.Point, Plan.Factors)
+    FactorRefs = tuple(
+        ReferenceValue for ReferenceValue in References if ReferenceValue
+    )
+    Translation = ScaleOffset(PlanValue.Center.Point, PlanValue.Factors)
     Caches: list[ScaleCache] = []
-    for Body in Plan.Bodies:
-        Source = Items.get(Body.SourceId)
+    for BodyValue in PlanValue.Bodies:
+        Source = Items.get(BodyValue.SourceId)
         if Source is None:
             return None
         Feature = Replace(FeatureDataOf(Geometry, Features, Source), BaseName="")
-        Cache = MakeScaleCache(Context, Geometry, Feature, Body, Translation)
+        Cache = MakeScaleCache(Context, Geometry, Feature, BodyValue, Translation)
         if Cache is None:
             return None
         Caches.append(Cache)
     return ScalePreflight(
-        FeatureDataOf(Geometry, Features, Item),
+        FeatureDataOf(Geometry, Features, ItemValue),
         tuple(Caches),
         FactorRefs,
         Translation,

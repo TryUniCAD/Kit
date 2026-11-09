@@ -36,15 +36,15 @@ def MakeScaleCache(
     Context: DocContext,
     Geometry: DocGeometry,
     Feature: FeatureData,
-    Plan: ScaleBodyPlan,
+    PlanValue: ScaleBodyPlan,
     Translation: SpaceVector,
 ) -> ScaleCache | None:
-    Sketch = EditProfile(Context, Geometry, Feature, Plan.SketchId)
-    DepthRef = Context.Parameters.expression(Plan.DepthId)
+    Sketch = EditProfile(Context, Geometry, Feature, PlanValue.SketchId)
+    DepthRef = Context.Parameters.expression(PlanValue.DepthId)
     if Sketch is None or not DepthRef:
         return None
-    Source = BrepModelBrep(Plan.SourceModel)
-    Result = BrepModelBrep(Plan.ResultModel, RootTranslation=Translation)
+    Source = BrepModelBrep(PlanValue.SourceModel)
+    Result = BrepModelBrep(PlanValue.ResultModel, RootTranslation=Translation)
     if not Source or not Result:
         return None
-    return ScaleCache(Plan, Feature, Sketch, DepthRef, Source, Result)
+    return ScaleCache(PlanValue, Feature, Sketch, DepthRef, Source, Result)

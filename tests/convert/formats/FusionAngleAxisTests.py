@@ -8,12 +8,12 @@
 
 
 from dataclasses import replace as Replace
-from struct import pack as Pack
+from struct import pack as PackData
 
 from pytest import raises as Raises
 
 from convert.formats.Fusion.RecordSpan import RecordSpan
-from convert.formats.Fusion.Revolves.AngularAxis import ResolveAngleAxis
+from convert.formats.Fusion.Revolves.AngularAxis import ReadAngleAxis
 from convert.formats.Fusion.SelectionRef import KSelectLeaf
 from convert.formats.Fusion.Topology.PickSupport import KSupportGuid
 from interchange.core.Common import FreezeMapping
@@ -29,9 +29,9 @@ from tests.convert.formats.FusionRevolveTests import SelectFixture
 
 
 # a typed origin axis still needs an exact reciprocal revolved selection
-def TestAngleAxisPick() -> None:
+def TestAnglePick() -> None:
     BodyData, Owners = AxisFixture(40)
-    PickData, PickOwners = SelectFixture(KSelectLeaf, bytes(2) + Pack("<Q", 40))
+    PickData, PickOwners = SelectFixture(KSelectLeaf, bytes(2) + PackData("<Q", 40))
     SupportPos = PickOwners[21].PayloadOffset + 4 + 240
     PickData[SupportPos : SupportPos + 11] = NativeRef(23)
     Offset = len(BodyData)
@@ -53,7 +53,7 @@ def TestAngleAxisPick() -> None:
         bytes(4)
         + bytes(6)
         + b"\1\1"
-        + Pack("<I", 1)
+        + PackData("<I", 1)
         + NativeRef(21)
         + bytes(8)
         + NativeRef(21)
@@ -81,7 +81,7 @@ def TestAngleAxisPick() -> None:
         transform=Transform(),
         attributes=FreezeMapping({"fusion.component_object_id": 3}),
     )
-    PickValue, Origin, Direction = ResolveAngleAxis(
+    PickValue, Origin, Direction = ReadAngleAxis(
         bytes(BulkData), Owners, StepValue, (), {}, {}, Frame
     )
     assert PickValue.query == {"kind": "component_origin_axis", "axis": "Y"}
@@ -90,4 +90,4 @@ def TestAngleAxisPick() -> None:
     assert Direction == SpaceVector(0.0, 1.0, 0.0)
     BulkData[Start + 35 : Start + 46] = NativeRef(22)
     with Raises(ValueError, match="support owner disagrees"):
-        _ = ResolveAngleAxis(bytes(BulkData), Owners, StepValue, (), {}, {}, Frame)
+        _ = ReadAngleAxis(bytes(BulkData), Owners, StepValue, (), {}, {}, Frame)

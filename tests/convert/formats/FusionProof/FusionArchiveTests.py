@@ -8,13 +8,13 @@
 
 from dataclasses import FrozenInstanceError
 from io import BytesIO
-from struct import pack as Pack
+from struct import pack as PackData
 from zipfile import ZIP_STORED, ZipFile, ZipInfo
 
 import pytest as Pytest
 from pytest import MonkeyPatch as PatchContext
 
-from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionArchive
+from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionZip
 from convert.formats.Fusion.BodyBlob import KHistoryPrefix, ReadBodyBlob
 from convert.formats.Fusion.DesignZip import KDesignPrefix, ReadDesignZip
 from convert.formats.Fusion.ZipItems import IndexZipItems
@@ -46,8 +46,8 @@ def WithCodec(DataValue: bytes) -> bytes:
             NameData = Member.filename.encode("ascii")
             Central = DataValue.index(NameData, Archive.start_dir) - 46
             Local = Member.header_offset
-            Result[Local + 8 : Local + 10] = Pack("<H", 93)
-            Result[Central + 10 : Central + 12] = Pack("<H", 93)
+            Result[Local + 8 : Local + 10] = PackData("<H", 93)
+            Result[Central + 10 : Central + 12] = PackData("<H", 93)
     return bytes(Result)
 
 
@@ -64,19 +64,21 @@ def TestSharedIndex(MonkeyPatch: PatchContext) -> None:
     MonkeyPatch.setattr(
         "convert.formats.Fusion.ArchiveRead.IndexedArchive.IndexZipItems", CountIndex
     )
-    with OpenFusionArchive(Packed) as Session:
+    with OpenFusionZip(Packed) as Session:
         assert not Session.ReadNames
         with ZipFile(BytesIO(Packed)) as Archive:
-            for Fact, Entry in zip(Session.Members, Archive.infolist(), strict=True):
+            for FactValue, Entry in zip(
+                Session.Members, Archive.infolist(), strict=True
+            ):
                 assert (
-                    Fact.Name,
-                    Fact.HeaderOffset,
-                    Fact.Size,
-                    Fact.CompressedSize,
-                    Fact.Method,
-                    Fact.Crc,
-                    Fact.Flags,
-                    Fact.IsDirectory,
+                    FactValue.Name,
+                    FactValue.HeaderOffset,
+                    FactValue.Size,
+                    FactValue.CompressedSize,
+                    FactValue.Method,
+                    FactValue.Crc,
+                    FactValue.Flags,
+                    FactValue.IsDirectory,
                 ) == (
                     Entry.filename,
                     Entry.header_offset,
@@ -119,7 +121,7 @@ def TestLazyCodec() -> None:
         Reads.append(Contents)
         return Contents
 
-    with OpenFusionArchive(WithCodec(Packed), Inflate) as Session:
+    with OpenFusionZip(WithCodec(Packed), Inflate) as Session:
         assert not Reads
         assert Session.ReadDesign()[0] == BulkData
         assert len(Reads) == 2
@@ -131,14 +133,14 @@ def TestLazyCodec() -> None:
 
 
 # body corruption remains recoverable and never enters the successful member set
-def TestCodecFailure() -> None:
+def TestCodecError() -> None:
     Packed, BulkData = SharedZip()
 
     # corruption is isolated to the body so prior design reads should remain usable
     def Corrupt(Contents: bytes, SizeValue: int) -> bytes:
         return bytes(SizeValue) if Contents == b"body bytes" else Contents
 
-    with OpenFusionArchive(WithCodec(Packed), Corrupt) as Session:
+    with OpenFusionZip(WithCodec(Packed), Corrupt) as Session:
         assert Session.ReadDesign()[0] == BulkData
         with Pytest.raises(ValueError, match="size or CRC"):
             _ = Session.ReadBody(KTestBody)
@@ -153,14 +155,14 @@ def TestAuxFailure() -> None:
     def FailCodec(Contents: bytes, SizeValue: int) -> bytes:
         raise OSError("auxiliary codec failure")
 
-    with OpenFusionArchive(WithCodec(Packed), FailCodec) as Session:
+    with OpenFusionZip(WithCodec(Packed), FailCodec) as Session:
         with Pytest.raises(ValueError, match="Unreadable Fusion archive member"):
             _ = Session.ReadMember(KOtherMember, 6)
         assert not Session.ReadNames
 
 
 # standalone callers keep distinct error contracts and the tighter body limit
-def TestArchiveErrors() -> None:
+def TestArchiveErr() -> None:
     with Pytest.raises(ValueError, match="Invalid Fusion ZIP archive"):
         _ = ReadDesignZip(b"broken")
     with Pytest.raises(ValueError, match="Unreadable Fusion body history stream"):
@@ -172,7 +174,7 @@ def TestArchiveErrors() -> None:
     with ZipFile(BytesIO(Packed)) as Archive:
         NameData = (KHistoryPrefix + KTestBody).encode("ascii")
         Central = Packed.index(NameData, Archive.start_dir) - 46
-        Modified[Central + 24 : Central + 28] = Pack("<I", 8 * 1024 * 1024 + 1)
+        Modified[Central + 24 : Central + 28] = PackData("<I", 8 * 1024 * 1024 + 1)
     with Pytest.raises(
         ValueError, match="Missing or oversized Fusion body history stream"
     ):

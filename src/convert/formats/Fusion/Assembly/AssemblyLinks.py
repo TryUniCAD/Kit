@@ -7,12 +7,12 @@
 # to you under it immediately and permanently.
 
 from convert.formats.Fusion.Assembly.AssemblyIndex import AssemblyIndex
-from convert.formats.Fusion.Assembly.NativeOccurrence import NativeOccurrence
+from convert.formats.Fusion.Assembly.NativeOccurrence import NativeOccur
 
 
 # exact collection ownership supplies child order without expanding reused definitions
-def LinkOccurrences(IndexValue: AssemblyIndex) -> tuple[NativeOccurrence, ...]:
-    Linked: list[NativeOccurrence] = []
+def LinkOccurrences(IndexValue: AssemblyIndex) -> tuple[NativeOccur, ...]:
+    Linked: list[NativeOccur] = []
     Claimed: set[int] = set()
     ByOwner: set[int] = set()
     for CollectionId, (OwnerId, Members) in IndexValue.Collections.items():
@@ -45,7 +45,7 @@ def LinkOccurrences(IndexValue: AssemblyIndex) -> tuple[NativeOccurrence, ...]:
             if not NameValue and Component.Component.Name:
                 NameValue = f"{Component.Component.Name}:{Occurrence.InstanceNumber}"
             Linked.append(
-                NativeOccurrence(
+                NativeOccur(
                     MemberId,
                     Occurrence.ComponentId,
                     OwnerId,

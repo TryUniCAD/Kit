@@ -57,8 +57,8 @@ def ReadAxisGraph(
     ByName = {Value.name: Value for Value in Objects}
     if Editable != {StepValue.id} or ByName.keys() != Template.keys():
         raise ValueError("FreeCAD editable sketch axis native object graph changed")
-    for Node in RootValue.findall("./Objects/Object"):
-        if Node.get("Invalid") or Node.get("Error"):
+    for NodeValue in RootValue.findall("./Objects/Object"):
+        if NodeValue.get("Invalid") or NodeValue.get("Error"):
             raise ValueError("FreeCAD editable sketch axis rebuild is invalid")
     for Actual in Objects:
         CheckAxisObject(Actual, Template[Actual.name])

@@ -22,47 +22,51 @@ KPrismLink = tuple[int, SpaceVector, SpaceVector]
 
 # first seen located edge identities reproduce freecad subelement numbering
 def PrismEdgeRefs(
-    Raw: PrismRaw,
+    RawValue: PrismRaw,
 ) -> list[tuple[Reference, KLocationChain, bool]]:
-    (Shell,) = Raw.Records[Raw.RootRef.RecordA].Children
-    ShellPlace = Raw.Place(Shell, Raw.Place(Raw.RootRef))
-    Seen: set[tuple[int, KLocationChain]] = set()
+    (Shell,) = RawValue.Records[RawValue.RootRef.RecordA].Children
+    ShellPlace = RawValue.Place(Shell, RawValue.Place(RawValue.RootRef))
+    SeenValues: set[tuple[int, KLocationChain]] = set()
     Edges: list[tuple[Reference, KLocationChain, bool]] = []
-    for Face in Raw.Records[Shell.RecordA].Children:
-        (Wire,) = Raw.Records[Face.RecordA].Children
-        WirePlace = Raw.Place(Wire, Raw.Place(Face, ShellPlace))
+    for FaceValue in RawValue.Records[Shell.RecordA].Children:
+        (WireValue,) = RawValue.Records[FaceValue.RecordA].Children
+        WirePlace = RawValue.Place(WireValue, RawValue.Place(FaceValue, ShellPlace))
         Prefix = (
             (Shell.Orientation == "-")
-            ^ (Face.Orientation == "-")
-            ^ (Wire.Orientation == "-")
+            ^ (FaceValue.Orientation == "-")
+            ^ (WireValue.Orientation == "-")
         )
-        for Edge in Raw.Records[Wire.RecordA].Children:
-            Place = Raw.Place(Edge, WirePlace)
-            KeyValue = Edge.RecordA, Place
-            if KeyValue not in Seen:
-                Seen.add(KeyValue)
-                Edges.append((Edge, Place, Prefix ^ (Edge.Orientation == "-")))
+        for EdgeValue in RawValue.Records[WireValue.RecordA].Children:
+            Place = RawValue.Place(EdgeValue, WirePlace)
+            KeyValue = EdgeValue.RecordA, Place
+            if KeyValue not in SeenValues:
+                SeenValues.add(KeyValue)
+                Edges.append(
+                    (EdgeValue, Place, Prefix ^ (EdgeValue.Orientation == "-"))
+                )
     return Edges
 
 
 # a changed native record order cannot silently redirect a correct looking solid
-def CheckPrismLink(Raw: PrismRaw, Link: KPrismLink) -> None:
-    Slot, Start, Finish = Link
-    Refs = PrismEdgeRefs(Raw)
-    if not 0 < Slot <= len(Refs):
+def CheckPrismLink(RawValue: PrismRaw, LinkValue: KPrismLink) -> None:
+    SlotValue, Start, Finish = LinkValue
+    References = PrismEdgeRefs(RawValue)
+    if not 0 < SlotValue <= len(References):
         raise DecodeFailure("saved prism edge slot is missing")
-    Edge, Place, Reverse = Refs[Slot - 1]
-    Vertices = Raw.Records[Edge.RecordA].Children
+    EdgeValue, Place, Reverse = References[SlotValue - 1]
+    Vertices = RawValue.Records[EdgeValue.RecordA].Children
     Points: dict[str, SpaceVector] = {}
     for RefValue in Vertices:
-        DataValue = Raw.Records[RefValue.RecordA].GeometryA
+        DataValue = RawValue.Records[RefValue.RecordA].GeometryA
         if not isinstance(DataValue, VertexData):
             raise DecodeFailure("saved prism edge has no bounded vertex")
         Points[RefValue.Orientation] = LocationPoint(
-            Raw.Matrix(Raw.Place(RefValue, Place)), DataValue.Point
+            RawValue.Matrix(RawValue.Place(RefValue, Place)), DataValue.Point
         )
     if set(Points) != {"+", "-"}:
         raise DecodeFailure("saved prism edge has no directed endpoints")
-    Head, Tail = ("-", "+") if Reverse else ("+", "-")
-    if not IsNearPoint(Points[Head], Start) or not IsNearPoint(Points[Tail], Finish):
+    HeadValue, TailValue = ("-", "+") if Reverse else ("+", "-")
+    if not IsNearPoint(Points[HeadValue], Start) or not IsNearPoint(
+        Points[TailValue], Finish
+    ):
         raise DecodeFailure("saved prism selected edge slot disagrees with its axis")

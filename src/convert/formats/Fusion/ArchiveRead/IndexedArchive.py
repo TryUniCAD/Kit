@@ -153,7 +153,7 @@ class IndexedArchive:
 
 # source projection owns the zip lifetime across design and lazy body lookups
 @ManageContext
-def OpenFusionArchive(
+def OpenFusionZip(
     DataValue: bytes, InflateZstd: Callable[[bytes, int], bytes] | None = None
 ) -> Iterator[IndexedArchive]:
     if len(DataValue) > KMaxZipSize:

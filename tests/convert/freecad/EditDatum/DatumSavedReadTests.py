@@ -9,7 +9,7 @@
 
 from dataclasses import replace as Replace
 from io import BytesIO
-from math import pi as Pi
+from math import pi as CirclePi
 from xml.etree.ElementTree import Element
 from zipfile import ZipFile, ZipInfo
 
@@ -23,8 +23,8 @@ from convert.adapters.freecad.EditDatum.ReconcileDatum import ReconcileDatum
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumFeatures import FeatureKind
 from interchange.enums.EnumValues import ValueKind
-from interchange.features.BoundPlaneValues import GetConstructionFrame
-from interchange.features.FeatureBoundPlane import BoundConstructionPlane
+from interchange.features.BoundPlaneValues import GetDatumFrame
+from interchange.features.FeatureBoundPlane import BoundDatum
 from interchange.features.FeatureStep import FeatureStep
 from interchange.geometry.models.SupportPlane import SupportPlane
 from interchange.geometry.models.Transform import Transform
@@ -38,7 +38,7 @@ from interchange.serialization.EncodeData import ToData
 # a typed independent datum gives the writer a finite owned scalar and reference pose
 def MakeDatumDoc(Method: str) -> CadDocument:
     Reference = Transform(origin=SpaceVector(2.0, 3.0, -5.0))
-    Definition = BoundConstructionPlane("support", "scalar", "extra", Method, Reference)
+    Definition = BoundDatum("support", "scalar", "extra", Method, Reference)
     Feature = FeatureStep(
         "datum",
         "Datum",
@@ -48,7 +48,7 @@ def MakeDatumDoc(Method: str) -> CadDocument:
         definition=Definition,
     )
     Quantity = (
-        ParameterValue(Pi / 3.0, ValueKind.KAngle, "rad")
+        ParameterValue(CirclePi / 3.0, ValueKind.KAngle, "rad")
         if Method == "angle"
         else ParameterValue(3.0, ValueKind.KLength, "cm")
     )
@@ -61,7 +61,7 @@ def MakeDatumDoc(Method: str) -> CadDocument:
             owner_id="datum",
         ),
     )
-    Frame = GetConstructionFrame(
+    Frame = GetDatumFrame(
         Feature, Definition, {Value.id: Value for Value in Parameters}
     )
     return CadDocument(
@@ -101,7 +101,9 @@ def TestDatumSeed() -> None:
         Value = BuildFcstdMut(Manifest, EditableFeatures=FeatureSet)
         with ZipFile(BytesIO(Value)) as Archive:
             RootValue = ParseUntrusted(Archive.read("Document.xml"))
-            Members = {Info.filename: Info for Info in Archive.infolist()}
+            Members = {
+                Information.filename: Information for Information in Archive.infolist()
+            }
             assert (
                 ReconcileDatum(Document, Manifest, RootValue, Archive, Members)
                 is Document
@@ -124,15 +126,15 @@ def TestDatumSeed() -> None:
 def TestDatumEdit() -> None:
     for Method, Magnitude, Literal in (
         ("offset", -1.25, "=-12.5 mm"),
-        ("angle", -Pi / 6.0, "=-30 deg"),
+        ("angle", -CirclePi / 6.0, "=-30 deg"),
     ):
         Document = MakeDatumDoc(Method)
         Scalar, Extra = Document.parameters
         EditedScalar = Replace(Scalar, value=Replace(Scalar.value, value=Magnitude))
         Feature = Document.feature_timeline[0]
         Definition = Feature.definition
-        assert isinstance(Definition, BoundConstructionPlane)
-        Frame = GetConstructionFrame(
+        assert isinstance(Definition, BoundDatum)
+        Frame = GetDatumFrame(
             Feature, Definition, {"scalar": EditedScalar, "extra": Extra}
         )
         Target = Replace(
@@ -145,7 +147,9 @@ def TestDatumEdit() -> None:
         with ZipFile(BytesIO(Value)) as Archive:
             RootValue = ParseUntrusted(Archive.read("Document.xml"))
             SetSavedDatum(RootValue, Target, Literal)
-            Members = {Info.filename: Info for Info in Archive.infolist()}
+            Members = {
+                Information.filename: Information for Information in Archive.infolist()
+            }
             Readback = ReconcileDatum(Document, Manifest, RootValue, Archive, Members)
             assert Readback.support_planes == Target.support_planes
             assert Readback.parameters[0].value == EditedScalar.value
@@ -161,7 +165,9 @@ def TestDatumGuards() -> None:
     Value = BuildFcstdMut(Manifest, EditableFeatures=set())
     with ZipFile(BytesIO(Value)) as Archive:
         XmlValue = Archive.read("Document.xml")
-        Members = {Info.filename: Info for Info in Archive.infolist()}
+        Members = {
+            Information.filename: Information for Information in Archive.infolist()
+        }
         for PathValue, Attribute, Changed in (
             ("./Objects/Object[@name='Parameters']", "Touched", "1"),
             (
@@ -212,10 +218,8 @@ def TestDatumUnits() -> None:
     Original = Replace(Scalar, value=Replace(Scalar.value, value=1.2000000000000002))
     Feature = Document.feature_timeline[0]
     Definition = Feature.definition
-    assert isinstance(Definition, BoundConstructionPlane)
-    Frame = GetConstructionFrame(
-        Feature, Definition, {"scalar": Original, "extra": Extra}
-    )
+    assert isinstance(Definition, BoundDatum)
+    Frame = GetDatumFrame(Feature, Definition, {"scalar": Original, "extra": Extra})
     Document = Replace(
         Document,
         parameters=(Original, Extra),
@@ -226,7 +230,9 @@ def TestDatumUnits() -> None:
     with ZipFile(BytesIO(DataValue)) as Archive:
         RootValue = ParseUntrusted(Archive.read("Document.xml"))
         SetSavedDatum(RootValue, Document, "=12 mm")
-        Members = {Info.filename: Info for Info in Archive.infolist()}
+        Members = {
+            Information.filename: Information for Information in Archive.infolist()
+        }
         assert (
             ReconcileDatum(Document, Manifest, RootValue, Archive, Members) is Document
         )

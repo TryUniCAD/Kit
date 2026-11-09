@@ -6,7 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from struct import pack as Pack
+from struct import pack as PackData
 
 from pytest import raises as Raises
 
@@ -42,17 +42,17 @@ def TestOriginOwner() -> None:
 def AxisFixture(Member: int) -> tuple[bytes, dict[int, RecordSpan]]:
     AxisBody = (
         b"\0\1"
-        + Pack("<I", 1)
+        + PackData("<I", 1)
         + NativeText("EntityGenesis", False)
         + NativeText("IntrinsicMetaTypeuint64", False)
-        + Pack("<Q6d", 0, 0, 0, 0, 0, 1, 0)
+        + PackData("<Q6d", 0, 0, 0, 0, 0, 1, 0)
         + bytes(26)
         + NativeText("Y")
         + bytes(37)
         + NativeRef(37)
     )
     Container = (
-        Pack("<II", 0, 7)
+        PackData("<II", 0, 7)
         + b"".join(NativeRef(Entry) for Entry in (38, 39, Member, 41, 42, 43, 44))
         + NativeRef(3)
     )

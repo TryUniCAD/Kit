@@ -7,10 +7,10 @@
 # to you under it immediately and permanently.
 
 from math import atan2 as ArcTan, hypot as Hypot, isfinite as IsFinite
-from math import pi as HalfTurn, sqrt as Sqrt
+from math import pi as HalfTurn, sqrt as SquareRoot
 
 from convert.formats.Fusion.Profiles.Trimmed.TrimPortion import TrimPortion
-from convert.formats.Fusion.Profiles.Trimmed.TrimSelectors import TrimMember
+from convert.formats.Fusion.Profiles.Trimmed.TrimSelectors import KTrimMember
 from convert.formats.Fusion.Profiles.Trimmed.TrimSources import (
     KTrimDistance,
     KTrimParameter,
@@ -21,12 +21,12 @@ from interchange.geometry.models.Sketch import SketchEntity
 
 # proper interior chord intersections locate both limits without using cached edges
 def FindChordCuts(
-    Circle: CircleGeometry, Line: LineGeometry
+    Circle: CircleGeometry, LineValue: LineGeometry
 ) -> tuple[tuple[float, float], tuple[float, float]]:
-    DeltaX = Line.end.x - Line.start.x
-    DeltaY = Line.end.y - Line.start.y
-    OffsetX = Line.start.x - Circle.center.x
-    OffsetY = Line.start.y - Circle.center.y
+    DeltaX = LineValue.end.x - LineValue.start.x
+    DeltaY = LineValue.end.y - LineValue.start.y
+    OffsetX = LineValue.start.x - Circle.center.x
+    OffsetY = LineValue.start.y - Circle.center.y
     Length = Hypot(DeltaX, DeltaY)
     Radius = Circle.radius
     if (
@@ -41,7 +41,7 @@ def FindChordCuts(
     if not KTrimDistance < Perpendicular < Radius - KTrimDistance:
         raise ValueError("Unsupported Fusion mixed trimmed profile tangency")
     Relative = Perpendicular / Radius
-    HalfChord = Radius * Sqrt((1.0 - Relative) * (1.0 + Relative))
+    HalfChord = Radius * SquareRoot((1.0 - Relative) * (1.0 + Relative))
     Midpoint = -(OffsetX * AxisX + OffsetY * AxisY)
     Lower, Upper = (Midpoint - HalfChord) / Length, (Midpoint + HalfChord) / Length
     if not KTrimParameter < Lower < Upper < 1.0 - KTrimParameter:
@@ -59,16 +59,16 @@ def FindChordCuts(
 
 # mixed selectors identify the middle finite line portion and the matching circle segment
 def ReadMixedTrim(
-    Circle: CircleGeometry, LineEntity: SketchEntity, Members: tuple[TrimMember, ...]
+    Circle: CircleGeometry, LineEntity: SketchEntity, Members: tuple[KTrimMember, ...]
 ) -> tuple[TrimPortion, ...]:
-    Line = LineEntity.geometry
+    LineValue = LineEntity.geometry
     if (
-        not isinstance(Line, LineGeometry)
+        not isinstance(LineValue, LineGeometry)
         or len(Members) != 2
         or len({Entity.id for Entity, _ in Members}) != 2
     ):
         raise ValueError("Unsupported Fusion mixed trimmed profile membership")
-    LineBounds, CircleBounds = FindChordCuts(Circle, Line)
+    LineBounds, CircleBounds = FindChordCuts(Circle, LineValue)
     Portions: list[TrimPortion] = []
     for Entity, Selector in Members:
         IsLine = Entity.id == LineEntity.id

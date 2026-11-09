@@ -53,7 +53,7 @@ def AttachPlaneExt(
         ),
     )
     Evidence = ParamOrigin(Owners[Native.ProxyId])
-    Pick = Selection(
+    PickValue = Selection(
         id=f"fusion-selection-{Native.ProxyId}-plane-{Native.Role}",
         name=f"{Native.Role} plane",
         path=(SelectPathElem("support_plane", PlaneValue.id),),
@@ -69,7 +69,7 @@ def AttachPlaneExt(
         ),
     )
     Definition = PlaneExtrude(
-        PlaneSelectionId=Pick.id,
+        PlaneSelectionId=PickValue.id,
         Direction=SpaceVector(*Native.Direction),
         LimitRole=Native.Role,
         OffsetParameterId=Bound[Native.OffsetId],
@@ -85,7 +85,7 @@ def AttachPlaneExt(
             input_feature_ids=tuple(
                 dict.fromkeys((*StepValue.input_feature_ids, PlaneStep.id))
             ),
-            selection_ids=(*StepValue.selection_ids, Pick.id),
+            selection_ids=(*StepValue.selection_ids, PickValue.id),
             provenance=Replace(Origin, spans=Origin.spans + ProfileOrigin.spans),
             attributes=FreezeMapping(
                 {
@@ -94,5 +94,5 @@ def AttachPlaneExt(
                 }
             ),
         ),
-        Pick,
+        PickValue,
     )

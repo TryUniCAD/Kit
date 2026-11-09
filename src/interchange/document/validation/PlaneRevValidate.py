@@ -30,8 +30,8 @@ def GetPlaneRevErrs(
             Errors.append(
                 f"plane revolution {StepValue.id} has an unlinked selection {LinkId}"
             )
-    Axis = Selections.get(Definition.AxisSelectionId)
-    if Axis is None or not (Axis.path or Axis.query):
+    AxisValue = Selections.get(Definition.AxisSelectionId)
+    if AxisValue is None or not (AxisValue.path or AxisValue.query):
         Errors.append(
             f"plane revolution {StepValue.id} has an unresolved axis selection"
         )

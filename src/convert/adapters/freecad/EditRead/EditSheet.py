@@ -10,7 +10,7 @@ from xml.etree.ElementTree import Element
 
 from convert.adapters.freecad.Archive import Items, ParamCatalog
 from convert.adapters.freecad.EditRead.Formula.EditFormula import ReadEditFormula
-from convert.adapters.freecad.EditRead.Formula.SheetLayout import CheckSheetLayout
+from convert.adapters.freecad.EditRead.Formula.SheetLayout import CheckSheetShape
 from convert.adapters.freecad.EditRead.XmlField import (
     CheckEditExpr,
     CheckNoEditExpr,
@@ -104,7 +104,7 @@ def ReadEditText(
     IsLinked = Expression is not None and bool(Expression.parameter_ids)
     Cells = EditCells(Sheet, IsLinked or StrictLayout)
     if StrictLayout:
-        CheckSheetLayout(Sheet, Cells, Catalog)
+        CheckSheetShape(Sheet, Cells, Catalog)
     if Definition.TaperParameterId is not None:
         TaperAlias = Catalog.Aliases.get(Definition.TaperParameterId)
         if TaperAlias is None:

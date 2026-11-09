@@ -104,7 +104,8 @@ def CheckThinGuard() -> None:
     assert StepValue.kind == FeatureKind.KExtrusion
     assert not isinstance(StepValue.definition, DistanceExtrude)
     assert any(
-        Item.code == "fusion.extrude.unsupported" for Item in Document.diagnostics
+        ItemValue.code == "fusion.extrude.unsupported"
+        for ItemValue in Document.diagnostics
     )
 
 

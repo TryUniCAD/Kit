@@ -31,9 +31,9 @@ def ResolveAuthAxis(
 ) -> tuple[SpaceVector, tuple[int, ...]]:
     ByComponent: dict[str, list[tuple[int, ComponentInst]]] = {}
     Earlier = {
-        Edits[Step.id]
-        for Step in Steps.values()
-        if Step.id in Edits and Step.order < StepValue.order
+        Edits[StepData.id]
+        for StepData in Steps.values()
+        if StepData.id in Edits and StepData.order < StepValue.order
     }
     for Instance in Assembly.instances:
         Origin = Instance.provenance
@@ -42,8 +42,8 @@ def ResolveAuthAxis(
                 (NativeId, Instance)
             )
     RootId = Assembly.root_definition_id
-    Axis = (Direction.x, Direction.y, Direction.z)
-    Path: list[int] = []
+    AxisValue = (Direction.x, Direction.y, Direction.z)
+    PathValue: list[int] = []
     while (DefinitionId := f"fusion-component-{Scope.ComponentId}") != RootId:
         Creation = None if Scope.SnapshotId is None else Steps.get(Scope.SnapshotId)
         Candidates = ByComponent.get(DefinitionId, ())
@@ -65,12 +65,14 @@ def ResolveAuthAxis(
             )
         Values = Instance.transform.values
         AxisX, AxisY, AxisZ = (
-            sum(Values[Row * 4 + Column] * Axis[Column] for Column in range(3))
-            for Row in range(3)
+            sum(
+                Values[RowValue * 4 + Column] * AxisValue[Column] for Column in range(3)
+            )
+            for RowValue in range(3)
         )
-        Axis = AxisX, AxisY, AxisZ
-        Path.append(NativeId)
+        AxisValue = AxisX, AxisY, AxisZ
+        PathValue.append(NativeId)
         Scope = Parent
-    if not Path or Scope.SnapshotId is not None:
+    if not PathValue or Scope.SnapshotId is not None:
         raise ValueError("Fusion Extrude authoring path does not end at the root scope")
-    return SpaceVector(*Axis), tuple(reversed(Path))
+    return SpaceVector(*AxisValue), tuple(reversed(PathValue))

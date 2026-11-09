@@ -6,7 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from math import isclose as IsClose, tau as Tau
+from math import isclose as IsClose, tau as FullTurn
 
 from convert.geometry.Revolve.SweepProfile import MeridianSense
 from convert.geometry.Revolve.SweepVector import DotVector
@@ -35,7 +35,7 @@ def CheckSweepInput(
         raise ValueError("Revolve body identity is required")
     CheckSweepFrame(AxisOrigin, AxisDirection, Radial)
     SpanValue = EndRadians - StartRadians
-    if not 0.0 < SpanValue < Tau:
+    if not 0.0 < SpanValue < FullTurn:
         raise ValueError("Revolve solid requires a positive partial turn")
 
 

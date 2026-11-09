@@ -31,7 +31,7 @@ def GetAngleSpan(
             raise ValueError(
                 "one sided angular revolution cannot have an against angle"
             )
-        Start, End = min(0.0, Along), max(0.0, Along)
+        Start, EndPoint = min(0.0, Along), max(0.0, Along)
     else:
         if Against is None or Against <= 0.0 or Along <= 0.0:
             raise ValueError(
@@ -41,9 +41,9 @@ def GetAngleSpan(
             Along, Against, abs_tol=1e-10, rel_tol=0.0
         ):
             raise ValueError("symmetric angular revolution angles must agree")
-        Start, End = -Against, Along
-    if not 1e-9 < End - Start <= FullTurn + 1e-10:
+        Start, EndPoint = -Against, Along
+    if not 1e-9 < EndPoint - Start <= FullTurn + 1e-10:
         raise ValueError(
             "angular revolution sweep must exceed tolerance and span at most one turn"
         )
-    return float(Start), float(End)
+    return float(Start), float(EndPoint)

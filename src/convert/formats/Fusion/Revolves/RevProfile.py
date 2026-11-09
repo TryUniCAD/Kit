@@ -38,7 +38,9 @@ def ReadRevProfile(
     ):
         CheckSemiRing(Parts[0], Parts[1])
         return Parts[0]
-    Lines = tuple(Part for Part in Parts if isinstance(Part, LineGeometry))
+    Lines = tuple(
+        PartValue for PartValue in Parts if isinstance(PartValue, LineGeometry)
+    )
     if len(Parts) not in (3, 4) or len(Lines) != len(Parts):
         raise ValueError(
             "Fusion Revolve requires a circle, semicircle with diameter, or three or four lines"

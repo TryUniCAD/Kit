@@ -7,10 +7,10 @@
 # to you under it immediately and permanently.
 
 from math import atan2 as AngleOf
-from math import cos as Cos
+from math import cos as Cosine
 from math import hypot as Hypot
 from math import pi as HalfTurn
-from math import sin as Sin
+from math import sin as SineValue
 from math import tau as FullTurn
 
 from interchange.geometry.models.BoundingBox import BoundingBox
@@ -21,20 +21,20 @@ from interchange.geometry.models.VectorSpace import SpaceVector
 def AngularBounds(
     Radial: float, Tangent: float, StartRadians: float, EndRadians: float
 ) -> tuple[float, float]:
-    StartCos = Cos(StartRadians)
-    StartSin = Sin(StartRadians)
+    StartCos = Cosine(StartRadians)
+    StartSin = SineValue(StartRadians)
     StartValue = Radial * StartCos + Tangent * StartSin
-    EndValue = Radial * Cos(EndRadians) + Tangent * Sin(EndRadians)
+    EndValue = Radial * Cosine(EndRadians) + Tangent * SineValue(EndRadians)
     Amplitude = Hypot(Radial, Tangent)
     RelativePeak = (
         AngleOf(Tangent * StartCos - Radial * StartSin, StartValue) % FullTurn
     )
-    Span = EndRadians - StartRadians
+    SpanValue = EndRadians - StartRadians
     Minimum = min(StartValue, EndValue)
     Maximum = max(StartValue, EndValue)
-    if RelativePeak <= Span:
+    if RelativePeak <= SpanValue:
         Maximum = Amplitude
-    if (RelativePeak + HalfTurn) % FullTurn <= Span:
+    if (RelativePeak + HalfTurn) % FullTurn <= SpanValue:
         Minimum = -Amplitude
     return Minimum, Maximum
 

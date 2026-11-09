@@ -8,7 +8,7 @@
 
 from convert.formats.Fusion.Assembly.ComponentEntry import ComponentEntry
 from convert.formats.Fusion.Assembly.NativeComponent import NativeComponent
-from convert.formats.Fusion.HistoryRef import ReadNativeRef, ReadOptionalRef
+from convert.formats.Fusion.HistoryRef import ReadNativeRef, ReadOptRefMut
 from convert.formats.Fusion.MetaCursor import MetaCursor
 from convert.formats.Fusion.SelectionRef import ReadSelectUuid
 
@@ -30,7 +30,7 @@ def ReadComponent(DataValue: bytes, ObjectId: int) -> ComponentEntry:
     LabelText = Cursor.ReadText(True, Maximum=1024)
     if Cursor.TakeBytes(1) != bytes(1):
         raise ValueError("Invalid Fusion component label terminator")
-    RootOccurrence = ReadOptionalRef(Cursor)
+    RootOccurrence = ReadOptRefMut(Cursor)
     if Cursor.Offset != len(DataValue):
         raise ValueError("Unexpected Fusion component identity suffix")
     return ComponentEntry(

@@ -8,7 +8,7 @@
 
 from typing import cast as CastValue
 from math import isfinite as IsFinite
-from math import pi as Pi
+from math import pi as CirclePi
 
 from convert.geometry.Revolve.WholeSweep import BuildWholeSolid
 from interchange.brep.surfaces.BrepSurfaces import SphereSurface
@@ -34,7 +34,7 @@ def BuildSphere(
     )
     if not IsFullSphere(Surface):
         raise ValueError("Sphere Revolve requires a finite orthonormal sphere")
-    SurfaceArea = 4.0 * Pi * (Radius * Radius)
+    SurfaceArea = 4.0 * CirclePi * (Radius * Radius)
     Volume = SurfaceArea * (Radius / 3.0)
     Bounds = BoundingBox(
         SpaceVector(Center.x - Radius, Center.y - Radius, Center.z - Radius),

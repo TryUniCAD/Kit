@@ -7,7 +7,7 @@
 # to you under it immediately and permanently.
 
 
-from struct import pack as Pack
+from struct import pack as PackData
 
 from pytest import raises as Raises
 
@@ -31,7 +31,7 @@ from tests.convert.formats.FusionParamTests import NativeText
 
 # the wire puts target two ahead of target one regardless of the selection order
 def TestTargetOrder() -> None:
-    Header = Pack("<IIBBBBB", 4, 1, 0, 0, 1, 0, 0)
+    Header = PackData("<IIBBBBB", 4, 1, 0, 0, 1, 0, 0)
     BodyValue = (
         bytes(2)
         + Header
@@ -64,14 +64,14 @@ def SelectFixture(
         (
             20,
             KSelectProxy,
-            bytes(2) + Pack("<I", 1) + NativeRef(21) + bytes(66) + NativeRef(10),
+            bytes(2) + PackData("<I", 1) + NativeRef(21) + bytes(66) + NativeRef(10),
         ),
         (
             21,
             KSelectDesc,
             bytes(2)
             + NativeRef(22)
-            + Pack("<I", 1)
+            + PackData("<I", 1)
             + GuidBytes * 2
             + bytes(83)
             + NativeRef(10),
@@ -88,7 +88,7 @@ def SelectFixture(
 
 # both reciprocal owner references must identify the same feature
 def TestOwnedSelect() -> None:
-    BulkData, Owners = SelectFixture(KSelectLeaf, bytes(2) + Pack("<Q", 30))
+    BulkData, Owners = SelectFixture(KSelectLeaf, bytes(2) + PackData("<Q", 30))
     assert ReadEntityRef(bytes(BulkData), Owners, 20, 10) == (21, 22, 30)
     OwnerOffset = Owners[21].EndOffset - 11
     BulkData[OwnerOffset : OwnerOffset + 11] = NativeRef(99)
@@ -98,7 +98,7 @@ def TestOwnedSelect() -> None:
 
 # a sketch pick keeps its directed entity and depends only on a preceding sketch
 def TestSketchAxis() -> None:
-    BulkData, Owners = SelectFixture(KSketchLeaf, bytes(10) + Pack("<QQ", 40, 50))
+    BulkData, Owners = SelectFixture(KSketchLeaf, bytes(10) + PackData("<QQ", 40, 50))
     Entity = SketchEntity(
         id="line",
         kind=GeometryKind.KLine,
@@ -117,7 +117,10 @@ def TestSketchAxis() -> None:
     Result = ResolveRevAxis(bytes(BulkData), Owners, 20, 10, 3, Links, {})
     assert Result.ObjectId == 30
     assert Result.DependencyId == SourceStep.id
-    assert tuple((Elem.entity_kind, Elem.entity_id) for Elem in Result.PathElems) == (
+    assert tuple(
+        (ElementValue.entity_kind, ElementValue.entity_id)
+        for ElementValue in Result.PathElems
+    ) == (
         ("sketch", Source.id),
         ("sketch_entity", Entity.id),
     )

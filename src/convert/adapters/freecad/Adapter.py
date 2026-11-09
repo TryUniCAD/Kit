@@ -106,7 +106,7 @@ from convert.adapters.freecad.Protocol import (
     XML_TRUE_VALUES as XmlTrueValues,
 )
 from convert.adapters.freecad.ReconcileEdit import ReconcileEdit
-from interchange.features.FeatureBoundPlane import BoundConstructionPlane
+from interchange.features.FeatureBoundPlane import BoundDatum
 
 # shared empty set keeps parameter defaults free of repeated constructor calls
 KNoNativeBreps: frozenset[NativeBrepKey] = frozenset()
@@ -681,7 +681,7 @@ def FeatureReasons(
     KindValue = EnumText(Feature.EntityKind)
     if Feature.IsSuppressed:
         return frozenset({CarrierReason.TARGET_UNSUPPORTED})
-    if isinstance(Feature.Definition, BoundConstructionPlane):
+    if isinstance(Feature.Definition, BoundDatum):
         return frozenset({CarrierReason.WRITER_UNIMPLEMENTED})
     if KindValue == FeatureKind.REFERENCE.value:
         return frozenset({CarrierReason.TARGET_UNSUPPORTED})

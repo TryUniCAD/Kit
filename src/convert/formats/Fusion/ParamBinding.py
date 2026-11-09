@@ -6,7 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from struct import pack as Pack, unpack_from as UnpackFrom
+from struct import pack as PackData, unpack_from as UnpackFrom
 
 from convert.formats.Fusion.NativeParam import NativeParam
 from convert.formats.Fusion.RecordSpan import RecordSpan
@@ -53,7 +53,7 @@ def ResolveOwner(
     ):
         raise ValueError("Fusion numeric binding owner or parameter identity disagrees")
     if Width == 85:
-        Matches = BodyValue[21:29] == Pack("<d", ParamData.Number)
+        Matches = BodyValue[21:29] == PackData("<d", ParamData.Number)
     else:
         Matches = (
             BodyValue[21] == 1

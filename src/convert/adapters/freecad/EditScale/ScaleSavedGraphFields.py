@@ -56,14 +56,14 @@ def ReadScaleExprs(Native: NativeObject) -> dict[str, str]:
     Result: dict[str, str] = {}
     if Engine.attrib != {"count": str(len(Engine))} or (Engine.text or "").strip():
         raise ValueError("FreeCAD editable Scale expression count changed")
-    for Node in Engine:
-        PathValue = Node.get("path", "")
-        Expression = Node.get("expression", "")
+    for NodeValue in Engine:
+        PathValue = NodeValue.get("path", "")
+        Expression = NodeValue.get("expression", "")
         if (
-            Node.tag != "Expression"
-            or len(Node)
-            or Node.attrib.keys() != {"path", "expression"}
-            or (Node.text or "").strip()
+            NodeValue.tag != "Expression"
+            or len(NodeValue)
+            or NodeValue.attrib.keys() != {"path", "expression"}
+            or (NodeValue.text or "").strip()
             or not PathValue
             or PathValue in Result
             or not Expression
@@ -162,7 +162,7 @@ def CheckSavedProps(Original: NativeObject, Saved: NativeObject, IsSeed: bool) -
             CheckScaleAttr(Source, Property)
             CheckSavedValue(Saved, Property, Source, Field, Mutable)
         if Field not in {"Shape", "InternalShape"} and any(
-            "file" in Node.attrib for Node in Property.iter()
+            "file" in NodeValue.attrib for NodeValue in Property.iter()
         ):
             raise ValueError("FreeCAD editable Scale native file routing changed")
     CheckScalePose(Original, Saved, Expressions, IsSeed)
@@ -194,7 +194,8 @@ def CheckSavedValue(
         return
     if Field == "Constraints":
         if any(
-            Row.Value != Row.ExpectedValue for Row in ReadRuleRows(Native, Original)
+            RowValue.Value != RowValue.ExpectedValue
+            for RowValue in ReadRuleRows(Native, Original)
         ):
             raise ValueError("FreeCAD editable Scale native constraint value changed")
         return

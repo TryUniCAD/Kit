@@ -7,7 +7,7 @@
 # to you under it immediately and permanently.
 
 from dataclasses import dataclass as MakeDataClass
-from math import pi as Pi
+from math import pi as CirclePi
 from typing import Mapping as TypeMap
 
 from interchange.enums.EnumFeatures import BooleanOp, FeatureKind
@@ -47,9 +47,9 @@ def GetDistValues(
         (
             None
             if Identity is None
-            else GetDistParam(StepValue, Identity, Parameters, Kind)
+            else GetDistParam(StepValue, Identity, Parameters, KindValue)
         )
-        for Identity, Kind in (
+        for Identity, KindValue in (
             (Definition.AgainstParameterId, ValueKind.KLength),
             (Definition.StartOffsetId, ValueKind.KLength),
             (Definition.TaperParameterId, ValueKind.KAngle),
@@ -57,7 +57,8 @@ def GetDistValues(
         )
     )
     if any(
-        Value is not None and abs(Value) >= Pi / 2.0 for Value in (Taper, SecondTaper)
+        Value is not None and abs(Value) >= CirclePi / 2.0
+        for Value in (Taper, SecondTaper)
     ):
         raise ValueError("distance extrusion taper must be less than a right angle")
     OffsetMm = 0.0 if Offset is None else Offset

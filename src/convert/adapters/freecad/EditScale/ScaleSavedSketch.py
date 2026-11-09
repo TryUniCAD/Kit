@@ -20,7 +20,7 @@ from interchange.geometry.models.Sketch import Sketch
 
 
 # standalone datum sketches can change only the point explicitly consumed by the scale
-def CheckScaleSketchEdit(Original: Sketch, Edited: Sketch, PointId: str) -> None:
+def CheckScaleEdit(Original: Sketch, Edited: Sketch, PointId: str) -> None:
     if any(
         Before is not After and Before.id != PointId
         for Before, After in zip(Original.entities, Edited.entities, strict=True)
@@ -29,25 +29,27 @@ def CheckScaleSketchEdit(Original: Sketch, Edited: Sketch, PointId: str) -> None
 
 
 # solved sketch entries and independent wire caches must corroborate each retained edit
-def ReadScaleSketches(
+def ReadScaleRings(
     Document: CadDocument,
-    Plan: ScaleWritePlan,
+    PlanValue: ScaleWritePlan,
     SketchObjs: Mapping[str, NativeObject],
     Originals: Mapping[str, NativeObject],
     Shapes: Mapping[str, bytes],
 ) -> tuple[Sketch, ...]:
-    Profiles = {Body.SketchId for Body in Plan.Bodies}
+    Profiles = {BodyValue.SketchId for BodyValue in PlanValue.Bodies}
     Frames = {Value.id: Value.transform for Value in Document.support_planes}
     Params = {Value.id: Value for Value in Document.parameters}
     Result: list[Sketch] = []
     for Original in Document.sketches:
         Native = SketchObjs[Original.id]
         Edited = ReadSketchGeom(Native, Original)
-        PointId = Plan.Center.PointId if Original.id == Plan.Center.SketchId else ""
+        PointId = (
+            PlanValue.Center.PointId if Original.id == PlanValue.Center.SketchId else ""
+        )
         if Original.id in Profiles:
             Edited = SyncRingEdit(Original, Edited, ExtraPointId=PointId)
         else:
-            CheckScaleSketchEdit(Original, Edited, PointId)
+            CheckScaleEdit(Original, Edited, PointId)
         if Original.constraints:
             Measures = CheckSavedRules(
                 Native,

@@ -9,13 +9,13 @@
 from pytest import approx as Approx, mark as MarkTest
 
 from convert.geometry.Formula.Arithmetic import EvalFormula, ReadFormula, WriteFormula
-from convert.geometry.Formula.FormulaUnits import MatchQuantity
+from convert.geometry.Formula.FormulaUnits import IsMatchingQty
 from interchange.enums.EnumValues import ValueKind
 from interchange.records.RecordParameter import ParameterValue
 
 
 # literal units and name bindings must stay exact through evaluation and emission
-def TestFormulaUnits() -> None:
+def TestExprUnits() -> None:
     FormulaValue = ReadFormula("probe + probeWidth * 2 + probeWidth / 2 - 1e-1 cm")
     assert FormulaValue is not None
     assert FormulaValue.Names == ("probe", "probeWidth")
@@ -25,8 +25,8 @@ def TestFormulaUnits() -> None:
     }
     Result = EvalFormula(FormulaValue, Values)
     assert Result is not None and Result[0] == Approx(34.4)
-    assert MatchQuantity(Result, ParameterValue(3.44, ValueKind.KLength, "cm"))
-    assert not MatchQuantity(Result, ParameterValue(34.4))
+    assert IsMatchingQty(Result, ParameterValue(3.44, ValueKind.KLength, "cm"))
+    assert not IsMatchingQty(Result, ParameterValue(34.4))
     assert WriteFormula(
         FormulaValue, {"probe": "first_alias", "probeWidth": "second_alias"}
     ) == ("first_alias + second_alias * 2 + second_alias / 2 - 1e-1 cm")

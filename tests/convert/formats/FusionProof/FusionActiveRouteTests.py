@@ -17,7 +17,7 @@ from convert.formats.Fusion import ReadFusionDoc
 from convert.formats.Fusion.ArchiveRead.ArchiveMember import ArchiveMember
 from convert.formats.Fusion.ArchiveRead.IndexedArchive import (
     IndexedArchive,
-    OpenFusionArchive,
+    OpenFusionZip,
 )
 from convert.formats.Fusion.ArchiveRead.ReadDesignPair import (
     KDesignPrefix,
@@ -29,7 +29,7 @@ from convert.formats.Fusion.SourceProof.Auxiliary.ActiveRoute.ReadAssetRoutes im
     ReadAssetRoutes,
 )
 from convert.formats.Fusion.SourceProof.Auxiliary.ReadAuxFrame import ReadAuxFrame
-from convert.formats.Fusion.SourceProof.InspectSource import ReadFusionSourceProof
+from convert.formats.Fusion.SourceProof.InspectSource import ReadSourceProof
 from convert.formats.Fusion.SourceProof.ProofClaim import ProofCategory
 from tests.convert.api.ApiFusionAssemblyTests import KRequiresCodec, KStudyPath
 
@@ -76,7 +76,7 @@ def TestRouteReport(MonkeyPatch: PatchContext) -> None:
         for EntryName in Reads
     )
     Reads.clear()
-    Coverage = ReadFusionSourceProof(KEarlyRevision)
+    Coverage = ReadSourceProof(KEarlyRevision)
     Routes = Coverage.ActiveRoutes
     assert Routes is not None
     assert Coverage.Scope.SourceDigest == Document.source.sha256
@@ -107,8 +107,8 @@ def TestRouteReport(MonkeyPatch: PatchContext) -> None:
 # a valid uuid from another revision invalidates the semantic receipt and leaves framing
 @KRequiresCodec
 def TestSnapshot() -> None:
-    Early = ReadFusionSourceProof(KEarlyRevision).ActiveRoutes
-    Later = ReadFusionSourceProof(KLaterRevision).ActiveRoutes
+    Early = ReadSourceProof(KEarlyRevision).ActiveRoutes
+    Later = ReadSourceProof(KLaterRevision).ActiveRoutes
     assert Early is not None and Later is not None
     Manifest = Early.Manifest
     with ZipFile(KEarlyRevision) as Archive:
@@ -120,7 +120,7 @@ def TestSnapshot() -> None:
     )
     assert Edited != Contents
     Mixed = RepackRouteCase(KEarlyRevision, {Manifest.ActiveMember.Name: Edited})
-    Report = ReadFusionSourceProof(Mixed)
+    Report = ReadSourceProof(Mixed)
     assert Report.ActiveRoutes is None
     assert any(
         isinstance(Claim.Target, ArchiveMember)
@@ -134,11 +134,11 @@ def TestSnapshot() -> None:
 # a coherent real design swap survives the observed joins but cannot clear source coverage
 @KRequiresCodec
 def TestRevision() -> None:
-    Original = ReadFusionSourceProof(KEarlyRevision)
+    Original = ReadSourceProof(KEarlyRevision)
     assert Original.ActiveRoutes is not None
-    with OpenFusionArchive(KLaterRevision.read_bytes()) as Later:
+    with OpenFusionZip(KLaterRevision.read_bytes()) as Later:
         BulkData, MetaData = ReadDesignPair(Later.Entries, Later.ReadEntryMut)
-    with OpenFusionArchive(KEarlyRevision.read_bytes()) as Earlier:
+    with OpenFusionZip(KEarlyRevision.read_bytes()) as Earlier:
         Frame = ReadAuxFrame(Earlier, SegmentKind.KAct)
         with Raises(ValueError, match="disagrees with archive"):
             _ = ReadAssetRoutes(
@@ -151,7 +151,7 @@ def TestRevision() -> None:
             KDesignPrefix + "MetaStream.dat": MetaData,
         },
     )
-    Report = ReadFusionSourceProof(Mixed)
+    Report = ReadSourceProof(Mixed)
     Receipt = Report.ActiveRoutes
     assert Receipt is not None
     assert Receipt.Manifest.SnapshotId == Original.ActiveRoutes.Manifest.SnapshotId
@@ -166,10 +166,10 @@ def TestRevision() -> None:
 # unexplained field bytes and route namespaces survive as explicit residual evidence
 @KRequiresCodec
 def TestResiduals() -> None:
-    Unsupported = ReadFusionSourceProof(
+    Unsupported = ReadSourceProof(
         KStudyPath / "boundaryfills-a0953038318b" / "plane_first.f3d"
     ).ActiveRoutes
-    PartialReport = ReadFusionSourceProof(
+    PartialReport = ReadSourceProof(
         KStudyPath / "componentcolorcontrast-775cb30dfc1e" / "known_component_color.f3d"
     ).ActiveRoutes
     assert Unsupported is not None and PartialReport is not None

@@ -41,8 +41,8 @@ def TestRingDepth(TmpPath: FilePath, DepthMm: float) -> None:
     PairValue = FindEditFrame(Document, Feature.sketch_id)
     assert PairValue is not None
     Sketch, Plane = PairValue
-    Ring = GetEditRing(Feature, Sketch)
-    assert Ring is not None
+    RingValue = GetEditRing(Feature, Sketch)
+    assert RingValue is not None
     Output = TmpPath / "ring.FCStd"
     _ = WriteDocument(Document, Output)
     with ZipFile(Output) as Archive:
@@ -57,7 +57,7 @@ def TestRingDepth(TmpPath: FilePath, DepthMm: float) -> None:
     assert len(RootValue.findall(".//ConstraintList/Constrain")) == 8
     assert OpenDocument(Output) == Document
     Model, Volume, AreaValue, Bounds = BuildEditSolid(
-        Document.bodies[0].id, Plane.transform, Ring, DepthMm
+        Document.bodies[0].id, Plane.transform, RingValue, DepthMm
     )
     Saved = ChangeEditFile(
         Output, DepthMm, BrepModelBrep(Model), "bound", "fusion_parameter_287"
@@ -90,15 +90,15 @@ def TestStaleRing(TmpPath: FilePath) -> None:
 
 # the lower prism cap supplies independent first principles wire evidence for the sketch
 def CapWire(Model: BrepModel, Sides: int) -> bytes:
-    Wire = BrepWire("wire", Model.loops[0].coedge_ids, closed=True)
+    WireValue = BrepWire("wire", Model.loops[0].coedge_ids, closed=True)
     return BrepModelBrep(
         BrepModel(
             vertices=Model.vertices[:Sides],
             curves=Model.curves[:Sides],
             edges=Model.edges[:Sides],
             coedges=Model.coedges[:Sides],
-            wires=(Wire,),
-            bodies=(BrepBody("body", (), wire_ids=(Wire.id,)),),
+            wires=(WireValue,),
+            bodies=(BrepBody("body", (), wire_ids=(WireValue.id,)),),
         )
     )
 
@@ -110,15 +110,15 @@ def TestMovedRing(TmpPath: FilePath) -> None:
     PairValue = FindEditFrame(Original, StepValue.sketch_id)
     assert PairValue is not None
     SketchValue, Plane = PairValue
-    Ring = GetEditRing(StepValue, SketchValue)
-    assert Ring is not None
+    RingValue = GetEditRing(StepValue, SketchValue)
+    assert RingValue is not None
     Before, After = PlaneVector(40, 30), PlaneVector(14, 8)
     ChangedRing = tuple(
         LineGeometry(
             After if Value.start == Before else Value.start,
             After if Value.end == Before else Value.end,
         )
-        for Value in Ring
+        for Value in RingValue
     )
     DepthMm = -13.5
     BodyId = Original.bodies[0].id
@@ -149,11 +149,11 @@ def TestMovedRing(TmpPath: FilePath) -> None:
             ) == (Before.x, Before.y):
                 NodeValue.set(Prefix + "X", str(After.x))
                 NodeValue.set(Prefix + "Y", str(After.y))
-    Part = Props.find("./Property[@name='Shape']/Part")
-    assert Part is not None
+    PartValue = Props.find("./Property[@name='Shape']/Part")
+    assert PartValue is not None
     CacheName = f"{NameValue}.Shape.brp"
-    Part.set("file", CacheName)
-    Entries[CacheName] = CapWire(CapModel, len(Ring))
+    PartValue.set("file", CacheName)
+    Entries[CacheName] = CapWire(CapModel, len(RingValue))
     Entries["Document.xml"] = XmlBytes(RootValue, encoding="utf-8")
     with ZipFile(Output, "w") as Archive:
         for Entry, Payload in Entries.items():

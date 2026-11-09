@@ -24,7 +24,7 @@ from convert.geometry.Revolve.SweepVector import DotVector
 
 
 # legacy exports used a fixed normal which remains admissible when its saved vector agrees
-def CheckBodyExprs(Graph: BodyGraph, Plan: BodyRevPlan, DepthRef: str) -> None:
+def CheckBodyExprs(Graph: BodyGraph, PlanValue: BodyRevPlan, DepthRef: str) -> None:
     RevExpr = Graph.Template[Graph.Revolve.name].properties["ExpressionEngine"][0][0]
     CheckAxisExpr(Graph.Revolve, (RevExpr.attrib["expression"],))
     Engine = EditChild(
@@ -37,22 +37,22 @@ def CheckBodyExprs(Graph: BodyGraph, Plan: BodyRevPlan, DepthRef: str) -> None:
         raise ValueError(
             "FreeCAD editable body axis extrusion expression inventory changed"
         )
-    Source = Plan.Extrude.Direction
+    Source = PlanValue.Extrude.Direction
     Direction = (Source.x, Source.y, Source.z)
-    Dirs = (
+    Directions = (
         BodyDepthDir(Direction, DepthRef, Graph.Source.name),
         BodyDepthDir(Direction, DepthRef),
     )
-    for Node, PathValue, Candidates in zip(
-        Engine, ("Dir", "LengthFwd"), (Dirs, (DepthRef,)), strict=True
+    for NodeValue, PathValue, Candidates in zip(
+        Engine, ("Dir", "LengthFwd"), (Directions, (DepthRef,)), strict=True
     ):
         if (
-            Node.tag != "Expression"
-            or len(Node)
-            or set(Node.attrib) != {"path", "expression"}
-            or Node.get("path") != PathValue
+            NodeValue.tag != "Expression"
+            or len(NodeValue)
+            or set(NodeValue.attrib) != {"path", "expression"}
+            or NodeValue.get("path") != PathValue
             or not any(
-                IsSamePlaneExpr(Value, Node.get("expression", ""))
+                IsSamePlaneExpr(Value, NodeValue.get("expression", ""))
                 for Value in Candidates
             )
         ):
@@ -62,7 +62,7 @@ def CheckBodyExprs(Graph: BodyGraph, Plan: BodyRevPlan, DepthRef: str) -> None:
 # native public and persistent link names must both resolve the exact source edge
 def CheckBodyLinks(Graph: BodyGraph, EdgeName: str, Shadow: str) -> None:
     RevLink = EditChild(Graph.Revolve, "AxisLink", "App::PropertyLinkSub", "LinkSub")
-    Sub = OnlyEditChild(RevLink, "Sub")
+    SubValue = OnlyEditChild(RevLink, "Sub")
     Expected = {"value": EdgeName}
     PickAttrs = {"obj": Graph.Seed.name, "sub": EdgeName}
     if Shadow:
@@ -75,11 +75,11 @@ def CheckBodyLinks(Graph: BodyGraph, EdgeName: str, Shadow: str) -> None:
     if (
         RevLink.attrib != {"value": Graph.Seed.name, "count": "1"}
         or Graph.Revolve.properties["AxisLink"].get("status") is not None
-        or Sub.attrib != Expected
-        or len(Sub)
+        or SubValue.attrib != Expected
+        or len(SubValue)
         or PickLinks.attrib != {"count": "2"}
         or len(PickLinks) != 2
-        or any(Node.tag != "Link" or len(Node) for Node in PickLinks)
+        or any(NodeValue.tag != "Link" or len(NodeValue) for NodeValue in PickLinks)
         or PickLinks[0].attrib != Original[0].attrib
         or PickLinks[1].attrib != PickAttrs
         or Graph.Template[Graph.Revolve.name].properties["AxisLink"][0][0].get("value")
@@ -90,7 +90,11 @@ def CheckBodyLinks(Graph: BodyGraph, EdgeName: str, Shadow: str) -> None:
 
 # the saved angle must preserve the neutral phase even when the native rim direction reverses
 def CheckBodyPose(
-    Graph: BodyGraph, Order: PrismOrder, Plan: BodyRevPlan, Along: float, IsSeed: bool
+    Graph: BodyGraph,
+    Order: PrismOrder,
+    PlanValue: BodyRevPlan,
+    Along: float,
+    IsSeed: bool,
 ) -> None:
     Native = Graph.Revolve
     CheckRevVector(Native, "Axis", Order.Axis)
@@ -106,7 +110,7 @@ def CheckBodyPose(
     Actual = EditFloat(
         EditChild(Native, "Angle", "App::PropertyFloatConstraint", "Float"), "value"
     )
-    Alignment = DotVector(Order.Axis, Plan.Revolve.AxisDirection)
+    Alignment = DotVector(Order.Axis, PlanValue.Revolve.AxisDirection)
     Expected = Degrees(Along) * (1.0 if Alignment > 0.0 else -1.0)
     if abs(abs(Alignment) - 1.0) > 1e-9 or not IsClose(
         Actual, Expected, rel_tol=0.0, abs_tol=1e-9

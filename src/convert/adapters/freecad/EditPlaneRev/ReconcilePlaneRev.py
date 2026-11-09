@@ -44,12 +44,12 @@ def ReconcilePlane(
         raise ValueError(
             "FreeCAD editable plane Revolve binding disagrees with its source"
         )
-    Plan = ReadPlaneRev(DocValue, Feature)
-    if Plan is None:
+    PlanValue = ReadPlaneRev(DocValue, Feature)
+    if PlanValue is None:
         raise ValueError(
             "FreeCAD editable plane Revolve binding has no qualified source"
         )
-    Fields = ReadPlaneRevFields(RootValue, DocValue, Plan)
+    Fields = ReadPlaneRevFields(RootValue, DocValue, PlanValue)
     CheckRevWire(
         Archive,
         Members,
@@ -57,8 +57,10 @@ def ReconcilePlane(
         Fields.EmptyEntries,
         DocValue.sketches[0],
         Fields.ProfileSketch,
-        Plan.SketchFrame,
+        PlanValue.SketchFrame,
     )
-    Rebuilt = ApplyPlaneRev(DocValue, Plan, Fields.ProfileSketch, Fields.AngleEdits)
+    Rebuilt = ApplyPlaneRev(
+        DocValue, PlanValue, Fields.ProfileSketch, Fields.AngleEdits
+    )
     CheckRevSolid(Archive, Members, Fields.ShapeEntry, Rebuilt)
     return Rebuilt

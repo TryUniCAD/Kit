@@ -29,7 +29,7 @@ def MakeSolidRecord(
     CollectionId: int,
     SourceKind: str,
 ) -> tuple[DesignBody, BrepModel]:
-    Model, Volume, Area, Bounds = Geometry
+    Model, Volume, AreaValue, Bounds = Geometry
     NativeId, AnchorId = BodyLink
     Origin = ParamOrigin(Owners[NativeId])
     BodyValue = DesignBody(
@@ -43,7 +43,7 @@ def MakeSolidRecord(
             edge_count=len(Model.edges),
             vertex_count=len(Model.vertices),
             volume=Volume,
-            surface_area=Area,
+            surface_area=AreaValue,
             bounding_box=Bounds,
             valid=True,
         ),

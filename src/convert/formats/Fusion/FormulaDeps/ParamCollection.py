@@ -15,7 +15,7 @@ KParamCollection = "B0556F58-EE09-46A7-B18F-E296F48E5B13"
 
 
 # native member order is needed when verifying full parameter collection coverage
-def ReadCollectionOrder(
+def ReadMemberOrder(
     BodyValue: bytes, ComponentId: int, *, VerifyOrder: bool = False
 ) -> tuple[int, tuple[int, ...]]:
     Cursor = MetaCursor(BodyValue)
@@ -36,5 +36,5 @@ def ReadCollectionOrder(
 
 # callers that need only visibility can continue to use unordered member identities
 def ReadCollection(BodyValue: bytes, ComponentId: int) -> tuple[int, frozenset[int]]:
-    RegistryId, Members = ReadCollectionOrder(BodyValue, ComponentId)
+    RegistryId, Members = ReadMemberOrder(BodyValue, ComponentId)
     return RegistryId, frozenset(Members)

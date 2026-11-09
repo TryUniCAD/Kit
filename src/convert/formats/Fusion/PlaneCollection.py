@@ -29,8 +29,8 @@ def ReadPlaneComp(
         raise ValueError("Missing Fusion construction plane provenance")
     PlaneId = int(PlaneValue.provenance.native_id)
     Cursor = SelectCursor(BulkData, Owners, PlaneId, KPlaneObject)
-    Tail = MetaCursor(Cursor.DataValue[-11:])
-    CollectionId = ReadNativeRef(Tail)
+    TailValue = MetaCursor(Cursor.DataValue[-11:])
+    CollectionId = ReadNativeRef(TailValue)
     if CollectionId != PlaneValue.attributes.get("fusion.plane_collection_id"):
         raise ValueError("Fusion construction plane collection references disagree")
     Cursor = SelectCursor(BulkData, Owners, CollectionId, KDatumCollection)

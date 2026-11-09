@@ -37,7 +37,7 @@ from convert.adapters.freecad.ArchiveEditPlan import (
 )
 from convert.adapters.freecad.EditDatum.DatumBinding import KDatumGroup
 from convert.adapters.freecad.EditDatum.DatumPlan import ReadDatumPlan
-from interchange.features.FeatureBoundPlane import BoundConstructionPlane
+from interchange.features.FeatureBoundPlane import BoundDatum
 from interchange.serialization.Wire import GetWireType
 from convert.adapters.freecad.EditAxisRev.AxisRevBinding import KAxisRevBinding
 from convert.adapters.freecad.EditAxisRev.AxisRevExpr import AxisAngleExpr
@@ -6170,9 +6170,9 @@ def ReadNeutralBrep(Manifest: Mapping[str, object]) -> tuple[CadDoc | None, byte
 
 
 # independent datum histories need typed decoding even though they have no solid representation
-def ReadArchiveDatums(
+def ReadSavedDatums(
     Manifest: Mapping[str, object],
-) -> dict[str, BoundConstructionPlane]:
+) -> dict[str, BoundDatum]:
     Steps = Items(Manifest.get("feature_timeline", []))
     if (
         not Steps
@@ -6180,9 +6180,9 @@ def ReadArchiveDatums(
         or Items(FreecadMetaData(Manifest).get("objects", []))
     ):
         return {}
-    DefinitionType = GetWireType(BoundConstructionPlane)
-    for Step in Steps:
-        Definition = Step.get("definition")
+    DefinitionType = GetWireType(BoundDatum)
+    for StepData in Steps:
+        Definition = StepData.get("definition")
         if not IsPayloadMap(Definition) or Definition.get("$type") != DefinitionType:
             return {}
     return ReadDatumPlan(CadDoc.from_dict(ValidateWireMap(Manifest)))
@@ -7334,9 +7334,7 @@ def HasEditExtMut(
 
 
 # the mirrored native cache must follow the authored half angle cell
-def RevExpressionsMut(
-    Context: DocContext, PlanValue: EditRevolve
-) -> list[tuple[str, str]]:
+def SetRevExprMut(Context: DocContext, PlanValue: EditRevolve) -> list[tuple[str, str]]:
     if Context.ParamSheet.name != "Parameters":
         return []
     Aliases = Context.Parameters.Aliases
@@ -7346,18 +7344,18 @@ def RevExpressionsMut(
     AgainstId = PlanValue.AgainstParamId
     if AgainstId is None:
         return []
-    Cell = next(
+    CellValue = next(
         (
             Value
-            for Prop in Context.ParamSheet.properties
-            for Value in Prop.findall("./Cells/Cell")
+            for PropertyValue in Context.ParamSheet.properties
+            for Value in PropertyValue.findall("./Cells/Cell")
             if Value.get("alias") == Aliases[AgainstId]
         ),
         None,
     )
-    if Cell is None:
+    if CellValue is None:
         return []
-    Cell.set("content", f"={Aliases[PlanValue.AngleParamId]}")
+    CellValue.set("content", f"={Aliases[PlanValue.AngleParamId]}")
     return Expressions
 
 
@@ -7379,7 +7377,7 @@ def HasEditRevMut(
     AxisOrigin = Sweep.AxisOrigin
     ProfilePairs: tuple[tuple[str, str], ...] = ()
     if isinstance(Sweep, PlaneRevPlan):
-        TargetNames = BindPlaneTargetsMut(Context, Geometry, Features, Sweep)
+        TargetNames = BindRevPlaneMut(Context, Geometry, Features, Sweep)
         if not TargetNames:
             return False
         Expressions = PlaneSweepExpr(
@@ -7394,7 +7392,7 @@ def HasEditRevMut(
         Features.EditablePlaneSteps = tuple(Target.StepId for Target in Sweep.Targets)
         Features.RevBinding = KPlaneRevBinding
     else:
-        Expressions = RevExpressionsMut(Context, Sweep)
+        Expressions = SetRevExprMut(Context, Sweep)
         if not Expressions:
             return False
         AngleDeg, Symmetric = Sweep.AngleDeg, Sweep.Symmetric
@@ -7457,7 +7455,7 @@ def HasEditRevMut(
 
 
 # each original construction feature owns the plane moved by its authored angle
-def BindPlaneTargetsMut(
+def BindRevPlaneMut(
     Context: DocContext,
     Geometry: DocGeometry,
     Features: DocFeatures,
@@ -7480,14 +7478,14 @@ def BindPlaneTargetsMut(
             or not IsPayloadMap(ZeroFrame)
         ):
             return ()
-        Pose = PlanePoseExpr(
+        PoseValue = PlanePoseExpr(
             PlanValue.AxisOrigin,
             Target.RotationAxis,
             Target.ZeroFrame.origin,
             Quaternion(ZeroFrame),
             ParamRef,
         )
-        Bindings.append((Plane, StepValue, ExpressionProp([("Placement", Pose)])))
+        Bindings.append((Plane, StepValue, ExpressionProp([("Placement", PoseValue)])))
     for Plane, StepValue, Expression in Bindings:
         ReplaceNameMut(Plane.properties, "ExpressionEngine", Expression)
         Plane.dependencies.append(Context.ParamSheet.name)
@@ -7500,14 +7498,14 @@ def BindPlaneTargetsMut(
 
 # all profile endpoints define the sweep side even when the axis touches a corner
 def GetProfLines(Sketch: Object) -> tuple[int, ...]:
-    Geom = next(
+    GeometryValue = next(
         (Value for Value in Sketch.properties if Value.get("name") == "Geometry"), None
     )
-    if Geom is None:
+    if GeometryValue is None:
         return ()
     return tuple(
         Index
-        for Index, Value in enumerate(Geom.findall("./GeometryList/Geometry"))
+        for Index, Value in enumerate(GeometryValue.findall("./GeometryList/Geometry"))
         if Value.get("type") == NeutralGeomTypeIdByKind["line"]
     )
 
@@ -7529,7 +7527,7 @@ def BindRevAxis(
     )
     if AxisSketch is None or AxisSketch.type_id != SketchTypeId or SketchData is None:
         return None
-    Line = next(
+    LineData = next(
         (
             Value
             for Value in Items(SketchData.get("entities", []))
@@ -7537,15 +7535,20 @@ def BindRevAxis(
         ),
         None,
     )
-    LineGeom = Line.get("geometry") if Line is not None else None
-    Geom, Indices, Diagnostics = GeomProp(SketchData)
+    LineGeom = LineData.get("geometry") if LineData is not None else None
+    GeometryValue, Indices, Diagnostics = GeomProp(SketchData)
     LineIndex = Indices.get(LineId)
-    if Line is None or not IsPayloadMap(LineGeom) or Diagnostics or LineIndex is None:
+    if (
+        LineData is None
+        or not IsPayloadMap(LineGeom)
+        or Diagnostics
+        or LineIndex is None
+    ):
         return None
     First, Second = (2, 1) if Reverse else (1, 2)
     if Reverse:
         LineGeom = {**LineGeom, "start": LineGeom["end"], "end": LineGeom["start"]}
-    GeomList = Geom[0]
+    GeomList = GeometryValue[0]
     Guide = len(GeomList)
     AppendGeomMut(
         GeomList,
@@ -7553,7 +7556,12 @@ def BindRevAxis(
         Diagnostics,
         set(),
         Guide,
-        {**Line, "id": "kit-axis-guide", "construction": False, "geometry": LineGeom},
+        {
+            **LineData,
+            "id": "kit-axis-guide",
+            "construction": False,
+            "geometry": LineGeom,
+        },
     )
     if Diagnostics or len(GeomList) != Guide + 1:
         return None
@@ -7568,7 +7576,7 @@ def BindRevAxis(
             ((Guide, 2), (LineIndex, Second)),
         ),
     )
-    ReplaceNameMut(AxisSketch.properties, "Geometry", Geom)
+    ReplaceNameMut(AxisSketch.properties, "Geometry", GeometryValue)
     ReplaceNameMut(AxisSketch.properties, "Constraints", Constraints)
     return AxisSketch.name, Guide
 
@@ -8601,7 +8609,7 @@ def BuildDocXmlMut(
     TrustedNativeBreps: frozenset[KNativeBrepKey] = KNoTrustedNativeBreps,
     EditableFeatures: set[str] | None = None,
 ) -> tuple[bytes, dict[str, bytes]]:
-    Datums = ReadArchiveDatums(Manifest) if EditableFeatures is not None else {}
+    Datums = ReadSavedDatums(Manifest) if EditableFeatures is not None else {}
     Context = BuildDocContext(
         Manifest,
         ManifestData,

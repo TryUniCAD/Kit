@@ -7,7 +7,7 @@
 # to you under it immediately and permanently.
 
 from io import BytesIO
-from struct import pack as Pack
+from struct import pack as PackData
 from zipfile import ZipFile
 
 from pytest import raises as Raises
@@ -25,7 +25,7 @@ from tests.convert.formats.FusionParamTests import NativeText
 
 # synthetic references isolate history ordering from physical record placement
 def NativeRef(Identity: int) -> bytes:
-    return Pack("<BQH", 1, Identity, 0)
+    return PackData("<BQH", 1, Identity, 0)
 
 
 # the bounded history fixture orders a later record ahead of an earlier one
@@ -38,13 +38,13 @@ def HistoryFixture(MemberId: int = 102) -> tuple[bytes, dict[int, RecordSpan]]:
         (
             102,
             "E3849A15-2FC6-42A0-AF3A-2F1D7273B406",
-            NativeText("Revolve") + Pack("<Q", 0) + NativeText("Test sweep"),
+            NativeText("Revolve") + PackData("<Q", 0) + NativeText("Test sweep"),
         ),
         (
             103,
             KGroupGuid,
             b"\0\0\1\0\0\0\0"
-            + Pack("<I", 1)
+            + PackData("<I", 1)
             + NativeRef(MemberId)
             + bytes(2)
             + NativeText("Group"),
@@ -54,7 +54,7 @@ def HistoryFixture(MemberId: int = 102) -> tuple[bytes, dict[int, RecordSpan]]:
             KHistoryGuid,
             bytes(2)
             + NativeRef(100)
-            + Pack("<I", 3)
+            + PackData("<I", 3)
             + NativeRef(103)
             + NativeRef(102)
             + NativeRef(101),
@@ -69,7 +69,7 @@ def HistoryFixture(MemberId: int = 102) -> tuple[bytes, dict[int, RecordSpan]]:
 
 
 # group entries preserve structure without consuming a neutral feature order
-def TestHistoryLinks() -> None:
+def TestHistLinks() -> None:
     BulkData, Owners = HistoryFixture()
     PartValue = ProjectHistory(BulkData, Owners[104], Owners, {102: ["param"]})
     assert PartValue.EntryIds == (103, 102, 101)
@@ -85,7 +85,7 @@ def TestHistoryLinks() -> None:
 
 
 # group references cannot silently reorder features or borrow a neighbor
-def TestHistoryGroup() -> None:
+def TestHistGroup() -> None:
     BulkData, Owners = HistoryFixture(101)
     with Raises(ValueError, match="history group membership"):
         _ = ProjectHistory(BulkData, Owners[104], Owners, {})
@@ -101,21 +101,21 @@ def HistoryArchive() -> bytes:
         Identity = SpanValue.ObjectId
         Classes.extend(
             NativeText(SpanValue.ClassGuid, False)
-            + Pack("<IIIIQ", 0, 0, 0, 1, Identity)
+            + PackData("<IIIIQ", 0, 0, 0, 1, Identity)
         )
-        IndexData.extend(Pack("<QQ", Identity, len(Payload)))
-        Payload.extend(Pack("<I3sQ", 3, str(CodeValue).encode("ascii"), Identity))
+        IndexData.extend(PackData("<QQ", Identity, len(Payload)))
+        Payload.extend(PackData("<I3sQ", 3, str(CodeValue).encode("ascii"), Identity))
         Payload.extend(BulkData[SpanValue.PayloadOffset : SpanValue.EndOffset])
     KindValue = NativeText("FusionDesignSegmentType", False)
     MetaData = (
         KindValue
-        + Pack("<IIIIII", 0, 0, 1234, 8, 0, 0)
+        + PackData("<IIIIII", 0, 0, 1234, 8, 0, 0)
         + KindValue
-        + Pack("<IIII", 0, 1, 0, len(Owners))
+        + PackData("<IIII", 0, 1, 0, len(Owners))
         + Classes
-        + Pack("<II", 0, len(Owners))
+        + PackData("<II", 0, len(Owners))
         + IndexData
-        + Pack("<IQII", 0, 105, 0, 0)
+        + PackData("<IQII", 0, 105, 0, 0)
     )
     Buffer = BytesIO()
     with ZipFile(Buffer, "w") as Archive:

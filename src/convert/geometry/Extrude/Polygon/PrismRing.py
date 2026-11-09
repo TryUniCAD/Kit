@@ -9,7 +9,7 @@
 from math import fsum as SumFloats, hypot as Hypot, isfinite as IsFinite
 
 from convert.geometry.Extrude.Polygon.RingPredicates import (
-    GridPoint,
+    KGridPoint,
     HasCrossing,
     RingTurn,
     ToRingGrid,
@@ -47,7 +47,7 @@ def ReadPrismRing(Profile: tuple[LineGeometry, ...]) -> tuple[PlaneVector, ...]:
 
 
 # exact simplicity checks prevent intersecting cap loops and duplicate planar side carriers
-def CheckSimpleRing(Points: tuple[GridPoint, ...]) -> None:
+def CheckSimpleRing(Points: tuple[KGridPoint, ...]) -> None:
     Count = len(Points)
     for Index, First in enumerate(Points):
         Following = (Index + 1) % Count

@@ -48,7 +48,7 @@ def AxisReadExprs(
     Lines = tuple(
         Index for Index, Value in enumerate(Profile.entities) if Value.id in Members
     )
-    Args = (
+    Arguments = (
         Graph.AxisSketch.name,
         AxisIndex,
         Graph.Profile.name,
@@ -56,9 +56,9 @@ def AxisReadExprs(
         f"Parameters.{Alias}",
     )
     if IsSeed or PlanValue.ProfileFrame.origin == KOriginZero:
-        Result += (AxisAngleExpr(*Args, MeanStyle="legacy"),)
+        Result += (AxisAngleExpr(*Arguments, MeanStyle="legacy"),)
     if PlanValue.ProfileFrame.origin == KOriginZero:
-        Result += (AxisAngleExpr(*Args, MeanStyle="saved"),)
+        Result += (AxisAngleExpr(*Arguments, MeanStyle="saved"),)
     return Result
 
 
@@ -80,9 +80,9 @@ def ReconcileAxis(
             "FreeCAD editable sketch axis binding disagrees with its source"
         )
     Graph = ReadAxisGraph(RootValue, Manifest, DocValue, PlanValue)
-    ById = {Value.id: Value for Value in DocValue.sketches}
-    Original = ById[PlanValue.Revolve.SketchId]
-    OriginalAxis = ById[PlanValue.AxisSketchId]
+    ByIdentity = {Value.id: Value for Value in DocValue.sketches}
+    Original = ByIdentity[PlanValue.Revolve.SketchId]
+    OriginalAxis = ByIdentity[PlanValue.AxisSketchId]
     Profile = ReadAxisSketch(
         Graph.Profile, Graph.Template[Graph.Profile.name], Original
     )

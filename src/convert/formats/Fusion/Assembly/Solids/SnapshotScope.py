@@ -24,21 +24,21 @@ def ReadSnapParent(
         raise ValueError("Fusion authoring scope has no creation snapshot")
     Snapshot = SelectCursor(BulkData, Owners, Scope.SnapshotId, KScopeSnapshot)
     Snapshot.Offset = len(Snapshot.DataValue) - 23
-    Book = SelectCursor(BulkData, Owners, ReadNativeRef(Snapshot), KScopeOwner)
-    if len(Book.DataValue) != 96 or Book.TakeBytes(12) != bytes.fromhex(
+    Workbook = SelectCursor(BulkData, Owners, ReadNativeRef(Snapshot), KScopeOwner)
+    if len(Workbook.DataValue) != 96 or Workbook.TakeBytes(12) != bytes.fromhex(
         "000000000000010103000000"
     ):
         raise ValueError("Unsupported Fusion creation scope bookkeeping")
-    Parent = ReadNativeRef(Book)
-    _ = Book.TakeBytes(8)
-    if ReadNativeRef(Book) != Scope.ScopeId:
+    Parent = ReadNativeRef(Workbook)
+    _ = Workbook.TakeBytes(8)
+    if ReadNativeRef(Workbook) != Scope.ScopeId:
         raise ValueError("Fusion creation snapshot own scope disagrees")
-    _ = Book.TakeBytes(8)
-    if ReadNativeRef(Book) != Scope.SnapshotId:
+    _ = Workbook.TakeBytes(8)
+    if ReadNativeRef(Workbook) != Scope.SnapshotId:
         raise ValueError("Fusion creation scope snapshot reference disagrees")
-    Stamp = Book.TakeBytes(8)
-    if ReadNativeRef(Book) != Scope.SnapshotId or Book.TakeBytes(8) != Stamp:
+    Stamp = Workbook.TakeBytes(8)
+    if ReadNativeRef(Workbook) != Scope.SnapshotId or Workbook.TakeBytes(8) != Stamp:
         raise ValueError("Fusion creation scope repeated snapshot disagrees")
-    if Book.TakeBytes(8) != bytes(8):
+    if Workbook.TakeBytes(8) != bytes(8):
         raise ValueError("Unsupported Fusion creation scope bookkeeping suffix")
     return Parent

@@ -17,7 +17,7 @@ from convert.adapters.freecad.FormulaSheet.FormulaPlans import (
     FormulaPlan,
     ReadFusionPlan,
 )
-from convert.geometry.Formula.Arithmetic import IsLiteralFormula, ReadFormula
+from convert.geometry.Formula.Arithmetic import IsLiteralExpr, ReadFormula
 from interchange.records.RecordParameter import Parameter
 
 
@@ -71,7 +71,7 @@ def ReadSavedSheet(
         CellValue = Cells.get(Alias)
         Content = "" if CellValue is None else CellValue.get("content", "")
         Literal = None if PlanValue.References else ReadFormula(PlanValue.Content)
-        IsLeaf = Literal is not None and IsLiteralFormula(Literal)
+        IsLeaf = Literal is not None and IsLiteralExpr(Literal)
         if Content.startswith("="):
             SavedText = Content[1:]
         elif IsLeaf and len(Content) <= 128 and KEditNumber.fullmatch(Content):

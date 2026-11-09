@@ -60,8 +60,8 @@ def BuildRevGeom(
     SweepArgs = (Meridian, AxisOrigin, AxisDirection, Radial)
     if IsFull:
         Model = BuildFullSweep(BodyId, *SweepArgs)
-        Volume, Area, Bounds = MeasureFullTurn(*SweepArgs)
+        Volume, AreaValue, Bounds = MeasureFullTurn(*SweepArgs)
     else:
         Model = BuildPolySweep(BodyId, *SweepArgs, *Interval)
-        Volume, Area, Bounds = MeasureSweep(*SweepArgs, *Interval)
-    return Model, Volume, Area, Bounds
+        Volume, AreaValue, Bounds = MeasureSweep(*SweepArgs, *Interval)
+    return Model, Volume, AreaValue, Bounds

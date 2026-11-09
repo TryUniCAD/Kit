@@ -87,7 +87,7 @@ def ReadEdgeAxis(
         BulkData, Owners, Creator, SourceId, BodyId, Source, Frame, Params
     )
     Asset = ReadBodyAsmRef(BulkData, Owners, BodyId, Component)
-    Blob = LoadBody(Asset.FileName)
+    BlobData = LoadBody(Asset.FileName)
     FeatureId = int(Origin.native_id)
     Descriptor = ReadSelectDesc(BulkData, Owners, SelectId, FeatureId)
     PickValue = ReadTopoPick(BulkData, Owners, Descriptor, FeatureId)
@@ -99,7 +99,7 @@ def ReadEdgeAxis(
     CachedStart = SpaceVector(*(Value * 10.0 for Value in Start))
     CachedEnd = SpaceVector(*(Value * 10.0 for Value in EndValue))
     EdgeId, AxisStart, AxisEnd = ResolveSolidEdge(
-        Blob,
+        BlobData,
         Asset.Handle,
         Terms,
         Payload,
@@ -127,7 +127,7 @@ def ReadEdgeAxis(
     )
     Spans = tuple(ParamOrigin(Owners[Identity]).spans[0] for Identity in EvidenceIds)
     BlobSpan = ProvenanceSpan(
-        KHistoryPrefix + Asset.FileName, 0, len(Blob), "asm_history"
+        KHistoryPrefix + Asset.FileName, 0, len(BlobData), "asm_history"
     )
     SelectionValue = Selection(
         id=f"fusion-selection-{SelectId}-axis",

@@ -24,7 +24,7 @@ from interchange.records.RecordParameter import Parameter
 
 
 # selected plane features are typed only after native and neutral operands both qualify
-def ProjectPlaneExts(
+def ProjectPlaneExt(
     BulkData: bytes,
     Spans: tuple[RecordSpan, ...],
     OwnerId: int,
@@ -34,15 +34,17 @@ def ProjectPlaneExts(
     Sketches: tuple[Sketch, ...],
 ) -> tuple[tuple[FeatureStep, ...], tuple[Selection, ...], tuple[Diagnostic, ...]]:
     if not any(
-        Step.kind == FeatureKind.KExtrusion and Step.definition is None
-        for Step in Steps
+        StepData.kind == FeatureKind.KExtrusion and StepData.definition is None
+        for StepData in Steps
     ):
         return Steps, (), ()
-    Owners = {Span.ObjectId: Span for Span in Spans if Span.IsPrimary}
+    Owners = {
+        SpanValue.ObjectId: SpanValue for SpanValue in Spans if SpanValue.IsPrimary
+    }
     ByNative = {
-        int(Step.provenance.native_id): Step
-        for Step in Steps
-        if Step.provenance is not None
+        int(StepData.provenance.native_id): StepData
+        for StepData in Steps
+        if StepData.provenance is not None
     }
     NativePlanes = {
         Identity: Plane
@@ -53,7 +55,7 @@ def ProjectPlaneExts(
     }
     if not NativePlanes:
         return Steps, (), ()
-    ByStep = {Step.id: Step for Step in Steps}
+    ByStep = {StepData.id: StepData for StepData in Steps}
     ByParam = {Param.id: Param for Param in Params}
     ByFrame = {Frame.id: Frame for Frame in Frames}
     BySketch = {SketchValue.id: SketchValue for SketchValue in Sketches}
@@ -61,8 +63,8 @@ def ProjectPlaneExts(
     Updated: dict[str, FeatureStep] = {}
     Selections: list[Selection] = []
     Diagnostics: list[Diagnostic] = []
-    for Identity, Step in ByNative.items():
-        if Step.kind != FeatureKind.KExtrusion or Step.definition is not None:
+    for Identity, StepData in ByNative.items():
+        if StepData.kind != FeatureKind.KExtrusion or StepData.definition is not None:
             continue
         try:
             Native = ReadPlaneExt(BulkData, Owners, Identity, NativePlanes)
@@ -70,7 +72,7 @@ def ProjectPlaneExts(
             continue
         try:
             PlaneStep = ByNative.get(Native.PlaneFeatureId)
-            SketchValue = BySketch.get(Step.sketch_id or "")
+            SketchValue = BySketch.get(StepData.sketch_id or "")
             FrameValue = (
                 None
                 if SketchValue is None
@@ -81,10 +83,10 @@ def ProjectPlaneExts(
             if Scopes is None:
                 Scopes = ReadAsmScopes(BulkData, Owners, OwnerId, frozenset(ByNative))
             CheckPlaneScope(
-                Step, Identity, PlaneStep, Native, FrameValue, ByStep, Scopes
+                StepData, Identity, PlaneStep, Native, FrameValue, ByStep, Scopes
             )
-            StepValue, Pick = AttachPlaneExt(
-                Step,
+            StepValue, PickValue = AttachPlaneExt(
+                StepData,
                 Identity,
                 Native,
                 NativePlanes[Native.PlaneId],
@@ -95,22 +97,27 @@ def ProjectPlaneExts(
             Definition = StepValue.definition
             assert isinstance(Definition, PlaneExtrude)
             _ = GetPlaneExt(
-                StepValue, Definition, ByParam, {Pick.id: Pick}, ByFrame, BySketch
+                StepValue,
+                Definition,
+                ByParam,
+                {PickValue.id: PickValue},
+                ByFrame,
+                BySketch,
             )
         except ValueError as ErrorInfo:
             Diagnostics.append(
                 Diagnostic(
                     code="fusion.extrude.plane_unsupported",
                     message=str(ErrorInfo),
-                    entity_id=Step.id,
-                    provenance=Step.provenance,
+                    entity_id=StepData.id,
+                    provenance=StepData.provenance,
                 )
             )
             continue
-        Updated[Step.id] = StepValue
-        Selections.append(Pick)
+        Updated[StepData.id] = StepValue
+        Selections.append(PickValue)
     return (
-        tuple(Updated.get(Step.id, Step) for Step in Steps),
+        tuple(Updated.get(StepData.id, StepData) for StepData in Steps),
         tuple(Selections),
         tuple(Diagnostics),
     )

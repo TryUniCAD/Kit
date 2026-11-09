@@ -15,7 +15,7 @@ from convert.formats.Fusion.RecordSpan import RecordSpan
 
 
 # only a verified local occurrence graph can justify a native assembly projection
-def ReadNativeAssembly(
+def ReadNativeAsm(
     BulkData: bytes, Spans: tuple[RecordSpan, ...]
 ) -> NativeAssembly | None:
     IndexValue = ReadAsmRecords(BulkData, Spans)

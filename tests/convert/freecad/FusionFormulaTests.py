@@ -45,9 +45,9 @@ def TestFusionSheet(TmpPath: FilePath, SampleName: str, FormulaText: str) -> Non
     assert Modes[Capability.EXPRESSIONS] is TransferMode.NATIVE
     with ZipFile(Target) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
-        Cell = RootValue.find(".//Cell[@alias='fusion_parameter_205']")
+        CellValue = RootValue.find(".//Cell[@alias='fusion_parameter_205']")
         Scale = RootValue.find(".//Cell[@alias='fusion_parameter_203']")
-        assert Cell is not None and Cell.get("content") == "=" + FormulaText
+        assert CellValue is not None and CellValue.get("content") == "=" + FormulaText
         assert Scale is not None and Scale.get("content") == "=2.5"
     assert OpenDocument(Target).parameters == Document.parameters
 
@@ -66,6 +66,6 @@ def TestFormulaGap(TmpPath: FilePath) -> None:
     assert Modes[Capability.EXPRESSIONS] is TransferMode.MIXED
     with ZipFile(Target) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
-        Cell = RootValue.find(".//Cell[@alias='fusion_parameter_205']")
-        assert Cell is not None and "sqrt" not in Cell.get("content", "")
+        CellValue = RootValue.find(".//Cell[@alias='fusion_parameter_205']")
+        assert CellValue is not None and "sqrt" not in CellValue.get("content", "")
     assert OpenDocument(Target).parameters == Document.parameters

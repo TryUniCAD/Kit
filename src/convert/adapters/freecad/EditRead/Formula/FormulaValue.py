@@ -16,7 +16,7 @@ from convert.adapters.freecad.FormulaSheet.FormulaPlans import (
     ReadFormulaRefs,
 )
 from convert.geometry.Formula.Arithmetic import EvalFormula, ReadFormula
-from convert.geometry.Formula.FormulaUnits import MatchQuantity
+from convert.geometry.Formula.FormulaUnits import IsMatchingQty
 from interchange.enums.EnumValues import ValueKind
 from interchange.records.RecordParameter import Parameter, ParameterValue
 
@@ -48,7 +48,7 @@ def EvalSavedRow(
     if Quantity is None:
         raise ValueError("FreeCAD editable spreadsheet formula could not be evaluated")
     if DepthMm is not None:
-        if not MatchQuantity(
+        if not IsMatchingQty(
             Quantity, ParameterValue(value=DepthMm, kind=ValueKind.KLength, unit="mm")
         ):
             raise ValueError(
@@ -56,7 +56,7 @@ def EvalSavedRow(
             )
         Quantity = (DepthMm, (1, 0))
     if Changes.isdisjoint(PlanValue.References):
-        if not MatchQuantity(Quantity, Param.value):
+        if not IsMatchingQty(Quantity, Param.value):
             raise ValueError(
                 "FreeCAD editable spreadsheet unchanged formula quantity disagrees"
             )

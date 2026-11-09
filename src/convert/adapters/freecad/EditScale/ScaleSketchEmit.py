@@ -26,13 +26,13 @@ def TrackSketchMut(
     Geometry: DocGeometry,
     Sketch: Object,
     Identity: str,
-    Item: Mapping[str, object],
+    ItemValue: Mapping[str, object],
 ) -> None:
     Sketch.properties.extend(
         (
             StringProp("KitFeatureId", Identity, Dynamic=True),
-            IntegerProp("TimelineOrder", Item.get("order", 0), Dynamic=True),
-            JsonProp("SourceFeatureJSON", Item),
+            IntegerProp("TimelineOrder", ItemValue.get("order", 0), Dynamic=True),
+            JsonProp("SourceFeatureJSON", ItemValue),
         )
     )
     ReplaceNameMut(Sketch.properties, "Visibility", BoolProp("Visibility", False))

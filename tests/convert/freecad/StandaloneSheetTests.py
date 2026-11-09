@@ -55,10 +55,10 @@ def TestSavedSheet(StandaloneSheet: tuple[CadDocument, FilePath]) -> None:
         ("=-2 mm", "3.5", -0.2, 3.5, -0.6),
     ):
         with SaveWorkbook(Export, Saved) as RootValue:
-            Cell = RootValue.find(".//Cell[@alias='fusion_parameter_202']")
+            CellValue = RootValue.find(".//Cell[@alias='fusion_parameter_202']")
             Scale = RootValue.find(".//Cell[@alias='fusion_parameter_203']")
-            assert Cell is not None and Scale is not None
-            Cell.set("content", EditText)
+            assert CellValue is not None and Scale is not None
+            CellValue.set("content", EditText)
             Scale.set("content", ScaleText)
         Readback = OpenDocument(Saved)
         Driver = Readback.parameter("fusion-parameter-202")
@@ -74,7 +74,7 @@ def TestSavedSheet(StandaloneSheet: tuple[CadDocument, FilePath]) -> None:
 
 
 # legacy snapshots keep their prior behavior even when a saved cell is different
-def TestUnboundSheet(StandaloneSheet: tuple[CadDocument, FilePath]) -> None:
+def TestFreeSheet(StandaloneSheet: tuple[CadDocument, FilePath]) -> None:
     Original, Export = StandaloneSheet
     Saved = Export.with_name("unbound.FCStd")
     with SaveWorkbook(Export, Saved) as RootValue:
@@ -84,17 +84,15 @@ def TestUnboundSheet(StandaloneSheet: tuple[CadDocument, FilePath]) -> None:
         assert Binding is not None
         Props.remove(Binding)
         Props.set("Count", str(int(Props.attrib["Count"]) - 1))
-        Cell = RootValue.find(".//Cell[@alias='fusion_parameter_202']")
-        assert Cell is not None
-        Cell.set("content", "=8 mm")
+        CellValue = RootValue.find(".//Cell[@alias='fusion_parameter_202']")
+        assert CellValue is not None
+        CellValue.set("content", "=8 mm")
     assert OpenDocument(Saved) == Original
 
 
 # comparable native saves with unsupported edits must fail rather than return stale parameters
 @Pytest.mark.parametrize("Change", ("formula", "unit", "extra cell", "moved alias"))
-def TestConflictingSheet(
-    StandaloneSheet: tuple[CadDocument, FilePath], Change: str
-) -> None:
+def TestSheetClash(StandaloneSheet: tuple[CadDocument, FilePath], Change: str) -> None:
     _, Export = StandaloneSheet
     Saved = Export.with_name("conflict.FCStd")
     with SaveWorkbook(Export, Saved) as RootValue:

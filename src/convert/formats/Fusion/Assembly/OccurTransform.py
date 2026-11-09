@@ -47,12 +47,16 @@ def ReadOccurMatrix(Cursor: MetaCursor) -> tuple[float, ...]:
     ):
         raise ValueError("Invalid Fusion occurrence affine transform")
     XAxis, YAxis, ZAxis = (Matrix[Column:12:4] for Column in range(3))
-    XX, XY, XZ = XAxis
-    YX, YY, YZ = YAxis
-    Cross = (XY * YZ - XZ * YY, XZ * YX - XX * YZ, XX * YY - XY * YX)
+    EntryXX, EntryXY, EntryXZ = XAxis
+    EntryYX, EntryYY, EntryYZ = YAxis
+    Cross = (
+        EntryXY * EntryYZ - EntryXZ * EntryYY,
+        EntryXZ * EntryYX - EntryXX * EntryYZ,
+        EntryXX * EntryYY - EntryXY * EntryYX,
+    )
     if any(
-        not IsClose(sum(Value * Value for Value in Axis), 1.0, abs_tol=1e-9)
-        for Axis in (XAxis, YAxis, ZAxis)
+        not IsClose(sum(Value * Value for Value in AxisValue), 1.0, abs_tol=1e-9)
+        for AxisValue in (XAxis, YAxis, ZAxis)
     ) or any(
         not IsClose(Actual, Expected, abs_tol=1e-9)
         for Actual, Expected in zip(Cross, ZAxis)

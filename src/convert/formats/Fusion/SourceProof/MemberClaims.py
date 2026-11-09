@@ -28,7 +28,7 @@ KConfigMember = CompilePattern(
 
 
 # proof reads can settle empty configuration content while leaving opaque attachments visible
-def ReadMemberClaims(
+def ReadItemClaims(
     Archive: IndexedArchive, Scope: ProofScope
 ) -> tuple[ProofClaim, ...]:
     Loaded = Archive.ReadNames

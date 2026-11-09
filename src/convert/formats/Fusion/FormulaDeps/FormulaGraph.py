@@ -8,7 +8,7 @@
 
 
 from convert.geometry.Formula.Arithmetic import EvalFormula, ReadFormula
-from convert.geometry.Formula.FormulaUnits import MatchQuantity
+from convert.geometry.Formula.FormulaUnits import IsMatchingQty
 from interchange.enums.EnumValues import ParameterRole
 from interchange.records.RecordParameter import Parameter
 
@@ -58,6 +58,6 @@ def GetFormulaGraph(Parameters: tuple[Parameter, ...]) -> dict[str, tuple[str, .
         ):
             continue
         Result = EvalFormula(Formula, Quantities)
-        if Result is not None and MatchQuantity(Result, Param.value):
+        if Result is not None and IsMatchingQty(Result, Param.value):
             Graph[Param.id] = tuple(Users[NameValue].id for NameValue in Formula.Names)
     return Graph

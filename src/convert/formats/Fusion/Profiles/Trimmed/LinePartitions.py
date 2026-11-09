@@ -9,7 +9,7 @@
 from itertools import combinations as Pairs
 from math import isfinite as IsFinite
 
-from convert.formats.Fusion.Profiles.Trimmed.LineTopology import TrimLine
+from convert.formats.Fusion.Profiles.Trimmed.LineTopology import KTrimLine
 from convert.formats.Fusion.Profiles.Trimmed.TrimSources import KTrimParameter
 
 # the native squared distance tolerance scales with the sketch length unit conversion
@@ -17,8 +17,8 @@ KLineCrossTol = 1e-7
 
 
 # proper finite line intersections split bounded segments independently of membership order
-def FindLineCuts(Sources: dict[str, TrimLine]) -> dict[str, tuple[float, ...]]:
-    Cuts: dict[str, list[float]] = {Identity: [] for Identity in Sources}
+def FindLineCuts(Sources: dict[str, KTrimLine]) -> dict[str, tuple[float, ...]]:
+    CutValues: dict[str, list[float]] = {Identity: [] for Identity in Sources}
     for FirstId, SecondId in Pairs(Sources, 2):
         First, FirstPoints = Sources[FirstId]
         Second, SecondPoints = Sources[SecondId]
@@ -46,8 +46,8 @@ def FindLineCuts(Sources: dict[str, TrimLine]) -> dict[str, tuple[float, ...]]:
         FirstInterior = KTrimParameter < FirstCut < 1.0 - KTrimParameter
         SecondInterior = KTrimParameter < SecondCut < 1.0 - KTrimParameter
         if FirstInterior and SecondInterior:
-            Cuts[FirstId].append(FirstCut)
-            Cuts[SecondId].append(SecondCut)
+            CutValues[FirstId].append(FirstCut)
+            CutValues[SecondId].append(SecondCut)
         elif (
             FirstInterior
             or SecondInterior
@@ -57,7 +57,7 @@ def FindLineCuts(Sources: dict[str, TrimLine]) -> dict[str, tuple[float, ...]]:
                 "Fusion trimmed line contact is not a shared native corner"
             )
     Result: dict[str, tuple[float, ...]] = {}
-    for Identity, Values in Cuts.items():
+    for Identity, Values in CutValues.items():
         Values.sort()
         if any(
             Upper - Lower <= KTrimParameter for Lower, Upper in zip(Values, Values[1:])

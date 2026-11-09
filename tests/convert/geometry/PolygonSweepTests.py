@@ -7,7 +7,7 @@
 # to you under it immediately and permanently.
 
 from collections import defaultdict as DefaultDict
-from math import cos as Cos, radians as Radians, sin as Sin, tan as Tan
+from math import cos as Cosine, radians as Radians, sin as SineValue, tan as Tangent
 
 from pytest import approx as Approx, raises as Raises
 
@@ -19,7 +19,7 @@ from interchange.geometry.models.VectorSpace import SpaceVector
 
 # every bounded orbit and cap edge must belong to two opposite face uses
 def TestSolidSector() -> None:
-    Start, End = Radians(135), Radians(215)
+    Start, EndPoint = Radians(135), Radians(215)
     Model = BuildPolySweep(
         "part",
         ((10.0, 10.0), (30.0, 10.0), (30.0, 40.0), (10.0, 40.0)),
@@ -27,7 +27,7 @@ def TestSolidSector() -> None:
         SpaceVector(0.0, 0.0, 1.0),
         SpaceVector(1.0, 0.0, 0.0),
         Start,
-        End,
+        EndPoint,
     )
     assert Model.validate(frozenset({"part"})) == ()
     assert Model.bodies[0].design_body_id == "part"
@@ -36,38 +36,40 @@ def TestSolidSector() -> None:
     Directions: dict[str, list[bool]] = DefaultDict(list)
     for UseValue in Model.coedges:
         Directions[UseValue.edge_id].append(UseValue.reversed)
-    assert all(sorted(Directions[Edge.id]) == [False, True] for Edge in Model.edges)
+    assert all(
+        sorted(Directions[EdgeValue.id]) == [False, True] for EdgeValue in Model.edges
+    )
     Vertices = {Value.id: Value.point for Value in Model.vertices}
     Circles = {
         Value.id: Value for Value in Model.curves if isinstance(Value, CircleCurve)
     }
     assert len(Circles) == 4
-    for Edge in Model.edges:
-        Curve = Circles.get(Edge.curve_id)
+    for EdgeValue in Model.edges:
+        Curve = Circles.get(EdgeValue.curve_id)
         if Curve is None:
             continue
-        assert (Edge.start_parameter, Edge.end_parameter) == (Start, End)
+        assert (EdgeValue.start_parameter, EdgeValue.end_parameter) == (Start, EndPoint)
         for Angle, Identity in (
-            (Start, Edge.start_vertex_id),
-            (End, Edge.end_vertex_id),
+            (Start, EdgeValue.start_vertex_id),
+            (EndPoint, EdgeValue.end_vertex_id),
         ):
             Point = Vertices[Identity]
             assert (Point.x, Point.y, Point.z) == Approx(
                 (
-                    2.0 + Curve.radius * Cos(Angle),
-                    3.0 + Curve.radius * Sin(Angle),
+                    2.0 + Curve.radius * Cosine(Angle),
+                    3.0 + Curve.radius * SineValue(Angle),
                     Curve.center.z,
                 )
             )
     assert [
-        Face.same_sense
-        for Face, Surface in zip(Model.faces, Model.surfaces)
+        FaceValue.same_sense
+        for FaceValue, Surface in zip(Model.faces, Model.surfaces)
         if isinstance(Surface, CylinderSurface)
     ] == [True, False]
 
 
 # tapered inner and outer carriers must pass through the right meridian corners
-def TestTaperedSweep() -> None:
+def TestTaperSweep() -> None:
     Model = BuildPolySweep(
         "tapered",
         ((10.0, 10.0), (5.0, 40.0), (40.0, 40.0), (30.0, 10.0)),
@@ -78,16 +80,16 @@ def TestTaperedSweep() -> None:
         Radians(90),
     )
     Cones = [
-        (Face, Surface)
-        for Face, Surface in zip(Model.faces, Model.surfaces)
+        (FaceValue, Surface)
+        for FaceValue, Surface in zip(Model.faces, Model.surfaces)
         if isinstance(Surface, ConeSurface)
     ]
-    assert [Face.same_sense for Face, _ in Cones] == [True, False]
+    assert [FaceValue.same_sense for FaceValue, _ in Cones] == [True, False]
     for (_, Surface), Radii in zip(Cones, ((30.0, 40.0), (10.0, 5.0))):
         assert Surface.half_angle > 0.0
         assert tuple(
             Surface.radius
-            - (Height - Surface.origin.z) * Surface.axis.z * Tan(Surface.half_angle)
+            - (Height - Surface.origin.z) * Surface.axis.z * Tangent(Surface.half_angle)
             for Height in (10.0, 40.0)
         ) == Approx(Radii)
 

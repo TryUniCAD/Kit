@@ -42,10 +42,10 @@ def ReadOffsetOrg(
         raise ValueError("Unsupported Fusion Offset origin plane frame marker")
     Frame = ReadPlaneAxes(Cursor.TakeBytes(72))
     Cursor.Offset = Start + 119
-    Name = Cursor.ReadText(True, Maximum=2)
+    NameValue = Cursor.ReadText(True, Maximum=2)
     if (
         Frame.origin != SpaceVector(0.0, 0.0, 0.0)
-        or KOriginNormals.get(Name) != Frame.z_axis
+        or KOriginNormals.get(NameValue) != Frame.z_axis
     ):
         raise ValueError("Fusion Offset origin datum name or frame disagrees")
     Cursor.Offset = len(Cursor.DataValue) - 11

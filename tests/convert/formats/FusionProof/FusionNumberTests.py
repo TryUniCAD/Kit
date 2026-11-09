@@ -16,7 +16,7 @@ from convert.formats.Fusion.FormulaDeps.ParamCollection import KParamCollection
 from convert.formats.Fusion.NumericParam import KParamGuid
 from convert.formats.Fusion.ParamBinding import KBindingWidths
 from convert.formats.Fusion.RecordSpan import RecordSpan
-from convert.formats.Fusion.SourceProof.InspectSource import ReadFusionSourceProof
+from convert.formats.Fusion.SourceProof.InspectSource import ReadSourceProof
 from convert.formats.Fusion.SourceProof.ProofClaim import ProofCategory
 from convert.formats.Fusion.SourceProof.SourceCoverage import SourceCoverage
 from tests.convert.api.ApiFusionAssemblyTests import KRequiresCodec, KStudyPath
@@ -30,8 +30,8 @@ def WithBulk(Source: FilePath, BulkData: bytes) -> bytes:
     Buffer = BytesIO()
     with ZipFile(Source) as Before, ZipFile(Buffer, "w") as After:
         After.writestr(KDesignPrefix + "BulkStream.dat", BulkData)
-        Name = KDesignPrefix + "MetaStream.dat"
-        After.writestr(Name, Before.read(Name))
+        NameValue = KDesignPrefix + "MetaStream.dat"
+        After.writestr(NameValue, Before.read(NameValue))
     return Buffer.getvalue()
 
 
@@ -48,11 +48,11 @@ def VerifiedIds(Report: SourceCoverage, Guids: frozenset[str]) -> set[int]:
 
 # a bound formula and all three saved axis factors must receive independent owner proof
 @KRequiresCodec
-def TestNumericCoverage() -> None:
-    Extrude = ReadFusionSourceProof(
+def TestNumCoverage() -> None:
+    Extrude = ReadSourceProof(
         KStudyPath / "holdouts-f8c508a73323" / "expression_depth.f3d"
     )
-    Scale = ReadFusionSourceProof(
+    Scale = ReadSourceProof(
         KStudyPath / "bodymodes-df9b7113539f" / "scale_nonuniform.f3d"
     )
     assert VerifiedIds(Extrude, frozenset({KParamGuid})) == {202, 276, 279}
@@ -64,37 +64,39 @@ def TestNumericCoverage() -> None:
 
 # a coherent cycle and its downstream formula cannot inherit proof from equal caches
 @KRequiresCodec
-def TestNumericCycle() -> None:
+def TestNumberCycle() -> None:
     BulkData, Spans = ReadDesignZip(KLiteralSource.read_bytes())
     Edited = bytearray(BulkData)
     Params = {
-        Span.ObjectId: Span
-        for Span in Spans
-        if Span.ClassGuid == KParamGuid and Span.IsPrimary
+        SpanValue.ObjectId: SpanValue
+        for SpanValue in Spans
+        if SpanValue.ClassGuid == KParamGuid and SpanValue.IsPrimary
     }
     Literal = "10 mm".encode("utf-16le")
     for Identity, Reference in ((202, "bravo"), (203, "alpha"), (204, "alpha")):
-        Span = Params[Identity]
-        Start = Edited.index(Literal, Span.PayloadOffset, Span.EndOffset)
+        SpanValue = Params[Identity]
+        Start = Edited.index(Literal, SpanValue.PayloadOffset, SpanValue.EndOffset)
         Edited[Start : Start + len(Literal)] = Reference.encode("utf-16le")
     Mutated = WithBulk(KLiteralSource, bytes(Edited))
     Document = ReadFusionDoc(Mutated)
     assert len(Document.parameters) == 3
-    Proof = ReadFusionSourceProof(Mutated)
+    Proof = ReadSourceProof(Mutated)
     assert not VerifiedIds(Proof, frozenset({KParamGuid}))
     assert VerifiedIds(Proof, frozenset({KParamCollection}))
 
 
 # the repeated collection count is required for proof even when permissive parsing can proceed
 @KRequiresCodec
-def TestNumericCount() -> None:
+def TestNumberCount() -> None:
     BulkData, Spans = ReadDesignZip(KLiteralSource.read_bytes())
     (Collection,) = tuple(
-        Span for Span in Spans if Span.ClassGuid == KParamCollection and Span.IsPrimary
+        SpanValue
+        for SpanValue in Spans
+        if SpanValue.ClassGuid == KParamCollection and SpanValue.IsPrimary
     )
     Edited = bytearray(BulkData)
     Edited[Collection.PayloadOffset + 4 + 11] ^= 1
     Mutated = WithBulk(KLiteralSource, bytes(Edited))
     assert len(ReadFusionDoc(Mutated).parameters) == 3
-    Proof = ReadFusionSourceProof(Mutated)
+    Proof = ReadSourceProof(Mutated)
     assert not VerifiedIds(Proof, frozenset({KParamGuid, KParamCollection}))

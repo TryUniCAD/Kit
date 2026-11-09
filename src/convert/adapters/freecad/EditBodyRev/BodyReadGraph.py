@@ -53,31 +53,34 @@ def ReadBodyGraph(
     RootValue: Element,
     Manifest: Mapping[str, object],
     DocValue: CadDocument,
-    Plan: BodyRevPlan,
+    PlanValue: BodyRevPlan,
 ) -> BodyGraph:
     Editable: set[str] = set()
     XmlData, _ = BuildDocXmlMut(Manifest, "", "", EditableFeatures=Editable)
     Template = {Value.name: Value for Value in ParseObjects(ParseUntrusted(XmlData))}
     Objects = ParseObjects(RootValue)
     ByName = {Value.name: Value for Value in Objects}
-    if Editable != {Plan.ExtrudeId, Plan.RevolveId} or ByName.keys() != Template.keys():
+    if (
+        Editable != {PlanValue.ExtrudeId, PlanValue.RevolveId}
+        or ByName.keys() != Template.keys()
+    ):
         raise ValueError("FreeCAD editable body axis native object graph changed")
     if any(
-        Node.get("Invalid") or Node.get("Error")
-        for Node in RootValue.findall("./Objects/Object")
+        NodeValue.get("Invalid") or NodeValue.get("Error")
+        for NodeValue in RootValue.findall("./Objects/Object")
     ):
         raise ValueError("FreeCAD editable body axis native rebuild is invalid")
-    Pick = RequireRevProp(
+    PickValue = RequireRevProp(
         Objects, "KitSelectionId", DocValue.selections[0].id, "App::FeaturePython"
     )
     for Actual in Objects:
-        CheckBodyObject(Actual, Template[Actual.name], Pick.name)
+        CheckBodyObject(Actual, Template[Actual.name], PickValue.name)
     return BodyGraph(
-        RequireEditObj(Objects, Plan.ExtrudeId, "Part::Extrusion"),
-        RequireEditObj(Objects, Plan.RevolveId, "Part::Revolution"),
-        RequireEditObj(Objects, Plan.Extrude.SketchId, "Sketcher::SketchObject"),
-        RequireEditObj(Objects, Plan.Revolve.SketchId, "Sketcher::SketchObject"),
-        Pick,
+        RequireEditObj(Objects, PlanValue.ExtrudeId, "Part::Extrusion"),
+        RequireEditObj(Objects, PlanValue.RevolveId, "Part::Revolution"),
+        RequireEditObj(Objects, PlanValue.Extrude.SketchId, "Sketcher::SketchObject"),
+        RequireEditObj(Objects, PlanValue.Revolve.SketchId, "Sketcher::SketchObject"),
+        PickValue,
         ByName["Parameters"],
         ByName,
         Template,
@@ -88,8 +91,8 @@ def ReadBodyGraph(
 def CheckBodyObject(
     Actual: NativeObject, Expected: NativeObject, PickName: str
 ) -> None:
-    Kind = Actual.type_id
-    if Kind != Expected.type_id or set(Actual.dependencies) != set(
+    KindValue = Actual.type_id
+    if KindValue != Expected.type_id or set(Actual.dependencies) != set(
         Expected.dependencies
     ):
         raise ValueError("FreeCAD editable body axis native dependencies changed")
@@ -99,9 +102,9 @@ def CheckBodyObject(
         else {
             "Part::Extrusion": KLiveExtFields,
             "Part::Revolution": KLiveRevFields,
-        }.get(Kind, frozenset())
+        }.get(KindValue, frozenset())
     )
-    IsGroup = Kind == "App::DocumentObjectGroup"
+    IsGroup = KindValue == "App::DocumentObjectGroup"
     CheckObjFields(
         Actual,
         Expected,
@@ -109,5 +112,5 @@ def CheckBodyObject(
         Optional=KGroupOptional if IsGroup else frozenset(),
     )
     CheckObjState(Actual, Expected)
-    if IsGroup or Kind in {"Part::Extrusion", "Part::Revolution"}:
+    if IsGroup or KindValue in {"Part::Extrusion", "Part::Revolution"}:
         CheckEditFrame(Actual, "Placement", KTransformIdentity, Optional=True)

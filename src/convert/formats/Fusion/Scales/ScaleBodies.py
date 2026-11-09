@@ -44,10 +44,10 @@ def ReadScaleBodies(
     Bodies: list[DesignBody] = []
     Models: list[BrepModel] = []
     for Source, Member, AnchorId in Inputs:
-        Seed = ReadScaleSeed(Document, Source, Member.ComponentId)
+        SeedValue = ReadScaleSeed(Document, Source, Member.ComponentId)
         BodyId = f"fusion-derived-body-{Source.id}"
         Geometry = BuildScalePrism(
-            BodyId, Seed.Profile, Seed.Frame, Seed.Depth, Factors, Center
+            BodyId, SeedValue.Profile, SeedValue.Frame, SeedValue.Depth, Factors, Center
         )
         Mapping = ReadBodyAsmRef(
             BulkData, Context.Owners, Member.ObjectId, Member.ComponentId
@@ -57,9 +57,9 @@ def ReadScaleBodies(
             Table = ReadAsmTable(LoadBlob(Mapping.FileName))
             Tables[Mapping.FileName] = Table
         Ordinal = ReadPrismCache(
-            Table, Mapping.Handle, Mapping.Handles, Geometry[0], Seed.CurveTags
+            Table, Mapping.Handle, Mapping.Handles, Geometry[0], SeedValue.CurveTags
         )
-        Body, Model = MakeSolidRecord(
+        BodyValue, Model = MakeSolidRecord(
             BodyId,
             "Scale result",
             Feature,
@@ -71,11 +71,11 @@ def ReadScaleBodies(
         )
         Bodies.append(
             Replace(
-                Body,
-                name=Member.Name or Source.name or Body.name,
+                BodyValue,
+                name=Member.Name or Source.name or BodyValue.name,
                 attributes=FreezeMapping(
                     {
-                        **Body.attributes,
+                        **BodyValue.attributes,
                         "fusion.scale_source_feature_id": Source.id,
                         "fusion.asm_body_ordinal": Ordinal,
                         "fusion.asm_body_handle": Mapping.Handle,

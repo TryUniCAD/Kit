@@ -44,13 +44,13 @@ class BodyCaches:
 # missing wire caches are expected only on a newly generated untouched seed graph
 def ReadBodyCaches(Members: Mapping[str, ZipInfo], Graph: BodyGraph) -> BodyCaches:
     CheckCarriers(Graph.Objects, Members)
-    Seed = ReadAxisCache(Graph.Seed, "Shape")
+    SeedValue = ReadAxisCache(Graph.Seed, "Shape")
     Revolve = ReadAxisCache(Graph.Revolve, "Shape")
     Source = ReadAxisCache(Graph.Source, "Shape")
     Profile = ReadAxisCache(Graph.Profile, "Shape")
     for Native in (Graph.Source, Graph.Profile):
         CheckEmptyFile(Members, ReadAxisCache(Native, "InternalShape"))
-    if not Seed or not Revolve or bool(Source) != bool(Profile):
+    if not SeedValue or not Revolve or bool(Source) != bool(Profile):
         raise ValueError("FreeCAD editable body axis native caches are incomplete")
     IsSeed = not Source
     if any(
@@ -58,7 +58,7 @@ def ReadBodyCaches(Members: Mapping[str, ZipInfo], Graph: BodyGraph) -> BodyCach
         for Value in (Graph.Seed, Graph.Revolve, Graph.Source, Graph.Profile)
     ):
         raise ValueError("FreeCAD editable body axis rebuild is pending")
-    return BodyCaches(Seed, Revolve, Source, Profile, IsSeed)
+    return BodyCaches(SeedValue, Revolve, Source, Profile, IsSeed)
 
 
 # each saved solid independently witnesses the rebuilt control graph and exact linked rim
@@ -69,13 +69,22 @@ def CheckBodyCaches(
     OriginalSource: Sketch,
     OriginalProfile: Sketch,
     Document: CadDocument,
-    Plan: BodyRevPlan,
+    PlanValue: BodyRevPlan,
     Order: PrismOrder,
 ) -> None:
-    ById = {Value.id: Value for Value in Document.sketches}
-    Source, Profile = ById[Plan.Extrude.SketchId], ById[Plan.Revolve.SketchId]
+    ByIdentity = {Value.id: Value for Value in Document.sketches}
+    Source, Profile = (
+        ByIdentity[PlanValue.Extrude.SketchId],
+        ByIdentity[PlanValue.Revolve.SketchId],
+    )
     CheckRevWire(
-        Archive, Members, Caches.Source, (), OriginalSource, Source, Plan.SourceFrame
+        Archive,
+        Members,
+        Caches.Source,
+        (),
+        OriginalSource,
+        Source,
+        PlanValue.SourceFrame,
     )
     CheckRevWire(
         Archive,
@@ -84,19 +93,21 @@ def CheckBodyCaches(
         (),
         OriginalProfile,
         Profile,
-        Plan.ProfileFrame,
+        PlanValue.ProfileFrame,
     )
     SeedData = ReadEditBrep(
         Archive, Members, Caches.Seed, KMaxPrismBytes, "editable body axis extrusion"
     )
     Lines = GetEditRing(Document.feature_timeline[1], Source)
-    Start = Plan.AxisStart if Order.Base == Plan.AxisEnd else Plan.AxisEnd
+    Start = (
+        PlanValue.AxisStart if Order.Base == PlanValue.AxisEnd else PlanValue.AxisEnd
+    )
     if Lines is None or not IsEditPrism(
         SeedData,
-        Plan.SourceFrame,
+        PlanValue.SourceFrame,
         ReadPrismRing(Lines),
-        Plan.Extrude.DistanceMm,
-        Link=(int(Order.EdgeName.removeprefix("Edge")), Start, Order.Base),
+        PlanValue.Extrude.DistanceMm,
+        LinkValue=(int(Order.EdgeName.removeprefix("Edge")), Start, Order.Base),
     ):
         raise ValueError(
             "FreeCAD editable body axis extrusion cache disagrees with its linked rim"
@@ -104,7 +115,7 @@ def CheckBodyCaches(
     RevData = ReadEditBrep(
         Archive, Members, Caches.Revolve, KMaxRevolveBytes, "editable body axis Revolve"
     )
-    if not IsEditRevolve(RevData, Plan.RevolveModel):
+    if not IsEditRevolve(RevData, PlanValue.RevolveModel):
         raise ValueError(
             "FreeCAD editable body axis Revolve cache disagrees with its live controls"
         )

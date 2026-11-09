@@ -12,10 +12,10 @@ from convert.adapters.base.WriteValidate import IsObjectMap, IsObjectTuple
 from convert.adapters.freecad.EditExtScope import HasEditState
 from convert.geometry.Formula.Arithmetic import (
     EvalFormula,
-    IsLiteralFormula,
+    IsLiteralExpr,
     ReadFormula,
 )
-from convert.geometry.Formula.FormulaUnits import MatchQuantity
+from convert.geometry.Formula.FormulaUnits import IsMatchingQty
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumFeatures import FeatureKind
 from interchange.enums.EnumUnits import UnitSystem
@@ -92,12 +92,12 @@ def IsSketchScope(Document: CadDocument) -> bool:
         and IsObjectMap(Inventory)
         and Inventory.get("members") == ()
         and Document.metadata.get("fusion.history_groups") == ()
-        and HasSketchHistory(Document)
+        and HasSketchLog(Document)
     )
 
 
 # each retained sketch step must account for one exact source history member
-def HasSketchHistory(Document: CadDocument) -> bool:
+def HasSketchLog(Document: CadDocument) -> bool:
     Entries = Document.metadata.get("fusion.history_entries")
     return (
         IsObjectTuple(Entries)
@@ -148,10 +148,10 @@ def IsSketchParam(ParamValue: Parameter, OwnerId: str) -> bool:
     ):
         return False
     Formula = ReadFormula(Expression.source)
-    if Formula is None or not IsLiteralFormula(Formula):
+    if Formula is None or not IsLiteralExpr(Formula):
         return False
     Quantity = EvalFormula(Formula, {})
-    return Quantity is not None and MatchQuantity(Quantity, ParamValue.value)
+    return Quantity is not None and IsMatchingQty(Quantity, ParamValue.value)
 
 
 # the worksheet inventory must match the exact owned dimension records

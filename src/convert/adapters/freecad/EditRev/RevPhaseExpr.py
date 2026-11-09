@@ -21,12 +21,12 @@ def RevMeanExpr(
         for Endpoint in ("StartPoint", "EndPoint")
     )
     Count = 2 * len(ProfileLines)
-    Pose = f"{Profile}.Placement"
+    PoseValue = f"{Profile}.Placement"
     if MeanStyle == "legacy":
-        return f"({Pose} * (({Corners}) / {Count}))"
+        return f"({PoseValue} * (({Corners}) / {Count}))"
     if MeanStyle == "saved":
-        return f"(({Pose} * ({Corners})) / {Count})"
-    return f"({Pose}.Base + ({Pose}.Rotation * ({Corners})) / {Count})"
+        return f"(({PoseValue} * ({Corners})) / {Count})"
+    return f"({PoseValue}.Base + ({PoseValue}.Rotation * ({Corners})) / {Count})"
 
 
 # both linked axis families use the occupied coplanar half plane for positive sweep
@@ -35,8 +35,8 @@ def RevPhaseExpr(
 ) -> str:
     Normal = f"({Profile}.Placement.Rotation * vector(0; 0; 1))"
     Radial = f"({Point} - {Start})"
-    Tilt = f"abs(vdot({Along}; {Normal}))"
+    TiltValue = f"abs(vdot({Along}; {Normal}))"
     Offset = f"abs(vdot({Radial}; {Normal}))"
     Sense = f"vdot(vcross({Along}; {Radial}); {Normal})"
     Signed = f"{Sense} > 0 ? {Reference} : ({Sense} < 0 ? -{Reference} : 0 deg)"
-    return f"{Tilt} > 1e-8 ? 0 deg : ({Offset} > 1e-8 ? 0 deg : ({Signed}))"
+    return f"{TiltValue} > 1e-8 ? 0 deg : ({Offset} > 1e-8 ? 0 deg : ({Signed}))"

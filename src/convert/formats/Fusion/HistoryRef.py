@@ -20,7 +20,7 @@ def ReadNativeRef(Cursor: MetaCursor) -> int:
 
 
 # optional references share the same bounded wire format as required references
-def ReadOptionalRef(Cursor: MetaCursor) -> int | None:
+def ReadOptRefMut(Cursor: MetaCursor) -> int | None:
     if Cursor.TakeBytes(1) == b"\0":
         return None
     Cursor.Offset -= 1

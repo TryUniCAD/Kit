@@ -17,12 +17,12 @@ from interchange.geometry.models.Sketch import SketchEntity
 from interchange.geometry.models.VectorPlane import PlaneVector
 
 # line partitioning preserves both affine geometry and native endpoint topology
-TrimLine = tuple[LineGeometry, tuple[int, int]]
+KTrimLine = tuple[LineGeometry, tuple[int, int]]
 
 
 # explicit endpoint identities must form two disjoint four side cycles
-def ReadLineGraph(Lines: tuple[SketchEntity, ...]) -> dict[str, TrimLine]:
-    Sources: dict[str, TrimLine] = {}
+def ReadLineGraph(Lines: tuple[SketchEntity, ...]) -> dict[str, KTrimLine]:
+    Sources: dict[str, KTrimLine] = {}
     Adjacent: dict[int, set[int]] = {}
     Positions: dict[int, PlaneVector] = {}
     for Entity in Lines:

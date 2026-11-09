@@ -48,7 +48,7 @@ def ReadPointScope(
         or Center not in DocValue.selections
         or Origin is None
         or Origin.adapter != "fusion.f3d"
-        or tuple(Span.record_kind for Span in Origin.spans) != (KSelectDesc,)
+        or tuple(SpanValue.record_kind for SpanValue in Origin.spans) != (KSelectDesc,)
         or type(ComponentId) is not int
         or ComponentId <= 0
     ):
@@ -187,11 +187,17 @@ def ReadScalePoint(
         or not isinstance(FeatureId, str)
     ):
         raise ValueError("FreeCAD editable Scale center sketch or point is missing")
-    Plan = ReadPointPlan(DocValue, Feature, ComponentId, SketchId, PointId, FeatureId)
+    PlanValue = ReadPointPlan(
+        DocValue, Feature, ComponentId, SketchId, PointId, FeatureId
+    )
     if (
-        not IsFiniteSpace(Plan.Point)
-        or Hypot(Point.x - Plan.Point.x, Point.y - Plan.Point.y, Point.z - Plan.Point.z)
+        not IsFiniteSpace(PlanValue.Point)
+        or Hypot(
+            Point.x - PlanValue.Point.x,
+            Point.y - PlanValue.Point.y,
+            Point.z - PlanValue.Point.z,
+        )
         > 1e-8
     ):
         raise ValueError("FreeCAD editable Scale center coordinates disagree")
-    return Plan
+    return PlanValue

@@ -23,7 +23,7 @@ from convert.adapters.freecad.Archive import (
     GetProfLines,
     Object,
     ReplaceNameMut,
-    RevExpressionsMut,
+    SetRevExprMut,
     SetProfRulesMut,
     ShapeProp,
     StringProp,
@@ -47,27 +47,29 @@ def AddBodySeedMut(
     Features: DocFeatures,
     FeatureInfo: FeatureData,
     Sketch: Object,
-    Plan: BodyRevPlan,
+    PlanValue: BodyRevPlan,
     Cache: BodyRevCache,
     DepthRef: str,
 ) -> Object:
-    Source = Plan.Extrude
+    Source = PlanValue.Extrude
     Direction = (Source.Direction.x, Source.Direction.y, Source.Direction.z)
-    Seed = AddExtToolMut(
+    SeedValue = AddExtToolMut(
         Context, FeatureInfo, Direction, Source.DistanceMm, 0.0, False, DepthRef
     )
     Expressions = [
         ("Dir", BodyDepthDir(Direction, DepthRef, Sketch.name)),
         ("LengthFwd", DepthRef),
     ]
-    ReplaceNameMut(Seed.properties, "ExpressionEngine", ExpressionProp(Expressions))
-    ShapeEntry = AddBrepEntryMut(Features.PayloadEntries, Seed.name, Cache.Extrude)
-    ReplaceNameMut(Seed.properties, "Shape", ShapeProp(ShapeEntry))
+    ReplaceNameMut(
+        SeedValue.properties, "ExpressionEngine", ExpressionProp(Expressions)
+    )
+    ShapeEntry = AddBrepEntryMut(Features.PayloadEntries, SeedValue.name, Cache.Extrude)
+    ReplaceNameMut(SeedValue.properties, "Shape", ShapeProp(ShapeEntry))
     ReplaceNameMut(Sketch.properties, "Visibility", BoolProp("Visibility", False))
     SetProfRulesMut(Context, Geometry, Sketch, Source.SketchId)
-    TrackSolidMut(Features, FeatureInfo, Seed)
+    TrackSolidMut(Features, FeatureInfo, SeedValue)
     Features.EditableBodySeed = FeatureInfo.FeatureId
-    return Seed
+    return SeedValue
 
 
 # the downstream native feature links the exact upstream subelement and owns a separate solid
@@ -77,8 +79,8 @@ def AddBodyTurnMut(
     Features: DocFeatures,
     FeatureInfo: FeatureData,
     Profile: Object,
-    Seed: Object,
-    Plan: BodyRevPlan,
+    SeedValue: Object,
+    PlanValue: BodyRevPlan,
     Cache: BodyRevCache,
     Expression: str,
 ) -> None:
@@ -96,7 +98,7 @@ def AddBodyTurnMut(
                 Cache.Base,
                 Cache.Axis,
                 Cache.AngleDeg,
-                AxisSketch=Seed.name,
+                AxisSketch=SeedValue.name,
                 AxisSub=Cache.EdgeName,
             ),
             ExpressionProp([("Angle", Expression)]),
@@ -105,16 +107,18 @@ def AddBodyTurnMut(
             BoolProp("Visibility", True),
         ]
     )
-    Revolution.dependencies.extend((Profile.name, Context.ParamSheet.name, Seed.name))
+    Revolution.dependencies.extend(
+        (Profile.name, Context.ParamSheet.name, SeedValue.name)
+    )
     ReplaceNameMut(Profile.properties, "Visibility", BoolProp("Visibility", False))
     SetProfRulesMut(
-        Context, Geometry, Profile, Plan.Revolve.SketchId, Plan.ProfilePairs
+        Context, Geometry, Profile, PlanValue.Revolve.SketchId, PlanValue.ProfilePairs
     )
     TrackSolidMut(Features, FeatureInfo, Revolution)
     Features.FinalShapeFile = ShapeEntry
     Features.EditableRevId = FeatureInfo.FeatureId
     Features.RevBinding = KBodyRevBinding
-    Features.BodyAxisTarget = (Plan.AxisEdgeId, Seed.name, Cache.EdgeName)
+    Features.BodyAxisTarget = (PlanValue.AxisEdgeId, SeedValue.name, Cache.EdgeName)
 
 
 # the linked edit graph can replace the carrier only when both native seeds are ready
@@ -126,19 +130,19 @@ def HasBodyRevMut(
 ) -> bool:
     if Document is None or len(Features.FeatureItems) != 4:
         return False
-    Plan = ReadBodyRev(Document, Document.feature_timeline[-1])
-    if Plan is None:
+    PlanValue = ReadBodyRev(Document, Document.feature_timeline[-1])
+    if PlanValue is None:
         return False
     SourceStep, SeedStep, ProfileStep, TurnStep = Features.FeatureItems
     SeedInfo = FeatureDataOf(Geometry, Features, SeedStep)
     TurnInfo = FeatureDataOf(Geometry, Features, TurnStep)
-    SeedSketch = EditProfile(Context, Geometry, SeedInfo, Plan.Extrude.SketchId)
-    Profile = EditProfile(Context, Geometry, TurnInfo, Plan.Revolve.SketchId)
-    DepthRef = Context.Parameters.expression(Plan.Extrude.ParameterId)
-    Angles = RevExpressionsMut(Context, Plan.Revolve)
+    SeedSketch = EditProfile(Context, Geometry, SeedInfo, PlanValue.Extrude.SketchId)
+    Profile = EditProfile(Context, Geometry, TurnInfo, PlanValue.Revolve.SketchId)
+    DepthRef = Context.Parameters.expression(PlanValue.Extrude.ParameterId)
+    Angles = SetRevExprMut(Context, PlanValue.Revolve)
     if (
-        SeedInfo.FeatureId != Plan.ExtrudeId
-        or TurnInfo.FeatureId != Plan.RevolveId
+        SeedInfo.FeatureId != PlanValue.ExtrudeId
+        or TurnInfo.FeatureId != PlanValue.RevolveId
         or SeedSketch is None
         or Profile is None
         or not DepthRef
@@ -146,16 +150,29 @@ def HasBodyRevMut(
         or not (ProfileLines := GetProfLines(Profile))
     ):
         return False
-    Cache = BuildBodyCache(Document, Plan)
+    Cache = BuildBodyCache(Document, PlanValue)
     AddFeatureMut(Context, Geometry, Features, SourceStep)
-    Seed = AddBodySeedMut(
-        Context, Geometry, Features, SeedInfo, SeedSketch, Plan, Cache, DepthRef
+    SeedValue = AddBodySeedMut(
+        Context, Geometry, Features, SeedInfo, SeedSketch, PlanValue, Cache, DepthRef
     )
     AddFeatureMut(Context, Geometry, Features, ProfileStep)
     Expression = BodyAngleExpr(
-        Seed.name, Cache.EdgeName, Profile.name, ProfileLines, Angles[0][1], DepthRef
+        SeedValue.name,
+        Cache.EdgeName,
+        Profile.name,
+        ProfileLines,
+        Angles[0][1],
+        DepthRef,
     )
     AddBodyTurnMut(
-        Context, Geometry, Features, TurnInfo, Profile, Seed, Plan, Cache, Expression
+        Context,
+        Geometry,
+        Features,
+        TurnInfo,
+        Profile,
+        SeedValue,
+        PlanValue,
+        Cache,
+        Expression,
     )
     return True

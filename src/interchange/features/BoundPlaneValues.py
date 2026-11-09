@@ -14,7 +14,7 @@ from typing import Mapping as TypeMap
 from interchange.enums.EnumFeatures import FeatureKind
 from interchange.enums.EnumValues import ValueKind
 from interchange.features.DistanceParam import GetDistParam
-from interchange.features.FeatureBoundPlane import BoundConstructionPlane
+from interchange.features.FeatureBoundPlane import BoundDatum
 from interchange.features.FeatureStep import FeatureStep
 from interchange.features.PlaneExtFrame import GetExtFrame
 from interchange.geometry.models.Transform import Transform
@@ -52,9 +52,9 @@ def ReadPlaneParam(
 
 
 # offsets and angles both derive the current frame from the unchanged authored zero basis
-def GetConstructionFrame(
+def GetDatumFrame(
     StepValue: FeatureStep,
-    Definition: BoundConstructionPlane,
+    Definition: BoundDatum,
     Parameters: TypeMap[str, Parameter],
 ) -> Transform:
     if StepValue.kind != FeatureKind.KReference:

@@ -54,8 +54,11 @@ def ApplyRevEdit(
     if Profile != Original:
         CheckRingEdit(Original, Profile)
     AlongValue, AgainstValue = ReadRevAngles(Feature, Definition, Parameters)
-    Span = GetAngleSpan(AlongValue, AgainstValue, Definition.SideMode)
+    SpanValue = GetAngleSpan(AlongValue, AgainstValue, Definition.SideMode)
     (PlaneValue,) = DocValue.support_planes
     return RebuildRevDoc(
-        Replace(DocValue, parameters=Parameters), Profile, PlaneValue.transform, Span
+        Replace(DocValue, parameters=Parameters),
+        Profile,
+        PlaneValue.transform,
+        SpanValue,
     )

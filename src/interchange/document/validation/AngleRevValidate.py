@@ -52,12 +52,12 @@ def GetAngleRevErrs(
     Errors: list[str] = []
     if StepValue.kind != FeatureKind.KRevolution:
         Errors.append(f"feature {StepValue.id} is not a revolution")
-    Axis = Selections.get(Definition.AxisSelectionId)
+    AxisValue = Selections.get(Definition.AxisSelectionId)
     if Definition.AxisSelectionId not in StepValue.selection_ids:
         Errors.append(
             f"angular revolution {StepValue.id} has an unlinked axis selection"
         )
-    if Axis is None or not (Axis.path or Axis.query):
+    if AxisValue is None or not (AxisValue.path or AxisValue.query):
         Errors.append(
             f"angular revolution {StepValue.id} has an unresolved axis selection"
         )

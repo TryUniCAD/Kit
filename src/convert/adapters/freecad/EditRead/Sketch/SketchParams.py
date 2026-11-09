@@ -16,9 +16,9 @@ from convert.adapters.freecad.EditRead.Formula.SavedQuantity import (
     KeepQuantity,
     KCanonicalUnits,
 )
-from convert.adapters.freecad.EditRead.Formula.SheetLayout import CheckSheetLayout
+from convert.adapters.freecad.EditRead.Formula.SheetLayout import CheckSheetShape
 from convert.adapters.freecad.Native import NativeObject
-from convert.geometry.Formula.FormulaUnits import GetQuantity, MatchQuantity
+from convert.geometry.Formula.FormulaUnits import GetQuantity, IsMatchingQty
 from interchange.records.RecordParameter import Parameter
 
 
@@ -30,7 +30,7 @@ def ReadSketchVals(
     Drivers: Mapping[str, bool],
 ) -> dict[str, Parameter]:
     Cells = EditCells(Sheet, True)
-    CheckSheetLayout(Sheet, Cells, Catalog)
+    CheckSheetShape(Sheet, Cells, Catalog)
     Result: dict[str, Parameter] = {}
     for ParamValue in Original:
         Content = Cells[Catalog.Aliases[ParamValue.id]].get("content", "")
@@ -56,7 +56,7 @@ def KeepSketchRef(ParamValue: Parameter, Measure: float) -> Parameter:
             "FreeCAD editable sketch reference dimension has no typed quantity"
         )
     NewQuantity = (Measure, Quantity[1])
-    if MatchQuantity(NewQuantity, ParamValue.value):
+    if IsMatchingQty(NewQuantity, ParamValue.value):
         return ParamValue
     UnitValue = KCanonicalUnits[Quantity[1]]
     return Replace(

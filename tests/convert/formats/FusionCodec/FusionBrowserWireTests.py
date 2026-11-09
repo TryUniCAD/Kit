@@ -13,7 +13,7 @@ from sys import version_info as PythonVersion
 
 from pytest import mark as TestMark, raises as Raises
 
-from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionArchive
+from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionZip
 from convert.formats.Fusion.MetaIndex import SegmentKind
 from convert.formats.Fusion.SegmentCodec.Browser.BrowserLayout import KMaxRootLength
 from convert.formats.Fusion.SegmentCodec.Browser.BrowserRoot import (
@@ -153,7 +153,7 @@ def TestBadModel() -> None:
 def TestSavedReplay(
     RelativeName: str, FolderCounts: tuple[int, int], Flags: set[int]
 ) -> None:
-    with OpenFusionArchive((KRepoRoot / RelativeName).read_bytes()) as Archive:
+    with OpenFusionZip((KRepoRoot / RelativeName).read_bytes()) as Archive:
         Frame = ReadAuxFrame(Archive, SegmentKind.KBrowser)
         (SpanValue,) = tuple(
             NativeSpan

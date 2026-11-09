@@ -10,7 +10,7 @@ from math import isclose as IsClose
 from struct import unpack as Unpack
 
 from convert.formats.Fusion.Extrudes.Plane.PlaneExtFields import PlaneExtFields
-from convert.formats.Fusion.HistoryRef import ReadNativeRef, ReadOptionalRef
+from convert.formats.Fusion.HistoryRef import ReadNativeRef, ReadOptRefMut
 from convert.formats.Fusion.MetaCursor import MetaCursor
 
 
@@ -18,7 +18,7 @@ from convert.formats.Fusion.MetaCursor import MetaCursor
 def ReadPlaneCtrl(Cursor: MetaCursor) -> PlaneExtFields:
     if Cursor.TakeBytes(6) != b"\0\1" + bytes(4):
         raise ValueError("Unsupported Fusion selected plane Extrude prefix")
-    SourceId = ReadOptionalRef(Cursor)
+    SourceId = ReadOptRefMut(Cursor)
     IsStart = SourceId is not None
     if (
         Cursor.TakeBytes(2) != bytes(2)
@@ -37,19 +37,19 @@ def ReadPlaneCtrl(Cursor: MetaCursor) -> PlaneExtFields:
         abs_tol=1e-9,
     ):
         raise ValueError("Invalid Fusion selected plane Extrude direction")
-    StartId = ReadOptionalRef(Cursor)
+    StartId = ReadOptRefMut(Cursor)
     if Cursor.TakeBytes(1) != bytes(1):
         raise ValueError("Unsupported Fusion selected plane Extrude second distance")
-    AlongId = ReadOptionalRef(Cursor)
+    AlongId = ReadOptRefMut(Cursor)
     CacheId = ReadNativeRef(Cursor)
     if Cursor.TakeBytes(1) != bytes(1):
         raise ValueError(
             "Unsupported Fusion selected plane Extrude secondary descriptor"
         )
     TaperId = ReadNativeRef(Cursor)
-    TargetId = ReadOptionalRef(Cursor)
+    TargetId = ReadOptRefMut(Cursor)
     Condition = Cursor.ReadWord()
-    OffsetId = ReadOptionalRef(Cursor)
+    OffsetId = ReadOptRefMut(Cursor)
     FlagValue = Cursor.ReadWord()
     if Cursor.TakeBytes(16) != bytes(16):
         raise ValueError("Unsupported Fusion selected plane Extrude second extent")

@@ -33,7 +33,9 @@ def CheckTrimSolid(FolderName: str, Capture: str, Count: int) -> None:
     Folder = KStudyPath / FolderName
     Filename = f"{Capture}.f3d"
     Captured = LoadJson((Folder / "ground_truth.json").read_text(encoding="utf-8"))
-    Sample = next(Item for Item in Captured["samples"] if Item["file"] == Filename)
+    Sample = next(
+        ItemValue for ItemValue in Captured["samples"] if ItemValue["file"] == Filename
+    )
     (TruthBody,) = Sample["result_bodies"]
     Document = OpenDocument(Folder / Filename, strict=False)
     StepValue = Document.feature_timeline[-1]
@@ -42,15 +44,18 @@ def CheckTrimSolid(FolderName: str, Capture: str, Count: int) -> None:
         tuple[tuple[str, float, float, tuple[int, ...]], ...],
         StepValue.attributes["fusion.profile_portions"],
     )
-    assert len(Portions) == Count and len({Item[3] for Item in Portions}) == Count
+    assert (
+        len(Portions) == Count
+        and len({ItemValue[3] for ItemValue in Portions}) == Count
+    )
     (SketchValue,) = Document.sketches
     assert not SketchValue.closed_profile_entity_ids
-    assert {Item[0] for Item in Portions} <= {
+    assert {ItemValue[0] for ItemValue in Portions} <= {
         Entity.id for Entity in SketchValue.entities
     }
     if Capture == "repeated_circle":
-        assert len({Item[0] for Item in Portions}) == 3
-        assert {(Item[3][4], Item[3][5]) for Item in Portions} == {
+        assert len({ItemValue[0] for ItemValue in Portions}) == 3
+        assert {(ItemValue[3][4], ItemValue[3][5]) for ItemValue in Portions} == {
             (2, 4),
             (4, 4),
             (1, 2),
@@ -71,7 +76,9 @@ def CheckTrimSolid(FolderName: str, Capture: str, Count: int) -> None:
             if isinstance(Surface, CylinderSurface)
         }
         assert {
-            Face.same_sense for Face in Model.faces if Face.surface_id in Curved
+            FaceValue.same_sense
+            for FaceValue in Model.faces
+            if FaceValue.surface_id in Curved
         } == {False, True}
     Topology = BodyValue.topology
     assert Topology.volume == Pytest.approx(TruthBody["volume_cm3"] * 1000)

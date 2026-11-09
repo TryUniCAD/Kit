@@ -71,8 +71,8 @@ def ReadEditExtrude(
         return None
     try:
         Circle = GetEditCircle(FeatureValue, SketchValue)
-        Ring = GetEditRing(FeatureValue, SketchValue) if Circle is None else None
-        Profile = Circle if Circle is not None else Ring
+        RingValue = GetEditRing(FeatureValue, SketchValue) if Circle is None else None
+        Profile = Circle if Circle is not None else RingValue
         DepthMm = GetEditDepth(FeatureValue, Definition, DocValue.parameters)
         if (
             Profile is None
@@ -95,6 +95,6 @@ def ReadEditExtrude(
         DepthMm,
         Definition.Direction,
         bool(Along.expression and Along.expression.parameter_ids),
-        Ring is not None or GetCenterPoint(SketchValue) is not None,
-        Ring is not None,
+        RingValue is not None or GetCenterPoint(SketchValue) is not None,
+        RingValue is not None,
     )

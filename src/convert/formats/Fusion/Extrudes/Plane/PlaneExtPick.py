@@ -45,12 +45,12 @@ def ReadPlaneCtx(
     ):
         raise ValueError("Fusion selected plane context frame disagrees")
     LinkId = ReadNativeRef(Cursor)
-    Link = SelectCursor(BulkData, Owners, LinkId, KPlanePickLink)
-    if len(Link.DataValue) != 14 or Link.TakeBytes(2) != bytes(2):
+    LinkValue = SelectCursor(BulkData, Owners, LinkId, KPlanePickLink)
+    if len(LinkValue.DataValue) != 14 or LinkValue.TakeBytes(2) != bytes(2):
         raise ValueError("Unsupported Fusion selected plane context identity link")
-    LeafId = ReadNativeRef(Link)
+    LeafId = ReadNativeRef(LinkValue)
     if (
-        Link.TakeBytes(1) != bytes(1)
+        LinkValue.TakeBytes(1) != bytes(1)
         or ReadEntityLeaf(BulkData, Owners, LeafId) != PlaneId
     ):
         raise ValueError("Fusion selected plane context and direct leaf disagree")
@@ -77,13 +77,13 @@ def CheckPlanePick(
         raise ValueError("Unsupported Fusion selected plane proxy secondary record")
     ProxyHelper, ProxySupport = ReadPickFooter(BulkData, Owners, Proxy)
     CheckPickLinks(BulkData, Owners, ProxySupport, ProxyId, (DescriptorId,))
-    Desc = SelectCursor(BulkData, Owners, DescriptorId, KSelectDesc)
-    Desc.Offset = 169
-    if Desc.ReadLong() != 2 or Desc.ReadWord() != 1:
+    Descriptor = SelectCursor(BulkData, Owners, DescriptorId, KSelectDesc)
+    Descriptor.Offset = 169
+    if Descriptor.ReadLong() != 2 or Descriptor.ReadWord() != 1:
         raise ValueError("Unsupported Fusion selected plane descriptor context count")
-    ContextId = ReadNativeRef(Desc)
+    ContextId = ReadNativeRef(Descriptor)
     LinkId, ContextLeaf = ReadPlaneCtx(BulkData, Owners, ContextId, PlaneId, PlaneFrame)
-    DescHelper, DescSupport = ReadPickFooter(BulkData, Owners, Desc)
+    DescHelper, DescSupport = ReadPickFooter(BulkData, Owners, Descriptor)
     CheckPickLinks(
         BulkData, Owners, DescSupport, DescriptorId, (PlaneFeatureId, DescriptorId)
     )

@@ -17,7 +17,7 @@ from convert.adapters.freecad.CurvedRing import CurvedRingArea
 from convert.geometry.Extrude.Trimmed.TrimPrism import BuildTrimPrism
 from convert.geometry.Opencascade import (
     DecodeAsciiBrep,
-    is_structurally_valid_ascii_brep as IsStructurallyValidAsciiBrep,
+    is_structurally_valid_ascii_brep as IsValidAsciiBrep,
 )
 from convert.geometry.Revolve.PolygonSweep import BuildPolySweep
 from interchange.brep.curves.BrepCurves import CircleCurve
@@ -94,7 +94,7 @@ def TestCurvedSense() -> None:
 
 
 # conical generators must agree with both exact circular orbits before serialization
-def TestConicalSweep() -> None:
+def TestConeSweep() -> None:
     Model = BuildPolySweep(
         "tapered",
         ((10.0, 10.0), (5.0, 40.0), (40.0, 40.0), (30.0, 10.0)),
@@ -104,7 +104,7 @@ def TestConicalSweep() -> None:
         0.0,
         HalfTurn / 2.0,
     )
-    assert IsStructurallyValidAsciiBrep(BrepModelBrep(Model))
+    assert IsValidAsciiBrep(BrepModelBrep(Model))
     WrongSlope = tuple(
         (
             Replace(Value, half_angle=-Value.half_angle)

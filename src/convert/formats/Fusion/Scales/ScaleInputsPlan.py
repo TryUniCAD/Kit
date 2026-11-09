@@ -56,8 +56,8 @@ def ReadScalePicks(
     Picks = tuple(ByPick[Identity] for Identity in Feature.selection_ids)
     NativeIds = frozenset(
         SourceId
-        for Pick in Picks
-        if type(SourceId := Pick.query.get("native_source_id")) is int
+        for PickValue in Picks
+        if type(SourceId := PickValue.query.get("native_source_id")) is int
     )
     if not Picks or len(NativeIds) != len(Picks):
         raise ValueError("Fusion Scale historical source identities are ambiguous")
@@ -82,14 +82,17 @@ def ReadScalePicks(
         frozenset(Context.Steps[Identity].id for Identity in NativeIds),
     )
     Result: list[tuple[FeatureStep, NativeBody, int]] = []
-    for Pick in Picks:
-        SourceId = Pick.query.get("native_source_id")
-        if type(SourceId) is not int or Pick.query.get("kind") != "historical_body":
+    for PickValue in Picks:
+        SourceId = PickValue.query.get("native_source_id")
+        if (
+            type(SourceId) is not int
+            or PickValue.query.get("kind") != "historical_body"
+        ):
             raise ValueError("Fusion Scale input has no historical source")
         BodyId, AnchorId = Links[SourceId]
         if (
-            Pick.query.get("native_body_id") != BodyId
-            or Pick.query.get("native_anchor_id") != AnchorId
+            PickValue.query.get("native_body_id") != BodyId
+            or PickValue.query.get("native_anchor_id") != AnchorId
         ):
             raise ValueError("Fusion Scale input and source anchor disagree")
         Result.append((Context.Steps[SourceId], ByBody[BodyId], AnchorId))

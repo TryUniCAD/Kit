@@ -14,13 +14,13 @@ from interchange.geometry.models.VectorSpace import SpaceVector
 
 # projected major circle radii and the tube radius bound every cartesian direction
 def GetTorusBounds(
-    Center: SpaceVector, Axis: SpaceVector, MajorRadius: float, MinorRadius: float
+    Center: SpaceVector, AxisValue: SpaceVector, MajorRadius: float, MinorRadius: float
 ) -> BoundingBox:
-    Length = Hypot(Axis.x, Axis.y, Axis.z)
+    Length = Hypot(AxisValue.x, AxisValue.y, AxisValue.z)
     Extents = (
-        MajorRadius * (Hypot(Axis.y, Axis.z) / Length) + MinorRadius,
-        MajorRadius * (Hypot(Axis.z, Axis.x) / Length) + MinorRadius,
-        MajorRadius * (Hypot(Axis.x, Axis.y) / Length) + MinorRadius,
+        MajorRadius * (Hypot(AxisValue.y, AxisValue.z) / Length) + MinorRadius,
+        MajorRadius * (Hypot(AxisValue.z, AxisValue.x) / Length) + MinorRadius,
+        MajorRadius * (Hypot(AxisValue.x, AxisValue.y) / Length) + MinorRadius,
     )
     Coordinates = (Center.x, Center.y, Center.z)
     return BoundingBox(

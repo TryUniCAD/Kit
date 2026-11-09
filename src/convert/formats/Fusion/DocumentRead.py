@@ -11,14 +11,14 @@ from dataclasses import replace as Replace
 from hashlib import sha256 as ShaDigest
 from pathlib import Path as FilePath
 
-from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionArchive
-from convert.formats.Fusion.Assembly.AssemblyRead import ReadAssemblyProjection
-from convert.formats.Fusion.BodyInputs.BodyInputProject import ProjectBodyPicks
+from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionZip
+from convert.formats.Fusion.Assembly.AssemblyRead import ReadAsmProject
+from convert.formats.Fusion.BodyInputs.BodyInputProject import ProjectPicks
 from convert.formats.Fusion.ConstructionPlane.ProjectConstruction import (
-    ProjectConstructionPlanes,
+    ProjectDatums,
 )
 from convert.formats.Fusion.Extrudes.ExtrudeProject import ProjectExtrudes
-from convert.formats.Fusion.Extrudes.Plane.PlaneExtProject import ProjectPlaneExts
+from convert.formats.Fusion.Extrudes.Plane.PlaneExtProject import ProjectPlaneExt
 from convert.formats.Fusion.FormulaDeps.FormulaLink import LinkFormulaDeps
 from convert.formats.Fusion.HistoryPart import HistoryPart
 from convert.formats.Fusion.PlaneProjection import ProjectPlanes
@@ -68,15 +68,15 @@ def ReadFusionDoc(
 ) -> CadDocument:
     """Project a native Fusion history or a qualified local assembly."""
     DataValue, SourceName = LoadFusionBytes(SourceData)
-    with OpenFusionArchive(DataValue, InflateZstd) as Archive:
+    with OpenFusionZip(DataValue, InflateZstd) as Archive:
         BulkData, Spans = Archive.ReadDesign()
-        return ProjectFusionDoc(
+        return ProjectFusDoc(
             DataValue, SourceName, BulkData, Spans, HistoryId, Archive.ReadBody
         )
 
 
 # the projection shares one archive context with inspection and every geometry consumer
-def ProjectFusionDoc(
+def ProjectFusDoc(
     DataValue: bytes,
     SourceName: str,
     BulkData: bytes,
@@ -86,7 +86,7 @@ def ProjectFusionDoc(
 ) -> CadDocument:
     Parts, Params, Diagnostics = ReadBulkHistory(BulkData, Spans)
     Assembly, History, AssemblyIssues = (
-        ReadAssemblyProjection(BulkData, Spans, Parts)
+        ReadAsmProject(BulkData, Spans, Parts)
         if HistoryId is None
         else (None, None, ())
     )
@@ -109,14 +109,12 @@ def ProjectFusionDoc(
             for ParamValue in Params
         ),
     )
-    Steps = ProjectConstructionPlanes(
-        BulkData, Spans, History, Planes, Steps, Parameters
-    )
+    Steps = ProjectDatums(BulkData, Spans, History, Planes, Steps, Parameters)
     Sketches, SketchRuleIssues = AttachRules(BulkData, Spans, Sketches, Parameters)
     Steps, ExtrudeIssues = ProjectExtrudes(
         BulkData, Spans, Steps, Parameters, Frames, Sketches
     )
-    Steps, PlanePicks, PlaneExtIssues = ProjectPlaneExts(
+    Steps, PlanePicks, PlaneExtIssues = ProjectPlaneExt(
         BulkData, Spans, History.OwnerId, Steps, Parameters, Planes + Frames, Sketches
     )
     Steps, Selections, RevolveIssues = ProjectRevolves(
@@ -224,7 +222,7 @@ def ProjectFusionDoc(
         ),
     )
     Document = ProjectBodyList(Document, BulkData, Spans, History)
-    Document = ProjectBodyPicks(Document, BulkData, Spans, History)
+    Document = ProjectPicks(Document, BulkData, Spans, History)
     Document = ProjectScale(Document, BulkData, Spans, History, LoadBlob)
     Document.AssertValid()
     return Document

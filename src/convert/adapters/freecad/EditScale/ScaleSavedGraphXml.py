@@ -12,12 +12,12 @@ from xml.etree.ElementTree import Element
 
 # only the documented tree framing can describe the native model objects
 def CheckGraphTree(Document: Element) -> None:
-    Tags = tuple(Value.tag for Value in Document)
+    TagValues = tuple(Value.tag for Value in Document)
     if (
         Document.tag != "Document"
         or Document.get("SchemaVersion") != "4"
         or Document.get("FileVersion") != "1"
-        or Tags
+        or TagValues
         not in (
             ("Properties", "Objects", "ObjectData"),
             ("StringHasher", "StringHasher2", "Properties", "Objects", "ObjectData"),
@@ -47,8 +47,10 @@ def CheckGraphTree(Document: Element) -> None:
             DeclareNames.add(NameValue)
         elif Value.tag == "ObjectDeps" and Value.attrib.keys() == {"Name", "Count"}:
             if any(
-                Link.tag != "Dep" or len(Link) or Link.attrib.keys() != {"Name"}
-                for Link in Value
+                LinkValue.tag != "Dep"
+                or len(LinkValue)
+                or LinkValue.attrib.keys() != {"Name"}
+                for LinkValue in Value
             ):
                 raise ValueError("FreeCAD editable Scale native dependency row changed")
             DepNames.add(Value.attrib["Name"])
@@ -62,12 +64,12 @@ def CheckGraphTree(Document: Element) -> None:
 
 # object properties and extensions must have one unambiguous native container
 def CheckDataNode(Value: Element) -> None:
-    Tags = tuple(Child.tag for Child in Value)
-    WithExt = Tags == ("Extensions", "Properties")
+    TagValues = tuple(Child.tag for Child in Value)
+    WithExt = TagValues == ("Extensions", "Properties")
     Attrs = {"name", "Extensions"} if WithExt else {"name"}
     if (
         Value.tag != "Object"
-        or Tags not in (("Properties",), ("Extensions", "Properties"))
+        or TagValues not in (("Properties",), ("Extensions", "Properties"))
         or set(Value.attrib) != Attrs
         or (WithExt and Value.get("Extensions") != "True")
     ):

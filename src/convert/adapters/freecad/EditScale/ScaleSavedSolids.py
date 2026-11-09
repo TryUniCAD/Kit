@@ -33,17 +33,15 @@ from interchange.geometry.models.VectorSpace import SpaceVector
 
 
 # matching the evaluated factor prevents accepting a stale spreadsheet dependency
-def CheckResultFactors(
-    Native: NativeObject, Uniform: bool, Factors: SpaceVector
-) -> None:
+def CheckScaleRatio(Native: NativeObject, Uniform: bool, Factors: SpaceVector) -> None:
     Controls = (
         (("UniformScale", Factors.x),)
         if Uniform
         else (("XScale", Factors.x), ("YScale", Factors.y), ("ZScale", Factors.z))
     )
-    for Name, Value in Controls:
+    for NameValue, Value in Controls:
         Saved = EditFloat(
-            EditChild(Native, Name, "App::PropertyFloat", "Float"), "value"
+            EditChild(Native, NameValue, "App::PropertyFloat", "Float"), "value"
         )
         if not IsClose(Saved, Value, rel_tol=1e-12, abs_tol=0.0):
             raise ValueError(
@@ -52,9 +50,9 @@ def CheckResultFactors(
 
 
 # exact ids correlate each independently witnessed native cache to its ordered source body
-def RebuildScaleSolids(
+def RebuildScale(
     Document: CadDocument,
-    Plan: ScaleWritePlan,
+    PlanValue: ScaleWritePlan,
     Definition: BoundScale,
     Objects: Mapping[str, NativeObject],
     Shapes: Mapping[str, bytes],
@@ -75,35 +73,40 @@ def RebuildScaleSolids(
     }
     Shift = ScaleOffset(Center, Factors)
     Bodies, Models = CastValue(tuple[list[DesignBody], list[BrepModel]], ([], []))
-    for Body, BodyPlan, PickId in zip(
-        Document.bodies, Plan.Bodies, Definition.BodySelectionIds, strict=True
+    for BodyValue, BodyPlan, PickId in zip(
+        Document.bodies, PlanValue.Bodies, Definition.BodySelectionIds, strict=True
     ):
         ComponentId = Selections[PickId].query["native_component_id"]
         if type(ComponentId) is not int:
             raise ValueError("FreeCAD editable Scale native component is invalid")
-        Seed = ReadScaleSeed(Document, Steps[BodyPlan.SourceId], ComponentId)
-        Source, Result = Sources[BodyPlan.SourceId], Results[Body.id]
-        Depth = ReadEditDepth(Source, Seed.Frame.z_axis)
+        SeedValue = ReadScaleSeed(Document, Steps[BodyPlan.SourceId], ComponentId)
+        Source, Result = Sources[BodyPlan.SourceId], Results[BodyValue.id]
+        Depth = ReadEditDepth(Source, SeedValue.Frame.z_axis)
         if not IsClose(
-            Depth, Seed.Depth, rel_tol=1e-12, abs_tol=0.0
+            Depth, SeedValue.Depth, rel_tol=1e-12, abs_tol=0.0
         ) or not IsEditPrism(
             Shapes.get(Source.name, b""),
-            Seed.Frame,
-            ReadPrismRing(Seed.Profile),
-            Seed.Depth,
+            SeedValue.Frame,
+            ReadPrismRing(SeedValue.Profile),
+            SeedValue.Depth,
         ):
             raise ValueError(
                 "FreeCAD editable Scale source solid disagrees with its profile or depth"
             )
-        CheckResultFactors(Result, len(Plan.FactorIds) == 1, Factors)
+        CheckScaleRatio(Result, len(PlanValue.FactorIds) == 1, Factors)
         CheckEditFrame(Result, "Placement", Transform(origin=Shift))
         Geometry = BuildScalePrism(
-            Body.id, Seed.Profile, Seed.Frame, Seed.Depth, Factors, Center
+            BodyValue.id,
+            SeedValue.Profile,
+            SeedValue.Frame,
+            SeedValue.Depth,
+            Factors,
+            Center,
         )
         if not IsScalePrism(Shapes.get(Result.name, b""), Geometry[0], Shift):
             raise ValueError(
                 "FreeCAD editable Scale result solid disagrees with its live controls"
             )
-        Bodies.append(Replace(Body, topology=GetBodyTopology(Geometry)))
+        Bodies.append(Replace(BodyValue, topology=GetBodyTopology(Geometry)))
         Models.append(Geometry[0])
     return Replace(Document, bodies=tuple(Bodies), brep=JoinRevModels(tuple(Models)))

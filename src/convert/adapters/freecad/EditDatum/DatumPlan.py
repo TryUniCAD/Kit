@@ -11,12 +11,12 @@ from convert.adapters.freecad.EditExtDepth import IsLiteralParam
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.document.validation.BoundPlaneValidate import CheckBoundPlane
 from interchange.enums.EnumUnits import UnitSystem
-from interchange.features.FeatureBoundPlane import BoundConstructionPlane
+from interchange.features.FeatureBoundPlane import BoundDatum
 from interchange.payloads.PayloadRoles import PayloadRole
 
 
 # an independent datum timeline has no solid consumer or unsupported configuration state
-def ReadDatumPlan(DocValue: CadDocument) -> dict[str, BoundConstructionPlane]:
+def ReadDatumPlan(DocValue: CadDocument) -> dict[str, BoundDatum]:
     Steps = DocValue.feature_timeline
     if (
         not Steps
@@ -42,23 +42,23 @@ def ReadDatumPlan(DocValue: CadDocument) -> dict[str, BoundConstructionPlane]:
     Frames = {Value.id: Value for Value in DocValue.support_planes}
     UsedParams: set[str] = set()
     UsedPlanes: set[str] = set()
-    Result: dict[str, BoundConstructionPlane] = {}
-    for Step in Steps:
-        Definition = Step.definition
+    Result: dict[str, BoundDatum] = {}
+    for StepValue in Steps:
+        Definition = StepValue.definition
         if (
-            not isinstance(Definition, BoundConstructionPlane)
-            or Step.input_feature_ids
-            or Step.sketch_id is not None
-            or Step.operation is not None
-            or Step.selection_ids
-            or Step.suppressed
-            or Step.configuration_states
-            or Step.attributes.get("fusion.rolled_back") is True
+            not isinstance(Definition, BoundDatum)
+            or StepValue.input_feature_ids
+            or StepValue.sketch_id is not None
+            or StepValue.operation is not None
+            or StepValue.selection_ids
+            or StepValue.suppressed
+            or StepValue.configuration_states
+            or StepValue.attributes.get("fusion.rolled_back") is True
             or (
                 DocValue.source.format_id == "fusion.f3d"
                 and (
-                    Step.attributes.get("fusion.state_known") is not True
-                    or Step.attributes.get("fusion.rolled_back") is not False
+                    StepValue.attributes.get("fusion.state_known") is not True
+                    or StepValue.attributes.get("fusion.rolled_back") is not False
                 )
             )
         ):
@@ -67,8 +67,8 @@ def ReadDatumPlan(DocValue: CadDocument) -> dict[str, BoundConstructionPlane]:
         Plane = Frames.get(Definition.SupportPlaneId)
         if (
             len(BoundIds) != 2
-            or len(Step.parameter_ids) != 2
-            or set(Step.parameter_ids) != BoundIds
+            or len(StepValue.parameter_ids) != 2
+            or set(StepValue.parameter_ids) != BoundIds
             or not BoundIds <= Parameters.keys()
             or BoundIds & UsedParams
             or Plane is None
@@ -83,12 +83,12 @@ def ReadDatumPlan(DocValue: CadDocument) -> dict[str, BoundConstructionPlane]:
         ):
             return {}
         try:
-            CheckBoundPlane(Step, Definition, Parameters, Frames)
+            CheckBoundPlane(StepValue, Definition, Parameters, Frames)
         except ValueError:
             return {}
         UsedParams.update(BoundIds)
         UsedPlanes.add(Plane.id)
-        Result[Step.id] = Definition
+        Result[StepValue.id] = Definition
     if (
         len(Result) != len(Steps)
         or len(UsedParams) != len(DocValue.parameters)

@@ -19,25 +19,29 @@ KContainerGuid = "C3423E04-7E85-4B44-8E31-A5FA9C100052"
 
 
 # fixed suffix fields must remain within the validated record that owns them
-def HistoryLink(BulkData: bytes, Span: RecordSpan, Distance: int) -> int:
-    Start = Span.EndOffset - Distance
-    if Start < Span.PayloadOffset + 4:
+def HistoryLink(BulkData: bytes, SpanValue: RecordSpan, Distance: int) -> int:
+    Start = SpanValue.EndOffset - Distance
+    if Start < SpanValue.PayloadOffset + 4:
         raise ValueError("Truncated Fusion assembly history link")
     return ReadNativeRef(MetaCursor(BulkData[Start : Start + 11]))
 
 
 # only a proven root timeline may represent an assembly with empty child histories
-def ResolveAssemblyHistories(
+def ReadAsmHistory(
     BulkData: bytes,
     Spans: tuple[RecordSpan, ...],
     Assembly: NativeAssembly,
     Parts: tuple[HistoryPart, ...],
 ) -> dict[int, HistoryPart]:
-    Primary = {Span.ObjectId: Span for Span in Spans if Span.IsPrimary}
-    Indexed = {
-        Span.ObjectId for Span in Primary.values() if Span.ClassGuid == KHistoryGuid
+    Primary = {
+        SpanValue.ObjectId: SpanValue for SpanValue in Spans if SpanValue.IsPrimary
     }
-    ByHistory = {Part.HistoryId: Part for Part in Parts}
+    Indexed = {
+        SpanValue.ObjectId
+        for SpanValue in Primary.values()
+        if SpanValue.ClassGuid == KHistoryGuid
+    }
+    ByHistory = {PartValue.HistoryId: PartValue for PartValue in Parts}
     if Indexed != ByHistory.keys():
         raise ValueError("Fusion assembly has unreadable histories")
     HistoryMap: dict[int, HistoryPart] = {}

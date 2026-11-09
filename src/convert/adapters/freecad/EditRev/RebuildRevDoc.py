@@ -21,7 +21,7 @@ def RebuildRevDoc(
     DocValue: CadDocument,
     Profile: Sketch,
     Frame: Transform,
-    Span: tuple[float, float],
+    SpanValue: tuple[float, float],
 ) -> CadDocument:
     Feature = DocValue.feature_timeline[-1]
     Definition = Feature.definition
@@ -29,7 +29,7 @@ def RebuildRevDoc(
         raise ValueError("FreeCAD editable Revolve source definition is unavailable")
     (BodyValue,) = DocValue.bodies
     Model, Volume, AreaValue, Bounds = BuildRevGeom(
-        BodyValue.id, Feature, Definition, Span, Profile, Frame
+        BodyValue.id, Feature, Definition, SpanValue, Profile, Frame
     )
     if len(Model.regions) != 1 or Model.validate(frozenset({BodyValue.id})):
         raise ValueError("FreeCAD editable Revolve rebuilt an invalid solid")

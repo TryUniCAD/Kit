@@ -26,7 +26,7 @@ KRequiresCodec = Pytest.mark.skipif(
 
 
 # only translation values change when converting a native matrix to document units
-def ConvertPlacement(Matrix: list[float]) -> tuple[float, ...]:
+def ConvertPose(Matrix: list[float]) -> tuple[float, ...]:
     return tuple(
         Value * 10.0 if Index in (3, 7, 11) else Value
         for Index, Value in enumerate(Matrix)
@@ -35,7 +35,7 @@ def ConvertPlacement(Matrix: list[float]) -> tuple[float, ...]:
 
 # repeated subassemblies retain native topology and reproduce saved proxy placements
 @KRequiresCodec
-def CheckAssemblyRead() -> None:
+def CheckAsmRead() -> None:
     Folder = KStudyPath / "assembly-acc48a9dc05d"
     InputPath = Folder / "assembly.f3d"
     Oracle = LoadJson((Folder / "ground_truth.json").read_text(encoding="utf-8"))
@@ -56,7 +56,7 @@ def CheckAssemblyRead() -> None:
     assert Document.metadata["fusion.history_id"] == 35
     assert len(Document.feature_timeline) == len(Oracle["timeline"])
     Children = Assembly.children(Assembly.root_definition_id)
-    assert [Item.name for Item in Children] == [
+    assert [ItemValue.name for ItemValue in Children] == [
         "ComponentA:1",
         "ComponentC:1",
         "ComponentA:2",
@@ -65,7 +65,9 @@ def CheckAssemblyRead() -> None:
     assert len(Assembly.children(Children[0].definition_id)) == 1
     for Occurrence in Oracle["occurrences"]:
         NameParts = Occurrence["path"].split("+")
-        Parent = next(Item for Item in Children if Item.name == NameParts[0])
+        Parent = next(
+            ItemValue for ItemValue in Children if ItemValue.name == NameParts[0]
+        )
         if len(NameParts) == 1:
             Local = Parent
             World = Parent.transform.values
@@ -73,18 +75,18 @@ def CheckAssemblyRead() -> None:
             (Local,) = Assembly.children(Parent.definition_id)
             World = tuple(
                 sum(
-                    Parent.transform.values[Row * 4 + Index]
+                    Parent.transform.values[RowValue * 4 + Index]
                     * Local.transform.values[Index * 4 + Column]
                     for Index in range(4)
                 )
-                for Row in range(4)
+                for RowValue in range(4)
                 for Column in range(4)
             )
         assert Local.name == Occurrence["name"]
         assert Local.transform.values == Pytest.approx(
-            ConvertPlacement(Occurrence["native_transform2"])
+            ConvertPose(Occurrence["native_transform2"])
         )
-        assert World == Pytest.approx(ConvertPlacement(Occurrence["transform2"]))
+        assert World == Pytest.approx(ConvertPose(Occurrence["transform2"]))
     assert Document.validate() == ()
     assert CadDocument.from_json(Document.to_json()) == Document
     assert Document.brep_payloads[0].data == InputPath.read_bytes()
@@ -95,7 +97,7 @@ def CheckAssemblyRead() -> None:
 
 # joint cached transforms are not substituted for independently solved placements
 @KRequiresCodec
-def CheckJointPlacement() -> None:
+def CheckJointPose() -> None:
     InputPath = KStudyPath / "jointmodes-20d3aef2a07d" / "slider.f3d"
     with Pytest.raises(ValueError, match="Select exactly one Fusion history"):
         _ = OpenDocument(InputPath, strict=False)

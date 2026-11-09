@@ -33,9 +33,9 @@ def AddScaleResMut(
     Context: DocContext,
     Features: DocFeatures,
     Feature: FeatureData,
-    Seed: Object,
+    SeedValue: Object,
     Cache: ScaleCache,
-    Refs: tuple[str, ...],
+    References: tuple[str, ...],
     Factors: SpaceVector,
     Translation: SpaceVector,
     PointName: str,
@@ -51,9 +51,9 @@ def AddScaleResMut(
     Result.properties.extend(
         [
             StringProp("Label", Label),
-            LinkProp("Base", Seed.name),
-            BoolProp("Uniform", len(Refs) == 1),
-            FloatProp("UniformScale", Factors.x if len(Refs) == 1 else 1.0),
+            LinkProp("Base", SeedValue.name),
+            BoolProp("Uniform", len(References) == 1),
+            FloatProp("UniformScale", Factors.x if len(References) == 1 else 1.0),
             FloatProp("XScale", Factors.x),
             FloatProp("YScale", Factors.y),
             FloatProp("ZScale", Factors.z),
@@ -67,13 +67,13 @@ def AddScaleResMut(
                     }
                 },
             ),
-            ExpressionProp(ScaleExprs(Refs, PointName)),
+            ExpressionProp(ScaleExprs(References, PointName)),
             ShapeProp(Entry),
             StringProp("KitBodyId", Cache.Body.BodyId, Dynamic=True),
             BoolProp("Visibility", True),
         ]
     )
-    Result.dependencies.extend((Seed.name, Context.ParamSheet.name))
+    Result.dependencies.extend((SeedValue.name, Context.ParamSheet.name))
     if PointName:
         Result.dependencies.append(PointName)
     if SoleResult:

@@ -31,12 +31,12 @@ def ReadScaleBody(
     Document: CadDocument,
     Feature: FeatureStep,
     Source: FeatureStep,
-    Body: DesignBody,
-    Pick: Selection,
+    BodyValue: DesignBody,
+    PickValue: Selection,
     Factors: SpaceVector,
     Center: SpaceVector,
 ) -> tuple[ScaleBodyPlan, BrepModel]:
-    Query = Pick.query
+    Query = PickValue.query
     Component = Query.get("native_component_id")
     NativeBody = Query.get("native_body_id")
     Definition = Source.definition
@@ -49,12 +49,12 @@ def ReadScaleBody(
         or not IsSavedActive(Source)
         or Source.order >= Feature.order
         or Source.sketch_id is None
-        or Body.id != f"fusion-derived-body-{Source.id}"
-        or Body.final_feature_id != Feature.id
-        or Body.provenance is None
-        or Body.provenance.native_id != str(NativeBody)
-        or Body.attributes.get("fusion.scale_source_feature_id") != Source.id
-        or Body.attributes.get("fusion.geometry_source") != "source_profile_scale"
+        or BodyValue.id != f"fusion-derived-body-{Source.id}"
+        or BodyValue.final_feature_id != Feature.id
+        or BodyValue.provenance is None
+        or BodyValue.provenance.native_id != str(NativeBody)
+        or BodyValue.attributes.get("fusion.scale_source_feature_id") != Source.id
+        or BodyValue.attributes.get("fusion.geometry_source") != "source_profile_scale"
     ):
         raise ValueError("FreeCAD Scale body or source Extrude is unresolved")
     Sketch = next(
@@ -66,21 +66,27 @@ def ReadScaleBody(
         Value for Value in Document.parameters if Value.owner_id == Source.id
     )
     Depth = ReadSeedDepth(Source, Definition, Params)
-    Seed = ReadScaleSeed(Document, Source, Component)
-    if Depth != Seed.Depth:
+    SeedValue = ReadScaleSeed(Document, Source, Component)
+    if Depth != SeedValue.Depth:
         raise ValueError("FreeCAD Scale source depth disagrees with its profile")
-    World = BuildScalePrism(Body.id, Seed.Profile, Seed.Frame, Depth, Factors, Center)
-    if Body.topology != GetBodyTopology(World):
+    World = BuildScalePrism(
+        BodyValue.id, SeedValue.Profile, SeedValue.Frame, Depth, Factors, Center
+    )
+    if BodyValue.topology != GetBodyTopology(World):
         raise ValueError("FreeCAD Scale result body geometry disagrees with its source")
     SourceModel = BuildPrism(
-        Body.id, Seed.Frame, Seed.Profile, min(0.0, Depth), max(0.0, Depth)
+        BodyValue.id,
+        SeedValue.Frame,
+        SeedValue.Profile,
+        min(0.0, Depth),
+        max(0.0, Depth),
     )[0]
     ResultModel = BuildScalePrism(
-        Body.id, Seed.Profile, Seed.Frame, Depth, Factors, KScaleOrigin
+        BodyValue.id, SeedValue.Profile, SeedValue.Frame, Depth, Factors, KScaleOrigin
     )[0]
     return (
         ScaleBodyPlan(
-            Body.id,
+            BodyValue.id,
             Source.id,
             Source.sketch_id,
             Definition.AlongParameterId,

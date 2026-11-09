@@ -50,14 +50,14 @@ def BuildCircular(
         raise ValueError(
             "Circular extrusion requires finite ordered heights and positive radii"
         )
-    Origin, Radial, Tangent, Axis = (
+    Origin, Radial, Tangent, AxisValue = (
         FrameValue.origin,
         FrameValue.x_axis,
         FrameValue.y_axis,
         FrameValue.z_axis,
     )
-    CheckSweepFrame(Origin, Axis, Radial)
-    Cross = CrossVector(Axis, Radial)
+    CheckSweepFrame(Origin, AxisValue, Radial)
+    Cross = CrossVector(AxisValue, Radial)
     if (
         not Distance((Cross.x, Cross.y, Cross.z), (Tangent.x, Tangent.y, Tangent.z))
         <= 1e-9
@@ -72,5 +72,10 @@ def BuildCircular(
         (UpperRadius, UpperMm),
         (0.0, UpperMm),
     )
-    Volume, Area, Bounds = MeasureFullTurn(Meridian, Center, Axis, Radial)
-    return BuildFullSweep(BodyId, Meridian, Center, Axis, Radial), Volume, Area, Bounds
+    Volume, AreaValue, Bounds = MeasureFullTurn(Meridian, Center, AxisValue, Radial)
+    return (
+        BuildFullSweep(BodyId, Meridian, Center, AxisValue, Radial),
+        Volume,
+        AreaValue,
+        Bounds,
+    )

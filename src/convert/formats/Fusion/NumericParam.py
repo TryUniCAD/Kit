@@ -31,7 +31,7 @@ def ReadParamBind(Cursor: MetaCursor) -> int | None:
 
 
 # the newer zero extension is accepted only for the observed bound numeric layout
-def ReadRoleField(Cursor: MetaCursor, BindingId: int | None) -> tuple[str, bytes]:
+def ReadRoleMut(Cursor: MetaCursor, BindingId: int | None) -> tuple[str, bytes]:
     Metadata = Cursor.TakeBytes(10)
     if Metadata[:4] != bytes(4):
         raise ValueError("Unsupported Fusion parameter value type")
@@ -57,7 +57,7 @@ def ReadNativeNum(BodyValue: bytes) -> NativeParam:
     NativeIndex = Cursor.ReadWord()
     BindingId = ReadParamBind(Cursor)
     Formula = Cursor.ReadText(True, Maximum=1024)
-    RoleName, Metadata = ReadRoleField(Cursor, BindingId)
+    RoleName, Metadata = ReadRoleMut(Cursor, BindingId)
     Reserved = Cursor.ReadText(True, Maximum=1024)
     DisplayUnit = Cursor.ReadText(True, Maximum=1024)
     ParamName = Cursor.ReadText(True, Maximum=1024)

@@ -64,10 +64,10 @@ def ReconcileRev(
         return DocValue
     if Feature is None or (Binding is not None and Binding != Feature.id):
         raise ValueError("FreeCAD editable Revolve binding disagrees with its source")
-    Plan = ReadEditRevolve(DocValue, Feature)
-    if Plan is None:
+    PlanValue = ReadEditRevolve(DocValue, Feature)
+    if PlanValue is None:
         raise ValueError("FreeCAD editable Revolve binding has no qualified source")
-    Fields = ReadRevFields(RootValue, DocValue, Plan)
+    Fields = ReadRevFields(RootValue, DocValue, PlanValue)
     CheckRevWire(
         Archive,
         Members,

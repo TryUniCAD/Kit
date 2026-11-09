@@ -9,22 +9,22 @@
 from dataclasses import replace as Replace
 
 from convert.formats.Fusion.AnglePlane.AnglePlaneBasis import IsSameAngPlane
-from convert.formats.Fusion.ConstructionPlane.PlaneControls import ReadPlaneControls
+from convert.formats.Fusion.ConstructionPlane.PlaneControls import ReadPlaneParams
 from convert.formats.Fusion.Extrudes.ExtParamLinks import BindExtRoles
 from convert.formats.Fusion.HistoryPart import HistoryPart
 from convert.formats.Fusion.NativePlane import KPlaneFeature
 from convert.formats.Fusion.RecordSpan import RecordSpan
 from convert.formats.Fusion.Topology.BodyScope import FindBodyScope
 from interchange.enums.EnumFeatures import FeatureKind
-from interchange.features.BoundPlaneValues import GetConstructionFrame
-from interchange.features.FeatureBoundPlane import BoundConstructionPlane
+from interchange.features.BoundPlaneValues import GetDatumFrame
+from interchange.features.FeatureBoundPlane import BoundDatum
 from interchange.features.FeatureStep import FeatureStep
 from interchange.geometry.models.SupportPlane import SupportPlane
 from interchange.records.RecordParameter import Parameter
 
 
 # typed definitions require agreement across the cached plane and its owned inputs
-def ReadConstructionStep(
+def ReadDatumStep(
     BulkData: bytes,
     Owners: dict[int, RecordSpan],
     StepValue: FeatureStep,
@@ -36,7 +36,7 @@ def ReadConstructionStep(
     if Origin is None:
         raise ValueError("Fusion construction plane feature has no source identity")
     FeatureId = int(Origin.native_id)
-    Controls = ReadPlaneControls(BulkData, Owners, Plane)
+    Controls = ReadPlaneParams(BulkData, Owners, Plane)
     if (
         Controls.ComponentId != ComponentId
         or Plane.attributes.get("fusion.feature_object_id") != FeatureId
@@ -56,7 +56,7 @@ def ReadConstructionStep(
             (Controls.OffsetBindingId, "ExtraOffset", "cm"),
         ),
     )
-    Definition = BoundConstructionPlane(
+    Definition = BoundDatum(
         Plane.id,
         Identities[Controls.ScalarBindingId],
         Identities[Controls.OffsetBindingId],
@@ -65,7 +65,7 @@ def ReadConstructionStep(
     )
     Qualified = Replace(StepValue, definition=Definition)
     if not IsSameAngPlane(
-        GetConstructionFrame(Qualified, Definition, Params), Plane.transform
+        GetDatumFrame(Qualified, Definition, Params), Plane.transform
     ):
         raise ValueError(
             "Fusion construction plane definition disagrees with its cached frame"
@@ -74,7 +74,7 @@ def ReadConstructionStep(
 
 
 # unqualified native datums retain their saved frame without an invented authoring method
-def ProjectConstructionPlanes(
+def ProjectDatums(
     BulkData: bytes,
     Spans: tuple[RecordSpan, ...],
     History: HistoryPart,
@@ -93,7 +93,9 @@ def ProjectConstructionPlanes(
     ByFeature = {
         str(Plane.attributes.get("fusion.feature_object_id")): Plane for Plane in Planes
     }
-    Owners = {Span.ObjectId: Span for Span in Spans if Span.IsPrimary}
+    Owners = {
+        SpanValue.ObjectId: SpanValue for SpanValue in Spans if SpanValue.IsPrimary
+    }
     Params = {Value.id: Value for Value in Parameters}
     Result: list[FeatureStep] = []
     for StepValue in Steps:
@@ -109,7 +111,7 @@ def ProjectConstructionPlanes(
             and Origin.native_id in ByFeature
         ):
             try:
-                Qualified = ReadConstructionStep(
+                Qualified = ReadDatumStep(
                     BulkData,
                     Owners,
                     StepValue,

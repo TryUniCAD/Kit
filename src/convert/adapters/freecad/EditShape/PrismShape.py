@@ -35,7 +35,7 @@ def IsEditPrism(
     Frame: Transform,
     Profile: tuple[PlaneVector, ...],
     DistanceMm: float,
-    Link: KPrismLink | None = None,
+    LinkValue: KPrismLink | None = None,
 ) -> bool:
     if (
         not ShapeData
@@ -48,8 +48,8 @@ def IsEditPrism(
     try:
         Expected = ExpectedShape(Frame, Profile, DistanceMm)
         RawValue = ReadPrismRaw(ShapeData, len(Profile))
-        if Link is not None:
-            CheckPrismLink(RawValue, Link)
+        if LinkValue is not None:
+            CheckPrismLink(RawValue, LinkValue)
         return IsPrismMatch(RawValue, Expected)
     except (KeyError, OverflowError, ValueError):
         return False

@@ -19,15 +19,15 @@ def ScaleOffset(Center: SpaceVector, Factors: SpaceVector) -> SpaceVector:
 
 
 # active factor axes and any point placement share the same spreadsheet dependencies
-def ScaleExprs(Refs: tuple[str, ...], PointName: str) -> list[tuple[str, str]]:
-    Uniform = len(Refs) == 1
+def ScaleExprs(References: tuple[str, ...], PointName: str) -> list[tuple[str, str]]:
+    Uniform = len(References) == 1
     Names = ("UniformScale",) if Uniform else ("XScale", "YScale", "ZScale")
-    Result: list[tuple[str, str]] = list(zip(Names, Refs, strict=True))
+    Result: list[tuple[str, str]] = list(zip(Names, References, strict=True))
     if PointName:
-        Axes = Refs * 3 if Uniform else Refs
+        AxisValues = References * 3 if Uniform else References
         Terms = "; ".join(
-            f"{PointName}.Placement.Base.{Axis} * (1 - {Ref})"
-            for Axis, Ref in zip("xyz", Axes, strict=True)
+            f"{PointName}.Placement.Base.{AxisValue} * (1 - {ReferenceValue})"
+            for AxisValue, ReferenceValue in zip("xyz", AxisValues, strict=True)
         )
         Result.append(
             (

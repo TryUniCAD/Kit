@@ -48,12 +48,14 @@ def GetBodyEvidence(
 def LinkBodyRecords(
     Bodies: tuple[DesignBody, ...], Members: tuple[NativeBody, ...]
 ) -> tuple[tuple[DesignBody, ...], dict[int, str]]:
-    ById = {str(Member.ObjectId): Member for Member in Members}
+    ByIdentity = {str(Member.ObjectId): Member for Member in Members}
     Projected: list[DesignBody] = []
     LinkedIds: dict[int, str] = {}
     for BodyValue in Bodies:
         Member = (
-            ById.get(BodyValue.provenance.native_id) if BodyValue.provenance else None
+            ByIdentity.get(BodyValue.provenance.native_id)
+            if BodyValue.provenance
+            else None
         )
         if (
             Member is not None

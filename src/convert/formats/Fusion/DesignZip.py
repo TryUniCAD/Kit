@@ -11,7 +11,7 @@ from collections.abc import Callable
 from convert.formats.Fusion.ArchiveRead.IndexedArchive import (
     KDesignPrefix as KDesignPrefix,
 )
-from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionArchive
+from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionZip
 from convert.formats.Fusion.RecordSpan import RecordSpan
 
 
@@ -19,5 +19,5 @@ from convert.formats.Fusion.RecordSpan import RecordSpan
 def ReadDesignZip(
     DataValue: bytes, InflateZstd: Callable[[bytes, int], bytes] | None = None
 ) -> tuple[bytes, tuple[RecordSpan, ...]]:
-    with OpenFusionArchive(DataValue, InflateZstd) as Session:
+    with OpenFusionZip(DataValue, InflateZstd) as Session:
         return Session.ReadDesign()

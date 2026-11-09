@@ -67,7 +67,7 @@ def TestScaleRead(
     Factors: tuple[float, float, float],
     Center: tuple[float, float, float],
     Volume: float,
-    Area: float,
+    AreaValue: float,
     Count: int,
 ) -> None:
     Archive = KStudyPath / Sample
@@ -89,28 +89,30 @@ def TestScaleRead(
         SpaceVector(*Center),
     )
     assert len(Document.bodies) == Count and Document.brep is not None
-    for Body, SelectionId in zip(
+    for BodyValue, SelectionId in zip(
         Document.bodies, Definition.BodySelectionIds, strict=True
     ):
         Query = Selections[SelectionId].query
-        assert Body.id == f"fusion-derived-body-{Query['source_feature_id']}"
-        assert Body.final_feature_id == Feature.id
-        assert Body.provenance is not None and Body.provenance.native_id == str(
-            Query["native_body_id"]
-        )
-        assert (Body.topology.volume, Body.topology.surface_area) == Pytest.approx(
-            (Volume, Area)
+        assert BodyValue.id == f"fusion-derived-body-{Query['source_feature_id']}"
+        assert BodyValue.final_feature_id == Feature.id
+        assert (
+            BodyValue.provenance is not None
+            and BodyValue.provenance.native_id == str(Query["native_body_id"])
         )
         assert (
-            Body.topology.face_count,
-            Body.topology.edge_count,
-            Body.topology.vertex_count,
+            BodyValue.topology.volume,
+            BodyValue.topology.surface_area,
+        ) == Pytest.approx((Volume, AreaValue))
+        assert (
+            BodyValue.topology.face_count,
+            BodyValue.topology.edge_count,
+            BodyValue.topology.vertex_count,
         ) == (6, 12, 8)
     if Count == 2:
         assert tuple(
-            Body.topology.bounding_box.minimum.x
-            for Body in Document.bodies
-            if Body.topology.bounding_box is not None
+            BodyValue.topology.bounding_box.minimum.x
+            for BodyValue in Document.bodies
+            if BodyValue.topology.bounding_box is not None
         ) == (10.0, 94.0)
     assert CadDocument.from_json(Document.to_json()) == Document
 
@@ -134,8 +136,10 @@ def TestScaleSwap() -> None:
     Stream = ByteStream()
     with ZipFile(Archive) as Original, ZipFile(Stream, "w") as Mutated:
         BulkName = KDesignPrefix + "BulkStream.dat"
-        for Name in Original.namelist():
-            Mutated.writestr(Name, Wrong if Name == BulkName else Original.read(Name))
+        for NameValue in Original.namelist():
+            Mutated.writestr(
+                NameValue, Wrong if NameValue == BulkName else Original.read(NameValue)
+            )
     _ = Stream.seek(0)
     Document = OpenDocument(Stream, strict=False)
     assert Document.brep is None and not Document.bodies

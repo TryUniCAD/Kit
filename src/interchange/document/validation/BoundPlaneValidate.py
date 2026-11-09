@@ -10,8 +10,8 @@
 from math import dist as Distance
 from typing import Mapping as TypeMap
 
-from interchange.features.BoundPlaneValues import GetConstructionFrame
-from interchange.features.FeatureBoundPlane import BoundConstructionPlane
+from interchange.features.BoundPlaneValues import GetDatumFrame
+from interchange.features.FeatureBoundPlane import BoundDatum
 from interchange.features.FeatureStep import FeatureStep
 from interchange.features.PlaneExtAxis import GetExtVector
 from interchange.features.PlaneExtFrame import GetExtFrame
@@ -22,7 +22,7 @@ from interchange.records.RecordParameter import Parameter
 # a current support frame must reproduce the bound construction controls
 def CheckBoundPlane(
     StepValue: FeatureStep,
-    Definition: BoundConstructionPlane,
+    Definition: BoundDatum,
     Parameters: TypeMap[str, Parameter],
     Frames: TypeMap[str, SupportPlane],
 ) -> None:
@@ -31,7 +31,7 @@ def CheckBoundPlane(
         raise ValueError("construction plane is missing its support frame")
     Actual = PlaneValue.transform
     _ = GetExtFrame(Actual)
-    Expected = GetConstructionFrame(StepValue, Definition, Parameters)
+    Expected = GetDatumFrame(StepValue, Definition, Parameters)
     PositionTol, DirectionTol = (
         (1e-8, 1e-9) if Definition.Method == "angle" else (1e-9, 1e-10)
     )

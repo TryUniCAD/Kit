@@ -30,14 +30,15 @@ def ReadScopedExts(
     Edits: dict[str, int],
 ) -> tuple[CadDocument, tuple[FeatureStep, ...]]:
     Steps = {
-        int(Step.provenance.native_id): Step
-        for Step in Document.feature_timeline
-        if Step.provenance is not None
+        int(StepValue.provenance.native_id): StepValue
+        for StepValue in Document.feature_timeline
+        if StepValue.provenance is not None
     }
     SketchSteps = {
-        Step.sketch_id: Identity
-        for Identity, Step in Steps.items()
-        if Step.sketch_id is not None and Owners[Identity].ClassGuid == KSketchFeature
+        StepValue.sketch_id: Identity
+        for Identity, StepValue in Steps.items()
+        if StepValue.sketch_id is not None
+        and Owners[Identity].ClassGuid == KSketchFeature
     }
     FrameMap = {Plane.id: Plane for Plane in Document.support_planes}
     SketchFrames = {
@@ -46,19 +47,19 @@ def ReadScopedExts(
     }
     ExtIds = {
         Identity
-        for Identity, Step in Steps.items()
-        if Step.kind == FeatureKind.KExtrusion
+        for Identity, StepValue in Steps.items()
+        if StepValue.kind == FeatureKind.KExtrusion
     }
     Scopes = ReadAsmScopes(
         BulkData, Owners, OwnerId, frozenset(ExtIds | set(SketchSteps.values()))
     )
     Params = {Param.id: Param for Param in Document.parameters}
     Resolved: dict[str, FeatureStep] = {}
-    for Identity, Step in Steps.items():
-        if Identity not in ExtIds or not IsSavedActive(Step):
+    for Identity, StepValue in Steps.items():
+        if Identity not in ExtIds or not IsSavedActive(StepValue):
             continue
         Scope = Scopes.get(Identity)
-        SketchId = Step.sketch_id or ""
+        SketchId = StepValue.sketch_id or ""
         Frame = SketchFrames.get(SketchId)
         SketchIdentity = SketchSteps.get(SketchId)
         if (
@@ -71,23 +72,29 @@ def ReadScopedExts(
             raise ValueError(
                 "Fusion assembly Extrude and sketch component scopes disagree"
             )
-        if not isinstance(Step.definition, DistanceExtrude):
+        if not isinstance(StepValue.definition, DistanceExtrude):
             Authoring = ResolveAuthAxis(
                 BulkData,
                 Owners,
                 Assembly,
                 Scope,
-                Step,
+                StepValue,
                 Steps,
                 Edits,
                 Frame.transform.z_axis,
             )
-            Resolved[Step.id] = AttachDistExt(
-                BulkData, Owners, Step, Frame, Params, Authoring
+            Resolved[StepValue.id] = AttachDistExt(
+                BulkData, Owners, StepValue, Frame, Params, Authoring
             )
-    Timeline = tuple(Resolved.get(Step.id, Step) for Step in Document.feature_timeline)
-    Creators = FindExtCreators(tuple(Step for Step in Timeline if Step.id not in Edits))
-    if any(not isinstance(Step.definition, DistanceExtrude) for Step in Creators):
+    Timeline = tuple(
+        Resolved.get(StepValue.id, StepValue) for StepValue in Document.feature_timeline
+    )
+    Creators = FindExtCreators(
+        tuple(StepValue for StepValue in Timeline if StepValue.id not in Edits)
+    )
+    if any(
+        not isinstance(StepValue.definition, DistanceExtrude) for StepValue in Creators
+    ):
         raise ValueError("Unsupported Fusion assembly solid creator")
     return (
         Replace(

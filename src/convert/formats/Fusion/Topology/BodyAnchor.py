@@ -27,7 +27,7 @@ def ReadBodyAnchor(
     if len(Cursor.DataValue) != 102 or Cursor.TakeBytes(2) != bytes(2):
         raise ValueError("Unsupported Fusion body anchor layout")
     _ = ReadSelectUuid(Cursor)
-    if any(Flag not in (0, 1) for Flag in Cursor.TakeBytes(2)):
+    if any(FlagValue not in (0, 1) for FlagValue in Cursor.TakeBytes(2)):
         raise ValueError("Unsupported Fusion body anchor flags")
     BodyId = ReadNativeRef(Cursor)
     SourceId = ReadNativeRef(Cursor)

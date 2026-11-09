@@ -51,6 +51,8 @@ def ReadScaleShapes(
                 Shapes[Native.name] = ReadEditBrep(
                     Archive, Members, Entry, Limit, "editable Scale"
                 )
-    if Entries != {Name for Name in Members if Name.lower().endswith(".brp")}:
+    if Entries != {
+        NameValue for NameValue in Members if NameValue.lower().endswith(".brp")
+    }:
         raise ValueError("FreeCAD editable Scale has additional shape sidecars")
     return Shapes

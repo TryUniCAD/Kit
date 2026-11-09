@@ -23,14 +23,14 @@ def CheckBodySource(
     Context: InputContext,
     Receiver: FeatureStep,
     Scope: CreatorScope,
-    Pick: BodyPick,
+    PickValue: BodyPick,
 ) -> FeatureStep:
-    Source = Context.Steps.get(Pick.SourceId)
+    Source = Context.Steps.get(PickValue.SourceId)
     if (
         Source is None
         or Source.order >= Receiver.order
-        or Context.Scopes.get(Pick.SourceId) != Scope
-        or Context.Owners[Pick.SourceId].ClassGuid != KExtrudeGuid
+        or Context.Scopes.get(PickValue.SourceId) != Scope
+        or Context.Owners[PickValue.SourceId].ClassGuid != KExtrudeGuid
         or not IsSavedActive(Source)
     ):
         raise ValueError("Fusion selected body lacks a preceding same scope Extrude")
@@ -40,6 +40,8 @@ def CheckBodySource(
         if type(StoredOffset) is not int or StoredOffset < 0:
             raise ValueError("Missing verified Fusion plane Extrude result framing")
         ResultOffset = StoredOffset
-    CheckExtAnchor(BulkData, Context.Owners, Pick.SourceId, Pick.AnchorId, ResultOffset)
-    CheckBodyGuid(BulkData, Context.Owners, Pick.BodyId, Pick.AnchorGuid)
+    CheckExtAnchor(
+        BulkData, Context.Owners, PickValue.SourceId, PickValue.AnchorId, ResultOffset
+    )
+    CheckBodyGuid(BulkData, Context.Owners, PickValue.BodyId, PickValue.AnchorGuid)
     return Source

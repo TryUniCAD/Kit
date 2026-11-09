@@ -6,8 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from math import cos as Cos, hypot as Hypot, isfinite as IsFinite
-from math import sin as Sin, tan as Tangent, tau as FullTurn
+from math import cos as Cosine, hypot as Hypot, isfinite as IsFinite
+from math import sin as SineValue, tan as Tangent, tau as FullTurn
 
 from convert.adapters.freecad.Cylinder.CylinderFrame import (
     CylinderGap,
@@ -44,7 +44,7 @@ def ReadCylinderArc(
     ):
         return None
     AxisCross = CrossVector(ArcAxis, AxisValue)
-    Skew = Hypot(AxisCross.x, AxisCross.y, AxisCross.z)
+    SkewValue = Hypot(AxisCross.x, AxisCross.y, AxisCross.z)
     Station, CenterRadial = ProjectCylinder(Curve.center, Surface.origin, AxisValue)
     ExpectedRadius = RuledRadius(Surface, Station)
     Slope = (
@@ -53,22 +53,22 @@ def ReadCylinderArc(
     Deviation = (
         Hypot(CenterRadial.x, CenterRadial.y, CenterRadial.z)
         + abs(Curve.radius - ExpectedRadius)
-        + Curve.radius * Skew * (1.0 + Slope)
+        + Curve.radius * SkewValue * (1.0 + Slope)
     )
     Sweep = Params[1] - Params[0]
     if (
         not ExpectedRadius > 0.0
         or not AngleTol < abs(Sweep) < FullTurn - AngleTol
-        or Skew > KAxisTolerance
+        or SkewValue > KAxisTolerance
         or not Deviation <= Allowed
     ):
         return None
     ArcTangent = CrossVector(ArcAxis, ArcRef)
     Points = tuple(
         OffsetVector(
-            OffsetVector(Curve.center, ArcRef, Curve.radius * Cos(Param)),
+            OffsetVector(Curve.center, ArcRef, Curve.radius * Cosine(Param)),
             ArcTangent,
-            Curve.radius * Sin(Param),
+            Curve.radius * SineValue(Param),
         )
         for Param in Params
     )

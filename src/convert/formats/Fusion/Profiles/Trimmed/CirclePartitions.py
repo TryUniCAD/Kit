@@ -21,7 +21,7 @@ def FindCircleCuts(
     Source: CircleGeometry, Others: tuple[CircleGeometry, ...]
 ) -> tuple[float, ...]:
     Radius = Source.radius
-    Cuts: list[float] = []
+    CutValues: list[float] = []
     for Other in Others:
         DeltaX = Other.center.x - Source.center.x
         DeltaY = Other.center.y - Source.center.y
@@ -51,13 +51,16 @@ def FindCircleCuts(
             raise ValueError("Unsupported Fusion trimmed circle intersection")
         Angle = ArcTan(DeltaY, DeltaX)
         Spread = ArcCos(Cosine)
-        Cuts.extend(((Angle - Spread) % FullTurn, (Angle + Spread) % FullTurn))
-    Cuts.sort()
+        CutValues.extend(((Angle - Spread) % FullTurn, (Angle + Spread) % FullTurn))
+    CutValues.sort()
     if (
-        len(Cuts) not in (2, 4)
-        or Cuts[0] <= KTrimParameter
-        or FullTurn - Cuts[-1] <= KTrimParameter
-        or any(Upper - Lower <= KTrimParameter for Lower, Upper in zip(Cuts, Cuts[1:]))
+        len(CutValues) not in (2, 4)
+        or CutValues[0] <= KTrimParameter
+        or FullTurn - CutValues[-1] <= KTrimParameter
+        or any(
+            Upper - Lower <= KTrimParameter
+            for Lower, Upper in zip(CutValues, CutValues[1:])
+        )
     ):
         raise ValueError("Unsupported Fusion circle cut count or coincident seam")
-    return tuple(Cuts)
+    return tuple(CutValues)

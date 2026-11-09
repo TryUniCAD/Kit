@@ -33,7 +33,10 @@ def CheckRevWire(
     Profile: Sketch,
     Frame: Transform,
 ) -> None:
-    if any(Name not in Members or Members[Name].file_size for Name in EmptyEntries):
+    if any(
+        NameValue not in Members or Members[NameValue].file_size
+        for NameValue in EmptyEntries
+    ):
         raise ValueError("FreeCAD editable Revolve has an additional or missing shape")
     if not SketchEntry:
         if Profile != Original:

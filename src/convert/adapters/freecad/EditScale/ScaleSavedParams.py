@@ -12,13 +12,13 @@ from xml.etree.ElementTree import Element
 from convert.adapters.freecad.Archive import ParamCatalog
 from convert.adapters.freecad.EditRead.EditSheet import EditCells
 from convert.adapters.freecad.EditRead.Formula.SavedQuantity import KeepQuantity
-from convert.adapters.freecad.EditRead.Formula.SheetLayout import CheckSheetLayout
+from convert.adapters.freecad.EditRead.Formula.SheetLayout import CheckSheetShape
 from convert.adapters.freecad.EditRead.XmlField import KEditNumber
 from convert.adapters.freecad.LiteralQuantity import IsLiteralQty
 from convert.adapters.freecad.Native import NativeObject
 from convert.geometry.Formula.Arithmetic import (
     EvalFormula,
-    IsLiteralFormula,
+    IsLiteralExpr,
     ReadFormula,
 )
 from convert.geometry.Formula.FormulaUnits import GetQuantity
@@ -26,12 +26,12 @@ from interchange.records.RecordParameter import Expression, Parameter
 
 
 # only closed literal inputs can override the corresponding neutral scale controls
-def ReadScaleLiteral(Param: Parameter, Content: str) -> Parameter:
+def ReadScaleScalar(Param: Parameter, Content: str) -> Parameter:
     TextValue = Content.removeprefix("=")
     Formula = ReadFormula(TextValue) if len(TextValue) <= 128 else None
     if (
         Formula is None
-        or not IsLiteralFormula(Formula)
+        or not IsLiteralExpr(Formula)
         or (Content == TextValue and KEditNumber.fullmatch(TextValue) is None)
         or (Quantity := EvalFormula(Formula, {})) is None
     ):
@@ -53,7 +53,7 @@ def ReadScaleLiteral(Param: Parameter, Content: str) -> Parameter:
 # native cell framing keeps formatting records from introducing additional authored state
 def ReadScaleCells(Sheet: NativeObject, Catalog: ParamCatalog) -> dict[str, Element]:
     Cells = EditCells(Sheet, True)
-    CheckSheetLayout(Sheet, Cells, Catalog)
+    CheckSheetShape(Sheet, Cells, Catalog)
     Container = Sheet.properties["cells"][0]
     XLinks = Container.find("XLinks")
     if (
@@ -61,14 +61,14 @@ def ReadScaleCells(Sheet: NativeObject, Catalog: ParamCatalog) -> dict[str, Elem
         or XLinks is None
         or XLinks.attrib != {"count": "0"}
         or any(
-            len(Row)
-            or Row.attrib.keys()
+            len(RowValue)
+            or RowValue.attrib.keys()
             != (
                 {"address", "content", "alias"}
-                if Row.get("alias")
+                if RowValue.get("alias")
                 else {"address", "content"}
             )
-            for Row in Container.findall("Cell")
+            for RowValue in Container.findall("Cell")
         )
     ):
         raise ValueError("FreeCAD editable Scale cell metadata changed")
@@ -91,11 +91,11 @@ def ReadScaleParams(
         Before = Original[Alias].get("content", "")
         After = Cells[Alias].get("content", "")
         if Param.id in Editable:
-            Param = ReadScaleLiteral(Param, After)
+            Param = ReadScaleScalar(Param, After)
         elif Before != After and (
             GetQuantity(Param.value) is None
-            or ReadScaleLiteral(Param, Before).value
-            != ReadScaleLiteral(Param, After).value
+            or ReadScaleScalar(Param, Before).value
+            != ReadScaleScalar(Param, After).value
         ):
             raise ValueError("FreeCAD editable Scale has an unbound parameter edit")
         Result.append(Param)

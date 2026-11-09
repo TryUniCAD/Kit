@@ -6,7 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from struct import pack as Pack
+from struct import pack as PackData
 
 from pytest import raises as Raises
 
@@ -36,7 +36,7 @@ def MakeLines(Points: tuple[tuple[float, float], ...]) -> tuple[SketchEntity, ..
 
 
 # whole native members must preserve source order separately from geometric traversal
-def TestProfileOrder() -> None:
+def TestRingOrder() -> None:
     Lines = MakeLines(((0.0, 0.0), (2.0, 0.0), (2.0, 1.0), (0.0, 1.0)))
     Source = Sketch(
         id="sketch", name="rectangle", support_plane_id="plane", entities=Lines
@@ -44,9 +44,10 @@ def TestProfileOrder() -> None:
     BodyValue = (
         bytes(2)
         + NativeRef(99)
-        + Pack("<III", 1, 1, 4)
+        + PackData("<III", 1, 1, 4)
         + b"".join(
-            Pack("<IQQIIIQ", 3, TagValue, 0, 0, 1, 1, 0) for TagValue in (1, 3, 2, 4)
+            PackData("<IQQIIIQ", 3, TagValue, 0, 0, 1, 1, 0)
+            for TagValue in (1, 3, 2, 4)
         )
         + b"\1"
         + bytes(4)

@@ -79,13 +79,13 @@ def ReadRevPlaces(
 ) -> tuple[tuple[KLocationChain, ...], dict[int, tuple[float, ...]]]:
     Count = ReadCount(Cursor, b"Locations", KMaxRevPlaces)
     Chains: list[KLocationChain] = []
-    Seen: set[KLocationChain] = set()
+    SeenValues: set[KLocationChain] = set()
     Datums: dict[int, tuple[float, ...]] = {}
     for Index in range(1, Count + 1):
         ChainValue = ReadChainMut(Cursor, Index, Chains, Datums)
         if (
             not ChainValue
-            or ChainValue in Seen
+            or ChainValue in SeenValues
             or len(ChainValue) > 16
             or any(abs(Power) > 16 for _, Power in ChainValue)
             or abs(LocationScale(FoldMatrix(ChainValue[::-1], Datums)) - 1.0)
@@ -93,7 +93,7 @@ def ReadRevPlaces(
         ):
             raise DecodeFailure("unsupported Revolution placement")
         Chains.append(ChainValue)
-        Seen.add(ChainValue)
+        SeenValues.add(ChainValue)
     return ((), *Chains), Datums
 
 

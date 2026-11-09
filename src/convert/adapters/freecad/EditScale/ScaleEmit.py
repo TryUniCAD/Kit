@@ -13,7 +13,7 @@ from convert.adapters.freecad.Archive import (
     Object,
     TextAction,
 )
-from convert.adapters.freecad.EditScale.ScalePointEmit import AddScalePointMut
+from convert.adapters.freecad.EditScale.ScalePointEmit import AddScalePtMut
 from convert.adapters.freecad.EditScale.ScalePreflight import PrepScale
 from convert.adapters.freecad.EditScale.ScaleResultEmit import (
     AddScaleResMut,
@@ -34,57 +34,59 @@ def HasScaleMut(
 ) -> bool:
     if Document is None:
         return False
-    if (Plan := GetScalePlan(Document)) is None:
+    if (PlanValue := GetScalePlan(Document)) is None:
         return False
-    if (Prep := PrepScale(Context, Geometry, Features, Plan)) is None:
+    if (Prepared := PrepScale(Context, Geometry, Features, PlanValue)) is None:
         raise ValueError("FreeCAD editable Scale native graph could not be prepared")
-    CacheBySource = {Value.Body.SourceId: Value for Value in Prep.Bodies}
-    Sketches = {Value.Body.SketchId: Value.Sketch for Value in Prep.Bodies}
-    if Prep.PointSketch is not None:
-        Sketches[Plan.Center.SketchId] = Prep.PointSketch[0]
+    CacheBySource = {Value.Body.SourceId: Value for Value in Prepared.Bodies}
+    Sketches = {Value.Body.SketchId: Value.Sketch for Value in Prepared.Bodies}
+    if Prepared.PointSketch is not None:
+        Sketches[PlanValue.Center.SketchId] = Prepared.PointSketch[0]
     Seeds: dict[str, Object] = {}
     CenterName = ""
-    for Item in Features.FeatureItems:
-        Identity = TextAction(Item.get("id"))
-        if Identity == Plan.FeatureId:
+    for ItemValue in Features.FeatureItems:
+        Identity = TextAction(ItemValue.get("id"))
+        if Identity == PlanValue.FeatureId:
             continue
         if Identity in CacheBySource:
             Seeds[Identity] = AddScaleSeedMut(
                 Context, Geometry, Features, CacheBySource[Identity]
             )
-        elif Identity == Plan.Center.FeatureId and Prep.PointSketch is not None:
-            CenterName = AddScalePointMut(
-                Context, Features, Plan.Center, *Prep.PointSketch, Item
+        elif (
+            Identity == PlanValue.Center.FeatureId and Prepared.PointSketch is not None
+        ):
+            CenterName = AddScalePtMut(
+                Context, Features, PlanValue.Center, *Prepared.PointSketch, ItemValue
             ).name
         else:
             TrackSketchMut(
                 Features,
                 Geometry,
-                Sketches[TextAction(Item.get("sketch_id"))],
+                Sketches[TextAction(ItemValue.get("sketch_id"))],
                 Identity,
-                Item,
+                ItemValue,
             )
-    if not CenterName and Prep.PointSketch is not None:
-        CenterName = AddScalePointMut(
-            Context, Features, Plan.Center, *Prep.PointSketch, None
+    if not CenterName and Prepared.PointSketch is not None:
+        CenterName = AddScalePtMut(
+            Context, Features, PlanValue.Center, *Prepared.PointSketch, None
         ).name
     Results = tuple(
         AddScaleResMut(
             Context,
             Features,
-            Prep.Step,
+            Prepared.Step,
             Seeds[Cache.Body.SourceId],
             Cache,
-            Prep.Refs,
-            Plan.Factors,
-            Prep.Translation,
+            Prepared.Refs,
+            PlanValue.Factors,
+            Prepared.Translation,
             CenterName,
-            len(Prep.Bodies) == 1,
+            len(Prepared.Bodies) == 1,
         )
-        for Cache in Prep.Bodies
+        for Cache in Prepared.Bodies
     )
-    TrackScaleMut(Context, Features, Prep.Step, Results)
+    TrackScaleMut(Context, Features, Prepared.Step, Results)
     Features.EditableScaleSteps = tuple(
-        TextAction(Item.get("id")) for Item in Features.FeatureItems
+        TextAction(ItemValue.get("id")) for ItemValue in Features.FeatureItems
     )
     return True

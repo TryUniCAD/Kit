@@ -87,11 +87,11 @@ def TestLiveBodyRev(
     assert Source.bodies[0].topology is not None
     assert Source.bodies[0].topology.volume == Pytest.approx(SeedVolume)
     with ZipFile(Output) as Archive:
-        Root = ParseXml(Archive.read("Document.xml"))
-        (Extrusion,) = Root.findall("./Objects/Object[@type='Part::Extrusion']")
-        (Revolution,) = Root.findall("./Objects/Object[@type='Part::Revolution']")
+        RootValue = ParseXml(Archive.read("Document.xml"))
+        (Extrusion,) = RootValue.findall("./Objects/Object[@type='Part::Extrusion']")
+        (Revolution,) = RootValue.findall("./Objects/Object[@type='Part::Revolution']")
         SeedName, RevName = Extrusion.attrib["name"], Revolution.attrib["name"]
-        AxisLink = Root.find(
+        AxisLink = RootValue.find(
             f"./ObjectData/Object[@name='{RevName}']/Properties/Property[@name='AxisLink']/LinkSub"
         )
         assert AxisLink is not None and AxisLink.attrib == {
@@ -101,16 +101,22 @@ def TestLiveBodyRev(
         assert AxisLink[0].attrib == {"value": EdgeName}
         assert any(
             Value.attrib == {"obj": SeedName, "sub": EdgeName}
-            for Value in Root.findall(".//Property[@name='Selection']/LinkSubList/Link")
+            for Value in RootValue.findall(
+                ".//Property[@name='Selection']/LinkSubList/Link"
+            )
         )
-        Binding = Root.find(
+        Binding = RootValue.find(
             f"./ObjectData/Object[@name='KitMetadata']/Properties/Property[@name='{KBodyRevBinding}']/String"
         )
         assert (
             Binding is not None
             and Binding.get("value") == Source.feature_timeline[-1].id
         )
-        assert {Name for Name in Archive.namelist() if Name.endswith(".Shape.brp")} == {
+        assert {
+            NameValue
+            for NameValue in Archive.namelist()
+            if NameValue.endswith(".Shape.brp")
+        } == {
             f"{SeedName}.Shape.brp",
             f"{RevName}.Shape.brp",
         }
@@ -119,23 +125,23 @@ def TestLiveBodyRev(
 
 # a generated solid cannot validate a substituted edge on the same extrusion
 @KRequiresCodec
-def TestWrongBodyEdge(TmpPath: FilePath) -> None:
+def TestWrongEdge(TmpPath: FilePath) -> None:
     Source = OpenDocument(KStudyPath / KBodyCases[0][0], strict=False)
     Output = TmpPath / "linked.FCStd"
     Wrong = TmpPath / "wrong.FCStd"
     _ = WriteDocument(Source, Output)
     with ZipFile(Output) as Archive, ZipFile(Wrong, "w") as Mutated:
-        Root = ParseXml(Archive.read("Document.xml"))
-        AxisLink = Root.find(".//Property[@name='AxisLink']/LinkSub/Sub")
+        RootValue = ParseXml(Archive.read("Document.xml"))
+        AxisLink = RootValue.find(".//Property[@name='AxisLink']/LinkSub/Sub")
         assert AxisLink is not None and AxisLink.get("value") == "Edge11"
         AxisLink.set("value", "Edge9")
         for Member in Archive.namelist():
-            Data = (
-                WriteXml(Root, encoding="utf-8")
+            DataValue = (
+                WriteXml(RootValue, encoding="utf-8")
                 if Member == "Document.xml"
                 else Archive.read(Member)
             )
-            Mutated.writestr(Member, Data)
+            Mutated.writestr(Member, DataValue)
     with Pytest.raises(FreeCadAdapterA, match="axis"):
         _ = OpenDocument(Wrong)
 
@@ -178,15 +184,15 @@ def TestBodyNative(
     assert Edited[-1] < 0
     assert Reopened == Pytest.approx(Edited)
     Readback = OpenDocument(Saved)
-    Plan = ReadBodyRev(Readback, Readback.feature_timeline[-1])
-    assert Plan is not None
-    assert Plan.Extrude.DistanceMm == -3.0 and Plan.Revolve.AngleDeg == -41.0
-    assert tuple(Body.id for Body in Readback.bodies) == tuple(
-        Body.id for Body in Source.bodies
+    PlanValue = ReadBodyRev(Readback, Readback.feature_timeline[-1])
+    assert PlanValue is not None
+    assert PlanValue.Extrude.DistanceMm == -3.0 and PlanValue.Revolve.AngleDeg == -41.0
+    assert tuple(BodyValue.id for BodyValue in Readback.bodies) == tuple(
+        BodyValue.id for BodyValue in Source.bodies
     )
-    assert tuple(Body.topology.volume for Body in Readback.bodies) == Pytest.approx(
-        Edited[:2]
-    )
+    assert tuple(
+        BodyValue.topology.volume for BodyValue in Readback.bodies
+    ) == Pytest.approx(Edited[:2])
     ReExport = TmpPath / "readback.FCStd"
     assert WriteDocument(Readback, ReExport).application_usable
     assert OpenDocument(ReExport) == Readback

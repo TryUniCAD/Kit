@@ -21,10 +21,10 @@ from convert.adapters.freecad.EditRead.XmlField import EditChild
 from convert.adapters.freecad.Native import NativeObject
 from convert.geometry.Formula.Arithmetic import (
     EvalFormula,
-    IsLiteralFormula,
+    IsLiteralExpr,
     ReadFormula,
 )
-from convert.geometry.Formula.FormulaUnits import MatchQuantity
+from convert.geometry.Formula.FormulaUnits import IsMatchingQty
 from interchange.records.RecordParameter import Parameter
 from interchange.serialization.EncodeData import ToData
 
@@ -61,12 +61,12 @@ def ReadRevCells(
 def ReadRevLiteral(Content: str, Param: Parameter) -> tuple[float, str]:
     SourceText = Content[1:] if Content.startswith("=") else ""
     Formula = ReadFormula(SourceText)
-    if Formula is None or not IsLiteralFormula(Formula):
+    if Formula is None or not IsLiteralExpr(Formula):
         raise ValueError("FreeCAD editable Revolve angle cell is not a literal")
     Quantity = EvalFormula(Formula, {})
     if Quantity is None or Quantity[1] != (0, 1):
         raise ValueError("FreeCAD editable Revolve angle cell has the wrong unit")
-    if MatchQuantity(Quantity, Param.value):
+    if IsMatchingQty(Quantity, Param.value):
         return float(Param.value.value), SourceText
     return Quantity[0], SourceText
 

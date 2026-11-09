@@ -28,7 +28,7 @@ def ScaleFace(
     Edges: dict[str, BrepEdge],
     Indices: dict[str, int],
 ) -> tuple[int, ...]:
-    Uses: list[tuple[int, int]] = []
+    UseValues: list[tuple[int, int]] = []
     for UseId in LoopValue.coedge_ids:
         UseValue = Coedges[UseId]
         EdgeValue = Edges[UseValue.edge_id]
@@ -36,13 +36,15 @@ def ScaleFace(
             Indices[EdgeValue.start_vertex_id],
             Indices[EdgeValue.end_vertex_id],
         )
-        Uses.append((EndsValue[1], EndsValue[0]) if UseValue.reversed else EndsValue)
-    LoopPoints = tuple(First for First, _ in Uses)
+        UseValues.append(
+            (EndsValue[1], EndsValue[0]) if UseValue.reversed else EndsValue
+        )
+    LoopPoints = tuple(First for First, _ in UseValues)
     if (
         not LoopValue.outer
         or len(LoopPoints) < 3
         or len(set(LoopPoints)) != len(LoopPoints)
-        or tuple(Second for _, Second in Uses) != LoopPoints[1:] + LoopPoints[:1]
+        or tuple(Second for _, Second in UseValues) != LoopPoints[1:] + LoopPoints[:1]
     ):
         raise ValueError("Scale prism face does not have one ordered outer loop")
     return LoopPoints

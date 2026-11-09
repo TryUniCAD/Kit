@@ -28,24 +28,26 @@ class BodyRevCache:
 
 
 # the ordered prism cache and the live result share one corroborated signed sweep
-def BuildBodyCache(DocValue: CadDocument, Plan: BodyRevPlan) -> BodyRevCache:
+def BuildBodyCache(DocValue: CadDocument, PlanValue: BodyRevPlan) -> BodyRevCache:
     try:
         Source = next(
-            Value for Value in DocValue.sketches if Value.id == Plan.Extrude.SketchId
+            Value
+            for Value in DocValue.sketches
+            if Value.id == PlanValue.Extrude.SketchId
         )
         Order = ReadPrismOrder(
-            Plan.ExtrudeModel,
+            PlanValue.ExtrudeModel,
             Source,
-            Plan.SourceFrame,
-            Plan.AxisEdgeId,
-            Plan.AxisLineId,
-            Plan.Extrude.DistanceMm,
+            PlanValue.SourceFrame,
+            PlanValue.AxisEdgeId,
+            PlanValue.AxisLineId,
+            PlanValue.Extrude.DistanceMm,
         )
-        Alignment = DotVector(Order.Axis, Plan.Revolve.AxisDirection)
+        Alignment = DotVector(Order.Axis, PlanValue.Revolve.AxisDirection)
         if abs(abs(Alignment) - 1.0) > 1e-9:
             raise ValueError("saved edge and Revolve axes disagree")
-        Extrude = BrepModelBrep(Plan.ExtrudeModel, ChildOrders=Order.Children)
-        Revolve = BrepModelBrep(Plan.RevolveModel)
+        Extrude = BrepModelBrep(PlanValue.ExtrudeModel, ChildOrders=Order.Children)
+        Revolve = BrepModelBrep(PlanValue.RevolveModel)
     except (
         FreeCADBrepWriteError,
         IndexError,
@@ -62,5 +64,5 @@ def BuildBodyCache(DocValue: CadDocument, Plan: BodyRevPlan) -> BodyRevCache:
         Order.EdgeName,
         Order.Axis,
         Order.Base,
-        Plan.Revolve.AngleDeg if Alignment > 0.0 else -Plan.Revolve.AngleDeg,
+        PlanValue.Revolve.AngleDeg if Alignment > 0.0 else -PlanValue.Revolve.AngleDeg,
     )

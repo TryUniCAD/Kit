@@ -8,7 +8,7 @@
 
 
 from dataclasses import replace as Replace
-from struct import pack as Pack
+from struct import pack as PackData
 
 from pytest import raises as Raises
 
@@ -38,10 +38,10 @@ def TestBodyList() -> None:
             12,
             KBodyCollection,
             bytes(7)
-            + Pack("<I", 2)
+            + PackData("<I", 2)
             + Members
             + bytes(8)
-            + Pack("<I", 2)
+            + PackData("<I", 2)
             + Members
             + NativeRef(13),
         ),
@@ -60,7 +60,7 @@ def TestBodyList() -> None:
 
 
 # multiple independent creators are safe while an unverified modifying operation blocks publication
-def TestBodyCreators() -> None:
+def TestBodySources() -> None:
     Attrs = {
         "fusion.revolve.operation": "new_body",
         "fusion.revolve.solid": True,

@@ -61,14 +61,14 @@ def IsSketchWire(
         Curves, _, Records, RootRef = ApplyLocations(
             Curves, (), Records, RootRef, Locations, "freecad:edit-sketch"
         )
-        Wire = Records[RootRef.RecordA]
+        WireValue = Records[RootRef.RecordA]
         if (
-            Wire.KindValue != b"Wi"
-            or Wire.FlagBits[4] != "1"
-            or len(Wire.Children) != 1
+            WireValue.KindValue != b"Wi"
+            or WireValue.FlagBits[4] != "1"
+            or len(WireValue.Children) != 1
         ):
             return False
-        EdgeRecord = Records[Wire.Children[0].RecordA]
+        EdgeRecord = Records[WireValue.Children[0].RecordA]
         EdgeValue = EdgeRecord.GeometryA
         if not isinstance(EdgeValue, EdgeData) or len(EdgeRecord.Children) != 2:
             return False
@@ -82,7 +82,7 @@ def IsSketchWire(
         Curve = Curves[EdgeValue.Curve - 1]
         if not isinstance(Vertex, VertexData) or not isinstance(Curve, CircleCurve):
             return False
-        Rim = BrepEdge(
+        RimValue = BrepEdge(
             "sketch:rim",
             "sketch:vertex",
             "sketch:vertex",
@@ -97,7 +97,7 @@ def IsSketchWire(
                 Curve.center, PlacePrismPoint(FrameValue, Profile.center, 0.0)
             )
             and IsParallel(Curve.axis, FrameValue.z_axis)
-            and IsFullRim(Rim, Curve, Vertex.Point)
+            and IsFullRim(RimValue, Curve, Vertex.Point)
         )
     except (
         DecodeFailure,

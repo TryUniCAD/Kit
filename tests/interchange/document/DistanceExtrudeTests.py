@@ -7,7 +7,7 @@
 # to you under it immediately and permanently.
 
 from dataclasses import replace as ReplaceValue
-from math import pi as Pi
+from math import pi as CirclePi
 
 from pytest import raises as Raises
 
@@ -181,7 +181,8 @@ def CheckDistModes() -> None:
     with Raises(ValueError, match="against parameter disagree"):
         _ = ReplaceValue(Definition, SideMode="two_sided")
     Taper = ReplaceValue(
-        Document.parameters[-1], value=ParameterValue(Pi / 2.0, ValueKind.KAngle, "rad")
+        Document.parameters[-1],
+        value=ParameterValue(CirclePi / 2.0, ValueKind.KAngle, "rad"),
     )
     Invalid = ReplaceValue(Document, parameters=(*Document.parameters[:-1], Taper))
     assert any("less than a right angle" in Error for Error in Invalid.validate())

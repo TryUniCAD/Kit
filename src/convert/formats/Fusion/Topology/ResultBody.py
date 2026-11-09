@@ -24,9 +24,9 @@ def IndexBodyLinks(
             or SpanValue.EndOffset - SpanValue.PayloadOffset != 106
         ):
             continue
-        Tail = MetaCursor(BulkData[SpanValue.EndOffset - 11 : SpanValue.EndOffset])
+        TailValue = MetaCursor(BulkData[SpanValue.EndOffset - 11 : SpanValue.EndOffset])
         try:
-            SourceId = ReadNativeRef(Tail)
+            SourceId = ReadNativeRef(TailValue)
         except ValueError:
             continue
         if SourceId in FeatureIds:

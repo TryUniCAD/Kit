@@ -14,7 +14,7 @@ from interchange.document.validation.DistExtValidate import GetDistExtErrs
 from interchange.document.validation.PlaneRevValidate import GetPlaneRevErrs
 from interchange.features.FeatureAngleRev import AngularRevolve
 from interchange.features.BoundScaleValues import GetScaleValues
-from interchange.features.FeatureBoundPlane import BoundConstructionPlane
+from interchange.features.FeatureBoundPlane import BoundDatum
 from interchange.features.FeatureBoundScale import BoundScale
 from interchange.features.FeatureDistExt import DistanceExtrude
 from interchange.features.FeaturePlaneExt import PlaneExtrude
@@ -45,7 +45,7 @@ def GetDefErrors(
         return GetAngleRevErrs(StepValue, Definition, Selections, Params)
     if isinstance(Definition, DistanceExtrude):
         return GetDistExtErrs(StepValue, Definition, IdentitySets["sketches"], Params)
-    if isinstance(Definition, BoundConstructionPlane):
+    if isinstance(Definition, BoundDatum):
         try:
             CheckBoundPlane(StepValue, Definition, Params, Frames)
         except ValueError as ErrorInfo:

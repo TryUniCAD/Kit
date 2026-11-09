@@ -9,7 +9,7 @@
 from convert.formats.Fusion.Assembly.OccurAttributes import ReadOccurAttrs
 from convert.formats.Fusion.Assembly.OccurRecord import OccurRecord
 from convert.formats.Fusion.Assembly.OccurTransform import ReadOccurMatrix
-from convert.formats.Fusion.HistoryRef import ReadNativeRef, ReadOptionalRef
+from convert.formats.Fusion.HistoryRef import ReadNativeRef, ReadOptRefMut
 from convert.formats.Fusion.MetaCursor import MetaCursor
 from convert.formats.Fusion.SelectionRef import ReadSelectUuid
 
@@ -37,7 +37,7 @@ def ReadOccurrence(DataValue: bytes, ObjectId: int) -> OccurRecord:
     Matrix = ReadOccurMatrix(Cursor)
     if Cursor.TakeBytes(9) != bytes(9):
         raise ValueError("Unsupported Fusion occurrence transform suffix")
-    CollectionId = ReadOptionalRef(Cursor)
+    CollectionId = ReadOptRefMut(Cursor)
     if (
         Cursor.Offset != len(DataValue)
         or ((CollectionId is None) != (NameValue == "rootInstance" and Instance == 0))

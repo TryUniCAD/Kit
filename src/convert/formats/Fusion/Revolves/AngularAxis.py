@@ -26,7 +26,7 @@ from interchange.geometry.models.VectorSpace import SpaceVector
 
 
 # angular sweeps need an editable axis and its directed geometry in the profile component
-def ResolveAngleAxis(
+def ReadAngleAxis(
     BulkData: bytes,
     Owners: dict[int, RecordSpan],
     StepValue: FeatureStep,
@@ -49,8 +49,8 @@ def ResolveAngleAxis(
     DescCursor = SelectCursor(BulkData, Owners, Descriptor, KSelectDesc)
     DescCursor.Offset = 240
     SupportId = ReadNativeRef(DescCursor)
-    Leaf = Owners.get(Terminal)
-    if Leaf is not None and Leaf.ClassGuid == KSelectLeaf:
+    LeafValue = Owners.get(Terminal)
+    if LeafValue is not None and LeafValue.ClassGuid == KSelectLeaf:
         if ReadEntityLeaf(BulkData, Owners, Terminal) != AxisId:
             raise ValueError("Fusion angular Revolve origin axis selection disagrees")
         return ReadOriginPick(
@@ -64,7 +64,7 @@ def ResolveAngleAxis(
             SupportId,
         )
     PickId = f"fusion-selection-{SelectId}-axis"
-    Matches = tuple(Pick for Pick in Picks if Pick.id == PickId)
+    Matches = tuple(PickData for PickData in Picks if PickData.id == PickId)
     if len(Matches) != 1 or PickId not in StepValue.selection_ids:
         raise ValueError("Missing or ambiguous Fusion Revolve sketch axis selection")
     PickValue = Matches[0]

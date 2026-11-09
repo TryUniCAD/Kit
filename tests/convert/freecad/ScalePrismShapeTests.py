@@ -51,20 +51,20 @@ def SpanBytes(
 
 # degree one planar patches use the same parameter axes as the generated seed
 def PatchBytes(Surface: PlaneSurface) -> bytes:
-    Side = SurfaceSide(Surface)
+    SideValue = SurfaceSide(Surface)
     Poles = tuple(
         OffsetVector(
             OffsetVector(Surface.origin, Surface.reference_direction, UValue),
-            Side,
+            SideValue,
             VValue,
         )
         for UValue in (-100.0, 100.0)
         for VValue in (-100.0, 100.0)
     )
-    Text = " ".join(
+    TextValue = " ".join(
         f"{Value:g}" for Point in Poles for Value in (Point.x, Point.y, Point.z)
     )
-    return f"9 0 0 0 0 1 1 2 2 2 2 {Text} -100 2 100 2 -100 2 100 2".encode()
+    return f"9 0 0 0 0 1 1 2 2 2 2 {TextValue} -100 2 100 2 -100 2 100 2".encode()
 
 
 # first principles affine encodings reproduce native grammar without shipping native bytes
@@ -77,12 +77,12 @@ def SplineCache(ShapeData: bytes) -> bytes:
     )
     TrimLines = tuple(
         SpanBytes(
-            TrimPoint(Trim, Binding.Lower),
-            TrimPoint(Trim, Binding.Upper),
+            TrimPoint(TrimValue, Binding.Lower),
+            TrimPoint(TrimValue, Binding.Upper),
             Binding.Lower,
             Binding.Upper,
         )
-        for Index, Trim in enumerate(RawValue.Pcurves, 1)
+        for Index, TrimValue in enumerate(RawValue.Pcurves, 1)
         for Binding in (Trims[Index],)
     )
     Edges = {
@@ -153,8 +153,8 @@ def TestScalePlaced() -> None:
 )
 def TestScaleSpline(Original: bytes, Changed: bytes) -> None:
     Shift = SpaceVector(4, -3, 2)
-    Seed = BrepModelBrep(MakePrism(SpaceVector(0, 0, 0)), RootTranslation=Shift)
-    ShapeData = SplineCache(Seed)
+    SeedValue = BrepModelBrep(MakePrism(SpaceVector(0, 0, 0)), RootTranslation=Shift)
+    ShapeData = SplineCache(SeedValue)
     Expected = MakePrism(Shift)
     assert IsScalePrism(ShapeData, Expected, Shift)
     assert Original in ShapeData

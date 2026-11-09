@@ -27,7 +27,7 @@ from convert.geometry.Extrude.Polygon.PrismFrame import CheckPrismFrame
 from convert.geometry.Revolve.SweepVector import CrossVector, DotVector
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumFeatures import FeatureKind
-from interchange.features.FeatureBoundPlane import BoundConstructionPlane
+from interchange.features.FeatureBoundPlane import BoundDatum
 from interchange.features.FeaturePlaneRev import PlaneRevolve
 from interchange.features.FeatureStep import FeatureStep
 from interchange.geometry.models.Selection import Selection
@@ -130,7 +130,7 @@ def ReadTargetStep(
         or (
             Definition is not None
             and (
-                not isinstance(Definition, BoundConstructionPlane)
+                not isinstance(Definition, BoundDatum)
                 or Definition.Method != "angle"
                 or Definition.SupportPlaneId != PlaneValue.id
             )

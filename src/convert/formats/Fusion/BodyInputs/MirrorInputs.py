@@ -76,7 +76,7 @@ def ReadMirrInputs(
     ProxyId = ReadNativeRef(Control)
     Slots = ReadMirrorList(BulkData, Owners, ReadNativeRef(Cursor), FeatureId)
     Picks = ReadInputPicks(BulkData, Owners, FeatureId, ProxyId, "input", 8)
-    if tuple(Pick.DescriptorId for Pick in Picks) != tuple(
+    if tuple(PickValue.DescriptorId for PickValue in Picks) != tuple(
         Descriptor for Descriptor, _ in Slots
     ):
         raise ValueError("Fusion Mirror input collection and proxy disagree")

@@ -123,10 +123,12 @@ def TestNativeRev(
         Symmetric = RootValue.find(f"{Props}/Property[@name='Symmetric']/Bool")
         assert Symmetric is not None
         assert Symmetric.attrib["value"] == str(SideMode != "one_sided").lower()
-        Axis = RootValue.find(f"{Props}/Property[@name='Axis']/PropertyVector")
-        assert Axis is not None
+        AxisValue = RootValue.find(f"{Props}/Property[@name='Axis']/PropertyVector")
+        assert AxisValue is not None
         Direction = Definition.AxisDirection
-        assert tuple(float(Axis.attrib[f"value{Dim}"]) for Dim in "XYZ") == (
+        assert tuple(
+            float(AxisValue.attrib[f"value{Dimension}"]) for Dimension in "XYZ"
+        ) == (
             Direction.x,
             Direction.y,
             Direction.z,
@@ -140,8 +142,8 @@ def TestNativeRev(
         Along = Definition.AlongParameterId.replace("-", "_")
         Against = (Definition.AgainstParameterId or "").replace("-", "_")
         if SideMode == "symmetric":
-            Cell = RootValue.find(f".//Cell[@alias='{Against}']")
-            assert Cell is not None and Cell.attrib["content"] == f"={Along}"
+            CellValue = RootValue.find(f".//Cell[@alias='{Against}']")
+            assert CellValue is not None and CellValue.attrib["content"] == f"={Along}"
             assert Expressions == {"Angle": f"Parameters.{Along} * 2"}
         elif SideMode == "two_sided":
             assert Expressions["Angle"] == f"Parameters.{Along} + Parameters.{Against}"
@@ -153,24 +155,28 @@ def TestNativeRev(
             assert Expressions == {"Angle": f"Parameters.{Along}"}
         Shape = RootValue.find(f"{Props}/Property[@name='Shape']/Part")
         assert Shape is not None
-        assert [Name for Name in Archive.namelist() if Name.endswith(".Shape.brp")] == [
-            Shape.attrib["file"]
-        ]
+        assert [
+            NameData
+            for NameData in Archive.namelist()
+            if NameData.endswith(".Shape.brp")
+        ] == [Shape.attrib["file"]]
     assert OpenDocument(Output) == DocValue
 
 
 # a broken neutral edge identity can retain geometry without claiming live history
 @KRequiresCodec
-def TestEdgeRevCache(TmpPath: FilePath) -> None:
+def TestEdgeCache(TmpPath: FilePath) -> None:
     DocValue = OpenDocument(
         KStudyPath / "revolveaxes-a83b542c4a07" / "brep_edge.f3d", strict=False
     )
-    (Axis,) = DocValue.selections
-    BodyPath, EdgePath = Axis.path
+    (AxisValue,) = DocValue.selections
+    BodyPath, EdgePath = AxisValue.path
     DocValue = Replace(
         DocValue,
         selections=(
-            Replace(Axis, path=(BodyPath, Replace(EdgePath, entity_id="missing-edge"))),
+            Replace(
+                AxisValue, path=(BodyPath, Replace(EdgePath, entity_id="missing-edge"))
+            ),
         ),
     )
     Output = TmpPath / "brep_edge.FCStd"
@@ -186,14 +192,14 @@ def TestEdgeRevCache(TmpPath: FilePath) -> None:
 
 # the reader must reject a cached angle that disagrees with its driving spreadsheet
 @KRequiresCodec
-def TestStaleRevolve(TmpPath: FilePath) -> None:
+def TestStaleRev(TmpPath: FilePath) -> None:
     DocValue = OpenDocument(
         KStudyPath / "revolvemodes-8eb734486235" / "positive.f3d", strict=False
     )
     Output = TmpPath / "positive.FCStd"
     _ = WriteDocument(DocValue, Output)
     with ZipFile(Output) as Archive:
-        Members = {Name: Archive.read(Name) for Name in Archive.namelist()}
+        Members = {NameData: Archive.read(NameData) for NameData in Archive.namelist()}
     RootValue = ParseXml(Members["Document.xml"])
     Angle = RootValue.find(
         "./ObjectData/Object/Properties/Property[@name='Angle']/Float"
@@ -203,8 +209,8 @@ def TestStaleRevolve(TmpPath: FilePath) -> None:
     Members["Document.xml"] = WriteXml(RootValue, encoding="utf-8")
     Buffer = BytesIO()
     with ZipFile(Buffer, "w") as Archive:
-        for Name, DataValue in Members.items():
-            Archive.writestr(Name, DataValue)
+        for NameData, DataValue in Members.items():
+            Archive.writestr(NameData, DataValue)
     with Pytest.raises(FreeCadAdapterA, match="angle"):
         _ = OpenDocument(Buffer.getvalue())
 
@@ -214,7 +220,7 @@ def TestStaleRevolve(TmpPath: FilePath) -> None:
 @Pytest.mark.skipif(
     not KOraclePath.is_file(), reason="KIT_FREECAD_ORACLE is unavailable"
 )
-def TestAsymmetricNativeEdit(TmpPath: FilePath) -> None:
+def TestUnequalEdit(TmpPath: FilePath) -> None:
     Output = ResolveTemp(TmpPath / "two_sided.FCStd")
     Saved = ResolveTemp(TmpPath / "two_sided_edited.FCStd")
     DocValue = OpenDocument(

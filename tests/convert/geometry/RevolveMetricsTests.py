@@ -7,8 +7,8 @@
 # to you under it immediately and permanently.
 
 from math import pi as HalfTurn
-from math import sin as Sin
-from math import sqrt as Sqrt
+from math import sin as SineValue
+from math import sqrt as SquareRoot
 
 from pytest import approx as Approx
 from pytest import raises as Raises
@@ -37,23 +37,25 @@ def CheckSector() -> None:
 def CheckWrapBounds() -> None:
     Meridian = ((1.0, 0.0), (4.0, 0.0), (1.0, 4.0))
     Origin = SpaceVector(4.0, -3.0, 2.0)
-    Axis = SpaceVector(1.0, 0.0, 0.0)
-    RootHalf = 1.0 / Sqrt(2.0)
+    AxisValue = SpaceVector(1.0, 0.0, 0.0)
+    RootHalf = 1.0 / SquareRoot(2.0)
     Radial = SpaceVector(0.0, RootHalf, RootHalf)
-    Span = 3.0 * HalfTurn / 4.0
+    SpanValue = 3.0 * HalfTurn / 4.0
     Start = 13.0 * HalfTurn / 8.0
-    End = 19.0 * HalfTurn / 8.0
-    Volume, Surface, Bounds = MeasureSweep(Meridian, Origin, Axis, Radial, Start, End)
-    assert Volume == Approx(12.0 * Span)
-    assert Surface == Approx(12.0 + 24.0 * Span)
+    EndPoint = 19.0 * HalfTurn / 8.0
+    Volume, Surface, Bounds = MeasureSweep(
+        Meridian, Origin, AxisValue, Radial, Start, EndPoint
+    )
+    assert Volume == Approx(12.0 * SpanValue)
+    assert Surface == Approx(12.0 + 24.0 * SpanValue)
     assert Bounds.minimum.x == 4.0
-    assert Bounds.minimum.y == Approx(-3.0 - 4.0 * Sin(HalfTurn / 8.0))
-    assert Bounds.minimum.z == Approx(2.0 - 4.0 * Sin(HalfTurn / 8.0))
+    assert Bounds.minimum.y == Approx(-3.0 - 4.0 * SineValue(HalfTurn / 8.0))
+    assert Bounds.minimum.z == Approx(2.0 - 4.0 * SineValue(HalfTurn / 8.0))
     assert Bounds.maximum.x == 8.0
     assert Bounds.maximum.y == Approx(1.0)
     assert Bounds.maximum.z == Approx(6.0)
     OtherVolume, OtherArea, OtherBounds = MeasureSweep(
-        Meridian[::-1], Origin, Axis, Radial, Start, End
+        Meridian[::-1], Origin, AxisValue, Radial, Start, EndPoint
     )
     assert (OtherVolume, OtherArea) == Approx((Volume, Surface))
     assert OtherBounds == Bounds
@@ -63,14 +65,16 @@ def CheckWrapBounds() -> None:
 def CheckSweepInput() -> None:
     Meridian = ((2.0, 0.0), (3.0, 0.0), (3.0, 1.0), (2.0, 1.0))
     Origin = SpaceVector(0.0, 0.0, 0.0)
-    Axis = SpaceVector(0.0, 0.0, 1.0)
+    AxisValue = SpaceVector(0.0, 0.0, 1.0)
     Radial = SpaceVector(1.0, 0.0, 0.0)
     with Raises(ValueError, match="convex polygon"):
         Crossed = (Meridian[0], Meridian[2], Meridian[1], Meridian[3])
-        _ = MeasureSweep(Crossed, Origin, Axis, Radial, 0.0, 1.0)
+        _ = MeasureSweep(Crossed, Origin, AxisValue, Radial, 0.0, 1.0)
     with Raises(ValueError, match="positive radii"):
-        _ = MeasureSweep(((0.0, 0.0), *Meridian[1:]), Origin, Axis, Radial, 0.0, 1.0)
+        _ = MeasureSweep(
+            ((0.0, 0.0), *Meridian[1:]), Origin, AxisValue, Radial, 0.0, 1.0
+        )
     with Raises(ValueError, match="orthonormal"):
-        _ = MeasureSweep(Meridian, Origin, Axis, Axis, 0.0, 1.0)
+        _ = MeasureSweep(Meridian, Origin, AxisValue, AxisValue, 0.0, 1.0)
     with Raises(ValueError, match="partial turn"):
-        _ = MeasureSweep(Meridian, Origin, Axis, Radial, 0.0, 2.0 * HalfTurn)
+        _ = MeasureSweep(Meridian, Origin, AxisValue, Radial, 0.0, 2.0 * HalfTurn)

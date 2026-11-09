@@ -34,8 +34,8 @@ def TrimLine(LineValue: LineGeometry, Lower: float, Upper: float) -> LineGeometr
 def ReadTrimParts(
     StepValue: FeatureStep, SketchValue: Sketch
 ) -> tuple[LineGeometry | ArcGeometry, ...]:
-    Rows = StepValue.attributes.get("fusion.profile_portions")
-    if not IsObjectTuple(Rows) or len(Rows) not in (2, 4):
+    RowValues = StepValue.attributes.get("fusion.profile_portions")
+    if not IsObjectTuple(RowValues) or len(RowValues) not in (2, 4):
         raise ValueError("Missing Fusion trimmed profile boundary")
     Sources = {
         Entity.id: Entity.geometry
@@ -43,10 +43,10 @@ def ReadTrimParts(
         if not Entity.construction
     }
     Parts: list[LineGeometry | ArcGeometry] = []
-    for Row in Rows:
-        if not IsObjectTuple(Row) or len(Row) != 4:
+    for RowValue in RowValues:
+        if not IsObjectTuple(RowValue) or len(RowValue) != 4:
             raise ValueError("Invalid Fusion trimmed profile portion")
-        EntityId, Lower, Upper, Selector = Row
+        EntityId, Lower, Upper, Selector = RowValue
         if (
             not isinstance(EntityId, str)
             or (type(Lower) is not float and type(Lower) is not int)

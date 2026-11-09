@@ -21,7 +21,7 @@ from interchange import (
 )
 from interchange.payloads.PayloadRecord import BrepPayload
 from interchange.features.FeatureAngleRev import AngularRevolve
-from interchange.features.FeatureBoundPlane import BoundConstructionPlane
+from interchange.features.FeatureBoundPlane import BoundDatum
 from interchange.features.FeatureBoundScale import BoundScale
 from interchange.features.FeatureDistExt import DistanceExtrude
 from interchange.features.FeaturePlaneExt import PlaneExtrude
@@ -84,7 +84,7 @@ def CheckRegistry() -> None:
     ExpectedValues.update(
         (
             AngularRevolve,
-            BoundConstructionPlane,
+            BoundDatum,
             BoundScale,
             DistanceExtrude,
             PlaneExtrude,

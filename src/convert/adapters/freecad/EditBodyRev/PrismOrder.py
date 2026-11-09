@@ -36,10 +36,10 @@ def ReadWallOrder(
     Vertices = {Value.id: Value.point for Value in Model.vertices}
     Offset = Count if Negative else 0
     Pairs = tuple(
-        (Vertices[Edge.start_vertex_id], Vertices[Edge.end_vertex_id])
-        for Edge in Model.edges[Offset : Offset + Count]
+        (Vertices[EdgeValue.start_vertex_id], Vertices[EdgeValue.end_vertex_id])
+        for EdgeValue in Model.edges[Offset : Offset + Count]
     )
-    ByEnds = {frozenset(Pair): Index for Index, Pair in enumerate(Pairs)}
+    ByEnds = {frozenset(PairValue): Index for Index, PairValue in enumerate(Pairs)}
     if len(ByEnds) != Count:
         raise ValueError("FreeCAD linked extrusion has ambiguous base edges")
     Members = set(Profile)
@@ -47,16 +47,16 @@ def ReadWallOrder(
     for Entity in SketchValue.entities:
         if Entity.id not in Members:
             continue
-        Line = Entity.geometry
-        if not isinstance(Line, LineGeometry):
+        LineValue = Entity.geometry
+        if not isinstance(LineValue, LineGeometry):
             raise ValueError("FreeCAD linked extrusion needs a line profile")
-        Ends = (
-            PlacePrismPoint(Frame, Line.start, 0.0),
-            PlacePrismPoint(Frame, Line.end, 0.0),
+        Endpoints = (
+            PlacePrismPoint(Frame, LineValue.start, 0.0),
+            PlacePrismPoint(Frame, LineValue.end, 0.0),
         )
-        Index = ByEnds[frozenset(Ends)]
-        Order.append((Index, Ends == Pairs[Index], Entity.id))
-    Indices = tuple(Item[0] for Item in Order)
+        Index = ByEnds[frozenset(Endpoints)]
+        Order.append((Index, Endpoints == Pairs[Index], Entity.id))
+    Indices = tuple(ItemValue[0] for ItemValue in Order)
     if len(set(Indices)) != Count or not any(
         Indices == tuple((Indices[0] + Sense * Index) % Count for Index in range(Count))
         for Sense in (1, -1)
@@ -87,36 +87,39 @@ def ReadPrismOrder(
         raise ValueError("FreeCAD linked extrusion is missing its wall or cap topology")
     Selected = next(
         (
-            (Slot, Index)
-            for Slot, (Index, _, Identity) in enumerate(Order, 1)
+            (SlotValue, Index)
+            for SlotValue, (Index, _, Identity) in enumerate(Order, 1)
             if Identity == AxisLineId and Model.edges[Offset + Index].id == AxisEdgeId
         ),
         None,
     )
     if Selected is None:
         raise ValueError("FreeCAD linked extrusion does not own the selected base edge")
-    Slot, Index = Selected
-    Edge = Model.edges[Offset + Index]
+    SlotValue, Index = Selected
+    EdgeValue = Model.edges[Offset + Index]
     Curve = Model.curves[Offset + Index]
-    EndId = Edge.start_vertex_id if Negative else Edge.end_vertex_id
-    Base = next(Value.point for Value in Model.vertices if Value.id == EndId)
-    if not isinstance(Curve, LineCurve) or Curve.id != Edge.curve_id:
+    EndId = EdgeValue.start_vertex_id if Negative else EdgeValue.end_vertex_id
+    BaseValue = next(Value.point for Value in Model.vertices if Value.id == EndId)
+    if not isinstance(Curve, LineCurve) or Curve.id != EdgeValue.curve_id:
         raise ValueError("FreeCAD linked extrusion needs a straight selected edge")
-    Rim, FarRim = (2, 0) if Negative else (0, 2)
+    RimValue, FarRim = (2, 0) if Negative else (0, 2)
     Children: dict[str, tuple[int, ...]] = {
-        f"loop:{Model.loops[Wall + 2].id}": (
+        f"loop:{Model.loops[WallValue + 2].id}": (
             *((3, 1) if IsForward else (1, 3)),
-            Rim,
+            RimValue,
             FarRim,
         )
-        for Wall, IsForward, _ in Order
+        for WallValue, IsForward, _ in Order
     }
-    Caps = (1, 0) if Negative else (0, 1)
-    Children[f"shell:{Shell.id}"] = (*(Wall + 2 for Wall, _, _ in Order), *Caps)
-    EdgeNumber = 3 * Slot - (1 if Slot == Count else 0)
-    Axis = (
+    Capabilities = (1, 0) if Negative else (0, 1)
+    Children[f"shell:{Shell.id}"] = (
+        *(WallValue + 2 for WallValue, _, _ in Order),
+        *Capabilities,
+    )
+    EdgeNumber = 3 * SlotValue - (1 if SlotValue == Count else 0)
+    AxisValue = (
         OffsetVector(KOriginZero, Curve.direction, -1.0)
         if Negative
         else Curve.direction
     )
-    return PrismOrder(Children, f"Edge{EdgeNumber}", Axis, Base)
+    return PrismOrder(Children, f"Edge{EdgeNumber}", AxisValue, BaseValue)

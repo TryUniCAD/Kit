@@ -15,7 +15,7 @@ from typing import cast as CastValue
 from convert.adapters.freecad.LiteralQuantity import IsLiteralQty
 from convert.geometry.Formula.Arithmetic import (
     EvalFormula,
-    MatchQuantity,
+    IsMatchingQty,
     ReadFormula,
     WriteFormula,
 )
@@ -124,7 +124,7 @@ def ReadFusionPlan(
         return None
     Values, AliasNames = Resolved
     Evaluated = EvalFormula(FormulaValue, Values)
-    if Evaluated is None or not MatchQuantity(Evaluated, ValueData):
+    if Evaluated is None or not IsMatchingQty(Evaluated, ValueData):
         return None
     Content = WriteFormula(FormulaValue, AliasNames)
     return FormulaPlan(Content, References) if Content is not None else None

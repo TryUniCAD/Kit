@@ -25,8 +25,8 @@ from interchange.features.FeatureBoundScale import BoundScale
 def ScaleGraph(RootValue: Element) -> tuple[bytes, ...]:
     Sections = tuple(
         XmlBytes(Value)
-        for Tag in ("Objects", "ObjectDeps")
-        if (Value := RootValue.find(Tag)) is not None
+        for TagValue in ("Objects", "ObjectDeps")
+        if (Value := RootValue.find(TagValue)) is not None
     )
     return Sections + tuple(
         XmlBytes(Value)
@@ -85,13 +85,16 @@ def ReconcileScale(
             Members,
         )
     Shapes = {
-        Name: Data for Name, Data in Entries.items() if Name.lower().endswith(".brp")
+        NameValue: DataValue
+        for NameValue, DataValue in Entries.items()
+        if NameValue.lower().endswith(".brp")
     }
     if set(Shapes) != {
-        Name for Name in Members if Name.lower().endswith(".brp")
+        NameValue for NameValue in Members if NameValue.lower().endswith(".brp")
     } or any(
-        Members[Name].file_size != len(Data) or Archive.read(Members[Name]) != Data
-        for Name, Data in Shapes.items()
+        Members[NameValue].file_size != len(DataValue)
+        or Archive.read(Members[NameValue]) != DataValue
+        for NameValue, DataValue in Shapes.items()
     ):
         raise ValueError("FreeCAD editable Scale saved shape disagrees with its source")
     return Document

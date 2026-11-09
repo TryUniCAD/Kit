@@ -21,19 +21,22 @@ from interchange.serialization.EncodeData import ToData
 
 # only the authored signed depth and angle may differ while the unused taper stays zero
 def ReadBodyCells(
-    Sheet: NativeObject, Params: tuple[Parameter, ...], Plan: BodyRevPlan, Depth: float
+    Sheet: NativeObject,
+    Params: tuple[Parameter, ...],
+    PlanValue: BodyRevPlan,
+    Depth: float,
 ) -> tuple[tuple[float, str], tuple[float, str], str]:
     Aliases = ParamCatalog(Items(ToData(Params))).Aliases
     Cells = ReadRevCells(Sheet, Params, Aliases)
-    DepthId, AlongId = Plan.Extrude.ParameterId, Plan.Revolve.AngleParamId
+    DepthId, AlongId = PlanValue.Extrude.ParameterId, PlanValue.Revolve.AngleParamId
     DepthAlias = Aliases[DepthId]
     DepthText = ReadCellText(Cells, DepthAlias, ValueKind.KLength, Depth, "mm")
     AlongText = Cells[Aliases[AlongId]].get("content", "")
-    ById = {Value.id: Value for Value in Params}
-    Along = ReadRevLiteral(AlongText, ById[AlongId])
-    for Identity in ById.keys() - {DepthId, AlongId}:
+    ByIdentity = {Value.id: Value for Value in Params}
+    Along = ReadRevLiteral(AlongText, ByIdentity[AlongId])
+    for Identity in ByIdentity.keys() - {DepthId, AlongId}:
         Taper, _ = ReadRevLiteral(
-            Cells[Aliases[Identity]].get("content", ""), ById[Identity]
+            Cells[Aliases[Identity]].get("content", ""), ByIdentity[Identity]
         )
         if Taper != 0.0:
             raise ValueError("FreeCAD editable body axis source taper changed")

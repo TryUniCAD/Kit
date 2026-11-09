@@ -36,7 +36,9 @@ def CheckFusionRead(TmpPath: FilePath) -> None:
     assert Document.feature_timeline == Detected.feature_timeline
     assert Document.feature_timeline[0].name == "Test sweep"
     assert Document.metadata["fusion.history_id"] == 104
-    assert any(Item.code == "fusion.history.partial" for Item in Document.diagnostics)
+    assert any(
+        ItemValue.code == "fusion.history.partial" for ItemValue in Document.diagnostics
+    )
     assert Document.brep_payloads[0].data == Archive
     assert CadDocument.from_json(Document.to_json()) == Document
     with Pytest.raises(ValueError, match="strict=False"):
@@ -53,7 +55,7 @@ def RejectMember(*Values: object, **Keywords: object) -> None:
 
 
 # a seekable source can be shared with other probes and resume at the same byte
-def CheckFusionProbe(MonkeyPatch: Pytest.MonkeyPatch) -> None:
+def CheckFusProbe(MonkeyPatch: Pytest.MonkeyPatch) -> None:
     Registry = AdapterRegistry()
     _ = Registry.introspect()
     Reader = Registry.reader("f3d")
@@ -74,7 +76,7 @@ def CheckFusionProbe(MonkeyPatch: Pytest.MonkeyPatch) -> None:
 
 
 # registry replay keeps one shot inputs and seekable suffixes readable after detection
-def CheckFusionStream() -> None:
+def CheckFusStream() -> None:
     Archive = HistoryArchive()
     Prefix = b"prefix:"
     Source = ByteStream(Prefix + Archive)
@@ -87,7 +89,7 @@ def CheckFusionStream() -> None:
 
 
 # a reader only format cannot claim output or create a target file
-def CheckFusionWriter(TmpPath: FilePath) -> None:
+def CheckFusWriter(TmpPath: FilePath) -> None:
     Document = OpenDocument(HistoryArchive(), source_format="f3d", strict=False)
     TargetPath = TmpPath / "blocked.f3d"
     for FormatId in ("fusion.f3d", "f3d"):

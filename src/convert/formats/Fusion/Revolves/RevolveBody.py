@@ -71,7 +71,7 @@ def ProjectRevBody(
             )
             if SketchValue is None or FrameValue is None:
                 raise ValueError("Missing Fusion Revolve profile sketch frame")
-            Body, Model = BuildRevBody(
+            BodyValue, Model = BuildRevBody(
                 Owners,
                 StepValue,
                 Definition,
@@ -92,7 +92,7 @@ def ProjectRevBody(
                 )
             )
             continue
-        Bodies.append(Body)
+        Bodies.append(BodyValue)
         Models.append(Model)
     Combined = JoinRevModels(tuple(Models)) if Models else None
     return tuple(Bodies), Combined, tuple(Issues)

@@ -47,10 +47,10 @@ def ReadBindRecord(
     ParamSpan: RecordSpan,
     BoundRank: int,
 ) -> tuple[RecordSpan, RecordSpan, int]:
-    Pair = ResolveOwner(BulkData, Owners, ParamData, ParamSpan)
-    if Pair is None:
+    PairValue = ResolveOwner(BulkData, Owners, ParamData, ParamSpan)
+    if PairValue is None:
         raise ValueError("Fusion numeric parameter has no binding")
-    OwnerValue, Binding = Pair
+    OwnerValue, Binding = PairValue
     if (
         not Binding.IsPrimary
         or not OwnerValue.IsPrimary

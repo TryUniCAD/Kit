@@ -6,7 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from convert.formats.Fusion.HistoryRef import ReadNativeRef, ReadOptionalRef
+from convert.formats.Fusion.HistoryRef import ReadNativeRef, ReadOptRefMut
 from convert.formats.Fusion.MetaCursor import MetaCursor
 from convert.formats.Fusion.RecordSpan import RecordSpan
 from convert.formats.Fusion.SelectionProxy import SelectCursor
@@ -73,7 +73,7 @@ def ReadCurrentRole(
 ) -> int:
     if Cursor.TakeBytes(1) != b"\1":
         raise ValueError("Unsupported Fusion body collection role prefix")
-    AuxiliaryId = ReadOptionalRef(Cursor)
+    AuxiliaryId = ReadOptRefMut(Cursor)
     if AuxiliaryId is not None:
         ReadBodyAux(BulkData, Owners, AuxiliaryId, CollectionId)
     BackendId = ReadNativeRef(Cursor)

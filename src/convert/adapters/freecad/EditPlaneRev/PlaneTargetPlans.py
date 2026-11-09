@@ -27,7 +27,7 @@ from convert.formats.Fusion.Revolves.PlaneRevInputs import ProfileLines
 from convert.formats.Fusion.Revolves.PlaneSweep import DerivePlaneSpan
 from convert.geometry.Revolve.SweepVector import DotVector
 from interchange.document.models.DocumentModel import CadDocument
-from interchange.features.FeatureBoundPlane import BoundConstructionPlane
+from interchange.features.FeatureBoundPlane import BoundDatum
 from interchange.features.FeaturePlaneRev import PlaneRevolve
 from interchange.features.FeatureStep import FeatureStep
 from interchange.geometry.models.Sketch import Sketch
@@ -71,7 +71,7 @@ def ReadTargetPlans(
             Radians,
         )
         Construction = StepValue.definition
-        if isinstance(Construction, BoundConstructionPlane) and (
+        if isinstance(Construction, BoundDatum) and (
             Construction.ScalarParameterId != AngleId
             or Construction.OffsetParameterId != ExtraId
             or not IsSameAngPlane(Construction.ReferenceFrame, ZeroFrame)

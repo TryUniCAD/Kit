@@ -55,8 +55,8 @@ def CheckBindDatum(
         or Evidence.adapter != Origin.adapter
         or Evidence.spans[: len(Origin.spans)] != Origin.spans
         or any(
-            Projected.attributes.get(Name) != Value
-            for Name, Value in Cached.attributes.items()
+            Projected.attributes.get(NameValue) != Value
+            for NameValue, Value in Cached.attributes.items()
         )
     ):
         raise ValueError("Projected Fusion binding construction datum disagrees")
@@ -122,18 +122,18 @@ def DatumBindRoles(
     OwnerValue: RecordSpan,
     StepValue: FeatureStep,
 ) -> KBindingRoles:
-    from convert.formats.Fusion.ConstructionPlane.PlaneControls import ReadPlaneControls
-    from interchange.features.BoundPlaneValues import GetConstructionFrame
-    from interchange.features.FeatureBoundPlane import BoundConstructionPlane
+    from convert.formats.Fusion.ConstructionPlane.PlaneControls import ReadPlaneParams
+    from interchange.features.BoundPlaneValues import GetDatumFrame
+    from interchange.features.FeatureBoundPlane import BoundDatum
 
     Definition = StepValue.definition
     if StepValue.kind != FeatureKind.KReference or not isinstance(
-        Definition, BoundConstructionPlane
+        Definition, BoundDatum
     ):
         raise ValueError("Unsupported Fusion binding construction plane definition")
     Cached = ReadNativePlane(BulkData, OwnerValue, Owners)
     CheckBindDatum(Document, Cached, OwnerValue, Definition.SupportPlaneId)
-    Controls = ReadPlaneControls(BulkData, Owners, Cached)
+    Controls = ReadPlaneParams(BulkData, Owners, Cached)
     if (
         Controls.Method != Definition.Method
         or Controls.ReferenceFrame != Definition.ReferenceFrame
@@ -176,7 +176,7 @@ def DatumBindRoles(
             RoleName,
             UnitName,
         )
-    Expected = GetConstructionFrame(StepValue, Definition, Params)
+    Expected = GetDatumFrame(StepValue, Definition, Params)
     if not IsSameBindDatum(Controls.Method, Expected, Cached.transform):
         raise ValueError(
             "Fusion binding construction plane controls miss the cached frame"

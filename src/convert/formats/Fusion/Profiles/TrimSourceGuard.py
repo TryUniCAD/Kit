@@ -6,7 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from struct import pack as Pack
+from struct import pack as PackData
 
 from convert.formats.Fusion.RecordSpan import RecordSpan
 from convert.formats.Fusion.Sketches.SketchPrimitive import KSketchKinds
@@ -25,7 +25,7 @@ def CheckTrimInputs(
         for Entity in SketchValue.entities
         if Entity.provenance is not None
     }
-    OwnerRef = Pack("<BQH", 1, SketchId, 0)
+    OwnerRef = PackData("<BQH", 1, SketchId, 0)
     for SpanValue in Owners.values():
         BodyStart = SpanValue.PayloadOffset + 4
         TailStart = SpanValue.EndOffset - 11

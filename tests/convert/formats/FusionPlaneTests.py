@@ -7,7 +7,7 @@
 # to you under it immediately and permanently.
 
 from dataclasses import replace as Replace
-from struct import pack as Pack
+from struct import pack as PackData
 
 from pytest import raises as Raises
 
@@ -34,23 +34,23 @@ def PlaneFixture(
         bytes(23)
         + NativeRef(101)
         + NativeText("WorkPlane")
-        + Pack("<Q", 7)
+        + PackData("<Q", 7)
         + NativeText("")
     )
     Geometry = b"".join(
         (
             bytes(4),
             b"\0\1",
-            Pack("<I", 1),
+            PackData("<I", 1),
             NativeText("EntityGenesis", False),
             NativeText("IntrinsicMetaTypeuint64", False),
-            Pack("<QI", 0, 2),
+            PackData("<QI", 0, 2),
             bytes(17),
-            Pack("<9d", 1.0, -2.0, 0.5, AxisXX, 1.0, 0.0, 0.0, 0.0, 1.0),
+            PackData("<9d", 1.0, -2.0, 0.5, AxisXX, 1.0, 0.0, 0.0, 0.0, 1.0),
             bytes(16),
             NativeText(""),
             NativeRef(900),
-            Pack("<Q", 7),
+            PackData("<Q", 7),
             bytes(1),
             NativeRef(OwnerId),
             b"\0\1",
@@ -102,10 +102,10 @@ def TestPlaneScope() -> None:
     Offset = len(BulkData)
     BulkData += (
         bytes(6)
-        + Pack("<I", 1)
+        + PackData("<I", 1)
         + NativeRef(101)
         + bytes(30)
-        + Pack("<I", 1)
+        + PackData("<I", 1)
         + NativeRef(101)
         + NativeRef(800)
     )

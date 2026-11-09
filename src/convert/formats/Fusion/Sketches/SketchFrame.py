@@ -7,7 +7,7 @@
 # to you under it immediately and permanently.
 
 from math import isclose as IsClose
-from struct import pack as Pack, unpack_from as UnpackFrom
+from struct import pack as PackData, unpack_from as UnpackFrom
 
 from convert.formats.Fusion.HistoryRef import ReadNativeRef
 from convert.formats.Fusion.MetaCursor import MetaCursor
@@ -37,7 +37,7 @@ def ReadFrame(BodyValue: bytes) -> tuple[Transform, int]:
     ):
         raise ValueError("Non-affine Fusion sketch transform")
     Frame = ReadPlaneAxes(
-        Pack("<9d", *(Values[Index] for Index in (3, 7, 11, 0, 4, 8, 1, 5, 9)))
+        PackData("<9d", *(Values[Index] for Index in (3, 7, 11, 0, 4, 8, 1, 5, 9)))
     )
     AxisZ = Frame.z_axis
     if any(

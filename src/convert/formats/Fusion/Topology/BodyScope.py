@@ -17,12 +17,18 @@ def FindBodyScope(
     BulkData: bytes, Spans: tuple[RecordSpan, ...], History: HistoryPart
 ) -> int | None:
     Components = tuple(
-        Span for Span in Spans if Span.IsPrimary and Span.ClassGuid == KComponentGuid
+        SpanValue
+        for SpanValue in Spans
+        if SpanValue.IsPrimary and SpanValue.ClassGuid == KComponentGuid
     )
     if not Components:
         return None
     Owner = next(
-        (Span for Span in Spans if Span.IsPrimary and Span.ObjectId == History.OwnerId),
+        (
+            SpanValue
+            for SpanValue in Spans
+            if SpanValue.IsPrimary and SpanValue.ObjectId == History.OwnerId
+        ),
         None,
     )
     if (
@@ -32,9 +38,9 @@ def FindBodyScope(
     ):
         raise ValueError("Fusion body inventory history owner is unresolved")
     Matches = tuple(
-        Span.ObjectId
-        for Span in Components
-        if HistoryLink(BulkData, Span, 52) == History.OwnerId
+        SpanValue.ObjectId
+        for SpanValue in Components
+        if HistoryLink(BulkData, SpanValue, 52) == History.OwnerId
     )
     if len(Matches) != 1:
         raise ValueError(

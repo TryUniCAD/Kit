@@ -11,12 +11,12 @@ from convert.adapters.freecad.EditPlaneRev.PlanePoseExpr import (
     PlanePoseExpr,
     RotationExpr,
 )
-from interchange.features.FeatureBoundPlane import BoundConstructionPlane
+from interchange.features.FeatureBoundPlane import BoundDatum
 
 
 # a whole placement expression preserves the reference basis and the signed live control
 def DatumPoseExpr(
-    Definition: BoundConstructionPlane,
+    Definition: BoundDatum,
     ZeroQuat: tuple[float, float, float, float],
     ParamRef: str,
 ) -> str:
@@ -28,8 +28,8 @@ def DatumPoseExpr(
     Origin = Frame.origin
     Normal = Frame.z_axis
     Coordinates = "; ".join(
-        f"{Base:.17g} mm + ({Axis:.17g}) * {ParamRef}"
-        for Base, Axis in (
+        f"{BaseValue:.17g} mm + ({AxisValue:.17g}) * {ParamRef}"
+        for BaseValue, AxisValue in (
             (Origin.x, Normal.x),
             (Origin.y, Normal.y),
             (Origin.z, Normal.z),

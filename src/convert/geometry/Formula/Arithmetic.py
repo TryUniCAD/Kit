@@ -29,7 +29,7 @@ from convert.geometry.Formula.FormulaTokens import FormulaAtom, KNamePattern, Re
 from convert.geometry.Formula.FormulaUnits import (
     KFormulaUnits,
     KQuantity,
-    MatchQuantity as MatchQuantity,
+    IsMatchingQty as IsMatchingQty,
 )
 from interchange.records.RecordParameter import ParameterValue
 
@@ -89,7 +89,7 @@ def EvalFormula(
 
 
 # writable drivers must be literal quantities rather than hidden constant formulas
-def IsLiteralFormula(FormulaValue: Formula) -> bool:
+def IsLiteralExpr(FormulaValue: Formula) -> bool:
     RootValue = FormulaValue.RootValue
     if isinstance(RootValue, UnaryOp):
         RootValue = RootValue.operand

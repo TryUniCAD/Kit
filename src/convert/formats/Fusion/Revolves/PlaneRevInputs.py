@@ -32,13 +32,13 @@ def TargetPlanes(
     Picks: tuple[Selection, ...],
     Frames: dict[str, SupportPlane],
 ) -> tuple[tuple[Selection, SupportPlane], ...]:
-    Ids = StepValue.attributes.get("fusion.revolve.target_selection_ids")
-    if not IsObjectTuple(Ids) or len(Ids) not in (1, 2):
+    Identities = StepValue.attributes.get("fusion.revolve.target_selection_ids")
+    if not IsObjectTuple(Identities) or len(Identities) not in (1, 2):
         raise ValueError("Fusion plane Revolve requires one or two targets")
-    ById = {Value.id: Value for Value in Picks}
+    ByIdentity = {Value.id: Value for Value in Picks}
     Targets: list[tuple[Selection, SupportPlane]] = []
-    for RoleName, SelectId in zip(("target_one", "target_two"), Ids):
-        PickValue = ById.get(f"fusion-selection-{SelectId}-{RoleName}")
+    for RoleName, SelectId in zip(("target_one", "target_two"), Identities):
+        PickValue = ByIdentity.get(f"fusion-selection-{SelectId}-{RoleName}")
         if PickValue is None or len(PickValue.path) != 1:
             raise ValueError("Missing Fusion plane Revolve target selection")
         (PathValue,) = PickValue.path

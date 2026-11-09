@@ -6,7 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from struct import pack as Pack
+from struct import pack as PackData
 
 from pytest import raises as Raises
 
@@ -39,13 +39,13 @@ def TestSketchFrame() -> None:
         0.0,
         1.0,
     )
-    BodyValue = bytes(3) + Pack("<16d", *Matrix) + bytes(1) + NativeRef(20)
+    BodyValue = bytes(3) + PackData("<16d", *Matrix) + bytes(1) + NativeRef(20)
     Frame, Component = ReadFrame(BodyValue)
     assert Component == 20
     assert (Frame.origin.x, Frame.origin.y, Frame.origin.z) == (10.0, 20.0, 30.0)
     assert Frame.x_axis.y == 1.0 and Frame.y_axis.x == -1.0
     Modified = bytearray(BodyValue)
-    Modified[3 + 8 * 10 : 3 + 8 * 11] = Pack("<d", -1.0)
+    Modified[3 + 8 * 10 : 3 + 8 * 11] = PackData("<d", -1.0)
     with Raises(ValueError, match="normal disagrees"):
         _ = ReadFrame(bytes(Modified))
 
@@ -54,11 +54,11 @@ def TestSketchFrame() -> None:
 def TestSketchLine() -> None:
     Attributes = (
         b"\0\1"
-        + Pack("<I", 3)
+        + PackData("<I", 3)
         + b"".join(
             NativeText(Label, False)
             + NativeText("IntrinsicMetaTypeuint64", False)
-            + Pack("<Q", Value)
+            + PackData("<Q", Value)
             for Label, Value in (
                 ("EntityGenesis", 2),
                 ("crv_primary_id", 8),
@@ -67,7 +67,7 @@ def TestSketchLine() -> None:
         )
     )
     BodyValue = bytearray(171)
-    BodyValue[:48] = Pack("<6d", 0.0, 0.0, 0.0, 1.0, 0.0, 0.0)
+    BodyValue[:48] = PackData("<6d", 0.0, 0.0, 0.0, 1.0, 0.0, 0.0)
     BodyValue[96:118] = NativeRef(12) + NativeRef(11)
     Payload = Attributes + BodyValue
     SpanValue = RecordSpan(

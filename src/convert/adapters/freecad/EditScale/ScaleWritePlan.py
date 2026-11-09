@@ -64,23 +64,23 @@ def ReadScalePlan(
     Sources: set[str] = set()
     BodyPlans: list[ScaleBodyPlan] = []
     Models: list[BrepModel] = []
-    for Body, Identity in zip(
+    for BodyValue, Identity in zip(
         Document.bodies, Definition.BodySelectionIds, strict=True
     ):
-        Pick = Picks[Identity]
-        SourceId = Pick.query.get("source_feature_id")
+        PickValue = Picks[Identity]
+        SourceId = PickValue.query.get("source_feature_id")
         if (
             not isinstance(SourceId, str)
             or SourceId not in Steps
             or SourceId in Sources
         ):
             raise ValueError("FreeCAD Scale input source is missing or repeated")
-        Plan, Model = ReadScaleBody(
-            Document, Feature, Steps[SourceId], Body, Pick, Factors, Center
+        PlanValue, Model = ReadScaleBody(
+            Document, Feature, Steps[SourceId], BodyValue, PickValue, Factors, Center
         )
         Sources.add(SourceId)
-        SketchIds.add(Plan.SketchId)
-        BodyPlans.append(Plan)
+        SketchIds.add(PlanValue.SketchId)
+        BodyPlans.append(PlanValue)
         Models.append(Model)
     if Point.SketchId:
         SketchIds.add(Point.SketchId)

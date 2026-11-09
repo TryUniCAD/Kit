@@ -14,18 +14,18 @@ from xml.etree.ElementTree import fromstring as ParseXml  # noqa: DUO107
 from convert.adapters.freecad.Archive import BuildDocXmlMut
 from convert.adapters.freecad.EditDatum.DatumBinding import KDatumBinding, KDatumGroup
 from convert.adapters.freecad.EditDatum.DatumPlan import ReadDatumPlan
-from interchange.features.FeatureBoundPlane import BoundConstructionPlane
+from interchange.features.FeatureBoundPlane import BoundDatum
 from interchange.records.RecordParameter import Expression
 from tests.interchange.document.BoundPlaneTests import PlaneDocument
 
 
 # independent datums may share labels while retaining distinct source and native identities
-def CheckMultipleDatums() -> None:
+def CheckMultiDatum() -> None:
     Offset = PlaneDocument("offset")
     Angle = PlaneDocument("angle")
     AngleStep = Angle.feature_timeline[0]
     AngleDef = AngleStep.definition
-    assert isinstance(AngleDef, BoundConstructionPlane)
+    assert isinstance(AngleDef, BoundDatum)
     Extra = Replace(
         AngleStep,
         id="second",
@@ -61,43 +61,47 @@ def CheckMultipleDatums() -> None:
         feature_timeline=(*Offset.feature_timeline, Extra),
     )
     Editable: set[str] = set()
-    Data, Entries = BuildDocXmlMut(
+    DataValue, Entries = BuildDocXmlMut(
         Document.to_dict(), "", "", EditableFeatures=Editable
     )
     assert Editable == {"plane", "second"} and not Entries
-    Root = ParseXml(Data)
-    Objects = Root.findall("./Objects/Object")
+    RootValue = ParseXml(DataValue)
+    Objects = RootValue.findall("./Objects/Object")
     Planes = [
         Value.get("name") for Value in Objects if Value.get("type") == "App::Plane"
     ]
     assert len(Planes) == 2 and len(set(Planes)) == 2
     assert not any(Value.get("type") == "Part::Feature" for Value in Objects)
-    Meta = Root.find("./ObjectData/Object[@name='KitMetadata']/Properties")
-    assert Meta is not None
-    Marker = Meta.find(f"./Property[@name='{KDatumBinding}']/String")
+    MetadataValue = RootValue.find(
+        "./ObjectData/Object[@name='KitMetadata']/Properties"
+    )
+    assert MetadataValue is not None
+    Marker = MetadataValue.find(f"./Property[@name='{KDatumBinding}']/String")
     assert Marker is not None and Marker.get("value") == KDatumGroup
-    AliasProp = Meta.find("./Property[@name='ParameterAliasesJSON']/String")
+    AliasProp = MetadataValue.find("./Property[@name='ParameterAliasesJSON']/String")
     assert AliasProp is not None
     Aliases = LoadJson(AliasProp.get("value", ""))
     Cells = {
         Value.get("alias"): Value.get("content")
-        for Value in Root.findall("./ObjectData/Object[@name='Parameters']//Cell")
+        for Value in RootValue.findall("./ObjectData/Object[@name='Parameters']//Cell")
         if Value.get("alias")
     }
     assert Cells[Aliases["scalar"]] == "=-2.5 cm"
     assert Cells[Aliases["angle_scalar"]] == "=90 deg"
-    Timeline = Root.findall(
+    Timeline = RootValue.findall(
         f"./ObjectData/Object[@name='{KDatumGroup}']/Properties/"
         + "Property[@name='Group']/LinkList/Link"
     )
     assert [Value.get("value") for Value in Timeline] == Planes
-    for Name, Step in zip(Planes, Document.feature_timeline, strict=True):
-        Properties = Root.find(f"./ObjectData/Object[@name='{Name}']/Properties")
+    for NameValue, StepValue in zip(Planes, Document.feature_timeline, strict=True):
+        Properties = RootValue.find(
+            f"./ObjectData/Object[@name='{NameValue}']/Properties"
+        )
         assert Properties is not None
         FeatureId = Properties.find("./Property[@name='KitFeatureId']/String")
-        assert FeatureId is not None and FeatureId.get("value") == Step.id
-        Definition = Step.definition
-        assert isinstance(Definition, BoundConstructionPlane)
+        assert FeatureId is not None and FeatureId.get("value") == StepValue.id
+        Definition = StepValue.definition
+        assert isinstance(Definition, BoundDatum)
         PlaneId = Properties.find("./Property[@name='KitId']/String")
         assert PlaneId is not None and PlaneId.get("value") == Definition.SupportPlaneId
         Visibility = Properties.find("./Property[@name='Visibility']/Bool")
@@ -107,17 +111,17 @@ def CheckMultipleDatums() -> None:
         assert float(Placement.get("Px", "")) == (
             -22.0 if Definition.Method == "offset" else 3.0
         )
-        (Expr,) = Properties.findall(
+        (ExprData,) = Properties.findall(
             "./Property[@name='ExpressionEngine']/ExpressionEngine/Expression"
         )
-        assert Expr.get("path") == "Placement"
-        assert f"Parameters.{Aliases[Definition.ScalarParameterId]}" in Expr.get(
+        assert ExprData.get("path") == "Placement"
+        assert f"Parameters.{Aliases[Definition.ScalarParameterId]}" in ExprData.get(
             "expression", ""
         )
 
 
 # unverified expressions and historical state must stay in the legacy support route
-def CheckUnsupportedDatum() -> None:
+def CheckBadDatum() -> None:
     Document = PlaneDocument("offset")
     Scalar, Extra = Document.parameters
     Formula = Replace(
@@ -134,14 +138,16 @@ def CheckUnsupportedDatum() -> None:
     Unproven = Replace(
         Document, source=Replace(Document.source, format_id="fusion.f3d")
     )
-    (Step,) = Document.feature_timeline
+    (StepValue,) = Document.feature_timeline
     Rolled = Replace(
         Document,
-        feature_timeline=(Replace(Step, attributes={"fusion.rolled_back": True}),),
+        feature_timeline=(Replace(StepValue, attributes={"fusion.rolled_back": True}),),
     )
     for Value in (Formula, Stale, Unproven, Rolled):
         assert not ReadDatumPlan(Value)
         Editable: set[str] = set()
-        Data, _ = BuildDocXmlMut(Value.to_dict(), "", "", EditableFeatures=Editable)
-        assert not Editable and KDatumBinding.encode() not in Data
-        assert b'name="FeatureTimeline"' in Data
+        DataValue, _ = BuildDocXmlMut(
+            Value.to_dict(), "", "", EditableFeatures=Editable
+        )
+        assert not Editable and KDatumBinding.encode() not in DataValue
+        assert b'name="FeatureTimeline"' in DataValue

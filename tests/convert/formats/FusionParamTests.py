@@ -8,7 +8,7 @@
 
 from io import BytesIO
 from math import pi as PiValue
-from struct import pack as Pack
+from struct import pack as PackData
 from zipfile import ZipFile
 
 from convert.formats.Fusion.DesignZip import KDesignPrefix
@@ -19,7 +19,7 @@ from interchange.enums.EnumValues import ParameterRole, ValueKind
 
 # the fixture builds length prefixed native strings from their semantic values
 def NativeText(ValueText: str, WideText: bool = True) -> bytes:
-    return Pack("<I", len(ValueText)) + ValueText.encode(
+    return PackData("<I", len(ValueText)) + ValueText.encode(
         "utf-16le" if WideText else "ascii"
     )
 
@@ -28,18 +28,18 @@ def NativeText(ValueText: str, WideText: bool = True) -> bytes:
 def BindingFixture(CachedValue: float) -> bytes:
     BodyValue = bytearray(85)
     BodyValue[:6] = b"\1\1\0\0\0\1"
-    BodyValue[6:14] = Pack("<Q", 200)
-    BodyValue[21:29] = Pack("<d", CachedValue)
-    BodyValue[29:38] = b"\1" + Pack("<Q", 42)
-    BodyValue[-11:-2] = b"\1" + Pack("<Q", 200)
-    return Pack("<I3sQ", 3, b"257", 90) + bytes(4) + BodyValue
+    BodyValue[6:14] = PackData("<Q", 200)
+    BodyValue[21:29] = PackData("<d", CachedValue)
+    BodyValue[29:38] = b"\1" + PackData("<Q", 42)
+    BodyValue[-11:-2] = b"\1" + PackData("<Q", 200)
+    return PackData("<I3sQ", 3, b"257", 90) + bytes(4) + BodyValue
 
 
 # independent index positions tie parameters and bindings to distinct owner records
 def ParamIndex(BindStart: int, OwnerStart: int) -> bytes:
     KindField = NativeText("FusionDesignSegmentType", False)
     Classes = b"".join(
-        NativeText(GuidValue, False) + Pack("<IIIIQ", 0, 0, 0, 1, Identity)
+        NativeText(GuidValue, False) + PackData("<IIIIQ", 0, 0, 0, 1, Identity)
         for GuidValue, Identity in (
             (KParamGuid, 42),
             ("D91D429C-1BB5-4640-B49F-69AF14F463E9", 90),
@@ -49,11 +49,11 @@ def ParamIndex(BindStart: int, OwnerStart: int) -> bytes:
     return b"".join(
         (
             KindField,
-            Pack("<IIIIII", 0, 0, 1234, 8, 0, 0),
+            PackData("<IIIIII", 0, 0, 1234, 8, 0, 0),
             KindField,
-            Pack("<IIII", 0, 1, 0, 3),
+            PackData("<IIII", 0, 1, 0, 3),
             Classes,
-            Pack(
+            PackData(
                 "<IIQQQQQQIQII",
                 0,
                 3,
@@ -76,15 +76,15 @@ def ParamIndex(BindStart: int, OwnerStart: int) -> bytes:
 def ParamFixture(Metadata: bytes, CachedValue: float = PiValue / 4) -> bytes:
     BulkValue = b"".join(
         (
-            Pack("<I3sQ", 3, b"256", 42),
+            PackData("<I3sQ", 3, b"256", 42),
             bytes(4),
             bytes(7),
             b"\x06",
             bytes(4),
             NativeText("angle"),
-            Pack("<I", 1),
+            PackData("<I", 1),
             b"\1",
-            Pack("<Q", 90),
+            PackData("<Q", 90),
             bytes(2),
             NativeText("45 deg"),
             Metadata,
@@ -92,14 +92,14 @@ def ParamFixture(Metadata: bytes, CachedValue: float = PiValue / 4) -> bytes:
             NativeText(""),
             NativeText("deg"),
             NativeText("d1"),
-            Pack("<d", PiValue / 4),
+            PackData("<d", PiValue / 4),
             b"\0\1\x10",
             bytes(9),
         )
     )
     Binding = BindingFixture(CachedValue)
     MetaValue = ParamIndex(len(BulkValue), len(BulkValue) + len(Binding))
-    BulkValue += Binding + Pack("<I3sQ", 3, b"258", 200)
+    BulkValue += Binding + PackData("<I3sQ", 3, b"258", 200)
     Buffer = BytesIO()
     with ZipFile(Buffer, "w") as Archive:
         Archive.writestr(KDesignPrefix + "BulkStream.dat", BulkValue)

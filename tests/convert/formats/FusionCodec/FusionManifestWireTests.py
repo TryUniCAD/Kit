@@ -16,7 +16,7 @@ from zipfile import ZipFile
 
 from pytest import mark as TestMark, raises as Raises
 
-from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionArchive
+from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionZip
 from convert.formats.Fusion.SegmentCodec.Manifest.EmitAssetWire import EmitAssetWire
 from convert.formats.Fusion.SegmentCodec.Manifest.EmitRootWire import EmitRootWire
 from convert.formats.Fusion.SegmentCodec.Manifest.ManifestTypes import (
@@ -79,7 +79,7 @@ def TestFreshWire() -> None:
     with ZipFile(Target, "w") as Archive:
         Archive.writestr(KRootManifest, RootBytes)
         Archive.writestr(KActiveManifest, AssetBytes)
-    with OpenFusionArchive(Target.getvalue()) as Archive:
+    with OpenFusionZip(Target.getvalue()) as Archive:
         Manifest = ReadActiveMeta(Archive)
     assert Manifest.AssetId == KSyntheticRoot.AssetId
     assert Manifest.SnapshotId == KSyntheticAsset.SnapshotId

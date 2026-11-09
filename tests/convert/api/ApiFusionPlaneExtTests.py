@@ -7,7 +7,7 @@
 # to you under it immediately and permanently.
 
 from dataclasses import replace as Replace
-from math import pi as Pi
+from math import pi as CirclePi
 
 import pytest as Pytest
 
@@ -38,11 +38,11 @@ def CheckPlaneExt(
     assert isinstance(Definition, PlaneExtrude) and Definition.LimitRole == RoleName
     assert (Definition.LengthParameterId is not None) == (RoleName == "start")
     Parameters = {Param.id: Param for Param in Document.parameters}
-    Selections = {Pick.id: Pick for Pick in Document.selections}
+    Selections = {PickValue.id: PickValue for PickValue in Document.selections}
     Frames = {Frame.id: Frame for Frame in Document.support_planes}
     Sketches = {SketchValue.id: SketchValue for SketchValue in Document.sketches}
-    Pick = Selections[Definition.PlaneSelectionId]
-    assert Pick.path[0].entity_id == "fusion-plane-234"
+    PickValue = Selections[Definition.PlaneSelectionId]
+    assert PickValue.path[0].entity_id == "fusion-plane-234"
     assert "fusion-feature-35-235" in StepValue.input_feature_ids
     Values = GetPlaneExt(
         StepValue, Definition, Parameters, Selections, Frames, Sketches
@@ -59,7 +59,7 @@ def CheckPlaneExt(
         2,
         2,
     )
-    assert Topology.volume == Pytest.approx(Pi * 100 * (Bounds[1] - Bounds[0]))
+    assert Topology.volume == Pytest.approx(CirclePi * 100 * (Bounds[1] - Bounds[0]))
     BoxValue = Topology.bounding_box
     assert BoxValue is not None
     assert (BoxValue.minimum.z, BoxValue.maximum.z) == Pytest.approx(Bounds)

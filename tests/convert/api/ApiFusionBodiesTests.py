@@ -34,12 +34,14 @@ def CheckBodyOwner() -> None:
             dict[str, tuple[dict[str, object], ...]], Definition.attributes[KInventory]
         )["members"]
     }
-    assert Names == {(Row["component_name"], Row["name"]) for Row in Oracle["bodies"]}
-    Root = Assembly.definition(Assembly.root_definition_id)
+    assert Names == {
+        (RowValue["component_name"], RowValue["name"]) for RowValue in Oracle["bodies"]
+    }
+    RootValue = Assembly.definition(Assembly.root_definition_id)
     assert tuple(
         Member["object_id"]
         for Member in CastValue(
-            dict[str, tuple[dict[str, object], ...]], Root.attributes[KInventory]
+            dict[str, tuple[dict[str, object], ...]], RootValue.attributes[KInventory]
         )["members"]
     ) == (401, 543)
     Child = next(

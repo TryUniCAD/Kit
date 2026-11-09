@@ -31,7 +31,9 @@ def ProjectExtBody(
         for StepValue in Document.feature_timeline
     ):
         return Document
-    Owners = {Span.ObjectId: Span for Span in Spans if Span.IsPrimary}
+    Owners = {
+        SpanValue.ObjectId: SpanValue for SpanValue in Spans if SpanValue.IsPrimary
+    }
     try:
         Creators = FindExtCreators(Document.feature_timeline)
         Solids = BuildSolidSets(Document, BulkData, Owners, Creators, Members)

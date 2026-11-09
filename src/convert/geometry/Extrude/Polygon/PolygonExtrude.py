@@ -47,11 +47,11 @@ def BuildPrism(
     Model = BuildSweepModel(
         BodyId, Prefix, Curves, Surfaces, Vertices, Edges, Faces, Loops, Coedges
     )
-    Axes = tuple(
+    AxisValues = tuple(
         zip(*((Vertex.point.x, Vertex.point.y, Vertex.point.z) for Vertex in Vertices))
     )
     Bounds = BoundingBox(
-        SpaceVector(*(min(Coordinates) for Coordinates in Axes)),
-        SpaceVector(*(max(Coordinates) for Coordinates in Axes)),
+        SpaceVector(*(min(Coordinates) for Coordinates in AxisValues)),
+        SpaceVector(*(max(Coordinates) for Coordinates in AxisValues)),
     )
     return Model, Volume, SurfaceArea, Bounds

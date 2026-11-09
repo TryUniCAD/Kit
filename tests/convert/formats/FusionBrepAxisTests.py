@@ -53,40 +53,47 @@ def TestBrepAxisRev(
     _, Creator, _, Sweep = DocValue.feature_timeline
     Definition = Sweep.definition
     assert isinstance(Definition, AngularRevolve)
-    Base = Definition.AxisOrigin
-    Axis = Definition.AxisDirection
-    assert (Base.x, Base.y, Base.z) == Pytest.approx(Origin)
-    assert (Axis.x, Axis.y, Axis.z) == Pytest.approx(Direction)
+    BaseValue = Definition.AxisOrigin
+    AxisValue = Definition.AxisDirection
+    assert (BaseValue.x, BaseValue.y, BaseValue.z) == Pytest.approx(Origin)
+    assert (AxisValue.x, AxisValue.y, AxisValue.z) == Pytest.approx(Direction)
     assert Creator.id in Sweep.input_feature_ids
     assert DocValue.parameter(Definition.AlongParameterId).value.value == Pytest.approx(
         Radians(73)
     )
-    Seed, Result = DocValue.bodies
-    assert Seed.final_feature_id == Creator.id and Result.final_feature_id == Sweep.id
-    assert Seed.provenance is not None and Result.provenance is not None
-    assert Seed.provenance.native_id == "275" and Result.provenance.native_id == "378"
-    assert [Value.topology.volume for Value in (Seed, Result)] == Pytest.approx(
+    SeedValue, Result = DocValue.bodies
+    assert (
+        SeedValue.final_feature_id == Creator.id and Result.final_feature_id == Sweep.id
+    )
+    assert SeedValue.provenance is not None and Result.provenance is not None
+    assert (
+        SeedValue.provenance.native_id == "275" and Result.provenance.native_id == "378"
+    )
+    assert [Value.topology.volume for Value in (SeedValue, Result)] == Pytest.approx(
         (SeedVolume, 2446.25347959525)
     )
     (Selection,) = DocValue.selections
     assert Selection.id == Definition.AxisSelectionId == "fusion-selection-347-axis"
     assert (
         Selection.path[0].entity_kind == "body"
-        and Selection.path[0].entity_id == Seed.id
+        and Selection.path[0].entity_id == SeedValue.id
     )
     assert Selection.path[1].entity_kind == "edge"
-    assert Selection.path[1].entity_id == f"{Seed.id}-{EdgeName}"
+    assert Selection.path[1].entity_id == f"{SeedValue.id}-{EdgeName}"
     assert DocValue.brep is not None
     assert any(Value.id == Selection.path[1].entity_id for Value in DocValue.brep.edges)
     assert Selection.provenance is not None
-    assert any(Span.record_kind == "asm_history" for Span in Selection.provenance.spans)
-    assert not DocValue.brep.validate(frozenset({Seed.id, Result.id}))
+    assert any(
+        SpanValue.record_kind == "asm_history"
+        for SpanValue in Selection.provenance.spans
+    )
+    assert not DocValue.brep.validate(frozenset({SeedValue.id, Result.id}))
     assert CadDocument.FromJson(DocValue.ToJson()) == DocValue
 
 
 # a valid saved line cannot rescue a recipe naming the wrong native face
 @KRequiresCodec
-def TestBrepAxisName() -> None:
+def TestBrepName() -> None:
     Source = KStudyPath / KEdgeAxisCases[0][0]
     BulkData, Spans = ReadDesignZip(Source.read_bytes())
     Recipe = next(Value for Value in Spans if Value.IsPrimary and Value.ObjectId == 353)
@@ -95,9 +102,9 @@ def TestBrepAxisName() -> None:
     assert Changed[Position] == ord("3")
     Changed[Position] = ord("1")
     Buffer = BytesIO()
-    with ZipFile(Source) as Archive, ZipFile(Buffer, "w") as Copy:
+    with ZipFile(Source) as Archive, ZipFile(Buffer, "w") as CopyValue:
         for NameValue in Archive.namelist():
-            Copy.writestr(
+            CopyValue.writestr(
                 NameValue,
                 (
                     Changed

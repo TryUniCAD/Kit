@@ -45,9 +45,9 @@ def CheckAsmSolids() -> None:
         assert BodyValue.topology.volume == Pytest.approx(Volume)
         assert Child.feature_timeline[-1].id == BodyValue.final_feature_id
     Steps = {
-        int(Step.provenance.native_id): Step
-        for Step in Document.feature_timeline
-        if Step.provenance
+        int(StepValue.provenance.native_id): StepValue
+        for StepValue in Document.feature_timeline
+        if StepValue.provenance
     }
     assert isinstance(Steps[424].definition, DistanceExtrude)
     assert isinstance(Steps[565].definition, DistanceExtrude)

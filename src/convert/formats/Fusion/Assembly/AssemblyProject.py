@@ -23,9 +23,9 @@ from interchange.records.RecordProvenance import Provenance
 
 
 # component display labels and placement membership come from a separate base record
-def ComponentOrigin(Primary: RecordSpan, Base: RecordSpan) -> Provenance:
+def ComponentOrigin(Primary: RecordSpan, BaseValue: RecordSpan) -> Provenance:
     Origin = ParamOrigin(Primary)
-    return Replace(Origin, spans=Origin.spans + ParamOrigin(Base).spans)
+    return Replace(Origin, spans=Origin.spans + ParamOrigin(BaseValue).spans)
 
 
 # local definitions and occurrences retain native identity and use neutral length units
@@ -34,9 +34,13 @@ def ProjectAssembly(
     Spans: tuple[RecordSpan, ...],
     Histories: dict[int, HistoryPart],
 ) -> AssemblyData:
-    Primary = {Span.ObjectId: Span for Span in Spans if Span.IsPrimary}
+    Primary = {
+        SpanValue.ObjectId: SpanValue for SpanValue in Spans if SpanValue.IsPrimary
+    }
     BaseSpans = {
-        Span.ObjectId: Span for Span in Spans if Span.ClassGuid == KComponentBase
+        SpanValue.ObjectId: SpanValue
+        for SpanValue in Spans
+        if SpanValue.ClassGuid == KComponentBase
     }
     Owners = {Occurrence.OwnerId for Occurrence in Assembly.Occurrences}
     Definitions = tuple(

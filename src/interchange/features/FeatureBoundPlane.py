@@ -17,7 +17,7 @@ from interchange.geometry.models.Transform import Transform
 
 # a construction datum retains the two owned controls and the zero pose
 @MakeDataClass(frozen=True, slots=True)
-class BoundConstructionPlane(FeatureDef):
+class BoundDatum(FeatureDef):
     SupportPlaneId: str
     ScalarParameterId: str
     OffsetParameterId: str
@@ -46,3 +46,9 @@ class BoundConstructionPlane(FeatureDef):
             raise ValueError(
                 "construction plane reference frame is invalid"
             ) from ErrorInfo
+
+
+# the original model name remains stable for serialization and public imports
+BoundConstructionPlane = BoundDatum
+setattr(BoundDatum, "__name__", "BoundConstructionPlane")
+setattr(BoundDatum, "__qualname__", "BoundConstructionPlane")

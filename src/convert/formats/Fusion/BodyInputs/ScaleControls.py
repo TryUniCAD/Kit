@@ -10,7 +10,7 @@ from dataclasses import dataclass as MakeDataClass
 from math import isfinite as IsFinite
 from struct import unpack as Unpack
 
-from convert.formats.Fusion.HistoryRef import ReadNativeRef, ReadOptionalRef
+from convert.formats.Fusion.HistoryRef import ReadNativeRef, ReadOptRefMut
 from convert.formats.Fusion.ParamBinding import KBindingWidths
 from convert.formats.Fusion.RecordSpan import RecordSpan
 from convert.formats.Fusion.SelectionProxy import SelectCursor
@@ -39,7 +39,7 @@ def ReadScaleData(
     CenterId = ReadNativeRef(Cursor)
     if not IsFinite(CachedFactor) or CenterId not in Owners:
         raise ValueError("Fusion Scale point or factor framing disagrees")
-    Factor = ReadOptionalRef(Cursor)
+    Factor = ReadOptRefMut(Cursor)
     if Factor is None:
         if CachedFactor != 0 or Cursor.TakeBytes(6) != b"\x01" + bytes(5):
             raise ValueError("Unsupported Fusion nonuniform Scale input layout")

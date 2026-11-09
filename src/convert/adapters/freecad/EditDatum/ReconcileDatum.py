@@ -23,7 +23,7 @@ from convert.adapters.freecad.EditDatum.DatumSavedValues import (
     ReadDatumParams,
 )
 from interchange.document.models.DocumentModel import CadDocument
-from interchange.features.FeatureBoundPlane import BoundConstructionPlane
+from interchange.features.FeatureBoundPlane import BoundDatum
 
 
 # legacy static planes and separately reconciled revolve planes are outside this binding
@@ -75,7 +75,7 @@ def ReconcileDatum(
     Controls = tuple(
         (Value, Definition)
         for Value in Document.feature_timeline
-        if isinstance(Definition := Value.definition, BoundConstructionPlane)
+        if isinstance(Definition := Value.definition, BoundDatum)
     )
     PlaneIds = {Definition.SupportPlaneId for _, Definition in Controls}
     if Binding is None:

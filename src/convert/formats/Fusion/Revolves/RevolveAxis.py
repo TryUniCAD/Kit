@@ -42,8 +42,8 @@ def ResolveRevAxis(
             BulkData, Owners, Descriptor, FeatureId, FeatureOrder, FeatureLinks
         )
     Terminal = ReadDescLeaf(BulkData, Owners, Descriptor, FeatureId)
-    Leaf = Owners.get(Terminal)
-    if Leaf is not None and Leaf.ClassGuid == KSelectLeaf:
+    LeafValue = Owners.get(Terminal)
+    if LeafValue is not None and LeafValue.ClassGuid == KSelectLeaf:
         EntityId = ReadEntityLeaf(BulkData, Owners, Terminal)
         Source = Owners.get(EntityId)
         if Source is None or Source.ClassGuid != KAxisGuid:

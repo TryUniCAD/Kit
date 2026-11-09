@@ -12,7 +12,7 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionArchive
+from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionZip
 from convert.formats.Fusion.AssetCodec.EmitAsset import EmitAsset
 from convert.formats.Fusion.MetaIndex import SegmentKind
 from convert.formats.Fusion.NativeHistory import ReadHistory
@@ -52,7 +52,7 @@ def TestAssetZip() -> None:
 @KRequiresCodec
 def TestAssetRead() -> None:
     Value = MakeAssetPlan()
-    with OpenFusionArchive(EmitAsset(Value)) as Archive:
+    with OpenFusionZip(EmitAsset(Value)) as Archive:
         BulkData, Spans = Archive.ReadDesign()
         MetaData = Archive.ReadMember(
             "FusionAssetName[Active]/FusionDesignSegmentType1/MetaStream.dat", 4096

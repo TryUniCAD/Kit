@@ -44,7 +44,9 @@ def BuildAsmSolids(
             or set(Edits.values()) != OccurrenceIds
         ):
             raise ValueError("Fusion assembly occurrence history is incomplete")
-        Owners = {Span.ObjectId: Span for Span in Spans if Span.IsPrimary}
+        Owners = {
+            SpanValue.ObjectId: SpanValue for SpanValue in Spans if SpanValue.IsPrimary
+        }
         Scoped, Creators = ReadScopedExts(
             Document, Assembly, BulkData, Owners, OwnerId, Edits
         )

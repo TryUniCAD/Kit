@@ -10,7 +10,7 @@ from math import isclose as IsClose
 from struct import unpack as Unpack
 
 from convert.formats.Fusion.Extrudes.ExtrudeInputs import ExtrudeInputs
-from convert.formats.Fusion.HistoryRef import ReadNativeRef, ReadOptionalRef
+from convert.formats.Fusion.HistoryRef import ReadNativeRef, ReadOptRefMut
 from convert.formats.Fusion.MetaCursor import MetaCursor
 
 # symmetric distance can store either the total length or the length per side
@@ -47,13 +47,13 @@ def ReadExtrudeHead(
 # the active and inactive extent slots distinguish all four supported distance conventions
 def ReadExtControls(Cursor: MetaCursor) -> ExtrudeInputs:
     ModeCode, StartCode, Direction = ReadExtrudeHead(Cursor)
-    StartId = ReadOptionalRef(Cursor)
-    AgainstId = ReadOptionalRef(Cursor)
+    StartId = ReadOptRefMut(Cursor)
+    AgainstId = ReadOptRefMut(Cursor)
     AlongId = ReadNativeRef(Cursor)
     CacheId = ReadNativeRef(Cursor)
     if Cursor.TakeBytes(1) != bytes(1):
         raise ValueError("Unsupported second Fusion Extrude descriptor")
-    TaperId = ReadOptionalRef(Cursor)
+    TaperId = ReadOptRefMut(Cursor)
     if (
         Cursor.TakeBytes(1) != bytes(1)
         or Cursor.ReadWord() != 1
@@ -68,7 +68,7 @@ def ReadExtControls(Cursor: MetaCursor) -> ExtrudeInputs:
         raise ValueError("Unsupported Fusion Extrude extent flags or second extent")
     if Cursor.TakeBytes(6) != bytes(6):
         raise ValueError("Unsupported Fusion Extrude second extent target or flags")
-    SecondTaperId = ReadOptionalRef(Cursor)
+    SecondTaperId = ReadOptRefMut(Cursor)
     if (
         Cursor.TakeBytes(1) != bytes(1)
         or (StartId is not None) != (StartCode == 1)

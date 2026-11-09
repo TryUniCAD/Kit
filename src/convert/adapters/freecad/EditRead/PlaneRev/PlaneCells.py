@@ -18,7 +18,7 @@ from convert.adapters.freecad.EditRead.Revolve.RevSheet import (
 from convert.adapters.freecad.Native import NativeObject
 from convert.geometry.Formula.Arithmetic import (
     EvalFormula,
-    IsLiteralFormula,
+    IsLiteralExpr,
     ReadFormula,
 )
 from convert.geometry.Formula.FormulaUnits import GetQuantity
@@ -30,7 +30,7 @@ from interchange.serialization.EncodeData import ToData
 def CheckInertCell(NodeValue: Element, Original: Parameter) -> None:
     Content = NodeValue.get("content", "")
     Formula = ReadFormula(Content[1:]) if Content.startswith("=") else None
-    if Formula is None or not IsLiteralFormula(Formula):
+    if Formula is None or not IsLiteralExpr(Formula):
         raise ValueError(
             "FreeCAD editable plane Revolve inactive control is not a literal"
         )

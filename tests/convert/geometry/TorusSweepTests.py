@@ -7,7 +7,7 @@
 # to you under it immediately and permanently.
 
 from dataclasses import replace as ReplaceValue
-from math import pi as Pi, sqrt as Sqrt
+from math import pi as CirclePi, sqrt as SquareRoot
 
 from pytest import approx as Approx, raises as Raises
 
@@ -24,25 +24,25 @@ from interchange.serialization.EncodeData import ToData
 # a tilted circle sweep exercises the component bounds and neutral whole surface topology
 def TestTorusSolid() -> None:
     Center = SpaceVector(10.0, -20.0, 30.0)
-    Axis = SpaceVector(2.0 / 3.0, 2.0 / 3.0, 1.0 / 3.0)
-    Radial = SpaceVector(1.0 / Sqrt(2.0), -1.0 / Sqrt(2.0), 0.0)
+    AxisValue = SpaceVector(2.0 / 3.0, 2.0 / 3.0, 1.0 / 3.0)
+    Radial = SpaceVector(1.0 / SquareRoot(2.0), -1.0 / SquareRoot(2.0), 0.0)
     Model, Volume, SurfaceArea, Bounds = BuildTorusSweep(
-        "part", Center, Axis, Radial, 5.0, 1.5
+        "part", Center, AxisValue, Radial, 5.0, 1.5
     )
     assert Model.validate(frozenset(("part",))) == ()
     assert FromData(ToData(Model)) == Model
     assert Model.surfaces == (
-        TorusSurface(Model.faces[0].surface_id, Center, Axis, Radial, 5.0, 1.5),
+        TorusSurface(Model.faces[0].surface_id, Center, AxisValue, Radial, 5.0, 1.5),
     )
     assert not (Model.loops or Model.edges or Model.vertices)
     assert Model.shells[0].closed and Model.regions[0].solid
     assert Model.shells[0].face_use_ids == (Model.face_uses[0].id,)
     assert Model.face_uses[0].face_id == Model.faces[0].id
     assert Model.bodies[0].design_body_id == "part"
-    assert Volume == Approx(22.5 * Pi * Pi)
-    assert SurfaceArea == Approx(30.0 * Pi * Pi)
-    XYExtent = 5.0 * Sqrt(5.0) / 3.0 + 1.5
-    ZExtent = 5.0 * Sqrt(8.0) / 3.0 + 1.5
+    assert Volume == Approx(22.5 * CirclePi * CirclePi)
+    assert SurfaceArea == Approx(30.0 * CirclePi * CirclePi)
+    XYExtent = 5.0 * SquareRoot(5.0) / 3.0 + 1.5
+    ZExtent = 5.0 * SquareRoot(8.0) / 3.0 + 1.5
     assert (Bounds.minimum.x, Bounds.minimum.y, Bounds.minimum.z) == Approx(
         (10.0 - XYExtent, -20.0 - XYExtent, 30.0 - ZExtent)
     )
@@ -71,7 +71,7 @@ def TestTorusGuard() -> None:
     Shell = Model.shells[0]
     FaceUse = Model.face_uses[0]
     Orphan = ReplaceValue(Model, regions=())
-    Open = ReplaceValue(Model, shells=(ReplaceValue(Shell, closed=False),))
+    OpenValue = ReplaceValue(Model, shells=(ReplaceValue(Shell, closed=False),))
     Reused = ReplaceValue(
         Model,
         shells=(ReplaceValue(Shell, face_use_ids=(FaceUse.id, FaceUse.id)),),
@@ -85,7 +85,7 @@ def TestTorusGuard() -> None:
             ),
         ),
     )
-    for Invalid in (Orphan, Open, Reused, Spindle, Plane):
+    for Invalid in (Orphan, OpenValue, Reused, Spindle, Plane):
         assert any(
             "has no loops" in Error for Error in Invalid.validate(frozenset(("part",)))
         )

@@ -43,14 +43,14 @@ from tests.convert.freecad.EditReadTests import (
 # a profile cache can be built independently from the same analytic circle as the solid
 def MakeProfileWire(Profile: CircleGeometry, Frame: Transform) -> bytes:
     Center = PlacePrismPoint(Frame, Profile.center, 0.0)
-    Seam = PlacePrismPoint(
+    SeamValue = PlacePrismPoint(
         Frame, PlaneVector(Profile.center.x + Profile.radius, Profile.center.y), 0.0
     )
     Model = BrepModel(
         curves=(
             CircleCurve("circle", Center, Frame.z_axis, Frame.x_axis, Profile.radius),
         ),
-        vertices=(BrepVertex("seam", Seam),),
+        vertices=(BrepVertex("seam", SeamValue),),
         edges=(BrepEdge("edge", "seam", "seam", "circle", 0.0, FullTurn),),
         coedges=(BrepCoedge("coedge", "edge"),),
         wires=(BrepWire("wire", ("coedge",), closed=True),),
@@ -100,10 +100,10 @@ def WriteProfile(
     )
     Center.attrib.update(X=str(Profile.center.x), Y=str(Profile.center.y))
     if Stale != "missing":
-        Part = Props.find("./Property[@name='Shape']/Part")
-        assert Part is not None
+        PartValue = Props.find("./Property[@name='Shape']/Part")
+        assert PartValue is not None
         CacheName = f"{NameValue}.Shape.brp"
-        Part.set("file", CacheName)
+        PartValue.set("file", CacheName)
         Entries[CacheName] = MakeProfileWire(WireProfile, Plane.transform)
     Entries["Document.xml"] = XmlBytes(RootValue, encoding="utf-8")
     with ZipFile(Target, "w") as Archive:
@@ -142,7 +142,7 @@ def TestProfileEdit(TmpPath: FilePath, DepthMm: float) -> None:
         ("missing", "no saved sketch shape"),
     ),
 )
-def TestProfileProof(TmpPath: FilePath, Stale: str, Reason: str) -> None:
+def TestRingProof(TmpPath: FilePath, Stale: str, Reason: str) -> None:
     Original = OpenDocument(KSourcePath, strict=False)
     Export, Target = TmpPath / "export.FCStd", TmpPath / "saved.FCStd"
     _ = WriteDocument(Original, Export)

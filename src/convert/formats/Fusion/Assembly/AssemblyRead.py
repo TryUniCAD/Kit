@@ -6,9 +6,9 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from convert.formats.Fusion.Assembly.AssemblyHistory import ResolveAssemblyHistories
+from convert.formats.Fusion.Assembly.AssemblyHistory import ReadAsmHistory
 from convert.formats.Fusion.Assembly.AssemblyProject import ProjectAssembly
-from convert.formats.Fusion.Assembly.NativeAssembly import ReadNativeAssembly
+from convert.formats.Fusion.Assembly.NativeAssembly import ReadNativeAsm
 from convert.formats.Fusion.HistoryPart import HistoryPart
 from convert.formats.Fusion.RecordSpan import RecordSpan
 from interchange.document.models.DocumentModel import AssemblyData
@@ -16,14 +16,14 @@ from interchange.records.RecordDiagnostic import Diagnostic
 
 
 # automatic assembly routing keeps explicit part history selection available for unsupported graphs
-def ReadAssemblyProjection(
+def ReadAsmProject(
     BulkData: bytes, Spans: tuple[RecordSpan, ...], Parts: tuple[HistoryPart, ...]
 ) -> tuple[AssemblyData | None, HistoryPart | None, tuple[Diagnostic, ...]]:
     try:
-        Native = ReadNativeAssembly(BulkData, Spans)
+        Native = ReadNativeAsm(BulkData, Spans)
         if Native is None:
             return None, None, ()
-        Histories = ResolveAssemblyHistories(BulkData, Spans, Native, Parts)
+        Histories = ReadAsmHistory(BulkData, Spans, Native, Parts)
         return (
             ProjectAssembly(Native, Spans, Histories),
             Histories[Native.RootComponentId],
@@ -39,7 +39,7 @@ def ReadAssemblyProjection(
         if len(Parts) != 1:
             raise ValueError(
                 f"{ErrorInfo}. Select exactly one Fusion history. Available IDs: "
-                + f"{tuple(Part.HistoryId for Part in Parts)}"
+                + f"{tuple(PartValue.HistoryId for PartValue in Parts)}"
             ) from ErrorInfo
         return (
             None,

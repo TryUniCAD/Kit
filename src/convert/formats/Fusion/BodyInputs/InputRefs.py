@@ -51,7 +51,7 @@ def ReadInputPicks(
     Owners: dict[int, RecordSpan],
     FeatureId: int,
     ProxyId: int,
-    Role: str,
+    RoleValue: str,
     ModeCode: int,
     Expected: dict[str, int] | None = None,
 ) -> tuple[BodyInput, ...]:
@@ -63,4 +63,4 @@ def ReadInputPicks(
     if any(Owners[Identity].ClassGuid != KBodyDesc for Identity in Descriptors):
         raise ValueError("Fusion input proxy does not select whole bodies")
     CheckInputProxy(BulkData, Owners, ProxyId, Descriptors, ModeCode)
-    return tuple(BodyInput(Role, ProxyId, Identity) for Identity in Descriptors)
+    return tuple(BodyInput(RoleValue, ProxyId, Identity) for Identity in Descriptors)

@@ -8,15 +8,15 @@
 
 
 from dataclasses import replace as Replace
-from math import pi as Pi
+from math import pi as CirclePi
 
 from pytest import approx as Approx, raises as Raises
 
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumFeatures import FeatureKind
 from interchange.enums.EnumValues import ValueKind
-from interchange.features.BoundPlaneValues import GetConstructionFrame
-from interchange.features.FeatureBoundPlane import BoundConstructionPlane
+from interchange.features.BoundPlaneValues import GetDatumFrame
+from interchange.features.FeatureBoundPlane import BoundDatum
 from interchange.features.FeatureKinds import RefPlaneFeature
 from interchange.features.FeatureStep import FeatureStep
 from interchange.geometry.models.SupportPlane import SupportPlane
@@ -38,11 +38,11 @@ KPlaneFrame = Transform(
 # saved planes and their independently owned parameters share one editable document
 def PlaneDocument(Method: str) -> CadDocument:
     Scalar = (
-        ParameterValue(Pi / 2, ValueKind.KAngle, "rad")
+        ParameterValue(CirclePi / 2, ValueKind.KAngle, "rad")
         if Method == "angle"
         else ParameterValue(-2.5, ValueKind.KLength, "cm")
     )
-    Definition = BoundConstructionPlane("datum", "scalar", "extra", Method, KPlaneFrame)
+    Definition = BoundDatum("datum", "scalar", "extra", Method, KPlaneFrame)
     StepValue = FeatureStep(
         "plane",
         "Plane",
@@ -60,9 +60,7 @@ def PlaneDocument(Method: str) -> CadDocument:
             owner_id=StepValue.id,
         ),
     )
-    Frame = GetConstructionFrame(
-        StepValue, Definition, {Value.id: Value for Value in Params}
-    )
+    Frame = GetDatumFrame(StepValue, Definition, {Value.id: Value for Value in Params})
     return CadDocument(
         CadSource("fixture", "plane", "0" * 64),
         (Configuration("default", "Default", active=True),),
@@ -83,7 +81,7 @@ def TestBoundOffset() -> None:
     Restored = CadDocument.from_json(Document.to_json())
     assert Restored == Document
     assert Restored.validate() == ()
-    assert isinstance(Restored.feature_timeline[0].definition, BoundConstructionPlane)
+    assert isinstance(Restored.feature_timeline[0].definition, BoundDatum)
 
 
 # signed angle edits preserve the reference frame and require refreshed cached geometry
@@ -96,14 +94,16 @@ def TestBoundAngle() -> None:
     assert (Frame.z_axis.x, Frame.z_axis.y, Frame.z_axis.z) == Approx((0, 0, -1))
     StepValue = Document.feature_timeline[0]
     Definition = StepValue.definition
-    assert isinstance(Definition, BoundConstructionPlane)
+    assert isinstance(Definition, BoundDatum)
     Scalar, Extra = Document.parameters
-    NewParam = Replace(Scalar, value=ParameterValue(-Pi / 3, ValueKind.KAngle, "rad"))
+    NewParam = Replace(
+        Scalar, value=ParameterValue(-CirclePi / 3, ValueKind.KAngle, "rad")
+    )
     Edited = Replace(Document, parameters=(NewParam, Extra))
     assert any(
         "disagree with its support frame" in Value for Value in Edited.validate()
     )
-    Updated = GetConstructionFrame(
+    Updated = GetDatumFrame(
         StepValue, Definition, {Value.id: Value for Value in Edited.parameters}
     )
     Edited = Replace(Edited, support_planes=(Replace(PlaneValue, transform=Updated),))
@@ -117,7 +117,7 @@ def TestBoundParams() -> None:
     Document = PlaneDocument("angle")
     StepValue = Document.feature_timeline[0]
     Definition = StepValue.definition
-    assert isinstance(Definition, BoundConstructionPlane)
+    assert isinstance(Definition, BoundDatum)
     Scalar, Extra = Document.parameters
     for BadScalar, BadExtra in (
         (Replace(Scalar, owner_id="different"), Extra),
@@ -132,11 +132,11 @@ def TestBoundParams() -> None:
         (Scalar, Replace(Extra, value=ParameterValue(0.25, ValueKind.KLength, "mm"))),
     ):
         with Raises(ValueError, match="construction plane"):
-            _ = GetConstructionFrame(
+            _ = GetDatumFrame(
                 StepValue, Definition, {Scalar.id: BadScalar, Extra.id: BadExtra}
             )
     with Raises(ValueError, match="reference feature"):
-        _ = GetConstructionFrame(
+        _ = GetDatumFrame(
             Replace(StepValue, kind=FeatureKind.KNative),
             Definition,
             {Scalar.id: Scalar, Extra.id: Extra},
@@ -149,9 +149,9 @@ def TestBoundFrame() -> None:
         Document = PlaneDocument(Method)
         PlaneValue = Document.support_planes[0]
         Frame = PlaneValue.transform
-        for Move, Valid in ((0.5 * Delta, True), (2.0 * Delta, False)):
+        for Movement, Valid in ((0.5 * Delta, True), (2.0 * Delta, False)):
             Moved = Replace(
-                Frame, origin=Replace(Frame.origin, y=Frame.origin.y + Move)
+                Frame, origin=Replace(Frame.origin, y=Frame.origin.y + Movement)
             )
             Changed = Replace(
                 Document, support_planes=(Replace(PlaneValue, transform=Moved),)
@@ -165,11 +165,11 @@ def TestBoundFrame() -> None:
 def TestBoundShape() -> None:
     Reflected = Replace(KPlaneFrame, z_axis=SpaceVector(-1, 0, 0))
     with Raises(ValueError, match="reference frame"):
-        BoundConstructionPlane("datum", "scalar", "extra", "offset", Reflected)
+        BoundDatum("datum", "scalar", "extra", "offset", Reflected)
     with Raises(ValueError, match="distinct"):
-        BoundConstructionPlane("datum", "scalar", "scalar", "offset", KPlaneFrame)
+        BoundDatum("datum", "scalar", "scalar", "offset", KPlaneFrame)
     with Raises(ValueError, match="method"):
-        BoundConstructionPlane("datum", "scalar", "extra", "parallel", KPlaneFrame)
+        BoundDatum("datum", "scalar", "extra", "parallel", KPlaneFrame)
 
 
 # the new definition keeps the legacy portable reference plane type independent

@@ -74,12 +74,12 @@ def ReadScalePatch(Cursor: Tokens, Index: int) -> ScalePatch:
     if Hypot(Normal.x, Normal.y, Normal.z) <= KAngleTolerance:
         raise DecodeFailure("Scale spline surface has a singular basis")
     Normal = ApplyDirection(KIdentityLocation, Normal)
-    Side = CrossVector(Normal, AcrossUnit)
+    SideValue = CrossVector(Normal, AcrossUnit)
     Plane = PlaneSurface(
         f"freecad:scale:surface:{Index}",
         Origin,
         Normal,
         AcrossUnit,
-        attributes={"reference_y": (Side.x, Side.y, Side.z)},
+        attributes={"reference_y": (SideValue.x, SideValue.y, SideValue.z)},
     )
     return ScalePatch(Origin, Across, Upward, UDomain, VDomain, Plane)

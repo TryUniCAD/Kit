@@ -86,11 +86,11 @@ def TestProofClosed() -> None:
             "independent presentation payload",
         ),
     )
-    Full = BuildLedger(KProofScope, KProofMembers, KProofSpans, Claims)
-    assert Full.IsComplete
-    assert Full.MemberCounts == CoverageCounts(0, 0, 0, 2, 1)
-    assert Full.PrimaryCounts == CoverageCounts(0, 0, 0, 3, 0)
-    assert Full.ContinuationCounts == CoverageCounts(0, 0, 0, 1, 0)
+    FullValue = BuildLedger(KProofScope, KProofMembers, KProofSpans, Claims)
+    assert FullValue.IsComplete
+    assert FullValue.MemberCounts == CoverageCounts(0, 0, 0, 2, 1)
+    assert FullValue.PrimaryCounts == CoverageCounts(0, 0, 0, 3, 0)
+    assert FullValue.ContinuationCounts == CoverageCounts(0, 0, 0, 1, 0)
     assert not BuildLedger(
         KProofScope,
         KProofMembers,

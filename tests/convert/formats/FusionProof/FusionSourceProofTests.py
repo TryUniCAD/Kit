@@ -16,7 +16,7 @@ from convert.formats.Fusion.ArchiveRead.IndexedArchive import IndexedArchive
 from convert.formats.Fusion.DesignZip import KDesignPrefix, ReadDesignZip
 from convert.formats.Fusion.NativeHistory import KHistoryGuid
 from convert.formats.Fusion.RecordSpan import RecordSpan
-from convert.formats.Fusion.SourceProof.InspectSource import ReadFusionSourceProof
+from convert.formats.Fusion.SourceProof.InspectSource import ReadSourceProof
 from convert.formats.Fusion.SourceProof.ProofClaim import ProofCategory
 from tests.convert.formats.FusionHistoryTests import HistoryArchive
 
@@ -33,11 +33,11 @@ KEmptyConfig = (
 def ProofArchive(Changes: dict[str, bytes]) -> bytes:
     Target = BytesIO()
     with ZipFile(BytesIO(HistoryArchive())) as Source, ZipFile(Target, "w") as Archive:
-        for Name in Source.namelist():
-            if Name not in Changes:
-                Archive.writestr(Name, Source.read(Name))
-        for Name, Value in Changes.items():
-            Archive.writestr(Name, Value)
+        for NameValue in Source.namelist():
+            if NameValue not in Changes:
+                Archive.writestr(NameValue, Source.read(NameValue))
+        for NameValue, Value in Changes.items():
+            Archive.writestr(NameValue, Value)
     return Target.getvalue()
 
 
@@ -56,14 +56,14 @@ def TestProofScope(MonkeyPatch: PatchContext) -> None:
     Calls: list[str] = []
 
     # the call boundary proves ordinary native reads do not inspect extra attachments
-    def TrackMember(Archive: IndexedArchive, Name: str, Maximum: int) -> bytes:
-        Calls.append(Name)
-        return NativeReader(Archive, Name, Maximum)
+    def TrackMember(Archive: IndexedArchive, NameValue: str, Maximum: int) -> bytes:
+        Calls.append(NameValue)
+        return NativeReader(Archive, NameValue, Maximum)
 
     MonkeyPatch.setattr(IndexedArchive, "ReadMember", TrackMember)
     Document = ReadFusionDoc(Payload, HistoryId=104)
     assert not Calls
-    Proof = ReadFusionSourceProof(Payload, HistoryId=104)
+    Proof = ReadSourceProof(Payload, HistoryId=104)
     assert Calls == [KEmptyConfig]
     assert Proof.Scope.SourceDigest == Document.source.sha256
     assert (Proof.Scope.HistoryId, Proof.Scope.OwnerId) == (104, 100)
@@ -75,14 +75,16 @@ def TestProofScope(MonkeyPatch: PatchContext) -> None:
 
 
 # an ignored record header cannot inherit a complete proof from the rest of the chronology
-def TestProofHistoryVersion() -> None:
-    Bulk, Spans = ReadDesignZip(HistoryArchive())
-    (History,) = tuple(Span for Span in Spans if Span.ClassGuid == KHistoryGuid)
-    Edited = bytearray(Bulk)
+def TestHistVersion() -> None:
+    BulkData, Spans = ReadDesignZip(HistoryArchive())
+    (History,) = tuple(
+        SpanValue for SpanValue in Spans if SpanValue.ClassGuid == KHistoryGuid
+    )
+    Edited = bytearray(BulkData)
     Edited[History.PayloadOffset] = 1
     Source = ProofArchive({KDesignPrefix + "BulkStream.dat": bytes(Edited)})
     assert ReadFusionDoc(Source).metadata["fusion.history_entries"] == (103, 102, 101)
-    Report = ReadFusionSourceProof(Source)
+    Report = ReadSourceProof(Source)
     assert History in Report.ResidualSpans
     assert Report.PrimaryCounts.VerifiedDesign == 1
     assert any(

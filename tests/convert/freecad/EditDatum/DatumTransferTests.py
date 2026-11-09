@@ -29,7 +29,7 @@ KDatumCases = KStudyPath / "planedefinitions-6cd0820a832e"
 
 # native history receives strict credit only for the live datum writer route
 @Pytest.mark.parametrize("Method", ("offset", "angle"))
-def TestDatumTransfer(Method: str) -> None:
+def TestDatumMove(Method: str) -> None:
     Datum = PlaneDocument(Method)
     Scalar, Extra = Datum.parameters
     Literal = "90 deg" if Method == "angle" else "-25 mm"
@@ -47,7 +47,7 @@ def TestDatumTransfer(Method: str) -> None:
 
 
 # a dependent sketch cannot be silently detached by a standalone datum export
-def TestDependentDatumGate() -> None:
+def TestDatumDeps() -> None:
     Datum = PlaneDocument("offset")
     Source = Replace(Datum, sketches=(Sketch("sketch", "Dependent", "datum", ()),))
     assert Source.validate() == ()
@@ -70,10 +70,10 @@ def TestDependentDatumGate() -> None:
 
 # transferring an editable plane preserves the opaque archive gate on its fusion source
 @KRequiresCodec
-def TestFusionDatumGate() -> None:
+def TestFusionDatum() -> None:
     Document = OpenDocument(KDatumCases / "offset.f3d", strict=False)
-    Live = BytesIO()
-    Result = WriteDocument(Document, Live, destination_format="freecad.fcstd")
+    LiveValue = BytesIO()
+    Result = WriteDocument(Document, LiveValue, destination_format="freecad.fcstd")
     assert Capability.PARAMETRIC_HISTORY in Result.native_capabilities
     Strict = BytesIO()
     with Pytest.raises(ApplicationUsabilityError) as Captured:

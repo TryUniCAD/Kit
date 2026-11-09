@@ -27,7 +27,7 @@ from convert.adapters.freecad.Archive import (
 )
 from convert.adapters.freecad.EditDatum.DatumBinding import KDatumBinding, KDatumGroup
 from convert.adapters.freecad.EditDatum.DatumExpr import DatumPoseExpr
-from interchange.features.FeatureBoundPlane import BoundConstructionPlane
+from interchange.features.FeatureBoundPlane import BoundDatum
 from interchange.serialization.EncodeData import ToData
 
 
@@ -36,10 +36,10 @@ def AddDatumsMut(
     Context: DocContext,
     Geometry: DocGeometry,
     Features: DocFeatures,
-    Datums: TypeMap[str, BoundConstructionPlane],
+    Datums: TypeMap[str, BoundDatum],
 ) -> None:
-    for Item in Features.FeatureItems:
-        StepId = TextAction(Item.get("id"))
+    for ItemValue in Features.FeatureItems:
+        StepId = TextAction(ItemValue.get("id"))
         Definition = Datums[StepId]
         Alias = Context.Parameters.Aliases[Definition.ScalarParameterId]
         ParamRef = f"{Context.ParamSheet.name}.{Alias}"
@@ -62,8 +62,8 @@ def AddDatumsMut(
         PlaneObject.properties.extend(
             [
                 StringProp("KitFeatureId", StepId, Dynamic=True),
-                JsonProp("SourceFeatureJSON", Item),
-                IntegerProp("TimelineOrder", FeatureOrder(Item), Dynamic=True),
+                JsonProp("SourceFeatureJSON", ItemValue),
+                IntegerProp("TimelineOrder", FeatureOrder(ItemValue), Dynamic=True),
             ]
         )
         PlaneObject.dependencies.append(Context.ParamSheet.name)

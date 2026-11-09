@@ -15,12 +15,12 @@ import pytest as Pytest
 from convert import open_document as OpenDocument
 from convert.formats.Fusion.DesignZip import ReadDesignZip
 from convert.formats.Fusion.Extrudes.ExtrudeControl import ReadExtrudeHead
-from convert.formats.Fusion.HistoryRef import ReadOptionalRef
+from convert.formats.Fusion.HistoryRef import ReadOptRefMut
 from convert.formats.Fusion.MetaCursor import MetaCursor
 from convert.formats.Fusion.NumericParam import ReadNativeNum
 from convert.formats.Fusion.RecordSpan import RecordSpan
 from convert.formats.Fusion.SourceProof.Bindings.ReadBindingProof import (
-    ReadBindingProof,
+    ReadBindProof,
 )
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.features.FeatureAngleRev import AngularRevolve
@@ -35,10 +35,10 @@ from tests.convert.api.ApiFusionAssemblyTests import KRequiresCodec, KStudyPath
 # proof uses a real projected owner and independent indexed bytes from the same control
 def BindFixture(Sample: str) -> tuple[bytes, dict[int, RecordSpan], CadDocument]:
     Source = KStudyPath / Sample
-    Bulk, Spans = ReadDesignZip(Source.read_bytes())
+    BulkData, Spans = ReadDesignZip(Source.read_bytes())
     return (
-        Bulk,
-        {Span.ObjectId: Span for Span in Spans if Span.IsPrimary},
+        BulkData,
+        {SpanValue.ObjectId: SpanValue for SpanValue in Spans if SpanValue.IsPrimary},
         OpenDocument(Source, strict=False),
     )
 
@@ -82,7 +82,7 @@ def ParamIndex(ParamValue: Parameter) -> int:
     ),
 )
 def TestBindProof(Sample: str, Expected: int) -> None:
-    Bulk, Owners, Document = BindFixture(Sample)
+    BulkData, Owners, Document = BindFixture(Sample)
     StepIds = {
         Value.id
         for Value in Document.feature_timeline
@@ -97,11 +97,13 @@ def TestBindProof(Sample: str, Expected: int) -> None:
             continue
         Origin = ParamValue.provenance
         assert Origin is not None
-        Span = Owners[int(Origin.native_id)]
-        Native = ReadNativeNum(Bulk[Span.PayloadOffset + 4 : Span.EndOffset])
+        SpanValue = Owners[int(Origin.native_id)]
+        Native = ReadNativeNum(
+            BulkData[SpanValue.PayloadOffset + 4 : SpanValue.EndOffset]
+        )
         assert (
-            ReadBindingProof(
-                Bulk, Owners, Document, Native, Span, ParamValue, RankValue
+            ReadBindProof(
+                BulkData, Owners, Document, Native, SpanValue, ParamValue, RankValue
             ).ObjectId
             == Native.BindingId
         )
@@ -112,48 +114,54 @@ def TestBindProof(Sample: str, Expected: int) -> None:
 # equal numeric caches cannot substitute for the recorded owner control reference
 @KRequiresCodec
 def TestBindGuard() -> None:
-    Bulk, Owners, Document = BindFixture("extents-f0f33a9a605f/distance_positive.f3d")
+    BulkData, Owners, Document = BindFixture(
+        "extents-f0f33a9a605f/distance_positive.f3d"
+    )
     Along, Taper = BoundParams(Document)
     assert Along.provenance is not None
-    Span = Owners[int(Along.provenance.native_id)]
-    Native = ReadNativeNum(Bulk[Span.PayloadOffset + 4 : Span.EndOffset])
+    SpanValue = Owners[int(Along.provenance.native_id)]
+    Native = ReadNativeNum(BulkData[SpanValue.PayloadOffset + 4 : SpanValue.EndOffset])
     assert Native.BindingId is not None
     Binding = Owners[Native.BindingId]
     Header = Binding.PayloadOffset
-    Body = Header + 4
-    Book = Owners[int.from_bytes(Bulk[Body + 63 : Body + 71], "little")]
+    BodyValue = Header + 4
+    Workbook = Owners[
+        int.from_bytes(BulkData[BodyValue + 63 : BodyValue + 71], "little")
+    ]
     StepValue = Document.feature_timeline[-1]
     assert StepValue.provenance is not None
     Owner = Owners[int(StepValue.provenance.native_id)]
-    Control = MetaCursor(Bulk[Owner.PayloadOffset + 4 : Owner.EndOffset])
+    Control = MetaCursor(BulkData[Owner.PayloadOffset + 4 : Owner.EndOffset])
     _ = ReadExtrudeHead(Control)
-    _ = ReadOptionalRef(Control)
-    _ = ReadOptionalRef(Control)
+    _ = ReadOptRefMut(Control)
+    _ = ReadOptRefMut(Control)
     AlongOffset = Owner.PayloadOffset + 4 + Control.Offset + 1
-    EditData = bytearray(Bulk)
+    EditData = bytearray(BulkData)
     EditData[AlongOffset : AlongOffset + 8] = CastValue(
         int, Taper.attributes["fusion.binding_id"]
     ).to_bytes(8, "little")
     with Pytest.raises(ValueError, match="owner control slot"):
-        _ = ReadBindingProof(bytes(EditData), Owners, Document, Native, Span, Along, 1)
+        _ = ReadBindProof(
+            bytes(EditData), Owners, Document, Native, SpanValue, Along, 1
+        )
     for Offset in (
         Header,
-        Body + 14,
-        Body + 16,
-        Body + 21,
-        Body + 40,
-        Body + 49,
-        Body + 73,
-        Book.PayloadOffset + 17,
+        BodyValue + 14,
+        BodyValue + 16,
+        BodyValue + 21,
+        BodyValue + 40,
+        BodyValue + 49,
+        BodyValue + 73,
+        Workbook.PayloadOffset + 17,
     ):
-        EditData = bytearray(Bulk)
+        EditData = bytearray(BulkData)
         EditData[Offset] ^= 1
         with Pytest.raises(ValueError):
-            _ = ReadBindingProof(
-                bytes(EditData), Owners, Document, Native, Span, Along, 1
+            _ = ReadBindProof(
+                bytes(EditData), Owners, Document, Native, SpanValue, Along, 1
             )
     with Pytest.raises(ValueError, match="parameter rank"):
-        _ = ReadBindingProof(Bulk, Owners, Document, Native, Span, Along, 2)
+        _ = ReadBindProof(BulkData, Owners, Document, Native, SpanValue, Along, 2)
     Unsupported = Replace(
         Document,
         feature_timeline=(
@@ -162,10 +170,10 @@ def TestBindGuard() -> None:
         ),
     )
     with Pytest.raises(ValueError, match="owner control route"):
-        _ = ReadBindingProof(Bulk, Owners, Unsupported, Native, Span, Along, 1)
-    EditData = bytearray(Bulk)
-    EditData[Book.PayloadOffset + 4 + 23] ^= 1
+        _ = ReadBindProof(BulkData, Owners, Unsupported, Native, SpanValue, Along, 1)
+    EditData = bytearray(BulkData)
+    EditData[Workbook.PayloadOffset + 4 + 23] ^= 1
     assert (
-        ReadBindingProof(bytes(EditData), Owners, Document, Native, Span, Along, 1)
+        ReadBindProof(bytes(EditData), Owners, Document, Native, SpanValue, Along, 1)
         == Binding
     )

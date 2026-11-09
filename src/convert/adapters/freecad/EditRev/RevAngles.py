@@ -11,10 +11,10 @@ from convert.adapters.freecad.LiteralQuantity import IsLiteralQty
 from convert.formats.Fusion.FeatureLabels import KFeatureFields
 from convert.geometry.Formula.Arithmetic import (
     EvalFormula,
-    IsLiteralFormula,
+    IsLiteralExpr,
     ReadFormula,
 )
-from convert.geometry.Formula.FormulaUnits import MatchQuantity
+from convert.geometry.Formula.FormulaUnits import IsMatchingQty
 from interchange.enums.EnumFeatures import FeatureKind
 from interchange.enums.EnumValues import ParameterRole, ValueKind
 from interchange.features.FeatureAngleRev import AngularRevolve
@@ -33,10 +33,10 @@ def IsRevLiteral(Param: Parameter) -> bool:
     if Expression.language != "freecad":
         return False
     Formula = ReadFormula(Expression.source)
-    if Formula is None or not IsLiteralFormula(Formula):
+    if Formula is None or not IsLiteralExpr(Formula):
         return False
     Quantity = EvalFormula(Formula, {})
-    return Quantity is not None and MatchQuantity(Quantity, Param.value)
+    return Quantity is not None and IsMatchingQty(Quantity, Param.value)
 
 
 # source parameters must be reciprocal finite literal angular bindings owned by the feature

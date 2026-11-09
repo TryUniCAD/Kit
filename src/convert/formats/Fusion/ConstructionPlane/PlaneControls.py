@@ -28,15 +28,15 @@ class PlaneControls:
 
 
 # each method must reproduce the stored datum using its same component origin operands
-def ReadPlaneControls(
+def ReadPlaneParams(
     BulkData: bytes, Owners: dict[int, RecordSpan], PlaneValue: SupportPlane
 ) -> PlaneControls:
     Origin = PlaneValue.provenance
-    Mode = PlaneValue.attributes.get("fusion.cached_plane_mode")
+    ModeValue = PlaneValue.attributes.get("fusion.cached_plane_mode")
     FeatureId = PlaneValue.attributes.get("fusion.feature_object_id")
-    if Origin is None or type(FeatureId) is not int or Mode not in (1, 2):
+    if Origin is None or type(FeatureId) is not int or ModeValue not in (1, 2):
         raise ValueError("Fusion construction plane controls are unresolved")
-    if Mode == 2:
+    if ModeValue == 2:
         _, ReferenceFrame, Scalar, Extra, Component = ReadAngleDef(
             BulkData, Owners, PlaneValue
         )

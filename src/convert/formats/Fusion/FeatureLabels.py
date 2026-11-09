@@ -6,7 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from struct import pack as Pack
+from struct import pack as PackData
 
 from convert.formats.Fusion.MetaCursor import MetaCursor
 from interchange.enums.EnumFeatures import FeatureKind
@@ -21,7 +21,7 @@ KFeatureFields = {
 
 # typed labels share their native ordinal with reciprocal geometry records
 def ReadLabelData(BodyValue: bytes, LabelText: str) -> tuple[str, int] | None:
-    Marker = Pack("<I", len(LabelText)) + LabelText.encode("utf-16le")
+    Marker = PackData("<I", len(LabelText)) + LabelText.encode("utf-16le")
     Start = BodyValue.find(Marker)
     if Start < 0 or BodyValue.find(Marker, Start + len(Marker)) >= 0:
         return None

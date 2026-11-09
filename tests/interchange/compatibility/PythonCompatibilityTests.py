@@ -13,7 +13,7 @@ from typing import Protocol, cast as TypeCast, runtime_checkable, TypeVar
 
 import interchange as InterchangeApi
 from interchange.features.FeatureAngleRev import AngularRevolve
-from interchange.features.FeatureBoundPlane import BoundConstructionPlane
+from interchange.features.FeatureBoundPlane import BoundDatum
 from interchange.features.FeatureBoundScale import BoundScale
 from interchange.features.FeatureDistExt import DistanceExtrude
 from interchange.features.FeaturePlaneExt import PlaneExtrude
@@ -256,7 +256,7 @@ def CheckRegistry() -> None:
     IntendedTypes.update(
         (
             AngularRevolve,
-            BoundConstructionPlane,
+            BoundDatum,
             BoundScale,
             DistanceExtrude,
             PlaneExtrude,

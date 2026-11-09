@@ -48,18 +48,21 @@ def CheckScaleTrim(
 
 # two matching endpoints prove the full affine trim on its bounded surface
 def CheckScaleEnds(
-    Trim: ScaleSpan,
+    TrimValue: ScaleSpan,
     Curve: ScaleSpan,
     Patch: ScalePatch,
     EdgeMatrix: tuple[float, ...],
     SurfaceMatrix: tuple[float, ...],
 ) -> None:
-    if Trim.Domain != Curve.Domain or any(
+    if TrimValue.Domain != Curve.Domain or any(
         not IsNearPoint(
             LocationPoint(EdgeMatrix, SpaceVector(*Coord)),
             LocationPoint(SurfaceMatrix, Patch.EvalPoint(Param)),
         )
-        for Coord, Param in ((Curve.Start, Trim.Start), (Curve.EndPoint, Trim.EndPoint))
+        for Coord, Param in (
+            (Curve.Start, TrimValue.Start),
+            (Curve.EndPoint, TrimValue.EndPoint),
+        )
     ):
         raise DecodeFailure("Scale spline trim disagrees with its edge geometry")
 

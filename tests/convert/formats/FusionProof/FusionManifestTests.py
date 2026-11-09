@@ -14,7 +14,7 @@ from zipfile import ZipFile
 
 from pytest import mark as TestMarks, raises as Raises
 
-from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionArchive
+from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionZip
 from convert.formats.Fusion.SourceProof.Auxiliary.Manifest.ActiveManifest import (
     ActiveManifest,
 )
@@ -70,7 +70,7 @@ def TestAssetRevs() -> None:
     Results: list[ActiveManifest] = []
     for FileName in ("depth07_a.f3d", "depth13.f3d"):
         Capture = ManifestZip(CaptureMembers(KCaptureFolder / FileName))
-        with OpenFusionArchive(Capture) as Archive:
+        with OpenFusionZip(Capture) as Archive:
             Result = ReadActiveMeta(Archive)
             assert (Result.RootMember, Result.ActiveMember) == Archive.Members[:2]
             assert Archive.ReadNames == frozenset((KRootManifest, KActiveManifest))
@@ -89,7 +89,7 @@ def TestAssetRevs() -> None:
 # the independent capture shares the schema despite different header words
 @KRequiresCodec
 def TestMetaVariant() -> None:
-    with OpenFusionArchive(KExampleFile.read_bytes()) as Archive:
+    with OpenFusionZip(KExampleFile.read_bytes()) as Archive:
         Result = ReadActiveMeta(Archive)
         assert Result.AssetId == "952d0a7d-2d52-48d3-8596-400ac4f0bc0b"
         assert Result.SnapshotId == "9cf7970e-6238-4119-befb-55fb5432c805"
@@ -101,7 +101,7 @@ def TestMetaVariant() -> None:
 def TestForeignMeta() -> None:
     Members = CaptureMembers(KCaptureFolder / "depth07_a.f3d")
     Members[KActiveManifest] = CaptureMembers(KExampleFile)[KActiveManifest]
-    with OpenFusionArchive(ManifestZip(Members)) as Archive:
+    with OpenFusionZip(ManifestZip(Members)) as Archive:
         with Raises(ValueError, match="asset IDs disagree"):
             _ = ReadActiveMeta(Archive)
 
@@ -115,7 +115,7 @@ def TestMetaBounds() -> None:
         {**Members, KActiveManifest: bytes(KMaxManifestBytes + 1)},
         {KRootManifest: Members[KRootManifest], KActiveManifest + "/": b""},
     ):
-        with OpenFusionArchive(ManifestZip(Changed)) as Archive:
+        with OpenFusionZip(ManifestZip(Changed)) as Archive:
             with Raises(ValueError, match="Missing or oversized"):
                 _ = ReadActiveMeta(Archive)
             assert Archive.ReadNames == frozenset()
@@ -143,7 +143,7 @@ def TestMetaSchema(NameValue: str, Before: bytes, After: bytes) -> None:
     Members = CaptureMembers(KCaptureFolder / "depth07_a.f3d")
     assert Before in Members[NameValue]
     Members[NameValue] = Members[NameValue].replace(Before, After, 1)
-    with OpenFusionArchive(ManifestZip(Members)) as Archive:
+    with OpenFusionZip(ManifestZip(Members)) as Archive:
         with Raises(ValueError):
             _ = ReadActiveMeta(Archive)
 
@@ -154,8 +154,6 @@ def TestMetaExtent() -> None:
     Members = CaptureMembers(KCaptureFolder / "depth07_a.f3d")
     for NameValue in (KRootManifest, KActiveManifest):
         for Changed in (Members[NameValue][:-1], Members[NameValue] + b"\x00"):
-            with OpenFusionArchive(
-                ManifestZip({**Members, NameValue: Changed})
-            ) as Archive:
+            with OpenFusionZip(ManifestZip({**Members, NameValue: Changed})) as Archive:
                 with Raises(ValueError):
                     _ = ReadActiveMeta(Archive)

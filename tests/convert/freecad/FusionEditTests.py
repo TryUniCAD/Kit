@@ -102,9 +102,11 @@ def TestNativeExt(
         }
         Shape = RootValue.find(f"{Properties}/Property[@name='Shape']/Part")
         assert Shape is not None
-        assert [Name for Name in Archive.namelist() if Name.endswith(".Shape.brp")] == [
-            Shape.attrib["file"]
-        ]
+        assert [
+            NameData
+            for NameData in Archive.namelist()
+            if NameData.endswith(".Shape.brp")
+        ] == [Shape.attrib["file"]]
     assert OpenDocument(Output).feature_timeline == Document.feature_timeline
 
 
@@ -125,10 +127,10 @@ def TestFormulaExt(TmpPath: FilePath) -> None:
             len(RootValue.findall("./Objects/Object[@type='Sketcher::SketchObject']"))
             == 2
         )
-        Cell = RootValue.find(".//Cell[@alias='fusion_parameter_276']")
+        CellValue = RootValue.find(".//Cell[@alias='fusion_parameter_276']")
         assert (
-            Cell is not None
-            and Cell.get("content") == "=fusion_parameter_202 * 2 + 1 mm"
+            CellValue is not None
+            and CellValue.get("content") == "=fusion_parameter_202 * 2 + 1 mm"
         )
     StrictOutput = TmpPath / "strict.FCStd"
     with Pytest.raises(AppUsabilityError):

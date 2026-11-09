@@ -91,12 +91,12 @@ def CheckScaleExt(Native: NativeObject) -> None:
 def CheckScaleState(Native: NativeObject) -> None:
     CheckScaleExt(Native)
     CheckEmptyProxy(Native)
-    Kind = Native.type_id
-    if Kind == "Part::Extrusion":
+    KindValue = Native.type_id
+    if KindValue == "Part::Extrusion":
         CheckEditOpts(Native)
         CheckEditMaker(Native)
         CheckEditFrame(Native, "Placement", KTransformIdentity, Optional=True)
-    if Kind == "Sketcher::SketchObject":
+    if KindValue == "Sketcher::SketchObject":
         CheckSketchOpts(Native)
         CheckExternal(Native)
     if "Role" in Native.properties and EditScalar(

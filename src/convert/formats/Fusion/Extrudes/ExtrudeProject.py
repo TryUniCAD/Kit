@@ -25,7 +25,9 @@ def ProjectExtrudes(
     Frames: tuple[SupportPlane, ...],
     Sketches: tuple[Sketch, ...],
 ) -> tuple[tuple[FeatureStep, ...], tuple[Diagnostic, ...]]:
-    Owners = {Span.ObjectId: Span for Span in Spans if Span.IsPrimary}
+    Owners = {
+        SpanValue.ObjectId: SpanValue for SpanValue in Spans if SpanValue.IsPrimary
+    }
     ByParam = {Param.id: Param for Param in Params}
     ByFrame = {Frame.id: Frame for Frame in Frames}
     SketchFrames = {

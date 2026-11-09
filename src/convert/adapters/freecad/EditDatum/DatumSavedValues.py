@@ -16,14 +16,14 @@ from convert.adapters.freecad.EditRead.EditPlacement import ReadEditFrame
 from convert.adapters.freecad.EditRead.XmlField import EditChild, EditScalar
 from convert.adapters.freecad.EditScale.ScaleSavedParams import (
     ReadScaleCells,
-    ReadScaleLiteral,
+    ReadScaleScalar,
 )
 from convert.adapters.freecad.Native import NativeObject
 from convert.geometry.Formula.FormulaUnits import GetQuantity
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.document.validation.BoundPlaneValidate import CheckBoundPlane
-from interchange.features.BoundPlaneValues import GetConstructionFrame
-from interchange.features.FeatureBoundPlane import BoundConstructionPlane
+from interchange.features.BoundPlaneValues import GetDatumFrame
+from interchange.features.FeatureBoundPlane import BoundDatum
 from interchange.features.FeatureStep import FeatureStep
 from interchange.geometry.models.Transform import Transform
 from interchange.records.RecordParameter import Parameter
@@ -62,7 +62,7 @@ def ReadDatumParams(
         After = Cells[Alias].get("content", "")
         if After != Before:
             try:
-                Updated = ReadScaleLiteral(Param, After)
+                Updated = ReadScaleScalar(Param, After)
             except ValueError as ErrorInfo:
                 raise ValueError(
                     "FreeCAD editable datum cell is not a compatible literal"
@@ -106,7 +106,7 @@ def ReadDatumPose(Native: NativeObject) -> Transform:
 # the exact source frame and native placement must agree independently of the sheet
 def ApplyDatumVals(
     Document: CadDocument,
-    Controls: tuple[tuple[FeatureStep, BoundConstructionPlane], ...],
+    Controls: tuple[tuple[FeatureStep, BoundDatum], ...],
     Native: dict[str, NativeObject],
     Parameters: tuple[Parameter, ...],
 ) -> CadDocument:
@@ -126,7 +126,7 @@ def ApplyDatumVals(
         CheckBoundPlane(StepValue, Definition, Params, {Plane.id: Witness})
         Identity = Definition.ScalarParameterId
         if Params[Identity] != Before[Identity]:
-            Derived = GetConstructionFrame(StepValue, Definition, Params)
+            Derived = GetDatumFrame(StepValue, Definition, Params)
             PlaneFrames[Plane.id] = Replace(Plane, transform=Derived)
     if Parameters == Document.parameters:
         return Document

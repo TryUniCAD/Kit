@@ -10,7 +10,7 @@ from dataclasses import dataclass as Dataclass
 
 from convert.formats.Fusion.Assembly.ComponentRead import KComponentGuid
 from convert.formats.Fusion.Assembly.Solids.ScopeGraph import ReadScopeGraph
-from convert.formats.Fusion.HistoryRef import ReadNativeRef, ReadOptionalRef
+from convert.formats.Fusion.HistoryRef import ReadNativeRef, ReadOptRefMut
 from convert.formats.Fusion.RecordSpan import RecordSpan
 from convert.formats.Fusion.SelectionProxy import SelectCursor
 
@@ -50,7 +50,7 @@ def ReadOwnerScope(
         or ReadNativeRef(Owner) != Identity
     ):
         raise ValueError("Fusion creator scope bookkeeping disagrees")
-    SnapshotId = ReadOptionalRef(Cursor)
+    SnapshotId = ReadOptRefMut(Cursor)
     if SnapshotId is not None:
         _ = SelectCursor(BulkData, Owners, SnapshotId, KScopeSnapshot)
     if Cursor.TakeBytes(1) != bytes(1) or Cursor.Offset != len(Cursor.DataValue):

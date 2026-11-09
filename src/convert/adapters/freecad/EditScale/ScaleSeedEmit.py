@@ -28,24 +28,24 @@ from convert.adapters.freecad.EditScale.ScaleCache import ScaleCache
 def AddScaleSeedMut(
     Context: DocContext, Geometry: DocGeometry, Features: DocFeatures, Cache: ScaleCache
 ) -> Object:
-    Axis = (0.0, 0.0, 1.0)
-    Seed = AddExtToolMut(
-        Context, Cache.Feature, Axis, Cache.Body.Depth, 0.0, False, Cache.DepthRef
+    AxisValue = (0.0, 0.0, 1.0)
+    SeedValue = AddExtToolMut(
+        Context, Cache.Feature, AxisValue, Cache.Body.Depth, 0.0, False, Cache.DepthRef
     )
     ReplaceNameMut(
-        Seed.properties,
+        SeedValue.properties,
         "ExpressionEngine",
         ExpressionProp(
             [
-                ("Dir", BodyDepthDir(Axis, Cache.DepthRef, Cache.Sketch.name)),
+                ("Dir", BodyDepthDir(AxisValue, Cache.DepthRef, Cache.Sketch.name)),
                 ("LengthFwd", Cache.DepthRef),
             ]
         ),
     )
-    Entry = AddBrepEntryMut(Features.PayloadEntries, Seed.name, Cache.SourceBrep)
-    ReplaceNameMut(Seed.properties, "Shape", ShapeProp(Entry))
-    ReplaceNameMut(Seed.properties, "Visibility", BoolProp("Visibility", False))
+    Entry = AddBrepEntryMut(Features.PayloadEntries, SeedValue.name, Cache.SourceBrep)
+    ReplaceNameMut(SeedValue.properties, "Shape", ShapeProp(Entry))
+    ReplaceNameMut(SeedValue.properties, "Visibility", BoolProp("Visibility", False))
     ReplaceNameMut(Cache.Sketch.properties, "Visibility", BoolProp("Visibility", False))
     SetProfRulesMut(Context, Geometry, Cache.Sketch, Cache.Body.SketchId)
-    TrackSolidMut(Features, Cache.Feature, Seed)
-    return Seed
+    TrackSolidMut(Features, Cache.Feature, SeedValue)
+    return SeedValue

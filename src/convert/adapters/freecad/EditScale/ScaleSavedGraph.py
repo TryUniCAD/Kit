@@ -15,7 +15,7 @@ from convert.adapters.freecad.Native import ParseObjects
 
 
 # saved scale geometry can change only through the controls in the original native graph
-def ValidateScaleGraph(Expected: Element, Actual: Element) -> None:
+def CheckScaleGraph(Expected: Element, Actual: Element) -> None:
     CheckGraphTree(Expected)
     CheckGraphTree(Actual)
     Original = {Value.name: Value for Value in ParseObjects(Expected)}

@@ -10,10 +10,10 @@ from convert.formats.Fusion.FormulaDeps.ScopedParams import ReadPartScope
 from convert.formats.Fusion.HistoryPart import HistoryPart
 from convert.formats.Fusion.RecordSpan import RecordSpan
 from convert.formats.Fusion.SourceProof.Parameters.NumberProofFormulas import (
-    ReadProvenNumbers,
+    ReadProvenNums,
 )
 from convert.formats.Fusion.SourceProof.Parameters.NumberProofRows import (
-    ReadNumberProofRows,
+    ReadNumberRows,
 )
 from convert.formats.Fusion.SourceProof.ProofClaim import (
     ProofCategory,
@@ -36,11 +36,11 @@ def ReadParamClaims(
             BulkData, Spans, History, VerifyOrder=True
         )
         if any(
-            BulkData[Span.PayloadOffset : Span.PayloadOffset + 4] != bytes(4)
-            for Span in (Collection, Registry)
+            BulkData[SpanValue.PayloadOffset : SpanValue.PayloadOffset + 4] != bytes(4)
+            for SpanValue in (Collection, Registry)
         ):
             return ()
-        Rows = ReadNumberProofRows(Document, BulkData, Owners, Order, Names)
+        RowValues = ReadNumberRows(Document, BulkData, Owners, Order, Names)
     except ValueError:
         return ()
     Claims = [
@@ -57,20 +57,20 @@ def ReadParamClaims(
             "reciprocal parameter name registry",
         ),
     ]
-    for Row in ReadProvenNumbers(Rows):
+    for RowValue in ReadProvenNums(RowValues):
         Claims.append(
             ProofClaim(
                 Scope,
-                Row.Span,
+                RowValue.Span,
                 ProofCategory.KVerifiedDesign,
                 "scoped numeric parameter and formula",
             )
         )
-        if Row.Binding is not None:
+        if RowValue.Binding is not None:
             Claims.append(
                 ProofClaim(
                     Scope,
-                    Row.Binding,
+                    RowValue.Binding,
                     ProofCategory.KVerifiedDesign,
                     "reciprocal typed parameter binding",
                 )

@@ -23,13 +23,13 @@ def ReadScaleParams(
     )
     Params = {Value.id: Value for Value in Document.parameters}
     Identities: list[str] = []
-    for BindingId, Role in zip(Fields.FactorIds, Roles, strict=True):
+    for BindingId, RoleValue in zip(Fields.FactorIds, Roles, strict=True):
         Matches = tuple(
             Value.id
             for Value in Params.values()
             if Value.attributes.get("fusion.binding_id") == BindingId
             and Value.attributes.get("fusion.owner_object_id") == FeatureId
-            and Value.attributes.get("fusion.native_role") == Role
+            and Value.attributes.get("fusion.native_role") == RoleValue
         )
         if len(Matches) != 1:
             raise ValueError("Fusion Scale factor binding or axis role disagrees")

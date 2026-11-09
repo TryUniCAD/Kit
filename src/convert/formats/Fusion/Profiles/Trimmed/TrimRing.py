@@ -6,7 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from math import cos as Cos, dist as Distance, sin as Sin
+from math import cos as Cosine, dist as Distance, sin as SineValue
 
 from convert.formats.Fusion.Profiles.Trimmed.TrimPortion import TrimPortion
 from convert.formats.Fusion.Profiles.Trimmed.TrimSources import KTrimDistance
@@ -20,8 +20,8 @@ def TrimEndpoint(
 ) -> tuple[float, float]:
     if isinstance(Geometry, CircleGeometry):
         return (
-            Geometry.center.x + Geometry.radius * Cos(Parameter),
-            Geometry.center.y + Geometry.radius * Sin(Parameter),
+            Geometry.center.x + Geometry.radius * Cosine(Parameter),
+            Geometry.center.y + Geometry.radius * SineValue(Parameter),
         )
     Complement = 1.0 - Parameter
     return (

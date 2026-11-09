@@ -12,7 +12,7 @@ from convert.formats.Fusion.BodyInputs.InputRefs import (
     ReadInputPicks,
     ReadPickRefs,
 )
-from convert.formats.Fusion.HistoryRef import ReadOptionalRef
+from convert.formats.Fusion.HistoryRef import ReadOptRefMut
 from convert.formats.Fusion.ParamBinding import KBindingWidths
 from convert.formats.Fusion.RecordSpan import RecordSpan
 from convert.formats.Fusion.SelectionProxy import KSelectProxy, SelectCursor
@@ -27,11 +27,11 @@ def ReadShellInputs(
 ) -> BodyInputs:
     Cursor = SelectCursor(BulkData, Owners, FeatureId, KShellGuid)
     if Cursor.TakeBytes(2) != bytes(2) or any(
-        Flag not in (0, 1) for Flag in Cursor.TakeBytes(2)
+        FlagValue not in (0, 1) for FlagValue in Cursor.TakeBytes(2)
     ):
         raise ValueError("Unsupported Fusion Shell input prefix")
     Thickness = tuple(
-        Identity for _ in range(2) if (Identity := ReadOptionalRef(Cursor)) is not None
+        Identity for _ in range(2) if (Identity := ReadOptRefMut(Cursor)) is not None
     )
     if (
         not Thickness

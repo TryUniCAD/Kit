@@ -15,7 +15,7 @@ from pytest import MonkeyPatch as PatchContext
 from pytest import importorskip as ImportSkip, mark as TestMarks, raises as Raises
 
 from convert.adapters.Fusion.ArchiveProbe import ProbeFusion
-from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionArchive
+from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionZip
 from convert.formats.Fusion.AssetCodec.Zip.EmitAssetZip import EmitAssetZip
 from convert.formats.Fusion.AssetCodec.Zip.ZipAssetRow import ZipAssetRow
 
@@ -112,7 +112,7 @@ def TestZipFrames(DataSize: int) -> None:
         assert FrameData[:4] == b"\x28\xb5\x2f\xfd"
         assert Codec.decompress(FrameData) == Payload
         assert Archive.read(Entry) == Payload
-    with OpenFusionArchive(DataValue, InflateZstd) as Archive:
+    with OpenFusionZip(DataValue, InflateZstd) as Archive:
         assert Archive.ReadMember("entry.dat", DataSize) == Payload
 
 
@@ -122,11 +122,11 @@ def TestZipCorrupt() -> None:
     DataValue = bytearray(EmitAssetZip((ZipAssetRow("entry.dat", b"value", True),)))
     with ZipFile(BytesIO(DataValue)) as Archive:
         DataValue[Archive.start_dir - 1] ^= 1
-    with OpenFusionArchive(bytes(DataValue), InflateZstd) as Archive:
+    with OpenFusionZip(bytes(DataValue), InflateZstd) as Archive:
         with Raises(ValueError, match="size or CRC mismatch"):
             _ = Archive.ReadMember("entry.dat", 5)
     DataValue[6] ^= 0x08
-    with OpenFusionArchive(bytes(DataValue), InflateZstd) as Archive:
+    with OpenFusionZip(bytes(DataValue), InflateZstd) as Archive:
         with Raises(ValueError, match="local and central entries disagree"):
             _ = Archive.ReadMember("entry.dat", 5)
 

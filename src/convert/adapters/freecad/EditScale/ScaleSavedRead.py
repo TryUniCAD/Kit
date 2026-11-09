@@ -18,11 +18,11 @@ from convert.adapters.freecad.EditScale.ScalePointPlan import (
     ReadPointPlan,
     ReadPointScope,
 )
-from convert.adapters.freecad.EditScale.ScaleSavedGraph import ValidateScaleGraph
+from convert.adapters.freecad.EditScale.ScaleSavedGraph import CheckScaleGraph
 from convert.adapters.freecad.EditScale.ScaleSavedParams import ReadScaleParams
 from convert.adapters.freecad.EditScale.ScaleSavedShapes import ReadScaleShapes
-from convert.adapters.freecad.EditScale.ScaleSavedSketch import ReadScaleSketches
-from convert.adapters.freecad.EditScale.ScaleSavedSolids import RebuildScaleSolids
+from convert.adapters.freecad.EditScale.ScaleSavedSketch import ReadScaleRings
+from convert.adapters.freecad.EditScale.ScaleSavedSolids import RebuildScale
 from convert.adapters.freecad.EditScale.ScaleWritePlan import ScaleWritePlan
 from convert.adapters.freecad.Native import NativeObject, ParseObjects
 from interchange.document.models.DocumentModel import CadDocument
@@ -37,11 +37,11 @@ from interchange.geometry.models.Transform import Transform
 def ReadSavedCenter(
     Document: CadDocument,
     Feature: FeatureStep,
-    Plan: ScaleWritePlan,
+    PlanValue: ScaleWritePlan,
     Center: Selection,
     Objects: Mapping[str, NativeObject],
 ) -> Selection:
-    Point = Plan.Center
+    Point = PlanValue.Center
     if not Point.SketchId:
         return Center
     Derived = ReadPointPlan(
@@ -65,17 +65,20 @@ def ReadSavedScale(
     Manifest: Mapping[str, object],
     Feature: FeatureStep,
     Definition: BoundScale,
-    Plan: ScaleWritePlan,
+    PlanValue: ScaleWritePlan,
     Expected: Element,
     Actual: Element,
     Archive: ZipFile,
     Members: Mapping[str, ZipInfo],
 ) -> CadDocument:
-    ValidateScaleGraph(Expected, Actual)
+    CheckScaleGraph(Expected, Actual)
     Objects = {Value.name: Value for Value in ParseObjects(Actual)}
     Originals = {Value.name: Value for Value in ParseObjects(Expected)}
     Catalog = ParamCatalog(Items(Manifest.get("parameters", [])))
-    Editable = {*Plan.FactorIds, *(Body.DepthId for Body in Plan.Bodies)}
+    Editable = {
+        *PlanValue.FactorIds,
+        *(BodyValue.DepthId for BodyValue in PlanValue.Bodies),
+    }
     Params = ReadScaleParams(
         Objects["Parameters"],
         Originals["Parameters"],
@@ -85,21 +88,21 @@ def ReadSavedScale(
     )
     Shapes = ReadScaleShapes(Archive, Members, Objects)
     Updated = Replace(Document, parameters=Params)
-    Sketches = ReadScaleSketches(
-        Updated, Plan, IndexSketchObjs(Objects.values()), Originals, Shapes
+    Sketches = ReadScaleRings(
+        Updated, PlanValue, IndexSketchObjs(Objects.values()), Originals, Shapes
     )
     Updated = Replace(Updated, sketches=Sketches)
     CenterId = Definition.CenterSelectionId
     Selections = {Value.id: Value for Value in Document.selections}
     Selections[CenterId] = ReadSavedCenter(
-        Updated, Feature, Plan, Selections[CenterId], Objects
+        Updated, Feature, PlanValue, Selections[CenterId], Objects
     )
     Factors, Point = GetScaleValues(
         Feature, Definition, {Value.id: Value for Value in Params}, Selections
     )
-    Final = RebuildScaleSolids(
+    Final = RebuildScale(
         Replace(Updated, selections=tuple(Selections.values())),
-        Plan,
+        PlanValue,
         Definition,
         Objects,
         Shapes,

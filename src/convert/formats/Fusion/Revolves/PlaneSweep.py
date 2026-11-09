@@ -6,8 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from math import atan2 as AtanTwo, hypot as Hypot, isclose as IsClose, pi as Pi
-from operator import mul as Mul
+from math import atan2 as AtanTwo, hypot as Hypot, isclose as IsClose, pi as CirclePi
+from operator import mul as Multiply
 
 from convert.formats.Fusion.Revolves.ProfileMeridian import CalcMeridian
 from interchange.geometry.models.GeometryCurves import LineGeometry
@@ -40,7 +40,7 @@ def DerivePlaneSpan(
             Target.origin.z - AxisOrigin.z,
         )
         AlongAxis, AlongRadial, AlongTangent, Distance = (
-            sum(map(Mul, Normal, Vector))
+            sum(map(Multiply, Normal, Vector))
             for Vector in (AxisTuple, Radial, Tangent, Offset)
         )
         if (
@@ -52,8 +52,8 @@ def DerivePlaneSpan(
             )
         ):
             raise ValueError("Fusion Revolve target plane must contain the axis")
-        RootAngle = AtanTwo(-AlongRadial, AlongTangent) % Pi
-        if min(RootAngle, Pi - RootAngle) <= 1e-9:
+        RootAngle = AtanTwo(-AlongRadial, AlongTangent) % CirclePi
+        if min(RootAngle, CirclePi - RootAngle) <= 1e-9:
             raise ValueError("Fusion Revolve target plane coincides with the sketch")
         Roots.append(RootAngle)
     EffectiveAxis = SpaceVector(*AxisTuple)
@@ -62,4 +62,4 @@ def DerivePlaneSpan(
     Earlier, Later = sorted(Roots)
     if Later - Earlier <= 1e-9:
         raise ValueError("Fusion Revolve target planes coincide")
-    return EffectiveAxis, Later, Earlier + Pi
+    return EffectiveAxis, Later, Earlier + CirclePi

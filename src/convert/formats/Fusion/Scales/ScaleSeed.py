@@ -72,19 +72,20 @@ def ReadScaleSeed(
     Identities = Source.attributes.get("fusion.profile_entity_ids")
     if not IsObjectTuple(Identities):
         raise ValueError("Fusion Scale source profile is missing")
-    ById = {Value.id: Value for Value in SketchValue.entities}
+    ByIdentity = {Value.id: Value for Value in SketchValue.entities}
     if any(
-        not isinstance(Identity, str) or Identity not in ById for Identity in Identities
+        not isinstance(Identity, str) or Identity not in ByIdentity
+        for Identity in Identities
     ):
         raise ValueError("Fusion Scale source profile has an unresolved entity")
     Profile = tuple(
-        ById[Identity] for Identity in CastValue(tuple[str, ...], Identities)
+        ByIdentity[Identity] for Identity in CastValue(tuple[str, ...], Identities)
     )
-    Tags = ReadProfileTags(Profile)
+    TagValues = ReadProfileTags(Profile)
     Lines = tuple(
         Entity.geometry
         for Entity in Profile
         if isinstance(Entity.geometry, LineGeometry)
     )
     Depth = Values.LowerMm if Values.LowerMm < 0.0 else Values.UpperMm
-    return ScaleSeed(Lines, Frame.transform, Depth, Tags)
+    return ScaleSeed(Lines, Frame.transform, Depth, TagValues)

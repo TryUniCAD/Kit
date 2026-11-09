@@ -32,7 +32,7 @@ def BodyInputIssue(StepValue: FeatureStep, Message: str) -> Diagnostic:
 
 
 # the public projection attaches verified operands without asserting regenerated feature geometry
-def ProjectBodyPicks(
+def ProjectPicks(
     Document: CadDocument,
     BulkData: bytes,
     Spans: tuple[RecordSpan, ...],

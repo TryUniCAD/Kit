@@ -24,24 +24,30 @@ def ReadRimShadow(
     Archive: ZipFile,
     Members: Mapping[str, ZipInfo],
     Native: NativeObject,
-    Slot: int,
+    SlotValue: int,
     GeoId: int,
     Sides: int,
 ) -> str:
     NameValue = f"{Native.name}.Shape.Map.txt"
     Shape = Native.properties["Shape"]
-    Maps = Shape.findall("./ElementMap2")
-    if len(Maps) != 1 or Maps[0].attrib != {"file": NameValue} or len(Maps[0]):
+    Mappings = Shape.findall("./ElementMap2")
+    if (
+        len(Mappings) != 1
+        or Mappings[0].attrib != {"file": NameValue}
+        or len(Mappings[0])
+    ):
         raise ValueError("FreeCAD editable body axis source edge map is missing")
     DataValue = ReadEditBrep(
         Archive, Members, NameValue, KMaxAxisMap, "editable body edge map"
     )
-    Rows = [
-        Line.strip() for Line in DataValue.decode("ascii").splitlines() if Line.strip()
+    RowValues = [
+        LineValue.strip()
+        for LineValue in DataValue.decode("ascii").splitlines()
+        if LineValue.strip()
     ]
-    if len(Rows) < 10 or Rows[0] != "BeginElementMap v1":
+    if len(RowValues) < 10 or RowValues[0] != "BeginElementMap v1":
         raise ValueError("FreeCAD editable body axis source edge map header changed")
-    Fields = Rows[1].split()
+    Fields = RowValues[1].split()
     if (
         len(Fields) != 3
         or Fields[1] != "PostfixCount"
@@ -52,8 +58,8 @@ def ReadRimShadow(
     Count = int(Fields[2])
     if not 3 <= Count <= 256:
         raise ValueError("FreeCAD editable body axis source edge postfix count changed")
-    Postfix = Rows[2 : 2 + Count]
-    Names = Rows[2 + Count :]
+    Postfix = RowValues[2 : 2 + Count]
+    Names = RowValues[2 + Count :]
     Header = [
         "MapCount 1",
         f"ElementMap 1 {Fields[0]} 3",
@@ -63,25 +69,25 @@ def ReadRimShadow(
     ]
     if Names[: len(Header)] != Header or Postfix.count(KRimPostfix) != 1:
         raise ValueError("FreeCAD editable body axis source edge naming changed")
-    Tag = f"$#b:{GeoId:x}.{Postfix.index(KRimPostfix) + 1:x}"
+    TagValue = f"$#b:{GeoId:x}.{Postfix.index(KRimPostfix) + 1:x}"
     EdgeRows = Names[len(Header) : len(Header) + 3 * Sides + 1]
     if (
         len(EdgeRows) != 3 * Sides + 1
         or EdgeRows[0] != "0"
-        or not 0 < Slot < len(EdgeRows)
-        or EdgeRows[Slot].split() != [Tag, "0"]
-        or sum(Tag in Row.split() for Row in EdgeRows) != 1
+        or not 0 < SlotValue < len(EdgeRows)
+        or EdgeRows[SlotValue].split() != [TagValue, "0"]
+        or sum(TagValue in RowValue.split() for RowValue in EdgeRows) != 1
     ):
         raise ValueError("FreeCAD editable body axis source edge map slot changed")
-    Tail = Names[len(Header) + len(EdgeRows) :]
-    for Kind, RowsCount in (("Face", Sides + 3), ("Vertex", 2 * Sides + 1)):
-        if Tail[:4] != [Kind, "ChildCount 0", f"NameCount {RowsCount}", "0"]:
+    TailValue = Names[len(Header) + len(EdgeRows) :]
+    for KindValue, RowsCount in (("Face", Sides + 3), ("Vertex", 2 * Sides + 1)):
+        if TailValue[:4] != [KindValue, "ChildCount 0", f"NameCount {RowsCount}", "0"]:
             raise ValueError(
                 "FreeCAD editable body axis source edge map inventory changed"
             )
-        Tail = Tail[3 + RowsCount :]
-    if Tail != ["EndMap"]:
+        TailValue = TailValue[3 + RowsCount :]
+    if TailValue != ["EndMap"]:
         raise ValueError(
             "FreeCAD editable body axis source edge map has additional data"
         )
-    return f";#b:{GeoId:x}{KRimPostfix}.Edge{Slot}"
+    return f";#b:{GeoId:x}{KRimPostfix}.Edge{SlotValue}"

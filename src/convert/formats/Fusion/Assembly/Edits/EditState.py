@@ -12,7 +12,7 @@ from struct import unpack as Unpack
 from convert.formats.Fusion.Assembly.Edits.AsmEditIndex import AsmEditIndex
 from convert.formats.Fusion.Assembly.Edits.EditBookkeep import CheckEditBook
 from convert.formats.Fusion.Assembly.Edits.EditSupport import CheckEditSup
-from convert.formats.Fusion.HistoryRef import ReadNativeRef, ReadOptionalRef
+from convert.formats.Fusion.HistoryRef import ReadNativeRef, ReadOptRefMut
 from convert.formats.Fusion.MetaCursor import MetaCursor
 from convert.formats.Fusion.SelectionProxy import SelectCursor
 
@@ -37,7 +37,7 @@ def CheckEditState(
     if Cursor.TakeBytes(7) != bytes(7):
         raise ValueError("Inactive or unsupported Fusion assembly edit state")
     CheckEditSup(BulkData, IndexValue, ReadNativeRef(Cursor))
-    OptionalId = ReadOptionalRef(Cursor)
+    OptionalId = ReadOptRefMut(Cursor)
     if (OptionalId is not None) != HasSupport:
         raise ValueError("Fusion assembly edit optional support disagrees")
     Owners = IndexValue.Owners
@@ -57,7 +57,7 @@ def CheckEditState(
         raise ValueError("Unsupported Fusion assembly edit helper or flags")
     CheckEditBook(BulkData, IndexValue, ReadNativeRef(Cursor), OwnerId)
     if (
-        ReadOptionalRef(Cursor) != RelatedId
+        ReadOptRefMut(Cursor) != RelatedId
         or Cursor.TakeBytes(1) != bytes(1)
         or Cursor.Offset != len(Cursor.DataValue)
     ):

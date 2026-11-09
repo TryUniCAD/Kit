@@ -51,7 +51,7 @@ def GetQuantity(Value: ParameterValue) -> KQuantity | None:
 
 
 # stored native values corroborate both arithmetic and units before links are trusted
-def MatchQuantity(Result: KQuantity, Expected: ParameterValue) -> bool:
+def IsMatchingQty(Result: KQuantity, Expected: ParameterValue) -> bool:
     Stored = GetQuantity(Expected)
     return (
         Stored is not None

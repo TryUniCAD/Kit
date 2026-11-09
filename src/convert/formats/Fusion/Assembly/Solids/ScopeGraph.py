@@ -23,13 +23,13 @@ def ReadScopeEdges(
     Cursor: MetaCursor, Owners: dict[int, RecordSpan], Reverse: bool
 ) -> Counter[tuple[int, int, int]]:
     Edges: Counter[tuple[int, int, int]] = Counter()
-    Seen: set[int] = set()
+    SeenValues: set[int] = set()
     Remaining = 100000
     for _ in range(Cursor.ReadCount(100000)):
         Source = ReadNativeRef(Cursor)
-        if Source not in Owners or Source in Seen:
+        if Source not in Owners or Source in SeenValues:
             raise ValueError("Fusion dependency graph source is missing or repeated")
-        Seen.add(Source)
+        SeenValues.add(Source)
         Count = Cursor.ReadCount(Remaining)
         Remaining -= Count
         for _ in range(Count):
@@ -37,8 +37,8 @@ def ReadScopeEdges(
             Flags = Cursor.ReadWord()
             if Target not in Owners:
                 raise ValueError("Fusion dependency graph target is missing")
-            Edge = (Target, Source, Flags) if Reverse else (Source, Target, Flags)
-            Edges[Edge] += 1
+            EdgeValue = (Target, Source, Flags) if Reverse else (Source, Target, Flags)
+            Edges[EdgeValue] += 1
     return Edges
 
 

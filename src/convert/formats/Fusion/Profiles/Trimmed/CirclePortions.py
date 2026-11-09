@@ -10,7 +10,7 @@ from math import tau as FullTurn
 
 from convert.formats.Fusion.Profiles.Trimmed.CirclePartitions import FindCircleCuts
 from convert.formats.Fusion.Profiles.Trimmed.TrimPortion import TrimPortion
-from convert.formats.Fusion.Profiles.Trimmed.TrimSelectors import TrimMember
+from convert.formats.Fusion.Profiles.Trimmed.TrimSelectors import KTrimMember
 from interchange.geometry.models.GeometryCurves import CircleGeometry
 
 # only known circular selector pairs identify independently corroborated source intervals
@@ -19,7 +19,7 @@ KCircleSelectors = frozenset(((1, 2), (2, 2), (2, 4), (4, 4)))
 
 # circle portion one crosses the reference seam and later portions follow increasing angle
 def ReadCircleTrim(
-    Circles: dict[int, CircleGeometry], Members: tuple[TrimMember, ...]
+    Circles: dict[int, CircleGeometry], Members: tuple[KTrimMember, ...]
 ) -> tuple[TrimPortion, ...]:
     Selected: dict[int, list[tuple[int, int]]] = {}
     for _, Selector in Members:
@@ -33,7 +33,7 @@ def ReadCircleTrim(
         for Pairs in Selected.values()
     ):
         raise ValueError("Unsupported Fusion circular trim source coverage")
-    Cuts = {
+    CutValues = {
         TagValue: FindCircleCuts(
             Source,
             tuple(Other for OtherTag, Other in Circles.items() if OtherTag != TagValue),
@@ -42,7 +42,7 @@ def ReadCircleTrim(
     }
     Portions: list[TrimPortion] = []
     for Entity, Selector in Members:
-        Angles = Cuts[Selector[1]]
+        Angles = CutValues[Selector[1]]
         Ordinal, Count = Selector[4:6]
         if Count != len(Angles):
             raise ValueError(

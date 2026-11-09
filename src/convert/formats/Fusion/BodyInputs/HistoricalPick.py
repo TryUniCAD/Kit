@@ -28,9 +28,9 @@ def MakeHistoryPick(
     Input: BodyInput,
     Ordinal: int,
 ) -> Selection:
-    Pick = ReadBodyPick(BulkData, Context.Owners, Input.DescriptorId, FeatureId)
-    if (Input.Role == "tool" and len(Pick.ContextIds) != 1) or (
-        Input.Role != "tool" and Pick.ContextIds
+    PickValue = ReadBodyPick(BulkData, Context.Owners, Input.DescriptorId, FeatureId)
+    if (Input.Role == "tool" and len(PickValue.ContextIds) != 1) or (
+        Input.Role != "tool" and PickValue.ContextIds
     ):
         raise ValueError("Unsupported Fusion body input context for role")
     if Input.AssociationId is not None:
@@ -38,39 +38,39 @@ def MakeHistoryPick(
             BulkData,
             Context.Owners,
             Input.AssociationId,
-            Pick.Namespace,
-            Pick.EntityGuid,
-            Pick.AnchorId,
+            PickValue.Namespace,
+            PickValue.EntityGuid,
+            PickValue.AnchorId,
         )
-    Source = CheckBodySource(BulkData, Context, Receiver, Scope, Pick)
+    Source = CheckBodySource(BulkData, Context, Receiver, Scope, PickValue)
     return Selection(
-        id=f"fusion-body-pick-{Context.HistoryId}-{FeatureId}-{Pick.DescriptorId}",
-        name=f"Historical body {Pick.BodyId}",
+        id=f"fusion-body-pick-{Context.HistoryId}-{FeatureId}-{PickValue.DescriptorId}",
+        name=f"Historical body {PickValue.BodyId}",
         path=(),
         query=FreezeMapping(
             {
                 "kind": "historical_body",
                 "role": Input.Role,
                 "ordinal": Ordinal,
-                "native_body_id": Pick.BodyId,
-                "native_anchor_id": Pick.AnchorId,
-                "native_source_id": Pick.SourceId,
+                "native_body_id": PickValue.BodyId,
+                "native_anchor_id": PickValue.AnchorId,
+                "native_source_id": PickValue.SourceId,
                 "source_feature_id": Source.id,
                 "native_component_id": Scope.ComponentId,
                 "native_scope_id": Scope.ScopeId,
                 "native_history_id": Context.HistoryId,
             }
         ),
-        provenance=ParamOrigin(Context.Owners[Pick.DescriptorId]),
+        provenance=ParamOrigin(Context.Owners[PickValue.DescriptorId]),
         attributes=FreezeMapping(
             {
                 "fusion.proxy_object_id": Input.ProxyId,
-                "fusion.descriptor_object_id": Pick.DescriptorId,
+                "fusion.descriptor_object_id": PickValue.DescriptorId,
                 "fusion.association_object_id": Input.AssociationId,
-                "fusion.support_object_id": Pick.SupportId,
-                "fusion.recipe_object_id": Pick.RecipeId,
-                "fusion.context_object_ids": Pick.ContextIds,
-                "fusion.anchor_guid": Pick.AnchorGuid,
+                "fusion.support_object_id": PickValue.SupportId,
+                "fusion.recipe_object_id": PickValue.RecipeId,
+                "fusion.context_object_ids": PickValue.ContextIds,
+                "fusion.anchor_guid": PickValue.AnchorGuid,
             }
         ),
     )

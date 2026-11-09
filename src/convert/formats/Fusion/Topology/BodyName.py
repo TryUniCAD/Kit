@@ -6,7 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from struct import pack as Pack, unpack as Unpack
+from struct import pack as PackData, unpack as Unpack
 
 from convert.formats.Fusion.HistoryRef import ReadNativeRef
 from convert.formats.Fusion.MetaCursor import MetaCursor
@@ -26,7 +26,7 @@ def ReadBodyName(
     BodyData = BodyCursor.DataValue
     if BodyCursor.TakeBytes(2) not in (b"\0\0", b"\0\1"):
         raise ValueError("Unsupported Fusion body name record prefix")
-    Marker = Pack("<BQH", 1, CollectionId, 0)
+    Marker = PackData("<BQH", 1, CollectionId, 0)
     FieldData = BodyData[:-11]
     Cursor = MetaCursor(FieldData)
     Position = FieldData.find(Marker, 2)

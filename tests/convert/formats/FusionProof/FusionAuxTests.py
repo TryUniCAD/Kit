@@ -10,13 +10,13 @@
 from typing import cast as CastValue
 from hashlib import sha256 as ShaDigest
 from io import BytesIO
-from struct import pack as Pack, unpack_from as UnpackFrom
+from struct import pack as PackData, unpack_from as UnpackFrom
 from zipfile import ZipFile
 
 from pytest import raises as Raises
 
 from convert.formats.Fusion.ArchiveRead.ArchiveMember import ArchiveMember
-from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionArchive
+from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionZip
 from convert.formats.Fusion.BulkSpans import ReadBulkSpans
 from convert.formats.Fusion.MetaIndex import SegmentKind
 from convert.formats.Fusion.RecordSpan import RecordSpan
@@ -31,7 +31,7 @@ KBrowserPrefix = "FusionAssetName[Active]/FusionBrowserSegmentType1/"
 KActPrefix = "FusionAssetName[Active]/FusionACTSegmentType1/"
 
 # synthetic spans contain one primary and one inherited record with the same identity
-KProofBulk = Pack("<I3sQ", 3, b"257", 42) + b"x" + Pack("<I3sQ", 3, b"256", 42)
+KProofBulk = PackData("<I3sQ", 3, b"257", 42) + b"x" + PackData("<I3sQ", 3, b"256", 42)
 
 
 # controlled native headers leave segment selection independent of record contents
@@ -44,22 +44,22 @@ def AuxMeta(
     OtherOffset: int = 16,
 ) -> bytes:
     TextValue = Segment.value.encode("ascii")
-    KindField = Pack("<I", len(TextValue)) + TextValue
+    KindField = PackData("<I", len(TextValue)) + TextValue
     return b"".join(
         (
             KindField,
-            Pack("<IIIIII", IndexValue, 0, 1234, Version, 0, 0),
+            PackData("<IIIIII", IndexValue, 0, 1234, Version, 0, 0),
             KindField,
-            Pack("<IIII", 0, Storage, 0, 2),
-            Pack("<I", 4),
+            PackData("<IIII", 0, Storage, 0, 2),
+            PackData("<I", 4),
             b"Base",
-            Pack("<IIII", 0, 0, 0, 0),
-            Pack("<I", 5),
+            PackData("<IIII", 0, 0, 0, 0),
+            PackData("<I", 5),
             b"Child",
-            Pack("<I", 4),
+            PackData("<I", 4),
             b"Base",
-            Pack("<IIIQ", 0, 0, 1, 42),
-            Pack("<IIQQIQQQII", 0, 1, 42, 0, 1, 42, OtherOffset, 43, 0, 0),
+            PackData("<IIIQ", 0, 0, 1, 42),
+            PackData("<IIQQIQQQII", 0, 1, 42, 0, 1, 42, OtherOffset, 43, 0, 0),
         )
     )
 
@@ -93,7 +93,7 @@ def TestAuxFrames() -> None:
     Values = AuxValues()
     DataValue = AuxZip(Values)
     Scope = AuxScope(DataValue)
-    with OpenFusionArchive(DataValue) as Archive:
+    with OpenFusionZip(DataValue) as Archive:
         assert Archive.ReadNames == frozenset()
         Frame = ReadAuxFrame(Archive, SegmentKind.KBrowser)
         assert Frame.Spans == (
@@ -129,7 +129,7 @@ def TestAuxHeader() -> None:
         AuxMeta(SegmentKind.KBrowser, 2, 6)[:-1],
     ):
         DataValue = AuxZip({**AuxValues(), KeyValue: BadMeta})
-        with OpenFusionArchive(DataValue) as Archive:
+        with OpenFusionZip(DataValue) as Archive:
             Claims, _ = ReadAuxProof(Archive, AuxScope(DataValue))
             assert tuple(
                 CastValue(ArchiveMember, Value.Target).Name for Value in Claims
@@ -145,7 +145,7 @@ def TestAuxForeign() -> None:
     MetaName = KBrowserPrefix + "MetaStream.dat"
     Values[MetaName.replace("[Active]", "[Foreign]")] = Values.pop(MetaName)
     DataValue = AuxZip(Values)
-    with OpenFusionArchive(DataValue) as Archive:
+    with OpenFusionZip(DataValue) as Archive:
         Claims, _ = ReadAuxProof(Archive, AuxScope(DataValue))
         assert len(Claims) == 2
         assert Archive.ReadNames == frozenset(
@@ -161,7 +161,7 @@ def TestAuxCrc() -> None:
     NameSize, ExtraSize = UnpackFrom("<HH", DataValue, Header + 26)
     DataValue[Header + 30 + NameSize + ExtraSize + 15] ^= 1
     ArchiveData = bytes(DataValue)
-    with OpenFusionArchive(ArchiveData) as Archive:
+    with OpenFusionZip(ArchiveData) as Archive:
         Claims, _ = ReadAuxProof(Archive, AuxScope(ArchiveData))
         assert tuple(
             CastValue(ArchiveMember, Value.Target).Name for Value in Claims

@@ -13,7 +13,7 @@ from convert.adapters.freecad.FormulaSheet.FormulaPlans import (
     FormulaPlan,
     ReadFusionPlan,
 )
-from convert.geometry.Formula.Arithmetic import IsLiteralFormula, ReadFormula
+from convert.geometry.Formula.Arithmetic import IsLiteralExpr, ReadFormula
 from interchange.records.RecordParameter import Parameter
 
 
@@ -36,15 +36,15 @@ def IsEditFormula(
         Expression = Param.expression
         if Expression is None or Expression.language != "fusion":
             return False
-        Plan = ReadFusionPlan(Param, Parameters, Aliases)
-        if Plan is None:
+        PlanValue = ReadFusionPlan(Param, Parameters, Aliases)
+        if PlanValue is None:
             return False
-        if not Plan.References:
+        if not PlanValue.References:
             Parsed = ReadFormula(Expression.source)
-            if Parsed is None or not IsLiteralFormula(Parsed):
+            if Parsed is None or not IsLiteralExpr(Parsed):
                 return False
-        Plans[Identity] = Plan
-        Pending.extend(Plan.References)
+        Plans[Identity] = PlanValue
+        Pending.extend(PlanValue.References)
     Expected = set(Plans)
     if TaperId is not None:
         Expected.add(TaperId)

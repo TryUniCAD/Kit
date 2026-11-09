@@ -38,13 +38,16 @@ def ReconcileBody(
     RootValue: Element,
     Archive: ZipFile,
     Members: Mapping[str, ZipInfo],
-    Plan: BodyRevPlan,
+    PlanValue: BodyRevPlan,
 ) -> CadDocument:
-    Graph = ReadBodyGraph(RootValue, Manifest, DocValue, Plan)
+    Graph = ReadBodyGraph(RootValue, Manifest, DocValue, PlanValue)
     Caches = ReadBodyCaches(Members, Graph)
     Sketches = {Value.id: Value for Value in DocValue.sketches}
     Planes = {Value.id: Value for Value in DocValue.support_planes}
-    Source, Profile = Sketches[Plan.Extrude.SketchId], Sketches[Plan.Revolve.SketchId]
+    Source, Profile = (
+        Sketches[PlanValue.Extrude.SketchId],
+        Sketches[PlanValue.Revolve.SketchId],
+    )
     SourceFrame = ReadBodyFrame(
         tuple(Graph.Objects.values()), Graph.Source, Planes[Source.support_plane_id]
     )
@@ -54,10 +57,10 @@ def ReconcileBody(
     Depth, Along, DepthRef = ReadBodyCells(
         Graph.Sheet,
         DocValue.parameters,
-        Plan,
+        PlanValue,
         ReadEditDepth(Graph.Seed, SourceFrame.z_axis),
     )
-    CheckBodyExprs(Graph, Plan, DepthRef)
+    CheckBodyExprs(Graph, PlanValue, DepthRef)
     EditedSource = ReadAxisSketch(
         Graph.Source, Graph.Template[Graph.Source.name], Source
     )
@@ -66,7 +69,7 @@ def ReconcileBody(
     )
     Rebuilt = ApplyBodyRev(
         DocValue,
-        Plan,
+        PlanValue,
         EditedSource,
         EditedProfile,
         SourceFrame,
@@ -79,7 +82,7 @@ def ReconcileBody(
             "FreeCAD editable body axis edits are missing their saved sketch caches"
         )
     Current = (
-        Plan
+        PlanValue
         if Rebuilt is DocValue
         else ReadBodyRev(Rebuilt, Rebuilt.feature_timeline[-1])
     )
@@ -99,7 +102,7 @@ def ReconcileBody(
         GeoId = next(
             Index
             for Index, Entity in enumerate(Source.entities, 1)
-            if Entity.id == Plan.AxisLineId
+            if Entity.id == PlanValue.AxisLineId
         )
         Shadow = ReadRimShadow(
             Archive,

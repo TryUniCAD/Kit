@@ -33,10 +33,11 @@ def ReadAxisCache(Native: NativeObject, Field: str) -> str:
     Entry = ReadShapeFile(Native, Field)
     if Entry and Entry != f"{Native.name}.{Field}.brp":
         raise ValueError("FreeCAD editable sketch axis native shape ownership changed")
-    for Node in Native.properties[Field][1:]:
-        NameValue = Node.get("file")
+    for NodeValue in Native.properties[Field][1:]:
+        NameValue = NodeValue.get("file")
         if NameValue is not None and (
-            Node.tag != "ElementMap2" or NameValue != f"{Native.name}.{Field}.Map.txt"
+            NodeValue.tag != "ElementMap2"
+            or NameValue != f"{Native.name}.{Field}.Map.txt"
         ):
             raise ValueError(
                 "FreeCAD editable sketch axis native shape map ownership changed"
@@ -53,8 +54,12 @@ def CheckAxisMap(
 ) -> None:
     Shape = Native.properties["Shape"]
     NameValue = f"{Native.name}.Shape.Map.txt"
-    Maps = Shape.findall("./ElementMap2")
-    if len(Maps) != 1 or Maps[0].attrib != {"file": NameValue} or len(Maps[0]):
+    Mappings = Shape.findall("./ElementMap2")
+    if (
+        len(Mappings) != 1
+        or Mappings[0].attrib != {"file": NameValue}
+        or len(Mappings[0])
+    ):
         raise ValueError("FreeCAD editable sketch axis guide map is missing")
     Tokens = ReadEditBrep(
         Archive, Members, NameValue, 4096, "editable sketch axis map"
@@ -71,7 +76,7 @@ def CheckAxisMap(
         *(f"g{Index}v1" for Index in PointIds),
     )
     MapId = Tokens[2] if len(Tokens) > 2 else b""
-    Edge = f";g{GuideId}.3 0".encode()
+    EdgeValue = f";g{GuideId}.3 0".encode()
     Vertices = [f";{Identity}.3 0".encode() for Identity in VertexIds]
     if (
         not MapId.isdigit()
@@ -82,7 +87,7 @@ def CheckAxisMap(
             + b" PostfixCount 3 Edge Vertex ;SKT MapCount 1 ElementMap 1 "
             + MapId
             + b" 2 Edge ChildCount 0 NameCount 2 0 "
-            + Edge
+            + EdgeValue
             + f" Vertex ChildCount 0 NameCount {len(Vertices) + 1} 0 ".encode()
             + b" ".join(Vertices)
             + b" EndMap"

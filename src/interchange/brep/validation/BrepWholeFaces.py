@@ -24,23 +24,25 @@ def GetWholeFaces(ModelValue: BrepView) -> frozenset[str]:
     }
     if not Surfaces:
         return frozenset()
-    RegionOwners = Counter(Key for Body in ModelValue.bodies for Key in Body.region_ids)
+    RegionOwners = Counter(
+        KeyValue for BodyValue in ModelValue.bodies for KeyValue in BodyValue.region_ids
+    )
     UseOwners = Counter(
-        Key for Region in ModelValue.regions for Key in Region.shell_use_ids
+        KeyValue for Region in ModelValue.regions for KeyValue in Region.shell_use_ids
     )
     ShellUses = {Value.id: Value for Value in ModelValue.shell_uses}
     ShellOwners = Counter(Value.shell_id for Value in ModelValue.shell_uses)
     SolidShells = {
-        ShellUses[Key].shell_id
+        ShellUses[KeyValue].shell_id
         for Region in ModelValue.regions
         if Region.solid and RegionOwners[Region.id] == 1
-        for Key in Region.shell_use_ids
-        if Key in ShellUses
-        and UseOwners[Key] == 1
-        and ShellOwners[ShellUses[Key].shell_id] == 1
+        for KeyValue in Region.shell_use_ids
+        if KeyValue in ShellUses
+        and UseOwners[KeyValue] == 1
+        and ShellOwners[ShellUses[KeyValue].shell_id] == 1
     }
     FaceUseOwners = Counter(
-        Key for Shell in ModelValue.shells for Key in Shell.face_use_ids
+        KeyValue for Shell in ModelValue.shells for KeyValue in Shell.face_use_ids
     )
     ClosedUses = {
         Shell.face_use_ids[0]
@@ -57,7 +59,9 @@ def GetWholeFaces(ModelValue: BrepView) -> frozenset[str]:
         if Value.id in ClosedUses and FaceOwners[Value.face_id] == 1
     }
     return frozenset(
-        Face.id
-        for Face in ModelValue.faces
-        if not Face.loop_ids and Face.surface_id in Surfaces and Face.id in ClosedFaces
+        FaceValue.id
+        for FaceValue in ModelValue.faces
+        if not FaceValue.loop_ids
+        and FaceValue.surface_id in Surfaces
+        and FaceValue.id in ClosedFaces
     )

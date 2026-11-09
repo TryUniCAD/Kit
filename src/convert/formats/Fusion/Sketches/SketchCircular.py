@@ -8,10 +8,10 @@
 
 
 from math import atan2 as AtanTwo
-from math import cos as Cos
+from math import cos as CosData
 from math import isclose as IsClose
 from math import isfinite as IsFinite
-from math import sin as Sin
+from math import sin as SineValue
 from math import tau as FullTurn
 from struct import unpack_from as UnpackFrom
 
@@ -44,14 +44,15 @@ def ReadSketchArc(
     Normal, RefAxis = Values[3:6], Values[6:9]
     Radius = Values[9] * 10
     NativeStart, NativeEnd = Values[10:12]
-    Span = NativeEnd - NativeStart
+    SpanValue = NativeEnd - NativeStart
     if (
         not all(map(IsFinite, (*CenterCoords, Radius)))
         or abs(CenterCoords[2]) > 1e-8
         or Radius <= 0.0
-        or not 0.0 < Span < FullTurn
+        or not 0.0 < SpanValue < FullTurn
         or not IsCircleFrame(Normal, RefAxis)
-        or abs(sum(Left * Right for Left, Right in zip(Normal, RefAxis))) > 1e-9
+        or abs(sum(LeftValue * Right for LeftValue, Right in zip(Normal, RefAxis)))
+        > 1e-9
     ):
         raise ValueError("Invalid Fusion sketch arc frame or angular interval")
     CenterId, Center = ReadPointRef(BodyValue, Offset + 96, Points)
@@ -69,9 +70,10 @@ def ReadSketchArc(
     )
     Radians: list[float] = []
     for Angle, PointValue in ((NativeStart, StartPoint), (NativeEnd, EndPoint)):
-        Cosine, Sine = Cos(Angle), Sin(Angle)
+        Cosine, SineData = CosData(Angle), SineValue(Angle)
         Radial = tuple(
-            Cosine * First + Sine * Second for First, Second in zip(RefAxis, CrossAxis)
+            Cosine * First + SineData * Second
+            for First, Second in zip(RefAxis, CrossAxis)
         )
         Expected = tuple(
             CenterValue + Radius * RadialValue
@@ -85,7 +87,7 @@ def ReadSketchArc(
         Radians.append(AtanTwo(Radial[1], Radial[0]) % FullTurn)
     Clockwise = Normal[2] < 0.0
     StartAngle = Radians[1 if Clockwise else 0]
-    EndAngle = StartAngle + Span
+    EndAngle = StartAngle + SpanValue
     if EndAngle <= StartAngle:
         raise ValueError("Fusion sketch arc interval collapses in neutral coordinates")
     return (

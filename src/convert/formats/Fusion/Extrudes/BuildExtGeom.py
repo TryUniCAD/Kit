@@ -63,7 +63,9 @@ def BuildExtGeom(
         return BuildCircular(
             BodyId, FrameValue, Profile, Lower, Upper, Profile.radius, UpperRadius
         )
-    Lines = tuple(Part for Part in Parts if isinstance(Part, LineGeometry))
+    Lines = tuple(
+        PartValue for PartValue in Parts if isinstance(PartValue, LineGeometry)
+    )
     if len(Lines) >= 3 and len(Lines) == len(Parts) and not HasTaper:
         return BuildPrism(BodyId, FrameValue, Lines, Lower, Upper)
     raise ValueError(

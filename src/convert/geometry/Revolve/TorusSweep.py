@@ -8,7 +8,7 @@
 
 from typing import cast as CastValue
 from math import isfinite as IsFinite
-from math import pi as Pi
+from math import pi as CirclePi
 
 from convert.geometry.Revolve.TorusBounds import GetTorusBounds
 from convert.geometry.Revolve.WholeSweep import BuildWholeSolid
@@ -37,7 +37,7 @@ def BuildTorusSweep(
     )
     if not IsRingTorus(Surface):
         raise ValueError("Torus Revolve requires a finite orthonormal ring torus")
-    SurfaceArea = 4.0 * Pi * Pi * (MajorRadius * MinorRadius)
+    SurfaceArea = 4.0 * CirclePi * CirclePi * (MajorRadius * MinorRadius)
     Volume = SurfaceArea * (MinorRadius * 0.5)
     Bounds = GetTorusBounds(Center, AxisDirection, MajorRadius, MinorRadius)
     if not (

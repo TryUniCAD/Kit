@@ -9,11 +9,11 @@
 from interchange.geometry.models.VectorPlane import PlaneVector
 
 # binary sketch coordinates share a power of two denominator for exact predicates
-GridPoint = tuple[int, int]
+KGridPoint = tuple[int, int]
 
 
 # integer coordinates keep touches and winding unambiguous near the limits of float precision
-def ToRingGrid(Points: tuple[PlaneVector, ...]) -> tuple[tuple[GridPoint, ...], int]:
+def ToRingGrid(Points: tuple[PlaneVector, ...]) -> tuple[tuple[KGridPoint, ...], int]:
     Ratios = tuple(
         (PointValue.x.as_integer_ratio(), PointValue.y.as_integer_ratio())
         for PointValue in Points
@@ -29,14 +29,14 @@ def ToRingGrid(Points: tuple[PlaneVector, ...]) -> tuple[tuple[GridPoint, ...], 
 
 
 # exact orientation protects both ring winding and segment intersection decisions
-def RingTurn(First: GridPoint, Second: GridPoint, Third: GridPoint) -> int:
+def RingTurn(First: KGridPoint, Second: KGridPoint, Third: KGridPoint) -> int:
     return (Second[0] - First[0]) * (Third[1] - First[1]) - (Second[1] - First[1]) * (
         Third[0] - First[0]
     )
 
 
 # collinear contact must be distinguished from disjoint extensions of the same line
-def IsOnSegment(First: GridPoint, Second: GridPoint, PointValue: GridPoint) -> bool:
+def IsOnSegment(First: KGridPoint, Second: KGridPoint, PointValue: KGridPoint) -> bool:
     return all(
         min(Start, Finish) <= Coordinate <= max(Start, Finish)
         for Start, Finish, Coordinate in zip(First, Second, PointValue)
@@ -45,7 +45,7 @@ def IsOnSegment(First: GridPoint, Second: GridPoint, PointValue: GridPoint) -> b
 
 # closed segment intersections reject crossing and self touching polygon boundaries
 def HasCrossing(
-    First: GridPoint, Second: GridPoint, Third: GridPoint, Fourth: GridPoint
+    First: KGridPoint, Second: KGridPoint, Third: KGridPoint, Fourth: KGridPoint
 ) -> bool:
     ThirdTurn = RingTurn(First, Second, Third)
     FourthTurn = RingTurn(First, Second, Fourth)

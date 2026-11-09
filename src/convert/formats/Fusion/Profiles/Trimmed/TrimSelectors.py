@@ -11,16 +11,16 @@ from convert.formats.Fusion.MetaCursor import MetaCursor
 from interchange.geometry.models.Sketch import SketchEntity
 
 # exact tuples distinguish separate selected portions of one native primitive
-TrimSelector = tuple[int, int, int, int, int, int, int]
+KTrimSelector = tuple[int, int, int, int, int, int, int]
 
 # source tags are resolved before geometry interprets their stored portion selectors
-TrimMember = tuple[SketchEntity, TrimSelector]
+KTrimMember = tuple[SketchEntity, KTrimSelector]
 
 
 # one bounded outer loop retains native membership without inventing traversal
 def ReadTrimMembers(
     BodyValue: bytes, DescriptorId: int, Sources: dict[int, SketchEntity]
-) -> tuple[TrimMember, ...]:
+) -> tuple[KTrimMember, ...]:
     Cursor = MetaCursor(BodyValue)
     if (
         Cursor.TakeBytes(2) != bytes(2)
@@ -32,8 +32,8 @@ def ReadTrimMembers(
     Count = Cursor.ReadCount(4)
     if Count < 2:
         raise ValueError("Fusion trimmed profile needs two to four selected portions")
-    Members: list[TrimMember] = []
-    Seen: set[TrimSelector] = set()
+    Members: list[KTrimMember] = []
+    SeenValues: set[KTrimSelector] = set()
     for _ in range(Count):
         CodeValue = Cursor.ReadWord()
         TagValue = Cursor.ReadLong()
@@ -50,10 +50,10 @@ def ReadTrimMembers(
             or Opaque != 0
             or Direction not in (0, 1)
             or Entity is None
-            or Selector in Seen
+            or Selector in SeenValues
         ):
             raise ValueError("Unsupported or ambiguous Fusion trimmed profile selector")
-        Seen.add(Selector)
+        SeenValues.add(Selector)
         Members.append((Entity, Selector))
     if Cursor.TakeBytes(5) != b"\1\0\0\0\0" or Cursor.Offset != len(BodyValue):
         raise ValueError("Unsupported Fusion trimmed outer loop extent")

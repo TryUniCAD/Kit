@@ -7,7 +7,7 @@
 # to you under it immediately and permanently.
 
 from math import hypot as Hypot, isclose as IsClose, isfinite as IsFinite
-from operator import mul as Mul, sub as Sub
+from operator import mul as Multiply, sub as Substitute
 
 from interchange.geometry.models.Transform import Transform
 from interchange.geometry.models.VectorPlane import PlaneVector
@@ -28,12 +28,12 @@ def ChooseMeridian(
     Normal = (SketchFrame.z_axis.x, SketchFrame.z_axis.y, SketchFrame.z_axis.z)
     FrameOrigin = (SketchFrame.origin.x, SketchFrame.origin.y, SketchFrame.origin.z)
     AxisPoint = (AxisOrigin.x, AxisOrigin.y, AxisOrigin.z)
-    Offset = tuple(map(Sub, FrameOrigin, AxisPoint))
+    Offset = tuple(map(Substitute, FrameOrigin, AxisPoint))
     if (
         not IsClose(Hypot(*AxisTuple), 1.0, rel_tol=0.0, abs_tol=1e-9)
         or not IsClose(Hypot(*Normal), 1.0, rel_tol=0.0, abs_tol=1e-9)
-        or not IsClose(sum(map(Mul, Normal, AxisTuple)), 0.0, abs_tol=1e-9)
-        or not IsClose(sum(map(Mul, Normal, Offset)), 0.0, abs_tol=1e-8)
+        or not IsClose(sum(map(Multiply, Normal, AxisTuple)), 0.0, abs_tol=1e-9)
+        or not IsClose(sum(map(Multiply, Normal, Offset)), 0.0, abs_tol=1e-8)
     ):
         raise ValueError("Fusion Revolve axis is outside the sketch plane")
     AxisX, AxisY, AxisZ = AxisTuple
@@ -46,7 +46,7 @@ def ChooseMeridian(
     SketchX = (SketchFrame.x_axis.x, SketchFrame.x_axis.y, SketchFrame.x_axis.z)
     SketchY = (SketchFrame.y_axis.x, SketchFrame.y_axis.y, SketchFrame.y_axis.z)
     Distance, RadialX, RadialY = (
-        sum(map(Mul, Radial, Vector)) for Vector in (Offset, SketchX, SketchY)
+        sum(map(Multiply, Radial, Vector)) for Vector in (Offset, SketchX, SketchY)
     )
     Radii = tuple(
         Distance + RadialX * Point.x + RadialY * Point.y for Point in ProfilePoints

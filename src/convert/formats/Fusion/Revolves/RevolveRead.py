@@ -7,7 +7,7 @@
 # to you under it immediately and permanently.
 
 
-from convert.formats.Fusion.HistoryRef import ReadNativeRef, ReadOptionalRef
+from convert.formats.Fusion.HistoryRef import ReadNativeRef, ReadOptRefMut
 from convert.formats.Fusion.MetaCursor import MetaCursor
 from convert.formats.Fusion.Revolves.RevolveInput import RevolveInput
 from convert.formats.Fusion.Sketches.GeometryAttrs import ReadGeomAttrs
@@ -28,15 +28,15 @@ def ReadRevInputs(BodyValue: bytes) -> RevolveInput:
     if Operation is None or ExtentCode not in (1, 2) or Cursor.TakeBytes(1) != b"\0":
         raise ValueError("Unsupported Fusion Revolve operation or extent")
     Flags = Cursor.TakeBytes(4)
-    if any(Flag not in (0, 1) for Flag in Flags):
+    if any(FlagValue not in (0, 1) for FlagValue in Flags):
         raise ValueError("Unsupported Fusion Revolve flags")
     Projected, Solid, Symmetric, TwoSided = Flags
-    AgainstId = ReadOptionalRef(Cursor)
-    AlongId = ReadOptionalRef(Cursor)
+    AgainstId = ReadOptRefMut(Cursor)
+    AlongId = ReadOptRefMut(Cursor)
     AxisId = ReadNativeRef(Cursor)
-    TargetTwo = ReadOptionalRef(Cursor)
+    TargetTwo = ReadOptRefMut(Cursor)
     _ = ReadNativeRef(Cursor)
-    TargetOne = ReadOptionalRef(Cursor)
+    TargetOne = ReadOptRefMut(Cursor)
     if AlongId is None:
         raise ValueError("Missing Fusion Revolve along-angle binding")
     Targets: tuple[int, ...] = ()

@@ -47,10 +47,10 @@ def BuildScalePrism(
     )
     ScaledProfile = tuple(
         LineGeometry(
-            PlaneVector(Line.start.x * Factors.x, Line.start.y * Factors.y),
-            PlaneVector(Line.end.x * Factors.x, Line.end.y * Factors.y),
+            PlaneVector(LineValue.start.x * Factors.x, LineValue.start.y * Factors.y),
+            PlaneVector(LineValue.end.x * Factors.x, LineValue.end.y * Factors.y),
         )
-        for Line in Profile
+        for LineValue in Profile
     )
     ScaledDepth = Depth * Factors.z
     return BuildPrism(

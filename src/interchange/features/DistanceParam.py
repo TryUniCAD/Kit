@@ -24,7 +24,7 @@ def GetDistParam(
     StepValue: FeatureStep,
     Identity: str,
     Parameters: TypeMap[str, Parameter],
-    Kind: ValueKind,
+    KindValue: ValueKind,
 ) -> float:
     Param = Parameters.get(Identity)
     if (
@@ -38,19 +38,19 @@ def GetDistParam(
         raise ValueError(f"extrusion parameter {Identity} has no typed value")
     Number = ValueData.value
     if (
-        ValueData.kind != Kind
+        ValueData.kind != KindValue
         or not isinstance(Number, (float, int))
         or isinstance(Number, bool)
         or not -FloatInfo.max <= Number <= FloatInfo.max
     ):
         raise ValueError(
-            f"extrusion parameter {Identity} requires a finite numeric {Kind.value}"
+            f"extrusion parameter {Identity} requires a finite numeric {KindValue.value}"
         )
     UnitName = ValueData.unit
-    if Kind == ValueKind.KLength and isinstance(CastValue(object, UnitName), str):
+    if KindValue == ValueKind.KLength and isinstance(CastValue(object, UnitName), str):
         Factor = KLengthFactors.get(UnitName)
     else:
-        Factor = 1.0 if Kind == ValueKind.KAngle and UnitName == "rad" else None
+        Factor = 1.0 if KindValue == ValueKind.KAngle and UnitName == "rad" else None
     if Factor is None or not IsFinite(Number * Factor):
         raise ValueError(
             f"extrusion parameter {Identity} has unsupported units or magnitude"

@@ -69,7 +69,7 @@ def CheckBindRole(
 
 
 # only complete reciprocal bindings can be promoted independently of their auxiliary support
-def ReadBindingProof(
+def ReadBindProof(
     BulkData: bytes,
     Owners: dict[int, RecordSpan],
     Document: CadDocument,

@@ -8,7 +8,7 @@
 
 
 from collections import defaultdict as DefaultDict
-from math import pi as Pi, tau as FullTurn
+from math import pi as CirclePi, tau as FullTurn
 
 from pytest import approx as Approx, raises as Raises
 
@@ -33,17 +33,17 @@ def TestFullAnnulus() -> None:
         len(Model.vertices),
     ) == (4, 8, 4, 4)
     assert all(isinstance(Curve, CircleCurve) for Curve in Model.curves)
-    for Edge in Model.edges:
-        assert Edge.start_vertex_id == Edge.end_vertex_id
-        assert (Edge.start_parameter, Edge.end_parameter) == (0.0, FullTurn)
-    Uses: dict[str, list[bool]] = DefaultDict(list)
+    for EdgeValue in Model.edges:
+        assert EdgeValue.start_vertex_id == EdgeValue.end_vertex_id
+        assert (EdgeValue.start_parameter, EdgeValue.end_parameter) == (0.0, FullTurn)
+    UseValues: dict[str, list[bool]] = DefaultDict(list)
     for Coedge in Model.coedges:
-        Uses[Coedge.edge_id].append(Coedge.reversed)
-    assert all(sorted(Directions) == [False, True] for Directions in Uses.values())
-    Volume, Area, Bounds = MeasureFullTurn(Profile, KOriginZero, KAxisZ, KAxisX)
-    assert Volume == Approx(30.0 * (30.0**2 - 10.0**2) * Pi)
-    assert Area == Approx(
-        2.0 * (30.0**2 - 10.0**2) * Pi + 30.0 * (30.0 + 10.0) * FullTurn
+        UseValues[Coedge.edge_id].append(Coedge.reversed)
+    assert all(sorted(Directions) == [False, True] for Directions in UseValues.values())
+    Volume, AreaValue, Bounds = MeasureFullTurn(Profile, KOriginZero, KAxisZ, KAxisX)
+    assert Volume == Approx(30.0 * (30.0**2 - 10.0**2) * CirclePi)
+    assert AreaValue == Approx(
+        2.0 * (30.0**2 - 10.0**2) * CirclePi + 30.0 * (30.0 + 10.0) * FullTurn
     )
     assert Bounds.minimum == SpaceVector(-30.0, -30.0, 10.0)
     assert Bounds.maximum == SpaceVector(30.0, 30.0, 40.0)
@@ -61,16 +61,16 @@ def TestFullCone() -> None:
         len(Model.vertices),
     ) == (2, 3, 2, 2)
     assert tuple(map(type, Model.surfaces)) == (PlaneSurface, ConeSurface)
-    (Apex,) = (Edge for Edge in Model.edges if Edge.degenerate)
-    Curve = next(Value for Value in Model.curves if Value.id == Apex.curve_id)
+    (ApexPoint,) = (EdgeValue for EdgeValue in Model.edges if EdgeValue.degenerate)
+    Curve = next(Value for Value in Model.curves if Value.id == ApexPoint.curve_id)
     assert isinstance(Curve, LineCurve)
     assert Curve.origin == SpaceVector(0.0, 0.0, 40.0)
-    assert Apex.start_vertex_id == Apex.end_vertex_id
-    assert Apex.start_parameter == Apex.end_parameter == 0.0
-    assert sum(Use.edge_id == Apex.id for Use in Model.coedges) == 1
-    Volume, Area, Bounds = MeasureFullTurn(Profile, KOriginZero, KAxisZ, KAxisX)
-    assert Volume == Approx(Pi * 30.0**2 * 40.0 / 3.0)
-    assert Area == Approx(Pi * 30.0 * (30.0 + 50.0))
+    assert ApexPoint.start_vertex_id == ApexPoint.end_vertex_id
+    assert ApexPoint.start_parameter == ApexPoint.end_parameter == 0.0
+    assert sum(UseValue.edge_id == ApexPoint.id for UseValue in Model.coedges) == 1
+    Volume, AreaValue, Bounds = MeasureFullTurn(Profile, KOriginZero, KAxisZ, KAxisX)
+    assert Volume == Approx(CirclePi * 30.0**2 * 40.0 / 3.0)
+    assert AreaValue == Approx(CirclePi * 30.0 * (30.0 + 50.0))
     assert Bounds.minimum == SpaceVector(-30.0, -30.0, 0.0)
     assert Bounds.maximum == SpaceVector(30.0, 30.0, 40.0)
 

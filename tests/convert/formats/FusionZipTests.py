@@ -7,7 +7,7 @@
 # to you under it immediately and permanently.
 
 from io import BytesIO
-from struct import pack as Pack
+from struct import pack as PackData
 from zipfile import ZIP_DEFLATED, ZIP_STORED, ZipFile
 
 from pytest import raises as Raises
@@ -18,7 +18,9 @@ from tests.convert.formats.FusionIndexTests import IndexFixture
 
 # the synthetic archive exercises the same two active stream names as saved files
 def DesignFixture(Method: int) -> tuple[bytes, bytes]:
-    BulkValue = Pack("<I3sQ", 3, b"257", 42) + b"x" + Pack("<I3sQ", 3, b"256", 42)
+    BulkValue = (
+        PackData("<I3sQ", 3, b"257", 42) + b"x" + PackData("<I3sQ", 3, b"256", 42)
+    )
     Buffer = BytesIO()
     with ZipFile(Buffer, "w", compression=Method) as Archive:
         Archive.writestr(KDesignPrefix + "BulkStream.dat", BulkValue)
@@ -31,7 +33,7 @@ def TestDesignZip() -> None:
     Packed, Expected = DesignFixture(ZIP_DEFLATED)
     DataValue, Spans = ReadDesignZip(Packed)
     assert DataValue == Expected
-    assert [(Span.ObjectId, Span.IsPrimary) for Span in Spans] == [
+    assert [(SpanValue.ObjectId, SpanValue.IsPrimary) for SpanValue in Spans] == [
         (42, True),
         (42, False),
     ]
@@ -45,10 +47,10 @@ def TestCodecEntry() -> None:
     with ZipFile(BytesIO(Packed)) as Archive:
         for Member in Archive.infolist():
             Offset = Member.header_offset + 8
-            Modified[Offset : Offset + 2] = Pack("<H", 93)
+            Modified[Offset : Offset + 2] = PackData("<H", 93)
             NameBytes = Member.filename.encode("ascii")
             Central = Packed.index(NameBytes, Directory) - 46
-            Modified[Central + 10 : Central + 12] = Pack("<H", 93)
+            Modified[Central + 10 : Central + 12] = PackData("<H", 93)
 
     # this test double isolates container validation from zstandard availability
     def StoredCodec(Contents: bytes, SizeValue: int) -> bytes:

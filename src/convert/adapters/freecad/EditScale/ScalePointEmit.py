@@ -27,11 +27,15 @@ from convert.adapters.freecad.Protocol import KSketchTypeId
 
 # the native geometry index must address the same point before the scale graph is emitted
 def FindScalePoint(
-    Context: DocContext, Geometry: DocGeometry, Plan: ScalePointPlan
+    Context: DocContext, Geometry: DocGeometry, PlanValue: ScalePointPlan
 ) -> tuple[Object, int] | None:
-    SketchName = Geometry.SketchNames.get(Plan.SketchId)
+    SketchName = Geometry.SketchNames.get(PlanValue.SketchId)
     SketchData = next(
-        (Value for Value in Geometry.SketchItems if Value.get("id") == Plan.SketchId),
+        (
+            Value
+            for Value in Geometry.SketchItems
+            if Value.get("id") == PlanValue.SketchId
+        ),
         None,
     )
     SketchObj = next(
@@ -45,7 +49,7 @@ def FindScalePoint(
     if SketchObj is None or SketchData is None:
         return None
     GeometryProp, Indices, Issues = GeomProp(SketchData)
-    PointIndex = Indices.get(Plan.PointId)
+    PointIndex = Indices.get(PlanValue.PointId)
     NativeProp = next(
         (Value for Value in SketchObj.properties if Value.get("name") == "Geometry"),
         None,
@@ -72,16 +76,16 @@ def FindScalePoint(
 
 
 # a linked datum exposes the selected point without changing any solid or sketch ownership
-def AddScalePointMut(
+def AddScalePtMut(
     Context: DocContext,
     Features: DocFeatures,
-    Plan: ScalePointPlan,
+    PlanValue: ScalePointPlan,
     SketchObj: Object,
     GeometryIndex: int,
     FeatureItem: Mapping[str, object] | None,
 ) -> Object:
-    if bool(Plan.FeatureId) != (FeatureItem is not None) or (
-        FeatureItem is not None and FeatureItem.get("id") != Plan.FeatureId
+    if bool(PlanValue.FeatureId) != (FeatureItem is not None) or (
+        FeatureItem is not None and FeatureItem.get("id") != PlanValue.FeatureId
     ):
         raise ValueError("FreeCAD editable Scale datum feature identity disagrees")
     Label = "Scale center"
@@ -94,7 +98,7 @@ def AddScalePointMut(
         f"placement({SketchName}.Placement * vector({PathValue}.X; {PathValue}.Y; 0); "
         "rotation(vector(0; 0; 1); 0 deg))"
     )
-    Point = Plan.Point
+    Point = PlanValue.Point
     PointObj.properties.extend(
         [
             StringProp("Label", Label),
@@ -106,6 +110,6 @@ def AddScalePointMut(
     PointObj.dependencies.append(SketchName)
     if FeatureItem is not None:
         PointObj.properties.extend(FeatureMeta(FeatureItem, "feature"))
-        Features.FeatureNames[Plan.FeatureId] = PointObj.name
+        Features.FeatureNames[PlanValue.FeatureId] = PointObj.name
         Features.FeatureObjects.append(PointObj.name)
     return PointObj

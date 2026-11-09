@@ -12,7 +12,7 @@ from dataclasses import replace as Replace
 from convert.adapters.freecad.EditRead.Formula.SavedQuantity import KeepQuantity
 from convert.geometry.Formula.Arithmetic import (
     EvalFormula,
-    IsLiteralFormula,
+    IsLiteralExpr,
     ReadFormula,
 )
 from interchange.records.RecordParameter import Parameter
@@ -27,8 +27,8 @@ def ReadSavedLeaf(Param: Parameter, SavedText: str) -> Parameter:
         Expression is None
         or Source is None
         or Saved is None
-        or not IsLiteralFormula(Source)
-        or not IsLiteralFormula(Saved)
+        or not IsLiteralExpr(Source)
+        or not IsLiteralExpr(Saved)
     ):
         raise ValueError(
             "FreeCAD editable spreadsheet input is not a supported literal"

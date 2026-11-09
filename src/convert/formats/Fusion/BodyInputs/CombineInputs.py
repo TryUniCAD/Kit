@@ -68,9 +68,9 @@ def ReadCombInputs(
     if not Tools or len(Targets) != 1 or Targets[0] in Tools:
         raise ValueError("Fusion Combine target and tool lists disagree")
     ToolPicks = tuple(
-        Pick
+        PickValue
         for ProxyId in Tools
-        for Pick in ReadInputPicks(
+        for PickValue in ReadInputPicks(
             BulkData,
             Owners,
             FeatureId,

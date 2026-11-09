@@ -68,7 +68,7 @@ App.closeDocument(doc.Name)
     ("SampleName", "AngleDeg"),
     (("negative_plane", 35.0), ("positive_plane", 135.0), ("two_planes", 80.0)),
 )
-def TestLivePlaneRev(TmpPath: FilePath, SampleName: str, AngleDeg: float) -> None:
+def TestLiveRev(TmpPath: FilePath, SampleName: str, AngleDeg: float) -> None:
     DocValue = OpenDocument(KSourceFolder / f"{SampleName}.f3d", strict=False)
     StepValue = DocValue.feature_timeline[-1]
     Definition = StepValue.definition
@@ -77,11 +77,12 @@ def TestLivePlaneRev(TmpPath: FilePath, SampleName: str, AngleDeg: float) -> Non
     Result = WriteDocument(DocValue, Output)
     assert Result.application_usable and Capability.BREP in Result.native_capabilities
     with ZipFile(Output) as Archive:
-        Root = ParseXml(Archive.read("Document.xml"))
+        RootValue = ParseXml(Archive.read("Document.xml"))
         Objects = {
-            Value.get("name"): Value for Value in Root.findall("./ObjectData/Object")
+            Value.get("name"): Value
+            for Value in RootValue.findall("./ObjectData/Object")
         }
-        (Revolution,) = Root.findall("./Objects/Object[@type='Part::Revolution']")
+        (Revolution,) = RootValue.findall("./Objects/Object[@type='Part::Revolution']")
         NativeName = Revolution.get("name")
         Props = Objects[NativeName]
         Binding = Objects["KitMetadata"].find(
@@ -100,8 +101,8 @@ def TestLivePlaneRev(TmpPath: FilePath, SampleName: str, AngleDeg: float) -> Non
         }
         PlaneLinks = [
             Value.attrib["value"]
-            for Node in Objects.values()
-            for Value in Node.findall(
+            for NodeValue in Objects.values()
+            for Value in NodeValue.findall(
                 "./Properties/Property[@name='ConstructionPlane']/Link"
             )
         ]
@@ -117,23 +118,27 @@ def TestLivePlaneRev(TmpPath: FilePath, SampleName: str, AngleDeg: float) -> Non
             assert f"{PlaneName}.Placement.Rotation" in Expressions["Angle"]
             if len(PlaneLinks) == 2:
                 assert f"{PlaneName}.Placement.Rotation" in Expressions["Placement"]
-        assert [Name for Name in Archive.namelist() if Name.endswith(".Shape.brp")] == [
-            f"{NativeName}.Shape.brp"
-        ]
+        assert [
+            NameValue
+            for NameValue in Archive.namelist()
+            if NameValue.endswith(".Shape.brp")
+        ] == [f"{NativeName}.Shape.brp"]
     assert OpenDocument(Output) == DocValue
 
 
 # losing the live binding must not silently restore the original plane snapshot
 @KRequiresCodec
 @Pytest.mark.parametrize("RemoveBinding", (False, True))
-def TestPlaneBinding(TmpPath: FilePath, RemoveBinding: bool) -> None:
+def TestPlaneBind(TmpPath: FilePath, RemoveBinding: bool) -> None:
     DocValue = OpenDocument(KSourceFolder / "two_planes.f3d", strict=False)
     Output = TmpPath / "two_planes.FCStd"
     _ = WriteDocument(DocValue, Output)
     with ZipFile(Output) as Archive:
-        Members = {Name: Archive.read(Name) for Name in Archive.namelist()}
-    Root = ParseXml(Members["Document.xml"])
-    Metadata = Root.find("./ObjectData/Object[@name='KitMetadata']/Properties")
+        Members = {
+            NameValue: Archive.read(NameValue) for NameValue in Archive.namelist()
+        }
+    RootValue = ParseXml(Members["Document.xml"])
+    Metadata = RootValue.find("./ObjectData/Object[@name='KitMetadata']/Properties")
     assert Metadata is not None
     Binding = Metadata.find(f"./Property[@name='{KPlaneRevBinding}']")
     assert Binding is not None
@@ -142,11 +147,11 @@ def TestPlaneBinding(TmpPath: FilePath, RemoveBinding: bool) -> None:
         Metadata.set("Count", str(len(Metadata)))
     else:
         Binding[0].set("value", "unrelated-feature")
-    Members["Document.xml"] = WriteXml(Root, encoding="utf-8")
+    Members["Document.xml"] = WriteXml(RootValue, encoding="utf-8")
     Buffer = BytesIO()
     with ZipFile(Buffer, "w") as Archive:
-        for Name, DataValue in Members.items():
-            Archive.writestr(Name, DataValue)
+        for NameValue, DataValue in Members.items():
+            Archive.writestr(NameValue, DataValue)
     with Pytest.raises(FreeCadAdapterA, match="plane Revolve binding"):
         _ = OpenDocument(Buffer.getvalue())
 
@@ -156,7 +161,7 @@ def TestPlaneBinding(TmpPath: FilePath, RemoveBinding: bool) -> None:
 @Pytest.mark.skipif(
     not KOraclePath.is_file(), reason="KIT_FREECAD_ORACLE is unavailable"
 )
-def TestNativePlaneEdit(TmpPath: FilePath) -> None:
+def TestPlaneEdit(TmpPath: FilePath) -> None:
     DocValue = OpenDocument(KSourceFolder / "two_planes.f3d", strict=False)
     Output = ResolveTemp(TmpPath / "two_planes.FCStd")
     Saved = ResolveTemp(TmpPath / "two_planes_edited.FCStd")

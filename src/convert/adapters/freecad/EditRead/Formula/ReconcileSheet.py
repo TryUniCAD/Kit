@@ -13,7 +13,7 @@ from xml.etree.ElementTree import Element
 from convert.adapters.freecad.Archive import Items, ParamCatalog
 from convert.adapters.freecad.EditBinding import ReadEditBinding
 from convert.adapters.freecad.EditRead.EditSheet import EditCells
-from convert.adapters.freecad.EditRead.Formula.SheetLayout import CheckSheetLayout
+from convert.adapters.freecad.EditRead.Formula.SheetLayout import CheckSheetShape
 from convert.adapters.freecad.EditRead.Formula.SheetScope import ReadSheetObject
 from convert.adapters.freecad.EditRead.Formula.StandaloneCells import ReadSavedSheet
 from convert.adapters.freecad.FormulaSheet.SheetBinding import KFormulaSheetBinding
@@ -28,17 +28,17 @@ def ReconcileSheet(
     Binding = ReadEditBinding(RootValue, KFormulaSheetBinding)
     if Binding is None:
         return DocValue
-    Rows = Items(Manifest.get("parameters", []))
-    Catalog = ParamCatalog(Rows)
+    RowValues = Items(Manifest.get("parameters", []))
+    Catalog = ParamCatalog(RowValues)
     if Binding != "Parameters" or not CanEditSheet(
-        Manifest, Rows, Catalog.FusionExpressions
+        Manifest, RowValues, Catalog.FusionExpressions
     ):
         raise ValueError(
             "FreeCAD editable spreadsheet binding disagrees with its source"
         )
     Sheet = ReadSheetObject(RootValue)
     Cells = EditCells(Sheet, True)
-    CheckSheetLayout(Sheet, Cells, Catalog)
+    CheckSheetShape(Sheet, Cells, Catalog)
     Parameters = ReadSavedSheet(Cells, Catalog.Aliases, DocValue.parameters)
     if Parameters is DocValue.parameters:
         return DocValue

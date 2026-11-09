@@ -104,20 +104,20 @@ def TestAxisRev(TmpPath: FilePath, SampleName: str) -> None:
     Result = WriteDocument(DocValue, Output)
     assert Result.application_usable and Capability.BREP in Result.native_capabilities
     with ZipFile(Output) as Archive:
-        Root = ParseXml(Archive.read("Document.xml"))
-        (Revolution,) = Root.findall("./Objects/Object[@type='Part::Revolution']")
+        RootValue = ParseXml(Archive.read("Document.xml"))
+        (Revolution,) = RootValue.findall("./Objects/Object[@type='Part::Revolution']")
         NameValue = Revolution.get("name")
-        Props = Root.find(f"./ObjectData/Object[@name='{NameValue}']/Properties")
+        Props = RootValue.find(f"./ObjectData/Object[@name='{NameValue}']/Properties")
         assert Props is not None
-        Axis = Props.find("./Property[@name='AxisLink']/LinkSub")
+        AxisValue = Props.find("./Property[@name='AxisLink']/LinkSub")
         Source = Props.find("./Property[@name='Source']/Link")
         assert (
-            Axis is not None
+            AxisValue is not None
             and Source is not None
-            and Axis[0].attrib == {"value": "Edge1"}
+            and AxisValue[0].attrib == {"value": "Edge1"}
         )
-        AxisProps = Root.find(
-            f"./ObjectData/Object[@name='{Axis.get('value')}']/Properties"
+        AxisProps = RootValue.find(
+            f"./ObjectData/Object[@name='{AxisValue.get('value')}']/Properties"
         )
         assert AxisProps is not None
         Geometry = AxisProps.findall(
@@ -125,8 +125,8 @@ def TestAxisRev(TmpPath: FilePath, SampleName: str) -> None:
         )
         assert len(Geometry) == 5
         assert [
-            Node.get("value")
-            for Node in AxisProps.findall(
+            NodeValue.get("value")
+            for NodeValue in AxisProps.findall(
                 "./Property[@name='Geometry']/GeometryList/Geometry/Construction"
             )
         ] == ["0", "0", "0", "1", "0"]
@@ -138,7 +138,7 @@ def TestAxisRev(TmpPath: FilePath, SampleName: str) -> None:
             )
             == 4
         )
-        Profile = Root.find(
+        Profile = RootValue.find(
             f"./ObjectData/Object[@name='{Source.get('value')}']/Properties"
         )
         assert Profile is not None
@@ -150,13 +150,15 @@ def TestAxisRev(TmpPath: FilePath, SampleName: str) -> None:
             )
             == 12
         )
-        Binding = Root.find(
+        Binding = RootValue.find(
             f"./ObjectData/Object[@name='KitMetadata']/Properties/Property[@name='{KAxisRevBinding}']/String"
         )
         assert Binding is not None and Binding.get("value") == Feature.id
-        assert [Name for Name in Archive.namelist() if Name.endswith(".Shape.brp")] == [
-            f"{NameValue}.Shape.brp"
-        ]
+        assert [
+            NameData
+            for NameData in Archive.namelist()
+            if NameData.endswith(".Shape.brp")
+        ] == [f"{NameValue}.Shape.brp"]
     assert OpenDocument(Output) == DocValue
 
 
@@ -175,23 +177,21 @@ def TestAxisRev(TmpPath: FilePath, SampleName: str) -> None:
         (".//Constrain[@Name='incidence_4_1']", "SecondPos", "2"),
     ),
 )
-def TestAxisConflict(
-    TmpPath: FilePath, PathValue: str, Field: str, Changed: str
-) -> None:
+def TestAxisClash(TmpPath: FilePath, PathValue: str, Field: str, Changed: str) -> None:
     DocValue = OpenDocument(KAxisFolder / "sketch_line.f3d", strict=False)
     Output = TmpPath / "axis.FCStd"
     _ = WriteDocument(DocValue, Output)
     with ZipFile(Output) as Archive:
-        Members = {Name: Archive.read(Name) for Name in Archive.namelist()}
-    Root = ParseXml(Members["Document.xml"])
-    Target = Root.find(PathValue)
+        Members = {NameData: Archive.read(NameData) for NameData in Archive.namelist()}
+    RootValue = ParseXml(Members["Document.xml"])
+    Target = RootValue.find(PathValue)
     assert Target is not None
     Target.set(Field, Changed)
-    Members["Document.xml"] = WriteXml(Root, encoding="utf-8")
+    Members["Document.xml"] = WriteXml(RootValue, encoding="utf-8")
     Buffer = BytesIO()
     with ZipFile(Buffer, "w") as Archive:
-        for Name, DataValue in Members.items():
-            Archive.writestr(Name, DataValue)
+        for NameData, DataValue in Members.items():
+            Archive.writestr(NameData, DataValue)
     with Pytest.raises(
         FreeCadAdapterA, match="editable sketch axis|constraint identity"
     ):

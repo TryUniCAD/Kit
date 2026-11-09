@@ -34,24 +34,26 @@ def TestScaleWrite(Sample: str, Count: int, TmpPath: FilePath) -> None:
     assert Capability.PARAMETRIC_HISTORY in Result.native_capabilities
     assert Capability.PARAMETRIC_HISTORY not in Result.carrier_capabilities
     with ZipFile(Output) as Archive:
-        Root = ParseXml(Archive.read("Document.xml"))
-        Declared = Root.findall("./Objects/Object")
+        RootValue = ParseXml(Archive.read("Document.xml"))
+        Declared = RootValue.findall("./Objects/Object")
         assert (
             sum(Value.get("type") == "Part::Extrusion" for Value in Declared) == Count
         )
         assert sum(Value.get("type") == "Part::Scale" for Value in Declared) == Count
         Shapes = tuple(
-            Name for Name in Archive.namelist() if Name.endswith(".Shape.brp")
+            NameValue
+            for NameValue in Archive.namelist()
+            if NameValue.endswith(".Shape.brp")
         )
         Restore = tuple(
             FileName
-            for Value in Root.findall(
+            for Value in RootValue.findall(
                 "./ObjectData/Object/Properties/Property[@name='Shape']/Part"
             )
             if (FileName := Value.get("file"))
         )
         assert Shapes == Restore and len(Shapes) == Count * 2
-        Binding = Root.find(
+        Binding = RootValue.find(
             f"./ObjectData/Object[@name='KitMetadata']/Properties/Property[@name='{KScaleBinding}']/String"
         )
         assert Binding is not None
@@ -61,24 +63,24 @@ def TestScaleWrite(Sample: str, Count: int, TmpPath: FilePath) -> None:
 
 # modified native controls must never fall back to the unmodified interchange snapshot
 @KRequiresCodec
-def TestScaleEditGate(TmpPath: FilePath) -> None:
+def TestScaleGate(TmpPath: FilePath) -> None:
     Document = OpenDocument(KStudyPath / KScaleFiles[1][0], strict=False)
     Output, Modified = TmpPath / "scale.FCStd", TmpPath / "changed.FCStd"
     _ = WriteDocument(Document, Output, destination_format="freecad.fcstd")
     with ZipFile(Output) as Original, ZipFile(Modified, "w") as Archive:
-        Root = ParseXml(Original.read("Document.xml"))
-        (Value,) = Root.findall(
+        RootValue = ParseXml(Original.read("Document.xml"))
+        (Value,) = RootValue.findall(
             "./ObjectData/Object/Properties/Property[@name='UniformScale']/Float"
         )
         assert float(Value.get("value", "nan")) == 1.75
         Value.set("value", "0.65")
-        for Item in Original.infolist():
+        for ItemValue in Original.infolist():
             Archive.writestr(
-                Item,
+                ItemValue,
                 (
-                    XmlBytes(Root)
-                    if Item.filename == "Document.xml"
-                    else Original.read(Item)
+                    XmlBytes(RootValue)
+                    if ItemValue.filename == "Document.xml"
+                    else Original.read(ItemValue)
                 ),
             )
     with Pytest.raises(FreeCadAdapterA, match=r"FreeCAD editable Scale .*UniformScale"):

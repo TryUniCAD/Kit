@@ -12,7 +12,7 @@ from dataclasses import replace as Replace
 from math import isclose as IsClose, tau as FullTurn
 
 from convert.formats.Fusion.RecordSpan import RecordSpan
-from convert.formats.Fusion.Revolves.AngularAxis import ResolveAngleAxis
+from convert.formats.Fusion.Revolves.AngularAxis import ReadAngleAxis
 from convert.formats.Fusion.Revolves.AngleRevValues import ReadAngleSpan
 from convert.formats.Fusion.Revolves.MeridianSense import ChooseMeridian
 from convert.formats.Fusion.Revolves.ProfileMeridian import CalcMeridian
@@ -56,7 +56,7 @@ def AttachAngleRev(
     if SketchValue is None or ProfileFrame is None:
         raise ValueError("Missing Fusion angular Revolve profile sketch frame")
     AxisPick, Origin, StoredAxis = (
-        ResolveAngleAxis(
+        ReadAngleAxis(
             BulkData, Owners, StepValue, Picks, Sketches, Frames, ProfileFrame
         )
         if LoadEdge is None

@@ -35,7 +35,9 @@ def ReadBodyInputs(
         MakeHistoryPick(BulkData, Context, Receiver, FeatureId, Scope, Input, Ordinal)
         for Ordinal, Input in enumerate(Fields.Picks)
     )
-    if not Picks or len({Pick.query["native_body_id"] for Pick in Picks}) != len(Picks):
+    if not Picks or len(
+        {PickValue.query["native_body_id"] for PickValue in Picks}
+    ) != len(Picks):
         raise ValueError("Fusion body input list is empty or repeats a historical body")
     LabelData = ReadLabelData(
         BulkData[SpanValue.PayloadOffset + 4 : SpanValue.EndOffset], LabelText
@@ -53,7 +55,8 @@ def ReadBodyInputs(
             operation=(
                 Fields.Operation if Fields.Operation is not None else Receiver.operation
             ),
-            selection_ids=Receiver.selection_ids + tuple(Pick.id for Pick in Picks),
+            selection_ids=Receiver.selection_ids
+            + tuple(PickValue.id for PickValue in Picks),
             attributes=Attributes,
         ),
         Picks,

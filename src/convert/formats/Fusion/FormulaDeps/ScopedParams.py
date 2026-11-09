@@ -11,7 +11,7 @@ from convert.formats.Fusion.Assembly.ComponentRead import KComponentGuid
 from convert.formats.Fusion.Assembly.OccurrenceRead import KOccurrenceGuid
 from convert.formats.Fusion.FormulaDeps.ParamCollection import (
     KParamCollection,
-    ReadCollectionOrder,
+    ReadMemberOrder,
 )
 from convert.formats.Fusion.FormulaDeps.ParamRegistry import (
     KParamRegistry,
@@ -77,7 +77,7 @@ def ReadPartScope(
     if ComponentId is None or len(Collections) != 1:
         raise ValueError("Fusion part parameter collection is unresolved")
     Collection = Collections[0]
-    RegistryId, Order = ReadCollectionOrder(
+    RegistryId, Order = ReadMemberOrder(
         BulkData[Collection.PayloadOffset + 4 : Collection.EndOffset],
         ComponentId,
         VerifyOrder=VerifyOrder,

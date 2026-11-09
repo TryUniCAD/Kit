@@ -39,10 +39,10 @@ def ReadInputScope(
     if ComponentId is None:
         raise ValueError("Fusion historical body component is missing")
     Owners = {Value.ObjectId: Value for Value in Spans if Value.IsPrimary}
-    ById = {
+    ByIdentity = {
         int(StepValue.provenance.native_id): StepValue
         for StepValue in Steps
         if StepValue.provenance is not None
     }
-    Scopes = ReadAsmScopes(BulkData, Owners, History.OwnerId, frozenset(ById))
-    return InputContext(Owners, ById, Scopes, ComponentId, History.HistoryId)
+    Scopes = ReadAsmScopes(BulkData, Owners, History.OwnerId, frozenset(ByIdentity))
+    return InputContext(Owners, ByIdentity, Scopes, ComponentId, History.HistoryId)

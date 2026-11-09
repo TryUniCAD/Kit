@@ -22,8 +22,8 @@ def TestCircleSense() -> None:
     Origin = SpaceVector(0.0, 0.0, 0.0)
     Center = (PlaneVector(10.0, 0.0),)
     for Direction in (SpaceVector(0.0, 1.0, 0.0), SpaceVector(0.0, -1.0, 0.0)):
-        Axis, Radial = ChooseMeridian(Frame, Center, Origin, Direction, 2.0)
-        assert Axis == (0.0, -1.0, 0.0)
+        AxisValue, Radial = ChooseMeridian(Frame, Center, Origin, Direction, 2.0)
+        assert AxisValue == (0.0, -1.0, 0.0)
         assert Radial == (1.0, 0.0, 0.0)
         with Raises(ValueError, match="crosses or lies on"):
             _ = ChooseMeridian(Frame, Center, Origin, Direction, 10.0)

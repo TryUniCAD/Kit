@@ -69,17 +69,17 @@ def TestSketchProof(
     _, Output = BoundSketch
     Target = Output.with_name("proof.FCStd")
     with SavedXml(Output, Target) as RootValue:
-        Cell = RootValue.find(".//Cell[@alias='fusion_parameter_297']")
+        CellValue = RootValue.find(".//Cell[@alias='fusion_parameter_297']")
         Circle = RootValue.find(".//Geometry/Circle")
         Rules = RootValue.find(".//Property[@name='Constraints']/ConstraintList")
-        assert Cell is not None and Circle is not None and Rules is not None
+        assert CellValue is not None and Circle is not None and Rules is not None
         Datum = Rules.find("./Constrain[@Type='11']")
         assert Datum is not None
         if ChangeMode == "missing rule":
             Rules.remove(Datum)
             Rules.set("count", str(len(Rules)))
         else:
-            Cell.set("content", "=18 mm")
+            CellValue.set("content", "=18 mm")
             if ChangeMode == "uncached":
                 Circle.set("Radius", "18")
                 Datum.set("Value", "18")

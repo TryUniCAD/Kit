@@ -7,7 +7,7 @@
 # to you under it immediately and permanently.
 
 from typing import cast as CastValue
-from math import hypot as Hypot, pi as Pi
+from math import hypot as Hypot, pi as CirclePi
 
 import pytest as Pytest
 
@@ -38,10 +38,11 @@ def CheckCircleBody(Capture: str, UpperRadius: float) -> None:
         2,
     )
     assert Topology.volume == Pytest.approx(
-        Pi * 17 * (100 + 10 * UpperRadius + UpperRadius**2) / 3
+        CirclePi * 17 * (100 + 10 * UpperRadius + UpperRadius**2) / 3
     )
     assert Topology.surface_area == Pytest.approx(
-        Pi * (100 + UpperRadius**2 + (10 + UpperRadius) * Hypot(17, UpperRadius - 10))
+        CirclePi
+        * (100 + UpperRadius**2 + (10 + UpperRadius) * Hypot(17, UpperRadius - 10))
     )
     Bounds = Topology.bounding_box
     assert Bounds is not None
@@ -121,5 +122,6 @@ def CheckSolidGuard() -> None:
         == 2
     )
     assert any(
-        Item.code == "fusion.extrude.body_unsupported" for Item in Document.diagnostics
+        ItemValue.code == "fusion.extrude.body_unsupported"
+        for ItemValue in Document.diagnostics
     )

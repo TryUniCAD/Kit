@@ -6,12 +6,12 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from convert.formats.Fusion.Assembly.NativeOccurrence import NativeOccurrence
+from convert.formats.Fusion.Assembly.NativeOccurrence import NativeOccur
 
 
 # graph qualification detects cycles and excessive expansion without instantiating paths
 def VerifyAsmGraph(
-    RootId: int, ComponentIds: set[int], Occurrences: tuple[NativeOccurrence, ...]
+    RootId: int, ComponentIds: set[int], Occurrences: tuple[NativeOccur, ...]
 ) -> None:
     Children: dict[int, list[int]] = {Identity: [] for Identity in ComponentIds}
     for Occurrence in Occurrences:
@@ -27,16 +27,16 @@ def VerifyAsmGraph(
         if Known is not None:
             return Known
         Active.add(ComponentId)
-        Size, Height = 1, 0
+        SizeValue, Height = 1, 0
         for ChildId in Children[ComponentId]:
             ChildSize, ChildHeight = VisitBranch(ChildId, Depth + 1)
-            Size += ChildSize
+            SizeValue += ChildSize
             Height = max(Height, ChildHeight + 1)
-            if Size > 10001 or Height > 128:
+            if SizeValue > 10001 or Height > 128:
                 raise ValueError("Fusion assembly expansion exceeds limit")
         Active.remove(ComponentId)
-        Complete[ComponentId] = Size, Height
-        return Size, Height
+        Complete[ComponentId] = SizeValue, Height
+        return SizeValue, Height
 
     _ = VisitBranch(RootId, 0)
     if Complete.keys() != ComponentIds:

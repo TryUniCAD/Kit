@@ -6,7 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from math import cos as Cos, radians as Radians, sin as Sin
+from math import cos as Cosine, radians as Radians, sin as SineValue
 
 from pytest import approx as Approx, raises as Raises
 
@@ -29,10 +29,10 @@ def TestPlaneSector() -> None:
         ((Positive, Negative), (135, 215)),
         ((Negative, Positive), (135, 215)),
     ):
-        Axis, Lower, Upper = DerivePlaneSpan(
+        AxisValue, Lower, Upper = DerivePlaneSpan(
             Transform(), Profile, Origin, Direction, Targets
         )
-        assert Axis == SpaceVector(0.0, -1.0, 0.0)
+        assert AxisValue == SpaceVector(0.0, -1.0, 0.0)
         assert (Lower, Upper) == Approx(tuple(map(Radians, Expected)))
 
 
@@ -79,6 +79,6 @@ def MakeTarget(Degrees: int, OffsetX: float = 0.0) -> Transform:
     return Transform(
         origin=SpaceVector(OffsetX, 0.0, 0.0),
         x_axis=SpaceVector(0.0, 1.0, 0.0),
-        y_axis=SpaceVector(-Cos(Angle), 0.0, Sin(Angle)),
-        z_axis=SpaceVector(Sin(Angle), 0.0, Cos(Angle)),
+        y_axis=SpaceVector(-Cosine(Angle), 0.0, SineValue(Angle)),
+        z_axis=SpaceVector(SineValue(Angle), 0.0, Cosine(Angle)),
     )

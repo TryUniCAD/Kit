@@ -94,26 +94,27 @@ def TestBodyInputs(
     assert (
         tuple(
             (
-                Pick.query["role"],
-                Pick.query["native_body_id"],
-                Pick.query["native_source_id"],
+                PickValue.query["role"],
+                PickValue.query["native_body_id"],
+                PickValue.query["native_source_id"],
             )
-            for Pick in Picks
+            for PickValue in Picks
         )
         == Expected
     )
-    for Ordinal, Pick in enumerate(Picks):
+    for Ordinal, PickValue in enumerate(Picks):
         assert (
-            Pick.query["kind"] == "historical_body" and Pick.query["ordinal"] == Ordinal
+            PickValue.query["kind"] == "historical_body"
+            and PickValue.query["ordinal"] == Ordinal
         )
-        assert Pick.path == () and Pick.query["native_scope_id"] == 33
-        assert Pick.query["native_component_id"] == 3
-        assert Pick.provenance is not None
-        assert Pick.provenance.native_id == str(
-            Pick.attributes["fusion.descriptor_object_id"]
+        assert PickValue.path == () and PickValue.query["native_scope_id"] == 33
+        assert PickValue.query["native_component_id"] == 3
+        assert PickValue.provenance is not None
+        assert PickValue.provenance.native_id == str(
+            PickValue.attributes["fusion.descriptor_object_id"]
         )
         assert (
-            Pick.query["source_feature_id"]
+            PickValue.query["source_feature_id"]
             == f"fusion-feature-35-{Expected[Ordinal][2]}"
         )
     if KeepTools is False:
@@ -131,7 +132,7 @@ def TestBodyInputs(
 
 # a typed mirror association must name the historical anchor and not its body
 @KRequiresCodec
-def TestBodyMismatch() -> None:
+def TestWrongBody() -> None:
     Archive = KStudyPath / KInputCases[-1][0]
     BulkData, Spans = ReadDesignZip(Archive.read_bytes())
     Terminal = next(

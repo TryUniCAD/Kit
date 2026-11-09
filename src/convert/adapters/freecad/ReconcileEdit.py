@@ -89,11 +89,11 @@ def ReconcileEdit(
         raise ValueError("FreeCAD editable profile binding disagrees with its source")
     if EditPlan is None:
         return DocValue
-    _, Plan = EditPlan
-    if Plan.LineRing and Binding is None:
+    _, PlanData = EditPlan
+    if PlanData.LineRing and Binding is None:
         return DocValue
     Fields = ReadEditFields(
-        RootValue, DocValue, Plan, AllowProfile=ProfileBinding is not None
+        RootValue, DocValue, PlanData, AllowProfile=ProfileBinding is not None
     )
     if Fields is None:
         if Binding is not None or HasLegacyEdit(RootValue):
@@ -101,11 +101,11 @@ def ReconcileEdit(
         return DocValue
     if any(Members[EntryName].file_size for EntryName in Fields.EmptyEntries):
         raise ValueError("FreeCAD editable extrusion has an additional nonempty shape")
-    ProfileFrame = FindEditFrame(DocValue, Plan.SketchId)
+    ProfileFrame = FindEditFrame(DocValue, PlanData.SketchId)
     if ProfileFrame is None:
         raise ValueError("FreeCAD editable extrusion source sketch is unavailable")
     SketchValue, PlaneValue = ProfileFrame
-    ReadProfile = GetEditRing if Plan.LineRing else GetEditCircle
+    ReadProfile = GetEditRing if PlanData.LineRing else GetEditCircle
     Profile = ReadProfile(DocValue.feature_timeline[-1], Fields.ProfileSketch)
     FrameValue = PlaneValue.transform
     if Profile is None:
@@ -118,7 +118,7 @@ def ReconcileEdit(
             Archive,
             Members,
             Fields.SketchEntry,
-            KMaxSketchBytes if Plan.LineRing else KMaxCylinderBytes,
+            KMaxSketchBytes if PlanData.LineRing else KMaxCylinderBytes,
         )
         IsSound = (
             IsSketchWire(SketchData, FrameValue, Profile)
@@ -144,7 +144,7 @@ def ReconcileEdit(
         Archive,
         Members,
         Fields.ShapeEntry,
-        KMaxPrismBytes if Plan.LineRing else KMaxCylinderBytes,
+        KMaxPrismBytes if PlanData.LineRing else KMaxCylinderBytes,
     )
     IsSound = (
         IsEditCylinder(ShapeData, FrameValue, Profile, Fields.DistanceMm)
@@ -157,12 +157,12 @@ def ReconcileEdit(
         raise ValueError(
             "FreeCAD editable extrusion shape disagrees with its live controls"
         )
-    SameDepth = IsSameEdit(DocValue, Plan, Fields)
+    SameDepth = IsSameEdit(DocValue, PlanData, Fields)
     if SameDepth and EditedSketch is None:
         return DocValue
     return ApplyDepthEdit(
         DocValue,
-        Plan.ParameterId,
+        PlanData.ParameterId,
         None if SameDepth else Fields.SourceText,
         Fields.DistanceMm,
         Profile,

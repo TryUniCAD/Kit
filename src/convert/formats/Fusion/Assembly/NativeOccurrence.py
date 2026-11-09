@@ -11,7 +11,7 @@ from dataclasses import dataclass as Dataclass
 
 # stored sibling order and placement belong to the occurrence rather than its definition
 @Dataclass(frozen=True, slots=True)
-class NativeOccurrence:
+class NativeOccur:
     ObjectId: int
     ComponentId: int
     OwnerId: int
