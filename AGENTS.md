@@ -62,6 +62,13 @@ Git isolation and preservation of user-owned work still apply.
 - This policy takes precedence over any skill requesting unit tests or a test
   file for each implementation module.
 
+## Fusion decoding
+
+Start at the [Fusion feature index](re/Fusion/README.md). Open the matching
+feature note and focused test for evidence. Use the
+[Graphify source query](re/Fusion/Notes/Workflow.md#navigate-sdk-source-with-graphify)
+when tracing a decoder across modules.
+
 ## Skill routing
 
 | When working on…                                                               | Activate these skills                                                                                                                             |
