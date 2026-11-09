@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 
+from typing import cast as CastValue
 from hashlib import sha256 as ShaDigest
 from io import BytesIO
 from struct import pack as Pack, unpack_from as UnpackFrom
@@ -14,6 +15,7 @@ from zipfile import ZipFile
 
 from pytest import raises as Raises
 
+from convert.formats.Fusion.ArchiveRead.ArchiveMember import ArchiveMember
 from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionArchive
 from convert.formats.Fusion.BulkSpans import ReadBulkSpans
 from convert.formats.Fusion.MetaIndex import SegmentKind
@@ -103,7 +105,9 @@ def TestAuxFrames() -> None:
         )
         Claims, Routes = ReadAuxProof(Archive, Scope)
         assert Routes is None
-        assert tuple(Value.Target.Name for Value in Claims) == tuple(Values)
+        assert tuple(
+            CastValue(ArchiveMember, Value.Target).Name for Value in Claims
+        ) == tuple(Values)
         assert all(
             Value.Scope == Scope and Value.Category is ProofCategory.KStructural
             for Value in Claims
@@ -127,7 +131,9 @@ def TestAuxHeader() -> None:
         DataValue = AuxZip({**AuxValues(), KeyValue: BadMeta})
         with OpenFusionArchive(DataValue) as Archive:
             Claims, _ = ReadAuxProof(Archive, AuxScope(DataValue))
-            assert tuple(Value.Target.Name for Value in Claims) == (
+            assert tuple(
+                CastValue(ArchiveMember, Value.Target).Name for Value in Claims
+            ) == (
                 KActPrefix + "BulkStream.dat",
                 KActPrefix + "MetaStream.dat",
             )
@@ -157,7 +163,9 @@ def TestAuxCrc() -> None:
     ArchiveData = bytes(DataValue)
     with OpenFusionArchive(ArchiveData) as Archive:
         Claims, _ = ReadAuxProof(Archive, AuxScope(ArchiveData))
-        assert tuple(Value.Target.Name for Value in Claims) == (
+        assert tuple(
+            CastValue(ArchiveMember, Value.Target).Name for Value in Claims
+        ) == (
             KBrowserPrefix + "BulkStream.dat",
             KBrowserPrefix + "MetaStream.dat",
         )

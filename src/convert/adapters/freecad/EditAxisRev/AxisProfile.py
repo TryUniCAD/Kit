@@ -27,10 +27,10 @@ def ReadAxisProfile(
     CheckRevMembers(FeatureValue, SketchValue)
     Members, Entities = ReadRingEnts(SketchValue)
     MemberSet = set(Members)
-    Sources = tuple(
-        Entities[Identity]
-        for Identity in FeatureValue.attributes["fusion.profile_native_members"]
-    )
+    NativeMembers = FeatureValue.attributes["fusion.profile_native_members"]
+    if not isinstance(NativeMembers, tuple):
+        raise ValueError("FreeCAD editable sketch axis profile members are unresolved")
+    Sources = tuple(Entities[Identity] for Identity in NativeMembers)
     if OrderLineRing(Sources) != Members:
         raise ValueError("FreeCAD editable sketch axis source profile order disagrees")
     Points = {

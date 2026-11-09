@@ -15,7 +15,10 @@ from convert.adapters.freecad.EditShape.Revolution.RevEdgeMatch import (
     KPlacedKey,
     RevProof,
 )
-from convert.adapters.freecad.EditShape.Revolution.RevExpected import ReadRevExpected
+from convert.adapters.freecad.EditShape.Revolution.RevExpected import (
+    KFaceLoop,
+    ReadRevExpected,
+)
 from convert.adapters.freecad.EditShape.Revolution.RevFaceLoops import (
     ReadEdgeCounts,
     ReadLoopKeys,
@@ -114,7 +117,7 @@ def CheckRevFaceMut(
         raise DecodeFailure("unsupported Revolution face")
     Surface = RawValue.Surfaces[FaceValue.Surface - 1]
     Matrix = RawValue.Matrix(FacePlace, FaceValue.KLocation)
-    Rings = []
+    Rings: list[KFaceLoop] = []
     Counts: Counter[tuple[KPlacedKey, int]] = Counter()
     for WireRef in Record.Children:
         UsesValue = ReadRevLoopMut(Proof, WireRef, FacePlace)

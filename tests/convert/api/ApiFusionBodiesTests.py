@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from json import loads as LoadJson
 
 from convert import open_document as OpenDocument
@@ -29,12 +30,17 @@ def CheckBodyOwner() -> None:
     Names = {
         (Definition.name, Member["stored_name"])
         for Definition in Assembly.definitions
-        for Member in Definition.attributes[KInventory]["members"]
+        for Member in CastValue(
+            dict[str, tuple[dict[str, object], ...]], Definition.attributes[KInventory]
+        )["members"]
     }
     assert Names == {(Row["component_name"], Row["name"]) for Row in Oracle["bodies"]}
     Root = Assembly.definition(Assembly.root_definition_id)
     assert tuple(
-        Member["object_id"] for Member in Root.attributes[KInventory]["members"]
+        Member["object_id"]
+        for Member in CastValue(
+            dict[str, tuple[dict[str, object], ...]], Root.attributes[KInventory]
+        )["members"]
     ) == (401, 543)
     Child = next(
         Definition
@@ -45,8 +51,12 @@ def CheckBodyOwner() -> None:
         Archive, strict=False, configuration=str(Child.attributes["fusion.history_id"])
     )
     assert ChildDoc.assembly is None
-    (ChildMember,) = ChildDoc.metadata[KInventory]["members"]
-    (LinkedMember,) = Child.attributes[KInventory]["members"]
+    (ChildMember,) = CastValue(
+        dict[str, tuple[dict[str, object], ...]], ChildDoc.metadata[KInventory]
+    )["members"]
+    (LinkedMember,) = CastValue(
+        dict[str, tuple[dict[str, object], ...]], Child.attributes[KInventory]
+    )["members"]
     assert ChildMember["object_id"] == LinkedMember["object_id"] == 480
     assert ChildMember["design_body_id"] is None
     assert LinkedMember["design_body_id"] in Child.body_ids
@@ -63,7 +73,9 @@ def CheckBodyOwner() -> None:
 def CheckRemoved() -> None:
     Archive = KStudyPath / "removecontrasts-9c5f83456a0e" / "root_body.f3d"
     Document = OpenDocument(Archive, strict=False)
-    (Member,) = Document.metadata[KInventory]["members"]
+    (Member,) = CastValue(
+        dict[str, tuple[dict[str, object], ...]], Document.metadata[KInventory]
+    )["members"]
     assert Member["object_id"] == 354
     assert Member["stored_name"] == "RemoveSurvivorBody"
     assert Member["design_body_id"] is None
@@ -78,7 +90,9 @@ def CheckBodyLink() -> None:
     assert Capability.KBodyStructure in Document.capabilities
     Members = {
         Member["object_id"]: Member
-        for Member in Document.metadata[KInventory]["members"]
+        for Member in CastValue(
+            dict[str, tuple[dict[str, object], ...]], Document.metadata[KInventory]
+        )["members"]
     }
     for BodyValue in Document.bodies:
         assert BodyValue.provenance is not None
@@ -90,6 +104,8 @@ def CheckBodyLink() -> None:
         )
         assert (
             BodyValue.attributes["fusion.component_object_id"]
-            == Document.metadata[KInventory]["component_id"]
+            == CastValue(dict[str, object], Document.metadata[KInventory])[
+                "component_id"
+            ]
         )
     assert CadDocument.from_json(Document.to_json()) == Document

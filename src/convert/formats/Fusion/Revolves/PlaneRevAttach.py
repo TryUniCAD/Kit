@@ -52,8 +52,11 @@ def AttachPlaneRev(
     )
     AxisId = Attrs.get("fusion.revolve.axis_object_id")
     SelectId = Attrs.get("fusion.revolve.axis_selection_id")
-    if SketchFrame is None or not all(
-        isinstance(Identity, int) for Identity in (ComponentId, AxisId, SelectId)
+    if (
+        SketchFrame is None
+        or not isinstance(ComponentId, int)
+        or not isinstance(AxisId, int)
+        or not isinstance(SelectId, int)
     ):
         raise ValueError("Missing Fusion plane Revolve sketch component or origin axis")
     AxisName, AxisOrigin, StoredAxis, ContainerId = ReadOriginAxis(

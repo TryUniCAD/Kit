@@ -51,12 +51,11 @@ def TestScaleWrite(Sample: str, Count: int, TmpPath: FilePath) -> None:
             if (FileName := Value.get("file"))
         )
         assert Shapes == Restore and len(Shapes) == Count * 2
-        assert (
-            Root.find(
-                f"./ObjectData/Object[@name='KitMetadata']/Properties/Property[@name='{KScaleBinding}']/String"
-            ).get("value")
-            == Document.feature_timeline[-1].id
+        Binding = Root.find(
+            f"./ObjectData/Object[@name='KitMetadata']/Properties/Property[@name='{KScaleBinding}']/String"
         )
+        assert Binding is not None
+        assert Binding.get("value") == Document.feature_timeline[-1].id
     assert OpenDocument(Output, strict=False) == Document
 
 

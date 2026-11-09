@@ -55,9 +55,11 @@ def ReadScaleCells(Sheet: NativeObject, Catalog: ParamCatalog) -> dict[str, Elem
     Cells = EditCells(Sheet, True)
     CheckSheetLayout(Sheet, Cells, Catalog)
     Container = Sheet.properties["cells"][0]
+    XLinks = Container.find("XLinks")
     if (
         Container.attrib.keys() != {"Count", "xlink"}
-        or Container.find("XLinks").attrib != {"count": "0"}
+        or XLinks is None
+        or XLinks.attrib != {"count": "0"}
         or any(
             len(Row)
             or Row.attrib.keys()

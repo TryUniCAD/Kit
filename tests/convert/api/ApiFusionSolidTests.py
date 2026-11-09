@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from math import hypot as Hypot, pi as Pi
 
 import pytest as Pytest
@@ -97,7 +98,10 @@ def CheckSavedSolid(Capture: str, NativeIds: set[int]) -> None:
     } == NativeIds
     assert {
         Member["design_body_id"]
-        for Member in Document.metadata["fusion.body_inventory"]["members"]
+        for Member in CastValue(
+            dict[str, tuple[dict[str, object], ...]],
+            Document.metadata["fusion.body_inventory"],
+        )["members"]
     } == {BodyValue.id for BodyValue in Document.bodies}
 
 
@@ -107,7 +111,15 @@ def CheckSolidGuard() -> None:
     Archive = KStudyPath / "combinemodes-dcb4956eca6b" / "join_keep.f3d"
     Document = OpenDocument(Archive, strict=False)
     assert Document.brep is None and Document.bodies == ()
-    assert len(Document.metadata["fusion.body_inventory"]["members"]) == 2
+    assert (
+        len(
+            CastValue(
+                dict[str, tuple[dict[str, object], ...]],
+                Document.metadata["fusion.body_inventory"],
+            )["members"]
+        )
+        == 2
+    )
     assert any(
         Item.code == "fusion.extrude.body_unsupported" for Item in Document.diagnostics
     )

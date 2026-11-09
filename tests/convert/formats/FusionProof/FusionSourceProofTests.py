@@ -15,6 +15,7 @@ from convert.formats.Fusion import ReadFusionDoc
 from convert.formats.Fusion.ArchiveRead.IndexedArchive import IndexedArchive
 from convert.formats.Fusion.DesignZip import KDesignPrefix, ReadDesignZip
 from convert.formats.Fusion.NativeHistory import KHistoryGuid
+from convert.formats.Fusion.RecordSpan import RecordSpan
 from convert.formats.Fusion.SourceProof.InspectSource import ReadFusionSourceProof
 from convert.formats.Fusion.SourceProof.ProofClaim import ProofCategory
 from tests.convert.formats.FusionHistoryTests import HistoryArchive
@@ -85,6 +86,8 @@ def TestProofHistoryVersion() -> None:
     assert History in Report.ResidualSpans
     assert Report.PrimaryCounts.VerifiedDesign == 1
     assert any(
-        Value.Category is ProofCategory.KVerifiedDesign and Value.Target.ObjectId == 103
+        Value.Category is ProofCategory.KVerifiedDesign
+        and isinstance(Value.Target, RecordSpan)
+        and Value.Target.ObjectId == 103
         for Value in Report.Claims
     )

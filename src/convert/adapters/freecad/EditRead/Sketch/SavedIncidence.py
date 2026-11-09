@@ -49,7 +49,10 @@ def CheckIncidence(Entities: tuple[SketchEntity, ...]) -> None:
     for Entity in Entities:
         if isinstance(Entity.geometry, PointGeometry):
             continue
-        Links = GetIncidence(type(Entity.geometry).__name__, ToData(Entity.attributes))
+        Attributes = ToData(Entity.attributes)
+        if not isinstance(Attributes, dict):
+            raise ValueError("FreeCAD saved sketch has invalid incidence attributes")
+        Links = GetIncidence(type(Entity.geometry).__name__, Attributes)
         if not Links:
             raise ValueError("FreeCAD saved sketch has no native incidence evidence")
         for NativeId, PointSlot in Links:

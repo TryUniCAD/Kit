@@ -8,6 +8,7 @@
 
 
 from collections.abc import Callable
+from typing import cast as CastValue
 from functools import partial as BindArgs
 
 from convert.formats.Fusion.RecordSpan import RecordSpan
@@ -48,7 +49,7 @@ def ProjectRevolves(
     PlaneLinks = {
         int(PlaneValue.provenance.native_id): (
             PlaneValue,
-            ByNative[PlaneValue.attributes["fusion.feature_object_id"]],
+            ByNative[CastValue(int, PlaneValue.attributes["fusion.feature_object_id"])],
         )
         for PlaneValue in Planes
         if PlaneValue.provenance is not None

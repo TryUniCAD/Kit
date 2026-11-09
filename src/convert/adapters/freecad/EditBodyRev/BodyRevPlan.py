@@ -84,7 +84,12 @@ def CheckSavedPair(
         Source.PlaneValue.transform,
         Profile.PlaneValue.transform,
     )
-    CheckMembers(DocValue, Source.PlaneValue.attributes["fusion.component_object_id"])
+    ComponentId = Source.PlaneValue.attributes["fusion.component_object_id"]
+    if type(ComponentId) is not int:
+        raise ValueError(
+            "FreeCAD editable body axis Revolve source component is invalid"
+        )
+    CheckMembers(DocValue, ComponentId)
     LineRing = GetEditRing(Creator, Source.SketchValue)
     if LineRing is None or SourceFrame.z_axis != SourcePlan.Direction:
         raise ValueError("FreeCAD editable body axis Revolve source ring is unresolved")

@@ -79,13 +79,13 @@ def CheckPlaneSweep(
     ):
         if EditScalar(Native, Field, TypeName, TagName) != Expected:
             raise ValueError(f"FreeCAD editable plane Revolve {Field} changed")
-    Expected = PlaneSweepExpr(
+    Expressions = PlaneSweepExpr(
         tuple(Value.name for Value in Graph.Targets),
         PlanValue.AxisOrigin,
         PlanValue.AxisDirection,
         PlanValue.SketchFrame.z_axis,
     )
-    CheckPlaneExpr(Native, Expected)
+    CheckPlaneExpr(Native, Expressions)
     Direction, Start, EndValue = DerivePlaneSpan(
         PlanValue.SketchFrame,
         ProfileLines(StepValue, Profile),

@@ -96,7 +96,8 @@ def SetSavedDatum(RootValue: Element, Edited: CadDocument, Literal: str) -> None
 def TestDatumSeed() -> None:
     Document = MakeDatumDoc("offset")
     Manifest = DocToManifest(Document)
-    for FeatureSet in (None, set()):
+    EmptySet: set[str] = set()
+    for FeatureSet in (None, EmptySet):
         Value = BuildFcstdMut(Manifest, EditableFeatures=FeatureSet)
         with ZipFile(BytesIO(Value)) as Archive:
             RootValue = ParseUntrusted(Archive.read("Document.xml"))

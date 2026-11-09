@@ -37,7 +37,9 @@ def ReadAngleDef(
     Origin = PlaneValue.provenance
     if Origin is None or PlaneValue.attributes.get("fusion.cached_plane_mode") != 2:
         raise ValueError("Fusion construction plane is not an angular datum")
-    FeatureId = int(PlaneValue.attributes["fusion.feature_object_id"])
+    FeatureId = PlaneValue.attributes["fusion.feature_object_id"]
+    if type(FeatureId) is not int:
+        raise ValueError("Fusion angular datum has no native feature identity")
     Backend, Extra, Angle, AxisDesc, BaseDesc = ReadAngleBack(
         BulkData, Owners, FeatureId, int(Origin.native_id)
     )

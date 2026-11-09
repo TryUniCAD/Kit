@@ -84,7 +84,8 @@ def TestRouteReport(MonkeyPatch: PatchContext) -> None:
     assert {RouteRow.Prefix for RouteRow in Routes.Routes} == {0, 1}
     assert all(RouteRow.IsResolved for RouteRow in Routes.Routes)
     assert all(
-        RouteRow.OwnerSpan.ObjectId == int(RouteRow.Key[2:])
+        RouteRow.OwnerSpan is not None
+        and RouteRow.OwnerSpan.ObjectId == int(RouteRow.Key[2:])
         for RouteRow in Routes.Routes
     )
     Observed = (

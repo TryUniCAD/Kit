@@ -4,10 +4,13 @@
 from inspect import isabstract as IsAbstract
 from typing import cast
 
+from typing import cast as CastValue
+
 import pytest as Pytest
 
 from convert import available_adapters as GetAdapters
 from convert.adapters import AdapterInfo, AdapterRegistry
+from convert.adapters.base.AdapterProtocols import CadReaderAdapter, CadWriterAdapter
 from interchange import Capability
 from tests.convert.api.ApiTestHelpers import GetPackNames, ListFormatPacks
 
@@ -54,7 +57,10 @@ def CheckDiscovery() -> None:
     )
     assert all(
         AdapterData.info.capabilities == frozenset(Capability)
-        for AdapterData in (*ReaderValues, *WriterValues)
+        for AdapterData in CastValue(
+            tuple[CadReaderAdapter | CadWriterAdapter, ...],
+            (*ReaderValues, *WriterValues),
+        )
         if AdapterData.info.format_id in KLegacyFormats
     )
     FusionCaps = FirstRegistry.reader("fusion.f3d").info.capabilities

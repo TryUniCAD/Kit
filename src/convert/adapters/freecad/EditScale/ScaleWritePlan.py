@@ -8,6 +8,8 @@
 
 from dataclasses import dataclass as MakeDataClass
 
+from typing import cast as CastValue
+
 from convert.adapters.freecad.EditExtDepth import IsLiteralParam
 from convert.adapters.freecad.EditScale.ScaleBodyPlan import ScaleBodyPlan
 from convert.adapters.freecad.EditScale.ScalePointPlan import (
@@ -40,7 +42,7 @@ def ReadScalePlan(
     Document: CadDocument, Feature: FeatureStep, Definition: BoundScale
 ) -> ScaleWritePlan:
     if (
-        Document.source is None
+        CastValue(object, Document.source) is None
         or Document.source.format_id != "fusion.f3d"
         or Document.assembly is not None
         or Document.brep is None

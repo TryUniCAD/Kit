@@ -9,6 +9,8 @@
 
 from dataclasses import replace as Replace
 
+from typing import cast as CastValue
+
 import pytest as Pytest
 
 from convert.api import open_document as OpenDocument
@@ -108,12 +110,14 @@ def OpenScalePrisms(
     for PickValue in DocValue.selections:
         if PickValue.query.get("kind") != "historical_body":
             continue
-        StepValue = Features[PickValue.query["source_feature_id"]]
-        SketchValue = Sketches[StepValue.sketch_id]
+        StepValue = Features[CastValue(str, PickValue.query["source_feature_id"])]
+        SketchValue = Sketches[CastValue(str, StepValue.sketch_id)]
         Entities = {Value.id: Value for Value in SketchValue.entities}
         Profile = tuple(
             Entities[Identity]
-            for Identity in StepValue.attributes["fusion.profile_entity_ids"]
+            for Identity in CastValue(
+                tuple[str, ...], StepValue.attributes["fusion.profile_entity_ids"]
+            )
         )
         Definition = StepValue.definition
         assert isinstance(Definition, DistanceExtrude)
@@ -130,8 +134,8 @@ def OpenScalePrisms(
         RefValue = ReadBodyAsmRef(
             BulkData,
             Owners,
-            PickValue.query["native_body_id"],
-            PickValue.query["native_component_id"],
+            CastValue(int, PickValue.query["native_body_id"]),
+            CastValue(int, PickValue.query["native_component_id"]),
         )
         Table = ReadAsmTable(ReadBodyBlob(SourceData, RefValue.FileName, None))
         Model = BuildPrism(

@@ -28,7 +28,7 @@ from interchange.geometry.models.Sketch import SketchEntity
 from interchange.geometry.models.VectorPlane import PlaneVector
 
 # only writer emitted planar entity layouts have stable editable index semantics
-KEntityLayouts = {
+KEntityLayouts: dict[str, tuple[str, str, type[KSketchPrimitive]]] = {
     GeometryKind.KPoint: ("Part::GeomPoint", "GeomPoint", PointGeometry),
     GeometryKind.KLine: ("Part::GeomLineSegment", "LineSegment", LineGeometry),
     GeometryKind.KCircle: ("Part::GeomCircle", "Circle", CircleGeometry),

@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from io import BytesIO as ByteStream
 from struct import pack as PackValue
 from zipfile import ZipFile
@@ -116,7 +117,10 @@ def TestBodyInputs(
             == f"fusion-feature-35-{Expected[Ordinal][2]}"
         )
     if KeepTools is False:
-        Members = Document.metadata["fusion.body_inventory"]["members"]
+        Members = CastValue(
+            dict[str, tuple[dict[str, object], ...]],
+            Document.metadata["fusion.body_inventory"],
+        )["members"]
         assert Expected[0][1] not in {Member["object_id"] for Member in Members}
     assert CadDocument.from_json(Document.to_json()) == Document
     Explicit = OpenDocument(

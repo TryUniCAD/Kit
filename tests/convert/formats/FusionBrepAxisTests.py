@@ -65,7 +65,6 @@ def TestBrepAxisRev(
     assert Seed.final_feature_id == Creator.id and Result.final_feature_id == Sweep.id
     assert Seed.provenance is not None and Result.provenance is not None
     assert Seed.provenance.native_id == "275" and Result.provenance.native_id == "378"
-    assert Seed.topology is not None and Result.topology is not None
     assert [Value.topology.volume for Value in (Seed, Result)] == Pytest.approx(
         (SeedVolume, 2446.25347959525)
     )

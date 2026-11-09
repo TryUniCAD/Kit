@@ -87,6 +87,7 @@ def TestBadBodyAxis() -> None:
         SelectionValue,
         path=(SelectPathElem("body", Result.id), SelectPathElem("edge", EdgeId)),
     )
+    assert SelectionValue.provenance is not None
     LostAsm = Replace(
         SelectionValue,
         provenance=Replace(

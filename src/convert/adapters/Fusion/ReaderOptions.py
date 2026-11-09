@@ -8,6 +8,7 @@
 
 
 from collections.abc import Callable, Mapping
+from typing import cast as CastValue
 
 from convert.adapters.base.ReadOptions import ReadOptions
 
@@ -24,8 +25,8 @@ def GetFusionOpts(
     if not isinstance(Options.values, Mapping):
         raise TypeError("Fusion read option values must be a mapping")
     ConfigId = None
-    if Options.configuration is not None:
-        ConfigText = Options.configuration
+    ConfigText = CastValue(object, Options.configuration)
+    if ConfigText is not None:
         if (
             not isinstance(ConfigText, str)
             or not 1 <= len(ConfigText) <= 20
@@ -37,13 +38,14 @@ def GetFusionOpts(
                 "Fusion configuration must be a positive decimal native history ID"
             )
         ConfigId = int(ConfigText)
-    HistoryId = Options.values.get("fusion.history_id", ConfigId)
-    if "fusion.history_id" in Options.values and (
-        type(HistoryId) is not int or not 1 <= HistoryId <= KMaxHistoryId
-    ):
-        raise ValueError(
-            "fusion.history_id must be a positive integer native history ID"
-        )
+    HistoryId = ConfigId
+    if "fusion.history_id" in Options.values:
+        NativeId = Options.values["fusion.history_id"]
+        if type(NativeId) is not int or not 1 <= NativeId <= KMaxHistoryId:
+            raise ValueError(
+                "fusion.history_id must be a positive integer native history ID"
+            )
+        HistoryId = NativeId
     if ConfigId is not None and ConfigId != HistoryId:
         raise ValueError("Fusion configuration and fusion.history_id disagree")
     if "fusion.inflate_zstd" not in Options.values:
@@ -51,4 +53,4 @@ def GetFusionOpts(
     Inflate = Options.values["fusion.inflate_zstd"]
     if not callable(Inflate):
         raise ValueError("fusion.inflate_zstd must be callable")
-    return HistoryId, Inflate
+    return HistoryId, CastValue(Callable[[bytes, int], bytes], Inflate)

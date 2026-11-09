@@ -9,7 +9,7 @@
 from dataclasses import FrozenInstanceError
 from io import BytesIO
 from struct import pack as Pack
-from zipfile import ZIP_STORED, ZipFile
+from zipfile import ZIP_STORED, ZipFile, ZipInfo
 
 import pytest as Pytest
 from pytest import MonkeyPatch as PatchContext
@@ -57,7 +57,7 @@ def TestSharedIndex(MonkeyPatch: PatchContext) -> None:
     Calls = []
 
     # count validation at the real index boundary without replacing its behavior
-    def CountIndex(Entries):
+    def CountIndex(Entries: list[ZipInfo]) -> dict[str, ZipInfo]:
         Calls.append(1)
         return IndexZipItems(Entries)
 
@@ -88,7 +88,7 @@ def TestSharedIndex(MonkeyPatch: PatchContext) -> None:
                     Entry.is_dir(),
                 )
         with Pytest.raises(FrozenInstanceError):
-            Session.Members[0].Name = "changed"
+            setattr(Session.Members[0], "Name", "changed")
         assert Session.ReadDesign()[0] == BulkData
         assert Session.ReadBody(KTestBody) == b"body bytes"
         with Pytest.raises(ValueError, match="oversized"):

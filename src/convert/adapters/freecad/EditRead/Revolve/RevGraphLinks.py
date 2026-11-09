@@ -75,8 +75,8 @@ def CheckRevGroup(Native: NativeObject, Members: tuple[str, ...]) -> None:
 def CheckRevStep(Native: NativeObject, Feature: FeatureStep, RoleName: str) -> None:
     for Field, Expected in (
         ("KitRole", RoleName),
-        ("FeatureKind", Feature.kind.value),
-        ("Operation", Feature.operation.value if Feature.operation is not None else ""),
+        ("FeatureKind", str(Feature.kind)),
+        ("Operation", str(Feature.operation) if Feature.operation is not None else ""),
         (
             "SourceFeatureJSON",
             JsonProp("SourceFeatureJSON", ToData(Feature))[0].get("value"),

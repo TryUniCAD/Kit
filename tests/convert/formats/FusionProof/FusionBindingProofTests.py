@@ -8,6 +8,8 @@
 
 from dataclasses import replace as Replace
 
+from typing import cast as CastValue
+
 import pytest as Pytest
 
 from convert import open_document as OpenDocument
@@ -57,7 +59,9 @@ def BoundParams(Document: CadDocument) -> tuple[Parameter, ...]:
 
 # the native numeric index is independent of neutral tuple order
 def ParamIndex(ParamValue: Parameter) -> int:
-    return ParamValue.attributes["fusion.parameter_index"]
+    IndexValue = ParamValue.attributes["fusion.parameter_index"]
+    assert type(IndexValue) is int
+    return IndexValue
 
 
 # typed owner controls vary independently of the common numeric binding bytes
@@ -127,9 +131,9 @@ def TestBindGuard() -> None:
     _ = ReadOptionalRef(Control)
     AlongOffset = Owner.PayloadOffset + 4 + Control.Offset + 1
     EditData = bytearray(Bulk)
-    EditData[AlongOffset : AlongOffset + 8] = Taper.attributes[
-        "fusion.binding_id"
-    ].to_bytes(8, "little")
+    EditData[AlongOffset : AlongOffset + 8] = CastValue(
+        int, Taper.attributes["fusion.binding_id"]
+    ).to_bytes(8, "little")
     with Pytest.raises(ValueError, match="owner control slot"):
         _ = ReadBindingProof(bytes(EditData), Owners, Document, Native, Span, Along, 1)
     for Offset in (

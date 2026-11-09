@@ -75,11 +75,10 @@ def RebuildScaleSolids(
     for Body, BodyPlan, PickId in zip(
         Document.bodies, Plan.Bodies, Definition.BodySelectionIds, strict=True
     ):
-        Seed = ReadScaleSeed(
-            Document,
-            Steps[BodyPlan.SourceId],
-            Selections[PickId].query["native_component_id"],
-        )
+        ComponentId = Selections[PickId].query["native_component_id"]
+        if type(ComponentId) is not int:
+            raise ValueError("FreeCAD editable Scale native component is invalid")
+        Seed = ReadScaleSeed(Document, Steps[BodyPlan.SourceId], ComponentId)
         Source, Result = Sources[BodyPlan.SourceId], Results[Body.id]
         Depth = ReadEditDepth(Source, Seed.Frame.z_axis)
         if not IsClose(

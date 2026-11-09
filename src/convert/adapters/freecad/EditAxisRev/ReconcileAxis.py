@@ -43,7 +43,7 @@ def AxisReadExprs(
     IsSeed: bool,
 ) -> tuple[str, ...]:
     Expected = Graph.Template[Graph.Feature.name].properties["ExpressionEngine"][0][0]
-    Result = (Expected.attrib["expression"],)
+    Result: tuple[str, ...] = (Expected.attrib["expression"],)
     Members = set(Profile.closed_profile_entity_ids[0])
     Lines = tuple(
         Index for Index, Value in enumerate(Profile.entities) if Value.id in Members

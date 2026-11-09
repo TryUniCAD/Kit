@@ -19,6 +19,7 @@ from interchange.geometry.models.Sketch import Sketch, SketchEntity
 # independent sketch points and line endpoints must retain their exact local coordinates
 def CheckOpenEntity(NodeValue: Element, Entity: SketchEntity) -> None:
     Geometry = Entity.geometry
+    Coordinates: tuple[tuple[str, float], ...]
     if isinstance(Geometry, PointGeometry):
         TypeName, ChildName = "Part::GeomPoint", "GeomPoint"
         Coordinates = (("X", Geometry.point.x), ("Y", Geometry.point.y), ("Z", 0.0))

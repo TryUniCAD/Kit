@@ -30,7 +30,11 @@ from convert.adapters.freecad.EditShape.CylinderShell import (
 )
 from convert.geometry.Extrude.Polygon.PrismFrame import CheckPrismFrame, PlacePrismPoint
 from convert.geometry.Opencascade import DecodeAsciiBrep
-from interchange.brep.surfaces.BrepSurfaces import BrepSurface, CylinderSurface
+from interchange.brep.surfaces.BrepSurfaces import (
+    BrepSurface,
+    CylinderSurface,
+    PlaneSurface,
+)
 from interchange.geometry.models.GeometryCurves import CircleGeometry
 from interchange.geometry.models.Transform import Transform
 
@@ -40,7 +44,11 @@ KMaxCylinderBytes = 32_768
 
 # placed surfaces retain their original carrier index for orientation checks
 def FaceHand(Hands: dict[int, int], Surface: BrepSurface) -> int:
-    Index = Surface.attributes.get("opencascade_index")
+    Index = (
+        Surface.attributes.get("opencascade_index")
+        if isinstance(Surface, (PlaneSurface, CylinderSurface))
+        else None
+    )
     return Hands[Index] if isinstance(Index, int) else 0
 
 

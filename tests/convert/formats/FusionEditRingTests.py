@@ -61,12 +61,14 @@ def CheckSourceRing(Folder: str, Capture: str) -> None:
         Entities[Identity].geometry
         for Identity in SketchValue.closed_profile_entity_ids[0]
     )
-    assert GetRingPoints(SketchValue) == {
-        "fusion-sketch-entity-228",
-        "fusion-sketch-entity-230",
-        "fusion-sketch-entity-232",
-        "fusion-sketch-entity-234",
-    }
+    assert GetRingPoints(SketchValue) == frozenset(
+        {
+            "fusion-sketch-entity-228",
+            "fusion-sketch-entity-230",
+            "fusion-sketch-entity-232",
+            "fusion-sketch-entity-234",
+        }
+    )
     DepthMm = GetEditDepth(StepValue, Definition, DocValue.parameters)
     assert DepthMm is not None
     BodyValue = DocValue.bodies[0]

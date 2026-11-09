@@ -126,7 +126,7 @@ def TestGroupBad() -> None:
     for Group in (
         Replace(KSyntheticGroup, ObjectId=-1),
         Replace(KSyntheticGroup, ObjectId=1 << 64),
-        Replace(KSyntheticGroup, IsCollapsed=0),
+        Replace(KSyntheticGroup, IsCollapsed=CastValue(bool, 0)),
         Replace(KSyntheticGroup, GroupName=chr(0)),
         Replace(KSyntheticGroup, GroupName="🧭" * 513),
         Replace(KSyntheticGroup, MemberIds=()),

@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 from dataclasses import dataclass as MakeDataClass
+from typing import cast as CastValue
 from math import hypot as Hypot
 
 from convert.formats.Fusion.Extrudes.SolidCreators import IsSavedActive
@@ -140,8 +141,7 @@ def ReadScalePoint(
     DocValue: CadDocument, Feature: FeatureStep, Center: Selection
 ) -> ScalePointPlan:
     ComponentId = ReadPointScope(DocValue, Feature, Center)
-    Point = Center.point
-    Query = Center.query
+    Point, Query = Center.point, Center.query
     KindValue = Query.get("kind")
     NativePoint = Query.get("native_point_id")
     if Point is None or not IsFiniteSpace(Point):
@@ -157,13 +157,15 @@ def ReadScalePoint(
         return ScalePointPlan("", "", "", Point)
     if KindValue == "sketch_point" and len(Center.path) == 2:
         SketchPath, PointPath = Center.path
-        SketchId, PointId = SketchPath.entity_id, PointPath.entity_id
-        FeatureId = ""
         if Center.path != (
-            SelectPathElem("sketch", SketchId),
-            SelectPathElem("sketch_entity", PointId),
+            SelectPathElem("sketch", SketchPath.entity_id),
+            SelectPathElem("sketch_entity", PointPath.entity_id),
         ):
             raise ValueError("FreeCAD editable Scale center sketch path disagrees")
+        SketchId, PointId, FeatureId = CastValue(
+            tuple[object, object, object],
+            (SketchPath.entity_id, PointPath.entity_id, ""),
+        )
     elif (
         KindValue == "construction_point"
         and not Center.path
@@ -182,13 +184,14 @@ def ReadScalePoint(
         or not SketchId
         or not isinstance(PointId, str)
         or not PointId
+        or not isinstance(FeatureId, str)
     ):
         raise ValueError("FreeCAD editable Scale center sketch or point is missing")
     Plan = ReadPointPlan(DocValue, Feature, ComponentId, SketchId, PointId, FeatureId)
-    Derived = Plan.Point
     if (
-        not IsFiniteSpace(Derived)
-        or Hypot(Point.x - Derived.x, Point.y - Derived.y, Point.z - Derived.z) > 1e-8
+        not IsFiniteSpace(Plan.Point)
+        or Hypot(Point.x - Plan.Point.x, Point.y - Plan.Point.y, Point.z - Plan.Point.z)
+        > 1e-8
     ):
         raise ValueError("FreeCAD editable Scale center coordinates disagree")
     return Plan

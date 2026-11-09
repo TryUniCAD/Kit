@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
+
 from convert.formats.Fusion.AssetCodec.AssetPlan import AssetPlan
 from convert.formats.Fusion.AssetCodec.BuildSegFrame import BuildSegFrame
 from convert.formats.Fusion.AssetCodec.CheckAssetAct import CheckAssetAct
@@ -20,7 +22,10 @@ from convert.formats.Fusion.SegmentCodec.Manifest.EmitRootWire import EmitRootWi
 
 # publish the core archive only after all native segment and manifest links agree
 def EmitAsset(Value: AssetPlan) -> bytes:
-    if not isinstance(Value, AssetPlan) or type(Value.EmptyConfig) is not bool:
+    if (
+        not isinstance(CastValue(object, Value), AssetPlan)
+        or type(CastValue(object, Value.EmptyConfig)) is not bool
+    ):
         raise ValueError("Expected a typed Fusion asset plan")
     RootData = EmitRootWire(Value.RootMeta)
     AssetData = EmitAssetWire(Value.AssetMeta)

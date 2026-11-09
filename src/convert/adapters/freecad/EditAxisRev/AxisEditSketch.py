@@ -64,7 +64,11 @@ def SyncAxisSketch(
             if Entity.id in Lines
             else (
                 Replace(Entity, geometry=PointGeometry(Points[Entity.id]))
-                if Entity.id in Points and Entity.geometry.point != Points[Entity.id]
+                if (
+                    Entity.id in Points
+                    and isinstance(Entity.geometry, PointGeometry)
+                    and Entity.geometry.point != Points[Entity.id]
+                )
                 else Entity
             )
         )

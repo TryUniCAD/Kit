@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from collections.abc import Mapping
+
 from convert.formats.Fusion.DesignZip import KDesignPrefix
 from convert.formats.Fusion.HistoryGroup import KGroupGuid
 from convert.formats.Fusion.HistoryPart import HistoryPart
@@ -33,9 +35,14 @@ def ReadChronologyClaims(
     if History.ClassGuid != KHistoryGuid:
         raise ValueError("Fusion source proof history identity changed")
     OwnerId, Entries, Groups = ReadHistory(BulkData, History, Owners)
+    SavedGroups = Document.metadata["fusion.history_groups"]
+    if not isinstance(SavedGroups, tuple) or not all(
+        isinstance(Group, Mapping) for Group in SavedGroups
+    ):
+        raise ValueError("Fusion source proof chronology groups are invalid")
     Expected = tuple(
         (Group["id"], Group["name"], Group["collapsed"], Group["members"])
-        for Group in Document.metadata["fusion.history_groups"]
+        for Group in SavedGroups
     )
     if (
         OwnerId != Scope.OwnerId

@@ -85,6 +85,7 @@ def ReadTargetStep(
 ) -> FeatureStep:
     RoleName = ("target_one", "target_two")[Index]
     Attrs = FeatureValue.attributes
+    TargetIds = Attrs["fusion.revolve.target_selection_ids"]
     PathValue = PickValue.path[0]
     PickOrigin, Origin = PickValue.provenance, PlaneValue.provenance
     if (
@@ -93,8 +94,9 @@ def ReadTargetStep(
         or PickOrigin is None
         or PickOrigin.adapter != "fusion.f3d"
         or PickValue.id != f"fusion-selection-{PickOrigin.native_id}-{RoleName}"
-        or Attrs["fusion.revolve.target_selection_ids"][Index]
-        != int(PickOrigin.native_id)
+        or not isinstance(TargetIds, tuple)
+        or Index >= len(TargetIds)
+        or TargetIds[Index] != int(PickOrigin.native_id)
         or tuple(SpanValue.record_kind for SpanValue in PickOrigin.spans)
         != (KSelectProxy, KSelectDesc, KSelectLeaf, KPlaneObject)
         or Origin is None
@@ -111,7 +113,12 @@ def ReadTargetStep(
         or PlaneValue.offset_parameter_id is not None
     ):
         raise ValueError("FreeCAD editable plane Revolve selected datum is unresolved")
-    StepValue = Steps[PlaneValue.attributes["fusion.feature_object_id"]]
+    FeatureId = PlaneValue.attributes["fusion.feature_object_id"]
+    if type(FeatureId) is not int:
+        raise ValueError(
+            "FreeCAD editable plane Revolve native datum identity is invalid"
+        )
+    StepValue = Steps[FeatureId]
     StepOrigin = StepValue.provenance
     FinalOrigin = FeatureValue.provenance
     Definition = StepValue.definition

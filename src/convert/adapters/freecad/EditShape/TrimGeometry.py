@@ -21,6 +21,7 @@ from convert.geometry.Revolve.SweepVector import CrossVector, DotVector, OffsetV
 from interchange.brep.curves.BrepCurves import CircleCurve, LineCurve
 from interchange.brep.surfaces.BrepSurfaces import (
     BrepSurface,
+    ConeSurface,
     CylinderSurface,
     PlaneSurface,
 )
@@ -37,7 +38,7 @@ class TrimCurve:
 
 
 # the native decoder stores the source surface basis before resolving world locations
-def SurfaceSide(Surface: BrepSurface) -> SpaceVector:
+def SurfaceSide(Surface: PlaneSurface | CylinderSurface | ConeSurface) -> SpaceVector:
     Components = CastValue(
         tuple[float, float, float], Surface.attributes["reference_y"]
     )

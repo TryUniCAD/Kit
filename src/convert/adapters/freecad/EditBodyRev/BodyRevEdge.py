@@ -124,7 +124,7 @@ def CheckPickOrigin(
         or Attrs.get("native_body_anchor_id")
         != SourceBody.attributes.get("fusion.native_body_anchor_id")
         or any(
-            type(Attrs.get(NameValue)) is not int or Attrs[NameValue] <= 0
+            type(NativeId := Attrs.get(NameValue)) is not int or NativeId <= 0
             for NameValue in (
                 "native_recipe_id",
                 "native_line_context_id",

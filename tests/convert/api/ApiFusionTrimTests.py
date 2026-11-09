@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from typing import cast as CastValue
 from json import loads as LoadJson
 
 import pytest as Pytest
@@ -37,7 +38,10 @@ def CheckTrimSolid(FolderName: str, Capture: str, Count: int) -> None:
     Document = OpenDocument(Folder / Filename, strict=False)
     StepValue = Document.feature_timeline[-1]
     assert isinstance(StepValue.definition, DistanceExtrude)
-    Portions = StepValue.attributes["fusion.profile_portions"]
+    Portions = CastValue(
+        tuple[tuple[str, float, float, tuple[int, ...]], ...],
+        StepValue.attributes["fusion.profile_portions"],
+    )
     assert len(Portions) == Count and len({Item[3] for Item in Portions}) == Count
     (SketchValue,) = Document.sketches
     assert not SketchValue.closed_profile_entity_ids
