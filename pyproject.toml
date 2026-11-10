@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 [build-system]
-requires = ["hatchling==1.32.0"]
+requires = ["hatchling==1.33.0"]
 build-backend = "hatchling.build"
 
 [project]
@@ -74,7 +74,7 @@ force-exclude = "(examples|Parashell|modules|re|src/convert/adapters/solidworks/
 dev = [
     "bandit>=1.9.4",
     "black==26.10.1",
-    "checkov>=3.4.0",
+    "checkov>=3.4.3",
     "cyclonedx-bom>=4.6.1",
     "defusedxml>=0.7.1",
     "detect-secrets>=1.5.0",
@@ -82,13 +82,13 @@ dev = [
     "mypy>=2.4.0",
     "numpy<2.5",
     "pip-audit>=2.10.1",
-    "pyright==1.1.411",
+    "pyright==1.1.414",
     "ruff>=0.17.3",
     "safety>=3.8.1",
-    "semgrep>=1.181.0",
+    "semgrep>=1.183.0",
     "setuptools==84.2.1",
     "typing-extensions>=4.12",
-    "types-pywin32>=312.0.0.20261006",
+    "types-pywin32>=312.0.0.20261031",
     "zizmor>=1.31.1",
 ]
 [tool.ruff]
