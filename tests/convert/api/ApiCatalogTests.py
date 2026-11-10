@@ -11,6 +11,7 @@ from convert.adapters import AdapterInfo, AdapterNotFoundError, AdapterRegistry
 from convert.adapters.base.AdapterProtocols import CadReaderAdapter, CadWriterAdapter
 from interchange import Capability
 from tests.convert.api.ApiTestHelpers import GetPackNames, ListFormatPacks
+from tests.convert.api.CatalogAliases import AssertAliases
 
 # existing bidirectional formats retain their established reader and writer capabilities
 KLegacyFormats = frozenset(
@@ -42,12 +43,7 @@ def CheckDiscovery() -> None:
         with Pytest.raises(AdapterNotFoundError):
             _ = FirstRegistry.reader(FormatId)
     assert "fusion.f3d" not in WriterIds
-    for ReaderData in ReaderValues:
-        for FormatId in (ReaderData.info.format_id, *ReaderData.info.aliases):
-            assert FirstRegistry.reader(FormatId) is ReaderData
-    for WriterData in WriterValues:
-        for FormatId in (WriterData.info.format_id, *WriterData.info.aliases):
-            assert FirstRegistry.writer(FormatId) is WriterData
+    AssertAliases(FirstRegistry)
     assert FirstRegistry.introspect() == FirstIds
     assert FirstRegistry.readers() == ReaderValues
     assert FirstRegistry.writers() == WriterValues

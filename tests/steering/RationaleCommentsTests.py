@@ -145,7 +145,7 @@ def CheckKeptReason() -> None:
 
 
 # a required rationale must be accepted while unrelated explanations still fail
-def CheckAddedRationale() -> None:
+def CheckNewReason() -> None:
     with Tempfile.TemporaryDirectory() as TmpPath:
         RootPath = FilePath(TmpPath)
         FixtureInfo = RepoFixture(RootPath)
