@@ -6,6 +6,7 @@ const { BuildReports } = require("./ReportInputs.cjs");
 const Inputs = BuildReports(process.argv[2], process.argv[3]);
 const Pull = {
   number: 42,
+  state: "open",
   head: { sha: "a".repeat(40), repo: { id: 1 } },
   base: { sha: "b".repeat(40) },
 };
