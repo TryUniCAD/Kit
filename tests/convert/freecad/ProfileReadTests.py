@@ -11,6 +11,7 @@ from zipfile import ZipFile
 import pytest as Pytest
 
 from convert import open_document as OpenDocument, write_document as WriteDocument
+from tests.convert.FusionRead import OpenResearch
 from convert.adapters.freecad.Adapter import FreeCadAdapterA
 from convert.adapters.freecad.Brep import BrepModelBrep
 from convert.adapters.freecad.EditableExt import FindEditFrame
@@ -115,7 +116,7 @@ def SetCircleMut(Props: Element, CenterIndex: int, Profile: CircleGeometry) -> N
 # profile edits rebuild the solid and leave a profile only depth control untouched
 @Pytest.mark.parametrize("DepthMm", (17.0, -23.0))
 def TestProfileEdit(TmpPath: FilePath, DepthMm: float) -> None:
-    Original = OpenDocument(KSourcePath, strict=False)
+    Original = OpenResearch(KSourcePath, StrictMode=False)
     Export, Target = TmpPath / "export.FCStd", TmpPath / "saved.FCStd"
     _ = WriteDocument(Original, Export)
     Profile = CircleGeometry(PlaneVector(3.5, -6.25), 11.5)
@@ -144,7 +145,7 @@ def TestProfileEdit(TmpPath: FilePath, DepthMm: float) -> None:
     ),
 )
 def TestRingProof(TmpPath: FilePath, Stale: str, Reason: str) -> None:
-    Original = OpenDocument(KSourcePath, strict=False)
+    Original = OpenResearch(KSourcePath, StrictMode=False)
     Export, Target = TmpPath / "export.FCStd", TmpPath / "saved.FCStd"
     _ = WriteDocument(Original, Export)
     WriteProfile(
