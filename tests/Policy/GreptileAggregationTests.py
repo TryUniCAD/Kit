@@ -50,7 +50,7 @@ def TestPendingGate(CaseMode: str, Verdict: str) -> None:
     ScriptPath = RootPath / "tests/Policy/CiAggregation/RunAggregate.cjs"
     with Tempfile.TemporaryDirectory() as TempPath:
         with Pytest.raises(Subprocess.TimeoutExpired) as ErrorInfo:
-            Subprocess.run(
+            ResultInfo = Subprocess.run(
                 ["node", str(ScriptPath), CaseMode, Verdict],
                 cwd=RootPath,
                 env={**SystemEnv.environ, "RUNNER_TEMP": TempPath},
@@ -58,5 +58,6 @@ def TestPendingGate(CaseMode: str, Verdict: str) -> None:
                 check=False,
                 timeout=2,
             )
+            assert ResultInfo.returncode != 0
         assert b"CI passed" not in (ErrorInfo.value.stdout or b"")
         assert not (FilePath(TempPath) / "PrCiEvidence/Evidence.json").exists()
