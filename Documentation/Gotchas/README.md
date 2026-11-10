@@ -21,7 +21,7 @@ Read this log before working in an affected area. Keep entries short, searchable
 
 - **Skipped jobs can expose unevaluated names:** Expected a conditional job name to resolve before a skipped bootstrap was reported; GitHub returned the expression text, causing the aggregate to reject it. Retire one-time bootstrap triggers after installation and use stable names for real gates. See [the repair entry](../Changes/AggregateBootstrap.md).
 
-- **Published CI artifacts can briefly return 404:** Expected the artifact ID returned by a successful upload to be immediately readable; PR #53's immediate metadata request returned 404, but the same artifact later became readable and one justified rerun passed. Verify the exact artifact ID and run before retrying once; investigate recurring failures without relaxing digest or provenance verification. See [the evidence and workaround](../Changes/ArtifactPublication.md).
+- **Published CI artifacts can briefly return 404:** Expected the artifact ID returned by a successful upload to be immediately readable; PR #53 failed at metadata and PR #67 failed at both metadata and ZIP download, while later reads of those exact IDs succeeded. The immediate verification client now retries transient API responses up to four times, including 404, while retaining every digest and provenance check. See [the evidence and repair](../Changes/ArtifactPublication.md).
 
 - **PR aggregation reads trusted base code:** Expected a reporter change on a PR branch to change that PR's `CI Agg`; `pull_request_target` loads the base revision. Merge the reporter change through its own reviewed PR before relying on the new exclusions in another PR. See [review provider exclusions](../Changes/ReviewProviderExclusions.md).
 

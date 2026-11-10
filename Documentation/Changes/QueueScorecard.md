@@ -35,6 +35,11 @@ remain excluded. Queue candidates do not need Greptile checks; reuse of PR
 evidence checks the native result on each contributing PR's own head. This does
 not change the configured reviewer or request another automated review.
 
+The immediate artifact verification client also retries transient 404 responses
+up to four times. [Repeated publication races](ArtifactPublication.md) occurred
+at both metadata and ZIP download boundaries in this PR. Permanent errors still
+fail verification, and every digest and provenance check remains enabled.
+
 ## Configuration
 
 No new secret is needed. The CLI reads the existing job token from
