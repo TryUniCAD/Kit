@@ -8,7 +8,7 @@ from zipfile import ZipFile
 import pytest as Pytest
 
 from convert import ApplicationUsabilityError
-from convert import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert import write_document as WriteDocument
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumDocument import Capability
@@ -34,7 +34,9 @@ from tests.convert.api.ApiFusionAssemblyTests import KRequiresCodec, KStudyPath
 def CheckExtents(
     Folder: str, ArchiveName: str, SideMode: str, Bounds: tuple[float, float]
 ) -> None:
-    Document = OpenDocument(KStudyPath / Folder / f"{ArchiveName}.f3d", strict=False)
+    Document = OpenDocument(
+        KStudyPath / Folder / f"{ArchiveName}.f3d", StrictMode=False
+    )
     StepValue = Document.feature_timeline[-1]
     Definition = StepValue.definition
     assert isinstance(Definition, DistanceExtrude)
@@ -56,7 +58,7 @@ def CheckExtents(
 @KRequiresCodec
 def CheckExtEdit() -> None:
     Folder = KStudyPath / "extents-f0f33a9a605f"
-    Document = OpenDocument(Folder / "taper.f3d", strict=False)
+    Document = OpenDocument(Folder / "taper.f3d", StrictMode=False)
     StepValue = Document.feature_timeline[-1]
     Definition = StepValue.definition
     assert isinstance(Definition, DistanceExtrude)
@@ -74,7 +76,7 @@ def CheckExtEdit() -> None:
 @KRequiresCodec
 def CheckExtFormula() -> None:
     Document = OpenDocument(
-        KStudyPath / "holdouts-f8c508a73323" / "expression_depth.f3d", strict=False
+        KStudyPath / "holdouts-f8c508a73323" / "expression_depth.f3d", StrictMode=False
     )
     StepValue = Document.feature_timeline[-1]
     Definition = StepValue.definition
@@ -94,7 +96,7 @@ def CheckExtFormula() -> None:
 @KRequiresCodec
 def CheckThinGuard() -> None:
     Folder = KStudyPath / "thinextrudes-c1632bcb5efe"
-    Document = OpenDocument(Folder / "closed_center.f3d", strict=False)
+    Document = OpenDocument(Folder / "closed_center.f3d", StrictMode=False)
     StepValue = Document.feature_timeline[-1]
     assert StepValue.kind == FeatureKind.KExtrusion
     assert not isinstance(StepValue.definition, DistanceExtrude)
@@ -118,7 +120,7 @@ def CheckThinGuard() -> None:
     ),
 )
 def CheckExtWrite(TmpPath: FilePath, Folder: str, Capture: str, Reason: bytes) -> None:
-    Document = OpenDocument(KStudyPath / Folder / f"{Capture}.f3d", strict=False)
+    Document = OpenDocument(KStudyPath / Folder / f"{Capture}.f3d", StrictMode=False)
     Target = TmpPath / "extrude.FCStd"
     with Pytest.raises(ApplicationUsabilityError):
         _ = WriteDocument(Document, Target, allow_carrier=False)

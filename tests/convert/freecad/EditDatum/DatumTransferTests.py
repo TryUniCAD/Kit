@@ -8,10 +8,10 @@ import pytest as Pytest
 
 from convert import (
     ApplicationUsabilityError,
-    open_document as OpenDocument,
     write_document as WriteDocument,
 )
 from convert.adapters.base.TransferContract import CarrierReason
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from interchange.enums.EnumDocument import Capability
 from interchange.geometry.models.Sketch import Sketch
 from interchange.records.RecordParameter import Expression
@@ -38,7 +38,7 @@ def TestDatumMove(Method: str) -> None:
     assert Result.application_usable and Result.vendor_loadable
     assert Capability.PARAMETRIC_HISTORY in Result.native_capabilities
     assert Capability.PARAMETRIC_HISTORY not in Result.carrier_capabilities
-    assert OpenDocument(Target.getvalue(), source_format="freecad.fcstd") == Source
+    assert OpenDocument(Target.getvalue(), SourceFormat="freecad.fcstd") == Source
 
 
 # a dependent sketch cannot be silently detached by a standalone datum export
@@ -66,7 +66,7 @@ def TestDatumDeps() -> None:
 # transferring an editable plane preserves the opaque archive gate on its fusion source
 @KRequiresCodec
 def TestFusionDatum() -> None:
-    Document = OpenDocument(KDatumCases / "offset.f3d", strict=False)
+    Document = OpenDocument(KDatumCases / "offset.f3d", StrictMode=False)
     LiveValue = BytesIO()
     Result = WriteDocument(Document, LiveValue, destination_format="freecad.fcstd")
     assert Capability.PARAMETRIC_HISTORY in Result.native_capabilities

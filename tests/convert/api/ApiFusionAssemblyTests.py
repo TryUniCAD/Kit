@@ -8,7 +8,7 @@ from sys import version_info as PythonVersion
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumDocument import Capability
 
@@ -35,7 +35,7 @@ def CheckAsmRead() -> None:
     Folder = KStudyPath / "assembly-acc48a9dc05d"
     InputPath = Folder / "assembly.f3d"
     Oracle = LoadJson((Folder / "ground_truth.json").read_text(encoding="utf-8"))
-    Document = OpenDocument(InputPath, strict=False, include_brep=False)
+    Document = OpenDocument(InputPath, StrictMode=False, IncludeBrep=False)
     Assembly = Document.assembly
     assert Assembly is not None and Capability.KAssemblies in Document.capabilities
     AssertAsmDefs(Assembly)
@@ -79,7 +79,7 @@ def CheckAsmRead() -> None:
 
 # the selected child configuration must retain its own native history
 def AssertChildDoc(InputPath: FilePath) -> None:
-    ChildDoc = OpenDocument(InputPath, strict=False, configuration="233")
+    ChildDoc = OpenDocument(InputPath, StrictMode=False, Configuration="233")
     assert ChildDoc.assembly is None and ChildDoc.feature_timeline == ()
     assert ChildDoc.metadata["fusion.history_id"] == 233
 
@@ -111,6 +111,6 @@ def AssertAsmZip(Document: CadDocument, InputPath: FilePath) -> None:
 def CheckJointPose() -> None:
     InputPath = KStudyPath / "jointmodes-20d3aef2a07d" / "slider.f3d"
     with Pytest.raises(ValueError, match="Select exactly one Fusion history"):
-        _ = OpenDocument(InputPath, strict=False)
-    HistoryDoc = OpenDocument(InputPath, strict=False, configuration="35")
+        _ = OpenDocument(InputPath, StrictMode=False)
+    HistoryDoc = OpenDocument(InputPath, StrictMode=False, Configuration="35")
     assert HistoryDoc.assembly is None

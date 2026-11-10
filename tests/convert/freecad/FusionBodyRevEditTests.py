@@ -7,7 +7,7 @@ from math import radians as Radians
 
 import pytest as Pytest
 
-from convert.api import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.adapters.freecad.EditBodyRev.ApplyBodyRevEdit import ApplyBodyRev
 from convert.adapters.freecad.EditBodyRev.BodyAxisEdit import KBodyAxisEdit
 from convert.adapters.freecad.EditBodyRev.BodyRevPlan import ReadBodyRev
@@ -22,7 +22,7 @@ from tests.convert.freecad.FusionBodyRevPlanTests import KBodyRevCases
 @KRequiresCodec
 @Pytest.mark.parametrize("SampleName", tuple(Value[0] for Value in KBodyRevCases))
 def TestRevDepth(SampleName: str) -> None:
-    DocValue = OpenDocument(KStudyPath / SampleName, strict=False)
+    DocValue = OpenDocument(KStudyPath / SampleName, StrictMode=False)
     PlanValue = ReadBodyRev(DocValue, DocValue.feature_timeline[-1])
     assert PlanValue is not None
     Source, Profile = DocValue.sketches
@@ -66,7 +66,7 @@ def TestRevDepth(SampleName: str) -> None:
 # a common rigid pose keeps the source edge coplanar and rotates the extrusion direction
 @KRequiresCodec
 def TestRevPose() -> None:
-    DocValue = OpenDocument(KStudyPath / KBodyRevCases[0][0], strict=False)
+    DocValue = OpenDocument(KStudyPath / KBodyRevCases[0][0], StrictMode=False)
     PlanValue = ReadBodyRev(DocValue, DocValue.feature_timeline[-1])
     assert PlanValue is not None
     Source, Profile = DocValue.sketches
@@ -102,7 +102,7 @@ def TestRevPose() -> None:
 # a tangent side remains on the selected axis without creating degenerate topology
 @KRequiresCodec
 def TestRevTangent() -> None:
-    DocValue = OpenDocument(KStudyPath / KBodyRevCases[0][0], strict=False)
+    DocValue = OpenDocument(KStudyPath / KBodyRevCases[0][0], StrictMode=False)
     PlanValue = ReadBodyRev(DocValue, DocValue.feature_timeline[-1])
     assert PlanValue is not None
     Source, Profile = DocValue.sketches

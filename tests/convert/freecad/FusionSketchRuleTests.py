@@ -8,7 +8,8 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument, write_document as WriteDocument
+from convert import write_document as WriteDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.adapters.base.TransferContract import CarrierReason, TransferMode
 from interchange.core.Common import FreezeMapping
 from interchange.enums.EnumDocument import Capability
@@ -20,7 +21,7 @@ KSketchStudy = FilePath(__file__).parents[3] / "re" / "Fusion" / "Study"
 # a native solver needs incidence between point records and the curves they control
 def TestSketchRules(TmpPath: FilePath) -> None:
     Source = KSketchStudy / "sketches-0ccea2ac0f9c" / "radius.f3d"
-    Document = OpenDocument(Source, strict=False)
+    Document = OpenDocument(Source, StrictMode=False)
     (Sketch,) = Document.sketches
     assert tuple(Value.kind for Value in Sketch.constraints) == (
         "horizontal",
@@ -56,7 +57,7 @@ def TestSketchRules(TmpPath: FilePath) -> None:
 # a reference dimension measures the native sketch without imposing its captured value
 def TestRefRadius(TmpPath: FilePath) -> None:
     Source = KSketchStudy / "dimcontrols-2a0d0bdbc8a6" / "radius_reference.f3d"
-    Document = OpenDocument(Source, strict=False)
+    Document = OpenDocument(Source, StrictMode=False)
     (Sketch,) = Document.sketches
     (Radius,) = Sketch.constraints
     assert Radius.kind == "radius" and not Radius.driving
@@ -76,7 +77,7 @@ def TestRefRadius(TmpPath: FilePath) -> None:
 # reversing the point order changes the solver sign without changing the source magnitude
 def TestSignedRule(TmpPath: FilePath) -> None:
     Source = KSketchStudy / "dimensions-f83a2edd2f72" / "dimensions.f3d"
-    Document = OpenDocument(Source, strict=False)
+    Document = OpenDocument(Source, StrictMode=False)
     Sketch = next(
         Value for Value in Document.sketches if Value.name == "DimensionHorizontal"
     )

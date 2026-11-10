@@ -6,7 +6,7 @@ from math import hypot as Hypot, pi as CirclePi
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumDocument import Capability
 from tests.convert.api.ApiFusionAssemblyTests import KRequiresCodec, KStudyPath
@@ -20,7 +20,7 @@ from tests.convert.api.ApiFusionAssemblyTests import KRequiresCodec, KStudyPath
 )
 def CheckCircleBody(Capture: str, UpperRadius: float) -> None:
     Archive = KStudyPath / "extents-f0f33a9a605f" / f"{Capture}.f3d"
-    Document = OpenDocument(Archive, strict=False)
+    Document = OpenDocument(Archive, StrictMode=False)
     (BodyValue,) = Document.bodies
     assert Document.brep is not None
     assert {Capability.KBodyStructure, Capability.KBrep} <= Document.capabilities
@@ -56,7 +56,7 @@ def CheckPrismBody() -> None:
     Archive = (
         KStudyPath / "thinextrudes-c1632bcb5efe" / "ordinary_rectangle_control.f3d"
     )
-    Document = OpenDocument(Archive, strict=False)
+    Document = OpenDocument(Archive, StrictMode=False)
     (BodyValue,) = Document.bodies
     Topology = BodyValue.topology
     assert Document.brep is not None and Document.brep.shells[0].closed
@@ -85,7 +85,7 @@ def CheckPrismBody() -> None:
 )
 def CheckSavedSolid(Capture: str, NativeIds: set[int]) -> None:
     Archive = KStudyPath / "timeline-5867579925b5" / f"{Capture}.f3d"
-    Document = OpenDocument(Archive, strict=False)
+    Document = OpenDocument(Archive, StrictMode=False)
     assert Document.brep is not None and len(Document.brep.bodies) == len(NativeIds)
     assert {
         int(BodyValue.provenance.native_id)
@@ -105,7 +105,7 @@ def CheckSavedSolid(Capture: str, NativeIds: set[int]) -> None:
 @KRequiresCodec
 def CheckSolidGuard() -> None:
     Archive = KStudyPath / "combinemodes-dcb4956eca6b" / "join_keep.f3d"
-    Document = OpenDocument(Archive, strict=False)
+    Document = OpenDocument(Archive, StrictMode=False)
     assert Document.brep is None and Document.bodies == ()
     assert (
         len(

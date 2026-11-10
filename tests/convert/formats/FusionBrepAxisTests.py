@@ -7,7 +7,7 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.formats.Fusion.DesignZip import KDesignPrefix, ReadDesignZip
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.features.FeatureAngleRev import AngularRevolve
@@ -44,7 +44,7 @@ def TestBrepAxisRev(
     SeedVolume: float,
     EdgeName: str,
 ) -> None:
-    DocValue = OpenDocument(KStudyPath / Capture, strict=False)
+    DocValue = OpenDocument(KStudyPath / Capture, StrictMode=False)
     _, Creator, _, Sweep = DocValue.feature_timeline
     Definition = Sweep.definition
     assert isinstance(Definition, AngularRevolve)
@@ -107,7 +107,7 @@ def TestBrepName() -> None:
                     else Archive.read(NameValue)
                 ),
             )
-    DocValue = OpenDocument(Buffer.getvalue(), strict=False)
+    DocValue = OpenDocument(Buffer.getvalue(), StrictMode=False)
     assert DocValue.feature_timeline[-1].definition is None
     assert DocValue.brep is None
     assert any(

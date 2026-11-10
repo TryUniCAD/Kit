@@ -9,7 +9,8 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument, write_document as WriteDocument
+from convert import write_document as WriteDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.adapters.freecad.EditPlaneRev.PlaneRevPlan import (
     PlaneRevPlan,
     ReadPlaneRev,
@@ -24,7 +25,7 @@ from tests.convert.api.ApiFusionAssemblyTests import KRequiresCodec, KStudyPath
 # the generated two plane archive provides an independent native graph mutation baseline
 def ReadPlaneSeed() -> tuple[Element, CadDocument, PlaneRevPlan]:
     Source = KStudyPath / "revolveto-b1d196f65c46" / "two_planes.f3d"
-    DocValue = OpenDocument(Source, strict=False)
+    DocValue = OpenDocument(Source, StrictMode=False)
     PlanValue = ReadPlaneRev(DocValue, DocValue.feature_timeline[-1])
     assert PlanValue is not None
     with TempDirectory() as Folder:

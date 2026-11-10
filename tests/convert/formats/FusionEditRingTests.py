@@ -6,7 +6,7 @@ from dataclasses import replace as Replace
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.adapters.freecad.EditExtBody import IsEditExtBody
 from convert.adapters.freecad.EditExtDepth import GetEditDepth
 from convert.adapters.freecad.EditExtRing import GetEditRing, GetRingPoints
@@ -27,7 +27,7 @@ KRectangleCase = "thinextrudes-c1632bcb5efe"
 # a shared capture keeps synthetic geometry mutations tied to genuine source identities
 def ReadRectangle() -> tuple[CadDocument, Sketch]:
     DocValue = OpenDocument(
-        KStudyPath / KRectangleCase / "ordinary_rectangle_control.f3d", strict=False
+        KStudyPath / KRectangleCase / "ordinary_rectangle_control.f3d", StrictMode=False
     )
     return DocValue, DocValue.sketches[0]
 
@@ -44,7 +44,7 @@ def ReadRectangle() -> tuple[CadDocument, Sketch]:
     ),
 )
 def CheckSourceRing(Folder: str, Capture: str) -> None:
-    DocValue = OpenDocument(KStudyPath / Folder / f"{Capture}.f3d", strict=False)
+    DocValue = OpenDocument(KStudyPath / Folder / f"{Capture}.f3d", StrictMode=False)
     StepValue = DocValue.feature_timeline[-1]
     SketchValue = DocValue.sketches[0]
     Definition = StepValue.definition

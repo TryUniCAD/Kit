@@ -6,7 +6,7 @@ from io import BytesIO
 from pathlib import Path as FilePath
 
 from convert.adapters.base.ContractTypes import KSourceType
-from convert.adapters.Fusion.ArchiveBounds import KArchiveLimit
+from convert.formats.Fusion.ArchiveRead.ArchiveBounds import KArchiveLimit
 
 
 # memory and stream sources share the parser bound while paths retain source identity

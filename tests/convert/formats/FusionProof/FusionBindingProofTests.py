@@ -9,7 +9,7 @@ from typing import cast as CastValue
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.formats.Fusion.DesignZip import ReadDesignZip
 from convert.formats.Fusion.Extrudes.ExtrudeControl import ReadExtrudeHead
 from convert.formats.Fusion.HistoryRef import ReadOptRefMut
@@ -36,7 +36,7 @@ def BindFixture(Sample: str) -> tuple[bytes, dict[int, RecordSpan], CadDocument]
     return (
         BulkData,
         {SpanValue.ObjectId: SpanValue for SpanValue in Spans if SpanValue.IsPrimary},
-        OpenDocument(Source, strict=False),
+        OpenDocument(Source, StrictMode=False),
     )
 
 

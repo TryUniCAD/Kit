@@ -13,7 +13,8 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument, write_document as WriteDocument
+from convert import write_document as WriteDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.Security.PathBoundary import ResolveTemp
 from convert.Security.ProgramBoundary import GetFreecadPath
 from convert.adapters.base.TransferContract import TransferMode
@@ -72,7 +73,7 @@ App.closeDocument(doc.Name)
 def TestNativeRev(
     TmpPath: FilePath, Folder: str, SampleName: str, AngleDeg: float, SideMode: str
 ) -> None:
-    DocValue = OpenDocument(KStudyPath / Folder / f"{SampleName}.f3d", strict=False)
+    DocValue = OpenDocument(KStudyPath / Folder / f"{SampleName}.f3d", StrictMode=False)
     StepValue = DocValue.feature_timeline[-1]
     Definition = StepValue.definition
     assert isinstance(Definition, AngularRevolve) and Definition.SideMode == SideMode
@@ -173,7 +174,7 @@ def AssertRevExpr(
 @KRequiresCodec
 def TestEdgeCache(TmpPath: FilePath) -> None:
     DocValue = OpenDocument(
-        KStudyPath / "revolveaxes-a83b542c4a07" / "brep_edge.f3d", strict=False
+        KStudyPath / "revolveaxes-a83b542c4a07" / "brep_edge.f3d", StrictMode=False
     )
     (AxisValue,) = DocValue.selections
     BodyPath, EdgePath = AxisValue.path
@@ -200,7 +201,7 @@ def TestEdgeCache(TmpPath: FilePath) -> None:
 @KRequiresCodec
 def TestStaleRev(TmpPath: FilePath) -> None:
     DocValue = OpenDocument(
-        KStudyPath / "revolvemodes-8eb734486235" / "positive.f3d", strict=False
+        KStudyPath / "revolvemodes-8eb734486235" / "positive.f3d", StrictMode=False
     )
     Output = TmpPath / "positive.FCStd"
     _ = WriteDocument(DocValue, Output)
@@ -230,7 +231,7 @@ def TestUnequalEdit(TmpPath: FilePath) -> None:
     Output = ResolveTemp(TmpPath / "two_sided.FCStd")
     Saved = ResolveTemp(TmpPath / "two_sided_edited.FCStd")
     DocValue = OpenDocument(
-        KStudyPath / "revolvemodes-8eb734486235" / "two_sided.f3d", strict=False
+        KStudyPath / "revolvemodes-8eb734486235" / "two_sided.f3d", StrictMode=False
     )
     _ = WriteDocument(DocValue, Output)
     RunResult = RunProcess(

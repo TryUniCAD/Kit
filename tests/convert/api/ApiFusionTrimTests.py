@@ -6,7 +6,7 @@ from json import loads as LoadJson
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from interchange.brep.surfaces.BrepSurfaces import CylinderSurface
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.features.FeatureDistExt import DistanceExtrude
@@ -32,7 +32,7 @@ def CheckTrimSolid(FolderName: str, Capture: str, Count: int) -> None:
         ItemValue for ItemValue in Captured["samples"] if ItemValue["file"] == Filename
     )
     (TruthBody,) = Sample["result_bodies"]
-    Document = OpenDocument(Folder / Filename, strict=False)
+    Document = OpenDocument(Folder / Filename, StrictMode=False)
     StepValue = Document.feature_timeline[-1]
     assert isinstance(StepValue.definition, DistanceExtrude)
     Portions = CastValue(

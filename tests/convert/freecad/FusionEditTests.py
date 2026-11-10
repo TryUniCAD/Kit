@@ -11,7 +11,8 @@ from zipfile import ZipFile
 import pytest as Pytest
 
 from convert import ApplicationUsabilityError as AppUsabilityError
-from convert import open_document as OpenDocument, write_document as WriteDocument
+from convert import write_document as WriteDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.Security.PathBoundary import ResolveTemp
 from convert.Security.ProgramBoundary import GetFreecadPath
 from convert.adapters.base.TransferContract import TransferMode
@@ -63,7 +64,7 @@ def TestNativeExt(
     TmpPath: FilePath, Folder: str, SampleName: str, DepthMm: float
 ) -> None:
     Source = KStudyPath / Folder / f"{SampleName}.f3d"
-    Document = OpenDocument(Source, strict=False)
+    Document = OpenDocument(Source, StrictMode=False)
     Output = TmpPath / f"{SampleName}.FCStd"
     Result = WriteDocument(Document, Output)
     Transfers = {Value.capability: Value.mode for Value in Result.transfers}
@@ -108,7 +109,7 @@ def TestNativeExt(
 # a proven formula and independent sketch can coexist with one executable solid
 def TestFormulaExt(TmpPath: FilePath) -> None:
     Document = OpenDocument(
-        KStudyPath / "holdouts-f8c508a73323" / "expression_depth.f3d", strict=False
+        KStudyPath / "holdouts-f8c508a73323" / "expression_depth.f3d", StrictMode=False
     )
     Output = TmpPath / "formula.FCStd"
     Result = WriteDocument(Document, Output)
@@ -147,7 +148,7 @@ def TestNativeEdit(
     Output = ResolveTemp(TmpPath / "editable.FCStd")
     Saved = ResolveTemp(TmpPath / "edited.FCStd")
     Document = OpenDocument(
-        KStudyPath / "extents-f0f33a9a605f" / f"{SampleName}.f3d", strict=False
+        KStudyPath / "extents-f0f33a9a605f" / f"{SampleName}.f3d", StrictMode=False
     )
     _ = WriteDocument(Document, Output)
     RunResult = RunProcess(

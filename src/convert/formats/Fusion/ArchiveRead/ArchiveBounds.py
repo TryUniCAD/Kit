@@ -46,4 +46,21 @@ def CheckZipTailMut(Handle: BinaryIO, StartOffset: int) -> int:
         or (Footer >= 20 and TailBytes[Footer - 20 : Footer - 16] == b"PK\x06\x07")
     ):
         raise ValueError("Unsupported Fusion ZIP central directory bounds")
+    _ = Handle.seek(EndOffset - TailSize + Footer - CentralSize)
+    CheckCentral(Handle.read(CentralSize), TotalCount)
     return int(TotalCount)
+
+
+# counting raw headers prevents a forged footer from bypassing the entry limit
+def CheckCentral(Directory: bytes, DeclaredCount: int) -> None:
+    Offset = 0
+    for _ in range(DeclaredCount):
+        if (
+            Offset + 46 > len(Directory)
+            or Directory[Offset : Offset + 4] != b"PK\x01\x02"
+        ):
+            raise ValueError("Invalid Fusion ZIP central directory entry")
+        NameSize, ExtraSize, NoteSize = UnpackFrom("<3H", Directory, Offset + 28)
+        Offset += 46 + NameSize + ExtraSize + NoteSize
+    if Offset != len(Directory):
+        raise ValueError("Fusion ZIP central directory entry count disagrees")

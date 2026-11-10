@@ -6,7 +6,7 @@ from dataclasses import replace as Replace
 
 import pytest as Pytest
 
-from convert.api import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.adapters.freecad.EditBodyRev.BodyRevPlan import ReadBodyRev
 from convert.formats.Fusion.Revolves.JoinRevModels import JoinRevModels
 from interchange.document.models.DocumentModel import CadDocument
@@ -43,7 +43,7 @@ def TestBodyRevPlan(
     Start: tuple[float, ...],
     Finish: tuple[float, ...],
 ) -> None:
-    Original = OpenDocument(KStudyPath / SampleName, strict=False)
+    Original = OpenDocument(KStudyPath / SampleName, StrictMode=False)
     DocValue = CadDocument.from_json(Original.to_json())
     FeatureValue = DocValue.feature_timeline[-1]
     PlanValue = ReadBodyRev(DocValue, FeatureValue)
@@ -66,7 +66,7 @@ def TestBodyRevPlan(
 # inconsistent path or native creator evidence cannot select a nearby edge by geometry
 @KRequiresCodec
 def TestBadBodyAxis() -> None:
-    DocValue = OpenDocument(KStudyPath / KBodyRevCases[0][0], strict=False)
+    DocValue = OpenDocument(KStudyPath / KBodyRevCases[0][0], StrictMode=False)
     FeatureValue = DocValue.feature_timeline[-1]
     (SelectionValue,) = DocValue.selections
     Source, Result = DocValue.bodies
@@ -98,7 +98,7 @@ def TestBadBodyAxis() -> None:
 # stale aggregate geometry and unowned controls must fail before native emission
 @KRequiresCodec
 def TestStaleRev() -> None:
-    DocValue = OpenDocument(KStudyPath / KBodyRevCases[0][0], strict=False)
+    DocValue = OpenDocument(KStudyPath / KBodyRevCases[0][0], StrictMode=False)
     FeatureValue = DocValue.feature_timeline[-1]
     PlanValue = ReadBodyRev(DocValue, FeatureValue)
     assert PlanValue is not None

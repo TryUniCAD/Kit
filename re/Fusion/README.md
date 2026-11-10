@@ -14,9 +14,9 @@ Start with the matching feature row. Open its notes and focused test to check
 what the saved evidence supports. The [saved-file workflow](Notes/Workflow.md)
 covers reproducing checks and [querying the SDK source graph](Notes/Workflow.md#navigate-sdk-source-with-graphify).
 
-## Public SDK reader
+## Research reader
 
-Use `open_document("part.f3d", strict=False)` for the SDK's partial projection.
+Use the explicit research adapter for partial Fusion projections.
 See the [reader guide](Notes/SdkReader.md) for history selection, assembly access
 and Zstandard support. Strict translation and complete native Fusion output
 require further coverage.

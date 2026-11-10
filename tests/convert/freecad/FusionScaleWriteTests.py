@@ -7,7 +7,8 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument, write_document as WriteDocument
+from convert import write_document as WriteDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.adapters.freecad.Adapter import FreeCadAdapterA
 from convert.adapters.freecad.EditScale.ScaleBinding import KScaleBinding
 from interchange.enums.EnumDocument import Capability
@@ -22,7 +23,7 @@ KScaleFiles = tuple((Value[0], Value[-1]) for Value in KScaleCases)
 @KRequiresCodec
 @Pytest.mark.parametrize("Sample,Count", KScaleFiles)
 def TestScaleWrite(Sample: str, Count: int, TmpPath: FilePath) -> None:
-    Document = OpenDocument(KStudyPath / Sample, strict=False)
+    Document = OpenDocument(KStudyPath / Sample, StrictMode=False)
     Output = TmpPath / "scale.FCStd"
     Result = WriteDocument(Document, Output, destination_format="freecad.fcstd")
     assert Result.vendor_loadable and Result.application_usable
@@ -53,13 +54,13 @@ def TestScaleWrite(Sample: str, Count: int, TmpPath: FilePath) -> None:
         )
         assert Binding is not None
         assert Binding.get("value") == Document.feature_timeline[-1].id
-    assert OpenDocument(Output, strict=False) == Document
+    assert OpenDocument(Output, StrictMode=False) == Document
 
 
 # modified native controls must never fall back to the unmodified interchange snapshot
 @KRequiresCodec
 def TestScaleGate(TmpPath: FilePath) -> None:
-    Document = OpenDocument(KStudyPath / KScaleFiles[1][0], strict=False)
+    Document = OpenDocument(KStudyPath / KScaleFiles[1][0], StrictMode=False)
     Output, Modified = TmpPath / "scale.FCStd", TmpPath / "changed.FCStd"
     _ = WriteDocument(Document, Output, destination_format="freecad.fcstd")
     with ZipFile(Output) as Original, ZipFile(Modified, "w") as Archive:
@@ -79,4 +80,4 @@ def TestScaleGate(TmpPath: FilePath) -> None:
                 ),
             )
     with Pytest.raises(FreeCadAdapterA, match=r"FreeCAD editable Scale .*UniformScale"):
-        _ = OpenDocument(Modified, strict=False)
+        _ = OpenDocument(Modified, StrictMode=False)

@@ -11,7 +11,10 @@ from zipfile import BadZipFile, ZipFile
 from convert.adapters.base.ContractTypes import KSourceType
 from convert.adapters.base.ProbeResult import ProbeResult
 from convert.adapters.Fusion.AdapterInfo import KReaderInfo
-from convert.adapters.Fusion.ArchiveBounds import CheckZipTailMut, KArchiveLimit
+from convert.formats.Fusion.ArchiveRead.ArchiveBounds import (
+    CheckZipTailMut,
+    KArchiveLimit,
+)
 from convert.adapters.staging.SourceReplay import ReplaySource
 from convert.formats.Fusion.DesignZip import KDesignPrefix
 from convert.formats.Fusion.ZipItems import IndexZipItems

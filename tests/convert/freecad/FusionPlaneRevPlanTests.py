@@ -7,7 +7,7 @@ from math import degrees as Degrees, pi as HalfTurn, radians as Radians
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.adapters.freecad.EditPlaneRev.PlaneRevPlan import ReadPlaneRev
 from convert.formats.Fusion.AnglePlane.AnglePlaneBasis import RotatePlane
 from convert.formats.Fusion.Revolves.BuildRevGeom import BuildRevGeom
@@ -35,7 +35,7 @@ KPlaneCases = KStudyPath / "revolveto-b1d196f65c46"
 def CheckPlanePlan(
     Capture: str, Angles: tuple[float, ...], Interval: tuple[float, float]
 ) -> None:
-    DocValue = OpenDocument(KPlaneCases / f"{Capture}.f3d", strict=False)
+    DocValue = OpenDocument(KPlaneCases / f"{Capture}.f3d", StrictMode=False)
     Feature = DocValue.feature_timeline[-1]
     Definition = Feature.definition
     assert isinstance(Definition, PlaneRevolve)
@@ -64,7 +64,7 @@ def CheckPlanePlan(
 # coincidental frames and stale source references cannot qualify as live datum controls
 @KRequiresCodec
 def CheckPlanGuard() -> None:
-    DocValue = OpenDocument(KPlaneCases / "two_planes.f3d", strict=False)
+    DocValue = OpenDocument(KPlaneCases / "two_planes.f3d", StrictMode=False)
     Feature = DocValue.feature_timeline[-1]
     PlaneValue, *OtherPlanes = DocValue.support_planes
     Missing = Replace(PlaneValue, attributes={})
@@ -97,7 +97,7 @@ def CheckPlanGuard() -> None:
 # a verified edited scalar can drive another export using original axis and pivot evidence
 @KRequiresCodec
 def CheckPlanReedit() -> None:
-    DocValue = OpenDocument(KPlaneCases / "positive_plane.f3d", strict=False)
+    DocValue = OpenDocument(KPlaneCases / "positive_plane.f3d", StrictMode=False)
     Feature = DocValue.feature_timeline[-1]
     Definition = Feature.definition
     assert isinstance(Definition, PlaneRevolve)

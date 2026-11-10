@@ -13,7 +13,8 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument, write_document as WriteDocument
+from convert import write_document as WriteDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.Security.PathBoundary import ResolveTemp
 from convert.Security.ProgramBoundary import GetFreecadPath
 from convert.adapters.freecad.Adapter import FreeCadAdapterA
@@ -32,7 +33,7 @@ KOraclePath = GetFreecadPath()
 @KRequiresCodec
 @Pytest.mark.parametrize("SampleName", ("sketch_line", "sketch_line_reversed"))
 def TestAxisRev(TmpPath: FilePath, SampleName: str) -> None:
-    DocValue = OpenDocument(KAxisFolder / f"{SampleName}.f3d", strict=False)
+    DocValue = OpenDocument(KAxisFolder / f"{SampleName}.f3d", StrictMode=False)
     Feature = DocValue.feature_timeline[-1]
     Output = TmpPath / f"{SampleName}.FCStd"
     Result = WriteDocument(DocValue, Output)
@@ -112,7 +113,7 @@ def TestAxisRev(TmpPath: FilePath, SampleName: str) -> None:
     ),
 )
 def TestAxisClash(TmpPath: FilePath, PathValue: str, Field: str, Changed: str) -> None:
-    DocValue = OpenDocument(KAxisFolder / "sketch_line.f3d", strict=False)
+    DocValue = OpenDocument(KAxisFolder / "sketch_line.f3d", StrictMode=False)
     Output = TmpPath / "axis.FCStd"
     _ = WriteDocument(DocValue, Output)
     with ZipFile(Output) as Archive:
@@ -139,7 +140,7 @@ def TestAxisClash(TmpPath: FilePath, PathValue: str, Field: str, Changed: str) -
 )
 @Pytest.mark.parametrize("SampleName", ("sketch_line", "sketch_line_reversed"))
 def TestAxisNative(TmpPath: FilePath, SampleName: str) -> None:
-    DocValue = OpenDocument(KAxisFolder / f"{SampleName}.f3d", strict=False)
+    DocValue = OpenDocument(KAxisFolder / f"{SampleName}.f3d", StrictMode=False)
     Output = ResolveTemp(TmpPath / "axis.FCStd")
     Saved = ResolveTemp(TmpPath / "axis_edited.FCStd")
     Touch = ResolveTemp(TmpPath / "axis_touch.FCStd")

@@ -6,6 +6,7 @@ from contextlib import contextmanager as ManageContext
 from io import BytesIO
 from zipfile import BadZipFile, ZipFile, ZipInfo
 
+from convert.formats.Fusion.ArchiveRead.ArchiveBounds import CheckZipTailMut
 from convert.formats.Fusion.ArchiveRead.ArchiveMember import ArchiveMember
 from convert.formats.Fusion.ArchiveRead.ReadDesignPair import (
     KDesignPrefix as KDesignPrefix,
@@ -21,9 +22,6 @@ from convert.formats.Fusion.ZipStream import ReadFusionItem
 KHistoryPrefix = (
     KDesignPrefix.removesuffix("FusionDesignSegmentType1/") + "Breps.BlobParts/"
 )
-
-# whole archive inputs have a common byte limit before any central indexing
-KMaxZipSize = 128 * 1024 * 1024
 
 # history evidence uses a stricter bound than general archive members
 KMaxAsmSize = 8 * 1024 * 1024
@@ -162,10 +160,13 @@ def ReadZipBody(Archive: IndexedArchive, FileName: str) -> bytes:
 def OpenFusionZip(
     DataValue: bytes, InflateZstd: Callable[[bytes, int], bytes] | None = None
 ) -> Iterator[IndexedArchive]:
-    if len(DataValue) > KMaxZipSize:
-        raise ValueError("Fusion ZIP exceeds input size limit")
+    Source = BytesIO(DataValue)
     try:
-        Archive = ZipFile(BytesIO(DataValue))
+        DeclaredCount = CheckZipTailMut(Source, 0)
+    except ValueError as ErrorInfo:
+        raise ValueError(f"Invalid Fusion ZIP archive: {ErrorInfo}") from ErrorInfo
+    try:
+        Archive = ZipFile(Source)
     except BadZipFile as ErrorInfo:
         raise ValueError("Invalid Fusion ZIP archive") from ErrorInfo
     except NotImplementedError as ErrorInfo:
@@ -173,4 +174,6 @@ def OpenFusionZip(
             "Fusion ZIP Zstandard requires a compatible codec"
         ) from ErrorInfo
     with Archive:
+        if len(Archive.infolist()) != DeclaredCount:
+            raise ValueError("Fusion ZIP central directory entry count disagrees")
         yield IndexedArchive(DataValue, Archive, InflateZstd)

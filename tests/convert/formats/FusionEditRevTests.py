@@ -6,7 +6,7 @@ from dataclasses import replace as Replace
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.adapters.freecad.Brep import BrepModelBrep
 from convert.adapters.freecad.EditableRev import ReadEditRevolve
 from interchange.document.models.DocumentModel import CadDocument
@@ -19,7 +19,7 @@ KModeFolder = "revolvemodes-8eb734486235"
 
 # saved controls retain native identities independently of recomputed angles
 def ReadRevCase(Folder: str, Capture: str) -> CadDocument:
-    return OpenDocument(KStudyPath / Folder / f"{Capture}.f3d", strict=False)
+    return OpenDocument(KStudyPath / Folder / f"{Capture}.f3d", StrictMode=False)
 
 
 # seven supported source controls must seed an exact portable body and native extent

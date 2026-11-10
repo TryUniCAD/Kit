@@ -40,11 +40,9 @@ new discoveries in the [gotchas log](Documentation/Gotchas/README.md).
 | SOLIDWORKS | `.SLDPRT`, `.SLDASM`      | Reader and writer   |
 | FreeCAD    | `.FCStd`                  | Reader and writer   |
 | CATIA      | `.CATPart`, `.CATProduct` | Reader and writer   |
-| Fusion     | `.f3d`                    | Partial reader      |
 
-Kit adapters run without requiring CAD software. Fusion's reader
-requires explicit opt-in to the partial history and geometry projection.
-[Fusion reader usage](re/Fusion/README.md#public-sdk-reader)
+Kit adapters run without requiring CAD software. The partial Fusion reader is
+available for [format research](re/Fusion/README.md#research-reader).
 
 ## Architecture
 

@@ -9,7 +9,8 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument, write_document as WriteDocument
+from convert import write_document as WriteDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.adapters.freecad.Adapter import FreeCadAdapterA
 from convert.adapters.freecad.ArchiveEditPlan import KEditableBinding, KProfileBinding
 from convert.adapters.freecad.Brep import BrepModelBrep
@@ -158,7 +159,7 @@ def SetCarrierMut(RootValue: XmlTree.Element, ChangeMode: str, ShapeFile: str) -
     ((25.0, "bound"), (-25.0, "unmarked"), (0.021, "bound"), (22.0, "legacy-bound")),
 )
 def TestDepthEdit(TmpPath: FilePath, DistanceMm: float, ChangeMode: str) -> None:
-    Document = OpenDocument(KSourcePath, strict=False)
+    Document = OpenDocument(KSourcePath, StrictMode=False)
     Output = TmpPath / "editable.FCStd"
     _ = WriteDocument(Document, Output)
     assert OpenDocument(Output) == Document
@@ -188,7 +189,7 @@ def TestDepthEdit(TmpPath: FilePath, DistanceMm: float, ChangeMode: str) -> None
     Bounds = Readback.bodies[0].topology.bounding_box
     assert Bounds is not None
     assert (Bounds.minimum.z, Bounds.maximum.z) == tuple(sorted((0.0, DistanceMm)))
-    Filtered = OpenDocument(DataValue, include_brep=False)
+    Filtered = OpenDocument(DataValue, IncludeBrep=False)
     assert Filtered.brep is None and Filtered.parameters == Readback.parameters
     Reexport = TmpPath / "reexport.FCStd"
     _ = WriteDocument(Readback, Reexport)
@@ -205,7 +206,7 @@ def TestDepthEdit(TmpPath: FilePath, DistanceMm: float, ChangeMode: str) -> None
     ),
 )
 def TestStaleEdit(TmpPath: FilePath, ChangeMode: str, Reason: str) -> None:
-    Document = OpenDocument(KSourcePath, strict=False)
+    Document = OpenDocument(KSourcePath, StrictMode=False)
     Output = TmpPath / "editable.FCStd"
     _ = WriteDocument(Document, Output)
     Stale = ChangeEditFile(Output, 25.0, None, ChangeMode)
@@ -222,7 +223,7 @@ def TestStaleEdit(TmpPath: FilePath, ChangeMode: str, Reason: str) -> None:
     ),
 )
 def TestExtraShape(TmpPath: FilePath, ChangeMode: str, Reason: str) -> None:
-    Document = OpenDocument(KSourcePath, strict=False)
+    Document = OpenDocument(KSourcePath, StrictMode=False)
     Output = TmpPath / "editable.FCStd"
     _ = WriteDocument(Document, Output)
     Edited = ChangeEditFile(Output, 25.0, MakeEditShape(Document, 25.0), ChangeMode)
@@ -232,7 +233,7 @@ def TestExtraShape(TmpPath: FilePath, ChangeMode: str, Reason: str) -> None:
 
 # dependent geometry must follow the native driver without flattening its formula
 def TestFormulaEdit(TmpPath: FilePath) -> None:
-    Document = OpenDocument(KFormulaPath, strict=False)
+    Document = OpenDocument(KFormulaPath, StrictMode=False)
     Output = TmpPath / "editable.FCStd"
     _ = WriteDocument(Document, Output)
     assert OpenDocument(Output) == Document
@@ -264,7 +265,7 @@ def TestFormulaEdit(TmpPath: FilePath) -> None:
 # stale lengths and different formulas with the same result must both fail readback
 @Pytest.mark.parametrize("ChangeMode", ("bound", "wrong-formula"))
 def TestBadFormula(TmpPath: FilePath, ChangeMode: str) -> None:
-    Document = OpenDocument(KFormulaPath, strict=False)
+    Document = OpenDocument(KFormulaPath, StrictMode=False)
     Output = TmpPath / "editable.FCStd"
     _ = WriteDocument(Document, Output)
     DistanceMm = 19.25 if ChangeMode == "bound" else 26.0
@@ -279,7 +280,7 @@ def TestBadFormula(TmpPath: FilePath, ChangeMode: str) -> None:
 # equivalent spreadsheet units must not change provenance after a native no op save
 def TestNoOpDepth(TmpPath: FilePath) -> None:
     Source = KSourcePath.parents[1] / "output-7230965e9265" / "depth07_a.f3d"
-    Document = OpenDocument(Source, strict=False)
+    Document = OpenDocument(Source, StrictMode=False)
     Output = TmpPath / "editable.FCStd"
     _ = WriteDocument(Document, Output)
     NativeSave = ChangeEditFile(

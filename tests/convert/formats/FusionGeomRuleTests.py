@@ -8,7 +8,7 @@ from struct import pack as PackBytes
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.formats.Fusion.DesignZip import ReadDesignZip
 from convert.formats.Fusion.MetaCursor import MetaCursor
 from convert.formats.Fusion.RecordSpan import RecordSpan
@@ -30,7 +30,7 @@ def ReadCase(
 ) -> tuple[CadDocument, bytes, tuple[RecordSpan, ...]]:
     FileValue = KStudyPath / Folder / f"{NameValue}.f3d"
     BulkData, Spans = ReadDesignZip(FileValue.read_bytes())
-    return OpenDocument(FileValue, strict=False), BulkData, Spans
+    return OpenDocument(FileValue, StrictMode=False), BulkData, Spans
 
 
 # exact native reference bytes let mutations target only the disputed slot

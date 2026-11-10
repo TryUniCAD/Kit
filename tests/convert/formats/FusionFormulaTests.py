@@ -7,7 +7,7 @@ from json import loads as LoadJson
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.formats.Fusion.Assembly.ComponentRead import KComponentGuid
 from convert.formats.Fusion.Assembly.OccurrenceRead import KOccurrenceGuid
 from convert.formats.Fusion.DesignZip import ReadDesignZip
@@ -38,7 +38,7 @@ KFormulaStudy = KStudyPath / "parameterexpressions-3ddbef2b20bd"
 def CheckSavedGraph(CaptureName: str) -> None:
     Oracle = LoadJson((KFormulaStudy / "ground_truth.json").read_text(encoding="utf-8"))
     Capture = next(Entry for Entry in Oracle["samples"] if Entry["file"] == CaptureName)
-    Document = OpenDocument(KFormulaStudy / CaptureName, strict=False)
+    Document = OpenDocument(KFormulaStudy / CaptureName, StrictMode=False)
     Parameters = {Param.name: Param for Param in Document.parameters}
     Expected = next(
         Entry for Entry in Capture["parameters"] if Entry["name"] == "probeResult"
@@ -67,7 +67,7 @@ def CheckSavedGraph(CaptureName: str) -> None:
 )
 def CheckNamedId(CaptureName: str, LinkedName: str) -> None:
     Folder = KStudyPath / "parameteridentity-8fc83529b236"
-    Document = OpenDocument(Folder / f"{CaptureName}.f3d", strict=False)
+    Document = OpenDocument(Folder / f"{CaptureName}.f3d", StrictMode=False)
     Parameters = {Param.name: Param for Param in Document.parameters}
     assert Parameters["alpha"].value == Parameters["bravo"].value
     Expression = Parameters["result"].expression
@@ -79,7 +79,7 @@ def CheckNamedId(CaptureName: str, LinkedName: str) -> None:
 @KRequiresCodec
 def CheckDepthGraph() -> None:
     Folder = KStudyPath / "holdouts-f8c508a73323"
-    Document = OpenDocument(Folder / "expression_depth.f3d", strict=False)
+    Document = OpenDocument(Folder / "expression_depth.f3d", StrictMode=False)
     Feature = Document.feature_timeline[-1]
     assert isinstance(Feature.definition, DistanceExtrude)
     Parameters = {Param.id: Param for Param in Document.parameters}

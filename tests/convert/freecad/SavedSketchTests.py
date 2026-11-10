@@ -9,7 +9,8 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument, write_document as WriteDocument
+from convert import write_document as WriteDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.adapters.freecad.Adapter import FreeCadAdapterA
 from convert.adapters.freecad.EditSketchPlan import KSketchEditBinding
 from interchange.document.models.DocumentModel import CadDocument
@@ -23,7 +24,7 @@ KRadiusSource = (
 # each control starts from a marked archive emitted by the public writer
 @Pytest.fixture
 def BoundSketch(TmpPath: FilePath) -> tuple[CadDocument, FilePath]:
-    Document = OpenDocument(KRadiusSource, strict=False)
+    Document = OpenDocument(KRadiusSource, StrictMode=False)
     Output = TmpPath / "bound.FCStd"
     _ = WriteDocument(Document, Output)
     return Document, Output

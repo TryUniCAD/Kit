@@ -174,3 +174,23 @@ def TestArchiveErr() -> None:
         ValueError, match="Missing or oversized Fusion body history stream"
     ):
         _ = ReadBodyBlob(bytes(Modified), KTestBody, None)
+
+
+# forged directory counts must be rejected before the zip library builds entry objects
+def TestZipBounds(MonkeyPatch: PatchContext) -> None:
+    Packed, _ = SharedZip()
+    Modified = bytearray(Packed)
+    Footer = Modified.rindex(b"PK\x05\x06")
+    Modified[Footer + 8 : Footer + 12] = PackData("<2H", 1, 1)
+
+    # construction is forbidden here because the raw directory already proves the input invalid
+    def RejectOpen(*Values: object, **Keywords: object) -> None:
+        raise AssertionError(
+            "ZIP construction must follow central directory validation"
+        )
+
+    MonkeyPatch.setattr(
+        "convert.formats.Fusion.ArchiveRead.IndexedArchive.ZipFile", RejectOpen
+    )
+    with Pytest.raises(ValueError, match="entry count disagrees"):
+        _ = ReadDesignZip(bytes(Modified))

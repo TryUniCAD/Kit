@@ -8,29 +8,25 @@ the PolyForm Strict License 1.0.0 and voids all licenses granted
 to you under it immediately and permanently.
 -->
 
-# Public SDK reader
+# Fusion research reader
 
 [Fusion feature index](../README.md)
 
-The adapter catalog includes `fusion.f3d` with alias `f3d`. The registry
-detects the active Fusion design streams in a saved archive. Call
-`open_document` with `strict=False` to opt into the partial projection.
-The public reader validated 766 histories across 712 tracked archives
-with Python 3.14.
+Production adapter discovery excludes the partial Fusion reader. Research
+tools can instantiate it directly and select the available history projection.
 
 ```python
-from convert import open_document
+from convert.adapters.Fusion.Adapter import FusionReader
+from convert.adapters.base.ReadOptions import ReadOptions
 
-document = open_document("part.f3d", strict=False)
+document = FusionReader().read("part.f3d", ReadOptions(strict=False))
 ```
 
-For a qualified local assembly, `open_document("assembly.f3d", strict=False)`
-returns the graph in `document.assembly`. Pass a decimal configuration string,
-for example `configuration="35"`, to read a single history on its own. An archive
-with multiple histories that cannot be bound to a supported assembly requires
-an explicit history ID. Setting `include_brep=False` omits the projected B-rep and preserves the original
-document payload. The adapter supplies a reader for `.f3d`. Native Fusion
-output and strict source translation require further format coverage.
+For a qualified local assembly, the reader returns the graph in
+`document.assembly`. Set `configuration="35"` in `ReadOptions` to select a
+single history. An archive with multiple histories that cannot be bound to a
+supported assembly requires an explicit history ID. Set `include_brep=False`
+to omit the projected B-rep and preserve the original document payload.
 
 For a qualified body collection, `fusion.body_inventory` is available in
 `document.metadata` for a selected history, or in each assembly definition's
@@ -39,20 +35,18 @@ A qualified empty collection has an empty `members` tuple. Each member retains
 its native object and collection IDs, the stored name, and the Kit
 `design_body_id` when a body has already been reconstructed.
 
-For archives with Zstandard-compressed members, the convenience API uses
+For archives with Zstandard-compressed members, the reader uses
 Python's ZIP Zstandard support. On an earlier Python version, supply a
 Zstandard decompression callback through `ReadOptions.values` when reading
-with the registry.
+directly with the adapter.
 
 ```python
-from convert.adapters import AdapterRegistry, ReadOptions
+from convert.adapters.Fusion.Adapter import FusionReader
+from convert.adapters.base.ReadOptions import ReadOptions
 
 def read_fusion_with_codec(path, inflate_zstd):
-    registry = AdapterRegistry()
-    registry.introspect()
-    return registry.read(
+    return FusionReader().read(
         path,
-        format_id="fusion.f3d",
         options=ReadOptions(
             strict=False,
             values={"fusion.inflate_zstd": inflate_zstd},

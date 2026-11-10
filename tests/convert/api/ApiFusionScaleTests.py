@@ -7,7 +7,7 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.formats.Fusion.DesignZip import KDesignPrefix, ReadDesignZip
 from convert.formats.Fusion.Topology.BodyAsmMap import ReadBodyAsmRef
 from interchange.document.models.DocumentModel import CadDocument
@@ -19,7 +19,7 @@ from tests.convert.api.ApiFusionAssemblyTests import KRequiresCodec, KStudyPath
 
 # the public reader retains editable controls and exposes only fully verified final bodies
 @KRequiresCodec
-@Pytest.mark.parametrize("Sample,Factors,Center,Volume,Area,Count", KScaleCases)
+@Pytest.mark.parametrize("Sample,Factors,Center,Volume,AreaValue,Count", KScaleCases)
 def TestScaleRead(
     Sample: str,
     Factors: tuple[float, float, float],
@@ -29,7 +29,7 @@ def TestScaleRead(
     Count: int,
 ) -> None:
     Archive = KStudyPath / Sample
-    Document = OpenDocument(Archive, strict=False)
+    Document = OpenDocument(Archive, StrictMode=False)
     Feature = Document.feature_timeline[-1]
     Definition = Feature.definition
     assert isinstance(Definition, BoundScale)
@@ -99,7 +99,7 @@ def TestScaleSwap() -> None:
                 NameValue, Wrong if NameValue == BulkName else Original.read(NameValue)
             )
     _ = Stream.seek(0)
-    Document = OpenDocument(Stream, strict=False)
+    Document = OpenDocument(Stream, StrictMode=False)
     assert Document.brep is None and not Document.bodies
     assert Document.feature_timeline[-1].definition is None
     assert len(Document.feature_timeline[-1].selection_ids) == 2
@@ -112,7 +112,7 @@ def TestScaleSwap() -> None:
 @KRequiresCodec
 def TestScaleVertex() -> None:
     Archive = KStudyPath / "scaleshellinputs-97ef1cfd19e4/scale_vertex.f3d"
-    Document = OpenDocument(Archive, strict=False)
+    Document = OpenDocument(Archive, StrictMode=False)
     Feature = Document.feature_timeline[-1]
     assert len(Feature.selection_ids) == 1 and Feature.definition is None
     assert Document.brep is None and not Document.bodies

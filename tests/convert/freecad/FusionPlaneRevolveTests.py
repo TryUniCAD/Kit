@@ -11,7 +11,8 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument, write_document as WriteDocument
+from convert import write_document as WriteDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.Security.PathBoundary import ResolveTemp
 from convert.Security.ProgramBoundary import GetFreecadPath
 from convert.adapters.freecad.Adapter import FreeCadAdapterA
@@ -64,7 +65,7 @@ App.closeDocument(doc.Name)
     (("negative_plane", 35.0), ("positive_plane", 135.0), ("two_planes", 80.0)),
 )
 def TestLiveRev(TmpPath: FilePath, SampleName: str, AngleDeg: float) -> None:
-    DocValue = OpenDocument(KSourceFolder / f"{SampleName}.f3d", strict=False)
+    DocValue = OpenDocument(KSourceFolder / f"{SampleName}.f3d", StrictMode=False)
     StepValue = DocValue.feature_timeline[-1]
     Definition = StepValue.definition
     assert isinstance(Definition, PlaneRevolve)
@@ -124,7 +125,7 @@ def AssertPlaneZip(
 @KRequiresCodec
 @Pytest.mark.parametrize("RemoveBinding", (False, True))
 def TestPlaneBind(TmpPath: FilePath, RemoveBinding: bool) -> None:
-    DocValue = OpenDocument(KSourceFolder / "two_planes.f3d", strict=False)
+    DocValue = OpenDocument(KSourceFolder / "two_planes.f3d", StrictMode=False)
     Output = TmpPath / "two_planes.FCStd"
     _ = WriteDocument(DocValue, Output)
     with ZipFile(Output) as Archive:
@@ -156,7 +157,7 @@ def TestPlaneBind(TmpPath: FilePath, RemoveBinding: bool) -> None:
     not KOraclePath.is_file(), reason="KIT_FREECAD_ORACLE is unavailable"
 )
 def TestPlaneEdit(TmpPath: FilePath) -> None:
-    DocValue = OpenDocument(KSourceFolder / "two_planes.f3d", strict=False)
+    DocValue = OpenDocument(KSourceFolder / "two_planes.f3d", StrictMode=False)
     Output = ResolveTemp(TmpPath / "two_planes.FCStd")
     Saved = ResolveTemp(TmpPath / "two_planes_edited.FCStd")
     _ = WriteDocument(DocValue, Output)

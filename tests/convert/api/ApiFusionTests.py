@@ -7,10 +7,10 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert import write_document as WriteDocument
 from convert.adapters import AdapterNotFoundError
-from convert.adapters import AdapterRegistry
+from convert.adapters.Fusion.Adapter import FusionReader
 from convert.formats.Fusion.DesignZip import KDesignPrefix
 from interchange.document.models.DocumentModel import CadDocument
 from tests.convert.formats.FusionHistoryTests import HistoryArchive
@@ -23,9 +23,9 @@ def CheckFusionRead(TmpPath: FilePath) -> None:
     SourcePath = TmpPath / "sample.f3d"
     _ = SourcePath.write_bytes(Archive)
     Document = OpenDocument(
-        Archive, source_format="f3d", configuration="104", strict=False
+        Archive, SourceFormat="f3d", Configuration="104", StrictMode=False
     )
-    Detected = OpenDocument(SourcePath, configuration="104", strict=False)
+    Detected = OpenDocument(SourcePath, Configuration="104", StrictMode=False)
     assert Document.source.format_id == Detected.source.format_id == "fusion.f3d"
     assert Document.source.sha256 == Detected.source.sha256
     assert Document.feature_timeline == Detected.feature_timeline
@@ -37,10 +37,10 @@ def CheckFusionRead(TmpPath: FilePath) -> None:
     assert Document.brep_payloads[0].data == Archive
     assert CadDocument.from_json(Document.to_json()) == Document
     with Pytest.raises(ValueError, match="strict=False"):
-        _ = OpenDocument(SourcePath, configuration="104")
+        _ = OpenDocument(SourcePath, Configuration="104")
     with Pytest.raises(ValueError, match="Fusion history"):
         _ = OpenDocument(
-            Archive, source_format="fusion.f3d", configuration="999", strict=False
+            Archive, SourceFormat="fusion.f3d", Configuration="999", StrictMode=False
         )
 
 
@@ -51,9 +51,7 @@ def RejectMember(*Values: object, **Keywords: object) -> None:
 
 # a seekable source can be shared with other probes and resume at the same byte
 def CheckFusProbe(MonkeyPatch: Pytest.MonkeyPatch) -> None:
-    Registry = AdapterRegistry()
-    _ = Registry.introspect()
-    Reader = Registry.reader("f3d")
+    Reader = FusionReader()
     Prefix = b"prefix:"
     Source = ByteStream(Prefix + HistoryArchive())
     _ = Source.seek(len(Prefix))
@@ -76,16 +74,16 @@ def CheckFusStream() -> None:
     Prefix = b"prefix:"
     Source = ByteStream(Prefix + Archive)
     _ = Source.seek(len(Prefix))
-    Document = OpenDocument(Source, configuration="104", strict=False)
+    Document = OpenDocument(Source, Configuration="104", StrictMode=False)
     assert Source.tell() == len(Prefix) + len(Archive)
     assert Document == OpenDocument(
-        NonSeekable(Archive), configuration="104", strict=False
+        NonSeekable(Archive), Configuration="104", StrictMode=False
     )
 
 
 # a reader only format cannot claim output or create a target file
 def CheckFusWriter(TmpPath: FilePath) -> None:
-    Document = OpenDocument(HistoryArchive(), source_format="f3d", strict=False)
+    Document = OpenDocument(HistoryArchive(), SourceFormat="f3d", StrictMode=False)
     TargetPath = TmpPath / "blocked.f3d"
     for FormatId in ("fusion.f3d", "f3d"):
         with Pytest.raises(AdapterNotFoundError, match="no writer registered"):

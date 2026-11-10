@@ -9,7 +9,8 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument, write_document as WriteDocument
+from convert import write_document as WriteDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.adapters.freecad.Adapter import FreeCadAdapterA
 from convert.adapters.freecad.FormulaSheet.SheetBinding import KFormulaSheetBinding
 from interchange.document.models.DocumentModel import CadDocument
@@ -24,7 +25,7 @@ KProductSource = (
 # the public writer provides the source binding and archive exactly as users receive it
 @Pytest.fixture
 def StandaloneSheet(TmpPath: FilePath) -> tuple[CadDocument, FilePath]:
-    Document = OpenDocument(KProductSource, strict=False)
+    Document = OpenDocument(KProductSource, StrictMode=False)
     Export = TmpPath / "parameters.FCStd"
     _ = WriteDocument(Document, Export)
     return Document, Export

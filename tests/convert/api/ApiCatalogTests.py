@@ -7,7 +7,7 @@ from typing import cast
 import pytest as Pytest
 
 from convert import available_adapters as GetAdapters
-from convert.adapters import AdapterInfo, AdapterRegistry
+from convert.adapters import AdapterInfo, AdapterNotFoundError, AdapterRegistry
 from convert.adapters.base.AdapterProtocols import CadReaderAdapter, CadWriterAdapter
 from interchange import Capability
 from tests.convert.api.ApiTestHelpers import GetPackNames, ListFormatPacks
@@ -37,7 +37,10 @@ def CheckDiscovery() -> None:
     assert WriterIds == tuple(sorted(set(WriterIds)))
     assert FirstIds == SecondIds == tuple(sorted(set(ReaderIds) | set(WriterIds)))
     assert KLegacyFormats <= set(ReaderIds) & set(WriterIds)
-    assert "fusion.f3d" in ReaderIds
+    assert "fusion.f3d" not in ReaderIds
+    for FormatId in ("f3d", "fusion.f3d"):
+        with Pytest.raises(AdapterNotFoundError):
+            _ = FirstRegistry.reader(FormatId)
     assert "fusion.f3d" not in WriterIds
     for ReaderData in ReaderValues:
         for FormatId in (ReaderData.info.format_id, *ReaderData.info.aliases):
@@ -53,12 +56,11 @@ def CheckDiscovery() -> None:
         and not getattr(type(AdapterData), "_is_protocol", False)
         for AdapterData in (*ReaderValues, *WriterValues)
     )
-    CheckCaps(FirstRegistry, (*ReaderValues, *WriterValues))
+    AssertCaps((*ReaderValues, *WriterValues))
 
 
 # the registry advertises capabilities consistently across discovered adapter families
-def CheckCaps(
-    Registry: AdapterRegistry,
+def AssertCaps(
     Adapters: tuple[CadReaderAdapter | CadWriterAdapter, ...],
 ) -> None:
     assert all(
@@ -66,10 +68,6 @@ def CheckCaps(
         for AdapterData in Adapters
         if AdapterData.info.format_id in KLegacyFormats
     )
-    FusionCaps = Registry.reader("fusion.f3d").info.capabilities
-    assert {Capability.KNativePayloads, Capability.KProvenance} <= FusionCaps
-    assert {Capability.KAssemblies, Capability.KComponentDocs} <= FusionCaps
-    assert FusionCaps < frozenset(Capability)
 
 
 # document kind extensions remain introspective so clients need no format specific branches
@@ -81,10 +79,6 @@ def CheckDocExts() -> None:
     assert AdapterMap["catia.v5"].assembly_extensions == (".catproduct",)
     assert AdapterMap["freecad.fcstd"].part_extensions == (".FCStd",)
     assert AdapterMap["freecad.fcstd"].assembly_extensions == (".FCStd",)
-    FusionInfo = AdapterMap["fusion.f3d"]
-    assert FusionInfo.extensions == FusionInfo.part_extensions == (".f3d",)
-    assert FusionInfo.assembly_extensions == (".f3d",)
-    assert "f3d" in FusionInfo.aliases
     for InfoData in AdapterMap.values():
         assert set(InfoData.extensions_for(assembly=False)) <= set(InfoData.extensions)
         assert set(InfoData.extensions_for(assembly=True)) <= set(InfoData.extensions)

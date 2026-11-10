@@ -2,13 +2,10 @@
 # SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 from collections.abc import Callable
-from io import BytesIO
-from zipfile import BadZipFile, ZipFile
+from contextlib import ExitStack
 
-from convert.formats.Fusion.ArchiveRead.IndexedArchive import (
-    IndexedArchive,
-    KMaxZipSize,
-)
+from convert.formats.Fusion.ArchiveRead.ArchiveBounds import KArchiveLimit
+from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionZip
 from convert.formats.Fusion.ArchiveRead.IndexedArchive import (
     KHistoryPrefix as KHistoryPrefix,
 )
@@ -22,10 +19,11 @@ def ReadBodyBlob(
     FileName: str,
     InflateZstd: Callable[[bytes, int], bytes] | None,
 ) -> bytes:
-    if KAsmName.fullmatch(FileName) is None or len(DataValue) > KMaxZipSize:
+    if KAsmName.fullmatch(FileName) is None or len(DataValue) > KArchiveLimit:
         raise ValueError("Invalid Fusion body history reference")
-    try:
-        with ZipFile(BytesIO(DataValue)) as Archive:
-            return IndexedArchive(DataValue, Archive, InflateZstd).ReadBody(FileName)
-    except (BadZipFile, OSError, NotImplementedError, RuntimeError) as ErrorInfo:
-        raise ValueError("Unreadable Fusion body history stream") from ErrorInfo
+    with ExitStack() as Session:
+        try:
+            Archive = Session.enter_context(OpenFusionZip(DataValue, InflateZstd))
+        except (OSError, RuntimeError, ValueError) as ErrorInfo:
+            raise ValueError("Unreadable Fusion body history stream") from ErrorInfo
+        return Archive.ReadBody(FileName)

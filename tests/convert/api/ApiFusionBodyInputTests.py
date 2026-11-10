@@ -9,7 +9,7 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.formats.Fusion.DesignZip import KDesignPrefix, ReadDesignZip
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumDocument import Capability
@@ -28,7 +28,7 @@ def TestBodyInputs(
     Expected: tuple[tuple[str, int, int], ...],
 ) -> None:
     Archive = KStudyPath / Sample
-    Document = OpenDocument(Archive, strict=False)
+    Document = OpenDocument(Archive, StrictMode=False)
     StepValue = next(
         Value for Value in Document.feature_timeline if Value.kind == KindValue
     )
@@ -75,7 +75,9 @@ def TestBodyInputs(
         assert Expected[0][1] not in {Member["object_id"] for Member in Members}
     assert CadDocument.from_json(Document.to_json()) == Document
     Explicit = OpenDocument(
-        Archive, strict=False, configuration=str(Document.metadata["fusion.history_id"])
+        Archive,
+        StrictMode=False,
+        Configuration=str(Document.metadata["fusion.history_id"]),
     )
     assert Explicit.selections == Document.selections
 
@@ -97,7 +99,7 @@ def TestWrongBody() -> None:
         MetaName = KDesignPrefix + "MetaStream.dat"
         Mutated.writestr(MetaName, Original.read(MetaName))
     _ = Stream.seek(0)
-    Document = OpenDocument(Stream, strict=False)
+    Document = OpenDocument(Stream, StrictMode=False)
     StepValue = Document.feature_timeline[-1]
     assert StepValue.kind == FeatureKind.KNative and not StepValue.selection_ids
     assert any(
@@ -117,7 +119,7 @@ def TestWrongBody() -> None:
     ),
 )
 def TestBodyOmitted(Sample: str, Identity: int) -> None:
-    Document = OpenDocument(KStudyPath / Sample, strict=False)
+    Document = OpenDocument(KStudyPath / Sample, StrictMode=False)
     StepValue = next(
         Value
         for Value in Document.feature_timeline

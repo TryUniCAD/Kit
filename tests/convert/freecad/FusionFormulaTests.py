@@ -7,7 +7,8 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument, write_document as WriteDocument
+from convert import write_document as WriteDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.adapters.base.TransferContract import TransferMode
 from interchange.enums.EnumDocument import Capability
 
@@ -33,7 +34,7 @@ KFormulaStudy = FilePath(__file__).parents[3] / "re" / "Fusion" / "Study"
 )
 def TestFusionSheet(TmpPath: FilePath, SampleName: str, FormulaText: str) -> None:
     Source = KFormulaStudy / "parameterexpressions-3ddbef2b20bd" / f"{SampleName}.f3d"
-    Document = OpenDocument(Source, strict=False)
+    Document = OpenDocument(Source, StrictMode=False)
     Target = TmpPath / "parameters.FCStd"
     Result = WriteDocument(Document, Target)
     Modes = {Value.capability: Value.mode for Value in Result.transfers}
@@ -54,7 +55,7 @@ def TestFormulaGap(TmpPath: FilePath) -> None:
         / "parameterexpressions-3ddbef2b20bd"
         / "function_outside_subset.f3d"
     )
-    Document = OpenDocument(Source, strict=False)
+    Document = OpenDocument(Source, StrictMode=False)
     Target = TmpPath / "parameters.FCStd"
     Result = WriteDocument(Document, Target)
     Modes = {Value.capability: Value.mode for Value in Result.transfers}

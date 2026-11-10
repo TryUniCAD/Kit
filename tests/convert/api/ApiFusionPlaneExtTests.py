@@ -6,7 +6,7 @@ from math import pi as CirclePi
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.features.FeaturePlaneExt import PlaneExtrude
 from interchange.features.PlaneExtValues import GetPlaneExt
@@ -27,7 +27,7 @@ def CheckPlaneExt(
     Capture: str, RoleName: str, Bounds: tuple[float, float], NativeId: str
 ) -> None:
     Archive = KStudyPath / "extents-f0f33a9a605f" / f"{Capture}.f3d"
-    Document = OpenDocument(Archive, strict=False)
+    Document = OpenDocument(Archive, StrictMode=False)
     StepValue = Document.feature_timeline[-1]
     Definition = StepValue.definition
     assert isinstance(Definition, PlaneExtrude) and Definition.LimitRole == RoleName

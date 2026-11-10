@@ -9,7 +9,8 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument, write_document as WriteDocument
+from convert import write_document as WriteDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.adapters.freecad.Adapter import FreeCadAdapterA
 from convert.adapters.freecad.ArchiveEditPlan import KEditableBinding, KProfileBinding
 from convert.adapters.freecad.Brep import BrepModelBrep
@@ -32,7 +33,7 @@ KRingSource = (
 # signed edits must rebuild the complete prism under the original body and sketch identities
 @Pytest.mark.parametrize("DepthMm", (31.5, -18.25))
 def TestRingDepth(TmpPath: FilePath, DepthMm: float) -> None:
-    Document = OpenDocument(KRingSource, strict=False)
+    Document = OpenDocument(KRingSource, StrictMode=False)
     Feature = Document.feature_timeline[-1]
     PairValue = FindEditFrame(Document, Feature.sketch_id)
     assert PairValue is not None
@@ -81,7 +82,7 @@ def AssertRingXml(RootValue: Element, FeatureId: str, SketchId: str) -> None:
 
 # a new depth cell alone cannot override a solid that still uses the original depth
 def TestStaleRing(TmpPath: FilePath) -> None:
-    Document = OpenDocument(KRingSource, strict=False)
+    Document = OpenDocument(KRingSource, StrictMode=False)
     Output = TmpPath / "ring.FCStd"
     _ = WriteDocument(Document, Output)
     Saved = ChangeEditFile(Output, -18.25, None, "bound", "fusion_parameter_287")
@@ -106,7 +107,7 @@ def CapWire(Model: BrepModel, Sides: int) -> bytes:
 
 # a moved shared vertex must survive readback as the same bound line and point entities
 def TestMovedRing(TmpPath: FilePath) -> None:
-    Original = OpenDocument(KRingSource, strict=False)
+    Original = OpenDocument(KRingSource, StrictMode=False)
     StepValue = Original.feature_timeline[-1]
     PairValue = FindEditFrame(Original, StepValue.sketch_id)
     assert PairValue is not None

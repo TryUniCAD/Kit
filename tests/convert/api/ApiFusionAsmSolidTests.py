@@ -3,7 +3,7 @@
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumDocument import Capability
 from interchange.features.FeatureDistExt import DistanceExtrude
@@ -14,7 +14,7 @@ from tests.convert.api.ApiFusionAssemblyTests import KRequiresCodec, KStudyPath
 @KRequiresCodec
 def CheckAsmSolids() -> None:
     Archive = KStudyPath / "assembly-acc48a9dc05d" / "assembly.f3d"
-    Document = OpenDocument(Archive, strict=False)
+    Document = OpenDocument(Archive, StrictMode=False)
     Assembly = Document.assembly
     assert Assembly is not None and len(Assembly.documents) == 3
     assert Document.brep is None and Document.bodies == ()
@@ -59,7 +59,7 @@ def CheckAsmSolids() -> None:
 @KRequiresCodec
 def CheckAsmFilter() -> None:
     Archive = KStudyPath / "assembly-acc48a9dc05d" / "assembly.f3d"
-    Document = OpenDocument(Archive, strict=False, include_brep=False)
+    Document = OpenDocument(Archive, StrictMode=False, IncludeBrep=False)
     assert Document.assembly is not None and len(Document.assembly.documents) == 3
     assert Capability.KBrep not in Document.capabilities
     assert all(
@@ -75,7 +75,7 @@ def CheckAsmGuard() -> None:
     Archive = (
         KStudyPath / "mirrorassemblydatum-700af16e9fc6" / "nested_occurrence_yz.f3d"
     )
-    Document = OpenDocument(Archive, strict=False)
+    Document = OpenDocument(Archive, StrictMode=False)
     assert Document.assembly is not None and Document.assembly.instances
     assert (
         not Document.assembly.documents

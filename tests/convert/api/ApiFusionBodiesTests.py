@@ -4,7 +4,7 @@
 from typing import cast as CastValue
 from json import loads as LoadJson
 
-from convert import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumDocument import Capability
 from tests.convert.api.ApiFusionAssemblyTests import KRequiresCodec, KStudyPath
@@ -19,7 +19,7 @@ def CheckBodyOwner() -> None:
     Folder = KStudyPath / "namedbodies-3c7c11fc2924"
     Archive = Folder / "namedbodies.f3d"
     Oracle = LoadJson((Folder / "ground_truth.json").read_text(encoding="utf-8"))
-    Document = OpenDocument(Archive, strict=False, include_brep=False)
+    Document = OpenDocument(Archive, StrictMode=False, IncludeBrep=False)
     Assembly = Document.assembly
     assert Assembly is not None
     Names = {
@@ -45,7 +45,9 @@ def CheckBodyOwner() -> None:
         if Definition.name == "Module A"
     )
     ChildDoc = OpenDocument(
-        Archive, strict=False, configuration=str(Child.attributes["fusion.history_id"])
+        Archive,
+        StrictMode=False,
+        Configuration=str(Child.attributes["fusion.history_id"]),
     )
     assert ChildDoc.assembly is None
     (ChildMember,) = CastValue(
@@ -69,7 +71,7 @@ def CheckBodyOwner() -> None:
 @KRequiresCodec
 def CheckRemoved() -> None:
     Archive = KStudyPath / "removecontrasts-9c5f83456a0e" / "root_body.f3d"
-    Document = OpenDocument(Archive, strict=False)
+    Document = OpenDocument(Archive, StrictMode=False)
     (Member,) = CastValue(
         dict[str, tuple[dict[str, object], ...]], Document.metadata[KInventory]
     )["members"]
@@ -82,7 +84,7 @@ def CheckRemoved() -> None:
 @KRequiresCodec
 def CheckBodyLink() -> None:
     Archive = KStudyPath / "analytic-86a12b291d0a" / "analytic.f3d"
-    Document = OpenDocument(Archive, strict=False)
+    Document = OpenDocument(Archive, StrictMode=False)
     assert Document.brep is not None and len(Document.bodies) == 3
     assert Capability.KBodyStructure in Document.capabilities
     Members = {

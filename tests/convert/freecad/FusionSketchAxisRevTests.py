@@ -6,7 +6,7 @@ from dataclasses import replace as Replace
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.adapters.freecad.Brep import BrepModelBrep
 from convert.adapters.freecad.EditAxisRev.AxisProfile import ReadAxisProfile
 from convert.adapters.freecad.EditAxisRev.AxisRevPlan import ReadAxisRev
@@ -25,7 +25,7 @@ KAxisCases = KStudyPath / "revolveaxes-a83b542c4a07"
     ("Capture", "Expected"), (("sketch_line", 1), ("sketch_line_reversed", -1))
 )
 def CheckAxisPlan(Capture: str, Expected: int) -> None:
-    DocValue = OpenDocument(KAxisCases / f"{Capture}.f3d", strict=False)
+    DocValue = OpenDocument(KAxisCases / f"{Capture}.f3d", StrictMode=False)
     StepValue = DocValue.feature_timeline[-1]
     PlanValue = ReadAxisRev(DocValue, StepValue)
     assert PlanValue is not None
@@ -50,7 +50,7 @@ def CheckAxisPlan(Capture: str, Expected: int) -> None:
 # native identities remain distinct across all four geometric profile joins
 @KRequiresCodec
 def CheckAxisPairs() -> None:
-    DocValue = OpenDocument(KAxisCases / "sketch_line.f3d", strict=False)
+    DocValue = OpenDocument(KAxisCases / "sketch_line.f3d", StrictMode=False)
     StepValue = DocValue.feature_timeline[-1]
     SketchValue = DocValue.sketches[1]
     Pairs = ReadAxisProfile(StepValue, SketchValue)
@@ -76,9 +76,9 @@ def CheckAxisPairs() -> None:
 # unsupported edge sources and stale native scope cannot seed editable geometry
 @KRequiresCodec
 def CheckAxisGuards() -> None:
-    EdgeDoc = OpenDocument(KAxisCases / "brep_edge.f3d", strict=False)
+    EdgeDoc = OpenDocument(KAxisCases / "brep_edge.f3d", StrictMode=False)
     assert ReadAxisRev(EdgeDoc, EdgeDoc.feature_timeline[-1]) is None
-    DocValue = OpenDocument(KAxisCases / "sketch_line.f3d", strict=False)
+    DocValue = OpenDocument(KAxisCases / "sketch_line.f3d", StrictMode=False)
     StepValue = DocValue.feature_timeline[-1]
     (PickValue,) = DocValue.selections
     WrongPick = Replace(PickValue, path=PickValue.path[::-1])

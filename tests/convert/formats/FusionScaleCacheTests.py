@@ -8,7 +8,7 @@ from typing import cast as CastValue
 
 import pytest as Pytest
 
-from convert.api import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.formats.Fusion.BodyBlob import ReadBodyBlob
 from convert.formats.Fusion.DesignZip import ReadDesignZip
 from convert.formats.Fusion.Topology.AsmEdge.AsmFields import ReadAsmPtr
@@ -95,7 +95,7 @@ def OpenScalePrisms(
 ) -> tuple[KCachePrism, ...]:
     Source = KStudyPath / SampleName
     SourceData = Source.read_bytes()
-    DocValue = OpenDocument(Source, strict=False)
+    DocValue = OpenDocument(Source, StrictMode=False)
     BulkData, Spans = ReadDesignZip(SourceData)
     Owners = {Value.ObjectId: Value for Value in Spans if Value.IsPrimary}
     Features = {Value.id: Value for Value in DocValue.feature_timeline}

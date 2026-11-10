@@ -11,7 +11,8 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument, write_document as WriteDocument
+from convert import write_document as WriteDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.Security.PathBoundary import ResolveTemp
 from convert.Security.ProgramBoundary import GetFreecadPath
 from convert.adapters.freecad.EditBodyRev.BodyRevBinding import KBodyRevBinding
@@ -36,7 +37,7 @@ KOraclePath = GetFreecadPath()
 def TestLiveBodyRev(
     TmpPath: FilePath, Capture: str, EdgeName: str, SeedVolume: float
 ) -> None:
-    Source = OpenDocument(KStudyPath / Capture, strict=False)
+    Source = OpenDocument(KStudyPath / Capture, StrictMode=False)
     Output = TmpPath / "linked.FCStd"
     Result = WriteDocument(Source, Output)
     assert (
@@ -85,7 +86,7 @@ def TestLiveBodyRev(
 # a generated solid cannot validate a substituted edge on the same extrusion
 @KRequiresCodec
 def TestWrongEdge(TmpPath: FilePath) -> None:
-    Source = OpenDocument(KStudyPath / KBodyCases[0][0], strict=False)
+    Source = OpenDocument(KStudyPath / KBodyCases[0][0], StrictMode=False)
     Output = TmpPath / "linked.FCStd"
     Wrong = TmpPath / "wrong.FCStd"
     _ = WriteDocument(Source, Output)
@@ -114,7 +115,7 @@ def TestWrongEdge(TmpPath: FilePath) -> None:
 def TestBodyNative(
     TmpPath: FilePath, Capture: str, EdgeName: str, SeedVolume: float
 ) -> None:
-    Source = OpenDocument(KStudyPath / Capture, strict=False)
+    Source = OpenDocument(KStudyPath / Capture, StrictMode=False)
     Output = ResolveTemp(TmpPath / "linked.FCStd")
     Saved = ResolveTemp(TmpPath / "linked_saved.FCStd")
     _ = WriteDocument(Source, Output)

@@ -9,7 +9,7 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import open_document as OpenDocument
+from tests.convert.FusionRead import OpenResearch as OpenDocument
 from convert.adapters.freecad import build_fcstd_archive as BuildFcstdArchive
 from convert.adapters.freecad import document_to_manifest as DocToManifest
 from convert.adapters.freecad.ApplyDepthEdit import ApplyDepthEdit
@@ -81,7 +81,7 @@ def VerifyRebuilt(
     ),
 )
 def TestProfileOnly(Profile: CircleGeometry) -> None:
-    Original = OpenDocument(KExtentsDir / "distance_positive.f3d", strict=False)
+    Original = OpenDocument(KExtentsDir / "distance_positive.f3d", StrictMode=False)
     Feature = Original.feature_timeline[-1]
     SketchValue = Original.sketches[0]
     Frame = Original.support_planes[0].transform
@@ -118,7 +118,7 @@ def TestProfileOnly(Profile: CircleGeometry) -> None:
 
 # a simultaneous depth and profile edit must still emit a real editable extrusion
 def TestSigned() -> None:
-    Original = OpenDocument(KExtentsDir / "distance_negative.f3d", strict=False)
+    Original = OpenDocument(KExtentsDir / "distance_negative.f3d", StrictMode=False)
     PlanValue = ReadArchiveEdit(Original)
     assert PlanValue is not None
     Profile = CircleGeometry(PlaneVector(3.0, -4.0), 13.0)
@@ -147,7 +147,7 @@ def TestSigned() -> None:
 # a changed driver and profile preserve the dependent source formula and auxiliary sketch
 def TestFormProfile() -> None:
     Original = OpenDocument(
-        KStudyRoot / "holdouts-f8c508a73323/expression_depth.f3d", strict=False
+        KStudyRoot / "holdouts-f8c508a73323/expression_depth.f3d", StrictMode=False
     )
     PlanValue = ReadArchiveEdit(Original)
     assert PlanValue is not None and PlanValue[1].HasFormula
@@ -182,7 +182,7 @@ def TestFormProfile() -> None:
 
 # changing a circle without its exact source center point would lose sketch incidence
 def TestDetached() -> None:
-    Original = OpenDocument(KExtentsDir / "distance_positive.f3d", strict=False)
+    Original = OpenDocument(KExtentsDir / "distance_positive.f3d", StrictMode=False)
     PlanValue = ReadArchiveEdit(Original)
     assert PlanValue is not None
     SketchValue = Original.sketches[0]
