@@ -4,7 +4,7 @@
 const { Aggregate } = require("../../../.github/scripts/CiReports.cjs");
 const { BuildReports } = require("./ReportInputs.cjs");
 const Inputs = BuildReports(process.argv[2], process.argv[3]);
-const Pull = {
+const PullData = {
   number: 42,
   state: "open",
   head: { sha: "a".repeat(40), repo: { id: 1 } },
@@ -14,7 +14,7 @@ const Context = {
   eventName: "pull_request_target",
   runId: 500,
   repo: { owner: "TryUniCAD", repo: "Kit" },
-  payload: { pull_request: Pull, repository: { id: 1 } },
+  payload: { pull_request: PullData, repository: { id: 1 } },
 };
 const Responses = {
   listWorkflowRunsForRepo: [],
@@ -29,7 +29,7 @@ const Github = {
       listCommitStatusesForRef: "listCommitStatusesForRef",
       compareCommits: async () => ({ data: { status: "ahead" } }),
     },
-    pulls: { get: async () => ({ data: Pull }) },
+    pulls: { get: async () => ({ data: PullData }) },
     git: {
       getCommit: async () => ({ data: { tree: { sha: "c".repeat(40) } } }),
     },

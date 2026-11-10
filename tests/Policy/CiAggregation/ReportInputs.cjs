@@ -4,10 +4,10 @@
 const Expected = require("./ExpectedChecks.cjs");
 const { BuildReviews } = require("./ReviewReports.cjs");
 
-function BuildReports(Mode, Verdict) {
-  const Checks = Expected.map((Name, Index) => ({
+function BuildReports(CaseMode, Verdict) {
+  const Checks = Expected.map((CheckName, Index) => ({
     id: Index + 1,
-    name: Name,
+    name: CheckName,
     app: { id: 15368, slug: "github-actions" },
     check_suite: { id: 1 },
     status: "completed",
@@ -18,15 +18,15 @@ function BuildReports(Mode, Verdict) {
     ...Reviews.Checks.map((Check) => ({ ...Check, id: Check.id + 100 })),
   );
   const Statuses = Reviews.Statuses;
-  if (Mode === "check") Checks[0].conclusion = "failure";
-  if (Mode === "status")
+  if (CaseMode === "check") Checks[0].conclusion = "failure";
+  if (CaseMode === "status")
     Statuses.push({
       id: 900,
       context: "Greptile Review",
       creator: { id: 900, login: "build-service" },
       state: "failure",
     });
-  if (Mode === "external")
+  if (CaseMode === "external")
     Checks.push({
       id: 901,
       name: "CodeRabbit",

@@ -16,16 +16,17 @@ const KReviewLogins = new Set([
   Mention[1].toLowerCase(),
 ]);
 
-function IsReviewApp(App) {
+function IsReviewApp(AppInfo) {
   return (
-    KReviewApps.has(App?.id) || KReviewLogins.has(App?.slug?.toLowerCase())
+    KReviewApps.has(AppInfo?.id) ||
+    KReviewLogins.has(AppInfo?.slug?.toLowerCase())
   );
 }
 
-function IsReviewUser(User) {
+function IsReviewUser(UserInfo) {
   return (
-    KReviewUsers.has(User?.id) ||
-    KReviewLogins.has(User?.login?.toLowerCase().replace(/\[bot\]$/, ""))
+    KReviewUsers.has(UserInfo?.id) ||
+    KReviewLogins.has(UserInfo?.login?.toLowerCase().replace(/\[bot\]$/, ""))
   );
 }
 
