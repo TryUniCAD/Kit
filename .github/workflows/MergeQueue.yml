@@ -503,18 +503,39 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Install pinned Scorecard
+        env:
+          ScorecardVersion: "5.4.0"
+          ScorecardSha256: e5183aeaa5aa548fbb7318a6deb3e1038be0ef9aca24e655422ae88dfbe67502
+        run: |
+          set -euo pipefail
+          ArchivePath="${RUNNER_TEMP}/scorecard_${ScorecardVersion}_linux_amd64.tar.gz"
+          curl --fail --silent --show-error --location \
+            --output "${ArchivePath}" \
+            "https://github.com/ossf/scorecard/releases/download/v${ScorecardVersion}/scorecard_${ScorecardVersion}_linux_amd64.tar.gz"
+          echo "${ScorecardSha256}  ${ArchivePath}" | sha256sum --check --
+          tar --extract --gzip --file "${ArchivePath}" --directory "${RUNNER_TEMP}" scorecard
+          chmod u+x "${RUNNER_TEMP}/scorecard"
+
       - name: Run OSSF Scorecard supply-chain audit
-        uses: ossf/scorecard-action@fa7117db83c52d787ae5a89f350999701505d78e # v2.5.0
-        with:
-          results_file: Scorecard.sarif
-          results_format: sarif
-          publish_results: false
-          repo_token: ${{ github.token }}
+        env:
+          GITHUB_AUTH_TOKEN: ${{ github.token }}
+          ENABLE_SARIF: "true"
+          RepositoryName: ${{ github.repository }}
+          CandidateSha: ${{ github.event.merge_group.head_sha }}
+        run: |
+          set -euo pipefail
+          "${RUNNER_TEMP}/scorecard" --repo="github.com/${RepositoryName}" \
+            --format=sarif --show-details > Scorecard.sarif
+          "${RUNNER_TEMP}/scorecard" --repo="github.com/${RepositoryName}" \
+            --commit="${CandidateSha}" --format=sarif --show-details > ScorecardCandidate.sarif
 
       - name: Summarize Scorecard results
         run: |
           set -euo pipefail
-          jq -r '.runs[0].results[] | [.ruleId, (.message.text // "")] | @tsv' Scorecard.sarif
+          jq --exit-status '.runs | length > 0' Scorecard.sarif ScorecardCandidate.sarif
+          jq -r '.runs[0].results[] | [.ruleId, (.message.text // "")] | @tsv' \
+            Scorecard.sarif ScorecardCandidate.sarif
 
   trivy:
     if: github.event_name == 'merge_group'

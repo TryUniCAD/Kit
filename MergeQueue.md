@@ -9,6 +9,12 @@ Kit uses GitHub's native merge queue for `main`. The desired settings live in
 [`.github/MergeQueue.json`](.github/MergeQueue.json). Repository settings are
 outside Git history: merging this configuration PR does not activate them.
 
+The live `Protect` ruleset no longer requires `Greptile Review`. Required status
+checks apply to queue candidates too, but Greptile does not report on those
+commits. Review evidence remains a separate PR requirement. This scoped settings
+change leaves `CI Agg` and all other rules intact; the checked-in desired ruleset
+and live rules must still be inspected separately.
+
 ## Validation phases
 
 PRs run Python lint, formatting, types, steering, import, SPDX, path, skill, and
@@ -100,6 +106,15 @@ with the same display name from another workflow cannot substitute.
 `Merge queue acceptance` context on PRs with an explicit deferral summary. Its
 acceptance jobs are deliberately skipped at this stage, so green PR checks
 establish eligibility for queue enrollment, not acceptance success.
+
+The `Scorecard` job uses the checksum-pinned OpenSSF Scorecard CLI instead of
+`ossf/scorecard-action`, which rejects `merge_group` events. It runs the complete
+default repository scan and then the commit-compatible checks against the exact
+`merge_group.head_sha`. The second scan supplements the repository scan because
+commit-specific mode omits checks that cannot evaluate arbitrary commits. Both
+SARIF reports are summarized in the job log, command failures fail the job, and
+`Merge queue acceptance` still requires it. Results are not published to the
+Scorecard API. See [the repair and verification entry](Documentation/Changes/QueueScorecard.md).
 
 On `merge_group.checks_requested`, the same workflow runs the complete pytest
 suite, both CodeQL language analyses, and every existing heavy security/SBOM scanner

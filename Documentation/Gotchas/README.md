@@ -25,4 +25,6 @@ Read this log before working in an affected area. Keep entries short, searchable
 
 - **PR aggregation reads trusted base code:** Expected a reporter change on a PR branch to change that PR's `CI Agg`; `pull_request_target` loads the base revision. Merge the reporter change through its own reviewed PR before relying on the new exclusions in another PR. See [review provider exclusions](../Changes/ReviewProviderExclusions.md).
 
+- **Scorecard Action rejects merge groups:** Expected `publish_results: false` to permit queue scans; the action still rejects `merge_group` before analysis. Use the pinned CLI for both the full repository scan and the exact candidate's commit-compatible checks. Required Greptile statuses also apply to queue commits where that app reports no status; remove that direct requirement separately from CI aggregation. See [the failure and repair](../Changes/QueueScorecard.md).
+
 If you discover a new gotcha, unexpected API behavior, wrong assumption, or undocumented quirk while working on this codebase, you MUST add it to the bullet list above before finishing your task. This is mandatory, not optional. Future you (or a different agent) will thank you. Format: - Short description of the gotcha, what you expected vs what actually happened, and the fix or workaround.
