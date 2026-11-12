@@ -10,17 +10,9 @@ comment across agent guidance, skill metadata, and follow-up examples. Changing
 reviewers required editing multiple files, and the skill exempted its own edits
 from activation.
 
-The Reviewers array in
-[ReviewBot.json](../../.agents/skills/standard-pr-practice/ReviewBot.json)
-defines reviewer identities, required native reports, and exact top-level
-requests. Agents reload it before requesting review and submit each configured
-request verbatim once per accepted head unless that reviewer already has a
-request or review. Each configured reviewer must pass its listed reports and
-submit a current-head approval. Both configured entries are intentional and
-follow the two-reviewer configuration in [PR #74](https://github.com/TryUniCAD/Kit/pull/74).
-The previous request mentioned a regular GitHub user and did not invoke the
-installed review app. The existing GitHub ruleset and queue acceptance checks
-are managed separately from the configured reviewer approvals.
+The original request pointed at a regular GitHub user and did not invoke the
+installed app. The corrected configuration and current approval requirements
+are documented in [Configurable PR reviewers](ConfigurableReviewers.md).
 
 Both [AGENTS.md](../../AGENTS.md) and [CLAUDE.md](../../CLAUDE.md) require activating
 [standard-pr-practice](../../.agents/skills/standard-pr-practice/SKILL.md) before
