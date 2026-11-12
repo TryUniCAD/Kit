@@ -8,6 +8,7 @@ function BuildReports(CaseMode, Verdict, CheckName) {
   const IsQueue = CaseMode.startsWith("queue");
   const HeadSha = "a".repeat(40);
   const { Checks, Runs } = BuildExpected(IsQueue, HeadSha);
+  const Expected = Checks.map(({ name, html_url }) => ({ name, html_url }));
   const Reviews = BuildReviews(Verdict);
   const Statuses = Reviews.Statuses;
 
@@ -82,6 +83,7 @@ function BuildReports(CaseMode, Verdict, CheckName) {
     ],
     Statuses,
     Runs,
+    Expected,
   };
 }
 

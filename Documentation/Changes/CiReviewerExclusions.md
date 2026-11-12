@@ -25,8 +25,9 @@ current-head approvals, and findings during review follow-up.
 The allowlist was matched against GitHub's
 [PR runs](https://github.com/TryUniCAD/Kit/pull/76/checks?sha=5648a56d4b2b36fcb6da05dcac9551836dab6ea2)
 and [merge-group acceptance jobs](https://github.com/TryUniCAD/Kit/actions/runs/43166611149).
-The remote CI policy suite exercises the complete reporter with API-shaped
-responses, including pending and failed review reports, unknown workflows and
+The remote CI policy suite builds its job inventory from the workflow files and
+checks that the reporter includes every job for each phase. Its API-shaped
+responses exercise pending and failed review reports, unknown workflows and
 jobs, a same-name report from the wrong workflow, and required CI failures.
 The live aggregate loads the trusted base revision, so the allowlist takes
 effect for new runs after the change reaches that branch.
