@@ -20,7 +20,7 @@ Each `pcurve` support is a reference to an earlier `t_spl_sur` entry. Only the f
 
 ## Workaround
 
-Keep a reference as the typed `SubtypeRef(Index)` value. Do not renumber it when entities move. Rebuild the table in stream order when you validate a stream. `CheckSubtypes` rejects a forward reference and a reference to an entry of a different subtype name.
+Keep a reference as the typed `SubtypeRef(Family, Index)` value. `PermuteGeometry` and `PermuteJournal` renumber references when entities move. Rebuild the table in stream order when you validate a stream. `CheckSubtypes` rejects a forward reference and a reference to an entry of a different subtype family. The emitters run this check, so they reject an order that puts a reference before its definition.
 
 ## Evidence
 

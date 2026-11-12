@@ -10,13 +10,15 @@ The converted body uses three new journal entity types in `convert.formats.Fusio
 
 | Entity | Type | Main fields |
 | --- | --- | --- |
-| `spline-surface` | `SplineNode` | `Surface` as `TsplineSurf` or `SubtypeRef`, four bounds |
-| `intcurve-curve` | `IntcurveNode` | `Curve` as `ExactCurve` with a `NubsCurve` cache |
-| `pcurve` | `PcurveNode` | `Curve` as `ParCurve` with a `NubsCurve` cache and a T-spline support |
+| `spline-surface` | `SplineNode` | `Surface` as `TsplineSurf`, `SubtypeRef` or a general `SubtypeNode`, four bounds |
+| `intcurve-curve` | `IntcurveNode` | `Curve` as an `exact_int_cur` `SubtypeNode` or a `SubtypeRef` |
+| `pcurve` | `PcurveNode` | `Curve` as an `exp_par_cur` `SubtypeNode` whose `spline` support holds a `TsplineSurf` or a `SubtypeRef` |
 
 `TsplineSurf` holds the revision, the `NubsSurface` cache, the fit tolerance, six jump arrays, four optional ranges, a type code and a face index. Its `Subtrans` field is a `SubtransNode` or a `SubtypeRef`. A `SubtransNode` holds the embedded `TsplineSurface` and the patch program as `PatchCell` rows. `CoedgeNode.Pcurve` now keeps the coedge reference to its `pcurve`.
 
-`ListPrograms(Entities)` returns the embedded T-spline programs of a body. `ListSubtypes` and `CheckSubtypes` expose and check the subtype table. `ReadAsmToken` reads tag 8 text, and `EmitWireField` writes tags 8, 13 and 21. `NamedMetadata.ElementName` keeps the element metatype of `Vector` named metadata.
+The complex geometry change merged these entities with the general subtype grammar. The [complex geometry change entry](../Geometry/FusionComplexGeometry.md) describes that model.
+
+`ListPrograms(Entities)` returns the embedded T-spline programs of a body. `ListTsplines(Entities)` returns each `TsplineSurf` in stream order. `ListSubtypes` and `CheckSubtypes` expose and check the subtype table. `ReadAsmToken` reads tag 8 text, and `EmitWireField` writes tags 8, 13 and 21. `NamedMetadata.ElementName` keeps the element metatype of `Vector` named metadata.
 
 ## Joins
 
