@@ -1,4 +1,7 @@
 from convert.formats.Fusion.ContainerCodec.Model.ContainerPart import ContainerPart
+from convert.formats.Fusion.DocumentCodec.Auxiliary.Graphics.ReadSceneParts import (
+    ReadSceneParts,
+)
 from convert.formats.Fusion.DocumentCodec.Auxiliary.Configuration.ReadConfigPart import (
     ReadConfigPart,
 )
@@ -22,6 +25,8 @@ def ReadDocParts(
     Snapshots: list[DocumentSnap] = []
     Configurations: list[ConfigPart] = []
     for Value in Values:
+        if Value.Name.startswith("OGS.BlobFolder/"):
+            continue
         if Value.Name.startswith("ProteinAssets.BlobParts/"):
             Materials.append(ReadMatPart(Value))
         elif Value.Name.startswith("DesignConfigurationTable.BlobParts/"):
@@ -31,5 +36,9 @@ def ReadDocParts(
         else:
             Bodies.append(ReadBodyPart(Value))
     return DocumentParts(
-        tuple(Bodies), tuple(Materials), tuple(Snapshots), tuple(Configurations)
+        tuple(Bodies),
+        tuple(Materials),
+        tuple(Snapshots),
+        tuple(Configurations),
+        ReadSceneParts(Values),
     )

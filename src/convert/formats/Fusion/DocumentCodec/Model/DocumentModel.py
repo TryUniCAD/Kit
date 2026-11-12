@@ -1,4 +1,5 @@
 from dataclasses import dataclass as MakeDataClass
+from convert.formats.Fusion.GraphicsCodec.Model.State.GraphicScene import GraphicScene
 
 from convert.formats.Fusion.ContainerCodec.Model.AssetHeader import AssetHeader
 from convert.formats.Fusion.ContainerCodec.Model.ContainerPart import ContainerPart
@@ -21,3 +22,4 @@ class DocumentModel:
     Materials: tuple[MaterialPart, ...] = ()
     Snapshots: tuple[DocumentSnap, ...] = ()
     Configurations: tuple[ConfigPart, ...] = ()
+    Graphics: GraphicScene | None = None

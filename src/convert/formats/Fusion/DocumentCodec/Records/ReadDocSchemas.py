@@ -1,4 +1,7 @@
 from pathlib import Path
+from convert.formats.Fusion.DocumentCodec.Records.NativeAuxiliary import (
+    KAuxiliarySchemas,
+)
 
 from convert.formats.Fusion.DocumentCodec.Vocabulary.ReadVocabulary import (
     ReadVocabulary,
@@ -21,4 +24,4 @@ def ReadDocSchemas() -> tuple[ClassSchema, ...]:
             if Previous is not None and Previous != Schema.Value:
                 raise ValueError("Conflicting native schema vocabulary")
             Catalog[ClassGuid] = Schema.Value
-    return tuple(Catalog.values())
+    return tuple(Catalog.values()) + KAuxiliarySchemas

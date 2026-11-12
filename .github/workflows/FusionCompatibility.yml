@@ -68,3 +68,6 @@ jobs:
           tests/convert/formats/FusionCodec/Documents
           tests/convert/formats/FusionCodec/Corpus
           tests/convert/formats/FusionCodec/Bundles
+          tests/convert/api/Fusion
+          tests/convert/api/ApiCatalogTests.py
+          tests/convert/api/ApiFusionTests.py

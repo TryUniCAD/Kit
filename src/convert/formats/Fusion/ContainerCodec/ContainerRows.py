@@ -1,4 +1,5 @@
 from typing import cast as CastValue
+from convert.formats.Fusion.ContainerCodec.PartDirs import PartDirs
 
 from convert.formats.Fusion.AssetCodec.Zip.ZipAssetRow import ZipAssetRow
 from convert.formats.Fusion.AssetCodec.Zip.ZipNames import CheckZipPaths
@@ -53,6 +54,7 @@ def ContainerRows(Value: FusionContainer) -> tuple[ZipAssetRow, ...]:
     Directories.update(
         KAssetPrefix + Folder + "/" for Folder in (*PartFolders, *Value.EmptyFolders)
     )
+    Directories.update(PartDirs(Value.Parts))
     Entries = [ZipAssetRow(Folder, b"", False) for Folder in sorted(Directories)]
     Entries.extend(
         (

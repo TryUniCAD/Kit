@@ -91,6 +91,7 @@ adapters = {adapter.format_id for adapter in available_adapters()}
 assert adapters == {
     "catia.v5",
     "freecad.fcstd",
+    "fusion.f3d",
     "interchange.json",
     "solidworks.sldprt",
 }

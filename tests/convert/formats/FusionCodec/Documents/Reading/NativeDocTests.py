@@ -1,6 +1,6 @@
 from sys import version_info as PythonVersion
 
-from pytest import mark as TestMarks, raises as Raises
+from pytest import mark as TestMarks
 
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from convert.formats.Fusion.DocumentCodec.Records.EmitDocSegment import EmitDocSegment
@@ -40,5 +40,7 @@ def TestNativeGraph() -> None:
     PythonVersion < (3, 14), reason="native Fusion fixture requires ZIP Zstandard"
 )
 def TestNativeParts() -> None:
-    with Raises(ValueError, match="unaccounted Fusion container members"):
-        _ = ReadDocument(KNativeSource.read_bytes())
+    Value = ReadDocument(KNativeSource.read_bytes())
+    assert Value.Graphics is not None
+    assert len(Value.Graphics.Objects) == 39
+    assert len(Value.Segments) == 3

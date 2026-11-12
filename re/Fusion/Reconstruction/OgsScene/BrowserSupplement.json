@@ -1,0 +1,19 @@
+{
+  "source": "re/Fusion/LocalOracle/Reflection/Versions.json",
+  "sourceSha256": "aae72bc66c7e0ab34ce2ee7545af7fa5a8eba81ceef48261069a0d7ddec82f99",
+  "name": "VisualAnalysesBrowserEntryMetaType",
+  "identifier": "75CB256B-FDDE-44D6-AE08-4DB583875AB7",
+  "baseIdentifier": "6AE9DE8C-A6F6-40CB-B13D-4091AEA4968D",
+  "lookupVersion": 0,
+  "ownMemberSet": {
+    "relation": "own",
+    "lookup_version": 0,
+    "version_resolution": "exact_member_set_lookup",
+    "metatype_identifier": "75CB256B-FDDE-44D6-AE08-4DB583875AB7",
+    "metatype_current_version": 0,
+    "initialized": true,
+    "members": []
+  },
+  "qualifiedBaseGuid": "6AE9DE8C-A6F6-40CB-B13D-4091AEA4968D",
+  "inference": "No additional own payload bytes; inherited fields use existing exact registered base schemas. This is an explicit schema supplement, not a fallback or a metadata-inferred empty class."
+}

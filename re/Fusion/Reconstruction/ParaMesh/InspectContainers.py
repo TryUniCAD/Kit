@@ -275,6 +275,11 @@ for row in inventory["archives"]:
             except Exception as error:
                 report["failures"].append({**identity, "error": str(error)})
 report["summary"] = {"decoded": len(report["containers"]), "failures": len(report["failures"]), "encoded_bytes": sum(row["bytes"] for row in report["containers"]), "vertices": sum(row["vertices"] for row in report["containers"]), "triangles": sum(row["triangles"] for row in report["containers"]), "stream_descriptors": dict(Counter(json.dumps(stream["descriptor"], sort_keys=True) for row in report["containers"] for stream in row["streams"]))}
-(ROOT / "ContainerFields.json").write_text(json.dumps(report, indent=2) + "\n")
+details = lzma.compress((json.dumps(report, indent=2) + "\n").encode())
+(ROOT / "ContainerFields.json.xz").write_bytes(details)
+index = {key: report[key] for key in ("scope", "upstream", "attribution", "summary", "failures")}
+index["details"] = {"file": "ContainerFields.json.xz", "sha256": hashlib.sha256(details).hexdigest(), "encoding": "xz-compressed UTF-8 JSON"}
+index["containers"] = [{key: row[key] for key in ("archive", "member", "bytes", "sha256", "vertices", "triangles", "consumed_bytes")} for row in report["containers"]]
+(ROOT / "ContainerFields.json").write_text(json.dumps(index, indent=2) + "\n")
 print(json.dumps(report["summary"], indent=2))
 print(json.dumps(report["failures"][:3], indent=2))

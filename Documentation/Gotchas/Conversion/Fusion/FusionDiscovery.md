@@ -1,3 +1,5 @@
 # Fusion discovery
 
-A packaged reader might appear production-ready. Public discovery excludes the partial Fusion reader. Use the explicit research interface. Do not infer lossless output from a partial read. See [the import record](../../../Changes/Fusion/FusionResearchImport.md).
+Discovery now exposes the [qualified public adapter](../../../Changes/Fusion/Adapter/FusionPublicAdapter.md). That registration does not make every Fusion file losslessly convertible: default strict reads qualify the complete authored feature graph, while `strict=False` explicitly selects the older partial projection. Partial documents retain a diagnostic and source archive payload and are rejected by the native writer.
+
+The earlier [research import](../../../Changes/Fusion/FusionResearchImport.md) excluded Fusion entirely; its registration restriction is historical.

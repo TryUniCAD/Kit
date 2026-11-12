@@ -2,6 +2,9 @@ from convert.formats.Fusion.DocumentCodec.Reading.Materials.GroupFields import (
     GroupFields,
 )
 from convert.formats.Fusion.EntityCodec.Model.OptionalValue import OptionalValue
+from convert.formats.Fusion.DocumentCodec.Reading.Materials.ResolveMatAsset import (
+    ResolveMatAsset,
+)
 from convert.formats.Fusion.EntityCodec.Model.SegmentRef import SegmentRef
 from convert.formats.Fusion.EntityCodec.Model.ValueObject import ValueObject
 from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
@@ -36,8 +39,7 @@ def CheckBodyMat(
     Package = Managers.get(Reference.ObjectId)
     if Package is None:
         raise ValueError("Body material manager has no package")
-    Assets = {Asset.InstanceId: Asset for Asset in Package.Assets}
-    Asset = Assets.get(Identity)
+    Asset = ResolveMatAsset(Package, Identity)
     if (
         Asset is None
         or Asset.AssetRole != RoleName

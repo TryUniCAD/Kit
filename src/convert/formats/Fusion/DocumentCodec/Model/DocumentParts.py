@@ -1,4 +1,5 @@
 from dataclasses import dataclass as MakeDataClass
+from convert.formats.Fusion.GraphicsCodec.Model.State.GraphicScene import GraphicScene
 
 from convert.formats.Fusion.DocumentCodec.Model.ConfigPart import ConfigPart
 from convert.formats.Fusion.DocumentCodec.Model.DocumentBody import DocumentBody
@@ -12,3 +13,4 @@ class DocumentParts:
     Materials: tuple[MaterialPart, ...]
     Snapshots: tuple[DocumentSnap, ...]
     Configurations: tuple[ConfigPart, ...]
+    Graphics: GraphicScene | None = None

@@ -13,12 +13,11 @@ The change is larger than a research-corpus import.
 
 ## Availability
 
-Production discovery excludes `Fusion`.
-It must not advertise or resolve `fusion.f3d` or the `f3d` alias.
-Research callers instantiate `FusionReader` explicitly with `ReadOptions`.
+The original import excluded `Fusion` from production discovery. The later
+[qualified public adapter](Adapter/FusionPublicAdapter.md) supersedes that restriction
+for six authored profiles. The partial reader remains available only through
+explicit `strict=False` opt-in and does not gain a native writer by that opt-in.
 See [the research reader guide](../../../re/Fusion/Notes/SdkReader.md).
-Tests opt in through `tests/convert/FusionRead.py`.
-That opt-in is not a production registration mechanism.
 
 ## Limits
 

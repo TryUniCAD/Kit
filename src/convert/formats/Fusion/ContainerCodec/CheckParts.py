@@ -1,4 +1,5 @@
 from typing import cast as CastValue
+from convert.formats.Fusion.ContainerCodec.IsGraphicPath import IsGraphicPath
 
 from convert.formats.Fusion.AssetCodec.Zip.ZipLimits import (
     KMaxMemberBytes,
@@ -27,7 +28,7 @@ def CheckParts(Values: tuple[ContainerPart, ...], *, IsPreview: bool = False) ->
         _ = EncodeZipName(Entry.Name)
         Sections = Entry.Name.split("/")
         if (
-            len(Sections) != 2
+            (len(Sections) != 2 and (IsPreview or not IsGraphicPath(Entry.Name)))
             or not Sections[1]
             or (
                 Entry.Name not in KPreviewNames

@@ -1,0 +1,383 @@
+{
+  "applicationVersion": "2706.1.17",
+  "architecture": "arm64",
+  "addressBasis": "Unslid Mach-O virtual address",
+  "images": [
+    {
+      "path": "Libraries/libOGSGraphics.dylib",
+      "sha256": "34fd314c426896b8f57039939ab962d76b7963a4dffe771f30aea87afeea1c5a"
+    },
+    {
+      "path": "Libraries/Neutron/NsScene10.dylib",
+      "sha256": "d33789c8c20033f1c7673ff9b1dcf87f1ef7cf9c43c7245d75c8a65a83bc8c82"
+    },
+    {
+      "path": "Libraries/libOGSDevices.dylib",
+      "sha256": "b13952b92d92e91c166abf4d009439cf24a1d5af1d51497db64e57c3b4c7041f"
+    },
+    {
+      "path": "Libraries/libOGSDeviceMetal.dylib",
+      "sha256": "5536aff16056f6d9320734c9f473a7eb022a22e562d67d8dfe67211588a13f06"
+    }
+  ],
+  "facts": [
+    {
+      "image": "Libraries/libOGSGraphics.dylib",
+      "name": "WideString",
+      "symbol": "OGS::Serialization::write(Ns::IWriteStreamBase*, wchar_t const*&)",
+      "addresses": [
+        "0xfa1c4",
+        "0xfa1f8"
+      ],
+      "meaning": "u32 UTF-16 code-unit count followed by UTF-16LE units; no terminator"
+    },
+    {
+      "image": "Libraries/libOGSGraphics.dylib",
+      "name": "DirectProperty",
+      "symbol": "OGS::Serialization::GeneralSerializer::SetProperty",
+      "addresses": [
+        "0xc9eb0",
+        "0xc9ed4",
+        "0xcc41c",
+        "0xcc458"
+      ],
+      "meaning": "When context write stream exists, property name is omitted and known typed value is written directly"
+    },
+    {
+      "image": "Libraries/libOGSGraphics.dylib",
+      "name": "PrimitiveDispatch",
+      "symbol": "OGS::Serialization::GeneralSerializer::StreamArray",
+      "addresses": [
+        "0xcbbdc",
+        "0x37142c"
+      ],
+      "meaning": "Native metadata type dispatch: 7 bool, 9 byte, 12 i32, 13 u32, 16 f32, 17 f64; vector types multiply element count"
+    },
+    {
+      "image": "Libraries/libOGSGraphics.dylib",
+      "name": "MatrixAndBox",
+      "symbol": "OGS::Serialization::GeneralSerializer::Serialize",
+      "addresses": [
+        "0xc9400",
+        "0xc96b8",
+        "0xc99a4"
+      ],
+      "meaning": "SBox3 writes six f64; Box3 six f32; ADevMatrix writes sixteen f32 starting at native matrix+8"
+    },
+    {
+      "image": "Libraries/libOGSGraphics.dylib",
+      "name": "SharedObject",
+      "symbol": "OGS::Serialization::Serializer::Serialize",
+      "addresses": [
+        "0xede70",
+        "0x375364",
+        "0x375370"
+      ],
+      "meaning": "InterfaceID identifies serializer; serializers flagged unique write an object identity string produced by %p; already-seen identity suppresses body"
+    },
+    {
+      "image": "Libraries/libOGSGraphics.dylib",
+      "name": "World",
+      "symbol": "OGS::Serialization::WorldSerializer::Serialize",
+      "addresses": [
+        "0x100ccc",
+        "0x100d30",
+        "0x10109c",
+        "0x10122c"
+      ],
+      "meaning": "InterfaceID, RevisionId:u32, PublishMode:i32, serialized children, WorldSerializerEndMark string; nested ARenderList adds Accelerate:bool, root IWorld dispatch does not"
+    },
+    {
+      "image": "Libraries/Neutron/NsScene10.dylib",
+      "name": "RootVersions",
+      "symbol": "Ns::Scene::SerializationData::Serialize",
+      "addresses": [
+        "0x2b77c4",
+        "0x2b7820",
+        "0x2b7868",
+        "0x2b7888",
+        "0x2b78c4",
+        "0x2b78e8"
+      ],
+      "meaning": "First group writes Size:u32, (InterfaceID:utf16,Version:u32)*Size, EnvironmentVersion:utf16 from IEnvironment::ActiveEnvironmentID"
+    },
+    {
+      "image": "Libraries/Neutron/NsScene10.dylib",
+      "name": "GroupOverride",
+      "symbol": "OGS::Serialization::FusionGroupNodeSerializer::Serialize",
+      "addresses": [
+        "0xadd98",
+        "0xadee8",
+        "0xadf28",
+        "0xae2cc",
+        "0xae38c"
+      ],
+      "meaning": "Fusion replaces generic group framing, writes root versions once, conditional transforms/style/world, then quick NodeDataType branch"
+    },
+    {
+      "image": "Libraries/Neutron/NsScene10.dylib",
+      "name": "QuickNode",
+      "symbol": "OGS::Serialization::NodeDataSerializer::SerializeQ",
+      "addresses": [
+        "0xa8904",
+        "0x1c5fc4",
+        "0x1c6000",
+        "0x1c6140"
+      ],
+      "meaning": "Quick base writes NodeType and AttributeType without class/handle; NodeData suffix includes numeric segment/entity links and typed presentation flags"
+    },
+    {
+      "image": "Libraries/Neutron/NsScene10.dylib",
+      "name": "SimpleMeshOverride",
+      "symbol": "Ns::Serialization::OgsSimpleMeshSerializer::Serialize",
+      "addresses": [
+        "0x163a90",
+        "0x163b18",
+        "0x163b50",
+        "0x163c2c",
+        "0x163c5c",
+        "0x163c94",
+        "0x163e70"
+      ],
+      "meaning": "Fusion custom mesh omits generic RenderGeom VertexFormat link; writes Modelbox, PrimitiveType, inline vertex buffer, optional index serializer, Planarity"
+    },
+    {
+      "image": "Libraries/libOGSGraphics.dylib",
+      "name": "VertexRange",
+      "symbol": "OGS::Serialization::MeshStreamSerializer::Serialize(OGS::Devices::AVertexBuffer",
+      "addresses": [
+        "0xd5350",
+        "0xd541c",
+        "0xd5424",
+        "0xd5444",
+        "0xd54d0",
+        "0xd5508"
+      ],
+      "meaning": "Three i32: stream number, byte offset, byte length; separate stream_mesh_%03d receives exactly byte length bytes"
+    },
+    {
+      "image": "Libraries/libOGSGraphics.dylib",
+      "name": "IndexRange",
+      "symbol": "OGS::Serialization::MeshStreamSerializer::Serialize(OGS::Devices::AIndexBuffer",
+      "addresses": [
+        "0xd580c",
+        "0xd58d4",
+        "0xd58dc",
+        "0xd58e4",
+        "0xd5908"
+      ],
+      "meaning": "Four i32: stream number, byte offset, byte length, index stride equals 2; last flag selects u16 versus u32 indices"
+    },
+    {
+      "image": "Libraries/libOGSGraphics.dylib",
+      "name": "VertexFields",
+      "symbol": "OGS::Serialization::VertexFormatSerializer::Serialize",
+      "addresses": [
+        "0xfeacc",
+        "0xfebf0",
+        "0xfec50",
+        "0xfec74",
+        "0xfecf8"
+      ],
+      "meaning": "Field count followed by six i32 per native VertexField, member offsets +0x10 through +0x24"
+    },
+    {
+      "image": "Libraries/libOGSDevices.dylib",
+      "name": "VertexFieldConstructor",
+      "symbol": "OGS::Devices::VertexField::VertexField(OGS::Devices::EVertexFieldUsage",
+      "addresses": [
+        "0x15ec90",
+        "0x15ecb0",
+        "0x15ecbc",
+        "0x15ecc4"
+      ],
+      "meaning": "Member order: type enum, usage enum, offset, stream index, usage index, instance control; stream initially bool(instance control>0), usage index=(usage>>8)&15"
+    },
+    {
+      "image": "Libraries/libOGSDevices.dylib",
+      "name": "StreamAndUsage",
+      "symbol": "OGS::Devices::VertexFormat::",
+      "addresses": [
+        "0x15f3e0",
+        "0x1602fc",
+        "0x161ddc",
+        "0x161c4c",
+        "0x161d54",
+        "0x161040"
+      ],
+      "meaning": "StreamCount and ToSingle/ToMultiStream prove +0x1c stream index; IndexOf(usage,index) proves +0x20 usage index; Offset(usage) returns +0x18"
+    },
+    {
+      "image": "Libraries/libOGSDeviceMetal.dylib",
+      "name": "VertexMeaning",
+      "symbol": "OGS::Devices::VertexDescriptorMetal::OGSVertexFormatToMetal",
+      "addresses": [
+        "0x33124",
+        "0x332d8",
+        "0x332f4",
+        "0x33304",
+        "0x33394",
+        "0x333b0"
+      ],
+      "meaning": "Native Metal adapter converts type enum to MTL format; offset multiplied by four; stream member becomes bufferIndex; instance control>0 selects PerInstance, otherwise PerVertex; Metal step rate fixed 1"
+    },
+    {
+      "image": "Libraries/libOGSGraphics.dylib",
+      "name": "RootWorldDispatch",
+      "symbol": "OGS::Serialization::PersistentObjectManager::SaveWorld(IDataDriver*)",
+      "addresses": [
+        "0xe12e4",
+        "0xe1390",
+        "0xe139c"
+      ],
+      "meaning": "Root requests IWorld serializer, so ARenderList root omits derived Accelerate; nested ARenderList uses derived serializer"
+    },
+    {
+      "image": "Libraries/Neutron/NsScene10.dylib",
+      "name": "EntityByteOrder",
+      "symbol": "Ns::Scene::NodeDataSerializer::SerializeQ",
+      "addresses": [
+        "0x1c60dc",
+        "0x1c6120",
+        "0x3a8890",
+        "0x3a88c0"
+      ],
+      "meaning": "EntityID constructed as eight explicitly shifted bytes, big-endian numeric order; not ordinary little-endian uint64 primitive"
+    },
+    {
+      "image": "Libraries/Neutron/NsScene10.dylib",
+      "name": "EntityPredicates",
+      "symbol": "Ns::Scene::NodeData::hasEntity / hasAppendixEntity",
+      "addresses": [
+        "0x1bc790",
+        "0x1bc7a0"
+      ],
+      "meaning": "Entity status1 and2 carry segment/entity identity;0 omits it"
+    },
+    {
+      "image": "Libraries/Neutron/NsScene10.dylib",
+      "name": "EmptyAttributeKinds",
+      "symbol": "Ns::Serialization::ANodeDataSerializer::SerializeQ",
+      "addresses": [
+        "0xa89c8",
+        "0xa8abc"
+      ],
+      "meaning": "Empty ordinary kind0 and empty extended kind1 omit attribute-set payload; populated2/3 select ordinary/extended"
+    },
+    {
+      "image": "Libraries/Neutron/NsScene10.dylib",
+      "name": "QuickNodeSelectors",
+      "symbol": "GetNodeDataSerializer / F360InstanceNodeSerilizer",
+      "addresses": [
+        "0x2bae40",
+        "0x1060fc",
+        "0x106c4c"
+      ],
+      "meaning": "Selectors2/3/5/6/7 share NodeData quick payload;4 adds IsXRef, conditional ACTEntityID bytes, InstanceIDu32"
+    },
+    {
+      "image": "Libraries/Neutron/NsScene10.dylib",
+      "name": "BrepWorld",
+      "symbol": "FusionGroupNodeSerializer::SerializeBrepBody",
+      "addresses": [
+        "0xaefac",
+        "0xaeaf8",
+        "0xb4180"
+      ],
+      "meaning": "ValidBody flag, edge quickgroup and LOD vector, face quickgroup and LOD vector, optional double-precision modelbox"
+    },
+    {
+      "image": "Libraries/Neutron/NsScene10.dylib",
+      "name": "SketchWorld",
+      "symbol": "FusionGroupNodeSerializer::SerializeSketch",
+      "addresses": [
+        "0xae634",
+        "0xb4180"
+      ],
+      "meaning": "Optional faces BRep world, signed LOD and regular node counts, LOD nodes, regular nodes and nonculling nodes"
+    },
+    {
+      "image": "Libraries/Neutron/NsScene10.dylib",
+      "name": "TextureMappingCache",
+      "symbol": "TextureMappingCache::SerializeCache / SerializeCacheData",
+      "addresses": [
+        "0x5ec34",
+        "0x5f47c",
+        "0x4bf630",
+        "0x4bf658"
+      ],
+      "meaning": "Layered flag, primary cache, optional secondary cache; each modei32,axis3d,box6d,baked16d,mapping16d;mode4 adds cylinder-cap booleans,mode6 adds wood-origin and board-face-axis3d"
+    }
+  ],
+  "vertexTypes": {
+    "sizesTableAddress": "0x4553e0",
+    "sizes": [
+      4,
+      8,
+      12,
+      16,
+      4,
+      4,
+      4,
+      8,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      8,
+      0,
+      0,
+      0,
+      4,
+      8,
+      12,
+      16
+    ],
+    "metalFormatTableAddress": "0x43bb8",
+    "metalFormatsForNative1Through3": [
+      29,
+      30,
+      31
+    ],
+    "native0MetalDefault": 28,
+    "qualifiedTypes": {
+      "1": "f32x2",
+      "2": "f32x3"
+    },
+    "usageNames": {
+      "0": {
+        "literalAddress": "0x454ff0",
+        "text": "POSITION"
+      },
+      "1": {
+        "literalAddress": "0x455014",
+        "text": "NORMAL"
+      },
+      "2": {
+        "literalAddress": "0x455128",
+        "text": "TEXCOORD0"
+      }
+    }
+  },
+  "metalEnumSource": {
+    "path": "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLVertexDescriptor.h",
+    "sha256": "50a52f863a97b22e99baa2dede1c523215e6eeb6fea4323a793e31858fe4395f",
+    "enumValues": {
+      "Float": 28,
+      "Float2": 29,
+      "Float3": 30,
+      "Float4": 31,
+      "PerVertex": 1,
+      "PerInstance": 2
+    }
+  },
+  "limits": [
+    "Instance control complete portable integer semantics beyond the tested zero profile unresolved; Metal uses only its sign",
+    "Native property names are not persisted; static call extraction includes branches and cannot itself establish linear layout",
+    "Only the two documented profiles are completely qualified; other native callbacks remain unsupported. Native complete-document acceptance is recorded separately in LocalOracle/NativeDocuments"
+  ]
+}

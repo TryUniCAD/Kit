@@ -2,7 +2,7 @@
 
 ## Evidence and qualification
 
-The [inventory](CorpusInventory.json) finds 103 `.paramesh` members in the indexed 712-archive corpus and no `.tsm` members. The independently written [research inspector](InspectContainers.py) consumes all 141,403 encoded member bytes, decompresses all 618 streams, and resolves 7,691 vertices and 14,935 triangles. [ContainerFields.json](ContainerFields.json) records each source/member digest, registry, stream descriptor, decoded-stream digest, count and offset. It also resolves normal overrides, feature-edge topology and face-group memberships with zero inspection failures.
+The [inventory](CorpusInventory.json) finds 103 `.paramesh` members in the indexed 712-archive corpus and no `.tsm` members. The independently written [research inspector](InspectContainers.py) consumes all 141,403 encoded member bytes, decompresses all 618 streams, and resolves 7,691 vertices and 14,935 triangles. [ContainerFields.json](ContainerFields.json) records source/member digests and counts and binds the [compressed complete field report](ContainerFields.json.xz) by SHA-256. The complete report preserves every registry, stream descriptor, decoded-stream digest and offset. It also resolves normal overrides, feature-edge topology and face-group memberships with zero inspection failures.
 
 These are read-only corpus findings. No production mesh codec or native acceptance is established by this report. Coordinates are in each container's local frame; the owning Design entity's placement remains necessary to obtain model geometry. All samples use the same three descriptor shapes. Split components, textures and arbitrary attribute channels are not qualified by this corpus.
 
