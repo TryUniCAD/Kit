@@ -201,5 +201,11 @@
     "codeLicense": "Apache-2.0",
     "specLicense": "CC-BY-4.0",
     "use": "Independent comparison of history framing and archived revision semantics; disputed preamble labels are superseded by the native evidence above"
+  },
+  "deltaStateId": {
+    "nativeOffset": "0x10",
+    "saveLoad": "0x62cba4 ldr w0, [x20, #0x10]",
+    "saveCall": "0x62cba8 bl 0x53a4a8 write_int(int)",
+    "domain": "signed 32-bit native integer; qualified production IDs are nonnegative"
   }
 }

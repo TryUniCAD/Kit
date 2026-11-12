@@ -1,0 +1,82 @@
+{
+  "schema": "FusionDeltaAndTrackedAttributeSemantics/1",
+  "scope": "Static symbols, instructions, import table and string literals; no native execution",
+  "binaries": {
+    "kernel": {
+      "path": "/tmp/kit-fusion-native-analysis/libASMkern232.arm64.dylib",
+      "sha256": "5ad7bc0099f1093e82f99110355ad2100b77fc47446c3d75befaaac81484d4a4"
+    },
+    "tagging": {
+      "path": "/tmp/kit-fusion-native-analysis/NaTagDefs10.arm64.dylib",
+      "sha256": "6e063e58c5c99978a58bf8ebf99a8024a3a288f269292db960eb59424cb1bfc8"
+    }
+  },
+  "disassembly": {
+    "path": "NativeStateDetails.json.xz",
+    "sha256": "b8b3167d7c529f41679c530fde3a8d85503eef6c32adef15c4476fa6ced13462"
+  },
+  "deltaFields": [
+    {
+      "name": "rollsBack",
+      "offset": "0x14",
+      "instruction": "0x16a08c ldrb w8, [x20,#0x14]",
+      "meaning": "native debug calls the same flag backward in DELTA_STATE::debug"
+    },
+    {
+      "name": "hidden",
+      "offset": "0x15",
+      "instruction": "0x16a090 ldrb w9, [x20,#0x15]",
+      "proofStringAddress": "0xab5d43"
+    },
+    {
+      "name": "partnerNode",
+      "offset": "0x30",
+      "instruction": "0x16a0a8 ldr x8, [x20,#0x30]",
+      "proofStringAddress": "0xab5d64"
+    },
+    {
+      "name": "mergedWithNode",
+      "offset": "0x50",
+      "instruction": "0x16a0b4 ldr x9, [x20,#0x50]",
+      "proofStringAddress": "0xab5d64"
+    }
+  ],
+  "nativeDebugStrings": {
+    "0xab5d0f": "    from_state: %d   to_state: %d   this_state: %d\n",
+    "0xab5d43": "    rolls_back: %d   hidden: %d\n",
+    "0xab5d64": "    partner_ds: ds %d   merged_with_ds: ds %d\n",
+    "0xab5de9": "        check_status: %s   status: %s\n"
+  },
+  "boardEnumBound": "BULLETIN_BOARD::tree_debug_node compares signed status at +0x50 with 3 at 0x16a154..0x16a15c before its four-name lookup",
+  "trackedAttribute": {
+    "family": "FPM_tracked_attrib_def",
+    "qualifiedSchema": 1,
+    "payloadFields": [
+      {
+        "name": "trackedTagId",
+        "nativeType": "TaggingInterface::tracked_tag_id containing signed int",
+        "tagObjectOffset": "0x8",
+        "attributeObjectOffset": "0x18",
+        "saveInstructions": [
+          "0x12b84 loads w1 from attribute+0x18",
+          "0x12b8c calls save_context::write_int(int)"
+        ],
+        "restoreInstructions": [
+          "0x12bb0 calls restore_context::read_int()",
+          "0x12bb4 stores w0 to attribute+0x18"
+        ]
+      }
+    ],
+    "constructor": "0x12ac8 copies tracked_tag_id+0x8 into attribute+0x18; no-payload constructor initializes -1",
+    "comparison": "tracked_tag_id::operator< at 0x1293c uses signed lt comparison",
+    "qualifiedControlJoin": "Both Draft and offset-cylinder archived attributes use 271; their Design entity 271 is BrepRefMetaType owned by feature267, with rRecipe274. This is a verified source-specific identity match, not proof of a universal allocation rule.",
+    "debugPrefix": "\tOwnerTagId:  ",
+    "importStubs": [
+      "0x00000000000133ec  2410 __ZN3ASM16cast_from_entityI13ATTRIB_CUSTOMEEPT_P6ENTITY",
+      "0x00000000000134ac  2427 __ZNK17SMI_CUSTOM_ENTITY12save_context9write_intEi",
+      "0x00000000000134e8  2432 __ZNK17SMI_CUSTOM_ENTITY15restore_context6entityEv",
+      "0x00000000000134f4  2433 __ZNK17SMI_CUSTOM_ENTITY15restore_context8read_intEv"
+    ]
+  },
+  "qualification": "Observed journals are linear, backward=true, hidden=false, mergedWith=null, optionalName absent and stateList48 empty; nonempty stateList48 semantics and branched/merged execution remain unqualified"
+}

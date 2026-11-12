@@ -71,6 +71,7 @@ report = {
         {'position': 3, 'name': 'nextEntityTag', 'nativeOffset': '0x0', 'save': ['0x62cb5c', '0x62cae8'], 'proof': 'tag at 0x1618e4..0x161904 chooses this counter for an unspecified entity tag and stores chosenTag+1; assign_tag uses the same counter', 'qualification': 'native save option may emit -1 instead; existing production profiles require nonnegative entity-tag state'},
     ],
     'integerDomain': 'All four preamble scalars are native signed int values emitted by write_int(int); BinaryFile8 uses a signed 64-bit tagged wire slot',
+    'deltaStateId': {'nativeOffset': '0x10', 'saveLoad': '0x62cba4 ldr w0, [x20, #0x10]', 'saveCall': '0x62cba8 bl 0x53a4a8 write_int(int)', 'domain': 'signed 32-bit native integer; qualified production IDs are nonnegative'},
     'boardStatus': {'nativeOffset': '0x50', 'save': '0x62dfc0', 'restore': '0x62e0f0 calls read_enum', 'debugLookup': '0x163a48..0x163a54 indexes four strings at 0xb026a8', 'values': statuses},
     'priorHypotheses': [
         {'claim': 'first two values are duplicated stream generation or stream size', 'status': 'refuted', 'reason': 'native accessor and state-allocation instructions prove distinct current and maximum state IDs; rolled_back stores 3 and 10'},

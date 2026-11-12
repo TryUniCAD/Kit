@@ -21,7 +21,7 @@ def read_delta(record):
         if field['tag'] != tag:
             raise ValueError(f'Expected tag {tag}, got {field["tag"]} at field{position-1}')
         return field['value']
-    state = dict(zip(('stateId','backward','flag15','previousNode','nextNode','partnerNode','stateRef50','ownerStream'), [take(tag) for tag in (4,4,4,12,12,12,12,12)]))
+    state = dict(zip(('stateId','backward','hidden','previousNode','nextNode','partnerNode','mergedWithNode','ownerStream'), [take(tag) for tag in (4,4,4,12,12,12,12,12)]))
     present = fields[position]['tag']; position += 1
     if present not in (10,11):
         raise ValueError('Invalid name presence flag')
@@ -75,12 +75,16 @@ def main():
                 except Exception as error:
                     failures.append({'source':source,'error':repr(error)})
     summary={'uniqueHistories':len(output),'sourceHistories':sum(len(entry['sources']) for entry in output),'failures':failures,'stateCounts':dict(collections.Counter(len(entry['states']) for entry in output)),'entries':output}
-    (out/'Inventory.json').write_text(json.dumps(summary,indent=2)+'\n')
+    encoded = lzma.compress(json.dumps(summary, separators=(',', ':')).encode())
+    (out/'Inventory.json.xz').write_bytes(encoded)
+    compact = {key: value for key, value in summary.items() if key != 'entries'}
+    compact.update(evidence='Inventory.json.xz', evidenceSha256=hashlib.sha256(encoded).hexdigest(), entries=[{'sources': entry['sources'], 'activeCount': entry['activeCount'], 'preamble': entry['preamble'], 'stateIds': [state['stateId'] for state in entry['states']], 'archivedCount': entry['archivedCount']} for entry in output])
+    (out/'Inventory.json').write_text(json.dumps(compact,indent=2)+'\n')
     (out/'ExtendedTokens.json.xz').write_bytes(lzma.compress(json.dumps(allparsed,separators=(',',':')).encode()))
     print(json.dumps({key:value for key,value in summary.items() if key!='entries'},indent=2))
     for entry in output:
         if len(entry['states'])!=2 or entry['preamble'][0]!=entry['preamble'][1]:
-            print(entry['sources'][0]['path'],entry['preamble'],'states',[(state['stateId'],state['previousNode'],state['nextNode'],state['partnerNode'],state['stateRef50'],len(state['boards']),sum(len(board['changes']) for board in state['boards'])) for state in entry['states']],'archive',entry['archivedCount'])
+            print(entry['sources'][0]['path'],entry['preamble'],'states',[(state['stateId'],state['previousNode'],state['nextNode'],state['partnerNode'],state['mergedWithNode'],len(state['boards']),sum(len(board['changes']) for board in state['boards'])) for state in entry['states']],'archive',entry['archivedCount'])
 
 
 if __name__=='__main__':main()
