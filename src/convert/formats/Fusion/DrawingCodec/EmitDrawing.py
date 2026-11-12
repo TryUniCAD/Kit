@@ -3,6 +3,7 @@ from typing import cast as CastValue
 
 from convert.formats.Fusion.DrawingCodec.Manifest.EmitAsset import EmitAsset
 from convert.formats.Fusion.DrawingCodec.Manifest.EmitRoot import EmitRoot
+from convert.formats.Fusion.DrawingCodec.Model.CheckDatabase import CheckDatabase
 from convert.formats.Fusion.DrawingCodec.Model.CheckJoins import CheckJoins
 from convert.formats.Fusion.DrawingCodec.Model.DrawingFolders import (
     ActivePrefix,
@@ -34,6 +35,7 @@ def EmitDrawing(
     if not isinstance(CastValue(object, Value), FusionDrawing):
         raise ValueError("Expected a typed Fusion drawing")
     CheckJoins(Value.Root, Value.Asset, Value.Database)
+    CheckDatabase(Value.Segments, Value.Database)
     Payloads = DrawingPayloads(Value)
     Entries: list[PackageEntry] = []
     for SlotValue in Value.Layout:

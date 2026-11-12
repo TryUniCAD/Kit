@@ -31,6 +31,8 @@ KSourceClass = "3EAD2723-67C3-4C8E-9B9E-1208F04C4C44"
 
 KBrepClass = "E4761EB7-1694-472F-BAC0-24B430387180"
 
+KFileClass = "3B30D852-778A-4752-9EBD-A154875C911C"
+
 KMemberLayout = EntryLayout(0, 0x0800, 0x6A9E, 0x5B6C, 46, 20, 0x81A40000)
 
 
@@ -106,9 +108,6 @@ def TestBadMembers() -> None:
         _ = ReadDrawing(Outside, Replay.Inflate)
     with ExpectError(ValueError, match="require a decoder"):
         _ = ReadDrawing(DataValue)
-    Database = DrawingDatabase("ExtFile.dwg", b"AC1032")
-    with ExpectError(ValueError, match="omits typed members"):
-        _ = EmitDrawing(ReplaceValue(Drawing, Database=Database), Replay.Compress)
     Missing = PackageSlot("Documentation[Active]/Absent.json", KMemberLayout)
     Longer = ReplaceValue(Drawing, Layout=Drawing.Layout + (Missing,))
     with ExpectError(ValueError, match="absent member"):
@@ -116,3 +115,25 @@ def TestBadMembers() -> None:
     Unnamed = DrawingDatabase("Nested/ExtFile.dwg", b"AC1032")
     with ExpectError(ValueError, match="database member"):
         _ = EmitDrawing(ReplaceValue(Drawing, Database=Unnamed), Replay.Compress)
+
+
+def TestDwgJoin() -> None:
+    Replay = FrameReplay()
+    DataValue = DrawingSources()["A1Dimension"]
+    Drawing = ReadDrawing(DataValue, Replay.Inflate)
+    (Serializer,) = ClassFields(Drawing, KFileClass)
+    FileName = Serializer["persistedFileName"]
+    assert isinstance(FileName, str) and FileName.startswith("ExtFile.")
+    Joined = DrawingDatabase(FileName, b"AC1032")
+    with ExpectError(ValueError, match="omits typed members"):
+        _ = EmitDrawing(ReplaceValue(Drawing, Database=Joined), Replay.Compress)
+    Renamed = DrawingDatabase("ExtFile.dwg", b"AC1032")
+    with ExpectError(ValueError, match="disagrees with its segment"):
+        _ = EmitDrawing(ReplaceValue(Drawing, Database=Renamed), Replay.Compress)
+    Package = ReadPackage(DataValue, Replay.Inflate)
+    Stray = PackageEntry(
+        "Documentation[Active]/Dwg.BlobParts/ExtFile.dwg", b"AC1032", KMemberLayout
+    )
+    Grown = EmitPackage(DrawingPackage(Package.Entries + (Stray,)), Replay.Compress)
+    with ExpectError(ValueError, match="disagrees with its segment"):
+        _ = ReadDrawing(Grown, Replay.Inflate)

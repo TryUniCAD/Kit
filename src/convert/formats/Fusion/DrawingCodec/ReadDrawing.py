@@ -3,6 +3,7 @@ from collections.abc import Callable
 from convert.formats.Fusion.ContainerCodec.Model.ContainerPart import ContainerPart
 from convert.formats.Fusion.DrawingCodec.Manifest.ReadAsset import ReadAsset
 from convert.formats.Fusion.DrawingCodec.Manifest.ReadRoot import ReadRoot
+from convert.formats.Fusion.DrawingCodec.Model.CheckDatabase import CheckDatabase
 from convert.formats.Fusion.DrawingCodec.Model.CheckJoins import CheckJoins
 from convert.formats.Fusion.DrawingCodec.Model.DrawingDatabase import DrawingDatabase
 from convert.formats.Fusion.DrawingCodec.Model.DrawingFolders import (
@@ -57,6 +58,7 @@ def ReadDrawing(
     Segments = ReadSegmentsMut(Asset, DrawingFolders(Asset.Segments), Active)
     Database = TakeDatabaseMut(Active)
     CheckJoins(RootValue, Asset, Database)
+    CheckDatabase(Segments, Database)
     Result = FusionDrawing(
         RootValue,
         Asset,
