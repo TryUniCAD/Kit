@@ -3,16 +3,16 @@ SPDX-License-Identifier: MIT
 SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 -->
 
-<p align="center">
-  <img alt="Kit CAD interchange SDK" src="https://raw.githubusercontent.com/TryUniCAD/Kit/b9a022e45431457bb8ba9771d145b46a2cc1c9cc/files/Banner.png">
-</p>
-
 # Kit
 
 Kit is a Python SDK for CAD interchange.
 Readers build a neutral `CadDocument` from source files.
 Writers produce target files and report how they represented the source information.
 Production conversion does not use a CAD application.
+
+[Wiki](https://github.com/TryUniCAD/Kit/wiki)
+
+[![Greptile: The War on Bugs](https://www.greptile.com/badge.svg)](https://www.greptile.com/?utm_source=oss_badge&utm_medium=readme&utm_campaign=greptile_for_open_source)
 
 ## Start here
 
@@ -78,6 +78,10 @@ Use an isolated worktree and a separate PR.
 Add a [change entry](Documentation/Changes/Index.md) for each repository addition.
 Record new discoveries in the [gotchas log](Documentation/Gotchas/README.md).
 Run tests only in remote CI.
+
+## Star history
+
+[![Kit star history](https://api.star-history.com/svg?repos=TryUniCAD/Kit&type=Date)](https://www.star-history.com/#TryUniCAD/Kit&Date)
 
 ## License
 

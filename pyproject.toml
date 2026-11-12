@@ -79,7 +79,7 @@ dev = [
     "defusedxml>=0.7.1",
     "detect-secrets>=1.5.0",
     "dlint>=0.17.0",
-    "mypy>=2.4.0",
+    "mypy>=2.4.1",
     "numpy<2.5",
     "pip-audit>=2.10.1",
     "pyright==1.1.414",
@@ -88,8 +88,8 @@ dev = [
     "semgrep>=1.183.0",
     "setuptools==84.2.1",
     "typing-extensions>=4.12",
-    "types-pywin32>=312.0.0.20261031",
-    "zizmor>=1.31.1",
+    "types-pywin32>=312.0.0.20261104",
+    "zizmor>=1.32.0",
 ]
 [tool.ruff]
 target-version = "py311"

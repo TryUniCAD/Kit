@@ -23,3 +23,4 @@ They do not establish the current CI, deployment, or publication state.
 - [Pyright compatibility](PyrightCompatibility.md)
 - [Merge queue Scorecard execution and review requirements](QueueScorecard.md)
 - [Documentation expansion and standards evidence](DocumentationStandards.md)
+- [README presentation](ReadmePresentation.md)

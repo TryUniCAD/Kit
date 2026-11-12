@@ -30,8 +30,7 @@ The API reference distinguishes `strict`, `allow_carrier`, `values`, and `write_
 The result guide explains the registry's treatment of target-limit carriers.
 The destination guides document partial stream writes and partial B-rep extraction.
 The security and data references distinguish integrity hashes from authentication.
-The README banner uses an absolute image URL pinned to a repository revision.
-The source distribution excludes the local image directory.
+The README retains the wiki link, badge, star history, and banner removal from PR #71.
 
 The reviewer configuration follows the user's current instruction in [ReviewBot.json](../../.agents/skills/standard-pr-practice/ReviewBot.json).
 This setting does not install an integration or change repository protections.
