@@ -35,3 +35,5 @@ Keep source links and historical evidence.
 - **Provenance references:** An array position might appear to identify a generator permanently. Reordering exclusion entries changes that target. Use the stable `DocumentationSources.InitialWiki.Generator` key in [the configuration](../../.agents/skills/standard-pr-practice/ReviewBot.json).
 
 - **Commit-status attribution:** A fixture can include a commit reference that the real status response omits. The [status-list API](https://docs.github.com/en/rest/commits/statuses#list-commit-statuses-for-a-reference) selects the commit through the request path. Remove fixture routing metadata before returning statuses. The production reader must attach the queried reference so integration coverage detects missing revision attribution.
+
+- **Review restarts on unchanged heads:** Passing reports can become pending after PR metadata changes without a new commit. Finish metadata edits before final verification. Read the latest reports even when the head is unchanged. An older pass cannot replace a newer pending result.
