@@ -1,5 +1,7 @@
 from convert.formats.Fusion.BrepCodec.Attributes.SnapshotAttributes import MakeSnapTags
 from convert.formats.Fusion.BrepCodec.Models.TopologyTags import TopologyTags
+from convert.formats.Fusion.BrepCodec.Models.VertexIndices import VertexIndices
+from convert.formats.Fusion.BrepCodec.Topology.ApplyVertices import ApplyVertices
 from convert.formats.Fusion.BrepCodec.Topology.AssignHeads import AssignHeads
 from convert.formats.Fusion.BrepCodec.Topology.OffsetRecord import OffsetRecord
 from convert.formats.Fusion.BrepCodec.Topology.RegionGeometry import BuildCarriers
@@ -13,9 +15,9 @@ from convert.formats.Fusion.GeometryCodec.MakeRecord import MakeRecord
 
 
 def BuildSnapshot(
-    Model: CylinderBody, TagSet: TopologyTags
+    Model: CylinderBody, TagSet: TopologyTags, Vertices: VertexIndices | None = None
 ) -> tuple[GeometryRecord, ...]:
-    CylinderRows = BuildRecords(Model)
+    CylinderRows = ApplyVertices(BuildRecords(Model), Vertices or VertexIndices())
     Roots = (
         CylinderRows[0],
         OffsetRecord(CylinderRows[1]),

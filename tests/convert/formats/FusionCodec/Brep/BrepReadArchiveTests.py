@@ -79,10 +79,17 @@ def TestNativeBrep(TmpPath: FilePath) -> None:
     assert Value.History.InitialId == 2
     assert Value.Stamp.Product == "Autodesk Neutron"
     assert Value.TagSet.Sketch.Primary == 102
+    assert Value.Vertices.TopIndex == 2
+    assert Value.Vertices.BottomIndex == 0
     Target = TmpPath / "Reconstructed.smbh"
     _ = Target.write_bytes(
         EmitHistory(
-            Value.Model, Value.Identity, Value.TagSet, Value.History, Value.Stamp
+            Value.Model,
+            Value.Identity,
+            Value.TagSet,
+            Value.History,
+            Value.Stamp,
+            Value.Vertices,
         )
     )
     assert ReadHistory(Target.read_bytes()) == Value

@@ -9,6 +9,11 @@ def EmitBodyPart(Value: DocumentBody) -> ContainerPart:
     if History.Header != BrepHeader(23200, 2, 3, 50.0, 1e-6, 1e-10):
         raise ValueError("Unsupported Fusion document BRep header")
     Payload = EmitHistory(
-        History.Model, History.Identity, History.TagSet, History.History, History.Stamp
+        History.Model,
+        History.Identity,
+        History.TagSet,
+        History.History,
+        History.Stamp,
+        History.Vertices,
     )
     return ContainerPart(Value.PartName, Payload)

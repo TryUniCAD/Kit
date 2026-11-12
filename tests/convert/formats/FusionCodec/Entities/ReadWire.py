@@ -6,15 +6,15 @@ from tests.convert.formats.FusionCodec.Entities.WireJson import WireJson
 def ReadWire(Value: WireJson) -> WireType:
     return WireType(
         Value["KindValue"],
-        tuple(ReadWire(Entry) for Entry in Value["Arguments"]),
+        tuple(ReadWire(Entry) for Entry in Value.get("Arguments", [])),
         tuple(
             FieldSpec(
                 Entry["FieldName"], ReadWire(Entry["ValueType"]), Entry["IsSaved"]
             )
-            for Entry in Value["Members"]
+            for Entry in Value.get("Members", [])
         ),
-        Value["ClassGuid"],
-        Value["FixedCount"],
-        tuple(Value["AllowedInts"]),
-        Value["HasMatrixRows"],
+        Value.get("ClassGuid", ""),
+        Value.get("FixedCount", 0),
+        tuple(Value.get("AllowedInts", [])),
+        Value.get("HasMatrixRows", False),
     )

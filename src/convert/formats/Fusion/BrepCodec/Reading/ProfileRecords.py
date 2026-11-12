@@ -12,10 +12,10 @@ from convert.formats.Fusion.Topology.AsmEdge.AsmTable import AsmRecord
 def ProfileRecords(HasHistory: bool) -> tuple[AsmRecord, ...]:
     Model = CylinderBody(1.0, 1.0, (0.0, 0.0, 0.0))
     Label = FeatureTag(1, "1", (0,))
-    Tags = TopologyTags(Label, Label, Label, Label, Label, SketchLink(0, 0, 0, 1, 1))
+    TagSet = TopologyTags(Label, Label, Label, Label, Label, SketchLink(0, 0, 0, 1, 1))
     Records = (
-        BuildHistory(Model, BodyIdentity(0, 0, 0, 0), Tags)
+        BuildHistory(Model, BodyIdentity(0, 0, 0, 0), TagSet)
         if HasHistory
-        else BuildSnapshot(Model, Tags)
+        else BuildSnapshot(Model, TagSet)
     )
     return GeometryTokens(Records)

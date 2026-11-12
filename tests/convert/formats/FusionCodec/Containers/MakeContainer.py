@@ -33,17 +33,21 @@ def MakeContainer() -> FusionContainer:
         Segments,
     )
     Streams: list[SegmentStreams] = []
-    for Index, Plan in enumerate(
+    for Index, SegmentPlan in enumerate(
         (PlanValue.Design, PlanValue.ActPlan, PlanValue.Browser)
     ):
-        BulkData, Metadata = EmitSegment(Plan.Metadata, Plan.Records)
+        BulkData, Metadata = EmitSegment(SegmentPlan.Metadata, SegmentPlan.Records)
         Streams.append(SegmentStreams(Index, Metadata, BulkData))
     Previews = tuple(
         ContainerPart(
             "Previews/" + Label + ".png",
-            EmitPreview(Side, Side, bytes((36, 92, 157, 255)) * Side * Side),
+            EmitPreview(
+                SideLength,
+                SideLength,
+                bytes((36, 92, 157, 255)) * SideLength * SideLength,
+            ),
         )
-        for Label, Side in (("big", 256), ("small", 64))
+        for Label, SideLength in (("big", 256), ("small", 64))
     )
     ImagePart = ContainerPart("Images.BlobParts/Independent.png", Previews[1].Payload)
     return FusionContainer(

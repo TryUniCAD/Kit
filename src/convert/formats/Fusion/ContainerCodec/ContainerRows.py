@@ -38,7 +38,7 @@ def ContainerRows(Value: FusionContainer) -> tuple[ZipAssetRow, ...]:
         or len(set(Value.EmptyFolders)) != len(Value.EmptyFolders)
     ):
         raise ValueError("Invalid Fusion container empty folders")
-    PartFolders = {Part.Name.partition("/")[0] for Part in Value.Parts}
+    PartFolders = {PartValue.Name.partition("/")[0] for PartValue in Value.Parts}
     if (
         PartFolders.intersection(Value.EmptyFolders)
         or "Breps.BlobParts" in Value.EmptyFolders
@@ -53,8 +53,8 @@ def ContainerRows(Value: FusionContainer) -> tuple[ZipAssetRow, ...]:
     Directories.update(
         KAssetPrefix + Folder + "/" for Folder in (*PartFolders, *Value.EmptyFolders)
     )
-    Rows = [ZipAssetRow(Folder, b"", False) for Folder in sorted(Directories)]
-    Rows.extend(
+    Entries = [ZipAssetRow(Folder, b"", False) for Folder in sorted(Directories)]
+    Entries.extend(
         (
             ZipAssetRow(KRootName, RootBytes, False),
             ZipAssetRow(KPropertiesName, bytes(4), False),
@@ -66,15 +66,15 @@ def ContainerRows(Value: FusionContainer) -> tuple[ZipAssetRow, ...]:
     ):
         CheckStreams(Streams, SlotValue)
         Prefix = KAssetPrefix + Folder
-        Rows.extend(
+        Entries.extend(
             (
                 ZipAssetRow(Prefix + "MetaStream.dat", Streams.Metadata, False),
                 ZipAssetRow(Prefix + "BulkStream.dat", Streams.BulkData, False),
             )
         )
-    Rows.extend(
-        ZipAssetRow(KAssetPrefix + Part.Name, Part.Payload, False)
-        for Part in (*Value.Previews, *Value.Parts)
+    Entries.extend(
+        ZipAssetRow(KAssetPrefix + PartValue.Name, PartValue.Payload, False)
+        for PartValue in (*Value.Previews, *Value.Parts)
     )
-    CheckZipPaths(tuple(Entry.Name for Entry in Rows))
-    return tuple(Rows)
+    CheckZipPaths(tuple(Entry.Name for Entry in Entries))
+    return tuple(Entries)

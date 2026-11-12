@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING, NotRequired, TypedDict
 
 from convert.formats.Fusion.EntityCodec.Schema.WireType import KWireKind
 
@@ -10,9 +10,9 @@ if TYPE_CHECKING:
 
 class WireJson(TypedDict):
     KindValue: KWireKind
-    Arguments: list[WireJson]
-    Members: list[FieldJson]
-    ClassGuid: str
-    FixedCount: int
-    AllowedInts: list[int]
-    HasMatrixRows: bool
+    Arguments: NotRequired[list[WireJson]]
+    Members: NotRequired[list[FieldJson]]
+    ClassGuid: NotRequired[str]
+    FixedCount: NotRequired[int]
+    AllowedInts: NotRequired[list[int]]
+    HasMatrixRows: NotRequired[bool]

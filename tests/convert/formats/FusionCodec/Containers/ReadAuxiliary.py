@@ -15,11 +15,11 @@ def ReadAuxiliary(
     Spans = ReadBulkSpans(Streams.BulkData, Streams.Metadata, Segment=Segment)
     Records = tuple(
         BulkRecord(
-            Span.TypeCode,
-            Span.ObjectId,
-            Span.IsPrimary,
-            Streams.BulkData[Span.PayloadOffset : Span.EndOffset],
+            SpanValue.TypeCode,
+            SpanValue.ObjectId,
+            SpanValue.IsPrimary,
+            Streams.BulkData[SpanValue.PayloadOffset : SpanValue.EndOffset],
         )
-        for Span in Spans
+        for SpanValue in Spans
     )
     return DecodeEntities(Records, Metadata.Classes, Profile)

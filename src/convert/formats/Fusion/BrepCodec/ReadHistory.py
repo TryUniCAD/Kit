@@ -8,6 +8,7 @@ from convert.formats.Fusion.BrepCodec.Reading.ReadCylinder import ReadCylinder
 from convert.formats.Fusion.BrepCodec.Reading.ReadIdentity import ReadIdentity
 from convert.formats.Fusion.BrepCodec.Reading.ReadJournal import ReadJournal
 from convert.formats.Fusion.BrepCodec.Reading.ReadTagSet import ReadTagSet
+from convert.formats.Fusion.BrepCodec.Reading.ReadVertices import ReadVertices
 from convert.formats.Fusion.BrepCodec.Topology.HistoryRecords import BuildHistory
 
 
@@ -17,9 +18,10 @@ def ReadHistory(Payload: bytes) -> HistoryModel:
     Model = ReadCylinder(WireValue.Table, Mapping, True)
     Identity = ReadIdentity(WireValue.Table, Mapping)
     TagSet = ReadTagSet(WireValue.Table, Mapping, True)
-    Expected = GeometryTokens(BuildHistory(Model, Identity, TagSet))
+    Vertices = ReadVertices(WireValue.Table, Mapping, True)
+    Expected = GeometryTokens(BuildHistory(Model, Identity, TagSet, Vertices))
     CheckTopology(Expected, WireValue.Table, Mapping)
     History = ReadJournal(WireValue.Journal, len(WireValue.Table.Records))
     return HistoryModel(
-        Model, Identity, TagSet, History, WireValue.Stamp, WireValue.Header
+        Model, Identity, TagSet, History, WireValue.Stamp, WireValue.Header, Vertices
     )

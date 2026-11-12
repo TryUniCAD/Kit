@@ -1,3 +1,6 @@
+from tests.convert.formats.FusionCodec.Containers.CheckSubjects import (
+    CheckSubjects,
+)
 from dataclasses import replace as Replace
 from pathlib import Path as FilePath
 
@@ -53,15 +56,7 @@ def TestAuxArchive(TmpPath: FilePath) -> None:
         assert FindEntityField(BrowserRows, Identity, "entity") == SegmentRef(
             Design.Roles["constraints"], 0
         )
-    RootEntry = next(Entry for Entry in BrowserRows if Entry.ObjectId == 201)
-    Subjects = {
-        Subject.Target: Subject.ObserverIndex
-        for Subject in RootEntry.Frame.Subjects or ()
-    }
-    assert Subjects[SegmentRef(Design.Roles["component"], 0)] == 1
-    assert Subjects[SegmentRef(Design.Roles["component_instances"], 0)] == 0
-    assert Subjects[SegmentRef(Design.Roles["overrides"], 0)] == 0
-    assert Subjects[SegmentRef(Design.Roles["root_instance"], 0)] == 0
+    CheckSubjects(BrowserRows, Design.Roles)
     assert FindEntityField(BrowserRows, 228, "entity") == SegmentRef(
         Design.Roles["units"], 0
     )

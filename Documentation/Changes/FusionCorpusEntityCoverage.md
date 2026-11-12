@@ -14,6 +14,14 @@ The recipe profile admits tagging version 3, which accounts for all 1,763 corpus
 
 The [geometry array gotcha](../Gotchas/Conversion/FusionGeometryArrayLayout.md) and [lazy schema gotcha](../Gotchas/Conversion/FusionLazyValueSchemas.md) record the assumptions that previously prevented complete parsing.
 
+## Production compatibility profiles
+
+Schema-only descriptors now select 412 class/version declarations across all 712 archives. They include inherited fields, explicit reference targets, named metadata, custom geometry callbacks, recursive selection recipes, matrix identity discrimination, and lazy progenitor values. The fixture contains schema vocabulary, not retained entity values or donor geometry.
+
+The remote compatibility suite decodes each archive through production `EntityCodec`, re-encodes its typed values, and requires exact physical-record, bulk-stream, and metadata-stream equality. No local execution of these compatibility cases is permitted. [The descriptor summary](../../re/Fusion/Reconstruction/EntityGraph/CorpusProfileSummary.json) records qualifications and unresolved empty-only branches.
+
+[Native sketch-tag evidence](../../re/Fusion/Reconstruction/EntityGraph/SketchTagSemantics.md) identifies the profile sets as start/end adjacent primary tag IDs and the offset `0x20` word as topology role flags. The complete bit allocation is unresolved. All 5,077 observed sketch-tag values across the 712 archives have zero in that word, so the production zero-only guard remains justified.
+
 ## Verification
 
 Evidence comes from static native serializer/registration analysis and read-only corpus decoding. No local automated tests ran. Independent document generation and native acceptance remain separately reported in [FusionIndependentAuthoring.md](FusionIndependentAuthoring.md) and the production document change entry.

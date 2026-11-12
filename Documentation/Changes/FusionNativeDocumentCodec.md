@@ -30,7 +30,7 @@ Use the repository's supported Python environment. The production entry point do
 
 `ReadDocument(Payload)` returns immutable document, segment, entity, and body-history models for this qualified document profile. `EmitParsed(Model)` serializes those values. All three entity segments and the complete supported BRep history are decoded; retained source bulk or history payloads are not inputs to re-emission. Unknown package parts and unsupported geometry profiles are rejected.
 
-`BrepCodec.ReadHistory` recovers cylinder dimensions, identity and topology tags, the exact header, and the complete two-state insertion journal. `ReadSnapshot` recovers the cylinder and two planar selection bodies. Both consume every topology, attribute, reference, and journal token; a graph bijection admits differing record allocation order. The admitted geometry header is version 23200 with the documented scale and tolerances, and other topology/journal layouts are rejected.
+`BrepCodec.ReadHistory` recovers cylinder dimensions, identity and topology tags, the exact header, and the complete two-state insertion journal. `ReadSnapshot` recovers the cylinder and two planar selection bodies. Both consume every topology, attribute, reference, and journal token; a graph bijection admits differing record allocation order. Readers also preserve typed vertex edge indices independently from topology record ordinals. The admitted geometry header is version 23200 with the documented scale and tolerances, and other topology/journal layouts are rejected.
 
 ## Lower-level contracts
 
@@ -55,6 +55,8 @@ Fusion 2706.1.17 accepted the [complete production-authored document](../../re/F
 The separately promoted parameter and circle profiles also pass native editing and save/reopen, recorded in [parameter acceptance](../../re/Fusion/LocalOracle/Authored/ProductionParameterAcceptance.json) and [circle acceptance](../../re/Fusion/LocalOracle/Authored/ProductionCircleAcceptance.json). The complete reader/re-emitter reconstructs all 213 physical entity records across the three segments and the typed history, producing exactly the same 61,439-byte archive and SHA-256; [the reconstruction report](../../re/Fusion/LocalOracle/Authored/ProductionReemitted.json) records the boundary.
 
 A subsequent [semantic comment edit](../../re/Fusion/LocalOracle/Authored/ProductionEdited.json) changes the decoded user-parameter comment and re-emits every entity and BRep history field. [Native acceptance](../../re/Fusion/LocalOracle/Authored/ProductionEditedAcceptance.json) confirms the changed comment on open and after save/reopen, alongside correct initial geometry, rollback, and a later 23 mm parameter rebuild. This exercises an actual typed-model mutation, not only byte equality.
+
+A native-source history reconstruction also passes open, rollback, recomputation, 7-to-23 mm editing, and save/reopen. The [native history report](../../re/Fusion/LocalOracle/Authored/NativeHistoryAcceptance.json) qualifies preserved vertex indices `(2, 0)`; [the vertex-index gotcha](../Gotchas/Conversion/FusionVertexEdgeIndices.md) records why geometry equivalence does not permit discarding this state.
 
 The saved native archive digest is `fcce745b873b6758ebd72cd25c1dbef72004f6b028ad4e95974a10b32b0aa3b9`. An earlier [production-container acceptance](../../re/Fusion/LocalOracle/Authored/ProductionContainerAcceptance.json) isolates the container encoder from the subsequent complete production graph promotion.
 

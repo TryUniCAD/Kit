@@ -20,13 +20,13 @@ def EmitPreview(Width: int, Height: int, Pixels: bytes) -> bytes:
     ):
         raise ValueError("Invalid Fusion RGBA preview dimensions or pixels")
     Stride = Width * 4
-    Rows = b"".join(
+    PixelRows = b"".join(
         b"\0" + Pixels[Offset : Offset + Stride]
         for Offset in range(0, len(Pixels), Stride)
     )
     return (
         b"\x89PNG\r\n\x1a\n"
         + PackPngChunk(b"IHDR", PackValue(">2I5B", Width, Height, 8, 6, 0, 0, 0))
-        + PackPngChunk(b"IDAT", CompressBytes(Rows))
+        + PackPngChunk(b"IDAT", CompressBytes(PixelRows))
         + PackPngChunk(b"IEND", b"")
     )

@@ -1,0 +1,80 @@
+{
+  "schema": "FusionCorpusSchemaProfileSummary/1",
+  "scope": "Schema-only production descriptors selected by each archive metadata; no decoded record values or entity identities",
+  "fixture": "CorpusProfiles.json.xz",
+  "uncompressedSha256": "34ba5d488ed162869ce70b027df4b0f503950faa77caa9a7c5a905654b3dd750",
+  "compressedSha256": "7b5a32ae6a35fba009604421c7b435f5b806a5add40d4b7e382746feedd83f1f",
+  "archiveCount": 712,
+  "classVersionPairs": 412,
+  "uniqueClasses": 412,
+  "inventorySha256": "2d97e15c7fbfbc910036b2a46b4fd8078b5418e04cbe4be8fb016635fca8b003",
+  "reflectionSha256": "aae72bc66c7e0ab34ce2ee7545af7fa5a8eba81ceef48261069a0d7ddec82f99",
+  "unsupportedCppTypes": [
+    "ENTITY*",
+    "Ns::ASMInterface::SafeEntityPtr",
+    "Ns::Comp::GeometricRelationshipConflict",
+    "Ns::Comp::JointConflict",
+    "Ns::Geometry::PMIType",
+    "Ns::MetaType const*",
+    "autodesk::platform::assets::IAssetInstance*",
+    "long long",
+    "std::__1::unordered_map<Ns::PassiveRef<Na::DesignCapture::DcFeature>, int, boost::hash<Ns::PassiveRef<Na::DesignCapture::DcFeature>>, std::__1::equal_to<Ns::PassiveRef<Na::DesignCapture::DcFeature>>, std::__1::allocator<std::__1::pair<Ns::PassiveRef<Na::DesignCapture::DcFeature> const, int>>>",
+    "std::__1::unordered_set<Ns::PassiveRef<Na::Relationship>, std::__1::hash<Ns::PassiveRef<Na::Relationship>>, std::__1::equal_to<Ns::PassiveRef<Na::Relationship>>, std::__1::allocator<Ns::PassiveRef<Na::Relationship>>>",
+    "std::__1::unordered_set<unsigned long long, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<unsigned long long>>"
+  ],
+  "unresolvedReferenceTypes": [],
+  "archiveFailures": [],
+  "newQualifications": [
+    "Nonidentity matrix bool+16f64 supported by native save disassembly",
+    "Line segment, ellipse, NURB and geometry arrays use recovered native callback order",
+    "ASM recipes restrict the versioned union to observed version3",
+    "Named progenitor auxiliary value is exactly tag:uint32",
+    "Profile tag sets contain start/end adjacent edge primary tag identities, proven by native adjacency lookup and primary-tag extraction"
+  ],
+  "nativeProfileTagProof": {
+    "source": "NaTagUtility10",
+    "function": "getSketchProfileTagData(EDGE*)",
+    "address": "0x2e5bc",
+    "startAdjacencyCall": "0x2e614",
+    "endAdjacencyCall": "0x2e620",
+    "primaryIdsFunction": "0x2e4b0",
+    "constructorCall": "0x2e64c",
+    "constructorArgumentOffsets": {
+      "x2": "0x20",
+      "x3": "0x38"
+    }
+  },
+  "retainedGuards": [
+    "Sketch tags retain secondary0/split1of1/offset0 restrictions pending additional semantics",
+    "Reference target class constraints remain enabled",
+    "Unknown nested types reject nonempty values"
+  ],
+  "runtimeVerification": "Not run locally; all production decode/reencode verification belongs to remote compatibility CI",
+  "sketchTagEvidence": {
+    "path": "SketchTagSemantics.json",
+    "sha256": "d8798fb2c6fcaa77182f12638b7f8808edc0dc038d5378982a703deac5dbb18c"
+  },
+  "unsupportedPersistedFields": [
+    {
+      "class": "GeometricRelationshipOccurrenceStateValueMetaType",
+      "classGuid": "07AA378F-CDB4-4030-914F-11E6F335DC65",
+      "version": 1,
+      "field": "pGeomRelConflict",
+      "outerKind": "optional"
+    },
+    {
+      "class": "PMIAnnotationsMetaType",
+      "classGuid": "AD3F9695-7FDF-4708-AE05-B21309CDE969",
+      "version": 1,
+      "field": "highWaterMarks",
+      "outerKind": "map"
+    },
+    {
+      "class": "JointOccurrenceStateValueMetaType",
+      "classGuid": "E9577D96-F5AA-4B6A-B7DE-AB4B6FA509D1",
+      "version": 2,
+      "field": "conflict",
+      "outerKind": "optional"
+    }
+  ]
+}

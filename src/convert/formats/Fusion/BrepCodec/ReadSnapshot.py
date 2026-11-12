@@ -6,6 +6,7 @@ from convert.formats.Fusion.BrepCodec.Reading.ProfileRecords import ProfileRecor
 from convert.formats.Fusion.BrepCodec.Reading.ReadBrepWire import ReadBrepWire
 from convert.formats.Fusion.BrepCodec.Reading.ReadCylinder import ReadCylinder
 from convert.formats.Fusion.BrepCodec.Reading.ReadTagSet import ReadTagSet
+from convert.formats.Fusion.BrepCodec.Reading.ReadVertices import ReadVertices
 from convert.formats.Fusion.BrepCodec.Topology.SnapshotRecords import BuildSnapshot
 
 
@@ -14,7 +15,8 @@ def ReadSnapshot(Payload: bytes) -> SnapshotModel:
     Mapping = MapTopology(ProfileRecords(False), WireValue.Table)
     Model = ReadCylinder(WireValue.Table, Mapping, False)
     TagSet = ReadTagSet(WireValue.Table, Mapping, False)
+    Vertices = ReadVertices(WireValue.Table, Mapping, False)
     CheckTopology(
-        GeometryTokens(BuildSnapshot(Model, TagSet)), WireValue.Table, Mapping
+        GeometryTokens(BuildSnapshot(Model, TagSet, Vertices)), WireValue.Table, Mapping
     )
-    return SnapshotModel(Model, TagSet, WireValue.Stamp, WireValue.Header)
+    return SnapshotModel(Model, TagSet, WireValue.Stamp, WireValue.Header, Vertices)
