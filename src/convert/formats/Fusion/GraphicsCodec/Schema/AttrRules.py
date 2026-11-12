@@ -11,6 +11,7 @@ KAttrRules: dict[str, tuple[FieldRule, ...]] = {
     "FColorEffectAttribute": (FieldRule("Color", "f32", 4),),
     "GroupAttribute": (FieldRule("GroupID", "i32"),),
     "OrderInTransparentGroupAttribute": (FieldRule("OrderInTransparentGroup", "i32"),),
+    "TransparentLayerAttribute": (FieldRule("TransparentLayerType", "i32"),),
     "BillBoardAttribute": (
         FieldRule("Style", "i32"),
         FieldRule("Anchor", "f32", 3),
@@ -36,6 +37,14 @@ KAttrRules: dict[str, tuple[FieldRule, ...]] = {
         FieldRule("Color", "f32", 4),
         FieldRule("ImagePartName", "opt-text"),
         FieldRule("Path", "opt-text"),
+        FieldRule("VisibleOpacity", "f32"),
+        FieldRule("OccludedOpacity", "f32"),
+    ),
+    "FOccludedFatPointEffectAttribute": (
+        FieldRule("Color", "f32", 4),
+        FieldRule("ImagePartName", "opt-text"),
+        FieldRule("Path", "opt-text"),
+        FieldRule("PointSize", "f32", 2),
         FieldRule("VisibleOpacity", "f32"),
         FieldRule("OccludedOpacity", "f32"),
     ),

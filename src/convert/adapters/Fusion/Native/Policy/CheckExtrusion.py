@@ -6,10 +6,10 @@ from convert.adapters.Fusion.Native.Graph.GraphChecks import (
 )
 from convert.adapters.Fusion.Native.Graph.GraphValues import PointCoords
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
-from convert.adapters.Fusion.Native.Rectangle.RectContext import RectContext
+from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 
 
-def CheckExtrusion(Graph: NativeGraph, Context: RectContext) -> None:
+def CheckExtrusion(Graph: NativeGraph, Context: ExtrudeContext) -> None:
     Feature = Context.Extrude
     RequireFields(
         Feature,

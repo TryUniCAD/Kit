@@ -5,6 +5,7 @@ from convert.formats.Fusion.GraphicsCodec.Model.Nodes.GroupValue import GroupVal
 from convert.formats.Fusion.GraphicsCodec.Model.Nodes.LodValue import LodValue
 from convert.formats.Fusion.GraphicsCodec.Model.Nodes.NodePayload import NodePayload
 from convert.formats.Fusion.GraphicsCodec.Model.Nodes.NodeValue import NodeValue
+from convert.formats.Fusion.GraphicsCodec.Model.Nodes.PrimitiveLod import PrimitiveLod
 from convert.formats.Fusion.GraphicsCodec.Model.Nodes.RenderFrame import RenderFrame
 from convert.formats.Fusion.GraphicsCodec.Model.Nodes.SceneWorld import SceneWorld
 from convert.formats.Fusion.GraphicsCodec.Model.Nodes.SketchWorld import SketchWorld
@@ -14,12 +15,16 @@ from convert.formats.Fusion.GraphicsCodec.Model.State.SceneGlobals import SceneG
 from convert.formats.Fusion.GraphicsCodec.Model.State.SceneObject import SceneObject
 from convert.formats.Fusion.GraphicsCodec.Model.Values.AppliedSet import AppliedSet
 from convert.formats.Fusion.GraphicsCodec.Model.Values.CacheData import CacheData
+from convert.formats.Fusion.GraphicsCodec.Model.Values.CircleArcValue import (
+    CircleArcValue,
+)
 from convert.formats.Fusion.GraphicsCodec.Model.Values.EntityRef import EntityRef
 from convert.formats.Fusion.GraphicsCodec.Model.Values.FatPoint import FatPoint
 from convert.formats.Fusion.GraphicsCodec.Model.Values.FieldValue import FieldValue
 from convert.formats.Fusion.GraphicsCodec.Model.Values.GraphicAttr import GraphicAttr
 from convert.formats.Fusion.GraphicsCodec.Model.Values.IndexData import IndexData
 from convert.formats.Fusion.GraphicsCodec.Model.Values.ObjectRef import ObjectRef
+from convert.formats.Fusion.GraphicsCodec.Model.Values.RenderMesh import RenderMesh
 from convert.formats.Fusion.GraphicsCodec.Model.Values.SceneSet import SceneSet
 from convert.formats.Fusion.GraphicsCodec.Model.Values.SimpleMesh import SimpleMesh
 from convert.formats.Fusion.GraphicsCodec.Model.Values.StyleValue import StyleValue
@@ -37,6 +42,7 @@ KGraphicsTypes: tuple[type[object], ...] = (
     LodValue,
     NodePayload,
     NodeValue,
+    PrimitiveLod,
     RenderFrame,
     SceneWorld,
     SketchWorld,
@@ -46,12 +52,14 @@ KGraphicsTypes: tuple[type[object], ...] = (
     SceneObject,
     AppliedSet,
     CacheData,
+    CircleArcValue,
     EntityRef,
     FatPoint,
     FieldValue,
     GraphicAttr,
     IndexData,
     ObjectRef,
+    RenderMesh,
     SceneSet,
     SimpleMesh,
     StyleValue,

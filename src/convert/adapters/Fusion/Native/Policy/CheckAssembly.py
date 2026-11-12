@@ -7,10 +7,10 @@ from convert.adapters.Fusion.Native.Graph.GraphChecks import (
 )
 from convert.adapters.Fusion.Native.Graph.GraphValues import ObjectFields
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
-from convert.adapters.Fusion.Native.Rectangle.RectContext import RectContext
+from convert.adapters.Fusion.Native.Graph.SketchContexts import KSketchContexts
 
 
-def CheckAssembly(Graph: NativeGraph, Context: RectContext) -> None:
+def CheckAssembly(Graph: NativeGraph, Context: KSketchContexts) -> None:
     Component = Graph.Resolve(Context.Component.Fields["rACTComponent"])
     Instance = Graph.OneClass("ComponentInstance")
     ActInstance = Graph.Resolve(Instance.Fields["rACTInstance"])

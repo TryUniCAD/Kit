@@ -6,13 +6,16 @@ from convert.adapters.Fusion.Native.Graph.GraphValues import (
 )
 from convert.adapters.Fusion.Native.Graph.IntegerValue import IntegerValue
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
-from convert.adapters.Fusion.Native.Rectangle.RectContext import RectContext
-from convert.formats.Fusion.BrepCodec.Prism.Models.PrismHistory import PrismHistory
+from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
+from convert.adapters.Fusion.Native.Graph.KnownHistory import KKnownHistory
 from convert.formats.Fusion.EntityCodec.Model.ValuePair import ValuePair
 
 
 def CheckOperations(
-    Graph: NativeGraph, Context: RectContext, History: PrismHistory
+    Graph: NativeGraph,
+    Context: ExtrudeContext,
+    History: KKnownHistory,
+    ProgenitorCount: int = 5,
 ) -> None:
     Manager = ResolveField(
         Graph, Context.Fragment, "rFeatureIdManager", "DcFeatureIdManager"
@@ -41,12 +44,10 @@ def CheckOperations(
         raise ValueError("Native history body operation belongs to another feature")
     Table = ResolveField(Graph, Context.Extrude, "rProgenitorTable", "ProgenitorTable")
     Pairs = SeriesItems(Table.Fields["ProgenitorTagVec"])
-    if len(Pairs) != 5 or any(
+    if len(Pairs) != ProgenitorCount or any(
         not isinstance(PairValue, ValuePair) for PairValue in Pairs
     ):
-        raise ValueError(
-            "Native rectangular extrusion requires five progenitor mappings"
-        )
+        raise ValueError("Native extrusion has an unsupported progenitor mapping count")
     Bodies = tuple(
         PairValue
         for PairValue in Pairs

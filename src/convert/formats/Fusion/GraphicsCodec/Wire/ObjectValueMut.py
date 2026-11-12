@@ -13,7 +13,7 @@ def ObjectValueMut(
 ) -> ObjectRef:
     ObjectId = State.TextValue(Value.ObjectId if Value else None)
     if FullMatch(r"0x[0-9a-fA-F]{1,16}", ObjectId) is None or int(ObjectId, 16) == 0:
-        raise ValueError("Invalid graphics object identity")
+        raise ValueError(f"Invalid graphics object identity for {ClassName}: {ObjectId[:64]!r}")
     Result = ObjectRef(ClassName, ObjectId)
     State.CheckResult(Value, Result)
     Existing = State.ObjectKinds.get(ObjectId)

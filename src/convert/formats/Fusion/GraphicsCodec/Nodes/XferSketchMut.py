@@ -2,6 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 from convert.formats.Fusion.GraphicsCodec.Nodes.XferBrepMut import XferBrepMut
 from convert.formats.Fusion.GraphicsCodec.Nodes.XferLodMut import XferLodMut
+from convert.formats.Fusion.GraphicsCodec.Nodes.XferNodeLinkMut import XferNodeLinkMut
 
 from convert.formats.Fusion.GraphicsCodec.Model.Nodes.SketchWorld import SketchWorld
 
@@ -16,12 +17,20 @@ def XferSketchMut(State: SceneCodec, Value: SketchWorld | None) -> SketchWorld:
         else None
     )
     LodCount = State.CountValue(len(Value.Nodes) if Value else None, "<i")
-    if State.Integer(0, "<i"):
-        raise ValueError("Unsupported ordinary sketch graphics nodes")
+    RegularCount = State.CountValue(len(Value.RegularNodes) if Value else None, "<i")
     Nodes = tuple(
         XferLodMut(State, Value.Nodes[Index] if Value else None)
         for Index in range(LodCount)
     )
-    if State.Integer(0, "<i"):
-        raise ValueError("Unsupported nonculling sketch graphics nodes")
-    return SketchWorld(FaceBody, Nodes)
+    RegularNodes = tuple(
+        XferNodeLinkMut(State, Value.RegularNodes[Index] if Value else None)
+        for Index in range(RegularCount)
+    )
+    NoCullingCount = State.CountValue(
+        len(Value.NoCullingNodes) if Value else None, "<i"
+    )
+    NoCullingNodes = tuple(
+        XferNodeLinkMut(State, Value.NoCullingNodes[Index] if Value else None)
+        for Index in range(NoCullingCount)
+    )
+    return SketchWorld(FaceBody, Nodes, RegularNodes, NoCullingNodes)

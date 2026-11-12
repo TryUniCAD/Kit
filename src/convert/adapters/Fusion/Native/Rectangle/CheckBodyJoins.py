@@ -7,14 +7,19 @@ from convert.adapters.Fusion.Native.Graph.GraphChecks import (
 from convert.adapters.Fusion.Native.Graph.GraphValues import MappingItems, TextValue
 from convert.adapters.Fusion.Native.Graph.IntegerValue import IntegerValue
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
-from convert.adapters.Fusion.Native.Rectangle.RectContext import RectContext
+from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 from convert.formats.Fusion.BrepCodec.Prism.Models.PrismHistory import PrismHistory
+from convert.formats.Fusion.BrepCodec.Models.HistoryModel import HistoryModel
+from convert.formats.Fusion.BrepCodec.Frustum.Models.FrustumHistory import (
+    FrustumHistory,
+)
+from convert.adapters.Fusion.Native.Graph.KnownHistory import KKnownHistory
 from convert.formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentModel
 
 
 def CheckBodyJoins(
-    Graph: NativeGraph, Context: RectContext, Model: DocumentModel
-) -> PrismHistory:
+    Graph: NativeGraph, Context: ExtrudeContext, Model: DocumentModel
+) -> KKnownHistory:
     BodyValue = Context.BodyNode
     SameNodes((BodyValue,), Graph.ByClass("Body"))
     SameNodes((Context.DcBody,), Graph.ByClass("DcBody"))
@@ -36,12 +41,12 @@ def CheckBodyJoins(
     ):
         raise ValueError("Native body serializer does not map the sole modeled body")
     History = Model.Bodies[0].History
-    if not isinstance(History, PrismHistory) or Model.Bodies[
-        0
-    ].PartName != "Breps.BlobParts/" + TextValue(Serializer.Fields["partName"]):
-        raise ValueError(
-            "Native rectangular extrusion requires its typed prism history"
-        )
+    if not isinstance(
+        History, (PrismHistory, HistoryModel, FrustumHistory)
+    ) or Model.Bodies[0].PartName != "Breps.BlobParts/" + TextValue(
+        Serializer.Fields["partName"]
+    ):
+        raise ValueError("Native extrusion requires its qualified typed history part")
     if History.Identity.BodyKey != IntegerValue(Entries[0].First):
         raise ValueError("Native history body key disagrees with the serializer map")
     if (

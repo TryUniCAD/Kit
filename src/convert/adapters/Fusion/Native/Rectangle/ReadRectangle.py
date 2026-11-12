@@ -7,7 +7,7 @@ from convert.adapters.Fusion.Native.Graph.GraphValues import PointCoords
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Rectangle.OrderLines import OrderLines
 from convert.adapters.Fusion.Native.Rectangle.ReadLine import ReadLine
-from convert.adapters.Fusion.Native.Rectangle.RectContext import RectContext
+from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 from convert.adapters.Fusion.Native.Rectangle.RectGeometry import RectGeometry
 from interchange.enums.EnumGeometry import GeometryKind
 from interchange.geometry.models.GeometryCurves import PointGeometry
@@ -15,7 +15,11 @@ from interchange.geometry.models.Sketch import SketchEntity
 from interchange.geometry.models.VectorPlane import PlaneVector
 
 
-def ReadRectangle(Graph: NativeGraph, Context: RectContext) -> RectGeometry:
+def ReadRectangle(Graph: NativeGraph, Context: ExtrudeContext) -> RectGeometry:
+    if Graph.ByClass("CircArc3D"):
+        raise ValueError(
+            "Native rectangle profile contains an unaccounted circular curve"
+        )
     Children = LinkedNodes(Graph, Context.Sketch, "children")
     if any(
         Graph.Resolve(NodeValue.Fields["rParent"]) != Context.Sketch

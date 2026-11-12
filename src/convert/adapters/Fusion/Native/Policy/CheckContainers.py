@@ -5,7 +5,7 @@ from convert.adapters.Fusion.Native.Graph.GraphChecks import (
     SameNodes,
 )
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
-from convert.adapters.Fusion.Native.Rectangle.RectContext import RectContext
+from convert.adapters.Fusion.Native.Graph.SketchContexts import KSketchContexts
 
 KEmptyClasses = (
     "AssyConstraints",
@@ -33,7 +33,7 @@ KEmptyClasses = (
 )
 
 
-def CheckContainers(Graph: NativeGraph, Context: RectContext) -> None:
+def CheckContainers(Graph: NativeGraph, Context: KSketchContexts) -> None:
     for ClassName in KEmptyClasses:
         for NodeValue in Graph.ByClass(ClassName):
             if "children" in NodeValue.Fields:
@@ -44,7 +44,7 @@ def CheckContainers(Graph: NativeGraph, Context: RectContext) -> None:
     Features = ResolveField(Graph, Context.Component, "m_rFeatures", "Features")
     EmptyFields(Features, ("children",))
     if Features.Fields["m_curFeatureId"] != 1:
-        raise ValueError("Native Fusion timeline is rolled back")
+        raise ValueError("Unsupported native legacy Features state")
     CacheBodies = ResolveField(Graph, Context.Component, "rCacheBodies", "Bodies")
     EmptyFields(CacheBodies, ("children", "groupChildren"))
     for NodeValue in (

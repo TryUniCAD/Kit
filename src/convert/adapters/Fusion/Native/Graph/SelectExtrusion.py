@@ -4,10 +4,10 @@ from convert.adapters.Fusion.Native.Graph.GraphChecks import (
     SameNodes,
 )
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
-from convert.adapters.Fusion.Native.Rectangle.RectContext import RectContext
+from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 
 
-def SelectRectangle(Graph: NativeGraph) -> RectContext:
+def SelectExtrusion(Graph: NativeGraph) -> ExtrudeContext:
     Component = Graph.OneClass("FusionComponent")
     Fragment = ResolveField(Graph, Component, "rDesignFragment", "DcDesignFragment")
     Order = ResolveField(
@@ -38,13 +38,13 @@ def SelectRectangle(Graph: NativeGraph) -> RectContext:
     if len(Bodies) != 1 or Bodies[0].ClassName != "DcBody":
         raise ValueError("Native Fusion projection requires one extrusion body")
     BodyNode = ResolveField(Graph, Bodies[0], "rBody", "Body")
-    return RectContext(
+    return ExtrudeContext(
         Component,
         Fragment,
         SketchFeature,
-        Extrude,
         Sketch,
         Plane,
+        Extrude,
         Along,
         Taper,
         BodyNode,

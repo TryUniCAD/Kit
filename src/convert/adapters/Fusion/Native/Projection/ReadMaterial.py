@@ -1,6 +1,6 @@
 from convert.adapters.Fusion.Native.Graph.GraphValues import ObjectFields, TextValue
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
-from convert.adapters.Fusion.Native.Rectangle.RectContext import RectContext
+from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 from convert.formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentModel
 from convert.formats.Fusion.DocumentCodec.Reading.Materials.ResolveMatAsset import (
     ResolveMatAsset,
@@ -15,7 +15,7 @@ from interchange.materials.MaterialRecord import MaterialRecord
 
 
 def ReadMaterial(
-    Graph: NativeGraph, Context: RectContext, Model: DocumentModel
+    Graph: NativeGraph, Context: ExtrudeContext, Model: DocumentModel
 ) -> MaterialRecord:
     Physical = ObjectFields(Context.BodyNode.Fields["physicalMaterial"])
     Visual = ObjectFields(Context.BodyNode.Fields["visualMaterial"])

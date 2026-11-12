@@ -31,7 +31,7 @@ KEntityRefRules: dict[str, dict[int, tuple[str, ...]]] = {
         4: ("loop",),
         5: ("shell",),
         6: (),
-        7: ("plane-surface", "cone-surface"),
+        7: ("plane-surface", "cone-surface", "sphere-surface", "torus-surface"),
     },
     "loop": {
         0: ("ATTRIB_CUSTOM-attrib",),
@@ -61,6 +61,8 @@ KEntityRefRules: dict[str, dict[int, tuple[str, ...]]] = {
     "vertex": {0: ("ATTRIB_CUSTOM-attrib",), 2: (), 3: ("edge",), 5: ("point",)},
     "point": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
     "plane-surface": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
+    "sphere-surface": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
+    "torus-surface": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
     "cone-surface": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
     "ellipse-curve": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
     "straight-curve": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},

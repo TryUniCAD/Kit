@@ -1,5 +1,9 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
+from convert.formats.Fusion.GraphicsCodec.Model.Nodes.PrimitiveLod import PrimitiveLod
+from convert.formats.Fusion.GraphicsCodec.Nodes.XferPrimLodMut import (
+    XferPrimLodMut,
+)
 
 from convert.formats.Fusion.GraphicsCodec.Model.Nodes.SceneWorld import SceneWorld
 from convert.formats.Fusion.GraphicsCodec.Model.Values.ObjectRef import ObjectRef
@@ -18,22 +22,41 @@ def XferWorldMut(
     PublishMode = State.Integer(Value.PublishMode if Value else None, "<i")
     if Revision != 5 or PublishMode != 1:
         raise ValueError("Unsupported graphics world revision or publish mode")
-    Nodes: list[ObjectRef] = []
+    Nodes: list[ObjectRef | PrimitiveLod] = []
     while True:
         Current = (
             Value.Nodes[len(Nodes)] if Value and len(Nodes) < len(Value.Nodes) else None
         )
         ClassName = State.TextValue(
-            Current.ClassName if Current else "WorldSerializerEndMark"
+            "PrimitiveLODGeometryNode"
+            if isinstance(Current, PrimitiveLod)
+            else Current.ClassName if Current else "WorldSerializerEndMark"
         )
         if ClassName == "WorldSerializerEndMark":
             break
         if (
-            ClassName not in ("GroupNode", "GeometryNode", "FTextNode")
+            ClassName
+            not in (
+                "GroupNode",
+                "GeometryNode",
+                "FTextNode",
+                "PrimitiveLODGeometryNode",
+            )
             or len(Nodes) >= 1000000
         ):
-            raise ValueError("Unsupported world node class or count")
-        Nodes.append(State.ObjectValue(ClassName, Current))
+            raise ValueError(f"Unsupported world node class or count: {ClassName}")
+        if ClassName == "PrimitiveLODGeometryNode":
+            Nodes.append(
+                XferPrimLodMut(
+                    State, Current if isinstance(Current, PrimitiveLod) else None
+                )
+            )
+        else:
+            Nodes.append(
+                State.ObjectValue(
+                    ClassName, Current if isinstance(Current, ObjectRef) else None
+                )
+            )
     Accelerate = (
         State.IsFlag(Value.Accelerate if Value else None)
         if WorldKind == "ARenderList" and not IsRoot

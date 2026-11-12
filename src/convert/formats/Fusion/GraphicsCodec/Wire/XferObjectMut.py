@@ -16,6 +16,14 @@ from convert.formats.Fusion.GraphicsCodec.Model.Values.VertexFormat import Verte
 from convert.formats.Fusion.GraphicsCodec.Model.Values.IndexData import IndexData
 from convert.formats.Fusion.GraphicsCodec.Model.Values.StyleValue import StyleValue
 
+from convert.formats.Fusion.GraphicsCodec.Model.Values.RenderMesh import RenderMesh
+from convert.formats.Fusion.GraphicsCodec.Model.Values.VertexData import VertexData
+from convert.formats.Fusion.GraphicsCodec.Geometry.XferRenderMut import XferRenderMut
+from convert.formats.Fusion.GraphicsCodec.Geometry.XferVerticesMut import XferVerticesMut
+
+from convert.formats.Fusion.GraphicsCodec.Model.Values.CircleArcValue import CircleArcValue
+from convert.formats.Fusion.GraphicsCodec.Geometry.XferCircleMut import XferCircleMut
+
 if TYPE_CHECKING:
     from convert.formats.Fusion.GraphicsCodec.Wire.SceneCodec import SceneCodec
 
@@ -23,6 +31,12 @@ if TYPE_CHECKING:
 def XferObjectMut(
     State: SceneCodec, ClassName: str, Value: KObjectValue | None
 ) -> KObjectValue:
+    if ClassName == "CircleArc<double>" and (Value is None or isinstance(Value, CircleArcValue)):
+        return XferCircleMut(State, Value)
+    if ClassName == "SimpleMesh" and (Value is None or isinstance(Value, RenderMesh)):
+        return XferRenderMut(State, Value)
+    if ClassName == "VertexBuffer" and (Value is None or isinstance(Value, VertexData)):
+        return XferVerticesMut(State, Value)
     if ClassName == "GroupNode" and (Value is None or isinstance(Value, GroupValue)):
         return XferGroupMut(State, Value)
     if ClassName == "GeometryNode" and (Value is None or isinstance(Value, GeoValue)):

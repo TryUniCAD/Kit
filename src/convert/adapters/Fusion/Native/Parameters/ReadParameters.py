@@ -10,12 +10,14 @@ from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Graph.IntegerValue import IntegerValue
 from convert.adapters.Fusion.Native.Graph.NativeNode import NativeNode
 from convert.adapters.Fusion.Native.Parameters.ParamExpression import ParamExpression
-from convert.adapters.Fusion.Native.Rectangle.RectContext import RectContext
+from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 from interchange.enums.EnumValues import ValueKind
 from interchange.records.RecordParameter import Parameter, ParameterValue
 
 
-def ReadParameters(Graph: NativeGraph, Context: RectContext) -> tuple[Parameter, ...]:
+def ReadParameters(
+    Graph: NativeGraph, Context: ExtrudeContext, AllowTaper: bool = False
+) -> tuple[Parameter, ...]:
     Table = ResolveField(Graph, Context.Component, "rParameterTable", "ParameterTable")
     Nodes = LinkedNodes(Graph, Table, "children")
     SameNodes(Nodes, Graph.ByClass("Parameter"))
@@ -43,19 +45,21 @@ def ReadParameters(Graph: NativeGraph, Context: RectContext) -> tuple[Parameter,
         Along.Fields["unit"] != "mm"
         or Taper.Fields["unit"] != "deg"
         or NumberValue(Along.Fields["value"]) <= 0
-        or NumberValue(Taper.Fields["value"]) != 0
+        or (not AllowTaper and NumberValue(Taper.Fields["value"]) != 0)
     ):
         raise ValueError(
-            "Native rectangle extrusion requires positive distance and zero taper"
+            "Native extrusion parameter units, distance or taper are unsupported"
         )
     return tuple(
-        ProjectParam(NodeValue, Catalog, Context, NodeValue in (Along, Taper))
+        ProjectParam(
+            NodeValue, Catalog, Context.Extrude if NodeValue in (Along, Taper) else None
+        )
         for NodeValue in Nodes
     )
 
 
 def CheckBinding(
-    Graph: NativeGraph, Binding: NativeNode, Context: RectContext
+    Graph: NativeGraph, Binding: NativeNode, Context: ExtrudeContext
 ) -> NativeNode:
     RequireFields(Binding, {"isActive": True, "isEdited": False, "isEliminated": False})
     if (
@@ -76,9 +80,9 @@ def CheckBinding(
 def ProjectParam(
     NodeValue: NativeNode,
     Catalog: dict[str, NativeNode],
-    Context: RectContext,
-    IsOwned: bool,
+    Owner: NativeNode | None,
 ) -> Parameter:
+    IsOwned = Owner is not None
     RequireFields(
         NodeValue,
         {
@@ -109,7 +113,7 @@ def ProjectParam(
         TextValue(NodeValue.Fields["userName"]),
         Value,
         expression=ParamExpression(NodeValue, Catalog),
-        owner_id=Context.Extrude.Identity if IsOwned else "",
+        owner_id=Owner.Identity if Owner is not None else "",
         attributes={
             "comment": TextValue(NodeValue.Fields["comment"]),
             "native_name": TextValue(NodeValue.Fields["name"]),

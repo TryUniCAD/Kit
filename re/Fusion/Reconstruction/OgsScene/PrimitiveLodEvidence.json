@@ -1,0 +1,187 @@
+{
+  "scope": "Static serializer grammar for the ordinary primitive LOD graphics branch; no product execution or native acceptance performed by this research script",
+  "fusion_version": "2706.1.17",
+  "architecture": "arm64",
+  "images": [
+    {
+      "path": "Libraries/libOGSGraphics.dylib",
+      "sha256": "34fd314c426896b8f57039939ab962d76b7963a4dffe771f30aea87afeea1c5a",
+      "address_prefix": "OGS"
+    },
+    {
+      "path": "Libraries/Neutron/NsScene10.dylib",
+      "sha256": "d33789c8c20033f1c7673ff9b1dcf87f1ef7cf9c43c7245d75c8a65a83bc8c82",
+      "address_prefix": "NsScene10"
+    }
+  ],
+  "base_resource_rule": {
+    "field": "Serializer instance byte +0xc",
+    "default": true,
+    "default_store": "OGS:0xede68",
+    "dispatch": "OGS:0xedec4..0xedecc",
+    "inline_path": "OGS:0xedfc0 WriteInterfaceID only",
+    "first_resource_path": "OGS:0xee198 WriteInterfaceID then0xee1b0 ResourceID",
+    "repeated_resource_path": "OGS:0xee384 WriteInterfaceID then0xee39c ResourceID; returns2 before derived payload"
+  },
+  "classes": {
+    "LODGeometryNode": {
+      "resource": false,
+      "prefix": [
+        "InterfaceID:text"
+      ],
+      "fields": [
+        "NodeDataType:u32",
+        "NodeData:selector-specific quick payload",
+        "HasLODs:u32 bitmask",
+        "when HasLODs!=0: chosen geometry general link",
+        "WorldBox:6*f64",
+        "UseClosestLOD:bool"
+      ],
+      "evidence": [
+        "NsScene10:0xb3cbc",
+        "NsScene10:0xb529c clears serializer resource byte +0xc"
+      ],
+      "limits": [
+        "The ordinary serializer chooses one level: preferred11 or closest available; no DisplayItemType scalar before the link",
+        "Do not prepend RenderNodeSerializer matrix/material/node-data frame: this method calls Serializer::Serialize directly"
+      ]
+    },
+    "PrimitiveLODGeometryNode": {
+      "resource": false,
+      "base": "LODGeometryNode",
+      "fields": [
+        "Primitive:general link"
+      ],
+      "evidence": [
+        "NsScene10:0xb4f78 base call",
+        "NsScene10:0xb501c Primitive link",
+        "NsScene10:0xb538c clears serializer resource byte +0xc"
+      ]
+    },
+    "SimpleMesh": {
+      "resource": true,
+      "prefix": [
+        "InterfaceID:text",
+        "ResourceID:text; existing id ends the record"
+      ],
+      "fields": [
+        "Modelbox:6*f32",
+        "VertexFormat:general link",
+        "PrimitiveType:i32",
+        "ObjectSaved:bool for vertex buffer",
+        "when vertex buffer saved: full vertex buffer resource serializer",
+        "IndexBufferSaveFlag:i32 0 or1",
+        "when index saved: ObjectSaved:bool true then full index buffer resource serializer"
+      ],
+      "evidence": [
+        "OGS:0xf5730 calls RenderGeomSerializer constructor; resource byte remains1",
+        "OGS:0xe71c4 Modelbox",
+        "OGS:0xe71f4 VertexFormat link",
+        "OGS:0xf4d3c PrimitiveType",
+        "OGS:0xf4dbc / 0xf4de8 vertex presence",
+        "OGS:0xf4e64 vertex serializer and0xf4ed0 link creation",
+        "OGS:0xf4fb0 index presence",
+        "OGS:0xf4fe8 index ObjectSaved",
+        "OGS:0xf5064 index serializer and0xf5098 link creation"
+      ],
+      "limits": [
+        "Not the body-specific OgsSimpleMesh quick grammar",
+        "No SimpleMesh-level DynamicResource or Planarity scalar"
+      ]
+    },
+    "AVertexBuffer": {
+      "resource": true,
+      "fields": [
+        "DynamicResource:bool",
+        "VertexFormat:general link",
+        "StreamCount:i32",
+        "MeshStreamSerializer explicit stream descriptors and mesh-stream numeric values"
+      ],
+      "evidence": [
+        "OGS:0xa42e0 Serializer base",
+        "OGS:0xa4388 DynamicResource",
+        "OGS:0xa43b0 VertexFormat",
+        "OGS:0xa43e8 StreamCount"
+      ],
+      "limits": [
+        "Actual observed class may be VertexBuffer; resource base must precede existing quick vertex fields"
+      ]
+    },
+    "CircleArc<double>": {
+      "resource": true,
+      "fields": [
+        {
+          "name": "Sampling",
+          "type": "i32"
+        },
+        {
+          "name": "Interval",
+          "type": "f64[2]"
+        },
+        {
+          "name": "Radius",
+          "type": "f64"
+        },
+        {
+          "name": "Center",
+          "type": "f64[3]"
+        },
+        {
+          "name": "Normal",
+          "type": "f64[3]"
+        },
+        {
+          "name": "StartAngle",
+          "type": "f64"
+        },
+        {
+          "name": "EndAngle",
+          "type": "f64"
+        },
+        {
+          "name": "ReferencePoint",
+          "type": "f64[3]"
+        }
+      ],
+      "evidence": [
+        "OGS:0xafe20 calls CurveSerializer<double> constructor",
+        "OGS:0xb5a4c calls Serializer constructor; resource byte remains1",
+        "OGS:0xb5b14 Sampling i32",
+        "OGS:0xb5b4c Interval2 doubles",
+        "OGS:0xaff54 value12 doubles",
+        "OGS:0xb0164..0xb0174 restores center/referencepoint/normal/radius/startangle/endangle via CircleArc<double>::Init"
+      ],
+      "value_offsets": {
+        "Radius": 0,
+        "Center": 8,
+        "Normal": 32,
+        "StartAngle": 56,
+        "EndAngle": 64,
+        "ReferencePoint": 72
+      },
+      "native_object_offsets": {
+        "Radius": 168,
+        "Center": 88,
+        "FirstAxis": 112,
+        "SecondAxis": 136,
+        "StartAngle": 200,
+        "EndAngle": 208
+      },
+      "derived_values": {
+        "Normal": "cross(FirstAxis, SecondAxis)",
+        "ReferencePoint": "Center + Radius * FirstAxis"
+      },
+      "limits": [
+        "Preserve all serialized numeric fields; do not silently normalize the reference point, normal, angles or interval"
+      ]
+    }
+  },
+  "source_evidence": {
+    "file": "re/Fusion/Reconstruction/OgsScene/SerializerCalls.json.xz",
+    "sha256": "529d64dd1c92194e2a96c722451cf6d05a935f5ce468ba311e813a643efc2bf3"
+  },
+  "unresolved": [
+    "No claim beyond these serializer paths or of general graphics support",
+    "Sketch world group dispatch remains the existing captured world grammar; this research adds no speculative sketch fields"
+  ]
+}

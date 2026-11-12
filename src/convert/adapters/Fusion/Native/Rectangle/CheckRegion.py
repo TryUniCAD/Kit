@@ -6,13 +6,16 @@ from convert.adapters.Fusion.Native.Graph.GraphChecks import (
 from convert.adapters.Fusion.Native.Graph.GraphValues import ObjectFields, SeriesItems
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Rectangle.CurveTags import CurveTag, SketchTag
-from convert.adapters.Fusion.Native.Rectangle.RectContext import RectContext
-from convert.adapters.Fusion.Native.Rectangle.RectGeometry import RectGeometry
+from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
+from convert.adapters.Fusion.Native.Graph.NativeNode import NativeNode
 from convert.formats.Fusion.EntityCodec.Model.ValuePair import ValuePair
 
 
 def CheckRegion(
-    Graph: NativeGraph, Context: RectContext, Shape: RectGeometry, AssetId: str
+    Graph: NativeGraph,
+    Context: ExtrudeContext,
+    CurveNodes: tuple[NativeNode, ...],
+    AssetId: str,
 ) -> None:
     Profiles = LinkedNodes(Graph, Context.Extrude, "profileDataRefs")
     SameNodes(Profiles, Graph.ByClass("ModelDataRef"))
@@ -45,11 +48,7 @@ def CheckRegion(
         or not isinstance(Loops[0], ValuePair)
         or Loops[0].Second is not True
     ):
-        raise ValueError(
-            "Native rectangular extrusion requires one positive profile loop"
-        )
+        raise ValueError("Native extrusion requires one positive profile loop")
     TagValues = tuple(SketchTag(Value, 0) for Value in SeriesItems(Loops[0].First))
-    if sorted(TagValues) != sorted(
-        CurveTag(NodeValue) for NodeValue in Shape.LineNodes
-    ):
-        raise ValueError("Native region recipe does not consume the sketch rectangle")
+    if sorted(TagValues) != sorted(CurveTag(NodeValue) for NodeValue in CurveNodes):
+        raise ValueError("Native region recipe does not consume the sketch profile")

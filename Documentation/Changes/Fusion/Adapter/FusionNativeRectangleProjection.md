@@ -35,13 +35,13 @@ The extrusion requires one solid distance extent and zero taper. Its body serial
 
 Material references resolve through their actual manager and package. The `_Post2015` appearance alias remains distinct in retained state. The neutral material uses the stored physical label or `UIName`, structural density, and effective floating-point appearance color. Library-localized display names are not fabricated.
 
-Graphics retain their typed scene objects, vertex/index values, styles, and node data. Every graphic entity reference must resolve to the decoded semantic graph. Graphics do not determine solid geometry. The static state registry adds 30 scene classes, for 115 allowlisted record/enum types. Raw graphics streams remain outside that registry.
+Graphics retain their typed scene objects, vertex/index values, styles, and node data. Every graphic entity reference must resolve to the decoded semantic graph. Graphics do not determine solid geometry. This rectangle extension introduced 30 scene classes, bringing the static state registry to 115 record/enum types at that revision. The subsequent [circular extension](FusionNativeCircularProjection.md) adds the mixed-snapshot geometry closure. Raw graphics streams remain outside that registry.
 
 ## Limits
 
 This route currently requires axis-aligned counterclockwise rectangular geometry, identity component/sketch placement, one closed profile, and no sketch dimensions or geometric constraints. It rejects tapered, thin, symmetric, two-sided, subtractive, assembled, external, or multi-body variants. Nonempty mesh bodies remain unsupported by the strict public projector, although the lower document codec can represent them.
 
-The existing constructor route still supports its separately qualified circle, constrained rectangle, cylinder, cuboid, and frustum profiles. The new route does not extend every constructor profile to arbitrary native post-save graphs.
+The existing constructor route still supports its separately qualified circle, constrained rectangle, cylinder, cuboid, and frustum profiles. The new route does not extend every constructor profile to arbitrary native post-save graphs. The separately qualified [circular route](FusionNativeCircularProjection.md) handles native circle/cylinder/frustum saves.
 
 All decoded fields remain in native state. Explicit UI, display, cache, and provenance classes can vary without creating a new modeled feature. Schema membership and modeled references are validated separately. No original archive, segment payload, generated source template, or runtime CAD dependency is retained.
 

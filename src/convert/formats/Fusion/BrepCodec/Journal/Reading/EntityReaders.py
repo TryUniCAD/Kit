@@ -1,4 +1,6 @@
 from collections.abc import Callable
+from convert.formats.Fusion.BrepCodec.Journal.Round.ReadSphereNode import ReadSphereNode
+from convert.formats.Fusion.BrepCodec.Journal.Round.ReadTorusNode import ReadTorusNode
 
 from convert.formats.Fusion.BrepCodec.Journal.JournalEntity import KJournalEntity
 from convert.formats.Fusion.BrepCodec.Journal.Reading.FieldCursor import FieldCursor
@@ -54,6 +56,8 @@ from convert.formats.Fusion.BrepCodec.Journal.Reading.Geometry.ReadTransform imp
 )
 
 KEntityReaders: dict[str, Callable[[FieldCursor], KJournalEntity]] = {
+    "sphere-surface": ReadSphereNode,
+    "torus-surface": ReadTorusNode,
     "straight-curve": ReadStraight,
     "transform": ReadTransform,
     "asmheader": ReadAsmRoot,

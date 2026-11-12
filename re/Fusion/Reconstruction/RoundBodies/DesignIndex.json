@@ -1,0 +1,9 @@
+{
+  "path": "DesignInputs.json.xz",
+  "sha256": "efe1181cf17f022291aee515e887e5de7b26a35e487d4b8b02b82ea7b61d5f47",
+  "sources": [
+    "re/Fusion/Study/pipemodes-87cfa7d8d82b/partial_closed.f3d",
+    "re/Fusion/Study/pipepaths-3d11bd427946/composite_circular.f3d",
+    "re/Fusion/Study/specialfillets-d50f7a4f04e0/rule_all_rounds.f3d"
+  ]
+}

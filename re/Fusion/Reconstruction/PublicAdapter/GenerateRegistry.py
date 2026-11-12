@@ -8,7 +8,7 @@ def walk(module, name):
     if key in seen: return
     seen.add(key)
     path=root.joinpath(*module.split('.')).with_suffix('.py')
-    if not path.exists() or not module.startswith('convert.formats.Fusion') or '.MeshCodec.' in module or name == 'DocumentMesh': return
+    if not path.exists() or not module.startswith('convert.formats.Fusion') or '.MeshCodec.' in module or name in ('DocumentMesh', 'JournalModel', 'SphereNode', 'TorusNode'): return
     tree=ast.parse(path.read_text())
     imports={alias.asname or alias.name:(node.module,alias.name) for node in ast.walk(tree) if isinstance(node,ast.ImportFrom) and node.module for alias in node.names}
     target=next((node for node in tree.body if isinstance(node,ast.ClassDef) and node.name==name),None)

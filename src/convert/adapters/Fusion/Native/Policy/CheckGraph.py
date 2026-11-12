@@ -15,29 +15,36 @@ from convert.adapters.Fusion.Native.Policy.CheckContainers import CheckContainer
 from convert.adapters.Fusion.Native.Policy.CheckExtrusion import CheckExtrusion
 from convert.adapters.Fusion.Native.Policy.CheckFeature import CheckFeature
 from convert.adapters.Fusion.Native.Policy.CheckPlacement import CheckPlacement
-from convert.adapters.Fusion.Native.Rectangle.RectContext import RectContext
+from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
+from convert.adapters.Fusion.Native.Graph.SketchContexts import KSketchContexts
 from convert.adapters.Fusion.Native.Rectangle.RectGeometry import RectGeometry
 from convert.formats.Fusion.BrepCodec.Prism.Models.PrismHistory import PrismHistory
 
 
-def CheckGraph(Graph: NativeGraph, Context: RectContext) -> None:
+def CheckBase(Graph: NativeGraph, Context: KSketchContexts) -> None:
     CheckClasses(Graph)
     CheckAssembly(Graph, Context)
     CheckContainers(Graph, Context)
     CheckPlacement(Graph, Context)
     CheckFeature(Graph, Context.SketchFeature)
+    Overrides = ObjectFields(Context.Component.Fields["massProperties"])
+    if any(Value != -1.0 for Value in Overrides.values()):
+        raise ValueError("Native component mass-property overrides are not qualified")
+
+
+def CheckGraph(Graph: NativeGraph, Context: ExtrudeContext) -> None:
+    CheckBase(Graph, Context)
     CheckFeature(Graph, Context.Extrude)
     CheckExtrusion(Graph, Context)
-    for NodeValue in (Context.Component, Context.BodyNode):
-        Overrides = ObjectFields(NodeValue.Fields["massProperties"])
-        if any(Value != -1.0 for Value in Overrides.values()):
-            raise ValueError("Native mass-property overrides are not qualified")
+    Overrides = ObjectFields(Context.BodyNode.Fields["massProperties"])
+    if any(Value != -1.0 for Value in Overrides.values()):
+        raise ValueError("Native body mass-property overrides are not qualified")
     EmptyFields(Context.BodyNode, ("faceVisualMaterialByAttrTagID",))
     RequireFields(Context.DcBody, {"isEliminated": False})
 
 
 def CheckShape(
-    Context: RectContext, Shape: RectGeometry, History: PrismHistory
+    Context: ExtrudeContext, Shape: RectGeometry, History: PrismHistory
 ) -> None:
     Height = NumberValue(Context.Along.Fields["value"]) * 10
     Model = History.Model

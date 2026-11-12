@@ -9,6 +9,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Validation.CheckLiveUses import (
     CheckLiveUses,
 )
 from convert.formats.Fusion.Topology.AsmEdge.AsmTable import AsmRecord
+from convert.formats.Fusion.BrepCodec.Journal.Round.CheckLiveFaces import CheckLiveFaces
 
 
 def CheckLiveRefs(
@@ -44,3 +45,4 @@ def CheckLiveRefs(
                     "Fusion historical entity reference is absent or class-incompatible"
                 )
     CheckLiveUses(Records, Versions, Aliases)
+    CheckLiveFaces(Records, Versions, Aliases)

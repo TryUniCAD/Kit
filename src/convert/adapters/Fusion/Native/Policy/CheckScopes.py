@@ -9,10 +9,10 @@ from convert.adapters.Fusion.Native.Graph.GraphValues import (
     TextValue,
 )
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
-from convert.adapters.Fusion.Native.Rectangle.RectContext import RectContext
+from convert.adapters.Fusion.Native.Graph.SketchContexts import KSketchContexts
 
 
-def CheckScopes(Graph: NativeGraph, Context: RectContext, AssetId: str) -> None:
+def CheckScopes(Graph: NativeGraph, Context: KSketchContexts, AssetId: str) -> None:
     for NodeValue in Graph.Nodes.values():
         if NodeValue.SegmentId != 0 or "rScope" not in NodeValue.Fields:
             continue

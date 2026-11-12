@@ -1,4 +1,6 @@
 from convert.formats.Fusion.BrepCodec.Journal.JournalEntity import KJournalEntity
+from convert.formats.Fusion.BrepCodec.Journal.Round.SphereNode import SphereNode
+from convert.formats.Fusion.BrepCodec.Journal.Round.TorusNode import TorusNode
 from convert.formats.Fusion.Topology.AsmEdge.AsmTable import AsmRecord
 from convert.formats.Fusion.BrepCodec.Journal.Writing.MakeTopology import MakeTopology
 from convert.formats.Fusion.BrepCodec.Journal.Writing.MakeCarriers import MakeCarriers
@@ -27,7 +29,16 @@ from convert.formats.Fusion.BrepCodec.Journal.Geometry.TransformNode import (
 def MakeEntityNode(Value: KJournalEntity) -> AsmRecord:
     if isinstance(
         Value,
-        (PointNode, PlaneNode, EllipseNode, ConeNode, StraightNode, TransformNode),
+        (
+            PointNode,
+            PlaneNode,
+            EllipseNode,
+            ConeNode,
+            StraightNode,
+            TransformNode,
+            SphereNode,
+            TorusNode,
+        ),
     ):
         return MakeCarriers(Value)
     if isinstance(Value, (TimeAttrib, TrackAttrib, TagAttrib, SketchAttrib)):

@@ -13,6 +13,7 @@ KDesignClasses = frozenset(
         "Camera",
         "CanvasGroups",
         "Canvases",
+        "CircArc3D",
         "CommonDataAssetSettings",
         "ComponentInstance",
         "ComponentInstances",

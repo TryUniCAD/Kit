@@ -10,7 +10,7 @@ def CurveTag(NodeValue: NativeNode) -> int:
         for ItemValue in NodeValue.Frame.Metadata or ()
     }
     if Metadata.get("crv_secondary_id") != 0:
-        raise ValueError("Native rectangle requires unsplit primary sketch tags")
+        raise ValueError("Native profile requires unsplit primary sketch tags")
     return IntegerValue(Metadata["crv_primary_id"])
 
 
@@ -27,5 +27,5 @@ def SketchTag(Value: KEntityValue, Direction: int) -> int:
     if any(
         Fields.get(NameValue) != ItemValue for NameValue, ItemValue in Expected.items()
     ):
-        raise ValueError("Unsupported native rectangular profile sketch tag")
+        raise ValueError("Unsupported native profile sketch tag")
     return IntegerValue(Fields["tagId"])

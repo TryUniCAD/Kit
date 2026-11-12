@@ -1,10 +1,10 @@
 from convert.adapters.Fusion.Native.Graph.GraphChecks import SameNumbers
 from convert.adapters.Fusion.Native.Graph.GraphValues import ObjectFields, PointCoords
-from convert.adapters.Fusion.Native.Rectangle.RectContext import RectContext
+from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 from convert.formats.Fusion.BrepCodec.Prism.Models.PrismHistory import PrismHistory
 
 
-def CheckMassCache(Context: RectContext, History: PrismHistory) -> None:
+def CheckMassCache(Context: ExtrudeContext, History: PrismHistory) -> None:
     Model = History.Model
     Lengths = (Model.Width / 10, Model.Depth / 10, Model.Height / 10)
     Center = tuple(

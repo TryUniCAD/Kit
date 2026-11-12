@@ -20,6 +20,11 @@ def DecodeRecord(NameValue: object, Values: dict[str, object]) -> object:
         == "convert.formats.Fusion.DocumentCodec.Model.DocumentModel.DocumentModel"
     ):
         Values = {"Meshes": (), **Values}
+    if (
+        NameValue
+        == "convert.formats.Fusion.GraphicsCodec.Model.Nodes.SketchWorld.SketchWorld"
+    ):
+        Values = {"RegularNodes": (), "NoCullingNodes": (), **Values}
     if not IsDataClass(ClassType) or set(Values) != {
         Field.name for Field in DataFields(ClassType)
     }:

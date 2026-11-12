@@ -13,7 +13,7 @@ def XferAttrMut(State: SceneCodec, Value: GraphicAttr | None) -> GraphicAttr:
     ClassName = State.TextValue(Value.ClassName if Value else None)
     Rules = KAttrRules.get(ClassName)
     if Rules is None:
-        raise ValueError("Unsupported graphics attribute class")
+        raise ValueError(f"Unsupported graphics attribute class: {ClassName}")
     Priority = State.Integer(Value.Priority if Value else None, "<i")
     WinTies = State.IsFlag(Value.WinTies if Value else None)
     Fields = XferFieldsMut(State, Rules, Value.Fields if Value else None)

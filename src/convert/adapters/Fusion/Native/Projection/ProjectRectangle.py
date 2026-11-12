@@ -1,6 +1,6 @@
 from convert.adapters.Fusion.Native.Graph.GraphValues import NumberValue, TextValue
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
-from convert.adapters.Fusion.Native.Rectangle.RectContext import RectContext
+from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 from convert.adapters.Fusion.Native.Rectangle.RectGeometry import RectGeometry
 from convert.geometry.Extrude.Polygon.PolygonExtrude import BuildPrism
 from interchange.brep.topology.BrepModel import BrepModel
@@ -14,7 +14,7 @@ from interchange.geometry.models.VectorSpace import SpaceVector
 from interchange.records.RecordTopology import TopologyCounts
 
 
-def ProjectSketch(Context: RectContext, Shape: RectGeometry) -> Sketch:
+def ProjectSketch(Context: ExtrudeContext, Shape: RectGeometry) -> Sketch:
     return Sketch(
         Context.Sketch.Identity,
         TextValue(Context.Sketch.Fields["userName"]),
@@ -27,7 +27,7 @@ def ProjectSketch(Context: RectContext, Shape: RectGeometry) -> Sketch:
 
 
 def ProjectFeatures(
-    Graph: NativeGraph, Context: RectContext
+    Graph: NativeGraph, Context: ExtrudeContext
 ) -> tuple[FeatureStep, ...]:
     Along = Graph.Resolve(Context.Along.Fields["parameter"])
     Taper = Graph.Resolve(Context.Taper.Fields["parameter"])
@@ -62,7 +62,7 @@ def ProjectFeatures(
 
 
 def ProjectBody(
-    Context: RectContext, Shape: RectGeometry, MaterialId: str
+    Context: ExtrudeContext, Shape: RectGeometry, MaterialId: str
 ) -> tuple[BrepModel, DesignBody]:
     Height = NumberValue(Context.Along.Fields["value"]) * 10
     Geometry, Volume, AreaValue, Bounds = BuildPrism(

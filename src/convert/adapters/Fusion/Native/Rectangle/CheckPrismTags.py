@@ -4,7 +4,7 @@ from convert.adapters.Fusion.Native.Graph.IntegerValue import IntegerValue
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Rectangle.CurveTags import CurveTag
 from convert.adapters.Fusion.Native.Rectangle.CheckSideRecipe import CheckSideRecipe
-from convert.adapters.Fusion.Native.Rectangle.RectContext import RectContext
+from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 from convert.adapters.Fusion.Native.Rectangle.RectGeometry import RectGeometry
 from convert.formats.Fusion.BrepCodec.Models.FeatureTag import FeatureTag
 from convert.formats.Fusion.BrepCodec.Models.SketchLink import SketchLink
@@ -13,7 +13,10 @@ from convert.formats.Fusion.EntityCodec.Model.ValuePair import ValuePair
 
 
 def CheckPrismTags(
-    Graph: NativeGraph, Context: RectContext, Shape: RectGeometry, History: PrismHistory
+    Graph: NativeGraph,
+    Context: ExtrudeContext,
+    Shape: RectGeometry,
+    History: PrismHistory,
 ) -> None:
     Table = ResolveField(Graph, Context.Extrude, "rProgenitorTable", "ProgenitorTable")
     Labels: dict[int, str] = {}

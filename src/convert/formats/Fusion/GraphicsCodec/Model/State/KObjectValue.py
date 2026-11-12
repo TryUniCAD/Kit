@@ -5,4 +5,21 @@ from convert.formats.Fusion.GraphicsCodec.Model.Values.VertexFormat import Verte
 from convert.formats.Fusion.GraphicsCodec.Model.Values.IndexData import IndexData
 from convert.formats.Fusion.GraphicsCodec.Model.Values.StyleValue import StyleValue
 
-KObjectValue = GroupValue | GeoValue | TextValue | VertexFormat | IndexData | StyleValue
+from convert.formats.Fusion.GraphicsCodec.Model.Values.RenderMesh import RenderMesh
+from convert.formats.Fusion.GraphicsCodec.Model.Values.VertexData import VertexData
+
+from convert.formats.Fusion.GraphicsCodec.Model.Values.CircleArcValue import (
+    CircleArcValue,
+)
+
+KObjectValue = (
+    GroupValue
+    | GeoValue
+    | TextValue
+    | VertexFormat
+    | IndexData
+    | StyleValue
+    | RenderMesh
+    | VertexData
+    | CircleArcValue
+)

@@ -12,10 +12,10 @@ from convert.adapters.Fusion.Native.Graph.GraphValues import (
     PointCoords,
 )
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
-from convert.adapters.Fusion.Native.Rectangle.RectContext import RectContext
+from convert.adapters.Fusion.Native.Graph.SketchContexts import KSketchContexts
 
 
-def CheckPlacement(Graph: NativeGraph, Context: RectContext) -> None:
+def CheckPlacement(Graph: NativeGraph, Context: KSketchContexts) -> None:
     Instance = Graph.OneClass("ComponentInstance")
     if Graph.Resolve(Instance.Fields["rTargetComponent"]) != Context.Component:
         raise ValueError("Native root instance targets another component")
