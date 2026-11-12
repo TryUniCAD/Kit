@@ -13,8 +13,10 @@ The complete API is in the [API reference](Reference/Overview/ApiReference.md).
 
 ## Before you start
 
-Use Python 3.11 or later and the repository's `uv` environment.
-Follow [installation](Tasks/Install.md) for an isolated checkout and locked dependencies.
+Install `uv` and use Python 3.11 or later.
+For an application project, follow [published installation](#install-a-published-release) below.
+For repository development, follow [repository installation](Tasks/Install.md).
+The repository procedure creates an isolated checkout with locked dependencies.
 Keep the original CAD file unchanged.
 Select an unused output path.
 
