@@ -60,5 +60,6 @@ Keep source links and historical evidence.
 
 - **Release concurrency:** A branch-wide group might appear to serialize every release. The default queue replaces a pending run when another enters that group. Group GitHub releases by commit SHA. Group PyPI uploads by package version. See [concurrency rules](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency).
 - **Release history:** The default checkout might appear sufficient to count commits. It fetches one commit, so the count can repeat across releases. Set `fetch-depth: 0` for [package release builds](../Changes/PackageReleaseVersions.md).
+- **Workflow permission declarations:** A read-only permission might appear self-explanatory. The strict workflow audit requires its purpose. Document the permission beside its YAML entry. See the [permission audit](https://docs.zizmor.sh/audits/#undocumented-permissions).
 
 - **Managed Code Quality workflow path:** Its workflow might appear to live under `.github/workflows/`. GitHub reports it under `dynamic/github-code-quality/codeql` with event `dynamic`. Register that path and event in the PR allowlist. See [a managed run](https://github.com/TryUniCAD/Kit/actions/runs/43169749076).
