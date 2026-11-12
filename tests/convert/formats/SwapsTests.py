@@ -492,6 +492,18 @@ def MatrixDocument(Source: PathValue) -> CadDocument:
 
 # this definition exists because focused behavior needs one stable owner
 def TestSFMRADK() -> None:
+    ReaderSuffixes, WriterSuffixes = (
+        {
+            SuffixName.casefold()
+            for AdapterData in AdapterSet
+            if AdapterData.info.format_id != "interchange.json"
+            for SuffixName in AdapterData.info.extensions
+        }
+        for AdapterSet in (Registry.readers(), Registry.writers())
+    )
+    assert {SuffixName.casefold() for SuffixName in KFormatBySuffix} == (
+        ReaderSuffixes & WriterSuffixes
+    )
     assert set(KPartSuffixes) | set(KAssemblySuffixes) == set(KFormatBySuffix)
     assert set(KPartSuffixes) & set(KAssemblySuffixes) == {".FCStd"}
     Counts = Counter(Suffix(PathValueA) for PathValueA in KCorpusFiles)

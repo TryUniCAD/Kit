@@ -8,7 +8,8 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 The README gives the public conversion call and states that production conversion requires no CAD application.
 The documentation check compares the listed read and write suffixes with the registered readers and writers.
 This check includes Kit interchange JSON.
-The CAD swap matrix keeps its proprietary-format and corpus checks.
+The CAD swap matrix checks every registered non-JSON read and write suffix.
+The existing JSON interchange and CAD corpus checks still run in the full suite.
 
 The [workflow quality job](../Reference/Operations/Testing.md#pr-and-queue-evidence) runs the README checks on PRs and pushes to `main`.
 The complete suite still runs in the merge queue.
