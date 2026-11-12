@@ -12,7 +12,7 @@ This procedure covers reviewed imports and authorized wiki publication.
 A documentation PR does not itself publish the wiki.
 
 The reference set began with a generated wiki snapshot.
-The `Wiki` and `WikiSettings` fields in [ReviewBot.json](../.agents/skills/standard-pr-practice/ReviewBot.json) identify the optional source and its settings.
+The `DocumentationSources.InitialWiki.Wiki` and `DocumentationSources.InitialWiki.WikiSettings` fields in [ReviewBot.json](../.agents/skills/standard-pr-practice/ReviewBot.json) identify the optional source and its settings.
 The [provenance record](Reference/Provenance.json) retains the original export metadata.
 Its original content hash does not describe later edited Markdown.
 

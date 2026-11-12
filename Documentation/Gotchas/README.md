@@ -31,3 +31,5 @@ Keep source links and historical evidence.
 - **Public standards summaries:** Short sentences might appear sufficient for standards conformance. Full ASD language assessment also needs dictionary usage checks. ISO conformance needs complete applicable requirements and evidence. Keep full conformance unverified when those inputs are unavailable. See [the evidence matrix](../Standards/Conformance.md).
 
 - **Review trigger syntax:** An account mention might appear sufficient for every integration. Some require a slash command and a linked account with write access. Read each exact `Comment` and official source in [ReviewBot.json](../../.agents/skills/standard-pr-practice/ReviewBot.json). Submit it verbatim and verify the responding identity and reviewed SHA.
+
+- **Provenance references:** An array position might appear to identify a generator permanently. Reordering exclusion entries changes that target. Use the stable `DocumentationSources.InitialWiki.Generator` key in [the configuration](../../.agents/skills/standard-pr-practice/ReviewBot.json).

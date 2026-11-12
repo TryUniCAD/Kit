@@ -46,6 +46,8 @@ Identity names, brands, numeric IDs, and triggers belong only in the JSON.
 Those entries are not requested reviewers.
 Their existing integration-owned settings remain in place.
 Adding metadata does not install or enable an app, link a triggering account, or alter live GitHub protections.
+Historical generator metadata uses the stable `DocumentationSources.InitialWiki` key.
+Reordering reviewer or exclusion arrays cannot change that provenance reference.
 
 The previously approved README badge and integration-owned settings remain preserved.
 The change removes CODEOWNERS as requested.
