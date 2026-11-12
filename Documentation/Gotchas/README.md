@@ -34,4 +34,6 @@ Read this log before working in an affected area. Keep entries short, searchable
 
 - **The scanner group blocks Python 3.14 test setup on Linux:** The locked scanner dependency had no compatible wheel, so installing every dev group failed before pytest. Sync the project dev extra for the full test job and keep the scanners in their existing jobs. See [the setup failure](https://github.com/TryUniCAD/Kit/actions/runs/43161600774/job/130993867779).
 
+- **The generator test needs Black in its own environment:** The project dev extra appeared to cover pytest, but the program generation check launches a subprocess that imports Black. Include the pinned formatter in that extra when isolating the suite from scanner dependencies. See [the review finding](https://github.com/TryUniCAD/Kit/pull/72#discussion_r4546730884).
+
 If you discover a new gotcha, unexpected API behavior, wrong assumption, or undocumented quirk while working on this codebase, you MUST add it to the bullet list above before finishing your task. This is mandatory, not optional. Future you (or a different agent) will thank you. Format: - Short description of the gotcha, what you expected vs what actually happened, and the fix or workaround.
