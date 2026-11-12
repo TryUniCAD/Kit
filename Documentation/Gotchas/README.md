@@ -32,7 +32,7 @@ Keep source links and historical evidence.
 
 - **Review trigger syntax:** An account mention might appear sufficient for every integration. Some require a slash command and a linked account with write access. Read each exact `Comment` and official source in [ReviewBot.json](../../.agents/skills/standard-pr-practice/ReviewBot.json). Submit it verbatim and verify the responding identity and reviewed SHA.
 
-- **Provenance references:** An array position might appear to identify a generator permanently. Reordering exclusion entries changes that target. Pin the generator key to its historical revision in [the provenance record](../Reference/Provenance.json).
+- **Provenance references:** An array position might appear to identify a generator permanently. Reordering exclusion entries changes that target. Link directly to the generator line at its historical revision in [the provenance record](../Reference/Provenance.json).
 
 - **Accented fixture paths on macOS:** A fresh worktree might appear clean. Git can report accented SOLIDWORKS fixture names as untracked when their Unicode form differs from the index. Stage only explicit task paths.
 
