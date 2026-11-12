@@ -48,6 +48,7 @@ those entries are not requested reviewers. Their existing integration-owned
 settings remain in place. Adding metadata does not install or enable an app,
 link a triggering account, or alter live GitHub protections.
 
+The previously approved README badge and integration-owned settings remain preserved.
 CODEOWNERS is removed as requested. Repository rules are managed independently;
 removing the file does not edit live branch-protection settings.
 
