@@ -42,10 +42,10 @@ def TestSketchRange(TmpPath: FilePath, SplitPair: str) -> None:
     )
     Original = EncodeSmbString(7, "901 0 0 0 1 2")
     Altered = EncodeSmbString(7, "901 0 0 0 " + SplitPair)
-    assert Payload.count(Original) == 1
+    assert Payload.count(Original) == 2
     Target = TmpPath / "BadSketchSplit.zip"
     with ZipFile(Target, "w") as Archive:
-        Archive.writestr("History.smbh", Payload.replace(Original, Altered))
+        Archive.writestr("History.smbh", Payload.replace(Original, Altered, 1))
     with ZipFile(Target) as Archive:
         with RaiseError(ValueError, match="sketch split"):
             _ = ReadHistory(Archive.read("History.smbh"))

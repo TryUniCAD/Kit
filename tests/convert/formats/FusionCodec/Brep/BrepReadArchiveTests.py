@@ -78,7 +78,7 @@ def TestNativeBrep(TmpPath: FilePath) -> None:
     assert Value.History.CurrentId == Value.History.Generation == 4
     assert Value.History.InitialId == 2
     assert Value.Stamp.Product == "Autodesk Neutron"
-    assert Value.TagSet.Sketch.Primary == 102
+    assert Value.TagSet.Sketch.PrimaryId == 102
     assert Value.Vertices.TopIndex == 2
     assert Value.Vertices.BottomIndex == 0
     Target = TmpPath / "Reconstructed.smbh"
