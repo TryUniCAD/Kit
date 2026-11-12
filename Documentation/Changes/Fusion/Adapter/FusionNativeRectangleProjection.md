@@ -19,7 +19,7 @@ write_document(Restored, "Reemitted.f3d", allow_carrier=False)
 
 Native-state contract version 2 identifies this route. Version 1 remains the existing constructor-shaped profile. Source-free `MakeFusionDoc` authoring and explicit `strict=False` partial reading remain unchanged.
 
-The writer rejects inconsistent neutral edits before destination mutation. Create a new supported specification to author changed geometry. The contract does not authorize arbitrary edits to its decoded record tree.
+The writer rejects inconsistent neutral edits before destination mutation. Extra contract metadata fails public adapter selection with `AdapterNotFoundError`; inconsistent fields inside a recognized contract raise `ValueError`. Create a new supported specification to author changed geometry. The contract does not authorize arbitrary edits to its decoded record tree.
 
 ## Semantic projection and checks
 

@@ -6,6 +6,7 @@ from pytest import mark as MarkTests, raises as RaisesError
 
 from convert import open_document as OpenDocument, write_document as WriteDocument
 from convert.adapters.Fusion.State.EncodeState import EncodeState
+from convert.adapters import AdapterNotFoundError
 from convert.formats.Fusion.DocumentCodec.EmitParsed import EmitParsed
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from tests.convert.api.Fusion.AlterDocument import AlterDocument
@@ -40,6 +41,7 @@ def TestVendorGate(FieldName: str) -> None:
     Document = OpenDocument(VendorSource(KVendorCases[1]))
     Changed = AlterDocument(Document, FieldName)
     Target = ByteStream(b"preserved stream")
-    with RaisesError(ValueError):
+    ErrorType = AdapterNotFoundError if FieldName == "metadata" else ValueError
+    with RaisesError(ErrorType):
         _ = WriteDocument(Changed, Target, destination_format="f3d")
     assert Target.getvalue() == b"preserved stream"
