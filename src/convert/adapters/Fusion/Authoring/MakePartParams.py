@@ -3,21 +3,48 @@ from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ChamferSpec import (
     ChamferSpec,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ExtrudeSpec import (
+    ExtrudeSpec,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.FilletSpec import (
     FilletSpec,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.HoleSpec import HoleSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartFeature import (
+    KPartFeature,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import (
+    PatternSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import ShellSpec
 from interchange.records.RecordParameter import Parameter
+
+
+def DrivingLength(Feature: KPartFeature) -> tuple[str, float] | None:
+    if isinstance(Feature, FilletSpec):
+        return "Radius", Feature.RadiusMm
+    if isinstance(Feature, ChamferSpec):
+        return "Distance", Feature.DistanceMm
+    if isinstance(Feature, ShellSpec):
+        return "innerThickness", Feature.ThicknessMm
+    if isinstance(Feature, ExtrudeSpec):
+        return "AlongDistance", Feature.DistanceMm
+    if isinstance(Feature, HoleSpec):
+        return "HoleDiameter", Feature.DiameterMm
+    if isinstance(Feature, PatternSpec):
+        return "uSpaceDistance", Feature.SpacingUMm
+    if isinstance(Feature, PlaneSpec):
+        return "AlongDistance", Feature.OffsetMm
+    return None
 
 
 def MakePartParams(SpecValue: DocumentSpec) -> tuple[Parameter, ...]:
     Values: list[Parameter] = []
     for Index, Feature in enumerate(SpecValue.Features):
         Identity = "feature" + str(Index + 1)
-        if isinstance(Feature, FilletSpec):
-            NameValue, Amount = "Radius", Feature.RadiusMm
-        elif isinstance(Feature, ChamferSpec):
-            NameValue, Amount = "Distance", Feature.DistanceMm
-        else:
-            NameValue, Amount = "innerThickness", Feature.ThicknessMm
-        Values.append(MakeLength(Identity + "-amount", NameValue, Amount, Identity))
+        Driving = DrivingLength(Feature)
+        if Driving is not None:
+            NameValue, Amount = Driving
+            Values.append(MakeLength(Identity + "-amount", NameValue, Amount, Identity))
     return tuple(Values)
