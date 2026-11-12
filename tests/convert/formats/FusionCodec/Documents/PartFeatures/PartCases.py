@@ -28,7 +28,7 @@ KPartCases: dict[str, tuple[KPartFeature, ...]] = {
         ShellSpec(2.0, "Hollow"),
     ),
 }
-KFamilyClasses = {
+KFamilyClasses: dict[type[object], str] = {
     FilletSpec: "DcFilletEdgeFeature",
     ChamferSpec: "DcChamferFeature",
     ShellSpec: "DcShellFeature",

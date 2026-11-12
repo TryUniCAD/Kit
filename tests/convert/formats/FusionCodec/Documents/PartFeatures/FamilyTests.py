@@ -1,0 +1,121 @@
+from collections import Counter
+
+from pytest import approx as ApproxValue, mark as MarkTests, raises as RaisesError
+
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.TrackAttrib import TrackAttrib
+from convert.formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
+from convert.formats.Fusion.DocumentCodec.EmitDocument import EmitDocument
+from convert.formats.Fusion.DocumentCodec.EmitParsed import EmitParsed
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.PartTopology import (
+    MeasurePart,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CircularSpec import (
+    CircularSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.HoleSpec import HoleSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MirrorSpec import (
+    MirrorSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartFeature import (
+    KPartFeature,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import (
+    PatternSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import (
+    PlaneSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.SolvePart import SolvePart
+from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
+from tests.convert.formats.FusionCodec.Documents.PartFeatures.FamilyCases import (
+    KBlock,
+    KFamilyCases,
+    KFamilyNames,
+    KPocket,
+    FamilySpec,
+)
+from tests.convert.formats.FusionCodec.Documents.PartFeatures.NativeControl import (
+    NativeControl,
+)
+from tests.convert.formats.FusionCodec.Documents.PartFeatures.PartRecords import (
+    PartRecords,
+)
+
+
+@MarkTests.parametrize("NameValue", tuple(KFamilyCases))
+def TestFamilySolid(NameValue: str) -> None:
+    Features, Volume, Faces, Edges = KFamilyCases[NameValue]
+    _, Stages = SolvePart(FamilySpec(Features))
+    Measured = MeasurePart(Stages[-1].After)
+    assert (Measured.FaceCount, Measured.EdgeCount) == (Faces, Edges)
+    assert Measured.VolumeCm == ApproxValue(Volume, abs=1e-6)
+
+
+@MarkTests.parametrize(
+    "NameValue", ("RectPattern", "FeatureCircPattern", "MirrorFeature")
+)
+def TestFamNative(NameValue: str) -> None:
+    _, Stages = SolvePart(FamilySpec(KFamilyCases[NameValue][0]))
+    Measured = MeasurePart(Stages[-1].After)
+    Native = NativeControl(NameValue)
+    assert (Measured.FaceCount, Measured.EdgeCount) == (
+        Native["faces"],
+        Native["edges"],
+    )
+    assert Measured.VolumeCm == ApproxValue(Native["volume_cm3"], rel=1e-7)
+    assert Measured.AreaCm == ApproxValue(Native["area_cm2"], rel=1e-7)
+
+
+@MarkTests.parametrize("NameValue", tuple(KFamilyCases))
+def TestFamArchive(NameValue: str) -> None:
+    Features = KFamilyCases[NameValue][0]
+    Model = ReadDocument(EmitDocument(FamilySpec(Features)))
+    assert ReadDocument(EmitParsed(Model)) == Model
+    Expected = Counter(KFamilyNames[type(Feature)] for Feature in Features)
+    for ClassName, Count in Expected.items():
+        assert len(PartRecords(Model, ClassName)) == Count
+    History = Model.Bodies[0].History
+    assert isinstance(History, JournalModel)
+    Copies = sum(
+        isinstance(Feature, (PatternSpec, CircularSpec, MirrorSpec))
+        for Feature in Features
+    )
+    Tracks = [Entity for Entity in History.Entities if isinstance(Entity, TrackAttrib)]
+    assert bool(Tracks) == bool(Copies)
+
+
+def TestPlaneState() -> None:
+    _, Stages = SolvePart(FamilySpec(KFamilyCases["MirrorFeature"][0]))
+    assert [Stage.StateId for Stage in Stages] == [4, 5, 5, 6]
+    assert [Stage.Operations for Stage in Stages] == [
+        (300, 301, 302),
+        (303, 304, 305),
+        (306,),
+        (307, 308),
+    ]
+    Model = ReadDocument(EmitDocument(FamilySpec(KFamilyCases["MirrorFeature"][0])))
+    Planes = PartRecords(Model, "DcWorkPlane")
+    assert [(Fields["startModelHS"], Fields["endModelHS"]) for Fields in Planes] == [
+        (-1, -1)
+    ]
+
+
+KRejected: tuple[tuple[KPartFeature, ...], ...] = (
+    (KBlock, PatternSpec(0, 3, 12.0)),
+    (KBlock, KPocket, PatternSpec(1, 1, 12.0)),
+    (KBlock, KPocket, PatternSpec(1, 3, -12.0)),
+    (KBlock, KPocket, PatternSpec(1, 65, 1.0)),
+    (KBlock, KPocket, CircularSpec(1, 1)),
+    (KBlock, KPocket, CircularSpec(1, 3, 400.0)),
+    (KBlock, KPocket, PatternSpec(3, 2, 12.0)),
+    (KBlock, KPocket, PlaneSpec(20.0, "xy"), MirrorSpec(1, 2)),
+    (KBlock, KPocket, MirrorSpec(1, 1)),
+    (KBlock, PlaneSpec(float("inf"))),
+    (KBlock, HoleSpec((20.0, 15.0), 8.0, 25.0)),
+)
+
+
+@MarkTests.parametrize("Features", KRejected)
+def TestFamReject(Features: tuple[KPartFeature, ...]) -> None:
+    with RaisesError(ValueError):
+        _ = EmitDocument(FamilySpec(Features))
