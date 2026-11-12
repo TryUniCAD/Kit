@@ -2,6 +2,7 @@ from math import isfinite as IsFinite
 from re import fullmatch as MatchFull
 from struct import unpack as Unpack
 
+from convert.formats.Fusion.HistoryRef import ReadNativeRef
 from convert.formats.Fusion.MetaCursor import MetaCursor
 from convert.formats.Fusion.NativeParam import NativeParam
 
@@ -62,10 +63,11 @@ def ReadNativeNum(BodyValue: bytes) -> NativeParam:
     Number = float(Unpack("<d", Cursor.TakeBytes(8))[0])
     if not IsFinite(Number):
         raise ValueError("Non-finite Fusion numeric parameter")
-    if Cursor.TakeBytes(12) != b"\0\1\x10" + bytes(9) or Cursor.Offset != len(
-        BodyValue
-    ):
+    if Cursor.TakeBytes(1) != bytes(1):
         raise ValueError("Unsupported Fusion numeric parameter trailer")
+    CollectionId = ReadNativeRef(Cursor)
+    if CollectionId == 0 or Cursor.Offset != len(BodyValue):
+        raise ValueError("Unsupported Fusion numeric parameter collection")
     return NativeParam(
         RoleName,
         ParamName,
@@ -76,4 +78,5 @@ def ReadNativeNum(BodyValue: bytes) -> NativeParam:
         BindingId,
         NativeIndex,
         Metadata,
+        CollectionId,
     )

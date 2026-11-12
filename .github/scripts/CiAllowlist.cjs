@@ -23,6 +23,9 @@ const QueueJobs = [
   "TruffleHog",
 ];
 const StaticChecks = {
+  "FusionCompatibility.yml": {
+    required: ["Fusion archive compatibility"],
+  },
   "PythonQuality.yml": {
     required: ["Ruff", "Black", "Pyright", "Mypy"],
     preflight: "PR CI reuse (Python quality gate)",
