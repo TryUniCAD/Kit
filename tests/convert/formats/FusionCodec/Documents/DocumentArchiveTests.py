@@ -6,6 +6,7 @@ from pytest import approx as ApproxValue
 from pytest import mark as MarkTests
 from pytest import raises as RaisesError
 
+from convert.formats.Fusion.BrepCodec.Models.HistoryModel import HistoryModel
 from convert.formats.Fusion.ContainerCodec.EmitContainer import EmitContainer
 from convert.formats.Fusion.ContainerCodec.Model.ContainerPart import ContainerPart
 from convert.formats.Fusion.ContainerCodec.ReadContainer import ReadContainer
@@ -40,6 +41,7 @@ def TestDocProfiles(
     assert len(Model.Bodies) == int(ProfileKind == "extrusion")
     if ProfileKind == "extrusion":
         BodyValue = Model.Bodies[0].History
+        assert isinstance(BodyValue, HistoryModel)
         assert BodyValue.Model.Radius == ApproxValue(8.25)
         assert BodyValue.Model.Height == ApproxValue(29.75)
         assert BodyValue.Model.BasePoint == (0.0, 0.0, 0.0)
