@@ -516,7 +516,7 @@ After 64 separately dispatched representative imports, the [expanded capture](..
 Those fields comprise 909 intrinsic values, 369 strong references, 320 collections, 179 value types, 132 passive references, and one optional value.
 [Coverage accounting](../../../re/Fusion/LocalOracle/Reflection/Coverage.json) identifies initialized schemas for 401 of 403 corpus classes.
 The remaining two are the `Ns::Entity` root and `Ns::EntityTracking::ProgenitorAuxDataValueMetaType`; their uninitialized member sets must not be silently treated as complete empty schemas.
-All 64 source archives opened successfully in the isolated run, and each task returned to zero open documents.
+All 64 source archives opened successfully in the isolated run, whose final report records zero open documents.
 The [import log](../../../re/Fusion/LocalOracle/Reflection/WarmProgress.json) records source digests and per-import schema digests; the intermediate raw snapshots are retained in `Reflection/Snapshots.tar.xz`.
 Opening vendor-authored controls supplies schema evidence, not acceptance of Kit-generated documents.
 
@@ -529,6 +529,23 @@ A member's C++ memory offset is not its wire offset.
 All 80 current own fields match the runtime reflection in name, declared type, options, registration order, lexical persistence order, and inheritance.
 The source `Ns::Entity` root has no recovered initializer and is explicitly left unresolved.
 Neither agreement nor a complete registration trace proves that a class has no custom save/load implementation.
+
+The exact-version getter capture exposes 494 initialized class/version pairs, including six older schemas retained after the corpus imports.
+There are 1,641 absent and 1,428 uninitialized lookup results; neither category authorizes treating the schema as empty.
+The [version differences](../../../re/Fusion/LocalOracle/Reflection/VersionDifferences.json) establish these own-field changes:
+
+| Native class | Observed versions | Registered-field change |
+| --- | --- | --- |
+| `DcDraftFeature` | 5 → 6 | Adds `m_fixedPlaneDraftAngleMode` |
+| `DRMatrix` | 15 → 16 | `arcLengthForPeriodicFace` changes from a double to a strong `DcDoubleParameter` reference |
+| `Parameters::Parameter` | 9 → 10 | Adds `isExternal` |
+| `ComponentBaseInstance` | 10 → 11 | Adds `initialTransform` |
+| `BaseOccurrencePath` | 4 → 5 | Replaces `instanceIndices` with `passiveOccurrencePath` |
+| `PMISettings` | 2 → 4 | Adds leading/trailing-zero and precision settings plus general-note size and custom size |
+
+These are observed registered-field differences, not inferred migration algorithms.
+The directly requested own-set version is known; a returned base pointer does not expose its historical version.
+A reader must select every class's schema from the archive registry rather than assuming the current application version or inheriting the derived class's version number.
 
 The member constructor initializes its option mask to `0x33`.
 The studied persistence visitor uses bit `0x1` to decide persistence; clearing that bit excludes a registered field from the saved sequence.

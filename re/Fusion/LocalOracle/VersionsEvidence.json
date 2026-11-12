@@ -1,0 +1,178 @@
+{
+  "artifact": "SchemaVersions.cpp",
+  "status": "compiled_and_executed_read_only",
+  "scope": "Read-only exact version lookups of already instantiated entity/value MemberSet objects, including available own fields and observed base-pointer chains",
+  "fusion_build": "2706.1.17",
+  "architecture": "macOS arm64",
+  "deployment": "b43a07003c01dd54425db484d23b1c5e6248a21d",
+  "derived_from": {
+    "source": "SchemaBridge.cpp",
+    "source_sha256": "6534349bf0a27beb42f85243596ffa4697119cbd7d433bb5e021cc61ac62f487",
+    "evidence": "BridgeEvidence.json",
+    "original_artifacts_modified": false,
+    "original_dylib_sha256": "8824f24f2609fab35bb1ca639bc485ce6ac5dd8772aefad865d8933b0d79c7c2",
+    "shared_abi_evidence": "RTTI, member categories, option getters, registry traversal and string/vector ABI use the same declarations and checks documented in BridgeEvidence.json"
+  },
+  "native_images": {
+    "NsBaseCore10.dylib": {
+      "sha256": "b272b4d35cee5641d1b43f4ba5a5c77a72919fd5c45e617214dbb941c1b164c9"
+    },
+    "NsDataModel10.dylib": {
+      "sha256": "47ddbeca2f5c97c96e44989523ff969baa5d0d11b59d8ca35b934d48e2657af5"
+    },
+    "NuCommands10.dylib": {
+      "sha256": "44f3ef60f4c4c811775d4e8ed0e80a6622f519bb566d6508f3a8bc2ab1c525c1"
+    }
+  },
+  "primary_abi_sources": [
+    {
+      "url": "https://raw.githubusercontent.com/llvm/llvm-project/llvmorg-15.0.7/libcxxabi/src/private_typeinfo.h",
+      "location": "__shim_type_info, __class_type_info, __si_class_type_info",
+      "evidence": "The intermediate RTTI classes add virtual functions but no data; single-inheritance RTTI adds one base-type pointer",
+      "license": "Apache-2.0 WITH LLVM-exception",
+      "source_copied": false
+    },
+    {
+      "url": "https://itanium-cxx-abi.github.io/cxx-abi/abi.html#rtti-layout",
+      "evidence": "RTTI base-pointer layout for a single public nonvirtual base at offset zero"
+    },
+    {
+      "url": "https://itanium-cxx-abi.github.io/cxx-abi/abi.html#dynamic-cast",
+      "evidence": "__dynamic_cast arguments and zero-offset hint"
+    },
+    {
+      "url": "https://itanium-cxx-abi.github.io/cxx-abi/abi.html#this-parameters",
+      "evidence": "Nonstatic method ABI supplies this as the first pointer argument"
+    }
+  ],
+  "historical_lookup_evidence": {
+    "address_basis": "Static virtual addresses in the arm64 Mach-O slice; runtime code resolves exported symbols and never uses these offsets",
+    "entity": {
+      "symbol": "_ZNK2Ns14EntityMetaType9memberSetEj",
+      "entry_address": "0x32bf40",
+      "implementation_symbol": "_ZNK2Ns14EntityMetaType10_memberSetEj",
+      "implementation_range": "0x32beb4-0x32bf38",
+      "current_version_comparison": "0x32bec4-0x32bedc",
+      "current_pointer_load": "0x32bee0-0x32bee4",
+      "historical_tree_walk": "0x32beec-0x32bf20",
+      "absent_result": "0x32bf24",
+      "matched_value_load": "0x32bf34-0x32bf38 then 0x32bee4",
+      "observed_layout": {
+        "current_set_offset": "0x70",
+        "tree_root_offset": "0x80",
+        "tree_node_version_offset": "0x20",
+        "tree_node_set_pointer_offset": "0x28"
+      }
+    },
+    "value": {
+      "symbol": "_ZNK2Ns13ValueMetaType9memberSetEj",
+      "entry_address": "0x1a8a3c",
+      "implementation_symbol": "_ZNK2Ns13ValueMetaType10_memberSetEj",
+      "implementation_range": "0x1a89b4-0x1a8a38",
+      "current_version_comparison": "0x1a89c4-0x1a89dc",
+      "current_pointer_load": "0x1a89e0-0x1a89e4",
+      "historical_tree_walk": "0x1a89ec-0x1a8a20",
+      "absent_result": "0x1a8a24",
+      "matched_value_load": "0x1a8a34-0x1a8a38 then 0x1a89e4",
+      "observed_layout": {
+        "current_set_offset": "0x78",
+        "tree_root_offset": "0x88",
+        "tree_node_version_offset": "0x20",
+        "tree_node_set_pointer_offset": "0x28"
+      }
+    },
+    "only_callee": {
+      "owner": "NsBaseCore10.dylib",
+      "symbol": "_ZNK2Ns8MetaType7versionEv",
+      "address": "0xa862c",
+      "instructions": "ldr w0, [x0, #0x10]; ret"
+    },
+    "read_only_conclusion": "Both exported const getters tail-call routines whose only stores preserve registers on the stack. The sole callee reads the current version. No allocation, initialization, insertion, migration, callback, or member-state mutation appears in either complete routine.",
+    "selection_semantics": [
+      "UINT32_MAX or a request equal to MetaType::version selects the existing current MemberSet pointer, which can be null",
+      "Any other requested version searches the existing balanced tree by uint32 key; lower-bound traversal plus the final less-than-or-equal check requires equality",
+      "An empty tree or absent exact key returns null; no nearest-version fallback or historical schema synthesis occurs",
+      "A nonnull pointer can be uninitialized; initialized() is inspected before size() or member() access",
+      "The bridge issues numeric requests from zero through min(current_version, 128), inclusive; it never sends UINT32_MAX"
+    ]
+  },
+  "base_chain_evidence": {
+    "owner": "NsDataModel10.dylib",
+    "base_symbol": "_ZNK2Ns9MemberSet4baseEv",
+    "base_address": "0x18c864",
+    "base_instructions": "ldr x0, [x0, #0x78]; ret",
+    "meta_symbol": "_ZNK2Ns9MemberSet4metaEv",
+    "meta_address": "0x18ba78",
+    "meta_instructions": "ldr x0, [x0, #0x70]; ret",
+    "conclusion": "base() returns only a MemberSet pointer. No historical version is returned. meta()->version() reports that metatype current version and cannot establish the historical version represented by the base pointer.",
+    "output_policy": "Only the directly requested own set receives lookup_version. Every inherited set has lookup_version null and version_resolution not_exposed_by_base_pointer; historical_base_profiles_verified remains false."
+  },
+  "output_contract": {
+    "export": "int dump_schema_versions(const char* absolute_new_output_path) noexcept",
+    "return_codes": {
+      "0": "Reflection captured and output successfully written",
+      "1": "Invalid output path or output I/O failure",
+      "2": "Loaded image or required symbol unavailable",
+      "3": "Main-thread, deployment, RTTI, or category guard failed",
+      "4": "Reflection bounds, text validity, or C++ exception failure"
+    },
+    "file_mode": "0600, O_EXCL, O_NOFOLLOW; existing files are never replaced",
+    "root_status": "captured_version_reflection",
+    "metatype_current_version": "The current version returned directly by MetaType::version, separately recorded on each type and available set metatype",
+    "member_set_lookups": "For each entity/value, one record per numeric lookup_version from zero through min(metatype_current_version, 128), inclusive",
+    "lookup_status": {
+      "absent": "Getter returned null; member_sets is null",
+      "uninitialized": "Existing own set is uninitialized; its members is null",
+      "initialized": "Existing own set is initialized; its registered own fields are emitted"
+    },
+    "lookup_limit_truncated": "True for entity/value current versions above 128; higher versions, including current, were not queried by this bridge",
+    "unsupported_categories": "Member and other categories retain identity/category metadata but lookup_supported is false and member_set_lookups is null",
+    "base_sets": "Observed base-pointer chains are exported for inspection with unknown historical versions; they are not declared a proven historical inheritance profile",
+    "members": "Registration index, native member name, script id, debug type name, native member metatype identity/category, and raw option mask",
+    "limits": {
+      "metatypes": 100000,
+      "members_per_set": 65536,
+      "base_depth": 128,
+      "native_string_bytes": 1048576,
+      "output_bytes": 134217728,
+      "maximum_lookup_version_inclusive": 128,
+      "maximum_lookups_per_entity_or_value": 129
+    },
+    "wire_schema_complete": false
+  },
+  "retained_guards": [
+    "Apple arm64, libc++ ABI namespace/layout and compile-time size checks",
+    "Fusion main thread required; caller must ensure a quiescent registry",
+    "Already loaded native images only via RTLD_NOLOAD and exact deployment path gate",
+    "Every required dlsym lookup checked before registry traversal",
+    "Validated native RTTI names, single inheritance representation, shared root identity and native dynamic cast",
+    "Registry, member, base-depth, string and output limits; base-pointer cycle detection",
+    "UTF-8 validation, unknown member-category rejection and bounded option mask extraction",
+    "New absolute output path only, exclusive creation, no symlink following, mode 0600",
+    "C++ exception reporting; no native signal recovery"
+  ],
+  "verification": {
+    "compiler": "Apple clang 21.0.0 clang-2100.3.34.2",
+    "command": "xcrun clang++ -std=c++17 -stdlib=libc++ -arch arm64 -dynamiclib -fvisibility=hidden -Wall -Wextra -Werror re/Fusion/LocalOracle/SchemaVersions.cpp -o /tmp/kit-fusion-native-analysis/SchemaVersions.dylib",
+    "compiled": true,
+    "runtime_invoked": true,
+    "tests_run": false,
+    "source_sha256": "83ab7cd6b88b012680a9bfb88f64da376f0d38bf88023872c7b5d8d193cf42b4",
+    "compiled_sha256": "9fc2ca33fe7e6db82da27a27042177e4f905a7747fe8cfcc6e82a7776e18037e",
+    "compiled_path": "/tmp/kit-fusion-native-analysis/SchemaVersions.dylib",
+    "runtime_capture": "Reflection/VersionsCapture.json"
+  },
+  "limitations": [
+    "Static exact-lookup behavior was followed by a successful native read-only capture; only instantiated versions were exposed",
+    "Historical sets are available only when instantiated in the active process; an absent entry does not prove the file version or schema never existed",
+    "Lookup version is the requested exact map key, not a field read from MemberSet; multiple version keys may alias one pointer",
+    "The valid registered type list omits invalid or unregistered types",
+    "The cap is maximum version value 128 inclusive, allowing at most 129 numeric lookups per supported type",
+    "A historical own-set entry does not prove the inherited historical profile; base pointers expose no version",
+    "No initializer, loader, document mutation, preference setter, Segment.Save or Segment.Load is called",
+    "The bridge does not establish custom serialization grammar, member wire order, primitive widths, option meanings, migration rules or complete file semantics",
+    "The caller must retain the original external native-image hash checks; the C++ code itself gates deployment path, not library content hash",
+    "The libc++ and RTTI ABI assumptions and native fault limitations documented in BridgeEvidence.json remain applicable",
+    "This is a native research oracle only; production Kit conversion must not depend on Fusion runtime"
+  ]
+}

@@ -34,9 +34,10 @@ jobs:
       - name: Synchronize the locked environment
         run: uv sync --frozen --no-default-groups --extra dev --python 3.14
 
-      - name: Exercise native parameter archives
+      - name: Exercise native parameter and feature archives
         run: >-
           uv run --no-sync --python 3.14 pytest
           tests/convert/formats/FusionCodec/Parameters/FusionParamArchiveTests.py
           tests/convert/formats/FusionCodec/Parameters/FusionAllocTests.py
           tests/convert/formats/FusionCodec/Parameters/FusionFeatureTests.py
+          tests/convert/formats/FusionCodec/Features/FeatureRejectTests.py

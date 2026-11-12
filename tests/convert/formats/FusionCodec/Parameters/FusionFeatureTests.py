@@ -5,6 +5,7 @@ from pytest import mark as TestMarks
 from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.Fusion.Adapter import FusionReader
 from tests.convert.formats.FusionCodec.Parameters.RebuildParams import RebuildParams
+from tests.convert.formats.FusionCodec.Parameters.RebuildFeatures import RebuildFeatures
 
 KFeatureRoot = (
     FilePath(__file__).resolve().parents[5] / "re/Fusion/LocalOracle/Features"
@@ -17,7 +18,7 @@ KFeatureRoot = (
 )
 def TestFeatures(FileName: str) -> None:
     Source = KFeatureRoot / FileName
-    Rebuilt = RebuildParams(Source)
+    Rebuilt = RebuildFeatures(RebuildParams(Source))
     Reader = FusionReader()
     Options = ReadOptions(strict=False)
     Before = Reader.Read(Source, Options)

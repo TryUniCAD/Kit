@@ -305,6 +305,14 @@ Of 1,916 unique entity/value member sets, 260 were initialized and exposed 938 f
 The native bridge reads existing sets only and never invokes schema initializers, segment save/load, or preference mutations.
 Its observed success applies to the recorded macOS arm64 build; this is not a public supported Python reflection API.
 
+`SchemaVersions.cpp` adds exact numeric lookups through the same read-only member-set accessors.
+The [version capture](../../../re/Fusion/LocalOracle/Reflection/VersionsCapture.json) succeeded with zero documents before and after export.
+Its 3,563 bounded lookups returned 494 initialized sets, 1,428 uninitialized sets, and 1,641 absent entries.
+Six classes exposed both an older initialized version and their current one.
+The getter searches an existing version map without creating or migrating entries; an absent lookup does not mean that version never existed.
+Only the requested own set receives a known lookup version; inherited set pointers expose no historical version and are labeled unresolved.
+See [lookup disassembly evidence](../../../re/Fusion/LocalOracle/VersionsEvidence.json) and [observed field differences](../../../re/Fusion/LocalOracle/Reflection/VersionDifferences.json).
+
 A generic persistence schema still requires registered definitions, inherited ordering, option meanings, version migrations, custom serializers, and actual load/save callbacks.
 The studied classes register their members through `Parameters::Parameter::initializeMemberSet` at `0x16b5d8` and `Parameters::ParameterTable::initializeMemberSet` at `0x170000` in `NsCommonData10.dylib`.
 Tracing registrations and template callbacks supplies type evidence beyond property values.
