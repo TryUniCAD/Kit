@@ -1,11 +1,11 @@
 from typing import cast as CastValue
 from convert.formats.Fusion.SegmentCodec.Manifest.ManifestLayout import (
     KAssetName,
-    KExportLabel,
     KRootFormat,
     KRootMagic,
     KWireVersion,
 )
+from convert.formats.Fusion.SegmentCodec.Manifest.EmitLineage import EmitLineage
 from convert.formats.Fusion.SegmentCodec.Manifest.EmitRootLinks import EmitRootLinks
 from convert.formats.Fusion.SegmentCodec.Manifest.LinkLayout import KMaxAncestry
 from convert.formats.Fusion.SegmentCodec.Manifest.ManifestSink import ManifestSink
@@ -44,16 +44,5 @@ def EmitRootWire(Value: RootManifest) -> bytes:
     SinkValue.AddWord(1)
     SinkValue.AddText(KAssetName, WideText=True)
     SinkValue.AddWord(0)
-    if Value.Lineage is None:
-        SinkValue.AddBytes(b"\1")
-        SinkValue.AddText(KExportLabel, WideText=True)
-    elif (
-        type(Value.Lineage) is tuple
-        and len(CastValue(tuple[object, ...], Value.Lineage)) == 2
-    ):
-        SinkValue.AddBytes(b"\0")
-        SinkValue.AddText(Value.Lineage[0], WideText=True)
-        SinkValue.AddText(Value.Lineage[1], WideText=True)
-    else:
-        raise ValueError("Invalid Fusion root manifest lineage")
+    EmitLineage(SinkValue, Value.Lineage)
     return bytes(SinkValue.Buffer)

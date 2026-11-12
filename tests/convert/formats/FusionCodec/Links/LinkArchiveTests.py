@@ -55,15 +55,15 @@ def ReadMembers(DataValue: bytes) -> dict[str, bytes]:
         return {Entry: Archive.read(Entry) for Entry in Archive.namelist()}
 
 
-def CollectCross(Value: object, Found: list[CrossRef]) -> list[CrossRef]:
+def CollectMut(Value: object, Found: list[CrossRef]) -> list[CrossRef]:
     if isinstance(Value, CrossRef):
         Found.append(Value)
     elif isinstance(Value, tuple):
         for Entry in CastValue(tuple[object, ...], Value):
-            _ = CollectCross(Entry, Found)
+            _ = CollectMut(Entry, Found)
     elif IsDataClass(Value) and not isinstance(Value, type):
         for FieldInfo in DataFields(Value):
-            _ = CollectCross(getattr(Value, FieldInfo.name), Found)
+            _ = CollectMut(getattr(Value, FieldInfo.name), Found)
     return Found
 
 
@@ -108,7 +108,7 @@ def TestLinkTables(StemName: str, LinkCount: int, Targets: tuple[str, ...]) -> N
         assert len(Contexts) == LinkCount
         assert {Entry.LinkId for Entry in Contexts} == set(Assets)
         Tokens = {Entry.Token for Entry in Contexts}
-        Crossing = CollectCross(Segment.Records, [])
+        Crossing = CollectMut(Segment.Records, [])
         assert bool(Crossing) == bool(LinkCount)
         assert all(Entry.Token in Tokens for Entry in Crossing)
 
@@ -120,16 +120,16 @@ def TestLinkUpdate() -> None:
     StaleIds = {Entry.LinkId for Entry in Stale.Document.Links}
     FreshIds = {Entry.LinkId for Entry in Fresh.Document.Links}
     assert len(StaleIds - FreshIds) == len(FreshIds - StaleIds) == 1
-    Urls = {
+    LinkUrls = {
         dict(Entry.Properties)["toDocDisplayName"]: dict(Entry.Properties)[KLinkedUrl]
         for Entry in Fresh.Document.Links
     }
-    assert Urls["KitLinkPartA"].endswith("?version=2")
-    assert Urls["KitLinkSub"].endswith("?version=1")
+    assert LinkUrls["KitLinkPartA"].endswith("?version=2")
+    assert LinkUrls["KitLinkSub"].endswith("?version=1")
 
 
 @KRequiresCodec
-def TestSharedTokens() -> None:
+def TestLinkTokens() -> None:
     Model = ReadDocument(LoadFixture("R3_nested"))
     Tokens = {
         Segment.Metadata.Header.Segment.name: {

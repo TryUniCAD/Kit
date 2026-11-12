@@ -19,12 +19,12 @@ def StructTree(Value: DocStruct) -> dict[str, KJsonValue]:
         raise ValueError("Invalid Fusion document structure properties")
     Attributes: dict[str, KJsonValue] = {}
     for Entry in Value.Attributes:
-        Pair = CastValue(tuple[object, ...], Entry)
+        PairValue = CastValue(tuple[object, ...], Entry)
         if (
-            type(Pair) is not tuple
-            or len(Pair) != 2
-            or type(Pair[0]) is not str
-            or type(Pair[1]) is not bool
+            type(PairValue) is not tuple
+            or len(PairValue) != 2
+            or type(PairValue[0]) is not str
+            or type(PairValue[1]) is not bool
             or not Entry[0]
             or Entry[0] in Attributes
         ):

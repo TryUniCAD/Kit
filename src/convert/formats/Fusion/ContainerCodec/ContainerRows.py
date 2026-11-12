@@ -1,16 +1,15 @@
 from typing import cast as CastValue
-from convert.formats.Fusion.ContainerCodec.PartDirs import PartDirs
 
 from convert.formats.Fusion.AssetCodec.Zip.ZipAssetRow import ZipAssetRow
 from convert.formats.Fusion.AssetCodec.Zip.ZipNames import CheckZipPaths
 from convert.formats.Fusion.ContainerCodec.CheckParts import CheckParts
 from convert.formats.Fusion.ContainerCodec.CheckStreams import CheckStreams
+from convert.formats.Fusion.ContainerCodec.ContainerDirs import ContainerDirs
 from convert.formats.Fusion.ContainerCodec.ContainerLayout import (
     KAssetName,
     KAssetPrefix,
     KComponentBody,
     KComponentRefs,
-    KPartFolders,
     KPropertiesName,
     KRedirectName,
     KRootName,
@@ -35,29 +34,7 @@ def ContainerRows(Value: FusionContainer) -> tuple[ZipAssetRow, ...]:
         raise ValueError("Fusion manifest and segment streams disagree")
     CheckParts(Value.Previews, IsPreview=True)
     CheckParts(Value.Parts)
-    if (
-        type(Value.EmptyFolders) is not tuple
-        or any(
-            type(Folder) is not str or Folder not in KPartFolders
-            for Folder in Value.EmptyFolders
-        )
-        or len(set(Value.EmptyFolders)) != len(Value.EmptyFolders)
-    ):
-        raise ValueError("Invalid Fusion container empty folders")
-    PartFolders = {PartValue.Name.partition("/")[0] for PartValue in Value.Parts}
-    if (
-        PartFolders.intersection(Value.EmptyFolders)
-        or "Breps.BlobParts" in Value.EmptyFolders
-    ):
-        raise ValueError("Fusion empty folders duplicate generated directories")
-    Directories = {KAssetPrefix, KAssetPrefix + "Breps.BlobParts/"}
-    if Value.Previews:
-        Directories.add(KAssetPrefix + "Previews/")
-    Directories.update(KAssetPrefix + Folder for Folder in Folders)
-    Directories.update(
-        KAssetPrefix + Folder + "/" for Folder in (*PartFolders, *Value.EmptyFolders)
-    )
-    Directories.update(PartDirs(Value.Parts))
+    Directories = ContainerDirs(Value, Folders)
     Entries = [ZipAssetRow(Folder, b"", False) for Folder in sorted(Directories)]
     Entries.extend(
         (
