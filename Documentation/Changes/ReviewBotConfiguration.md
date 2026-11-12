@@ -16,8 +16,11 @@ defines reviewer identities, required native reports, and exact top-level
 requests. Agents reload it before requesting review and submit each configured
 request verbatim once per accepted head unless that reviewer already has a
 request or review. Each configured reviewer must pass its listed reports and
-submit a current-head approval. The previous request mentioned a regular GitHub
-user and did not invoke the installed review app.
+submit a current-head approval. Both configured entries are intentional and
+follow the two-reviewer configuration in [PR #74](https://github.com/TryUniCAD/Kit/pull/74).
+The previous request mentioned a regular GitHub user and did not invoke the
+installed review app. The existing GitHub ruleset and queue acceptance checks
+are managed separately from the configured reviewer approvals.
 
 Both [AGENTS.md](../../AGENTS.md) and [CLAUDE.md](../../CLAUDE.md) require activating
 [standard-pr-practice](../../.agents/skills/standard-pr-practice/SKILL.md) before
