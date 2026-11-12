@@ -70,3 +70,18 @@ not a duplicate approval workflow. Synthetic queue commits do not require PR
 review reports, but PR evidence reuse rechecks every configured report on each
 contributing PR head. Heavy acceptance remains deferred until authorized queue
 enrollment.
+
+## Earlier rollout verification
+
+On [PR #72 at 04ec7acc6](https://github.com/TryUniCAD/Kit/pull/72/checks?sha=04ec7acc69efafb183be48e457b32c5a837cb882),
+the configured check-based reviewer passed its native check and
+[approved that head](https://github.com/TryUniCAD/Kit/pull/72#pullrequestreview-5869463309).
+Both native reports from the configured status-based reviewer passed on the
+same head. Its GitHub approval was absent for that revision when checked, so the
+PR still awaited that approval. The integration had
+[approved an earlier revision](https://github.com/TryUniCAD/Kit/pull/72#pullrequestreview-5869152905).
+The earlier approval cannot satisfy the current-head requirement.
+
+The native check app and status creator IDs matched the two configured
+entries, and the check and commit statuses were attached to 04ec7acc6. Review
+and report evidence must be refreshed after each push.

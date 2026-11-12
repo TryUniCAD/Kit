@@ -15,5 +15,6 @@ Every new feature, API, adapter, command, configuration option, workflow, tool, 
 - [Transient CI artifact publication errors](ArtifactPublication.md)
 - [Pyright compatibility](PyrightCompatibility.md)
 - [Merge queue Scorecard execution and review requirements](QueueScorecard.md)
+- [Merge queue candidate validation repairs](QueueCandidateValidation.md)
 - [README presentation](ReadmePresentation.md)
 - [Configurable PR reviewers](ConfigurableReviewers.md): one reviewer list, all-reviewer readiness, and removal of CODEOWNERS

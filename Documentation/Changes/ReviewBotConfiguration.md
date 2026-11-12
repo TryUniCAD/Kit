@@ -10,6 +10,7 @@ comment across agent guidance, skill metadata, and follow-up examples. Changing
 reviewers required editing multiple files, and the skill exempted its own edits
 from activation.
 
+The original request pointed at a regular GitHub user rather than the installed app.
 The sole review configuration is now `Reviewers` in
 [ReviewBot.json](../../.agents/skills/standard-pr-practice/ReviewBot.json).
 Each entry contains the exact `Comment`, verified identity, and required native

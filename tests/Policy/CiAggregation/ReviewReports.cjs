@@ -1,28 +1,26 @@
 // SPDX-License-Identifier: MIT
 // SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
-const {
-  Reviewers,
-  ExcludedReports,
-} = require("../../../.agents/skills/standard-pr-practice/ReviewBot.json");
+const { ReadReviewers } = require("../../../.github/scripts/ReviewConfig.cjs");
+const { Reviewers, ExcludedReports } = ReadReviewers();
 const KProviders = [...Reviewers, ...ExcludedReports];
 
 function BuildReviews(Verdict) {
   const Checks = [];
   const Statuses = [];
-  for (const Provider of KProviders) {
+  for (const { AppId, UserId, AppSlug, UserLogin } of KProviders) {
     Checks.push({
       id: Checks.length + 1,
       name: "Review report",
-      app: { id: Provider.AppId, slug: Provider.AppSlug },
+      app: { id: AppId, slug: AppSlug },
       check_suite: { id: 2 },
       status: Verdict === "pending" ? "in_progress" : "completed",
       conclusion: Verdict === "pending" ? null : Verdict,
     });
     Statuses.push({
       id: Statuses.length + 1,
-      context: `review-${Provider.UserId}`,
-      creator: { id: Provider.UserId, login: Provider.UserLogin },
+      context: `review-${AppSlug}`,
+      creator: { id: UserId, login: UserLogin },
       state: Verdict === "neutral" ? "error" : Verdict,
     });
   }
