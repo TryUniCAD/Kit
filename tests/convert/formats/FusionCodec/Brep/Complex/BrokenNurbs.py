@@ -33,6 +33,12 @@ def SwapSurface(Model: NurbsBody, Surface: BsSurface) -> NurbsBody:
     return ReplaceValue(Model, Faces=(ReplaceValue(Model.Faces[0], Surface=Surface),))
 
 
+def FirstSurface(Model: NurbsBody) -> BsSurface:
+    Surface = Model.Faces[0].Surface
+    assert isinstance(Surface, BsSurface)
+    return Surface
+
+
 def SwapLeadUse(Model: NurbsBody, UseSpec: NurbsUse) -> NurbsBody:
     FaceSpec = Model.Faces[0]
     Edited = NurbsFace(FaceSpec.Surface, (UseSpec, *FaceSpec.Uses[1:]))
@@ -41,7 +47,7 @@ def SwapLeadUse(Model: NurbsBody, UseSpec: NurbsUse) -> NurbsBody:
 
 def BrokenNurbs(Fault: str) -> NurbsBody:
     Sheet = PatchSheet(BicubicPatch())
-    Surface = Sheet.Faces[0].Surface
+    Surface = FirstSurface(Sheet)
     LeadUse = Sheet.Faces[0].Uses[0]
     if Fault == "knots":
         return SwapSurface(Sheet, ReplaceValue(Surface, UKnots=(0.0, 1.0, 0.4)))
@@ -49,7 +55,7 @@ def BrokenNurbs(Fault: str) -> NurbsBody:
         return SwapSurface(Sheet, ReplaceValue(Surface, Poles=Surface.Poles[:-1]))
     if Fault == "weights":
         Rational = PatchSheet(RationalPatch())
-        Weighted = Rational.Faces[0].Surface
+        Weighted = FirstSurface(Rational)
         return SwapSurface(
             Rational, ReplaceValue(Weighted, Weights=(0.0, *Weighted.Weights[1:]))
         )
@@ -57,7 +63,7 @@ def BrokenNurbs(Fault: str) -> NurbsBody:
         Rational = PatchSheet(RationalPatch())
         return SwapSurface(
             Rational,
-            ReplaceValue(Rational.Faces[0].Surface, Rational=False, RationalForm=""),
+            ReplaceValue(FirstSurface(Rational), Rational=False, RationalForm=""),
         )
     if Fault == "range":
         return SwapLeadUse(

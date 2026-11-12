@@ -78,6 +78,7 @@ def TestNurbsAuthor(TmpPath: FilePath, Label: str, Model: NurbsBody) -> None:
         NegateCurve(UseSpec.Pcurve) if UseSpec.Reversed else UseSpec.Pcurve
         for FaceSpec in Model.Faces
         for UseSpec in FaceSpec.Uses
+        if UseSpec.Pcurve is not None
     )
 
 
