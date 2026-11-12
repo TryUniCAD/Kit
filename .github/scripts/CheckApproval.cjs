@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: MIT
 // SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
-async function VerifyVersionApproval(Github, Repository, Pull, Version) {
-  const Command = `/approve-release-version ${Version} ${Pull.head.sha}`;
+const { IsRepoAdmin } = require("./IsRepoAdmin.cjs");
+
+async function CheckApproval(Github, Repository, PullRequest, Version) {
+  const Command = `/approve-release-version ${Version} ${PullRequest.head.sha}`;
   let Cursor = null;
   do {
     const Data = await Github.graphql(
@@ -19,7 +21,7 @@ async function VerifyVersionApproval(Github, Repository, Pull, Version) {
       {
         owner: Repository.owner,
         name: Repository.repo,
-        number: Pull.number,
+        number: PullRequest.number,
         cursor: Cursor,
       },
     );
@@ -32,27 +34,13 @@ async function VerifyVersionApproval(Github, Repository, Pull, Version) {
         !Comment.author?.databaseId
       )
         continue;
-      let Role;
-      try {
-        Role = await Github.rest.repos.getCollaboratorPermissionLevel({
-          ...Repository,
-          username: Comment.author.login,
-        });
-      } catch (ErrorInfo) {
-        if (ErrorInfo.status === 404) continue;
-        throw ErrorInfo;
-      }
-      if (
-        Role.data.permission === "admin" &&
-        Role.data.user?.id === Comment.author.databaseId
-      )
-        return;
+      if (await IsRepoAdmin(Github, Repository, Comment.author)) return;
     }
     Cursor = Comments.pageInfo.hasNextPage ? Comments.pageInfo.endCursor : null;
   } while (Cursor);
   throw new Error(
-    `A repository administrator must post "${Command}" on PR #${Pull.number}.`,
+    `A repository administrator must post "${Command}" on PR #${PullRequest.number}.`,
   );
 }
 
-module.exports = { VerifyVersionApproval };
+module.exports = { CheckApproval };
