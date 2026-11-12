@@ -5,13 +5,13 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 
 # Getting started
 
-Kit requires Python 3.11 or newer. Install it from PyPI:
+Kit requires Python 3.11 or newer. In a uv project, install it from PyPI:
 
 ```sh
 uv add unicad-kit
 ```
 
-To contribute from an isolated checkout, install the locked development environment:
+For a new project, run `uv init` first. To contribute from an isolated checkout, install the locked development environment:
 
 ```sh
 uv sync --frozen --all-groups --all-extras --python 3.11

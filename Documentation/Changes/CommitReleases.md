@@ -21,4 +21,4 @@ If GitHub succeeds and PyPI fails, rerun the failed job after correcting the cau
 
 ## Verification
 
-[Pull request CI](https://github.com/TryUniCAD/Kit/actions/runs/43160139879) built both archives and both Python distributions, checked the archive formats and checksum files, and installed the wheel in an isolated environment to load its public entry point. [ReleaseBuild.yml](../../.github/workflows/ReleaseBuild.yml) and the publishing workflow run the same [build script](../../.github/scripts/BuildRelease.sh). Verify GitHub release creation and PyPI authentication in the first run on `main`.
+[Pull request CI](https://github.com/TryUniCAD/Kit/actions/runs/43161060340) built both archives and both Python distributions, verified the archive contents and checksums, and installed the wheel in an isolated environment to load its public entry point. [ReleaseBuild.yml](../../.github/workflows/ReleaseBuild.yml) and the publishing workflow run the same [build script](../../.github/scripts/BuildRelease.sh). Verify GitHub release creation and PyPI authentication in the first run on `main`.
