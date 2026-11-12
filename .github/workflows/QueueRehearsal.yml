@@ -11,8 +11,8 @@ permissions:
   contents: read
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  group: ${{ github.workflow }}-${{ github.sha }}
+  cancel-in-progress: false
 
 jobs:
   verify-end-to-end:
@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     permissions:
-      actions: read # Reads workflow metadata for CodeQL Actions analysis.
+      actions: read
       contents: read
     strategy:
       fail-fast: false
@@ -536,8 +536,8 @@ jobs:
           for ReportPath in Scorecard.json ScorecardCandidate.json; do
             jq --slurp --exit-status 'length == 1 and all(.[]; (.checks | type == "array") and (.checks | length > 0))' "${ReportPath}"
           done
-          jq --exit-status --arg CandidateSha "$CandidateSha" \
-            '.repo.commit == $CandidateSha' ScorecardCandidate.json
+          jq --slurp --exit-status --arg CandidateSha "$CandidateSha" \
+            'length == 2 and all(.[]; .repo.commit == $CandidateSha)' Scorecard.json ScorecardCandidate.json
           jq -r '.checks[] | [.name, .score, .reason, ((.details // []) | join("\n"))] | @tsv' \
             Scorecard.json ScorecardCandidate.json
 
