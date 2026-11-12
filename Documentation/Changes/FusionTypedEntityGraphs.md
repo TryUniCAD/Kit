@@ -35,7 +35,7 @@ Production adapter discovery stays disabled.
 ## Archive envelope research
 
 The [envelope model](../../re/Fusion/Reconstruction/DocumentEnvelope/EnvelopeRecipe.md) fully decodes the controlled root/asset manifests and ACT/Browser records.
-It additionally identifies the nested material store's block allocator, TOC and definition schemas; logical material instance values remain unfinished.
+It additionally identifies the nested material store's block allocator, TOC and definition schemas; the subsequent [material serialization entry](FusionMaterialSerialization.md) completes the controlled instance values and records native package acceptance.
 Verbose generated evidence is retained in digest-indexed compressed archives, while interpretation and native acceptance reports remain readable.
 
 See the [custom value order gotcha](../Gotchas/Conversion/FusionCustomValuePersistence.md), [material padding gotcha](../Gotchas/Conversion/FusionMaterialStorePadding.md), and [graphics cache omission evidence](../Gotchas/Conversion/FusionGraphicsCacheOmission.md).

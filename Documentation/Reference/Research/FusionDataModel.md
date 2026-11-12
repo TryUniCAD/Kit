@@ -648,8 +648,11 @@ Custom value callbacks can override ordinary lexical order, as demonstrated by R
 
 The [latest native geometry acceptance](../../../re/Fusion/LocalOracle/Features/FullBrepAcceptance.json) reconstructs all 289 Design records and replaces both BRep members with independently authored cylinder/profile topology and history.
 The archive opens with correct 19 mm geometry before recomputation, reports healthy features, rolls back to sketch-only state and restores, then preserves a 23 mm edit through native save/reopen.
+The [production embedded geometry entry](../../Changes/FusionEmbeddedGeometry.md) records the promoted serializers and their separate native acceptance.
 Its surrounding source envelope is still retained; complete source-free F3D generation is not yet established.
-The [envelope research](../../../re/Fusion/Reconstruction/DocumentEnvelope/EnvelopeRecipe.md) distinguishes decoded manifests and ACT/Browser records from unfinished material instance values and optional controlled graphics caches.
+The [envelope research](../../../re/Fusion/Reconstruction/DocumentEnvelope/EnvelopeRecipe.md) fully decodes controlled manifests and ACT/Browser records.
+The [material serialization entry](../../Changes/FusionMaterialSerialization.md) records complete controlled instance decoding and native acceptance of regenerated material packages.
+The [metadata header interpretation](../../Changes/FusionMetadataHeaderSemantics.md) identifies packed software versions, current-version UUIDs, and ancestry framing.
 
 | Evidence                      | What it establishes                                  | What remains unverified                           |
 | ----------------------------- | ---------------------------------------------------- | ------------------------------------------------- |

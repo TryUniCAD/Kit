@@ -16,7 +16,7 @@ This research maps every archive member outside Design and BRep in two controlle
 
 `EnvelopeMaterial.json` is the latest typed inventory, including all fields, values, offsets, hashes, class declarations and indexes. `EnvelopeTyped.json` predates the material block decoder. `EnvelopeInventory.json` is the initial diagnostic report; its Browser failures came from a local-reference-only frame reader and are superseded by the later reports. `ReadEnvelope.py` uses only research readers and raw ZIP/decompression operations. `ReadProtein.py` interprets the nested material store. `NativeEvidence.json` contains reproducible arm64 disassembly excerpts and image hashes captured by `InspectEnvelopeNative.py`.
 
-Root and asset manifests, every ACT payload, and every Browser payload are completely consumed as typed fields in both controls. Protein table-of-contents records, block chains, definition properties and instance identity prefixes are decoded. Instance property values and most OGS scene serialization remain unresolved. XML syntax is decoded; complete material schema semantics are not claimed.
+Root and asset manifests, every ACT payload, and every Browser payload are completely consumed as typed fields in both controls. Protein table-of-contents records, block chains, definition properties and instance identity prefixes are decoded. The subsequent [material grammar](../ProteinInstances/MaterialGrammar.md) completes all controlled instance values and schema-driven serialization. Most OGS scene serialization remains unresolved. Arbitrary material schemas are not claimed.
 
 ## Archive member inventory
 
@@ -125,7 +125,7 @@ A source-free acceptance candidate must obtain fields from an authored document 
 
 ## Remaining constraints
 
-1. Finish material instance values and schema serialization; definitions and allocator framing are no longer blockers.
+1. Use the completed controlled material serializer and native acceptance evidence; qualify additional material schemas before extending support.
 2. Extend the bounded OGS omission acceptance to an independently authored empty graph and independently generated previews, then check display and geometry.
 3. Derive the empty Design graph and shared observer ordering from semantic constructors, with consistent ACT and Browser references.
 4. Rebuild metadata class owner sets, offsets and allocation watermark from the generated graph; preserve legitimate gaps.

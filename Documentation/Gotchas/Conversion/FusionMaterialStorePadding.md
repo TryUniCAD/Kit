@@ -9,4 +9,5 @@ The `0xffffffff` next-index sentinel terminates the chain; the observed flag val
 The native `DataStore::initBlock_` and `DataStoreRecord::read` implementations corroborate this framing.
 
 The [envelope model](../../../re/Fusion/Reconstruction/DocumentEnvelope/EnvelopeRecipe.md) and [native evidence](../../../re/Fusion/Reconstruction/DocumentEnvelope/NativeEvidence.json) document the exact build and addresses.
-The block allocator and definition records are decoded; remaining logical instance property values are a separate unfinished grammar, not padding to replay.
+The block allocator, definition records, and controlled instance properties are decoded.
+The [typed material grammar](../../../re/Fusion/Reconstruction/ProteinInstances/MaterialGrammar.md) excludes padding and regenerates unused capacity as zero bytes.
