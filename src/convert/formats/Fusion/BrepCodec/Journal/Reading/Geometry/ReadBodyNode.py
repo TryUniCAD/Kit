@@ -15,5 +15,5 @@ def ReadBodyNode(Cursor: FieldCursor) -> BodyNode:
     Prefix = ReadPrefixMut(Cursor)
     FirstLump = ReadRefMut(Cursor)
     NeedFieldMut(Cursor, (12, -1))
-    NeedFieldMut(Cursor, (12, -1))
-    return BodyNode(Prefix, FirstLump)
+    TransformRef = ReadRefMut(Cursor)
+    return BodyNode(Prefix, FirstLump, TransformRef)

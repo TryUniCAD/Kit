@@ -49,8 +49,13 @@ from convert.formats.Fusion.BrepCodec.Journal.Reading.Geometry.ReadStraight impo
     ReadStraight,
 )
 
+from convert.formats.Fusion.BrepCodec.Journal.Reading.Geometry.ReadTransform import (
+    ReadTransform,
+)
+
 KEntityReaders: dict[str, Callable[[FieldCursor], KJournalEntity]] = {
     "straight-curve": ReadStraight,
+    "transform": ReadTransform,
     "asmheader": ReadAsmRoot,
     "body": ReadBodyNode,
     "lump": ReadLumpNode,

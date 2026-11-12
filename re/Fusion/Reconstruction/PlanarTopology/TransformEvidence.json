@@ -1,0 +1,44 @@
+{
+  "schema": "FusionTransformSemantics/1",
+  "scope": "Static native serializer/restorer/operator proof plus read-only complete transform field decoding; no CAD runtime or production execution",
+  "records": 290,
+  "distinctSourceBlobs": 208,
+  "fieldTagSignatures": {
+    "(12, 4, 20, 20, 20, 20, 6, 11, 11, 11)": 290
+  },
+  "detailsSha256": "03b4d7ec6a2d9e4bb954a816aebbbc0364e858733de1a9519148b144c34573ef",
+  "disassemblySha256": "ea4e3d0433b6815198ec51f964a2877df368dc67b2d12792d9db3b5ef62947f9",
+  "binaries": {
+    "/tmp/kit-fusion-native-analysis/libASMkern232.arm64.dylib": "5ad7bc0099f1093e82f99110355ad2100b77fc47446c3d75befaaac81484d4a4",
+    "/tmp/kit-fusion-native-analysis/libASMbase232.arm64.dylib": "303735a8ac9a7a043f24b96755505d09d3b1a9d57bab4fd730948bb029cfb40f"
+  },
+  "nativeLabels": {
+    "0xac410c": "no_rotate",
+    "0xac4116": "rotate",
+    "0xac411d": "no_reflect",
+    "0xac4128": "reflect",
+    "0xac4130": "no_shear",
+    "0xac4139": "shear"
+  },
+  "flagCombinations": {
+    "(False, False, False)": 290
+  },
+  "scales": {
+    "1.0": 290
+  },
+  "fields": [
+    "attributeRef",
+    "entityTag",
+    "columnX",
+    "columnY",
+    "columnZ",
+    "translationCm",
+    "scale",
+    "rotation",
+    "reflection",
+    "shear"
+  ],
+  "mapping": "world = scale * (x*columnX + y*columnY + z*columnZ) + translationCm",
+  "proof": "TRANSFORM::save_common writes ENTITY base then write_transf. write_matrix serializes three contiguous vectors; native position*matrix multiplies input x/y/z by those vectors; position*transf multiplies result by offset0 scalar then adds offset0x50 translation. Explicit flag labels are rotation, reflection, shear; preserve independently.",
+  "nonidentityExamples": []
+}

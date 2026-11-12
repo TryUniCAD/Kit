@@ -22,9 +22,14 @@ from convert.formats.Fusion.BrepCodec.Journal.Attributes.SketchAttrib import (
 
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.StraightNode import StraightNode
 
+from convert.formats.Fusion.BrepCodec.Journal.Geometry.TransformNode import (
+    TransformNode,
+)
+
 KJournalEntity: TypeAlias = (
     AsmRoot
     | BodyNode
+    | TransformNode
     | LumpNode
     | ShellNode
     | FaceNode

@@ -7,3 +7,4 @@ from convert.formats.Fusion.BrepCodec.Journal.Geometry.EntityPrefix import Entit
 class BodyNode:
     Prefix: EntityPrefix
     FirstLump: int
+    TransformRef: int = -1

@@ -14,6 +14,12 @@ from convert.formats.Fusion.DocumentCodec.Auxiliary.Snapshots.EmitSnapPart impor
 from convert.formats.Fusion.ContainerCodec.Model.FusionContainer import FusionContainer
 from convert.formats.Fusion.DocumentCodec.EmitBodyPart import EmitBodyPart
 from convert.formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentModel
+from convert.formats.Fusion.DocumentCodec.Auxiliary.Mesh.CheckDocMeshes import (
+    CheckDocMeshes,
+)
+from convert.formats.Fusion.DocumentCodec.Auxiliary.Mesh.EmitMeshPart import (
+    EmitMeshPart,
+)
 from convert.formats.Fusion.DocumentCodec.Auxiliary.Graphics.CheckDocScene import (
     CheckDocScene,
 )
@@ -28,6 +34,7 @@ def EmitParsed(Value: DocumentModel) -> bytes:
     CheckDocMats(Value)
     CheckDocConfig(Value)
     CheckDocScene(Value)
+    CheckDocMeshes(Value)
     Streams = tuple(EmitDocSegment(Segment) for Segment in Value.Segments)
     Parts = (
         tuple(EmitBodyPart(BodyValue) for BodyValue in Value.Bodies)
@@ -35,6 +42,7 @@ def EmitParsed(Value: DocumentModel) -> bytes:
         + tuple(EmitSnapPart(Snapshot) for Snapshot in Value.Snapshots)
         + tuple(EmitConfigPart(Configuration) for Configuration in Value.Configurations)
         + EmitSceneParts(Value.Graphics)
+        + tuple(EmitMeshPart(MeshValue) for MeshValue in Value.Meshes)
     )
     Container = FusionContainer(
         Value.Document, Value.Asset, Streams, Value.Previews, Parts, Value.EmptyFolders

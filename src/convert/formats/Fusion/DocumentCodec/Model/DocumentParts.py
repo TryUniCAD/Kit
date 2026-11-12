@@ -3,6 +3,7 @@ from convert.formats.Fusion.GraphicsCodec.Model.State.GraphicScene import Graphi
 
 from convert.formats.Fusion.DocumentCodec.Model.ConfigPart import ConfigPart
 from convert.formats.Fusion.DocumentCodec.Model.DocumentBody import DocumentBody
+from convert.formats.Fusion.DocumentCodec.Model.DocumentMesh import DocumentMesh
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSnap import DocumentSnap
 from convert.formats.Fusion.DocumentCodec.Model.MaterialPart import MaterialPart
 
@@ -14,3 +15,4 @@ class DocumentParts:
     Snapshots: tuple[DocumentSnap, ...]
     Configurations: tuple[ConfigPart, ...]
     Graphics: GraphicScene | None = None
+    Meshes: tuple[DocumentMesh, ...] = ()

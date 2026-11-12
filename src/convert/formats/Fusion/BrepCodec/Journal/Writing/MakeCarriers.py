@@ -22,8 +22,17 @@ from convert.formats.Fusion.BrepCodec.Journal.Writing.Geometry.MakeStraight impo
     MakeStraight,
 )
 
+from convert.formats.Fusion.BrepCodec.Journal.Geometry.TransformNode import (
+    TransformNode,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Writing.Geometry.MakeTransform import (
+    MakeTransform,
+)
+
 
 def MakeCarriers(Value: KJournalEntity) -> AsmRecord:
+    if isinstance(Value, TransformNode):
+        return MakeTransform(Value)
     if isinstance(Value, StraightNode):
         return MakeStraight(Value)
     if isinstance(Value, PointNode):

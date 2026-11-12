@@ -19,8 +19,16 @@ from convert.formats.Fusion.BrepCodec.Journal.Attributes.SketchAttrib import (
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.StraightNode import StraightNode
 
 
+from convert.formats.Fusion.BrepCodec.Journal.Geometry.TransformNode import (
+    TransformNode,
+)
+
+
 def MakeEntityNode(Value: KJournalEntity) -> AsmRecord:
-    if isinstance(Value, (PointNode, PlaneNode, EllipseNode, ConeNode, StraightNode)):
+    if isinstance(
+        Value,
+        (PointNode, PlaneNode, EllipseNode, ConeNode, StraightNode, TransformNode),
+    ):
         return MakeCarriers(Value)
     if isinstance(Value, (TimeAttrib, TrackAttrib, TagAttrib, SketchAttrib)):
         return MakeAttributes(Value)

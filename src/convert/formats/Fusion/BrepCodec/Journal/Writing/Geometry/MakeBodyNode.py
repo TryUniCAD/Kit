@@ -11,6 +11,6 @@ def MakeBodyNode(Value: BodyNode) -> AsmRecord:
             *MakePrefix(Value.Prefix),
             RefWord(Value.FirstLump),
             RefWord(-1),
-            RefWord(-1),
+            RefWord(Value.TransformRef),
         ),
     )

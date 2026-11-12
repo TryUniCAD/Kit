@@ -1,0 +1,34 @@
+{
+  "details": "SavedWorlds.json.xz",
+  "sha256": "376e4d45d61700798cf8819becb4c8b1a5bb9235ac5b1a17ef8d2cd118161219",
+  "sources": [
+    {
+      "source": "re/Fusion/LocalOracle/ParaMesh/vendor_PreparedMesh00ControlEdited.f3d",
+      "world_bytes": 14552,
+      "consumed_prefix": 14552,
+      "unresolved": null,
+      "mesh_bytes": 860
+    },
+    {
+      "source": "re/Fusion/LocalOracle/ParaMesh/vendor_PreparedMesh00ReemittedEdited.f3d",
+      "world_bytes": 14552,
+      "consumed_prefix": 14552,
+      "unresolved": null,
+      "mesh_bytes": 860
+    },
+    {
+      "source": "re/Fusion/LocalOracle/ParaMesh/vendor_PreparedMesh01ControlEdited.f3d",
+      "world_bytes": 14552,
+      "consumed_prefix": 14552,
+      "unresolved": null,
+      "mesh_bytes": 860
+    },
+    {
+      "source": "re/Fusion/LocalOracle/ParaMesh/vendor_PreparedMesh01ReemittedEdited.f3d",
+      "world_bytes": 14552,
+      "consumed_prefix": 14552,
+      "unresolved": null,
+      "mesh_bytes": 860
+    }
+  ]
+}

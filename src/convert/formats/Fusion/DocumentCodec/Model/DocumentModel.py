@@ -5,6 +5,7 @@ from convert.formats.Fusion.ContainerCodec.Model.AssetHeader import AssetHeader
 from convert.formats.Fusion.ContainerCodec.Model.ContainerPart import ContainerPart
 from convert.formats.Fusion.ContainerCodec.Model.DocumentHeader import DocumentHeader
 from convert.formats.Fusion.DocumentCodec.Model.DocumentBody import DocumentBody
+from convert.formats.Fusion.DocumentCodec.Model.DocumentMesh import DocumentMesh
 from convert.formats.Fusion.DocumentCodec.Model.ConfigPart import ConfigPart
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSnap import DocumentSnap
 from convert.formats.Fusion.DocumentCodec.Model.MaterialPart import MaterialPart
@@ -23,3 +24,4 @@ class DocumentModel:
     Snapshots: tuple[DocumentSnap, ...] = ()
     Configurations: tuple[ConfigPart, ...] = ()
     Graphics: GraphicScene | None = None
+    Meshes: tuple[DocumentMesh, ...] = ()

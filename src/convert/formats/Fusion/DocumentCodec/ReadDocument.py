@@ -5,6 +5,9 @@ from convert.formats.Fusion.DocumentCodec.Auxiliary.Configuration.CheckDocConfig
     CheckDocConfig,
 )
 from convert.formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentModel
+from convert.formats.Fusion.DocumentCodec.Auxiliary.Mesh.CheckDocMeshes import (
+    CheckDocMeshes,
+)
 from convert.formats.Fusion.DocumentCodec.Auxiliary.Graphics.CheckDocScene import (
     CheckDocScene,
 )
@@ -47,8 +50,10 @@ def ReadDocument(
         Parts.Snapshots,
         Parts.Configurations,
         Parts.Graphics,
+        Parts.Meshes,
     )
     CheckDocMats(Result)
     CheckDocConfig(Result)
     CheckDocScene(Result)
+    CheckDocMeshes(Result)
     return Result

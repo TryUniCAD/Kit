@@ -1,6 +1,13 @@
 KEntityRefRules: dict[str, dict[int, tuple[str, ...]]] = {
+    "transform": {0: ("ATTRIB_CUSTOM-attrib",)},
     "asmheader": {0: ("ATTRIB_CUSTOM-attrib",)},
-    "body": {0: ("ATTRIB_CUSTOM-attrib",), 2: (), 3: ("lump",), 4: (), 5: ()},
+    "body": {
+        0: ("ATTRIB_CUSTOM-attrib",),
+        2: (),
+        3: ("lump",),
+        4: (),
+        5: ("transform",),
+    },
     "lump": {
         0: ("ATTRIB_CUSTOM-attrib",),
         2: (),
