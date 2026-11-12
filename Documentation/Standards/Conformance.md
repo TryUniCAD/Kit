@@ -12,7 +12,8 @@ This document records the public-source mapping for the documentation expansion.
 It does not reproduce normative clauses or certify the document set.
 
 The source baseline is `b9a022e45` from the Kit repository.
-The revision also includes the dependency updates and README presentation changes through `de20507ea`.
+The revision includes dependency updates and README presentation changes through `de20507ea`.
+The integrated base also includes queue validation repairs through `7a878e689`.
 The documentation PR uses the reviewer configuration from PR #74.
 Its base revision is recorded in the PR.
 The documentation revision is the Git commit containing this page.

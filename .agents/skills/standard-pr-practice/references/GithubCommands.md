@@ -85,7 +85,7 @@ GitHub review submissions carry `commit_id`, comments can link their original/cu
 ## Trigger, answer, and resolve
 
 ```sh
-jq -je --argjson index 0 '.Reviewers[$index].Comment | select(type == "string" and length > 0)' .agents/skills/standard-pr-practice/ReviewBot.json > /tmp/kit-review-comment.txt
+jq -je --argjson Index 0 '.Reviewers[$Index].Comment | select(type == "string" and length > 0)' .agents/skills/standard-pr-practice/ReviewBot.json > /tmp/kit-review-comment.txt
 gh pr comment 123 --repo owner/repo --body-file /tmp/kit-review-comment.txt
 gh api --method POST repos/owner/repo/pulls/123/comments/456789/replies -f body='Addressed in the accepted commit; the referenced path now enforces the documented contract'
 gh api graphql -f query='mutation($threadId:ID!){resolveReviewThread(input:{threadId:$threadId}){thread{id isResolved}}}' -F threadId=PRRT_exampleNodeId

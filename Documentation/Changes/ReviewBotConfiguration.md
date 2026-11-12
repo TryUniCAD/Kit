@@ -10,6 +10,8 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 Review instructions duplicated the provider mention and trigger across several files.
 A reviewer change required multiple edits.
 The skill also exempted edits to itself from activation.
+The original request named a regular GitHub user and did not invoke the installed app.
+See [configurable reviewers](ConfigurableReviewers.md) for the corrected configuration.
 
 ## Change
 

@@ -123,7 +123,7 @@ The `Scorecard` job uses the checksum-pinned OpenSSF Scorecard CLI instead of
 default repository scan and then the commit-compatible checks against the exact
 `merge_group.head_sha`. The second scan supplements the repository scan because
 commit-specific mode omits checks that cannot evaluate arbitrary commits. Both
-SARIF reports are summarized in the job log, command failures fail the job, and
+JSON reports are summarized in the job log, command failures fail the job, and
 `Merge queue acceptance` still requires it. Results are not published to the
 Scorecard API. See [the repair and verification entry](Documentation/Changes/QueueScorecard.md).
 
