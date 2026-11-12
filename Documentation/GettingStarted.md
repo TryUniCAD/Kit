@@ -5,13 +5,19 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 
 # Getting started
 
-Kit requires Python 3.11 or newer. From an isolated checkout, install the locked environment:
+Kit requires Python 3.11 or newer. Install it from PyPI:
+
+```sh
+pip install unicad-kit
+```
+
+For a uv-managed project, use `uv add unicad-kit`. To contribute from an isolated checkout, install the locked development environment:
 
 ```sh
 uv sync --frozen --all-groups --all-extras --python 3.11
 ```
 
-The distribution is named `kit`, but this revision packages the `convert` and `interchange` Python modules. Import the conversion API from `convert`:
+The `unicad-kit` distribution provides the `convert` and `interchange` Python modules. Import the conversion API from `convert`:
 
 ```python
 from convert import convert as ConvertDoc
