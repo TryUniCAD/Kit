@@ -41,6 +41,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.SubtypeFamily impo
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.SubtypeRules import (
     KSubtypeRules,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TypedCodecs import TreeBody
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.BsCurve import BsCurve
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.BsSurface import BsSurface
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.MakeBsCurve import (
@@ -165,5 +166,5 @@ def MakeScope(Family: str, Value: KGrammarValue) -> tuple[KAsmToken, ...]:
     ):
         raise ValueError("Fusion subtype value disagrees with its " + Family + " scope")
     NameText = Value.SubtypeName
-    Payload = MakeRule(KSubtypeRules[NameText], Value.Body)
+    Payload = MakeRule(KSubtypeRules[NameText], TreeBody(NameText, Value.Body))
     return ((15, None), (13, NameText), *Payload, (16, None))

@@ -1,6 +1,5 @@
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import (
     ChoiceValue,
-    KGrammarValue,
     KSubtypeValue,
     SubtypeNode,
 )
@@ -13,39 +12,46 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.CheckBsCurve import
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.CheckBsSurface import (
     CheckBsSurface,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.CurveRecords import (
+    CurveContext,
+    ExactIntCur,
+    ExpParCur,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.SurfaceRecords import (
+    ExactSplSur,
+    SplineCommon,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TreeParts import KBreaks
 
 KEmptyRange = (1.0, 0.0)
 
 KNullSurface = ChoiceValue("null_surface", ())
 
+KNoBreaks: KBreaks = ((), (), ())
+
 
 def ExactSurface(Surface: BsSurface) -> SubtypeNode:
     CheckBsSurface(Surface)
-    Approximation = ChoiceValue(0, (Surface, 0.0, (), (), (), (), (), (), None))
-    return SubtypeNode(
-        "exact_spl_sur", (23100, Approximation, KEmptyRange, KEmptyRange, 0)
-    )
+    Common = SplineCommon(Surface, 0.0, KNoBreaks, KNoBreaks)
+    Record = ExactSplSur(23100, Common, KEmptyRange, KEmptyRange, 0)
+    return SubtypeNode("exact_spl_sur", Record)
 
 
 def ExactCurve(Curve: BsCurve) -> SubtypeNode:
     CheckBsCurve(Curve, 3)
-    Approximation = ChoiceValue(
+    Context = CurveContext(
+        23100,
+        Curve,
+        0.0,
+        KNullSurface,
+        KNullSurface,
+        None,
+        None,
+        (None, None),
+        KNoBreaks,
         0,
-        (
-            Curve,
-            0.0,
-            KNullSurface,
-            KNullSurface,
-            None,
-            None,
-            (None, None),
-            (),
-            (),
-            (),
-            0,
-        ),
     )
-    return SubtypeNode("exact_int_cur", ((23100, Approximation), KEmptyRange, 0, 0))
+    return SubtypeNode("exact_int_cur", ExactIntCur(Context, KEmptyRange, 0, 0))
 
 
 def ParamCurve(Curve: BsCurve, SurfaceIndex: int) -> SubtypeNode:
@@ -56,40 +62,25 @@ def ParamCurve(Curve: BsCurve, SurfaceIndex: int) -> SubtypeNode:
         "spline",
         (False, SubtypeRef("surface", SurfaceIndex), (None, None, None, None)),
     )
-    return SubtypeNode("exp_par_cur", (Curve, 0.0, Carrier))
-
-
-def NeedMember(Value: KGrammarValue, Index: int) -> KGrammarValue:
-    if type(Value) is not tuple or not 0 <= Index < len(Value):
-        raise ValueError("Fusion subtype body lacks its B-spline approximation")
-    return Value[Index]
-
-
-def ApproxBody(Value: KGrammarValue) -> KGrammarValue:
-    if not isinstance(Value, ChoiceValue) or Value.ChoiceKey != 0:
-        raise ValueError("Fusion subtype approximation has an unsupported form")
-    return NeedMember(Value.Body, 0)
+    return SubtypeNode("exp_par_cur", ExpParCur(Curve, 0.0, Carrier))
 
 
 def SplineSurface(Value: KSubtypeValue) -> BsSurface:
     if isinstance(Value, SubtypeNode) and Value.SubtypeName == "exact_spl_sur":
-        Surface = ApproxBody(NeedMember(Value.Body, 1))
-        if isinstance(Surface, BsSurface):
-            return Surface
+        if isinstance(Value.Body, ExactSplSur):
+            return Value.Body.Common.ApproxSurface
     raise ValueError("Fusion surface is not an exact B-spline surface")
 
 
 def SplineCurve(Value: KSubtypeValue) -> BsCurve:
     if isinstance(Value, SubtypeNode) and Value.SubtypeName == "exact_int_cur":
-        Curve = ApproxBody(NeedMember(NeedMember(Value.Body, 0), 1))
-        if isinstance(Curve, BsCurve):
-            return Curve
+        if isinstance(Value.Body, ExactIntCur):
+            return Value.Body.Context.ApproxCurve
     raise ValueError("Fusion curve is not an exact B-spline curve")
 
 
 def PcurveSpline(Value: KSubtypeValue) -> BsCurve:
     if isinstance(Value, SubtypeNode) and Value.SubtypeName == "exp_par_cur":
-        Curve = NeedMember(Value.Body, 0)
-        if isinstance(Curve, BsCurve):
-            return Curve
+        if isinstance(Value.Body, ExpParCur):
+            return Value.Body.Spline
     raise ValueError("Fusion pcurve is not an explicit parameter-space B-spline")

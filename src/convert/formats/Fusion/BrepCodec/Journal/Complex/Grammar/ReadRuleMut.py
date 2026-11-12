@@ -40,6 +40,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.SubtypeFamily impo
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.SubtypeRules import (
     KSubtypeRules,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TypedCodecs import TypeBody
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.ReadBsCurve import (
     ReadBsCurveMut,
     ReadBsOptionMut,
@@ -148,6 +149,7 @@ def ReadSubtypeMut(Cursor: FieldCursor, Family: str) -> KSubtypeValue:
         return ReadTsplSurf(Cursor)
     if KSubtypeFamily.get(Scope) != Family or Scope not in KSubtypeRules:
         raise ValueError("Unsupported Fusion " + Family + " subtype: " + Scope)
-    Value = SubtypeNode(Scope, ReadRuleMut(Cursor, KSubtypeRules[Scope]))
+    TreeValue = ReadRuleMut(Cursor, KSubtypeRules[Scope])
+    Value = SubtypeNode(Scope, TypeBody(Scope, TreeValue))
     NeedFieldMut(Cursor, (16, None))
     return Value
