@@ -13,7 +13,7 @@ def EmitParamOrder(Value: ParamScope) -> bytes:
     CheckParamScope(Value)
     Output = ParamSink()
     Output.AddBytes(bytes(15))
-    Output.AddWord(len(Value.MemberIds))
+    Output.AddWord(Value.HighWaterMark)
     Output.AddBytes(PackHistRef(Value.RegistryId))
     Output.AddBytes(bytes(1))
     Output.AddBytes(PackHistRefs(Value.MemberIds))

@@ -6,12 +6,12 @@ from convert.formats.Fusion.SegmentCodec.Parameters.ParamScope import ParamScope
 
 
 def CheckParamScope(Value: ParamScope) -> None:
-    if type(Value) is not ParamScope:
-        raise ValueError("Expected a typed Fusion parameter scope")
     Owners = (Value.CollectionId, Value.RegistryId, Value.ComponentId)
     if (
         any(not IsHistId(Identity) or Identity == 0 for Identity in Owners)
         or len(set(Owners)) != 3
+        or type(Value.HighWaterMark) is not int
+        or not 0 <= Value.HighWaterMark < 1 << 32
         or type(Value.MemberIds) is not tuple
         or len(Value.MemberIds) > KMaxHistRefs
         or any(

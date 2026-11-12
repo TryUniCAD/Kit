@@ -23,7 +23,6 @@ def ReadParamBind(Cursor: MetaCursor) -> int | None:
     return BindingId
 
 
-# the newer zero extension is accepted only for the observed bound numeric layout
 def ReadRoleMut(Cursor: MetaCursor, BindingId: int | None) -> tuple[str, bytes]:
     Metadata = Cursor.TakeBytes(10)
     if Metadata[:4] != bytes(4):
@@ -32,11 +31,11 @@ def ReadRoleMut(Cursor: MetaCursor, BindingId: int | None) -> tuple[str, bytes]:
     try:
         return Cursor.ReadText(True, Maximum=1024), Metadata
     except ValueError:
-        if BindingId is None or Metadata != bytes(10):
+        if Metadata[:8] != bytes(8) or Metadata[8] not in (0, 1) or Metadata[9] != 0:
             raise
         Cursor.Offset = RoleStart
         ExtraByte = Cursor.TakeBytes(1)
-        if ExtraByte != b"\0":
+        if ExtraByte != bytes((BindingId is None,)):
             raise ValueError("Unsupported Fusion parameter metadata extension")
         return Cursor.ReadText(True, Maximum=1024), Metadata + ExtraByte
 

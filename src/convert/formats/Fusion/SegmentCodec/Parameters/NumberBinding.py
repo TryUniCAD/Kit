@@ -6,6 +6,6 @@ class NumberBinding:
     OwnerId: int
     ParamId: int
     BookId: int
-    SlotIndex: int
-    BoundRank: int
+    ObserverIndex: int
+    RuntimeParamId: int
     Number: float

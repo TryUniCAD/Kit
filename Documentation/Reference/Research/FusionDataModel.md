@@ -17,6 +17,13 @@ The [class catalogue](../../../re/Fusion/Study/fusion-class-catalog.json) record
 Only 76 classes have observed semantic labels in that catalogue.
 A class label does not establish its complete field schema.
 
+The new [binary catalogue](../../../re/Fusion/Reconstruction/BinaryClasses.json) supplies 1,218 class-identifier mappings from 14 installed libraries.
+Its full-corpus inventory names all 403 declared Design classes: 283 have primary objects and 120 are registry-only declarations.
+Across 712 archives it records 120,210 class declarations and 227,625 primary objects, with zero metadata extraction failures.
+Each captured class has only one stored version in that corpus, so this coverage does not prove historical migration support.
+The [parameter registration evidence](../../../re/Fusion/Reconstruction/BinaryParameters.json) records exact field types, inheritance, version branches, and method addresses with source binary digests.
+The local [schema dump](../../../re/Fusion/LocalOracle/Allocation/ParameterSchema.xml) independently lists 155 current types and 404 member names.
+
 The [geometry frontier](../../../re/Fusion/Study/asm-geometry-frontier-current.json) records 1,160 blobs and 3,761 initial body graphs.
 Its scope excludes complete feature definitions, unexplained fields, trailing states, and native writing.
 These historical measurements were not rerun for this document.
@@ -111,9 +118,9 @@ Kernel references additionally require the geometry blob and history state.
 | Type identity            | Class GUID plus version information | Segment registry                    | Registry row to class schema                                  |
 | Wire class code          | Decimal integer text                | One segment                         | Registry position starting at 256                             |
 | Design object identity   | Unsigned 64-bit integer             | One segment                         | Primary record and indexed inherited records                  |
-| Parameter ordinal        | Unsigned 32-bit integer             | Parameter collection                | Ordered collection membership                                 |
-| Bound parameter rank     | Unsigned 32-bit integer             | Qualified bound-parameter sequence  | Count only parameters with feature bindings                   |
-| Owner control slot       | Unsigned 32-bit integer             | One feature owner                   | Owner's ordered control definitions                           |
+| Parameter creation index | Unsigned 32-bit integer             | Parameter collection                | Persistent allocation index; deletion leaves gaps             |
+| Runtime parameter ID     | Unsigned 64-bit integer             | Design-capture parameter            | `DcParameter.rparamId`; distinct from the parameter entity ID |
+| Observer-vector index    | Signed 32-bit integer               | Referenced subject entity           | Position of this observer in the subject's observer vector    |
 | ASM entity pointer       | Signed 64-bit integer               | Blob and history state              | Entity table, with negative sentinels handled by schema       |
 | Stored BODY handle       | Typed attribute value               | Referenced geometry history         | Design body map to matching kernel BODY identifier            |
 | Persistent name key      | Schema-specific typed value         | Naming registry and feature lineage | Verified registry, creator, and selection route               |
@@ -149,7 +156,7 @@ Kit's [MetaSegment](../../../src/convert/formats/Fusion/SegmentCodec/Metadata/Me
 | Field         | Type                               | Interpretation                                                                 |
 | ------------- | ---------------------------------- | ------------------------------------------------------------------------------ |
 | Header        | `MetaHeader`                       | Segment kind, segment ID, namespace, magic, version, and retained header words |
-| Classes       | Ordered `MetaClass` rows           | Class GUID, base GUID, flags, class namespace, and owned object IDs            |
+| Classes       | Ordered `MetaClass` rows           | Class GUID, base GUID, schema version, class namespace, and owned object IDs   |
 | StoredIds     | Ordered `u64` values               | Retained identity sequence, separate from timeline order                       |
 | Primary       | Ordered `(object_id, offset)` rows | Primary BulkStream records                                                     |
 | Continuations | Ordered `(object_id, offset)` rows | Inherited BulkStream records                                                   |
@@ -168,6 +175,21 @@ An indexed BulkStream record begins with an ASCII decimal class code and a `u64`
 The decimal code has a preceding `u32` byte count.
 The next indexed offset determines the payload boundary.
 There is no general payload-length field that can replace the metadata index.
+
+`Ns::EntityMetaType::save` then writes a counted root-identity string, an entity-subjects flag, and optional subject data.
+A separate flag precedes optional named metadata.
+The four zero bytes at the start of an ordinary payload are the empty root-string count, not a class version.
+Class schema versions belong to the metadata registry, represented by `MetaClass.SchemaVersion`.
+Old captured numeric parameters use schema 9, while the new local captures use schema 10.
+
+An entity-subjects list begins with an unsigned count.
+Each row contains a passive reference and a signed `indexInObserverVec`.
+That index locates this entity's observer interface in the referenced subject's observer vector; `-1` is the unavailable sentinel.
+It is not a feature-control position.
+
+Member traversal uses lexical member-name order, separately for each class member set.
+Native registration order and C++ in-memory field offsets therefore do not define wire order.
+Inherited member sets and custom serializers still require their own traversal rules.
 
 The class code equals 256 plus the registry row position.
 The corresponding GUID identifies the native class.
@@ -194,28 +216,42 @@ Suppression, grouping, rollback state, and occurrence ownership require their as
 ### Parameter collection
 
 The collection class GUID is `B0556F58-EE09-46A7-B18F-E296F48E5B13`.
-Its supported full payload begins with a zero `u32` version.
-The following offsets start after that version word.
+Its supported full payload begins with an empty root-identity string encoded as a zero `u32` count.
+The following offsets start after that count word.
 
 | Offset            | Field                      | Width              |
 | ----------------- | -------------------------- | ------------------ |
 | 0                 | Fixed zero prefix          | 11 bytes           |
-| 11                | Stored header counter      | 4 bytes            |
+| 11                | Allocation high-water mark | 4 bytes            |
 | 15                | Name registry reference    | 11 bytes           |
 | 26                | Zero separator             | 1 byte             |
 | 27                | Member count               | 4 bytes            |
 | 31                | Ordered member references  | `11 * count` bytes |
 | `31 + 11 * count` | Owning component reference | 11 bytes           |
 
-The supported writer derives both counts from the member sequence.
-The permissive reader and semantic proof retain different acceptance levels.
-A contradictory redundant counter can remain observable while preventing complete source proof.
+The installed binary names this class `Ns::Parameters::ParameterTable` and the field at body offset 11 `highWaterMark`.
+It registers that field as an unsigned 32-bit integer, independently of the member list.
+The writer takes `HighWaterMark` explicitly and derives only the actual member count.
+It must not reset allocation history to the number of surviving members.
+The current semantic proof admits only the stricter dense-ordinal profile in which this mark equals the member count.
+Other allocation histories remain outside that proof; this restriction does not establish that those documents are invalid.
 Every member must reciprocate the owning collection in its numeric record.
+
+The [controlled allocation captures](../../../re/Fusion/LocalOracle/Allocation/Capture.json) establish an observed sequence:
+
+| Operation             | Current member count | High-water mark | Surviving creation indexes |
+| --------------------- | -------------------- | --------------- | -------------------------- |
+| Create two parameters | 2                    | 2               | 1, 2                       |
+| Delete the first      | 1                    | 2               | 2                          |
+| Create a third        | 2                    | 3               | 2, 3                       |
+
+The binary `getNextID` increments the mark and returns it; removal does not decrement it.
 
 ### Name registry
 
 The registry class GUID is `E276745D-D84E-40D5-88BC-8C94DD4ACCDF`.
-Its supported payload begins with a zero version word, byte `01`, and a dependency count.
+The installed binary names it `Ns::Parameters::ParameterSearchByNameHelper`.
+Its supported payload begins with an empty root-string count, byte `01`, and an entity-subject count.
 Each dependency row contains an eleven-byte reference and four zero bytes.
 The first row references the collection, followed by its members in the qualified collection order.
 
@@ -223,19 +259,20 @@ A zero separator precedes the name count.
 Each name row contains counted UTF-16LE text and a member reference.
 Names and member identities must each be unique.
 Name-row order is retained separately from collection order.
-These dependency rows describe registry membership, not expression dependencies.
+These subject rows describe native observer relationships, not expression dependencies.
 
 ### Numeric parameter
 
 The numeric parameter class GUID is `7A6A3D31-BE74-4E19-9115-20642944C2E4`.
-The supported full payload begins with a zero version word.
+The installed binary names it `Ns::Parameters::Parameter`.
+The supported full payload begins with an empty root-string count.
 The body then contains these fields in order:
 
 | Field         | Encoding                      | Meaning                                           |
 | ------------- | ----------------------------- | ------------------------------------------------- |
 | Header        | Seven zeros, `06`, four zeros | Qualified numeric body profile                    |
 | Comment       | Counted UTF-16LE              | CR, LF, and TAB are allowed                       |
-| NativeIndex   | `u32`                         | Collection ordinal                                |
+| NativeIndex   | `u32`                         | Persistent `creationIndex` allocation value       |
 | BindingId     | Optional local reference      | Absent for the supported user-parameter profile   |
 | Formula       | Counted UTF-16LE              | Saved expression text                             |
 | Metadata      | Ten or eleven bytes           | Qualified profile described below                 |
@@ -254,33 +291,65 @@ Graph-level source proof still requires reciprocal collection membership.
 
 The supported metadata profiles are:
 
-| Profile                | Derived bytes                        | Constraint                           |
-| ---------------------- | ------------------------------------ | ------------------------------------ |
-| User numeric           | Seven zeros, favourite flag, `00 01` | No binding and role `User Parameter` |
-| Bound numeric          | Seven zeros, favourite flag, `00 00` | Binding present                      |
-| Extended bound numeric | Eleven zeros                         | Binding present and favourite false  |
+| Profile           | Derived bytes                                        | Constraint                                     |
+| ----------------- | ---------------------------------------------------- | ---------------------------------------------- |
+| User numeric      | Seven zeros, favourite flag, `00 01`                 | No binding and role `User Parameter`           |
+| Bound numeric     | Seven zeros, favourite flag, `00 00`                 | Binding present                                |
+| Schema 10 numeric | Eight zeros, favourite flag, orphan false, user flag | `isExternal` is false in the supported profile |
 
 The favourite flag is zero or one.
-The extra byte's general meaning remains unresolved.
+Schema 10 inserts the `isExternal` Boolean before `isFavourite`.
+The extra byte is not trailing padding.
 The encoder accepts these exact profiles and reconstructs their bytes from the qualified fields.
 It rejects other metadata instead of copying unexplained metadata into output.
+
+The complete schema-10 member set has this lexical order:
+
+| Native member     | Registered type   | Supported numeric-profile interpretation          |
+| ----------------- | ----------------- | ------------------------------------------------- |
+| `UserDefaultUnit` | Boolean           | False                                             |
+| `actIdentifier`   | Internal string   | Empty                                             |
+| `birthday`        | `u32`             | Expression-engine version, observed value 6       |
+| `booleanValue`    | Boolean           | False for numeric values                          |
+| `comment`         | Internal string   | User comment                                      |
+| `creationIndex`   | `u32`             | Persistent allocation index                       |
+| `dcParameter`     | Passive reference | Optional design-capture binding                   |
+| `expression`      | Internal string   | Formula text                                      |
+| `expressionType`  | `u32`             | Zero in the admitted numeric profile              |
+| `group`           | Passive reference | Null in the admitted profile                      |
+| `isDirty`         | Boolean           | False in the admitted profile                     |
+| `isDriven`        | Boolean           | False in the admitted profile                     |
+| `isExternal`      | Boolean           | Added in schema 10; false in the admitted profile |
+| `isFavourite`     | Boolean           | Favorite flag                                     |
+| `isOrphan`        | Boolean           | False in the admitted profile                     |
+| `isUserDefined`   | Boolean           | True for an unbound user parameter                |
+| `name`            | Internal string   | Role name such as `User Parameter`                |
+| `textValue`       | Internal string   | Empty for numeric values                          |
+| `unit`            | Internal string   | Display unit                                      |
+| `userName`        | Internal string   | Parameter identifier                              |
+| `value`           | Binary64          | Evaluated numeric value                           |
+
+The constructor gets `birthday` from the expression engine's `latestVersion`; it is not a date.
+The terminal zero byte is an inherited null `CommonBaseEntity.rClientObject` reference.
+The following collection reference is inherited `ManagedEntity.rParent`.
+Member registration alone is insufficient to select persistent fields: member options exclude some registered fields, including the observed `expanded` member.
 
 ### Numeric binding
 
 The supported floating binding class is `D91D429C-1BB5-4640-B49F-69AF14F463E9`.
-Its full payload contains a zero version word followed by an 85-byte body.
-Offsets below start after the version word.
+The installed binary names it `Na::DesignCapture::DcDoubleParameter`.
+Its full payload contains an empty root-string count followed by an 85-byte body.
+Offsets below start after that count word.
 
 | Offset | Field          | Encoding         |
 | ------ | -------------- | ---------------- |
 | 0      | Binding header | `01 01 00 00 00` |
 | 5      | OwnerId        | Local reference  |
-| 16     | SlotIndex      | `u32`            |
+| 16     | ObserverIndex  | `i32`            |
 | 20     | Separator      | Zero             |
 | 21     | Number         | Binary64         |
 | 29     | ParamId        | Local reference  |
-| 40     | BoundRank      | `u32`            |
-| 44     | Reserved       | Four zeros       |
+| 40     | RuntimeParamId | `u64`            |
 | 48     | Repeated owner | Local reference  |
 | 59     | Fixed field    | `01 00 00`       |
 | 62     | BookId         | Local reference  |
@@ -290,18 +359,24 @@ Offsets below start after the version word.
 All three owner references must agree.
 The parameter's binding reference and binding's parameter reference must reciprocate.
 The binding cache must match the parameter's binary64 bytes, including signed zero.
-SlotIndex selects the owner's control, while BoundRank excludes user parameters.
-Neither value replaces the collection ordinal.
+`ObserverIndex` describes the entity-subject relationship, not a feature-control slot.
+`RuntimeParamId` is the native `rparamId` member and uses all 64 bits.
+The historical dense captures made it resemble a bound-parameter rank, which does not establish its general allocation policy.
 
 Integer binding class `A085449A-5144-4B2B-B455-7F7035A40559` has a related 82-byte body.
-Its value occupies five bytes: marker `01` and a `u32`.
+Its five-byte value region contains `isRoundToNearestInt` followed by a signed `i32` value.
 The subsequent fields shift three bytes earlier.
 Complete typed integer writing is outside the implemented floating profile.
 
 The bookkeeping class is `6CCF41D5-40BE-48ED-A834-18F3EAED6C57`.
 Its 43-byte payload contains sixteen zeros, a binding reference, a raw `u64`, and eight zeros.
-The raw value's units and epoch remain unproven.
-A writer must not invent a timestamp interpretation or default.
+The installed binary names the class `Na::DesignCapture::DynamicUpdateData` and the unsigned 64-bit member `timeStamp`.
+The timestamp's units, epoch, and initialization contract remain unproven.
+A writer must not invent those semantics or a default.
+
+Binary inspection shows `DynamicUpdateData.mark` stores the raw return from `std::chrono::system_clock::now`.
+The inspected macOS libc++ header defines that clock's duration as microseconds.
+This platform-specific fact does not establish a portable epoch, cross-platform representation, or a safe invented initialization value.
 
 ### Expressions, units, and sketches
 
@@ -438,7 +513,10 @@ Its existence does not establish complete independent parametric generation.
 | PR CI                         | Checks executed on the reported revision             | Deferred queue checks and vendor behavior         |
 | Fusion open and rebuild       | Actual vendor acceptance for measured outputs        | Untested feature families                         |
 
-No Fusion oracle is available for this work.
-Vendor loadability, body properties, feature editability, and rebuild acceptance remain unverified.
-The format investigation and implementation continue independently of that missing evidence.
+A local Fusion installation is now available and authorized for controlled captures.
+Fusion 2706.1.17 accepted the [Kit-edited parameter archive](../../../re/Fusion/LocalOracle/Rewritten/Acceptance.json), exposed its changed values and comments, rebuilt a new dependent expression, and retained that expression after native save and reopen.
+That archive preserves its own non-parameter source records and contains no modeled bodies or feature timeline.
+The result establishes this parameter-edit path, not independent full-document generation, B-rep writing, or complete feature-history acceptance.
+Installed binary symbols and member-registration code provide additional field-name and type evidence.
+They do not replace measured load and rebuild results.
 Production discovery must remain disabled until the complete acceptance requirements are met.

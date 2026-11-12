@@ -31,6 +31,8 @@ The [archive-inspection gotcha](../Gotchas/Conversion/FusionArchiveInspection.md
 The local corpus inventory inspected 712 archives and 21,269 central-directory entries.
 REA 6.8.0 inspected the F3Z example and recorded its eleven contained entries.
 Source inspection corroborated the collection reference against the existing reciprocal membership decoder and study grammar.
-No local tests ran.
-Remote compatibility checks, review, and vendor acceptance require separate evidence.
-No Fusion oracle is available, so vendor load and rebuild acceptance remain unverified.
+General automated tests run in remote CI.
+After explicit local-oracle authorization, Fusion accepted a Kit-edited parameter archive and retained a rebuilt dependent expression after save and reopen.
+See the [recorded acceptance scope](../../re/Fusion/LocalOracle/Rewritten/Acceptance.json); it does not establish complete native document generation.
+Binary member-registration evidence identifies the parameter table's allocation high-water mark independently of its member count.
+The writer accepts that mark explicitly instead of deriving it from surviving members.
