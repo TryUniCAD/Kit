@@ -83,6 +83,9 @@ JsonText = OutputStream.getvalue()
 The stream write uses temporary storage before the output policy check.
 After that check, the final write uses the caller's stream.
 A short write can leave that stream partially changed.
+The count check requires a returned count from the stream's `write()` method.
+A return value of `None` bypasses that check.
+Use a reliable count or independently verify the written content.
 Do not assume that arbitrary streams support rollback.
 
 ## If the task fails

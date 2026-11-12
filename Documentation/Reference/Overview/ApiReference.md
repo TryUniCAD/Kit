@@ -89,10 +89,14 @@ They do not claim native CAD application support for JSON.
 | Invalid input or model          | Reader or model validation error                  |
 | Dropped capability              | Capability-loss error                             |
 | Unacceptable output attestation | `ApplicationUsabilityError`                       |
-| Short final stream write        | `OSError` with partial stream effects possible    |
+| Incorrect returned stream count | `OSError` with partial stream effects possible    |
 | Later B-rep extraction failure  | Earlier payload files can remain                  |
 
-Path writes use staging and handled-failure rollback.
+Path writes use staging and attempt rollback.
+Some backup failures can lose existing targets despite exception handling.
+Keep independent backups before replacing files.
+If a stream's `write()` returns `None`, the final count check does not run.
+Verify output independently when the stream cannot report an accurate count.
 Stream writes and payload extraction have different failure boundaries.
 See [engine behavior](../Architecture/Engine.md) and [error recovery](../../Tasks/Troubleshoot.md).
 

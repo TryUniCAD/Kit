@@ -21,17 +21,22 @@ Keep execution in the authorized remote validation environment.
 
 ## Measurement sequence
 
+Control measurements must also follow a rebuild.
+
 1. Measure the starting control.
 2. Start a fresh application process for the candidate.
 3. Open the candidate file.
-4. Record load and rebuild errors.
-5. Measure body count, volume, and center of mass.
-6. Record the feature tree.
-7. Change a driving dimension.
-8. Rebuild the model.
-9. Record the resulting geometry change.
-10. Close the candidate process.
-11. Measure the final control.
+4. Record load errors.
+5. Rebuild the unchanged candidate.
+6. Record rebuild errors.
+7. Measure body count, volume, and center of mass.
+8. Record the feature tree.
+9. Change a driving dimension.
+10. Rebuild the edited model.
+11. Record rebuild errors.
+12. Measure the resulting geometry change.
+13. Close the candidate process.
+14. Measure the final control.
 
 Expected result: the report contains quantitative and editable-history evidence with healthy controls.
 If either control fails, discard the affected batch results.
@@ -39,12 +44,14 @@ A file-open return value alone is insufficient.
 
 ```mermaid
 flowchart TD
-    Start[Starting control] --> Healthy{Control valid?}
+    Start[Rebuilt starting control] --> Healthy{Control valid?}
     Healthy -- No --> Reject[Reject batch evidence]
     Healthy -- Yes --> Candidate[Fresh candidate process]
-    Candidate --> Measure[Geometry and history measurements]
+    Candidate --> Rebuild[Rebuild unchanged candidate]
+    Rebuild --> Measure[Geometry and history measurements]
     Measure --> Edit[Dimension edit and rebuild]
-    Edit --> Final[Final control]
+    Edit --> Remeasure[Measure geometry change]
+    Remeasure --> Final[Rebuilt final control]
     Final --> Valid{Control valid?}
     Valid -- No --> Reject
     Valid -- Yes --> Report[Record case result]
@@ -86,5 +93,6 @@ Preserve the environment version so later investigators can assess drift.
 
 - [Research methodology](../../../re/Methodology.md)
 - [Oracle integration tests](../../../tests/convert/solidworks/core/SolidworksOracleTests.py)
+- [Oracle inspection sequence](../../../tests/oracle/Session.py)
 - [Historical donor experiment](../../../re/solidworks/features/RevolveDonorSpec.md)
 - [Lossless acceptance rule](../../../.agents/skills/standard-pr-practice/references/Standards/Portable/LosslessTranslation.md)

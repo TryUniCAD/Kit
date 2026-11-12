@@ -14,7 +14,7 @@ It does not reproduce normative clauses or certify the document set.
 The source baseline is `b9a022e45` from the Kit repository.
 The revision includes dependency updates and README presentation changes through `de20507ea`.
 The integrated base also includes queue validation repairs through `7a878e689`.
-The documentation PR uses the reviewer configuration from PR #74.
+The integrated base includes the reviewer configuration from PR #74 at `38ec9456d`.
 Its base revision is recorded in the PR.
 The documentation revision is the Git commit containing this page.
 The public-source review date is 2026-11-11.
@@ -75,6 +75,10 @@ It removes the vendor oracle from the production conversion diagram.
 It distinguishes reader strictness from output usability policy.
 It identifies target-limit carrier handling in the registry.
 It describes partial final stream writes and sequential B-rep extraction.
+It identifies the missing stream count check when `write()` returns `None`.
+It qualifies path rollback after a partial backup failure.
+It requires an unchanged-candidate rebuild before oracle measurements.
+It identifies the wiki default branch as the publication target.
 It replaces unsupported hash-authenticity claims with integrity language.
 It states binary archive sizes with `MiB` and `GiB`.
 It qualifies cache and binary-offset observations by source family and vendor build.

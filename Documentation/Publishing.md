@@ -75,21 +75,40 @@ If the user requests an unmerged preview, identify its source SHA prominently.
    git clone https://github.com/TryUniCAD/Kit.wiki.git KitWiki
    ```
 
-2. Create a publication branch in the wiki checkout.
+2. Identify the remote default branch that serves the wiki.
+
+   ```sh
+   git -C KitWiki ls-remote --symref origin HEAD
+   ```
+
+   The observed wiki default is `refs/heads/master`.
+   Recheck it before each publication.
+   Stop if the remote does not identify its default branch.
+
+3. Create a publication branch in the wiki checkout.
 
    ```sh
    git -C KitWiki switch -c docs/publish
    ```
 
-3. Map `Documentation/Index.md` to `Home.md`.
-4. Map other pages to unique wiki names.
-5. Convert documentation links to wiki page links.
-6. Convert source links to GitHub URLs pinned to the source SHA.
-7. Update `_Sidebar.md` with navigation.
-8. Update `_Footer.md` with the source SHA and maintenance link.
-9. Inspect every changed rendered page and anchor.
-10. Commit only the intended wiki files.
-11. Push with `--no-verify` to the observed wiki destination branch.
+4. Map `Documentation/Index.md` to `Home.md`.
+5. Map other pages to unique wiki names.
+6. Convert documentation links to wiki page links.
+7. Convert source links to GitHub URLs pinned to the source SHA.
+8. Update `_Sidebar.md` with navigation.
+9. Update `_Footer.md` with the source SHA and maintenance link.
+10. Inspect every changed rendered page and anchor.
+11. Commit only the intended wiki files.
+12. Push with `--no-verify` to the verified wiki default branch.
+
+    If the default remains `master`, use this command:
+
+    ```sh
+    git -C KitWiki push --no-verify origin HEAD:refs/heads/master
+    ```
+
+    Use the verified default branch if it changed.
+    Pushing only `docs/publish` does not update the served wiki.
 
 For example, `Reference/Overview/ApiReference.md` maps to `Reference-Overview-ApiReference`.
 Preserve unrelated wiki pages and history.

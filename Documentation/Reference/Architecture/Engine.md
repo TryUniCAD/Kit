@@ -56,7 +56,13 @@ The registry checks the result before output commitment.
 The commit includes the requested file and any staged companion outputs.
 
 With `overwrite=False`, a conflict in the destination set raises `FileExistsError`.
-With replacement enabled, the staging code saves existing targets for rollback on handled failures.
+With replacement enabled, the staging code attempts to save existing targets for rollback.
+Backup creation can fail after moving an earlier target.
+The caller does not receive that partial backup list.
+Temporary storage cleanup can then remove the saved original.
+Automatic rollback therefore does not guarantee recovery from handled failures.
+Keep independent backups of existing outputs and companion files before replacement.
+Prefer an unused destination with `overwrite=False`.
 Multi-file commitment is not a universal crash-atomic filesystem transaction.
 Do not promise recovery from power loss or every external filesystem change.
 
@@ -64,10 +70,13 @@ Do not promise recovery from power loss or every external filesystem change.
 
 The stream writer first writes to an in-memory staging stream.
 The policy check runs before the caller's stream receives data.
-The final write checks the reported write count.
-A short write raises an error.
+The final write checks the count when `write()` returns a value other than `None`.
+A returned count that differs from the payload length raises `OSError`.
 The caller's stream can already contain partial data at that point.
+If `write()` returns `None`, the count check does not run.
+Successful return does not prove complete output for that stream.
 
+Use a stream that reports an accurate count, or verify the written content independently.
 Use a fresh stream after an unsuccessful final write.
 Do not infer filesystem rollback behavior for an arbitrary stream.
 
