@@ -46,6 +46,7 @@ jobs:
           tests/convert/formats/FusionCodec/Features/FeatureRejectTests.py
           tests/convert/formats/FusionCodec/Geometry/GeometryArchiveTests.py
           tests/convert/formats/FusionCodec/Geometry/Prism
+          tests/convert/formats/FusionCodec/Geometry/Frustum
           tests/convert/formats/FusionCodec/Brep/HistoryArchiveTests.py
           tests/convert/formats/FusionCodec/Brep/SnapshotArchiveTests.py
           tests/convert/formats/FusionCodec/Brep/SourceLinkTests.py
