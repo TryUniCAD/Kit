@@ -1,6 +1,3 @@
-# SPDX-License-Identifier: MIT
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
-
 import os as SystemEnv
 import subprocess as Subprocess
 import tempfile as Tempfile
@@ -16,9 +13,7 @@ import pytest as Pytest
         ("external", "Ruff"),
         ("unlisted-job", "Unlisted job"),
         ("unlisted-run", "Unlisted workflow"),
-        ("retired-header", "Ruff"),
         ("check", "Ruff"),
-        ("check", "Verify changed file headers"),
         ("check", "Analyze (javascript-typescript)"),
         ("check", "Build and verify release artifacts"),
         ("check", "Label first-time contributors"),

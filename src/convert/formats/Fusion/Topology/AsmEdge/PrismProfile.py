@@ -1,6 +1,3 @@
-# SPDX-License-Identifier: MIT
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
-
 
 from interchange.geometry.models.VectorPlane import PlaneVector
 from convert.geometry.Extrude.Polygon.PrismRing import MeasureRing, ReadPrismRing

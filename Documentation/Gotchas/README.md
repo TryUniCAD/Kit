@@ -1,8 +1,3 @@
-<!--
-SPDX-License-Identifier: MIT
-SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
--->
-
 # Known gotchas
 
 Read this log before working in an affected area.
@@ -11,7 +6,6 @@ Add a new entry when repository work reveals an undocumented condition.
 Keep source links and historical evidence.
 
 - **Fusion discovery:** A packaged reader might appear production-ready. Public discovery excludes the partial Fusion reader. Use the explicit research interface. Do not infer lossless output from a partial read. See [the import record](../Changes/FusionResearchImport.md).
-- **Header remediation and CI:** An automated SPDX commit might appear to complete validation. Its new workflows can await approval while the aggregate covers an older head. Approve the exact current-head runs. If aggregation did not start, restart validation through the authorized maintainer workflow. See [the blocked run](https://github.com/TryUniCAD/Kit/actions/runs/42783888706).
 - **Pyright integer inference:** An `isinstance` check might appear necessary after unpacking. Pyright 1.1.414 already infers integer values for literal `H` and `I` formats. Keep bounds checks and return an explicit integer. See [the compatibility record](../Changes/PyrightCompatibility.md).
 - **Distribution and import names:** A distribution name might suggest an identical import. The distribution is `unicad-kit` because `kit` names an [unrelated PyPI project](https://pypi.org/project/kit/). The wheel packages `convert` and `interchange`. Use `from convert import convert`. See [package metadata](../../pyproject.toml).
 - **README images in distributions:** A relative image can work in the repository but fail in a source distribution. The package manifest excludes `files/`. Use an absolute image URL pinned to a repository revision. See [the distribution manifest](../../pyproject.toml).
