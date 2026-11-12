@@ -546,14 +546,14 @@ The exact-version getter capture exposes 494 initialized class/version pairs, in
 There are 1,641 absent and 1,428 uninitialized lookup results; neither category authorizes treating the schema as empty.
 The [version differences](../../../re/Fusion/LocalOracle/Reflection/VersionDifferences.json) establish these own-field changes:
 
-| Native class | Observed versions | Registered-field change |
-| --- | --- | --- |
-| `DcDraftFeature` | 5 → 6 | Adds `m_fixedPlaneDraftAngleMode` |
-| `DRMatrix` | 15 → 16 | `arcLengthForPeriodicFace` changes from a double to a strong `DcDoubleParameter` reference |
-| `Parameters::Parameter` | 9 → 10 | Adds `isExternal` |
-| `ComponentBaseInstance` | 10 → 11 | Adds `initialTransform` |
-| `BaseOccurrencePath` | 4 → 5 | Replaces `instanceIndices` with `passiveOccurrencePath` |
-| `PMISettings` | 2 → 4 | Adds leading/trailing-zero and precision settings plus general-note size and custom size |
+| Native class            | Observed versions | Registered-field change                                                                    |
+| ----------------------- | ----------------- | ------------------------------------------------------------------------------------------ |
+| `DcDraftFeature`        | 5 → 6             | Adds `m_fixedPlaneDraftAngleMode`                                                          |
+| `DRMatrix`              | 15 → 16           | `arcLengthForPeriodicFace` changes from a double to a strong `DcDoubleParameter` reference |
+| `Parameters::Parameter` | 9 → 10            | Adds `isExternal`                                                                          |
+| `ComponentBaseInstance` | 10 → 11           | Adds `initialTransform`                                                                    |
+| `BaseOccurrencePath`    | 4 → 5             | Replaces `instanceIndices` with `passiveOccurrencePath`                                    |
+| `PMISettings`           | 2 → 4             | Adds leading/trailing-zero and precision settings plus general-note size and custom size   |
 
 These are observed registered-field differences, not inferred migration algorithms.
 The directly requested own-set version is known; a returned base pointer does not expose its historical version.
@@ -594,63 +594,63 @@ UUID-valued members such as `associationId` use a counted UTF-16 UUID string, wh
 The following table lists the current own fields for the two feature classes; inherited members are listed separately in the evidence artifact.
 Enum fields that use the native uint32 intrinsic metatype are encoded as unsigned 32-bit values even when their declared C++ type is an enum.
 
-| Class | Member | Declared type | Persisted |
-| --- | --- | --- | --- |
-| `DcSketch` | `bIsAGDDcSketchFeature` | `bool` | Yes |
-| `DcSketch` | `dcParameters` | `vector<StrongRef<DcParameter>>` | Yes |
-| `DcSketch` | `isVisibleBeforeRollback` | `bool` | Yes |
-| `DcSketch` | `meshSections` | `vector<StrongRef<DcSketchMeshPlanarSection>>` | Yes |
-| `DcSketch` | `rLastFeatureBeforeActivate` | `PassiveRef<DcFeature>` | No |
-| `DcSketch` | `rSketch` | `StrongRef<MSketch>` | Yes |
-| `DcSketch` | `rSketchPlaneMatrix` | `StrongRef<DRMatrix>` | Yes |
-| `DcSketch` | `sketchIsoCurves` | `vector<StrongRef<DcSketchIsoCurve>>` | Yes |
-| `DcSketch` | `sketchProjects` | `vector<StrongRef<DcSketchProject>>` | Yes |
-| `DcSketch` | `sketchSurfaces` | `vector<StrongRef<DcSketchSurface>>` | Yes |
-| `DcExtrudeFeature` | `ProfileFromEntityRef` | `StrongRef<ModelDataRef>` | Yes |
-| `DcExtrudeFeature` | `bIsAGDExtrudeFeature` | `bool` | Yes |
-| `DcExtrudeFeature` | `bPreviewNormal` | `bool` | Yes |
-| `DcExtrudeFeature` | `booleanOperation` | `unsigned int` | Yes |
-| `DcExtrudeFeature` | `directionType` | `EDirectionType` | Yes |
-| `DcExtrudeFeature` | `extendFaceOption` | `unsigned int` | Yes |
-| `DcExtrudeFeature` | `isFlipDirection` | `bool` | Yes |
-| `DcExtrudeFeature` | `isSolidOperation` | `bool` | Yes |
-| `DcExtrudeFeature` | `profileLocaltionType` | `EProfileLocationType` | Yes |
-| `DcExtrudeFeature` | `profileNormal` | `AcGeVector3d` | Yes |
-| `DcExtrudeFeature` | `profileOffset` | `StrongRef<DcDoubleParameter>` | Yes |
-| `DcExtrudeFeature` | `rAgainstDistance` | `StrongRef<DcDoubleParameter>` | Yes |
-| `DcExtrudeFeature` | `rAlongDistance` | `StrongRef<DcDoubleParameter>` | Yes |
-| `DcExtrudeFeature` | `rExtrudeToolBody` | `StrongRef<DcExtrudeToolBody>` | Yes |
-| `DcExtrudeFeature` | `rFromEntityRef` | `StrongRef<ModelDataRef>` | Yes |
-| `DcExtrudeFeature` | `rTaperAngle` | `StrongRef<DcDoubleParameter>` | Yes |
-| `DcExtrudeFeature` | `rToEntityRef` | `StrongRef<ModelDataRef>` | Yes |
-| `DcExtrudeFeature` | `side1ExtentType` | `EExtentType` | Yes |
-| `DcExtrudeFeature` | `side1Offset` | `StrongRef<DcDoubleParameter>` | Yes |
-| `DcExtrudeFeature` | `side1SolutionType` | `ESolutionType` | Yes |
-| `DcExtrudeFeature` | `side2ExtendFaceOption` | `unsigned int` | Yes |
-| `DcExtrudeFeature` | `side2ExtentType` | `EExtentType` | Yes |
-| `DcExtrudeFeature` | `side2FlipDirection` | `bool` | Yes |
-| `DcExtrudeFeature` | `side2Offset` | `StrongRef<DcDoubleParameter>` | Yes |
-| `DcExtrudeFeature` | `side2SolutionType` | `ESolutionType` | Yes |
-| `DcExtrudeFeature` | `side2TaperAngle` | `StrongRef<DcDoubleParameter>` | Yes |
-| `DcExtrudeFeature` | `startDirectionFlip` | `bool` | Yes |
-| `DcExtrudeFeature` | `symmetricMeasurementType` | `ESymmetricMeasurementType` | Yes |
-| `DcExtrudeFeature` | `thinExtrude` | `bool` | Yes |
-| `DcExtrudeFeature` | `thinExtrudeSide1WallLocation` | `EWallLocation` | Yes |
-| `DcExtrudeFeature` | `thinExtrudeSide1WallThickness` | `StrongRef<DcDoubleParameter>` | Yes |
-| `DcExtrudeFeature` | `thinExtrudeSide2WallLocation` | `EWallLocation` | Yes |
-| `DcExtrudeFeature` | `thinExtrudeSide2WallThickness` | `StrongRef<DcDoubleParameter>` | Yes |
+| Class              | Member                          | Declared type                                  | Persisted |
+| ------------------ | ------------------------------- | ---------------------------------------------- | --------- |
+| `DcSketch`         | `bIsAGDDcSketchFeature`         | `bool`                                         | Yes       |
+| `DcSketch`         | `dcParameters`                  | `vector<StrongRef<DcParameter>>`               | Yes       |
+| `DcSketch`         | `isVisibleBeforeRollback`       | `bool`                                         | Yes       |
+| `DcSketch`         | `meshSections`                  | `vector<StrongRef<DcSketchMeshPlanarSection>>` | Yes       |
+| `DcSketch`         | `rLastFeatureBeforeActivate`    | `PassiveRef<DcFeature>`                        | No        |
+| `DcSketch`         | `rSketch`                       | `StrongRef<MSketch>`                           | Yes       |
+| `DcSketch`         | `rSketchPlaneMatrix`            | `StrongRef<DRMatrix>`                          | Yes       |
+| `DcSketch`         | `sketchIsoCurves`               | `vector<StrongRef<DcSketchIsoCurve>>`          | Yes       |
+| `DcSketch`         | `sketchProjects`                | `vector<StrongRef<DcSketchProject>>`           | Yes       |
+| `DcSketch`         | `sketchSurfaces`                | `vector<StrongRef<DcSketchSurface>>`           | Yes       |
+| `DcExtrudeFeature` | `ProfileFromEntityRef`          | `StrongRef<ModelDataRef>`                      | Yes       |
+| `DcExtrudeFeature` | `bIsAGDExtrudeFeature`          | `bool`                                         | Yes       |
+| `DcExtrudeFeature` | `bPreviewNormal`                | `bool`                                         | Yes       |
+| `DcExtrudeFeature` | `booleanOperation`              | `unsigned int`                                 | Yes       |
+| `DcExtrudeFeature` | `directionType`                 | `EDirectionType`                               | Yes       |
+| `DcExtrudeFeature` | `extendFaceOption`              | `unsigned int`                                 | Yes       |
+| `DcExtrudeFeature` | `isFlipDirection`               | `bool`                                         | Yes       |
+| `DcExtrudeFeature` | `isSolidOperation`              | `bool`                                         | Yes       |
+| `DcExtrudeFeature` | `profileLocaltionType`          | `EProfileLocationType`                         | Yes       |
+| `DcExtrudeFeature` | `profileNormal`                 | `AcGeVector3d`                                 | Yes       |
+| `DcExtrudeFeature` | `profileOffset`                 | `StrongRef<DcDoubleParameter>`                 | Yes       |
+| `DcExtrudeFeature` | `rAgainstDistance`              | `StrongRef<DcDoubleParameter>`                 | Yes       |
+| `DcExtrudeFeature` | `rAlongDistance`                | `StrongRef<DcDoubleParameter>`                 | Yes       |
+| `DcExtrudeFeature` | `rExtrudeToolBody`              | `StrongRef<DcExtrudeToolBody>`                 | Yes       |
+| `DcExtrudeFeature` | `rFromEntityRef`                | `StrongRef<ModelDataRef>`                      | Yes       |
+| `DcExtrudeFeature` | `rTaperAngle`                   | `StrongRef<DcDoubleParameter>`                 | Yes       |
+| `DcExtrudeFeature` | `rToEntityRef`                  | `StrongRef<ModelDataRef>`                      | Yes       |
+| `DcExtrudeFeature` | `side1ExtentType`               | `EExtentType`                                  | Yes       |
+| `DcExtrudeFeature` | `side1Offset`                   | `StrongRef<DcDoubleParameter>`                 | Yes       |
+| `DcExtrudeFeature` | `side1SolutionType`             | `ESolutionType`                                | Yes       |
+| `DcExtrudeFeature` | `side2ExtendFaceOption`         | `unsigned int`                                 | Yes       |
+| `DcExtrudeFeature` | `side2ExtentType`               | `EExtentType`                                  | Yes       |
+| `DcExtrudeFeature` | `side2FlipDirection`            | `bool`                                         | Yes       |
+| `DcExtrudeFeature` | `side2Offset`                   | `StrongRef<DcDoubleParameter>`                 | Yes       |
+| `DcExtrudeFeature` | `side2SolutionType`             | `ESolutionType`                                | Yes       |
+| `DcExtrudeFeature` | `side2TaperAngle`               | `StrongRef<DcDoubleParameter>`                 | Yes       |
+| `DcExtrudeFeature` | `startDirectionFlip`            | `bool`                                         | Yes       |
+| `DcExtrudeFeature` | `symmetricMeasurementType`      | `ESymmetricMeasurementType`                    | Yes       |
+| `DcExtrudeFeature` | `thinExtrude`                   | `bool`                                         | Yes       |
+| `DcExtrudeFeature` | `thinExtrudeSide1WallLocation`  | `EWallLocation`                                | Yes       |
+| `DcExtrudeFeature` | `thinExtrudeSide1WallThickness` | `StrongRef<DcDoubleParameter>`                 | Yes       |
+| `DcExtrudeFeature` | `thinExtrudeSide2WallLocation`  | `EWallLocation`                                | Yes       |
+| `DcExtrudeFeature` | `thinExtrudeSide2WallThickness` | `StrongRef<DcDoubleParameter>`                 | Yes       |
 
 ## Verification boundaries
 
-The expanded [typed entity graph research](../../Changes/FusionTypedEntityGraphs.md) covers all 824 Design records and 75,675 payload bytes in three controlled files.
+The expanded [typed entity graph research](../../Changes/FusionTypedEntityGraphs.md) establishes byte-exact reconstruction of 824 Design records and 75,675 payload bytes in three controlled files. The subsequent [full corpus coverage](../../Changes/FusionCorpusEntityCoverage.md) decodes all 261,141 indexed Design records and 25,458,293 payload bytes across all 712 archives with no unexplained suffixes.
 It includes generic references and containers, nested values and custom callbacks; three recipe members remain typed but incompletely named semantically.
-Custom value callbacks can override ordinary lexical order, as demonstrated by RGBA color persistence.
+Custom value callbacks can override ordinary lexical order, as demonstrated by RGBA color persistence. The [extended callback model](../../../re/Fusion/Reconstruction/EntityGraph/ExtendedCallbacks.md) specifies AcGe line, ellipse and NURBS arrays, recursive ASM selection recipes, tag tables, UV orders, and lazy progenitor metadata, with native serializer evidence.
 
 The [latest native geometry acceptance](../../../re/Fusion/LocalOracle/Features/FullBrepAcceptance.json) reconstructs all 289 Design records and replaces both BRep members with independently authored cylinder/profile topology and history.
 The archive opens with correct 19 mm geometry before recomputation, reports healthy features, rolls back to sketch-only state and restores, then preserves a 23 mm edit through native save/reopen.
 The [production embedded geometry entry](../../Changes/FusionEmbeddedGeometry.md) records the promoted serializers and their separate native acceptance.
 That geometry experiment retains its own source envelope. Separate [independent document authoring](../../Changes/FusionIndependentAuthoring.md) now establishes complete parameter, circular-sketch, and circular-extrusion F3D generation without a source archive or template.
-Fusion accepts these independent documents, including correct initial solid geometry, healthy editable history, rollback/restore, parameter rebuild, and native save/reopen. Other feature families remain separate acceptance boundaries.
+Fusion accepts these independent documents, including correct initial solid geometry, healthy editable history, rollback/restore, parameter rebuild, and native save/reopen. Other feature families remain separate acceptance boundaries. The [production document codec](../../Changes/FusionNativeDocumentCodec.md) now implements the same complete authoring path entirely under `src/`, with a separate successful native load, rollback, edit, save, and reopen report.
 The [envelope research](../../../re/Fusion/Reconstruction/DocumentEnvelope/EnvelopeRecipe.md) fully decodes controlled manifests and ACT/Browser records.
 The [material serialization entry](../../Changes/FusionMaterialSerialization.md) records complete controlled instance decoding and native acceptance of regenerated material packages.
 The [production material codec](../../Changes/FusionMaterialCodec.md) promotes typed binary store reading/writing and records native acceptance of deliberately changed density and appearance values.

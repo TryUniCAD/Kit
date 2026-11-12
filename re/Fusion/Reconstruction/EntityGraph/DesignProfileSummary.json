@@ -1,0 +1,69 @@
+{
+  "schema": "FusionProductionSchemaProfile/1",
+  "fixture": "DesignProfile.json.xz",
+  "uncompressedSha256": "70e526f5d47a05a1ca9ab8949a55ffc9e3864fb19797c4323eb63b2a27691abc",
+  "compressedSha256": "08a5a29db85889060c7d6eda85e40098995cfc41f15a98e0f038f9e6fea11e33",
+  "scope": "Schema-only qualified current Design declarations; no source entity values, instance identities, payload bytes, offsets, or donor blocks",
+  "sources": [
+    {
+      "path": "Fusion/Reconstruction/EntityGraph/GraphInventory.json.xz",
+      "sha256": "a82177d9414de5af7a2d2ac377e747ec261a64440c38c305cbbfadc15c004045"
+    },
+    {
+      "path": "Fusion/LocalOracle/Reflection/Versions.json",
+      "sha256": "aae72bc66c7e0ab34ce2ee7545af7fa5a8eba81ceef48261069a0d7ddec82f99"
+    },
+    {
+      "path": "Fusion/Reconstruction/BinaryClasses.json",
+      "sha256": "9d4a0608482d9db93ea62c9fe207889144c1c415bc314f147cf8bd2c44986135"
+    },
+    {
+      "path": "Fusion/Reconstruction/EntityGraph/ValueCallbacks.json",
+      "sha256": "b7ea2e6214134a748130c84abc1c1ad0de2405a7668d67098b71b8c726074cbd"
+    },
+    {
+      "path": "Fusion/Reconstruction/DocumentAuthoring/Variants/RecipeConstructors.json",
+      "sha256": "34d97ef4d905a5b9063890fa457aed31aa178e7b66e4be587ab3cd16afc7edf2"
+    }
+  ],
+  "classCount": 183,
+  "valueClassCount": 34,
+  "memberCount": 754,
+  "savedMemberCount": 695,
+  "unsupportedCppTypes": [
+    "ENTITY*",
+    "Ns::ASMInterface::SafeEntityPtr",
+    "Ns::Comp::GeometricRelationshipConflict",
+    "Ns::Comp::JointConflict",
+    "Ns::Geometry::PMIType",
+    "Ns::MetaType const*",
+    "autodesk::platform::assets::IAssetInstance*",
+    "long long",
+    "std::__1::unordered_set<Ns::PassiveRef<Na::Relationship>, std::__1::hash<Ns::PassiveRef<Na::Relationship>>, std::__1::equal_to<Ns::PassiveRef<Na::Relationship>>, std::__1::allocator<Ns::PassiveRef<Na::Relationship>>>",
+    "std::__1::unordered_set<unsigned long long, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<unsigned long long>>"
+  ],
+  "callbackKinds": [
+    "AcGeCircArc3dValueMetaType",
+    "AcGeLine3dValueMetaType",
+    "AcGeMatrix3dValueMetaType",
+    "AcGePlaneValueMetaType",
+    "AcGePoint2dValueMetaType",
+    "AcGePoint3dValueMetaType",
+    "AcGeVector3dValueMetaType",
+    "ColorValueMetaType",
+    "profile_edge_tag_dataValueMetaType",
+    "sketch_tag_idValueMetaType"
+  ],
+  "qualification": {
+    "matrix": "Identity matrix only; HasMatrixRows remains false",
+    "sketchTag": "Constructor-proven version3, secondaryTagId0, direction0or1, split1of1, objectOffset20zero",
+    "profileTag": "Version0, typed sketch tags, two empty callback sets; nonempty sets rejected",
+    "unknownNestedType": "Unsupported descriptor may only occur beneath an empty collection or absent optional",
+    "externalReferences": "No instance targets in fixture; archive integration must bind explicit segment/object/class identities",
+    "unresolvedReferenceInterface": "No inferred inheritance or invented GUID; unconstrained but target identity must resolve"
+  },
+  "referenceTypeCount": 121,
+  "unresolvedReferenceTypes": [],
+  "evidence": "DesignProfileEvidence.json.xz",
+  "evidenceSha256": "76189f3e3aef3bfe97ea2d2f017d73a79b45b7a32f154d3c2fd2f20975b9eb99"
+}

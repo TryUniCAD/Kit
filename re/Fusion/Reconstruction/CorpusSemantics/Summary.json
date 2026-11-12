@@ -1,0 +1,45 @@
+{
+  "schema": "FusionCorpusSemanticInventory/1",
+  "scope": "Read-only research decoding of saved corpus Design records; structural byte accounting does not prove complete field semantics, independent writing, or target application acceptance",
+  "archives": 712,
+  "archiveFailureCount": 0,
+  "records": 261141,
+  "counts": {
+    "decoded": 261141
+  },
+  "decodedPayloadBytes": 25458293,
+  "totalPayloadBytes": 25458293,
+  "fullyDecodedArchives": 712,
+  "unresolvedClasses": [],
+  "evidence": "Inventory.json.xz",
+  "rawSha256": "06d9436a9d6a1d5fa8bf688531a28dd1213deb86032d91b9ae64e349691fb601",
+  "compressedSha256": "d02322afcf11a6b8890f3fbbc9ca71cfde9203ea30b7667c0052d2a5db17db9f",
+  "archiveFailures": [],
+  "recipes": [
+    {
+      "version": 3,
+      "type": "body_recipe_data",
+      "count": 289
+    },
+    {
+      "version": 3,
+      "type": "bounded_face_recipe_data",
+      "count": 171
+    },
+    {
+      "version": 3,
+      "type": "edge_recipe_data",
+      "count": 844
+    },
+    {
+      "version": 3,
+      "type": "face_recipe_data",
+      "count": 243
+    },
+    {
+      "version": 3,
+      "type": "vertex_recipe_data",
+      "count": 216
+    }
+  ]
+}

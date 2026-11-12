@@ -46,4 +46,4 @@ The [archive directory gotcha](../Gotchas/Conversion/FusionArchiveDirectories.md
 
 ## Limits
 
-The current semantic author admits the documented reduced document, circle, and circular-extrusion profiles. No arbitrary drawing, assembly, T-spline, mesh, sculpt, or historical-version writing claim follows from these controls. The complete document orchestration remains research code; the BRep history serializer is production code. Product adapter discovery remains governed by the broader acceptance requirements. Automated tests remain PR-only.
+The current semantic author admits the documented reduced document, circle, and circular-extrusion profiles. No arbitrary drawing, assembly, T-spline, mesh, sculpt, or historical-version writing claim follows from these controls. The subsequent [production document codec](FusionNativeDocumentCodec.md) promotes complete document orchestration, typed entities, and the container, with its own successful native acceptance. Product adapter discovery remains governed by the broader acceptance requirements. Automated tests remain PR-only.

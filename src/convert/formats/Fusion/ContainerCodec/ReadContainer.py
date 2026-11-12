@@ -1,0 +1,73 @@
+from collections.abc import Callable
+
+from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionZip
+from convert.formats.Fusion.AssetCodec.Zip.ZipLimits import KMaxMemberBytes
+from convert.formats.Fusion.AssetCodec.Zip.ZipNames import CheckZipPaths, EncodeZipName
+from convert.formats.Fusion.ContainerCodec.ContainerLayout import (
+    KAssetName,
+    KAssetPrefix,
+    KMaxPreviewSize,
+    KPreviewNames,
+    KPropertiesName,
+    KRootName,
+)
+from convert.formats.Fusion.ContainerCodec.ContainerRows import ContainerRows
+from convert.formats.Fusion.ContainerCodec.Model.ContainerPart import ContainerPart
+from convert.formats.Fusion.ContainerCodec.Model.FusionContainer import FusionContainer
+from convert.formats.Fusion.ContainerCodec.Model.SegmentStreams import SegmentStreams
+from convert.formats.Fusion.ContainerCodec.ReadParts import ReadParts
+from convert.formats.Fusion.ContainerCodec.SegmentFolders import SegmentFolders
+from convert.formats.Fusion.ContainerCodec.Wire.ReadAssetHeader import ReadAssetHeader
+from convert.formats.Fusion.ContainerCodec.Wire.ReadDocument import ReadDocument
+from convert.formats.Fusion.SourceProof.Auxiliary.Manifest.ReadActiveMeta import (
+    KMaxManifestBytes,
+)
+
+
+def ReadContainer(
+    Payload: bytes, InflateZstd: Callable[[bytes, int], bytes] | None = None
+) -> FusionContainer:
+    if type(Payload) is not bytes:
+        raise ValueError("Expected Fusion container bytes")
+    with OpenFusionZip(Payload, InflateZstd) as Archive:
+        Names = tuple(Entry.Name for Entry in Archive.Members)
+        for Entry in Archive.Members:
+            _ = EncodeZipName(Entry.Name)
+            if Entry.IsDirectory and (Entry.Size or Entry.Crc or Entry.Method):
+                raise ValueError(
+                    "Fusion container directories must be empty and stored"
+                )
+        CheckZipPaths(Names)
+        Document = ReadDocument(Archive.ReadMember(KRootName, KMaxManifestBytes))
+        Asset = ReadAssetHeader(Archive.ReadMember(KAssetName, KMaxManifestBytes))
+        if Archive.ReadMember(KPropertiesName, 4) != bytes(4):
+            raise ValueError("Unsupported Fusion document properties")
+        Folders = SegmentFolders(Asset)
+        Streams = tuple(
+            SegmentStreams(
+                SlotValue.SegmentId,
+                Archive.ReadMember(
+                    KAssetPrefix + Folder + "MetaStream.dat", KMaxMemberBytes
+                ),
+                Archive.ReadMember(
+                    KAssetPrefix + Folder + "BulkStream.dat", KMaxMemberBytes
+                ),
+            )
+            for SlotValue, Folder in zip(Asset.Segments, Folders, strict=True)
+        )
+        Previews = tuple(
+            ContainerPart(
+                NameValue, Archive.ReadMember(KAssetPrefix + NameValue, KMaxPreviewSize)
+            )
+            for NameValue in KPreviewNames
+        )
+        Parts, EmptyFolders = ReadParts(Archive)
+        Result = FusionContainer(
+            Document, Asset, Streams, Previews, Parts, EmptyFolders
+        )
+        ExpectedNames = {Entry.Name for Entry in ContainerRows(Result)}
+        if set(Names) != ExpectedNames:
+            raise ValueError(
+                "Missing directories or unaccounted Fusion container members"
+            )
+        return Result

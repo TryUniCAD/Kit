@@ -1,0 +1,7 @@
+{
+  "evidence": "ExtendedCallbacks.json.xz",
+  "rawSha256": "2ab936a8851abefb2a4d5ff70c5035aeed2bdd8fe6d6d5360342036c8dfdba6d",
+  "compressedSha256": "bed07d885e8b931b9566a11c7d78d9207fb813540efdb3a0a2d1e19023c44eac",
+  "libraries": 4,
+  "functions": 31
+}

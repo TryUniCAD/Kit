@@ -12,6 +12,9 @@ sys.dont_write_bytecode = True
 BASE = Path(__file__).resolve().parents[1]
 TOOLS = runpy.run_path(str(BASE / 'ReflectedFeatures.py'))
 WIRE = runpy.run_path(str(Path(__file__).with_name('WireValues.py')))
+CURVES = runpy.run_path(str(Path(__file__).with_name('CurveValues.py')))
+RECIPES = runpy.run_path(str(Path(__file__).with_name('RecipeValues.py')))
+PROGENITORS = runpy.run_path(str(Path(__file__).with_name('ProgenitorValues.py')))
 ROOT = TOOLS['ROOT_ENTITY']
 SCHEMA_PATH = BASE.parents[0] / 'LocalOracle' / 'Reflection' / 'Versions.json'
 FORMATS = {'bool': 'B', 'unsigned char': 'B', 'unsigned short': 'H', 'unsigned int': 'I', 'unsigned long long': 'Q', 'int': 'i', 'float': 'f', 'double': 'd'}
@@ -66,9 +69,8 @@ class GraphCodec:
             for _ in range(reader.field('Entity.nameValuePairCount', 'u32', reader.count)):
                 name = reader.field('NameValueMap.name', 'ASCII', reader.text)
                 kind = reader.field('NameValueMap.metatypeIdentifier', 'ASCII', reader.text)
-                if kind not in INTRINSICS:
-                    raise ValueError('Unsupported named metadata metatype ' + kind)
-                value = reader.field('NameValueMap.' + name, kind, lambda: self.read_kind(reader, {'name': kind}, ''))
+                metatype = self.named_type(kind)
+                value = reader.field('NameValueMap.' + name, kind, lambda: self.read_kind(reader, metatype, ''))
                 result['namedMetadata'].append({'name': name, 'metatype': kind, 'value': value})
         return result
 
@@ -86,8 +88,16 @@ class GraphCodec:
             output.extend(struct.pack('<I', len(value['namedMetadata'])))
             for item in value['namedMetadata']:
                 output.extend(TOOLS['encode_text'](item['name']) + TOOLS['encode_text'](item['metatype']))
-                output.extend(self.emit_kind(item['value'], {'name': item['metatype']}, ''))
+                output.extend(self.emit_kind(item['value'], self.named_type(item['metatype']), ''))
         return bytes(output)
+
+    def named_type(self, kind):
+        if kind in INTRINSICS or kind in ('IntrinsicMetaTypeIString', 'IntrinsicMetaTypeHString', 'IntrinsicMetaTypeUuid', 'StrongRefMetaType', 'PassiveRefMetaType'):
+            return {'name': kind}
+        if kind.upper() in self.schema:
+            entity = self.schema[kind.upper()]
+            return {'name': entity['name'], 'identifier': entity['identifier'], 'category': {'name': entity['category']}}
+        raise ValueError('Unsupported named metadata metatype ' + kind)
 
     def own_set(self, identity):
         entity = self.schema[identity.upper()]
@@ -158,6 +168,12 @@ class GraphCodec:
 
     def read_kind(self, reader, metatype, cpp):
         kind = metatype['name']
+        if kind == 'ProgenitorAuxDataValueMetaType':
+            return PROGENITORS['read_progenitor_aux'](reader)
+        if kind == 'RECIPEValueMetaType':
+            return RECIPES['read_recipe'](reader)
+        if kind in ('AcGeLineSeg3dValueMetaType', 'AcGeEllipArc3dValueMetaType', 'AcGeNurbCurve3dValueMetaType'):
+            return CURVES['read_curve'](reader, kind)
         if kind == 'ColorValueMetaType':
             return {key: reader.number('f') for key in ('red', 'green', 'blue', 'alpha')}
         if kind == 'sketch_tag_idValueMetaType':
@@ -191,6 +207,12 @@ class GraphCodec:
 
     def emit_kind(self, value, metatype, cpp):
         kind = metatype['name']
+        if kind == 'ProgenitorAuxDataValueMetaType':
+            return PROGENITORS['emit_progenitor_aux'](value)
+        if kind == 'RECIPEValueMetaType':
+            return RECIPES['emit_recipe'](value)
+        if kind in ('AcGeLineSeg3dValueMetaType', 'AcGeEllipArc3dValueMetaType', 'AcGeNurbCurve3dValueMetaType'):
+            return CURVES['emit_curve'](value, kind)
         if kind == 'ColorValueMetaType':
             return b''.join(struct.pack('<f', value[key]) for key in ('red', 'green', 'blue', 'alpha'))
         if kind == 'sketch_tag_idValueMetaType':

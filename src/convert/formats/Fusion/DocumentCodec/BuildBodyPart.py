@@ -1,0 +1,56 @@
+from datetime import UTC, datetime as DateTime
+from time import time_ns as ReadTimeNano
+
+from convert.formats.Fusion.BrepCodec.EmitHistory import EmitHistory
+from convert.formats.Fusion.BrepCodec.Models.BodyIdentity import BodyIdentity
+from convert.formats.Fusion.BrepCodec.Models.FeatureTag import FeatureTag
+from convert.formats.Fusion.BrepCodec.Models.HistoryState import HistoryState
+from convert.formats.Fusion.BrepCodec.Models.SketchLink import SketchLink
+from convert.formats.Fusion.BrepCodec.Models.TopologyTags import TopologyTags
+from convert.formats.Fusion.ContainerCodec.Model.ContainerPart import ContainerPart
+from convert.formats.Fusion.DocumentCodec.Model.AuthorPolicy import AuthorPolicy
+from convert.formats.Fusion.DocumentCodec.Model.DesignResult import DesignResult
+from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
+from convert.formats.Fusion.GeometryCodec.CylinderBody import CylinderBody
+from convert.formats.Fusion.GeometryCodec.GeometryStamp import GeometryStamp
+
+
+def BuildBodyPart(
+    SpecValue: DocumentSpec, Design: DesignResult
+) -> tuple[ContainerPart, ...]:
+    if SpecValue.ProfileKind != "extrusion":
+        return ()
+    if Design.BrepPart is None:
+        raise ValueError("Extrusion authoring requires a BRep part identity")
+    Policy = AuthorPolicy()
+    Operations = (Policy.FirstOperationId + 1,)
+    SketchId = Policy.FirstSketchTag + 2
+    TagSet = TopologyTags(
+        FeatureTag(1, Policy.SideFaceLabel, Operations),
+        FeatureTag(1, Policy.TopFaceLabel, Operations),
+        FeatureTag(1, Policy.BottomFaceLabel, Operations),
+        FeatureTag(2, Policy.TopEdgeLabel, Operations),
+        FeatureTag(4, "-" + str(SketchId), Operations),
+        SketchLink(SketchId, 0, 0, 1, 1),
+    )
+    Identity = BodyIdentity(
+        Policy.BodyKey, Operations[0], Policy.GenerationRef, ReadTimeNano() // 1000
+    )
+    History = HistoryState(
+        Policy.HistoryCurrentId,
+        Policy.HistoryInitialId,
+        Policy.HistoryGeneration,
+        Policy.HistoryAllocation,
+        Policy.HistoryBoardNumber,
+    )
+    Stamp = GeometryStamp(
+        "Kit", "Fusion native document codec", DateTime.now(UTC).isoformat()
+    )
+    Payload = EmitHistory(
+        CylinderBody(SpecValue.RadiusMm, SpecValue.LengthMm, (0.0, 0.0, 0.0)),
+        Identity,
+        TagSet,
+        History,
+        Stamp,
+    )
+    return (ContainerPart("Breps.BlobParts/" + Design.BrepPart, Payload),)
