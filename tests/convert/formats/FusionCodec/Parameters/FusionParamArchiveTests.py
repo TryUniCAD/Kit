@@ -31,6 +31,7 @@ KOptions = ReadOptions(strict=False)
         KTextGroup + "model_favorite_false.f3d",
         KTextGroup + "model_favorite_true.f3d",
         "holdouts-f8c508a73323/expression_depth.f3d",
+        "revolveto-b1d196f65c46/two_planes.f3d",
     ),
 )
 def TestParamZip(RelativePath: str) -> None:
