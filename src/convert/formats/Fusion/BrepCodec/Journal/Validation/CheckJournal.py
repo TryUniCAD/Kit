@@ -11,12 +11,13 @@ from convert.formats.Fusion.BrepCodec.Journal.Writing.MakeStateNode import MakeS
 from convert.formats.Fusion.BrepCodec.Journal.Writing.EmitWireRecord import (
     EmitWireRecord,
 )
-from convert.formats.Fusion.BrepCodec.Models.BrepHeader import BrepHeader
+from convert.formats.Fusion.BrepCodec.Journal.Validation.CheckModelHead import (
+    CheckModelHead,
+)
 
 
 def CheckJournal(Model: JournalModel) -> None:
-    if Model.Header != BrepHeader(23200, 2, 3, 50.0, 1e-6, 1e-10):
-        raise ValueError("Unsupported Fusion journal header profile")
+    CheckModelHead(Model.Header, True)
     if type(Model.Entities) is not tuple or type(Model.States) is not tuple:
         raise ValueError("Fusion journal tables must be immutable tuples")
     if (
@@ -34,9 +35,9 @@ def CheckJournal(Model: JournalModel) -> None:
         sum(
             isinstance(Value, BodyNode) for Value in Model.Entities[: Model.ActiveCount]
         )
-        != 1
+        != Model.Header.RootCount - 1
     ):
-        raise ValueError("Fusion journal requires one active body root")
+        raise ValueError("Fusion journal active bodies disagree with its root count")
     CheckStream(Model)
     CheckStates(Model)
     CheckAllocTags(Model)

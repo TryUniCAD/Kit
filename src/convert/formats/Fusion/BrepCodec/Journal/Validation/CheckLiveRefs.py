@@ -5,6 +5,9 @@ from convert.formats.Fusion.BrepCodec.Journal.Validation.RequiredRefs import (
     KRequiredRefs,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Validation.ResolveSlot import ResolveSlot
+from convert.formats.Fusion.BrepCodec.Journal.Validation.CheckLiveUses import (
+    CheckLiveUses,
+)
 from convert.formats.Fusion.Topology.AsmEdge.AsmTable import AsmRecord
 
 
@@ -29,10 +32,15 @@ def CheckLiveRefs(
                     raise ValueError("Missing required Fusion topology reference")
                 continue
             Target = ResolveSlot(Aliases, Value)
+            Allowed = Rules[Index]
             if (
-                Target not in Versions
-                or Records[Versions[Target]].Name not in Rules[Index]
+                Record.Name == "ATTRIB_CUSTOM-attrib"
+                and Index == 4
+                and Record.Tokens[5] == (7, "generic_tag_attrib_def")
             ):
+                Allowed = (*Allowed, "vertex")
+            if Target not in Versions or Records[Versions[Target]].Name not in Allowed:
                 raise ValueError(
                     "Fusion historical entity reference is absent or class-incompatible"
                 )
+    CheckLiveUses(Records, Versions, Aliases)

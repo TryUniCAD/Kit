@@ -819,6 +819,12 @@ The [planar journal view](../../Changes/Fusion/Geometry/FusionPolyhedra.md) walk
 
 A typed body transform contains three basis columns, translation in centimetres, one scale and rotation/reflection/shear flags. Coordinate evaluation applies scale to the basis product before translation. Volume follows the absolute determinant. Independent native acceptance covers a 90° rotation, scale 1.25 and translation `(11,-7,5)` mm. The journal preserves source state identities and archived allocations independently of this geometric view. General snapshots and whole-document dispatch require their own qualification.
 
+## General current geometry and document history dispatch
+
+`DocumentBody.History` now retains the complete typed `JournalModel` when its state graph or entity inventory exceeds a qualified two-state analytic insertion view. Parsing the complete journal precedes this view selection; parser failures never trigger a permissive fallback. `DocumentSnap.Snapshot` also admits a typed `GeometryState` with explicit body roots, including circular sheets, mixed solid/profile/sketch snapshots and multiple bodies.
+
+An edge used by one coedge has a null partner; two incident uses require reciprocal partners. Loop next/prior references remain reciprocal in both cases. Header root counts equal active body roots plus the ASM header. Allocation permutations preserve active body-root order even when tags are absent. These rules support open tetrahedra and two-body mesh conversions without treating every body as a convex closed solid. [Complete document geometry](../../Changes/Fusion/Geometry/FusionDocumentGeometry.md) records the exact schema, bounds and native acceptance.
+
 ## Periodic carriers and trim-free solids
 
 The [sphere/torus research](../../Changes/Fusion/Geometry/FusionRoundCarrierResearch.md) binds native text, binary fields and installed kernel save/restore/evaluation instructions. Sphere parameterization stores separate reference and pole directions; torus parameterization stores axis, two signed-length fields and reference direction. Neither is defined only by a display mesh. Four optional U/V bounds follow the carrier-specific fields.

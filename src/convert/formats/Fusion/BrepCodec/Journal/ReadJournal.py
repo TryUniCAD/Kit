@@ -10,7 +10,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Validation.CheckJournal import (
     CheckJournal,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Validation.WalkStates import WalkStates
-from convert.formats.Fusion.BrepCodec.Reading.ReadBrepHeader import ReadBrepHeadMut
+from convert.formats.Fusion.BrepCodec.Journal.Reading.ReadModelHead import ReadModelHead
 from convert.formats.Fusion.MetaCursor import MetaCursor
 from convert.formats.Fusion.Topology.AsmEdge.AsmTable import ReadAsmName, ReadAsmRecord
 
@@ -19,7 +19,7 @@ def ReadJournal(Payload: bytes) -> JournalModel:
     if type(Payload) is not bytes or not 0 < len(Payload) <= 2 * 1024 * 1024:
         raise ValueError("Invalid or oversized Fusion journal payload")
     Cursor = MetaCursor(Payload)
-    Header, Stamp = ReadBrepHeadMut(Cursor, True)
+    Header, Stamp = ReadModelHead(Cursor, True)
     Active = ReadEntitiesMut(Cursor, "Begin-of-ASM-History-Data")
     Stream = ReadStreamNode(ReadAsmRecord(Cursor, ReadAsmName(Cursor)))
     States = ReadStatesMut(Cursor)

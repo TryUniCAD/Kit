@@ -4,6 +4,9 @@ from convert.formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
 from convert.formats.Fusion.BrepCodec.Journal.Materialize import Materialize
 from convert.formats.Fusion.BrepCodec.Journal.Permutation.RemapBoards import RemapBoards
 from convert.formats.Fusion.BrepCodec.Journal.Permutation.RemapEntity import RemapEntity
+from convert.formats.Fusion.BrepCodec.Journal.Validation.CheckRootOrder import (
+    CheckRootOrder,
+)
 
 
 def PermuteJournal(Model: JournalModel, Order: tuple[int, ...]) -> JournalModel:
@@ -20,6 +23,7 @@ def PermuteJournal(Model: JournalModel, Order: tuple[int, ...]) -> JournalModel:
         raise ValueError(
             "Fusion allocation must preserve the header and revision partitions"
         )
+    CheckRootOrder(Model.Entities[: Model.ActiveCount], Order[: Model.ActiveCount])
     Mapping = tuple(Order.index(Index) for Index in range(len(Order)))
     Entities = tuple(RemapEntity(Model.Entities[Index], Mapping) for Index in Order)
     States = tuple(

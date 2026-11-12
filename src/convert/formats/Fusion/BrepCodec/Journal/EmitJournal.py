@@ -20,7 +20,7 @@ from convert.formats.Fusion.GeometryCodec.EncodeSmbName import EncodeSmbName
 def EmitJournal(Model: JournalModel) -> bytes:
     CheckJournal(Model)
     _ = WalkStates(Model)
-    Header = EmitBrepHeader(Model.Stamp, 2, True, 50.0)
+    Header = EmitBrepHeader(Model.Stamp, Model.Header.RootCount, True, 50.0)
     Entities = tuple(EmitWireRecord(MakeEntityNode(Value)) for Value in Model.Entities)
     Preamble = EncodeSmbName("Begin-of-ASM-History-Data") + EmitWireRecord(
         MakeStreamNode(Model.Stream)

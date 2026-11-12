@@ -2,6 +2,7 @@ from pathlib import Path as FilePath
 from sys import version_info as PythonVersion
 
 from pytest import approx as ApproxValue, mark as TestMarks
+from convert.formats.Fusion.BrepCodec.Models.SnapshotModel import SnapshotModel
 
 from convert.formats.Fusion.DocumentCodec.Auxiliary.PrismSnapshot.Models.PrismSnapshot import (
     PrismSnapshot,
@@ -52,5 +53,6 @@ def TestSnapshot(TmpPath: FilePath, SourceIndex: int, Volume: float | None) -> N
             assert set(Region.CornersCm) == set(Snapshot.Frame.CornersCm[:4])
             assert len({Value.PrimaryId for Value in Region.CoedgeTags}) == 4
     else:
+        assert isinstance(Snapshot, SnapshotModel)
         assert len(Table.Records) == 59
         assert Snapshot.Model.Height == ApproxValue(7.0)
