@@ -11,6 +11,8 @@ Rerunning the build for the same commit produces the same version.
 
 The release workflow uses the installed wheel's version in the GitHub release title and PyPI version lookup. For example, `Kit v0.1.0.1276` corresponds to `unicad-kit==0.1.0.1276`.
 
+The GitHub release notes contain the commit subject and body as Markdown. Git omits its author, committer, and date headers from the notes. The `commit-<sha>` tag identifies the source commit.
+
 The build sets the package version in its temporary checkout. The GitHub source archives contain the original files from the release commit. The PyPI wheel and source distribution contain the four-part version.
 
 ## Change the base version

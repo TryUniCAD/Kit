@@ -52,7 +52,7 @@ jobs:
           name: source-${{ github.run_attempt }}
           path: |
             ${{ runner.temp }}/source/
-            ${{ runner.temp }}/CommitDetails.md
+            ${{ runner.temp }}/ReleaseNotes.md
           if-no-files-found: error
           compression-level: 0
 

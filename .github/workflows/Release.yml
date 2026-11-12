@@ -60,7 +60,7 @@ jobs:
           name: source-${{ github.run_attempt }}
           path: |
             ${{ runner.temp }}/source/
-            ${{ runner.temp }}/CommitDetails.md
+            ${{ runner.temp }}/ReleaseNotes.md
           if-no-files-found: error
           compression-level: 0
 
@@ -105,7 +105,7 @@ jobs:
             exit 1
           fi
           gh release create "${ReleaseTag}" "${RUNNER_TEMP}"/release/source/* \
-            --verify-tag --title "Kit v${PackageVersion}" --notes-file "${RUNNER_TEMP}/release/CommitDetails.md"
+            --verify-tag --title "Kit v${PackageVersion}" --notes-file "${RUNNER_TEMP}/release/ReleaseNotes.md"
 
   pypi:
     name: Publish to PyPI

@@ -20,7 +20,7 @@ ArchiveName="Kit-${GITHUB_SHA}"
 mkdir -p "${RUNNER_TEMP}/source"
 git archive --format=zip --prefix="${ArchiveName}/" --output="${RUNNER_TEMP}/source/${ArchiveName}.zip" "${GITHUB_SHA}"
 git archive --format=tar --prefix="${ArchiveName}/" "${GITHUB_SHA}" | gzip -n > "${RUNNER_TEMP}/source/${ArchiveName}.tar.gz"
-git show --no-patch --format=fuller --date=iso-strict "${GITHUB_SHA}" > "${RUNNER_TEMP}/CommitDetails.md"
+git show --no-patch --no-show-signature --format=%B "${GITHUB_SHA}" > "${RUNNER_TEMP}/ReleaseNotes.md"
 (
   cd "${RUNNER_TEMP}/source"
   for ArchiveFile in "${ArchiveName}.zip" "${ArchiveName}.tar.gz"; do
