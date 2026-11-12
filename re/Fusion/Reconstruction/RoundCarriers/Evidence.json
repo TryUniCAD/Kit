@@ -1,0 +1,58 @@
+{
+  "scope": "Read-only named field decoding and native owned controls; no production codec or independent native write acceptance",
+  "members": 16,
+  "carrierRecords": 28,
+  "sourceArchives": 11,
+  "controlsSha256": "204eb31ef65786d65dd6f24f92c508cca246c74ece12aed3f91a69f8b571104f",
+  "nativeThinBinary": "/tmp/kit-fusion-native-analysis/ASMkern232.arm64.dylib",
+  "nativeThinSha256": "a0ba385982c5017805edcc2936b342d924061bc7493267264e3f179a3606bd04",
+  "disassemblySha256": "891b233a91aef22f98da06796cdfe98bc09ba20a4495ad327fbc5cbabd7f1bea",
+  "slices": [
+    {
+      "symbol": "sphere::save_data",
+      "start": "0x445300",
+      "stop": "0x445374"
+    },
+    {
+      "symbol": "sphere::restore_data",
+      "start": "0x445374",
+      "stop": "0x445450"
+    },
+    {
+      "symbol": "sphere::eval",
+      "start": "0x442d94",
+      "stop": "0x442fd0"
+    },
+    {
+      "symbol": "torus::save_data",
+      "start": "0x47d3f4",
+      "stop": "0x47d470"
+    },
+    {
+      "symbol": "torus::restore_data",
+      "start": "0x47d470",
+      "stop": "0x47d53c"
+    }
+  ],
+  "sphereObjectFields": {
+    "0x40": "centerCm",
+    "0x58": "signedRadiusCm",
+    "0x60": "referenceDirection",
+    "0x78": "poleDirection",
+    "0x90": "reverseV"
+  },
+  "torusObjectFields": {
+    "0x40": "referenceDirection",
+    "0x58": "centerCm",
+    "0x70": "axis",
+    "0x88": "majorRadiusCm",
+    "0x90": "signedMinorRadiusCm",
+    "0x98": "reverseV"
+  },
+  "versionGate": "Orientation directions and V-sense require save version >=10300",
+  "sphereEquation": "center + abs(radius)*(sin(u)*pole + cos(u)*(cos(v)*reference + sign*sin(v)*(pole cross reference))); sign=-1 if reverseV else+1",
+  "unresolved": [
+    "Torus general signed-minor-radius parameterization and degenerate regimes",
+    "Independent topology generation and complete production document routing"
+  ]
+}
