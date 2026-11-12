@@ -8,7 +8,7 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 Kit is a Python SDK for CAD interchange.
 Readers build a neutral `CadDocument` from source files.
 Writers produce target files and report how they represented the source information.
-Production conversion does not use a CAD application.
+Production conversion runs without requiring CAD software.
 
 [Wiki](https://github.com/TryUniCAD/Kit/wiki)
 
@@ -41,6 +41,7 @@ The [Fusion reader](re/Fusion/README.md#research-reader) remains an explicit res
 
 ## Conversion example
 
+Call `convert(source, destination)` with the input and output paths.
 Supply a real `bracket.SLDPRT` file and an unused output path before running this example.
 
 ```python

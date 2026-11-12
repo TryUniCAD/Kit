@@ -61,3 +61,5 @@ Keep source links and historical evidence.
 - **Release concurrency:** A branch-wide group might appear to serialize every release. The default queue replaces a pending run when another enters that group. Group GitHub releases by commit SHA. Group PyPI uploads by package version. See [concurrency rules](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency).
 
 - **Managed Code Quality workflow path:** Its workflow might appear to live under `.github/workflows/`. GitHub reports it under `dynamic/github-code-quality/codeql` with event `dynamic`. Register that path and event in the PR allowlist. See [a managed run](https://github.com/TryUniCAD/Kit/actions/runs/43169749076).
+
+- **README changes and queue tests:** A documentation rewrite can pass static CI while a queue test still expects an old heading or example. Check the API and format contract in PR and main CI. Compare the README table with the reader and writer registry. See [the full-suite failure](https://github.com/TryUniCAD/Kit/actions/runs/43175328820/job/131038081509).
