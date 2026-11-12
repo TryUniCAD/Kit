@@ -19,6 +19,8 @@ def CheckLiveRefs(
     for Revision in Versions.values():
         Record = Records[Revision]
         Rules = KEntityRefRules[Record.Name]
+        if Record.Name == "shell" and Record.Tokens[5:7] == ((12, -1), (12, -1)):
+            raise ValueError("Missing required Fusion topology reference")
         for Index, (TagValue, Value) in enumerate(Record.Tokens):
             if TagValue != 12:
                 continue
@@ -31,7 +33,12 @@ def CheckLiveRefs(
                 raise ValueError("Invalid Fusion journal entity reference")
             if Value == -1:
                 if Index in KRequiredRefs.get(Record.Name, ()) and not (
-                    Index == 3 and HasVertedge(Records, Versions, Aliases, Record)
+                    (Index == 3 and HasVertedge(Records, Versions, Aliases, Record))
+                    or (
+                        Index == 8
+                        and Record.Name in ("edge", "tedge-edge")
+                        and Record.Tokens[3] == Record.Tokens[5]
+                    )
                 ):
                     raise ValueError("Missing required Fusion topology reference")
                 continue

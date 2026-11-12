@@ -7,6 +7,9 @@ from convert.formats.Fusion.BrepCodec.Journal.Attributes.SketchAttrib import (
 )
 from convert.formats.Fusion.BrepCodec.Journal.JournalEntity import KJournalEntity
 from convert.formats.Fusion.BrepCodec.Journal.Reading.FieldCursor import FieldCursor
+from convert.formats.Fusion.BrepCodec.Journal.Reading.Attributes.ReadFdmAttrib import (
+    ReadFdmAttrib,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Reading.Attributes.ReadTagGroups import (
     ReadTagGroups,
 )
@@ -46,4 +49,6 @@ def ReadAttribNode(Cursor: FieldCursor) -> KJournalEntity:
             if Family == "Timestamp_attrib_def"
             else TrackAttrib(Links, ReadLongMut(Cursor))
         )
+    if Family == "FDM_feature_attrib_def":
+        return ReadFdmAttrib(Cursor, Links)
     raise ValueError("Unsupported Fusion journal attribute family")

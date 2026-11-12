@@ -1,5 +1,8 @@
 from convert.formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
 from convert.formats.Fusion.BrepCodec.Models.CheckInteger import CheckInteger
+from convert.formats.Fusion.BrepCodec.Journal.Reading.ReadBoardMut import (
+    KBoardChanges,
+)
 
 
 def CheckStates(Model: JournalModel) -> None:
@@ -40,5 +43,5 @@ def CheckStates(Model: JournalModel) -> None:
         for Board in State.Boards:
             if Board.OwnerNode != Index or Board.Status != 2:
                 raise ValueError("Unsupported Fusion bulletin board status or owner")
-            if type(Board.Changes) is not tuple or len(Board.Changes) > 1000:
+            if type(Board.Changes) is not tuple or len(Board.Changes) > KBoardChanges:
                 raise ValueError("Oversized Fusion bulletin change list")
