@@ -55,6 +55,9 @@ When adding or renaming CI, update the allowlist alongside the workflow and
 register each job under the event that runs it. Keep automated review outside
 those workflows and verify its reports during PR review follow-up.
 
+The [breaking change label check](Documentation/Changes/BreakingChangeLabelChecks.md)
+runs for each supported PR event and reconciles the label with current metadata.
+
 The existing provider settings file identified by `SettingsFile` in the JSON is
 preserved. Its approval policy allows no open findings and is read from the
 default branch; feature-branch changes do not activate it. Provider documentation
