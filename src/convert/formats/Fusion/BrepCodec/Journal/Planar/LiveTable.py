@@ -9,3 +9,4 @@ class LiveTable:
     Entities: tuple[KJournalEntity | None, ...]
     SlotMap: tuple[int, ...]
     LiveSlots: tuple[int, ...]
+    Records: tuple[int, ...] = ()
