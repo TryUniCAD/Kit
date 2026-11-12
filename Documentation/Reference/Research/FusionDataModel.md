@@ -403,9 +403,14 @@ Feature writers must retain those definitions and the corresponding parameter bi
 ### ASM envelope
 
 The observed binary envelope begins with the fifteen-byte signature `ASM BinaryFile8`.
-Four signed 64-bit words follow: version, stored record count, stored entity count, and flags.
+Four signed 64-bit words follow: version, optional stored record count, top-level entity count including `asmheader`, and flags.
 Three tagged strings identify product, kernel version, and creation-date text.
 Three tagged doubles retain units in millimetres, resolution tolerance, and normal tolerance.
+
+Native disassembly resolves the modern internal version as `version * 100 + ((flags >> 1) & 127)`.
+The low history bit is not sufficient to infer journal presence because a header rewrite can clear it; explicit stream markers remain authoritative.
+The standalone binary importer converts lengths to Fusion centimetres using restored units divided by ten.
+See [binary route and header evidence](../../../re/Fusion/Reconstruction/BinaryImport/StaticEvidence.json).
 
 The [study token reader](../../../re/Fusion/Study/asm_records.py) bounds each field and records its original offset.
 The independent [ezdxf SAB implementation](https://github.com/mozman/ezdxf/blob/master/src/ezdxf/acis/sab.py) supplied token vocabulary.
@@ -481,6 +486,13 @@ The surface grid order can differ from the API's control-point order.
 Knot multiplicities, periodicity, explicit bounds, and subtype references require independent interpretation.
 
 ## Native writing obligations
+
+Independent analytic cylinder generation is now established for standalone text SMT and binary SMB.
+The [detailed BRep model](../../../re/Fusion/Reconstruction/BrepDataModel.md) names the topology fields, orientation rules, dimensional values, persistent attributes, and observed insertion journal.
+The writer allocates all 26 cylinder records from radius, height, and base coordinates, with no source payload input.
+Fusion accepted both formats, measured the expected topology, volume, and spatial bounds, then saved and reopened the solids as native documents.
+The [text acceptance](../../../re/Fusion/LocalOracle/Brep/ProductionAcceptance.json) and [binary acceptance](../../../re/Fusion/LocalOracle/Brep/ProductionBinaryAcceptance.json) both use the production Python codecs.
+Neither standalone body includes an editable feature graph or independently authored F3D envelope.
 
 Complete native writing requires more than each stream's syntactic serializer.
 The writer must construct a mutually consistent document graph from semantic inputs.

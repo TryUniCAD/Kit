@@ -36,7 +36,9 @@ def ReadAsmToken(Cursor: MetaCursor) -> KAsmToken:
         if not IsFinite(Value):
             raise ValueError("Nonfinite Fusion ASM scalar")
     elif TagValue in (7, 13, 14):
-        Value = Cursor.TakeBytes(Cursor.TakeBytes(1)[0]).decode("ascii")
+        Value = Cursor.TakeBytes(Cursor.TakeBytes(1)[0]).decode(
+            "utf-8" if TagValue == 7 else "ascii"
+        )
     elif TagValue == 18:
         SizeValue = Unpack("<q", Cursor.TakeBytes(8))[0]
         Value = Cursor.TakeBytes(SizeValue)
@@ -96,15 +98,17 @@ def ReadAsmTable(BlobData: bytes) -> AsmTable:
     if Cursor.TakeBytes(15) != b"ASM BinaryFile8":
         raise ValueError("Unsupported Fusion ASM file header")
     Version, Stored, Roots, Flags = Unpack("<4q", Cursor.TakeBytes(32))
-    if Version <= 0 or Stored != 0 or not 2 <= Roots <= 256 or Flags != 3:
-        raise ValueError("Unsupported Fusion ASM history header")
+    if Version <= 0 or Stored != 0 or not 2 <= Roots <= 256 or Flags not in (2, 3):
+        raise ValueError("Unsupported Fusion ASM header")
     Header = tuple(ReadAsmToken(Cursor) for _ in range(6))
     if tuple(Token[0] for Token in Header) != (7, 7, 7, 6, 6, 6):
         raise ValueError("Invalid Fusion ASM header tokens")
     Records: list[AsmRecord] = []
     for _ in range(8192):
         NameValue = ReadAsmName(Cursor)
-        if NameValue == "Begin-of-ASM-History-Data":
+        if NameValue in ("Begin-of-ASM-History-Data", "End-of-ASM-data"):
+            if NameValue == "End-of-ASM-data" and Cursor.Offset != len(BlobData):
+                raise ValueError("Trailing Fusion ASM data")
             if not Roots <= len(Records) or Records[0].Name != "asmheader":
                 raise ValueError("Invalid Fusion ASM root table extent")
             return AsmTable(Roots, tuple(Records))

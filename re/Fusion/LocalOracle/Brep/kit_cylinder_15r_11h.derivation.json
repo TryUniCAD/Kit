@@ -1,0 +1,1712 @@
+{
+  "artifact_kind": "Independent research SMT solid; native import, F3D save and reopen accepted for this exact SHA",
+  "source_dependencies": [],
+  "input_model": {
+    "radius_mm": 15.0,
+    "height_mm": 11.0,
+    "base_mm": [
+      20.0,
+      -30.0,
+      5.0
+    ]
+  },
+  "sha256": "5f762eece03e2504f7d5777cd6ed4efa048ba0542d806a5ea9daafd98e4f3a83",
+  "bytes": 1369,
+  "header": {
+    "save_format": 23200,
+    "stored_record_count": 0,
+    "first_owned_record": 2,
+    "flags": 2,
+    "history_present": false,
+    "revision": 1,
+    "millimeters_per_unit": 1,
+    "absolute_tolerance": 1e-06,
+    "normal_tolerance": 1e-10,
+    "authoring_timestamp": "Fixed research provenance string, not source timestamp"
+  },
+  "expected_native_observation": {
+    "solid_body_count": 1,
+    "faces": 3,
+    "edges": 2,
+    "vertices": 2,
+    "volume_cm3": 7.775441817634738,
+    "center_of_mass_cm": [
+      2.0,
+      -3.0,
+      1.05
+    ],
+    "bounding_box_min_cm": [
+      0.5,
+      -4.5,
+      0.5
+    ],
+    "bounding_box_max_cm": [
+      3.5,
+      -1.5,
+      1.6
+    ]
+  },
+  "record_count": 26,
+  "records": [
+    {
+      "index": 0,
+      "name": "asmheader",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "asm_version",
+          "value": {
+            "value": "232.5.0.65535"
+          },
+          "derivation": "Declared ASM schema version supported by native control"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "name": "body",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "first_lump",
+          "value": {
+            "index": 2
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "wire",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "transform",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "name": "lump",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "next_lump",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "first_shell",
+          "value": {
+            "index": 3
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "owner_body",
+          "value": {
+            "index": 1
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "name": "shell",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "next_shell",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "subshell",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "first_face",
+          "value": {
+            "index": 4
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "wire",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "owner_lump",
+          "value": {
+            "index": 2
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "name": "face",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "next_face",
+          "value": {
+            "index": 5
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "first_loop",
+          "value": {
+            "index": 7
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "owner_shell",
+          "value": {
+            "index": 3
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "reserved_face_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "surface",
+          "value": {
+            "index": 17
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "sense",
+          "value": {
+            "value": "forward"
+          },
+          "derivation": "Orientation required for outward-facing cylinder shell"
+        },
+        {
+          "name": "sidedness",
+          "value": {
+            "value": "single"
+          },
+          "derivation": "One-sided manifold solid face"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "name": "face",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "next_face",
+          "value": {
+            "index": 6
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "first_loop",
+          "value": {
+            "index": 9
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "owner_shell",
+          "value": {
+            "index": 3
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "reserved_face_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "surface",
+          "value": {
+            "index": 18
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "sense",
+          "value": {
+            "value": "forward"
+          },
+          "derivation": "Orientation required for outward-facing cylinder shell"
+        },
+        {
+          "name": "sidedness",
+          "value": {
+            "value": "single"
+          },
+          "derivation": "One-sided manifold solid face"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "name": "face",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "next_face",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "first_loop",
+          "value": {
+            "index": 10
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "owner_shell",
+          "value": {
+            "index": 3
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "reserved_face_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "surface",
+          "value": {
+            "index": 19
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "sense",
+          "value": {
+            "value": "reversed"
+          },
+          "derivation": "Orientation required for outward-facing cylinder shell"
+        },
+        {
+          "name": "sidedness",
+          "value": {
+            "value": "single"
+          },
+          "derivation": "One-sided manifold solid face"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "name": "loop",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "next_loop",
+          "value": {
+            "index": 8
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "first_coedge",
+          "value": {
+            "index": 11
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "owner_face",
+          "value": {
+            "index": 4
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "name": "loop",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "next_loop",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "first_coedge",
+          "value": {
+            "index": 12
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "owner_face",
+          "value": {
+            "index": 4
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "name": "loop",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "next_loop",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "first_coedge",
+          "value": {
+            "index": 13
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "owner_face",
+          "value": {
+            "index": 5
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "name": "loop",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "next_loop",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "first_coedge",
+          "value": {
+            "index": 14
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "owner_face",
+          "value": {
+            "index": 6
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "name": "coedge",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "next_coedge",
+          "value": {
+            "index": 11
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "previous_coedge",
+          "value": {
+            "index": 11
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "partner_coedge",
+          "value": {
+            "index": 13
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "edge",
+          "value": {
+            "index": 15
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "sense",
+          "value": {
+            "value": "reversed"
+          },
+          "derivation": "Orientation required for outward-facing cylinder shell"
+        },
+        {
+          "name": "owner_loop",
+          "value": {
+            "index": 7
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "reserved_integer",
+          "value": 0,
+          "derivation": "Zero profile observed in the native control; other values unresolved"
+        },
+        {
+          "name": "pcurve",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "name": "coedge",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "next_coedge",
+          "value": {
+            "index": 12
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "previous_coedge",
+          "value": {
+            "index": 12
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "partner_coedge",
+          "value": {
+            "index": 14
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "edge",
+          "value": {
+            "index": 16
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "sense",
+          "value": {
+            "value": "forward"
+          },
+          "derivation": "Orientation required for outward-facing cylinder shell"
+        },
+        {
+          "name": "owner_loop",
+          "value": {
+            "index": 8
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "reserved_integer",
+          "value": 0,
+          "derivation": "Zero profile observed in the native control; other values unresolved"
+        },
+        {
+          "name": "pcurve",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "name": "coedge",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "next_coedge",
+          "value": {
+            "index": 13
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "previous_coedge",
+          "value": {
+            "index": 13
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "partner_coedge",
+          "value": {
+            "index": 11
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "edge",
+          "value": {
+            "index": 15
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "sense",
+          "value": {
+            "value": "forward"
+          },
+          "derivation": "Orientation required for outward-facing cylinder shell"
+        },
+        {
+          "name": "owner_loop",
+          "value": {
+            "index": 9
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "reserved_integer",
+          "value": 0,
+          "derivation": "Zero profile observed in the native control; other values unresolved"
+        },
+        {
+          "name": "pcurve",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "name": "coedge",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "next_coedge",
+          "value": {
+            "index": 14
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "previous_coedge",
+          "value": {
+            "index": 14
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "partner_coedge",
+          "value": {
+            "index": 12
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "edge",
+          "value": {
+            "index": 16
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "sense",
+          "value": {
+            "value": "reversed"
+          },
+          "derivation": "Orientation required for outward-facing cylinder shell"
+        },
+        {
+          "name": "owner_loop",
+          "value": {
+            "index": 10
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "reserved_integer",
+          "value": 0,
+          "derivation": "Zero profile observed in the native control; other values unresolved"
+        },
+        {
+          "name": "pcurve",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "name": "edge",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "start_vertex",
+          "value": {
+            "index": 20
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "start_parameter",
+          "value": -3.141592653589793,
+          "derivation": "Start of full-circle parameter interval"
+        },
+        {
+          "name": "end_vertex",
+          "value": {
+            "index": 20
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "end_parameter",
+          "value": 3.141592653589793,
+          "derivation": "End of full-circle parameter interval"
+        },
+        {
+          "name": "owner_coedge",
+          "value": {
+            "index": 11
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "curve",
+          "value": {
+            "index": 22
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "sense",
+          "value": {
+            "value": "forward"
+          },
+          "derivation": "Orientation required for outward-facing cylinder shell"
+        },
+        {
+          "name": "convexity",
+          "value": {
+            "value": "unknown"
+          },
+          "derivation": "No precomputed convexity classification"
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "name": "edge",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "start_vertex",
+          "value": {
+            "index": 21
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "start_parameter",
+          "value": -3.141592653589793,
+          "derivation": "Start of full-circle parameter interval"
+        },
+        {
+          "name": "end_vertex",
+          "value": {
+            "index": 21
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "end_parameter",
+          "value": 3.141592653589793,
+          "derivation": "End of full-circle parameter interval"
+        },
+        {
+          "name": "owner_coedge",
+          "value": {
+            "index": 12
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "curve",
+          "value": {
+            "index": 23
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "sense",
+          "value": {
+            "value": "forward"
+          },
+          "derivation": "Orientation required for outward-facing cylinder shell"
+        },
+        {
+          "name": "convexity",
+          "value": {
+            "value": "unknown"
+          },
+          "derivation": "No precomputed convexity classification"
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "name": "cone-surface",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "origin_mm",
+          "value": [
+            20.0,
+            -30.0,
+            5.0
+          ],
+          "derivation": "Cylinder base center"
+        },
+        {
+          "name": "axis",
+          "value": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "derivation": "Positive Z cylinder axis"
+        },
+        {
+          "name": "major_axis_mm",
+          "value": [
+            15.0,
+            0.0,
+            0.0
+          ],
+          "derivation": "Positive X radius vector"
+        },
+        {
+          "name": "ellipse_ratio",
+          "value": 1.0,
+          "derivation": "Circular cross section"
+        },
+        {
+          "name": "ellipse_bound_start",
+          "value": {
+            "value": "I"
+          },
+          "derivation": "Infinite parameter bound"
+        },
+        {
+          "name": "ellipse_bound_end",
+          "value": {
+            "value": "I"
+          },
+          "derivation": "Infinite parameter bound"
+        },
+        {
+          "name": "sine_angle",
+          "value": 0.0,
+          "derivation": "Zero cone half-angle yields a cylinder"
+        },
+        {
+          "name": "cosine_angle",
+          "value": 1.0,
+          "derivation": "Cosine of zero cone half-angle"
+        },
+        {
+          "name": "u_scale_mm",
+          "value": 15.0,
+          "derivation": "Chosen canonical surface parameter length scale"
+        },
+        {
+          "name": "sense",
+          "value": {
+            "value": "forward"
+          },
+          "derivation": "Orientation required for outward-facing cylinder shell"
+        },
+        {
+          "name": "u_start",
+          "value": {
+            "value": "I"
+          },
+          "derivation": "Infinite parameter bound"
+        },
+        {
+          "name": "u_end",
+          "value": {
+            "value": "I"
+          },
+          "derivation": "Infinite parameter bound"
+        },
+        {
+          "name": "v_start",
+          "value": {
+            "value": "I"
+          },
+          "derivation": "Infinite parameter bound"
+        },
+        {
+          "name": "v_end",
+          "value": {
+            "value": "I"
+          },
+          "derivation": "Infinite parameter bound"
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "name": "plane-surface",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "origin_mm",
+          "value": [
+            20.0,
+            -30.0,
+            16.0
+          ],
+          "derivation": "Cylinder cap center"
+        },
+        {
+          "name": "normal",
+          "value": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "derivation": "Positive Z support-plane normal; face sense selects outward direction"
+        },
+        {
+          "name": "reference_axis",
+          "value": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "derivation": "Independent unit X parameter reference, not donor radius vector"
+        },
+        {
+          "name": "v_sense",
+          "value": {
+            "value": "forward_v"
+          },
+          "derivation": "Canonical right-handed plane parameter frame"
+        },
+        {
+          "name": "u_start",
+          "value": {
+            "value": "I"
+          },
+          "derivation": "Infinite parameter bound"
+        },
+        {
+          "name": "u_end",
+          "value": {
+            "value": "I"
+          },
+          "derivation": "Infinite parameter bound"
+        },
+        {
+          "name": "v_start",
+          "value": {
+            "value": "I"
+          },
+          "derivation": "Infinite parameter bound"
+        },
+        {
+          "name": "v_end",
+          "value": {
+            "value": "I"
+          },
+          "derivation": "Infinite parameter bound"
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "name": "plane-surface",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "origin_mm",
+          "value": [
+            20.0,
+            -30.0,
+            5.0
+          ],
+          "derivation": "Cylinder cap center"
+        },
+        {
+          "name": "normal",
+          "value": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "derivation": "Positive Z support-plane normal; face sense selects outward direction"
+        },
+        {
+          "name": "reference_axis",
+          "value": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "derivation": "Independent unit X parameter reference, not donor radius vector"
+        },
+        {
+          "name": "v_sense",
+          "value": {
+            "value": "forward_v"
+          },
+          "derivation": "Canonical right-handed plane parameter frame"
+        },
+        {
+          "name": "u_start",
+          "value": {
+            "value": "I"
+          },
+          "derivation": "Infinite parameter bound"
+        },
+        {
+          "name": "u_end",
+          "value": {
+            "value": "I"
+          },
+          "derivation": "Infinite parameter bound"
+        },
+        {
+          "name": "v_start",
+          "value": {
+            "value": "I"
+          },
+          "derivation": "Infinite parameter bound"
+        },
+        {
+          "name": "v_end",
+          "value": {
+            "value": "I"
+          },
+          "derivation": "Infinite parameter bound"
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "name": "vertex",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "owner_edge",
+          "value": {
+            "index": 15
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "edge_index",
+          "value": 0,
+          "derivation": "Start-edge reference profile; native closed-circle control also has value 2 whose semantics remain unresolved"
+        },
+        {
+          "name": "point",
+          "value": {
+            "index": 24
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "name": "vertex",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "owner_edge",
+          "value": {
+            "index": 16
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        },
+        {
+          "name": "edge_index",
+          "value": 0,
+          "derivation": "Start-edge reference profile; native closed-circle control also has value 2 whose semantics remain unresolved"
+        },
+        {
+          "name": "point",
+          "value": {
+            "index": 25
+          },
+          "derivation": "Index of the named record in this newly allocated record table"
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "name": "ellipse-curve",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "center_mm",
+          "value": [
+            20.0,
+            -30.0,
+            16.0
+          ],
+          "derivation": "Cylinder cap center"
+        },
+        {
+          "name": "normal",
+          "value": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "derivation": "Positive Z circle normal"
+        },
+        {
+          "name": "major_axis_mm",
+          "value": [
+            15.0,
+            0.0,
+            0.0
+          ],
+          "derivation": "Positive X radius vector"
+        },
+        {
+          "name": "ellipse_ratio",
+          "value": 1.0,
+          "derivation": "Circle major/minor ratio"
+        },
+        {
+          "name": "parameter_start",
+          "value": {
+            "value": "I"
+          },
+          "derivation": "Infinite parameter bound"
+        },
+        {
+          "name": "parameter_end",
+          "value": {
+            "value": "I"
+          },
+          "derivation": "Infinite parameter bound"
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "name": "ellipse-curve",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "center_mm",
+          "value": [
+            20.0,
+            -30.0,
+            5.0
+          ],
+          "derivation": "Cylinder cap center"
+        },
+        {
+          "name": "normal",
+          "value": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "derivation": "Positive Z circle normal"
+        },
+        {
+          "name": "major_axis_mm",
+          "value": [
+            15.0,
+            0.0,
+            0.0
+          ],
+          "derivation": "Positive X radius vector"
+        },
+        {
+          "name": "ellipse_ratio",
+          "value": 1.0,
+          "derivation": "Circle major/minor ratio"
+        },
+        {
+          "name": "parameter_start",
+          "value": {
+            "value": "I"
+          },
+          "derivation": "Infinite parameter bound"
+        },
+        {
+          "name": "parameter_end",
+          "value": {
+            "value": "I"
+          },
+          "derivation": "Infinite parameter bound"
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "name": "point",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "position_mm",
+          "value": [
+            5.0,
+            -30.000000000000004,
+            16.0
+          ],
+          "derivation": "Circle evaluated at the edge start parameter -pi"
+        }
+      ]
+    },
+    {
+      "index": 25,
+      "name": "point",
+      "fields": [
+        {
+          "name": "attribute",
+          "value": {
+            "index": -1
+          },
+          "derivation": "No attributes are attached"
+        },
+        {
+          "name": "history_key",
+          "value": -1,
+          "derivation": "No history partition is emitted"
+        },
+        {
+          "name": "reserved_reference",
+          "value": {
+            "index": -1
+          },
+          "derivation": "Null profile observed in the native control; non-null meaning unresolved"
+        },
+        {
+          "name": "position_mm",
+          "value": [
+            5.0,
+            -30.000000000000004,
+            5.0
+          ],
+          "derivation": "Circle evaluated at the edge start parameter -pi"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Independent analytic cylinder only; no parametric features or history partition",
+    "No Fusion Design/BRep Body-map identity relationship is emitted",
+    "Reserved null references, coedge integer and vertex edge-index have only bounded observed profiles",
+    "Native acceptance must be obtained separately and does not establish full F3D writer acceptance"
+  ],
+  "native_acceptance": {
+    "report": "re/Fusion/LocalOracle/Brep/Acceptance.json",
+    "source_sha256": "5f762eece03e2504f7d5777cd6ed4efa048ba0542d806a5ea9daafd98e4f3a83",
+    "fusion_version": "2706.1.17",
+    "status": "accepted",
+    "scope": "Independent generated SMT cylinder import, geometry inspection, native save and reopen; no parametric feature history is generated",
+    "saved_sha256": "232920ff6a315fa7281b4c2139756618721dda221a1141a01145b401f930e0d4"
+  }
+}

@@ -41,3 +41,4 @@ jobs:
           tests/convert/formats/FusionCodec/Parameters/FusionAllocTests.py
           tests/convert/formats/FusionCodec/Parameters/FusionFeatureTests.py
           tests/convert/formats/FusionCodec/Features/FeatureRejectTests.py
+          tests/convert/formats/FusionCodec/Geometry/GeometryArchiveTests.py
