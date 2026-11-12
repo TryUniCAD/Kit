@@ -8,7 +8,7 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 ## Purpose and import
 
 Import the supported conversion functions from `convert`.
-The distribution name is `kit`.
+The distribution name is `unicad-kit`.
 Public compatibility names remain lowercase.
 Do not replace them with internal PascalCase function names in external callers.
 

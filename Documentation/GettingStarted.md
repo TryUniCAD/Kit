@@ -18,9 +18,24 @@ Follow [installation](Tasks/Install.md) for an isolated checkout and locked depe
 Keep the original CAD file unchanged.
 Select an unused output path.
 
-The distribution is `kit`.
+The distribution is `unicad-kit`.
 The installed packages are `convert` and `interchange`.
 The package metadata does not declare a `kit convert` console command.
+
+## Install a published release
+
+For a separate application project, install a published package from PyPI.
+Use Python 3.11 or later.
+Run `uv init` first if the project is new.
+
+```sh
+uv add unicad-kit
+```
+
+If no release is available, use [repository installation](Tasks/Install.md).
+Run examples with `uv run python` in the installed application project.
+Use the repository instructions when contributing to Kit.
+See [release publishing](Changes/CommitReleases.md) for artifact and publication details.
 
 ## First conversion
 
@@ -65,6 +80,8 @@ Do not infer lossless output from a return value or a native mode label.
 `strict=True` controls reader validation.
 `allow_carrier=False` controls registry output policy.
 These options are independent.
+SOLIDWORKS-to-CATIA conversion can preserve data in a carrier without producing an editable native CATIA part.
+Verify native output requirements in the target application.
 The default `allow_carrier=True` does not establish native target editability.
 
 Tests run only in remote CI.

@@ -15,6 +15,7 @@ The source baseline is `b9a022e45` from the Kit repository.
 The revision includes dependency updates and README presentation changes through `de20507ea`.
 The integrated base also includes queue validation repairs through `7a878e689`.
 The integrated base includes the reviewer configuration from PR #74 at `38ec9456d`.
+The integrated base includes release packaging from PR #75 at `aebbc0b8a`.
 Its base revision is recorded in the PR.
 The documentation revision is the Git commit containing this page.
 The public-source review date is 2026-11-11.

@@ -49,7 +49,7 @@ from convert import convert as ConvertDoc
 Result = ConvertDoc("bracket.SLDPRT", "bracket.FCStd", allow_carrier=False)
 ```
 
-The distribution name is `kit`, but the public import is `convert`.
+The distribution name is `unicad-kit` and the public import is `convert`.
 The default `allow_carrier=True` permits preservation results subject to the registry policy.
 Set `allow_carrier=False` for conversion acceptance work.
 This option is independent of the reader's `strict` option.
@@ -83,6 +83,20 @@ Run tests only in remote CI.
 ## Star history
 
 [![Kit star history](https://api.star-history.com/svg?repos=TryUniCAD/Kit&type=Date)](https://www.star-history.com/#TryUniCAD/Kit&Date)
+
+## Distribution
+
+Use Python 3.11 or later.
+For a new application project, run `uv init` first.
+Install a published release from PyPI:
+
+```sh
+uv add unicad-kit
+```
+
+If no release is available, follow [repository installation](Documentation/Tasks/Install.md).
+See [getting started](Documentation/GettingStarted.md) for examples and output limits.
+See [release publishing](Documentation/Changes/CommitReleases.md) for the release process.
 
 ## License
 

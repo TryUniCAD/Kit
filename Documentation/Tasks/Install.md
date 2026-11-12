@@ -76,10 +76,10 @@ For a saved script, run `uv run --frozen python path/to/script.py` from this wor
 
 ## Package identity
 
-The distribution name is `kit`.
+The distribution name is `unicad-kit`.
 The installed Python packages are `convert` and `interchange`.
 Use `from convert import convert` for the public conversion function.
-Do not infer an import named `kit` from the distribution name.
+Do not infer an import name from the distribution name.
 
 The `kit` entry-point group in package metadata is not a console command declaration.
 This guide uses the Python API.
