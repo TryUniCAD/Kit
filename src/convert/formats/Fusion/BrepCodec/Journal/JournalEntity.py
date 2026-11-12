@@ -9,6 +9,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Geometry.AsmRoot import AsmRoot
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.BodyNode import BodyNode
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.LumpNode import LumpNode
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.ShellNode import ShellNode
+from convert.formats.Fusion.BrepCodec.Journal.Geometry.WireNode import WireNode
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.FaceNode import FaceNode
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.LoopNode import LoopNode
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.CoedgeNode import CoedgeNode
@@ -19,10 +20,16 @@ from convert.formats.Fusion.BrepCodec.Journal.Geometry.PlaneNode import PlaneNod
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.EllipseNode import EllipseNode
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.ConeNode import ConeNode
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.TimeAttrib import TimeAttrib
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.FeatureAttrib import (
+    FeatureAttrib,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.TrackAttrib import TrackAttrib
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.TagAttrib import TagAttrib
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.SketchAttrib import (
     SketchAttrib,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.NoMergeAttrib import (
+    NoMergeAttrib,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.StitchAttrib import (
     StitchAttrib,
@@ -43,6 +50,7 @@ KJournalEntity: TypeAlias = (
     | TransformNode
     | LumpNode
     | ShellNode
+    | WireNode
     | FaceNode
     | LoopNode
     | CoedgeNode
@@ -56,10 +64,12 @@ KJournalEntity: TypeAlias = (
     | SphereNode
     | TorusNode
     | TimeAttrib
+    | FeatureAttrib
     | TrackAttrib
     | TagAttrib
     | SketchAttrib
     | StitchAttrib
+    | NoMergeAttrib
     | VertedgeAttrib
     | KComplexEntity
 )

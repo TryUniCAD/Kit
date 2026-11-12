@@ -11,6 +11,8 @@ KAsmValue: TypeAlias = int | float | str | bytes | tuple[float, ...] | None
 # each serialized token keeps the wire discriminator needed by field readers
 KAsmToken: TypeAlias = tuple[int, KAsmValue]
 
+KRecordTokens = 16384
+
 
 # initial entity ordinals are separate from stored body handles and history slots
 @MakeDataClass(frozen=True, slots=True)
@@ -59,7 +61,7 @@ def ReadAsmToken(Cursor: MetaCursor) -> KAsmToken:
 def ReadAsmRecord(Cursor: MetaCursor, NameValue: str) -> AsmRecord:
     Tokens: list[KAsmToken] = []
     Depth = 0
-    for _ in range(4096):
+    for _ in range(KRecordTokens):
         Token = ReadAsmToken(Cursor)
         TagValue = Token[0]
         if TagValue == 17:

@@ -12,7 +12,7 @@ def MakeShellNode(Value: ShellNode) -> AsmRecord:
             RefWord(Value.NextShell),
             RefWord(-1),
             RefWord(Value.FirstFace),
-            RefWord(-1),
+            RefWord(Value.FirstWire),
             RefWord(Value.OwnerLump),
         ),
     )

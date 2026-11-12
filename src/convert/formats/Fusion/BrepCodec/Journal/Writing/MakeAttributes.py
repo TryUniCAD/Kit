@@ -1,3 +1,9 @@
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.FeatureAttrib import (
+    FeatureAttrib,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Writing.Attributes.MakeFdmAttrib import (
+    MakeFdmAttrib,
+)
 from convert.formats.Fusion.BrepCodec.Journal.JournalEntity import KJournalEntity
 from convert.formats.Fusion.Topology.AsmEdge.AsmTable import AsmRecord
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.TimeAttrib import TimeAttrib
@@ -29,4 +35,6 @@ def MakeAttributes(Value: KJournalEntity) -> AsmRecord:
         return MakeTagAttrib(Value)
     if isinstance(Value, SketchAttrib):
         return MakeSketchAttr(Value)
+    if isinstance(Value, FeatureAttrib):
+        return MakeFdmAttrib(Value)
     raise ValueError("Unsupported Fusion journal entity variant")

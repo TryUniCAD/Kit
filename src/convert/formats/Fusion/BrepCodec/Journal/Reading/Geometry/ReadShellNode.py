@@ -16,6 +16,6 @@ def ReadShellNode(Cursor: FieldCursor) -> ShellNode:
     NextShell = ReadRefMut(Cursor)
     NeedFieldMut(Cursor, (12, -1))
     FirstFace = ReadRefMut(Cursor)
-    NeedFieldMut(Cursor, (12, -1))
+    FirstWire = ReadRefMut(Cursor)
     OwnerLump = ReadRefMut(Cursor)
-    return ShellNode(Prefix, NextShell, FirstFace, OwnerLump)
+    return ShellNode(Prefix, NextShell, FirstFace, OwnerLump, FirstWire)

@@ -6,6 +6,7 @@ KAttribNames = (
     "ATTRIB_CUSTOM-attrib",
     "stitch_hint-sys-attrib",
     "vertedge-sys-attrib",
+    "no_merge_attribute-st-attrib",
 )
 
 KCoedgeUses = ("coedge", "tcoedge-coedge")
@@ -17,7 +18,7 @@ KCoedgeRules: dict[int, tuple[str, ...]] = {
     4: KCoedgeUses,
     5: KCoedgeUses,
     6: ("edge", "tedge-edge"),
-    8: ("loop",),
+    8: ("loop", "wire"),
     10: ("pcurve",),
 }
 
@@ -68,8 +69,16 @@ KEntityRefRules: dict[str, dict[int, tuple[str, ...]]] = {
         3: ("shell",),
         4: (),
         5: ("face",),
-        6: (),
+        6: ("wire",),
         7: ("lump",),
+    },
+    "wire": {
+        0: KAttribNames,
+        2: (),
+        3: ("wire",),
+        4: KCoedgeUses,
+        5: ("shell",),
+        6: (),
     },
     "face": {
         0: KAttribNames,
@@ -129,4 +138,10 @@ KEntityRefRules: dict[str, dict[int, tuple[str, ...]]] = {
         4: ("edge", "tedge-edge"),
     },
     "vertedge-sys-attrib": KVertedgeRules,
+    "no_merge_attribute-st-attrib": {
+        0: (),
+        2: KAttribNames,
+        3: KAttribNames,
+        4: ("edge", "tedge-edge"),
+    },
 }

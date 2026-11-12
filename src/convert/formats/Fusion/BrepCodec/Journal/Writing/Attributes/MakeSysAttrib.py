@@ -1,4 +1,7 @@
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.AttribLinks import AttribLinks
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.NoMergeAttrib import (
+    NoMergeAttrib,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.StitchAttrib import (
     StitchAttrib,
 )
@@ -40,3 +43,7 @@ def MakeVertedge(Value: VertedgeAttrib) -> AsmRecord:
         "vertedge-sys-attrib",
         (*MakeSysLinks(Value.Links), (4, len(Value.EdgeSlots)), *Slots),
     )
+
+
+def MakeNoMerge(Value: NoMergeAttrib) -> AsmRecord:
+    return AsmRecord("no_merge_attribute-st-attrib", MakeSysLinks(Value.Links))

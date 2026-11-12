@@ -1,3 +1,7 @@
+from convert.formats.Fusion.BrepCodec.Journal.Geometry.WireNode import WireNode
+from convert.formats.Fusion.BrepCodec.Journal.Writing.Geometry.MakeWireNode import (
+    MakeWireNode,
+)
 from convert.formats.Fusion.BrepCodec.Journal.JournalEntity import KJournalEntity
 from convert.formats.Fusion.Topology.AsmEdge.AsmTable import AsmRecord
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.AsmRoot import AsmRoot
@@ -47,6 +51,8 @@ def MakeTopology(Value: KJournalEntity) -> AsmRecord:
         return MakeLumpNode(Value)
     if isinstance(Value, ShellNode):
         return MakeShellNode(Value)
+    if isinstance(Value, WireNode):
+        return MakeWireNode(Value)
     if isinstance(Value, FaceNode):
         return MakeFaceNode(Value)
     if isinstance(Value, LoopNode):

@@ -1,10 +1,13 @@
 from convert.formats.Fusion.BrepCodec.Journal.Writing.EmitWireField import EmitWireField
 from convert.formats.Fusion.GeometryCodec.EncodeSmbName import EncodeSmbName
-from convert.formats.Fusion.Topology.AsmEdge.AsmTable import AsmRecord
+from convert.formats.Fusion.Topology.AsmEdge.AsmTable import (
+    AsmRecord,
+    KRecordTokens,
+)
 
 
 def EmitWireRecord(Record: AsmRecord) -> bytes:
-    if len(Record.Tokens) > 4096:
+    if len(Record.Tokens) > KRecordTokens:
         raise ValueError("Oversized Fusion journal wire record")
     return (
         EncodeSmbName(Record.Name)
