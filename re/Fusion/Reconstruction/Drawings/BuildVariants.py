@@ -125,11 +125,13 @@ def main():
     rows.append(('P2NoDwg', opaque_bundle(without_database(dimension_bytes), source, 'P2')))
     rows.append(('P3SwappedDwg', opaque_bundle(without_database(dimension_bytes, database(views_bytes)), source, 'P3')))
     rows.append(('P4ViewsControl', opaque_bundle(views_bytes, source, 'P4')))
+    rows.append(('P5ReverseSwap', opaque_bundle(without_database(views_bytes, database(dimension_bytes)), source, 'P5')))
     if args.typed:
         dimension = ReadDrawing(dimension_bytes, inflate)
         again = EmitDrawing(dimension, compress)
         plan['modern'] = {'emitted_sha256': digest(again), 'byte_exact': again == dimension_bytes, 'views_only_byte_exact': EmitDrawing(ReadDrawing(views_bytes, inflate), compress) == views_bytes}
         rows.append(('M1Reemitted', typed_bundle(dimension, source, 'M1')))
+        rows.append(('M2Reemitted', typed_bundle(dimension, source, 'M2')))
     for label, data in rows:
         path = OUT / (label + '.f3z')
         path.write_bytes(data)

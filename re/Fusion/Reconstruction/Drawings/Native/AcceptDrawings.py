@@ -54,11 +54,14 @@ def wait_complete(folder_name, labels, seconds):
         pause = time.monotonic() + min(5, max(deadline_left, 0))
         while time.monotonic() < pause:
             adsk.doEvents()
-    report['upload_wait'] = {'states': states, 'seconds': round(seconds - max(deadline - time.monotonic(), 0), 1)}
+    report.setdefault('upload_waits', []).append({'states': states, 'seconds': round(seconds - max(deadline - time.monotonic(), 0), 1)})
     common.save_json(target, report)
 
 
 try:
+    for item in request.get('before', []):
+        if item['kind'] == 'capacity':
+            step('capacity', 'EditableCapacity.py', 'Capacity.json', item['config'])
     uploads = request.get('upload', [])
     folder = request.get('folder')
     if uploads:
@@ -67,11 +70,17 @@ try:
         report['folder'] = folder
         wait_complete(folder, uploads, request.get('upload_seconds', 600))
     for item in request['plan']:
+        if item['kind'] == 'upload':
+            step('upload ' + ' '.join(item['labels']), 'BeginUploads.py', 'Selection.json', {'labels': item['labels'], 'tag': request['tag']})
+            folder = json.loads((variants / 'BeginUploads.json').read_text())['folder']
+            report.setdefault('folders', []).append(folder)
+            wait_complete(folder, item['labels'], request.get('upload_seconds', 600))
+            continue
         where = item.get('folder', folder)
         if item['kind'] == 'inspect':
             step('inspect ' + item['tag'], 'InspectUploads.py', 'Selection.json', {'labels': item['labels'], 'tag': item['tag'], 'folder': where})
         elif item['kind'] == 'edit':
-            step('edit ' + item['label'], 'EditAcceptance.py', 'Edit.json', {'folder': where, 'label': item['label'], 'expression': item['expression']})
+            step('edit ' + item['label'], 'EditAcceptance.py', 'Edit.json', {'folder': where, 'label': item['label'], 'expression': item['expression'], 'require_editable': item.get('require_editable', False)})
     report['status'] = 'completed'
 except Exception:
     report['status'] = 'failed'

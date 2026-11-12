@@ -22,3 +22,4 @@ Do not copy that example into the repository.
 `BuildFixtures.py` replaces the manifest paths and URNs with fixed placeholders.
 It also removes the DWG member, because Kit has no DWG writer that can redact it.
 The fixtures are therefore codec fixtures, not files that Fusion opens unchanged.
+Fusion cannot open a drawing without its DWG, as the [missing DWG gotcha](FusionDrawingMissingDatabase.md) records.
