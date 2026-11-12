@@ -58,7 +58,8 @@ jobs:
       - name: Build the source distribution and wheel
         shell: bash
         run: |
-          export SOURCE_DATE_EPOCH="$(git show -s --format=%ct "${GITHUB_SHA}")"
+          SOURCE_DATE_EPOCH="$(git show -s --format=%ct "${GITHUB_SHA}")"
+          export SOURCE_DATE_EPOCH
           uv build --no-sources --python 3.11 --out-dir "${RUNNER_TEMP}/distributions"
 
       - name: Verify the installed distribution
@@ -98,7 +99,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     permissions:
-      contents: write
+      contents: write # Creates the commit tag and uploads the release assets.
     steps:
       - name: Verify the PyPI version is unused
         env:
@@ -146,7 +147,7 @@ jobs:
     timeout-minutes: 10
     environment: pypi
     permissions:
-      id-token: write
+      id-token: write # Requests the OIDC token for PyPI Trusted Publishing.
     steps:
       - name: Download PyPI distributions
         uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2

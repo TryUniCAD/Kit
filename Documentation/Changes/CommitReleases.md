@@ -7,7 +7,7 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 
 [Release.yml](../../.github/workflows/Release.yml) builds artifacts from the exact commit selected when the workflow starts. A manual run from `main` publishes a GitHub release with the full SHA as its title, a `commit-<sha>` tag pointing at that commit, and the commit's author, committer, dates, and message as the description. It attaches `Kit-<sha>.zip` and `Kit-<sha>.tar.gz`, plus one `.SHA256` and one `.SHA512` file per archive. The source archives omit the proprietary SOLIDWORKS DLLs in `re/binaries/`.
 
-GitHub generates its own source links. Verify the attached files instead: from the directory containing the downloaded files, run `sha256sum -c Kit-<sha>.zip.SHA256` or `sha512sum -c Kit-<sha>.tar.gz.SHA512`, substituting the release SHA. [GitHub's immutable releases setting](https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/prevent-release-changes) locks the published tag and uploaded assets.
+GitHub generates its own source links. Verify the attached files instead: from the directory containing the downloaded files, run `sha256sum -c Kit-<sha>.zip.SHA256` or `sha512sum -c Kit-<sha>.tar.gz.SHA512`, substituting the release SHA. Enable [GitHub's immutable releases setting](https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/prevent-release-changes) before dispatching to lock the published tag and uploaded assets.
 
 ## Configure and publish
 
@@ -20,4 +20,4 @@ If GitHub succeeds and PyPI fails, rerun the failed job after correcting the cau
 
 ## Verification
 
-Pull request CI builds both archives and both Python distributions, checks the archive formats and checksum files, and installs the wheel in an isolated environment to load its public entry point. Publishing jobs are skipped on pull requests. A successful build does not verify GitHub release creation or PyPI authentication; verify those in the first run on `main`.
+[Pull request CI](https://github.com/TryUniCAD/Kit/actions/runs/43159953682) built both archives and both Python distributions, checked the archive formats and checksum files, and installed the wheel in an isolated environment to load its public entry point. Publishing jobs are skipped on pull requests. Verify GitHub release creation and PyPI authentication in the first run on `main`.
