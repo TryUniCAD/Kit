@@ -6,9 +6,3 @@ def GridKnots(SpanCount: int) -> tuple[SplineKnot, ...]:
         raise ValueError("Fusion grid conversion needs one span per direction")
     Inner = tuple(SplineKnot(float(Index), 1) for Index in range(1, SpanCount))
     return (SplineKnot(0.0, 3), *Inner, SplineKnot(float(SpanCount), 3))
-
-
-def FlipKnots(Knots: tuple[SplineKnot, ...]) -> tuple[SplineKnot, ...]:
-    return tuple(
-        SplineKnot(-KnotValue.Value, KnotValue.Count) for KnotValue in reversed(Knots)
-    )

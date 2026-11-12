@@ -6,9 +6,11 @@ KSpokeNames = ("NORTH", "WEST", "SOUTH", "EAST")
 def SpokeIndices(Topology: CageTopology) -> tuple[int, ...]:
     Spokes = [-1] * len(Topology.Links)
     for VertexIndex, Vertex in enumerate(Topology.Vertices):
-        LinkIndex, Spoke, Turns = Vertex.OriginLink, KSpokeNames.index(
-            Vertex.Direction
-        ), 0
+        LinkIndex, Spoke, Turns = (
+            Vertex.OriginLink,
+            KSpokeNames.index(Vertex.Direction),
+            0,
+        )
         while True:
             LinkValue = Topology.Links[LinkIndex]
             if LinkValue.VertexIndex != VertexIndex or Spokes[LinkIndex] != -1:

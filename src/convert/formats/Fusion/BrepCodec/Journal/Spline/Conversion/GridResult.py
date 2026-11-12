@@ -1,9 +1,9 @@
 from dataclasses import dataclass as MakeDataClass
 
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.BsCurve import BsCurve
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.JournalVector import (
     KJournalVector,
 )
-from convert.formats.Fusion.BrepCodec.Journal.Spline.NubsCurve import NubsCurve
 from convert.formats.Fusion.BrepCodec.Journal.Spline.NubsSurface import NubsSurface
 from convert.formats.Fusion.BrepCodec.Journal.Spline.PatchCell import PatchCell
 
@@ -12,5 +12,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.PatchCell import PatchCell
 class GridResult:
     Surface: NubsSurface
     Patches: tuple[PatchCell, ...]
-    Bounds: tuple[NubsCurve, NubsCurve, NubsCurve, NubsCurve]
+    Bounds: tuple[BsCurve, BsCurve, BsCurve, BsCurve]
     Corners: tuple[KJournalVector, KJournalVector, KJournalVector, KJournalVector]
+    SurfaceJumps: tuple[tuple[float, ...], ...]
+    BoundJumps: tuple[tuple[float, ...], ...]

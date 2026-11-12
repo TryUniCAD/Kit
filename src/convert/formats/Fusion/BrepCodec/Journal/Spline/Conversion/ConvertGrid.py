@@ -4,6 +4,10 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Conversion.CheckGridCage im
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Conversion.GridBounds import (
     GridBounds,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Conversion.GridJumps import (
+    GridJumps,
+    ThirdJumps,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Conversion.GridKnots import (
     GridKnots,
 )
@@ -34,14 +38,19 @@ def ConvertGrid(Surface: TsplineSurface) -> GridResult:
     Places = PlaceVertices(Surface.Topology, Spokes)
     Width, Height, Order = PlaceGrips(Mapping, Places, len(Surface.Grips))
     Grips = tuple(Surface.Grips[Index] for Index in Order)
-    Points = tuple((Grip.CoordX, Grip.CoordY, Grip.CoordZ) for Grip in Grips)
+    Points = tuple(
+        (GripValue.CoordX, GripValue.CoordY, GripValue.CoordZ) for GripValue in Grips
+    )
     Result = NubsSurface(
         3, 3, 0, 0, 0, 0, GridKnots(Width - 3), GridKnots(Height - 3), Points
     )
     Corners = (Points[0], Points[Width - 1], Points[-1], Points[-Width])
+    Bounds = GridBounds(Result)
     return GridResult(
         Result,
         GridPatches(Surface.Topology, Spokes, Places),
-        GridBounds(Result, Width, Height),
+        Bounds,
         Corners,
+        GridJumps(Result, Width, Height),
+        tuple(ThirdJumps(Bound) for Bound in Bounds),
     )

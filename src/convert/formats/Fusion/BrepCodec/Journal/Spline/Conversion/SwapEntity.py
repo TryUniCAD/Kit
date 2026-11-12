@@ -1,9 +1,15 @@
 from dataclasses import replace as ReplaceValue
 
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Authoring.ExactSubtypes import (
+    SplineCurve,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.PointNode import PointNode
 from convert.formats.Fusion.BrepCodec.Journal.JournalEntity import KJournalEntity
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Conversion.GridResult import (
     GridResult,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Conversion.JumpCurve import (
+    JumpCurve,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Spline.IntcurveNode import IntcurveNode
 from convert.formats.Fusion.BrepCodec.Journal.Spline.SplineNode import SplineNode
@@ -15,16 +21,19 @@ KMatchSlack = 1e-9
 
 
 def IsNear(
-    Left: tuple[tuple[float, ...], ...], Right: tuple[tuple[float, ...], ...]
+    LeftPoints: tuple[tuple[float, ...], ...],
+    RightPoints: tuple[tuple[float, ...], ...],
 ) -> bool:
-    if len(Left) != len(Right):
+    if len(LeftPoints) != len(RightPoints):
         return False
     Pairs = [
         (ValueLeft, ValueRight)
-        for PointLeft, PointRight in zip(Left, Right)
+        for PointLeft, PointRight in zip(LeftPoints, RightPoints)
         for ValueLeft, ValueRight in zip(PointLeft, PointRight, strict=True)
     ]
-    return all(abs(ValueLeft - ValueRight) <= KMatchSlack for ValueLeft, ValueRight in Pairs)
+    return all(
+        abs(ValueLeft - ValueRight) <= KMatchSlack for ValueLeft, ValueRight in Pairs
+    )
 
 
 def SwapSurface(
@@ -38,20 +47,34 @@ def SwapSurface(
         Cache.Points, Prior.Surface.Points
     ):
         raise ValueError("Fusion grid cage swap found a stale converted surface")
+    if Value.Surface.Jumps != Prior.SurfaceJumps:
+        raise ValueError("Fusion grid cage swap found stale surface discontinuities")
     Subtrans = Value.Surface.Subtrans
     if isinstance(Subtrans, SubtransNode):
         if Subtrans.Regions != (Prior.Patches,):
             raise ValueError("Fusion grid cage swap found another patch program")
         Subtrans = SubtransNode(Surface, (Result.Patches,))
-    Changed = ReplaceValue(Value.Surface, Cache=Result.Surface, Subtrans=Subtrans)
+    Changed = ReplaceValue(
+        Value.Surface,
+        Cache=Result.Surface,
+        Jumps=Result.SurfaceJumps,
+        Subtrans=Subtrans,
+    )
     return ReplaceValue(Value, Surface=Changed)
 
 
-def SwapCurve(Value: IntcurveNode, Prior: GridResult, Result: GridResult) -> IntcurveNode:
-    Cache = Value.Curve.Cache
+def SwapCurve(
+    Value: IntcurveNode, Prior: GridResult, Result: GridResult
+) -> IntcurveNode:
+    Stored = SplineCurve(Value.Curve)
     for Index, Bound in enumerate(Prior.Bounds):
-        if Bound.Knots == Cache.Knots and IsNear(Bound.Points, Cache.Points):
-            Curve = ReplaceValue(Value.Curve, Cache=Result.Bounds[Index])
+        Shape = (Bound.Knots, Bound.Multiplicity, Bound.Weights)
+        if Shape == (Stored.Knots, Stored.Multiplicity, Stored.Weights) and IsNear(
+            Bound.Poles, Stored.Poles
+        ):
+            if JumpCurve(Stored, Prior.BoundJumps[Index]) != Value.Curve:
+                raise ValueError("Fusion grid cage swap found another curve form")
+            Curve = JumpCurve(Result.Bounds[Index], Result.BoundJumps[Index])
             return ReplaceValue(Value, Curve=Curve)
     raise ValueError("Fusion grid cage swap found a stale boundary curve")
 

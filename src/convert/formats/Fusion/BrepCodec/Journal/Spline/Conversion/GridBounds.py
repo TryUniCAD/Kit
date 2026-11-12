@@ -1,23 +1,34 @@
-from convert.formats.Fusion.BrepCodec.Journal.Spline.Conversion.GridKnots import (
-    FlipKnots,
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Authoring.NegateCurve import (
+    NegateCurve,
 )
-from convert.formats.Fusion.BrepCodec.Journal.Spline.NubsCurve import NubsCurve
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Authoring.PatchSheet import (
+    BoundaryCurve,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.BsCurve import BsCurve
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.BsSurface import BsSurface
 from convert.formats.Fusion.BrepCodec.Journal.Spline.NubsSurface import NubsSurface
 
 
-def GridBounds(
-    Surface: NubsSurface, Width: int, Height: int
-) -> tuple[NubsCurve, NubsCurve, NubsCurve, NubsCurve]:
-    Points = Surface.Points
-    if Width * Height != len(Points):
-        raise ValueError("Fusion grid conversion has an unexpected pole count")
-    Bottom = Points[:Width]
-    Right = Points[Width - 1 :: Width]
-    Top = tuple(reversed(Points[-Width:]))
-    Left = tuple(reversed(Points[::Width]))
+def GridBounds(Surface: NubsSurface) -> tuple[BsCurve, BsCurve, BsCurve, BsCurve]:
+    Plain = BsSurface(
+        False,
+        "",
+        Surface.DegreeU,
+        Surface.DegreeV,
+        Surface.ClosureU,
+        Surface.ClosureV,
+        Surface.SingularU,
+        Surface.SingularV,
+        tuple(KnotValue.Value for KnotValue in Surface.KnotsU),
+        tuple(KnotValue.Count for KnotValue in Surface.KnotsU),
+        tuple(KnotValue.Value for KnotValue in Surface.KnotsV),
+        tuple(KnotValue.Count for KnotValue in Surface.KnotsV),
+        Surface.Points,
+        (),
+    )
     return (
-        NubsCurve(3, 0, Surface.KnotsU, Bottom),
-        NubsCurve(3, 0, Surface.KnotsV, Right),
-        NubsCurve(3, 0, FlipKnots(Surface.KnotsU), Top),
-        NubsCurve(3, 0, FlipKnots(Surface.KnotsV), Left),
+        BoundaryCurve(Plain, 0),
+        BoundaryCurve(Plain, 1),
+        NegateCurve(BoundaryCurve(Plain, 2)),
+        NegateCurve(BoundaryCurve(Plain, 3)),
     )

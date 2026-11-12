@@ -11,17 +11,17 @@ def PlaceVertices(
     Origin = Topology.Faces[0].OriginLink
     if Spokes[Origin] != 3:
         raise ValueError("Fusion grid conversion needs an eastward first face")
-    Fans: dict[int, list[int]] = {}
+    VertexFans: dict[int, list[int]] = {}
     for LinkIndex, LinkValue in enumerate(Topology.Links):
         if Spokes[LinkValue.Opposite] != (Spokes[LinkIndex] + 2) % 4:
             raise ValueError("Fusion grid conversion found a twisted edge")
-        Fans.setdefault(LinkValue.VertexIndex, []).append(LinkIndex)
+        VertexFans.setdefault(LinkValue.VertexIndex, []).append(LinkIndex)
     Start = Topology.Links[Origin].VertexIndex
     Places: dict[int, tuple[int, int]] = {Start: (0, 0)}
     Pending = [Start]
     while Pending:
         Vertex = Pending.pop()
-        for LinkIndex in Fans[Vertex]:
+        for LinkIndex in VertexFans[Vertex]:
             LinkValue = Topology.Links[LinkIndex]
             StepU, StepV = KSpokeSteps[Spokes[LinkIndex]]
             Place = (Places[Vertex][0] + StepU, Places[Vertex][1] + StepV)

@@ -37,7 +37,9 @@ def PlaceGrips(
         raise ValueError("Fusion grid conversion needs a rectangular open cage")
     if len(set(Places)) != len(Places) or len(Places) != (LimitU + 1) * (LimitV + 1):
         raise ValueError("Fusion grid conversion needs a complete vertex grid")
-    Centers = [(PoleIndex(Place[0], LimitU), PoleIndex(Place[1], LimitV)) for Place in Places]
+    Centers = [
+        (PoleIndex(Place[0], LimitU), PoleIndex(Place[1], LimitV)) for Place in Places
+    ]
     Assigned = [
         (Centers[Owner.VertexIndex], GripIndex)
         for GripIndex, Owner in enumerate(Mapping.Owners)
@@ -48,7 +50,11 @@ def PlaceGrips(
         Assigned.extend(zip(Targets, Compound.GripIndices))
     Poles = dict(Assigned)
     Width, Height = LimitU + 3, LimitV + 3
-    Order = tuple(Poles.get((Column, Row), -1) for Row in range(Height) for Column in range(Width))
+    Order = tuple(
+        Poles.get((ColumnIndex, RowIndex), -1)
+        for RowIndex in range(Height)
+        for ColumnIndex in range(Width)
+    )
     if len(Poles) != len(Assigned) or len(Assigned) != Width * Height:
         raise ValueError("Fusion grid conversion needs one grip per pole")
     if -1 in Order or sorted(Order) != list(range(GripCount)):
