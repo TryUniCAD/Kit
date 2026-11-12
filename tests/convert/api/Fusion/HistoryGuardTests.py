@@ -8,6 +8,7 @@ from convert.adapters.Fusion.State.EncodeState import EncodeState
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from convert.formats.Fusion.DocumentCodec.EmitParsed import EmitParsed
 from convert.formats.Fusion.BrepCodec.Models.BodyIdentity import BodyIdentity
+from convert.formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
 from tests.convert.api.Fusion.AdapterCases import AdapterCase
 
 
@@ -18,9 +19,10 @@ def TestHistoryGate(TmpPath: FilePath, RoleName: str) -> None:
     Document = OpenDocument(Source)
     ModelValue = ReadDocument(Source.read_bytes())
     BodyValue = ModelValue.Bodies[0]
-    Identity = BodyValue.History.Identity
-    Identity = AlterIdentity(Identity, RoleName)
-    History = ReplaceData(BodyValue.History, Identity=Identity)
+    Original = BodyValue.History
+    assert not isinstance(Original, JournalModel)
+    Identity = AlterIdentity(Original.Identity, RoleName)
+    History = ReplaceData(Original, Identity=Identity)
     Changed = ReplaceData(ModelValue, Bodies=(ReplaceData(BodyValue, History=History),))
     Corrupt = TmpPath / "Corrupt.f3d"
     _ = Corrupt.write_bytes(EmitParsed(Changed))

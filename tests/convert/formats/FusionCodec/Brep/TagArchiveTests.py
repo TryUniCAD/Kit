@@ -5,6 +5,7 @@ from zipfile import ZipFile
 from pytest import mark as TestMarks, raises as RaiseError
 
 from convert.formats.Fusion.BrepCodec.EmitHistory import EmitHistory
+from convert.formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
 from convert.formats.Fusion.BrepCodec.Models.FeatureTag import FeatureTag
 from convert.formats.Fusion.BrepCodec.ReadHistory import ReadHistory
 from convert.formats.Fusion.DocumentCodec.EmitParsed import EmitParsed
@@ -61,6 +62,8 @@ def TestAuthorTags() -> None:
     )
     Payload = Source.read_bytes()
     Model = ReadDocument(Payload)
-    assert Model.Bodies[0].History.Identity.OperationId == 301
-    assert Model.Bodies[0].History.Identity.SecondaryId == 4
+    History = Model.Bodies[0].History
+    assert not isinstance(History, JournalModel)
+    assert History.Identity.OperationId == 301
+    assert History.Identity.SecondaryId == 4
     assert EmitParsed(Model) == Payload
