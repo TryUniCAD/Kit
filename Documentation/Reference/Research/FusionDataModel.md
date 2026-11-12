@@ -700,3 +700,9 @@ The property visitor can omit members without its JSON callbacks, so these files
 Installed binary symbols and member-registration code provide additional field-name and type evidence.
 They do not replace measured load and rebuild results.
 Production discovery must remain disabled until the complete acceptance requirements are met.
+
+## Complete planar cuboid histories
+
+The production `BrepCodec.Prism` reader and writer qualify the ordinary axis-aligned rectangular extrusion history: 86 topology/geometry records, sixteen owned identity attributes, and a two-state journal with all 101 entity insertions. `PrismFrame` preserves parameter frames separately from dimensional geometry: face ordering and senses, loop start corners, line origins and displacement scales, edge intervals, optional carrier bounds, vertex ownership and plane bases. These fields are necessary for a lossless semantic reader; dimensions alone do not describe a stored BRep. Canonical output reallocates all record IDs and remaps references without retaining raw records.
+
+Both a typed native read/re-emission and an independently generated history passed local Fusion import, rollback, full rebuild, native distance edit from 25 to 37 mm, save and reopen. Geometry changed from 30 to 44.4 cm³ with six faces, twelve edges and eight vertices. Each acceptance archive retained its own surrounding source Design, so complete independent rectangular document authoring remains a separate boundary. See [the API and scope](../../Changes/Fusion/FusionPrismHistory.md), [the controlled semantic model](../../../re/Fusion/Reconstruction/CuboidHistory/CuboidHistoryModel.md), and [native evidence](../../../re/Fusion/LocalOracle/PrismHistory/NativeAcceptance.json).

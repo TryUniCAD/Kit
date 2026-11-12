@@ -58,7 +58,7 @@ There are 86 ordinary records including `asmheader` and sixteen custom attribute
 
 All six faces have one four-coedge loop. Every edge has two coedge uses in opposite directions. Twelve straight carriers and six plane carriers complete the geometry. There are no pcurves, transformations, wires, subshells, tolerant entities or nested carrier subtypes in the control. Null and zero fields named as qualified values above have not acquired invented general semantics.
 
-Each optional curve bound is a Boolean token, followed by a double only when true. The bottom and top horizontal carriers in the control have finite intervals; the four vertical carriers are unbounded while their edges have finite intervals. Reading only a nine-field straight-curve form would miss the seven-field unbounded form.
+Each optional curve bound is a Boolean token, followed by a double only when true. The four bottom horizontal carriers in the control have finite intervals; the four top horizontal and four vertical carriers are unbounded while their edges have finite intervals. Reading only a nine-field straight-curve form would miss the seven-field unbounded form.
 
 The source linear vertices have owner endpoint index zero for the owner's start vertex and one for its end vertex. Seven indices are one and one is zero. These values must be preserved for source reconstruction. The cylinder's closed-circle index two belongs to a different qualified topology.
 
@@ -125,7 +125,7 @@ The four curve recipes hold direction-one sketch tags, split pair `(1,1)` and ze
 | `5` | 106 | 105 | 107 |
 | `6` | 107 | 106 | 108 |
 
-The JSON research decoder still uses `objectOffset20Set` and `objectOffset38Set`; their native semantic names are established in the separate sketch-tag evidence as start- and end-adjacent primary tag IDs. The region recipe stores the set of tags 107,106,108,105, all with direction zero and split pair `(1,1)`, paired with Boolean true. That serialized set order is not a coedge traversal order and must not be mistaken for polygon winding.
+The JSON research decoder still uses `objectOffset20Set` and `objectOffset38Set`; their native semantic names are established in the separate sketch-tag evidence as start- and end-adjacent primary tag IDs. The region recipe's native type is `std::list<std::pair<std::list<sketch_tag_id>,bool>>`. The control stores the ordered tag list 107,106,108,105, all with direction zero and split pair `(1,1)`, paired with Boolean true. That observed order is not the geometric perimeter order. No inspected matcher proves that list order is semantically interchangeable, so source reconstruction must retain it and independent authoring must establish its own accepted ordering. The endpoint-adjacent collections remain sets.
 
 ## Two-state journal
 

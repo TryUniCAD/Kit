@@ -8,7 +8,7 @@ The same tool inspected the DEFLATE-compressed F3Z example successfully.
 Its saved evidence describes container entries and explicitly excludes Fusion-specific semantics.
 
 Use a bounded Zstandard-capable archive reader for method 93.
-Python 3.14 provides standard-library ZIP support for this compression method.
+Python 3.14 provides standard-library ZIP support for this compression method. `uv run --no-sync --python 3.14` may still use an existing incompatible project environment after a warning; it used Python 3.13 during prism artifact preparation and failed on method 93. For this standard-library-only preparation script, `uv run --no-project --python 3.14 python re/Fusion/LocalOracle/PreparePrismHistory.py --mode both` selected the requested interpreter without changing the project environment.
 Preserve the original archive digest when recording analysis of decompressed members.
 Do not treat successful container inspection as proof of feature decoding or vendor-loadable writing.
 
