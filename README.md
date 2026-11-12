@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 -->
 
 <p align="center">
-  <img alt="Kit CAD interchange SDK" src="files/Banner.png">
+  <img alt="Kit CAD interchange SDK" src="https://raw.githubusercontent.com/TryUniCAD/Kit/b9a022e45431457bb8ba9771d145b46a2cc1c9cc/files/Banner.png">
 </p>
 
 # Kit
