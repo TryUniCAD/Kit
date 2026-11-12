@@ -19,4 +19,4 @@ class BundleObject:
     ContentType: Literal["f3d", "f2d"]
     References: tuple[BundleRefs, ...]
     Metadata: tuple[BundleText, ...]
-    CreatedAt: str
+    CreatedAt: str | None

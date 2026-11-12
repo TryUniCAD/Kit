@@ -5,7 +5,7 @@ from convert.formats.Fusion.BundleCodec.Model.BundleObject import BundleObject
 
 
 def EmitObject(Value: BundleObject) -> KJsonValue:
-    return {
+    Fields: dict[str, KJsonValue] = {
         "id": Value.ObjectId,
         "version": Value.Version,
         "about": Value.VersionUrn,
@@ -21,5 +21,7 @@ def EmitObject(Value: BundleObject) -> KJsonValue:
         "shareInfo": None,
         "references": [EmitRefs(Entry) for Entry in Value.References],
         "metadata": EmitMetadata(Value.Metadata),
-        "createdAt": Value.CreatedAt,
     }
+    if Value.CreatedAt is not None:
+        Fields["createdAt"] = Value.CreatedAt
+    return Fields

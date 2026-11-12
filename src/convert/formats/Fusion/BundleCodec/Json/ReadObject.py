@@ -7,12 +7,13 @@ from convert.formats.Fusion.BundleCodec.Model.BundleObject import BundleObject
 
 
 def ReadObject(Value: KJsonValue) -> BundleObject:
-    Fields = JsonObject(
-        Value,
+    KeyNames = (
         "id version about lineage from relativePath downloadAs "
         + "friendlyName displayName zipped rootFile contentType shareInfo "
-        + "references metadata createdAt",
+        + "references metadata"
     )
+    HasCreated = isinstance(Value, dict) and "createdAt" in Value
+    Fields = JsonObject(Value, KeyNames + " createdAt" if HasCreated else KeyNames)
     if (
         Fields["zipped"] is not False
         or Fields["rootFile"] != ""
@@ -35,5 +36,5 @@ def ReadObject(Value: KJsonValue) -> BundleObject:
         "f3d" if ContentType == "f3d" else "f2d",
         tuple(ReadRefs(Entry) for Entry in JsonArray(Fields["references"])),
         ReadMetadata(Fields["metadata"]),
-        JsonString(Fields["createdAt"]),
+        JsonString(Fields["createdAt"]) if HasCreated else None,
     )
