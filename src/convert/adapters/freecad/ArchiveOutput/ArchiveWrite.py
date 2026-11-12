@@ -53,7 +53,6 @@ def BuildDocXmlMut(
     )
 
 
-# this definition exists because focused behavior needs one stable owner
 def ZipEntry(NameValue: str, DataValue: bytes) -> tuple[Zipfile.ZipInfo, bytes]:
     InfoValue = Zipfile.ZipInfo(NameValue, (1980, 1, 1, 0, 0, 0))
     setattr(InfoValue, "compress_type", Zipfile.ZIP_DEFLATED)
@@ -62,7 +61,6 @@ def ZipEntry(NameValue: str, DataValue: bytes) -> tuple[Zipfile.ZipInfo, bytes]:
     return (InfoValue, DataValue)
 
 
-# this definition exists because focused behavior needs one stable owner
 def BuildFcstdMut(
     Manifest: Mapping[str, object],
     OuterLinks: Mapping[str, Mapping[str, object]] | None = None,
@@ -116,7 +114,6 @@ def BuildFcstdMut(
     return Output.getvalue()
 
 
-# this definition exists because focused behavior needs one stable owner
 def BuildFcstdApi(
     Manifest: Mapping[str, object],
     OuterLinks: Mapping[str, Mapping[str, object]] | None = None,
