@@ -1,0 +1,257 @@
+{
+  "Fillet": {
+    "file": "Fillet.f3d",
+    "bytes": 124179,
+    "sha256": "eb5b192fc835e87c0fe6abaef75d4358c36a45a5e184376e7ea9edb1682f33a7",
+    "features": [
+      "FilletSpec(CornerMm=(40.0, 30.0), RadiusMm=3.0, FeatureName='Fillet')"
+    ],
+    "steps": [
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          4.0,
+          3.0
+        ],
+        "amount": "3 mm",
+        "name": "Fillet"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Fillet",
+        "expression": "4 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.96137166941154,
+        "area_cm2": 51.703849465488474,
+        "faces": 7,
+        "edges": 15
+      }
+    ]
+  },
+  "Chamfer": {
+    "file": "Chamfer.f3d",
+    "bytes": 123779,
+    "sha256": "084a9b87eebd24bf3483f131967729d47938f4171247f4d0ff1decb465ca3628",
+    "features": [
+      "ChamferSpec(CornerMm=(40.0, 30.0), DistanceMm=3.0, FeatureName='Chamfer')"
+    ],
+    "steps": [
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          4.0,
+          3.0
+        ],
+        "amount": "3 mm",
+        "name": "Chamfer"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Chamfer",
+        "expression": "2 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.91,
+        "area_cm2": 51.558528137423856,
+        "faces": 7,
+        "edges": 15
+      }
+    ]
+  },
+  "Shell": {
+    "file": "Shell.f3d",
+    "bytes": 125051,
+    "sha256": "7693532411e857bec404e31bd5371911f3e5db43f710b09adb189f591f3f8bd5",
+    "features": [
+      "ShellSpec(ThicknessMm=2.0, FeatureName='Shell')"
+    ],
+    "steps": [
+      {
+        "kind": "shell",
+        "amount": "2 mm",
+        "name": "Shell"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Shell",
+        "expression": "3 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 7.152000000000002,
+        "area_cm2": 74.32,
+        "faces": 11,
+        "edges": 24
+      }
+    ]
+  },
+  "FilletShell": {
+    "file": "FilletShell.f3d",
+    "bytes": 141029,
+    "sha256": "229b46a58de685b11e9ea4467bc1e71baf671b5e1d33c6357033fb6e676a62de",
+    "features": [
+      "FilletSpec(CornerMm=(40.0, 30.0), RadiusMm=3.0, FeatureName='Fillet')",
+      "ShellSpec(ThicknessMm=2.0, FeatureName='Shell')"
+    ],
+    "steps": [
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          4.0,
+          3.0
+        ],
+        "amount": "3 mm",
+        "name": "Fillet"
+      },
+      {
+        "kind": "shell",
+        "amount": "2 mm",
+        "name": "Shell"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Shell",
+        "expression": "1.5 mm"
+      },
+      {
+        "feature": "height",
+        "expression": "25 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.96137166941154,
+        "area_cm2": 51.703849465488474,
+        "faces": 7,
+        "edges": 15
+      },
+      {
+        "volume_cm3": 7.117234502470387,
+        "area_cm2": 73.94659280431156,
+        "faces": 13,
+        "edges": 30
+      }
+    ]
+  },
+  "MultiFeature": {
+    "file": "MultiFeature.f3d",
+    "bytes": 175476,
+    "sha256": "e0ca981ab321b54111c0029401e0dd9cb01a7a5141006292f3e1a0c498ff7e6a",
+    "features": [
+      "FilletSpec(CornerMm=(40.0, 30.0), RadiusMm=3.0, FeatureName='Corner Round')",
+      "ChamferSpec(CornerMm=(0.0, 0.0), DistanceMm=3.0, FeatureName='Corner Bevel')",
+      "FilletSpec(CornerMm=(40.0, 0.0), RadiusMm=4.0, FeatureName='Fillet')",
+      "ShellSpec(ThicknessMm=2.0, FeatureName='Hollow')"
+    ],
+    "steps": [
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          4.0,
+          3.0
+        ],
+        "amount": "3 mm",
+        "name": "Corner Round"
+      },
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          0.0,
+          0.0
+        ],
+        "amount": "3 mm",
+        "name": "Corner Bevel"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          4.0,
+          0.0
+        ],
+        "amount": "4 mm",
+        "name": "Fillet"
+      },
+      {
+        "kind": "shell",
+        "amount": "2 mm",
+        "name": "Hollow"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Corner Round",
+        "expression": "5 mm"
+      },
+      {
+        "feature": "height",
+        "expression": "25 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.96137166941154,
+        "area_cm2": 51.703849465488474,
+        "faces": 7,
+        "edges": 15
+      },
+      {
+        "volume_cm3": 23.87137166941154,
+        "area_cm2": 51.26237760291234,
+        "faces": 8,
+        "edges": 18
+      },
+      {
+        "volume_cm3": 23.802699081698727,
+        "area_cm2": 50.85034207663544,
+        "faces": 9,
+        "edges": 21
+      },
+      {
+        "volume_cm3": 7.004101558747525,
+        "area_cm2": 72.74577988696889,
+        "faces": 17,
+        "edges": 42
+      }
+    ]
+  }
+}

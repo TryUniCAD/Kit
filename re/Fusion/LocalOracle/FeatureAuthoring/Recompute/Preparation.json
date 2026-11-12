@@ -1,0 +1,308 @@
+{
+  "scope": "Same-source native controls with typed truncation of the BRep journal only; Design records unchanged; recompute experiment evidence, not Kit authoring",
+  "cases": [
+    {
+      "source": "Fillet.f3d",
+      "source_sha256": "099c3c38df5313b690dd93943634cbbe555b4616569a85298ec172a752c09940",
+      "target": "FilletWithoutFilletState.f3d",
+      "target_sha256": "f45e44860e7a5ef5ff551b9d96126a4714d6ce1ce2393bb13824ab4a9fa8402d",
+      "history_member": "BREP.f4da3245-9f8f-4664-a9e3-e36642cd52c9.smbh",
+      "original_stream": {
+        "CurrentStateId": 6,
+        "MaxStateId": 6,
+        "MaxStatesToKeep": 0,
+        "NextEntityTag": 16,
+        "WorkingNode": -1,
+        "ActiveNode": 0,
+        "InitialNode": 1,
+        "OwnerEntity": -1
+      },
+      "truncated_stream": {
+        "CurrentStateId": 5,
+        "MaxStateId": 6,
+        "MaxStatesToKeep": 0,
+        "NextEntityTag": 16,
+        "WorkingNode": -1,
+        "ActiveNode": 1,
+        "InitialNode": 0,
+        "OwnerEntity": -1
+      },
+      "original_states": [
+        6,
+        5,
+        2
+      ],
+      "truncated_states": [
+        5,
+        2
+      ],
+      "original_entities": 171,
+      "truncated_entities": 103,
+      "truncated_active": 103,
+      "name": "FilletWithoutFilletState"
+    },
+    {
+      "source": "ExtrudeCut.f3d",
+      "source_sha256": "ab1b4543612c4e792214ab5cc72512532e03230becf8d8cc0af1b9a8fca310ce",
+      "target": "ExtrudeCutWithoutCutState.f3d",
+      "target_sha256": "f9f14c306afa16541b1466f358b7ed92ae43353e9adba6e66afec13c6e9db824",
+      "history_member": "BREP.62dcc931-9061-4643-9dde-1b3276b03cb6.smbh",
+      "original_stream": {
+        "CurrentStateId": 6,
+        "MaxStateId": 6,
+        "MaxStatesToKeep": 0,
+        "NextEntityTag": 8,
+        "WorkingNode": -1,
+        "ActiveNode": 0,
+        "InitialNode": 1,
+        "OwnerEntity": -1
+      },
+      "truncated_stream": {
+        "CurrentStateId": 5,
+        "MaxStateId": 6,
+        "MaxStatesToKeep": 0,
+        "NextEntityTag": 8,
+        "WorkingNode": -1,
+        "ActiveNode": 1,
+        "InitialNode": 0,
+        "OwnerEntity": -1
+      },
+      "original_states": [
+        6,
+        5,
+        2
+      ],
+      "truncated_states": [
+        5,
+        2
+      ],
+      "original_entities": 132,
+      "truncated_entities": 102,
+      "truncated_active": 102,
+      "name": "ExtrudeCutWithoutCutState"
+    },
+    {
+      "source": "MultiFeature.f3d",
+      "source_sha256": "2f8218d636a358c2f64aa3b0ed79081d2750a52123978e2504a14fdefccc0c7d",
+      "target": "MultiFeatureBaseStateOnly.f3d",
+      "target_sha256": "6f7d8aa143dae2bf5347cf89a0f1f4ace8e235987b47d89efa57efeee6652108",
+      "history_member": "BREP.2fc82221-1e7a-4824-8b18-c935ed41ee23.smbh",
+      "original_stream": {
+        "CurrentStateId": 27,
+        "MaxStateId": 27,
+        "MaxStatesToKeep": 0,
+        "NextEntityTag": 61,
+        "WorkingNode": -1,
+        "ActiveNode": 0,
+        "InitialNode": 1,
+        "OwnerEntity": -1
+      },
+      "truncated_stream": {
+        "CurrentStateId": 16,
+        "MaxStateId": 27,
+        "MaxStatesToKeep": 0,
+        "NextEntityTag": 61,
+        "WorkingNode": -1,
+        "ActiveNode": 1,
+        "InitialNode": 0,
+        "OwnerEntity": -1
+      },
+      "original_states": [
+        27,
+        26,
+        25,
+        24,
+        23,
+        22,
+        21,
+        20,
+        19,
+        18,
+        17,
+        16,
+        2
+      ],
+      "truncated_states": [
+        16,
+        2
+      ],
+      "original_entities": 750,
+      "truncated_entities": 103,
+      "truncated_active": 103,
+      "name": "MultiFeatureBaseStateOnly"
+    },
+    {
+      "source": "Shell.f3d",
+      "source_sha256": "56775d6bdb3b2987d28d7b2cf14defac6771ce55272b626da8add5a671b711bf",
+      "target": "ShellWithoutShellState.f3d",
+      "target_sha256": "4de48b983f1a04cff64a8506fdd8c6ce5c50e1a72012e9d385b58225dfbbb243",
+      "history_member": "BREP.ddf01c1d-5e61-406b-8cc6-8abd88146412.smbh",
+      "original_stream": {
+        "CurrentStateId": 6,
+        "MaxStateId": 6,
+        "MaxStatesToKeep": 0,
+        "NextEntityTag": 18,
+        "WorkingNode": -1,
+        "ActiveNode": 0,
+        "InitialNode": 1,
+        "OwnerEntity": -1
+      },
+      "truncated_stream": {
+        "CurrentStateId": 5,
+        "MaxStateId": 6,
+        "MaxStatesToKeep": 0,
+        "NextEntityTag": 18,
+        "WorkingNode": -1,
+        "ActiveNode": 1,
+        "InitialNode": 0,
+        "OwnerEntity": -1
+      },
+      "original_states": [
+        6,
+        5,
+        2
+      ],
+      "truncated_states": [
+        5,
+        2
+      ],
+      "original_entities": 207,
+      "truncated_entities": 103,
+      "truncated_active": 103,
+      "name": "ShellWithoutShellState"
+    },
+    {
+      "source": "RectPattern.f3d",
+      "source_sha256": "d8341574329a766cc94ba31f1387e9e3f57498c678ef08be0d7ef1a85c000527",
+      "target": "RectPatternWithoutPatternState.f3d",
+      "target_sha256": "64cdf665b1bc5872ae41b4381e51e04c278466ca49ea06a5540124344cf16a5e",
+      "history_member": "BREP.09187fd1-8a2a-40b0-bcf1-9957a1e599f8.smbh",
+      "original_stream": {
+        "CurrentStateId": 28,
+        "MaxStateId": 28,
+        "MaxStatesToKeep": 0,
+        "NextEntityTag": 13,
+        "WorkingNode": -1,
+        "ActiveNode": 0,
+        "InitialNode": 1,
+        "OwnerEntity": -1
+      },
+      "truncated_stream": {
+        "CurrentStateId": 17,
+        "MaxStateId": 28,
+        "MaxStatesToKeep": 0,
+        "NextEntityTag": 13,
+        "WorkingNode": -1,
+        "ActiveNode": 2,
+        "InitialNode": 0,
+        "OwnerEntity": -1
+      },
+      "original_states": [
+        28,
+        27,
+        26,
+        25,
+        24,
+        23,
+        22,
+        21,
+        20,
+        19,
+        18,
+        17,
+        16,
+        2
+      ],
+      "truncated_states": [
+        17,
+        16,
+        2
+      ],
+      "original_entities": 298,
+      "truncated_entities": 132,
+      "truncated_active": 124,
+      "name": "RectPatternWithoutPatternState"
+    },
+    {
+      "source": "Chamfer.f3d",
+      "source_sha256": "2971560f32a3c73e13e077dd9aba9b3a7b40ed31b24c1d8b66da3aa8024972af",
+      "target": "ChamferWithoutChamferState.f3d",
+      "target_sha256": "0457ce26ef44df4623871ab274e33449eb11a032112ecd7ec72995ab2d36d16d",
+      "history_member": "BREP.54b18d48-0e84-44e3-9711-d1eace37c641.smbh",
+      "original_stream": {
+        "CurrentStateId": 6,
+        "MaxStateId": 6,
+        "MaxStatesToKeep": 0,
+        "NextEntityTag": 16,
+        "WorkingNode": -1,
+        "ActiveNode": 0,
+        "InitialNode": 1,
+        "OwnerEntity": -1
+      },
+      "truncated_stream": {
+        "CurrentStateId": 5,
+        "MaxStateId": 6,
+        "MaxStatesToKeep": 0,
+        "NextEntityTag": 16,
+        "WorkingNode": -1,
+        "ActiveNode": 1,
+        "InitialNode": 0,
+        "OwnerEntity": -1
+      },
+      "original_states": [
+        6,
+        5,
+        2
+      ],
+      "truncated_states": [
+        5,
+        2
+      ],
+      "original_entities": 171,
+      "truncated_entities": 103,
+      "truncated_active": 103,
+      "name": "ChamferWithoutChamferState"
+    },
+    {
+      "source": "MirrorBody.f3d",
+      "source_sha256": "5da8c50033cc6a2f1754c9ae8777dfe9029da7f414de0f3af4b3e7c9e3d2d1ef",
+      "target": "MirrorBodyWithoutMirrorState.f3d",
+      "target_sha256": "5c1245f90b92b5d035a2f90b74131a314735c36c3330467484b79dc837ae5b1c",
+      "history_member": "BREP.c279430f-b2e9-423b-a447-f4ad6352d4ae.smbh",
+      "original_stream": {
+        "CurrentStateId": 8,
+        "MaxStateId": 8,
+        "MaxStatesToKeep": 0,
+        "NextEntityTag": 20,
+        "WorkingNode": -1,
+        "ActiveNode": 0,
+        "InitialNode": 1,
+        "OwnerEntity": -1
+      },
+      "truncated_stream": {
+        "CurrentStateId": 6,
+        "MaxStateId": 8,
+        "MaxStatesToKeep": 0,
+        "NextEntityTag": 20,
+        "WorkingNode": -1,
+        "ActiveNode": 1,
+        "InitialNode": 0,
+        "OwnerEntity": -1
+      },
+      "original_states": [
+        8,
+        7,
+        6,
+        2
+      ],
+      "truncated_states": [
+        6,
+        2
+      ],
+      "original_entities": 207,
+      "truncated_entities": 102,
+      "truncated_active": 102,
+      "name": "MirrorBodyWithoutMirrorState"
+    }
+  ]
+}
