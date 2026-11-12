@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.Topology.AsmEdge.AsmTable import AsmRecord, AsmTable
 from interchange.geometry.models.VectorSpace import SpaceVector
 

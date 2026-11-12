@@ -1,4 +1,3 @@
-
 from math import hypot as Hypot, isfinite as IsFinite
 from struct import unpack as Unpack
 

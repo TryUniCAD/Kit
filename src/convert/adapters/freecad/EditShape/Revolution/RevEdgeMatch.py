@@ -1,4 +1,3 @@
-
 from dataclasses import dataclass as MakeDataClass, field as DataField
 from math import tau as FullTurn
 

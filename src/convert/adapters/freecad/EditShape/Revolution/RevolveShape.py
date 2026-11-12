@@ -1,4 +1,3 @@
-
 from collections import Counter
 
 from convert.adapters.freecad.EditShape.CylinderRims import KPositionTolerance

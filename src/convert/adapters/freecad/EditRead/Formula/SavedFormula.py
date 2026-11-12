@@ -1,4 +1,3 @@
-
 from ast import dump as DumpAst
 
 from convert.geometry.Formula.Arithmetic import Formula

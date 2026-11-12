@@ -1,4 +1,3 @@
-
 from math import tau as FullTurn
 
 from convert.geometry.Revolve.SweepVector import OffsetVector

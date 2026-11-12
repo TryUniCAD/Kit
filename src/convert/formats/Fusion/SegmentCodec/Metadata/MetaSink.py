@@ -1,4 +1,3 @@
-
 from struct import pack as PackValue
 
 from convert.formats.Fusion.SegmentCodec.Metadata.MetaLimits import (

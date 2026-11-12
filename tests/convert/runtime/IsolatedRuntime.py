@@ -1,4 +1,3 @@
-
 # isolated execution proves the wheel needs no cad application or external runtime hook
 KIsolatedRuntime = r"""
 import io

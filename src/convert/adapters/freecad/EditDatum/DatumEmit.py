@@ -1,4 +1,3 @@
-
 from collections.abc import Mapping as TypeMap
 from typing import cast as CastValue
 

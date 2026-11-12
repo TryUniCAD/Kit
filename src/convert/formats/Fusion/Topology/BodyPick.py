@@ -1,4 +1,3 @@
-
 from dataclasses import dataclass as MakeDataClass
 from math import isfinite as IsFinite
 from struct import unpack as Unpack

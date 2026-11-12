@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.FeatureState import ReadFeatState
 from tests.convert.formats.FusionHistoryTests import NativeRef
 

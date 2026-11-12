@@ -1,4 +1,3 @@
-
 from interchange.features.FeatureStep import FeatureStep
 from interchange.records.RecordParameter import Parameter
 from interchange.geometry.models.Sketch import Sketch

@@ -1,4 +1,3 @@
-
 from dataclasses import replace as ReplaceData
 from math import hypot as Hypot
 from math import isfinite as IsFinite

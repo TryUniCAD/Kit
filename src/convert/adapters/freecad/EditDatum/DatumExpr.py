@@ -1,4 +1,3 @@
-
 from convert.adapters.freecad.EditPlaneRev.PlanePoseExpr import (
     PlanePoseExpr,
     RotationExpr,

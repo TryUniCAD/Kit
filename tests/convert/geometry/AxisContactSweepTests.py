@@ -1,4 +1,3 @@
-
 from math import pi as HalfTurn
 
 from pytest import approx as Approx

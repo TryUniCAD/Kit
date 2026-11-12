@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.Topology.AsmEdge.AsmPoints import IsAsmNear
 from convert.formats.Fusion.Topology.AsmEdge.AsmPrism import AsmPrism
 from convert.formats.Fusion.Topology.AsmEdge.AsmPrismEdges import AsmPrismEdge

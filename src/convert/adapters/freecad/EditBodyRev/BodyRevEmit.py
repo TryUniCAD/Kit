@@ -1,4 +1,3 @@
-
 from convert.adapters.freecad.Archive import (
     AddBrepEntryMut,
     AddExtToolMut,

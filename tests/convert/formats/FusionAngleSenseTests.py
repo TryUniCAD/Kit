@@ -1,4 +1,3 @@
-
 from pytest import raises as Raises
 
 from convert.formats.Fusion.Revolves.MeridianCoords import CleanMeridian

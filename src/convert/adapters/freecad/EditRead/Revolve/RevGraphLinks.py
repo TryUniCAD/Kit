@@ -1,4 +1,3 @@
-
 from convert.adapters.freecad.Archive import JsonProp
 from convert.adapters.freecad.EditRead.Formula.SheetScaffold import (
     CheckEmptyProxy,

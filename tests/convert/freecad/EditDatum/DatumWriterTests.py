@@ -1,4 +1,3 @@
-
 from xml.etree.ElementTree import Element
 from interchange.features.FeatureStep import FeatureStep
 from interchange.document.models.DocumentModel import CadDocument

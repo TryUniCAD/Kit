@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.HistoryRef import ReadNativeRef, ReadOptRefMut
 from convert.formats.Fusion.MetaCursor import MetaCursor
 from convert.formats.Fusion.Revolves.RevolveInput import RevolveInput

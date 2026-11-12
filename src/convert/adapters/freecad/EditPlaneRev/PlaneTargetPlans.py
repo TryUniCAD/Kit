@@ -1,4 +1,3 @@
-
 from interchange.records.RecordParameter import Parameter
 from collections.abc import Mapping
 from math import isclose as IsClose, pi as HalfTurn

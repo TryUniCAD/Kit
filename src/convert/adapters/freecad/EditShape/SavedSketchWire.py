@@ -1,4 +1,3 @@
-
 from convert.adapters.freecad.EditShape.Sketch.MatchWireEdges import IsEdgeMatch
 from convert.adapters.freecad.EditShape.Sketch.SavedWireData import ReadSavedWire
 from convert.adapters.freecad.EditShape.Sketch.WireMatch import KSketchCurve

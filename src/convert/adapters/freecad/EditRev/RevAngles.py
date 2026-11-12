@@ -1,4 +1,3 @@
-
 from convert.adapters.freecad.LiteralQuantity import IsLiteralQty
 from convert.formats.Fusion.FeatureLabels import KFeatureFields
 from convert.geometry.Formula.Arithmetic import (

@@ -1,4 +1,3 @@
-
 from typing import cast as CastValue
 from convert.formats.Fusion.MetaIndex import KSegmentLayout, SegmentKind
 from convert.formats.Fusion.SegmentCodec.Metadata.MetaHeader import MetaHeader

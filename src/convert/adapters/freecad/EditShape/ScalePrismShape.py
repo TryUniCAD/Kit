@@ -1,4 +1,3 @@
-
 from convert.adapters.freecad.EditShape.Prism.PrismRaw import ReadPrismRaw
 from convert.adapters.freecad.EditShape.PrismShape import IsPrismMatch, KMaxPrismBytes
 from convert.adapters.freecad.EditShape.Scale.ScaleExpected import ScaleExpected

@@ -1,4 +1,3 @@
-
 from math import pi as CirclePi
 from struct import pack as PackData
 

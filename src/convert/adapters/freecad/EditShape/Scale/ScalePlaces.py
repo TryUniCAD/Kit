@@ -1,4 +1,3 @@
-
 from convert.adapters.freecad.EditShape.CylinderRims import IsNearPoint, KAngleTolerance
 from convert.adapters.freecad.EditShape.Prism.PrismRaw import PrismRaw
 from convert.geometry.Opencascade import (

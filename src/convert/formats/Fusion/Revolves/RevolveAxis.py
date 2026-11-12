@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.RecordSpan import RecordSpan
 from convert.formats.Fusion.Revolves.OriginAxis import KAxisGuid
 from convert.formats.Fusion.Revolves.RevolveEdge import ResolveRevEdge

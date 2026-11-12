@@ -1,4 +1,3 @@
-
 from math import dist as Distance, isclose as IsClose
 
 from convert.formats.Fusion.Topology.AsmEdge.AsmFields import (

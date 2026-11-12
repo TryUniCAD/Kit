@@ -1,4 +1,3 @@
-
 from dataclasses import replace as Replace
 from math import fmod as TurnResidue, tau as FullTurn
 from xml.etree.ElementTree import Element

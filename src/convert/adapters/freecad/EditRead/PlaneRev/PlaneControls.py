@@ -1,4 +1,3 @@
-
 from collections.abc import Mapping
 from math import degrees as Degrees, isclose as IsClose
 

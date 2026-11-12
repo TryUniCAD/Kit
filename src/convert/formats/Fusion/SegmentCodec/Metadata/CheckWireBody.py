@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.SegmentCodec.Metadata.MetaSegment import MetaSegment
 
 

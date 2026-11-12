@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.Topology.AsmEdge.AsmNames import KNameTerms
 from convert.formats.Fusion.Topology.AsmEdge.AsmPoints import (
     CheckAsmLine,

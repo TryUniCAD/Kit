@@ -1,4 +1,3 @@
-
 from dataclasses import dataclass as MakeDataClass
 
 from interchange.geometry.models.Transform import Transform

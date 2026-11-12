@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.ParamProjection import ParamOrigin as RecordOrigin
 from convert.formats.Fusion.RecordSpan import RecordSpan
 from convert.formats.Fusion.Sketches.Geometric.GeomRuleAttach import AttachGeomRule

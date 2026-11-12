@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.Extrudes.Plane.OffsetBackend import KOffsetBackend
 from convert.formats.Fusion.HistoryRef import ReadNativeRef
 from convert.formats.Fusion.NativePlane import KPlaneFeature

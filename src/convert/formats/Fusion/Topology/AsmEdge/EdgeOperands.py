@@ -1,4 +1,3 @@
-
 from dataclasses import dataclass as MakeDataClass
 from struct import unpack_from as UnpackFrom
 

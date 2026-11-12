@@ -1,4 +1,3 @@
-
 from collections.abc import Sequence
 
 from convert.adapters.freecad.EditRead.PlaneRev.ExprMatch import IsSamePlaneExpr

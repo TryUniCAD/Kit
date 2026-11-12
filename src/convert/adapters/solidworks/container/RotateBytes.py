@@ -1,4 +1,3 @@
-
 def RotateBytes(DataValue: bytes, ShiftValue: int) -> bytes:
     ShiftValue &= 7
     return bytes(

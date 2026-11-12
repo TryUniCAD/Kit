@@ -1,4 +1,3 @@
-
 from xml.etree.ElementTree import Element
 
 from convert.adapters.freecad.Archive import Items, ParamCatalog

@@ -1,4 +1,3 @@
-
 from dataclasses import dataclass as MakeDataClass
 from re import split as SplitBytes
 from typing import cast as CastValue

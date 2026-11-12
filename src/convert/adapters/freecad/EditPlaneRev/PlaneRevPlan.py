@@ -1,4 +1,3 @@
-
 from dataclasses import dataclass as MakeDataClass, replace as Replace
 from math import isclose as IsClose, pi as HalfTurn
 

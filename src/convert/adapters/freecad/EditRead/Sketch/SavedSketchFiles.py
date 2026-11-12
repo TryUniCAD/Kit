@@ -1,4 +1,3 @@
-
 from convert.adapters.freecad.Native import EntryName, NativeObject
 
 

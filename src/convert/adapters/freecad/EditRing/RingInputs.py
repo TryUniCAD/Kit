@@ -1,4 +1,3 @@
-
 from convert.adapters.freecad.EditRing.RingEndpoints import CheckRingEnds, ReadRingEnds
 from convert.geometry.Extrude.Polygon.PrismRing import MeasureRing, ReadPrismRing
 from interchange.brep.topology.BrepMath import IsFinitePlane

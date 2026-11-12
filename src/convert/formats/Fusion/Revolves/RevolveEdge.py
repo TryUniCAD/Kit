@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.RecordSpan import RecordSpan
 from convert.formats.Fusion.Revolves.RevolvePick import RevolvePick
 from convert.formats.Fusion.SelectionProxy import SelectCursor

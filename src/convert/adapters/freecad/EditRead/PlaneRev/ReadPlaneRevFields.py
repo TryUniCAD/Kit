@@ -1,4 +1,3 @@
-
 from dataclasses import dataclass as MakeDataClass
 from xml.etree.ElementTree import Element
 

@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.HistoryRef import ReadNativeRef
 from convert.formats.Fusion.RecordSpan import RecordSpan
 from convert.formats.Fusion.SelectionProxy import SelectCursor

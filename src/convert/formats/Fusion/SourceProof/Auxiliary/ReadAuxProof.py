@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.ArchiveRead.IndexedArchive import IndexedArchive
 from convert.formats.Fusion.MetaIndex import SegmentKind
 from convert.formats.Fusion.RecordSpan import RecordSpan

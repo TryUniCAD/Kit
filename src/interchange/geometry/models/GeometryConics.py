@@ -1,4 +1,3 @@
-
 from interchange.core.ModelBase import ModelBase, ModelDataMut
 from interchange.geometry.models.VectorPlane import PlaneVector
 

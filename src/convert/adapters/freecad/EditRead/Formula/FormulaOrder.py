@@ -1,4 +1,3 @@
-
 from graphlib import CycleError, TopologicalSorter as SortTopology
 
 from convert.adapters.freecad.FormulaSheet.FormulaPlans import (

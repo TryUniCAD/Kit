@@ -1,4 +1,3 @@
-
 from typing import cast as CastValue
 from struct import pack as PackValue
 

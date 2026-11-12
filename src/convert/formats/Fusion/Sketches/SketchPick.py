@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.RecordSpan import RecordSpan
 from convert.formats.Fusion.SelectionProxy import SelectCursor
 from interchange.enums.EnumGeometry import GeometryKind

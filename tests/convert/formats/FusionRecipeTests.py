@@ -1,4 +1,3 @@
-
 from struct import pack as PackData
 
 from pytest import raises as Raises

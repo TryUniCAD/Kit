@@ -1,4 +1,3 @@
-
 from convert.adapters.base.WriteValidate import IsObjectTuple
 from convert.formats.Fusion.Revolves.RevProfile import ReadRevProfile
 from interchange.features.FeatureStep import FeatureStep

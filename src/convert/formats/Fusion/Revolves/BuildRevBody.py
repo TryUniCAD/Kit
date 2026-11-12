@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.RecordSpan import RecordSpan
 from convert.formats.Fusion.Revolves.AngleRevValues import ReadAngleSpan
 from convert.formats.Fusion.Revolves.BuildRevGeom import BuildRevGeom

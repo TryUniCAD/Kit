@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.MetaCursor import MetaCursor
 
 # the counted recipe record can describe several kinds of selected topology

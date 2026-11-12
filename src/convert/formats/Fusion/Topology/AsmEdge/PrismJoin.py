@@ -1,4 +1,3 @@
-
 from typing import TypeVar
 
 from convert.formats.Fusion.Topology.AsmEdge.AsmPrismEdges import AsmPrismEdge

@@ -1,4 +1,3 @@
-
 from convert.adapters.base.WriteValidate import IsObjectTuple
 from interchange.geometry.models.Sketch import SketchEntity
 

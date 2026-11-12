@@ -1,4 +1,3 @@
-
 from math import atan2 as AtanTwo
 from math import cos as CosData
 from math import isclose as IsClose

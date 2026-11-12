@@ -1,4 +1,3 @@
-
 from dataclasses import dataclass as MakeDataClass
 from re import findall as FindAll
 

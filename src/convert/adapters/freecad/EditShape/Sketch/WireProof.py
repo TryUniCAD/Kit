@@ -1,4 +1,3 @@
-
 from convert.adapters.freecad.EditShape.CylinderRims import (
     IsNearPoint,
     KPositionTolerance,

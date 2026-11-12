@@ -1,4 +1,3 @@
-
 from convert.adapters.base.AdapterInfo import AdapterInfo
 from convert.adapters.base.ContractTypes import KSourceType
 from convert.adapters.base.ProbeResult import ProbeResult

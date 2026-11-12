@@ -1,4 +1,3 @@
-
 from math import pi as PiValue, tau as FullTurn
 
 from convert.adapters.freecad.EditShape.CylinderRims import (

@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.SegmentCodec.Chronology.PackHistRefs import (
     PackHistRef,
     PackHistRefs,

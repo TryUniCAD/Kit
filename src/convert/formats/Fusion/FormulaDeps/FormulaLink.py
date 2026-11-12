@@ -1,4 +1,3 @@
-
 from dataclasses import replace as Replace
 
 from convert.formats.Fusion.FormulaDeps.FormulaGraph import GetFormulaGraph

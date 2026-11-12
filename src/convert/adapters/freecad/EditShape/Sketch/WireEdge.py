@@ -1,4 +1,3 @@
-
 from dataclasses import dataclass as MakeDataClass
 from math import cos as Cosine, sin as SinValue, tau as FullTurn
 

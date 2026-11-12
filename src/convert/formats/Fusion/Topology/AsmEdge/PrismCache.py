@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.Topology.AsmEdge.AsmPoints import ReadAsmPoints
 from convert.formats.Fusion.Topology.AsmEdge.AsmPrism import ReadAsmBody, ReadAsmPrism
 from convert.formats.Fusion.Topology.AsmEdge.AsmPrismEdges import ReadAsmEdges

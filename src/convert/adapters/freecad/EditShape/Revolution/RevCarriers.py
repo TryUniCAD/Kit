@@ -1,4 +1,3 @@
-
 from math import cos as Cosine, pi as PiValue, sin as SineValue
 
 from convert.adapters.freecad.EditShape.CylinderRims import KAngleTolerance

@@ -1,4 +1,3 @@
-
 from io import BytesIO
 from pathlib import Path as FilePath
 from struct import error as StructError

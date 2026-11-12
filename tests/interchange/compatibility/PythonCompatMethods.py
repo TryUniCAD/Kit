@@ -1,4 +1,3 @@
-
 # historical method identities stay explicit because reflection includes defining class and module
 KPythonCompatMethods = (
     (

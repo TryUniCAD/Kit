@@ -1,4 +1,3 @@
-
 from math import cos as Cosine, dist as Distance, sin as SinValue
 
 from convert.geometry.Revolve.SweepVector import CrossVector, OffsetVector

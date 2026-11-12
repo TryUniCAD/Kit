@@ -1,4 +1,3 @@
-
 from collections.abc import Mapping
 from math import isclose as IsClose
 from typing import cast as CastValue

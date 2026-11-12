@@ -1,4 +1,3 @@
-
 from dataclasses import dataclass as MakeDataClass
 
 from convert.adapters.freecad.EditShape.CylinderRims import KAngleTolerance

@@ -1,4 +1,3 @@
-
 from uuid import UUID
 
 from convert.formats.Fusion.HistoryRef import ReadNativeRef

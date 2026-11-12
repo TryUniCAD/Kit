@@ -1,4 +1,3 @@
-
 from dataclasses import replace as Replace
 from math import hypot as Hypot
 

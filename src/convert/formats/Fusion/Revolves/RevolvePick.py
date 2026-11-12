@@ -1,4 +1,3 @@
-
 from dataclasses import dataclass as Dataclass
 from typing import Mapping as TypeMap
 

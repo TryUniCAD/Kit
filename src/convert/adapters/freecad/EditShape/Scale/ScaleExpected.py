@@ -1,4 +1,3 @@
-
 from convert.adapters.freecad.Cylinder.CylinderFrame import NormCylinder
 from convert.adapters.freecad.EditShape.Prism.PrismExpected import (
     ExpectedPrism,

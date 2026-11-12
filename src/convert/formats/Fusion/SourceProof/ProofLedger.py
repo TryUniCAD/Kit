@@ -1,4 +1,3 @@
-
 from collections import Counter
 
 from convert.formats.Fusion.ArchiveRead.ArchiveMember import ArchiveMember

@@ -1,4 +1,3 @@
-
 from math import hypot as Hypot, tan as Tangent
 
 from convert.adapters.freecad.EditShape.CylinderRims import (

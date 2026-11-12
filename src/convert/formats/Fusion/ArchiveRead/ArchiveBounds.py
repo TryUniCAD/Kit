@@ -1,4 +1,3 @@
-
 from struct import unpack_from as UnpackFrom
 from typing import BinaryIO
 

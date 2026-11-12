@@ -1,4 +1,3 @@
-
 from collections.abc import Callable, Mapping
 from typing import cast as CastValue
 

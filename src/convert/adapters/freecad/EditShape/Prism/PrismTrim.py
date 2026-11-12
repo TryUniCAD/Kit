@@ -1,4 +1,3 @@
-
 from re import split as SplitValue
 
 from convert.adapters.freecad.EditShape.CylinderRims import KAngleTolerance

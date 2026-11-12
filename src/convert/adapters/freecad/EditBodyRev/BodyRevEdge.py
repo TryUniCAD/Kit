@@ -1,4 +1,3 @@
-
 from collections.abc import Mapping
 from math import isfinite as IsFinite
 from uuid import UUID as ParseUuid

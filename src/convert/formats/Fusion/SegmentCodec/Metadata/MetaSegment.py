@@ -1,4 +1,3 @@
-
 from dataclasses import dataclass as MakeDataClass
 
 from convert.formats.Fusion.SegmentCodec.Metadata.MetaHeader import MetaHeader

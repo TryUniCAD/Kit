@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.Profiles.ArcRing import CheckSemiRing
 from interchange.geometry.models.GeometryCurves import ArcGeometry, LineGeometry
 from interchange.geometry.models.Sketch import SketchEntity

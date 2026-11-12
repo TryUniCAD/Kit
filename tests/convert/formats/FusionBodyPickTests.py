@@ -1,4 +1,3 @@
-
 from struct import pack as PackData
 
 import pytest as Pytest

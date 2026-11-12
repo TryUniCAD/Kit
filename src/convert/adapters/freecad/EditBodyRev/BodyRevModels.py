@@ -1,4 +1,3 @@
-
 from convert.adapters.base.WriteValidate import IsObjectTuple
 from convert.adapters.base.WriteValidate import IsObjectMap
 from convert.formats.Fusion.Topology.BodyAnchor import KAnchorGuid, KBodyGuid

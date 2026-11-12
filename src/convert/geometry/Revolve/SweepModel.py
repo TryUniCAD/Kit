@@ -1,4 +1,3 @@
-
 from interchange.brep.curves.BrepCurves import BrepCurve
 from interchange.brep.surfaces.BrepSurfaces import BrepSurface
 from interchange.brep.topology.BrepModel import BrepModel

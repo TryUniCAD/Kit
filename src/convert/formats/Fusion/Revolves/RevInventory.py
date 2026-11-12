@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.RecordSpan import RecordSpan
 from convert.formats.Fusion.Topology.BodyCollection import ReadBodyList, ReadBodyOwner
 from convert.formats.Fusion.Topology.ResultBody import IndexBodyLinks

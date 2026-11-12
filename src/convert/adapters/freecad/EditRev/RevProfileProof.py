@@ -1,4 +1,3 @@
-
 from convert.adapters.base.WriteValidate import IsObjectTuple
 from convert.adapters.freecad.EditRing.RingInputs import ReadRingInput
 from convert.formats.Fusion.DesignZip import KDesignPrefix

@@ -1,4 +1,3 @@
-
 from interchange.geometry.models.VectorPlane import PlaneVector
 from convert.geometry.Extrude.Polygon.PrismRing import MeasureRing, ReadPrismRing
 from interchange.geometry.models.GeometryCurves import LineGeometry

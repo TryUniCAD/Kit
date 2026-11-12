@@ -1,4 +1,3 @@
-
 from collections.abc import Callable
 from typing import cast as CastValue
 from functools import partial as BindArgs

@@ -1,4 +1,3 @@
-
 from interchange.records.RecordProvenance import ProvenanceSpan
 from convert.formats.Fusion.Revolves.RevolvePick import RevolvePick
 from dataclasses import replace as Replace

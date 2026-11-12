@@ -1,4 +1,3 @@
-
 from collections.abc import Mapping
 from xml.etree.ElementTree import Element
 from zipfile import ZipFile, ZipInfo

@@ -1,4 +1,3 @@
-
 from dataclasses import replace as Replace
 from math import cos as Cosine, sin as SineValue
 from typing import Mapping as TypeMap

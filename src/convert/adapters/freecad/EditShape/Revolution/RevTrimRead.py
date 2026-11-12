@@ -1,4 +1,3 @@
-
 from re import fullmatch as FullMatch
 
 from convert.adapters.freecad.EditShape.CylinderRims import KAngleTolerance

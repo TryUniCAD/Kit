@@ -1,4 +1,3 @@
-
 from typing import cast as CastValue
 from dataclasses import dataclass as MakeDataClass
 

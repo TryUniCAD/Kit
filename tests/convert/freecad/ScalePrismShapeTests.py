@@ -1,4 +1,3 @@
-
 import pytest as Pytest
 
 from convert.adapters.freecad.Brep import BrepModelBrep

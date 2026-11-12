@@ -1,4 +1,3 @@
-
 from convert.adapters.freecad.EditExtDepth import GetEditDepth, IsLiteralParam
 from convert.formats.Fusion.Extrudes.ExtrudeBinding import KExtrudeBinding
 from convert.formats.Fusion.Extrudes.ExtrudeRead import KExtrudeGuid

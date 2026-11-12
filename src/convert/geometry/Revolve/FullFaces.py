@@ -1,4 +1,3 @@
-
 from convert.geometry.Revolve.SweepSides import BuildSide
 from interchange.brep.surfaces.BrepSurfaces import BrepSurface, PlaneSurface
 from interchange.brep.topology.BrepTopology import (

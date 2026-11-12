@@ -1,4 +1,3 @@
-
 from pathlib import Path as FilePath
 from tempfile import TemporaryDirectory as TempDirectory
 from xml.etree.ElementTree import Element, fromstring as ParseXml

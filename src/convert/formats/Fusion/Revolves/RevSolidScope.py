@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.NativePlane import KPlaneFeature
 from convert.formats.Fusion.Sketches.SketchPlacement import KSketchFeature
 from interchange.enums.EnumFeatures import FeatureKind

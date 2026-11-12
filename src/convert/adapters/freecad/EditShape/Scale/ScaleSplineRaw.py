@@ -1,4 +1,3 @@
-
 from dataclasses import replace as ReplaceData
 
 from convert.adapters.freecad.EditShape.Prism.PrismRaw import (

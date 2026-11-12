@@ -1,4 +1,3 @@
-
 from math import dist as Distance, hypot as Hypot, isfinite as IsFinite
 
 from convert.formats.Fusion.Topology.AsmEdge.AsmFields import (

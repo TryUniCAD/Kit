@@ -1,4 +1,3 @@
-
 from convert.adapters.freecad.EditExtScope import EditSketchInput, ReadSketchInput
 from convert.formats.Fusion.Revolves.SketchAxis import KFrameGuid, KSketchGuid
 from convert.formats.Fusion.Sketches.SketchPlacement import KSketchBase, KSketchFeature

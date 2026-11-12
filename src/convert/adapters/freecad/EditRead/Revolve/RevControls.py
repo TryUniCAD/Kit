@@ -1,4 +1,3 @@
-
 from math import degrees as Degrees, isclose as IsClose
 
 from convert.adapters.freecad.EditableRev import EditRevolve

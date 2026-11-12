@@ -1,4 +1,3 @@
-
 # authentic head pickle streams prove historical globals and positional states still load
 KPythonCompatPickles = (
     (

@@ -1,4 +1,3 @@
-
 from collections.abc import Mapping
 
 from convert.adapters.freecad.Archive import ConstraintsProp, ParamCatalog

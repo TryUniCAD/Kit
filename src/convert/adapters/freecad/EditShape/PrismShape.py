@@ -1,4 +1,3 @@
-
 from math import isfinite as IsFinite
 
 from convert.adapters.freecad.EditShape.CylinderRims import KPositionTolerance

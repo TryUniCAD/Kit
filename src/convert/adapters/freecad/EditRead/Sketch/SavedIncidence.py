@@ -1,4 +1,3 @@
-
 from math import cos as Cosine, sin as SinValue
 
 from convert.adapters.freecad.EditRead.Sketch.SavedEntity import IsSameCoord

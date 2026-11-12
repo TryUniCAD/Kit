@@ -1,4 +1,3 @@
-
 # subtree ranges qualify every continuation without repeatedly walking deep class chains
 def MapLineage(Parents: dict[str, str]) -> dict[str, tuple[int, int]]:
     Children: dict[str, list[str]] = {}

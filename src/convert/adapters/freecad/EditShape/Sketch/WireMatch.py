@@ -1,4 +1,3 @@
-
 from math import cos as Cosine, sin as SinValue, tau as FullTurn
 
 from convert.adapters.freecad.EditShape.CylinderRims import (

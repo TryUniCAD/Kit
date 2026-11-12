@@ -1,4 +1,3 @@
-
 from typing import TypeAlias
 
 from convert.formats.Fusion.Topology.AsmEdge.AsmFields import (

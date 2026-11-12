@@ -1,4 +1,3 @@
-
 from convert.adapters.freecad.EditShape.CylinderRims import IsNearPoint
 from convert.adapters.freecad.EditShape.Prism.PrismRaw import KLocationChain, PrismRaw
 from convert.adapters.freecad.EditShape.Scale.ScalePatch import ScalePatch

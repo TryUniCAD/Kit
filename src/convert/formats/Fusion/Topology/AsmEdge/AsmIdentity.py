@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.Topology.AsmEdge.AsmFields import RequireAsm
 from convert.formats.Fusion.Topology.AsmEdge.AsmTable import AsmTable
 

@@ -1,4 +1,3 @@
-
 from math import hypot as Hypot
 
 from convert.geometry.Revolve.SweepVector import DotVector, OffsetVector

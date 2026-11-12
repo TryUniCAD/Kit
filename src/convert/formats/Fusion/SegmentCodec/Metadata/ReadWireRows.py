@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.MetaCursor import MetaCursor
 from convert.formats.Fusion.SegmentCodec.Metadata.MetaLimits import (
     KMaxMetaClasses,

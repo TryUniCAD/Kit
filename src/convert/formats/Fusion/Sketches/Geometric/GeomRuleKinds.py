@@ -1,4 +1,3 @@
-
 from interchange.enums.EnumGeometry import ConstraintKind, GeometryKind
 
 # the recovered binary codes identify exact constraint semantics for supported roles

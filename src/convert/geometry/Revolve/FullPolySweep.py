@@ -1,4 +1,3 @@
-
 from convert.geometry.Revolve.FullFaces import BuildFullFaces
 from convert.geometry.Revolve.FullRings import BuildFullRings
 from convert.geometry.Revolve.SweepInput import CheckSweepFrame, OrientMeridian

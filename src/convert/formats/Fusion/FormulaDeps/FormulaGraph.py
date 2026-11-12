@@ -1,4 +1,3 @@
-
 from convert.geometry.Formula.Arithmetic import EvalFormula, ReadFormula
 from convert.geometry.Formula.FormulaUnits import IsMatchingQty
 from interchange.enums.EnumValues import ParameterRole

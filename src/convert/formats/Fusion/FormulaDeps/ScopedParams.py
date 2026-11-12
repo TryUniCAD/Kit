@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.Assembly.ComponentRead import KComponentGuid
 from convert.formats.Fusion.Assembly.OccurrenceRead import KOccurrenceGuid
 from convert.formats.Fusion.FormulaDeps.ParamCollection import (

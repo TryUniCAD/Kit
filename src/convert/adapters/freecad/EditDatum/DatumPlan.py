@@ -1,4 +1,3 @@
-
 from convert.adapters.freecad.EditExtDepth import IsLiteralParam
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.document.validation.BoundPlaneValidate import CheckBoundPlane

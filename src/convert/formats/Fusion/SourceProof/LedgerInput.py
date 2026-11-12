@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.ArchiveRead.ArchiveMember import ArchiveMember
 from convert.formats.Fusion.DesignZip import KDesignPrefix
 from convert.formats.Fusion.NativeHistory import KHistoryGuid

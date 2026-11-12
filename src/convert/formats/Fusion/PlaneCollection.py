@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.HistoryRef import ReadNativeRef
 from convert.formats.Fusion.MetaCursor import MetaCursor
 from convert.formats.Fusion.NativePlane import KPlaneObject

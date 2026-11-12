@@ -1,4 +1,3 @@
-
 from math import isfinite as IsFinite, ulp as FloatUlp
 
 

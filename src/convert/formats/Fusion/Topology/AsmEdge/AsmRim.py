@@ -1,4 +1,3 @@
-
 from dataclasses import dataclass as MakeDataClass
 
 from convert.formats.Fusion.Topology.AsmEdge.AsmFields import (

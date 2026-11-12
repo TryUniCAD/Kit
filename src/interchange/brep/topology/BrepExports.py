@@ -1,4 +1,3 @@
-
 # brep exports stay isolated because public compatibility names should not enlarge the geometry facade
 KBrepExports = (
     "BrepBody",

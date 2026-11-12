@@ -1,4 +1,3 @@
-
 from math import isclose as IsClose, tau as FullTurn
 
 from convert.formats.Fusion.Revolves.BodyMeridian import ReadMeridian

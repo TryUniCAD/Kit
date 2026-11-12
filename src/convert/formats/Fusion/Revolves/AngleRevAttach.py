@@ -1,4 +1,3 @@
-
 from collections.abc import Callable
 from dataclasses import replace as Replace
 from math import isclose as IsClose, tau as FullTurn

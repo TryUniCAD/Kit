@@ -1,4 +1,3 @@
-
 from convert.adapters.base.AdapterInfo import AdapterInfo
 from interchange.enums.EnumDocument import Capability
 

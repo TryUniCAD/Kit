@@ -1,4 +1,3 @@
-
 from typing import cast as CastValue
 from hashlib import sha256 as ShaDigest
 from io import BytesIO

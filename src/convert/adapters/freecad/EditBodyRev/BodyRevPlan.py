@@ -1,4 +1,3 @@
-
 from dataclasses import dataclass as MakeDataClass
 from math import degrees as Degrees, tau as FullTurn
 

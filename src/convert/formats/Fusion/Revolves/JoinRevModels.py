@@ -1,4 +1,3 @@
-
 from interchange.brep.topology.BrepModel import BrepModel
 
 

@@ -1,4 +1,3 @@
-
 from interchange.geometry.models.Transform import Transform
 from math import hypot as Hypot, isfinite as IsFinite
 

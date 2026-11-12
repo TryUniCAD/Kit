@@ -1,4 +1,3 @@
-
 from convert.adapters.freecad.EditExtScope import ReadSketchInput
 from convert.formats.Fusion.Sketches.SketchPlacement import KSketchFeature
 from interchange.document.models.DocumentModel import CadDocument

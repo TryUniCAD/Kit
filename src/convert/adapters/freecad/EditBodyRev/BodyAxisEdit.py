@@ -1,4 +1,3 @@
-
 from collections.abc import Mapping
 from dataclasses import dataclass as MakeDataClass
 from math import hypot as Hypot, isfinite as IsFinite

@@ -1,3 +1,2 @@
-
 class SldprtFormat(ValueError):
     KSlots = ()

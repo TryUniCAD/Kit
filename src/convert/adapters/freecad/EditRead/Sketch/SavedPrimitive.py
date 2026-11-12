@@ -1,4 +1,3 @@
-
 from math import hypot as Hypot, tau as FullTurn
 from xml.etree.ElementTree import Element
 

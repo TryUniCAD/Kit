@@ -1,4 +1,3 @@
-
 from dataclasses import replace as Replace
 
 from convert.adapters.freecad.EditRead.Sketch.SavedEntity import IsSameCoord

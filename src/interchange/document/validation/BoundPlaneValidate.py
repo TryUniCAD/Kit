@@ -1,4 +1,3 @@
-
 from math import dist as Distance
 from typing import Mapping as TypeMap
 

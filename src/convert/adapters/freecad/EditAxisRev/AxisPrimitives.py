@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.DesignZip import KDesignPrefix
 from convert.formats.Fusion.Sketches.SketchPrimitive import KSketchKinds
 from interchange.brep.topology.BrepMath import IsFinitePlane

@@ -1,4 +1,3 @@
-
 from math import cos as Cosine, dist as Distance, isclose as IsClose
 from math import (
     isfinite as IsFinite,

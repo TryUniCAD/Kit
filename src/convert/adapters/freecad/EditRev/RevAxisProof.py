@@ -1,4 +1,3 @@
-
 from convert.formats.Fusion.DesignZip import KDesignPrefix
 from convert.formats.Fusion.Revolves.OriginAxis import KAxisGuid, KOriginGuid
 from convert.formats.Fusion.SelectionProxy import KSelectProxy

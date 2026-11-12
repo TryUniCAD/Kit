@@ -1,4 +1,3 @@
-
 from xml.etree.ElementTree import Element
 
 from convert.adapters.freecad.EditRead.Formula.FormulaOrder import ReadPlanOrder

@@ -1,4 +1,3 @@
-
 from collections import defaultdict as DefaultDict
 from math import pi as CirclePi, tau as FullTurn
 

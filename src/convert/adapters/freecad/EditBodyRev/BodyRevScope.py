@@ -1,4 +1,3 @@
-
 from convert.adapters.freecad.EditExtScope import (
     EditSketchInput,
     HasEditState,
