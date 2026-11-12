@@ -61,3 +61,5 @@ Keep source links and historical evidence.
 - **Release concurrency:** A branch-wide group might appear to serialize every release. The default queue replaces a pending run when another enters that group. Group GitHub releases by commit SHA. Group PyPI uploads by package version. See [concurrency rules](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency).
 
 - **Managed Code Quality workflow path:** Its workflow might appear to live under `.github/workflows/`. GitHub reports it under `dynamic/github-code-quality/codeql` with event `dynamic`. Register that path and event in the PR allowlist. See [a managed run](https://github.com/TryUniCAD/Kit/actions/runs/43169749076).
+
+- **Copied workflow permissions:** Removing a copied permission note can look like a prose-only edit. The [pedantic workflow audit](https://github.com/TryUniCAD/Kit/actions/runs/43175816505/job/131039686544) rejects an unexplained `actions: read` permission. Omit this permission when the workflow does not need it.
