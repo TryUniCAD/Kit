@@ -5,6 +5,7 @@ from convert.formats.Fusion.GraphicsCodec.Worlds.XferWorldMut import XferWorldMu
 from convert.formats.Fusion.GraphicsCodec.Nodes.XferPayloadMut import XferPayloadMut
 from convert.formats.Fusion.GraphicsCodec.Nodes.XferBrepMut import XferBrepMut
 from convert.formats.Fusion.GraphicsCodec.Nodes.XferSketchMut import XferSketchMut
+from convert.formats.Fusion.GraphicsCodec.Nodes.XferTSplineMut import XferTSplineMut
 
 from convert.formats.Fusion.GraphicsCodec.Model.Nodes.GroupValue import GroupValue
 from convert.formats.Fusion.GraphicsCodec.Model.Nodes.SceneWorld import SceneWorld
@@ -38,6 +39,10 @@ def XferGroupMut(State: SceneCodec, Value: GroupValue | None) -> GroupValue:
                 )
         elif WorldKind == 1:
             WorldValue = XferBrepMut(
+                State, Current if isinstance(Current, BrepWorld) else None
+            )
+        elif WorldKind == 2:
+            WorldValue = XferTSplineMut(
                 State, Current if isinstance(Current, BrepWorld) else None
             )
         elif WorldKind == 3:

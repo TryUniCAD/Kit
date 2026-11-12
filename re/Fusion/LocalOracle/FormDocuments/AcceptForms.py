@@ -13,7 +13,7 @@ work = folder / 'Acceptance'
 preparation = json.loads((work / 'Preparation.json').read_text())
 app = adsk.core.Application.get()
 original = app.activeDocument
-report = {'fusion_version': app.version, 'scope': 'Production Form document re-emission and source-free authoring; native open, form health, cage edit, conversion, save and reopen', 'documents_before': app.documents.count, 'cases': []}
+report = {'fusion_version': app.version, 'scope': 'Production Form document re-emission; native open, form health, cage edit, conversion, save and reopen', 'documents_before': app.documents.count, 'cases': []}
 opened = []
 target = work / 'NativeAcceptance.json'
 

@@ -2,7 +2,9 @@ from convert.formats.Fusion.BulkSpans import ReadBulkSpans
 from convert.formats.Fusion.ContainerCodec.Model.SegmentStreams import SegmentStreams
 from convert.formats.Fusion.DocumentCodec.Model.ParsedSegment import ParsedSegment
 from convert.formats.Fusion.EntityCodec.DecodeEntities import DecodeEntities
+from convert.formats.Fusion.EntityCodec.DecodeSlack import DecodeSlack
 from convert.formats.Fusion.EntityCodec.Schema.EntityProfile import EntityProfile
+from convert.formats.Fusion.MetaIndex import SegmentKind
 from convert.formats.Fusion.SegmentCodec.Bulk.BulkRecord import BulkRecord
 from convert.formats.Fusion.SegmentCodec.Metadata.MetaSegment import MetaSegment
 
@@ -23,6 +25,8 @@ def ReadDocSegment(
             Streams.BulkData, Streams.Metadata, Segment=Metadata.Header.Segment
         )
     )
-    return ParsedSegment(
-        Metadata, DecodeEntities(Records, Metadata.Classes, Profile), Profile
-    )
+    if Metadata.Header.Segment is not SegmentKind.KAct:
+        Values = DecodeEntities(Records, Metadata.Classes, Profile)
+        return ParsedSegment(Metadata, Values, Profile)
+    Values, Slack = DecodeSlack(Records, Metadata.Classes, Profile)
+    return ParsedSegment(Metadata, Values, Profile, Slack)

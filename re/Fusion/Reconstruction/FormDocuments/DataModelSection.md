@@ -60,7 +60,7 @@ The converted body uses three ACIS entity kinds that ordinary documents do not u
 
 | Entity | Subtype scope | Contents |
 | --- | --- | --- |
-| `spline-surface` | `t_spl_sur` or `ref` | Revision, cached bicubic `nubs` surface, fit tolerance, six jump arrays, four optional ranges, type code, `t_spl_subtrans_object` or `ref`, face index |
+| `spline-surface` | `t_spl_sur` or `ref` | Revision, exact bicubic `nubs` surface, fit tolerance, six jump arrays, four optional ranges, type code, `t_spl_subtrans_object` or `ref`, face index |
 | `intcurve-curve` | `exact_int_cur` | Revision, cached `nubs` curve, fit tolerance, null supports, cache bounds, three jump arrays, extension, two ranges, two codes |
 | `pcurve` | `exp_par_cur` | Cached 2D `nubs` curve, fit tolerance, `spline` support with a `t_spl_sur` definition or `ref`, four optional bounds, U and V offsets |
 
@@ -79,15 +79,36 @@ It did not convert the cage again on open, on `computeAll`, or on an empty edit.
 It refused to open a Form document without the BRep members.
 It accepted a stale BRep with health 0.
 The [authority gotcha](../../Gotchas/Conversion/Fusion/TSpline/StoredFormBrepAuthority.md) gives the variants.
+
+`t_spl_sur` derives from `exact_spl_sur`.
+Its stored B-spline surface is the exact face geometry, not an approximation of the program.
+The kernel refuses a `t_spl_sur` without that surface.
+Fusion used a moved stored surface as the face geometry, and a set `TsSurface.bConversionFailed` flag did not start a conversion.
+The [converted surface gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConvertedSurfaceIsExact.md) gives the kernel and native evidence.
 A writer must therefore store the exact converted body.
-Kit has no T-spline conversion, so it does not author Form documents from a new cage.
+
+### Grid cage conversion
+
+`ConvertGrid` converts a qualified open grid cage exactly.
+A qualified cage has valence-4 interior vertices, unit knot intervals, unit weights and no interior creases.
+Its limit surface is one bicubic B-spline whose poles are the grips in grid order.
+The vertex spoke frame and the compound grips decide that order.
+Fusion also records each interior knot with a third-derivative jump in the surface and curve discontinuity lists.
+`SwapGridCage` puts a new cage of the same grid layout into a Form document.
+The [pole order gotcha](../../Gotchas/Conversion/Fusion/TSpline/GridCagePoleOrder.md) and the [discontinuity gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConvertedDiscontinuityLists.md) give the rules.
+
+Kit refuses box cages, interior creases and new grid layouts.
+Each native box face has 13 × 13 poles with double knots at 0.25, 0.5, 1.5 and 1.75.
+Kit has no exact rule for these caps at valence-3 corners.
 
 ### Form document verification
 
 The production round trip read 32 local Form archives.
-29 archives gave an equal model after emission and byte-equal members, except for canonical `.protein` packages.
-Three edited archives stop in the graphics reader at world kind 2.
-The [edited world gotcha](../../Gotchas/Conversion/Fusion/TSpline/EditedFormGraphicsWorld.md) gives the isolation result.
+All 32 gave an equal model after emission and byte-equal members, except for canonical `.protein` packages.
+The three edited archives store graphics world kind 2, which Kit reads with the BRep level-of-detail layout.
+The [edited world gotcha](../../Gotchas/Conversion/Fusion/TSpline/EditedFormGraphicsWorld.md) gives the layout.
+Archives saved by current Fusion can have bytes after the final ACT record.
+Kit keeps those bytes as `ParsedSegment.BulkSlack`, and the [ACT slack gotcha](../../Gotchas/Conversion/Fusion/Records/FusionActBulkSlack.md) gives the evidence.
 [Native acceptance](../../../re/Fusion/LocalOracle/FormDocuments/Acceptance/NativeAcceptance.json), SHA-256 `b018171b82ad933a65611f5e56b54f0b48b6660bae06bc936267544f876fa552`, accepted four re-emitted controls in Fusion 2706.1.17.
 
 | Case | Faces, edges, vertices | Area after edit (cm²) | Volume after edit (cm³) |
@@ -99,4 +120,12 @@ The [edited world gotcha](../../Gotchas/Conversion/Fusion/TSpline/EditedFormGrap
 
 Each re-emitted document equalled its native control within 1e-7 after open, edit, save, and reopen.
 The Form health stayed 0, and zero documents remained open.
+[Grid acceptance](../../../re/Fusion/LocalOracle/FormDocuments/Grid/NativeAcceptance.json), SHA-256 `360d7d4c9335e0840c4c95cd41ec28c6ba161b0a33f63862923de3267e761546`, accepted two Kit-converted plane documents in Fusion 2706.1.17.
+Each document equalled Fusion's own conversion of the same cage within 1e-8 after open, edit, conversion, save and reopen.
+
+| Case | Area as loaded (cm²) | Area after edit (cm²) |
+| --- | --- | --- |
+| Affine | 3.981294020792737 | 3.9230459543150173 |
+| Warped | 4.005512887961321 | 3.9455217633195576 |
+
 The [Form document change entry](../../Changes/Fusion/TSpline/FusionFormDocuments.md) gives the complete procedure.

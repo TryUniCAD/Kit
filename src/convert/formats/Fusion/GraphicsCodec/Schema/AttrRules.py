@@ -9,6 +9,7 @@ KAttrRules: dict[str, tuple[FieldRule, ...]] = {
         FieldRule("Absolute", "bool"),
     ),
     "FColorEffectAttribute": (FieldRule("Color", "f32", 4),),
+    "OpacityAttribute": (FieldRule("Absolute", "bool"), FieldRule("Opacity", "f32")),
     "GroupAttribute": (FieldRule("GroupID", "i32"),),
     "OrderInTransparentGroupAttribute": (FieldRule("OrderInTransparentGroup", "i32"),),
     "TransparentLayerAttribute": (FieldRule("TransparentLayerType", "i32"),),

@@ -1,0 +1,55 @@
+{
+  "scope": "Static native evidence for the ACT final-record extent, the OGS opacity attribute and the type-2 group world",
+  "fusion_version": "2706.1.17",
+  "architecture": "arm64",
+  "address_basis": "Unslid Mach-O virtual address",
+  "tool": "otool -tV, read-only",
+  "images": [
+    {
+      "path": "Libraries/Neutron/NsACT10.dylib",
+      "sha256": "00746d3f3774e5101e35ebce0e04edaf5214016756cbf072c0b9666d49fef869"
+    },
+    {
+      "path": "Libraries/Neutron/NsScene10.dylib",
+      "sha256": "d33789c8c20033f1c7673ff9b1dcf87f1ef7cf9c43c7245d75c8a65a83bc8c82"
+    }
+  ],
+  "facts": [
+    {
+      "image": "Libraries/Neutron/NsACT10.dylib",
+      "symbol": "Ns::ACT::ACTChangeData::initializeMemberSet(unsigned int, Ns::MemberSet*)",
+      "address": "0x5657c",
+      "meaning": "Registers one member, actIdentifier, with the wide-string intrinsic metatype"
+    },
+    {
+      "image": "Libraries/Neutron/NsACT10.dylib",
+      "symbol": "Ns::ACT::ACTChangeDataMany::initializeMemberSet(unsigned int, Ns::MemberSet*)",
+      "address": "0x57558",
+      "meaning": "Returns immediately and registers no member"
+    },
+    {
+      "image": "Libraries/Neutron/NsACT10.dylib",
+      "symbol": "Ns::ACT::RevGUIDACTDataMany::initializeMemberSet(unsigned int, Ns::MemberSet*)",
+      "address": "0x57c28",
+      "meaning": "Registers one member, revGuidMap, as map<string, boost::uuids::uuid>; no further member follows"
+    },
+    {
+      "image": "Libraries/Neutron/NsScene10.dylib",
+      "symbol": "OGS::Serialization::FusionGroupNodeSerializer::SerializeTSplineBody",
+      "addresses": ["0xaf2c0", "0xaf38c", "0xaf3c0", "0xaf414", "0xaf43c", "0xaf470", "0xaf4ac", "0xaf4ec", "0xaf514", "0xaf544"],
+      "meaning": "Edge body-child group, EdgesCount:u32, edge LOD nodes, face body-child group, FacesCount:u32, face LOD nodes, HasModelBox:bool, optional ModelBox of six f64; no leading ValidBody flag"
+    },
+    {
+      "image": "Libraries/Neutron/NsScene10.dylib",
+      "symbol": "wide literals used by SerializeTSplineBody",
+      "addresses": ["0x3b79d8", "0x3b7a04", "0x3b7a30", "0x3b7a60"],
+      "meaning": "EdgesCount, FacesCount, HasModelBox, ModelBox"
+    },
+    {
+      "image": "Libraries/libOGSGraphics.dylib",
+      "symbol": "OGS::Serialization::OpacityAttributeSerializer::Serialize",
+      "source": "re/Fusion/Reconstruction/OgsScene/SerializerCalls.json",
+      "meaning": "Base attribute fields, then Absolute with metadata type 7 (bool) and Opacity with metadata type 16 (f32)"
+    }
+  ]
+}

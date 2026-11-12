@@ -28,7 +28,7 @@ A real cage edit converts the form again. In the Form document acceptance, one v
 
 Write the converted body for every Form feature. Make it the exact conversion of the cage in the TSM member. Do not use an approximate body, because Fusion shows it as healthy and keeps it. Kit's `CheckFormBreps` rejects a converted BRep whose embedded TSM program differs from the TSM member.
 
-Kit cannot yet author a Form document from a new cage. Kit has no T-spline conversion that gives Fusion's converted body.
+`ConvertGrid` gives the exact conversion of qualified open grid cages. `SwapGridCage` replaces the cage and the converted body of a document with the same grid layout. Kit refuses every other cage, because it has no exact conversion for it. The [converted surface gotcha](ConvertedSurfaceIsExact.md) shows that the stored surface is the face geometry.
 
 ## Evidence
 
