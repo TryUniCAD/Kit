@@ -4,7 +4,7 @@ from convert.formats.Fusion.SegmentCodec.Parameters.ParamSink import ParamSink
 
 
 def EmitNumBinding(Value: NumberBinding) -> bytes:
-    if not isinstance(Value, NumberBinding):
+    if type(Value) is not NumberBinding:
         raise ValueError("Expected a typed Fusion numeric binding")
     References = tuple(
         PackHistRef(Identity)

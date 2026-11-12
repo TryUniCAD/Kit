@@ -7,7 +7,7 @@ from convert.formats.Fusion.SegmentCodec.Parameters.ParamSink import ParamSink
 
 
 def EmitNumeric(Value: NativeParam) -> bytes:
-    if not isinstance(Value, NativeParam):
+    if type(Value) is not NativeParam:
         raise ValueError("Expected a typed Fusion numeric parameter")
     if (
         type(Value.RoleName) is not str

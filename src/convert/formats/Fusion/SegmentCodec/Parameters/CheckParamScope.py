@@ -6,7 +6,7 @@ from convert.formats.Fusion.SegmentCodec.Parameters.ParamScope import ParamScope
 
 
 def CheckParamScope(Value: ParamScope) -> None:
-    if not isinstance(Value, ParamScope):
+    if type(Value) is not ParamScope:
         raise ValueError("Expected a typed Fusion parameter scope")
     Owners = (Value.CollectionId, Value.RegistryId, Value.ComponentId)
     if (
