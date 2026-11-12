@@ -32,7 +32,9 @@ Keep source links and historical evidence.
 
 - **Review trigger syntax:** An account mention might appear sufficient for every integration. Some require a slash command and a linked account with write access. Read each exact `Comment` and official source in [ReviewBot.json](../../.agents/skills/standard-pr-practice/ReviewBot.json). Submit it verbatim and verify the responding identity and reviewed SHA.
 
-- **Provenance references:** An array position might appear to identify a generator permanently. Reordering exclusion entries changes that target. Use the stable `DocumentationSources.InitialWiki.Generator` key in [the configuration](../../.agents/skills/standard-pr-practice/ReviewBot.json).
+- **Provenance references:** An array position might appear to identify a generator permanently. Reordering exclusion entries changes that target. Pin the generator key to its historical revision in [the provenance record](../Reference/Provenance.json).
+
+- **Accented fixture paths on macOS:** A fresh worktree might appear clean. Git can report accented SOLIDWORKS fixture names as untracked when their Unicode form differs from the index. Stage only explicit task paths.
 
 - **Commit-status attribution:** A status fixture might appear to need a commit reference. The real response omits that reference. The [status-list API](https://docs.github.com/en/rest/commits/statuses#list-commit-statuses-for-a-reference) selects the commit through the request path. Remove fixture routing metadata before returning statuses. Verify native review status against the commit used in the API request.
 
