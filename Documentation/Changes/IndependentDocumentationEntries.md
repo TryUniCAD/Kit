@@ -9,6 +9,7 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 
 New change records and gotchas use separate PascalCase Markdown files.
 Their directory listings provide navigation without a shared list to update.
+Gotchas are grouped in topic directories.
 The existing landing pages explain how to write and find entries.
 All 40 previously listed gotchas retain their titles, text, and source links.
 
@@ -27,7 +28,7 @@ The audit window was November 10, 2026 at 23:23 PST through November 11 at 23:23
 The audit inspected 19 reachable merge commits in local refs, reflogs, and the retained heads of recent PRs.
 `git show --remerge-diff` reconstructed each recorded merge from its two parents.
 The audit counts repeated repairs separately.
-It cannot see conflicts resolved only in a rebase, squash, or unpublished history.
+It cannot see conflicts resolved only in a rebase, squash, or unreachable history.
 
 Fifteen commits had documentation conflicts, with 50 file conflicts across those commits.
 The gotcha log conflicted nine times and the change index five times.
@@ -57,7 +58,7 @@ In the table, paths are relative to `Documentation/` except for the repository R
 
 ## Verification
 
-Compared the relocated gotcha text and links with the source list on `main`.
+Compared the relocated gotcha text and link destinations with the source list on `main`.
 Inspected the changed navigation and contribution instructions.
 Product tests run in remote CI.
 The audit does not measure the future conflict rate or verify wiki publication.

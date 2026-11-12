@@ -98,7 +98,7 @@ If the user requests an unmerged preview, identify its source SHA prominently.
 8. Update `_Sidebar.md` with navigation.
 
    Replace the repository directory links on the change and gotcha landing pages with wiki page lists.
-   Build each list from the matching source directory at the selected revision.
+   Build each list from the matching source directory and its subdirectories at the selected revision.
    Exclude the landing page itself. Keep these lists in the wiki output.
 
 9. Update `_Footer.md` with the source SHA and maintenance link.

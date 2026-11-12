@@ -12,15 +12,15 @@ or other repository addition MUST include a new PascalCase Markdown entry in
 `Documentation/Changes/` in the same PR. Describe behavior, usage or configuration,
 limitations, and actual verification evidence. Update the relevant guide and
 link the entry directly in the PR. The [change directory](Documentation/Changes/Index.md)
-lists entries without a manual index update. An existing reference-page update
+explains how to find entries without a manual index update. An existing reference-page update
 does not replace the required new entry. Pure documentation corrections may
 update their existing entry.
 
 Find and read the relevant pages in the [gotchas directory](Documentation/Gotchas/README.md)
 before working in an affected area. If you discover a new gotcha, unexpected API
 behavior, wrong assumption, or undocumented quirk, you MUST record it before
-finishing. Add a separate, specific PascalCase Markdown file under
-`Documentation/Gotchas/` and link it in the PR. Describe the expectation,
+finishing. Add a separate, specific PascalCase Markdown file in the appropriate
+topic under `Documentation/Gotchas/` and link it in the PR. Describe the expectation,
 actual behavior, and workaround. Link evidence when available. Do not append
 entries to the directory's README.
 
