@@ -1,3 +1,5 @@
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.AttribLinks import AttribLinks
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.TagAttrib import TagAttrib
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.EdgeNode import EdgeNode
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.EntityPrefix import EntityPrefix
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.PointNode import PointNode
@@ -14,6 +16,28 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.History.EdgeCurve import 
     EdgeEnds,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.History.PlanBody import VertexKey
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.LevelEdge import LevelEdge
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.ShapeBody import ShapeBody
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.ShapeUse import KShapeEdge
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.FaceLabel import FaceLabel
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.LabelGroups import (
+    LabelTags,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.SpanMath import (
+    IsFullCircle,
+)
+
+
+def EdgeLabel(Shaped: ShapeBody, EdgeValue: KShapeEdge) -> FaceLabel | None:
+    if not isinstance(EdgeValue, LevelEdge) or not IsFullCircle(EdgeValue.Span):
+        return None
+    for WallLabel, LevelCm, Label in Shaped.EdgeTags:
+        if (
+            WallLabel == EdgeValue.Span.Label
+            and abs(LevelCm - EdgeValue.LevelCm) < 1e-9
+        ):
+            return Label
+    return None
 
 
 def DraftEdges(PlanValue: BodyPlan, FindIndex: DraftLookup) -> list[KDraftNode]:
@@ -23,8 +47,16 @@ def DraftEdges(PlanValue: BodyPlan, FindIndex: DraftLookup) -> list[KDraftNode]:
         Curve, Lower, Upper = EdgeCurve(EdgeValue)
         Start, Finish = (VertexKey(Point) for Point in EdgeEnds(EdgeValue))
         EdgeRef, CurveRef = ("edge", Ordinal, EdgeValue), ("curve", Ordinal, EdgeValue)
+        Label, TagRef = EdgeLabel(PlanValue.Body, EdgeValue), (
+            "etag",
+            Ordinal,
+            EdgeValue,
+        )
+        if Label is not None:
+            Links = AttribLinks(-1, -1, FindIndex(EdgeRef))
+            Nodes.append((TagRef, TagAttrib(Links, LabelTags(Label))))
         NodeValue = EdgeNode(
-            EntityPrefix(-1, -1),
+            EntityPrefix(-1 if Label is None else FindIndex(TagRef), -1),
             FindIndex(("vert", Ordinal, Start)),
             Lower,
             FindIndex(("vert", Ordinal, Finish)),

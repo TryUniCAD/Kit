@@ -11,7 +11,7 @@ def AuthorSchemas(
 ) -> tuple[NativeSchema, ...]:
     Source = Path(__file__).parent
     Schemas = ReadVocabulary(Source / "DesignClasses.json")
-    if ProfileKind not in ("rectangle", "cuboid"):
+    if ProfileKind not in ("rectangle", "cuboid", "part"):
         return Schemas
     Selected = {Schema.Value.ClassGuid.upper(): Schema for Schema in Schemas}
     for Schema in ReadVocabulary(Source / "RectangleClasses.json"):

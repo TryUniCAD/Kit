@@ -2,19 +2,41 @@ from math import isfinite as IsFinite
 from typing import cast as CastValue
 
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.CheckExtrude import (
+    CheckExtrude,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Hole.CheckHole import CheckHole
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ChamferSpec import (
     ChamferSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ExtrudeSpec import (
+    ExtrudeSpec,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.FamilyRules import FamilyOf
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.FilletSpec import (
     FilletSpec,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.HoleSpec import HoleSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartFeature import (
     KPartFeature,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CircularSpec import (
+    CircularSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MirrorSpec import (
+    MirrorSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import (
+    PatternSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import ShellSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.CheckCopy import (
+    CheckCopy,
+)
 
 KFeatureLimit = 16
+KLinkedSpecs = (PatternSpec, CircularSpec, MirrorSpec, PlaneSpec)
 
 
 def FeatureAmounts(Feature: KPartFeature) -> tuple[object, ...]:
@@ -22,20 +44,12 @@ def FeatureAmounts(Feature: KPartFeature) -> tuple[object, ...]:
         return (*Feature.CornerMm, Feature.RadiusMm)
     if isinstance(Feature, ChamferSpec):
         return (*Feature.CornerMm, Feature.DistanceMm)
-    return (Feature.ThicknessMm,)
+    if isinstance(Feature, ShellSpec):
+        return (Feature.ThicknessMm,)
+    return ()
 
 
-def CheckFeature(Feature: KPartFeature) -> None:
-    _ = FamilyOf(Feature)
-    Amounts = FeatureAmounts(Feature)
-    if not isinstance(Feature, ShellSpec) and len(Amounts) != 3:
-        raise ValueError("Fusion part corners require two planar coordinates")
-    for Amount in Amounts:
-        if type(Amount) not in (int, float) or not IsFinite(CastValue(float, Amount)):
-            raise ValueError("Fusion part feature values must be finite numbers")
-    if CastValue(float, Amounts[-1]) <= 0:
-        raise ValueError("Fusion part feature sizes must be positive")
-    NameValue = CastValue(object, Feature.FeatureName)
+def CheckName(NameValue: object) -> None:
     if (
         not isinstance(NameValue, str)
         or not NameValue
@@ -45,20 +59,60 @@ def CheckFeature(Feature: KPartFeature) -> None:
         raise ValueError("Invalid Fusion part feature name")
 
 
+def CheckFeature(Feature: KPartFeature) -> None:
+    _ = FamilyOf(Feature)
+    if isinstance(Feature, ExtrudeSpec):
+        CheckExtrude(Feature)
+        return
+    CheckName(CastValue(object, Feature.FeatureName))
+    if isinstance(Feature, HoleSpec):
+        CheckHole(Feature)
+        return
+    if isinstance(Feature, KLinkedSpecs):
+        return
+    Amounts = FeatureAmounts(Feature)
+    if not isinstance(Feature, ShellSpec) and len(Amounts) != 3:
+        raise ValueError("Fusion part corners require two planar coordinates")
+    for Amount in Amounts:
+        if type(Amount) not in (int, float) or not IsFinite(CastValue(float, Amount)):
+            raise ValueError("Fusion part feature values must be finite numbers")
+    if CastValue(float, Amounts[-1]) <= 0:
+        raise ValueError("Fusion part feature sizes must be positive")
+
+
+def IsNewBody(Feature: KPartFeature) -> bool:
+    return isinstance(Feature, ExtrudeSpec) and Feature.Operation == "new"
+
+
+def CheckOrder(SpecValue: DocumentSpec) -> None:
+    Features = SpecValue.Features
+    Fresh = [Index for Index, Feature in enumerate(Features) if IsNewBody(Feature)]
+    Expected = [0] if SpecValue.ProfileKind == "part" else []
+    if Fresh != Expected:
+        raise ValueError("Fusion part bodies start with exactly one new extrude")
+    for Index, Feature in enumerate(Features):
+        if isinstance(Feature, ShellSpec) and Index != len(Features) - 1:
+            raise ValueError("Fusion part shell must be the final feature")
+
+
 def CheckFeatures(SpecValue: DocumentSpec) -> None:
     Features = CastValue(object, SpecValue.Features)
     if not isinstance(Features, tuple):
         raise ValueError("Fusion part features must be a tuple")
+    if SpecValue.ProfileKind == "part" and not Features:
+        raise ValueError("Fusion part documents require features")
     if not Features:
         return
-    if SpecValue.ProfileKind != "cuboid" or SpecValue.ConstrainRectangle:
-        raise ValueError("Fusion part features require an unconstrained cuboid")
+    if SpecValue.ProfileKind not in ("cuboid", "part") or SpecValue.ConstrainRectangle:
+        raise ValueError(
+            "Fusion part features require a part or an unconstrained cuboid"
+        )
     if len(SpecValue.Features) > KFeatureLimit:
         raise ValueError("Fusion part feature count exceeds the qualified limit")
     for Index, Feature in enumerate(SpecValue.Features):
         CheckFeature(Feature)
-        if isinstance(Feature, ShellSpec) and Index != len(SpecValue.Features) - 1:
-            raise ValueError("Fusion part shell must be the final feature")
+        CheckCopy(SpecValue.Features, Index)
+    CheckOrder(SpecValue)
     NameValue = SpecValue.ParamName
     if NameValue.startswith("d") and NameValue[1:].isdigit():
         raise ValueError("Fusion part features reserve generated parameter names")

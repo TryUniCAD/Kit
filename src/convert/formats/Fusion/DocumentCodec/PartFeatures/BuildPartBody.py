@@ -1,3 +1,4 @@
+from dataclasses import replace as ReplaceValue
 from time import time_ns as ReadTimeNano
 
 from convert.formats.Fusion.ContainerCodec.Model.ContainerPart import ContainerPart
@@ -7,10 +8,25 @@ from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.History.EmitPartHist import (
     EmitPartHist,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.FamilyRules import (
+    IsStateless,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.BuildShape import (
     BuildShape,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.ShapeBody import ShapeBody
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSolid import (
+    PrismSolid,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.SolvePart import SolvePart
+
+
+def TrackedShape(Solid: PrismSolid, Roles: dict[str, int]) -> ShapeBody:
+    Tracks = tuple(
+        (Label, Roles["f" + str(Index + 1) + "_source_ref"])
+        for Label, Index in Solid.Tracks
+    )
+    return ReplaceValue(BuildShape(Solid), Tracks=Tracks)
 
 
 def BuildPartBody(
@@ -22,10 +38,15 @@ def BuildPartBody(
     if Policy.BodyKey != 0:
         raise ValueError("Fusion part journals claim body tag zero first")
     BaseValue, Stages = SolvePart(SpecValue)
-    Solids = (BaseValue, *(Stage.After for Stage in Stages))
-    StateIds = (Policy.HistoryCurrentId, *(Stage.StateId for Stage in Stages))
+    KeptStages = tuple(Stage for Stage in Stages if not IsStateless(Stage.Feature))
+    Solids = (() if BaseValue is None else (BaseValue,)) + tuple(
+        Stage.After for Stage in KeptStages
+    )
+    StateIds = (() if BaseValue is None else (Policy.HistoryCurrentId,)) + tuple(
+        Stage.StateId for Stage in KeptStages
+    )
     Payload = EmitPartHist(
-        tuple((BuildShape(Solid),) for Solid in Solids),
+        tuple((TrackedShape(Solid, Design.Roles),) for Solid in Solids),
         StateIds,
         Policy.HistoryInitialId,
         float(ReadTimeNano() // 1000),

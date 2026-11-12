@@ -8,4 +8,6 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSlab import Pr
 class PrismSolid:
     Slabs: tuple[PrismSlab, ...]
     BodyLabel: FaceLabel
-    SketchCurves: tuple[tuple[str, int], ...] = ()
+    SketchCurves: tuple[tuple[FaceLabel, int], ...] = ()
+    EdgeTags: tuple[tuple[FaceLabel, float, FaceLabel], ...] = ()
+    Tracks: tuple[tuple[FaceLabel, int], ...] = ()

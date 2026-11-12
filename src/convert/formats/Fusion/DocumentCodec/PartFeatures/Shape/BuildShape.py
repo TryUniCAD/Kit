@@ -20,4 +20,4 @@ def BuildShape(Solid: PrismSolid) -> ShapeBody:
     for Senses in UseSenses.values():
         if sorted(Senses) != [False, True]:
             raise ValueError("Fusion part shape is not a closed two-manifold")
-    return ShapeBody(Faces, Solid.BodyLabel, Solid.SketchCurves, Solid.Slabs[0].LowerCm)
+    return ShapeBody(Faces, Solid.BodyLabel, Solid.SketchCurves, 0.0, Solid.EdgeTags)

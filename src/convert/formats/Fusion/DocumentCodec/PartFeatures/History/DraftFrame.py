@@ -5,7 +5,6 @@ from convert.formats.Fusion.BrepCodec.Journal.Geometry.BodyNode import BodyNode
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.EntityPrefix import EntityPrefix
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.LumpNode import LumpNode
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.ShellNode import ShellNode
-from convert.formats.Fusion.BrepCodec.Models.FeatureTag import FeatureTag
 from convert.formats.Fusion.DocumentCodec.PartFeatures.History.BodyPlan import BodyPlan
 from convert.formats.Fusion.DocumentCodec.PartFeatures.History.DraftKey import (
     KDraftNode,
@@ -14,6 +13,9 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.History.DraftLookup impor
     DraftLookup,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.History.FaceKey import FaceKey
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.LabelGroups import (
+    LabelTags,
+)
 
 
 def DraftFrame(PlanValue: BodyPlan, FindIndex: DraftLookup) -> list[KDraftNode]:
@@ -26,7 +28,6 @@ def DraftFrame(PlanValue: BodyPlan, FindIndex: DraftLookup) -> list[KDraftNode]:
     )
     LumpValue, Shell = ("lump", Ordinal), ("shell", Ordinal)
     First = ("face", Ordinal, FaceKey(PlanValue.Body.Faces[0]))
-    Group = FeatureTag(Label.PrimaryId, Label.OperationIds, Label.SecondaryId)
     return [
         (
             BodyValue,
@@ -49,7 +50,8 @@ def DraftFrame(PlanValue: BodyPlan, FindIndex: DraftLookup) -> list[KDraftNode]:
         (
             TagValue,
             TagAttrib(
-                AttribLinks(-1, FindIndex(TimeValue), FindIndex(BodyValue)), (Group,)
+                AttribLinks(-1, FindIndex(TimeValue), FindIndex(BodyValue)),
+                LabelTags(Label),
             ),
         ),
         (

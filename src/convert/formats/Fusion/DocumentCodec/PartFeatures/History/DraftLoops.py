@@ -45,7 +45,7 @@ def DraftLoops(
             )
         )
         for Index, UseValue in enumerate(LoopValue):
-            Curve = SketchCurve(PlanValue.Body, UseValue.Edge)
+            Curve = SketchCurve(PlanValue.Body, FaceValue, UseValue.Edge)
             Attrib = ("skat", Ordinal, KeyValue, UseValue.Edge)
             Prefix = EntityPrefix(-1 if Curve is None else FindIndex(Attrib), -1)
             NodeValue = CoedgeNode(

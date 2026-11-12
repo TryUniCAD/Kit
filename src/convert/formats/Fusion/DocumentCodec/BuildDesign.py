@@ -77,6 +77,9 @@ def BuildDesign(SpecValue: DocumentSpec, AssetId: str) -> DesignResult:
             Builder(Author)
     if SpecValue.ConstrainRectangle:
         ConstrainMut(Author)
+    if SpecValue.ProfileKind == "part":
+        Author.Defaults.update(SketchDefaults())
+        Author.Defaults.update(ExtrudeDefaults())
     if SpecValue.Features:
         Author.Defaults.update(FeatureDefaults())
         AddPartMut(Author)

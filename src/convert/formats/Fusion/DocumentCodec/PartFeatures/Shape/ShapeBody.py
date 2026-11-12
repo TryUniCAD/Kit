@@ -12,5 +12,7 @@ KShapeFace: TypeAlias = WallFace | CapFace
 class ShapeBody:
     Faces: tuple[KShapeFace, ...]
     BodyLabel: FaceLabel
-    SketchCurves: tuple[tuple[str, int], ...]
+    SketchCurves: tuple[tuple[FaceLabel, int], ...]
     BaseLevelCm: float
+    EdgeTags: tuple[tuple[FaceLabel, float, FaceLabel], ...] = ()
+    Tracks: tuple[tuple[FaceLabel, int], ...] = ()

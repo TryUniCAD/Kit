@@ -10,6 +10,70 @@
     "bDirReversedAgainstRefEntity": false,
     "rRecipe": null
   },
+  "DRBody": {
+    "operIdTypeMap": [
+      {
+        "key": 301,
+        "value": 33
+      }
+    ],
+    "rRecipe": null
+  },
+  "DRPoint": {
+    "boundingboxIndex": 0,
+    "param": {
+      "x": 0.0,
+      "y": 0.0
+    },
+    "pickPtParam": null,
+    "point3d": {
+      "x": 2.0,
+      "y": 1.5,
+      "z": 2.0
+    },
+    "refType": 6,
+    "tangentPointData": [
+      {
+        "fields": {
+          "tangentPointParam0": -1.0,
+          "tangentPointParam1": -1.0,
+          "tangentPointParam2": -1.0
+        },
+        "identifier": "7ACE3A9E-A339-4754-B283-3AD3BDDD5314"
+      }
+    ]
+  },
+  "DRVector": {
+    "axisTrackType": 8,
+    "line3d": {
+      "parametricDirection": {
+        "x": 2.075,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "pointOnLine": {
+        "x": 0.175,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "param": {
+      "x": 0.0,
+      "y": 0.0
+    },
+    "refType": 7,
+    "resizeType": 0,
+    "tangentPointData": [
+      {
+        "fields": {
+          "tangentPointParam0": -1.0,
+          "tangentPointParam1": -1.0,
+          "tangentPointParam2": -1.0
+        },
+        "identifier": "7ACE3A9E-A339-4754-B283-3AD3BDDD5314"
+      }
+    ]
+  },
   "DcChamferData": {
     "bIsComputeChain": true,
     "bflip": false,
@@ -33,6 +97,12 @@
       }
     ],
     "rChamferData": []
+  },
+  "DcCircularPattern": {},
+  "DcCircularPatternData": {
+    "isMid": false,
+    "rAngle": null,
+    "rAxisDir": null
   },
   "DcFilletEdgeData": {
     "bAsymmetric": false,
@@ -71,15 +141,159 @@
     "scopeOption": 0,
     "topologyOption": 0
   },
+  "DcHoleFeature": {
+    "HoleTapType": 0,
+    "bInside1": true,
+    "bInside2": true,
+    "bThroughAll": false,
+    "bUseFastener": false,
+    "extendFaceOption": 1,
+    "fastenerFamily": "",
+    "fastenerFit": "",
+    "fastenerSize": "",
+    "fastenerType": "",
+    "holeType": 0,
+    "isFlipDir": false,
+    "originRefType": 0,
+    "origins2IDs": [],
+    "rCBDepth": null,
+    "rCBDiameter": null,
+    "rCSAngle": null,
+    "rCSDiameter": null,
+    "rDRMultipleOrigins": [],
+    "rDRNormal": null,
+    "rHoleDepth": null,
+    "rHoleDiameter": null,
+    "rHoleToolBody": null,
+    "rOriginGeomRef": null,
+    "rRefDim1": null,
+    "rRefDim2": null,
+    "rRefObj1": null,
+    "rRefObj2": null,
+    "rThreadFeature": null,
+    "rTipAngle": null,
+    "rToEntityRefs": [],
+    "taperDepthTol": 0.0
+  },
+  "DcHoleToolBody": {
+    "rHoleFeature": null
+  },
+  "DcIntParameter": {
+    "isRoundToNearestInt": true,
+    "value": 3
+  },
+  "DcMirrorPattern": {},
+  "DcMirrorPatternData": {
+    "Combine": false,
+    "mirrorStitchTolerance": null,
+    "rRefPlaneDataRef": null
+  },
+  "DcPatternBaseData": {
+    "additionalAffectedBodies": [],
+    "cachedDcCIs": [],
+    "cachedWorkGeometriesByOccTagId": [],
+    "computeOption": 2,
+    "computeType": 1,
+    "countUMax": -1,
+    "extengType": false,
+    "occOperationIdsMap": [
+      {
+        "key": 2,
+        "value": 309
+      },
+      {
+        "key": 3,
+        "value": 307
+      },
+      {
+        "key": 5,
+        "value": 310
+      },
+      {
+        "key": 6,
+        "value": 308
+      },
+      {
+        "key": 9,
+        "value": 311
+      }
+    ],
+    "patternOccurrences": [],
+    "rCountUParam": null,
+    "rDcFeature": null,
+    "rSourceRef": null,
+    "suppressedOccIds": []
+  },
+  "DcPatternBodyOccurrence": {},
+  "DcPatternFeature": {
+    "rPatternBaseData": null,
+    "rPatternSource": null
+  },
+  "DcPatternOccurrence": {
+    "occTagId": 1,
+    "rPatternData": null
+  },
+  "DcPatternSource": {
+    "adjacentFaceCaches": [],
+    "caches": [
+      {
+        "first": null,
+        "second": []
+      }
+    ],
+    "patternFeature": null
+  },
+  "DcRectangularPattern": {},
+  "DcRectangularPatternData": {
+    "computedRectVector": [],
+    "countVMax": -1,
+    "deducedDir": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0
+    },
+    "dirU": null,
+    "dirV": null,
+    "isMidU": false,
+    "isMidV": false,
+    "rCountVParam": null,
+    "rUDirMR": null,
+    "rVDirMR": null
+  },
   "DcShellFeature": {
     "TangentPropagation": false,
     "UseDistanceFieldShell": false,
     "rParamInnerThickness": null,
     "rParamOuterThickness": null
   },
+  "DcWorkGeometry": {
+    "isVisibleBeforeRollback": true
+  },
+  "DcWorkPlane": {
+    "chainPropagation": true,
+    "creationType": 0,
+    "extraOffset": null,
+    "isProportionalParam": true,
+    "rWorkPlane": null,
+    "rWorkPlaneMatrix": null
+  },
   "ETCachedCurve3d": {
     "endPtProgenitor": null,
     "rCachedEdge": null,
     "startPtProgenitor": null
+  },
+  "ETCachedLineSeg3d": {
+    "rCachedGeometry": {
+      "displacement": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 2.0
+      },
+      "startPoint": {
+        "x": 4.0,
+        "y": 3.0,
+        "z": 0.0
+      }
+    }
   }
 }

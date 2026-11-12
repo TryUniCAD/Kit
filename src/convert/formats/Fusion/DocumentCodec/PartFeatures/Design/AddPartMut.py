@@ -1,3 +1,6 @@
+from convert.formats.Fusion.DocumentCodec.Materials.LinkMaterialMut import (
+    LinkMaterialMut,
+)
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.AddCornerMut import (
     AddCornerMut,
@@ -15,21 +18,79 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.LinkTimeline impor
     LinkTimeline,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.PartCache import PartCache
-from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.RoofTag import RoofTag
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.RoofTag import (
+    RoofTag,
+    RoofTagSet,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Extrude.AddExtrudeFeat import (
+    AddExtrudeFeat,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Hole.AddHoleMut import (
+    AddHoleMut,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ExtrudeSpec import (
+    ExtrudeSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.HoleSpec import HoleSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CircularSpec import (
+    CircularSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MirrorSpec import (
+    MirrorSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartStage import PartStage
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import (
+    PatternSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import ShellSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.AddCopyMut import (
+    AddCopyMut,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.AddPlaneMut import (
+    AddPlaneMut,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSolid import (
+    PrismSolid,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.SolvePart import SolvePart
+
+
+def AddStageMut(
+    Author: AuthorState,
+    Stage: PartStage,
+    Prefix: str,
+    Context: tuple[tuple[PrismSolid, ...], int],
+) -> list[str]:
+    Solids, Place = Context
+    Feature = Stage.Feature
+    if isinstance(Feature, ShellSpec):
+        return AddShellMut(Author, Stage, Prefix, RoofTag(Solids, Place))
+    if isinstance(Feature, HoleSpec):
+        return AddHoleMut(Author, Stage, Prefix, RoofTagSet(Solids, Place + 1))
+    if isinstance(Feature, PlaneSpec):
+        return AddPlaneMut(Author, Stage, Prefix)
+    if isinstance(Feature, (PatternSpec, CircularSpec, MirrorSpec)):
+        return AddCopyMut(Author, Stage, Prefix, RoofTagSet(Solids, Place + 1))
+    Children = AddCornerMut(Author, Stage, Prefix)
+    LinkCornerMut(Author, Stage, Prefix)
+    return Children
 
 
 def AddPartMut(Author: AuthorState) -> None:
     BaseValue, Stages = SolvePart(Author.SpecValue)
-    Solids = (BaseValue, *(Stage.After for Stage in Stages))
+    Solids = (() if BaseValue is None else (BaseValue,)) + tuple(
+        Stage.After for Stage in Stages
+    )
+    Offset = 0 if BaseValue is not None else -1
     for Index, Stage in enumerate(Stages):
         Prefix = "f" + str(Index + 1) + "_"
-        if isinstance(Stage.Feature, ShellSpec):
-            Children = AddShellMut(Author, Stage, Prefix, RoofTag(Solids, Index))
-        else:
-            Children = AddCornerMut(Author, Stage, Prefix)
-            LinkCornerMut(Author, Stage, Prefix)
+        if isinstance(Stage.Feature, ExtrudeSpec):
+            AddExtrudeFeat(Author, Stage, Prefix)
+            continue
+        Children = AddStageMut(Author, Stage, Prefix, (Solids, Index + Offset))
         LinkFeatureMut(Author, Stage, Prefix, Children)
     LinkTimeline(Author, Stages)
+    if BaseValue is None:
+        LinkMaterialMut(Author)
     Author.Change("body", cache=PartCache(Author, Solids[-1]))

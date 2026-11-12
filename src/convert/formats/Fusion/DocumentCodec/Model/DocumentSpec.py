@@ -15,7 +15,7 @@ class DocumentSpec:
     ParamName: str
     LengthMm: float
     ProfileKind: Literal[
-        "parameter", "circle", "extrusion", "rectangle", "cuboid", "frustum"
+        "parameter", "circle", "extrusion", "rectangle", "cuboid", "frustum", "part"
     ] = "extrusion"
     RadiusMm: float = 12.5
     ParamComment: str = ""

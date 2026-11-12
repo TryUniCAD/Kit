@@ -1,4 +1,7 @@
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.FaceLabel import FaceLabel
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.LabelGroups import (
+    LabelGroups,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSolid import (
     PrismSolid,
 )
@@ -12,13 +15,14 @@ from convert.formats.Fusion.EntityCodec.Recipes.Model.VertexRecipe import Vertex
 
 def RecipeTags(Labels: list[FaceLabel]) -> tuple[tuple[RecipeTag, ...], ...]:
     return tuple(
-        (
+        tuple(
             RecipeTag(
-                tuple(Label.PrimaryId.encode("ascii")),
-                Label.SecondaryId,
-                Label.OperationIds,
+                tuple(Group.PrimaryId.encode("ascii")),
+                Group.SecondaryId,
+                Group.OperationIds,
                 0,
-            ),
+            )
+            for Group in LabelGroups(Label)
         )
         for Label in Labels
     )

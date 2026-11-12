@@ -22,6 +22,7 @@ def CheckDocSpec(SpecValue: DocumentSpec) -> None:
         "rectangle",
         "cuboid",
         "frustum",
+        "part",
     ):
         raise ValueError("Unsupported Fusion document profile")
     for Amount in (

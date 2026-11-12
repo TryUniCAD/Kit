@@ -31,6 +31,7 @@ def BlockSolid(
     )
     BodyLabel = FaceLabel(str(Operation[0]), (), Policy.CurveProgenitorTag + 4)
     Curves = tuple(
-        (Names[Index], Policy.FirstSketchTag + 5 + Index) for Index in range(4)
+        (LoopValue[Index].Label, Policy.FirstSketchTag + 5 + Index)
+        for Index in range(4)
     )
     return PrismSolid((SlabValue,), BodyLabel, Curves)

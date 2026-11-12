@@ -1,16 +1,27 @@
+from convert.formats.Fusion.DocumentCodec.PartFeatures.History.FaceKey import (
+    FaceLabelOf,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.LevelEdge import LevelEdge
-from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.ShapeBody import ShapeBody
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.ShapeBody import (
+    KShapeFace,
+    ShapeBody,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.ShapeUse import KShapeEdge
-from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.LineSpan import LineSpan
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.WallFace import WallFace
 
 
-def SketchCurve(BodyValue: ShapeBody, EdgeValue: KShapeEdge) -> int | None:
-    if not isinstance(EdgeValue, LevelEdge) or not isinstance(EdgeValue.Span, LineSpan):
+def SketchCurve(
+    BodyValue: ShapeBody, FaceValue: KShapeFace, EdgeValue: KShapeEdge
+) -> int | None:
+    if not isinstance(EdgeValue, LevelEdge):
         return None
+    if EdgeValue.LevelCm != BodyValue.BaseLevelCm:
+        return None
+    Owner = FaceLabelOf(FaceValue).OperationIds
     if (
-        EdgeValue.LevelCm != BodyValue.BaseLevelCm
-        or len(EdgeValue.Span.Label.OperationIds) != 1
+        not isinstance(FaceValue, WallFace)
+        and Owner != EdgeValue.Span.Label.OperationIds
     ):
         return None
     Curves = dict(BodyValue.SketchCurves)
-    return Curves.get(EdgeValue.Span.Label.PrimaryId)
+    return Curves.get(EdgeValue.Span.Label)

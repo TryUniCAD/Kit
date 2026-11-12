@@ -21,10 +21,10 @@ from convert.formats.Fusion.SegmentCodec.Bulk.BulkRecord import BulkRecord
 from convert.formats.Fusion.SegmentCodec.Metadata.ReadMetaWire import ReadMetaWire
 
 CONTROLS = REPO / "re/Fusion/LocalOracle/FeatureAuthoring/Controls"
-SOURCES = ("Fillet", "Chamfer", "Shell", "ExtrudeCut", "RectPattern", "MirrorBody", "MultiFeature")
+SOURCES = ("Fillet", "Chamfer", "Shell", "ExtrudeCut", "RectPattern", "MirrorBody", "MultiFeature", "HoleFlat", "HoleThrough", "HoleCounterboreFlat", "Construction", "OffsetPlane", "FeatureCircPattern", "MirrorFeature", "RevolveFull", "RevolveHalf")
 TARGET = REPO / "src/convert/formats/Fusion/DocumentCodec/PartFeatures/Vocabulary"
 ROOT = "98542EB9-A4F2-4137-A808-DBB5B3CD6159"
-AUTHORED = {"ASMRecipe", "BrepProgenitor", "BrepRef", "DcChamferData", "DcChamferFeature", "DcFilletEdgeData", "DcFilletEdgeFeature", "DcShellFeature", "ETCachedCurve3d"}
+AUTHORED = {"ASMRecipe", "DRBody", "DRPoint", "DRVector", "DcHoleFeature", "DcHoleToolBody", "BrepProgenitor", "BrepRef", "DcChamferData", "DcChamferFeature", "DcFilletEdgeData", "DcFilletEdgeFeature", "DcShellFeature", "ETCachedCurve3d", "DcIntParameter", "DcPatternFeature", "DcPatternBaseData", "DcPatternSource", "DcPatternOccurrence", "DcPatternBodyOccurrence", "DcRectangularPattern", "DcRectangularPatternData", "DcCircularPattern", "DcCircularPatternData", "DcMirrorPattern", "DcMirrorPatternData", "DcWorkGeometry", "DcWorkPlane", "ETCachedLineSeg3d"}
 
 
 def known_guids():

@@ -14,12 +14,12 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSolid import (
 )
 
 
-def RoofTag(Solids: tuple[PrismSolid, ...], Index: int) -> int:
+def RoofTagSet(Solids: tuple[PrismSolid, ...], Index: int) -> tuple[int, int, int]:
     Ledger = TagLedger()
-    Found = -1
+    Found = (-1, -1)
     for Ordinal, Solid in enumerate(Solids[: Index + 1]):
         Shape = BuildShape(Solid)
-        FaceTags, _ = LedgerTags((Shape,), Ledger)[0]
+        FaceTags, BodyTag = LedgerTags((Shape,), Ledger)[0]
         if Ordinal != Index:
             continue
         Level = Solid.Slabs[-1].UpperCm
@@ -31,6 +31,10 @@ def RoofTag(Solids: tuple[PrismSolid, ...], Index: int) -> int:
             and FaceValue.LevelCm == Level
         ]
         if len(Roofs) != 1:
-            raise ValueError("Fusion part shell requires one roof face")
-        Found = FaceTags[FaceKey(Roofs[0])]
-    return Found
+            raise ValueError("Fusion part feature requires one roof face")
+        Found = (FaceTags[FaceKey(Roofs[0])], BodyTag)
+    return Found[0], Found[1], Ledger.NextTag
+
+
+def RoofTag(Solids: tuple[PrismSolid, ...], Index: int) -> int:
+    return RoofTagSet(Solids, Index)[0]

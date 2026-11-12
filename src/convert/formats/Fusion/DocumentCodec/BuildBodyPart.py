@@ -23,7 +23,7 @@ from convert.formats.Fusion.DocumentCodec.Tapered.BuildTaperPart import BuildTap
 def BuildBodyPart(
     SpecValue: DocumentSpec, Design: DesignResult
 ) -> tuple[ContainerPart, ...]:
-    if SpecValue.ProfileKind == "cuboid" and SpecValue.Features:
+    if SpecValue.ProfileKind in ("cuboid", "part") and SpecValue.Features:
         return BuildPartBody(SpecValue, Design)
     if SpecValue.ProfileKind == "cuboid":
         return BuildPrismPart(SpecValue, Design)

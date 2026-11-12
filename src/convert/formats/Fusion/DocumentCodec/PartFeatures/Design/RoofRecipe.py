@@ -4,6 +4,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.SelectRecipe impor
     RecipeTags,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.FaceLabel import FaceLabel
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.LoopMath import LoopArea
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSolid import (
     PrismSolid,
 )
@@ -15,10 +16,9 @@ from convert.formats.Fusion.EntityCodec.Recipes.Model.RecipeValue import RecipeV
 
 
 def RoofPlans(Solid: PrismSolid) -> list[tuple[tuple[FaceLabel, ...], ...]]:
-    if len(Solid.Slabs) != 1 or len(Solid.Slabs[0].Loops) != 1:
-        raise ValueError("Fusion part roof selection requires a single-profile prism")
-    LoopValue = Solid.Slabs[0].Loops[0]
-    RoofValue = Solid.Slabs[0].RoofLabel
+    Ceiling = Solid.Slabs[-1]
+    LoopValue = next(Value for Value in Ceiling.Loops if LoopArea(Value) > 0)
+    RoofValue = Ceiling.RoofLabel
     Order = (LoopValue[-1], *LoopValue[:-1])
     First = (Order[-1].Label, Order[0].Label, RoofValue)
     Opening = First
@@ -36,7 +36,7 @@ def RoofPlans(Solid: PrismSolid) -> list[tuple[tuple[FaceLabel, ...], ...]]:
 
 def RoofRecipe(Solid: PrismSolid) -> RecipeValue:
     Plans = RoofPlans(Solid)
-    Labels: list[FaceLabel] = [Solid.Slabs[0].RoofLabel]
+    Labels: list[FaceLabel] = [Solid.Slabs[-1].RoofLabel]
     for PlanValue in Plans:
         Labels.extend(
             Label for Group in PlanValue for Label in Group if Label not in Labels
@@ -56,3 +56,8 @@ def RoofRecipe(Solid: PrismSolid) -> RecipeValue:
         for Faces, Opening, Closing in Plans
     )
     return RecipeValue(3, RecipeTags(Labels), (), BoundFaceRecipe(0, -1, Edges))
+
+
+def RoofFaceRecipe(Solid: PrismSolid) -> RecipeValue:
+    Labels = [Solid.Slabs[-1].RoofLabel]
+    return RecipeValue(3, RecipeTags(Labels), (), PickFace(0))

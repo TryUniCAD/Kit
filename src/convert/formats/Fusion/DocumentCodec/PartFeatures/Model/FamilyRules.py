@@ -1,21 +1,41 @@
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ChamferSpec import (
     ChamferSpec,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CircularSpec import (
+    CircularSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ExtrudeSpec import (
+    ExtrudeSpec,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.FamilyRule import (
     FamilyRule,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.FilletSpec import (
     FilletSpec,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.HoleSpec import HoleSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MirrorSpec import (
+    MirrorSpec,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartFeature import (
     KPartFeature,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import (
+    PatternSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import ShellSpec
 
 KFamilyRules: dict[type[object], FamilyRule] = {
     FilletSpec: FamilyRule("DcFilletEdgeFeature", "Fillet", 1, 8),
     ChamferSpec: FamilyRule("DcChamferFeature", "Chamfer", 1, 8),
     ShellSpec: FamilyRule("DcShellFeature", "Shell", 2, 16),
+    ExtrudeSpec: FamilyRule("DcExtrudeFeature", "Extrude", 3, 8),
+    HoleSpec: FamilyRule("DcHoleFeature", "Hole", 1, 4),
+    PatternSpec: FamilyRule("DcRectangularPattern", "R-Pattern", 0, 4),
+    CircularSpec: FamilyRule("DcCircularPattern", "C-Pattern", 0, 4),
+    MirrorSpec: FamilyRule("DcMirrorPattern", "Mirror", 2, 4),
+    PlaneSpec: FamilyRule("DcWorkPlane", "WorkPlane", 1, 4),
 }
 
 
@@ -24,3 +44,15 @@ def FamilyOf(Feature: KPartFeature) -> FamilyRule:
     if RuleValue is None:
         raise ValueError("Unsupported Fusion part feature family")
     return RuleValue
+
+
+def OperationsOf(Feature: KPartFeature) -> int:
+    if isinstance(Feature, PatternSpec):
+        return Feature.CountU * Feature.CountV
+    if isinstance(Feature, CircularSpec):
+        return Feature.Count
+    return FamilyOf(Feature).OperationCount
+
+
+def IsStateless(Feature: KPartFeature) -> bool:
+    return isinstance(Feature, PlaneSpec)

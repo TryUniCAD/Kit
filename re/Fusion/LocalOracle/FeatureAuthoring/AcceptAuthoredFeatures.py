@@ -9,6 +9,8 @@ For every case in Authored/Manifest.json this script:
 6. exports the edited Kit document, reopens it and compares again.
 
 Run only through RunLocked.mjs. Every document opened here is closed.
+Suite wrappers (for example AcceptExtrudes.py) pass SUITE and CASES through
+runpy init_globals; the report then goes to NativeAcceptance<SUITE>.json.
 """
 
 import hashlib
@@ -22,7 +24,11 @@ import adsk.fusion
 
 
 root = Path(__file__).resolve().parent / "Authored"
+suite = globals().get("SUITE", "")
+selected = globals().get("CASES")
 manifest = json.loads((root / "Manifest.json").read_text())
+if selected is not None:
+    manifest = {name: manifest[name] for name in selected}
 app = adsk.core.Application.get()
 original = app.activeDocument
 FO = adsk.fusion.FeatureOperations
@@ -30,14 +36,15 @@ HEALTHY = adsk.fusion.FeatureHealthStates.HealthyFeatureHealthState
 report = {
     "fusion_version": app.version,
     "documents_before": app.documents.count,
-    "scope": "Kit-authored fillet, chamfer and shell documents compared with same-script native API controls: open without recompute, every rollback marker, computeAll, driving parameter edits, export and reopen",
+    "suite": suite or "FilletChamferShell",
+    "scope": "Kit-authored part feature documents compared with same-script native API controls: open without recompute, every rollback marker, computeAll, driving parameter edits, export and reopen",
     "cases": [],
 }
 open_docs = []
 
 
 def checkpoint():
-    (root / "NativeAcceptance.json").write_text(json.dumps(report, indent=2).replace(str(Path(__file__).resolve().parents[4]) + "/", "").replace(str(Path.home()), "~") + "\n")
+    (root / ("NativeAcceptance" + suite + ".json")).write_text(json.dumps(report, indent=2).replace(str(Path(__file__).resolve().parents[4]) + "/", "").replace(str(Path.home()), "~") + "\n")
 
 
 def vi(text):
@@ -73,15 +80,121 @@ def top_face(body):
     return best
 
 
-def build_control(comp, steps):
+OPERATIONS = {
+    "new": FO.NewBodyFeatureOperation,
+    "join": FO.JoinFeatureOperation,
+    "cut": FO.CutFeatureOperation,
+    "intersect": FO.IntersectFeatureOperation,
+}
+
+
+def draw_profile(sketch, profile):
+    points = {}
+
+    def point(xy):
+        return points.get((round(xy[0], 9), round(xy[1], 9))) or pt(xy[0], xy[1])
+
+    def remember(*sketch_points):
+        for value in sketch_points:
+            geometry = value.geometry
+            points.setdefault((round(geometry.x, 9), round(geometry.y, 9)), value)
+
+    curves = sketch.sketchCurves
+    for curve in profile:
+        if curve["kind"] == "line":
+            line = curves.sketchLines.addByTwoPoints(point(curve["start_cm"]), point(curve["end_cm"]))
+            remember(line.startSketchPoint, line.endSketchPoint)
+        elif curve["kind"] == "arc":
+            arc = curves.sketchArcs.addByCenterStartSweep(pt(*curve["center_cm"]), point(curve["start_cm"]), curve["sweep_rad"])
+            remember(arc.startSketchPoint, arc.endSketchPoint)
+        else:
+            curves.sketchCircles.addByCenterRadius(pt(*curve["center_cm"]), curve["radius_cm"])
+
+
+def add_extrude(comp, step):
     sketch = comp.sketches.add(comp.xYConstructionPlane)
-    sketch.name = "Base Sketch"
-    sketch.sketchCurves.sketchLines.addTwoPointRectangle(pt(0, 0), pt(4, 3))
-    extrude = comp.features.extrudeFeatures.addSimple(sketch.profiles.item(0), vi("20 mm"), FO.NewBodyFeatureOperation)
-    extrude.name = "Base Extrude"
-    body = extrude.bodies.item(0)
-    for step in steps:
-        if step["kind"] == "fillet":
+    sketch.name = step["sketch"]
+    draw_profile(sketch, step["profile"])
+    if sketch.profiles.count != 1:
+        raise RuntimeError("Control sketch has " + str(sketch.profiles.count) + " profiles")
+    feats = comp.features.extrudeFeatures
+    inp = feats.createInput(sketch.profiles.item(0), OPERATIONS[step["operation"]])
+    distance = adsk.fusion.DistanceExtentDefinition.create(vi(step["amount"]))
+    if step["extent"] == "flip":
+        inp.setOneSideExtent(distance, adsk.fusion.ExtentDirections.NegativeExtentDirection)
+    elif step["extent"] == "symmetric":
+        inp.setSymmetricExtent(vi(step["amount"]), True)
+    elif step["extent"] == "two":
+        inp.setTwoSidesExtent(distance, adsk.fusion.DistanceExtentDefinition.create(vi(step["against"])))
+    else:
+        inp.setOneSideExtent(distance, adsk.fusion.ExtentDirections.PositiveExtentDirection)
+    return feats.add(inp)
+
+
+def add_hole(comp, body, step):
+    feats = comp.features.holeFeatures
+    if step.get("bore_diameter"):
+        inp = feats.createCounterboreInput(vi(step["diameter"]), vi(step["bore_diameter"]), vi(step["bore_depth"]))
+    else:
+        inp = feats.createSimpleInput(vi(step["diameter"]))
+    face = top_face(body)
+    inp.setPositionByPoint(face, pt(step["center_cm"][0], step["center_cm"][1], face.pointOnFace.z))
+    if step.get("depth"):
+        inp.setDistanceExtent(vi(step["depth"]))
+        inp.tipAngle = vi("180 deg")
+    else:
+        inp.setAllExtent(adsk.fusion.ExtentDirections.PositiveExtentDirection)
+    return feats.add(inp)
+
+
+def add_copy(comp, features, step):
+    source = features[step["source"]]
+    if step["kind"] == "pattern":
+        feats = comp.features.rectangularPatternFeatures
+        count = adsk.core.ValueInput.createByReal(step["count_u"])
+        inp = feats.createInput(coll(source), comp.xConstructionAxis, count, vi(step["spacing_u"]), adsk.fusion.PatternDistanceType.SpacingPatternDistanceType)
+        if step["count_v"] > 1:
+            inp.setDirectionTwo(comp.yConstructionAxis, adsk.core.ValueInput.createByReal(step["count_v"]), vi(step["spacing_v"]))
+        return feats.add(inp)
+    if step["kind"] == "circular":
+        feats = comp.features.circularPatternFeatures
+        inp = feats.createInput(coll(source), comp.zConstructionAxis)
+        inp.quantity = adsk.core.ValueInput.createByReal(step["count"])
+        inp.totalAngle = vi(step["angle"])
+        inp.isSymmetric = False
+        return feats.add(inp)
+    feats = comp.features.mirrorFeatures
+    return feats.add(feats.createInput(coll(source), features[step["plane"]]))
+
+
+def add_plane(comp, step):
+    planes = comp.constructionPlanes
+    inp = planes.createInput()
+    origin = {"xy": comp.xYConstructionPlane, "yz": comp.yZConstructionPlane, "xz": comp.xZConstructionPlane}[step["base"]]
+    inp.setByOffset(origin, vi(step["offset"]))
+    return planes.add(inp)
+
+
+def build_control(comp, entry):
+    body = None
+    if entry.get("base", "cuboid") == "cuboid":
+        sketch = comp.sketches.add(comp.xYConstructionPlane)
+        sketch.name = "Base Sketch"
+        sketch.sketchCurves.sketchLines.addTwoPointRectangle(pt(0, 0), pt(4, 3))
+        extrude = comp.features.extrudeFeatures.addSimple(sketch.profiles.item(0), vi("20 mm"), FO.NewBodyFeatureOperation)
+        extrude.name = "Base Extrude"
+        body = extrude.bodies.item(0)
+    features = []
+    for step in entry["steps"]:
+        if step["kind"] == "extrude":
+            feature = add_extrude(comp, step)
+        elif step["kind"] == "hole":
+            feature = add_hole(comp, body, step)
+        elif step["kind"] in ("pattern", "circular", "mirror"):
+            feature = add_copy(comp, features, step)
+        elif step["kind"] == "plane":
+            feature = add_plane(comp, step)
+        elif step["kind"] == "fillet":
             feats = comp.features.filletFeatures
             inp = feats.createInput()
             inp.edgeSetInputs.addConstantRadiusEdgeSet(coll(vertical_edge(body, *step["corner_cm"])), vi(step["amount"]), True)
@@ -97,7 +210,8 @@ def build_control(comp, steps):
             inp.insideThickness = vi(step["amount"])
             feature = feats.add(inp)
         feature.name = step["name"]
-        body = comp.bRepBodies.item(0)
+        features.append(feature)
+        body = comp.bRepBodies.item(0) if comp.bRepBodies.count else None
 
 
 def observe(design):
@@ -127,7 +241,12 @@ def observe(design):
             owner = p.createdBy.name if p.createdBy else None
         except Exception:
             owner = None
-        params.append({"name": p.name, "expression": p.expression, "value": p.value, "unit": p.unit, "owner": owner})
+        role = None
+        try:
+            role = adsk.fusion.ModelParameter.cast(p).role if adsk.fusion.ModelParameter.cast(p) else None
+        except Exception:
+            role = None
+        params.append({"name": p.name, "expression": p.expression, "value": p.value, "unit": p.unit, "owner": owner, "role": role})
     return {"timeline": timeline, "bodies": bodies, "parameters": params, "marker": design.timeline.markerPosition}
 
 
@@ -166,9 +285,10 @@ def apply_edits(design, edits):
             extent = adsk.fusion.DistanceExtentDefinition.cast(comp.features.extrudeFeatures.item(0).extentOne)
             extent.distance.expression = edit["expression"]
             continue
-        matches = [p for p in comp.modelParameters if p.unit == "mm" and p.createdBy is not None and p.createdBy.name == edit["feature"]]
+        owned = [p for p in comp.modelParameters if p.createdBy is not None and p.createdBy.name == edit["feature"]]
+        matches = [p for p in owned if (p.role == edit["role"] if "role" in edit else p.unit == "mm")]
         if len(matches) != 1:
-            raise RuntimeError("Driving parameter not unique for " + edit["feature"] + ": " + str(len(matches)))
+            raise RuntimeError("Driving parameter not unique for " + edit["feature"] + ": " + str([(p.name, p.role) for p in owned]))
         matches[0].expression = edit["expression"]
     if not design.computeAll():
         raise RuntimeError("computeAll failed after parameter edits")
@@ -193,7 +313,7 @@ def native_control(entry):
     open_docs.append(doc)
     design = adsk.fusion.Design.cast(doc.products.itemByProductType("DesignProductType"))
     design.designType = adsk.fusion.DesignTypes.ParametricDesignType
-    build_control(design.rootComponent, entry["steps"])
+    build_control(design.rootComponent, entry)
     built = observe(design)
     markers = walk_markers(design)
     apply_edits(design, entry["edits"])

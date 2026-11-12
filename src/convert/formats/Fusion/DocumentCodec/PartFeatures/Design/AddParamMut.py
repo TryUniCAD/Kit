@@ -8,6 +8,8 @@ from convert.formats.Fusion.DocumentCodec.Values.ReadObjects import (
     ReadSeries,
 )
 
+KCountClass = "DcIntParameter"
+
 
 def ExprText(Amount: float) -> str:
     TextValue = repr(float(Amount))
@@ -21,6 +23,8 @@ def AddParamMut(
     NameValue: str,
     Amount: float,
     UnitName: str,
+    Expression: str | None = None,
+    ClassName: str = "DcDoubleParameter",
 ) -> None:
     Watermark = ReadInteger(
         Author.FindEntity("parameters").FieldValues["highWaterMark"]
@@ -29,11 +33,15 @@ def AddParamMut(
     UserName = "d" + str(Watermark + 1)
     Fields = MakeNumeric(UserName, Amount, "", Author.Policy.ParamBirthday)
     Value = Amount / 10.0 if UnitName == "mm" else Amount
-    AddNodeMut(Author, RoleName, "DcDoubleParameter", OwnerRole, False)
+    AddNodeMut(Author, RoleName, ClassName, OwnerRole, False)
     Fields.update(
         creationIndex=Watermark + 1,
         dcParameter=Author.Reference(RoleName),
-        expression=ExprText(Amount) + (" " + UnitName if UnitName else ""),
+        expression=(
+            ExprText(Amount) + (" " + UnitName if UnitName else "")
+            if Expression is None
+            else Expression
+        ),
         isUserDefined=False,
         name=NameValue,
         unit=UnitName,
@@ -45,7 +53,7 @@ def AddParamMut(
     Author.FindEntity(RoleName).Subjects.append(OwnerRole)
     Author.Change(
         RoleName,
-        value=Value,
+        value=round(Value) if ClassName == KCountClass else Value,
         parameter=Author.Reference(RoleName + "_parameter"),
         rparamId=RuntimeId + 1,
         rrOwnerFeature=Author.Reference(OwnerRole),

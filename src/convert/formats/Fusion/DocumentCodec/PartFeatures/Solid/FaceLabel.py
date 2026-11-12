@@ -6,3 +6,4 @@ class FaceLabel:
     PrimaryId: str
     OperationIds: tuple[int, ...]
     SecondaryId: int = 0
+    Merged: tuple["FaceLabel", ...] = ()
