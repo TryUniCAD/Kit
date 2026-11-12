@@ -3,6 +3,13 @@ from sys import version_info as PythonVersion
 
 from pytest import mark as MarkTests, raises as RaisesError
 
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import (
+    SubtypeNode,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.WalkSubtypes import (
+    MapSubtypes,
+    WalkSubtypes,
+)
 from convert.formats.Fusion.BrepCodec.Journal.EmitJournal import EmitJournal
 from convert.formats.Fusion.BrepCodec.Journal.ReadJournal import ReadJournal
 from convert.formats.Fusion.BrepCodec.Journal.Snapshot.EmitGeometry import EmitGeometry
@@ -43,11 +50,14 @@ def TestSplineParts() -> None:
 def TestSubtypeRefs(Fault: str) -> None:
     Payload = next(Value[1] for Value in SplineMembers() if Value[0].endswith(".smb"))
     Geometry = ReadGeometry(Payload)
-    Index, Value = next(
-        (Index, Value)
+    Index, Value, Support = next(
+        (Index, Value, Found)
         for Index, Value in enumerate(Geometry.Entities)
-        if isinstance(Value, PcurveNode) and isinstance(Value.Curve.Support, SubtypeRef)
+        if isinstance(Value, PcurveNode)
+        for Found in WalkSubtypes(Value.Curve)
+        if isinstance(Found, SubtypeRef)
     )
+    assert Support.Family == "surface"
     Kinds = [
         KindName
         for Entity in Geometry.Entities
@@ -55,7 +65,8 @@ def TestSubtypeRefs(Fault: str) -> None:
         if Reference is None
     ]
     Target = 4096 if Fault == "forward" else Kinds.index("exact_int_cur")
-    Curve = ReplaceValue(Value.Curve, Support=SubtypeRef(Target))
+    Curve = MapSubtypes(Value.Curve, {Support.Index: Target})
+    assert isinstance(Curve, SubtypeNode)
     Entities = list(Geometry.Entities)
     Entities[Index] = ReplaceValue(Value, Curve=Curve)
     with RaisesError(ValueError):

@@ -5,7 +5,13 @@ KRequiredRefs: dict[str, tuple[int, ...]] = {
     "face": (5, 7),
     "loop": (4, 5),
     "coedge": (3, 4, 6, 8),
+    "tcoedge-coedge": (3, 4, 6, 8),
     "edge": (3, 5, 7, 8),
+    "tedge-edge": (3, 5, 7, 8),
     "vertex": (3, 5),
+    "tvertex-vertex": (3, 5),
+    "pcurve": (4,),
     "ATTRIB_CUSTOM-attrib": (4,),
+    "stitch_hint-sys-attrib": (4,),
+    "vertedge-sys-attrib": (4,),
 }

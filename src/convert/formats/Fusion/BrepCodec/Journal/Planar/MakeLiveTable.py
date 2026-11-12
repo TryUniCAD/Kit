@@ -21,4 +21,5 @@ def MakeLiveTable(Model: JournalModel, StateId: int | None) -> LiveTable:
         Model.Entities[Versions[Target]] if Target in Versions else None
         for Target in SlotMap
     )
-    return LiveTable(State.StateId, Entities, SlotMap, tuple(Versions))
+    Records = tuple(Versions.get(Target, -1) for Target in SlotMap)
+    return LiveTable(State.StateId, Entities, SlotMap, tuple(Versions), Records)

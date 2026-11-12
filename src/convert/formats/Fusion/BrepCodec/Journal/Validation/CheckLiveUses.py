@@ -14,11 +14,11 @@ def CheckLiveUses(
     Selected = {SlotId: Records[Revision] for SlotId, Revision in Versions.items()}
     Groups: dict[int, list[int]] = {}
     for SlotId, Record in Selected.items():
-        if Record.Name != "coedge":
+        if Record.Name not in ("coedge", "tcoedge-coedge"):
             continue
         CheckUseRing(SlotId, Selected, Aliases)
         EdgeRef = ReadLiveRef(Record, 6, Aliases)
         Groups.setdefault(EdgeRef, []).append(SlotId)
     for SlotId, Record in Selected.items():
-        if Record.Name == "edge":
+        if Record.Name in ("edge", "tedge-edge"):
             CheckUsePairs(SlotId, tuple(Groups.get(SlotId, ())), Selected, Aliases)

@@ -25,5 +25,12 @@ def ReadCoedgeNode(Cursor: FieldCursor) -> CoedgeNode:
     NeedFieldMut(Cursor, (4, 0))
     Pcurve = ReadRefMut(Cursor)
     return CoedgeNode(
-        Prefix, NextCoedge, PriorCoedge, Partner, EdgeRef, Reversed, OwnerLoop, Pcurve
+        Prefix,
+        NextCoedge,
+        PriorCoedge,
+        Partner,
+        EdgeRef,
+        Reversed,
+        OwnerLoop,
+        Pcurve,
     )

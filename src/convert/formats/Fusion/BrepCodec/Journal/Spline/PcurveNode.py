@@ -1,13 +1,17 @@
 from dataclasses import dataclass as MakeDataClass
 
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import (
+    KSubtypeValue,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.EntityPrefix import EntityPrefix
-from convert.formats.Fusion.BrepCodec.Journal.Spline.ParCurve import ParCurve
 
 
 @MakeDataClass(frozen=True, slots=True)
 class PcurveNode:
     Prefix: EntityPrefix
     Reversed: bool
-    Curve: ParCurve
+    Curve: KSubtypeValue | None
     OffsetU: float
     OffsetV: float
+    Form: int = 0
+    CurveRef: int = -1

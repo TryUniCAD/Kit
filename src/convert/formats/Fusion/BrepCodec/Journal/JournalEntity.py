@@ -1,7 +1,7 @@
 from typing import TypeAlias
-from convert.formats.Fusion.BrepCodec.Journal.Spline.SplineNode import SplineNode
-from convert.formats.Fusion.BrepCodec.Journal.Spline.IntcurveNode import IntcurveNode
-from convert.formats.Fusion.BrepCodec.Journal.Spline.PcurveNode import PcurveNode
+from convert.formats.Fusion.BrepCodec.Journal.Complex.ComplexEntity import (
+    KComplexEntity,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Round.SphereNode import SphereNode
 from convert.formats.Fusion.BrepCodec.Journal.Round.TorusNode import TorusNode
 
@@ -23,6 +23,12 @@ from convert.formats.Fusion.BrepCodec.Journal.Attributes.TrackAttrib import Trac
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.TagAttrib import TagAttrib
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.SketchAttrib import (
     SketchAttrib,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.StitchAttrib import (
+    StitchAttrib,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.VertedgeAttrib import (
+    VertedgeAttrib,
 )
 
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.StraightNode import StraightNode
@@ -49,11 +55,11 @@ KJournalEntity: TypeAlias = (
     | ConeNode
     | SphereNode
     | TorusNode
-    | SplineNode
-    | IntcurveNode
-    | PcurveNode
     | TimeAttrib
     | TrackAttrib
     | TagAttrib
     | SketchAttrib
+    | StitchAttrib
+    | VertedgeAttrib
+    | KComplexEntity
 )

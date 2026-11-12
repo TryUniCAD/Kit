@@ -1,0 +1,332 @@
+{
+ "kernel": {
+  "path": "Autodesk Fusion.app/Contents/Frameworks/ASM/ASMkern232.dylib (arm64 slice)",
+  "fusionBuild": "2706.1.17",
+  "sliceSha256": "a0ba385982c5017805edcc2936b342d924061bc7493267264e3f179a3606bd04",
+  "tool": "xcrun llvm-objdump --disassemble --demangle --start-address --stop-address",
+  "currentSlice": {
+   "path": "Autodesk Fusion.app/Contents/Frameworks/ASM/libASMkern232.dylib (lipo -thin arm64)",
+   "sha256": "5ad7bc0099f1093e82f99110355ad2100b77fc47446c3d75befaaac81484d4a4",
+   "note": "Recorded ranges above came from an earlier extraction whose SHA-256 no longer reproduces; current ranges and calls are re-derived here"
+  }
+ },
+ "routines": [
+  {
+   "symbol": "exp_par_cur::save_data() const",
+   "range": "0x335d20-0x335db0",
+   "calls": [
+    "bs2_curve_save",
+    "write_real",
+    "write_newline",
+    "surface::save_surface"
+   ],
+   "stream": "BS2 d SURF",
+   "restore": "exp_par_cur::restore_data 0x335de4 calls bs2_curve_restore, read_real, restore_surface",
+   "current": {
+    "found": true,
+    "range": "0x332844-0x33288c",
+    "calls": [
+     "bs2_curve_save(bs2_curve_def*)",
+     "write_real(double)",
+     "write_newline(int)",
+     "surface::save_surface(surface const*, save_compatibility&)",
+     "write_newline(int)"
+    ],
+    "recordedCallsAreSubsequence": true
+   }
+  },
+  {
+   "symbol": "exact_spl_sur::save_data() const",
+   "range": "0x3ac470-0x3ac608",
+   "calls": [
+    "spl_sur::save_common_data",
+    "write_interval",
+    "write_interval",
+    "write_enum"
+   ],
+   "stream": "i(rev) TAIL B2 B2 e",
+   "note": "write_interval emits a bound pair, each bound is a logical followed by a real when present",
+   "current": {
+    "found": true,
+    "range": "0x3a8b6c-0x3a8d08",
+    "calls": [
+     "spl_sur::save_common_data(save_approx_level, save_compatibility&) const",
+     "get_save_version_number()",
+     "get_save_version_number()",
+     "get_save_version_number()",
+     "get_save_version_number()",
+     "write_interval(ASM::interval const&)",
+     "write_interval(ASM::interval const&)",
+     "get_save_version_number()",
+     "write_interval(ASM::interval const&)",
+     "write_interval(ASM::interval const&)",
+     "get_save_version_number()",
+     "get_save_version_number()",
+     "write_enum(int, enum_table const&)"
+    ],
+    "recordedCallsAreSubsequence": true
+   }
+  },
+  {
+   "symbol": "spl_sur::save_common_data(save_approx_level, save_compatibility&) const",
+   "range": "0x4596dc-0x459800",
+   "calls": [
+    "approx_sur_cache::save",
+    "write_interval x2 only when the cache form is 2",
+    "write_enum x4 only when the cache form is 1 or 2",
+    "write_newline",
+    "discontinuity_info::save x2 when version >= 30000",
+    "write_logical(illegal region present) when version >= 0x20ce7b",
+    "spl_sur_illegal_region::save_data when the logical is true"
+   ],
+   "stream": "e(form) [form 0: BSS d] ARR x6 F",
+   "observation": "every corpus tail has form 0 and a false illegal-region logical, so the codec requires both and raises otherwise",
+   "current": {
+    "found": true,
+    "range": "0x45569c-0x4557e0",
+    "calls": [
+     "testing_save_version_compatibility()",
+     "get_save_version_number()",
+     "approx_sur_cache::approx() const",
+     "approx_sur_cache::save(save_approx_level) const",
+     "write_interval(ASM::interval const&)",
+     "write_interval(ASM::interval const&)",
+     "write_enum(int, enum_table const&)",
+     "write_enum(int, enum_table const&)",
+     "write_enum(int, enum_table const&)",
+     "write_enum(int, enum_table const&)",
+     "write_newline(int)",
+     "get_save_version_number()",
+     "discontinuity_info::save() const",
+     "discontinuity_info::save() const",
+     "get_save_version_number()",
+     "write_logical(bool, char const*, char const*)",
+     "spl_sur_illegal_region::save_data()",
+     "write_logical(bool, char const*, char const*)"
+    ],
+    "recordedCallsAreSubsequence": false
+   }
+  },
+  {
+   "symbol": "TCOEDGE::save_common(ENTITY_LIST&) const",
+   "range": "0x1eba6c-0x1ebb34",
+   "calls": [
+    "write_id_level",
+    "COEDGE::save_common",
+    "write_real",
+    "write_real",
+    "write_ptr",
+    "write_int",
+    "curve::save_curve",
+    "entity_timestamp::save"
+   ],
+   "stream": "COEDGE d d @ i CURV i",
+   "current": {
+    "found": true,
+    "range": "0x1e944c-0x1e9518",
+    "calls": [
+     "write_id_level(char const*, int)",
+     "COEDGE::save_common(ENTITY_LIST&) const",
+     "write_real(double)",
+     "write_real(double)",
+     "get_save_version_number()",
+     "write_ptr(ENTITY*, ENTITY_LIST&)",
+     "get_save_version_number()",
+     "write_int(int)",
+     "curve::save_curve(curve const*, save_compatibility&)",
+     "get_save_version_number()",
+     "entity_timestamp::save() const"
+    ],
+    "recordedCallsAreSubsequence": true
+   }
+  },
+  {
+   "symbol": "TEDGE::save_common(ENTITY_LIST&) const",
+   "range": "0x1ee438-0x1ee7f0",
+   "calls": [
+    "write_id_level",
+    "EDGE::save_common",
+    "calculate_edge_tolerance (lazy)",
+    "write_real",
+    "write_int after get_save_major_version",
+    "entity_timestamp path"
+   ],
+   "stream": "EDGE d i(23100) i",
+   "current": {
+    "found": true,
+    "range": "0x1ebe90-0x1ec240",
+    "calls": [
+     "write_id_level(char const*, int)",
+     "EDGE::save_common(ENTITY_LIST&) const",
+     "get_save_version_number()",
+     "get_save_version_number()",
+     "write_real(double)",
+     "get_save_major_version()",
+     "write_int(int)",
+     "get_save_version_number()",
+     "entity_timestamp::save() const",
+     "write_real(double)",
+     "write_real(double)",
+     "api_bb_save::api_bb_save(outcome&, api_bb_save::e_bb_type)",
+     "calculate_edge_tolerance(EDGE*, double&)",
+     "api_bb_save::~api_bb_save()",
+     "write_real(double)",
+     "___clang_call_terminate",
+     "___clang_call_terminate",
+     "api_bb_save::~api_bb_save()",
+     "exception_save::~exception_save()"
+    ],
+    "recordedCallsAreSubsequence": false
+   }
+  },
+  {
+   "symbol": "TVERTEX::save_common(ENTITY_LIST&) const",
+   "range": "0x1f0444-0x1f062c",
+   "calls": [
+    "write_id_level",
+    "VERTEX::save_common",
+    "write_real",
+    "write_real",
+    "calculate_old_vertex_tolerance",
+    "write_real",
+    "write_real"
+   ],
+   "stream": "VERTEX d(-1) d d i",
+   "current": {
+    "found": true,
+    "range": "0x1ede40-0x1edfd4",
+    "calls": [
+     "write_id_level(char const*, int)",
+     "VERTEX::save_common(ENTITY_LIST&) const",
+     "get_save_version_number()",
+     "write_real(double)",
+     "write_real(double)",
+     "get_save_version_number()",
+     "get_save_version_number()",
+     "get_save_version_number()",
+     "calculate_old_vertex_tolerance(VERTEX*, double&)",
+     "write_real(double)",
+     "write_real(double)",
+     "write_real(double)",
+     "get_save_version_number()",
+     "write_real(double)",
+     "get_save_version_number()",
+     "entity_timestamp::save() const",
+     "write_real(double)",
+     "write_real(double)"
+    ],
+    "recordedCallsAreSubsequence": true
+   }
+  },
+  {
+   "symbol": "ATTRIB_STITCH_HINT::save_common(ENTITY_LIST&) const",
+   "calls": [
+    "write_id_level",
+    "ATTRIB_SYS::save_common",
+    "write_real",
+    "write_real",
+    "write_real"
+   ],
+   "stream": "ATTRIB_SYS d d d",
+   "current": {
+    "found": true,
+    "range": "0x153404-0x153454",
+    "calls": [
+     "write_id_level(char const*, int)",
+     "ATTRIB_SYS::save_common(ENTITY_LIST&) const",
+     "write_real(double)",
+     "write_real(double)",
+     "write_real(double)"
+    ],
+    "recordedCallsAreSubsequence": true
+   }
+  },
+  {
+   "symbol": "ATTRIB_VERTEDGE::save_common(ENTITY_LIST&) const",
+   "calls": [
+    "write_id_level",
+    "ATTRIB_SYS::save_common",
+    "write_int",
+    "write_ptr",
+    "write_int"
+   ],
+   "stream": "ATTRIB_SYS i (@ i)*count; the trailing int is gated on the save version",
+   "current": {
+    "found": true,
+    "range": "0x1f19a0-0x1f1ce8",
+    "calls": [
+     "write_id_level(char const*, int)",
+     "ATTRIB_SYS::save_common(ENTITY_LIST&) const",
+     "write_int(int)",
+     "get_save_version_number()",
+     "write_ptr(ENTITY*, ENTITY_LIST&)",
+     "get_save_version_number()",
+     "write_int(int)",
+     "write_ptr(ENTITY*, ENTITY_LIST&)",
+     "get_save_version_number()",
+     "write_int(int)"
+    ],
+    "recordedCallsAreSubsequence": true
+   }
+  },
+  {
+   "symbol": "ATTRIB_SYS::save_common(ENTITY_LIST&) const",
+   "calls": [
+    "write_id_level",
+    "ATTRIB::save_common"
+   ],
+   "stream": "ATTRIB head only",
+   "current": {
+    "found": true,
+    "range": "0x147cac-0x147ce4",
+    "calls": [
+     "write_id_level(char const*, int)",
+     "ATTRIB::save_common(ENTITY_LIST&) const"
+    ],
+    "recordedCallsAreSubsequence": true
+   }
+  }
+ ],
+ "additionalSymbols": {
+  "save_data": {
+   "par_int_cur": "0x319480",
+   "int_int_cur": "0x2f3bfc",
+   "spring_int_cur": "0x328ef4",
+   "exact_int_cur": "0x2e30b8",
+   "helix_int_cur": "0x2ecd8c",
+   "helix_spl_sur": "0x3bcf7c",
+   "cyl_spl_sur": "0x3a31d8",
+   "sum_spl_sur": "0x3f3c08",
+   "sweep_spl_sur": "0x70e0dc",
+   "loft_spl_sur": "0x661abc",
+   "cl_loft_spl_sur": "0x64f4ec"
+  },
+  "saveRoutines": {
+   "bs3_surface_save": "0x90e4dc",
+   "bs3_curve_save": "0x8cb104",
+   "bs2_curve_save": "0x8c0964",
+   "PCURVE::save_common": "0x18ca28",
+   "SPLINE::save_common": "0x1918b4",
+   "INTCURVE::restore_common": "0x18b890",
+   "WIRE::save_common": "0x1f57e8"
+  },
+  "restoreData": {
+   "VBL_SURF": "0x2d1298",
+   "g2_blend_spl_sur": "0x3ba0d0",
+   "var_blend_spl_sur": "0x77f728"
+  }
+ },
+ "corpusGrammar": {
+  "script": "re/Fusion/Reconstruction/ComplexGeometry/ProtoGrammar.py",
+  "result": "3835 of 3835 records parse with exact token consumption and exact re-emission",
+  "records": {
+   "spline-surface": 476,
+   "pcurve": 2080,
+   "intcurve-curve": 1242,
+   "tcoedge-coedge": 16,
+   "tedge-edge": 8,
+   "tvertex-vertex": 8,
+   "wire": 5
+  }
+ }
+}

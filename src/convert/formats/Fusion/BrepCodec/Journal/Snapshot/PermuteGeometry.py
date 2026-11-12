@@ -1,6 +1,9 @@
 from dataclasses import replace as ReplaceValue
 
 from convert.formats.Fusion.BrepCodec.Journal.Permutation.RemapEntity import RemapEntity
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.ShiftSubtypes import (
+    ShiftSubtypes,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Snapshot.CheckGeometry import (
     CheckGeometry,
 )
@@ -26,9 +29,10 @@ def PermuteGeometry(Model: GeometryState, Order: tuple[int, ...]) -> GeometrySta
         raise ValueError("Invalid Fusion geometry permutation or header placement")
     CheckRootOrder(Model.Entities, Order)
     Mapping = tuple(Order.index(Index) for Index in range(len(Order)))
+    Shifted = ShiftSubtypes(Model.Entities, Order)
     Result = ReplaceValue(
         Model,
-        Entities=tuple(RemapEntity(Model.Entities[Index], Mapping) for Index in Order),
+        Entities=tuple(RemapEntity(Shifted[Index], Mapping) for Index in Order),
     )
     CheckGeometry(Result)
     return Result

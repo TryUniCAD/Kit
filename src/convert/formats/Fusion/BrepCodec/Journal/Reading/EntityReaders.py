@@ -1,20 +1,33 @@
 from collections.abc import Callable
-from convert.formats.Fusion.BrepCodec.Journal.Spline.Reading.ReadSplineNode import (
-    ReadSplineNode,
-)
+from convert.formats.Fusion.BrepCodec.Journal.Round.ReadSphereNode import ReadSphereNode
+from convert.formats.Fusion.BrepCodec.Journal.Round.ReadTorusNode import ReadTorusNode
+
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Reading.ReadIntcurve import (
     ReadIntcurve,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Reading.ReadPcurveNode import (
     ReadPcurveNode,
 )
-from convert.formats.Fusion.BrepCodec.Journal.Round.ReadSphereNode import ReadSphereNode
-from convert.formats.Fusion.BrepCodec.Journal.Round.ReadTorusNode import ReadTorusNode
-
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Reading.ReadSplineNode import (
+    ReadSplineNode,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Reading.ReadTcoedgeNode import (
+    ReadTcoedgeNode,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Reading.ReadTedgeNode import (
+    ReadTedgeNode,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Reading.ReadTvertexNode import (
+    ReadTvertexNode,
+)
 from convert.formats.Fusion.BrepCodec.Journal.JournalEntity import KJournalEntity
 from convert.formats.Fusion.BrepCodec.Journal.Reading.FieldCursor import FieldCursor
 from convert.formats.Fusion.BrepCodec.Journal.Reading.Attributes.ReadAttribNode import (
     ReadAttribNode,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Reading.Attributes.ReadSysAttrib import (
+    ReadStitchNode,
+    ReadVertedge,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Reading.Geometry.ReadAsmRoot import (
     ReadAsmRoot,
@@ -65,11 +78,14 @@ from convert.formats.Fusion.BrepCodec.Journal.Reading.Geometry.ReadTransform imp
 )
 
 KEntityReaders: dict[str, Callable[[FieldCursor], KJournalEntity]] = {
-    "sphere-surface": ReadSphereNode,
-    "torus-surface": ReadTorusNode,
     "spline-surface": ReadSplineNode,
     "intcurve-curve": ReadIntcurve,
     "pcurve": ReadPcurveNode,
+    "tcoedge-coedge": ReadTcoedgeNode,
+    "tedge-edge": ReadTedgeNode,
+    "tvertex-vertex": ReadTvertexNode,
+    "sphere-surface": ReadSphereNode,
+    "torus-surface": ReadTorusNode,
     "straight-curve": ReadStraight,
     "transform": ReadTransform,
     "asmheader": ReadAsmRoot,
@@ -86,4 +102,6 @@ KEntityReaders: dict[str, Callable[[FieldCursor], KJournalEntity]] = {
     "ellipse-curve": ReadEllipseNode,
     "cone-surface": ReadConeNode,
     "ATTRIB_CUSTOM-attrib": ReadAttribNode,
+    "stitch_hint-sys-attrib": ReadStitchNode,
+    "vertedge-sys-attrib": ReadVertedge,
 }

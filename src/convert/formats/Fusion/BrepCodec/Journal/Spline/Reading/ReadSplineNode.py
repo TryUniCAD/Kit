@@ -1,3 +1,7 @@
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.ReadRuleMut import (
+    ReadSubtypeMut,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Spline.SplineNode import SplineNode
 from convert.formats.Fusion.BrepCodec.Journal.Reading.FieldCursor import FieldCursor
 from convert.formats.Fusion.BrepCodec.Journal.Reading.Fields.IsLogicalMut import (
     IsLogicalMut,
@@ -8,16 +12,12 @@ from convert.formats.Fusion.BrepCodec.Journal.Reading.Fields.ReadBoundMut import
 from convert.formats.Fusion.BrepCodec.Journal.Reading.Fields.ReadPrefixMut import (
     ReadPrefixMut,
 )
-from convert.formats.Fusion.BrepCodec.Journal.Spline.SplineNode import SplineNode
-from convert.formats.Fusion.BrepCodec.Journal.Spline.Reading.ReadSurfScope import (
-    ReadSurfScope,
-)
 
 
 def ReadSplineNode(Cursor: FieldCursor) -> SplineNode:
     Prefix = ReadPrefixMut(Cursor)
     Reversed = IsLogicalMut(Cursor)
-    Surface = ReadSurfScope(Cursor)
+    Surface = ReadSubtypeMut(Cursor, "surface")
     ULower = ReadBoundMut(Cursor)
     UUpper = ReadBoundMut(Cursor)
     VLower = ReadBoundMut(Cursor)

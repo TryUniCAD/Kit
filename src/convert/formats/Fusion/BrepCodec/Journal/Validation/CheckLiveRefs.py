@@ -4,6 +4,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Validation.EntityRefRules import (
 from convert.formats.Fusion.BrepCodec.Journal.Validation.RequiredRefs import (
     KRequiredRefs,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Validation.HasVertedge import HasVertedge
 from convert.formats.Fusion.BrepCodec.Journal.Validation.ResolveSlot import ResolveSlot
 from convert.formats.Fusion.BrepCodec.Journal.Validation.CheckLiveUses import (
     CheckLiveUses,
@@ -29,7 +30,9 @@ def CheckLiveRefs(
             ):
                 raise ValueError("Invalid Fusion journal entity reference")
             if Value == -1:
-                if Index in KRequiredRefs.get(Record.Name, ()):
+                if Index in KRequiredRefs.get(Record.Name, ()) and not (
+                    Index == 3 and HasVertedge(Records, Versions, Aliases, Record)
+                ):
                     raise ValueError("Missing required Fusion topology reference")
                 continue
             Target = ResolveSlot(Aliases, Value)
@@ -37,7 +40,8 @@ def CheckLiveRefs(
             if (
                 Record.Name == "ATTRIB_CUSTOM-attrib"
                 and Index == 4
-                and Record.Tokens[5] == (7, "generic_tag_attrib_def")
+                and Record.Tokens[5]
+                in ((7, "generic_tag_attrib_def"), (7, "sketch_attrib_def"))
             ):
                 Allowed = (*Allowed, "vertex")
             if Target not in Versions or Records[Versions[Target]].Name not in Allowed:

@@ -17,7 +17,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.ListSubtypes import ListSub
 from convert.formats.Fusion.BrepCodec.Journal.Spline.PcurveNode import PcurveNode
 from convert.formats.Fusion.BrepCodec.Journal.Spline.SplineNode import SplineNode
 from convert.formats.Fusion.BrepCodec.Journal.Spline.SubtransNode import SubtransNode
-from convert.formats.Fusion.BrepCodec.Journal.Spline.TsplineSurf import TsplineSurf
+from convert.formats.Fusion.BrepCodec.Journal.Spline.ListTsplines import ListTsplines
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Writing.WritePatches import WritePatches
 from convert.formats.Fusion.TSplineCodec.EmitTspline import EmitTspline
 from convert.formats.Fusion.TSplineCodec.ReadTspline import ReadTspline
@@ -26,11 +26,7 @@ ARCHIVES = sorted(set((ROOT / 're/Fusion/LocalOracle/TSpline').glob('*.f3d')) | 
 
 
 def surfaces(entities):
-    for entity in entities:
-        if isinstance(entity, SplineNode) and isinstance(entity.Surface, TsplineSurf):
-            yield entity.Surface
-        if isinstance(entity, PcurveNode) and isinstance(entity.Curve.Support, TsplineSurf):
-            yield entity.Curve.Support
+    yield from ListTsplines(entities)
 
 
 def member(name, payload, program):

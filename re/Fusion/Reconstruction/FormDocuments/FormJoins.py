@@ -7,9 +7,7 @@ BASE = Path(__file__).resolve().parent
 ROOT = BASE.parents[3]
 sys.path.insert(0, str(ROOT / 'src'))
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
-from convert.formats.Fusion.BrepCodec.Journal.Spline.SplineNode import SplineNode
-from convert.formats.Fusion.BrepCodec.Journal.Spline.PcurveNode import PcurveNode
-from convert.formats.Fusion.BrepCodec.Journal.Spline.TsplineSurf import TsplineSurf
+from convert.formats.Fusion.BrepCodec.Journal.Spline.ListTsplines import ListTsplines
 from convert.formats.Fusion.BrepCodec.Journal.Spline.SubtransNode import SubtransNode
 
 VOCAB = json.loads((ROOT / 'src/convert/formats/Fusion/DocumentCodec/Vocabulary/FormClasses.json').read_text())
@@ -29,17 +27,7 @@ def leading(record):
 
 
 def programs(entities):
-    found = []
-    for value in entities:
-        surfaces = []
-        if isinstance(value, SplineNode):
-            surfaces.append(value.Surface)
-        if isinstance(value, PcurveNode):
-            surfaces.append(value.Curve.Support)
-        for surface in surfaces:
-            if isinstance(surface, TsplineSurf) and isinstance(surface.Subtrans, SubtransNode):
-                found.append(surface.Subtrans)
-    return found
+    return [surface.Subtrans for surface in ListTsplines(entities) if isinstance(surface.Subtrans, SubtransNode)]
 
 
 def analyse(path):

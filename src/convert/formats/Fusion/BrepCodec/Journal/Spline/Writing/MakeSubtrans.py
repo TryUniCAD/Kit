@@ -13,7 +13,7 @@ from convert.formats.Fusion.TSplineCodec.EmitTspline import EmitTspline
 
 def MakeSubtrans(Value: SubtransNode | SubtypeRef) -> tuple[KAsmToken, ...]:
     if isinstance(Value, SubtypeRef):
-        return MakeRefScope(Value)
+        return MakeRefScope(Value, "subtrans")
     return (
         (15, None),
         (13, "t_spl_subtrans_object"),

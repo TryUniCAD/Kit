@@ -10,7 +10,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Reading.ReadSubtrans import
 
 
 def ReadTransScope(Cursor: FieldCursor) -> SubtransNode | SubtypeRef:
-    Scope = ReadScopeMut(Cursor)
+    Scope = ReadScopeMut(Cursor, "subtrans")
     if isinstance(Scope, SubtypeRef):
         return Scope
     if Scope != "t_spl_subtrans_object":

@@ -1,22 +1,16 @@
 from convert.formats.Fusion.Topology.AsmEdge.AsmTable import KAsmToken
-from convert.formats.Fusion.BrepCodec.Journal.Spline.SubtypeRef import SubtypeRef
 from convert.formats.Fusion.BrepCodec.Journal.Spline.TsplineSurf import TsplineSurf
 from convert.formats.Fusion.BrepCodec.Journal.Writing.MakeBound import MakeBound
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Writing.MakeJumps import MakeJumps
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Writing.MakeNubsSurf import (
     MakeNubsSurf,
 )
-from convert.formats.Fusion.BrepCodec.Journal.Spline.Writing.MakeRefScope import (
-    MakeRefScope,
-)
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Writing.MakeSubtrans import (
     MakeSubtrans,
 )
 
 
-def MakeTsplSurf(Value: TsplineSurf | SubtypeRef) -> tuple[KAsmToken, ...]:
-    if isinstance(Value, SubtypeRef):
-        return MakeRefScope(Value)
+def MakeTsplSurf(Value: TsplineSurf) -> tuple[KAsmToken, ...]:
     return (
         (15, None),
         (13, "t_spl_sur"),

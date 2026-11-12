@@ -11,7 +11,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Reading.Fields.ReadLongMut import 
 from convert.formats.Fusion.BrepCodec.Journal.Spline.SubtypeRef import SubtypeRef
 
 
-def ReadScopeMut(Cursor: FieldCursor) -> str | SubtypeRef:
+def ReadScopeMut(Cursor: FieldCursor, Family: str) -> str | SubtypeRef:
     NeedFieldMut(Cursor, (15, None))
     TagValue, Value = ReadFieldMut(Cursor)
     if TagValue != 13 or type(Value) is not str or not Value.isascii():
@@ -22,4 +22,4 @@ def ReadScopeMut(Cursor: FieldCursor) -> str | SubtypeRef:
     NeedFieldMut(Cursor, (16, None))
     if Index < 0:
         raise ValueError("Invalid Fusion journal subtype table reference")
-    return SubtypeRef(Index)
+    return SubtypeRef(Family, Index)

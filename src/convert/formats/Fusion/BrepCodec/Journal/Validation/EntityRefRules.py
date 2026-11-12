@@ -1,22 +1,69 @@
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.VertedgeAttrib import (
+    KVertedgeCap,
+)
+
+KAttribNames = (
+    "ATTRIB_CUSTOM-attrib",
+    "stitch_hint-sys-attrib",
+    "vertedge-sys-attrib",
+)
+
+KCoedgeUses = ("coedge", "tcoedge-coedge")
+
+KCoedgeRules: dict[int, tuple[str, ...]] = {
+    0: KAttribNames,
+    2: (),
+    3: KCoedgeUses,
+    4: KCoedgeUses,
+    5: KCoedgeUses,
+    6: ("edge", "tedge-edge"),
+    8: ("loop",),
+    10: ("pcurve",),
+}
+
+KEdgeRules: dict[int, tuple[str, ...]] = {
+    0: KAttribNames,
+    2: (),
+    3: ("vertex", "tvertex-vertex"),
+    5: ("vertex", "tvertex-vertex"),
+    7: KCoedgeUses,
+    8: ("ellipse-curve", "straight-curve", "intcurve-curve"),
+}
+
+KVertexRules: dict[int, tuple[str, ...]] = {
+    0: KAttribNames,
+    2: (),
+    3: ("edge", "tedge-edge"),
+    5: ("point",),
+}
+
+KVertedgeRules: dict[int, tuple[str, ...]] = {
+    0: (),
+    2: KAttribNames,
+    3: KAttribNames,
+    4: ("vertex", "tvertex-vertex"),
+    **{6 + 2 * SlotIndex: ("edge", "tedge-edge") for SlotIndex in range(KVertedgeCap)},
+}
+
 KEntityRefRules: dict[str, dict[int, tuple[str, ...]]] = {
-    "transform": {0: ("ATTRIB_CUSTOM-attrib",)},
-    "asmheader": {0: ("ATTRIB_CUSTOM-attrib",)},
+    "transform": {0: KAttribNames},
+    "asmheader": {0: KAttribNames},
     "body": {
-        0: ("ATTRIB_CUSTOM-attrib",),
+        0: KAttribNames,
         2: (),
         3: ("lump",),
         4: (),
         5: ("transform",),
     },
     "lump": {
-        0: ("ATTRIB_CUSTOM-attrib",),
+        0: KAttribNames,
         2: (),
         3: ("lump",),
         4: ("shell",),
         5: ("body",),
     },
     "shell": {
-        0: ("ATTRIB_CUSTOM-attrib",),
+        0: KAttribNames,
         2: (),
         3: ("shell",),
         4: (),
@@ -25,7 +72,7 @@ KEntityRefRules: dict[str, dict[int, tuple[str, ...]]] = {
         7: ("lump",),
     },
     "face": {
-        0: ("ATTRIB_CUSTOM-attrib",),
+        0: KAttribNames,
         2: (),
         3: ("face",),
         4: ("loop",),
@@ -40,45 +87,46 @@ KEntityRefRules: dict[str, dict[int, tuple[str, ...]]] = {
         ),
     },
     "loop": {
-        0: ("ATTRIB_CUSTOM-attrib",),
+        0: KAttribNames,
         2: (),
         3: ("loop",),
-        4: ("coedge",),
+        4: ("coedge", "tcoedge-coedge"),
         5: ("face",),
     },
-    "coedge": {
-        0: ("ATTRIB_CUSTOM-attrib",),
-        2: (),
-        3: ("coedge",),
-        4: ("coedge",),
-        5: ("coedge",),
-        6: ("edge",),
-        8: ("loop",),
-        10: ("pcurve",),
-    },
-    "edge": {
-        0: ("ATTRIB_CUSTOM-attrib",),
-        2: (),
-        3: ("vertex",),
-        5: ("vertex",),
-        7: ("coedge",),
-        8: ("ellipse-curve", "straight-curve", "intcurve-curve"),
-    },
-    "vertex": {0: ("ATTRIB_CUSTOM-attrib",), 2: (), 3: ("edge",), 5: ("point",)},
-    "point": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
-    "plane-surface": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
-    "sphere-surface": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
-    "torus-surface": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
-    "cone-surface": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
-    "ellipse-curve": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
-    "straight-curve": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
-    "spline-surface": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
-    "intcurve-curve": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
-    "pcurve": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
+    "coedge": KCoedgeRules,
+    "tcoedge-coedge": {**KCoedgeRules, 13: ()},
+    "edge": KEdgeRules,
+    "tedge-edge": KEdgeRules,
+    "vertex": KVertexRules,
+    "tvertex-vertex": KVertexRules,
+    "spline-surface": {0: KAttribNames, 2: ()},
+    "intcurve-curve": {0: KAttribNames, 2: ()},
+    "pcurve": {0: KAttribNames, 2: (), 4: ("intcurve-curve",)},
+    "point": {0: KAttribNames, 2: ()},
+    "plane-surface": {0: KAttribNames, 2: ()},
+    "sphere-surface": {0: KAttribNames, 2: ()},
+    "torus-surface": {0: KAttribNames, 2: ()},
+    "cone-surface": {0: KAttribNames, 2: ()},
+    "ellipse-curve": {0: KAttribNames, 2: ()},
+    "straight-curve": {0: KAttribNames, 2: ()},
     "ATTRIB_CUSTOM-attrib": {
         0: (),
-        2: ("ATTRIB_CUSTOM-attrib",),
-        3: ("ATTRIB_CUSTOM-attrib",),
-        4: ("body", "face", "edge", "coedge"),
+        2: KAttribNames,
+        3: KAttribNames,
+        4: (
+            "body",
+            "face",
+            "edge",
+            "coedge",
+            "tedge-edge",
+            "tcoedge-coedge",
+        ),
     },
+    "stitch_hint-sys-attrib": {
+        0: (),
+        2: KAttribNames,
+        3: KAttribNames,
+        4: ("edge", "tedge-edge"),
+    },
+    "vertedge-sys-attrib": KVertedgeRules,
 }

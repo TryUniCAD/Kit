@@ -9,7 +9,7 @@ from convert.formats.Fusion.Topology.AsmEdge.AsmTable import ReadAsmName, ReadAs
 def ReadEntitiesMut(Cursor: MetaCursor, EndName: str) -> tuple[KJournalEntity, ...]:
     Entities: list[KJournalEntity] = []
     while (NameValue := ReadAsmName(Cursor)) != EndName:
-        if len(Entities) >= 1024:
+        if len(Entities) >= 4096:
             raise ValueError("Oversized Fusion journal entity table")
         Entities.append(ReadEntityNode(ReadAsmRecord(Cursor, NameValue)))
     return tuple(Entities)

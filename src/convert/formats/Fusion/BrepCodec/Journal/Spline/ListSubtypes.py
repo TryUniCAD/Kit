@@ -1,15 +1,20 @@
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.EntitySubtree import (
+    EntitySubtree,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.WalkSubtypes import (
+    DefinedName,
+    WalkSubtypes,
+)
 from convert.formats.Fusion.BrepCodec.Journal.JournalEntity import KJournalEntity
-from convert.formats.Fusion.BrepCodec.Journal.Spline.IntcurveNode import IntcurveNode
-from convert.formats.Fusion.BrepCodec.Journal.Spline.ListSurface import ListSurface
-from convert.formats.Fusion.BrepCodec.Journal.Spline.PcurveNode import PcurveNode
-from convert.formats.Fusion.BrepCodec.Journal.Spline.SplineNode import SplineNode
+from convert.formats.Fusion.BrepCodec.Journal.Spline.SubtypeRef import SubtypeRef
 
 
 def ListSubtypes(Value: KJournalEntity) -> tuple[tuple[str, int | None], ...]:
-    if isinstance(Value, SplineNode):
-        return ListSurface(Value.Surface)
-    if isinstance(Value, IntcurveNode):
-        return (("exact_int_cur", None),)
-    if isinstance(Value, PcurveNode):
-        return ("exp_par_cur", None), *ListSurface(Value.Curve.Support)
-    return ()
+    return tuple(
+        (
+            (Found.Family, Found.Index)
+            if isinstance(Found, SubtypeRef)
+            else (DefinedName(Found), None)
+        )
+        for Found in WalkSubtypes(EntitySubtree(Value))
+    )

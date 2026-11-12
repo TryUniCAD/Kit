@@ -1,3 +1,6 @@
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.RelinkSubtypes import (
+    RelinkSubtypes,
+)
 from convert.formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
 from convert.formats.Fusion.BrepCodec.Journal.Permutation.RemapEntity import RemapEntity
 from convert.formats.Fusion.BrepCodec.Journal.Planar.MakeLiveTable import MakeLiveTable
@@ -16,14 +19,15 @@ def EmitStateSmb(Model: JournalModel, StateId: int | None = None) -> bytes:
     Table = MakeLiveTable(Model, StateId)
     Ordinals = {Reference: Index for Index, Reference in enumerate(Table.LiveSlots)}
     Mapping = tuple(Ordinals.get(Reference, -1) for Reference in Table.SlotMap)
-    Entities = tuple(Table.Entities[Reference] for Reference in Table.LiveSlots)
+    Records = tuple(Table.Records[Reference] for Reference in Table.LiveSlots)
+    if any(Record < 0 for Record in Records):
+        raise ValueError("Fusion live state contains an absent revision")
+    Entities = RelinkSubtypes(Model.Entities, Records)
     RootCount = 1 + sum(isinstance(Value, BodyNode) for Value in Entities)
     if RootCount < 2:
         raise ValueError("Fusion standalone geometry requires a live body")
     Parts = [EmitBrepHeader(Model.Stamp, RootCount, False, 10.0)]
     for Value in Entities:
-        if Value is None:
-            raise ValueError("Fusion live state contains an absent revision")
         Parts.append(EmitWireRecord(MakeEntityNode(RemapEntity(Value, Mapping))))
     Parts.append(EncodeSmbName("End-of-ASM-data"))
     Payload = b"".join(Parts)

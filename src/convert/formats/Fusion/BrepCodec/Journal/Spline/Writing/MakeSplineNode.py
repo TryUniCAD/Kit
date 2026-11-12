@@ -1,11 +1,9 @@
-from convert.formats.Fusion.Topology.AsmEdge.AsmTable import AsmRecord
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.MakeRule import MakeScope
 from convert.formats.Fusion.BrepCodec.Journal.Spline.SplineNode import SplineNode
 from convert.formats.Fusion.BrepCodec.Journal.Writing.MakeBound import MakeBound
 from convert.formats.Fusion.BrepCodec.Journal.Writing.MakePrefix import MakePrefix
 from convert.formats.Fusion.BrepCodec.Journal.Writing.WireWords import LogicWord
-from convert.formats.Fusion.BrepCodec.Journal.Spline.Writing.MakeTsplSurf import (
-    MakeTsplSurf,
-)
+from convert.formats.Fusion.Topology.AsmEdge.AsmTable import AsmRecord
 
 
 def MakeSplineNode(Value: SplineNode) -> AsmRecord:
@@ -14,7 +12,7 @@ def MakeSplineNode(Value: SplineNode) -> AsmRecord:
         (
             *MakePrefix(Value.Prefix),
             LogicWord(Value.Reversed),
-            *MakeTsplSurf(Value.Surface),
+            *MakeScope("surface", Value.Surface),
             *MakeBound(Value.ULower),
             *MakeBound(Value.UUpper),
             *MakeBound(Value.VLower),
