@@ -32,9 +32,9 @@ The destination guides document partial stream writes and partial B-rep extracti
 The security and data references distinguish integrity hashes from authentication.
 The README retains the wiki link, badge, star history, and banner removal from PR #71.
 
-The reviewer configuration follows the user's current instruction in [ReviewBot.json](../../.agents/skills/standard-pr-practice/ReviewBot.json).
-This setting does not install an integration or change repository protections.
-The PR workflow reads the configured request rather than duplicating it in documentation.
+The contribution guide reads reviewer definitions from `Reviewers` in [ReviewBot.json](../../.agents/skills/standard-pr-practice/ReviewBot.json).
+It requires each reviewer's current-head approval and passing native reports.
+Reviewer configuration changes remain separate from this documentation revision.
 
 ## Use
 

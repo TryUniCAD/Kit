@@ -13,10 +13,15 @@ The skill also exempted edits to itself from activation.
 
 ## Change
 
-The single request value is `Comment` in [ReviewBot.json](../../.agents/skills/standard-pr-practice/ReviewBot.json).
+The original change stored a single `Comment` in [ReviewBot.json](../../.agents/skills/standard-pr-practice/ReviewBot.json).
 Other guidance links to that file.
 Agents load the value before requesting review.
 They submit it once per accepted head unless that head already has a request or review.
+
+The current contribution policy requires a `Reviewers` array in that file.
+Each entry defines its reviewer identity, native reports, and exact request.
+An absent or invalid array blocks readiness.
+See [review follow-up](../Reference/Overview/Contributing.md#review-follow-up) for the current evidence requirements.
 
 [AGENTS.md](../../AGENTS.md) and [CLAUDE.md](../../CLAUDE.md) require skill activation for every repository task.
 This includes investigation, documentation, and skill edits.

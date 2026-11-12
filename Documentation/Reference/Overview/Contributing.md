@@ -38,15 +38,19 @@ PR creation does not authorize merge or queue enrollment.
 
 ## Review follow-up
 
-Read `Comment` from [ReviewBot.json](../../../.agents/skills/standard-pr-practice/ReviewBot.json).
-Post that exact top-level request once per accepted head unless a request or review already exists.
-Verify the responding account or app and reviewed SHA.
+Read each entry in `Reviewers` from [ReviewBot.json](../../../.agents/skills/standard-pr-practice/ReviewBot.json).
+The array is the only source of reviewer identities, report names, and request text.
+For each entry, post `Comment` verbatim as a separate top-level request.
+Post once per accepted head unless that reviewer already has a request or review for the head.
+Verify each responding account or app and reviewed SHA.
 Address actionable findings, including top-level and advisory reports.
 Answer false positives with specific evidence.
 
-Do not request a different bot as a fallback.
+Missing or invalid configuration blocks readiness.
+Do not guess a trigger or use an unconfigured fallback.
 Report unavailable review evidence separately from independently enforced GitHub requirements.
-A green reviewer check is not the same as an actual approval review.
+Every configured reviewer must pass all its native reports and submit an actual `APPROVED` review on the current head.
+Missing, pending, failed, stale, or dismissed evidence blocks readiness.
 
 ## Validation
 
@@ -74,7 +78,7 @@ The `re/` exemption does not waive product acceptance.
 
 ## Completion evidence
 
-Record the accepted head SHA, full CI inventory, reviewer identity, reviewed SHA, and mergeability.
+Record the accepted head SHA, full CI inventory, each reviewer identity, reviewed SHAs, and mergeability.
 Leave the PR open unless a verified administrator explicitly requested a merge.
 Report any remaining external blocker with its evidence.
 

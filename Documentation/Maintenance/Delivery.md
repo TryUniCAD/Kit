@@ -49,7 +49,7 @@ If a formal acquisition applies, record its statement of work and acceptance aut
 2. Check the product and documentation revisions.
 3. Review unresolved defects.
 4. Confirm every applicable PR check on the current head.
-5. Confirm the configured reviewer's identity and reviewed SHA.
+5. Confirm each configured reviewer's identity, current-head approval, and native report results.
 6. Record the accepted scope and any withheld conformance claim.
 
 If the product revision changes, repeat the affected technical review.

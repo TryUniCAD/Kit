@@ -34,13 +34,18 @@ Preserve the provenance record and license notices.
 
 ## Review and CI
 
-Read the exact reviewer request from [ReviewBot.json](../../../.agents/skills/standard-pr-practice/ReviewBot.json).
-Request review once per accepted head unless that head already has a request or review.
-Verify the responding account or app and reviewed SHA.
+Read each entry in `Reviewers` from [ReviewBot.json](../../../.agents/skills/standard-pr-practice/ReviewBot.json).
+Use its configured identity, report names, and exact `Comment` request.
+Request each review once per accepted head unless that reviewer already has a request or review for the head.
+Verify each responding account or app and reviewed SHA.
 Address findings from top-level, inline, and advisory reports.
+Missing or invalid configuration blocks readiness.
+Do not guess a trigger or use an unconfigured fallback.
 
 All applicable CI must pass on the current revision.
 Reviewer approval and CI health are separate facts.
+Every configured reviewer must pass all its native reports and submit an actual `APPROVED` review on the current head.
+Missing, pending, failed, stale, or dismissed evidence blocks readiness.
 Independently enforced repository requirements can add other blockers.
 Report those requirements separately from unavailable review evidence.
 
