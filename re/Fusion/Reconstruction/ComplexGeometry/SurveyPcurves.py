@@ -34,20 +34,19 @@ def main():
             if not isinstance(pcurve, PcurveNode):
                 stats["notpcurve"] += 1
                 continue
-            key = [f"coedgeRev={value.Reversed}", f"form={pcurve.Form}", f"pcRev={pcurve.Reversed}", f"partner={value.Partner >= 0}"]
+            key = [f"sense={'flipped' if value.Reversed != pcurve.Reversed else 'same'}", f"form={pcurve.Form}", f"partner={value.Partner >= 0}"]
             if pcurve.Form == 0 and isinstance(pcurve.Curve, SubtypeNode):
                 curve = pcurve.Curve.Body[0]
                 lower, upper = curve.Knots[0], curve.Knots[-1]
-                if abs(lower - edge.StartParam) < 1e-9 and abs(upper - edge.EndParam) < 1e-9:
-                    key.append("range=edge")
-                elif abs(lower + edge.EndParam) < 1e-9 and abs(upper + edge.StartParam) < 1e-9:
-                    key.append("range=negated")
-                else:
-                    key.append("range=other")
+                same = abs(lower - edge.StartParam) < 1e-9 and abs(upper - edge.EndParam) < 1e-9
+                negated = abs(lower + edge.EndParam) < 1e-9 and abs(upper + edge.StartParam) < 1e-9
+                key.append("range=" + ("symmetric" if same and negated else "edge" if same else "negated" if negated else "other"))
                 key.append(f"offsets={pcurve.OffsetU != 0 or pcurve.OffsetV != 0}")
             stats[" ".join(key)] += 1
-    for key, count in stats.most_common():
-        print(count, key)
+    rows = [dict(count=count, key=key) for key, count in stats.most_common()]
+    (BASE / "SurveyPcurves.json").write_text(json.dumps(dict(script="re/Fusion/Reconstruction/ComplexGeometry/SurveyPcurves.py", scope="coedges with a pcurve in the exact complex members of VerifyComplex.json", sense="coedge Reversed compared with the pcurve Reversed flag", rows=rows), indent=1) + "\n")
+    for row in rows:
+        print(row["count"], row["key"])
 
 
 main()
