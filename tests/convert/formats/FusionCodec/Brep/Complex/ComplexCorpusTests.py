@@ -10,6 +10,9 @@ from convert.formats.Fusion.BrepCodec.Journal.EmitJournal import EmitJournal
 from convert.formats.Fusion.BrepCodec.Journal.EmitStateSmb import EmitStateSmb
 from convert.formats.Fusion.BrepCodec.Journal.PermuteJournal import PermuteJournal
 from convert.formats.Fusion.BrepCodec.Journal.ReadJournal import ReadJournal
+from convert.formats.Fusion.BrepCodec.Journal.Reading.ReadEntityNode import (
+    ReadEntityNode,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Snapshot.EmitGeometry import EmitGeometry
 from convert.formats.Fusion.BrepCodec.Journal.Snapshot.PermuteGeometry import (
     PermuteGeometry,
@@ -18,6 +21,10 @@ from convert.formats.Fusion.BrepCodec.Journal.Snapshot.ReadGeometry import ReadG
 from convert.formats.Fusion.BrepCodec.Journal.Spline.CheckSubtypes import (
     CheckSubtypes,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Writing.MakeEntityNode import (
+    MakeEntityNode,
+)
+from convert.formats.Fusion.Topology.AsmEdge.AsmTable import ReadAsmTable
 from tests.convert.formats.FusionCodec.Brep.Complex.ComplexMembers import (
     ComplexMember,
     KComplexBounds,
@@ -32,6 +39,17 @@ from tests.convert.formats.FusionCodec.Brep.GeometryState.GeometryArchive import
 from tests.convert.formats.FusionCodec.Brep.Journal.JournalArchive import JournalArchive
 
 KHistoryMembers = tuple(Value for Value in KComplexMembers if Value[1] == "smbh")
+KBoundMembers = tuple(Value[:3] for Value in KComplexBounds)
+KComplexNames = frozenset(
+    (
+        "spline-surface",
+        "intcurve-curve",
+        "pcurve",
+        "tcoedge-coedge",
+        "tedge-edge",
+        "tvertex-vertex",
+    )
+)
 
 
 @TestMarks.skipif(
@@ -117,3 +135,17 @@ def TestMemberBound(Relative: str, Suffix: str, Digest: str, Message: str) -> No
     Payload = ComplexMember(Relative, Suffix, Digest)
     with RaisesError(ValueError, match=Message):
         _ = ReadJournal(Payload)
+
+
+@TestMarks.skipif(
+    PythonVersion < (3, 14), reason="native Fusion fixture requires ZIP Zstandard"
+)
+@TestMarks.parametrize("Relative,Suffix,Digest", KBoundMembers)
+def TestBoundNodes(Relative: str, Suffix: str, Digest: str) -> None:
+    Table = ReadAsmTable(ComplexMember(Relative, Suffix, Digest))
+    Records = tuple(Record for Record in Table.Records if Record.Name in KComplexNames)
+    assert Records
+    for Record in Records:
+        Value = ReadEntityNode(Record)
+        assert isinstance(Value, KComplexTypes)
+        assert MakeEntityNode(Value) == Record
