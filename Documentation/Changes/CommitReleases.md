@@ -13,11 +13,13 @@ GitHub generates its own source links. From the directory containing the attache
 
 1. In the repository's [GitHub environments](https://github.com/TryUniCAD/Kit/settings/environments), create `pypi` and allow deployments only from the `main` branch.
 2. In [PyPI publishing settings](https://pypi.org/manage/account/publishing/), create a [pending Trusted Publisher](https://docs.pypi.org/trusted-publishers/creating-a-project-through-oidc/) for `unicad-kit`, owner `TryUniCAD`, repository `Kit`, workflow `Release.yml`, and environment `pypi`. After the project exists, manage its publisher from the project settings. The workflow uses short-lived credentials and requires no PyPI API token.
-3. To publish a new PyPI version, set an unused version in [pyproject.toml](../../pyproject.toml) and update `uv.lock` in a reviewed PR.
+3. To bump the base version, run `uv version --no-sync --bump patch`, `--bump minor`, or `--bump major`. Include [pyproject.toml](../../pyproject.toml) and `uv.lock` in the PR.
 4. The push to `main` starts [Release](https://github.com/TryUniCAD/Kit/actions/workflows/Release.yml). After GitHub attaches the source archives, the workflow checks PyPI for the version. It uploads the wheel and Python source distribution if the version is new. You can also dispatch a run from `main` for a commit that has no GitHub release.
 5. Check the [GitHub release](https://github.com/TryUniCAD/Kit/releases) for the tag, title, notes and six assets. Check the matching [PyPI version](https://pypi.org/project/unicad-kit/) for the wheel and source distribution, then follow the [installation guide](../GettingStarted.md).
 
 If GitHub succeeds and PyPI fails, rerun the failed job after correcting the cause. Do not dispatch a new run for the same SHA: the existing GitHub release will already own its tag. PyPI does not allow replacing published files or reusing their filenames.
+
+The [package version](PackageReleaseVersions.md) appends the commit count to the base version. A push can publish a new package without a base version bump.
 
 ## Verification
 
