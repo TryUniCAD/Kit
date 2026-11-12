@@ -8,7 +8,7 @@ from convert.formats.Fusion.DocumentCodec.Vocabulary.AuthorSchemas import Author
 
 def CreateAuthor(SpecValue: DocumentSpec, AssetId: str) -> AuthorState:
     Policy = AuthorPolicy()
-    Schemas = AuthorSchemas(SpecValue.ProfileKind)
+    Schemas = AuthorSchemas(SpecValue.ProfileKind, SpecValue.ConstrainRectangle)
     return AuthorState(
         SpecValue,
         Policy,

@@ -15,6 +15,8 @@ def DraftRecords(
         SplitIndex = len(Groups)
         if Entity.ClassName == "MSketch":
             SplitIndex = 1
+        elif Entity.ClassName == "FusionSketchLinearDim":
+            SplitIndex = 2
         elif Schema.ClassSpace == "Fusion":
             SplitIndex = next(
                 (

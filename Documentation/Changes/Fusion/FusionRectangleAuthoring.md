@@ -26,7 +26,7 @@ Path("Cuboid.f3d").write_bytes(EmitDocument(Specification))
 
 Use `ProfileKind="rectangle"` to emit only the sketch. `WidthMm` and `DepthMm` are positive finite authoring inputs, defaulting to 40 and 30 mm. `LengthMm` remains the extrusion height and the value of the named user parameter. The original `parameter`, `circle`, and `extrusion` profiles retain their existing vocabulary and allocation order.
 
-The rectangle starts at the origin in the XY plane. Its corners are `(0,0)`, `(width,0)`, `(width,depth)`, and `(0,depth)`, with four shared Point3D endpoints. Width and depth do not create driving sketch dimensions or geometric constraints. Closure comes from the shared endpoint identities; the origin point remains a separate fixed sketch-origin entity. See the [sketch scope gotcha](../../Gotchas/Conversion/Fusion/Sketch/RectangleInputsAndDimensions.md).
+The rectangle starts at the origin in the XY plane. Its corners are `(0,0)`, `(width,0)`, `(width,depth)`, and `(0,depth)`, with four shared Point3D endpoints. By default, width and depth do not create driving sketch dimensions or geometric constraints. Closure comes from the shared endpoint identities; the origin point remains a separate fixed sketch-origin entity. The [opt-in constrained rectangle extension](FusionConstrainedRectangles.md) adds named driving dimensions, four orientation constraints and a fixed actual corner. See the [original sketch scope gotcha](../../Gotchas/Conversion/Fusion/Sketch/RectangleInputsAndDimensions.md).
 
 ## Semantic construction
 
@@ -36,7 +36,7 @@ Each line's carrier contains a start point and full displacement; its direction 
 
 The cuboid's six face tags, four bottom sketch links, carrier directions, and history states are supplied to `EmitPrismHist`. Bottom carriers follow the authored counterclockwise source curves. Volume, area, centre of gravity, and origin-based inertia cache values are calculated from the same dimensions used by the geometry writer.
 
-`ReadDocument` and `EmitParsed` use the typed Design catalog and prism history model. Unsupported class versions, fields, parts, topology, or history forms retain their existing rejection behavior. Adding these profiles does not add arbitrary polygon, dimensional-constraint, offset-plane, taper, thin-extrusion, Boolean-operation, or assembly authoring.
+`ReadDocument` and `EmitParsed` use the typed Design catalog and prism history model. Unsupported class versions, fields, parts, topology, or history forms retain their existing rejection behavior. The base rectangle profiles do not add arbitrary polygon, offset-plane, tapered-rectangle, thin-extrusion, Boolean-operation, or assembly authoring. Driving dimensions are available through the separately qualified constrained-rectangle option linked above.
 
 ## Evidence and verification
 
@@ -57,7 +57,7 @@ The cuboid contains two healthy timeline features, one body, six faces, twelve e
 
 Rollback removed the body; restore and rebuild recovered the same solid.
 The standalone rectangle also survived save/reopen and supported a subsequent native extrusion and height edit.
-The cuboid uses the [independently authored material](FusionAuthoredMaterials.md) with density 1000 kg/m³.
+The cuboid uses the [independently authored material](Materials/FusionAuthoredMaterials.md) with density 1000 kg/m³.
 
 Accepted cuboid source SHA-256: `9a8bef0ec7d6d0a9012bfb282da594baf3527076b40274a988068d62aa1ece41`.
 Native saved SHA-256: `6011718498ff71fa65437eeba1fdfd0f70881aab6bf185d7f25ff432fa02bd4a`.

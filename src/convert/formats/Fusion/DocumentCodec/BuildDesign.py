@@ -29,6 +29,9 @@ from convert.formats.Fusion.DocumentCodec.Sketch.AddCircleMut import AddCircleMu
 from convert.formats.Fusion.DocumentCodec.Sketch.LinkCircleMut import LinkCircleMut
 from convert.formats.Fusion.DocumentCodec.Rectangle.AddRectangle import AddRectangle
 from convert.formats.Fusion.DocumentCodec.Rectangle.LinkRectangle import LinkRectangle
+from convert.formats.Fusion.DocumentCodec.Rectangle.Dimensions.ConstrainMut import (
+    ConstrainMut,
+)
 from convert.formats.Fusion.SegmentCodec.Features.Binary.CheckUuid import CheckUuid
 
 
@@ -66,4 +69,6 @@ def BuildDesign(SpecValue: DocumentSpec, AssetId: str) -> DesignResult:
             LinkMaterialMut,
         ):
             Builder(Author)
+    if SpecValue.ConstrainRectangle:
+        ConstrainMut(Author)
     return EmitDesign(Author)

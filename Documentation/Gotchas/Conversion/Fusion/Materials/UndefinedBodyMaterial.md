@@ -18,7 +18,7 @@ Link the body's physical and visual material values to a `ProteinAssetManager` a
 Keep the package instance identifiers, definition identifiers, library identity, manager reference lists, and reference counts consistent.
 Changing `MassPropertyCache.cog` or setting a density override does not repair an undefined material identity.
 
-[Independent material authoring](../../../../Changes/Fusion/FusionAuthoredMaterials.md) constructs these relationships from explicit specifications and declarative schemas.
+[Independent material authoring](../../../../Changes/Fusion/Materials/FusionAuthoredMaterials.md) constructs these relationships from explicit specifications and declarative schemas.
 Native acceptance must measure mass and centre of mass as well as volume and topology.
 
 [Strict cuboid acceptance](../../../../../re/Fusion/LocalOracle/RectangleAuthoring/NativeAcceptance.json) now confirms the independently authored package repairs the defect.

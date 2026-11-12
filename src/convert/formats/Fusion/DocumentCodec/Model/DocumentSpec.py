@@ -23,3 +23,6 @@ class DocumentSpec:
     DepthMm: float = 30.0
     Material: MaterialSpec = MaterialSpec()
     TaperDegrees: float = 0.0
+    ConstrainRectangle: bool = False
+    WidthParamName: str = "rectangleWidth"
+    DepthParamName: str = "rectangleDepth"

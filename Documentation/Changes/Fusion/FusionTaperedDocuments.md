@@ -30,7 +30,7 @@ Path("Frustum.f3d").write_bytes(EmitDocument(Specification))
 
 The named user parameter drives extrusion height. The ordinary feature parameters `d2` and `d3` are the along-distance and taper-angle parameters. `d2` refers to the user parameter by expression. `d3` has a degree expression and degree display unit, while both its numeric value and its `DcDoubleParameter` binding store radians. These parameters remain editable in Fusion. The initial circular radius is geometry input, not an independently created driving sketch dimension.
 
-`DocumentSpec.Material` uses the existing [fresh material specification](FusionAuthoredMaterials.md). Its density and appearance are independent inputs; no captured material instances or source archives are consulted.
+`DocumentSpec.Material` uses the existing [fresh material specification](Materials/FusionAuthoredMaterials.md). Its density and appearance are independent inputs; no captured material instances or source archives are consulted.
 
 ## Model consistency
 
