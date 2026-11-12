@@ -18,7 +18,15 @@ git show --no-patch --format=fuller --date=iso-strict "${GITHUB_SHA}" > "${RUNNE
     sha512sum --check -- "${ArchiveFile}.SHA512"
   done
   unzip -tq "${ArchiveName}.zip"
-  tar --list --gzip --file "${ArchiveName}.tar.gz" > /dev/null
+  unzip -Z1 "${ArchiveName}.zip" > "${RUNNER_TEMP}/ZipContents.txt"
+  tar --list --gzip --file "${ArchiveName}.tar.gz" > "${RUNNER_TEMP}/TarContents.txt"
+  for ContentsPath in "${RUNNER_TEMP}/ZipContents.txt" "${RUNNER_TEMP}/TarContents.txt"; do
+    grep -Fxq "${ArchiveName}/pyproject.toml" "${ContentsPath}"
+    if grep -Eq "^${ArchiveName}/(re|examples/Fixtures/SolidWorks/donors)(/|$)" "${ContentsPath}"; then
+      echo "Research or donor fixtures leaked into ${ContentsPath}" >&2
+      exit 1
+    fi
+  done
 )
 
 SOURCE_DATE_EPOCH="$(git show -s --format=%ct "${GITHUB_SHA}")"

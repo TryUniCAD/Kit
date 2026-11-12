@@ -86,10 +86,10 @@ result = convert("bracket.SLDPRT", "bracket.FCStd", allow_carrier=False)
 Install the SDK with Python 3.11 or later:
 
 ```sh
-pip install unicad-kit
+uv add unicad-kit
 ```
 
-For a uv-managed project, use `uv add unicad-kit`. See [getting started](Documentation/GettingStarted.md) for an example.
+See [getting started](Documentation/GettingStarted.md) for an example and output compatibility limits.
 
 Kit is licensed under the [MIT License](LICENSE).
 
