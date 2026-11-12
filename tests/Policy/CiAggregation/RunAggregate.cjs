@@ -18,6 +18,7 @@ const Context = {
   runId: 500,
   repo: { owner: "TryUniCAD", repo: "Kit" },
   payload: {
+    action: "opened",
     pull_request: PullData,
     repository: { id: 1 },
     merge_group: { base_ref: "refs/heads/main", head_sha: "a".repeat(40) },

@@ -29,7 +29,7 @@ Read this log before working in an affected area. Keep entries short, searchable
 
 - **Published CI artifacts can briefly return 404:** Expected the artifact ID returned by a successful upload to be immediately readable; PR #53 failed at metadata and PR #67 failed at both metadata and ZIP download, while later reads of those exact IDs succeeded. The immediate verification client now retries transient API responses up to four times, including 404, while retaining every digest and provenance check. See [the evidence and repair](../Changes/ArtifactPublication.md).
 
-- **PR aggregation reads trusted base code:** Expected a reporter change on a PR branch to change that PR's `CI Agg`; `pull_request_target` loads the base revision. Merge the reporter change through its own reviewed PR before relying on the new exclusions in another PR. See [review provider exclusions](../Changes/ReviewProviderExclusions.md).
+- **PR aggregation reads trusted base code:** Expected a reporter change on a PR branch to change that PR's `CI Agg`; `pull_request_target` loads the base revision. Merge the reporter change through its own reviewed PR before relying on a new allowlist in another PR. See [the CI allowlist](../Changes/CiReviewerExclusions.md).
 
 - **Scorecard Action rejects merge groups:** Expected `publish_results: false` to permit queue scans; the action still rejects `merge_group` before analysis. Use the pinned CLI for both the full repository scan and the exact candidate's commit-compatible checks. GitHub also applies directly required native-review statuses to queue commits, where the reviewer reports no status. Verify native reports on the PR head during review follow-up. See [the failure and repair](../Changes/QueueScorecard.md).
 
@@ -49,3 +49,5 @@ If you discover a new gotcha, unexpected API behavior, wrong assumption, or undo
 - **Commit-status responses omit the queried ref:** Expected API-shaped fixtures to include a commit field; [the status-list API](https://docs.github.com/en/rest/commits/statuses#list-commit-statuses-for-a-reference) scopes responses by the request path. Strip fixture routing metadata before returning statuses, and let the production reader attach the queried ref so integration coverage detects missing revision attribution.
 
 - **Native reviews can restart on an unchanged head:** Expected passing checks to remain final while the commit SHA stayed fixed; native review checks returned to pending during PR metadata updates. Finish metadata edits before final verification and refresh the latest reports even when the head has not changed. Earlier passing reports cannot replace a newer pending result.
+
+- **Managed Code Quality uses a dynamic workflow path.** GitHub reports it under `dynamic/github-code-quality/codeql` with event `dynamic`. Register that exact path and event in the PR allowlist. See [a managed run](https://github.com/TryUniCAD/Kit/actions/runs/43169749076).

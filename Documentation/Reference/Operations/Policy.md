@@ -12,7 +12,7 @@ The authoritative workflow is [standard-pr-practice](../../../.agents/skills/sta
 - Path policy checks PascalCase file stems, ASCII spelling, and directory density.
 - Python checks cover formatting, lint, typing, explicit imports, and steering.
 - SPDX, workflow pinning, workflow security, and preserved-standards checks protect repository metadata.
-- `CI Agg` inventories applicable CI; reviewer status is separate.
+- `CI Agg` checks the [allowlisted CI workflows and jobs](../../../.github/scripts/CiAllowlist.cjs) for each validation phase. Automated review is handled in PR follow-up.
 - `Merge queue acceptance` defers heavy work on PRs and runs acceptance and heavy security analysis on merge-group candidates.
 
 The checked-in [queue guide](../../../MergeQueue.md) describes intended operation. Live GitHub rulesets must be inspected before enrollment; this documentation does not prove that those settings are active or that every required gate is enforced. Never infer queue acceptance from green PR checks or alter protections to obtain a merge.

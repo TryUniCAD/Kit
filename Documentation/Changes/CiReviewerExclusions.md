@@ -3,23 +3,30 @@ SPDX-License-Identifier: MIT
 SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 -->
 
-# Review reports and CI
+# CI allowlist for PRs and merge groups
 
-`CI Agg` excludes automated review check runs and commit statuses on PRs,
-merge-group candidates, and during PR CI evidence reuse. The reporter uses app
-and account IDs from [ReviewBot.json](../../.agents/skills/standard-pr-practice/ReviewBot.json).
-Add new reviewer identities to `Reviewers` or `ExcludedReports` in that file.
-A similarly named check or status from another identity remains subject to CI
-aggregation.
+`CI Agg` reads the [CI allowlist](../../.github/scripts/CiAllowlist.cjs). A
+report must come from GitHub Actions and match an allowlisted workflow path,
+event, and job name. The aggregate also checks the listed workflow runs for
+failure. It uses the same PR rules when validating evidence for queue reuse.
 
-The standard PR practice still requires successful native reports, a current-head
-approval, and resolved findings for every configured reviewer. A missing or
-pending review report leaves the review gate open while the CI aggregate
-reports the build and test results. See [merge queue operations](../../MergeQueue.md).
+PRs include static validation, metadata labeling, release artifact validation,
+and all three managed Code Quality analyses. Merge groups include static
+validation, reuse preflights, the complete test suite, CodeQL, all security and
+SBOM scans, and the acceptance gate. The first-time label applies at PR
+creation. PRs report heavy acceptance as deferred. See
+[merge queue operations](../../MergeQueue.md).
 
-The CI policy workflow exercises the reporter in a Node subprocess with
-API-shaped responses. It covers missing, pending, passing, and failing
-reviewer reports on PRs and merge groups, similarly named CI reports from
-other publishers, and queue acceptance. The live PR reporter loads the trusted
-base revision, so new runs use the updated reporter after the change reaches
-the base branch.
+Add every new CI job to its applicable phase in the allowlist alongside its
+workflow. Keep automated review out of the allowlist and its workflows.
+The standard PR practice checks configured reviewers' native reports,
+current-head approvals, and findings during review follow-up.
+
+The allowlist was matched against GitHub's
+[PR runs](https://github.com/TryUniCAD/Kit/pull/76/checks?sha=5648a56d4b2b36fcb6da05dcac9551836dab6ea2)
+and [merge-group acceptance jobs](https://github.com/TryUniCAD/Kit/actions/runs/43166611149).
+The remote CI policy suite exercises the complete reporter with API-shaped
+responses, including pending and failed review reports, unknown workflows and
+jobs, a same-name report from the wrong workflow, and required CI failures.
+The live aggregate loads the trusted base revision, so the allowlist takes
+effect for new runs after the change reaches that branch.

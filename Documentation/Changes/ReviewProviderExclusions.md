@@ -5,12 +5,13 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 
 # Review provider exclusions
 
+[The CI allowlist](CiReviewerExclusions.md) supersedes this provider-based implementation.
+
 `Pull Request / CI Agg` separates general automated review reports from ordinary
 CI. Provider identities now come only from `Reviewers` and `ExcludedReports` in
 [ReviewBot.json](../../.agents/skills/standard-pr-practice/ReviewBot.json).
-The shared reporter excludes reports from those identities during PR,
-merge-group, and evidence-reuse aggregation. See [review reports and CI](CiReviewerExclusions.md)
-for the current handling of configured native reports.
+This implementation filtered reports from those identities during PR,
+merge-group, and evidence-reuse aggregation.
 
 `ReviewProviders.cjs` matches verified immutable GitHub app IDs and bot user IDs.
 Register provider identities only in the JSON. Names, logins, and URLs cannot

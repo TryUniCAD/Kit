@@ -54,6 +54,7 @@ def TestReviewSkip(Verdict: str, CaseMode: str) -> None:
     "CaseMode,Verdict,PendingCheck",
     (
         ("queue", "pending", "Scorecard"),
+        ("spoof", "success", "Ruff"),
         ("queue-missing", "success", "Merge queue acceptance"),
     ),
 )
@@ -62,13 +63,13 @@ def TestPendingGate(CaseMode: str, Verdict: str, PendingCheck: str) -> None:
     with Tempfile.TemporaryDirectory() as TempPath:
         with Pytest.raises(Subprocess.TimeoutExpired) as ErrorInfo:
             ResultInfo = Subprocess.run(
-                ["node", str(ScriptPath), CaseMode, Verdict],
+                ["node", str(ScriptPath), CaseMode, Verdict, PendingCheck],
                 cwd=KRootPath,
                 env={**SystemEnv.environ, "RUNNER_TEMP": TempPath},
                 capture_output=True,
                 check=False,
                 timeout=2,
             )
-            Pytest.fail(f"Queue aggregate exited early with {ResultInfo.returncode}")
+            Pytest.fail(f"CI aggregate exited early with {ResultInfo.returncode}")
         assert f"Waiting for {PendingCheck}".encode() in (ErrorInfo.value.stdout or b"")
         assert not (FilePath(TempPath) / "PrCiEvidence/Evidence.json").exists()

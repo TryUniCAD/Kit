@@ -35,26 +35,25 @@ remain separate from CI health. Changing the JSON does not install integrations
 or modify live rulesets.
 
 [`Pull Request / CI Agg`](.github/workflows/PullRequest.yml) reports overall CI
-health for the exact PR revision. It excludes automated review reports by the
-immutable GitHub app and status-creator IDs in `Reviewers` and `ExcludedReports`.
-Entries in `Reviewers` define requested reviews and their readiness
-requirements. Use `ExcludedReports` to register any other integration that
-publishes automated review reports. New reviewer entries receive the same
-exclusions automatically. The configured `Checks` and `Statuses` identify the
-native reports to verify during PR review follow-up.
+health for the exact revision using the [CI allowlist](.github/scripts/CiAllowlist.cjs).
+A check must come from GitHub Actions and match its workflow path, event, and
+job name. The aggregate also checks the outcome of each listed workflow run.
+It reads check runs and workflow runs. Commit statuses and unlisted reports
+cannot satisfy a required CI job.
 
-[ReviewProviders.cjs](.github/scripts/ReviewProviders.cjs) reads identities from the
-JSON rather than maintaining a separate registry. Display names, logins, and
-report URLs never exclude unrelated CI. The same filtering applies during PR
-aggregation, merge-group aggregation, and PR evidence reuse. The aggregate
-waits for every expected static, policy, label, and GitHub-managed Code Quality
-check, and inventories additional check runs and commit statuses. Failed,
-cancelled, timed-out, missing, and unexpectedly skipped reports cannot pass.
-The managed Code Quality workflow's required check names are `Analyze (python)`
-and `Analyze (java-kotlin)`; `Code Quality` is a workflow label, not an additional
-check context. Both actual check names are explicitly expected by the aggregate.
-The summary links the individual reports. CI execution stays in the existing
-workflows; the aggregate does not replace their assertions or thresholds.
+PR aggregation includes lint, formatting, types, repository policies, metadata
+labels, release artifact validation, and GitHub-managed Code Quality for Python,
+Java/Kotlin, and JavaScript/TypeScript. The first-time contributor label applies
+on PR creation. Merge-group aggregation includes the static checks and their
+reuse preflights, the full test suite, both candidate CodeQL jobs, all security
+and SBOM scans, and the acceptance gate. PR runs of the queue workflow report
+the acceptance gate with the heavy jobs deferred. Missing jobs keep the
+aggregate pending. Unexpected skips, cancellations, timeouts, and failures
+fail the aggregate. The summary links individual reports.
+
+When adding or renaming CI, update the allowlist alongside the workflow and
+register each job under the event that runs it. Keep automated review outside
+those workflows and verify its reports during PR review follow-up.
 
 The existing provider settings file identified by `SettingsFile` in the JSON is
 preserved. Its approval policy allows no open findings and is read from the
