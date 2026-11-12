@@ -10,19 +10,14 @@ comment across agent guidance, skill metadata, and follow-up examples. Changing
 reviewers required editing multiple files, and the skill exempted its own edits
 from activation.
 
-The sole review request value is now `Comment` in
-[ReviewBot.json](../../.agents/skills/standard-pr-practice/ReviewBot.json).
-Edit that field to change the reviewer mention and exact top-level PR comment.
-Agents reload it before requesting review and submit its contents verbatim once
-per head unless that revision already has a request or review. Other guidance
-links to the configuration instead of duplicating the trigger.
-
-The configured provider is restored to Greptile. Its observed review account is
-`greptile-apps[bot]` (user ID `165735046`), and its native check belongs to the
-`greptile-apps` GitHub App (app ID `867647`). Verify an actual current-head review
-from that integration; the previous mention resolved to an unrelated regular
-GitHub user. This correction changes the existing request value without adding a
-new reviewer setting.
+The Reviewers array in
+[ReviewBot.json](../../.agents/skills/standard-pr-practice/ReviewBot.json)
+defines reviewer identities, required native reports, and exact top-level
+requests. Agents reload it before requesting review and submit each configured
+request verbatim once per accepted head unless that reviewer already has a
+request or review. Each configured reviewer must pass its listed reports and
+submit a current-head approval. The previous request mentioned a regular GitHub
+user and did not invoke the installed review app.
 
 Both [AGENTS.md](../../AGENTS.md) and [CLAUDE.md](../../CLAUDE.md) require activating
 [standard-pr-practice](../../.agents/skills/standard-pr-practice/SKILL.md) before
