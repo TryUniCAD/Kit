@@ -25,6 +25,10 @@ All relative paths in this document are under `re/Fusion/`. The export report en
 
 Derived evidence and tools:
 
+The four verbose token, semantic, and derivation JSON reports listed below are preserved byte-for-byte in [BrepEvidence.tar.xz](../LocalOracle/Brep/BrepEvidence.tar.xz).
+The [digest index](../LocalOracle/Brep/BrepEvidence.json) records each filename, size, SHA-256, and extraction command.
+The research commands below also regenerate the uncompressed reports.
+
 | File | Function |
 |---|---|
 | `Reconstruction/BrepTokens.py` | Complete bounded token framing and typed binary serialization |

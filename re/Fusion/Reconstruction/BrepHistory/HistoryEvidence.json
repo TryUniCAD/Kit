@@ -1,0 +1,23 @@
+{
+  "archive": "HistoryEvidence.tar.xz",
+  "archive_sha256": "fe897bf17ed9d9aa5b7998f85273d98221928af05eefc7ee5ed384683e2c6bf0",
+  "entries": [
+    {
+      "name": "IndependentNineteen.derivation.json",
+      "bytes": 90059,
+      "sha256": "737e89e49634b13d6d207d4a3b0cc4a6f5fcc0f2cafcaee832666706870e1636"
+    },
+    {
+      "name": "IndependentNineteen.tokens.json",
+      "bytes": 182704,
+      "sha256": "265602d6b5bee665f2c4b13cf9f3a9c19fba07c2277c06ef29ccac038f7b63fa"
+    },
+    {
+      "name": "IndependentNineteen.semantic.json",
+      "bytes": 30475,
+      "sha256": "88f8e4ee8c6affdf18638f33d3d9a3c653b481a5bcfab76951ef6a001a4c9cd6"
+    }
+  ],
+  "purpose": "Exact generated field and byte-offset evidence, archived to keep code review focused on implementation and readable interpretation",
+  "extraction": "tar -xJf re/Fusion/Reconstruction/BrepHistory/HistoryEvidence.tar.xz -C re/Fusion/Reconstruction/BrepHistory"
+}

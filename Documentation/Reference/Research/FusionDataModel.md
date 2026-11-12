@@ -642,6 +642,15 @@ Enum fields that use the native uint32 intrinsic metatype are encoded as unsigne
 
 ## Verification boundaries
 
+The expanded [typed entity graph research](../../Changes/FusionTypedEntityGraphs.md) covers all 824 Design records and 75,675 payload bytes in three controlled files.
+It includes generic references and containers, nested values and custom callbacks; three recipe members remain typed but incompletely named semantically.
+Custom value callbacks can override ordinary lexical order, as demonstrated by RGBA color persistence.
+
+The [latest native geometry acceptance](../../../re/Fusion/LocalOracle/Features/FullBrepAcceptance.json) reconstructs all 289 Design records and replaces both BRep members with independently authored cylinder/profile topology and history.
+The archive opens with correct 19 mm geometry before recomputation, reports healthy features, rolls back to sketch-only state and restores, then preserves a 23 mm edit through native save/reopen.
+Its surrounding source envelope is still retained; complete source-free F3D generation is not yet established.
+The [envelope research](../../../re/Fusion/Reconstruction/DocumentEnvelope/EnvelopeRecipe.md) distinguishes decoded manifests and ACT/Browser records from unfinished material instance values and optional controlled graphics caches.
+
 | Evidence                      | What it establishes                                  | What remains unverified                           |
 | ----------------------------- | ---------------------------------------------------- | ------------------------------------------------- |
 | ZIP inventory                 | Declared members, sizes, compression, archive digest | CAD semantics                                     |

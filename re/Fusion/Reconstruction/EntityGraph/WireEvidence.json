@@ -1,0 +1,415 @@
+{
+  "schema": "FusionGraphWireEvidence/1",
+  "applicationVersion": "2706.1.17",
+  "architecture": "arm64",
+  "addressConvention": "Unslid arm64 Mach-O virtual addresses",
+  "sources": [
+    {
+      "id": "NsTypes10",
+      "pathWithinContents": "Libraries/Neutron/NsTypes10.dylib",
+      "sha256": "b3a5d747f679acaeba03415e930a27f0d2254d1ca2fe9836bb59380215f98b47"
+    },
+    {
+      "id": "NsDataModel10",
+      "pathWithinContents": "Libraries/Neutron/NsDataModel10.dylib",
+      "sha256": "47ddbeca2f5c97c96e44989523ff969baa5d0d11b59d8ca35b934d48e2657af5"
+    },
+    {
+      "id": "NsASMInterface10",
+      "pathWithinContents": "Libraries/Neutron/NsASMInterface10.dylib",
+      "sha256": "773504af8164ba6c269714cd4925eb88c03e29c801d178b4b75db4b37ba21866"
+    },
+    {
+      "id": "NsEntityTracking10",
+      "pathWithinContents": "Libraries/Neutron/NsEntityTracking10.dylib",
+      "sha256": "afe2bd83bd7018b9c3a2263f16d457084961fe922f8bb10e36ad513172f4eab8"
+    },
+    {
+      "id": "NaFusion10",
+      "pathWithinContents": "Libraries/Applications/Fusion/NaFusion10.dylib",
+      "sha256": "7788ca927c26d0f1091bc23680660bfe8f5aca1691f87a56d6fd27020d0d98ad"
+    },
+    {
+      "id": "AcGe232",
+      "pathWithinContents": "Frameworks/GeLib/libAcGe232.dylib",
+      "sha256": "ab68b6dd2d4e07c5228e8d586476ff4b816a4c70ab21ab5c18ebf88369b37a4d"
+    }
+  ],
+  "layouts": [
+    {
+      "name": "ColorValueMetaType",
+      "source": "NsTypes10",
+      "address": "0x4d6c0",
+      "symbol": "ColorDataModelCallback::onSave(void const*, IWriteStreamBase*, VisitorContext const&)",
+      "wireFields": [
+        [
+          "red",
+          "f32"
+        ],
+        [
+          "green",
+          "f32"
+        ],
+        [
+          "blue",
+          "f32"
+        ],
+        [
+          "alpha",
+          "f32"
+        ]
+      ],
+      "evidence": {
+        "getterCalls": {
+          "red": "0x4d6fc",
+          "green": "0x4d71c",
+          "blue": "0x4d73c",
+          "alpha": "0x4d75c"
+        },
+        "writeCalls": [
+          "0x4d714",
+          "0x4d734",
+          "0x4d754",
+          "0x4d774"
+        ],
+        "streamVtableSlot": "0xa8",
+        "exception": "Overrides alphabetical reflected members; callback order is RGBA"
+      }
+    },
+    {
+      "name": "AcGeMatrix3dValueMetaType",
+      "source": "NsTypes10",
+      "address": "0xb6464",
+      "symbol": "Ns::AcGeMatrix3dDataModelCallback::onSave",
+      "wireFields": [
+        [
+          "identity",
+          "bool"
+        ],
+        [
+          "rows",
+          "if false: 16 f64 in object offset order"
+        ]
+      ],
+      "evidence": {
+        "identityComparison": "0xb64b4",
+        "identityTrueWrite": "0xb64d4",
+        "identityFalseWrite": "0xb6568",
+        "matrixWriterCall": "0xb657c",
+        "targetLibrary": "AcGe232",
+        "targetAddress": "0xbc138",
+        "targetSymbol": "AcGeFileIO::outFields(AcGeFiler*, AcGeMatrix3d const&, AcGeLibVersion const&)",
+        "targetObjectOffsets": [
+          "0x0",
+          "0x8",
+          "0x10",
+          "0x18",
+          "0x20",
+          "0x28",
+          "0x30",
+          "0x38",
+          "0x40",
+          "0x48",
+          "0x50",
+          "0x58",
+          "0x60",
+          "0x68",
+          "0x70",
+          "0x78"
+        ],
+        "writeVtableSlot": "0x88",
+        "nonidentityControlledCoverage": "No nonidentity matrix in these three controlled archives; static layout recovered but independent native nonidentity control still required"
+      }
+    },
+    {
+      "name": "AcGeLine3dValueMetaType",
+      "source": "AcGe232",
+      "address": "0xba0d8",
+      "symbol": "AcGeFileIO::outFields(AcGeFiler*, AcGeLine3d const&, AcGeLibVersion const&)",
+      "wireFields": [
+        [
+          "pointOnLine",
+          "3 f64"
+        ],
+        [
+          "parametricDirection",
+          "3 f64"
+        ]
+      ],
+      "evidence": {
+        "pointGetter": "0xba0f8",
+        "evalPointAtOne": "0xba10c",
+        "pointWrite": "0xba128",
+        "vectorWrite": "0xba160",
+        "semantics": "Second vector is evalPoint(1) minus pointOnLine; native JSON presents startPoint and endPoint"
+      }
+    },
+    {
+      "name": "AcGePlaneValueMetaType",
+      "source": "AcGe232",
+      "address": "0xba214",
+      "symbol": "AcGeFileIO::outFields(AcGeFiler*, AcGePlane const&, AcGeLibVersion const&)",
+      "wireFields": [
+        [
+          "normalReversed",
+          "bool"
+        ],
+        [
+          "origin",
+          "3 f64"
+        ],
+        [
+          "uAxis",
+          "3 f64"
+        ],
+        [
+          "vAxis",
+          "3 f64"
+        ]
+      ],
+      "evidence": {
+        "normalReversedGetter": "0xba230",
+        "normalReversedWrite": "0xba244",
+        "planarGet": "0xba274",
+        "pointWrite": "0xba288",
+        "axisWrites": [
+          "0xba2a0",
+          "0xba2b8"
+        ],
+        "semantics": "AcGePlanarEnt::get(point, vector, vector); native JSON reports only origin and normal, losing the two parameter axes"
+      }
+    },
+    {
+      "name": "AcGeCircArc3dValueMetaType",
+      "source": "AcGe232",
+      "address": "0xb9edc",
+      "symbol": "AcGeFileIO::outFields(AcGeFiler*, AcGeCircArc3d const&, AcGeLibVersion const&)",
+      "wireFields": [
+        [
+          "center",
+          "3 f64"
+        ],
+        [
+          "normal",
+          "3 f64"
+        ],
+        [
+          "refVec",
+          "3 f64"
+        ],
+        [
+          "radius",
+          "f64"
+        ],
+        [
+          "startAngle",
+          "f64"
+        ],
+        [
+          "endAngle",
+          "f64"
+        ]
+      ],
+      "evidence": {
+        "getterCalls": [
+          "0xb9ef8",
+          "0xb9f20",
+          "0xb9f48",
+          "0xb9f70",
+          "0xb9f8c",
+          "0xb9fa8"
+        ],
+        "writeCalls": [
+          "0xb9f14",
+          "0xb9f3c",
+          "0xb9f64",
+          "0xb9f80",
+          "0xb9f9c",
+          "0xb9fb8"
+        ]
+      }
+    },
+    {
+      "name": "sketch_tag_idValueMetaType v2",
+      "source": "NaFusion10",
+      "address": "0x4c82a0",
+      "symbol": "SketchTagIdDataModelCallback::onSave",
+      "wireFields": [
+        [
+          "version",
+          "i32"
+        ],
+        [
+          "tagId",
+          "u64"
+        ],
+        [
+          "secondaryTagId",
+          "u64"
+        ],
+        [
+          "direction",
+          "u32 boolean"
+        ],
+        [
+          "splitSequenceId",
+          "u32"
+        ],
+        [
+          "splitTotalNumber",
+          "u32"
+        ],
+        [
+          "objectOffset20",
+          "u64"
+        ]
+      ],
+      "evidence": {
+        "writeCalls": [
+          "0x4c82e8",
+          "0x4c8304",
+          "0x4c8320",
+          "0x4c8344",
+          "0x4c8360",
+          "0x4c837c",
+          "0x4c8398"
+        ],
+        "nativeObjectOffsets": [
+          "0x0",
+          "0x8",
+          "0x10",
+          "0x18",
+          "0x28",
+          "0x2c",
+          "0x20"
+        ],
+        "directionNormalization": "0x4c8328/0x4c832c maps nonzero to one",
+        "nameEvidence": {
+          "tagId": "NsASMInterface10 sketch_tag_id::debug 0xdcf24..0xdcf34",
+          "secondaryTagId": "0xdcf64/0xdcf8c",
+          "direction": "0xdcfdc/0xdd004",
+          "splitSequenceId": "split_sequence_id::debug 0xdc420/0xdc430",
+          "splitTotalNumber": "0xdc460/0xdc488"
+        },
+        "unknownSemantics": [
+          "objectOffset20"
+        ],
+        "nativeJSONLimitation": "SketchTagId callback does not expose serialized internals in PEntity.Properties"
+      }
+    },
+    {
+      "name": "profile_edge_tag_dataValueMetaType v0",
+      "source": "NsASMInterface10",
+      "address": "0xdffe8",
+      "symbol": "Ns::ASMInterface::profile_edge_tag_data::save(ISketchTag_Streamer&) const",
+      "wireFields": [
+        [
+          "version",
+          "i32"
+        ],
+        [
+          "sketchTags",
+          "u32 count + sketch_tag_id streamer values"
+        ],
+        [
+          "objectOffset20Set",
+          "u32 count + ordered u64 values"
+        ],
+        [
+          "objectOffset38Set",
+          "u32 count + ordered u64 values"
+        ]
+      ],
+      "evidence": {
+        "versionWrite": "0xe0010",
+        "tagCountWrite": "0xe0038",
+        "tagSaveCall": "0xe0050",
+        "firstSetCountWrite": "0xe006c",
+        "firstSetElementWrite": "0xe0090",
+        "secondSetCountWrite": "0xe00dc",
+        "secondSetElementWrite": "0xe0100",
+        "streamerTagSave": "0xdd1cc",
+        "streamerTagWireWidths": "i32,u64,u64,u32,u32,u32,u64",
+        "unknownSemantics": [
+          "objectOffset20Set",
+          "objectOffset38Set"
+        ],
+        "controlledValues": "version 0, one tag with version 3/tagId 102, both sets empty",
+        "callbackBridge": {
+          "source": "NsEntityTracking10",
+          "address": "0x77d14",
+          "saveCall": "0x77d64"
+        }
+      }
+    },
+    {
+      "name": "Same-asset reference",
+      "source": "NsDataModel10",
+      "address": "0x190bb4",
+      "symbol": "doSaveRefImpl<Ns::StrongRef<Ns::Entity>> binary overload",
+      "wireFields": [
+        [
+          "notNull",
+          "bool"
+        ],
+        [
+          "entityId",
+          "if notNull: u64"
+        ],
+        [
+          "crossAsset",
+          "if notNull: bool"
+        ],
+        [
+          "differentSegment",
+          "if notNull and not crossAsset: bool"
+        ],
+        [
+          "segmentId",
+          "if differentSegment: u32"
+        ]
+      ],
+      "evidence": {
+        "presenceWrite": "0x190cb0",
+        "entityIdWrite": "0x190ccc",
+        "crossAssetValidation": "0x190cf8",
+        "crossAssetFlagWrite": "0x190d10",
+        "segmentPointerComparison": "0x190fdc",
+        "differentSegmentFlagWrite": "0x190ff8",
+        "segmentPersisterCall": "0x191020",
+        "excluded": "Cross-asset/document payloads not implemented by this profile",
+        "namedRoots": "Archive numeric references target a primary record with nonempty rootId; native JSON reports entityId=-1 and rootId text for that entity. This is not an inline named-root reference variant"
+      }
+    },
+    {
+      "name": "Entity name/value metadata",
+      "source": "NsDataModel10",
+      "address": "0x33a06c",
+      "symbol": "Ns::NameValueMap::save",
+      "wireFields": [
+        [
+          "memberCount",
+          "u32"
+        ],
+        [
+          "name",
+          "per entry: u32 byte count + narrow text"
+        ],
+        [
+          "metatypeIdentifier",
+          "per entry: u32 byte count + narrow text"
+        ],
+        [
+          "value",
+          "per entry: named metatype wire value"
+        ]
+      ],
+      "evidence": {
+        "countStore": "0x33a0a4",
+        "countWrite": "0x33a0b8",
+        "controlledEvidence": "EntityGenesis, pt_tag, crv_primary_id, crv_secondary_id, crv_tag_id_idx all use IntrinsicMetaTypeuint64; names/types/value offsets saved in GraphPayloads.json",
+        "limitation": "Only intrinsic named values encountered/implemented; generic nested named values require additional type metadata recovery"
+      }
+    }
+  ]
+}

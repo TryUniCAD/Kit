@@ -1,0 +1,27 @@
+{
+  "schema": "FusionEntityGraphEvidenceIndex/1",
+  "compression": "XZ/LZMA2 preset9",
+  "artifacts": [
+    {
+      "archive": "GraphPayloads.json.xz",
+      "compressedBytes": 54752,
+      "uncompressedBytes": 3937510,
+      "sha256": "a31df77d8321653730dbfcf2b4a4d15d6de6acf3e8bab7e2913df69d54a69191",
+      "uncompressedSha256": "69bf26d243534b7ca7681b04c9285ed015c054aa59f86c4b11d117bd3c6b3019"
+    },
+    {
+      "archive": "GraphInventory.json.xz",
+      "compressedBytes": 20100,
+      "uncompressedBytes": 399096,
+      "sha256": "a82177d9414de5af7a2d2ac377e747ec261a64440c38c305cbbfadc15c004045",
+      "uncompressedSha256": "a6d56cc1f294f31ab70bcb5ba9fdfef42e936ca2cbae86594f8ffb7f0f2b742c"
+    },
+    {
+      "archive": "NativeComparison.json.xz",
+      "compressedBytes": 11676,
+      "uncompressedBytes": 1062508,
+      "sha256": "7345ee0a48a7b3d921dbc4b07ef873a9290edca30ce56ef48a2f867230abb82a",
+      "uncompressedSha256": "607a97347c13bcb8a0cbaaf0135a1a40213f03f59268cfaebd76f9f50accc29b"
+    }
+  ]
+}
