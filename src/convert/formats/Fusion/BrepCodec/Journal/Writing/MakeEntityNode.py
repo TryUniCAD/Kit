@@ -1,3 +1,9 @@
+from convert.formats.Fusion.BrepCodec.Journal.Complex.ComplexEntity import (
+    KComplexTypes,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Writing.MakeComplex import (
+    MakeComplex,
+)
 from convert.formats.Fusion.BrepCodec.Journal.JournalEntity import KJournalEntity
 from convert.formats.Fusion.BrepCodec.Journal.Round.SphereNode import SphereNode
 from convert.formats.Fusion.BrepCodec.Journal.Round.TorusNode import TorusNode
@@ -27,6 +33,8 @@ from convert.formats.Fusion.BrepCodec.Journal.Geometry.TransformNode import (
 
 
 def MakeEntityNode(Value: KJournalEntity) -> AsmRecord:
+    if isinstance(Value, KComplexTypes):
+        return MakeComplex(Value)
     if isinstance(
         Value,
         (

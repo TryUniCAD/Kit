@@ -12,3 +12,4 @@ class CoedgeNode:
     EdgeRef: int
     Reversed: bool
     OwnerLoop: int
+    PcurveRef: int = -1

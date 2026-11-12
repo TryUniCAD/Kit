@@ -32,3 +32,11 @@ def PointWord(Value: KJournalVector) -> KAsmToken:
 
 def VectorWord(Value: KJournalVector) -> KAsmToken:
     return 20, Value
+
+
+def NameWord(Value: str) -> KAsmToken:
+    return 13, Value
+
+
+def EnumWord(Value: int) -> KAsmToken:
+    return 21, Value

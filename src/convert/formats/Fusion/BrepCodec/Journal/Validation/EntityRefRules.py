@@ -1,3 +1,32 @@
+KCoedgeUses = ("coedge", "tcoedge-coedge")
+
+KCoedgeRules: dict[int, tuple[str, ...]] = {
+    0: ("ATTRIB_CUSTOM-attrib",),
+    2: (),
+    3: KCoedgeUses,
+    4: KCoedgeUses,
+    5: KCoedgeUses,
+    6: ("edge", "tedge-edge"),
+    8: ("loop",),
+    10: ("pcurve",),
+}
+
+KEdgeRules: dict[int, tuple[str, ...]] = {
+    0: ("ATTRIB_CUSTOM-attrib",),
+    2: (),
+    3: ("vertex", "tvertex-vertex"),
+    5: ("vertex", "tvertex-vertex"),
+    7: KCoedgeUses,
+    8: ("ellipse-curve", "straight-curve", "intcurve-curve"),
+}
+
+KVertexRules: dict[int, tuple[str, ...]] = {
+    0: ("ATTRIB_CUSTOM-attrib",),
+    2: (),
+    3: ("edge", "tedge-edge"),
+    5: ("point",),
+}
+
 KEntityRefRules: dict[str, dict[int, tuple[str, ...]]] = {
     "transform": {0: ("ATTRIB_CUSTOM-attrib",)},
     "asmheader": {0: ("ATTRIB_CUSTOM-attrib",)},
@@ -31,34 +60,30 @@ KEntityRefRules: dict[str, dict[int, tuple[str, ...]]] = {
         4: ("loop",),
         5: ("shell",),
         6: (),
-        7: ("plane-surface", "cone-surface", "sphere-surface", "torus-surface"),
+        7: (
+            "plane-surface",
+            "cone-surface",
+            "sphere-surface",
+            "torus-surface",
+            "spline-surface",
+        ),
     },
     "loop": {
         0: ("ATTRIB_CUSTOM-attrib",),
         2: (),
         3: ("loop",),
-        4: ("coedge",),
+        4: ("coedge", "tcoedge-coedge"),
         5: ("face",),
     },
-    "coedge": {
-        0: ("ATTRIB_CUSTOM-attrib",),
-        2: (),
-        3: ("coedge",),
-        4: ("coedge",),
-        5: ("coedge",),
-        6: ("edge",),
-        8: ("loop",),
-        10: (),
-    },
-    "edge": {
-        0: ("ATTRIB_CUSTOM-attrib",),
-        2: (),
-        3: ("vertex",),
-        5: ("vertex",),
-        7: ("coedge",),
-        8: ("ellipse-curve", "straight-curve"),
-    },
-    "vertex": {0: ("ATTRIB_CUSTOM-attrib",), 2: (), 3: ("edge",), 5: ("point",)},
+    "coedge": KCoedgeRules,
+    "tcoedge-coedge": {**KCoedgeRules, 13: ()},
+    "edge": KEdgeRules,
+    "tedge-edge": KEdgeRules,
+    "vertex": KVertexRules,
+    "tvertex-vertex": KVertexRules,
+    "spline-surface": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
+    "intcurve-curve": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
+    "pcurve": {0: ("ATTRIB_CUSTOM-attrib",), 2: (), 4: ("intcurve-curve",)},
     "point": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
     "plane-surface": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
     "sphere-surface": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
@@ -70,6 +95,13 @@ KEntityRefRules: dict[str, dict[int, tuple[str, ...]]] = {
         0: (),
         2: ("ATTRIB_CUSTOM-attrib",),
         3: ("ATTRIB_CUSTOM-attrib",),
-        4: ("body", "face", "edge", "coedge"),
+        4: (
+            "body",
+            "face",
+            "edge",
+            "coedge",
+            "tedge-edge",
+            "tcoedge-coedge",
+        ),
     },
 }

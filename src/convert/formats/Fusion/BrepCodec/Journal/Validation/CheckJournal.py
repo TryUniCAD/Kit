@@ -1,3 +1,6 @@
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.CheckSubtypes import (
+    CheckSubtypes,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.AsmRoot import AsmRoot
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.BodyNode import BodyNode
 from convert.formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
@@ -22,7 +25,7 @@ def CheckJournal(Model: JournalModel) -> None:
         raise ValueError("Fusion journal tables must be immutable tuples")
     if (
         type(Model.ActiveCount) is not int
-        or not 1 <= Model.ActiveCount <= len(Model.Entities) <= 1024
+        or not 1 <= Model.ActiveCount <= len(Model.Entities) <= 4096
         or not 2 <= len(Model.States) <= 256
     ):
         raise ValueError("Fusion journal entity/state quotas exceeded")
@@ -43,5 +46,6 @@ def CheckJournal(Model: JournalModel) -> None:
     CheckAllocTags(Model)
     for Entity in Model.Entities:
         CheckNode(Entity)
+    CheckSubtypes(Model.Entities)
     for State in Model.States:
         _ = EmitWireRecord(MakeStateNode(State))

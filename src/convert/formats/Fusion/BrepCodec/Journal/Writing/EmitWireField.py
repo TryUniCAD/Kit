@@ -7,10 +7,14 @@ from convert.formats.Fusion.Topology.AsmEdge.AsmTable import KAsmToken
 
 def EmitWireField(Field: KAsmToken) -> bytes:
     TagValue, Value = Field
-    if TagValue in (4, 12):
+    if TagValue in (4, 12, 21):
         if type(Value) is not int or not -(1 << 31) <= Value < (1 << 31):
             raise ValueError("Fusion journal integer exceeds native signed 32 bits")
         return bytes((TagValue,)) + PackValue("<q", Value)
+    if TagValue in (13, 14) and type(Value) is str and Value and Value.isascii():
+        return EncodeSmbString(TagValue, Value)
+    if TagValue in (15, 16) and Value is None:
+        return bytes((TagValue,))
     if (
         TagValue == 6
         and isinstance(Value, (int, float))

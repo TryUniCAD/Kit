@@ -20,6 +20,6 @@ def MakeCoedgeNode(Value: CoedgeNode) -> AsmRecord:
             LogicWord(Value.Reversed),
             RefWord(Value.OwnerLoop),
             IntWord(0),
-            RefWord(-1),
+            RefWord(Value.PcurveRef),
         ),
     )

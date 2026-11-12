@@ -1,4 +1,7 @@
 from typing import TypeAlias
+from convert.formats.Fusion.BrepCodec.Journal.Complex.ComplexEntity import (
+    KComplexEntity,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Round.SphereNode import SphereNode
 from convert.formats.Fusion.BrepCodec.Journal.Round.TorusNode import TorusNode
 
@@ -50,4 +53,5 @@ KJournalEntity: TypeAlias = (
     | TrackAttrib
     | TagAttrib
     | SketchAttrib
+    | KComplexEntity
 )

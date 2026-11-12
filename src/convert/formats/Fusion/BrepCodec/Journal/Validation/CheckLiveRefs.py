@@ -37,7 +37,8 @@ def CheckLiveRefs(
             if (
                 Record.Name == "ATTRIB_CUSTOM-attrib"
                 and Index == 4
-                and Record.Tokens[5] == (7, "generic_tag_attrib_def")
+                and Record.Tokens[5]
+                in ((7, "generic_tag_attrib_def"), (7, "sketch_attrib_def"))
             ):
                 Allowed = (*Allowed, "vertex")
             if Target not in Versions or Records[Versions[Target]].Name not in Allowed:
