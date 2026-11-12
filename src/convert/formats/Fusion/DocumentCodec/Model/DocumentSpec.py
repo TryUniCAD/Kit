@@ -11,9 +11,9 @@ class DocumentSpec:
     Title: str
     ParamName: str
     LengthMm: float
-    ProfileKind: Literal["parameter", "circle", "extrusion", "rectangle", "cuboid"] = (
-        "extrusion"
-    )
+    ProfileKind: Literal[
+        "parameter", "circle", "extrusion", "rectangle", "cuboid", "frustum"
+    ] = "extrusion"
     RadiusMm: float = 12.5
     ParamComment: str = ""
     SketchName: str = "Authored Circle"
@@ -22,3 +22,4 @@ class DocumentSpec:
     WidthMm: float = 40.0
     DepthMm: float = 30.0
     Material: MaterialSpec = MaterialSpec()
+    TaperDegrees: float = 0.0

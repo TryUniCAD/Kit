@@ -3,6 +3,7 @@ from typing import cast as CastValue
 
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from convert.formats.Fusion.DocumentCodec.Materials.CheckMaterial import CheckMaterial
+from convert.formats.Fusion.DocumentCodec.Tapered.CheckTaper import CheckTaper
 
 
 def CheckDocSpec(SpecValue: DocumentSpec) -> None:
@@ -14,6 +15,7 @@ def CheckDocSpec(SpecValue: DocumentSpec) -> None:
         "extrusion",
         "rectangle",
         "cuboid",
+        "frustum",
     ):
         raise ValueError("Unsupported Fusion document profile")
     for Amount in (
@@ -39,6 +41,7 @@ def CheckDocSpec(SpecValue: DocumentSpec) -> None:
         ):
             raise ValueError("Invalid authored document text")
     CheckMaterial(SpecValue.Material)
+    CheckTaper(SpecValue)
     NameValue = SpecValue.ParamName
     if (
         not NameValue

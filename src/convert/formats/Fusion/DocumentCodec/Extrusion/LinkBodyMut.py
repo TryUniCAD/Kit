@@ -1,7 +1,6 @@
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
-from convert.formats.Fusion.DocumentCodec.Extrusion.MassCache import MassCache
+from convert.formats.Fusion.DocumentCodec.Extrusion.BodyCache import BodyCache
 from convert.formats.Fusion.DocumentCodec.Extrusion.LinkBodyTags import LinkBodyTags
-from convert.formats.Fusion.DocumentCodec.Rectangle.CuboidCache import CuboidCache
 
 
 def LinkBodyMut(Author: AuthorState) -> None:
@@ -11,11 +10,7 @@ def LinkBodyMut(Author: AuthorState) -> None:
         actIdentifier=str(Author.Policy.DesignSegmentId)
         + "_"
         + str(Author.Roles["body"]),
-        cache=(
-            CuboidCache(Author)
-            if Author.SpecValue.ProfileKind == "cuboid"
-            else MassCache(Author)
-        ),
+        cache=BodyCache(Author),
         massProperties=Author.MakeValue("MassPropertiesValue"),
         persistentId=Author.BodyId,
         physicalMaterial=Author.MakeValue("PhysicalMaterialValue"),

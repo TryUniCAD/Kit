@@ -76,6 +76,7 @@ The body schema declares both material fields as direct objects.
 The helper now requires that exact decoded shape.
 The next remote run `43237059628` reached the manager-reference assertion and exposed another fixture mismatch: same-segment references decode as `LocalRef`, while the helper expected `SegmentRef`.
 The helper now requires the authored local-reference shape and retains all identity, density, package and reconstruction assertions.
+Remote run [43237855649](https://github.com/TryUniCAD/Kit/actions/runs/43237855649) on revision `9f6753ce885eff64fdcc907361175ff65253fb6d` passed all 885 cases, including all four material-document cases.
 
 Black, Ruff, Pyright, Mypy, and steering checks passed for the 30 changed authoring and integration modules.
 The schema vocabulary and maintained documentation pass the pinned formatter check.

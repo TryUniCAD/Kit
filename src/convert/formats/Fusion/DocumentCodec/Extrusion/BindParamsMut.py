@@ -1,5 +1,6 @@
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
 from convert.formats.Fusion.DocumentCodec.Defaults.MakeNumeric import MakeNumeric
+from convert.formats.Fusion.DocumentCodec.Tapered.TaperParameter import TaperParameter
 
 
 def BindParamsMut(Author: AuthorState) -> None:
@@ -14,20 +15,12 @@ def BindParamsMut(Author: AuthorState) -> None:
         isUserDefined=False,
         name="AlongDistance",
     )
-    Taper = MakeNumeric("d3", 0.0, "", Author.Policy.ParamBirthday)
-    Taper.update(
-        creationIndex=3,
-        dcParameter=Reference("taper_binding"),
-        expression="0 deg",
-        isUserDefined=False,
-        name="TaperAngle",
-        unit="deg",
-    )
+    Taper = TaperParameter(Author)
     Author.Change("along_parameter", **Along)
     Author.Change("taper_parameter", **Taper)
     for RoleName, ParamRole, RuntimeId, Value in [
         ("along_binding", "along_parameter", 1, Along["value"]),
-        ("taper_binding", "taper_parameter", 2, 0.0),
+        ("taper_binding", "taper_parameter", 2, Taper["value"]),
     ]:
         Author.Change(
             RoleName,

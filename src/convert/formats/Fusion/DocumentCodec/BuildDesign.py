@@ -47,7 +47,7 @@ def BuildDesign(SpecValue: DocumentSpec, AssetId: str) -> DesignResult:
         LinkRootsMut,
     ):
         Builder(Author)
-    if SpecValue.ProfileKind in ("circle", "extrusion"):
+    if SpecValue.ProfileKind in ("circle", "extrusion", "frustum"):
         Author.Defaults.update(SketchDefaults())
         AddCircleMut(Author)
         LinkCircleMut(Author)
@@ -55,7 +55,7 @@ def BuildDesign(SpecValue: DocumentSpec, AssetId: str) -> DesignResult:
         Author.Defaults.update(SketchDefaults())
         AddRectangle(Author)
         LinkRectangle(Author)
-    if SpecValue.ProfileKind in ("extrusion", "cuboid"):
+    if SpecValue.ProfileKind in ("extrusion", "cuboid", "frustum"):
         Author.Defaults.update(ExtrudeDefaults())
         for Builder in (
             AddExtrudeMut,

@@ -6,7 +6,7 @@ Kit can now author a complete native F3D document from an immutable semantic spe
 
 The writer reads no source archive, captured entity graph, donor geometry, research module, or runtime CAD library. The packaged JSON contains declarative class, inheritance, member, and wire-type vocabulary; it contains no saved entity values or archive payloads.
 
-The admitted document profiles are a parameter-only design, one circular sketch, and a circular sketch with a dependent solid extrusion. Length and radius are specified in millimeters. Parameter, sketch, extrusion, and body names are explicit inputs. Geometry and timeline identities are allocated consistently across feature recipes, body history, browser references, and the embedded BRep journal.
+The initial document profiles are a parameter-only design, one circular sketch, and a circular sketch with a dependent solid extrusion. The [rectangle and cuboid extension](FusionRectangleAuthoring.md) and [tapered circular extrusion extension](FusionTaperedDocuments.md) document the additional profiles and their separate acceptance boundaries. Length and radius are specified in millimeters. Parameter, sketch, extrusion, and body names are explicit inputs. Geometry and timeline identities are allocated consistently across feature recipes, body history, browser references, and the embedded BRep journal.
 
 ## Usage
 
