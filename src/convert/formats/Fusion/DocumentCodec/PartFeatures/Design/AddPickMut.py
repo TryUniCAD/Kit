@@ -1,0 +1,37 @@
+from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.PartNodes import (
+    AddNodeMut,
+    PartScope,
+)
+from convert.formats.Fusion.EntityCodec.Recipes.Model.RecipeValue import RecipeValue
+
+
+def AddPickMut(
+    Author: AuthorState,
+    Prefix: str,
+    Recipe: RecipeValue,
+    TrackingType: int,
+    CacheClass: str,
+    CacheFields: dict[str, object],
+) -> None:
+    Owner = Prefix + "feature"
+    AddNodeMut(Author, Prefix + "target", "ModelDataRef", Owner)
+    AddNodeMut(Author, Prefix + "pick", "BrepRef", Owner)
+    Author.Allocate(Prefix + "target_cache", "ETCachedMatrix3d")
+    Author.Allocate(Prefix + "pick_recipe", "ASMRecipe", Fields={"m_Recipe": Recipe})
+    Author.Allocate(Prefix + "pick_cache", CacheClass, Fields=CacheFields)
+    Reference = Author.Reference
+    Author.Change(
+        Prefix + "target",
+        dataRefs=[Reference(Prefix + "pick")],
+        caches=[Reference(Prefix + "target_cache")],
+        trackingType=TrackingType,
+    )
+    Author.Change(
+        Prefix + "pick",
+        rRecipe=Reference(Prefix + "pick_recipe"),
+        rScope=PartScope(Author),
+        caches=[Reference(Prefix + "pick_cache")],
+        refBodies=[Reference("dc_body")],
+        trackingType=TrackingType,
+    )

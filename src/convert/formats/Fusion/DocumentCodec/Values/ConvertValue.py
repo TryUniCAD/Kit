@@ -9,6 +9,7 @@ from convert.formats.Fusion.EntityCodec.Model.OptionalValue import OptionalValue
 from convert.formats.Fusion.EntityCodec.Model.ValueObject import ValueObject
 from convert.formats.Fusion.EntityCodec.Model.ValueStruct import ValueStruct
 from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
+from convert.formats.Fusion.EntityCodec.Recipes.Model.RecipeValue import RecipeValue
 from convert.formats.Fusion.EntityCodec.Schema.WireType import WireType
 from convert.formats.Fusion.EntityCodec.Tags.SketchFields import KSketchFields
 
@@ -39,6 +40,8 @@ def ConvertValue(
                 "Only identity matrices are qualified for document authoring"
             )
         return MatrixValue(None)
+    if KindValue == "recipe" and isinstance(Value, RecipeValue):
+        return Value
     if KindValue != "unsupported" and isinstance(Value, (bool, int, float, str)):
         return Value
     raise ValueError("Unsupported authored semantic value")

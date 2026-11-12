@@ -7,7 +7,7 @@ from convert.formats.Fusion.DocumentCodec.Vocabulary.ReadVocabulary import (
 
 
 def AuthorSchemas(
-    ProfileKind: str, ConstrainRectangle: bool = False
+    ProfileKind: str, ConstrainRectangle: bool = False, HasFeatures: bool = False
 ) -> tuple[NativeSchema, ...]:
     Source = Path(__file__).parent
     Schemas = ReadVocabulary(Source / "DesignClasses.json")
@@ -16,6 +16,11 @@ def AuthorSchemas(
     Selected = {Schema.Value.ClassGuid.upper(): Schema for Schema in Schemas}
     for Schema in ReadVocabulary(Source / "RectangleClasses.json"):
         Selected[Schema.Value.ClassGuid.upper()] = Schema
+    if HasFeatures:
+        for Schema in ReadVocabulary(
+            Source.parent / "PartFeatures" / "Vocabulary" / "FeatureClasses.json"
+        ):
+            Selected[Schema.Value.ClassGuid.upper()] = Schema
     if ConstrainRectangle:
         for Schema in ReadVocabulary(
             Source.parent / "Rectangle" / "Dimensions" / "DimensionClasses.json"

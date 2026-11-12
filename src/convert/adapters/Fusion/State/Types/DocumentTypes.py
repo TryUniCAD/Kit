@@ -17,6 +17,13 @@ from convert.formats.Fusion.DocumentCodec.Model.DocumentSnap import DocumentSnap
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from convert.formats.Fusion.DocumentCodec.Model.MaterialPart import MaterialPart
 from convert.formats.Fusion.DocumentCodec.Model.ParsedSegment import ParsedSegment
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ChamferSpec import (
+    ChamferSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.FilletSpec import (
+    FilletSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import ShellSpec
 
 KDocumentTypes: tuple[type[object], ...] = (
     PrismSnapshot,
@@ -30,4 +37,7 @@ KDocumentTypes: tuple[type[object], ...] = (
     DocumentSpec,
     MaterialPart,
     ParsedSegment,
+    FilletSpec,
+    ChamferSpec,
+    ShellSpec,
 )

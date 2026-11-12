@@ -1,0 +1,85 @@
+{
+  "ASMRecipe": {
+    "m_Recipe": null
+  },
+  "BrepProgenitor": {
+    "m_brepRecipe": null
+  },
+  "BrepRef": {
+    "bAlwaysRecompute": false,
+    "bDirReversedAgainstRefEntity": false,
+    "rRecipe": null
+  },
+  "DcChamferData": {
+    "bIsComputeChain": true,
+    "bflip": false,
+    "chamferAngleParam": null,
+    "chamferDistanceOneParam": null,
+    "chamferDistanceTwoParam": null,
+    "chamferType": 1,
+    "rInputEdgesRef": null,
+    "rInputFacesRef": null,
+    "rInputFeatureRef": null,
+    "selIndex": 1
+  },
+  "DcChamferFeature": {
+    "cornerType": 1,
+    "isSheetMetalChamfer": false,
+    "isTangentPropagation": true,
+    "primaryIDRowIndexMap": [
+      {
+        "key": 1,
+        "value": 1
+      }
+    ],
+    "rChamferData": []
+  },
+  "DcFilletEdgeData": {
+    "bAsymmetric": false,
+    "bChord": false,
+    "bConstantRadius": true,
+    "bFlip": false,
+    "bG2Blend": false,
+    "bIsComputeChain": true,
+    "bRuleFillet": false,
+    "chordLen": null,
+    "connectedEdgeRef": null,
+    "curveChainStartPoint": null,
+    "edgeOffset1Value": null,
+    "edgeOffset2Value": null,
+    "edgeSequence": [],
+    "midPointParams": [],
+    "pointParams": [],
+    "pointRadii": [],
+    "rFaceRef": null,
+    "rFeatureRef": null,
+    "rFullRoundRef": null,
+    "rRuleRef": null,
+    "radiusValue": null,
+    "scopeOption": 0,
+    "selSetIndex": 0,
+    "tangencyWeight": null,
+    "topologyOption": 0
+  },
+  "DcFilletEdgeFeature": {
+    "filletEdgeData": [],
+    "filletType": 0,
+    "isRollingBallCorners": true,
+    "isSheetMetalFillet": false,
+    "isTangentPropagation": true,
+    "rParamRadius": null,
+    "scopeOption": 0,
+    "topologyOption": 0
+  },
+  "DcShellFeature": {
+    "TangentPropagation": false,
+    "UseDistanceFieldShell": false,
+    "rParamInnerThickness": null,
+    "rParamOuterThickness": null
+  },
+  "ETCachedCurve3d": {
+    "endPtProgenitor": null,
+    "rCachedEdge": null,
+    "startPtProgenitor": null
+  }
+}
