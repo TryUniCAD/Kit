@@ -1,0 +1,103 @@
+{
+ "schema": "FusionComplexSecondAnalysis/2",
+ "script": "re/Fusion/Reconstruction/ComplexGeometry/AnalyzeSecondPass.py",
+ "runs": [
+  {
+   "run": "Diagnose",
+   "path": "re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Runs/Diagnose.json",
+   "sha256": "70c0540137ae0d490a3acf9ad2d5e34cb118829644d48a885c4d447c17ba1cd5",
+   "status": "failed",
+   "documentsAfter": 0
+  },
+  {
+   "run": "Subtypes",
+   "path": "re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Runs/Subtypes.json",
+   "sha256": "f0c9ad5bf9472c79bdf6799bc68a909516946943dee81c343adedc3b8606f947",
+   "status": "failed",
+   "documentsAfter": 0
+  }
+ ],
+ "attributes": [
+  {
+   "run": "Diagnose",
+   "label": "StitchHint",
+   "attribute": "stitch_hint-sys-attrib",
+   "expectedOriginal": [
+    0.0011554212243761065,
+    0.0,
+    0.0
+   ],
+   "expectedMutant": [
+    0.12615542122437612,
+    0.0,
+    0.0
+   ],
+   "original": {
+    "path": "re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Exported/StitchHintOriginal.smb",
+    "sha256": "58815bf22711668f2ecbcc9e308cc6b0a6314d0af339a98f54a1e0d1a661ee25",
+    "bytes": 24410,
+    "header": "ASM BinaryFile8\u00a0Z\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0005\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0002\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0007\u0010Autodesk Neutro",
+    "containsStitchName": true,
+    "decoded": true,
+    "byteExact": true,
+    "records": 84,
+    "stitchHints": [
+     [
+      0.0011554212243761065,
+      0.0,
+      0.0
+     ]
+    ]
+   },
+   "mutant": {
+    "path": "re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Exported/StitchHintMutant.smb",
+    "sha256": "2c6b1cb4eb39230609187c4148685ec7ba60f52277548aa9acb08d0392b1ca22",
+    "bytes": 24410,
+    "header": "ASM BinaryFile8\u00a0Z\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0005\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0002\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0007\u0010Autodesk Neutro",
+    "containsStitchName": true,
+    "decoded": true,
+    "byteExact": true,
+    "records": 84,
+    "stitchHints": [
+     [
+      0.12615542122437612,
+      0.0,
+      0.0
+     ]
+    ]
+   },
+   "retained": true
+  }
+ ],
+ "representations": [
+  {
+   "label": "TolerantFormRefine",
+   "pcurve": 280,
+   "form": 2,
+   "insertedKnot": -2.3126131813790116,
+   "degree": 3,
+   "predictedPoles": 5,
+   "reportedPoles": 7,
+   "reportedKnots": [
+    -4.625226362758023,
+    -4.625226362758023,
+    -4.625226362758023,
+    -4.625226362758023,
+    -2.3126131813790116,
+    -2.3126131813790116,
+    -2.3126131813790116,
+    -0.0,
+    -0.0,
+    -0.0,
+    -0.0
+   ],
+   "recomputedPredictionGap": 0.0,
+   "reportedKnotMultiplicity": 3,
+   "fullMultiplicityKnotsEqual": true,
+   "fullMultiplicityPoleGap": 0.0,
+   "geometryDrift": 8.899114524108741e-16,
+   "samples": 201,
+   "run": "Diagnose"
+  }
+ ]
+}
