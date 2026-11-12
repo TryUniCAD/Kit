@@ -21,6 +21,7 @@ jobs:
     timeout-minutes: 20
     permissions:
       contents: read
+      pull-requests: read
     outputs:
       source-id: ${{ steps.source.outputs.artifact-id }}
       distributions-id: ${{ steps.distributions.outputs.artifact-id }}
@@ -32,6 +33,13 @@ jobs:
           ref: ${{ github.sha }}
           fetch-depth: 0
           persist-credentials: false
+
+      - name: Verify release version authorization
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const { VerifyPublishedVersion } = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/VerifyReleaseVersion.cjs`);
+            await VerifyPublishedVersion(github, context);
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -84,6 +92,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
+          PackageVersion: ${{ needs.build.outputs.package-version }}
         shell: bash
         run: |
           ReleaseTag="commit-${GITHUB_SHA}"
@@ -97,7 +106,7 @@ jobs:
             exit 1
           fi
           gh release create "${ReleaseTag}" "${RUNNER_TEMP}"/release/source/* \
-            --verify-tag --title "${GITHUB_SHA}" --notes-file "${RUNNER_TEMP}/release/CommitDetails.md"
+            --verify-tag --title "Kit v${PackageVersion}" --notes-file "${RUNNER_TEMP}/release/CommitDetails.md"
 
   pypi:
     name: Publish to PyPI
