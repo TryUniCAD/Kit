@@ -15,6 +15,11 @@ def DecodeRecord(NameValue: object, Values: dict[str, object]) -> object:
     if not isinstance(NameValue, str) or NameValue not in KStateNames:
         raise ValueError("Unknown Fusion semantic-state record")
     ClassType = KStateNames[NameValue]
+    if (
+        NameValue
+        == "convert.formats.Fusion.DocumentCodec.Model.DocumentModel.DocumentModel"
+    ):
+        Values = {"Meshes": (), **Values}
     if not IsDataClass(ClassType) or set(Values) != {
         Field.name for Field in DataFields(ClassType)
     }:
