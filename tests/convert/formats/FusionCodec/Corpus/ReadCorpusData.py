@@ -6,10 +6,7 @@ from typing import cast as CastValue
 
 from tests.convert.formats.FusionCodec.Corpus.CorpusTypes import CorpusSchema
 
-KSchemaPath = (
-    FilePath(__file__).resolve().parents[5]
-    / "re/Fusion/Reconstruction/EntityGraph/CorpusProfiles.json.xz"
-)
+KSchemaPath = FilePath(__file__).with_name("CorpusSources.xz")
 
 
 @CacheValue

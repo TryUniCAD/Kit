@@ -26,6 +26,6 @@ The remote compatibility suite decodes each archive through production `EntityCo
 
 ## Verification
 
-Remote run `43221337105` passed 783 of 804 archive cases. Its 21 corpus failures exposed the split and wildcard assumptions described above; the corrected revision awaits a new remote run. All pre-existing document, container, material, BRep, entity, and bundle cases passed.
+Remote run `43221337105` passed 783 of 804 archive cases. Its 21 corpus failures exposed the split and wildcard assumptions described above; revision `4eb1571f6c9a6f870aaa8ae7a67c22873384b190` corrected them. Remote [run 43222880126](https://github.com/TryUniCAD/Kit/actions/runs/43222880126) then passed all 807 cases in 35.59 seconds, including all 712 complete corpus Design reconstructions and three malformed split-tag rejection cases. [The evidence manifest](../../../re/Fusion/Reconstruction/CorpusSemantics/ProductionCompatibility.json) records the exact revision and schema digest. All pre-existing document, container, material, BRep, entity, and bundle cases passed.
 
 Evidence comes from static native serializer/registration analysis and read-only corpus decoding. No local automated tests ran. Independent document generation and native acceptance remain separately reported in [FusionIndependentAuthoring.md](FusionIndependentAuthoring.md) and the production document change entry.
