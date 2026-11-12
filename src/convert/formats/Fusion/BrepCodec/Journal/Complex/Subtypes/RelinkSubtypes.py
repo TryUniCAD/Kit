@@ -3,33 +3,43 @@ from itertools import accumulate as Accumulate
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import (
     ChoiceValue,
     KGrammarValue,
+    KSubtypeEntry,
     SubtypeNode,
-    SubtypeRef,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.EntitySubtree import (
     EntitySubtree,
     SwapSubtree,
 )
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.ListSubtypes import (
-    ListSubtypes,
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.WalkSubtypes import (
+    WalkSubtypes,
+    WithSubtrans,
 )
 from convert.formats.Fusion.BrepCodec.Journal.JournalEntity import KJournalEntity
+from convert.formats.Fusion.BrepCodec.Journal.Spline.SubtransNode import SubtransNode
+from convert.formats.Fusion.BrepCodec.Journal.Spline.SubtypeRef import SubtypeRef
+from convert.formats.Fusion.BrepCodec.Journal.Spline.TsplineSurf import TsplineSurf
 
 
 def RelinkValueMut(
     Value: KGrammarValue,
-    Sources: tuple[SubtypeNode, ...],
+    Sources: tuple[KSubtypeEntry, ...],
     Mapping: dict[int, int],
     Cursors: list[int],
 ) -> KGrammarValue:
-    if isinstance(Value, SubtypeNode):
+    if isinstance(Value, (SubtypeNode, TsplineSurf, SubtransNode)):
         Original = Cursors[0]
         Cursors[0] += 1
         _ = Mapping.setdefault(Original, Cursors[1])
         Cursors[1] += 1
-        return SubtypeNode(
-            Value.SubtypeName, RelinkValueMut(Value.Body, Sources, Mapping, Cursors)
-        )
+        if isinstance(Value, SubtypeNode):
+            return SubtypeNode(
+                Value.SubtypeName,
+                RelinkValueMut(Value.Body, Sources, Mapping, Cursors),
+            )
+        if isinstance(Value, TsplineSurf):
+            Subtrans = RelinkValueMut(Value.Subtrans, Sources, Mapping, Cursors)
+            return WithSubtrans(Value, Subtrans)
+        return Value
     if isinstance(Value, SubtypeRef):
         if Value.Index in Mapping:
             return SubtypeRef(Value.Family, Mapping[Value.Index])
@@ -55,20 +65,16 @@ def RelinkSubtypes(
 ) -> tuple[KJournalEntity, ...]:
     if Chosen == tuple(range(len(Entities))):
         return Entities
-    Trees = tuple(ListSubtypes(EntitySubtree(Entity)) for Entity in Entities)
-    Sources = tuple(
-        Found
-        for Subtrees in Trees
-        for Found in Subtrees
-        if isinstance(Found, SubtypeNode)
+    Trees = tuple(
+        tuple(
+            Found
+            for Found in WalkSubtypes(EntitySubtree(Entity))
+            if not isinstance(Found, SubtypeRef)
+        )
+        for Entity in Entities
     )
-    Starts = (
-        0,
-        *Accumulate(
-            sum(isinstance(Found, SubtypeNode) for Found in Subtrees)
-            for Subtrees in Trees
-        ),
-    )
+    Sources = tuple(Found for Subtrees in Trees for Found in Subtrees)
+    Starts = (0, *Accumulate(len(Subtrees) for Subtrees in Trees))
     Mapping: dict[int, int] = {}
     Cursors = [0, 0]
     Results: list[KJournalEntity] = []

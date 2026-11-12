@@ -3,8 +3,8 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue impor
     KGrammarValue,
     KSubtypeValue,
     SubtypeNode,
-    SubtypeRef,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Spline.SubtypeRef import SubtypeRef
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.BsCurve import BsCurve
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.BsSurface import BsSurface
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.CheckBsCurve import (

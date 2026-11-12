@@ -1,4 +1,4 @@
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.CheckSubtypes import (
+from convert.formats.Fusion.BrepCodec.Journal.Spline.CheckSubtypes import (
     CheckSubtypes,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.AsmRoot import AsmRoot

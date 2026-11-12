@@ -1,6 +1,6 @@
 {
  "summary": {
-  "valid-differs-from-snapshot": 60
+  "valid-differs-from-snapshot": 62
  },
  "archives": [
   {
@@ -331,6 +331,26 @@
     "archived": 20,
     "state": 166,
     "snapshot": 157
+   }
+  },
+  {
+   "path": "re/Fusion/Study/patchcontinuity-b9b0be85a281/brep_curvature.f3d",
+   "status": "valid-differs-from-snapshot",
+   "detail": {
+    "complex": 3,
+    "archived": 3,
+    "state": 84,
+    "snapshot": 84
+   }
+  },
+  {
+   "path": "re/Fusion/Study/patchcontinuity-b9b0be85a281/brep_tangent.f3d",
+   "status": "valid-differs-from-snapshot",
+   "detail": {
+    "complex": 3,
+    "archived": 3,
+    "state": 84,
+    "snapshot": 84
    }
   },
   {

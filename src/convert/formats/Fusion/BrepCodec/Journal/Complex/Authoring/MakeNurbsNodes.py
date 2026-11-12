@@ -12,11 +12,11 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Authoring.NurbsBody import
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Authoring.NurbsLayout import (
     NurbsLayout,
 )
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Nodes.IntcurveNode import (
+from convert.formats.Fusion.BrepCodec.Journal.Spline.IntcurveNode import (
     IntcurveNode,
 )
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Nodes.PcurveNode import PcurveNode
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Nodes.SplineNode import SplineNode
+from convert.formats.Fusion.BrepCodec.Journal.Spline.PcurveNode import PcurveNode
+from convert.formats.Fusion.BrepCodec.Journal.Spline.SplineNode import SplineNode
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.CoedgeNode import CoedgeNode
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.EdgeNode import EdgeNode
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.EntityPrefix import EntityPrefix
@@ -140,13 +140,11 @@ def MakeNurbsCurves(Model: NurbsBody) -> tuple[PcurveNode | IntcurveNode, ...]:
     Pcurves = tuple(
         PcurveNode(
             KBlankPrefix,
-            0,
             False,
             ParamCurve(
                 NegateCurve(UseSpec.Pcurve) if UseSpec.Reversed else UseSpec.Pcurve,
                 FaceIndex,
             ),
-            -1,
             0.0,
             0.0,
         )

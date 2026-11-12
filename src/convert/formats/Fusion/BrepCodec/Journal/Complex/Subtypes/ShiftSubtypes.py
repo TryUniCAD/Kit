@@ -1,17 +1,15 @@
 from itertools import accumulate as Accumulate
 
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import (
-    SubtypeNode,
-)
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.EntitySubtree import (
     EntitySubtree,
     SwapSubtree,
 )
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.ListSubtypes import (
-    ListSubtypes,
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.WalkSubtypes import (
     MapSubtypes,
+    WalkSubtypes,
 )
 from convert.formats.Fusion.BrepCodec.Journal.JournalEntity import KJournalEntity
+from convert.formats.Fusion.BrepCodec.Journal.Spline.SubtypeRef import SubtypeRef
 
 
 def ShiftSubtypes(
@@ -19,8 +17,8 @@ def ShiftSubtypes(
 ) -> tuple[KJournalEntity, ...]:
     Counts = tuple(
         sum(
-            isinstance(Found, SubtypeNode)
-            for Found in ListSubtypes(EntitySubtree(Entity))
+            not isinstance(Found, SubtypeRef)
+            for Found in WalkSubtypes(EntitySubtree(Entity))
         )
         for Entity in Entities
     )

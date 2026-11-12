@@ -1,3 +1,4 @@
+from convert.formats.Fusion.EntityCodec.Frame.NamedShape import KVectorName, NamedShape
 from convert.formats.Fusion.EntityCodec.Limits import KMaxCount
 from convert.formats.Fusion.EntityCodec.Model.NamedMetadata import NamedMetadata
 from convert.formats.Fusion.EntityCodec.Schema.EntityCatalog import EntityCatalog
@@ -12,11 +13,10 @@ def EmitNamedMut(Entries: tuple[NamedMetadata, ...], Catalog: EntityCatalog) -> 
     Output = FeatureSink()
     Output.AddCount(Entries, KMaxCount)
     for Entry in Entries:
-        if Entry.TypeName not in Catalog.NamedTypes:
-            raise ValueError("Unsupported Fusion entity named metadata metatype")
+        Shape = NamedShape(Entry.TypeName, Entry.ElementName, Catalog.NamedTypes)
         Output.AddBytes(EmitText(Entry.FieldName))
         Output.AddBytes(EmitText(Entry.TypeName))
-        Output.AddBytes(
-            EmitValueMut(Entry.Value, Catalog.NamedTypes[Entry.TypeName], Catalog)
-        )
+        if Entry.TypeName == KVectorName:
+            Output.AddBytes(EmitText(Entry.ElementName))
+        Output.AddBytes(EmitValueMut(Entry.Value, Shape, Catalog))
     return bytes(Output.Buffer)

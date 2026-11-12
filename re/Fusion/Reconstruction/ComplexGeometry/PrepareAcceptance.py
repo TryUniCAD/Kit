@@ -19,7 +19,7 @@ sys.path.insert(0, str(HERE))
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Authoring.CreateNurbsBody import CreateNurbsBody  # noqa: E402
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Authoring.ExactSubtypes import ExactSurface, SplineCurve, SplineSurface  # noqa: E402
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Authoring.SplineEval import PointOnSurface  # noqa: E402
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Nodes.SplineNode import SplineNode  # noqa: E402
+from convert.formats.Fusion.BrepCodec.Journal.Spline.SplineNode import SplineNode  # noqa: E402
 from convert.formats.Fusion.BrepCodec.Journal.EmitJournal import EmitJournal  # noqa: E402
 from convert.formats.Fusion.BrepCodec.Journal.EmitStateSmb import EmitStateSmb  # noqa: E402
 from convert.formats.Fusion.BrepCodec.Journal.ReadJournal import ReadJournal  # noqa: E402

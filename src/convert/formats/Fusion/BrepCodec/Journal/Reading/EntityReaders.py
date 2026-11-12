@@ -2,13 +2,13 @@ from collections.abc import Callable
 from convert.formats.Fusion.BrepCodec.Journal.Round.ReadSphereNode import ReadSphereNode
 from convert.formats.Fusion.BrepCodec.Journal.Round.ReadTorusNode import ReadTorusNode
 
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Reading.ReadIntcurve import (
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Reading.ReadIntcurve import (
     ReadIntcurve,
 )
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Reading.ReadPcurveNode import (
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Reading.ReadPcurveNode import (
     ReadPcurveNode,
 )
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Reading.ReadSplineNode import (
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Reading.ReadSplineNode import (
     ReadSplineNode,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Reading.ReadTcoedgeNode import (

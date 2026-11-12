@@ -1,22 +1,22 @@
 from convert.formats.Fusion.BrepCodec.Journal.Complex.ComplexEntity import (
     KComplexEntity,
 )
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Nodes.IntcurveNode import (
+from convert.formats.Fusion.BrepCodec.Journal.Spline.IntcurveNode import (
     IntcurveNode,
 )
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Nodes.PcurveNode import PcurveNode
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Nodes.SplineNode import SplineNode
+from convert.formats.Fusion.BrepCodec.Journal.Spline.PcurveNode import PcurveNode
+from convert.formats.Fusion.BrepCodec.Journal.Spline.SplineNode import SplineNode
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Nodes.TcoedgeNode import (
     TcoedgeNode,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Nodes.TedgeNode import TedgeNode
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Writing.MakeIntcurve import (
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Writing.MakeIntcurve import (
     MakeIntcurve,
 )
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Writing.MakePcurveNode import (
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Writing.MakePcurveNode import (
     MakePcurveNode,
 )
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Writing.MakeSplineNode import (
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Writing.MakeSplineNode import (
     MakeSplineNode,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Writing.MakeTolerant import (

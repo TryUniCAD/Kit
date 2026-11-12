@@ -11,10 +11,14 @@ def EmitWireField(Field: KAsmToken) -> bytes:
         if type(Value) is not int or not -(1 << 31) <= Value < (1 << 31):
             raise ValueError("Fusion journal integer exceeds native signed 32 bits")
         return bytes((TagValue,)) + PackValue("<q", Value)
-    if TagValue in (13, 14) and type(Value) is str and Value and Value.isascii():
+    if (
+        TagValue in (13, 14)
+        and type(Value) is str
+        and Value
+        and Value.isascii()
+        and Value.isprintable()
+    ):
         return EncodeSmbString(TagValue, Value)
-    if TagValue in (15, 16) and Value is None:
-        return bytes((TagValue,))
     if (
         TagValue == 6
         and isinstance(Value, (int, float))
@@ -24,7 +28,11 @@ def EmitWireField(Field: KAsmToken) -> bytes:
         return b"\x06" + PackValue("<d", Value)
     if TagValue == 7 and type(Value) is str and Value.isascii() and "\0" not in Value:
         return EncodeSmbString(7, Value)
-    if TagValue in (10, 11) and Value is None:
+    if TagValue == 8 and type(Value) is str and Value.isascii() and "\0" not in Value:
+        if len(Value) > 65535:
+            raise ValueError("Fusion journal text exceeds its wide byte-count field")
+        return b"\x08" + PackValue("<H", len(Value)) + Value.encode("ascii")
+    if TagValue in (10, 11, 15, 16) and Value is None:
         return bytes((TagValue,))
     if TagValue in (19, 20) and isinstance(Value, tuple) and len(Value) == 3:
         if all(type(Number) in (int, float) and IsFinite(Number) for Number in Value):

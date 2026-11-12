@@ -1,10 +1,10 @@
 from typing import TypeAlias
 
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Nodes.IntcurveNode import (
+from convert.formats.Fusion.BrepCodec.Journal.Spline.IntcurveNode import (
     IntcurveNode,
 )
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Nodes.PcurveNode import PcurveNode
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Nodes.SplineNode import SplineNode
+from convert.formats.Fusion.BrepCodec.Journal.Spline.PcurveNode import PcurveNode
+from convert.formats.Fusion.BrepCodec.Journal.Spline.SplineNode import SplineNode
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Nodes.TcoedgeNode import (
     TcoedgeNode,
 )

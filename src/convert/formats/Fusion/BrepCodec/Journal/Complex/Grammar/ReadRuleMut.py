@@ -16,8 +16,14 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue impor
     KGrammarValue,
     KSubtypeValue,
     SubtypeNode,
-    SubtypeRef,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Reading.ReadScopeMut import (
+    ReadScopeMut,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Reading.ReadTsplSurf import (
+    ReadTsplSurf,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Spline.SubtypeRef import SubtypeRef
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.NamedRules import (
     KNamedRules,
 )
@@ -122,7 +128,7 @@ def ReadChoiceMut(
 
 def ReadCallMut(Cursor: FieldCursor, RuleName: str) -> KGrammarValue:
     if RuleName in KScopeFamily:
-        return ReadScopeMut(Cursor, KScopeFamily[RuleName])
+        return ReadSubtypeMut(Cursor, KScopeFamily[RuleName])
     if RuleName in ("bs2", "bs3"):
         return ReadBsCurveMut(Cursor, 2 if RuleName == "bs2" else 3)
     if RuleName == "bs2option":
@@ -134,15 +140,14 @@ def ReadCallMut(Cursor: FieldCursor, RuleName: str) -> KGrammarValue:
     return ReadRuleMut(Cursor, KNamedRules[RuleName])
 
 
-def ReadScopeMut(Cursor: FieldCursor, Family: str) -> KSubtypeValue:
-    NeedFieldMut(Cursor, (15, None))
-    NameText = ReadNameMut(Cursor)
-    Value: KSubtypeValue
-    if NameText == "ref":
-        Value = SubtypeRef(Family, ReadCountMut(Cursor, (1 << 31) - 1))
-    elif KSubtypeFamily.get(NameText) == Family:
-        Value = SubtypeNode(NameText, ReadRuleMut(Cursor, KSubtypeRules[NameText]))
-    else:
-        raise ValueError("Unsupported Fusion " + Family + " subtype: " + NameText)
+def ReadSubtypeMut(Cursor: FieldCursor, Family: str) -> KSubtypeValue:
+    Scope = ReadScopeMut(Cursor, Family)
+    if isinstance(Scope, SubtypeRef):
+        return Scope
+    if Scope == "t_spl_sur" and Family == "surface":
+        return ReadTsplSurf(Cursor)
+    if KSubtypeFamily.get(Scope) != Family or Scope not in KSubtypeRules:
+        raise ValueError("Unsupported Fusion " + Family + " subtype: " + Scope)
+    Value = SubtypeNode(Scope, ReadRuleMut(Cursor, KSubtypeRules[Scope]))
     NeedFieldMut(Cursor, (16, None))
     return Value

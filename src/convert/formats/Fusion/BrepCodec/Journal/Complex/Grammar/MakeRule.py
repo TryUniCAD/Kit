@@ -18,7 +18,14 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue impor
     ChoiceValue,
     KGrammarValue,
     SubtypeNode,
-    SubtypeRef,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Spline.SubtypeRef import SubtypeRef
+from convert.formats.Fusion.BrepCodec.Journal.Spline.TsplineSurf import TsplineSurf
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Writing.MakeRefScope import (
+    MakeRefScope,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Writing.MakeTsplSurf import (
+    MakeTsplSurf,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.MakeLeaf import MakeLeaf
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.NamedRules import (
@@ -147,20 +154,16 @@ def MakeCall(RuleName: str, Value: KGrammarValue) -> tuple[KAsmToken, ...]:
 
 
 def MakeScope(Family: str, Value: KGrammarValue) -> tuple[KAsmToken, ...]:
-    Payload: tuple[KAsmToken, ...]
+    if isinstance(Value, TsplineSurf) and Family == "surface":
+        return MakeTsplSurf(Value)
+    if isinstance(Value, SubtypeRef):
+        return MakeRefScope(Value, Family)
     if (
-        isinstance(Value, SubtypeRef)
-        and Value.Family == Family
-        and type(Value.Index) is int
-        and 0 <= Value.Index < (1 << 31)
+        not isinstance(Value, SubtypeNode)
+        or KSubtypeFamily.get(Value.SubtypeName) != Family
+        or Value.SubtypeName not in KSubtypeRules
     ):
-        NameText, Payload = "ref", ((4, Value.Index),)
-    elif (
-        isinstance(Value, SubtypeNode)
-        and KSubtypeFamily.get(Value.SubtypeName) == Family
-    ):
-        NameText = Value.SubtypeName
-        Payload = MakeRule(KSubtypeRules[NameText], Value.Body)
-    else:
         raise ValueError("Fusion subtype value disagrees with its " + Family + " scope")
+    NameText = Value.SubtypeName
+    Payload = MakeRule(KSubtypeRules[NameText], Value.Body)
     return ((15, None), (13, NameText), *Payload, (16, None))

@@ -10,7 +10,7 @@ ROOT = BASE.parents[3]
 sys.path.insert(0, str(ROOT / "src"))
 
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import SubtypeNode  # noqa: E402
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Nodes.PcurveNode import PcurveNode  # noqa: E402
+from convert.formats.Fusion.BrepCodec.Journal.Spline.PcurveNode import PcurveNode  # noqa: E402
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.CoedgeNode import CoedgeNode  # noqa: E402
 from convert.formats.Fusion.BrepCodec.Journal.ReadJournal import ReadJournal  # noqa: E402
 from convert.formats.Fusion.BrepCodec.Journal.Snapshot.ReadGeometry import ReadGeometry  # noqa: E402
@@ -27,16 +27,16 @@ def main():
         model = ReadJournal(payload) if member["member"].endswith(".smbh") else ReadGeometry(payload)
         entities = model.Entities
         for value in entities:
-            if not isinstance(value, CoedgeNode) or value.PcurveRef < 0:
+            if not isinstance(value, CoedgeNode) or value.Pcurve < 0:
                 continue
-            pcurve = entities[value.PcurveRef]
+            pcurve = entities[value.Pcurve]
             edge = entities[value.EdgeRef]
             if not isinstance(pcurve, PcurveNode):
                 stats["notpcurve"] += 1
                 continue
             key = [f"coedgeRev={value.Reversed}", f"form={pcurve.Form}", f"pcRev={pcurve.Reversed}", f"partner={value.Partner >= 0}"]
-            if pcurve.Form == 0 and isinstance(pcurve.Carrier, SubtypeNode):
-                curve = pcurve.Carrier.Body[0]
+            if pcurve.Form == 0 and isinstance(pcurve.Curve, SubtypeNode):
+                curve = pcurve.Curve.Body[0]
                 lower, upper = curve.Knots[0], curve.Knots[-1]
                 if abs(lower - edge.StartParam) < 1e-9 and abs(upper - edge.EndParam) < 1e-9:
                     key.append("range=edge")
@@ -44,7 +44,7 @@ def main():
                     key.append("range=negated")
                 else:
                     key.append("range=other")
-                key.append(f"offsets={pcurve.UOffset != 0 or pcurve.VOffset != 0}")
+                key.append(f"offsets={pcurve.OffsetU != 0 or pcurve.OffsetV != 0}")
             stats[" ".join(key)] += 1
     for key, count in stats.most_common():
         print(count, key)

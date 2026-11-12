@@ -9,6 +9,8 @@ KSubtypeFamily: dict[str, str] = {
     "srf_srf_v_bl_spl_sur": "surface",
     "VBL_SURF": "surface",
     "g2_blend_spl_sur": "surface",
+    "t_spl_sur": "surface",
+    "t_spl_subtrans_object": "subtrans",
     "exact_int_cur": "curve",
     "par_int_cur": "curve",
     "int_int_cur": "curve",

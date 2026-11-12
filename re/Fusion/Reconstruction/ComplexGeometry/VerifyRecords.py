@@ -18,7 +18,7 @@ sys.path.insert(0, str(HERE))
 
 import AsmScan  # noqa: E402
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.EntitySubtree import EntitySubtree  # noqa: E402
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.ListSubtypes import ListSubtypes  # noqa: E402
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.WalkSubtypes import DefinedName, WalkSubtypes  # noqa: E402
 from convert.formats.Fusion.BrepCodec.Journal.Reading.ReadEntityNode import ReadEntityNode  # noqa: E402
 from convert.formats.Fusion.BrepCodec.Journal.Writing.MakeEntityNode import MakeEntityNode  # noqa: E402
 from convert.formats.Fusion.Topology.AsmEdge.AsmTable import AsmRecord  # noqa: E402
@@ -46,7 +46,7 @@ def main():
             try:
                 node = ReadEntityNode(original)
                 same = MakeEntityNode(node) == original
-                kinds = sorted({getattr(found, 'SubtypeName', 'ref') for found in ListSubtypes(EntitySubtree(node))})
+                kinds = sorted({DefinedName(found) for found in WalkSubtypes(EntitySubtree(node))})
                 counts[(record['name'], ','.join(kinds), 'exact' if same else 'differs')] += 1
             except ValueError as error:
                 counts[(record['name'], '', 'error: ' + str(error))] += 1

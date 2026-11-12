@@ -3,6 +3,9 @@ from typing import TypeAlias, Union
 
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.BsCurve import BsCurve
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.BsSurface import BsSurface
+from convert.formats.Fusion.BrepCodec.Journal.Spline.SubtransNode import SubtransNode
+from convert.formats.Fusion.BrepCodec.Journal.Spline.SubtypeRef import SubtypeRef
+from convert.formats.Fusion.BrepCodec.Journal.Spline.TsplineSurf import TsplineSurf
 
 
 @MakeDataClass(frozen=True, slots=True)
@@ -15,12 +18,6 @@ class ChoiceValue:
 class SubtypeNode:
     SubtypeName: str
     Body: "KGrammarValue"
-
-
-@MakeDataClass(frozen=True, slots=True)
-class SubtypeRef:
-    Family: str
-    Index: int
 
 
 @MakeDataClass(frozen=True, slots=True)
@@ -44,6 +41,10 @@ KGrammarValue: TypeAlias = Union[
     LoftSubdata,
     BsCurve,
     BsSurface,
+    TsplineSurf,
+    SubtransNode,
 ]
 
-KSubtypeValue: TypeAlias = Union[SubtypeNode, SubtypeRef]
+KSubtypeValue: TypeAlias = Union[SubtypeNode, SubtypeRef, TsplineSurf]
+
+KSubtypeEntry: TypeAlias = Union[SubtypeNode, SubtypeRef, TsplineSurf, SubtransNode]
