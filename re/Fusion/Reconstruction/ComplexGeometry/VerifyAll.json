@@ -3,10 +3,10 @@
   "scope": "all",
   "members": 1083,
   "status": {
-   "other:error": 138,
-   "other:exact": 829,
-   "complex:error": 8,
-   "complex:exact": 108
+   "other:error": 137,
+   "other:exact": 830,
+   "complex:error": 3,
+   "complex:exact": 113
   },
   "failures": [
    [
@@ -48,14 +48,6 @@
    [
     "Oversized Fusion ASM record",
     6
-   ],
-   [
-    "Unsupported Fusion journal entity kind: stitch_hint-sys-attrib",
-    4
-   ],
-   [
-    "Unsupported Fusion journal entity kind: vertedge-sys-attrib",
-    2
    ],
    [
     "Unsupported Fusion nonmanifold edge-use count",
@@ -5024,8 +5016,9 @@
    "sha256": "05303896854a5924c735745c9439d9f72e15f88128422b49074e6b91582433c5",
    "complex": true,
    "before": "Unsupported Fusion journal entity kind: spline-surface",
-   "status": "error",
-   "error": "Unsupported Fusion journal entity kind: stitch_hint-sys-attrib"
+   "exact": true,
+   "status": "exact",
+   "emittedSha256": "05303896854a5924c735745c9439d9f72e15f88128422b49074e6b91582433c5"
   },
   {
    "path": "re/Fusion/Study/patchcontinuity-b9b0be85a281/brep_curvature.f3d",
@@ -5033,8 +5026,9 @@
    "sha256": "4a3012e2629eb0ac68d8be61634279e07caed4daaef927ab1ff973fec745d8f8",
    "complex": true,
    "before": "Unsupported Fusion journal entity kind: spline-surface",
-   "status": "error",
-   "error": "Unsupported Fusion journal entity kind: stitch_hint-sys-attrib"
+   "exact": true,
+   "status": "exact",
+   "emittedSha256": "4a3012e2629eb0ac68d8be61634279e07caed4daaef927ab1ff973fec745d8f8"
   },
   {
    "path": "re/Fusion/Study/patchcontinuity-b9b0be85a281/brep_free.f3d",
@@ -5062,8 +5056,9 @@
    "sha256": "2f998919aea3be8fd9e22d399b0fa8c81dcc264d0c9f82176e6f818384f78e32",
    "complex": true,
    "before": "Unsupported Fusion journal entity kind: spline-surface",
-   "status": "error",
-   "error": "Unsupported Fusion journal entity kind: stitch_hint-sys-attrib"
+   "exact": true,
+   "status": "exact",
+   "emittedSha256": "2f998919aea3be8fd9e22d399b0fa8c81dcc264d0c9f82176e6f818384f78e32"
   },
   {
    "path": "re/Fusion/Study/patchcontinuity-b9b0be85a281/brep_tangent.f3d",
@@ -5071,8 +5066,9 @@
    "sha256": "01117ba2cd914bf21cc1e139a843a297cc0214521a88faddfa9d49d89d4aaa83",
    "complex": true,
    "before": "Unsupported Fusion journal entity kind: spline-surface",
-   "status": "error",
-   "error": "Unsupported Fusion journal entity kind: stitch_hint-sys-attrib"
+   "exact": true,
+   "status": "exact",
+   "emittedSha256": "01117ba2cd914bf21cc1e139a843a297cc0214521a88faddfa9d49d89d4aaa83"
   },
   {
    "path": "re/Fusion/Study/pathpatterncomposites-b6b4cf615504/composite_along.f3d",
@@ -7553,8 +7549,9 @@
    "sha256": "b0771ba4a4fb0736011b1a2a5104db10ba79fa77b0f11e6b2c83d99501850276",
    "complex": false,
    "before": "Unsupported Fusion journal entity kind: vertedge-sys-attrib",
-   "status": "error",
-   "error": "Unsupported Fusion journal entity kind: vertedge-sys-attrib"
+   "exact": true,
+   "status": "exact",
+   "emittedSha256": "b0771ba4a4fb0736011b1a2a5104db10ba79fa77b0f11e6b2c83d99501850276"
   },
   {
    "path": "re/Fusion/Study/sketchprojections-67c0c4531b8f/body_edge.f3d",
@@ -8040,8 +8037,9 @@
    "sha256": "b03c64905f0419137307e0e1cf74b2d84f9fa107c7e4f59f3ff1b5947c04a298",
    "complex": true,
    "before": "Unsupported Fusion journal entity kind: intcurve-curve",
-   "status": "error",
-   "error": "Unsupported Fusion journal entity kind: vertedge-sys-attrib"
+   "exact": true,
+   "status": "exact",
+   "emittedSha256": "b03c64905f0419137307e0e1cf74b2d84f9fa107c7e4f59f3ff1b5947c04a298"
   },
   {
    "path": "re/Fusion/Study/splitbodymultisheets-c78bec32dc3f/sheet_body_no_extend.f3d",
