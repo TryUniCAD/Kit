@@ -5,6 +5,7 @@ from convert.formats.Fusion.EntityCodec.Recipes.EmitRecipeMut import EmitRecipeM
 from convert.formats.Fusion.EntityCodec.Schema.ClassGroups import ClassGroups
 from convert.formats.Fusion.EntityCodec.Schema.EntityCatalog import EntityCatalog
 from convert.formats.Fusion.EntityCodec.Schema.WireType import WireType
+from convert.formats.Fusion.EntityCodec.Tags.EmitSketchMut import EmitSketchMut
 from convert.formats.Fusion.EntityCodec.Values.EmitFieldsMut import EmitFieldsMut
 from convert.formats.Fusion.EntityCodec.Values.EmitGroupsMut import EmitGroupsMut
 from convert.formats.Fusion.EntityCodec.Values.EmitMatrix import EmitMatrix
@@ -29,4 +30,6 @@ def EmitShapeMut(
         return EmitMatrix(Value, Shape)
     if Shape.KindValue == "recipe":
         return EmitRecipeMut(Value, Catalog, Depth)
+    if Shape.KindValue == "sketch-tag":
+        return EmitSketchMut(Value, Catalog, Depth, Writer)
     raise ValueError("Fusion entity value does not match its declared layout")

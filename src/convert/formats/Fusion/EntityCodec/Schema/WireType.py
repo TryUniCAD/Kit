@@ -29,6 +29,7 @@ KWireKind: TypeAlias = Literal[
     "unsupported",
     "ge-array",
     "recipe",
+    "sketch-tag",
 ]
 
 

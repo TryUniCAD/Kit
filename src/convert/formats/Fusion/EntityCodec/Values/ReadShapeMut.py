@@ -5,6 +5,7 @@ from convert.formats.Fusion.EntityCodec.Recipes.ReadRecipeMut import ReadRecipeM
 from convert.formats.Fusion.EntityCodec.Schema.ClassGroups import ClassGroups
 from convert.formats.Fusion.EntityCodec.Schema.EntityCatalog import EntityCatalog
 from convert.formats.Fusion.EntityCodec.Schema.WireType import WireType
+from convert.formats.Fusion.EntityCodec.Tags.ReadSketchMut import ReadSketchMut
 from convert.formats.Fusion.EntityCodec.Values.ReadFieldsMut import ReadFieldsMut
 from convert.formats.Fusion.EntityCodec.Values.ReadGroupsMut import ReadGroupsMut
 from convert.formats.Fusion.EntityCodec.Values.ReadMatrixMut import ReadMatrixMut
@@ -30,4 +31,6 @@ def ReadShapeMut(
         return ReadMatrixMut(Cursor, Shape)
     if Shape.KindValue == "recipe":
         return ReadRecipeMut(Cursor, Catalog, Depth)
+    if Shape.KindValue == "sketch-tag":
+        return ReadSketchMut(Cursor, Catalog, Depth, Reader)
     raise ValueError("Unsupported Fusion entity value layout")

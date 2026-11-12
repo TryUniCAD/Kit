@@ -72,7 +72,7 @@ REA's Ghidra provider also decompiled `Ns::MemberSet::addNewMember` from an arm6
 The [binary-tool evidence](../../../re/Fusion/Reconstruction/ReaBinaryEvidence.json) records the exact input digest, address, tool versions, evidence identifier, and the resulting registration-map observations.
 The universal Mach-O input first required thinning; generic archive inspection and native-code decompilation are distinct REA capabilities.
 Its F3D inspection rejected the study's ZIP method 93 compression.
-See the [tool limitation](../../Gotchas/Conversion/FusionArchiveInspection.md).
+See the [tool limitation](../../Gotchas/Conversion/Fusion/FusionArchiveInspection.md).
 
 The upstream [F3D specification](https://github.com/cadmpeg/cadmpeg/blob/de2726870ff728352163f601ab4e60bbd54fbade/docs/formats/f3d.md) describes additional package variants.
 An F3Z root can be an F2D drawing with a derived F3D model.
@@ -642,25 +642,27 @@ Enum fields that use the native uint32 intrinsic metatype are encoded as unsigne
 
 ## Bundle and vertex semantics
 
-The [F3Z bundle codec](../../Changes/FusionBundleCodec.md) models the outer manifest, closed document graph, identity joins, reference groups, and complete serialized members. The [bundle data model](../../../re/Fusion/Reconstruction/BundleAuthoring/BundleDataModel.md) documents all envelope fields and the nine-document corpus example. This envelope qualification does not claim arbitrary nested F3D or F2D conversion. Native F3Z acceptance uses [asynchronous cloud upload](../../Gotchas/Conversion/FusionBundleUpload.md).
+The [F3Z bundle codec](../../Changes/Fusion/FusionBundleCodec.md) models the outer manifest, closed document graph, identity joins, reference groups, and complete serialized members. The [bundle data model](../../../re/Fusion/Reconstruction/BundleAuthoring/BundleDataModel.md) documents all envelope fields and the nine-document corpus example. This envelope qualification does not claim arbitrary nested F3D or F2D conversion. Native F3Z acceptance uses [asynchronous cloud upload](../../Gotchas/Conversion/Fusion/FusionBundleUpload.md). The reconstructed nine-document bundle now passes root load, all eight reference resolutions, full rebuild, parameter editing, and cloud save/reopen, with 87 timeline entries and 160 occurrences preserved.
 
-The production BRep reader retains vertex edge indices independently from mapped record ordinals. A native `(2, 0)` cylinder history now passes semantic reconstruction and native edit/rebuild/save/reopen; [the index gotcha](../../Gotchas/Conversion/FusionVertexEdgeIndices.md) records the evidence and restricted value set.
+The production BRep reader retains vertex edge indices independently from mapped record ordinals. A native `(2, 0)` cylinder history now passes semantic reconstruction and native edit/rebuild/save/reopen; [the index gotcha](../../Gotchas/Conversion/Fusion/FusionVertexEdgeIndices.md) records the evidence and restricted value set.
+
+The [sketch split model](../../../re/Fusion/Reconstruction/EntityGraph/SketchSplitSemantics.md) identifies one-based curve-fragment ordinals, total fragments, compatible final-fragment matching, and the `UINT32_MAX` direction wildcard. These explain all 21 initially rejected production corpus archives without treating observed defaults as format constants.
 
 ## Verification boundaries
 
-The expanded [typed entity graph research](../../Changes/FusionTypedEntityGraphs.md) establishes byte-exact reconstruction of 824 Design records and 75,675 payload bytes in three controlled files. The subsequent [full corpus coverage](../../Changes/FusionCorpusEntityCoverage.md) decodes all 261,141 indexed Design records and 25,458,293 payload bytes across all 712 archives with no unexplained suffixes.
+The expanded [typed entity graph research](../../Changes/Fusion/FusionTypedEntityGraphs.md) establishes byte-exact reconstruction of 824 Design records and 75,675 payload bytes in three controlled files. The subsequent [full corpus coverage](../../Changes/Fusion/FusionCorpusEntityCoverage.md) decodes all 261,141 indexed Design records and 25,458,293 payload bytes across all 712 archives with no unexplained suffixes.
 It includes generic references and containers, nested values and custom callbacks; three recipe members remain typed but incompletely named semantically.
 Custom value callbacks can override ordinary lexical order, as demonstrated by RGBA color persistence. The [extended callback model](../../../re/Fusion/Reconstruction/EntityGraph/ExtendedCallbacks.md) specifies AcGe line, ellipse and NURBS arrays, recursive ASM selection recipes, tag tables, UV orders, and lazy progenitor metadata, with native serializer evidence.
 
 The [latest native geometry acceptance](../../../re/Fusion/LocalOracle/Features/FullBrepAcceptance.json) reconstructs all 289 Design records and replaces both BRep members with independently authored cylinder/profile topology and history.
 The archive opens with correct 19 mm geometry before recomputation, reports healthy features, rolls back to sketch-only state and restores, then preserves a 23 mm edit through native save/reopen.
-The [production embedded geometry entry](../../Changes/FusionEmbeddedGeometry.md) records the promoted serializers and their separate native acceptance.
-That geometry experiment retains its own source envelope. Separate [independent document authoring](../../Changes/FusionIndependentAuthoring.md) now establishes complete parameter, circular-sketch, and circular-extrusion F3D generation without a source archive or template.
-Fusion accepts these independent documents, including correct initial solid geometry, healthy editable history, rollback/restore, parameter rebuild, and native save/reopen. Other feature families remain separate acceptance boundaries. The [production document codec](../../Changes/FusionNativeDocumentCodec.md) now implements the same complete authoring path entirely under `src/`, with a separate successful native load, rollback, edit, save, and reopen report.
+The [production embedded geometry entry](../../Changes/Fusion/FusionEmbeddedGeometry.md) records the promoted serializers and their separate native acceptance.
+That geometry experiment retains its own source envelope. Separate [independent document authoring](../../Changes/Fusion/FusionIndependentAuthoring.md) now establishes complete parameter, circular-sketch, and circular-extrusion F3D generation without a source archive or template.
+Fusion accepts these independent documents, including correct initial solid geometry, healthy editable history, rollback/restore, parameter rebuild, and native save/reopen. Other feature families remain separate acceptance boundaries. The [production document codec](../../Changes/Fusion/FusionNativeDocumentCodec.md) now implements the same complete authoring path entirely under `src/`, with a separate successful native load, rollback, edit, save, and reopen report.
 The [envelope research](../../../re/Fusion/Reconstruction/DocumentEnvelope/EnvelopeRecipe.md) fully decodes controlled manifests and ACT/Browser records.
-The [material serialization entry](../../Changes/FusionMaterialSerialization.md) records complete controlled instance decoding and native acceptance of regenerated material packages.
-The [production material codec](../../Changes/FusionMaterialCodec.md) promotes typed binary store reading/writing and records native acceptance of deliberately changed density and appearance values.
-The [metadata header interpretation](../../Changes/FusionMetadataHeaderSemantics.md) identifies packed software versions, current-version UUIDs, and ancestry framing.
+The [material serialization entry](../../Changes/Fusion/FusionMaterialSerialization.md) records complete controlled instance decoding and native acceptance of regenerated material packages.
+The [production material codec](../../Changes/Fusion/FusionMaterialCodec.md) promotes typed binary store reading/writing and records native acceptance of deliberately changed density and appearance values.
+The [metadata header interpretation](../../Changes/Fusion/FusionMetadataHeaderSemantics.md) identifies packed software versions, current-version UUIDs, and ancestry framing.
 
 | Evidence                      | What it establishes                                  | What remains unverified                           |
 | ----------------------------- | ---------------------------------------------------- | ------------------------------------------------- |

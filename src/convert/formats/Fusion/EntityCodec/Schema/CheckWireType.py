@@ -30,6 +30,7 @@ KLeafKinds = frozenset(
         "matrix",
         "unsupported",
         "recipe",
+        "sketch-tag",
     )
 )
 
