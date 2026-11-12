@@ -25,6 +25,10 @@ from convert.formats.Fusion.BrepCodec.Journal.Reading.FieldCursor import FieldCu
 from convert.formats.Fusion.BrepCodec.Journal.Reading.Attributes.ReadAttribNode import (
     ReadAttribNode,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Reading.Attributes.ReadSysAttrib import (
+    ReadStitchNode,
+    ReadVertedge,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Reading.Geometry.ReadAsmRoot import (
     ReadAsmRoot,
 )
@@ -98,4 +102,6 @@ KEntityReaders: dict[str, Callable[[FieldCursor], KJournalEntity]] = {
     "ellipse-curve": ReadEllipseNode,
     "cone-surface": ReadConeNode,
     "ATTRIB_CUSTOM-attrib": ReadAttribNode,
+    "stitch_hint-sys-attrib": ReadStitchNode,
+    "vertedge-sys-attrib": ReadVertedge,
 }

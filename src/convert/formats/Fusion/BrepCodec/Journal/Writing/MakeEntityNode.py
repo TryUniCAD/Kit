@@ -23,6 +23,16 @@ from convert.formats.Fusion.BrepCodec.Journal.Attributes.TagAttrib import TagAtt
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.SketchAttrib import (
     SketchAttrib,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.StitchAttrib import (
+    StitchAttrib,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.VertedgeAttrib import (
+    VertedgeAttrib,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Writing.Attributes.MakeSysAttrib import (
+    MakeStitchNode,
+    MakeVertedge,
+)
 
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.StraightNode import StraightNode
 
@@ -51,4 +61,8 @@ def MakeEntityNode(Value: KJournalEntity) -> AsmRecord:
         return MakeCarriers(Value)
     if isinstance(Value, (TimeAttrib, TrackAttrib, TagAttrib, SketchAttrib)):
         return MakeAttributes(Value)
+    if isinstance(Value, StitchAttrib):
+        return MakeStitchNode(Value)
+    if isinstance(Value, VertedgeAttrib):
+        return MakeVertedge(Value)
     return MakeTopology(Value)

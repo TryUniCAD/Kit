@@ -12,4 +12,6 @@ KRequiredRefs: dict[str, tuple[int, ...]] = {
     "tvertex-vertex": (3, 5),
     "pcurve": (4,),
     "ATTRIB_CUSTOM-attrib": (4,),
+    "stitch_hint-sys-attrib": (4,),
+    "vertedge-sys-attrib": (4,),
 }

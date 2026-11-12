@@ -24,6 +24,12 @@ from convert.formats.Fusion.BrepCodec.Journal.Attributes.TagAttrib import TagAtt
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.SketchAttrib import (
     SketchAttrib,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.StitchAttrib import (
+    StitchAttrib,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.VertedgeAttrib import (
+    VertedgeAttrib,
+)
 
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.StraightNode import StraightNode
 
@@ -53,5 +59,7 @@ KJournalEntity: TypeAlias = (
     | TrackAttrib
     | TagAttrib
     | SketchAttrib
+    | StitchAttrib
+    | VertedgeAttrib
     | KComplexEntity
 )
