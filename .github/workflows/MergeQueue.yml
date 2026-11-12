@@ -35,10 +35,10 @@ jobs:
           cache-dependency-glob: uv.lock
 
       - name: Synchronize the locked environment
-        run: uv sync --frozen --all-groups --all-extras --python 3.14
+        run: uv sync --frozen --no-default-groups --extra dev --python 3.14
 
       - name: Run all tests
-        run: uv run --frozen --python 3.14 pytest
+        run: uv run --no-sync --python 3.14 pytest
 
   analyze:
     if: github.event_name == 'merge_group'

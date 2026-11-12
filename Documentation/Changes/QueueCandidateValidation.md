@@ -21,6 +21,12 @@ The full queue suite uses Python 3.14 for the standard library's ZIP Zstandard
 support, which is required by the checked-in Fusion fixtures. The package
 minimum and the static type-check target remain Python 3.11.
 
+The queue test job installs the locked project dev extra, including the
+typing extensions used by the tests. Scanner tooling keeps its existing
+separate environments. Installing the scanner group in the Python 3.14 test
+job previously attempted to build a scanner dependency from source and failed
+[before pytest ran](https://github.com/TryUniCAD/Kit/actions/runs/43161600774/job/130993867779).
+
 The [prior merge-group run](https://github.com/TryUniCAD/Kit/actions/runs/43155805818)
 recorded these failures. The GitHub checks for the revised candidate provide the
 end-to-end verification. No tests ran locally.
