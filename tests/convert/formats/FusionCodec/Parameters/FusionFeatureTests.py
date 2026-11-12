@@ -15,7 +15,7 @@ KFeatureRoot = (
     "FileName",
     ("circle_sketch.f3d", "extrude_07mm.f3d", "extrude_13mm.f3d"),
 )
-def TestFeatureArchives(FileName: str) -> None:
+def TestFeatures(FileName: str) -> None:
     Source = KFeatureRoot / FileName
     Rebuilt = RebuildParams(Source)
     Reader = FusionReader()
