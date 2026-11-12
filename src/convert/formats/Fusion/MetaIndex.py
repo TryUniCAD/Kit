@@ -9,6 +9,8 @@ class SegmentKind(StrEnum):
     KDesign = "FusionDesignSegmentType"
     KBrowser = "FusionBrowserSegmentType"
     KAct = "FusionACTSegmentType"
+    KDrawingDesign = "FusionDrawingDesignSegmentType"
+    KDrawingAct = "FusionDrawingACTSegmentType"
 
 
 # each auxiliary segment declares a fixed index and storage kind in version eight
@@ -16,6 +18,8 @@ KSegmentLayout = {
     SegmentKind.KDesign: (None, (1, 0)),
     SegmentKind.KBrowser: (2, (6, 0)),
     SegmentKind.KAct: (1, (5, 0)),
+    SegmentKind.KDrawingDesign: (0, (1, 0)),
+    SegmentKind.KDrawingAct: (1, (5, 0)),
 }
 
 

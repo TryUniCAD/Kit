@@ -13,8 +13,11 @@ def CheckRefs(Value: BundleRefs, ObjectIds: set[int]) -> None:
     for Entry in Value.Relations:
         Metadata = {Field.FieldName: Field.TextValue for Field in Entry.Metadata}
         RoleValue = Metadata.get("neutronRole", "")
+        RoleGuid, Separator, RoleTarget = RoleValue.partition("_")
+        if Separator and (len(RoleGuid) != 36 or not RoleTarget.startswith("urn:")):
+            raise ValueError("Invalid Fusion bundle relationship role")
         try:
-            RoleKey = str(UUID(RoleValue))
+            RoleKey = str(UUID(RoleGuid)) + Separator + RoleTarget
         except (ValueError, AttributeError) as ErrorInfo:
             raise ValueError("Invalid Fusion bundle relationship role") from ErrorInfo
         if RoleKey in Roles:

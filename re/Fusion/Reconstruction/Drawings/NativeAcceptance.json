@@ -1,0 +1,2105 @@
+{
+ "schema": "KitFusionDrawingNativeAcceptance/1",
+ "fusion_version": "2706.1.17",
+ "variants": [
+  {
+   "label": "H0Historical",
+   "file": "H0Historical.f3z",
+   "bytes": 200292,
+   "sha256": "4e67c7a5487c3c1d3f3c193571206e87a0fb67da7990bd23f6638759aefe734b"
+  },
+  {
+   "label": "P0Control",
+   "file": "P0Control.f3z",
+   "bytes": 206115,
+   "sha256": "7b578f819d239717841cec9bcbc57a5a07de0de8c408d80106101bfa451168e7"
+  },
+  {
+   "label": "P2NoDwg",
+   "file": "P2NoDwg.f3z",
+   "bytes": 99008,
+   "sha256": "909db796b522272e20343be07ec7fb1a3ceb56cbee0094b6147ec737c2669424"
+  },
+  {
+   "label": "P3SwappedDwg",
+   "file": "P3SwappedDwg.f3z",
+   "bytes": 204334,
+   "sha256": "ee5e523d5882d8f1b3370a04f46fd14ba5034b9fad8ff4e26be9ac6502830c82"
+  },
+  {
+   "label": "P4ViewsControl",
+   "file": "P4ViewsControl.f3z",
+   "bytes": 202647,
+   "sha256": "21a08f6958332556eea168fbd8ee753c18a626965b035bbb50a92fac154c1e19"
+  },
+  {
+   "label": "P5ReverseSwap",
+   "file": "P5ReverseSwap.f3z",
+   "bytes": 204428,
+   "sha256": "0172c09593f5b883761bcfde63a1f401113f693d3ad28be6f523d5b5099a436b"
+  },
+  {
+   "label": "M1Reemitted",
+   "file": "M1Reemitted.f3z",
+   "bytes": 196530,
+   "sha256": "6a269c211b4fcef6e4a8ae3fa6a28840aa20df5d9d9450cf7ec37f56ac024bd4"
+  },
+  {
+   "label": "M2Reemitted",
+   "file": "M2Reemitted.f3z",
+   "bytes": 196529,
+   "sha256": "57d24eff963cc5416acaf997482145353bd24f59ba2511006b79a943d9d5f0c8"
+  }
+ ],
+ "inputs": {
+  "with_dimension_sha256": "9a13d8b7fa63abece826969eccf7fcd85de7ef0311640eda038f83fff61a3ac7",
+  "views_only_sha256": "1914355f9e40469e491bafa3c66be712b610b37893fc9bd4a5b2aa37cb161bbe",
+  "source_sha256": "b1d4944fb78e73f1784f5efb78077af9a32be6e95f6d98a8b10d677bf47c90a6"
+ },
+ "historical": {
+  "source_sha256": "4e67c7a5487c3c1d3f3c193571206e87a0fb67da7990bd23f6638759aefe734b",
+  "emitted_sha256": "4e67c7a5487c3c1d3f3c193571206e87a0fb67da7990bd23f6638759aefe734b",
+  "byte_exact": true
+ },
+ "modern_typed": {
+  "emitted_sha256": "9a13d8b7fa63abece826969eccf7fcd85de7ef0311640eda038f83fff61a3ac7",
+  "byte_exact": true,
+  "views_only_byte_exact": true
+ },
+ "controls": {
+  "status": null,
+  "stage": "P3SwappedDwg opening drawing",
+  "documents_after": 0,
+  "uploads": {
+   "P0Control": {
+    "ready": true,
+    "references": [
+     {
+      "name": "KitDrw Source 20261112114717",
+      "version": 1,
+      "latest": 1,
+      "out_of_date": false
+     }
+    ],
+    "modified_after_open": true,
+    "files": [
+     {
+      "name": "KitDrw Source 20261112114717 Drawing",
+      "extension": "f2d",
+      "version": 1,
+      "complete": true
+     },
+     {
+      "name": "KitDrw Source 20261112114717",
+      "extension": "f3d",
+      "version": 1,
+      "complete": true
+     }
+    ],
+    "drawing": {
+     "title_blocks": 1,
+     "sheets": [
+      {
+       "name": "KitDrw Source 20261112114717",
+       "width_mm": 420.0,
+       "height_mm": 297.0,
+       "dimensions": 1,
+       "title_block": "ISO_TITLEBLOCK",
+       "views": [
+        {
+         "type": 0,
+         "curve_count": 5,
+         "orientation": 3,
+         "scale": 4.0,
+         "style": 0,
+         "curves": [
+          {
+           "type": 2,
+           "startPoint": [
+            236.46875,
+            120.609375
+           ],
+           "endPoint": [
+            236.46875,
+            120.609375
+           ],
+           "centerPoint": [
+            220.46875,
+            120.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            100.46875,
+            160.609375
+           ],
+           "endPoint": [
+            260.46875,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            100.46875,
+            80.609375
+           ],
+           "endPoint": [
+            100.46875,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            80.609375
+           ],
+           "endPoint": [
+            100.46875,
+            80.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            160.609375
+           ],
+           "endPoint": [
+            260.46875,
+            80.609375
+           ]
+          }
+         ]
+        },
+        {
+         "type": 1,
+         "curve_count": 4,
+         "orientation": "getter failed",
+         "scale": "getter failed",
+         "style": "getter failed",
+         "curves": [
+          {
+           "type": 0,
+           "startPoint": [
+            318.0,
+            160.609375
+           ],
+           "endPoint": [
+            278.0,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            318.0,
+            80.609375
+           ],
+           "endPoint": [
+            318.0,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            278.0,
+            80.609375
+           ],
+           "endPoint": [
+            278.0,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            318.0,
+            80.609375
+           ],
+           "endPoint": [
+            278.0,
+            80.609375
+           ]
+          }
+         ]
+        },
+        {
+         "type": 1,
+         "curve_count": 4,
+         "orientation": "getter failed",
+         "scale": "getter failed",
+         "style": "getter failed",
+         "curves": [
+          {
+           "type": 0,
+           "startPoint": [
+            100.46875,
+            217.203125
+           ],
+           "endPoint": [
+            100.46875,
+            177.203125
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            217.203125
+           ],
+           "endPoint": [
+            100.46875,
+            217.203125
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            177.203125
+           ],
+           "endPoint": [
+            100.46875,
+            177.203125
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            217.203125
+           ],
+           "endPoint": [
+            260.46875,
+            177.203125
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "captures": [
+     {
+      "file": "_KitDrw Source 20261112114717 Drawing.<guid>.f2d._xx",
+      "bytes": 7354,
+      "sha256": "dbc7dcc54f0b515e514517ee1ea9aa3d2d855cb8a5392640c56d1d13e4cc41c8"
+     },
+     {
+      "file": "_KitDrw Source 20261112114717 Drawing.<guid>.png",
+      "bytes": 1714,
+      "sha256": "5ef9e1a5fda46df938c57a2fa655cbd2307350e2d89bbf875256c6a7a05d40fd"
+     }
+    ]
+   },
+   "H0Historical": {
+    "ready": true,
+    "references": [
+     {
+      "name": "Boxes",
+      "version": 1,
+      "latest": 1,
+      "out_of_date": false
+     }
+    ],
+    "modified_after_open": true,
+    "files": [
+     {
+      "name": "Boxes",
+      "extension": "f3d",
+      "version": 1,
+      "complete": true
+     },
+     {
+      "name": "Box B",
+      "extension": "f3d",
+      "version": 1,
+      "complete": true
+     },
+     {
+      "name": "Box A",
+      "extension": "f3d",
+      "version": 1,
+      "complete": true
+     },
+     {
+      "name": "Boxes Drawing",
+      "extension": "f2d",
+      "version": 1,
+      "complete": true
+     }
+    ],
+    "drawing": {
+     "title_blocks": 1,
+     "sheets": [
+      {
+       "name": "Sheet1",
+       "width_mm": 420.0,
+       "height_mm": 297.0,
+       "dimensions": 0,
+       "title_block": "ISO_TITLEBLOCK",
+       "views": [
+        {
+         "type": 0,
+         "curve_count": 18,
+         "orientation": 6,
+         "scale": 1.0,
+         "style": 0,
+         "curves": [
+          {
+           "type": 0,
+           "startPoint": [
+            202.200914,
+            171.021917
+           ],
+           "endPoint": [
+            219.878584,
+            160.815709
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            219.878584,
+            160.815709
+           ],
+           "endPoint": [
+            219.878584,
+            181.228124
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            219.878584,
+            181.228124
+           ],
+           "endPoint": [
+            202.200914,
+            191.434331
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            202.200914,
+            191.434331
+           ],
+           "endPoint": [
+            202.200914,
+            171.021917
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            205.736448,
+            193.475573
+           ],
+           "endPoint": [
+            223.414118,
+            183.269365
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            223.414118,
+            183.269365
+           ],
+           "endPoint": [
+            223.414118,
+            162.856951
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            202.200914,
+            191.434331
+           ],
+           "endPoint": [
+            205.736448,
+            193.475573
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            219.878584,
+            181.228124
+           ],
+           "endPoint": [
+            223.414118,
+            183.269365
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            219.878584,
+            160.815709
+           ],
+           "endPoint": [
+            223.414118,
+            162.856951
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            229.778079,
+            155.100233
+           ],
+           "endPoint": [
+            247.455748,
+            144.894026
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            247.455748,
+            144.894026
+           ],
+           "endPoint": [
+            247.455748,
+            165.306441
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            247.455748,
+            165.306441
+           ],
+           "endPoint": [
+            229.778079,
+            175.512648
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            229.778079,
+            175.512648
+           ],
+           "endPoint": [
+            229.778079,
+            155.100233
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            233.313613,
+            177.553889
+           ],
+           "endPoint": [
+            250.991282,
+            167.347682
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            250.991282,
+            167.347682
+           ],
+           "endPoint": [
+            250.991282,
+            146.935267
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            229.778079,
+            175.512648
+           ],
+           "endPoint": [
+            233.313613,
+            177.553889
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            247.455748,
+            165.306441
+           ],
+           "endPoint": [
+            250.991282,
+            167.347682
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            247.455748,
+            144.894026
+           ],
+           "endPoint": [
+            250.991282,
+            146.935267
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "captures": [
+     {
+      "file": "_Boxes Drawing.<guid>.f2d._xx",
+      "bytes": 7176,
+      "sha256": "a63a88aaf50e5bcc9cd3205d0b835b5b1914ff0e21457896ec2dd53cd71a19e1"
+     },
+     {
+      "file": "_Boxes Drawing.<guid>.png",
+      "bytes": 1594,
+      "sha256": "6ec3470b8110a0c72128e7018b00a749beac674ee0d6e6f3f6b2892bfcefc702"
+     }
+    ]
+   }
+  }
+ },
+ "typed_reemission": {
+  "status": "inspected",
+  "stage": "finished",
+  "documents_after": 0,
+  "uploads": {
+   "M1Reemitted": {
+    "ready": true,
+    "references": [
+     {
+      "name": "KitDrw Source 20261112114717",
+      "version": 1,
+      "latest": 1,
+      "out_of_date": false
+     }
+    ],
+    "modified_after_open": true,
+    "files": [
+     {
+      "name": "KitDrw Source 20261112114717",
+      "extension": "f3d",
+      "version": 1,
+      "complete": true
+     },
+     {
+      "name": "KitDrw Source 20261112114717 Drawing",
+      "extension": "f2d",
+      "version": 1,
+      "complete": true
+     }
+    ],
+    "drawing": {
+     "title_blocks": 1,
+     "sheets": [
+      {
+       "name": "KitDrw Source 20261112114717",
+       "width_mm": 420.0,
+       "height_mm": 297.0,
+       "dimensions": 1,
+       "title_block": "ISO_TITLEBLOCK",
+       "views": [
+        {
+         "type": 0,
+         "curve_count": 5,
+         "orientation": 3,
+         "scale": 4.0,
+         "style": 0,
+         "curves": [
+          {
+           "type": 2,
+           "startPoint": [
+            236.46875,
+            120.609375
+           ],
+           "endPoint": [
+            236.46875,
+            120.609375
+           ],
+           "centerPoint": [
+            220.46875,
+            120.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            100.46875,
+            160.609375
+           ],
+           "endPoint": [
+            260.46875,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            100.46875,
+            80.609375
+           ],
+           "endPoint": [
+            100.46875,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            80.609375
+           ],
+           "endPoint": [
+            100.46875,
+            80.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            160.609375
+           ],
+           "endPoint": [
+            260.46875,
+            80.609375
+           ]
+          }
+         ]
+        },
+        {
+         "type": 1,
+         "curve_count": 4,
+         "orientation": "getter failed",
+         "scale": "getter failed",
+         "style": "getter failed",
+         "curves": [
+          {
+           "type": 0,
+           "startPoint": [
+            318.0,
+            160.609375
+           ],
+           "endPoint": [
+            278.0,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            318.0,
+            80.609375
+           ],
+           "endPoint": [
+            318.0,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            278.0,
+            80.609375
+           ],
+           "endPoint": [
+            278.0,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            318.0,
+            80.609375
+           ],
+           "endPoint": [
+            278.0,
+            80.609375
+           ]
+          }
+         ]
+        },
+        {
+         "type": 1,
+         "curve_count": 4,
+         "orientation": "getter failed",
+         "scale": "getter failed",
+         "style": "getter failed",
+         "curves": [
+          {
+           "type": 0,
+           "startPoint": [
+            100.46875,
+            217.203125
+           ],
+           "endPoint": [
+            100.46875,
+            177.203125
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            217.203125
+           ],
+           "endPoint": [
+            100.46875,
+            217.203125
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            177.203125
+           ],
+           "endPoint": [
+            100.46875,
+            177.203125
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            217.203125
+           ],
+           "endPoint": [
+            260.46875,
+            177.203125
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "captures": [
+     {
+      "file": "_KitDrw Source 20261112114717 Drawing.<guid>.f2d._xx",
+      "bytes": 7358,
+      "sha256": "bcad5c96decd2e6c99ad8b03e9ecf6b33c13460ca6090f641676d3bab6bf60a6"
+     },
+     {
+      "file": "_KitDrw Source 20261112114717 Drawing.<guid>.png",
+      "bytes": 1714,
+      "sha256": "5ef9e1a5fda46df938c57a2fa655cbd2307350e2d89bbf875256c6a7a05d40fd"
+     }
+    ]
+   }
+  }
+ },
+ "edit_acceptance": {
+  "status": "failed",
+  "stage": "finished",
+  "design_before": {
+   "version": 1,
+   "expression": "40 mm",
+   "volume_cm3": 7.497345175425612
+  },
+  "design_after": {
+   "expression": "60 mm",
+   "volume_cm3": 11.497345175425611,
+   "version": 2
+  },
+  "references_before": [
+   {
+    "name": "KitDrw Source 20261112114717",
+    "version": 1,
+    "out_of_date": true
+   }
+  ],
+  "update_result": true,
+  "references_after": [
+   {
+    "name": "KitDrw Source 20261112114717",
+    "version": 2,
+    "out_of_date": false
+   }
+  ],
+  "documents_after": 0,
+  "drawing_before": {
+   "title_blocks": 1,
+   "sheets": [
+    {
+     "name": "KitDrw Source 20261112114717",
+     "width_mm": 420.0,
+     "height_mm": 297.0,
+     "dimensions": 1,
+     "title_block": "ISO_TITLEBLOCK",
+     "views": [
+      {
+       "type": 0,
+       "curve_count": 5,
+       "orientation": 3,
+       "scale": 4.0,
+       "style": 0,
+       "curves": [
+        {
+         "type": 2,
+         "startPoint": [
+          236.46875,
+          120.609375
+         ],
+         "endPoint": [
+          236.46875,
+          120.609375
+         ],
+         "centerPoint": [
+          220.46875,
+          120.609375
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          100.46875,
+          160.609375
+         ],
+         "endPoint": [
+          260.46875,
+          160.609375
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          100.46875,
+          80.609375
+         ],
+         "endPoint": [
+          100.46875,
+          160.609375
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          260.46875,
+          80.609375
+         ],
+         "endPoint": [
+          100.46875,
+          80.609375
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          260.46875,
+          160.609375
+         ],
+         "endPoint": [
+          260.46875,
+          80.609375
+         ]
+        }
+       ]
+      },
+      {
+       "type": 1,
+       "curve_count": 4,
+       "orientation": "getter failed",
+       "scale": "getter failed",
+       "style": "getter failed",
+       "curves": [
+        {
+         "type": 0,
+         "startPoint": [
+          318.0,
+          160.609375
+         ],
+         "endPoint": [
+          278.0,
+          160.609375
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          318.0,
+          80.609375
+         ],
+         "endPoint": [
+          318.0,
+          160.609375
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          278.0,
+          80.609375
+         ],
+         "endPoint": [
+          278.0,
+          160.609375
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          318.0,
+          80.609375
+         ],
+         "endPoint": [
+          278.0,
+          80.609375
+         ]
+        }
+       ]
+      },
+      {
+       "type": 1,
+       "curve_count": 4,
+       "orientation": "getter failed",
+       "scale": "getter failed",
+       "style": "getter failed",
+       "curves": [
+        {
+         "type": 0,
+         "startPoint": [
+          100.46875,
+          217.203125
+         ],
+         "endPoint": [
+          100.46875,
+          177.203125
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          260.46875,
+          217.203125
+         ],
+         "endPoint": [
+          100.46875,
+          217.203125
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          260.46875,
+          177.203125
+         ],
+         "endPoint": [
+          100.46875,
+          177.203125
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          260.46875,
+          217.203125
+         ],
+         "endPoint": [
+          260.46875,
+          177.203125
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "drawing_after": {
+   "title_blocks": 1,
+   "sheets": [
+    {
+     "name": "KitDrw Source 20261112114717",
+     "width_mm": 420.0,
+     "height_mm": 297.0,
+     "dimensions": 1,
+     "title_block": "ISO_TITLEBLOCK",
+     "views": [
+      {
+       "type": 0,
+       "curve_count": 5,
+       "orientation": 3,
+       "scale": 4.0,
+       "style": 0,
+       "curves": [
+        {
+         "type": 2,
+         "startPoint": [
+          276.46875,
+          120.609375
+         ],
+         "endPoint": [
+          276.46875,
+          120.609375
+         ],
+         "centerPoint": [
+          260.46875,
+          120.609375
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          60.46875,
+          160.609375
+         ],
+         "endPoint": [
+          300.46875,
+          160.609375
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          60.46875,
+          80.609375
+         ],
+         "endPoint": [
+          60.46875,
+          160.609375
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          300.46875,
+          80.609375
+         ],
+         "endPoint": [
+          60.46875,
+          80.609375
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          300.46875,
+          160.609375
+         ],
+         "endPoint": [
+          300.46875,
+          80.609375
+         ]
+        }
+       ]
+      },
+      {
+       "type": 1,
+       "curve_count": 4,
+       "orientation": "getter failed",
+       "scale": "getter failed",
+       "style": "getter failed",
+       "curves": [
+        {
+         "type": 0,
+         "startPoint": [
+          318.0,
+          160.609375
+         ],
+         "endPoint": [
+          278.0,
+          160.609375
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          318.0,
+          80.609375
+         ],
+         "endPoint": [
+          318.0,
+          160.609375
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          278.0,
+          80.609375
+         ],
+         "endPoint": [
+          278.0,
+          160.609375
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          318.0,
+          80.609375
+         ],
+         "endPoint": [
+          278.0,
+          80.609375
+         ]
+        }
+       ]
+      },
+      {
+       "type": 1,
+       "curve_count": 4,
+       "orientation": "getter failed",
+       "scale": "getter failed",
+       "style": "getter failed",
+       "curves": [
+        {
+         "type": 0,
+         "startPoint": [
+          60.46875,
+          217.203125
+         ],
+         "endPoint": [
+          60.46875,
+          177.203125
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          300.46875,
+          217.203125
+         ],
+         "endPoint": [
+          60.46875,
+          217.203125
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          300.46875,
+          177.203125
+         ],
+         "endPoint": [
+          60.46875,
+          177.203125
+         ]
+        },
+        {
+         "type": 0,
+         "startPoint": [
+          300.46875,
+          217.203125
+         ],
+         "endPoint": [
+          300.46875,
+          177.203125
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "error": "RuntimeError: Timed out waiting for drawing cloud save",
+  "captures_saved": []
+ },
+ "views_control": {
+  "status": "inspected",
+  "stage": "finished",
+  "documents_after": 0,
+  "uploads": {
+   "P4ViewsControl": {
+    "ready": true,
+    "references": [
+     {
+      "name": "KitDrw Source 20261112114717",
+      "version": 1,
+      "latest": 1,
+      "out_of_date": false
+     }
+    ],
+    "modified_after_open": true,
+    "files": [
+     {
+      "name": "KitDrw Source 20261112114717",
+      "extension": "f3d",
+      "version": 1,
+      "complete": true
+     },
+     {
+      "name": "KitDrw Source 20261112114717 Drawing",
+      "extension": "f2d",
+      "version": 1,
+      "complete": true
+     }
+    ],
+    "drawing": {
+     "title_blocks": 1,
+     "sheets": [
+      {
+       "name": "KitDrw Source 20261112114717",
+       "width_mm": 420.0,
+       "height_mm": 297.0,
+       "dimensions": 0,
+       "title_block": "ISO_TITLEBLOCK",
+       "views": [
+        {
+         "type": 0,
+         "curve_count": 5,
+         "orientation": 3,
+         "scale": 4.0,
+         "style": 0,
+         "curves": [
+          {
+           "type": 2,
+           "startPoint": [
+            236.46875,
+            120.609375
+           ],
+           "endPoint": [
+            236.46875,
+            120.609375
+           ],
+           "centerPoint": [
+            220.46875,
+            120.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            100.46875,
+            160.609375
+           ],
+           "endPoint": [
+            260.46875,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            100.46875,
+            80.609375
+           ],
+           "endPoint": [
+            100.46875,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            80.609375
+           ],
+           "endPoint": [
+            100.46875,
+            80.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            160.609375
+           ],
+           "endPoint": [
+            260.46875,
+            80.609375
+           ]
+          }
+         ]
+        },
+        {
+         "type": 1,
+         "curve_count": 4,
+         "orientation": "getter failed",
+         "scale": "getter failed",
+         "style": "getter failed",
+         "curves": [
+          {
+           "type": 0,
+           "startPoint": [
+            318.0,
+            160.609375
+           ],
+           "endPoint": [
+            278.0,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            318.0,
+            80.609375
+           ],
+           "endPoint": [
+            318.0,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            278.0,
+            80.609375
+           ],
+           "endPoint": [
+            278.0,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            318.0,
+            80.609375
+           ],
+           "endPoint": [
+            278.0,
+            80.609375
+           ]
+          }
+         ]
+        },
+        {
+         "type": 1,
+         "curve_count": 4,
+         "orientation": "getter failed",
+         "scale": "getter failed",
+         "style": "getter failed",
+         "curves": [
+          {
+           "type": 0,
+           "startPoint": [
+            100.46875,
+            217.203125
+           ],
+           "endPoint": [
+            100.46875,
+            177.203125
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            217.203125
+           ],
+           "endPoint": [
+            100.46875,
+            217.203125
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            177.203125
+           ],
+           "endPoint": [
+            100.46875,
+            177.203125
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            217.203125
+           ],
+           "endPoint": [
+            260.46875,
+            177.203125
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "captures": [
+     {
+      "file": "_KitDrw Source 20261112114717 Drawing.<guid>.f2d._xx",
+      "bytes": 7364,
+      "sha256": "9aea7ecdcf6d6e6345f97c5533a3fcaa33565c3cec133f245015ac9fe587ee54"
+     },
+     {
+      "file": "_KitDrw Source 20261112114717 Drawing.<guid>.png",
+      "bytes": 1685,
+      "sha256": "a76d884ab1f5f5f9165b9abaea9569c1da3391887bec0b5637a30417c9ab6c00"
+     }
+    ]
+   }
+  }
+ },
+ "no_database": {
+  "status": null,
+  "stage": "P2NoDwg opening drawing",
+  "documents_after": null,
+  "uploads": {}
+ },
+ "swapped_database": {
+  "variant": "P3SwappedDwg",
+  "observed": {
+   "open_started": "12:57:58",
+   "drawing_engine_started": "12:57:56",
+   "engine_input_dwg_sha256": "9c52c8de6ce08080225aa6d8fc8c59ea4091d0435817ffa91e898d6b48df803e",
+   "engine_input_files": [
+    "1_Component.txt",
+    "AutomationSettings/",
+    "compmeta.json",
+    "Document1.dwg",
+    "GenericModels/",
+    "HoleFeatureData_1_Component.json",
+    "piminstancedata.json",
+    "propertyNameData.json",
+    "SheetThumbnails/",
+    "Synergy_Body_{622AED14-3285-44F4-9D1C-9CA83D2EB11D}.sab"
+   ],
+   "engine_log_session_header": false,
+   "fusion_main_thread": "Documents.open -> FusionDocAssetAdapterImpl::sendOpenDocumentCommand -> AcCoreServer::startCoreView -> FusionDocIpcServer::startCoreView -> CoreViewProxyWindowImp -> IpcManagerImp::wait",
+   "engine_main_thread": "AcApAppImp::runMessageLoop idle",
+   "helper_stopped_at": "13:01:23",
+   "fusion_still_waiting_at": "13:02:00",
+   "fusion_stopped_at": null
+  }
+ },
+ "missing_database": {
+  "variant": "P2NoDwg",
+  "observed": {
+   "open_started": "13:19:12",
+   "drawing_engine_started": "13:19:27",
+   "engine_input_files": [
+    "1_Component.txt",
+    "AutomationSettings/",
+    "compmeta.json",
+    "HoleFeatureData_1_Component.json",
+    "piminstancedata.json",
+    "propertyNameData.json",
+    "Synergy_Body_{622AED14-3285-44F4-9D1C-9CA83D2EB11D}.sab"
+   ],
+   "engine_input_dwg": null,
+   "engine_log_session_header": false,
+   "fusion_main_thread": "Documents.open -> OpenDocumentUtil::processDocumentPostOpen -> FusionDocController::documentFullyOpened -> AcCoreServer::isConfigTablePlaced -> IpcChannelImp::sendAndGetResponse -> FusionReverseInterop::invoke_showMessageBox -> Nu::MessageBox::show",
+   "dialog_window": "Fusion Drawings Message",
+   "dialog_text": "Cannot find the specified drawing file.\nPlease verify that the file exists.",
+   "dialog_buttons": 1,
+   "observed_at": "13:22:40",
+   "dialog_dismissed": "13:23:24",
+   "fusion_logged_opened": "13:23:26",
+   "fusion_logged_open_seconds": 240.19,
+   "fusion_main_thread_after_dismissal": "Documents.open -> Xl::Drawing::DrawingDocument::waitForOpenToComplete -> Ns::AcCmdUtils::CommandEndWaiter::wait",
+   "engine_main_thread_after_dismissal": "AcApAppImp::runMessageLoop idle",
+   "still_waiting_at": "13:30:43",
+   "fusion_stopped_at": "13:31"
+  }
+ },
+ "reverse_swap": {
+  "status": "inspected",
+  "stage": "finished",
+  "documents_after": 0,
+  "uploads": {
+   "P5ReverseSwap": {
+    "ready": true,
+    "references": [
+     {
+      "name": "KitDrw Source 20261112114717",
+      "version": 1,
+      "latest": 1,
+      "out_of_date": false
+     }
+    ],
+    "modified_after_open": true,
+    "files": [
+     {
+      "name": "KitDrw Source 20261112114717",
+      "extension": "f3d",
+      "version": 1,
+      "complete": true
+     },
+     {
+      "name": "KitDrw Source 20261112114717 Drawing",
+      "extension": "f2d",
+      "version": 1,
+      "complete": true
+     }
+    ],
+    "drawing": {
+     "title_blocks": 1,
+     "sheets": [
+      {
+       "name": "KitDrw Source 20261112114717",
+       "width_mm": 420.0,
+       "height_mm": 297.0,
+       "dimensions": 1,
+       "title_block": "ISO_TITLEBLOCK",
+       "views": [
+        {
+         "type": 0,
+         "curve_count": 5,
+         "orientation": 3,
+         "scale": 4.0,
+         "style": 0,
+         "curves": [
+          {
+           "type": 2,
+           "startPoint": [
+            236.46875,
+            120.609375
+           ],
+           "endPoint": [
+            236.46875,
+            120.609375
+           ],
+           "centerPoint": [
+            220.46875,
+            120.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            100.46875,
+            160.609375
+           ],
+           "endPoint": [
+            260.46875,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            100.46875,
+            80.609375
+           ],
+           "endPoint": [
+            100.46875,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            80.609375
+           ],
+           "endPoint": [
+            100.46875,
+            80.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            160.609375
+           ],
+           "endPoint": [
+            260.46875,
+            80.609375
+           ]
+          }
+         ]
+        },
+        {
+         "type": 1,
+         "curve_count": 4,
+         "orientation": "getter failed",
+         "scale": "getter failed",
+         "style": "getter failed",
+         "curves": [
+          {
+           "type": 0,
+           "startPoint": [
+            318.0,
+            160.609375
+           ],
+           "endPoint": [
+            278.0,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            318.0,
+            80.609375
+           ],
+           "endPoint": [
+            318.0,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            278.0,
+            80.609375
+           ],
+           "endPoint": [
+            278.0,
+            160.609375
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            318.0,
+            80.609375
+           ],
+           "endPoint": [
+            278.0,
+            80.609375
+           ]
+          }
+         ]
+        },
+        {
+         "type": 1,
+         "curve_count": 4,
+         "orientation": "getter failed",
+         "scale": "getter failed",
+         "style": "getter failed",
+         "curves": [
+          {
+           "type": 0,
+           "startPoint": [
+            100.46875,
+            217.203125
+           ],
+           "endPoint": [
+            100.46875,
+            177.203125
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            217.203125
+           ],
+           "endPoint": [
+            100.46875,
+            217.203125
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            177.203125
+           ],
+           "endPoint": [
+            100.46875,
+            177.203125
+           ]
+          },
+          {
+           "type": 0,
+           "startPoint": [
+            260.46875,
+            217.203125
+           ],
+           "endPoint": [
+            260.46875,
+            177.203125
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "captures": [
+     {
+      "file": "_KitDrw Source 20261112114717 Drawing.<guid>.f2d._xx",
+      "bytes": 7362,
+      "sha256": "891eceba246d4ea23a50a9dae64360164ef6b00933033f12a612d995ea0ee38a"
+     },
+     {
+      "file": "_KitDrw Source 20261112114717 Drawing.<guid>.png",
+      "bytes": 1685,
+      "sha256": "a76d884ab1f5f5f9165b9abaea9569c1da3391887bec0b5637a30417c9ab6c00"
+     }
+    ]
+   }
+  }
+ },
+ "capacity": {
+  "attempt1": {
+   "status": "failed",
+   "before": {
+    "files": 37,
+    "editable": 10,
+    "read_only": 27,
+    "editable_old": 3
+   },
+   "blocked": true,
+   "needed": 2,
+   "deleted": [
+    {
+     "name": "Patch Chess Robo Portal V2",
+     "extension": "f3d",
+     "age_hours": 9.19,
+     "result": true
+    }
+   ],
+   "documents_after": 0,
+   "watched_before": [
+    {
+     "path": "KitDrw Uploads 20261112130739/KitDrw M1Reemitted",
+     "name": "KitDrw Source 20261112114717",
+     "extension": "f3d",
+     "read_only": false
+    },
+    {
+     "path": "KitDrw Uploads 20261112130739/KitDrw M1Reemitted",
+     "name": "KitDrw Source 20261112114717 Drawing",
+     "extension": "f2d",
+     "read_only": true
+    }
+   ],
+   "error": "RuntimeError: 2 : InternalValidationError : res"
+  },
+  "attempt2": {
+   "status": "completed",
+   "before": {
+    "files": 40,
+    "editable": 9,
+    "read_only": 31,
+    "editable_old": 5
+   },
+   "blocked": true,
+   "needed": 1,
+   "deleted": [
+    {
+     "name": "KitLinkRoot",
+     "extension": "f3d",
+     "age_hours": 2.62,
+     "result": true
+    }
+   ],
+   "after": {
+    "files": 39,
+    "editable": 8,
+    "read_only": 31,
+    "editable_old": 4
+   },
+   "watched_after": [
+    {
+     "path": "KitDrw Uploads 20261112140615/KitDrw M2Reemitted",
+     "name": "KitDrw Source 20261112114717",
+     "extension": "f3d",
+     "read_only": true
+    },
+    {
+     "path": "KitDrw Uploads 20261112140615/KitDrw M2Reemitted",
+     "name": "KitDrw Source 20261112114717 Drawing",
+     "extension": "f2d",
+     "read_only": true
+    }
+   ],
+   "documents_after": 0,
+   "watched_before": [
+    {
+     "path": "KitDrw Uploads 20261112140615/KitDrw M2Reemitted",
+     "name": "KitDrw Source 20261112114717",
+     "extension": "f3d",
+     "read_only": true
+    },
+    {
+     "path": "KitDrw Uploads 20261112140615/KitDrw M2Reemitted",
+     "name": "KitDrw Source 20261112114717 Drawing",
+     "extension": "f2d",
+     "read_only": true
+    }
+   ]
+  }
+ },
+ "saved_edit": {
+  "attempt1": {
+   "status": "failed",
+   "stage": "finished",
+   "design_before": {
+    "version": 1,
+    "expression": "40 mm",
+    "volume_cm3": 7.497345175425612
+   },
+   "design_after": {
+    "expression": "60 mm",
+    "volume_cm3": 11.497345175425611
+   },
+   "read_only": [
+    {
+     "f3d": true,
+     "f2d": true
+    }
+   ],
+   "save_requests": [
+    {
+     "label": "design",
+     "modified": true,
+     "version_before": 1,
+     "active": true
+    }
+   ],
+   "documents_after": 0,
+   "drawing_before": null,
+   "drawing_after": null,
+   "error": "RuntimeError: Timed out waiting for design cloud save",
+   "captures_saved": []
+  },
+  "attempt2": {
+   "status": "failed",
+   "stage": "finished",
+   "read_only": [
+    {
+     "f3d": true,
+     "f2d": true
+    }
+   ],
+   "documents_after": 0,
+   "drawing_before": null,
+   "drawing_after": null,
+   "error": "RuntimeError: Uploaded files are read-only, so the edit was not attempted",
+   "captures_saved": []
+  }
+ },
+ "runs": {
+  "typed": {
+   "status": null,
+   "documents_after": null,
+   "upload_waits": [
+    {
+     "states": {
+      "M1Reemitted": {
+       "files": 2,
+       "complete": true,
+       "drawing": true
+      },
+      "P4ViewsControl": {
+       "files": 2,
+       "complete": true,
+       "drawing": true
+      }
+     },
+     "seconds": 18.4
+    }
+   ],
+   "steps": [
+    {
+     "name": "upload",
+     "started": "13:07:39",
+     "finished": "13:07:41",
+     "status": "returned",
+     "documents_after": 0
+    },
+    {
+     "name": "inspect M1",
+     "started": "13:08:00",
+     "finished": "13:09:04",
+     "status": "returned",
+     "documents_after": 0
+    },
+    {
+     "name": "edit M1Reemitted",
+     "started": "13:09:04",
+     "finished": "13:17:06",
+     "status": "returned",
+     "documents_after": 0
+    },
+    {
+     "name": "inspect P4",
+     "started": "13:17:06",
+     "finished": "13:19:12",
+     "status": "returned",
+     "documents_after": 0
+    },
+    {
+     "name": "inspect P2",
+     "started": "13:19:12",
+     "finished": null,
+     "status": null,
+     "documents_after": null
+    }
+   ]
+  },
+  "saved": {
+   "status": "completed",
+   "documents_after": 0,
+   "upload_waits": [
+    {
+     "states": {
+      "M2Reemitted": {
+       "files": 2,
+       "complete": true,
+       "drawing": true
+      }
+     },
+     "seconds": 11.1
+    },
+    {
+     "states": {
+      "P5ReverseSwap": {
+       "files": 2,
+       "complete": true,
+       "drawing": true
+      }
+     },
+     "seconds": 11.2
+    }
+   ],
+   "steps": [
+    {
+     "name": "capacity",
+     "started": "14:03:30",
+     "finished": "14:06:14",
+     "status": "returned",
+     "documents_after": 0
+    },
+    {
+     "name": "upload M2Reemitted",
+     "started": "14:06:14",
+     "finished": "14:06:16",
+     "status": "returned",
+     "documents_after": 0
+    },
+    {
+     "name": "edit M2Reemitted",
+     "started": "14:06:28",
+     "finished": "14:11:40",
+     "status": "returned",
+     "documents_after": 0
+    },
+    {
+     "name": "upload P5ReverseSwap",
+     "started": "14:11:40",
+     "finished": "14:11:43",
+     "status": "returned",
+     "documents_after": 0
+    },
+    {
+     "name": "inspect P5",
+     "started": "14:11:55",
+     "finished": "14:12:43",
+     "status": "returned",
+     "documents_after": 0
+    }
+   ]
+  },
+  "saved2": {
+   "status": "completed",
+   "documents_after": 0,
+   "upload_waits": [
+    {
+     "states": {
+      "M2Reemitted": {
+       "files": 2,
+       "complete": true,
+       "drawing": true
+      }
+     },
+     "seconds": 10.9
+    }
+   ],
+   "steps": [
+    {
+     "name": "capacity",
+     "started": "14:23:52",
+     "finished": "14:26:43",
+     "status": "returned",
+     "documents_after": 0
+    },
+    {
+     "name": "upload M2Reemitted",
+     "started": "14:26:43",
+     "finished": "14:26:44",
+     "status": "returned",
+     "documents_after": 0
+    },
+    {
+     "name": "edit M2Reemitted",
+     "started": "14:26:55",
+     "finished": "14:27:00",
+     "status": "returned",
+     "documents_after": 0
+    }
+   ]
+  }
+ },
+ "fixtures": {
+  "schema": "KitFusionDrawingFixtures/1",
+  "fixtures": {
+   "A0Views": {
+    "control_sha256": "1914355f9e40469e491bafa3c66be712b610b37893fc9bd4a5b2aa37cb161bbe",
+    "control_bytes": 123711,
+    "fixture_sha256": "025eec7da69c29b2b1f5f8a6c8fb3fc391950b75ce73ab62f8b9a74604c37d18",
+    "fixture_bytes": 18264,
+    "database_bytes": 126690
+   },
+   "A1Dimension": {
+    "control_sha256": "9a13d8b7fa63abece826969eccf7fcd85de7ef0311640eda038f83fff61a3ac7",
+    "control_bytes": 127179,
+    "fixture_sha256": "16b736aff424de257a51e5460757029e60bfb130f225c3c51fb8b57baa1461b6",
+    "fixture_bytes": 19929,
+    "database_bytes": 129413
+   },
+   "A2AutoDim": {
+    "control_sha256": "f38fec3f0714100315e2fe7458162ad37bb55dcec0962e9bc9360292c274bbc9",
+    "control_bytes": 140651,
+    "fixture_sha256": "94766e73f3edb66de501370fdff301d29ff827ecd64b31adf4d0afc2c4539a78",
+    "fixture_bytes": 18928,
+    "database_bytes": 146068
+   },
+   "Source": {
+    "design_sha256": "b1d4944fb78e73f1784f5efb78077af9a32be6e95f6d98a8b10d677bf47c90a6",
+    "design_bytes": 76756
+   }
+  },
+  "archive_sha256": "0229af93467a0c111b1e6854ac8d93d93a29c7300fedc9067ba26ec3bbd22ce9"
+ },
+ "decisions": {
+  "dwg_authority": "The embedded DWG is authoritative for sheets, views and annotations. Fusion does not regenerate it from the entity segments.",
+  "view_recompute": "On open and on updateAllReferences, the drawing engine recomputes view curves from a SAB export of the referenced body.",
+  "authoring": "Kit does not author drawings. A new drawing needs DWG view and annotation objects, and Kit does not decode or write DWG objects.",
+  "dwg_writer": "Kit writes the DWG member as opaque bytes taken from a read drawing."
+ },
+ "observations": {
+  "missing_database_dialog": "Fusion Drawings Message: Cannot find the specified drawing file. Please verify that the file exists.",
+  "engine_start_to_header_seconds": {
+   "M1Reemitted": "about 45",
+   "P4ViewsControl": 99,
+   "P3SwappedDwg": "no header after 207"
+  },
+  "forced_stop_helpers": "After a forced stop, the bundled node helper and the crash reporter held the script bridge port until they were stopped.",
+  "delete_refused": "The second deletion in attempt 1 was refused by the server with GEN_RELATED_OBJECTS: The object being acted on has relationships.",
+  "editable_limit": {
+   "api_message": "DataFile.isReadOnly is True for every new upload. The API documents this for a Fusion for Personal Use license when the file is not designated editable.",
+   "fusion_message": "No limit message reached the script or the Fusion log.",
+   "save_behavior": "Document.save returned True for a read-only file, and no new version appeared within 300 seconds."
+  },
+  "reverse_swap": "P5ReverseSwap pairs the A0 segments with the A1 DWG and opened with the A1 dimension and views."
+ },
+ "status": {
+  "byte_exact_round_trip": "passed",
+  "typed_reemission_open": "passed",
+  "reverse_swap_open": "passed",
+  "model_edit_updates_views": "passed",
+  "fusion_save_and_reopen_after_edit": "blocked by the Personal-use editable document limit",
+  "authoring": "documented DWG boundary"
+ }
+}
