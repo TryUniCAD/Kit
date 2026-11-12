@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 // SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
-const { CheckApproval } = require("./CheckApproval.cjs");
 const { CheckBaseOrder } = require("./CheckBaseOrder.cjs");
+const { CheckBaseSigner } = require("./CheckBaseSigner.cjs");
 const { ReadRepoVersion } = require("./ReadRepoVersion.cjs");
 
 async function CheckPullBase(Github, Context) {
@@ -20,7 +20,7 @@ async function CheckPullBase(Github, Context) {
   ]);
   CheckBaseOrder(Before, After);
   if (Before !== After)
-    await CheckApproval(Github, Repository, PullRequest, After);
+    await CheckBaseSigner(Github, Repository, PullRequest.head.sha);
 }
 
 module.exports = { CheckPullBase };

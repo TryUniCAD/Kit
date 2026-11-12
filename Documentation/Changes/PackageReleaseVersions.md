@@ -17,10 +17,10 @@ The build sets the package version in its temporary checkout. The GitHub source 
 
 1. Run `uv version --no-sync --bump patch`. Use `minor` or `major` for the other bumps.
 2. Include `pyproject.toml` and `uv.lock` in the PR.
-3. A repository administrator posts `/approve-release-version <base-version> <pr-head-sha>` as a new top-level PR comment. Use the full SHA.
-4. If the PR check already failed, rerun the failed jobs. After a new push to the PR branch, post an approval for the new head SHA.
+3. A repository administrator signs the PR head with a signing key registered with GitHub. Use `git commit -S` to sign the version bump commit.
+4. Check that GitHub marks the PR head as Verified. Any later commit on the PR must also have an administrator's verified signature.
 
-The required `CI Agg` check uses the policy from the trusted base branch. It checks the comment author's current repository permission. The release workflow checks authorization again for base changes in the release push. Leave the approval in place until the release completes.
+The required `CI Agg` check uses the policy from the trusted base branch. It checks the signer's current repository permission. The release workflow checks the original PR head's signature and version after the merge. Use a personal signing key for base version changes. GitHub's web signing key does not identify a repository administrator as the signer.
 
 The commit count continues across base version bumps. For example, a patch bump can take the package from `0.1.0.1276` to `0.1.1.1277`.
 

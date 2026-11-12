@@ -2,9 +2,10 @@
 // SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 const { execFileSync } = require("node:child_process");
-const { CheckApproval } = require("./CheckApproval.cjs");
 const { CheckBaseOrder } = require("./CheckBaseOrder.cjs");
+const { CheckBaseSigner } = require("./CheckBaseSigner.cjs");
 const { ReadBaseVersion } = require("./ReadBaseVersion.cjs");
+const { ReadRepoVersion } = require("./ReadRepoVersion.cjs");
 
 async function CheckPushBase(Github, Context) {
   const Repository = Context.repo;
@@ -47,7 +48,16 @@ async function CheckPushBase(Github, Context) {
       throw new Error(
         `No merged PR found for base package version change at ${Revision}`,
       );
-    await CheckApproval(Github, Repository, PullRequest, After);
+    const HeadVersion = await ReadRepoVersion(
+      Github,
+      Repository,
+      PullRequest.head.sha,
+    );
+    if (HeadVersion !== After)
+      throw new Error(
+        `The merged version ${After} differs from PR #${PullRequest.number}'s version ${HeadVersion}`,
+      );
+    await CheckBaseSigner(Github, Repository, PullRequest.head.sha);
   }
 }
 

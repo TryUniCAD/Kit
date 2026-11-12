@@ -21,7 +21,6 @@ jobs:
     timeout-minutes: 20
     permissions:
       contents: read
-      pull-requests: read # Reads merged PRs and their version approvals.
     outputs:
       source-id: ${{ steps.source.outputs.artifact-id }}
       distributions-id: ${{ steps.distributions.outputs.artifact-id }}
