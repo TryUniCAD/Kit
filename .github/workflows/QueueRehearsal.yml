@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          ref: 0ac42013dc8bdf4679c2732d12fd009b2e9c26ab
+          ref: dc7a84663aa838ec5ffb26bee95470cb44d95b2c
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -57,7 +57,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          ref: 0ac42013dc8bdf4679c2732d12fd009b2e9c26ab
+          ref: dc7a84663aa838ec5ffb26bee95470cb44d95b2c
 
       - name: Prepare CodeQL model extensions
         shell: bash
@@ -141,7 +141,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-          ref: 0ac42013dc8bdf4679c2732d12fd009b2e9c26ab
+          ref: dc7a84663aa838ec5ffb26bee95470cb44d95b2c
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -166,7 +166,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-          ref: 0ac42013dc8bdf4679c2732d12fd009b2e9c26ab
+          ref: dc7a84663aa838ec5ffb26bee95470cb44d95b2c
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -191,7 +191,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-          ref: 0ac42013dc8bdf4679c2732d12fd009b2e9c26ab
+          ref: dc7a84663aa838ec5ffb26bee95470cb44d95b2c
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -218,7 +218,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-          ref: 0ac42013dc8bdf4679c2732d12fd009b2e9c26ab
+          ref: dc7a84663aa838ec5ffb26bee95470cb44d95b2c
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -245,7 +245,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-          ref: 0ac42013dc8bdf4679c2732d12fd009b2e9c26ab
+          ref: dc7a84663aa838ec5ffb26bee95470cb44d95b2c
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -270,7 +270,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-          ref: 0ac42013dc8bdf4679c2732d12fd009b2e9c26ab
+          ref: dc7a84663aa838ec5ffb26bee95470cb44d95b2c
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -294,7 +294,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          ref: 0ac42013dc8bdf4679c2732d12fd009b2e9c26ab
+          ref: dc7a84663aa838ec5ffb26bee95470cb44d95b2c
 
       - name: Install pinned Syft
         env:
@@ -328,7 +328,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          ref: 0ac42013dc8bdf4679c2732d12fd009b2e9c26ab
+          ref: dc7a84663aa838ec5ffb26bee95470cb44d95b2c
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -359,7 +359,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-          ref: 0ac42013dc8bdf4679c2732d12fd009b2e9c26ab
+          ref: dc7a84663aa838ec5ffb26bee95470cb44d95b2c
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -387,7 +387,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-          ref: 0ac42013dc8bdf4679c2732d12fd009b2e9c26ab
+          ref: dc7a84663aa838ec5ffb26bee95470cb44d95b2c
 
       - name: Install pinned Gitleaks
         env:
@@ -419,7 +419,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          ref: 0ac42013dc8bdf4679c2732d12fd009b2e9c26ab
+          ref: dc7a84663aa838ec5ffb26bee95470cb44d95b2c
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -468,7 +468,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          ref: 0ac42013dc8bdf4679c2732d12fd009b2e9c26ab
+          ref: dc7a84663aa838ec5ffb26bee95470cb44d95b2c
 
       - name: Install pinned OSV-Scanner
         env:
@@ -497,7 +497,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          ref: 0ac42013dc8bdf4679c2732d12fd009b2e9c26ab
+          ref: dc7a84663aa838ec5ffb26bee95470cb44d95b2c
 
       - name: Install pinned Scorecard
         env:
@@ -517,7 +517,7 @@ jobs:
         env:
           GITHUB_AUTH_TOKEN: ${{ github.token }}
           RepositoryName: ${{ github.repository }}
-          CandidateSha: 0ac42013dc8bdf4679c2732d12fd009b2e9c26ab
+          CandidateSha: dc7a84663aa838ec5ffb26bee95470cb44d95b2c
         run: |
           set -euo pipefail
           "${RUNNER_TEMP}/scorecard" --repo="github.com/${RepositoryName}" \
@@ -527,14 +527,15 @@ jobs:
 
       - name: Summarize Scorecard results
         env:
-          CandidateSha: 0ac42013dc8bdf4679c2732d12fd009b2e9c26ab
+          CandidateSha: dc7a84663aa838ec5ffb26bee95470cb44d95b2c
         run: |
           set -euo pipefail
           for ReportPath in Scorecard.json ScorecardCandidate.json; do
             jq --slurp --exit-status 'length == 1 and all(.[]; (.checks | type == "array") and (.checks | length > 0))' "${ReportPath}"
           done
           jq --slurp --exit-status --arg CandidateSha "$CandidateSha" \
-            'length == 2 and all(.[]; .repo.commit == $CandidateSha)' Scorecard.json ScorecardCandidate.json
+            '.[1].repo.commit == $CandidateSha and (.[0].repo.commit | test("^[0-9a-f]{40}$"))' Scorecard.json ScorecardCandidate.json
+          jq -r '.repo.commit' Scorecard.json ScorecardCandidate.json
           jq -r '.checks[] | [.name, .score, .reason, ((.details // []) | join("\n"))] | @tsv' \
             Scorecard.json ScorecardCandidate.json
 
@@ -547,7 +548,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          ref: 0ac42013dc8bdf4679c2732d12fd009b2e9c26ab
+          ref: dc7a84663aa838ec5ffb26bee95470cb44d95b2c
 
       - name: Install pinned Trivy
         env:
@@ -581,7 +582,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-          ref: 0ac42013dc8bdf4679c2732d12fd009b2e9c26ab
+          ref: dc7a84663aa838ec5ffb26bee95470cb44d95b2c
 
       - name: Install pinned TruffleHog
         env:
