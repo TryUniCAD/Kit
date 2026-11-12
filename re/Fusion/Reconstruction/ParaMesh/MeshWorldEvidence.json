@@ -1,0 +1,304 @@
+{
+  "scope": "Static symbol and call-site inspection; no native library execution or claimed complete mesh-world grammar",
+  "application_version": "2706.1.17",
+  "architecture": "arm64",
+  "address_basis": "Unslid Mach-O virtual address",
+  "image": "Libraries/Neutron/NsScene10.dylib",
+  "image_sha256": "d33789c8c20033f1c7673ff9b1dcf87f1ef7cf9c43c7245d75c8a65a83bc8c82",
+  "methods": [
+    {
+      "name": "OGS::Serialization::FusionGroupNodeSerializer::SerializeParameshBody(Ns::Scene::INodeSource*, autodesk::platform::core::memory::SharedPtr<autodesk::platform::data::structure::IContainer>&, OGS::Serialization::SerializationContext&)",
+      "address": "0xaf5dc",
+      "events": [
+        {
+          "address": "0xaf6c0",
+          "callee": "OGS::Serialization::GeneralSerializer::SetProperty(autodesk::platform::data::structure::IContainer*, wchar_t const*, void*, autodesk::platform::data::metadata::tValue, unsigned int, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {
+            "1": {
+              "address": "0x3b79b0",
+              "text": "ValidBody"
+            }
+          },
+          "integerArguments": {
+            "3": 7,
+            "4": 1
+          }
+        },
+        {
+          "address": "0xaf6c4",
+          "callee": "OGS::Serialization::GetFusionGroupNodeSerializer()",
+          "literalArguments": {},
+          "integerArguments": {}
+        },
+        {
+          "address": "0xaf6e0",
+          "callee": "OGS::Serialization::FusionGroupNodeSerializer::SerializeBodyChildQ(OGS::Objects::IBaseInterface*, autodesk::platform::core::memory::SharedPtr<autodesk::platform::data::structure::IContainer>&, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {},
+          "integerArguments": {}
+        },
+        {
+          "address": "0xaf714",
+          "callee": "OGS::Serialization::GeneralSerializer::SetProperty(autodesk::platform::data::structure::IContainer*, wchar_t const*, void*, autodesk::platform::data::metadata::tValue, unsigned int, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {
+            "1": {
+              "address": "0x3b7aac",
+              "text": "FacetNodeCount"
+            }
+          },
+          "integerArguments": {
+            "3": 13,
+            "4": 1
+          }
+        },
+        {
+          "address": "0xaf718",
+          "callee": "OGS::Serialization::GetLODGeometryNodeSerializer()",
+          "literalArguments": {},
+          "integerArguments": {}
+        },
+        {
+          "address": "0xaf768",
+          "callee": "OGS::Serialization::LODGeometryNodeSerializer::SerializeForBody(OGS::Objects::IBaseInterface*, std::__1::unordered_map<OGS::Scene::DisplayItem*, unsigned int, std::__1::hash<OGS::Scene::DisplayItem*>, std::__1::equal_to<OGS::Scene::DisplayItem*>, std::__1::allocator<std::__1::pair<OGS::Scene::DisplayItem* const, unsigned int>>>&, autodesk::platform::core::memory::SharedPtr<autodesk::platform::data::structure::IContainer>&, OGS::Serialization::SerializationContext&, unsigned int)",
+          "literalArguments": {},
+          "integerArguments": {
+            "5": 0
+          }
+        },
+        {
+          "address": "0xaf790",
+          "callee": "OGS::Serialization::FusionGroupNodeSerializer::SerializeBodyChildQ(OGS::Objects::IBaseInterface*, autodesk::platform::core::memory::SharedPtr<autodesk::platform::data::structure::IContainer>&, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {},
+          "integerArguments": {}
+        },
+        {
+          "address": "0xaf7bc",
+          "callee": "OGS::Serialization::LODGeometryNodeSerializer::SerializeForBody(OGS::Objects::IBaseInterface*, std::__1::unordered_map<OGS::Scene::DisplayItem*, unsigned int, std::__1::hash<OGS::Scene::DisplayItem*>, std::__1::equal_to<OGS::Scene::DisplayItem*>, std::__1::allocator<std::__1::pair<OGS::Scene::DisplayItem* const, unsigned int>>>&, autodesk::platform::core::memory::SharedPtr<autodesk::platform::data::structure::IContainer>&, OGS::Serialization::SerializationContext&, unsigned int)",
+          "literalArguments": {},
+          "integerArguments": {
+            "5": 0
+          }
+        },
+        {
+          "address": "0xaf7f0",
+          "callee": "OGS::Serialization::GeneralSerializer::SetProperty(autodesk::platform::data::structure::IContainer*, wchar_t const*, void*, autodesk::platform::data::metadata::tValue, unsigned int, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {
+            "1": {
+              "address": "0x3b7ae8",
+              "text": "SaveBboxWiresNodes"
+            }
+          },
+          "integerArguments": {
+            "3": 7,
+            "4": 1
+          }
+        },
+        {
+          "address": "0xaf80c",
+          "callee": "OGS::Serialization::FusionGroupNodeSerializer::SerializeBodyChildQ(OGS::Objects::IBaseInterface*, autodesk::platform::core::memory::SharedPtr<autodesk::platform::data::structure::IContainer>&, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {},
+          "integerArguments": {}
+        },
+        {
+          "address": "0xaf838",
+          "callee": "OGS::Serialization::LODGeometryNodeSerializer::SerializeForBody(OGS::Objects::IBaseInterface*, std::__1::unordered_map<OGS::Scene::DisplayItem*, unsigned int, std::__1::hash<OGS::Scene::DisplayItem*>, std::__1::equal_to<OGS::Scene::DisplayItem*>, std::__1::allocator<std::__1::pair<OGS::Scene::DisplayItem* const, unsigned int>>>&, autodesk::platform::core::memory::SharedPtr<autodesk::platform::data::structure::IContainer>&, OGS::Serialization::SerializationContext&, unsigned int)",
+          "literalArguments": {},
+          "integerArguments": {
+            "5": 0
+          }
+        },
+        {
+          "address": "0xaf85c",
+          "callee": "OGS::Serialization::GeneralSerializer::SetProperty(autodesk::platform::data::structure::IContainer*, wchar_t const*, void*, autodesk::platform::data::metadata::tValue, unsigned int, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {
+            "1": {
+              "address": "0x3b7ae8",
+              "text": "SaveBboxWiresNodes"
+            }
+          },
+          "integerArguments": {
+            "3": 7,
+            "4": 1
+          }
+        },
+        {
+          "address": "0xaf890",
+          "callee": "OGS::Serialization::GeneralSerializer::SetProperty(autodesk::platform::data::structure::IContainer*, wchar_t const*, void*, autodesk::platform::data::metadata::tValue, unsigned int, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {
+            "1": {
+              "address": "0x3b7b34",
+              "text": "SaveFacetWorldBox"
+            }
+          },
+          "integerArguments": {
+            "3": 7,
+            "4": 1
+          }
+        },
+        {
+          "address": "0xaf8b8",
+          "callee": "OGS::Serialization::GeneralSerializer::SetProperty(autodesk::platform::data::structure::IContainer*, wchar_t const*, void*, autodesk::platform::data::metadata::tValue, unsigned int, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {
+            "1": {
+              "address": "0x3b7b34",
+              "text": "SaveFacetWorldBox"
+            }
+          },
+          "integerArguments": {
+            "3": 7,
+            "4": 1
+          }
+        },
+        {
+          "address": "0xaf8e8",
+          "callee": "OGS::Serialization::GeneralSerializer::Serialize(OGS::Objects::SBox3&, wchar_t const*, autodesk::platform::data::structure::IContainer*, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {
+            "1": {
+              "address": "0x3b7b7c",
+              "text": "FacetModelBox"
+            }
+          },
+          "integerArguments": {}
+        }
+      ]
+    },
+    {
+      "name": "OGS::Serialization::FusionGroupNodeSerializer::DeSerializeParameshBody(OGS::Graphics::GroupNode*, autodesk::platform::core::memory::SharedPtr<autodesk::platform::data::structure::IContainer>&, OGS::Serialization::SerializationContext&)",
+      "address": "0xb1920",
+      "events": [
+        {
+          "address": "0xb1994",
+          "callee": "OGS::Serialization::GeneralSerializer::GetProperty(autodesk::platform::data::structure::IContainer*, wchar_t const*, void*, autodesk::platform::data::metadata::tValue, unsigned int, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {
+            "1": {
+              "address": "0x3b79b0",
+              "text": "ValidBody"
+            }
+          },
+          "integerArguments": {
+            "3": 7,
+            "4": 1
+          }
+        },
+        {
+          "address": "0xb19b0",
+          "callee": "OGS::Serialization::GetFusionGroupNodeSerializer()",
+          "literalArguments": {},
+          "integerArguments": {}
+        },
+        {
+          "address": "0xb19c0",
+          "callee": "OGS::Serialization::FusionGroupNodeSerializer::DeSerializeBodyChildQ(autodesk::platform::core::memory::SharedPtr<autodesk::platform::data::structure::IContainer>&, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {},
+          "integerArguments": {}
+        },
+        {
+          "address": "0xb1a0c",
+          "callee": "OGS::Serialization::GeneralSerializer::GetProperty(autodesk::platform::data::structure::IContainer*, wchar_t const*, void*, autodesk::platform::data::metadata::tValue, unsigned int, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {
+            "1": {
+              "address": "0x3b7aac",
+              "text": "FacetNodeCount"
+            }
+          },
+          "integerArguments": {
+            "3": 13,
+            "4": 1
+          }
+        },
+        {
+          "address": "0xb1a10",
+          "callee": "OGS::Serialization::GetLODGeometryNodeSerializer()",
+          "literalArguments": {},
+          "integerArguments": {}
+        },
+        {
+          "address": "0xb1a44",
+          "callee": "OGS::Serialization::LODGeometryNodeSerializer::DeSerializeForBody(std::__1::unordered_map<unsigned int, OGS::Scene::DisplayItem*, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<unsigned int const, OGS::Scene::DisplayItem*>>>&, autodesk::platform::core::memory::SharedPtr<autodesk::platform::data::structure::IContainer>&, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {},
+          "integerArguments": {}
+        },
+        {
+          "address": "0xb1aa0",
+          "callee": "OGS::Serialization::FusionGroupNodeSerializer::DeSerializeBodyChildQ(autodesk::platform::core::memory::SharedPtr<autodesk::platform::data::structure::IContainer>&, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {},
+          "integerArguments": {}
+        },
+        {
+          "address": "0xb1ad8",
+          "callee": "OGS::Serialization::LODGeometryNodeSerializer::DeSerializeForBody(std::__1::unordered_map<unsigned int, OGS::Scene::DisplayItem*, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<unsigned int const, OGS::Scene::DisplayItem*>>>&, autodesk::platform::core::memory::SharedPtr<autodesk::platform::data::structure::IContainer>&, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {},
+          "integerArguments": {}
+        },
+        {
+          "address": "0xb1b24",
+          "callee": "OGS::Serialization::GeneralSerializer::GetProperty(autodesk::platform::data::structure::IContainer*, wchar_t const*, void*, autodesk::platform::data::metadata::tValue, unsigned int, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {
+            "1": {
+              "address": "0x3b7ae8",
+              "text": "SaveBboxWiresNodes"
+            }
+          },
+          "integerArguments": {
+            "3": 7,
+            "4": 1
+          }
+        },
+        {
+          "address": "0xb1b40",
+          "callee": "OGS::Serialization::FusionGroupNodeSerializer::DeSerializeBodyChildQ(autodesk::platform::core::memory::SharedPtr<autodesk::platform::data::structure::IContainer>&, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {},
+          "integerArguments": {}
+        },
+        {
+          "address": "0xb1b78",
+          "callee": "OGS::Serialization::LODGeometryNodeSerializer::DeSerializeForBody(std::__1::unordered_map<unsigned int, OGS::Scene::DisplayItem*, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<unsigned int const, OGS::Scene::DisplayItem*>>>&, autodesk::platform::core::memory::SharedPtr<autodesk::platform::data::structure::IContainer>&, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {},
+          "integerArguments": {}
+        },
+        {
+          "address": "0xb1bb8",
+          "callee": "OGS::Serialization::FusionLODConsolidatedWorldSerializer::NewConsolidateWorld()",
+          "literalArguments": {},
+          "integerArguments": {}
+        },
+        {
+          "address": "0xb1c20",
+          "callee": "OGS::Serialization::FusionLODConsolidatedWorldSerializer::NewConsolidateWorld()",
+          "literalArguments": {},
+          "integerArguments": {}
+        },
+        {
+          "address": "0xb1c4c",
+          "callee": "OGS::Serialization::FusionLODConsolidatedWorldSerializer::NewConsolidateWorld()",
+          "literalArguments": {},
+          "integerArguments": {}
+        },
+        {
+          "address": "0xb1cdc",
+          "callee": "OGS::Serialization::GeneralSerializer::GetProperty(autodesk::platform::data::structure::IContainer*, wchar_t const*, void*, autodesk::platform::data::metadata::tValue, unsigned int, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {
+            "1": {
+              "address": "0x3b7b34",
+              "text": "SaveFacetWorldBox"
+            }
+          },
+          "integerArguments": {
+            "3": 7,
+            "4": 1
+          }
+        },
+        {
+          "address": "0xb1d30",
+          "callee": "OGS::Serialization::GeneralSerializer::DeSerialize(OGS::Objects::SBox3&, wchar_t const*, autodesk::platform::data::structure::IContainer*, OGS::Serialization::SerializationContext&)",
+          "literalArguments": {
+            "1": {
+              "address": "0x3b7b7c",
+              "text": "FacetModelBox"
+            }
+          },
+          "integerArguments": {}
+        }
+      ]
+    }
+  ]
+}

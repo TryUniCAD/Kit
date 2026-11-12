@@ -1,0 +1,10 @@
+{
+  "details": "MeshJoins.json.xz",
+  "sha256": "08bff85452ad038863820553dea2b149046c9b87c31b80138cb6c06cbb56af12",
+  "archives": 52,
+  "mesh_geometry_joins": 103,
+  "mesh_bodies": 63,
+  "join_errors": 0,
+  "worlds_fully_consumed": 52,
+  "unresolved_worlds": []
+}

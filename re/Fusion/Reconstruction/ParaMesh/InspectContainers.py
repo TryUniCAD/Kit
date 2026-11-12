@@ -61,6 +61,8 @@ def messagepack(cursor):
         result = {}
         for _ in range(count):
             key = messagepack(cursor)
+            if not isinstance(key, str):
+                raise ValueError("Non-string MessagePack key")
             if key in result:
                 raise ValueError("Duplicate MessagePack key")
             result[key] = messagepack(cursor)
