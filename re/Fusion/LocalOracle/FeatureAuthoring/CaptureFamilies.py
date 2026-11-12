@@ -205,7 +205,57 @@ def c_construction_set(comp, design):
     point.name = "Corner point"
 
 
+def c_hole_offset(comp, design):
+    body = base(comp).bodies.item(0)
+    feats = comp.features.holeFeatures
+    inp = feats.createSimpleInput(vi("4 mm"))
+    inp.setPositionByPoint(planar_face(body, 0, 0, 1), pt(0.8, 0.6, 2.0))
+    inp.setAllExtent(adsk.fusion.ExtentDirections.PositiveExtentDirection)
+    hole = feats.add(inp)
+    hole.name = "Offset hole"
+
+
+def c_hole_notch(comp, design):
+    sk = comp.sketches.add(comp.xYConstructionPlane)
+    sk.name = "Notch sketch"
+    lines = sk.sketchCurves.sketchLines
+    lines.addByTwoPoints(pt(0, 0), pt(4, 0))
+    lines.addByTwoPoints(pt(4, 0), pt(4, 3))
+    lines.addByTwoPoints(pt(4, 3), pt(3, 3))
+    sk.sketchCurves.sketchArcs.addByThreePoints(pt(3, 3), pt(2, 2), pt(1, 3))
+    lines.addByTwoPoints(pt(1, 3), pt(0, 3))
+    lines.addByTwoPoints(pt(0, 3), pt(0, 0))
+    comp.features.extrudeFeatures.addSimple(sk.profiles.item(0), vi("20 mm"), FO.NewBodyFeatureOperation).name = "Notch extrude"
+    feats = comp.features.holeFeatures
+    inp = feats.createSimpleInput(vi("4 mm"))
+    inp.setPositionByPoint(planar_face(comp.bRepBodies.item(0), 0, 0, 1), pt(0.8, 0.6, 2.0))
+    inp.setAllExtent(adsk.fusion.ExtentDirections.PositiveExtentDirection)
+    feats.add(inp).name = "Offset hole"
+
+
+def c_disc_bore(comp, design):
+    sk = comp.sketches.add(comp.xYConstructionPlane)
+    sk.name = "Disc sketch"
+    sk.sketchCurves.sketchCircles.addByCenterRadius(pt(0, 0), 2.0)
+    comp.features.extrudeFeatures.addSimple(sk.profiles.item(0), vi("12 mm"), FO.NewBodyFeatureOperation)
+    cut = circle_tool(comp, 1.2, 0, 0.3, "6 mm", FO.CutFeatureOperation, "Pocket extrude")
+    feats = comp.features.circularPatternFeatures
+    inp = feats.createInput(coll(cut), comp.zConstructionAxis)
+    inp.quantity = adsk.core.ValueInput.createByReal(4)
+    inp.totalAngle = vi("360 deg")
+    inp.isSymmetric = False
+    feats.add(inp).name = "Pocket ring"
+    holes = comp.features.holeFeatures
+    hi = holes.createCounterboreInput(vi("8 mm"), vi("14 mm"), vi("4 mm"))
+    hi.setPositionByPoint(planar_face(comp.bRepBodies.item(0), 0, 0, 1), pt(0, 0, 1.2))
+    hi.setAllExtent(adsk.fusion.ExtentDirections.PositiveExtentDirection)
+    holes.add(hi).name = "Center bore"
+
+
 controls = [
+    ("HoleOffset", c_hole_offset),
+    ("HoleNotch", c_hole_notch),
+    ("DiscBore", c_disc_bore),
     ("EdgeNotch", lambda comp, design: (base(comp), circle_tool(comp, 0, 1.5, 0.5, "20 mm", FO.CutFeatureOperation, "Notch"))),
     ("EdgeBoss", lambda comp, design: (base(comp), circle_tool(comp, 4, 1.5, 0.5, "20 mm", FO.JoinFeatureOperation, "Boss"))),
     ("EdgeCore", lambda comp, design: (base(comp), circle_tool(comp, 4, 1.5, 1.0, "20 mm", FO.IntersectFeatureOperation, "Core"))),

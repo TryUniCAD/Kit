@@ -128,6 +128,21 @@ PART = {
     "MirrorFeature": (base(), POCKET, PlaneSpec(20.0, "yz", "Mid plane"), MirrorSpec(1, 2, "Pocket mirror")),
     "PlaneOffset": (base(), PlaneSpec(15.0, "xy", "Offset plane")),
     "HoleGrid": (base(), HoleSpec((8.0, 8.0), 5.0, 10.0, FeatureName="Corner hole"), PatternSpec(1, 3, 12.0, 2, 14.0, "Hole grid")),
+    "MultiPocketPart": (
+        base(),
+        ExtrudeSpec(slot(10, 22, 14, 3), 8.0, "cut", "one", 0.0, "Slot sketch", "Slot pocket"),
+        HoleSpec((8.0, 8.0), 4.0, FeatureName="Corner hole"),
+        PatternSpec(2, 2, 12.0, 1, 10.0, "Hole row"),
+        FilletSpec((40.0, 30.0), 3.0, "Corner Round"),
+        PlaneSpec(20.0, "yz", "Mid plane"),
+        MirrorSpec(1, 5, "Slot mirror"),
+    ),
+    "MultiDiscPart": (
+        ExtrudeSpec((CircleCurve((0, 0), 20),), 12.0, "new", "one", 0.0, "Disc sketch", "Disc extrude"),
+        ExtrudeSpec((CircleCurve((12, 0), 3),), 6.0, "cut", "one", 0.0, "Pocket sketch", "Pocket extrude"),
+        CircularSpec(1, 4, 360.0, "Pocket ring"),
+        HoleSpec((0.0, 0.0), 8.0, 0.0, 14.0, 4.0, "Center bore"),
+    ),
 }
 
 CASES = {**CUBOID, **PART}
@@ -162,6 +177,8 @@ EDITS = {
     "MirrorFeature": [{"feature": "Mid plane", "role": "AlongDistance", "expression": "18 mm"}],
     "PlaneOffset": [{"feature": "Offset plane", "role": "AlongDistance", "expression": "12 mm"}, {"feature": "Base extrude", "role": "AlongDistance", "expression": "25 mm"}],
     "HoleGrid": [{"feature": "Hole grid", "role": "vSpaceDistance", "expression": "12 mm"}, {"feature": "Corner hole", "role": "HoleDepth", "expression": "8 mm"}],
+    "MultiPocketPart": [{"feature": "Hole row", "role": "uSpaceDistance", "expression": "10 mm"}, {"feature": "Corner Round", "expression": "4 mm"}, {"feature": "Mid plane", "role": "AlongDistance", "expression": "21 mm"}],
+    "MultiDiscPart": [{"feature": "Pocket ring", "role": "countU", "expression": "6"}, {"feature": "Center bore", "role": "CBDiameter", "expression": "16 mm"}],
 }
 
 

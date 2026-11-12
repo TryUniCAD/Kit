@@ -7,7 +7,7 @@
     {
       "name": "HoleFlat",
       "file": "HoleFlat.f3d",
-      "sha256": "c4bc247d3d6508a43ef5ead27f8857411a474d90ee6b375a071bc7addb9014fd",
+      "sha256": "89f92d2d7d8e984ef0a6ffd6163a28ea094a30e2203f7a12f5f6768dfe645b61",
       "steps": [
         {
           "kind": "extrude",
@@ -1586,13 +1586,13 @@
         ],
         "marker": 3
       },
-      "saved_sha256": "dd40067e981d71e4f72266543539e5f3e951bbb0e485905d9d4d5b646d128ca4",
+      "saved_sha256": "2369a660ddac3a31f5f48ca7734b9eb264649ea64f3b26e7ccd3fc81c5344b9c",
       "status": "accepted"
     },
     {
       "name": "HoleThrough",
       "file": "HoleThrough.f3d",
-      "sha256": "7f413cc4620aea5f7acea925a347e8e90a3a291917db76bf61c2c8e64eade862",
+      "sha256": "55f637c8481337659088fca639798df3cdd5a34cf402587f7cd3efdbc198b6ea",
       "steps": [
         {
           "kind": "extrude",
@@ -3041,13 +3041,13 @@
         ],
         "marker": 3
       },
-      "saved_sha256": "9ac67d170b312994bc5195b2e2ea1e0ebbfabc26df18f4cd3d1ae560449401a2",
+      "saved_sha256": "e53a7d27f8141302102485693bb0661458e5110a6592af83ad04d510cc95366a",
       "status": "accepted"
     },
     {
       "name": "HoleCounterboreFlat",
       "file": "HoleCounterboreFlat.f3d",
-      "sha256": "1bc9121105d885d5927bed6c6603019d482ad7d3d15187adb24d69a450f1f051",
+      "sha256": "ce35c94cee3b374f4d913efee062677996c90d6605ac54771cfc45d7848f4a8f",
       "steps": [
         {
           "kind": "extrude",
@@ -4886,13 +4886,13 @@
         ],
         "marker": 3
       },
-      "saved_sha256": "136669fbe27c459a1ae03dd4efa4164dbd7f530e5e9e4ab975affc804deae296",
+      "saved_sha256": "3de76bdaa9823312d88e2a5c29061934a10160ecf29aebf729d43794098af009",
       "status": "accepted"
     },
     {
       "name": "HoleCounterbore",
       "file": "HoleCounterbore.f3d",
-      "sha256": "d9c8c172ef95dfd76e2e268ed351ef0855db6189af7b09af6c6970eed44604c0",
+      "sha256": "0c0b74b02861c87078d1673b9c8f007e111c685960e6a99491627a4e7899d948",
       "steps": [
         {
           "kind": "extrude",
@@ -6601,7 +6601,7 @@
         ],
         "marker": 3
       },
-      "saved_sha256": "d3e4355f1961bd29386b7f642942cb5384200757e314d5399b753529467f2d2a",
+      "saved_sha256": "3efbf02dcfa582873963036d96058f66ebc8fd678b62cbe0227a4c224544a6dc",
       "status": "accepted"
     }
   ],

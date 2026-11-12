@@ -1,12 +1,13 @@
 {
   "fusion_version": "2706.1.17",
   "documents_before": 0,
-  "scope": "Kit-authored fillet, chamfer and shell documents compared with same-script native API controls: open without recompute, every rollback marker, computeAll, driving parameter edits, export and reopen",
+  "suite": "FilletChamferShell",
+  "scope": "Kit-authored part feature documents compared with same-script native API controls: open without recompute, every rollback marker, computeAll, driving parameter edits, export and reopen",
   "cases": [
     {
       "name": "Fillet",
       "file": "Fillet.f3d",
-      "sha256": "eb5b192fc835e87c0fe6abaef75d4358c36a45a5e184376e7ea9edb1682f33a7",
+      "sha256": "9cc211955c167be62748af0d805781b0da14f9650553c8993b99c1d26d8dda93",
       "steps": [
         {
           "kind": "fillet",
@@ -135,28 +136,32 @@
               "expression": "20 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d2",
               "expression": "0.0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d3",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d4",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             }
           ],
           "marker": 3
@@ -190,28 +195,32 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d4",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "Radius"
               }
             ],
             "marker": 0
@@ -244,28 +253,32 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d4",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "Radius"
               }
             ],
             "marker": 1
@@ -331,28 +344,32 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d4",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "Radius"
               }
             ],
             "marker": 2
@@ -419,28 +436,32 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d4",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "Radius"
               }
             ],
             "marker": 3
@@ -508,28 +529,32 @@
               "expression": "20 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d2",
               "expression": "0.0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d3",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d4",
               "expression": "4 mm",
               "value": 0.4,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             }
           ],
           "marker": 3
@@ -597,35 +622,40 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "height",
             "value": 2.0,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "TangencyWeight"
           },
           {
             "name": "d5",
             "expression": "3 mm",
             "value": 0.30000000000000004,
             "unit": "mm",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "Radius"
           }
         ],
         "marker": 3
@@ -659,35 +689,40 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d5",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             }
           ],
           "marker": 0
@@ -720,35 +755,40 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d5",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             }
           ],
           "marker": 1
@@ -814,35 +854,40 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d5",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             }
           ],
           "marker": 2
@@ -909,35 +954,40 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d5",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             }
           ],
           "marker": 3
@@ -1006,35 +1056,40 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "height",
             "value": 2.0,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "TangencyWeight"
           },
           {
             "name": "d5",
             "expression": "3 mm",
             "value": 0.30000000000000004,
             "unit": "mm",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "Radius"
           }
         ],
         "marker": 3
@@ -1101,35 +1156,40 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "height",
             "value": 2.0,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "TangencyWeight"
           },
           {
             "name": "d5",
             "expression": "4 mm",
             "value": 0.4,
             "unit": "mm",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "Radius"
           }
         ],
         "marker": 3
@@ -1196,35 +1256,40 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "height",
             "value": 2.0,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "TangencyWeight"
           },
           {
             "name": "d5",
             "expression": "4 mm",
             "value": 0.4,
             "unit": "mm",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "Radius"
           }
         ],
         "marker": 3
@@ -1292,46 +1357,51 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "height",
             "value": 2.0,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "TangencyWeight"
           },
           {
             "name": "d5",
             "expression": "4 mm",
             "value": 0.4,
             "unit": "mm",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "Radius"
           }
         ],
         "marker": 3
       },
-      "saved_sha256": "b710cbb22f046cde75bd2a84c28e32dce0d6b5137d299d72371d5c7b515e860b",
+      "saved_sha256": "d60f9d75c596576a754341002335adf1a928f56d131c467c4ab01a6025e00536",
       "status": "accepted"
     },
     {
       "name": "Chamfer",
       "file": "Chamfer.f3d",
-      "sha256": "084a9b87eebd24bf3483f131967729d47938f4171247f4d0ff1decb465ca3628",
+      "sha256": "f078f3c41a3a45a8dafc9be206efc5ad2579aa243470981ef4a3021ec263664c",
       "steps": [
         {
           "kind": "chamfer",
@@ -1460,21 +1530,24 @@
               "expression": "20 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d2",
               "expression": "0.0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d3",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Chamfer"
+              "owner": "Chamfer",
+              "role": "Distance"
             }
           ],
           "marker": 3
@@ -1508,21 +1581,24 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Chamfer"
+                "owner": "Chamfer",
+                "role": "Distance"
               }
             ],
             "marker": 0
@@ -1555,21 +1631,24 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Chamfer"
+                "owner": "Chamfer",
+                "role": "Distance"
               }
             ],
             "marker": 1
@@ -1635,21 +1714,24 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Chamfer"
+                "owner": "Chamfer",
+                "role": "Distance"
               }
             ],
             "marker": 2
@@ -1716,21 +1798,24 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Chamfer"
+                "owner": "Chamfer",
+                "role": "Distance"
               }
             ],
             "marker": 3
@@ -1798,21 +1883,24 @@
               "expression": "20 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d2",
               "expression": "0.0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d3",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Chamfer"
+              "owner": "Chamfer",
+              "role": "Distance"
             }
           ],
           "marker": 3
@@ -1880,28 +1968,32 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "height",
             "value": 2.0,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "3 mm",
             "value": 0.30000000000000004,
             "unit": "mm",
-            "owner": "Chamfer"
+            "owner": "Chamfer",
+            "role": "Distance"
           }
         ],
         "marker": 3
@@ -1935,28 +2027,32 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Chamfer"
+              "owner": "Chamfer",
+              "role": "Distance"
             }
           ],
           "marker": 0
@@ -1989,28 +2085,32 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Chamfer"
+              "owner": "Chamfer",
+              "role": "Distance"
             }
           ],
           "marker": 1
@@ -2076,28 +2176,32 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Chamfer"
+              "owner": "Chamfer",
+              "role": "Distance"
             }
           ],
           "marker": 2
@@ -2164,28 +2268,32 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Chamfer"
+              "owner": "Chamfer",
+              "role": "Distance"
             }
           ],
           "marker": 3
@@ -2254,28 +2362,32 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "height",
             "value": 2.0,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "3 mm",
             "value": 0.30000000000000004,
             "unit": "mm",
-            "owner": "Chamfer"
+            "owner": "Chamfer",
+            "role": "Distance"
           }
         ],
         "marker": 3
@@ -2342,28 +2454,32 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "height",
             "value": 2.0,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "2 mm",
             "value": 0.2,
             "unit": "mm",
-            "owner": "Chamfer"
+            "owner": "Chamfer",
+            "role": "Distance"
           }
         ],
         "marker": 3
@@ -2430,28 +2546,32 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "height",
             "value": 2.0,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "2 mm",
             "value": 0.2,
             "unit": "mm",
-            "owner": "Chamfer"
+            "owner": "Chamfer",
+            "role": "Distance"
           }
         ],
         "marker": 3
@@ -2519,39 +2639,43 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "height",
             "value": 2.0,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "2 mm",
             "value": 0.2,
             "unit": "mm",
-            "owner": "Chamfer"
+            "owner": "Chamfer",
+            "role": "Distance"
           }
         ],
         "marker": 3
       },
-      "saved_sha256": "5f7c41ee9de6cb5001f14de9342df781086d04d93c3fcc696e2165b2b6c82fd1",
+      "saved_sha256": "7ef80402cb053b6ee6f10439752d08e87f5a3e3458d086e26a9d830fb8c1b8ee",
       "status": "accepted"
     },
     {
       "name": "Shell",
       "file": "Shell.f3d",
-      "sha256": "7693532411e857bec404e31bd5371911f3e5db43f710b09adb189f591f3f8bd5",
+      "sha256": "aed374f3c5d02b423ca87e404a67ffdd75eb2a1781e3e83714d75af01ae7e8e8",
       "steps": [
         {
           "kind": "shell",
@@ -2680,21 +2804,24 @@
               "expression": "20 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d2",
               "expression": "0.0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d3",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Shell"
+              "owner": "Shell",
+              "role": "innerThickness"
             }
           ],
           "marker": 3
@@ -2728,21 +2855,24 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "2 mm",
                 "value": 0.2,
                 "unit": "mm",
-                "owner": "Shell"
+                "owner": "Shell",
+                "role": "innerThickness"
               }
             ],
             "marker": 0
@@ -2775,21 +2905,24 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "2 mm",
                 "value": 0.2,
                 "unit": "mm",
-                "owner": "Shell"
+                "owner": "Shell",
+                "role": "innerThickness"
               }
             ],
             "marker": 1
@@ -2855,21 +2988,24 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "2 mm",
                 "value": 0.2,
                 "unit": "mm",
-                "owner": "Shell"
+                "owner": "Shell",
+                "role": "innerThickness"
               }
             ],
             "marker": 2
@@ -2940,21 +3076,24 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "2 mm",
                 "value": 0.2,
                 "unit": "mm",
-                "owner": "Shell"
+                "owner": "Shell",
+                "role": "innerThickness"
               }
             ],
             "marker": 3
@@ -3026,21 +3165,24 @@
               "expression": "20 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d2",
               "expression": "0.0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d3",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Shell"
+              "owner": "Shell",
+              "role": "innerThickness"
             }
           ],
           "marker": 3
@@ -3112,28 +3254,32 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "height",
             "value": 2.0,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "2 mm",
             "value": 0.2,
             "unit": "mm",
-            "owner": "Shell"
+            "owner": "Shell",
+            "role": "innerThickness"
           }
         ],
         "marker": 3
@@ -3167,28 +3313,32 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Shell"
+              "owner": "Shell",
+              "role": "innerThickness"
             }
           ],
           "marker": 0
@@ -3221,28 +3371,32 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Shell"
+              "owner": "Shell",
+              "role": "innerThickness"
             }
           ],
           "marker": 1
@@ -3308,28 +3462,32 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Shell"
+              "owner": "Shell",
+              "role": "innerThickness"
             }
           ],
           "marker": 2
@@ -3400,28 +3558,32 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Shell"
+              "owner": "Shell",
+              "role": "innerThickness"
             }
           ],
           "marker": 3
@@ -3494,28 +3656,32 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "height",
             "value": 2.0,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "2 mm",
             "value": 0.2,
             "unit": "mm",
-            "owner": "Shell"
+            "owner": "Shell",
+            "role": "innerThickness"
           }
         ],
         "marker": 3
@@ -3586,28 +3752,32 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "height",
             "value": 2.0,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "3 mm",
             "value": 0.30000000000000004,
             "unit": "mm",
-            "owner": "Shell"
+            "owner": "Shell",
+            "role": "innerThickness"
           }
         ],
         "marker": 3
@@ -3678,28 +3848,32 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "height",
             "value": 2.0,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "3 mm",
             "value": 0.30000000000000004,
             "unit": "mm",
-            "owner": "Shell"
+            "owner": "Shell",
+            "role": "innerThickness"
           }
         ],
         "marker": 3
@@ -3771,39 +3945,43 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "height",
             "value": 2.0,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "3 mm",
             "value": 0.30000000000000004,
             "unit": "mm",
-            "owner": "Shell"
+            "owner": "Shell",
+            "role": "innerThickness"
           }
         ],
         "marker": 3
       },
-      "saved_sha256": "494d53ebaed4831a86e2090ae8acf1c49089aca760d2dc95c2da43086118e404",
+      "saved_sha256": "24182a7b529b27be1279fe30ab34a8aeb32ff5550a183017481de6ee05beedd5",
       "status": "accepted"
     },
     {
       "name": "FilletShell",
       "file": "FilletShell.f3d",
-      "sha256": "229b46a58de685b11e9ea4467bc1e71baf671b5e1d33c6357033fb6e676a62de",
+      "sha256": "878366fee530852e08747a4be25783090ff0f587d245557089a65c3be49f8755",
       "steps": [
         {
           "kind": "fillet",
@@ -3960,35 +4138,40 @@
               "expression": "20 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d2",
               "expression": "0.0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d3",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d4",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             },
             {
               "name": "d5",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Shell"
+              "owner": "Shell",
+              "role": "innerThickness"
             }
           ],
           "marker": 4
@@ -4028,35 +4211,40 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d4",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "Radius"
               },
               {
                 "name": "d5",
                 "expression": "2 mm",
                 "value": 0.2,
                 "unit": "mm",
-                "owner": "Shell"
+                "owner": "Shell",
+                "role": "innerThickness"
               }
             ],
             "marker": 0
@@ -4095,35 +4283,40 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d4",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "Radius"
               },
               {
                 "name": "d5",
                 "expression": "2 mm",
                 "value": 0.2,
                 "unit": "mm",
-                "owner": "Shell"
+                "owner": "Shell",
+                "role": "innerThickness"
               }
             ],
             "marker": 1
@@ -4195,35 +4388,40 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d4",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "Radius"
               },
               {
                 "name": "d5",
                 "expression": "2 mm",
                 "value": 0.2,
                 "unit": "mm",
-                "owner": "Shell"
+                "owner": "Shell",
+                "role": "innerThickness"
               }
             ],
             "marker": 2
@@ -4296,35 +4494,40 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d4",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "Radius"
               },
               {
                 "name": "d5",
                 "expression": "2 mm",
                 "value": 0.2,
                 "unit": "mm",
-                "owner": "Shell"
+                "owner": "Shell",
+                "role": "innerThickness"
               }
             ],
             "marker": 3
@@ -4403,35 +4606,40 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d4",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "Radius"
               },
               {
                 "name": "d5",
                 "expression": "2 mm",
                 "value": 0.2,
                 "unit": "mm",
-                "owner": "Shell"
+                "owner": "Shell",
+                "role": "innerThickness"
               }
             ],
             "marker": 4
@@ -4511,35 +4719,40 @@
               "expression": "25 mm",
               "value": 2.5,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d2",
               "expression": "0.0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d3",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d4",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             },
             {
               "name": "d5",
               "expression": "1.5 mm",
               "value": 0.15000000000000002,
               "unit": "mm",
-              "owner": "Shell"
+              "owner": "Shell",
+              "role": "innerThickness"
             }
           ],
           "marker": 4
@@ -4619,42 +4832,48 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "height",
             "value": 2.0,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "TangencyWeight"
           },
           {
             "name": "d5",
             "expression": "3 mm",
             "value": 0.30000000000000004,
             "unit": "mm",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "Radius"
           },
           {
             "name": "d6",
             "expression": "2 mm",
             "value": 0.2,
             "unit": "mm",
-            "owner": "Shell"
+            "owner": "Shell",
+            "role": "innerThickness"
           }
         ],
         "marker": 4
@@ -4694,42 +4913,48 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d5",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             },
             {
               "name": "d6",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Shell"
+              "owner": "Shell",
+              "role": "innerThickness"
             }
           ],
           "marker": 0
@@ -4768,42 +4993,48 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d5",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             },
             {
               "name": "d6",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Shell"
+              "owner": "Shell",
+              "role": "innerThickness"
             }
           ],
           "marker": 1
@@ -4875,42 +5106,48 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d5",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             },
             {
               "name": "d6",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Shell"
+              "owner": "Shell",
+              "role": "innerThickness"
             }
           ],
           "marker": 2
@@ -4983,42 +5220,48 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d5",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             },
             {
               "name": "d6",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Shell"
+              "owner": "Shell",
+              "role": "innerThickness"
             }
           ],
           "marker": 3
@@ -5097,42 +5340,48 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d5",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             },
             {
               "name": "d6",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Shell"
+              "owner": "Shell",
+              "role": "innerThickness"
             }
           ],
           "marker": 4
@@ -5213,42 +5462,48 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "height",
             "value": 2.0,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "TangencyWeight"
           },
           {
             "name": "d5",
             "expression": "3 mm",
             "value": 0.30000000000000004,
             "unit": "mm",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "Radius"
           },
           {
             "name": "d6",
             "expression": "2 mm",
             "value": 0.2,
             "unit": "mm",
-            "owner": "Shell"
+            "owner": "Shell",
+            "role": "innerThickness"
           }
         ],
         "marker": 4
@@ -5327,42 +5582,48 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "25 mm",
             "value": 2.5,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "TangencyWeight"
           },
           {
             "name": "d5",
             "expression": "3 mm",
             "value": 0.30000000000000004,
             "unit": "mm",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "Radius"
           },
           {
             "name": "d6",
             "expression": "1.5 mm",
             "value": 0.15000000000000002,
             "unit": "mm",
-            "owner": "Shell"
+            "owner": "Shell",
+            "role": "innerThickness"
           }
         ],
         "marker": 4
@@ -5441,42 +5702,48 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "25 mm",
             "value": 2.5,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "TangencyWeight"
           },
           {
             "name": "d5",
             "expression": "3 mm",
             "value": 0.30000000000000004,
             "unit": "mm",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "Radius"
           },
           {
             "name": "d6",
             "expression": "1.5 mm",
             "value": 0.15000000000000002,
             "unit": "mm",
-            "owner": "Shell"
+            "owner": "Shell",
+            "role": "innerThickness"
           }
         ],
         "marker": 4
@@ -5556,53 +5823,59 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "25 mm",
             "value": 2.5,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "TangencyWeight"
           },
           {
             "name": "d5",
             "expression": "3 mm",
             "value": 0.30000000000000004,
             "unit": "mm",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "Radius"
           },
           {
             "name": "d6",
             "expression": "1.5 mm",
             "value": 0.15000000000000002,
             "unit": "mm",
-            "owner": "Shell"
+            "owner": "Shell",
+            "role": "innerThickness"
           }
         ],
         "marker": 4
       },
-      "saved_sha256": "4a4e5f6623483eb32fe8be49e90fa8e4d93bc091c16c2f8e875584f7a5d4bbd2",
+      "saved_sha256": "2ee43a6d1f3694a5498190d9d7069eb5c14c25d09062c613587c06751ba78a89",
       "status": "accepted"
     },
     {
       "name": "MultiFeature",
       "file": "MultiFeature.f3d",
-      "sha256": "e0ca981ab321b54111c0029401e0dd9cb01a7a5141006292f3e1a0c498ff7e6a",
+      "sha256": "01acf36c04a431c6e822e8a4ea56c1d366c74186abf83d9d649b51fb4c1053d5",
       "steps": [
         {
           "kind": "fillet",
@@ -5807,56 +6080,64 @@
               "expression": "20 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d2",
               "expression": "0.0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d3",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Corner Round"
+              "owner": "Corner Round",
+              "role": "TangencyWeight"
             },
             {
               "name": "d4",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Corner Round"
+              "owner": "Corner Round",
+              "role": "Radius"
             },
             {
               "name": "d5",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Corner Bevel"
+              "owner": "Corner Bevel",
+              "role": "Distance"
             },
             {
               "name": "d6",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d7",
               "expression": "4 mm",
               "value": 0.4,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             },
             {
               "name": "d8",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Hollow"
+              "owner": "Hollow",
+              "role": "innerThickness"
             }
           ],
           "marker": 6
@@ -5908,56 +6189,64 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Corner Round"
+                "owner": "Corner Round",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d4",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Corner Round"
+                "owner": "Corner Round",
+                "role": "Radius"
               },
               {
                 "name": "d5",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Corner Bevel"
+                "owner": "Corner Bevel",
+                "role": "Distance"
               },
               {
                 "name": "d6",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d7",
                 "expression": "4 mm",
                 "value": 0.4,
                 "unit": "mm",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "Radius"
               },
               {
                 "name": "d8",
                 "expression": "2 mm",
                 "value": 0.2,
                 "unit": "mm",
-                "owner": "Hollow"
+                "owner": "Hollow",
+                "role": "innerThickness"
               }
             ],
             "marker": 0
@@ -6008,56 +6297,64 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Corner Round"
+                "owner": "Corner Round",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d4",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Corner Round"
+                "owner": "Corner Round",
+                "role": "Radius"
               },
               {
                 "name": "d5",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Corner Bevel"
+                "owner": "Corner Bevel",
+                "role": "Distance"
               },
               {
                 "name": "d6",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d7",
                 "expression": "4 mm",
                 "value": 0.4,
                 "unit": "mm",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "Radius"
               },
               {
                 "name": "d8",
                 "expression": "2 mm",
                 "value": 0.2,
                 "unit": "mm",
-                "owner": "Hollow"
+                "owner": "Hollow",
+                "role": "innerThickness"
               }
             ],
             "marker": 1
@@ -6141,56 +6438,64 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Corner Round"
+                "owner": "Corner Round",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d4",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Corner Round"
+                "owner": "Corner Round",
+                "role": "Radius"
               },
               {
                 "name": "d5",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Corner Bevel"
+                "owner": "Corner Bevel",
+                "role": "Distance"
               },
               {
                 "name": "d6",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d7",
                 "expression": "4 mm",
                 "value": 0.4,
                 "unit": "mm",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "Radius"
               },
               {
                 "name": "d8",
                 "expression": "2 mm",
                 "value": 0.2,
                 "unit": "mm",
-                "owner": "Hollow"
+                "owner": "Hollow",
+                "role": "innerThickness"
               }
             ],
             "marker": 2
@@ -6275,56 +6580,64 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Corner Round"
+                "owner": "Corner Round",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d4",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Corner Round"
+                "owner": "Corner Round",
+                "role": "Radius"
               },
               {
                 "name": "d5",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Corner Bevel"
+                "owner": "Corner Bevel",
+                "role": "Distance"
               },
               {
                 "name": "d6",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d7",
                 "expression": "4 mm",
                 "value": 0.4,
                 "unit": "mm",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "Radius"
               },
               {
                 "name": "d8",
                 "expression": "2 mm",
                 "value": 0.2,
                 "unit": "mm",
-                "owner": "Hollow"
+                "owner": "Hollow",
+                "role": "innerThickness"
               }
             ],
             "marker": 3
@@ -6410,56 +6723,64 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Corner Round"
+                "owner": "Corner Round",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d4",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Corner Round"
+                "owner": "Corner Round",
+                "role": "Radius"
               },
               {
                 "name": "d5",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Corner Bevel"
+                "owner": "Corner Bevel",
+                "role": "Distance"
               },
               {
                 "name": "d6",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d7",
                 "expression": "4 mm",
                 "value": 0.4,
                 "unit": "mm",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "Radius"
               },
               {
                 "name": "d8",
                 "expression": "2 mm",
                 "value": 0.2,
                 "unit": "mm",
-                "owner": "Hollow"
+                "owner": "Hollow",
+                "role": "innerThickness"
               }
             ],
             "marker": 4
@@ -6546,56 +6867,64 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Corner Round"
+                "owner": "Corner Round",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d4",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Corner Round"
+                "owner": "Corner Round",
+                "role": "Radius"
               },
               {
                 "name": "d5",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Corner Bevel"
+                "owner": "Corner Bevel",
+                "role": "Distance"
               },
               {
                 "name": "d6",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d7",
                 "expression": "4 mm",
                 "value": 0.4,
                 "unit": "mm",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "Radius"
               },
               {
                 "name": "d8",
                 "expression": "2 mm",
                 "value": 0.2,
                 "unit": "mm",
-                "owner": "Hollow"
+                "owner": "Hollow",
+                "role": "innerThickness"
               }
             ],
             "marker": 5
@@ -6690,56 +7019,64 @@
                 "expression": "20 mm",
                 "value": 2.0,
                 "unit": "mm",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "AlongDistance"
               },
               {
                 "name": "d2",
                 "expression": "0.0 deg",
                 "value": 0.0,
                 "unit": "deg",
-                "owner": "Base Extrude"
+                "owner": "Base Extrude",
+                "role": "TaperAngle"
               },
               {
                 "name": "d3",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Corner Round"
+                "owner": "Corner Round",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d4",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Corner Round"
+                "owner": "Corner Round",
+                "role": "Radius"
               },
               {
                 "name": "d5",
                 "expression": "3 mm",
                 "value": 0.30000000000000004,
                 "unit": "mm",
-                "owner": "Corner Bevel"
+                "owner": "Corner Bevel",
+                "role": "Distance"
               },
               {
                 "name": "d6",
                 "expression": "1",
                 "value": 1.0,
                 "unit": "",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "TangencyWeight"
               },
               {
                 "name": "d7",
                 "expression": "4 mm",
                 "value": 0.4,
                 "unit": "mm",
-                "owner": "Fillet"
+                "owner": "Fillet",
+                "role": "Radius"
               },
               {
                 "name": "d8",
                 "expression": "2 mm",
                 "value": 0.2,
                 "unit": "mm",
-                "owner": "Hollow"
+                "owner": "Hollow",
+                "role": "innerThickness"
               }
             ],
             "marker": 6
@@ -6835,56 +7172,64 @@
               "expression": "25 mm",
               "value": 2.5,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d2",
               "expression": "0.0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d3",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Corner Round"
+              "owner": "Corner Round",
+              "role": "TangencyWeight"
             },
             {
               "name": "d4",
               "expression": "5 mm",
               "value": 0.5,
               "unit": "mm",
-              "owner": "Corner Round"
+              "owner": "Corner Round",
+              "role": "Radius"
             },
             {
               "name": "d5",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Corner Bevel"
+              "owner": "Corner Bevel",
+              "role": "Distance"
             },
             {
               "name": "d6",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d7",
               "expression": "4 mm",
               "value": 0.4,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             },
             {
               "name": "d8",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Hollow"
+              "owner": "Hollow",
+              "role": "innerThickness"
             }
           ],
           "marker": 6
@@ -6980,63 +7325,72 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "height",
             "value": 2.0,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Corner Round"
+            "owner": "Corner Round",
+            "role": "TangencyWeight"
           },
           {
             "name": "d5",
             "expression": "3 mm",
             "value": 0.30000000000000004,
             "unit": "mm",
-            "owner": "Corner Round"
+            "owner": "Corner Round",
+            "role": "Radius"
           },
           {
             "name": "d6",
             "expression": "3 mm",
             "value": 0.30000000000000004,
             "unit": "mm",
-            "owner": "Corner Bevel"
+            "owner": "Corner Bevel",
+            "role": "Distance"
           },
           {
             "name": "d7",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "TangencyWeight"
           },
           {
             "name": "d8",
             "expression": "4 mm",
             "value": 0.4,
             "unit": "mm",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "Radius"
           },
           {
             "name": "d9",
             "expression": "2 mm",
             "value": 0.2,
             "unit": "mm",
-            "owner": "Hollow"
+            "owner": "Hollow",
+            "role": "innerThickness"
           }
         ],
         "marker": 6
@@ -7088,63 +7442,72 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Corner Round"
+              "owner": "Corner Round",
+              "role": "TangencyWeight"
             },
             {
               "name": "d5",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Corner Round"
+              "owner": "Corner Round",
+              "role": "Radius"
             },
             {
               "name": "d6",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Corner Bevel"
+              "owner": "Corner Bevel",
+              "role": "Distance"
             },
             {
               "name": "d7",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d8",
               "expression": "4 mm",
               "value": 0.4,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             },
             {
               "name": "d9",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Hollow"
+              "owner": "Hollow",
+              "role": "innerThickness"
             }
           ],
           "marker": 0
@@ -7195,63 +7558,72 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Corner Round"
+              "owner": "Corner Round",
+              "role": "TangencyWeight"
             },
             {
               "name": "d5",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Corner Round"
+              "owner": "Corner Round",
+              "role": "Radius"
             },
             {
               "name": "d6",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Corner Bevel"
+              "owner": "Corner Bevel",
+              "role": "Distance"
             },
             {
               "name": "d7",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d8",
               "expression": "4 mm",
               "value": 0.4,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             },
             {
               "name": "d9",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Hollow"
+              "owner": "Hollow",
+              "role": "innerThickness"
             }
           ],
           "marker": 1
@@ -7335,63 +7707,72 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Corner Round"
+              "owner": "Corner Round",
+              "role": "TangencyWeight"
             },
             {
               "name": "d5",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Corner Round"
+              "owner": "Corner Round",
+              "role": "Radius"
             },
             {
               "name": "d6",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Corner Bevel"
+              "owner": "Corner Bevel",
+              "role": "Distance"
             },
             {
               "name": "d7",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d8",
               "expression": "4 mm",
               "value": 0.4,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             },
             {
               "name": "d9",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Hollow"
+              "owner": "Hollow",
+              "role": "innerThickness"
             }
           ],
           "marker": 2
@@ -7476,63 +7857,72 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Corner Round"
+              "owner": "Corner Round",
+              "role": "TangencyWeight"
             },
             {
               "name": "d5",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Corner Round"
+              "owner": "Corner Round",
+              "role": "Radius"
             },
             {
               "name": "d6",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Corner Bevel"
+              "owner": "Corner Bevel",
+              "role": "Distance"
             },
             {
               "name": "d7",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d8",
               "expression": "4 mm",
               "value": 0.4,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             },
             {
               "name": "d9",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Hollow"
+              "owner": "Hollow",
+              "role": "innerThickness"
             }
           ],
           "marker": 3
@@ -7618,63 +8008,72 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Corner Round"
+              "owner": "Corner Round",
+              "role": "TangencyWeight"
             },
             {
               "name": "d5",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Corner Round"
+              "owner": "Corner Round",
+              "role": "Radius"
             },
             {
               "name": "d6",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Corner Bevel"
+              "owner": "Corner Bevel",
+              "role": "Distance"
             },
             {
               "name": "d7",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d8",
               "expression": "4 mm",
               "value": 0.4,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             },
             {
               "name": "d9",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Hollow"
+              "owner": "Hollow",
+              "role": "innerThickness"
             }
           ],
           "marker": 4
@@ -7761,63 +8160,72 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Corner Round"
+              "owner": "Corner Round",
+              "role": "TangencyWeight"
             },
             {
               "name": "d5",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Corner Round"
+              "owner": "Corner Round",
+              "role": "Radius"
             },
             {
               "name": "d6",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Corner Bevel"
+              "owner": "Corner Bevel",
+              "role": "Distance"
             },
             {
               "name": "d7",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d8",
               "expression": "4 mm",
               "value": 0.4,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             },
             {
               "name": "d9",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Hollow"
+              "owner": "Hollow",
+              "role": "innerThickness"
             }
           ],
           "marker": 5
@@ -7912,63 +8320,72 @@
               "expression": "20.0 mm",
               "value": 2.0,
               "unit": "mm",
-              "owner": null
+              "owner": null,
+              "role": null
             },
             {
               "name": "d2",
               "expression": "height",
               "value": 2.0,
               "unit": "mm",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "AlongDistance"
             },
             {
               "name": "d3",
               "expression": "0 deg",
               "value": 0.0,
               "unit": "deg",
-              "owner": "Base Extrude"
+              "owner": "Base Extrude",
+              "role": "TaperAngle"
             },
             {
               "name": "d4",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Corner Round"
+              "owner": "Corner Round",
+              "role": "TangencyWeight"
             },
             {
               "name": "d5",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Corner Round"
+              "owner": "Corner Round",
+              "role": "Radius"
             },
             {
               "name": "d6",
               "expression": "3 mm",
               "value": 0.30000000000000004,
               "unit": "mm",
-              "owner": "Corner Bevel"
+              "owner": "Corner Bevel",
+              "role": "Distance"
             },
             {
               "name": "d7",
               "expression": "1",
               "value": 1.0,
               "unit": "",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "TangencyWeight"
             },
             {
               "name": "d8",
               "expression": "4 mm",
               "value": 0.4,
               "unit": "mm",
-              "owner": "Fillet"
+              "owner": "Fillet",
+              "role": "Radius"
             },
             {
               "name": "d9",
               "expression": "2 mm",
               "value": 0.2,
               "unit": "mm",
-              "owner": "Hollow"
+              "owner": "Hollow",
+              "role": "innerThickness"
             }
           ],
           "marker": 6
@@ -8065,63 +8482,72 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "height",
             "value": 2.0,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Corner Round"
+            "owner": "Corner Round",
+            "role": "TangencyWeight"
           },
           {
             "name": "d5",
             "expression": "3 mm",
             "value": 0.30000000000000004,
             "unit": "mm",
-            "owner": "Corner Round"
+            "owner": "Corner Round",
+            "role": "Radius"
           },
           {
             "name": "d6",
             "expression": "3 mm",
             "value": 0.30000000000000004,
             "unit": "mm",
-            "owner": "Corner Bevel"
+            "owner": "Corner Bevel",
+            "role": "Distance"
           },
           {
             "name": "d7",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "TangencyWeight"
           },
           {
             "name": "d8",
             "expression": "4 mm",
             "value": 0.4,
             "unit": "mm",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "Radius"
           },
           {
             "name": "d9",
             "expression": "2 mm",
             "value": 0.2,
             "unit": "mm",
-            "owner": "Hollow"
+            "owner": "Hollow",
+            "role": "innerThickness"
           }
         ],
         "marker": 6
@@ -8216,63 +8642,72 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "25 mm",
             "value": 2.5,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Corner Round"
+            "owner": "Corner Round",
+            "role": "TangencyWeight"
           },
           {
             "name": "d5",
             "expression": "5 mm",
             "value": 0.5,
             "unit": "mm",
-            "owner": "Corner Round"
+            "owner": "Corner Round",
+            "role": "Radius"
           },
           {
             "name": "d6",
             "expression": "3 mm",
             "value": 0.30000000000000004,
             "unit": "mm",
-            "owner": "Corner Bevel"
+            "owner": "Corner Bevel",
+            "role": "Distance"
           },
           {
             "name": "d7",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "TangencyWeight"
           },
           {
             "name": "d8",
             "expression": "4 mm",
             "value": 0.4,
             "unit": "mm",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "Radius"
           },
           {
             "name": "d9",
             "expression": "2 mm",
             "value": 0.2,
             "unit": "mm",
-            "owner": "Hollow"
+            "owner": "Hollow",
+            "role": "innerThickness"
           }
         ],
         "marker": 6
@@ -8367,63 +8802,72 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "25 mm",
             "value": 2.5,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Corner Round"
+            "owner": "Corner Round",
+            "role": "TangencyWeight"
           },
           {
             "name": "d5",
             "expression": "5 mm",
             "value": 0.5,
             "unit": "mm",
-            "owner": "Corner Round"
+            "owner": "Corner Round",
+            "role": "Radius"
           },
           {
             "name": "d6",
             "expression": "3 mm",
             "value": 0.30000000000000004,
             "unit": "mm",
-            "owner": "Corner Bevel"
+            "owner": "Corner Bevel",
+            "role": "Distance"
           },
           {
             "name": "d7",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "TangencyWeight"
           },
           {
             "name": "d8",
             "expression": "4 mm",
             "value": 0.4,
             "unit": "mm",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "Radius"
           },
           {
             "name": "d9",
             "expression": "2 mm",
             "value": 0.2,
             "unit": "mm",
-            "owner": "Hollow"
+            "owner": "Hollow",
+            "role": "innerThickness"
           }
         ],
         "marker": 6
@@ -8519,68 +8963,77 @@
             "expression": "20.0 mm",
             "value": 2.0,
             "unit": "mm",
-            "owner": null
+            "owner": null,
+            "role": null
           },
           {
             "name": "d2",
             "expression": "25 mm",
             "value": 2.5,
             "unit": "mm",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "AlongDistance"
           },
           {
             "name": "d3",
             "expression": "0 deg",
             "value": 0.0,
             "unit": "deg",
-            "owner": "Base Extrude"
+            "owner": "Base Extrude",
+            "role": "TaperAngle"
           },
           {
             "name": "d4",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Corner Round"
+            "owner": "Corner Round",
+            "role": "TangencyWeight"
           },
           {
             "name": "d5",
             "expression": "5 mm",
             "value": 0.5,
             "unit": "mm",
-            "owner": "Corner Round"
+            "owner": "Corner Round",
+            "role": "Radius"
           },
           {
             "name": "d6",
             "expression": "3 mm",
             "value": 0.30000000000000004,
             "unit": "mm",
-            "owner": "Corner Bevel"
+            "owner": "Corner Bevel",
+            "role": "Distance"
           },
           {
             "name": "d7",
             "expression": "1",
             "value": 1.0,
             "unit": "",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "TangencyWeight"
           },
           {
             "name": "d8",
             "expression": "4 mm",
             "value": 0.4,
             "unit": "mm",
-            "owner": "Fillet"
+            "owner": "Fillet",
+            "role": "Radius"
           },
           {
             "name": "d9",
             "expression": "2 mm",
             "value": 0.2,
             "unit": "mm",
-            "owner": "Hollow"
+            "owner": "Hollow",
+            "role": "innerThickness"
           }
         ],
         "marker": 6
       },
-      "saved_sha256": "0b96c2e2970ad53d574c4f950c3643742ce40dcc4fa6101f89c445b2c7c0ddbb",
+      "saved_sha256": "7db0743b2ecd5e7bb4183ebcb83a1972b29488c2bff4edb3232c5c01531889b5",
       "status": "accepted"
     }
   ],
