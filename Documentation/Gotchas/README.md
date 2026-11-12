@@ -9,6 +9,8 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 
 Read this log before working in an affected area. Keep entries short, searchable, and specific. Add a source or verification link when available. Move a growing topic into a focused PascalCase page in this folder and link it here; keep the bullet format.
 
+- **Reviewer mentions can target regular users:** Expected the configured mention to request automated review; the previous value resolved to [a regular GitHub user](https://api.github.com/users/67). Use the corrected [review configuration](../../.agents/skills/standard-pr-practice/ReviewBot.json), verify the responding account and app identity, and match its review to the current head SHA.
+
 - **Header remediation can leave dependency CI awaiting approval:** Expected the automated SPDX commit to complete PR validation; its current-head workflows can await maintainer approval while the aggregate remains on an older head. Approve the exact current-head runs and restart validation from a maintainer-authored commit when the aggregate did not start. See [PR 61's blocked run](https://github.com/TryUniCAD/Kit/actions/runs/42783888706).
 - **Pyright infers literal integer struct formats:** Expected `isinstance` to narrow an unpacked value; Pyright 1.1.414 already knows `H` and `I` return integers and rejects those checks as unnecessary. Return an explicit integer after the existing buffer bounds check. See [the compatibility entry](../Changes/PyrightCompatibility.md).
 

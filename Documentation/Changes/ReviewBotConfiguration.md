@@ -17,6 +17,13 @@ Agents reload it before requesting review and submit its contents verbatim once
 per head unless that revision already has a request or review. Other guidance
 links to the configuration instead of duplicating the trigger.
 
+The configured provider is restored to Greptile. Its observed review account is
+`greptile-apps[bot]` (user ID `165735046`), and its native check belongs to the
+`greptile-apps` GitHub App (app ID `867647`). Verify an actual current-head review
+from that integration; the previous mention resolved to an unrelated regular
+GitHub user. This correction changes the existing request value without adding a
+new reviewer setting.
+
 Both [AGENTS.md](../../AGENTS.md) and [CLAUDE.md](../../CLAUDE.md) require activating
 [standard-pr-practice](../../.agents/skills/standard-pr-practice/SKILL.md) before
 every repository task, including investigation, documentation, and skill edits.
