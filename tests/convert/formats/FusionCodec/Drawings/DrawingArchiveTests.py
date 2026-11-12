@@ -12,7 +12,7 @@ from convert.formats.Fusion.DrawingCodec.Package.EmitPackage import EmitPackage
 from convert.formats.Fusion.DrawingCodec.Package.EntryLayout import EntryLayout
 from convert.formats.Fusion.DrawingCodec.Package.PackageEntry import PackageEntry
 from convert.formats.Fusion.DrawingCodec.Package.ReadPackage import ReadPackage
-from convert.formats.Fusion.DrawingCodec.Parts.SheetLayout import SheetLayout
+from convert.formats.Fusion.DrawingCodec.Members.SheetLayout import SheetLayout
 from convert.formats.Fusion.DrawingCodec.ReadDrawing import ReadDrawing
 from convert.formats.Fusion.EntityCodec.Model.ValuePair import ValuePair
 from convert.formats.Fusion.EntityCodec.Model.ValueSeries import ValueSeries

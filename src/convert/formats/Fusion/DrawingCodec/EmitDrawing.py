@@ -22,10 +22,10 @@ from convert.formats.Fusion.DrawingCodec.Model.FusionDrawing import FusionDrawin
 from convert.formats.Fusion.DrawingCodec.Package.DrawingPackage import DrawingPackage
 from convert.formats.Fusion.DrawingCodec.Package.EmitPackage import EmitPackage
 from convert.formats.Fusion.DrawingCodec.Package.PackageEntry import PackageEntry
-from convert.formats.Fusion.DrawingCodec.Parts.PropertyCodec import EmitProperties
-from convert.formats.Fusion.DrawingCodec.Parts.RedirectCodec import EmitRedirects
-from convert.formats.Fusion.DrawingCodec.Parts.SheetCodec import EmitSheet
-from convert.formats.Fusion.DrawingCodec.Parts.WriteJson import WriteJson
+from convert.formats.Fusion.DrawingCodec.Members.PropertyCodec import EmitProperties
+from convert.formats.Fusion.DrawingCodec.Members.RedirectCodec import EmitRedirects
+from convert.formats.Fusion.DrawingCodec.Members.SheetCodec import EmitSheet
+from convert.formats.Fusion.DrawingCodec.Members.WriteJson import WriteJson
 from convert.formats.Fusion.DrawingCodec.Segments.EmitSegments import EmitSegments
 
 

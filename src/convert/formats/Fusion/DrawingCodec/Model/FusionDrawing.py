@@ -7,10 +7,10 @@ from convert.formats.Fusion.DrawingCodec.Manifest.DrawingAsset import DrawingAss
 from convert.formats.Fusion.DrawingCodec.Manifest.DrawingRoot import DrawingRoot
 from convert.formats.Fusion.DrawingCodec.Model.DrawingDatabase import DrawingDatabase
 from convert.formats.Fusion.DrawingCodec.Model.PackageSlot import PackageSlot
-from convert.formats.Fusion.DrawingCodec.Parts.JsonFields import JsonFields
-from convert.formats.Fusion.DrawingCodec.Parts.JsonPart import JsonPart
-from convert.formats.Fusion.DrawingCodec.Parts.Redirections import Redirections
-from convert.formats.Fusion.DrawingCodec.Parts.SheetLayout import SheetLayout
+from convert.formats.Fusion.DrawingCodec.Members.JsonFields import JsonFields
+from convert.formats.Fusion.DrawingCodec.Members.JsonPart import JsonPart
+from convert.formats.Fusion.DrawingCodec.Members.Redirections import Redirections
+from convert.formats.Fusion.DrawingCodec.Members.SheetLayout import SheetLayout
 
 
 @MakeDataClass(frozen=True, slots=True)

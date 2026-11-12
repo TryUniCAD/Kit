@@ -24,11 +24,11 @@ from convert.formats.Fusion.DrawingCodec.Model.DrawingNames import (
 from convert.formats.Fusion.DrawingCodec.Model.FusionDrawing import FusionDrawing
 from convert.formats.Fusion.DrawingCodec.Model.PackageSlot import PackageSlot
 from convert.formats.Fusion.DrawingCodec.Package.ReadPackage import ReadPackage
-from convert.formats.Fusion.DrawingCodec.Parts.JsonPart import JsonPart
-from convert.formats.Fusion.DrawingCodec.Parts.PropertyCodec import ReadProperties
-from convert.formats.Fusion.DrawingCodec.Parts.ReadJsonPart import ReadJsonPart
-from convert.formats.Fusion.DrawingCodec.Parts.RedirectCodec import ReadRedirects
-from convert.formats.Fusion.DrawingCodec.Parts.SheetCodec import ReadSheet
+from convert.formats.Fusion.DrawingCodec.Members.JsonPart import JsonPart
+from convert.formats.Fusion.DrawingCodec.Members.PropertyCodec import ReadProperties
+from convert.formats.Fusion.DrawingCodec.Members.ReadJsonPart import ReadJsonPart
+from convert.formats.Fusion.DrawingCodec.Members.RedirectCodec import ReadRedirects
+from convert.formats.Fusion.DrawingCodec.Members.SheetCodec import ReadSheet
 from convert.formats.Fusion.DrawingCodec.Segments.ReadSegments import ReadSegmentsMut
 
 

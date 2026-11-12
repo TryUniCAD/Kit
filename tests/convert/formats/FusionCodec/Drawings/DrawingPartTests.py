@@ -2,27 +2,27 @@ from typing import cast as CastValue
 
 from pytest import raises as ExpectError
 
-from convert.formats.Fusion.DrawingCodec.Parts.JsonFields import JsonFields
-from convert.formats.Fusion.DrawingCodec.Parts.JsonPart import JsonPart
-from convert.formats.Fusion.DrawingCodec.Parts.JsonStyle import JsonStyle
-from convert.formats.Fusion.DrawingCodec.Parts.PropertyCodec import (
+from convert.formats.Fusion.DrawingCodec.Members.JsonFields import JsonFields
+from convert.formats.Fusion.DrawingCodec.Members.JsonPart import JsonPart
+from convert.formats.Fusion.DrawingCodec.Members.JsonStyle import JsonStyle
+from convert.formats.Fusion.DrawingCodec.Members.PropertyCodec import (
     EmitProperties,
     ReadProperties,
 )
-from convert.formats.Fusion.DrawingCodec.Parts.ReadJsonPart import ReadJsonPart
-from convert.formats.Fusion.DrawingCodec.Parts.RedirectCodec import (
+from convert.formats.Fusion.DrawingCodec.Members.ReadJsonPart import ReadJsonPart
+from convert.formats.Fusion.DrawingCodec.Members.RedirectCodec import (
     EmitRedirects,
     ReadRedirects,
 )
-from convert.formats.Fusion.DrawingCodec.Parts.Redirections import (
+from convert.formats.Fusion.DrawingCodec.Members.Redirections import (
     RedirectDesign,
     RedirectLink,
     Redirections,
     RedirectValue,
 )
-from convert.formats.Fusion.DrawingCodec.Parts.SheetCodec import EmitSheet, ReadSheet
-from convert.formats.Fusion.DrawingCodec.Parts.SheetLayout import SheetLayout
-from convert.formats.Fusion.DrawingCodec.Parts.WriteJson import WriteJson
+from convert.formats.Fusion.DrawingCodec.Members.SheetCodec import EmitSheet, ReadSheet
+from convert.formats.Fusion.DrawingCodec.Members.SheetLayout import SheetLayout
+from convert.formats.Fusion.DrawingCodec.Members.WriteJson import WriteJson
 
 KSheetText = (
     b'{"verticalZones":"4","sheetHeight":"297.000000","sheetSize":"A3",'

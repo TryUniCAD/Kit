@@ -1035,7 +1035,7 @@ downloads/
 eggs/
 .eggs/
 lib64/
-parts/
+/parts/
 sdist/
 *.egg-info/
 .installed.cfg
