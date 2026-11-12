@@ -31,6 +31,6 @@ def MakeSample() -> BrepSample:
         CylinderBody(12.5, 21.75, (3.0, -4.0, 5.0)),
         BodyIdentity(7, 1701, 13, 1794477991119457),
         TagSet,
-        HistoryState(17, 2, 17, 8, 5),
+        HistoryState(17, 2, 17, 8, 2),
         GeometryStamp("Kit", "BRep integration", "2026-11-12T00:00:00Z"),
     )

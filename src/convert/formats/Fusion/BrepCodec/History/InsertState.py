@@ -10,7 +10,7 @@ def MakeInsertState(History: HistoryState, RecordCount: int) -> GeometryRecord:
         *MakeStateHead(History.CurrentId, 0, -1, 1),
         1,
         EntityRef(0),
-        History.BoardNumber,
+        History.BoardStatus,
     ]
     for Index in range(1, RecordCount):
         Values.extend((1, EntityRef(-1), EntityRef(Index)))

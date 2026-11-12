@@ -28,6 +28,6 @@ def MakePrism() -> PrismSample:
             ),
             tuple(SketchLink(Value, 0, 0, 1, 1) for Value in range(901, 905)),
         ),
-        HistoryState(17, 2, 17, 8, 5),
+        HistoryState(17, 2, 17, 8, 2),
         GeometryStamp("Kit", "Prism history integration", "2026-11-12T00:00:00Z"),
     )

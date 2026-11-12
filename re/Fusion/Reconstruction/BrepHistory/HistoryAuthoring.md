@@ -4,7 +4,6 @@
 
 The verbose generated JSON reports are preserved exactly in [HistoryEvidence.tar.xz](HistoryEvidence.tar.xz); [HistoryEvidence.json](HistoryEvidence.json) lists their original filenames, sizes, SHA-256 digests, and extraction command. The report names below refer to those archive members. Native acceptance and focused disassembly reports remain separate readable files.
 
-
 ## Scope
 
 This experiment authors the complete solved-model `.smbh` stream for a 19 mm extrusion of a 10 mm radius circle. It accepts explicit Design identity values and an insertion-only kernel history model. It does not read a native archive, native kernel stream or recorded payload during generation.
@@ -15,20 +14,20 @@ Native acceptance now establishes this same-source geometry/cache edit with a ne
 
 ## Files
 
-| File | Role |
-|---|---|
-| `IdentityModel.py` | Typed body, topology tag, sketch link, journal and provenance inputs |
-| `AttributeRecords.py` | Newly allocated persistent, sketch and timestamp attributes |
-| `JournalRecords.py` | Explicit two-state insertion journal |
-| `GenerateHistory.py` | Complete ASM binary serialization and per-field derivation report |
-| `CylinderNineteen.json` | Explicit semantic input for this same-source edit |
-| `IndependentNineteen.smbh` | Generated 5,286-byte stream |
-| `IndependentNineteen.derivation.json` | Every record/field derivation and input provenance |
-| `IndependentNineteen.tokens.json` | Full byte-offset token framing of the generated stream |
-| `IndependentNineteen.semantic.json` | Named entity, attribute and journal fields |
-| `NativeLineage.json` | Native 7 mm, 13 mm and two 23 mm stream identity observations |
-| `CacheMeasurements.json` | Independently calculated 19 mm area, volume, centroid and inertia |
-| `AcceptanceBinding.json` | Exact generated-geometry and enclosing-archive hashes linked to native acceptance |
+| File                                  | Role                                                                              |
+| ------------------------------------- | --------------------------------------------------------------------------------- |
+| `IdentityModel.py`                    | Typed body, topology tag, sketch link, journal and provenance inputs              |
+| `AttributeRecords.py`                 | Newly allocated persistent, sketch and timestamp attributes                       |
+| `JournalRecords.py`                   | Explicit two-state insertion journal                                              |
+| `GenerateHistory.py`                  | Complete ASM binary serialization and per-field derivation report                 |
+| `CylinderNineteen.json`               | Explicit semantic input for this same-source edit                                 |
+| `IndependentNineteen.smbh`            | Generated 5,286-byte stream                                                       |
+| `IndependentNineteen.derivation.json` | Every record/field derivation and input provenance                                |
+| `IndependentNineteen.tokens.json`     | Full byte-offset token framing of the generated stream                            |
+| `IndependentNineteen.semantic.json`   | Named entity, attribute and journal fields                                        |
+| `NativeLineage.json`                  | Native 7 mm, 13 mm and two 23 mm stream identity observations                     |
+| `CacheMeasurements.json`              | Independently calculated 19 mm area, volume, centroid and inertia                 |
+| `AcceptanceBinding.json`              | Exact generated-geometry and enclosing-archive hashes linked to native acceptance |
 
 The generated stream's SHA-256 is `077ab663e22ea712f58c9745466c2035bd62ba496933da84668a708fa2d347c2`.
 
@@ -42,36 +41,36 @@ Native controls and reflection are analysis inputs only. `GenerateHistory.py` re
 
 These identities come from `LocalOracle/Features/extrude_07mm.entities.json` and the fully framed embedded kernel stream:
 
-| Namespace | Identity | Observed relationship |
-|---|---:|---|
-| Design indexed record | 8 | `Ns::BREP::BRepHistorySerializer` |
-| Design indexed record | 7 | Current `Ns::BREP::Bodies` collection |
-| Design indexed record | 261 | `Ns::BREP::Body` owned by collection 7 |
-| ASM body key | 0 | `mapBodyId` in record 8 pairs key 0 with body 261 |
-| Design indexed record | 260 | Body progenitor; reflected operation identity is 301 |
-| Design operation identity | 301 | Body generic-tag text and face/edge group references |
-| Design indexed record | 235 | Editable extrusion feature |
-| Sketch curve identity | `(102, 0)` | Bottom-circle coedge source link |
-| ASM state identities | 4 and 2 | Current and initial journal states in the 7 mm control |
+| Namespace                 |   Identity | Observed relationship                                  |
+| ------------------------- | ---------: | ------------------------------------------------------ |
+| Design indexed record     |          8 | `Ns::BREP::BRepHistorySerializer`                      |
+| Design indexed record     |          7 | Current `Ns::BREP::Bodies` collection                  |
+| Design indexed record     |        261 | `Ns::BREP::Body` owned by collection 7                 |
+| ASM body key              |          0 | `mapBodyId` in record 8 pairs key 0 with body 261      |
+| Design indexed record     |        260 | Body progenitor; reflected operation identity is 301   |
+| Design operation identity |        301 | Body generic-tag text and face/edge group references   |
+| Design indexed record     |        235 | Editable extrusion feature                             |
+| Sketch curve identity     | `(102, 0)` | Bottom-circle coedge source link                       |
+| ASM state identities      |    4 and 2 | Current and initial journal states in the 7 mm control |
 
 The distinction between operation identity 301 and Design body record 261 is essential. Replacing the generic body tag with the body's indexed record number would change its identity semantics even though both are integers.
 
-The body generic-tag group also contains the integer 4 after its operation-ID text. The input calls this `body_generation_reference`, not an established Design record reference. Native lineage observations show that it stays 4 after the current kernel state changes to 6 or 7. It therefore cannot be interpreted as the current state ID. Its exact general cross-namespace meaning remains unresolved, and the same-source experiment supplies it explicitly.
+The body generic-tag group also contains the integer 4 after its operation-ID text. The historical input calls this `body_generation_reference`; later [native tag evidence](../CuboidHistory/GenericTagEvidence.json) establishes it as the signed secondary ID, independent of stream state IDs. Native lineage observations show that it stays 4 after the current kernel state changes to 6 or 7. The same-source experiment supplies it explicitly; current production names it `SecondaryId`.
 
 The native entity stream additionally gives body 261 persistent UUID `ae4be75b-1a15-45aa-bd72-b7bbffe57f6b`. That UUID remains in the enclosing Design document; it is not inserted into a kernel field that does not store it.
 
 ## Native lineage observations
 
-| Native archive | Current state | Initial state | Body key | Preamble allocation field | Body generic generation reference |
-|---|---:|---:|---:|---:|---:|
-| `extrude_07mm.f3d` | 4 | 2 | 0 | 1 | 4 |
-| `extrude_13mm.f3d` | 6 | 2 | 1 | 2 | 4 |
-| `vendor_23mm.f3d` | 7 | 2 | 1 | 2 | 4 |
-| `vendor_graph23mm.f3d` | 7 | 2 | 1 | 2 | 4 |
+| Native archive         | Current state | Initial state | Body key | Next entity tag | Body generic secondary ID |
+| ---------------------- | ------------: | ------------: | -------: | --------------: | ------------------------: |
+| `extrude_07mm.f3d`     |             4 |             2 |        0 |               1 |                         4 |
+| `extrude_13mm.f3d`     |             6 |             2 |        1 |               2 |                         4 |
+| `vendor_23mm.f3d`      |             7 |             2 |        1 |               2 |                         4 |
+| `vendor_graph23mm.f3d` |             7 |             2 |        1 |               2 |                         4 |
 
-In these controls, the first two preamble integers equal the current state ID. This does not establish that they do so in all Fusion archives. The fourth integer correlates with one plus the highest body key in these samples, but that interpretation is not yet a complete general rule. The generator takes `stream_generation` and `allocation_counter` explicitly rather than deriving them from an unsupported global assumption.
+In these controls, the first two preamble integers happen to equal the current state ID. Later [native instruction evidence](../JournalStates/NativeEvidence.json) proves that they are distinct current and maximum allocated state IDs. The fourth value is the next entity tag, allocated by `HISTORY_STREAM::tag` and `assign_tag`. The corrected generator accepts explicit `stream_current_state_id`, `max_state_id`, `next_entity_tag` and `board_status` inputs. Its loader accepts the old `stream_generation`, `allocation_counter` and `board_number` spellings only to reproduce the unchanged historical input artifact; conflicting old/new spellings reject.
 
-The generated 19 mm stream keeps body key 0, current state 4, initial state 2, stream generation 4 and allocation field 1. This preserves the original archive's same-source linkage profile while replacing its solved geometry. A native recompute is free to allocate a different body key and journal generation afterward.
+The generated 19 mm stream keeps body key 0, current state 4, initial state 2, stream current/maximum state 4 and next entity tag 1. This preserves the original archive's same-source linkage profile while replacing its solved geometry. A native recompute is free to allocate a different body key and stream state IDs afterward.
 
 ## Newly allocated record graph
 
@@ -79,35 +78,35 @@ The analytic cylinder remains the independently authored 26-record topology alre
 
 The nine attribute records are appended at new ordinals, unlike the native control's interleaved attribute allocation:
 
-| New record | Owner | Attribute |
-|---:|---:|---|
-| 26 | Body 1 | Authoring timestamp; next attribute 27 |
-| 27 | Body 1 | Generic body identity; previous attribute 26 |
-| 28 | Side face 4 | Selector 1, label `3`, operation 301 |
-| 29 | Top face 5 | Selector 1, label `2`, operation 301 |
-| 30 | Bottom face 6 | Selector 1, label `1`, operation 301 |
-| 31 | Top edge 15 | Selector 2, label `-1`, operation 301 |
-| 32 | Bottom edge 16 | Selector 4, label `-102`, operation 301 |
-| 33 | Bottom side coedge 12 | Sketch identity `(102, 0)`, sense 0, enum pair `(1, 1)` |
-| 34 | Bottom cap coedge 14 | Same explicit sketch identity |
+| New record |                 Owner | Attribute                                               |
+| ---------: | --------------------: | ------------------------------------------------------- |
+|         26 |                Body 1 | Authoring timestamp; next attribute 27                  |
+|         27 |                Body 1 | Generic body identity; previous attribute 26            |
+|         28 |           Side face 4 | Selector 1, label `3`, operation 301                    |
+|         29 |            Top face 5 | Selector 1, label `2`, operation 301                    |
+|         30 |         Bottom face 6 | Selector 1, label `1`, operation 301                    |
+|         31 |           Top edge 15 | Selector 2, label `-1`, operation 301                   |
+|         32 |        Bottom edge 16 | Selector 4, label `-102`, operation 301                 |
+|         33 | Bottom side coedge 12 | Sketch identity `(102, 0)`, sense 0, enum pair `(1, 1)` |
+|         34 |  Bottom cap coedge 14 | Same explicit sketch identity                           |
 
 Entity attribute heads and both directions of the body attribute chain refer to these new ordinals. Every owner and topology reference belongs to the newly allocated table. No old binary offsets or raw attribute fragments are reused.
 
 The modern attribute prefix is reserved reference `-1`, integer marker `-1`, next reference, previous reference and owner reference. A generic family payload then stores the family name, schema integers `3, 3, -1`, the repeated family name with a trailing space, and a semantic group count.
 
-The body group stores selector 3, operation 301 as decimal text, the explicit generation reference 4, and two profile zeros. Face/edge groups store their explicit selector, label text, zero, reference count, operation identity integers and final zero. Labels `-1` and `-102` are text, not null pointers.
+The body group stores primary byte length 3, operation 301 as decimal text, secondary ID 4, operation count zero and approach ID zero. Face/edge groups store their primary byte length, label text, secondary ID zero, operation count, operation identity integers and approach ID zero. Historical artifacts retain the old selector/generation names; the later native evidence supersedes that interpretation. Labels `-1` and `-102` are text, not null pointers.
 
-The sketch payload stores schema markers 1 and 1, payload form 3, and an ASCII six-integer tuple. Its inserted zero is vocabulary for that form. Other tuple members are explicit typed identity inputs. The authoring timestamp is an explicit floating-point Unix-microsecond input, distinct from the file save date.
+The sketch payload stores schema markers 1 and 1, payload form 3, and an ASCII six-integer tuple. Its fourth tuple member is the zero-qualified topology role flags, not an inserted separator. The other fields are primary ID, secondary ID, direction and one-based split sequence/total, as established by the later [ASCII serializer evidence](../EntityGraph/SketchAsciiSemantics.md). The authoring timestamp is an explicit floating-point Unix-microsecond input, distinct from the file save date.
 
 ## Complete new insertion journal
 
 The header is `ASM BinaryFile8` plus words `23200, 0, 2, 3`. Word 2 denotes the two top-level roots including `asmheader`, not a record-table offset rule. The product/version/save strings are explicit `Kit` provenance. Binary scale metadata is explicitly 50 to match the enclosing history profile; geometric lengths still serialize in centimetres.
 
-The history preamble contains explicit generation metadata twice, profile zero, allocation metadata, and the bounded two-node reference profile `-1, 0, 1, -1`. Its record begins with `Begin-of-ASM-History-Data` followed immediately by a second identifier, `history_stream`.
+The history preamble contains explicit current and maximum state IDs, zero retained-state limit, the next entity tag, and the bounded two-node reference profile `-1, 0, 1, -1`. Its record begins with `Begin-of-ASM-History-Data` followed immediately by a second identifier, `history_stream`.
 
-The current delta state has ID 4 and node index 0, with previous node `-1` and next node 1. Version flag 1, state flag 0, partner `-1`, owner reference 0 and false body sentinel form the observed two-node profile. One board with owner 0 and board number 2 inserts every newly allocated active record 1 through 34. Each insertion is encoded as a presence integer, old reference `-1` and new table ordinal.
+The current delta state has ID 4 and node index 0, with previous node `-1` and next node 1. Native backward flag 1, the zero-qualified boolean at offset `0x15`, a self-linked partner ring, the null-qualified state reference at `0x50`, owner-stream reference 0 and absent optional name form the observed two-node profile. One board with owner 0 and succeeded status 2 inserts every newly allocated active record 1 through 34. Each insertion is encoded as a presence integer, old reference `-1` and new table ordinal.
 
-The change-chain zero, board-chain zero and final separator zero close the current state. The initial delta state has ID 2, node index 1, previous node 0 and next node `-1`; its board chain is empty. There are no archived revisions because this journal describes new entity insertion only.
+The change-chain zero, board-chain zero and zero count for the native state list at offset `0x48` close the current state. The general semantic purpose of that list remains unresolved; the two-state profile qualifies it empty. The initial delta state has ID 2, node index 1, previous node 0 and next node `-1`; its board chain is empty. There are no archived revisions because this journal describes new entity insertion only.
 
 The stream ends with the two consecutive name chains `End-of-ASM-History-Section` and `End-of-ASM-data`, without an intervening record delimiter or final terminator. This is the fully observed empty archived-revision form.
 
@@ -137,12 +136,12 @@ The [archive rewrite provenance](../../LocalOracle/Features/CacheRewrite.json) b
 
 The [native acceptance report](../../LocalOracle/Features/CacheAcceptance.json), from Fusion 2706.1.17, reports:
 
-| Stage | Height, cm | Volume, cm³ | Topology | Driving expression |
-|---|---:|---:|---|---|
-| Initial open before `computeAll()` | 1.9 | 5.969026041820864 | 3 faces, 2 edges, 2 vertices | `19 mm` |
-| Explicit rebuild | 1.9000000000000001 | 5.969026041820864 | Same | `19 mm` |
-| Native edit and rebuild | 2.3000000000000003 | 7.225663103256217 | Same | `23 mm` |
-| Native save and reopen | 2.3000000000000003 | 7.225663103256217 | Same | `23 mm` |
+| Stage                              |         Height, cm |       Volume, cm³ | Topology                     | Driving expression |
+| ---------------------------------- | -----------------: | ----------------: | ---------------------------- | ------------------ |
+| Initial open before `computeAll()` |                1.9 | 5.969026041820864 | 3 faces, 2 edges, 2 vertices | `19 mm`            |
+| Explicit rebuild                   | 1.9000000000000001 | 5.969026041820864 | Same                         | `19 mm`            |
+| Native edit and rebuild            | 2.3000000000000003 | 7.225663103256217 | Same                         | `23 mm`            |
+| Native save and reopen             | 2.3000000000000003 | 7.225663103256217 | Same                         | `23 mm`            |
 
 The timeline retains sketch `Radius10mm` and editable extrusion `Kit ControlledExtrusion`. Parameter `depthLength` drives the extrusion's dependent `d2`; `d3` remains a zero-degree taper. The saved 23 mm archive has SHA-256 `7b57faec53a441a0e0a40c8c48b56bb3e9ee2b037a38cda2dbeee517f6f84c08`. The report records zero remaining documents after cleanup.
 

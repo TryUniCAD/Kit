@@ -48,15 +48,20 @@ class DesignIdentity:
 class HistoryIdentity:
     current_state_id: int
     initial_state_id: int
-    stream_generation: int
-    allocation_counter: int
-    board_number: int
+    stream_current_state_id: int
+    next_entity_tag: int
+    board_status: int
+    max_state_id: int | None = None
 
     def __post_init__(self):
         if not 0 <= self.initial_state_id < self.current_state_id:
             raise ValueError("History state identities must be ordered and nonnegative")
-        if min(self.stream_generation, self.allocation_counter, self.board_number) < 0:
-            raise ValueError("History scalar metadata must be nonnegative")
+        maximum = self.stream_current_state_id if self.max_state_id is None else self.max_state_id
+        object.__setattr__(self, "max_state_id", maximum)
+        if not 0 <= self.stream_current_state_id <= maximum < 1 << 31:
+            raise ValueError("History current/maximum state identities are invalid")
+        if not 0 <= self.next_entity_tag < 1 << 31 or self.board_status not in range(4):
+            raise ValueError("History entity tag or board status is invalid")
 
 
 @dataclass(frozen=True)

@@ -45,9 +45,10 @@ def BuildBodyPart(
     History = HistoryState(
         Policy.HistoryCurrentId,
         Policy.HistoryInitialId,
-        Policy.HistoryGeneration,
-        Policy.HistoryAllocation,
-        Policy.HistoryBoardNumber,
+        Policy.HistoryCurrentStateId,
+        Policy.HistoryNextEntityTag,
+        Policy.HistoryBoardStatus,
+        Policy.HistoryMaxStateId,
     )
     Stamp = GeometryStamp(
         "Kit", "Fusion native document codec", DateTime.now(UTC).isoformat()

@@ -40,7 +40,13 @@ def encode_history(contract, authored_at):
         FeatureTag(contract['bottomEdgeLabel'], operations),
         SketchLink(contract['sketchPrimary'], 0, 0, 1, 1),
     )
-    history = HistoryState(contract['currentHistoryId'], contract['initialHistoryId'], contract['historyGeneration'], contract['allocation'], contract['boardNumber'])
+    history_fields = dict(contract)
+    for old, new in (('historyGeneration', 'historyCurrentStateId'), ('allocation', 'nextEntityTag'), ('boardNumber', 'boardStatus')):
+        if old in history_fields:
+            if new in history_fields:
+                raise ValueError('Conflicting legacy history contract names')
+            history_fields[new] = history_fields.pop(old)
+    history = HistoryState(contract['currentHistoryId'], contract['initialHistoryId'], history_fields['historyCurrentStateId'], history_fields['nextEntityTag'], history_fields['boardStatus'], history_fields.get('maxStateId'))
     stamp = GeometryStamp('Kit', 'Independent authored extrusion', parsed.astimezone(timezone.utc).isoformat().replace('+00:00', 'Z'))
     data = EmitHistory(model, identity, tags, history, stamp)
     evidence = {'encoder': 'convert.formats.Fusion.BrepCodec.EmitHistory.EmitHistory', 'cylinder': asdict(model), 'bodyIdentity': asdict(identity), 'topologyTags': asdict(tags), 'history': asdict(history), 'stamp': asdict(stamp), 'partName': contract['partName'], 'bodyEntityId': contract['bodyEntityId'], 'bodyUuidInDesign': contract['bodyUuid'], 'size': len(data), 'sha256': hashlib.sha256(data).hexdigest(), 'sourceGeometry': None, 'sourceHistory': None}

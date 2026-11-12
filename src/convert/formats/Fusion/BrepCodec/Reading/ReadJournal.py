@@ -23,6 +23,7 @@ def ReadJournal(Records: tuple[AsmRecord, ...], EntityCount: int) -> HistoryStat
         ReadAsmInt(Preamble, 0),
         ReadAsmInt(Preamble, 3),
         ReadAsmInt(Current, 11),
+        ReadAsmInt(Preamble, 1),
     )
     Expected = GeometryTokens((MakePreamble(History), MakeEmptyState(History)))
     if (Preamble, Initial) != Expected:
@@ -33,7 +34,7 @@ def ReadJournal(Records: tuple[AsmRecord, ...], EntityCount: int) -> HistoryStat
             *MakeStateHead(History.CurrentId, 0, -1, 1),
             1,
             EntityRef(0),
-            History.BoardNumber,
+            History.BoardStatus,
         ),
     )
     PrefixTokens = GeometryTokens((Prefix,))[0].Tokens

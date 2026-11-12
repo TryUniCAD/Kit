@@ -21,7 +21,7 @@ Each `FeatureTag` contains its primary identifier, ordered operation identities,
 The secondary sketch identity supports the full unsigned 64-bit range.
 
 `BodyIdentity` supplies the persistent body key, operation identity, explicit secondary identity, and authoring timestamp.
-`HistoryState` supplies current and initial state IDs, generation, allocation counter, and board number.
+`HistoryState` supplies insertion and initial delta IDs, stream current/maximum state IDs, the next entity tag and the board status. [Native history semantics](FusionHistoryStates.md) supersede the original generation/allocation/board-number labels.
 The body secondary identity remains explicit and is independent of the current history state. In the canonical authored document it matches the Design-side body progenitor tag. [Native tag semantics](FusionGenericTagSemantics.md) supersede the earlier generation-reference and selector interpretation.
 The [identity model](../../../re/Fusion/Reconstruction/BrepHistory/HistoryAuthoring.md) records the observed relationships and remaining semantic limits.
 

@@ -14,9 +14,9 @@ class AuthorPolicy:
     BodyKey: int = 0
     HistoryCurrentId: int = 4
     HistoryInitialId: int = 2
-    HistoryGeneration: int = 4
-    HistoryAllocation: int = 1
-    HistoryBoardNumber: int = 2
+    HistoryCurrentStateId: int = 4
+    HistoryNextEntityTag: int = 1
+    HistoryBoardStatus: int = 2
     SideFaceLabel: str = "3"
     TopFaceLabel: str = "2"
     BottomFaceLabel: str = "1"
@@ -24,3 +24,4 @@ class AuthorPolicy:
     BodyOccurrenceCount: int = 1
     CurveProgenitorTag: int = 3
     BodyProgenitorTag: int = 4
+    HistoryMaxStateId: int | None = None

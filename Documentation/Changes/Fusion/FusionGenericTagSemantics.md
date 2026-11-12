@@ -9,7 +9,7 @@ Body tags with operation identities longer than three decimal characters now hav
 `FeatureTag` exposes `PrimaryId`, `OperationIds`, `SecondaryId`, and `ApproachId`.
 The removed `Selector` field was a byte count, not a topology selector.
 `BodyIdentity.SecondaryId` replaces the misleading `GenerationRef` name.
-The secondary identity is independent of the history state's generation number.
+The secondary identity is independent of the history stream state IDs and entity-tag counter. [Native history semantics](FusionHistoryStates.md) replaces the earlier generation-number terminology.
 
 The canonical document author uses its existing `BodyProgenitorTag` as the body's secondary identity.
 Its redundant `AuthorPolicy.GenerationRef` setting has been removed.

@@ -7,10 +7,14 @@ def MakePreamble(History: HistoryState) -> GeometryRecord:
     return GeometryRecord(
         "history_stream",
         (
-            History.Generation,
-            History.Generation,
+            History.CurrentStateId,
+            (
+                History.CurrentStateId
+                if History.MaxStateId is None
+                else History.MaxStateId
+            ),
             0,
-            History.Allocation,
+            History.NextEntityTag,
             EntityRef(-1),
             EntityRef(0),
             EntityRef(1),

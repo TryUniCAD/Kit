@@ -48,6 +48,7 @@ jobs:
           tests/convert/formats/FusionCodec/Geometry/Prism
           tests/convert/formats/FusionCodec/Geometry/Frustum
           tests/convert/formats/FusionCodec/Brep/HistoryArchiveTests.py
+          tests/convert/formats/FusionCodec/Brep/HistoryStateTests.py
           tests/convert/formats/FusionCodec/Brep/SnapshotArchiveTests.py
           tests/convert/formats/FusionCodec/Brep/SourceLinkTests.py
           tests/convert/formats/FusionCodec/Brep/BrepReadArchiveTests.py

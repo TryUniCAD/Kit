@@ -75,7 +75,7 @@ def TestNativeBrep(TmpPath: FilePath) -> None:
     assert Value.Identity.BodyKey == 0
     assert Value.Identity.OperationId == 301
     assert Value.Identity.SecondaryId == 4
-    assert Value.History.CurrentId == Value.History.Generation == 4
+    assert Value.History.CurrentId == Value.History.CurrentStateId == 4
     assert Value.History.InitialId == 2
     assert Value.Stamp.Product == "Autodesk Neutron"
     assert Value.TagSet.Sketch.PrimaryId == 102

@@ -60,7 +60,7 @@ def generate(cylinder, design, history, provenance):
         "limitations": [
             "Same-source Design body-map and feature identities are supplied explicitly; no surrounding F3D is generated",
             "One insertion-only two-state kernel history profile",
-            "Body generation linkage and history allocation metadata retain explicit scalar inputs with incomplete general semantics",
+            "Body secondary identity and native history counters are explicit; arbitrary branching and archived revisions remain unsupported",
             "Saved Design body measurements and display meshes are separate caches and may require coherent rewriting",
         ],
     }
@@ -76,7 +76,13 @@ def load_model(value):
         identity[name] = FeatureTag(tag["selector"], tag["label"], tuple(tag["operation_ids"]))
     identity["sketch"] = SketchLink(**identity["sketch"])
     identity["authoring_unix_microseconds"] = float(identity["authoring_unix_microseconds"])
-    return cylinder, DesignIdentity(**identity), HistoryIdentity(**value["history"]), StreamProvenance(**value["provenance"])
+    history = dict(value["history"])
+    for old, new in (("stream_generation", "stream_current_state_id"), ("allocation_counter", "next_entity_tag"), ("board_number", "board_status")):
+        if old in history:
+            if new in history:
+                raise ValueError("Conflicting legacy history input names")
+            history[new] = history.pop(old)
+    return cylinder, DesignIdentity(**identity), HistoryIdentity(**history), StreamProvenance(**value["provenance"])
 
 
 def main():
