@@ -1,4 +1,5 @@
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
+from convert.formats.Fusion.DocumentCodec.Extrusion.ProfileSides import ProfileSides
 
 
 def AddExtrudeMut(Author: AuthorState) -> None:
@@ -22,8 +23,11 @@ def AddExtrudeMut(Author: AuthorState) -> None:
     )
     Author.Allocate("extrude_tool", "DcExtrudeToolBody", ParentRole="nodes")
     Author.Allocate("extrude_progenitors", "ProgenitorTable")
-    Author.Allocate("curve_progenitor", "SketchCurveProgenitor", NamedPairs=[])
-    Author.Allocate("curve_recipe", "SketchCurveRecipe")
+    for SideValue in ProfileSides(Author):
+        Author.Allocate(
+            SideValue.ProgenitorRole, "SketchCurveProgenitor", NamedPairs=[]
+        )
+        Author.Allocate(SideValue.RecipeRole, "SketchCurveRecipe")
     Author.Allocate("body_progenitor", "BodyProgenitor")
     Author.Allocate("body", "Body", ParentRole="bodies")
     Author.Allocate("bodies_root", "BodiesRoot", RootName="BodiesRoot")

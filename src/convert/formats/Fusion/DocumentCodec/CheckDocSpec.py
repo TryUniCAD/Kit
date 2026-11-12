@@ -2,14 +2,26 @@ from math import isfinite as IsFinite
 from typing import cast as CastValue
 
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
+from convert.formats.Fusion.DocumentCodec.Materials.CheckMaterial import CheckMaterial
 
 
 def CheckDocSpec(SpecValue: DocumentSpec) -> None:
     if not isinstance(CastValue(object, SpecValue), DocumentSpec):
         raise ValueError("A typed Fusion document specification is required")
-    if SpecValue.ProfileKind not in ("parameter", "circle", "extrusion"):
+    if SpecValue.ProfileKind not in (
+        "parameter",
+        "circle",
+        "extrusion",
+        "rectangle",
+        "cuboid",
+    ):
         raise ValueError("Unsupported Fusion document profile")
-    for Amount in (SpecValue.LengthMm, SpecValue.RadiusMm):
+    for Amount in (
+        SpecValue.LengthMm,
+        SpecValue.RadiusMm,
+        SpecValue.WidthMm,
+        SpecValue.DepthMm,
+    ):
         if type(Amount) not in (int, float) or not IsFinite(Amount) or Amount <= 0:
             raise ValueError("Authored dimensions must be finite and positive")
     for TextValue in (
@@ -26,6 +38,7 @@ def CheckDocSpec(SpecValue: DocumentSpec) -> None:
             or "\x00" in TextValue
         ):
             raise ValueError("Invalid authored document text")
+    CheckMaterial(SpecValue.Material)
     NameValue = SpecValue.ParamName
     if (
         not NameValue

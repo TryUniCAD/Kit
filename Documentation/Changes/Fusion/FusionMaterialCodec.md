@@ -24,4 +24,4 @@ PR compatibility coverage reads the native material package, edits typed values 
 
 ## Limits
 
-This API handles the binary material stores. XML schema and relationship packaging remains in the research orchestration layer. The measured archive is a same-source edit, not an independently authored complete document. External texture resources, arbitrary legacy libraries, and unobserved property kinds are not established. The codec requires explicit schema input and does not silently guess a material layout.
+This API handles the binary material stores. The [typed package codec](FusionMaterialPackages.md) now provides qualified XML schema, metadata and relationship packaging. The measured archive in this entry is a same-source edit; the later package entry records independently authored complete-document acceptance separately. External texture resources, arbitrary legacy libraries, and unobserved property kinds are not established. The binary codec requires explicit schema input and does not silently guess a material layout.

@@ -1,8 +1,8 @@
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
-from convert.formats.Fusion.DocumentCodec.Extrusion.RecipeValues import (
-    CircleLoop,
-    CurveRecipe,
-)
+from convert.formats.Fusion.DocumentCodec.Extrusion.ProfileRecipe import ProfileRecipe
+from convert.formats.Fusion.DocumentCodec.Extrusion.ProfileSides import ProfileSides
+from convert.formats.Fusion.DocumentCodec.Extrusion.SideRecipe import SideRecipe
+from convert.formats.Fusion.DocumentCodec.Sketch.SketchRole import SketchRole
 
 
 def LinkProfileMut(Author: AuthorState) -> None:
@@ -18,7 +18,7 @@ def LinkProfileMut(Author: AuthorState) -> None:
             "PassiveScopeValue",
             dict(
                 assetId=Author.AssetId,
-                scopeEntityIdentifier=str(Author.Roles["circle_sketch"]),
+                scopeEntityIdentifier=str(Author.Roles[SketchRole(Author)]),
                 scopeIdType=1,
                 segmentId=Author.Policy.DesignSegmentId,
             ),
@@ -31,11 +31,10 @@ def LinkProfileMut(Author: AuthorState) -> None:
         trackingType=65,
         rParentFeature=Reference("dc_extrude"),
     )
-    TagId = Author.Policy.FirstSketchTag + 2
     RecipeData = [
         Author.MakeGroup(
             "SkRegionRecipeDataValue",
-            dict(faceRecipe=[CircleLoop(TagId)], originalFaceRecipes=[]),
+            dict(faceRecipe=[ProfileRecipe(Author)], originalFaceRecipes=[]),
         )
     ]
     Author.Change(
@@ -43,5 +42,6 @@ def LinkProfileMut(Author: AuthorState) -> None:
         rSketchRegionRef=Reference("profile_region"),
         skRegionRecipe=[RecipeData],
     )
-    Author.Change("curve_progenitor", rRecipe=Reference("curve_recipe"))
-    Author.Change("curve_recipe", profileEdgeTagData=CurveRecipe(TagId, True))
+    for SideValue in ProfileSides(Author):
+        Author.Change(SideValue.ProgenitorRole, rRecipe=Reference(SideValue.RecipeRole))
+        Author.Change(SideValue.RecipeRole, profileEdgeTagData=SideRecipe(SideValue))

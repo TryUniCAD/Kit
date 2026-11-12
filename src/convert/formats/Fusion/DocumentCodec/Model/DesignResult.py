@@ -1,5 +1,7 @@
 from dataclasses import dataclass as MakeDataClass
 
+from convert.formats.Fusion.DocumentCodec.Materials.Model.AuthoredMat import AuthoredMat
+
 from convert.formats.Fusion.ContainerCodec.Model.SegmentStreams import SegmentStreams
 from convert.formats.Fusion.EntityCodec.Model.EntityRecord import EntityRecord
 from convert.formats.Fusion.EntityCodec.Schema.EntityProfile import EntityProfile
@@ -18,3 +20,4 @@ class DesignResult:
     NextId: int
     BrepPart: str | None
     BodyId: str | None
+    Materials: AuthoredMat | None = None

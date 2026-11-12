@@ -1,18 +1,14 @@
-from pathlib import Path
 from uuid import uuid4 as MakeUuid
 
 from convert.formats.Fusion.DocumentCodec.Model.AuthorPolicy import AuthorPolicy
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
-from convert.formats.Fusion.DocumentCodec.Vocabulary.ReadVocabulary import (
-    ReadVocabulary,
-)
+from convert.formats.Fusion.DocumentCodec.Vocabulary.AuthorSchemas import AuthorSchemas
 
 
 def CreateAuthor(SpecValue: DocumentSpec, AssetId: str) -> AuthorState:
     Policy = AuthorPolicy()
-    Source = Path(__file__).parents[1] / "Vocabulary" / "DesignClasses.json"
-    Schemas = ReadVocabulary(Source)
+    Schemas = AuthorSchemas(SpecValue.ProfileKind)
     return AuthorState(
         SpecValue,
         Policy,

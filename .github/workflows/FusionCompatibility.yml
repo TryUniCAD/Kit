@@ -60,6 +60,7 @@ jobs:
           tests/convert/formats/FusionCodec/Materials/MaterialStoreTests.py
           tests/convert/formats/FusionCodec/Materials/MaterialPadTests.py
           tests/convert/formats/FusionCodec/Materials/MaterialLinkTests.py
+          tests/convert/formats/FusionCodec/Materials/Package
           tests/convert/formats/FusionCodec/Entities
           tests/convert/formats/FusionCodec/Containers
           tests/convert/formats/FusionCodec/Documents

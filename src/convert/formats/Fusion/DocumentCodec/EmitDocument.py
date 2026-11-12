@@ -15,6 +15,7 @@ from convert.formats.Fusion.DocumentCodec.EnvelopePolicy import (
     KSoftwareVersion,
 )
 from convert.formats.Fusion.DocumentCodec.MakePreviews import MakePreviews
+from convert.formats.Fusion.DocumentCodec.Materials.BuildMatPart import BuildMatPart
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from convert.formats.Fusion.MetaIndex import SegmentKind
 
@@ -37,6 +38,10 @@ def EmitDocument(SpecValue: DocumentSpec) -> bytes:
     Streams = (Design.Streams, Assembly.Streams, Browser.Streams)
     return EmitContainer(
         FusionContainer(
-            Document, Asset, Streams, MakePreviews(), BuildBodyPart(SpecValue, Design)
+            Document,
+            Asset,
+            Streams,
+            MakePreviews(),
+            BuildBodyPart(SpecValue, Design) + BuildMatPart(Design),
         )
     )

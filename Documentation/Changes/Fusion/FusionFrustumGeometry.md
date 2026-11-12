@@ -29,3 +29,5 @@ Scoped Black formatting, Ruff, mypy, Pyright and the repository steering checker
 Fusion 2706.1.17 accepted all six independently produced artifacts: SMT and SMB for an expanding frustum `(10, 14, 17)` mm, a contracting frustum `(14, 8, 23)` mm, and the equal-radius limit `(9, 9, 11)` mm, each with a translated base. Every result was one solid with three faces, two edges and two vertices. Native volume, surface area, center of mass and bounds matched the analytic expectations before and after F3D save/reopen. The oracle closed every controlled document.
 
 [Preparation.json](../../../re/Fusion/LocalOracle/Frustums/Preparation.json) records exact inputs, expected measurements and source hashes; [NativeAcceptance.json](../../../re/Fusion/LocalOracle/Frustums/NativeAcceptance.json) records native observations and saved-file hashes. This verifies the standalone geometry contract; it does not qualify tapered parametric feature/history authoring.
+
+Remote compatibility run `43233457278` on revision `2fbad758d47c38a69ecbfb9756e5dccf333e5759` passed all 853 cases in 51.84 seconds, including all nineteen new frustum cases. No local test suite ran.

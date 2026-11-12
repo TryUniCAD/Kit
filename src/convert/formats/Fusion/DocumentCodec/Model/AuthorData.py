@@ -1,5 +1,7 @@
 from dataclasses import dataclass as MakeDataClass
 
+from convert.formats.Fusion.DocumentCodec.Materials.Model.AuthoredMat import AuthoredMat
+
 from convert.formats.Fusion.DocumentCodec.Model.AuthorPolicy import AuthorPolicy
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from convert.formats.Fusion.DocumentCodec.Model.DraftEntity import DraftEntity
@@ -23,3 +25,4 @@ class AuthorData:
     InstanceId: str
     BodyId: str
     BrepPart: str
+    Materials: AuthoredMat | None = None

@@ -10,6 +10,7 @@ from convert.formats.Fusion.EntityCodec.Model.ValueObject import ValueObject
 from convert.formats.Fusion.EntityCodec.Model.ValueStruct import ValueStruct
 from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.EntityCodec.Schema.WireType import WireType
+from convert.formats.Fusion.EntityCodec.Tags.SketchFields import KSketchFields
 
 
 def ConvertValue(
@@ -28,6 +29,8 @@ def ConvertValue(
         return ConvertSeries(Value, Shape, Catalog)
     if KindValue == "struct":
         return ValueStruct(ConvertFields(Value, Shape.Members, Catalog))
+    if KindValue == "sketch-tag":
+        return ValueStruct(ConvertFields(Value, KSketchFields, Catalog))
     if KindValue == "object":
         return ValueObject(ConvertGroups(Value, Catalog))
     if KindValue == "matrix":

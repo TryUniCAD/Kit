@@ -1,4 +1,5 @@
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
+from convert.formats.Fusion.DocumentCodec.Sketch.SketchRole import SketchRole
 
 
 def LinkExtrudeMut(Author: AuthorState) -> None:
@@ -72,5 +73,5 @@ def LinkExtrudeMut(Author: AuthorState) -> None:
         ],
     )
     Author.Change("component", operationSeedId=OperationId + 3)
-    Author.Change("circle_sketch", isVisible=False)
+    Author.Change(SketchRole(Author), isVisible=False)
     Author.Change("dc_sketch", isVisibleBeforeRollback=False)

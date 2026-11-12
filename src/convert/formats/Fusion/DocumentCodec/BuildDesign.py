@@ -1,4 +1,7 @@
 from convert.formats.Fusion.DocumentCodec.CheckDocSpec import CheckDocSpec
+from convert.formats.Fusion.DocumentCodec.Materials.LinkMaterialMut import (
+    LinkMaterialMut,
+)
 from convert.formats.Fusion.DocumentCodec.Defaults.BaseDefaults import BaseDefaults
 from convert.formats.Fusion.DocumentCodec.Defaults.ExtrudeDefaults import (
     ExtrudeDefaults,
@@ -24,6 +27,8 @@ from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from convert.formats.Fusion.DocumentCodec.Records.EmitDesign import EmitDesign
 from convert.formats.Fusion.DocumentCodec.Sketch.AddCircleMut import AddCircleMut
 from convert.formats.Fusion.DocumentCodec.Sketch.LinkCircleMut import LinkCircleMut
+from convert.formats.Fusion.DocumentCodec.Rectangle.AddRectangle import AddRectangle
+from convert.formats.Fusion.DocumentCodec.Rectangle.LinkRectangle import LinkRectangle
 from convert.formats.Fusion.SegmentCodec.Features.Binary.CheckUuid import CheckUuid
 
 
@@ -46,7 +51,11 @@ def BuildDesign(SpecValue: DocumentSpec, AssetId: str) -> DesignResult:
         Author.Defaults.update(SketchDefaults())
         AddCircleMut(Author)
         LinkCircleMut(Author)
-    if SpecValue.ProfileKind == "extrusion":
+    if SpecValue.ProfileKind in ("rectangle", "cuboid"):
+        Author.Defaults.update(SketchDefaults())
+        AddRectangle(Author)
+        LinkRectangle(Author)
+    if SpecValue.ProfileKind in ("extrusion", "cuboid"):
         Author.Defaults.update(ExtrudeDefaults())
         for Builder in (
             AddExtrudeMut,
@@ -54,6 +63,7 @@ def BuildDesign(SpecValue: DocumentSpec, AssetId: str) -> DesignResult:
             LinkProfileMut,
             LinkExtrudeMut,
             LinkBodyMut,
+            LinkMaterialMut,
         ):
             Builder(Author)
     return EmitDesign(Author)

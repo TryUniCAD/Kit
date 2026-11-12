@@ -1,5 +1,7 @@
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
 from convert.formats.Fusion.DocumentCodec.Extrusion.MassCache import MassCache
+from convert.formats.Fusion.DocumentCodec.Extrusion.LinkBodyTags import LinkBodyTags
+from convert.formats.Fusion.DocumentCodec.Rectangle.CuboidCache import CuboidCache
 
 
 def LinkBodyMut(Author: AuthorState) -> None:
@@ -9,7 +11,11 @@ def LinkBodyMut(Author: AuthorState) -> None:
         actIdentifier=str(Author.Policy.DesignSegmentId)
         + "_"
         + str(Author.Roles["body"]),
-        cache=MassCache(Author),
+        cache=(
+            CuboidCache(Author)
+            if Author.SpecValue.ProfileKind == "cuboid"
+            else MassCache(Author)
+        ),
         massProperties=Author.MakeValue("MassPropertiesValue"),
         persistentId=Author.BodyId,
         physicalMaterial=Author.MakeValue("PhysicalMaterialValue"),
@@ -36,34 +42,4 @@ def LinkBodyMut(Author: AuthorState) -> None:
         rBody=Reference("body"),
         rOwnFeature=Reference("dc_extrude"),
     )
-    LabelBytes = Author.Policy.SideFaceLabel.encode("ascii")
-    InfoValue = [
-        Author.MakeGroup(
-            "FeatureTagInfoValue",
-            dict(
-                facePrimIdData=list(LabelBytes),
-                facePrimIdOffsets=[0, len(LabelBytes)],
-                operationId=Author.Policy.FirstOperationId + 1,
-                primary=False,
-            ),
-        )
-    ]
-    Author.Change(
-        "body_progenitor",
-        bodyUuid=Author.BodyId,
-        featureTagOccMap=[
-            {"key": InfoValue, "value": Author.Policy.BodyOccurrenceCount}
-        ],
-    )
-    CurveTag, BodyTag = (
-        Author.Policy.CurveProgenitorTag,
-        Author.Policy.BodyProgenitorTag,
-    )
-    Author.Change(
-        "extrude_progenitors",
-        ProgenitorTagVec=[
-            {"first": Reference("curve_progenitor"), "second": CurveTag},
-            {"first": Reference("body_progenitor"), "second": BodyTag},
-        ],
-        tagId=max(CurveTag, BodyTag) + 1,
-    )
+    LinkBodyTags(Author)

@@ -2,7 +2,10 @@ from collections.abc import Callable
 
 from convert.formats.Fusion.ContainerCodec.ReadContainer import ReadContainer
 from convert.formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentModel
-from convert.formats.Fusion.DocumentCodec.ReadBodyPart import ReadBodyPart
+from convert.formats.Fusion.DocumentCodec.Reading.ReadDocParts import ReadDocParts
+from convert.formats.Fusion.DocumentCodec.Reading.Materials.CheckDocMats import (
+    CheckDocMats,
+)
 from convert.formats.Fusion.DocumentCodec.Records.MakeDocProfile import MakeDocProfile
 from convert.formats.Fusion.DocumentCodec.Records.ReadDocSchemas import ReadDocSchemas
 from convert.formats.Fusion.DocumentCodec.Records.ReadDocSegment import ReadDocSegment
@@ -26,12 +29,15 @@ def ReadDocument(
         )
         for Stream, MetaValue in zip(Container.Streams, Metadata, strict=True)
     )
-    Bodies = tuple(ReadBodyPart(PartValue) for PartValue in Container.Parts)
-    return DocumentModel(
+    Bodies, Materials = ReadDocParts(Container.Parts)
+    Result = DocumentModel(
         Container.Document,
         Container.Asset,
         Segments,
         Bodies,
         Container.Previews,
         Container.EmptyFolders,
+        Materials,
     )
+    CheckDocMats(Result)
+    return Result
