@@ -107,3 +107,43 @@ Revision `8a6122596348933b846bf8f9a2f27dcfb2272cd3` passed 1,168 remote compatib
 [Native acceptance](../../../re/Fusion/LocalOracle/RotationalDocuments/NativeAcceptance.json), SHA-256 `7120ad57f88df6adc7ebb0e965093f083b5ab85d2ecc9bb5cab70dec8b3c5442`, matches three original circle/cylinder/frustum documents against their complete typed reconstructions through every rollback marker, rebuild, parameter edits and save/reopen. The circle changes radius 14→16 mm, all three change `publicHeight` 21→26 mm, and frustum taper changes −3→4°. The edited cylinder/frustum volumes are 11.762122895039681 and 13.634178374871233 cm³. All documents close afterward.
 
 [Public registry preparation](../../../re/Fusion/LocalOracle/NativeRotationalPublic/Preparation.json) independently reads each source, serializes its complete neutral state and writes the same accepted candidate bytes. Their SHA-256 values are `1b2a7c2d57ca750030c75514ccb977c0cf8bb9dcfea7c0018de08716ef161610`, `29b666aa7afc20267e273bbd4d29f98143d3c2157af3ca2e353785724f2e4176` and `fa018c7ec54ae00ebbb0da84312eafb5915a3ce3ed90e57149cf78c8caa39e81`. Byte identity reuses that native acceptance without claiming a second native execution. The qualified public graph remains one unconstrained planar circle with zero or one additive circular extrusion.
+
+## T-spline control surfaces
+
+[Native acceptance](../../../re/Fusion/LocalOracle/TSplineCodec/NativeAcceptance.json), SHA-256 `c6f6973215fbb0f46cc454f2fc998132d988e2f76fc03ec002981e4c8551964d`, has status `accepted` in Fusion 2706.1.17. Zero documents remained open.
+
+| Production operation           | Construction and observed result                                                                                         | Boundary                                   |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------ |
+| TSM read and re-emission       | Twelve native plane, box, symmetric box, edited and crease-contrast controls re-emit byte for byte                       | Qualified `#TS0200` profile only           |
+| Native lifecycle of re-emitted | Control and re-emission are equal after form import, conversion, control-point edit, save and reopen                     | Form-graph routing is not part of the test |
+| Source-free closed cage        | 17 × 23 × 31 mm cage with explicit face, edge and vertex roots equals the native box primitive at every stage within 1e-8 | Closed quad cages only                     |
+| Authored solved body           | Initial area 12.710567668877099 cm². Edited area 12.43421957296201 cm² and volume 3.8361736781260087 cm³, kept after reopen | Default and very-high accuracy agree       |
+
+[Root](../../../re/Fusion/LocalOracle/TSplineCodec/RootVariants/Capture.json) and [edge](../../../re/Fusion/LocalOracle/TSplineCodec/EdgeVariants/Capture.json) variant captures show that the root links are orientation state. See the [T-spline codec entry](../../Changes/Fusion/TSpline/FusionTsplineCodec.md).
+
+## Round bodies and trimmed round histories
+
+[Native acceptance](../../../re/Fusion/LocalOracle/RoundBodies/NativeAcceptance.json), SHA-256 `9f6cb8ea77c26a105d5294adcb6f37c393d1eaeb405125da1bf98d8afe582648`, has status `accepted` in Fusion 2706.1.17. Zero documents remained open.
+
+| Production operation       | Construction and observed result                                                                                          |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Authored sphere            | Radius 19 mm, volume 28.73091201462985 cm³, area 45.36459791783661 cm², `adsk::core::Sphere`, save and reopen              |
+| Authored torus and tilted torus | 31/9 mm, volume 49.56515330227076 cm³, area 110.14478511615724 cm², `adsk::core::Torus`, save and reopen              |
+| Native carrier re-emission | Sphere, torus, tilted torus and placed torus `.smb` regenerate byte for byte and equal the native control                  |
+| Partial closed pipe        | Every rollback marker, rebuild, `d3` edit to 8 mm, volume 3.46423114478236 → 6.158633146279758 cm³, save and reopen        |
+| Composite circular pipe    | Every rollback marker, rebuild, `d3` edit to 6 mm, volume 1.166559470517908 → 2.6247588086652924 cm³, save and reopen      |
+| Rule-all-rounds fillets    | 454 records, 359 active, four states, `d7` edit to 0.8 mm, volume 37.96633332328521 → 37.97836761590841 cm³, save and reopen |
+
+Authored round bodies are direct-design bodies. No parametric feature history is synthesized for them. See the [round body entry](../../Changes/Fusion/Geometry/FusionRoundBodies.md).
+
+## Remote compatibility after circular, round and T-spline work
+
+Revision `55aeed29b454d084ac23567f75c7b3602a9e5468` ran the extended archive compatibility job in [run 43288977523](https://github.com/TryUniCAD/Kit/actions/runs/43288977523). It passed 1,256 cases, failed three and had one collection error. The earlier history-dispatch failures from run 43256167270 did not recur.
+
+| Remote failure                         | Cause                                                                                   | Repair                                          |
+| -------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| Circle scene, extrusion and frustum    | Extruded scenes consume the sketch profile fill mesh, so only the circle has a `RenderMesh` | Expect the mesh only for the circle document |
+| History guard, body role               | General dispatch now rejects the corrupted body key in the journal allocator check first | Accept either rejection message               |
+| `CheckRotaryBody` collection error     | The `Check*` collection pattern selected a helper function                              | Rename the helper                               |
+
+Steering also rejected two test names over 15 letters and a four-letter variable. These repairs await subsequent remote CI. Native acceptance does not substitute for that result.

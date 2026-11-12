@@ -1,0 +1,5 @@
+file: <FusionApp>/Contents/Frameworks/ASM/libtsplines.14.dylib
+size: 21307968 B (20.3 MB)  sha256: 820d4a39767b6c92c7074cead1d2961a043eaa257e9fc2db2fd0ce5e832af9fc
+format: Mach-O universal (x86-64+arm64)
+markers: none
+next: binary_inventory(path); decompile(path, function=NAME) only for logic questions

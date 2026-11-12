@@ -39,18 +39,143 @@ An F3D file combines several linked databases inside a ZIP container.
 Each database has a different identity namespace, ordering rule, and versioned schema.
 Unpacking the container exposes those databases without resolving their relationships.
 
-| Difficulty                                          | Consequence for a reader or writer                                   |
-| --------------------------------------------------- | -------------------------------------------------------------------- |
-| Class numbers come from each segment's registry     | A numeric class tag cannot identify a feature across files           |
-| Primary and inherited records have separate indexes | A complete object can occupy several nonadjacent records             |
-| Timeline order comes from explicit references       | Physical order and object numbers cannot reconstruct feature history |
-| Design IDs differ from kernel entity numbers        | An integer match across the two domains is insufficient              |
-| Body maps select geometry histories                 | A convenient blob or its first BODY can describe the wrong object    |
-| Persistent names survive topology changes           | Current face order cannot replace feature selection identity         |
-| Solved caches accompany procedural definitions      | A plausible NURBS surface can differ from the exact model            |
-| Several caches repeat parameter values              | Editing one binary64 field can leave inconsistent feature state      |
-| Unknown fields can affect regeneration              | Byte replay cannot prove independent document generation             |
-| ZIP method 93 is uncommon in older readers          | A generic archive tool can fail before inspecting any CAD records    |
+The difficulty is cumulative.
+Each layer below can be solved alone, but a writer must satisfy all layers in the same file.
+A file that passes the checks of one layer can still fail to load, rebuild, or measure correctly in Fusion.
+Fusion does not report every such failure as an error.
+Some failures appear only as a changed area or volume after conversion.
+
+| Difficulty                                                   | Consequence for a reader or writer                                       |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| Class numbers come from each segment's registry              | A numeric class tag cannot identify a feature across files               |
+| Primary and inherited records have separate indexes          | A complete object can occupy several nonadjacent records                 |
+| Timeline order comes from explicit references                | Physical order and object numbers cannot reconstruct feature history     |
+| Design IDs differ from kernel entity numbers                 | An integer match across the two domains is insufficient                  |
+| Body maps select geometry histories                          | A convenient blob or its first BODY can describe the wrong object        |
+| Persistent names survive topology changes                    | Current face order cannot replace feature selection identity             |
+| Solved caches accompany procedural definitions               | A plausible NURBS surface can differ from the exact model                |
+| Several caches repeat parameter values                       | Editing one binary64 field can leave inconsistent feature state          |
+| Unknown fields can affect regeneration                       | Byte replay cannot prove independent document generation                 |
+| ZIP method 93 is uncommon in older readers                   | A generic archive tool can fail before inspecting any CAD records        |
+| Archived kernel states are not stored in rollback order      | Physical state order cannot replace the delta-state graph                |
+| Periodic faces can close a solid without edges               | A polygon Euler check rejects valid spheres and tori                     |
+| T-spline root links are orientation state                    | Re-rooting a valid control cage changes the converted body               |
+| Edit counters change during ordinary edits                   | A changed counter is not evidence of a schema or topology change         |
+| Serializer framing depends on the class, not on its name     | Two similarly named classes can use different identity framing           |
+| Native mass caches have their own numeric precision          | An exact analytic check rejects valid saved mass properties              |
+| A T-spline unit declaration disagrees with stored coordinates | A literal unit conversion scales the control cage by a factor of 100     |
+| Legacy collections keep stale counters                       | A plausible counter is not a timeline position                           |
+
+### Container layer
+
+The ZIP container uses method 93, which is Zstandard compression.
+The study corpus declares 10,732 stored members and 10,537 Zstandard members.
+Generic archive tools and the REA F3D inspector reject method 93 before they read any CAD record.
+A writer must produce Zstandard members that the Fusion reader accepts.
+See the [tool limitation](../../Gotchas/Conversion/Fusion/FusionArchiveInspection.md).
+
+### Object-graph layer
+
+Each indexed segment pairs a bulk stream with a metadata stream.
+The metadata stream declares a class registry that is local to that segment.
+The same class can have a different number in another segment or file.
+A class identifier is therefore a GUID, not a number.
+The corpus declares 403 class GUIDs, and only the installed libraries name most of them.
+
+A primary record and its inherited records have separate indexes.
+A complete object is the join of those records, not one contiguous byte range.
+Each class also has its own schema and inheritance versions.
+`Ns::MemberSet::addNewMember` registers members in two maps and a vector.
+That decompiled routine shows that map order is not wire order.
+The persistence visitor sets the wire order.
+
+The timeline comes from explicit references in `DcCreationOrderFeatures.representationFeatures`.
+Physical record order, object numbers, and the legacy `m_curFeatureId` field do not give the timeline.
+That legacy field has the value 1 in both one-feature and two-feature controls.
+See the [legacy feature state gotcha](../../Gotchas/Conversion/Fusion/Api/FusionLegacyFeatureState.md).
+
+### Identity layer
+
+Four identity domains occur in one document.
+They use similar integers for unrelated objects.
+
+| Domain                  | Scope                                   | Example failure when it is confused                      |
+| ----------------------- | --------------------------------------- | -------------------------------------------------------- |
+| Design entity IDs       | Records in the Design segment           | A feature points to an unrelated kernel body             |
+| ASM entity pointers     | Records inside one SMB or SMBH stream   | A face points to a record in a different state           |
+| Delta-state identifiers | States of the kernel history stream     | Rollback restores the wrong state                        |
+| Persistent entity tags  | Named topology across states            | A feature selects a different face after a rebuild       |
+
+The journal header stores the current state, the maximum allocated state, a retained-state limit, and the next entity tag.
+A rolled-back native stream stores `3,10,0,6`, so the current and maximum states differ.
+A writer must not derive one counter from another.
+A mesh body uses `pMeshUuid`, which equals the component registry `fusion_uuid`.
+Neither the filename UUID nor the container mesh UUID is that identity.
+
+### Geometry layer
+
+Geometry is stored as ASM SMB and SMBH binary streams.
+An SMBH stream contains the kernel `HISTORY_STREAM`, `DELTA_STATE`, and `BULLETIN_BOARD` graph.
+Each bulletin records an insertion, deletion, or replacement of one entity.
+Archived states can be physically ordered `14, 2, 9` while the rollback order is `14 → 9 → 2`.
+
+A face carries a procedural or analytic carrier and also a solved cache.
+A sphere or torus face can close a solid with no loops, edges, or vertices.
+A full circle can store its arc from 0 to 2π while its snapshot edge runs from −π to +π.
+A circle sketch snapshot contains an open planar sheet with an unpartnered coedge.
+Each of these valid native states fails a validator that assumes closed polygon solids.
+
+### Evaluation-state layer
+
+Some fields change the solved result but look like bookkeeping.
+T-spline face origins, edge origins, and vertex orientation links are evaluation state.
+A cage with the same points and faces but different roots converts to a different body.
+The difference is about 4.5e-7 in relative area.
+It is deterministic and survives edits, save, and reopen.
+See the [orientation gotcha](../../Gotchas/Conversion/Fusion/TSpline/RootLinksAreOrientation.md).
+
+Other fields look like state but are only counters.
+The TSM `ver` record increments during ordinary edits.
+Setting it to the native value does not change the solved body.
+
+Numeric caches have their own precision.
+A native cylinder save stores transverse moments `17.385321755015763` and `17.38532263840058` for one axisymmetric body.
+The reported integration precision is about `4.8e-4`.
+An exact analytic symmetry check rejects that valid save.
+See the [mass precision gotcha](../../Gotchas/Conversion/Fusion/Api/FusionCircularMassPrecision.md).
+
+### Display and auxiliary layer
+
+The OGS graphics scene, ParaMesh streams, materials, previews, and configurations are separate members.
+Each member has its own serializer and identity rules.
+The OGS serializer selects resource framing per class.
+`PrimitiveLODGeometryNode` clears the resource flag, but `SimpleMesh`, `VertexBuffer`, and `CircleArc<double>` keep it.
+See the [inline graphics gotcha](../../Gotchas/Conversion/Fusion/Graphics/FusionInlineGraphics.md).
+Complete document acceptance reconstructs these members instead of omitting them.
+
+### Tooling and oracle layer
+
+External tools identify names but do not establish field widths or meanings.
+The installed universal Mach-O libraries require an arm64 slice before decompilation.
+Upstream structural research labels some T-spline fields differently from the native getters.
+The Fusion API is also not a perfect oracle.
+One axial torus request ignored its supplied center.
+Only measured native load, rebuild, edit, save, and reopen results decide a disputed field.
+
+### Method that resolved the format
+
+| Step                    | Evidence produced                                                                |
+| ----------------------- | -------------------------------------------------------------------------------- |
+| Corpus inventory        | 712 tracked archives, 21,269 members, and every declared class GUID              |
+| Binary symbol evidence  | 1,218 class-identifier mappings from 14 installed libraries                      |
+| External inventories    | `reverse-engineer` and REA outputs that bind exported names to library digests   |
+| Controlled variants     | One-variable native files, such as the T-spline root and edge variants           |
+| Byte-exact re-emission  | Typed decode and encode that reproduce native members without source bytes      |
+| Independent authoring   | New files from dimensions, cages, or analytic bodies, with no source template    |
+| Native acceptance       | Fusion 2706.1.17 load, rollback, rebuild, edit, save, and reopen measurements    |
+
+A field is qualified only when all applicable steps agree.
+An unexplained field is a rejection boundary, not a retained opaque value.
 
 ## Container and document families
 
@@ -829,10 +954,184 @@ An edge used by one coedge has a null partner; two incident uses require recipro
 
 The [sphere/torus research](../../Changes/Fusion/Geometry/FusionRoundCarrierResearch.md) binds native text, binary fields and installed kernel save/restore/evaluation instructions. Sphere parameterization stores separate reference and pole directions; torus parameterization stores axis, two signed-length fields and reference direction. Neither is defined only by a display mesh. Four optional U/V bounds follow the carrier-specific fields.
 
-Owned sphere and torus bodies have one face, zero edges and zero vertices. A periodic untrimmed carrier can close a solid without explicit edge loops. Closed polygon-shell validation must remain a separate geometric specialization. The native request also cannot replace measured ground truth: one axial torus API call ignored its supplied center, while explicit transformation produced the intended persisted carrier. This finding is confined to the captured call/build and is not a format placement convention. These records remain research; independent product sphere/torus authoring is not claimed.
+Owned sphere and torus bodies have one face, zero edges and zero vertices. A periodic untrimmed carrier can close a solid without explicit edge loops. Closed polygon-shell validation must remain a separate geometric specialization. The native request also cannot replace measured ground truth: one axial torus API call ignored its supplied center, while explicit transformation produced the intended persisted carrier. This finding is confined to the captured call/build and is not a format placement convention. These records were research when first captured. The [round body section](#authored-round-bodies-and-trimmed-round-histories) now adds production authoring and acceptance.
 
 ## Circular sketch display resources
 
 The [circular graphics extension](../../Changes/Fusion/Graphics/FusionCircularGraphics.md) resolves regular/nonculling sketch-node lists, inline primitive LOD nodes and shared render-mesh, vertex-buffer and circular-arc resources. Class names alone do not determine identity framing: serializer constructors clear the resource flag for primitive LOD nodes but retain it for the mesh and analytic primitive. The generic render mesh uses a different vertex path from Fusion's body mesh override. Circle-arc graphics store their sampling interval, radius, center, normal, angular interval and reference point as distinct typed fields.
 
 Native circle/cylinder/frustum documents now reconstruct their complete graphics worlds and mesh streams exactly. Their independent parameter edits and save/reopen acceptance include the authoritative entity graph, BRep, snapshots, materials and configurations as well as the display state. [The public circular projection](../../Changes/Fusion/Adapter/FusionNativeCircularProjection.md) joins those decoded records through their actual references and retains the full native state.
+
+## T-spline control cages and orientation
+
+A Fusion Form body stores its T-spline control cage as a `.tsm` text program.
+The converted BRep body is separate committed geometry.
+The production codec is `ReadTspline`, `EmitTspline`, and `MakeClosedCage` in `convert.formats.Fusion.TSplineCodec`.
+The [field model](../../../re/Fusion/Reconstruction/TSpline/FieldModel.md) binds each field to native serializers and getters in `libtsplines.14.dylib`.
+
+### Declaration profile
+
+| Record             | Qualified value                                    |
+| ------------------ | -------------------------------------------------- |
+| `#TS0200`          | Format-family signature                            |
+| `degree`           | 3                                                  |
+| `cap-type`         | `G1CAPS`                                           |
+| `star-smoothness`  | 0                                                  |
+| `units`            | Scale 1 and the literal `meters`                   |
+| `end-conditions`   | `SUBD_CREASES`                                     |
+| `star-knot-rule`   | `NURCCS`                                           |
+| `tol`, `geom-tol`  | Positive finite binary64 values                    |
+| `ver`              | Edit counter, not a schema number                  |
+| `behavior-version` | 14.2.0                                             |
+| `compat-version`   | 13.3.0                                             |
+
+The stored grip coordinates are Fusion centimetres, although the text declares `meters`.
+A reader must keep the declaration and the coordinates as separate values.
+
+### Topology and control points
+
+| Record | Fields in wire order                                              | Meaning                                         |
+| ------ | ----------------------------------------------------------------- | ----------------------------------------------- |
+| `f`    | Origin link, hidden-face bit                                      | Face origin used by the blending functions      |
+| `e`    | Origin link, knot interval                                        | Edge origin and binary64 knot interval          |
+| `v`    | Orientation link, direction                                       | Vertex frame, such as `NORTH`                   |
+| `l`    | Previous, next, opposite, vertex, face, edge, valence offset       | One 28-byte native half-edge link               |
+| `ec`   | Edge index, end condition                                         | Binary64 end condition, not a crease flag       |
+| `0g`   | x, y, z, weight                                                   | Weighted control point in centimetres           |
+| `0m`   | Odd-grip map or compound spoke layout                             | Grip ownership around a vertex                  |
+
+Table indexes are implicit positions in each record family.
+Face `-1` marks a boundary half-edge.
+The low two bits of the last link word are the native `Link_valenceOffset`.
+The codec rejects higher bits that are not proven.
+
+### Extension namespaces
+
+| Namespace | Native class           | Model                                               |
+| --------- | ---------------------- | --------------------------------------------------- |
+| 100       | `tskern::ExCrease`     | Creased edge and vertex index sets                  |
+| 105       | `tskern::ExSymmetry`   | One planar symmetry frame and six correspondence maps |
+| 50000     | `tskern::ExSmartGrip`  | Ordered smart-grip index set                        |
+| 50001     | `tskern::ExFreeze`     | Not supported and rejected                          |
+
+The `105a` correspondence maps separate each index pair with two spaces.
+The writer reproduces that separator, so all twelve controlled native files re-emit byte for byte.
+
+### Orientation roots
+
+The `f`, `e`, and `v` root links are orientation state of the T-spline basis functions.
+`libtsplines` exports them as `Face_originLink`, `Edge_originLink`, and `Vert_orientLink`.
+It also exports `Vert_orientDirection`, `FnTopology_setFaceOrigin`, and `SurfOrient_makeCanonical`.
+
+Controlled imports used a 17 × 23 × 31 mm box cage with the control points, creases, and face incidence of the Fusion box primitive.
+
+| Cage roots                         | Default area (cm²)  | Very-high-accuracy center | Equal to primitive |
+| ---------------------------------- | ------------------- | ------------------------- | ------------------ |
+| First incident links               | 12.710561939032758  | Differs                   | No                 |
+| Native face origins                | 12.7105676688771    | Differs by about 3e-6 cm  | No                 |
+| Native face and edge origins       | 12.7105676688771    | Differs by about 3e-6 cm  | No                 |
+| Native face, edge, and vertex roots | 12.710567668877099 | Equal                     | Yes                |
+
+Face origins control the default-accuracy area and volume.
+Vertex and edge roots then control the very-high-accuracy center of mass.
+`MakeClosedCage` takes the face origin from the first vertex of each face loop.
+`CageOrientation(Spokes, EdgeOrigins)` sets the vertex and edge roots explicitly.
+The native box primitive starts each edge at its lower vertex index.
+A larger native box has ten of 48 edges in the other direction, so that order is a convention.
+
+### T-spline acceptance
+
+[Native acceptance](../../../re/Fusion/LocalOracle/TSplineCodec/NativeAcceptance.json), SHA-256 `c6f6973215fbb0f46cc454f2fc998132d988e2f76fc03ec002981e4c8551964d`, accepted 13 cases in Fusion 2706.1.17.
+
+| Case group             | Native result                                                                       |
+| ---------------------- | ----------------------------------------------------------------------------------- |
+| Twelve native controls | Byte-identical re-emission and equal observations through import, edit, save, and reopen |
+| Authored closed cage   | Equal to the native box primitive at every stage within 1e-8                        |
+| Authored initial body  | Area 12.710567668877099 cm²                                                          |
+| Authored edited body   | Area 12.43421957296201 cm² and volume 3.8361736781260087 cm³                         |
+
+Full F3D Form-graph routing, rational evaluation, arbitrary T-junctions, radial symmetry, and deleted slots remain rejection boundaries.
+
+## Authored round bodies and trimmed round histories
+
+`CreateRoundBody(Model, History, Stamp)` authors a complete `JournalModel` from a `SphereBody` or a `TorusBody`.
+The authored body has one closed periodic face, one loop-free shell, and one lump.
+It has no edges and no vertices.
+The reader admits a loop-free face only on an unbounded sphere or torus carrier that terminates its shell.
+Native `sphere::save_data` and `torus::save_data` establish the stored field order.
+The qualified reader and writer admit positive stored radii only.
+
+| Carrier | Stored fields in native order                                        | Rejected values                                  |
+| ------- | -------------------------------------------------------------------- | ------------------------------------------------ |
+| Sphere  | Center, signed radius, reference direction, pole direction, V reversal, four optional bounds | Radius that is not positive, nonfinite values |
+| Torus   | Center, axis, major radius, signed minor radius, reference direction, V reversal, four optional bounds | Horn or spindle torus, non-unit or skew frame |
+
+[Native acceptance](../../../re/Fusion/LocalOracle/RoundBodies/NativeAcceptance.json), SHA-256 `9f6cb8ea77c26a105d5294adcb6f37c393d1eaeb405125da1bf98d8afe582648`, has status `accepted` in Fusion 2706.1.17.
+
+| Case                         | Native measurement                                                    |
+| ---------------------------- | --------------------------------------------------------------------- |
+| Authored sphere, r 19 mm     | Volume 28.73091201462985 cm³ and area 45.36459791783661 cm²            |
+| Authored torus, 31/9 mm      | Volume 49.56515330227076 cm³ and area 110.14478511615724 cm²           |
+| Four native carriers         | Byte-exact `.smb` regeneration and equal bodies                        |
+| Partial closed pipe history  | `d3` to 8 mm, volume 3.46423114478236 → 6.158633146279758 cm³          |
+| Composite circular pipe      | `d3` to 6 mm, volume 1.166559470517908 → 2.6247588086652924 cm³        |
+| Rule-all-rounds fillets      | `d7` to 0.8 mm, volume 37.96633332328521 → 37.97836761590841 cm³       |
+
+The authored volumes and areas equal the analytic sphere and torus formulas.
+Each trimmed history kept every active and archived record and every state through rollback, rebuild, edit, save, and reopen.
+See the [round body change entry](../../Changes/Fusion/Geometry/FusionRoundBodies.md).
+
+## External corroboration
+
+Two kinds of external evidence corroborate the model.
+Neither kind replaces native acceptance.
+
+### Binary inventories
+
+The npm package `reverse-engineer` `0.1.0-alpha.1` inventoried three installed Fusion libraries.
+It reads Mach-O headers, export tries, and string tables without executing the target.
+The [saved inventories](../../../re/Fusion/External/ReverseEngineer/README.md) record each command and replace local paths.
+
+| Library                 | SHA-256 prefix | Corroborated model element                                          |
+| ----------------------- | -------------- | ------------------------------------------------------------------- |
+| `libtsplines.14.dylib`  | `820d4a39`     | TSM orientation exports and the TSM keyword table                   |
+| `NsDataModel10.dylib`   | `47ddbeca`     | Paired bulk and metadata streams and XML attribute keys             |
+| `libASMkern232.dylib`   | `816da13b`     | `HISTORY_STREAM`, `DELTA_STATE`, and `BULLETIN_BOARD` journal graph |
+
+The earlier REA `rea-agents` 6.8.0 evidence remains separate.
+It inventoried the F3Z example and decompiled `Ns::MemberSet::addNewMember` through Ghidra.
+
+### Comparison with cadmpeg
+
+The [cadmpeg comparison](../../../re/Fusion/External/CadmpegComparison.md) reads cadmpeg at commit `de2726870ff728352163f601ab4e60bbd54fbade`.
+It cites both projects by path and line, and Kit copies no cadmpeg code.
+Both projects read the same container bytes, and most container differences are names only.
+
+| Comparison                 | cadmpeg                                                        | Kit                                                                   |
+| -------------------------- | -------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Breadth                    | 58 feature families, assemblies, configurations, Form bodies   | Qualified sketch, extrusion, taper, round, mesh, and T-spline profiles |
+| Field names                | Structural labels from file observation                        | Native class and member names from installed libraries               |
+| Writing modes              | Replay, patch, and source-free generation                      | Typed re-emission and source-free generation                          |
+| Native proof of new output | No recorded Fusion open of generated output                    | Fusion open, rollback, rebuild, edit, save, and reopen                |
+| Feature history replay     | Not implemented                                                | Not implemented                                                       |
+
+All 58 cadmpeg feature-family GUIDs resolve to `Dc*` classes in the Kit binary class catalogue.
+Kit evidence resolves the cadmpeg history-preamble item HS-01 and the parameter-collection item DR-80.
+It partly resolves DR-334 and the sketch mesh-section items DR-264, DR-288, and DR-289.
+
+Kit evidence contradicts these cadmpeg statements.
+
+| Topic                     | cadmpeg statement                     | Kit evidence                                         |
+| ------------------------- | ------------------------------------- | ---------------------------------------------------- |
+| TSM `l` record            | Next link, then previous link         | Previous link, then next link, from `Link_prev`      |
+| TSM `ec` record           | Crease marker with flags              | Edge index and binary64 end condition, not a crease  |
+| TSM namespaces 100, 50000 | Editor selections                     | `ExCrease` and `ExSmartGrip`                         |
+| TSM `ver`                 | Identifies the generating implementation | Edit counter that changes during ordinary edits   |
+| History preamble          | Two copies of a stream size           | Current state and maximum allocated state            |
+| Header history bit        | Authoritative for journal presence    | Explicit stream markers are authoritative            |
+| MetaStream UUID           | Asset GUID                            | Segment `currentVersion`                             |
+| Class `6CCF41D5`          | Presentation frame                    | `DynamicUpdateData`                                  |
+
+cadmpeg covers areas that Kit rejects today.
+These areas include cross-document references, configuration rules, procedural and tolerant ASM geometry, and ParaMesh color channels.
+They are the next research candidates, not supported Kit behavior.

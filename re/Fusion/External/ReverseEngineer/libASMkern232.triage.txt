@@ -1,0 +1,5 @@
+file: <FusionApp>/Contents/Frameworks/ASM/libASMkern232.dylib
+size: 34047616 B (32.5 MB)  sha256: 816da13b49156e1750b9d3af17164f583920731b3374a900d98778b16773bc86
+format: Mach-O universal (x86-64+arm64)
+markers: none
+next: binary_inventory(path); decompile(path, function=NAME) only for logic questions

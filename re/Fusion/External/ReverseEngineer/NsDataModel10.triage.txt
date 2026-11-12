@@ -1,0 +1,5 @@
+file: <FusionApp>/Contents/Libraries/Neutron/NsDataModel10.dylib
+size: 23797344 B (22.7 MB)  sha256: 47ddbeca2f5c97c96e44989523ff969baa5d0d11b59d8ca35b934d48e2657af5
+format: Mach-O universal (x86-64+arm64)
+markers: none
+next: binary_inventory(path); decompile(path, function=NAME) only for logic questions
