@@ -1,11 +1,16 @@
 from dataclasses import dataclass as MakeDataClass
-from typing import TypeAlias, Union
+from typing import TYPE_CHECKING, TypeAlias, Union
 
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.BsCurve import BsCurve
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.BsSurface import BsSurface
 from convert.formats.Fusion.BrepCodec.Journal.Spline.SubtransNode import SubtransNode
 from convert.formats.Fusion.BrepCodec.Journal.Spline.SubtypeRef import SubtypeRef
 from convert.formats.Fusion.BrepCodec.Journal.Spline.TsplineSurf import TsplineSurf
+
+if TYPE_CHECKING:
+    from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TypedRecord import (
+        KTypedRecord,
+    )
 
 
 @MakeDataClass(frozen=True, slots=True)
@@ -43,6 +48,7 @@ KGrammarValue: TypeAlias = Union[
     BsSurface,
     TsplineSurf,
     SubtransNode,
+    "KTypedRecord",
 ]
 
 KSubtypeValue: TypeAlias = Union[SubtypeNode, SubtypeRef, TsplineSurf]
