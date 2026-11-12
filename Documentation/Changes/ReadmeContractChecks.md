@@ -1,8 +1,3 @@
-<!--
-SPDX-License-Identifier: MIT
-SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
--->
-
 # README contract checks
 
 The README gives the public conversion call and states that production conversion requires no CAD application.

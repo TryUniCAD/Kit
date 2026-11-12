@@ -1,8 +1,3 @@
-<!--
-SPDX-License-Identifier: MIT
-SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
--->
-
 # README changes and queue tests
 
 A documentation rewrite can pass static CI while a queue test still expects an
