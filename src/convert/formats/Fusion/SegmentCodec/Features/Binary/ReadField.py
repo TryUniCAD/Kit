@@ -1,6 +1,6 @@
 from convert.formats.Fusion.MetaCursor import MetaCursor
 from convert.formats.Fusion.SegmentCodec.Features.FeatureLimits import KMaxFeatureText
-from convert.formats.Fusion.SegmentCodec.Features.Model.FieldValue import FieldValue
+from convert.formats.Fusion.SegmentCodec.Features.Model.FieldValue import KFieldValue
 from convert.formats.Fusion.SegmentCodec.Features.Schema.FieldKind import FieldKind
 from convert.formats.Fusion.SegmentCodec.Features.Binary.CheckUuid import CheckUuid
 from convert.formats.Fusion.SegmentCodec.Features.Binary.ReadLocalRef import (
@@ -16,7 +16,7 @@ from convert.formats.Fusion.SegmentCodec.Features.Binary.RefKinds import (
 from convert.formats.Fusion.SegmentCodec.Features.Binary.ScalarKinds import KScalarKinds
 
 
-def ReadFieldMut(Cursor: MetaCursor, KindValue: FieldKind) -> FieldValue:
+def ReadFieldMut(Cursor: MetaCursor, KindValue: FieldKind) -> KFieldValue:
     if KindValue in KScalarKinds:
         return ReadScalarMut(Cursor, KindValue)
     if KindValue in (FieldKind.KUnicode, FieldKind.KUuidText):

@@ -1,12 +1,12 @@
 from math import isfinite as IsFinite
 from struct import pack as PackValue
 
-from convert.formats.Fusion.SegmentCodec.Features.Model.FieldValue import FieldValue
+from convert.formats.Fusion.SegmentCodec.Features.Model.FieldValue import KFieldValue
 from convert.formats.Fusion.SegmentCodec.Features.Schema.FieldKind import FieldKind
 from convert.formats.Fusion.SegmentCodec.Features.Binary.ScalarKinds import KScalarKinds
 
 
-def EmitScalar(KindValue: FieldKind, Value: FieldValue) -> bytes:
+def EmitScalar(KindValue: FieldKind, Value: KFieldValue) -> bytes:
     CodeValue = KScalarKinds[KindValue][0]
     Lower, Upper = KScalarKinds[KindValue][2:]
     if KindValue is FieldKind.KBoolean:

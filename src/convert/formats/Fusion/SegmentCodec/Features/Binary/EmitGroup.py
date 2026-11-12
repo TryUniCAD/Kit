@@ -2,7 +2,7 @@ from typing import cast as CastValue
 
 from convert.formats.Fusion.SegmentCodec.Features.Model.FeatureField import FeatureField
 from convert.formats.Fusion.SegmentCodec.Features.Model.FeatureGroup import FeatureGroup
-from convert.formats.Fusion.SegmentCodec.Features.Model.FieldValue import FieldValue
+from convert.formats.Fusion.SegmentCodec.Features.Model.FieldValue import KFieldValue
 from convert.formats.Fusion.SegmentCodec.Features.Schema.ClassLayout import ClassLayout
 from convert.formats.Fusion.SegmentCodec.Features.Schema.PersistFields import (
     PersistFields,
@@ -20,7 +20,7 @@ def EmitGroup(Group: FeatureGroup, Layout: ClassLayout) -> bytes:
         or len(Group.Fields) > len(Layout.Members)
     ):
         raise ValueError("Invalid Fusion feature member group")
-    Values: dict[str, FieldValue] = {}
+    Values: dict[str, KFieldValue] = {}
     for Field in Group.Fields:
         if (
             not isinstance(CastValue(object, Field), FeatureField)

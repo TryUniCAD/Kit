@@ -7,11 +7,11 @@ def ReadLineage(
 ) -> tuple[ClassStamp, ...]:
     Registry = {Value.ClassGuid.upper(): Value for Value in Classes}
     Result: list[ClassStamp] = []
-    Seen: set[str] = set()
+    Visited: set[str] = set()
     while ClassGuid:
         Identity = ClassGuid.upper()
-        assert Identity not in Seen
-        Seen.add(Identity)
+        assert Identity not in Visited
+        Visited.add(Identity)
         Value = Registry[Identity]
         Result.append(ClassStamp(Value.ClassGuid, Value.BaseGuid, Value.SchemaVersion))
         ClassGuid = Value.BaseGuid

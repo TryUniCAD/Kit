@@ -1,4 +1,4 @@
-from convert.formats.Fusion.SegmentCodec.Features.Model.FieldValue import FieldValue
+from convert.formats.Fusion.SegmentCodec.Features.Model.FieldValue import KFieldValue
 from convert.formats.Fusion.SegmentCodec.Features.Schema.FieldKind import FieldKind
 from convert.formats.Fusion.SegmentCodec.Features.Binary.CheckUuid import CheckUuid
 from convert.formats.Fusion.SegmentCodec.Features.Binary.EmitLocalRef import (
@@ -15,7 +15,7 @@ from convert.formats.Fusion.SegmentCodec.Features.Binary.RefKinds import (
 from convert.formats.Fusion.SegmentCodec.Features.Binary.ScalarKinds import KScalarKinds
 
 
-def EmitField(KindValue: FieldKind, Value: FieldValue) -> bytes:
+def EmitField(KindValue: FieldKind, Value: KFieldValue) -> bytes:
     if KindValue in KScalarKinds:
         return EmitScalar(KindValue, Value)
     if KindValue in (FieldKind.KUnicode, FieldKind.KUuidText):
