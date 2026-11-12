@@ -46,7 +46,9 @@ state. Identity names, brands, numeric IDs, and triggers belong only in the JSON
 `ExcludedReports` preserves identities of other installed review-report providers;
 those entries are not requested reviewers. Their existing integration-owned
 settings remain in place. Adding metadata does not install or enable an app,
-link a triggering account, or alter live GitHub protections.
+link a triggering account, or alter live GitHub protections. Historical generator
+metadata uses the stable `DocumentationSources.InitialWiki` key so reordering
+reviewer or exclusion arrays cannot change the recorded provenance.
 
 The previously approved README badge and integration-owned settings remain preserved.
 CODEOWNERS is removed as requested. Repository rules are managed independently;

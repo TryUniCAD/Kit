@@ -38,7 +38,7 @@ function BuildReports(CaseMode, Verdict, CheckName = "Scorecard") {
   if (CaseMode === "external")
     Checks.push({
       id: 901,
-      name: "Review report",
+      name: Reviewers[0].Checks[0] || Reviewers[0].Statuses[0],
       app: { id: 901, slug: "external-ci" },
       check_suite: { id: 3 },
       status: "completed",
