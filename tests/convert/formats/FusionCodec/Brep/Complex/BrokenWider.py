@@ -29,6 +29,8 @@ KWiderFaults = (
     "empty",
     "triple",
     "bounds",
+    "sense",
+    "seam",
 )
 
 
@@ -102,7 +104,25 @@ def TubeFault(Fault: str) -> NurbsBody:
     )
 
 
+def SeamFault(Fault: str) -> NurbsBody:
+    Capped = CappedTube()
+    FaceSpec = Capped.Faces[0]
+    SeamUse = FaceSpec.Uses[1]
+    Edited = (
+        ReplaceValue(SeamUse, Reversed=True)
+        if Fault == "sense"
+        else ReplaceValue(SeamUse, OffsetU=0.0)
+    )
+    return SwapFace(
+        Capped,
+        0,
+        ReplaceValue(FaceSpec, Uses=(FaceSpec.Uses[0], Edited, *FaceSpec.Uses[2:])),
+    )
+
+
 def BrokenWider(Fault: str) -> NurbsBody:
+    if Fault in ("sense", "seam"):
+        return SeamFault(Fault)
     if Fault in ("offset", "empty", "bounds"):
         return HoleFault(Fault)
     if Fault in ("closure", "pinch", "analytic", "cap", "frame"):

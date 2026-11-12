@@ -1,3 +1,6 @@
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Nodes.CheckComplex import (
+    CheckComplex,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Spline.CheckSubtypes import (
     CheckSubtypes,
 )
@@ -39,6 +42,7 @@ def CheckGeometry(Model: GeometryState) -> None:
         CheckNode(Value)
     CheckGeomTags(Model)
     CheckSubtypes(Model.Entities)
+    CheckComplex(Model.Entities)
     Records = tuple(MakeEntityNode(Value) for Value in Model.Entities)
     Slots = tuple(range(len(Records)))
     CheckLiveRefs(Records, {Index: Index for Index in Slots}, Slots)

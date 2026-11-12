@@ -194,6 +194,48 @@ def CheckNurbsUse(Model: NurbsBody, FaceSpec: NurbsFace, UseSpec: NurbsUse) -> N
             raise ValueError("Fusion NURBS edge leaves its analytic face")
 
 
+def CheckSeamPair(
+    Surface: BsSurface, EdgeSpec: NurbsEdge, First: NurbsUse, Second: NurbsUse
+) -> None:
+    Lower = EdgeRange(EdgeSpec)[0]
+    Places = tuple(
+        (
+            PointOnCurve(UseSpec.Pcurve, Lower)[0] + UseSpec.OffsetU,
+            PointOnCurve(UseSpec.Pcurve, Lower)[1] + UseSpec.OffsetV,
+        )
+        for UseSpec in (First, Second)
+        if UseSpec.Pcurve is not None
+    )
+    if len(Places) != 2:
+        raise ValueError("Fusion NURBS spline face use requires a pcurve")
+    Shift = (abs(Places[0][0] - Places[1][0]), abs(Places[0][1] - Places[1][1]))
+    Periods = (
+        Surface.UKnots[-1] - Surface.UKnots[0] if Surface.UClosure else 0.0,
+        Surface.VKnots[-1] - Surface.VKnots[0] if Surface.VClosure else 0.0,
+    )
+    if not any(
+        Periods[Course] > KTolerance
+        and IsNear((Shift[Course], Shift[1 - Course]), (Periods[Course], 0.0))
+        for Course in (0, 1)
+    ):
+        raise ValueError("Fusion seam uses must lie one period apart")
+
+
+def CheckSeams(Model: NurbsBody, FaceSpec: NurbsFace) -> None:
+    Surface = FaceSpec.Surface
+    if not isinstance(Surface, BsSurface):
+        return
+    FaceUses = tuple(
+        UseSpec for LoopUses in FaceLoops(FaceSpec) for UseSpec in LoopUses
+    )
+    for EdgeIndex in sorted({UseSpec.EdgeIndex for UseSpec in FaceUses}):
+        SeamUses = tuple(
+            UseSpec for UseSpec in FaceUses if UseSpec.EdgeIndex == EdgeIndex
+        )
+        if len(SeamUses) == 2:
+            CheckSeamPair(Surface, Model.Edges[EdgeIndex], SeamUses[0], SeamUses[1])
+
+
 def CheckNurbsLoop(Model: NurbsBody, FaceSpec: NurbsFace) -> None:
     CheckCarrier(FaceSpec.Surface)
     for LoopUses in FaceLoops(FaceSpec):
@@ -204,6 +246,7 @@ def CheckNurbsLoop(Model: NurbsBody, FaceSpec: NurbsFace) -> None:
             if UseEnds(Model, UseSpec)[1] != UseEnds(Model, Following)[0]:
                 raise ValueError("Fusion NURBS loop uses do not connect")
             CheckNurbsUse(Model, FaceSpec, UseSpec)
+    CheckSeams(Model, FaceSpec)
 
 
 def CheckNurbsBody(Model: NurbsBody) -> None:
