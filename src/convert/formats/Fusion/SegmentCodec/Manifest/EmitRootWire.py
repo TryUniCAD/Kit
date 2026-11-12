@@ -6,6 +6,8 @@ from convert.formats.Fusion.SegmentCodec.Manifest.ManifestLayout import (
     KRootMagic,
     KWireVersion,
 )
+from convert.formats.Fusion.SegmentCodec.Manifest.EmitRootLinks import EmitRootLinks
+from convert.formats.Fusion.SegmentCodec.Manifest.LinkLayout import KMaxAncestry
 from convert.formats.Fusion.SegmentCodec.Manifest.ManifestSink import ManifestSink
 from convert.formats.Fusion.SegmentCodec.Manifest.ManifestTypes import RootManifest
 from convert.formats.Fusion.SourceProof.Auxiliary.Manifest.ReadRootMeta import KRootKeys
@@ -34,12 +36,24 @@ def EmitRootWire(Value: RootManifest) -> bytes:
     for Number in Value.OpaqueWords:
         SinkValue.AddWord(Number)
     SinkValue.AddVersions(Value.Versions, KRootKeys)
-    SinkValue.AddWord(0)
-    SinkValue.AddBytes(b"\0")
+    SinkValue.AddCount(Value.Ancestry, KMaxAncestry)
+    for GuidText in Value.Ancestry:
+        SinkValue.AddGuid(GuidText)
+    EmitRootLinks(SinkValue, Value.Links)
     SinkValue.AddGuid(Value.AssetId)
     SinkValue.AddWord(1)
     SinkValue.AddText(KAssetName, WideText=True)
     SinkValue.AddWord(0)
-    SinkValue.AddBytes(b"\1")
-    SinkValue.AddText(KExportLabel, WideText=True)
+    if Value.Lineage is None:
+        SinkValue.AddBytes(b"\1")
+        SinkValue.AddText(KExportLabel, WideText=True)
+    elif (
+        type(Value.Lineage) is tuple
+        and len(CastValue(tuple[object, ...], Value.Lineage)) == 2
+    ):
+        SinkValue.AddBytes(b"\0")
+        SinkValue.AddText(Value.Lineage[0], WideText=True)
+        SinkValue.AddText(Value.Lineage[1], WideText=True)
+    else:
+        raise ValueError("Invalid Fusion root manifest lineage")
     return bytes(SinkValue.Buffer)

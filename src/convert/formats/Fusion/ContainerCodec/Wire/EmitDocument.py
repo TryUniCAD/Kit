@@ -20,5 +20,8 @@ def EmitDocument(Value: DocumentHeader) -> bytes:
             (Value.SoftwareVersion & 0xFFFFFFFF, Value.SoftwareVersion >> 32),
             Value.Versions,
             Value.AssetId,
+            Value.Ancestry,
+            Value.Links,
+            Value.Lineage,
         )
     )

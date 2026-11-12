@@ -23,6 +23,10 @@ from convert.formats.Fusion.GraphicsCodec.Geometry.XferVerticesMut import XferVe
 
 from convert.formats.Fusion.GraphicsCodec.Model.Values.CircleArcValue import CircleArcValue
 from convert.formats.Fusion.GraphicsCodec.Geometry.XferCircleMut import XferCircleMut
+from convert.formats.Fusion.GraphicsCodec.Model.Values.QualifierValue import (
+    QualifierValue,
+)
+from convert.formats.Fusion.GraphicsCodec.Values.XferQualifier import XferQualifier
 
 if TYPE_CHECKING:
     from convert.formats.Fusion.GraphicsCodec.Wire.SceneCodec import SceneCodec
@@ -49,6 +53,10 @@ def XferObjectMut(
         return XferFormatMut(State, Value)
     if ClassName == "AIndexBuffer" and (Value is None or isinstance(Value, IndexData)):
         return XferIndicesMut(State, Value)
+    if ClassName == "AlphaImageSelectionQualifier" and (
+        Value is None or isinstance(Value, QualifierValue)
+    ):
+        return XferQualifier(State, Value)
     if ClassName in KStyleRules and (Value is None or isinstance(Value, StyleValue)):
         return XferStyleMut(State, ClassName, Value)
     raise ValueError("Unsupported or inconsistent graphics object class")

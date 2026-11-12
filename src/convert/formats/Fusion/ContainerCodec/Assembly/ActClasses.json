@@ -500,5 +500,94 @@
     "IsValue": false,
     "NameValue": "ACTInstancesRoot",
     "ClassSpace": "ACT"
+  },
+  {
+    "ClassGuid": "A1F7759C-4C5A-410B-ADC7-305AB1E0AF2E",
+    "BaseGuid": "98542EB9-A4F2-4137-A808-DBB5B3CD6159",
+    "SchemaVersion": 1,
+    "Members": [
+      {
+        "FieldName": "ACTRefdTableEntries",
+        "ValueType": {
+          "KindValue": "map",
+          "Arguments": [
+            {
+              "KindValue": "utf16"
+            },
+            {
+              "KindValue": "struct",
+              "Members": [
+                {
+                  "FieldName": "trackedTypes",
+                  "ValueType": {
+                    "KindValue": "set",
+                    "Arguments": [
+                      {
+                        "KindValue": "ascii"
+                      }
+                    ]
+                  },
+                  "IsSaved": true
+                },
+                {
+                  "FieldName": "entryWord",
+                  "ValueType": {
+                    "KindValue": "u32"
+                  },
+                  "IsSaved": true
+                }
+              ]
+            }
+          ]
+        },
+        "IsSaved": true
+      },
+      {
+        "FieldName": "CachedRevGuid",
+        "ValueType": {
+          "KindValue": "utf16"
+        },
+        "IsSaved": true
+      },
+      {
+        "FieldName": "RefdAsset",
+        "ValueType": {
+          "KindValue": "u64"
+        },
+        "IsSaved": false
+      },
+      {
+        "FieldName": "RefdAssetGuid",
+        "ValueType": {
+          "KindValue": "utf16"
+        },
+        "IsSaved": true
+      },
+      {
+        "FieldName": "RefdDocLinkName",
+        "ValueType": {
+          "KindValue": "utf16"
+        },
+        "IsSaved": true
+      },
+      {
+        "FieldName": "RevisionGuidForChangeType",
+        "ValueType": {
+          "KindValue": "map",
+          "Arguments": [
+            {
+              "KindValue": "ascii"
+            },
+            {
+              "KindValue": "utf16"
+            }
+          ]
+        },
+        "IsSaved": true
+      }
+    ],
+    "IsValue": false,
+    "NameValue": "ACTRefdTable",
+    "ClassSpace": "ACT"
   }
 ]

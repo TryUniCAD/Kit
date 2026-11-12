@@ -1,3 +1,4 @@
+from convert.formats.Fusion.ContainerCodec.Wire.EmitAssetLinks import EmitAssetLinks
 from convert.formats.Fusion.ContainerCodec.Wire.EmitPropsMut import EmitPropsMut
 from convert.formats.Fusion.ContainerCodec.Model.AssetHeader import AssetHeader
 from convert.formats.Fusion.ContainerCodec.SegmentFolders import SegmentFolders
@@ -26,10 +27,10 @@ def EmitAssetHeader(Value: AssetHeader) -> bytes:
     SinkValue.AddWord(KWireVersion)
     SinkValue.AddVersions(Value.Versions, KAssetKeys)
     SinkValue.AddText(KAssetKind)
-    SinkValue.AddWord(0)
     SinkValue.AddBytes(b"\0")
+    SinkValue.AddText(Value.SubType)
     EmitPropsMut(SinkValue, Value.Properties)
-    SinkValue.AddWord(0)
+    EmitAssetLinks(SinkValue, Value.Links)
     SinkValue.AddWord(Value.NextSegmentId)
     SinkValue.AddWord(len(Value.Segments))
     for SlotValue in Value.Segments:

@@ -2,6 +2,7 @@ from enum import StrEnum
 from typing import cast as CastValue
 
 from convert.formats.Fusion.MetaCursor import MetaCursor
+from convert.formats.Fusion.SegmentCodec.Metadata.ReadMetaCtx import ReadMetaCtx
 
 
 # the same native index grammar serves three typed segment headers
@@ -67,7 +68,8 @@ def ReadMetaIndex(
             if IsPrimary:
                 PrimaryIds.add(Identity)
             Entries.append((Offset, Identity, IsPrimary))
-    NextId, _ = Cursor.ReadLong(), Cursor.ReadWord()
+    NextId = Cursor.ReadLong()
+    _ = ReadMetaCtx(Cursor, Cursor.ReadWord())
     if PrimaryIds != Owners.keys() or (Owners and NextId <= max(Owners)):
         raise ValueError("Invalid Fusion primary identity index")
     Properties: set[str] = set()

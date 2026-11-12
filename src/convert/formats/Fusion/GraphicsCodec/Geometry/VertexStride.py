@@ -15,6 +15,16 @@ def VertexStride(Value: VertexFormat) -> int:
     )
     if Fields == ((2, 0, 0, 0, 0, 0),):
         return 3
+    if Fields == ((2, 0, 0, 0, 0, 0), (2, 1, 3, 0, 0, 0)):
+        return 6
     if Fields == ((2, 0, 0, 0, 0, 0), (2, 1, 3, 0, 0, 0), (1, 2, 6, 0, 0, 0)):
         return 8
+    if Fields == (
+        (2, 0, 0, 0, 0, 0),
+        (2, 1, 3, 0, 0, 0),
+        (2, 3, 8, 0, 0, 0),
+        (2, 4, 11, 0, 0, 0),
+        (1, 2, 6, 0, 0, 0),
+    ):
+        return 14
     raise ValueError("Unsupported graphics vertex field layout")

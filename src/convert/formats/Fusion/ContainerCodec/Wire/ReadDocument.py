@@ -12,4 +12,7 @@ def ReadDocument(Payload: bytes) -> DocumentHeader:
         Value.AssetId,
         Value.Title,
         Value.Description,
+        Value.Ancestry,
+        Value.Links,
+        Value.Lineage,
     )

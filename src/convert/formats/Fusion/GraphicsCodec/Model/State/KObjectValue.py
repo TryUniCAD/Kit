@@ -11,6 +11,9 @@ from convert.formats.Fusion.GraphicsCodec.Model.Values.VertexData import VertexD
 from convert.formats.Fusion.GraphicsCodec.Model.Values.CircleArcValue import (
     CircleArcValue,
 )
+from convert.formats.Fusion.GraphicsCodec.Model.Values.QualifierValue import (
+    QualifierValue,
+)
 
 KObjectValue = (
     GroupValue
@@ -22,4 +25,5 @@ KObjectValue = (
     | RenderMesh
     | VertexData
     | CircleArcValue
+    | QualifierValue
 )

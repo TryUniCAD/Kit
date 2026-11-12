@@ -6,9 +6,14 @@ from convert.formats.Fusion.AssetCodec.Zip.ZipNames import CheckZipPaths, Encode
 from convert.formats.Fusion.ContainerCodec.ContainerLayout import (
     KAssetName,
     KAssetPrefix,
+    KComponentBody,
+    KComponentRefs,
+    KMaxDocProps,
     KMaxPreviewSize,
+    KMaxRedirects,
     KPreviewNames,
     KPropertiesName,
+    KRedirectName,
     KRootName,
 )
 from convert.formats.Fusion.ContainerCodec.ContainerRows import ContainerRows
@@ -18,7 +23,9 @@ from convert.formats.Fusion.ContainerCodec.Model.SegmentStreams import SegmentSt
 from convert.formats.Fusion.ContainerCodec.ReadParts import ReadParts
 from convert.formats.Fusion.ContainerCodec.SegmentFolders import SegmentFolders
 from convert.formats.Fusion.ContainerCodec.Wire.ReadAssetHeader import ReadAssetHeader
+from convert.formats.Fusion.ContainerCodec.Wire.ReadDocProps import ReadDocProps
 from convert.formats.Fusion.ContainerCodec.Wire.ReadDocument import ReadDocument
+from convert.formats.Fusion.ContainerCodec.Wire.ReadRedirects import ReadRedirects
 from convert.formats.Fusion.SourceProof.Auxiliary.Manifest.ReadActiveMeta import (
     KMaxManifestBytes,
 )
@@ -40,8 +47,12 @@ def ReadContainer(
         CheckZipPaths(Names)
         Document = ReadDocument(Archive.ReadMember(KRootName, KMaxManifestBytes))
         Asset = ReadAssetHeader(Archive.ReadMember(KAssetName, KMaxManifestBytes))
-        if Archive.ReadMember(KPropertiesName, 4) != bytes(4):
-            raise ValueError("Unsupported Fusion document properties")
+        Properties = ReadDocProps(Archive.ReadMember(KPropertiesName, KMaxDocProps))
+        Redirects = None
+        if KRedirectName in Archive.Entries:
+            Redirects = ReadRedirects(Archive.ReadMember(KRedirectName, KMaxRedirects))
+            if Archive.ReadMember(KComponentRefs, 2) != KComponentBody:
+                raise ValueError("Unsupported Fusion component reference data")
         Folders = SegmentFolders(Asset)
         Streams = tuple(
             SegmentStreams(
@@ -60,10 +71,18 @@ def ReadContainer(
                 NameValue, Archive.ReadMember(KAssetPrefix + NameValue, KMaxPreviewSize)
             )
             for NameValue in KPreviewNames
+            if KAssetPrefix + NameValue in Archive.Entries
         )
         Parts, EmptyFolders = ReadParts(Archive)
         Result = FusionContainer(
-            Document, Asset, Streams, Previews, Parts, EmptyFolders
+            Document,
+            Asset,
+            Streams,
+            Previews,
+            Parts,
+            EmptyFolders,
+            Properties,
+            Redirects,
         )
         ExpectedNames = {Entry.Name for Entry in ContainerRows(Result)}
         if set(Names) != ExpectedNames:

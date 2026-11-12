@@ -1,5 +1,7 @@
 from dataclasses import dataclass as MakeDataClass
 
+from convert.formats.Fusion.SegmentCodec.Manifest.ManifestLink import ManifestLink
+
 
 @MakeDataClass(frozen=True, slots=True)
 class DocumentHeader:
@@ -10,3 +12,6 @@ class DocumentHeader:
     AssetId: str
     TypeName: str = "Fusion Document"
     TypeDescription: str = "A Fusion Document"
+    Ancestry: tuple[str, ...] = ()
+    Links: tuple[ManifestLink, ...] = ()
+    Lineage: tuple[str, str] | None = None

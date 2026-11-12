@@ -1,4 +1,5 @@
 from convert.formats.Fusion.EntityCodec.Limits import KMaxDepth
+from convert.formats.Fusion.EntityCodec.Model.CrossRef import CrossRef
 from convert.formats.Fusion.EntityCodec.Model.SegmentRef import SegmentRef
 from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.EntityCodec.Schema.EntityCatalog import EntityCatalog
@@ -14,6 +15,8 @@ def CheckReference(
         Actual = Catalog.LocalClasses.get(Value.ObjectId)
     elif isinstance(Value, SegmentRef):
         Actual = Catalog.ExternalClasses.get((Value.SegmentId, Value.ObjectId))
+    elif isinstance(Value, CrossRef):
+        Actual = Value.TypeGuid.upper()
     else:
         raise ValueError("Fusion entity reference requires a typed target")
     if Actual is None:

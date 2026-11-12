@@ -1,5 +1,6 @@
 from dataclasses import dataclass as MakeDataClass
 
+from convert.formats.Fusion.ContainerCodec.Model.AssetLink import AssetLink
 from convert.formats.Fusion.ContainerCodec.Model.SegmentSlot import SegmentSlot
 
 
@@ -11,3 +12,5 @@ class AssetHeader:
     NextSegmentId: int
     Segments: tuple[SegmentSlot, ...]
     Properties: tuple[tuple[str, str], ...] = ()
+    Links: tuple[AssetLink, ...] = ()
+    SubType: str = ""

@@ -8,14 +8,19 @@ from convert.formats.Fusion.ContainerCodec.CheckStreams import CheckStreams
 from convert.formats.Fusion.ContainerCodec.ContainerLayout import (
     KAssetName,
     KAssetPrefix,
+    KComponentBody,
+    KComponentRefs,
     KPartFolders,
     KPropertiesName,
+    KRedirectName,
     KRootName,
 )
 from convert.formats.Fusion.ContainerCodec.Model.FusionContainer import FusionContainer
 from convert.formats.Fusion.ContainerCodec.SegmentFolders import SegmentFolders
 from convert.formats.Fusion.ContainerCodec.Wire.EmitAssetHeader import EmitAssetHeader
+from convert.formats.Fusion.ContainerCodec.Wire.EmitDocProps import EmitDocProps
 from convert.formats.Fusion.ContainerCodec.Wire.EmitDocument import EmitDocument
+from convert.formats.Fusion.ContainerCodec.Wire.EmitRedirects import EmitRedirects
 
 
 def ContainerRows(Value: FusionContainer) -> tuple[ZipAssetRow, ...]:
@@ -45,11 +50,9 @@ def ContainerRows(Value: FusionContainer) -> tuple[ZipAssetRow, ...]:
         or "Breps.BlobParts" in Value.EmptyFolders
     ):
         raise ValueError("Fusion empty folders duplicate generated directories")
-    Directories = {
-        KAssetPrefix,
-        KAssetPrefix + "Breps.BlobParts/",
-        KAssetPrefix + "Previews/",
-    }
+    Directories = {KAssetPrefix, KAssetPrefix + "Breps.BlobParts/"}
+    if Value.Previews:
+        Directories.add(KAssetPrefix + "Previews/")
     Directories.update(KAssetPrefix + Folder for Folder in Folders)
     Directories.update(
         KAssetPrefix + Folder + "/" for Folder in (*PartFolders, *Value.EmptyFolders)
@@ -59,10 +62,17 @@ def ContainerRows(Value: FusionContainer) -> tuple[ZipAssetRow, ...]:
     Entries.extend(
         (
             ZipAssetRow(KRootName, RootBytes, False),
-            ZipAssetRow(KPropertiesName, bytes(4), False),
+            ZipAssetRow(KPropertiesName, EmitDocProps(Value.Properties), False),
             ZipAssetRow(KAssetName, AssetBytes, False),
         )
     )
+    if Value.Redirects is not None:
+        Entries.extend(
+            (
+                ZipAssetRow(KComponentRefs, KComponentBody, False),
+                ZipAssetRow(KRedirectName, EmitRedirects(Value.Redirects), False),
+            )
+        )
     for Folder, SlotValue, Streams in zip(
         Folders, Value.Asset.Segments, Value.Streams, strict=True
     ):
