@@ -9,6 +9,8 @@ Kit by Parashell is an open-source CAD interchange SDK for translating geometry,
 
 [Wiki](https://github.com/TryUniCAD/Kit/wiki)
 
+[![Greptile: The War on Bugs](https://www.greptile.com/badge.svg)](https://www.greptile.com/?utm_source=oss_badge&utm_medium=readme&utm_campaign=greptile_for_open_source)
+
 ## Documentation
 
 Read the [documentation index](Documentation/Index.md) and [getting-started guide](Documentation/GettingStarted.md). Contributors must add
