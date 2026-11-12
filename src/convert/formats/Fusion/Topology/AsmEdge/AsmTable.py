@@ -39,6 +39,8 @@ def ReadAsmToken(Cursor: MetaCursor) -> KAsmToken:
         Value = Cursor.TakeBytes(Cursor.TakeBytes(1)[0]).decode(
             "utf-8" if TagValue == 7 else "ascii"
         )
+    elif TagValue == 8:
+        Value = Cursor.TakeBytes(Unpack("<H", Cursor.TakeBytes(2))[0]).decode("utf-8")
     elif TagValue == 18:
         SizeValue = Unpack("<q", Cursor.TakeBytes(8))[0]
         Value = Cursor.TakeBytes(SizeValue)

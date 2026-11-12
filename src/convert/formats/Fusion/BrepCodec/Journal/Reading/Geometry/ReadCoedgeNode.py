@@ -23,7 +23,7 @@ def ReadCoedgeNode(Cursor: FieldCursor) -> CoedgeNode:
     Reversed = IsLogicalMut(Cursor)
     OwnerLoop = ReadRefMut(Cursor)
     NeedFieldMut(Cursor, (4, 0))
-    NeedFieldMut(Cursor, (12, -1))
+    Pcurve = ReadRefMut(Cursor)
     return CoedgeNode(
-        Prefix, NextCoedge, PriorCoedge, Partner, EdgeRef, Reversed, OwnerLoop
+        Prefix, NextCoedge, PriorCoedge, Partner, EdgeRef, Reversed, OwnerLoop, Pcurve
     )

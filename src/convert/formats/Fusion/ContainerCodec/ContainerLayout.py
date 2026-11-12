@@ -13,6 +13,7 @@ KPartFolders = frozenset(
         "OGS.BlobFolder",
         "DesignConfigurationTable.BlobParts",
         "ParaMeshGeometry.BlobParts",
+        "TSplines.BlobParts",
     )
 )
 KCoreSegments = (SegmentKind.KDesign, SegmentKind.KAct, SegmentKind.KBrowser)

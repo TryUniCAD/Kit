@@ -12,3 +12,4 @@ class NamedMetadata:
     FieldName: str
     TypeName: str
     Value: KEntityValue
+    ElementName: str = ""

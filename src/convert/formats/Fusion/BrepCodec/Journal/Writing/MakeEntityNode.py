@@ -1,4 +1,7 @@
 from convert.formats.Fusion.BrepCodec.Journal.JournalEntity import KJournalEntity
+from convert.formats.Fusion.BrepCodec.Journal.Spline.SplineNode import SplineNode
+from convert.formats.Fusion.BrepCodec.Journal.Spline.IntcurveNode import IntcurveNode
+from convert.formats.Fusion.BrepCodec.Journal.Spline.PcurveNode import PcurveNode
 from convert.formats.Fusion.BrepCodec.Journal.Round.SphereNode import SphereNode
 from convert.formats.Fusion.BrepCodec.Journal.Round.TorusNode import TorusNode
 from convert.formats.Fusion.Topology.AsmEdge.AsmTable import AsmRecord
@@ -38,6 +41,9 @@ def MakeEntityNode(Value: KJournalEntity) -> AsmRecord:
             TransformNode,
             SphereNode,
             TorusNode,
+            SplineNode,
+            IntcurveNode,
+            PcurveNode,
         ),
     ):
         return MakeCarriers(Value)

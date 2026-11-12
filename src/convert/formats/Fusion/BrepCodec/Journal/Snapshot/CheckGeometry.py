@@ -1,4 +1,5 @@
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.AsmRoot import AsmRoot
+from convert.formats.Fusion.BrepCodec.Journal.Spline.CheckSubtypes import CheckSubtypes
 from convert.formats.Fusion.BrepCodec.Journal.Snapshot.CheckGeomTags import (
     CheckGeomTags,
 )
@@ -35,6 +36,7 @@ def CheckGeometry(Model: GeometryState) -> None:
     for Value in Model.Entities:
         CheckNode(Value)
     CheckGeomTags(Model)
+    CheckSubtypes(Model.Entities)
     Records = tuple(MakeEntityNode(Value) for Value in Model.Entities)
     Slots = tuple(range(len(Records)))
     CheckLiveRefs(Records, {Index: Index for Index in Slots}, Slots)

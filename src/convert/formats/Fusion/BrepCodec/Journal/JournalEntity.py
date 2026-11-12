@@ -1,4 +1,7 @@
 from typing import TypeAlias
+from convert.formats.Fusion.BrepCodec.Journal.Spline.SplineNode import SplineNode
+from convert.formats.Fusion.BrepCodec.Journal.Spline.IntcurveNode import IntcurveNode
+from convert.formats.Fusion.BrepCodec.Journal.Spline.PcurveNode import PcurveNode
 from convert.formats.Fusion.BrepCodec.Journal.Round.SphereNode import SphereNode
 from convert.formats.Fusion.BrepCodec.Journal.Round.TorusNode import TorusNode
 
@@ -46,6 +49,9 @@ KJournalEntity: TypeAlias = (
     | ConeNode
     | SphereNode
     | TorusNode
+    | SplineNode
+    | IntcurveNode
+    | PcurveNode
     | TimeAttrib
     | TrackAttrib
     | TagAttrib

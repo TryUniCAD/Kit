@@ -10,6 +10,11 @@ from convert.formats.Fusion.DocumentCodec.Auxiliary.Snapshots.ReadSnapPart impor
 )
 from convert.formats.Fusion.DocumentCodec.Model.ConfigPart import ConfigPart
 from convert.formats.Fusion.DocumentCodec.Model.DocumentBody import DocumentBody
+from convert.formats.Fusion.DocumentCodec.Model.DocumentForm import DocumentForm
+from convert.formats.Fusion.DocumentCodec.Auxiliary.Form.FormLayout import KFormFolder
+from convert.formats.Fusion.DocumentCodec.Auxiliary.Form.ReadFormPart import (
+    ReadFormPart,
+)
 from convert.formats.Fusion.DocumentCodec.Model.DocumentMesh import DocumentMesh
 from convert.formats.Fusion.DocumentCodec.Auxiliary.Mesh.ReadMeshPart import (
     ReadMeshPart,
@@ -29,6 +34,7 @@ def ReadDocParts(
     Snapshots: list[DocumentSnap] = []
     Configurations: list[ConfigPart] = []
     Meshes: list[DocumentMesh] = []
+    Forms: list[DocumentForm] = []
     for Value in Values:
         if Value.Name.startswith("OGS.BlobFolder/"):
             continue
@@ -38,6 +44,8 @@ def ReadDocParts(
             Configurations.append(ReadConfigPart(Value))
         elif Value.Name.startswith("ParaMeshGeometry.BlobParts/"):
             Meshes.append(ReadMeshPart(Value))
+        elif Value.Name.startswith(KFormFolder):
+            Forms.append(ReadFormPart(Value))
         elif Value.Name.endswith(".smb"):
             Snapshots.append(ReadSnapPart(Value))
         else:
@@ -49,4 +57,5 @@ def ReadDocParts(
         tuple(Configurations),
         ReadSceneParts(Values),
         tuple(Meshes),
+        tuple(Forms),
     )

@@ -1,4 +1,16 @@
 from convert.formats.Fusion.BrepCodec.Journal.JournalEntity import KJournalEntity
+from convert.formats.Fusion.BrepCodec.Journal.Spline.SplineNode import SplineNode
+from convert.formats.Fusion.BrepCodec.Journal.Spline.IntcurveNode import IntcurveNode
+from convert.formats.Fusion.BrepCodec.Journal.Spline.PcurveNode import PcurveNode
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Writing.MakeSplineNode import (
+    MakeSplineNode,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Writing.MakeIntcurve import (
+    MakeIntcurve,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Writing.MakePcurveNode import (
+    MakePcurveNode,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Round.SphereNode import SphereNode
 from convert.formats.Fusion.BrepCodec.Journal.Round.TorusNode import TorusNode
 from convert.formats.Fusion.BrepCodec.Journal.Round.MakeSphereNode import MakeSphereNode
@@ -35,6 +47,12 @@ from convert.formats.Fusion.BrepCodec.Journal.Writing.Geometry.MakeTransform imp
 
 
 def MakeCarriers(Value: KJournalEntity) -> AsmRecord:
+    if isinstance(Value, SplineNode):
+        return MakeSplineNode(Value)
+    if isinstance(Value, IntcurveNode):
+        return MakeIntcurve(Value)
+    if isinstance(Value, PcurveNode):
+        return MakePcurveNode(Value)
     if isinstance(Value, SphereNode):
         return MakeSphereNode(Value)
     if isinstance(Value, TorusNode):

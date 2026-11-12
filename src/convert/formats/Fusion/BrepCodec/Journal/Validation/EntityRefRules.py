@@ -31,7 +31,13 @@ KEntityRefRules: dict[str, dict[int, tuple[str, ...]]] = {
         4: ("loop",),
         5: ("shell",),
         6: (),
-        7: ("plane-surface", "cone-surface", "sphere-surface", "torus-surface"),
+        7: (
+            "plane-surface",
+            "cone-surface",
+            "sphere-surface",
+            "torus-surface",
+            "spline-surface",
+        ),
     },
     "loop": {
         0: ("ATTRIB_CUSTOM-attrib",),
@@ -48,7 +54,7 @@ KEntityRefRules: dict[str, dict[int, tuple[str, ...]]] = {
         5: ("coedge",),
         6: ("edge",),
         8: ("loop",),
-        10: (),
+        10: ("pcurve",),
     },
     "edge": {
         0: ("ATTRIB_CUSTOM-attrib",),
@@ -56,7 +62,7 @@ KEntityRefRules: dict[str, dict[int, tuple[str, ...]]] = {
         3: ("vertex",),
         5: ("vertex",),
         7: ("coedge",),
-        8: ("ellipse-curve", "straight-curve"),
+        8: ("ellipse-curve", "straight-curve", "intcurve-curve"),
     },
     "vertex": {0: ("ATTRIB_CUSTOM-attrib",), 2: (), 3: ("edge",), 5: ("point",)},
     "point": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
@@ -66,6 +72,9 @@ KEntityRefRules: dict[str, dict[int, tuple[str, ...]]] = {
     "cone-surface": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
     "ellipse-curve": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
     "straight-curve": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
+    "spline-surface": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
+    "intcurve-curve": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
+    "pcurve": {0: ("ATTRIB_CUSTOM-attrib",), 2: ()},
     "ATTRIB_CUSTOM-attrib": {
         0: (),
         2: ("ATTRIB_CUSTOM-attrib",),

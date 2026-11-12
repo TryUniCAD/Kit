@@ -1,4 +1,5 @@
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.AsmRoot import AsmRoot
+from convert.formats.Fusion.BrepCodec.Journal.Spline.CheckSubtypes import CheckSubtypes
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.BodyNode import BodyNode
 from convert.formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
 from convert.formats.Fusion.BrepCodec.Journal.Validation.CheckAllocTags import (
@@ -43,5 +44,6 @@ def CheckJournal(Model: JournalModel) -> None:
     CheckAllocTags(Model)
     for Entity in Model.Entities:
         CheckNode(Entity)
+    CheckSubtypes(Model.Entities)
     for State in Model.States:
         _ = EmitWireRecord(MakeStateNode(State))
