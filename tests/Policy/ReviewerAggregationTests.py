@@ -29,7 +29,7 @@ KReviewers = JsonCodec.loads(
     ),
 )
 @Pytest.mark.parametrize("CaseMode", ("reviews", "queue-reviews"))
-def TestReviewExclusion(Verdict: str, CaseMode: str) -> None:
+def TestReviewSkip(Verdict: str, CaseMode: str) -> None:
     ScriptPath = KRootPath / "tests/Policy/CiAggregation/RunAggregate.cjs"
     with Tempfile.TemporaryDirectory() as TempPath:
         ResultInfo = Subprocess.run(
@@ -61,7 +61,7 @@ def TestPendingGate(CaseMode: str, Verdict: str, PendingCheck: str) -> None:
     ScriptPath = KRootPath / "tests/Policy/CiAggregation/RunAggregate.cjs"
     with Tempfile.TemporaryDirectory() as TempPath:
         with Pytest.raises(Subprocess.TimeoutExpired) as ErrorInfo:
-            Subprocess.run(
+            ResultInfo = Subprocess.run(
                 ["node", str(ScriptPath), CaseMode, Verdict],
                 cwd=KRootPath,
                 env={**SystemEnv.environ, "RUNNER_TEMP": TempPath},
@@ -69,5 +69,6 @@ def TestPendingGate(CaseMode: str, Verdict: str, PendingCheck: str) -> None:
                 check=False,
                 timeout=2,
             )
+            Pytest.fail(f"Queue aggregate exited early with {ResultInfo.returncode}")
         assert f"Waiting for {PendingCheck}".encode() in (ErrorInfo.value.stdout or b"")
         assert not (FilePath(TempPath) / "PrCiEvidence/Evidence.json").exists()
