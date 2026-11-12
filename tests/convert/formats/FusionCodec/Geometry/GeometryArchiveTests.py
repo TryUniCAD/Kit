@@ -35,7 +35,7 @@ def TestSmbArchive(
 ) -> None:
     Model = CylinderBody(Radius, Height, BasePoint)
     Target = TmpPath / "IndependentCylinder.smb"
-    Target.write_bytes(EmitCylinderSmb(Model, KGeometryStamp))
+    _ = Target.write_bytes(EmitCylinderSmb(Model, KGeometryStamp))
     Table = ReadAsmTable(Target.read_bytes())
     assert Table.RootCount == 2
     Counts = Counter(Record.Name for Record in Table.Records)
@@ -99,4 +99,4 @@ def TestSmbTrailing(Suffix: bytes) -> None:
     Model = CylinderBody(4.5, 6.25, (1.5, 2.5, 3.5))
     Payload = EmitCylinderSmb(Model, KGeometryStamp)
     with RaiseError(ValueError):
-        ReadAsmTable(Payload + Suffix)
+        _ = ReadAsmTable(Payload + Suffix)

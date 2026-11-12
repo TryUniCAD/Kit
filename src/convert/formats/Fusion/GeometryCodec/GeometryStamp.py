@@ -7,8 +7,8 @@ class GeometryStamp:
     Version: str
     SavedAt: str
 
-    def __post_init__(Model) -> None:
-        for Value in (Model.Product, Model.Version, Model.SavedAt):
+    def __post_init__(self) -> None:
+        for Value in (self.Product, self.Version, self.SavedAt):
             if not Value or not Value.isprintable():
                 raise ValueError("Geometry provenance must be nonempty printable text")
             if len(Value.encode("utf-8")) > 255:
