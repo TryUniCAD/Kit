@@ -7,7 +7,7 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 
 ## Problem
 
-The initial Cubic export used filenames that repository policy rejected.
+The initial generated wiki export used filenames that repository policy rejected.
 It also contained stale workflow guidance, broken links, and incorrect API and acceptance claims.
 
 ## Change

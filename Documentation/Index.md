@@ -85,7 +85,8 @@ Use the result procedure before making a product acceptance claim.
 
 ## Provenance and reading surfaces
 
-The reference set began with [Cubic wiki version 1](https://www.cubic.dev/wiki/TryUniCAD/Kit/1).
+The reference set began with a generated wiki snapshot.
+The generator and hosted wiki are identified in [ReviewBot.json](../.agents/skills/standard-pr-practice/ReviewBot.json).
 The [provenance record](Reference/Provenance.json) retains original export paths and hashes.
 Those hashes describe the original export, not the current edited text.
 The [GitHub wiki](https://github.com/TryUniCAD/Kit/wiki) is a separate publication surface.

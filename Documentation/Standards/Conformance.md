@@ -13,6 +13,7 @@ It does not reproduce normative clauses or certify the document set.
 
 The source baseline is `b9a022e45` from the Kit repository.
 The revision also includes the dependency updates and README presentation changes through `de20507ea`.
+The documentation PR is based on the reviewer configuration from PR #74 at `e581582c`.
 The documentation revision is the Git commit containing this page.
 The public-source review date is 2026-11-11.
 See [the edition register](Scope.md) for publisher links.

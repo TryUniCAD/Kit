@@ -2,31 +2,27 @@
 // SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 const {
-  Comment,
+  Reviewers,
+  ExcludedReports,
 } = require("../../../.agents/skills/standard-pr-practice/ReviewBot.json");
-const KProviders = [
-  [1082092, 191113872, "cubic-dev-ai"],
-  [867647, 165735046, "greptile-apps"],
-  [347564, 136622811, "coderabbitai"],
-  [9999991, 9999992, Comment.split(" ")[0].slice(1)],
-];
+const KProviders = [...Reviewers, ...ExcludedReports];
 
 function BuildReviews(Verdict) {
   const Checks = [];
   const Statuses = [];
-  for (const [AppId, UserId, Login] of KProviders) {
+  for (const Provider of KProviders) {
     Checks.push({
       id: Checks.length + 1,
       name: "Review report",
-      app: { id: AppId, slug: Login },
+      app: { id: Provider.AppId, slug: Provider.AppSlug },
       check_suite: { id: 2 },
       status: Verdict === "pending" ? "in_progress" : "completed",
       conclusion: Verdict === "pending" ? null : Verdict,
     });
     Statuses.push({
       id: Statuses.length + 1,
-      context: `review-${Login}`,
-      creator: { id: UserId, login: `${Login}[bot]` },
+      context: `review-${Provider.UserId}`,
+      creator: { id: Provider.UserId, login: Provider.UserLogin },
       state: Verdict === "neutral" ? "error" : Verdict,
     });
   }

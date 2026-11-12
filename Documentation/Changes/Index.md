@@ -24,3 +24,4 @@ They do not establish the current CI, deployment, or publication state.
 - [Merge queue Scorecard execution and review requirements](QueueScorecard.md)
 - [Documentation expansion and standards evidence](DocumentationStandards.md)
 - [README presentation](ReadmePresentation.md)
+- [Configurable PR reviewers](ConfigurableReviewers.md): one reviewer list, all-reviewer readiness, and removal of CODEOWNERS

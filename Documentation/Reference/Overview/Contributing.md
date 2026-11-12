@@ -14,6 +14,7 @@ The repository has one discoverable skill.
 ## Before you start
 
 Read [AGENTS.md](../../../AGENTS.md), the skill, and its complete standards index.
+Current user instructions override conflicting repository defaults.
 Read the [gotchas log](../../Gotchas/README.md).
 Identify the repository, base branch, and task-owned worktree.
 Preserve unrelated changes.

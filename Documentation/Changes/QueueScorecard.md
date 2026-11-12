@@ -29,10 +29,10 @@ The aggregate waits for acceptance and static validation.
 This dependency direction avoids a cycle.
 Failures, unexpected skips, cancellations, timeouts, and missing or pending acceptance block the aggregate.
 
-PR aggregation requires the native `Greptile Review` check from app ID `867647` on the current head SHA.
+PR aggregation requires every configured native reviewer report on the current head SHA.
 A matching name from another app or revision cannot satisfy that requirement.
 Other review providers remain excluded.
-Queue candidates do not require a Greptile check on the synthetic commit.
+Queue candidates do not require native reviewer reports on the synthetic commit.
 PR evidence reuse checks the native result on each contributing PR head.
 This enforcement does not request another review or change the configured reviewer.
 
@@ -51,7 +51,7 @@ Update both for an authorized upgrade.
 
 ## Historical live settings
 
-On 2026-11-10, the separate `Protect` ruleset update removed the direct `Greptile Review` required status.
+On 2026-11-10, the separate `Protect` ruleset update removed the direct native-review required status.
 It required `Merge queue acceptance` and `CI Agg` from GitHub Actions app `15368`.
 The update retained review rules, queue settings, bypass actors, and other rules.
 

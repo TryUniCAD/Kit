@@ -22,6 +22,7 @@ The current contribution policy requires a `Reviewers` array in that file.
 Each entry defines its reviewer identity, native reports, and exact request.
 An absent or invalid array blocks readiness.
 See [review follow-up](../Reference/Overview/Contributing.md#review-follow-up) for the current evidence requirements.
+See [configurable reviewers](ConfigurableReviewers.md) for the schema.
 
 [AGENTS.md](../../AGENTS.md) and [CLAUDE.md](../../CLAUDE.md) require skill activation for every repository task.
 This includes investigation, documentation, and skill edits.
@@ -31,7 +32,8 @@ Activation applies relevant instructions but does not grant additional publicati
 
 Verify reviewer identity, reviewed SHA, findings, approval, CI, and enforced requirements separately.
 Changing the request does not install an app or change provider settings.
-It does not modify CODEOWNERS, CI exclusions, or branch protections.
+The later reviewer-list update removes CODEOWNERS and reads report requirements and exclusions from the JSON.
+It does not change live branch protections.
 See [the queue guide](../../MergeQueue.md) for those separate controls.
 
 ## Recorded verification

@@ -11,7 +11,8 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 This procedure covers reviewed imports and authorized wiki publication.
 A documentation PR does not itself publish the wiki.
 
-The reference set began with [Cubic wiki version 1](https://www.cubic.dev/wiki/TryUniCAD/Kit/1).
+The reference set began with a generated wiki snapshot.
+The `Wiki` and `WikiSettings` fields in [ReviewBot.json](../.agents/skills/standard-pr-practice/ReviewBot.json) identify the optional source and its settings.
 The [provenance record](Reference/Provenance.json) retains the original export metadata.
 Its original content hash does not describe later edited Markdown.
 
@@ -37,7 +38,7 @@ No external publication is implied.
 
 ## Import generated source
 
-Cubic's configured sync destination is `docs/`.
+The generator's configured sync destination is `docs/`.
 Maintained pages belong in `Documentation/`.
 The distinct names avoid a `Docs/` and `docs/` collision on case-insensitive filesystems.
 

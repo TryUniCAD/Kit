@@ -42,7 +42,12 @@ const Github = {
       getCommit: async () => ({ data: { tree: { sha: "c".repeat(40) } } }),
     },
   },
-  paginate: async (Method) => Responses[Method],
+  paginate: async (Method, Request) =>
+    Method === "listCommitStatusesForRef"
+      ? Responses[Method].filter(
+          (Status) => !Status.ref || Status.ref === Request.ref,
+        )
+      : Responses[Method],
 };
 const Summary = {
   addHeading(Value) {

@@ -35,6 +35,7 @@ The README retains the wiki link, badge, star history, and banner removal from P
 The contribution guide reads reviewer definitions from `Reviewers` in [ReviewBot.json](../../.agents/skills/standard-pr-practice/ReviewBot.json).
 It requires each reviewer's current-head approval and passing native reports.
 Reviewer configuration changes remain separate from this documentation revision.
+This PR depends on PR #74 for that configuration and its implementation.
 
 ## Use
 
