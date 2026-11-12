@@ -1,9 +1,8 @@
 from collections.abc import Callable
 
-from convert.formats.Fusion.BrepCodec.ReadHistory import ReadHistory
 from convert.formats.Fusion.ContainerCodec.ReadContainer import ReadContainer
-from convert.formats.Fusion.DocumentCodec.Model.DocumentBody import DocumentBody
 from convert.formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentModel
+from convert.formats.Fusion.DocumentCodec.ReadBodyPart import ReadBodyPart
 from convert.formats.Fusion.DocumentCodec.Records.MakeDocProfile import MakeDocProfile
 from convert.formats.Fusion.DocumentCodec.Records.ReadDocSchemas import ReadDocSchemas
 from convert.formats.Fusion.DocumentCodec.Records.ReadDocSegment import ReadDocSegment
@@ -27,18 +26,12 @@ def ReadDocument(
         )
         for Stream, MetaValue in zip(Container.Streams, Metadata, strict=True)
     )
-    Bodies: list[DocumentBody] = []
-    for PartValue in Container.Parts:
-        if not PartValue.Name.startswith(
-            "Breps.BlobParts/BREP."
-        ) or not PartValue.Name.endswith(".smbh"):
-            raise ValueError("Unsupported Fusion document part")
-        Bodies.append(DocumentBody(PartValue.Name, ReadHistory(PartValue.Payload)))
+    Bodies = tuple(ReadBodyPart(PartValue) for PartValue in Container.Parts)
     return DocumentModel(
         Container.Document,
         Container.Asset,
         Segments,
-        tuple(Bodies),
+        Bodies,
         Container.Previews,
         Container.EmptyFolders,
     )

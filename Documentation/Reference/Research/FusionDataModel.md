@@ -4,7 +4,7 @@
 
 This reference separates observed wire grammar, recovered semantics, and unresolved fields.
 It describes the native persistence model and the implementation work required for independent reading and writing.
-It does not establish complete Fusion interoperability.
+It does not establish complete Fusion interoperability. [The acceptance evidence matrix](FusionAcceptanceEvidence.md) distinguishes complete document authoring, corpus entity coverage, component reconstruction, standalone geometry, and preserved bundle members.
 
 The current checkout contains 712 tracked study archives with 21,269 ZIP members.
 Their central directories declare 10,732 stored members and 10,537 Zstandard members.
