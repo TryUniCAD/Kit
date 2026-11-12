@@ -30,14 +30,9 @@ def reemitted():
     return rows
 
 
-def authored():
-    path = OUTPUT / 'Authored.json'
-    return json.loads(path.read_text())['cases'] if path.exists() else []
-
-
 def main():
     OUTPUT.mkdir(parents=True, exist_ok=True)
-    report = {'scope': 'Native acceptance inputs for production Form document re-emission and source-free authoring', 'cases': reemitted() + authored()}
+    report = {'scope': 'Native acceptance inputs for production Form document re-emission', 'cases': reemitted()}
     (OUTPUT / 'Preparation.json').write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps(report, indent=2))
 
