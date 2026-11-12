@@ -12,6 +12,9 @@ def ReplaceMember(CaseValue: MeshCase, Payload: bytes) -> bytes:
     with OpenFusionZip(Source) as Archive:
         with ZipArchive(Output, "w", compression=KStoredMode) as Target:
             for Entry in Archive.Members:
+                if Entry.IsDirectory:
+                    Target.writestr(Entry.Name, b"")
+                    continue
                 DataValue = (
                     Payload
                     if Entry.Name == CaseValue["Member"]
