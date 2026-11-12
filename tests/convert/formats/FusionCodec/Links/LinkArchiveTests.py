@@ -1,5 +1,7 @@
 from dataclasses import fields as DataFields, is_dataclass as IsDataClass
+from dataclasses import replace as Replace
 from io import BytesIO
+from math import cos as Cosine, isclose as IsClose, pi as KHalfTurn
 from pathlib import Path as FilePath
 from sys import version_info as PythonVersion
 from typing import cast as CastValue
@@ -10,6 +12,7 @@ from pytest import mark as TestMark
 from convert.formats.Fusion.DocumentCodec.EmitParsed import EmitParsed
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from convert.formats.Fusion.EntityCodec.Model.CrossRef import CrossRef
+from convert.formats.Fusion.EntityCodec.Model.MatrixValue import MatrixValue
 from convert.formats.Fusion.SegmentCodec.Manifest.LinkLayout import (
     KLinkedAsset,
     KLinkedUrl,
@@ -49,6 +52,44 @@ KLinkCounts = (
 
 KControls = tuple(Entry[0] for Entry in KLinkCounts)
 
+KNativeMatrix = (
+    Cosine(KHalfTurn / 6),
+    -0.5,
+    0.0,
+    5.0,
+    0.5,
+    Cosine(KHalfTurn / 6),
+    0.0,
+    2.0,
+    0.0,
+    0.0,
+    1.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+)
+
+KMovedMatrix = (
+    Cosine(KHalfTurn / 4),
+    -Cosine(KHalfTurn / 4),
+    0.0,
+    7.0,
+    Cosine(KHalfTurn / 4),
+    Cosine(KHalfTurn / 4),
+    0.0,
+    -3.0,
+    0.0,
+    0.0,
+    1.0,
+    2.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+)
+
 
 def ReadMembers(DataValue: bytes) -> dict[str, bytes]:
     with ZipFile(BytesIO(DataValue)) as Archive:
@@ -65,6 +106,49 @@ def CollectMut(Value: object, Found: list[CrossRef]) -> list[CrossRef]:
         for FieldInfo in DataFields(Value):
             _ = CollectMut(getattr(Value, FieldInfo.name), Found)
     return Found
+
+
+def IsSameMatrix(Value: MatrixValue, Target: tuple[float, ...]) -> bool:
+    return Value.Entries is not None and all(
+        IsClose(LeftValue, RightValue, abs_tol=1e-9)
+        for LeftValue, RightValue in zip(Value.Entries, Target, strict=True)
+    )
+
+
+def MoveMatrix(Value: object) -> object:
+    if isinstance(Value, MatrixValue):
+        return (
+            MatrixValue(KMovedMatrix) if IsSameMatrix(Value, KNativeMatrix) else Value
+        )
+    if isinstance(Value, tuple):
+        return tuple(
+            MoveMatrix(Entry) for Entry in CastValue(tuple[object, ...], Value)
+        )
+    if IsDataClass(Value) and not isinstance(Value, type):
+        return Replace(
+            Value,
+            **{
+                FieldInfo.name: MoveMatrix(getattr(Value, FieldInfo.name))
+                for FieldInfo in DataFields(Value)
+                if FieldInfo.init
+            },
+        )
+    return Value
+
+
+def CountMatrix(Value: object, Target: tuple[float, ...]) -> int:
+    if isinstance(Value, MatrixValue):
+        return int(IsSameMatrix(Value, Target))
+    if isinstance(Value, tuple):
+        return sum(
+            CountMatrix(Entry, Target) for Entry in CastValue(tuple[object, ...], Value)
+        )
+    if IsDataClass(Value) and not isinstance(Value, type):
+        return sum(
+            CountMatrix(getattr(Value, FieldInfo.name), Target)
+            for FieldInfo in DataFields(Value)
+        )
+    return 0
 
 
 def LoadFixture(StemName: str) -> bytes:
@@ -145,3 +229,16 @@ def TestLinkTokens() -> None:
         Tokens["KAct"][LinkId][0] != Token
         for LinkId, (Token, _) in Tokens["KDesign"].items()
     )
+
+
+@KRequiresCodec
+def TestPlacement() -> None:
+    Model = ReadDocument(LoadFixture("R1_part_a"))
+    assert CountMatrix(Model.Segments, KNativeMatrix) == 4
+    Edited = MoveMatrix(Model)
+    assert isinstance(Edited, type(Model))
+    Again = ReadDocument(EmitParsed(Edited))
+    assert Again == Edited
+    assert CountMatrix(Again.Segments, KMovedMatrix) == 4
+    assert CountMatrix(Again.Segments, KNativeMatrix) == 0
+    assert Again.Graphics == Model.Graphics
