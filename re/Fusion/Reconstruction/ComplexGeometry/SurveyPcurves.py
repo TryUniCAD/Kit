@@ -36,7 +36,7 @@ def main():
                 continue
             key = [f"sense={'flipped' if value.Reversed != pcurve.Reversed else 'same'}", f"form={pcurve.Form}", f"partner={value.Partner >= 0}"]
             if pcurve.Form == 0 and isinstance(pcurve.Curve, SubtypeNode):
-                curve = pcurve.Curve.Body[0]
+                curve = pcurve.Curve.Body.Spline
                 lower, upper = curve.Knots[0], curve.Knots[-1]
                 same = abs(lower - edge.StartParam) < 1e-9 and abs(upper - edge.EndParam) < 1e-9
                 negated = abs(lower + edge.EndParam) < 1e-9 and abs(upper + edge.StartParam) < 1e-9
