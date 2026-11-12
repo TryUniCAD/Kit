@@ -73,7 +73,9 @@ They preserve the complete typed material package, Design records, and body hist
 Tests execute in remote CI only.
 Run `43236096421` executed 868 cases: 864 passed and the four new material cases failed because the assertion helper expected an optional wrapper.
 The body schema declares both material fields as direct objects.
-The helper now requires that exact decoded shape; it retains the identity, density, package and reconstruction assertions.
+The helper now requires that exact decoded shape.
+The next remote run `43237059628` reached the manager-reference assertion and exposed another fixture mismatch: same-segment references decode as `LocalRef`, while the helper expected `SegmentRef`.
+The helper now requires the authored local-reference shape and retains all identity, density, package and reconstruction assertions.
 
 Black, Ruff, Pyright, Mypy, and steering checks passed for the 30 changed authoring and integration modules.
 The schema vocabulary and maintained documentation pass the pinned formatter check.

@@ -1,5 +1,5 @@
 from convert.formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentModel
-from convert.formats.Fusion.EntityCodec.Model.SegmentRef import SegmentRef
+from convert.formats.Fusion.SegmentCodec.Features.Model.LocalRef import LocalRef
 from convert.formats.Fusion.EntityCodec.Model.ValueSeries import ValueSeries
 from tests.convert.formats.FusionCodec.Documents.Materials.MaterialFields import (
     MaterialFields,
@@ -39,7 +39,7 @@ def CheckMatLinks(Model: DocumentModel) -> None:
     assert Manager["PhysicalMaterialRefCountVector"] == ValueSeries((1,))
     assert Manager["VisualMaterialRefCountVector"] == ValueSeries((1,))
     Reference = Physical["ProteinAssetManager"]
-    assert isinstance(Reference, SegmentRef)
+    assert isinstance(Reference, LocalRef)
     assert Reference == Visual["ProteinAssetManager"]
     Record = next(
         Record
