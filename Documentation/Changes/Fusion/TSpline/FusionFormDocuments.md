@@ -41,7 +41,7 @@ The reader also checks the canonical patch program, the canonical text width and
 
 Fusion 2706.1.17 often writes a few bytes after the final record of the ACT segment bulk stream. Kit refused these archives with `Unexplained trailing Fusion entity payload bytes`. The final record is a `RevGUIDACTDataMany` record, and its native member set has only `revGuidMap`.
 
-`ReadDocSegment` now reads the last ACT record with `ReadSlack`. `DecodeSlack` returns the decoded record and its unread bytes. `ParsedSegment.BulkSlack` keeps those bytes, and `EmitDocSegment` writes them after the last record. Every other record and every other segment still refuses trailing bytes. `DecodeRecord` gives the new fields their defaults for legacy native state. The [ACT slack gotcha](../../../Gotchas/Conversion/Fusion/FusionActBulkSlack.md) gives the save evidence.
+`ReadDocSegment` now reads the last ACT record with `ReadSlack`. `DecodeSlack` returns the decoded record and its unread bytes. `ParsedSegment.BulkSlack` keeps those bytes, and `EmitDocSegment` writes them after the last record. Every other record and every other segment still refuses trailing bytes. `DecodeRecord` gives the new fields their defaults for legacy native state. The [ACT slack gotcha](../../../Gotchas/Conversion/Fusion/Records/FusionActBulkSlack.md) gives the save evidence.
 
 Edited Form archives also store graphics world kind 2. `XferTSplineMut` reads and writes it with the BRep level-of-detail layout of `XferLodsMut`, without a `ValidBody` flag. The attribute rules add `OpacityAttribute` with `Absolute` and `Opacity`. The [edited world gotcha](../../../Gotchas/Conversion/Fusion/TSpline/EditedFormGraphicsWorld.md) gives the layout.
 

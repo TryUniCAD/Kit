@@ -108,7 +108,7 @@ All 32 gave an equal model after emission and byte-equal members, except for can
 The three edited archives store graphics world kind 2, which Kit reads with the BRep level-of-detail layout.
 The [edited world gotcha](../../Gotchas/Conversion/Fusion/TSpline/EditedFormGraphicsWorld.md) gives the layout.
 Archives saved by current Fusion can have bytes after the final ACT record.
-Kit keeps those bytes as `ParsedSegment.BulkSlack`, and the [ACT slack gotcha](../../Gotchas/Conversion/Fusion/FusionActBulkSlack.md) gives the evidence.
+Kit keeps those bytes as `ParsedSegment.BulkSlack`, and the [ACT slack gotcha](../../Gotchas/Conversion/Fusion/Records/FusionActBulkSlack.md) gives the evidence.
 [Native acceptance](../../../re/Fusion/LocalOracle/FormDocuments/Acceptance/NativeAcceptance.json), SHA-256 `b018171b82ad933a65611f5e56b54f0b48b6660bae06bc936267544f876fa552`, accepted four re-emitted controls in Fusion 2706.1.17.
 
 | Case | Faces, edges, vertices | Area after edit (cm²) | Volume after edit (cm³) |
