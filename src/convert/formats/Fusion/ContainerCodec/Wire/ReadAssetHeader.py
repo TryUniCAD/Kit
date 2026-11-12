@@ -1,5 +1,6 @@
 from convert.formats.Fusion.ContainerCodec.ContainerLayout import KMaxProperties
 from convert.formats.Fusion.ContainerCodec.Model.AssetHeader import AssetHeader
+from convert.formats.Fusion.ContainerCodec.Model.AssetLink import AssetLink
 from convert.formats.Fusion.ContainerCodec.Model.SegmentSlot import SegmentSlot
 from convert.formats.Fusion.ContainerCodec.Wire.EmitAssetHeader import EmitAssetHeader
 from convert.formats.Fusion.MetaIndex import SegmentKind
@@ -9,10 +10,23 @@ from convert.formats.Fusion.SegmentCodec.Manifest.ManifestLayout import (
     KAssetRole,
     KWireVersion,
 )
+from convert.formats.Fusion.SegmentCodec.Manifest.LinkLayout import (
+    KAssetMarker,
+    KMaxLinks,
+)
 from convert.formats.Fusion.SegmentCodec.Manifest.OpenWireCursor import OpenWireCursor
+from convert.formats.Fusion.SourceProof.Auxiliary.Manifest.ManifestCursor import (
+    ManifestCursor,
+)
 from convert.formats.Fusion.SourceProof.Auxiliary.Manifest.ReadAssetMeta import (
     KAssetKeys,
 )
+
+
+def ReadLinkTail(Cursor: ManifestCursor) -> str:
+    if Cursor.ReadWord() != KAssetMarker:
+        raise ValueError("Unsupported Fusion asset link marker")
+    return Cursor.ReadGuid()
 
 
 def ReadAssetHeader(Payload: bytes) -> AssetHeader:
@@ -23,18 +37,23 @@ def ReadAssetHeader(Payload: bytes) -> AssetHeader:
     if (Cursor.ReadText(), Cursor.ReadWord()) != (KAssetRole, KWireVersion):
         raise ValueError("Unsupported Fusion asset header")
     Versions = Cursor.ReadVersions(KAssetKeys)
-    if (Cursor.ReadText(), Cursor.ReadWord(), Cursor.TakeBytes(1)) != (
-        KAssetKind,
-        0,
-        b"\0",
-    ):
+    if (Cursor.ReadText(), Cursor.TakeBytes(1)) != (KAssetKind, b"\0"):
         raise ValueError("Unsupported Fusion asset property header")
+    SubType = Cursor.ReadText()
     Properties = tuple(
         (Cursor.ReadText(), Cursor.ReadText(True))
         for _ in range(Cursor.ReadCount(KMaxProperties))
     )
-    if Cursor.ReadWord() != 0:
-        raise ValueError("Unsupported Fusion asset segment header")
+    Links = tuple(
+        AssetLink(
+            Cursor.ReadGuid(),
+            Cursor.ReadGuid(),
+            Cursor.ReadGuid(),
+            Cursor.ReadWord(),
+            ReadLinkTail(Cursor),
+        )
+        for _ in range(Cursor.ReadCount(KMaxLinks))
+    )
     NextSegmentId = Cursor.ReadWord()
     Segments = tuple(
         SegmentSlot(
@@ -44,7 +63,14 @@ def ReadAssetHeader(Payload: bytes) -> AssetHeader:
     )
     Cursor.CheckEnd()
     Result = AssetHeader(
-        AssetId, SnapshotId, Versions, NextSegmentId, Segments, Properties
+        AssetId,
+        SnapshotId,
+        Versions,
+        NextSegmentId,
+        Segments,
+        Properties,
+        Links,
+        SubType,
     )
     _ = EmitAssetHeader(Result)
     return Result

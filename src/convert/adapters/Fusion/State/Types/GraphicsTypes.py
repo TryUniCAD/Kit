@@ -24,6 +24,9 @@ from convert.formats.Fusion.GraphicsCodec.Model.Values.FieldValue import FieldVa
 from convert.formats.Fusion.GraphicsCodec.Model.Values.GraphicAttr import GraphicAttr
 from convert.formats.Fusion.GraphicsCodec.Model.Values.IndexData import IndexData
 from convert.formats.Fusion.GraphicsCodec.Model.Values.ObjectRef import ObjectRef
+from convert.formats.Fusion.GraphicsCodec.Model.Values.QualifierValue import (
+    QualifierValue,
+)
 from convert.formats.Fusion.GraphicsCodec.Model.Values.RenderMesh import RenderMesh
 from convert.formats.Fusion.GraphicsCodec.Model.Values.SceneSet import SceneSet
 from convert.formats.Fusion.GraphicsCodec.Model.Values.SimpleMesh import SimpleMesh
@@ -59,6 +62,7 @@ KGraphicsTypes: tuple[type[object], ...] = (
     GraphicAttr,
     IndexData,
     ObjectRef,
+    QualifierValue,
     RenderMesh,
     SceneSet,
     SimpleMesh,

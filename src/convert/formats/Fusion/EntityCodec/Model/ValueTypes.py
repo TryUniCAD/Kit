@@ -1,5 +1,6 @@
 from typing import TypeAlias
 
+from convert.formats.Fusion.EntityCodec.Model.CrossRef import CrossRef
 from convert.formats.Fusion.EntityCodec.Model.MatrixValue import MatrixValue
 from convert.formats.Fusion.EntityCodec.Model.GeometryArray import GeometryArray
 from convert.formats.Fusion.EntityCodec.Model.OptionalValue import OptionalValue
@@ -20,6 +21,7 @@ KEntityValue: TypeAlias = (
     | str
     | LocalRef
     | SegmentRef
+    | CrossRef
     | ValueSeries
     | ValuePair
     | ValueMap

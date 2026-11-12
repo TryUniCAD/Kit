@@ -41,5 +41,3 @@ def CheckParts(Values: tuple[ContainerPart, ...], *, IsPreview: bool = False) ->
             CheckPreview(Entry.Payload)
         Names.append(Entry.Name)
     CheckZipPaths(tuple(Names))
-    if IsPreview and set(Names) != set(KPreviewNames):
-        raise ValueError("Fusion container requires both preview images")

@@ -3,6 +3,8 @@ from convert.formats.Fusion.GraphicsCodec.Model.State.GraphicScene import Graphi
 
 from convert.formats.Fusion.ContainerCodec.Model.AssetHeader import AssetHeader
 from convert.formats.Fusion.ContainerCodec.Model.ContainerPart import ContainerPart
+from convert.formats.Fusion.ContainerCodec.Model.DocProps import DocProps
+from convert.formats.Fusion.ContainerCodec.Model.DocRedirects import DocRedirects
 from convert.formats.Fusion.ContainerCodec.Model.DocumentHeader import DocumentHeader
 from convert.formats.Fusion.DocumentCodec.Model.DocumentBody import DocumentBody
 from convert.formats.Fusion.DocumentCodec.Model.DocumentForm import DocumentForm
@@ -27,3 +29,5 @@ class DocumentModel:
     Graphics: GraphicScene | None = None
     Meshes: tuple[DocumentMesh, ...] = ()
     Forms: tuple[DocumentForm, ...] = ()
+    Properties: DocProps | None = None
+    Redirects: DocRedirects | None = None

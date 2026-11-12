@@ -32,7 +32,7 @@ KAttrRules: dict[str, tuple[FieldRule, ...]] = {
     "SelectabilityAttribute": (
         FieldRule("Selectability", "bool"),
         FieldRule("SelectionPriority", "i32"),
-        FieldRule("AlphaImageSelectionQualifier", "absent"),
+        FieldRule("AlphaImageSelectionQualifier", "qualifier"),
     ),
     "FOccludedEffectAttribute": (
         FieldRule("Color", "f32", 4),

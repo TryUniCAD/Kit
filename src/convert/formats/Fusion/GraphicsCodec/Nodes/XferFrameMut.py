@@ -10,9 +10,13 @@ if TYPE_CHECKING:
 
 def XferFrameMut(State: SceneCodec, Value: RenderFrame | None) -> RenderFrame:
     Matrix = State.OptionalMat(Value.Matrix if Value else None)
-    State.EmptyLinks(4)
+    State.EmptyLinks(2)
+    HasEmptyLink = State.IsFlag(Value.HasEmptyLink if Value else None)
+    if HasEmptyLink and State.IsFlag(False):
+        raise ValueError("Unsupported linked graphics callback payload")
+    State.EmptyLinks(1)
     NodeData = None
     if State.IsFlag(Value is not None and Value.NodeData is not None):
         State.ExpectText("NodeData")
         NodeData = XferNodeMut(State, Value.NodeData if Value else None, False)
-    return RenderFrame(Matrix, NodeData)
+    return RenderFrame(Matrix, NodeData, HasEmptyLink)

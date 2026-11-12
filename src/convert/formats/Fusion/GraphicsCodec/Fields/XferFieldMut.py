@@ -2,9 +2,10 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 from typing import cast as CastValue
 from convert.formats.Fusion.GraphicsCodec.Schema.FieldRule import FieldRule
-from convert.formats.Fusion.GraphicsCodec.Values.XferTextureMut import XferTextureMut
+from convert.formats.Fusion.GraphicsCodec.Fields.XferLinkMut import XferLinkMut
 
 from convert.formats.Fusion.GraphicsCodec.Model.Values.FieldValue import FieldValue
+from convert.formats.Fusion.GraphicsCodec.Model.Values.ObjectRef import ObjectRef
 from convert.formats.Fusion.GraphicsCodec.Model.Values.TextureValue import TextureValue
 
 if TYPE_CHECKING:
@@ -14,12 +15,12 @@ if TYPE_CHECKING:
 def XferFieldMut(
     State: SceneCodec, FieldRuleValue: FieldRule, Value: FieldValue | None
 ) -> FieldValue:
-    Result: bool | int | float | str | None | tuple[float, ...] | TextureValue
+    Result: (
+        bool | int | float | str | None | tuple[float, ...] | TextureValue | ObjectRef
+    )
     Current = Value.DataValue if Value else None
-    if FieldRuleValue.WireKind == "texture":
-        if Current is not None and not isinstance(Current, TextureValue):
-            raise ValueError("Expected typed graphics texture mapping")
-        Result = XferTextureMut(State, Current)
+    if FieldRuleValue.WireKind in ("texture", "qualifier"):
+        Result = XferLinkMut(State, FieldRuleValue.WireKind, Current)
     elif FieldRuleValue.WireKind == "absent":
         State.EmptyLinks(1)
         Result = None

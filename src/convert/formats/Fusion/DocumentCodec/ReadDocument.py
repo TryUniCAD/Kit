@@ -4,6 +4,9 @@ from convert.formats.Fusion.ContainerCodec.ReadContainer import ReadContainer
 from convert.formats.Fusion.DocumentCodec.Auxiliary.Configuration.CheckDocConfig import (
     CheckDocConfig,
 )
+from convert.formats.Fusion.DocumentCodec.Auxiliary.Links.CheckDocLinks import (
+    CheckDocLinks,
+)
 from convert.formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentModel
 from convert.formats.Fusion.DocumentCodec.Auxiliary.Form.CheckDocForms import (
     CheckDocForms,
@@ -55,9 +58,12 @@ def ReadDocument(
         Parts.Graphics,
         Parts.Meshes,
         Parts.Forms,
+        Container.Properties,
+        Container.Redirects,
     )
     CheckDocMats(Result)
     CheckDocConfig(Result)
+    CheckDocLinks(Result)
     CheckDocScene(Result)
     CheckDocMeshes(Result)
     CheckDocForms(Result)

@@ -5,6 +5,9 @@ from convert.formats.Fusion.DocumentCodec.Auxiliary.Graphics.EmitSceneParts impo
 from convert.formats.Fusion.DocumentCodec.Auxiliary.Configuration.CheckDocConfig import (
     CheckDocConfig,
 )
+from convert.formats.Fusion.DocumentCodec.Auxiliary.Links.CheckDocLinks import (
+    CheckDocLinks,
+)
 from convert.formats.Fusion.DocumentCodec.Auxiliary.Configuration.EmitConfigPart import (
     EmitConfigPart,
 )
@@ -39,6 +42,7 @@ from convert.formats.Fusion.DocumentCodec.Records.EmitDocSegment import EmitDocS
 def EmitParsed(Value: DocumentModel) -> bytes:
     CheckDocMats(Value)
     CheckDocConfig(Value)
+    CheckDocLinks(Value)
     CheckDocScene(Value)
     CheckDocMeshes(Value)
     CheckDocForms(Value)
@@ -53,6 +57,13 @@ def EmitParsed(Value: DocumentModel) -> bytes:
         + tuple(EmitFormPart(FormValue) for FormValue in Value.Forms)
     )
     Container = FusionContainer(
-        Value.Document, Value.Asset, Streams, Value.Previews, Parts, Value.EmptyFolders
+        Value.Document,
+        Value.Asset,
+        Streams,
+        Value.Previews,
+        Parts,
+        Value.EmptyFolders,
+        Value.Properties,
+        Value.Redirects,
     )
     return EmitContainer(Container)
