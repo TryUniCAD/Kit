@@ -10,3 +10,4 @@ class ParsedSegment:
     Metadata: MetaSegment
     Records: tuple[EntityRecord, ...]
     Profile: EntityProfile
+    BulkSlack: bytes = b""

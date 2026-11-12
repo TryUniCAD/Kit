@@ -16,6 +16,23 @@ def TestLegacyState(TmpPath: FilePath) -> None:
     Model = dict(CastValue(dict[str, object], Contract["model"]))
     Fields = dict(CastValue(dict[str, object], Model["fields"]))
     del Fields["Meshes"]
+    del Fields["Forms"]
+    Segments = CastValue(dict[str, list[dict[str, object]]], Fields["Segments"])
+    Fields["Segments"] = {
+        "tuple": [
+            {
+                **SegmentItem,
+                "fields": {
+                    FieldKey: FieldValue
+                    for FieldKey, FieldValue in CastValue(
+                        dict[str, object], SegmentItem["fields"]
+                    ).items()
+                    if FieldKey != "BulkSlack"
+                },
+            }
+            for SegmentItem in Segments["tuple"]
+        ]
+    }
     Contract["model"] = {**Model, "fields": Fields}
     Legacy = ReplaceData(Document, metadata={"fusion.native_state": Contract})
     Target = TmpPath / "Restored.f3d"

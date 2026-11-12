@@ -19,7 +19,12 @@ def DecodeRecord(NameValue: object, Values: dict[str, object]) -> object:
         NameValue
         == "convert.formats.Fusion.DocumentCodec.Model.DocumentModel.DocumentModel"
     ):
-        Values = {"Meshes": (), **Values}
+        Values = {"Meshes": (), "Forms": (), **Values}
+    if (
+        NameValue
+        == "convert.formats.Fusion.DocumentCodec.Model.ParsedSegment.ParsedSegment"
+    ):
+        Values = {"BulkSlack": b"", **Values}
     if (
         NameValue
         == "convert.formats.Fusion.GraphicsCodec.Model.Nodes.SketchWorld.SketchWorld"
