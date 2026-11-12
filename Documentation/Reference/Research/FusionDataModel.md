@@ -68,6 +68,9 @@ Unpacking the container exposes those databases without resolving their relation
 The local `.f3z` example contains nine F3D members, `Manifest.json`, and `DesignDescription.json`.
 REA 6.8.0 identified those eleven entries and their digests in the [saved evidence](../../../re/Fusion/Reconstruction/ReaAssemblyEvidence.json).
 REA did not infer Fusion-specific semantics from that inventory.
+REA's Ghidra provider also decompiled `Ns::MemberSet::addNewMember` from an arm64 slice of the installed data-model library.
+The [binary-tool evidence](../../../re/Fusion/Reconstruction/ReaBinaryEvidence.json) records the exact input digest, address, tool versions, evidence identifier, and the resulting registration-map observations.
+The universal Mach-O input first required thinning; generic archive inspection and native-code decompilation are distinct REA capabilities.
 Its F3D inspection rejected the study's ZIP method 93 compression.
 See the [tool limitation](../../Gotchas/Conversion/FusionArchiveInspection.md).
 
@@ -517,6 +520,18 @@ A local Fusion installation is now available and authorized for controlled captu
 Fusion 2706.1.17 accepted the [Kit-edited parameter archive](../../../re/Fusion/LocalOracle/Rewritten/Acceptance.json), exposed its changed values and comments, rebuilt a new dependent expression, and retained that expression after native save and reopen.
 That archive preserves its own non-parameter source records and contains no modeled bodies or feature timeline.
 The result establishes this parameter-edit path, not independent full-document generation, B-rep writing, or complete feature-history acceptance.
+The subsequent [controlled extrusion acceptance](../../../re/Fusion/LocalOracle/Features/Acceptance.json) includes a circular sketch, an extrusion, one solid body, and a dependent model parameter.
+Kit's Python serializers rewrote the user parameter and its numeric binding from 7 mm to 19 mm, preserving the same source document's other records.
+Fusion opened the edited archive with the new parameter values and both timeline entries intact.
+Before full rebuild, the saved body still had the source's 7 mm height and 2.1991148575129498 cm³ volume.
+After `computeAll()`, its height was 19 mm and its volume was 5.969026041820864 cm³.
+A subsequent native edit to 23 mm, export, and reopen retained the two timeline entries and a 7.225663103256217 cm³ body.
+This distinguishes a functioning same-source parametric edit from an independent B-rep writer: the latter must also derive the cached geometry and history state without the vendor runtime.
+
+The [controlled source captures](../../../re/Fusion/LocalOracle/Features/Capture.json) and [native entity graph capture](../../../re/Fusion/LocalOracle/Features/GraphCapture.json) tie the measured parameters, dimensions, topology counts, and property values to archive digests.
+The property queries yielded 211 records for the sketch and 243 for each extrusion control, with 14 and 15 named roots explicitly skipped.
+The initial JSON-reference command form returned `Invalid entity ref` for all entries; querying positive numeric IDs in each active import succeeded.
+The property visitor can omit members without its JSON callbacks, so these files are semantic observations rather than a complete wire schema.
 Installed binary symbols and member-registration code provide additional field-name and type evidence.
 They do not replace measured load and rebuild results.
 Production discovery must remain disabled until the complete acceptance requirements are met.

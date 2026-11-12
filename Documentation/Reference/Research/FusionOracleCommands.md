@@ -228,14 +228,91 @@ It returned 203 entity references in segment `11`, including 13 named roots, fro
 Each JSON reference had `segId`, `entityId`, and `rootId` fields.
 The same report recorded successful `computeAll()` and the binary `Segment.Save` result.
 
+### Entity properties and session identities
+
+The following query succeeded after a later import of the controlled archive:
+
+```text
+PEntity.Properties 203
+```
+
+`re/Fusion/LocalOracle/Inspection/Values.json` records parameter properties including `userName`, `expression`, `value`, `unit`, `comment`, `creationIndex`, and inherited `rParent` and `rClientObject` references.
+The response identified interface `Ns::Parameters::Parameter` and runtime segment `18`.
+The parameter value was `1.9000000000000001`, with expression `19 mm` and user name `betaLength`.
+
+The earlier `segId` value `11` could not be reused: a JSON entity reference containing that stale segment ID failed with `Invalid entity ref`.
+Native `JSONGetMembersVisitor::onVisit(Entity)` calls `Segment::sessionWideID` when it writes the response's `segment` property.
+These runtime segment identities are not portable identities from the F3D archive.
+Resolve them from the current import's `PAsset.EntityIds`, or use the simple entity identifier while the intended asset is active.
+Do not carry a numeric `segId` between imports or application sessions.
+
+The later feature capture also rejected the raw JSON reference syntax with current segment IDs.
+Consequently, the earlier old-segment failure cannot be attributed solely to stale segment identity.
+The successful feature graph export uses positive numeric entity IDs in the active import and explicitly skips named roots.
+See `re/Fusion/LocalOracle/Features/GraphCapture.json`: 211, 243, and 243 property records, no numeric-query errors, and 14, 15, and 15 skipped roots.
+JSON-reference syntax has not been established as a working command input by these experiments.
+
+`Entity.Dump 203` also succeeded but returned a short inheritance and reference-presence description, not the complete member values.
+
+The `PEntity.Properties` implementation at `0x3430bc` in `NsDataModel10.dylib` also accepts `/limited`, `/skipNulls`, `/followRefs`, `/customOnly`, and `/noCustom`.
+`/limited` selects property script identifiers supplied as flags.
+`/skipNulls` sets `returnNulls(false)`, and `/followRefs` sets `followStrongRefs(true)`; the latter does not establish that every reference kind is followed.
+The simple parameter query is verified; these optional combinations were inspected statically.
+
+### Schema introspection limits
+
+`JSONGetMembersVisitor::onVisit(Member)` at `0x313274` calls the member metatype's `implementJSON` and `includeJSON` hooks before emitting a value.
+It can omit a member and uses separate JSON callbacks from the persistence callbacks.
+Its keys come from script identifiers, with a uniqueness helper, rather than an exported binary field-order description.
+The parameter response is useful semantic evidence, but success does not establish that every persistent member of every class is represented.
+
+`MetaTypes.List` calls `MetaType::toString`, whose recovered format contains the metatype name, version, add-in, base, derived flag, and Neutron flag.
+It does not enumerate member intrinsic types.
+The schema XML command calls `MemberSet::getMembersInfo`, which emits member count and names.
+No richer text-command schema interface was established by the inspected command implementations.
+A `MetaTypes.DumpData` string occurs in installed diagnostic text, but that string alone does not establish an available registered command.
+
+Native C++ reflection contains additional schema information:
+
+| Facet                                      | Accessors                                                 |
+| ------------------------------------------ | --------------------------------------------------------- |
+| Member and scripting identifiers           | `Member::id`, `Member::scriptId`                          |
+| Declared C++ type name                     | `Member::debugTypename`                                   |
+| In-memory data and implementation offsets  | `Member::offsetToData`, `Member::offsetToImpl`            |
+| Metatype and template callbacks            | `Member::meta`, `Member::templatizedFunctions`            |
+| Member option bitmask                      | `Member::isSet(EMemberOption)`                            |
+| Inheritance and registered member sequence | `MemberSet::base`, `MemberSet::member`, `MemberSet::size` |
+
+In this build, `MemberMetaType::type` reads a category with values `0` intrinsic, `1` collection, `2` pair, `3` value type, `4` strong reference, `5` passive reference, and `6` optional.
+The category predicates at `0x18b5d0` through `0x18b630` establish that mapping.
+These are native reflection categories, not wire-tag values.
+An in-memory offset or C++ type name does not establish serialized field position or byte width.
+
+The vendor schema dumper demonstrates a concrete registry path: `MetaTypeMgr::get`, then `metaTypes(std::vector<MetaType*>&)`, then an RTTI-checked cast from `MetaType` to `EntityMetaType`, followed by `EntityMetaType::memberSet(UINT32_MAX)`.
+The final getter returns the existing current member-set pointer; it does not initialize an uninstantiated class.
+Null and uninitialized member sets must remain distinguishable from a known empty schema.
+The analogous const `ValueMetaType::memberSet` getter also reads an existing set.
+
+The installed owning SDK directories contained no private `MetaType`, `EntityMetaType`, `Member`, or `MemberSet` headers in this investigation.
+The symbols use libc++ C++ types, and return-type evidence comes from caller disassembly as well as getter bodies.
+`Member::id`, `scriptId`, and `debugTypename` return references to `std::string` objects, not C strings.
+The exported `EntityMetaType` RTTI is available, while the examined `MetaType` RTTI symbol is local.
+The vendor's cast must not be replaced with an unchecked cast of every registry entry to `EntityMetaType`.
+No private native reflection bridge was executed as part of this investigation.
+
+A generic persistence schema still requires registered definitions, inherited ordering, option meanings, version migrations, custom serializers, and actual load/save callbacks.
+The studied classes register their members through `Parameters::Parameter::initializeMemberSet` at `0x16b5d8` and `Parameters::ParameterTable::initializeMemberSet` at `0x170000` in `NsCommonData10.dylib`.
+Tracing registrations and template callbacks supplies type evidence beyond property values.
+This reference does not expose those C++ methods as an established public Python API.
+
+### Additional unverified diagnostics
+
 The following command names and help were also recovered from the installed binaries but do not have successful capture evidence in this record:
 
-| Command                                                    | Intended diagnostic surface                                               |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `PEntity.Properties <EntityRef>`                           | Entity properties, with optional reference-following and property filters |
-| `PEntity.GetEntityInterfaces <EntityRef>`                  | Direct, base, and supported interfaces                                    |
-| `Entity.Dump <EntityId> <AssetName> <DocumentDisplayName>` | An entity dump with optional asset and document qualification             |
-| `Document.DumpData [/v /r]`                                | Document and asset diagnostics written to the log                         |
+| Command                                   | Intended diagnostic surface                       |
+| ----------------------------------------- | ------------------------------------------------- |
+| `PEntity.GetEntityInterfaces <EntityRef>` | Direct, base, and supported interfaces            |
+| `Document.DumpData [/v /r]`               | Document and asset diagnostics written to the log |
 
 `Document.DumpData` is not a demonstrated export of the whole persisted graph.
 Property JSON and XML metadata do not automatically expose custom binary streams or every hidden history state.
@@ -247,8 +324,8 @@ No MCP preference change is part of the bootstrap described here.
 
 ## Verification boundary
 
-The verified results are the native Python probe, the disposable parameter allocation archives, the active-document schema dump, entity-reference enumeration, and the binary segment capture.
+The verified results are the native Python probe, the disposable parameter allocation archives, the active-document schema dump, entity-reference enumeration, one parameter property query, its short entity dump, and the binary segment capture.
 The XML segment capture failed in native code; its predicted output structure is static evidence only.
 Other commands above are identified from installed code unless separately accompanied by a capture report.
-No production Kit code or local test suite was executed to produce this reference.
+No local automated test suite was executed to produce this reference.
 Independent reader/writer output still requires complete semantic comparison and vendor-loadability evidence under the repository's acceptance rules.

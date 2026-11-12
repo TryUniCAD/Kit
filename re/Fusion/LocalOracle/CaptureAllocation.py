@@ -39,12 +39,12 @@ try:
     design.designType = adsk.fusion.DesignTypes.ParametricDesignType
     capture("empty", design)
     alpha = design.userParameters.add("alphaLength", adsk.core.ValueInput.createByString("7.3 mm"), "mm", "first allocation")
-    beta = design.userParameters.add("betaLength", adsk.core.ValueInput.createByString("19 mm"), "mm", "survives deletion")
+    design.userParameters.add("betaLength", adsk.core.ValueInput.createByString("19 mm"), "mm", "survives deletion")
     capture("two_parameters", design)
     if not alpha.deleteMe():
         raise RuntimeError("Parameter deletion failed")
     capture("deleted_first", design)
-    gamma = design.userParameters.add("gammaLength", adsk.core.ValueInput.createByString("23 mm"), "mm", "after deletion")
+    design.userParameters.add("gammaLength", adsk.core.ValueInput.createByString("23 mm"), "mm", "after deletion")
     capture("added_third", design)
     schema = output / "ParameterSchema.xml"
     report["schema_command_result"] = app.executeTextCommand('Document.DumpAcitveDocSchema "' + str(schema) + '"')

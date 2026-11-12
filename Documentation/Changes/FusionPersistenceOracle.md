@@ -36,6 +36,9 @@ The output retains the same source document's non-parameter records and has no m
 This proves the measured parameter-edit path only.
 General automated tests remain in PR CI.
 
+The later [feature experiment](FusionFeatureOracle.md) extends native acceptance to a same-source extrusion control rewrite and full rebuild, with measured geometry and two retained timeline entries.
+It also records that the saved BRep cache stays stale until rebuild; neither experiment establishes independent document generation.
+
 The experimental XML stream dump entered Fusion's crash handler before a completion record was written.
 See [Fusion XML stream dump failure](../Gotchas/Conversion/FusionXmlDumpFailure.md).
 It supplies no successful XML or writer-acceptance evidence.

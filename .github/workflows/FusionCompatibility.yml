@@ -39,3 +39,4 @@ jobs:
           uv run --no-sync --python 3.14 pytest
           tests/convert/formats/FusionCodec/Parameters/FusionParamArchiveTests.py
           tests/convert/formats/FusionCodec/Parameters/FusionAllocTests.py
+          tests/convert/formats/FusionCodec/Parameters/FusionFeatureTests.py
