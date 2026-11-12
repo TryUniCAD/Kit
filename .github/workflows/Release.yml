@@ -4,7 +4,6 @@
 name: Release
 
 on:
-  pull_request:
   workflow_dispatch:
 
 permissions: {}
@@ -14,83 +13,11 @@ concurrency:
 
 jobs:
   build:
-    name: Build and verify release artifacts
-    if: github.event_name == 'pull_request' || (github.repository == 'TryUniCAD/Kit' && github.ref == 'refs/heads/main')
-    runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    name: Prepare release artifacts
+    if: github.repository == 'TryUniCAD/Kit' && github.ref == 'refs/heads/main'
     permissions:
       contents: read
-    outputs:
-      source-id: ${{ steps.source.outputs.artifact-id }}
-      distributions-id: ${{ steps.distributions.outputs.artifact-id }}
-      package-version: ${{ steps.package.outputs.version }}
-    steps:
-      - name: Check out the exact commit
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          ref: ${{ github.sha }}
-          persist-credentials: false
-
-      - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
-        with:
-          version: "0.12.5"
-          enable-cache: false
-
-      - name: Archive the commit and verify its checksums
-        shell: bash
-        run: |
-          ArchiveName="Kit-${GITHUB_SHA}"
-          mkdir -p "${RUNNER_TEMP}/source"
-          git archive --format=zip --prefix="${ArchiveName}/" --output="${RUNNER_TEMP}/source/${ArchiveName}.zip" "${GITHUB_SHA}"
-          git archive --format=tar --prefix="${ArchiveName}/" "${GITHUB_SHA}" | gzip -n > "${RUNNER_TEMP}/source/${ArchiveName}.tar.gz"
-          git show --no-patch --format=fuller --date=iso-strict "${GITHUB_SHA}" > "${RUNNER_TEMP}/CommitDetails.md"
-          cd "${RUNNER_TEMP}/source"
-          for ArchiveFile in "${ArchiveName}.zip" "${ArchiveName}.tar.gz"; do
-            sha256sum -- "${ArchiveFile}" > "${ArchiveFile}.SHA256"
-            sha512sum -- "${ArchiveFile}" > "${ArchiveFile}.SHA512"
-            sha256sum --check -- "${ArchiveFile}.SHA256"
-            sha512sum --check -- "${ArchiveFile}.SHA512"
-          done
-          unzip -tq "${ArchiveName}.zip"
-          tar --list --gzip --file "${ArchiveName}.tar.gz" > /dev/null
-
-      - name: Build the source distribution and wheel
-        shell: bash
-        run: |
-          SOURCE_DATE_EPOCH="$(git show -s --format=%ct "${GITHUB_SHA}")"
-          export SOURCE_DATE_EPOCH
-          uv build --no-sources --python 3.11 --out-dir "${RUNNER_TEMP}/distributions"
-
-      - name: Verify the installed distribution
-        id: package
-        shell: bash
-        run: |
-          uv venv --python 3.11 "${RUNNER_TEMP}/ReleaseEnv"
-          PythonPath="${RUNNER_TEMP}/ReleaseEnv/bin/python"
-          uv pip install --python "${PythonPath}" --no-deps "${RUNNER_TEMP}"/distributions/*.whl
-          "${PythonPath}" -I -c 'from importlib.metadata import distribution; from convert import convert; import interchange; assert distribution("unicad-kit").entry_points["convert"].load() is convert'
-          PackageVersion="$("${PythonPath}" -I -c 'from importlib.metadata import version; print(version("unicad-kit"))')"
-          printf 'version=%s\n' "${PackageVersion}" >> "${GITHUB_OUTPUT}"
-
-      - name: Save GitHub release assets
-        id: source
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
-        with:
-          name: source-${{ github.run_attempt }}
-          path: |
-            ${{ runner.temp }}/source/
-            ${{ runner.temp }}/CommitDetails.md
-          if-no-files-found: error
-          compression-level: 0
-
-      - name: Save PyPI distributions
-        id: distributions
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
-        with:
-          name: distributions-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/distributions/
-          if-no-files-found: error
+    uses: ./.github/workflows/ReleaseBuild.yml
 
   github-release:
     name: Publish GitHub release

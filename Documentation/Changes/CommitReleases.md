@@ -11,13 +11,14 @@ GitHub generates its own source links. Verify the attached files instead: from t
 
 ## Configure and publish
 
-1. In [PyPI publishing settings](https://pypi.org/manage/account/publishing/), create a [pending Trusted Publisher](https://docs.pypi.org/trusted-publishers/creating-a-project-through-oidc/) for `unicad-kit`, owner `TryUniCAD`, repository `Kit`, workflow `Release.yml`, and environment `pypi`. After the project exists, manage its publisher from the project settings. The workflow uses short-lived credentials and requires no PyPI API token.
-2. Before each new release, set an unused Python package version in [pyproject.toml](../../pyproject.toml) and update `uv.lock` in a reviewed PR. The SHA identifies the source in GitHub; PyPI uses the package version.
-3. After merging, run [Release](https://github.com/TryUniCAD/Kit/actions/workflows/Release.yml) from `main`, or use `gh workflow run Release.yml --repo TryUniCAD/Kit --ref main`. After GitHub attaches the source archives, the workflow publishes the wheel and Python source distribution to PyPI.
-4. Check the [GitHub release](https://github.com/TryUniCAD/Kit/releases) for the tag, title, notes and six assets. Check the matching [PyPI version](https://pypi.org/project/unicad-kit/) for the wheel and source distribution, then follow the [installation guide](../GettingStarted.md).
+1. In the repository's [GitHub environments](https://github.com/TryUniCAD/Kit/settings/environments), create `pypi` and allow deployments only from the `main` branch.
+2. In [PyPI publishing settings](https://pypi.org/manage/account/publishing/), create a [pending Trusted Publisher](https://docs.pypi.org/trusted-publishers/creating-a-project-through-oidc/) for `unicad-kit`, owner `TryUniCAD`, repository `Kit`, workflow `Release.yml`, and environment `pypi`. After the project exists, manage its publisher from the project settings. The workflow uses short-lived credentials and requires no PyPI API token.
+3. Before each new release, set an unused Python package version in [pyproject.toml](../../pyproject.toml) and update `uv.lock` in a reviewed PR. The SHA identifies the source in GitHub; PyPI uses the package version.
+4. After merging, run [Release](https://github.com/TryUniCAD/Kit/actions/workflows/Release.yml) from `main`, or use `gh workflow run Release.yml --repo TryUniCAD/Kit --ref main`. After GitHub attaches the source archives, the workflow publishes the wheel and Python source distribution to PyPI.
+5. Check the [GitHub release](https://github.com/TryUniCAD/Kit/releases) for the tag, title, notes and six assets. Check the matching [PyPI version](https://pypi.org/project/unicad-kit/) for the wheel and source distribution, then follow the [installation guide](../GettingStarted.md).
 
 If GitHub succeeds and PyPI fails, rerun the failed job after correcting the cause. Do not dispatch a new run for the same SHA: the existing GitHub release will already own its tag. PyPI does not allow replacing published files or reusing their filenames.
 
 ## Verification
 
-[Pull request CI](https://github.com/TryUniCAD/Kit/actions/runs/43159953682) built both archives and both Python distributions, checked the archive formats and checksum files, and installed the wheel in an isolated environment to load its public entry point. Publishing jobs are skipped on pull requests. Verify GitHub release creation and PyPI authentication in the first run on `main`.
+[Pull request CI](https://github.com/TryUniCAD/Kit/actions/runs/43160139879) built both archives and both Python distributions, checked the archive formats and checksum files, and installed the wheel in an isolated environment to load its public entry point. [ReleaseBuild.yml](../../.github/workflows/ReleaseBuild.yml) runs the same build on pull requests and when called by the publishing workflow. Verify GitHub release creation and PyPI authentication in the first run on `main`.
