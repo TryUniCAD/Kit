@@ -28,7 +28,7 @@ and static validation, avoiding a dependency cycle. Failures, unexpected skips,
 cancellations, and timeouts block the aggregate; missing or pending acceptance
 cannot pass.
 
-For PRs, `CI Agg` additionally requires successful configured native reviewer reports on the current head SHA. A matching name from another
+At the time of this repair, `CI Agg` additionally required successful configured native reviewer reports on the current head SHA. A matching name from another
 app, an older head, or a test-merge SHA cannot satisfy it. Other review providers
 remain excluded. Queue candidates do not need native reviewer reports; reuse of PR
 evidence checks the native result on each contributing PR's own head. This does

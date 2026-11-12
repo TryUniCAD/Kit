@@ -7,6 +7,8 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 
 ## Behavior
 
+[Review reports and CI](CiReviewerExclusions.md) supersedes this entry’s original CI aggregation behavior.
+
 [ReviewBot.json](../../.agents/skills/standard-pr-practice/ReviewBot.json) is the
 single source for requested reviewer identities, wake words, native report names,
 and existing report-exclusion metadata. The `Reviewers` array includes both

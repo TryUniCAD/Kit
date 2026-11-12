@@ -46,10 +46,12 @@ read its complete standards index and every applicable rule before coding.
 - Run heavy acceptance and security checks on the merge-group candidate through
   [the native merge queue](MergeQueue.md). Keep every applicable CI gate enabled.
   Distinguish green PR checks from successful queue acceptance.
-- Use `Pull Request / CI Agg` for overall CI health, with its existing provider
-  exclusions documented in [MergeQueue.md](MergeQueue.md). Reuse healthy PR reports
-  in the queue only with verified identical inputs; otherwise rerun. Header and
-  change-range verification and heavy acceptance always execute on the candidate.
+- Use `Pull Request / CI Agg` for overall CI health. Keep automated reviewer
+  reports out of CI aggregation, including reports from newly configured
+  reviewers. Follow the identity exclusions in [MergeQueue.md](MergeQueue.md).
+  Reuse healthy PR reports in the queue only with verified identical inputs.
+  Header and change-range verification and heavy acceptance always execute on
+  the candidate.
 - Read every entry in `Reviewers` from
   [ReviewBot.json](.agents/skills/standard-pr-practice/ReviewBot.json), the sole
   source of reviewer identities, report names, and exact request comments.

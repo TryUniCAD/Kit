@@ -6,7 +6,6 @@ const Path = require("node:path");
 const Crypto = require("node:crypto");
 const Process = require("node:child_process");
 const { IsReviewApp, IsReviewUser } = require("./ReviewProviders.cjs");
-const { BuildRequired } = require("./ReviewerReports.cjs");
 
 const StaticChecks = [
   "Ruff",
@@ -52,14 +51,7 @@ const ReusableChecks = StaticChecks.filter(
 );
 const WorkflowPath = ".github/workflows/PullRequest.yml";
 
-async function ReadReports(
-  Github,
-  Context,
-  Refs,
-  Expected,
-  Reused = false,
-  ReviewSha = null,
-) {
+async function ReadReports(Github, Context, Refs, Expected, Reused = false) {
   const Repository = Context.repo;
   const Runs = [];
   const Checks = [];
@@ -182,7 +174,6 @@ async function ReadReports(
       });
     }
   }
-  if (ReviewSha) Rows.push(...BuildRequired(Checks, Statuses, ReviewSha));
   return Rows;
 }
 
@@ -335,14 +326,12 @@ async function FindReuse(Github, Context, Core) {
         continue;
       HealthRefs.push(Evidence.report_merge_sha);
     }
-    const Health = await ReadReports(
-      Github,
-      Context,
-      HealthRefs,
-      [...StaticChecks, ...PrChecks, "CI Agg", "Merge queue acceptance"],
-      false,
-      Pull.headRefOid,
-    );
+    const Health = await ReadReports(Github, Context, HealthRefs, [
+      ...StaticChecks,
+      ...PrChecks,
+      "CI Agg",
+      "Merge queue acceptance",
+    ]);
     if (Health.some((Row) => Row.state !== "pass")) {
       return {
         reuse: false,
@@ -485,14 +474,7 @@ async function Aggregate({ github: Github, context: Context, core: Core }) {
       )
         throw new Error("The PR head changed during CI aggregation");
     }
-    Rows = await ReadReports(
-      Github,
-      Context,
-      Refs,
-      Expected,
-      Reuse.reuse,
-      IsPull ? Context.payload.pull_request.head.sha : null,
-    );
+    Rows = await ReadReports(Github, Context, Refs, Expected, Reuse.reuse);
     const Failed = Rows.filter((Row) => Row.state === "fail");
     if (Failed.length) {
       await Core.summary
@@ -519,9 +501,6 @@ async function Aggregate({ github: Github, context: Context, core: Core }) {
   }
   await Core.summary
     .addHeading("CI passed")
-    .addRaw(
-      "All applicable CI passed; PR heads also require successful native reports from every configured reviewer.\n",
-    )
     .addTable([
       ["Check", "Conclusion", "Report"],
       ...Rows.map((Row) => [Row.name, Row.conclusion || "unknown", Row.url]),

@@ -10,12 +10,10 @@ Kit uses GitHub's native merge queue for `main`. The desired settings live in
 outside Git history: merging this configuration PR does not activate them.
 
 The live `Protect` ruleset requires both `CI Agg` and `Merge queue acceptance`
-from GitHub Actions (`15368`). Its direct native-review requirement was
-removed because GitHub also applies it to synthetic queue commits, where the app
-does not report. Instead, `CI Agg` requires the configured native reviewer results on PR
-heads, as described below. The checked-in desired ruleset and live rules must
-still be inspected separately. Existing approvals, bypass actors, and other live
-settings were preserved.
+from GitHub Actions (`15368`). GitHub applies required checks to synthetic
+queue commits, where PR reviewers do not report. Native review requirements
+apply to PR readiness through the reviewer workflow below. Inspect the
+checked-in desired ruleset and live rules separately.
 
 ## Validation phases
 
@@ -37,18 +35,13 @@ remain separate from CI health. Changing the JSON does not install integrations
 or modify live rulesets.
 
 [`Pull Request / CI Agg`](.github/workflows/PullRequest.yml) reports overall CI
-health for the exact PR revision. General review reports are excluded by the
+health for the exact PR revision. It excludes automated review reports by the
 immutable GitHub app and status-creator IDs in `Reviewers` and `ExcludedReports`.
-Only `Reviewers` entries are requested reviewers with readiness requirements;
-`ExcludedReports` records existing unrelated review integrations, not additional
-review requests. Every check in each reviewer's `Checks` and every status in
-`Statuses` is explicitly required on PR heads and during PR evidence reuse.
-Missing or pending reports keep the aggregate pending; only completed `success`
-results pass. Failed, neutral, skipped, cancelled, or timed-out reports fail.
-Stale results, matching names from another identity, and test-merge results cannot
-substitute. The newest matching report controls the result. Queue aggregation
-does not require reviewer reports on synthetic candidates; evidence reuse checks
-every required report on each contributing PR head.
+Entries in `Reviewers` define requested reviews and their readiness
+requirements. Use `ExcludedReports` to register any other integration that
+publishes automated review reports. New reviewer entries receive the same
+exclusions automatically. The configured `Checks` and `Statuses` identify the
+native reports to verify during PR review follow-up.
 
 [ReviewProviders.cjs](.github/scripts/ReviewProviders.cjs) reads identities from the
 JSON rather than maintaining a separate registry. Display names, logins, and

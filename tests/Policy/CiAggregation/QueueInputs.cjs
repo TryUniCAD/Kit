@@ -2,7 +2,8 @@
 // SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt
 
 function BuildQueue(CaseMode, Verdict, CheckName) {
-  if (!CaseMode.startsWith("queue")) return { Checks: [], Runs: [] };
+  if (!["queue", "queue-run", "queue-missing"].includes(CaseMode))
+    return { Checks: [], Runs: [] };
   return {
     Checks: [
       {

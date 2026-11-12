@@ -8,10 +8,9 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 `Pull Request / CI Agg` separates general automated review reports from ordinary
 CI. Provider identities now come only from `Reviewers` and `ExcludedReports` in
 [ReviewBot.json](../../.agents/skills/standard-pr-practice/ReviewBot.json).
-The shared reporter excludes general reports from those identities during PR,
-merge-group, and evidence-reuse aggregation. PRs and PR evidence reuse explicitly
-require every native check and status listed under `Reviewers` on the current PR
-head. Synthetic queue candidates remain exempt from PR-only reviewer reports.
+The shared reporter excludes reports from those identities during PR,
+merge-group, and evidence-reuse aggregation. See [review reports and CI](CiReviewerExclusions.md)
+for the current handling of configured native reports.
 
 `ReviewProviders.cjs` matches verified immutable GitHub app IDs and bot user IDs.
 Register provider identities only in the JSON. Names, logins, and URLs cannot

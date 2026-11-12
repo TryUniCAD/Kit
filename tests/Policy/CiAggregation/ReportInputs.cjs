@@ -3,7 +3,6 @@
 
 const Expected = require("./ExpectedChecks.cjs");
 const { BuildReviews } = require("./ReviewReports.cjs");
-const { BuildRequired } = require("./ReviewerInputs.cjs");
 const {
   Reviewers,
 } = require("../../../.agents/skills/standard-pr-practice/ReviewBot.json");
@@ -19,19 +18,17 @@ function BuildReports(CaseMode, Verdict, CheckName = "Scorecard") {
     conclusion: "success",
   }));
   const Reviews = BuildReviews(Verdict);
-  const Required = BuildRequired(CaseMode, Verdict, CheckName);
-  Checks.push(
-    ...Reviews.Checks.map((Check) => ({ ...Check, id: Check.id + 100 })),
-    ...Required.Checks,
-  );
+  Checks.push(...Reviews.Checks);
   const QueueData = BuildQueue(CaseMode, Verdict, CheckName);
   Checks.push(...QueueData.Checks);
-  const Statuses = [...Reviews.Statuses, ...Required.Statuses];
+  const Statuses = Reviews.Statuses;
   if (CaseMode === "check") Checks[0].conclusion = "failure";
   if (CaseMode === "status")
     Statuses.push({
       id: 900,
-      context: Reviewers[0].Checks[0] || Reviewers[0].Statuses[0],
+      context:
+        Reviewers.flatMap((Reviewer) => Reviewer.Statuses)[0] ??
+        "External status",
       creator: { id: 900, login: "build-service" },
       state: "failure",
     });
