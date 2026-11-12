@@ -57,7 +57,7 @@ It is not an independent measurement from the target application.
 | Output usability policy | `allow_carrier=False` | Rejects results that fail the registry output policy |
 | Adapter-specific values | `write_values`        | Passes values to the writer                          |
 
-Keep `include_brep=True` and `include_tessellation=True` when the task requires those data.
+Keep `include_brep=True` and `include_tessellation=True` for lossless conversion.
 Read filters can change the information available to the writer.
 Do not claim preservation of information that you excluded during reading.
 
@@ -74,8 +74,10 @@ See [write boundaries](../Reference/Architecture/Engine.md).
 ## If the task fails
 
 For `ApplicationUsabilityError`, record the structured error with the [recovery procedure](Troubleshoot.md).
-Do not set `allow_carrier=True` merely to hide an acceptance failure.
-Use carrier output only when the task explicitly permits that limitation.
+Do not set `allow_carrier=True` to bypass an acceptance failure.
+Carrier output is not an accepted translation.
+The runtime can return carrier output, but that return does not satisfy the product acceptance gate.
+Keep incomplete output as diagnostic evidence and continue the implementation work.
 
 For a filesystem error, check destination permissions, free space, and existing companion paths.
 For unsupported source content, preserve the source and report its format and feature family.

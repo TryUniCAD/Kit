@@ -83,7 +83,9 @@ See [B-rep extraction](../../Tasks/ExtractGeometry.md) to copy available payload
 
 Record body count, volume, center of mass, units, and tolerances.
 Record the source and target versions.
-When the task requires parametric output, also verify the feature tree and rebuild behavior.
+For translation acceptance, verify the feature tree against the source node by node.
+Change a driving dimension and verify that a rebuild changes the geometry correctly.
+A B-rep-only result does not satisfy the repository's parametric acceptance requirement.
 Keep measurements tied to the exact generated file.
 
 ## Sources

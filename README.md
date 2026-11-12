@@ -51,8 +51,9 @@ Result = ConvertDoc("bracket.SLDPRT", "bracket.FCStd", allow_carrier=False)
 
 The distribution name is `kit`, but the public import is `convert`.
 The default `allow_carrier=True` permits preservation results subject to the registry policy.
-Set `allow_carrier=False` when the task requires the stricter output policy.
+Set `allow_carrier=False` for conversion acceptance work.
 This option is independent of the reader's `strict` option.
+The default does not waive the repository's lossless and parametric acceptance requirements.
 
 A successful return reports writer evidence.
 It does not prove that a target application can open, edit, and rebuild the output.

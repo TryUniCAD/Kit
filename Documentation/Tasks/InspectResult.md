@@ -68,6 +68,8 @@ Read the complete [write policy](../../src/convert/adapters/base/WritePolicy.py)
 
 The repository acceptance rule requires all relevant information to survive.
 Vendor loadability alone is insufficient.
+Carrier-only output and a non-editable replacement for source history fail the acceptance gate.
+Task options cannot waive that gate.
 The evidence must include these observations:
 
 - Body count, volume, and center of mass.
@@ -85,6 +87,7 @@ See [oracle evidence](../Reference/Research/Oracles.md).
 
 If a required observation is missing, report acceptance as unverified.
 If a required observation fails, report the measured failure.
+Do not distribute incomplete output as a completed translation.
 Do not substitute byte identity, a mode label, or a passing static check.
 
 ## Sources

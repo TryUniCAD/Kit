@@ -28,6 +28,8 @@ The README no longer promises complete format support or default reversible conv
 The production diagram uses `CadDocument` and does not include a vendor oracle.
 The API reference distinguishes `strict`, `allow_carrier`, `values`, and `write_values`.
 The result guide explains the registry's treatment of target-limit carriers.
+The conversion and B-rep guides make lossless and parametric acceptance unconditional.
+They describe permissive runtime behavior without treating it as product acceptance.
 The destination guides document partial stream writes and partial B-rep extraction.
 The security and data references distinguish integrity hashes from authentication.
 The README retains the wiki link, badge, star history, and banner removal from PR #71.
