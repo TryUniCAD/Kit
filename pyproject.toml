@@ -12,10 +12,9 @@ license = "MIT"
 license-files = ["LICENSE", "src/convert/adapters/solidworks/container/OpenSwxLicense.md"]
 authors = [
     { name = "Odin Glynn-Martin" },
-    { name = "Stephen Harcourt" },
 ]
 maintainers = [
-    { name = "Odin Glynn-Martin" },
+    { name = "Stephen Harcourt" },
 ]
 keywords = [
     "cad",
