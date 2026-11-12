@@ -22,10 +22,29 @@ def SlotOf(Positions: dict[tuple[KSegmentKey, int], int], KeyValue: KSegmentKey)
     return Positions[(KeyValue, LastValue)]
 
 
+def LifeSlots(
+    Contents: list[dict[KSegmentKey, tuple[object, ...]]],
+    Positions: dict[tuple[KSegmentKey, int], int],
+) -> dict[tuple[KSegmentKey, int], int]:
+    Lives: dict[tuple[KSegmentKey, int], int] = {}
+    for Index, State in enumerate(Contents):
+        for KeyValue in State:
+            if (KeyValue, Index) in Lives:
+                continue
+            Final = Index
+            while Final + 1 < len(Contents) and KeyValue in Contents[Final + 1]:
+                Final += 1
+            Identity = Positions[(KeyValue, VersionAt(Positions, KeyValue, Final))]
+            for Within in range(Index, Final + 1):
+                Lives[(KeyValue, Within)] = Identity
+    return Lives
+
+
 def AssembleNodes(
     Contents: list[dict[KSegmentKey, tuple[object, ...]]],
     Positions: dict[tuple[KSegmentKey, int], int],
     Order: list[tuple[KSegmentKey, int]],
+    Lives: dict[tuple[KSegmentKey, int], int],
 ) -> tuple[KJournalEntity, ...]:
     Slots = {KeyValue: SlotOf(Positions, KeyValue) for KeyValue, _ in Positions}
     Nodes: list[KJournalEntity] = []
@@ -38,7 +57,7 @@ def AssembleNodes(
             (
                 TagValue,
                 (
-                    Slots[Value]
+                    Lives.get((CastValue(KSegmentKey, Value), Start), Slots[Value])
                     if TagValue == 12 and isinstance(Value, tuple)
                     else CastValue(KAsmValue, Value)
                 ),
@@ -52,6 +71,7 @@ def AssembleNodes(
 def StateChanges(
     Contents: list[dict[KSegmentKey, tuple[object, ...]]],
     Positions: dict[tuple[KSegmentKey, int], int],
+    Lives: dict[tuple[KSegmentKey, int], int],
     Index: int,
 ) -> list[tuple[int, int]]:
     After = Contents[Index]
@@ -66,13 +86,12 @@ def StateChanges(
     )
     Changes: list[tuple[int, int]] = []
     for KeyValue in After:
+        Identity = Lives[(KeyValue, Index)]
         if KeyValue not in Before:
-            Changes.append(
-                (-1, Positions[(KeyValue, VersionAt(Positions, KeyValue, Index))])
-            )
+            Changes.append((-1, Identity))
         elif Before[KeyValue] != After[KeyValue]:
             OldValue = Positions[(KeyValue, VersionAt(Positions, KeyValue, Index - 1))]
-            Changes.append((OldValue, Positions[(KeyValue, Index)]))
+            Changes.append((OldValue, Identity))
     for KeyValue in Before:
         if KeyValue not in After:
             Changes.append(

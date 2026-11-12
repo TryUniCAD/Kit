@@ -7,6 +7,9 @@ from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from convert.formats.Fusion.EntityCodec.Model.OptionalValue import OptionalValue
 from convert.formats.Fusion.EntityCodec.Model.ValueObject import ValueObject
 from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
+from tests.convert.formats.FusionCodec.Documents.PartFeatures.BulletinRefs import (
+    IsIdentityRef,
+)
 from tests.convert.formats.FusionCodec.Documents.PartFeatures.PartCases import (
     KPartCases,
     PartSpec,
@@ -80,3 +83,11 @@ def TestRefScope(NameValue: str) -> None:
         ScopeIds(Fields["scope"]) for Fields in PartRecords(Model, "ETCachedTopology")
     )
     assert all(Found == Expected for Found in Scopes)
+
+
+@MarkTests.parametrize("NameValue", tuple(KPartCases))
+def TestBulletinIds(NameValue: str) -> None:
+    Model = ReadDocument(EmitDocument(PartSpec(NameValue)))
+    History = Model.Bodies[0].History
+    assert isinstance(History, JournalModel)
+    assert IsIdentityRef(History)

@@ -27,6 +27,9 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import (
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.SolvePart import SolvePart
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
+from tests.convert.formats.FusionCodec.Documents.PartFeatures.BulletinRefs import (
+    IsIdentityRef,
+)
 from tests.convert.formats.FusionCodec.Documents.PartFeatures.FamilyCases import (
     KBlock,
     KFamilyCases,
@@ -82,6 +85,7 @@ def TestFamArchive(NameValue: str) -> None:
     )
     Tracks = [Entity for Entity in History.Entities if isinstance(Entity, TrackAttrib)]
     assert bool(Tracks) == bool(Copies)
+    assert IsIdentityRef(History)
 
 
 def TestPlaneState() -> None:

@@ -8,6 +8,7 @@ from convert.formats.Fusion.BrepCodec.Journal.States.StreamState import StreamSt
 from convert.formats.Fusion.BrepCodec.Models.BrepHeader import BrepHeader
 from convert.formats.Fusion.DocumentCodec.PartFeatures.History.AssembleHist import (
     AssembleNodes,
+    LifeSlots,
     StateChanges,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.History.ChainStates import (
@@ -41,8 +42,11 @@ def PartJournal(
     Drafts = tuple(DraftState(Bodies, Ledger, UnixMicros) for Bodies in Stages)
     Contents = StateContents(Drafts)
     Positions, ActiveCount, Order = VersionTable(Contents)
-    Entities = AssembleNodes(Contents, Positions, Order)
-    Changes = [StateChanges(Contents, Positions, Index) for Index in range(len(Stages))]
+    Lives = LifeSlots(Contents, Positions)
+    Entities = AssembleNodes(Contents, Positions, Order, Lives)
+    Changes = [
+        StateChanges(Contents, Positions, Lives, Index) for Index in range(len(Stages))
+    ]
     Stream = StreamState(StateIds[-1], StateIds[-1], 0, Ledger.NextTag, -1, 0, 1, -1)
     Bodies = sum(
         isinstance(NodeValue, BodyNode) for NodeValue in Entities[:ActiveCount]
