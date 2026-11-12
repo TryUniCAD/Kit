@@ -55,6 +55,7 @@ try:
 except Exception:
     report["status"] = "failed"
     report["traceback"] = traceback.format_exc()
+    raise
 finally:
     if doc is not None:
         doc.close(False)
