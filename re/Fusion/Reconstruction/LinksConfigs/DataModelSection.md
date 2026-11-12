@@ -133,6 +133,7 @@ The occurrence matrix is stored in four Design fields of `R1_part_a`.
 These are `ComponentInstance.initialTransform`, `ComponentInstance.transform`, the `DcXRefPCIFeature` placement and the `DcOccurrence` state.
 The matrix is row-major with the translation in the fourth column, in centimetres.
 No graphics value of `R1_part_a` equals this matrix.
+A typed change of these four fields moves the occurrence in Fusion.
 
 ### Reference update
 
@@ -192,6 +193,10 @@ The configuration table, rule, row and cell layouts are not known.
 | example1 graph relations | 9 of 9 members |
 | Inline-typed references found | 0 |
 | Nonempty configuration sidecars found | 0 in 1,063 files |
+| Fusion opens uploaded Kit outputs with resolved references | 2 of 2, largest transform error 0.0 |
+| Kit-written occurrence matrix shown by Fusion | Equal, largest error 0.0 |
+| `updateAllReferences` on Kit outputs | Part A v1 to v2, body height 0.5 cm to 0.8 cm |
+| Save as version 2 and reopen | 2 of 2, references and transforms kept |
 
 ## Boundaries
 

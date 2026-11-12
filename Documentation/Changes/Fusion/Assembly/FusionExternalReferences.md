@@ -83,13 +83,64 @@ For each fixture, the model read again from the Kit output equals the original m
 All members are byte-identical except `.protein` members and the part `.smb` and `.smbh` members.
 The existing codecs regenerate these three member kinds.
 
+## Native acceptance
+
+`PrepareReplay.py` made two Kit outputs from the unsanitized controls.
+
+| Output | Source | Kit operation | Bytes | SHA-256 |
+| --- | --- | --- | --- | --- |
+| `KitLinkReplayR5.f3d` | `R5_saved` | `ReadDocument`, then `EmitParsed` | 140,057 | `f89b39397f705117b85592be15c0c146b1e25f289d2a5fef427830962b66cda9` |
+| `KitLinkMovedR1.f3d` | `R1_part_a` | New Part A matrix in the typed model, then `EmitParsed` | 135,024 | `feb364e1f0b8a23415f01b6326e983c8d7a9259893badc0dc9d78562ddffa297` |
+
+The new matrix is a rotation of 45° about Z with the translation (7, −3, 2) cm.
+Kit replaced the matrix in four Design fields.
+Only the Design `BulkStream.dat` and the `.protein` member differ from the source control.
+
+`ImportManager.importToNewDocument` refused both outputs, as the [local reference gotcha](../../../Gotchas/Conversion/Fusion/Assembly/FusionLocalReferences.md) describes.
+`BeginLinkUpload.py` uploaded both outputs to the acceptance project with `DataFolder.uploadFile`.
+`AcceptLinkUploads.py` then opened the native cloud root and both uploaded outputs in Fusion 2706.1.17.
+
+| Check | Native root `KitLinkRoot` | `KitLinkReplayR5` | `KitLinkMovedR1` |
+| --- | --- | --- | --- |
+| Open documents after open | 4 | 4 | 2 |
+| Occurrence paths equal to the expected paths | Yes | Yes | Yes |
+| Largest transform error after open | 0.0 | 0.0 | 0.0 |
+| References after open | Part A v2, subassembly v1 | Part A v1 out of date, subassembly v1 | Part A v1 out of date |
+| Part A body height after open | 0.8 cm | 0.5 cm | 0.5 cm |
+| `updateAllReferences` | Not run | `True`, Part A v2 | `True`, Part A v2 |
+| Part A body height after update | Not run | 0.8 cm | 0.8 cm |
+| Largest transform error after update | Not run | 0.0 | 0.0 |
+| Unhealthy timeline items | 0 | 0 | 0 |
+| Open documents at the end | 0 | 0 | 0 |
+
+The expected transforms of `KitLinkReplayR5` are the native `R5_saved` occurrence matrices.
+The expected transform of `KitLinkMovedR1` is the matrix that Kit wrote.
+Fusion showed this matrix for Part A without a difference.
+
+The first save attempt in `AcceptLinkUploads.py` closed each document after 300 s and made no new version.
+The later runs kept the document open until a new folder lookup showed the new version.
+The [save completion gotcha](../../../Gotchas/Conversion/Fusion/Assembly/FusionSaveCompletion.md) gives the details.
+`ProbeLinkSave.py` and `AcceptLinkSaves.py` then saved each updated output as cloud version 2 and opened that version again.
+
+| Check after save and reopen | `KitLinkReplayR5` | `KitLinkMovedR1` |
+| --- | --- | --- |
+| Cloud version | 2 | 2 |
+| References | Part A v2, subassembly v1, none out of date | Part A v2, not out of date |
+| Part A body height | 0.8 cm | 0.8 cm |
+| Largest transform error | 0.0 | 0.0 |
+| Unhealthy timeline items | 0 | 0 |
+| Open documents at the end | 0 | 0 |
+
+The [native acceptance report](../../../../re/Fusion/LocalOracle/LinksConfigs/LinkAcceptance.json) records all values.
+
 ## Tests
 
 `tests/convert/formats/FusionCodec/Links` contains the new cases.
 `LinkArchiveTests.py` replays the 14 fixtures and checks the link, context and token relations.
+Its case `TestPlacement` writes a new Part A matrix into the typed model of `R1_part_a` and reads it back.
 `LinkWireTests.py` checks synthetic root links, contexts, references, `Properties.dat` and `RedirectionsStream`.
 The cases did not run locally.
-They require Python 3.14 for ZIP method 93.
+`LinkArchiveTests.py` requires Python 3.14 for ZIP method 93.
 
 ## Limits
 
