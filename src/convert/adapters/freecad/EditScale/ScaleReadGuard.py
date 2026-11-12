@@ -8,7 +8,7 @@ from zipfile import ZipFile, ZipInfo
 
 from convert.adapters.base.SafeParsing import ParseUntrusted
 from convert.adapters.freecad.Archive import ET
-from convert.adapters.freecad.ArchiveWrite import BuildDocXmlMut
+from convert.adapters.freecad.ArchiveOutput.ArchiveWrite import BuildDocXmlMut
 from convert.adapters.freecad.EditBinding import ReadEditBinding
 from convert.adapters.freecad.EditScale.ScaleBinding import KScaleBinding
 from convert.adapters.freecad.EditScale.ScaleWritePlan import ReadScalePlan

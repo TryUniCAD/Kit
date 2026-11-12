@@ -12,7 +12,7 @@ from convert.adapters.freecad.Adapter import (
 from convert.adapters.freecad.Archive import (
     extract_manifest_from_fcstd as ExtractManifestFromFcstd,
 )
-from convert.adapters.freecad.ArchiveWrite import (
+from convert.adapters.freecad.ArchiveOutput.ArchiveWrite import (
     build_fcstd_archive as BuildFcstdArchive,
 )
 

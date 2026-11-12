@@ -9,7 +9,7 @@ import zlib as ZlibValue
 from typing import Mapping, cast as CastValue
 
 from convert.adapters.freecad.Archive import (
-    BuildDocXmlWithEmittersMut,
+    BuildDocCoreMut,
     CanonicalJson,
     IsPayloadMap,
     KDocEntry,
@@ -38,7 +38,7 @@ def BuildDocXmlMut(
     TrustedNativeBreps: frozenset[KNativeBrepKey] = KNoTrustedNativeBreps,
     EditableFeatures: set[str] | None = None,
 ) -> tuple[bytes, dict[str, bytes]]:
-    return BuildDocXmlWithEmittersMut(
+    return BuildDocCoreMut(
         Manifest,
         ManifestData,
         ManifestShaTwoFiveSix,

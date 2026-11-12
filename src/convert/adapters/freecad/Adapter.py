@@ -79,7 +79,7 @@ from convert.adapters.freecad.Archive import (
     native_sketch_carrier_reasons as NativeSketchCarrier,
     native_sketch_parts as NativeSketchParts,
 )
-from convert.adapters.freecad.ArchiveWrite import (
+from convert.adapters.freecad.ArchiveOutput.ArchiveWrite import (
     build_fcstd_archive as BuildFcstdArchive,
 )
 from convert.adapters.freecad.Brep import (

@@ -11,7 +11,7 @@ from zipfile import ZipFile, ZipInfo
 
 from convert.adapters.base import ParseUntrusted
 from convert.adapters.freecad.Archive import Items, ParamCatalog
-from convert.adapters.freecad.ArchiveWrite import BuildDocXmlMut
+from convert.adapters.freecad.ArchiveOutput.ArchiveWrite import BuildDocXmlMut
 from convert.adapters.freecad.EditBinding import ReadEditBinding
 from convert.adapters.freecad.EditRead.EditPlacement import CheckEditFrame
 from convert.adapters.freecad.EditRead.Sketch.SavedSketchGeom import ReadSketchGeom

@@ -3969,7 +3969,7 @@ def ImportArchive(
         DocValue, ensure_ascii=False, sort_keys=True, separators=(",", ":")
     )
     Digest = Hashlib.sha256(Canonical.encode("utf-8")).hexdigest()
-    DocXml, ChildPayloads = BuildDocXmlWithEmittersMut(
+    DocXml, ChildPayloads = BuildDocCoreMut(
         DocValue, "", Digest, TrustedNativeBreps=TrustedNativeBreps
     )
     return (ParseUntrusted(DocXml), ChildPayloads)
@@ -8665,7 +8665,7 @@ def ReadArchiveRev(
 
 
 # this definition exists because document conversion coordinates each ordered graph and payload phase
-def BuildDocXmlWithEmittersMut(
+def BuildDocCoreMut(
     Manifest: Mapping[str, object],
     ManifestData: str,
     ManifestShaTwoFiveSix: str,
