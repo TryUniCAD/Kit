@@ -19,7 +19,7 @@ from tests.convert.formats.FusionCodec.Brep.Round.TrimmedSources import KTrimmed
 )
 @TestMarks.parametrize("FileName,SurfaceCount", KTrimmedSources)
 @TestMarks.parametrize("Reordered", (False, True))
-def TestTrimmedRound(
+def TestTrimRound(
     TmpPath: FilePath, FileName: str, SurfaceCount: int, Reordered: bool
 ) -> None:
     Original = NativeHistory(FileName)

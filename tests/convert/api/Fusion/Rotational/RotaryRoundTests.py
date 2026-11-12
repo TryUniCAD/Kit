@@ -31,7 +31,7 @@ def TestRotaryRound(TmpPath: FilePath, CaseValue: RotaryCase) -> None:
         assert not Document.bodies and not Document.materials
         assert len(Document.feature_timeline) == 1
     else:
-        CheckRotaryBody(Document, CaseValue)
+        VerifyRotary(Document, CaseValue)
     Neutral = CadDocument.from_json(Document.to_json())
     assert Neutral == Document
     Target = TmpPath / "Rotary.f3d"
@@ -48,7 +48,7 @@ def TestRotaryRound(TmpPath: FilePath, CaseValue: RotaryCase) -> None:
     assert Reopened.materials == Document.materials
 
 
-def CheckRotaryBody(Document: CadDocument, CaseValue: RotaryCase) -> None:
+def VerifyRotary(Document: CadDocument, CaseValue: RotaryCase) -> None:
     assert Document.bodies[0].id == CaseValue.BodyId
     UpperRadius = CaseValue.RadiusMm + CaseValue.HeightMm * Tangent(
         Radians(CaseValue.TaperDegrees)

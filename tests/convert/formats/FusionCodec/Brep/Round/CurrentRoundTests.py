@@ -24,7 +24,7 @@ from tests.convert.formats.FusionCodec.Brep.Round.NativeRound import NativeRound
 )
 @TestMarks.parametrize("Label", ("Sphere", "Torus", "TiltedTorus", "PlacedTorus"))
 @TestMarks.parametrize("Reordered", (False, True))
-def TestCurrentRound(TmpPath: FilePath, Label: str, Reordered: bool) -> None:
+def TestRoundSmb(TmpPath: FilePath, Label: str, Reordered: bool) -> None:
     Original = NativeRound(Label)
     Native = ReadGeometry(Original)
     assert len(Native.Entities) == 8

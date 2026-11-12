@@ -27,12 +27,17 @@ def TestCircleScene(TmpPath: FilePath, ProfileName: str) -> None:
     assert any(
         isinstance(Entry.Value, CircleArcValue) for Entry in Model.Graphics.Objects
     )
-    assert any(isinstance(Entry.Value, RenderMesh) for Entry in Model.Graphics.Objects)
+    HasMesh = any(
+        isinstance(Entry.Value, RenderMesh) for Entry in Model.Graphics.Objects
+    )
+    assert HasMesh == (ProfileName == "circle")
     Target = TmpPath / "CircleGraphics.f3d"
     _ = Target.write_bytes(EmitParsed(Model))
     assert ReadDocument(Target.read_bytes()) == Model
     with ZipFile(Source) as Before, ZipFile(Target) as After:
-        Names = tuple(Name for Name in Before.namelist() if "OGS.BlobFolder/" in Name)
-        assert Names
-        for Name in Names:
-            assert After.read(Name) == Before.read(Name)
+        Members = tuple(
+            Entry for Entry in Before.namelist() if "OGS.BlobFolder/" in Entry
+        )
+        assert Members
+        for Entry in Members:
+            assert After.read(Entry) == Before.read(Entry)

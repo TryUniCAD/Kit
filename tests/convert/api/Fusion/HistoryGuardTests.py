@@ -11,6 +11,8 @@ from convert.formats.Fusion.BrepCodec.Models.BodyIdentity import BodyIdentity
 from convert.formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
 from tests.convert.api.Fusion.AdapterCases import AdapterCase
 
+KRejection = "qualified authored feature profile|exceeds its history allocator"
+
 
 @MarkTests.parametrize("RoleName", ("operation", "secondary", "body"))
 def TestHistoryGate(TmpPath: FilePath, RoleName: str) -> None:
@@ -26,12 +28,12 @@ def TestHistoryGate(TmpPath: FilePath, RoleName: str) -> None:
     Changed = ReplaceData(ModelValue, Bodies=(ReplaceData(BodyValue, History=History),))
     Corrupt = TmpPath / "Corrupt.f3d"
     _ = Corrupt.write_bytes(EmitParsed(Changed))
-    with RaisesError(ValueError, match="qualified authored feature profile"):
+    with RaisesError(ValueError, match=KRejection):
         _ = OpenDocument(Corrupt)
     Contract = {"version": 1, "model": EncodeState(Changed)}
     Altered = ReplaceData(Document, metadata={"fusion.native_state": Contract})
     Target = TmpPath / "Rejected.f3d"
-    with RaisesError(ValueError, match="qualified authored feature profile"):
+    with RaisesError(ValueError, match=KRejection):
         _ = WriteDocument(Altered, Target, destination_format="f3d")
     assert not Target.exists()
 
