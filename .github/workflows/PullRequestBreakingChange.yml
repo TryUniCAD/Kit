@@ -13,6 +13,10 @@ on:
 
 permissions: {}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}-${{ github.event.action }}
+  cancel-in-progress: false
+
 jobs:
   label-breaking-change:
     name: Label declared breaking changes
