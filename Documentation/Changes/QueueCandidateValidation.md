@@ -22,7 +22,8 @@ support, which is required by the checked-in Fusion fixtures. The package
 minimum and the static type-check target remain Python 3.11.
 
 The queue test job installs the locked project dev extra, including the
-typing extensions used by the tests. Scanner tooling keeps its existing
+typing extensions used by the tests and the formatter imported by the
+program generation check. Scanner tooling keeps its existing
 separate environments. Installing the scanner group in the Python 3.14 test
 job previously attempted to build a scanner dependency from source and failed
 [before pytest ran](https://github.com/TryUniCAD/Kit/actions/runs/43161600774/job/130993867779).
