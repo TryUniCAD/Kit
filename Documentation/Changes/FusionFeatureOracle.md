@@ -10,12 +10,26 @@ The binary feature-schema extractor records explicit version branches, member na
 It preserves unresolved traces as incomplete evidence.
 The [data model](../Reference/Research/FusionDataModel.md) describes the distinction between registered fields, persisted fields, and cached geometry.
 
+The research-only C++ reflection bridge reads Fusion's existing native registry and member sets through verified exported getters.
+The first successful capture contains 1,958 registered metatypes, 260 initialized schemas, and 938 registered fields.
+It records field names, declared types, reference categories, option masks, schema versions, and inheritance while preserving uninitialized sets as unknown.
+The static extractor independently agrees with the runtime capture on all 80 current fields across its 12 initialized classes, and recovers 38 versioned registration schemas.
+The expanded run opened 64 representative corpus archives in separate native tasks, returning to zero documents after each import.
+Its final snapshot contains 488 initialized schemas and 1,910 fields, covering initialized member sets for 401 of the corpus's 403 declared classes.
+The two uninitialized classes and every intermediate snapshot digest remain explicit in the coverage and import records.
+The reflected research codec decodes and regenerates ten controlled sketch, extrusion, and continuation records: all 1,734 bytes are explained, all 238 native field values agree, and re-encoding from JSON values is byte-identical without residual payload data.
+
 ## Usage
 
 Run `CaptureFeature.py` and `InspectFeatures.py` through `re/Fusion/LocalOracle/RunNative.mjs` with an installed, running Fusion application.
 `PrepareFeature.py` uses only Kit's Python codecs to rewrite the captured source.
 `AcceptFeature.py`, dispatched inside Fusion, checks native import, full rebuild, subsequent editing, save, and reopen against the recorded cylinder dimensions and volume.
 These scripts operate on their own `Features/` artifacts and require explicit native-oracle authorization.
+
+Build `SchemaBridge.cpp` with the command recorded in `BridgeEvidence.json`, then dispatch `CaptureSchema.py` through the same native bridge.
+The capture checks the recorded Fusion build and library digests, requires a new output path, and invokes the compiled bridge on the existing main-thread task.
+`SelectSchemas.py` chooses corpus files by missing class declarations; `WarmSchemas.py` imports one selected file per invocation and captures an additional runtime snapshot.
+The [corpus viewport crash](../Gotchas/Conversion/FusionCorpusViewportCrash.md) explains why snapshots are taken per imported document.
 
 `InspectFeatures.py` uses numeric entity identifiers from the active import.
 The first JSON-reference query attempt failed for every entity; those counts remain in the original capture report.
@@ -31,3 +45,4 @@ The [geometry-cache gotcha](../Gotchas/Conversion/FusionGeometryCaches.md) recor
 This adds no complete native document writer or independent BRep generator.
 Same-source feature records and geometry caches remain preserved by the research edit.
 Archive integration cases run in PR CI; no local automated test suite was run.
+Native reflection still does not establish custom serializer bytes, historical migration behavior, or all schemas that have not been initialized by an observed document.

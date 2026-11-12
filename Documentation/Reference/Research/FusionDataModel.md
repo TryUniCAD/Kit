@@ -505,6 +505,112 @@ The upstream [generation implementation](https://github.com/cadmpeg/cadmpeg/blob
 It rejects several source-less ACT, asset, SubD, tessellation, and configuration cases.
 Its existence does not establish complete independent parametric generation.
 
+## Native member schemas
+
+The read-only reflection bridge recovered 1,958 registered metatypes from Fusion 2706.1.17: 1,718 entity types, 198 value types, 36 other member metatypes, and six other types.
+The initial snapshot contained 1,916 distinct entity/value member sets, of which 260 were initialized, exposing 938 registered fields.
+The field categories were 492 intrinsic values, 158 collections, 130 strong references, 98 value types, 59 passive references, and one optional value.
+Uninitialized sets remain unknown; a null member list must not be treated as an empty serialized class.
+The snapshot initially covered initialized schemas for 174 of the 403 declared corpus classes.
+After 64 separately dispatched representative imports, the [expanded capture](../../../re/Fusion/LocalOracle/Reflection/Schema064.json) contains 488 initialized member sets and 1,910 fields.
+Those fields comprise 909 intrinsic values, 369 strong references, 320 collections, 179 value types, 132 passive references, and one optional value.
+[Coverage accounting](../../../re/Fusion/LocalOracle/Reflection/Coverage.json) identifies initialized schemas for 401 of 403 corpus classes.
+The remaining two are the `Ns::Entity` root and `Ns::EntityTracking::ProgenitorAuxDataValueMetaType`; their uninitialized member sets must not be silently treated as complete empty schemas.
+All 64 source archives opened successfully in the isolated run, and each task returned to zero open documents.
+The [import log](../../../re/Fusion/LocalOracle/Reflection/WarmProgress.json) records source digests and per-import schema digests; the intermediate raw snapshots are retained in `Reflection/Snapshots.tar.xz`.
+Opening vendor-authored controls supplies schema evidence, not acceptance of Kit-generated documents.
+
+[Schema bridge evidence](../../../re/Fusion/LocalOracle/BridgeEvidence.json) records exact C++ method signatures, RTTI checks, compiler ABI checks, native binary hashes, and bounded read-only traversal.
+[The raw native snapshot](../../../re/Fusion/LocalOracle/Reflection/Schema.json) preserves member registration order, script names, declared type encodings, native member categories, and option masks.
+Registration order differs from the lexical name traversal used by the studied persistence visitor.
+A member's C++ memory offset is not its wire offset.
+
+[Static feature-member extraction](../../../re/Fusion/Reconstruction/BinaryFeatureMembers.json) independently recovers 38 versioned registration schemas across 12 classes.
+All 80 current own fields match the runtime reflection in name, declared type, options, registration order, lexical persistence order, and inheritance.
+The source `Ns::Entity` root has no recovered initializer and is explicitly left unresolved.
+Neither agreement nor a complete registration trace proves that a class has no custom save/load implementation.
+
+The member constructor initializes its option mask to `0x33`.
+The studied persistence visitor uses bit `0x1` to decide persistence; clearing that bit excludes a registered field from the saved sequence.
+For example, `DcSketch.rLastFeatureBeforeActivate` has mask `0x32`, while its nine other current members retain `0x33`.
+`DcFeature.startCacheHS` and `endCacheHS` are also excluded, whereas `startModelHS` and `endModelHS` persist.
+Other option bits retain their raw values unless their visitor context has been established.
+
+The current extrusion inheritance chain is:
+
+```text
+DcExtrudeFeature v8
+  DcProfileBasedFeature v1
+    DcMultiBodyFeature v2
+      DcBodyFeature v0
+        DcFeature v4
+          DcComputableAction v3
+            DcAction v0
+              DcNode v2
+                ManagedEntity v1
+                  Entity
+```
+
+`DcMultiBodyFeature` accounts for the previously unexplained body collections: `cachedDcBodies` is a set of strong body references, `dcBodies` is a vector of strong body references, and `removedBodies` is a vector of passive body references.
+All three persist and precede `DcBodyFeature.targetDataRefs` in the inherited traversal.
+The controlled extrusion stores its `ManagedEntity.rParent` in a separate continuation record; the class registry and actual record boundaries must be preserved when grouping inherited bytes.
+
+The [reflected feature codec evidence](../../../re/Fusion/Reconstruction/ReflectedFeaturePayloads.json) closes every byte of ten selected records across the three new controls: three 253-byte sketch payloads, two 450-byte extrusion payloads, and five 15-byte managed-entity continuations.
+The decoder accounts for all 1,734 bytes and agrees with all 238 native field observations.
+After converting the decoded values through JSON, the independent encoder reconstructs each original payload exactly, receiving no original payload or residual-byte argument.
+The admitted profile uses current class versions, null or local numeric references, and empty named metadata; unsupported forms are rejected.
+This proves the measured feature-record grammar rather than complete archive generation.
+UUID-valued members such as `associationId` use a counted UTF-16 UUID string, while `AcGeVector3d` writes three doubles; native serializer addresses and binary digests support both representations.
+
+The following table lists the current own fields for the two feature classes; inherited members are listed separately in the evidence artifact.
+Enum fields that use the native uint32 intrinsic metatype are encoded as unsigned 32-bit values even when their declared C++ type is an enum.
+
+| Class | Member | Declared type | Persisted |
+| --- | --- | --- | --- |
+| `DcSketch` | `bIsAGDDcSketchFeature` | `bool` | Yes |
+| `DcSketch` | `dcParameters` | `vector<StrongRef<DcParameter>>` | Yes |
+| `DcSketch` | `isVisibleBeforeRollback` | `bool` | Yes |
+| `DcSketch` | `meshSections` | `vector<StrongRef<DcSketchMeshPlanarSection>>` | Yes |
+| `DcSketch` | `rLastFeatureBeforeActivate` | `PassiveRef<DcFeature>` | No |
+| `DcSketch` | `rSketch` | `StrongRef<MSketch>` | Yes |
+| `DcSketch` | `rSketchPlaneMatrix` | `StrongRef<DRMatrix>` | Yes |
+| `DcSketch` | `sketchIsoCurves` | `vector<StrongRef<DcSketchIsoCurve>>` | Yes |
+| `DcSketch` | `sketchProjects` | `vector<StrongRef<DcSketchProject>>` | Yes |
+| `DcSketch` | `sketchSurfaces` | `vector<StrongRef<DcSketchSurface>>` | Yes |
+| `DcExtrudeFeature` | `ProfileFromEntityRef` | `StrongRef<ModelDataRef>` | Yes |
+| `DcExtrudeFeature` | `bIsAGDExtrudeFeature` | `bool` | Yes |
+| `DcExtrudeFeature` | `bPreviewNormal` | `bool` | Yes |
+| `DcExtrudeFeature` | `booleanOperation` | `unsigned int` | Yes |
+| `DcExtrudeFeature` | `directionType` | `EDirectionType` | Yes |
+| `DcExtrudeFeature` | `extendFaceOption` | `unsigned int` | Yes |
+| `DcExtrudeFeature` | `isFlipDirection` | `bool` | Yes |
+| `DcExtrudeFeature` | `isSolidOperation` | `bool` | Yes |
+| `DcExtrudeFeature` | `profileLocaltionType` | `EProfileLocationType` | Yes |
+| `DcExtrudeFeature` | `profileNormal` | `AcGeVector3d` | Yes |
+| `DcExtrudeFeature` | `profileOffset` | `StrongRef<DcDoubleParameter>` | Yes |
+| `DcExtrudeFeature` | `rAgainstDistance` | `StrongRef<DcDoubleParameter>` | Yes |
+| `DcExtrudeFeature` | `rAlongDistance` | `StrongRef<DcDoubleParameter>` | Yes |
+| `DcExtrudeFeature` | `rExtrudeToolBody` | `StrongRef<DcExtrudeToolBody>` | Yes |
+| `DcExtrudeFeature` | `rFromEntityRef` | `StrongRef<ModelDataRef>` | Yes |
+| `DcExtrudeFeature` | `rTaperAngle` | `StrongRef<DcDoubleParameter>` | Yes |
+| `DcExtrudeFeature` | `rToEntityRef` | `StrongRef<ModelDataRef>` | Yes |
+| `DcExtrudeFeature` | `side1ExtentType` | `EExtentType` | Yes |
+| `DcExtrudeFeature` | `side1Offset` | `StrongRef<DcDoubleParameter>` | Yes |
+| `DcExtrudeFeature` | `side1SolutionType` | `ESolutionType` | Yes |
+| `DcExtrudeFeature` | `side2ExtendFaceOption` | `unsigned int` | Yes |
+| `DcExtrudeFeature` | `side2ExtentType` | `EExtentType` | Yes |
+| `DcExtrudeFeature` | `side2FlipDirection` | `bool` | Yes |
+| `DcExtrudeFeature` | `side2Offset` | `StrongRef<DcDoubleParameter>` | Yes |
+| `DcExtrudeFeature` | `side2SolutionType` | `ESolutionType` | Yes |
+| `DcExtrudeFeature` | `side2TaperAngle` | `StrongRef<DcDoubleParameter>` | Yes |
+| `DcExtrudeFeature` | `startDirectionFlip` | `bool` | Yes |
+| `DcExtrudeFeature` | `symmetricMeasurementType` | `ESymmetricMeasurementType` | Yes |
+| `DcExtrudeFeature` | `thinExtrude` | `bool` | Yes |
+| `DcExtrudeFeature` | `thinExtrudeSide1WallLocation` | `EWallLocation` | Yes |
+| `DcExtrudeFeature` | `thinExtrudeSide1WallThickness` | `StrongRef<DcDoubleParameter>` | Yes |
+| `DcExtrudeFeature` | `thinExtrudeSide2WallLocation` | `EWallLocation` | Yes |
+| `DcExtrudeFeature` | `thinExtrudeSide2WallThickness` | `StrongRef<DcDoubleParameter>` | Yes |
+
 ## Verification boundaries
 
 | Evidence                      | What it establishes                                  | What remains unverified                           |

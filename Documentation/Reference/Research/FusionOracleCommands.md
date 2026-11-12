@@ -298,7 +298,12 @@ The symbols use libc++ C++ types, and return-type evidence comes from caller dis
 `Member::id`, `scriptId`, and `debugTypename` return references to `std::string` objects, not C strings.
 The exported `EntityMetaType` RTTI is available, while the examined `MetaType` RTTI symbol is local.
 The vendor's cast must not be replaced with an unchecked cast of every registry entry to `EntityMetaType`.
-No private native reflection bridge was executed as part of this investigation.
+The subsequent research-only [native bridge](../../../re/Fusion/LocalOracle/SchemaBridge.cpp) executes this getter sequence with ABI and runtime identity checks.
+Its [evidence record](../../../re/Fusion/LocalOracle/BridgeEvidence.json) separates the documented C++ ABI, installed binary call sites, compile-time layout checks, and runtime guard conditions.
+The [first successful capture](../../../re/Fusion/LocalOracle/Reflection/Capture.json) reports return code zero, 1,958 registered types, and zero documents before and after the read-only export.
+Of 1,916 unique entity/value member sets, 260 were initialized and exposed 938 fields; uninitialized sets retain null members.
+The native bridge reads existing sets only and never invokes schema initializers, segment save/load, or preference mutations.
+Its observed success applies to the recorded macOS arm64 build; this is not a public supported Python reflection API.
 
 A generic persistence schema still requires registered definitions, inherited ordering, option meanings, version migrations, custom serializers, and actual load/save callbacks.
 The studied classes register their members through `Parameters::Parameter::initializeMemberSet` at `0x16b5d8` and `Parameters::ParameterTable::initializeMemberSet` at `0x170000` in `NsCommonData10.dylib`.
