@@ -33,3 +33,5 @@ Keep source links and historical evidence.
 - **Review trigger syntax:** An account mention might appear sufficient for every integration. Some require a slash command and a linked account with write access. Read each exact `Comment` and official source in [ReviewBot.json](../../.agents/skills/standard-pr-practice/ReviewBot.json). Submit it verbatim and verify the responding identity and reviewed SHA.
 
 - **Provenance references:** An array position might appear to identify a generator permanently. Reordering exclusion entries changes that target. Use the stable `DocumentationSources.InitialWiki.Generator` key in [the configuration](../../.agents/skills/standard-pr-practice/ReviewBot.json).
+
+- **Commit-status attribution:** A fixture can include a commit reference that the real status response omits. The [status-list API](https://docs.github.com/en/rest/commits/statuses#list-commit-statuses-for-a-reference) selects the commit through the request path. Remove fixture routing metadata before returning statuses. The production reader must attach the queried reference so integration coverage detects missing revision attribution.

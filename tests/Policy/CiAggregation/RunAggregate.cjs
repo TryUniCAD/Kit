@@ -46,7 +46,11 @@ const Github = {
     Method === "listCommitStatusesForRef"
       ? Responses[Method].filter(
           (Status) => !Status.ref || Status.ref === Request.ref,
-        )
+        ).map((Status) => {
+          const Report = { ...Status };
+          delete Report.ref;
+          return Report;
+        })
       : Responses[Method],
 };
 const Summary = {
