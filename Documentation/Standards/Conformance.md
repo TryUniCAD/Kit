@@ -16,6 +16,7 @@ The revision includes dependency updates and README presentation changes through
 The integrated base also includes queue validation repairs through `7a878e689`.
 The integrated base includes the reviewer configuration from PR #74 at `38ec9456d`.
 The integrated base includes release packaging from PR #75 at `aebbc0b8a`.
+It includes automatic release triggers from PR #77 at `c7fbd54d5`.
 Its base revision is recorded in the PR.
 The documentation revision is the Git commit containing this page.
 The public-source review date is 2026-11-11.
