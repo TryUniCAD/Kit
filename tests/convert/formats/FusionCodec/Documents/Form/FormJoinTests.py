@@ -6,6 +6,9 @@ from pytest import mark as MarkTests, raises as RaisesError
 from convert.formats.Fusion.DocumentCodec.EmitParsed import EmitParsed
 from convert.formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentModel
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
+from tests.convert.formats.FusionCodec.Documents.Form.BreakBodyLink import (
+    BreakBodyLink,
+)
 from tests.convert.formats.FusionCodec.Documents.Form.FormArchives import (
     KFormArchives,
 )
@@ -24,7 +27,7 @@ def ReadPlaneDoc() -> DocumentModel:
 @MarkTests.skipif(
     PythonVersion < (3, 14), reason="native Form archive requires ZIP Zstandard"
 )
-@MarkTests.parametrize("Fault", ("name", "program", "missing"))
+@MarkTests.parametrize("Fault", ("name", "program", "missing", "body"))
 def TestFormJoins(Fault: str) -> None:
     Model = ReadPlaneDoc()
     FormValue = Model.Forms[0]
@@ -39,7 +42,9 @@ def TestFormJoins(Fault: str) -> None:
         Grips[0] = ReplaceValue(Grips[0], CoordZ=Grips[0].CoordZ + 0.25)
         Surface = ReplaceValue(FormValue.Surface, Grips=tuple(Grips))
         Model = ReplaceValue(Model, Forms=(ReplaceValue(FormValue, Surface=Surface),))
-    else:
+    elif Fault == "missing":
         Model = ReplaceValue(Model, Forms=())
+    else:
+        Model = BreakBodyLink(Model)
     with RaisesError(ValueError):
         _ = EmitParsed(Model)

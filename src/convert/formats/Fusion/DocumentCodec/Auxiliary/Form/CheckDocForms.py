@@ -5,11 +5,17 @@ from convert.formats.Fusion.DocumentCodec.Auxiliary.Form.CheckFormBreps import (
 from convert.formats.Fusion.DocumentCodec.Auxiliary.Form.CheckFormFrame import (
     CheckFormFrame,
 )
+from convert.formats.Fusion.DocumentCodec.Auxiliary.Form.CheckFormNodes import (
+    CheckFormNodes,
+)
 from convert.formats.Fusion.DocumentCodec.Auxiliary.Form.CheckFormParts import (
     CheckFormParts,
 )
 from convert.formats.Fusion.DocumentCodec.Auxiliary.Form.LeadGuid import LeadGuid
-from convert.formats.Fusion.DocumentCodec.Auxiliary.Form.FormLayout import KFrameGuid
+from convert.formats.Fusion.DocumentCodec.Auxiliary.Form.FormLayout import (
+    KFrameGuid,
+    KNodeGuid,
+)
 
 
 def CheckDocForms(Value: DocumentModel) -> None:
@@ -24,4 +30,6 @@ def CheckDocForms(Value: DocumentModel) -> None:
     for Record in Owners.values():
         if LeadGuid(Record) == KFrameGuid:
             CheckFormFrame(Record, Owners, Joined)
+        if LeadGuid(Record) == KNodeGuid:
+            CheckFormNodes(Record, Owners, Joined)
     CheckFormBreps(Value, tuple(Joined.values()))
