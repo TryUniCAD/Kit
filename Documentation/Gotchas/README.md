@@ -63,3 +63,5 @@ Keep source links and historical evidence.
 - **Managed Code Quality workflow path:** Its workflow might appear to live under `.github/workflows/`. GitHub reports it under `dynamic/github-code-quality/codeql` with event `dynamic`. Register that path and event in the PR allowlist. See [a managed run](https://github.com/TryUniCAD/Kit/actions/runs/43169749076).
 
 - **Copied workflow permissions:** Removing a copied permission note can look like a prose-only edit. The [pedantic workflow audit](https://github.com/TryUniCAD/Kit/actions/runs/43175816505/job/131039686544) rejects an unexplained `actions: read` permission. Omit this permission when the workflow does not need it.
+
+- **Scorecard revisions:** Pinning the checkout does not pin the default Scorecard scan. That scan reads the current default branch. Use `--commit` and verify its report SHA for candidate evidence. See [the replay finding](https://github.com/TryUniCAD/Kit/pull/79#discussion_r4547627112).

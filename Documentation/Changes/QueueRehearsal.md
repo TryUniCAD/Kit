@@ -11,7 +11,7 @@ jobs on GitHub Actions. Each job checks out the pinned revision.
 The [baseline replay](https://github.com/TryUniCAD/Kit/actions/runs/43175328820)
 ran on main commit `0ac42013dc8bdf4679c2732d12fd009b2e9c26ab`.
 All security jobs passed. Two README contract tests failed.
-The follow-up replay uses repair commit `dc7a84663aa838ec5ffb26bee95470cb44d95b2c`
+The follow-up replay uses repair commit `8dc4ac05c4d3c1f4f92d9e8df507847d0ad0eddd`
 from [PR #83](https://github.com/TryUniCAD/Kit/pull/83).
 
 Scorecard reports the current default branch separately from the pinned
