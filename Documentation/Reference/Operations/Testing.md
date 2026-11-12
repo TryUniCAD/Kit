@@ -70,11 +70,11 @@ A synthetic fixture does not represent every real-world source version.
 
 ## Research confidence
 
-| Status     | Required evidence                                     |
-| ---------- | ----------------------------------------------------- |
-| Confirmed  | Decoded rule with matching trace or measurement       |
-| Partial    | Identified rule without sufficient exercised evidence |
-| Unresolved | Meaning or implementation remains unknown             |
+| Status    | Required evidence                                                                           |
+| --------- | ------------------------------------------------------------------------------------------- |
+| Confirmed | The rule is decompiled and reproduces a real traced span, corpus record, or measured number |
+| Partial   | The rule is decompiled, but no available observation exercises it                           |
+| Not found | The rule has not been found                                                                 |
 
 Keep research confidence separate from product acceptance.
 A confirmed record field does not establish a complete translator.

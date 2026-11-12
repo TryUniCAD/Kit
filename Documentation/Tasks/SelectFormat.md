@@ -27,7 +27,7 @@ It does not prove vendor acceptance for a particular file.
    from convert import available_adapters as ListAdapters
 
    for AdapterData in ListAdapters():
-       print(AdapterData.format_id, AdapterData.extensions)
+       print(AdapterData.format_id, AdapterData.aliases, AdapterData.extensions)
    ```
 
 2. Match the input to a registered reader format.
@@ -49,6 +49,10 @@ If more than one writer matches a stream, supply `destination_format` explicitly
 | `interchange.json`  | `.json`                   | [JSON adapter](../Reference/Adapters/Json.md)             |
 
 The discovery result from the installed revision takes precedence over this table.
+Each catalogue entry has one primary `format_id` and can have additional `aliases`.
+The SOLIDWORKS entry uses `solidworks.sldprt` as its primary identifier.
+Its `aliases` field contains `solidworks.sldasm` for assemblies.
+Discovery does not return a separate entry for that alias.
 Fusion research code does not register `fusion.f3d` in the production catalogue.
 See the [Fusion research entry](../Changes/FusionResearchImport.md).
 

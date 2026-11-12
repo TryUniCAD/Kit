@@ -7,14 +7,20 @@ SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen
 
 ## Purpose and scope
 
-Kit registers separate SOLIDWORKS part and assembly formats.
-The adapters read source records and write implemented native structures or preservation representations.
-They do not invoke SOLIDWORKS during production conversion.
+Kit registers one SOLIDWORKS adapter with part and assembly identifiers.
+Its primary `format_id` is `solidworks.sldprt`.
+Its `aliases` field contains `solidworks.sldasm`.
+The adapter reads source records and writes implemented native structures or preservation representations.
+It does not invoke SOLIDWORKS during production conversion.
 
 | Identifier          | Suffix    |
 | ------------------- | --------- |
 | `solidworks.sldprt` | `.SLDPRT` |
 | `solidworks.sldasm` | `.SLDASM` |
+
+`available_adapters()` returns one entry for this adapter.
+Read its `aliases` field to find the assembly identifier.
+See [format selection](../../Tasks/SelectFormat.md) for a discovery example.
 
 Registration is not evidence of complete feature-family support.
 Inspect the exact source, target, and capability results for each conversion.
@@ -97,6 +103,7 @@ See [result evaluation](../../Tasks/InspectResult.md).
 ## Sources
 
 - [Adapter implementation](../../../src/convert/adapters/solidworks/core/Adapter.py)
+- [Format metadata](../../../src/convert/adapters/solidworks/container/Format.py)
 - [Container](../../../src/convert/adapters/solidworks/container/Container.py)
 - [Archive](../../../src/convert/adapters/solidworks/container/Archive.py)
 - [Research grammar](../../../re/solidworks/archive/Grammar.md)

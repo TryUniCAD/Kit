@@ -61,8 +61,18 @@ The lockfile can contain development dependencies with additional platform requi
    git rev-parse HEAD
    ```
 
-Expected result: dependency installation completes and the checkout revision is known.
+7. Start Python in the installed environment.
+
+   ```sh
+   uv run --frozen python
+   ```
+
+Expected result: Python starts with the installed checkout packages available.
+The recorded revision identifies the installed source.
 This result does not establish that tests passed.
+
+Use this interpreter for the Python examples in these guides.
+For a saved script, run `uv run --frozen python path/to/script.py` from this worktree.
 
 ## Package identity
 
@@ -77,13 +87,13 @@ It does not claim that `kit convert` is an installed executable.
 
 ## If the task fails
 
-| Symptom                          | Action                                   | Stop condition                                  |
-| -------------------------------- | ---------------------------------------- | ----------------------------------------------- |
-| Repository access fails          | Check the account and repository URL     | Do not use another repository as a substitute   |
-| Worktree path already exists     | Select an unused directory               | Do not delete another task's files              |
-| Branch name already exists       | Select a distinct task branch            | Do not reset the existing branch                |
-| Locked dependency cannot install | Record the dependency and platform error | Do not silently regenerate the lockfile         |
-| Python import cannot be found    | Use the environment from this checkout   | Do not install an unrelated package named `kit` |
+| Symptom                          | Action                                     | Stop condition                                  |
+| -------------------------------- | ------------------------------------------ | ----------------------------------------------- |
+| Repository access fails          | Check the account and repository URL       | Do not use another repository as a substitute   |
+| Worktree path already exists     | Select an unused directory                 | Do not delete another task's files              |
+| Branch name already exists       | Select a distinct task branch              | Do not reset the existing branch                |
+| Locked dependency cannot install | Record the dependency and platform error   | Do not silently regenerate the lockfile         |
+| Python import cannot be found    | Start Python with `uv run --frozen python` | Do not install an unrelated package named `kit` |
 
 ## Remove the task environment
 

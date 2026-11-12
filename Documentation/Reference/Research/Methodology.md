@@ -51,11 +51,11 @@ It does not prove every branch or target-application acceptance.
 
 ## Confidence register
 
-| Status     | Meaning                                                   |
-| ---------- | --------------------------------------------------------- |
-| Confirmed  | The decoded rule matches an observed trace or measurement |
-| Partial    | The rule has incomplete exercised evidence                |
-| Unresolved | The meaning or boundary remains unknown                   |
+| Status    | Meaning                                                                                     |
+| --------- | ------------------------------------------------------------------------------------------- |
+| Confirmed | The rule is decompiled and reproduces a real traced span, corpus record, or measured number |
+| Partial   | The rule is decompiled, but no available observation exercises it                           |
+| Not found | The rule has not been found                                                                 |
 
 Record the status next to the field or feature family.
 Do not replace an unknown field with recorded donor bytes in production output.
