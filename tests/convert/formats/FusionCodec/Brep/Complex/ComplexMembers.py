@@ -572,24 +572,21 @@ KComplexMembers: tuple[tuple[str, str, str], ...] = (
     ),
 )
 
-KComplexBounds: tuple[tuple[str, str, str, str], ...] = (
+KComplexBounds: tuple[tuple[str, str, str], ...] = (
     (
         "re/Fusion/Study/embosstext-cd769aa41cdf/two_texts.f3d",
         "smbh",
         "9e5ddf77aed83af8e7f7cbadbd72e9e933823c7622320f28bbe1ab5f19df1b76",
-        "Oversized Fusion ASM record",
     ),
     (
         "re/Fusion/Study/tappedholes-409e96788503/modeled_full.f3d",
         "smbh",
         "2fbaa0edf5ab1dc002069e2c30bbfc0509fd4afd6e63adaa8c3b333dcb813f81",
-        "Unsupported Fusion journal attribute family",
     ),
     (
         "re/Fusion/Study/threadmodes-d51d2ae60564/modeled_full.f3d",
         "smbh",
         "f7f4ccac9ac6696ed59707ccd97ff2a7b684906317fd61a408eed38445b00e3a",
-        "Unsupported Fusion journal attribute family",
     ),
 )
 

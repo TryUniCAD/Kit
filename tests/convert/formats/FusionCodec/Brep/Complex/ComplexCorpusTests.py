@@ -130,11 +130,10 @@ def TestMemberState(TmpPath: FilePath, Relative: str, Suffix: str, Digest: str) 
 @TestMarks.skipif(
     PythonVersion < (3, 14), reason="native Fusion fixture requires ZIP Zstandard"
 )
-@TestMarks.parametrize("Relative,Suffix,Digest,Message", KComplexBounds)
-def TestMemberBound(Relative: str, Suffix: str, Digest: str, Message: str) -> None:
+@TestMarks.parametrize("Relative,Suffix,Digest", KBoundMembers)
+def TestMemberBound(Relative: str, Suffix: str, Digest: str) -> None:
     Payload = ComplexMember(Relative, Suffix, Digest)
-    with RaisesError(ValueError, match=Message):
-        _ = ReadJournal(Payload)
+    assert EmitJournal(ReadJournal(Payload)) == Payload
 
 
 @TestMarks.skipif(
