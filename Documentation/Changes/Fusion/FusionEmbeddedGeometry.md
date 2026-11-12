@@ -16,13 +16,13 @@ The writers convert positional values to the native centimeter representation.
 ## Inputs and identities
 
 `TopologyTags` supplies five feature tags and a sketch link.
-Each `FeatureTag` contains its selector, label, and operation identities.
+Each `FeatureTag` contains its primary identifier, ordered operation identities, secondary identity, and approach identity. The primary byte count is derived from the identifier.
 `SketchLink` retains two source identities, direction, and the two observed enumeration values.
 The secondary sketch identity supports the full unsigned 64-bit range.
 
-`BodyIdentity` supplies the persistent body key, operation identity, explicit generation reference, and authoring timestamp.
+`BodyIdentity` supplies the persistent body key, operation identity, explicit secondary identity, and authoring timestamp.
 `HistoryState` supplies current and initial state IDs, generation, allocation counter, and board number.
-The body generation reference remains explicit. It must not be inferred from the current history state.
+The body secondary identity remains explicit and is independent of the current history state. In the canonical authored document it matches the Design-side body progenitor tag. [Native tag semantics](FusionGenericTagSemantics.md) supersede the earlier generation-reference and selector interpretation.
 The [identity model](../../../re/Fusion/Reconstruction/BrepHistory/HistoryAuthoring.md) records the observed relationships and remaining semantic limits.
 
 The surrounding Design graph must bind body keys, passive IDs, feature identities, and history states consistently.

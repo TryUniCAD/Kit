@@ -15,7 +15,7 @@ from tests.convert.formats.FusionCodec.Brep.SampleInputs import MakeSample
 @TestMarks.parametrize("HasHistory", (False, True))
 def TestSourceLinks(HasHistory: bool) -> None:
     Sample = MakeSample()
-    TagSet = Replace(Sample.TagSet, SideFace=FeatureTag(1, "3", (1701, 1702)))
+    TagSet = Replace(Sample.TagSet, SideFace=FeatureTag("3", (1701, 1702)))
     if HasHistory:
         Payload = EmitHistory(
             Sample.Model, Sample.Identity, TagSet, Sample.History, Sample.Stamp
@@ -24,7 +24,7 @@ def TestSourceLinks(HasHistory: bool) -> None:
         Payload = EmitSnapshot(Sample.Model, TagSet, Sample.Stamp)
     Table = ReadAsmTable(Payload)
     Expected = {
-        (Value.Selector, Value.Label, Value.Operations)
+        (len(Value.PrimaryId.encode("ascii")), Value.PrimaryId, Value.OperationIds)
         for Value in (
             TagSet.SideFace,
             TagSet.TopFace,
@@ -43,18 +43,18 @@ def TestSourceLinks(HasHistory: bool) -> None:
         if Family == "sketch_attrib_def":
             SketchCount += 1
             Sense = (
-                TagSet.Sketch.Sense
+                TagSet.Sketch.Direction
                 if Owner.Name == "coedge"
-                else 1 - TagSet.Sketch.Sense
+                else 1 - TagSet.Sketch.Direction
             )
             Actual = tuple(int(Value) for Value in ReadAsmText(Record, 9).split())
             assert Actual == (
-                TagSet.Sketch.Primary,
-                TagSet.Sketch.Secondary,
+                TagSet.Sketch.PrimaryId,
+                TagSet.Sketch.SecondaryId,
                 Sense,
                 0,
-                TagSet.Sketch.EnumA,
-                TagSet.Sketch.EnumB,
+                TagSet.Sketch.SplitSequenceId,
+                TagSet.Sketch.SplitTotalNumber,
             )
         elif Family == "generic_tag_attrib_def" and Owner.Name in ("face", "edge"):
             assert ReadAsmInt(Record, 10) == 1

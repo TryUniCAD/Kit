@@ -1,5 +1,7 @@
 from dataclasses import replace as Replace
 
+from convert.formats.Fusion.BrepCodec.Attributes.FlipDirection import FlipDirection
+
 from convert.formats.Fusion.BrepCodec.Attributes.FeatureAttribute import MakeFeatureTag
 from convert.formats.Fusion.BrepCodec.Attributes.SketchAttribute import MakeSketchTag
 from convert.formats.Fusion.BrepCodec.Models.TopologyTags import TopologyTags
@@ -7,7 +9,7 @@ from convert.formats.Fusion.GeometryCodec.GeometryRecord import GeometryRecord
 
 
 def MakeSnapTags(TagSet: TopologyTags) -> tuple[GeometryRecord, ...]:
-    EdgeLink = Replace(TagSet.Sketch, Sense=1 - TagSet.Sketch.Sense)
+    EdgeLink = Replace(TagSet.Sketch, Direction=FlipDirection(TagSet.Sketch.Direction))
     return (
         MakeFeatureTag(6, TagSet.SideFace),
         MakeFeatureTag(7, TagSet.TopFace),

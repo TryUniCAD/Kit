@@ -18,7 +18,7 @@ from convert.formats.Fusion.GeometryCodec.GeometryStamp import GeometryStamp
 
 model = CylinderBody(10.0, 19.0, (0.0, 0.0, 0.0))
 identity = BodyIdentity(0, 301, 4, 1794477991119457)
-tags = TopologyTags(FeatureTag(1, '3', (301,)), FeatureTag(1, '2', (301,)), FeatureTag(1, '1', (301,)), FeatureTag(2, '-1', (301,)), FeatureTag(4, '-102', (301,)), SketchLink(102, 0, 0, 1, 1))
+tags = TopologyTags(FeatureTag('3', (301,)), FeatureTag('2', (301,)), FeatureTag('1', (301,)), FeatureTag('-1', (301,)), FeatureTag('-102', (301,)), SketchLink(102, 0, 0, 1, 1))
 history = HistoryState(4, 2, 4, 1, 2)
 stamp = GeometryStamp('Kit', 'Production embedded BRep', '2026-11-12T00:00:00Z')
 outputs = {'.smb': EmitSnapshot(model, tags, stamp), '.smbh': EmitHistory(model, identity, tags, history, stamp)}

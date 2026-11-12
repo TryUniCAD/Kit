@@ -162,17 +162,17 @@ In the history stream, body record 1 has body key 0. Its first attribute is reco
 
 `Timestamp_attrib_def` has marker 1 followed by a double containing `1794477991119457` microseconds since the Unix epoch. This is independent of the file header save date.
 
-`generic_tag_attrib_def` begins with integers `3, 3, -1`, a repeated family string with a trailing space, and a group count. The string's trailing space is payload, not alignment padding. Group framing depends on the owner class:
+`generic_tag_attrib_def` begins with integers `3, 3, -1`, a repeated family string with a trailing space, and a group count. The string's trailing space is payload, not alignment padding. Native serializer analysis establishes the same group grammar for every owner class: primary byte count, primary counted text, signed secondary identity, operation count and ordered signed operation identities, then signed approach identity. The earlier class-selector and generation-reference interpretation was incorrect; [the native evidence](CuboidHistory/GenericTagEvidence.json) and [semantic correction](../../../Documentation/Changes/Fusion/FusionGenericTagSemantics.md) supersede it.
 
 | Owner | Group fields | Control values |
 |---|---|---|
-| Body | class selector, persistent ID string, Design reference, zero, zero | `3, "301", 4, 0, 0` |
-| Face | selector, token string, zero, reference count, references, zero | Side/top/bottom tokens `"3"`, `"2"`, `"1"`; each refers to 301 |
-| Edge | selector, token string, zero, reference count, references, zero | Top token `"-1"`, bottom token `"-102"`; each refers to 301 |
+| Body | primary byte count, primary text, secondary identity, empty operation count, approach zero | `3, "301", 4, 0, 0` |
+| Face | primary byte count, primary text, secondary zero, operation count, operations, approach zero | Side/top/bottom tokens `"3"`, `"2"`, `"1"`; each refers to 301 |
+| Edge | primary byte count, primary text, secondary zero, operation count, operations, approach zero | Top token `"-1"`, bottom token `"-102"`; each refers to 301 |
 
 The negative string tokens are not null references. Their serialization is tag 7 UTF-8, not tag 12. The exact naming rule for arbitrary topology-changing operations remains unresolved.
 
-`sketch_attrib_def` identifies source curves. The observed form has marker integers `1, 1, 3` and one string containing `102 0 0 0 1 1`. Its fields are primary curve ID 102, secondary qualifier 0, sense 0, inserted zero, and two enum values 1. Snapshot sketch edges also have sense 1 variants. The attribute connects topology to an originating sketch; it does not define the circle geometry. An independent primitive with no originating Design sketch must not borrow this identity.
+`sketch_attrib_def` identifies source curves. The observed form has marker integers `1, 1, 3` and one string containing `102 0 0 0 1 1`. Its fields are primary curve ID 102, secondary curve identity 0, direction 0, topology role flags 0, split ordinal 1, and split total 1. Snapshot sketch edges also have direction 1 variants; native comparison admits UINT32_MAX as a direction wildcard. [Native ASCII evidence](EntityGraph/SketchAsciiSemantics.md) establishes unsigned widths and distinguishes this order from the binary Design callback. The attribute connects topology to an originating sketch; it does not define the circle geometry. An independent primitive with no originating Design sketch must not borrow this identity.
 
 The native SMT export removes these persistent generic tags, inserts `DXID-attrib` labels `"ASM ENTITY"` with sequential strings, and attaches a direct RGB attribute. It retains the timestamp and some sketch links. Therefore SMT export is a geometry interchange projection, not an identity-preserving serialization of the entire embedded stream. Reimporting it cannot by itself establish parametric feature/history round-trip preservation.
 

@@ -11,4 +11,4 @@ def ReadSketchLink(Table: AsmTable, Identity: int) -> SketchLink:
     Values = tuple(int(Value) for Value in Tokens)
     if Values[3] != 0 or tuple(str(Value) for Value in Values) != tuple(Tokens):
         raise ValueError("Unsupported Fusion BRep sketch identity form")
-    return SketchLink(Values[0], Values[1], Values[2], Values[4], Values[5])
+    return SketchLink(Values[0], Values[1], Values[2], Values[4], Values[5], Values[3])

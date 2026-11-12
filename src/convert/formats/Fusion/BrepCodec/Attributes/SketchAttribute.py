@@ -5,5 +5,5 @@ from convert.formats.Fusion.GeometryCodec.GeometryRecord import GeometryRecord
 
 
 def MakeSketchTag(Owner: int, Sketch: SketchLink) -> GeometryRecord:
-    TextValue = f"{Sketch.Primary} {Sketch.Secondary} {Sketch.Sense} 0 {Sketch.EnumA} {Sketch.EnumB}"
+    TextValue = f"{Sketch.PrimaryId} {Sketch.SecondaryId} {Sketch.Direction} {Sketch.TopologyRoleFlags} {Sketch.SplitSequenceId} {Sketch.SplitTotalNumber}"
     return MakeAttribute(Owner, "sketch_attrib_def", (1, 1, 3, CountedText(TextValue)))

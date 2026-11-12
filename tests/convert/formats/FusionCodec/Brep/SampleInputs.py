@@ -20,11 +20,11 @@ class BrepSample:
 
 def MakeSample() -> BrepSample:
     TagSet = TopologyTags(
-        FeatureTag(1, "3", (1701,)),
-        FeatureTag(1, "2", (1701,)),
-        FeatureTag(1, "1", (1701,)),
-        FeatureTag(2, "-1", (1701,)),
-        FeatureTag(4, "-901", (1701,)),
+        FeatureTag("3", (1701,)),
+        FeatureTag("2", (1701,)),
+        FeatureTag("1", (1701,)),
+        FeatureTag("-1", (1701,)),
+        FeatureTag("-901", (1701,)),
         SketchLink(901, (1 << 63) + 37, 0, 1, 1),
     )
     return BrepSample(

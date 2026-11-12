@@ -26,15 +26,15 @@ def BuildBodyPart(
     Operations = (Policy.FirstOperationId + 1,)
     SketchId = Policy.FirstSketchTag + 2
     TagSet = TopologyTags(
-        FeatureTag(1, Policy.SideFaceLabel, Operations),
-        FeatureTag(1, Policy.TopFaceLabel, Operations),
-        FeatureTag(1, Policy.BottomFaceLabel, Operations),
-        FeatureTag(2, Policy.TopEdgeLabel, Operations),
-        FeatureTag(4, "-" + str(SketchId), Operations),
+        FeatureTag(Policy.SideFaceLabel, Operations),
+        FeatureTag(Policy.TopFaceLabel, Operations),
+        FeatureTag(Policy.BottomFaceLabel, Operations),
+        FeatureTag(Policy.TopEdgeLabel, Operations),
+        FeatureTag("-" + str(SketchId), Operations),
         SketchLink(SketchId, 0, 0, 1, 1),
     )
     Identity = BodyIdentity(
-        Policy.BodyKey, Operations[0], Policy.GenerationRef, ReadTimeNano() // 1000
+        Policy.BodyKey, Operations[0], Policy.BodyProgenitorTag, ReadTimeNano() // 1000
     )
     History = HistoryState(
         Policy.HistoryCurrentId,

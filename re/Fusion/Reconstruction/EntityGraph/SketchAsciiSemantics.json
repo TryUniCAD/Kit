@@ -1,0 +1,368 @@
+{
+  "schema": "FusionSketchAsciiSemantics/1",
+  "method": "Read-only native symbol/disassembly and raw corpus token inspection; no native calls, product execution or tests",
+  "binary": "/tmp/kit-fusion-native-analysis/NsASMInterface10.arm64.dylib",
+  "binarySha256": "a89ea9826004de58699bbdaafdfaa74c69decc45d16117698a11bd0486c33cae",
+  "asciiFields": [
+    {
+      "position": 1,
+      "name": "primaryId",
+      "objectOffset": "0x8",
+      "nativeType": "uint64",
+      "loadAddress": "0xdc908",
+      "outputCall": "0xdc910",
+      "inputTarget": "0xdcc8c",
+      "inputCall": "0xdcc90"
+    },
+    {
+      "position": 2,
+      "name": "secondaryId",
+      "objectOffset": "0x10",
+      "nativeType": "uint64",
+      "loadAddress": "0xdc924",
+      "outputCall": "0xdc928",
+      "inputTarget": "0xdcc94",
+      "inputCall": "0xdcc98"
+    },
+    {
+      "position": 3,
+      "name": "direction",
+      "objectOffset": "0x18",
+      "nativeType": "uint32",
+      "loadAddress": "0xdc93c",
+      "outputCall": "0xdc940",
+      "inputTarget": "0xdcc9c",
+      "inputCall": "0xdcca0"
+    },
+    {
+      "position": 4,
+      "name": "topologyRoleFlags",
+      "objectOffset": "0x20",
+      "nativeType": "uint64",
+      "loadAddress": "0xdc954",
+      "outputCall": "0xdc958",
+      "inputTarget": "0xdcca4",
+      "inputCall": "0xdcca8"
+    },
+    {
+      "position": 5,
+      "name": "splitSequenceId",
+      "objectOffset": "0x28",
+      "nativeType": "uint32",
+      "loadAddress": "0xdc96c",
+      "outputCall": "0xdc970",
+      "inputTarget": "0xdccac",
+      "inputCall": "0xdccb0"
+    },
+    {
+      "position": 6,
+      "name": "splitTotalNumber",
+      "objectOffset": "0x2c",
+      "nativeType": "uint32",
+      "loadAddress": "0xdc984",
+      "outputCall": "0xdc988",
+      "inputTarget": "0xdccb4",
+      "inputCall": "0xdccb8"
+    }
+  ],
+  "binaryStreamerOrder": [
+    "version",
+    "primaryId",
+    "secondaryId",
+    "direction",
+    "splitSequenceId",
+    "splitTotalNumber",
+    "topologyRoleFlags"
+  ],
+  "qualifiedDomain": {
+    "primaryId": "uint64 storage; source-key allocation semantics separately qualified",
+    "secondaryId": "uint64 storage; existing authored ordinary sketch profile zero",
+    "direction": [
+      0,
+      1,
+      4294967295
+    ],
+    "topologyRoleFlags": "uint64 mask; existing ordinary authored profile zero; complete named bit dictionary unresolved",
+    "split": "1 <= splitSequenceId <= splitTotalNumber <= UINT32_MAX"
+  },
+  "semanticEvidence": [
+    "SketchTagSemantics.json",
+    "SketchSplitSemantics.json"
+  ],
+  "caveats": [
+    "The first/second identity and flags values use unsigned64 ostream and istream overloads, not signed64",
+    "The fourth ASCII field is loaded from the actual topologyRoleFlags member; it is not an inserted constant",
+    "Split sequence and total are ordinal/count, not two unrelated enums",
+    "ASCII version3 and fixed binary Design streamer use different member orders",
+    "Older <=2 kernel forms use signed integer reads; version2 places flags after ordinal/count, while earlier forms omit flags",
+    "topologyRoleFlags is a behavior-based name from existing evidence; exact native source member name and complete bit meanings remain unresolved"
+  ],
+  "importStubs": [
+    "0x00000000001065d0 29600 __ZNK17SMI_CUSTOM_ENTITY12save_context12write_stringEPKc",
+    "0x00000000001065dc 29601 __ZNK17SMI_CUSTOM_ENTITY12save_context9write_intEi",
+    "0x00000000001077a0 29986 __ZNSt3__113basic_istreamIcNS_11char_traitsIcEEErsERj",
+    "0x00000000001077ac 29987 __ZNSt3__113basic_istreamIcNS_11char_traitsIcEEErsERy",
+    "0x0000000000107878 30007 __ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEj",
+    "0x0000000000107890 30009 __ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEy"
+  ],
+  "corpus": {
+    "scope": "Every sketch attribute including archived revisions in each distinct ASM blob; repeated member digests counted once",
+    "sourceInventorySha256": "3feea03e0dd0c80d11304a0f275947e80f7e50090d210338c137c70fed6bd494",
+    "distinctBlobs": 1083,
+    "versionCounts": {
+      "3": 20636
+    },
+    "asciiAttributes": 20636,
+    "maximumPrimaryId": 558,
+    "secondaryIdCounts": {
+      "0": 20286,
+      "329": 192,
+      "352": 148,
+      "141": 2,
+      "132": 2,
+      "127": 2,
+      "131": 2,
+      "129": 2
+    },
+    "directionCounts": {
+      "0": 15573,
+      "1": 4964,
+      "4294967295": 99
+    },
+    "roleFlagsCounts": {
+      "0": 20636
+    },
+    "splitPairs": [
+      {
+        "sequence": 1,
+        "total": 1,
+        "count": 20180
+      },
+      {
+        "sequence": 1,
+        "total": 2,
+        "count": 179
+      },
+      {
+        "sequence": 1,
+        "total": 3,
+        "count": 2
+      },
+      {
+        "sequence": 1,
+        "total": 4,
+        "count": 6
+      },
+      {
+        "sequence": 2,
+        "total": 2,
+        "count": 191
+      },
+      {
+        "sequence": 2,
+        "total": 3,
+        "count": 38
+      },
+      {
+        "sequence": 2,
+        "total": 4,
+        "count": 16
+      },
+      {
+        "sequence": 3,
+        "total": 3,
+        "count": 2
+      },
+      {
+        "sequence": 3,
+        "total": 4,
+        "count": 6
+      },
+      {
+        "sequence": 4,
+        "total": 4,
+        "count": 16
+      }
+    ],
+    "nontrivialExamples": [
+      {
+        "path": "re/Fusion/Study/embosstext-cd769aa41cdf/mixed_text_profile.f3d",
+        "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.efe69ddc-7eda-4f3f-80a3-927212cb4a79.smb",
+        "sha256": "150c64c82ed6c1ce3858893b20d1394c431805b5afc829abd1e37055e4532165",
+        "physicalRecordIndex": 132,
+        "byteOffset": 12443,
+        "text": "353 329 1 0 1 1"
+      },
+      {
+        "path": "re/Fusion/Study/linetrimholdouts-456e1d19906d/reverse_rectangle_creation.f3d",
+        "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.1a1f2285-7ed9-4451-a032-755091e1e413.smb",
+        "sha256": "8b9e73e94806b889deb3bf766ae91c7dbf1082cb3194638b7375aa21650a45ee",
+        "physicalRecordIndex": 36,
+        "byteOffset": 3433,
+        "text": "113 0 0 0 2 2"
+      },
+      {
+        "path": "re/Fusion/Study/linetrimholdouts-456e1d19906d/reverse_rectangle_creation.f3d",
+        "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.1a1f2285-7ed9-4451-a032-755091e1e413.smb",
+        "sha256": "8b9e73e94806b889deb3bf766ae91c7dbf1082cb3194638b7375aa21650a45ee",
+        "physicalRecordIndex": 41,
+        "byteOffset": 3961,
+        "text": "114 0 0 0 1 2"
+      },
+      {
+        "path": "re/Fusion/Study/linetrimholdouts-456e1d19906d/reverse_rectangle_creation.f3d",
+        "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.1a1f2285-7ed9-4451-a032-755091e1e413.smb",
+        "sha256": "8b9e73e94806b889deb3bf766ae91c7dbf1082cb3194638b7375aa21650a45ee",
+        "physicalRecordIndex": 77,
+        "byteOffset": 7658,
+        "text": "114 0 1 0 1 2"
+      },
+      {
+        "path": "re/Fusion/Study/linetrimholdouts-456e1d19906d/reverse_rectangle_creation.f3d",
+        "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.1a1f2285-7ed9-4451-a032-755091e1e413.smb",
+        "sha256": "8b9e73e94806b889deb3bf766ae91c7dbf1082cb3194638b7375aa21650a45ee",
+        "physicalRecordIndex": 91,
+        "byteOffset": 9115,
+        "text": "113 0 1 0 2 2"
+      },
+      {
+        "path": "re/Fusion/Study/mixedprofiletrims-a125a4c1749e/circle_line_segment.f3d",
+        "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.f3cbe61a-0029-42b5-95e0-0de82674735c.smbh",
+        "sha256": "cccb4edf27f1036e52dd0706979dba40e19dc7d396134385c04db65939b4e3f1",
+        "physicalRecordIndex": 21,
+        "byteOffset": 2414,
+        "text": "105 0 0 0 2 3"
+      },
+      {
+        "path": "re/Fusion/Study/mixedprofiletrims-a125a4c1749e/circle_line_segment.f3d",
+        "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.140fcfef-a050-4000-92a1-9f36d47c90f8.smb",
+        "sha256": "e4a660d957117ad0bc3d6244dcd8cab189dca2d099f4bcb314c46dc1cc3bfbd7",
+        "physicalRecordIndex": 69,
+        "byteOffset": 6987,
+        "text": "105 0 1 0 2 3"
+      },
+      {
+        "path": "re/Fusion/Study/patchcontinuity-b9b0be85a281/brep_curvature.f3d",
+        "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.4530a523-0a85-4518-af28-62157a3e6e56.smbh",
+        "sha256": "05303896854a5924c735745c9439d9f72e15f88128422b49074e6b91582433c5",
+        "physicalRecordIndex": 39,
+        "byteOffset": 18588,
+        "text": "104 0 4294967295 0 1 1"
+      },
+      {
+        "path": "re/Fusion/Study/sketchtools-85066e723410/sketchtools.f3d",
+        "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.0719ef21-8ea4-442b-8d42-f62958d0df3f.smb",
+        "sha256": "b5df3ab825a3097aeea4c921f5a670063e032ae0eca3e4b26a7e6d46c46237d3",
+        "physicalRecordIndex": 193,
+        "byteOffset": 17582,
+        "text": "142 141 0 0 1 1"
+      },
+      {
+        "path": "re/Fusion/Study/splines-9a18bae21127/splines.f3d",
+        "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.6b3a0333-d53f-4a1e-a46d-fff522ed1067.smb",
+        "sha256": "b03c64905f0419137307e0e1cf74b2d84f9fa107c7e4f59f3ff1b5947c04a298",
+        "physicalRecordIndex": 13,
+        "byteOffset": 1224,
+        "text": "111 0 1 0 3 3"
+      },
+      {
+        "path": "re/Fusion/Study/splines-9a18bae21127/splines.f3d",
+        "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.6b3a0333-d53f-4a1e-a46d-fff522ed1067.smb",
+        "sha256": "b03c64905f0419137307e0e1cf74b2d84f9fa107c7e4f59f3ff1b5947c04a298",
+        "physicalRecordIndex": 19,
+        "byteOffset": 2855,
+        "text": "111 0 1 0 1 3"
+      },
+      {
+        "path": "re/Fusion/Study/trimselectorholdouts-ac245ecd1e2f/repeated_circle.f3d",
+        "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.97243d17-7c94-4e97-9b06-f7239f6f6e6b.smb",
+        "sha256": "843cdb702f0022e999df535f7b58f90ac53005485a67aeb4a3ca31f787d56c40",
+        "physicalRecordIndex": 41,
+        "byteOffset": 4072,
+        "text": "102 0 0 0 2 4"
+      },
+      {
+        "path": "re/Fusion/Study/trimselectorholdouts-ac245ecd1e2f/repeated_circle.f3d",
+        "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.97243d17-7c94-4e97-9b06-f7239f6f6e6b.smb",
+        "sha256": "843cdb702f0022e999df535f7b58f90ac53005485a67aeb4a3ca31f787d56c40",
+        "physicalRecordIndex": 48,
+        "byteOffset": 4742,
+        "text": "102 0 0 0 4 4"
+      },
+      {
+        "path": "re/Fusion/Study/trimselectorholdouts-ac245ecd1e2f/repeated_circle.f3d",
+        "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.97243d17-7c94-4e97-9b06-f7239f6f6e6b.smb",
+        "sha256": "843cdb702f0022e999df535f7b58f90ac53005485a67aeb4a3ca31f787d56c40",
+        "physicalRecordIndex": 77,
+        "byteOffset": 7820,
+        "text": "102 0 1 0 2 4"
+      },
+      {
+        "path": "re/Fusion/Study/trimselectorholdouts-ac245ecd1e2f/repeated_circle.f3d",
+        "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.97243d17-7c94-4e97-9b06-f7239f6f6e6b.smb",
+        "sha256": "843cdb702f0022e999df535f7b58f90ac53005485a67aeb4a3ca31f787d56c40",
+        "physicalRecordIndex": 84,
+        "byteOffset": 8466,
+        "text": "102 0 0 0 1 4"
+      },
+      {
+        "path": "re/Fusion/Study/trimselectorholdouts-ac245ecd1e2f/repeated_circle.f3d",
+        "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.97243d17-7c94-4e97-9b06-f7239f6f6e6b.smb",
+        "sha256": "843cdb702f0022e999df535f7b58f90ac53005485a67aeb4a3ca31f787d56c40",
+        "physicalRecordIndex": 94,
+        "byteOffset": 9550,
+        "text": "102 0 1 0 4 4"
+      },
+      {
+        "path": "re/Fusion/Study/trimselectorholdouts-ac245ecd1e2f/repeated_circle.f3d",
+        "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.97243d17-7c94-4e97-9b06-f7239f6f6e6b.smb",
+        "sha256": "843cdb702f0022e999df535f7b58f90ac53005485a67aeb4a3ca31f787d56c40",
+        "physicalRecordIndex": 138,
+        "byteOffset": 14004,
+        "text": "102 0 1 0 1 4"
+      },
+      {
+        "path": "re/Fusion/Study/trimselectorholdouts-ac245ecd1e2f/repeated_circle.f3d",
+        "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.97243d17-7c94-4e97-9b06-f7239f6f6e6b.smb",
+        "sha256": "843cdb702f0022e999df535f7b58f90ac53005485a67aeb4a3ca31f787d56c40",
+        "physicalRecordIndex": 184,
+        "byteOffset": 18993,
+        "text": "102 0 0 0 3 4"
+      },
+      {
+        "path": "re/Fusion/Study/trimselectorholdouts-ac245ecd1e2f/repeated_circle.f3d",
+        "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.97243d17-7c94-4e97-9b06-f7239f6f6e6b.smb",
+        "sha256": "843cdb702f0022e999df535f7b58f90ac53005485a67aeb4a3ca31f787d56c40",
+        "physicalRecordIndex": 186,
+        "byteOffset": 19183,
+        "text": "102 0 1 0 3 4"
+      }
+    ],
+    "outsideSemanticDomain": []
+  },
+  "disassembly": {
+    "attributeSave": "\n/tmp/kit-fusion-native-analysis/NsASMInterface10.arm64.dylib:\tfile format mach-o arm64\n\nDisassembly of section __TEXT,__text:\n\n00000000000db9a0 <Ns::ASMInterface::sketch_attrib_def::save(SMI_CUSTOM_ENTITY::save_context const&)>:\n   db9a0: a9be4ff4     \tstp\tx20, x19, [sp, #-0x20]!\n   db9a4: a9017bfd     \tstp\tx29, x30, [sp, #0x10]\n   db9a8: 910043fd     \tadd\tx29, sp, #0x10\n   db9ac: aa0103f3     \tmov\tx19, x1\n   db9b0: aa0003f4     \tmov\tx20, x0\n   db9b4: b9401001     \tldr\tw1, [x0, #0x10]\n   db9b8: aa1303e0     \tmov\tx0, x19\n   db9bc: 9400ab08     \tbl\t0x1065dc <_write+0x1065dc>\n   db9c0: 91006280     \tadd\tx0, x20, #0x18\n   db9c4: aa1303e1     \tmov\tx1, x19\n   db9c8: 940003c4     \tbl\t0xdc8d8 <Ns::ASMInterface::sketch_tag_id::save(SMI_CUSTOM_ENTITY::save_context const&)>\n   db9cc: 52800020     \tmov\tw0, #0x1                ; =1\n   db9d0: a9417bfd     \tldp\tx29, x30, [sp, #0x10]\n   db9d4: a8c24ff4     \tldp\tx20, x19, [sp], #0x20\n   db9d8: d65f03c0     \tret\n",
+    "asciiSave": "\n/tmp/kit-fusion-native-analysis/NsASMInterface10.arm64.dylib:\tfile format mach-o arm64\n\nDisassembly of section __TEXT,__text:\n\n00000000000dc8d8 <Ns::ASMInterface::sketch_tag_id::save(SMI_CUSTOM_ENTITY::save_context const&)>:\n   dc8d8: d10583ff     \tsub\tsp, sp, #0x160\n   dc8dc: a9136ffc     \tstp\tx28, x27, [sp, #0x130]\n   dc8e0: a9144ff4     \tstp\tx20, x19, [sp, #0x140]\n   dc8e4: a9157bfd     \tstp\tx29, x30, [sp, #0x150]\n   dc8e8: 910543fd     \tadd\tx29, sp, #0x150\n   dc8ec: aa0103f3     \tmov\tx19, x1\n   dc8f0: aa0003f4     \tmov\tx20, x0\n   dc8f4: b9400001     \tldr\tw1, [x0]\n   dc8f8: aa1303e0     \tmov\tx0, x19\n   dc8fc: 9400a738     \tbl\t0x1065dc <_write+0x1065dc>\n   dc900: 910083e0     \tadd\tx0, sp, #0x20\n   dc904: 9400005e     \tbl\t0xdca7c <std::__1::basic_ostringstream<char, std::__1::char_traits<char>, std::__1::allocator<char>>::basic_ostringstream[abi:ne200100]()>\n   dc908: f9400681     \tldr\tx1, [x20, #0x8]\n   dc90c: 910083e0     \tadd\tx0, sp, #0x20\n   dc910: 9400abe0     \tbl\t0x107890 <_write+0x107890>\n   dc914: f00002e1     \tadrp\tx1, 0x13b000 <_write+0x13b000>\n   dc918: 912c2821     \tadd\tx1, x1, #0xb0a\n   dc91c: 52800022     \tmov\tw2, #0x1                ; =1\n   dc920: 97fd8fc9     \tbl\t0x40844 <std::__1::basic_ostream<char, std::__1::char_traits<char>>& std::__1::__put_character_sequence[abi:ne200100]<char, std::__1::char_traits<char>>(std::__1::basic_ostream<char, std::__1::char_traits<char>>&, char const*, unsigned long)>\n   dc924: f9400a81     \tldr\tx1, [x20, #0x10]\n   dc928: 9400abda     \tbl\t0x107890 <_write+0x107890>\n   dc92c: f00002e1     \tadrp\tx1, 0x13b000 <_write+0x13b000>\n   dc930: 912c2821     \tadd\tx1, x1, #0xb0a\n   dc934: 52800022     \tmov\tw2, #0x1                ; =1\n   dc938: 97fd8fc3     \tbl\t0x40844 <std::__1::basic_ostream<char, std::__1::char_traits<char>>& std::__1::__put_character_sequence[abi:ne200100]<char, std::__1::char_traits<char>>(std::__1::basic_ostream<char, std::__1::char_traits<char>>&, char const*, unsigned long)>\n   dc93c: b9401a81     \tldr\tw1, [x20, #0x18]\n   dc940: 9400abce     \tbl\t0x107878 <_write+0x107878>\n   dc944: f00002e1     \tadrp\tx1, 0x13b000 <_write+0x13b000>\n   dc948: 912c2821     \tadd\tx1, x1, #0xb0a\n   dc94c: 52800022     \tmov\tw2, #0x1                ; =1\n   dc950: 97fd8fbd     \tbl\t0x40844 <std::__1::basic_ostream<char, std::__1::char_traits<char>>& std::__1::__put_character_sequence[abi:ne200100]<char, std::__1::char_traits<char>>(std::__1::basic_ostream<char, std::__1::char_traits<char>>&, char const*, unsigned long)>\n   dc954: f9401281     \tldr\tx1, [x20, #0x20]\n   dc958: 9400abce     \tbl\t0x107890 <_write+0x107890>\n   dc95c: f00002e1     \tadrp\tx1, 0x13b000 <_write+0x13b000>\n   dc960: 912c2821     \tadd\tx1, x1, #0xb0a\n   dc964: 52800022     \tmov\tw2, #0x1                ; =1\n   dc968: 97fd8fb7     \tbl\t0x40844 <std::__1::basic_ostream<char, std::__1::char_traits<char>>& std::__1::__put_character_sequence[abi:ne200100]<char, std::__1::char_traits<char>>(std::__1::basic_ostream<char, std::__1::char_traits<char>>&, char const*, unsigned long)>\n   dc96c: b9402a81     \tldr\tw1, [x20, #0x28]\n   dc970: 9400abc2     \tbl\t0x107878 <_write+0x107878>\n   dc974: f00002e1     \tadrp\tx1, 0x13b000 <_write+0x13b000>\n   dc978: 912c2821     \tadd\tx1, x1, #0xb0a\n   dc97c: 52800022     \tmov\tw2, #0x1                ; =1\n   dc980: 97fd8fb1     \tbl\t0x40844 <std::__1::basic_ostream<char, std::__1::char_traits<char>>& std::__1::__put_character_sequence[abi:ne200100]<char, std::__1::char_traits<char>>(std::__1::basic_ostream<char, std::__1::char_traits<char>>&, char const*, unsigned long)>\n   dc984: b9402e81     \tldr\tw1, [x20, #0x2c]\n   dc988: 9400abbc     \tbl\t0x107878 <_write+0x107878>\n   dc98c: 910083e9     \tadd\tx9, sp, #0x20\n   dc990: 910023f4     \tadd\tx20, sp, #0x8\n   dc994: 910023e8     \tadd\tx8, sp, #0x8\n   dc998: 91002120     \tadd\tx0, x9, #0x8\n   dc99c: d10087a1     \tsub\tx1, x29, #0x21\n   dc9a0: 97ffdb17     \tbl\t0xd35fc <std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> std::__1::basic_stringbuf<char, std::__1::char_traits<char>, std::__1::allocator<char>>::str[abi:ne200100]<std::__1::allocator<char>>(std::__1::allocator<char> const&) const>\n   dc9a4: 39c07fe8     \tldrsb\tw8, [sp, #0x1f]\n   dc9a8: f94007e9     \tldr\tx9, [sp, #0x8]\n   dc9ac: 7100011f     \tcmp\tw8, #0x0\n   dc9b0: 9a94b121     \tcsel\tx1, x9, x20, lt\n   dc9b4: aa1303e0     \tmov\tx0, x19\n   dc9b8: 9400a706     \tbl\t0x1065d0 <_write+0x1065d0>\n",
+    "asciiRestore": "\n/tmp/kit-fusion-native-analysis/NsASMInterface10.arm64.dylib:\tfile format mach-o arm64\n\nDisassembly of section __TEXT,__text:\n\n00000000000dcbc8 <Ns::ASMInterface::sketch_tag_id::restore(SMI_CUSTOM_ENTITY::restore_context const&)>:\n   dcbc8: d105c3ff     \tsub\tsp, sp, #0x170\n   dcbcc: a91457f6     \tstp\tx22, x21, [sp, #0x140]\n   dcbd0: a9154ff4     \tstp\tx20, x19, [sp, #0x150]\n   dcbd4: a9167bfd     \tstp\tx29, x30, [sp, #0x160]\n   dcbd8: 910583fd     \tadd\tx29, sp, #0x160\n   dcbdc: aa0103f4     \tmov\tx20, x1\n   dcbe0: aa0003f3     \tmov\tx19, x0\n   dcbe4: aa0103e0     \tmov\tx0, x1\n   dcbe8: 9400a686     \tbl\t0x106600 <_write+0x106600>\n   dcbec: 7100081f     \tcmp\tw0, #0x2\n   dcbf0: 5400034c     \tb.gt\t0xdcc58 <Ns::ASMInterface::sketch_tag_id::restore(SMI_CUSTOM_ENTITY::restore_context const&)+0x90>\n   dcbf4: aa0003f5     \tmov\tx21, x0\n   dcbf8: aa1403e0     \tmov\tx0, x20\n   dcbfc: 9400a681     \tbl\t0x106600 <_write+0x106600>\n   dcc00: 93407c08     \tsxtw\tx8, w0\n   dcc04: f9000668     \tstr\tx8, [x19, #0x8]\n   dcc08: aa1403e0     \tmov\tx0, x20\n   dcc0c: 9400a67d     \tbl\t0x106600 <_write+0x106600>\n   dcc10: 93407c08     \tsxtw\tx8, w0\n   dcc14: f9000a68     \tstr\tx8, [x19, #0x10]\n   dcc18: aa1403e0     \tmov\tx0, x20\n   dcc1c: 9400a679     \tbl\t0x106600 <_write+0x106600>\n   dcc20: b9001a60     \tstr\tw0, [x19, #0x18]\n   dcc24: aa1403e0     \tmov\tx0, x20\n   dcc28: 9400a676     \tbl\t0x106600 <_write+0x106600>\n   dcc2c: b9002a60     \tstr\tw0, [x19, #0x28]\n   dcc30: aa1403e0     \tmov\tx0, x20\n   dcc34: 9400a673     \tbl\t0x106600 <_write+0x106600>\n   dcc38: b9002e60     \tstr\tw0, [x19, #0x2c]\n   dcc3c: 71000abf     \tcmp\tw21, #0x2\n   dcc40: 54000841     \tb.ne\t0xdcd48 <Ns::ASMInterface::sketch_tag_id::restore(SMI_CUSTOM_ENTITY::restore_context const&)+0x180>\n   dcc44: aa1403e0     \tmov\tx0, x20\n   dcc48: 9400a66e     \tbl\t0x106600 <_write+0x106600>\n   dcc4c: 93407c08     \tsxtw\tx8, w0\n   dcc50: f9001268     \tstr\tx8, [x19, #0x20]\n   dcc54: 1400003d     \tb\t0xdcd48 <Ns::ASMInterface::sketch_tag_id::restore(SMI_CUSTOM_ENTITY::restore_context const&)+0x180>\n   dcc58: a93d7fbf     \tstp\txzr, xzr, [x29, #-0x30]\n   dcc5c: d100c3a1     \tsub\tx1, x29, #0x30\n   dcc60: aa1403e0     \tmov\tx0, x20\n   dcc64: 9400a661     \tbl\t0x1065e8 <_write+0x1065e8>\n   dcc68: a97d0ba1     \tldp\tx1, x2, [x29, #-0x30]\n   dcc6c: cb010043     \tsub\tx3, x2, x1\n   dcc70: d10123a0     \tsub\tx0, x29, #0x48\n   dcc74: 97fd875e     \tbl\t0x3e9ec <void std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__init_with_size[abi:ne200100]<char*, char*>(char*, char*, unsigned long)>\n   dcc78: 910023e0     \tadd\tx0, sp, #0x8\n   dcc7c: d10123a1     \tsub\tx1, x29, #0x48\n   dcc80: 52800102     \tmov\tw2, #0x8                ; =8\n   dcc84: 94000047     \tbl\t0xdcda0 <std::__1::basic_istringstream<char, std::__1::char_traits<char>, std::__1::allocator<char>>::basic_istringstream[abi:ne200100](std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, unsigned int)>\n   dcc88: 910023e0     \tadd\tx0, sp, #0x8\n   dcc8c: 91002261     \tadd\tx1, x19, #0x8\n   dcc90: 9400aac7     \tbl\t0x1077ac <_write+0x1077ac>\n   dcc94: 91004261     \tadd\tx1, x19, #0x10\n   dcc98: 9400aac5     \tbl\t0x1077ac <_write+0x1077ac>\n   dcc9c: 91006261     \tadd\tx1, x19, #0x18\n   dcca0: 9400aac0     \tbl\t0x1077a0 <_write+0x1077a0>\n   dcca4: 91008261     \tadd\tx1, x19, #0x20\n   dcca8: 9400aac1     \tbl\t0x1077ac <_write+0x1077ac>\n   dccac: 910013e1     \tadd\tx1, sp, #0x4\n   dccb0: 9400aabc     \tbl\t0x1077a0 <_write+0x1077a0>\n   dccb4: 910003e1     \tmov\tx1, sp\n   dccb8: 9400aaba     \tbl\t0x1077a0 <_write+0x1077a0>\n   dccbc: 294023e9     \tldp\tw9, w8, [sp]\n   dccc0: 29052668     \tstp\tw8, w9, [x19, #0x28]\n",
+    "binarySave": "\n/tmp/kit-fusion-native-analysis/NsASMInterface10.arm64.dylib:\tfile format mach-o arm64\n\nDisassembly of section __TEXT,__text:\n\n00000000000dd1cc <Ns::ASMInterface::sketch_tag_id::save(Ns::ASMInterface::ISketchTag_Streamer&) const>:\n   dd1cc: a9be4ff4     \tstp\tx20, x19, [sp, #-0x20]!\n   dd1d0: a9017bfd     \tstp\tx29, x30, [sp, #0x10]\n   dd1d4: 910043fd     \tadd\tx29, sp, #0x10\n   dd1d8: aa0103f3     \tmov\tx19, x1\n   dd1dc: aa0003f4     \tmov\tx20, x0\n   dd1e0: b9400001     \tldr\tw1, [x0]\n   dd1e4: f9400268     \tldr\tx8, [x19]\n   dd1e8: f9401d08     \tldr\tx8, [x8, #0x38]\n   dd1ec: aa1303e0     \tmov\tx0, x19\n   dd1f0: d63f0100     \tblr\tx8\n   dd1f4: f9400681     \tldr\tx1, [x20, #0x8]\n   dd1f8: f9400268     \tldr\tx8, [x19]\n   dd1fc: f9402508     \tldr\tx8, [x8, #0x48]\n   dd200: aa1303e0     \tmov\tx0, x19\n   dd204: d63f0100     \tblr\tx8\n   dd208: f9400a81     \tldr\tx1, [x20, #0x10]\n   dd20c: f9400268     \tldr\tx8, [x19]\n   dd210: f9402508     \tldr\tx8, [x8, #0x48]\n   dd214: aa1303e0     \tmov\tx0, x19\n   dd218: d63f0100     \tblr\tx8\n   dd21c: b9401a81     \tldr\tw1, [x20, #0x18]\n   dd220: f9400268     \tldr\tx8, [x19]\n   dd224: f9401508     \tldr\tx8, [x8, #0x28]\n   dd228: aa1303e0     \tmov\tx0, x19\n   dd22c: d63f0100     \tblr\tx8\n   dd230: b9402a81     \tldr\tw1, [x20, #0x28]\n   dd234: f9400268     \tldr\tx8, [x19]\n   dd238: f9401508     \tldr\tx8, [x8, #0x28]\n   dd23c: aa1303e0     \tmov\tx0, x19\n   dd240: d63f0100     \tblr\tx8\n   dd244: b9402e81     \tldr\tw1, [x20, #0x2c]\n   dd248: f9400268     \tldr\tx8, [x19]\n   dd24c: f9401508     \tldr\tx8, [x8, #0x28]\n   dd250: aa1303e0     \tmov\tx0, x19\n   dd254: d63f0100     \tblr\tx8\n   dd258: f9401281     \tldr\tx1, [x20, #0x20]\n   dd25c: f9400268     \tldr\tx8, [x19]\n   dd260: f9402502     \tldr\tx2, [x8, #0x48]\n   dd264: aa1303e0     \tmov\tx0, x19\n   dd268: a9417bfd     \tldp\tx29, x30, [sp, #0x10]\n   dd26c: a8c24ff4     \tldp\tx20, x19, [sp], #0x20\n   dd270: d61f0040     \tbr\tx2\n",
+    "compareDirection": "\n/tmp/kit-fusion-native-analysis/NsASMInterface10.arm64.dylib:\tfile format mach-o arm64\n\nDisassembly of section __TEXT,__text:\n\n00000000000dc8bc <Ns::ASMInterface::sketch_tag_id::compareDirection(Ns::ASMInterface::sketch_tag_id const&) const>:\n   dc8bc: b9401808     \tldr\tw8, [x0, #0x18]\n   dc8c0: b9401829     \tldr\tw9, [x1, #0x18]\n   dc8c4: 3100051f     \tcmn\tw8, #0x1\n   dc8c8: 7a491104     \tccmp\tw8, w9, #0x4, ne\n   dc8cc: 3a411924     \tccmn\tw9, #0x1, #0x4, ne\n   dc8d0: 1a9f17e0     \tcset\tw0, eq\n   dc8d4: d65f03c0     \tret\n",
+    "exactMatch": "\n/tmp/kit-fusion-native-analysis/NsASMInterface10.arm64.dylib:\tfile format mach-o arm64\n\nDisassembly of section __TEXT,__text:\n\n00000000000de724 <Ns::ASMInterface::sketch_tag_id::exactMatch(Ns::ASMInterface::sketch_tag_id const&) const>:\n   de724: a9be4ff4     \tstp\tx20, x19, [sp, #-0x20]!\n   de728: a9017bfd     \tstp\tx29, x30, [sp, #0x10]\n   de72c: 910043fd     \tadd\tx29, sp, #0x10\n   de730: f9400408     \tldr\tx8, [x0, #0x8]\n   de734: f9400429     \tldr\tx9, [x1, #0x8]\n   de738: eb09011f     \tcmp\tx8, x9\n   de73c: 54000321     \tb.ne\t0xde7a0 <Ns::ASMInterface::sketch_tag_id::exactMatch(Ns::ASMInterface::sketch_tag_id const&) const+0x7c>\n   de740: aa0103f3     \tmov\tx19, x1\n   de744: aa0003f4     \tmov\tx20, x0\n   de748: f9400808     \tldr\tx8, [x0, #0x10]\n   de74c: f9400829     \tldr\tx9, [x1, #0x10]\n   de750: eb09011f     \tcmp\tx8, x9\n   de754: 54000261     \tb.ne\t0xde7a0 <Ns::ASMInterface::sketch_tag_id::exactMatch(Ns::ASMInterface::sketch_tag_id const&) const+0x7c>\n   de758: 9100a280     \tadd\tx0, x20, #0x28\n   de75c: 9100a261     \tadd\tx1, x19, #0x28\n   de760: 97fff7db     \tbl\t0xdc6cc <Ns::ASMInterface::split_sequence_id::match(Ns::ASMInterface::split_sequence_id const&) const>\n   de764: 340001e0     \tcbz\tw0, 0xde7a0 <Ns::ASMInterface::sketch_tag_id::exactMatch(Ns::ASMInterface::sketch_tag_id const&) const+0x7c>\n   de768: b9401a68     \tldr\tw8, [x19, #0x18]\n   de76c: 3100051f     \tcmn\tw8, #0x1\n   de770: 540000c0     \tb.eq\t0xde788 <Ns::ASMInterface::sketch_tag_id::exactMatch(Ns::ASMInterface::sketch_tag_id const&) const+0x64>\n   de774: b9401a89     \tldr\tw9, [x20, #0x18]\n   de778: 3100053f     \tcmn\tw9, #0x1\n   de77c: 54000060     \tb.eq\t0xde788 <Ns::ASMInterface::sketch_tag_id::exactMatch(Ns::ASMInterface::sketch_tag_id const&) const+0x64>\n   de780: 6b08013f     \tcmp\tw9, w8\n   de784: 540000e1     \tb.ne\t0xde7a0 <Ns::ASMInterface::sketch_tag_id::exactMatch(Ns::ASMInterface::sketch_tag_id const&) const+0x7c>\n   de788: f9401288     \tldr\tx8, [x20, #0x20]\n   de78c: f9401269     \tldr\tx9, [x19, #0x20]\n   de790: eb09011f     \tcmp\tx8, x9\n   de794: 54000061     \tb.ne\t0xde7a0 <Ns::ASMInterface::sketch_tag_id::exactMatch(Ns::ASMInterface::sketch_tag_id const&) const+0x7c>\n   de798: 52800020     \tmov\tw0, #0x1                ; =1\n   de79c: 14000002     \tb\t0xde7a4 <Ns::ASMInterface::sketch_tag_id::exactMatch(Ns::ASMInterface::sketch_tag_id const&) const+0x80>\n   de7a0: 52800000     \tmov\tw0, #0x0                ; =0\n   de7a4: a9417bfd     \tldp\tx29, x30, [sp, #0x10]\n   de7a8: a8c24ff4     \tldp\tx20, x19, [sp], #0x20\n   de7ac: d65f03c0     \tret\n"
+  },
+  "directionReversal": {
+    "nativeComparison": "compareDirection0xdc8bc accepts equal values or UINT32_MAX in either operand; exactMatch0xde768..0xde784 repeats wildcard branches",
+    "proposedMapping": {
+      "0": 1,
+      "1": 0,
+      "4294967295": 4294967295
+    },
+    "evidenceClass": "Semantic inference from native wildcard comparison; not a traced native reversal implementation",
+    "symbolSearch": [
+      "NsASMInterface10",
+      "NsASMEntityTracking10",
+      "NaFusion10",
+      "NaTagUtility10"
+    ],
+    "namedSketchTagReverseOrFlipMethodFound": false,
+    "limitation": "Absence of a named symbol does not rule out inlined reversal logic"
+  }
+}

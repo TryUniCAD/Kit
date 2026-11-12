@@ -34,10 +34,14 @@ This catalog qualifies the observed Design schemas and their dependencies. It do
 
 The independently accepted document authoring catalog remains unchanged. The new factory is a broader reader/writer profile facility, not an implicit expansion of the document author's feature support.
 
+## Reproducible catalog promotion
+
+`re/Fusion/Reconstruction/EntityGraph/PromoteCatalog.py` derives the production catalog and the separate test provenance fixture from the research schema inventory using explicit declaration-key whitelists. `--check` compares both artifacts byte-for-byte without writing them. The compatibility workflow runs this provenance check before exercising archive reconstruction. Neither the promotion tool nor the research inventory is a production runtime dependency.
+
 ## Verification
 
 The previous explicit-schema path passed all 712 corpus archive reconstructions within the 807-case remote run on `4eb1571f6c9a6f870aaa8ae7a67c22873384b190`. The corpus suite now obtains every profile through this production factory and retains only archive paths and metadata digests in a separate test provenance fixture. No production module imports the test fixture or research workspace.
 
-Three additional archive-boundary cases rewrite complete ZIP metadata to carry an unqualified class, schema version, or base, and require explicit rejection. These cases and the 712 factory-driven reconstructions await their new remote run; none ran locally. Black, Ruff, Mypy, Pyright, steering compliance, and diff checks passed for the new production and integration files.
+Three additional archive-boundary cases rewrite complete ZIP metadata to carry an unqualified class, schema version, or base, and require explicit rejection. Remote run `43225207242` passed all 712 factory-driven reconstructions and 814 of 815 total cases. The base-mismatch rejection fixture initially violated continuation lineage while constructing its malformed archive, before reaching the intended catalog guard. The corrected fixture mutates an unused leaf class and awaits its new remote run. No cases ran locally. Black, Ruff, Mypy, Pyright, steering compliance, and diff checks passed for the new production and integration files.
 
 See [full corpus coverage](FusionCorpusEntityCoverage.md), [the detailed data model](../../Reference/Research/FusionDataModel.md), and [complete document authoring](FusionNativeDocumentCodec.md).

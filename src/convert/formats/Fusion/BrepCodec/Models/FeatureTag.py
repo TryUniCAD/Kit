@@ -5,23 +5,23 @@ from convert.formats.Fusion.BrepCodec.Models.CheckInteger import CheckInteger
 
 @MakeDataClass(frozen=True, slots=True)
 class FeatureTag:
-    Selector: int
-    Label: str
-    Operations: tuple[int, ...]
+    PrimaryId: str
+    OperationIds: tuple[int, ...]
+    SecondaryId: int = 0
+    ApproachId: int = 0
 
     def __post_init__(self) -> None:
-        CheckInteger(self.Selector, "feature selector", Lower=0)
         if (
-            not self.Label
-            or not self.Label.isprintable()
-            or len(self.Label.encode("utf-8")) > 255
+            type(self.PrimaryId) is not str
+            or not self.PrimaryId
+            or not self.PrimaryId.isascii()
+            or not self.PrimaryId.isprintable()
+            or len(self.PrimaryId.encode("ascii")) > 255
         ):
             raise ValueError(
-                "Fusion BRep feature label must fit a printable short string"
+                "Fusion BRep primary identifier must fit a printable ASCII string"
             )
-        if type(self.Operations) is not tuple or not 1 <= len(self.Operations) <= 256:
-            raise ValueError(
-                "Fusion BRep feature tag requires one to 256 operation identities"
-            )
-        for Value in self.Operations:
-            CheckInteger(Value, "operation identity", Lower=0)
+        if type(self.OperationIds) is not tuple or len(self.OperationIds) > 256:
+            raise ValueError("Fusion BRep tag permits at most 256 operation identities")
+        for Value in (self.SecondaryId, self.ApproachId, *self.OperationIds):
+            CheckInteger(Value, "tag integer", Lower=-(1 << 31), Upper=(1 << 31) - 1)

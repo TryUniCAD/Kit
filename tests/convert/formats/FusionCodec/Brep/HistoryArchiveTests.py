@@ -33,7 +33,10 @@ def TestHistory(TmpPath: FilePath) -> None:
     assert ReadAsmPtr(Generic, 3) == TimestampId
     assert ReadAsmPtr(Generic, 4) == 1
     assert ReadAsmText(Generic, 12) == str(Sample.Identity.OperationId)
-    assert ReadAsmInt(Generic, 13) == Sample.Identity.GenerationRef
+    assert ReadAsmInt(Generic, 11) == len(
+        str(Sample.Identity.OperationId).encode("ascii")
+    )
+    assert ReadAsmInt(Generic, 13) == Sample.Identity.SecondaryId
     assert ReadAsmInt(Generic, 13) != Sample.History.CurrentId
     assert len(ReadBodyFaces(Table, 1)) == 3
     CheckCircleSpan(Table, Sample.Model, 2)

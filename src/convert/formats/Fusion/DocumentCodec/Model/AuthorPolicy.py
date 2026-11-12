@@ -12,7 +12,6 @@ class AuthorPolicy:
     FirstSketchTag: int = 100
     FirstOperationId: int = 300
     BodyKey: int = 0
-    GenerationRef: int = 4
     HistoryCurrentId: int = 4
     HistoryInitialId: int = 2
     HistoryGeneration: int = 4

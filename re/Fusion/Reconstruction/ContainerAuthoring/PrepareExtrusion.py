@@ -33,11 +33,11 @@ def encode_history(contract, authored_at):
     identity = BodyIdentity(contract['bodyKey'], contract['operationId'], contract['generationRef'], float(micros))
     operations = (contract['operationId'],)
     tags = TopologyTags(
-        FeatureTag(1, contract['sideFaceLabel'], operations),
-        FeatureTag(1, contract['topFaceLabel'], operations),
-        FeatureTag(1, contract['bottomFaceLabel'], operations),
-        FeatureTag(2, contract['topEdgeLabel'], operations),
-        FeatureTag(4, contract['bottomEdgeLabel'], operations),
+        FeatureTag(contract['sideFaceLabel'], operations),
+        FeatureTag(contract['topFaceLabel'], operations),
+        FeatureTag(contract['bottomFaceLabel'], operations),
+        FeatureTag(contract['topEdgeLabel'], operations),
+        FeatureTag(contract['bottomEdgeLabel'], operations),
         SketchLink(contract['sketchPrimary'], 0, 0, 1, 1),
     )
     history = HistoryState(contract['currentHistoryId'], contract['initialHistoryId'], contract['historyGeneration'], contract['allocation'], contract['boardNumber'])
