@@ -21,7 +21,6 @@ from tests.convert.formats.FusionCodec.Brep.SampleInputs import MakeSample
     (
         "re/Fusion/Study/moretools-88a2cd6cad0b/Draft.f3d",
         "re/Fusion/Study/faceedits-3f120cbee8d9/offset_cylinder.f3d",
-        "re/Fusion/Study/timeline-5867579925b5/rolled_back.f3d",
     ),
 )
 def TestJournalDeny(SourcePath: str) -> None:

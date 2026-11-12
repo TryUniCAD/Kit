@@ -96,11 +96,19 @@ flowchart TD
     Feature --> Selection[Persistent selections]
     Feature --> BodyMap[Body identity and history map]
     BodyMap --> ASM[ASM geometry and journal]
+    BodyMap --> Snapshot[Solid profile and sketch snapshots]
     ASM --> Topology[Body and oriented boundary topology]
     Topology --> Geometry[Curves surfaces and procedural definitions]
     Geometry --> Cache[Optional solved caches]
     ACT --> Occurrence[Components occurrences and placements]
     Browser --> Routes[Display routes and folders]
+    Design --> Material[Material and appearance identities]
+    Material --> Protein[Typed asset schemas definitions and instances]
+    Design --> Graphics[OGS scene references]
+    Graphics --> World[World object graph and rendering properties]
+    World --> Meshes[Typed graphics vertex and index buffers]
+    Design --> MeshBody[Mesh body identities and placement]
+    MeshBody --> ParaMesh[Mesh registry topology and attribute streams]
 ```
 
 The manifest selects assets and segment identities.
@@ -127,7 +135,9 @@ Kernel references additionally require the geometry blob and history state.
 | ASM entity pointer       | Signed 64-bit integer               | Blob and history state              | Entity table, with negative sentinels handled by schema       |
 | Stored BODY handle       | Typed attribute value               | Referenced geometry history         | Design body map to matching kernel BODY identifier            |
 | Persistent name key      | Schema-specific typed value         | Naming registry and feature lineage | Verified registry, creator, and selection route               |
-| Journal ordinal          | History-specific value              | Kernel journal                      | Journal sequence and state transition                         |
+| Delta-state identity     | Native signed 32-bit integer        | Kernel history stream               | State-tree links and feature-to-history transitions           |
+| Current/max state IDs    | Independent signed 32-bit integers  | Kernel history stream               | Selected state versus allocation watermark                    |
+| Next entity tag          | Native signed 32-bit allocator      | Kernel history stream               | Entity tag allocation, separate from record indexes           |
 | Inline subtype reference | Schema-specific slot                | Local subtype table                 | Local subtype resolution, never global entity indexing        |
 
 ## Primitive wire types

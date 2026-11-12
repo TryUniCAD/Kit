@@ -55,3 +55,7 @@ Full arbitrary Fusion interoperability remains unproven. Open boundaries include
 ## Complete native snapshot parts
 
 Two [typed cuboid/profile/sketch snapshot replacements](../../../re/Fusion/LocalOracle/PrismSnapshot/NativeAcceptance.json) passed native load, rollback, restoration, rebuild, height edits and save/reopen. The ordinary rectangle changed height 25→37 mm and volume 30→44.4 cm³; the saved authored cuboid changed 37→43 mm and volume 14.467→16.813 cm³. The source-specific archives preserve their own remaining members. Nested OGS streams still block complete native-archive semantic conversion; snapshot acceptance does not bypass that requirement.
+
+## Rolled-back history state
+
+The complete reconstructed history preserves distinct current/maximum state IDs 3/10 and next entity tag 6. [Native control and reconstructed-document observations match](../../../re/Fusion/LocalOracle/RolledHistory/NativeAcceptance.json) through initial marker 2, rollback to the sketch, restoration, regeneration of three cylinders at the timeline end, a 10→13 mm height edit and native save/reopen. The output retains its own source Design and other members; this is history qualification, not independent synthesis of that three-feature document. [The change entry](../../Changes/Fusion/History/FusionRolledHistoryAcceptance.md) records exact hashes and the migration of the obsolete rejection case to positive reconstruction coverage.
