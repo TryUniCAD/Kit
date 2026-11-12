@@ -53,7 +53,7 @@ def core(identifier, timestamp, name=None, package_root=False, embed=None):
     return root
 
 
-def encode_package(materials, schemas, package_id, asset_id, timestamp):
+def encode_package(materials, schemas, package_id, asset_id, timestamp, encoder=None):
     uuid.UUID(package_id)
     uuid.UUID(asset_id)
     created = datetime.fromisoformat(timestamp.replace("Z", "+00:00"))
@@ -66,8 +66,9 @@ def encode_package(materials, schemas, package_id, asset_id, timestamp):
             raise ValueError("Schema UID does not match its name")
         if any(base.attrib["val"] not in schemas for base in schema.findall("Base")):
             raise ValueError("Missing base schema")
-    codec = runpy.run_path(str(Path(__file__).with_name("EncodeMaterials.py")))
-    binary = codec["encode_material_data"](materials, schemas)
+    if encoder is None:
+        encoder = runpy.run_path(str(Path(__file__).with_name("EncodeMaterials.py")))["encode_material_data"]
+    binary = encoder(materials, schemas)
     binary["StreamVersionTable"] = b"AssetTableOfContents:3.1,\nDefinitionIteratorProperties:3.2,\nInstanceProperties:3.2,\nAssetLibVersion:1.0\n"
     asset_prefix = asset_id + "/"
     entries = {asset_prefix + "AssetData/" + name: value for name, value in binary.items()}

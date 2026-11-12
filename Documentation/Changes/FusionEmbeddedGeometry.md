@@ -38,7 +38,9 @@ The surrounding archive uses its own reconstructed source document and regenerat
 
 New PR compatibility checks exercise emitted files through the existing independent ASM reader.
 They inspect body roots, reciprocal topology, circular geometry, ownership attributes, and full-width sketch references.
-These automated checks were not executed locally. Their result belongs to the PR revision's CI evidence.
+These automated checks were not executed locally.
+[PR run 43210865752](https://github.com/TryUniCAD/Kit/actions/runs/43210865752) passed all 36 compatibility cases on `77fa7e9b37aaba0ebae6f5b03d2c10930b74447e`.
+That result includes four new embedded geometry cases. It does not establish deferred merge-group acceptance.
 
 ## Limits
 

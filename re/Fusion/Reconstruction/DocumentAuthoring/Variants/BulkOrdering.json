@@ -1,0 +1,20 @@
+{
+  "schema": "FusionPrimaryBulkOrderingEvidence/1",
+  "build": "2706.1.17",
+  "architecture": "arm64",
+  "source": "NsDataModel10",
+  "sha256": "47ddbeca2f5c97c96e44989523ff969baa5d0d11b59d8ca35b934d48e2657af5",
+  "symbol": "Ns::BinaryBulkLoadVisitor::buildEntities(std::vector<Ns::IVisitable*>&)",
+  "address": "0x298780",
+  "entityPositionMapGetterCall": "0x29880c",
+  "firstOrderedTreeNode": "0x298814",
+  "currentOffsetLoad": "0x298828",
+  "currentOffsetNodeMember": "0x28",
+  "compareWithPrevious": "0x298830",
+  "lessOrEqualErrorBranch": "0x298834",
+  "recordSizeDifference": "0x298838",
+  "orderedSuccessorRange": ["0x298850", "0x298888"],
+  "negativeOffsetErrorLiteral": "0x298c80",
+  "conclusion": "Primary record starts must strictly increase in entity identity order. Native builds one initial substream per consecutive primary offset; a continuation may be interleaved within its owning primary substream. Merely sorting metadata entries by physical offsets does not permit primary IDs to move backwards.",
+  "controlledCorroboration": "Native empty Design physically stores component3 primary followed by its continuation, then componentroot4. The authored Design uses ascending identities; the initial independently authored ACT physical order103,104,100,106,101,105,102,107 violated the native invariant."
+}

@@ -1,0 +1,656 @@
+{
+  "schema": "FusionAuthoringConstructorEvidence/1",
+  "build": "2706.1.17",
+  "architecture": "arm64",
+  "sources": [
+    {
+      "source": "NsCommonData10",
+      "pathWithinContents": "Libraries/Neutron/NsCommonData10.dylib",
+      "sha256": "692a44379f9809f3cdcca69968272ffd613bf1983594a271b173bc34991a1083"
+    },
+    {
+      "source": "NsComponent10",
+      "pathWithinContents": "Libraries/Neutron/NsComponent10.dylib",
+      "sha256": "4cd02bedd44c3f70e122a2e6829b1a8da0590eef46bd23c633b8ebe3072283d1"
+    },
+    {
+      "source": "NaFusion10",
+      "pathWithinContents": "Libraries/Applications/Fusion/NaFusion10.dylib",
+      "sha256": "7788ca927c26d0f1091bc23680660bfe8f5aca1691f87a56d6fd27020d0d98ad"
+    },
+    {
+      "source": "NsTypes10",
+      "pathWithinContents": "Libraries/Neutron/NsTypes10.dylib",
+      "sha256": "b3a5d747f679acaeba03415e930a27f0d2254d1ca2fe9836bb59380215f98b47"
+    }
+  ],
+  "functions": [
+    {
+      "source": "NsCommonData10",
+      "symbol": "__ZN2Ns4Comp13ComponentBase14onPostCreationENS_10DataChange9ETransactE",
+      "name": "Ns::Comp::ComponentBase::onPostCreation(Ns::DataChange::ETransact)",
+      "functionAddress": "0x55484",
+      "calls": [
+        {
+          "callAddress": "0x554b4",
+          "callee": "Ns::Managed::ManagedEntity::onPostCreation(Ns::DataChange::ETransact)"
+        },
+        {
+          "callAddress": "0x5553c",
+          "callee": "Ns::Managed::ManagedEntity::onPostCreation(Ns::DataChange::ETransact)"
+        },
+        {
+          "callAddress": "0x5555c",
+          "callee": "Ns::ACT::ACTComponent::make(Ns::Segment*, std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t>> const&)"
+        },
+        {
+          "callAddress": "0x555a0",
+          "callee": "Ns::ACT::ACTComponent::designComponent(Ns::PassiveRef<Ns::Entity> const&)"
+        },
+        {
+          "callAddress": "0x555dc",
+          "callee": "Ns::ACT::ACTComponent::parent(Ns::StrongRef<Ns::ACT::ACTInstance> const&)"
+        },
+        {
+          "callAddress": "0x555ec",
+          "callee": "Ns::Comp::ComponentsRoot::findOrMake(Ns::Segment*)"
+        }
+      ],
+      "status": "located"
+    },
+    {
+      "source": "NsCommonData10",
+      "symbol": "__ZN2Ns10CommonData14MassPropertiesC2Ev",
+      "name": "Ns::CommonData::MassProperties::MassProperties()",
+      "functionAddress": "0x114804",
+      "calls": [
+        {
+          "callAddress": "0x114830",
+          "callee": "Ns::CommonData::MassProperties::initializeMemberSetIfNeeded()"
+        }
+      ],
+      "status": "located"
+    },
+    {
+      "source": "NsCommonData10",
+      "symbol": "__ZN2Ns11Expressions9Interface13latestVersionEv",
+      "name": "Ns::Expressions::Interface::latestVersion()",
+      "functionAddress": "0xdfc08",
+      "calls": [],
+      "status": "located"
+    },
+    {
+      "source": "NsCommonData10",
+      "symbol": "__ZN2Ns4Comp18BaseOccurrencePathC2ERKNS_9StrongRefINS0_13ComponentBaseEEE",
+      "name": "Ns::Comp::BaseOccurrencePath::BaseOccurrencePath(Ns::StrongRef<Ns::Comp::ComponentBase> const&)",
+      "functionAddress": "0x42e08",
+      "calls": [
+        {
+          "callAddress": "0x42e8c",
+          "callee": "Ns::Comp::BaseOccurrencePath::initializeMemberSetIfNeeded()"
+        }
+      ],
+      "status": "located"
+    },
+    {
+      "source": "NsComponent10",
+      "symbol": "__ZN2Ns4Comp25ComponentAssetAdapterImpl18initializeNewAssetEv",
+      "name": "Ns::Comp::ComponentAssetAdapterImpl::initializeNewAsset()",
+      "functionAddress": "0x1008e4",
+      "calls": [
+        {
+          "callAddress": "0x100918",
+          "callee": "Ns::CommonData::CommonDataAssetSettings::make(Ns::Segment*)"
+        },
+        {
+          "callAddress": "0x100970",
+          "callee": "Ns::Segment::addRoot(Ns::StrongRef<Ns::Entity>, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)"
+        },
+        {
+          "callAddress": "0x100994",
+          "callee": "Ns::Scene::NodeChange::createComponentNode(Ns::Scene::INodeSource*, OGS::Scene::EWorldType, bool)"
+        }
+      ],
+      "status": "located"
+    },
+    {
+      "source": "NsComponent10",
+      "symbol": "__ZN2Ns4Comp9Component14onPostCreationENS_10DataChange9ETransactE",
+      "name": "Ns::Comp::Component::onPostCreation(Ns::DataChange::ETransact)",
+      "functionAddress": "0x107afc",
+      "calls": [
+        {
+          "callAddress": "0x107b14",
+          "callee": "Ns::Comp::ComponentBase::onPostCreation(Ns::DataChange::ETransact)"
+        },
+        {
+          "callAddress": "0x107b38",
+          "callee": "Ns::Comp::ComponentInstances::make(Ns::StrongRef<Ns::Comp::Component> const&)"
+        },
+        {
+          "callAddress": "0x107b70",
+          "callee": "Ns::BREP::Bodies::make(Ns::StrongRef<Ns::Entity>)"
+        },
+        {
+          "callAddress": "0x107c38",
+          "callee": "Ns::Geometry::Sketches::make(Ns::StrongRef<Ns::Entity>)"
+        },
+        {
+          "callAddress": "0x107c70",
+          "callee": "Ns::Geometry::WorkGeometries::make(Ns::StrongRef<Ns::Entity>)"
+        },
+        {
+          "callAddress": "0x107cac",
+          "callee": "Ns::Comp::JointOrigins::make(Ns::StrongRef<Ns::Comp::ComponentBase>)"
+        },
+        {
+          "callAddress": "0x107ce4",
+          "callee": "Ns::Comp::AssyConstraints::make(Ns::StrongRef<Ns::Comp::Component> const&)"
+        },
+        {
+          "callAddress": "0x107d18",
+          "callee": "Ns::Comp::AssyConstraintOccurrences::make(Ns::StrongRef<Ns::Comp::Component> const&)"
+        },
+        {
+          "callAddress": "0x107d4c",
+          "callee": "Ns::Comp::ContactSets::make(Ns::StrongRef<Ns::Comp::Component> const&)"
+        },
+        {
+          "callAddress": "0x107d80",
+          "callee": "Ns::Comp::MotionStudies::make(Ns::StrongRef<Ns::Comp::Component> const&)"
+        },
+        {
+          "callAddress": "0x107db4",
+          "callee": "Ns::Parameters::ParameterTable::make(Ns::StrongRef<Ns::Entity> const&)"
+        },
+        {
+          "callAddress": "0x107df0",
+          "callee": "Ns::BREP::SurfaceGroups::make(Ns::StrongRef<Ns::Comp::ComponentBase>)"
+        },
+        {
+          "callAddress": "0x107e2c",
+          "callee": "Ns::CommonData::SelectionGroups::make(Ns::PassiveRef<Ns::Entity> const&)"
+        },
+        {
+          "callAddress": "0x107e7c",
+          "callee": "Ns::Geometry::WorkGeometryCustomGroups::make(Ns::StrongRef<Ns::Comp::ComponentBase>)"
+        },
+        {
+          "callAddress": "0x107ecc",
+          "callee": "Ns::Geometry::SketchCustomGroups::make(Ns::StrongRef<Ns::Comp::ComponentBase>)"
+        }
+      ],
+      "status": "located"
+    },
+    {
+      "source": "NaFusion10",
+      "symbol": "__ZN2Na15FusionComponentC2EPN2Ns7SegmentERKNSt3__112basic_stringIwNS4_11char_traitsIwEENS4_9allocatorIwEEEE",
+      "name": "Na::FusionComponent::FusionComponent(Ns::Segment*, std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t>> const&)",
+      "functionAddress": "0x1103214",
+      "calls": [
+        {
+          "callAddress": "0x11033f0",
+          "callee": "Na::FusionComponent::initializeMemberSetIfNeeded()"
+        }
+      ],
+      "status": "located"
+    },
+    {
+      "source": "NaFusion10",
+      "symbol": "__ZN2Na15FusionComponent14onPostCreationEN2Ns10DataChange9ETransactE",
+      "name": "Na::FusionComponent::onPostCreation(Ns::DataChange::ETransact)",
+      "functionAddress": "0x1108d4c",
+      "calls": [
+        {
+          "callAddress": "0x1108d68",
+          "callee": "Ns::Comp::Component::onPostCreation(Ns::DataChange::ETransact)"
+        },
+        {
+          "callAddress": "0x1108dc4",
+          "callee": "Na::FusionComponent::createPMObjects(bool)"
+        },
+        {
+          "callAddress": "0x1108de4",
+          "callee": "Ns::Geometry::Sketches::createSketchCurveTagAttribute(unsigned long long)"
+        },
+        {
+          "callAddress": "0x1108dfc",
+          "callee": "Na::Features::make(Ns::PassiveRef<Ns::Entity> const&)"
+        },
+        {
+          "callAddress": "0x1108e38",
+          "callee": "Ns::Geometry::OriginWorkGeometry::make(Ns::StrongRef<Ns::Comp::ComponentBase>)"
+        },
+        {
+          "callAddress": "0x1108e64",
+          "callee": "Na::FusionComponent::createOriginWorkGeometry()"
+        },
+        {
+          "callAddress": "0x1108e78",
+          "callee": "Na::Relationships::make(Ns::PassiveRef<Ns::Entity> const&)"
+        },
+        {
+          "callAddress": "0x1108eb4",
+          "callee": "NaTSpline::SubDSurfaceNodes::make(Ns::StrongRef<Ns::Comp::ComponentBase>)"
+        },
+        {
+          "callAddress": "0x1108ef0",
+          "callee": "Na::Canvases::make(Ns::StrongRef<Ns::Comp::ComponentBase>)"
+        },
+        {
+          "callAddress": "0x1108f28",
+          "callee": "Na::DesignCapture::DcGroupFeatures::make(Ns::StrongRef<Ns::Comp::Component> const&)"
+        },
+        {
+          "callAddress": "0x1108f64",
+          "callee": "Na::DecalPatches::make(Ns::StrongRef<Ns::Comp::ComponentBase>)"
+        },
+        {
+          "callAddress": "0x1108fa0",
+          "callee": "Ns::Geometry::PMIAnnotations::make(Ns::StrongRef<Ns::Comp::ComponentBase>)"
+        },
+        {
+          "callAddress": "0x1108fd8",
+          "callee": "NaMesh::MREP::MeshBodies::make(Ns::CommonData::IComponent*)"
+        },
+        {
+          "callAddress": "0x110900c",
+          "callee": "Na::CanvasGroups::make(Ns::StrongRef<Ns::Comp::ComponentBase>)"
+        },
+        {
+          "callAddress": "0x110905c",
+          "callee": "Na::LatticeRigDeformers::make(Ns::StrongRef<Ns::Comp::ComponentBase>)"
+        },
+        {
+          "callAddress": "0x110909c",
+          "callee": "Na::EIPContexts::make(Ns::StrongRef<Na::FusionComponent>)"
+        }
+      ],
+      "status": "located"
+    },
+    {
+      "source": "NaFusion10",
+      "symbol": "__ZN2Na15FusionComponent15createPMObjectsEb",
+      "name": "Na::FusionComponent::createPMObjects(bool)",
+      "functionAddress": "0x1109340",
+      "calls": [
+        {
+          "callAddress": "0x1109394",
+          "callee": "Ns::BREP::Bodies::make(Ns::StrongRef<Ns::Entity>)"
+        },
+        {
+          "callAddress": "0x11093d0",
+          "callee": "Na::DesignCapture::DcGroupFeatures::make(Ns::StrongRef<Ns::Comp::Component> const&)"
+        },
+        {
+          "callAddress": "0x1109470",
+          "callee": "Ns::BREP::Bodies::createBRepSerializer(HISTORY_STREAM*)"
+        },
+        {
+          "callAddress": "0x1109484",
+          "callee": "Ns::ASMInterface::createHistoryStream()"
+        },
+        {
+          "callAddress": "0x11094a8",
+          "callee": "Ns::BREP::Bodies::createBRepHistorySerializer(HISTORY_STREAM*)"
+        },
+        {
+          "callAddress": "0x11094d0",
+          "callee": "Ns::BREP::Bodies::createBRepSerializer(HISTORY_STREAM*)"
+        },
+        {
+          "callAddress": "0x1109504",
+          "callee": "Na::DesignCapture::DcDesignFragment::make(Ns::PassiveRef<Ns::Comp::Component> const&)"
+        }
+      ],
+      "status": "located"
+    },
+    {
+      "source": "NaFusion10",
+      "symbol": "__ZN2Na15FusionComponent24createOriginWorkGeometryEv",
+      "name": "Na::FusionComponent::createOriginWorkGeometry()",
+      "functionAddress": "0x1109610",
+      "calls": [
+        {
+          "callAddress": "0x1109670",
+          "callee": "Ns::Geometry::WorkPoint::make(Ns::StrongRef<Ns::Entity> const&, AcGePoint3d const&, bool, std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t>> const&, bool)"
+        },
+        {
+          "callAddress": "0x11096e0",
+          "callee": "Ns::Geometry::WorkAxis::make(Ns::StrongRef<Ns::Entity> const&, AcGeLine3d const&, bool, std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t>> const&, bool)"
+        },
+        {
+          "callAddress": "0x1109750",
+          "callee": "Ns::Geometry::WorkAxis::make(Ns::StrongRef<Ns::Entity> const&, AcGeLine3d const&, bool, std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t>> const&, bool)"
+        },
+        {
+          "callAddress": "0x11097c4",
+          "callee": "Ns::Geometry::WorkAxis::make(Ns::StrongRef<Ns::Entity> const&, AcGeLine3d const&, bool, std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t>> const&, bool)"
+        },
+        {
+          "callAddress": "0x1109838",
+          "callee": "Ns::Geometry::WorkPlane::make(Ns::StrongRef<Ns::Entity> const&, AcGePlane const&, bool, std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t>> const&, bool)"
+        },
+        {
+          "callAddress": "0x11098b8",
+          "callee": "Ns::Geometry::WorkPlane::make(Ns::StrongRef<Ns::Entity> const&, AcGePlane const&, bool, std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t>> const&, bool)"
+        },
+        {
+          "callAddress": "0x110992c",
+          "callee": "Ns::Geometry::WorkPlane::make(Ns::StrongRef<Ns::Entity> const&, AcGePlane const&, bool, std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t>> const&, bool)"
+        }
+      ],
+      "status": "located"
+    },
+    {
+      "source": "NaFusion10",
+      "symbol": "__ZN2Na13DesignCapture16DcDesignFragment14onPostCreationEN2Ns10DataChange9ETransactE",
+      "name": "Na::DesignCapture::DcDesignFragment::onPostCreation(Ns::DataChange::ETransact)",
+      "functionAddress": "0x518764",
+      "calls": [
+        {
+          "callAddress": "0x518780",
+          "callee": "Ns::Managed::ManagedEntity::onPostCreation(Ns::DataChange::ETransact)"
+        },
+        {
+          "callAddress": "0x5187a4",
+          "callee": "Na::DesignCapture::DcNodes::make(Ns::PassiveRef<Ns::Entity> const&)"
+        },
+        {
+          "callAddress": "0x5187dc",
+          "callee": "Na::DesignCapture::DcComputeManager::make(Ns::StrongRef<Na::DesignCapture::DcDesignFragment>)"
+        },
+        {
+          "callAddress": "0x518814",
+          "callee": "Na::DesignCapture::DcDependencyManager::make(Ns::StrongRef<Na::DesignCapture::DcDesignFragment>)"
+        },
+        {
+          "callAddress": "0x51884c",
+          "callee": "Na::DesignCapture::DcAssociationManager::make(Ns::StrongRef<Na::DesignCapture::DcDesignFragment>)"
+        },
+        {
+          "callAddress": "0x51888c",
+          "callee": "Na::DesignCapture::DcFeatureIdManager::make(Ns::StrongRef<Na::DesignCapture::DcDesignFragment>, Ns::Segment*)"
+        },
+        {
+          "callAddress": "0x5188c8",
+          "callee": "Na::DesignCapture::DcXRefManager::make(Ns::StrongRef<Na::DesignCapture::DcDesignFragment>)"
+        },
+        {
+          "callAddress": "0x518944",
+          "callee": "Na::DesignCapture::DcComponent::make(Ns::PassiveRef<Ns::Entity>, Ns::PassiveRef<Na::FusionComponent>)"
+        },
+        {
+          "callAddress": "0x518980",
+          "callee": "Na::DesignCapture::DcCreationOrderFeatures::make(Ns::StrongRef<Na::DesignCapture::DcDesignFragment>)"
+        },
+        {
+          "callAddress": "0x5189ac",
+          "callee": "Na::ET::VMManager::make()"
+        }
+      ],
+      "status": "located"
+    },
+    {
+      "source": "NaFusion10",
+      "symbol": "__ZN2Na8FeaturesC2ERKN2Ns10PassiveRefINS1_6EntityEEE",
+      "name": "Na::Features::Features(Ns::PassiveRef<Ns::Entity> const&)",
+      "functionAddress": "0xc787a4",
+      "calls": [
+        {
+          "callAddress": "0xc787ec",
+          "callee": "Na::Features::initializeMemberSetIfNeeded()"
+        }
+      ],
+      "status": "located"
+    },
+    {
+      "source": "NaFusion10",
+      "symbol": "__ZN2Na22FusionAssetAdapterImpl18initializeNewAssetEv",
+      "name": "Na::FusionAssetAdapterImpl::initializeNewAsset()",
+      "functionAddress": "0x10f0634",
+      "calls": [
+        {
+          "callAddress": "0x10f0690",
+          "callee": "Na::FusionAssetAdapterImpl::createObservers()"
+        },
+        {
+          "callAddress": "0x10f06a0",
+          "callee": "Na::VisualAnalyses::make(Ns::Segment*)"
+        },
+        {
+          "callAddress": "0x10f06e4",
+          "callee": "Ns::Segment::addRoot(Ns::StrongRef<Ns::Entity>, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)"
+        },
+        {
+          "callAddress": "0x10f07d0",
+          "callee": "Na::CommonUtil::createUnitSystems(Ns::StrongRef<Ns::CommonData::CommonDataAssetSettings>, Ns::Segment*)"
+        },
+        {
+          "callAddress": "0x10f07f8",
+          "callee": "Ns::CommonData::PMISettings::make(Ns::Segment*, std::__1::optional<Ns::Standards::EDrawingStandard>)"
+        },
+        {
+          "callAddress": "0x10f0a00",
+          "callee": "Ns::EntityTracking::NamedTrackedEntitySet::make(Ns::Segment*)"
+        },
+        {
+          "callAddress": "0x10f0abc",
+          "callee": "Na::FusionComponent::createHistoryFreeUpdateManager(Ns::Asset*)"
+        },
+        {
+          "callAddress": "0x10f0adc",
+          "callee": "Ns::NameView::NamedViews::make(Ns::Segment*)"
+        },
+        {
+          "callAddress": "0x10f0b5c",
+          "callee": "Ns::RenderSetup::RenderSetting::make(Ns::Segment*)"
+        },
+        {
+          "callAddress": "0x10f1118",
+          "callee": "Na::WorkingModelUtils::createPlaceholderRoot(Ns::Asset*)"
+        },
+        {
+          "callAddress": "0x10f1140",
+          "callee": "Na::Arrangements::make(Ns::StrongRef<Ns::Comp::ComponentBase> const&)"
+        },
+        {
+          "callAddress": "0x10f12d4",
+          "callee": "Na::DesignConfiguration::DesignConfigurationMgr::make(Ns::Segment*)"
+        },
+        {
+          "callAddress": "0x10f1354",
+          "callee": "Na::PCB3DAssemblyVariant::make(Ns::StrongRef<Ns::Comp::ComponentBase>)"
+        }
+      ],
+      "status": "located"
+    },
+    {
+      "source": "NaFusion10",
+      "symbol": "__ZN2Na13DesignCapture12DcOccurrenceC2ERKN2Ns4Comp14OccurrencePathE",
+      "name": "Na::DesignCapture::DcOccurrence::DcOccurrence(Ns::Comp::OccurrencePath const&)",
+      "functionAddress": "0x321dfc",
+      "calls": [
+        {
+          "callAddress": "0x321ee4",
+          "callee": "Na::DesignCapture::DcOccurrence::initializeMemberSetIfNeeded()"
+        }
+      ],
+      "status": "located"
+    },
+    {
+      "source": "NsTypes10",
+      "symbol": "__ZN2Ns16PhysicalMaterialC2Ev",
+      "name": "Ns::PhysicalMaterial::PhysicalMaterial()",
+      "functionAddress": "0x5e514",
+      "calls": [
+        {
+          "callAddress": "0x5e60c",
+          "callee": "Ns::PhysicalMaterial::initializeMemberSetIfNeeded()"
+        }
+      ],
+      "status": "located"
+    }
+  ],
+  "literalEvidence": [
+    {
+      "source": "NaFusion10",
+      "field": "FusionComponent.operationSeedId",
+      "objectOffset": "0x7d8",
+      "value": 300,
+      "instructionAddresses": [
+        "0x1103384",
+        "0x1103388"
+      ],
+      "instructionsMatch": true
+    },
+    {
+      "source": "NaFusion10",
+      "field": "FusionComponent.isAsBuiltPositions",
+      "objectOffset": "0x750",
+      "value": true,
+      "instructionAddresses": [
+        "0x110336c",
+        "0x1103370"
+      ],
+      "instructionsMatch": true
+    },
+    {
+      "source": "NaFusion10",
+      "field": "FusionComponent.m_opacity",
+      "objectOffset": "0x7d0",
+      "value": 1.0,
+      "instructionAddresses": [
+        "0x110337c",
+        "0x1103380"
+      ],
+      "instructionsMatch": true
+    },
+    {
+      "source": "NaFusion10",
+      "field": "FusionComponent.subType",
+      "objectOffset": "0x840",
+      "value": 0,
+      "instructionAddresses": [
+        "0x11033c0"
+      ],
+      "instructionsMatch": true
+    },
+    {
+      "source": "NaFusion10",
+      "field": "Features.m_curFeatureId",
+      "objectOffset": "0x178",
+      "value": 1,
+      "instructionAddresses": [
+        "0xc787e0",
+        "0xc787e8"
+      ],
+      "instructionsMatch": true
+    },
+    {
+      "source": "NsCommonData10",
+      "field": "MassProperties overrides",
+      "objectOffset": "0x20..0x3f",
+      "value": -1.0,
+      "instructionAddresses": [
+        "0x114828",
+        "0x11482c"
+      ],
+      "instructionsMatch": true
+    },
+    {
+      "source": "NsCommonData10",
+      "field": "Parameter.birthday expression version",
+      "objectOffset": null,
+      "value": 6,
+      "instructionAddresses": [
+        "0xdfc08"
+      ],
+      "instructionsMatch": true
+    },
+    {
+      "source": "NsCommonData10",
+      "field": "BaseOccurrencePath.creationState",
+      "objectOffset": "0x78",
+      "value": 3,
+      "instructionAddresses": [
+        "0x42e5c",
+        "0x42e60"
+      ],
+      "instructionsMatch": true
+    },
+    {
+      "source": "NaFusion10",
+      "field": "DcOccurrence.stateIdx",
+      "objectOffset": "0x1a0",
+      "value": -1,
+      "instructionAddresses": [
+        "0x321eac",
+        "0x321eb0"
+      ],
+      "instructionsMatch": true
+    }
+  ],
+  "scope": "Selected constructor roles and literals, not a proof that every authored policy value is the vendor default or that the reduced graph is loadable",
+  "materialDefault": {
+    "source": "NsTypes10",
+    "constructorAddress": "0x5e514",
+    "zeroVectorAddress": "0x5e544",
+    "zeroStoreAddresses": [
+      "0x5e548",
+      "0x5e550",
+      "0x5e554",
+      "0x5e558",
+      "0x5e55c"
+    ],
+    "zeroedByteRange": "[0x10,0xb0)",
+    "registeredFields": [
+      {
+        "name": "name",
+        "registrationAddress": "0x52d5c",
+        "memberAddress": {
+          "base": "object",
+          "offset": "0x48"
+        },
+        "cppType": "std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t>>"
+      },
+      {
+        "name": "proteinMaterialID",
+        "registrationAddress": "0x52da0",
+        "memberAddress": {
+          "base": "object",
+          "offset": "0x18"
+        },
+        "cppType": "std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t>>"
+      },
+      {
+        "name": "libraryID",
+        "registrationAddress": "0x52de4",
+        "memberAddress": {
+          "base": "object",
+          "offset": "0x30"
+        },
+        "cppType": "std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t>>"
+      },
+      {
+        "name": "assetReference",
+        "registrationAddress": "0x530fc",
+        "memberAddress": {
+          "base": "object",
+          "offset": "0x80"
+        },
+        "cppType": "std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t>>"
+      },
+      {
+        "name": "ProteinAssetManager",
+        "registrationAddress": "0x5317c",
+        "memberAddress": {
+          "base": "object",
+          "offset": "0x98"
+        },
+        "cppType": "Ns::StrongRef<Ns::ProteinAssetManager>"
+      }
+    ],
+    "conclusion": "The default constructor starts the four persisted string members empty and the material-manager reference null. It does not prove that a fully initialized Fusion document may omit a material package."
+  }
+}

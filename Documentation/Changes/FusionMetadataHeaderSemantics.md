@@ -15,6 +15,10 @@ The storage identifier fields represent segment type, add-in, and neutron type.
 The following word counts ancestry UUIDs. Each ancestry entry uses counted UTF-16 text.
 The native save method and `isDescendedFrom` traverse the same ancestry vector.
 
+The [manifest analysis](../../re/Fusion/Reconstruction/HeaderGrammar/ManifestNative.json) also identifies document identity and current-version UUIDs.
+The observed value 5 before segment declarations is the next segment ID, not a format constant.
+Per-module version maps contain persisted migrator numbers.
+
 ## Evidence and limits
 
 [NativeHeader.json](../../re/Fusion/Reconstruction/HeaderGrammar/NativeHeader.json) records source digests, addresses, and bounded disassembly excerpts.

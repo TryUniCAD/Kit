@@ -1,0 +1,26 @@
+{
+  "schema": "FusionAuthoredFeatureVersionEvidence/1",
+  "build": "2706.1.17",
+  "fields": [
+    {
+      "field": "MSketch.fullyConstrainedVersion",
+      "value": 7,
+      "pathWithinContents": "Libraries/Applications/DirectModeling/NaSketch10.dylib",
+      "sha256": "a755f605430b8b1f02af655c2f00de5cc7445b2e596e8521b5d4b07dfb37afec",
+      "architecture": "arm64",
+      "symbol": "__ZN3SKs8Geometry7MSketch30currentFullyConstrainedVersionEv",
+      "address": "0x109e58",
+      "status": "native_current_version_literal"
+    },
+    {
+      "field": "DcComputableAction.birthday and firstBirthday",
+      "value": 260,
+      "pathWithinContents": "Libraries/Applications/Fusion/NaFusion10.dylib",
+      "sha256": "7788ca927c26d0f1091bc23680660bfe8f5aca1691f87a56d6fd27020d0d98ad",
+      "architecture": "arm64",
+      "symbol": "__ZN2Na13DesignCapture18DcComputableAction13latestVersionEv",
+      "address": "0x5064a8",
+      "status": "native_current_version_literal"
+    }
+  ]
+}

@@ -12,4 +12,8 @@ Do not enforce UUID syntax or replace this value with 16 binary UUID bytes.
 Instance headers contain three strings: schema, instance identity, and definition identity.
 The following `AssetLibID` belongs to the schema's ordinary properties, even though its value resembles a UUID.
 
+Instance definition identities and definition `VersionGUID` properties can differ.
+For example, `PrismMaterial-018_physmat_aspects_1:PhysicalMetal_124` references a definition whose `VersionGUID` is `PhysicalMetal_124`.
+Preserve both values independently.
+
 The [material grammar](../../../re/Fusion/Reconstruction/ProteinInstances/MaterialGrammar.md) links native serializer evidence and accepted package rewrites.

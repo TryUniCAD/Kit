@@ -649,9 +649,11 @@ Custom value callbacks can override ordinary lexical order, as demonstrated by R
 The [latest native geometry acceptance](../../../re/Fusion/LocalOracle/Features/FullBrepAcceptance.json) reconstructs all 289 Design records and replaces both BRep members with independently authored cylinder/profile topology and history.
 The archive opens with correct 19 mm geometry before recomputation, reports healthy features, rolls back to sketch-only state and restores, then preserves a 23 mm edit through native save/reopen.
 The [production embedded geometry entry](../../Changes/FusionEmbeddedGeometry.md) records the promoted serializers and their separate native acceptance.
-Its surrounding source envelope is still retained; complete source-free F3D generation is not yet established.
+That geometry experiment retains its own source envelope. Separate [independent document authoring](../../Changes/FusionIndependentAuthoring.md) now establishes complete parameter, circular-sketch, and circular-extrusion F3D generation without a source archive or template.
+Fusion accepts these independent documents, including correct initial solid geometry, healthy editable history, rollback/restore, parameter rebuild, and native save/reopen. Other feature families remain separate acceptance boundaries.
 The [envelope research](../../../re/Fusion/Reconstruction/DocumentEnvelope/EnvelopeRecipe.md) fully decodes controlled manifests and ACT/Browser records.
 The [material serialization entry](../../Changes/FusionMaterialSerialization.md) records complete controlled instance decoding and native acceptance of regenerated material packages.
+The [production material codec](../../Changes/FusionMaterialCodec.md) promotes typed binary store reading/writing and records native acceptance of deliberately changed density and appearance values.
 The [metadata header interpretation](../../Changes/FusionMetadataHeaderSemantics.md) identifies packed software versions, current-version UUIDs, and ancestry framing.
 
 | Evidence                      | What it establishes                                  | What remains unverified                           |

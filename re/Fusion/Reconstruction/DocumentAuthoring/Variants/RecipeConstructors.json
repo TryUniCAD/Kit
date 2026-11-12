@@ -1,0 +1,47 @@
+{
+  "schema": "FusionCanonicalSketchRecipeEvidence/1",
+  "build": "2706.1.17",
+  "architecture": "arm64",
+  "sources": [
+    {"name": "NsASMInterface10", "sha256": "773504af8164ba6c269714cd4925eb88c03e29c801d178b4b75db4b37ba21866"},
+    {"name": "NaFusion10", "sha256": "7788ca927c26d0f1091bc23680660bfe8f5aca1691f87a56d6fd27020d0d98ad"}
+  ],
+  "unsplitTag": {
+    "source": "NsASMInterface10",
+    "symbol": "Ns::ASMInterface::sketch_tag_id::sketch_tag_id(unsigned long long, bool)",
+    "address": "0xdc714",
+    "fields": [
+      {"name": "version", "objectOffset": "0x0", "value": 3, "valueAddress": "0xdc714", "storeAddress": "0xdc718"},
+      {"name": "tagId", "objectOffset": "0x8", "value": "caller uint64 argument", "storeAddress": "0xdc71c"},
+      {"name": "secondaryTagId", "objectOffset": "0x10", "value": 0, "storeAddress": "0xdc71c"},
+      {"name": "direction", "objectOffset": "0x18", "value": "caller bool argument", "storeAddress": "0xdc720"},
+      {"name": "objectOffset20", "objectOffset": "0x20", "value": 0, "storeAddress": "0xdc724", "semanticName": null},
+      {"name": "splitSequenceId", "objectOffset": "0x28", "value": 1, "valueAddress": "0xdc728", "storeAddress": "0xdc72c"},
+      {"name": "splitTotalNumber", "objectOffset": "0x2c", "value": 1, "valueAddress": "0xdc728", "storeAddress": "0xdc72c"}
+    ],
+    "qualification": "The named uint64 slot at object offset0x20 has an unknown nonzero meaning, but its zero value is proven for this public two-argument constructor. Canonical authoring does not accept an arbitrary value for it."
+  },
+  "profileEdgeData": {
+    "source": "NsASMInterface10",
+    "symbol": "Ns::ASMInterface::profile_edge_tag_data::profile_edge_tag_data()",
+    "address": "0xde868",
+    "version": {"value": 0, "storeAddress": "0xde868"},
+    "sketchTags": {"value": [], "initializationAddresses": ["0xde86c", "0xde878"]},
+    "objectOffset20Set": {"value": [], "initializationAddresses": ["0xde874", "0xde878", "0xde888"], "semanticName": null},
+    "objectOffset38Set": {"value": [], "initializationAddresses": ["0xde87c", "0xde884", "0xde888"], "semanticName": null},
+    "qualification": "Both sets are empty standard-library trees in the default constructor. The canonical recipe inserts only the supplied sketch tag. No nonempty set meaning is claimed."
+  },
+  "faceRecipeLoop": {
+    "source": "NaFusion10",
+    "symbol": "Na::ET::SketchRegionRecipe::debugOutput(std::basic_ostringstream<char>&)",
+    "functionAddress": "0x4abaa8",
+    "pairSecondSemanticName": "isOuterLoop",
+    "label": "OuterLoop: ",
+    "labelAddress": "0x4abb20",
+    "labelOutputAddress": "0x4abb68",
+    "boolLoadAddress": "0x4abb6c",
+    "boolStreamAddress": "0x4abb70",
+    "listNodeBoolOffset": "0x28",
+    "qualification": "For the declared positive-Z full circle the authored face has one outer loop and one non-reversed tag. Native geometric acceptance is required; this constructor evidence does not establish arbitrary multi-loop region orientation."
+  }
+}
