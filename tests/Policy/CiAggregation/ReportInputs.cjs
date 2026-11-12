@@ -8,6 +8,17 @@ function BuildReports(CaseMode, Verdict, CheckName) {
   const IsQueue = CaseMode.startsWith("queue");
   const HeadSha = "a".repeat(40);
   const { Checks, Runs } = BuildExpected(IsQueue, HeadSha);
+  if (CaseMode === "retired-header") {
+    const Index = Runs.findIndex(
+      (Run) => Run.path === ".github/workflows/SpdxHeaders.yml",
+    );
+    if (Index >= 0) {
+      const [HeaderRun] = Runs.splice(Index, 1);
+      for (let Offset = Checks.length - 1; Offset >= 0; Offset--)
+        if (Checks[Offset].check_suite.id === HeaderRun.check_suite_id)
+          Checks.splice(Offset, 1);
+    }
+  }
   const Expected = Checks.map(({ name, html_url }) => ({ name, html_url }));
   const Reviews = BuildReviews(Verdict);
   const Statuses = Reviews.Statuses;

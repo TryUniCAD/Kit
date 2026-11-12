@@ -9,6 +9,8 @@ const PullData = {
   state: "open",
   head: { sha: "a".repeat(40), repo: { id: 1 } },
   base: { sha: "b".repeat(40) },
+  merge_commit_sha:
+    process.argv[2] === "retired-header" ? "d".repeat(40) : null,
 };
 const Context = {
   eventName: process.argv[2].startsWith("queue")
@@ -37,10 +39,28 @@ const Github = {
     repos: {
       listCommitStatusesForRef: "listCommitStatusesForRef",
       compareCommits: async () => ({ data: { status: "ahead" } }),
+      getContent: async ({ path, ref }) => {
+        if (process.argv[2] !== "retired-header") return { data: {} };
+        if (
+          path !== ".github/workflows/SpdxHeaders.yml" ||
+          ref !== "d".repeat(40)
+        )
+          throw new Error(
+            "The workflow lookup must use the verified test merge",
+          );
+        throw Object.assign(new Error("Workflow absent from tree"), {
+          status: 404,
+        });
+      },
     },
     pulls: { get: async () => ({ data: PullData }) },
     git: {
-      getCommit: async () => ({ data: { tree: { sha: "c".repeat(40) } } }),
+      getCommit: async () => ({
+        data: {
+          tree: { sha: "c".repeat(40) },
+          parents: [{ sha: PullData.head.sha }, { sha: PullData.base.sha }],
+        },
+      }),
     },
   },
   paginate: async (Method, Request) =>

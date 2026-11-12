@@ -202,6 +202,8 @@ GitHub runs repository settings and queue management outside the PR, so report
 activation and the first successful live merge-group run as separate evidence.
 Do not describe this configuration as active until the settings are read back.
 
+See the [workflow retirement transition](Documentation/Changes/HeaderWorkflowTransition.md) before removing the header workflow.
+
 ## References
 
 - [GitHub merge queue and coupled PR/merge-group checks](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue)

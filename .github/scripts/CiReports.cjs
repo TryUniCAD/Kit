@@ -380,6 +380,20 @@ async function Aggregate({ github: Github, context: Context, core: Core }) {
     false,
     Context.payload.action === "opened",
   );
+  const ReportRef = IsPull ? ReportMerge : Context.sha;
+  const HeaderPath = ".github/workflows/SpdxHeaders.yml";
+  if (ReportRef) {
+    try {
+      await Github.rest.repos.getContent({
+        ...Context.repo,
+        path: HeaderPath,
+        ref: ReportRef,
+      });
+    } catch (ErrorInfo) {
+      if (ErrorInfo.status !== 404) throw ErrorInfo;
+      Workflows.delete(HeaderPath);
+    }
+  }
   let Reuse = { reuse: false };
   if (!IsPull) {
     try {
