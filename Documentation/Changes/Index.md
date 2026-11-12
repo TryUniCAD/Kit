@@ -16,3 +16,4 @@ Every new feature, API, adapter, command, configuration option, workflow, tool, 
 - [Pyright compatibility](PyrightCompatibility.md)
 - [Merge queue Scorecard execution and review requirements](QueueScorecard.md)
 - [Merge queue candidate validation repairs](QueueCandidateValidation.md)
+- [README presentation](ReadmePresentation.md)
