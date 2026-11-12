@@ -61,6 +61,8 @@ jobs:
           tests/convert/formats/FusionCodec/Brep/GeometryState
           tests/convert/formats/FusionCodec/Brep/Frustum
           tests/convert/formats/FusionCodec/Brep/Round
+          tests/convert/formats/FusionCodec/Brep/Complex
+          tests/convert/formats/FusionCodec/Brep/Spline
           tests/convert/formats/FusionCodec/Materials/MaterialReadTests.py
           tests/convert/formats/FusionCodec/Materials/MaterialWriteTests.py
           tests/convert/formats/FusionCodec/Materials/MaterialStoreTests.py
