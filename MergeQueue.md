@@ -45,6 +45,9 @@ and SBOM scans, and the acceptance gate. PR runs of the queue workflow report
 the acceptance gate with the heavy jobs deferred. Missing jobs keep the
 aggregate pending. Unexpected skips, cancellations, timeouts, and failures
 fail the aggregate. The summary links individual reports.
+The aggregator client uses three bounded retries for transient GitHub API request failures.
+This preserves the current-head and all-check acceptance rules; authentication and validation errors remain non-retryable.
+The [retry change entry](Documentation/Changes/CiAggregationApiRetries.md) records observed HTTP 503 failures and the trusted-base verification boundary.
 
 When adding or renaming CI, update the allowlist alongside the workflow and
 register each job under the event that runs it. Keep automated review outside

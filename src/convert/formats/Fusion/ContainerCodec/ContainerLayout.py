@@ -6,7 +6,13 @@ KPropertiesName = "Properties.dat"
 KAssetName = KAssetPrefix + KRootName
 KPreviewNames = ("Previews/big.png", "Previews/small.png")
 KPartFolders = frozenset(
-    ("Breps.BlobParts", "ProteinAssets.BlobParts", "Images.BlobParts", "OGS.BlobFolder")
+    (
+        "Breps.BlobParts",
+        "ProteinAssets.BlobParts",
+        "Images.BlobParts",
+        "OGS.BlobFolder",
+        "DesignConfigurationTable.BlobParts",
+    )
 )
 KCoreSegments = (SegmentKind.KDesign, SegmentKind.KAct, SegmentKind.KBrowser)
 KMaxProperties = 1024
