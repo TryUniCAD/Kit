@@ -40,6 +40,8 @@ jobs:
       - name: Exercise native document, entity, material, and geometry archives
         run: >-
           uv run --no-sync --python 3.14 pytest
+          -p no:cacheprovider
+          --numprocesses logical --dist load --maxschedchunk 1
           tests/convert/formats/FusionCodec/Parameters/FusionParamArchiveTests.py
           tests/convert/formats/FusionCodec/Parameters/FusionAllocTests.py
           tests/convert/formats/FusionCodec/Parameters/FusionFeatureTests.py
