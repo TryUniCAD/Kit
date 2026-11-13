@@ -48,16 +48,16 @@ No document that read before fails now, and no model of such a document changed.
 | `re/Fusion/Reconstruction/ContainerAuthoring/{Generated,StoredOnly,StoredFolders,StoredDirectories,OrderedAct}/AuthoredParameter.f3d` | Primary offsets out of order, or missing directories | Kit research files that Fusion rejected. See `ContainerModel.md` there. |
 | `re/Fusion/LocalOracle/FormDocuments/Cache/{Box,Plane}SurfNone.f3d` | `Unsupported Fusion journal qualified field` | Rewritten caches that Fusion failed to import. See `Probe.json` there. |
 | `re/Fusion/LocalOracle/FormDocuments/Intervals/{Plane4x4/Half,Plane4x4/ColumnRow,Plane4x4/Single,Box/Single}.f3d` | `invalid literal for int()` | Patch program words are doubles. The fix belongs in `BrepCodec/Journal/Spline`. |
-| `example1.f3z` members 0, 3, 5, 6 and 8, in both copies | Graphics cache errors | Two attribute classes, an older instance node serializer and partly referenced mesh streams. |
+| `example1.f3z` members 0, 3, 5, 6 and 8, in both copies | Graphics cache errors | Fixed by the [cache and package gaps](FusionCacheGaps.md) change. |
 
 ## Remaining round trips and projections
 
 - The four stale Form files read, and `EmitParsed` refuses them.
-- `example1.f3z` member 7 reads in both copies. `EmitMatPart` refuses its package, because the package writer does not write `Resources` yet.
+- `example1.f3z` member 7 reads in both copies. Its round trip is fixed by the [cache and package gaps](FusionCacheGaps.md) change.
 - Eleven documents have bodies with an undefined material, and `NativeMaterial` raises for them.
 - `example1.f3z` member 7 gives three physical assets to its bodies. `NativeMaterial` returns one material, so it raises.
 
 ## Writer changes outside this change
 
-- `MaterialCodec/Package/Envelope/PackageEntries.py` should link `AssetData`, `Resources` and `Schemas` when `MaterialPackage.Resources` is set. It should write each folder's `core.xml`, `cnx.xml` and resource files. `EmitMatPart` can then drop its guard.
+- `MaterialCodec/Package/Envelope/PackageEntries.py` now writes `Resources`. See the [cache and package gaps](FusionCacheGaps.md) change.
 - `ReadPatchRow`, `PatchCell` and `WritePatches` in `BrepCodec/Journal/Spline` should read and write patch words as `%.17g` doubles.

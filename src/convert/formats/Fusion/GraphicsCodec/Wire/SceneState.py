@@ -18,8 +18,12 @@ class SceneState(SceneWire):
         Scene: GraphicScene | None,
     ) -> None:
         super().__init__(Payload)
-        self.MeshData = MeshStreams(Streams, self.IsReading)
-        self.FusionData = MeshStreams(FusionStreams, self.IsReading)
+        self.MeshData = MeshStreams(
+            Streams, self.IsReading, Scene.MeshSlack if Scene else ()
+        )
+        self.FusionData = MeshStreams(
+            FusionStreams, self.IsReading, Scene.FusionSlack if Scene else ()
+        )
         self.Globals: SceneGlobals | None = Scene.Globals if Scene else None
         self.HasGlobals = False
         self.InputObjects = (
@@ -38,3 +42,8 @@ class SceneState(SceneWire):
             raise ValueError(
                 "Graphics model contains unsupported or inconsistent fields"
             )
+
+    def ClassVersion(self, ClassName: str) -> int:
+        if self.Globals is None:
+            raise ValueError("Graphics class precedes its serializer version")
+        return dict(self.Globals.Versions)[ClassName]

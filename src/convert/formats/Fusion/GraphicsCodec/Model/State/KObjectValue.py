@@ -14,6 +14,7 @@ from convert.formats.Fusion.GraphicsCodec.Model.Values.CircleArcValue import (
 from convert.formats.Fusion.GraphicsCodec.Model.Values.QualifierValue import (
     QualifierValue,
 )
+from convert.formats.Fusion.GraphicsCodec.Model.Values.NodePath import NodePath
 
 KObjectValue = (
     GroupValue
@@ -26,4 +27,5 @@ KObjectValue = (
     | VertexData
     | CircleArcValue
     | QualifierValue
+    | NodePath
 )

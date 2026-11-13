@@ -22,6 +22,12 @@ def ReadGraphics(
         _ = State.FusionData.Finalize()
         if State.Globals is None:
             raise ValueError("Missing graphics serializer versions")
-        return GraphicScene(State.Globals, RootWorld, Objects)
+        return GraphicScene(
+            State.Globals,
+            RootWorld,
+            Objects,
+            State.MeshData.SlackValues(),
+            State.FusionData.SlackValues(),
+        )
     except (StructError, UnicodeError, OverflowError) as Error:
         raise ValueError("Invalid Fusion graphics wire field") from Error

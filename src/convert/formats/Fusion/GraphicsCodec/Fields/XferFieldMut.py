@@ -3,10 +3,13 @@ from typing import TYPE_CHECKING
 from typing import cast as CastValue
 from convert.formats.Fusion.GraphicsCodec.Schema.FieldRule import FieldRule
 from convert.formats.Fusion.GraphicsCodec.Fields.XferLinkMut import XferLinkMut
+from convert.formats.Fusion.GraphicsCodec.Fields.XferOverMut import XferOverMut
 
 from convert.formats.Fusion.GraphicsCodec.Model.Values.FieldValue import FieldValue
 from convert.formats.Fusion.GraphicsCodec.Model.Values.ObjectRef import ObjectRef
 from convert.formats.Fusion.GraphicsCodec.Model.Values.TextureValue import TextureValue
+from convert.formats.Fusion.GraphicsCodec.Model.Values.NodeTarget import NodeTarget
+from convert.formats.Fusion.GraphicsCodec.Model.Values.OverrideSet import OverrideSet
 
 if TYPE_CHECKING:
     from convert.formats.Fusion.GraphicsCodec.Wire.SceneCodec import SceneCodec
@@ -16,11 +19,22 @@ def XferFieldMut(
     State: SceneCodec, FieldRuleValue: FieldRule, Value: FieldValue | None
 ) -> FieldValue:
     Result: (
-        bool | int | float | str | None | tuple[float, ...] | TextureValue | ObjectRef
+        bool
+        | int
+        | float
+        | str
+        | None
+        | tuple[float, ...]
+        | TextureValue
+        | ObjectRef
+        | NodeTarget
+        | tuple[OverrideSet, ...]
     )
     Current = Value.DataValue if Value else None
     if FieldRuleValue.WireKind in ("texture", "qualifier"):
         Result = XferLinkMut(State, FieldRuleValue.WireKind, Current)
+    elif FieldRuleValue.WireKind in ("path", "target", "overrides"):
+        Result = XferOverMut(State, FieldRuleValue.WireKind, Current)
     elif FieldRuleValue.WireKind == "absent":
         State.EmptyLinks(1)
         Result = None

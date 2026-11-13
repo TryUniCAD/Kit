@@ -8,17 +8,24 @@ if TYPE_CHECKING:
     from convert.formats.Fusion.GraphicsCodec.Wire.MeshStreams import MeshStreams
 
 
-def FinishStreams(State: MeshStreams) -> tuple[GraphicsStream, ...]:
+def FinishStreams(
+    State: MeshStreams,
+) -> tuple[tuple[GraphicsStream, ...], dict[int, bytes]]:
     Results: list[GraphicsStream] = []
+    Tails: dict[int, bytes] = {} if State.IsReading else dict(State.Tails)
     if State.IsReading and set(State.Inputs) != set(State.Ranges):
         raise ValueError("Unreferenced graphics mesh streams")
+    if not set(Tails) <= set(State.Ranges):
+        raise ValueError("Graphics mesh slack names an unreferenced stream")
     for Stream, Ranges in sorted(State.Ranges.items()):
         Output = bytearray()
         for (Start, _), Payload in sorted(Ranges.items()):
             if Start != len(Output):
                 raise ValueError("Unaccounted graphics mesh bytes")
             Output.extend(Payload)
-        if State.IsReading and len(Output) != len(State.Inputs[Stream]):
-            raise ValueError("Trailing graphics mesh bytes")
+        if State.IsReading and len(Output) < len(State.Inputs[Stream]):
+            Tails[Stream] = State.Inputs[Stream][len(Output) :]
+        elif not State.IsReading:
+            Output.extend(Tails.get(Stream, b""))
         Results.append(GraphicsStream(Stream, bytes(Output)))
-    return tuple(Results)
+    return tuple(Results), Tails

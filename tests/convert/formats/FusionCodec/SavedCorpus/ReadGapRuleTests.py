@@ -142,8 +142,7 @@ def TestImageParts() -> None:
     assert Package.Resources.Core.NameValue == "Resources"
     Identities = [Asset.DefinitionId for Asset in Package.Assets]
     assert len(set(Identities)) < len(Identities)
-    with ExpectError(ValueError, match="not written yet"):
-        _ = EmitParsed(Model)
+    assert ReadDocument(EmitParsed(Model)) == Model
 
 
 def TestImageName() -> None:

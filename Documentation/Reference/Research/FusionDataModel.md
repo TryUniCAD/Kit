@@ -1142,6 +1142,9 @@ The [matrix row gotcha](../../Gotchas/Conversion/Fusion/Records/FusionMatrixVers
 | Body entity ids      | Saved cylinder and frustum histories can store ids on faces 4, 5 and 6 and on vertices 20 and 21.               | [Entity ids](../../Gotchas/Conversion/Fusion/Records/FusionRotationalEntityIds.md)    |
 | Scene display items  | Body LODs hold display items of types 0, 6 and 7, with geometry in the `Fusion_mesh_NNN` stream family.         | [Display items](../../Gotchas/Conversion/Fusion/Records/SceneDisplayItems.md)         |
 | Billboard version    | Older scene globals declare `BillBoardAttribute` version 1, which has no `FlipVisibility`.                      | [Billboard version](../../Gotchas/Conversion/Fusion/Records/SceneBillboardVersion.md) |
+| Instance version     | Older scene globals omit `GraphicsBlobFeatures`. `F360InstanceNode` version 0 has no instance id.                | [Instance version](../../Gotchas/Conversion/Fusion/Graphics/SceneInstanceVersion.md)  |
+| Override attributes  | Assembly scenes hold override attributes with node paths, targets and nested override sets.                     | [Overrides](../../Gotchas/Conversion/Fusion/Graphics/SceneOverrides.md)               |
+| Mesh stream slack    | A mesh stream can end with unreferenced bytes from an earlier save. Kit keeps them as scene slack.              | [Stale tails](../../Gotchas/Conversion/Fusion/Records/SceneStaleTails.md)             |
 | Typed view selection | A typed view that rejects the stored tokens leaves the exact journal or geometry model in place.                | [Typed view](../../Gotchas/Conversion/Fusion/Records/FusionTypedViewFallback.md)      |
 
 `XferMeshMut` accepts primitive codes 2 to 5, and `XferRenderMut` accepts codes 2 to 4.
@@ -1237,6 +1240,19 @@ It adds these format rules:
 
 The document material is the physical asset of the body records, or else the component default.
 A body with an empty physical reference has an undefined material.
+
+### Cache and package gap rules
+
+The [cache and package gaps change](../../Changes/Fusion/Records/FusionCacheGaps.md) closes the last cache and package gaps of the read gap sweep.
+`ReadDocument` now reads 1,714 of the 1,725 documents, and 1,710 of them round-trip.
+It adds these format rules:
+
+- A material asset folder with resources links `AssetData`, `Resources` and `Schemas`. Each `Resources` folder holds a `core.xml` asset node and a `cnx.xml`. The `cnx.xml` links child folders by name or lists resource files next to it. `FolderEntries` writes the tree from `MaterialPackage.Resources`.
+- A scene header can omit `GraphicsBlobFeatures` and declare `F360InstanceNode` version 0. A version 0 instance payload has no instance id.
+- `FProteinEffectAttribute` holds one `AssetReference` text.
+- `OverrideTransformAttribute`, `OverrideVisibilityAttribute` and `OverrideInActivatedVisibilityAttribute` link a `PersistentPassiveNodePath`. The path is a list of segment and object ids, kept as `NodePath` with `PathEntity` entries. The first two also hold a `NodeTarget` and nested `OverrideSet` values.
+- A version context can name an older version of its link's lineage.
+- A mesh stream can end with bytes that no world item references. `GraphicScene.MeshSlack` and `GraphicScene.FusionSlack` keep them, and the writer appends them after the referenced spans.
 
 ## Periodic carriers and trim-free solids
 

@@ -27,6 +27,8 @@ from convert.formats.Fusion.GraphicsCodec.Model.Values.QualifierValue import (
     QualifierValue,
 )
 from convert.formats.Fusion.GraphicsCodec.Values.XferQualifier import XferQualifier
+from convert.formats.Fusion.GraphicsCodec.Model.Values.NodePath import NodePath
+from convert.formats.Fusion.GraphicsCodec.Values.XferPathMut import XferPathMut
 
 if TYPE_CHECKING:
     from convert.formats.Fusion.GraphicsCodec.Wire.SceneCodec import SceneCodec
@@ -57,6 +59,10 @@ def XferObjectMut(
         Value is None or isinstance(Value, QualifierValue)
     ):
         return XferQualifier(State, Value)
+    if ClassName == "PersistentPassiveNodePath" and (
+        Value is None or isinstance(Value, NodePath)
+    ):
+        return XferPathMut(State, Value)
     if ClassName in KStyleRules and (Value is None or isinstance(Value, StyleValue)):
         return XferStyleMut(State, ClassName, Value)
     raise ValueError("Unsupported or inconsistent graphics object class")

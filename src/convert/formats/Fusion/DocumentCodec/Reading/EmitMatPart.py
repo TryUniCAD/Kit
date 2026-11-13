@@ -14,6 +14,4 @@ def EmitMatPart(Value: MaterialPart) -> ContainerPart:
         is None
     ):
         raise ValueError("Unsupported Fusion material part name")
-    if Value.Package.Resources is not None:
-        raise ValueError("Fusion material resource folders are not written yet")
     return ContainerPart(Value.Name, EmitPackage(Value.Package))

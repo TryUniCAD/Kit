@@ -8,6 +8,23 @@ KAttrRules: dict[str, tuple[FieldRule, ...]] = {
         FieldRule("Transform", "f32", 16),
         FieldRule("Absolute", "bool"),
     ),
+    "OverrideTransformAttribute": (
+        FieldRule("Transform", "f32", 16),
+        FieldRule("Absolute", "bool"),
+        FieldRule("NodePath", "path"),
+        FieldRule("Target", "target"),
+        FieldRule("Overrides", "overrides"),
+    ),
+    "OverrideVisibilityAttribute": (
+        FieldRule("Visibility", "bool"),
+        FieldRule("NodePath", "path"),
+        FieldRule("Target", "target"),
+        FieldRule("Overrides", "overrides"),
+    ),
+    "OverrideInActivatedVisibilityAttribute": (
+        FieldRule("Visibility", "bool"),
+        FieldRule("NodePath", "path"),
+    ),
     "FColorEffectAttribute": (FieldRule("Color", "f32", 4),),
     "OpacityAttribute": (FieldRule("Absolute", "bool"), FieldRule("Opacity", "f32")),
     "GroupAttribute": (FieldRule("GroupID", "i32"),),
@@ -57,6 +74,7 @@ KAttrRules: dict[str, tuple[FieldRule, ...]] = {
         FieldRule("YScale", "f32"),
     ),
     "TextureMappingAttribute": (FieldRule("TextureMapping", "texture"),),
+    "FProteinEffectAttribute": (FieldRule("AssetReference", "text"),),
     "FPrioritizedProteinAttribute": (
         FieldRule("AssetReference", "text"),
         FieldRule("Category", "u32"),

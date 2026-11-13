@@ -1,3 +1,4 @@
+from convert.formats.Fusion.DocumentCodec.Auxiliary.Links.IsOlderUrn import IsOlderUrn
 from convert.formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentModel
 from convert.formats.Fusion.SegmentCodec.Manifest.LinkLayout import (
     KLinkedAsset,
@@ -24,8 +25,8 @@ def CheckDocLinks(Value: DocumentModel) -> None:
     for Segment in Value.Segments:
         for Context in Segment.Metadata.Contexts:
             VersionUrn = Targets.get(Context.LinkId, (None, None))[1]
-            if Assets.get(Context.LinkId) != Context.AssetId or VersionUrn not in (
-                None,
-                Context.VersionUrn,
+            if Assets.get(Context.LinkId) != Context.AssetId or (
+                VersionUrn not in (None, Context.VersionUrn)
+                and not IsOlderUrn(VersionUrn, Context.VersionUrn)
             ):
                 raise ValueError("Fusion version context disagrees with its link")

@@ -3,6 +3,8 @@ from convert.formats.Fusion.GraphicsCodec.Wire.ObjectValueMut import ObjectValue
 from convert.formats.Fusion.GraphicsCodec.Wire.FinishScene import FinishScene
 from convert.formats.Fusion.GraphicsCodec.Model.Values.ObjectRef import ObjectRef
 from convert.formats.Fusion.GraphicsCodec.Model.State.SceneObject import SceneObject
+from convert.formats.Fusion.GraphicsCodec.Fields.XferOverrideMut import XferOverrideMut
+from convert.formats.Fusion.GraphicsCodec.Model.Values.OverrideSet import OverrideSet
 
 
 class SceneCodec(SceneState):
@@ -15,6 +17,11 @@ class SceneCodec(SceneState):
             return None
         self.ExpectText(ClassName)
         return self.ObjectValue(ClassName, Value)
+
+    def OverrideSets(
+        self, Values: tuple[OverrideSet, ...] | None
+    ) -> tuple[OverrideSet, ...]:
+        return XferOverrideMut(self, Values)
 
     def Finalize(self) -> tuple[SceneObject, ...]:
         return FinishScene(self)

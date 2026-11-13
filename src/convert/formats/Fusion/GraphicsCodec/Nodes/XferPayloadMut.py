@@ -17,7 +17,8 @@ def XferPayloadMut(State: SceneCodec, Value: NodePayload | None) -> NodePayload:
             IsXref = State.IsFlag(Value.IsXref if Value else None)
             if IsXref:
                 ActEntity = State.Integer(Value.ActEntity if Value else None, ">Q")
-            InstanceId = State.Integer(Value.InstanceId if Value else None)
+            if State.ClassVersion("F360InstanceNode"):
+                InstanceId = State.Integer(Value.InstanceId if Value else None)
     elif Selector:
         raise ValueError("Unsupported graphics node data serializer")
     Result = NodePayload(Selector, DataValue, IsXref, ActEntity, InstanceId)

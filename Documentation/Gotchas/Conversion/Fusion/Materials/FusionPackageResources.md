@@ -27,10 +27,13 @@ Accept an asset folder that links `AssetData` and `Schemas`, or `AssetData`, `Re
 
 Assets that share a definition id must share its schema. Their definition values are their own. The encoder writes one definition per asset, so this loses nothing.
 
-The package writer does not write `Resources` yet. `EmitMatPart` refuses a package with resources until it does.
+The package writer links `AssetData`, `Resources` and `Schemas` when `MaterialPackage.Resources` is set. `FolderEntries` writes each folder's `core.xml` and `cnx.xml`, then either the resource files or the child folders, in model order. Every byte comes from the package model. The package of this member round-trips model-exact, like every other package.
 
 ## Evidence
 
 - [Read gap notes](../../../../../re/Fusion/Reconstruction/ReadGaps/ReadGapNotes.md#material-resource-folders)
 - [Definition census](../../../../../re/Fusion/Reconstruction/ReadGaps/DefinitionCensus.json)
 - [Package spy](../../../../../re/Fusion/Reconstruction/ReadGaps/PackageSpy.py)
+- [Package writer notes](../../../../../re/Fusion/Reconstruction/ReadGaps/CachePackageNotes.md#material-resource-folders)
+- [Package census](../../../../../re/Fusion/Reconstruction/ReadGaps/PackageCensus.json) and [package check](../../../../../re/Fusion/Reconstruction/ReadGaps/TryPackage.py)
+- [Package folder tests](../../../../../tests/convert/formats/FusionCodec/Materials/Package/PackageFolderTests.py)
