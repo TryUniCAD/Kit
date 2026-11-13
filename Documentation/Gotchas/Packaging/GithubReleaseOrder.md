@@ -12,4 +12,4 @@ The second page started with `.464` (`39d0c34`), the last 2026-11-13 release by 
 The 2026-11-12 releases followed in descending SHA order.
 
 Use a tag that sorts in version order, such as `v<package-version>`.
-See [version release tags](../../Changes/VersionReleaseTags.md) and [GitHub release tags](GithubReleaseTags.md).
+See [version release tags](../../Changes/Packaging/VersionReleaseTags.md) and [GitHub release tags](GithubReleaseTags.md).
