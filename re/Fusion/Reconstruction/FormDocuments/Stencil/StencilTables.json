@@ -2,12 +2,12 @@
  "scope": "Packaged Form stencil tables: coefficient rows fitted from single-grip Fusion probes, snapped to fractions with denominators up to 4096 when within 1e-13, deduplicated",
  "python": "3.14.7",
  "file": "src/convert/formats/Fusion/BrepCodec/Journal/Spline/Stencil/FormStencils.xz",
- "sha256": "11477a66341c644ffc3dd6708aa4eb335e2a09943afed98d21c29176e1cd9c1c",
- "bytes": 340400,
+ "sha256": "e4d2078f9da825769039d11a696754390a8c1cc9991e86c3b752daeb6e36199c",
+ "bytes": 416888,
  "tables": [
   {
    "cage": "Box",
-   "layout_key": "ce0d5049c520d8702c43fd71409054453e15534d4bc9e44e7e5b4751551c4df3",
+   "layout_key": "363ef85fcd40b10ed96906a657dd6ae055055e2d944942ae1a02bb46a343d2bb",
    "grips": 26,
    "poles": 1178,
    "unique_rows": 866,
@@ -21,7 +21,7 @@
   },
   {
    "cage": "CreasedPlane",
-   "layout_key": "557c582a4b4b1fe307a528bd0de23f7f5af6e5992198783694528fa94ca4343c",
+   "layout_key": "140771023e051693505619befe7be2f3f76e670a8c0196e7bf9ce731195889b1",
    "grips": 34,
    "poles": 88,
    "unique_rows": 42,
@@ -35,7 +35,7 @@
   },
   {
    "cage": "CreasedBox",
-   "layout_key": "a92dbb9cb1e8eac413a639a98d494d29023c220eddc38738bbc29468330a7a2b",
+   "layout_key": "47eb38359e94b0136467a008a8539ce6fffd6bbc709c1513d4e7ec1a417f66b6",
    "grips": 26,
    "poles": 1720,
    "unique_rows": 1378,
@@ -49,7 +49,7 @@
   },
   {
    "cage": "Box3",
-   "layout_key": "e3bdff6066dce751ae7c89ec770bc3eba7f33099ac03536620b8491e44de40ae",
+   "layout_key": "0ec9fe8e770abffef435170dde38ffe6f3fcefdf616507a4e224cb83768c83d3",
    "grips": 56,
    "poles": 1352,
    "unique_rows": 1016,
@@ -63,7 +63,7 @@
   },
   {
    "cage": "Valence5",
-   "layout_key": "10f0cf2154ea99e28d45adcb93f2abba6757d1383c7691d33bc3e2bdca0a4666",
+   "layout_key": "b2bdc47411e41dc21fa292c7ee42143c5e9bbaf9737f6d0893df8d0175a43b58",
    "grips": 32,
    "poles": 2362,
    "unique_rows": 1702,
@@ -77,7 +77,7 @@
   },
   {
    "cage": "Valence6",
-   "layout_key": "579998c99547560a65c640ba7189debfe1e668fda8eb929e1167d85811cdc55f",
+   "layout_key": "86a48eb670397340a1e8f9501b71d15109d6e8a3bc3a80bc7410a728573c88cc",
    "grips": 38,
    "poles": 2834,
    "unique_rows": 2042,
@@ -91,7 +91,7 @@
   },
   {
    "cage": "Valence8",
-   "layout_key": "3e98d777a7045c05272a36e6ed51953282f00a8baf19fff3a4cc1f802c8dcd1c",
+   "layout_key": "d9e2b659517fc71a2ce41529341e86a4b4305277b859f175b3d04b034d68c041",
    "grips": 50,
    "poles": 3778,
    "unique_rows": 2722,
@@ -102,6 +102,20 @@
    "kept": 42256,
    "snap_delta_max": 7.105427357601002e-15,
    "row_sum_error_max": 2.6645352591003757e-14
+  },
+  {
+   "cage": "Valence7",
+   "layout_key": "710b35f0e09f54e5a6fdbd047d785cbb3b6e26f36654701e3baa0119dd3853d4",
+   "grips": 44,
+   "poles": 3306,
+   "unique_rows": 2382,
+   "faces": 21,
+   "curves": 49,
+   "points": 30,
+   "snapped": 14618,
+   "kept": 35658,
+   "snap_delta_max": 5.329070518200751e-15,
+   "row_sum_error_max": 1.687538997430238e-14
   }
  ]
 }

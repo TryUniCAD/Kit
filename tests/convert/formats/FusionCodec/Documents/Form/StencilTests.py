@@ -204,10 +204,16 @@ def TestCageFault() -> None:
     Surface = Model.Forms[0].Surface
     Heavy = ReplaceValue(Surface.Grips[0], Weight=1.5)
     Weighted = ReplaceValue(Surface, Grips=(Heavy, *Surface.Grips[1:]))
-    with RaisesError(ValueError, match="no stencil"):
-        _ = ConvertCage(Weighted)
-    with RaisesError(ValueError, match="no stencil"):
-        _ = SwapFormCage(Model, Weighted)
+    assert any(FaceValue.Surface.Weights for FaceValue in ConvertCage(Weighted).Faces)
+    Edges = tuple(
+        ReplaceValue(EdgeValue, KnotInterval=2.0)
+        for EdgeValue in Surface.Topology.Edges
+    )
+    Spread = ReplaceValue(Surface, Topology=ReplaceValue(Surface.Topology, Edges=Edges))
+    with RaisesError(ValueError, match="needs unit knot intervals"):
+        _ = ConvertCage(Spread)
+    with RaisesError(ValueError, match="needs unit knot intervals"):
+        _ = SwapFormCage(Model, Spread)
     Unknown = ReadDocument(ReadFormFile(*KStencilUnknown)).Forms[0].Surface
     with RaisesError(ValueError, match="no stencil"):
         _ = ConvertCage(Unknown)

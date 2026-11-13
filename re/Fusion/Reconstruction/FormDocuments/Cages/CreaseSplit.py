@@ -15,9 +15,9 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent
 ROOT = BASE.parents[4]
 sys.path.insert(0, str(ROOT / 'src'))
-sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(BASE))
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
-from tests.convert.formats.FusionCodec.Documents.Form.ReadConverted import ReadConverted
+from ReadConverted import ReadConverted
 
 TARGET = BASE / 'CreaseSplit.json'
 SAMPLES = 400

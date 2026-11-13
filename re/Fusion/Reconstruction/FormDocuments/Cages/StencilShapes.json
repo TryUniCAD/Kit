@@ -2,8 +2,8 @@
  "scope": "Packaged per-layout converted body shapes read from one native carrier per stencil layout, and CageBody against the converted bodies of other native archives of the same layouts",
  "python": "3.14.7",
  "file": "src/convert/formats/Fusion/BrepCodec/Journal/Spline/Stencil/FormShapes.xz",
- "sha256": "b6239040a56cd997a9e17929c2f744896bc10bd750753f6ee6a03719b5c73b1d",
- "bytes": 7304,
+ "sha256": "b58e4279c5107bb101b0710fdbadd711a9f5eb1aef1678e089a044d2001f8d71",
+ "bytes": 8936,
  "slack_cm": 1e-12,
  "shapes": [
   {
@@ -105,6 +105,20 @@
     "tangent"
    ],
    "labels": 24
+  },
+  {
+   "label": "Valence7",
+   "carrier": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/Carriers/Valence7.f3d",
+   "carrier_sha256": "fa622da23e212739cef5e19ee22a6993657455c35e7ae6aeb8652a26a85d346a",
+   "vertices": 30,
+   "edges": 49,
+   "faces": 21,
+   "uses": 98,
+   "split_edges": 0,
+   "convexity": [
+    "tangent"
+   ],
+   "labels": 21
   }
  ],
  "archives": [

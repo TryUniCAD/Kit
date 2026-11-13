@@ -410,6 +410,21 @@ KStencilNatives: tuple[tuple[str, str, str], ...] = (
         "Valence6",
     ),
     (
+        "re/Fusion/LocalOracle/FormDocuments/FourthDocuments/Loaded/OracleValence7Fresh.f3d",
+        "a717f775df17eaff3e7124213939220d8db69718c676ab556eb149ec7a1245f4",
+        "Valence7",
+    ),
+    (
+        "re/Fusion/LocalOracle/FormDocuments/FourthDocuments/Saved/KitValence7Fresh.f3d",
+        "c6e4484e46612e29c72cd5069c12c4259b57b755a9a8d24810258f83485803d6",
+        "Valence7",
+    ),
+    (
+        "re/Fusion/LocalOracle/FormDocuments/FourthDocuments/Saved/OracleValence7Fresh.f3d",
+        "fb895ef89d8e46038d7a6420d7b1797bb6512a88fe6efb06e55e3f52122be11d",
+        "Valence7",
+    ),
+    (
         "re/Fusion/LocalOracle/FormDocuments/CageDocuments/Loaded/OracleValence8Fresh.f3d",
         "1b9cf32a9d884e720b9551be61c39fe8a53bdc9381e8e6fb4ae318997e950610",
         "Valence8",

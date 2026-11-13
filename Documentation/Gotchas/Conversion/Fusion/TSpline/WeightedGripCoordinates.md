@@ -16,14 +16,15 @@ Fusion 2706.1.17 converted the box primitive cage with weight 2 on all 26 grips 
 
 The uniform area is a quarter of the unit area within 2e-15 cm². Fusion therefore divides the stored coordinates by the weight, so each TSM coordinate is a weighted, homogeneous value. Every cage dimension halves.
 
-Kit cannot read any of the seven weighted archives. `ReadDocument` refuses each one with `Unsupported Fusion journal qualified field`. Unit-weight archives of the same box read without this error.
+The converted cache of a weighted cage stores rational surfaces and curves. Kit's third-pass reader refused all seven weighted archives with `Unsupported Fusion journal qualified field`. The fourth pass reads them.
 
 ## Workaround
 
-Refuse grip weights other than 1. `StencilKey` includes the weights, so no stencil table matches a weighted cage. `ConvertGrid` refuses weights as well. A future weighted converter must divide the TSM coordinates by the weight. It must also read the converted cache of a weighted cage first.
+Treat each TSM coordinate as x · w. `ReadNubsSurf` and `MakeNubsSurf` read and write the rational `nurbs` cache with its form name and weighted poles. `StencilKey` no longer holds the weights, so a weighted cage uses the table of its layout. `ConvertCage` evaluates each stencil row on the homogeneous grips. The [weighted face gotcha](WeightedFaceRationality.md) gives the rule and the native comparison. `ConvertGrid` still refuses weights, because no local archive holds a weighted grid conversion.
 
 ## Evidence
 
 - [Probe preparation](../../../../../re/Fusion/LocalOracle/FormDocuments/Stencil/Preparation.json)
 - [Probe results](../../../../../re/Fusion/LocalOracle/FormDocuments/Stencil/Probe.json)
 - [Weight probe](../../../../../re/Fusion/Reconstruction/FormDocuments/Stencil/WeightProbe.json)
+- [Weight check](../../../../../re/Fusion/Reconstruction/FormDocuments/Stencil/WeightCheck.json)

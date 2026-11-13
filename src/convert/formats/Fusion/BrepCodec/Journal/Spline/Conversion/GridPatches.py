@@ -6,6 +6,7 @@ def GridPatches(
     Topology: CageTopology,
     Spokes: tuple[int, ...],
     Places: tuple[tuple[int, int], ...],
+    Scale: int,
 ) -> tuple[PatchCell, ...]:
     Cells: list[PatchCell] = []
     for FaceIndex, FaceValue in enumerate(Topology.Faces):
@@ -18,5 +19,6 @@ def GridPatches(
         ColumnIndex, RowIndex = Places[LinkValue.VertexIndex]
         if Places[Following.VertexIndex] != (ColumnIndex + 1, RowIndex):
             raise ValueError("Fusion grid conversion needs aligned face origins")
-        Cells.append(PatchCell(FaceIndex, (0, 1, 0, 1), (-RowIndex, -ColumnIndex, 0)))
+        Offset = (-RowIndex * Scale, -ColumnIndex * Scale, 0)
+        Cells.append(PatchCell(FaceIndex, (0, Scale, 0, Scale), Offset))
     return tuple(Cells)

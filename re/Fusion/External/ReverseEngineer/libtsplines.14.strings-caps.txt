@@ -1,0 +1,201 @@
+@0x78f33 #BFUN010H1
+@0x19aae3 elem_offH
+@0x19abf9 elem_offH
+@0x19aed5 elem_offH
+@0x19be39 elem_offH
+@0x9a3bba star-knoH1
+@0x9a3e58 star-smoH1
+@0x9a3fb5 cap-typeH9
+@0x9d2b9a StarKnotH1
+@0xa9af30 #BFUN0100
+@0xa9b004 N3tbb6detail2d19start_forINS1_13blocked_rangeINSt3__111__wrap_iterIPN7tspline9IndexTypeILNS6_12IndexTypeNumE4EEEEEEEZN6tskern8BFunMesh11allBFunTestEPKNSD_14TSplineSurfaceEE3$_0KNS1_16auto_partitionerEEE
+@0xa9c8d0 N6tskern6ExBFunE
+@0xa9c9e1 N6tskern8ExCreaseE
+@0xa9c9f4 N6tskern19SetEdgeCreasedManipE
+@0xa9ca13 N6tskern19SetVertCreasedManipE
+@0xa9ca62 N3tbb6detail2d19start_forINS1_13blocked_rangeINSt3__111__wrap_iterIPN7tspline9IndexTypeILNS6_12IndexTypeNumE1EEEEEEEZN6tskern14ExDisplayCache17doFullUpdateFacesERNSD_19DisplayCacheUpdaterENS6_11DisplayModeEPKNSD_13RegionUVCacheEE3$_0KNS1_16auto_partitionerEEE
+@0xa9cb66 N3tbb6detail2d19start_forINS1_13blocked_rangeINSt3__111__wrap_iterIPN7tspline9IndexTypeILNS6_12IndexTypeNumE1EEEEEEEZN6tskern14ExDisplayCache18doLocalUpdateFacesERNSD_19DisplayCacheUpdaterENS6_11DisplayModeEPKNSD_13RegionUVCacheEE3$_0KNS1_16auto_partitionerEEE
+@0xa9cc6b N3tbb6detail2d19start_forINS1_13blocked_rangeINSt3__111__wrap_iterIPN7tspline9IndexTypeILNS6_12IndexTypeNumE0EEEEEEEZN6tskern14ExDisplayCache17doFullUpdateEdgesERNSD_19DisplayCacheUpdaterENS6_11DisplayModeEE3$_0KNS1_16auto_partitionerEEE
+@0xa9cd59 N3tbb6detail2d19start_forINS1_13blocked_rangeINSt3__111__wrap_iterIPN7tspline9IndexTypeILNS6_12IndexTypeNumE0EEEEEEEZN6tskern14ExDisplayCache18doLocalUpdateEdgesERNSD_19DisplayCacheUpdaterENS6_11DisplayModeEE3$_0KNS1_16auto_partitionerEEE
+@0xa9ce48 N3tbb6detail2d19start_forINS1_13blocked_rangeINSt3__111__wrap_iterIPN7tspline9IndexTypeILNS6_12IndexTypeNumE3EEEEEEEZN6tskern14ExDisplayCache17doFullUpdateVertsERNSD_19DisplayCacheUpdaterENS6_11DisplayModeEE3$_0KNS1_16auto_partitionerEEE
+@0xa9cf36 N3tbb6detail2d19start_forINS1_13blocked_rangeINSt3__111__wrap_iterIPN7tspline9IndexTypeILNS6_12IndexTypeNumE3EEEEEEEZN6tskern14ExDisplayCache18doLocalUpdateVertsERNSD_19DisplayCacheUpdaterENS6_11DisplayModeEE3$_0KNS1_16auto_partitionerEEE
+@0xa9d025 N3tbb6detail2d19start_forINS1_13blocked_rangeINSt3__111__wrap_iterIPN7tspline9IndexTypeILNS6_12IndexTypeNumE4EEEEEEEZN6tskern14ExDisplayCache17doFullUpdateGripsERNSD_19DisplayCacheUpdaterENS6_11DisplayModeEE3$_0KNS1_16auto_partitionerEEE
+@0xa9d113 N3tbb6detail2d19start_forINS1_13blocked_rangeINSt3__111__wrap_iterIPN7tspline9IndexTypeILNS6_12IndexTypeNumE4EEEEEEEZN6tskern14ExDisplayCache18doLocalUpdateGripsERNSD_19DisplayCacheUpdaterENS6_11DisplayModeEE3$_0KNS1_16auto_partitionerEEE
+@0xa9d424 N6tskern7ExPatchE
+@0xa9d9d0 N6tskern12BoundaryBFunE
+@0xa9dff0 N3tbb6detail2d19start_forINS1_13blocked_rangeINSt3__111__wrap_iterIPN7tspline9IndexTypeILNS6_12IndexTypeNumE4EEEEEEEZN6tskern10FnExRepair12extractElemsEvE3$_0KNS1_16auto_partitionerEEE
+@0xa9e150 N3tbb6detail2d19start_forINS1_13blocked_rangeINSt3__111__wrap_iterIPN6tskern14ParallelRegionEEEEEZNS6_10CFnExtract16updateExtractionEbE3$_0KNS1_16auto_partitionerEEE
+@0xa9e1f6 N3tbb6detail2d19start_forINS1_13blocked_rangeINSt3__111__wrap_iterIPN7tspline9IndexTypeILNS6_12IndexTypeNumE4EEEEEEEZN6tskern10CFnExtract11updateElemsEbE3$_1KNS1_16auto_partitionerEEE
+@0xa9e2ae N3tbb6detail2d19start_forINS1_13blocked_rangeINSt3__111__wrap_iterIPN7tspline9IndexTypeILNS6_12IndexTypeNumE4EEEEEEEZN6tskern10CFnExtract11updateElemsEbE3$_3KNS1_16auto_partitionerEEE
+@0xa9e366 N3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6tskern10CFnExtract12getSurfCombsERKNSt3__16vectorINS5_7SurfPosENS7_9allocatorIS9_EEEERNS8_INS5_8CombBaseIN7tspline9IndexTypeILNSG_12IndexTypeNumE4EEEEENSA_ISK_EEEENSG_15CornerDirectionEE3$_0KNS1_16auto_partitionerEEE
+@0xa9e473 N3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6tskern10CFnExtract11updateGridsERNSt3__16vectorIN7tspline9IndexTypeILNS9_12IndexTypeNumE1EEENS7_9allocatorISC_EEEEbE3$_0KNS1_16auto_partitionerEEE
+@0xa9e53a N3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6tskern10CFnExtract13updatePatchesERKNSt3__16vectorIN7tspline9IndexTypeILNS9_12IndexTypeNumE1EEENS7_9allocatorISC_EEEEbE3$_0KNS1_18static_partitionerEEE
+@0xa9e9bf =N3tbb6detail2d19start_forINS1_13blocked_rangeIjEEZN6tskern13FnInterpolate18interpolateOutwardERNS5_9SurfManipEE3$_0KNS1_18static_partitionerEEE
+@0xa9ea50 N3tbb6detail2d19start_forINS1_13blocked_rangeIjEEZN6tskern13FnInterpolate15pullVertsSmoothERNS5_9SurfManipERKNSt3__16vectorIN7tspline9IndexTypeILNSB_12IndexTypeNumE3EEENS9_9allocatorISE_EEEERKNSA_INSB_5PointILj3EdLb1EEENSF_ISL_EEEEbE3$_0KNS1_18static_partitionerEEE
+@0xa9efa0 N3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6tskern7CFnPick11pickVisibleENS5_12ContainerRefINS5_8PickItemEEEbbbbE3$_1KNS1_16auto_partitionerEEE
+@0xa9f334 N3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6tskern9CFnRegion26addFencesAtDiscontinuitiesEvE3$_0KNS1_16auto_partitionerEEE
+@0xa9f89c N3tbb6detail2d19start_forINS1_13blocked_rangeINSt3__111__wrap_iterIPN7tspline9IndexTypeILNS6_12IndexTypeNumE4EEEEEEEZN6tskern14InfluenceCache19createAllBFunMeshesEvE3$_0KNS1_16auto_partitionerEEE
+@0xa9fa6c N6tskern16SetIntervalManipE
+@0xaa03e4 MbP?N3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN6tskern8optimizeEPKNS5_14TSplineSurfaceERKNSt3__16vectorINS5_8CombBaseIN7tspline9IndexTypeILNSC_12IndexTypeNumE4EEEEENS9_9allocatorISG_EEEERKNSA_INSC_5PointILj3EdLb1EEENSH_ISN_EEEERNSA_INS9_4pairISF_SN_EENSH_IST_EEEEdE3$_0KNS1_16auto_partitioner
+@0xaa0514 N3tbb6detail2d19start_forINS1_13blocked_rangeIjEEZN6tskern8optimizeEPKNS5_14TSplineSurfaceERKNSt3__16vectorINS5_8CombBaseIN7tspline9IndexTypeILNSC_12IndexTypeNumE4EEEEENS9_9allocatorISG_EEEERKNSA_INSC_5PointILj3EdLb1EEENSH_ISN_EEEERNSA_INS9_4pairISF_SN_EENSH_IST_EEEEdE3$_1KNS1_16auto_partitionerEEE
+@0xaa1bfa invalid string: control character U+0000 (NUL) must be escaped to \u0000
+@0xaa1c43 invalid string: control character U+0001 (SOH) must be escaped to \u0001
+@0xaa1c8c invalid string: control character U+0002 (STX) must be escaped to \u0002
+@0xaa1cd5 invalid string: control character U+0003 (ETX) must be escaped to \u0003
+@0xaa1d1e invalid string: control character U+0004 (EOT) must be escaped to \u0004
+@0xaa1d67 invalid string: control character U+0005 (ENQ) must be escaped to \u0005
+@0xaa1db0 invalid string: control character U+0006 (ACK) must be escaped to \u0006
+@0xaa1df9 invalid string: control character U+0007 (BEL) must be escaped to \u0007
+@0xaa1e42 invalid string: control character U+0008 (BS) must be escaped to \u0008 or \b
+@0xaa1e90 invalid string: control character U+0009 (HT) must be escaped to \u0009 or \t
+@0xaa1ede invalid string: control character U+000A (LF) must be escaped to \u000A or \n
+@0xaa1f2c invalid string: control character U+000B (VT) must be escaped to \u000B
+@0xaa1f74 invalid string: control character U+000C (FF) must be escaped to \u000C or \f
+@0xaa1fc2 invalid string: control character U+000D (CR) must be escaped to \u000D or \r
+@0xaa2010 invalid string: control character U+000E (SO) must be escaped to \u000E
+@0xaa2058 invalid string: control character U+000F (SI) must be escaped to \u000F
+@0xaa20a0 invalid string: control character U+0010 (DLE) must be escaped to \u0010
+@0xaa20e9 invalid string: control character U+0011 (DC1) must be escaped to \u0011
+@0xaa2132 invalid string: control character U+0012 (DC2) must be escaped to \u0012
+@0xaa217b invalid string: control character U+0013 (DC3) must be escaped to \u0013
+@0xaa21c4 invalid string: control character U+0014 (DC4) must be escaped to \u0014
+@0xaa220d invalid string: control character U+0015 (NAK) must be escaped to \u0015
+@0xaa2256 invalid string: control character U+0016 (SYN) must be escaped to \u0016
+@0xaa229f invalid string: control character U+0017 (ETB) must be escaped to \u0017
+@0xaa22e8 invalid string: control character U+0018 (CAN) must be escaped to \u0018
+@0xaa2331 invalid string: control character U+0019 (EM) must be escaped to \u0019
+@0xaa2379 invalid string: control character U+001A (SUB) must be escaped to \u001A
+@0xaa23c2 invalid string: control character U+001B (ESC) must be escaped to \u001B
+@0xaa240b invalid string: control character U+001C (FS) must be escaped to \u001C
+@0xaa2453 invalid string: control character U+001D (GS) must be escaped to \u001D
+@0xaa249b invalid string: control character U+001E (RS) must be escaped to \u001E
+@0xaa24e3 invalid string: control character U+001F (US) must be escaped to \u001F
+@0xaa2975 ChainSplitCount
+@0xaa2a59 CapPointCount
+@0xaa2a67 StarCount
+@0xaa2a99 InternalCreaseCount
+@0xaa2adb BFunCache is uninitialized but not empty.
+@0xaa2fa7 BFunMesh is too big: 
+@0xaa2fd5 BFunMesh does not have a T-Spline surface parent.
+@0xaa31f1  has a recorded edge valence of 
+@0xaa324d Border Vert {} has a valence of {}, which is higher than the host valence of {}.
+@0xaa329e Interior Vert {} has a valence of {}, which is not equal to the host valence of {}.
+@0xaa3314  has mismatched knot intervals on sides 0 (
+@0xaa334a  has mismatched knot intervals on sides 1 (
+@0xaa343e  has a bad interval of 
+@0xaa357e The BFunMeshes have a different number of faces.
+@0xaa35b4  BFunMesh A has L
+@0xaa35d3  BFunMesh A has regionsEnd 
+@0xaa3606  BFunMesh A has 
+@0xaa365d The BFunMeshes have a different number of edges.
+@0xaa3693  the intervals are not equal to within tolerance (
+@0xaa371c : a.creased is 
+@0xaa372c  but b.creased is 
+@0xaa375e The BFunMeshes have a different number of vertices.
+@0xaa3809  a.edgeValence is 
+@0xaa381c  but b.edgeValence is 
+@0xaa388d  a.creased is 
+@0xaa389c The BFunMeshes have a different number of regions.
+@0xaa44d5 CapMismatchCache is uninitialized but not empty.
+@0xaa457c G{} has mismatch with cap {}, but mCapFaceMismatches[{}] doesn't have the grip.
+@0xaa45cc {0} has an entry in cap mismatches but {0} doesn't exist.
+@0xaa4606 {}:{} has an entry in cap mismatches but is missing from grip mismatches
+@0xaa4666 CompoundGrip( Valence=
+@0xaa4c27 23: illegal non-positive weight
+@0xaa4d73 31: bspline is not G1 and has degree >= 2
+@0xaa55f8  | PatchSetter: Patch {}[ {} ] changed from {} to {} (distance: {})
+@0xaa563c Debug patch point index out of range.
+@0xaa56d7 ____| Capping BF F{}: P{}[ {} ] += G{} * {}
+@0xaa5703 ____| ERROR: TS F{} has multiple patches inside {}. Tracing failed.
+@0xaa5834 Constructed PatchWriter for G{}. mGripPoint3d = ({})
+@0xaa587d | onStartTPVert( mBFVert = V{}, mTPCoeff = {} )
+@0xaa58ad | onStartTPVert( mBFVert = V{}, mTPCoeff = {}, mTPGripComb = {} )
+@0xaa5921 __| onCap
+@0xaa5a42 TS_E_TOPOLOGY_NOSPLIT
+@0xaa5c3d TS_E_TOPOLOGY_BAD_STAR
+@0xaa5d32 TS_E_MATCH_VERTEX_CAP_UNCREASED
+@0xaa5f4f TS_E_PATCH_WALKER_INVALID
+@0xaa5f69 TS_E_MATCH_PATCH_INVALID
+@0xaa5f82 TS_E_MATCH_PATCH_FACE_INVALID
+@0xaa6012 TS_E_MATCH_TOUCHES_CAP_VERT
+@0xaa60a2 TS_E_CONTAINS_STAR_POINT
+@0xaa611b  KnotInterval=
+@0xaa6134 ElemCache is uninitialized but not empty.
+@0xaa6164  inherits attributes from Elem 
+@0xaa6184 , but that Elem doesn't exist.
+@0xaa61a3 , but that Elem is also an echo Elem and should not be inherited.
+@0xaa620b  has a next item (by grip), but that next item's previous element is Elem 
+@0xaa6256  has a previous item (by grip), but that previous item's next element is Elem 
+@0xaa633a , but that face (mFaceGrips) has a non-existent head Elem.
+@0xaa6375  is the head Elem for face 
+@0xaa6414 , but that grip (mGripFaces) has a non-existent head Elem.
+@0xaa644f  has a list of elems of length 
+@0xaa647f  Elems which reference that grip.
+@0xaa64a1 The Elem 
+@0xaa64ab 's next element by face doesn't have a matching grip index: G
+@0xaa64ef 's next element by grip doesn't have a matching face index: F
+@0xaa6533 's previous element by grip doesn't have a matching face index: F
+@0xaa65aa  is manifold, not a star point, not in the list of grips needing refresh, and not cached.
+@0xaa662f ElemPatch/patch-data back reference is broken; patch index is 
+@0xaa666e , patch-data reference is [
+@0xaa6697  ] (which is Elem 
+@0xaa66c9 ElemGrid 
+@0xaa66d3  has parent Elem 
+@0xaa66f1 ), but that Elem does not exist.
+@0xaa6759  has non-existent Patch 
+@0xaa6772  has Patch 
+@0xaa677e  but it has parent ElemGrid 
+@0xaa679b Patch entry found on ElemGrid 
+@0xaa67bf  but that patch's range is only 
+@0xaa6835 ElemPatch 
+@0xaa6861  has parent ElemGrid 
+@0xaa68ca  contains patch 
+@0xaa6985     Patch Store: 
+@0xaa6997       Patch references: 
+@0xaa69b0       Patch data:
+@0xaa69d2 , capacity 
+@0xaa6a09         Memory used if patch-per-cell: 
+@0xaa6a31       ElemGrid references: 
+@0xaa6a4d         ElemGrid memory on heap: 
+@0xaa6a8d     Face->Elem Table: 
+@0xaa6aa4     Grip->Elem Table: 
+@0xaa6abb     Invalid Elems: 
+@0xaa6b14  does not exist but is cached in the element cache.
+@0xaa6b4f  does not exist but is cached in the star cache.
+@0xaa6bba , which has elem 
+@0xaa6bdc   BFun cache: 
+@0xaa6beb   Elem cache: 
+@0xaa6bfa   Star cache: 
+@0xaa6c1d   Cap mismatch cache: 
+@0xaa6c6d SetEdgeCreasedManip( Index=
+@0xaa6c89  OldCreased=
+@0xaa6c96  NewCreased=
+@0xaa6ca3 SetVertCreasedManip( Index=
+@0xaa6cbf  doesn't exist but is marked as creased on ExCrease
+@0xaa6cf3 Creased edges aren't equal...
+@0xaa6d11 Creased verts aren't equal...
+@0xaa7066 Patch entry found on Grid 
+@0xaa7081 Patch 
+@0xaa709a   Patch Store on ExPatch is empty.
+@0xaa70bd   ExPatch Patch Store: {}
+@0xaa70d7   Patch Store on TSplineSurface is empty.
+@0xaa7101   TSplineSurface Patch Store: {}
+@0xaa72a7 Plane origin has zero weight
+@0xaa7a94 V{} has a bad cached value for 'is cap vert' in ExTopoInfo (correct value={})
+@0xaa7b29  has bad cache value for uncreased corner verts in ExTopoInfo.
+@0xaa7b68  has bad cache value for degenerate stars in ExTopoInfo.
+@0xaa7c58  has bad cache value for uncreased border edges in ExTopoInfo.
+@0xaa7c97  has bad cache value for interval-not-one in ExTopoInfo.
+@0xaa8212 suppress_g1
+@0xaa8339 	Worst deviation on patch {} at {}, {}
+@0xaa850b tskern_increase_face_spans
+@0xaa8578 Element 
+@0xaa858c  is not explicit (cap point is V
+@0xaa85fe Some patches have unusual contribution counts (16 is typical for cubic).
+@0xaa8647  --> {} contributing grips for patch(es) {}
+@0xaa868e  --> G{} has a weight of {}
+@0xaa87f8  has a negative knot interval: 
+@0xaa8924 , valenceOffset=
+@0xaa8d6f  claims to have a valence of 
+@0xaa8d8d , but counted valence was 
+strings: 951 total, showing 0..199; next: skip=200

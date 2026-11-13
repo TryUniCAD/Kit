@@ -1,3 +1,5 @@
+from dataclasses import replace as ReplaceValue
+
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Conversion.CheckGridCage import (
     CheckGridCage,
 )
@@ -31,9 +33,16 @@ from convert.formats.Fusion.TSplineCodec.Model.TsplineSurface import TsplineSurf
 from convert.formats.Fusion.TSplineCodec.Validation.CheckSurface import CheckSurface
 
 
+def ScaleJumps(
+    Lists: tuple[tuple[float, ...], ...], Scale: int
+) -> tuple[tuple[float, ...], ...]:
+    return tuple(tuple(KnotValue * Scale for KnotValue in Values) for Values in Lists)
+
+
 def ConvertGrid(Surface: TsplineSurface) -> GridResult:
     CheckSurface(Surface)
     Mapping = CheckGridCage(Surface)
+    Scale = int(Surface.Topology.Edges[0].KnotInterval)
     Spokes = SpokeIndices(Surface.Topology)
     Places = PlaceVertices(Surface.Topology, Spokes)
     Width, Height, Order = PlaceGrips(Mapping, Places, len(Surface.Grips))
@@ -41,16 +50,21 @@ def ConvertGrid(Surface: TsplineSurface) -> GridResult:
     Points = tuple(
         (GripValue.CoordX, GripValue.CoordY, GripValue.CoordZ) for GripValue in Grips
     )
-    Result = NubsSurface(
-        3, 3, 0, 0, 0, 0, GridKnots(Width - 3), GridKnots(Height - 3), Points
+    UnitSurface = NubsSurface(
+        3, 3, 0, 0, 0, 0, GridKnots(Width - 3, 1), GridKnots(Height - 3, 1), Points
+    )
+    Result = ReplaceValue(
+        UnitSurface,
+        KnotsU=GridKnots(Width - 3, Scale),
+        KnotsV=GridKnots(Height - 3, Scale),
     )
     Corners = (Points[0], Points[Width - 1], Points[-1], Points[-Width])
-    Bounds = GridBounds(Result)
+    UnitJumps = tuple(ThirdJumps(Bound) for Bound in GridBounds(UnitSurface))
     return GridResult(
         Result,
-        GridPatches(Surface.Topology, Spokes, Places),
-        Bounds,
+        GridPatches(Surface.Topology, Spokes, Places, Scale),
+        GridBounds(Result),
         Corners,
-        GridJumps(Result, Width, Height),
-        tuple(ThirdJumps(Bound) for Bound in Bounds),
+        ScaleJumps(GridJumps(UnitSurface, Width, Height), Scale),
+        ScaleJumps(UnitJumps, Scale),
     )

@@ -47,12 +47,41 @@ def BasisSlope(
     return Slopes
 
 
+def MassFrame(
+    Values: list[float],
+    Slopes: list[float],
+    Poles: tuple[tuple[float, ...], ...],
+    Weights: tuple[float, ...],
+) -> KSplineFrame:
+    MassValue = sum(Value * WeightValue for Value, WeightValue in zip(Values, Weights))
+    MassSlope = sum(Slope * WeightValue for Slope, WeightValue in zip(Slopes, Weights))
+    if not MassValue > 0.0:
+        raise ValueError("Fusion Form frame found a non-positive rational weight")
+    Point: list[float] = []
+    Tangent: list[float] = []
+    for AxisIndex in range(len(Poles[0])):
+        Moment = sum(
+            Value * WeightValue * PoleValue[AxisIndex]
+            for Value, WeightValue, PoleValue in zip(Values, Weights, Poles)
+        )
+        Turning = sum(
+            Slope * WeightValue * PoleValue[AxisIndex]
+            for Slope, WeightValue, PoleValue in zip(Slopes, Weights, Poles)
+        )
+        Point.append(Moment / MassValue)
+        Tangent.append((Turning - Point[-1] * MassSlope) / MassValue)
+    return Point, Tangent
+
+
 def CurveFrame(Curve: BsCurve, Param: float) -> KSplineFrame:
     Knots = SpreadKnots(Curve.Knots, Curve.Multiplicity)
     SpanIndex = FindSpan(Knots, Curve.Degree, Param)
     Values = BasisLevel(Knots, SpanIndex, Curve.Degree, Param)
     Slopes = BasisSlope(Knots, SpanIndex, Curve.Degree, Param)
-    Poles = Curve.Poles[SpanIndex - Curve.Degree : SpanIndex + 1]
+    Start = SpanIndex - Curve.Degree
+    Poles = Curve.Poles[Start : SpanIndex + 1]
+    if Curve.Rational:
+        return MassFrame(Values, Slopes, Poles, Curve.Weights[Start : SpanIndex + 1])
     Point = [
         sum(Value * PoleValue[AxisIndex] for Value, PoleValue in zip(Values, Poles))
         for AxisIndex in range(Curve.Dimension)
@@ -71,6 +100,42 @@ def KnotList(Knots: tuple[SplineKnot, ...]) -> list[float]:
     )
 
 
+def RationalFrame(
+    Surface: NubsSurface,
+    Spans: tuple[int, int, int],
+    Bases: tuple[list[float], list[float], list[float], list[float]],
+) -> KSplineFrame:
+    SpanU, SpanV, Width = Spans
+    ValuesU, SlopesU, ValuesV, SlopesV = Bases
+    Window = [
+        (RowIndex, ColumnIndex)
+        for RowIndex in range(Surface.DegreeV + 1)
+        for ColumnIndex in range(Surface.DegreeU + 1)
+    ]
+    Places = [
+        (SpanV - Surface.DegreeV + RowIndex) * Width
+        + SpanU
+        - Surface.DegreeU
+        + ColumnIndex
+        for RowIndex, ColumnIndex in Window
+    ]
+    Poles = tuple(Surface.Points[Place] for Place in Places)
+    Weights = tuple(Surface.Weights[Place] for Place in Places)
+    Values = [
+        ValuesU[ColumnIndex] * ValuesV[RowIndex] for RowIndex, ColumnIndex in Window
+    ]
+    RisingU = [
+        SlopesU[ColumnIndex] * ValuesV[RowIndex] for RowIndex, ColumnIndex in Window
+    ]
+    RisingV = [
+        ValuesU[ColumnIndex] * SlopesV[RowIndex] for RowIndex, ColumnIndex in Window
+    ]
+    return (
+        MassFrame(Values, RisingU, Poles, Weights)[1],
+        MassFrame(Values, RisingV, Poles, Weights)[1],
+    )
+
+
 def SurfaceFrame(Surface: NubsSurface, ParamU: float, ParamV: float) -> KSplineFrame:
     KnotsU, KnotsV = KnotList(Surface.KnotsU), KnotList(Surface.KnotsV)
     Width = len(KnotsU) - Surface.DegreeU - 1
@@ -80,6 +145,9 @@ def SurfaceFrame(Surface: NubsSurface, ParamU: float, ParamV: float) -> KSplineF
     SlopesU = BasisSlope(KnotsU, SpanU, Surface.DegreeU, ParamU)
     ValuesV = BasisLevel(KnotsV, SpanV, Surface.DegreeV, ParamV)
     SlopesV = BasisSlope(KnotsV, SpanV, Surface.DegreeV, ParamV)
+    if Surface.Weights:
+        Bases = (ValuesU, SlopesU, ValuesV, SlopesV)
+        return RationalFrame(Surface, (SpanU, SpanV, Width), Bases)
     AlongU, AlongV = [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]
     for RowIndex in range(Surface.DegreeV + 1):
         for ColumnIndex in range(Surface.DegreeU + 1):

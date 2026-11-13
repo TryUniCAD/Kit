@@ -4,6 +4,7 @@ from dataclasses import replace as ReplaceValue
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Authoring.ExactSubtypes import (
     SplineCurve,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.BsCurve import BsCurve
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import (
     ChoiceValue,
     KGrammarValue,
@@ -26,6 +27,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Conversion.JumpCurve import
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Conversion.SwapEntity import (
     IsNear,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Spline.NubsSurface import NubsSurface
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.CageResult import (
     CageResult,
 )
@@ -50,6 +52,31 @@ def SwapScope(
     return Value
 
 
+def IsNearWeights(Former: tuple[float, ...], Latter: tuple[float, ...]) -> bool:
+    return IsNear(
+        tuple((WeightValue,) for WeightValue in Former),
+        tuple((WeightValue,) for WeightValue in Latter),
+    )
+
+
+def IsSameCache(Cache: NubsSurface, Prior: NubsSurface) -> bool:
+    return (
+        (Cache.KnotsU, Cache.KnotsV) == (Prior.KnotsU, Prior.KnotsV)
+        and Cache.Form == Prior.Form
+        and IsNear(Cache.Points, Prior.Points)
+        and IsNearWeights(Cache.Weights, Prior.Weights)
+    )
+
+
+def IsSameCurve(Prior: BsCurve, Stored: BsCurve) -> bool:
+    return (
+        (Prior.Rational, Prior.Knots, Prior.Multiplicity)
+        == (Stored.Rational, Stored.Knots, Stored.Multiplicity)
+        and IsNear(Prior.Poles, Stored.Poles)
+        and IsNearWeights(Prior.Weights, Stored.Weights)
+    )
+
+
 def SwapSurf(Value: TsplineSurf, Context: StencilSwap) -> TsplineSurf:
     Places = {
         FaceValue.FaceIndex: Index
@@ -60,16 +87,18 @@ def SwapSurf(Value: TsplineSurf, Context: StencilSwap) -> TsplineSurf:
     Prior = Context.Prior.Faces[Places[Value.FaceIndex]]
     Result = Context.Result.Faces[Places[Value.FaceIndex]]
     Cache = Value.Cache
-    Knots = (Prior.Surface.KnotsU, Prior.Surface.KnotsV)
-    if (Cache.KnotsU, Cache.KnotsV) != Knots or not IsNear(
-        Cache.Points, Prior.Surface.Points
-    ):
+    if not IsSameCache(Cache, Prior.Surface):
         raise ValueError("Fusion Form cage swap found a stale converted surface")
     if tuple(tuple(Values) for Values in Value.Jumps) != Prior.Jumps:
         raise ValueError("Fusion Form cage swap found stale surface discontinuities")
     return ReplaceValue(
         Value,
-        Cache=ReplaceValue(Cache, Points=Result.Surface.Points),
+        Cache=ReplaceValue(
+            Cache,
+            Points=Result.Surface.Points,
+            Weights=Result.Surface.Weights,
+            Form=Result.Surface.Form,
+        ),
         Jumps=Result.Jumps,
         Subtrans=SwapScope(Value.Subtrans, Context),
     )
@@ -78,15 +107,18 @@ def SwapSurf(Value: TsplineSurf, Context: StencilSwap) -> TsplineSurf:
 def SwapExact(Value: SubtypeNode, Context: StencilSwap) -> SubtypeNode:
     Stored = SplineCurve(Value)
     for Index, Prior in enumerate(Context.Prior.Curves):
-        Shape = (Prior.Knots, Prior.Multiplicity, Prior.Weights)
-        if Shape == (Stored.Knots, Stored.Multiplicity, Stored.Weights) and IsNear(
-            Prior.Poles, Stored.Poles
-        ):
+        if IsSameCurve(Prior, Stored):
             if OrderCurve(Stored, Context.Prior.CurveJumps[Index]) != Value:
                 raise ValueError("Fusion Form cage swap found another curve form")
-            Poles = Context.Result.Curves[Index].Poles
+            Fresh = Context.Result.Curves[Index]
             Lists = Context.Result.CurveJumps[Index]
-            return OrderCurve(ReplaceValue(Stored, Poles=Poles), Lists)
+            Changed = ReplaceValue(
+                Stored,
+                Rational=Fresh.Rational,
+                Poles=Fresh.Poles,
+                Weights=Fresh.Weights,
+            )
+            return OrderCurve(Changed, Lists)
     raise ValueError("Fusion Form cage swap found a stale boundary curve")
 
 

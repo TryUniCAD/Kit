@@ -174,5 +174,11 @@ def TestFormChoice() -> None:
     Surface = Model.Forms[0].Surface
     Heavy = ReplaceValue(Surface.Grips[0], Weight=1.5)
     Weighted = ReplaceValue(Surface, Grips=(Heavy, *Surface.Grips[1:]))
-    with RaisesError(ValueError, match="Fusion grid conversion needs"):
-        _ = ConvertForm(Weighted)
+    assert ConvertForm(Weighted) == CageBody(Weighted)
+    Edges = tuple(
+        ReplaceValue(EdgeValue, KnotInterval=2.0)
+        for EdgeValue in Surface.Topology.Edges
+    )
+    Spread = ReplaceValue(Surface, Topology=ReplaceValue(Surface.Topology, Edges=Edges))
+    with RaisesError(ValueError, match="needs unit knot intervals"):
+        _ = ConvertForm(Spread)

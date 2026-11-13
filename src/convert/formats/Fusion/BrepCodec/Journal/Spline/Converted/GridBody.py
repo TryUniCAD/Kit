@@ -15,13 +15,6 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Converted.FormBody import (
 )
 from convert.formats.Fusion.BrepCodec.Journal.Spline.PatchCell import PatchCell
 
-KSideWindows = (
-    (0.0, 1.0, 0.0, 0.0),
-    (1.0, 1.0, 0.0, 1.0),
-    (0.0, 1.0, 1.0, 1.0),
-    (0.0, 0.0, 0.0, 1.0),
-)
-
 
 def LineTrace(Start: tuple[float, float], Final: tuple[float, float]) -> BsCurve:
     SpanWidth = abs(Final[0] - Start[0]) + abs(Final[1] - Start[1])
@@ -39,6 +32,18 @@ def SideTraces(Result: GridResult) -> tuple[BsCurve, BsCurve, BsCurve, BsCurve]:
     )
 
 
+def SideWindow(CellValue: PatchCell, SideIndex: int) -> FormWindow:
+    SpanU = float(CellValue.Window[1])
+    SpanV = float(CellValue.Window[3])
+    Boxes = (
+        (0.0, SpanU, 0.0, 0.0),
+        (SpanU, SpanU, 0.0, SpanV),
+        (0.0, SpanU, SpanV, SpanV),
+        (0.0, 0.0, 0.0, SpanV),
+    )
+    return FormWindow(CellValue.Face, *Boxes[SideIndex])
+
+
 def SideWindows(Cells: tuple[PatchCell, ...]) -> tuple[tuple[FormWindow, ...], ...]:
     LastRow = max(-CellValue.Offset[0] for CellValue in Cells)
     LastColumn = max(-CellValue.Offset[1] for CellValue in Cells)
@@ -46,7 +51,7 @@ def SideWindows(Cells: tuple[PatchCell, ...]) -> tuple[tuple[FormWindow, ...], .
     Ordered = sorted(Cells, key=lambda CellValue: CellValue.Face)
     return tuple(
         tuple(
-            FormWindow(CellValue.Face, *KSideWindows[SideIndex])
+            SideWindow(CellValue, SideIndex)
             for CellValue in Ordered
             if CellValue.Offset[Column] == Target
         )

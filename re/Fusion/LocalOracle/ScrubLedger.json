@@ -1070,6 +1070,30 @@
       }
     },
     {
+      "path": "re/Fusion/LocalOracle/FormDocuments/FourthDocuments/Loaded/OracleBox3Weighted.f3d",
+      "fusionSavedSha256": "1975b1e8138d03c44ac17d53ca8c9a8657a687b238bada00a93733f71d670c7f",
+      "committedSha256": "aa065237542042ab9cfeb2016803820612cae34f03eb1720329dbb7087f85437",
+      "counts": {
+        "account": 0,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/FourthDocuments/Saved/KitBoxWeightedFresh.f3d",
+      "fusionSavedSha256": "a71602dfb37a4cb0fbaadc17875bb7dab2217b060a578ecf65403b11be244e35",
+      "committedSha256": "5882e01d0836e1f21c8634fec445086a31e369eccd50c3046c4a5d12790fec35",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
       "path": "re/Fusion/LocalOracle/FormDocuments/Grid/Primitives/Plane2x5.f3d",
       "fusionSavedSha256": "219384ad0a12269b232f287ccd150198b42aaa04599786b51b1ad3430f6336fd",
       "committedSha256": "0d0d28c44c9cb2919f7642a8eb3402c95adcf86bdea2e3d7ea45803091c9a6bc",
@@ -1091,6 +1115,102 @@
         "home": 0,
         "urn": 1,
         "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/IntervalDocuments/Loaded/OraclePlane2x5Interval3.f3d",
+      "fusionSavedSha256": "8122baf1715df018bd0e6f4add5f69251bf6d703d5d186518a6fbc587dfcec64",
+      "committedSha256": "caabbd22d2fbed44db80fe56920cdab6ddc7c484176cfb1f948ccdd10b4f96f2",
+      "counts": {
+        "account": 0,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/IntervalDocuments/Saved/KitPlane4x4Interval2.f3d",
+      "fusionSavedSha256": "95aba0d1757fb6b6e1f0d284c54e859ba1773a1d636ccf4b411aa0cf0f5c1d44",
+      "committedSha256": "6ac90656bfad7c1574d8b2aaf7e6fc51eff74241a402dcdd7880d91c3f730067",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/MergeDocuments/Loaded/OracleValence5Fresh.f3d",
+      "fusionSavedSha256": "2d6b149c0adfb80ca1856ecc004eccf54590d2a82c126cdc51bf582251dcb90f",
+      "committedSha256": "22cfa5c5eb85f2f7b4c48c0ea0e65a10f64db8f288aafc1cbce05bf1113ba357",
+      "counts": {
+        "account": 0,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/MergeDocuments/Loaded/OracleWarpedPlane2x5.f3d",
+      "fusionSavedSha256": "4abaaaaf31efa4c09e3729151a84c0eed30f896fcea8a45ac3fc29be2996b886",
+      "committedSha256": "7bdfaa7394edfda9b44c79ebad05d90441d951fced70615703fffc3c71e6c0f1",
+      "counts": {
+        "account": 0,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/MergeDocuments/Saved/KitBoxFresh.f3d",
+      "fusionSavedSha256": "1fc65927bdab83fa62a154113c1c39050f69ce926b65e95ebe9c73175936b2f2",
+      "committedSha256": "e93aded1efbeaad4e6221a07f250c9312b73add23a40b0472b5a83cdc3d98bd3",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/MergeDocuments/Saved/KitCreasedPlaneFresh.f3d",
+      "fusionSavedSha256": "232f8448d95b485a5c891b5cb70826c6a688145dcc5c1177ca63005e29b956c2",
+      "committedSha256": "b90eb0ca1294027048899fdc23c3e633fcc5480ab9ff37a34d8870242bc31883",
+      "counts": {
+        "account": 2,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/MergeDocuments/Saved/KitWarpedPlane2x5.f3d",
+      "fusionSavedSha256": "c661b41b1af8f8916cc7a2bad9e13dc56fcf5b830864ccc967cd3119ba2c4057",
+      "committedSha256": "8c642ade895a4589b6459c7bb7d21697a9ab6b920b70ac197888b0bd27bc547a",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/MergeDocuments/Saved/OracleBoxFresh.f3d",
+      "fusionSavedSha256": "d5160f02820af9521d4cc2116632319631e5b23c01eec4b9e18968c8000def04",
+      "committedSha256": "8e87606a0964f1b16ce1e0e92345fb9c422d8e5eb3a902083df6214c039e5bdf",
+      "counts": {
+        "account": 0,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
       }
     },
     {

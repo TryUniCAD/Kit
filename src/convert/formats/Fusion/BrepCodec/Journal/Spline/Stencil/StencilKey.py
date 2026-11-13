@@ -2,8 +2,6 @@ from hashlib import sha256 as HashBytes
 
 from convert.formats.Fusion.TSplineCodec.Model.TsplineSurface import TsplineSurface
 
-KWeightDigits = 12
-
 
 def StencilKey(Surface: TsplineSurface) -> str:
     Header = Surface.Header
@@ -20,6 +18,6 @@ def StencilKey(Surface: TsplineSurface) -> str:
         Surface.Mapping,
         Surface.Creases,
         Surface.SmartGrips,
-        tuple(round(GripValue.Weight, KWeightDigits) for GripValue in Surface.Grips),
+        len(Surface.Grips),
     )
     return HashBytes(repr(Layout).encode("ascii")).hexdigest()

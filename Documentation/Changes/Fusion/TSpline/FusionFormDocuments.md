@@ -2,7 +2,7 @@
 
 Kit reads and writes complete Fusion Form documents through `ReadDocument` and `EmitParsed` in `convert.formats.Fusion.DocumentCodec`. A Form document joins a T-spline control cage, a Form feature graph and a converted BRep body. Earlier Kit readers rejected these documents.
 
-Kit also converts cages exactly. Open grid cages use a closed-form rule. Box, creased and extraordinary-vertex cages use a fitted linear table for each cage layout. Kit puts a new cage of a supported layout into a Form document, or writes a new Form document from that cage alone. It refuses every other new cage.
+Kit also converts cages exactly. Open grid cages use a closed-form rule, also with one whole-number knot interval on every edge. Box, creased and extraordinary-vertex cages use a fitted linear table for each cage layout, also with weighted grips. Kit puts a new cage of a supported layout into a Form document, or writes a new Form document from that cage alone. It refuses every other new cage.
 
 ## Model
 
@@ -55,8 +55,8 @@ Edited Form archives also store graphics world kind 2. `XferTSplineMut` reads an
 | Number the spokes | `SpokeIndices` | One spoke index from 0 to 3 for each link |
 | Place the vertices | `PlaceVertices` | One grid position for each vertex |
 | Place the grips | `PlaceGrips` | Pole counts and the grip order of the poles |
-| Make the knots | `GridKnots` | Integer knots with end multiplicity 3 |
-| Make the patch program | `GridPatches` | One `PatchCell` for each face |
+| Make the knots | `GridKnots` | Multiples of the knot interval with end multiplicity 3 |
+| Make the patch program | `GridPatches` | One `PatchCell` for each face, spanning one knot interval per direction |
 | Make the boundary | `GridBounds` | Four boundary curves in loop order |
 | Find the discontinuities | `GridJumps`, `ThirdJumps` | Interior knots with a third-derivative jump |
 | Write a curve list | `JumpCurve` | An `exact_int_cur` with its order-3 discontinuity list |
@@ -67,14 +67,17 @@ Edited Form archives also store graphics world kind 2. `XferTSplineMut` reads an
 
 The [grid pole order gotcha](../../../Gotchas/Conversion/Fusion/TSpline/GridCagePoleOrder.md) gives the conversion rules. The [discontinuity gotcha](../../../Gotchas/Conversion/Fusion/TSpline/ConvertedDiscontinuityLists.md) gives the jump rule.
 
+`CheckGridCage` accepts one knot interval c on every edge, where c is a whole number from 1 to 4096. `ConvertGrid` multiplies the knots, patch cells and progenitor windows by c. It computes the jump lists on the unit-parameter surface and scales them by c. The [knot interval gotcha](../../../Gotchas/Conversion/Fusion/TSpline/KnotIntervalConversion.md) gives the native probe and the refused cases.
+
 ## Stencil cage conversion
 
 Fusion converts each cage layout with a fixed linear map from the grips to the converted poles and points. The [linearity gotcha](../../../Gotchas/Conversion/Fusion/TSpline/ConversionIsLinear.md) gives the probe and the coefficient structure. `ConvertCage(Surface)` in `convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil` applies the packaged map of the cage layout and returns a `CageResult`.
 
 | Part | Function or type | Role |
 | --- | --- | --- |
-| Layout key | `StencilKey` | SHA-256 of the header rules, topology, grip mapping, creases, smart grips and grip weights rounded to 12 digits |
+| Layout key | `StencilKey` | SHA-256 of the header rules, topology, grip mapping, creases, smart grips and grip count |
 | Tables | `ReadStencils`, `StencilTable` | The rows, face knots, curve knots and point rows from `FormStencils.xz` |
+| Row values | `EvaluateRows`, `StencilRows` | Each row applied to the homogeneous grips, with its pole weight and a weighted flag |
 | Result | `CageResult`, `FaceResult` | Each face surface with its jumps, each boundary curve with its three lists, and each vertex point |
 | Jump rule | `SurfaceOrders`, `CurveOrders` | The lowest jumping derivative order at each interior knot |
 | Curve form | `OrderCurve` | An `exact_int_cur` with all three discontinuity lists |
@@ -91,6 +94,7 @@ Fusion converts each cage layout with a fixed linear map from the grips to the c
 | Box with 3 × 3 faces per side | 56 | 1352 | 6, 12, 8 | Kit cage |
 | Valence-5 prism | 32 | 2362 | 15, 35, 22 | Kit cage |
 | Valence-6 prism | 38 | 2834 | 18, 42, 26 | Kit cage |
+| Valence-7 prism | 44 | 3306 | 21, 49, 30 | Kit cage |
 | Valence-8 prism | 50 | 3778 | 24, 56, 34 | Kit cage |
 
 `BuildStencils.py` snapped each fitted weight to a fraction with a denominator up to 4096 when the fraction was within 1e-13. It kept every other weight as fitted. The [table report](../../../../re/Fusion/Reconstruction/FormDocuments/Stencil/StencilTables.json) gives the counts for each layout. `CheckVertices` now accepts valence 8, and the [valence gotcha](../../../Gotchas/Conversion/Fusion/TSpline/CageValenceAboveFour.md) gives the native evidence.
@@ -165,16 +169,20 @@ Kit therefore authors only the cages that `ConvertGrid` or `ConvertCage` qualifi
 | Cage | Kit result | Reason |
 | --- | --- | --- |
 | Open plane grid without interior creases | Exact conversion, document swap and new document | Each interior vertex has valence 4, and the limit surface is one B-spline |
+| Such a grid with one whole-number knot interval on every edge | Exact conversion and new document | A uniform interval scales the parameters and keeps the geometry |
 | A layout with a stencil table and body shape | Exact conversion, document swap and new document | The table is the native linear map of that layout |
+| Such a layout with grip weights | Exact rational conversion and new document | The table applies to the homogeneous grips |
 | A crease that Kit cannot classify | `ValueError` | Fusion may split the edge or give it another class |
 | A swap that changes a crease edge class | `ValueError` from `SwapFormCage` | The swap keeps the stored class, so `EmitFormDoc` writes a new document instead |
 | A folded face or edge | `ValueError` | Fusion refuses to convert the cage |
-| Another layout, such as a box with other face counts | `ValueError` | No table exists, and no local rule covers the G1 caps |
-| Grip weights other than 1 | `ValueError` | No layout key matches, and Kit cannot read the converted cache that Fusion writes |
-| Non-unit knot intervals | `ValueError` | `CheckEdges` refuses them before any conversion |
+| Another layout, such as a box with other face counts | `ValueError` | No table exists, and Fusion solves the G1 caps as a sparse system |
+| A band that joins two extraordinary valences | `ValueError` | Fusion groups faces and splits edges by geometry in these cages |
+| Grid grip weights other than 1 | `ValueError` | No local archive holds a weighted grid conversion |
+| Mixed or fractional grid knot intervals | `ValueError` | Fusion records jumps with a geometric test, and Kit's patch cells hold integers |
+| A stencil layout with knot intervals other than 1 | `ValueError` | The body shapes hold unit parameters |
 | A new layout in an old document | `ValueError` from both swaps | The Design progenitor tables and frame entities would change, so `EmitFormDoc` writes a new document instead |
 
-Fusion converted box cages with grip weight 2 into healthy solids. `ReadDocument` refuses each of those archives with `Unsupported Fusion journal qualified field`. The [weight probe](../../../../re/Fusion/Reconstruction/FormDocuments/Stencil/WeightProbe.json) records the seven variants. Kit therefore has no measured weighted conversion. Weight 2 on every grip shrank the box area to a quarter, as the [weighted grip gotcha](../../../Gotchas/Conversion/Fusion/TSpline/WeightedGripCoordinates.md) shows. Kit never wrote a non-unit knot interval, so no Fusion conversion of one exists locally.
+The [cap gotcha](../../../Gotchas/Conversion/Fusion/TSpline/ExtraordinaryCapIsSolved.md) gives the cap region and the static analysis of the cap routine. The [layout gotcha](../../../Gotchas/Conversion/Fusion/TSpline/LayoutFollowsGeometry.md) gives the band cages. The [weighted face gotcha](../../../Gotchas/Conversion/Fusion/TSpline/WeightedFaceRationality.md) gives the rational rule. The [knot interval gotcha](../../../Gotchas/Conversion/Fusion/TSpline/KnotIntervalConversion.md) gives the interval probe.
 
 Fusion keeps a stale stored body without a warning, as the [stored body authority gotcha](../../../Gotchas/Conversion/Fusion/TSpline/StoredFormBrepAuthority.md) shows. Kit therefore refuses every cage whose crease class or fold it cannot match.
 
@@ -294,10 +302,53 @@ Stencil and cage cases in `tests/convert/formats/FusionCodec/Documents/Form/` co
 
 | Test | Cases |
 | --- | --- |
-| `TestNativeCage`, `TestCageBody` | 88 Fusion-saved archives, with `CageBody` equal to the stored body within 1e-12 cm |
-| `TestCageDoc` | 14 cage documents, each equal to the cage, the stored body, the loaded oracle and a new `EmitFormDoc` read |
+| `TestNativeCage`, `TestCageBody` | 91 Fusion-saved archives, with `CageBody` equal to the stored body within 1e-12 cm |
+| `TestCageDoc` | 15 cage documents, each equal to the cage, the stored body, the loaded oracle and a new `EmitFormDoc` read |
 | `TestStencilSwap` | 7 swap documents with their emitted SHA-256 |
 | `TestCreaseClass`, `TestCreaseFault` | The bent crease class against the loaded oracle, and the split and class-change refusals |
 | `TestCurveFrame`, `TestSurfaceAxes` | Exact linear frames at Greville abscissae |
 
 No local tests ran. Two scratch scripts repeated the assertions of these tests and of the grid tests with Python 3.14.7. All 214 checks passed.
+
+### Fourth pass verification
+
+Two Fusion 2706.1.17 runs accepted new Form documents that `EmitFormDoc` wrote from the cage alone. Each run followed the stages of the cage document run above. Zero documents were open before and after each run, and every case has status `accepted`.
+
+| Report | SHA-256 | Cases |
+| --- | --- | --- |
+| [Fourth pass documents](../../../../re/Fusion/LocalOracle/FormDocuments/FourthDocuments/NativeAcceptance.json) | `3dbeae87d9d062576c184547c3670303c882cc2cef71dceb1e9b6c932e2b580f` | A fresh valence-7 cage and four weighted cages |
+| [Interval documents](../../../../re/Fusion/LocalOracle/FormDocuments/IntervalDocuments/NativeAcceptance.json) | `182c1656449abe7d52d30e03ad64bc1a95652b0879b35ce7fd6689d5b1e1de77` | Two warped grids with knot intervals 2 and 3 |
+| [Merged head documents](../../../../re/Fusion/LocalOracle/FormDocuments/MergeDocuments/NativeAcceptance.json) | `35926c871aae5180b3e0c631b62c384c5643658bae7c65b064420ec572eacc31` | The box, creased plane, valence-5 and warped grid cages of the cage document run |
+
+| Case | Faces, edges, vertices | Area as loaded (cm²) | Area after edit (cm²) | Largest gap as loaded (cm) |
+| --- | --- | --- | --- | --- |
+| `Valence7Fresh` | 21, 49, 30 | 12.1076641108887 | 12.014609582409966 | 1.6e-14 |
+| `Valence7Weighted` | 21, 49, 30 | 12.126013678022659 | 12.114258327348793 | 1.9e-14 |
+| `BoxWeightedFresh` | 6, 12, 8 | 23.640153774345265 | 23.462135431924096 | 7.1e-15 |
+| `Box3Weighted` | 6, 12, 8 | 28.227654165229573 | 28.131735379756748 | 1.2e-13 |
+| `Valence5Weighted` | 15, 35, 22 | 10.82315963705559 | 10.803688424609216 | 2.9e-15 |
+| `Plane4x4Interval2` | 1, 4, 4 | 6.417836145942383 | 6.421953618522543 | 1.8e-15 |
+| `Plane2x5Interval3` | 1, 4, 4 | 6.935094773160379 | 6.937615110741065 | 2.7e-15 |
+
+After the edit, the largest gap was 0 in every case. The weighted cases compared the NURBS weights from the API as well. The fresh valence-7 cage took no part in the fit. `PrepareFourthDocs.py` moved its grips at random.
+
+[`WeightCheck.py`](../../../../re/Fusion/Reconstruction/FormDocuments/Stencil/WeightCheck.json) converted the stored cage of 23 Fusion-saved archives with `ConvertCage`. They are the seven weighted box probes, one Fusion edit with near-unit weights and the 15 fourth-pass archives. Every face form, curve form and jump list was equal, and every point was within 1.2e-13 cm. In `Box3Weighted`, 4 of the 6 faces are rational in both bodies.
+
+[`IntervalCheck.py`](../../../../re/Fusion/Reconstruction/FormDocuments/IntervalCheck.json) converted the stored cage of 17 interval archives with `ConvertForm`. Kit equalled all nine accepted conversions within 6.2e-15 cm, apart from labels. The progenitor windows differed by at most 8.9e-16 from the Fusion values. Kit refused the four other readable archives with the errors of the knot interval gotcha. It could not read the other four.
+
+[`LayoutDrift.py`](../../../../re/Fusion/Reconstruction/FormDocuments/Stencil/LayoutDrift.json) found no layout change in the 55 valence-7 variants. It found four changes in the two band cages, which Kit refuses.
+
+The merged head writes larger class tables than the third pass. The design segment declares 208 classes instead of 204, and the ACT segment declares 16 instead of 15.
+
+| Segment | Classes added | Records of these classes |
+| --- | --- | --- |
+| Design | `DcAssemblyFeature`, `DcPlaceComponentInstance`, `DcXRefPCIFeature`, `XRefManager` | 0 |
+| ACT | `ACTRefdTable` | 0 |
+
+The external link reader added these classes to `DesignClasses.json` and `ActClasses.json`. `AuthorSchemas` joins every design class for a Form, and `BuildAssembly` declares every ACT class. The third pass was built on a base without that reader, so its recorded documents lack the classes. The squash merge resolution did not change the Form branch of `AuthorSchemas`. The third-pass source with only the typed-body port shows the same five added classes. Features round two also gave the XZ origin plane its native frame, as the [revolve frame gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureRevolveFrame.md) records. With the clock pinned, the BRep, snapshot and cage parts still equal the third-pass documents byte for byte.
+
+[`PrepareMergeDocs.py`](../../../../re/Fusion/LocalOracle/FormDocuments/MergeDocuments/Preparation.json) wrote four accepted third-pass cages again from the merged head. Fusion accepted all four with zero documents open before and after. The [gap report](../../../../re/Fusion/Reconstruction/FormDocuments/Cages/MergeDocumentsGap.json) gives the same largest gaps and areas as the third-pass run. The fourth-pass documents above already carried the larger tables.
+
+The fourth pass adds the three unweighted valence-7 archives to `TestNativeCage` and `TestCageBody`. It adds the valence-7 cage document to `TestCageDoc` and the valence-7 cage to `TestStencilCage`. The weighted archives stay out of these cases. Their stored weights differ from the stencil weights by up to 5.0e-14, and `TestCageBody` compares weights exactly. `TestFormChoice` and `TestCageFault` now expect a weighted stencil cage to convert with rational faces. They expect a stencil cage with knot interval 2 to raise the unit-interval error.
+
+No tests ran locally. The checks above call production code on Fusion-saved archives.

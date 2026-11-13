@@ -15,6 +15,11 @@ KStencilCages: tuple[tuple[str, str, int], ...] = (
         6,
     ),
     (
+        "re/Fusion/LocalOracle/FormDocuments/Stencil/Valence7.tsm",
+        "31cfd2299f17d44069aac02d7bd54d54d15cd7ad686ac5af35330e5f70cb899c",
+        7,
+    ),
+    (
         "re/Fusion/LocalOracle/FormDocuments/Stencil/Valence8.tsm",
         "bcfd08dcaea381558aade7e87bdda1f46655e995fbd8f480b1df57c9a4816dcc",
         8,

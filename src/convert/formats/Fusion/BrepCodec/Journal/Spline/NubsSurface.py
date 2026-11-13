@@ -17,3 +17,5 @@ class NubsSurface:
     KnotsU: tuple[SplineKnot, ...]
     KnotsV: tuple[SplineKnot, ...]
     Points: tuple[KJournalVector, ...]
+    Weights: tuple[float, ...] = ()
+    Form: str = ""

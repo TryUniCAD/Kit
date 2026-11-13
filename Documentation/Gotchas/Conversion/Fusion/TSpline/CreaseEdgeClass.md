@@ -23,6 +23,8 @@ The surfaces, curves and points follow the linear map. The crease edges do not k
 
 Fusion split one crease at the root of the dihedral function and another at the start of a flat part. It kept two other creases with a sign change as one edge. The local evidence does not fix the split rule.
 
+Static analysis did not find the rule either. `make_body_from_t_spline::impl::build_body` in `libASMkern232` hands the build to `tsplines_FnBrep_build`. `libtsplines` creates each vertex and each edge through `BrepImpl` callbacks, so it chooses the split vertices. The ASM post-process that follows adds pcurves and sorts coedges and calls no convexity split. The split predicate lies in the stripped `libtsplines` routine at `0x27f198` and its callees. The [reverse-engineering notes](../../../../../re/Fusion/External/ReverseEngineer/README.md) list the call chain.
+
 The creased box crease ends at a dart. Fusion always splits its edge at the dart knot -1.0 into a `tangent` and an `unknown` piece. The shape of that layout already holds the split.
 
 ## Workaround

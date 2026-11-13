@@ -9,10 +9,27 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Writing.MakePoints import (
 def MakeNubsSurf(Value: NubsSurface) -> tuple[KAsmToken, ...]:
     KnotsU = MakeKnots(Value.KnotsU)
     KnotsV = MakeKnots(Value.KnotsV)
+    Entries: tuple[tuple[float, ...], ...]
+    if not Value.Weights:
+        Header: tuple[KAsmToken, ...] = (
+            (13, "nubs"),
+            (4, Value.DegreeU),
+            (4, Value.DegreeV),
+        )
+        Entries = Value.Points
+    else:
+        Header = (
+            (13, "nurbs"),
+            (4, Value.DegreeU),
+            (4, Value.DegreeV),
+            (13, Value.Form),
+        )
+        Entries = tuple(
+            (*PointValue, Weight)
+            for PointValue, Weight in zip(Value.Points, Value.Weights, strict=True)
+        )
     return (
-        (13, "nubs"),
-        (4, Value.DegreeU),
-        (4, Value.DegreeV),
+        *Header,
         (21, Value.ClosureU),
         (21, Value.ClosureV),
         (21, Value.SingularU),
@@ -21,5 +38,5 @@ def MakeNubsSurf(Value: NubsSurface) -> tuple[KAsmToken, ...]:
         KnotsV[0],
         *KnotsU[1:],
         *KnotsV[1:],
-        *MakePoints(Value.Points),
+        *MakePoints(Entries),
     )

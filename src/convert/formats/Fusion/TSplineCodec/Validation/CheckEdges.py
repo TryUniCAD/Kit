@@ -13,7 +13,7 @@ def CheckEdges(Topology: CageTopology) -> None:
             or Counts[Index] != 2
         ):
             raise ValueError("TSM edge ownership differs")
-        if not isfinite(EdgeValue.KnotInterval) or EdgeValue.KnotInterval != 1.0:
+        if not isfinite(EdgeValue.KnotInterval) or EdgeValue.KnotInterval <= 0.0:
             raise ValueError("Unsupported TSM knot interval")
     Boundary = {
         LinkValue.EdgeIndex for LinkValue in Topology.Links if LinkValue.FaceIndex == -1

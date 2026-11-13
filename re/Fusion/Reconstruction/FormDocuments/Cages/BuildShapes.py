@@ -17,13 +17,13 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent
 ROOT = BASE.parents[4]
 sys.path.insert(0, str(ROOT / 'src'))
-sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(BASE))
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil import ReadShapes as ShapeModule
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.CageBody import CageBody
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.ConvertCage import ConvertCage
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.ReadStencils import ReadStencils
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
-from tests.convert.formats.FusionCodec.Documents.Form.ReadConverted import ReadConverted
+from ReadConverted import ReadConverted
 
 ORACLE = 're/Fusion/LocalOracle/'
 CARRIERS = (
@@ -34,6 +34,7 @@ CARRIERS = (
     ('Valence5', ORACLE + 'FormDocuments/StencilAccept/Carriers/Valence5.f3d'),
     ('Valence6', ORACLE + 'FormDocuments/StencilAccept/Carriers/Valence6.f3d'),
     ('Valence8', ORACLE + 'FormDocuments/StencilAccept/Carriers/Valence8.f3d'),
+    ('Valence7', ORACLE + 'FormDocuments/StencilAccept/Carriers/Valence7.f3d'),
 )
 KIT_WRITTEN = ('FormDocuments/StencilAccept/Cases/', 'FormDocuments/Acceptance/Reemitted', 'FormDocuments/Sourceless/Variants/', '/tmp/')
 KIT_FOLDERS = ('FormDocuments/CageDocuments/', 'FormDocuments/Sourceless/')

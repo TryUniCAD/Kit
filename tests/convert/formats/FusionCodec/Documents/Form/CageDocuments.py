@@ -72,6 +72,15 @@ KCageDocuments: tuple[tuple[str, str, str, str, str, str, str], ...] = (
         "1b9cf32a9d884e720b9551be61c39fe8a53bdc9381e8e6fb4ae318997e950610",
     ),
     (
+        "Valence7Fresh",
+        "re/Fusion/LocalOracle/FormDocuments/FourthDocuments/Valence7Fresh.tsm",
+        "ca180d17e4f85798cc249cba6d0ec2d8d28c3d803549383e7f7fc5d51655c304",
+        "re/Fusion/LocalOracle/FormDocuments/FourthDocuments/Valence7Fresh.f3d",
+        "403ab886b26005d5e87a8c39c408c86da064a2b2e2a058201b7dc80d29b61f93",
+        "re/Fusion/LocalOracle/FormDocuments/FourthDocuments/Loaded/OracleValence7Fresh.f3d",
+        "a717f775df17eaff3e7124213939220d8db69718c676ab556eb149ec7a1245f4",
+    ),
+    (
         "WarpedPlane2x5",
         "re/Fusion/LocalOracle/FormDocuments/CageDocuments/WarpedPlane2x5.tsm",
         "1bc46f7408216d5d69b8b176edbc45e72bbc436e975e0cf4b510109fa42de0d8",

@@ -12,6 +12,7 @@ Fusion 2706.1.17 imports closed Kit cages with vertices of valence 5, 6 and 8. I
 | --- | --- | --- | --- | --- |
 | Valence5 | 32 | 3 and 4, two of 5 | 15, 35, 22 | Equal |
 | Valence6 | 38 | 3 and 4, two of 6 | 18, 42, 26 | Equal |
+| Valence7 | 44 | 3 and 4, two of 7 | 21, 49, 30 | Equal |
 | Valence8 | 50 | 3 and 4, two of 8 | 24, 56, 34 | Equal |
 
 The converted limit point of an extraordinary vertex uses the Catmull–Clark limit mask. A vertex of valence n has the weight n/(n + 5). Each edge neighbour has the weight 4/(n(n + 5)), and each face diagonal has 1/(n(n + 5)).
@@ -21,6 +22,7 @@ The converted limit point of an extraordinary vertex uses the Catmull–Clark li
 | 3 | 3/8 | 1/6 | 1/24 |
 | 5 | 1/2 | 2/25 | 1/50 |
 | 6 | 6/11 | 2/33 | 1/66 |
+| 7 | 7/12 | 1/21 | 1/84 |
 | 8 | 8/13 | 1/26 | 1/104 |
 
 ## Workaround

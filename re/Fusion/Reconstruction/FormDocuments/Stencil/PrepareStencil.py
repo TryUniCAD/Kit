@@ -23,10 +23,10 @@ NATIVE = {
     'CreasedPlane': 're/Fusion/LocalOracle/TSplineCodec/vendor_PlaneCreasedControl.f3d',
     'CreasedBox': 're/Fusion/LocalOracle/TSplineCodec/vendor_BoxCreasedControl.f3d',
 }
-FITTED = ('Box', 'CreasedPlane', 'CreasedBox', 'Valence5', 'Valence6', 'Box3', 'Valence8')
+FITTED = ('Box', 'CreasedPlane', 'CreasedBox', 'Valence5', 'Valence6', 'Box3', 'Valence8', 'Valence7', 'Mixed56', 'Mixed78')
 CHECKED = ('SymmetricBox', 'Valence5Warped')
-SECOND = ('Valence5', 'Valence6', 'Valence5Warped', 'Valence8')
-STEP = {'CreasedPlane': 0.125, 'Box3': 0.125, 'Valence8': 0.125}
+SECOND = ('Valence5', 'Valence6', 'Valence5Warped', 'Valence8', 'Valence7', 'Mixed56', 'Mixed78')
+STEP = {'CreasedPlane': 0.125, 'Box3': 0.125, 'Valence8': 0.125, 'Valence7': 0.125, 'Mixed56': 0.125, 'Mixed78': 0.125}
 SPREAD = {'CreasedPlane': 0.04}
 SCALE = {'CreasedBox': 0.5}
 LIMITS = {'CreasedPlaneLimits': ('CreasedPlane', ((3, 1.0), (8, 1.0), (10, 1.0), (31, 1.0))), 'CreasedBoxLimits': ('CreasedBox', ((7, 2.5),))}
@@ -62,6 +62,15 @@ def prism(sides, radius, height, warp):
     faces += [(index, (index + 1) % sides, sides + (index + 1) % sides, sides + index) for index in range(sides)]
     points, quads = split_faces(points, faces)
     return [warp(*point) for point in points], quads
+
+
+def band(top, bottom, radius, height):
+    lower = [(radius * math.cos(2 * math.pi * index / bottom), radius * math.sin(2 * math.pi * index / bottom), 0.0) for index in range(bottom)]
+    upper = [(0.8 * radius * math.cos(2 * math.pi * index / top), 0.8 * radius * math.sin(2 * math.pi * index / top), height) for index in range(top)]
+    faces = [tuple(range(bottom, bottom + top)), tuple(reversed(range(bottom)))]
+    faces += [(index, index + 1, bottom + (index + 1) % top, bottom + index) for index in range(top)]
+    faces.append((bottom - 1, 0, bottom))
+    return split_faces(lower + upper, faces)
 
 
 def cube(count, size):
@@ -146,6 +155,11 @@ def main():
     for sides in (5, 6, 8):
         points, quads = prism(sides, 1.1, 1.3, lambda x, y, z: (x, y, z))
         cages['Valence%d' % sides] = closed(points, quads, header)
+    points, quads = prism(7, 1.1, 1.3, lambda x, y, z: (x, y, z))
+    cages['Valence7'] = closed(points, quads, header)
+    for top, bottom in ((5, 6), (7, 8)):
+        points, quads = band(top, bottom, 1.1, 1.3)
+        cages['Mixed%d%d' % (top, bottom)] = closed(points, quads, header)
     points, quads = prism(5, 1.1, 1.3, lambda x, y, z: (x + 0.07 * math.sin(2.1 * y), y + 0.05 * math.cos(1.7 * z), z + 0.09 * math.sin(1.3 * x + 0.4)))
     cages['Valence5Warped'] = closed(points, quads, header)
     for name, (source, _) in LIMITS.items():

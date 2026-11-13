@@ -1,7 +1,4 @@
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.BsCurve import BsCurve
-from convert.formats.Fusion.BrepCodec.Journal.Geometry.JournalVector import (
-    KJournalVector,
-)
 from convert.formats.Fusion.BrepCodec.Journal.Spline.NubsSurface import NubsSurface
 from convert.formats.Fusion.BrepCodec.Journal.Spline.SplineKnot import SplineKnot
 
@@ -94,17 +91,30 @@ def SplitOrders(
     )
 
 
+def MassPoles(
+    Poles: tuple[tuple[float, ...], ...], Weights: tuple[float, ...]
+) -> tuple[tuple[float, ...], ...]:
+    if len(Poles) != len(Weights):
+        raise ValueError("Fusion jump orders need one weight per pole")
+    return tuple(
+        (*(Entry * WeightValue for Entry in PoleValue), WeightValue)
+        for PoleValue, WeightValue in zip(Poles, Weights)
+    )
+
+
 def CurveOrders(
     Curve: BsCurve,
 ) -> tuple[tuple[float, ...], tuple[float, ...], tuple[float, ...]]:
-    if Curve.Degree != KOrderDegree or Curve.Rational:
-        raise ValueError("Fusion jump orders need nonrational cubic curves")
+    if Curve.Degree != KOrderDegree:
+        raise ValueError("Fusion jump orders need cubic curves")
     Knots = SpreadKnots(Curve.Knots, Curve.Multiplicity)
+    if Curve.Rational:
+        return SplitOrders(KnotOrders(Knots, MassPoles(Curve.Poles, Curve.Weights)))
     return SplitOrders(KnotOrders(Knots, Curve.Poles))
 
 
 def MergeOrders(
-    Knots: tuple[SplineKnot, ...], Lines: list[tuple[KJournalVector, ...]]
+    Knots: tuple[SplineKnot, ...], Lines: list[tuple[tuple[float, ...], ...]]
 ) -> tuple[tuple[float, ...], tuple[float, ...], tuple[float, ...]]:
     Spread = SpreadKnots(
         tuple(KnotValue.Value for KnotValue in Knots),
@@ -122,7 +132,11 @@ def SurfaceOrders(Surface: NubsSurface) -> tuple[tuple[float, ...], ...]:
         raise ValueError("Fusion jump orders need bicubic surfaces")
     Width = sum(KnotValue.Count for KnotValue in Surface.KnotsU) - 2
     Height = len(Surface.Points) // Width
-    Points = Surface.Points
+    Points = (
+        MassPoles(Surface.Points, Surface.Weights)
+        if Surface.Weights
+        else Surface.Points
+    )
     if Width * Height != len(Points):
         raise ValueError("Fusion jump orders found a ragged pole grid")
     RowLines = [Points[Index * Width : (Index + 1) * Width] for Index in range(Height)]

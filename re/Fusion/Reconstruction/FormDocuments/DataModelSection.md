@@ -90,8 +90,9 @@ A writer must therefore store the exact converted body.
 ### Grid cage conversion
 
 `ConvertGrid` converts a qualified open grid cage exactly.
-A qualified cage has valence-4 interior vertices, unit knot intervals, unit weights and no interior creases.
+A qualified cage has valence-4 interior vertices, one whole-number knot interval on every edge, unit weights and no interior creases.
 Its limit surface is one bicubic B-spline whose poles are the grips in grid order.
+The knots, patch cells and progenitor windows are multiples of the knot interval.
 The vertex spoke frame and the compound grips decide that order.
 Fusion also records each interior knot with a third-derivative jump in the surface and curve discontinuity lists.
 `SwapGridCage` puts a new cage of the same grid layout into a Form document.
@@ -100,11 +101,12 @@ The [pole order gotcha](../../Gotchas/Conversion/Fusion/TSpline/GridCagePoleOrde
 ### Stencil cage conversion
 
 Fusion converts each cage layout with a fixed linear map from the grips to the converted poles and points.
-The layout is the topology with its root links, the grip mapping, the creases, the smart grips, the header rules and the grip weights.
-Single-grip probes recovered the map for seven layouts, and further moves of all grips confirmed it within 2.1e-14 cm.
+The layout is the topology with its root links, the grip mapping, the creases, the smart grips, the header rules and the grip count.
+Single-grip probes recovered the map for eight layouts, and further moves of all grips confirmed it within 2.1e-14 cm.
 Regular regions use small dyadic and triadic fractions, and vertex limit points use the Catmull–Clark limit mask.
 The G1 cap weights around extraordinary vertices are not small fractions or simple quadratic surds.
 They repeat between layouts with the same corner neighbourhood.
+`libtsplines` builds them by solving a sparse linear system, as the [cap gotcha](../../Gotchas/Conversion/Fusion/TSpline/ExtraordinaryCapIsSolved.md) shows.
 `ConvertCage` applies the packaged table of the cage layout, and `SwapFormCage` writes the result into a document of that layout.
 Fusion records each interior knot in the discontinuity list of the lowest derivative order that jumps there.
 The [linearity gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConversionIsLinear.md) and the [valence gotcha](../../Gotchas/Conversion/Fusion/TSpline/CageValenceAboveFour.md) give the evidence.
@@ -115,11 +117,14 @@ The [linearity gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConversionIsLinea
 | Creased plane | 34 | 2, 7, 6 | Fusion plane with 11 crease edges |
 | Creased box | 26 | 6, 13, 9 | Fusion box with one crease edge |
 | Box with 3 × 3 faces per side | 56 | 6, 12, 8 | Kit cage |
-| Valence-5, valence-6 and valence-8 prisms | 32, 38 and 50 | 15, 35, 22; 18, 42, 26; 24, 56, 34 | Kit cages |
+| Valence-5, valence-6, valence-7 and valence-8 prisms | 32, 38, 44 and 50 | 15, 35, 22; 18, 42, 26; 21, 49, 30; 24, 56, 34 | Kit cages |
 
-Kit refuses every other layout, non-unit knot intervals and non-unit weights.
-Weight 2 on every grip of the box shrank its area to a quarter, so Fusion divides the stored grip coordinates by the weight.
-Kit cannot read the converted cache of a weighted cage, as the [weighted grip gotcha](../../Gotchas/Conversion/Fusion/TSpline/WeightedGripCoordinates.md) shows.
+Each TSM grip coordinate is x · w, so the table applies to the homogeneous grips.
+A converted face or curve is rational only when one of its rows uses a weighted grip.
+It then stores the `nurbs` cache with the form `both`, Cartesian poles and their weights.
+The [weighted face gotcha](../../Gotchas/Conversion/Fusion/TSpline/WeightedFaceRationality.md) gives the rule.
+Kit refuses every other layout and every stencil layout with knot intervals other than 1.
+Bands that join two extraordinary valences change their faces with the grips, as the [layout gotcha](../../Gotchas/Conversion/Fusion/TSpline/LayoutFollowsGeometry.md) shows.
 
 The geometry follows the map, but the crease edges do not keep one structure.
 Fusion stores a crease as `tangent` while its faces meet flat and as `unknown` once they bend.
@@ -180,5 +185,9 @@ The cage documents cover a warped plane grid, the box, the symmetric box, the cr
 They also cover the 3 × 3 box and the valence-5, valence-6 and valence-8 prisms.
 Their fresh, bent, sagged, twisted and sheared cages took no part in any fit.
 Every Kit body equalled the loaded Fusion conversion in structure and edge classes, and the largest point gap was 1.2e-13 cm.
+
+Two fourth-pass runs accepted seven more Kit documents with zero documents open afterwards.
+They cover a fresh valence-7 cage, four weighted cages and two grids with knot intervals 2 and 3.
+Every Kit body equalled the loaded Fusion conversion within 1.2e-13 cm, and every edited body matched exactly.
 
 The [Form document change entry](../../Changes/Fusion/TSpline/FusionFormDocuments.md) gives the complete procedure.
