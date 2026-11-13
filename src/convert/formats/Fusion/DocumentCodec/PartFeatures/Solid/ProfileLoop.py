@@ -24,6 +24,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.SpanMath import (
 )
 
 KJoinTolerance = 1e-7
+KSeamAngle = KFullTurn / 2.0
 
 
 def CurveSpan(Curve: KProfileCurve, Label: FaceLabel) -> KPlaneSpan:
@@ -40,7 +41,7 @@ def CurveSpan(Curve: KProfileCurve, Label: FaceLabel) -> KPlaneSpan:
             Radians(Curve.SweepDegrees),
             Label,
         )
-    return ArcSpan(Center, Curve.RadiusMm / 10.0, 0.0, KFullTurn, Label)
+    return ArcSpan(Center, Curve.RadiusMm / 10.0, KSeamAngle, KFullTurn, Label)
 
 
 def IsJoined(First: tuple[float, float], Second: tuple[float, float]) -> bool:
