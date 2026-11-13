@@ -5833,7 +5833,7 @@ def HasCanonical(
 def HasPolyline(
     SketchData: Sketch, PointsData: tuple[tuple[float, float], ...] | None
 ) -> bool:
-    if len(PointsData or ()) == 5 and SketchData.constraints:
+    if SketchData.constraints:
         return False
     if (
         PointsData is None

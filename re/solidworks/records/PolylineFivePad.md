@@ -49,7 +49,7 @@ Symbolic re-emission is byte-identical, with 30 external class references and si
 Primitive tracing adds 3,169 reads.
 The typed program has 2,708 operations across 495 serializer owners and zero uncovered bytes.
 Native-to-neutral projection creates five line entities with source-marker provenance and one five-edge closed wire, instead of dropping the editable profile or duplicating its line markers through the generic marker path.
-The five-line solver-relation guard does not change the recovered six-line or pin history paths.
+Constraint-free recovered six-line and pin histories retain their original serializers and generation. Solver-relation detection prevents lossy writes for every polyline pad family, including a native-read six-line sketch whose depth has changed. Relation-bearing profiles are rejected rather than advertised as near-lossless when their complete constraint grammar has not been recovered.
 `re/tooling/windbg/Generation/CheckResolvedProgram.py` independently verifies re-emission against the original native bytes.
 
 ## Semantic fields

@@ -13,6 +13,7 @@ The scope is deliberately limited to a single feature atom. The encoder rejects 
 The existing `Build` argument is optional. When it is omitted, the encoder chooses generation 18000 with build 2025268 or generation 19000 with build 2026306. Existing 2025 callers and public keyword spellings retain their prior default bytes.
 `LegacyConfig` rejects every supplied raw `PartRecordBody` before generation dispatch, so the 19000 route cannot silently discard a caller-provided configuration span.
 Variable-length part names shift the visual-record start, each subsequent gate position, and the expected final length by the same encoded-name delta. They no longer retain the old visual start or the fixed reference-length assertion.
+The supplied single atom identifier is forwarded into visual construction and every visual-growth calculation rather than being replaced by the measured 101 witness. Records outside that atom's own configuration-manager identity footer are not relabelled.
 
 `src/convert/adapters/solidworks/container/CmgrNextGen.py` contains the independent appearance and tail records. `Cmgr.py` performs generation validation and dispatch without invoking CAD software in production.
 

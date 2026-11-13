@@ -111,6 +111,7 @@ canonical XY/Front Plane. It preserves source vertex order, passes the six
 millimetre pairs and positive blind length through `PadFieldMap()`, and emits
 the resulting typed program with the existing native single-pad envelope.
 
+Constraint-free six-line and pin histories retain the recovered grammar. A native-read or fresh six-line sketch carrying unsupported solver relations is rejected on writing rather than losing those relations after an edit opens a semantic change.
 The reader reconstructs the six-edge graph as an ordered `polyline` profile,
 so the normal write proof verifies every source vertex, the pad dependency,
 feature ids 26 and 32, direction, termination, and driving depth before adding
