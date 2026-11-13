@@ -188,7 +188,17 @@ jobs:
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           PULL_NUMBER: ${{ github.event.pull_request.number }}
         shell: bash
-        run: python3 .github/scripts/DiffBreakdown/LaunchReport.py --publish
+        run: |
+          python3 .github/scripts/DiffBreakdown/LaunchReport.py --publish
+
+      - name: Summarize diff breakdown
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const Fs = require("node:fs");
+            const ReportPath = "DiffBreakdownResults/Report.md";
+            if (Fs.existsSync(ReportPath))
+              await core.summary.addRaw(Fs.readFileSync(ReportPath, "utf8")).write();
 
       - name: Preserve complete snapshot
         if: ${{ !cancelled() }}
@@ -204,6 +214,6 @@ jobs:
         shell: bash
         run: |
           if [ -f "$RUNNER_TEMP/ci-job-budget-exceeded" ]; then
-            echo "This job exceeded its runner budget" >&2
+            echo "::error::This job exceeded its runner budget"
             exit 1
           fi

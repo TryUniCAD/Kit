@@ -5,14 +5,19 @@ import string as StringLib
 
 from RequireSha import RequireSha
 
-KRepoChars = frozenset(StringLib.ascii_letters + StringLib.digits + "_.-")
+KRepoCharacters = frozenset(StringLib.ascii_letters + StringLib.digits + "_.-")
 
 
 def ReadContext() -> dict[str, object]:
     EnvValues = OsLib.environ
     Repository = EnvValues["GITHUB_REPOSITORY"]
-    Owner, Slash, RepoName = Repository.partition("/")
-    if not (Slash and Owner and RepoName and KRepoChars.issuperset(Owner + RepoName)):
+    OwnerName, Separator, RepoName = Repository.partition("/")
+    if not (
+        Separator
+        and OwnerName
+        and RepoName
+        and set(OwnerName + RepoName) <= KRepoCharacters
+    ):
         raise ValueError("Invalid repository identity")
     return {
         "Repository": Repository,

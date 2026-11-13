@@ -21,21 +21,6 @@ The newest head still receives a report.
 The excluded policy reduces the review-size metric only.
 It does not show that excluded changes are safe.
 
-## Code scanning correction
-
-The original change merged without merge-group acceptance.
-Merge-group CodeQL then reported three findings on every queue candidate.
-
-| Finding                          | Location                                         | Correction                                               |
-| -------------------------------- | ------------------------------------------------ | -------------------------------------------------------- |
-| `py/polynomial-redos`            | `RunContext.py` repository identity check        | Split once on `/` and check each character against a set |
-| `actions/output-clobbering/high` | Publication step `cat` into the workflow summary | `AppendSummary.py` appends `Report.md` in Python         |
-| `actions/output-clobbering/high` | Budget step `cat` of the marker file             | The step prints a fixed message                          |
-
-The repository identity rule is unchanged: one owner, one name, and ASCII letters, digits, `_`, `.`, or `-`.
-The workflow summary content is unchanged.
-See [the CodeQL file read gotcha](../Gotchas/Ci/CodeqlFileReadOutput.md).
-
 ## Verification
 
 Black, steering, path policy, rationale comment, and Ruff checks passed locally on the new Python files.
@@ -47,7 +32,5 @@ Actionlint 1.7.12 reported `unexpected key "queue" for "concurrency" section` fo
 [DiffBreakdownTests.py](../../tests/Policy/DiffBreakdownTests.py) runs the engine against a temporary Git repository in PR CI.
 The tests were not run locally under the repository test policy.
 The publication workflow loads trusted base code, so it cannot run on the PR that adds it.
-The correction adds summary and repository identity coverage to that module.
-Black, Ruff, full-repository steering, and Zizmor 1.32.0 passed locally on the correction.
 After merge, check that the next PR receives one collapsed report.
 Confirm that Documentation and `re/` lines appear as excluded.
