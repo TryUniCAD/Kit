@@ -32,8 +32,9 @@ for name in sys.argv[1:]:
     members = {info.filename[len(PREFIX):]: archive.read(info.filename) for info in archive.infolist() if info.filename.startswith(PREFIX) and not info.filename.endswith('/')}
     print('==', name, {key: len(value) for key, value in members.items()})
     streams = tuple(GraphicsStream(int(key[-3:]), value) for key, value in members.items() if key.startswith('stream_mesh_'))
+    fusion = tuple(GraphicsStream(int(key[-3:]), value) for key, value in members.items() if key.startswith('Fusion_mesh_'))
     try:
-        ReadGraphics(members['world'], streams)
+        ReadGraphics(members['world'], streams, fusion)
     except Exception as error:
         print('error', error)
     extent = collections.defaultdict(int)

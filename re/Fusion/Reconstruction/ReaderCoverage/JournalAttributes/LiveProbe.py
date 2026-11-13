@@ -31,10 +31,10 @@ def explain(records, versions, aliases):
                 print('   class', 'slot', slot, record.Name, 'index', index, '->', records[versions[target]].Name)
 
 
-def patched(records, versions, aliases):
+def patched(records, versions, aliases, root_count):
     walk['state'] += 1
     try:
-        original(records, versions, aliases)
+        original(records, versions, aliases, root_count)
     except ValueError as error:
         print('state walk step', walk['state'], 'error', error)
         explain(records, versions, aliases)

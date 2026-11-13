@@ -36,7 +36,7 @@ def counts(knots, degree):
 
 def none_surface(value):
     if isinstance(value, SubtypeRef):
-        return MakeRefScope(value)
+        return MakeRefScope(value, "surface")
     cache = value.Cache
     interval = lambda knots: (*MakeBound(knots[0].Value), *MakeBound(knots[-1].Value))
     return (
@@ -62,7 +62,7 @@ def none_surface(value):
 
 def shifted_surface(value):
     if isinstance(value, SubtypeRef):
-        return MakeRefScope(value)
+        return MakeRefScope(value, "surface")
     cache = value.Cache
     width = counts(cache.KnotsU, cache.DegreeU)
     height = counts(cache.KnotsV, cache.DegreeV)

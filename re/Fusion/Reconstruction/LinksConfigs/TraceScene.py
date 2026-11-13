@@ -39,14 +39,21 @@ SceneWire.TextValue = traced_text
 archive = zipfile.ZipFile(sys.argv[1])
 world = None
 streams = []
+fusion = []
 for info in archive.infolist():
     if info.filename.endswith('/world'):
         world = archive.read(info)
     elif '/stream_mesh_' in info.filename:
         streams.append((info.filename.rsplit('/', 1)[1], archive.read(info)))
+    elif '/Fusion_mesh_' in info.filename:
+        fusion.append((info.filename.rsplit('/', 1)[1], archive.read(info)))
 print('world bytes', len(world), [name for name, _ in streams])
 try:
-    scene = ReadGraphics(world, tuple(GraphicsStream(int(name.rsplit('_', 1)[1]), data) for name, data in streams))
+    scene = ReadGraphics(
+        world,
+        tuple(GraphicsStream(int(name.rsplit('_', 1)[1]), data) for name, data in streams),
+        tuple(GraphicsStream(int(name.rsplit('_', 1)[1]), data) for name, data in fusion),
+    )
     print('ok')
 except Exception as error:
     frames = traceback.extract_tb(error.__traceback__)

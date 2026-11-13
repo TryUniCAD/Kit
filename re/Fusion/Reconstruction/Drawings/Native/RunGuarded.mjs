@@ -95,7 +95,9 @@ async function dispatch(path, resultPath) {
     const socket = new WebSocket(target.webSocketDebuggerUrl);
     let sent = false;
     const timer = setTimeout(() => { socket.close(); if (sent) done(); else fail(new Error('Fusion bridge did not answer')); }, 15000);
-    socket.onopen = () => (sent = true) && socket.send(JSON.stringify({
+    socket.onopen = () => {
+      sent = true;
+      socket.send(JSON.stringify({
       id: 1,
       method: 'Runtime.evaluate',
       params: {
@@ -103,6 +105,7 @@ async function dispatch(path, resultPath) {
         returnByValue: true,
       },
     }));
+    };
     socket.onmessage = event => {
       const message = JSON.parse(event.data);
       if (message.id !== 1) return;
