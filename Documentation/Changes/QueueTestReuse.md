@@ -149,6 +149,7 @@ To stop reuse, remove the `--cache` argument from the `Plan test shards` step.
   The next plan reuses only the modules that did not use either change.
   A third plan reuses every module except the module that starts a process.
   PR CI runs it in the workflow quality job.
+  It passed on Python 3.11 in [job 131741615869](https://github.com/TryUniCAD/Kit/actions/runs/43381981299/job/131741615869).
 - The first live reuse requires an authorized merge-group candidate after the `Queue cache` workflow ran on `main`.
 
 See the [cache scope gotcha](../Gotchas/Ci/QueueCacheScope.md), the [import cache gotcha](../Gotchas/Ci/ImportCacheDependencies.md), the [bytecode timestamp gotcha](../Gotchas/Ci/CheckoutBytecodeTimestamps.md), and the [setup-uv cache gotcha](../Gotchas/Ci/SetupUvQueueCache.md).
