@@ -9,8 +9,10 @@ Both rules read only the unused capacity that each block header leaves after its
 In `AssetData` members that are not block stores, the suffix rule reads the whole member and the bare-value rule is off.
 The fragment search is now also confined to that unused capacity, so no used material byte can change.
 Values found by the new rules feed the fragment search only when they mix letters and digits.
-A value that starts right after heap bytes and ends just before an account key is replaced when it holds a digit and only id characters.
-A run of ten or more lowercase hex digits that ends just before an account key is replaced even when a path is glued in front of it.
+Some values start right after heap bytes and end just before an account key.
+Such a value is replaced when it holds a digit and only id characters.
+A run of ten or more lowercase hex digits can also end just before an account key.
+It is replaced even when a path is glued in front of it.
 Only hex runs from these two lead rules feed the fragment search, so words such as `Identity` and material paths never do.
 
 The [scrub ledger](../../../../re/Fusion/LocalOracle/ScrubLedger.json) now lists every placeholder already written.
@@ -22,8 +24,11 @@ The scrubber reads the ledger beside it unless `--ledger` names another, and the
 A dry run over the Fusion archives that this branch added found new replacements in 16 of them: 14 that were already in the ledger and 2 new ones.
 Each replacement was residue text such as a parameter, feature or telemetry event name or a product version.
 A dry run over archives that are already on `main` also proposed replacements; this entry does not change them.
-With the lead rules, a dry run over the 1,591 tracked Fusion archives under `re/` changed 64 archives, all new part feature saves and Form saves that still held hashed hub id tails or a `user_hub_id` value.
-An earlier draft that learned whole lead values matched `Identity` and a material path, and it proposed changes to 1,551 archives; that draft was not applied.
+With the lead rules, a run over the 1,591 tracked Fusion archives under `re/` changed 64 archives.
+All of them were new part feature saves or Form saves.
+Each still held a hashed hub id tail or a `user_hub_id` value.
+An earlier draft learned whole lead values, so it learned `Identity` and a material path.
+It proposed changes to 1,551 archives, and it was not applied.
 The [protein residue gotcha](../../../Gotchas/Conversion/Fusion/Records/FusionProteinHeapResidue.md) describes the block layout.
 
 ## Verification
