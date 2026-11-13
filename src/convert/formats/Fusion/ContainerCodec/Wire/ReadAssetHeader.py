@@ -1,3 +1,5 @@
+from uuid import UUID as ParseUuid
+
 from convert.formats.Fusion.ContainerCodec.ContainerLayout import KMaxProperties
 from convert.formats.Fusion.ContainerCodec.Model.AssetHeader import AssetHeader
 from convert.formats.Fusion.ContainerCodec.Model.AssetLink import AssetLink
@@ -13,6 +15,7 @@ from convert.formats.Fusion.SegmentCodec.Manifest.ManifestLayout import (
 from convert.formats.Fusion.SegmentCodec.Manifest.LinkLayout import (
     KAssetMarker,
     KMaxLinks,
+    KUnchangedGuid,
 )
 from convert.formats.Fusion.SegmentCodec.Manifest.OpenWireCursor import OpenWireCursor
 from convert.formats.Fusion.SourceProof.Auxiliary.Manifest.ManifestCursor import (
@@ -26,7 +29,16 @@ from convert.formats.Fusion.SourceProof.Auxiliary.Manifest.ReadAssetMeta import 
 def ReadLinkTail(Cursor: ManifestCursor) -> str:
     if Cursor.ReadWord() != KAssetMarker:
         raise ValueError("Unsupported Fusion asset link marker")
-    return Cursor.ReadGuid()
+    Value = Cursor.ReadText(True, Maximum=36)
+    if Value == KUnchangedGuid:
+        return Value
+    try:
+        GuidValue = ParseUuid(Value)
+    except ValueError as ErrorInfo:
+        raise ValueError("Invalid Fusion asset link change GUID") from ErrorInfo
+    if str(GuidValue) != Value:
+        raise ValueError("Invalid Fusion asset link change GUID")
+    return Value
 
 
 def ReadAssetHeader(Payload: bytes) -> AssetHeader:

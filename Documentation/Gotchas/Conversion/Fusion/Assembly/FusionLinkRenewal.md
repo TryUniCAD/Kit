@@ -19,7 +19,7 @@ The controls `R6_out_of_date` and `R7_updated` show the change.
 
 Every `CrossRef` that points into the updated design uses the new tokens.
 The update also wrote a new `ACTRefdTable` record for Part A, object 16 instead of object 10.
-Its `entryWord` was 1 in `R7_updated` and `R8_updated_saved`, and 2 in the later export `R9_archive`.
+Its `referenceCount` was 1 in `R7_updated` and `R8_updated_saved`, and 2 in the later export `R9_archive`.
 
 ## Workaround
 

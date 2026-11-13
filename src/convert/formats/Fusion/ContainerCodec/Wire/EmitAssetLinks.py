@@ -4,6 +4,7 @@ from convert.formats.Fusion.ContainerCodec.Model.AssetLink import AssetLink
 from convert.formats.Fusion.SegmentCodec.Manifest.LinkLayout import (
     KAssetMarker,
     KMaxLinks,
+    KUnchangedGuid,
 )
 from convert.formats.Fusion.SegmentCodec.Manifest.ManifestSink import ManifestSink
 
@@ -22,4 +23,7 @@ def EmitAssetLinks(SinkValue: ManifestSink, Links: tuple[AssetLink, ...]) -> Non
         SinkValue.AddGuid(Entry.SnapshotId)
         SinkValue.AddWord(Entry.LinkWord)
         SinkValue.AddWord(KAssetMarker)
-        SinkValue.AddGuid(Entry.PhysicalGuid)
+        if Entry.PhysicalGuid == KUnchangedGuid:
+            SinkValue.AddText(Entry.PhysicalGuid, WideText=True)
+        else:
+            SinkValue.AddGuid(Entry.PhysicalGuid)

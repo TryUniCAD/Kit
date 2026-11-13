@@ -530,7 +530,7 @@
                   "IsSaved": true
                 },
                 {
-                  "FieldName": "entryWord",
+                  "FieldName": "referenceCount",
                   "ValueType": {
                     "KindValue": "u32"
                   },
