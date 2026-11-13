@@ -32,7 +32,7 @@ It reads input and writes no vendor bytes, so it is not donor data.
 | Drawing view body path                   | Fixed: ids come from the view source                                                                    |
 | Drawing view source bytes and body key   | Fixed: source id and tail from the draft; body bits proven constant in 70 keys of 5 saves of 3 designs  |
 | Drawing view state mark                  | Fixed: proven constant after each body's bounds in 9 view states of 4 saves of 3 designs                |
-| Drawing sheet defaults                   | Fixed: captured circle removed; per-class format values only                                            |
+| Drawing sheet defaults                   | Open in part: 640 of 666 rows explained; 26 fields of unknown meaning keep one value in every save      |
 | Feature defaults                         | Fixed: schema type defaults only, with 73 earlier and 36 new cases accepted in Fusion                   |
 | Drawing viewport size                    | Fixed: the viewport shows the whole paper                                                               |
 | Drawing auto-created layout mark         | Fixed: removed                                                                                          |
@@ -43,6 +43,10 @@ It reads input and writes no vendor bytes, so it is not donor data.
 | Drawing record numbering                 | Fixed: one counter per source and sheet, checked on a save with 5 sheets                                |
 | Drawing dimensions and material families | Fixed: linear, aligned, vertical, radius, diameter and short layouts; every material family             |
 | Form crease thresholds                   | Fixed: one 1° rule; folds of 0.99999° and 1.000001° and seven held-out peaks confirm it                 |
+
+The [sheet default reasons](../../../../re/Fusion/Reconstruction/Drawings/SheetDefaultReasons.json) give every row of `SheetDefaults.json` a basis and a note.
+The [drawing codec entry](../Drawing/FusionDrawingCodec.md) sums them up.
+Twenty-six fields have no known meaning, so the sheet defaults item stays open until an experiment shows why each value cannot change.
 
 [Material families](../Materials/FusionMaterialFamilies.md) records the material fix.
 The writer picks every family from the class and values it is given, using only schema vocabulary.

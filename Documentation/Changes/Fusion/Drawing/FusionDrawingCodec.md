@@ -116,6 +116,16 @@ The [DWG specification](https://opendesign.com/files/guestdownloads/OpenDesign_S
 [ezdxf](https://github.com/mozman/ezdxf/blob/master/src/ezdxf/proxygraphic.py) skips the same 8-byte header before it reads chunks.
 So the stream holds no primitives.
 
+[`SheetDefaultReasons.json`](../../../../re/Fusion/Reconstruction/Drawings/SheetDefaultReasons.json) gives each of the 666 default rows a basis and a note.
+It also counts the instances that hold the value in three Fusion-made drawings.
+Of the rows, 640 have a known meaning: 355 from public DWG and DXF references, 129 empty values, 74 identity values, 31 versions, 31 names from Fusion's drawing schema, 7 template settings and 13 neutral Kit choices.
+The other 26 have no known meaning.
+They are words and bits of the hole reference data, the inventor subentity manager, the hatch manager and the geometry dependency.
+They also include bit 3 of the dimension flags, the dimension bit after the measurement, one MTEXT bit and one drawing view real.
+Each keeps one value in every instance Kit has read.
+The hole reference data has only one instance in the three drawings, so its evidence is weakest.
+The diameter and radius dimension rows have no instance in the three drawings.
+
 Fusion-saved drawings differ in the component colour, so it is per document and not a format constant.
 
 Every Fusion drawing keeps its template's ten border blocks, A0 to A4 in both orientations.
