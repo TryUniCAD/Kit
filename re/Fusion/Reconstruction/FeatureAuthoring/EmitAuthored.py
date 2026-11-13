@@ -143,6 +143,16 @@ PART = {
         CircularSpec(1, 4, 360.0, "Pocket ring"),
         HoleSpec((0.0, 0.0), 8.0, 0.0, 14.0, 4.0, "Center bore"),
     ),
+    "ChamferTwoDistances": (base(), ChamferSpec((40.0, 30.0), 3.0, "Corner bevel", 2.0)),
+    "ChamferDistanceAngle": (base(), ChamferSpec((40.0, 30.0), 3.0, "Corner bevel", 0.0, 30.0)),
+    "FilletTwoEdges": (base(), FilletSpec((40.0, 30.0), 3.0, "Corner rounds", ((0.0, 0.0),))),
+    "ChamferTwoEdges": (base(), ChamferSpec((40.0, 30.0), 3.0, "Corner bevels", MoreCornersMm=((0.0, 0.0),))),
+    "CornerSetPart": (
+        base(),
+        HoleSpec((30.0, 10.0), 6.0, FeatureName="Side hole"),
+        FilletSpec((40.0, 30.0), 4.0, "Corner rounds", ((0.0, 0.0),)),
+        ChamferSpec((40.0, 0.0), 3.0, "Corner bevel", 0.0, 30.0),
+    ),
 }
 
 CASES = {**CUBOID, **PART}
@@ -179,6 +189,11 @@ EDITS = {
     "HoleGrid": [{"feature": "Hole grid", "role": "vSpaceDistance", "expression": "12 mm"}, {"feature": "Corner hole", "role": "HoleDepth", "expression": "8 mm"}],
     "MultiPocketPart": [{"feature": "Hole row", "role": "uSpaceDistance", "expression": "10 mm"}, {"feature": "Corner Round", "expression": "4 mm"}, {"feature": "Mid plane", "role": "AlongDistance", "expression": "21 mm"}],
     "MultiDiscPart": [{"feature": "Pocket ring", "role": "countU", "expression": "6"}, {"feature": "Center bore", "role": "CBDiameter", "expression": "16 mm"}],
+    "ChamferTwoDistances": [{"feature": "Corner bevel", "role": "Distance 2", "expression": "1 mm"}],
+    "ChamferDistanceAngle": [{"feature": "Corner bevel", "role": "Rotate Angle", "expression": "40 deg"}],
+    "FilletTwoEdges": [{"feature": "Corner rounds", "expression": "4 mm"}],
+    "ChamferTwoEdges": [{"feature": "Corner bevels", "expression": "2 mm"}],
+    "CornerSetPart": [{"feature": "Corner rounds", "expression": "5 mm"}, {"feature": "Corner bevel", "role": "Rotate Angle", "expression": "45 deg"}, {"feature": "Side hole", "role": "HoleDiameter", "expression": "8 mm"}],
 }
 
 
@@ -230,12 +245,19 @@ def step(feature):
     if isinstance(feature, MirrorSpec):
         return {"kind": "mirror", "source": feature.SourceIndex, "plane": feature.PlaneIndex, "name": feature.FeatureName}
     amount = feature.RadiusMm if isinstance(feature, FilletSpec) else feature.DistanceMm
-    return {
+    result = {
         "kind": "fillet" if isinstance(feature, FilletSpec) else "chamfer",
         "corner_cm": [feature.CornerMm[0] / 10.0, feature.CornerMm[1] / 10.0],
         "amount": mm(amount),
         "name": feature.FeatureName,
     }
+    if feature.MoreCornersMm:
+        result["corners_cm"] = [[x / 10.0, y / 10.0] for x, y in (feature.CornerMm, *feature.MoreCornersMm)]
+    if isinstance(feature, ChamferSpec) and feature.SecondMm:
+        result["second"] = mm(feature.SecondMm)
+    if isinstance(feature, ChamferSpec) and feature.AngleDegrees:
+        result["angle"] = f"{feature.AngleDegrees:g} deg"
+    return result
 
 
 def expectation(solid):

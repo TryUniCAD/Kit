@@ -153,8 +153,7 @@ def add_copy(comp, features, step):
         feats = comp.features.rectangularPatternFeatures
         count = adsk.core.ValueInput.createByReal(step["count_u"])
         inp = feats.createInput(coll(source), comp.xConstructionAxis, count, vi(step["spacing_u"]), adsk.fusion.PatternDistanceType.SpacingPatternDistanceType)
-        if step["count_v"] > 1:
-            inp.setDirectionTwo(comp.yConstructionAxis, adsk.core.ValueInput.createByReal(step["count_v"]), vi(step["spacing_v"]))
+        inp.setDirectionTwo(comp.yConstructionAxis, adsk.core.ValueInput.createByReal(step["count_v"]), vi(step["spacing_v"]))
         return feats.add(inp)
     if step["kind"] == "circular":
         feats = comp.features.circularPatternFeatures
@@ -173,6 +172,11 @@ def add_plane(comp, step):
     origin = {"xy": comp.xYConstructionPlane, "yz": comp.yZConstructionPlane, "xz": comp.xZConstructionPlane}[step["base"]]
     inp.setByOffset(origin, vi(step["offset"]))
     return planes.add(inp)
+
+
+def corner_edges(body, step):
+    corners = step.get("corners_cm", [step["corner_cm"]])
+    return coll(*[vertical_edge(body, *corner) for corner in corners])
 
 
 def build_control(comp, entry):
@@ -197,12 +201,18 @@ def build_control(comp, entry):
         elif step["kind"] == "fillet":
             feats = comp.features.filletFeatures
             inp = feats.createInput()
-            inp.edgeSetInputs.addConstantRadiusEdgeSet(coll(vertical_edge(body, *step["corner_cm"])), vi(step["amount"]), True)
+            inp.edgeSetInputs.addConstantRadiusEdgeSet(corner_edges(body, step), vi(step["amount"]), True)
             feature = feats.add(inp)
         elif step["kind"] == "chamfer":
             feats = comp.features.chamferFeatures
             inp = feats.createInput2()
-            inp.chamferEdgeSets.addEqualDistanceChamferEdgeSet(coll(vertical_edge(body, *step["corner_cm"])), vi(step["amount"]), True)
+            edges = corner_edges(body, step)
+            if "second" in step:
+                inp.chamferEdgeSets.addTwoDistancesChamferEdgeSet(edges, vi(step["amount"]), vi(step["second"]), False, True)
+            elif "angle" in step:
+                inp.chamferEdgeSets.addDistanceAndAngleChamferEdgeSet(edges, vi(step["amount"]), vi(step["angle"]), False, True)
+            else:
+                inp.chamferEdgeSets.addEqualDistanceChamferEdgeSet(edges, vi(step["amount"]), True)
             feature = feats.add(inp)
         else:
             feats = comp.features.shellFeatures
