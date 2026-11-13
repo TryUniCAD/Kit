@@ -19,12 +19,13 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent
 ROOT = BASE.parents[4]
 sys.path.insert(0, str(ROOT / 'src'))
+sys.path.insert(0, str(ROOT / 're/Fusion/Reconstruction/FormDocuments/Tables'))
 sys.path.insert(0, str(BASE))
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil import ClassifyEdges as Rule
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.CageBody import ShapeBody
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.ConvertCage import ConvertCage
-from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.ReadShapes import ReadShapes
-from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.StencilKey import StencilKey
+from ReadShapes import ReadShapes
+from StencilKey import StencilKey
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from ReadConverted import ReadConverted
 

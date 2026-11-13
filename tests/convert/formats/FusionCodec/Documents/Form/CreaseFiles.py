@@ -17,3 +17,13 @@ KCreaseSplit: tuple[str, str] = (
     "re/Fusion/LocalOracle/FormDocuments/StencilAccept/Saved/OracleCreasedPlaneFresh.f3d",
     "2126cbc9efeb4b7029a02681964a017891fb6e3c1d211d260c50b74537052059",
 )
+
+KCutCage: tuple[str, str] = (
+    "re/Fusion/LocalOracle/FormDocuments/General/CreaseCaps/Crease3L1S0_1.tsm",
+    "34d927c7091741828f1ed08ef863bb2e7a817325750f93c10c0eda0ff851372b",
+)
+
+KDartCage: tuple[str, str] = (
+    "re/Fusion/LocalOracle/FormDocuments/General/CreaseCaps/Crease3L2S0_0.tsm",
+    "d1e83eb59902f0d4decb7d0cb68065948adb689d21a2deda4502cd20065a7eb0",
+)

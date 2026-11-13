@@ -1,0 +1,1625 @@
+{
+ "fusion_version": "2706.1.17",
+ "scope": "Kit SwapFormCage documents (general cage rules) on fresh cages against Fusion conversion of the same Kit TSM: open, compute, Form vertex edit and reconversion, save and reopen. Saves of this run stay in the ignored tmp folder; StencilAccept/Saved and StencilAccept/NativeAcceptance.json hold the first run of the stencil tables",
+ "tolerance_cm": 1e-08,
+ "documents_before": 0,
+ "cases": [
+  {
+   "case": "BoxFresh",
+   "oracle": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.543022052059044,
+       "volume_cm3": 9.35520811028778,
+       "face_rows_sha256": "c0ad990d8a476c4e6128de2727fc35a5d7aa73328c531c4da515851f179c0920",
+       "edge_rows_sha256": "6dd27ec242d704b1d40bd0b2315d3c384181a0e0d939df245c706a7441c6147c",
+       "vertex_cm_sha256": "8ae9f01a1eddac2385720a62c64b9de500247aff23ed3ed66725b9b1f281e3c5"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.543022052059044,
+       "volume_cm3": 9.35520811028778,
+       "face_rows_sha256": "c0ad990d8a476c4e6128de2727fc35a5d7aa73328c531c4da515851f179c0920",
+       "edge_rows_sha256": "6dd27ec242d704b1d40bd0b2315d3c384181a0e0d939df245c706a7441c6147c",
+       "vertex_cm_sha256": "8ae9f01a1eddac2385720a62c64b9de500247aff23ed3ed66725b9b1f281e3c5"
+      }
+     ]
+    },
+    "cage_tsm_sha256": "2a5fc8efc583734f20302c856aa02b158264d270f164174876c912a0aaf6591d",
+    "edited_vertex_cm": [
+     -0.998770457,
+     3.692836793,
+     2.039658237
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.484368118612267,
+       "volume_cm3": 9.302089922738809,
+       "face_rows_sha256": "e5334cc0bb8200f3263c9becb4768a46928abc63408ac060ca961994a28a8aa3",
+       "edge_rows_sha256": "9148c7cb4780898b40f7821bf3f74d681bae3bd0f30b8341ec0c9b4e65cd542b",
+       "vertex_cm_sha256": "33936d4419d7535f6478851f3fb8cbb4b9c7553274a23c1d4720b344bb28fc8d"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/OracleBoxFresh.f3d",
+    "saved_sha256": "d2488552a79ba98e137341c1c5e694e1446e882cdffa69c5e4bca6ea0612d6d8",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.484368118612267,
+       "volume_cm3": 9.302089922738809,
+       "face_rows_sha256": "e5334cc0bb8200f3263c9becb4768a46928abc63408ac060ca961994a28a8aa3",
+       "edge_rows_sha256": "9148c7cb4780898b40f7821bf3f74d681bae3bd0f30b8341ec0c9b4e65cd542b",
+       "vertex_cm_sha256": "33936d4419d7535f6478851f3fb8cbb4b9c7553274a23c1d4720b344bb28fc8d"
+      }
+     ]
+    }
+   },
+   "kit": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Owned Box",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.54302205205905,
+       "volume_cm3": 9.355208110287789,
+       "face_rows_sha256": "85528c623047dc21c4e219d5c035c0212170ff869c2a882a89a9c414ed237ba3",
+       "edge_rows_sha256": "110f312770506d403d5e096863da1648372f5d968954ea31753bf0683e297151",
+       "vertex_cm_sha256": "c0d6551697708f30bbdbffbe5b64290e8efab025efcef8a538c2264cfa2af0b9"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Owned Box",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.54302205205905,
+       "volume_cm3": 9.355208110287789,
+       "face_rows_sha256": "85528c623047dc21c4e219d5c035c0212170ff869c2a882a89a9c414ed237ba3",
+       "edge_rows_sha256": "110f312770506d403d5e096863da1648372f5d968954ea31753bf0683e297151",
+       "vertex_cm_sha256": "c0d6551697708f30bbdbffbe5b64290e8efab025efcef8a538c2264cfa2af0b9"
+      }
+     ]
+    },
+    "cage_tsm_sha256": "2a5fc8efc583734f20302c856aa02b158264d270f164174876c912a0aaf6591d",
+    "edited_vertex_cm": [
+     -0.998770457,
+     3.692836793,
+     2.039658237
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Owned Box",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.484368118612267,
+       "volume_cm3": 9.302089922738809,
+       "face_rows_sha256": "e5334cc0bb8200f3263c9becb4768a46928abc63408ac060ca961994a28a8aa3",
+       "edge_rows_sha256": "9148c7cb4780898b40f7821bf3f74d681bae3bd0f30b8341ec0c9b4e65cd542b",
+       "vertex_cm_sha256": "33936d4419d7535f6478851f3fb8cbb4b9c7553274a23c1d4720b344bb28fc8d"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/KitBoxFresh.f3d",
+    "saved_sha256": "3283b77bf0fb9f729b82658ce8e20dcf198c6d2ae40577b60e34414e6a3914c1",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Owned Box",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.484368118612267,
+       "volume_cm3": 9.302089922738809,
+       "face_rows_sha256": "e5334cc0bb8200f3263c9becb4768a46928abc63408ac060ca961994a28a8aa3",
+       "edge_rows_sha256": "9148c7cb4780898b40f7821bf3f74d681bae3bd0f30b8341ec0c9b4e65cd542b",
+       "vertex_cm_sha256": "33936d4419d7535f6478851f3fb8cbb4b9c7553274a23c1d4720b344bb28fc8d"
+      }
+     ]
+    }
+   },
+   "problems": [],
+   "problem_count": 0,
+   "status": "accepted"
+  },
+  {
+   "case": "SymmetricBoxEdited",
+   "oracle": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.837549328910264,
+       "volume_cm3": 8.920267952153097,
+       "face_rows_sha256": "68142347cc1a61b00aa7dced1a8f44ce3a7076857babbe26f0ece58927011ba8",
+       "edge_rows_sha256": "ed59f3b6273f98a69f1dc6d19e7887005c0681da19c49c80dd5801aef2d63921",
+       "vertex_cm_sha256": "5bcf4aa2b3a05e779800c620fd3f5f8e08701a1c1935e134627f77ad9e1cf015"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.837549328910264,
+       "volume_cm3": 8.920267952153097,
+       "face_rows_sha256": "68142347cc1a61b00aa7dced1a8f44ce3a7076857babbe26f0ece58927011ba8",
+       "edge_rows_sha256": "ed59f3b6273f98a69f1dc6d19e7887005c0681da19c49c80dd5801aef2d63921",
+       "vertex_cm_sha256": "5bcf4aa2b3a05e779800c620fd3f5f8e08701a1c1935e134627f77ad9e1cf015"
+      }
+     ]
+    },
+    "cage_tsm_sha256": "f36c2beeefc8bbaf9bdd59819a0809f99c40a60c225eb779d8f3e7378661f915",
+    "edited_vertex_cm": [
+     -0.72728488052,
+     1.270794396572,
+     3.622950813397
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.735439828294098,
+       "volume_cm3": 8.853057041375472,
+       "face_rows_sha256": "b6f27cca3f6b1c8228d15c2fd88e56f1d326e222439b3feb47996091ce62ab29",
+       "edge_rows_sha256": "21181e5b97734b682e5dc922cf4ea8020b5d01d127a7de6b59d3bf534ee4e241",
+       "vertex_cm_sha256": "cf85da9abfa85890642be9a1f9d8f993576f48c6d4d8aea89eb53c2d309e9b05"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/OracleSymmetricBoxEdited.f3d",
+    "saved_sha256": "05bb8b184da3547ce6fe0f7ef46ac318608b0345f692c53da7c9d44e4144358a",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.735439828294098,
+       "volume_cm3": 8.853057041375472,
+       "face_rows_sha256": "b6f27cca3f6b1c8228d15c2fd88e56f1d326e222439b3feb47996091ce62ab29",
+       "edge_rows_sha256": "21181e5b97734b682e5dc922cf4ea8020b5d01d127a7de6b59d3bf534ee4e241",
+       "vertex_cm_sha256": "cf85da9abfa85890642be9a1f9d8f993576f48c6d4d8aea89eb53c2d309e9b05"
+      }
+     ]
+    }
+   },
+   "kit": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Owned SymmetricBox",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.837549328910285,
+       "volume_cm3": 8.920267952153107,
+       "face_rows_sha256": "e77bc558c23363c637260c2f996215f3c2bba8b9eaeada818d5b4468d25fd975",
+       "edge_rows_sha256": "54a7e22762cee4ddc466e7f4cfaa7574dd0abfc7d5d9e0d5a1701b2b3cc4c2fc",
+       "vertex_cm_sha256": "96a48a467cea5ddebb8c781194e22ed4f2438504418aa483df4c3ab05e72c547"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Owned SymmetricBox",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.837549328910285,
+       "volume_cm3": 8.920267952153107,
+       "face_rows_sha256": "e77bc558c23363c637260c2f996215f3c2bba8b9eaeada818d5b4468d25fd975",
+       "edge_rows_sha256": "54a7e22762cee4ddc466e7f4cfaa7574dd0abfc7d5d9e0d5a1701b2b3cc4c2fc",
+       "vertex_cm_sha256": "96a48a467cea5ddebb8c781194e22ed4f2438504418aa483df4c3ab05e72c547"
+      }
+     ]
+    },
+    "cage_tsm_sha256": "f36c2beeefc8bbaf9bdd59819a0809f99c40a60c225eb779d8f3e7378661f915",
+    "edited_vertex_cm": [
+     -0.72728488052,
+     1.270794396572,
+     3.622950813397
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Owned SymmetricBox",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.735439828294098,
+       "volume_cm3": 8.853057041375472,
+       "face_rows_sha256": "b6f27cca3f6b1c8228d15c2fd88e56f1d326e222439b3feb47996091ce62ab29",
+       "edge_rows_sha256": "21181e5b97734b682e5dc922cf4ea8020b5d01d127a7de6b59d3bf534ee4e241",
+       "vertex_cm_sha256": "cf85da9abfa85890642be9a1f9d8f993576f48c6d4d8aea89eb53c2d309e9b05"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/KitSymmetricBoxEdited.f3d",
+    "saved_sha256": "f82821264e87cae83d45774f8536aca1fd68fba4c9a70c4f21ec892b6fbcf2b7",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Owned SymmetricBox",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.735439828294098,
+       "volume_cm3": 8.853057041375472,
+       "face_rows_sha256": "b6f27cca3f6b1c8228d15c2fd88e56f1d326e222439b3feb47996091ce62ab29",
+       "edge_rows_sha256": "21181e5b97734b682e5dc922cf4ea8020b5d01d127a7de6b59d3bf534ee4e241",
+       "vertex_cm_sha256": "cf85da9abfa85890642be9a1f9d8f993576f48c6d4d8aea89eb53c2d309e9b05"
+      }
+     ]
+    }
+   },
+   "problems": [],
+   "problem_count": 0,
+   "status": "accepted"
+  },
+  {
+   "case": "CreasedPlaneFresh",
+   "status": "refused by Kit",
+   "refusal": "Fusion Form cage swap would change a crease edge class"
+  },
+  {
+   "case": "CreasedBoxFresh",
+   "oracle": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.286028645961515,
+       "volume_cm3": 9.812463482516083,
+       "face_rows_sha256": "01df71e26e469de09fd8aebab394bb4e48883d52569c5a66fccfaf4f6da5bd3a",
+       "edge_rows_sha256": "f9e2d65296e5d8c0467f98d9748ddc99449a1fd508c2c233c81941788a384088",
+       "vertex_cm_sha256": "e383e605302cdfc2ea81cf1f53e44ff293face9d5b15620fade9a4bd2bde2c10"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.286028645961515,
+       "volume_cm3": 9.812463482516083,
+       "face_rows_sha256": "01df71e26e469de09fd8aebab394bb4e48883d52569c5a66fccfaf4f6da5bd3a",
+       "edge_rows_sha256": "f9e2d65296e5d8c0467f98d9748ddc99449a1fd508c2c233c81941788a384088",
+       "vertex_cm_sha256": "e383e605302cdfc2ea81cf1f53e44ff293face9d5b15620fade9a4bd2bde2c10"
+      }
+     ]
+    },
+    "cage_tsm_sha256": "455d7065354eceda8f271f643fa088aa1440173ce5ffa4bcd545bed2a5739bda",
+    "edited_vertex_cm": [
+     -0.750684261,
+     2.494224124,
+     3.593934969
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.27966734709038,
+       "volume_cm3": 9.784689266075642,
+       "face_rows_sha256": "12e1fa0082ea1a81fabbba8e7e08afe34466b7bcc93194d78508fc2d7d8aaa56",
+       "edge_rows_sha256": "3134d81b31b8b29ad0f5d4845f3dd2fd564608f1b5e6fe3a007127b620ab80ea",
+       "vertex_cm_sha256": "4b84da8f80ef4343ff85cfc58e19eec29889178f8d083a9d809d810d22daec72"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/OracleCreasedBoxFresh.f3d",
+    "saved_sha256": "d6b642560a7ff5eb237bb2cc8a43fc7b8d833ad5e2fe98557bab06d7d30a9119",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.27966734709038,
+       "volume_cm3": 9.784689266075642,
+       "face_rows_sha256": "12e1fa0082ea1a81fabbba8e7e08afe34466b7bcc93194d78508fc2d7d8aaa56",
+       "edge_rows_sha256": "3134d81b31b8b29ad0f5d4845f3dd2fd564608f1b5e6fe3a007127b620ab80ea",
+       "vertex_cm_sha256": "4b84da8f80ef4343ff85cfc58e19eec29889178f8d083a9d809d810d22daec72"
+      }
+     ]
+    }
+   },
+   "kit": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Qualified Form",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.286028645961505,
+       "volume_cm3": 9.812463482516062,
+       "face_rows_sha256": "ace24c322426d107136e2c54365bae037ce84cd25bddb7f5f9e15e6c4840d352",
+       "edge_rows_sha256": "7eaa9bd3196d23bd45f346191b985c6a520302384905b43624e2b50b16549b23",
+       "vertex_cm_sha256": "07905376c0eb0dc6d056dca6fc4cbd74c900841cc527441b4b78e89b25561a14"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Qualified Form",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.286028645961505,
+       "volume_cm3": 9.812463482516062,
+       "face_rows_sha256": "ace24c322426d107136e2c54365bae037ce84cd25bddb7f5f9e15e6c4840d352",
+       "edge_rows_sha256": "7eaa9bd3196d23bd45f346191b985c6a520302384905b43624e2b50b16549b23",
+       "vertex_cm_sha256": "07905376c0eb0dc6d056dca6fc4cbd74c900841cc527441b4b78e89b25561a14"
+      }
+     ]
+    },
+    "cage_tsm_sha256": "455d7065354eceda8f271f643fa088aa1440173ce5ffa4bcd545bed2a5739bda",
+    "edited_vertex_cm": [
+     -0.750684261,
+     2.494224124,
+     3.593934969
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Qualified Form",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.27966734709038,
+       "volume_cm3": 9.784689266075642,
+       "face_rows_sha256": "12e1fa0082ea1a81fabbba8e7e08afe34466b7bcc93194d78508fc2d7d8aaa56",
+       "edge_rows_sha256": "3134d81b31b8b29ad0f5d4845f3dd2fd564608f1b5e6fe3a007127b620ab80ea",
+       "vertex_cm_sha256": "4b84da8f80ef4343ff85cfc58e19eec29889178f8d083a9d809d810d22daec72"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/KitCreasedBoxFresh.f3d",
+    "saved_sha256": "4b766d12e50021530004c314bab0cb6f4199c18dd9b6cd5180342f9358a8ef22",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Qualified Form",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.27966734709038,
+       "volume_cm3": 9.784689266075642,
+       "face_rows_sha256": "12e1fa0082ea1a81fabbba8e7e08afe34466b7bcc93194d78508fc2d7d8aaa56",
+       "edge_rows_sha256": "3134d81b31b8b29ad0f5d4845f3dd2fd564608f1b5e6fe3a007127b620ab80ea",
+       "vertex_cm_sha256": "4b84da8f80ef4343ff85cfc58e19eec29889178f8d083a9d809d810d22daec72"
+      }
+     ]
+    }
+   },
+   "problems": [],
+   "problem_count": 0,
+   "status": "accepted"
+  },
+  {
+   "case": "Valence5Fresh",
+   "oracle": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.579733049533361,
+       "volume_cm3": 2.8933026046761428,
+       "face_rows_sha256": "b3fbf7d647e9ed71f1552435b66714600daeed06a3df6d21a678196dd362b7d0",
+       "edge_rows_sha256": "6010b9f5b4582d4c01278e8d11b3c9933eee27a2db70181cc7852530d6559f86",
+       "vertex_cm_sha256": "98255ba42116dadd55bc94d60c6501845e1e5d0c9c880280a1fe7e29ff6a5ff9"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.579733049533361,
+       "volume_cm3": 2.8933026046761428,
+       "face_rows_sha256": "b3fbf7d647e9ed71f1552435b66714600daeed06a3df6d21a678196dd362b7d0",
+       "edge_rows_sha256": "6010b9f5b4582d4c01278e8d11b3c9933eee27a2db70181cc7852530d6559f86",
+       "vertex_cm_sha256": "98255ba42116dadd55bc94d60c6501845e1e5d0c9c880280a1fe7e29ff6a5ff9"
+      }
+     ]
+    },
+    "cage_tsm_sha256": "82eeb562172d6b13dc42676368409ec5c3540287a5f882d39a92404a9921d78d",
+    "edited_vertex_cm": [
+     -1.047510763,
+     -0.669322015,
+     0.75739461
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.510589959352087,
+       "volume_cm3": 2.8666085372962473,
+       "face_rows_sha256": "358f57a6dc57a1e4b6aa1b824b7e80785b479bb9657f9338fe2900245a85404b",
+       "edge_rows_sha256": "d13d1c1326cee9b9cd5c1fc1f8a393df8479039bde32f3cf57bebacc761a4b28",
+       "vertex_cm_sha256": "e79aca982544bc73c03b2844e97173391db6b1128adf8a940cb8b5c11d9a62c5"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/OracleValence5Fresh.f3d",
+    "saved_sha256": "b34625f65616d8c5c3949023a52b2b3e98232eec3a24b46d0f3a13290efbeca6",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.510589959352087,
+       "volume_cm3": 2.8666085372962473,
+       "face_rows_sha256": "358f57a6dc57a1e4b6aa1b824b7e80785b479bb9657f9338fe2900245a85404b",
+       "edge_rows_sha256": "d13d1c1326cee9b9cd5c1fc1f8a393df8479039bde32f3cf57bebacc761a4b28",
+       "vertex_cm_sha256": "e79aca982544bc73c03b2844e97173391db6b1128adf8a940cb8b5c11d9a62c5"
+      }
+     ]
+    }
+   },
+   "kit": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.579733049533374,
+       "volume_cm3": 2.89330260467615,
+       "face_rows_sha256": "ca0d6a254e3cdea366c30e254694f69c86b9bedc99fd084cc573bef1a63421ee",
+       "edge_rows_sha256": "4784438f17b35ec7f864c6861bd624500609d711eed79365c72c96997604dff4",
+       "vertex_cm_sha256": "069ccbd1e3b49ce1bfe4bfb606a2bbbdfa7539f0e8244fe8477a242e51d91db9"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.579733049533374,
+       "volume_cm3": 2.89330260467615,
+       "face_rows_sha256": "ca0d6a254e3cdea366c30e254694f69c86b9bedc99fd084cc573bef1a63421ee",
+       "edge_rows_sha256": "4784438f17b35ec7f864c6861bd624500609d711eed79365c72c96997604dff4",
+       "vertex_cm_sha256": "069ccbd1e3b49ce1bfe4bfb606a2bbbdfa7539f0e8244fe8477a242e51d91db9"
+      }
+     ]
+    },
+    "cage_tsm_sha256": "82eeb562172d6b13dc42676368409ec5c3540287a5f882d39a92404a9921d78d",
+    "edited_vertex_cm": [
+     -1.047510763,
+     -0.669322015,
+     0.75739461
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.510589959352087,
+       "volume_cm3": 2.8666085372962473,
+       "face_rows_sha256": "358f57a6dc57a1e4b6aa1b824b7e80785b479bb9657f9338fe2900245a85404b",
+       "edge_rows_sha256": "d13d1c1326cee9b9cd5c1fc1f8a393df8479039bde32f3cf57bebacc761a4b28",
+       "vertex_cm_sha256": "e79aca982544bc73c03b2844e97173391db6b1128adf8a940cb8b5c11d9a62c5"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/KitValence5Fresh.f3d",
+    "saved_sha256": "99d595e6263f48c0d56566dd9ee5488a07af6f7ba310c77835d399a36a1c3b1f",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.510589959352087,
+       "volume_cm3": 2.8666085372962473,
+       "face_rows_sha256": "358f57a6dc57a1e4b6aa1b824b7e80785b479bb9657f9338fe2900245a85404b",
+       "edge_rows_sha256": "d13d1c1326cee9b9cd5c1fc1f8a393df8479039bde32f3cf57bebacc761a4b28",
+       "vertex_cm_sha256": "e79aca982544bc73c03b2844e97173391db6b1128adf8a940cb8b5c11d9a62c5"
+      }
+     ]
+    }
+   },
+   "problems": [],
+   "problem_count": 0,
+   "status": "accepted"
+  },
+  {
+   "case": "Valence6Fresh",
+   "oracle": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.540048386693945,
+       "volume_cm3": 3.7876052771008792,
+       "face_rows_sha256": "815b665c635bcaa07838167d89fcf99d118bbe37fde7bc56dcb81391f7dfb4d8",
+       "edge_rows_sha256": "267fab127c5fb4923df5ecc08463ac6d0fdf3788564388d47f81155404e48cbf",
+       "vertex_cm_sha256": "7cc57f07b291b06fc0c7e284a13c3c0bc71293b84e4c131043060a86037267a4"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.540048386693945,
+       "volume_cm3": 3.7876052771008792,
+       "face_rows_sha256": "815b665c635bcaa07838167d89fcf99d118bbe37fde7bc56dcb81391f7dfb4d8",
+       "edge_rows_sha256": "267fab127c5fb4923df5ecc08463ac6d0fdf3788564388d47f81155404e48cbf",
+       "vertex_cm_sha256": "7cc57f07b291b06fc0c7e284a13c3c0bc71293b84e4c131043060a86037267a4"
+      }
+     ]
+    },
+    "cage_tsm_sha256": "14407ffc2fda5f86d3cbe75a3f61f352a347d9ef0620570260dd78845e141019",
+    "edited_vertex_cm": [
+     -1.273956623,
+     -0.08285925,
+     0.61933098
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.474206238754762,
+       "volume_cm3": 3.761837225076717,
+       "face_rows_sha256": "7d5b740a3376afeaac6c280aabe460259d708936fec2f96aa9350b8719a5befd",
+       "edge_rows_sha256": "10ebcdf02ed098f7e7d25ebe2d15fd9383e88b588e4d03aed635d27aacdc8316",
+       "vertex_cm_sha256": "376651aceb9313c2eb84d62bbe13013faf314ec5a00fcad163941ae031b66e90"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/OracleValence6Fresh.f3d",
+    "saved_sha256": "dfff425fff4b978eede4fbc1652daffe7e68936bd0b46fad1f594a06fc340c4d",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.474206238754762,
+       "volume_cm3": 3.761837225076717,
+       "face_rows_sha256": "7d5b740a3376afeaac6c280aabe460259d708936fec2f96aa9350b8719a5befd",
+       "edge_rows_sha256": "10ebcdf02ed098f7e7d25ebe2d15fd9383e88b588e4d03aed635d27aacdc8316",
+       "vertex_cm_sha256": "376651aceb9313c2eb84d62bbe13013faf314ec5a00fcad163941ae031b66e90"
+      }
+     ]
+    }
+   },
+   "kit": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.540048386693964,
+       "volume_cm3": 3.787605277100885,
+       "face_rows_sha256": "a52213cdcc4675c4bbaefe6994efaf78c476f50be1de256ab2225a018714e95a",
+       "edge_rows_sha256": "adfe674aadaa7523d36f77cfd3fdf54ec5af2b8298d6cc8792a329153675fd73",
+       "vertex_cm_sha256": "fd7f1e72596870beba383db851fe633f7bfcc851114565546ca818cea5cce088"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.540048386693964,
+       "volume_cm3": 3.787605277100885,
+       "face_rows_sha256": "a52213cdcc4675c4bbaefe6994efaf78c476f50be1de256ab2225a018714e95a",
+       "edge_rows_sha256": "adfe674aadaa7523d36f77cfd3fdf54ec5af2b8298d6cc8792a329153675fd73",
+       "vertex_cm_sha256": "fd7f1e72596870beba383db851fe633f7bfcc851114565546ca818cea5cce088"
+      }
+     ]
+    },
+    "cage_tsm_sha256": "14407ffc2fda5f86d3cbe75a3f61f352a347d9ef0620570260dd78845e141019",
+    "edited_vertex_cm": [
+     -1.273956623,
+     -0.08285925,
+     0.61933098
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.474206238754762,
+       "volume_cm3": 3.761837225076717,
+       "face_rows_sha256": "7d5b740a3376afeaac6c280aabe460259d708936fec2f96aa9350b8719a5befd",
+       "edge_rows_sha256": "10ebcdf02ed098f7e7d25ebe2d15fd9383e88b588e4d03aed635d27aacdc8316",
+       "vertex_cm_sha256": "376651aceb9313c2eb84d62bbe13013faf314ec5a00fcad163941ae031b66e90"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/KitValence6Fresh.f3d",
+    "saved_sha256": "27e80d505bf29822ca2a991d95a8d864cca16cfe39e7fedcc70fde73be6811e5",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.474206238754762,
+       "volume_cm3": 3.761837225076717,
+       "face_rows_sha256": "7d5b740a3376afeaac6c280aabe460259d708936fec2f96aa9350b8719a5befd",
+       "edge_rows_sha256": "10ebcdf02ed098f7e7d25ebe2d15fd9383e88b588e4d03aed635d27aacdc8316",
+       "vertex_cm_sha256": "376651aceb9313c2eb84d62bbe13013faf314ec5a00fcad163941ae031b66e90"
+      }
+     ]
+    }
+   },
+   "problems": [],
+   "problem_count": 0,
+   "status": "accepted"
+  },
+  {
+   "case": "Box3Fresh",
+   "oracle": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.600016850470183,
+       "volume_cm3": 12.646815219211714,
+       "face_rows_sha256": "f79e0bf5b9689ba373a9af81b7f86a26f6b240e76eea1d9b0adac4f13073bc07",
+       "edge_rows_sha256": "1a1cd40e51066f27d6cd33e7b2f2e05e4ce4b6cb7660cbc775e50f3244e307c9",
+       "vertex_cm_sha256": "70f1df3df95858ccf4bf3cc2fbf7bd096677c9eb1197a1736550a6959fa37c50"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.600016850470183,
+       "volume_cm3": 12.646815219211714,
+       "face_rows_sha256": "f79e0bf5b9689ba373a9af81b7f86a26f6b240e76eea1d9b0adac4f13073bc07",
+       "edge_rows_sha256": "1a1cd40e51066f27d6cd33e7b2f2e05e4ce4b6cb7660cbc775e50f3244e307c9",
+       "vertex_cm_sha256": "70f1df3df95858ccf4bf3cc2fbf7bd096677c9eb1197a1736550a6959fa37c50"
+      }
+     ]
+    },
+    "cage_tsm_sha256": "baffb5804f14e69ccef0774097179c5a7d44d3a8604e04c2df6c07cf3a2712e8",
+    "edited_vertex_cm": [
+     -0.093295179,
+     -0.052074668,
+     0.753881442
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.481826713359624,
+       "volume_cm3": 12.58926908686354,
+       "face_rows_sha256": "3db9e081d156ad4763c1dc8b7058d2ec3f21eb5e97d0a117d1ddd26f975ae698",
+       "edge_rows_sha256": "34ebab199691327df478527285127a4be9441b768f9dc4d749c8854927107910",
+       "vertex_cm_sha256": "30a29d1babe5aa76864fa25860a81f81021d87db5ca7d5ca290751bfbca74354"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/OracleBox3Fresh.f3d",
+    "saved_sha256": "80afeb6216090820540a0c63abcf776d8e5209a9c5fd5684bd61c8b87c28bb31",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.481826713359624,
+       "volume_cm3": 12.58926908686354,
+       "face_rows_sha256": "3db9e081d156ad4763c1dc8b7058d2ec3f21eb5e97d0a117d1ddd26f975ae698",
+       "edge_rows_sha256": "34ebab199691327df478527285127a4be9441b768f9dc4d749c8854927107910",
+       "vertex_cm_sha256": "30a29d1babe5aa76864fa25860a81f81021d87db5ca7d5ca290751bfbca74354"
+      }
+     ]
+    }
+   },
+   "kit": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.600016850470215,
+       "volume_cm3": 12.646815219211721,
+       "face_rows_sha256": "c041efb103d680506161326f2508e3235c93245b200ecd3c6986c2c60645ca57",
+       "edge_rows_sha256": "a5f1bbbe1b0493a21f941bb0136174833d76910250f88de90b6cea24e354a9e1",
+       "vertex_cm_sha256": "4cbcbf0fc520931ebf649bffd3a801ed7e102f9275cc8eca064b2290109cffc1"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.600016850470215,
+       "volume_cm3": 12.646815219211721,
+       "face_rows_sha256": "c041efb103d680506161326f2508e3235c93245b200ecd3c6986c2c60645ca57",
+       "edge_rows_sha256": "a5f1bbbe1b0493a21f941bb0136174833d76910250f88de90b6cea24e354a9e1",
+       "vertex_cm_sha256": "4cbcbf0fc520931ebf649bffd3a801ed7e102f9275cc8eca064b2290109cffc1"
+      }
+     ]
+    },
+    "cage_tsm_sha256": "baffb5804f14e69ccef0774097179c5a7d44d3a8604e04c2df6c07cf3a2712e8",
+    "edited_vertex_cm": [
+     -0.093295179,
+     -0.052074668,
+     0.753881442
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.481826713359624,
+       "volume_cm3": 12.58926908686354,
+       "face_rows_sha256": "3db9e081d156ad4763c1dc8b7058d2ec3f21eb5e97d0a117d1ddd26f975ae698",
+       "edge_rows_sha256": "34ebab199691327df478527285127a4be9441b768f9dc4d749c8854927107910",
+       "vertex_cm_sha256": "30a29d1babe5aa76864fa25860a81f81021d87db5ca7d5ca290751bfbca74354"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/KitBox3Fresh.f3d",
+    "saved_sha256": "3e495a3f9eb6c083751906010248528bfb3406a1c2a53bac0df58d7bf91d4a2c",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.481826713359624,
+       "volume_cm3": 12.58926908686354,
+       "face_rows_sha256": "3db9e081d156ad4763c1dc8b7058d2ec3f21eb5e97d0a117d1ddd26f975ae698",
+       "edge_rows_sha256": "34ebab199691327df478527285127a4be9441b768f9dc4d749c8854927107910",
+       "vertex_cm_sha256": "30a29d1babe5aa76864fa25860a81f81021d87db5ca7d5ca290751bfbca74354"
+      }
+     ]
+    }
+   },
+   "problems": [],
+   "problem_count": 0,
+   "status": "accepted"
+  },
+  {
+   "case": "Valence8Fresh",
+   "oracle": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 13.143629176608277,
+       "volume_cm3": 4.083407777323904,
+       "face_rows_sha256": "445fb6157587d8a932b3876f026469170318544ead8daa9798a264bc608b5052",
+       "edge_rows_sha256": "7519e87df4401b03e9d510606120c45bb944f0cd89820f6c3b1e705cdaaeb549",
+       "vertex_cm_sha256": "e7f6c3397f44cadfc79c558d9fc94ac57f5bfeae9b8d48747b329a2b25eba5a7"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 13.143629176608277,
+       "volume_cm3": 4.083407777323904,
+       "face_rows_sha256": "445fb6157587d8a932b3876f026469170318544ead8daa9798a264bc608b5052",
+       "edge_rows_sha256": "7519e87df4401b03e9d510606120c45bb944f0cd89820f6c3b1e705cdaaeb549",
+       "vertex_cm_sha256": "e7f6c3397f44cadfc79c558d9fc94ac57f5bfeae9b8d48747b329a2b25eba5a7"
+      }
+     ]
+    },
+    "cage_tsm_sha256": "14d8206087c8a3a5370d51a2e407bf425cae343a9a95aefdc4199b9b4d5ba226",
+    "edited_vertex_cm": [
+     -1.21927027,
+     -0.014652248,
+     1.204483496
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 13.134359230274287,
+       "volume_cm3": 4.079765759984445,
+       "face_rows_sha256": "094efe38b1f151e59235b89966e5b2adf1dad16f84e83f73b36fa9de8e2b891c",
+       "edge_rows_sha256": "c940c2e1ece9442486f393cc915fc769fb9e830247537a6b28d3466c0a8905a2",
+       "vertex_cm_sha256": "42cc97460699dfe20a00836664427da5ebbf6914cf3f2124576ab12ca2bf8ea1"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/OracleValence8Fresh.f3d",
+    "saved_sha256": "ca4c3af564450f545a8b8220c58d06a4419b1f7613cdbd14fcbe0c70df84385a",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 13.134359230274287,
+       "volume_cm3": 4.079765759984445,
+       "face_rows_sha256": "094efe38b1f151e59235b89966e5b2adf1dad16f84e83f73b36fa9de8e2b891c",
+       "edge_rows_sha256": "c940c2e1ece9442486f393cc915fc769fb9e830247537a6b28d3466c0a8905a2",
+       "vertex_cm_sha256": "42cc97460699dfe20a00836664427da5ebbf6914cf3f2124576ab12ca2bf8ea1"
+      }
+     ]
+    }
+   },
+   "kit": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 13.143629176608302,
+       "volume_cm3": 4.083407777323909,
+       "face_rows_sha256": "51a1472290f851f756bd2680e10cf8d29606186496ac37dc24caeb6a962e8fe5",
+       "edge_rows_sha256": "97b540d18bf21db7b1c2d1246aa26eff610fcdb8b70f9a37a9a44b4986c6e2fe",
+       "vertex_cm_sha256": "e778f153c3614bba426a9372b137da807c7aabe0ba1ffae35301f0c8aabce851"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 13.143629176608302,
+       "volume_cm3": 4.083407777323909,
+       "face_rows_sha256": "51a1472290f851f756bd2680e10cf8d29606186496ac37dc24caeb6a962e8fe5",
+       "edge_rows_sha256": "97b540d18bf21db7b1c2d1246aa26eff610fcdb8b70f9a37a9a44b4986c6e2fe",
+       "vertex_cm_sha256": "e778f153c3614bba426a9372b137da807c7aabe0ba1ffae35301f0c8aabce851"
+      }
+     ]
+    },
+    "cage_tsm_sha256": "14d8206087c8a3a5370d51a2e407bf425cae343a9a95aefdc4199b9b4d5ba226",
+    "edited_vertex_cm": [
+     -1.21927027,
+     -0.014652248,
+     1.204483496
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 13.134359230274287,
+       "volume_cm3": 4.079765759984445,
+       "face_rows_sha256": "094efe38b1f151e59235b89966e5b2adf1dad16f84e83f73b36fa9de8e2b891c",
+       "edge_rows_sha256": "c940c2e1ece9442486f393cc915fc769fb9e830247537a6b28d3466c0a8905a2",
+       "vertex_cm_sha256": "42cc97460699dfe20a00836664427da5ebbf6914cf3f2124576ab12ca2bf8ea1"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/KitValence8Fresh.f3d",
+    "saved_sha256": "c2dbc35851155aa255631509a5d70278f0fc54f1dd9e9d9fe7f76293e1a6d55b",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 13.134359230274287,
+       "volume_cm3": 4.079765759984445,
+       "face_rows_sha256": "094efe38b1f151e59235b89966e5b2adf1dad16f84e83f73b36fa9de8e2b891c",
+       "edge_rows_sha256": "c940c2e1ece9442486f393cc915fc769fb9e830247537a6b28d3466c0a8905a2",
+       "vertex_cm_sha256": "42cc97460699dfe20a00836664427da5ebbf6914cf3f2124576ab12ca2bf8ea1"
+      }
+     ]
+    }
+   },
+   "problems": [],
+   "problem_count": 0,
+   "status": "accepted"
+  }
+ ],
+ "status": "accepted",
+ "documents_after": 0
+}

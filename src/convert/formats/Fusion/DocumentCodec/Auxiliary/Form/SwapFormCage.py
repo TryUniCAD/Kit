@@ -8,9 +8,6 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.CageBody import Cag
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.ConvertCage import (
     ConvertCage,
 )
-from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.ReadShapes import (
-    ReadShapes,
-)
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.SwapStencil import (
     StencilSwap,
     SwapStencil,
@@ -49,14 +46,31 @@ def CheckClasses(Prior: TsplineSurface, Surface: TsplineSurface) -> None:
         raise ValueError("Fusion Form cage swap would change a crease edge class")
 
 
+def LayoutPart(Surface: TsplineSurface) -> tuple[object, ...]:
+    Header = Surface.Header
+    return (
+        Header.Degree,
+        Header.CapType,
+        Header.StarSmoothness,
+        Header.UnitScale,
+        Header.EndConditions,
+        Header.StarKnotRule,
+        Surface.Topology,
+        Surface.Mapping,
+        Surface.Creases,
+        Surface.SmartGrips,
+        len(Surface.Grips),
+    )
+
+
 def SwapFormCage(Model: DocumentModel, Surface: TsplineSurface) -> DocumentModel:
     if len(Model.Forms) != 1:
         raise ValueError("Fusion Form cage swap needs exactly one Form")
-    Prior, Result = ConvertCage(Model.Forms[0].Surface), ConvertCage(Surface)
-    if Prior.LayoutKey != Result.LayoutKey:
+    Former = Model.Forms[0].Surface
+    if LayoutPart(Former) != LayoutPart(Surface):
         raise ValueError("Fusion Form cage swap needs the same cage layout")
-    if Result.LayoutKey in ReadShapes():
-        CheckClasses(Model.Forms[0].Surface, Surface)
+    Prior, Result = ConvertCage(Former), ConvertCage(Surface)
+    CheckClasses(Former, Surface)
     if not any(
         isinstance(BodyValue.History, JournalModel)
         and IsFormBody(BodyValue.History.Entities)

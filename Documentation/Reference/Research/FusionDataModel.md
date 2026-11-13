@@ -183,10 +183,10 @@ A Form body likewise comes from its stored BRep members, not from a conversion o
 Correct geometry after an open therefore proves only that Fusion read the stored solved state.
 See the [stale open gotcha](../../Gotchas/Conversion/Fusion/Features/FeatureStaleOpen.md) and the [Form authority gotcha](../../Gotchas/Conversion/Fusion/TSpline/StoredFormBrepAuthority.md).
 
-Fusion converts each Form cage layout with a fixed linear map from grips to converted poles.
-No closed form was found for the G1 cap weights around extraordinary vertices.
-A writer must therefore apply a measured table for each qualified layout.
-See [Stencil cage conversion](#stencil-cage-conversion).
+Fusion converts each Form cage with a map that is linear in the homogeneous grips.
+Around extraordinary vertices the G1 cap poles come from a small linear solve, not from a fixed mask.
+Controlled experiments recovered the equations of that solve, so a writer can derive the map from the cage topology.
+See [Cage conversion](#cage-conversion).
 
 Numeric caches have their own precision.
 A native cylinder save stores transverse moments `17.385321755015763` and `17.38532263840058` for one axisymmetric body.
@@ -925,14 +925,14 @@ An open with correct geometry therefore shows only that Fusion read the stored s
 Feature acceptance also needs every rollback marker, `computeAll`, a driving edit and a reopen.
 Each stage is compared with a native control built in the same session.
 
-| Current boundary        | Evidence and limit                                                                                                          |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| Form cage conversion    | Seven tabled stencil layouts and qualified open grids only, as [Stencil cage conversion](#stencil-cage-conversion) lists    |
-| Part feature families   | 18 accepted suites with 109 cases, including revolve, sweep, loft, draft, shell and rounds; other families are records only |
-| Configured designs      | No control exists, because `Design.createConfiguredDesign` is blocked for the account                                       |
-| Saved-document census   | 11 of 1,725 design documents are still unread, as [Read gap rules](#read-gap-rules) lists                                   |
-| Drawings                | Authored sheets, views, edges and dimensions; a DWG written entirely by Kit does not open, and slanted views are refused    |
-| Procedural ASM geometry | Read and re-emitted, but not evaluated, and procedural edits do not update stored approximations                            |
+| Current boundary        | Evidence and limit                                                                                                                 |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Form cage conversion    | Quad cages with valences 3 to 8, creases, weights and one whole-number knot interval, as [Cage conversion](#cage-conversion) lists |
+| Part feature families   | 18 accepted suites with 109 cases, including revolve, sweep, loft, draft, shell and rounds; other families are records only        |
+| Configured designs      | No control exists, because `Design.createConfiguredDesign` is blocked for the account                                              |
+| Saved-document census   | 7 of 1,725 design documents are still unread, as [Read gap rules](#read-gap-rules) lists                                           |
+| Drawings                | Authored sheets, views, edges and dimensions; a DWG written entirely by Kit does not open, and slanted views are refused           |
+| Procedural ASM geometry | Read and re-emitted, but not evaluated, and procedural edits do not update stored approximations                                   |
 
 ## Complete planar cuboid histories
 
@@ -1234,6 +1234,7 @@ It adds these format rules:
 - `ASM BinaryFile4` and `ASM BinaryFile8` give the ASM integer width.
 - A torus carrier can be an apple torus.
 - A TSM member can hold a `106ek` edge knot block.
+- A converted patch program word can be a double in `%.17g` form.
 - The Browser bulk stream can end with stale records.
 - A material package can hold a `Resources` folder tree. Assets that share a definition id keep their own definitions.
 - `ImageSerializer.partName` names a PNG part in `Images.BlobParts`.
@@ -1245,6 +1246,7 @@ A body with an empty physical reference has an undefined material.
 
 The [cache and package gaps change](../../Changes/Fusion/Records/FusionCacheGaps.md) closes the last cache and package gaps of the read gap sweep.
 `ReadDocument` now reads 1,714 of the 1,725 documents, and 1,710 of them round-trip.
+The Form patch word rule then reads the four Form interval files, so 1,718 documents read and 1,714 round-trip.
 It adds these format rules:
 
 - A material asset folder with resources links `AssetData`, `Resources` and `Schemas`. Each `Resources` folder holds a `core.xml` asset node and a `cnx.xml`. The `cnx.xml` links child folders by name or lists resource files next to it. `FolderEntries` writes the tree from `MaterialPackage.Resources`.
@@ -1454,45 +1456,32 @@ A uniform interval from 1 to 4096 scales the parameters and keeps the geometry, 
 Mixed and fractional intervals are refused, because Fusion places their jumps with a geometric test, as the [knot interval gotcha](../../Gotchas/Conversion/Fusion/TSpline/KnotIntervalConversion.md) records.
 The [pole order gotcha](../../Gotchas/Conversion/Fusion/TSpline/GridCagePoleOrder.md) and the [discontinuity gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConvertedDiscontinuityLists.md) give the rules.
 
-### Stencil cage conversion
+### Cage conversion
 
-Fusion converts each cage layout with a fixed linear map from the grips to the converted poles and points.
-The layout is the topology with its root links, grip mapping, creases, smart grips, header rules and grip weights.
-Single-grip probes recovered the map for seven layouts, and a fit to grip-move archives gave an eighth table for the valence-7 prism.
-Further moves of all grips confirmed each map within 2.1e-14 cm.
-Regular regions use small dyadic and triadic fractions.
-Vertex limit points use the Catmull–Clark limit mask.
+Fusion's conversion is linear in the homogeneous grips.
+Kit derives every part of it from the cage topology and ships no per-layout table.
+The rules below were fitted on controlled cages and checked on cages that no rule was fitted on.
 
-No closed form was found for the G1 cap weights around extraordinary vertices.
-They are not small fractions or simple quadratic surds.
-They repeat between layouts with the same corner neighbourhood.
-`ConvertCage` therefore applies a packaged table measured for the cage layout.
-`SwapFormCage` writes the result into a document of that layout.
-Fusion records each interior knot in the discontinuity list of the lowest derivative order that jumps there.
-The [linearity gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConversionIsLinear.md) and the [valence gotcha](../../Gotchas/Conversion/Fusion/TSpline/CageValenceAboveFour.md) give the evidence.
+- Regular regions are the Catmull–Clark limit, written as a uniform bicubic B-spline of the cage.
+- Each B-rep face is a block of cage faces bounded by spoke lines of extraordinary points, creases and fixed crease points.
+- The spoke lines advance one link per round, and two lines that meet head-on join. The line past a dart starts one round late. Two lines that reach one vertex in the same round from perpendicular sides are a tie, and Fusion settles a tie from the grip positions.
+- An extraordinary point (EP) gets double knots at h and 2h. h is a quarter face, or an eighth when another EP or a corner point is next to it.
+- A face's knots along a spoke come from the strip of cells beside that spoke. Knots that other cells add are inserted after the cap solve.
+- Poles outside the caps are blossoms of the Catmull–Clark net at those knots.
+- The cap poles come from one exact linear solve per EP. The [cap gotcha](../../Gotchas/Conversion/Fusion/TSpline/ExtraordinaryCapIsSolved.md) lists its rows.
+- A crease that ends at an EP keeps the net poles on its spoke. Two crease relations replace the rows that cross it.
+- A crease end at a valence-4 vertex is a dart. Next to an EP or another crease, Fusion caps it like valence 4, with midpoints across the crease line and ten mirror relations.
+- A cage with one whole-number knot interval c converts like the unit cage with every parameter scaled by c.
+- Weighted grips enter as (w x, w y, w z, w). A face or curve is rational only when one of its poles depends on a weighted grip.
+- Vertex and edge order and labels follow from the cage. Pcurves are exact lines in face parameters, so each fit tolerance is 0.
+- Edge classes and crease splits are measured on the converted geometry. A sign change of the crease turn inside a cage span gets one cut, at the zero or at a cage knot.
 
-| Layout                                    | Grips         | Faces, edges, vertices             | Source                            |
-| ----------------------------------------- | ------------- | ---------------------------------- | --------------------------------- |
-| Box primitive and symmetric box           | 26            | 6, 12, 8                           | Fusion primitive                  |
-| Creased plane                             | 34            | 2, 7, 6                            | Fusion plane with 11 crease edges |
-| Creased box                               | 26            | 6, 13, 9                           | Fusion box with one crease edge   |
-| Box with 3 × 3 faces per side             | 56            | 6, 12, 8                           | Kit cage                          |
-| Valence-5, valence-6 and valence-8 prisms | 32, 38 and 50 | 15, 35, 22; 18, 42, 26; 24, 56, 34 | Kit cages                         |
-| Valence-7 prism                           | 44            | 21, 49, 30                         | Kit cage, fitted table            |
-
-The TSM grip coordinates are homogeneous, as the [weighted grip gotcha](../../Gotchas/Conversion/Fusion/TSpline/WeightedGripCoordinates.md) shows.
-A weighted cage converts with the same table applied to the homogeneous grips and divided by the table applied to the weights.
-Fusion stores a face or curve as rational only when one of its poles depends on a weighted grip, as the [weighted face gotcha](../../Gotchas/Conversion/Fusion/TSpline/WeightedFaceRationality.md) records.
-Kit reads and writes that rational converted cache, and `ConvertCage` equalled 23 Fusion-saved weighted and fourth-pass archives within 1.2e-13 cm.
-Kit refuses every other stencil layout, bands that join two extraordinary valences, weighted grids and stencil layouts with knot intervals other than 1.
-The G1 caps of a new layout come from a sparse solve inside the T-spline library, so no table can be derived for an arbitrary layout.
-
-The geometry follows the map, but the crease edges do not keep one structure.
-Fusion stores a crease as `tangent` while its faces meet flat and as `unknown` once they bend.
-It split some bent creases into two edges, at a root of the dihedral function or at the start of a flat part.
-`ClassifyEdges` measures the crease angle and sets the class, or refuses a crease that Fusion might split.
-Fusion also refuses a cage whose faces fold back, and `CheckFolds` refuses the same bodies.
-The [crease edge class gotcha](../../Gotchas/Conversion/Fusion/TSpline/CreaseEdgeClass.md) and the [folded cage gotcha](../../Gotchas/Conversion/Fusion/TSpline/FoldedCageRefusal.md) give the evidence.
+`ConvertForm` sends open grids to `GridBody` and every other cage to `CageBody`.
+`CageBody` raises `ValueError` for a cage it cannot convert exactly.
+It refuses face line ties, two creases at one EP, darts with only plain neighbours, and mixed or fractional knot intervals in capped cages.
+Fusion 2706.1.17 accepted 30 Kit documents from these rules within 1e-8 cm: the 8 old layouts, 9 probe cages and 13 held-out cages.
+The [general acceptance report](../../../re/Fusion/LocalOracle/FormDocuments/General/Accept/GeneralAcceptance.json) lists them.
+The [crease edge class gotcha](../../Gotchas/Conversion/Fusion/TSpline/CreaseEdgeClass.md) and the [folded cage gotcha](../../Gotchas/Conversion/Fusion/TSpline/FoldedCageRefusal.md) give the crease and fold evidence.
 
 ### Source-free Form documents
 
@@ -1504,11 +1493,9 @@ The document has no graphics segment.
 A closed body needs `bodyType` 2, and the cached tool entity needs a top-entity identity.
 Without either, `computeAll` drops the body.
 `ConvertForm` derives the body from the cage alone.
-It uses `GridBody` for an open grid and `CageBody` for a stencil layout.
-`CageBody` places the stencil result in the packaged body shape of the layout.
+It uses `GridBody` for an open grid and `CageBody` for every other cage.
+`CageBody` computes the body shape from the cage: vertex and edge order, loops, pcurves, labels, progenitor windows, edge bounds and patch cells.
 It then classifies the crease edges and checks for folds.
-A body shape keeps the edge and face structure, pcurves, fit tolerances, labels, progenitor windows, edge bounds and patch cells of one native carrier.
-These fields stay fixed when the grips of a layout move, apart from rounding noise, labels and the crease edge class.
 
 ### Form document verification
 
@@ -1549,7 +1536,7 @@ The stages were open, edit, conversion, save and reopen.
 | [Cage documents](../../../re/Fusion/LocalOracle/FormDocuments/CageDocuments/NativeAcceptance.json)  | 14 cages with `ConvertForm` bodies    |
 | [Stencil swaps](../../../re/Fusion/LocalOracle/FormDocuments/StencilAccept/NativeAcceptance.json)   | 8 cages swapped into native documents |
 
-The cage documents cover a warped plane grid and every tabled stencil layout.
+The cage documents cover a warped plane grid and the old box, creased and valence layouts.
 Their fresh, bent, sagged, twisted and sheared cages took no part in any fit.
 An offline comparison of the saved oracles found equal structure and edge classes.
 Its largest point gap was 1.2e-13 cm, as the [shape report](../../../re/Fusion/Reconstruction/FormDocuments/Cages/StencilShapes.json) records.

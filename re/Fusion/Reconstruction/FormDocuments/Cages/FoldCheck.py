@@ -20,15 +20,16 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent
 ROOT = BASE.parents[4]
 sys.path.insert(0, str(ROOT / 'src'))
+sys.path.insert(0, str(ROOT / 're/Fusion/Reconstruction/FormDocuments/Tables'))
 sys.path.insert(0, str(BASE))
 from CreaseCheck import kit_written
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Conversion.ConvertGrid import ConvertGrid
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Converted import CheckFolds as Rule
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Converted.GridBody import GridBody
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.CageBody import ShapeBody
-from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.ReadShapes import ReadShapes
+from ReadShapes import ReadShapes
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.SplineFrame import CurveFrame
-from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.StencilKey import StencilKey
+from StencilKey import StencilKey
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from convert.formats.Fusion.TSplineCodec.ReadTspline import ReadTspline
 

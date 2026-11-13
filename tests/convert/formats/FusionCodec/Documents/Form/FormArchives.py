@@ -115,4 +115,20 @@ KFormArchives: tuple[tuple[str, str], ...] = (
         "re/Fusion/LocalOracle/TSplineCodec/vendor_SymmetricBoxReemitted.f3d",
         "31e89e33cf37d345ee0861b18ec41aa32c8e257758b5fff47eb0aa9ec45f0cf7",
     ),
+    (
+        "re/Fusion/LocalOracle/FormDocuments/Intervals/Plane4x4/Half.f3d",
+        "af33aeaabc6dc1694e8e93378571b54d7c7342f4e5e95bb81cb3e6ceb30277e0",
+    ),
+    (
+        "re/Fusion/LocalOracle/FormDocuments/Intervals/Plane4x4/ColumnRow.f3d",
+        "084c0d2c9e3fb7317503d17f438489a7183a61ec84d2310d9a24a0b8af38d5d0",
+    ),
+    (
+        "re/Fusion/LocalOracle/FormDocuments/Intervals/Plane4x4/Single.f3d",
+        "0cc77886bc661c9c37000614dc7ab5d64813f55b39556fcecba7d555372db0cc",
+    ),
+    (
+        "re/Fusion/LocalOracle/FormDocuments/Intervals/Box/Single.f3d",
+        "07e17a88513b7ebe8ee3098ae439e5b2eb9abff022f71dc47fea86ed4c29e73d",
+    ),
 )

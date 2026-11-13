@@ -1,5 +1,3 @@
-from dataclasses import replace as ReplaceValue
-
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Conversion.ConvertGrid import (
     ConvertGrid,
 )
@@ -11,30 +9,38 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Converted.FormBody import (
 )
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Converted.GridBody import GridBody
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.CageBody import CageBody
-from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.ReadShapes import (
-    ReadShapes,
-)
-from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.StencilKey import (
-    StencilKey,
-)
+from convert.formats.Fusion.TSplineCodec.Model.KnotSurface import KnotSurface
 from convert.formats.Fusion.TSplineCodec.Model.TsplineSurface import TsplineSurface
 from convert.formats.Fusion.TSplineCodec.Validation.CheckSurface import CheckSurface
 
 
-def UnitSpans(Surface: TsplineSurface) -> TsplineSurface:
-    Edges = tuple(
-        ReplaceValue(EdgeValue, KnotInterval=1.0)
-        for EdgeValue in Surface.Topology.Edges
-    )
-    return ReplaceValue(Surface, Topology=ReplaceValue(Surface.Topology, Edges=Edges))
+def HasCompounds(Surface: TsplineSurface) -> bool:
+    return len(Surface.Grips) > len(Surface.Topology.Vertices)
+
+
+def HasInnerCreases(Surface: TsplineSurface) -> bool:
+    Creases = Surface.Creases
+    if Creases is None:
+        return False
+    RimEdges = {
+        LinkValue.EdgeIndex
+        for LinkValue in Surface.Topology.Links
+        if LinkValue.FaceIndex == -1
+    }
+    return not set(Creases.EdgeIndices) <= RimEdges
+
+
+def IsPlainKnots(Surface: TsplineSurface) -> bool:
+    Intervals = tuple(EdgeValue.KnotInterval for EdgeValue in Surface.Topology.Edges)
+    return not isinstance(Surface, KnotSurface) or Surface.EdgeKnots == Intervals
 
 
 def ConvertForm(Surface: TsplineSurface) -> FormBody:
     CheckSurface(Surface)
-    if StencilKey(Surface) in ReadShapes():
+    if not IsPlainKnots(Surface):
+        raise ValueError("Fusion Form conversion has no rule for edge knot records")
+    if not HasCompounds(Surface) or HasInnerCreases(Surface):
         return CageBody(Surface)
-    if StencilKey(UnitSpans(Surface)) in ReadShapes():
-        raise ValueError("Fusion Form stencil conversion needs unit knot intervals")
     BodyValue = GridBody(ConvertGrid(Surface))
     CheckFolds(BodyValue)
     return BodyValue

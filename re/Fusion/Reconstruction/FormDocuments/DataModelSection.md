@@ -129,7 +129,7 @@ Bands that join two extraordinary valences change their faces with the grips, as
 The geometry follows the map, but the crease edges do not keep one structure.
 Fusion stores a crease as `tangent` while its faces meet flat and as `unknown` once they bend.
 It split some bent creases into two edges, at a root of the dihedral function or at the start of a flat part.
-`ClassifyEdges` measures the crease angle and sets the class, or refuses a crease that Fusion might split.
+`ClassifyEdges` measures the crease angle, splits at flat knots and labels each piece `tangent` up to 1° and `unknown` above. It refuses the two split cases that the rule does not cover.
 Fusion also refuses a cage whose faces fold back, and `CheckFolds` refuses the same bodies.
 The [crease edge class gotcha](../../Gotchas/Conversion/Fusion/TSpline/CreaseEdgeClass.md) and the [folded cage gotcha](../../Gotchas/Conversion/Fusion/TSpline/FoldedCageRefusal.md) give the evidence.
 

@@ -10,8 +10,6 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.StencilFace import 
 
 @MakeDataClass(frozen=True, slots=True)
 class StencilTable:
-    Label: str
-    LayoutKey: str
     GripCount: int
     Rows: tuple[tuple[tuple[int, float], ...], ...]
     Faces: tuple[StencilFace, ...]

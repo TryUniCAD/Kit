@@ -17,11 +17,12 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent
 ROOT = BASE.parents[4]
 sys.path.insert(0, str(ROOT / 'src'))
+sys.path.insert(0, str(ROOT / 're/Fusion/Reconstruction/FormDocuments/Tables'))
 sys.path.insert(0, str(BASE))
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil import ReadShapes as ShapeModule
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.CageBody import CageBody
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.ConvertCage import ConvertCage
-from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.ReadStencils import ReadStencils
+from ReadStencils import ReadStencils
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from ReadConverted import ReadConverted
 
@@ -38,7 +39,7 @@ CARRIERS = (
 )
 KIT_WRITTEN = ('FormDocuments/StencilAccept/Cases/', 'FormDocuments/Acceptance/Reemitted', 'FormDocuments/Sourceless/Variants/', '/tmp/')
 KIT_FOLDERS = ('FormDocuments/CageDocuments/', 'FormDocuments/Sourceless/')
-TARGET = ROOT / 'src/convert/formats/Fusion/BrepCodec/Journal/Spline/Stencil/FormShapes.xz'
+TARGET = ROOT / 're/Fusion/Reconstruction/FormDocuments/Tables/FormShapes.xz'
 REPORT = BASE / 'StencilShapes.json'
 SLACK = 1e-12
 

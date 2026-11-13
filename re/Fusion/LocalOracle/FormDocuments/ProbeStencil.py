@@ -1,6 +1,7 @@
 import hashlib
 import json
 from pathlib import Path
+import time
 import traceback
 
 import adsk.core
@@ -16,6 +17,7 @@ previous = json.loads(target.read_text()) if (work / 'Probe.json').exists() else
 earlier = {(cage['cage'], row['variant']): row for cage in previous['cages'] for row in cage['variants']}
 report = {'fusion_version': app.version, 'scope': 'Fusion conversion of each prepared stencil variant: TSM import into a new Form, conversion, save to the ignored tmp folder', 'documents_before': app.documents.count, 'api': {}, 'cages': []}
 opened = []
+budget = time.time() + 600
 
 
 def clean(text):
@@ -64,6 +66,9 @@ def run_variant(cage, variant):
         prior = dict(prior)
         prior['tsm_sha256'] = variant['tsm_sha256']
         return prior
+    if time.time() > budget:
+        row['status'] = 'pending'
+        return row
     document, design, form = new_form()
     try:
         if form.tSplineBodies.addByTSMFile(str(path)) is None:
@@ -95,7 +100,8 @@ try:
         for variant in cage['variants']:
             entry['variants'].append(run_variant(cage['cage'], variant))
         checkpoint()
-    report['status'] = 'completed' if all(row['status'] == 'completed' for cage in report['cages'] for row in cage['variants']) else 'errors'
+    states = {row['status'] for cage in report['cages'] for row in cage['variants']}
+    report['status'] = 'completed' if states == {'completed'} else 'partial' if states == {'completed', 'pending'} else 'errors'
 except Exception:
     report['status'] = 'failed'
     report['traceback'] = traceback.format_exc()

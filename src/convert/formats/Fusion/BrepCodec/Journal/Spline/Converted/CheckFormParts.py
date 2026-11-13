@@ -10,6 +10,8 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Converted.FormBody import (
 )
 from convert.formats.Fusion.BrepCodec.Journal.Spline.PatchCell import PatchCell
 
+KCurveClosures = (0, 1, 2)
+
 
 def IsFiniteNumber(Value: object) -> bool:
     return type(Value) in (int, float) and IsFinite(CastValue(float, Value))
@@ -37,8 +39,8 @@ def CheckClamped(Curve: BsCurve, Dimension: int) -> None:
         raise ValueError("Converted Form curve must be a typed B-spline")
     CheckBsCurve(Curve, Dimension)
     EndCounts = (Curve.Multiplicity[0], Curve.Multiplicity[-1])
-    if Curve.Closure != 0 or EndCounts != (Curve.Degree, Curve.Degree):
-        raise ValueError("Converted Form curve must be open and clamped")
+    if Curve.Closure not in KCurveClosures or EndCounts != (Curve.Degree, Curve.Degree):
+        raise ValueError("Converted Form curve must be clamped with a known closure")
 
 
 def CheckWindows(Windows: object, FaceCount: int) -> None:

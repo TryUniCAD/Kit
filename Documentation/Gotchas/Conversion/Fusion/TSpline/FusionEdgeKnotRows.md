@@ -19,7 +19,7 @@ The block has these rules:
 
 Read a surface with the block as a `KnotSurface`, a `TsplineSurface` with `EdgeKnots`. Write the block back in its place. A surface without the block stays a plain `TsplineSurface`, so its model and its semantic hash do not change.
 
-The two files then stop in the converted patch program. Fusion writes each patch word as a double in `%.17g` form. `ReadPatchRow` in `BrepCodec/Journal/Spline/Reading` parses each word as an integer.
+The two files then stopped in the converted patch program, where Fusion writes each patch word as a double in `%.17g` form. `ReadPatchRow` in `BrepCodec/Journal/Spline/Reading` now reads a word in canonical form, an integer or a `%.17g` double, and `WritePatches` writes it the same way. Both files now read and round-trip. `ConvertForm` refuses a `KnotSurface` whose edge knots differ from the edge intervals.
 
 ## Evidence
 

@@ -9,13 +9,13 @@ import adsk.fusion
 
 folder = Path(__file__).resolve().parent
 root = folder.parents[3]
-work = folder / 'StencilAccept'
-saved_folder = work / 'Saved'
+work = folder / 'StencilAccept' / 'General'
+saved_folder = work / 'tmp'
 preparation = json.loads((work / 'Preparation.json').read_text())
 app = adsk.core.Application.get()
 report = {
     'fusion_version': app.version,
-    'scope': 'Kit stencil-converted Form documents on fresh cages against Fusion conversion of the same Kit TSM: open, compute, Form vertex edit and reconversion, save and reopen',
+    'scope': 'Kit SwapFormCage documents (general cage rules) on fresh cages against Fusion conversion of the same Kit TSM: open, compute, Form vertex edit and reconversion, save and reopen. Saves of this run stay in the ignored tmp folder; StencilAccept/Saved and StencilAccept/NativeAcceptance.json hold the first run of the stencil tables',
     'tolerance_cm': 1e-8,
     'documents_before': app.documents.count,
     'cases': [],
@@ -29,8 +29,24 @@ def clean(text):
     return text.replace(str(root), '<repo>').replace(str(Path.home()), '~')
 
 
+def digest_rows(value):
+    if isinstance(value, dict):
+        out = {}
+        for name, item in value.items():
+            if name in ('face_rows', 'edge_rows', 'vertex_cm'):
+                out[name + '_sha256'] = hashlib.sha256(json.dumps(item, sort_keys=True).encode()).hexdigest()
+            else:
+                out[name] = digest_rows(item)
+        return out
+    if isinstance(value, list):
+        return [digest_rows(item) for item in value]
+    return value
+
+
 def checkpoint():
-    target.write_text(clean(json.dumps(report, indent=1)) + '\n')
+    saved_folder.mkdir(exist_ok=True)
+    (saved_folder / 'NativeAcceptanceFull.json').write_text(clean(json.dumps(report, indent=1)) + '\n')
+    target.write_text(clean(json.dumps(digest_rows(report), indent=1)) + '\n')
 
 
 def xyz(point):
@@ -204,8 +220,11 @@ def guarded(action, value, rows):
 try:
     saved_folder.mkdir(exist_ok=True)
     for prepared in preparation['rows']:
+        if prepared.get('status', 'prepared') != 'prepared':
+            report['cases'].append({'case': prepared['case'], 'status': 'refused by Kit', 'refusal': prepared.get('refusal')})
+            continue
         guarded(run_case, prepared, report['cases'])
-    accepted = all(case.get('status') == 'accepted' for case in report['cases'])
+    accepted = all(case.get('status') in ('accepted', 'refused by Kit') for case in report['cases'])
     report['status'] = 'accepted' if accepted else 'different'
 except Exception:
     report['status'] = 'failed'

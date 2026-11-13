@@ -2,57 +2,51 @@
 
 ## Expectation
 
-Fusion converts a cage layout with a fixed linear map. The converted body of one layout should therefore keep one edge structure, and each edge should keep one stored class.
+Fusion converts a cage with a fixed linear map. Each crease edge of one layout should therefore keep one edge structure and one stored class.
 
 ## Actual behavior
 
-The surfaces, curves and points follow the linear map. The crease edges do not keep one structure. Fusion 2706.1.17 stores a crease between two faces as `tangent` while the faces meet flat. It stores `unknown` once they bend, and it splits some bent creases into two edges.
+The surfaces, curves and points follow the linear map. The crease edges do not. Fusion 2706.1.17 labels a converted edge piece from the signed dihedral angle between the two faces along it.
 
-`CreaseSplit.py` measured the angle between the two face normals along each creased plane crease. The sign comes from the triple product with the edge tangent.
+- A piece is `tangent` when its largest absolute angle, edge ends included, is at most 1°. Otherwise it is `unknown`.
+- Sign, scale and edge length do not matter. Folds of 0.99999° and 1.0° stay `tangent`. Folds of 1.000001° and up become `unknown`.
+- There is no band of doubt. The old Kit band from 0.65° to 1.15° was a gap in the data, not in Fusion.
+- Fusion splits a piece at a knot where the faces meet flat over a whole knot span, and at a knot where the angle touches zero without changing sign.
+- A sign change exactly at a knot with both sides past 1° splits into two `unknown` pieces. A sign change away from a knot with one side within 1° stays one `unknown` edge.
+- Editing a Form (`startEdit`, move a vertex, `finishEdit`) gives the same result as importing the edited cage.
 
-| Archive | Largest angle | Interior sign changes | Fusion crease |
-| --- | --- | --- | --- |
-| 7 grip move probes | 0.052° to 0.643° | Noise near 0 | One `tangent` edge |
-| Probe `RandomA` | 1.812° | 1 at 1.341 | One `unknown` edge |
-| Probe `RandomB` | 6.135° | 1 at 2.401 | One `unknown` edge |
-| Large move of grip 31 | 1.163° | Flat from 2.0 to 3.0 | `unknown` on [0, 2] and `tangent` on [2, 3] |
-| Edit of the fresh creased plane | 3.170° | 1 at 1.5747418242971716 | Two `unknown` edges split at 1.5747418242971716 |
-| Bent, sagged and fresh cages as loaded | 5.349° to 9.124° | None | One `unknown` edge |
-| Acceptance edit of the vendor cage | 5.827° | None | One `unknown` edge |
-| Edits of the bent, sagged and twisted cages | 5.912° to 27.706° | None | One `unknown` edge |
+- Fusion splits at the exact zero of the angle, away from a knot, when both sides pass 1° within the knot span of the zero and its neighbour span. The new vertex lies on the curve at that zero. All pieces keep the curve, the label and the label windows.
+- On the held-out crease loop torus, Fusion split the meridian at 1.4693578134647791 and 4.491317241470378. Bisection on the angle gives 1.4693578134647796 and 4.491317241470378.
 
-Fusion split one crease at the root of the dihedral function and another at the start of a flat part. It kept two other creases with a sign change as one edge. The local evidence does not fix the split rule.
-
-Static analysis did not find the rule either. `make_body_from_t_spline::impl::build_body` in `libASMkern232` hands the build to `tsplines_FnBrep_build`. `libtsplines` creates each vertex and each edge through `BrepImpl` callbacks, so it chooses the split vertices. The ASM post-process that follows adds pcurves and sorts coedges and calls no convexity split. The split predicate lies in the stripped `libtsplines` routine at `0x27f198` and its callees. The [reverse-engineering notes](../../../../../re/Fusion/External/ReverseEngineer/README.md) list the call chain.
-
-The creased box crease ends at a dart. Fusion always splits its edge at the dart knot -1.0 into a `tangent` and an `unknown` piece. The shape of that layout already holds the split.
+A sign change inside a cage span, with both sides past 1°, gets exactly one cut. The cut is at the zero or at a cage knot. Crease rounds 12 to 21 (3832 curve groups) recovered where it goes:
+- The run on each side is the furthest cage knot whose stretch to the zero stays within 1°. A side is confined when its run reaches the end span of the edge.
+- The lean compares how fast the turn grows at the two 1° crossings next to the zero. Within a relative difference of 3.05e-4, the square of the 1° limit in radians, the sides tie. Measured ties reach 4.9e-5, and the smallest real lean is 6.3e-4.
+- A side is steep when the turn grows faster than 0.01 rad per unit length, measured both per parameter and per cm of chord.
+- A steep start or end span cuts at the knot after the left run. Otherwise an unconfined tie cuts at the zero. A confined side that leans steeper cuts at its inner run knot; the other combinations cut at the zero or at the edge's first or last inner knot.
+- The refinement knots at 1/8, 1/4 and 1/2 of the end span are never cut points.
 
 ## Workaround
 
-`ClassifyEdges` gives each edge between two faces a class from the measured angle, or refuses the cage. It samples eight interior points in each knot span.
+`ClassifyEdges` measures the signed angle at eight points per knot span, with both ends included, and refines the peak with a golden-section search.
+- It splits at flat knots.
+- It splits at sign changes that pass the two-sided 1° test. It finds each zero by bisection to the last bit and adds a vertex there.
+- It labels each piece by the 1° rule.
+- It cuts a sign change inside a span by the one-cut rule above.
+- It raises `ValueError` for more than one sign change on an edge, a tangent run it cannot bound, a disagreement between the two steepness measures and three undecided branches. It also raises for a cut inside a span that holds only the refinement knots of both its ends.
 
-| Measured edge | Kit class |
-| --- | --- |
-| Shape class `tangent`, largest angle at most 0.65° | `tangent` |
-| Every angle above 1e-6 rad, largest at least 1.15°, one sign | `unknown` |
-| Any other edge | `ValueError` |
+The rule was fitted on rounds 12 to 15, 17, 18 and 21. Held-out rounds 16, 19 and 20 matched 12 of 17, 16 of 18 and 15 of 16 groups before the refit; the miss in round 20 now raises. Over rounds 12 to 21, 155 groups that raised before now match, 25 raise, and none differ.
 
-`CreaseCheck.py` compared the Kit body with the converted body of every Fusion-saved archive of a body-shape layout. It compared the edge count, coedge counts, classes and split bounds.
+Near a dart, one crease span can hold the refinement knots of both its ends. In 9 such crease-end cages, Fusion cut at one of those knots 6 times and at the zero 3 times. The rule cannot tell them apart yet, so `ClassifyEdges` raises for a cut inside such a span.
 
-| Result | Archives | Detail |
-| --- | --- | --- |
-| Accepted and equal | 431 | 13 creased plane archives needed the `unknown` class |
-| Refused, Fusion split or kept a sign change | 7 | Four geometries: the fresh edit, `RandomA`, `RandomB` and the grip 31 move |
-| Accepted but different | 0 | |
-| Refused but equal to the shape | 0 | |
+The rule was replayed over 1484 Fusion-saved Form archives, 44 of them unreadable. 41811 of 41863 shared curve groups match Fusion's pieces and labels, and 38 are refused. 14 differ: 13 are in crease-end probe saves and one is the wide L-turn probe. The replay also converted every cage that the general rules accept. 793 bodies matched Fusion's pieces and labels, 10 were refused, and none differed.
 
-Kit could not read 13 weighted or stale probe archives, and one probe archive has no converted body. The check skipped them.
-
-No archive has a largest crease angle inside the band from 0.65° to 1.15°, so Kit refuses that band. `SwapFormCage` keeps the stored class, so it also refuses a new cage whose class differs from the old cage.
+The creased box crease ends at a dart. Fusion splits that edge at the dart knot into a `tangent` piece and an `unknown` piece, which the flat-span rule predicts.
 
 ## Evidence
 
-- [Crease split study](../../../../../re/Fusion/Reconstruction/FormDocuments/Cages/CreaseSplit.json)
-- [Crease check](../../../../../re/Fusion/Reconstruction/FormDocuments/Cages/CreaseCheck.json)
-- [Cage document acceptance](../../../../../re/Fusion/LocalOracle/FormDocuments/CageDocuments/NativeAcceptance.json)
-- [Probe results](../../../../../re/Fusion/LocalOracle/FormDocuments/Stencil/Probe.json)
+- [Crease rule and its constants](../../../../../re/Fusion/Reconstruction/FormDocuments/Crease/CreaseRule.json)
+- [Rule replay over saved archives](../../../../../re/Fusion/Reconstruction/FormDocuments/Crease/CreaseRuleCheck.json)
+- [One-cut rule and its decision table](../../../../../re/Fusion/Reconstruction/FormDocuments/Crease/CreaseSplitNotes.md)
+- [Lean measures per case](../../../../../re/Fusion/Reconstruction/FormDocuments/Crease/CreaseTilt.json)
+- [Per-cage crease pieces](../../../../../re/Fusion/Reconstruction/FormDocuments/Crease/CreaseSummary.json)
+- [Probe cages and results](../../../../../re/Fusion/LocalOracle/FormDocuments/Crease/)

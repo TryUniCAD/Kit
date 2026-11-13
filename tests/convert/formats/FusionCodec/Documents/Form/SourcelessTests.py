@@ -100,7 +100,7 @@ KRefusals: tuple[tuple[str, str], ...] = (
     ("range", "pcurve range differs from its edge curve"),
     ("window", "edge window names no cage face"),
     ("unique", "labels must be unique"),
-    ("closed", "closed edges are not supported"),
+    ("closed", "closed edges need a closed curve"),
     ("spec", "typed Fusion Form document specification"),
     ("text", "Invalid Form document text"),
 )

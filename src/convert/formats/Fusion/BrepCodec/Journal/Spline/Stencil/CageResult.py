@@ -11,7 +11,6 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.FaceResult import (
 
 @MakeDataClass(frozen=True, slots=True)
 class CageResult:
-    LayoutKey: str
     Faces: tuple[FaceResult, ...]
     Curves: tuple[BsCurve, ...]
     CurveJumps: tuple[tuple[tuple[float, ...], ...], ...]

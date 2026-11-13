@@ -4,6 +4,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.SplineKnot import SplineKno
 
 KOrderSlack = 1e-10
 KOrderDegree = 3
+KPeriodicClosure = 2
 
 
 def SpreadKnots(Values: tuple[float, ...], Counts: tuple[int, ...]) -> list[float]:
@@ -53,13 +54,40 @@ def SpanValue(
     return Points[Degree]
 
 
-def KnotOrders(
+def PoleLevels(
     Knots: list[float], Poles: tuple[tuple[float, ...], ...]
-) -> dict[float, int]:
+) -> list[list[list[float]]]:
     Levels = [[list(PoleValue) for PoleValue in Poles]]
     for Level in (1, 2, 3):
         Levels.append(DeriveLevel(Knots, Levels[-1], Level))
-    Orders: dict[float, int] = {}
+    return Levels
+
+
+def SeamOrders(
+    Knots: list[float], Poles: tuple[tuple[float, ...], ...]
+) -> dict[float, int]:
+    Levels = PoleLevels(Knots, Poles)
+    First = max(Index for Index, Value in enumerate(Knots) if Value == Knots[0])
+    Final = max(Index for Index, Value in enumerate(Knots) if Value < Knots[-1])
+    for Level in (1, 2, 3):
+        Before = SpanValue(Knots, Levels[Level], Level, Final, Knots[-1])
+        After = SpanValue(Knots, Levels[Level], Level, First, Knots[0])
+        if (
+            max(
+                abs(BeforeValue - AfterValue)
+                for BeforeValue, AfterValue in zip(Before, After)
+            )
+            > KOrderSlack
+        ):
+            return {Knots[0]: Level}
+    return {}
+
+
+def KnotOrders(
+    Knots: list[float], Poles: tuple[tuple[float, ...], ...], Periodic: bool = False
+) -> dict[float, int]:
+    Levels = PoleLevels(Knots, Poles)
+    Orders: dict[float, int] = SeamOrders(Knots, Poles) if Periodic else {}
     Inner = Knots[KOrderDegree + 1 : len(Knots) - KOrderDegree - 1]
     for KnotValue in sorted(set(Inner)):
         LeftSpan = max(Index for Index, Value in enumerate(Knots) if Value < KnotValue)
@@ -108,13 +136,17 @@ def CurveOrders(
     if Curve.Degree != KOrderDegree:
         raise ValueError("Fusion jump orders need cubic curves")
     Knots = SpreadKnots(Curve.Knots, Curve.Multiplicity)
+    Periodic = Curve.Closure == KPeriodicClosure
     if Curve.Rational:
-        return SplitOrders(KnotOrders(Knots, MassPoles(Curve.Poles, Curve.Weights)))
-    return SplitOrders(KnotOrders(Knots, Curve.Poles))
+        Masses = MassPoles(Curve.Poles, Curve.Weights)
+        return SplitOrders(KnotOrders(Knots, Masses, Periodic))
+    return SplitOrders(KnotOrders(Knots, Curve.Poles, Periodic))
 
 
 def MergeOrders(
-    Knots: tuple[SplineKnot, ...], Lines: list[tuple[tuple[float, ...], ...]]
+    Knots: tuple[SplineKnot, ...],
+    Lines: list[tuple[tuple[float, ...], ...]],
+    Periodic: bool = False,
 ) -> tuple[tuple[float, ...], tuple[float, ...], tuple[float, ...]]:
     Spread = SpreadKnots(
         tuple(KnotValue.Value for KnotValue in Knots),
@@ -122,7 +154,7 @@ def MergeOrders(
     )
     Merged: dict[float, int] = {}
     for LineValue in Lines:
-        for KnotValue, Level in KnotOrders(Spread, LineValue).items():
+        for KnotValue, Level in KnotOrders(Spread, LineValue, Periodic).items():
             Merged[KnotValue] = min(Level, Merged.get(KnotValue, Level))
     return SplitOrders(Merged)
 
@@ -142,6 +174,6 @@ def SurfaceOrders(Surface: NubsSurface) -> tuple[tuple[float, ...], ...]:
     RowLines = [Points[Index * Width : (Index + 1) * Width] for Index in range(Height)]
     Columns = [Points[Index::Width] for Index in range(Width)]
     return (
-        *MergeOrders(Surface.KnotsU, RowLines),
-        *MergeOrders(Surface.KnotsV, Columns),
+        *MergeOrders(Surface.KnotsU, RowLines, Surface.ClosureU == KPeriodicClosure),
+        *MergeOrders(Surface.KnotsV, Columns, Surface.ClosureV == KPeriodicClosure),
     )

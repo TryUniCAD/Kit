@@ -29,12 +29,6 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.CageResult import (
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.ConvertCage import (
     ConvertCage,
 )
-from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.ReadStencils import (
-    ReadStencils,
-)
-from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.StencilKey import (
-    StencilKey,
-)
 from convert.formats.Fusion.DocumentCodec.Auxiliary.Form.SwapFormCage import (
     SwapFormCage,
 )
@@ -49,7 +43,6 @@ from tests.convert.formats.FusionCodec.Documents.Form.ReadFormFile import (
 from tests.convert.formats.FusionCodec.Documents.Form.StencilArchives import (
     KStencilCages,
     KStencilStale,
-    KStencilUnknown,
 )
 from tests.convert.formats.FusionCodec.Documents.Form.StencilCases import (
     KStencilCases,
@@ -155,8 +148,6 @@ def StencilCounts(Model: DocumentModel, Result: CageResult) -> list[int]:
 )
 def TestNativeCage(CaseValue: tuple[str, str, str]) -> None:
     Model = ReadDocument(ReadFormFile(CaseValue[0], CaseValue[1]))
-    Table = ReadStencils()[StencilKey(Model.Forms[0].Surface)]
-    assert Table.Label == CaseValue[2]
     Counts = StencilCounts(Model, ConvertCage(Model.Forms[0].Surface))
     assert min(Counts) > 0
 
@@ -187,17 +178,6 @@ def TestStencilCage(CaseValue: tuple[str, str, int]) -> None:
     assert max(Valence.values()) == CaseValue[2]
 
 
-def TestTableRows() -> None:
-    Tables = ReadStencils()
-    Labels = sorted(Table.Label for Table in Tables.values())
-    assert Labels == sorted({CaseValue[2] for CaseValue in KStencilNatives})
-    for Table in Tables.values():
-        assert all(
-            abs(sum(Value for _, Value in RowValue) - 1.0) <= 1e-13
-            for RowValue in Table.Rows
-        )
-
-
 @KNeedZip
 def TestCageFault() -> None:
     Model = ReadDocument(ReadFormFile(*KStencilNatives[0][:2]))
@@ -210,13 +190,20 @@ def TestCageFault() -> None:
         for EdgeValue in Surface.Topology.Edges
     )
     Spread = ReplaceValue(Surface, Topology=ReplaceValue(Surface.Topology, Edges=Edges))
-    with RaisesError(ValueError, match="needs unit knot intervals"):
-        _ = ConvertCage(Spread)
-    with RaisesError(ValueError, match="needs unit knot intervals"):
+    Narrow, Widened = ConvertCage(Surface), ConvertCage(Spread)
+    assert [FaceValue.Surface.KnotsU[-1].Value for FaceValue in Widened.Faces] == [
+        2.0 * FaceValue.Surface.KnotsU[-1].Value for FaceValue in Narrow.Faces
+    ]
+    assert (
+        max(
+            abs(LeftValue - RightValue)
+            for LeftPoint, RightPoint in zip(Widened.Points, Narrow.Points, strict=True)
+            for LeftValue, RightValue in zip(LeftPoint, RightPoint, strict=True)
+        )
+        <= KStencilSlack
+    )
+    with RaisesError(ValueError, match="same cage layout"):
         _ = SwapFormCage(Model, Spread)
-    Unknown = ReadDocument(ReadFormFile(*KStencilUnknown)).Forms[0].Surface
-    with RaisesError(ValueError, match="no stencil"):
-        _ = ConvertCage(Unknown)
     Other = next(CaseValue for CaseValue in KStencilNatives if CaseValue[2] != "Box")
     Elsewhere = ReadDocument(ReadFormFile(*Other[:2])).Forms[0].Surface
     with RaisesError(ValueError, match="same cage layout"):

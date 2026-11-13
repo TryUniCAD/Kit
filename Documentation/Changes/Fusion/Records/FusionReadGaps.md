@@ -21,6 +21,8 @@ The corpus has 1,709 tracked files: 1,707 F3D files and 2 F3Z bundles. The bundl
 | `NativeMaterial` failures | 284 | 13 |
 | `NativeMaterial` documents with no body and no material | 35 | 35 |
 
+The patch word rule came after this sweep. The four interval files that stopped in the patch program now read and round-trip, and the counts above do not include them.
+
 No document that read before fails now, and no model of such a document changed. Only the projections of the 11 documents with an undefined body material changed, from the default material to an error.
 
 ## Rules
@@ -29,7 +31,8 @@ No document that read before fails now, and no model of such a document changed.
 | --- | --- | --- |
 | Older saves declare class versions that the catalog lacks. Eight versions have unique layouts. The rest get opaque schemas, bounded by the offset index. | Older example files reach later rules | [Historic class versions](../../../Gotchas/Conversion/Fusion/Records/FusionHistoricClassVersions.md) |
 | A torus carrier can be an apple torus. | 1 | [Apple torus](../../../Gotchas/Conversion/Fusion/Geometry/FusionAppleTorus.md) |
-| A TSM member can hold a `106ek` edge knot block. | Two files reach the patch program | [Edge knot rows](../../../Gotchas/Conversion/Fusion/TSpline/FusionEdgeKnotRows.md) |
+| A TSM member can hold a `106ek` edge knot block. | 2, with the patch word rule | [Edge knot rows](../../../Gotchas/Conversion/Fusion/TSpline/FusionEdgeKnotRows.md) |
+| A converted patch program word can be a double in `%.17g` form. | 4 interval files, the two edge knot files among them | [Knot interval conversion](../../../Gotchas/Conversion/Fusion/TSpline/KnotIntervalConversion.md) |
 | `ReadDocument` reads a Form document whose BRep cache is stale. `EmitParsed` still refuses it. | 4 | [Stored Form BRep authority](../../../Gotchas/Conversion/Fusion/TSpline/StoredFormBrepAuthority.md) |
 | A saved `bool` member can hold any byte. | Older example files reach later rules | [Flag bytes](../../../Gotchas/Conversion/Fusion/Records/FusionFlagBytes.md) |
 | A sketch `secondaryTagId` is a free `u64`. | Older example files reach later rules | [Read gap notes](../../../../re/Fusion/Reconstruction/ReadGaps/ReadGapNotes.md#example-record-rules) |

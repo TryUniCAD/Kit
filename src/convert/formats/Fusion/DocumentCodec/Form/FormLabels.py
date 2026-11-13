@@ -41,4 +41,5 @@ def FormLabels(Model: FormBody) -> tuple[FormLabel, ...]:
         for EdgeValue in Model.Edges
         if EdgeValue.Label
     ]
-    return tuple(sorted(Labels, key=lambda LabelValue: int(LabelValue.Label)))
+    Unique = {LabelValue.Label: LabelValue for LabelValue in reversed(Labels)}
+    return tuple(sorted(Unique.values(), key=lambda LabelValue: int(LabelValue.Label)))

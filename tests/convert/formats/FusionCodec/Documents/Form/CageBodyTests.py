@@ -20,18 +20,11 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Converted.GridBody import (
     GridBody,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.CageBody import CageBody
-from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.ReadShapes import (
-    ReadShapes,
-)
-from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.ReadStencils import (
-    ReadStencils,
-)
-from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.StencilKey import (
-    StencilKey,
-)
 from convert.formats.Fusion.DocumentCodec.Form.EmitFormDoc import EmitFormDoc
 from convert.formats.Fusion.DocumentCodec.Form.FormSpec import FormSpec
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
+from convert.formats.Fusion.TSplineCodec.Model.KnotSurface import KnotSurface
+from convert.formats.Fusion.TSplineCodec.Model.TsplineSurface import TsplineSurface
 from convert.formats.Fusion.TSplineCodec.ReadTspline import ReadTspline
 from tests.convert.formats.FusionCodec.Documents.Form.ReadConverted import (
     ReadConverted,
@@ -50,9 +43,36 @@ from tests.convert.formats.FusionCodec.Documents.Form.StencilNatives import (
 )
 
 KCageSlack = 1e-12
+KUniformSave = (
+    "re/Fusion/LocalOracle/FormDocuments/Intervals/Box/Uniform2.f3d",
+    "ea2495bf176e9845309a4af79ddffc3365e70b6ea7f6c67f445e2b74cf8da2eb",
+)
+KSingleSave = (
+    "re/Fusion/LocalOracle/FormDocuments/Intervals/Box/Single.f3d",
+    "07e17a88513b7ebe8ee3098ae439e5b2eb9abff022f71dc47fea86ed4c29e73d",
+)
 KNeedZip = MarkTests.skipif(
     PythonVersion < (3, 14), reason="native Form archive requires ZIP Zstandard"
 )
+
+
+def CageLayout(Surface: TsplineSurface) -> tuple[object, ...]:
+    Header = Surface.Header
+    return (
+        Header.Degree,
+        Header.CapType,
+        Header.StarSmoothness,
+        Header.UnitScale,
+        Header.EndConditions,
+        Header.StarKnotRule,
+        Header.Tolerance,
+        Header.GeometryTol,
+        Surface.Topology,
+        Surface.Mapping,
+        Surface.Creases,
+        Surface.SmartGrips,
+        len(Surface.Grips),
+    )
 
 
 def PointSpread(
@@ -146,39 +166,49 @@ def TestCageDoc(CaseValue: tuple[str, str, str, str, str, str, str]) -> None:
     Built = ConvertForm(Surface)
     Stored = ReadDocument(ReadFormFile(CaseValue[3], CaseValue[4]))
     assert Stored.Forms[0].Surface == Surface
-    assert ReadConverted(Stored) == Built
+    assert ShapeSpread(Built, ReadConverted(Stored)) <= KCageSlack
     Oracle = ReadDocument(ReadFormFile(CaseValue[5], CaseValue[6]))
     assert Oracle.Forms[0].Surface.Grips == Surface.Grips
-    assert StencilKey(Oracle.Forms[0].Surface) == StencilKey(Surface)
+    assert CageLayout(Oracle.Forms[0].Surface) == CageLayout(Surface)
     assert ShapeSpread(Built, ReadConverted(Oracle)) <= KCageSlack
     Emitted = ReadDocument(EmitFormDoc(FormSpec("Kit Form", Surface, Built)))
     assert Emitted.Forms[0].Surface == Surface
     assert ReadConverted(Emitted) == Built
 
 
-def TestShapeRows() -> None:
-    Shapes, Tables = ReadShapes(), ReadStencils()
-    assert set(Shapes) == set(Tables)
-    for LayoutKey, Shape in Shapes.items():
-        assert Shape.Label == Tables[LayoutKey].Label
-        assert sorted(set(Shape.Points)) == list(range(len(Tables[LayoutKey].Points)))
-
-
 @KNeedZip
 def TestFormChoice() -> None:
     Plane = ReadDocument(ReadFormFile(*KStencilUnknown)).Forms[0].Surface
     assert ConvertForm(Plane) == GridBody(ConvertGrid(Plane))
-    with RaisesError(ValueError, match="no stencil"):
-        _ = CageBody(Plane)
+    Creased = next(
+        CaseValue for CaseValue in KStencilNatives if CaseValue[2] == "CreasedPlane"
+    )
+    Folded = ReadDocument(ReadFormFile(*Creased[:2])).Forms[0].Surface
+    assert ConvertForm(Folded) == CageBody(Folded)
     Model = ReadDocument(ReadFormFile(*KStencilNatives[0][:2]))
     Surface = Model.Forms[0].Surface
     Heavy = ReplaceValue(Surface.Grips[0], Weight=1.5)
     Weighted = ReplaceValue(Surface, Grips=(Heavy, *Surface.Grips[1:]))
-    assert ConvertForm(Weighted) == CageBody(Weighted)
-    Edges = tuple(
-        ReplaceValue(EdgeValue, KnotInterval=2.0)
-        for EdgeValue in Surface.Topology.Edges
-    )
-    Spread = ReplaceValue(Surface, Topology=ReplaceValue(Surface.Topology, Edges=Edges))
-    with RaisesError(ValueError, match="needs unit knot intervals"):
-        _ = ConvertForm(Spread)
+    Rational = ConvertForm(Weighted)
+    assert Rational == CageBody(Weighted)
+    assert any(FaceValue.Surface.Cache.Weights for FaceValue in Rational.Faces)
+
+
+@KNeedZip
+def TestUniformSpan() -> None:
+    Model = ReadDocument(ReadFormFile(*KUniformSave))
+    Surface = Model.Forms[0].Surface
+    assert {EdgeValue.KnotInterval for EdgeValue in Surface.Topology.Edges} == {2.0}
+    assert ShapeSpread(ConvertForm(Surface), ReadConverted(Model)) <= KCageSlack
+
+
+@KNeedZip
+def TestEdgeKnots() -> None:
+    Surface = ReadDocument(ReadFormFile(*KSingleSave)).Forms[0].Surface
+    assert isinstance(Surface, KnotSurface)
+    Intervals = tuple(EdgeValue.KnotInterval for EdgeValue in Surface.Topology.Edges)
+    assert Surface.EdgeKnots == Intervals
+    assert len(set(Intervals)) > 1
+    Shifted = ReplaceValue(Surface, EdgeKnots=(2.0, *Surface.EdgeKnots[1:]))
+    with RaisesError(ValueError, match="edge knot records"):
+        _ = ConvertForm(Shifted)

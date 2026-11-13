@@ -8,11 +8,12 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent
 ROOT = BASE.parents[4]
 sys.path.insert(0, str(ROOT / 'src'))
-from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.StencilKey import StencilKey
+sys.path.insert(0, str(ROOT / 're/Fusion/Reconstruction/FormDocuments/Tables'))
+from StencilKey import StencilKey
 from convert.formats.Fusion.TSplineCodec.ReadTspline import ReadTspline
 
 WORK = ROOT / 're/Fusion/LocalOracle/FormDocuments/Stencil'
-TARGET = ROOT / 'src/convert/formats/Fusion/BrepCodec/Journal/Spline/Stencil/FormStencils.xz'
+TARGET = ROOT / 're/Fusion/Reconstruction/FormDocuments/Tables/FormStencils.xz'
 REPORT = BASE / 'StencilTables.json'
 DENOMINATOR = 4096
 SNAP = 1e-13

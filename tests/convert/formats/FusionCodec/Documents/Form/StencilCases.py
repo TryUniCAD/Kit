@@ -5,7 +5,7 @@ KStencilCases: tuple[tuple[str, str, str, str, str, str], ...] = (
         "24f533c68c2efb8e718789b79a4c3494d504f8f224a040b527db806e9b4d7a45",
         "re/Fusion/LocalOracle/FormDocuments/StencilAccept/Cases/BoxFresh.tsm",
         "cbabe79417285d5c43569a1fad87d40bf6b4b9c16786620c60d799786835482e",
-        "12c013c81ea610a02d030a3cfab183b00428b8ca623022c8dd86965ab930db40",
+        "575d711a3dfea7a1fce18fec88940687f5487f408432f91463998a05843d70d4",
     ),
     (
         "SymmetricBoxEdited",
@@ -13,7 +13,7 @@ KStencilCases: tuple[tuple[str, str, str, str, str, str], ...] = (
         "d6af6d6a493d7ca8436c660bf1ba4be32d9d5d9f5c873f8582ba4002a43e4d21",
         "re/Fusion/LocalOracle/FormDocuments/StencilAccept/Cases/SymmetricBoxEdited.tsm",
         "d9df24798655a89a04bfd23f0bcb5700f9c18f86b446f83f6dac4b7f3d0d1d8b",
-        "e6bb6febe1839b8afc0d8a509c6f62e6f273e250f2004553a1718040b545bf93",
+        "598af9f6b638eb6ef3d5e0fc607978e9e4b35a8f4f73295d726c9e9f259a560e",
     ),
     (
         "CreasedBoxFresh",
@@ -21,7 +21,7 @@ KStencilCases: tuple[tuple[str, str, str, str, str, str], ...] = (
         "6f644a8c2af88f6e21baca6e8c62b7e381bcadba4cf87957e87648873445e815",
         "re/Fusion/LocalOracle/FormDocuments/StencilAccept/Cases/CreasedBoxFresh.tsm",
         "a8b16d3280040702daab8bcd578404fc773aaa4d8ae7746bf46e51391982ab2c",
-        "80f23576db3486e257eb515485b1c9c4490f4e46efb2fcf6d34c2bb2b24600e9",
+        "2344b5076bf09c52ffdaafa29a34075054cfb9fa9ca2aa14030bd7491e3e30a1",
     ),
     (
         "Valence5Fresh",
@@ -29,7 +29,7 @@ KStencilCases: tuple[tuple[str, str, str, str, str, str], ...] = (
         "b0c67c92208fe1e7d6e8e06850b34c9cb03ffacc0707368faa019c80973b69a8",
         "re/Fusion/LocalOracle/FormDocuments/StencilAccept/Cases/Valence5Fresh.tsm",
         "5d83bb3cfc2eb8f0a02e531f56d254d558a833f826bf1a39266d4c5df8842ba8",
-        "8db759399b23dd877289a05057fa389190cb6b79206cf8e1af819f716ddc20e3",
+        "9fcfbf1bc13701cf273ff59adc91eadb4e56bad4d0b1d13d34062f2bea2fafa2",
     ),
     (
         "Valence6Fresh",
@@ -37,7 +37,7 @@ KStencilCases: tuple[tuple[str, str, str, str, str, str], ...] = (
         "903a826c80b4a9010d2cb1c746ce6c75e7e3a10b58fa508c2377d15717ccdcfb",
         "re/Fusion/LocalOracle/FormDocuments/StencilAccept/Cases/Valence6Fresh.tsm",
         "264f9e3b300361d478efc47fbc1a33e61faa769a807053e65e1354aa9b8a32f9",
-        "fd133ab7a3f288e5b28395b5a9d5a3d7b89dca6ef90005fdda8a05848c2a6973",
+        "8b509383fd64161e1c688f58a5191cb8669c7d7bf4bb2a626fb2553dfa13bb8f",
     ),
     (
         "Box3Fresh",
@@ -45,7 +45,7 @@ KStencilCases: tuple[tuple[str, str, str, str, str, str], ...] = (
         "721e773a4899fe2aa7c15041b3802dbdb6b0cfd9e259c433e7da4dc9a76e384d",
         "re/Fusion/LocalOracle/FormDocuments/StencilAccept/Cases/Box3Fresh.tsm",
         "3839cdf508bac952946593e4ed6ad80b8aeae0af6e0f7e19d1c9b4e655e37aec",
-        "24dde6c0a14432aa57f2b95395bb5e85e98734532e65e31fd79745467b7539b2",
+        "c4a87948e60b147886f582bf6d8ea497d4e8c1f6cf01b3fa29ae61b168f78ff3",
     ),
     (
         "Valence8Fresh",
@@ -53,6 +53,6 @@ KStencilCases: tuple[tuple[str, str, str, str, str, str], ...] = (
         "ba7aeb33582364cc992407b1a00aaa1d95eb0614be7fed79025b4a456c5113c9",
         "re/Fusion/LocalOracle/FormDocuments/StencilAccept/Cases/Valence8Fresh.tsm",
         "f5077f4d5241307ea5cc3e5ed095c3364c5fd97f16229d3bba5c8273068458bd",
-        "f963b46a5c85ea589627feb12fcd2e53b8843618b14cdc14124bd685eb911567",
+        "b14aee641eee91acae700c81ec36c25ddacd32a3fecf144971ae102a0448f8d7",
     ),
 )

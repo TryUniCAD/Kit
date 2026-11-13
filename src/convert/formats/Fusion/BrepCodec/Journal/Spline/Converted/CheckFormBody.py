@@ -52,8 +52,8 @@ def CheckFormEdge(Value: FormEdge, Model: FormBody, FaceCount: int) -> None:
     EndPoints = (Value.StartVertex, Value.EndVertex)
     if any(type(Vertex) is not int or not 0 <= Vertex < Count for Vertex in EndPoints):
         raise ValueError("Converted Form edge names a missing vertex")
-    if Value.StartVertex == Value.EndVertex:
-        raise ValueError("Converted Form closed edges are not supported")
+    if Value.StartVertex == Value.EndVertex and Value.Curve.Closure == 0:
+        raise ValueError("Converted Form closed edges need a closed curve")
     CheckClamped(Value.Curve, 3)
     Bounds = FormBounds(Value)
     for Parameter, Vertex in zip(Bounds, EndPoints, strict=True):
@@ -156,8 +156,18 @@ def CheckFormUsage(Model: FormBody) -> None:
     if Touched != set(range(len(Model.PointsCm))):
         raise ValueError("Converted Form body has an isolated vertex")
     Labels = [FaceValue.Label for FaceValue in Model.Faces if FaceValue.Label]
-    Labels += [EdgeValue.Label for EdgeValue in Model.Edges if EdgeValue.Label]
-    if len(set(Labels)) != len(Labels):
+    Pieces = {
+        EdgeValue.Label: (EdgeValue.Curve, EdgeValue.Windows)
+        for EdgeValue in Model.Edges
+        if EdgeValue.Label
+    }
+    Labels += list(Pieces)
+    IsShared = all(
+        Pieces[EdgeValue.Label] == (EdgeValue.Curve, EdgeValue.Windows)
+        for EdgeValue in Model.Edges
+        if EdgeValue.Label
+    )
+    if len(set(Labels)) != len(Labels) or not IsShared:
         raise ValueError("Converted Form labels must be unique")
     Regions = [FaceValue.Surface.Region for FaceValue in Model.Faces]
     if len(set(Regions)) != len(Regions):

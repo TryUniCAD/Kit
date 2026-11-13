@@ -17,6 +17,7 @@ from convert.formats.Fusion.TSplineCodec.EmitTspline import EmitTspline
 from convert.formats.Fusion.TSplineCodec.ReadTspline import ReadTspline
 
 TARGET = ROOT / 're/Fusion/LocalOracle/FormDocuments/StencilAccept'
+OUTPUT = TARGET / 'General'
 PROBES = ROOT / 're/Fusion/LocalOracle/FormDocuments/Stencil/tmp'
 CARRIERS = {
     'Box': 're/Fusion/LocalOracle/TSpline/Box.f3d',
@@ -57,11 +58,12 @@ def digest(path):
 def main():
     (TARGET / 'Cases').mkdir(parents=True, exist_ok=True)
     (TARGET / 'Carriers').mkdir(parents=True, exist_ok=True)
+    OUTPUT.mkdir(parents=True, exist_ok=True)
     carriers = dict(CARRIERS)
     for name in PROBED:
         copied = TARGET / 'Carriers' / (name + '.f3d')
         source = PROBES / name / 'Base.f3d'
-        if not copied.exists() or copied.read_bytes() != source.read_bytes():
+        if not copied.exists():
             shutil.copyfile(source, copied)
         carriers[name] = str(copied.relative_to(ROOT))
     rows = []
@@ -76,15 +78,20 @@ def main():
             raise RuntimeError('TSM text does not read back')
         tsm = TARGET / 'Cases' / (case + '.tsm')
         tsm.write_bytes(text)
-        document = TARGET / 'Cases' / (case + 'Kit.f3d')
-        payload = EmitParsed(SwapFormCage(model, ReadTspline(text)))
+        document = OUTPUT / (case + 'Kit.f3d')
+        try:
+            payload = EmitParsed(SwapFormCage(model, ReadTspline(text)))
+        except ValueError as error:
+            rows.append({'case': case, 'table': name, 'carrier_file': relative, 'carrier_sha256': digest(carrier), 'tsm_file': str(tsm.relative_to(ROOT)), 'tsm_sha256': digest(tsm), 'status': 'refused', 'refusal': str(error), 'grips': len(surface.Grips)})
+            print(case, 'refused', error)
+            continue
         if ReadDocument(payload).Forms[0].Surface != ReadTspline(text):
             raise RuntimeError('Kit document does not read back')
         document.write_bytes(payload)
-        rows.append({'case': case, 'table': name, 'carrier_file': relative, 'carrier_sha256': digest(carrier), 'tsm_file': str(tsm.relative_to(ROOT)), 'tsm_sha256': digest(tsm), 'document_file': str(document.relative_to(ROOT)), 'document_sha256': digest(document), 'grips': len(surface.Grips)})
+        rows.append({'case': case, 'table': name, 'carrier_file': relative, 'carrier_sha256': digest(carrier), 'tsm_file': str(tsm.relative_to(ROOT)), 'tsm_sha256': digest(tsm), 'document_file': str(document.relative_to(ROOT)), 'document_sha256': digest(document), 'status': 'prepared', 'grips': len(surface.Grips)})
         print(case, len(surface.Grips), digest(document)[:12])
-    report = {'scope': 'Fresh cages for every packaged stencil table, not used to fit: random and warped grips, and a mirror-preserving edit of the symmetric box. Kit documents are SwapFormCage results on the Fusion carrier archive', 'python': sys.version.split()[0], 'rows': rows}
-    (TARGET / 'Preparation.json').write_text(json.dumps(report, indent=1) + '\n')
+    report = {'scope': 'Fresh cages for every packaged stencil table, not used to fit: random and warped grips, and a mirror-preserving edit of the symmetric box. Kit documents are SwapFormCage results on the Fusion carrier archive. Carriers are copied once and then kept, because the committed copies are scrubbed. A cage that SwapFormCage refuses gets no document. The cages stay in Cases; the documents of the general rules go to General, and Cases keeps the first run of the stencil tables', 'python': sys.version.split()[0], 'rows': rows}
+    (OUTPUT / 'Preparation.json').write_text(json.dumps(report, indent=1) + '\n')
 
 
 if __name__ == '__main__':

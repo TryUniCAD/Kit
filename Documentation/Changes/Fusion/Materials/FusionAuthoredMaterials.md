@@ -60,7 +60,7 @@ Appearance reflectance uses the supplied RGBA color.
 
 Nine declarative schemas include the required bases and their property defaults, units, choice enumerations, bounds, and interface metadata.
 The packaged vocabulary contains no material instances, source identities, source paths, archive payloads, or recorded definition values.
-[Schema provenance](../../../../re/Fusion/Reconstruction/MaterialAuthoring/SchemaProvenance.json) identifies the observed declarations.
+[Schema provenance](../../../../re/Fusion/Reconstruction/Materials/SchemaProvenance.json) identifies the observed declarations.
 The [authoring model](../../../../re/Fusion/Reconstruction/MaterialAuthoring/Model.md) describes the construction rules and identity joins.
 
 Unspecified structural and thermal properties retain their registered schema defaults.
