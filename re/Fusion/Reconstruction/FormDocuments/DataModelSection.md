@@ -97,9 +97,48 @@ Fusion also records each interior knot with a third-derivative jump in the surfa
 `SwapGridCage` puts a new cage of the same grid layout into a Form document.
 The [pole order gotcha](../../Gotchas/Conversion/Fusion/TSpline/GridCagePoleOrder.md) and the [discontinuity gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConvertedDiscontinuityLists.md) give the rules.
 
-Kit refuses box cages, interior creases and new grid layouts.
-Each native box face has 13 × 13 poles with double knots at 0.25, 0.5, 1.5 and 1.75.
-Kit has no exact rule for these caps at valence-3 corners.
+### Stencil cage conversion
+
+Fusion converts each cage layout with a fixed linear map from the grips to the converted poles and points.
+The layout is the topology with its root links, the grip mapping, the creases, the smart grips, the header rules and the grip weights.
+Single-grip probes recovered the map for seven layouts, and further moves of all grips confirmed it within 2.1e-14 cm.
+Regular regions use small dyadic and triadic fractions, and vertex limit points use the Catmull–Clark limit mask.
+The G1 cap weights around extraordinary vertices are not small fractions or simple quadratic surds.
+They repeat between layouts with the same corner neighbourhood.
+`ConvertCage` applies the packaged table of the cage layout, and `SwapFormCage` writes the result into a document of that layout.
+Fusion records each interior knot in the discontinuity list of the lowest derivative order that jumps there.
+The [linearity gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConversionIsLinear.md) and the [valence gotcha](../../Gotchas/Conversion/Fusion/TSpline/CageValenceAboveFour.md) give the evidence.
+
+| Layout | Grips | Faces, edges, vertices | Source |
+| --- | --- | --- | --- |
+| Box primitive and symmetric box | 26 | 6, 12, 8 | Fusion primitive |
+| Creased plane | 34 | 2, 7, 6 | Fusion plane with 11 crease edges |
+| Creased box | 26 | 6, 13, 9 | Fusion box with one crease edge |
+| Box with 3 × 3 faces per side | 56 | 6, 12, 8 | Kit cage |
+| Valence-5, valence-6 and valence-8 prisms | 32, 38 and 50 | 15, 35, 22; 18, 42, 26; 24, 56, 34 | Kit cages |
+
+Kit refuses every other layout, non-unit knot intervals and non-unit weights.
+Weight 2 on every grip of the box shrank its area to a quarter, so Fusion divides the stored grip coordinates by the weight.
+Kit cannot read the converted cache of a weighted cage, as the [weighted grip gotcha](../../Gotchas/Conversion/Fusion/TSpline/WeightedGripCoordinates.md) shows.
+
+The geometry follows the map, but the crease edges do not keep one structure.
+Fusion stores a crease as `tangent` while its faces meet flat and as `unknown` once they bend.
+It split some bent creases into two edges, at a root of the dihedral function or at the start of a flat part.
+`ClassifyEdges` measures the crease angle and sets the class, or refuses a crease that Fusion might split.
+Fusion also refuses a cage whose faces fold back, and `CheckFolds` refuses the same bodies.
+The [crease edge class gotcha](../../Gotchas/Conversion/Fusion/TSpline/CreaseEdgeClass.md) and the [folded cage gotcha](../../Gotchas/Conversion/Fusion/TSpline/FoldedCageRefusal.md) give the evidence.
+
+### Source-free Form documents
+
+`EmitFormDoc` writes a complete Form document from a typed cage and a typed converted body, without a source archive.
+It authors the Design progenitor tables, frame records, Form feature, SubD node, T-spline serializer, body records, timeline and naming with new identities.
+`CreateFormBrep` writes the history journal and the snapshot of the converted body, and the document has no graphics segment.
+A closed body needs `bodyType` 2, and the cached tool entity needs a top-entity identity, or `computeAll` drops the body.
+`ConvertForm` derives the body from the cage alone.
+It uses `GridBody` for an open grid and `CageBody` for a stencil layout.
+`CageBody` places the stencil result in the packaged body shape of the layout, then classifies the crease edges and checks for folds.
+A body shape keeps the edge and face structure, pcurves, fit tolerances, labels, progenitor windows, edge bounds and patch cells of one native carrier.
+These fields stay fixed when the grips of a layout move, apart from rounding noise, labels and the crease edge class.
 
 ### Form document verification
 
@@ -127,5 +166,19 @@ Each document equalled Fusion's own conversion of the same cage within 1e-8 afte
 | --- | --- | --- |
 | Affine | 3.981294020792737 | 3.9230459543150173 |
 | Warped | 4.005512887961321 | 3.9455217633195576 |
+
+Three further runs in Fusion 2706.1.17 accepted documents that Kit wrote without a source archive or a native carrier.
+Each run compared the Kit document with Fusion's conversion of the same TSM within 1e-8 cm after open, edit, conversion, save and reopen.
+
+| Report | SHA-256 | Kit documents |
+| --- | --- | --- |
+| [Source-free bodies](../../../re/Fusion/LocalOracle/FormDocuments/Sourceless/NativeAcceptance.json) | `7adc4ba5e0cf76ccd26cf1e70766f54147dbba9d8167f71d827b6e1bb7b544b1` | 9 cages with typed bodies |
+| [Cage documents](../../../re/Fusion/LocalOracle/FormDocuments/CageDocuments/NativeAcceptance.json) | `c78966db2f218253691c07ddf02d92984dc2c0aacbbba8404338f25232f7a617` | 14 cages with `ConvertForm` bodies |
+| [Stencil swaps](../../../re/Fusion/LocalOracle/FormDocuments/StencilAccept/NativeAcceptance.json) | `f7455953a99fb482fa03054aa73e165a40cbf0d683c87a8139f6dae84e25a95d` | 8 cages swapped into native documents |
+
+The cage documents cover a warped plane grid, the box, the symmetric box, the creased box and the creased plane.
+They also cover the 3 × 3 box and the valence-5, valence-6 and valence-8 prisms.
+Their fresh, bent, sagged, twisted and sheared cages took no part in any fit.
+Every Kit body equalled the loaded Fusion conversion in structure and edge classes, and the largest point gap was 1.2e-13 cm.
 
 The [Form document change entry](../../Changes/Fusion/TSpline/FusionFormDocuments.md) gives the complete procedure.

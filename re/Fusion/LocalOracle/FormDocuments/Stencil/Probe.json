@@ -1,0 +1,6499 @@
+{
+ "fusion_version": "2706.1.17",
+ "scope": "Fusion conversion of each prepared stencil variant: TSM import into a new Form, conversion, save to the ignored tmp folder",
+ "documents_before": 0,
+ "api": {
+  "addByShapeInput": "\nCreates a new T-Spline body of the shape specified by the input.\ninput : One of the various types of TSpline shape inputs that define all of the parameters needed to create a T-Spline\nbody of that shape. The input objects are created using the various create methods on the TSplineBodies object.\nReturns the new TSplineBody or null in the case of an error.\n",
+  "addByTSMDescription": "\nCreates a new TSplineBody using the T-Spline description provided by the input\nstring which contains TSM formatted text.\ntsmDescription : A string that contains a T-Spline description in TSM form.\nReturns the newly created TSplineBody if successful or null in the case of failure.\n",
+  "addByTSMFile": "\nCreates a new TSplineBody by reading in a TSM file from disk.\ntsmFilename : The full filename of the TSM file on disk.\nReturns the newly created TSplineBody if successful or null in the case of failure.\n",
+  "createBoxInput": "\nCreates a TSplineBoxInput object that is used to define all of the input required to create a box shaped\nT-Spline body. The fully defined TSplineBoxInput object is passed into the add method to create the\nactual T-Spline body. The origin, xDirection, and yDirection define a coordinate system in space where length\nis x, width is y, and height is z. X and Y directions are explicitly defined using arguments and Z is derived\nby using the right-hand rule and crossing X into the Y direction.\nAdditional settings can be defined using the returned TSplineBoxInput object.\norigin : The corner point of the box. The xSize, ySize and zSize are measured from this point in the X, Y and Z directions.\nxDirection : A vector defining the X direction.\nyDirection : A vector defining the Y direction. This should be perpendicular to the xDirection.\nxSize : The size of the box in the X direction in centimeters.\nySize : The size of the box in the Y direction in centimeters.\nzSize : The size of the box in the Z direction in centimeters.\nReturns the newly created TSplineBoxInput object or null if the creation failed.\n",
+  "createCylinderInput": "\nCreates a TSplineCylinderInput object that is used to define all of the input required to create a cylinder shaped\nT-Spline body. The fully defined TSplineCylinderInput object is passed into the add method to create the\nactual T-Spline body. The origin, xDirection, and yDirection define a coordinate system in space where the axis of the cylinder is in the Z direction.\nAdditional settings can be defined using the returned TSplineCylinderInput object.\norigin : The center point of the base of the cylinder.\nxDirection : A vector defining the X direction.\nyDirection : A vector defining the Y direction. This should be perpendicular to the xDirection.\nradius : The radius of the cylinder in centimeters.\nheight : The height of the cylinder in the Z direction in centimeters.\nReturns the newly created TSplineCylinderInput object or null if the creation failed.\n",
+  "createPlaneInput": "\nCreates a TSplinePlaneInput object that is used to define all of the input required to create a plane shaped\nT-Spline body. The fully defined TSplinePlaneInput object is passed into the add method to create the\nactual T-Spline body. The origin, xDirection, and yDirection define a coordinate system in space where length\nis x, width is y.\nAdditional settings can be defined using the returned TSplinePlaneInput object.\norigin : The corner point of the plane. The xSize and ySize are measured from this point in the X and Y directions.\nxDirection : A vector defining the X direction.\nyDirection : A vector defining the Y direction. This should be perpendicular to the xDirection.\nxSize : The size of the plane in the X direction in centimeters.\nySize : The size of the plane in the Y direction in centimeters.\nReturns the newly created TSplinePlaneInput object or null if the creation failed.\n",
+  "createQuadballInput": "\nCreates a TSplineQuadballInput object that is used to define all of the input required to create a quadball shaped\nT-Spline body. The fully defined TSplineQuadballInput object is passed into the add method to create the\nactual T-Spline body. The origin, xDirection, and yDirection define a coordinate system in space where the axis of the quadball is in the Z direction.\nAdditional settings can be defined using the returned TSplineQuadballInput object.\norigin : The center point of the quadball.\nxDirection : A vector defining the X direction.\nyDirection : A vector defining the Y direction. This should be perpendicular to the xDirection.\nradius : The radius of the quadball in centimeters.\nReturns the newly created TSplineQuadballInput object or null if the creation failed.\n",
+  "createSphereInput": "\nCreates a TSplineSphereInput object that is used to define all of the input required to create a sphere shaped\nT-Spline body. The fully defined TSplineSphereInput object is passed into the add method to create the\nactual T-Spline body. The origin, xDirection, and yDirection define a coordinate system in space where the axis of the sphere is in the Z direction.\nAdditional settings can be defined using the returned TSplineSphereInput object.\norigin : The center point of the sphere.\nxDirection : A vector defining the X direction.\nyDirection : A vector defining the Y direction. This should be perpendicular to the xDirection.\nradius : The radius of the sphere in centimeters.\nReturns the newly created TSplineSphereInput object or null if the creation failed.\n",
+  "createTorusInput": "\nCreates a TSplineTorusInput object that is used to define all of the input required to create a torus shaped\nT-Spline body. The fully defined TSplineTorusInput object is passed into the add method to create the\nactual T-Spline body. The origin, xDirection, and yDirection define a coordinate system in space where the axis of the torus is in the Z direction.\nAdditional settings can be defined using the returned TSplineTorusInput object.\norigin : The center point of the torus.\nxDirection : A vector defining the X direction.\nyDirection : A vector defining the Y direction. This should be perpendicular to the xDirection.\nmajorRadius : The major radius of the torus in centimeters.\nminorRadius : The minor radius of the torus in centimeters.\nReturns the newly created TSplineTorusInput object or null if the creation failed.\n"
+ },
+ "cages": [
+  {
+   "cage": "Box",
+   "variants": [
+    {
+     "variant": "Base",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.560443509000663,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "f947542bc2e5da8e90fef0d76b9a63cc03c59477290b4169ee5e86ed3b89d9dc",
+     "status": "completed",
+     "tsm_sha256": "67dac2ffda99938b9e29e4c8958c328e6192e76d94b1d27faeff99988a9259b5"
+    },
+    {
+     "variant": "X0",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.992717146485752,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "007945d9ec524a4069f0230ef67b9ec886215b78e108600fc5fc29da4f117837",
+     "status": "completed",
+     "tsm_sha256": "fc9f391d4a8fb1244709752aced06cfeb8b5c2dc08225740de141ed12bb8f89f"
+    },
+    {
+     "variant": "X1",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.992717146485756,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "7e390d47752fc7dc449e16b7fa09ed5c1e1c74300e6aec571b988e8575c3c3e0",
+     "status": "completed",
+     "tsm_sha256": "a04364f67c13884e2503068f56273d22dfff27057c3860462538f6f766ed1bdf"
+    },
+    {
+     "variant": "X2",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.62797948108643,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "ceb4baf9dac1c6caa3d9c8a96b12c3ba7b416af6a4b9181848985523a7a71bfb",
+     "status": "completed",
+     "tsm_sha256": "7ea8575fa8e3c237df14812a15ad28a6a5dab35ec174c950b9947ceb974e2e76"
+    },
+    {
+     "variant": "X3",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.627979481086427,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "f804a5266948bdb7ffd2332ef0c64c553d67200cea866447335a3227c036c58b",
+     "status": "completed",
+     "tsm_sha256": "4ba97a0e0cf9af245edcee1eb84cca6795e9390bdc173ff17811029df22713f2"
+    },
+    {
+     "variant": "X4",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 24.26943982430275,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "7e0527a1069466194a2fe7f0ca2d41425199fea7c5ee2eaaeaeb0dd88c118fd4",
+     "status": "completed",
+     "tsm_sha256": "3184595039a2ea053516a17ec61fa1ced3fe81db39a7848b7e702652369a564c"
+    },
+    {
+     "variant": "X5",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 24.26943982430275,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "3a60804457646057db6ecb5001cade70345d940d9139acb6660ffc4e7a763d74",
+     "status": "completed",
+     "tsm_sha256": "549cbf94189bfe98ab3fb0e42f7f7996e347552255e3d8d1a240353652eca8bd"
+    },
+    {
+     "variant": "X6",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.738359265442412,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "8d5d8d654d0ca219b3aa860634c2d01832bbe78f86a1b0b77bb0fc5aadf81773",
+     "status": "completed",
+     "tsm_sha256": "7855041aeba3aff3a02b7857f48f089cdc78d5d0fa7780ec927729a452b8c27c"
+    },
+    {
+     "variant": "X7",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.738359265442412,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "7a6bd65333c4cb5d5a8ebc0c6188cd4359e99a44bfca1073cb9ccd24ff84244d",
+     "status": "completed",
+     "tsm_sha256": "e17f4ff41d799bd57efface3b4c5844c15a87049602f73e906a2bba8d8cc1ccf"
+    },
+    {
+     "variant": "X8",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.65408274306455,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "cb19505e75ff70668079848c64f5e56597e04ef4f83c0c8a11a0a436356b4472",
+     "status": "completed",
+     "tsm_sha256": "277cf7f27607465baec3efc0e7afbfe1807b7758761f4b523bbcb6d7a0915e3a"
+    },
+    {
+     "variant": "X9",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.654082743064553,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "aa7f0d3391c210f8c24022aefcfa993bb25ef501588dc05e17334507c00452e4",
+     "status": "completed",
+     "tsm_sha256": "c4737833d830ce018e0193cdeb18091251503a562292a61fbdb9293f81df1e9d"
+    },
+    {
+     "variant": "X10",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 24.706451807927774,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "9abb1bfc1b5ea6776e9a9f382148019d6c1d1f65fa45144a29235f4108fdadb6",
+     "status": "completed",
+     "tsm_sha256": "84ed9259e9cf43a1621eafad1ac4cd8939c426ee3601b876a443bb1dd260b23e"
+    },
+    {
+     "variant": "X11",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 24.706451807927778,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "58fade7fd7edad9d83a947d8e563793ce7c1d87b0b670833becc0af1f4527d65",
+     "status": "completed",
+     "tsm_sha256": "1d936348fd594f892499327dca5d8eee1504f2fe5e736ca8e2d7ad61c294a291"
+    },
+    {
+     "variant": "X12",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.992717146485752,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "ced2eca2579a8a640b02eee66088f4f1d328b0137175730947e1be34628e73db",
+     "status": "completed",
+     "tsm_sha256": "59464d4c9ea1ebc1d1039a62f5348b698485b32facd588c2b711b4fb631e9c50"
+    },
+    {
+     "variant": "X13",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.992717146485752,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "992c2698aa4d53c5499d39137285de7d3f1cdb9b1bbdfc9dd9a4459c1430be2c",
+     "status": "completed",
+     "tsm_sha256": "01252b4880b050cfe7467f0d4f06ac64104c729cb8a8147de46c7ac82a84ffab"
+    },
+    {
+     "variant": "X14",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.62797948108643,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "37c9ec4e757f002b6fa623b9098f146eea8b785b7d40a1e4fff58696aa095917",
+     "status": "completed",
+     "tsm_sha256": "21c4020f114f39258279f01f3c429b3bd5834cdff63aa7dff06e360548e682cf"
+    },
+    {
+     "variant": "X15",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.62797948108643,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "1ff2253c445931b304a502c695d39e8c78125099be01b3c9f8e6781062a19594",
+     "status": "completed",
+     "tsm_sha256": "681c442a95a04384b038335121768317d1b9ffb36ab8f764672f32273b34c513"
+    },
+    {
+     "variant": "X16",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 24.26943982430275,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "c654ee0f8fe29234e80f1156d48da8fd8270cfabd0cbaed9dc013a2d99762a41",
+     "status": "completed",
+     "tsm_sha256": "cba00823b76b363bbebbb11c5ff66a7f33eef5b274a17fe65458f86f58b5d40a"
+    },
+    {
+     "variant": "X17",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 24.269439824302758,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "b4f383b60a4e8edcd335e2abb26861e2ccd58fe30a7a08be6344cfd431a3de23",
+     "status": "completed",
+     "tsm_sha256": "ef0b4cd64fa950f0949aa898fbcfe1a3f16f0914459f502d49478aff1fb83a5a"
+    },
+    {
+     "variant": "X18",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.790519158030193,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "1ae5fa1fce892b0736a5fd403aabbf11b082504429264cc38a6bf75e1e8d88c9",
+     "status": "completed",
+     "tsm_sha256": "a2f356bc036a55c2c54c241495a66ce9e46a9e2bfe9d59137a0de921589a18fe"
+    },
+    {
+     "variant": "X19",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 24.632408042204112,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "e6d3220c99ad02a49d566ebee0937a870fde0ba2f1f6794ff07793fa5662f720",
+     "status": "completed",
+     "tsm_sha256": "282a197b2c090948625259f58a96cc7310377a41c1643440775ffa69df1fef46"
+    },
+    {
+     "variant": "X20",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.93528065855397,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "bbb87d116952b093031b25bd9a1e2c6245b69d92e081621e2a143270089a7554",
+     "status": "completed",
+     "tsm_sha256": "deeaf828bdfe1e5751421ed1c62c6ed901730305cee00ceafbe3c64c6b45854e"
+    },
+    {
+     "variant": "X21",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 24.845340686207283,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "4377b1544ec27c97a28b41a63af888ca04d75491f3ffe9bbd8fa6216f167b876",
+     "status": "completed",
+     "tsm_sha256": "abab70042c751234d936e9dc9b3d555939549b13e118035a315bff800c731969"
+    },
+    {
+     "variant": "X22",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.790519158030193,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "c79522b9e0433c0829d34572d0d3dc9e8111708370184704d19451ad3b0a9319",
+     "status": "completed",
+     "tsm_sha256": "b832ce7f8e416d2c73d0205e2eab57fbd9518fba4cfa921e7569cd2c82dc8a13"
+    },
+    {
+     "variant": "X23",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 24.632408042204112,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "c21e8aa555674262272035c7507548e477fe1ddb506dfb1209058738bf76e470",
+     "status": "completed",
+     "tsm_sha256": "3715427b05a07c00042380afead88554ceac4742195acada417d4206dcee07b5"
+    },
+    {
+     "variant": "X24",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.635869128377053,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "99b05cdd961c77332a8a6c6edf8cb6ee9eb970b166c153029187236cf0fa34a7",
+     "status": "completed",
+     "tsm_sha256": "a244d4e917cfb09dc15a2412d99a85e1f7aa4adb7efc04e0ce353dfb3df25b0c"
+    },
+    {
+     "variant": "X25",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.635869128377045,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "455ac7046ef11d672831a69dc567d583149622f3e49b520ba2cb84bd09b32b67",
+     "status": "completed",
+     "tsm_sha256": "902973f152e443b768b1d64e125ae77355d9f1020c50a4e612aa6fe0d0de7203"
+    },
+    {
+     "variant": "Y23",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.599529827754473,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "3c72910bf2086d44874c41272038556c6abd15c1efc70b6935a55f0980aa2e0d",
+     "status": "completed",
+     "tsm_sha256": "bb74465dc6efa56aa197cd0e91c71cb08c48f9cb6abf61584cfb5578ace43fa3"
+    },
+    {
+     "variant": "Z23",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 24.451631832669083,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "d0c4a8fc3c06c1a49a7059e03dd6b5ebe4a97111a741e2d82c7294feb5b46ee4",
+     "status": "completed",
+     "tsm_sha256": "1852c0836d622c4c6a50ed18f6f800684e5de809b454f1fbb97bc3c54aebfe59"
+    },
+    {
+     "variant": "Y25",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.60045949348725,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "f4ad484fc6a76cfdf926b10322b3e0f8f06fafb3c0fc4b7618ad0289bd46f774",
+     "status": "completed",
+     "tsm_sha256": "1c74e7016d8f90d9ee1be62c316389420407bdcb506d82ec863a975aaf992f8d"
+    },
+    {
+     "variant": "Z25",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 24.830709983475842,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "daac8a9b3f260e7bc09ebd84213a597096bcc7a311f0dfd0e4751607c99bcf13",
+     "status": "completed",
+     "tsm_sha256": "2c0410b747aa8b406d83beb98aeb5eb5c500a558bd5e96b8269f63d578c1346c"
+    },
+    {
+     "variant": "Y21",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.613913844829014,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "c6bcdbf9dfe8a6070ba2673b1db58592bd9e50c25b56546c6694527ce1dba2eb",
+     "status": "completed",
+     "tsm_sha256": "a6439be6b1f56c5ee83e6f2fbc6a6eb2affd0945dc8338dd320e324d7a7a8182"
+    },
+    {
+     "variant": "Z21",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.58623983920773,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "2c5308492a20cf4300105251abf9ae12366954855c562381010e4f07609311cb",
+     "status": "completed",
+     "tsm_sha256": "fba407ca6d7e7660fb06cef23d01366ce9726d9837accae41e65b9464b5ee6ba"
+    },
+    {
+     "variant": "Scale10",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 26.91318605299256,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "911685ad8379a95a1b3e267d5b80ea185ac1bd8e22cc69ee2abac6dbe8512121",
+     "status": "completed",
+     "tsm_sha256": "a72c07c7529429bfb541841c15027348d14343a989a1e60940fa9e00a2a89ef3"
+    },
+    {
+     "variant": "Pair15_3",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.70118622899054,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "1340e5405d9433034d3a036f2097a4ae6c684c8e9ca59b4933ceefd0f3a1433d",
+     "status": "completed",
+     "tsm_sha256": "5316ddcc721a9a5d54e43e546e35a8e37478f72d964a36cffed25e3d3337bb1b"
+    },
+    {
+     "variant": "RandomA",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.5232944208759,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "6747e21af68a59bcca15198ec2502dea56755b7295c668d20707c2d027a69fa2",
+     "status": "completed",
+     "tsm_sha256": "9bdd4fc3308366612f013e028036c0d7da2c43c0f36c7869ccaac8477419261d"
+    },
+    {
+     "variant": "RandomB",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.26696267919902,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "1ed6fc8976796d8141d6ea8690bac89dc2fc13a2efbca49e1782d8f91f014cd9",
+     "status": "completed",
+     "tsm_sha256": "23c21d460a4b047a7fc3b8f814c2184778fc9c5b6faeb7b9948ecad4255880b4"
+    }
+   ]
+  },
+  {
+   "cage": "CreasedPlane",
+   "variants": [
+    {
+     "variant": "Base",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8314105666532576,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "75a4728c58e9f0721af9e7faf09038bc6ab64569d0088368f40ea36daa418608",
+     "status": "completed",
+     "tsm_sha256": "fd9c569651ec829814c95e3b6c3abe07dc3bfb78287924c1821e2aed1fd154fe"
+    },
+    {
+     "variant": "X0",
+     "tsm_sha256": "309598f6ab7b0cf6786433f0887b05e577e926e02806db7d3a0eff2b71dd7b0c",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8081516815401315,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "a6a9972315dff1fcab729ad64715bc2667d3a9d0f203c0666bef7a2ad655e041",
+     "status": "completed"
+    },
+    {
+     "variant": "X1",
+     "tsm_sha256": "ecd5cf84316ffad0a7366149ef7edff537d769be91ea58635de3d2834a1288d9",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8286512185810833,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "de92786ed1430cc27b5a7f81e448fc8b5b6b4ed3e01177b93d7a6d263676d217",
+     "status": "completed"
+    },
+    {
+     "variant": "X2",
+     "tsm_sha256": "f3b906320768d40b9a81bcc415c4f04bde053e7aec368a9d3abb96b71092595e",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8294058584259165,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "bd512fa2bbc31ba41e72f8b1897febe3bd79e55c6c401716a31fcf0231cccca7",
+     "status": "completed"
+    },
+    {
+     "variant": "X3",
+     "tsm_sha256": "7826daddeb935a5c97e8756b024954b87182905dc0f3ba124293ebba1d52855b",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.830448373997216,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "44b0e542a7708561aa14aab6261675a5a8464495627074c77d7bc312a8702046",
+     "status": "completed"
+    },
+    {
+     "variant": "X4",
+     "tsm_sha256": "2cc38b7c41513f9a72c704284d093a108b90bc96e61d99520e06f3088e99568a",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.855290694631795,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "83270555eaf53c6c3bb6bb5f844306804950bc12a4e867881e046de87df82af1",
+     "status": "completed"
+    },
+    {
+     "variant": "X5",
+     "tsm_sha256": "a6148e2f6fea2b5a159f51c33aa91446d3b4dde4fea250301b6deec79add97df",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.7865312918237537,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "5780af8378d8d1d225c4234c640dfb5d9112d33c8c481ab1f4a7f1537bcc1a9e",
+     "status": "completed"
+    },
+    {
+     "variant": "X6",
+     "tsm_sha256": "9792d228e676dd4706d732edb79632c56119a22421d368a822b299728082a43d",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8312697612213378,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "70a782fed3e08bf13631f586a8dc3e7599c8279f499025e746387be10cabc003",
+     "status": "completed"
+    },
+    {
+     "variant": "X7",
+     "tsm_sha256": "7decfb026a9e188d1cbe8eb78898d7900e956b9991206fd8ba9dcdb26d8e6f9a",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8313166480475425,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "415dee278045de491809e27b479936a78fa91b5abb82b58cf60ea3239542bbdb",
+     "status": "completed"
+    },
+    {
+     "variant": "X8",
+     "tsm_sha256": "87e87d85ec1aae7e6057fd4a8850ee22729decd883080052c116f52bcfd81fba",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8313750936539472,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "fb8da4d181962e3373148c1ca29c66ff06397e9b71617b227509ed722e9d80fc",
+     "status": "completed"
+    },
+    {
+     "variant": "X9",
+     "tsm_sha256": "9bef7003f2f769da146417a8c245bbaa217bb02b689e4345aabefd1e9a5666de",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8793337982051384,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "56d73097a08f33ed1e0e632d26e6ea9e46744da07d862a3aa2079a67d17053b0",
+     "status": "completed"
+    },
+    {
+     "variant": "X10",
+     "tsm_sha256": "561fbf707ebd3dfc47a230695f46dd1f1461bdc584216ac2fb0f379da2e64838",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.7618058051249035,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "616da22f3b26e8a6bb3b2663025f14dfb91351cdeae0a38f04f04848f2b13dbf",
+     "status": "completed"
+    },
+    {
+     "variant": "X11",
+     "tsm_sha256": "1eb960bd77e218bc9eae42427875005277a44926293d27f8822e0f766d631af4",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8313565468036197,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "b5df9dc24703917f823e24dd88aa4475518918157e263b69e16d628c9ac945d4",
+     "status": "completed"
+    },
+    {
+     "variant": "X12",
+     "tsm_sha256": "19494c1a78003a5edbbea0e36aa9b57c3fe5b97932f5f40ad0b5fd52c5ae347c",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.831373207256763,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "54a70c1c5ad5a63aeb93eb6f1ead1d42008e0d1cc8ed78d04d4ca5e65d8d6b59",
+     "status": "completed"
+    },
+    {
+     "variant": "X13",
+     "tsm_sha256": "59bfe2ca8e28fd3fd3f6271d05303a33df12e17663e5e728c204343df728b5a8",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8314088933091925,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "d1f8befa58b8a4f936143ad7822fe5463ba129a3eec70bfe8c074d306a0f2309",
+     "status": "completed"
+    },
+    {
+     "variant": "X14",
+     "tsm_sha256": "c4c966ba925467cacb02abed22d1c6038158c183da4a4b5df62ef7064bb38398",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.903281846072943,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "dddf951831a243d473d489625b992d28ae4042e05853537a4cc59be893e3d5ae",
+     "status": "completed"
+    },
+    {
+     "variant": "X15",
+     "tsm_sha256": "d00eecc8bc2adcbef2e2005c88788832e871111157e3d5caf89583d64bb43af7",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.7601851124429375,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "865bb2e3514d714538c623df1a3e2261ab15122d016f11e99799d67031060b27",
+     "status": "completed"
+    },
+    {
+     "variant": "X16",
+     "tsm_sha256": "6c2d8dd8fcaf444ee27804158e4f6dc7087deb5f7887fc4820798c0b54af3e21",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.831400113391218,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "848d9726e23edcf31e2918d969dbd905af16eb4d88d2e043e7b6677baa22e069",
+     "status": "completed"
+    },
+    {
+     "variant": "X17",
+     "tsm_sha256": "0bf059a511a50b2e0bd1810a2d9895805632c3dfff7e2212949fa4f11682fca6",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8314040905528106,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "a8241365dac918a8e6238a35fb358e2af31ba194cdb73ac0e817f4a985163ba0",
+     "status": "completed"
+    },
+    {
+     "variant": "X18",
+     "tsm_sha256": "a53330d20eb5a623363579b9ad764207f379343e07882ff98bf718d9b1085370",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8314102993128225,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "d65f4b68c5c64cd13bece2853655818a65e60cb5e1c837b6bb79ed60ab7f2587",
+     "status": "completed"
+    },
+    {
+     "variant": "X19",
+     "tsm_sha256": "87674b359e6a01a4691f283f97b22d8f2b9de225067b9969fc9233778d05074e",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.9032821748001183,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "7875f5e8f6ea8d1c22e92a469f4c6abc7c1e05c1ce9e5506d3a61a7136762ecc",
+     "status": "completed"
+    },
+    {
+     "variant": "X20",
+     "tsm_sha256": "45356cd967ffe2c3cf003ecbf95b08a8e2077d6b65533fcd2ca17586a3f74bb5",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.7835043153345667,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "2ae63fe1788370677b4d3ab26a9b48a51491fc7912dd06b57df568da10758e8a",
+     "status": "completed"
+    },
+    {
+     "variant": "X21",
+     "tsm_sha256": "74c14adf71aaa80d2d4bcd6fcb9793de1548ed558ea730450615c9d57c9b9723",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8314104597365963,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "459034dd1a084df5b5a8f44791c23bca6391990e6ded315b10bec44aead290f8",
+     "status": "completed"
+    },
+    {
+     "variant": "X22",
+     "tsm_sha256": "5061fddd1bba9e1dd8b0e7a1a14c0c5457f6f717948e111d928de85a5fca7297",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.831410523667009,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "76775503f0a59e18547df0e57328c401c8bc4e1f3e85febe5185d997186f4726",
+     "status": "completed"
+    },
+    {
+     "variant": "X23",
+     "tsm_sha256": "742c9f2090378e24f32e3856a7dfeed6c96271e4ac87f4f9c69bf0671b9455be",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.831410556130213,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "1215e54899eb35b2fd012dd931e600c80f74b46523ed9b44bf31b38647ae7893",
+     "status": "completed"
+    },
+    {
+     "variant": "X24",
+     "tsm_sha256": "cd67ba580fc1e7180650561175276db698d0f323723c3b75cd76cc0b1b917ca8",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.879334993300991,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "b57bc751562f5da8e94f5d09bd82fc294342a62c2ef93d38e9e423c9e50122c4",
+     "status": "completed"
+    },
+    {
+     "variant": "X25",
+     "tsm_sha256": "7caa4f9998b4a349badb098fb5df90ef9aec123e5e3d73a0245c9359cd8936c3",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.80745666767878,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "446e0032aa1aab0432b690a8e05b50e6d106be32f9634fb64712e3cf170cc00e",
+     "status": "completed"
+    },
+    {
+     "variant": "X26",
+     "tsm_sha256": "6f2143160a036ae89fe95d98f9320d665abde3c6e4138495e8ac18b620cb3be1",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8314105666532576,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "54d058a79d253bfa89199fe99ab25198ea4f68a7793fffe0ced85560f89c498f",
+     "status": "completed"
+    },
+    {
+     "variant": "X27",
+     "tsm_sha256": "49288c8e61627e4a0495c3480ef8f573a040470bea48aa201b784628835cf04a",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8314105666532576,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "08a40c623ba1f38b26e00a57a5396c90fcbb2e49f8e92161be5dd9d39c9221ab",
+     "status": "completed"
+    },
+    {
+     "variant": "X28",
+     "tsm_sha256": "45057f122bfd42e163e831998daaeb84ae9ef34e811a04343f2a9c58f91d27d2",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8314105666532576,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "8942343ed23f69eb4bad1aea279da3cd72d9093ad7b10a199b72f9287d1485ec",
+     "status": "completed"
+    },
+    {
+     "variant": "X29",
+     "tsm_sha256": "b3e3dfe5bfd3cc1632177fb371a63bdbbab5692c408e5893abc60b35beab5b56",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8553644656277353,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "1aed34dcd8503a668cd69409e37c6b0b6a7ff5b9765e6b7ae871cf9b1a715348",
+     "status": "completed"
+    },
+    {
+     "variant": "X30",
+     "tsm_sha256": "37e24d04340d2896131fc2591b75ad767f7760aae59b0c48146c351bada4aa7d",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.831369200602358,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "0efd9f1c290f84284cf9f5de666b2a38e25f93b7f5c175289bb642126e3b9782",
+     "status": "completed"
+    },
+    {
+     "variant": "X31",
+     "tsm_sha256": "d1fa677070d55be34c7fbf146243a11f38720092618efb03fe75e3dbe808c661",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.831406288296847,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "329126612f65ba64854f442d78208bcbbd0c5b4302f2b06e1397d3f6ee8168e4",
+     "status": "completed"
+    },
+    {
+     "variant": "X32",
+     "tsm_sha256": "39eafac760cb46f4ba6f10a8724ed5951fc9625a00a6316671cf30c3574559bc",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.831409871368966,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "2d5973c8aa9478b9cae010ae790a328b96dadfe45455f33d10c6dd6afbc029cb",
+     "status": "completed"
+    },
+    {
+     "variant": "X33",
+     "tsm_sha256": "3f090d7d97830f62c5f6d27a93fde2a6c682ae823cdcd539a1e3a9e0a8600e12",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8314029926387754,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "37ea49e2faaa50f25202335505af05e3902d784fe991a378b0851987570b19ba",
+     "status": "completed"
+    },
+    {
+     "variant": "Y1",
+     "tsm_sha256": "f08b6199d3f3c5bd1a76d98f862104766304dca95b4d7d30fe52c30ccf0136d0",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.783410780868988,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "689cfa7d7b7919fcdf089c9af8d771c320fe25381abda115569f3b6969cf04ec",
+     "status": "completed"
+    },
+    {
+     "variant": "Z1",
+     "tsm_sha256": "04e106d602709b3718f409287aa43ff2d318c6762ab59982a5aec04148c05311",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.839283022926144,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "abed2ec2f788c33dd48d5e9c360daffa0ca43a5fc9a27a60141b2978ddeef836",
+     "status": "completed"
+    },
+    {
+     "variant": "Y16",
+     "tsm_sha256": "40f2f5d33de91175735082fb8d016c31cd66cbcdaed3862a2ddaddb22baa0601",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8313470889666763,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "735716638b33c361b074c57da73b55140e39ae0d2e0f8282f6efdb2c352f83e5",
+     "status": "completed"
+    },
+    {
+     "variant": "Z16",
+     "tsm_sha256": "3a4562f00e5ac68922e90599ab69bbe3f1b4edc72c464f2093c681df742659c9",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8339807006734534,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "53e23902b456cb1b63312c7e34426b852f7c4921742d2b20325635f8ce59a417",
+     "status": "completed"
+    },
+    {
+     "variant": "Y25",
+     "tsm_sha256": "4f8f814f87d36aab593a7af159704296eb82e097097d18bddbbb977b528a40ea",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.85795463492763,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "01458a287b954af77e7014af4794f6304cf888f9996397e50e5d05adbefd85ed",
+     "status": "completed"
+    },
+    {
+     "variant": "Z25",
+     "tsm_sha256": "7935a40f35da544f8047d066339ba17dee5b301f65566685d8f4d63519c33e13",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8353323938201274,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "307d9921efde9fd7a3711b61996e814888fcd29387ec0d346a9e3df3c1f8064a",
+     "status": "completed"
+    },
+    {
+     "variant": "Scale21",
+     "tsm_sha256": "c927d39c0abf2f1e0bf1b06eeb83c7f9199562027720c8baa936d1cd318fa854",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.831410300289601,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "f35c47117d7d93dae8c474bf5bf61860541d3622c23987c8a71175c1772e7e42",
+     "status": "completed"
+    },
+    {
+     "variant": "Pair33_13",
+     "tsm_sha256": "95c3d56108c17062d1f9cc2e6f5bd4e3de2ce60051ea756cc91d300871e5644c",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.83140131929471,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "0cbb517fb27d584c0bc1b8e92d00d0fdb2942360c9c7eb0faeea17da8a4c9704",
+     "status": "completed"
+    },
+    {
+     "variant": "RandomA",
+     "tsm_sha256": "1d0ffe591af4d888f35394efca5ab39fd65c650a6550e2fad3fffa6debb792e2",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8207172942318635,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "701a0d0ee0ebba82d113b30c800abe210fb8d9744c6863eb0a614720efffaf80",
+     "status": "completed"
+    },
+    {
+     "variant": "RandomB",
+     "tsm_sha256": "bac41075c1850a734f3091b945496cd7bdc0df0b5edfb5aacaa563586d5a2d28",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8959784368351764,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "75e5cd93f2f4776da97b9f79721765606bc4eebb8eef31f3007afd5204dcc552",
+     "status": "completed"
+    }
+   ]
+  },
+  {
+   "cage": "CreasedBox",
+   "variants": [
+    {
+     "variant": "Base",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 23.55271091736829,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "808bc7eaedf2c3231a38911cafd451515c9f66ab8a0d7547339f345061f813f9",
+     "status": "completed",
+     "tsm_sha256": "af913f6c0773b54c0e12b91bb67d8e0541eb0e34ce081714e7733049d1956cf0"
+    },
+    {
+     "variant": "X0",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 23.01374254401802,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "eda717cfc18f3c8b56bc837c41c151b97ac5f942defdc168255ce75bc3d17ac3",
+     "status": "completed",
+     "tsm_sha256": "ac430df3aca057be4017f87f0302d630ef794556bcf6c753a928b3991073c05b"
+    },
+    {
+     "variant": "X1",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 22.98161849179888,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "53033643a854fb7113d59608c9175e5162545269cf944deb167e13786998e7a8",
+     "status": "completed",
+     "tsm_sha256": "de79081db6ade8817eee09ea670052f3bb0bfebc5f032936e71bfb2ad6bb0498"
+    },
+    {
+     "variant": "X2",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 23.605743324377624,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "31e177df1ceb8b1ad412d5d8d958e05dcaf65fa3b3ef611c10eedfce6076428c",
+     "status": "completed",
+     "tsm_sha256": "81b04865327c680ba4da399bf0f30cd0346230ee698e80d5f50805bfca884516"
+    },
+    {
+     "variant": "X3",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 23.620479207403026,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "35fddf6dfaff567a35ec1ce740217349135674eb7b2b0508e926c683ae047081",
+     "status": "completed",
+     "tsm_sha256": "ac1fef63bf1dafacc247e62ba9e2fe668db662d8c4b8de601c0e3ccea74161ef"
+    },
+    {
+     "variant": "X4",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.25610382377966,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "7a766601ba5e4ed364bd443d93eacd89622596e9f1b723d10b42071bf818fd0b",
+     "status": "completed",
+     "tsm_sha256": "81947da51bf114d8131bb623be1ecd8900f36740dbdb0d586fba22247787b174"
+    },
+    {
+     "variant": "X5",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.26148820747038,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "af37cf7536d74e4f1c934eb7a831eb7477d7a46317737a08c08da02dd4ba6035",
+     "status": "completed",
+     "tsm_sha256": "c2d1af87081501092b40d5f57193497fb0eb2e20822089a5b6678db0020313d2"
+    },
+    {
+     "variant": "X6",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 22.755151623655944,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "9f6531760c03e483acfdd8f277218ffe88a2df39ce93f588de7aaccba3819a7f",
+     "status": "completed",
+     "tsm_sha256": "7eab7ff97136b1f534153725b7eb8174120b2bd168934e10f643577f8a3c89f8"
+    },
+    {
+     "variant": "X7",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 22.6110259114344,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "98999e462d2a6241ff4ce8d7605ca1eddb5125a83524e8412ced33d3f26e5363",
+     "status": "completed",
+     "tsm_sha256": "358b7cb2b2c0f1e4901dd104103a149b74e17a28ddaa629e415e2572c8d5bbc7"
+    },
+    {
+     "variant": "X8",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 23.643901483337004,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "4d3aae9d7c373467a7e77946dcb218d5e77c8c0a608471c5253dafec0e3015d3",
+     "status": "completed",
+     "tsm_sha256": "5c4f0b798b9e3fe0f6a30666a18ed6a3fb0fe50193ef4f6462d0424fff4a0fc7"
+    },
+    {
+     "variant": "X9",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 23.696371654178186,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "0b7a9b99c07703b3e1280b899920117166e8feae3699f614a66fb371eae6956a",
+     "status": "completed",
+     "tsm_sha256": "4073c091ba0137763fce445b0a677f3989f5e819dcc733168665862a6d31f7bf"
+    },
+    {
+     "variant": "X10",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.697130940924907,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "27eb26d3d388fbc3c56feb593c9a52d776247f18aad4783157dce052300f295a",
+     "status": "completed",
+     "tsm_sha256": "ded31ebb9beca293374757915646a4b2837a72520b6168856eb296cb050d5051"
+    },
+    {
+     "variant": "X11",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.6995385110229,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "c78c7ded85043851091d3100e0ec67b591e8a14548c1dbbf6217783614a129c9",
+     "status": "completed",
+     "tsm_sha256": "398cf498635ac1f37686c2be8f347bb23ef13162a3c3f02611ef25e391ee5896"
+    },
+    {
+     "variant": "X12",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 22.986948517885015,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "465ffb6718df183583701fe506fc04dc42ae5a93ce59d8a40a2bdb5da6836f04",
+     "status": "completed",
+     "tsm_sha256": "16f1170bd525b4e3e6860105c66ac43ec38c4dfa4a66266367591ec4bfbfbb6b"
+    },
+    {
+     "variant": "X13",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 22.88136343719998,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "b9399f6e869a1074062aa88090747a761756bd6d0a3326b121e768486e055fcc",
+     "status": "completed",
+     "tsm_sha256": "2576ff4084ec82c03e4454097323f1c380c93d58ddd8c580bb5ab4f33d00b05c"
+    },
+    {
+     "variant": "X14",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 23.620174431230957,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "306d524eac2481a87919a62d43527bc3aa2ed8f023b81097a294dfa51661ed4b",
+     "status": "completed",
+     "tsm_sha256": "e8a086931218c095a1d447ca69b95cde851ce104d91e964278e560e757b17d66"
+    },
+    {
+     "variant": "X15",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 23.671543852516702,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "c8a3d9fe30ec8f62feff64e9ba0b82477fa562f0aa52c9a7c481f013c50d563a",
+     "status": "completed",
+     "tsm_sha256": "0323e78807c7e7a1884adee8679f1271ed234ef1ac40cf18b215d04489161cad"
+    },
+    {
+     "variant": "X16",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.261652452352706,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "952c4003f9fff830ffbb88d50fced6c3fa5d115238f572b131232ffc5d41e7a3",
+     "status": "completed",
+     "tsm_sha256": "8a1e13898630798c5ba5ca56139b1aa8fc5b46aff65bf3cb23e2fff63d08d163"
+    },
+    {
+     "variant": "X17",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.262464491912493,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "333749016835c3877aac8ffa7a8070f3cda4ca70ac4ffa59b58d8ccb642175cb",
+     "status": "completed",
+     "tsm_sha256": "b5d2a1f8c30f6a1c85e35114bb308bdeb10ad1e2974fef4addc16218e29adfac"
+    },
+    {
+     "variant": "X18",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 22.796683406516912,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "b12673ff7bd24df28bff05cca6e4d16576de57fd288248ee7a573f1e800e40e0",
+     "status": "completed",
+     "tsm_sha256": "c3155e3c89a656390e208647e273de1b68c41252a39d69eef6cd44b68e151111"
+    },
+    {
+     "variant": "X19",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.622108601667726,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "ae40e5f9ad90660876cd3928d25d73458d09d8352936a6cdc004f4c50d90d681",
+     "status": "completed",
+     "tsm_sha256": "f0f4613cb4fdcea944d9088a75f7b22f73357a101ec457a12153b75c69d68f4d"
+    },
+    {
+     "variant": "X20",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 23.004962773585714,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "c99a44f021decf17caba1bdc61215063f41d1250b85b5f93def2cee2759fe0f3",
+     "status": "completed",
+     "tsm_sha256": "5c7fedf23fe0e96346a25ad1811060127e114409be9f0cb35fbeffe2d9e5bd32"
+    },
+    {
+     "variant": "X21",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.837632242793372,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "083e0c78628e757a4d8d3599dc733ec485aa79324511624c022ca07fa5d6a88f",
+     "status": "completed",
+     "tsm_sha256": "9fa3fe7fb8c5a1eccd0c38bc3c54b26670aa7e609c2d876c62c99ba15b2a1d26"
+    },
+    {
+     "variant": "X22",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 22.845076269096722,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "297db02590345fbf85218da2e9d943663b6fa885a333d4b6e812f54a699936b0",
+     "status": "completed",
+     "tsm_sha256": "c5daf2ffd1a59bafeb67ace25b8a85ca07c10cd17ae6eea990071b62903bd4c5"
+    },
+    {
+     "variant": "X23",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.62472567632404,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "c176b3e047fc266f2b89712c0087f168512f6a5124ac2c47f8e26dc5cd7e9bbb",
+     "status": "completed",
+     "tsm_sha256": "b80d8de29e290f59b179f255706ee028483bcb829c1ba7489b555efd2d949e98"
+    },
+    {
+     "variant": "X24",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 23.618494724067816,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "1af6bc3ae365e5a995368325a4ad89e641bef14a0c5facd566c105a323ca0f2e",
+     "status": "completed",
+     "tsm_sha256": "9702ab30f9759e18cc556ef73ae45ae9e42384843abb321a04d92a21f675e378"
+    },
+    {
+     "variant": "X25",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 23.632575193966886,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "00afd44c4fb2a2316e96a3006ca9ac3005fd8b06fa10db742d296ab31623e20f",
+     "status": "completed",
+     "tsm_sha256": "894a0b474de635d0876c37ae286f4f6c1fec1974670fa82d156f056addabcae8"
+    },
+    {
+     "variant": "Y1",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.179549992313742,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "0cd8188b7c27104cbad2752bbc7d7e6657f84339aee2c07fb1c93e67ea249c7a",
+     "status": "completed",
+     "tsm_sha256": "22811e32faae5e70b602ea2b7416bdfce13f8dfa8853c7a381c9fa0c61e26764"
+    },
+    {
+     "variant": "Z1",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 23.135096040929245,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "719026b737cae8ba95d9b2db0b01434fdbaecb11466063e3ee6b3cb4233552ee",
+     "status": "completed",
+     "tsm_sha256": "1f9f9365aca0165b203ae50f2a2ea4d19e80ec67adf4596dea314fd82e743e38"
+    },
+    {
+     "variant": "Y13",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.338643090187176,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "cbdeb41be428edb579c43e311538637375aca2b7a9f007ff7f079321ddfea707",
+     "status": "completed",
+     "tsm_sha256": "10447a04e4785ff3d891346bdfa6ba0369e543828769cefaca8b6ad8f89c3b91"
+    },
+    {
+     "variant": "Z13",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.119537955731865,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "a5cb1f98b78fb5a4783c0d5acfeb91e585e03898c24bb520d7840f46b6ce7ea3",
+     "status": "completed",
+     "tsm_sha256": "64ba55247795dea3a97ff8e112a9beeced598409320bcde4178bffd299110364"
+    },
+    {
+     "variant": "Y15",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.49958918273151,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "606ca3778424e020e57795c13e943ac3f132f3bbdd2186d39ec76e5a1260bc05",
+     "status": "completed",
+     "tsm_sha256": "7755b754e8f759c64dafbf7fedd45e419ef98f7e9d3766f9a2f48386163c5656"
+    },
+    {
+     "variant": "Z15",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 24.434019817897063,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "bbfbe88e0b00dea7ca81db987bdec5c85e917d211b467b96d8c545a3e0e772ef",
+     "status": "completed",
+     "tsm_sha256": "d00a9a4e14b0d859eac8569ed6ce3633294a3d7196bc7e0c88f4109eff36752d"
+    },
+    {
+     "variant": "Scale7",
+     "tsm_sha256": "fb968da041b01df7b47808bf22abf0964ef1ce03ecae3804dd32117443f8e5bd",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 23.033164220448484,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "2c538f9c68ae815be255695bda87c8f8f8ef93a283869edcd8ee1b04770fb727",
+     "status": "completed"
+    },
+    {
+     "variant": "Pair18_7",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 21.78368447113686,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "595fdbcd2d51fae39079ca5b9d2dad18dadc458ab201bda6230e86fa14c2f3ad",
+     "status": "completed",
+     "tsm_sha256": "547ab9c690ea507b7aac78aca6a13de6ba792b9f7c7bf8b5e7feabd6b0ea96d0"
+    },
+    {
+     "variant": "RandomA",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 23.30046517612424,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "dbf088259bdecc3087bb010dfee36fe0fe9b2f8233bfba8e3b1eb8e82ca4bb1d",
+     "status": "completed",
+     "tsm_sha256": "a5b405314d37a118fbd34d7ab0513fb37dc8125522da135db776ba5597d449e5"
+    },
+    {
+     "variant": "RandomB",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 25.555781422364202,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "9a8a7599f82c83904f2fdc5b71691e8f3f9c7db212061f791b486bff78ad2382",
+     "status": "completed",
+     "tsm_sha256": "083663bd670f8b1ae8ce6ec06ab9b5956bc9f363caf7c685a3ace2ff857c4a0d"
+    }
+   ]
+  },
+  {
+   "cage": "Box3",
+   "variants": [
+    {
+     "variant": "Base",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.197749985492635,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "721e773a4899fe2aa7c15041b3802dbdb6b0cfd9e259c433e7da4dc9a76e384d",
+     "status": "completed",
+     "tsm_sha256": "9b5154893bd19f87884ee17f9b66f397073c883372d88aaf2daa56ced23cadfa"
+    },
+    {
+     "variant": "X0",
+     "tsm_sha256": "dc08f33955009a2073b09c85d52c68af8c79bac06b837814e38bae01cd7cada0",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.133697529141124,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "0764d1e6f294c298e3870487d5d6f9bd8d880fb892f44f3a717eb9a701f71858",
+     "status": "completed"
+    },
+    {
+     "variant": "X1",
+     "tsm_sha256": "a5d1b10b8638b4e3abefea61c6b82a8d021e8392551535a5a71736e4f66d7569",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.15067343854924,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "9b1f3b19a82424361f5451e6d1e65f0e3d565883c8b13ba1faba06f51d699737",
+     "status": "completed"
+    },
+    {
+     "variant": "X2",
+     "tsm_sha256": "7632b44299d32d5c6ffa0b0874098ddf9de7188c643bf48f4da80f0204d29231",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.133693179777044,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "026054ea012d4ac0d228aafa7a9087dce81ca54418aa287dc3e2ebe3f55ea79c",
+     "status": "completed"
+    },
+    {
+     "variant": "X3",
+     "tsm_sha256": "3c1d0bd24d1daa957afc6bb424aebfe8cb5c87036b1a70b078f1bacfc1b58ab5",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.152409624598857,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "ed5886530d276869beba7b737990447487c12437e8d571dada3fcf62ce481117",
+     "status": "completed"
+    },
+    {
+     "variant": "X4",
+     "tsm_sha256": "9d2f7b026e428c6c11595f7968431cbbc748268306e2a692de568a789e1ca13f",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.13369843026763,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "e42a520fc19bdfd1bca2947f1faf6fcc87967f8281bc56270128158fd8f53b31",
+     "status": "completed"
+    },
+    {
+     "variant": "X5",
+     "tsm_sha256": "5f4202f0649e25e51035fd3d08ac24e53b4dc979e933ef591d4368059c88477f",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.1506739515845,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "656461e8734ec3ad2da49a1958d82313b8bd7ace950bf950c897a9bc1fecbce2",
+     "status": "completed"
+    },
+    {
+     "variant": "X6",
+     "tsm_sha256": "d3173d624d54362df7f0789a2691c3f7cfd16ec06075a85ca6acccc7920fe6e3",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.152409622552998,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "6751b914f604e79fcda163d81017aa0bf3be9bf058e793f719ec27dbd3af3ae5",
+     "status": "completed"
+    },
+    {
+     "variant": "X7",
+     "tsm_sha256": "bd56b0d73066deb1a03dbc2e883b11d68774bc79a533ee29eb402d0e49e1a678",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.13369307387748,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "e26b6e742c9e61a76729a9c304555f996ccbaa07c508641295fd6ea4cbdc5194",
+     "status": "completed"
+    },
+    {
+     "variant": "X8",
+     "tsm_sha256": "cece534e8a0affb2ee86845467369b35829623d5a83b018b236ac3bef024cf65",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.150673951584515,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "2f3569163ff97c0a1070a476b0ccb159ed0b5e6a6803e852ac063c7c1719ca59",
+     "status": "completed"
+    },
+    {
+     "variant": "X9",
+     "tsm_sha256": "c5f3d891558c0baedef86c03ba1ba469688be75b0b43321b62216de717afff46",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.133693073877488,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "caa22cd39878ffc37ce65bc55952db8ff66544701ceb3044ec05f433f3a35d3d",
+     "status": "completed"
+    },
+    {
+     "variant": "X10",
+     "tsm_sha256": "b6898b920dd6759361d20d89ed8ebb1fe8804238b408c3ceeadc9401618cafdd",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.150673438549234,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "318961d45c5bad52ba215321c4b54d78c113a4a08f29b3f80835bd9926620f16",
+     "status": "completed"
+    },
+    {
+     "variant": "X11",
+     "tsm_sha256": "ba1d0be3c98e7eeb40e9ee2f185fe24ec09d700265c633575fe64fcc476b9b71",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.133693179777044,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "794b47c5448866dad51130e7de80d8c23f5e7b9c0607bbc0ee88e657204e829f",
+     "status": "completed"
+    },
+    {
+     "variant": "X12",
+     "tsm_sha256": "fc3ca53661a7af33f7951c29b3d5bcd13b5a1865d8b25918e35e4cfa07d8a080",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.133698430267643,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "375904c3672e69857387687d0387a49e2765e9f3afc50bfd76eb76a0218afc0c",
+     "status": "completed"
+    },
+    {
+     "variant": "X13",
+     "tsm_sha256": "f849c8fb4306538cb26ef073c5614fcce56334e0983e52dd1b65ba0bb96201aa",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.15240962255299,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "c12b09f6a63f4e51d818cfb00fa8a72b996b08a0060184235291d0245666e04a",
+     "status": "completed"
+    },
+    {
+     "variant": "X14",
+     "tsm_sha256": "a1a964733646cbfab8f7ff29710dc358f11d65ae1342fea8814786dd07c77f3b",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.13369752914111,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "e4a09aff568802871acd51cb1a069e121d4ef7c894979ea329536e905fb58bef",
+     "status": "completed"
+    },
+    {
+     "variant": "X15",
+     "tsm_sha256": "9ea92a526aed6988dab58008aebcf3db7e77371823e3c66ca0b3727253973ea6",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.15240962459887,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "1222e8c127bbe41b958a5e3a3fcda6758c50883373c9aee99a38d682bc37492d",
+     "status": "completed"
+    },
+    {
+     "variant": "X16",
+     "tsm_sha256": "52b2bc295cb798edb5704e00a99cf669bf412cf62dc0fb5374fbad394296c448",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.24496017625475,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "c916c78a6b669851261314d08160799f0bd0806d2153b91a71ab0df436978dc8",
+     "status": "completed"
+    },
+    {
+     "variant": "X17",
+     "tsm_sha256": "256f153d175e248d4da2f558ad3828428b9ab5a7ef4f0de5366ef1bd1640c533",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.26626929150079,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "c3117ad4e7841766da5114899f522f27e57c2b78da19119be15414210c389522",
+     "status": "completed"
+    },
+    {
+     "variant": "X18",
+     "tsm_sha256": "12a8896efebc54901f1d0c9f11feeb35cb404c341a45fec7adb1db9fe7783e24",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.25410654800479,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "051a973f0dcdf821ca2219b6ec8c3b707ab90cb1805f9f3d70b99edf3d07d2e2",
+     "status": "completed"
+    },
+    {
+     "variant": "X19",
+     "tsm_sha256": "3c38339ca41d02f6df162e877f91773d06f6fa4019bd65fe0b7c2acdd3fd6048",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.26626322708072,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "39b4755773c631d1a92f809916a3bc679f321ceda749c28d4f983d51f017ad3d",
+     "status": "completed"
+    },
+    {
+     "variant": "X20",
+     "tsm_sha256": "975c41fc9f7faeae2a722b67bdf46c3e0721a30fc7a47437abbe6d996ce5616e",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.254107049460675,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "f8d1c9cce9e037fe866b09fbef5d6566c85689b00f797fc19e09db0a37b17be4",
+     "status": "completed"
+    },
+    {
+     "variant": "X21",
+     "tsm_sha256": "6363102a7fca6435e56ded262d7dfee7a5640d137050b421e27e3d5bd0996657",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.26626088357013,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "cd0b975ef27003c2314941bfe7ffcd98b61d4cfd70d606a51afd3afdb6d1b686",
+     "status": "completed"
+    },
+    {
+     "variant": "X22",
+     "tsm_sha256": "03407f0a3101567f20a7418a7037ee6cac22c50c975560c28ad8709c39f0a631",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.26627140770351,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "a2eeb25a1243d7b8d3946a177a97d4ca9957f65078de4327aceb4cb1e570d3c8",
+     "status": "completed"
+    },
+    {
+     "variant": "X23",
+     "tsm_sha256": "53610be5e120eb7bd27a8f8d849985d268631cc156c9d16d29a3b1484c06f3e8",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.24495978785881,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "cd34763dacfe92909d008e27bc2ab47612ea1bcb899c713175329f4afa969e2f",
+     "status": "completed"
+    },
+    {
+     "variant": "X24",
+     "tsm_sha256": "f580bbaeb27223ebca2011857126f82d8b4172d5aa5d39fc285a1c703f62d82b",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.266271407703517,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "0f5a8930f1100b5d28f86e30f4e67b70ac23b8fc7995765e717b26103778d8ca",
+     "status": "completed"
+    },
+    {
+     "variant": "X25",
+     "tsm_sha256": "a54da5b1674fcff2ae1070b2e94646c7ca808e6afb602fa92b6638c066b5d2ff",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.254107049460686,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "9ace88abb6a43a83bb31f9620d2189ecd22863c6dd0af4708b4741358d8cb47f",
+     "status": "completed"
+    },
+    {
+     "variant": "X26",
+     "tsm_sha256": "648c9072a807ab5359cf1c74d56453a294db1606c14a33dcf0af2d261eed4497",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.25410654800477,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "80d8674ac95f0741a2be48690d59d320d27c1bbd5222dc889f926f08acb69326",
+     "status": "completed"
+    },
+    {
+     "variant": "X27",
+     "tsm_sha256": "51e94dd64a82a2cc88d954219842907e50c4f2a273fe43925f2f547bca6686a4",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.2662692915008,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "7ec81106038158da047f4dc6a3889b86cb00ed36461912d9e4a87c5ba3a05cb8",
+     "status": "completed"
+    },
+    {
+     "variant": "X28",
+     "tsm_sha256": "b01e3e6986dfd6c363f6296db1fa78afe54bfdfef7534bce0f6232840b492e41",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.244959787858825,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "1bcbcc49aff1fca8ad0c7729d09cad3fad231af98c269d272c36b2bad1f40d9e",
+     "status": "completed"
+    },
+    {
+     "variant": "X29",
+     "tsm_sha256": "3facb0793d4b99b3b9cc30c5b2e208d854ce2400a7ac6202cc601f72b2e6559c",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.26626088357014,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "1010bf9c9c296402cabe1bd1ec87a9fd9caebc8c4ca35cf17151c824bb571b55",
+     "status": "completed"
+    },
+    {
+     "variant": "X30",
+     "tsm_sha256": "5b1f08e0d96389e99caf6b81e8da04d62add47dc98c2876bbbb90c32b707b17e",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.26626322708071,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "0a377d712663a91bf76922238d1cb0690f4980c18236354c6321318211713718",
+     "status": "completed"
+    },
+    {
+     "variant": "X31",
+     "tsm_sha256": "5658c4a3741939eb6b3b90d8a42c3d585661f9d670d9c38007ac998d172f8c11",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.244960176254757,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "50e938bf1428bcabe639cc5585e1eb6d07039f3caf39c2c7f3cb82d2af14a4bb",
+     "status": "completed"
+    },
+    {
+     "variant": "X32",
+     "tsm_sha256": "3e306b72571226125768d94f1e2a20846626e41e88db5275dccff6e254ffbfff",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.18302933365213,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "e87c240287b0a0fb8e331f8e68639dcc2d6c08951b567eaf6b4d07bb65235900",
+     "status": "completed"
+    },
+    {
+     "variant": "X33",
+     "tsm_sha256": "13a947521285ff568a2cbfa96ea0e443141216d178b0a2c3fbc63c64d4e19ddf",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.184355659061243,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "c6304b77939aa2df252b4c44dfc3abada23307ebabd2fb3f7a7952bb5b2c79cd",
+     "status": "completed"
+    },
+    {
+     "variant": "X34",
+     "tsm_sha256": "7b51017687d9b5b2d7b0457a8d232e72b3cb563ccae9cf7a7ed973a802c90e5f",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.18435739308004,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "5cb5508347aaae18661e250f06ef8ce90e825bc7a252103f52cc8bf787e9b33f",
+     "status": "completed"
+    },
+    {
+     "variant": "X35",
+     "tsm_sha256": "1383b1b99efbc94abed740b584b40dd83b3c75e26cda3233fa1efe5c0f8dba3e",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.183028857637744,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "69a8d4e261bbca570244e9e7989afc46e88386e17c761870cfa1148993f32d43",
+     "status": "completed"
+    },
+    {
+     "variant": "X36",
+     "tsm_sha256": "8d8e98c5164654d46d5d4a0d0d1d58b71d9da23a49951665886fc26281719e6f",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.213012479197396,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "49f6e43e610d895602e62968ebaaa0b7995cdccf85eca24f01df404d83a4fee6",
+     "status": "completed"
+    },
+    {
+     "variant": "X37",
+     "tsm_sha256": "b4f557566599243a73366cd450d6c7c87cb9e66939236948d146d57de66719c2",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.21186225230605,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "9091e01b1acb3b70591df2ea6b2c6376a53a31da84b70b18a183b45f876bd38e",
+     "status": "completed"
+    },
+    {
+     "variant": "X38",
+     "tsm_sha256": "b43907101d493de85dcb4f43f7c12658407268afa5c36ba2aa1d7ab020c17c19",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.211863394226878,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "3b3298cb47036b339f25daaabdbcfede600c01bf0c80ca333a42ae7a83edcf88",
+     "status": "completed"
+    },
+    {
+     "variant": "X39",
+     "tsm_sha256": "4fcd6f12a6df84ed82130e3230be47d059c6a6c1d259a6b91d219821083463ce",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.21301247919736,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "57d90a3ac018739cf0335b747d2167721c54bdfb64e4dbd9f78ae3174caec526",
+     "status": "completed"
+    },
+    {
+     "variant": "X40",
+     "tsm_sha256": "9d5f95b3d1037492e9afe8da06c5f67917e03a82508c41cb9a8772be743537a4",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.18435739308005,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "6b36fc133b1dd66722c3b099d850c3dc8dca0fa2b108870710ac34f8c9a6b00d",
+     "status": "completed"
+    },
+    {
+     "variant": "X41",
+     "tsm_sha256": "7d7a789f5eed34c0e18e2cadca6f366b71db4a0696a1a83f4edfab45ef3692fb",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.183028857637755,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "8f24397c53507f56ab7cffead99f5d1b546cd98557ad6b3f912a9a8215d33f45",
+     "status": "completed"
+    },
+    {
+     "variant": "X42",
+     "tsm_sha256": "3895f32713e1d64af783972c2d16370c019781dd1ad67ec27b872fc6200d4d24",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.18435565906125,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "f67f38e4692476e136e25542a97fd32125678e691cffd85c9f33538a9ab0d7be",
+     "status": "completed"
+    },
+    {
+     "variant": "X43",
+     "tsm_sha256": "bc809be658fad7de8631ba7e7c6209d34d753361b498454d9ae2e8cc8826ac30",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.183029333652136,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "671c5eab940f750df40679031f88323feee5fdf6af068e8a183b4dafa628f01e",
+     "status": "completed"
+    },
+    {
+     "variant": "X44",
+     "tsm_sha256": "d66632f1de433382e4f7a3c2fc0b423e05b1f22be4d98f9e2c286c5a68fcb660",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.211863394226874,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "a4980f871e81241098a6727f42b16e3db80776b389f52d7dbc3bf8f7094e883c",
+     "status": "completed"
+    },
+    {
+     "variant": "X45",
+     "tsm_sha256": "4519f861ffefda1d38e23b553d84e0063a0d0a5dd1eac241ce4b40bf2f01b121",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.21301247919736,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "f1d2b6dbdcd6161e4eac889b82fd7873b628c9ef20afb4fff7d9e4635a2cea63",
+     "status": "completed"
+    },
+    {
+     "variant": "X46",
+     "tsm_sha256": "4e9cdd41e5fc0f0eee7fec2f7bf9c48bb3a459fdf06c1ec8feaad96d2611f2ab",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.211862252306048,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "a5d31ef09ff43db2a6ee99e57cc2d52662e8b72fe4f9c7b3b96efb805f55e38f",
+     "status": "completed"
+    },
+    {
+     "variant": "X47",
+     "tsm_sha256": "b493c1c003b4cb9a40c5b3a789a0b4cb6405cae7c3649b95c2ab3718724a2615",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.213012479197392,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "075dae6151446fbd3189de318a0cba73d7998697a3099ae2a0e5a4d1f482d27f",
+     "status": "completed"
+    },
+    {
+     "variant": "X48",
+     "tsm_sha256": "09a2f6ff5618b35404b2c6cc8cc310ebbeaa99fee40623e969910e99d50b986a",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.18435706225211,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "461ed588edf408629868d4c5f02413b039fe2c426fcdf07bf5f2fe4c56531287",
+     "status": "completed"
+    },
+    {
+     "variant": "X49",
+     "tsm_sha256": "59d6c5e536cfe8377dd037c00b542be198717e18352b76ac75c98743e577bf3a",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.184355811233278,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "a715f7cf53a5a802bffa66d7615869df33bdb765462fd73c626bcdefc6df259a",
+     "status": "completed"
+    },
+    {
+     "variant": "X50",
+     "tsm_sha256": "ab3efdc7685b912e15a98ecc9205cd1bc5cfb7a80341b511da5cc9b49416f2f5",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.21186410129275,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "f1661227a35de58f1ab434d32a5a3fab17d96e348763419679b8b102486630a2",
+     "status": "completed"
+    },
+    {
+     "variant": "X51",
+     "tsm_sha256": "048827973605efc4e5aa2994f7192128a5bdba536e9728ef0f40e603adecaca2",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.211862972276304,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "f352d8f3ee74dbbec72afbe90b1dd0b8bd867d2aa7fadcafd68b4eac1cb514a7",
+     "status": "completed"
+    },
+    {
+     "variant": "X52",
+     "tsm_sha256": "2758d64a0bd3451e3b6f5b886e140e8831ff8cd049edd929ed8887f928691e04",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.184355811233274,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "569592cd0da4e0ef96b7fd3b31faac57736860e6c70b2a7de15aae09f6293a17",
+     "status": "completed"
+    },
+    {
+     "variant": "X53",
+     "tsm_sha256": "d0c90ab7f084e4bebe28fe512485685db691c1f78067de1dbaa79d737287873c",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.184357062252126,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "608e6bd4bc9d950f1e569b9622542ab2607ef980cd8dd899d118846ed027e533",
+     "status": "completed"
+    },
+    {
+     "variant": "X54",
+     "tsm_sha256": "e7ecb06a67feb6fe8f036098e732e4f1fd71f909e456cc3ddf6093858406880a",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.211862972276318,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "7043c4b2b09a4f0ce24357d344e3369e1c5996faefa8b16f120fdbbf99849bfb",
+     "status": "completed"
+    },
+    {
+     "variant": "X55",
+     "tsm_sha256": "d574e0e86eeff379d26f8d4a3a39bc8675efbf80e262973756736e5ea38c67cf",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.211864101292758,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "d31876c0d7c42e02934de06e20e676e6988e2d04a723176a105fbc3cc3458873",
+     "status": "completed"
+    },
+    {
+     "variant": "Y44",
+     "tsm_sha256": "aceca2ddbcc38825195cb5b10df8c03c5f73f5fb412686897a45f8d683c52cda",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.254096888872603,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "6fc774ba5667ac510038fb2345eeb403c8a7a8c333ce6c4ed9fd1e4909276e50",
+     "status": "completed"
+    },
+    {
+     "variant": "Z44",
+     "tsm_sha256": "57af085106991b4299302ad0661c46159bdfdd96f2dd6eebeb771305c1c5104d",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.18438259674132,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "bdc4b7171879bb10b470a3248c07fd270732146177cf8e55c245f0bbbde16129",
+     "status": "completed"
+    },
+    {
+     "variant": "Y5",
+     "tsm_sha256": "bdfcc3595b96cdf8dae3261c39f9133df06da7df992cd558b3cc2935e90bdc75",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.184357129640198,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "4784de2bf5074c2fe0ce3a92b6e62697c266be8e3d9155606aefdc7c3a4dfca8",
+     "status": "completed"
+    },
+    {
+     "variant": "Z5",
+     "tsm_sha256": "d941e42eb77de46393d481045fcc85b4d9b843930519e623ceabf94d869be385",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.211783368294295,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "29f762619eef35230869acc8954b4043a696c669468d87122498e266d899d615",
+     "status": "completed"
+    },
+    {
+     "variant": "Y40",
+     "tsm_sha256": "7251ad4a814c1cd61327c008616f75540fdfc57b5a47ba2e05690e47256f0ce8",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.254096773463242,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "2bc0fb8acb6516b0ed3c514deaad3d8b96cefdba1e96142fefd9b0b70590ceee",
+     "status": "completed"
+    },
+    {
+     "variant": "Z40",
+     "tsm_sha256": "584bfdbb2890ceb3adfc93a843d4ac8a4ddb3fda503c149f607de801d66669b9",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.184380695405835,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "176399ad5896dde769c2bdbd3de447fadec320cfcf1c550ce4b589da96f43ac0",
+     "status": "completed"
+    },
+    {
+     "variant": "Scale11",
+     "tsm_sha256": "77c023a1ec121c8c93b4fe455b3b26e2836db8a12d01c78311a3f18794465f2b",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.04594535075801,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "6a0b4af2540bdc1a584cdc760d818516c0d90d18d3ce9d012c27ad5ce211dd99",
+     "status": "completed"
+    },
+    {
+     "variant": "Pair55_4",
+     "tsm_sha256": "197353f85adb8be04bab449744c6f9dc256b89b50e838213aa23c9740268ad03",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.147812255906633,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "f4c20d79cbb306e04fd4ef090f0bab952f460bb10aad0345f5c22a38f52ab721",
+     "status": "completed"
+    },
+    {
+     "variant": "RandomA",
+     "tsm_sha256": "84bacf98561505f5fccdaeab069651d8817512d32751cac4c6e792c713f7dfbe",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 29.21937292680029,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "9e044c2db8c8af48fb58788cc96dd618711d98b13d335e5f668e614cec6ced51",
+     "status": "completed"
+    },
+    {
+     "variant": "RandomB",
+     "tsm_sha256": "17bb3959ccabec65612740284db2df60c1dd6b1ff8eb3bfda6eb282004216a84",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 29.84447375902767,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "56a736dd67fd46f276a6cb1c7d648427f92f82fb5fd9a0281a98bfd69faea9f2",
+     "status": "completed"
+    }
+   ]
+  },
+  {
+   "cage": "SymmetricBox",
+   "variants": [
+    {
+     "variant": "Base",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.560443509000667,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "348586a323acf942f4d57fd9542f198139f793d46632d87c54625c6842a897e8",
+     "status": "completed",
+     "tsm_sha256": "33ff3b8c0cb360b6c476d3d443f754553fc6d99f17b319341b9647091fa2be9e"
+    },
+    {
+     "variant": "RandomA",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 24.883256310653202,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "fb9cb6f67f0dcf17e8910abea82ffef7b3141b278826a572c3d8b32bac9f4b97",
+     "status": "completed",
+     "tsm_sha256": "f4aa0b68485f1973b86d2275a241081dc451edbd3c86bd1af9c044b75a454721"
+    },
+    {
+     "variant": "RandomB",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.88234029453606,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "2c04500c9fd13dfb591d327a7f243ae476e42fd38212da3c8921a54458d9732d",
+     "status": "completed",
+     "tsm_sha256": "335c8526c1ae9e2ed28ad712be1ecedfecad14b5f0618cffe0bfaf08c686d5f2"
+    }
+   ]
+  },
+  {
+   "cage": "Valence5",
+   "variants": [
+    {
+     "variant": "Base",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.759151185434265,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "b0c67c92208fe1e7d6e8e06850b34c9cb03ffacc0707368faa019c80973b69a8",
+     "status": "completed",
+     "tsm_sha256": "e15de98aa5f9efcf5ce1d07b12544f5e50e2309c9bd6f9725d3c55b3669547a8"
+    },
+    {
+     "variant": "X0",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 11.264775841386484,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "06abf508c6390ccc42e7d9cfa98e4db498db6c94861ab15054017897f4ca4b04",
+     "status": "completed",
+     "tsm_sha256": "0c2006def262adb9ef8d9b2b8712e19f0c749e7fa1c02183f256c6159d74ae7d"
+    },
+    {
+     "variant": "X1",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.930626045930907,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "5396eed197dd656ece7e6b7ac606f6fc072e48f2627b2c24fd7b163535cf9dbe",
+     "status": "completed",
+     "tsm_sha256": "0d105747e8bfeb681fc3c7912f5fb0de8267b962d1bf08db726597df078d9639"
+    },
+    {
+     "variant": "X2",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.48359531505506,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "9b7a7622b422d96b95b787f7adde0c58745c00c33827e8befb31bae1b42b0076",
+     "status": "completed",
+     "tsm_sha256": "af770cb530198c9961fad50f6d6b31cd90e9b68bed8008b0073a22d6a9f19113"
+    },
+    {
+     "variant": "X3",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.483588700442477,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "59afe801ca8b5f6201bc4a93b40d776bb90799da8a522a0333c3ac7dc898a5f3",
+     "status": "completed",
+     "tsm_sha256": "a1a6781da79d8da87bce0fae70a6a78f9118c6e668d6cf47ee75d38f37f29276"
+    },
+    {
+     "variant": "X4",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.93061461229202,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "98a89f41b63f6206593cfcf2acc830ef85536e2a57f8ec10484a7826c4ffa547",
+     "status": "completed",
+     "tsm_sha256": "fcd1e77193618704546105b3ff050b073c55475960712018538dd1675540796f"
+    },
+    {
+     "variant": "X5",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 11.264775841386488,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "7d7eb3de6beff4c636bfe9138d60b04809aadce5a5c42809e658597585e4f496",
+     "status": "completed",
+     "tsm_sha256": "b7fcba23fa5da8ec5daab87ee3b7e6bf8f89e72bca35ac3bb9de7b64005db562"
+    },
+    {
+     "variant": "X6",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.930614612292022,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "eee6f4ae17b8d2ad1a9207bf50fee785f18c8e2f5306cc1f0c2b03c7654e1f64",
+     "status": "completed",
+     "tsm_sha256": "6aa55a9d7f816075baa9f65c943ae01bf82cef6cf327faa79c48f675260360db"
+    },
+    {
+     "variant": "X7",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.483588700442477,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "2f17c6c03f080a4202786debc0a4d9606cca35a730b9fdba84d4995b687b6348",
+     "status": "completed",
+     "tsm_sha256": "eb7429956d680c21fc3b4b68ee6d9232fa8330109186548636e13e800b0325d4"
+    },
+    {
+     "variant": "X8",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.483595315055062,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "f2c4f75c09ac7dd253c91c73b7d89051056d8d9b3cdee790cdb8a5a70e29f057",
+     "status": "completed",
+     "tsm_sha256": "88ed2a094f003e7359491f58f645ffab1a9c4d2e19b4d5c58f3f388a4bb44482"
+    },
+    {
+     "variant": "X9",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.930626045930909,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "05c82836327069577f78bdcf08303c9416e077a1d01588a506727c72274edab7",
+     "status": "completed",
+     "tsm_sha256": "fc7661bed0f2cdfc401f4ab6e054b9715b6817667fe528c6fba775721248c09e"
+    },
+    {
+     "variant": "X10",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.812706785901305,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "2aa0dd3d59a08bab4a45f6e47ca2542672fdb1e629b0029f5fbe87e7d7f4ede6",
+     "status": "completed",
+     "tsm_sha256": "1cf4e77c6b159a6b3498df7943ca603bf105d65e3e8b3902057b3d8b16a4e78b"
+    },
+    {
+     "variant": "X11",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 11.259423541053698,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "4d584e61ca3e89fc083855886a20447dbc95d7a6ef8668bac9727a1f56e049d9",
+     "status": "completed",
+     "tsm_sha256": "391422336598569927542f306cdf2b17c99630b18ad1323e7fb72837df894ad5"
+    },
+    {
+     "variant": "X12",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 11.25941392365765,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "88f81317fd919ff80b1a981ef8ef2838564d3cb2ef985347dcae10a12402c6a8",
+     "status": "completed",
+     "tsm_sha256": "77ede0a3fc2cf3a4332c2d1cdf77ec499000097ba006ab0b43b4ec84a56ba161"
+    },
+    {
+     "variant": "X13",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.639067242428494,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "95336dc1707b10dbb62b797090b57e448d8092780368f6c7f0d19bbbcba527ad",
+     "status": "completed",
+     "tsm_sha256": "41ef0cab95de9b236e76a94320a1c97b7588670b7be97f05765dc4d6a952ca8a"
+    },
+    {
+     "variant": "X14",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.399173379244694,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "8b05730ea40d0c6ae501d06667c0e50ed4277cb5bd2b4017763e4145874f835c",
+     "status": "completed",
+     "tsm_sha256": "d0d607ff2da53d6582f18a280e70db39d08a874eb69955a5887a9bda1a80f1db"
+    },
+    {
+     "variant": "X15",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.639046601316531,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "7ac919d68b40a3a44c380c47cd8701f099eff2f9c95b0065a93756fa0e7a4e38",
+     "status": "completed",
+     "tsm_sha256": "f24b8c66d15abab2786707501d64562296b980b79c0965fa8b0319a82422880e"
+    },
+    {
+     "variant": "X16",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.812706785901304,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "483ae76d60a7221f9d553140b1344a8cac620decb1699ac3f8fae03debf96ed7",
+     "status": "completed",
+     "tsm_sha256": "2e03f13bf48599ecb06e4b3d3fadd7ed2c76aa1099cc9f9c128dc26e73432a77"
+    },
+    {
+     "variant": "X17",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.639067242428496,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "267825a29bb2b47c700e47159b592eb0e9673513de6cd11d7e38315bc963e5e8",
+     "status": "completed",
+     "tsm_sha256": "2f4305307842ef3b00d11c12cbd5178163c4cdc4bb92ae7354f4ea0b3f3fa339"
+    },
+    {
+     "variant": "X18",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 11.259423541053696,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "ed0a12e4d6acac96432cfa02e91655c9fd06592e21d373c094b8184a6ebf462f",
+     "status": "completed",
+     "tsm_sha256": "016d7d8d3ce520bc517c92f38106bc19229edd23dca92f45f75a89dabb4fba5b"
+    },
+    {
+     "variant": "X19",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.399173379244695,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "36e42089b82f6a8123de747c02dd2e67a26e15b41188d1a84845429382a8fdc4",
+     "status": "completed",
+     "tsm_sha256": "9171f46ee17e539abe659407757be43f74888eed341e6910fe6293fa80b8b7b5"
+    },
+    {
+     "variant": "X20",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.639046601316531,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "09cd96fe70e2b864c39401c51571ad672e72ffcf1ba5f42ee051448e4993353f",
+     "status": "completed",
+     "tsm_sha256": "c78690fa8f1ab384c1c6bf88dc95228abec3664ce1ca3374d77d011dfc590865"
+    },
+    {
+     "variant": "X21",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 11.259413923657648,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "b921e3e2cda7492d5aa0b5943033dd9ef0eb554609c2d3afbae45a490744edcf",
+     "status": "completed",
+     "tsm_sha256": "5a5ef69aaaa27390eb1d28e788ffa583256f9e8146922e9f1883aa02096487b7"
+    },
+    {
+     "variant": "X22",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 11.39663003152761,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "ab9d4d98dd1894f50216377a7f4692b3dc9b081f162c776b123ae0665e19b1b6",
+     "status": "completed",
+     "tsm_sha256": "3c502a83d148dbe3af28e37c23bf36d87ce3331a531603b06a366cce0395b46a"
+    },
+    {
+     "variant": "X23",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 11.568036344130924,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "a660685869827aa1733941461b95a84b932050fb3e8fc2a2752e3c0002d76b08",
+     "status": "completed",
+     "tsm_sha256": "3a7a1f342231d5f0ad2ceb7e5e8800fbabf2119f1d7c047e017e5eda3aa8910c"
+    },
+    {
+     "variant": "X24",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 11.050029745800085,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "92b54267267056504fc7ed38c02ff35ee6af64ab01ce0b627ae3b65f33554d09",
+     "status": "completed",
+     "tsm_sha256": "1ff176f4e8731d0f8f5c30ceffe1d0c36e13b7000bca8731940afc30716d4a79"
+    },
+    {
+     "variant": "X25",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.625941026245771,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "1a881789351cfa85ab60b763ba71dccbda887774e0b572390d8a7c5edf195588",
+     "status": "completed",
+     "tsm_sha256": "fac14dfc62579a25c77e483e78f68f27dfe0f9347bc55214ec73b5a1ca126cf8"
+    },
+    {
+     "variant": "X26",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.405093690342737,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "bd0a8bdf8efc98b8bc9841b9564517fa2633e9dce056ba325b89ee6dd3ecf615",
+     "status": "completed",
+     "tsm_sha256": "31390579c0e7d7f52a59cdc37d5bb6012b3e4b5cbc0cf09253dda69a393ccb9f"
+    },
+    {
+     "variant": "X27",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.477873229681396,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "d2be385cfce462987afbd9334e7e5478c35e43388afe51ef3b31a71b492ef791",
+     "status": "completed",
+     "tsm_sha256": "ea6e101a2fa7052b1d2f6b7a50632b58561989cd965f935bc209027ea463de56"
+    },
+    {
+     "variant": "X28",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.405093690342737,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "eb4dc4b0c7c1fc5108a237005fedf1aa67ac3293e0e5e0fe2cb810de197427d8",
+     "status": "completed",
+     "tsm_sha256": "f0d96041f56cbde9e9a16e3a4b868b4f1244304cfa88d8a5a4e587858747f6a3"
+    },
+    {
+     "variant": "X29",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.62594102624577,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "9ab0baf4f614181f3aa75788c9eeac51441f56b5fd5115960a3cde6938ab9531",
+     "status": "completed",
+     "tsm_sha256": "1aac3a91aa66d11dbc9a978958db20e75d53f02b757c88d38c5b7ff050cd8040"
+    },
+    {
+     "variant": "X30",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 11.050029745800087,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "529a7ce5180fe8ebd14cfe1390039eee981c1e11225958f84c121848f9b33e5f",
+     "status": "completed",
+     "tsm_sha256": "f86170e66e8db9dad8ce5d1eebd338c31470c5ae4167ef6e2bbeb895072ff4f5"
+    },
+    {
+     "variant": "X31",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 11.396630031527613,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "e1f757fb92331f7a9c19fa8b1b6f0c3d79ef39844bdc37b39097d1821df1257a",
+     "status": "completed",
+     "tsm_sha256": "a13c50613580d387021f68689b9d03684a7d4fa3a8b478f93bd28b3975f5bfa3"
+    },
+    {
+     "variant": "Y1",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 11.24070131819566,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "b7b59c08ebb8b55cb238ad9a5d24e4e0d4eef50fee949b5a60618e0d5ecd5b22",
+     "status": "completed",
+     "tsm_sha256": "42ad51b697d5acff0a951110980fc5e0d35bfe7343307c610b21fd4993f63c68"
+    },
+    {
+     "variant": "Z1",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.50447719472144,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "2531af1433d286530848e6da2e929ef807b7491ecf3fa381f5d2ae970aac166c",
+     "status": "completed",
+     "tsm_sha256": "3f40956ef37836271ddfd482522a060c7f452cf292919c3d4ee14e065f5f4783"
+    },
+    {
+     "variant": "Y3",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.551281919959361,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "c713fb6a070f7a0a3e98881a05a587a92eb8f4f7b35f0f58df0d356746780b2a",
+     "status": "completed",
+     "tsm_sha256": "1038ec2e7b9dc4bbb3e2eff7898ad9705fa53bc8144d05fc025ed54caa230a31"
+    },
+    {
+     "variant": "Z3",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.504477194721522,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "4d99392dd6f04a9f03b4674b167c9488716542e8040f8bb1c689de704a101a69",
+     "status": "completed",
+     "tsm_sha256": "af6f97f073135112f90d6200033509740952529888235a3872e269b32e87f73b"
+    },
+    {
+     "variant": "Y17",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.412594064805347,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "a409c9d36aba389bf1f336b3b01073b9ebbf3f893656a65a6a2874e639d7e9c4",
+     "status": "completed",
+     "tsm_sha256": "ed1bb258a23c231cf2a325d8b5c296528756f3b9deadfe15ade2968bd4f06f4f"
+    },
+    {
+     "variant": "Z17",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.403045269151441,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "3f80b079451241ada65b80dccd4e4fd3e04c51c2057cc83ad82af32bfea2297d",
+     "status": "completed",
+     "tsm_sha256": "4e318f395171391b2512f6408f56f8d9083618ff10d4b5ca4d4e8263df8a63d8"
+    },
+    {
+     "variant": "Scale6",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 11.380831621934542,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "1bcfde80fba9e18bd74b7d331408b28997188dcac397d25f326d814009a7523c",
+     "status": "completed",
+     "tsm_sha256": "50a1ac94b21a94541108cd5595ae70cab283ad941ed2bd2b78b68339edff1922"
+    },
+    {
+     "variant": "Pair3_27",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.153714337081688,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "6d9bc1ec5192b93933845765d684247a812175f4757781e52663a34342701386",
+     "status": "completed",
+     "tsm_sha256": "8d62621e7cc294b52f2bda26732c89fdba96103c6d9b686ac12f3e2e9af0db57"
+    },
+    {
+     "variant": "RandomA",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.130941404811114,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "ad346b8ead2e65e721878b3e4130d83fd90065b1f1a160444cd97b9b375578fe",
+     "status": "completed",
+     "tsm_sha256": "3fb373c826278e26bc11f19d95328e853f6c89323c5763ce91bd8f2064f14585"
+    },
+    {
+     "variant": "RandomB",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 11.095118843886283,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "f21df44d9f2ef35db0fca64c74e833b6594e846340d1f7b5f98c37fb33e277ff",
+     "status": "completed",
+     "tsm_sha256": "744f47af14cd568fe305b33c168011e110a8e6f290fbc60847959ab805be8bda"
+    }
+   ]
+  },
+  {
+   "cage": "Valence6",
+   "variants": [
+    {
+     "variant": "Base",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.685035700340038,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "903a826c80b4a9010d2cb1c746ce6c75e7e3a10b58fa508c2377d15717ccdcfb",
+     "status": "completed",
+     "tsm_sha256": "b9bf79be0f2ea3fd1f770996ebf0a1ed89c1d37150c1f1e7358d292db1422f72"
+    },
+    {
+     "variant": "X0",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.150719135023829,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "874c1f6ca0d59d953f974fadab7a0b17f2f687dcf8d565c3b046244c4413c7c7",
+     "status": "completed",
+     "tsm_sha256": "26489cde0317db3749931dca45b7920360e5a35a7672ce0ca4a15261605d2572"
+    },
+    {
+     "variant": "X1",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.924154611466934,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "587992d8f6f24afc900bc2ed1f85fe859146ce50f4cf5dfbd2a0c6a55443f228",
+     "status": "completed",
+     "tsm_sha256": "e65b3a60c9617c4c84b232ca59be8e131f5344062b20cbf2e28be17d6e09719d"
+    },
+    {
+     "variant": "X2",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.527240698932122,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "9c69f6b92574ccd2b21801204cfbdc168cf605353c1148fce09d0a6de2567a2e",
+     "status": "completed",
+     "tsm_sha256": "9789fc2ff21cf21224bbd9ca6ea8536e0dc8ce05b31dc5dcf9eb04af6d4879fd"
+    },
+    {
+     "variant": "X3",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.415703324791908,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "3ebc19ab3d6063991907409c724fd30f30b7529481b34b3b22ff771316b72a8c",
+     "status": "completed",
+     "tsm_sha256": "e9b9d42985452564aae735021b5a6796bfb4b36f0469fde06d76b4d22f6b2f3f"
+    },
+    {
+     "variant": "X4",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.527228498061135,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "8ad804fb2a35347488283a3110c3f8196984d09adfb15885cb7078b6ceaf4538",
+     "status": "completed",
+     "tsm_sha256": "2d2f82dfa4da6d218a55dde49cd7792f54e5fee07edf71976200d73bc9042613"
+    },
+    {
+     "variant": "X5",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.924141781137706,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "6284f67c268e9f856d05652d9c6fc10bbdaea009a8317811b011bdc4f3056267",
+     "status": "completed",
+     "tsm_sha256": "592ecb588000fdada515cd47591554e7f6874360448b8d597c0c97a067101159"
+    },
+    {
+     "variant": "X6",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.150719135023827,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "fbf0d30964c7183b7fa6ac53db2f4b0648c6328f0e7481fc1e370afd3f76e103",
+     "status": "completed",
+     "tsm_sha256": "f4890959c2b39591ace3e39d8578bd2de906ef89f47ff353d999915b8c4955a6"
+    },
+    {
+     "variant": "X7",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.924141781137704,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "9a36d4568d67dc95d89e34b2a3c944a83c775ebd1380cf2a4cf8d427f9d65aa2",
+     "status": "completed",
+     "tsm_sha256": "77fb38068c7a23a560bd06545b270869bda8e13bc3f528ba40f3bbd7ed3dae94"
+    },
+    {
+     "variant": "X8",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.527228498061135,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "d3386c16ef95d93fc05da2956d5824eddb6259a59ee70a4eb4eb57a4de595029",
+     "status": "completed",
+     "tsm_sha256": "8c3e2efff5b7993e5630cca9324fa8df30ee4ebc79da56bca1782b7a3d2ce0f6"
+    },
+    {
+     "variant": "X9",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.415703324791906,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "769e37fd1e9d9d2ed1aedbb4c4658fa0b49a736946afbfbb2c0242a4c860926d",
+     "status": "completed",
+     "tsm_sha256": "c2ec5d71aba6f9cf8cbcc0ab7da0dc7865e4353ae8823e3ca65cb356aa06570d"
+    },
+    {
+     "variant": "X10",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.527240698932118,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "4eb4967586d3aeaeed08aab29c4e938672cc7c8f1241c0c20dcc3c7ed755d954",
+     "status": "completed",
+     "tsm_sha256": "ce5f5193e7332be31493c60274fe7c9bf8b4a4bdcbb54966584edb4dea938f9e"
+    },
+    {
+     "variant": "X11",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.924154611466937,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "37e646c2872673292898a1a398336a3da629b86baa5c345d51b4e51c81a80d05",
+     "status": "completed",
+     "tsm_sha256": "a835791eb5f4976a0a174c3903aa3b836e62e1f077ab535ff3d47d4c383d886c"
+    },
+    {
+     "variant": "X12",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.745929767398616,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "a7406e44dd54dcb4f7aa9753becdca2384489de3e815f77809d3daa2e4a8ba2d",
+     "status": "completed",
+     "tsm_sha256": "b6cbc3c4b908b479444cbbb10eb8bf2061e5354e21de148c791edf0d4d43e48a"
+    },
+    {
+     "variant": "X13",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.180594035247587,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "c8205debb3dba5e7de5b27e1ec7dde1a5dded84b51374de06527bf476fcfb2e5",
+     "status": "completed",
+     "tsm_sha256": "7b7ca76803e7051ae0ce3903c2cb17287dafed953f60c6003ae6908ecbec7b4a"
+    },
+    {
+     "variant": "X14",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.180586854931443,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "3fcd6d31ebdc5c9f61f7ccfe3c65bc2cec0bf74b6791fe0b5ceaa549dd0a2e52",
+     "status": "completed",
+     "tsm_sha256": "db25e0fce87ac9834f8bae34ebb89efc56c0e551cdabfd839a5ce5d7268b048f"
+    },
+    {
+     "variant": "X15",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.70919599883008,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "1a129aa19c657f26287175eb1d1a7fe8561fca0f658e5dde3eefd3a502a0a299",
+     "status": "completed",
+     "tsm_sha256": "097479876d1002e250cfd92fa480153e15d4e2c59114cab1e542f4dcf2c49599"
+    },
+    {
+     "variant": "X16",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.405040878189476,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "1c9d54499cda4b54c04cf5f5eb56e436e18506dd51b56fe979853380c759df63",
+     "status": "completed",
+     "tsm_sha256": "c75d9961cdb0d1ee529ef0fba831c8b27ab020e9fe1c1e7e9cd86837adc8dfc4"
+    },
+    {
+     "variant": "X17",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.405033389624498,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "e8897a235b215693e0e13e6c2b2885c6b0f891de5cbaa30e8280786774056b76",
+     "status": "completed",
+     "tsm_sha256": "c8151744ded54ffe9408d1bd6e0299bec1121dda0d7b88bc7b910bea321cf75e"
+    },
+    {
+     "variant": "X18",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.709175563816224,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "c79aced4a4199226697841621de8e28f8cbaae888ca862f8d7339294b5fb44b4",
+     "status": "completed",
+     "tsm_sha256": "859698c6057185718a74b30250ab9dc80ad59897d78a3e5374e5f72d2e6cc304"
+    },
+    {
+     "variant": "X19",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.745929767398618,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "f74a9c41dcc34aebd96f1d444c214b72c639ff4bbcda7aab4ea2ca91902c1dc1",
+     "status": "completed",
+     "tsm_sha256": "0ef428b557e6d56b3d9aca24a3743e2146cd3b37ec2c024d6ea094e62e96cf3b"
+    },
+    {
+     "variant": "X20",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.709195998830076,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "05115d7bed58fcdd6669a54c4af5bf38170b603df843cf60ef2fa6b3e8151855",
+     "status": "completed",
+     "tsm_sha256": "58d21eabb66619dff1c32ed5a554669d8ad70ebe06aae5e9681299e1b87a1858"
+    },
+    {
+     "variant": "X21",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.180594035247589,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "9a617710d00cb81543b4353dd9da1d1ed2c9df1016270500461937c5e0f491ad",
+     "status": "completed",
+     "tsm_sha256": "10f1d4ad8f176024413e32b29b630ca7a114005020eb7b3f78ddb671c8e307ff"
+    },
+    {
+     "variant": "X22",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.405040878189475,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "095739d7e96400bc007263d3770b47a117a109ba6bda7165d00b74e1609094c7",
+     "status": "completed",
+     "tsm_sha256": "9c04cadf21da22a0ea5acc2beb7d9c2ad24d98c28f98deb294ea3dfaae5e3076"
+    },
+    {
+     "variant": "X23",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.405033389624501,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "6fcb35962a4ce077784a096b55d6f4686b745789ba648fab25c8c8f26cd6fd25",
+     "status": "completed",
+     "tsm_sha256": "b8b8ed405de94ee91e4ba96c25316589a78df04651f87885e60cf46a5393503e"
+    },
+    {
+     "variant": "X24",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.709175563816226,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "178d4313c682920eca54ebc0b42f17b67f10281bc526868f9f525390dc68e4b1",
+     "status": "completed",
+     "tsm_sha256": "d3c831d6eb27dbe40a6b6d6b89b5541fd8bdf6d3851b0334ac380ecd42cfed26"
+    },
+    {
+     "variant": "X25",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.180586854931443,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "0e47a3c49a8594efd29a63a0a738e7e1c975fe3ae0bbfe47b3ca051203ab70c9",
+     "status": "completed",
+     "tsm_sha256": "f41d509fd3f30dc800fe59ffbb463756d12942c3de24060ccffb94c7749d0900"
+    },
+    {
+     "variant": "X26",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.308865754990974,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "2ca1a30fbf9842f432a7bb1ead1c8e608e6dc2b3c3fbc85425439e3a547db378",
+     "status": "completed",
+     "tsm_sha256": "2e29a8dd72f84308e4a5f891893089b7791bcb3858d5927b9bad7f45d26ed352"
+    },
+    {
+     "variant": "X27",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.427696868867487,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "6b0996ab679980e31891f030a82b43ae3b96e4e91299ccdbc37a8ce9b5cca1b6",
+     "status": "completed",
+     "tsm_sha256": "4e069a9266c14b45034ed488f4a1791cc22d638c4529e8239573515f3bb2fac4"
+    },
+    {
+     "variant": "X28",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.079462718536327,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "33efc3e8ec4e0c00af879bb6164b53ab0c81338bceb2fb82664362d4470d9763",
+     "status": "completed",
+     "tsm_sha256": "820c5ee4a3af8852d1697e43406da406367ce4c055fc7536fa3b5442a4276528"
+    },
+    {
+     "variant": "X29",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.717318983547557,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "33cfac0d5bfb93b5583603d3de325d7f945dbc69103d603b048cede2886ca691",
+     "status": "completed",
+     "tsm_sha256": "fe9533fca1654f3f6f45d311ccc617e70dc68a319f3f66b0d14615df962959c3"
+    },
+    {
+     "variant": "X30",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.480240194808164,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "dc845d4abc588cbb49e5e78f7e995766c772e5acdf3b87cd87201059109bef97",
+     "status": "completed",
+     "tsm_sha256": "ee8554ea368d4a11cbb91e8c7ed4627e3e2ea8047cdb145dd7c58ae36a86a7c3"
+    },
+    {
+     "variant": "X31",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.484211766554568,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "3b524423fc6c5d089e5e77271e3ea8e1f727b472d1ecd0ddb30e913457dadd43",
+     "status": "completed",
+     "tsm_sha256": "224691093f8f9cb5e07f37e462be527e1f56d058bce6f7d579e0a5eda372a1c8"
+    },
+    {
+     "variant": "X32",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.409569354110197,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "28c2846b101ea5bfc6df357790f6b47399bf62e76f4c9deb9ebfd1365d4f12da",
+     "status": "completed",
+     "tsm_sha256": "1ed32bff1cf2c93d69880f93253c0454eb1aca49abdf3f86a6ab1eb2e89419f3"
+    },
+    {
+     "variant": "X33",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.484211766554564,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "986b793214de7de72f83f5b955e7c00c05e78e61a440a956e553ff171c7160f7",
+     "status": "completed",
+     "tsm_sha256": "a4301b8da9dc0ac8dc2d4c4c5b4e070a4ced1156db8dad50f88530ee179dc321"
+    },
+    {
+     "variant": "X34",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.480240194808163,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "deebf9214ade26396a60b0c31ca4d853b3a2283363ca87967958083d623a9b5f",
+     "status": "completed",
+     "tsm_sha256": "36ecc832e4988603a089cc85dffb2278fcce65df945d60d00b749381f628f840"
+    },
+    {
+     "variant": "X35",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.717318983547559,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "34fabb5bb25ee08ebe1148a44c900e4a1a66ed6075ca082770fa29e72a12ce63",
+     "status": "completed",
+     "tsm_sha256": "9517172d4e964941f309154385bbb5ffc8ae4bcc446475abffad8e70030fff1b"
+    },
+    {
+     "variant": "X36",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.079462718536325,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "53308e7c1c94d14fcba45deee06feac0dc2b934dd3c32b603f0bae2aaddab515",
+     "status": "completed",
+     "tsm_sha256": "3373068c2c1986f79074655943b7fd1181541259a1565d842de6ad999a654334"
+    },
+    {
+     "variant": "X37",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.308865754990975,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "f1cafd94f72d01f7a3a5bb85ea9694f52f1e68823d5f159da0615806ac0c8b22",
+     "status": "completed",
+     "tsm_sha256": "7bb196bb9d726d7434f30afa2dfcd5d04fe9090ad9865002b1d9a33a30fe4386"
+    },
+    {
+     "variant": "Y33",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.521269623959952,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "dc13b4d24b3a9e4f115a825d71afde7ce858f7b53dc55eb2c6df77daf5af012b",
+     "status": "completed",
+     "tsm_sha256": "eae29364cb7edb25e593224c6c284d4f5678ff20fdddc28b8b8f5ff29d927ef8"
+    },
+    {
+     "variant": "Z33",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.73619384652523,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "7b34c7b94f86f5e84837c5f44d271aa52f8f754bf6b96875d5b3e2b37181b8fe",
+     "status": "completed",
+     "tsm_sha256": "744e0ca81f9b40eeb6db4133e1f38b7436067c5875f7441861b641319dddea2e"
+    },
+    {
+     "variant": "Y19",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.745982258939282,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "fb09aca50cbfa6252ba61ae61c38fb3e3004716366e08b2b5189d35b3f607b53",
+     "status": "completed",
+     "tsm_sha256": "9be0430ebe42bdb35c41e9bb98e4a1e01f6b8323ed6b5eb9c4a0e855ab71eaab"
+    },
+    {
+     "variant": "Z19",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.399196989717531,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "12d6532ed56796c16998c5c99d06d4af7e52a9a6cb7a23f683671968ed1d225c",
+     "status": "completed",
+     "tsm_sha256": "1909fe2ead4fe75faaa8f70de7b3e997d5df315fc9e6e1f9aafb687ce6370865"
+    },
+    {
+     "variant": "Y34",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.41295531617198,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "ddd42db3a780154acec676cf4dc7b3bbc334cf91c7aff22d2326152698017e7d",
+     "status": "completed",
+     "tsm_sha256": "d6769f06654f82205bdf795639873a3e209579d18bf31bd0951ac0a14de485f7"
+    },
+    {
+     "variant": "Z34",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.729257182285266,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "b6b1a0ee558b610532135ad6fd81ab07d2f18db74fa42a0df37d2e5a80f831c8",
+     "status": "completed",
+     "tsm_sha256": "b51f6800e0de6fa2f79f29c23c9fc1c44a739e200b7aa361f09e106ca588cf59"
+    },
+    {
+     "variant": "Scale31",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.019627829219605,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "fb1543fbd4e8932c59f80bd36dfe397867d718bbb8e4f51f861a9a1964d82004",
+     "status": "completed",
+     "tsm_sha256": "dc8d9ad1fa9e04611167a3831fb592d53a83e4b906abe9c425dfe83c25e2f72b"
+    },
+    {
+     "variant": "Pair4_16",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.246854762641524,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "b2c996e1fcbe2fd66af4dac3d3f0d3cc371b663bbb168f3207b70232e0769450",
+     "status": "completed",
+     "tsm_sha256": "269b6c3a2930831a8f7b79d02a59984bfc66cacd0e3c041c1a2ac4e9062b76ba"
+    },
+    {
+     "variant": "RandomA",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 12.186191294731277,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "f59b4445d897a054f16b21c4ecf7563eaf0d42f86c17db34772ecf6af7d52054",
+     "status": "completed",
+     "tsm_sha256": "49de112ca448718bc7bb98b761cdd000bdbac6ed68da3dd7f43222204d2c4079"
+    },
+    {
+     "variant": "RandomB",
+     "bodies": [
+      {
+       "faces": 18,
+       "edges": 42,
+       "vertices": 26,
+       "area_cm2": 11.324410063335614,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "6f6bb1a5b1a436dc7fe3025e73dffd9080e4c8410a1d0c540669af188c25c3d1",
+     "status": "completed",
+     "tsm_sha256": "d98b5463884e6a7cfab4459564d7931be271692e7d57fccf7b8d158de08f4bd8"
+    }
+   ]
+  },
+  {
+   "cage": "Valence8",
+   "variants": [
+    {
+     "variant": "Base",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.701471220001627,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "ba7aeb33582364cc992407b1a00aaa1d95eb0614be7fed79025b4a456c5113c9",
+     "status": "completed",
+     "tsm_sha256": "bcfd08dcaea381558aade7e87bdda1f46655e995fbd8f480b1df57c9a4816dcc"
+    },
+    {
+     "variant": "X0",
+     "tsm_sha256": "70a5d5db0d970a0db8afc87e775ff5d986c8d6482468bf40040d221dd2fb5721",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.741596047507546,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "194a17ee98acc018eb4986f995528f78a1d51cd737849248d18ab85c646e66c5",
+     "status": "completed"
+    },
+    {
+     "variant": "X1",
+     "tsm_sha256": "fd56e3610f2aaccc20e866938bca154d619489a5e77aea3b5d1ba9ef874e152b",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.729620279273883,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "445fcb99bfc75948796f4731c0f970fa23e29dc2919baec57f77fa5b1ed1b22b",
+     "status": "completed"
+    },
+    {
+     "variant": "X2",
+     "tsm_sha256": "a318a303c38ba6eca1be08f719dcf9a4d0307219c5693be98668fe52932c934b",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.70168355566234,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "e66d47ffbc2ff38807d631703cf69bba1a49a000faa27e3a132180157461217a",
+     "status": "completed"
+    },
+    {
+     "variant": "X3",
+     "tsm_sha256": "dc787cd7bc42148940633414d84ec6b1d2e6354702ff9954129b6aea1f23b355",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.67531653697126,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "d8e1a030a6086c955bf1288eeeeed2d3b273caefc80cd7a3da1973b1680d46b0",
+     "status": "completed"
+    },
+    {
+     "variant": "X4",
+     "tsm_sha256": "da182077fa7ed1c6e1931a0ec0d3235e8459a68b6036c47e66210bc069c6aad0",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.664906720040058,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "cb5bc4a09ee0286c7df939d2d46939db1d201317ff2c46b193cd36205933037e",
+     "status": "completed"
+    },
+    {
+     "variant": "X5",
+     "tsm_sha256": "bde73cf1fb8ce70a02a0068a2074ab2a966daf6c3418c75a38479a3e55958a40",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.675314855064737,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "a0b56dbc9afe9b184f170cb25f6274459e8c70cdeaedff930b132393d8658d1d",
+     "status": "completed"
+    },
+    {
+     "variant": "X6",
+     "tsm_sha256": "0f25fe58945cba7d59c768d86916d2934c4583309019bf0531ee50a7a9161d11",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.701681167488802,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "ba7fc3993082bb9024b0441e0ddf11af91700ffc7f898fa874e0a7f947bd8ab3",
+     "status": "completed"
+    },
+    {
+     "variant": "X7",
+     "tsm_sha256": "29ba5b087712daa99daf9dd289caf7196c2e6476f06b0df46b4d0985174eafbb",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.72961858391992,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "0da92bef23cc612f20485cb5980b86ba276196cb4fdb9ffc410dacaf6be5c3a8",
+     "status": "completed"
+    },
+    {
+     "variant": "X8",
+     "tsm_sha256": "97b2f8f009c84a61e48ac4bd63c3a2bd25e5395cb0aa005b0abf32d4358aa481",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.741596047507546,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "62c03f9477c2642144e9f9acac49571c32a67a03ad755517ce02a9531bbe5ebe",
+     "status": "completed"
+    },
+    {
+     "variant": "X9",
+     "tsm_sha256": "679242fc04e50dd286ef2b43e8cdad4f60a3d674e2a6cd95d16fd17e8ea6bd44",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.72961858391992,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "a0d868e6c4743888c31240882339c1bcc0e66350fbd93da175ad31b7d7e6b1fc",
+     "status": "completed"
+    },
+    {
+     "variant": "X10",
+     "tsm_sha256": "5be56e0b646ba35e9b4a0f2caac285264e55bd56b499099ab58d8e53b9a561cf",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.701681167488799,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "edc96bc0a764f716093d3fe6acc553fd94f9a974e6d3fac62299ca5678a41da9",
+     "status": "completed"
+    },
+    {
+     "variant": "X11",
+     "tsm_sha256": "ca6d98405f412412c43b1e4a65d919f22cf6bf1187735adb6eb216a978f8662d",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.675314855064736,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "5a798b5c61b0887393a19aec4b9a70c668bd57bb60c38abbbc9483949a77dc75",
+     "status": "completed"
+    },
+    {
+     "variant": "X12",
+     "tsm_sha256": "5e25e35f914775c2786c8d5ddc2cc94cfc558b631987be222e5d9f2078b5a317",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.664906720040056,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "30f2263775f7cf11dde75f75ce3f81dd5cef2535320d01102a7b099b7d9e0d9d",
+     "status": "completed"
+    },
+    {
+     "variant": "X13",
+     "tsm_sha256": "40f7e5fed943dbc6b2f358aeb977805936ddcd813899ff0e85072db35dbd09ad",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.675316536971257,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "b6db135da3801b9c189991842deda325fdd1df7ac1a5db715b608aa9dadc1111",
+     "status": "completed"
+    },
+    {
+     "variant": "X14",
+     "tsm_sha256": "5cd1231598a1ee663d147bb191a32e1b0913d46ac3e1092f1cac8b4186bfacd4",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.70168355566234,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "559ece2b699b23743749b75f2319dc05ddb4ab7c95f62be053071e8e16ed1083",
+     "status": "completed"
+    },
+    {
+     "variant": "X15",
+     "tsm_sha256": "cc1b34efb0ca383407852b43756f0b6f3c2a0ec6251ff17a5cb5b74730656411",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.729620279273881,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "e9b322424a1a11ef1a17a0430c3e9c57a8a81c71e44929555f9bca3103b4f285",
+     "status": "completed"
+    },
+    {
+     "variant": "X16",
+     "tsm_sha256": "31a8e34dd5b8541074e94b3f10a362b974f4de6ee264c8147bdfa7998a99b560",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.702426881531839,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "f5dd6934c48de830d39fbdca944c70ec16d3ee8a0ac24122746bd00d1362a101",
+     "status": "completed"
+    },
+    {
+     "variant": "X17",
+     "tsm_sha256": "fe68e13dc156e387658b6e345c1e2045f0deb7d9a64a9ef8b1cbe23313823ee4",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.745274161345009,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "490db6250ee564308625a82dbcf037dcdbe9420afacf96f4969ff31383ea1e71",
+     "status": "completed"
+    },
+    {
+     "variant": "X18",
+     "tsm_sha256": "7fdc56193328adbd5f3b8f42be63b67e06fdf913aef00528ba952abb93223bbb",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.745273183339428,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "3f4cafe20b987887473d7bb841c9569f47c256ad80d04a3041556674ded7f1d3",
+     "status": "completed"
+    },
+    {
+     "variant": "X19",
+     "tsm_sha256": "e23912b1414c3827addcfdc6446d9d2bcc500c0921d9ecc9e7c9e7c504f612dd",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.719312814207658,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "27c3beb28dc9f8c5ee7c7052575d244a35db974eb3c887c8953d83beb31dbba3",
+     "status": "completed"
+    },
+    {
+     "variant": "X20",
+     "tsm_sha256": "d6a75a06eb8a6216e231fd9022fd8092e3d69f427357053915eba2a3dc3a6c7c",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.684656458643413,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "6925f130f0b78eed9722eb9a0af295abfc9c28517e5daa49fa78c9f2c96c19e7",
+     "status": "completed"
+    },
+    {
+     "variant": "X21",
+     "tsm_sha256": "e068732ed2c6b5520a35e97c4134109e02b1877acf74661374895c62b7851dbb",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.661690750173445,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "2a10f6a48ca8bb61b866ada1c1f51826e8b245b941172010ae740e69058f777b",
+     "status": "completed"
+    },
+    {
+     "variant": "X22",
+     "tsm_sha256": "e350c9a73e4090adb804be5681085edb9d41281d3b55716d3da92e081fce6c06",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.661689799293677,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "e96fa8a7d67761abb1fe06abfa35e0c26703295282d6e78226997b48b39d8edd",
+     "status": "completed"
+    },
+    {
+     "variant": "X23",
+     "tsm_sha256": "801bb22a1cb71def9b74b6e56afc4f3a6e13803e8bae2e2b6a74f826563261fe",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.684654129810399,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "81b3d8002eadbe7417ae1a0505c3e5224e82601d9d4c9258f5eaf3f0b58e2724",
+     "status": "completed"
+    },
+    {
+     "variant": "X24",
+     "tsm_sha256": "5d0e6d643a2cc558aaa605e167f366dba36223492432e57e2364261a847c3313",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.719310457835793,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "b441561f131c7c6c8338c352a25a51bb55fdb855824dba4df8846a7065309bd4",
+     "status": "completed"
+    },
+    {
+     "variant": "X25",
+     "tsm_sha256": "90aa1a6118740592a119632640dd8106e8b2c82d9d82e2a628b12818dd5a5d9b",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.70242688153184,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "699c175411b5fff8a6e42cc474bffd3101ad4ddae5f79a098fd1ffc377035c60",
+     "status": "completed"
+    },
+    {
+     "variant": "X26",
+     "tsm_sha256": "b057ed5ae5e4bb7d93d8dd37e2ed78c845890db84a4466d9ae4ed01edb830ea3",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.719312814207658,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "7b6e3a54e69924515a502799aae02f3378a2f64b317e81d8d02bf7adaf6084ea",
+     "status": "completed"
+    },
+    {
+     "variant": "X27",
+     "tsm_sha256": "a9c4d623e7393560b65168f04185e66aa9ffeae34dc50bdfc6fb0ef9ec45f131",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.745274161345007,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "59082a77dc626d7241f2528238e5700dbbcef14467ca13cb4f311ce9af579bfe",
+     "status": "completed"
+    },
+    {
+     "variant": "X28",
+     "tsm_sha256": "c35f4bb1bb1dba87539c9b73d65e91ecd91b7f32dbc74ff4e443252940577aa7",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.684656458643417,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "1987eece0da6e48a79b85c45fa7805e931da57ef0fbcae3a70013f34c5d7f306",
+     "status": "completed"
+    },
+    {
+     "variant": "X29",
+     "tsm_sha256": "92ccfc8888896cf31c53b929b4507f98cd83400ad6bb651354583a42c5cb9640",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.661690750173447,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "23d47e700bf7023a1caa9d8dc7f1104d9c78aec566e1fd826e41b71562b24a68",
+     "status": "completed"
+    },
+    {
+     "variant": "X30",
+     "tsm_sha256": "c3692bb84d5dc0ee2cf32ab842c1f226bbde3a37bb8d44748319d2077ac08c8b",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.661689799293677,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "45b3a29e4166b950e1dd2ef2b9e4feefd35807697c6a16796f116a0d2773eee6",
+     "status": "completed"
+    },
+    {
+     "variant": "X31",
+     "tsm_sha256": "09d35be694ce84ff4c9435ba696206b4f3d9e5bf482db52bad50fabf26d37565",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.6846541298104,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "213d61d2eee572502172a20778d6e03f3747a3240965f16c29537c2629aa64b5",
+     "status": "completed"
+    },
+    {
+     "variant": "X32",
+     "tsm_sha256": "7e34c709d9fa90d93348277a94c27312ed84ef45400cf4de910efe7f83a1008a",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.719310457835793,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "7a2af35a62e7f729c1f6fdeddcea19139a7d5630708b9d3269a4824a7c7ed7d2",
+     "status": "completed"
+    },
+    {
+     "variant": "X33",
+     "tsm_sha256": "0e05534d6f41f7b2b74103561d756f99da1b4860b5da2571c3fb8b42706aca64",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.745273183339428,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "3a5e364685355c4523b16fb8c2a0593947e2bdb4552fada9add49ff6f86d3094",
+     "status": "completed"
+    },
+    {
+     "variant": "X34",
+     "tsm_sha256": "70511d22867df53198732d4c6064feb8d223bc2b0638b13fe74214ec1ec6617a",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.750906061447544,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "479cbceda810829331760e2aecad4ebd1a7511baa609faed940b024026ab7c83",
+     "status": "completed"
+    },
+    {
+     "variant": "X35",
+     "tsm_sha256": "615632831bd74cb4911921a2555a8df14c0934f06afc011c4faeb184bc87862e",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.761108826755507,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "35fee72d540b69fccecf12de802bacd2b18224822b6d32b094ad30eb01843a41",
+     "status": "completed"
+    },
+    {
+     "variant": "X36",
+     "tsm_sha256": "a6fe5400455c21a1a38fa68360f22627d26a295e4d896ded197d1ce7ee94bbe8",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.743105447340609,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "d1db55803891ddf77b8b6123d8e2adc22fa6fb4118465dd9e652318b661e6c15",
+     "status": "completed"
+    },
+    {
+     "variant": "X37",
+     "tsm_sha256": "e3ddbc1dba475a7bfa619e0e04cda7a11a348aa62835d55eebc30e870f363940",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.721226991984972,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "1b1b11436f347452887d4bde413ec4424457c26bab96cb4b2c6c0a04799e369c",
+     "status": "completed"
+    },
+    {
+     "variant": "X38",
+     "tsm_sha256": "a2b3c5e64de8989da5f83ca672c04eea5fb9cd50e6dc4cc736ad8bf89c0b29f0",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.701977797016756,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "ee71c7074b60a0d4167c0a3bcc100d09438fb69f55ad2e76b997dbbc4ae17df9",
+     "status": "completed"
+    },
+    {
+     "variant": "X39",
+     "tsm_sha256": "d9ffd4156aab7ff7cb9ec0591217982fbf90e167a986ae2646d7c5c53556e125",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.683585890820366,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "7dd149ee039835d874664db22acdbdc1ea2726ceda35e519562939d28d9e3e88",
+     "status": "completed"
+    },
+    {
+     "variant": "X40",
+     "tsm_sha256": "b974a24c9ea219f9d14e323eb3cb74cc94b7a3d1276fc25a1a66d1c5267f635c",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.664797835076005,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "88243572e0f5e4cfb277f7cf61bf6fedfd8e827a30646969a6c6300096977263",
+     "status": "completed"
+    },
+    {
+     "variant": "X41",
+     "tsm_sha256": "e1e086aa7dfdd71885e0c72f572457ba75c59378a578b71f44c7c34f4c4fc34d",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.660354282242164,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "c3b820e7b4d5d45b094e6df078d19e43d58f259c866413ff2de5139369ea05ea",
+     "status": "completed"
+    },
+    {
+     "variant": "X42",
+     "tsm_sha256": "676c6c31a666c8815de630cffdab33642ada54fe7c02892711fc01f26475bb2d",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.650733904047831,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "1ec4b228098e4d87cb53b10fe20e232ac87cc9f49a45152d0b66e1cb57abadb2",
+     "status": "completed"
+    },
+    {
+     "variant": "X43",
+     "tsm_sha256": "46a9f8f9729949700e8edfc427318a4ce7b15bdb622bba77fddd7ce17e831a50",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.660354282242164,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "7c0e529d1512bcd21f915339aa7bc8fceb89a147b83fc84a86e77cb660c5b61e",
+     "status": "completed"
+    },
+    {
+     "variant": "X44",
+     "tsm_sha256": "042219660e9c162e377a09129b2950eb18d1a487159880b4c6426eaa5d33264e",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.664797835076005,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "ebc4f7e0ae1476a874186b5d3c4e5e971b29033a8253082389fb2e6481c5c0ee",
+     "status": "completed"
+    },
+    {
+     "variant": "X45",
+     "tsm_sha256": "b9e7d33e9f85b48c05d9edf44f18873f03776326effe6c1392836144ecc56be5",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.68358589082037,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "78414e4adac989bf124983143e5a83812f96496ad4d5ba3b41a0b520670612a6",
+     "status": "completed"
+    },
+    {
+     "variant": "X46",
+     "tsm_sha256": "31bede985945e66868502f3dcbd24c67e23b7f212b33f259e7c9df8e337a92e0",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.701977797016758,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "adced1fd8bc266a0a3b95733428ea0fd687d12abde6e65be9ce54bd7400992b9",
+     "status": "completed"
+    },
+    {
+     "variant": "X47",
+     "tsm_sha256": "0fd83ad4caaf52f6ad1f9d087f7ae372cf7616749b85780e22a72027c89fc3ee",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.721226991984974,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "ddf87e9d657fc0b4128605efff2237e3eb5b9ab5cbbecc0272414bdfc9e5d6d6",
+     "status": "completed"
+    },
+    {
+     "variant": "X48",
+     "tsm_sha256": "19fd134ac47e21b29e957382e0abd332571838b448c1199aed31ea6d77e87398",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.74310544734061,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "8ae86f0efdba1e560aad3eb41663fc49760baf5b2d534aca80bdf0b220de1027",
+     "status": "completed"
+    },
+    {
+     "variant": "X49",
+     "tsm_sha256": "660a9bf56dae5aed22d042085dfce8b87da5e1e9aae099442f9f43c9313f1e95",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.750906061447546,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "1aab20645055917d3334ad1c7f2980e2a7b69f298e38a8001a5100d2aa6e8aa9",
+     "status": "completed"
+    },
+    {
+     "variant": "Y18",
+     "tsm_sha256": "5c2795a45ef23f918d2c0e0d01915ff5d5cf6230828ee92f4a4472b74ff3f9a9",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.6846541298104,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "8b2f5e8df2365c397ad3dc80bb9b9f6e155956fc223da8f48de63a5fa5ec7b23",
+     "status": "completed"
+    },
+    {
+     "variant": "Z18",
+     "tsm_sha256": "3b41450d8662b700c41719316b0579e3afc24bf53ee8fc7780d9979fb2a8ef43",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.747265142741343,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "e89a4db9430d5dfbc2e94bf2b836b9fb037cf4b9b76b89550a966be52ca5a86e",
+     "status": "completed"
+    },
+    {
+     "variant": "Y25",
+     "tsm_sha256": "5317c2a2876eb61a537343b4ebe026e0e45b9d5468bf221ea8db142ba9ae9679",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.702426881531839,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "adb7524abc2fb0c0f17288ad778594393f591f9b688e7a363ded63071b1ad042",
+     "status": "completed"
+    },
+    {
+     "variant": "Z25",
+     "tsm_sha256": "379e34f4a50e763de623486805eb0fcd2fcb64856d2b095899214db25ecdaa05",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.601260953428854,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "9bc2da1d36f14adc2cdfccd93a8c04246edbad9aea433687941cf5e46ccd68f6",
+     "status": "completed"
+    },
+    {
+     "variant": "Y5",
+     "tsm_sha256": "8f9aa72dbddd2b13db2d84055c85d62e63a224aa76c8485d3480eedcf3554de0",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.675316536971259,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "9b54f4c9e6db3277624e820ba7889c799042f791a82c7993ae77971206bd7d71",
+     "status": "completed"
+    },
+    {
+     "variant": "Z5",
+     "tsm_sha256": "59349c3bb5e8b062daae5c42ded20107d128d4f368ecb6469db33228ec4cac27",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.675294733094828,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "43466b8edc0f05dfbe932752e559a84861c82d0d28c16513b04597b45e600a2c",
+     "status": "completed"
+    },
+    {
+     "variant": "Scale14",
+     "tsm_sha256": "b77cd1f76d48676b490334b907e9524e6871055a86cc1009cdc4132bece4594a",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.7028360527283,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "2f233ee0f7b5de1b97dee24ddb4db3894b24151611f68a43023714b2a291b3d2",
+     "status": "completed"
+    },
+    {
+     "variant": "Pair30_12",
+     "tsm_sha256": "f6a0718d862485dbf27706b227f6a39fc0eac82c73c6e03fc392ea1a817c035d",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 12.624610563099662,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "5d2a544ab6e70939c4d9a3c7229faedfb270aac06b7e4612fb5dbffffe56983d",
+     "status": "completed"
+    },
+    {
+     "variant": "RandomA",
+     "tsm_sha256": "6fb9c2f942c8a8b53fad836b35ad8f6a26d04fab568ef139ad2460116f93defd",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 13.001359304037159,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "c29271bbd065bed9ecc2027799c040e3b26865e3a89da15db82da8d7e7807d32",
+     "status": "completed"
+    },
+    {
+     "variant": "RandomB",
+     "tsm_sha256": "369708fc3747eab623dc4c86ac22de70cb423ad9fc8faefee06ac6804b5cdc41",
+     "bodies": [
+      {
+       "faces": 24,
+       "edges": 56,
+       "vertices": 34,
+       "area_cm2": 13.080522393424335,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "9e9e6917dbff81343dd44cb95da40b3342ca436900a49768c0f5b1b9b801db4b",
+     "status": "completed"
+    }
+   ]
+  },
+  {
+   "cage": "Valence5Warped",
+   "variants": [
+    {
+     "variant": "Base",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 10.791325633111995,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "f48925ebe7956ab4704a71cfa18d95ffe76854392604f0d9a1411606ae1a5c4b",
+     "status": "completed",
+     "tsm_sha256": "2406ff0cd213725e85316427e6fb5861f17be96eddfc822a89ebeaee3c96f516"
+    },
+    {
+     "variant": "RandomA",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 11.240102596577133,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "bb4dff0a2cc549a2a68dc0f8ca531f8fea6e9936c6e0b38713355c6d0082fcbe",
+     "status": "completed",
+     "tsm_sha256": "5250ff0996bd9214adcb9c31865a8363afa1c404064bb83790e32b8dcba4d6ae"
+    },
+    {
+     "variant": "RandomB",
+     "bodies": [
+      {
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 12.892763155132268,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "af1eb40a1b4112dec6d5cc0050ab3c4ee8d35eda38edd85084ca9adec097c869",
+     "status": "completed",
+     "tsm_sha256": "ea565a01522b28eb9a4445328511c9ee2ef3129c69c0407c52456857593b5c7c"
+    }
+   ]
+  },
+  {
+   "cage": "CreasedPlaneLimits",
+   "variants": [
+    {
+     "variant": "Base",
+     "tsm_sha256": "fd9c569651ec829814c95e3b6c3abe07dc3bfb78287924c1821e2aed1fd154fe",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 7,
+       "vertices": 6,
+       "area_cm2": 3.8314105666532576,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "8efcfaab731aa8ff6c8547969f5cebe585ff33d67b469bb9f308137e2e4e1725",
+     "status": "completed"
+    },
+    {
+     "variant": "X3Large",
+     "tsm_sha256": "4ddc6e7eb483febb49b2383836d19225310fdeaee6e3c3625835b2db106da78b",
+     "status": "error",
+     "traceback": "Traceback (most recent call last):\n  File \"<repo>/re/Fusion/LocalOracle/FormDocuments/ProbeStencil.py\", line 71, in run_variant\n    if not form.finishEdit():\n           ~~~~~~~~~~~~~~~^^\n  File \"~/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Api/Python/packages/adsk/fusion.py\", line 119329, in finishEdit\n    return _fusion.FormFeature_finishEdit(self)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^\nRuntimeError: 3 : Conversion error for: Body1 / ASM_TSP_IG_SURFACE_IRREGULAR - Edges or faces may be crossing. Review in box mode.\n"
+    },
+    {
+     "variant": "X8Large",
+     "tsm_sha256": "1eba336611884a8f317d71b6b11a5b56a9436a1c5cb92ee655e8d538040cac6b",
+     "status": "error",
+     "traceback": "Traceback (most recent call last):\n  File \"<repo>/re/Fusion/LocalOracle/FormDocuments/ProbeStencil.py\", line 71, in run_variant\n    if not form.finishEdit():\n           ~~~~~~~~~~~~~~~^^\n  File \"~/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Api/Python/packages/adsk/fusion.py\", line 119329, in finishEdit\n    return _fusion.FormFeature_finishEdit(self)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^\nRuntimeError: 3 : Conversion error for: Body1 / ASM_TSP_IG_SURFACE_IRREGULAR - Edges or faces may be crossing. Review in box mode.\n"
+    },
+    {
+     "variant": "X10Large",
+     "tsm_sha256": "bb64803bfde992ca0dafc14c55b5af472b6bd16439fe62eac083144f28a86d96",
+     "status": "error",
+     "traceback": "Traceback (most recent call last):\n  File \"<repo>/re/Fusion/LocalOracle/FormDocuments/ProbeStencil.py\", line 71, in run_variant\n    if not form.finishEdit():\n           ~~~~~~~~~~~~~~~^^\n  File \"~/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Api/Python/packages/adsk/fusion.py\", line 119329, in finishEdit\n    return _fusion.FormFeature_finishEdit(self)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^\nRuntimeError: 3 : Conversion error for: Body1 / ASM_TSP_IG_SURFACE_IRREGULAR - Edges or faces may be crossing. Review in box mode.\n"
+    },
+    {
+     "variant": "X31Large",
+     "tsm_sha256": "95a3a1c9d842fe6a20c3350b360eecd431c800dff090640c051266ea8c5e72d3",
+     "bodies": [
+      {
+       "faces": 2,
+       "edges": 8,
+       "vertices": 7,
+       "area_cm2": 3.8314127597424674,
+       "solid": false
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "de857798084aef5df0886ca1e6f06396018224f1c8e6264ab6d2d7b1751a0578",
+     "status": "completed"
+    }
+   ]
+  },
+  {
+   "cage": "CreasedBoxLimits",
+   "variants": [
+    {
+     "variant": "Base",
+     "tsm_sha256": "af913f6c0773b54c0e12b91bb67d8e0541eb0e34ce081714e7733049d1956cf0",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 13,
+       "vertices": 9,
+       "area_cm2": 23.55271091736829,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "899567f1c02fb7a84797427fc2be321624b7b211c12254b0f8a9d23cba4bd5ce",
+     "status": "completed"
+    },
+    {
+     "variant": "X7Large",
+     "tsm_sha256": "e941f0f7bacc19ec2384956a5d47b185e43f97d549e486e2509001b9588b8cd9",
+     "status": "error",
+     "traceback": "Traceback (most recent call last):\n  File \"<repo>/re/Fusion/LocalOracle/FormDocuments/ProbeStencil.py\", line 71, in run_variant\n    if not form.finishEdit():\n           ~~~~~~~~~~~~~~~^^\n  File \"~/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Api/Python/packages/adsk/fusion.py\", line 119329, in finishEdit\n    return _fusion.FormFeature_finishEdit(self)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^\nRuntimeError: 3 : Conversion error for: Body1 / ASM_TSP_IG_CURVE_IRREGULAR - Edges or faces may be crossing. Review in box mode.\n"
+    }
+   ]
+  },
+  {
+   "cage": "BoxWeighted",
+   "variants": [
+    {
+     "variant": "Base",
+     "tsm_sha256": "1aba880a1da76fb7be1e9e567f470f7159f66004eb65e40c56b3ab7bd9961a44",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 24.28421510514164,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "c5d0711b13f6cfdbe262be711137293cd042afb04cbd59de7dd82c80bf3bd39a",
+     "status": "completed"
+    },
+    {
+     "variant": "X0",
+     "tsm_sha256": "52a2611e6552085a1a42a0db92b199a0fe8ab72aea7242ac62c6b50929301734",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.8733983498329,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "6d26eeb0f525aa5c6066264d013ee2398ef63dfe516d54f1385e5cf01f5c957d",
+     "status": "completed"
+    },
+    {
+     "variant": "X3",
+     "tsm_sha256": "9a600aa207d430b77727b3dd136c213f902a4c84124f6bd2ba3f39d9ef5ed283",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 24.338370167334737,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "d107dd0e5da74aeb07f89fe4a59e1efff8372992e2907454a6370f23684f822e",
+     "status": "completed"
+    },
+    {
+     "variant": "Pair0_3",
+     "tsm_sha256": "97a199e217338cb162a2c3b023216db2a6b8ffd0b78024a1720648edb88d951b",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.920743607030055,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "dac70d4bb6bf54f2a31364ad79e7c8dcc06a177d9dfff891919fd36ed4bbfa5a",
+     "status": "completed"
+    },
+    {
+     "variant": "Scale0",
+     "tsm_sha256": "416efe825cacdafcdc547cfc456c07b0bd859248892debb49682d43c73bebd5f",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 23.403275878991455,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "de4dd773f9fbd5dd1c64a10be1f4ba3acc75d8a69ec52d8cd3466bd34c9b2c96",
+     "status": "completed"
+    },
+    {
+     "variant": "RandomA",
+     "tsm_sha256": "fafc856f2aa0893e2c6e6159be0dfb682fe0bf6c596dadcc6c822591168708c7",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 22.42247247737118,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "0d98798c8277979ccdf8b18b5a140dff8f352de8daa369bb6058de6e00817302",
+     "status": "completed"
+    }
+   ]
+  },
+  {
+   "cage": "BoxWeightUniform",
+   "variants": [
+    {
+     "variant": "Base",
+     "tsm_sha256": "7d2f9e0eb657567aef838e058b399f4062e7cf9e2729da134306722399ec66c6",
+     "bodies": [
+      {
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 5.890110877250168,
+       "solid": true
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "saved_sha256": "59ecf84c08cecb0453dac63fba7520e809c89ae1644d44eb4d59f7df73fe4b7b",
+     "status": "completed"
+    }
+   ]
+  }
+ ],
+ "status": "errors",
+ "documents_after": 0
+}

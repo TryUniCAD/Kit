@@ -27,9 +27,21 @@ A writer that keeps stale lists writes a body that differs from the native conve
 
 Compute the third-derivative jump at each interior knot of each surface row, column and boundary curve. Record a knot when a jump component exceeds 1e-10. `GridJumps` and `ThirdJumps` implement this rule. `JumpCurve` writes the list into the curve. Do not rely on this threshold for a jump between 1e-14 and 0.1, because no local body tests that range.
 
+## General order rule
+
+Converted box and prism faces have double knots at their G1 caps. Fusion records each interior knot in the list of the lowest derivative order that jumps there. A double knot usually lands in the order-2 list, and a simple knot in the order-3 list. A surface takes the lowest order over all its rows or columns.
+
+| Archives | Form bodies | Surfaces | Curves | Different |
+| --- | --- | --- | --- | --- |
+| Committed local archives | 78 | 362 | 844 | 1 |
+| Stencil probe outputs | 341 | 3927 | 8982 | 0 |
+
+The different archive is the cache probe whose surface poles Kit moved without its lists. `SurfaceOrders` and `CurveOrders` in `OrderJumps` implement the rule with the same 1e-10 threshold. `OrderCurve` writes all three curve lists. `ConvertCage` uses them for every face and boundary curve.
+
 ## Evidence
 
 - [Kernel facts](../../../../../re/Fusion/Reconstruction/FormDocuments/KernelFacts.json)
 - [Grid census with the jump margins](../../../../../re/Fusion/Reconstruction/FormDocuments/GridCensus.json)
 - [Grid acceptance](../../../../../re/Fusion/LocalOracle/FormDocuments/Grid/NativeAcceptance.json)
+- [Jump order census](../../../../../re/Fusion/Reconstruction/FormDocuments/Stencil/JumpCensus.json)
 - [Grid pole order](GridCagePoleOrder.md)

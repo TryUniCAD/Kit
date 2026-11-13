@@ -14,6 +14,10 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Conversion.GridResult impor
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Conversion.SwapEntity import (
     SwapEntity,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Converted.CheckFolds import (
+    CheckFolds,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Converted.GridBody import GridBody
 from convert.formats.Fusion.BrepCodec.Journal.Spline.SplineNode import SplineNode
 from convert.formats.Fusion.BrepCodec.Journal.Spline.TsplineSurf import TsplineSurf
 from convert.formats.Fusion.DocumentCodec.Model.DocumentBody import DocumentBody
@@ -71,6 +75,7 @@ def SwapGridCage(Model: DocumentModel, Surface: TsplineSurface) -> DocumentModel
     Layout = (Result.Patches, Result.Surface.KnotsU, Result.Surface.KnotsV)
     if (Prior.Patches, Prior.Surface.KnotsU, Prior.Surface.KnotsV) != Layout:
         raise ValueError("Fusion grid cage swap needs the same grid layout")
+    CheckFolds(GridBody(Result))
     if not any(
         isinstance(BodyValue.History, JournalModel)
         and IsFormBody(BodyValue.History.Entities)

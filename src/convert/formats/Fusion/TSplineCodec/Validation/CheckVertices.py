@@ -2,6 +2,8 @@ from collections import Counter
 from convert.formats.Fusion.TSplineCodec.Model.CageTopology import CageTopology
 from convert.formats.Fusion.TSplineCodec.Validation.CheckIndices import CheckIndices
 
+KValenceLimit = 8
+
 
 def CheckVertices(Topology: CageTopology) -> None:
     Counts = Counter(LinkValue.VertexIndex for LinkValue in Topology.Links)
@@ -19,6 +21,6 @@ def CheckVertices(Topology: CageTopology) -> None:
         if (
             Current != Vertex.OriginLink
             or len(Visited) != Counts[Index]
-            or not 2 <= len(Visited) <= 4
+            or not 2 <= len(Visited) <= KValenceLimit
         ):
             raise ValueError("Unsupported TSM vertex valence or disconnected fan")

@@ -40,12 +40,15 @@ def AddCollectMut(Author: AuthorState) -> None:
     Author.Allocate("brep_history", "BRepHistorySerializer")
     Author.Allocate("cache_serializer", "BRepSerializer")
     Author.Allocate("passive_ids", "PassiveIdGenerator")
+    HasLength = Author.SpecValue.ProfileKind != "form"
     Author.Allocate(
         "parameter_names",
         "ParameterSearchByNameHelper",
-        Subjects=["parameters", "length_parameter"],
+        Subjects=["parameters", "length_parameter"] if HasLength else ["parameters"],
     )
     Author.Allocate("local_context", "EIPContext", ParentRole="eip_contexts")
+    if not HasLength:
+        return
     Author.Allocate(
         "length_parameter",
         "ParameterMetaType".removesuffix("MetaType"),

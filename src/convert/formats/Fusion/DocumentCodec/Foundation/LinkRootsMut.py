@@ -38,16 +38,24 @@ def LinkRootsMut(Author: AuthorState) -> None:
     ]
     Author.Change("work_geometries", workGeometryCustomGroups=Reference("work_groups"))
     Author.Change("canvases", canvasGroups=Reference("canvas_groups"))
+    HasLength = "length_parameter" in Author.Roles
     Author.Change(
         "parameters",
-        highWaterMark=1,
+        highWaterMark=1 if HasLength else 0,
         rParameterSearchByNameHelper=Reference("parameter_names"),
     )
     Author.Change(
         "parameter_names",
-        parameterMap=[
-            {"key": Author.SpecValue.ParamName, "value": Reference("length_parameter")}
-        ],
+        parameterMap=(
+            [
+                {
+                    "key": Author.SpecValue.ParamName,
+                    "value": Reference("length_parameter"),
+                }
+            ]
+            if HasLength
+            else []
+        ),
     )
     Author.Change(
         "fragment",

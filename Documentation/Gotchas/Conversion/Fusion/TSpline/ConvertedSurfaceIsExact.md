@@ -27,7 +27,7 @@ Fusion uses the moved poles as the face geometry and reports healthy Forms. A ch
 
 ## Workaround
 
-Write the exact conversion of the cage in every converted face. Do not omit the B-spline data, and do not write an approximation. Use `ConvertGrid` for the qualified grid cages. Refuse other cages until their exact conversion is qualified.
+Write the exact conversion of the cage in every converted face. Do not omit the B-spline data, and do not write an approximation. Use `ConvertGrid` for the qualified grid cages and `ConvertCage` for the cage layouts with a stencil table. Refuse other cages until their exact conversion is qualified.
 
 ## Evidence
 

@@ -770,6 +770,138 @@
       }
     },
     {
+      "path": "re/Fusion/LocalOracle/FormDocuments/CageDocuments/Loaded/OracleCreasedBoxFresh.f3d",
+      "fusionSavedSha256": "fd48c97be04c39244a3854812c82872fbad3f76ebb6fc107b07d5dede81cb156",
+      "committedSha256": "ef168239b5c62d21ca044b3987f4a9a1e272fa1346a8aefd7c5939b110df881b",
+      "counts": {
+        "account": 0,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/CageDocuments/Loaded/OracleCreasedBoxSheared.f3d",
+      "fusionSavedSha256": "f2378e469a248858dc24c8bb42cf16a3920b1a37bcdd1b8b155f4f09dea5dd2c",
+      "committedSha256": "c822080d64c18791c726c47759f91f0e0ce9e3955c593e7f3d2b7bdde1df80a0",
+      "counts": {
+        "account": 0,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/CageDocuments/Loaded/OracleCreasedPlaneBent.f3d",
+      "fusionSavedSha256": "b7ebc53ff2b4b82aa26d0eda20759d517ebd063f0e4fa65f793ca140fe78984e",
+      "committedSha256": "11f9983cda1acc325f9661e94ba063260fbaa76e9fa1340463b9afd1cb21f09a",
+      "counts": {
+        "account": 0,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/CageDocuments/Saved/KitBox3Fresh.f3d",
+      "fusionSavedSha256": "8c94471c0a15d498761a77ec31555f881e4351cbe7904838ec08297f45f54298",
+      "committedSha256": "9e6cc6d289ed91911694bda960687c5676c57ae5aa46da6543301b2d67e1bcdc",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/CageDocuments/Saved/KitBoxFresh.f3d",
+      "fusionSavedSha256": "c995b1e31210d62033f96f228a0722ef294b17bead7f42aa56a4990da4323ab9",
+      "committedSha256": "418811c770c46a6d9e0fc0bd6ed2ca29ab77a2174eb6e3a15375fc4f6d89d6c4",
+      "counts": {
+        "account": 3,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/CageDocuments/Saved/KitCreasedBoxSheared.f3d",
+      "fusionSavedSha256": "aa2d9fc89e385b40b6b5b3838d7b021b9d41555b6f9ab5704ffb15911b6900af",
+      "committedSha256": "d75e87cac40a9a3ef730d081b1dfdb97349a0a5886f665e65750b50d3848cccd",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/CageDocuments/Saved/KitCreasedPlaneFresh.f3d",
+      "fusionSavedSha256": "e56fdc4e0bb87e1b30da8496f4816f816dc9ace41199d68bff1d3c1012eead49",
+      "committedSha256": "5f04628cb8d89aac99889a9474aff3bb8c540b7bc5a90841aabc0b39ef9fac79",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/CageDocuments/Saved/KitCreasedPlaneSagged.f3d",
+      "fusionSavedSha256": "6297e94fbe106113e8a57aecb23da47a10f94c72ecf70f493acd746c847aba8b",
+      "committedSha256": "971902fa8e9fc63b3d6a075dd99ee03c143ed2d7fce29b640d7af20cc3e222c1",
+      "counts": {
+        "account": 3,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/CageDocuments/Saved/KitCreasedPlaneTwisted.f3d",
+      "fusionSavedSha256": "0bd2d4055237b216e6c5c66d7dfafeb4d9e15596ab9b5da9b957565a409ef72a",
+      "committedSha256": "dd3f9b3153dae2bf59f29ea69332054ebade6e21c55daa8cc30c4b329d22fa67",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/CageDocuments/Saved/KitWarpedPlane2x5.f3d",
+      "fusionSavedSha256": "d7a1f0ed5f70573aec113cd6e4b53babc01e1f679ba49540bbee581f8bc190a3",
+      "committedSha256": "a039a1e66efd8c3123157161593bdf41e999442cb1b79b231ad2128d21aee756",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/CageDocuments/Saved/OracleCreasedBoxFresh.f3d",
+      "fusionSavedSha256": "a25642a7633c6dece810ad5607c6a5bbbda9087cb31a51e7ed53e030ccf0e998",
+      "committedSha256": "5389b2a2e79783b2e720dfddb2ad864a83dbb86ce58ca1082aba1cd4aa9d1ffa",
+      "counts": {
+        "account": 0,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
       "path": "re/Fusion/LocalOracle/FormDocuments/Grid/Primitives/Plane2x5.f3d",
       "fusionSavedSha256": "219384ad0a12269b232f287ccd150198b42aaa04599786b51b1ad3430f6336fd",
       "committedSha256": "0d0d28c44c9cb2919f7642a8eb3402c95adcf86bdea2e3d7ea45803091c9a6bc",
@@ -790,6 +922,90 @@
         "name": 0,
         "home": 0,
         "urn": 1,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/Sourceless/Saved/KitBox.f3d",
+      "fusionSavedSha256": "7fcf85e7a8484740a2a0e057ee6e22a08e00e62a14d3daff69161e9202fc58c6",
+      "committedSha256": "4fc1246fc0867b6279197a2675d8a8ee995bf57f4ffec74c9134ed97ce1d0877",
+      "counts": {
+        "account": 0,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/Sourceless/Saved/KitCreasedBox.f3d",
+      "fusionSavedSha256": "0f4f3e1c3ec8214cdda9ea04798799738f16dfd4b1b727418cf1f90aab85d4c7",
+      "committedSha256": "0b877a2a21f37d6dff417700ca230afdb132cd1bb629c7879609939a1ccc43d4",
+      "counts": {
+        "account": 2,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/Sourceless/Saved/KitCreasedPlane.f3d",
+      "fusionSavedSha256": "20cebfd7ab3a362bd15bf9b4fb701b4f6304840c1f7497c37e7feed150aca6a6",
+      "committedSha256": "1ecb587bbf13b6f25e0d63b1301c9a7a9d99461eb19ef3669aebb4ca7a92b9c1",
+      "counts": {
+        "account": 3,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/Sourceless/Saved/KitPlane1x1.f3d",
+      "fusionSavedSha256": "91e65653db06ae5361a588896440052a37c7c2646d74f97398b6324cfc7e934a",
+      "committedSha256": "a74bacc8b1f4c73d3aa23ab1a33deee80e644324192f2e49effc3a7a6e1928c9",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/Sourceless/Saved/KitPlane2x5.f3d",
+      "fusionSavedSha256": "49014d4551c48c10d1b48e776d5899912b4f3ab8049803126a90238ebc374eb3",
+      "committedSha256": "b3f712f52d85011c301115eadbe482a0084b271ac3e2c13208edd4fb53ca9d4b",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/Sourceless/Saved/KitPlane4x4.f3d",
+      "fusionSavedSha256": "8caef618ebe3f2a77daba5e93e7d23bec05dcec772b6e1bd6571620a216ee9ef",
+      "committedSha256": "1851a9eeaebb92b81d51b826eac4dd83028bc5e510486211c9a2539fbe6dd6d9",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/Sourceless/Saved/KitSymmetricBox.f3d",
+      "fusionSavedSha256": "bf418f579a8aa4e08ce434ca078f607b8ce8574673b8f632724c9a6e9053b3c1",
+      "committedSha256": "77468aed5ca194b6583b102cbefe9255a669fe2a8af3f4795644821244f9d29f",
+      "counts": {
+        "account": 2,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
         "echo": 0
       }
     },
