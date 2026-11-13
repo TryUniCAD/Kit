@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 
-# exact trace spellings stay centralized so variant tables never duplicate owners
 KOwnerSites = {
     13351: "SLDMODU!sgLogGroupDim::Serialize+0x3427",
     13513: "SLDMODU!sgLogGroupDim::Serialize+0x34c9",

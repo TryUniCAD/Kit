@@ -1464,6 +1464,10 @@ class VendorResolved:
     annotation_view_variant: str = "default"
     Config0Payload: bytes | None = None
     HeaderPayload: bytes | None = None
+    Generation: int = 18000
+
+
+KModernGeneration = 19000
 
 
 # this binding exists because pin recognition and native encoding share one profile
@@ -1933,6 +1937,7 @@ def BuildEnvelope(
             VendorData.HeaderCreation if VendorData is not None else None,
             VendorData.cmgr_parent_tree_id if VendorData is not None else None,
             VendorData.annotation_view_variant if VendorData is not None else "default",
+            VendorData.Generation if VendorData is not None else 18000,
         )
     )
     if VendorPayload is not None:
@@ -2327,7 +2332,8 @@ def BuildPolyTree(
     except SldprtFormatError:
         return None
     HeaderStamps = KFrontBossHeaderStamps
-    return VendorResolved(ProgramData, HeaderStamps)
+    Generation = KModernGeneration if len(PolylineValue) == 5 else 18000
+    return VendorResolved(ProgramData, HeaderStamps, Generation=Generation)
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -8991,7 +8997,10 @@ def NativeEnvelope(
     HeaderCreation: int | None = None,
     CmgrParentTreeId: int | None = None,
     AnnotationViewVariant: str = "default",
+    Generation: int = 18000,
 ) -> Mapping[str, bytes]:
+    if Generation not in {18000, KModernGeneration} or DocValue.assembly is not None and Generation == KModernGeneration:
+        raise SldprtFormatError(f"unsupported native document generation {Generation}")
     ConfigName = next(
         (Config.name for Config in DocValue.configurations if Config.active),
         DocValue.configurations[0].name if DocValue.configurations else "Default",
@@ -9009,8 +9018,10 @@ def NativeEnvelope(
             Identity.last_modified_stamp,
             Identity.baseline_stamp,
         ),
-        "_MO_VERSION_18000/Biography": Biography(ModelName, Identity),
-        "_MO_VERSION_18000/History": VersionHistory(),
+        f"_MO_VERSION_{Generation}/Biography": Biography(
+            ModelName, Identity, Generation=Generation
+        ),
+        f"_MO_VERSION_{Generation}/History": VersionHistory(),
     }
     if HeaderCreation is not None and (not 0 <= HeaderCreation <= 4294967295):
         raise SldprtFormatError("native SOLIDWORKS header creation stamp is invalid")
@@ -9037,7 +9048,7 @@ def NativeEnvelope(
     Streams["Contents/Config-0-ModelHeader"] = HeaderData
     Streams["Header2"] = HeaderData
     Streams["Contents/Definition"] = EncodeDefinitionStream(
-        AsmValue=DocValue.assembly is not None
+        AsmValue=DocValue.assembly is not None, Generation=Generation
     )
     TreeIds = ConfigAtomTree(SolidFeatureTreeIds)
     ParentTreeId = (
@@ -9061,6 +9072,7 @@ def NativeEnvelope(
         AtomIds=AtomIds,
         ConnectedHistory=len(TreeIds) in {2, 3, 4} and len(DocValue.bodies) == 1,
         TerminalParentTreeId=ParentTreeId,
+        Generation=Generation,
     )
     Streams[ConfigStream] = EncodeConfigZeroStream(
         PartName=Identity.reference_name,
@@ -9069,6 +9081,7 @@ def NativeEnvelope(
         AnnotationViewCount=AnnotationViewCount,
         TerminalParentTreeId=TerminalParentTreeId,
         AnnotationViewVariant=AnnotationViewVariant,
+        Generation=Generation,
     )
     return MappingProxyType(Streams)
 
@@ -9570,6 +9583,7 @@ def Biography(
     Identity: NativeIdentity,
     TemplatePath: str = "C:\\Kit\\Part.PRTDOT",
     DocSuffix: str = PartSuffix,
+    Generation: int = 18000,
 ) -> bytes:
     Filetime = 116444736000000000 + Identity.creation_stamp * 10000000
     FirstPaths = (
@@ -9588,9 +9602,14 @@ def Biography(
         "C:\\Temp\\",
         TemplatePath,
     )
+    if Generation not in {18000, KModernGeneration}:
+        raise SldprtFormatError(f"unsupported biography generation {Generation}")
+    ReleaseNumber = 4 if Generation == KModernGeneration else 12
     Output = bytearray(
         ClassDecl("moBiography_c")
-        + Struct.pack("<10I", 2, 18000, 2025268, 1, 9, 12, 2, 10, 0, 26100)
+        + Struct.pack(
+            "<10I", 2, Generation, 2025268, 1, 9, ReleaseNumber, 2, 10, 0, 26100
+        )
     )
     EmptyRecordCount = 0
     while EmptyRecordCount < 7:
@@ -9601,7 +9620,11 @@ def Biography(
     for PathValue in FirstPaths:
         Output.extend(Serialized(PathValue))
         Output.extend(Struct.pack("<III", 3, 1162821632, 5))
-    Output.extend(Struct.pack("<9I", 18000, 2025268, 1, 9, 12, 2, 10, 0, 26200))
+    Output.extend(
+        Struct.pack(
+            "<9I", Generation, 2025268, 1, 9, ReleaseNumber, 2, 10, 0, 26200
+        )
+    )
     Output.extend(Serialized(""))
     Output.extend(Struct.pack("<HQI", 6153, Filetime, 1806331904))
     for PathValue in SecondPaths:
@@ -9912,7 +9935,7 @@ def HasPadProof(
     )
     DepthValue = PadObject.dimensions[0].value_mm
     ExpectedDepth = (
-        (1, 1, 1, 1)
+        (1, 1, 1, 1, -1, -1)
         if PolylineValue is not None and len(PolylineValue) == 5
         else (1, 1, -1, -1, 1, 1)
     )
@@ -13552,7 +13575,7 @@ def OrderPolyEdges(
     if (
         CurrentIndex != StartIndex
         or UsedEdges != ComponentIndexes
-        or len(OrderedVertices) != 6
+        or len(OrderedVertices) != len(VertexIndexes)
     ):
         return None
     return (OrderedVertices, OrderedEdges)
@@ -13573,7 +13596,7 @@ def CreatePoly(
     ResolvedPoints = tuple(
         PointData for PointData in OrderedPoints if PointData is not None
     )
-    if len(set(ResolvedPoints)) != 6:
+    if len(set(ResolvedPoints)) != len(OrderedVertices):
         return None
     MarkerOffsets = tuple(
         EdgeData[EdgeIndex].offset for EdgeIndex in OrderedEdges
@@ -13614,7 +13637,7 @@ def PolyProfiles(
     UsedOffsets: set[int] = set()
     while RemainingIndexes:
         ComponentIndexes, VertexIndexes = TakeGraphMut(EdgeData, RemainingIndexes)
-        if len(ComponentIndexes) != 6 or len(VertexIndexes) != 6:
+        if len(ComponentIndexes) < 3 or len(ComponentIndexes) != len(VertexIndexes):
             continue
         OrderedData = OrderPolyEdges(EdgeData, ComponentIndexes, VertexIndexes)
         if OrderedData is None:

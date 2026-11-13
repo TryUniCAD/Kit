@@ -53,28 +53,46 @@ The typed program has 2,708 operations across 495 serializer owners and zero unc
 
 Coordinates are little-endian IEEE-754 doubles in metres.
 
-| Meaning            |                     Offset |
-| ------------------ | -------------------------: |
-| Point 1 x / y      |                6121 / 6129 |
-| Point 2 x / y      |                6299 / 6307 |
-| Point 3 x / y      |                6461 / 6469 |
-| Point 4 x / y      |                6623 / 6631 |
-| Point 5 x / y      |                6785 / 6793 |
-| Blind depth copies | 10014, 10086, 10574, 10598 |
+| Meaning                             |                     Offset |
+| ----------------------------------- | -------------------------: |
+| Point 1 x / y                       |                6121 / 6129 |
+| Point 2 x / y                       |                6299 / 6307 |
+| Point 3 x / y                       |                6461 / 6469 |
+| Point 4 x / y                       |                6623 / 6631 |
+| Point 5 x / y                       |                6785 / 6793 |
+| Blind depth copies                  | 10012, 10084, 10572, 10596 |
+| Negative annotation-depth witnesses |               10410, 10434 |
 
 The point fields were found by matching all ten source coordinates across independently authored profiles.
 The depth fields were isolated by changing only 9 mm to 17 mm.
 `PadFieldMap()` validates five unique vertices, finite coordinates, simple segment intersections, nonzero signed area, and positive finite depth.
 It converts all millimetre values to metres.
 
+The corrected map contains 55 dynamic values: ten coordinate fields, four positive-depth fields, eight bbox fields, 24 display-plane fields, seven rightmost-vertex annotation fields, and two negative-depth fields.
+The bbox centres and full diameters are at 8797–8821 and 9027–9051.
+Display-plane extents follow 1.1 times the body half-extents about the bbox centre.
+Annotation witnesses follow the unique rightmost vertex, which is not necessarily the greatest Y coordinate.
+A tied rightmost vertex remains unsupported and fails closed rather than guessing attachment selection.
+
 ## Application acceptance
 
 The public reader converts the source to neutral Kit JSON before writing.
 That avoids saved-source replay and proves construction from the neutral model with `allow_carrier=False`.
 
-All 64 random profiles report `vendor_loadable=true`, `application_usable=true`, and `near_lossless=true`.
+All 64 random profiles report `vendor_loadable=true`, `application_usable=true`, and `near_lossless=true`. These flags are internal writer assessments, not independent vendor acceptance results for all 64.
 
-SOLIDWORKS opens the generated part with one body and native `Sketch1` and `Boss-Extrude1`.
+Combining the independently typed feature stream with a compatible 2026 hierarchy opens with one body and native `Sketch1` and `Boss-Extrude1`.
+
+Fresh public generation through `write_document(..., allow_carrier=False)` now passes the bounded SOLIDWORKS 34.5.2 gate.
+
+- Control output: `kit-five-public-control9.SLDPRT`; open and rebuild with zero load errors or warnings; one body; volume 9,189 mm³; area 3,173.38914944295 mm²; depth parameter 9 mm.
+- Shifted output: `kit-five-public-shifted37.SLDPRT`; one body; volume 58,830 mm³; area 8,931.49440578137 mm²; depth parameter 37 mm.
+- The shifted profile has area 1,590 mm², so its live unsaved `D1@Boss-Extrude1` edit to 17 mm yields 27,030 mm³ and area 5,822.57851076441 mm².
+- The live feature enumeration contains `Sketch1` as a profile feature and `Boss-Extrude1` as an extrusion. The edited document closes without saving.
+
+The independently typed 2026 family consists of a 3,816-byte `Definition`, 2,159-byte `CMgr`, and 25,476-byte `Config-0`, alongside the 11,205-byte five-line feature program. The fixed 2026 visual growth is 196 bytes. All later insertion positions must include this delta before applying their own record-specific shifts; using the pre-growth offset corrupts `moTransRefPlaneData_c` in its earlier payload.
+
+This proves bounded editable five-line native generation. It does not imply arbitrary SLDPRT histories, complete SLDASM/SLDDRW support, or acceptance of all 64 corpus profiles.
 
 | Check           |                                          Initial 9 mm file |                                      Unsaved edit to 17 mm |
 | --------------- | ---------------------------------------------------------: | ---------------------------------------------------------: |

@@ -14,4 +14,4 @@ The resulting error is `provider_timeout`, with an incomplete import and `failur
 Inspect `message`, `remediation`, `details`, and the retained standard output before changing target binaries or disabling analyzers.
 For this workload, set `REA_GHIDRA_STARTUP_TIMEOUT_MS=3600000` and reuse the same tool installation.
 The full run completed with REA evidence `ev_68ff5b10754cc221cc281307f887ece271735c7ff16bc2249d674a0117761ab3`: 93,329 procedures and 64,252 strings.
-See [the runtime format closure](../Changes/SolidworksFiveLineNativeHistories.md).
+See [the runtime format closure](../Changes/Solidworks/SolidworksFiveLineNativeHistories.md).

@@ -1,0 +1,5 @@
+.symopt+0x4000
+.symopt-0x20000
+bu swccu+0xa550 ".printf \"RO %x %x %d %p\\n\", poi(@rcx+0x40)-poi(@rcx+0x48), poi(@rcx+0x38)-poi(@rcx+0x48), dwo(@rcx+0x50), poi(@rsp); gc"
+bu swccu+0xa2d0 ".printf \"RC %x %x %d %p\\n\", poi(@rcx+0x40)-poi(@rcx+0x48), poi(@rcx+0x38)-poi(@rcx+0x48), dwo(@rcx+0x50), poi(@rsp); gc"
+g

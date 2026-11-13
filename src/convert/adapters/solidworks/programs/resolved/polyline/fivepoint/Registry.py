@@ -210,7 +210,6 @@ from convert.adapters.solidworks.programs.resolved.polyline.fivepoint.Methods.Sy
 )
 
 
-# explicit ordering keeps generated imports deterministic while offsets govern composition
 KMethodPrograms = (
     KMethodA,
     KMethodB,
@@ -284,11 +283,9 @@ KMethodPrograms = (
 )
 
 
-# composed tables stay immutable because generated registries expose stable format facts
 KFieldOwners, KResolvedOps = BuildProgram(
     KMethodPrograms,
     "ResolvedFeatures",
 )
 
-# generated registry exports remain explicit for facade composition and extension imports
 __all__ = ["KFieldOwners", "KResolvedOps", "KMethodPrograms"]

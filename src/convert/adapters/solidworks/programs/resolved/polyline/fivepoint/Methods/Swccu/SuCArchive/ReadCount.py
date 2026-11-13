@@ -8,7 +8,6 @@ from convert.adapters.solidworks.programs.Owners.Swccu.SuCArchive.ReadCount impo
 )
 
 
-# isolated method data lets new reverse engineered serializers compose independently
 KMethodProgram: KMethodProgramType = (
     KOwnerSites,
     {

@@ -17,4 +17,4 @@ Use raw `IDispatch::GetIDsOfNames` and `IDispatch::Invoke` for measured geometry
 Use `Activator.CreateInstance` with the registered ProgID when connecting through .NET.
 Use VBScript for direct late-bound feature edits: a depth assignment to `Dimension.SystemValue`, a rebuild, and closure without saving worked reliably for parameter acceptance.
 Do not use arbitrary `cmd.exe` hops when invoking an oracle reader; read the active document or persist a report file directly.
-See [the working oracle harness](../../re/tooling/harness/OracleMeasure.cs) and [the measured five-line case](../Changes/SolidworksFiveLineNativeHistories.md).
+See [the working oracle harness](../../re/tooling/harness/OracleMeasure.cs) and [the measured five-line case](../Changes/Solidworks/SolidworksFiveLineNativeHistories.md).

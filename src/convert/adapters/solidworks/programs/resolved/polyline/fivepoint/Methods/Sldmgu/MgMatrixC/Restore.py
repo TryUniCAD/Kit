@@ -8,7 +8,6 @@ from convert.adapters.solidworks.programs.Owners.Sldmgu.MgMatrixC.Restore import
 )
 
 
-# isolated method data lets new reverse engineered serializers compose independently
 KMethodProgram: KMethodProgramType = (
     KOwnerSites,
     {

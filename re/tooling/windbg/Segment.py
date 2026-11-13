@@ -304,6 +304,12 @@ def LoadData(
 ) -> tuple[bytes, tuple[Segment, ...]]:
     ByteBlob = Streamlib.LoadDonor(PartInfoInfo).streams[Stream]
     Events = Tracelog.ReadEvents(LogInfo)
+    TargetBuffer = len(ByteBlob)
+    if any(
+        EventInfo.kind == "RO" and EventInfo.buffer == TargetBuffer
+        for EventInfo in Events
+    ):
+        return (ByteBlob, Build(ByteBlob, Events, Buffer=TargetBuffer))
     Spans = {EventInfo.span for EventInfo in Events if EventInfo.kind == "RO"}
     SpanInfo = len(ByteBlob) if Spans - {0} else None
     return (ByteBlob, Build(ByteBlob, Events, SpanInfo=SpanInfo))
@@ -356,13 +362,20 @@ def Report(
 # needed to keep reverse engineering responsibilities isolated and maintainable
 def MainRun() -> int:
     ArgsInfo = System.argv[1:]
+    StreamName = Streamlib.KResolved
+    if "--stream" in ArgsInfo:
+        StreamIndex = ArgsInfo.index("--stream")
+        if StreamIndex + 1 >= len(ArgsInfo) or ArgsInfo.count("--stream") != 1:
+            raise SystemExit("usage: Segment.py <label> <part> <log> [...] [--stream <name>]")
+        StreamName = ArgsInfo[StreamIndex + 1]
+        ArgsInfo = ArgsInfo[:StreamIndex] + ArgsInfo[StreamIndex + 2 :]
     if len(ArgsInfo) % 3:
-        raise SystemExit("usage: Segment.py <label> <part> <log> [...]")
+        raise SystemExit("usage: Segment.py <label> <part> <log> [...] [--stream <name>]")
     for PosInfoInfo in range(0, len(ArgsInfo), 3):
         LabelInfo = ValidateLabel(ArgsInfo[PosInfoInfo])
         PartInfoInfo = ResolveInput(ArgsInfo[PosInfoInfo + 1])
         LogInfo = ResolveInput(ArgsInfo[PosInfoInfo + 2])
-        Report(LabelInfo, PartInfoInfo, LogInfo)
+        Report(LabelInfo, PartInfoInfo, LogInfo, Stream=StreamName)
     return 0
 
 

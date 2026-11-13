@@ -16,4 +16,4 @@ Using a different file's size, fixed capacity, or an old process's transient str
 
 Identify the stream from its actual initial continuation and object-map data, not from the allocated buffer size or from a previous fixture's stream length.
 Then validate the trace with nesting, zero gaps, and byte-identical symbolic re-emission.
-See [the five-line result and trace](../../re/solidworks/records/PolylineFivePad.md) and [the native writer](../Changes/SolidworksFiveLineNativeHistories.md).
+See [the five-line result and trace](../../re/solidworks/records/PolylineFivePad.md) and [the native writer](../Changes/Solidworks/SolidworksFiveLineNativeHistories.md).

@@ -59,6 +59,15 @@ internal struct NativeVariant
     public IntPtr Second;
 }
 
+internal sealed class ByRefInt
+{
+    public IntPtr Pointer;
+    public int Value()
+    {
+        return Pointer == IntPtr.Zero ? 0 : Marshal.ReadInt32(Pointer);
+    }
+}
+
 internal static class OracleMeasure
 {
     [DllImport("oleaut32.dll")]
@@ -87,7 +96,20 @@ internal static class OracleMeasure
                 for (int index = 0; index < arguments.Length; index++)
                 {
                     IntPtr location = IntPtr.Add(pointer, index * variantSize);
-                    Marshal.GetNativeVariantForObject(arguments[arguments.Length - index - 1], location);
+                    object argument = arguments[arguments.Length - index - 1];
+                    if (argument is ByRefInt)
+                    {
+                        ByRefInt reference = (ByRefInt)argument;
+                        reference.Pointer = Marshal.AllocCoTaskMem(sizeof(int));
+                        allocated.Add(reference.Pointer);
+                        Marshal.WriteInt32(reference.Pointer, 0);
+                        NativeVariant nativeVariant = new NativeVariant { Type = 0x4003, First = reference.Pointer };
+                        Marshal.StructureToPtr(nativeVariant, location, false);
+                    }
+                    else
+                    {
+                        Marshal.GetNativeVariantForObject(argument, location);
+                    }
                 }
             }
             if ((flags & 0x24) != 0)
@@ -189,8 +211,15 @@ internal static class OracleMeasure
                 ? activeDocument
                 : activeDocument != null && string.Equals(Convert.ToString(Call(activeDocument, "GetPathName")), requestedPath, StringComparison.OrdinalIgnoreCase)
                 ? activeDocument
-                : Call(app, "OpenDoc", requestedPath, documentType);
+                : null;
+            ByRefInt loadErrors = new ByRefInt();
+            ByRefInt loadWarnings = new ByRefInt();
+            if (doc == null && args.Length > 0)
+            {
+                doc = Call(app, "OpenDoc6", requestedPath, documentType, 1, 0, "", loadErrors, loadWarnings);
+            }
             Report("REVISION=" + Call(app, "RevisionNumber"));
+            Report("LOAD_ERRORS=" + loadErrors.Value() + " LOAD_WARNINGS=" + loadWarnings.Value());
             if (doc == null)
             {
                 Report("OPENED=False");

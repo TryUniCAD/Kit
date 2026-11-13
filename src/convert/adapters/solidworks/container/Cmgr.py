@@ -50,8 +50,12 @@ KMapBase = 3
 # this binding exists because shared behavior needs one stable value
 KDocGeneration = 18000
 
+KModernGeneration = 19000
+
 # this binding exists because shared behavior needs one stable value
 KDocBuild = 2025268
+
+KModernBuild = 2026306
 
 # this binding exists because shared behavior needs one stable value
 KSessionCounter = 360108
@@ -353,9 +357,9 @@ def ValidateCmgr(Params: CMgrParameters) -> None:
         raise SldprtFormatError(
             f"display_geometry_cache must be the recovered {KDisplayGeomCacheBytes}-byte reserved-zero field"
         )
-    if Params.generation != KDocGeneration:
+    if Params.generation not in {KDocGeneration, KModernGeneration}:
         raise SldprtFormatError(
-            f"the recovered Contents/CMgr tables describe generation {KDocGeneration}, not {Params.generation}"
+            f"unsupported Contents/CMgr document generation {Params.generation}"
         )
     if Params.connected_history and len(Params.link_atom_ids) not in {2, 3, 4}:
         raise SldprtFormatError(
@@ -837,6 +841,12 @@ def StampList(Stamps: tuple[FeatureStamp, ...]) -> bytes:
 
 # this definition exists because focused behavior needs one stable owner
 def BuildModel(Params: CMgrParameters) -> Model:
+    if Params.generation == KModernGeneration:
+        from convert.adapters.solidworks.container.Cmgr2026 import (
+            BuildModel as BuildNextGen,
+        )
+
+        return BuildNextGen(Params)
     Params.validate()
     Nodes: list[NodeValue] = []
     Config = AddHeadMut(Nodes, Params)
@@ -1008,7 +1018,7 @@ def EncodeCmgr(
     ChordRatio: float = KDisplayChordRatio,
     SessionCounter: int = KSessionCounter,
     Generation: int = KDocGeneration,
-    Build: int = KDocBuild,
+    Build: int | None = None,
     DisplayGeomCache: bytes = KDisplayGeomCacheDefault,
     ConnectedHistory: bool = False,
     TerminalParentTreeId: int | None = None,
@@ -1086,7 +1096,11 @@ def EncodeCmgr(
         ),
         chord_ratio=ChordRatio,
         generation=Generation,
-        build=Build,
+        build=(
+            (KModernBuild if Generation == KModernGeneration else KDocBuild)
+            if Build is None
+            else Build
+        ),
         session_counter=SessionCounter,
         display_geometry_cache=bytes(DisplayGeomCache),
         connected_history=ConnectedHistory,
@@ -1195,7 +1209,7 @@ def EncodeLegacy(**KwargValues: object) -> bytes:
     ChordRatio = Values.get("ChordRatio", KDisplayChordRatio)
     SessionCounter = Values.get("SessionCounter", KSessionCounter)
     Generation = Values.get("Generation", KDocGeneration)
-    Build = Values.get("Build", KDocBuild)
+    Build = Values.get("Build")
     DisplayGeomCache = Values.get("DisplayGeomCache", KDisplayGeomCacheDefault)
     ConnectedHistory = Values.get("ConnectedHistory", False)
     TerminalParentTreeId = Values.get("TerminalParentTreeId")
@@ -1220,7 +1234,7 @@ def EncodeLegacy(**KwargValues: object) -> bytes:
         or not IsDecimal(ChordRatio)
         or not isinstance(SessionCounter, int)
         or not isinstance(Generation, int)
-        or not isinstance(Build, int)
+        or not (Build is None or isinstance(Build, int))
         or not isinstance(DisplayGeomCache, bytes)
         or not isinstance(ConnectedHistory, bool)
         or not (TerminalParentTreeId is None or isinstance(TerminalParentTreeId, int))
