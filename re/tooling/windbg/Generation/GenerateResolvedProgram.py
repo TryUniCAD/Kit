@@ -89,6 +89,7 @@ def ParseArguments() -> Argparse.Namespace:
     Parser.add_argument("segments", type=PathInfo)
     Parser.add_argument("output", type=PathInfo)
     Parser.add_argument("--stream", default=ResolvedStream)
+    Parser.add_argument("--buffer", type=int, default=None)
     Parser.add_argument("--structural", action="store_true")
     return Parser.parse_args()
 
@@ -558,9 +559,7 @@ def RunMain() -> int:
     TraceText = Arguments.trace.read_text(encoding="utf-8", errors="replace")
     SegmentData = JsonData.loads(Arguments.segments.read_text(encoding="utf-8"))
     Segments = tuple(SegmentData["segments"])
-    RowsList = TraceRows(
-        TraceText, Buffer=len(StreamData) if Arguments.structural else None
-    )
+    RowsList = TraceRows(TraceText, Buffer=Arguments.buffer)
     Operations: list[tuple[int, int, str, str, AnyInfo]] = []
     Covered: set[int] = set()
     AddStructures(Operations, Covered, StreamData, Segments, RowsList)
