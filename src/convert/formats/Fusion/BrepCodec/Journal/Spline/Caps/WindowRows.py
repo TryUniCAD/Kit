@@ -8,6 +8,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Caps.CapLayout import (
     EmptyRow,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Poles.CapHook import KCapKey
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Caps.RoundTrig import RoundCosine
 
 KWindowTerm = tuple[str, int, int, int, int]
 KWindowRows: tuple[tuple[KWindowTerm, ...], ...] = (
@@ -111,7 +112,7 @@ def WindowRows(
     Layout: CapLayout, RatiosI: tuple[Fraction, ...], RatiosJ: tuple[Fraction, ...]
 ) -> list[KCapRow]:
     Valence = Layout.Valence
-    Cosine = math.cos(2.0 * math.pi / Valence)
+    Cosine = RoundCosine(2.0 * math.pi / Valence)
     Found: list[KCapRow] = []
     for Spoke in range(Valence):
         for Terms in KWindowRows:

@@ -70,8 +70,17 @@ def WindowBox(Entry: FormWindow) -> tuple[float, ...]:
     return (Entry.ULow, Entry.UHigh, Entry.VLow, Entry.VHigh)
 
 
+def BoundSpread(LeftEdge: FormEdge, RightEdge: FormEdge) -> float:
+    if LeftEdge.Bounds is None or RightEdge.Bounds is None:
+        assert LeftEdge.Bounds == RightEdge.Bounds
+        return 0.0
+    return ValueSpread(LeftEdge.Bounds, RightEdge.Bounds)
+
+
 def EdgeSpread(LeftEdge: FormEdge, RightEdge: FormEdge) -> float:
-    Plain = ReplaceValue(LeftEdge, Curve=RightEdge.Curve, Label="", Windows=())
+    Plain = ReplaceValue(
+        LeftEdge, Curve=RightEdge.Curve, Label="", Windows=(), Bounds=RightEdge.Bounds
+    )
     assert Plain == ReplaceValue(RightEdge, Label="", Windows=())
     assert [Entry.Face for Entry in LeftEdge.Windows] == [
         Entry.Face for Entry in RightEdge.Windows
@@ -80,7 +89,11 @@ def EdgeSpread(LeftEdge: FormEdge, RightEdge: FormEdge) -> float:
         tuple(WindowBox(Entry) for Entry in LeftEdge.Windows),
         tuple(WindowBox(Entry) for Entry in RightEdge.Windows),
     )
-    return max(Boxes, CurveSpread(LeftEdge.Curve, RightEdge.Curve))
+    return max(
+        Boxes,
+        BoundSpread(LeftEdge, RightEdge),
+        CurveSpread(LeftEdge.Curve, RightEdge.Curve),
+    )
 
 
 def FaceSpread(LeftFace: FormFace, RightFace: FormFace) -> float:

@@ -40,7 +40,7 @@ def TestSplineParts() -> None:
         assert any(isinstance(Value, SplineNode) for Value in Entities)
         assert ListPrograms(Entities) == (ReadTspline(Program),)
         Count += 1
-    assert Count == 58
+    assert Count == 66
 
 
 @MarkTests.skipif(

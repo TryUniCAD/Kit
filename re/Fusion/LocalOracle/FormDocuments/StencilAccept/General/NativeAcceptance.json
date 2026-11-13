@@ -91,7 +91,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/OracleBoxFresh.f3d",
-    "saved_sha256": "d2488552a79ba98e137341c1c5e694e1446e882cdffa69c5e4bca6ea0612d6d8",
+    "saved_sha256": "f21dd4a73e2c87383387894c5fa635337f2d423115b84b6ee090da4a58bd2e76",
     "reopened": {
      "timeline": [
       {
@@ -136,11 +136,11 @@
        "faces": 6,
        "edges": 12,
        "vertices": 8,
-       "area_cm2": 23.54302205205905,
-       "volume_cm3": 9.355208110287789,
-       "face_rows_sha256": "85528c623047dc21c4e219d5c035c0212170ff869c2a882a89a9c414ed237ba3",
-       "edge_rows_sha256": "110f312770506d403d5e096863da1648372f5d968954ea31753bf0683e297151",
-       "vertex_cm_sha256": "c0d6551697708f30bbdbffbe5b64290e8efab025efcef8a538c2264cfa2af0b9"
+       "area_cm2": 23.54302205205898,
+       "volume_cm3": 9.355208110287755,
+       "face_rows_sha256": "42adfa64a76932095f3eaadca98c05ce2184148b36d558d8fd0cd813a1612b61",
+       "edge_rows_sha256": "9a1e12f996d86757705f3148e1fabc655d326451d0bc8c8cde9c35c010374b2a",
+       "vertex_cm_sha256": "7b481468642b01faab9406aa34a6e88985c6c3b5ae1348d2a7e411ad88c02f99"
       }
      ]
     },
@@ -162,11 +162,11 @@
        "faces": 6,
        "edges": 12,
        "vertices": 8,
-       "area_cm2": 23.54302205205905,
-       "volume_cm3": 9.355208110287789,
-       "face_rows_sha256": "85528c623047dc21c4e219d5c035c0212170ff869c2a882a89a9c414ed237ba3",
-       "edge_rows_sha256": "110f312770506d403d5e096863da1648372f5d968954ea31753bf0683e297151",
-       "vertex_cm_sha256": "c0d6551697708f30bbdbffbe5b64290e8efab025efcef8a538c2264cfa2af0b9"
+       "area_cm2": 23.54302205205898,
+       "volume_cm3": 9.355208110287755,
+       "face_rows_sha256": "42adfa64a76932095f3eaadca98c05ce2184148b36d558d8fd0cd813a1612b61",
+       "edge_rows_sha256": "9a1e12f996d86757705f3148e1fabc655d326451d0bc8c8cde9c35c010374b2a",
+       "vertex_cm_sha256": "7b481468642b01faab9406aa34a6e88985c6c3b5ae1348d2a7e411ad88c02f99"
       }
      ]
     },
@@ -203,7 +203,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/KitBoxFresh.f3d",
-    "saved_sha256": "3283b77bf0fb9f729b82658ce8e20dcf198c6d2ae40577b60e34414e6a3914c1",
+    "saved_sha256": "5d384db721085a0aefb766304d85283189b991bd71fb5b97c4e199110ee69626",
     "reopened": {
      "timeline": [
       {
@@ -321,7 +321,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/OracleSymmetricBoxEdited.f3d",
-    "saved_sha256": "05bb8b184da3547ce6fe0f7ef46ac318608b0345f692c53da7c9d44e4144358a",
+    "saved_sha256": "f984d9b823b2245252ae405242437b5db99b30b45bbe4ee7a2affaac37d6ec37",
     "reopened": {
      "timeline": [
       {
@@ -366,11 +366,11 @@
        "faces": 6,
        "edges": 12,
        "vertices": 8,
-       "area_cm2": 22.837549328910285,
-       "volume_cm3": 8.920267952153107,
-       "face_rows_sha256": "e77bc558c23363c637260c2f996215f3c2bba8b9eaeada818d5b4468d25fd975",
-       "edge_rows_sha256": "54a7e22762cee4ddc466e7f4cfaa7574dd0abfc7d5d9e0d5a1701b2b3cc4c2fc",
-       "vertex_cm_sha256": "96a48a467cea5ddebb8c781194e22ed4f2438504418aa483df4c3ab05e72c547"
+       "area_cm2": 22.837549328910235,
+       "volume_cm3": 8.920267952153088,
+       "face_rows_sha256": "64757386483fb9e8613bc4ce7631f0ae091b10f3b42064c85d8a5f85aa22ad5a",
+       "edge_rows_sha256": "918832b822131bf120b5e366a36c459c501bcf2e5e51f10ae59cf321b9e7901c",
+       "vertex_cm_sha256": "7f7f1c024102068f67db59eb015e2ecca2938e9dd2991402653da620a38665c5"
       }
      ]
     },
@@ -392,11 +392,11 @@
        "faces": 6,
        "edges": 12,
        "vertices": 8,
-       "area_cm2": 22.837549328910285,
-       "volume_cm3": 8.920267952153107,
-       "face_rows_sha256": "e77bc558c23363c637260c2f996215f3c2bba8b9eaeada818d5b4468d25fd975",
-       "edge_rows_sha256": "54a7e22762cee4ddc466e7f4cfaa7574dd0abfc7d5d9e0d5a1701b2b3cc4c2fc",
-       "vertex_cm_sha256": "96a48a467cea5ddebb8c781194e22ed4f2438504418aa483df4c3ab05e72c547"
+       "area_cm2": 22.837549328910235,
+       "volume_cm3": 8.920267952153088,
+       "face_rows_sha256": "64757386483fb9e8613bc4ce7631f0ae091b10f3b42064c85d8a5f85aa22ad5a",
+       "edge_rows_sha256": "918832b822131bf120b5e366a36c459c501bcf2e5e51f10ae59cf321b9e7901c",
+       "vertex_cm_sha256": "7f7f1c024102068f67db59eb015e2ecca2938e9dd2991402653da620a38665c5"
       }
      ]
     },
@@ -433,7 +433,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/KitSymmetricBoxEdited.f3d",
-    "saved_sha256": "f82821264e87cae83d45774f8536aca1fd68fba4c9a70c4f21ec892b6fbcf2b7",
+    "saved_sha256": "219e0511b2537283ba09fa2d6b1d9d291597af4b348a2dd9f3b653a005035489",
     "reopened": {
      "timeline": [
       {
@@ -556,7 +556,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/OracleCreasedBoxFresh.f3d",
-    "saved_sha256": "d6b642560a7ff5eb237bb2cc8a43fc7b8d833ad5e2fe98557bab06d7d30a9119",
+    "saved_sha256": "64565664c43e50b9463060358c7a897779078273f60033c273d36e956865335c",
     "reopened": {
      "timeline": [
       {
@@ -601,11 +601,11 @@
        "faces": 6,
        "edges": 13,
        "vertices": 9,
-       "area_cm2": 24.286028645961505,
-       "volume_cm3": 9.812463482516062,
-       "face_rows_sha256": "ace24c322426d107136e2c54365bae037ce84cd25bddb7f5f9e15e6c4840d352",
-       "edge_rows_sha256": "7eaa9bd3196d23bd45f346191b985c6a520302384905b43624e2b50b16549b23",
-       "vertex_cm_sha256": "07905376c0eb0dc6d056dca6fc4cbd74c900841cc527441b4b78e89b25561a14"
+       "area_cm2": 24.2860286459615,
+       "volume_cm3": 9.812463482516058,
+       "face_rows_sha256": "c035a3d6a7ac532a549947a51780f7e9c206d35bc3ab5c595bbd759244046492",
+       "edge_rows_sha256": "f51954c6debfdcd4e9383e2267637a2419f9383eb113818fc853e191cb34a1a1",
+       "vertex_cm_sha256": "285c114e086e3a7ded9ae6afb515f1920e5c0b467770703759926d49aca59714"
       }
      ]
     },
@@ -627,11 +627,11 @@
        "faces": 6,
        "edges": 13,
        "vertices": 9,
-       "area_cm2": 24.286028645961505,
-       "volume_cm3": 9.812463482516062,
-       "face_rows_sha256": "ace24c322426d107136e2c54365bae037ce84cd25bddb7f5f9e15e6c4840d352",
-       "edge_rows_sha256": "7eaa9bd3196d23bd45f346191b985c6a520302384905b43624e2b50b16549b23",
-       "vertex_cm_sha256": "07905376c0eb0dc6d056dca6fc4cbd74c900841cc527441b4b78e89b25561a14"
+       "area_cm2": 24.2860286459615,
+       "volume_cm3": 9.812463482516058,
+       "face_rows_sha256": "c035a3d6a7ac532a549947a51780f7e9c206d35bc3ab5c595bbd759244046492",
+       "edge_rows_sha256": "f51954c6debfdcd4e9383e2267637a2419f9383eb113818fc853e191cb34a1a1",
+       "vertex_cm_sha256": "285c114e086e3a7ded9ae6afb515f1920e5c0b467770703759926d49aca59714"
       }
      ]
     },
@@ -668,7 +668,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/KitCreasedBoxFresh.f3d",
-    "saved_sha256": "4b766d12e50021530004c314bab0cb6f4199c18dd9b6cd5180342f9358a8ef22",
+    "saved_sha256": "1b74a4ef6ab48ddb71fccafc6f92752c28739914564e07655cf93488c322a9e7",
     "reopened": {
      "timeline": [
       {
@@ -786,7 +786,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/OracleValence5Fresh.f3d",
-    "saved_sha256": "b34625f65616d8c5c3949023a52b2b3e98232eec3a24b46d0f3a13290efbeca6",
+    "saved_sha256": "9475d770ff49972d31c96dda7d5329160c68643597e431be30ca3fca8bc0db8d",
     "reopened": {
      "timeline": [
       {
@@ -831,11 +831,11 @@
        "faces": 15,
        "edges": 35,
        "vertices": 22,
-       "area_cm2": 10.579733049533374,
-       "volume_cm3": 2.89330260467615,
-       "face_rows_sha256": "ca0d6a254e3cdea366c30e254694f69c86b9bedc99fd084cc573bef1a63421ee",
-       "edge_rows_sha256": "4784438f17b35ec7f864c6861bd624500609d711eed79365c72c96997604dff4",
-       "vertex_cm_sha256": "069ccbd1e3b49ce1bfe4bfb606a2bbbdfa7539f0e8244fe8477a242e51d91db9"
+       "area_cm2": 10.579733049533386,
+       "volume_cm3": 2.893302604676151,
+       "face_rows_sha256": "3605019a65c9e2fda403099ccffe8d5775f35394332c945f121f484fda0126c0",
+       "edge_rows_sha256": "a7609e0d40fcd59dccb6d0c7d7f825073142a7a0739b47c0edc83b3c09c35e80",
+       "vertex_cm_sha256": "47b05d4931676b761c86e7587ff2909660d1d6e482b72626a662c3817c4625e1"
       }
      ]
     },
@@ -857,11 +857,11 @@
        "faces": 15,
        "edges": 35,
        "vertices": 22,
-       "area_cm2": 10.579733049533374,
-       "volume_cm3": 2.89330260467615,
-       "face_rows_sha256": "ca0d6a254e3cdea366c30e254694f69c86b9bedc99fd084cc573bef1a63421ee",
-       "edge_rows_sha256": "4784438f17b35ec7f864c6861bd624500609d711eed79365c72c96997604dff4",
-       "vertex_cm_sha256": "069ccbd1e3b49ce1bfe4bfb606a2bbbdfa7539f0e8244fe8477a242e51d91db9"
+       "area_cm2": 10.579733049533386,
+       "volume_cm3": 2.893302604676151,
+       "face_rows_sha256": "3605019a65c9e2fda403099ccffe8d5775f35394332c945f121f484fda0126c0",
+       "edge_rows_sha256": "a7609e0d40fcd59dccb6d0c7d7f825073142a7a0739b47c0edc83b3c09c35e80",
+       "vertex_cm_sha256": "47b05d4931676b761c86e7587ff2909660d1d6e482b72626a662c3817c4625e1"
       }
      ]
     },
@@ -898,7 +898,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/KitValence5Fresh.f3d",
-    "saved_sha256": "99d595e6263f48c0d56566dd9ee5488a07af6f7ba310c77835d399a36a1c3b1f",
+    "saved_sha256": "7a4b89eff4f6e3a1900b9a63445c0940f3ae83589f2b0e9573b1f5a1a16d3b30",
     "reopened": {
      "timeline": [
       {
@@ -1016,7 +1016,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/OracleValence6Fresh.f3d",
-    "saved_sha256": "dfff425fff4b978eede4fbc1652daffe7e68936bd0b46fad1f594a06fc340c4d",
+    "saved_sha256": "6a723e4f69cd7c18a28ca8a8e29b2d6a128724e99645d2e6622641ceaf1b5bba",
     "reopened": {
      "timeline": [
       {
@@ -1061,11 +1061,11 @@
        "faces": 18,
        "edges": 42,
        "vertices": 26,
-       "area_cm2": 12.540048386693964,
-       "volume_cm3": 3.787605277100885,
-       "face_rows_sha256": "a52213cdcc4675c4bbaefe6994efaf78c476f50be1de256ab2225a018714e95a",
-       "edge_rows_sha256": "adfe674aadaa7523d36f77cfd3fdf54ec5af2b8298d6cc8792a329153675fd73",
-       "vertex_cm_sha256": "fd7f1e72596870beba383db851fe633f7bfcc851114565546ca818cea5cce088"
+       "area_cm2": 12.540048386693975,
+       "volume_cm3": 3.7876052771008872,
+       "face_rows_sha256": "7978700f6feccea54e2f945a3308552441bc374452b036151bb5973f8adb905c",
+       "edge_rows_sha256": "a708d03981563db6a585ad07da3f694fc6d10bde4533929a702d70bc55ea6856",
+       "vertex_cm_sha256": "2dc7533f29ff26f49d8d823e54f5e9916802ebbbd43746d638f4f5d9adf7ef1f"
       }
      ]
     },
@@ -1087,11 +1087,11 @@
        "faces": 18,
        "edges": 42,
        "vertices": 26,
-       "area_cm2": 12.540048386693964,
-       "volume_cm3": 3.787605277100885,
-       "face_rows_sha256": "a52213cdcc4675c4bbaefe6994efaf78c476f50be1de256ab2225a018714e95a",
-       "edge_rows_sha256": "adfe674aadaa7523d36f77cfd3fdf54ec5af2b8298d6cc8792a329153675fd73",
-       "vertex_cm_sha256": "fd7f1e72596870beba383db851fe633f7bfcc851114565546ca818cea5cce088"
+       "area_cm2": 12.540048386693975,
+       "volume_cm3": 3.7876052771008872,
+       "face_rows_sha256": "7978700f6feccea54e2f945a3308552441bc374452b036151bb5973f8adb905c",
+       "edge_rows_sha256": "a708d03981563db6a585ad07da3f694fc6d10bde4533929a702d70bc55ea6856",
+       "vertex_cm_sha256": "2dc7533f29ff26f49d8d823e54f5e9916802ebbbd43746d638f4f5d9adf7ef1f"
       }
      ]
     },
@@ -1128,7 +1128,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/KitValence6Fresh.f3d",
-    "saved_sha256": "27e80d505bf29822ca2a991d95a8d864cca16cfe39e7fedcc70fde73be6811e5",
+    "saved_sha256": "22c90e41d702b1536a46dec5e17d58cf2c7908d7a019eec4b85e16f77725f949",
     "reopened": {
      "timeline": [
       {
@@ -1246,7 +1246,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/OracleBox3Fresh.f3d",
-    "saved_sha256": "80afeb6216090820540a0c63abcf776d8e5209a9c5fd5684bd61c8b87c28bb31",
+    "saved_sha256": "4c5ba8806f2fcd690f0e6803b9cf4aa98f07200572d2484f78121e0ed6647a3d",
     "reopened": {
      "timeline": [
       {
@@ -1291,11 +1291,11 @@
        "faces": 6,
        "edges": 12,
        "vertices": 8,
-       "area_cm2": 28.600016850470215,
-       "volume_cm3": 12.646815219211721,
-       "face_rows_sha256": "c041efb103d680506161326f2508e3235c93245b200ecd3c6986c2c60645ca57",
-       "edge_rows_sha256": "a5f1bbbe1b0493a21f941bb0136174833d76910250f88de90b6cea24e354a9e1",
-       "vertex_cm_sha256": "4cbcbf0fc520931ebf649bffd3a801ed7e102f9275cc8eca064b2290109cffc1"
+       "area_cm2": 28.600016850470155,
+       "volume_cm3": 12.646815219211712,
+       "face_rows_sha256": "91270f44e8b5528ea0b2d8d7556d1b86451f8cf80b2efa4b5603d6d5dc7447a5",
+       "edge_rows_sha256": "b7ba5fad347dd28453cc5685dc507ae4e713bb1e7ccef350c5ae64f8270b54c7",
+       "vertex_cm_sha256": "6ea79d37bfed4eeee81870fbf8a20361350cac42f8f9999669cdb4534fe33657"
       }
      ]
     },
@@ -1317,11 +1317,11 @@
        "faces": 6,
        "edges": 12,
        "vertices": 8,
-       "area_cm2": 28.600016850470215,
-       "volume_cm3": 12.646815219211721,
-       "face_rows_sha256": "c041efb103d680506161326f2508e3235c93245b200ecd3c6986c2c60645ca57",
-       "edge_rows_sha256": "a5f1bbbe1b0493a21f941bb0136174833d76910250f88de90b6cea24e354a9e1",
-       "vertex_cm_sha256": "4cbcbf0fc520931ebf649bffd3a801ed7e102f9275cc8eca064b2290109cffc1"
+       "area_cm2": 28.600016850470155,
+       "volume_cm3": 12.646815219211712,
+       "face_rows_sha256": "91270f44e8b5528ea0b2d8d7556d1b86451f8cf80b2efa4b5603d6d5dc7447a5",
+       "edge_rows_sha256": "b7ba5fad347dd28453cc5685dc507ae4e713bb1e7ccef350c5ae64f8270b54c7",
+       "vertex_cm_sha256": "6ea79d37bfed4eeee81870fbf8a20361350cac42f8f9999669cdb4534fe33657"
       }
      ]
     },
@@ -1358,7 +1358,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/KitBox3Fresh.f3d",
-    "saved_sha256": "3e495a3f9eb6c083751906010248528bfb3406a1c2a53bac0df58d7bf91d4a2c",
+    "saved_sha256": "9e69f5b524d53ce4ec92e11c6abb6f983dd1cec2305c66872df03c4f23f6db24",
     "reopened": {
      "timeline": [
       {
@@ -1476,7 +1476,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/OracleValence8Fresh.f3d",
-    "saved_sha256": "ca4c3af564450f545a8b8220c58d06a4419b1f7613cdbd14fcbe0c70df84385a",
+    "saved_sha256": "b89353ab44a7454e306736a83fd73307d7ce160e2597c19c9c99772ea87ad703",
     "reopened": {
      "timeline": [
       {
@@ -1521,11 +1521,11 @@
        "faces": 24,
        "edges": 56,
        "vertices": 34,
-       "area_cm2": 13.143629176608302,
-       "volume_cm3": 4.083407777323909,
-       "face_rows_sha256": "51a1472290f851f756bd2680e10cf8d29606186496ac37dc24caeb6a962e8fe5",
-       "edge_rows_sha256": "97b540d18bf21db7b1c2d1246aa26eff610fcdb8b70f9a37a9a44b4986c6e2fe",
-       "vertex_cm_sha256": "e778f153c3614bba426a9372b137da807c7aabe0ba1ffae35301f0c8aabce851"
+       "area_cm2": 13.143629176608306,
+       "volume_cm3": 4.0834077773239095,
+       "face_rows_sha256": "c1ecd9fdf91bbb3ed614d415a66479d1d2a4ebc30ab7f0c27fe0bf06c7223cdd",
+       "edge_rows_sha256": "0e10b94aa8c33b74efa3bd87bd20a1e94c82f4b24c0bad587ff58b36b3f40dc5",
+       "vertex_cm_sha256": "c93d21952fa6222080a38c32f9bd9a5a4c766a4463e60db70ff994bbacb84171"
       }
      ]
     },
@@ -1547,11 +1547,11 @@
        "faces": 24,
        "edges": 56,
        "vertices": 34,
-       "area_cm2": 13.143629176608302,
-       "volume_cm3": 4.083407777323909,
-       "face_rows_sha256": "51a1472290f851f756bd2680e10cf8d29606186496ac37dc24caeb6a962e8fe5",
-       "edge_rows_sha256": "97b540d18bf21db7b1c2d1246aa26eff610fcdb8b70f9a37a9a44b4986c6e2fe",
-       "vertex_cm_sha256": "e778f153c3614bba426a9372b137da807c7aabe0ba1ffae35301f0c8aabce851"
+       "area_cm2": 13.143629176608306,
+       "volume_cm3": 4.0834077773239095,
+       "face_rows_sha256": "c1ecd9fdf91bbb3ed614d415a66479d1d2a4ebc30ab7f0c27fe0bf06c7223cdd",
+       "edge_rows_sha256": "0e10b94aa8c33b74efa3bd87bd20a1e94c82f4b24c0bad587ff58b36b3f40dc5",
+       "vertex_cm_sha256": "c93d21952fa6222080a38c32f9bd9a5a4c766a4463e60db70ff994bbacb84171"
       }
      ]
     },
@@ -1588,7 +1588,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/tmp/KitValence8Fresh.f3d",
-    "saved_sha256": "c2dbc35851155aa255631509a5d70278f0fc54f1dd9e9d9fe7f76293e1a6d55b",
+    "saved_sha256": "8eb76447c21022601dbf4d8b250964ef0a6124db036523b8114ab1d0930cd42f",
     "reopened": {
      "timeline": [
       {

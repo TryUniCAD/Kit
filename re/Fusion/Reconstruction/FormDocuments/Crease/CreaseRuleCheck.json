@@ -128299,7 +128299,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "b95e51718cb5c7e44ef3f59977a8050c1f99e96cb36dc756bc0a7bb10cbc2f42"
+   "sha256": "057d4c12e195989c7772c4aea15691690cb26bd001f613396295c2b284f7d28f"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/CreasedPlane.f3d",
@@ -128329,7 +128329,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "490bbacfdf4e04b43d3fdfac057ce5290777d92b73c843f8dfe6862a0adead97"
+   "sha256": "cd8d4356653646710b2a7f9fdd6a83d2e2ee6555568305283773732707d49568"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseBands.f3d",
@@ -128379,7 +128379,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "7a78f81cbdad1ab1145470455ec801a8a94a69cfe6bf9eee48af5033ca2c6caa"
+   "sha256": "48667875a40e9991e0f970e47f9d1f04f705f51a10d74f05bde97b88d61e8aed"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseCross.f3d",
@@ -128451,7 +128451,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "dd134ad84e28d3b2d04df7c4b0518cbb9d5fb4ecbf5b1ff22a11eb80963c5216"
+   "sha256": "d16c32dbebb8aae34a5d51b020dced50e8f43426616491822bceb49a1aa3b32f"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseLoop.f3d",
@@ -128503,7 +128503,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "6192e6af86add87e0ff225748ed02b775c96679475b2827605dd6cdd3a1289c5"
+   "sha256": "1d708588e02eba5ce7df37013f1860b8cfc8c6579d45bc4d6bbb45e00f389812"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseRing.f3d",
@@ -128533,7 +128533,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "068c8b3455670fdc994c6974476014b04defd01028956b413a3f95e141f80ae6"
+   "sha256": "6fc6dff905b1681c58983ac06c3ca46f96f413b6361e8806258a1884a73b0a49"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseSlices.f3d",
@@ -128627,7 +128627,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "cec745df67f769005866f384f9f39684d7a343c7415d907d41fd172cd536e4f7"
+   "sha256": "96545cbff0a290d8007eebe516192dadf02bd1156efca5dc3c5b370e0ca3d4fe"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldWeightedSharp.f3d",
@@ -128910,7 +128910,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "f404b13b05732089c6363e1dd749f101aaa84981774d62ba3f4b9f987aaf0405"
+   "sha256": "a3450404bddc08cad6f4b36abb523fe3935b76d3a4c55a0d44a10526dc3340cf"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/SharpBox.f3d",
@@ -129160,7 +129160,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "4edd2e3eec060ba5fd104205cb55c20936ef32924b8cf8353cb75babb9664ce9"
+   "sha256": "07f2c39790702547e2feca104c1995cba8874ce248f3fe7e96a184c9eeeee3c3"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitCreasedBox.f3d",
@@ -129201,7 +129201,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "a0f6a26a179cb16716f774e78b0721944602a77340a122d44748b59647cd99d8"
+   "sha256": "ad6f97429068555f8ad0dea648bca7fa6b5f988828235a291e01310ad51bb173"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitCreasedBoxConverted.f3d",
@@ -129242,7 +129242,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "2f36b131e67eb056c2fef28a03fd565db3e6340d5cabda21292002c546f7f10a"
+   "sha256": "77a72e64589de02307dca12e9e376c824ebc55ce68a110c5f715f2548eaded30"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitCreasedPlane.f3d",
@@ -129272,7 +129272,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "16b9bc0561e920d811e543d48c33f0c9e832994b277f00624a95f54f4756f3b2"
+   "sha256": "068740ccd36d521e37f009f18f83960926592721023fa18037082fa654f8da85"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitCreasedPlaneConverted.f3d",
@@ -129302,7 +129302,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "6e833eaab4f198513df163ea443de9031ce6cf42ab5ae0f00e6e569ef290f16f"
+   "sha256": "d4c8ed977a543a43d89beffad78fe5100b03d93bb9a20ff8cc33dca132845dec"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitHeldCreaseBandsConverted.f3d",
@@ -129352,7 +129352,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "2ad547177e12286bc74c70c7466233ea4a5d36118e9505ca19c241c9b06600bd"
+   "sha256": "a4d5c883176aaa87fd63ef7f3b494e2ecfa6fc502348e836941b3e80a4b53410"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitHeldCreaseCrossConverted.f3d",
@@ -129424,7 +129424,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "e6df901f022314bd2e99f3c123a37cd160975b5c4b15c9f0c414b6048d4d40a9"
+   "sha256": "ac587a6c5dd37b05c2b835320b3d3e7d8c415bf5ceae8e6903fc69eb27bade95"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitHeldCreaseLoopConverted.f3d",
@@ -129476,7 +129476,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "5d691d3a75e308aacfef8d1725abb83f409f4da6007c1906df7739c56cab7485"
+   "sha256": "90d6e1de393c48791a10e991ef3746dfc43d20a437d400c2dc66db392b9c8f9b"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitHeldCreaseRingConverted.f3d",
@@ -129506,7 +129506,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "47348c1c5a0cee01cf571a626736e04df074355c894c3829ab68802d49f7a38a"
+   "sha256": "3cd0f2c5016bf2ac95b16be83550e0bb4bf56d68135a7630b52b0bbcadb1551a"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitHeldCreaseSlicesConverted.f3d",
@@ -129600,7 +129600,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "27957169f440c8b9f057efc024572c493c5902da90afb850158a3ba0a4303f9b"
+   "sha256": "0880cb8fb89d85391d862b6d70c1d7621b81d62ed43f633e027583707f01648a"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitHeldWeightedSharp.f3d",
@@ -129883,7 +129883,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "87900be0f00e996e7a24d675a10b0598f8a3e04392952c86278b4e454115f58b"
+   "sha256": "52f9f54d69c4f030c67e7aee3e4014af9ef1f596ea2dfbd6da80033e1acda9a3"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitHeldWeightedSharpConverted.f3d",
@@ -130166,7 +130166,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "ceb96513ce1ffb83b10170a5d637871f6ed5d22825ea9703f08e86d0fc04f5d6"
+   "sha256": "9e9840dca112dd07a4355e4e2704364cfb6f8c6602e84a1261132e02ba7e400d"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitSharpBox.f3d",
@@ -130416,7 +130416,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "ba10d5e5bcc1b57797e536035503c27fc3d49075269cf1fb73d77e503351e476"
+   "sha256": "5430f2cefcc63e3e4a3a6701e4322e6ae14c33b2c35f61982455f998d899f3db"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitSharpBoxConverted.f3d",
@@ -130666,7 +130666,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "936b912ff964238730dfa963679f9b62f9ad2a024310aa57db739904378f6b86"
+   "sha256": "f18a24ca906f71a136bd90fc9888c81927bc8cf765e0144fd2ff38d835cb07b6"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleCreasedBox.f3d",
@@ -130707,7 +130707,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "a74537ab7cd6c072a79b9dac3e68e8250ceb9c74f377060ca220fc42b63b6938"
+   "sha256": "b96feb0768aff8e358e4595d97e48102c38dbb37a493fd27ecc8befdd8f8af97"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleCreasedBoxConverted.f3d",
@@ -130748,7 +130748,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "7a6a3d3bb9557a1dc7c0482e0c382f6902302b7f5797bc1c45f62c63ba08dbf9"
+   "sha256": "6a46f2bff0c787421e8c3654c7f7774ab35d178147f59377440c648cea30a24c"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleCreasedPlane.f3d",
@@ -130778,7 +130778,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "a799e58204877b3738e34e8156684b066f24dd4c4ac05986fa819eda7914eadc"
+   "sha256": "26bf882519f9ac0bdeac060b6c8e6b2769e1b9294f0ba4f0e91d3d7cf184b832"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleCreasedPlaneConverted.f3d",
@@ -130808,7 +130808,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "9f30d83bf25b1bd87c220ac53faa2bfcd0a88187d446d8752fe9191b0bf3dd1f"
+   "sha256": "0c2faa2cb13eb47a4ac095e8e7758ebd22cb34cdee66cb047b5ba681c40ac7a3"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleHeldWeightedSharp.f3d",
@@ -131091,7 +131091,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "9d2703186cd4fb2d34e64114125fbefdffd8e07c5fd04b9d5578292f2d6bdbbf"
+   "sha256": "2faf60914603f048b6f1e3233e0ab2632559dd26e771fcc75ffebac0c7177a71"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleHeldWeightedSharpConverted.f3d",
@@ -131374,7 +131374,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "d6ed91696c83bab4e8007020b30f6caf295fd0b06b2644710fe387c20f7c4a7b"
+   "sha256": "15b6f03e42c50f07969c7c19c951d5636f17fa6dde4d3d64a401d547b01badcb"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleSharpBox.f3d",
@@ -131624,7 +131624,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "9ae0c8b976c96f29b37e94331a7f2e9bb36f154d05a6e5400e83c54d56028d54"
+   "sha256": "f23e45e40f9bce2ce0fdcce005b46e6ee8fa503228557672767635ca1ac107e6"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleSharpBoxConverted.f3d",
@@ -131874,7 +131874,7 @@
      "status": "equal"
     }
    ],
-   "sha256": "dbb71ad7c1df10f38db6b179599d8b31d02c33c7cfeafb265bc8dd864b600e3b"
+   "sha256": "751e23ae8dd946dfb8a40acdc7be04ebdc0e921e847b45631b74b725fb41e680"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/CreaseCaps/tmp/Crease3L1S0_0.f3d",
@@ -142030,7 +142030,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "953a4ae278ee3a62547956900f55a41877fcefdc7af1af98b3f9a3fe715c58fd"
+   "sha256": "d1acf972a883c19a3c2bed7a589c144a0c40cdd2c6a7512627c640f5510f174d"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Box111.f3d",
@@ -142038,7 +142038,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "a11a55dd1a7ec0db966fc52f5be7b133c656889e47010d1c99c2df468680b664"
+   "sha256": "cdb9abf1e2043d5a41f0a62ae27824f8480dd9d738671ad95da7e9727f8602f6"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Box122.f3d",
@@ -142046,7 +142046,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "771cd25931b26c1ce1902c311a48a56880bdf8d367cd5b76baf8b9ffa0461ae5"
+   "sha256": "48ec11abfa61f171453b5c4b24581d5566ce0b773eecb18e5b880622e7b72784"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Box234.f3d",
@@ -142054,7 +142054,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "f4f698caaf436281e8bfe6533573f8e94b13a538946b7d8a58aa2256e85266eb"
+   "sha256": "f7837f68baf9de527a63bd271cd50049bea94891c1e8b02e7cb1b20395899b47"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Box3.f3d",
@@ -142062,7 +142062,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "14512cea33bc5afe03d0400642e0eead07b082e30dcd5cd5187d78580faf975a"
+   "sha256": "5342fdb2e04b5cb7d0b6ff29d0b919658c5cb724102b48a2aa3daf73217b7e37"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/CreasedBox.f3d",
@@ -142070,7 +142070,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "b95e51718cb5c7e44ef3f59977a8050c1f99e96cb36dc756bc0a7bb10cbc2f42"
+   "sha256": "057d4c12e195989c7772c4aea15691690cb26bd001f613396295c2b284f7d28f"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/CreasedPlane.f3d",
@@ -142078,7 +142078,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "490bbacfdf4e04b43d3fdfac057ce5290777d92b73c843f8dfe6862a0adead97"
+   "sha256": "cd8d4356653646710b2a7f9fdd6a83d2e2ee6555568305283773732707d49568"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldBox113.f3d",
@@ -142086,7 +142086,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "c26926452b64dc833e6b2b64dd7e42ade0fc77de5b8be9978fc0dc88406c2b41"
+   "sha256": "912bb492e83a1a18571324a6800806ae48792f1f5916942dd48ebba093571c61"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseBands.f3d",
@@ -142094,7 +142094,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "7a78f81cbdad1ab1145470455ec801a8a94a69cfe6bf9eee48af5033ca2c6caa"
+   "sha256": "48667875a40e9991e0f970e47f9d1f04f705f51a10d74f05bde97b88d61e8aed"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseCross.f3d",
@@ -142102,7 +142102,7 @@
    "shape_topology_equal": false,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "dd134ad84e28d3b2d04df7c4b0518cbb9d5fb4ecbf5b1ff22a11eb80963c5216"
+   "sha256": "d16c32dbebb8aae34a5d51b020dced50e8f43426616491822bceb49a1aa3b32f"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseLoop.f3d",
@@ -142110,7 +142110,7 @@
    "shape_topology_equal": false,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "6192e6af86add87e0ff225748ed02b775c96679475b2827605dd6cdd3a1289c5"
+   "sha256": "1d708588e02eba5ce7df37013f1860b8cfc8c6579d45bc4d6bbb45e00f389812"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseRing.f3d",
@@ -142118,7 +142118,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "068c8b3455670fdc994c6974476014b04defd01028956b413a3f95e141f80ae6"
+   "sha256": "6fc6dff905b1681c58983ac06c3ca46f96f413b6361e8806258a1884a73b0a49"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseSlices.f3d",
@@ -142126,7 +142126,7 @@
    "shape_topology_equal": false,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "cec745df67f769005866f384f9f39684d7a343c7415d907d41fd172cd536e4f7"
+   "sha256": "96545cbff0a290d8007eebe516192dadf02bd1156efca5dc3c5b370e0ca3d4fe"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldInterval7.f3d",
@@ -142134,7 +142134,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "0f0d8a0432a5a6b1832d24bd21defc8c1044c75e7281bc8987817f6b917899c8"
+   "sha256": "12279348dcbdda4aa441b4a99d647e67d82065e9fef1624d817f10393084aea0"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldPrism3.f3d",
@@ -142142,7 +142142,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "be95eeea1905a1b39d693cb31fdf135454a817709b7e48c365cf85f2e42a1a75"
+   "sha256": "7b6395e2c6328f80f6650da658429bc51d52dcca48476769abc7de32c8f71f34"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldPrism5.f3d",
@@ -142150,7 +142150,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "3239f96dad552ee9dcd01ef9d0580932fbed98311415af18925bd9bccc4266cd"
+   "sha256": "53fa8a55338743f7dcdc80dcde5e6263089c500dc58b3dde10f81de2dbf8b6d8"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldTorus75.f3d",
@@ -142158,7 +142158,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "a9abc479b0d4a7a01a6334b88dee5112fe97e66d007661e7889e35724b652657"
+   "sha256": "234fc485c55e08c3049762851fb3715a7fe3b74b441b55b2b5284804482152d3"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldWeighted6.f3d",
@@ -142166,7 +142166,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "61f727259852a18ba8a9f9eef00dce87d0161d2442ef8580d3dfa129ab26d94a"
+   "sha256": "2cdcf3855c44261267039b7b58989bf5b2d697058c1fcbe7de040a7624e447e8"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldWeightedSharp.f3d",
@@ -142174,7 +142174,7 @@
    "shape_topology_equal": false,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "f404b13b05732089c6363e1dd749f101aaa84981774d62ba3f4b9f987aaf0405"
+   "sha256": "a3450404bddc08cad6f4b36abb523fe3935b76d3a4c55a0d44a10526dc3340cf"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldWeightedTorus.f3d",
@@ -142182,7 +142182,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "10933ec0067db3dccdfd61b25af5a3119a4601a0c7d1a59f9a9c2961498cf1c6"
+   "sha256": "f4658eb9c5e954990fd6c605cbec2398adce66104c93200c154d48552a7d6e4e"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/LPrism.f3d",
@@ -142190,7 +142190,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "b1c44ad9240dbda9277e861a688f8231b09a16f4e07a4d2ff87219c2e2bc206a"
+   "sha256": "a194b292a73633e0e6c277805cf3f103715488a636f4845a6c1dffc0e607a61f"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/SharpBox.f3d",
@@ -142198,7 +142198,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "4edd2e3eec060ba5fd104205cb55c20936ef32924b8cf8353cb75babb9664ce9"
+   "sha256": "07f2c39790702547e2feca104c1995cba8874ce248f3fe7e96a184c9eeeee3c3"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Step.f3d",
@@ -142206,7 +142206,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "59d0196c1c17294f7fb7815455016a1c198cb0f00ad60f6e59e8cafe3ea9b516"
+   "sha256": "1b9e82a6ae0f562b238793d0b9b5b61d0bbba0e33d39403e918ada6d813bcbae"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Torus86.f3d",
@@ -142214,7 +142214,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "cb544520eb3abdea32084643ebc6ad8535602655ba22257a3be5257f4f234487"
+   "sha256": "8d609ddd97797f00288802babd5e86e5d9167032302649f83da1b901144de84a"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence3Prism.f3d",
@@ -142222,7 +142222,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "0215c051472ec88e037e3fd38d5153d59875a759f1775d79d285c0e816b0d31b"
+   "sha256": "576e33b5cd47960cc9f5c945175ef9669f198bf05799b83a150ed01f3c6bb95d"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence5.f3d",
@@ -142230,7 +142230,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "8e0a3ab2e8b61c25c3990088e26c99b76d7ecac00c31e783a338c992acbae83a"
+   "sha256": "13c8b803219ad8b22d8fd920432959b9ea5ca9d514de8ef0b7bf84f323eb3691"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence5Tall.f3d",
@@ -142238,7 +142238,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "015faf9bd55f9c67718a42ea687bcbaed5877e31b9f918047a35bbc0407390a1"
+   "sha256": "583bbaad4188c0cd7a5c1db23b8cfaf80d5fd8fb16d5b61d15c1473883d617a0"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence6.f3d",
@@ -142246,7 +142246,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "093e16e6024a057fa33575796aa7a20beb15b22894beba5256829daa3b205549"
+   "sha256": "6f65db83a2ed9b21f271842021d87c65a79f3d1314abb4a31545330fdef2b3bc"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence7.f3d",
@@ -142254,7 +142254,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "32cf19dc9e7751dd60fc93a2bbf6cf5e9230151e9cfcdf973dabe9b955eb22b1"
+   "sha256": "5f0bf4828af748cb2f7c4e0f05dfa8ce8b4db426a849f88325ab314923b0414d"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence8.f3d",
@@ -142262,7 +142262,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "03bab4f19baadd5608aa10107fc0e0f09d8b4e99c57ce31a0232e8e864e5621b"
+   "sha256": "223fcada51c301ecbd92c4e425fbce9a015018cf73342587dd8ac062f71722b2"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitBox.f3d",
@@ -142270,7 +142270,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "f1f2d37e6384d1f455911ea5034716e7f07fd51da03be0b40a7338acee55a4ed"
+   "sha256": "4b8d6992821f42d69790a18c5e3fed5816ed8c86f696d64399dcdc1559e8e183"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitBox111.f3d",
@@ -142278,7 +142278,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "7fbb44074c42836fab91cb8e19fb00e4ca498db3a68f88d57df9390f83d5ef33"
+   "sha256": "274cb1726cf8b82d1b4c1bc0f87b61b29ed5d59745c02739f37651054f4240e6"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitBox111Converted.f3d",
@@ -142286,7 +142286,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "7296e6325a0f4af7c0b491e09d1d69844cb78b916ed1012a4e2ca4ebfaff3e1b"
+   "sha256": "05b390e814bbae44bf7d956650d91dd512c8825eab6348080c9abb158170d476"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitBox122.f3d",
@@ -142294,7 +142294,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "cfc5ff6165529ac1e17a343dd01d651d84bf58a114d2f92c4d96cf82e038d13d"
+   "sha256": "fa2cfced7dd3f16514bcaeca7227224709ad51e7cdb7d2f68ab2b764ae14129a"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitBox122Converted.f3d",
@@ -142302,7 +142302,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "f55ca842d987dcd2384a7374c3f1dd6773220c1d626cdc9cf8a44dc1715dd7c0"
+   "sha256": "0dc0bf7f1ca3bbd075c4d8bedd9cd940129997a25bb47daed7ebd830f8e4ba9d"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitBox234.f3d",
@@ -142310,7 +142310,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "04229e801dcd9e12a05d08be994d8a9d1a7cc6330fee28143f8a30ff847b3f9a"
+   "sha256": "aa5a6e036766a06876d0d896e0b402ef404163d7461d1fd2effecaec28a4a275"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitBox234Converted.f3d",
@@ -142318,7 +142318,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "e37ce7c311100e65106f20a82b79e0a8e8d44783878c178764344114a9ef2082"
+   "sha256": "f5da747902878bc714b52a280730dc93c4df76e547c2838492637a482efdaa9b"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitBox3.f3d",
@@ -142326,7 +142326,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "2a79efb897b67921975f28a179b764eb44b1add23ea9115dc38f8a0dbeaed78f"
+   "sha256": "d3cdf0edc06d0f129ca6d7a4a43fbfd1461f852d57d64d926cda0e4bfc04773f"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitBox3Converted.f3d",
@@ -142334,7 +142334,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "53cb8493af8e66ce73cc105ec954a9b7ecdb0186ad441dfa625d0c2d4d226523"
+   "sha256": "8704b7198a2798086864d293c86b23112b04603595b09027a10789ab30e861b9"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitBoxConverted.f3d",
@@ -142342,7 +142342,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "66456493131fa154fe0bc6d923018913f09c722ce807277490dd50902ca32b3f"
+   "sha256": "b2c83996612bb1522273b4d758f4aae41fa11460bf18d4ff7a5a680d820e8478"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitCreasedBox.f3d",
@@ -142350,7 +142350,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "a0f6a26a179cb16716f774e78b0721944602a77340a122d44748b59647cd99d8"
+   "sha256": "ad6f97429068555f8ad0dea648bca7fa6b5f988828235a291e01310ad51bb173"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitCreasedBoxConverted.f3d",
@@ -142358,7 +142358,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "2f36b131e67eb056c2fef28a03fd565db3e6340d5cabda21292002c546f7f10a"
+   "sha256": "77a72e64589de02307dca12e9e376c824ebc55ce68a110c5f715f2548eaded30"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitCreasedPlane.f3d",
@@ -142366,7 +142366,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "16b9bc0561e920d811e543d48c33f0c9e832994b277f00624a95f54f4756f3b2"
+   "sha256": "068740ccd36d521e37f009f18f83960926592721023fa18037082fa654f8da85"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitCreasedPlaneConverted.f3d",
@@ -142374,7 +142374,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "6e833eaab4f198513df163ea443de9031ce6cf42ab5ae0f00e6e569ef290f16f"
+   "sha256": "d4c8ed977a543a43d89beffad78fe5100b03d93bb9a20ff8cc33dca132845dec"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitHeldBox113.f3d",
@@ -142382,7 +142382,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "6527b0fc314beddfdf5c0b70ff70af25512af4922b065d2d02048d227cf60e2e"
+   "sha256": "7678ccf2742e84e8782323aa95b52f6e2677252acc38fe58857e2735c6bc8b27"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitHeldBox113Converted.f3d",
@@ -142390,7 +142390,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "b2b2f5bf0d97fab46228e3eb7731a5d183a39af82692dfb055a4882c51a40165"
+   "sha256": "eac0161cf2d250486d4ebe6f035524d9bc12c49aa41d107d373ba9e18f8cac9b"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitHeldPrism3.f3d",
@@ -142398,7 +142398,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "c19c98236e94afa94048902d37f3e3cdc13a448fff8392208ab92929028a91a8"
+   "sha256": "c708d4fca691ec2a1e387e610540a651311982193eae562611f2d74626cbfaa7"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitHeldPrism3Converted.f3d",
@@ -142406,7 +142406,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "7dd3d4df02487dfc2922440fe537267b1e59c4fb32c50615e18ded939310a114"
+   "sha256": "2a856409af7fa1ee33c96755e17063140be69698f4d92eca00828112d3cfe596"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitHeldPrism5.f3d",
@@ -142414,7 +142414,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "9fb60d871b55409b563691d84c9d6f2d64e0a100a4c79d5ba9fdf6a8686b453d"
+   "sha256": "e51f95cb9084d36e14981cc8283a0d99449a8632037b1e46864536c62a71e5a7"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitHeldPrism5Converted.f3d",
@@ -142422,7 +142422,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "8ea94aee9b2b58ddb3a2a9d35e63241d2b0e59fe0119689e2f967ec1b7a5b222"
+   "sha256": "a3cd52006b50588c3b22b699603daa77949d83c7fda79c6a4c818ed3e2b459a0"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitHeldTorus75Converted.f3d",
@@ -142430,7 +142430,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "7c7a0849151b66627a80ac48a262e4ec4fa961a486a5cb6095ba41fb8ab1fd4d"
+   "sha256": "7fd5a50aae8436da297d887a147e1ab0e55b8472583d3403bf9595694681b9fe"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitHeldWeighted6.f3d",
@@ -142438,7 +142438,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "bfdf88722504d660028e785c7c6db82901e1252b38ab70b3bf04237ef228d2d9"
+   "sha256": "9a2776eb6d61a694b64eecc8c01229f0ab636536c8c1927342474679b66367f4"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitHeldWeighted6Converted.f3d",
@@ -142446,7 +142446,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "5739779a0be64c7e4e8e94ebc94bbab62dc9366101ded92e1b802c496eec75cb"
+   "sha256": "90be722c6855153620375ed872bcb62a6e9e9d7be998d382ae138d6cde679be4"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitHeldWeightedSharp.f3d",
@@ -142454,7 +142454,7 @@
    "shape_topology_equal": false,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "87900be0f00e996e7a24d675a10b0598f8a3e04392952c86278b4e454115f58b"
+   "sha256": "52f9f54d69c4f030c67e7aee3e4014af9ef1f596ea2dfbd6da80033e1acda9a3"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitHeldWeightedSharpConverted.f3d",
@@ -142462,7 +142462,7 @@
    "shape_topology_equal": false,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "ceb96513ce1ffb83b10170a5d637871f6ed5d22825ea9703f08e86d0fc04f5d6"
+   "sha256": "9e9840dca112dd07a4355e4e2704364cfb6f8c6602e84a1261132e02ba7e400d"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitHeldWeightedTorusConverted.f3d",
@@ -142470,7 +142470,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "504d36b7e50d02d101838bc6015ffdd498456ca06047e461914090b09cae01e4"
+   "sha256": "efdc9bf382fbc3eabbe3c3d6cde31483703ebff7f9781c9851ef2fd396e189d7"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitLPrism.f3d",
@@ -142478,7 +142478,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "769f4f447b0f2cba51c946ab58fbc841994d3204b0ec9a650362f8afc0f7395a"
+   "sha256": "56e0a8d9a0f2934f719016d5cee6d517bd3b83523acd9b2e192263213842a2e3"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitLPrismConverted.f3d",
@@ -142486,7 +142486,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "737a42f8d6cd944bdcdc2ae039b8bdba5183b355f5aba77e74e565d84422ec94"
+   "sha256": "e620fcfd5fac41459dc3cb0e78b6cb584af93e2cec5e3bb94e31e830d459a938"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitSharpBox.f3d",
@@ -142494,7 +142494,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "ba10d5e5bcc1b57797e536035503c27fc3d49075269cf1fb73d77e503351e476"
+   "sha256": "5430f2cefcc63e3e4a3a6701e4322e6ae14c33b2c35f61982455f998d899f3db"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitSharpBoxConverted.f3d",
@@ -142502,7 +142502,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "936b912ff964238730dfa963679f9b62f9ad2a024310aa57db739904378f6b86"
+   "sha256": "f18a24ca906f71a136bd90fc9888c81927bc8cf765e0144fd2ff38d835cb07b6"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitStep.f3d",
@@ -142510,7 +142510,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "569e397597c8fb96a584da93df176dbb5ad8c4f77705f3c756d83d3f1c27c464"
+   "sha256": "191243aecd6c84376ba38b3e8cd5214bc8b92d13b11e894e5b731974fc75be18"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitStepConverted.f3d",
@@ -142518,7 +142518,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "33fab9aff3993bc13ddd6e61c6b776c9206de90d94cb96b39a068cad55c67ed7"
+   "sha256": "7f68c10c339d50a79fc675f1363b4b8b4a44f4ea0124fa75915ff18dedc06839"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitTorus86Converted.f3d",
@@ -142526,7 +142526,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "2e1a61415caafdb3719fa9570a5e822807de2597d9ec68778ca4dc7989954434"
+   "sha256": "93c9d2af27efd047bfce5022e0ed70c363d26d6931bcf9d66832d3e3de5abe72"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitValence3Prism.f3d",
@@ -142534,7 +142534,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "133bb2dc36c756a0f146e7ddb209ce9f505ad8f6e64e7cf868a1a181ac1d7307"
+   "sha256": "a221f188a7f60ee97b75bfc22a238b1ba08cc015d2066e66d10ff22383f2bedc"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitValence3PrismConverted.f3d",
@@ -142542,7 +142542,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "ef9be2cf1348a8ea9463415e60795b4590b8c760f0f11806cddde42ef2a6b59d"
+   "sha256": "6758889d296a5beaf596f8bdbdc692411e945ffd5eb35c1d9037e70136b43089"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitValence5.f3d",
@@ -142550,7 +142550,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "ff9f15f0b1d9eb204348076ebc984200db0b178c7e2ad217f57f01a55275bd06"
+   "sha256": "8393115e8ceb73b0ea1f3a213bb6b33e9a8c58b16121a85169e9dae788c9d513"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitValence5Converted.f3d",
@@ -142558,7 +142558,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "dffb6cde670b69034cec6d98ef35c8faed5258a03d254e7f9dad095b248f8d8e"
+   "sha256": "32bf23eda3620f40437077f4fb743d670fe91b199f61a46fe481e8aa60a53bf3"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitValence5Tall.f3d",
@@ -142566,7 +142566,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "188f4105d4db8d23bf4b0680e6989a5930420962b3eb1c36362bf4976b6376fc"
+   "sha256": "9a1a3a9cdbfe9bb321f3f47fae5f3c285497475a3b0ee5edfc416635e1cb409c"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitValence5TallConverted.f3d",
@@ -142574,7 +142574,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "6041ac57fae23fbb8edca934e207fed851d3fd3c8149ff226d570af16315bbe8"
+   "sha256": "738f9bb2f7cc94e5dd27e639605500dd930a057dec08ee22220ea7d0f8f390cb"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitValence6.f3d",
@@ -142582,7 +142582,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "aee0bbe747983eaa43aa25ae6318d8f5c4a85ebbcd84431a077253f1d8332b38"
+   "sha256": "ddf798df1cd586f0c876e910ac911eab7c6a9b73d2fcb3b2608fa10845da5f4e"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitValence6Converted.f3d",
@@ -142590,7 +142590,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "99c902534354576d06a5d21193ff92a0a21612835c0a3cb497b574fb493685e9"
+   "sha256": "d3be1643dc62bba67c37c0c998a6d977b709b1276eee31e900d6a81343bcdc22"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitValence7.f3d",
@@ -142598,7 +142598,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "d47132b6a75a1dabe23534839e936e38bf1edf5cd111605c397345ae5a9502ef"
+   "sha256": "d9e906ddf6f868aab866472454b5e3cf0c90270f0453709b1a0bde09cb609eb7"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitValence7Converted.f3d",
@@ -142606,7 +142606,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "015fd84d71455eaf418cce0e783ffb57526adf5ff240abf3c68198b4dfe5c603"
+   "sha256": "4c6f976aae5204fab5fce3e7b12357d3a62d0437b0bbf73199a326682c5c719a"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitValence8.f3d",
@@ -142614,7 +142614,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "5f202ed6f388765585ab1402dbef21073e8f06b0465112f5430bddc8a31bfa7b"
+   "sha256": "95605f1a80d718be24599eebb89638e28a426f77a627370f88925f410f468e8d"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/KitValence8Converted.f3d",
@@ -142622,7 +142622,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "2274428d79ef7b71daae264ad760a436aa3d9239eb9e639da14a67b9cc871f90"
+   "sha256": "f4c8dffd2ef64c070ca1feb33caa593ee9e4f82279c9fd4ee3ada588fdeee6b7"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleBox.f3d",
@@ -142630,7 +142630,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "f4706066661f6a3196c7dbffbacba0cd6904f085526ac98c878f4625936b8b1e"
+   "sha256": "6d1b89a02eb6cb6e41049ec1a8b66eae20062dffbc099de4477d6577abab2fa6"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleBox111.f3d",
@@ -142638,7 +142638,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "e79a2569a6eccdac2b8cc66d0679ee016b9bf2daba03c03087a94316a2a23092"
+   "sha256": "c3dbcacba8e49d47d2bc9a5933d9d2a4dbb6066ae15363e157e22b31d739ed6c"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleBox111Converted.f3d",
@@ -142646,7 +142646,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "db09dad4f55fec01c1531ac41fbd941f4c5172f84fe9856dc4bfe44d59e483b2"
+   "sha256": "06df7b40856b9626bd42570435031dda1d2eef457b696cf728050827c8587477"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleBox122.f3d",
@@ -142654,7 +142654,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "3f8b373d513205e595c551a3dbd0e61c4fc5e3c79be89d8bd0948bc6b74699e4"
+   "sha256": "d99a3782a1fe24e2b2faf5841a1494542c1a5d39c7cca35e342a45ad8cac4b4f"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleBox122Converted.f3d",
@@ -142662,7 +142662,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "17f941192c48e029e63374224e78bd7d35ab422d314c9535da1d33c4e596a83f"
+   "sha256": "951cf3ccc91f76ca0b6127ffd6efb75d1c1982c6f81edf8ba84433f85ab2acf2"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleBox234.f3d",
@@ -142670,7 +142670,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "b888f59c5e74d816a3e030d841138241eae6b7d4889ea9dd9b37e0c254f2b531"
+   "sha256": "f124405efaa444bfe3a22cd0ceb375adc162641d26018bce4ec0223f7e645477"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleBox234Converted.f3d",
@@ -142678,7 +142678,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "a3722008223dc58bf10b57470f97c6fa573b3494b33c582b01fb01e5dfa3d23b"
+   "sha256": "1f8fb33de69c3567c14355f2236a61f24958a8c5dfb8a6b6b4553b2b86c2df52"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleBox3.f3d",
@@ -142686,7 +142686,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "5c5b383dbde2f4242d2577c2cbfb26f8088fc3f3e2c4b744199bf54fb1111199"
+   "sha256": "2c5da993c2b6bcf3c4e675b68f81df00d9cadcef29b7ed64f8a9e20493386803"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleBox3Converted.f3d",
@@ -142694,7 +142694,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "29f49b1c0a9ec9768029d4ec8a347ce1cde9549c65841438cff0fa5526faef52"
+   "sha256": "c5a434cc5b89525d8e75088adeaed73b49d22ef9f812cfe147d78635e08dfad6"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleBoxConverted.f3d",
@@ -142702,7 +142702,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "fb5b7bcb231d5b1ee431c18454c49a3dccd553d6631edc9da734a6d334cb2dc6"
+   "sha256": "e20df3c876f0521bee5afeb7de2a4641a46c198220cdc787aef00540b523a631"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleCreasedBox.f3d",
@@ -142710,7 +142710,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "a74537ab7cd6c072a79b9dac3e68e8250ceb9c74f377060ca220fc42b63b6938"
+   "sha256": "b96feb0768aff8e358e4595d97e48102c38dbb37a493fd27ecc8befdd8f8af97"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleCreasedBoxConverted.f3d",
@@ -142718,7 +142718,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "7a6a3d3bb9557a1dc7c0482e0c382f6902302b7f5797bc1c45f62c63ba08dbf9"
+   "sha256": "6a46f2bff0c787421e8c3654c7f7774ab35d178147f59377440c648cea30a24c"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleCreasedPlane.f3d",
@@ -142726,7 +142726,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "a799e58204877b3738e34e8156684b066f24dd4c4ac05986fa819eda7914eadc"
+   "sha256": "26bf882519f9ac0bdeac060b6c8e6b2769e1b9294f0ba4f0e91d3d7cf184b832"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleCreasedPlaneConverted.f3d",
@@ -142734,7 +142734,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "9f30d83bf25b1bd87c220ac53faa2bfcd0a88187d446d8752fe9191b0bf3dd1f"
+   "sha256": "0c2faa2cb13eb47a4ac095e8e7758ebd22cb34cdee66cb047b5ba681c40ac7a3"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleHeldBox113.f3d",
@@ -142742,7 +142742,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "d842f0bfc598dacbd49c8d9b2bfdd11e5c45ff6cc0e83f708b7a6d18c7231225"
+   "sha256": "16b5e5a462941cfa12d11f3eabafaecb8609d85b44c8be391916842cd471643a"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleHeldBox113Converted.f3d",
@@ -142750,7 +142750,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "45048a08b77dd4ebf78f81bff38e7781e502305d7d690dca73780d0a9d39285e"
+   "sha256": "1892cdc2f93b02f377eb1f48ec36583306e6d592b76d081cec7158314a88e167"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleHeldPrism3.f3d",
@@ -142758,7 +142758,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "cf47bea13c814321b532c0b0c932b4a55cc7ff9774cbe54273e365710fa09757"
+   "sha256": "d7ad4b689399a5d9c600abf9c6bc36372fdf4b4d9e907673b6548214337323b8"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleHeldPrism3Converted.f3d",
@@ -142766,7 +142766,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "88fd16b35b3f3f13041f0c8beebc08267635e6f0db2dc66febf1bb59d1e3e1e5"
+   "sha256": "d418afb1f47ba94e905aca71035cd9f1ded4256506460206171568601e851e38"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleHeldPrism5.f3d",
@@ -142774,7 +142774,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "483273e9728f2f7209c3ff4ef7e5b54160eef5596ef99ed9844bfa63c5145a04"
+   "sha256": "84c0e2db1344b71f21ac6feb349850d00d81413720f484e66aac92b2bfaee32b"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleHeldPrism5Converted.f3d",
@@ -142782,7 +142782,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "527b8504b83117f7ca89c3a0983ae01f13461e27a4d7c105c49a8acef4d8a684"
+   "sha256": "ee0c2a65d7f766811ccd11ca6126caedeaa03442cf199a1927fa4f0075d22323"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleHeldWeighted6.f3d",
@@ -142790,7 +142790,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "98d0ae1ee62f679253630d4626b3330d5db2877e46f7d23a324d5481ade80693"
+   "sha256": "67e0f05b42865c103e21f6548224dbdb70d9f5e55b03963d76ffe857c66e6078"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleHeldWeighted6Converted.f3d",
@@ -142798,7 +142798,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "a347072abff9676e2ac51b363f302c4f7152444d2f0105c00d4ae3ad0a05a085"
+   "sha256": "8fa25d8931b55aa928eef98f3a4513114734718c2a0ff562e5e788e5ae8f92c8"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleHeldWeightedSharp.f3d",
@@ -142806,7 +142806,7 @@
    "shape_topology_equal": false,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "9d2703186cd4fb2d34e64114125fbefdffd8e07c5fd04b9d5578292f2d6bdbbf"
+   "sha256": "2faf60914603f048b6f1e3233e0ab2632559dd26e771fcc75ffebac0c7177a71"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleHeldWeightedSharpConverted.f3d",
@@ -142814,7 +142814,7 @@
    "shape_topology_equal": false,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "d6ed91696c83bab4e8007020b30f6caf295fd0b06b2644710fe387c20f7c4a7b"
+   "sha256": "15b6f03e42c50f07969c7c19c951d5636f17fa6dde4d3d64a401d547b01badcb"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleLPrism.f3d",
@@ -142822,7 +142822,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "eb5e10c9586a08e24f3495dff1ae4f61b58108ce118d0ee84c835a40c4155bed"
+   "sha256": "ccd28a7474b0200a44640f612bd71293882fd5ae7a177b4c52b904aca9511652"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleLPrismConverted.f3d",
@@ -142830,7 +142830,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "f228ffa0629fd643c90dcc20f3e9afd5733191acb9a2bebf2a82a8edb5614a04"
+   "sha256": "5eca0a9035d230d8a5828e99aef65029ecf0f857194d5410bd89ed248220ccc0"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleSharpBox.f3d",
@@ -142838,7 +142838,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "9ae0c8b976c96f29b37e94331a7f2e9bb36f154d05a6e5400e83c54d56028d54"
+   "sha256": "f23e45e40f9bce2ce0fdcce005b46e6ee8fa503228557672767635ca1ac107e6"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleSharpBoxConverted.f3d",
@@ -142846,7 +142846,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "dbb71ad7c1df10f38db6b179599d8b31d02c33c7cfeafb265bc8dd864b600e3b"
+   "sha256": "751e23ae8dd946dfb8a40acdc7be04ebdc0e921e847b45631b74b725fb41e680"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleStep.f3d",
@@ -142854,7 +142854,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "3b597c293daacaa376a253ab3ffd278780012f1a04d7e8f74b6c0ed0ad42592b"
+   "sha256": "852f2fce83541b66fc81e61c373956cf9598cf7a6fa7a13bf03000b301fbbaa3"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleStepConverted.f3d",
@@ -142862,7 +142862,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "e5960b0a2ec81bef414e19ade22ff9a984f5d808a724db2e2f317fa587f6d394"
+   "sha256": "658fe20360d99e6ae2dfee1fda054e441c49a68561f2b11b91ebc77b606e8076"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleValence3Prism.f3d",
@@ -142870,7 +142870,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "4b58687bc46c077e2117ac0b99e57a129cdaebd4d9d098dc6e8a3e9d394ef721"
+   "sha256": "c3eef2d088970562a7cbdd7dfb067804246355ae1b7f4512016e3e497bbc78c7"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleValence3PrismConverted.f3d",
@@ -142878,7 +142878,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "d5147cbab52431af858f934b1daddf3a26ba698d51b7e36106dd33288e4760e9"
+   "sha256": "3404b14c554bebd09ccb7d77bc7f2d3b0019e70a6b6e6a76068bccf0a079bdf6"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleValence5.f3d",
@@ -142886,7 +142886,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "253321940ff05eb0e84bc4b8528e94854d2dcc74d443076aab70da8666d2c73a"
+   "sha256": "45c7ffaf53bde996d70258b09b4444c2ef76124d706c08383d5bab3814022b7c"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleValence5Converted.f3d",
@@ -142894,7 +142894,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "86b5657d3ef449cb4d472363dce0eef737ef693ec3cf1b704ccca096b654d756"
+   "sha256": "77c47ac08d5bd8169093d186f6207c983fc73042da31ca11672b2882230a7e0e"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleValence5Tall.f3d",
@@ -142902,7 +142902,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "67921f5d6dd0fe04cc4742463664e06ba1eb11ad93bb9df78bb97e531e017881"
+   "sha256": "e49eed6067db0015e1a6f5c2b959dbc2df323d9d7217dfe2b45c5395a50c0f60"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleValence5TallConverted.f3d",
@@ -142910,7 +142910,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "ab70321f834f59916a69e312844a3b63b4fae4a26e92a5e9bc9e791a6b6c5084"
+   "sha256": "76fc9aec5190ea09db91c5c92b04911ec93ab0c218ff12b45049d11ac2c54b4a"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleValence6.f3d",
@@ -142918,7 +142918,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "ec772a80a57cad98f82c147a0f1d750d7b8da9fb34f7e61d86a2fe52bc81fa94"
+   "sha256": "ba05d6a1708c1cfa5ceb13ea7b42df2ad3dac761787ae12a426c23fad357ec62"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleValence6Converted.f3d",
@@ -142926,7 +142926,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "a6fbdbebeef79c46e923348862a65ecf506e7a3243e549218e390def072cfbf5"
+   "sha256": "5429ad5c067837c8750e68760021fdbf1f28f15328bcbf9ba1744bc755830b79"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleValence7.f3d",
@@ -142934,7 +142934,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "f88b425fe003a9db1a9ed978a3643ad0b7a4b01a36ad2c9891de147d60480a6d"
+   "sha256": "f5862646a3888246dca4a75c0902767b71f817b1c7938ebe4d1e1e017ff20d13"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleValence7Converted.f3d",
@@ -142942,7 +142942,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "4ea3c5c1e8b4b78ef5070343e7c40dcbfea64ca4cc13b4cc4730df1058e31d1d"
+   "sha256": "142c3399fc62eb3821a25f7a758e1bafb2b39a817beb828b9c33816caeec8018"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleValence8.f3d",
@@ -142950,7 +142950,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "f34357007e3fe62125f2c51d3b09451cd29ac5ee93f8a42a097a91a66ef43dfe"
+   "sha256": "5cfdd4c0b53977023cd33c64ff1a26de1c0005a4017652d5f1f9708810906308"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/tmp/OracleValence8Converted.f3d",
@@ -142958,7 +142958,7 @@
    "shape_topology_equal": true,
    "native_topology": null,
    "kit_topology": null,
-   "sha256": "374d2bed09be27aa61423fb52b91f633dd4839e3eaff6b7326c674a301099762"
+   "sha256": "771ad4473e6e478f6037321f1ee49e1019d25575144cbcad35ed0abc90d6e74c"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/CreaseCaps/tmp/Crease3L1S0_0.f3d",

@@ -13,7 +13,7 @@
    ],
    "creased_edges": 0,
    "weighted_grips": 0,
-   "convert_seconds": 0.48,
+   "convert_seconds": 0.52,
    "status": "prepared",
    "faces": 6,
    "edges": 12,
@@ -22,10 +22,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Box.tsm",
    "tsm_sha256": "ab9c7a366dc412d18e023f8beb397fb1b737f53d3c390deec2d06ef142ef33cf",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Box.f3d",
-   "document_sha256": "953a4ae278ee3a62547956900f55a41877fcefdc7af1af98b3f9a3fe715c58fd",
+   "document_sha256": "d1acf972a883c19a3c2bed7a589c144a0c40cdd2c6a7512627c640f5510f174d",
    "document_parts": [
-    "Breps.BlobParts/BREP.174eef02-356e-40e6-a2bb-38d3e5679b21.smbh",
-    "Breps.BlobParts/BREP.44f6ba5a-3cab-4834-a261-f236c065a576.smb",
+    "Breps.BlobParts/BREP.3fefe0cf-e439-4bdb-b8da-a38b09408ac4.smbh",
+    "Breps.BlobParts/BREP.965d80bc-7eb7-4c74-9ad1-c0eb80df1e40.smb",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -37,8 +37,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.4a17c9cb-aa68-46f6-962f-6b4fa0912a6a.protein",
-    "TSplines.BlobParts/TSpline.58983c97-151a-4557-acf5-51d15c4d508c.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.c493e1c9-708a-4b2b-9691-37409b4a4b36.protein",
+    "TSplines.BlobParts/TSpline.bbdd37cf-614d-483c-88a6-54f43c30b0ed.tsm"
    ]
   },
   {
@@ -52,7 +52,7 @@
    ],
    "creased_edges": 0,
    "weighted_grips": 0,
-   "convert_seconds": 0.52,
+   "convert_seconds": 0.56,
    "status": "prepared",
    "faces": 6,
    "edges": 12,
@@ -61,10 +61,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Box3.tsm",
    "tsm_sha256": "87f4158435810da6ba9344a34f1bdbbc70b4feec1337fe8480a042c07a870396",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Box3.f3d",
-   "document_sha256": "14512cea33bc5afe03d0400642e0eead07b082e30dcd5cd5187d78580faf975a",
+   "document_sha256": "5342fdb2e04b5cb7d0b6ff29d0b919658c5cb724102b48a2aa3daf73217b7e37",
    "document_parts": [
-    "Breps.BlobParts/BREP.2eac41f0-160b-42fd-94f4-385d71a21304.smb",
-    "Breps.BlobParts/BREP.8f7bc5ab-9e97-4dcd-8b03-eb08cc31e9e1.smbh",
+    "Breps.BlobParts/BREP.cc99c3fd-40b7-406f-994a-e1e04b1adc1e.smb",
+    "Breps.BlobParts/BREP.ebd856c3-41a1-4b23-982a-be24e9b9c157.smbh",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -76,8 +76,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.ee433d74-24b8-42fd-ae24-9703e5c4d599.protein",
-    "TSplines.BlobParts/TSpline.7004d388-4874-42f0-9dc9-ab2caad21cec.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.af8aa3f5-dff3-40cb-a3cc-8d48bda7c004.protein",
+    "TSplines.BlobParts/TSpline.f6f88d74-3e3f-424d-acad-a3ed61e2041c.tsm"
    ]
   },
   {
@@ -91,7 +91,7 @@
    ],
    "creased_edges": 1,
    "weighted_grips": 0,
-   "convert_seconds": 0.65,
+   "convert_seconds": 0.64,
    "status": "prepared",
    "faces": 6,
    "edges": 13,
@@ -100,10 +100,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/CreasedBox.tsm",
    "tsm_sha256": "5264779ca8b0abb1cfdb6ce53a9b188ded263c83fc35f2a1e3d5ac2941b75377",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/CreasedBox.f3d",
-   "document_sha256": "b95e51718cb5c7e44ef3f59977a8050c1f99e96cb36dc756bc0a7bb10cbc2f42",
+   "document_sha256": "057d4c12e195989c7772c4aea15691690cb26bd001f613396295c2b284f7d28f",
    "document_parts": [
-    "Breps.BlobParts/BREP.05574572-455d-413d-a3d0-9a6a1df45128.smbh",
-    "Breps.BlobParts/BREP.f45e086b-c80c-43fc-a522-d32f9f8fe0c7.smb",
+    "Breps.BlobParts/BREP.16effb19-13a2-42ea-a5a2-408f1172b09e.smb",
+    "Breps.BlobParts/BREP.f858f810-fb1b-45fe-a921-4819328b2120.smbh",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -115,8 +115,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.e5f07606-138a-458c-b59d-ffce53e26248.protein",
-    "TSplines.BlobParts/TSpline.b5d0e95a-3ae5-483f-a7d6-3c69bd1b33c3.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.c309452a-91cc-40c6-af1f-e3a074beaab4.protein",
+    "TSplines.BlobParts/TSpline.28a4c9e5-2c2f-4617-8332-27c4c3d5a079.tsm"
    ]
   },
   {
@@ -140,10 +140,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/CreasedPlane.tsm",
    "tsm_sha256": "10480faf196e282bd17090a61fe434342855d1bcea9eec9843d34732d39bb7e8",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/CreasedPlane.f3d",
-   "document_sha256": "490bbacfdf4e04b43d3fdfac057ce5290777d92b73c843f8dfe6862a0adead97",
+   "document_sha256": "cd8d4356653646710b2a7f9fdd6a83d2e2ee6555568305283773732707d49568",
    "document_parts": [
-    "Breps.BlobParts/BREP.5dfd330b-a31a-47a4-82e5-de04853abb0c.smb",
-    "Breps.BlobParts/BREP.b9a64c9f-2869-4ff4-a996-80146d1636ce.smbh",
+    "Breps.BlobParts/BREP.4d5f8f1f-222a-44e5-8b26-6be13f58b2c9.smb",
+    "Breps.BlobParts/BREP.ca289a62-70c9-4664-b951-4ab176a051d8.smbh",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -155,8 +155,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.3a8df209-6dc4-4db7-85d4-b3836abfbc03.protein",
-    "TSplines.BlobParts/TSpline.df8383ec-5d1e-4224-b2aa-365c7a3e7e04.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.41f0104e-b5a2-421c-9d10-34dc8a56a84b.protein",
+    "TSplines.BlobParts/TSpline.7e032a59-7e08-436d-a12f-1dcfd8ad7376.tsm"
    ]
   },
   {
@@ -171,7 +171,7 @@
    ],
    "creased_edges": 0,
    "weighted_grips": 0,
-   "convert_seconds": 0.94,
+   "convert_seconds": 0.97,
    "status": "prepared",
    "faces": 15,
    "edges": 35,
@@ -180,10 +180,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence5.tsm",
    "tsm_sha256": "861101831a3ef18f4caa0e0d9334ab9fe42b46e3e56e2a2881d779a936da23dc",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence5.f3d",
-   "document_sha256": "8e0a3ab2e8b61c25c3990088e26c99b76d7ecac00c31e783a338c992acbae83a",
+   "document_sha256": "13c8b803219ad8b22d8fd920432959b9ea5ca9d514de8ef0b7bf84f323eb3691",
    "document_parts": [
-    "Breps.BlobParts/BREP.2d83aebf-4b6f-4dc7-9ebe-26f99ea43e56.smbh",
-    "Breps.BlobParts/BREP.970c6c4e-ca61-4ca1-ae7b-a212fe5dda55.smb",
+    "Breps.BlobParts/BREP.7e62d4c0-eb70-4715-a01a-4a4c6101c6ea.smbh",
+    "Breps.BlobParts/BREP.87cfbd92-ed4c-44af-9389-ac5f5cffec25.smb",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -195,8 +195,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.0ceb0f20-f9a4-494a-9814-38c47c27b08e.protein",
-    "TSplines.BlobParts/TSpline.68aac95e-565c-42e7-80cf-3c42f7266b15.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.9e09e324-a821-43bc-9a71-b452a05b4c23.protein",
+    "TSplines.BlobParts/TSpline.0d285f19-a2d6-4643-9fe9-14b373bde065.tsm"
    ]
   },
   {
@@ -211,7 +211,7 @@
    ],
    "creased_edges": 0,
    "weighted_grips": 0,
-   "convert_seconds": 1.2,
+   "convert_seconds": 1.27,
    "status": "prepared",
    "faces": 18,
    "edges": 42,
@@ -220,10 +220,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence6.tsm",
    "tsm_sha256": "6ef66f2140d0f48dd6742f58557c08d68ca884c6e3eade21952e30b53a44aa03",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence6.f3d",
-   "document_sha256": "093e16e6024a057fa33575796aa7a20beb15b22894beba5256829daa3b205549",
+   "document_sha256": "6f65db83a2ed9b21f271842021d87c65a79f3d1314abb4a31545330fdef2b3bc",
    "document_parts": [
-    "Breps.BlobParts/BREP.4e7bbe58-786b-422a-83ca-de1a1a69f2f8.smbh",
-    "Breps.BlobParts/BREP.874d771b-f987-4e0d-90e9-b1dcf795ecce.smb",
+    "Breps.BlobParts/BREP.30831e20-5193-4a8e-914d-63c6c4d1eed3.smbh",
+    "Breps.BlobParts/BREP.7d134d89-16b4-4091-a7a0-a8c42d6b0fc3.smb",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -235,8 +235,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.4158dc1b-6a4d-4fda-ae96-a3fe28277b76.protein",
-    "TSplines.BlobParts/TSpline.863a7332-4a1f-4a21-b0af-d3b6230baf2e.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.902b84af-e1ca-48f1-ad25-2d12dd671a36.protein",
+    "TSplines.BlobParts/TSpline.8a409541-96e1-40a4-ad7d-06ea93891eb2.tsm"
    ]
   },
   {
@@ -251,7 +251,7 @@
    ],
    "creased_edges": 0,
    "weighted_grips": 0,
-   "convert_seconds": 1.48,
+   "convert_seconds": 1.5,
    "status": "prepared",
    "faces": 21,
    "edges": 49,
@@ -260,10 +260,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence7.tsm",
    "tsm_sha256": "ea6e09674c014c6e0c44fa0fc6c06f3cf24eda27545ed423fe51e75a73826070",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence7.f3d",
-   "document_sha256": "32cf19dc9e7751dd60fc93a2bbf6cf5e9230151e9cfcdf973dabe9b955eb22b1",
+   "document_sha256": "5f0bf4828af748cb2f7c4e0f05dfa8ce8b4db426a849f88325ab314923b0414d",
    "document_parts": [
-    "Breps.BlobParts/BREP.4349f4a2-537b-45d2-ae05-8b3cf63979a8.smb",
-    "Breps.BlobParts/BREP.ccb45ce9-464b-4690-8fbe-6a6fa7999517.smbh",
+    "Breps.BlobParts/BREP.7a5dd726-edca-4f4e-bb89-2c71d50be9b5.smb",
+    "Breps.BlobParts/BREP.b55e615b-46b9-4ade-ab38-2aa914e4b9af.smbh",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -275,8 +275,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.9b0f1251-6b72-4a93-bac7-4ce28aea5615.protein",
-    "TSplines.BlobParts/TSpline.5bc6eafe-7e53-4e37-9832-abc8438becfa.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.a11fb47a-a0f7-4d1e-9401-f6fbb4a0404e.protein",
+    "TSplines.BlobParts/TSpline.d8c93563-777b-45df-adfd-807b620470a3.tsm"
    ]
   },
   {
@@ -291,7 +291,7 @@
    ],
    "creased_edges": 0,
    "weighted_grips": 0,
-   "convert_seconds": 1.81,
+   "convert_seconds": 1.8,
    "status": "prepared",
    "faces": 24,
    "edges": 56,
@@ -300,10 +300,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence8.tsm",
    "tsm_sha256": "bff8bd45465ecd586d13c7acef8bc6550afb31bab785c290b60e78a0abcb272f",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence8.f3d",
-   "document_sha256": "03bab4f19baadd5608aa10107fc0e0f09d8b4e99c57ce31a0232e8e864e5621b",
+   "document_sha256": "223fcada51c301ecbd92c4e425fbce9a015018cf73342587dd8ac062f71722b2",
    "document_parts": [
-    "Breps.BlobParts/BREP.77179fd7-962f-4595-a4d4-16be6261ed23.smbh",
-    "Breps.BlobParts/BREP.d6389239-d11f-4e6d-9696-f29e70a46b61.smb",
+    "Breps.BlobParts/BREP.0de48eff-65eb-4859-915b-ca5b05fd3150.smb",
+    "Breps.BlobParts/BREP.2854cfae-b848-418d-95d0-32bfe9efc3bf.smbh",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -315,8 +315,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.b877611c-fcd1-4f73-9378-612d82e03984.protein",
-    "TSplines.BlobParts/TSpline.d92cd36f-c756-4fec-b904-ebe64d3d381c.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.e7468f58-8fb4-424c-bbb6-60bac8f70f23.protein",
+    "TSplines.BlobParts/TSpline.b7c55661-37da-46e7-b856-7d92975d7e44.tsm"
    ]
   },
   {
@@ -338,10 +338,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Box111.tsm",
    "tsm_sha256": "69504669d4b83fc00ac89d76bf63d264874531f263aac337bfc7063ddc2423cf",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Box111.f3d",
-   "document_sha256": "a11a55dd1a7ec0db966fc52f5be7b133c656889e47010d1c99c2df468680b664",
+   "document_sha256": "cdb9abf1e2043d5a41f0a62ae27824f8480dd9d738671ad95da7e9727f8602f6",
    "document_parts": [
-    "Breps.BlobParts/BREP.02c9429e-caf2-456a-8398-198781bd3561.smbh",
-    "Breps.BlobParts/BREP.7f2a2b42-1859-4683-93e0-874d89ad48c7.smb",
+    "Breps.BlobParts/BREP.9f9bf180-b1bc-4b53-af6c-56f410693b0b.smb",
+    "Breps.BlobParts/BREP.f7e7ff3e-b27e-43cf-91de-3f8a58a50717.smbh",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -353,8 +353,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.99c47fa2-c5d8-4c20-bcaf-9e7d25292370.protein",
-    "TSplines.BlobParts/TSpline.16981fae-3f9e-4a08-a21a-d3759773a14f.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.8025fb14-d179-4a10-8a18-d275cb8442f2.protein",
+    "TSplines.BlobParts/TSpline.a6c70409-b326-4551-ba82-f27571637170.tsm"
    ]
   },
   {
@@ -377,10 +377,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Box122.tsm",
    "tsm_sha256": "770cc83a4aa9fcada9df845b6c87ee9a40ead49e8a913abe609f6c625f8bff5a",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Box122.f3d",
-   "document_sha256": "771cd25931b26c1ce1902c311a48a56880bdf8d367cd5b76baf8b9ffa0461ae5",
+   "document_sha256": "48ec11abfa61f171453b5c4b24581d5566ce0b773eecb18e5b880622e7b72784",
    "document_parts": [
-    "Breps.BlobParts/BREP.7d7d2e17-3db7-4238-a604-1ae1c55b8035.smbh",
-    "Breps.BlobParts/BREP.c5403049-5f21-41db-95c4-0f0e91b56abf.smb",
+    "Breps.BlobParts/BREP.b47187f1-ec7d-4051-8484-b6b8964813f2.smb",
+    "Breps.BlobParts/BREP.fe113945-0763-4a13-acbe-adce421fd1ed.smbh",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -392,8 +392,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.e2154066-3f87-4830-9eef-aa68d66372d7.protein",
-    "TSplines.BlobParts/TSpline.664f6144-b401-424b-a7cd-e09a2167a820.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.e776f614-e789-45d3-9e3d-00e35775f201.protein",
+    "TSplines.BlobParts/TSpline.ee44bc8f-f0d6-4691-9c70-ae0db37f27ec.tsm"
    ]
   },
   {
@@ -407,7 +407,7 @@
    ],
    "creased_edges": 0,
    "weighted_grips": 0,
-   "convert_seconds": 0.52,
+   "convert_seconds": 0.51,
    "status": "prepared",
    "faces": 6,
    "edges": 12,
@@ -416,10 +416,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Box234.tsm",
    "tsm_sha256": "88b984a6b326d2b44f5f4f1ddd81224bcf791f846e392b704d7645350c823564",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Box234.f3d",
-   "document_sha256": "f4f698caaf436281e8bfe6533573f8e94b13a538946b7d8a58aa2256e85266eb",
+   "document_sha256": "f7837f68baf9de527a63bd271cd50049bea94891c1e8b02e7cb1b20395899b47",
    "document_parts": [
-    "Breps.BlobParts/BREP.0231b17f-f4dd-4988-b55d-ce30019c5c72.smbh",
-    "Breps.BlobParts/BREP.027f5175-f64c-4670-989c-6c05b01e7ce1.smb",
+    "Breps.BlobParts/BREP.1ff73d0e-0b0b-4542-b1d3-f29bf7822e30.smbh",
+    "Breps.BlobParts/BREP.3d4a442c-ffbd-4186-bec4-b28d083f1b5b.smb",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -431,8 +431,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.f60176b8-39f5-4f60-9a24-306e532385d7.protein",
-    "TSplines.BlobParts/TSpline.ae92ee3f-64ae-40ff-a496-55db9d9f4120.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.c93f991a-769c-48c0-823e-1b89a60f458c.protein",
+    "TSplines.BlobParts/TSpline.51d6f210-e5b3-4f73-adec-0b57b48f497b.tsm"
    ]
   },
   {
@@ -447,7 +447,7 @@
    ],
    "creased_edges": 0,
    "weighted_grips": 0,
-   "convert_seconds": 0.95,
+   "convert_seconds": 0.92,
    "status": "prepared",
    "faces": 12,
    "edges": 26,
@@ -456,10 +456,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/LPrism.tsm",
    "tsm_sha256": "a3ea0277af00e93d75cad3bf1505764f0fbf18416a39073a52cf7f5ed06898ee",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/LPrism.f3d",
-   "document_sha256": "b1c44ad9240dbda9277e861a688f8231b09a16f4e07a4d2ff87219c2e2bc206a",
+   "document_sha256": "a194b292a73633e0e6c277805cf3f103715488a636f4845a6c1dffc0e607a61f",
    "document_parts": [
-    "Breps.BlobParts/BREP.20c5bef8-db0c-4b50-a564-673795594527.smb",
-    "Breps.BlobParts/BREP.e557efb8-aa2a-4f2f-bbc8-d0c57248eb37.smbh",
+    "Breps.BlobParts/BREP.88d8e1d7-f9cb-4bb6-bcc1-dc1daee722ec.smbh",
+    "Breps.BlobParts/BREP.9033362b-fe1c-4277-83fa-7afafde215ea.smb",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -471,8 +471,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.11f94ac3-424e-4cc7-b379-dc4d47af6d9e.protein",
-    "TSplines.BlobParts/TSpline.0340d98e-d6fe-4931-981c-af5474e7a4ad.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.4585dac2-7d78-47f3-aec4-05a1f13b0799.protein",
+    "TSplines.BlobParts/TSpline.aa0c6f7f-cb7f-428f-b9c0-f57f0cef2f95.tsm"
    ]
   },
   {
@@ -511,10 +511,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Step.tsm",
    "tsm_sha256": "ff0206cf9b7901afffda45deadb449602c086d38abc9459a878c95cfea4b687e",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Step.f3d",
-   "document_sha256": "59d0196c1c17294f7fb7815455016a1c198cb0f00ad60f6e59e8cafe3ea9b516",
+   "document_sha256": "1b9e82a6ae0f562b238793d0b9b5b61d0bbba0e33d39403e918ada6d813bcbae",
    "document_parts": [
-    "Breps.BlobParts/BREP.4d583e72-c0e1-468a-8e07-5138e8599386.smb",
-    "Breps.BlobParts/BREP.8196ef92-5298-4573-b4b7-f2bda7307ff5.smbh",
+    "Breps.BlobParts/BREP.5cabb12f-a455-4908-a30d-d156c190cfd0.smbh",
+    "Breps.BlobParts/BREP.65925f6d-9e55-4569-ac24-6757c4d2fd09.smb",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -526,8 +526,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.0d4d833b-e1c9-4d84-8ef1-13b315b1a95c.protein",
-    "TSplines.BlobParts/TSpline.c628b04f-42dc-486e-9499-4799f4dd622c.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.fe6ad1ee-dfe4-4563-ac30-b234a2826587.protein",
+    "TSplines.BlobParts/TSpline.c52aeb41-cd04-4920-b585-032ae4807a8c.tsm"
    ]
   },
   {
@@ -542,7 +542,7 @@
    ],
    "creased_edges": 0,
    "weighted_grips": 0,
-   "convert_seconds": 1.02,
+   "convert_seconds": 0.99,
    "status": "prepared",
    "faces": 15,
    "edges": 35,
@@ -551,10 +551,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence5Tall.tsm",
    "tsm_sha256": "f6e345eb5d04298b478ad7ea47643d0269fa7601aa9ec486bbec9fc934544782",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence5Tall.f3d",
-   "document_sha256": "015faf9bd55f9c67718a42ea687bcbaed5877e31b9f918047a35bbc0407390a1",
+   "document_sha256": "583bbaad4188c0cd7a5c1db23b8cfaf80d5fd8fb16d5b61d15c1473883d617a0",
    "document_parts": [
-    "Breps.BlobParts/BREP.8554d9ac-5c73-4a53-8158-faa08fd8cfa3.smbh",
-    "Breps.BlobParts/BREP.9a726caa-24c4-4e58-840a-2eda7392566e.smb",
+    "Breps.BlobParts/BREP.56be45df-e828-48f7-a08b-020959ba59f0.smbh",
+    "Breps.BlobParts/BREP.94d897e2-493e-4b85-8d1c-06f1aba7a951.smb",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -566,8 +566,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.c6deb2cc-bd7d-4938-880c-039435e3f3d4.protein",
-    "TSplines.BlobParts/TSpline.a88d00ce-d5d1-4f65-a62c-46711fdaac51.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.7ba373d1-c766-43d0-9a3f-e521dbb18881.protein",
+    "TSplines.BlobParts/TSpline.86e69d9e-b098-4f3d-b98c-1064cb0f8a9d.tsm"
    ]
   },
   {
@@ -581,7 +581,7 @@
    ],
    "creased_edges": 0,
    "weighted_grips": 0,
-   "convert_seconds": 0.54,
+   "convert_seconds": 0.51,
    "status": "prepared",
    "faces": 9,
    "edges": 21,
@@ -590,10 +590,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence3Prism.tsm",
    "tsm_sha256": "bd8dc2dd730be63d4284c24f53640979165b3d669de450f0280b0fc610e24060",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence3Prism.f3d",
-   "document_sha256": "0215c051472ec88e037e3fd38d5153d59875a759f1775d79d285c0e816b0d31b",
+   "document_sha256": "576e33b5cd47960cc9f5c945175ef9669f198bf05799b83a150ed01f3c6bb95d",
    "document_parts": [
-    "Breps.BlobParts/BREP.0f203121-1a8c-42e7-b720-e2b799d7ccb3.smbh",
-    "Breps.BlobParts/BREP.94e47a0f-317b-406b-b852-131ff863cca8.smb",
+    "Breps.BlobParts/BREP.045237a0-a970-4eb0-b9f4-53bde0259db8.smb",
+    "Breps.BlobParts/BREP.9eef107e-5280-4480-8293-ba6db06f1410.smbh",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -605,8 +605,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.ec3b4e61-fdbd-418f-90e8-c786e997eaec.protein",
-    "TSplines.BlobParts/TSpline.c04385dc-f23c-4d26-b615-2fc942847f68.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.3de23a9d-cfe4-43a3-bb7c-a112350f98b4.protein",
+    "TSplines.BlobParts/TSpline.31428da5-2398-4a49-9bb1-005496eb1697.tsm"
    ]
   },
   {
@@ -660,10 +660,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Torus86.tsm",
    "tsm_sha256": "1a6ae58a3b38b3fe82e151362b22435adc32479d6f1fad79b5dab829f1c23999",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Torus86.f3d",
-   "document_sha256": "cb544520eb3abdea32084643ebc6ad8535602655ba22257a3be5257f4f234487",
+   "document_sha256": "8d609ddd97797f00288802babd5e86e5d9167032302649f83da1b901144de84a",
    "document_parts": [
-    "Breps.BlobParts/BREP.0510e734-e6ab-48c9-bed7-556ac3d5a884.smbh",
-    "Breps.BlobParts/BREP.5f2f41b3-a78a-415d-b604-51b31c8552a5.smb",
+    "Breps.BlobParts/BREP.8712fbf5-f39c-4103-80cd-51def63dfdc7.smb",
+    "Breps.BlobParts/BREP.fab237bf-aa80-44a1-b961-c34c4291ea2f.smbh",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -675,8 +675,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.03e12d4b-86cb-46df-b192-5b6ffa9df852.protein",
-    "TSplines.BlobParts/TSpline.20690480-9273-45b8-87fc-a70ad0fc8e4f.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.f9262590-b46b-49d1-a13c-620e3227c7de.protein",
+    "TSplines.BlobParts/TSpline.9fee21c3-6562-4dea-b354-8247bb2ad596.tsm"
    ]
   },
   {
@@ -699,10 +699,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/SharpBox.tsm",
    "tsm_sha256": "8e2eb28b41ec58de4548189ba9be1ec1b64df654400715e5b678af5aba5bba38",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/SharpBox.f3d",
-   "document_sha256": "4edd2e3eec060ba5fd104205cb55c20936ef32924b8cf8353cb75babb9664ce9",
+   "document_sha256": "07f2c39790702547e2feca104c1995cba8874ce248f3fe7e96a184c9eeeee3c3",
    "document_parts": [
-    "Breps.BlobParts/BREP.7388de21-310c-4915-8b50-71e54f22f893.smb",
-    "Breps.BlobParts/BREP.b9d0676f-8a8d-433f-b62f-e30aeb9de035.smbh",
+    "Breps.BlobParts/BREP.313e21ea-75d7-4fb0-acd0-80c330cfbd2f.smb",
+    "Breps.BlobParts/BREP.37a45e16-5f3a-4e1b-812c-066705d9740a.smbh",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -714,8 +714,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.dfcb6a56-2872-46eb-8d6a-32c8c427e677.protein",
-    "TSplines.BlobParts/TSpline.b15d4e02-aabb-4cb7-bb84-d955f32eac14.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.f0394896-7766-44c3-8d3f-5781464f66bb.protein",
+    "TSplines.BlobParts/TSpline.6e643212-a2df-4e5d-b3f0-0483c59d122a.tsm"
    ]
   },
   {
@@ -745,7 +745,7 @@
    ],
    "creased_edges": 0,
    "weighted_grips": 0,
-   "convert_seconds": 0.54,
+   "convert_seconds": 0.52,
    "status": "prepared",
    "faces": 6,
    "edges": 12,
@@ -754,10 +754,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldBox113.tsm",
    "tsm_sha256": "80ed677e849fff00e3debd9f8554bc2d97d1bbf804c6dfb9f7cc5e36f63c53ea",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldBox113.f3d",
-   "document_sha256": "c26926452b64dc833e6b2b64dd7e42ade0fc77de5b8be9978fc0dc88406c2b41",
+   "document_sha256": "912bb492e83a1a18571324a6800806ae48792f1f5916942dd48ebba093571c61",
    "document_parts": [
-    "Breps.BlobParts/BREP.4b539c1f-3374-4bf7-8dfa-5bcd0c57957d.smbh",
-    "Breps.BlobParts/BREP.96dd3a78-2f1e-417b-87e3-5cbdefda2574.smb",
+    "Breps.BlobParts/BREP.4d321b2f-601b-493a-adf5-fc924a0258b6.smbh",
+    "Breps.BlobParts/BREP.6f11f03d-70cf-48a6-9637-e895fd2f3d79.smb",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -769,8 +769,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.8b5f6ecd-e862-406d-b864-7ba321717e7a.protein",
-    "TSplines.BlobParts/TSpline.74e4aebe-1167-4b21-ab80-660ade37e3d8.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.6338f919-b6d1-4697-a745-e205b82715fc.protein",
+    "TSplines.BlobParts/TSpline.17c33f9f-d5bc-41ad-a33f-6066da8ed231.tsm"
    ]
   },
   {
@@ -792,10 +792,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseBands.tsm",
    "tsm_sha256": "8a8c701808dd28573488f1aa8a2090700668a19c003bdae8a1a3f8ac20a0dd67",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseBands.f3d",
-   "document_sha256": "7a78f81cbdad1ab1145470455ec801a8a94a69cfe6bf9eee48af5033ca2c6caa",
+   "document_sha256": "48667875a40e9991e0f970e47f9d1f04f705f51a10d74f05bde97b88d61e8aed",
    "document_parts": [
-    "Breps.BlobParts/BREP.419ce30c-e302-4191-b24a-01d7bf90d59b.smb",
-    "Breps.BlobParts/BREP.b901c608-1219-4d91-bfe6-0968f4566100.smbh",
+    "Breps.BlobParts/BREP.6d5e692d-52a5-4526-93d6-eb0116a0f776.smb",
+    "Breps.BlobParts/BREP.a6333464-b793-429e-bc47-2f6618f3e7f2.smbh",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -807,8 +807,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.857430fa-f033-4df0-9632-0bae6d024b1e.protein",
-    "TSplines.BlobParts/TSpline.e702365a-7405-4691-8f96-dd4af8e24a26.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.b279ded9-57ac-47ef-b370-765f20639e18.protein",
+    "TSplines.BlobParts/TSpline.22f5b6c1-ecfc-4e25-bbd7-b3e6015da4d6.tsm"
    ]
   },
   {
@@ -830,10 +830,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseCross.tsm",
    "tsm_sha256": "4d96b9a0d93edfbaa6d07a9dff36aa3739f4d9c37cee97716b573194d3d845a9",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseCross.f3d",
-   "document_sha256": "dd134ad84e28d3b2d04df7c4b0518cbb9d5fb4ecbf5b1ff22a11eb80963c5216",
+   "document_sha256": "d16c32dbebb8aae34a5d51b020dced50e8f43426616491822bceb49a1aa3b32f",
    "document_parts": [
-    "Breps.BlobParts/BREP.4db2f844-1833-4cc9-9032-dc27479121aa.smbh",
-    "Breps.BlobParts/BREP.53e43d46-bd3b-4b40-a9b9-a4970629645c.smb",
+    "Breps.BlobParts/BREP.4ee0f8ef-e139-4ecd-9d7a-5916f15bc629.smbh",
+    "Breps.BlobParts/BREP.85741969-2622-4042-adc6-c4dfa4b43f5d.smb",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -845,8 +845,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.452d3acc-97ba-4b7d-9d67-077e3a3939f4.protein",
-    "TSplines.BlobParts/TSpline.cf55eeea-acf6-4016-be08-dd9f1883f136.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.cc82f03c-4274-402d-b601-e8afe405454a.protein",
+    "TSplines.BlobParts/TSpline.16a6f705-b9fb-49fa-b40f-5aa10c39e7cc.tsm"
    ]
   },
   {
@@ -868,10 +868,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseLoop.tsm",
    "tsm_sha256": "439cdb2c945c83c5123919693408ffa3835809d19eee3373c65e0e4d48a26657",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseLoop.f3d",
-   "document_sha256": "6192e6af86add87e0ff225748ed02b775c96679475b2827605dd6cdd3a1289c5",
+   "document_sha256": "1d708588e02eba5ce7df37013f1860b8cfc8c6579d45bc4d6bbb45e00f389812",
    "document_parts": [
-    "Breps.BlobParts/BREP.99ab1c26-fa94-41ac-88f2-b68d06cebb34.smbh",
-    "Breps.BlobParts/BREP.f2b2a681-5c88-4ca2-9de2-7701f2bae788.smb",
+    "Breps.BlobParts/BREP.65b13afb-46b4-4da9-b48b-fe963c1d42d5.smbh",
+    "Breps.BlobParts/BREP.f13d7e20-3269-45fa-a3b1-4e08fc81a838.smb",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -883,8 +883,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.f6b7bc63-3cea-4762-8560-e1d0a239efb0.protein",
-    "TSplines.BlobParts/TSpline.ed51e870-cfe1-4bdb-b52b-c0c875fa5816.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.367a5c5e-1e46-413b-af92-593c92fe448b.protein",
+    "TSplines.BlobParts/TSpline.16b08f07-f316-4192-b8cf-37e6f7641d8b.tsm"
    ]
   },
   {
@@ -906,10 +906,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseRing.tsm",
    "tsm_sha256": "1e719e7abdb3e6e845d9540b8fe76c63735ed38849714281ed08e25bce53110c",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseRing.f3d",
-   "document_sha256": "068c8b3455670fdc994c6974476014b04defd01028956b413a3f95e141f80ae6",
+   "document_sha256": "6fc6dff905b1681c58983ac06c3ca46f96f413b6361e8806258a1884a73b0a49",
    "document_parts": [
-    "Breps.BlobParts/BREP.29e1017d-ea3d-491c-a3f9-62c3907a8307.smbh",
-    "Breps.BlobParts/BREP.b20977ed-017b-4f1d-bfa4-3f9dd614a0ee.smb",
+    "Breps.BlobParts/BREP.43cb0a08-65d6-4976-8677-55d250e8802c.smbh",
+    "Breps.BlobParts/BREP.7a454979-0866-4aa6-8d23-3333a0406ef1.smb",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -921,8 +921,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.4e451b18-ebbf-407e-868e-b7536f72cc6b.protein",
-    "TSplines.BlobParts/TSpline.d522f6da-4252-41a8-965e-dd4e835e6804.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.b6cdbcb9-5cce-466a-86f6-7c9f2ac9af3e.protein",
+    "TSplines.BlobParts/TSpline.cc43d492-3755-4a62-9836-e1e8273d7b0f.tsm"
    ]
   },
   {
@@ -935,7 +935,7 @@
    ],
    "creased_edges": 12,
    "weighted_grips": 0,
-   "convert_seconds": 0.04,
+   "convert_seconds": 0.03,
    "status": "prepared",
    "faces": 2,
    "edges": 8,
@@ -944,10 +944,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseSlices.tsm",
    "tsm_sha256": "f9a75c5dd0b7454b53fa0b57dcd631fb0733c71640c5f7b157aeedfffdc39077",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseSlices.f3d",
-   "document_sha256": "cec745df67f769005866f384f9f39684d7a343c7415d907d41fd172cd536e4f7",
+   "document_sha256": "96545cbff0a290d8007eebe516192dadf02bd1156efca5dc3c5b370e0ca3d4fe",
    "document_parts": [
-    "Breps.BlobParts/BREP.1753dd51-0c04-42ed-8ea4-ecd02fe96c75.smbh",
-    "Breps.BlobParts/BREP.548142fc-3f2f-4778-8074-49df2f37d6ab.smb",
+    "Breps.BlobParts/BREP.269f05f6-f463-4967-a10c-35b96a9c35e5.smbh",
+    "Breps.BlobParts/BREP.a1a5a208-9f5f-4dc2-8769-f79a644197d3.smb",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -959,8 +959,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.fa9de483-3005-4665-95de-011897657dcd.protein",
-    "TSplines.BlobParts/TSpline.7749c6a3-5eff-4f93-a1f5-7922f419676d.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.0f7dce96-8a09-473b-a803-312205ac3cdd.protein",
+    "TSplines.BlobParts/TSpline.9b27cabd-9136-44cb-92fc-7e447be1411a.tsm"
    ]
   },
   {
@@ -975,7 +975,7 @@
    ],
    "creased_edges": 0,
    "weighted_grips": 0,
-   "convert_seconds": 1.61,
+   "convert_seconds": 1.56,
    "status": "prepared",
    "faces": 21,
    "edges": 49,
@@ -984,10 +984,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldInterval7.tsm",
    "tsm_sha256": "c85a3b1c3a6a566dafa38ee183d1a44654c92b5ccce957ee961e11050cfb09bd",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldInterval7.f3d",
-   "document_sha256": "0f0d8a0432a5a6b1832d24bd21defc8c1044c75e7281bc8987817f6b917899c8",
+   "document_sha256": "12279348dcbdda4aa441b4a99d647e67d82065e9fef1624d817f10393084aea0",
    "document_parts": [
-    "Breps.BlobParts/BREP.4a21886b-d01e-46ad-806d-344d35911174.smbh",
-    "Breps.BlobParts/BREP.4f5c53bb-2d9d-465e-a53a-3c0d6ed589cf.smb",
+    "Breps.BlobParts/BREP.5763637a-3536-4f3f-a20f-022ddc61c828.smb",
+    "Breps.BlobParts/BREP.b8cee312-86fb-418a-bf04-1c1ce30ed732.smbh",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -999,8 +999,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.e45d8232-56c1-458c-86cc-12769aaeea3d.protein",
-    "TSplines.BlobParts/TSpline.f24ce5df-675d-48ff-b630-dfed010a0351.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.e3d81a7c-205d-4c98-9dbb-43c08cc1d2ae.protein",
+    "TSplines.BlobParts/TSpline.24d7e4cf-7259-40c3-8175-708900f7c992.tsm"
    ]
   },
   {
@@ -1014,7 +1014,7 @@
    ],
    "creased_edges": 0,
    "weighted_grips": 0,
-   "convert_seconds": 0.56,
+   "convert_seconds": 0.55,
    "status": "prepared",
    "faces": 9,
    "edges": 21,
@@ -1023,10 +1023,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldPrism3.tsm",
    "tsm_sha256": "df7f88343eb0e17ab0401d0ac2e0d4e9e454078b29462354472ab9aa533c1846",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldPrism3.f3d",
-   "document_sha256": "be95eeea1905a1b39d693cb31fdf135454a817709b7e48c365cf85f2e42a1a75",
+   "document_sha256": "7b6395e2c6328f80f6650da658429bc51d52dcca48476769abc7de32c8f71f34",
    "document_parts": [
-    "Breps.BlobParts/BREP.462ad899-78fd-408a-ae32-b404d316050f.smb",
-    "Breps.BlobParts/BREP.4f1d83e5-a5b6-45c0-826a-6694e5237048.smbh",
+    "Breps.BlobParts/BREP.929aa215-9c13-4d21-a82e-9d21c2f5a59f.smb",
+    "Breps.BlobParts/BREP.b9c4b8bd-2abb-40dd-bbab-614340e56611.smbh",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -1038,8 +1038,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.e661b348-a847-465e-bdbb-b58e96b2e6d1.protein",
-    "TSplines.BlobParts/TSpline.ac63176e-8308-4d0c-9ba8-20646d37cb06.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.68bf22b7-ff0a-4467-a212-39c645811fa6.protein",
+    "TSplines.BlobParts/TSpline.98a1178c-0778-4ffb-b6cd-186a2acb2417.tsm"
    ]
   },
   {
@@ -1054,7 +1054,7 @@
    ],
    "creased_edges": 0,
    "weighted_grips": 0,
-   "convert_seconds": 1.09,
+   "convert_seconds": 1.05,
    "status": "prepared",
    "faces": 15,
    "edges": 35,
@@ -1063,10 +1063,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldPrism5.tsm",
    "tsm_sha256": "932e8afe9298faff3f03ed0a2d778dbf10342ae748eb6d938ba5526f649a25dc",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldPrism5.f3d",
-   "document_sha256": "3239f96dad552ee9dcd01ef9d0580932fbed98311415af18925bd9bccc4266cd",
+   "document_sha256": "53fa8a55338743f7dcdc80dcde5e6263089c500dc58b3dde10f81de2dbf8b6d8",
    "document_parts": [
-    "Breps.BlobParts/BREP.17908313-00aa-4938-b20b-0a02675bff5d.smb",
-    "Breps.BlobParts/BREP.39e6e35e-eeb0-4be5-86cb-6694829e6d6d.smbh",
+    "Breps.BlobParts/BREP.976385a9-f210-427d-a025-a91485251738.smb",
+    "Breps.BlobParts/BREP.e612cc33-6acb-4518-a743-d922c2e24598.smbh",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -1078,8 +1078,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.9fe26de1-59d4-44d1-a1d7-1679c74c6470.protein",
-    "TSplines.BlobParts/TSpline.f75752e3-7e96-4d67-984f-d5e55c278218.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.050026c4-112c-4d5c-9d3f-77744686d8b8.protein",
+    "TSplines.BlobParts/TSpline.fbb19b6f-cedc-462f-baab-13b34f758192.tsm"
    ]
   },
   {
@@ -1101,10 +1101,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldTorus75.tsm",
    "tsm_sha256": "68c36adc16798a14caf172b2ef15f7f7536b3b2d32eaa651699c5c8a3efc5564",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldTorus75.f3d",
-   "document_sha256": "a9abc479b0d4a7a01a6334b88dee5112fe97e66d007661e7889e35724b652657",
+   "document_sha256": "234fc485c55e08c3049762851fb3715a7fe3b74b441b55b2b5284804482152d3",
    "document_parts": [
-    "Breps.BlobParts/BREP.b2a0e227-314d-432a-a27e-d3ae0aed6ef9.smbh",
-    "Breps.BlobParts/BREP.df90e608-509f-4e9a-8cee-1c2bccb78f69.smb",
+    "Breps.BlobParts/BREP.4483d0a0-6bb2-4980-96da-e827bfa06169.smb",
+    "Breps.BlobParts/BREP.96e12d86-74d0-4c18-85d3-3d83b8bce7d7.smbh",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -1116,8 +1116,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.71fd3250-a898-4152-88ae-5a8afd6add65.protein",
-    "TSplines.BlobParts/TSpline.4b900590-2d29-4b1a-9ffc-0be8cb219ba5.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.ea8e618e-9736-4a48-b68b-6f25aff190b8.protein",
+    "TSplines.BlobParts/TSpline.842fa16c-3e7f-4890-90f0-f523ce346e25.tsm"
    ]
   },
   {
@@ -1132,7 +1132,7 @@
    ],
    "creased_edges": 0,
    "weighted_grips": 9,
-   "convert_seconds": 1.43,
+   "convert_seconds": 1.45,
    "status": "prepared",
    "faces": 18,
    "edges": 42,
@@ -1141,10 +1141,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldWeighted6.tsm",
    "tsm_sha256": "5284b9ec5d6cecde5563d5bd16332089bf9c991a50ec5fd0235da043b1dd88f7",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldWeighted6.f3d",
-   "document_sha256": "61f727259852a18ba8a9f9eef00dce87d0161d2442ef8580d3dfa129ab26d94a",
+   "document_sha256": "2cdcf3855c44261267039b7b58989bf5b2d697058c1fcbe7de040a7624e447e8",
    "document_parts": [
-    "Breps.BlobParts/BREP.4f5c33ca-818b-4a40-8748-b246dc767dab.smb",
-    "Breps.BlobParts/BREP.5797bdc1-95c0-44e7-b814-2bbe882c108c.smbh",
+    "Breps.BlobParts/BREP.830fc14c-d3c6-4480-ab7f-ae6aa963c308.smb",
+    "Breps.BlobParts/BREP.93ee5e0e-b32b-45ab-b89d-422329e0bfcb.smbh",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -1156,8 +1156,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.c32ba81b-2b18-448c-aeb8-585c2d6c19ef.protein",
-    "TSplines.BlobParts/TSpline.ff463fbc-f1d7-4ab8-9ce2-08d928083b87.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.5f373a22-84db-43f5-8632-da295aa0b819.protein",
+    "TSplines.BlobParts/TSpline.c78a0f07-928b-491c-979b-f9e9a0f542ef.tsm"
    ]
   },
   {
@@ -1180,10 +1180,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldWeightedSharp.tsm",
    "tsm_sha256": "9768e69ebdde8ffcab0667cac30b7b90ebd6374b205c9e5d508622d22436f58e",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldWeightedSharp.f3d",
-   "document_sha256": "f404b13b05732089c6363e1dd749f101aaa84981774d62ba3f4b9f987aaf0405",
+   "document_sha256": "a3450404bddc08cad6f4b36abb523fe3935b76d3a4c55a0d44a10526dc3340cf",
    "document_parts": [
-    "Breps.BlobParts/BREP.0df81f05-468e-461e-86ad-24becbd92304.smbh",
-    "Breps.BlobParts/BREP.53ec9b48-60c0-4953-b9f2-d8364b50033d.smb",
+    "Breps.BlobParts/BREP.0d4826db-7452-46e4-a1c2-096cbd0a0fc5.smb",
+    "Breps.BlobParts/BREP.8b7f9c2f-99e7-4261-82ff-a685975c5104.smbh",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -1195,8 +1195,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.3e237f57-0d14-48b0-915a-c135d3e6c4be.protein",
-    "TSplines.BlobParts/TSpline.d381b93f-2ebb-4577-b058-2dd3abecc3a4.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.8aa9018d-9f23-4266-a345-747726c4f35a.protein",
+    "TSplines.BlobParts/TSpline.ec8f031c-bd7a-4547-aace-af4fc37d4ad3.tsm"
    ]
   },
   {
@@ -1218,10 +1218,10 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldWeightedTorus.tsm",
    "tsm_sha256": "876bbc3417c39f39b6025040cc9a3c76fc8b71be14c31a6f08ca8bb64dd217e0",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldWeightedTorus.f3d",
-   "document_sha256": "10933ec0067db3dccdfd61b25af5a3119a4601a0c7d1a59f9a9c2961498cf1c6",
+   "document_sha256": "f4658eb9c5e954990fd6c605cbec2398adce66104c93200c154d48552a7d6e4e",
    "document_parts": [
-    "Breps.BlobParts/BREP.27bf6e6d-71bc-43b3-95c4-97dd557d0138.smb",
-    "Breps.BlobParts/BREP.fea65d0f-f870-4f23-844b-535e095081af.smbh",
+    "Breps.BlobParts/BREP.8806cf88-f741-469a-a1e2-c7a6c8661d72.smbh",
+    "Breps.BlobParts/BREP.aa22b2a9-3559-4634-aff4-fc8b36a6db67.smb",
     "FusionACTSegmentType1/BulkStream.dat",
     "FusionACTSegmentType1/MetaStream.dat",
     "FusionBrowserSegmentType1/BulkStream.dat",
@@ -1233,8 +1233,8 @@
     "Previews/big.png",
     "Previews/small.png",
     "Properties.dat",
-    "ProteinAssets.BlobParts/ProteinAsset.4dc319c2-5cf1-4712-826a-a0002f557835.protein",
-    "TSplines.BlobParts/TSpline.58de1eed-0570-4be9-89c3-5ac46f1e1a10.tsm"
+    "ProteinAssets.BlobParts/ProteinAsset.b586874b-0b13-42fe-be4f-3740280a6383.protein",
+    "TSplines.BlobParts/TSpline.e7c501b5-733f-47bd-9f5d-5ed0b3bb8c5d.tsm"
    ]
   }
  ]

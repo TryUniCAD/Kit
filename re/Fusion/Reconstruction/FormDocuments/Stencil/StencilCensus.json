@@ -800,7 +800,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Box.f3d",
-   "sha256": "953a4ae278ee3a62547956900f55a41877fcefdc7af1af98b3f9a3fe715c58fd",
+   "sha256": "d1acf972a883c19a3c2bed7a589c144a0c40cdd2c6a7512627c640f5510f174d",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -808,7 +808,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Box111.f3d",
-   "sha256": "a11a55dd1a7ec0db966fc52f5be7b133c656889e47010d1c99c2df468680b664",
+   "sha256": "cdb9abf1e2043d5a41f0a62ae27824f8480dd9d738671ad95da7e9727f8602f6",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -816,7 +816,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Box122.f3d",
-   "sha256": "771cd25931b26c1ce1902c311a48a56880bdf8d367cd5b76baf8b9ffa0461ae5",
+   "sha256": "48ec11abfa61f171453b5c4b24581d5566ce0b773eecb18e5b880622e7b72784",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -824,7 +824,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Box234.f3d",
-   "sha256": "f4f698caaf436281e8bfe6533573f8e94b13a538946b7d8a58aa2256e85266eb",
+   "sha256": "f7837f68baf9de527a63bd271cd50049bea94891c1e8b02e7cb1b20395899b47",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -832,7 +832,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Box3.f3d",
-   "sha256": "14512cea33bc5afe03d0400642e0eead07b082e30dcd5cd5187d78580faf975a",
+   "sha256": "5342fdb2e04b5cb7d0b6ff29d0b919658c5cb724102b48a2aa3daf73217b7e37",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -840,7 +840,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/CreasedBox.f3d",
-   "sha256": "b95e51718cb5c7e44ef3f59977a8050c1f99e96cb36dc756bc0a7bb10cbc2f42",
+   "sha256": "057d4c12e195989c7772c4aea15691690cb26bd001f613396295c2b284f7d28f",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -848,7 +848,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/CreasedPlane.f3d",
-   "sha256": "490bbacfdf4e04b43d3fdfac057ce5290777d92b73c843f8dfe6862a0adead97",
+   "sha256": "cd8d4356653646710b2a7f9fdd6a83d2e2ee6555568305283773732707d49568",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -862,7 +862,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldBox113.f3d",
-   "sha256": "c26926452b64dc833e6b2b64dd7e42ade0fc77de5b8be9978fc0dc88406c2b41",
+   "sha256": "912bb492e83a1a18571324a6800806ae48792f1f5916942dd48ebba093571c61",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -870,7 +870,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseBands.f3d",
-   "sha256": "7a78f81cbdad1ab1145470455ec801a8a94a69cfe6bf9eee48af5033ca2c6caa",
+   "sha256": "48667875a40e9991e0f970e47f9d1f04f705f51a10d74f05bde97b88d61e8aed",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -878,7 +878,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseCross.f3d",
-   "sha256": "dd134ad84e28d3b2d04df7c4b0518cbb9d5fb4ecbf5b1ff22a11eb80963c5216",
+   "sha256": "d16c32dbebb8aae34a5d51b020dced50e8f43426616491822bceb49a1aa3b32f",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -886,7 +886,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseLoop.f3d",
-   "sha256": "6192e6af86add87e0ff225748ed02b775c96679475b2827605dd6cdd3a1289c5",
+   "sha256": "1d708588e02eba5ce7df37013f1860b8cfc8c6579d45bc4d6bbb45e00f389812",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -894,7 +894,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseRing.f3d",
-   "sha256": "068c8b3455670fdc994c6974476014b04defd01028956b413a3f95e141f80ae6",
+   "sha256": "6fc6dff905b1681c58983ac06c3ca46f96f413b6361e8806258a1884a73b0a49",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -902,7 +902,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldCreaseSlices.f3d",
-   "sha256": "cec745df67f769005866f384f9f39684d7a343c7415d907d41fd172cd536e4f7",
+   "sha256": "96545cbff0a290d8007eebe516192dadf02bd1156efca5dc3c5b370e0ca3d4fe",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -910,7 +910,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldPrism3.f3d",
-   "sha256": "be95eeea1905a1b39d693cb31fdf135454a817709b7e48c365cf85f2e42a1a75",
+   "sha256": "7b6395e2c6328f80f6650da658429bc51d52dcca48476769abc7de32c8f71f34",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -918,7 +918,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldPrism5.f3d",
-   "sha256": "3239f96dad552ee9dcd01ef9d0580932fbed98311415af18925bd9bccc4266cd",
+   "sha256": "53fa8a55338743f7dcdc80dcde5e6263089c500dc58b3dde10f81de2dbf8b6d8",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -926,7 +926,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldTorus75.f3d",
-   "sha256": "a9abc479b0d4a7a01a6334b88dee5112fe97e66d007661e7889e35724b652657",
+   "sha256": "234fc485c55e08c3049762851fb3715a7fe3b74b441b55b2b5284804482152d3",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -934,7 +934,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldWeighted6.f3d",
-   "sha256": "61f727259852a18ba8a9f9eef00dce87d0161d2442ef8580d3dfa129ab26d94a",
+   "sha256": "2cdcf3855c44261267039b7b58989bf5b2d697058c1fcbe7de040a7624e447e8",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -942,7 +942,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldWeightedSharp.f3d",
-   "sha256": "f404b13b05732089c6363e1dd749f101aaa84981774d62ba3f4b9f987aaf0405",
+   "sha256": "a3450404bddc08cad6f4b36abb523fe3935b76d3a4c55a0d44a10526dc3340cf",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -950,7 +950,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/HeldWeightedTorus.f3d",
-   "sha256": "10933ec0067db3dccdfd61b25af5a3119a4601a0c7d1a59f9a9c2961498cf1c6",
+   "sha256": "f4658eb9c5e954990fd6c605cbec2398adce66104c93200c154d48552a7d6e4e",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -958,7 +958,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/LPrism.f3d",
-   "sha256": "b1c44ad9240dbda9277e861a688f8231b09a16f4e07a4d2ff87219c2e2bc206a",
+   "sha256": "a194b292a73633e0e6c277805cf3f103715488a636f4845a6c1dffc0e607a61f",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -978,7 +978,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/SharpBox.f3d",
-   "sha256": "4edd2e3eec060ba5fd104205cb55c20936ef32924b8cf8353cb75babb9664ce9",
+   "sha256": "07f2c39790702547e2feca104c1995cba8874ce248f3fe7e96a184c9eeeee3c3",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -986,7 +986,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Step.f3d",
-   "sha256": "59d0196c1c17294f7fb7815455016a1c198cb0f00ad60f6e59e8cafe3ea9b516",
+   "sha256": "1b9e82a6ae0f562b238793d0b9b5b61d0bbba0e33d39403e918ada6d813bcbae",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -1000,7 +1000,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Torus86.f3d",
-   "sha256": "cb544520eb3abdea32084643ebc6ad8535602655ba22257a3be5257f4f234487",
+   "sha256": "8d609ddd97797f00288802babd5e86e5d9167032302649f83da1b901144de84a",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -1008,7 +1008,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence3Prism.f3d",
-   "sha256": "0215c051472ec88e037e3fd38d5153d59875a759f1775d79d285c0e816b0d31b",
+   "sha256": "576e33b5cd47960cc9f5c945175ef9669f198bf05799b83a150ed01f3c6bb95d",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -1016,7 +1016,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence5.f3d",
-   "sha256": "8e0a3ab2e8b61c25c3990088e26c99b76d7ecac00c31e783a338c992acbae83a",
+   "sha256": "13c8b803219ad8b22d8fd920432959b9ea5ca9d514de8ef0b7bf84f323eb3691",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -1024,7 +1024,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence5Tall.f3d",
-   "sha256": "015faf9bd55f9c67718a42ea687bcbaed5877e31b9f918047a35bbc0407390a1",
+   "sha256": "583bbaad4188c0cd7a5c1db23b8cfaf80d5fd8fb16d5b61d15c1473883d617a0",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -1032,7 +1032,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence6.f3d",
-   "sha256": "093e16e6024a057fa33575796aa7a20beb15b22894beba5256829daa3b205549",
+   "sha256": "6f65db83a2ed9b21f271842021d87c65a79f3d1314abb4a31545330fdef2b3bc",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -1040,7 +1040,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence7.f3d",
-   "sha256": "32cf19dc9e7751dd60fc93a2bbf6cf5e9230151e9cfcdf973dabe9b955eb22b1",
+   "sha256": "5f0bf4828af748cb2f7c4e0f05dfa8ce8b4db426a849f88325ab314923b0414d",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,
@@ -1048,7 +1048,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/Accept/Valence8.f3d",
-   "sha256": "03bab4f19baadd5608aa10107fc0e0f09d8b4e99c57ce31a0232e8e864e5621b",
+   "sha256": "223fcada51c301ecbd92c4e425fbce9a015018cf73342587dd8ac062f71722b2",
    "gap_cm": 0.0,
    "layout_equal": true,
    "jumps_equal": true,

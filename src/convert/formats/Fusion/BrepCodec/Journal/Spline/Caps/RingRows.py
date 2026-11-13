@@ -11,6 +11,10 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Poles.PoleRows import (
     KPoleRow,
     MixRows,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Caps.RoundTrig import (
+    RoundCosine,
+    RoundSine,
+)
 
 KWeightTriple = tuple[Fraction, Fraction, Fraction]
 KRingWeights: dict[Fraction, KWeightTriple] = {
@@ -42,7 +46,7 @@ def SectorLine(
     Layout: CapLayout, Sector: int, Ratios: tuple[Fraction, ...]
 ) -> list[float]:
     Valence = Layout.Valence
-    Cosine = math.cos(2.0 * math.pi / Valence)
+    Cosine = RoundCosine(2.0 * math.pi / Valence)
     Dense = EmptyRow(Layout)
     Dense[Layout.Slots[("in", Sector % Valence, 1, 1)]] += Cosine
     for Spoke in (Sector, Sector + 1):
@@ -63,7 +67,7 @@ def RingRows(
     Layout: CapLayout, Limit: KPoleRow, Ratios: tuple[Fraction, ...]
 ) -> list[KCapRow]:
     Valence = Layout.Valence
-    Cosine = math.cos(2.0 * math.pi / Valence)
+    Cosine = RoundCosine(2.0 * math.pi / Valence)
     Kappa = (Valence - 4) * Cosine / (Valence + 5)
     Spread = 9.0 * Cosine / (Valence + 5)
     Tangents = NetTangents(Layout, Limit)
@@ -86,9 +90,9 @@ def RingRows(
 
 def TangentRows(Layout: CapLayout, Ratios: tuple[Fraction, ...]) -> list[KCapRow]:
     Valence = Layout.Valence
-    Cosine = math.cos(2.0 * math.pi / Valence)
+    Cosine = RoundCosine(2.0 * math.pi / Valence)
     Found: list[KCapRow] = []
-    for Phase in (math.cos, math.sin):
+    for Phase in (RoundCosine, RoundSine):
         Dense = EmptyRow(Layout)
         for Spoke in range(Valence):
             First, Second, Third = RatioWeights(KRingWeights, Ratios[Spoke])

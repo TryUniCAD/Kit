@@ -11,6 +11,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Authoring.ExactSubtypes im
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Authoring.NegateCurve import (
     NegateCurve,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.BsCurve import BsCurve
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import (
     KGrammarValue,
     KSubtypeEntry,
@@ -315,14 +316,25 @@ def EdgeSlotMut(State: ReadState, Index: int) -> int:
     return State.EdgeSlots[Index]
 
 
+def ShiftTrace(Trace: BsCurve, OffsetU: float, OffsetV: float) -> BsCurve:
+    if (OffsetU, OffsetV) == (0.0, 0.0):
+        return Trace
+    return ReplaceValue(
+        Trace,
+        Poles=tuple(
+            (PoleValue[0] + OffsetU, PoleValue[1] + OffsetV, *PoleValue[2:])
+            for PoleValue in Trace.Poles
+        ),
+    )
+
+
 def ReadUseMut(State: ReadState, Index: int, Region: int) -> FormUse:
     Coedge = State.Entities[Index]
     assert isinstance(Coedge, CoedgeNode)
     Carrier = State.Entities[Coedge.Pcurve]
     assert isinstance(Carrier, PcurveNode) and not Carrier.Reversed
-    assert (Carrier.OffsetU, Carrier.OffsetV) == (0.0, 0.0)
     assert isinstance(Carrier.Curve, SubtypeNode)
-    Trace = PcurveSpline(Carrier.Curve)
+    Trace = ShiftTrace(PcurveSpline(Carrier.Curve), Carrier.OffsetU, Carrier.OffsetV)
     Members = Carrier.Curve.Body
     assert isinstance(Members, ExpParCur)
     Holder = Members.Surface

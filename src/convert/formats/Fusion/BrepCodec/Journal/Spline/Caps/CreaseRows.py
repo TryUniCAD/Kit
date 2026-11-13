@@ -29,6 +29,10 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Poles.PoleRows import (
     KPoleRow,
     MixRows,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Caps.RoundTrig import (
+    RoundCosine,
+    RoundSine,
+)
 
 KEvenWindow = 5
 KOddWindow = 6
@@ -137,12 +141,12 @@ def CreaseTangent(
 ) -> KCapRow:
     CosineRow, SineRow = TangentRows(Layout, RatiosI)
     Angle = 2.0 * math.pi * Spoke / Layout.Valence
-    return CombineRows(((math.cos(Angle), SineRow), (-math.sin(Angle), CosineRow)))
+    return CombineRows(((RoundCosine(Angle), SineRow), (-RoundSine(Angle), CosineRow)))
 
 
 def WedgeRow(Layout: CapLayout, Spoke: int) -> KCapRow:
     Valence = Layout.Valence
-    Cosine = math.cos(2.0 * math.pi / Valence)
+    Cosine = RoundCosine(2.0 * math.pi / Valence)
     Dense = EmptyRow(Layout)
     for TermKind, IndexI, IndexJ, Steady, Tilted in KWedgeTerms:
         KeyPair: list[KCapKey] = [
@@ -191,7 +195,7 @@ def OddSide(Layout: CapLayout, Limit: KPoleRow, Spoke: int) -> KPoleRow:
         Twist = SectorTotal(Layout, Limit, ((1, 1),))
         Weights = [float(Value) for Value in KTripleOdd]
         return MixRows(zip(Weights, (Twist, First, Second)))
-    Cosine = math.cos(2.0 * math.pi / Valence)
+    Cosine = RoundCosine(2.0 * math.pi / Valence)
     Scale = 16.0 * Cosine / (Valence * (Valence - 3))
     Blend = float(Fraction(5 * Valence + 7, 2 * (4 * Valence - 7)))
     Mixed = SectorTotal(Layout, Limit, ((1, 2), (2, 1)))

@@ -19,6 +19,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Poles.PoleRows import (
     KPoleRow,
     MixRows,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Caps.RoundTrig import RoundCosine
 
 KSampleCount = 5
 KCubeSteps = ((1.0, 3), (-3.0, 2), (3.0, 1), (-1.0, 0))
@@ -49,7 +50,7 @@ def CapStep(Layout: CapLayout) -> Fraction:
 
 def SmoothRows(Layout: CapLayout) -> list[KCapRow]:
     StepValue = CapStep(Layout)
-    Cosine = math.cos(2.0 * math.pi / Layout.Valence)
+    Cosine = RoundCosine(2.0 * math.pi / Layout.Valence)
     Origin = Fraction(0)
     Found: list[KCapRow] = []
     for Sector in range(Layout.Valence):

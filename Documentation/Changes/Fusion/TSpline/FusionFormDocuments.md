@@ -82,6 +82,7 @@ Fusion converts a cage with a map that is linear in the homogeneous grips. The [
 | Cap knots | `CapPlaces` | Along each spoke, the cap sees the knots of the strip of cells beside it |
 | Cap poles | `SolveCaps`, `HardRows`, `WindowRows`, `RingRows`, `SolveLeast` | One exact linear solve per extraordinary point |
 | Creased caps | `CreaseRows` | One crease at an extraordinary point keeps its net poles and replaces the rows that cross it with two crease relations |
+| Spoke angles | `RoundCosine`, `RoundSine` | cos and sin of 2πk/n rounded from 90-digit `Decimal` values, so every platform writes the same bits |
 | Darts | `DartRows` | A crease end at a valence-4 vertex is capped like valence 4, with midpoints across the crease line and ten mirror relations |
 | Knot intervals | `KnotScale` | One whole-number interval c on every edge scales every parameter by c |
 | Row values | `EvaluateRows`, `StencilRows` | Each row applied to the homogeneous grips, with its pole weight and a weighted flag |
@@ -96,6 +97,8 @@ The [cap gotcha](../../../Gotchas/Conversion/Fusion/TSpline/ExtraordinaryCapIsSo
 A weighted cage needs no other rule. Its grips enter as (w x, w y, w z, w). A face or curve is rational only when one of its poles depends on a weighted grip, as the [weighted face gotcha](../../../Gotchas/Conversion/Fusion/TSpline/WeightedFaceRationality.md) records.
 
 `ConvertCage` raises `ValueError` for a cage the rules cannot convert exactly. `SwapFormCage` needs the same layout for the old and the new cage. It checks that every stored surface, curve and point is the conversion of the old cage, and it refuses stale geometry. It keeps the patch cells, pcurves, edge convexity and naming of the document, and it sets `Graphics` to `None`. It refuses a new cage when `CageBody` refuses it or gives a crease edge another class than the old cage.
+
+The [platform trigonometry gotcha](../../../Gotchas/Conversion/Fusion/TSpline/PlatformTrigBits.md) shows why the cap rules do not call `math.cos`.
 
 `CheckVertices` accepts valence 8, and the [valence gotcha](../../../Gotchas/Conversion/Fusion/TSpline/CageValenceAboveFour.md) gives the native evidence.
 
@@ -301,7 +304,7 @@ The stencil swap run put eight fresh cages into native documents of their layout
 
 The creased plane swap document predates the crease class rule. Its vendor carrier stores the crease as `tangent`, and the fresh cage bends it to `unknown`. `SwapFormCage` now refuses that swap, so the tests pin the other seven swap documents. The cage document run covers the fresh creased plane with `EmitFormDoc`.
 
-Remote integration cases cover the 32 Form archives, the ACT slack archives, the edited worlds and 58 spline journal members. Grid cases cover 17 native archives, three refusals, two document swaps with their emitted SHA-256, three cage faults, a stale body and a layout change.
+Remote integration cases cover the 32 Form archives, the ACT slack archives, the edited worlds and 66 spline journal members. Grid cases cover 17 native archives, three refusals, two document swaps with their emitted SHA-256, three cage faults, a stale body and a layout change.
 
 Stencil and cage cases in `tests/convert/formats/FusionCodec/Documents/Form/` cover the following.
 
@@ -373,7 +376,7 @@ The checks in this section ran `ConvertForm` with the general rules. No stencil 
 
 [`StencilCheck.py`](../../../../re/Fusion/Reconstruction/FormDocuments/Stencil/StencilCheck.json) converted every probe variant of 16 cages. All variants of the eight old layouts matched, CreasedBox included, within 2.2e-13 cm. So did the warped, limit and weighted variants. The two band cages refuse at a tie.
 
-[`AcceptGeneral.py`](../../../../re/Fusion/LocalOracle/FormDocuments/General/Accept/GeneralAcceptance.json), SHA-256 `989b9201d34e1972ea18a6e65db5f9833391f57b6b95555935e8552f5bcd8e69`, has status `accepted` in Fusion 2706.1.17. `PrepareAccept.py` wrote each document with `EmitFormDoc` and `ConvertForm` from the cage alone. The [preparation](../../../../re/Fusion/LocalOracle/FormDocuments/General/Accept/Preparation.json) binds each input to its SHA-256 and lists the refused cages. The run followed the stages of the cage document run. Zero documents were open before and after. All 30 prepared cases matched Fusion's conversion of the same TSM within 1e-8 cm, with zero problems.
+[`AcceptGeneral.py`](../../../../re/Fusion/LocalOracle/FormDocuments/General/Accept/GeneralAcceptance.json), SHA-256 `4a8b000974e0c6007c7db4849e27954650fbdced4d00536088a60a4ce6b58a83`, has status `accepted` in Fusion 2706.1.17. `PrepareAccept.py` wrote each document with `EmitFormDoc` and `ConvertForm` from the cage alone. The [preparation](../../../../re/Fusion/LocalOracle/FormDocuments/General/Accept/Preparation.json) binds each input to its SHA-256 and lists the refused cages. The run followed the stages of the cage document run. Zero documents were open before and after. All 30 prepared cases matched Fusion's conversion of the same TSM within 1e-8 cm, with zero problems. The documents were prepared and run again after the cap rules moved to `RoundCosine` and `RoundSine`. No measured value moved by more than 1e-12 cm.
 
 - Old: the eight old layouts.
 - Probe: nine research probe cages. The cap rule was not fitted on them, but some of them fed the knot rule.
@@ -415,7 +418,7 @@ The checks in this section ran `ConvertForm` with the general rules. No stencil 
 
 `CollectAccept.py` kept Fusion's conversion of each accepted case under `General/Accept/Fusion`. The scrubber changed no byte in them. `TestGeneralCase` converts each Kit TSM and compares the result with the kept save. Offline, all 30 matched within 2.0e-13 cm.
 
-[The stencil swap rerun](../../../../re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/NativeAcceptance.json), SHA-256 `8b44ad45c56aabf742f9e245d72d812a46f06a14ea801bcb8ffc23ce0467457f`, put the fresh cages into their native documents again with `SwapFormCage`. Fusion accepted all seven swap documents within 1e-8 cm. `SwapFormCage` refused the fresh creased plane, because the fresh cage changes a crease class. The swap bytes changed, so `TestStencilSwap` pins the new SHA-256 values.
+[The stencil swap rerun](../../../../re/Fusion/LocalOracle/FormDocuments/StencilAccept/General/NativeAcceptance.json), SHA-256 `d9efa56868d16dd066c29111803fec97c59f554f5147bec061ce5bdd92431fdf`, put the fresh cages into their native documents again with `SwapFormCage`. Fusion accepted all seven swap documents within 1e-8 cm. `SwapFormCage` refused the fresh creased plane, because the fresh cage changes a crease class. The swap bytes changed, so `TestStencilSwap` pins the new SHA-256 values. They were prepared again with `RoundCosine` and `RoundSine`, and the pinned values are equal on macOS and Linux.
 
 [`CreaseRuleCheck.py`](../../../../re/Fusion/Reconstruction/FormDocuments/Crease/CreaseRuleCheck.json) replayed the crease rule over 1484 Fusion-saved Form archives, 44 of them unreadable. 41811 of 41863 shared curve groups matched Fusion's pieces and labels, 38 were refused and 14 differed. The 14 are 13 groups in crease-end probe saves and the wide L-turn probe. The replay also converted every cage that the general rules accept. 793 bodies matched Fusion's pieces and labels, 10 were refused, and none differed.
 
