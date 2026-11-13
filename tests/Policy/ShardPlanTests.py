@@ -313,7 +313,7 @@ def TestShardReuse() -> None:
         assert "cases/one.txt" in Recorded["test_data.py"]["Files"]
         assert "cases" in Recorded["test_listing.py"]["Folders"]
         ChangeSuite(SuitePath)
-        CheckReuse(WorkPath)
+        ConfirmReuse(WorkPath)
 
 
 def StartSuite(WorkPath: FilePath) -> FilePath:
@@ -332,7 +332,7 @@ def ChangeSuite(SuitePath: FilePath) -> None:
     _ = (SuitePath / "cases" / "two.txt").write_text("2\n", encoding="utf-8")
 
 
-def CheckReuse(WorkPath: FilePath) -> None:
+def ConfirmReuse(WorkPath: FilePath) -> None:
     SuitePath = WorkPath / "Suite"
     FirstCache = WorkPath / "First" / "TestCache.json"
     SecondPlan, SecondText = RunStep(SuitePath, WorkPath / "Second", FirstCache)
