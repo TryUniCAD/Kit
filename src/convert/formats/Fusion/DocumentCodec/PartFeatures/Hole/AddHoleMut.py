@@ -1,5 +1,6 @@
 from dataclasses import replace as ReplaceValue
 from math import radians as Radians
+from typing import TypeAlias
 
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.AddParamMut import (
@@ -26,6 +27,11 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.HoleSpec import Hol
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartStage import PartStage
 
 KThroughNote = "SavedHoleDepthInNonDistanceExtentsCase"
+KCenterPoint = 6
+KFacePoint = 17
+KCenterTolerance = 1e-9
+KHoleParam: TypeAlias = tuple[dict[str, float], int]
+KHolePlace: TypeAlias = tuple[tuple[int, int, int], tuple[float, float]]
 
 
 def HoleSpot(Stage: PartStage, Feature: HoleSpec) -> dict[str, float]:
@@ -64,19 +70,30 @@ def AddSizesMut(Author: AuthorState, Prefix: str, Feature: HoleSpec) -> list[str
     return Roles
 
 
+def HoleParam(SpotValue: dict[str, float], Middle: tuple[float, float]) -> KHoleParam:
+    Plane = {
+        "x": SpotValue["x"] - Middle[0],
+        "y": SpotValue["y"] - Middle[1],
+    }
+    if max(abs(Plane["x"]), abs(Plane["y"])) < KCenterTolerance:
+        return {"x": 0.0, "y": 0.0}, KCenterPoint
+    return Plane, KFacePoint
+
+
 def AddHolePlaceMut(
-    Author: AuthorState, Prefix: str, Stage: PartStage, TagSet: tuple[int, int, int]
+    Author: AuthorState, Prefix: str, Stage: PartStage, Place: KHolePlace
 ) -> list[str]:
     Feature = Stage.Feature
     if not isinstance(Feature, HoleSpec):
         raise ValueError("Fusion hole authoring requires a hole feature")
+    TagSet, Middle = Place
     Reference = Author.Reference
     SpotValue = HoleSpot(Stage, Feature)
-    Plane = {"x": 0.0, "y": 0.0}
-    AddFaceRefMut(
-        Author, Prefix, "spot_face", RoofFaceRecipe(Stage.Before), (33, TagSet[1])
-    )
-    Fields: dict[str, object] = dict(point3d=SpotValue, refType=6, param=Plane)
+    Plane, PointKind = HoleParam(SpotValue, Middle)
+    IsCentered = PointKind == KCenterPoint
+    Recipe = (RoofFaceRecipe if IsCentered else RoofRecipe)(Stage.Before)
+    AddFaceRefMut(Author, Prefix, "spot_face", Recipe, (33, TagSet[1]))
+    Fields: dict[str, object] = dict(point3d=SpotValue, refType=PointKind, param=Plane)
     Fields.update(dataRefs=[Reference(Prefix + "spot_face")])
     AddPlaceMut(Author, Prefix, ("spot", "DRPoint"), Fields)
     Direction = {"x": 0.0, "y": 0.0, "z": 1.0}
@@ -95,7 +112,7 @@ def AddHolePlaceMut(
 
 
 def AddHoleMut(
-    Author: AuthorState, Stage: PartStage, Prefix: str, TagSet: tuple[int, int, int]
+    Author: AuthorState, Stage: PartStage, Prefix: str, Place: KHolePlace
 ) -> list[str]:
     Feature = Stage.Feature
     if not isinstance(Feature, HoleSpec):
@@ -106,7 +123,8 @@ def AddHoleMut(
     Label = ReplaceValue(Stage.Before.BodyLabel, Merged=())
     Children = AddTargetMut(Author, Prefix, Label)
     Author.Change(Prefix + "target", trackingType=4)
-    Children += AddHolePlaceMut(Author, Prefix, Stage, TagSet)
+    TagSet = Place[0]
+    Children += AddHolePlaceMut(Author, Prefix, Stage, Place)
     Children += AddSizesMut(Author, Prefix, Feature)
     Extent = [] if Feature.DepthMm else AddThroughMut(Author, Prefix, Label, TagSet[1])
     AddNodeMut(Author, Prefix + "tool", "DcHoleToolBody", MainRole)

@@ -28,6 +28,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Extrude.AddExtrudeFeat im
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Hole.AddHoleMut import (
     AddHoleMut,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Hole.HoleRoot import RoofMiddle
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ExtrudeSpec import (
     ExtrudeSpec,
 )
@@ -60,14 +61,17 @@ def AddStageMut(
     Author: AuthorState,
     Stage: PartStage,
     Prefix: str,
-    Context: tuple[tuple[PrismSolid, ...], int],
+    Context: tuple[tuple[PrismSolid, ...], int, tuple[PartStage, ...]],
 ) -> list[str]:
-    Solids, Place = Context
+    Solids, Place, Stages = Context
     Feature = Stage.Feature
     if isinstance(Feature, ShellSpec):
         return AddShellMut(Author, Stage, Prefix, RoofTag(Solids, Place))
     if isinstance(Feature, HoleSpec):
-        return AddHoleMut(Author, Stage, Prefix, RoofTagSet(Solids, Place + 1))
+        Middle = RoofMiddle(Stages, Stage)
+        return AddHoleMut(
+            Author, Stage, Prefix, (RoofTagSet(Solids, Place + 1), Middle)
+        )
     if isinstance(Feature, PlaneSpec):
         return AddPlaneMut(Author, Stage, Prefix)
     if isinstance(Feature, (PatternSpec, CircularSpec, MirrorSpec)):
@@ -88,7 +92,8 @@ def AddPartMut(Author: AuthorState) -> None:
         if isinstance(Stage.Feature, ExtrudeSpec):
             AddExtrudeFeat(Author, Stage, Prefix)
             continue
-        Children = AddStageMut(Author, Stage, Prefix, (Solids, Index + Offset))
+        Context = (Solids, Index + Offset, Stages)
+        Children = AddStageMut(Author, Stage, Prefix, Context)
         LinkFeatureMut(Author, Stage, Prefix, Children)
     LinkTimeline(Author, Stages)
     if BaseValue is None:
