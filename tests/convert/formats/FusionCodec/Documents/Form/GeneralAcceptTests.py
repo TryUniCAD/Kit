@@ -4,6 +4,7 @@ from sys import version_info as PythonVersion
 from pytest import mark as MarkTests
 
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.BsCurve import BsCurve
+from convert.formats.Fusion.BrepCodec.Journal.Spline.NubsSurface import NubsSurface
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Converted.ConvertForm import (
     ConvertForm,
 )
@@ -66,6 +67,28 @@ def CurveSpread(LeftCurve: BsCurve, RightCurve: BsCurve) -> float:
     )
 
 
+def ShiftCurve(Curve: BsCurve, ShiftU: float, ShiftV: float) -> BsCurve:
+    return ReplaceValue(
+        Curve,
+        Poles=tuple(
+            (PoleValue[0] + ShiftU, PoleValue[1] + ShiftV, *PoleValue[2:])
+            for PoleValue in Curve.Poles
+        ),
+    )
+
+
+def SeamSpread(LeftCurve: BsCurve, RightCurve: BsCurve, Cache: NubsSurface) -> float:
+    SpanU = Cache.KnotsU[-1].Value - Cache.KnotsU[0].Value
+    SpanV = Cache.KnotsV[-1].Value - Cache.KnotsV[0].Value
+    StepsU = (-1, 0, 1) if Cache.ClosureU else (0,)
+    StepsV = (-1, 0, 1) if Cache.ClosureV else (0,)
+    return min(
+        CurveSpread(ShiftCurve(LeftCurve, StepU * SpanU, StepV * SpanV), RightCurve)
+        for StepU in StepsU
+        for StepV in StepsV
+    )
+
+
 def WindowBox(Entry: FormWindow) -> tuple[float, ...]:
     return (Entry.ULow, Entry.UHigh, Entry.VLow, Entry.VHigh)
 
@@ -115,7 +138,7 @@ def FaceSpread(LeftFace: FormFace, RightFace: FormFace) -> float:
             RightUse.EdgeIndex,
             RightUse.Reversed,
         )
-        Spreads.append(CurveSpread(LeftUse.Pcurve, RightUse.Pcurve))
+        Spreads.append(SeamSpread(LeftUse.Pcurve, RightUse.Pcurve, RightCache))
         Spreads.append(abs(LeftUse.Fit - RightUse.Fit))
     return max(Spreads)
 

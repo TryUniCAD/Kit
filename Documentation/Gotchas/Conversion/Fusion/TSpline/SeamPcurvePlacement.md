@@ -31,6 +31,8 @@ The rule was read from the first two crease tori. HeldCreaseCross was then built
 
 Fusion also numbers the pieces of a split crease in the order of the first use that meets the edge. HeldCreaseSlices meets both crease loops on reversed uses first. So Fusion lists their pieces against the curve direction.
 
+Fusion also stores a seam pcurve with a pcurve offset. The offset is 0 or one full knot span of a closed direction: 8 and 6 in Torus86, and 9 in the crease-closed direction of HeldCreaseLoop. Kit writes offset 0. A shift by one full span in a closed direction gives the same curve on the surface, and Fusion accepted every Kit document in the general run. The Form tests check that each native offset is 0 or one span, and they compare pcurves up to one span in each closed direction.
+
 Fusion numbers the vertices of the body in the order they first appear in the edge list, start before end. A vertex added by a split takes its place in that order. In HeldWeightedSharp, a box with sharp edges, three crease edges split. Their new vertices sit between the cage corners in Fusion's list, not after them.
 
 ## Workaround

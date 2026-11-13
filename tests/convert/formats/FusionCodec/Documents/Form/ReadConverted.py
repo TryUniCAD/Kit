@@ -11,7 +11,6 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Authoring.ExactSubtypes im
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Authoring.NegateCurve import (
     NegateCurve,
 )
-from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.BsCurve import BsCurve
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import (
     KGrammarValue,
     KSubtypeEntry,
@@ -316,16 +315,14 @@ def EdgeSlotMut(State: ReadState, Index: int) -> int:
     return State.EdgeSlots[Index]
 
 
-def ShiftTrace(Trace: BsCurve, OffsetU: float, OffsetV: float) -> BsCurve:
-    if (OffsetU, OffsetV) == (0.0, 0.0):
-        return Trace
-    return ReplaceValue(
-        Trace,
-        Poles=tuple(
-            (PoleValue[0] + OffsetU, PoleValue[1] + OffsetV, *PoleValue[2:])
-            for PoleValue in Trace.Poles
-        ),
-    )
+def CheckShift(Surface: TsplineSurf, OffsetU: float, OffsetV: float) -> None:
+    Cache = Surface.Cache
+    for Offset, Knots, Closure in (
+        (OffsetU, Cache.KnotsU, Cache.ClosureU),
+        (OffsetV, Cache.KnotsV, Cache.ClosureV),
+    ):
+        Period = Knots[-1].Value - Knots[0].Value
+        assert Offset == 0.0 or (Closure != 0 and abs(Offset) == Period)
 
 
 def ReadUseMut(State: ReadState, Index: int, Region: int) -> FormUse:
@@ -334,13 +331,14 @@ def ReadUseMut(State: ReadState, Index: int, Region: int) -> FormUse:
     Carrier = State.Entities[Coedge.Pcurve]
     assert isinstance(Carrier, PcurveNode) and not Carrier.Reversed
     assert isinstance(Carrier.Curve, SubtypeNode)
-    Trace = ShiftTrace(PcurveSpline(Carrier.Curve), Carrier.OffsetU, Carrier.OffsetV)
+    Trace = PcurveSpline(Carrier.Curve)
     Members = Carrier.Curve.Body
     assert isinstance(Members, ExpParCur)
     Holder = Members.Surface
     assert type(Holder.Body) is tuple
     Surface = ResolveEntry(Holder.Body[1], State.Table)
     assert isinstance(Surface, TsplineSurf) and Surface.FaceIndex == Region
+    CheckShift(Surface, Carrier.OffsetU, Carrier.OffsetV)
     Trace = NegateCurve(Trace) if Coedge.Reversed else Trace
     EdgeIndex = EdgeSlotMut(State, Coedge.EdgeRef)
     return FormUse(EdgeIndex, Coedge.Reversed, Trace, Members.FitTolerance)
