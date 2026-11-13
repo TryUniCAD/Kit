@@ -1,5 +1,10 @@
 from __future__ import annotations
 from pathlib import Path as FilePath
+import struct as Struct
+
+import pytest as PytestLib
+
+from convert.adapters.solidworks.container.Container import SldprtFormatError
 from convert.adapters.solidworks.configuration.ConfigZero import (
     CONFIG_FIELD_COUNT as Count,
     CONFIG_OPAQUE_BYTES as Bytes,
@@ -8,6 +13,7 @@ from convert.adapters.solidworks.configuration.ConfigZero import (
     REFERENCE_LENGTH as Length,
     REFERENCE_TREE_ID as IdInfoA,
     declared_opaque_split as DeclaredOpaqueSplit,
+    encode_config0_stream as EncodeConfig,
 )
 from convert.adapters.solidworks.programs.configuration.default.Registry import (
     ConfigOps,
@@ -142,3 +148,19 @@ def TestTFAFTEDS() -> None:
     assert SplitData["opaque"] == Bytes == 0
     assert SplitData["operations"] == len(ConfigOps)
     assert SplitData["owners"] == len(FieldOwners)
+
+
+def TestNameWidths() -> None:
+    for PartName, Shift in (("P", -8), ("Part1RenamedLonger", 26)):
+        Payload = EncodeConfig(PartName=PartName, Generation=19000)
+        assert len(Payload) == 25476 + Shift
+        assert Payload.find(PartName.encode("utf-16le")) == 48
+        assert Payload.find(b"moVisualProperties_c") == 88 + Shift
+        assert Payload.find(b"moUnitsTable_c") == 931 + Shift
+        assert Payload[2796 + Shift : 2812 + Shift] == Struct.pack("<4I", 1, 1, 120, 1)
+        assert Payload[19730 + Shift : 19734 + Shift] == bytes(4)
+
+
+def TestRejectRaw() -> None:
+    with PytestLib.raises(SldprtFormatError):
+        _ = EncodeConfig(Generation=19000, PartRecordBody=b"")

@@ -1,28 +1,8 @@
 from __future__ import annotations
 
-from dataclasses import dataclass as Dataclass
 import math as MathLib
 
-from convert.adapters.solidworks.container.Container import SldprtFormatError
-
-
-@Dataclass(frozen=True, slots=True)
-class PadBounds:
-    centre_x: float
-    centre_y: float
-    centre_z: float
-    expanded_x: float
-    expanded_y: float
-    expanded_z: float
-    diameter: float
-
-
-def AttachmentPoint(PointsMm: tuple[tuple[float, float], ...]) -> tuple[float, float]:
-    MaximumX = max(PointPair[0] for PointPair in PointsMm)
-    Rightmost = [PointPair for PointPair in PointsMm if PointPair[0] == MaximumX]
-    if len(Rightmost) != 1:
-        raise SldprtFormatError("five-line rightmost attachment vertex must be unique")
-    return Rightmost[0]
+from .PadBounds import PadBounds
 
 
 def ComputeBounds(

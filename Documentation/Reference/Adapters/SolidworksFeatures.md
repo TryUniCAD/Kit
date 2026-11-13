@@ -99,7 +99,8 @@ An incorrect cache can invalidate geometry or application behavior.
 The native writer includes a typed five-line blind-boss program beside the existing six-line program.
 It accepts a single closed, simple chain of five line entities in the canonical front-plane sketch.
 The pad uses feature id 32, direction zero, blind termination, and positive arbitrary depth.
-It does not accept sketch dimensions, construction entities, fixed entities, open wires, or self-intersecting wires.
+It does not accept sketch dimensions, solver relations, construction entities, fixed entities, open wires, or self-intersecting wires.
+Unsupported source relations fail closed instead of being silently discarded.
 
 The five-line resolved stream carries ten independent vertex fields and four depth copies.
 Public writing produces 332 serialized objects and 2,708 typed operations across 11,205 bytes.
