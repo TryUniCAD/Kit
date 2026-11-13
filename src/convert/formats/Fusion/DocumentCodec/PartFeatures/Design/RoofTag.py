@@ -14,7 +14,9 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSolid import (
 )
 
 
-def RoofTagSet(Solids: tuple[PrismSolid, ...], Index: int) -> tuple[int, int, int]:
+def CapTagSet(
+    Solids: tuple[PrismSolid, ...], Index: int, IsRoof: bool
+) -> tuple[int, int, int]:
     Ledger = TagLedger()
     Found = (-1, -1)
     for Ordinal, Solid in enumerate(Solids[: Index + 1]):
@@ -22,18 +24,22 @@ def RoofTagSet(Solids: tuple[PrismSolid, ...], Index: int) -> tuple[int, int, in
         FaceTags, BodyTag = LedgerTags((Shape,), Ledger)[0]
         if Ordinal != Index:
             continue
-        Level = Solid.Slabs[-1].UpperCm
-        Roofs = [
+        Level = Solid.Slabs[-1].UpperCm if IsRoof else Solid.Slabs[0].LowerCm
+        Covers = [
             FaceValue
             for FaceValue in Shape.Faces
             if isinstance(FaceValue, CapFace)
-            and FaceValue.Upward
+            and FaceValue.Upward == IsRoof
             and FaceValue.LevelCm == Level
         ]
-        if len(Roofs) != 1:
-            raise ValueError("Fusion part feature requires one roof face")
-        Found = (FaceTags[FaceKey(Roofs[0])], BodyTag)
+        if len(Covers) != 1:
+            raise ValueError("Fusion part feature requires one roof or base face")
+        Found = (FaceTags[FaceKey(Covers[0])], BodyTag)
     return Found[0], Found[1], Ledger.NextTag
+
+
+def RoofTagSet(Solids: tuple[PrismSolid, ...], Index: int) -> tuple[int, int, int]:
+    return CapTagSet(Solids, Index, True)
 
 
 def RoofTag(Solids: tuple[PrismSolid, ...], Index: int) -> int:

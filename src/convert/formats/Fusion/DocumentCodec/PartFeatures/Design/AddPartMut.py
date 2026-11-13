@@ -22,6 +22,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.LinkTimeline impor
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.PartCache import PartCache
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.RoofTag import (
+    CapTagSet,
     RoofTag,
     RoofTagSet,
 )
@@ -82,7 +83,10 @@ def AddStageMut(
     if isinstance(Feature, (AxisSpec, PointSpec)):
         return AddWorkMut(Author, Stage, Prefix)
     if isinstance(Feature, (PatternSpec, CircularSpec, MirrorSpec)):
-        return AddCopyMut(Author, Stage, Prefix, RoofTagSet(Solids, Place + 1))
+        Source = Stages[Feature.SourceIndex].Feature
+        IsRoof = isinstance(Feature, PatternSpec) or isinstance(Source, HoleSpec)
+        TagSet = CapTagSet(Solids, Place + 1, IsRoof)
+        return AddCopyMut(Author, Stage, Prefix, TagSet)
     Children = AddCornerMut(Author, Stage, Prefix)
     LinkCornerMut(Author, Stage, Prefix)
     return Children

@@ -1,9 +1,31 @@
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.MoveSlab import (
+    ShiftLabel,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.CapFace import CapFace
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.CapRings import CapRings
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.GroupRings import (
     GroupRings,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.LevelEdge import LevelEdge
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.ShapeUse import ShapeUse
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.FaceLabel import FaceLabel
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSlab import PrismSlab
+
+
+def CopyLabel(Label: FaceLabel, Loops: tuple[tuple[ShapeUse, ...], ...]) -> FaceLabel:
+    Owners = {
+        UseValue.Edge.Span.Label.OperationIds
+        for LoopValue in Loops
+        for UseValue in LoopValue
+        if isinstance(UseValue.Edge, LevelEdge)
+    }
+    if len(Owners) != 1:
+        return Label
+    Owner = next(iter(Owners))
+    Width = len(Label.OperationIds)
+    if len(Owner) <= Width or Owner[:Width] != Label.OperationIds:
+        return Label
+    return ShiftLabel(Label, Owner[Width:])
 
 
 def CapFaces(Slabs: tuple[PrismSlab, ...]) -> tuple[CapFace, ...]:
@@ -28,5 +50,5 @@ def CapFaces(Slabs: tuple[PrismSlab, ...]) -> tuple[CapFace, ...]:
             Rings = CapRings(Level, Upward, Below, Above)
             Label = Source.RoofLabel if Upward else Source.FloorLabel
             for Loops in GroupRings(Rings, Upward, Level):
-                Faces.append(CapFace(Level, Upward, Label, Loops))
+                Faces.append(CapFace(Level, Upward, CopyLabel(Label, Loops), Loops))
     return tuple(Faces)

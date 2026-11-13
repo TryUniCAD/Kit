@@ -80,13 +80,20 @@ def SourceTool(Source: PartStage) -> KSourceTool:
     return (ToolSlab(Feature, First + 1),), Curves, Tagged
 
 
-def SourceWalls(Shapers: tuple[PrismSlab, ...]) -> tuple[FaceLabel, ...]:
-    return tuple(
+def SourceFaces(Shapers: tuple[PrismSlab, ...]) -> tuple[FaceLabel, ...]:
+    Walls = tuple(
         Value.Label
         for Shaper in Shapers
         for LoopValue in Shaper.Loops
         for Value in LoopValue
     )
+    CapLabels = tuple(
+        Label
+        for Shaper in Shapers
+        for Label in (Shaper.FloorLabel, Shaper.RoofLabel)
+        if Label not in Walls
+    )
+    return Walls + tuple(dict.fromkeys(CapLabels))
 
 
 def CopySolid(
@@ -109,7 +116,7 @@ def CopySolid(
             (ShiftLabel(WallLabel, Extra), Level, ShiftLabel(Label, Extra))
             for WallLabel, Level, Label in Tagged
         )
-    Tracks = tuple((Label, Context[0]) for Label in SourceWalls(Shapers))
+    Tracks = tuple((Label, Context[0]) for Label in SourceFaces(Shapers))
     return ReplaceValue(
         Result,
         SketchCurves=Solid.SketchCurves + tuple(NewCurves),
