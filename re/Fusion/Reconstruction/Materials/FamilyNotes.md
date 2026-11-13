@@ -117,7 +117,7 @@ These are independent library data, so Kit must take them as inputs:
 
 ## Tests
 
-- `FamilyTests.py` builds one material per family and checks the chosen schemas.
+- `MaterialFamilyTests.py` builds one material per family and checks the chosen schemas.
 - It checks that every given input projects back, and that a rebuild is a fixed point.
 - `BadFamilies.py` lists inputs that must raise.
 - `MaterialTests.py` now expects Basic plus Opaque for the default material.
