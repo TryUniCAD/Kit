@@ -212,7 +212,7 @@ def TestTextExtent() -> None:
     assert IsClose(Height, 2.5)
     assert IsClose(Width, 2.5 * 949 / 1466)
     with ExpectError(ValueError, match="metrics"):
-        _ = TextExtent("40?", 3.5)
+        _ = TextExtent("40€", 3.5)
     Saved = {"10": 1957, "3.54": 3801, "R2.5": 4083, "∅5": 2567}
     for TextValue, Units in Saved.items():
         assert IsClose(TextExtent(TextValue, 3.5)[1], 3.5 * Units / 1466)

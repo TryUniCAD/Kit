@@ -202,6 +202,6 @@ def TestNewRejects() -> None:
         _ = AuthorDwg(MakeDraft(SheetSize="A9 Portrait"))
     with ExpectError(ValueError, match="parent"):
         _ = AuthorDwg(MakeDraft((ViewDraft((10.0, 10.0), Parent=0),)))
-    Short = DimensionDraft((100.0, 80.0), (101.0, 80.0), 70.0)
-    with ExpectError(ValueError):
-        _ = AuthorDwg(MakeDraft((), (Short,)))
+    Coincident = DimensionDraft((100.0, 80.0), (100.0, 80.0), 70.0)
+    with ExpectError(ValueError, match="coincident"):
+        _ = AuthorDwg(MakeDraft((), (Coincident,)))
