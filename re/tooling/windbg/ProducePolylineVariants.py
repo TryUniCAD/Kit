@@ -19,7 +19,7 @@ def MainRun() -> int:
         ("shifted37", BuildDocument(Shifted, Depth=37.0)),
     )
     for Label, Document in Cases:
-        Target = Root / ".rescratch" / "polyline" / f"kit-five-public-{Label}.SLDPRT"
+        Target = Root / ".rescratch" / "polyline" / f"kit-five-refactor-{Label}.SLDPRT"
         Result = WriteDoc(Document, Target, allow_carrier=False)
         print(JsonData.dumps({"label": Label, "target": str(Target), "vendor_loadable": Result.IsVendorLoadable, "application_usable": Result.IsAppUsable, "near_lossless": Result.IsNearLossless, "diagnostics": [str(Item) for Item in Result.diagnostics]}, indent=2))
     return 0

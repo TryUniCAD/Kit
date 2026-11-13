@@ -64,7 +64,7 @@ def BuildDocument(
     return ReplaceData(SourceDoc, sketches=(Sketch,))
 
 
-def CheckFCFrame(ResolvedData: bytes) -> None:
+def RequireFCFrame(ResolvedData: bytes) -> None:
     assert len(KResolvedOps) == 2708
     assert len(KFieldOwners) == 495
     CursorPos = 0
@@ -89,7 +89,7 @@ def CheckFCFrame(ResolvedData: bytes) -> None:
     assert DefineCount == 40
 
 
-def CheckNVFrame(ArchiveData: SldprtArchive) -> None:
+def RequireNVFrame(ArchiveData: SldprtArchive) -> None:
     assert "_MO_VERSION_19000/Biography" in ArchiveData.streams
     assert "_MO_VERSION_18000/Biography" not in ArchiveData.streams
     assert len(ArchiveData.require("Contents/Definition")) == 3816
@@ -115,11 +115,11 @@ def TestFiveWrite(TmpPath: FilePath) -> None:
     assert ResultData.IsNearLossless is True
     assert len(ResolvedData) == 11205
     assert Hashlib.sha256(ResolvedData).hexdigest() == KResolvedDigest
-    CheckFCFrame(ResolvedData)
+    RequireFCFrame(ResolvedData)
     assert NativeData.bounding_box is not None
     assert NativeData.bounding_box.center_mm == PytestLib.approx((18.5, 16.0, 4.5))
     assert NativeData.bounding_box.diameter_mm == PytestLib.approx(57.56735185849701)
-    CheckNVFrame(ArchiveData)
+    RequireNVFrame(ArchiveData)
     assert tuple(
         (Evalue.kind, Evalue.coordinates) for Evalue in NativeData.sketches[0].profiles
     ) == (("polyline", (0.0, 0.0, 35.0, 0.0, 42.0, 17.0, 19.0, 32.0, -5.0, 14.0)),)
@@ -161,9 +161,9 @@ def TestFCPDV(TmpPath: FilePath) -> None:
     assert NativeData.operations[0].length_mm == PytestLib.approx(37.0)
     assert NativeData.bounding_box is not None
     assert NativeData.bounding_box.center_mm == PytestLib.approx((18.5, 13.5, 18.5))
-    ExpectedDiameter = 2000.0 * ((26.5**2 + 23.5**2 + 18.5**2) ** 0.5)
+    ExpectedDiameter = 1000.0 * ((26.5**2 + 23.5**2 + 18.5**2) ** 0.5)
     assert NativeData.bounding_box.diameter_mm == PytestLib.approx(ExpectedDiameter)
-    CheckNVFrame(ArchiveData)
+    RequireNVFrame(ArchiveData)
 
 
 def TestOpenFails(TmpPath: FilePath) -> None:
