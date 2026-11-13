@@ -69,7 +69,8 @@ The depth fields were isolated by changing only 9 mm to 17 mm.
 It converts all millimetre values to metres.
 
 The corrected map contains 55 dynamic values: ten coordinate fields, four positive-depth fields, eight bbox fields, 24 display-plane fields, seven rightmost-vertex annotation fields, and two negative-depth fields.
-The bbox centres and full diameters are at 8797–8821 and 9027–9051.
+The bbox centres and full sphere diameters are at 8797–8821 and 9027–9051.
+The full diameter is `2*sqrt(half_x²+half_y²+half_z²)` in metres. Converting that result to millimetres uses a factor of 1,000, not 2,000.
 Display-plane extents follow 1.1 times the body half-extents about the bbox centre.
 Annotation witnesses follow the unique rightmost vertex, which is not necessarily the greatest Y coordinate.
 A tied rightmost vertex remains unsupported and fails closed rather than guessing attachment selection.

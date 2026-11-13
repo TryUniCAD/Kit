@@ -26,7 +26,7 @@ Four depth copies sit at offsets 10012, 10084, 10572, and 10596.
 Two negative annotation-depth fields sit at offsets 10410 and 10434.
 The central helper is `src/convert/adapters/solidworks/programs/resolved/polyline/fivepoint/Program.py`.
 
-The 55 dynamic values include all point coordinates, bounding-box centres and diameters, expanded display-plane bounds, rightmost-vertex annotation witnesses, and positive and negative depth fields.
+The 55 dynamic values include all point coordinates, bounding-box centres and diameters, expanded display-plane bounds, rightmost-vertex annotation witnesses, and positive and negative depth fields. Validation, geometry derivation, and field-set serialization are split into focused helpers without changing the native facade output. The full diameter is `2*sqrt(half_x²+half_y²+half_z²)` metres before multiplying by 1,000 for millimetres, not by 2,000.
 Profiles with a tied rightmost attachment vertex fail closed, because the available oracle corpus does not establish tie selection.
 
 No vendor stream, template, opaque payload, COM call, CAD runtime, or encoded donor stream is used by production conversion.
