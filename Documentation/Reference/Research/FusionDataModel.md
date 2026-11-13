@@ -1368,18 +1368,20 @@ A Form writer must therefore store the exact converted body.
 ### Grid cage conversion
 
 `ConvertGrid` converts a qualified open grid cage exactly.
-A qualified cage has valence-4 interior vertices, unit knot intervals, unit weights and no interior creases.
+A qualified cage has valence-4 interior vertices, unit weights, no interior creases and one whole-number knot interval on every edge.
 Its limit surface is one bicubic B-spline whose poles are the grips in grid order.
 The vertex spoke frame and the compound grips decide that order.
 Fusion also records each interior knot with a third-derivative jump in the surface and curve discontinuity lists.
 `SwapGridCage` puts a new cage of the same grid layout into a Form document.
+A uniform interval from 1 to 4096 scales the parameters and keeps the geometry, and Fusion still records a jump at every interior knot.
+Mixed and fractional intervals are refused, because Fusion places their jumps with a geometric test, as the [knot interval gotcha](../../Gotchas/Conversion/Fusion/TSpline/KnotIntervalConversion.md) records.
 The [pole order gotcha](../../Gotchas/Conversion/Fusion/TSpline/GridCagePoleOrder.md) and the [discontinuity gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConvertedDiscontinuityLists.md) give the rules.
 
 ### Stencil cage conversion
 
 Fusion converts each cage layout with a fixed linear map from the grips to the converted poles and points.
 The layout is the topology with its root links, grip mapping, creases, smart grips, header rules and grip weights.
-Single-grip probes recovered the map for seven layouts.
+Single-grip probes recovered the map for seven layouts, and a fit to grip-move archives gave an eighth table for the valence-7 prism.
 Further moves of all grips confirmed each map within 2.1e-14 cm.
 Regular regions use small dyadic and triadic fractions.
 Vertex limit points use the Catmull–Clark limit mask.
@@ -1399,11 +1401,14 @@ The [linearity gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConversionIsLinea
 | Creased box                               | 26            | 6, 13, 9                           | Fusion box with one crease edge   |
 | Box with 3 × 3 faces per side             | 56            | 6, 12, 8                           | Kit cage                          |
 | Valence-5, valence-6 and valence-8 prisms | 32, 38 and 50 | 15, 35, 22; 18, 42, 26; 24, 56, 34 | Kit cages                         |
+| Valence-7 prism                           | 44            | 21, 49, 30                         | Kit cage, fitted table            |
 
-Kit refuses every other stencil layout, non-unit knot intervals and non-unit weights.
-Weight 2 on every grip of the box shrank its area to a quarter.
-Fusion therefore divides the stored grip coordinates by the weight.
-Kit cannot read the converted cache of a weighted cage, as the [weighted grip gotcha](../../Gotchas/Conversion/Fusion/TSpline/WeightedGripCoordinates.md) shows.
+The TSM grip coordinates are homogeneous, as the [weighted grip gotcha](../../Gotchas/Conversion/Fusion/TSpline/WeightedGripCoordinates.md) shows.
+A weighted cage converts with the same table applied to the homogeneous grips and divided by the table applied to the weights.
+Fusion stores a face or curve as rational only when one of its poles depends on a weighted grip, as the [weighted face gotcha](../../Gotchas/Conversion/Fusion/TSpline/WeightedFaceRationality.md) records.
+Kit reads and writes that rational converted cache, and `ConvertCage` equalled 23 Fusion-saved weighted and fourth-pass archives within 1.2e-13 cm.
+Kit refuses every other stencil layout, bands that join two extraordinary valences, weighted grids and stencil layouts with knot intervals other than 1.
+The G1 caps of a new layout come from a sparse solve inside the T-spline library, so no table can be derived for an arbitrary layout.
 
 The geometry follows the map, but the crease edges do not keep one structure.
 Fusion stores a crease as `tangent` while its faces meet flat and as `unknown` once they bend.
@@ -2086,7 +2091,8 @@ The inline-typed reference form and the cadmpeg cross-document grammar are not q
 An F2D drawing stores its model link and tracked model elements in entity segments.
 It stores its sheets, views and annotations in an embedded AutoCAD database.
 Kit reads and re-emits modern F2D drawings, the historical drawing example and drawing-root F3Z bundles.
-It does not author drawings.
+Its typed DWG model re-emits the embedded databases byte for byte.
+Kit builds F2D packages and drawing-root bundles from typed sheets, views and dimensions, but Fusion 2706.1.17 has not yet opened a DWG that Kit authors.
 The [drawing codec entry](../../Changes/Fusion/Drawing/FusionDrawingCodec.md) gives the API.
 The [drawing persistence entry](../../Changes/Fusion/FusionDrawingPersistenceModel.md) gives the earlier native field evidence.
 
@@ -2255,7 +2261,12 @@ The [reference update gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionDraw
 That run then timed out while it waited for the drawing cloud save, so the report gives it status `failed`.
 The Personal-use licence kept new uploads read-only, as the [read-only gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionPersonalReadOnlySave.md) records.
 Save and reopen after a model edit are therefore not verified.
-A new drawing would need DWG view and annotation objects, which Kit does not decode or write.
+Kit now decodes every DWG object of the controls into typed values and writes sheets, view reps, view blocks and dimensions.
+A Kit-built F2D around a Fusion-saved DWG opened in 4.3 s with 3 views and 1 dimension.
+A DWG that Kit authors stalls the open for two reasons.
+The header variables end with four BS values that Fusion checks and rewrites on every save, and no tested checksum produces them.
+Kit's shell sections each open when swapped alone into a control, but all of them together stall.
+The [header tail gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingHeaderTail.md) and the [authored shell gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingAuthoredShell.md) give the variants.
 
 ## External corroboration
 
