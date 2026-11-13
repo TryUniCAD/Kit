@@ -171,12 +171,12 @@ KHolderBase = "98542EB9-A4F2-4137-A808-DBB5B3CD6159"
 KMatrixGuid = "7B6C3C2D-4096-4E6D-B225-699E8C2D9355"
 
 KNewestPairs = (
-    (KDraftGuid, 6),
-    (KMatrixGuid, 16),
-    ("7A6A3D31-BE74-4E19-9115-20642944C2E4", 10),
-    ("D4CBC599-0FFB-4d32-BF14-A7F0AFA25013", 11),
-    ("4C835764-5BAB-4421-B5D2-06015BEF6EB2", 5),
-    ("D572415C-6C2C-460B-8C84-265C52D89EDF", 4),
+    (KDraftGuid, (5, 6)),
+    (KMatrixGuid, (14, 15, 16)),
+    ("7A6A3D31-BE74-4E19-9115-20642944C2E4", (8, 9, 10)),
+    ("D4CBC599-0FFB-4d32-BF14-A7F0AFA25013", (10, 11)),
+    ("4C835764-5BAB-4421-B5D2-06015BEF6EB2", (4, 5)),
+    ("D572415C-6C2C-460B-8C84-265C52D89EDF", (2, 4)),
 )
 
 KIdentity = (
@@ -320,11 +320,14 @@ def TestDraftValues() -> None:
 
 def TestNewestPick() -> None:
     Catalog = DocumentCatalog(ReadDocSchemas())
-    for ClassGuid, Newest in KNewestPairs:
-        Versions = sorted(
-            Schema.SchemaVersion for Schema in Catalog.Classes[ClassGuid.upper()]
+    for ClassGuid, Expected in KNewestPairs:
+        Versions = tuple(
+            sorted(
+                Schema.SchemaVersion for Schema in Catalog.Classes[ClassGuid.upper()]
+            )
         )
-        assert len(Versions) == 2 and Versions[-1] == Newest
+        assert Versions == Expected
+        Newest = Expected[-1]
         assert PickSchema(ClassGuid, None, Catalog).SchemaVersion == Newest
         assert PickSchema(ClassGuid.lower(), None, Catalog).SchemaVersion == Newest
 

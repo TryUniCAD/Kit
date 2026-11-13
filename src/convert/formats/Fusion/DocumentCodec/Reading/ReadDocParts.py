@@ -1,3 +1,5 @@
+from re import fullmatch as FullMatch
+
 from convert.formats.Fusion.ContainerCodec.Model.ContainerPart import ContainerPart
 from convert.formats.Fusion.DocumentCodec.Auxiliary.Graphics.ReadSceneParts import (
     ReadSceneParts,
@@ -10,7 +12,7 @@ from convert.formats.Fusion.DocumentCodec.Auxiliary.Snapshots.ReadSnapPart impor
 )
 from convert.formats.Fusion.DocumentCodec.Auxiliary.Images.CheckImagePart import (
     CheckImagePart,
-    KImageFolder,
+    KImageName,
 )
 from convert.formats.Fusion.DocumentCodec.Model.ConfigPart import ConfigPart
 from convert.formats.Fusion.DocumentCodec.Model.DocumentBody import DocumentBody
@@ -49,7 +51,7 @@ def ReadDocParts(
             Configurations.append(ReadConfigPart(Value))
         elif Value.Name.startswith("ParaMeshGeometry.BlobParts/"):
             Meshes.append(ReadMeshPart(Value))
-        elif Value.Name.startswith(KImageFolder):
+        elif FullMatch(KImageName, Value.Name) is not None:
             Images.append(CheckImagePart(Value))
         elif Value.Name.startswith(KFormFolder):
             Forms.append(ReadFormPart(Value))

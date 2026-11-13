@@ -29,6 +29,7 @@ from convert.formats.Fusion.MaterialCodec.Package.Validation.CheckFolder import 
 )
 from convert.formats.Fusion.MetaCursor import MetaCursor
 from convert.formats.Fusion.TSplineCodec.EmitTspline import EmitTspline
+from convert.formats.Fusion.TSplineCodec.Model.KnotSurface import KnotSurface
 from convert.formats.Fusion.TSplineCodec.ReadTspline import ReadTspline
 
 KRoot = FilePath(__file__).resolve().parents[5]
@@ -80,7 +81,8 @@ def TestDefaultMat(RelativeName: str) -> None:
     assert not Model.Bodies
     SpecValue = NativeMaterial(Model)
     assert SpecValue != MaterialSpec()
-    assert SpecValue.NameValue and SpecValue.Density > 0.0
+    assert SpecValue.NameValue == ""
+    assert SpecValue.Density == 7850.0
 
 
 @KRequiresCodec
@@ -116,6 +118,7 @@ def TestEdgeKnots() -> None:
     ]
     assert len(Members) == 1
     Surface = ReadTspline(Archive.read(Members[0]))
+    assert isinstance(Surface, KnotSurface)
     assert len(Surface.EdgeKnots) == len(Surface.Topology.Edges)
     assert ReadTspline(EmitTspline(Surface)) == Surface
 

@@ -17,7 +17,7 @@ The block has these rules:
 
 ## Workaround
 
-Read the block into `TsplineSurface.EdgeKnots`, and write it back in its place.
+Read a surface with the block as a `KnotSurface`, a `TsplineSurface` with `EdgeKnots`. Write the block back in its place. A surface without the block stays a plain `TsplineSurface`, so its model and its semantic hash do not change.
 
 The two files then stop in the converted patch program. Fusion writes each patch word as a double in `%.17g` form. `ReadPatchRow` in `BrepCodec/Journal/Spline/Reading` parses each word as an integer.
 

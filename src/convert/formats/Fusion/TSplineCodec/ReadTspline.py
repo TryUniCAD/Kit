@@ -1,3 +1,4 @@
+from convert.formats.Fusion.TSplineCodec.Model.KnotSurface import KnotSurface
 from convert.formats.Fusion.TSplineCodec.Model.TsplineSurface import TsplineSurface
 from convert.formats.Fusion.TSplineCodec.Model.ControlGrip import ControlGrip
 from convert.formats.Fusion.TSplineCodec.Wire.MakeCursor import MakeCursor
@@ -28,7 +29,7 @@ def ReadTspline(Payload: bytes) -> TsplineSurface:
     SmartGrips = tuple(
         ReadInteger(Fields[0]) for Fields in ReadRows(Cursor, "50000grip", 1)
     )
-    Result = TsplineSurface(
+    Members = (
         ReadFooter(Cursor, Header),
         Topology,
         Grips,
@@ -36,7 +37,7 @@ def ReadTspline(Payload: bytes) -> TsplineSurface:
         Creases,
         Symmetry,
         SmartGrips,
-        EdgeKnots,
     )
+    Result = KnotSurface(*Members, EdgeKnots) if EdgeKnots else TsplineSurface(*Members)
     CheckSurface(Result)
     return Result

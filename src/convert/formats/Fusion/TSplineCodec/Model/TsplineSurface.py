@@ -16,4 +16,3 @@ class TsplineSurface:
     Creases: CreaseData | None = None
     Symmetry: PlaneSymmetry | None = None
     SmartGrips: tuple[int, ...] = ()
-    EdgeKnots: tuple[float, ...] = ()

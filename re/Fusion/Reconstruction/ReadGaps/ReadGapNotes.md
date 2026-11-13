@@ -106,7 +106,7 @@ The three apple-torus files are `vendor_RoundRimChain.f3d`, `vendor_RoundHoleRim
 - Each row has one number. Its text equals the second field of its `e` row.
 - The block sits after the `100edges` and `100verts` crease blocks, after any `105` symmetry block, and before `50000grip`. Extension blocks are in ascending order of their numeric prefix.
 
-The TSM reader now reads the block into `TsplineSurface.EdgeKnots`. These two files then stop in the converted patch program, as the next section says.
+The TSM reader now reads the block into `KnotSurface.EdgeKnots`. These two files then stop in the converted patch program, as the next section says.
 
 ### Fractional patch programs
 
@@ -344,6 +344,15 @@ These changes lie outside this task:
 
 - `MaterialCodec/Package/Envelope/PackageEntries.py` should link `AssetData`, `Resources` and `Schemas` when `MaterialPackage.Resources` is set, and write each folder's `core.xml`, `cnx.xml` and resource files. `EmitMatPart` can then drop its guard.
 - The patch program words of `Intervals/` need `ReadPatchRow`, `PatchCell` and `WritePatches` in `BrepCodec/Journal/Spline/`.
+
+## CI fixes on the merged branch
+
+The squash merge `cf93062c3` failed 16 Fusion compatibility tests.
+
+- `TsmArchiveTests.py::TestTsmArchive`, 12 cases. The new `EdgeKnots` field of `TsplineSurface` added an empty key to every semantic hash. The code was wrong, not the digests. A surface with a `106ek` block is now a `KnotSurface`, a subclass that adds `EdgeKnots`. `TsplineSurface` equals its form before the merge. `TsmEncode.py` reads all 253 corpus TSM members with the old and new reader. The 251 members that read before keep the same semantic hash and their byte round trip. The two members with the block now read.
+- `DocumentArchiveTests.py::TestUnknownPart` writes a member `Images.BlobParts/Unknown.bin` and expects `Unsupported Fusion document part`. The image rule covers only `Image.<uuid>.png`. The reader now sends only such names to the image reader. Other members of the folder stay unsupported document parts.
+- `ReadGapRuleTests.py::TestDefaultMat`, 2 cases. `DefaultMatSpy.py` shows that Fusion stores an empty `physmat_Label` in both files. The default asset is library steel with density 7,850. The material projection now reads the name from `physmat_Label`, so the name is empty. The test expectation was wrong. It now expects the empty label and the density.
+- `SavedReadTests.py::TestNewestPick`. The historic layouts add `DRMatrix` version 14 and `Parameter` version 8 to the catalog. The test expected two versions per class. It now lists the exact versions of each class and still checks that an unversioned pick takes the newest.
 
 ## Status
 

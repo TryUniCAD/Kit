@@ -12,7 +12,7 @@ Each image part is named by the `partName` of one `ImageSerializer` record in th
 
 ## Workaround
 
-Read each image part as a PNG payload into `DocumentModel.Images`. Check that every nonempty `ImageSerializer.partName` names one image part, and that every image part is named. Write the parts back unchanged.
+Read each part named `Images.BlobParts/Image.<uuid>.png` as a PNG payload into `DocumentModel.Images`. Any other member of the folder stays an unsupported document part. Check that every nonempty `ImageSerializer.partName` names one image part, and that every image part is named. Write the parts back unchanged.
 
 ## Evidence
 

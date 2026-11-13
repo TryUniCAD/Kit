@@ -1,3 +1,4 @@
+from convert.formats.Fusion.TSplineCodec.Model.KnotSurface import KnotSurface
 from convert.formats.Fusion.TSplineCodec.Model.TsplineSurface import TsplineSurface
 from convert.formats.Fusion.TSplineCodec.Writing.WriteHeader import WriteHeader
 from convert.formats.Fusion.TSplineCodec.Writing.WriteFooter import WriteFooter
@@ -16,7 +17,8 @@ def EmitTspline(Surface: TsplineSurface) -> bytes:
     Records += WriteMapping(Surface.Mapping)
     Records += tuple("0g " + WritePoint(Value) for Value in Surface.Grips)
     Records += WriteCreases(Surface.Creases) + WriteSymmetry(Surface.Symmetry)
-    Records += tuple("106ek " + NumberText(Value) for Value in Surface.EdgeKnots)
+    if isinstance(Surface, KnotSurface):
+        Records += tuple("106ek " + NumberText(Value) for Value in Surface.EdgeKnots)
     Records += tuple("50000grip " + str(Index) for Index in Surface.SmartGrips)
     Records += WriteFooter(Surface.Header)
     Payload = ("\n".join(Records) + "\n").encode("ascii")
