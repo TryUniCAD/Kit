@@ -31,9 +31,10 @@ After `computeAll`, Fusion moved each one to the face centre and ignored `point3
 `HoleGrid` and `MultiPocketPart` then failed the native geometry comparison.
 
 The axis face of a hole on a disc is bounded by one closed circular edge.
-Kit wrote that edge with the corner recipe for straight sides, which names the wall twice.
-Fusion then reported `Failed to evaluate the direction due to the invalid input` on the hole.
-The native `DiscBore` recipe names the rim edge tag and one vertex.
+Kit first wrote that edge with the corner recipe for straight sides, which names the wall twice.
+The native `DiscBore` recipe names the rim edge tag and one vertex instead.
+`MultiDiscPart` reported `Failed to evaluate the direction due to the invalid input` on its hole with either recipe.
+That warning came from the circular pattern before the hole, as the [copy occurrence gotcha](FeatureCopyOccurrence.md) records.
 
 | Recipe part | Native circular top face                                         |
 | ----------- | ---------------------------------------------------------------- |
