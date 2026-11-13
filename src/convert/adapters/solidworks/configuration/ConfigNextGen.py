@@ -36,9 +36,9 @@ def EncodeSfTail() -> bytes:
     return EncodeString("") + EncodeString("") + Struct.pack("<II", 0, 0)
 
 
-def BuildVisual() -> bytes:
+def BuildVisual(AtomId: int) -> bytes:
     Payload = bytearray(
-        EncodeDSP(101, KGeneration, KReferenceBuild, KDefaultRenderStyle)
+        EncodeDSP(AtomId, KGeneration, KReferenceBuild, KDefaultRenderStyle)
     )
     del Payload[-KIdentityBytes:]
     Struct.pack_into("<I", Payload, KVisualFlagOffsets[0], 1)
@@ -61,13 +61,13 @@ def ValidateInputs(
         raise SldprtFormatError("Config-0 2026 currently requires one annotation view")
 
 
-def ApplyAdditions(Buffer: bytes, NameWidth: int) -> bytes:
+def ApplyAdditions(Buffer: bytes, NameWidth: int, AtomId: int) -> bytes:
     HelperTail = EncodeSfTail()
     PlaneTail = Struct.pack("<4I", 1, 1, 120, 1)
     Shift = (
         NameWidth
         - KReferenceNameWidth
-        + len(BuildVisual())
+        + len(BuildVisual(AtomId))
         - (KVisualEnd - KVisualStart)
     )
     Records = (
@@ -116,9 +116,11 @@ def BuildNVConfig(
     )
     Shift = len(PartName.encode("utf-16le")) - KReferenceNameWidth
     Buffer = (
-        Buffer[: KVisualStart + Shift] + BuildVisual() + Buffer[KVisualEnd + Shift :]
+        Buffer[: KVisualStart + Shift]
+        + BuildVisual(Atoms[0][0])
+        + Buffer[KVisualEnd + Shift :]
     )
-    Buffer = ApplyAdditions(Buffer, len(PartName.encode("utf-16le")))
+    Buffer = ApplyAdditions(Buffer, len(PartName.encode("utf-16le")), Atoms[0][0])
     Buffer = UpdateGen(Buffer)
     if len(Buffer) != KConfigBytes + Shift:
         raise SldprtFormatError("Config-0 2026 stream length is not the recovered size")

@@ -198,15 +198,28 @@ def TestOpenFails(TmpPath: FilePath) -> None:
 
 
 def TestRelations(TmpPath: FilePath) -> None:
-    SourceDoc = BuildDocument()
-    Sketch = ReplaceData(
-        SourceDoc.sketches[0],
-        constraints=(SketchRelation("relation:0", "horizontal", ()),),
+    SixPoints = (
+        (0.0, 0.0),
+        (40.0, 0.0),
+        (40.0, 10.0),
+        (15.0, 10.0),
+        (15.0, 25.0),
+        (0.0, 25.0),
     )
-    SourceDoc = ReplaceData(SourceDoc, sketches=(Sketch,))
-    assert HasVendorPartEncoding(SourceDoc) is False
-    with PytestLib.raises(ApplicationUsabilityError):
-        _ = WriteDoc(SourceDoc, TmpPath / "Relations.SLDPRT", allow_carrier=False)
+    for Points in (KPoints, SixPoints):
+        SourceDoc = BuildDocument(Points)
+        Sketch = ReplaceData(
+            SourceDoc.sketches[0],
+            constraints=(SketchRelation("relation:0", "horizontal", ()),),
+        )
+        SourceDoc = ReplaceData(SourceDoc, sketches=(Sketch,))
+        assert HasVendorPartEncoding(SourceDoc) is False
+        with PytestLib.raises(ApplicationUsabilityError):
+            _ = WriteDoc(
+                SourceDoc,
+                TmpPath / f"Relations{len(Points)}.SLDPRT",
+                allow_carrier=False,
+            )
 
 
 def TestCrossFails(TmpPath: FilePath) -> None:
