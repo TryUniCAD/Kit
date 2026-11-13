@@ -111,6 +111,7 @@ uv run pytest -p no:cacheprovider --numprocesses logical --dist load \
   It checks that the report log contains reports from `gw0` and `gw1`.
   It also checks the alternating order of a planned shard.
   PR CI runs it in the workflow quality job.
+  Both of its tests passed in [job 131717796021](https://github.com/TryUniCAD/Kit/actions/runs/43374527764/job/131717796021) on Python 3.11.
 - The pytest 9.1.1 `normalize_collection_arguments` function keeps the argument order.
   The planned order therefore reaches xdist.
 - The pytest-reportlog 1.0.0 `pytest_configure` hook registers the plugin only in the controller.
