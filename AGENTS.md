@@ -25,6 +25,18 @@ updates; generated docs must be reviewed and must not overwrite manual entries.
 
 ## Repository workflow
 
+For research automation tracked in PR #94, also read [the scoped contributor instructions](re/AGENTS.md)
+and [the implementation step register](Documentation/Reference/Research/AutomationSteps.md).
+All code, documentation and progress for this automation programme's A01–A16 steps belong on PR #94 by explicit user instruction; do not open separate implementation PRs for these steps.
+Claim authorized steps and post evidence-backed progress comments on that PR as those instructions require.
+
+For every PR, post a readable top-level progress comment when a change or stage starts,
+makes meaningful progress, completes, becomes blocked, or is handed off.
+Name the current stage, status, owner, exact revision, changes, verification, remaining work and next action.
+Post after each accepted push and each failed verification.
+Update the maintained step register when one exists.
+A chat update or edited PR description does not replace the required PR comment.
+
 Agents MUST activate [standard-pr-practice](.agents/skills/standard-pr-practice/SKILL.md)
 every time they work on this repository, before any task, including investigation,
 documentation, skill edits, implementation, and PR follow-up. It is the only repository skill and the
@@ -33,7 +45,7 @@ the removed Kiro skill registrations, steering directories, or skill generator.
 All prior rules and resources are preserved in full inside standard-pr-practice;
 read its complete standards index and every applicable rule before coding.
 
-- Use an isolated worktree and a separate normal PR for each task. Preserve
+- Use an isolated worktree and a separate normal PR for each task, except the explicitly user-directed A01–A16 programme on PR #94. Preserve
   user-owned changes and never write directly to `main`.
 - Push with `--no-verify`. Never run tests locally, including collection,
   reproductions, hooks, or build commands that execute tests.

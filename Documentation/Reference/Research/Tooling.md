@@ -72,8 +72,12 @@ Do not publish an unmeasured hypothesis as product support.
 
 ## Sources
 
+- [Pinned corpus and paired authoring specifications](PinnedCorpus.md)
+- [Durable evidence store and job controller](ResearchController.md)
 - [Research index](../../../re/README.md)
 - [Ghidra setup](../../../re/tooling/ghidra/Setup.md)
 - [Runtime trace tool](../../../re/tooling/windbg/Multitrace.py)
 - [Serialization harness](../../../re/tooling/harness/Serialize.py)
 - [Program generation](../../../re/tooling/ProgramDecomposition/GeneratePrograms.py)
+
+The [pinned SOLIDWORKS reader](SolidworksResearchReader.md) emits neutral JSON and a separate unresolved-evidence receipt.
