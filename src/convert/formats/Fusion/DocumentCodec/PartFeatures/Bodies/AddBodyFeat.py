@@ -2,6 +2,9 @@ from dataclasses import replace as ReplaceValue
 from uuid import uuid4 as MakeUuid
 
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Bodies.AddPasteMut import (
+    AddPasteMut,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Bodies.BodyRefs import (
     AddBodyRefMut,
     AddBodySeedMut,
@@ -34,6 +37,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CombineSpec import 
     CombineSpec,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartStage import PartStage
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PasteSpec import PasteSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SplitSpec import SplitSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.AddCopyMut import (
     AddCountMut,
@@ -232,4 +236,6 @@ def AddBodyStage(
         return AddCombineMut(Author, Stage, Prefix, BodyTags)
     if isinstance(Stage.Feature, SplitSpec):
         return AddSplitMut(Author, Stage, Prefix)
+    if isinstance(Stage.Feature, PasteSpec):
+        return AddPasteMut(Author, Stage, Prefix, BodyTags)
     return AddBodyCopyMut(Author, Stage, Prefix, BodyTags)

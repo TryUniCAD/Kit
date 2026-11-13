@@ -9,6 +9,7 @@ from convert.formats.Fusion.DocumentCodec.Values.ReadObjects import (
 )
 
 KCountClass = "DcIntParameter"
+KCountModes: dict[str, object] = dict(isRoundToNearestInt=True)
 
 
 def ExprText(Amount: float) -> str:
@@ -51,9 +52,12 @@ def AddParamMut(
         RoleName + "_parameter", "Parameter", ParentRole="parameters", Fields=Fields
     )
     Author.FindEntity(RoleName).Subjects.append(OwnerRole)
+    Numbers: dict[str, object] = dict(value=Value)
+    if ClassName == KCountClass:
+        Numbers = dict(KCountModes, value=round(Value))
     Author.Change(
         RoleName,
-        value=round(Value) if ClassName == KCountClass else Value,
+        **Numbers,
         parameter=Author.Reference(RoleName + "_parameter"),
         rparamId=RuntimeId + 1,
         rrOwnerFeature=Author.Reference(OwnerRole),

@@ -1,12 +1,16 @@
 from math import radians as Radians
 
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.LevelPicks import (
+    KLevelPick,
+    LevelPicks,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.AddParamMut import (
     AddParamMut,
     ExprText,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.AddPickMut import (
-    AddMorePickMut,
+    AddBrepRefMut,
     AddPickMut,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.PartNodes import (
@@ -63,21 +67,35 @@ def AddBevelMut(
     return ("other",)
 
 
-def AddPicksMut(Author: AuthorState, Stage: PartStage, Prefix: str) -> list[str]:
+def CornerPicks(Stage: PartStage) -> list[KLevelPick]:
     Feature = Stage.Feature
     if not isinstance(Feature, (FilletSpec, ChamferSpec)):
         raise ValueError("Fusion part corner feature requires a fillet or chamfer")
+    Corners = tuple(
+        (CornerMm[0] / 10.0, CornerMm[1] / 10.0)
+        for CornerMm in (Feature.CornerMm, *Feature.MoreCornersMm)
+    )
+    if Feature.LevelMm is not None:
+        return LevelPicks(Stage.Before, Corners, Feature.LevelMm / 10.0)
+    return [
+        (
+            CornerRecipe(Stage.Before, CornerCm),
+            "ETCachedLineSeg3d",
+            CornerCache(Stage, CornerCm),
+        )
+        for CornerCm in Corners
+    ]
+
+
+def AddPicksMut(Author: AuthorState, Stage: PartStage, Prefix: str) -> list[str]:
     Picks: list[str] = []
-    Corners = (Feature.CornerMm, *Feature.MoreCornersMm)
-    for Index, CornerMm in enumerate(Corners):
-        CornerCm = (CornerMm[0] / 10.0, CornerMm[1] / 10.0)
-        Recipe = CornerRecipe(Stage.Before, CornerCm)
-        Cache = CornerCache(Stage, CornerCm)
+    for Index, (Recipe, CacheClass, Cache) in enumerate(CornerPicks(Stage)):
         RoleName = Prefix + "pick" + ("" if Index == 0 else str(Index + 1))
         if Index == 0:
-            AddPickMut(Author, Prefix, Recipe, 8, "ETCachedLineSeg3d", Cache)
+            AddPickMut(Author, Prefix, Recipe, 8, CacheClass, Cache)
         else:
-            AddMorePickMut(Author, Prefix, RoleName, Recipe, Cache)
+            Roles = (Prefix + "feature", RoleName)
+            _ = AddBrepRefMut(Author, Roles, Recipe, (CacheClass, Cache, 8))
         Picks.append(RoleName)
     Reference = Author.Reference
     Author.Change(

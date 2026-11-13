@@ -25,6 +25,9 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSolid import (
 )
 from convert.formats.Fusion.DocumentCodec.Values.MakeAttributes import MakeAttributes
 
+KCreationState = 3
+KIdentity: dict[str, object] = {"identity": True}
+
 
 def AddBodyRefMut(
     Author: AuthorState,
@@ -103,8 +106,42 @@ def AddBodySeedMut(
     return Author.Reference(RoleName)
 
 
+def ActRefValue(Author: AuthorState) -> list[dict[str, object]]:
+    Fields: dict[str, object] = dict(
+        actRefdTable=None,
+        changeTypesToTrack=[],
+        crossAsset=False,
+        owningEntity=None,
+        rActData=None,
+        refdEntity=None,
+    )
+    return [Author.MakeGroup("ACTRefValue", Fields)]
+
+
+def LocalActRef(Author: AuthorState) -> list[dict[str, object]]:
+    PathValue: dict[str, object] = dict(
+        componentInstances=[],
+        creationState=KCreationState,
+        passiveOccurrencePath=Author.MakeValue("ACTPassivePathValue"),
+        sourceACTComponent=None,
+        sourceComponent=None,
+    )
+    Fields: dict[str, object] = dict(
+        actDataForCIs=[],
+        actRef=ActRefValue(Author),
+        deepTracking=False,
+        path=[Author.MakeGroup("BaseOccurrencePathValue", PathValue)],
+        topCompActRef=ActRefValue(Author),
+    )
+    return [Author.MakeGroup("OccurrenceACTRefValue", Fields)]
+
+
 def AddOccurMut(Author: AuthorState, Prefix: str, Operation: int) -> object:
     RoleName = Prefix + "occurrence"
-    Fields: dict[str, object] = {"parentFeature": Author.Reference(Prefix + "feature")}
+    Fields: dict[str, object] = dict(
+        OccurrenceACTRef=LocalActRef(Author),
+        cachedTransform=dict(KIdentity),
+        parentFeature=Author.Reference(Prefix + "feature"),
+    )
     Author.Allocate(RoleName, "OccurrenceDataRef", Fields=Fields)
     return [{"key": Author.Reference(RoleName), "value": Operation}]

@@ -34,6 +34,7 @@ KThroughNote = "SavedHoleDepthInNonDistanceExtentsCase"
 KCenterPoint = 6
 KFacePoint = 17
 KCenterTolerance = 1e-9
+KHoleModes: dict[str, object] = dict(bInside1=True, bInside2=True, extendFaceOption=1)
 KHoleParam: TypeAlias = tuple[dict[str, float], int]
 KHolePlace: TypeAlias = tuple[tuple[int, int, int], tuple[float, float]]
 
@@ -183,6 +184,7 @@ def LinkHoleMut(
         rDRNormal=Reference(Prefix + "axis"),
         rHoleToolBody=Reference(Prefix + "tool"),
         rToEntityRefs=[Reference(Extent[0])] if Extent else [],
+        **KHoleModes,
     )
     if not Feature.DepthMm:
         NoteValue = {"name": KThroughNote, "metatype": "IntrinsicMetaTypedouble"}

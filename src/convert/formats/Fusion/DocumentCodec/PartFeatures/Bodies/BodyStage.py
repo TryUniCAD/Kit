@@ -4,6 +4,9 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Bodies.CombineSolid impor
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Bodies.CopyBodies import (
     CopyBodies,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Bodies.PasteSolid import (
+    PasteSolid,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Bodies.SplitSolid import (
     SplitSolid,
 )
@@ -19,14 +22,15 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CombineSpec import 
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartFeature import (
     KPartFeature,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PasteSpec import PasteSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SplitSpec import SplitSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSolid import (
     PrismSolid,
 )
 
-KBodySpec = CombineSpec | SplitSpec | BodyGridSpec | BodyRingSpec
-KBodySpecs = (CombineSpec, SplitSpec, BodyGridSpec, BodyRingSpec)
+KBodySpec = CombineSpec | SplitSpec | BodyGridSpec | BodyRingSpec | PasteSpec
+KBodySpecs = (CombineSpec, SplitSpec, BodyGridSpec, BodyRingSpec, PasteSpec)
 KBodyState = tuple[dict[int, PrismSolid], list[int]]
 
 
@@ -73,6 +77,14 @@ def SplitStageMut(
     return First
 
 
+def PasteStageMut(State: KBodyState, Feature: PasteSpec, Operation: int) -> PrismSolid:
+    Source = ShownBody(State, Feature.SourceBody)
+    Pasted = PasteSolid(Source, Operation, len(State[0]) + 1)
+    State[0][Pasted.Ordinal] = Pasted
+    State[1].append(Pasted.Ordinal)
+    return Pasted
+
+
 def BodyStageMut(
     State: KBodyState,
     Feature: KBodySpec,
@@ -85,6 +97,9 @@ def BodyStageMut(
     if isinstance(Feature, SplitSpec):
         Before = ShownBody(State, Feature.TargetBody)
         return Before, SplitStageMut(State, Feature, Operation, Context)
+    if isinstance(Feature, PasteSpec):
+        Before = ShownBody(State, Feature.SourceBody)
+        return Before, PasteStageMut(State, Feature, Operation)
     Source = ShownBody(State, Feature.SourceBody)
     Ordinal = len(State[0]) + 1
     for CopySolid in CopyBodies(Source, Feature, Operation, Ordinal):

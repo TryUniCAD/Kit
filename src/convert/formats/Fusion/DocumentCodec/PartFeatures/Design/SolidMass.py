@@ -1,6 +1,9 @@
 from dataclasses import replace as ReplaceValue
 from math import hypot as Hypotenuse, sqrt as SquareRoot
 
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Brep.RoundShape import (
+    ApplyRounds,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.BuildShape import (
     BuildShape,
 )
@@ -111,7 +114,7 @@ def TaperMassMut(MassValue: dict[str, float], SlabValue: PrismSlab) -> None:
             MassValue[KeyValue] += Plane[KeyValue] * Scale
 
 
-def SolidMass(Solid: PrismSolid) -> dict[str, float]:
+def PrismMass(Solid: PrismSolid) -> dict[str, float]:
     MassValue = dict(
         volume=0.0, x=0.0, y=0.0, z=0.0, xx=0.0, yy=0.0, zz=0.0, xy=0.0, xz=0.0, yz=0.0
     )
@@ -138,6 +141,17 @@ def SolidMass(Solid: PrismSolid) -> dict[str, float]:
             MassValue[KeyValue] += Plane[KeyValue] * Height
     MassValue["area"] = SolidArea(Solid)
     return MassValue
+
+
+def SolidMass(Solid: PrismSolid) -> dict[str, float]:
+    if not Solid.Rounds:
+        return PrismMass(Solid)
+    Plain = ReplaceValue(Solid, Rounds=())
+    Delta = ApplyRounds(BuildShape(Plain), Solid.Rounds)[1]
+    return {
+        KeyValue: Value + Delta.get(KeyValue, 0.0)
+        for KeyValue, Value in PrismMass(Plain).items()
+    }
 
 
 def LineSpread(Lower: LineSpan, Upper: LineSpan) -> float:
@@ -169,9 +183,11 @@ def WallArea(FaceValue: WallFace) -> float:
 def SolidArea(Solid: PrismSolid) -> float:
     Total = 0.0
     for FaceValue in BuildShape(Solid).Faces:
-        if not isinstance(FaceValue, CapFace):
+        if isinstance(FaceValue, WallFace):
             Total += WallArea(FaceValue)
             continue
+        if not isinstance(FaceValue, CapFace):
+            raise ValueError("Fusion rounded faces need the round mass sum")
         Signed = 0.0
         for LoopValue in FaceValue.Loops:
             for UseValue in LoopValue:

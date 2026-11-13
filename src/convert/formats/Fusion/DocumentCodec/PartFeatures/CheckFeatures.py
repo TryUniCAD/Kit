@@ -119,6 +119,14 @@ def CheckCorners(Feature: FilletSpec | ChamferSpec) -> None:
         raise ValueError("Fusion corner edits require distinct corners")
 
 
+def CheckLevel(Feature: FilletSpec | ChamferSpec) -> None:
+    Level = CastValue(object, Feature.LevelMm)
+    if Level is None:
+        return
+    if type(Level) not in (int, float) or not IsFinite(CastValue(float, Level)):
+        raise ValueError("Fusion edge round levels must be finite numbers")
+
+
 def CheckSides(Feature: ShellSpec) -> None:
     Extras = CastValue(object, Feature.SidesMm)
     if not isinstance(Extras, tuple):
@@ -135,6 +143,7 @@ def CheckSides(Feature: ShellSpec) -> None:
 def CheckShape(Feature: KPartFeature) -> None:
     if isinstance(Feature, (FilletSpec, ChamferSpec)):
         CheckCorners(Feature)
+        CheckLevel(Feature)
     if isinstance(Feature, ChamferSpec):
         CheckBevel(Feature)
     if isinstance(Feature, ShellSpec):

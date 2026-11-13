@@ -7,3 +7,4 @@ class FilletSpec:
     RadiusMm: float
     FeatureName: str = "Fillet"
     MoreCornersMm: tuple[tuple[float, float], ...] = ()
+    LevelMm: float | None = None

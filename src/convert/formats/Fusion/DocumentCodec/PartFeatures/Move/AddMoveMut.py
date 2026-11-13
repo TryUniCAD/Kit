@@ -14,6 +14,8 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.BodyRole import (
     FocusRole,
 )
 
+KMoveModes: dict[str, object] = dict(moveMethodType=5, point2PositionCSType=1)
+
 
 def MoveEntries(Feature: MoveSpec) -> list[float]:
     CosValue, SinValue, ShiftX, ShiftY, _ = MoveFrame(Feature)
@@ -60,6 +62,7 @@ def AddMoveMut(Author: AuthorState, Stage: PartStage, Prefix: str) -> list[str]:
         Prefix + "matrix",
         moveTransform={"entries": MoveEntries(Feature)},
         rFeature=Reference(MainRole),
+        **KMoveModes,
     )
     Author.Change(MainRole, dcMoveMatrix=Reference(Prefix + "matrix"))
     return [Prefix + "target", Prefix + "target_body", Prefix + "matrix"]

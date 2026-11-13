@@ -1,8 +1,12 @@
 from dataclasses import replace as ReplaceValue
-from math import radians as Radians
+from math import radians as Radians, tan as Tangent
 
 from convert.formats.Fusion.DocumentCodec.Model.AuthorPolicy import AuthorPolicy
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Brep.EdgeRound import EdgeRound
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.BuildShape import (
+    BuildShape,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Construct.WorkCorner import (
     CornerWalls,
 )
@@ -132,9 +136,38 @@ def ApplyExtrude(
     )
 
 
+def BevelLegs(Feature: FilletSpec | ChamferSpec) -> tuple[float, float]:
+    if isinstance(Feature, FilletSpec):
+        return Feature.RadiusMm / 10.0, Feature.RadiusMm / 10.0
+    Amount = Feature.DistanceMm / 10.0
+    if Feature.SecondMm > 0:
+        return Amount, Feature.SecondMm / 10.0
+    if Feature.AngleDegrees > 0:
+        return Amount, Amount * Tangent(Radians(Feature.AngleDegrees))
+    return Amount, Amount
+
+
+def RoundSolid(
+    Solid: PrismSolid, Feature: FilletSpec | ChamferSpec, Operation: int
+) -> PrismSolid:
+    Level = (Feature.LevelMm or 0.0) / 10.0
+    Points = tuple(
+        (PointMm[0] / 10.0, PointMm[1] / 10.0, Level)
+        for PointMm in (Feature.CornerMm, *Feature.MoreCornersMm)
+    )
+    FirstCm, SecondCm = BevelLegs(Feature)
+    Rounded = isinstance(Feature, FilletSpec)
+    Round = EdgeRound(Points, FirstCm, SecondCm, Rounded, Operation, Solid.Blends)
+    Result = ReplaceValue(Solid, Rounds=(*Solid.Rounds, Round))
+    _ = BuildShape(Result)
+    return Result
+
+
 def CornerSolid(
     Solid: PrismSolid, Feature: FilletSpec | ChamferSpec, Operation: int
 ) -> PrismSolid:
+    if Feature.LevelMm is not None:
+        return RoundSolid(Solid, Feature, Operation)
     Rounded = isinstance(Feature, FilletSpec)
     if isinstance(Feature, FilletSpec):
         Amount, Bevel = Feature.RadiusMm / 10.0, (0.0, 0.0)
@@ -145,6 +178,8 @@ def CornerSolid(
         Corner = (CornerMm[0] / 10.0, CornerMm[1] / 10.0)
         Label = FaceLabel(str(Index + 1), (Operation,))
         Solid = EditCorner(Solid, Corner, Amount, Label, Rounded, Bevel)
+        if Rounded:
+            Solid = ReplaceValue(Solid, Blends=(*Solid.Blends, Label))
     return Solid
 
 
@@ -200,11 +235,21 @@ def CopyContext(
     return Index, Plane.OffsetMm / 10.0
 
 
+def IsLevelRound(Feature: KPartFeature) -> bool:
+    return (
+        isinstance(Feature, (FilletSpec, ChamferSpec)) and Feature.LevelMm is not None
+    )
+
+
 def CheckTaper(Solid: PrismSolid | None, Feature: KPartFeature) -> None:
-    if Solid is not None and IsSealed(Solid) and not IsStateless(Feature):
+    if Solid is None or IsStateless(Feature):
+        return
+    if IsSealed(ReplaceValue(Solid, Rounds=())):
         raise ValueError(
             "Fusion tapered or swept bodies must come from the last solid feature"
         )
+    if Solid.Rounds and not IsLevelRound(Feature):
+        raise ValueError("Fusion edge rounds must follow every other solid feature")
 
 
 def StageSolid(

@@ -4,6 +4,21 @@ from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
 from convert.formats.Fusion.DocumentCodec.Model.DraftEntity import DraftEntity
 from convert.formats.Fusion.DocumentCodec.Values.ConvertFields import ConvertFields
 from convert.formats.Fusion.EntityCodec.Model.EntityGroup import EntityGroup
+from convert.formats.Fusion.EntityCodec.Schema.FieldSpec import FieldSpec
+
+
+def CheckFilled(
+    ClassName: str, Members: tuple[FieldSpec, ...], Fields: dict[str, object]
+) -> None:
+    Missing = sorted(
+        Member.FieldName
+        for Member in Members
+        if Member.IsSaved and Member.FieldName not in Fields
+    )
+    if Missing:
+        raise ValueError(
+            "Authored " + ClassName + " lacks required fields: " + ", ".join(Missing)
+        )
 
 
 def DraftGroups(Author: AuthorState, Entity: DraftEntity) -> tuple[EntityGroup, ...]:
@@ -33,6 +48,7 @@ def DraftGroups(Author: AuthorState, Entity: DraftEntity) -> tuple[EntityGroup, 
                     for Child in Author.Entities
                     if Child.ParentRole == Entity.RoleName
                 ]
+        CheckFilled(Entity.ClassName, Schema.Value.Members, Fields)
         Groups.append(
             EntityGroup(
                 Schema.Value.ClassGuid,

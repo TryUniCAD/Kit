@@ -17,6 +17,11 @@ def ReadDocSchemas() -> tuple[ClassSchema, ...]:
         FusionPath / "DocumentCodec" / "Vocabulary" / "SavedClasses.json",
         FusionPath / "ContainerCodec" / "Assembly" / "ActClasses.json",
         FusionPath / "ContainerCodec" / "Browser" / "BrowserClasses.json",
+        FusionPath
+        / "DocumentCodec"
+        / "PartFeatures"
+        / "Vocabulary"
+        / "PasteClasses.json",
     )
     Catalog: dict[str, ClassSchema] = {}
     for Source in Paths:

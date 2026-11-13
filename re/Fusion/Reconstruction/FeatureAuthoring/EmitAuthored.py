@@ -47,6 +47,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.BodyGridSpec import
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.BodyRingSpec import BodyRingSpec  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.LoftSpec import LoftSpec  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SweepSpec import SweepSpec  # noqa: E402
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PasteSpec import PasteSpec  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.SolidMass import SolidMass  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.BuildShape import BuildShape  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.SolvePart import SolvePart  # noqa: E402
@@ -236,6 +237,15 @@ PART.update({
     "SweepSCurve": (SweepSpec(S_CURVE, -3.0, 5.0, 2.0, 8.0, "Bar profile", "Bar path", "Bar sweep"),),
     "SweepSecondBody": (base(), SweepSpec(BEND, -15.0, -5.0, 0.0, 10.0, "Rail profile", "Rail path", "Rail sweep")),
 })
+SIDE_POST = ExtrudeSpec((CircleCurve((60, 15), 5),), 20.0, "new", "one", 0.0, "Post sketch", "Post extrude")
+PART.update({
+    "PastePlain": (base(), PasteSpec(1, "Body paste")),
+    "PasteFillet": (base(), FilletSpec((40.0, 30.0), 3.0, "Corner round"), PasteSpec(1, "Body paste")),
+    "PasteTwice": (base(), PasteSpec(1, "First paste"), PasteSpec(1, "Second paste")),
+    "PasteSecond": (base(), SIDE_POST, PasteSpec(2, "Post paste")),
+    "PastePocket": (base(), POCKET, PasteSpec(1, "Body paste")),
+    "PasteCombine": (base(), POST, PasteSpec(2, "Post paste"), CombineSpec(1, (3,), "cut", False, "Body combine")),
+})
 
 CASES = {**CUBOID, **PART}
 
@@ -313,8 +323,87 @@ EDITS = {
     "SweepHook": [{"feature": "Bend sweep", "role": "AlongDistance", "expression": "0.75"}],
     "SweepSCurve": [{"feature": "Bar sweep", "role": "AlongDistance", "expression": "0.5"}],
     "SweepSecondBody": [{"feature": "Rail sweep", "role": "AlongDistance", "expression": "0.5"}, {"feature": "Base extrude", "role": "AlongDistance", "expression": "25 mm"}],
+    "PastePlain": [{"feature": "Base extrude", "role": "AlongDistance", "expression": "25 mm"}],
+    "PasteFillet": [{"feature": "Corner round", "expression": "4 mm"}],
+    "PasteTwice": [{"feature": "Base extrude", "role": "AlongDistance", "expression": "15 mm"}],
+    "PasteSecond": [{"feature": "Post extrude", "role": "AlongDistance", "expression": "15 mm"}],
+    "PastePocket": [{"feature": "Pocket extrude", "role": "AlongDistance", "expression": "10 mm"}],
+    "PasteCombine": [{"feature": "Post extrude", "role": "AlongDistance", "expression": "30 mm"}],
 }
 
+
+CORNER_ROUNDS = FilletSpec((40.0, 30.0), 5.0, "Corner rounds", ((0.0, 0.0), (40.0, 0.0), (0.0, 30.0)))
+ROUND_DISC = ExtrudeSpec((CircleCurve((0, 0), 10),), 20.0, "new", "one", 0.0, "Disc sketch", "Disc extrude")
+SLOT_BAR = ExtrudeSpec(slot(10, 15, 30, 8), 20.0, "new", "one", 0.0, "Slot sketch", "Slot extrude")
+STEP_POINTS = ((0.0, 0.0), (40.0, 0.0), (40.0, 15.0), (20.0, 15.0), (20.0, 30.0), (0.0, 30.0))
+STEP_BAR = ExtrudeSpec(tuple(LineCurve(a, b) for a, b in zip(STEP_POINTS, STEP_POINTS[1:] + STEP_POINTS[:1])), 20.0, "new", "one", 0.0, "Step sketch", "Step extrude")
+SQUARE_POST = ExtrudeSpec(rect(10, 10, 30, 20), 30.0, "join", "one", 0.0, "Post sketch", "Post extrude")
+ROUNDS = {
+    "RoundTopEdge": (base(), FilletSpec((20.0, 0.0), 3.0, "Top round", LevelMm=20.0)),
+    "BevelTopEdge": (base(), ChamferSpec((20.0, 0.0), 3.0, "Top bevel", LevelMm=20.0)),
+    "BevelTopTwo": (base(), ChamferSpec((20.0, 0.0), 3.0, "Top bevel", 2.0, LevelMm=20.0)),
+    "BevelTopAngle": (base(), ChamferSpec((20.0, 0.0), 3.0, "Top bevel", 0.0, 30.0, LevelMm=20.0)),
+    "RoundTwoEdges": (base(), FilletSpec((20.0, 0.0), 3.0, "Top rounds", ((20.0, 30.0),), LevelMm=20.0)),
+    "RoundBottomEdge": (base(), FilletSpec((40.0, 15.0), 2.0, "Bottom round", LevelMm=0.0)),
+    "RoundDiscRim": (ROUND_DISC, FilletSpec((10.0, 0.0), 3.0, "Rim round", LevelMm=20.0)),
+    "BevelDiscRim": (ROUND_DISC, ChamferSpec((10.0, 0.0), 2.0, "Rim bevel", LevelMm=20.0)),
+    "RoundBossBase": (base(), hole(5, 30, "join", "Boss"), FilletSpec((25.0, 15.0), 2.0, "Boss round", LevelMm=20.0)),
+    "RoundHoleRim": (base(), hole(5, 20, "cut", "Bore"), FilletSpec((25.0, 15.0), 2.0, "Bore round", LevelMm=20.0)),
+    "RoundRimChain": (base(), CORNER_ROUNDS, FilletSpec((20.0, 0.0), 2.0, "Top chain", LevelMm=20.0)),
+    "BevelRimChain": (base(), CORNER_ROUNDS, ChamferSpec((20.0, 0.0), 2.0, "Top bevel chain", LevelMm=20.0)),
+    "RoundSlotRim": (SLOT_BAR, FilletSpec((20.0, 7.0), 2.0, "Slot round", LevelMm=20.0)),
+    "BevelBottomTwo": (base(), ChamferSpec((40.0, 15.0), 3.0, "Bottom bevel", 2.0, LevelMm=0.0)),
+    "BevelSideAngle": (base(), ChamferSpec((40.0, 15.0), 3.0, "Side bevel", 0.0, 30.0, LevelMm=20.0)),
+    "BevelDiscTwo": (ROUND_DISC, ChamferSpec((10.0, 0.0), 3.0, "Rim bevel", 2.0, LevelMm=20.0)),
+    "BevelBoreAngle": (base(), hole(5, 20, "cut", "Bore"), ChamferSpec((25.0, 15.0), 2.0, "Bore bevel", 0.0, 30.0, LevelMm=20.0)),
+    "BevelTopLoop": (base(), ChamferSpec((20.0, 0.0), 2.0, "Top loop bevel", MoreCornersMm=((40.0, 15.0), (20.0, 30.0), (0.0, 15.0)), LevelMm=20.0)),
+    "RoundTopLoop": (base(), FilletSpec((20.0, 0.0), 2.0, "Top loop round", ((40.0, 15.0), (20.0, 30.0), (0.0, 15.0)), LevelMm=20.0)),
+    "RoundTopPair": (base(), FilletSpec((20.0, 0.0), 3.0, "Top pair round", ((40.0, 15.0),), LevelMm=20.0)),
+    "RoundBottomLoop": (base(), FilletSpec((20.0, 0.0), 2.0, "Bottom loop round", ((40.0, 15.0), (20.0, 30.0), (0.0, 15.0)), LevelMm=0.0)),
+    "BevelBossTwo": (base(), hole(5, 30, "join", "Boss"), ChamferSpec((25.0, 15.0), 2.0, "Boss bevel", 1.0, LevelMm=20.0)),
+    "BevelDiscBottom": (ROUND_DISC, ChamferSpec((10.0, 0.0), 3.0, "Rim bevel", 0.0, 30.0, LevelMm=0.0)),
+    "BevelRimTwo": (base(), CORNER_ROUNDS, ChamferSpec((20.0, 0.0), 2.0, "Top bevel chain", 1.0, LevelMm=20.0)),
+    "BevelArcTwo": (base(), CORNER_ROUNDS, ChamferSpec((35.0 + 5.0 * 0.5**0.5, 5.0 - 5.0 * 0.5**0.5), 2.0, "Arc bevel chain", 1.0, LevelMm=20.0)),
+    "BevelArcBottom": (base(), CORNER_ROUNDS, ChamferSpec((35.0 + 5.0 * 0.5**0.5, 5.0 - 5.0 * 0.5**0.5), 2.0, "Arc bevel chain", 1.0, LevelMm=0.0)),
+    "RoundStepEdge": (STEP_BAR, FilletSpec((30.0, 15.0), 2.0, "Step round", LevelMm=20.0)),
+    "BevelStepTwo": (STEP_BAR, ChamferSpec((30.0, 15.0), 2.0, "Step bevel", 1.0, LevelMm=20.0)),
+    "RoundPostEdge": (base(), SQUARE_POST, FilletSpec((20.0, 10.0), 2.0, "Post round", LevelMm=20.0)),
+    "BevelPostTwo": (base(), SQUARE_POST, ChamferSpec((20.0, 10.0), 2.0, "Post bevel", 1.0, LevelMm=20.0)),
+}
+PART.update(ROUNDS)
+CASES.update(ROUNDS)
+EDITS.update({
+    "RoundTopEdge": [{"feature": "Top round", "role": "Radius", "expression": "4 mm"}],
+    "BevelTopEdge": [{"feature": "Top bevel", "expression": "2 mm"}],
+    "BevelTopTwo": [{"feature": "Top bevel", "role": "Distance 2", "expression": "1 mm"}],
+    "BevelTopAngle": [{"feature": "Top bevel", "role": "Rotate Angle", "expression": "40 deg"}],
+    "RoundTwoEdges": [{"feature": "Top rounds", "role": "Radius", "expression": "4 mm"}],
+    "RoundBottomEdge": [{"feature": "Bottom round", "role": "Radius", "expression": "3 mm"}, {"feature": "Base extrude", "role": "AlongDistance", "expression": "25 mm"}],
+    "RoundDiscRim": [{"feature": "Rim round", "role": "Radius", "expression": "2 mm"}],
+    "BevelDiscRim": [{"feature": "Rim bevel", "expression": "3 mm"}],
+    "RoundBossBase": [{"feature": "Boss round", "role": "Radius", "expression": "3 mm"}],
+    "RoundHoleRim": [{"feature": "Bore round", "role": "Radius", "expression": "1 mm"}],
+    "RoundRimChain": [{"feature": "Top chain", "role": "Radius", "expression": "3 mm"}],
+    "BevelRimChain": [{"feature": "Top bevel chain", "expression": "1 mm"}],
+    "RoundSlotRim": [{"feature": "Slot round", "role": "Radius", "expression": "3 mm"}],
+    "BevelBottomTwo": [{"feature": "Bottom bevel", "role": "Distance 2", "expression": "1 mm"}],
+    "BevelSideAngle": [{"feature": "Side bevel", "role": "Rotate Angle", "expression": "40 deg"}],
+    "BevelDiscTwo": [{"feature": "Rim bevel", "role": "Distance 2", "expression": "1 mm"}],
+    "BevelBoreAngle": [{"feature": "Bore bevel", "role": "Rotate Angle", "expression": "40 deg"}],
+    "BevelTopLoop": [{"feature": "Top loop bevel", "expression": "3 mm"}],
+    "RoundTopLoop": [{"feature": "Top loop round", "role": "Radius", "expression": "3 mm"}],
+    "RoundTopPair": [{"feature": "Top pair round", "role": "Radius", "expression": "2 mm"}],
+    "RoundBottomLoop": [{"feature": "Bottom loop round", "role": "Radius", "expression": "3 mm"}],
+    "BevelBossTwo": [{"feature": "Boss bevel", "role": "Distance 2", "expression": "1.5 mm"}],
+    "BevelDiscBottom": [{"feature": "Rim bevel", "role": "Rotate Angle", "expression": "40 deg"}],
+    "BevelRimTwo": [{"feature": "Top bevel chain", "role": "Distance 2", "expression": "1.5 mm"}],
+    "BevelArcTwo": [{"feature": "Arc bevel chain", "role": "Distance 2", "expression": "1.5 mm"}],
+    "BevelArcBottom": [{"feature": "Arc bevel chain", "role": "Distance 2", "expression": "1.5 mm"}],
+    "RoundStepEdge": [{"feature": "Step round", "role": "Radius", "expression": "3 mm"}],
+    "BevelStepTwo": [{"feature": "Step bevel", "role": "Distance 2", "expression": "1.5 mm"}],
+    "RoundPostEdge": [{"feature": "Post round", "role": "Radius", "expression": "3 mm"}],
+    "BevelPostTwo": [{"feature": "Post bevel", "role": "Distance 2", "expression": "1.5 mm"}],
+})
 
 def mm(value):
     return f"{value:g} mm"
@@ -357,6 +446,8 @@ def step(feature):
         }
     if isinstance(feature, CombineSpec):
         return {"kind": "combine", "target": feature.TargetBody, "tools": list(feature.ToolBodies), "operation": feature.Operation, "keep": feature.KeepTools, "name": feature.FeatureName}
+    if isinstance(feature, PasteSpec):
+        return {"kind": "paste", "source_body": feature.SourceBody, "name": feature.FeatureName}
     if isinstance(feature, SplitSpec):
         return {"kind": "split", "plane": feature.PlaneIndex, "target": feature.TargetBody, "name": feature.FeatureName}
     if isinstance(feature, BodyGridSpec):
@@ -433,6 +524,8 @@ def step(feature):
         result["second"] = mm(feature.SecondMm)
     if isinstance(feature, ChamferSpec) and feature.AngleDegrees:
         result["angle"] = f"{feature.AngleDegrees:g} deg"
+    if feature.LevelMm is not None:
+        result["level_cm"] = feature.LevelMm / 10.0
     return result
 
 

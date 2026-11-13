@@ -27,7 +27,7 @@ def IsTapered(Solid: PrismSolid) -> bool:
 
 
 def IsSealed(Solid: PrismSolid) -> bool:
-    return Solid.Sealed or IsTapered(Solid)
+    return Solid.Sealed or IsTapered(Solid) or bool(Solid.Rounds)
 
 
 def IsSameSpan(First: KPlaneSpan, Second: KPlaneSpan) -> bool:

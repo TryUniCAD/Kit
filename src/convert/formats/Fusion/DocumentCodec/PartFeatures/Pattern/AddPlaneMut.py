@@ -23,6 +23,10 @@ from convert.formats.Fusion.DocumentCodec.Values.ReadObjects import (
     ReadSeries,
 )
 
+KWorkModes: dict[str, object] = dict(isVisibleBeforeRollback=True)
+KPointModes: dict[str, object] = dict(KWorkModes, chainPropagation=True)
+KPlaneModes: dict[str, object] = dict(KPointModes, isProportionalParam=True)
+
 
 def LinkPlaneMut(Author: AuthorState, Prefix: str, Feature: PlaneSpec) -> None:
     Reference = Author.Reference
@@ -51,6 +55,7 @@ def LinkPlaneMut(Author: AuthorState, Prefix: str, Feature: PlaneSpec) -> None:
         extraOffset=Reference(Prefix + "extra"),
         rWorkPlane=Reference(Prefix + "plane"),
         rWorkPlaneMatrix=Reference(Prefix + "matrix"),
+        **KPlaneModes,
     )
 
 

@@ -15,10 +15,16 @@ def LinkBodiesMut(
     Author.Change(
         "bodies", creationIndex=len(Ordinals), groupChildren=Shown, children=Shown
     )
+    Rooted = [
+        RoleName
+        for Ordinal in Ordinals
+        for RoleName in (BodyRole(Ordinal, "pm_body"), BodyRole(Ordinal, "body"))
+        if RoleName in Author.Roles
+    ]
     Author.Change(
         "bodies_root",
         rootId="BodiesRoot",
-        rooted=[Reference(BodyRole(Ordinal, "body")) for Ordinal in Ordinals],
+        rooted=[Reference(RoleName) for RoleName in Rooted],
     )
     Author.Change(
         "brep_history",
@@ -43,3 +49,9 @@ def LinkBodiesMut(
             visualMaterial=VisualValue(Author),
         )
         Author.Change(BodyRole(Solid.Ordinal, "dc_body"), isEliminated=not IsShown)
+        if BodyRole(Solid.Ordinal, "pm_body") in Author.Roles:
+            Author.Change(
+                BodyRole(Solid.Ordinal, "pm_body"),
+                physicalMaterial=PhysicalValue(Author),
+                visualMaterial=VisualValue(Author),
+            )

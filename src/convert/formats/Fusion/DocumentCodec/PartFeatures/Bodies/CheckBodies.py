@@ -15,6 +15,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CircularSpec import
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CombineSpec import (
     CombineSpec,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PasteSpec import PasteSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import (
     PatternSpec,
 )
@@ -47,6 +48,9 @@ def CheckCombine(Feature: CombineSpec) -> None:
 def CheckBodySpec(Feature: KBodySpec) -> None:
     if isinstance(Feature, CombineSpec):
         CheckCombine(Feature)
+        return
+    if isinstance(Feature, PasteSpec):
+        CheckOrdinal(Feature.SourceBody)
         return
     if isinstance(Feature, BodyGridSpec):
         CheckOrdinal(Feature.SourceBody)

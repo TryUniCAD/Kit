@@ -7,7 +7,7 @@
     {
       "name": "HoleFlat",
       "file": "HoleFlat.f3d",
-      "sha256": "76604972505e07989784508e2730e2cd3bfa18fc842f4c964ca06118fafbd26d",
+      "sha256": "9e5795219a56bf0ef2cbb3b02b88984da8f1e569c5ce4d76f4d387cf8d778f73",
       "steps": [
         {
           "kind": "extrude",
@@ -1601,13 +1601,13 @@
         "work": [],
         "marker": 3
       },
-      "saved_sha256": "8ded190d5042c16df309969e7cdb49c254d41451135ea4a59511c6eb0bec8e4e",
+      "saved_sha256": "6f4a0b7efa5f8a2699f852902540c9e23d3c2ecfa4f26619a1a22837dd357ce6",
       "status": "accepted"
     },
     {
       "name": "HoleThrough",
       "file": "HoleThrough.f3d",
-      "sha256": "197f3293bbad294dd38aa4c73a77533fe5272e4ff54a2dd0296912d29511bdf5",
+      "sha256": "74ebdec0b5be421fb4d20fdcf1b6d67147e0ab54eed4fa6b10f738774689b812",
       "steps": [
         {
           "kind": "extrude",
@@ -3071,13 +3071,13 @@
         "work": [],
         "marker": 3
       },
-      "saved_sha256": "e25efc61bf523cede11cae401925bb4a6d620b428b2f242ec6d87843964c789c",
+      "saved_sha256": "b6dafd551edc33aebb00afd835a004eff51f89721e499ef3f49cb6dbb60e3ca1",
       "status": "accepted"
     },
     {
       "name": "HoleCounterboreFlat",
       "file": "HoleCounterboreFlat.f3d",
-      "sha256": "f2a6c885360ac6de4be052f7c86f07a012c5278990bd13e51ef3213b8edfa0e6",
+      "sha256": "10c3a004e208893f9e3137ff45965b55fca29226663c834eaa27e7c1a2b79168",
       "steps": [
         {
           "kind": "extrude",
@@ -4931,13 +4931,13 @@
         "work": [],
         "marker": 3
       },
-      "saved_sha256": "016df7cc13f47dfa893bc81602d689d27f4a0c6dd6b3b54ae20a167165d73363",
+      "saved_sha256": "6922b0d8098b041ef7642a5874241b95e524e00de9d508b533a5f594f99b1c1d",
       "status": "accepted"
     },
     {
       "name": "HoleCounterbore",
       "file": "HoleCounterbore.f3d",
-      "sha256": "02df68acfcab706e13af531259b6166a7c18f473e5bac50082cf0c886f2fea73",
+      "sha256": "3e571ebbd40b536b066fe8755a57431c1b40eca507b02fb568983565b1cb122d",
       "steps": [
         {
           "kind": "extrude",
@@ -6661,7 +6661,7 @@
         "work": [],
         "marker": 3
       },
-      "saved_sha256": "383e561af4feec42800139cf1a9e96caea104756576679f9715ae5638810edf0",
+      "saved_sha256": "f0667c094ab0b7fd28eb4f166ad194f23fa886a49da21ea5de36cfec88eaf02b",
       "status": "accepted"
     }
   ],

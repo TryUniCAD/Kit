@@ -39,6 +39,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SweepSpec import (
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartFeature import (
     KPartFeature,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PasteSpec import PasteSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import (
     PatternSpec,
 )
@@ -71,6 +72,7 @@ KStepKinds: dict[type[object], FeatureKind] = {
     BodyRingSpec: FeatureKind.KPattern,
     LoftSpec: FeatureKind.KLoft,
     SweepSpec: FeatureKind.KSweep,
+    PasteSpec: FeatureKind.KNative,
 }
 
 

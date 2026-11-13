@@ -1,3 +1,4 @@
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Brep.FreeFace import FreeFace
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.ShapeBody import KShapeFace
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.WallFace import WallFace
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.FaceLabel import FaceLabel
@@ -5,6 +6,8 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.LineSpan import Lin
 
 
 def FaceKey(FaceValue: KShapeFace) -> tuple[object, ...]:
+    if isinstance(FaceValue, FreeFace):
+        return ("free", FaceValue.Label, FaceValue.Surface)
     if isinstance(FaceValue, WallFace):
         Bounds = (FaceValue.LowerCm, FaceValue.UpperCm)
         if isinstance(FaceValue.RoofSpan, LineSpan):
@@ -20,4 +23,6 @@ def FaceKey(FaceValue: KShapeFace) -> tuple[object, ...]:
 
 
 def FaceLabelOf(FaceValue: KShapeFace) -> FaceLabel:
-    return FaceValue.Span.Label if isinstance(FaceValue, WallFace) else FaceValue.Label
+    if isinstance(FaceValue, WallFace):
+        return FaceValue.Span.Label
+    return FaceValue.Label

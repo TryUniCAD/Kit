@@ -58,6 +58,7 @@ from convert.formats.Fusion.DocumentCodec.Rectangle.RectangleTag import Rectangl
 
 KAxisRole = "z_axis"
 KAxisTracking = 33
+KRevolveModes: dict[str, object] = dict(extendFaceOption=2, isSolidOperation=True)
 
 
 def SketchTags(Sketched: SketchPlan) -> list[dict[str, object]]:
@@ -140,6 +141,7 @@ def AddRevolveFeat(Author: AuthorState, Stage: PartStage, Prefix: str) -> None:
     Author.Change(
         MainRole,
         booleanOperation=KBooleanCodes[Feature.Operation],
+        **KRevolveModes,
         rAlongAngle=Reference(Prefix + "angle"),
         rAxisDataRef=Reference(Prefix + "axis"),
         rRevolveToolBody=Reference(Prefix + "tool"),

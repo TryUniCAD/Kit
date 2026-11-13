@@ -2,8 +2,8 @@
   "Fillet": {
     "file": "Fillet.f3d",
     "base": "cuboid",
-    "bytes": 126746,
-    "sha256": "3c63718f1b1fe6dc52e86193846835b146d41e9ad987d4cd098824c7e18763f9",
+    "bytes": 127750,
+    "sha256": "aaf173f2affe5e265a05ca9db4bc7edb6e800a44ac55c69f5e389ccf426d3bf1",
     "features": [
       "FilletSpec(CornerMm=(40.0, 30.0), RadiusMm=3.0, FeatureName='Fillet', MoreCornersMm=())"
     ],
@@ -50,8 +50,8 @@
   "Chamfer": {
     "file": "Chamfer.f3d",
     "base": "cuboid",
-    "bytes": 126346,
-    "sha256": "30404ace16c4a11bc6f4c571a6be77a8ac7159abb732e5850c80c999835031d2",
+    "bytes": 127350,
+    "sha256": "f4f9e5f97975f5a6bd7b76fda5d3e07ede7063aaec9cd7f676d518914b468e0f",
     "features": [
       "ChamferSpec(CornerMm=(40.0, 30.0), DistanceMm=3.0, FeatureName='Chamfer', SecondMm=0.0, AngleDegrees=0.0, MoreCornersMm=())"
     ],
@@ -98,8 +98,8 @@
   "Shell": {
     "file": "Shell.f3d",
     "base": "cuboid",
-    "bytes": 127618,
-    "sha256": "fa820b9560d3e25aa178610955c33da2cb64137879f1d6622d4a119b5e211ba4",
+    "bytes": 128622,
+    "sha256": "9952ca274e6b76b58f1f8919ea1fd468c2128ef7c6f9d08f39e4c39b2920af36",
     "features": [
       "ShellSpec(ThicknessMm=2.0, FeatureName='Shell', SidesMm=())"
     ],
@@ -142,8 +142,8 @@
   "FilletShell": {
     "file": "FilletShell.f3d",
     "base": "cuboid",
-    "bytes": 143596,
-    "sha256": "6cb637517450e07640ba03f21d9938e10bf2adb77768f031be94ee1f33c011b9",
+    "bytes": 144600,
+    "sha256": "36fe85f12cc2e5109c2ce40a7d16195374b1ec08f0686d07f2bd152dca940a81",
     "features": [
       "FilletSpec(CornerMm=(40.0, 30.0), RadiusMm=3.0, FeatureName='Fillet', MoreCornersMm=())",
       "ShellSpec(ThicknessMm=2.0, FeatureName='Shell', SidesMm=())"
@@ -206,8 +206,8 @@
   "ShellOpenSide": {
     "file": "ShellOpenSide.f3d",
     "base": "cuboid",
-    "bytes": 130840,
-    "sha256": "404e3e1e6cb87bede0df02b138a80faa3cf97e57c67390876db9bc89d143db7d",
+    "bytes": 131844,
+    "sha256": "5e9a1b097543b65584ce97bf2aa0e7bc572390a566850dcd258e52e2ab7fa6cd",
     "features": [
       "ShellSpec(ThicknessMm=2.0, FeatureName='Open shell', SidesMm=((20.0, 0.0),))"
     ],
@@ -260,8 +260,8 @@
   "ShellOpenCorner": {
     "file": "ShellOpenCorner.f3d",
     "base": "cuboid",
-    "bytes": 131251,
-    "sha256": "33d4b020e9e42f93cb38bc99b54fd80c708368ce2b94f849b9856caa66a69931",
+    "bytes": 132255,
+    "sha256": "580626351f0c8c2d15df36392d62535eebbcc7b8755d8289fe807b73953e9282",
     "features": [
       "ShellSpec(ThicknessMm=2.0, FeatureName='Open corner', SidesMm=((20.0, 0.0), (40.0, 15.0)))"
     ],
@@ -318,8 +318,8 @@
   "MultiFeature": {
     "file": "MultiFeature.f3d",
     "base": "cuboid",
-    "bytes": 178043,
-    "sha256": "f5c1de5d83a6c0cd326d39003328855fb2a302ff7fd9e0cc9660f8cf5f47008c",
+    "bytes": 179047,
+    "sha256": "f804b3fbcb7fe14b99a27fb8d1f8031303a229aa854c396e479137b0cd37761d",
     "features": [
       "FilletSpec(CornerMm=(40.0, 30.0), RadiusMm=3.0, FeatureName='Corner Round', MoreCornersMm=())",
       "ChamferSpec(CornerMm=(0.0, 0.0), DistanceMm=3.0, FeatureName='Corner Bevel', SecondMm=0.0, AngleDegrees=0.0, MoreCornersMm=())",
@@ -414,8 +414,8 @@
   "MoveBody": {
     "file": "MoveBody.f3d",
     "base": "cuboid",
-    "bytes": 130896,
-    "sha256": "02364f0d194dce38f16540905e972cb4de067def3a0c70f5f322ba8b9daa7256",
+    "bytes": 131900,
+    "sha256": "e4a55bf4643c07f5878fd043f013533a2c8b42997de6eb64289571022a876b63",
     "features": [
       "MoveSpec(OffsetMm=(10.0, 0.0, 0.0), FeatureName='Body move', TurnDegrees=0.0)"
     ],
@@ -463,8 +463,8 @@
   "ExtrudeNew": {
     "file": "ExtrudeNew.f3d",
     "base": "part",
-    "bytes": 113520,
-    "sha256": "91dd7462b7e3932d2277d9a7012cb6c0199a2bf13cb8cd5574efe23d0b7bcaf7",
+    "bytes": 114524,
+    "sha256": "ed7e43711d4c4c9c243049d75bb5075fcd0ef6405661b01080b5d65bf9cefaa0",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')"
     ],
@@ -552,8 +552,8 @@
   "ExtrudeSymmetric": {
     "file": "ExtrudeSymmetric.f3d",
     "base": "part",
-    "bytes": 112535,
-    "sha256": "60548a255c9ac7fc522ad7eb59304be2abdd50d3821f1a1f3fc62c14a95a7c90",
+    "bytes": 113539,
+    "sha256": "56c7187439f356d7eaedf0fce7de57cd3e952b8e23cfdec0d52f0fe1f50f552d",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='symmetric', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')"
     ],
@@ -641,8 +641,8 @@
   "ExtrudeTwoSided": {
     "file": "ExtrudeTwoSided.f3d",
     "base": "part",
-    "bytes": 113537,
-    "sha256": "87491296cdb58906bc4154cea29926493c71e96cd98f5768dc8a743ae5aebcac",
+    "bytes": 114541,
+    "sha256": "9bf31aa35df9dc151f6f700d5a5da7ff5070fbef1f426fd3f4059293348b282f",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='two', AgainstMm=5.0, SketchName='Base sketch', FeatureName='Base extrude')"
     ],
@@ -730,8 +730,8 @@
   "ExtrudeFlip": {
     "file": "ExtrudeFlip.f3d",
     "base": "part",
-    "bytes": 113534,
-    "sha256": "fdd94dbc0952edb55fb3feb106d02443b72e61bbc6b5f1370668c2fe40ed13f3",
+    "bytes": 114538,
+    "sha256": "5f3f93ed7e97af962867eca53048a5429619342cfbc02430623269890c9724a3",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='flip', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')"
     ],
@@ -819,8 +819,8 @@
   "ProfileSlot": {
     "file": "ProfileSlot.f3d",
     "base": "part",
-    "bytes": 114336,
-    "sha256": "06369ca86855d33a077e30b9fe3cc107e75acee655a2943d336f2177cd81a622",
+    "bytes": 115340,
+    "sha256": "27f218b641b66ead921249fbf08eb895d1867e42454dfebc71d6e7796b63b2d0",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(10, 0), FinishMm=(30, 0)), ArcCurve(CenterMm=(30, 10), RadiusMm=10, StartDegrees=-90.0, SweepDegrees=180.0), LineCurve(StartMm=(30, 20), FinishMm=(10, 20)), ArcCurve(CenterMm=(10, 10), RadiusMm=10, StartDegrees=90.0, SweepDegrees=180.0)), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Slot sketch', FeatureName='Slot extrude')"
     ],
@@ -910,8 +910,8 @@
   "ProfileConcave": {
     "file": "ProfileConcave.f3d",
     "base": "part",
-    "bytes": 121512,
-    "sha256": "3f2deb13e8c2620a1369165105ccc4b56f5ad3c85080c1fbebb8a99b7b27324b",
+    "bytes": 122516,
+    "sha256": "656f62eb6575c036216eb65f19bf4b824e331ca1d1950acc7b7a800cda9814af",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(30, 30)), ArcCurve(CenterMm=(20, 30), RadiusMm=10, StartDegrees=180.0, SweepDegrees=180.0), LineCurve(StartMm=(10, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Notch sketch', FeatureName='Notch extrude')"
     ],
@@ -1022,8 +1022,8 @@
   "ProfileCircle": {
     "file": "ProfileCircle.f3d",
     "base": "part",
-    "bytes": 102243,
-    "sha256": "1615fdb79662f7cb24d61b3c09926a8e468d807945031fad04765a039ec8b0f4",
+    "bytes": 103247,
+    "sha256": "ec7dfd59ddf20a759704742876e6f39ffc154efb3d91bd6b40c1caf23bd3fe4b",
     "features": [
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(20, 15), RadiusMm=10),), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Disc sketch', FeatureName='Disc extrude')"
     ],
@@ -1075,8 +1075,8 @@
   "ExtrudeJoin": {
     "file": "ExtrudeJoin.f3d",
     "base": "part",
-    "bytes": 127698,
-    "sha256": "5d303db72ca48dd209aeab4e488d77858dd0b6b123759a6d8ced36fbd81535a6",
+    "bytes": 128702,
+    "sha256": "c03e83736734ac56e9fb8bdfcc1ebb0d19ae83d7713b345043994e54092fbef4",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(20, 15), RadiusMm=5),), DistanceMm=30, Operation='join', Extent='one', AgainstMm=0.0, SketchName='Boss sketch', FeatureName='Boss')"
@@ -1190,8 +1190,8 @@
   "ExtrudeCut": {
     "file": "ExtrudeCut.f3d",
     "base": "part",
-    "bytes": 124381,
-    "sha256": "0555ea63876a1c9937e040a46c588bbc7d766d11837e12ee6b75eb127c2d5ea3",
+    "bytes": 125385,
+    "sha256": "185fe065b56ae66508d310ef72cf67a91519237cbd90fc5a70f0d598006a5136",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(20, 15), RadiusMm=5),), DistanceMm=20, Operation='cut', Extent='one', AgainstMm=0.0, SketchName='Hole sketch', FeatureName='Hole')"
@@ -1305,8 +1305,8 @@
   "ExtrudeIntersect": {
     "file": "ExtrudeIntersect.f3d",
     "base": "part",
-    "bytes": 127892,
-    "sha256": "26ab9b84d09d4f177995f3aaf2d6e76ce0d54e07e32b21ab4eb8c6e87b974d9e",
+    "bytes": 128896,
+    "sha256": "7b5306c2654f358c8dcec4785aaf753238423437ac1dc58e73f6c0c8d2367420",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(20, 15), RadiusMm=10),), DistanceMm=20, Operation='intersect', Extent='one', AgainstMm=0.0, SketchName='Core sketch', FeatureName='Core')"
@@ -1420,8 +1420,8 @@
   "ExtrudeBlindCut": {
     "file": "ExtrudeBlindCut.f3d",
     "base": "part",
-    "bytes": 124917,
-    "sha256": "5682645b953718471d22e8affd3a316f0a2c542e9f3299a96553900277404808",
+    "bytes": 125921,
+    "sha256": "87ac6aad97ccdf18afc2193a7fa99c89498c2a5406b81298692d10f8f8e770ff",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(20, 15), RadiusMm=5),), DistanceMm=10, Operation='cut', Extent='one', AgainstMm=0.0, SketchName='Pocket sketch', FeatureName='Pocket')"
@@ -1535,8 +1535,8 @@
   "ExtrudeSlotCut": {
     "file": "ExtrudeSlotCut.f3d",
     "base": "part",
-    "bytes": 136028,
-    "sha256": "2e061ac4dea6bccec062df7995c395c872920ddbc5d26aea7313a0fcd7f853d0",
+    "bytes": 137032,
+    "sha256": "a1c0c1b1b6e2844b71512587770e1d7bcac478fc12736b7ee64e76dc4605f59c",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(15, 10), FinishMm=(25, 10)), ArcCurve(CenterMm=(25, 15), RadiusMm=5, StartDegrees=-90.0, SweepDegrees=180.0), LineCurve(StartMm=(25, 20), FinishMm=(15, 20)), ArcCurve(CenterMm=(15, 15), RadiusMm=5, StartDegrees=90.0, SweepDegrees=180.0)), DistanceMm=20.0, Operation='cut', Extent='one', AgainstMm=0.0, SketchName='Slot sketch', FeatureName='Slot extrude')"
@@ -1688,8 +1688,8 @@
   "ExtrudeSymmetricCut": {
     "file": "ExtrudeSymmetricCut.f3d",
     "base": "part",
-    "bytes": 124759,
-    "sha256": "33409e3d6e38f2fc8ffefc325bbd9d064f8e70c3c0e72fa121b374aeaf930871",
+    "bytes": 125763,
+    "sha256": "ff0d724e427168558de591521a96af47c2b554a482c583da42de93b4a4abdccc",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(20, 15), RadiusMm=5),), DistanceMm=20, Operation='cut', Extent='symmetric', AgainstMm=0.0, SketchName='Pocket sketch', FeatureName='Pocket')"
@@ -1803,8 +1803,8 @@
   "PartCutFillet": {
     "file": "PartCutFillet.f3d",
     "base": "part",
-    "bytes": 167737,
-    "sha256": "4fa2a1102e9cbd504ac7be39eaad763559893ebf1c216503daae9379c2a3baee",
+    "bytes": 168741,
+    "sha256": "c04516f6732d43ff25dde9d53deed0fd62137c2be28e3707f9c710e566dc2761",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(15, 10), FinishMm=(25, 10)), ArcCurve(CenterMm=(25, 15), RadiusMm=5, StartDegrees=-90.0, SweepDegrees=180.0), LineCurve(StartMm=(25, 20), FinishMm=(15, 20)), ArcCurve(CenterMm=(15, 15), RadiusMm=5, StartDegrees=90.0, SweepDegrees=180.0)), DistanceMm=20.0, Operation='cut', Extent='one', AgainstMm=0.0, SketchName='Slot sketch', FeatureName='Slot extrude')",
@@ -1992,8 +1992,8 @@
   "PartConcaveShell": {
     "file": "PartConcaveShell.f3d",
     "base": "part",
-    "bytes": 158927,
-    "sha256": "d2d530d4264963be5676294db1883fb8c34b2b918ef700a478d5d66d19d294b7",
+    "bytes": 159931,
+    "sha256": "7f3be47c969c55d1dfc9db5e82007c2269f1fcdeb504ce23b7310d96bfe8f069",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(30, 30)), ArcCurve(CenterMm=(20, 30), RadiusMm=10, StartDegrees=180.0, SweepDegrees=180.0), LineCurve(StartMm=(10, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Notch sketch', FeatureName='Notch extrude')",
       "FilletSpec(CornerMm=(40.0, 0.0), RadiusMm=4.0, FeatureName='Corner Round', MoreCornersMm=())",
@@ -2136,8 +2136,8 @@
   "HoleFlat": {
     "file": "HoleFlat.f3d",
     "base": "part",
-    "bytes": 123824,
-    "sha256": "76604972505e07989784508e2730e2cd3bfa18fc842f4c964ca06118fafbd26d",
+    "bytes": 124828,
+    "sha256": "9e5795219a56bf0ef2cbb3b02b88984da8f1e569c5ce4d76f4d387cf8d778f73",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "HoleSpec(CenterMm=(20.0, 15.0), DiameterMm=8.0, DepthMm=10.0, BoreDiameterMm=0.0, BoreDepthMm=0.0, FeatureName='Top hole', SinkDiameterMm=0.0, SinkAngleDegrees=90.0)"
@@ -2247,8 +2247,8 @@
   "HoleThrough": {
     "file": "HoleThrough.f3d",
     "base": "part",
-    "bytes": 124319,
-    "sha256": "197f3293bbad294dd38aa4c73a77533fe5272e4ff54a2dd0296912d29511bdf5",
+    "bytes": 125323,
+    "sha256": "74ebdec0b5be421fb4d20fdcf1b6d67147e0ab54eed4fa6b10f738774689b812",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "HoleSpec(CenterMm=(20.0, 15.0), DiameterMm=8.0, DepthMm=0.0, BoreDiameterMm=0.0, BoreDepthMm=0.0, FeatureName='Top hole', SinkDiameterMm=0.0, SinkAngleDegrees=90.0)"
@@ -2357,8 +2357,8 @@
   "HoleCounterboreFlat": {
     "file": "HoleCounterboreFlat.f3d",
     "base": "part",
-    "bytes": 127643,
-    "sha256": "f2a6c885360ac6de4be052f7c86f07a012c5278990bd13e51ef3213b8edfa0e6",
+    "bytes": 128647,
+    "sha256": "10c3a004e208893f9e3137ff45965b55fca29226663c834eaa27e7c1a2b79168",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "HoleSpec(CenterMm=(20.0, 15.0), DiameterMm=6.0, DepthMm=10.0, BoreDiameterMm=10.0, BoreDepthMm=4.0, FeatureName='Top hole', SinkDiameterMm=0.0, SinkAngleDegrees=90.0)"
@@ -2470,8 +2470,8 @@
   "HoleCounterbore": {
     "file": "HoleCounterbore.f3d",
     "base": "part",
-    "bytes": 128218,
-    "sha256": "02df68acfcab706e13af531259b6166a7c18f473e5bac50082cf0c886f2fea73",
+    "bytes": 129222,
+    "sha256": "3e571ebbd40b536b066fe8755a57431c1b40eca507b02fb568983565b1cb122d",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "HoleSpec(CenterMm=(20.0, 15.0), DiameterMm=6.0, DepthMm=0.0, BoreDiameterMm=10.0, BoreDepthMm=4.0, FeatureName='Top hole', SinkDiameterMm=0.0, SinkAngleDegrees=90.0)"
@@ -2582,8 +2582,8 @@
   "HoleCountersink": {
     "file": "HoleCountersink.f3d",
     "base": "part",
-    "bytes": 126740,
-    "sha256": "7809052f60c818c5fc889b4f3eaceee3c8eb5d76858826e13f4c7990c79ceef4",
+    "bytes": 127744,
+    "sha256": "638a217d011e9a6306f386511f346e365038dfe1dc079151d9d285a11a2bd30a",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "HoleSpec(CenterMm=(20.0, 15.0), DiameterMm=6.0, DepthMm=0.0, BoreDiameterMm=0.0, BoreDepthMm=0.0, FeatureName='Top hole', SinkDiameterMm=10.0, SinkAngleDegrees=90.0)"
@@ -2694,8 +2694,8 @@
   "HoleCountersinkFlat": {
     "file": "HoleCountersinkFlat.f3d",
     "base": "part",
-    "bytes": 126273,
-    "sha256": "04f856dcf8c418c9a8370393264670c3fd4d2a4ed816e1a5c5227c8799fd3cea",
+    "bytes": 127277,
+    "sha256": "9430a24f670d3b91dbeb6963eb7b5e0de53151d4c3654bf8d126226430e43184",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "HoleSpec(CenterMm=(20.0, 15.0), DiameterMm=6.0, DepthMm=10.0, BoreDiameterMm=0.0, BoreDepthMm=0.0, FeatureName='Top hole', SinkDiameterMm=12.0, SinkAngleDegrees=82.0)"
@@ -2807,8 +2807,8 @@
   "RectPattern": {
     "file": "RectPattern.f3d",
     "base": "part",
-    "bytes": 147785,
-    "sha256": "65bd021e712fa38888bac40ba6a101ea023005df18642530596e1ae92383357c",
+    "bytes": 148789,
+    "sha256": "d835c89f52043ffdb8c141ede70a561f5f12e33a9d57938bede8d8996d80c005",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(8, 8), RadiusMm=3),), DistanceMm=20.0, Operation='cut', Extent='one', AgainstMm=0.0, SketchName='Pocket sketch', FeatureName='Pocket extrude')",
@@ -2943,8 +2943,8 @@
   "FeatureCircPattern": {
     "file": "FeatureCircPattern.f3d",
     "base": "part",
-    "bytes": 141545,
-    "sha256": "176e8205af7b736354073f5b0917e12f00ee2f3af8394e39c82a5c3dcf1a234a",
+    "bytes": 142549,
+    "sha256": "e353ca1347e1c379f346b18cddc92ed88442deecfaf98465398f55648297aef7",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(8, 8), RadiusMm=3),), DistanceMm=20.0, Operation='cut', Extent='one', AgainstMm=0.0, SketchName='Pocket sketch', FeatureName='Pocket extrude')",
@@ -3072,8 +3072,8 @@
   "MirrorFeature": {
     "file": "MirrorFeature.f3d",
     "base": "part",
-    "bytes": 136722,
-    "sha256": "94d76a7238162c7a032f2af61536925e1b07e582fa1feb5597b5421e9b5945a5",
+    "bytes": 137726,
+    "sha256": "10c139cc9890a7af7eb4db76211f67a37f2d574f2b1b4e99b1e2b43559dd5a79",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(8, 8), RadiusMm=3),), DistanceMm=20.0, Operation='cut', Extent='one', AgainstMm=0.0, SketchName='Pocket sketch', FeatureName='Pocket extrude')",
@@ -3213,8 +3213,8 @@
   "PlaneOffset": {
     "file": "PlaneOffset.f3d",
     "base": "part",
-    "bytes": 116881,
-    "sha256": "d2bcc02a1f67fbec6da16a0cb775685a00bf69822a2d12884319b8cf88103548",
+    "bytes": 117885,
+    "sha256": "abc37dc572dc507c6fcbe7b351d74382bb4d05b6fc56e5f647bb90dd6fe82dbe",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "PlaneSpec(OffsetMm=15.0, BasePlane='xy', FeatureName='Offset plane')"
@@ -3320,8 +3320,8 @@
   "HoleGrid": {
     "file": "HoleGrid.f3d",
     "base": "part",
-    "bytes": 147424,
-    "sha256": "79876e88d502b23fb338c8eba9207a5f1198f161e9f47320d5b919c193d994d5",
+    "bytes": 148428,
+    "sha256": "b1ebd7db5bc87507c35f876f007143bc63592834876069c92e0f90e12a87cbc4",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "HoleSpec(CenterMm=(8.0, 8.0), DiameterMm=5.0, DepthMm=10.0, BoreDiameterMm=0.0, BoreDepthMm=0.0, FeatureName='Corner hole', SinkDiameterMm=0.0, SinkAngleDegrees=90.0)",
@@ -3447,8 +3447,8 @@
   "MultiPocketPart": {
     "file": "MultiPocketPart.f3d",
     "base": "part",
-    "bytes": 194253,
-    "sha256": "aba537fea65a183f02a698988b7f56fe4518a1a66b173e8748f7546dd9242f9d",
+    "bytes": 195257,
+    "sha256": "a4a9b8b5a87a60d37ce8031f4670d495b508b1750fda1a365797100af5802215",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(10, 19), FinishMm=(14, 19)), ArcCurve(CenterMm=(14, 22), RadiusMm=3, StartDegrees=-90.0, SweepDegrees=180.0), LineCurve(StartMm=(14, 25), FinishMm=(10, 25)), ArcCurve(CenterMm=(10, 22), RadiusMm=3, StartDegrees=90.0, SweepDegrees=180.0)), DistanceMm=8.0, Operation='cut', Extent='one', AgainstMm=0.0, SketchName='Slot sketch', FeatureName='Slot pocket')",
@@ -3683,8 +3683,8 @@
   "MultiDiscPart": {
     "file": "MultiDiscPart.f3d",
     "base": "part",
-    "bytes": 145049,
-    "sha256": "ee093cb1acdca5efeddf52fdeeefa64df127069e800386b2fad93e3dda4d0f87",
+    "bytes": 146053,
+    "sha256": "3b1fd47287f3335a30d3a7def4f993372ba5906fc7e7e344bdba41f68be2c02a",
     "features": [
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(0, 0), RadiusMm=20),), DistanceMm=12.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Disc sketch', FeatureName='Disc extrude')",
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(12, 0), RadiusMm=3),), DistanceMm=6.0, Operation='cut', Extent='one', AgainstMm=0.0, SketchName='Pocket sketch', FeatureName='Pocket extrude')",
@@ -3799,8 +3799,8 @@
   "ChamferTwoDistances": {
     "file": "ChamferTwoDistances.f3d",
     "base": "part",
-    "bytes": 126904,
-    "sha256": "3a4d7b9b4be977172c5e21f3327f554699704fc546201123e2e6fecadfd24397",
+    "bytes": 127908,
+    "sha256": "739a8098be550fe52fe8701ad313859d2ca6f9ad60cb4a8afee3cdf4e544740c",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ChamferSpec(CornerMm=(40.0, 30.0), DistanceMm=3.0, FeatureName='Corner bevel', SecondMm=2.0, AngleDegrees=0.0, MoreCornersMm=())"
@@ -3905,8 +3905,8 @@
   "ChamferDistanceAngle": {
     "file": "ChamferDistanceAngle.f3d",
     "base": "part",
-    "bytes": 126914,
-    "sha256": "47cf09ac0e7203d660a5aded309e3cf7a89d3fefc8a0b1fb1692b91b65306617",
+    "bytes": 127918,
+    "sha256": "dfd1abc7d789f9279a8f56e15a3fd68ff113f090d10f899171a258e3e91ca7ac",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ChamferSpec(CornerMm=(40.0, 30.0), DistanceMm=3.0, FeatureName='Corner bevel', SecondMm=0.0, AngleDegrees=30.0, MoreCornersMm=())"
@@ -4011,8 +4011,8 @@
   "FilletTwoEdges": {
     "file": "FilletTwoEdges.f3d",
     "base": "part",
-    "bytes": 137502,
-    "sha256": "7c3ff3e44f532d2caef5b248ccea6e8c32fc65d9a5b384e6d04334e110343e42",
+    "bytes": 138506,
+    "sha256": "fb1b1ad817d005e1cb9c7a2adb62ad6b364b88d92847f89e3cd16569edff0496",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "FilletSpec(CornerMm=(40.0, 30.0), RadiusMm=3.0, FeatureName='Corner rounds', MoreCornersMm=((0.0, 0.0),))"
@@ -4125,8 +4125,8 @@
   "ChamferTwoEdges": {
     "file": "ChamferTwoEdges.f3d",
     "base": "part",
-    "bytes": 137043,
-    "sha256": "0e1fc083495e9dde29cdaf021ecb7941aabb4b6481f53ec5eaf113a5ce1fcffc",
+    "bytes": 138047,
+    "sha256": "8fb62dc7cc8501b216fa115d038c14dfabf712ce6c523cdbbb080e526c32a960",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ChamferSpec(CornerMm=(40.0, 30.0), DistanceMm=3.0, FeatureName='Corner bevels', SecondMm=0.0, AngleDegrees=0.0, MoreCornersMm=((0.0, 0.0),))"
@@ -4239,8 +4239,8 @@
   "CornerSetPart": {
     "file": "CornerSetPart.f3d",
     "base": "part",
-    "bytes": 163125,
-    "sha256": "2aa2e6c171c8d4232b110d9f813885109305303b3e874d46843cd5905533676b",
+    "bytes": 164129,
+    "sha256": "12793c8ec1c2ff98446a566669cda8e1496bbea6d5683517a04ce0229af3cb4c",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "HoleSpec(CenterMm=(30.0, 10.0), DiameterMm=6.0, DepthMm=0.0, BoreDiameterMm=0.0, BoreDepthMm=0.0, FeatureName='Side hole', SinkDiameterMm=0.0, SinkAngleDegrees=90.0)",
@@ -4396,8 +4396,8 @@
   "ConstructionSet": {
     "file": "ConstructionSet.f3d",
     "base": "part",
-    "bytes": 121295,
-    "sha256": "332eb2acfafce190831c6c83b4a0690b0d96b84acc980527ffdbae996e62a451",
+    "bytes": 122299,
+    "sha256": "7c41f5295c71d4e48a6b4829ed4a6365480b86f58f2e03999e7f337f44d8757c",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "PlaneSpec(OffsetMm=15.0, BasePlane='xy', FeatureName='Offset plane')",
@@ -4533,8 +4533,8 @@
   "ConstructionPart": {
     "file": "ConstructionPart.f3d",
     "base": "part",
-    "bytes": 142087,
-    "sha256": "4b7014b8fe83bd66321bc1ee9369b4fbd4655c882bc14791b7ef30a05c13b765",
+    "bytes": 143091,
+    "sha256": "1ab6f85753b9bc9c1d68480d30b81dd3c4cb1300817a7d946e248fffda8deec5",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(8, 8), RadiusMm=3),), DistanceMm=20.0, Operation='cut', Extent='one', AgainstMm=0.0, SketchName='Pocket sketch', FeatureName='Pocket extrude')",
@@ -4698,8 +4698,8 @@
   "RevolveFull": {
     "file": "RevolveFull.f3d",
     "base": "part",
-    "bytes": 107586,
-    "sha256": "47a1415b0e2887bf04164e8b7191e36bdd9648a1b47b9271095a0b307efdcc96",
+    "bytes": 108590,
+    "sha256": "f209b8635fb5e11aa5626b37c3e85b341acadb23a64e1f41f60c32d198f78f3f",
     "features": [
       "RevolveSpec(InnerMm=10.0, OuterMm=20.0, LowerMm=0.0, UpperMm=30.0, AngleDegrees=360.0, Operation='new', SketchName='Revolve sketch', FeatureName='Tube revolve')"
     ],
@@ -4743,8 +4743,8 @@
   "RevolveHalf": {
     "file": "RevolveHalf.f3d",
     "base": "part",
-    "bytes": 113262,
-    "sha256": "eb9f3027116fca1beb12d6b4ae25b1071d2c56b72daf14e149974b3aeae0255e",
+    "bytes": 114266,
+    "sha256": "61208a5696759ec246e5ab79243b0eed19403d8e6a1bdb5fd0b2e8c66c092eaf",
     "features": [
       "RevolveSpec(InnerMm=10.0, OuterMm=20.0, LowerMm=0.0, UpperMm=30.0, AngleDegrees=180.0, Operation='new', SketchName='Revolve sketch', FeatureName='Tube revolve')"
     ],
@@ -4788,8 +4788,8 @@
   "RevolveJoin": {
     "file": "RevolveJoin.f3d",
     "base": "part",
-    "bytes": 120248,
-    "sha256": "b57c79e9df60e2b6180c13cc7195f8201cf0fc82674d9ae36503ebec64ba1a4c",
+    "bytes": 121252,
+    "sha256": "bd1cca89c71ba74cdebc88850788b0669ef878387a9b6db9df3543dff047f07a",
     "features": [
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(0, 0), RadiusMm=25),), DistanceMm=10.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Disc sketch', FeatureName='Disc extrude')",
       "RevolveSpec(InnerMm=10.0, OuterMm=15.0, LowerMm=10.0, UpperMm=20.0, AngleDegrees=360.0, Operation='join', SketchName='Ring sketch', FeatureName='Ring revolve')"
@@ -4864,8 +4864,8 @@
   "RevolveCut": {
     "file": "RevolveCut.f3d",
     "base": "part",
-    "bytes": 124821,
-    "sha256": "19a376ad8905576479e8a6260ce9db42811b9e1a2f08cfc9cb56dee13722c5bd",
+    "bytes": 125825,
+    "sha256": "12a74518e40fb231e03c6bdcc3a9e8dbf8f4748da45a7beb57e54760b367cf85",
     "features": [
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(0, 0), RadiusMm=25),), DistanceMm=10.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Disc sketch', FeatureName='Disc extrude')",
       "RevolveSpec(InnerMm=15.0, OuterMm=22.0, LowerMm=6.0, UpperMm=10.0, AngleDegrees=90.0, Operation='cut', SketchName='Groove sketch', FeatureName='Groove revolve')"
@@ -4935,8 +4935,8 @@
   "MoveTurnPart": {
     "file": "MoveTurnPart.f3d",
     "base": "part",
-    "bytes": 144772,
-    "sha256": "66f0945c3d92bb0a64a22355dc8fd6b0016405dac9a1852588826ca5bf23e6cf",
+    "bytes": 145776,
+    "sha256": "4a9c03ba5a7b4a07fd54a57cab67e653a2a986d183df7a8de7dfa1d69be9d6d4",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "MoveSpec(OffsetMm=(5.0, 5.0, 2.0), FeatureName='Body turn', TurnDegrees=30.0)",
@@ -5061,8 +5061,8 @@
   "OffsetTop": {
     "file": "OffsetTop.f3d",
     "base": "part",
-    "bytes": 131212,
-    "sha256": "056558feeb6e0da9c797dc32d9940b35dcbb4ebc873405121f884940a375c0ee",
+    "bytes": 132216,
+    "sha256": "fc8a10953623cc4fd6b10400bd269e997c2053d219165335497ae217f596b4b0",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "OffsetSpec(DistanceMm=5.0, FeatureName='Top offset', SideMm=None)"
@@ -5167,8 +5167,8 @@
   "OffsetTopTrim": {
     "file": "OffsetTopTrim.f3d",
     "base": "part",
-    "bytes": 131226,
-    "sha256": "51bc4cd85dd43564cac27a58710678b1307cd7d393df6ec984557b0f32f5e332",
+    "bytes": 132230,
+    "sha256": "6e82c76f99398c2a20788ad85c4b2ea2d6b47c9e4313f52fca43be7ff9f7f010",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "OffsetSpec(DistanceMm=-5.0, FeatureName='Top trim', SideMm=None)"
@@ -5268,8 +5268,8 @@
   "OffsetSide": {
     "file": "OffsetSide.f3d",
     "base": "part",
-    "bytes": 129226,
-    "sha256": "6672238573ff9e101394f9b42a6dc34820df6df7d3076e84bb4205c721d869b3",
+    "bytes": 130230,
+    "sha256": "2932417f2e8742a348856571bbb703878c72e957b0482f8f1c81bd6c718ea532",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "OffsetSpec(DistanceMm=4.0, FeatureName='Side offset', SideMm=(40.0, 15.0))"
@@ -5378,8 +5378,8 @@
   "OffsetRoundFront": {
     "file": "OffsetRoundFront.f3d",
     "base": "part",
-    "bytes": 142765,
-    "sha256": "10706424cf22e8aec8daf92e5b86f7becd0cc6458061ef07109ec0e61e79f00f",
+    "bytes": 143769,
+    "sha256": "c42141a1a48113d9501e3f2237c8294f79264a9cd2b1b6647dbd6248fdf919dc",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "FilletSpec(CornerMm=(40.0, 30.0), RadiusMm=3.0, FeatureName='Corner round', MoreCornersMm=())",
@@ -5503,8 +5503,8 @@
   "DraftSides": {
     "file": "DraftSides.f3d",
     "base": "part",
-    "bytes": 137312,
-    "sha256": "7cefdc260fe49739c760264e9cae3d700efb4128193d6dd54611f0639778d7cf",
+    "bytes": 138316,
+    "sha256": "1519cd99a20b3c832d2b2779d87443558304a20f815f6b81534986b2ecc11def",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "DraftSpec(AngleDegrees=5.0, FeatureName='Side draft')"
@@ -5609,8 +5609,8 @@
   "DraftInward": {
     "file": "DraftInward.f3d",
     "base": "part",
-    "bytes": 137318,
-    "sha256": "b86ffa38eaeb566caa8d625ef484d176d1673d6f844785a8f0b65a1c24c51b5f",
+    "bytes": 138322,
+    "sha256": "13718b44df3a6b3c54a8734b3286b2e217c7b6f724965d48eec6075bab5e0be5",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "DraftSpec(AngleDegrees=-5.0, FeatureName='Side taper')"
@@ -5710,8 +5710,8 @@
   "DraftCutPart": {
     "file": "DraftCutPart.f3d",
     "base": "part",
-    "bytes": 154508,
-    "sha256": "f7e313fdf3f23b0817cfc38030b82f3acdaf7a9e2cb282f0046de7eda85a9af4",
+    "bytes": 155512,
+    "sha256": "1ec693f9516b4a915be520b36042e7a56358594ae063cd17d8fd0a5f877fe088",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ChamferSpec(CornerMm=(40.0, 30.0), DistanceMm=3.0, FeatureName='Corner cut', SecondMm=0.0, AngleDegrees=0.0, MoreCornersMm=())",
@@ -5831,8 +5831,8 @@
   "ExtrudeSecondBody": {
     "file": "ExtrudeSecondBody.f3d",
     "base": "part",
-    "bytes": 126273,
-    "sha256": "19c188c80f747b443ed65e9b4354956ffdb0037e15377304dd31551ae4ec2aba",
+    "bytes": 127277,
+    "sha256": "03058f0982dfa399f62a1e86e564ea4822b27be475d7d4b339f01edbced5bf44",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(60, 15), RadiusMm=5),), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Post sketch', FeatureName='Post extrude')"
@@ -5952,8 +5952,8 @@
   "RevolveBody": {
     "file": "RevolveBody.f3d",
     "base": "part",
-    "bytes": 131630,
-    "sha256": "1dd314ada50010faddbc7052ab809c06498dc543f5792781dec6c81cf1ed1db9",
+    "bytes": 132634,
+    "sha256": "0e8c2ae22c2d99b53cc698e682b1c934da712a05cbe830b4df5502750f627b73",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "RevolveSpec(InnerMm=60.0, OuterMm=80.0, LowerMm=0.0, UpperMm=10.0, AngleDegrees=360.0, Operation='new', SketchName='Ring sketch', FeatureName='Ring revolve')"
@@ -6065,8 +6065,8 @@
   "CombineJoin": {
     "file": "CombineJoin.f3d",
     "base": "part",
-    "bytes": 142189,
-    "sha256": "50b157b1db070c4b2d8bd33854f038b5df61b64935c14c68b383abe75c9c464a",
+    "bytes": 143193,
+    "sha256": "9947c63677d2d57ec3b392000b95166a282dbc78e7423d0060def5f75a41d46a",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(40, 30), RadiusMm=10),), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Post sketch', FeatureName='Post extrude')",
@@ -6197,8 +6197,8 @@
   "CombineCut": {
     "file": "CombineCut.f3d",
     "base": "part",
-    "bytes": 139348,
-    "sha256": "af139eb0e1b60b56a93dc1cab5764d88c52c38f1d5d3e45d66111b2ab2536098",
+    "bytes": 140352,
+    "sha256": "de18ebf15d4ffa5570d40db029867eaf625fffe8d4ee01050ec7749d9ee81d50",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(40, 30), RadiusMm=10),), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Post sketch', FeatureName='Post extrude')",
@@ -6329,8 +6329,8 @@
   "CombineIntersect": {
     "file": "CombineIntersect.f3d",
     "base": "part",
-    "bytes": 141279,
-    "sha256": "31cb19dab2a7735896d0de2b59596fcab0809e3b622ffc675bea4bab39fffa6d",
+    "bytes": 142283,
+    "sha256": "293c03655116fdbb934dbbb8d74d7b60fedb56744d4fa41bc11fc01122324eb9",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(40, 30), RadiusMm=10),), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Post sketch', FeatureName='Post extrude')",
@@ -6461,8 +6461,8 @@
   "CombineKeep": {
     "file": "CombineKeep.f3d",
     "base": "part",
-    "bytes": 142200,
-    "sha256": "20e4c0b8ae498736edba1476587ba571c43b25cd6d4fd4d96a0533930afb6ae2",
+    "bytes": 143204,
+    "sha256": "0f07629b733e6fb090556297aa2f2df18e832b28e2e2f9c7fbf5a969865ceae5",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(40, 30), RadiusMm=10),), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Post sketch', FeatureName='Post extrude')",
@@ -6599,8 +6599,8 @@
   "SplitYZ": {
     "file": "SplitYZ.f3d",
     "base": "part",
-    "bytes": 146168,
-    "sha256": "81c68d7e13b86fd9302c41920761a930ef91abb93b33715125092360ed8c6ead",
+    "bytes": 147172,
+    "sha256": "7e7cadb659649682d6762223fa4b137bd905fe5b8ea3d7e544ba900b310e6a75",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "PlaneSpec(OffsetMm=20.0, BasePlane='yz', FeatureName='Split plane')",
@@ -6720,8 +6720,8 @@
   "SplitXZ": {
     "file": "SplitXZ.f3d",
     "base": "part",
-    "bytes": 145725,
-    "sha256": "9d3873788aca9fb72f32fa4eca0576507f6114173a1a745751b12fc5e617bbe3",
+    "bytes": 146729,
+    "sha256": "ec5b896283d6f7803ee025d5f6a787d1afd2cf798bbef51003d4fb20c2644d2d",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "PlaneSpec(OffsetMm=10.0, BasePlane='xz', FeatureName='Split plane')",
@@ -6841,8 +6841,8 @@
   "SplitXY": {
     "file": "SplitXY.f3d",
     "base": "part",
-    "bytes": 145988,
-    "sha256": "0fa78880883813a062c2602112d71b983b0e17faf13855b24201d3b3a3407aa6",
+    "bytes": 146992,
+    "sha256": "d78cfbd456c6cfbfd302ca926f47f5cf117e0569e2e040e3afbb559fc2a35113",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "PlaneSpec(OffsetMm=8.0, BasePlane='xy', FeatureName='Split plane')",
@@ -6962,8 +6962,8 @@
   "BodyRectPattern": {
     "file": "BodyRectPattern.f3d",
     "base": "part",
-    "bytes": 188490,
-    "sha256": "d339b050da48167575ccd5f0152460d721be307318eeebfbebf2342b16f7f541",
+    "bytes": 189494,
+    "sha256": "c5a1f84a4754488138c5d98ac9e5385aff2a0454a6fdab6ea173aa74ac12899a",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(10, 0)), LineCurve(StartMm=(10, 0), FinishMm=(10, 10)), LineCurve(StartMm=(10, 10), FinishMm=(0, 10)), LineCurve(StartMm=(0, 10), FinishMm=(0, 0))), DistanceMm=10.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Cube sketch', FeatureName='Cube extrude')",
       "BodyGridSpec(SourceBody=1, CountU=3, SpacingUMm=15.0, CountV=2, SpacingVMm=20.0, FeatureName='Cube grid')"
@@ -7102,8 +7102,8 @@
   "BodyCircPattern": {
     "file": "BodyCircPattern.f3d",
     "base": "part",
-    "bytes": 159114,
-    "sha256": "5b0a1c03f31c7b221b4fcba8148c221e5d279a7bf2e6bdd5b93eebb92649cf12",
+    "bytes": 160118,
+    "sha256": "eaf0d97b9d96ce6a7931405bbe3532b413c67f5c9a036f16d598bc69ec3fea4d",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(20, -5), FinishMm=(30, -5)), LineCurve(StartMm=(30, -5), FinishMm=(30, 5)), LineCurve(StartMm=(30, 5), FinishMm=(20, 5)), LineCurve(StartMm=(20, 5), FinishMm=(20, -5))), DistanceMm=10.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Cube sketch', FeatureName='Cube extrude')",
       "BodyRingSpec(SourceBody=1, Count=4, TotalDegrees=360.0, FeatureName='Cube ring')"
@@ -7223,8 +7223,8 @@
   "LoftRects": {
     "file": "LoftRects.f3d",
     "base": "part",
-    "bytes": 122928,
-    "sha256": "6336c3961418b4f18c8368712c86e0850e4defeb0516db8d0be8d6b4f362a334",
+    "bytes": 123540,
+    "sha256": "e00ecf959fd7d4614ae4c3e7e149688c60455e1a003163a55af04092a178c09a",
     "features": [
       "LoftSpec(LowerProfile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), UpperProfile=(LineCurve(StartMm=(10, 10), FinishMm=(30, 10)), LineCurve(StartMm=(30, 10), FinishMm=(30, 20)), LineCurve(StartMm=(30, 20), FinishMm=(10, 20)), LineCurve(StartMm=(10, 20), FinishMm=(10, 10))), HeightMm=30.0, LowerName='Loft base', PlaneName='Loft plane', UpperName='Loft top', FeatureName='Block loft')"
     ],
@@ -7357,8 +7357,8 @@
   "LoftCircles": {
     "file": "LoftCircles.f3d",
     "base": "part",
-    "bytes": 109040,
-    "sha256": "5fc43c77571787deec169f8346852234a2406ca972c8ea2e93e7b91a081dea24",
+    "bytes": 109652,
+    "sha256": "ac3f88becc15265ba4f7ba3e6e2632cdce972a9e0ea4fa8f20fe1cd0b30dbcd3",
     "features": [
       "LoftSpec(LowerProfile=(CircleCurve(CenterMm=(0, 0), RadiusMm=10),), UpperProfile=(CircleCurve(CenterMm=(0, 0), RadiusMm=5),), HeightMm=30.0, LowerName='Loft base', PlaneName='Loft plane', UpperName='Loft top', FeatureName='Cone loft')"
     ],
@@ -7419,8 +7419,8 @@
   "LoftWedgeBody": {
     "file": "LoftWedgeBody.f3d",
     "base": "part",
-    "bytes": 147000,
-    "sha256": "3c3587f2e80dcd8261ffaa96267a96c2a934cd12c3d7b9acb08fa5e791798d1e",
+    "bytes": 147612,
+    "sha256": "f99c0503209e692032b3804b354e1c670b55eeea8e7b70177bddb006ef03c956",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "LoftSpec(LowerProfile=(LineCurve(StartMm=(50, 0), FinishMm=(90, 0)), LineCurve(StartMm=(90, 0), FinishMm=(90, 30)), LineCurve(StartMm=(90, 30), FinishMm=(50, 30)), LineCurve(StartMm=(50, 30), FinishMm=(50, 0))), UpperProfile=(LineCurve(StartMm=(55, 20), FinishMm=(75, 20)), LineCurve(StartMm=(75, 20), FinishMm=(75, 25)), LineCurve(StartMm=(75, 25), FinishMm=(55, 25)), LineCurve(StartMm=(55, 25), FinishMm=(55, 20))), HeightMm=25.0, LowerName='Wedge base', PlaneName='Wedge plane', UpperName='Wedge top', FeatureName='Wedge loft')"
@@ -7622,7 +7622,7 @@
     "file": "SweepBend.f3d",
     "base": "part",
     "bytes": 132121,
-    "sha256": "2d0035be1ba0db672a1ae4e78c2735d4421ede667b7e63a8ea67fa7547a7834a",
+    "sha256": "a4c9c5149e959d929146249c1ceba05f25d853217d71900039aebdd3a9e14730",
     "features": [
       "SweepSpec(Path=(LineCurve(StartMm=(0, 0), FinishMm=(0, 20)), ArcCurve(CenterMm=(-30, 20), RadiusMm=30, StartDegrees=0, SweepDegrees=90)), LeftMm=-5.0, RightMm=5.0, LowerMm=0.0, UpperMm=10.0, ProfileName='Sweep profile', PathName='Sweep path', FeatureName='Bend sweep')"
     ],
@@ -7693,7 +7693,7 @@
     "file": "SweepHook.f3d",
     "base": "part",
     "bytes": 141515,
-    "sha256": "cc6b6165c7b1ce12ef24f26417e6b8e8fb3d570fc1def7694379453b521a8856",
+    "sha256": "8cf843922e89bd929ac61211c36c6ffc16f4445af03267b9a7cabf464c2b664e",
     "features": [
       "SweepSpec(Path=(LineCurve(StartMm=(0, 0), FinishMm=(0, 20)), ArcCurve(CenterMm=(-30, 20), RadiusMm=30, StartDegrees=0, SweepDegrees=90), LineCurve(StartMm=(-30, 50), FinishMm=(-50, 50))), LeftMm=-5.0, RightMm=5.0, LowerMm=0.0, UpperMm=10.0, ProfileName='Sweep profile', PathName='Sweep path', FeatureName='Bend sweep')"
     ],
@@ -7775,7 +7775,7 @@
     "file": "SweepSCurve.f3d",
     "base": "part",
     "bytes": 142034,
-    "sha256": "0b22b538d6f85e62db9915c6546998e0b88593d831122563dc3597e17b985584",
+    "sha256": "f42b96c0597d5f107f96cb84757b2835539b1f9c25a745b3cabebc8ff67b4f45",
     "features": [
       "SweepSpec(Path=(LineCurve(StartMm=(0, 0), FinishMm=(0, 10)), ArcCurve(CenterMm=(20, 10), RadiusMm=20, StartDegrees=180, SweepDegrees=-90), ArcCurve(CenterMm=(20, 50), RadiusMm=20, StartDegrees=-90, SweepDegrees=90)), LeftMm=-3.0, RightMm=5.0, LowerMm=2.0, UpperMm=8.0, ProfileName='Bar profile', PathName='Bar path', FeatureName='Bar sweep')"
     ],
@@ -7858,7 +7858,7 @@
     "file": "SweepSecondBody.f3d",
     "base": "part",
     "bytes": 156191,
-    "sha256": "c78298e15c40fd0bf748ba4598dea4ae7970d35104d4ffcccec5d8cc4bc6d0df",
+    "sha256": "a48ad63ac747fb983b9776412dd267e8dd657263951dcd93b46b2d5123fb9a0b",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "SweepSpec(Path=(LineCurve(StartMm=(0, 0), FinishMm=(0, 20)), ArcCurve(CenterMm=(-30, 20), RadiusMm=30, StartDegrees=0, SweepDegrees=90)), LeftMm=-15.0, RightMm=-5.0, LowerMm=0.0, UpperMm=10.0, ProfileName='Rail profile', PathName='Rail path', FeatureName='Rail sweep')"
@@ -7995,6 +7995,4350 @@
         "area_cm2": 22.566370614359172,
         "faces": 8,
         "edges": 18
+      }
+    ]
+  },
+  "PastePlain": {
+    "file": "PastePlain.f3d",
+    "base": "part",
+    "bytes": 134126,
+    "sha256": "59c250fe440033862f3db506c95dc39db340cdb3486f42f9ba7726b7dedc50ba",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "PasteSpec(SourceBody=1, FeatureName='Body paste')"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "paste",
+        "source_body": 1,
+        "name": "Body paste"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Base extrude",
+        "role": "AlongDistance",
+        "expression": "25 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      }
+    ]
+  },
+  "PasteFillet": {
+    "file": "PasteFillet.f3d",
+    "base": "part",
+    "bytes": 149955,
+    "sha256": "0fdbfe0956ccf4f1948ed3bc65762f85743cc762bc55eb6c3ffde5b147acb18e",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "FilletSpec(CornerMm=(40.0, 30.0), RadiusMm=3.0, FeatureName='Corner round', MoreCornersMm=())",
+      "PasteSpec(SourceBody=1, FeatureName='Body paste')"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          4.0,
+          3.0
+        ],
+        "amount": "3 mm",
+        "name": "Corner round"
+      },
+      {
+        "kind": "paste",
+        "source_body": 1,
+        "name": "Body paste"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Corner round",
+        "expression": "4 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.96137166941154,
+        "area_cm2": 51.703849465488474,
+        "faces": 7,
+        "edges": 15
+      },
+      {
+        "volume_cm3": 23.96137166941154,
+        "area_cm2": 51.703849465488474,
+        "faces": 7,
+        "edges": 15
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 23.96137166941154,
+        "area_cm2": 51.703849465488474,
+        "faces": 7,
+        "edges": 15
+      },
+      {
+        "volume_cm3": 23.96137166941154,
+        "area_cm2": 51.703849465488474,
+        "faces": 7,
+        "edges": 15
+      }
+    ]
+  },
+  "PasteTwice": {
+    "file": "PasteTwice.f3d",
+    "base": "part",
+    "bytes": 152997,
+    "sha256": "f04be66b85f80ad62e97eb78039f4092aaadb00ebd7c3b881f9d36a768d02984",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "PasteSpec(SourceBody=1, FeatureName='First paste')",
+      "PasteSpec(SourceBody=1, FeatureName='Second paste')"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "paste",
+        "source_body": 1,
+        "name": "First paste"
+      },
+      {
+        "kind": "paste",
+        "source_body": 1,
+        "name": "Second paste"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Base extrude",
+        "role": "AlongDistance",
+        "expression": "15 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      }
+    ]
+  },
+  "PasteSecond": {
+    "file": "PasteSecond.f3d",
+    "base": "part",
+    "bytes": 138503,
+    "sha256": "073e76c37e7c3207479be5e948c2d63cb2b969bfa005bbede163f87c32421ba1",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(60, 15), RadiusMm=5),), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Post sketch', FeatureName='Post extrude')",
+      "PasteSpec(SourceBody=2, FeatureName='Post paste')"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "circle",
+            "center_cm": [
+              6.0,
+              1.5
+            ],
+            "radius_cm": 0.5
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Post sketch",
+        "name": "Post extrude"
+      },
+      {
+        "kind": "paste",
+        "source_body": 2,
+        "name": "Post paste"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Post extrude",
+        "role": "AlongDistance",
+        "expression": "15 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 1.5707963267948972,
+        "area_cm2": 7.853981633974483,
+        "faces": 3,
+        "edges": 2
+      },
+      {
+        "volume_cm3": 1.5707963267948972,
+        "area_cm2": 7.853981633974483,
+        "faces": 3,
+        "edges": 2
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 1.5707963267948972,
+        "area_cm2": 7.853981633974483,
+        "faces": 3,
+        "edges": 2
+      },
+      {
+        "volume_cm3": 1.5707963267948972,
+        "area_cm2": 7.853981633974483,
+        "faces": 3,
+        "edges": 2
+      }
+    ]
+  },
+  "PastePocket": {
+    "file": "PastePocket.f3d",
+    "base": "part",
+    "bytes": 147946,
+    "sha256": "af2f66d52c3d0d72e989057a069e817b069ec43e544496c33344e274f2b478ee",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(8, 8), RadiusMm=3),), DistanceMm=20.0, Operation='cut', Extent='one', AgainstMm=0.0, SketchName='Pocket sketch', FeatureName='Pocket extrude')",
+      "PasteSpec(SourceBody=1, FeatureName='Body paste')"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "circle",
+            "center_cm": [
+              0.8,
+              0.8
+            ],
+            "radius_cm": 0.3
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "cut",
+        "extent": "one",
+        "sketch": "Pocket sketch",
+        "name": "Pocket extrude"
+      },
+      {
+        "kind": "paste",
+        "source_body": 1,
+        "name": "Body paste"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Pocket extrude",
+        "role": "AlongDistance",
+        "expression": "10 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.434513322353837,
+        "area_cm2": 55.20442450666159,
+        "faces": 7,
+        "edges": 14
+      },
+      {
+        "volume_cm3": 23.434513322353837,
+        "area_cm2": 55.20442450666159,
+        "faces": 7,
+        "edges": 14
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 23.434513322353837,
+        "area_cm2": 55.20442450666159,
+        "faces": 7,
+        "edges": 14
+      },
+      {
+        "volume_cm3": 23.434513322353837,
+        "area_cm2": 55.20442450666159,
+        "faces": 7,
+        "edges": 14
+      }
+    ]
+  },
+  "PasteCombine": {
+    "file": "PasteCombine.f3d",
+    "base": "part",
+    "bytes": 151619,
+    "sha256": "2847da01bd12adaa522704d852c117bbfd5f4c7005dd11bf7438e6ff88abd5a4",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(40, 30), RadiusMm=10),), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Post sketch', FeatureName='Post extrude')",
+      "PasteSpec(SourceBody=2, FeatureName='Post paste')",
+      "CombineSpec(TargetBody=1, ToolBodies=(3,), Operation='cut', KeepTools=False, FeatureName='Body combine')"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "circle",
+            "center_cm": [
+              4.0,
+              3.0
+            ],
+            "radius_cm": 1.0
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Post sketch",
+        "name": "Post extrude"
+      },
+      {
+        "kind": "paste",
+        "source_body": 2,
+        "name": "Post paste"
+      },
+      {
+        "kind": "combine",
+        "target": 1,
+        "tools": [
+          3
+        ],
+        "operation": "cut",
+        "keep": false,
+        "name": "Body combine"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Post extrude",
+        "role": "AlongDistance",
+        "expression": "30 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 6.283185307179587,
+        "area_cm2": 18.84955592153876,
+        "faces": 3,
+        "edges": 2
+      },
+      {
+        "volume_cm3": 6.283185307179587,
+        "area_cm2": 18.84955592153876,
+        "faces": 3,
+        "edges": 2
+      },
+      {
+        "volume_cm3": 22.4292036732051,
+        "area_cm2": 49.57079632679489,
+        "faces": 7,
+        "edges": 15
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 22.4292036732051,
+        "area_cm2": 49.57079632679489,
+        "faces": 7,
+        "edges": 15
+      },
+      {
+        "volume_cm3": 6.283185307179587,
+        "area_cm2": 18.84955592153876,
+        "faces": 3,
+        "edges": 2
+      }
+    ]
+  },
+  "RoundTopEdge": {
+    "file": "RoundTopEdge.f3d",
+    "base": "part",
+    "bytes": 125993,
+    "sha256": "703471480868b07c478b37e0e042902d614c1360a1c4f3ea170882f891673e1b",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "FilletSpec(CornerMm=(20.0, 0.0), RadiusMm=3.0, FeatureName='Top round', MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          2.0,
+          0.0
+        ],
+        "amount": "3 mm",
+        "name": "Top round",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Top round",
+        "role": "Radius",
+        "expression": "4 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.922743338823082,
+        "area_cm2": 51.446327261565415,
+        "faces": 7,
+        "edges": 15
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 23.922743338823082,
+        "area_cm2": 51.446327261565415,
+        "faces": 7,
+        "edges": 15
+      }
+    ]
+  },
+  "BevelTopEdge": {
+    "file": "BevelTopEdge.f3d",
+    "base": "part",
+    "bytes": 125587,
+    "sha256": "693f5d943ba74ddda1ec3248fb07bdbe72a86aca240b53875e139e7cb6d0dad5",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "ChamferSpec(CornerMm=(20.0, 0.0), DistanceMm=3.0, FeatureName='Top bevel', SecondMm=0.0, AngleDegrees=0.0, MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          2.0,
+          0.0
+        ],
+        "amount": "3 mm",
+        "name": "Top bevel",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Top bevel",
+        "expression": "2 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.82,
+        "area_cm2": 51.207056274847716,
+        "faces": 7,
+        "edges": 15
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 23.82,
+        "area_cm2": 51.207056274847716,
+        "faces": 7,
+        "edges": 15
+      }
+    ]
+  },
+  "BevelTopTwo": {
+    "file": "BevelTopTwo.f3d",
+    "base": "part",
+    "bytes": 126081,
+    "sha256": "d333ed41caceda5ca4cd4b3fc4f3af8356a9faf2539f4749b181db3b4f88cebb",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "ChamferSpec(CornerMm=(20.0, 0.0), DistanceMm=3.0, FeatureName='Top bevel', SecondMm=2.0, AngleDegrees=0.0, MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          2.0,
+          0.0
+        ],
+        "amount": "3 mm",
+        "name": "Top bevel",
+        "second": "2 mm",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Top bevel",
+        "role": "Distance 2",
+        "expression": "1 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.88,
+        "area_cm2": 51.3822205101856,
+        "faces": 7,
+        "edges": 15
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 23.88,
+        "area_cm2": 51.3822205101856,
+        "faces": 7,
+        "edges": 15
+      }
+    ]
+  },
+  "BevelTopAngle": {
+    "file": "BevelTopAngle.f3d",
+    "base": "part",
+    "bytes": 126095,
+    "sha256": "a313c296dcf39d3291bed64caa25404403810b41c04bcb5eb8112615fb4c57b6",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "ChamferSpec(CornerMm=(20.0, 0.0), DistanceMm=3.0, FeatureName='Top bevel', SecondMm=0.0, AngleDegrees=30.0, MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          2.0,
+          0.0
+        ],
+        "amount": "3 mm",
+        "name": "Top bevel",
+        "angle": "30 deg",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Top bevel",
+        "role": "Rotate Angle",
+        "expression": "40 deg"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.89607695154587,
+        "area_cm2": 51.440858798800484,
+        "faces": 7,
+        "edges": 15
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 23.89607695154587,
+        "area_cm2": 51.440858798800484,
+        "faces": 7,
+        "edges": 15
+      }
+    ]
+  },
+  "RoundTwoEdges": {
+    "file": "RoundTwoEdges.f3d",
+    "base": "part",
+    "bytes": 131809,
+    "sha256": "a5b4f7bf229cb22b2bf285c31dc728a4415760e8fc83940e6ec615bec5725428",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "FilletSpec(CornerMm=(20.0, 0.0), RadiusMm=3.0, FeatureName='Top rounds', MoreCornersMm=((20.0, 30.0),), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          2.0,
+          0.0
+        ],
+        "amount": "3 mm",
+        "name": "Top rounds",
+        "corners_cm": [
+          [
+            2.0,
+            0.0
+          ],
+          [
+            2.0,
+            3.0
+          ]
+        ],
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Top rounds",
+        "role": "Radius",
+        "expression": "4 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.845486677646164,
+        "area_cm2": 50.89265452313084,
+        "faces": 8,
+        "edges": 18
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 23.845486677646164,
+        "area_cm2": 50.89265452313084,
+        "faces": 8,
+        "edges": 18
+      }
+    ]
+  },
+  "RoundBottomEdge": {
+    "file": "RoundBottomEdge.f3d",
+    "base": "part",
+    "bytes": 125959,
+    "sha256": "618b3f004efeb75f64c4ab2b6de631f54d409a683ac2d745b6bc89b8865b27de",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "FilletSpec(CornerMm=(40.0, 15.0), RadiusMm=2.0, FeatureName='Bottom round', MoreCornersMm=(), LevelMm=0.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          4.0,
+          1.5
+        ],
+        "amount": "2 mm",
+        "name": "Bottom round",
+        "level_cm": 0.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Bottom round",
+        "role": "Radius",
+        "expression": "3 mm"
+      },
+      {
+        "feature": "Base extrude",
+        "role": "AlongDistance",
+        "expression": "25 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.974247779607694,
+        "area_cm2": 51.725309649148734,
+        "faces": 7,
+        "edges": 15
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 23.974247779607694,
+        "area_cm2": 51.725309649148734,
+        "faces": 7,
+        "edges": 15
+      }
+    ]
+  },
+  "RoundDiscRim": {
+    "file": "RoundDiscRim.f3d",
+    "base": "part",
+    "bytes": 110014,
+    "sha256": "5308edbebd9e49dbefde0eccdfbe8caa7400653de3db11f0c34bc861f6027b44",
+    "features": [
+      "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(0, 0), RadiusMm=10),), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Disc sketch', FeatureName='Disc extrude')",
+      "FilletSpec(CornerMm=(10.0, 0.0), RadiusMm=3.0, FeatureName='Rim round', MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "circle",
+            "center_cm": [
+              0.0,
+              0.0
+            ],
+            "radius_cm": 1.0
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Disc sketch",
+        "name": "Disc extrude"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          1.0,
+          0.0
+        ],
+        "amount": "3 mm",
+        "name": "Rim round",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Rim round",
+        "role": "Radius",
+        "expression": "2 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 6.283185307179586,
+        "area_cm2": 18.84955592153876,
+        "faces": 3,
+        "edges": 2
+      },
+      {
+        "volume_cm3": 6.169962837579279,
+        "area_cm2": 18.000491677929016,
+        "faces": 4,
+        "edges": 3
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 6.169962837579279,
+        "area_cm2": 18.000491677929016,
+        "faces": 4,
+        "edges": 3
+      }
+    ]
+  },
+  "BevelDiscRim": {
+    "file": "BevelDiscRim.f3d",
+    "base": "part",
+    "bytes": 109694,
+    "sha256": "d5606e6a32f534bb71a96e777f2cc022bfd3fb8dc960a78349621f4ee76b8ad6",
+    "features": [
+      "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(0, 0), RadiusMm=10),), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Disc sketch', FeatureName='Disc extrude')",
+      "ChamferSpec(CornerMm=(10.0, 0.0), DistanceMm=2.0, FeatureName='Rim bevel', SecondMm=0.0, AngleDegrees=0.0, MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "circle",
+            "center_cm": [
+              0.0,
+              0.0
+            ],
+            "radius_cm": 1.0
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Disc sketch",
+        "name": "Disc extrude"
+      },
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          1.0,
+          0.0
+        ],
+        "amount": "2 mm",
+        "name": "Rim bevel",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Rim bevel",
+        "expression": "3 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 6.283185307179586,
+        "area_cm2": 18.84955592153876,
+        "faces": 3,
+        "edges": 2
+      },
+      {
+        "volume_cm3": 6.1658991814455675,
+        "area_cm2": 18.061383362547527,
+        "faces": 4,
+        "edges": 3
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 6.1658991814455675,
+        "area_cm2": 18.061383362547527,
+        "faces": 4,
+        "edges": 3
+      }
+    ]
+  },
+  "RoundBossBase": {
+    "file": "RoundBossBase.f3d",
+    "base": "part",
+    "bytes": 134640,
+    "sha256": "b285667a9284e3fd0552ccddd646fb34262c8882cf2cd0c9ce6da0ec440484c4",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(20, 15), RadiusMm=5),), DistanceMm=30, Operation='join', Extent='one', AgainstMm=0.0, SketchName='Boss sketch', FeatureName='Boss')",
+      "FilletSpec(CornerMm=(25.0, 15.0), RadiusMm=2.0, FeatureName='Boss round', MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "circle",
+            "center_cm": [
+              2.0,
+              1.5
+            ],
+            "radius_cm": 0.5
+          }
+        ],
+        "amount": "30 mm",
+        "against": "0 mm",
+        "operation": "join",
+        "extent": "one",
+        "sketch": "Boss sketch",
+        "name": "Boss"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          2.5,
+          1.5
+        ],
+        "amount": "2 mm",
+        "name": "Boss round",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Boss round",
+        "role": "Radius",
+        "expression": "3 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 24.78539816339745,
+        "area_cm2": 55.1415926535898,
+        "faces": 8,
+        "edges": 14
+      },
+      {
+        "volume_cm3": 24.814775309973655,
+        "area_cm2": 54.889709089875616,
+        "faces": 9,
+        "edges": 15
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 24.814775309973655,
+        "area_cm2": 54.889709089875616,
+        "faces": 9,
+        "edges": 15
+      }
+    ]
+  },
+  "RoundHoleRim": {
+    "file": "RoundHoleRim.f3d",
+    "base": "part",
+    "bytes": 131570,
+    "sha256": "4ce189daf6af189bf24eb93217ed59b5466099e265fcc6659ec13fee9b1748f5",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(20, 15), RadiusMm=5),), DistanceMm=20, Operation='cut', Extent='one', AgainstMm=0.0, SketchName='Bore sketch', FeatureName='Bore')",
+      "FilletSpec(CornerMm=(25.0, 15.0), RadiusMm=2.0, FeatureName='Bore round', MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "circle",
+            "center_cm": [
+              2.0,
+              1.5
+            ],
+            "radius_cm": 0.5
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "cut",
+        "extent": "one",
+        "sketch": "Bore sketch",
+        "name": "Bore"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          2.5,
+          1.5
+        ],
+        "amount": "2 mm",
+        "name": "Bore round",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Bore round",
+        "role": "Radius",
+        "expression": "1 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 22.4292036732051,
+        "area_cm2": 56.71238898038469,
+        "faces": 7,
+        "edges": 14
+      },
+      {
+        "volume_cm3": 22.399826526628896,
+        "area_cm2": 56.46050541667051,
+        "faces": 8,
+        "edges": 15
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 22.399826526628896,
+        "area_cm2": 56.46050541667051,
+        "faces": 8,
+        "edges": 15
+      }
+    ]
+  },
+  "RoundRimChain": {
+    "file": "RoundRimChain.f3d",
+    "base": "part",
+    "bytes": 188818,
+    "sha256": "89b01bd2e4a6d1c118b7c18e6709db5b80d285f2b17d71b7cf84cd9a3513646e",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "FilletSpec(CornerMm=(40.0, 30.0), RadiusMm=5.0, FeatureName='Corner rounds', MoreCornersMm=((0.0, 0.0), (40.0, 0.0), (0.0, 30.0)), LevelMm=None)",
+      "FilletSpec(CornerMm=(20.0, 0.0), RadiusMm=2.0, FeatureName='Top chain', MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          4.0,
+          3.0
+        ],
+        "amount": "5 mm",
+        "name": "Corner rounds",
+        "corners_cm": [
+          [
+            4.0,
+            3.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            0.0,
+            3.0
+          ]
+        ]
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          2.0,
+          0.0
+        ],
+        "amount": "2 mm",
+        "name": "Top chain",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Top chain",
+        "role": "Radius",
+        "expression": "3 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.570796326794895,
+        "area_cm2": 49.85398163397448,
+        "faces": 10,
+        "edges": 24
+      },
+      {
+        "volume_cm3": 23.460397414464683,
+        "area_cm2": 48.70810460862449,
+        "faces": 18,
+        "edges": 40
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 23.460397414464683,
+        "area_cm2": 48.70810460862449,
+        "faces": 18,
+        "edges": 40
+      }
+    ]
+  },
+  "BevelRimChain": {
+    "file": "BevelRimChain.f3d",
+    "base": "part",
+    "bytes": 188338,
+    "sha256": "74a48efdd33e3d1fe17668eb4b40553b0e51b51fbfc7a8400ef6c8707ae0b08f",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "FilletSpec(CornerMm=(40.0, 30.0), RadiusMm=5.0, FeatureName='Corner rounds', MoreCornersMm=((0.0, 0.0), (40.0, 0.0), (0.0, 30.0)), LevelMm=None)",
+      "ChamferSpec(CornerMm=(20.0, 0.0), DistanceMm=2.0, FeatureName='Top bevel chain', SecondMm=0.0, AngleDegrees=0.0, MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          4.0,
+          3.0
+        ],
+        "amount": "5 mm",
+        "name": "Corner rounds",
+        "corners_cm": [
+          [
+            4.0,
+            3.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            0.0,
+            3.0
+          ]
+        ]
+      },
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          2.0,
+          0.0
+        ],
+        "amount": "2 mm",
+        "name": "Top bevel chain",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Top bevel chain",
+        "expression": "1 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.570796326794895,
+        "area_cm2": 49.85398163397448,
+        "faces": 10,
+        "edges": 24
+      },
+      {
+        "volume_cm3": 23.316342054132672,
+        "area_cm2": 48.262296673533676,
+        "faces": 18,
+        "edges": 40
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 23.316342054132672,
+        "area_cm2": 48.262296673533676,
+        "faces": 18,
+        "edges": 40
+      }
+    ]
+  },
+  "RoundSlotRim": {
+    "file": "RoundSlotRim.f3d",
+    "base": "part",
+    "bytes": 137621,
+    "sha256": "02621e20149048bbf52cec0db5f16bc6c95129e6f8f717e192aca67da7b23d79",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(10, 7), FinishMm=(30, 7)), ArcCurve(CenterMm=(30, 15), RadiusMm=8, StartDegrees=-90.0, SweepDegrees=180.0), LineCurve(StartMm=(30, 23), FinishMm=(10, 23)), ArcCurve(CenterMm=(10, 15), RadiusMm=8, StartDegrees=90.0, SweepDegrees=180.0)), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Slot sketch', FeatureName='Slot extrude')",
+      "FilletSpec(CornerMm=(20.0, 7.0), RadiusMm=2.0, FeatureName='Slot round', MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              1.0,
+              0.7
+            ],
+            "end_cm": [
+              3.0,
+              0.7
+            ]
+          },
+          {
+            "kind": "arc",
+            "center_cm": [
+              3.0,
+              1.5
+            ],
+            "start_cm": [
+              3.0,
+              0.7
+            ],
+            "sweep_rad": 3.141592653589793
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              3.0,
+              2.3
+            ],
+            "end_cm": [
+              1.0,
+              2.3
+            ]
+          },
+          {
+            "kind": "arc",
+            "center_cm": [
+              1.0,
+              1.5
+            ],
+            "start_cm": [
+              1.0,
+              2.3
+            ],
+            "sweep_rad": 3.141592653589793
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Slot sketch",
+        "name": "Slot extrude"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          2.0,
+          0.7
+        ],
+        "amount": "2 mm",
+        "name": "Slot round",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Slot round",
+        "role": "Radius",
+        "expression": "3 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 10.421238596594936,
+        "area_cm2": 28.47433508808227,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 10.346163527769717,
+        "area_cm2": 27.681696497782216,
+        "faces": 10,
+        "edges": 20
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 10.346163527769717,
+        "area_cm2": 27.681696497782216,
+        "faces": 10,
+        "edges": 20
+      }
+    ]
+  },
+  "BevelBottomTwo": {
+    "file": "BevelBottomTwo.f3d",
+    "base": "part",
+    "bytes": 126047,
+    "sha256": "63b5ceee9c7c1b0d766caffc8863b7ce2d0aa1b04cac48998c90c3dea2004ee8",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "ChamferSpec(CornerMm=(40.0, 15.0), DistanceMm=3.0, FeatureName='Bottom bevel', SecondMm=2.0, AngleDegrees=0.0, MoreCornersMm=(), LevelMm=0.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          4.0,
+          1.5
+        ],
+        "amount": "3 mm",
+        "name": "Bottom bevel",
+        "second": "2 mm",
+        "level_cm": 0.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Bottom bevel",
+        "role": "Distance 2",
+        "expression": "1 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.91,
+        "area_cm2": 51.5216653826392,
+        "faces": 7,
+        "edges": 15
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 23.91,
+        "area_cm2": 51.5216653826392,
+        "faces": 7,
+        "edges": 15
+      }
+    ]
+  },
+  "BevelSideAngle": {
+    "file": "BevelSideAngle.f3d",
+    "base": "part",
+    "bytes": 126191,
+    "sha256": "fb6f502f337b5c13912ef31b273384f36cd7fe75736121d0e5ab4a45941305c3",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "ChamferSpec(CornerMm=(40.0, 15.0), DistanceMm=3.0, FeatureName='Side bevel', SecondMm=0.0, AngleDegrees=30.0, MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          4.0,
+          1.5
+        ],
+        "amount": "3 mm",
+        "name": "Side bevel",
+        "angle": "30 deg",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Side bevel",
+        "role": "Rotate Angle",
+        "expression": "40 deg"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.9220577136594,
+        "area_cm2": 51.567653718043594,
+        "faces": 7,
+        "edges": 15
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 23.9220577136594,
+        "area_cm2": 51.567653718043594,
+        "faces": 7,
+        "edges": 15
+      }
+    ]
+  },
+  "BevelDiscTwo": {
+    "file": "BevelDiscTwo.f3d",
+    "base": "part",
+    "bytes": 110192,
+    "sha256": "f1c526729e62cbe7e6fef812240361c65ea068fe8be247b4e3f0da35b76052c4",
+    "features": [
+      "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(0, 0), RadiusMm=10),), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Disc sketch', FeatureName='Disc extrude')",
+      "ChamferSpec(CornerMm=(10.0, 0.0), DistanceMm=3.0, FeatureName='Rim bevel', SecondMm=2.0, AngleDegrees=0.0, MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "circle",
+            "center_cm": [
+              0.0,
+              0.0
+            ],
+            "radius_cm": 1.0
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Disc sketch",
+        "name": "Disc extrude"
+      },
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          1.0,
+          0.0
+        ],
+        "amount": "3 mm",
+        "name": "Rim bevel",
+        "second": "2 mm",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Rim bevel",
+        "role": "Distance 2",
+        "expression": "1 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 6.283185307179586,
+        "area_cm2": 18.84955592153876,
+        "faces": 3,
+        "edges": 2
+      },
+      {
+        "volume_cm3": 6.113539303885737,
+        "area_cm2": 17.916326084625673,
+        "faces": 4,
+        "edges": 3
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 6.113539303885737,
+        "area_cm2": 17.916326084625673,
+        "faces": 4,
+        "edges": 3
+      }
+    ]
+  },
+  "BevelBoreAngle": {
+    "file": "BevelBoreAngle.f3d",
+    "base": "part",
+    "bytes": 131762,
+    "sha256": "0bbf4e9df8c4bcdde5e50dd01349fdc3e2f942e7e78ab90b47f4bf360ddc72b0",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(20, 15), RadiusMm=5),), DistanceMm=20, Operation='cut', Extent='one', AgainstMm=0.0, SketchName='Bore sketch', FeatureName='Bore')",
+      "ChamferSpec(CornerMm=(25.0, 15.0), DistanceMm=2.0, FeatureName='Bore bevel', SecondMm=0.0, AngleDegrees=30.0, MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "circle",
+            "center_cm": [
+              2.0,
+              1.5
+            ],
+            "radius_cm": 0.5
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "cut",
+        "extent": "one",
+        "sketch": "Bore sketch",
+        "name": "Bore"
+      },
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          2.5,
+          1.5
+        ],
+        "amount": "2 mm",
+        "name": "Bore bevel",
+        "angle": "30 deg",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Bore bevel",
+        "role": "Rotate Angle",
+        "expression": "40 deg"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 22.4292036732051,
+        "area_cm2": 56.71238898038469,
+        "faces": 7,
+        "edges": 14
+      },
+      {
+        "volume_cm3": 22.388090887615792,
+        "area_cm2": 56.46627056550872,
+        "faces": 8,
+        "edges": 15
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 22.388090887615792,
+        "area_cm2": 56.46627056550872,
+        "faces": 8,
+        "edges": 15
+      }
+    ]
+  },
+  "BevelTopLoop": {
+    "file": "BevelTopLoop.f3d",
+    "base": "part",
+    "bytes": 136182,
+    "sha256": "ab7715360ad73a1e0a58e9d2f8dc0882d372fc18da177d771f99fd37e2ca8fb4",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "ChamferSpec(CornerMm=(20.0, 0.0), DistanceMm=2.0, FeatureName='Top loop bevel', SecondMm=0.0, AngleDegrees=0.0, MoreCornersMm=((40.0, 15.0), (20.0, 30.0), (0.0, 15.0)), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          2.0,
+          0.0
+        ],
+        "amount": "2 mm",
+        "name": "Top loop bevel",
+        "corners_cm": [
+          [
+            2.0,
+            0.0
+          ],
+          [
+            4.0,
+            1.5
+          ],
+          [
+            2.0,
+            3.0
+          ],
+          [
+            0.0,
+            1.5
+          ]
+        ],
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Top loop bevel",
+        "expression": "3 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.730666666666668,
+        "area_cm2": 50.29352380466497,
+        "faces": 10,
+        "edges": 20
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 23.730666666666668,
+        "area_cm2": 50.29352380466497,
+        "faces": 10,
+        "edges": 20
+      }
+    ]
+  },
+  "RoundTopLoop": {
+    "file": "RoundTopLoop.f3d",
+    "base": "part",
+    "bytes": 136699,
+    "sha256": "03009571306129cb047b34cb51e0ced8af771f50152028a3f85180fe1e1333b6",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "FilletSpec(CornerMm=(20.0, 0.0), RadiusMm=2.0, FeatureName='Top loop round', MoreCornersMm=((40.0, 15.0), (20.0, 30.0), (0.0, 15.0)), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          2.0,
+          0.0
+        ],
+        "amount": "2 mm",
+        "name": "Top loop round",
+        "corners_cm": [
+          [
+            2.0,
+            0.0
+          ],
+          [
+            4.0,
+            1.5
+          ],
+          [
+            2.0,
+            3.0
+          ],
+          [
+            0.0,
+            1.5
+          ]
+        ],
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Top loop round",
+        "role": "Radius",
+        "expression": "3 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.882890822378467,
+        "area_cm2": 50.775574890451345,
+        "faces": 10,
+        "edges": 20
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 23.882890822378467,
+        "area_cm2": 50.775574890451345,
+        "faces": 10,
+        "edges": 20
+      }
+    ]
+  },
+  "RoundTopPair": {
+    "file": "RoundTopPair.f3d",
+    "base": "part",
+    "bytes": 130494,
+    "sha256": "38d9c00cfce69ba98d266ed09cb3fbf6b6b44c9dd7a5f4c0cc869e9df1ff5040",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "FilletSpec(CornerMm=(20.0, 0.0), RadiusMm=3.0, FeatureName='Top pair round', MoreCornersMm=((40.0, 15.0),), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          2.0,
+          0.0
+        ],
+        "amount": "3 mm",
+        "name": "Top pair round",
+        "corners_cm": [
+          [
+            2.0,
+            0.0
+          ],
+          [
+            4.0,
+            1.5
+          ]
+        ],
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Top pair round",
+        "role": "Radius",
+        "expression": "2 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.86738934211693,
+        "area_cm2": 51.04730061685774,
+        "faces": 8,
+        "edges": 17
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 23.86738934211693,
+        "area_cm2": 51.04730061685774,
+        "faces": 8,
+        "edges": 17
+      }
+    ]
+  },
+  "RoundBottomLoop": {
+    "file": "RoundBottomLoop.f3d",
+    "base": "part",
+    "bytes": 137663,
+    "sha256": "86546c122a4c22fb15fec7c35b92b5907b625b1af8648a37f3fe9ec41da8a389",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "FilletSpec(CornerMm=(20.0, 0.0), RadiusMm=2.0, FeatureName='Bottom loop round', MoreCornersMm=((40.0, 15.0), (20.0, 30.0), (0.0, 15.0)), LevelMm=0.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          2.0,
+          0.0
+        ],
+        "amount": "2 mm",
+        "name": "Bottom loop round",
+        "corners_cm": [
+          [
+            2.0,
+            0.0
+          ],
+          [
+            4.0,
+            1.5
+          ],
+          [
+            2.0,
+            3.0
+          ],
+          [
+            0.0,
+            1.5
+          ]
+        ],
+        "level_cm": 0.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Bottom loop round",
+        "role": "Radius",
+        "expression": "3 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.882890822378467,
+        "area_cm2": 50.775574890451345,
+        "faces": 10,
+        "edges": 20
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 23.882890822378467,
+        "area_cm2": 50.775574890451345,
+        "faces": 10,
+        "edges": 20
+      }
+    ]
+  },
+  "BevelBossTwo": {
+    "file": "BevelBossTwo.f3d",
+    "base": "part",
+    "bytes": 134814,
+    "sha256": "bbad0a1ffeb2632ca3ad621fa43e44f28978879a23c57b47d5ac13d90dff3186",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(20, 15), RadiusMm=5),), DistanceMm=30, Operation='join', Extent='one', AgainstMm=0.0, SketchName='Boss sketch', FeatureName='Boss')",
+      "ChamferSpec(CornerMm=(25.0, 15.0), DistanceMm=2.0, FeatureName='Boss bevel', SecondMm=1.0, AngleDegrees=0.0, MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "circle",
+            "center_cm": [
+              2.0,
+              1.5
+            ],
+            "radius_cm": 0.5
+          }
+        ],
+        "amount": "30 mm",
+        "against": "0 mm",
+        "operation": "join",
+        "extent": "one",
+        "sketch": "Boss sketch",
+        "name": "Boss"
+      },
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          2.5,
+          1.5
+        ],
+        "amount": "2 mm",
+        "name": "Boss bevel",
+        "second": "1 mm",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Boss bevel",
+        "role": "Distance 2",
+        "expression": "1.5 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 24.78539816339745,
+        "area_cm2": 55.1415926535898,
+        "faces": 8,
+        "edges": 14
+      },
+      {
+        "volume_cm3": 24.821002880138135,
+        "area_cm2": 54.91642891909415,
+        "faces": 9,
+        "edges": 15
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 24.821002880138135,
+        "area_cm2": 54.91642891909415,
+        "faces": 9,
+        "edges": 15
+      }
+    ]
+  },
+  "BevelDiscBottom": {
+    "file": "BevelDiscBottom.f3d",
+    "base": "part",
+    "bytes": 110376,
+    "sha256": "a89b922e782367a1d4733b56d92184f4e6c3588ca0b0797c34f532f9c5676dff",
+    "features": [
+      "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(0, 0), RadiusMm=10),), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Disc sketch', FeatureName='Disc extrude')",
+      "ChamferSpec(CornerMm=(10.0, 0.0), DistanceMm=3.0, FeatureName='Rim bevel', SecondMm=0.0, AngleDegrees=30.0, MoreCornersMm=(), LevelMm=0.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "circle",
+            "center_cm": [
+              0.0,
+              0.0
+            ],
+            "radius_cm": 1.0
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Disc sketch",
+        "name": "Disc extrude"
+      },
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          1.0,
+          0.0
+        ],
+        "amount": "3 mm",
+        "name": "Rim bevel",
+        "angle": "30 deg",
+        "level_cm": 0.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Rim bevel",
+        "role": "Rotate Angle",
+        "expression": "40 deg"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 6.283185307179586,
+        "area_cm2": 18.84955592153876,
+        "faces": 3,
+        "edges": 2
+      },
+      {
+        "volume_cm3": 6.129368142359276,
+        "area_cm2": 17.95863216831772,
+        "faces": 4,
+        "edges": 3
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 6.129368142359276,
+        "area_cm2": 17.95863216831772,
+        "faces": 4,
+        "edges": 3
+      }
+    ]
+  },
+  "BevelRimTwo": {
+    "file": "BevelRimTwo.f3d",
+    "base": "part",
+    "bytes": 188828,
+    "sha256": "f5776390827638abf2796e07348285bf98ae681e5c734b1628be017b7c9f5507",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "FilletSpec(CornerMm=(40.0, 30.0), RadiusMm=5.0, FeatureName='Corner rounds', MoreCornersMm=((0.0, 0.0), (40.0, 0.0), (0.0, 30.0)), LevelMm=None)",
+      "ChamferSpec(CornerMm=(20.0, 0.0), DistanceMm=2.0, FeatureName='Top bevel chain', SecondMm=1.0, AngleDegrees=0.0, MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          4.0,
+          3.0
+        ],
+        "amount": "5 mm",
+        "name": "Corner rounds",
+        "corners_cm": [
+          [
+            4.0,
+            3.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            0.0,
+            3.0
+          ]
+        ]
+      },
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          2.0,
+          0.0
+        ],
+        "amount": "2 mm",
+        "name": "Top bevel chain",
+        "second": "1 mm",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Top bevel chain",
+        "role": "Distance 2",
+        "expression": "1.5 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.570796326794895,
+        "area_cm2": 49.85398163397448,
+        "faces": 10,
+        "edges": 24
+      },
+      {
+        "volume_cm3": 23.443569190463784,
+        "area_cm2": 48.83522070002418,
+        "faces": 18,
+        "edges": 40
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 23.443569190463784,
+        "area_cm2": 48.83522070002418,
+        "faces": 18,
+        "edges": 40
+      }
+    ]
+  },
+  "BevelArcTwo": {
+    "file": "BevelArcTwo.f3d",
+    "base": "part",
+    "bytes": 188828,
+    "sha256": "1c88c7482bfab19717c95f0a981d4ddb8cb41749e5f51672aa8d4c179bc6d7a7",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "FilletSpec(CornerMm=(40.0, 30.0), RadiusMm=5.0, FeatureName='Corner rounds', MoreCornersMm=((0.0, 0.0), (40.0, 0.0), (0.0, 30.0)), LevelMm=None)",
+      "ChamferSpec(CornerMm=(38.53553390593274, 1.4644660940672622), DistanceMm=2.0, FeatureName='Arc bevel chain', SecondMm=1.0, AngleDegrees=0.0, MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          4.0,
+          3.0
+        ],
+        "amount": "5 mm",
+        "name": "Corner rounds",
+        "corners_cm": [
+          [
+            4.0,
+            3.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            0.0,
+            3.0
+          ]
+        ]
+      },
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          3.853553390593274,
+          0.1464466094067262
+        ],
+        "amount": "2 mm",
+        "name": "Arc bevel chain",
+        "second": "1 mm",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Arc bevel chain",
+        "role": "Distance 2",
+        "expression": "1.5 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.570796326794895,
+        "area_cm2": 49.85398163397448,
+        "faces": 10,
+        "edges": 24
+      },
+      {
+        "volume_cm3": 23.44147479536139,
+        "area_cm2": 48.81122106772689,
+        "faces": 18,
+        "edges": 40
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 23.44147479536139,
+        "area_cm2": 48.81122106772689,
+        "faces": 18,
+        "edges": 40
+      }
+    ]
+  },
+  "BevelArcBottom": {
+    "file": "BevelArcBottom.f3d",
+    "base": "part",
+    "bytes": 190498,
+    "sha256": "12928567986959d1d914faaba29725153aa0d7aae7b6b0b1347eaeed50126fd6",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "FilletSpec(CornerMm=(40.0, 30.0), RadiusMm=5.0, FeatureName='Corner rounds', MoreCornersMm=((0.0, 0.0), (40.0, 0.0), (0.0, 30.0)), LevelMm=None)",
+      "ChamferSpec(CornerMm=(38.53553390593274, 1.4644660940672622), DistanceMm=2.0, FeatureName='Arc bevel chain', SecondMm=1.0, AngleDegrees=0.0, MoreCornersMm=(), LevelMm=0.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          4.0,
+          3.0
+        ],
+        "amount": "5 mm",
+        "name": "Corner rounds",
+        "corners_cm": [
+          [
+            4.0,
+            3.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            0.0,
+            3.0
+          ]
+        ]
+      },
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          3.853553390593274,
+          0.1464466094067262
+        ],
+        "amount": "2 mm",
+        "name": "Arc bevel chain",
+        "second": "1 mm",
+        "level_cm": 0.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Arc bevel chain",
+        "role": "Distance 2",
+        "expression": "1.5 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.570796326794895,
+        "area_cm2": 49.85398163397448,
+        "faces": 10,
+        "edges": 24
+      },
+      {
+        "volume_cm3": 23.44147479536139,
+        "area_cm2": 48.81122106772689,
+        "faces": 18,
+        "edges": 40
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 23.44147479536139,
+        "area_cm2": 48.81122106772689,
+        "faces": 18,
+        "edges": 40
+      }
+    ]
+  },
+  "RoundStepEdge": {
+    "file": "RoundStepEdge.f3d",
+    "base": "part",
+    "bytes": 132854,
+    "sha256": "cd237d83d9a846f2707962b2134e60f6ee95a760dbb18abe5c18f860296b166a",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0.0, 0.0), FinishMm=(40.0, 0.0)), LineCurve(StartMm=(40.0, 0.0), FinishMm=(40.0, 15.0)), LineCurve(StartMm=(40.0, 15.0), FinishMm=(20.0, 15.0)), LineCurve(StartMm=(20.0, 15.0), FinishMm=(20.0, 30.0)), LineCurve(StartMm=(20.0, 30.0), FinishMm=(0.0, 30.0)), LineCurve(StartMm=(0.0, 30.0), FinishMm=(0.0, 0.0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Step sketch', FeatureName='Step extrude')",
+      "FilletSpec(CornerMm=(30.0, 15.0), RadiusMm=2.0, FeatureName='Step round', MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              1.5
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              1.5
+            ],
+            "end_cm": [
+              2.0,
+              1.5
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              2.0,
+              1.5
+            ],
+            "end_cm": [
+              2.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              2.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Step sketch",
+        "name": "Step extrude"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          3.0,
+          1.5
+        ],
+        "amount": "2 mm",
+        "name": "Step round",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Step round",
+        "role": "Radius",
+        "expression": "3 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 18.0,
+        "area_cm2": 46.0,
+        "faces": 8,
+        "edges": 18
+      },
+      {
+        "volume_cm3": 17.982831853071797,
+        "area_cm2": 45.81115038378975,
+        "faces": 9,
+        "edges": 21
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 17.982831853071797,
+        "area_cm2": 45.81115038378975,
+        "faces": 9,
+        "edges": 21
+      }
+    ]
+  },
+  "BevelStepTwo": {
+    "file": "BevelStepTwo.f3d",
+    "base": "part",
+    "bytes": 132942,
+    "sha256": "b8ce9577b338ace9292a9088f3c1f035656891eb1ba3e51d49f99f52fa4fa066",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0.0, 0.0), FinishMm=(40.0, 0.0)), LineCurve(StartMm=(40.0, 0.0), FinishMm=(40.0, 15.0)), LineCurve(StartMm=(40.0, 15.0), FinishMm=(20.0, 15.0)), LineCurve(StartMm=(20.0, 15.0), FinishMm=(20.0, 30.0)), LineCurve(StartMm=(20.0, 30.0), FinishMm=(0.0, 30.0)), LineCurve(StartMm=(0.0, 30.0), FinishMm=(0.0, 0.0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Step sketch', FeatureName='Step extrude')",
+      "ChamferSpec(CornerMm=(30.0, 15.0), DistanceMm=2.0, FeatureName='Step bevel', SecondMm=1.0, AngleDegrees=0.0, MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              1.5
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              1.5
+            ],
+            "end_cm": [
+              2.0,
+              1.5
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              2.0,
+              1.5
+            ],
+            "end_cm": [
+              2.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              2.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Step sketch",
+        "name": "Step extrude"
+      },
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          3.0,
+          1.5
+        ],
+        "amount": "2 mm",
+        "name": "Step bevel",
+        "second": "1 mm",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Step bevel",
+        "role": "Distance 2",
+        "expression": "1.5 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 18.0,
+        "area_cm2": 46.0,
+        "faces": 8,
+        "edges": 18
+      },
+      {
+        "volume_cm3": 17.98,
+        "area_cm2": 45.827213595499956,
+        "faces": 9,
+        "edges": 21
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 17.98,
+        "area_cm2": 45.827213595499956,
+        "faces": 9,
+        "edges": 21
+      }
+    ]
+  },
+  "RoundPostEdge": {
+    "file": "RoundPostEdge.f3d",
+    "base": "part",
+    "bytes": 150462,
+    "sha256": "28130a1f10664b271d579fd79ff98fe7dade60bddbe3e55287331d74c6ac2bcb",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(10, 10), FinishMm=(30, 10)), LineCurve(StartMm=(30, 10), FinishMm=(30, 20)), LineCurve(StartMm=(30, 20), FinishMm=(10, 20)), LineCurve(StartMm=(10, 20), FinishMm=(10, 10))), DistanceMm=30.0, Operation='join', Extent='one', AgainstMm=0.0, SketchName='Post sketch', FeatureName='Post extrude')",
+      "FilletSpec(CornerMm=(20.0, 10.0), RadiusMm=2.0, FeatureName='Post round', MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              1.0,
+              1.0
+            ],
+            "end_cm": [
+              3.0,
+              1.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              3.0,
+              1.0
+            ],
+            "end_cm": [
+              3.0,
+              2.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              3.0,
+              2.0
+            ],
+            "end_cm": [
+              1.0,
+              2.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              1.0,
+              2.0
+            ],
+            "end_cm": [
+              1.0,
+              1.0
+            ]
+          }
+        ],
+        "amount": "30 mm",
+        "against": "0 mm",
+        "operation": "join",
+        "extent": "one",
+        "sketch": "Post sketch",
+        "name": "Post extrude"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          2.0,
+          1.0
+        ],
+        "amount": "2 mm",
+        "name": "Post round",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Post round",
+        "role": "Radius",
+        "expression": "3 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 26.0,
+        "area_cm2": 58.0,
+        "faces": 11,
+        "edges": 24
+      },
+      {
+        "volume_cm3": 26.017168146928203,
+        "area_cm2": 57.845486677646164,
+        "faces": 12,
+        "edges": 27
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 26.017168146928203,
+        "area_cm2": 57.845486677646164,
+        "faces": 12,
+        "edges": 27
+      }
+    ]
+  },
+  "BevelPostTwo": {
+    "file": "BevelPostTwo.f3d",
+    "base": "part",
+    "bytes": 150550,
+    "sha256": "002b648691c1d4f21770840ccaae5708c8b64dd0d5e0656e5bab2c02bdd66db8",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(10, 10), FinishMm=(30, 10)), LineCurve(StartMm=(30, 10), FinishMm=(30, 20)), LineCurve(StartMm=(30, 20), FinishMm=(10, 20)), LineCurve(StartMm=(10, 20), FinishMm=(10, 10))), DistanceMm=30.0, Operation='join', Extent='one', AgainstMm=0.0, SketchName='Post sketch', FeatureName='Post extrude')",
+      "ChamferSpec(CornerMm=(20.0, 10.0), DistanceMm=2.0, FeatureName='Post bevel', SecondMm=1.0, AngleDegrees=0.0, MoreCornersMm=(), LevelMm=20.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              1.0,
+              1.0
+            ],
+            "end_cm": [
+              3.0,
+              1.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              3.0,
+              1.0
+            ],
+            "end_cm": [
+              3.0,
+              2.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              3.0,
+              2.0
+            ],
+            "end_cm": [
+              1.0,
+              2.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              1.0,
+              2.0
+            ],
+            "end_cm": [
+              1.0,
+              1.0
+            ]
+          }
+        ],
+        "amount": "30 mm",
+        "against": "0 mm",
+        "operation": "join",
+        "extent": "one",
+        "sketch": "Post sketch",
+        "name": "Post extrude"
+      },
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          2.0,
+          1.0
+        ],
+        "amount": "2 mm",
+        "name": "Post bevel",
+        "second": "1 mm",
+        "level_cm": 2.0
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Post bevel",
+        "role": "Distance 2",
+        "expression": "1.5 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 26.0,
+        "area_cm2": 58.0,
+        "faces": 11,
+        "edges": 24
+      },
+      {
+        "volume_cm3": 26.02,
+        "area_cm2": 57.867213595499955,
+        "faces": 12,
+        "edges": 27
+      }
+    ],
+    "kit_bodies": [
+      {
+        "volume_cm3": 26.02,
+        "area_cm2": 57.867213595499955,
+        "faces": 12,
+        "edges": 27
       }
     ]
   }

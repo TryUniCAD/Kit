@@ -14,6 +14,11 @@ Such a value is replaced when it holds a digit and only id characters.
 A run of ten or more lowercase hex digits can also end just before an account key.
 It is replaced even when a path is glued in front of it.
 Only hex runs from these two lead rules feed the fragment search, so words such as `Identity` and material paths never do.
+A complete quoted value can also follow heap bytes, as in `"…9",` before `"hubIdHashed`.
+It is replaced when it holds a digit, and it feeds the fragment search when it mixes letters and digits.
+All three lead rules also accept a next key that the end of the member cuts off, such as `"hubIdHashed` with no closing quote.
+This rule found a user name fragment in eight part feature controls that Fusion saved again in the fourth feature round.
+The scrubber changed only those eight archives, their models stayed equal, and a second run changed no byte.
 
 The [scrub ledger](../../../../re/Fusion/LocalOracle/ScrubLedger.json) now lists every placeholder already written.
 The scrubber leaves values inside those placeholders unchanged, so a second run over a scrubbed archive changes no byte.

@@ -43,6 +43,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MoveSpec import Mov
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.OffsetSpec import (
     OffsetSpec,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PasteSpec import PasteSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.DraftSpec import DraftSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import ShellSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.LoftSpec import LoftSpec
@@ -72,6 +73,7 @@ KFamilyRules: dict[type[object], FamilyRule] = {
     BodyRingSpec: FamilyRule("DcCircularPattern", "C-Pattern", 0, 4),
     LoftSpec: FamilyRule("DcLoftFeature", "Loft", 4, 8),
     SweepSpec: FamilyRule("DcSweepFeature", "Sweep", 3, 8),
+    PasteSpec: FamilyRule("DcPasteBodies", "CopyPasteBodies", 2, 4),
 }
 
 

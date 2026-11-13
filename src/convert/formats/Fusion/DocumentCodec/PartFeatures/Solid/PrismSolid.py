@@ -1,5 +1,6 @@
 from dataclasses import dataclass as MakeDataClass
 
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Brep.EdgeRound import EdgeRound
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.FaceLabel import FaceLabel
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSlab import PrismSlab
 
@@ -13,3 +14,5 @@ class PrismSolid:
     Tracks: tuple[tuple[FaceLabel, int], ...] = ()
     Ordinal: int = 1
     Sealed: bool = False
+    Rounds: tuple[EdgeRound, ...] = ()
+    Blends: tuple[FaceLabel, ...] = ()

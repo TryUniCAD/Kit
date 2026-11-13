@@ -7,7 +7,7 @@
     {
       "name": "SweepBend",
       "file": "SweepBend.f3d",
-      "sha256": "2d0035be1ba0db672a1ae4e78c2735d4421ede667b7e63a8ea67fa7547a7834a",
+      "sha256": "a4c9c5149e959d929146249c1ceba05f25d853217d71900039aebdd3a9e14730",
       "steps": [
         {
           "kind": "sweep",
@@ -1256,13 +1256,13 @@
         "work": [],
         "marker": 3
       },
-      "saved_sha256": "96216b3e485fe9a76c0e64be43cfd30289aeda71e5d5944d25d68a97e550031e",
+      "saved_sha256": "f268e34e9689fb19679305f52965ebb32cfeb2d1c67f0e6bb64360693b3dd1ef",
       "status": "accepted"
     },
     {
       "name": "SweepHook",
       "file": "SweepHook.f3d",
-      "sha256": "cc6b6165c7b1ce12ef24f26417e6b8e8fb3d570fc1def7694379453b521a8856",
+      "sha256": "8cf843922e89bd929ac61211c36c6ffc16f4445af03267b9a7cabf464c2b664e",
       "steps": [
         {
           "kind": "sweep",
@@ -2532,13 +2532,13 @@
         "work": [],
         "marker": 3
       },
-      "saved_sha256": "fb681c589562fceb98c139a81289799af2b283dd08bdfdd1482522948743bf85",
+      "saved_sha256": "9865c7035ea0623851e3917e8c3da7b67bd5728a554f97057d763b0708dd7ab9",
       "status": "accepted"
     },
     {
       "name": "SweepSCurve",
       "file": "SweepSCurve.f3d",
-      "sha256": "0b22b538d6f85e62db9915c6546998e0b88593d831122563dc3597e17b985584",
+      "sha256": "f42b96c0597d5f107f96cb84757b2835539b1f9c25a745b3cabebc8ff67b4f45",
       "steps": [
         {
           "kind": "sweep",
@@ -3809,13 +3809,13 @@
         "work": [],
         "marker": 3
       },
-      "saved_sha256": "2abd1fe38bd1af2a131fbe5401acda6025d50d0cf4cda3c4d7db4e7f49032229",
+      "saved_sha256": "a8fc302ef1f2e80bf18a61d0c036a0c849cc85cccaee9401e234052854eda674",
       "status": "accepted"
     },
     {
       "name": "SweepSecondBody",
       "file": "SweepSecondBody.f3d",
-      "sha256": "c78298e15c40fd0bf748ba4598dea4ae7970d35104d4ffcccec5d8cc4bc6d0df",
+      "sha256": "a48ad63ac747fb983b9776412dd267e8dd657263951dcd93b46b2d5123fb9a0b",
       "steps": [
         {
           "kind": "extrude",
@@ -6370,7 +6370,7 @@
         "work": [],
         "marker": 5
       },
-      "saved_sha256": "a9f9ca62ffdfa80d2a65befc7af661fef73dca4dce4498f611f87cdd5e435ea1",
+      "saved_sha256": "71bb69beaca518620f9b64da645efa0743b976af574b67c97b49fda49786820e",
       "status": "accepted"
     }
   ],

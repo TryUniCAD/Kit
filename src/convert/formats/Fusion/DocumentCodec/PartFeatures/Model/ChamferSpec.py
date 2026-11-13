@@ -9,3 +9,4 @@ class ChamferSpec:
     SecondMm: float = 0.0
     AngleDegrees: float = 0.0
     MoreCornersMm: tuple[tuple[float, float], ...] = ()
+    LevelMm: float | None = None

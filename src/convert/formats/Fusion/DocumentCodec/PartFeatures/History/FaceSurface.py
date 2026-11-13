@@ -3,6 +3,10 @@ from math import atan2 as ArcTangent, cos as Cosine, hypot as Hypotenuse, sin as
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.ConeNode import ConeNode
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.EntityPrefix import EntityPrefix
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.PlaneNode import PlaneNode
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Brep.FreeFace import (
+    FreeFace,
+    KFreeSurface,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.ShapeBody import KShapeFace
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.WallFace import WallFace
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.ArcSpan import ArcSpan
@@ -10,7 +14,9 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.LineSpan import Lin
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.SpanMath import SpanHeading
 
 
-def FaceSurface(FaceValue: KShapeFace) -> tuple[PlaneNode | ConeNode, bool]:
+def FaceSurface(FaceValue: KShapeFace) -> tuple[KFreeSurface, bool]:
+    if isinstance(FaceValue, FreeFace):
+        return FaceValue.Surface, FaceValue.Reversed
     Prefix = EntityPrefix(-1, -1)
     if not isinstance(FaceValue, WallFace):
         Normal = (0.0, 0.0, 1.0 if FaceValue.Upward else -1.0)

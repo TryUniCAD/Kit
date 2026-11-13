@@ -288,6 +288,8 @@ def add_body_step(comp, features, step):
     if step["kind"] == "split":
         inp = feats.splitBodyFeatures.createInput(body_named(comp, step["target"]), features[step["plane"]], True)
         return feats.splitBodyFeatures.add(inp)
+    if step["kind"] == "paste":
+        return feats.copyPasteBodies.add(body_named(comp, step["source_body"]))
     source = coll(body_named(comp, step["source_body"]))
     if step["kind"] == "body_pattern":
         count = adsk.core.ValueInput.createByReal(step["count_u"])
@@ -301,8 +303,19 @@ def add_body_step(comp, features, step):
     return feats.circularPatternFeatures.add(inp)
 
 
+def level_edge(body, x, y, z):
+    found = body.parentComponent.findBRepUsingPoint(pt(x, y, z), adsk.fusion.BRepEntityTypes.BRepEdgeEntityType, 1e-6, False)
+    edges = [adsk.fusion.BRepEdge.cast(found.item(i)) for i in range(found.count)]
+    edges = [edge for edge in edges if edge is not None and edge.body == body]
+    if len(edges) != 1:
+        raise RuntimeError("Level edge not unique at " + str((x, y, z)))
+    return edges[0]
+
+
 def corner_edges(body, step):
     corners = step.get("corners_cm", [step["corner_cm"]])
+    if "level_cm" in step:
+        return coll(*[level_edge(body, x, y, step["level_cm"]) for x, y in corners])
     return coll(*[vertical_edge(body, *corner) for corner in corners])
 
 
@@ -331,7 +344,7 @@ def build_control(comp, entry):
             feature = add_copy(comp, features, step)
         elif step["kind"] == "plane":
             feature = add_plane(comp, step)
-        elif step["kind"] in ("combine", "split", "body_pattern", "body_ring"):
+        elif step["kind"] in ("combine", "split", "body_pattern", "body_ring", "paste"):
             feature = add_body_step(comp, features, step)
         elif step["kind"] == "axis":
             inp = comp.constructionAxes.createInput()

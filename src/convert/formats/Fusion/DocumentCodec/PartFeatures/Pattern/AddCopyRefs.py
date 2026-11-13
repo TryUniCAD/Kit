@@ -1,3 +1,5 @@
+from math import hypot as Hypotenuse
+
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.PartNodes import (
     AddNodeMut,
@@ -19,6 +21,12 @@ KAxisRows: dict[str, tuple[float, float, float]] = {
     "y_axis": (0.0, 2.0, 0.0),
     "z_axis": (0.0, 0.0, 2.0),
 }
+
+
+def UnitAxis(AxisRole: str) -> dict[str, float]:
+    AxisRow = KAxisRows[AxisRole]
+    Length = Hypotenuse(*AxisRow)
+    return PointOf((AxisRow[0] / Length, AxisRow[1] / Length, AxisRow[2] / Length))
 
 
 def AddSeedMut(

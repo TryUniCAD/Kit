@@ -1,13 +1,13 @@
 {
   "fusion_version": "2706.1.17",
-  "documents_before": 0,
+  "documents_before": 2,
   "suite": "FilletChamferShell",
   "scope": "Kit-authored part feature documents compared with same-script native API controls: open without recompute, every rollback marker, computeAll, driving parameter edits, export and reopen",
   "cases": [
     {
       "name": "Fillet",
       "file": "Fillet.f3d",
-      "sha256": "3c63718f1b1fe6dc52e86193846835b146d41e9ad987d4cd098824c7e18763f9",
+      "sha256": "aaf173f2affe5e265a05ca9db4bc7edb6e800a44ac55c69f5e389ccf426d3bf1",
       "steps": [
         {
           "kind": "fillet",
@@ -1410,13 +1410,13 @@
         "work": [],
         "marker": 3
       },
-      "saved_sha256": "f723cf321de64b42151fcc9bbbc618f1b3888852ae5ca13a6630534e287fcc66",
+      "saved_sha256": "a8e25ea71760148b98d3ed42f51687ecf67880083b125c9419e3b9d5b56ddfa5",
       "status": "accepted"
     },
     {
       "name": "Chamfer",
       "file": "Chamfer.f3d",
-      "sha256": "30404ace16c4a11bc6f4c571a6be77a8ac7159abb732e5850c80c999835031d2",
+      "sha256": "f4f9e5f97975f5a6bd7b76fda5d3e07ede7063aaec9cd7f676d518914b468e0f",
       "steps": [
         {
           "kind": "chamfer",
@@ -2699,13 +2699,13 @@
         "work": [],
         "marker": 3
       },
-      "saved_sha256": "3f564defe8f5775de70b4ba6c8d65f0ee4c82f7de5b664d8483a728629704534",
+      "saved_sha256": "1aaa86ff3c8124b27e44cd9f8ee21a0b9e7884aae043d42c9fbb3900cc5faa74",
       "status": "accepted"
     },
     {
       "name": "Shell",
       "file": "Shell.f3d",
-      "sha256": "fa820b9560d3e25aa178610955c33da2cb64137879f1d6622d4a119b5e211ba4",
+      "sha256": "9952ca274e6b76b58f1f8919ea1fd468c2128ef7c6f9d08f39e4c39b2920af36",
       "steps": [
         {
           "kind": "shell",
@@ -4020,13 +4020,13 @@
         "work": [],
         "marker": 3
       },
-      "saved_sha256": "dcb443fe7cbc44797f3178941c14cea0b9ec6e56e88fbce72269c534e5ee4385",
+      "saved_sha256": "1e3d67b578a0e83da0ec220b345f56c29fd5708475b4ca1365acd9aba79cf155",
       "status": "accepted"
     },
     {
       "name": "FilletShell",
       "file": "FilletShell.f3d",
-      "sha256": "6cb637517450e07640ba03f21d9938e10bf2adb77768f031be94ee1f33c011b9",
+      "sha256": "36fe85f12cc2e5109c2ce40a7d16195374b1ec08f0686d07f2bd152dca940a81",
       "steps": [
         {
           "kind": "fillet",
@@ -5931,13 +5931,13 @@
         "work": [],
         "marker": 4
       },
-      "saved_sha256": "447c008b6ef0cdfe7fd7d781e6bb9ad5fd6cb5157a8968bb16fdc40e15e2cef9",
+      "saved_sha256": "4a6191a66a3fab529313fc3d8f6a6edee380f26488833514ee6b2c131e216fef",
       "status": "accepted"
     },
     {
       "name": "MultiFeature",
       "file": "MultiFeature.f3d",
-      "sha256": "f5c1de5d83a6c0cd326d39003328855fb2a302ff7fd9e0cc9660f8cf5f47008c",
+      "sha256": "f804b3fbcb7fe14b99a27fb8d1f8031303a229aa854c396e479137b0cd37761d",
       "steps": [
         {
           "kind": "fillet",
@@ -9116,10 +9116,10 @@
         "work": [],
         "marker": 6
       },
-      "saved_sha256": "ab6b03f77dda54a305495cc458c89a21a0342c535fb1836b505ed4b590024400",
+      "saved_sha256": "3e56607436634f2aa2cd62ba1781eca9eef2f4dcd5cff6b0ae42d32a092444ab",
       "status": "accepted"
     }
   ],
   "status": "accepted",
-  "documents_after": 0
+  "documents_after": 2
 }

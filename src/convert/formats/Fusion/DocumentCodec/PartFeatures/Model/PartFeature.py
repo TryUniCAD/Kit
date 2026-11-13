@@ -35,6 +35,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MoveSpec import Mov
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.OffsetSpec import (
     OffsetSpec,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PasteSpec import PasteSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.DraftSpec import DraftSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.RevolveSpec import (
@@ -68,4 +69,5 @@ KPartFeature: TypeAlias = (
     | BodyRingSpec
     | LoftSpec
     | SweepSpec
+    | PasteSpec
 )

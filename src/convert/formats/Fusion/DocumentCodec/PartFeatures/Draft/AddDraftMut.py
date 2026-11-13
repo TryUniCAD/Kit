@@ -37,6 +37,13 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSolid import (
 from convert.formats.Fusion.EntityCodec.Recipes.Model.RecipeValue import RecipeValue
 
 KDraftTags = tuple[tuple[int, ...], int]
+KDraftModes: dict[str, object] = dict(
+    MovingPartingLineDraftAngleType=3,
+    draftType=1,
+    m_bTangentPropagation=True,
+    m_directionType=1,
+    m_fixedPlaneDraftAngleMode=1,
+)
 
 
 def DraftTags(Solids: tuple[TagState, ...], Place: int, Stage: PartStage) -> KDraftTags:
@@ -120,5 +127,6 @@ def AddDraftMut(
         m_draftAngle2=Reference(Prefix + "other"),
         m_rRefPlaneDataRef=Reference(Prefix + "plane"),
         m_facePickPoint=FloorCentre(Stage.Before),
+        **KDraftModes,
     )
     return [*Children, Prefix + "angle", Prefix + "other"]

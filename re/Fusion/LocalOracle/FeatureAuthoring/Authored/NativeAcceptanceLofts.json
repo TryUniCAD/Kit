@@ -7,7 +7,7 @@
     {
       "name": "LoftRects",
       "file": "LoftRects.f3d",
-      "sha256": "6336c3961418b4f18c8368712c86e0850e4defeb0516db8d0be8d6b4f362a334",
+      "sha256": "e00ecf959fd7d4614ae4c3e7e149688c60455e1a003163a55af04092a178c09a",
       "steps": [
         {
           "kind": "loft",
@@ -1378,13 +1378,13 @@
         "work": [],
         "marker": 4
       },
-      "saved_sha256": "18bf9ceebd322766ac25e45722e279d0b2f57af58ac0cf052a00b5351078f3f7",
+      "saved_sha256": "9aa5a57995cda226d57e0699ed39235c8b943554d5ec9fd6c827cd98fb02fed2",
       "status": "accepted"
     },
     {
       "name": "LoftCircles",
       "file": "LoftCircles.f3d",
-      "sha256": "5fc43c77571787deec169f8346852234a2406ca972c8ea2e93e7b91a081dea24",
+      "sha256": "ac3f88becc15265ba4f7ba3e6e2632cdce972a9e0ea4fa8f20fe1cd0b30dbcd3",
       "steps": [
         {
           "kind": "loft",
@@ -2656,13 +2656,13 @@
         "work": [],
         "marker": 4
       },
-      "saved_sha256": "b443d31abac28a1276c789c1fac0dc1dfa3e9a6f2a68aef1607d6bf1795c7ab6",
+      "saved_sha256": "8e2e1d4e0cd3c668d0c5bc5106c806a619a330004eff3d848901a52d688dcdd4",
       "status": "accepted"
     },
     {
       "name": "LoftWedgeBody",
       "file": "LoftWedgeBody.f3d",
-      "sha256": "3c3587f2e80dcd8261ffaa96267a96c2a934cd12c3d7b9acb08fa5e791798d1e",
+      "sha256": "f99c0503209e692032b3804b354e1c670b55eeea8e7b70177bddb006ef03c956",
       "steps": [
         {
           "kind": "extrude",
@@ -5448,7 +5448,7 @@
         "work": [],
         "marker": 6
       },
-      "saved_sha256": "0c1ad46a5aa3ac6c767937c56573ae3cac00e3100654969b71a4959a16d330cc",
+      "saved_sha256": "019faf724a47ea5e944ab57468bec221725ab41888fd9d0c1d606ec82cf494ec",
       "status": "accepted"
     }
   ],

@@ -10,6 +10,7 @@ KReports = (
     "CaptureFamilies.json",
     "CaptureBodies.json",
     "CaptureSweeps.json",
+    "CapturePastes.json",
 )
 
 

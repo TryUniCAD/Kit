@@ -1690,34 +1690,46 @@ No consistent input repeated the exit, and Kit now refuses that edit.
 ## Independently authored part features
 
 `DocumentSpec.Features` adds an ordered tuple of part features to an unconstrained cuboid or to a part profile.
-With `ProfileKind="part"`, the first feature must be a `new` `ExtrudeSpec`, and no other feature may create a body.
+With `ProfileKind="part"`, the first feature must be a `new` extrusion, a `new` revolve, a loft or a sweep.
+A later `new` extrusion, `new` revolve, loft, sweep, split, body pattern or pasted copy adds a body, up to 16 bodies.
 `CheckFeatures` accepts at most 16 features, requires a shell to be last and reserves generated `d<digits>` parameter names.
-`SolvePart` applies each feature to an exact prism model in millimetre inputs and centimetre geometry.
-The model is a stack of slabs with vertical walls and flat caps.
-Every authored surface is therefore a plane or a vertical cylinder.
+`SolvePart` applies each feature to an exact solid model in millimetre inputs and centimetre geometry.
+The model is a stack of slabs with vertical or leaning walls and flat caps, with exact edge rounds applied after the last slab feature.
+Every authored surface is a plane, a cylinder, a cone or a torus.
 Rejected profiles, missed bodies, collapsed sides and over-thick shells raise `ValueError` before any record is written.
 The [part feature change entry](../../Changes/Fusion/Features/FusionPartFeatures.md) gives the API and the limits.
 
-| Family              | Design feature         | Operations          | Journal state | Driving parameters                                               |
-| ------------------- | ---------------------- | ------------------- | ------------- | ---------------------------------------------------------------- |
-| Sketch extrusion    | `DcExtrudeFeature`     | 3 with its sketch   | One           | `AlongDistance`, `AgainstDistance`, `TaperAngle`                 |
-| Hole                | `DcHoleFeature`        | 1                   | One           | `HoleDiameter`, `HoleDepth`, `TipAngle`, `CBDiameter`, `CBDepth` |
-| Rectangular pattern | `DcRectangularPattern` | `CountU` × `CountV` | One           | `countU`, `CountV`, `uSpaceDistance`, `vSpaceDistance`           |
-| Circular pattern    | `DcCircularPattern`    | `Count`             | One           | `countU`, `TotalAngle`                                           |
-| Offset plane        | `DcWorkPlane`          | 1                   | None          | `AlongDistance`, `ExtraOffset`                                   |
-| Construction axis   | `DcWorkAxis`           | 1                   | None          | None                                                             |
-| Construction point  | `DcWorkPoint`          | 1                   | None          | None                                                             |
-| Mirror              | `DcMirrorPattern`      | 2                   | One           | `countU`, `mirrorStitchTolerance`                                |
-| Fillet              | `DcFilletEdgeFeature`  | 1                   | One           | `TangencyWeight`, `Radius`                                       |
-| Chamfer             | `DcChamferFeature`     | 1                   | One           | `Distance`, `Distance 1`, `Distance 2`, `Rotate Angle`           |
-| Shell               | `DcShellFeature`       | 2                   | One           | `innerThickness`                                                 |
+| Family              | Design feature            | Operations          | Journal state | Driving parameters                                               |
+| ------------------- | ------------------------- | ------------------- | ------------- | ---------------------------------------------------------------- |
+| Sketch extrusion    | `DcExtrudeFeature`        | 3 with its sketch   | One           | `AlongDistance`, `AgainstDistance`, `TaperAngle`                 |
+| Hole                | `DcHoleFeature`           | 1                   | One           | `HoleDiameter`, `HoleDepth`, `TipAngle`, `CBDiameter`, `CBDepth`, `CSDiameter`, `CSAngle` |
+| Revolve             | `DcRevolveFeature`        | 2 with its sketch   | One           | `AlongAngle`                                                     |
+| Rectangular pattern | `DcRectangularPattern`    | `CountU` × `CountV` | One           | `countU`, `CountV`, `uSpaceDistance`, `vSpaceDistance`           |
+| Circular pattern    | `DcCircularPattern`       | `Count`             | One           | `countU`, `TotalAngle`                                           |
+| Offset plane        | `DcWorkPlane`             | 1                   | None          | `AlongDistance`, `ExtraOffset`                                   |
+| Construction axis   | `DcWorkAxis`              | 1                   | None          | None                                                             |
+| Construction point  | `DcWorkPoint`             | 1                   | None          | None                                                             |
+| Mirror              | `DcMirrorPattern`         | 2                   | One           | `countU`, `mirrorStitchTolerance`                                |
+| Fillet              | `DcFilletEdgeFeature`     | 1                   | One           | `TangencyWeight`, `Radius`                                       |
+| Chamfer             | `DcChamferFeature`        | 1                   | One           | `Distance`, `Distance 1`, `Distance 2`, `Rotate Angle`           |
+| Shell               | `DcShellFeature`          | 2                   | One           | `innerThickness`                                                 |
+| Move                | `DcMoveFeature`           | 1                   | One           | None                                                             |
+| Offset face         | `DcOffsetFacesFeature`    | 2                   | One           | `distance`                                                       |
+| Draft               | `DcDraftFeature`          | 2                   | One           | `Angle1`                                                         |
+| Combine             | `DcCombineFeature`        | 1                   | One           | None                                                             |
+| Split               | `DcSplitBodyFeature`      | 1                   | One           | None                                                             |
+| Body pattern        | `DcRectangularPattern` or `DcCircularPattern` | `CountU` × `CountV` or `Count` | One | `countU`, `CountV`, `uSpaceDistance`, `TotalAngle` |
+| Loft                | `DcLoftFeature`           | 4 with its sketches and plane | One | `AlongDistance` of the loft plane                                |
+| Sweep               | `DcSweepFeature`          | 3 with its sketches | One           | `AlongDistance`, `TwistAngle`, `TaperAngle`                      |
 
-### Extrusions and holes
+### Extrusions, holes and revolves
 
 A sketch extrusion writes a `DcSketch` on the origin XY plane with its lines, arcs and circles, the region recipe and the profile.
 A `new` extrusion owns the body.
 A `join`, `cut` or `intersect` extrusion adds a body target with tracking type 8.
 One-sided, flipped, symmetric and two-sided extents use the native extent records.
+Profile circles start at their −X point, so each circular edge has a +X major axis and parameters from −π to π.
+The [circle seam gotcha](../../Gotchas/Conversion/Fusion/Features/FeatureCircleSeam.md) gives the native edges.
 
 A hole writes a `DRPoint` on the current top face and a `DRVector` with `refType` 19 along +Z.
 Both carry `param`, the offset of the hole centre from the plane root of the top face.
@@ -1729,7 +1741,13 @@ A top face with one circular boundary uses a single-edge recipe that names the r
 A through hole adds a body extent reference with tracking type 5.
 A blind hole has a 180° tip, so its floor is a plane.
 A counterbore adds `CBDiameter` and `CBDepth`.
+A countersink adds `CSDiameter` and `CSAngle` and a cone about the hole axis.
 The [hole placement gotcha](../../Gotchas/Conversion/Fusion/Features/FeatureHolePlacement.md) gives the recipes.
+
+A revolve sketches a rectangle on the XZ origin plane and turns it about the Z axis.
+The native XZ work plane has U along +Z, V along +X and a +Y normal.
+With the opposite frame, Fusion swept each partial revolve the other way after `computeAll`.
+The [revolve frame gotcha](../../Gotchas/Conversion/Fusion/Features/FeatureRevolveFrame.md) gives the frames.
 
 ### Patterns and mirrors
 
@@ -1759,6 +1777,118 @@ A chamfer writes one `primaryIDRowIndexMap` row per edge.
 Type 2 links `chamferDistanceTwoParam` to `Distance 2`, and type 3 links `chamferAngleParam` to `Rotate Angle`.
 In both native controls, the first distance runs along the side that ends at the corner in the counter-clockwise profile.
 
+### Edge rounds on horizontal edges
+
+With `LevelMm`, a fillet or chamfer names horizontal edges by a point and a height.
+The feature records, parameters and mode codes are those of the vertical-edge corner features.
+Fusion records every edge of a tangent chain, so the feature holds one `BrepRef` and one progenitor seed for each chain edge.
+The progenitor table `tagId` is the edge count plus one.
+Kit lists the picked edge first, then the edges ahead of it and then the edges behind it.
+Picked edges that meet at a sharp convex corner form one chain, as a loop selection does.
+
+| Edge                         | Recipe tags                                  | Recipe faces and vertices                 |
+| ---------------------------- | -------------------------------------------- | ----------------------------------------- |
+| Line or arc in a chain       | Side face, cap, previous and next neighbour  | Side face and cap, one vertex at each end |
+| Full circle with its own tag | Rim edge, side face, cap                     | Side face and cap, one seam vertex        |
+| Full circle without a tag    | Side face, cap                               | Side face and cap, no vertex              |
+
+The base of a joined boss is a circle without its own tag, because the boolean makes it.
+For arcs in a chain the native recipes list the cap before the side face, and their tangent vertices carry UV orders.
+Kit lists the side face first and writes no UV orders there, and Fusion accepted both at open and after `computeAll`.
+
+Each edge cache, `ETCachedLineSeg3d` or `ETCachedCircleArc`, runs in Fusion's edge direction.
+A profile, cut or join edge runs with the loop of its cap when the cap faces up and with the loop of its side face when the cap faces down.
+An edge made by a vertical-edge fillet runs with the loop of the fillet face.
+A full circle cache has the circle's major axis as `refVec`, opposite its seam vertex, and spans 0 to 2π.
+A chamfer puts its first distance on the face whose loop runs with the picked edge, and the whole chain follows that edge.
+The [chamfer legs gotcha](../../Gotchas/Conversion/Fusion/Features/FeatureChamferLegs.md) gives the native caches.
+
+The journal state applies the rounds to the finished body.
+A fillet along a line is a cylinder, and along an arc it is a torus about the arc axis.
+A chamfer along a line is a plane, and along an arc it is a cone.
+Two rounds that meet at a sharp convex corner share a mitre edge, a quarter ellipse for fillets and a line for chamfers.
+The [edge round change entry](../../Changes/Fusion/Features/FusionEdgeRounds.md) lists the 30 accepted cases and the limits.
+
+### Shells, moves, offsets and drafts
+
+A shell opens the top face and may open a connected run of straight side faces.
+An open side becomes one U-shaped face, because wall pieces with the same label on one line merge across slabs.
+
+A move is a free move whose `DcMoveMatrix` holds a turn about Z and a translation.
+It has no driving parameter.
+A hole cannot follow a move, because in both observed runs a recompute placed the hole away from its authored centre.
+
+An offset face moves the top face or one straight side face along its normal.
+The moved face keeps its tag and appends the negated first operation of the feature.
+Each face that shares an edge with it appends the negated second operation.
+
+A draft tilts every side face of a one-slab prism about the bottom face.
+The drafted slab keeps its bottom profile and stores the leaning top profile.
+Each drafted face appends the negated first operation, and both caps keep their tags.
+
+### Bodies
+
+A part can hold up to 16 bodies, numbered in creation order.
+A later `new` extrusion or revolve allocates another `Body` and `DcBody`, whose `creationIndex` is the body number.
+A `DcCombineFeature` names each tool body through a `ModelDataRef` with tracking type 5 and a `DRBody` with tracking type 9.
+The `DRBody` topology cache points at the tool body tag.
+The target uses tracking types 4 and 8.
+`booleanOperation` is 0 for join, 1 for cut and 2 for intersect.
+The feature has one operation identifier, an empty progenitor table with `tagId` 1 and an `OccurrenceDataRef` keyed in `occDR2FeatIdMap`.
+A consumed tool stays in the journal, its `Body` is hidden, its `DcBody` is eliminated and the combine lists it in `removedBodies`.
+The [combine tool gotcha](../../Gotchas/Conversion/Fusion/Features/FeatureCombineTools.md) gives the native journal.
+
+A `DcSplitBodyFeature` with its `DcSplitFeature` group names the plane through a `ModelDataRef` with tracking type 33.
+It adds an `EntityDataRef` with an `ETCachedPlane`.
+The lower piece keeps the body, and the upper piece gets a new body in `dcBodies`.
+The [split sides gotcha](../../Gotchas/Conversion/Fusion/Features/FeatureSplitSides.md) gives the side identifiers.
+
+A body pattern is a `DcRectangularPattern` or `DcCircularPattern` with `computeType` 2.
+Its `DcPatternSource` caches the source `DRBody`.
+Each copy is a new body with a `BodyProgenitor` whose identifier is the new body's `persistentId`.
+`BRepHistorySerializer.mapBodyId` maps every body tag, and `Bodies.children` lists only the visible bodies.
+
+### Body copy and paste
+
+A paste copies a visible body in place, as `copyPasteBodies.add` does.
+It writes two features.
+`DcPasteBodies` is the timeline item, with a `ModelDataRef` and a `DRBody` that name the source body and an empty progenitor table.
+A hidden `DcBaseFeature` holds the result: a `DcDirectModelingData` node, a hidden body in the cache bodies and the new visible body.
+The two bodies name each other through `BASEFEAT_PM_BODY_REF` and `BASEFEAT_DM_BODY_REF`.
+The base feature takes the first of the two operations and owns the journal state, and it is missing from `DcCreationOrderFeatures`.
+In the journal the copy is a new body whose tag is the first operation with secondary id 1.
+Every face tag of the source appends that operation, and edge tags stay as in the source.
+
+`DcPasteBodies` and `DcReparentBodiesFeature` are missing from the shipped catalog.
+`DcReparentBodiesFeature` is the base class of `DcPasteBodies`, so a paste writes its members but no record of its own.
+Their schemas come from the black-box derivation in [PasteSchemas.json](../../../re/Fusion/Reconstruction/FeatureAuthoring/PasteSchemas.json).
+Kit adds the paste classes only to a part that pastes a body.
+The [paste base gotcha](../../Gotchas/Conversion/Fusion/Features/FeaturePasteBase.md) and [body copy and paste](../../Changes/Fusion/Features/FusionBodyPaste.md) give the evidence.
+
+### Lofts and sweeps
+
+A loft takes four operations and four timeline items.
+They are the base sketch, a `DcWorkPlane` offset from the XY plane, a top sketch on that plane and a `DcLoftFeature` with `booleanOperation` 4.
+The top sketch's `EntityDataRef` recipe names the `WorkPlane` entity.
+Its `CoordinateSystem`, `DRMatrix` and `ETCachedPlane` carry the plane offset.
+The feature holds two `DcLoftSectionData` records, each with a `ModelDataRef` and `SketchRegionRef` scoped to its sketch, and a `DcLoftToolBody`.
+Its progenitor table lists one `LoftProgenitor` per pair of matching curves from tag 3, and then the `BodyProgenitor`.
+Each `LoftProgenitor` holds the lower and upper `SketchCurveProgenitor` with empty neighbour lists.
+The body progenitor lists face labels 1 to n + 2, so both caps appear with the sides.
+The journal tags both caps and every side with the loft operation and has no sketch curve links.
+Kit pairs the curves by their order, and each pair must be parallel lines or coaxial circles.
+The [loft sections gotcha](../../Gotchas/Conversion/Fusion/Features/FeatureLoftSections.md) gives the native records.
+
+A sweep takes three operations and three timeline items.
+They are a rectangle sketch on the XZ plane, a path sketch on the XY plane and a `DcSweepFeature` with `booleanOperation` 4.
+The feature names the profile through `profileDataRefs` and the path through `rSweepPathsRef`.
+The path is a `ModelDataRef` with tracking type 5 whose `dataRefs` hold one `EntityDataRef` for each path curve.
+Each of these holds a `SketchCurveEntityRecipe`, an `ETCachedLineSeg3d` or `ETCachedCircleArc` cache, and progenitors for the curve and its two end points.
+The feature also holds a `DcSweepToolBody` and six parameters, of which only `AlongDistance`, `TwistAngle` and `TaperAngle` appear in the Fusion API.
+Its progenitor table lists one `EntityProgenitor` for each path curve from tag 3, then one `SweepFaceProgenitor` for each face tag, then the `BodyProgenitor`.
+The floor and the roof are single faces that carry one tag for each path segment.
+The [sweep faces gotcha](../../Gotchas/Conversion/Fusion/Features/FeatureSweepFaces.md) records the tag order.
+
 ### Construction geometry
 
 An offset plane writes a `WorkPlane` before its `DcWorkPlane`.
@@ -1781,6 +1911,40 @@ Both features behave like the offset plane.
 They have start and end state −1, an empty feature user name, one operation identifier and no journal state.
 Each raises `highWaterMarkAxes` or `highWaterMarkPoints` on `WorkGeometries`.
 
+### Feature defaults and mode codes
+
+The feature vocabulary in `PartFeatures/Vocabulary/FeatureDefaults.json` holds only schema type defaults.
+`MakeFeatureVocabulary.py` writes null for references and optionals, zero, false, the empty string or an empty container.
+It copies nothing from a control.
+Geometry, transforms, nested value objects, identifier maps, tags, recipes and family mode codes have no default.
+Each writer must supply them, and `DraftGroups` raises `ValueError` naming the class and the missing field.
+Writers derive geometry and identifiers from the spec.
+A sweep takes `profileNormal` from the normal of its profile sketch frame.
+The XZ profile controls hold (0, 1, 0), and the `Sweep` control with an XY profile holds (0, 0, 1).
+A rectangular pattern takes `deducedDir` from the unit vector of its V axis.
+A feature pattern writes `computeType` 1 and a body pattern writes 2.
+The chamfer type follows the spec.
+Every other mode code a writer sets is the same in every native control of its family, and no spec input changes it.
+
+The table counts the native controls in `re/Fusion/LocalOracle/FeatureAuthoring/Controls` that hold each record.
+Every Fusion save of the accepted documents kept the same codes.
+
+| Records                                          | Mode codes                                                                                   | Native controls |
+| ------------------------------------------------ | -------------------------------------------------------------------------------------------- | --------------- |
+| `DcHoleFeature`                                  | `bInside1` and `bInside2` true, `extendFaceOption` 1                                         | 10              |
+| `DcFilletEdgeFeature`, `DcFilletEdgeData`        | `isRollingBallCorners`, `isTangentPropagation`, `bConstantRadius` and `bIsComputeChain` true | 8               |
+| `DcChamferFeature`, `DcChamferData`              | `cornerType` 1, `selIndex` 1, `isTangentPropagation` and `bIsComputeChain` true              | 6               |
+| `DcDraftFeature`                                 | `draftType`, `m_directionType` and `m_fixedPlaneDraftAngleMode` 1, `MovingPartingLineDraftAngleType` 3, `m_bTangentPropagation` true | 1, and 7 in the reader corpus |
+| `DcRevolveFeature`                               | `extendFaceOption` 2, `isSolidOperation` true                                                | 3               |
+| `DcMoveMatrix`                                   | `moveMethodType` 5, `point2PositionCSType` 1                                                 | 1               |
+| `DcPatternBaseData`, `DcRectangularPatternData`  | `computeOption` 2, `countUMax` and `countVMax` −1                                            | 12 and 4        |
+| `DcLoftFeature`, `DcLoftSectionData`             | `booleanOperation` 4, both tangency flips, `bChainOption`, `bMergeCurves` and `isSolidOperation` true, both rail take-off indexes −1, `sectionType` 2 | 3 |
+| `DcSweepFeature`, `DcSweepToolBody`              | `sweepType` 2, `isAlongDirectionSameAsProfileNormal` 3, `chainPropagation`, `isSolidOperation`, `isXScale`, `isYScale` and `isAlongDistanceParameterValid` true | 3 |
+| `DcWorkPlane`, `DcWorkPoint`, `DcWorkGeometry`   | `chainPropagation`, `isVisibleBeforeRollback` and, on a plane, `isProportionalParam` true     | 11 planes, 2 points |
+| `DcIntParameter`                                 | `isRoundToNearestInt` true                                                                   | 12              |
+| `DRPoint`, `DRVector`                            | One `TangentPointDataValue` with all three parameters −1                                     | 21              |
+| `OccurrenceDataRef`                              | Identity `cachedTransform`, one `OccurrenceACTRefValue` whose path has `creationState` 3     | 7               |
+
 ### Timeline, journal and identity rules
 
 Feature `n` takes the next state ID after the last solid feature.
@@ -1789,7 +1953,7 @@ Parameters use `d<n>` user names after the existing parameter watermark.
 Their expressions omit a trailing `.0`.
 
 `EmitPartHist` writes one journal state for each solid-changing feature.
-Each state contains the complete solved body.
+Each state contains the complete solved bodies.
 A face that keeps its draft key across two states is a modification and keeps its tag.
 A face whose key changes is a deletion plus an insertion, and the inserted face receives a fresh tag.
 The body claims tag 0 before any face.
@@ -1823,24 +1987,33 @@ Native acceptance opens each Kit document without a recompute and compares it wi
 It walks every rollback marker, runs `computeAll`, applies the driving parameter edits, exports, reopens and recomputes again.
 Each suite started and ended with no open document.
 
-| Suite        | Families                                                           | Accepted cases |
-| ------------ | ------------------------------------------------------------------ | -------------- |
-| Corners      | Fillet, chamfer, shell                                             | 5 of 5         |
-| Extrusions   | New, join, cut and intersect with every extent                     | 15 of 15       |
-| Holes        | Simple and counterbore, blind and through                          | 4 of 4         |
-| Patterns     | Offset plane, rectangular and circular patterns, mirror, hole grid | 5 of 5         |
-| Multi        | `MultiPocketPart`, `MultiDiscPart`                                 | 2 of 2         |
-| Edges        | Two-distance and distance-angle chamfers, multi-edge corners       | 5 of 5         |
-| Construction | Offset plane, edge axis, vertex point                              | 2 of 2         |
+| Suite        | Families                                                               | Accepted cases |
+| ------------ | ---------------------------------------------------------------------- | -------------- |
+| Corners      | Fillet, chamfer, shell                                                 | 5 of 5         |
+| Extrusions   | New, join, cut and intersect with every extent                         | 15 of 15       |
+| Holes        | Simple and counterbore, blind and through                              | 4 of 4         |
+| Patterns     | Offset plane, rectangular and circular patterns, mirror, hole grid     | 5 of 5         |
+| Multi        | `MultiPocketPart`, `MultiDiscPart`                                     | 2 of 2         |
+| Edges        | Two-distance and distance-angle chamfers, multi-edge corners           | 5 of 5         |
+| Construction | Offset plane, edge axis, vertex point                                  | 2 of 2         |
+| Revolves     | Full and partial revolves, revolve join and cut                        | 4 of 4         |
+| Countersinks | Through and blind countersink holes                                    | 2 of 2         |
+| Shells       | Shells with open side faces                                            | 2 of 2         |
+| Moves        | Translation, turn about Z                                              | 2 of 2         |
+| Offsets      | Top and side face offsets                                              | 4 of 4         |
+| Drafts       | Outward and inward side drafts                                         | 3 of 3         |
+| Bodies       | Second bodies, combines, splits, body patterns                         | 11 of 11       |
+| Lofts        | Rectangle and circle lofts, loft as a second body                      | 3 of 3         |
+| Sweeps       | Rectangle sweeps along bent and S-shaped paths, sweep as a second body | 4 of 4         |
+| Pastes       | Pastes of plain, rounded, pocketed and second bodies, paste then cut   | 6 of 6         |
+| Rounds       | Fillets and chamfers on horizontal lines, circles, tangent chains and loops | 30 of 30  |
 
 `MultiPocketPart` combines a slot cut, a hole, a hole pattern, a fillet, a plane and a mirror.
 `MultiDiscPart` combines a disc, a pocket, a circular pattern and a counterbore.
 `CornerSetPart` and `ConstructionPart` add holes, corners, axes and points to a cut part.
-[FusionAcceptanceEvidence.md](FusionAcceptanceEvidence.md#independently-authored-part-features) lists the seven reports and their digests.
+[FusionAcceptanceEvidence.md](FusionAcceptanceEvidence.md#independently-authored-part-features) lists the reports and their digests.
 
-Revolve, countersink, combine, sweep, loft, draft, split, move, copy-body and offset-face features are captured as [native family records](../../../re/Fusion/Reconstruction/FeatureAuthoring/FamilyRecords.json.xz) only.
-Kit does not author them.
-When they were captured, the draft and copy-body controls used class versions outside the typed catalog.
+Every family in the feature table is authored, and none is captured only.
 [Saved-only classes and versions](#saved-only-classes-and-versions) later added `DcDraftFeature` version 6 for reading.
 
 ## External references, assemblies and configurations

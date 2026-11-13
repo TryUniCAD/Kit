@@ -14,6 +14,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.FamilyRules import 
     IsSketched,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartStage import PartStage
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PasteSpec import PasteSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SweepSpec import (
     SweepSpec,
 )
@@ -52,6 +53,10 @@ def TimelineOwners(
             Owners.append((Prefix + "dc_sketch", Stage.Operations[:1]))
             Owners.append((Prefix + "feature", Stage.Operations[1:]))
             continue
+        if isinstance(Stage.Feature, PasteSpec):
+            Owners.append((Prefix + "base", Stage.Operations[:1]))
+            Owners.append((Prefix + "feature", Stage.Operations[1:]))
+            continue
         if not isinstance(Stage.Feature, (PatternSpec, CircularSpec, MirrorSpec)):
             Owners.append((Prefix + "feature", Stage.Operations))
             continue
@@ -62,6 +67,10 @@ def TimelineOwners(
             if Ordinal
         )
     return Owners
+
+
+def IsShownOwner(RoleName: str) -> bool:
+    return "_occ_" not in RoleName and not RoleName.endswith("_base")
 
 
 def LinkSketches(Author: AuthorState, Stages: tuple[PartStage, ...]) -> None:
@@ -97,7 +106,7 @@ def LinkTimeline(Author: AuthorState, Stages: tuple[PartStage, ...]) -> None:
     Author.Change(
         "creation_order",
         representationFeatures=[
-            Reference(RoleName) for RoleName, _ in Owners if "_occ_" not in RoleName
+            Reference(RoleName) for RoleName, _ in Owners if IsShownOwner(RoleName)
         ],
     )
     Author.Change(
@@ -122,6 +131,8 @@ def LinkTimeline(Author: AuthorState, Stages: tuple[PartStage, ...]) -> None:
             Extra = ["DcSketchMetaType", "DcSketchMetaType", "DcWorkPlaneMetaType"]
         if isinstance(Stage.Feature, SweepSpec):
             Extra = ["DcSketchMetaType", "DcSketchMetaType"]
+        if isinstance(Stage.Feature, PasteSpec):
+            Extra = ["DcBaseFeatureMetaType"]
         for NameValue in Extra:
             Counts[NameValue] = Counts.get(NameValue, 0) + 1
     Author.Change(

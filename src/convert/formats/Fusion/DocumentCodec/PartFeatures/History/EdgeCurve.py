@@ -3,6 +3,7 @@ from math import cos as Cosine, hypot as Hypotenuse, pi as KPiValue, sin as Sine
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.EllipseNode import EllipseNode
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.EntityPrefix import EntityPrefix
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.StraightNode import StraightNode
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Brep.FreeEdge import FreeEdge
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.LevelEdge import LevelEdge
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.ShapeUse import KShapeEdge
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.LineSpan import LineSpan
@@ -17,6 +18,8 @@ KSpacePoint = tuple[float, float, float]
 
 
 def EdgeEnds(EdgeValue: KShapeEdge) -> tuple[KSpacePoint, KSpacePoint]:
+    if isinstance(EdgeValue, FreeEdge):
+        return EdgeValue.StartCm, EdgeValue.FinishCm
     if isinstance(EdgeValue, LevelEdge):
         Start, Finish = SpanStart(EdgeValue.Span), SpanFinish(EdgeValue.Span)
         if IsFullCircle(EdgeValue.Span):
@@ -31,6 +34,8 @@ def SpaceLength(Start: KSpacePoint, Finish: KSpacePoint) -> float:
 
 
 def EdgeCurve(EdgeValue: KShapeEdge) -> tuple[StraightNode | EllipseNode, float, float]:
+    if isinstance(EdgeValue, FreeEdge):
+        return EdgeValue.Curve, EdgeValue.LowerParam, EdgeValue.UpperParam
     Prefix = EntityPrefix(-1, -1)
     Start, Finish = EdgeEnds(EdgeValue)
     if not isinstance(EdgeValue, LevelEdge):

@@ -7,7 +7,7 @@
     {
       "name": "DraftSides",
       "file": "DraftSides.f3d",
-      "sha256": "7cefdc260fe49739c760264e9cae3d700efb4128193d6dd54611f0639778d7cf",
+      "sha256": "1519cd99a20b3c832d2b2779d87443558304a20f815f6b81534986b2ecc11def",
       "steps": [
         {
           "kind": "extrude",
@@ -1458,13 +1458,13 @@
         "work": [],
         "marker": 3
       },
-      "saved_sha256": "f76db3ce8b0b5fd92f696f1ddcb43f031625258780cce8583bd082f792dfd4c7",
+      "saved_sha256": "4f878605432d41473a12ea119436d629157448e198d7ab5b7b29fdf708cfbfd7",
       "status": "accepted"
     },
     {
       "name": "DraftInward",
       "file": "DraftInward.f3d",
-      "sha256": "b86ffa38eaeb566caa8d625ef484d176d1673d6f844785a8f0b65a1c24c51b5f",
+      "sha256": "13718b44df3a6b3c54a8734b3286b2e217c7b6f724965d48eec6075bab5e0be5",
       "steps": [
         {
           "kind": "extrude",
@@ -2910,13 +2910,13 @@
         "work": [],
         "marker": 3
       },
-      "saved_sha256": "1afbf9786314307722b62a3f8dd8c0477823ebeaf0997e73e100d54a19b4d8ba",
+      "saved_sha256": "cf42a0d43b761fe0dbb2b3bbcd6bca4daa3a508f585c9396f846859a2ac69115",
       "status": "accepted"
     },
     {
       "name": "DraftCutPart",
       "file": "DraftCutPart.f3d",
-      "sha256": "f7e313fdf3f23b0817cfc38030b82f3acdaf7a9e2cb282f0046de7eda85a9af4",
+      "sha256": "1ec693f9516b4a915be520b36042e7a56358594ae063cd17d8fd0a5f877fe088",
       "steps": [
         {
           "kind": "extrude",
@@ -4823,7 +4823,7 @@
         "work": [],
         "marker": 4
       },
-      "saved_sha256": "b26be27ae8733ce991d429acb39f4853d734e899920fb61034b882f94ebdda3f",
+      "saved_sha256": "0fcdbb7ffd2ed1d3aeccfd831202a4ebe251f5dfe90bd7ff99504f1b4114bae2",
       "status": "accepted"
     }
   ],

@@ -27,6 +27,9 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SweepSpec import (
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Profile.AddSketchRecs import (
     AddSketchRecs,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Profile.SketchFrame import (
+    FrameNormal,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Profile.SketchPlan import (
     SketchPlan,
 )
@@ -43,6 +46,16 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Sweep.SweepTags import (
     SweepTags,
 )
 
+KProfilePlane = "xz_plane"
+KSweepModes: dict[str, object] = dict(
+    chainPropagation=True,
+    isAlongDirectionSameAsProfileNormal=3,
+    isSolidOperation=True,
+    isXScale=True,
+    isYScale=True,
+    sweepType=2,
+)
+KToolModes: dict[str, object] = dict(isAlongDistanceParameterValid=True)
 KSweepParams = (
     ("along", "AlongDistance", 1.0, "", "rAlongDistance"),
     ("against", "AgainstDistance", 0.0, "", "rAgainstDistance"),
@@ -100,7 +113,7 @@ def AddSweepTable(
 def AddSweepFeat(Author: AuthorState, Stage: PartStage, Prefix: str) -> None:
     Feature, Profile, PathPlan = SweepPlans(Stage)
     Reference, MainRole = Author.Reference, Prefix + "feature"
-    Names = (Feature.ProfileName, "xz_plane")
+    Names = (Feature.ProfileName, KProfilePlane)
     AddSketchRecs(Author, Prefix, Profile, Names, Profile.Ordinal)
     Names = (Feature.PathName, "xy_plane")
     AddSketchRecs(Author, Prefix + "up_", PathPlan, Names, PathPlan.Ordinal)
@@ -115,13 +128,15 @@ def AddSweepFeat(Author: AuthorState, Stage: PartStage, Prefix: str) -> None:
     ]
     Children.extend(AddSweepParams(Author, Prefix))
     AddNodeMut(Author, Prefix + "tool", "DcSweepToolBody", MainRole)
-    Author.Change(Prefix + "tool", rSweepFeature=Reference(MainRole))
+    Author.Change(Prefix + "tool", rSweepFeature=Reference(MainRole), **KToolModes)
     Children.append(Prefix + "tool")
     AddSweepTable(Author, Stage, Prefix, Drawn)
     Start, Finish = StageRange(Author, Stage)
     Author.Change(
         MainRole,
         booleanOperation=KBooleanCodes["new"],
+        profileNormal=FrameNormal(KProfilePlane),
+        **KSweepModes,
         profileDataRefs=[Reference(Prefix + "profile")],
         rSweepPathsRef=Reference(Prefix + "path"),
         rSweepToolBody=Reference(Prefix + "tool"),

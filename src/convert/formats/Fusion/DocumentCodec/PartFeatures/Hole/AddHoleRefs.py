@@ -13,6 +13,16 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.BodyRole import (
     FocusRole,
 )
 
+KTangentClasses = ("DRPoint", "DRVector")
+KNoTangent = -1.0
+
+
+def TangentFree(Author: AuthorState) -> list[dict[str, object]]:
+    Fields: dict[str, object] = {
+        "tangentPointParam" + str(Index): KNoTangent for Index in range(3)
+    }
+    return [Author.MakeGroup("TangentPointDataValue", Fields)]
+
 
 def TopologyCache(Author: AuthorState, RoleName: str, TagValue: int) -> None:
     Fields: dict[str, object] = {"cachedEntityId": TagValue, "scope": PartScope(Author)}
@@ -49,6 +59,8 @@ def AddPlaceMut(
 ) -> None:
     Reference = Author.Reference
     RoleName, ClassName = Names
+    if ClassName in KTangentClasses:
+        Fields = dict(Fields, tangentPointData=TangentFree(Author))
     AddNodeMut(Author, Prefix + RoleName, ClassName, Prefix + "feature")
     Author.Allocate(Prefix + RoleName + "_cache", "ETCachedMatrix3d")
     Author.Change(

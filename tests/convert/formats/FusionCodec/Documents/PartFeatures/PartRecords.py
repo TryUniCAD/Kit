@@ -10,6 +10,7 @@ from tests.convert.formats.FusionCodec.Documents.PartFeatures.PartCases import (
 KVocabularies = (
     "src/convert/formats/Fusion/DocumentCodec/Vocabulary/DesignClasses.json",
     "src/convert/formats/Fusion/DocumentCodec/PartFeatures/Vocabulary/FeatureClasses.json",
+    "src/convert/formats/Fusion/DocumentCodec/PartFeatures/Vocabulary/PasteClasses.json",
 )
 
 

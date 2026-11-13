@@ -1,4 +1,3 @@
-import dataclasses
 import json
 import sys
 from pathlib import Path
@@ -11,20 +10,82 @@ sys.dont_write_bytecode = True
 
 from DecodeControls import NAMES
 from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionZip
-from convert.formats.Fusion.BulkSpans import ReadBulkSpans
 from convert.formats.Fusion.DocumentCodec.Records.DocumentCatalog import DocumentCatalog
-from convert.formats.Fusion.DocumentCodec.Records.MakeDesignProf import MakeDesignProf
 from convert.formats.Fusion.DocumentCodec.Records.ReadDocSchemas import ReadDocSchemas
-from convert.formats.Fusion.EntityCodec.DecodeEntities import DecodeEntities
-from convert.formats.Fusion.EntityCodec.Schema.ExternalTarget import ExternalTarget
-from convert.formats.Fusion.SegmentCodec.Bulk.BulkRecord import BulkRecord
 from convert.formats.Fusion.SegmentCodec.Metadata.ReadMetaWire import ReadMetaWire
 
 CONTROLS = REPO / "re/Fusion/LocalOracle/FeatureAuthoring/Controls"
 SOURCES = tuple(sys.argv[1:]) or ("Combine", "SplitBody")
 TARGET = REPO / "src/convert/formats/Fusion/DocumentCodec/PartFeatures/Vocabulary"
 ROOT = "98542EB9-A4F2-4137-A808-DBB5B3CD6159"
-AUTHORED = {"ASMRecipe", "DRBody", "DRPoint", "DRVector", "DcHoleFeature", "DcHoleToolBody", "BrepProgenitor", "BrepRef", "DcChamferData", "DcChamferFeature", "DcFilletEdgeData", "DcFilletEdgeFeature", "DcShellFeature", "ETCachedCurve3d", "DcIntParameter", "DcPatternFeature", "DcPatternBaseData", "DcPatternSource", "DcPatternOccurrence", "DcPatternBodyOccurrence", "DcRectangularPattern", "DcRectangularPatternData", "DcCircularPattern", "DcCircularPatternData", "DcMirrorPattern", "DcMirrorPatternData", "DcWorkGeometry", "DcWorkPlane", "ETCachedLineSeg3d", "DcCombineFeature", "DcSplitBodyFeature", "DcSplitFeature", "OccurrenceDataRef", "ETCachedPlane", "EntityDataRef", "DcSweepFeature", "DcSweepToolBody", "SweepFaceProgenitor", "SketchEntityRecipe", "SketchCurveEntityRecipe", "ETCachedCircleArc", "DcLoftFeature", "DcLoftToolBody", "DcLoftSectionData", "LoftProgenitor"}
+
+# Defaults are schema-neutral: null for references and optionals, zero, false,
+# the empty string, or the empty container. Nothing is copied from a control.
+NEUTRAL = {"bool": False, "u8": 0, "u16": 0, "u32": 0, "u64": 0, "i32": 0, "f64": 0.0, "utf16": ""}
+EMPTY_KINDS = {"sequence", "set", "map"}
+NULL_KINDS = {"ref", "optional"}
+
+# Geometry (struct), transforms (matrix) and nested value objects never get a
+# default. Every writer must supply them.
+REQUIRED_KINDS = {"struct", "matrix", "object"}
+
+# Further required fields: ids, id maps, recipes and the mode codes each writer
+# declares for the feature it emits. A missing one raises in ConvertFields or
+# DraftGroups instead of falling back to a value.
+REQUIRED = {
+    "ASMRecipe": {"m_Recipe"},
+    "DRBody": {"operIdTypeMap"},
+    "DRPoint": {"refType"},
+    "DRVector": {"axisTrackType", "refType"},
+    "DcChamferData": {"bIsComputeChain", "chamferType", "selIndex"},
+    "DcChamferFeature": {"cornerType", "isTangentPropagation", "primaryIDRowIndexMap"},
+    "DcCombineFeature": {"booleanOperation", "occDR2FeatIdMap"},
+    "DcDraftFeature": {
+        "MovingPartingLineDraftAngleType",
+        "draftType",
+        "m_bTangentPropagation",
+        "m_directionType",
+        "m_fixedPlaneDraftAngleMode",
+    },
+    "DcFilletEdgeData": {"bConstantRadius", "bIsComputeChain"},
+    "DcFilletEdgeFeature": {"isRollingBallCorners", "isTangentPropagation"},
+    "DcHoleFeature": {"bInside1", "bInside2", "extendFaceOption"},
+    "DcIntParameter": {"isRoundToNearestInt", "value"},
+    "DcLoftFeature": {
+        "IsEndTangencyFlippedDirection",
+        "IsStartTangencyFlippedDirection",
+        "bChainOption",
+        "bMergeCurves",
+        "booleanOperation",
+        "endRailsTakeOffIndex",
+        "isSolidOperation",
+        "startRailsTakeOffIndex",
+    },
+    "DcLoftSectionData": {"sectionType"},
+    "DcMoveMatrix": {"moveMethodType", "point2PositionCSType"},
+    "DcPatternBaseData": {"computeOption", "computeType", "countUMax", "occOperationIdsMap"},
+    "DcPatternOccurrence": {"occTagId"},
+    "DcPatternSource": {"caches"},
+    "DcRectangularPatternData": {"countVMax"},
+    "DcRevolveFeature": {"booleanOperation", "extendFaceOption", "isSolidOperation"},
+    "DcSplitFeature": {"isExtendTool", "occDR2FeatIdMap"},
+    "DcSweepFeature": {
+        "booleanOperation",
+        "chainPropagation",
+        "isAlongDirectionSameAsProfileNormal",
+        "isSolidOperation",
+        "isXScale",
+        "isYScale",
+        "sweepType",
+    },
+    "DcSweepToolBody": {"isAlongDistanceParameterValid"},
+    "DcWorkAxis": {"creationType"},
+    "DcWorkGeometry": {"isVisibleBeforeRollback"},
+    "DcWorkPlane": {"chainPropagation", "isProportionalParam"},
+    "DcWorkPoint": {"chainPropagation"},
+    "SketchCurveEntityRecipe": {"secondaryTag"},
+    "SketchEntityRecipe": {"sketchId", "tag"},
+}
 
 
 def known_guids():
@@ -65,90 +126,60 @@ def class_name(guid, is_value):
     return name
 
 
-def author_value(value, shape, catalog_names):
-    kind = type(value).__name__
-    if value is None:
+def neutral_value(owner, field, shape):
+    kind = shape["KindValue"]
+    if kind in NULL_KINDS:
         return None
-    if kind in ("LocalRef", "SegmentRef"):
-        return None
-    if kind == "OptionalValue":
-        inner = author_value(value.Value, shape.Arguments[0], catalog_names)
-        return inner
-    if kind == "ValueSeries":
-        if shape.Arguments and shape.Arguments[0].KindValue == "ref":
-            return []
-        return [author_value(v, shape.Arguments[0], catalog_names) for v in value.Items]
-    if kind == "ValueMap":
-        if any(a.KindValue == "ref" for a in shape.Arguments):
-            return []
-        return [{"key": author_value(p.First, shape.Arguments[0], catalog_names), "value": author_value(p.Second, shape.Arguments[1], catalog_names)} for p in value.Entries]
-    if kind == "ValuePair":
-        return {"first": author_value(value.First, shape.Arguments[0], catalog_names), "second": author_value(value.Second, shape.Arguments[1], catalog_names)}
-    if kind == "ValueStruct":
-        members = {m.FieldName: m for m in shape.Members}
-        if shape.KindValue == "sketch-tag":
-            return {f.FieldName: f.Value for f in value.Fields}
-        return {f.FieldName: author_value(f.Value, members[f.FieldName].ValueType, catalog_names) for f in value.Fields}
-    if kind == "ValueObject":
-        groups = []
-        for group in value.Groups:
-            schema = catalog_names[group.ClassGuid.upper()]
-            members = {m.FieldName: m for m in schema.Members}
-            groups.append({"identifier": group.ClassGuid, "fields": {f.FieldName: author_value(f.Value, members[f.FieldName].ValueType, catalog_names) for f in group.Fields}})
-        return groups
-    if kind == "MatrixValue":
-        if value.Entries is None:
-            return {"identity": True}
-        raise ValueError("non-identity matrix default")
-    if kind == "RecipeValue":
-        return None
-    if dataclasses.is_dataclass(value):
-        raise ValueError("unhandled " + kind)
-    if isinstance(value, float) and value != value:
-        raise ValueError("nan default")
+    if kind in EMPTY_KINDS:
+        return []
+    if kind not in NEUTRAL:
+        raise ValueError("no neutral value for " + owner + "." + field + " of kind " + kind)
+    value = NEUTRAL[kind]
+    if shape.get("AllowedInts") and value not in shape["AllowedInts"]:
+        raise ValueError(owner + "." + field + " has no neutral member; list it in REQUIRED")
     return value
+
+
+def neutral_defaults(vocabulary, required=REQUIRED):
+    names = {entry["NameValue"] for entry in vocabulary}
+    unknown = sorted(set(required) - names)
+    if unknown:
+        raise ValueError("REQUIRED names unknown classes " + repr(unknown))
+    result = {}
+    for entry in vocabulary:
+        if entry["IsValue"]:
+            continue
+        owner = entry["NameValue"]
+        saved = {m["FieldName"]: m["ValueType"] for m in entry["Members"] if m["IsSaved"]}
+        stale = sorted(required.get(owner, set()) - set(saved))
+        if stale:
+            raise ValueError("REQUIRED names unknown fields " + owner + repr(stale))
+        result[owner] = {
+            field: neutral_value(owner, field, shape)
+            for field, shape in saved.items()
+            if shape["KindValue"] not in REQUIRED_KINDS and field not in required.get(owner, set())
+        }
+    return {name: result[name] for name in sorted(result)}
 
 
 def main():
     existing = json.loads((TARGET / "FeatureClasses.json").read_text())
-    kept_defaults = json.loads((TARGET / "FeatureDefaults.json").read_text())
     known = known_guids() | {entry["ClassGuid"].upper() for entry in existing}
     catalog = DocumentCatalog(ReadDocSchemas())
     selected = {}
     spaces = {}
-    defaults = {}
     for source in SOURCES:
         with OpenFusionZip((CONTROLS / (source + ".f3d")).read_bytes()) as archive:
             members = [m.Name for m in archive.Members]
             meta_name = next(n for n in members if n.endswith("MetaStream.dat") and "FusionDesignSegmentType" in n)
-            bulk_name = meta_name.replace("MetaStream.dat", "BulkStream.dat")
             meta_bytes = archive.ReadMember(meta_name, 1 << 26)
-            bulk = archive.ReadMember(bulk_name, 1 << 26)
-            others = [ReadMetaWire(archive.ReadMember(n, 1 << 26)) for n in members if n.endswith("MetaStream.dat") and n != meta_name]
         metadata = ReadMetaWire(meta_bytes)
-        targets = tuple(ExternalTarget(s.Header.SegmentId, oid, e.ClassGuid) for s in others for e in s.Classes for oid in e.OwnerIds)
-        records = tuple(BulkRecord(s.TypeCode, s.ObjectId, s.IsPrimary, bulk[s.PayloadOffset:s.EndOffset]) for s in ReadBulkSpans(bulk, meta_bytes))
-        versions = {c.ClassGuid.upper(): c for c in metadata.Classes}
-        for guid, row in versions.items():
+        for row in metadata.Classes:
+            guid = row.ClassGuid.upper()
             if guid in known or guid in selected:
                 continue
-            schema = next(s for s in catalog.Classes[guid] if s.SchemaVersion == row.SchemaVersion)
-            selected[guid] = schema
+            selected[guid] = next(s for s in catalog.Classes[guid] if s.SchemaVersion == row.SchemaVersion)
             spaces[guid] = row.ClassSpace
-        by_guid = {}
-        for guid, row in versions.items():
-            by_guid[guid] = next(s for s in catalog.Classes[guid] if s.SchemaVersion == row.SchemaVersion)
-        profile = MakeDesignProf(ReadDocSchemas(), metadata.Classes, targets)
-        for entity in DecodeEntities(records, metadata.Classes, profile):
-            for group in entity.Groups:
-                guid = group.ClassGuid.upper()
-                if guid not in selected:
-                    continue
-                name = class_name(guid, selected[guid].IsValue)
-                if name in defaults:
-                    continue
-                members = {m.FieldName: m for m in by_guid[guid].Members}
-                defaults[name] = {f.FieldName: author_value(f.Value, members[f.FieldName].ValueType, by_guid) for f in group.Fields}
     missing = [g for g, s in selected.items() if s.BaseGuid.upper() not in known and s.BaseGuid.upper() not in selected and s.BaseGuid.upper() != ROOT and s.BaseGuid]
     if missing:
         raise ValueError("lineage gap " + repr(missing))
@@ -157,19 +188,77 @@ def main():
         schema = selected[guid]
         name = class_name(guid, schema.IsValue)
         vocabulary.append({"ClassGuid": schema.ClassGuid, "BaseGuid": schema.BaseGuid, "SchemaVersion": schema.SchemaVersion, "Members": [field_json(m) for m in schema.Members], "IsValue": schema.IsValue, "NameValue": name, "ClassSpace": spaces[guid]})
-        if any(m.IsSaved for m in schema.Members) and name not in defaults:
-            if schema.IsValue:
-                continue
-            raise ValueError("no native default for " + name)
     vocabulary.sort(key=lambda entry: entry["ClassGuid"].upper())
     TARGET.mkdir(parents=True, exist_ok=True)
     (TARGET / "FeatureClasses.json").write_text(json.dumps(vocabulary, indent=2) + "\n")
-    merged = kept_defaults | {name: value for name, value in defaults.items() if name in AUTHORED}
-    ordered = {name: merged[name] for name in sorted(merged)}
-    (TARGET / "FeatureDefaults.json").write_text(json.dumps(ordered, indent=2, sort_keys=True) + "\n")
-    print(len(vocabulary), "classes", len(ordered), "defaults")
-    print(sorted(e["NameValue"] for e in vocabulary))
+    defaults = neutral_defaults(vocabulary)
+    (TARGET / "FeatureDefaults.json").write_text(json.dumps(defaults, indent=2, sort_keys=True) + "\n")
+    print(len(vocabulary), "classes", len(defaults), "defaults")
+
+
+# Copy and paste body classes go to their own vocabulary. AuthorSchemas adds
+# it only to documents that paste a body, so other documents keep their class
+# table. Catalogued classes come from the shipped catalog; the two classes the
+# catalog lacks come from PasteSchemas.json, which records their black-box
+# derivation. Names come from the public schema dump recorded there.
+PASTE = HERE / "PasteSchemas.json"
+PASTE_REQUIRED = {
+    "BodyUuidProgenitor": {"bodyUuid", "outBodyUuid"},
+    "DcBaseFeature": {"AssoctedPIDMap", "isAssociative"},
+}
+
+
+def author_guids():
+    result = set()
+    for name in ("DesignClasses.json", "RectangleClasses.json"):
+        for entry in json.loads((REPO / "src/convert/formats/Fusion/DocumentCodec/Vocabulary" / name).read_text()):
+            result.add(entry["ClassGuid"].upper())
+    for entry in json.loads((TARGET / "FeatureClasses.json").read_text()):
+        result.add(entry["ClassGuid"].upper())
+    return result
+
+
+def design_classes(source):
+    with OpenFusionZip((CONTROLS / (source + ".f3d")).read_bytes()) as archive:
+        members = [m.Name for m in archive.Members]
+        meta_name = next(n for n in members if n.endswith("MetaStream.dat") and "FusionDesignSegmentType" in n)
+        return ReadMetaWire(archive.ReadMember(meta_name, 1 << 26)).Classes
+
+
+def paste_main(sources):
+    research = json.loads(PASTE.read_text())
+    names = {guid.upper(): name for guid, name in research["names"].items()}
+    derived = {entry["ClassGuid"].upper(): entry for entry in research["derived"]}
+    known = author_guids()
+    catalog = DocumentCatalog(ReadDocSchemas())
+    selected = {}
+    for source in sources:
+        for row in design_classes(source):
+            guid = row.ClassGuid.upper()
+            if guid in known or guid in selected:
+                continue
+            if guid in derived:
+                entry = dict(derived[guid])
+            else:
+                schema = next(s for s in catalog.Classes[guid] if s.SchemaVersion == row.SchemaVersion)
+                entry = {"ClassGuid": schema.ClassGuid, "BaseGuid": schema.BaseGuid, "SchemaVersion": schema.SchemaVersion, "Members": [field_json(m) for m in schema.Members], "IsValue": schema.IsValue}
+            if entry["SchemaVersion"] != row.SchemaVersion:
+                raise ValueError("schema version differs for " + guid)
+            entry["NameValue"] = names[guid]
+            entry["ClassSpace"] = row.ClassSpace
+            selected[guid] = entry
+    missing = [g for g, e in selected.items() if e["BaseGuid"].upper() not in known | set(selected) | {ROOT}]
+    if missing:
+        raise ValueError("lineage gap " + repr(missing))
+    vocabulary = sorted(selected.values(), key=lambda entry: entry["ClassGuid"].upper())
+    (TARGET / "PasteClasses.json").write_text(json.dumps(vocabulary, indent=2) + "\n")
+    defaults = neutral_defaults(vocabulary, PASTE_REQUIRED)
+    (TARGET / "PasteDefaults.json").write_text(json.dumps(defaults, indent=2, sort_keys=True) + "\n")
+    print(len(vocabulary), "paste classes", len(defaults), "defaults")
 
 
 if __name__ == "__main__":
-    main()
+    if SOURCES and SOURCES[0] == "--paste":
+        paste_main(SOURCES[1:] or ("PastePlain",))
+    else:
+        main()

@@ -18,6 +18,10 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Hole.AddHoleRefs import (
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.AxisSpec import AxisSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartStage import PartStage
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.AddPlaneMut import (
+    KPointModes,
+    KWorkModes,
+)
 from convert.formats.Fusion.DocumentCodec.Values.ReadObjects import (
     ReadInteger,
     ReadSeries,
@@ -95,6 +99,7 @@ def AddAxisMut(Author: AuthorState, Stage: PartStage, Prefix: str) -> list[str]:
         creationType=KAxisCreation,
         rWorkAxis=Reference(Prefix + "work"),
         rWorkAxisRef=Reference(Prefix + "vector"),
+        **KWorkModes,
     )
     Shape: dict[str, object] = dict(
         line=AxisLine,
@@ -137,6 +142,7 @@ def AddPointMut(Author: AuthorState, Stage: PartStage, Prefix: str) -> list[str]
         creationType=0,
         rWorkPoint=Reference(Prefix + "work"),
         rWorkPointRef=Reference(Prefix + "place"),
+        **KPointModes,
     )
     Shape: dict[str, object] = {"point": Corner}
     LinkWorkMut(Author, Prefix, Feature.FeatureName, ("highWaterMarkPoints", Shape))

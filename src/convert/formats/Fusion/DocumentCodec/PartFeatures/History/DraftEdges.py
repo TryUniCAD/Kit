@@ -16,6 +16,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.History.EdgeCurve import 
     EdgeEnds,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.History.PlanBody import VertexKey
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Brep.FreeEdge import FreeEdge
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.LevelEdge import LevelEdge
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.ShapeBody import ShapeBody
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.ShapeUse import KShapeEdge
@@ -29,6 +30,8 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.SpanMath import (
 
 
 def EdgeLabel(Shaped: ShapeBody, EdgeValue: KShapeEdge) -> FaceLabel | None:
+    if isinstance(EdgeValue, FreeEdge):
+        return EdgeValue.Label
     if not isinstance(EdgeValue, LevelEdge) or not IsFullCircle(EdgeValue.Span):
         return None
     for WallLabel, LevelCm, Label in Shaped.EdgeTags:

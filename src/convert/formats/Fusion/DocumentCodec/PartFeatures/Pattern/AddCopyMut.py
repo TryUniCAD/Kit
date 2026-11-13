@@ -28,6 +28,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.AddCopyRefs impor
     AddEntityRefMut,
     AddSeedMut,
     AddSourceMut,
+    UnitAxis,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.PatternSolid import (
     KCopySpec,
@@ -36,6 +37,11 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.BodyRole import (
     FocusRole,
 )
 
+KNoLimit = -1
+KGridAxes = ("x_axis", "y_axis")
+KPatternModes: dict[str, object] = dict(
+    computeOption=2, computeType=1, countUMax=KNoLimit
+)
 KCopyClasses: dict[type[object], tuple[str, str]] = {
     PatternSpec: ("DcRectangularPattern", "DcRectangularPatternData"),
     CircularSpec: ("DcCircularPattern", "DcCircularPatternData"),
@@ -93,6 +99,7 @@ def LinkBaseMut(Author: AuthorState, Prefix: str, Stage: PartStage) -> None:
         rCountUParam=Reference(Prefix + "countu"),
         rDcFeature=Reference(Prefix + "feature"),
         rSourceRef=Reference(Prefix + "source"),
+        **KPatternModes,
     )
     Author.Change(
         Prefix + "feature",
@@ -109,10 +116,12 @@ def AddGridMut(Author: AuthorState, Prefix: str, Feature: PatternSpec) -> list[s
         RoleName = Prefix + "space_" + NameValue
         AddParamMut(Author, RoleName, Owner, NameValue + "SpaceDistance", Amount, "mm")
         Roles.append(RoleName)
-    Roles += AddAxisMut(Author, Prefix, "axis_u", "x_axis")
-    Roles += AddAxisMut(Author, Prefix, "axis_v", "y_axis")
+    Roles += AddAxisMut(Author, Prefix, "axis_u", KGridAxes[0])
+    Roles += AddAxisMut(Author, Prefix, "axis_v", KGridAxes[1])
     Author.Change(
         Prefix + "data",
+        countVMax=KNoLimit,
+        deducedDir=UnitAxis(KGridAxes[1]),
         dirU=Reference(Prefix + "space_u"),
         dirV=Reference(Prefix + "space_v"),
         rCountVParam=Reference(Prefix + "countv"),

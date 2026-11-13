@@ -1,21 +1,18 @@
 from dataclasses import dataclass as MakeDataClass
 
+from convert.formats.Fusion.DocumentCodec.PartFeatures.History.EdgeCurve import EdgeEnds
+from convert.formats.Fusion.DocumentCodec.PartFeatures.History.PlanBody import VertexKey
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.SolidMass import (
     SolidMass,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.BuildShape import (
     BuildShape,
 )
-from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.LevelEdge import LevelEdge
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSolid import (
     PrismSolid,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.SpanExtent import (
     SpanExtent,
-)
-from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.SpanMath import (
-    SpanFinish,
-    SpanStart,
 )
 
 
@@ -38,12 +35,7 @@ def MeasurePart(Solid: PrismSolid) -> PartTopology:
         for RingValue in FaceValue.Loops
         for UseValue in RingValue
     }
-    Points = {
-        (round(Point[0], 9), round(Point[1], 9), round(EdgeValue.LevelCm, 9))
-        for EdgeValue in Edges
-        if isinstance(EdgeValue, LevelEdge)
-        for Point in (SpanStart(EdgeValue.Span), SpanFinish(EdgeValue.Span))
-    }
+    Points = {VertexKey(Point) for EdgeValue in Edges for Point in EdgeEnds(EdgeValue)}
     Plane = [
         Point
         for SlabValue in Solid.Slabs

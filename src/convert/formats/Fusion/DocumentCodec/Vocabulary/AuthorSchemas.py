@@ -18,7 +18,10 @@ def DirectSchema() -> NativeSchema:
 
 
 def AuthorSchemas(
-    ProfileKind: str, ConstrainRectangle: bool = False, HasFeatures: bool = False
+    ProfileKind: str,
+    ConstrainRectangle: bool = False,
+    HasFeatures: bool = False,
+    HasPaste: bool = False,
 ) -> tuple[NativeSchema, ...]:
     Source = Path(__file__).parent
     Schemas = ReadVocabulary(Source / "DesignClasses.json")
@@ -36,6 +39,11 @@ def AuthorSchemas(
     if HasFeatures:
         for Schema in ReadVocabulary(
             Source.parent / "PartFeatures" / "Vocabulary" / "FeatureClasses.json"
+        ):
+            Selected[Schema.Value.ClassGuid.upper()] = Schema
+    if HasPaste:
+        for Schema in ReadVocabulary(
+            Source.parent / "PartFeatures" / "Vocabulary" / "PasteClasses.json"
         ):
             Selected[Schema.Value.ClassGuid.upper()] = Schema
     if ConstrainRectangle:

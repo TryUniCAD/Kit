@@ -40,3 +40,9 @@ def FrameMatrix(PlaneRole: str, LiftCm: float = 0.0) -> dict[str, object]:
     if PlaneRole == "xz_plane":
         return {"entries": list(KFrontMatrix)}
     return {}
+
+
+def FrameNormal(PlaneRole: str) -> dict[str, object]:
+    if PlaneRole == "xz_plane":
+        return MakePoint(KFrontMatrix[2], KFrontMatrix[6], KFrontMatrix[10])
+    return MakePoint(0.0, 0.0, 1.0)

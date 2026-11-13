@@ -15,6 +15,9 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Extrude.AddRegionMut impo
     AddRegionMut,
     RegionTags,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Extrude.ExtrudeShape import (
+    KBooleanCodes,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ExtrudeSpec import (
     ExtrudeSpec,
 )
@@ -31,6 +34,19 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Profile.SketchPlan import
     SketchPlan,
 )
 from convert.formats.Fusion.DocumentCodec.Rectangle.RectangleTag import RectangleTag
+
+KNoRail = -1
+KProfileSection = 2
+KLoftModes: dict[str, object] = dict(
+    IsEndTangencyFlippedDirection=True,
+    IsStartTangencyFlippedDirection=True,
+    bChainOption=True,
+    bMergeCurves=True,
+    booleanOperation=KBooleanCodes["new"],
+    endRailsTakeOffIndex=KNoRail,
+    isSolidOperation=True,
+    startRailsTakeOffIndex=KNoRail,
+)
 
 
 def LoftPlans(Stage: PartStage) -> tuple[LoftSpec, SketchPlan, SketchPlan]:
@@ -109,6 +125,7 @@ def AddSectionsMut(Author: AuthorState, Stage: PartStage, Prefix: str) -> list[s
             StemName + "section",
             rParentFeature=Reference(MainRole),
             rSectionRef=Reference(StemName + "profile"),
+            sectionType=KProfileSection,
         )
         Children.extend([StemName + "profile", StemName + "region"])
     Sections = [Reference(StemName + "section") for StemName, _, _ in Sides]
@@ -139,6 +156,7 @@ def AddLoftFeat(
         childNodes=[Reference(RoleName) for RoleName in Children + [Prefix + "tool"]],
         featureBaseName="Loft",
         featureUserName=Feature.FeatureName,
+        **KLoftModes,
         featureIndex=Stage.FamilyIndex,
         rProgenitorTable=Reference(Prefix + "progenitors"),
         startModelHS=Start,
