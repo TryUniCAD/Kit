@@ -4,7 +4,7 @@ import subprocess
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
-INSTALL = Path('/Users/odin/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries/Neutron')
+INSTALL = Path('~/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries/Neutron').expanduser()
 RANGES = {
     'NsBrowser10.dylib': [
         ('RelationshipsBrowserEntry::assyConstraints getter', 0x6A964, 0x6A9C0),

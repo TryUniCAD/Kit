@@ -970,9 +970,9 @@
     {
       "name": "SavedCuboid",
       "source": "re/Fusion/LocalOracle/RectangleAuthoring/vendor_ProductionCuboid37mm.f3d",
-      "source_sha256": "6011718498ff71fa65437eeba1fdfd0f70881aab6bf185d7f25ff432fa02bd4a",
+      "source_sha256": "62c03b7aa11ce2c79193e51376e4405e6bbfd34aa5ab8097b72043ad49f38683",
       "output": "re/Fusion/LocalOracle/PrismSnapshot/SavedCuboidSnapshot.f3d",
-      "output_sha256": "f6fbb2be04778319698762820c84567048f6a7fa8ddb75460ae9bda7d63e4cba",
+      "output_sha256": "83466b231452394a0d8f0f493da1465a0c3f31b413f135ec6aceb2dfab738d1b",
       "snapshot_member": "FusionAssetName[Active]/Breps.BlobParts/BREP.e7ab5cd7-ccba-44fc-8ba2-242e98f36a90.smb",
       "source_snapshot_sha256": "a7b1b5e99abf90f0bebbc146bfda5e1d65afe378068b5d95dad018a321fa430e",
       "snapshot": "re/Fusion/LocalOracle/PrismSnapshot/SavedCuboidSnapshot.smb",

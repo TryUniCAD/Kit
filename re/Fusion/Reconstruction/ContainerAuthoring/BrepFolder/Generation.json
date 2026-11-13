@@ -1,7 +1,7 @@
 {
   "purpose": "Add empty BRep blob folder to ordered independently authored candidate",
   "sourceCandidateSha256": "cda56e7247dcfdbb2271063c1498d324a6000f8186058d921cb45b0981565db0",
-  "candidate": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/Reconstruction/ContainerAuthoring/BrepFolder/AuthoredParameter.f3d",
+  "candidate": "re/Fusion/Reconstruction/ContainerAuthoring/BrepFolder/AuthoredParameter.f3d",
   "sha256": "e2b94c7e74a8206fc0027ed3a830f0c5f8d40f421820b98b524a9d32d77037e4",
   "memberPayloadsChanged": false,
   "addedDirectories": [

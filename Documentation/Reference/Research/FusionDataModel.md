@@ -1066,7 +1066,7 @@ The qualified reader and writer admit positive stored radii only.
 | Sphere  | Center, signed radius, reference direction, pole direction, V reversal, four optional bounds | Radius that is not positive, nonfinite values |
 | Torus   | Center, axis, major radius, signed minor radius, reference direction, V reversal, four optional bounds | Horn or spindle torus, non-unit or skew frame |
 
-[Native acceptance](../../../re/Fusion/LocalOracle/RoundBodies/NativeAcceptance.json), SHA-256 `9f6cb8ea77c26a105d5294adcb6f37c393d1eaeb405125da1bf98d8afe582648`, has status `accepted` in Fusion 2706.1.17.
+[Native acceptance](../../../re/Fusion/LocalOracle/RoundBodies/NativeAcceptance.json), SHA-256 `9014426c969d9ac4ceb9dbe07f3a14cc23e033f75e9834e57098f868e9fbe2fb`, has status `accepted` in Fusion 2706.1.17.
 
 | Case                         | Native measurement                                                    |
 | ---------------------------- | --------------------------------------------------------------------- |

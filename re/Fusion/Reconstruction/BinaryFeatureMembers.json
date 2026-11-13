@@ -98,15 +98,15 @@
   },
   "runtimeSchemaSources": [
     {
-      "path": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/Features/FeatureSchema.xml",
+      "path": "re/Fusion/LocalOracle/Features/FeatureSchema.xml",
       "sha256": "4eab421350d10a0e6ce1423673c4e4beee54cbb4625042d910d56cc32b481a9f"
     }
   ],
   "reflectionComparison": {
-    "schemaPath": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/Reflection/Schema.json",
-    "schemaSha256": "699337003e46ddf6c3ffedcfd9d445573824d302efffe678997a27895d0f3b66",
-    "capturePath": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/Reflection/Capture.json",
-    "captureSha256": "9ad09751c9f8aed7b0f2068f57f8b272e5ef7bc38a0f615d1500830a48f94c4c",
+    "schemaPath": "re/Fusion/LocalOracle/Reflection/Schema.json",
+    "schemaSha256": "af3a3710f487db21ff5d745023c1e6beb8b45d71df024a46418e18f0b9478869",
+    "capturePath": "re/Fusion/LocalOracle/Reflection/Capture.json",
+    "captureSha256": "7f8e73943543240c858e29b21f668141378974bd9d556fb4fc276c4e263bd5ea",
     "bridgeSha256": "8824f24f2609fab35bb1ca639bc485ce6ac5dd8772aefad865d8933b0d79c7c2",
     "fusionVersion": "2706.1.17",
     "registeredMetatypeCount": 1958,
@@ -1389,7 +1389,7 @@
       },
       "reflectionCrossCheck": {
         "status": "match",
-        "runtimeSchemaSha256": "699337003e46ddf6c3ffedcfd9d445573824d302efffe678997a27895d0f3b66",
+        "runtimeSchemaSha256": "af3a3710f487db21ff5d745023c1e6beb8b45d71df024a46418e18f0b9478869",
         "currentSchemaVersion": 5,
         "memberCount": 10,
         "matchesRegistrationOrder": true,
@@ -6523,7 +6523,7 @@
       },
       "reflectionCrossCheck": {
         "status": "match",
-        "runtimeSchemaSha256": "699337003e46ddf6c3ffedcfd9d445573824d302efffe678997a27895d0f3b66",
+        "runtimeSchemaSha256": "af3a3710f487db21ff5d745023c1e6beb8b45d71df024a46418e18f0b9478869",
         "currentSchemaVersion": 8,
         "memberCount": 33,
         "matchesRegistrationOrder": true,
@@ -6680,7 +6680,7 @@
       "initializerUnavailable": false,
       "reflectionCrossCheck": {
         "status": "match",
-        "runtimeSchemaSha256": "699337003e46ddf6c3ffedcfd9d445573824d302efffe678997a27895d0f3b66",
+        "runtimeSchemaSha256": "af3a3710f487db21ff5d745023c1e6beb8b45d71df024a46418e18f0b9478869",
         "currentSchemaVersion": 1,
         "memberCount": 1,
         "matchesRegistrationOrder": true,
@@ -6795,7 +6795,7 @@
       "initializerUnavailable": false,
       "reflectionCrossCheck": {
         "status": "match",
-        "runtimeSchemaSha256": "699337003e46ddf6c3ffedcfd9d445573824d302efffe678997a27895d0f3b66",
+        "runtimeSchemaSha256": "af3a3710f487db21ff5d745023c1e6beb8b45d71df024a46418e18f0b9478869",
         "currentSchemaVersion": 0,
         "memberCount": 1,
         "matchesRegistrationOrder": true,
@@ -8994,7 +8994,7 @@
       "initializerUnavailable": false,
       "reflectionCrossCheck": {
         "status": "match",
-        "runtimeSchemaSha256": "699337003e46ddf6c3ffedcfd9d445573824d302efffe678997a27895d0f3b66",
+        "runtimeSchemaSha256": "af3a3710f487db21ff5d745023c1e6beb8b45d71df024a46418e18f0b9478869",
         "currentSchemaVersion": 4,
         "memberCount": 18,
         "matchesRegistrationOrder": true,
@@ -9405,7 +9405,7 @@
       "initializerUnavailable": false,
       "reflectionCrossCheck": {
         "status": "match",
-        "runtimeSchemaSha256": "699337003e46ddf6c3ffedcfd9d445573824d302efffe678997a27895d0f3b66",
+        "runtimeSchemaSha256": "af3a3710f487db21ff5d745023c1e6beb8b45d71df024a46418e18f0b9478869",
         "currentSchemaVersion": 3,
         "memberCount": 4,
         "matchesRegistrationOrder": true,
@@ -9981,7 +9981,7 @@
       "initializerUnavailable": false,
       "reflectionCrossCheck": {
         "status": "match",
-        "runtimeSchemaSha256": "699337003e46ddf6c3ffedcfd9d445573824d302efffe678997a27895d0f3b66",
+        "runtimeSchemaSha256": "af3a3710f487db21ff5d745023c1e6beb8b45d71df024a46418e18f0b9478869",
         "currentSchemaVersion": 2,
         "memberCount": 6,
         "matchesRegistrationOrder": true,
@@ -10093,7 +10093,7 @@
       },
       "reflectionCrossCheck": {
         "status": "match",
-        "runtimeSchemaSha256": "699337003e46ddf6c3ffedcfd9d445573824d302efffe678997a27895d0f3b66",
+        "runtimeSchemaSha256": "af3a3710f487db21ff5d745023c1e6beb8b45d71df024a46418e18f0b9478869",
         "currentSchemaVersion": 0,
         "memberCount": 1,
         "matchesRegistrationOrder": true,
@@ -10357,7 +10357,7 @@
       "initializerUnavailable": false,
       "reflectionCrossCheck": {
         "status": "match",
-        "runtimeSchemaSha256": "699337003e46ddf6c3ffedcfd9d445573824d302efffe678997a27895d0f3b66",
+        "runtimeSchemaSha256": "af3a3710f487db21ff5d745023c1e6beb8b45d71df024a46418e18f0b9478869",
         "currentSchemaVersion": 2,
         "memberCount": 3,
         "matchesRegistrationOrder": true,
@@ -10443,7 +10443,7 @@
       "initializerUnavailable": false,
       "reflectionCrossCheck": {
         "status": "match",
-        "runtimeSchemaSha256": "699337003e46ddf6c3ffedcfd9d445573824d302efffe678997a27895d0f3b66",
+        "runtimeSchemaSha256": "af3a3710f487db21ff5d745023c1e6beb8b45d71df024a46418e18f0b9478869",
         "currentSchemaVersion": 0,
         "memberCount": 0,
         "matchesRegistrationOrder": true,
@@ -10615,7 +10615,7 @@
       "initializerUnavailable": false,
       "reflectionCrossCheck": {
         "status": "match",
-        "runtimeSchemaSha256": "699337003e46ddf6c3ffedcfd9d445573824d302efffe678997a27895d0f3b66",
+        "runtimeSchemaSha256": "af3a3710f487db21ff5d745023c1e6beb8b45d71df024a46418e18f0b9478869",
         "currentSchemaVersion": 1,
         "memberCount": 2,
         "matchesRegistrationOrder": true,
@@ -10716,7 +10716,7 @@
       "initializerUnavailable": false,
       "reflectionCrossCheck": {
         "status": "match",
-        "runtimeSchemaSha256": "699337003e46ddf6c3ffedcfd9d445573824d302efffe678997a27895d0f3b66",
+        "runtimeSchemaSha256": "af3a3710f487db21ff5d745023c1e6beb8b45d71df024a46418e18f0b9478869",
         "currentSchemaVersion": 0,
         "memberCount": 1,
         "matchesRegistrationOrder": true,

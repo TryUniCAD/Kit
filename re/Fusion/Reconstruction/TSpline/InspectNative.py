@@ -8,7 +8,7 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
 TOOLS = runpy.run_path(str(BASE.parent / "ReadBinaryMembers.py"))
-APP = Path("/Users/odin/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents")
+APP = Path("~/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents").expanduser()
 RELATIVE = "Frameworks/ASM/libtsplines.14.dylib"
 
 

@@ -1,7 +1,7 @@
 {
   "schema": "FusionRuntimeSchemaCoverage/1",
   "capture": "Schema064.json",
-  "captureSha256": "b636b9fc89b23c40d562057218c0572a169f432844d6db099528da4a27c40bee",
+  "captureSha256": "556ffbdf72ae2a6554602f2dd6e298931cfe2ea0f76f7d6ac2f9ce1b6fd2b9e0",
   "corpusDeclarationCount": 403,
   "initializedCorpusClassCount": 401,
   "missingCorpusClasses": [

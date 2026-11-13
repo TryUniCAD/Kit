@@ -6,7 +6,7 @@
     {
       "label": "Tetrahedron",
       "variant": "Production",
-      "source": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/Study/meshconverts-4b42d39fb1d5/faceted_closed.f3d",
+      "source": "re/Fusion/Study/meshconverts-4b42d39fb1d5/faceted_closed.f3d",
       "sourceSha256": "d8a5be48df8421ff8c674a3a41c8490ff16ef969b9b89854a8656d9de69cc99e",
       "target": "re/Fusion/LocalOracle/PlanarTopology/TetrahedronProduction.f3d",
       "targetSha256": "6c00fadd975e68e723f15925f015478140e702454efbb636696548ee626c15c8",
@@ -87,7 +87,7 @@
     {
       "label": "Tetrahedron",
       "variant": "Permuted",
-      "source": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/Study/meshconverts-4b42d39fb1d5/faceted_closed.f3d",
+      "source": "re/Fusion/Study/meshconverts-4b42d39fb1d5/faceted_closed.f3d",
       "sourceSha256": "d8a5be48df8421ff8c674a3a41c8490ff16ef969b9b89854a8656d9de69cc99e",
       "target": "re/Fusion/LocalOracle/PlanarTopology/TetrahedronPermuted.f3d",
       "targetSha256": "ca353c361b2522b1869dff102455310cc4b9f5ef96e473468f57b6e4ebe372e6",
@@ -168,7 +168,7 @@
     {
       "label": "TriangularPipe",
       "variant": "Production",
-      "source": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/Study/pipemodes-87cfa7d8d82b/triangular.f3d",
+      "source": "re/Fusion/Study/pipemodes-87cfa7d8d82b/triangular.f3d",
       "sourceSha256": "0f949c51ebeeefabcc5a8572a0fc8951b48ed327cf66119943c50fe6ddb2b152",
       "target": "re/Fusion/LocalOracle/PlanarTopology/TriangularPipeProduction.f3d",
       "targetSha256": "de661d76819d08843bbdf63cd157bcb4c1db208673aba2240418cf5e1a3ae0ba",
@@ -270,7 +270,7 @@
     {
       "label": "TriangularPipe",
       "variant": "Permuted",
-      "source": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/Study/pipemodes-87cfa7d8d82b/triangular.f3d",
+      "source": "re/Fusion/Study/pipemodes-87cfa7d8d82b/triangular.f3d",
       "sourceSha256": "0f949c51ebeeefabcc5a8572a0fc8951b48ed327cf66119943c50fe6ddb2b152",
       "target": "re/Fusion/LocalOracle/PlanarTopology/TriangularPipePermuted.f3d",
       "targetSha256": "6ce94bec878d0fb0e235898c2a333ea14d9dcee8a67ea2fd8e9688d42a5d97ce",

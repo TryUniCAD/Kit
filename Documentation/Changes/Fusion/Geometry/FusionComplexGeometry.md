@@ -267,7 +267,7 @@ The [rule fillet gotcha](../../../Gotchas/Conversion/Fusion/Geometry/RuleFilletR
 
 ### Lifted bounds
 
-[Bounds acceptance](../../../../re/Fusion/LocalOracle/ComplexGeometry/Bounds/NativeAcceptance.json), SHA-256 `ca556b2133824a9109aeda34447f6421e27ee3b74e2c6258c4ba78d05b151a87`, has status `accepted` in Fusion 2706.1.17. Zero documents were open before and after the run. Each case opened the corpus archive and a copy with its BRep members re-emitted by Kit. Every member was byte-exact. Every stage of the two copies was equal within 1e-8.
+[Bounds acceptance](../../../../re/Fusion/LocalOracle/ComplexGeometry/Bounds/NativeAcceptance.json), SHA-256 `ad13eb2d21b1d880725205d28e9f7da064c827ae1c15f8ccb638fe3447d7fe39`, has status `accepted` in Fusion 2706.1.17. Zero documents were open before and after the run. Each case opened the corpus archive and a copy with its BRep members re-emitted by Kit. Every member was byte-exact. Every stage of the two copies was equal within 1e-8.
 
 | Case | Content | Edit |
 | --- | --- | --- |

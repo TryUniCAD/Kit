@@ -1,7 +1,7 @@
 {
   "scope": "Schema-only Form vocabulary derived from native reflection; no entity values or payload bytes",
   "reflection": "re/Fusion/LocalOracle/TSplineReflection/Versions.json",
-  "reflection_sha256": "7b417861dd32424dbc9fdcd4f41ec829a8f672fbac78bd259f1236c4b57b5bae",
+  "reflection_sha256": "0cbea08b778a74e85d80ce7039ac6c5343e81bcd042ce60c5415b091e46eadee",
   "target": "src/convert/formats/Fusion/DocumentCodec/Vocabulary/FormClasses.json",
   "target_sha256": "71ec911ad1c308978a84bb1ecc36fe862b432c4b8bd54d7748d96595bc175dc9",
   "added_classes": [

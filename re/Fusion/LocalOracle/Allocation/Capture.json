@@ -60,7 +60,7 @@
     }
   ],
   "fusion_version": "2706.1.17",
-  "schema_command_result": "Current active document's all meta type schemas were successfully dumped out to file /Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/Allocation/ParameterSchema.xml",
+  "schema_command_result": "Current active document's all meta type schemas were successfully dumped out to file re/Fusion/LocalOracle/Allocation/ParameterSchema.xml",
   "schema_exists": true,
   "status": "captured"
 }

@@ -1,12 +1,12 @@
 {
   "schema": "FusionSemanticJournalNativePreparation/1",
-  "semanticEvidence": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/Reconstruction/JournalStates/SemanticHistory.json.xz",
+  "semanticEvidence": "re/Fusion/Reconstruction/JournalStates/SemanticHistory.json.xz",
   "semanticEvidenceSha256": "7bffb039df1a8b14349c34e4fff3ea4050f8ffb4ac5e498b4426ea43a6ce1cc5",
   "nativeAcceptance": "pending",
   "productionRuntime": false,
   "sources": [
     {
-      "source": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/Study/faceedits-3f120cbee8d9/offset_cylinder.f3d",
+      "source": "re/Fusion/Study/faceedits-3f120cbee8d9/offset_cylinder.f3d",
       "sourceArchiveSha256": "383eeb7bd5fb037e6cc63967865a8704c6b0d725dc2a62c0bc1bef2e4fd3a9a5",
       "target": "re/Fusion/LocalOracle/JournalStates/OffsetCylinderTypedHistory.f3d",
       "targetArchiveSha256": "68b13075196317fd4fab19b02ba013b8af0340f4892e5ac21e038b86108872b3",
@@ -223,7 +223,7 @@
       "scope": "Complete geometry/history member authored from named semantic fields; each archive retains its own other original members; no independent Design authoring claim"
     },
     {
-      "source": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/Study/moretools-88a2cd6cad0b/Draft.f3d",
+      "source": "re/Fusion/Study/moretools-88a2cd6cad0b/Draft.f3d",
       "sourceArchiveSha256": "e202bf150795df3dc4f0673229ecade94e17328f54fb2860946aa60090ec2300",
       "target": "re/Fusion/LocalOracle/JournalStates/DraftTypedHistory.f3d",
       "targetArchiveSha256": "97fb3d6548b6bd15378eb90783b439e1dda34da992c19f692cd1c80b2e8a9298",

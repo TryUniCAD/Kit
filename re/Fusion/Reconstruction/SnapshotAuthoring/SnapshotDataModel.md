@@ -140,6 +140,6 @@ The [native acceptance report](../../LocalOracle/Features/FullBrepAcceptance.jso
 | Edit depth to 23 mm and rebuild | 1 | 2.3000000000000003 | 7.225663103256217 | Both nodes healthy |
 | Save and reopen | 1 | 2.3000000000000003 | 7.225663103256217 | Both nodes healthy |
 
-Every observed solid has three faces, two edges and two vertices. The timeline preserves sketch `Radius10mm` and extrusion `Kit ControlledExtrusion`. Parameter `depthLength` drives dependent `d2`; `d3` remains a zero-degree taper. The native saved archive hash is `6346e80bbb12b8766963c98109beb4545afc5df9bfb32769633f91dbab312d66`, and the report records zero remaining documents after cleanup.
+Every observed solid has three faces, two edges and two vertices. The timeline preserves sketch `Radius10mm` and extrusion `Kit ControlledExtrusion`. Parameter `depthLength` drives dependent `d2`; `d3` remains a zero-degree taper. The native saved archive hash is `16ec3ba2d6e7f012be41a9fa1c21f714d6af3acc21eae64443aca7fc4597e53b`, and the report records zero remaining documents after cleanup.
 
 The rollback/restoration sequence is the evidence that replacing the entire snapshot did not merely preserve the final visible solid while breaking the selected sketch-region or extrusion-tool cache path. It does not resolve arbitrary snapshot families or establish fully source-independent document assembly. [AcceptanceBinding.json](AcceptanceBinding.json) records the exact geometry/archive/native-report chain.

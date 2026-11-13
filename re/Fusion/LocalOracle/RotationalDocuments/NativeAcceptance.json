@@ -359,7 +359,7 @@
       "variants": [
         {
           "variant": "Control",
-          "source_sha256": "80719aaae6e097ef81da9add099ef362e174c7eeed06a6a83ccdf9f0370425c1",
+          "source_sha256": "33e7b098ddb6677b3bd9816b3c6133ccc850aea9d5d58fcd65b445c796ecc3a5",
           "stages": {
             "opened": {
               "marker": 2,
@@ -841,7 +841,7 @@
               ]
             }
           },
-          "saved_sha256": "1b3e5b21495442ce8dbd379e3595de9cbd3f1f8e286822d2eaee4b6977b19076",
+          "saved_sha256": "2a1f884592430b0a162aabdd5eeff954d9ea92e7743d65ad7dc415975ad56380",
           "status": "accepted"
         },
         {
@@ -1328,7 +1328,7 @@
               ]
             }
           },
-          "saved_sha256": "c4d5e76c33ecb2d2ec28d092bf794c5900f94d5740bc608d1d6b46d869843f73",
+          "saved_sha256": "c76394f0170107c9aa379a4ad33879d515563b74a06ea36bcdb0995e62795af0",
           "status": "accepted"
         }
       ],
@@ -1339,7 +1339,7 @@
       "variants": [
         {
           "variant": "Control",
-          "source_sha256": "cd19b14f4c9ff001d3b1da414922baa98bbea5dd086e55b4030e4c1614f19f21",
+          "source_sha256": "bc85b3edc96328a0c906cd413f7dac75e83b1e35104d8c21a2d711b5bfb473b2",
           "stages": {
             "opened": {
               "marker": 2,
@@ -1821,7 +1821,7 @@
               ]
             }
           },
-          "saved_sha256": "c4f63b26c4c6383f1fee9a6fce049033f8f1bf1029a03a3e742de05caeb1ac33",
+          "saved_sha256": "671a911689fdf648f50e79430e0cc77d2bf26e7ef8c4ae23fea268c10f223e37",
           "status": "accepted"
         },
         {

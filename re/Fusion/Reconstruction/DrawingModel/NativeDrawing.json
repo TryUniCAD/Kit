@@ -1,6 +1,6 @@
 {
   "scope": "Static disassembly only; no native code loaded or executed",
-  "source": "/Users/odin/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries/Applications/FusionDoc/NaFusionDoc10.dylib",
+  "source": "~/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries/Applications/FusionDoc/NaFusionDoc10.dylib",
   "sourceSha256": "e0da5eeaa0c3eaba53e38a3fd309c11984e1d45819cb1e3fac872503ca3f4e25",
   "arm64Sha256": "8308e3d3d39da4439839e747011a152134d6222919b3a80d1aeacfcbe3f32ffc",
   "addressBasis": "Unslid arm64 virtual address",

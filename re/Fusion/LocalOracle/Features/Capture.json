@@ -83,7 +83,7 @@
     },
     {
       "file": "extrude_13mm.f3d",
-      "sha256": "27b291d09e040cec9a40c8a6fb48b07d83e2bc4e3a2ac1ffa06a8ef85aaf07a4",
+      "sha256": "25a1547213e492f7887f32f029673d287cba3fe435aa64a508038951a65b0f55",
       "parameters": [
         {
           "name": "depthLength",
@@ -139,6 +139,6 @@
       "property_error_count": 258
     }
   ],
-  "schema_command_result": "Current active document's all meta type schemas were successfully dumped out to file /Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/Features/FeatureSchema.xml",
+  "schema_command_result": "Current active document's all meta type schemas were successfully dumped out to file re/Fusion/LocalOracle/Features/FeatureSchema.xml",
   "status": "captured"
 }

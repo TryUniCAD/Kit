@@ -97,7 +97,7 @@
     }
   ],
   "return_code": 0,
-  "schema_sha256": "7b417861dd32424dbc9fdcd4f41ec829a8f672fbac78bd259f1236c4b57b5bae",
+  "schema_sha256": "0cbea08b778a74e85d80ce7039ac6c5343e81bcd042ce60c5415b091e46eadee",
   "required_schema_results": [
     {
       "name": "ControlFrameEdgeMetaType",

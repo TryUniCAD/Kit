@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[4]
 FOLDER = Path(__file__).resolve().parent
 SOURCE = ROOT / "re/Fusion/Study/extents-f0f33a9a605f/taper.f3d"
-NATIVE = Path("/Users/odin/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Helpers/AcCoreConsole.app/Contents/Frameworks/libASMkern232.dylib")
+NATIVE = Path("~/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Helpers/AcCoreConsole.app/Contents/Frameworks/libASMkern232.dylib").expanduser()
 THIN = Path("/tmp/kit-fusion-native-analysis/ASMkern232.arm64.dylib")
 READER = runpy.run_path(str(ROOT / "re/Fusion/Reconstruction/BrepTokens.py"))["read_stream"]
 

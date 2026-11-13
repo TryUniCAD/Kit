@@ -982,7 +982,7 @@
       "physical_record_index": 34
     }
   ],
-  "nativeBinary": "/Users/odin/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Helpers/AcCoreConsole.app/Contents/Frameworks/libASMkern232.dylib",
+  "nativeBinary": "~/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Helpers/AcCoreConsole.app/Contents/Frameworks/libASMkern232.dylib",
   "nativeBinarySha256": "9a8ef93492dc6ef2f35cd933f14b61b6fb6215c623475a96105396b390111958",
   "thinSha256": "a0ba385982c5017805edcc2936b342d924061bc7493267264e3f179a3606bd04",
   "disassembly": [

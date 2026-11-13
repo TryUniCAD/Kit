@@ -120,7 +120,7 @@ Kit keeps those bytes as `ParsedSegment.BulkSlack`, and the [ACT slack gotcha](.
 
 Each re-emitted document equalled its native control within 1e-7 after open, edit, save, and reopen.
 The Form health stayed 0, and zero documents remained open.
-[Grid acceptance](../../../re/Fusion/LocalOracle/FormDocuments/Grid/NativeAcceptance.json), SHA-256 `360d7d4c9335e0840c4c95cd41ec28c6ba161b0a33f63862923de3267e761546`, accepted two Kit-converted plane documents in Fusion 2706.1.17.
+[Grid acceptance](../../../re/Fusion/LocalOracle/FormDocuments/Grid/NativeAcceptance.json), SHA-256 `ba7536f4cfed4b6cc60a50aed672d62bbcb96168571c3050527f4fd024266769`, accepted two Kit-converted plane documents in Fusion 2706.1.17.
 Each document equalled Fusion's own conversion of the same cage within 1e-8 after open, edit, conversion, save and reopen.
 
 | Case | Area as loaded (cm²) | Area after edit (cm²) |

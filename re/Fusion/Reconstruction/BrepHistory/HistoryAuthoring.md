@@ -143,6 +143,6 @@ The [native acceptance report](../../LocalOracle/Features/CacheAcceptance.json),
 | Native edit and rebuild            | 2.3000000000000003 | 7.225663103256217 | Same                         | `23 mm`            |
 | Native save and reopen             | 2.3000000000000003 | 7.225663103256217 | Same                         | `23 mm`            |
 
-The timeline retains sketch `Radius10mm` and editable extrusion `Kit ControlledExtrusion`. Parameter `depthLength` drives the extrusion's dependent `d2`; `d3` remains a zero-degree taper. The saved 23 mm archive has SHA-256 `7b57faec53a441a0e0a40c8c48b56bb3e9ee2b037a38cda2dbeee517f6f84c08`. The report records zero remaining documents after cleanup.
+The timeline retains sketch `Radius10mm` and editable extrusion `Kit ControlledExtrusion`. Parameter `depthLength` drives the extrusion's dependent `d2`; `d3` remains a zero-degree taper. The saved 23 mm archive has SHA-256 `34ffd05771e10959c526ca1a8cf9652964ee575b87ebbb67ff482517f4dda4b4`. The report records zero remaining documents after cleanup.
 
 The initial 19 mm height is the important new observation: the model no longer waits for a native rebuild to reconcile the parameter edit with stale saved geometry. The native report measures volume, height and topology; it does not record centroid or inertia for this embedded-cache experiment, so the analytic values above remain expectations for those additional quantities.

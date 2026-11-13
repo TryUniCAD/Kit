@@ -6,8 +6,8 @@
       "source_file": "re/Fusion/Study/meshcombinefacegroups-33142f03b86e/adjacent_pair.f3d",
       "source_sha256": "c093980c2ee1e30ac44f48e723508451690f1fe654bc3e34a1a1189eb221147c",
       "output_file": "re/Fusion/LocalOracle/ParaMesh/PreparedMesh00.f3d",
-      "output_sha256": "b2bd102bb9f7b2298fac54ff018751288e57fa892934a786cff539cda48fa3ab",
-      "bytes": 130618,
+      "output_sha256": "22f05e19506660ceba8b313f6c632c5fa556b14c1ca482a99cd4104b41335828",
+      "bytes": 130620,
       "mesh_parts": [
         {
           "member": "FusionAssetName[Active]/ParaMeshGeometry.BlobParts/ParaMeshGeometry.cdbebe0a-783e-441a-a371-05cc935b4730.paramesh",

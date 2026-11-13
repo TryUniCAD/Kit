@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 import subprocess
 
-original = Path('/Users/odin/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries/Neutron/NsDataModel10.dylib')
+original = Path('~/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries/Neutron/NsDataModel10.dylib').expanduser()
 thin = Path('/tmp/kit-fusion-native-analysis/NsDataModel10.arm64.dylib')
 if not thin.exists():
     subprocess.run(['lipo', '-thin', 'arm64', str(original), '-output', str(thin)], check=True)

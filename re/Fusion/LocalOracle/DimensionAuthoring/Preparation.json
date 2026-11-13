@@ -3,7 +3,7 @@
   "cases": [
     {
       "profile": "rectangle",
-      "path": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/DimensionAuthoring/DimensionedRectangle.f3d",
+      "path": "re/Fusion/LocalOracle/DimensionAuthoring/DimensionedRectangle.f3d",
       "sha256": "4fbcc6e18301a5c4cbcc9ec06aa422afe75dfdffa67f04938ef9f8efa054c627",
       "bytes": 57994,
       "specification": {
@@ -98,7 +98,7 @@
     },
     {
       "profile": "cuboid",
-      "path": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/DimensionAuthoring/DimensionedCuboid.f3d",
+      "path": "re/Fusion/LocalOracle/DimensionAuthoring/DimensionedCuboid.f3d",
       "sha256": "dd8d4197f480115091378bbf90df1a8179bee47e1cba20339f172594e73bd41d",
       "bytes": 113517,
       "specification": {

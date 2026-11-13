@@ -1,7 +1,7 @@
 {
   "scope": "Declarative schema vocabulary only: node names, attributes including registered defaults, child declarations; no instances, definitions, source IDs or byte payloads",
   "source": "re/Fusion/LocalOracle/RectangleAuthoring/mass_probe_ProductionCuboid.f3d",
-  "sourceSha256": "4f0e654c3e93cee5d6b378fe13a2c48c3100be56a79713fec0c98151ebf8a399",
+  "sourceSha256": "4486d381db49daaebcb31d2e0da4da860ad468203469bbe2fd3e45f27eb51cc8",
   "target": "src/convert/formats/Fusion/DocumentCodec/Materials/Vocabulary/MaterialSchemas.json",
   "schemaNames": [
     "CommonSchema",

@@ -6490,7 +6490,7 @@
    "source": "re/Fusion/Study/surfacetrimtools-650ca09579b1/sketch_line_offset_positive.f3d",
    "source_sha256": "33dd68a8450ea918eb1b7df071128a369beae72bf659891a5e7e999845a9f45a",
    "target": "re/Fusion/LocalOracle/ComplexGeometry/Bounds/OffsetPositiveHistory.f3d",
-   "target_sha256": "e64e09b7a83f2c4e0865602d552a89e3ae6669561e817444cc6f08b324ade7e2",
+   "target_sha256": "f890c4355ee5e4b6bd46d7c83e3498d2183bd2052465b6277524eb51762c194b",
    "member_sha256": [
     {
      "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.408ef47f-8d7a-4a7a-b25a-8ccab7beb300.smb",
@@ -6873,7 +6873,7 @@
     {
      "variant": "Reemitted",
      "source": "re/Fusion/LocalOracle/ComplexGeometry/Bounds/OffsetPositiveHistory.f3d",
-     "source_sha256": "e64e09b7a83f2c4e0865602d552a89e3ae6669561e817444cc6f08b324ade7e2",
+     "source_sha256": "f890c4355ee5e4b6bd46d7c83e3498d2183bd2052465b6277524eb51762c194b",
      "stages": {
       "opened": {
        "marker": 4,
@@ -7244,7 +7244,7 @@
    "source": "re/Fusion/Study/surfacetrimtools-650ca09579b1/sketch_line_reversed_negative.f3d",
    "source_sha256": "bc70972980d63d3b9511d4f4a8db22b31a94f43e337f1e9538494d6e8da2731b",
    "target": "re/Fusion/LocalOracle/ComplexGeometry/Bounds/ReversedNegativeHistory.f3d",
-   "target_sha256": "a076d935dd42a1e38a555bffa283996924b5146225ef41d53b9e88cd8fb10033",
+   "target_sha256": "c809aa73cc2291d50676e2e4163309691b1d1044f859c3186f4e87013d70cf1b",
    "member_sha256": [
     {
      "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.7d57d002-5560-4e9e-9b59-f44af57d4c91.smb",
@@ -7627,7 +7627,7 @@
     {
      "variant": "Reemitted",
      "source": "re/Fusion/LocalOracle/ComplexGeometry/Bounds/ReversedNegativeHistory.f3d",
-     "source_sha256": "a076d935dd42a1e38a555bffa283996924b5146225ef41d53b9e88cd8fb10033",
+     "source_sha256": "c809aa73cc2291d50676e2e4163309691b1d1044f859c3186f4e87013d70cf1b",
      "stages": {
       "opened": {
        "marker": 4,
@@ -20653,7 +20653,7 @@
    "status": "accepted"
   }
  ],
- "preparation_sha256": "018239e53f55d60d6e3570a13d620deefda60299783474ca2b085da702b9786e",
+ "preparation_sha256": "441bf361395e4ddf06189c9f6484a5abc68be55e97fd1c12e12d1be505ea7b00",
  "status": "accepted",
  "documents_after": 0
 }

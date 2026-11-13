@@ -1,7 +1,7 @@
 {
   "schema": "FusionNativeVersionDifferences/1",
   "source": "Versions.json",
-  "sourceSha256": "aae72bc66c7e0ab34ce2ee7545af7fa5a8eba81ceef48261069a0d7ddec82f99",
+  "sourceSha256": "54d93410a407ff808e5824c5ad797bf63fa89b3686e15be848960ca49ba4a161",
   "scope": "Own registered field differences only; no inference of migration transforms or historical base versions",
   "classes": [
     {

@@ -57,7 +57,7 @@ Remote run [43239432056](https://github.com/TryUniCAD/Kit/actions/runs/432394320
 
 Each file rolled back to a sketch-only state, restored and rebuilt the same solid, accepted a driving-height edit to 27 mm, then accepted a taper edit to −3°. Native save and reopen retained the edited parameters, geometry, physical properties, material and healthy history. The acceptance left zero documents open.
 
-The accepted source SHA-256 values are `d7a548387c6cc6583204937b9010ba5c7c5c4c5e239c15750cb62dcec4a1bbbe`, `7384dcc335a2263affe322338afa585e67be9604c228cc4e756255d47551ab03`, and `a533f88786f9a88fa561b30cdba654d1c7d520fdad1ffee8ee1e3ef2e8f472b1`, in table order. The report SHA-256 is `203b4ecf3fd8a2bdcd474e7beb3629b4055d35a0d892a65278b05176252e5778`.
+The accepted source SHA-256 values are `d7a548387c6cc6583204937b9010ba5c7c5c4c5e239c15750cb62dcec4a1bbbe`, `7384dcc335a2263affe322338afa585e67be9604c228cc4e756255d47551ab03`, and `a533f88786f9a88fa561b30cdba654d1c7d520fdad1ffee8ee1e3ef2e8f472b1`, in table order. The report SHA-256 is `a0c3bdab656a3f0aa43fffac03755b4dbadb75398e171a260e33054be3105140`.
 
 This proves the complete independent authoring boundary separately from the earlier source-specific BRep replacement acceptance. It qualifies these circular extrusion profiles and edits, not arbitrary Fusion features or geometry.
 

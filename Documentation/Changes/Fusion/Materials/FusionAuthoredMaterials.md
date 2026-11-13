@@ -88,11 +88,11 @@ After a 37 mm height edit, mass is 0.014467 kg and centre is `(0.85, 1.15, 1.85)
 Rollback, restore, rebuild, native save, and reopen preserve the intended feature behavior and physical properties.
 
 Accepted cuboid source SHA-256: `9a8bef0ec7d6d0a9012bfb282da594baf3527076b40274a988068d62aa1ece41`.
-Native saved SHA-256: `6011718498ff71fa65437eeba1fdfd0f70881aab6bf185d7f25ff432fa02bd4a`.
+Native saved SHA-256: `62c03b7aa11ce2c79193e51376e4405e6bbfd34aa5ab8097b72043ad49f38683`.
 [Strict cylinder acceptance](../../../../re/Fusion/LocalOracle/Authored/ProductionMaterialDocumentAcceptance.json) also passed.
 At 17.25 mm height, volume is 8.467573949 cm³, mass is 0.008467573949 kg, and centre Z is 0.8625 cm.
 After editing to 23 mm, volume is 11.290098599 cm³, mass is 0.011290098599 kg, and centre Z is 1.15 cm.
 The same material identity and name survive native save and reopen.
 
 Accepted cylinder source SHA-256: `9f2d11fc13dd407c4b07711be7c6d11811bda336a8fc45d872b263db2dc00359`.
-Native saved SHA-256: `6d476fec608062e26e687380bd2cdfe68f1130ef50ac95e1303e71aa1478212b`.
+Native saved SHA-256: `1a2ace125ada2843a80fac604239ba51d9626963ba9e51d02f9427c41ff2ad70`.

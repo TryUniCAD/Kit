@@ -12,7 +12,7 @@
     {
       "label": "OffsetCylinder",
       "variant": "Production",
-      "source": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/Study/faceedits-3f120cbee8d9/offset_cylinder.f3d",
+      "source": "re/Fusion/Study/faceedits-3f120cbee8d9/offset_cylinder.f3d",
       "sourceArchiveSha256": "383eeb7bd5fb037e6cc63967865a8704c6b0d725dc2a62c0bc1bef2e4fd3a9a5",
       "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.7b14d8a9-c451-4459-b755-b5cf10754b78.smbh",
       "sourceHistorySha256": "c3c7b93422fee99e50aadc9d8107597f5ce5c2a36ae92dadcdf176aac5e528da",
@@ -52,7 +52,7 @@
     {
       "label": "OffsetCylinder",
       "variant": "ProductionPermuted",
-      "source": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/Study/faceedits-3f120cbee8d9/offset_cylinder.f3d",
+      "source": "re/Fusion/Study/faceedits-3f120cbee8d9/offset_cylinder.f3d",
       "sourceArchiveSha256": "383eeb7bd5fb037e6cc63967865a8704c6b0d725dc2a62c0bc1bef2e4fd3a9a5",
       "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.7b14d8a9-c451-4459-b755-b5cf10754b78.smbh",
       "sourceHistorySha256": "c3c7b93422fee99e50aadc9d8107597f5ce5c2a36ae92dadcdf176aac5e528da",
@@ -92,7 +92,7 @@
     {
       "label": "Draft",
       "variant": "Production",
-      "source": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/Study/moretools-88a2cd6cad0b/Draft.f3d",
+      "source": "re/Fusion/Study/moretools-88a2cd6cad0b/Draft.f3d",
       "sourceArchiveSha256": "e202bf150795df3dc4f0673229ecade94e17328f54fb2860946aa60090ec2300",
       "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.c59a0050-b719-4b62-b74e-87f964eca8ab.smbh",
       "sourceHistorySha256": "fad05f92da2549ede8cd36db86271c8b3629352f1a0179f187ab7d0876c6e359",
@@ -132,7 +132,7 @@
     {
       "label": "Draft",
       "variant": "ProductionPermuted",
-      "source": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/Study/moretools-88a2cd6cad0b/Draft.f3d",
+      "source": "re/Fusion/Study/moretools-88a2cd6cad0b/Draft.f3d",
       "sourceArchiveSha256": "e202bf150795df3dc4f0673229ecade94e17328f54fb2860946aa60090ec2300",
       "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.c59a0050-b719-4b62-b74e-87f964eca8ab.smbh",
       "sourceHistorySha256": "fad05f92da2549ede8cd36db86271c8b3629352f1a0179f187ab7d0876c6e359",

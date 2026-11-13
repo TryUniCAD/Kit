@@ -60,4 +60,4 @@ The standalone rectangle also survived save/reopen and supported a subsequent na
 The cuboid uses the [independently authored material](Materials/FusionAuthoredMaterials.md) with density 1000 kg/m³.
 
 Accepted cuboid source SHA-256: `9a8bef0ec7d6d0a9012bfb282da594baf3527076b40274a988068d62aa1ece41`.
-Native saved SHA-256: `6011718498ff71fa65437eeba1fdfd0f70881aab6bf185d7f25ff432fa02bd4a`.
+Native saved SHA-256: `62c03b7aa11ce2c79193e51376e4405e6bbfd34aa5ab8097b72043ad49f38683`.

@@ -19,7 +19,7 @@ The artifacts are:
 - `WireEvidence.json`: binary hashes, arm64 unslid addresses, exact callback layouts, and limits of that evidence
 - `BodyMassCache.json`: body 261 cache/override schemas, payload offsets, captured values, and analytic cylinder comparisons
 
-`Versions.json` has SHA-256 `aae72bc66c7e0ab34ce2ee7545af7fa5a8eba81ceef48261069a0d7ddec82f99`. It is a native reflection capture, not a universal schema registry. Exact own-member sets are initialized for every declared class in these controlled graphs except the known empty `EntityMetaType` root. For inheritance, the codec resolves each class's own set using its own archive schema version; it does not trust the versionless base pointers embedded in another reflection lookup.
+`Versions.json` has SHA-256 `54d93410a407ff808e5824c5ad797bf63fa89b3686e15be848960ca49ba4a161`. It is a native reflection capture, not a universal schema registry. Exact own-member sets are initialized for every declared class in these controlled graphs except the known empty `EntityMetaType` root. For inheritance, the codec resolves each class's own set using its own archive schema version; it does not trust the versionless base pointers embedded in another reflection lookup.
 
 All execution described here was static binary inspection and authorized research decoding/reencoding of saved captures. No local automated tests, production codec execution, or native Fusion execution were performed by this research subtask. Native load/edit acceptance was performed separately by the parent task and recorded in `../../LocalOracle/Features/CacheAcceptance.json`.
 

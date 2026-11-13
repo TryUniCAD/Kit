@@ -4,11 +4,11 @@
   "nativeAcceptance": "pending",
   "sources": [
     {
-      "source": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/Study/faceedits-3f120cbee8d9/offset_cylinder.f3d",
+      "source": "re/Fusion/Study/faceedits-3f120cbee8d9/offset_cylinder.f3d",
       "sourceArchiveSha256": "383eeb7bd5fb037e6cc63967865a8704c6b0d725dc2a62c0bc1bef2e4fd3a9a5",
-      "target": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/JournalStates/OffsetCylinderPermutedHistory.f3d",
+      "target": "re/Fusion/LocalOracle/JournalStates/OffsetCylinderPermutedHistory.f3d",
       "targetArchiveSha256": "d0f1a822f6daf13c0f547dff628e53cd945ccc368c7ab30489f0fd168da877ce",
-      "history": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/JournalStates/OffsetCylinderPermutedHistory.smbh",
+      "history": "re/Fusion/LocalOracle/JournalStates/OffsetCylinderPermutedHistory.smbh",
       "historySha256": "bb1046f76a728bbd53f42aa89fbc1caa3581c55f767ee53316f89fc767908071",
       "sourceHistorySha256": "c3c7b93422fee99e50aadc9d8107597f5ce5c2a36ae92dadcdf176aac5e528da",
       "sourceHistoryByteIdentical": false,
@@ -80,11 +80,11 @@
       "archivedCount": 25
     },
     {
-      "source": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/Study/moretools-88a2cd6cad0b/Draft.f3d",
+      "source": "re/Fusion/Study/moretools-88a2cd6cad0b/Draft.f3d",
       "sourceArchiveSha256": "e202bf150795df3dc4f0673229ecade94e17328f54fb2860946aa60090ec2300",
-      "target": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/JournalStates/DraftPermutedHistory.f3d",
+      "target": "re/Fusion/LocalOracle/JournalStates/DraftPermutedHistory.f3d",
       "targetArchiveSha256": "4edd8124365a79484579198e7fc63e3fba46b45c639c98de8015f580f84c46ec",
-      "history": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/JournalStates/DraftPermutedHistory.smbh",
+      "history": "re/Fusion/LocalOracle/JournalStates/DraftPermutedHistory.smbh",
       "historySha256": "7948baa206e05c1e4f4f22b3ad6da42ee826281a8f153813c39ce3712bc56e5b",
       "sourceHistorySha256": "fad05f92da2549ede8cd36db86271c8b3629352f1a0179f187ab7d0876c6e359",
       "sourceHistoryByteIdentical": false,

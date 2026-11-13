@@ -100,7 +100,7 @@ The [grid census](../../../../re/Fusion/Reconstruction/FormDocuments/GridCensus.
 | Different | 4 | Deliberately stale probe variants |
 | No body | 1 | The probe variant without BRep members |
 
-[Grid acceptance](../../../../re/Fusion/LocalOracle/FormDocuments/Grid/NativeAcceptance.json), SHA-256 `360d7d4c9335e0840c4c95cd41ec28c6ba161b0a33f63862923de3267e761546`, has status `accepted` in Fusion 2706.1.17. Zero documents were open before and after the run. `PrepareGrid.py` wrote an affine and a warped 2 × 3 plane cage, and `SwapGridCage` put each cage into the native plane document. The [preparation](../../../../re/Fusion/LocalOracle/FormDocuments/Grid/Preparation.json) binds each input to its SHA-256.
+[Grid acceptance](../../../../re/Fusion/LocalOracle/FormDocuments/Grid/NativeAcceptance.json), SHA-256 `ba7536f4cfed4b6cc60a50aed672d62bbcb96168571c3050527f4fd024266769`, has status `accepted` in Fusion 2706.1.17. Zero documents were open before and after the run. `PrepareGrid.py` wrote an affine and a warped 2 × 3 plane cage, and `SwapGridCage` put each cage into the native plane document. The [preparation](../../../../re/Fusion/LocalOracle/FormDocuments/Grid/Preparation.json) binds each input to its SHA-256.
 
 For each case, Fusion converted the same TSM in a new Form as the oracle. Both documents then ran `computeAll`, moved the first cage vertex by (0.11, 0.07, 0.13) cm, converted, saved and reopened. The run compared body counts, area, NURBS poles and knots, 49 face points, 28 edge points and vertices within 1e-8.
 

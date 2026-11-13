@@ -7,7 +7,7 @@ Extend the strict public adapter to complete native rectangular extrusion docume
 | Source | Source SHA-256 | Native Design identities | Geometry |
 | --- | --- | --- | --- |
 | `re/Fusion/Study/thinextrudes-c1632bcb5efe/ordinary_rectangle_control.f3d` | `09980af5a2c9e03e0fc9246ed0b20e796c8f5574c8838d255c85bdd08ea1aa9c` | Component 3, sketch 202 / DcSketch 207, extrude 279, body 311 / DcBody 317 | 40 × 30 × 25 mm |
-| `re/Fusion/LocalOracle/RectangleAuthoring/vendor_ProductionCuboid37mm.f3d` | `6011718498ff71fa65437eeba1fdfd0f70881aab6bf185d7f25ff432fa02bd4a` | Component 1002, sketch 1089 / DcSketch 1106, extrude 1121, body 1140 / DcBody 1143 | 17 × 23 × 37 mm |
+| `re/Fusion/LocalOracle/RectangleAuthoring/vendor_ProductionCuboid37mm.f3d` | `62c03b7aa11ce2c79193e51376e4405e6bbfd34aa5ab8097b72043ad49f38683` | Component 1002, sketch 1089 / DcSketch 1106, extrude 1121, body 1140 / DcBody 1143 | 17 × 23 × 37 mm |
 
 Read-only inspection used `EntityGraph/DecodeGraph.py::read_graph` on each source; no product parser execution, native calls or local tests were used for this plan. Parent-coordinated complete native acceptance is recorded in `LocalOracle/NativeDocuments/NativeAcceptance.json`: the original and fully typed re-emitted documents both survived native rollback, regeneration, height edits and save/reopen. These are full archives with graphics, snapshots, empty configuration parts and material aliases; their accepted lower codec is `ReadDocument` / `EmitParsed`.
 

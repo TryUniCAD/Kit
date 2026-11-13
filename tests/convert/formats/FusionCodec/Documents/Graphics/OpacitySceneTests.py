@@ -19,7 +19,7 @@ from tests.convert.formats.FusionCodec.Documents.Graphics.FindValues import (
 KOpacityCases: tuple[tuple[str, str, int], ...] = (
     (
         "re/Fusion/LocalOracle/Features/vendor_23mm.f3d",
-        "2a2cdc9dabbc78c3f2acd09ead5982c8f04046474309177a65d3155cded11cce",
+        "8e657ca5aa1591cdd18d4948995ecb384e2ea2bc571972bd46de5894fee71658",
         1,
     ),
     (

@@ -860,7 +860,7 @@
               ]
             }
           },
-          "saved_sha256": "9835350d8fbc001f5f458af69c8ed6a67900c7febee20e0e8f383bc47468b3b2",
+          "saved_sha256": "bda5c08dbf0c8aaff83b4c8e8c0c747f30e916ec5476d4e3cf0cd6f61ef98e72",
           "status": "accepted"
         }
       ],
@@ -871,7 +871,7 @@
       "variants": [
         {
           "name": "Control",
-          "source_sha256": "6011718498ff71fa65437eeba1fdfd0f70881aab6bf185d7f25ff432fa02bd4a",
+          "source_sha256": "62c03b7aa11ce2c79193e51376e4405e6bbfd34aa5ab8097b72043ad49f38683",
           "stages": {
             "opened": {
               "marker": 2,
@@ -1320,7 +1320,7 @@
               ]
             }
           },
-          "saved_sha256": "55111c839cd8ad804a843cb0b58fd0465074b256e11ff840bf705d307b57b8fe",
+          "saved_sha256": "9ab4577bc924f13e39739d4b2c7252a76c7a175829cf364369fc60c2a57fb5c7",
           "status": "accepted"
         },
         {
@@ -1774,7 +1774,7 @@
               ]
             }
           },
-          "saved_sha256": "66581d2dbd026246acba574c2c1f916b958639083b3135a28ef984e9ad1498c8",
+          "saved_sha256": "ad502f51c7b5ef030ebc6b213a9182eae832fc5f908537a0c8b73c220d588eea",
           "status": "accepted"
         }
       ],

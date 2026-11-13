@@ -1,7 +1,7 @@
 {
   "schema": "FusionReflectedFeaturePayloads/1",
   "extractorSha256": "88230f2d6df283eb44179b232e0358b29a07948693985905309d5b2547616947",
-  "reflectionSha256": "699337003e46ddf6c3ffedcfd9d445573824d302efffe678997a27895d0f3b66",
+  "reflectionSha256": "af3a3710f487db21ff5d745023c1e6beb8b45d71df024a46418e18f0b9478869",
   "applicationVersion": "2706.1.17",
   "coverage": {
     "archiveCount": 3,
@@ -62,7 +62,7 @@
       "archiveSha256": "b2e1f2213abae29960f87c5b5db8b9ae2760e5b61c1aba95273b18414ea01156",
       "metadataSha256": "a0734008bbe492456f51d37f0f132f538d2c9773628fe55884151c319f0dc7c5",
       "bulkSha256": "849f01f8c335cad1dbc07c826b810249e9090344646e7c22ddec17180f3f29c4",
-      "nativeGraphPath": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/Features/circle_sketch.entities.json",
+      "nativeGraphPath": "re/Fusion/LocalOracle/Features/circle_sketch.entities.json",
       "nativeGraphSha256": "3dc80d73065e61b56afec15b0f1160bdf08a955fd16bd9916696275e5926cd7f",
       "records": [
         {
@@ -507,7 +507,7 @@
       "archiveSha256": "ff7730152b56ef608e690df79788ee5658473d59b33e398dc96743e306adacd1",
       "metadataSha256": "7d11dbbc7fa8a5176c9ebb5bd1083e14c6a5d36e3f6399545c4665f03819343e",
       "bulkSha256": "c53c010a756ec6e2e505a12cfb53db17a3d1ceee8364b79f03277cdfb0d4e070",
-      "nativeGraphPath": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/Features/extrude_07mm.entities.json",
+      "nativeGraphPath": "re/Fusion/LocalOracle/Features/extrude_07mm.entities.json",
       "nativeGraphSha256": "37107efba7d93814ed8e234d4bbbcd5e78bae1810d4bfa0c46bbe4c9484c28bc",
       "records": [
         {
@@ -1684,10 +1684,10 @@
     },
     {
       "file": "extrude_13mm.f3d",
-      "archiveSha256": "27b291d09e040cec9a40c8a6fb48b07d83e2bc4e3a2ac1ffa06a8ef85aaf07a4",
+      "archiveSha256": "25a1547213e492f7887f32f029673d287cba3fe435aa64a508038951a65b0f55",
       "metadataSha256": "77da6686e594f3b5c817a4338b98430ba069a22ac75ec406b96a41f6c4ece73b",
       "bulkSha256": "3b3ab80aecae54d59db3cd5f0f81b56532ac6b83b52c03feff8bbb31bc1949fc",
-      "nativeGraphPath": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/Features/extrude_13mm.entities.json",
+      "nativeGraphPath": "re/Fusion/LocalOracle/Features/extrude_13mm.entities.json",
       "nativeGraphSha256": "742f05f3031c1e3195581f6fc7eb909dd88968190fd65461f0b523b4f3d26576",
       "records": [
         {

@@ -6,7 +6,7 @@ import adsk.core
 import adsk.fusion
 
 
-root = Path("/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle")
+root = Path(__file__).resolve().parent
 output = root / "Inspection"
 output.mkdir(exist_ok=True)
 report = {}

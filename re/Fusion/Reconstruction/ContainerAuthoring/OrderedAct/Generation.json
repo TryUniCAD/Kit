@@ -1,7 +1,7 @@
 {
   "purpose": "ACT physical record order diagnostic with identical authored semantic values and UUIDs",
   "sourceCandidateSha256": "2bee9d409dbdc8f651a08bb035213d6491edd15da3ddb47068f3e5c1e162b11e",
-  "candidate": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/Reconstruction/ContainerAuthoring/OrderedAct/AuthoredParameter.f3d",
+  "candidate": "re/Fusion/Reconstruction/ContainerAuthoring/OrderedAct/AuthoredParameter.f3d",
   "sha256": "cda56e7247dcfdbb2271063c1498d324a6000f8186058d921cb45b0981565db0",
   "changedMembers": [
     "FusionAssetName[Active]/FusionACTSegmentType1/MetaStream.dat",

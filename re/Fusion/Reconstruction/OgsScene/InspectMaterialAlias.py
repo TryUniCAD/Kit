@@ -2,7 +2,7 @@ import hashlib,json,runpy,struct
 from pathlib import Path
 BASE=Path(__file__).resolve().parent
 API=runpy.run_path(str(BASE.parent/'ReadBinaryMembers.py'))
-ROOT=Path('/Users/odin/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries')
+ROOT=Path('~/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries').expanduser()
 asset=API['Binary'](ROOT/'libadskassetapi_new-16.dylib')
 ns=API['Binary'](ROOT/'Neutron/NsTypes10.dylib')
 def pointer(image,addr):return struct.unpack('<Q',image.read(addr,8))[0]&((1<<48)-1)

@@ -3,7 +3,7 @@
   "cases": [
     {
       "name": "Expanding7deg",
-      "path": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/TaperedAuthoring/Expanding7deg.f3d",
+      "path": "re/Fusion/LocalOracle/TaperedAuthoring/Expanding7deg.f3d",
       "sha256": "d7a548387c6cc6583204937b9010ba5c7c5c4c5e239c15750cb62dcec4a1bbbe",
       "bytes": 97486,
       "specification": {
@@ -77,7 +77,7 @@
     },
     {
       "name": "Contracting5deg",
-      "path": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/TaperedAuthoring/Contracting5deg.f3d",
+      "path": "re/Fusion/LocalOracle/TaperedAuthoring/Contracting5deg.f3d",
       "sha256": "7384dcc335a2263affe322338afa585e67be9604c228cc4e756255d47551ab03",
       "bytes": 97496,
       "specification": {
@@ -151,7 +151,7 @@
     },
     {
       "name": "ZeroAngleLimit",
-      "path": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/TaperedAuthoring/ZeroAngleLimit.f3d",
+      "path": "re/Fusion/LocalOracle/TaperedAuthoring/ZeroAngleLimit.f3d",
       "sha256": "a533f88786f9a88fa561b30cdba654d1c7d520fdad1ffee8ee1e3ef2e8f472b1",
       "bytes": 97486,
       "specification": {

@@ -2,7 +2,7 @@
   "schema": "FusionAuthoredFeatureContainer/1",
   "feature": "extrude",
   "status": "authored_native_acceptance_pending",
-  "candidate": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/Reconstruction/ContainerAuthoring/FreshExtrusion/AuthoredExtrusion.f3d",
+  "candidate": "re/Fusion/Reconstruction/ContainerAuthoring/FreshExtrusion/AuthoredExtrusion.f3d",
   "sha256": "7c3dbb1a213d9a3ef5fa609a721fba2de5a5870d0249d64c7c77f07968456523",
   "specification": {
     "title": "Kit Authored Parameter",
@@ -215,5 +215,5 @@
     "sourceGeometry": null,
     "sourceHistory": null
   },
-  "specificationSource": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/Reconstruction/DocumentAuthoring/Variants/ExtrudeSpecification.json"
+  "specificationSource": "re/Fusion/Reconstruction/DocumentAuthoring/Variants/ExtrudeSpecification.json"
 }

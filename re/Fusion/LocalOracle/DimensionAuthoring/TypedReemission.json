@@ -11,7 +11,7 @@
       "entityRecords": 203,
       "bodyHistories": 0,
       "materialPackages": 0,
-      "path": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/DimensionAuthoring/DimensionedRectangleReemitted.f3d"
+      "path": "re/Fusion/LocalOracle/DimensionAuthoring/DimensionedRectangleReemitted.f3d"
     },
     {
       "name": "DimensionedCuboid",
@@ -23,7 +23,7 @@
       "entityRecords": 246,
       "bodyHistories": 1,
       "materialPackages": 1,
-      "path": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/DimensionAuthoring/DimensionedCuboidReemitted.f3d"
+      "path": "re/Fusion/LocalOracle/DimensionAuthoring/DimensionedCuboidReemitted.f3d"
     }
   ]
 }

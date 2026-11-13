@@ -30,8 +30,8 @@
       "is_saved": true,
       "fixture": {
         "path": "re/Fusion/LocalOracle/LinksConfigs/Fixtures/P_A1_saved.f3d",
-        "bytes": 43210,
-        "sha256": "c9c663ecc1feb81f9bdd748b9daea65cc2a3e89a582cf2f2714dc37fc7b283d0"
+        "bytes": 43195,
+        "sha256": "4eba038c69168bbcf6408a2a68a2583e106fb90d9167f21dd8c98ac5eb5380af"
       },
       "kit_replay": {
         "model_equal_after_reread": true,
@@ -67,8 +67,8 @@
       "is_saved": true,
       "fixture": {
         "path": "re/Fusion/LocalOracle/LinksConfigs/Fixtures/P_B1_saved.f3d",
-        "bytes": 43383,
-        "sha256": "db5688a9b6946882fba2ae14aae66d79ae687950fb8d6599bacb55dd401b9e48"
+        "bytes": 43374,
+        "sha256": "adaae424a20416bf14c00ad8f6fa7a8bd08bb91ba4ceaef666287897f8ee0c5b"
       },
       "kit_replay": {
         "model_equal_after_reread": true,
@@ -777,8 +777,8 @@
       "is_saved": true,
       "fixture": {
         "path": "re/Fusion/LocalOracle/LinksConfigs/Fixtures/R5_saved.f3d",
-        "bytes": 37396,
-        "sha256": "c955cdbae2417b2eefac72256b7da02453672a6d658189a19abd5f49f36ad04d"
+        "bytes": 37379,
+        "sha256": "a36ff33898b07cbe4846bb869da59d9a6dfb1c7d6b3d76c547997e02a37d9ec1"
       },
       "kit_replay": {
         "model_equal_after_reread": true,
@@ -908,8 +908,8 @@
       "is_saved": true,
       "fixture": {
         "path": "re/Fusion/LocalOracle/LinksConfigs/Fixtures/R6_out_of_date.f3d",
-        "bytes": 37445,
-        "sha256": "c53048fbf3120b64132c109ec987c90a2ec54b946f8b12a7083f1280b5a6e374"
+        "bytes": 37424,
+        "sha256": "981e0ca783c93b5ce0e313b758e5d673facd4829bdaf8c08809c72cdc7c25de2"
       },
       "kit_replay": {
         "model_equal_after_reread": true,
@@ -1170,8 +1170,8 @@
       "is_saved": true,
       "fixture": {
         "path": "re/Fusion/LocalOracle/LinksConfigs/Fixtures/R8_updated_saved.f3d",
-        "bytes": 37347,
-        "sha256": "375f75a3b2c02216c42129bc1c768cc6b80712394a3f03a2e1e7561f719e7ded"
+        "bytes": 37334,
+        "sha256": "0b5d6179a6b348d25474ef244b7a90c8e8b505b6f7ea5f119fdd93bc5c2387dd"
       },
       "kit_replay": {
         "model_equal_after_reread": true,
@@ -1205,8 +1205,8 @@
       "is_saved": null,
       "fixture": {
         "path": "re/Fusion/LocalOracle/LinksConfigs/Fixtures/R9_archive.f3d",
-        "bytes": 37531,
-        "sha256": "13b5046e4e55ac5e9928d16bdd53f67f92018c7097b0e4179f29475714ee04f4"
+        "bytes": 37503,
+        "sha256": "e29ec1807fcf12519adc83634dac0ffc7f6ea5b4ad2420f10a44519a07b1d3c8"
       },
       "kit_replay": {
         "model_equal_after_reread": true,

@@ -1,7 +1,7 @@
 {
   "purpose": "Correct relationship browser reference targets from Relationships to AssyConstraints; preserve all other semantic values and UUIDs",
   "sourceCandidateSha256": "e2b94c7e74a8206fc0027ed3a830f0c5f8d40f421820b98b524a9d32d77037e4",
-  "candidate": "/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/Reconstruction/ContainerAuthoring/BrowserBindings/AuthoredParameter.f3d",
+  "candidate": "re/Fusion/Reconstruction/ContainerAuthoring/BrowserBindings/AuthoredParameter.f3d",
   "sha256": "f6e92a059e3e9db0c914f93b17191d6019fc34b5cd321e97ee83a3c75ab813c6",
   "rewrittenMembers": [
     "FusionAssetName[Active]/FusionBrowserSegmentType1/MetaStream.dat",

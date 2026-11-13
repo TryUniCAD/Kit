@@ -7,7 +7,7 @@ import adsk.core
 import adsk.fusion
 
 
-output = Path("/Users/odin/.codex/worktrees/fusion-native-io/Kit/re/Fusion/LocalOracle/Allocation")
+output = Path(__file__).resolve().parent / "Allocation"
 output.mkdir(exist_ok=True)
 report = {"operation": "controlled_parameter_allocation_capture", "samples": []}
 app = adsk.core.Application.get()

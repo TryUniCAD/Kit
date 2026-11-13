@@ -10,7 +10,7 @@ sys.dont_write_bytecode = True
 DIRECTORY = Path(__file__).resolve().parent
 BASE = DIRECTORY.parent
 BINARY = runpy.run_path(str(BASE / 'ReadBinaryMembers.py'))['Binary']
-ROOT = Path('/Users/odin/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents')
+ROOT = Path('~/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents').expanduser()
 
 
 def main():

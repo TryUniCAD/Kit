@@ -9,7 +9,7 @@
     {
       "path": "DecodedSamples.json.xz",
       "sha256": "1c80d0943b183191cc01ddc195077d6d8373ceccdb94edee30848ca0096da257",
-      "decodedSha256": "0fb3305bafd37e94191a143448e3f78c51f796475046b1a64251dac19d854ac6",
+      "decodedSha256": "7e3b1953314f6c0cdd8e8fc3c013d8eb8ba2ee1fd55399dcf5066df8fd6f6585",
       "decodedBytes": 1226516
     }
   ],
@@ -29,7 +29,7 @@
     },
     {
       "source": "re/Fusion/LocalOracle/RectangleAuthoring/vendor_ProductionCuboid37mm.f3d",
-      "sourceSha256": "6011718498ff71fa65437eeba1fdfd0f70881aab6bf185d7f25ff432fa02bd4a",
+      "sourceSha256": "62c03b7aa11ce2c79193e51376e4405e6bbfd34aa5ab8097b72043ad49f38683",
       "worldBytes": 24382,
       "worldSha256": "1ff6fb64ee545e01838a7c2e2e649ee6118b12c726a612ba3dfc8ec6865991e6",
       "worldFields": 2422,

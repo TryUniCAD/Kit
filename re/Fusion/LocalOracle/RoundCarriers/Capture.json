@@ -42,7 +42,7 @@
       },
       "archive": {
         "file": "Sphere.f3d",
-        "sha256": "2d583710c280c82c5eb25fec49eefa026ebba86748bc8e8165774110aaec6471"
+        "sha256": "80e6d3614554dc350102129aba7393b0f9418610dc9e84e1405e645c5171f22b"
       }
     },
     {
@@ -89,7 +89,7 @@
       },
       "archive": {
         "file": "Torus.f3d",
-        "sha256": "978ca09b2e7d0a5780d21e4110ae77a19e6c7557e97db33a145896ae861db492"
+        "sha256": "736fd3dbdbb3a2eaff45a0dac83945e84aa03cc1e64f227cf1025aecb295cb48"
       }
     },
     {

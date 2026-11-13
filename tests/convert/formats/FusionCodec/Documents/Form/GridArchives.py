@@ -1,7 +1,7 @@
 KGridArchives: tuple[tuple[str, str], ...] = (
     (
         "re/Fusion/LocalOracle/ActSlack/Saves/PlaneFirst.f3d",
-        "bae9f3b5589fc492b79ec97189d8b5948f15e2dc7e2ab05a6d00e4db94f6c002",
+        "0933e4de12d010d80b359fc6b78a9528be24abdac3098ee95fa4562e7b197b72",
     ),
     (
         "re/Fusion/LocalOracle/ActSlack/Saves/PlaneReopened.f3d",
@@ -41,7 +41,7 @@ KGridArchives: tuple[tuple[str, str], ...] = (
     ),
     (
         "re/Fusion/LocalOracle/FormDocuments/Grid/Primitives/Plane2x5.f3d",
-        "219384ad0a12269b232f287ccd150198b42aaa04599786b51b1ad3430f6336fd",
+        "0d0d28c44c9cb2919f7642a8eb3402c95adcf86bdea2e3d7ea45803091c9a6bc",
     ),
     (
         "re/Fusion/LocalOracle/FormDocuments/Grid/Primitives/Plane3x2.f3d",
@@ -65,7 +65,7 @@ KGridArchives: tuple[tuple[str, str], ...] = (
     ),
     (
         "re/Fusion/LocalOracle/FormDocuments/Grid/Saved/OracleWarped.f3d",
-        "c4b406620b1c0efcfe3aad4b5d769889681523220c9f341d80734b8de02ada10",
+        "fde472acc0afc13891030a4d1268f1737976d036700b861ca3ad16e97a93ff8d",
     ),
 )
 

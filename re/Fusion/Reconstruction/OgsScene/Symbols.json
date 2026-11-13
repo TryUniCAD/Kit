@@ -1,6 +1,6 @@
 [
   {
-    "file": "/Users/odin/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries/libOGSArchive.dylib",
+    "file": "~/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries/libOGSArchive.dylib",
     "sha256": "4ecaef9d9e0d63345eb7cc660dfda0b2fdf3da69f2998781828151ec122ab5ac",
     "symbols": [
       "                 U CZipArchive::AddNewFile(CZipAddNewFileInfo&)",
@@ -264,7 +264,7 @@
     ]
   },
   {
-    "file": "/Users/odin/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries/libOGSGraphics.dylib",
+    "file": "~/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries/libOGSGraphics.dylib",
     "sha256": "34fd314c426896b8f57039939ab962d76b7963a4dffe771f30aea87afeea1c5a",
     "symbols": [
       "                 U OGS::Serialization::ZipPackage::open(wchar_t const*, OGS::Serialization::ZipPackage::EZipStatus&)",
@@ -3727,7 +3727,7 @@
     ]
   },
   {
-    "file": "/Users/odin/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries/libOGSObjects.dylib",
+    "file": "~/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries/libOGSObjects.dylib",
     "sha256": "af3e117ced5f1ebbc5b89c609c7e8b964da0eb60123817387f73901e9ecc0de7",
     "symbols": []
   }

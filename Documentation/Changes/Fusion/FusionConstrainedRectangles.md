@@ -51,7 +51,7 @@ Changing the width to 19 mm and depth to 29 mm keeps the lower-left corner at th
 | Depth 29 mm               |       17.081 |              0.04902247 | (0.95, 1.45, 1.55) |
 | Height 37 mm and reopened |       20.387 |              0.05851069 | (0.95, 1.45, 1.85) |
 
-The body retains six faces, twelve edges and eight vertices, together with its independently authored material. Acceptance left zero documents open. Source hashes are `4fbcc6e18301a5c4cbcc9ec06aa422afe75dfdffa67f04938ef9f8efa054c627` for the rectangle and `dd8d4197f480115091378bbf90df1a8179bee47e1cba20339f172594e73bd41d` for the cuboid. The native report SHA-256 is `83b72a00c59654d6e8e13f56e4b6fdba319464eb0ef6f6868891a00ba1f8ff76`.
+The body retains six faces, twelve edges and eight vertices, together with its independently authored material. Acceptance left zero documents open. Source hashes are `4fbcc6e18301a5c4cbcc9ec06aa422afe75dfdffa67f04938ef9f8efa054c627` for the rectangle and `dd8d4197f480115091378bbf90df1a8179bee47e1cba20339f172594e73bd41d` for the cuboid. The native report SHA-256 is `5c12267d16de40211b1283222d2c55a06e6600d6beec8af5c9335fa72dbc99a1`.
 
 The public `ReadDocument`/`EmitParsed` path reconstructs both complete accepted archives byte-for-byte: 57,994 bytes and 203 entity records for the rectangle; 113,517 bytes and 246 entity records, one body history and one material package for the cuboid. [TypedReemission.json](../../../re/Fusion/LocalOracle/DimensionAuthoring/TypedReemission.json) records matching source/output digests. Native acceptance therefore covers the exact reconstructed bytes.
 

@@ -7,8 +7,8 @@ The public version-2 route projects semantic Design references for one unconstra
 | Role | Input | SHA-256 | Persisted geometry |
 | --- | --- | --- | --- |
 | Circle | `re/Fusion/LocalOracle/PublicAdapter/vendor_circleEdited.f3d` | `699c12b242a416a6ae761b6186759246df9b09a5b6501cd58c04dc4a340db14e` | Full circle, radius 14 mm, one unused `publicHeight` user parameter at 21 mm |
-| Cylinder | `re/Fusion/LocalOracle/PublicAdapter/vendor_extrusionEdited.f3d` | `80719aaae6e097ef81da9add099ef362e174c7eeed06a6a83ccdf9f0370425c1` | Radius 12 mm, height 21 mm, taper zero |
-| Frustum | `re/Fusion/LocalOracle/PublicAdapter/vendor_frustumEdited.f3d` | `cd19b14f4c9ff001d3b1da414922baa98bbea5dd086e55b4030e4c1614f19f21` | Bottom radius 12 mm, height 21 mm, taper −3 degrees, top radius 10.899436635056134 mm |
+| Cylinder | `re/Fusion/LocalOracle/PublicAdapter/vendor_extrusionEdited.f3d` | `33e7b098ddb6677b3bd9816b3c6133ccc850aea9d5d58fcd65b445c796ecc3a5` | Radius 12 mm, height 21 mm, taper zero |
+| Frustum | `re/Fusion/LocalOracle/PublicAdapter/vendor_frustumEdited.f3d` | `bc85b3edc96328a0c906cd413f7dac75e83b1e35104d8c21a2d711b5bfb473b2` | Bottom radius 12 mm, height 21 mm, taper −3 degrees, top radius 10.899436635056134 mm |
 
 These are vendor saves from the six-profile public acceptance study. Their existing IDs include circle entity 1096, sketch 1089, sketch feature 1097, extrusion 1112 and body 1125. The tests preserve those IDs; the projector has no constants for them.
 
@@ -60,6 +60,6 @@ General multi-state history, arbitrary arcs/constraints, transformations, extra 
 
 The public route prepared all three archives through actual `open_document`, neutral JSON serialization and `write_document(..., allow_carrier=False)`. The [preparation report](../../LocalOracle/NativeRotationalPublic/Preparation.json) records exact source/output/neutral hashes, real parameter IDs and material values. Public outputs exactly match the lower-codec candidates in [RotationalDocuments/Preparation.json](../../LocalOracle/RotationalDocuments/Preparation.json).
 
-[Native acceptance](../../LocalOracle/RotationalDocuments/NativeAcceptance.json), report SHA-256 `7120ad57f88df6adc7ebb0e965093f083b5ab85d2ecc9bb5cab70dec8b3c5442`, passed source/re-emission comparison, rollback/rebuild, height 21→26 mm, circle radius 14→16 mm, frustum taper −3→4 degrees and save/reopen, with zero remaining documents. These accepted bytes therefore cover the public outputs without claiming another native run.
+[Native acceptance](../../LocalOracle/RotationalDocuments/NativeAcceptance.json), report SHA-256 `5950746b0d3601bcf3cb7bf798288aa5a894e2d410e875018ab67f0d95a62d1f`, passed source/re-emission comparison, rollback/rebuild, height 21→26 mm, circle radius 14→16 mm, frustum taper −3→4 degrees and save/reopen, with zero remaining documents. These accepted bytes therefore cover the public outputs without claiming another native run.
 
 The final semantic-state registry contains 140 explicit record/enum types, including three new graphics records (`PrimitiveLod`, `RenderMesh`, `CircleArcValue`). It deliberately excludes general `JournalModel`, mesh models and sphere/torus geometry. The two newly optional SketchWorld link collections receive only their historical empty defaults when absent.

@@ -4,7 +4,7 @@
   "addressBasis": "Mach-O arm64 slice virtual address before slide",
   "images": [
     {
-      "path": "/Users/odin/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries/Neutron/NsBrowser10.dylib",
+      "path": "~/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries/Neutron/NsBrowser10.dylib",
       "sha256": "ab0022febfd136e64bcdd0a26ba232f9b353a884cebb5a7b3303c80dde176b04",
       "excerpts": [
         {
@@ -148,7 +148,7 @@
       ]
     },
     {
-      "path": "/Users/odin/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries/Neutron/NsBaseCore10.dylib",
+      "path": "~/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries/Neutron/NsBaseCore10.dylib",
       "sha256": "b272b4d35cee5641d1b43f4ba5a5c77a72919fd5c45e617214dbb941c1b164c9",
       "excerpts": [
         {
@@ -316,7 +316,7 @@
       ]
     },
     {
-      "path": "/Users/odin/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries/Neutron/NsDataModel10.dylib",
+      "path": "~/Library/Application Support/Autodesk/webdeploy/production/b43a07003c01dd54425db484d23b1c5e6248a21d/Autodesk Fusion.app/Contents/Libraries/Neutron/NsDataModel10.dylib",
       "sha256": "47ddbeca2f5c97c96e44989523ff969baa5d0d11b59d8ca35b934d48e2657af5",
       "excerpts": [
         {

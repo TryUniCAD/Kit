@@ -288,7 +288,7 @@
     },
     {
       "source": "re/Fusion/LocalOracle/RectangleAuthoring/vendor_ProductionCuboid37mm.f3d",
-      "sha256": "6011718498ff71fa65437eeba1fdfd0f70881aab6bf185d7f25ff432fa02bd4a",
+      "sha256": "62c03b7aa11ce2c79193e51376e4405e6bbfd34aa5ab8097b72043ad49f38683",
       "members": [
         {
           "name": "FusionAssetName[Active]/",
@@ -479,10 +479,10 @@
         },
         {
           "name": "FusionAssetName[Active]/ProteinAssets.BlobParts/ProteinAsset.d3c4722b-1523-4121-849d-c5ed2f8d1726.protein",
-          "bytes": 15513,
+          "bytes": 15514,
           "directory": false,
           "compression": 93,
-          "sha256": "4bc3d17c4c0bad3dab4ab3e1d482602ae26fe745e8e6ba5560be74d2b69d38cc"
+          "sha256": "82d23bf2c578506521cb835d681eeddf11ff69818aa879c22de485502a00a760"
         },
         {
           "name": "FusionAssetName[Active]/DesignConfigurationTable.BlobParts/DesignConfigurationTable.4e53ab54-186d-46af-9dc4-7e9d25197c0f.dsgcfg",
