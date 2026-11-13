@@ -1,0 +1,6 @@
+.symopt+0x4000
+.symopt-0x20000
+.reload /f swccu.dll
+bp swccu+0x42e0 ".printf \"P %x %p %x %d %x\\n\", poi(@rcx+0x40)-poi(@rcx+0x48), poi(@rcx+0x48), poi(@rcx+0x38)-poi(@rcx+0x48), dwo(@rcx+0x50), dwo(poi(@rcx+0x48)); bc *; .detach; qd"
+bl
+g

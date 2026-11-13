@@ -1,5 +1,5 @@
 from __future__ import annotations
-from dataclasses import dataclass as DataClass, asdict as Asdict
+from dataclasses import dataclass as DataClass
 import json as JsonData
 from pathlib import Path as PathInfo
 import struct as Struct
@@ -242,7 +242,7 @@ def Build(
     Depths, Parents, Scope = Nesting(OrderedInfo)
     Names: dict[int, str] = {}
     return FinishBuildMut(
-        ByteBlob, Depths, EventInfo, Names, OrderedInfo, Parents, Scope
+        ByteBlob, Depths, Events, Names, OrderedInfo, Parents, Scope
     )
 
 
@@ -310,6 +310,11 @@ def LoadData(
 
 
 # needed to keep reverse engineering responsibilities isolated and maintainable
+def ReportRow(ItemData: Segment) -> dict[str, object]:
+    return {Legacy: getattr(ItemData, Legacy) for Legacy in ItemData.KAliasNames}
+
+
+# needed to keep reverse engineering responsibilities isolated and maintainable
 def Report(
     LabelInfo: str,
     PartInfoInfo: PathInfo,
@@ -336,7 +341,7 @@ def Report(
         "tiling": Shape,
         "increment_rule": IncrementRule(SegmentsInfo),
         "class_index": ClassTable(SegmentsInfo),
-        "segments": [Asdict(ItemData) for ItemData in SegmentsInfo],
+        "segments": [ReportRow(ItemData) for ItemData in SegmentsInfo],
     }
     KOutInfo.mkdir(parents=True, exist_ok=True)
     (KOutInfo / f"segments_{LabelInfo}.json").write_text(

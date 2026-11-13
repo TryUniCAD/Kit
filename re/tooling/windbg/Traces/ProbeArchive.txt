@@ -1,0 +1,11 @@
+.symopt+0x4000
+.symopt-0x20000
+.reload /f swccu.dll
+sxi 80090016
+sxi 80290410
+sxi e06d7363
+sxi e0434352
+sxi 04242420
+bp swccu!su_CArchive::ReadObject ".printf \"Q %x %p %x %d\\n\", poi(@rcx+0x40)-poi(@rcx+0x48), poi(@rcx+0x48), poi(@rcx+0x38)-poi(@rcx+0x48), dwo(@rcx+0x50); bc *; .detach; qd"
+bl
+g

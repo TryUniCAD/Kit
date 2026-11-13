@@ -13,7 +13,7 @@ not exercised by any available file; **not found**.
 
 A `.SLDPRT` is a zip-like container of named streams. The container framing and the load-critical
 streams used by Kit's supported feature families are fully constructive: the writer emits typed
-fields and does not copy, embed, patch, or read a vendor stream. Eighteen resolved-feature programs
+fields and does not copy, embed, patch, or read a vendor stream. Nineteen resolved-feature programs
 currently reconstruct their declared lengths with zero opaque bytes. The format is not fully
 inverted for arbitrary modeling histories; unsupported FCStd documents fail closed. The exact
 repository-wide boundary is measured in `CorpusCoverage.md`.

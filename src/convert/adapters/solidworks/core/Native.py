@@ -145,6 +145,10 @@ from convert.adapters.solidworks.programs.resolved.circle.default.Program import
 from convert.adapters.solidworks.programs.resolved.circle.reverse.Program import (
     EncodeProgram as EncodeReverseCircle,
 )
+from convert.adapters.solidworks.programs.resolved.polyline.fivepoint.Program import (
+    EncodeProgram as EncodePolylineFiveProgram,
+    PadFieldMap as PolylineFiveFieldMap,
+)
 from convert.adapters.solidworks.programs.resolved.polyline.sixpoint.Program import (
     EncodeProgram as EncodePolylineSixProgram,
     PadFieldMap as PolylineSixFieldMap,
@@ -2310,9 +2314,16 @@ def BuildPolyTree(
     ):
         return None
     try:
-        ProgramData = EncodePolylineSixProgram(
-            PolylineSixFieldMap(PolylineValue, DepthValue)
-        )
+        if len(PolylineValue) == 5:
+            ProgramData = EncodePolylineFiveProgram(
+                PolylineFiveFieldMap(PolylineValue, DepthValue)
+            )
+        elif len(PolylineValue) == 6:
+            ProgramData = EncodePolylineSixProgram(
+                PolylineSixFieldMap(PolylineValue, DepthValue)
+            )
+        else:
+            return None
     except SldprtFormatError:
         return None
     HeaderStamps = KFrontBossHeaderStamps
@@ -2333,7 +2344,7 @@ def BuildVendorTree(AuthoredObjs: tuple[_WriteObject, ...]) -> VendorResolved | 
     )
     BoundsValue = WriteRectangle(SketchObject)
     CircleValue = WriteCircle(SketchObject)
-    PolylineValue = PolySixPoints(SketchObject)
+    PolylineValue = PolylinePoints(SketchObject)
     EndCodes = ExtrusionEdit(PadObject.payload)
     if (
         SketchObject.class_name != "moProfileFeature_c"
@@ -2515,7 +2526,7 @@ def BuildSingleTree(AuthoredObjs: tuple[_WriteObject, ...]) -> VendorResolved | 
         else 0
     )
     BoundsValue = WriteRectangle(SketchObject)
-    PinPoints = PolySixPoints(SketchObject)
+    PinPoints = PolylinePoints(SketchObject)
     IsPinData = IsPinProfile(PinPoints)
     if (
         SketchObject.class_name != "moProfileFeature_c"
@@ -4462,7 +4473,7 @@ def IsonicalSingMut(
     SketchPayload = EncodeSketch(NormalizedSketch, SketchObject.object_id, ObjectIds)[0]
     SketchObject = Replace(SketchObject, payload=SketchPayload)
     BoundsValue = WriteRectangle(SketchObject)
-    PinPoints = PolySixPoints(SketchObject)
+    PinPoints = PolylinePoints(SketchObject)
     AngleDimension = FreeCadSingle(DocData, SourceSketch, SourceFeature)
     PlaneObjectId = (
         Struct.unpack_from("<I", SketchObject.payload)[0]
@@ -4473,7 +4484,7 @@ def IsonicalSingMut(
         PlaneObjectId == 3
         and IsPinProfile(PinPoints)
         and (not SketchObject.dimensions)
-        and HasPolySix(SourceSketch, PinPoints)
+        and HasPolyline(SourceSketch, PinPoints)
     )
     IsRectangleData = (
         PlaneObjectId == 2
@@ -5160,7 +5171,7 @@ def IsonicalSinAMut(
         Extrusion = Replace(Extrusion, payload=EncodeExtrude(NormalizedFeature))
     Bounds = WriteRectangle(Sketch)
     Circle = WriteCircle(Sketch)
-    PolylineData = PolySixPoints(Sketch)
+    PolylineData = PolylinePoints(Sketch)
     HasProfileDimensions = (
         HasRectDims(Sketch, Bounds)
         if Bounds is not None
@@ -5173,7 +5184,7 @@ def IsonicalSinAMut(
     HasSourceGeom = SourceSketch is not None and (
         HasCanonical(SourceSketch, Bounds, Circle)
         if Bounds is not None or Circle is not None
-        else HasPolySix(SourceSketch, PolylineData)
+        else HasPolyline(SourceSketch, PolylineData)
     )
     if (
         len(Sketch.payload) < 4
@@ -5813,10 +5824,14 @@ def HasCanonical(
 
 
 # this definition exists because focused behavior needs one stable owner
-def HasPolySix(
+def HasPolyline(
     SketchData: Sketch, PointsData: tuple[tuple[float, float], ...] | None
 ) -> bool:
-    if PointsData is None or len(PointsData) != 6 or len(SketchData.entities) != 6:
+    if (
+        PointsData is None
+        or len(PointsData) not in {5, 6}
+        or len(PointsData) != len(SketchData.entities)
+    ):
         return False
     if any(
         (ItemData.construction or ItemData.fixed for ItemData in SketchData.entities)
@@ -7957,7 +7972,7 @@ def WriteCircle(SketchObject: _WriteObject) -> tuple[float, float, float] | None
 
 
 # this definition exists because focused behavior needs one stable owner
-def PolySixPoints(SketchObject: _WriteObject) -> tuple[tuple[float, float], ...] | None:
+def PolylinePoints(SketchObject: _WriteObject) -> tuple[tuple[float, float], ...] | None:
     if SketchObject.kind != "Sketch" or not SketchObject.payload:
         return None
     MarkersData = list(ParseMarkers(SketchObject.payload, 0, len(SketchObject.payload)))
@@ -7965,7 +7980,7 @@ def PolySixPoints(SketchObject: _WriteObject) -> tuple[tuple[float, float], ...]
     PolylineData = tuple(
         (ItemData for ItemData in ProfilesData if ItemData.kind == "polyline")
     )
-    if len(PolylineData) != 1 or len(PolylineData[0].coordinates) != 12:
+    if len(PolylineData) != 1 or len(PolylineData[0].coordinates) not in {10, 12}:
         return None
     CoordinateData = PolylineData[0].coordinates
     PointsData = tuple(
@@ -8371,7 +8386,7 @@ def EncodePolyMut(
     Consumed: set[str],
     LocalId: int,
 ) -> int | None:
-    if len(Selected) != 6 or not all(
+    if len(Selected) not in {5, 6} or not all(
         Entity is not None and isinstance(Entity.geometry, LineGeom)
         for Entity in Selected
     ):
@@ -9828,7 +9843,7 @@ def HasPadProof(
     )
     BoundsValue = WriteRectangle(SketchObject)
     CircleValue = WriteCircle(SketchObject)
-    PolylineValue = PolySixPoints(SketchObject)
+    PolylineValue = PolylinePoints(SketchObject)
     EndCodes = ExtrusionEdit(PadObject.payload)
     IsDimensionedBox = (
         BoundsValue is not None
@@ -9896,7 +9911,11 @@ def HasPadProof(
         )
     )
     DepthValue = PadObject.dimensions[0].value_mm
-    ExpectedDepth = (1, 1, -1, -1, 1, 1)
+    ExpectedDepth = (
+        (1, 1, 1, 1)
+        if PolylineValue is not None and len(PolylineValue) == 5
+        else (1, 1, -1, -1, 1, 1)
+    )
     ExpectedDims = tuple(
         (
             (ItemData.name, round(ItemData.value_mm, 10))
@@ -9983,7 +10002,7 @@ def HasSingleProof(
         return False
     SketchObject, RevolveObject = AuthoredObjs
     BoundsValue = WriteRectangle(SketchObject)
-    PinPoints = PolySixPoints(SketchObject)
+    PinPoints = PolylinePoints(SketchObject)
     IsPinData = IsPinProfile(PinPoints)
     if (
         not (BoundsValue is not None or IsPinData)

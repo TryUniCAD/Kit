@@ -103,7 +103,7 @@ cheapest end-to-end check that the recorded tables really do come out of the rec
 
 ## Scope honesty
 
-The SOLIDWORKS work reads and _patches_ SOLIDWORKS streams. It does not serialise one from nothing. The
-container framing is fully inverted (any of 1000 file ids can be written with no donor); stream
-content still comes from a donor part of the right feature topology. `solidworks/README.md` states
-exactly where that line falls.
+The SOLIDWORKS work reads and writes SOLIDWORKS streams for its recovered native families. The
+container framing supports any of 1000 file ids with no donor. Supported feature streams use typed
+field programs rather than vendor payloads; unsupported histories fail closed. `solidworks/README.md`
+documents the measured boundary rather than a claim of arbitrary inversion.

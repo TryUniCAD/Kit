@@ -118,7 +118,8 @@ parametric-history, editable-sketch, body-structure, and parameter
 capabilities. The public FCStd writer test locks the 12,283-byte resolved hash
 and confirms vendor-loadable, application-usable, near-lossless output.
 
-Arcs, circles, open wires, intersecting wires, other segment counts, non-blind
-end conditions, noncanonical support planes, reversal, and placement
-transforms remain fail-closed until their own typed families are recovered.
+Arcs, circles, open wires, intersecting wires, segment counts outside the recovered five- and six-line
+families, non-blind end conditions, noncanonical support planes, reversal, and placement transforms
+remain fail-closed until their own typed families are recovered. The sibling five-line closure is in
+[PolylineFivePad.md](PolylineFivePad.md).
 No vendor stream or runtime CAD fallback is used.

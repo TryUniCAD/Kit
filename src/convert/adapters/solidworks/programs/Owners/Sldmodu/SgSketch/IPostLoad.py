@@ -1,19 +1,35 @@
 from __future__ import annotations
 
+
 # exact trace spellings stay centralized so variant tables never duplicate owners
 KOwnerSites = {
+    10318: "SLDMODU!sgSketch::iPostLoad+0x284e",
     10423: "SLDMODU!sgSketch::iPostLoad+0x28b7",
+    10788: "SLDMODU!sgSketch::iPostLoad+0x2a24",
+    11301: "SLDMODU!sgSketch::iPostLoad+0x2c25",
     1727: "SLDMODU!sgSketch::iPostLoad+0x6bf",
+    1865: "SLDMODU!sgSketch::iPostLoad+0x749",
     2487: "SLDMODU!sgSketch::iPostLoad+0x9b7",
+    2635: "SLDMODU!sgSketch::iPostLoad+0xa4b",
     3321: "SLDMODU!sgSketch::iPostLoad+0xcf9",
+    3483: "SLDMODU!sgSketch::iPostLoad+0xd9b",
     4785: "SLDMODU!sgSketch::iPostLoad+0x12b1",
+    4953: "SLDMODU!sgSketch::iPostLoad+0x1359",
     5374: "SLDMODU!sgSketch::iPostLoad+0x14fe",
+    5559: "SLDMODU!sgSketch::iPostLoad+0x15b7",
     5913: "SLDMODU!sgSketch::iPostLoad+0x1719",
+    6110: "SLDMODU!sgSketch::iPostLoad+0x17de",
     6441: "SLDMODU!sgSketch::iPostLoad+0x1929",
+    6654: "SLDMODU!sgSketch::iPostLoad+0x19fe",
     7044: "SLDMODU!sgSketch::iPostLoad+0x1b84",
+    7264: "SLDMODU!sgSketch::iPostLoad+0x1c60",
     7640: "SLDMODU!sgSketch::iPostLoad+0x1dd8",
+    7889: "SLDMODU!sgSketch::iPostLoad+0x1ed1",
     8090: "SLDMODU!sgSketch::iPostLoad+0x1f9a",
+    8368: "SLDMODU!sgSketch::iPostLoad+0x20b0",
     8542: "SLDMODU!sgSketch::iPostLoad+0x215e",
+    8836: "SLDMODU!sgSketch::iPostLoad+0x2284",
     9002: "SLDMODU!sgSketch::iPostLoad+0x232a",
+    9312: "SLDMODU!sgSketch::iPostLoad+0x2460",
     9998: "SLDMODU!sgSketch::iPostLoad+0x270e",
 }

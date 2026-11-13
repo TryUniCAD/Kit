@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+
 # exact trace spellings stay centralized so variant tables never duplicate owners
 KOwnerSites = {
     141: "SLDMODU!mo_dynSurfIdArr::Serialize+0x8d",
@@ -11,4 +12,6 @@ KOwnerSites = {
     3309: "SLDMODU!mo_dynSurfIdArr::Serialize+0xced",
     4151: "SLDMODU!mo_dynSurfIdArr::Serialize+0x1037",
     4164: "SLDMODU!mo_dynSurfIdArr::Serialize+0x1044",
+    4583: "SLDMODU!mo_dynSurfIdArr::Serialize+0x11e7",
+    4596: "SLDMODU!mo_dynSurfIdArr::Serialize+0x11f4",
 }

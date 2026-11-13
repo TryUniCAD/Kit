@@ -1,10 +1,14 @@
 from __future__ import annotations
 
+
 # exact trace spellings stay centralized so variant tables never duplicate owners
 KOwnerSites = {
     13613: "SLDMODU!moPTSRefPlnData_c::Serialize+0x352d",
     13784: "SLDMODU!moPTSRefPlnData_c::Serialize+0x35d8",
+    13789: "SLDMODU!moPTSRefPlnData_c::Serialize+0x35dd",
     13933: "SLDMODU!moPTSRefPlnData_c::Serialize+0x366d",
+    13960: "SLDMODU!moPTSRefPlnData_c::Serialize+0x3688",
+    14109: "SLDMODU!moPTSRefPlnData_c::Serialize+0x371d",
     16845: "SLDMODU!moPTSRefPlnData_c::Serialize+0x41cd",
     17007: "SLDMODU!moPTSRefPlnData_c::Serialize+0x426f",
     17062: "SLDMODU!moPTSRefPlnData_c::Serialize+0x42a6",
@@ -23,5 +27,8 @@ KOwnerSites = {
     18442: "SLDMODU!moPTSRefPlnData_c::Serialize+0x480a",
     3177: "SLDMODU!moPTSRefPlnData_c::Serialize+0xc69",
     3190: "SLDMODU!moPTSRefPlnData_c::Serialize+0xc76",
+    3225: "SLDMODU!moPTSRefPlnData_c::Serialize+0xc99",
+    3238: "SLDMODU!moPTSRefPlnData_c::Serialize+0xca6",
     3307: "SLDMODU!moPTSRefPlnData_c::Serialize+0xceb",
+    3355: "SLDMODU!moPTSRefPlnData_c::Serialize+0xd1b",
 }
