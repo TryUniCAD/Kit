@@ -41,7 +41,7 @@ It reads input and writes no vendor bytes, so it is not donor data.
 | Drawing ISO standard                     | Fixed: paper, borders, header and standard objects from rules; no save history                         |
 | Drawing view shape flags                 | Fixed for axis base views and all projected views; slanted base views are refused                      |
 | Drawing record numbering                 | Fixed: one counter per source and sheet, checked on a save with 5 sheets                               |
-| Drawing dimensions and material families | Partly fixed: linear, aligned, vertical, radius, diameter and short layouts; materials fixed           |
+| Drawing dimensions and material families | Fixed: linear, aligned, vertical, radius, diameter and short layouts; every material family            |
 | Form crease thresholds                   | Open                                                                                                   |
 
 [Material families](../Materials/FusionMaterialFamilies.md) records the material fix.
