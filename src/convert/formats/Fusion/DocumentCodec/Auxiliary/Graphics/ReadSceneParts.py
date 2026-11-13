@@ -20,6 +20,11 @@ def ReadSceneParts(Values: tuple[ContainerPart, ...]) -> GraphicScene | None:
     Streams = tuple(
         GraphicsStream(int(Entry.Name[-3:]), Entry.Payload)
         for Entry in Parts
-        if Entry.Name != Prefix + "world"
+        if Entry.Name.startswith(Prefix + "stream_mesh_")
     )
-    return ReadGraphics(WorldParts[0].Payload, Streams)
+    FusionStreams = tuple(
+        GraphicsStream(int(Entry.Name[-3:]), Entry.Payload)
+        for Entry in Parts
+        if Entry.Name.startswith(Prefix + "Fusion_mesh_")
+    )
+    return ReadGraphics(WorldParts[0].Payload, Streams, FusionStreams)

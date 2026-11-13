@@ -2,7 +2,9 @@ from math import isfinite as IsFinite
 
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.FeatureAttrib import (
     FeatureAttrib,
+    KFeatureFlags,
     KFeatureLayouts,
+    KFeatureTypes,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Writing.Attributes.MakeAttribHead import (
     MakeAttribHead,
@@ -18,6 +20,12 @@ def MakeFdmAttrib(Value: FeatureAttrib) -> AsmRecord:
     Empty = not Value.Points and Value.TailCode is None
     if (Detailed and not Complete) or (not Detailed and not Empty):
         raise ValueError("Fusion feature attribute layout disagrees with its data")
+    if (
+        Value.Flags != KFeatureFlags
+        or Value.TypeCode != KFeatureTypes[Value.DataName]
+        or Value.TailCode not in (None, 0, 1)
+    ):
+        raise ValueError("Unsupported Fusion feature attribute data")
     if not all(IsFinite(Number) for Point in Value.Points for Number in Point):
         raise ValueError("Fusion feature attribute points must be finite")
     Trailing: tuple[KAsmToken, ...] = ()

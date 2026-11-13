@@ -8,3 +8,4 @@ from convert.formats.Fusion.GraphicsCodec.Model.State.GraphicsStream import (
 class GraphicsData:
     WorldData: bytes
     MeshStreams: tuple[GraphicsStream, ...]
+    FusionStreams: tuple[GraphicsStream, ...]

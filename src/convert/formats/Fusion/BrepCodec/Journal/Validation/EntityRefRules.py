@@ -7,6 +7,8 @@ KAttribNames = (
     "stitch_hint-sys-attrib",
     "vertedge-sys-attrib",
     "no_merge_attribute-st-attrib",
+    "name_attrib-gen-attrib",
+    "int64_attrib-name_attrib-gen-attrib",
 )
 
 KCoedgeUses = ("coedge", "tcoedge-coedge")
@@ -119,7 +121,7 @@ KEntityRefRules: dict[str, dict[int, tuple[str, ...]]] = {
     "ellipse-curve": {0: KAttribNames, 2: ()},
     "straight-curve": {0: KAttribNames, 2: ()},
     "ATTRIB_CUSTOM-attrib": {
-        0: (),
+        0: ("ATTRIB_CUSTOM-attrib",),
         2: KAttribNames,
         3: KAttribNames,
         4: (
@@ -143,5 +145,17 @@ KEntityRefRules: dict[str, dict[int, tuple[str, ...]]] = {
         2: KAttribNames,
         3: KAttribNames,
         4: ("edge", "tedge-edge"),
+    },
+    "name_attrib-gen-attrib": {
+        0: (),
+        2: KAttribNames,
+        3: KAttribNames,
+        4: ("edge",),
+    },
+    "int64_attrib-name_attrib-gen-attrib": {
+        0: (),
+        2: KAttribNames,
+        3: KAttribNames,
+        4: ("face",),
     },
 }

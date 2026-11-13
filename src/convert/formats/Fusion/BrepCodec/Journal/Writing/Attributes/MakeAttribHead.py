@@ -2,9 +2,11 @@ from convert.formats.Fusion.BrepCodec.Journal.Attributes.AttribLinks import Attr
 from convert.formats.Fusion.Topology.AsmEdge.AsmTable import KAsmToken
 
 
-def MakeAttribHead(Links: AttribLinks, Family: str) -> tuple[KAsmToken, ...]:
+def MakeAttribHead(
+    Links: AttribLinks, Family: str, Attribute: int = -1
+) -> tuple[KAsmToken, ...]:
     return (
-        (12, -1),
+        (12, Attribute),
         (4, -1),
         (12, Links.NextAttrib),
         (12, Links.PriorAttrib),

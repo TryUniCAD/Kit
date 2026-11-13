@@ -12,7 +12,7 @@ def MakeTagAttrib(Value: TagAttrib) -> AsmRecord:
     return AsmRecord(
         "ATTRIB_CUSTOM-attrib",
         (
-            *MakeAttribHead(Value.Links, "generic_tag_attrib_def"),
+            *MakeAttribHead(Value.Links, "generic_tag_attrib_def", Value.Attribute),
             *MakeTagGroups(Value.Groups),
         ),
     )

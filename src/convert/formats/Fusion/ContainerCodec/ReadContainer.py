@@ -40,9 +40,13 @@ def ReadContainer(
         Names = tuple(Entry.Name for Entry in Archive.Members)
         for Entry in Archive.Members:
             _ = EncodeZipName(Entry.Name)
-            if Entry.IsDirectory and (Entry.Size or Entry.Crc or Entry.Method):
+            if Entry.IsDirectory and (
+                Entry.Size
+                or Entry.Crc
+                or (Entry.Method, Entry.CompressedSize) not in ((0, 0), (8, 2))
+            ):
                 raise ValueError(
-                    "Fusion container directories must be empty and stored"
+                    "Fusion container directories must be empty stored or deflated entries"
                 )
         CheckZipPaths(Names)
         Document = ReadDocument(Archive.ReadMember(KRootName, KMaxManifestBytes))

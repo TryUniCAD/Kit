@@ -24,6 +24,14 @@ from convert.formats.Fusion.BrepCodec.Journal.Attributes.SketchAttrib import (
 from convert.formats.Fusion.BrepCodec.Journal.Writing.Attributes.MakeSketchAttr import (
     MakeSketchAttr,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.NestedTag import NestedTag
+from convert.formats.Fusion.BrepCodec.Journal.Writing.Attributes.MakeNestedTag import (
+    MakeNestedTag,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.NameAttrib import NameAttrib
+from convert.formats.Fusion.BrepCodec.Journal.Writing.Attributes.MakeGenAttrib import (
+    MakeNameNode,
+)
 
 
 def MakeAttributes(Value: KJournalEntity) -> AsmRecord:
@@ -35,6 +43,10 @@ def MakeAttributes(Value: KJournalEntity) -> AsmRecord:
         return MakeTagAttrib(Value)
     if isinstance(Value, SketchAttrib):
         return MakeSketchAttr(Value)
+    if isinstance(Value, NestedTag):
+        return MakeNestedTag(Value)
     if isinstance(Value, FeatureAttrib):
         return MakeFdmAttrib(Value)
+    if isinstance(Value, NameAttrib):
+        return MakeNameNode(Value)
     raise ValueError("Unsupported Fusion journal entity variant")

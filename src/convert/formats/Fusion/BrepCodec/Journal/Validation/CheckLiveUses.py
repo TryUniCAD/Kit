@@ -21,4 +21,6 @@ def CheckLiveUses(
         Groups.setdefault(EdgeRef, []).append(SlotId)
     for SlotId, Record in Selected.items():
         if Record.Name in ("edge", "tedge-edge"):
+            if SlotId not in Groups and ReadLiveRef(Record, 7, Aliases) == -1:
+                continue
             CheckUsePairs(SlotId, tuple(Groups.get(SlotId, ())), Selected, Aliases)

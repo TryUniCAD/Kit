@@ -4,8 +4,10 @@ from convert.formats.Fusion.BrepCodec.Attributes.HistoryAttributes import (
     MakeHistoryTags,
 )
 from convert.formats.Fusion.BrepCodec.Models.BodyIdentity import BodyIdentity
+from convert.formats.Fusion.BrepCodec.Models.EntityIds import EntityIds
 from convert.formats.Fusion.BrepCodec.Models.TopologyTags import TopologyTags
 from convert.formats.Fusion.BrepCodec.Models.VertexIndices import VertexIndices
+from convert.formats.Fusion.BrepCodec.Topology.ApplyIds import ApplyIds
 from convert.formats.Fusion.BrepCodec.Topology.ApplyVertices import ApplyVertices
 from convert.formats.Fusion.BrepCodec.Topology.AssignHeads import AssignHeads
 from convert.formats.Fusion.BrepCodec.Topology.HistoryLinks import KHistoryHeads
@@ -19,10 +21,14 @@ def BuildHistory(
     Identity: BodyIdentity,
     TagSet: TopologyTags,
     Vertices: VertexIndices | None = None,
+    Tracking: EntityIds | None = None,
 ) -> tuple[GeometryRecord, ...]:
     Records = list(
         AssignHeads(
-            ApplyVertices(BuildRecords(Model), Vertices or VertexIndices()),
+            ApplyIds(
+                ApplyVertices(BuildRecords(Model), Vertices or VertexIndices()),
+                Tracking or EntityIds(),
+            ),
             KHistoryHeads,
         )
     )

@@ -16,4 +16,6 @@ KRequiredRefs: dict[str, tuple[int, ...]] = {
     "stitch_hint-sys-attrib": (4,),
     "vertedge-sys-attrib": (4,),
     "no_merge_attribute-st-attrib": (4,),
+    "name_attrib-gen-attrib": (4,),
+    "int64_attrib-name_attrib-gen-attrib": (4,),
 }

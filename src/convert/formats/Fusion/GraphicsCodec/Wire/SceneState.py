@@ -14,10 +14,12 @@ class SceneState(SceneWire):
         self,
         Payload: bytes | None,
         Streams: tuple[GraphicsStream, ...],
+        FusionStreams: tuple[GraphicsStream, ...],
         Scene: GraphicScene | None,
     ) -> None:
         super().__init__(Payload)
         self.MeshData = MeshStreams(Streams, self.IsReading)
+        self.FusionData = MeshStreams(FusionStreams, self.IsReading)
         self.Globals: SceneGlobals | None = Scene.Globals if Scene else None
         self.HasGlobals = False
         self.InputObjects = (

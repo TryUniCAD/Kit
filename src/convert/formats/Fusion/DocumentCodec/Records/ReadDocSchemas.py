@@ -14,6 +14,7 @@ def ReadDocSchemas() -> tuple[ClassSchema, ...]:
     Paths = (
         FusionPath / "DocumentCodec" / "Vocabulary" / "DesignClasses.json",
         FusionPath / "DocumentCodec" / "Vocabulary" / "FormClasses.json",
+        FusionPath / "DocumentCodec" / "Vocabulary" / "SavedClasses.json",
         FusionPath / "ContainerCodec" / "Assembly" / "ActClasses.json",
         FusionPath / "ContainerCodec" / "Browser" / "BrowserClasses.json",
     )

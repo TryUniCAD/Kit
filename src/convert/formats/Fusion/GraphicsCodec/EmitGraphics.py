@@ -10,10 +10,11 @@ def EmitGraphics(Value: GraphicScene) -> GraphicsData:
     if not isinstance(CastValue(object, Value), GraphicScene):
         raise ValueError("Expected a typed Fusion graphics scene")
     try:
-        State = SceneCodec(None, (), Value)
+        State = SceneCodec(None, (), (), Value)
         _ = XferWorldMut(State, Value.RootWorld, True)
         _ = State.Finalize()
         Streams = State.MeshData.Finalize()
-        return GraphicsData(bytes(State.Output), Streams)
+        FusionStreams = State.FusionData.Finalize()
+        return GraphicsData(bytes(State.Output), Streams, FusionStreams)
     except (StructError, UnicodeError, OverflowError) as Error:
         raise ValueError("Invalid Fusion graphics model field") from Error

@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 def XferMeshMut(State: SceneCodec, Value: SimpleMesh | None) -> SimpleMesh:
     Bounds = State.Vector(Value.Bounds if Value else None, 6)
     Primitive = State.Integer(Value.Primitive if Value else None, "<i")
-    if Primitive not in (2, 3, 4):
+    if Primitive not in (2, 3, 4, 5):
         raise ValueError("Unsupported graphics primitive topology")
     VertexBuffer = (
         XferVerticesMut(State, Value.VertexBuffer if Value else None)

@@ -40,7 +40,7 @@ In the corpus, negative forms occur only on reversed coedges and positive forms 
 A coedge record keeps a pointer to its `pcurve` record, and -1 means no pcurve.
 Shell slot 6 is the first wire of the shell.
 `FDM_feature_attrib_def` carries a `feature_data` or a `thread_face_data` layout.
-A live edge record can have a null curve when its start vertex is its end vertex.
+A live edge record can have a null curve when it closes a cone face at its apex, and its start vertex is its end vertex.
 The [wire shell gotcha](../../Gotchas/Conversion/Fusion/Geometry/WireShellSlots.md), the [degenerate edge gotcha](../../Gotchas/Conversion/Fusion/Geometry/DegenerateHoleEdges.md) and the [thread attribute gotcha](../../Gotchas/Conversion/Fusion/Geometry/ThreadAttributeLayouts.md) give the layouts.
 
 The 8 corpus `tvertex-vertex` records have a tolerance equal to the largest tolerance of their `tedge-edge` records plus 1e-10.

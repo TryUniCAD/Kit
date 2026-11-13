@@ -12,7 +12,7 @@ def ObjectValueMut(
     State: SceneCodec, ClassName: str, Value: ObjectRef | None
 ) -> ObjectRef:
     ObjectId = State.TextValue(Value.ObjectId if Value else None)
-    if FullMatch(r"0x[0-9a-fA-F]{1,16}", ObjectId) is None or int(ObjectId, 16) == 0:
+    if FullMatch(r"0x[0-9a-fA-F]{1,16}|[0-9A-F]{16}", ObjectId) is None or int(ObjectId, 16) == 0:
         raise ValueError(f"Invalid graphics object identity for {ClassName}: {ObjectId[:64]!r}")
     Result = ObjectRef(ClassName, ObjectId)
     State.CheckResult(Value, Result)

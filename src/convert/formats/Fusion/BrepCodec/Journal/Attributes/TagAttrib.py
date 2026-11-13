@@ -9,3 +9,4 @@ from convert.formats.Fusion.BrepCodec.Models.FeatureTag import FeatureTag
 class TagAttrib:
     Links: AttribLinks
     Groups: tuple[FeatureTag, ...]
+    Attribute: int = -1

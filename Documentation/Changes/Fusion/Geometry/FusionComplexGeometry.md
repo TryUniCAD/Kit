@@ -22,7 +22,7 @@ The typed BRep journal codec now reads and writes spline surfaces, interpolated 
 | `FDM_feature_attrib_def` attribute | `FeatureAttrib` | `Attributes.FeatureAttrib` | `Links`, `DataName`, `FeatureTag`, `Flags`, `TypeCode`, `Points`, `TailCode` |
 | `no_merge_attribute-st-attrib` | `NoMergeAttrib` | `Attributes.NoMergeAttrib` | `Links` |
 
-`KComplexTypes` in `Complex.ComplexEntity` lists the first six classes. `CoedgeNode.Pcurve` keeps the coedge reference to its `pcurve` entity, and -1 means no pcurve. `ShellNode.FirstWire` is shell slot 6, and -1 means no wire. A live edge can have no curve when its start vertex is its end vertex.
+`KComplexTypes` in `Complex.ComplexEntity` lists the first six classes. `CoedgeNode.Pcurve` keeps the coedge reference to its `pcurve` entity, and -1 means no pcurve. `ShellNode.FirstWire` is shell slot 6, and -1 means no wire. A live edge can have no curve when it closes a cone face at its apex. `Validation.IsApexEdge` defines this shape.
 
 ### Subtype values
 

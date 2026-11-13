@@ -11,6 +11,10 @@ def EmitWireField(Field: KAsmToken) -> bytes:
         if type(Value) is not int or not -(1 << 31) <= Value < (1 << 31):
             raise ValueError("Fusion journal integer exceeds native signed 32 bits")
         return bytes((TagValue,)) + PackValue("<q", Value)
+    if TagValue == 23:
+        if type(Value) is not int or not -(1 << 63) <= Value < (1 << 63):
+            raise ValueError("Fusion journal integer exceeds native signed 64 bits")
+        return b"\x17" + PackValue("<q", Value)
     if (
         TagValue in (13, 14)
         and type(Value) is str

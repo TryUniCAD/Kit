@@ -37,6 +37,8 @@ from convert.formats.Fusion.BrepCodec.Journal.Attributes.StitchAttrib import (
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.VertedgeAttrib import (
     VertedgeAttrib,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.NestedTag import NestedTag
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.NameAttrib import NameAttrib
 
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.StraightNode import StraightNode
 
@@ -71,5 +73,7 @@ KJournalEntity: TypeAlias = (
     | StitchAttrib
     | NoMergeAttrib
     | VertedgeAttrib
+    | NestedTag
+    | NameAttrib
     | KComplexEntity
 )

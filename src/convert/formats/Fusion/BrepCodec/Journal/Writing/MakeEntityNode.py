@@ -32,6 +32,8 @@ from convert.formats.Fusion.BrepCodec.Journal.Attributes.NoMergeAttrib import (
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.StitchAttrib import (
     StitchAttrib,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.NestedTag import NestedTag
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.NameAttrib import NameAttrib
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.VertedgeAttrib import (
     VertedgeAttrib,
 )
@@ -67,7 +69,16 @@ def MakeEntityNode(Value: KJournalEntity) -> AsmRecord:
     ):
         return MakeCarriers(Value)
     if isinstance(
-        Value, (TimeAttrib, TrackAttrib, TagAttrib, SketchAttrib, FeatureAttrib)
+        Value,
+        (
+            TimeAttrib,
+            TrackAttrib,
+            TagAttrib,
+            SketchAttrib,
+            NestedTag,
+            FeatureAttrib,
+            NameAttrib,
+        ),
     ):
         return MakeAttributes(Value)
     if isinstance(Value, StitchAttrib):

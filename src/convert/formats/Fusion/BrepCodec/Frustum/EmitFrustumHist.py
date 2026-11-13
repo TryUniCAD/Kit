@@ -12,6 +12,7 @@ from convert.formats.Fusion.BrepCodec.Frustum.Writing.FrustumRecords import (
 )
 from convert.formats.Fusion.BrepCodec.History.EmitJournal import EmitJournal
 from convert.formats.Fusion.BrepCodec.Models.BodyIdentity import BodyIdentity
+from convert.formats.Fusion.BrepCodec.Models.EntityIds import EntityIds
 from convert.formats.Fusion.BrepCodec.Models.HistoryState import HistoryState
 from convert.formats.Fusion.BrepCodec.Models.TopologyTags import TopologyTags
 from convert.formats.Fusion.BrepCodec.Wire.CheckBrepRefs import CheckBrepRefs
@@ -27,11 +28,12 @@ def EmitFrustumHist(
     History: HistoryState,
     Stamp: GeometryStamp,
     Frame: FrustumFrame | None = None,
+    Tracking: EntityIds | None = None,
 ) -> bytes:
     Layout = Frame if Frame is not None else FreshFrustum(Model)
     CheckFrame(Model, Layout)
     CheckConeTags(Identity, TagSet)
-    Records = FrustumRecords(Identity, TagSet, Layout)
+    Records = FrustumRecords(Identity, TagSet, Layout, Tracking)
     CheckBrepRefs(Records, 2)
     return (
         EmitBrepHeader(Stamp, 2, True, 50.0)

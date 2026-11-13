@@ -16,12 +16,15 @@ def CheckRoundNode(Value: SphereNode | TorusNode) -> None:
         Radii = (Value.MajorRadiusCm, Value.MinorRadiusCm)
         AxisVector = Value.AxisVector
     CheckRoundFrame(Value.CenterCm, AxisVector, Value.ReferenceAxis)
-    if any(
-        type(Radius) not in (int, float) or not IsFinite(Radius) or Radius <= 0
-        for Radius in Radii
+    if (
+        any(
+            type(Radius) not in (int, float) or not IsFinite(Radius) for Radius in Radii
+        )
+        or Radii[0] <= 0
+        or Radii[-1] == 0
     ):
         raise ValueError("Fusion round carriers require positive finite radii")
-    if isinstance(Value, TorusNode) and Value.MajorRadiusCm <= Value.MinorRadiusCm:
+    if isinstance(Value, TorusNode) and Value.MajorRadiusCm <= abs(Value.MinorRadiusCm):
         raise ValueError("Only positive ring-torus carriers are qualified")
     for Bound in (Value.ULower, Value.UUpper, Value.VLower, Value.VUpper):
         if Bound is not None and (

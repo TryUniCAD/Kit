@@ -13,7 +13,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Writing.MakeEntityNode import (
 )
 from convert.formats.Fusion.BrepCodec.Wire.EmitBrepHeader import EmitBrepHeader
 from convert.formats.Fusion.GeometryCodec.EncodeSmbName import EncodeSmbName
-from convert.formats.Fusion.BrepCodec.Journal.Geometry.BodyNode import BodyNode
+from convert.formats.Fusion.BrepCodec.Journal.Validation.CountRoots import CountRoots
 
 
 def EmitStateSmb(
@@ -28,7 +28,7 @@ def EmitStateSmb(
     if any(Record < 0 for Record in Records):
         raise ValueError("Fusion live state contains an absent revision")
     Entities = RelinkSubtypes(Model.Entities, Records)
-    RootCount = 1 + sum(isinstance(Value, BodyNode) for Value in Entities)
+    RootCount = 1 + CountRoots(Entities)
     if RootCount < 2:
         raise ValueError("Fusion standalone geometry requires a live body")
     Remapped = tuple(RemapEntity(Value, Mapping) for Value in Entities)

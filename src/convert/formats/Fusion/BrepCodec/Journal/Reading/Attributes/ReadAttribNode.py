@@ -16,6 +16,10 @@ from convert.formats.Fusion.BrepCodec.Journal.Reading.Attributes.ReadTagGroups i
 from convert.formats.Fusion.BrepCodec.Journal.Reading.Attributes.ReadSourceLink import (
     ReadSourceLink,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Reading.Attributes.ReadNestedTag import (
+    IsNestedForm,
+    ReadNestedTag,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Reading.Fields.NeedFieldMut import (
     NeedFieldMut,
 )
@@ -34,12 +38,16 @@ from convert.formats.Fusion.BrepCodec.Journal.Reading.Fields.ReadDoubleMut impor
 
 
 def ReadAttribNode(Cursor: FieldCursor) -> KJournalEntity:
-    NeedFieldMut(Cursor, (12, -1))
+    Attribute = ReadRefMut(Cursor)
     NeedFieldMut(Cursor, (4, -1))
     Links = AttribLinks(ReadRefMut(Cursor), ReadRefMut(Cursor), ReadRefMut(Cursor))
     Family = ReadTextMut(Cursor)
+    if Family == "generic_tag_attrib_def" and not IsNestedForm(Cursor):
+        return TagAttrib(Links, ReadTagGroups(Cursor), Attribute)
+    if Attribute != -1:
+        raise ValueError("Fusion journal attribute cannot own a nested attribute")
     if Family == "generic_tag_attrib_def":
-        return TagAttrib(Links, ReadTagGroups(Cursor))
+        return ReadNestedTag(Cursor, Links)
     if Family == "sketch_attrib_def":
         return SketchAttrib(Links, ReadSourceLink(Cursor))
     if Family in ("Timestamp_attrib_def", "FPM_tracked_attrib_def"):

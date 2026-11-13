@@ -5,12 +5,12 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.CheckSubtypes import (
     CheckSubtypes,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.AsmRoot import AsmRoot
-from convert.formats.Fusion.BrepCodec.Journal.Geometry.BodyNode import BodyNode
 from convert.formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
 from convert.formats.Fusion.BrepCodec.Journal.Validation.CheckAllocTags import (
     CheckAllocTags,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Validation.CheckNode import CheckNode
+from convert.formats.Fusion.BrepCodec.Journal.Validation.CountRoots import CountRoots
 from convert.formats.Fusion.BrepCodec.Journal.Validation.CheckStream import CheckStream
 from convert.formats.Fusion.BrepCodec.Journal.Validation.CheckStates import CheckStates
 from convert.formats.Fusion.BrepCodec.Journal.Writing.MakeStateNode import MakeStateNode
@@ -37,12 +37,7 @@ def CheckJournal(Model: JournalModel) -> None:
         or sum(isinstance(Value, AsmRoot) for Value in Model.Entities) != 1
     ):
         raise ValueError("Fusion journal requires one initial ASM header entity")
-    if (
-        sum(
-            isinstance(Value, BodyNode) for Value in Model.Entities[: Model.ActiveCount]
-        )
-        != Model.Header.RootCount - 1
-    ):
+    if CountRoots(Model.Entities[: Model.ActiveCount]) != Model.Header.RootCount - 1:
         raise ValueError("Fusion journal active bodies disagree with its root count")
     CheckStream(Model)
     CheckStates(Model)

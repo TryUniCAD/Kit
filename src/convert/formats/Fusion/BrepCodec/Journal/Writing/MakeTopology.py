@@ -1,8 +1,8 @@
+from convert.formats.Fusion.BrepCodec.Journal.JournalEntity import KJournalEntity
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.WireNode import WireNode
 from convert.formats.Fusion.BrepCodec.Journal.Writing.Geometry.MakeWireNode import (
     MakeWireNode,
 )
-from convert.formats.Fusion.BrepCodec.Journal.JournalEntity import KJournalEntity
 from convert.formats.Fusion.Topology.AsmEdge.AsmTable import AsmRecord
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.AsmRoot import AsmRoot
 from convert.formats.Fusion.BrepCodec.Journal.Writing.Geometry.MakeAsmRoot import (

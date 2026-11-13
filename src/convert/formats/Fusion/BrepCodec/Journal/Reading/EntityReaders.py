@@ -1,6 +1,3 @@
-from convert.formats.Fusion.BrepCodec.Journal.Reading.Geometry.ReadWireNode import (
-    ReadWireNode,
-)
 from collections.abc import Callable
 from convert.formats.Fusion.BrepCodec.Journal.Reading.Attributes.ReadNoMerge import (
     ReadNoMerge,
@@ -34,6 +31,13 @@ from convert.formats.Fusion.BrepCodec.Journal.Reading.Attributes.ReadAttribNode 
 from convert.formats.Fusion.BrepCodec.Journal.Reading.Attributes.ReadSysAttrib import (
     ReadStitchNode,
     ReadVertedge,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Reading.Attributes.ReadGenAttrib import (
+    ReadLongName,
+    ReadNameNode,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Reading.Geometry.ReadWireNode import (
+    ReadWireNode,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Reading.Geometry.ReadAsmRoot import (
     ReadAsmRoot,
@@ -112,4 +116,6 @@ KEntityReaders: dict[str, Callable[[FieldCursor], KJournalEntity]] = {
     "stitch_hint-sys-attrib": ReadStitchNode,
     "no_merge_attribute-st-attrib": ReadNoMerge,
     "vertedge-sys-attrib": ReadVertedge,
+    "name_attrib-gen-attrib": ReadNameNode,
+    "int64_attrib-name_attrib-gen-attrib": ReadLongName,
 }

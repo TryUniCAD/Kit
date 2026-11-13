@@ -8,7 +8,18 @@ def EmitSceneParts(Value: GraphicScene | None) -> tuple[ContainerPart, ...]:
         return ()
     DataValue = EmitGraphics(Value)
     Prefix = "OGS.BlobFolder/OGS/DefaultScene/"
-    return (ContainerPart(Prefix + "world", DataValue.WorldData),) + tuple(
-        ContainerPart(Prefix + f"stream_mesh_{Entry.StreamIndex:03d}", Entry.Payload)
-        for Entry in DataValue.MeshStreams
+    return (
+        (ContainerPart(Prefix + "world", DataValue.WorldData),)
+        + tuple(
+            ContainerPart(
+                Prefix + f"stream_mesh_{Entry.StreamIndex:03d}", Entry.Payload
+            )
+            for Entry in DataValue.MeshStreams
+        )
+        + tuple(
+            ContainerPart(
+                Prefix + f"Fusion_mesh_{Entry.StreamIndex:03d}", Entry.Payload
+            )
+            for Entry in DataValue.FusionStreams
+        )
     )

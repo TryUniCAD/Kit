@@ -2,6 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 from convert.formats.Fusion.GraphicsCodec.Nodes.XferChildMut import XferChildMut
 from convert.formats.Fusion.GraphicsCodec.Nodes.XferLodMut import XferLodMut
+from convert.formats.Fusion.GraphicsCodec.Nodes.AuditItems import AuditItems
 
 from convert.formats.Fusion.GraphicsCodec.Model.Nodes.BrepWorld import BrepWorld
 
@@ -22,6 +23,7 @@ def XferLodsMut(State: SceneCodec, Value: BrepWorld | None) -> BrepWorld:
         XferLodMut(State, Value.FaceNodes[Index] if Value else None)
         for Index in range(FaceCount)
     )
+    AuditItems(EdgeNodes, FaceNodes)
     ModelBox = (
         State.Vector(Value.ModelBox if Value else None, 6, "<d")
         if State.IsFlag(Value is not None and Value.ModelBox is not None)

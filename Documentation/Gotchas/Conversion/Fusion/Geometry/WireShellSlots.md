@@ -31,3 +31,5 @@ Fusion 2706.1.17 opened the five wire archives after typed re-emission. Every st
 - [Corpus bounds summary](../../../../../re/Fusion/Reconstruction/ComplexGeometry/VerifyBounds.json)
 - [Acceptance preparation](../../../../../re/Fusion/LocalOracle/ComplexGeometry/Bounds/Preparation.json)
 - [Native acceptance](../../../../../re/Fusion/LocalOracle/ComplexGeometry/Bounds/NativeAcceptance.json)
+- [Journal attribute evidence](../../../../../re/Fusion/Reconstruction/ReaderCoverage/JournalAttributes/Evidence.json)
+- [Reader coverage acceptance](../../../../../re/Fusion/LocalOracle/ReaderCoverage/NativeAcceptance.json)

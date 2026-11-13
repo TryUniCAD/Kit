@@ -33,6 +33,7 @@ def EmitBodyPart(Value: DocumentBody) -> ContainerPart:
             History.History,
             History.Stamp,
             History.Vertices,
+            History.Tracking,
         )
     elif isinstance(History, PrismHistory):
         Payload = EmitPrismHist(
@@ -51,5 +52,6 @@ def EmitBodyPart(Value: DocumentBody) -> ContainerPart:
             History.History,
             History.Stamp,
             History.Frame,
+            History.Tracking,
         )
     return ContainerPart(Value.PartName, Payload)

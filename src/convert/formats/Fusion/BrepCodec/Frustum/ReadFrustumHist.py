@@ -20,6 +20,7 @@ from convert.formats.Fusion.BrepCodec.Reading.CheckTopology import CheckTopology
 from convert.formats.Fusion.BrepCodec.Reading.ProfileRecords import ProfileRecords
 from convert.formats.Fusion.BrepCodec.Reading.ReadBrepWire import ReadBrepWire
 from convert.formats.Fusion.BrepCodec.Reading.ReadIdentity import ReadIdentity
+from convert.formats.Fusion.BrepCodec.Reading.ReadIds import ReadIds
 from convert.formats.Fusion.BrepCodec.Reading.ReadJournal import ReadJournal
 from convert.formats.Fusion.BrepCodec.Reading.ReadTagSet import ReadTagSet
 
@@ -38,8 +39,16 @@ def ReadFrustumHist(Payload: bytes) -> FrustumHistory:
     TagSet = ReadTagSet(WireValue.Table, Mapping, True)
     CheckFrame(Model, Frame)
     CheckConeTags(Identity, TagSet)
-    Expected = FrustumTokens(FrustumRecords(Identity, TagSet, Frame))
+    Tracking = ReadIds(WireValue.Table, Mapping)
+    Expected = FrustumTokens(FrustumRecords(Identity, TagSet, Frame, Tracking))
     CheckTopology(Expected, WireValue.Table, Mapping)
     return FrustumHistory(
-        Model, Identity, TagSet, History, WireValue.Stamp, WireValue.Header, Frame
+        Model,
+        Identity,
+        TagSet,
+        History,
+        WireValue.Stamp,
+        WireValue.Header,
+        Frame,
+        Tracking,
     )

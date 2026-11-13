@@ -29,7 +29,7 @@ def WalkStates(Model: JournalModel) -> tuple[LiveState, ...]:
             raise ValueError("Cyclic Fusion delta-state chain")
         Visited.add(Current)
         State = Model.States[Current]
-        CheckLiveRefs(Records, Versions, Aliases)
+        CheckLiveRefs(Records, Versions, Aliases, Model.Header.RootCount)
         States.append(LiveState(State.StateId, tuple(sorted(Versions.items()))))
         UndoStateMut(State, Versions, Aliases)
         Current = NextState(Model, Current)
