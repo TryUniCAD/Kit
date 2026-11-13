@@ -109,6 +109,13 @@ The authored A3 DWG shrank from 39.8 KB to 19.4 KB.
 In the four readable Fusion saves, 75,669 object fields equal these values and 2,535 differ.
 The differences are values Kit sets per object, and Kit's neutral choices: no plot device, zero plot margins and middle-centre dimension text.
 
+One shared value is bytes: the entity graphics of `DRAWINGVIEW` and `ACDBVIEWREPBLOCKREFERENCE`, `08 00 00 00 00 00 00 00`.
+It is only the 8-byte header of a proxy graphics stream.
+Its first 32-bit word, 8, equals the stream length, and its second word is 0, so no primitive chunk follows.
+The [DWG specification](https://opendesign.com/files/guestdownloads/OpenDesign_Specification_for_.dwg_files.pdf), section 29, gives the chunk layout: a 32-bit size, a 32-bit type, then the data.
+[ezdxf](https://github.com/mozman/ezdxf/blob/master/src/ezdxf/proxygraphic.py) skips the same 8-byte header before it reads chunks.
+So the stream holds no primitives.
+
 Fusion-saved drawings differ in the component colour, so it is per document and not a format constant.
 
 Every Fusion drawing keeps its template's ten border blocks, A0 to A4 in both orientations.
