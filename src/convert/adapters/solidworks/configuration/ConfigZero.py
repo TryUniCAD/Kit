@@ -256,6 +256,25 @@ def LegacyConfig(MappedValues: Mapping[str, object]) -> bytes:
         or not isinstance(MappedViewVariant, str)
     ):
         raise TypeError("EncodeConfig() received an invalid keyword value")
+    if MappedPartRecordBody is not None:
+        raise SldprtFormatError(
+            "custom raw Config-0 prologue bodies are forbidden by first-principles writing"
+        )
+    if MappedGeneration == 19000:
+        from convert.adapters.solidworks.configuration.ConfigNextGen import (
+            BuildNVConfig,
+        )
+
+        return BuildNVConfig(
+            MappedPartName,
+            MappedAtoms,
+            MappedSessionStamp,
+            MappedDualLengthUnits,
+            MappedHighWater,
+            MappedAnnotationViewCount,
+            MappedParentTreeId,
+            MappedViewVariant,
+        )
     return BuildConfig(
         PartName=MappedPartName,
         Atoms=MappedAtoms,

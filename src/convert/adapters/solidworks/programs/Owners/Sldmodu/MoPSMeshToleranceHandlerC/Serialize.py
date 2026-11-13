@@ -1,12 +1,18 @@
 from __future__ import annotations
 
+
 # exact trace spellings stay centralized so variant tables never duplicate owners
 KOwnerSites = {
     10266: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x281a",
     10336: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x2860",
+    10438: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x28c6",
+    10512: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x2910",
     10532: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x2924",
     10601: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x2969",
+    10712: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x29d8",
+    10780: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x2a1c",
     11123: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x2b73",
+    11319: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x2c37",
     2415: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x96f",
     2593: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0xa21",
     2707: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0xa93",
@@ -22,8 +28,11 @@ KOwnerSites = {
     4910: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x132e",
     5080: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x13d8",
     5151: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x141f",
+    5749: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x1675",
     5750: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x1676",
     5933: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x172d",
     8922: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x22da",
+    9015: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x2337",
     9595: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x257b",
+    9739: "SLDMODU!moPSMeshToleranceHandler_c::Serialize+0x260b",
 }

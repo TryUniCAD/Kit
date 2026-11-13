@@ -1,5 +1,5 @@
 from __future__ import annotations
-from dataclasses import dataclass as DataClass, asdict as Asdict
+from dataclasses import dataclass as DataClass
 import json as JsonData
 from pathlib import Path as PathInfo
 import struct as Struct
@@ -242,7 +242,7 @@ def Build(
     Depths, Parents, Scope = Nesting(OrderedInfo)
     Names: dict[int, str] = {}
     return FinishBuildMut(
-        ByteBlob, Depths, EventInfo, Names, OrderedInfo, Parents, Scope
+        ByteBlob, Depths, Events, Names, OrderedInfo, Parents, Scope
     )
 
 
@@ -304,9 +304,20 @@ def LoadData(
 ) -> tuple[bytes, tuple[Segment, ...]]:
     ByteBlob = Streamlib.LoadDonor(PartInfoInfo).streams[Stream]
     Events = Tracelog.ReadEvents(LogInfo)
+    TargetBuffer = len(ByteBlob)
+    if any(
+        EventInfo.kind == "RO" and EventInfo.buffer == TargetBuffer
+        for EventInfo in Events
+    ):
+        return (ByteBlob, Build(ByteBlob, Events, Buffer=TargetBuffer))
     Spans = {EventInfo.span for EventInfo in Events if EventInfo.kind == "RO"}
     SpanInfo = len(ByteBlob) if Spans - {0} else None
     return (ByteBlob, Build(ByteBlob, Events, SpanInfo=SpanInfo))
+
+
+# needed to keep reverse engineering responsibilities isolated and maintainable
+def ReportRow(ItemData: Segment) -> dict[str, object]:
+    return {Legacy: getattr(ItemData, Legacy) for Legacy in ItemData.KAliasNames}
 
 
 # needed to keep reverse engineering responsibilities isolated and maintainable
@@ -336,7 +347,7 @@ def Report(
         "tiling": Shape,
         "increment_rule": IncrementRule(SegmentsInfo),
         "class_index": ClassTable(SegmentsInfo),
-        "segments": [Asdict(ItemData) for ItemData in SegmentsInfo],
+        "segments": [ReportRow(ItemData) for ItemData in SegmentsInfo],
     }
     KOutInfo.mkdir(parents=True, exist_ok=True)
     (KOutInfo / f"segments_{LabelInfo}.json").write_text(
@@ -351,13 +362,20 @@ def Report(
 # needed to keep reverse engineering responsibilities isolated and maintainable
 def MainRun() -> int:
     ArgsInfo = System.argv[1:]
+    StreamName = Streamlib.KResolved
+    if "--stream" in ArgsInfo:
+        StreamIndex = ArgsInfo.index("--stream")
+        if StreamIndex + 1 >= len(ArgsInfo) or ArgsInfo.count("--stream") != 1:
+            raise SystemExit("usage: Segment.py <label> <part> <log> [...] [--stream <name>]")
+        StreamName = ArgsInfo[StreamIndex + 1]
+        ArgsInfo = ArgsInfo[:StreamIndex] + ArgsInfo[StreamIndex + 2 :]
     if len(ArgsInfo) % 3:
-        raise SystemExit("usage: Segment.py <label> <part> <log> [...]")
+        raise SystemExit("usage: Segment.py <label> <part> <log> [...] [--stream <name>]")
     for PosInfoInfo in range(0, len(ArgsInfo), 3):
         LabelInfo = ValidateLabel(ArgsInfo[PosInfoInfo])
         PartInfoInfo = ResolveInput(ArgsInfo[PosInfoInfo + 1])
         LogInfo = ResolveInput(ArgsInfo[PosInfoInfo + 2])
-        Report(LabelInfo, PartInfoInfo, LogInfo)
+        Report(LabelInfo, PartInfoInfo, LogInfo, Stream=StreamName)
     return 0
 
 

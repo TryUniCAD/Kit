@@ -1,0 +1,22 @@
+.symopt+0x4000
+.symopt-0x20000
+.reload /f swccu.dll
+sxi 80090016
+sxi 80290410
+sxi e06d7363
+sxi e0434352
+bu swccu+0x4260 ".if (dwo(poi(@rcx+0x48)) == 0x6d) { .printf \"F char %x %p %y %p %p\\n\", poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp), poi(@rsp), @rdx, @rsp }; gc"
+bu swccu+0x4270 ".if (dwo(poi(@rcx+0x48)) == 0x6d) { .printf \"F uchar %x %p %y %p %p\\n\", poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp), poi(@rsp), @rdx, @rsp }; gc"
+bu swccu+0x42d0 ".if (dwo(poi(@rcx+0x48)) == 0x6d) { .printf \"F short %x %p %y %p %p\\n\", poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp), poi(@rsp), @rdx, @rsp }; gc"
+bu swccu+0x42e0 ".if (dwo(poi(@rcx+0x48)) == 0x6d) { .printf \"F ushort %x %p %y %p %p\\n\", poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp), poi(@rsp), @rdx, @rsp }; gc"
+bu swccu+0x4340 ".if (dwo(poi(@rcx+0x48)) == 0x6d) { .printf \"F int %x %p %y %p %p\\n\", poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp), poi(@rsp), @rdx, @rsp }; gc"
+bu swccu+0x4350 ".if (dwo(poi(@rcx+0x48)) == 0x6d) { .printf \"F long %x %p %y %p %p\\n\", poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp), poi(@rsp), @rdx, @rsp }; gc"
+bu swccu+0x43b0 ".if (dwo(poi(@rcx+0x48)) == 0x6d) { .printf \"F ulong %x %p %y %p %p\\n\", poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp), poi(@rsp), @rdx, @rsp }; gc"
+bu swccu+0x4410 ".if (dwo(poi(@rcx+0x48)) == 0x6d) { .printf \"F float %x %p %y %p %p\\n\", poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp), poi(@rsp), @rdx, @rsp }; gc"
+bu swccu+0x4470 ".if (dwo(poi(@rcx+0x48)) == 0x6d) { .printf \"F double %x %p %y %p %p\\n\", poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp), poi(@rsp), @rdx, @rsp }; gc"
+bu swccu+0x44d0 ".if (dwo(poi(@rcx+0x48)) == 0x6d) { .printf \"F dbkey %x %p %y %p %p\\n\", poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp), poi(@rsp), @rdx, @rsp }; gc"
+bu swccu+0x44e0 ".if (dwo(poi(@rcx+0x48)) == 0x6d) { .printf \"F int64 %x %p %y %p %p\\n\", poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp), poi(@rsp), @rdx, @rsp }; gc"
+bu swccu+0x4540 ".if (dwo(poi(@rcx+0x48)) == 0x6d) { .printf \"F uint64 %x %p %y %p %p\\n\", poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp), poi(@rsp), @rdx, @rsp }; gc"
+g
+.kill
+qd

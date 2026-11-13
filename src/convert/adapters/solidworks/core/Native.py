@@ -145,6 +145,10 @@ from convert.adapters.solidworks.programs.resolved.circle.default.Program import
 from convert.adapters.solidworks.programs.resolved.circle.reverse.Program import (
     EncodeProgram as EncodeReverseCircle,
 )
+from convert.adapters.solidworks.programs.resolved.polyline.fivepoint.Program import (
+    EncodeProgram as EncodePolylineFiveProgram,
+    PadFieldMap as PolylineFiveFieldMap,
+)
 from convert.adapters.solidworks.programs.resolved.polyline.sixpoint.Program import (
     EncodeProgram as EncodePolylineSixProgram,
     PadFieldMap as PolylineSixFieldMap,
@@ -1460,6 +1464,10 @@ class VendorResolved:
     annotation_view_variant: str = "default"
     Config0Payload: bytes | None = None
     HeaderPayload: bytes | None = None
+    Generation: int = 18000
+
+
+KModernGeneration = 19000
 
 
 # this binding exists because pin recognition and native encoding share one profile
@@ -1929,6 +1937,7 @@ def BuildEnvelope(
             VendorData.HeaderCreation if VendorData is not None else None,
             VendorData.cmgr_parent_tree_id if VendorData is not None else None,
             VendorData.annotation_view_variant if VendorData is not None else "default",
+            VendorData.Generation if VendorData is not None else 18000,
         )
     )
     if VendorPayload is not None:
@@ -2310,13 +2319,21 @@ def BuildPolyTree(
     ):
         return None
     try:
-        ProgramData = EncodePolylineSixProgram(
-            PolylineSixFieldMap(PolylineValue, DepthValue)
-        )
+        if len(PolylineValue) == 5:
+            ProgramData = EncodePolylineFiveProgram(
+                PolylineFiveFieldMap(PolylineValue, DepthValue)
+            )
+        elif len(PolylineValue) == 6:
+            ProgramData = EncodePolylineSixProgram(
+                PolylineSixFieldMap(PolylineValue, DepthValue)
+            )
+        else:
+            return None
     except SldprtFormatError:
         return None
     HeaderStamps = KFrontBossHeaderStamps
-    return VendorResolved(ProgramData, HeaderStamps)
+    Generation = KModernGeneration if len(PolylineValue) == 5 else 18000
+    return VendorResolved(ProgramData, HeaderStamps, Generation=Generation)
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -2333,7 +2350,7 @@ def BuildVendorTree(AuthoredObjs: tuple[_WriteObject, ...]) -> VendorResolved | 
     )
     BoundsValue = WriteRectangle(SketchObject)
     CircleValue = WriteCircle(SketchObject)
-    PolylineValue = PolySixPoints(SketchObject)
+    PolylineValue = PolylinePoints(SketchObject)
     EndCodes = ExtrusionEdit(PadObject.payload)
     if (
         SketchObject.class_name != "moProfileFeature_c"
@@ -2515,7 +2532,7 @@ def BuildSingleTree(AuthoredObjs: tuple[_WriteObject, ...]) -> VendorResolved | 
         else 0
     )
     BoundsValue = WriteRectangle(SketchObject)
-    PinPoints = PolySixPoints(SketchObject)
+    PinPoints = PolylinePoints(SketchObject)
     IsPinData = IsPinProfile(PinPoints)
     if (
         SketchObject.class_name != "moProfileFeature_c"
@@ -4462,7 +4479,7 @@ def IsonicalSingMut(
     SketchPayload = EncodeSketch(NormalizedSketch, SketchObject.object_id, ObjectIds)[0]
     SketchObject = Replace(SketchObject, payload=SketchPayload)
     BoundsValue = WriteRectangle(SketchObject)
-    PinPoints = PolySixPoints(SketchObject)
+    PinPoints = PolylinePoints(SketchObject)
     AngleDimension = FreeCadSingle(DocData, SourceSketch, SourceFeature)
     PlaneObjectId = (
         Struct.unpack_from("<I", SketchObject.payload)[0]
@@ -4473,7 +4490,7 @@ def IsonicalSingMut(
         PlaneObjectId == 3
         and IsPinProfile(PinPoints)
         and (not SketchObject.dimensions)
-        and HasPolySix(SourceSketch, PinPoints)
+        and HasPolyline(SourceSketch, PinPoints)
     )
     IsRectangleData = (
         PlaneObjectId == 2
@@ -5160,7 +5177,7 @@ def IsonicalSinAMut(
         Extrusion = Replace(Extrusion, payload=EncodeExtrude(NormalizedFeature))
     Bounds = WriteRectangle(Sketch)
     Circle = WriteCircle(Sketch)
-    PolylineData = PolySixPoints(Sketch)
+    PolylineData = PolylinePoints(Sketch)
     HasProfileDimensions = (
         HasRectDims(Sketch, Bounds)
         if Bounds is not None
@@ -5173,7 +5190,7 @@ def IsonicalSinAMut(
     HasSourceGeom = SourceSketch is not None and (
         HasCanonical(SourceSketch, Bounds, Circle)
         if Bounds is not None or Circle is not None
-        else HasPolySix(SourceSketch, PolylineData)
+        else HasPolyline(SourceSketch, PolylineData)
     )
     if (
         len(Sketch.payload) < 4
@@ -5813,10 +5830,16 @@ def HasCanonical(
 
 
 # this definition exists because focused behavior needs one stable owner
-def HasPolySix(
+def HasPolyline(
     SketchData: Sketch, PointsData: tuple[tuple[float, float], ...] | None
 ) -> bool:
-    if PointsData is None or len(PointsData) != 6 or len(SketchData.entities) != 6:
+    if SketchData.constraints:
+        return False
+    if (
+        PointsData is None
+        or len(PointsData) not in {5, 6}
+        or len(PointsData) != len(SketchData.entities)
+    ):
         return False
     if any(
         (ItemData.construction or ItemData.fixed for ItemData in SketchData.entities)
@@ -7957,7 +7980,7 @@ def WriteCircle(SketchObject: _WriteObject) -> tuple[float, float, float] | None
 
 
 # this definition exists because focused behavior needs one stable owner
-def PolySixPoints(SketchObject: _WriteObject) -> tuple[tuple[float, float], ...] | None:
+def PolylinePoints(SketchObject: _WriteObject) -> tuple[tuple[float, float], ...] | None:
     if SketchObject.kind != "Sketch" or not SketchObject.payload:
         return None
     MarkersData = list(ParseMarkers(SketchObject.payload, 0, len(SketchObject.payload)))
@@ -7965,7 +7988,7 @@ def PolySixPoints(SketchObject: _WriteObject) -> tuple[tuple[float, float], ...]
     PolylineData = tuple(
         (ItemData for ItemData in ProfilesData if ItemData.kind == "polyline")
     )
-    if len(PolylineData) != 1 or len(PolylineData[0].coordinates) != 12:
+    if len(PolylineData) != 1 or len(PolylineData[0].coordinates) not in {10, 12}:
         return None
     CoordinateData = PolylineData[0].coordinates
     PointsData = tuple(
@@ -8371,7 +8394,7 @@ def EncodePolyMut(
     Consumed: set[str],
     LocalId: int,
 ) -> int | None:
-    if len(Selected) != 6 or not all(
+    if len(Selected) not in {5, 6} or not all(
         Entity is not None and isinstance(Entity.geometry, LineGeom)
         for Entity in Selected
     ):
@@ -8976,7 +8999,10 @@ def NativeEnvelope(
     HeaderCreation: int | None = None,
     CmgrParentTreeId: int | None = None,
     AnnotationViewVariant: str = "default",
+    Generation: int = 18000,
 ) -> Mapping[str, bytes]:
+    if Generation not in {18000, KModernGeneration} or DocValue.assembly is not None and Generation == KModernGeneration:
+        raise SldprtFormatError(f"unsupported native document generation {Generation}")
     ConfigName = next(
         (Config.name for Config in DocValue.configurations if Config.active),
         DocValue.configurations[0].name if DocValue.configurations else "Default",
@@ -8994,8 +9020,10 @@ def NativeEnvelope(
             Identity.last_modified_stamp,
             Identity.baseline_stamp,
         ),
-        "_MO_VERSION_18000/Biography": Biography(ModelName, Identity),
-        "_MO_VERSION_18000/History": VersionHistory(),
+        f"_MO_VERSION_{Generation}/Biography": Biography(
+            ModelName, Identity, Generation=Generation
+        ),
+        f"_MO_VERSION_{Generation}/History": VersionHistory(),
     }
     if HeaderCreation is not None and (not 0 <= HeaderCreation <= 4294967295):
         raise SldprtFormatError("native SOLIDWORKS header creation stamp is invalid")
@@ -9022,7 +9050,7 @@ def NativeEnvelope(
     Streams["Contents/Config-0-ModelHeader"] = HeaderData
     Streams["Header2"] = HeaderData
     Streams["Contents/Definition"] = EncodeDefinitionStream(
-        AsmValue=DocValue.assembly is not None
+        AsmValue=DocValue.assembly is not None, Generation=Generation
     )
     TreeIds = ConfigAtomTree(SolidFeatureTreeIds)
     ParentTreeId = (
@@ -9046,6 +9074,7 @@ def NativeEnvelope(
         AtomIds=AtomIds,
         ConnectedHistory=len(TreeIds) in {2, 3, 4} and len(DocValue.bodies) == 1,
         TerminalParentTreeId=ParentTreeId,
+        Generation=Generation,
     )
     Streams[ConfigStream] = EncodeConfigZeroStream(
         PartName=Identity.reference_name,
@@ -9054,6 +9083,7 @@ def NativeEnvelope(
         AnnotationViewCount=AnnotationViewCount,
         TerminalParentTreeId=TerminalParentTreeId,
         AnnotationViewVariant=AnnotationViewVariant,
+        Generation=Generation,
     )
     return MappingProxyType(Streams)
 
@@ -9555,6 +9585,7 @@ def Biography(
     Identity: NativeIdentity,
     TemplatePath: str = "C:\\Kit\\Part.PRTDOT",
     DocSuffix: str = PartSuffix,
+    Generation: int = 18000,
 ) -> bytes:
     Filetime = 116444736000000000 + Identity.creation_stamp * 10000000
     FirstPaths = (
@@ -9573,9 +9604,14 @@ def Biography(
         "C:\\Temp\\",
         TemplatePath,
     )
+    if Generation not in {18000, KModernGeneration}:
+        raise SldprtFormatError(f"unsupported biography generation {Generation}")
+    ReleaseNumber = 4 if Generation == KModernGeneration else 12
     Output = bytearray(
         ClassDecl("moBiography_c")
-        + Struct.pack("<10I", 2, 18000, 2025268, 1, 9, 12, 2, 10, 0, 26100)
+        + Struct.pack(
+            "<10I", 2, Generation, 2025268, 1, 9, ReleaseNumber, 2, 10, 0, 26100
+        )
     )
     EmptyRecordCount = 0
     while EmptyRecordCount < 7:
@@ -9586,7 +9622,11 @@ def Biography(
     for PathValue in FirstPaths:
         Output.extend(Serialized(PathValue))
         Output.extend(Struct.pack("<III", 3, 1162821632, 5))
-    Output.extend(Struct.pack("<9I", 18000, 2025268, 1, 9, 12, 2, 10, 0, 26200))
+    Output.extend(
+        Struct.pack(
+            "<9I", Generation, 2025268, 1, 9, ReleaseNumber, 2, 10, 0, 26200
+        )
+    )
     Output.extend(Serialized(""))
     Output.extend(Struct.pack("<HQI", 6153, Filetime, 1806331904))
     for PathValue in SecondPaths:
@@ -9828,7 +9868,7 @@ def HasPadProof(
     )
     BoundsValue = WriteRectangle(SketchObject)
     CircleValue = WriteCircle(SketchObject)
-    PolylineValue = PolySixPoints(SketchObject)
+    PolylineValue = PolylinePoints(SketchObject)
     EndCodes = ExtrusionEdit(PadObject.payload)
     IsDimensionedBox = (
         BoundsValue is not None
@@ -9896,7 +9936,11 @@ def HasPadProof(
         )
     )
     DepthValue = PadObject.dimensions[0].value_mm
-    ExpectedDepth = (1, 1, -1, -1, 1, 1)
+    ExpectedDepth = (
+        (1, 1, 1, 1, -1, -1)
+        if PolylineValue is not None and len(PolylineValue) == 5
+        else (1, 1, -1, -1, 1, 1)
+    )
     ExpectedDims = tuple(
         (
             (ItemData.name, round(ItemData.value_mm, 10))
@@ -9983,7 +10027,7 @@ def HasSingleProof(
         return False
     SketchObject, RevolveObject = AuthoredObjs
     BoundsValue = WriteRectangle(SketchObject)
-    PinPoints = PolySixPoints(SketchObject)
+    PinPoints = PolylinePoints(SketchObject)
     IsPinData = IsPinProfile(PinPoints)
     if (
         not (BoundsValue is not None or IsPinData)
@@ -13533,7 +13577,7 @@ def OrderPolyEdges(
     if (
         CurrentIndex != StartIndex
         or UsedEdges != ComponentIndexes
-        or len(OrderedVertices) != 6
+        or len(OrderedVertices) != len(VertexIndexes)
     ):
         return None
     return (OrderedVertices, OrderedEdges)
@@ -13554,7 +13598,7 @@ def CreatePoly(
     ResolvedPoints = tuple(
         PointData for PointData in OrderedPoints if PointData is not None
     )
-    if len(set(ResolvedPoints)) != 6:
+    if len(set(ResolvedPoints)) != len(OrderedVertices):
         return None
     MarkerOffsets = tuple(
         EdgeData[EdgeIndex].offset for EdgeIndex in OrderedEdges
@@ -13595,7 +13639,7 @@ def PolyProfiles(
     UsedOffsets: set[int] = set()
     while RemainingIndexes:
         ComponentIndexes, VertexIndexes = TakeGraphMut(EdgeData, RemainingIndexes)
-        if len(ComponentIndexes) != 6 or len(VertexIndexes) != 6:
+        if len(ComponentIndexes) < 3 or len(ComponentIndexes) != len(VertexIndexes):
             continue
         OrderedData = OrderPolyEdges(EdgeData, ComponentIndexes, VertexIndexes)
         if OrderedData is None:

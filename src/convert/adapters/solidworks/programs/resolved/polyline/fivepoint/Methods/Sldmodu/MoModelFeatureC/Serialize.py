@@ -1,0 +1,24 @@
+from __future__ import annotations
+
+from convert.adapters.solidworks.programs.Common.ProgramContract import (
+    KMethodProgram as KMethodProgramType,
+)
+from convert.adapters.solidworks.programs.Owners.Sldmodu.MoModelFeatureC.Serialize import (
+    KOwnerSites,
+)
+
+
+KMethodProgram: KMethodProgramType = (
+    KOwnerSites,
+    {
+        "ResolvedFeatures": (
+            (2125, 4, 140, "primitive:long", 0),
+            (3417, 4, 140, "primitive:long", 0),
+            (3936, 4, 140, "primitive:long", 0),
+            (4506, 4, 140, "primitive:long", 0),
+            (5094, 4, 140, "primitive:long", 0),
+            (6025, 4, 140, "primitive:long", 0),
+            (8108, 4, 140, "primitive:long", 0),
+        ),
+    },
+)

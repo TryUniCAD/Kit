@@ -673,10 +673,30 @@ def EncodeStream(
     UserValue: str = "Kit",
     AsmValue: bool = False,
     ViewValue: tuple[float, ...] | None = None,
+    Generation: int = KDocGeneration,
 ) -> bytes:
+    if Generation not in {KDocGeneration, 19000}:
+        raise SldprtFormatError(f"unsupported Definition generation {Generation}")
+    FinalZero = b""
+    if Generation == 19000:
+        if (
+            AsmValue
+            or Standard != "moBS_c"
+            or UserValue != "Kit"
+            or ViewValue is not None
+        ):
+            raise SldprtFormatError(
+                "2026 Definition currently supports the canonical part template"
+            )
+        Standard = "moANSI_c"
+        UserValue = "odin"
+        ViewValue = KPrimaryView.rotation
+        FinalZero = Struct.pack("<I", 0)
     Clsid = KAsmClsid if AsmValue else KPartClsid
-    return EncodePreamble(Clsid=Clsid, ViewValue=ViewValue) + EncodeBody(
-        Standard=Standard, UserValue=UserValue
+    return (
+        EncodePreamble(Clsid=Clsid, ViewValue=ViewValue)
+        + EncodeBody(Standard=Standard, UserValue=UserValue)
+        + FinalZero
     )
 
 
@@ -735,10 +755,12 @@ def EncodeStreamOld(**KwargValues: object) -> bytes:
     UserValue = Values.get("UserValue", "Kit")
     AsmValue = Values.get("AsmValue", False)
     ViewValue = Values.get("ViewValue")
+    Generation = Values.get("Generation", KDocGeneration)
     if (
         not isinstance(Standard, str)
         or not isinstance(UserValue, str)
         or not isinstance(AsmValue, bool)
+        or not isinstance(Generation, int)
         or not IsViewValues(ViewValue)
     ):
         raise TypeError("EncodeStream() received an invalid keyword value")
@@ -747,6 +769,7 @@ def EncodeStreamOld(**KwargValues: object) -> bytes:
         UserValue=UserValue,
         AsmValue=AsmValue,
         ViewValue=ViewValue,
+        Generation=Generation,
     )
 
 

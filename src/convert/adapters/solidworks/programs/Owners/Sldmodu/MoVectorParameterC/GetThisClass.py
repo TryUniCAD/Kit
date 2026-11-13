@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+
 # exact trace spellings stay centralized so variant tables never duplicate owners
 KOwnerSites = {
     1992: "SLDMODU!moVectorParameter_c::GetThisClass+0x7c8",
@@ -11,5 +12,6 @@ KOwnerSites = {
     7593: "SLDMODU!moVectorParameter_c::GetThisClass+0x1da9",
     8105: "SLDMODU!moVectorParameter_c::GetThisClass+0x1fa9",
     8185: "SLDMODU!moVectorParameter_c::GetThisClass+0x1ff9",
+    8824: "SLDMODU!moVectorParameter_c::GetThisClass+0x2278",
     8936: "SLDMODU!moVectorParameter_c::GetThisClass+0x22e8",
 }

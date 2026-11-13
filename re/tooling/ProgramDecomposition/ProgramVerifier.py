@@ -315,9 +315,23 @@ def VerifyVariant(
         )
     )
     RegistryPath = ProgramRoot / VariantPath / "Registry.py"
-    if RegistryPath.read_text(encoding="utf-8") != RenderRegistry(
-        ProgramItem, ModulePaths
-    ):
+    LegacyComments = {
+        "# explicit ordering keeps generated imports deterministic while offsets govern composition",
+        "# composed tables stay immutable because generated registries expose stable format facts",
+        "# generated registry exports remain explicit for facade composition and extension imports",
+        "# compatibility binding preserves its established public import after decomposition",
+    }
+    ActualRegistry = tuple(
+        Line
+        for Line in RegistryPath.read_text(encoding="utf-8").splitlines()
+        if Line.strip() and Line not in LegacyComments
+    )
+    ExpectedRegistry = tuple(
+        Line
+        for Line in RenderRegistry(ProgramItem, ModulePaths).splitlines()
+        if Line.strip() and Line not in LegacyComments
+    )
+    if ActualRegistry != ExpectedRegistry:
         raise ValueError(f"variant registry drifted {VariantPath}")
     UsedGroups = tuple((MethodItem.GroupPath for MethodItem in MethodItems))
     return UsedGroups, len(MethodItems), len(Streams), OperationCount

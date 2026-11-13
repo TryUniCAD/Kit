@@ -111,6 +111,7 @@ canonical XY/Front Plane. It preserves source vertex order, passes the six
 millimetre pairs and positive blind length through `PadFieldMap()`, and emits
 the resulting typed program with the existing native single-pad envelope.
 
+Constraint-free six-line and pin histories retain the recovered grammar. A native-read or fresh six-line sketch carrying unsupported solver relations is rejected on writing rather than losing those relations after an edit opens a semantic change.
 The reader reconstructs the six-edge graph as an ordered `polyline` profile,
 so the normal write proof verifies every source vertex, the pad dependency,
 feature ids 26 and 32, direction, termination, and driving depth before adding
@@ -118,7 +119,8 @@ parametric-history, editable-sketch, body-structure, and parameter
 capabilities. The public FCStd writer test locks the 12,283-byte resolved hash
 and confirms vendor-loadable, application-usable, near-lossless output.
 
-Arcs, circles, open wires, intersecting wires, other segment counts, non-blind
-end conditions, noncanonical support planes, reversal, and placement
-transforms remain fail-closed until their own typed families are recovered.
+Arcs, circles, open wires, intersecting wires, segment counts outside the recovered five- and six-line
+families, non-blind end conditions, noncanonical support planes, reversal, and placement transforms
+remain fail-closed until their own typed families are recovered. The sibling five-line closure is in
+[PolylineFivePad.md](PolylineFivePad.md).
 No vendor stream or runtime CAD fallback is used.
