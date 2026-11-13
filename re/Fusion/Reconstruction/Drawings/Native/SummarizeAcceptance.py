@@ -88,28 +88,53 @@ def capacity(report):
     return result
 
 
-def main(extra):
-    plan = load('Plan.json')
-    report = {
-        'schema': 'KitFusionDrawingNativeAcceptance/1',
-        'fusion_version': '2706.1.17',
-        'variants': plan['variants'],
-        'inputs': plan['inputs'],
-        'historical': plan['historical'],
-        'modern_typed': plan.get('modern'),
-        'controls': inspection(load(extra.get('controls', 'InspectControls.json'))),
-        'typed_reemission': inspection(load('InspectM1.json')),
-        'edit_acceptance': edit(load('EditM1Reemitted.json')),
-        'views_control': inspection(load('InspectP4.json')),
-        'no_database': inspection(load('InspectP2.json')),
-        'swapped_database': load(extra['stall']) if 'stall' in extra else None,
-        'missing_database': load(extra['missing']) if 'missing' in extra else None,
-        'reverse_swap': inspection(load('InspectP5.json')),
-        'capacity': {'attempt1': capacity(load('CapacityAttempt1.json')), 'attempt2': capacity(load('Capacity.json.report.json'))},
-        'saved_edit': {'attempt1': edit(load('EditM2Attempt1.json')), 'attempt2': edit(load('EditM2Reemitted.json'))},
-        'runs': {'typed': steps(load('AcceptTyped.json')), 'saved': steps(load('AcceptSaved.json')), 'saved2': steps(load('AcceptSaved2.json'))},
-        'fixtures': json.loads((BASE.parent / 'Fixtures.json').read_text()),
+SECOND_PLANS = ('Plan.json', 'Plan2.json', 'Plan3.json', 'Plan4.json', 'Plan5.json', 'Plan6.json', 'Plan7.json', 'Plan8.json', 'Plan9.json', 'Plan10.json', 'Plan11.json', 'PlanAuthored.json')
+SECOND_INSPECTIONS = ('Prune1', 'Prune3', 'Prune5', 'Authored2', 'Prune7Fixed', 'Prune7Late', 'Prune7D', 'DataStore1', 'Sections1', 'Authored5', 'Trust1', 'Trust2', 'Sections2', 'Sections3', 'Trust3', 'Shell1', 'Tail1', 'Tail2', 'Shorts1', 'Bisect1', 'Bisect2', 'Bisect3', 'Bisect4', 'Bisect5', 'Shell6', 'Shell7', 'Shell8', 'Shell9')
+SECOND_ROUNDS = ('Round6', 'Round7', 'Round8', 'Round9', 'Round10', 'Round11', 'Round12', 'Round13', 'Round14', 'Round15', 'Round16', 'Round17', 'Round18')
+
+
+def planned(row):
+    keep = ('label', 'bytes', 'sha256', 'dwg_bytes', 'dwg_sha256', 'objects', 'sections')
+    result = {key: row[key] for key in keep if key in row}
+    for key in ('removed', 'nulled_references'):
+        if key in row:
+            result[key] = {'kinds': len(row[key]), 'objects': sum(value if isinstance(value, int) else 1 for value in row[key].values())}
+    return result
+
+
+def recycled(report):
+    if report is None:
+        return {'status': 'not run'}
+    keys = ('status', 'before', 'after', 'deleted_count', 'refused_count', 'deleted', 'refused')
+    return {key: report.get(key) for key in keys if key in report}
+
+
+def second_pass():
+    plans = {}
+    for name in SECOND_PLANS:
+        plan = load(name)
+        if plan:
+            plans[name[:-5]] = [planned(row) for row in plan['variants']]
+    return {
+        'plans': plans,
+        'inspections': {tag: inspection(load('Inspect' + tag + '.json')) for tag in SECOND_INSPECTIONS},
+        'edits': {label: edit(load('Edit' + label + '.json')) for label in ('T3ThreeViews', 'U3ThreeViews')},
+        'rounds': {tag: steps(load('Accept' + tag + '.json')) for tag in SECOND_ROUNDS},
+        'dialogs': load('Dialogs.json', []),
+        'quarantine': load('Quarantine.json', {}).get('labels', {}),
+        'recycle': {tag: recycled(load('Recycle' + tag + '.json')) for tag in ('Before1', 'Before2', 'Before3', 'Before4', 'Before5', 'Before6', 'Before7', 'Before8')},
     }
+
+
+FIRST_PASS = ('schema', 'fusion_version', 'variants', 'inputs', 'historical', 'modern_typed', 'controls', 'typed_reemission', 'edit_acceptance', 'views_control', 'no_database', 'swapped_database', 'missing_database', 'reverse_swap', 'capacity', 'saved_edit', 'runs')
+
+
+def main(extra):
+    """Keep the first-pass evidence of the committed report, and rebuild the second pass from the scratch records."""
+    previous = json.loads(OUT.read_text())
+    report = {key: previous[key] for key in FIRST_PASS}
+    report['fixtures'] = json.loads((BASE.parent / 'Fixtures.json').read_text())
+    report['second_pass'] = second_pass()
     report.update(json.loads(Path(extra['notes']).read_text()) if 'notes' in extra else {})
     text = json.dumps(report, indent=1, default=str) + '\n'
     leaks = [token for token in PRIVATE if token in text]

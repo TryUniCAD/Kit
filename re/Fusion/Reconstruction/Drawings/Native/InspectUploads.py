@@ -45,6 +45,24 @@ def references(document):
     return rows
 
 
+def iterate(collection):
+    return [collection.item(index) for index in range(collection.count)]
+
+
+def export_dwg(document, label):
+    folder = common.SCRATCH / 'Exports'
+    folder.mkdir(parents=True, exist_ok=True)
+    path = folder / (label + '.dwg')
+    if path.exists():
+        path.unlink()
+    manager = adsk.drawing.DrawingDocument.cast(document).drawing.exportManager
+    options = manager.createDWGExportOptions(str(path))
+    options.format = adsk.drawing.DWGFormats.AutoCADDWGFormat
+    started = time.monotonic()
+    result = manager.execute(options)
+    return {'result': result, 'seconds': round(time.monotonic() - started, 1), 'bytes': path.stat().st_size if path.exists() else 0, 'sha256': common.digest(path) if path.exists() else None}
+
+
 def upload_folder(selection):
     begun = {'folder': selection['folder']} if 'folder' in selection else json.loads((variants / 'BeginUploads.json').read_text())
     report['folder'] = begun['folder']
@@ -71,16 +89,25 @@ def inspect(label, folder):
         owned.append(app.documents.open(design, True))
         settle(4)
     checkpoint(label + ' opening drawing')
+    opened_at = time.monotonic()
     try:
         document = app.documents.open(drawings[0], True)
     except Exception:
         row['open_error'] = traceback.format_exc().splitlines()[-1]
+        row['open_seconds'] = round(time.monotonic() - opened_at, 1)
         return row
+    row['open_seconds'] = round(time.monotonic() - opened_at, 1)
     owned.append(document)
     settle(10)
     row['opened'] = common.safe(lambda: common.drawing_info(document))
+    row['dimension_types'] = common.safe(lambda: [int(sheet_dimension.type) for sheet_dimension in iterate(adsk.drawing.DrawingDocument.cast(document).drawing.activeSheet.drawingDimensions)])
     row['references'] = references(document)
     row['modified_after_open'] = common.safe(lambda: document.isModified)
+    if row['open_seconds'] > selection.get('slow_open_seconds', 480):
+        row['slow_open'] = True
+    elif selection.get('export_dwg'):
+        checkpoint(label + ' exporting dwg')
+        row['export'] = common.safe(lambda: export_dwg(document, label))
     row['captures'] = common.capture_cache('U' + label, started, report, ('_' + drawings[0].name + '.',))
     common.close_owned(owned, report)
     return row
@@ -97,6 +124,9 @@ try:
             continue
         report['uploads'][label] = common.safe(lambda: inspect(label, children[label]))
         checkpoint(label + ' inspected')
+        if isinstance(report['uploads'][label], dict) and report['uploads'][label].get('slow_open'):
+            report['stopped_after'] = label
+            break
     report['status'] = 'inspected'
 except Exception:
     report['status'] = 'failed'

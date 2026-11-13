@@ -58,10 +58,28 @@ def wait_complete(folder_name, labels, seconds):
     common.save_json(target, report)
 
 
+def refuse_quarantined():
+    """Refuse the whole request before touching Fusion when it names a variant known or suspected to crash the drawing engine."""
+    path = variants / 'Quarantine.json'
+    if not path.exists():
+        return
+    quarantined = json.loads(path.read_text())['labels']
+    named = set(request.get('upload', []))
+    for item in request['plan']:
+        named.update(item.get('labels', []))
+        named.update([item['label']] if 'label' in item else [])
+    hits = sorted(named & set(quarantined))
+    if hits:
+        raise RuntimeError('Quarantined variants requested: ' + ', '.join(hits))
+
+
 try:
+    refuse_quarantined()
     for item in request.get('before', []):
         if item['kind'] == 'capacity':
             step('capacity', 'EditableCapacity.py', 'Capacity.json', item['config'])
+        elif item['kind'] == 'recycle':
+            step('recycle ' + item['config']['tag'], 'RecycleDocuments.py', 'Recycle.json', item['config'])
     uploads = request.get('upload', [])
     folder = request.get('folder')
     if uploads:
@@ -76,11 +94,13 @@ try:
             report.setdefault('folders', []).append(folder)
             wait_complete(folder, item['labels'], request.get('upload_seconds', 600))
             continue
-        where = item.get('folder', folder)
+        where = report['folders'][item['folder_index']] if 'folder_index' in item else item.get('folder', folder)
         if item['kind'] == 'inspect':
-            step('inspect ' + item['tag'], 'InspectUploads.py', 'Selection.json', {'labels': item['labels'], 'tag': item['tag'], 'folder': where})
+            step('inspect ' + item['tag'], 'InspectUploads.py', 'Selection.json', {'labels': item['labels'], 'tag': item['tag'], 'folder': where, 'export_dwg': item.get('export_dwg', False)})
         elif item['kind'] == 'edit':
             step('edit ' + item['label'], 'EditAcceptance.py', 'Edit.json', {'folder': where, 'label': item['label'], 'expression': item['expression'], 'require_editable': item.get('require_editable', False)})
+        elif item['kind'] == 'recycle':
+            step('recycle ' + item['config']['tag'], 'RecycleDocuments.py', 'Recycle.json', item['config'])
     report['status'] = 'completed'
 except Exception:
     report['status'] = 'failed'

@@ -37,3 +37,20 @@ Write a checkpoint before each open, so that a stall identifies the variant.
 A forced stop of Fusion can leave its helper processes alive.
 Its bundled `node` helper and the crash reporter kept the script bridge port open.
 The relaunched Fusion then had no bridge until those helpers stopped and Fusion started again.
+
+## Guarded runs
+
+Later runs used a guard process beside each acceptance script.
+The guard reads the checkpoint of the open and the windows of Fusion.
+
+| Event                                              | Guard action                                   |
+| -------------------------------------------------- | ---------------------------------------------- |
+| Dialog `Fusion Drawings Message` during an open    | Records the dialog text, then restarts Fusion  |
+| Open checkpoint older than the time limit          | Records the stall, then restarts Fusion        |
+
+Every restart ends the acceptance script, so each run opens its riskiest variant last.
+Each stalled or rejected variant goes on a quarantine list that the script refuses to open again.
+
+Variants with a Fusion-saved shell opened in 3.3 s to 6.1 s in these runs.
+`D2NoViewCurves` needed 371.7 s, so a limit below that can stop a slow but valid open.
+The stalled variants showed no progress after 121 s to 602 s.

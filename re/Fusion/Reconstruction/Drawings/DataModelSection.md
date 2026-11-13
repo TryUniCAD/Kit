@@ -104,16 +104,99 @@ Adding one dimension to the A0 drawing raised the tracked-entity count from 1 to
 ## Embedded database
 
 The DWG holds the sheet layout, the views and the annotations.
-The historical DWG declares `AC1027` and 46 classes, including `ACDBVIEWREP` and `ACDBVIEWREPBLOCKREFERENCE`.
-`ReadInventory` reads the file header, page map, section map, class table and handle map.
-It does not decode objects.
+The modern controls declare `AC1032`, and the historical example declares `AC1027`.
+`ReadDwgFile` decodes the whole file into a typed `DwgFile`, with the [Open Design Alliance DWG specification](https://www.opendesign.com/files/guestdownloads/OpenDesign_Specification_for_.dwg_files.pdf) as the format reference.
+`EmitDwgFile` writes it back from those typed values.
+
+| DWG                | Bytes   | Classes | Objects | Fully typed objects | Typed common data only | Re-emission  |
+| ------------------ | ------- | ------- | ------- | ------------------- | ---------------------- | ------------ |
+| A0 views control   | 126,690 | 93      | 1,958   | 1,891               | 67                     | Byte for byte |
+| A1 dimension control | 129,413 | 97    | 1,993   | 1,920               | 73                     | Byte for byte |
+| A2 automatic control | 146,068 | 96    | 2,133   | 2,066               | 67                     | Byte for byte |
+| Historical example | 110,873 | 46      | 900     | 865                 | 35                     | Byte for byte |
+
+The objects with typed common data only are AutoCAD Mechanical standard objects in the controls.
+In the historical example, they are the `ACDBIDWSTREAM`, `ACDBIDWVERSION` and `ACDBSYNERGYMAPPINGS` objects.
+Their class data stays as the exact bit tail that follows the typed common data.
+
+The typed model covers these parts.
+
+| Part                | Typed content                                                                  |
+| ------------------- | ------------------------------------------------------------------------------ |
+| File and page layer | File header, encrypted header, page map, section map and every page            |
+| Header section      | 310 header variables and the four BS values after the handle stream            |
+| Class section       | Class rows with names, proxy flags and instance counts                         |
+| Handle section      | Rebuilt from the object handles and offsets when the file is written           |
+| Objects             | Common data, extended data and class data for 75 object kinds in the A1 control |
+| Other sections      | Summary, AppInfo, AppInfoHistory, Preview, RevHistory, template, free space, auxiliary header and the `AcDsPrototype_1b` data store |
+
+The view objects are typed as well.
+
+| Class                                      | Role in a view                                                  |
+| ------------------------------------------ | --------------------------------------------------------------- |
+| `ACDBVIEWREP`                              | View definition, body key, orientation matrix and view centre   |
+| `ACDBVIEWREPBLOCKREFERENCE`                | Reference to an anonymous `*S` view block, two for each view    |
+| `ACDBASSOCVIEWREPACTIONBODY`               | Associative action that owns the view                           |
+| `ACDBASSOCEXTERNALPERSSUBENTIDHOLDER`      | Persistent reference to the referenced body                     |
+| `ACDBASSOCPROJECTEDENTITYPERSSUBENTIDHOLDER` | Persistent reference to a projected edge                      |
+| `ACDBVIEWREPSOURCEMGR`                     | View source manager with the `ACAD_ROUNDTRIP_2014_VIEWREP_FUSIONSRC` xrecord |
+| `DRAWINGVIEW`                              | View border, scale, centre and viewport on the sheet            |
+
+The `*S` blocks hold the view curves as plain lines, circles and arcs.
+The `*D` blocks hold dimension graphics.
+Extended data of the view reps stores `AUTO_VIEW_XDATA`, `AUTO_SCALE`, `AUTO_NEST`, `CENTERMARK` and `CENTERLINE`.
 
 The DWG is not a cache that Fusion regenerates from the segments.
 A drawing without its DWG member fails to open with the message `Cannot find the specified drawing file`.
 A drawing with the A0 segments and the A1 DWG opened with the A1 dimension and views.
 On open, Fusion writes the embedded DWG and a SAB export of the referenced body to a temporary folder.
 It then starts the drawing engine, which runs one `VIEWEDIT` command for each view.
-View curves are therefore recomputed from the referenced body, but view definitions come from the DWG.
+The views show the curves stored in the DWG, as the [stored curves gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Drawing/FusionDrawingStoredViewCurves.md) records.
+Fusion recomputes them only when `updateAllReferences()` updates an out-of-date reference.
+
+## Minimal drawing state
+
+Native removal variants of the A1 control show which DWG content Fusion needs.
+Each row names the variant whose result decides it.
+
+| Content                                         | Needed | Evidence                                              |
+| ----------------------------------------------- | ------ | ----------------------------------------------------- |
+| DWG member of the F2D                           | Yes    | `P2NoDwg` showed `Cannot find the specified drawing file` |
+| `ACDBVIEWREP` object of each view               | Yes    | `F1NoViewReps` gave views whose items were `None`     |
+| Contiguous section ids                          | Yes    | `Q5NoRevHistory` and `Q3NoOptional` were not valid     |
+| Handles that name present objects               | Yes    | `G1FreshHandles` crashed the drawing engine            |
+| View curves in the `*S` blocks                  | No     | `D2NoViewCurves` opened with empty views               |
+| Associative action of the dimension             | No     | `F3bPlainDimension` kept its dimension                 |
+| Title block and border inserts                  | No     | `F4NoTitleBlock` and `F5NoBorder` kept 3 views         |
+| Centre mark                                     | No     | `F6NoCenterMark` kept 3 views                          |
+| Fusion and history entries of the named-object dictionary | No | `E2NoNodHistory` and `E3NoFusionNod` kept 3 views |
+| `DICTIONARYVAR`, `FIELD` and `FIELDLIST` objects | No    | `E4NoVariables` and `E5NoFields` kept 3 views          |
+| AutoCAD Mechanical objects                      | No     | `H1NoAcm` kept 3 views and the dimension               |
+| `AcDb:AcDsPrototype_1b` with every data-store flag cleared | No | `Q1NoDataStore` kept 3 views and the dimension |
+
+No variant had its view curves regenerated on open.
+Fusion shows the stored view curves, and `updateAllReferences()` recomputes them from the referenced body.
+The authoritative state of a drawing is therefore its sheet, its view reps with their view source, and its annotations.
+Kit's author writes that state and leaves the view blocks empty.
+
+## Authoring
+
+`AuthorDwg` writes that state from a `DwgDraft`, and `BuildDrawing` and `BuildBundle` add the F2D members and the bundle.
+No byte of a captured DWG or drawing goes into an authored file.
+The ISO standard rows come from typed values that the research builders took from the template part of a Fusion-saved drawing.
+
+| Authored part        | Content                                                                 |
+| -------------------- | ----------------------------------------------------------------------- |
+| Sheet                | Layout, paper-space block, viewports, border and ISO title block        |
+| Title block          | Attribute texts from the draft                                          |
+| Views                | `ACDBVIEWREP`, `DRAWINGVIEW`, view actions, source manager and empty `*S` blocks |
+| Projected views      | The same objects with the parent view named                             |
+| Dimension            | `DIMENSION_LINEAR` with its `*D` block and measured text                |
+| Model reference      | View source with body id, component, geometry GUID and bounds           |
+| Shell                | Ten sections with ids 1 to 10, Kit AppInfo and four header values from the version GUID |
+
+Fusion did not finish opening an authored DWG.
+The [header tail gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Drawing/FusionDrawingHeaderTail.md) and the [authored shell gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Drawing/FusionDrawingAuthoredShell.md) record why.
 
 ## Drawing-root bundles
 
@@ -168,3 +251,21 @@ The Personal-use license kept the new uploads read-only, as the [read-only gotch
 Save and reopen after a model edit are therefore not verified.
 The upload and reopen of `M1Reemitted` show that a Kit-emitted drawing survives a cloud upload.
 It reopened with the same measurements as the Fusion-saved control.
+
+The second pass opened DWG variants that Kit's typed writer emitted.
+The report keeps each plan, inspection, round, dialog, quarantine entry and recycle count.
+
+| Variant              | Content                                               | Result                                         |
+| -------------------- | ----------------------------------------------------- | ---------------------------------------------- |
+| `H1NoAcm`            | A1 control without unused blocks and AutoCAD Mechanical objects | Opened with 3 views and 1 dimension  |
+| `N2AuthoredF2d`      | Kit-built F2D members around the `H1NoAcm` DWG        | Opened in 4.3 s with 3 views and 1 dimension   |
+| `Q1NoDataStore`      | `H1NoAcm` without the data-store section and flags    | Opened in 4.7 s with 3 views and 1 dimension   |
+| `Q8AuthoredSections` | `Q1NoDataStore` with Kit's section set                | Opened in 5.2 s with 3 views and 1 dimension   |
+| `Q5NoRevHistory`     | `Q1NoDataStore` with a gap in the section ids         | `Drawing file is not valid.`                   |
+| `W1KitAppInfo` to `W6KitClassCounts` | One part of Kit's shell each           | Opened in 3.4 s to 6.1 s, except `W2KitShorts` |
+| `W2KitShorts`        | Kit's four header values                              | Open had not finished after 185 s              |
+| `U2ForeignTail`      | The four header values of the A2 control              | Open had not finished after 181 s              |
+| `U4AuthoredShellTail` | Kit's shell with the A1 header values                | Open had not finished after 185 s              |
+| `S5SheetDimension`   | Kit-authored sheet with one dimension                 | Open had not finished after 602 s              |
+
+A guard restarted Fusion after each stall, so each stalled variant ended its run.

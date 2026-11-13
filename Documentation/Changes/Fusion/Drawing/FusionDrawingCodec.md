@@ -1,6 +1,6 @@
 # Typed Fusion drawing documents
 
-Kit adds a reader and a writer for Fusion drawing documents under `convert.formats.Fusion.DrawingCodec`.
+Kit adds a reader, a writer and an author for Fusion drawing documents under `convert.formats.Fusion.DrawingCodec`.
 
 | API                                                     | Result                                                   |
 | ------------------------------------------------------- | -------------------------------------------------------- |
@@ -10,6 +10,13 @@ Kit adds a reader and a writer for Fusion drawing documents under `convert.forma
 | `EmitDrawBundle(Value, CompressZstd=None)`              | F3Z bytes from a `DrawingBundle`                         |
 | `RouteBundle(DataValue, InflateZstd=None)`              | `DrawingBundle` for an F2D root, else `FusionBundle`     |
 | `ReadInventory(Content)`                                | `DwgInventory` with the DWG header, pages and classes    |
+| `Dwg.ReadDwgFile(Content)`                              | Typed `DwgFile` with every section and object            |
+| `Dwg.EmitDwgFile(DwgModel)`                             | DWG bytes from a `DwgFile`                               |
+| `Dwg.Author.AuthorDwg(Draft)`                           | New DWG bytes from a `DwgDraft`                          |
+| `Author.BuildDrawing(SpecValue, Database)`              | New `FusionDrawing` from a `DrawingSpec` and its DWG     |
+| `Author.BuildBundle(SpecValue, Drawing, DesignData)`    | New drawing-root `DrawingBundle` with the referenced design |
+| `Author.MakeIdentity()`                                 | Fresh document, version and lineage identities           |
+| `Author.CheckSpec(SpecValue, Database)`                 | Raises `ValueError` for an inconsistent drawing spec     |
 
 ## Behavior
 
@@ -20,29 +27,62 @@ The historical segment keeps framed records, because its class profiles are olde
 
 The embedded DWG is a `DrawingDatabase` with its member name and bytes.
 The reader requires that name to equal `ExtFileSerializer.persistedFileName` in the drawing segment.
-Kit does not decode or write DWG objects.
+`ReadDwgFile` decodes those bytes into header variables, classes, objects and every other section.
+`EmitDwgFile` writes them back from the typed values.
+The [Open Design Alliance DWG specification](https://www.opendesign.com/files/guestdownloads/OpenDesign_Specification_for_.dwg_files.pdf) is the format reference.
 
-The [data model section](../../../../re/Fusion/Reconstruction/Drawings/DataModelSection.md) describes the members, manifests, classes and joins.
+| DWG                  | Bytes   | Objects | Fully typed | Typed common data only | Re-emission   |
+| -------------------- | ------- | ------- | ----------- | ---------------------- | ------------- |
+| A0 views control     | 126,690 | 1,958   | 1,891       | 67                     | Byte for byte |
+| A1 dimension control | 129,413 | 1,993   | 1,920       | 73                     | Byte for byte |
+| A2 automatic control | 146,068 | 2,133   | 2,066       | 67                     | Byte for byte |
+| Historical example   | 110,873 | 900     | 865         | 35                     | Byte for byte |
+
+The objects with typed common data only are AutoCAD Mechanical objects in the controls.
+In the historical example, they are its `ACDBIDWSTREAM`, `ACDBIDWVERSION` and `ACDBSYNERGYMAPPINGS` objects.
+
+The [data model section](../../../../re/Fusion/Reconstruction/Drawings/DataModelSection.md) describes the members, manifests, classes, DWG objects and joins.
 
 ## DWG authority
 
-The DWG is the authoritative store of sheets, views and annotations.
+The DWG is the authoritative store of sheets, views, view curves and annotations.
 Fusion does not regenerate it from the segments.
 On open, Fusion gives the drawing engine the embedded DWG and a SAB export of the referenced body.
-The engine recomputes view curves from that body, so a model edit updates the views.
+The engine shows the view curves that the DWG stores.
+It recomputes them when `updateAllReferences()` updates an out-of-date reference.
 
-Native runs in Fusion 2706.1.17 tested this with altered packages.
+Native removal variants define the minimal state of a drawing.
+Fusion needs the DWG member, a view rep object for each view, contiguous section ids and handles that name present objects.
+It does not need the stored view curves, the title block, the border, AutoCAD Mechanical objects or the data-store section.
+The [data model section](../../../../re/Fusion/Reconstruction/Drawings/DataModelSection.md) lists each variant.
+The [section id gotcha](../../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingSectionIds.md) records the section rule.
 
-| Variant          | Package change                       | Fusion result                                      |
-| ---------------- | ------------------------------------ | -------------------------------------------------- |
-| `P4ViewsControl` | None, A0 control                     | Opened with 3 views and 0 dimensions               |
-| `P2NoDwg`        | A1 control without its DWG member    | Error dialog `Cannot find the specified drawing file` |
-| `P3SwappedDwg`   | A1 segments with the A0 DWG          | No drawing engine session within 207 seconds      |
-| `P5ReverseSwap`  | A0 segments with the A1 DWG          | Opened with 3 views and the 1 dimension of the A1 DWG |
+## Authoring
 
-Kit therefore does not author drawings from typed values.
-A new drawing needs DWG view and annotation objects, and Kit does not decode or write DWG objects.
-`EmitDrawing` writes the DWG member as the bytes that `ReadDrawing` returned.
+`AuthorDwg` builds a new DWG from a `DwgDraft` without any source DWG bytes.
+The draft names the sheet, the title block texts, the views, the view source and the dimensions.
+Kit writes every object from typed values and an ISO standard of typed rows.
+The caller supplies the fingerprint and version GUIDs and the save moment.
+The view blocks stay empty, because Fusion recomputes view curves on a reference update.
+
+`BuildDrawing` builds the F2D members around that DWG from a `DrawingSpec`.
+`BuildBundle` builds the drawing-root F3Z with the referenced design.
+
+Fusion 2706.1.17 did not finish opening any drawing with a Kit-authored DWG.
+The open waits without a dialog until Fusion is stopped.
+Two parts of the authored DWG cause the wait.
+
+| Cause                                   | Evidence                                                    |
+| --------------------------------------- | ----------------------------------------------------------- |
+| Four header values after the handles    | Zero, Kit-chosen and foreign values each stalled an otherwise Fusion-saved DWG |
+| Kit's shell sections together           | Each section opened alone, and all of them together stalled |
+
+The [header tail gotcha](../../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingHeaderTail.md) and the [authored shell gotcha](../../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingAuthoredShell.md) record the runs.
+Kit does not copy Fusion-written header values into an authored file.
+Kit never writes the trusted-file AppInfo entry, which Fusion does not need.
+
+The F2D author works on its own.
+`N2AuthoredF2d` put Kit-built members around a Fusion-saved DWG, and it opened with 3 views and 1 dimension.
 
 ## Verification
 
@@ -56,8 +96,8 @@ A new drawing needs DWG view and annotation objects, and Kit does not decode or 
 | Historical example F2D         | 103,817 | `33589d0e`     |
 | Historical example F3Z bundle  | 200,292 | `4e67c7a5`     |
 
-The tests in `tests/convert/formats/FusionCodec/Drawings` use normalized fixtures without the DWG.
-They cover the package, parts, manifests, bundles, the DWG inventory and the typed segment facts.
+The tests in `tests/convert/formats/FusionCodec/Drawings` use normalized fixtures without the captured DWG.
+They cover the package, parts, manifests, bundles, the DWG inventory, the typed segment facts and the authored DWG.
 
 Native runs in Fusion 2706.1.17 gave these results.
 
@@ -66,7 +106,10 @@ Native runs in Fusion 2706.1.17 gave these results.
 | Kit-emitted A1 drawing opens            | Same sheet, views, curves and dimension as the saved control  |
 | Model edit from 40 mm to 60 mm          | Base view width 160 mm before and 240 mm after the update     |
 | Reference after `updateAllReferences()` | Version 2, not out of date                                    |
-| Fusion save and reopen after the edit   | Not verified, because the Personal license kept files read-only |
-| New drawing authored by Kit             | Not supported, because Kit does not write DWG objects         |
+| Kit-built F2D around a Fusion-saved DWG | Opened in 4.3 s with views of 5, 4 and 4 curves and 1 dimension |
+| Kit-modified DWG with Fusion header values | Opened in 3.3 s to 6.1 s with 3 views and 1 dimension      |
+| Kit-authored DWG                        | Open had not finished when stopped after 121 s to 602 s       |
+| Authored view recompute and model edit  | Not run, because no authored drawing opened                   |
+| Fusion save and reopen after an edit    | Not run, because the Personal license kept every upload read-only |
 
 The [acceptance report](../../../../re/Fusion/Reconstruction/Drawings/NativeAcceptance.json) records every run with normalized names.
