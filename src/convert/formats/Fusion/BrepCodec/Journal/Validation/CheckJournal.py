@@ -1,3 +1,6 @@
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Nodes.CheckComplex import (
+    CheckComplex,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Spline.CheckSubtypes import (
     CheckSubtypes,
 )
@@ -47,5 +50,6 @@ def CheckJournal(Model: JournalModel) -> None:
     for Entity in Model.Entities:
         CheckNode(Entity)
     CheckSubtypes(Model.Entities)
+    CheckComplex(Model.Entities)
     for State in Model.States:
         _ = EmitWireRecord(MakeStateNode(State))

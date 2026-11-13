@@ -18,10 +18,16 @@ from convert.formats.Fusion.BrepCodec.Journal.Geometry.PlaneNode import PlaneNod
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.EllipseNode import EllipseNode
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.ConeNode import ConeNode
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.TimeAttrib import TimeAttrib
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.FeatureAttrib import (
+    FeatureAttrib,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.TrackAttrib import TrackAttrib
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.TagAttrib import TagAttrib
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.SketchAttrib import (
     SketchAttrib,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Attributes.NoMergeAttrib import (
+    NoMergeAttrib,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Attributes.StitchAttrib import (
     StitchAttrib,
@@ -30,6 +36,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Attributes.VertedgeAttrib import (
     VertedgeAttrib,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Writing.Attributes.MakeSysAttrib import (
+    MakeNoMerge,
     MakeStitchNode,
     MakeVertedge,
 )
@@ -59,10 +66,14 @@ def MakeEntityNode(Value: KJournalEntity) -> AsmRecord:
         ),
     ):
         return MakeCarriers(Value)
-    if isinstance(Value, (TimeAttrib, TrackAttrib, TagAttrib, SketchAttrib)):
+    if isinstance(
+        Value, (TimeAttrib, TrackAttrib, TagAttrib, SketchAttrib, FeatureAttrib)
+    ):
         return MakeAttributes(Value)
     if isinstance(Value, StitchAttrib):
         return MakeStitchNode(Value)
+    if isinstance(Value, NoMergeAttrib):
+        return MakeNoMerge(Value)
     if isinstance(Value, VertedgeAttrib):
         return MakeVertedge(Value)
     return MakeTopology(Value)

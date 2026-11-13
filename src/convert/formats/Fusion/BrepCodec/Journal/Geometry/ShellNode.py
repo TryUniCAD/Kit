@@ -9,3 +9,4 @@ class ShellNode:
     NextShell: int
     FirstFace: int
     OwnerLump: int
+    FirstWire: int = -1

@@ -1,7 +1,8 @@
 KRequiredRefs: dict[str, tuple[int, ...]] = {
     "body": (3,),
     "lump": (4, 5),
-    "shell": (5, 7),
+    "shell": (7,),
+    "wire": (4, 5),
     "face": (5, 7),
     "loop": (4, 5),
     "coedge": (3, 4, 6, 8),
@@ -14,4 +15,5 @@ KRequiredRefs: dict[str, tuple[int, ...]] = {
     "ATTRIB_CUSTOM-attrib": (4,),
     "stitch_hint-sys-attrib": (4,),
     "vertedge-sys-attrib": (4,),
+    "no_merge_attribute-st-attrib": (4,),
 }

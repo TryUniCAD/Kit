@@ -13,13 +13,15 @@ from convert.formats.Fusion.BrepCodec.Journal.Reading.Fields.IsPresentMut import
     IsPresentMut,
 )
 
+KBoardChanges = 4096
+
 
 def ReadBoardMut(Cursor: FieldCursor) -> BulletinBoard:
     Owner = ReadRefMut(Cursor)
     Status = ReadLongMut(Cursor)
     Changes: list[BulletinChange] = []
     while IsPresentMut(Cursor):
-        if len(Changes) >= 1000:
+        if len(Changes) >= KBoardChanges:
             raise ValueError("Oversized Fusion bulletin board")
         Changes.append(BulletinChange(ReadRefMut(Cursor), ReadRefMut(Cursor)))
     return BulletinBoard(Owner, Status, tuple(Changes))

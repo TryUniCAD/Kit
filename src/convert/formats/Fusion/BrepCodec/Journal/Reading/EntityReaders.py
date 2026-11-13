@@ -1,4 +1,10 @@
+from convert.formats.Fusion.BrepCodec.Journal.Reading.Geometry.ReadWireNode import (
+    ReadWireNode,
+)
 from collections.abc import Callable
+from convert.formats.Fusion.BrepCodec.Journal.Reading.Attributes.ReadNoMerge import (
+    ReadNoMerge,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Round.ReadSphereNode import ReadSphereNode
 from convert.formats.Fusion.BrepCodec.Journal.Round.ReadTorusNode import ReadTorusNode
 
@@ -92,6 +98,7 @@ KEntityReaders: dict[str, Callable[[FieldCursor], KJournalEntity]] = {
     "body": ReadBodyNode,
     "lump": ReadLumpNode,
     "shell": ReadShellNode,
+    "wire": ReadWireNode,
     "face": ReadFaceNode,
     "loop": ReadLoopNode,
     "coedge": ReadCoedgeNode,
@@ -103,5 +110,6 @@ KEntityReaders: dict[str, Callable[[FieldCursor], KJournalEntity]] = {
     "cone-surface": ReadConeNode,
     "ATTRIB_CUSTOM-attrib": ReadAttribNode,
     "stitch_hint-sys-attrib": ReadStitchNode,
+    "no_merge_attribute-st-attrib": ReadNoMerge,
     "vertedge-sys-attrib": ReadVertedge,
 }

@@ -43,7 +43,7 @@ def MakeNurbsNodes(Model: NurbsBody) -> tuple[KJournalEntity, ...]:
         *MakeNurbsFaces(Model, Layout),
         *Coedges,
         *MakeNurbsEdges(Model, Layout, Coedges),
-        *MakeNurbsCurves(Model),
+        *MakeNurbsCurves(Model, Layout),
     )
     if len(Entities) != Layout.EntityCount:
         raise ValueError("Fusion NURBS body layout does not match its records")

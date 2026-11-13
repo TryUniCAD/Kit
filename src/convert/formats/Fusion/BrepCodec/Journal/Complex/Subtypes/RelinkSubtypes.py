@@ -10,6 +10,12 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.EntitySubtree imp
     EntitySubtree,
     SwapSubtree,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TreeParts import NeedItems
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TypedRecord import (
+    KRecordTypes,
+    RebuildRecord,
+    RecordParts,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.WalkSubtypes import (
     WalkSubtypes,
     WithSubtrans,
@@ -53,6 +59,9 @@ def RelinkValueMut(
         return ChoiceValue(
             Value.ChoiceKey, RelinkValueMut(Value.Body, Sources, Mapping, Cursors)
         )
+    if isinstance(Value, KRecordTypes):
+        Parts = RelinkValueMut(RecordParts(Value), Sources, Mapping, Cursors)
+        return RebuildRecord(Value, NeedItems(Parts, None))
     if type(Value) is tuple:
         return tuple(
             RelinkValueMut(Element, Sources, Mapping, Cursors) for Element in Value
