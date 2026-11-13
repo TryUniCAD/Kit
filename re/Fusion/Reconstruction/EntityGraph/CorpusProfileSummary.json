@@ -9,10 +9,6 @@
   "uniqueClasses": 412,
   "inventorySha256": "76431db539e32797f90de6f26d6235ef6de01124e677d0f7cbe6606ed6fbb274",
   "reflectionSha256": "54d93410a407ff808e5824c5ad797bf63fa89b3686e15be848960ca49ba4a161",
-  "sketchTagEvidence": {
-    "path": "SketchTagSemantics.json",
-    "sha256": "d8798fb2c6fcaa77182f12638b7f8808edc0dc038d5378982a703deac5dbb18c"
-  },
   "sketchSplitEvidence": [
     {
       "path": "SketchSplitSemantics.json",
@@ -62,27 +58,14 @@
   "unresolvedReferenceTypes": [],
   "archiveFailures": [],
   "newQualifications": [
-    "Nonidentity matrix bool+16f64 supported by native save disassembly",
-    "Line segment, ellipse, NURB and geometry arrays use recovered native callback order",
+    "Nonidentity matrix bool+16f64; the static evidence that first supported it was removed",
+    "Line segment, ellipse, NURB and geometry arrays use the callback order that frames every corpus record",
     "ASM recipes restrict the versioned union to observed version3",
-    "Named progenitor auxiliary value is exactly tag:uint32",
-    "Profile tag sets contain start/end adjacent edge primary tag identities, proven by native adjacency lookup and primary-tag extraction",
-    "Sketch split uint32 fields are one-based ordinal and total count; native producer asserts 1 <= ordinal <= total",
-    "Sketch direction admits 0, 1 and UINT32_MAX, the native comparison wildcard"
+    "Named progenitor auxiliary value is exactly four bytes, read as tag:uint32",
+    "Profile tag sets are read as start/end adjacent primary tag identities; this naming is not confirmed by a black-box experiment",
+    "Sketch split uint32 fields are one-based ordinal and total count; every corpus split pair satisfies 1 <= ordinal <= total",
+    "Sketch direction admits 0, 1 and UINT32_MAX, all observed in the corpus"
   ],
-  "nativeProfileTagProof": {
-    "source": "NaTagUtility10",
-    "function": "getSketchProfileTagData(EDGE*)",
-    "address": "0x2e5bc",
-    "startAdjacencyCall": "0x2e614",
-    "endAdjacencyCall": "0x2e620",
-    "primaryIdsFunction": "0x2e4b0",
-    "constructorCall": "0x2e64c",
-    "constructorArgumentOffsets": {
-      "x2": "0x20",
-      "x3": "0x38"
-    }
-  },
   "retainedGuards": [
     "Sketch tags retain version3/secondary0/topologyRoleFlags0 restrictions pending additional semantics",
     "Sketch split pairs reject zero ordinal/count or ordinal greater than total, without a corpus-derived maximum",

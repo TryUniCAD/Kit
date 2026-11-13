@@ -4,7 +4,7 @@
 
 All logical material bytes in the two controlled documents now decode into named schema properties. There are no remaining material instance tails in this profile. The reader consumes 10 instance records with 273 properties and 10 definition records with 80 properties. Every logical record ends exactly at its block-chain boundary. The decode counts describe the read-only interpretation. Native writer acceptance is recorded separately below.
 
-`TypedMaterials.json.xz`, indexed by `EvidenceIndex.json`, records every value, byte range, instance/definition identity, schema, connection and unit code. `NativeEvidence.json` records the relevant arm64 disassembly and hashes of the installed Fusion libraries. `DecodeInstances.py` reads the original archives and reconstructs material block chains without reading unused allocation bytes. No production code or native CAD functions are executed by it.
+`TypedMaterials.json.xz`, indexed by `EvidenceIndex.json`, records every value, byte range, instance/definition identity, schema, connection and unit code. `DecodeInstances.py` reads the original archives and reconstructs material block chains without reading unused allocation bytes. No production code or native CAD functions are executed by it.
 
 `EncodeMaterials.py` implements the inverse grammar from semantic values. `EncodePackage.py` constructs a complete nested Protein ZIP from those values and schema XML trees, with fresh supplied identities and timestamps. The parent generated a new package from the six controlled extrusion material records and accepted it in the installed Fusion application. Independent full-F3D acceptance remains separate.
 
@@ -27,7 +27,7 @@ These records use five concrete schemas and their supplied base schemas. A corpu
 
 Each `Schemas/<name>.xml` describes an `AssetSchema`. Its `UID/@val` gives its name. `Base/@val` names its parent schema. Resolve base schemas recursively, then apply the concrete schema's member declarations by `id`. A schema declaration is a tag such as `String`, `Float`, `Choice`, `Boolean`, `Color`, `Reference` or `Uuid` with properties on its XML attributes. Nested bounds, choice labels, defaults and localization metadata remain part of the typed schema tree; they are not additional serialized instance values.
 
-The observed property traversal is lexical order by property identifier. Definitions select properties whose `definitionIteratorData` attribute is `true`. Instance values select the other properties and omit those declared `readonly=true`. The native writer additionally skips `texture_MapChannel` and `unifiedbitmap_MapChannel`. Those two exact constants are initialized at `0x15c6ec`–`0x15c720` and compared by `isDeprecatedProperty` at `0x1580e0` in `libadskassetapi_new-16.dylib`. Neither appears in the current controls, but the readers and writers include that evidenced exclusion.
+The observed property traversal is lexical order by property identifier. Definitions select properties whose `definitionIteratorData` attribute is `true`. Instance values select the other properties and omit those declared `readonly=true`. The readers and writers also skip `texture_MapChannel` and `unifiedbitmap_MapChannel`. Neither appears in the current controls. That exclusion came from earlier binary inspection and is not confirmed by a black-box experiment.
 
 Definition payloads have no separate fixed header. Their eight sorted properties are:
 
@@ -46,7 +46,7 @@ The control values of `VersionGUID`, such as `PrismMaterial-018`, are not UUID-s
 
 An instance payload starts with three counted UTF-8 strings: schema name, instance ID, and referenced definition ID. After these, the ordered instance properties begin. `AssetLibID` is the first property in all observed schemas. Its GUID-like string is a library reference, not a fourth fixed header field. `ExchangeGUID` follows and is an empty string in these controls.
 
-Native evidence: `GeneralLibrary::writePropertyGroupToDataStore_` iterates and serializes the definition group at `0xc8a84`–`0xc8bac`, writes the instance schema/name/reference strings at `0xc8c48`–`0xc8dac`, and serializes the instance property group at `0xc8de8`–`0xc9088`. The third header string is selected for the observed instance library category; other library categories cannot be assumed to have the same header.
+The header shape is observed for the instance library category in these controls. Other library categories cannot be assumed to have the same header.
 
 ## Value wire types
 
@@ -65,7 +65,7 @@ All scalar bytes are little endian. Strings are `u32 byte_count` followed by UTF
 
 The unit field is present even for `unit="Unitless"`. Omitting it causes apparently tiny or enormous float values and misaligns every subsequent field. For the controls, density uses unit code 69633 with value 7850, Poisson ratio uses 4097 with value 0.3, Young modulus uses 135176 with value 210000000, and thermal conductivity uses 282625 with value 56. The report also records the schema's declared unit string. The actual numeric unit code must remain data; it is not replaced merely because a schema supplies a default unit name.
 
-`libxirangall-16.dylib` directly confirms the compact unit representation. `PrimitiveMethods<UnitsValue>::deserialize` at `0x2a344` reads an `int` and then a `double`. The serializer at `0x2a38c` writes four bytes from object offset 0 and eight bytes from object offset 8, excluding its in-memory alignment padding. `PrimitiveMethods<Color4>::serialize` at `0x29f20` writes 32 bytes. The type's 32-byte size and four observed double values agree.
+The compact unit representation is a four-byte code followed by an eight-byte double, with no padding. A Color4 value is 32 bytes, four doubles. Both shapes follow from the complete decode of the controls and from accepted rewrites.
 
 ## Connections
 
@@ -79,7 +79,7 @@ An absent connection is only one zero byte. It has neither an enabled byte nor a
 
 The empty physical material's `physmat_aspects` has three enabled targets: its appearance, structural and thermal material instances. Its deleted-aspects connection is absent. The appearance properties have explicit absent-connection bytes even when their ordinary value is present.
 
-Native `GeneralLibrary::writeConnectedAsset_` at `0xd20a4` derives presence from link-array size, writes one byte at `0xd20fc`, skips the rest for zero links, obtains the enabled state through the property virtual slot, writes the count and serializes each target ID. `PropertyBase`'s vtable starts at `0x2cc990`; its address point is `0x2cc9a0`, and slot `+0x28` at `0x2cc9c8` targets `PropertyBase::IsConnectionEnabled` at `0x13d500`. The native loader at `0xc860c` provides the inverse control flow. Only local package material connections are represented by the current writer, which rejects missing target instance IDs.
+A present connection writes a presence byte, an enabled byte, a count and each target ID. Only local package material connections are represented by the current writer, which rejects missing target instance IDs.
 
 ## Independent generation interface
 

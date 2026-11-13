@@ -32,14 +32,5 @@
     "sidecar_sizes": {},
     "sidecars": 0
   },
-  "restriction_texts": {
-    "Libraries/Applications/Fusion/FusionXLayer10.dylib": {
-      "sha256": "5031ae3f4ea9e62b195344616e6a927ac49dd0b212d8c0efa0a3b7e76172fcbb",
-      "texts": [
-        "Cannot create configuration top table as the user is restricted.",
-        "Cannot retrieve configuration top table as the user is restricted."
-      ]
-    }
-  },
   "scope": "Fusion app bundle Contents folder, read-only"
 }

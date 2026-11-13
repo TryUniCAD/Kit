@@ -43,7 +43,7 @@ The region recipe is an optional list of `SkRegionRecipeDataValue`, with one `fa
 
 The native type is `list<pair<list<sketch_tag_id>,bool>>`, not a set. The control saves tags 107,106,108,105, which is not perimeter order. This observation does not prove order independence. An independent author should choose an explicit stable perimeter order AB,BC,CD,DA; native rebuild acceptance must establish that this generated order is admitted. Do not copy the control's arbitrary entity-specific list as an unexplained constant.
 
-Create four `SketchCurveProgenitor`/`SketchCurveRecipe` pairs. The profile-edge callback's two uint64 sets have proven names `startAdjacentPrimaryTagIds` and `endAdjacentPrimaryTagIds`; see [SketchTagSemantics.json](../EntityGraph/SketchTagSemantics.json). Their adjacency follows the source line direction, even though the recipe tag itself has direction one:
+Create four `SketchCurveProgenitor`/`SketchCurveRecipe` pairs. The profile-edge callback's two uint64 sets are named `startAdjacentPrimaryTagIds` and `endAdjacentPrimaryTagIds`; see [SketchTagSemantics.md](../EntityGraph/SketchTagSemantics.md). That naming is not confirmed by a black-box experiment. Their adjacency follows the source line direction, even though the recipe tag itself has direction one:
 
 | Side role | Progenitor tag / face primary | Source line | Start-adjacent | End-adjacent |
 | --- | ---: | --- | --- | --- |

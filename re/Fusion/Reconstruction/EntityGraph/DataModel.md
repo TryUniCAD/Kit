@@ -15,13 +15,11 @@ The artifacts are:
 - `GraphPayloads.json.xz`: complete typed values and field offsets for all 824 payloads; the decompressed `GraphPayloads.json` is generated locally and ignored by Git
 - `NativeComparison.json`: compact counts and every unmatched or unavailable comparison
 - `NativeComparison.json.xz`: complete field-by-field comparison evidence
-- `ValueCallbacks.json`: static callback audit of all 22 value classes declared by the controlled extrusion
-- `WireEvidence.json`: binary hashes, arm64 unslid addresses, exact callback layouts, and limits of that evidence
 - `BodyMassCache.json`: body 261 cache/override schemas, payload offsets, captured values, and analytic cylinder comparisons
 
 `Versions.json` has SHA-256 `54d93410a407ff808e5824c5ad797bf63fa89b3686e15be848960ca49ba4a161`. It is a native reflection capture, not a universal schema registry. Exact own-member sets are initialized for every declared class in these controlled graphs except the known empty `EntityMetaType` root. For inheritance, the codec resolves each class's own set using its own archive schema version; it does not trust the versionless base pointers embedded in another reflection lookup.
 
-All execution described here was static binary inspection and authorized research decoding/reencoding of saved captures. No local automated tests, production codec execution, or native Fusion execution were performed by this research subtask. Native load/edit acceptance was performed separately by the parent task and recorded in `../../LocalOracle/Features/CacheAcceptance.json`.
+All execution described here was authorized research decoding and reencoding of saved captures. An earlier version also used static inspection of installed Fusion libraries. That material was removed. No local automated tests, production codec execution, or native Fusion execution were performed by this research subtask. Native load/edit acceptance was performed separately by the parent task and recorded in `../../LocalOracle/Features/CacheAcceptance.json`.
 
 ## Stable research interface
 
@@ -37,7 +35,7 @@ Each `value` contains a typed `frame` and ordered `groups`. Each group contains 
 
 For body 261, find the primary record by `identity == 261`. Its current body group is `value['groups'][0]`. The cache is `fields['cache'][0]['fields']`; the four overrides are `fields['massProperties'][0]['fields']`.
 
-The research interface reads reflection and class-name evidence from `re/`; it therefore must not be imported by production. `DecodeGraph.py` regenerates both compressed payload evidence and its compact summary. `CompareGraph.py` regenerates the native comparison archives. `InventoryGraph.py` regenerates the complete declaration inventory and compact summary. `AuditCallbacks.py` examines the installed binaries without loading their code.
+The research interface reads reflection and class-name evidence from `re/`; it therefore must not be imported by production. `DecodeGraph.py` regenerates both compressed payload evidence and its compact summary. `CompareGraph.py` regenerates the native comparison archives. `InventoryGraph.py` regenerates the complete declaration inventory and compact summary.
 
 ## Record ownership and inheritance
 
@@ -74,7 +72,7 @@ The controlled same-asset reference layout is:
 4. Strict `bool differentSegment`
 5. If `differentSegment`, a `u32 segmentId`
 
-A local numeric reference is therefore 11 bytes. A same-asset cross-segment reference is 15 bytes. The two bytes after the identity in a local reference are meaningful false flags, not reserved padding. Static `RefMetaPersister` evidence identifies the asset and segment decisions.
+A local numeric reference is therefore 11 bytes. A same-asset cross-segment reference is 15 bytes. The two bytes after the identity in a local reference are meaningful false flags, not reserved padding. The controlled captures hold both the local and the cross-segment form. The names of the two flags came from removed static evidence and are not confirmed by a black-box experiment.
 
 The controlled Design segment references the ACT segment. Archive segment identifiers and runtime-loaded segment identifiers differ; comparison shifts by the captured Design segment offset. This normalization is validated only for these controlled imports and must not become a universal assumption for arbitrary native sessions.
 
@@ -112,9 +110,9 @@ For ordinary registered value classes, members are serialized in lexical name or
 
 A member is persisted when `option_mask & 1` is nonzero. The default mask is `0x33`. Transient field declarations remain part of the schema but contribute no bytes to this ordinary-save profile. For example, feature cache history fields and `ManagedEntity.expanded` are excluded. Undo, clone, and copied-asset masks have separate semantics and are outside this save profile.
 
-Reflection alone cannot prove member order or complete payload structure. A value can have reflected members and also install a custom save callback. `ColorValueMetaType` is the decisive example: alphabetical member decoding reconstructed every original byte but mislabeled red as alpha. The native semantic comparison exposed the error. Its callback explicitly writes red, green, blue, alpha as four floats.
+Reflection alone cannot prove member order or complete payload structure. A value can have reflected members and also install a custom save callback. `ColorValueMetaType` is the decisive example: alphabetical member decoding reconstructed every original byte but mislabeled red as alpha. The native semantic comparison exposed the error. It supports red, green, blue, alpha as four floats.
 
-The audit covers all 22 declared value classes. Ten have named custom save callbacks: color, seven geometry types, sketch tag, and profile edge tag. Physical/visual materials, base occurrence paths, and passive scopes install other lifecycle callbacks but no class-specific `onSave` override was found. Their observed fields agree with ordinary lexical persistence. The callback audit records direct initialization and symbol evidence; it is not proof that every unobserved state or indirect callback path is covered.
+An earlier static audit listed which of the 22 declared value classes install custom save callbacks. That audit was removed. Its list is not confirmed by a black-box experiment. In these controls, color, the geometry types, sketch tag, and profile edge tag need a class-specific layout. The other value classes agree with ordinary lexical persistence in the byte-identical reconstruction and the native semantic comparison.
 
 | Value class | Qualified layout |
 | --- | --- |
@@ -134,7 +132,7 @@ The audit covers all 22 declared value classes. Ten have named custom save callb
 | Feature tag info | lexical face primitive byte vector, offset vector, operation id, primary flag |
 | Sketch-region recipe data | lexical faceRecipe then originalFaceRecipes; nested lists/pairs/sketch tags |
 
-Static geometry evidence comes from the actual `AcGeFileIO::outFields` implementations, reached by Neutron callbacks. The plane representation preserves its parameter axes; the native JSON projection exposes only a point and normal. Identity matrices occur in the controlled captures. The nonidentity branch is statically decoded, but a new native nonidentity control is still required before claiming target-application acceptance for that branch.
+Byte-identical reconstruction and the native JSON comparison support these layouts for the controlled captures. The plane representation preserves its parameter axes; the native JSON projection exposes only a point and normal. Identity matrices occur in the controlled captures. The nonidentity matrix branch and the line direction reading came from removed static evidence. They are not confirmed by a black-box experiment. A new native nonidentity control is still required before claiming target-application acceptance for that branch.
 
 ## Sketch tag and profile recipe values
 
@@ -142,19 +140,21 @@ Static geometry evidence comes from the actual `AcGeFileIO::outFields` implement
 
 The 40-byte current sketch tag is:
 
-| Offset | Field | Type | Evidence |
-| --- | --- | --- | --- |
-| 0 | version | i32 | native version getter |
-| 4 | tagId | u64 | native object +0x08; debug label `tag id` |
-| 12 | secondaryTagId | u64 | native object +0x10; debug label |
-| 20 | direction | u32 boolean | native object +0x18, normalized to 0/1 |
-| 24 | splitSequenceId | u32 | native object +0x28; split-sequence debug label |
-| 28 | splitTotalNumber | u32 | native object +0x2c; split-sequence debug label |
-| 32 | objectOffset20 | u64 | native object +0x20; semantic name unresolved |
+| Offset | Field | Type |
+| --- | --- | --- |
+| 0 | version | i32 |
+| 4 | tagId | u64 |
+| 12 | secondaryTagId | u64 |
+| 20 | direction | u32 boolean, normalized to 0/1 |
+| 24 | splitSequenceId | u32 |
+| 28 | splitTotalNumber | u32 |
+| 32 | objectOffset20 | u64; semantic name unresolved |
 
-The profile-edge tag value has an internal i32 version, a counted vector of sketch tags, and two counted ordered sets of u64 values. The sets reside at native object offsets +0x20 and +0x38. Their semantic names remain unresolved. The controlled profile has version 0, one sketch tag with tagId 102, and both sets empty.
+The runtime reflection capture names `tagId` and `direction`. The other names came from removed static evidence and are not confirmed by a black-box experiment.
 
-These three unresolved semantic fields are represented as typed integers/sets with explicit offset labels. They are not opaque byte spans, but they also must not be presented as a complete semantic data model. Native `PEntity.Properties` omits these callback internals: a nonempty sketch tag appears as an empty JSON value. The binary callback and streamer implementations provide the width/order evidence.
+The profile-edge tag value has an internal i32 version, a counted vector of sketch tags, and two counted ordered sets of u64 values. Their semantic names remain unresolved. The controlled profile has version 0, one sketch tag with tagId 102, and both sets empty.
+
+These three unresolved semantic fields are represented as typed integers/sets with explicit offset labels. They are not opaque byte spans, but they also must not be presented as a complete semantic data model. Native `PEntity.Properties` omits these callback internals: a nonempty sketch tag appears as an empty JSON value. Byte-identical reconstruction of the controlled payloads supports the widths and order.
 
 ## Body mass cache
 

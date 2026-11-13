@@ -18,10 +18,6 @@
       "sha256": "bedbf4b795713c142be6cd28cafafa9e9c7d1ac0f8d465d9e251098ce87c0a83"
     },
     {
-      "path": "Fusion/Reconstruction/EntityGraph/ValueCallbacks.json",
-      "sha256": "b7ea2e6214134a748130c84abc1c1ad0de2405a7668d67098b71b8c726074cbd"
-    },
-    {
       "path": "Fusion/Reconstruction/DocumentAuthoring/Variants/RecipeConstructors.json",
       "sha256": "34d97ef4d905a5b9063890fa457aed31aa178e7b66e4be587ab3cd16afc7edf2"
     }
@@ -65,5 +61,5 @@
   "referenceTypeCount": 121,
   "unresolvedReferenceTypes": [],
   "evidence": "DesignProfileEvidence.json.xz",
-  "evidenceSha256": "deefa8f0421a0839625ea2b8a1a59418aa2a16d46e9266489758549e9c9cd829"
+  "evidenceSha256": "b1b05c4b2de88cf5ae1c2e060b20bc65bcf8b97d6c93e1c28babe12a204c0e1e"
 }

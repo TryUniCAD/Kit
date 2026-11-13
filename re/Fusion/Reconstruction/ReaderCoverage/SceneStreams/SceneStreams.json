@@ -1,55 +1,9 @@
 {
  "status": "captured",
- "native": {
-  "binary": "Autodesk Fusion.app/Contents/Libraries/Neutron/NsScene10.dylib",
-  "arm64_sha256": "d33789c8c20033f1c7673ff9b1dcf87f1ef7cf9c43c7245d75c8a65a83bc8c82",
-  "method": "otool -tV disassembly, nm symbol map and wide-string decoding, read only",
-  "functions": {
-   "LODGeometryNodeSerializer::SerializeForBody": "0xb4180",
-   "LODGeometryNodeSerializer::DeSerializeForBody": "0xb4ac8",
-   "Ns::Scene::GetDisplayItemSerializer": "0x2bb0a0",
-   "EnhancedMeshEdgeSerializer::SerializeQ": "0xaaeb8",
-   "EnhancedMeshEdgeSerializer::DeSerializeQ": "0xaaf8c",
-   "EnhancedMeshFacetSerializer::SerializeQ": "0xaaa44",
-   "EnhancedMeshFacetSerializer::DeSerializeQ": "0xaabd4",
-   "MeshSerializer::Serialize(DisplayItemFacet*)": "0xb58b8",
-   "MeshSerializer::SerializeEnhancedMeshEdge": "0xb5db0",
-   "MeshSerializer::DeSerializeEnhancedMeshEdge": "0xb6868",
-   "FusionGroupNodeSerializer::SerializeBrepBody": "0xaefac",
-   "BillBoardAttributeSerializer::DeSerialize": "0x52e14"
-  },
-  "wide_strings": {
-   "0x3b8064": "NodeDataType",
-   "0x3b8098": "HasLODs",
-   "0x3b8150": "DisplayItemType",
-   "0x3b8190": "DisplayType",
-   "0x3b81c0": "RenderGeom",
-   "0x3b80f4": "WorldBox",
-   "0x3b8118": "UseClosestLOD",
-   "0x3b84c0": "Props",
-   "0x3b84d8": "Fusion_mesh_%03d",
-   "0x3b6cd4": "EdgeNum",
-   "0x3b6d14": "Props",
-   "0x3a8cf0": "Style",
-   "0x3a8d08": "Anchor",
-   "0x3a8d24": "Axis",
-   "0x3a8d38": "Compensation",
-   "0x3a8d6c": "FlipVisibility"
-  },
-  "display_item_serializers": {
-   "1": "DisplayItemSerializer",
-   "2": "DisplayItemEdgeSerializer",
-   "3": "DisplayItemFacetSerializer",
-   "4": "EnhancedMeshEdgeSerializer",
-   "6": "OgsEnhancedEdgeSerializer -> EnhancedMeshEdgeSerializer",
-   "7": "OgsEnhancedFaceSerializer -> EnhancedMeshFacetSerializer",
-   "other": "none"
-  }
- },
  "layout": {
   "body_lod": [
    "NodeData payload",
-   "HasLODs u32: zero or one bit (1 << level, 0x800 for level 11)",
+   "HasLODs u32: zero or one set bit",
    "when HasLODs != 0 and render geometry exists: DisplayItemType u32",
    "DisplayItemType 0: RenderGeom link (flag, class text, object)",
    "DisplayItemType 6: OgsEnhancedEdge Props u32[4]",
@@ -74,10 +28,10 @@
   ],
   "enhanced_face_stream": "per vertex f32 px py pz nx ny nz u v, then u32 triangle indices, at Fusion_mesh_%03d[offset]",
   "enhanced_face_edges": "EdgeNum then one u32 per edge: the body-local serialization ordinal of an earlier OgsEnhancedEdge in the same body map",
-  "stream_advance": "MeshSerializer adds the written bytes to the offset and moves to the next stream index with offset 0 after the limit",
-  "stream_family": "Fusion_mesh_NNN is written only by MeshSerializer and is distinct from stream_mesh_NNN used by OgsSimpleMesh buffers",
+  "stream_advance": "the writer adds the written bytes to the offset and moves to the next stream index with offset 0 after a size limit; from earlier binary inspection, not confirmed by a black-box experiment",
+  "stream_family": "Fusion_mesh_NNN holds enhanced mesh data and is distinct from stream_mesh_NNN used by OgsSimpleMesh buffers",
   "object_identity": "GroupNode and other graphics object ids are %p text: 0x-prefixed lowercase on macOS saves, 16 uppercase hex digits on Windows saves",
-  "billboard_v1": "BillBoardAttribute serializer version 1 carries Style, Anchor, Axis, Compensation; version 2 adds FlipVisibility u32"
+  "billboard_v1": "BillBoardAttribute version 1 carries Style, Anchor, Axis, Compensation; version 2 adds FlipVisibility u32; field names from earlier binary inspection"
  },
  "saved_observation": {
   "grouped.f3d first enhanced edge": "type 6 Props (0, 0, 180, 180), 60 vertices, 1440 bytes",

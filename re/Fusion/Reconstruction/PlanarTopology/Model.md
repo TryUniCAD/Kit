@@ -19,11 +19,13 @@ All current controls use forward planar faces. The view nevertheless respects th
 
 `CreatePolyBody` independently allocates the body/lump/shell, face and loop arrays, paired coedges, unique undirected edges, vertex/point pairs, planar surfaces and bounded straight carriers. Endpoint parameters are `0..edge_length_cm`, with a unit direction from the lower indexed vertex to the higher indexed vertex. Coedge sense and vertex owner indices are derived from those choices. All bytes, including a complete two-state insertion journal, are derived from this semantic topology.
 
-## Transform proof
+## Transform model
 
-`TransformEvidence.json` and `TransformDisassembly.json.xz` bind the static evidence to ASM kernel and base-library hashes. The native serializer emits the entity base, three matrix vectors, translation, overall scale, then rotation/reflection/shear flags. `write_matrix` at `0x53fd4c` emits contiguous vectors at offsets 0, 0x18 and 0x30. `write_transf` at `0x53fde8` emits the matrix at object+0x8, translation at +0x50, scale at +0x0 and flag bits 0, 2 and 4 from +0x68. Literal pairs at `0xac410c..0xac4139` are no_rotate/rotate, no_reflect/reflect and no_shear/shear.
+`TransformEvidence.json` records the corpus decode. A transform record holds the entity base, three matrix vectors, translation, overall scale, then three flags. The mapping is `world = scale * (x*columnX + y*columnY + z*columnZ) + translationCm`.
 
-In `libASMbase232`, position×matrix at `0x9ee58` multiplies the point's X/Y/Z components by those three stored vectors. Position×transform at `0xa4e34` then multiplies by scale and adds translation. This proves the column convention and that translation is not scaled. The sampled corpus's 290 records across 208 unique blobs are all identity transforms; the independent nonidentity acceptance candidate is therefore necessary.
+The sampled corpus's 290 records across 208 unique blobs are all identity transforms. The nonidentity acceptance candidate below is therefore the evidence for the mapping. Its accepted, saved and reopened volume, centroid and bounds match the column convention and an unscaled translation.
+
+An earlier version also cited static inspection of installed Fusion libraries. That material was removed. The flag names rotation, reflection and shear came from it. They are not confirmed by a black-box experiment. Preserve the three flags independently.
 
 The source-free tetrahedron uses intercepts 17, 23 and 31 mm. Its transformed variant uses columns `(0,1,0)`, `(-1,0,0)`, `(0,0,1)`, scale 1.25 and translation `(1.1,-0.7,0.5)` cm. Expected centroid is `(0.38125,-0.16875,1.46875)` cm and expected bounds are `(-1.775,-0.7,0.5)..(1.1,1.425,4.375)` cm. The separate triangular prism uses a right-triangle base with legs 19 and 13 mm and height 37 mm.
 
@@ -35,4 +37,4 @@ The source-free tetrahedron uses intercepts 17, 23 and 31 mm. Its transformed va
 
 ## Attribution
 
-The transform field layout was compared with the locally pinned cadmpeg specification, `docs/formats/asm.md`, commit `de2726870ff728352163f601ab4e60bbd54fbade` (specification CC-BY-4.0; implementation Apache-2.0). The interpretation above is independently corroborated by native serializer/restorer/operator instructions. No raw-payload retention or external implementation code was adopted.
+The transform field layout was compared with the locally pinned cadmpeg specification, `docs/formats/asm.md`, commit `de2726870ff728352163f601ab4e60bbd54fbade` (specification CC-BY-4.0; implementation Apache-2.0). The mapping above is corroborated by the native acceptance of the nonidentity transform. No raw-payload retention or external implementation code was adopted.

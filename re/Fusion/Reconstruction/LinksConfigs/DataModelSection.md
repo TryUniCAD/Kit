@@ -137,7 +137,9 @@ A typed change of these four fields moves the occurrence in Fusion.
 
 ### `ACTRefdTable`
 
-`ACTRefdTable::initializeMemberSet` in `NsACT10.dylib` registers six members for schema version 1.
+`ACTRefdTable` has six members for schema version 1.
+The member names and types came from earlier binary inspection, which was removed.
+The Saved and Content columns come from the controls.
 
 | Member | Fusion type | Saved | Content in the controls |
 | --- | --- | --- | --- |
@@ -149,10 +151,9 @@ A typed change of these four fields moves the occurrence in Fusion.
 | `RefdAssetGuid` | `uuid` | Yes | Target asset GUID |
 
 The pair has no registered member names.
-`addEntry` and `_replaceEntry` set the count to 1 for a new key and add 1 for an existing key.
-`removeEntry` subtracts 1 and removes the key at 0.
 Kit calls the count `referenceCount`.
-`isOutOfDate` compares `CachedRevGuid` with the target revision, and then each tracked change type.
+Earlier binary inspection described how Fusion adds, removes and counts entries, and how it detects an out-of-date link.
+Those rules are not confirmed by a black-box experiment.
 
 ### Authoring rules
 
@@ -222,7 +223,6 @@ The configuration table, rule, row and cell layouts are not known.
 
 A second search found no other source of a configured design.
 The Fusion app bundle has 232 design files and 21 nested designs, and none has a configuration sidecar.
-`FusionXLayer10.dylib` also holds `Cannot retrieve configuration top table as the user is restricted.`
 `AppConfigScan.json` records the bundle scan.
 
 ## Verification

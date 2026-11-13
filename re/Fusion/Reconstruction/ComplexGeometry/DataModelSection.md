@@ -65,16 +65,18 @@ Every field of the 116 complex corpus members is consumed by a typed rule.
 Every corpus subtype except `helix_int_cur` and `helix_spl_line` contains at least one B-spline block.
 In `exact_spl_sur`, `exact_int_cur` and `exp_par_cur`, the B-spline is the definition itself.
 In the procedural subtypes, B-spline blocks are approximations or nested definitions beside the defining data.
-The installed kernel save routines give the field order of `exp_par_cur`, `exact_spl_sur` and the shared `spl_sur` data.
-The [kernel evidence](../../../re/Fusion/Reconstruction/ComplexGeometry/KernelEvidence.json) records each routine and its address range.
+Earlier binary inspection suggested the field order of `exp_par_cur`, `exact_spl_sur` and the shared `spl_sur` data.
+That evidence was removed.
+The order is confirmed only by complete decoding of the corpus members.
 
 Eleven subtypes read into frozen records with named fields.
 The grammar rules still define the byte layout, and no rule changed.
 `CurveContext` holds the shared intcurve data, and `SplineCommon` holds the shared spline-surface data.
 `BlendFrame` holds the shared blend data.
 `BlendSupport`, `OffsetRadius` and `InterpRadius` hold the blend supports and radii.
-The kernel slice gives 92 derived and 65 inferred field names in 27 record classes.
-The [kernel fields](../../../re/Fusion/Reconstruction/ComplexGeometry/TypedFields/KernelFields.json) give the routine of each name.
+The 157 field names in 27 record classes came from earlier binary inspection.
+That evidence was removed, so the names are research labels.
+They are not confirmed by a black-box experiment.
 `cl_loft_spl_sur`, `cyl_spl_sur`, `sum_spl_sur` and the helix subtypes keep the positional tree.
 The [typed field order gotcha](../../Gotchas/Conversion/Fusion/Geometry/TypedSubtypeFieldOrder.md) gives the rule for edits.
 

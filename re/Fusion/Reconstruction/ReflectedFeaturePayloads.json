@@ -17,34 +17,11 @@
     {
       "metatype": "IntrinsicMetaTypeUuid",
       "wireEncoding": "u32 UTF-16 code-unit count followed by canonical UUID string in UTF-16LE",
-      "binary": "Libraries/Neutron/NsDataModel10.dylib",
-      "sha256": "47ddbeca2f5c97c96e44989523ff969baa5d0d11b59d8ca35b934d48e2657af5",
-      "architecture": "arm64",
-      "saveSymbol": "__ZN2Ns17IntrinsicMetaTypeIN5boost5uuids4uuidEE6doSaveEPKvPNS_16IWriteStreamBaseERKNS_14VisitorContextE",
-      "saveAddress": "0x180aa4",
-      "fromUuidCallAddress": "0x180af0",
-      "binaryWideStringWriteCallAddress": "0x180afc",
       "controlledObservation": "associationId consumes 76 bytes: 4-byte length 36 and 72 UTF-16LE bytes, matching native UUID text"
     },
     {
       "metatype": "AcGeVector3dValueMetaType",
       "wireEncoding": "three little-endian IEEE754 binary64 coordinates x, y, z",
-      "binary": "Libraries/Neutron/NsTypes10.dylib",
-      "sha256": "b3a5d747f679acaeba03415e930a27f0d2254d1ca2fe9836bb59380215f98b47",
-      "architecture": "arm64",
-      "saveSymbol": "__ZN2Ns29AcGeVector3dDataModelCallback4saveEPK12AcGeVector3dPNS_16IWriteStreamBaseERKNS_14VisitorContextE",
-      "saveAddress": "0xbbacc",
-      "binaryCoordinateWriteAddresses": [
-        "0xbbb14",
-        "0xbbb28",
-        "0xbbb50"
-      ],
-      "coordinateObjectOffsets": [
-        0,
-        8,
-        16
-      ],
-      "streamVtableSlot": "0xb8",
       "controlledObservation": "profileNormal consumes 24 bytes at offset31 and equals the native x0,y0,z1 vector"
     }
   ],

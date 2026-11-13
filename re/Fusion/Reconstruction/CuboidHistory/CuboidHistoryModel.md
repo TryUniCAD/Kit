@@ -64,11 +64,11 @@ The source linear vertices have owner endpoint index zero for the owner's start 
 
 Plane reference vectors and line direction vectors are parameterization data. A line satisfies `P(t) = origin + direction*t`; the direction is not necessarily normalized. Plane normal, basis and face sense jointly determine orientation. The control's bottom face uses a positive-Z carrier and a reversed face flag. A new writer can instead use a negative-Z carrier with a forward face, provided its complete coedge orientation and parameterization are consistent.
 
-## Generic tag grammar, corrected by native code
+## Generic tag grammar
 
-The exact native serializer evidence is [GenericTagEvidence.json](GenericTagEvidence.json). The native `SMI_TAGGING_TRACKING::tag_data` layout resolves the previously provisional labels `selector` and `generation reference`:
+The [tag evidence](GenericTagEvidence.json) records the corpus decode of 441 groups. It replaces the previously provisional labels `selector` and `generation reference`:
 
-| Serialized item | Native meaning |
+| Serialized item | Meaning |
 | --- | --- |
 | Integer before primary text | Primary ID byte length, excluding NUL |
 | Primary text | `primary_id` byte string |
@@ -78,7 +78,9 @@ The exact native serializer evidence is [GenericTagEvidence.json](GenericTagEvid
 
 The same group grammar applies to a body, face or edge. A body group `[3,"301",7,0,0]` means a three-byte primary ID `301`, secondary ID seven, an empty operation array and approach ID zero. The initial three is not a body type discriminator. The five-field body form is simply the zero-operation-array case. A face group `[1,"6",0,1,301,0]` has primary ID `6`, secondary zero, operation array `[301]`, and approach zero.
 
-Native secondary IDs, operation IDs and approach IDs are signed 32-bit integers passed through `save_context::write_int(int)`; the width-eight file encodes them as signed 64-bit integer tokens. Primary storage is a byte array copied into a NUL-terminated temporary before `write_string(char const*)`. The inspected names are ASCII. This evidence does not establish general embedded-NUL or arbitrary-Unicode authoring.
+The primary byte length matches the stored text in all 441 corpus groups, and every approach ID is zero. The field names came from removed static inspection of installed Fusion libraries. They are not confirmed by a black-box experiment.
+
+The width-eight file encodes secondary IDs, operation IDs and approach IDs as signed 64-bit integer tokens. A narrower native width came from the removed static evidence and is not confirmed by a black-box experiment. The inspected names are ASCII. This evidence does not establish general embedded-NUL or arbitrary-Unicode authoring.
 
 Every custom attribute has prefix `REF -1, INT -1, REF next, REF previous, REF owner, STRING family`. Generic attributes then have integers `3,3,-1`, the string `generic_tag_attrib_def ` with its trailing space, a group count, and exactly that many complete groups. The preceding schema integers are distinct from a group's primary byte length.
 
@@ -125,7 +127,7 @@ The four curve recipes hold direction-one sketch tags, split pair `(1,1)` and ze
 | `5` | 106 | 105 | 107 |
 | `6` | 107 | 106 | 108 |
 
-The JSON research decoder still uses `objectOffset20Set` and `objectOffset38Set`; their native semantic names are established in the separate sketch-tag evidence as start- and end-adjacent primary tag IDs. The region recipe's native type is `std::list<std::pair<std::list<sketch_tag_id>,bool>>`. The control stores the ordered tag list 107,106,108,105, all with direction zero and split pair `(1,1)`, paired with Boolean true. That observed order is not the geometric perimeter order. No inspected matcher proves that list order is semantically interchangeable, so source reconstruction must retain it and independent authoring must establish its own accepted ordering. The endpoint-adjacent collections remain sets.
+The JSON research decoder still uses `objectOffset20Set` and `objectOffset38Set`; Kit names them start- and end-adjacent primary tag IDs; see [SketchTagSemantics.md](../EntityGraph/SketchTagSemantics.md). That naming is not confirmed by a black-box experiment. The region recipe's native type is `std::list<std::pair<std::list<sketch_tag_id>,bool>>`. The control stores the ordered tag list 107,106,108,105, all with direction zero and split pair `(1,1)`, paired with Boolean true. That observed order is not the geometric perimeter order. Nothing proves that list order is semantically interchangeable, so source reconstruction must retain it and independent authoring must establish its own accepted ordering. The endpoint-adjacent collections remain sets.
 
 ## Two-state journal
 
@@ -185,4 +187,4 @@ The writer's inputs are width, depth, height, base placement, fresh body key and
 | Body secondary ID 4 in native control | Body secondary ID 7 in native control |
 | One curve progenitor | Four curve progenitors with adjacent-tag sets |
 
-All generated-writer steps above are an implementation recipe. The actual observations in this document are static native serializer analysis and read-only decoding of archived source files. Product and vendor acceptance must be recorded separately.
+All generated-writer steps above are an implementation recipe. The actual observations in this document are read-only decoding of archived source files. Claims from removed static library inspection are marked as not confirmed by a black-box experiment. Product and vendor acceptance must be recorded separately.

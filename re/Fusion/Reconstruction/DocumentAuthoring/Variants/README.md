@@ -34,9 +34,11 @@ reconstruction of those maps remains an acceptance requirement.
 
 The creation-order list contains the authored sketch feature. The feature ID
 manager maps the chosen first operation to that new node, and the component
-operation seed advances by one. `VersionEvidence.json` proves the installed
-build's feature-language generation 260 and sketch constraint generation 7
-from direct native constant-return functions. The generation marker in named
+operation seed advances by one. The candidate writes feature-language
+generation 260 and sketch constraint generation 7, and Fusion accepted the
+circle candidate with these values. Earlier binary inspection
+tied these to the installed build; that evidence was removed and is not
+confirmed by a black-box experiment. The generation marker in named
 metadata and the interpretation of some data-reference flags remain qualified
 policy choices pending native acceptance, not universally proven defaults.
 
@@ -48,19 +50,21 @@ empty candidate in the parent directory remains unchanged.
 
 ## Canonical profile recipe evidence
 
-`RecipeConstructors.json` establishes that the native public
-`sketch_tag_id(tagId, direction)` constructor initializes all serialized fields:
-version 3, supplied primary tag, zero secondary tag, supplied direction, split
-sequence/total both 1, and the unnamed uint64 slot at object offset `0x20` zero.
-The `profile_edge_tag_data` default constructor initializes version 0 and both
-unnamed sets empty. `RecipeFields.py` exposes only this qualified constructor
-state. It cannot accept arbitrary unidentified scalar/set contents.
+`RecipeConstructors.json` lists the canonical recipe values. The unsplit
+`sketch_tag_id` recipe has version 3, the supplied primary tag, zero secondary
+tag, the supplied direction, split sequence/total both 1, and the unnamed
+uint64 field `objectOffset20` zero. The `profile_edge_tag_data` recipe has
+version 0 and both unnamed sets empty. Earlier binary inspection of
+constructors suggested these values; that evidence was removed. They are
+authored policy, accepted by Fusion in the extrusion candidate.
+`RecipeFields.py` exposes only this state. It cannot accept arbitrary
+unidentified scalar/set contents.
 
 This provides a source-independent route to a canonical unsplit-circle recipe.
 It does not recover the nonzero meaning of the remaining scalar or nonempty
-sets. Those are still explicit generic-format gaps. The region face recipe's
-pair boolean is now proven to mean `isOuterLoop` by the native debug writer's
-label, field load, and boolean output call. A single positive-Z full circle has
+sets. Those are still explicit generic-format gaps. Earlier binary inspection
+named the region face recipe's pair boolean `isOuterLoop`; that name is not
+confirmed by a black-box experiment. A single positive-Z full circle has
 one declared outer loop; arbitrary nested/split loop selection is outside this
 candidate.
 
@@ -84,8 +88,8 @@ the name registry, collection membership, and helper observer list.
 The profile scope selects the newly authored sketch by its fresh numeric
 identity. The component/plane scope selects the newly generated persistent
 component UUID. All asset scope values come from the supplied `assetId`. The
-region recipe is constructed from the allocated circle tag and the proven
-unsplit-tag constructor fields. A separate sketch-curve recipe uses the same
+region recipe is constructed from the allocated circle tag and the canonical
+unsplit-tag recipe fields. A separate sketch-curve recipe uses the same
 tag with reverse direction for the extrusion's profile-edge provenance.
 
 The feature-ID maps allocate the sketch's operation and two extrusion
@@ -126,7 +130,7 @@ Important additional qualifications:
 - Dependency maps are empty and explicitly marked noncurrent
 - The body passive-identity generator starts empty; no captured scan order is
   imported, and native acceptance must establish the required initialization
-- The physical material is the constructor-empty value; visual material uses
+- The physical material is the empty value; visual material uses
   an explicitly selected gray custom color with no material package
 - `generationRef` remains an explicit scalar whose general identity semantics
   are not yet established; the qualified candidate supplies the independently
@@ -140,10 +144,9 @@ initial geometry, rebuild, parameter editing, save, and reopen.
 
 ## Native loading invariant
 
-`BulkOrdering.json` records a newly recovered load requirement: primary bulk
-offsets must strictly increase with entity identity. Native loading traverses
-the entity-ID tree in order and computes each record span from consecutive
-offsets. Continuations may be inside their owner's span; globally moving all
-continuations to the end is not the inferred repair. The Design builders
-allocate and emit ascending primary IDs. The container authoring experiment
-initially violated this requirement in ACT and is being corrected separately.
+Fusion rejected an ACT stream whose primary bulk offsets did not increase with
+entity identity, and accepted it after only the physical order changed.
+Continuations may stay inside their owner's span; globally moving all
+continuations to the end was not needed. The Design builders allocate and emit
+ascending primary IDs. Earlier binary inspection described the general rule;
+beyond these cases it is not confirmed by a black-box experiment.

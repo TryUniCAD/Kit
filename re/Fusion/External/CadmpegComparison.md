@@ -6,7 +6,7 @@
 
 ## Scope, method and citation keys
 
-The comparison read cadmpeg's F3D specification, its open items, the Fusion section of its support ladder, the ASM specification and open items it delegates to, and the F3D writer sources. On the Kit side it read the data model, the BRep wire model, the acceptance matrix and the Kit documents those three link for the specific topics below. A read-only script resolved cadmpeg-cited class GUIDs against Kit's binary class catalogue. No tests, builds, `cargo` or `pytest` were run. A correspondence derived only from byte-offset arithmetic, or from absence in a text search, is marked **inferred** or **unverified**.
+The comparison read cadmpeg's F3D specification, its open items, the Fusion section of its support ladder, the ASM specification and open items it delegates to, and the F3D writer sources. On the Kit side it read the data model, the BRep wire model, the acceptance matrix and the Kit documents those three link for the specific topics below. A read-only script resolved cadmpeg-cited class GUIDs against Kit's class catalogue. No tests, builds, `cargo` or `pytest` were run. A correspondence derived only from byte-offset arithmetic, or from absence in a text search, is marked **inferred** or **unverified**.
 
 | Key | Path (cadmpeg paths are under `re/Fusion/External/cadmpeg/`) |
 | --- | --- |
@@ -21,17 +21,17 @@ The comparison read cadmpeg's F3D specification, its open items, the Fusion sect
 | GT | `Documentation/Changes/Fusion/FusionGenericTagSemantics.md` |
 | HS | `Documentation/Changes/Fusion/FusionHistoryStates.md` |
 | HM | `re/Fusion/Reconstruction/HeaderGrammar/HeaderModel.md` |
-| BC | `re/Fusion/Reconstruction/BinaryClasses.json` (1,218 GUID-to-class mappings from Fusion 2706.1.17 libraries) |
+| BC | `re/Fusion/Reconstruction/BinaryClasses.json` (1,218 GUID-to-class mappings for Fusion 2706.1.17; every identifier also appears in runtime reflection) |
 
 Line numbers are pinned to the cadmpeg commit and to this Kit working tree. Kit already credits cadmpeg at DM:31-34, DM:77-80, DM:526-528, BR:13, BR:55, BR:104, BR:136 and TS:11.
 
 ## Summary
 
-- The two projects describe the same container bytes. Most container differences are vocabulary: cadmpeg describes frames positionally, and Kit names fields from native serializers, reflection and disassembly.
+- The two projects describe the same container bytes. Most container differences are vocabulary: cadmpeg describes frames positionally, and Kit names fields from runtime reflection and saved documents. Some Kit names came from earlier binary inspection, which was removed; those names are research labels.
 - cadmpeg is much broader: about 58 feature families, assemblies and cross-document references, configurations, T-spline Form graphs, ParaMesh attribute channels, and a large ASM procedural and tolerant-geometry vocabulary. It records 198 F3D and 43 ASM open items.
 - Kit is narrower and deeper on what it covers. It names native members and allocators, and it independently authors complete parametric documents that Fusion 2706.1.17 opens, rolls back, rebuilds, edits, saves and reopens.
 - cadmpeg's writer replays or patches retained source archives. Its source-less generator writes B-rep, ASM history, selected Design records, configurations and appearances. It does not write ACT, Browser, feature scopes, owned parameters or sketch placements. No record of Fusion opening cadmpeg output was found.
-- Kit's native evidence contradicts several cadmpeg statements: TSM link order, `ec` and extension meanings, `history_stream` preamble fields, the generic-tag "selector", the history-flag rule, and vertex `index_flag`. Kit fully resolves two cadmpeg open items (HS-01, DR-80) and gives names or inferred answers for several more (§5.2).
+- Kit's black-box evidence contradicts several cadmpeg statements: TSM link order, the crease namespace, the equal `history_stream` preamble fields, the generic-tag "selector" and vertex `index_flag`. Kit's earlier binary inspection also disagreed on `ec`, namespace 50000 and the history-flag rule; those points are not confirmed by a black-box experiment. Kit answers two cadmpeg open items in part (HS-01, DR-80) and gives names or inferred answers for several more (§5.2).
 
 ## 1. Container and segment layer
 
@@ -121,23 +121,23 @@ The two projects use different methods for sketches:
 | `FA1F0081` | Form body record (F:91) | `NaTSpline::SubDSurfaceNode` |
 | `362B7EC3` | Point `paired_reference` companion (F:607) | `Ns::Geometry::CurveUses` |
 
-The class names come from binary string mappings. They do not by themselves refute cadmpeg's functional descriptions. The two texture-mapping matches for "Scene" records are the clearest candidates for re-examination.
+The class names come from Kit's class catalogue. They do not by themselves refute cadmpeg's functional descriptions. The two texture-mapping matches for "Scene" records are the clearest candidates for re-examination.
 
 ## 3. B-rep layer
 
 | Topic | cadmpeg | Kit | Assessment |
 | --- | --- | --- | --- |
 | Header words | u32 version at 15, zeros 19-31, u64 entity count at 31, u64 flags at 39 (A:15-25) | Four i64: version, optional record count, top-level entity count including `asmheader`, flags (DM:416, BR:248) | Same bytes. Kit's second word is an omitted record count. |
-| Revision | `save_format*100 + ((flags>>1)&0x7f)` (A:66) | Same, from disassembly (DM:420, BR:248) | Agree |
-| History bit | Bit 0 "set iff the stream carries a history partition"; history streams are selected by this flag (A:23, A:66, F:433, S:352) | A header rewrite can clear bit 0; explicit markers are authoritative (DM:420-421, BR:248) | **Disagree** |
-| `scale` | Metadata, not a coordinate multiplier (A:67, A:183) | Same for embedded streams (BR:76). The standalone TemporaryBRep importer rescales by `units/10` (DM:422, BR:250). | Agree; Kit adds an importer exception |
+| Revision | `save_format*100 + ((flags>>1)&0x7f)` (A:66) | Same formula, from earlier binary inspection; not confirmed by a black-box experiment (DM:420, BR:248) | Agree, unconfirmed |
+| History bit | Bit 0 "set iff the stream carries a history partition"; history streams are selected by this flag (A:23, A:66, F:433, S:352) | Explicit markers are authoritative. Earlier binary inspection said bit 0 cannot prove history is absent; that is not confirmed by a black-box experiment (DM:420-421, BR:248) | **Disagree**, unconfirmed |
+| `scale` | Metadata, not a coordinate multiplier (A:67, A:183) | Same for embedded streams (BR:76). Earlier binary inspection said the standalone TemporaryBRep importer rescales by `units/10`; one accepted case agrees, and the rule is not otherwise confirmed (DM:422, BR:250). | Agree; Kit notes a possible importer exception |
 | Tags | `0x02`-`0x17`, width 4 or 8 (A:77-102) | Same; Kit's width-4 and rare tags follow cadmpeg (BR:82-104). Tag 23 is an integer only inside one verified schema (DM:443-447). | Agree; Kit is stricter on tag 23 |
 | Markers | `Begin-of-ASM-History-Data`; `End-of-ASM-data` has no terminator (A:120-133, A:174) | Same; empty history tail (BR:106-108) | Agree |
-| `history_stream` preamble | `stream_size`, `stream_size_duplicate`, 0, `history_entry_count`, with the first two equal (A:139-147) | Current state ID, maximum state ID, retained-state limit, next entity tag; a rolled-back stream stores `3,10,0,6` (HS:3, HS:26-30, DM:772) | **Disagree**; Kit resolves AO HS-01 |
+| `history_stream` preamble | `stream_size`, `stream_size_duplicate`, 0, `history_entry_count`, with the first two equal (A:139-147) | A rolled-back stream stores `3,10,0,6`, so the first two fields can differ. Kit's names, current and maximum state ID, retained-state limit and next entity tag, came from earlier binary inspection (HS:3, HS:26-30, DM:772) | **Disagree** on equality; the names are unconfirmed |
 | `delta_state`, bulletins | Field list; old/new insert, delete and update (A:151-168) | Same fields (BR:183-189). Board scalar is a status enum: mainline, stacked, succeeded, failed (DM:772). | Agree; Kit names the board |
 | Materialization | Archived revisions, stable slots, reverse transitions (A:170-174) | Linear journal codec with slot aliases; branches and merges rejected (DM:798-802) | Agree |
 | Vertex `index_flag` | 0 = start, 1 = end (A:290) | A native closed circle stores 2; Kit admits 0 and 2 (BR:136, DM:657) | **Disagree**; the meaning of 2 is open |
-| `generic_tag_attrib_def` | Body group "entity-class discriminator" 3; face/edge `selector, token, 0, count, refs, 0` (A:330-349, F:577) | Primary byte length, primary text, secondary identity, operation count, operation IDs, approach ID, from `tag_data::save` (GT:10-12, GT:19-28, GT:76-80) | **Disagree**: cadmpeg's 3 is `len("301")` and its 4 is `len("-102")` |
+| `generic_tag_attrib_def` | Body group "entity-class discriminator" 3; face/edge `selector, token, 0, count, refs, 0` (A:330-349, F:577) | Primary byte length, primary text, secondary identity, operation count, operation IDs, approach ID; the length matches the following text in saved documents (GT:10-12, GT:19-28, GT:76-80) | **Disagree**: cadmpeg's 3 is `len("301")` and its 4 is `len("-102")` |
 | `sketch_attrib_def` | `(sketch_curve_id, ref_b, sense, enum_a, enum_b)` plus a filler `0` (A:355) | Curve ID, secondary ID, direction (`UINT32_MAX` wildcard), role flags, split ordinal, split total (BR:175, DM:659, DM:667) | Same bytes; Kit names the enums and the "filler" |
 | Timestamp attribute | Unix-epoch microseconds (A:357) | Same (BR:163) | Agree |
 | Body maps | Match the ASM body key, otherwise use the ordinal among non-sketch-region bodies (F:533) | Match the typed BODY identifier; root order is disproved (DM:456-459, BR:55) | Agree, except for cadmpeg's ordinal fallback |
@@ -174,25 +174,25 @@ The class names come from binary string mappings. They do not by themselves refu
 
 | Item | Kit answer | Strength |
 | --- | --- | --- |
-| AO:416 HS-01 | The first field is the current state ID, and the second is the maximum allocated state ID. This also refutes A:147. | Native save/getter disassembly and a rolled-back control (HS:26-30, AE:59-61) |
-| FO:356 DR-80 | The u32 is `highWaterMark`; `getNextID` never decrements it, so it "can exceed" the count. The first reference names `ParameterSearchByNameHelper`, and the final reference names the owning component (DM:231-266). | Binary names and controlled captures. cadmpeg's version-3 offsets are four bytes earlier than Kit's layout (F:657 vs DM:235-243); the version correspondence is unverified. |
+| AO:416 HS-01 | The first two fields can differ, which refutes A:147. Kit reads them as the current and maximum allocated state IDs. | Partial: a rolled-back control shows the difference (HS:26-30, AE:59-61). The names came from earlier binary inspection and are not confirmed by a black-box experiment. |
+| FO:356 DR-80 | The u32 is `highWaterMark`; it is not decremented, so it "can exceed" the count. The first reference names `ParameterSearchByNameHelper`, and the final reference names the owning component (DM:231-266). | Reflected member names and controlled captures. The rule that it is never decremented came from earlier binary inspection and is not confirmed by a black-box experiment. cadmpeg's version-3 offsets are four bytes earlier than Kit's layout (F:657 vs DM:235-243); the version correspondence is unverified. |
 | FO:1021 DR-144, FO:1507 DR-251, FO:364 DR-81 | Trailer bytes are `isDirty`, `isDriven`, (`isExternal`), `isFavourite`, `isOrphan`, `isUserDefined` (DM:319-343). Null owner with byte 3 set = `isOrphan`. | **Inferred** from member order. It was not checked on cadmpeg's files, and older schema versions are not in Kit's capture (DM:559-566). |
 | FO:2219 DR-334 | The token integer is native `secondary_id` (GT:12, GT:26-28, GT:78) | Partial: the name and type are known; the assignment rule is open in both projects |
 | FO:620-660 DR-264, DR-288, DR-289 | The class is `SKs::Geometry::MeshPlanarSection` (BC); it backs `DcSketch.meshSections` (DM:612) | Partial: class identity only. Member names may be in Kit's reflection capture (unverified). |
-| Uninterpreted MetaStream words (F:468) | Metadata version 8, packed u64 software version, `neutronType`, ancestry count (HM:3-9) | Native disassembly |
+| Uninterpreted MetaStream words (F:468) | Metadata version 8, packed u64 software version, `neutronType`, ancestry count (HM:3-9) | Partial: the names came from earlier binary inspection, which was removed. They are not confirmed by a black-box experiment. |
 
 ### 5.3 cadmpeg statements that Kit's evidence contradicts
 
 These are candidates for upstream reports:
 
-- **TSM** (F:40, F:73). Kit's native getters and crease contrasts show the following (TS:31, TS:40-47, TS:65-68, TS:70; `Documentation/Changes/Fusion/TSpline/FusionTsplineCodec.md:17`):
-  - `l` stores previous before next.
-  - `ec` is an edge index and an end-condition double. It is not the crease set.
-  - Namespaces 100 and 50000 are `ExCrease` and `ExSmartGrip`, not editor selections.
+- **TSM** (F:40, F:73). Kit's accepted authoring, crease contrasts and edit controls show the following (TS:31, TS:40-47, TS:65-68, TS:70; `Documentation/Changes/Fusion/TSpline/FusionTsplineCodec.md:17`):
+  - `l` stores previous before next. Fusion accepted an authored cage with this order.
+  - `ec` is not the crease set. Kit's reading of it as an edge index and an end-condition double came from earlier binary inspection and is not confirmed.
+  - Namespace 100 changes when an edge is creased, so it is not an editor selection. Kit's reading of namespace 50000 came from earlier binary inspection and is not confirmed.
   - `ver` is a mutation counter.
 - **Symmetry maps.** cadmpeg's `f`/`fr` direction labels are the reverse of Kit's (F:75 vs TS:72). Only the label differs.
 - The history preamble, generic-tag "selector" and vertex `index_flag` rows of §3.
-- The "iff" history flag rule (A:66).
+- The "iff" history flag rule (A:66). Kit's position rests on earlier binary inspection and is not confirmed.
 - The MetaStream UUID called "asset GUID" (F:468, F:511) is `currentVersion` per HM:7.
 - The "family discriminator" (F:655) is `birthday` per DM:345 (**inferred**).
 - `6CCF41D5` is labeled a presentation frame; BC names it `DynamicUpdateData`.
@@ -220,4 +220,4 @@ Both projects stop short of replay. cadmpeg states its history "is not yet repla
 The methods differ:
 
 - cadmpeg specifications state settled facts without provenance (`AGENTS.md:11`), and its support levels accept evaluations "as stated" (S:38-42). Many frames are keyed on per-file class tags and fixed lengths (about 416 numeric class-tag mentions in F, for example F:1020-1029).
-- Kit ties claims to native binaries, reflection and hashed Fusion acceptance runs, and it selects schemas from each archive's registry (DM:570, AE:21).
+- Kit ties claims to saved documents, runtime reflection and hashed Fusion acceptance runs, and it selects schemas from each archive's registry (DM:570, AE:21).

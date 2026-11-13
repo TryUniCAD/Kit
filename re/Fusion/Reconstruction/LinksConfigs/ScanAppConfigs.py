@@ -6,7 +6,6 @@ The scan is read-only. It records paths relative to the bundle only.
 """
 
 import collections
-import hashlib
 import io
 import json
 import sys
@@ -27,10 +26,6 @@ STUB_NAMES = (
     "addFromConfiguration",
     "addFromCustomConfiguration",
     "configuredDataFile",
-)
-RESTRICTION_TEXTS = (
-    b"Cannot create configuration top table as the user is restricted.",
-    b"Cannot retrieve configuration top table as the user is restricted.",
 )
 
 
@@ -86,19 +81,6 @@ def scan_stubs(contents):
     return found
 
 
-def scan_restrictions(contents):
-    hits = {}
-    for path in sorted(contents.rglob("*.dylib")):
-        data = path.read_bytes()
-        names = [text.decode() for text in RESTRICTION_TEXTS if text in data]
-        if names:
-            hits[path.relative_to(contents).as_posix()] = {
-                "sha256": hashlib.sha256(data).hexdigest(),
-                "texts": names,
-            }
-    return hits
-
-
 def main():
     contents = Path(sys.argv[1])
     output = Path(sys.argv[2])
@@ -106,7 +88,6 @@ def main():
         "scope": "Fusion app bundle Contents folder, read-only",
         "designs": scan_designs(contents),
         "api_stubs": scan_stubs(contents),
-        "restriction_texts": scan_restrictions(contents),
     }
     output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
 

@@ -6,15 +6,13 @@ An F2D is a distinct Fusion document container. The inspected drawing combines a
 
 This investigation fully frames the historical metadata stream and both manifests, resolves all 44 class names, and identifies the drawing-specific fields in three records. It does **not** decode the DWG database, every inherited entity field, or every historical manifest control word. No independent F2D writer or native acceptance is established.
 
-Evidence is read-only: ZIP extraction in memory, scalar/string decoding, previously captured reflection identities, shipped native-library disassembly, and upstream source inspection. No Fusion operation, cloud upload, user cloud-project query, production codec invocation, or test ran. No Autodesk sample binary is vendored here.
+Evidence is read-only: ZIP extraction in memory, scalar/string decoding, previously captured reflection identities, and upstream source inspection. Some member names and types below came from earlier binary inspection, which was removed; the text marks those claims. No Fusion operation, cloud upload, user cloud-project query, production codec invocation, or test ran. No Autodesk sample binary is vendored here.
 
 | Artifact | Contents |
 |---|---|
 | [DrawingInventory.json](DrawingInventory.json) | Exact source paths and hashes, all archive members, manifest field offsets, complete metadata index, all class names and record spans, partial typed record values, bundle/reference joins, current registered drawing class catalog |
-| [NativeDrawing.json](NativeDrawing.json) | Bounded arm64 disassembly, recovered string references and import identities, image digests, historical version conversion |
 | [UpstreamEvidence.json](UpstreamEvidence.json) | Pinned upstream revision, source hashes, relevant line locations, documentation links |
 | [InspectDrawing.py](InspectDrawing.py) | Raw public-resource ZIP/struct analysis; no production imports |
-| [InspectNative.py](InspectNative.py) | Static disassembly and string/import annotation; temporary thin image is removed on exit |
 
 ## Corpus and extension coverage
 
@@ -102,7 +100,7 @@ Primary entities are IDs zero through 26. Primary offsets increase in identity o
 
 The class identifier for `BRepSerializer` is the literal `40DCC3F41D-E94F-B3B1-3E95-9B6ABE572C`, which is not a conventional 8-4-4-4-12 UUID spelling. Treating every class identifier as a normalized UUID would reject this sample. Equality uses the registered identifier string, with explicitly defined compatibility rules, not invented normalization.
 
-The legacy software word is **not magic**. Current `SegmentBinaryMetaStreamer::load` at `0x260004–0x260030` uses the first u32 as the saved version when metadata version is at most five, otherwise it reads a following u64. `Ns::SoftwareVersion::versionInfo(unsigned int)` at `0x12d114` splits the legacy word into six major bits, six minor bits and twenty build bits. The observed value is software 2.0.1703. Current version-eight metadata instead writes sentinel 1234 and a separate packed u64. Current trailing flags/property maps are also absent from this version-two stream.
+Earlier binary inspection read the legacy word as a packed software version: six major bits, six minor bits and twenty build bits, giving software 2.0.1703 for this sample. That reading is not confirmed by a black-box experiment. Current version-eight metadata instead writes sentinel 1234 and a separate packed u64. Current trailing flags/property maps are also absent from this version-two stream.
 
 ## Manifest version ten
 
@@ -140,13 +138,13 @@ Forty class declarations belong to common Component/Body/Geometry/CommonData/val
 | 25 | Drawing asset settings, followed by common settings continuation |
 | 26 | Protein asset manager, with no Protein payload |
 
-Entity 22, GUID `3B30D852-778A-4752-9EBD-A154875C911C`, is `ExtFileSerializer` version zero. Its root ID is `ExternalDWG`. Its own persisted field is `persistedFileName: W`, exactly the basename found under `Dwg.BlobParts`. Native initialization at `0x2689e0` registers `persistedFileName` at object offset `0x98` with the wide-string intrinsic type. This is a direct typed join, not a filename guessed from archive contents.
+Entity 22, GUID `3B30D852-778A-4752-9EBD-A154875C911C`, is `ExtFileSerializer` version zero. Its root ID is `ExternalDWG`. Its own persisted field is `persistedFileName: W`, exactly the basename found under `Dwg.BlobParts`. The member name and wide-string type came from earlier binary inspection; the value is in the saved sample. This is a direct join, not a filename guessed from archive contents.
 
-Entity 23, GUID `8F05428E-590E-4DE6-9CEF-B34EDA0D27B9`, is `FusionDocExternalFileRefs` version three. Its root ID is `FDExternalFileRefs`. The version-three branch at `0x2f9528–0x2f952c` selects `0x2f9d48`, registering `componentFilter` as a wide string and `rTrackedEntitys` as `StrongRef<FusionDocTrackedEntities>`. The native spelling includes `Entitys`. Lexical field order in this sample is empty `componentFilter`, then a local strong reference to entity 24. That reference is `u8(1),u64(24),u8(0),u8(0)`; the last qualifiers indicate the observed local form. This does not qualify arbitrary external reference encodings.
+Entity 23, GUID `8F05428E-590E-4DE6-9CEF-B34EDA0D27B9`, is `FusionDocExternalFileRefs` version three. Its root ID is `FDExternalFileRefs`. Earlier binary inspection named its version-three fields `componentFilter`, a wide string, and `rTrackedEntitys`, a strong reference to `FusionDocTrackedEntities`. Lexical field order in this sample is empty `componentFilter`, then a local strong reference to entity 24. That reference is `u8(1),u64(24),u8(0),u8(0)`; the last qualifiers indicate the observed local form. This does not qualify arbitrary external reference encodings.
 
-Entity 24, GUID `981E7978-171B-445C-9533-8401DB6665FE`, is `FusionDocTrackedEntities` version zero. Native `initializeMemberSet` at `0x313358` immediately returns: there are no own members. Its common group fields live in a separate continuation and must be decoded as the recorded base profile.
+Entity 24, GUID `981E7978-171B-445C-9533-8401DB6665FE`, is `FusionDocTrackedEntities` version zero. Earlier binary inspection found no own members; this is not confirmed by a black-box experiment. Its common group fields live in a separate continuation and must be decoded as the recorded base profile.
 
-Entity 25, GUID `35899357-B223-4909-AB50-841E9C212694`, is `FusionDocAssetSettings` version zero with root ID `AssetSettings`. The zero-version branch at `0x2ee840` targets `0x2ef004`. Its ten own fields consume the complete primary payload after the root frame, in lexical name order:
+Entity 25, GUID `35899357-B223-4909-AB50-841E9C212694`, is `FusionDocAssetSettings` version zero with root ID `AssetSettings`. Its ten own fields consume the complete primary payload after the root frame, in lexical name order:
 
 | Persisted member | Wire type | Observed value |
 |---|---|---|
@@ -161,7 +159,7 @@ Entity 25, GUID `35899357-B223-4909-AB50-841E9C212694`, is `FusionDocAssetSettin
 | `FusionDocUnitDisplay` | Boolean byte | false |
 | `FusionDocViewProjectionDir` | W | 1st Angle |
 
-These are native member names, not inferred display labels. The `3.5` annotation height is a string, not a binary double; precision values are signed i32, not arbitrary unnamed enums. Native global pointers `0x59ef50`, `0x59ef58`, `0x59ef68` resolve to wide-string, Boolean and int32 intrinsic metadata respectively. The settings' common continuation declares `CommonDataAssetSettings` version 13 and remains a separate decoding obligation.
+The member names and wire types came from earlier binary inspection; the values decode cleanly from the saved sample with those types. The `3.5` annotation height is a string, not a binary double; precision values are signed i32, not arbitrary unnamed enums. The settings' common continuation declares `CommonDataAssetSettings` version 13 and remains a separate decoding obligation.
 
 The known complete own-member reads above do not imply all 2,593 bulk bytes are semantically decoded. The inventory deliberately labels other records' remaining bytes unresolved and retains only their offsets/counts, not opaque bodies disguised as decoded values.
 
@@ -181,7 +179,7 @@ The same project's [decoder dispatch](https://github.com/LibreDWG/libredwg/blob/
 
 LibreDWG is GPL-3.0-or-later, as its [README](https://github.com/LibreDWG/libredwg/blob/1f30f47d25cbfa4d22a600d9fdfe1fdd4e19aa0a/README) and [license](https://github.com/LibreDWG/libredwg/blob/1f30f47d25cbfa4d22a600d9fdfe1fdd4e19aa0a/COPYING) state. It is an upstream research/reference candidate, not an already-approved MIT code transplant. Its README qualifies writing to older versions through R2004 and labels support for unstable classes separately. No LibreDWG build or invocation was made here, and its source availability does not establish a lossless AC1027 writer or Fusion custom-object support.
 
-Native evidence agrees with the DWG boundary. `ExtFileBlobSerializer::doSave` reaches the temporary DWG path at `0x265118`, checks its existence/size, and enters an error path when it is missing or empty. The diagnostic at `0x5602f4` explicitly names a missing/zero-size DWG. The save route calls `BlobPart::createZipPartFromFile`; the load route at `0x2666ec` calls `BlobPart::extractZipPartToFile`. The default temporary filename is `Document1.dwg`. Auxiliary images and previews have their own handling. This is a genuine external database inside the archive, not another Neutron entity stream.
+The DWG is a separate archive member named by `persistedFileName`. This is a genuine external database inside the archive, not another Neutron entity stream.
 
 No class/handle/object inventory of the DWG has yet been decoded. In particular, the number of sheets/views, dimensions, projected curves, hidden-line data, object-enabler classes, and model-associativity records is unknown. The historical F2D has no Neutron sheet or view entities; its four drawing-specific classes cannot account for this content on their own.
 

@@ -87,7 +87,7 @@ Equivalently, fresh geometric input in terms of two radii gives sine `(rt-rb)/hy
 
 The independent semantic range should initially require `−90 < theta_deg < 90`, positive finite height and both positive radii, with representable geometry. Reject an apex, a radius crossing zero, a zero representable cosine, overflow, or a sign/direction mismatch. Zero angle is the cylinder limit, not an error. Negative angles contract along +Z, but the negative-angle corpus example is a subsequent Draft feature; it does not by itself establish negative tapered-extrusion history support. Native acceptance of a freshly authored contracting extrusion remains required.
 
-The static native derivation is already frozen in [FrustumModel/ConeEvidence.json](../FrustumModel/ConeEvidence.json). `cone::save_data` and `cone::eval` establish the sine/cosine/length-scale sequence and longitudinal-vs-angular parameter roles. No additional native calls were made for this report.
+[FrustumModel/ConeEvidence.json](../FrustumModel/ConeEvidence.json) holds the decoded taper records and their ground truth. The sine, cosine and length-scale sequence and the parameter roles rest on those records and on the accepted native frustums in the [frustum model](../FrustumModel/FrustumModel.md). No additional native calls were made for this report.
 
 ## Attributes and identity joins
 

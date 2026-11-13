@@ -10,18 +10,9 @@ The outputs are standalone ASM 23200 SMT and SMB solids. This feature does not a
 
 The native controlled source is `re/Fusion/Study/extents-f0f33a9a605f/taper.f3d`, SHA-256 `d5e776fa897782747e699b1ed366f9bf51bf6652c19a21001676651c2cd4118f`. Its accompanying `ground_truth.json` records a 7-degree positive taper, a 17 mm axial extent and a 12.087337535349378 mm upper radius. The lower radius is 10 mm. The source history part is `FusionAssetName[Active]/Breps.BlobParts/BREP.299112e4-f409-4233-89b9-e59b88e80317.smbh`, SHA-256 `4922e923b5fc1515732922c843edb42eec2b92ba5243413027334880ce2475e1`.
 
-[ConeEvidence.json](ConeEvidence.json) contains the selected typed native records, ground truth, binary hashes, exact function addresses and disassembly. [InspectCone.py](InspectCone.py) regenerates that read-only report from the raw archive and an arm64 extraction of the installed ASM kernel. It does not import production modules or call a CAD runtime. Installed kernel binaries are not committed.
+[ConeEvidence.json](ConeEvidence.json) contains the selected typed native records and the ground truth. [InspectCone.py](InspectCone.py) regenerates that read-only report from the raw archive. It does not import production modules or call a CAD runtime.
 
-The installed `libASMkern232.dylib` universal binary has SHA-256 `9a8ef93492dc6ef2f35cd933f14b61b6fb6215c623475a96105396b390111958`. The relevant symbols are:
-
-| Symbol | arm64 address | Evidence |
-| --- | --- | --- |
-| `cone::save_data` | `0x439430` | Writes the base ellipse, object +0xb0 and +0xb8 real values, optional historical-version scale at +0xc0, sense and surface ranges |
-| `cone::restore_data` | `0x43958c` | Reads the same fields; derives old-version parameter scale from the major-vector length |
-| `cone::eval` | `0x437028` | Evaluates the angular second parameter through `__sincos_stret`; uses the first parameter for axial/radial progression |
-| `cone::get_apex` | `0x435838` | Computes `center - axis * majorLength * cosine / sine` |
-
-The call at `0x437054` targets the verified import stub `0xa25760` for `___sincos_stret`. The apex subtraction at `0x4358d0` targets `0xa2438c`, the imported position-minus-vector operator. Save/restore comparisons use the kernel's internal version numbering; the report does not equate those constants with the outer SMT/SMB header number.
+An earlier version also cited static inspection of the installed ASM kernel for these fields. That material was removed. The field sequence and the evaluation below rest on the InventorLoader parser, the taper ground truth and the native acceptance results under Verification.
 
 The independent [InventorLoader `SurfaceCone` parser](https://github.com/jmplonka/InventorLoader/blob/master/Acis.py) corroborates the ellipse, sine, cosine, length-scale and sense field sequence. Its apex construction uses the same radius and angle relationship. No upstream implementation code was copied.
 
@@ -45,7 +36,7 @@ Field indices below include the three common entity-prefix fields. Positions, di
 
 Here `slantLength = hypot(height, topRadius-bottomRadius)`. Positive sine expands the radius along +Z, negative sine contracts it, and zero sine gives a cylinder. The authored cosine is positive.
 
-For the circular, forward-sense profile, let `b` be the base center, `r` the base radius, `s` the parameter scale, and `a` the semi-angle. The native evaluation reduces to:
+For the circular, forward-sense profile, let `b` be the base center, `r` the base radius, `s` the parameter scale, and `a` the semi-angle. The evaluation reduces to:
 
 ```text
 p(u,v) = b + (r + u*s*sin(a)) * (cos(v), sin(v), 0)

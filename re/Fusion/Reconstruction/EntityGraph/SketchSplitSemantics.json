@@ -1,65 +1,51 @@
 {
   "schema": "FusionSketchSplitSemantics/1",
-  "method": "Read-only ARM64 native disassembly plus full saved-corpus research decoding; no production codec execution, local tests, or native calls",
-  "binaryProvenance": "SketchTagSemantics.json",
+  "method": "Full saved-corpus research decoding; no production codec execution, local tests, or native calls. The earlier static library inspection was removed.",
   "corpusEvidence": "SketchSplitSamples.json",
   "fields": [
     {
       "name": "splitSequenceId",
-      "objectOffset": "0x28",
       "wireType": "uint32",
-      "meaning": "One-based ordinal of this fragment in the ordered split of the source curve",
-      "nativeLabel": "sequence id",
-      "labelAddress": "NsASMInterface10:0x13baeb",
-      "labelUse": "NsASMInterface10:0xdc420-0xdc440"
+      "meaning": "One-based ordinal of this fragment in the ordered split of the source curve"
     },
     {
       "name": "splitTotalNumber",
-      "objectOffset": "0x2c",
       "wireType": "uint32",
-      "meaning": "Number of fragments in that split of the source curve",
-      "nativeLabel": "total number",
-      "labelAddress": "NsASMInterface10:0x13bafa",
-      "labelUse": "NsASMInterface10:0xdc45c-0xdc494"
+      "meaning": "Number of fragments in that split of the source curve"
     }
   ],
   "domain": {
     "invariant": "1 <= splitSequenceId <= splitTotalNumber <= 4294967295",
-    "unsplitDefault": [1, 1],
-    "constructorValuesAreNotConstants": true,
+    "unsplitDefault": [
+      1,
+      1
+    ],
     "observedMaximumIsNotFormatMaximum": true,
     "evidence": [
-      "NaFusion10:0x4b4dc0 ProfileTrackingHelper::updateSequenceId takes an AcGePoint3d, source Curve3D, ordered set<double> of intersection parameters, and multimap of sketch tags",
-      "0x4b4df8-0x4b4e18 evaluates sourceCurve.paramOf(point)",
-      "0x4b4e3c queries isPeriodic; 0x4b4e40 reads the intersection-set size",
-      "0x4b4e50-0x4b4e58 and 0x4b4e64-0x4b4e68 emit (1,1) when no split is needed",
-      "0x4b4ef4 uses size-1 for open-curve fragment count; the periodic branch retains size",
-      "0x4b4f04 and 0x4b4fd8 increment the fragment ordinal while traversing ordered intervals",
-      "0x4b5094-0x4b50b8 asserts newSeqId <= numInt",
-      "0x4b50bc-0x4b50dc asserts newSeqId > 0",
-      "0x4b50e0 stores ordinal/count into sketch_tag_id+0x28/+0x2c and 0x4b5124 propagates the same pair to sibling tags"
+      "Every one of the 84 split tags in the saved corpus satisfies 1 <= splitSequenceId <= splitTotalNumber",
+      "The corpus holds both non-final fragments such as (1,2) and final fragments such as (2,2) and (4,4)"
     ],
-    "nativeSourcePath": "Core/Fusion/Server/Fusion/DesignCapture/DataRef/Recipes/SketchRegionTrackerHelper.cpp",
-    "caveat": "The native assertions document intended producer invariants; raw restore reads two uint32 values without enforcing them. A semantic reader should enforce the producer invariant rather than silently normalizing malformed pairs."
-  },
-  "matching": {
-    "exactPairEquality": "split_sequence_id::isEqualTo at NsASMInterface10:0xdc6a0 compares both uint32 fields",
-    "compatibleMatch": "split_sequence_id::match at NsASMInterface10:0xdc6cc accepts either pair(1,1), otherwise accepts equal sequence ordinals or two final fragments(sequence==total in both)",
-    "sketchExactMatch": "sketch_tag_id::exactMatch at0xde758-0xde760 calls compatible split match, so its name does not imply byte-identical split pairs"
+    "caveat": "The field names and the producer invariant came from removed static evidence. The corpus is consistent with them, but they are not confirmed by a black-box experiment. A semantic reader can reject malformed pairs, but must not replace real split pairs with (1,1)."
   },
   "direction": {
     "wireType": "uint32",
-    "qualifiedValues": [0, 1, 4294967295],
+    "qualifiedValues": [
+      0,
+      1,
+      4294967295
+    ],
     "wildcard": 4294967295,
-    "evidence": "NsASMInterface10::compareDirection 0xdc8bc and exactMatch0xde768-0xde784 test each operand with cmn w,#1, treating UINT32_MAX in either as compatible",
-    "corpusCounts": {"0": 2099, "1": 2964, "4294967295": 14},
+    "evidence": "The saved corpus holds the values 0, 1 and 4294967295. Treating 4294967295 as a wildcard came from removed static evidence and is not confirmed by a black-box experiment.",
+    "corpusCounts": {
+      "0": 2099,
+      "1": 2964,
+      "4294967295": 14
+    },
     "restriction": "Do not narrow the persisted direction callback to a Boolean"
   },
   "secondaryTag": {
     "wireType": "uint64",
-    "objectOffset": "0x10",
-    "meaningEstablished": "Second identifier in the source sketch CurveTag key, independent of split ordinal/count",
-    "evidence": "NaFusion10 ProfileMatcher::getSketchCurvesFromRecipe0x4b60d4 reads the adjacent primary/secondary uint64 pair from list-node+0x18/+0x20 at0x4b6114, then looks up map<Ns::Geometry::Sketch::CurveTag,...> at0x4b6120",
+    "meaning": "Second identifier of the source sketch curve key; the role came from removed static evidence and is not confirmed by a black-box experiment",
     "corpusNonzeroCount": 0,
     "limitation": "This study does not establish nonzero secondary-ID allocation semantics. Retaining the existing zero-qualified profile is supported by this corpus."
   },
@@ -69,7 +55,38 @@
     "splitTagValues": 84,
     "outsideInvariant": 0,
     "archiveFailures": 0,
-    "splitPairs": [[1, 1, 4993], [1, 2, 32], [2, 2, 36], [2, 3, 8], [2, 4, 4], [4, 4, 4]],
+    "splitPairs": [
+      [
+        1,
+        1,
+        4993
+      ],
+      [
+        1,
+        2,
+        32
+      ],
+      [
+        2,
+        2,
+        36
+      ],
+      [
+        2,
+        3,
+        8
+      ],
+      [
+        2,
+        4,
+        4
+      ],
+      [
+        4,
+        4,
+        4
+      ]
+    ],
     "version": 3,
     "allSecondaryIdsZero": true,
     "allTopologyRoleFlagsZero": true

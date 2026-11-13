@@ -211,7 +211,7 @@ def main():
     target.write_bytes(packed)
     sources = [
         BASE / 'GraphInventory.json.xz', GRAPH['SCHEMA_PATH'],
-        BASE.parent / 'BinaryClasses.json', BASE / 'ValueCallbacks.json',
+        BASE.parent / 'BinaryClasses.json',
         BASE.parent / 'DocumentAuthoring/Variants/RecipeConstructors.json',
     ]
     report = {

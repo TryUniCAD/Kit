@@ -1,105 +1,31 @@
 {
   "schema": "FusionGenericTagNativeSemantics/1",
-  "scope": "Static symbol and instruction analysis plus read-only candidate decoding; no native calls, product execution, or tests",
-  "binary": "/tmp/kit-fusion-native-analysis/NsASMEntityTracking10.arm64.dylib",
-  "binarySha256": "969dcdb023b55169bcd97fdfe5e95f833fadb7d0a85c7daf193302470157e875",
-  "callChain": [
-    {
-      "symbol": "SMI_TAGGING_TRACKING::generic_tag_attrib_def::save(SMI_CUSTOM_ENTITY::save_context const&)",
-      "address": "0x1608c",
-      "callsTagInfoAt": "0x160ac"
-    },
-    {
-      "symbol": "SMI_TAGGING_TRACKING::tag_info::save(SMI_CUSTOM_ENTITY::save_context const&)",
-      "address": "0x30e64",
-      "writesGroupCountAt": "0x30e98",
-      "callsTagDataAt": "0x30eb0",
-      "groupStride": "0x28"
-    },
-    {
-      "symbol": "SMI_TAGGING_TRACKING::tag_data::save(SMI_CUSTOM_ENTITY::save_context const&)",
-      "address": "0x2f844"
-    }
-  ],
-  "resolvedImportStubs": [
-    "0x00000000000366b4  6986 __ZN8SMI_ANNO14tag_attrib_def4saveERKN17SMI_CUSTOM_ENTITY12save_contextE",
-    "0x0000000000036774  7003 __ZNK17SMI_CUSTOM_ENTITY12save_context12write_stringEPKc",
-    "0x0000000000036780  7004 __ZNK17SMI_CUSTOM_ENTITY12save_context9write_intEi"
-  ],
+  "scope": "Read-only candidate decoding; no native calls, product execution, or tests. The earlier static symbol and instruction analysis of installed Fusion libraries was removed. Field names came from it and are not confirmed by a black-box experiment.",
   "fields": [
     {
       "name": "primaryByteLength",
-      "nativeMember": "primary_id: ASM::asm_array<char>",
-      "objectOffset": "0x0 begin, 0x8 end",
-      "nativeType": "signed int result of byte-array length",
       "wireType": "tag4 signed64 in ASM BinaryFile8",
-      "saveAddresses": [
-        "0x2f860",
-        "0x2f864",
-        "0x2f868",
-        "0x2f870"
-      ],
-      "meaning": "number of primaryId bytes excluding trailing NUL; not entity class or topology selector"
+      "meaning": "number of primaryId bytes; equals the stored text length in every scoped corpus group; not entity class or topology selector"
     },
     {
       "name": "primaryId",
-      "nativeMember": "primary_id",
-      "objectOffset": "0x0 begin, 0x8 end",
-      "nativeType": "byte array emitted via write_string(const char*)",
       "wireType": "tag7 counted string in scoped corpus",
-      "saveAddresses": [
-        "0x2f878",
-        "0x2f88c",
-        "0x2f8b4",
-        "0x2f8c0"
-      ],
       "meaning": "primary identifier spelling; decimal operation id for controlled body, decimal face name or negative edge name for other controlled owners"
     },
     {
       "name": "secondaryId",
-      "nativeMember": "secondary_id",
-      "objectOffset": "0x10",
-      "nativeType": "signed int",
       "wireType": "tag4 signed64 in ASM BinaryFile8",
-      "saveAddresses": [
-        "0x2f8c4",
-        "0x2f8cc"
-      ],
-      "getter": "0x2f1e8",
-      "setter": "0x2eee4",
-      "meaning": "native secondary id; exact fresh-body allocation rule is not established by this read-only analysis"
+      "meaning": "secondary identifier; exact fresh-body allocation rule is not established by this read-only analysis"
     },
     {
       "name": "operationIds",
-      "nativeMember": "operation_id",
-      "objectOffset": "0x18 begin, 0x20 end",
-      "nativeType": "ASM::asm_array<int>",
       "wireType": "tag4 signed64 count followed by tag4 signed64 values",
-      "saveAddresses": [
-        "0x2f8d0",
-        "0x2f8d4",
-        "0x2f8d8",
-        "0x2f8e0",
-        "0x2f8f0",
-        "0x2f8f8"
-      ],
-      "getter": "0x2f1f0",
-      "setter": "0x2eeec",
       "meaning": "ordered operation id sequence, empty for controlled body"
     },
     {
       "name": "approachId",
-      "nativeMember": "approach_id",
-      "objectOffset": "0x14",
-      "nativeType": "signed int",
       "wireType": "tag4 signed64 in ASM BinaryFile8",
-      "saveAddresses": [
-        "0x2f904",
-        "0x2f90c"
-      ],
-      "getter": "0x2ef68",
-      "setter": "0x2ef60",
-      "meaning": "native approach id, zero for all441 groups in scoped corpus; not an undifferentiated group terminator"
+      "meaning": "approach identifier, zero for all 441 groups in scoped corpus; not an undifferentiated group terminator"
     }
   ],
   "controlExamples": {
@@ -139,17 +65,17 @@
     {
       "old": "FeatureTag.Label",
       "new": "PrimaryId",
-      "reason": "matches native named member; opaque labels are not topology-type selectors"
+      "reason": "matches the field name Kit uses; opaque labels are not topology-type selectors; the name is not confirmed by a black-box experiment"
     },
     {
       "old": "BodyIdentity.GenerationRef",
       "new": "SecondaryId",
-      "reason": "exact native getter/setter names resolve earlier unknown provenance"
+      "reason": "name from removed static evidence; not confirmed by a black-box experiment"
     },
     {
       "old": "AuthorPolicy.GenerationRef",
       "new": "BodySecondaryId",
-      "reason": "document author must provide the same explicit native body identity value"
+      "reason": "document author must provide the same explicit body identity value as the control"
     },
     {
       "old": "MakeBodyTag literal3",
@@ -159,7 +85,7 @@
     {
       "old": "MakeFeatureTag group_reserved/group_end zeros",
       "new": "explicit qualified SecondaryId=0/ApproachId=0",
-      "reason": "both have established native semantic members"
+      "reason": "both are explicit fields in the group grammar"
     },
     {
       "old": "body-specific discriminator3 grammar",
@@ -168,16 +94,9 @@
     }
   ],
   "limitations": [
-    "Static proof establishes native member identities and byte serialization, not all operation-specific allocation rules",
-    "The text writer uses a NUL-terminated temporary; no claim of general embedded-NUL or arbitraryUnicode acceptance",
+    "The corpus decode establishes the byte framing and the length equality, not the member identities or operation-specific allocation rules",
+    "No claim of general embedded-NUL or arbitrary Unicode acceptance",
     "Current accepted cylinder bytes remain unchanged when correctly named values retain their original values",
     "No production files were edited by this research task"
-  ],
-  "disassembly": {
-    "GenericSave": "\n/tmp/kit-fusion-native-analysis/NsASMEntityTracking10.arm64.dylib:\tfile format mach-o arm64\n\nDisassembly of section __TEXT,__text:\n\n000000000001608c <SMI_TAGGING_TRACKING::generic_tag_attrib_def::save(SMI_CUSTOM_ENTITY::save_context const&)>:\n   1608c: a9be4ff4     \tstp\tx20, x19, [sp, #-0x20]!\n   16090: a9017bfd     \tstp\tx29, x30, [sp, #0x10]\n   16094: 910043fd     \tadd\tx29, sp, #0x10\n   16098: aa0103f3     \tmov\tx19, x1\n   1609c: aa0003f4     \tmov\tx20, x0\n   160a0: 94008185     \tbl\t0x366b4 <_wcstol+0x366b4>\n   160a4: f9401280     \tldr\tx0, [x20, #0x20]\n   160a8: aa1303e1     \tmov\tx1, x19\n   160ac: 94006b6e     \tbl\t0x30e64 <SMI_TAGGING_TRACKING::tag_info::save(SMI_CUSTOM_ENTITY::save_context const&)>\n   160b0: 52800020     \tmov\tw0, #0x1                ; =1\n   160b4: a9417bfd     \tldp\tx29, x30, [sp, #0x10]\n   160b8: a8c24ff4     \tldp\tx20, x19, [sp], #0x20\n   160bc: d65f03c0     \tret\n",
-    "InfoSave": "\n/tmp/kit-fusion-native-analysis/NsASMEntityTracking10.arm64.dylib:\tfile format mach-o arm64\n\nDisassembly of section __TEXT,__text:\n\n0000000000030e64 <SMI_TAGGING_TRACKING::tag_info::save(SMI_CUSTOM_ENTITY::save_context const&)>:\n   30e64: a9bd57f6     \tstp\tx22, x21, [sp, #-0x30]!\n   30e68: a9014ff4     \tstp\tx20, x19, [sp, #0x10]\n   30e6c: a9027bfd     \tstp\tx29, x30, [sp, #0x20]\n   30e70: 910083fd     \tadd\tx29, sp, #0x20\n   30e74: aa0103f3     \tmov\tx19, x1\n   30e78: aa0003f5     \tmov\tx21, x0\n   30e7c: a940a009     \tldp\tx9, x8, [x0, #0x8]\n   30e80: cb090108     \tsub\tx8, x8, x9\n   30e84: d343fd08     \tlsr\tx8, x8, #3\n   30e88: 529999a9     \tmov\tw9, #0xcccd             ; =52429\n   30e8c: 72b99989     \tmovk\tw9, #0xcccc, lsl #16\n   30e90: 1b097d01     \tmul\tw1, w8, w9\n   30e94: aa1303e0     \tmov\tx0, x19\n   30e98: 9400163a     \tbl\t0x36780 <_wcstol+0x36780>\n   30e9c: a940d6b4     \tldp\tx20, x21, [x21, #0x8]\n   30ea0: eb15029f     \tcmp\tx20, x21\n   30ea4: 540000c0     \tb.eq\t0x30ebc <SMI_TAGGING_TRACKING::tag_info::save(SMI_CUSTOM_ENTITY::save_context const&)+0x58>\n   30ea8: aa1403e0     \tmov\tx0, x20\n   30eac: aa1303e1     \tmov\tx1, x19\n   30eb0: 97fffa65     \tbl\t0x2f844 <SMI_TAGGING_TRACKING::tag_data::save(SMI_CUSTOM_ENTITY::save_context const&)>\n   30eb4: 9100a294     \tadd\tx20, x20, #0x28\n   30eb8: 17fffffa     \tb\t0x30ea0 <SMI_TAGGING_TRACKING::tag_info::save(SMI_CUSTOM_ENTITY::save_context const&)+0x3c>\n   30ebc: 52800020     \tmov\tw0, #0x1                ; =1\n   30ec0: a9427bfd     \tldp\tx29, x30, [sp, #0x20]\n   30ec4: a9414ff4     \tldp\tx20, x19, [sp, #0x10]\n   30ec8: a8c357f6     \tldp\tx22, x21, [sp], #0x30\n   30ecc: d65f03c0     \tret\n",
-    "TagSave": "\n/tmp/kit-fusion-native-analysis/NsASMEntityTracking10.arm64.dylib:\tfile format mach-o arm64\n\nDisassembly of section __TEXT,__text:\n\n000000000002f844 <SMI_TAGGING_TRACKING::tag_data::save(SMI_CUSTOM_ENTITY::save_context const&)>:\n   2f844: d10103ff     \tsub\tsp, sp, #0x40\n   2f848: a90157f6     \tstp\tx22, x21, [sp, #0x10]\n   2f84c: a9024ff4     \tstp\tx20, x19, [sp, #0x20]\n   2f850: a9037bfd     \tstp\tx29, x30, [sp, #0x30]\n   2f854: 9100c3fd     \tadd\tx29, sp, #0x30\n   2f858: aa0103f3     \tmov\tx19, x1\n   2f85c: aa0003f4     \tmov\tx20, x0\n   2f860: b9400808     \tldr\tw8, [x0, #0x8]\n   2f864: b9400009     \tldr\tw9, [x0]\n   2f868: 4b090101     \tsub\tw1, w8, w9\n   2f86c: aa1303e0     \tmov\tx0, x19\n   2f870: 94001bc4     \tbl\t0x36780 <_wcstol+0x36780>\n   2f874: a9007fff     \tstp\txzr, xzr, [sp]\n   2f878: a9402289     \tldp\tx9, x8, [x20]\n   2f87c: cb090108     \tsub\tx8, x8, x9\n   2f880: 910003e0     \tmov\tx0, sp\n   2f884: 91000501     \tadd\tx1, x8, #0x1\n   2f888: 97ff74a9     \tbl\t0xcb2c <ASM::asm_array<char>::resize(unsigned long)>\n   2f88c: a9402281     \tldp\tx1, x8, [x20]\n   2f890: eb010102     \tsubs\tx2, x8, x1\n   2f894: 540000a0     \tb.eq\t0x2f8a8 <SMI_TAGGING_TRACKING::tag_data::save(SMI_CUSTOM_ENTITY::save_context const&)+0x64>\n   2f898: f94003e0     \tldr\tx0, [sp]\n   2f89c: 94001c8e     \tbl\t0x36ad4 <_wcstol+0x36ad4>\n   2f8a0: a9402281     \tldp\tx1, x8, [x20]\n   2f8a4: 14000002     \tb\t0x2f8ac <SMI_TAGGING_TRACKING::tag_data::save(SMI_CUSTOM_ENTITY::save_context const&)+0x68>\n   2f8a8: aa0103e8     \tmov\tx8, x1\n   2f8ac: cb010108     \tsub\tx8, x8, x1\n   2f8b0: f94003e9     \tldr\tx9, [sp]\n   2f8b4: 3828693f     \tstrb\twzr, [x9, x8]\n   2f8b8: f94003e1     \tldr\tx1, [sp]\n   2f8bc: aa1303e0     \tmov\tx0, x19\n   2f8c0: 94001bad     \tbl\t0x36774 <_wcstol+0x36774>\n   2f8c4: b9401281     \tldr\tw1, [x20, #0x10]\n   2f8c8: aa1303e0     \tmov\tx0, x19\n   2f8cc: 94001bad     \tbl\t0x36780 <_wcstol+0x36780>\n   2f8d0: a941a289     \tldp\tx9, x8, [x20, #0x18]\n   2f8d4: cb090108     \tsub\tx8, x8, x9\n   2f8d8: d342fd01     \tlsr\tx1, x8, #2\n   2f8dc: aa1303e0     \tmov\tx0, x19\n   2f8e0: 94001ba8     \tbl\t0x36780 <_wcstol+0x36780>\n   2f8e4: a941da95     \tldp\tx21, x22, [x20, #0x18]\n   2f8e8: eb1602bf     \tcmp\tx21, x22\n   2f8ec: 540000c0     \tb.eq\t0x2f904 <SMI_TAGGING_TRACKING::tag_data::save(SMI_CUSTOM_ENTITY::save_context const&)+0xc0>\n   2f8f0: b94002a1     \tldr\tw1, [x21]\n   2f8f4: aa1303e0     \tmov\tx0, x19\n   2f8f8: 94001ba2     \tbl\t0x36780 <_wcstol+0x36780>\n   2f8fc: 910012b5     \tadd\tx21, x21, #0x4\n   2f900: 17fffffa     \tb\t0x2f8e8 <SMI_TAGGING_TRACKING::tag_data::save(SMI_CUSTOM_ENTITY::save_context const&)+0xa4>\n   2f904: b9401681     \tldr\tw1, [x20, #0x14]\n   2f908: aa1303e0     \tmov\tx0, x19\n   2f90c: 94001b9d     \tbl\t0x36780 <_wcstol+0x36780>\n   2f910: f94003e0     \tldr\tx0, [sp]\n   2f914: 94001b1a     \tbl\t0x3657c <_wcstol+0x3657c>\n   2f918: 52800020     \tmov\tw0, #0x1                ; =1\n   2f91c: a9437bfd     \tldp\tx29, x30, [sp, #0x30]\n   2f920: a9424ff4     \tldp\tx20, x19, [sp, #0x20]\n   2f924: a94157f6     \tldp\tx22, x21, [sp, #0x10]\n   2f928: 910103ff     \tadd\tsp, sp, #0x40\n   2f92c: d65f03c0     \tret\n",
-    "TagAccessors": "\n/tmp/kit-fusion-native-analysis/NsASMEntityTracking10.arm64.dylib:\tfile format mach-o arm64\n\nDisassembly of section __TEXT,__text:\n\n000000000002eee0 <SMI_TAGGING_TRACKING::tag_data::set_primary_id(ASM::asm_array<char> const&)>:\n   2eee0: 17ff781e     \tb\t0xcf58 <ASM::asm_array<char>::operator=(ASM::asm_array<char> const&)>\n\n000000000002eee4 <SMI_TAGGING_TRACKING::tag_data::set_secondary_id(int)>:\n   2eee4: b9001001     \tstr\tw1, [x0, #0x10]\n   2eee8: d65f03c0     \tret\n\n000000000002eeec <SMI_TAGGING_TRACKING::tag_data::set_operation_id(ASM::asm_array<int> const&)>:\n   2eeec: a9be4ff4     \tstp\tx20, x19, [sp, #-0x20]!\n   2eef0: a9017bfd     \tstp\tx29, x30, [sp, #0x10]\n   2eef4: 910043fd     \tadd\tx29, sp, #0x10\n   2eef8: aa0103f3     \tmov\tx19, x1\n   2eefc: aa0003f4     \tmov\tx20, x0\n   2ef00: a9402029     \tldp\tx9, x8, [x1]\n   2ef04: cb090108     \tsub\tx8, x8, x9\n   2ef08: 9342fd01     \tasr\tx1, x8, #2\n   2ef0c: 91006000     \tadd\tx0, x0, #0x18\n   2ef10: 97ff7848     \tbl\t0xd030 <ASM::asm_array<int>::resize(unsigned long)>\n   2ef14: 91006280     \tadd\tx0, x20, #0x18\n   2ef18: aa1303e1     \tmov\tx1, x19\n   2ef1c: a9417bfd     \tldp\tx29, x30, [sp, #0x10]\n   2ef20: a8c24ff4     \tldp\tx20, x19, [sp], #0x20\n   2ef24: 17ff7827     \tb\t0xcfc0 <ASM::asm_array<int>::operator=(ASM::asm_array<int> const&)>\n\n000000000002ef28 <SMI_TAGGING_TRACKING::tag_data::set_operation_id(ASM::asm_array<int>&&)>:\n   2ef28: a9be4ff4     \tstp\tx20, x19, [sp, #-0x20]!\n   2ef2c: a9017bfd     \tstp\tx29, x30, [sp, #0x10]\n   2ef30: 910043fd     \tadd\tx29, sp, #0x10\n   2ef34: aa0103f3     \tmov\tx19, x1\n   2ef38: aa0003f4     \tmov\tx20, x0\n   2ef3c: f9400c00     \tldr\tx0, [x0, #0x18]\n   2ef40: 94001d8f     \tbl\t0x3657c <_wcstol+0x3657c>\n   2ef44: a901fe9f     \tstp\txzr, xzr, [x20, #0x18]\n   2ef48: 3dc00260     \tldr\tq0, [x19]\n   2ef4c: 3c818280     \tstur\tq0, [x20, #0x18]\n   2ef50: a9007e7f     \tstp\txzr, xzr, [x19]\n   2ef54: a9417bfd     \tldp\tx29, x30, [sp, #0x10]\n   2ef58: a8c24ff4     \tldp\tx20, x19, [sp], #0x20\n   2ef5c: d65f03c0     \tret\n\n000000000002ef60 <SMI_TAGGING_TRACKING::tag_data::set_approach_id(int)>:\n   2ef60: b9001401     \tstr\tw1, [x0, #0x14]\n   2ef64: d65f03c0     \tret\n\n000000000002ef68 <SMI_TAGGING_TRACKING::tag_data::get_approach_id() const>:\n   2ef68: b9401400     \tldr\tw0, [x0, #0x14]\n   2ef6c: d65f03c0     \tret\n",
-    "TagGetters": "\n/tmp/kit-fusion-native-analysis/NsASMEntityTracking10.arm64.dylib:\tfile format mach-o arm64\n\nDisassembly of section __TEXT,__text:\n\n000000000002f1e4 <SMI_TAGGING_TRACKING::tag_data::get_primary_id() const>:\n   2f1e4: d65f03c0     \tret\n\n000000000002f1e8 <SMI_TAGGING_TRACKING::tag_data::get_secondary_id() const>:\n   2f1e8: b9401000     \tldr\tw0, [x0, #0x10]\n   2f1ec: d65f03c0     \tret\n\n000000000002f1f0 <SMI_TAGGING_TRACKING::tag_data::get_operation_ids() const>:\n   2f1f0: 91006000     \tadd\tx0, x0, #0x18\n   2f1f4: d65f03c0     \tret\n"
-  }
+  ]
 }

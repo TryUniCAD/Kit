@@ -6,9 +6,9 @@ The initial six TSM descriptions are byte-identical to their embedded F3D member
 
 ## Primary evidence
 
-`NativeEvidence.json` and `FieldEvidence.json` bind the installed ARM64 `Frameworks/ASM/libtsplines.14.dylib`, SHA-256 `820d4a39767b6c92c7074cead1d2961a043eaa257e9fc2db2fd0ce5e832af9fc`, to unslid Mach-O addresses, RTTI, exported getters and small instruction excerpts. No vendor library is executed by these inspectors or the production codec.
+The evidence is the TSM text that Fusion exported for the controls, Fusion's API view of the same bodies, controlled crease and orientation experiments, and Fusion accepting re-emitted and authored files. Earlier binary inspection of the T-spline library guided several field names. That evidence was removed. Claims that rest only on it say so below. No vendor library is executed by the production codec.
 
-The pinned cadmpeg `crates/cadmpeg-codec-f3d/src/tsm.rs` was a structural research reference. Its `EditorSelectionKind` interpretation of namespaces 100/50000, `ec` integer-flags interpretation, and first/second link labels are contradicted by the local native evidence below. Production implementation is independent Python and uses no imported upstream runtime, source cage, fixture, or vendor stream.
+The pinned cadmpeg `crates/cadmpeg-codec-f3d/src/tsm.rs` was a structural research reference. Its `EditorSelectionKind` reading of namespace 100 is contradicted by the crease contrast below. Its link labels differ from the order used here, which Fusion accepted in an independently authored cage. Its namespace 50000 and `ec` integer-flags readings also differ from this model. Those two differences rest on earlier binary inspection and are not confirmed by a black-box experiment. Production implementation is independent Python and uses no imported upstream runtime, source cage, fixture, or vendor stream.
 
 ## Program and declaration framing
 
@@ -32,15 +32,15 @@ The suffix contains positive finite `tol` and `geom-tol`, nonnegative signed-32-
 
 ## Topology
 
-| Record | Fields in exact wire order | Native proof |
+| Record | Fields in exact wire order | Notes |
 | --- | --- | --- |
-| `f` | origin link, hidden-face bit | Writer reads face +0/+4 at `0x7fc498`/`0x7fc53c`; `tsdebug_Face_isHidden` reads +4 and masks bit 0 at `0x86ea0c`/`0x86ea10` |
-| `e` | origin link, knot interval binary64 | Native `Edge_originLink`, `Edge_interval`; qualified captures use interval 1 |
-| `v` | origin link, orientation direction | Writer +4 call `0x7fc8ac`; exported `Vert_orientDirection` reads +4 at `0x8687d0`; `NORTH`, `EAST`, `SOUTH`, `WEST` |
-| `l` | **previous**, next, opposite, vertex, face, edge, valence offset | Native 28-byte link: words at offsets 0,4,8,12,16,20,24; `Link_prev` reads +0 at `0x85aa48`; writer emits +0 first at `0x7fc99c` |
-| `ec` | edge index, end-condition binary64 | Writer edge key at node +0x20 (`0x7fcd18`) and `ldr d0` at +0x28 (`0x7fcd8c`); `Edge_endCondition` reads the same +0x28 at `0x83b1a8` |
+| `f` | origin link, hidden-face bit | The second field is 0 in every control. Its reading as a hidden-face bit is not confirmed by a black-box experiment |
+| `e` | origin link, knot interval binary64 | Qualified captures use interval 1 |
+| `v` | origin link, orientation direction | Observed directions are `NORTH`, `EAST`, `SOUTH` and `WEST` |
+| `l` | **previous**, next, opposite, vertex, face, edge, valence offset | The authored cage uses this order, and Fusion accepted it as equal to its own primitive |
+| `ec` | edge index, end-condition value | Every control writes 0. The binary64 type is not confirmed by a black-box experiment |
 
-The final link word's low two bits are explicitly `Link_valenceOffset`, established by `0x85ae98`/`0x85ae9c`. The codec rejects unproved higher bits. The hidden-face word likewise admits only its proven bit. Face `-1` identifies a boundary halfedge. Other indices address live records only; deleted slots are unsupported.
+The final link word is 0, 1 or 2 in the controls. Its reading as a valence offset in the low two bits came from earlier binary inspection and is not confirmed. The codec rejects higher bits. The face word admits only 0 or 1. Face `-1` identifies a boundary halfedge. Other indices address live records only; deleted slots are unsupported.
 
 The qualified profile requires quad face rings, reciprocal previous/next and opposite links, exactly two links per edge, complete face ownership, a single connected link fan at each vertex, valence 2–4, and matching opposite-edge endpoints. Every declared topology root is checked against its owner. Boundary edges have explicit zero-valued `ec` records. Nonzero end conditions and non-unit knot intervals remain unsupported.
 
@@ -48,11 +48,11 @@ The qualified profile requires quad face rings, reciprocal previous/next and opp
 
 ## Grips and compound layouts
 
-`0g x y z weight` is a four-binary64 weighted control point. Exported `Grip_point3d` copies the complete 32-byte value from the surface grip array at `0x856874`–`0x856890`. Native validation loads the fourth scalar at `0x5f9e54`, compares it with zero at `0x5f9e58`, and emits the grip-weight diagnostic at `0x5f9ee4` on failure. The codec preserves finite positive weights, including the native edited plane's `1.0000000000000002`; it does not round them to unity or normalize coordinates.
+`0g x y z weight` is a weighted control point of four binary64 values. The rule that a weight must be positive came from earlier binary inspection and is not confirmed by a black-box experiment. The codec preserves finite positive weights, including the native edited plane's `1.0000000000000002`; it does not round them to unity or normalize coordinates.
 
-Without `0m odd-grip-map`, grip index equals vertex index. An explicit map has one `gvp vertex` or `gv vertex` row per grip. `gvp` denotes the central/primary grip, not a selected grip. The writer chooses this token when the vertex's central-grip index equals the current grip index (`0x6eb3b4`–`0x6eb3c4`), the same reciprocal maps used by `Grip_isCentral` (`0x8569d8`–`0x8569e0`). Each live vertex has exactly one primary grip.
+Without `0m odd-grip-map`, grip index equals vertex index. An explicit map has one `gvp vertex` or `gv vertex` row per grip. In every control, each live vertex has exactly one `gvp` row. Earlier binary inspection read `gvp` as the central or primary grip, not a selected grip. That reading is not confirmed by a black-box experiment.
 
-`0m cg vertex count lengths... gripIndices...` describes compound grips around that vertex. Native debug literals identify `SpokeLengths`, `SpokeEndI` and `SpokeMap`; writer `0x6eb538` emits the vertex, `0x6eb57c` the spoke count, `0x6eb604` the signed spoke lengths, and `0x6eb6d4` the grip map. The qualified controls have four spokes, each length 0 or 1. The number of referenced grips is:
+`0m cg vertex count lengths... gripIndices...` describes compound grips around that vertex: a spoke count, the spoke lengths and the grip map. The field names came from earlier binary inspection. The qualified controls have four spokes, each length 0 or 1. In every control, the number of referenced grips is:
 
 `sum(length[i] + length[i] * length[(i+1) % count])`
 
@@ -60,20 +60,20 @@ The codec preserves the ordered map. Each referenced grip is secondary and has t
 
 ## Extension namespaces
 
-| Namespace | Native class and evidence | Qualified semantic model |
+| Namespace | Observed in | Qualified semantic model |
 | --- | --- | --- |
-| 100 | `tskern::ExCrease`, RTTI `0x8ee9c9`, vtable `0x903158`; ID getter `0x178da4` returns 100 | `100edges` creased-edge indices and `100verts` creased-vertex indices; preserve absent extension versus present empty sets |
-| 105 | `tskern::ExSymmetry`, vtable `0x903fb8`; ID getter `0x1b7c6c` returns 105 | One mode-0 plane symmetry with frame and six correspondence maps |
-| 50000 | `tskern::ExSmartGrip`, RTTI `0x8ef496`, vtable `0x903b28`; ID getter `0x19f1dc` returns 50000 | `50000grip index` ordered smart-grip set; membership lookup uses the same index tree at `0x55373c`–`0x553778` |
-| 50001 | Distinct `tskern::ExFreeze`; ID getter `0x189b14` returns 50001 | Unsupported; never mislabel smart grips as frozen/editor-selected grips |
+| 100 | Plane and box controls; changes with the crease contrast | `100edges` creased-edge indices and `100verts` creased-vertex indices; preserve absent extension versus present empty sets |
+| 105 | Symmetric box controls | One mode-0 plane symmetry with frame and six correspondence maps |
+| 50000 | Plane controls; grows when an edge is creased | `50000grip index` ordered grip set. The name smart grip came from earlier binary inspection |
+| 50001 | Not observed | Unsupported. Earlier binary inspection named it a separate freeze extension; that is not confirmed |
 
-The crease contrast establishes native Box edge count 0→1→0 and Plane count 10→11→10. Box serialization gains edge 18; plane gains edge 12. The plane gains four secondary smart grips and compound layouts at vertices 4 and 7, which disappear on uncreasing.
+The crease contrast establishes native Box edge count 0→1→0 and Plane count 10→11→10. Box serialization gains edge 18; plane gains edge 12. The plane gains four secondary `50000grip` entries and compound layouts at vertices 4 and 7, which disappear on uncreasing.
 
 The planar symmetry block is `105sym 0`, `105plane` followed by three homogeneous four-tuples (origin weight 1, two orthonormal axes weight 0), then `105a fr/er/vr/f/e/v`. The `f/e/v` maps are the forward partitions, and `fr/er/vr` the reverse partitions including fixed elements. The codec validates identity ranges, unique domain/range membership, complete topology partition and reciprocal non-fixed pairs. It retains these maps instead of inferring them from coordinates. Multiple reflections, isolated/radial symmetry and user knots are rejected.
 
 ## Orientation roots
 
-The three root records are not allocation bookkeeping. `f <link>` is the face origin, `e <link>` the edge origin and `v <link> NORTH` the vertex orientation link and direction. `libtsplines` exports them as `Face_originLink`, `Edge_originLink`, `Vert_orientLink` and `Vert_orientDirection`; the blending-function debug surface exposes `BFunMesh_getOrientLink`, `getRefLinkOrient` and `getVertOrient` (see `re/Fusion/External/ReverseEngineer/libtsplines.14.exports-orientation.txt`). They select the local parameter frame of each basis function, so they change the converted BRep while the control cage stays identical.
+The three root records are not allocation bookkeeping. `f <link>` is the face origin, `e <link>` the edge origin and `v <link> NORTH` the vertex orientation link and direction. The controlled imports below show that they change the converted BRep while the control cage stays identical. These names came from earlier binary inspection. The explanation that the roots select the local parameter frame of each basis function is not confirmed by a black-box experiment.
 
 Controlled imports isolate the effect on a 17×23×31 mm box (`TSplineCodec/RootVariants` and `TSplineCodec/EdgeVariants`). Every variant had equal control, smooth-point, crease and face-incidence hashes to Fusion's box primitive. First-incident roots gave default area 12.710561939032758 cm². Native face origins alone gave the primitive's 12.7105676688771 cm² but a very-high-accuracy center offset of about 3e-6 cm. Adding native edge origins did not remove that offset. Native face, edge and vertex roots together matched the primitive within 1e-8 in every observation, initially and after an edit. The `ver` record is an export edit counter; setting it to the primitive's 254 alone changed nothing.
 
@@ -81,7 +81,7 @@ The native box primitive's edge origins all run from the lower to the higher ver
 
 ## Independent authoring
 
-`MakeClosedCage` takes explicit weighted control vertices and oriented quad index loops, plus an optional `CageOrientation(Spokes, EdgeOrigins)`. It derives directed link pairs, previous/next face rings, edge allocation and connected vertex fans. The first vertex of each loop is the face origin. `Spokes` names the neighbor for each vertex orientation link and `EdgeOrigins` one directed pair per edge. Without an orientation, vertex roots are the first outgoing link in face order and edge origins ascend by vertex index. It uses the proven cubic declaration profile, unit knot intervals, zero valence offsets, NORTH orientation, no boundary conditions, no compound mapping and no extensions. No input archive, captured cage, point array or vendor payload is loaded.
+`MakeClosedCage` takes explicit weighted control vertices and oriented quad index loops, plus an optional `CageOrientation(Spokes, EdgeOrigins)`. It derives directed link pairs, previous/next face rings, edge allocation and connected vertex fans. The first vertex of each loop is the face origin. `Spokes` names the neighbor for each vertex orientation link and `EdgeOrigins` one directed pair per edge. Without an orientation, vertex roots are the first outgoing link in face order and edge origins ascend by vertex index. It uses the qualified cubic declaration profile, unit knot intervals, zero valence offsets, NORTH orientation, no boundary conditions, no compound mapping and no extensions. No input archive, captured cage, point array or vendor payload is loaded.
 
 The prepared independent example declares an eight-vertex, six-face closed control cage with 17×23×31 mm control bounds, Fusion's vertex order, face origins, vertex spokes and edge origins. Those are control bounds, not an assertion that the limit surface is a sharp cuboid. Native comparison is against a newly created one-face-per-axis smooth Fusion box.
 

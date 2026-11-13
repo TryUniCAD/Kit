@@ -2,7 +2,7 @@
 
 ## Archived field evidence
 
-The verbose generated JSON reports are preserved exactly in [HistoryEvidence.tar.xz](HistoryEvidence.tar.xz); [HistoryEvidence.json](HistoryEvidence.json) lists their original filenames, sizes, SHA-256 digests, and extraction command. The report names below refer to those archive members. Native acceptance and focused disassembly reports remain separate readable files.
+The verbose generated JSON reports are preserved exactly in [HistoryEvidence.tar.xz](HistoryEvidence.tar.xz); [HistoryEvidence.json](HistoryEvidence.json) lists their original filenames, sizes, SHA-256 digests, and extraction command. The report names below refer to those archive members. Native acceptance reports remain separate readable files.
 
 ## Scope
 
@@ -55,7 +55,7 @@ These identities come from `LocalOracle/Features/extrude_07mm.entities.json` and
 
 The distinction between operation identity 301 and Design body record 261 is essential. Replacing the generic body tag with the body's indexed record number would change its identity semantics even though both are integers.
 
-The body generic-tag group also contains the integer 4 after its operation-ID text. The historical input calls this `body_generation_reference`; later [native tag evidence](../CuboidHistory/GenericTagEvidence.json) establishes it as the signed secondary ID, independent of stream state IDs. Native lineage observations show that it stays 4 after the current kernel state changes to 6 or 7. The same-source experiment supplies it explicitly; current production names it `SecondaryId`.
+The body generic-tag group also contains the integer 4 after its operation-ID text. The historical input calls this `body_generation_reference`. Earlier binary inspection named it the signed secondary ID, independent of stream state IDs; that name is not confirmed by a black-box experiment. Native lineage observations show that it stays 4 after the current kernel state changes to 6 or 7. The same-source experiment supplies it explicitly; current production names it `SecondaryId`.
 
 The native entity stream additionally gives body 261 persistent UUID `ae4be75b-1a15-45aa-bd72-b7bbffe57f6b`. That UUID remains in the enclosing Design document; it is not inserted into a kernel field that does not store it.
 
@@ -68,7 +68,7 @@ The native entity stream additionally gives body 261 persistent UUID `ae4be75b-1
 | `vendor_23mm.f3d`      |             7 |             2 |        1 |               2 |                         4 |
 | `vendor_graph23mm.f3d` |             7 |             2 |        1 |               2 |                         4 |
 
-In these controls, the first two preamble integers happen to equal the current state ID. Later [native instruction evidence](../JournalStates/NativeEvidence.json) proves that they are distinct current and maximum allocated state IDs. The fourth value is the next entity tag, allocated by `HISTORY_STREAM::tag` and `assign_tag`. The corrected generator accepts explicit `stream_current_state_id`, `max_state_id`, `next_entity_tag` and `board_status` inputs. Its loader accepts the old `stream_generation`, `allocation_counter` and `board_number` spellings only to reproduce the unchanged historical input artifact; conflicting old/new spellings reject.
+In these controls, the first two preamble integers happen to equal the current state ID. Earlier binary inspection read them as distinct current and maximum allocated state IDs, and the fourth value as the next entity tag. Those readings are not confirmed by a black-box experiment. The corrected generator accepts explicit `stream_current_state_id`, `max_state_id`, `next_entity_tag` and `board_status` inputs. Its loader accepts the old `stream_generation`, `allocation_counter` and `board_number` spellings only to reproduce the unchanged historical input artifact; conflicting old/new spellings reject.
 
 The generated 19 mm stream keeps body key 0, current state 4, initial state 2, stream current/maximum state 4 and next entity tag 1. This preserves the original archive's same-source linkage profile while replacing its solved geometry. A native recompute is free to allocate a different body key and stream state IDs afterward.
 
@@ -94,7 +94,7 @@ Entity attribute heads and both directions of the body attribute chain refer to 
 
 The modern attribute prefix is reserved reference `-1`, integer marker `-1`, next reference, previous reference and owner reference. A generic family payload then stores the family name, schema integers `3, 3, -1`, the repeated family name with a trailing space, and a semantic group count.
 
-The body group stores primary byte length 3, operation 301 as decimal text, secondary ID 4, operation count zero and approach ID zero. Face/edge groups store their primary byte length, label text, secondary ID zero, operation count, operation identity integers and approach ID zero. Historical artifacts retain the old selector/generation names; the later native evidence supersedes that interpretation. Labels `-1` and `-102` are text, not null pointers.
+The body group stores primary byte length 3, operation 301 as decimal text, secondary ID 4, operation count zero and approach ID zero. Face/edge groups store their primary byte length, label text, secondary ID zero, operation count, operation identity integers and approach ID zero. Historical artifacts retain the old selector/generation names; the later corpus evidence supersedes that interpretation. Labels `-1` and `-102` are text, not null pointers.
 
 The sketch payload stores schema markers 1 and 1, payload form 3, and an ASCII six-integer tuple. Its fourth tuple member is the zero-qualified topology role flags, not an inserted separator. The other fields are primary ID, secondary ID, direction and one-based split sequence/total, as established by the later [ASCII serializer evidence](../EntityGraph/SketchAsciiSemantics.md). The authoring timestamp is an explicit floating-point Unix-microsecond input, distinct from the file save date.
 
@@ -102,11 +102,11 @@ The sketch payload stores schema markers 1 and 1, payload form 3, and an ASCII s
 
 The header is `ASM BinaryFile8` plus words `23200, 0, 2, 3`. Word 2 denotes the two top-level roots including `asmheader`, not a record-table offset rule. The product/version/save strings are explicit `Kit` provenance. Binary scale metadata is explicitly 50 to match the enclosing history profile; geometric lengths still serialize in centimetres.
 
-The history preamble contains explicit current and maximum state IDs, zero retained-state limit, the next entity tag, and the bounded two-node reference profile `-1, 0, 1, -1`. Its record begins with `Begin-of-ASM-History-Data` followed immediately by a second identifier, `history_stream`.
+The history preamble contains the explicit fields the generator calls current and maximum state IDs, retained-state limit (zero) and next entity tag, and the bounded two-node reference profile `-1, 0, 1, -1`. Its record begins with `Begin-of-ASM-History-Data` followed immediately by a second identifier, `history_stream`.
 
-The current delta state has ID 4 and node index 0, with previous node `-1` and next node 1. Native backward flag 1, the zero-qualified boolean at offset `0x15`, a self-linked partner ring, the null-qualified state reference at `0x50`, owner-stream reference 0 and absent optional name form the observed two-node profile. One board with owner 0 and succeeded status 2 inserts every newly allocated active record 1 through 34. Each insertion is encoded as a presence integer, old reference `-1` and new table ordinal.
+The current delta state has ID 4 and node index 0, with previous node `-1` and next node 1. Backward flag 1, a zero-qualified boolean, a self-linked partner ring, a null-qualified state reference, owner-stream reference 0 and absent optional name form the observed two-node profile. One board with owner 0 and succeeded status 2 inserts every newly allocated active record 1 through 34. Each insertion is encoded as a presence integer, old reference `-1` and new table ordinal.
 
-The change-chain zero, board-chain zero and zero count for the native state list at offset `0x48` close the current state. The general semantic purpose of that list remains unresolved; the two-state profile qualifies it empty. The initial delta state has ID 2, node index 1, previous node 0 and next node `-1`; its board chain is empty. There are no archived revisions because this journal describes new entity insertion only.
+The change-chain zero, board-chain zero and zero count for the state list close the current state. The general semantic purpose of that list remains unresolved; the two-state profile qualifies it empty. The initial delta state has ID 2, node index 1, previous node 0 and next node `-1`; its board chain is empty. There are no archived revisions because this journal describes new entity insertion only.
 
 The stream ends with the two consecutive name chains `End-of-ASM-History-Section` and `End-of-ASM-data`, without an intervening record delimiter or final terminator. This is the fully observed empty archived-revision form.
 

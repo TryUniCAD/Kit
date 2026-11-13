@@ -6,20 +6,14 @@
     "Documentation/Gotchas/Conversion/Fusion/Materials/AppearanceCompatibilityAliases.md",
     "re/Fusion/Reconstruction/OgsScene/ArchiveReports.py",
     "re/Fusion/Reconstruction/OgsScene/AuxiliarySchemas.json",
-    "re/Fusion/Reconstruction/OgsScene/BinaryFacts.json",
     "re/Fusion/Reconstruction/OgsScene/BrowserSupplement.json",
     "re/Fusion/Reconstruction/OgsScene/DecodeOgs.py",
     "re/Fusion/Reconstruction/OgsScene/DecodedSamples.json.xz",
     "re/Fusion/Reconstruction/OgsScene/EvidenceIndex.json",
-    "re/Fusion/Reconstruction/OgsScene/ExtractFacts.py",
     "re/Fusion/Reconstruction/OgsScene/InspectAuxSchemas.py",
-    "re/Fusion/Reconstruction/OgsScene/InspectMaterialAlias.py",
     "re/Fusion/Reconstruction/OgsScene/InspectMaterials.py",
-    "re/Fusion/Reconstruction/OgsScene/InspectSerializers.py",
-    "re/Fusion/Reconstruction/OgsScene/MaterialAliasEvidence.json",
     "re/Fusion/Reconstruction/OgsScene/NativeMaterialLinks.json",
     "re/Fusion/Reconstruction/OgsScene/PrepareDocuments.py",
-    "re/Fusion/Reconstruction/OgsScene/SerializerCalls.json.xz",
     "re/Fusion/Reconstruction/OgsScene/StagePaths.json",
     "re/Fusion/Reconstruction/OgsScene/WireModel.md",
     "src/convert/formats/Fusion/ContainerCodec/CheckParts.py",
@@ -129,6 +123,6 @@
     "tests/convert/formats/FusionCodec/Documents/Graphics/SceneTargetTests.py",
     "tests/convert/formats/FusionCodec/Documents/Reading/NativeDocTests.py"
   ],
-  "exclude": "Untracked prototype promotion scripts, raw large JSON reports and symbol inventories are intentionally excluded; this list is the frozen graphics scope only",
+  "exclude": "Untracked prototype promotion scripts and raw large JSON reports are intentionally excluded; this list is the frozen graphics scope only",
   "nativeEvidence": "Parent owns LocalOracle/NativeDocuments and stages its files separately"
 }

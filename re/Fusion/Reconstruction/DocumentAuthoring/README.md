@@ -18,8 +18,7 @@ types, and persistence masks. They do not supply an object instance, object
 identity, default instance value, or source payload. The generic codec currently
 uses the system `c++filt` utility to decode C++ type spellings. There is no CAD
 runtime, process bridge, installed Fusion library, or native API in the authoring
-path. `ConstructorEvidence.py` is a separate static analysis tool and is not
-called by the writer.
+path.
 
 ## Generation API
 
@@ -87,28 +86,25 @@ its own target component.
 
 ## Structural provenance
 
-`ConstructorEvidence.json` binds addresses and findings to hashes of four
-installed arm64 libraries from build 2706.1.17. Its extraction tool records
-function identities, selected constructor calls, and literal-store evidence;
-it does not embed complete proprietary function bodies.
+Earlier binary inspection of constructor routines guided this role layout.
+That evidence was removed. The layout below is what the candidate declares.
+Fusion acceptance in [Acceptance.md](Acceptance.md) is the black-box check.
 
-`Ns::Comp::ComponentAssetAdapterImpl::initializeNewAsset` creates asset settings
-and registers the root instance. `ComponentBase::onPostCreation` creates the
-ACT component, assigns its Design component, and attaches the ACT parent when
-appropriate. `Component::onPostCreation` creates the component instance
+The candidate creates asset settings and registers the root instance. It
+creates the ACT component, assigns its Design component, and attaches the ACT
+parent when appropriate. The component owns the component instance
 collection, bodies, sketches, work geometries, joint origins, assembly
 constraint collections, contacts, motion studies, parameters, surface groups,
-selection groups, and custom grouping collections. Its later calls connect
-bodies to surface groups and geometry collections to their custom groups.
+selection groups, and custom grouping collections. Bodies connect to surface
+groups, and geometry collections connect to their custom groups.
 
-`FusionComponent::onPostCreation` adds the parametric fragment, features,
-origin geometry, relationships, subdivision surfaces, canvases, feature groups,
-decals, annotations, meshes, canvas groups, deformers, and edit-in-place
-contexts. `createOriginWorkGeometry` creates one origin point, three axes,
-and three planes. `DcDesignFragment::onPostCreation` supplies the compute,
-dependency, association, feature identity, cross-reference, and node managers.
-The candidate declares those roles explicitly and derives their reference
-identities from the allocator.
+The Fusion component adds the parametric fragment, features, origin geometry,
+relationships, subdivision surfaces, canvases, feature groups, decals,
+annotations, meshes, canvas groups, deformers, and edit-in-place contexts.
+Origin work geometry is one origin point, three axes, and three planes. The
+design fragment supplies the compute, dependency, association, feature
+identity, cross-reference, and node managers. The candidate declares those
+roles explicitly and derives their reference identities from the allocator.
 
 The feature graph contains an active `DcComponent` inside `DcNodes`, a
 `DynamicUpdateData` owner link, an empty creation-order feature list, and one
@@ -127,29 +123,30 @@ bytes. The following distinctions are essential:
 
 | Field family | How values are obtained | Evidence limit |
 | --- | --- | --- |
-| Object and parent references | Fresh allocator plus explicit semantic roles | Constructor calls establish roles; reciprocal target graph still needs acceptance |
+| Object and parent references | Fresh allocator plus explicit semantic roles | Accepted in this profile; reciprocal target graph still needs acceptance |
 | List, map, and group contents | Deliberately empty design, or declared owned children | Empty logical state, not copied bytes |
 | Component/instance UUIDs | New UUID4 values | Cross-field equality is constructed where required |
 | Parameter name, expression, value, unit, comment | Semantic input and centimeter conversion | Native edit/reopen acceptance pending |
-| Parameter birthday | Installed expression engine's `latestVersion()` | Literal 6 at `NsCommonData10:0xdfc08` |
-| Operation allocation seed | Native `FusionComponent` constructor | 300 stored at object offset `0x7d8` |
-| As-built position flag, component opacity, subtype | Native `FusionComponent` constructor | `true`, `1.0`, `0` with named-member offset correspondence |
-| Feature allocation counter | Native `Features` constructor | 1 stored at object offset `0x178` |
-| Four mass-property overrides | Native `MassProperties` constructor | Four doubles initialized to -1; no override requested |
-| Root occurrence creation state | Native component-path constructor | 3 stored at object offset `0x78` |
-| Root occurrence selected state | Native `DcOccurrence` constructor | -1 stored at object offset `0x1a0` |
-| Empty physical material | Native `PhysicalMaterial` default constructor | Four persisted strings empty, manager reference null; document-level sufficiency unproven |
+| Parameter birthday | Authored policy value 6 | Accepted in this profile; not confirmed as a vendor default |
+| Operation allocation seed | Authored policy value 300 | Accepted in this profile; not confirmed as a vendor default |
+| As-built position flag, component opacity, subtype | Authored policy values `true`, `1.0`, `0` | Accepted in this profile; not confirmed as vendor defaults |
+| Feature allocation counter | Authored policy value 1 | Accepted in this profile; not confirmed as a vendor default |
+| Four mass-property overrides | Authored policy: four doubles set to -1 | No override requested; not confirmed as a vendor default |
+| Root occurrence creation state | Authored policy value 3 | Accepted in this profile; not confirmed as a vendor default |
+| Root occurrence selected state | Authored policy value -1 | Accepted in this profile; not confirmed as a vendor default |
+| Empty physical material | Authored policy: four persisted strings empty, manager reference null | Accepted in this profile; general sufficiency unproven |
 | Visibility/selectability and empty collection counters | Explicit authored empty-document policy | Valid field vocabulary; not claimed to prove all vendor constructor defaults |
 | View position, extents, colors, annotation settings, axis/plane display extents | Explicit presentation choices | Chosen values, intentionally independent of captured user preferences |
 | Unit choices and simple-unit enum values | Declared unit vocabulary, corroborated by the controlled native unit system | One complete mm/MKS system is authored; omission of other systems is unproven |
 | Dynamic-update timestamp | Explicit input, initially zero with cache-valid flags false | Not represented as a current native timestamp; native rebuild behavior pending |
 | Extension versions | Explicit named dictionary: Application 9, Server 7, VolField 7 | Values corroborated by the current native format; not opaque tail words |
 
-The schema registration and constructor offset proof for parameters lives in
-`../BinaryParameters.json`. Generic containers, value callbacks, references,
-root frames, and named metadata are documented in `../EntityGraph/DataModel.md`.
-The Color encoder uses the proven custom RGBA order, not reflected lexical
-member order.
+Earlier binary inspection suggested several of these values. That evidence was
+removed. The values above are confirmed only by Fusion accepting the authored
+documents in [Acceptance.md](Acceptance.md). Generic containers, value
+callbacks, references, root frames, and named metadata are documented in
+`../EntityGraph/DataModel.md`. The Color encoder uses the custom RGBA order
+documented there, not reflected lexical member order.
 
 ## Metadata emitted from semantics
 
@@ -183,7 +180,7 @@ questions without introducing a donor graph or a blob placeholder.
 The next acceptance must open the independently constructed envelope, verify
 the parameter and empty timeline/body state, edit the parameter, create a
 sketch/feature through the application's native API, rebuild, save, and reopen.
-If a root is required, add its semantic model and constructor evidence; do not
+If a root is required, add its semantic model and black-box evidence; do not
 copy its captured payload. Subsequent circle/extrusion authoring belongs in
 `Variants/` and must leave this captured empty candidate unchanged while that
 acceptance is pending.

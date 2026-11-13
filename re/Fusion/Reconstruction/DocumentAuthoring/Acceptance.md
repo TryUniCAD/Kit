@@ -29,11 +29,12 @@ native checks below.
 
 The initial package attempts exposed independent container/Browser problems:
 
-- Explicit ZIP directories and the required BRep blob folder are used by native
-  segment/blob initialization even when no BRep part exists
-- Primary offsets must increase in entity-ID order; the ACT writer initially
-  emitted fresh identities out of order. `Variants/BulkOrdering.json` contains
-  the exact native tree traversal and rejection evidence
+- Fusion needed explicit ZIP directories and the BRep blob folder even when no
+  BRep part exists
+- The ACT writer initially emitted fresh identities out of physical order, and
+  Fusion rejected the stream. Emitting primary offsets in entity-ID order fixed
+  it. The general ordering rule came from binary inspection and is not
+  confirmed by a black-box experiment beyond this case
 - The Browser's relationships entry requires an `AssyConstraints` object, not
   the separate `Relationships` collection. The wrong declared target class
   survived graph loading and crashed during viewport activation

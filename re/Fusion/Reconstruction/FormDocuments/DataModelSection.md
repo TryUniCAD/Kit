@@ -80,11 +80,12 @@ It refused to open a Form document without the BRep members.
 It accepted a stale BRep with health 0.
 The [authority gotcha](../../Gotchas/Conversion/Fusion/TSpline/StoredFormBrepAuthority.md) gives the variants.
 
-`t_spl_sur` derives from `exact_spl_sur`.
-Its stored B-spline surface is the exact face geometry, not an approximation of the program.
-The kernel refuses a `t_spl_sur` without that surface.
+A `t_spl_sur` record holds a stored B-spline surface.
 Fusion used a moved stored surface as the face geometry, and a set `TsSurface.bConversionFailed` flag did not start a conversion.
-The [converted surface gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConvertedSurfaceIsExact.md) gives the kernel and native evidence.
+So the stored surface is the exact face geometry, not an approximation of the program.
+Earlier binary inspection also said that `t_spl_sur` derives from `exact_spl_sur` and that the kernel refuses one without the stored surface.
+That evidence was removed, and those two claims are not confirmed by a black-box experiment.
+The [converted surface gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConvertedSurfaceIsExact.md) gives the details.
 A writer must therefore store the exact converted body.
 
 ### Grid cage conversion
@@ -106,7 +107,7 @@ Single-grip probes recovered the map for eight layouts, and further moves of all
 Regular regions use small dyadic and triadic fractions, and vertex limit points use the Catmull–Clark limit mask.
 The G1 cap weights around extraordinary vertices are not small fractions or simple quadratic surds.
 They repeat between layouts with the same corner neighbourhood.
-`libtsplines` builds them by solving a sparse linear system, as the [cap gotcha](../../Gotchas/Conversion/Fusion/TSpline/ExtraordinaryCapIsSolved.md) shows.
+Fusion builds them by solving a sparse linear system, as the [cap gotcha](../../Gotchas/Conversion/Fusion/TSpline/ExtraordinaryCapIsSolved.md) shows.
 `ConvertCage` applies the packaged table of the cage layout, and `SwapFormCage` writes the result into a document of that layout.
 Fusion records each interior knot in the discontinuity list of the lowest derivative order that jumps there.
 The [linearity gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConversionIsLinear.md) and the [valence gotcha](../../Gotchas/Conversion/Fusion/TSpline/CageValenceAboveFour.md) give the evidence.

@@ -1,12 +1,6 @@
 {
   "artifacts": [
     {
-      "path": "SerializerCalls.json.xz",
-      "sha256": "529d64dd1c92194e2a96c722451cf6d05a935f5ce468ba311e813a643efc2bf3",
-      "decodedSha256": "8e9c520f7ff7b64074a6ba01a1f851d4f066529f91cfea4afc1c1dfcd9d91f0d",
-      "decodedBytes": 636067
-    },
-    {
       "path": "DecodedSamples.json.xz",
       "sha256": "04c060203d5c99e31e6c86af1b9b86e75357efec0e36b91e57630a97cdc88434",
       "decodedSha256": "7e3b1953314f6c0cdd8e8fc3c013d8eb8ba2ee1fd55399dcf5066df8fd6f6585",
@@ -41,5 +35,5 @@
       "simpleMeshes": 14
     }
   ],
-  "verification": "Static binary research and direct archive decoding only; no production execution, local automated tests or native re-emission acceptance"
+  "verification": "Direct archive decoding only; no production execution, local automated tests or native re-emission acceptance"
 }

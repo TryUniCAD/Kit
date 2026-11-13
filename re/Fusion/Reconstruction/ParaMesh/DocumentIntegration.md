@@ -31,6 +31,6 @@ Keep body transforms in the typed Design graph. The original controls store both
 
 ## Saved graphics branch
 
-[MeshWorldEvidence.json](MeshWorldEvidence.json) binds ARM64 Fusion 2706.1.17 symbol/call evidence for `SerializeParameshBody` at `NsScene10 0xaf5dc` and its reader at `0xb1920`. Named fields include `ValidBody:bool`, a facet body-child record, `FacetNodeCount:uint32` and LOD records, an edge body-child/LOD record, optional bounding-box wire child/LOD data, and optional `FacetModelBox:SBox3` (six float64 values). Branch-specific ordering and LOD/display-item cases must still be qualified against a saved visible native mesh. These call-site observations are not a completed custom-world decoder.
+The custom mesh-world layout is not known from saved documents. Earlier binary inspection suggested its field list; that evidence was removed and is not confirmed by a black-box experiment. It must be qualified against a saved visible native mesh.
 
 The component-native acceptance should save and reopen its imported results and retain that native save as the next graphics control. Full original-document reconstruction can first target the already decoded ordinary-world branch; saved mesh-world support must remain an explicit boundary until its callback is completely modeled.
