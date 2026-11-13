@@ -90,6 +90,17 @@ The cases did not run locally.
 `TestReplay` masks new GUIDs, link names, time stamps, hashes and compute caches.
 All other fields of every new and changed record must equal the native values.
 
+`tests/convert/formats/FusionCodec/Links/SavedRootTests.py` reads a Fusion export of the saved Kit root.
+`tests/convert/formats/FusionCodec/Documents/Act/ActSlackTests.py` covers the Design tail limit.
+These cases did not run locally either.
+
+| Case | Check |
+| --- | --- |
+| `TestSavedRoot` | Reads `KitAsmRootSaved.f3d`, keeps 10 Design tail bytes, re-emits every stream byte-equal and round-trips the model |
+| `TestSlackBound` | A Design tail of 17 bytes raises `ValueError` on read and on emit |
+| `TestSlackGate` | A Design tail of 2 bytes is written back, and a Browser tail raises `ValueError` |
+| `TestOtherTrail` | A Design tail of 17 bytes and a Browser tail of 2 bytes raise `ValueError` on read |
+
 ## Native acceptance
 
 The acceptance ran in Fusion 2706.1.17 inside the acceptance project.
@@ -159,16 +170,21 @@ The second run read the health from the joint timeline object.
 
 ### Fusion exports of the saved root
 
-Kit cannot read the Fusion exports of the saved root.
-The Design `BulkStream.dat` ends with 10 bytes after the last record, and these bytes differed between exports.
+The Design `BulkStream.dat` of each Fusion export ends with 10 bytes after the last record.
+These bytes differed between exports.
 The [stream padding gotcha](../../../Gotchas/Conversion/Fusion/Assembly/FusionStreamPadding.md) gives the details.
+Kit now keeps such a tail as `ParsedSegment.BulkSlack`, up to 16 bytes, and writes it back unchanged.
+All three exports now read in Kit, with 2 links and 2 contexts in each segment.
 
-| Export | Bytes | SHA-256 | Last 10 bytes of the Design stream |
+| Export | Bytes | SHA-256 | Kit read |
 | --- | --- | --- | --- |
-| `AcceptedKitAsmRoot.f3d` | 24,786 | `9addebfb2bc3621fad7fa87addecaf7aedf299d857f403ef149c0fe571288d27` | `0000000000000000c7cb` |
-| `ReexportFirstKitAsmRoot.f3d` | 24,794 | `c477e0657f2668775b5865d9c6a466628314c22619fcfb958b0b5d92a710f9eb` | `35003600590048004400` |
-| `ReexportSecondKitAsmRoot.f3d` | 24,804 | `eab25cb1ad2b67dfd57e87f8050f435d654f8628ffa14775327304e3d08fd5c7` | `35003600590048004400` |
+| `AcceptedKitAsmRoot.f3d` | 24,786 | `9addebfb2bc3621fad7fa87addecaf7aedf299d857f403ef149c0fe571288d27` | Yes |
+| `ReexportFirstKitAsmRoot.f3d` | 24,794 | `c477e0657f2668775b5865d9c6a466628314c22619fcfb958b0b5d92a710f9eb` | Yes |
+| `ReexportSecondKitAsmRoot.f3d` | 24,804 | `eab25cb1ad2b67dfd57e87f8050f435d654f8628ffa14775327304e3d08fd5c7` | Yes |
 
+[`KitAsmRootSaved.f3d`](../../../../re/Fusion/LocalOracle/LinksConfigs/Fixtures/KitAsmRootSaved.f3d) is a sanitized copy of `AcceptedKitAsmRoot.f3d`.
+It has 24,439 bytes and SHA-256 `59dee7b0ff21f3085c7d90dcbe80e80b84ddc2e509d4378a05abfbeedc509b07`.
+[`Sanitize.py`](../../../../re/Fusion/Reconstruction/LinksConfigs/Sanitize.py) replaced cloud lineage keys and the home path with placeholders.
 [`AsmAcceptance.json`](../../../../re/Fusion/LocalOracle/LinksConfigs/AsmAcceptance.json) records all values without cloud identifiers.
 
 ## Limits
@@ -178,7 +194,7 @@ The [stream padding gotcha](../../../Gotchas/Conversion/Fusion/Assembly/FusionSt
 - Each child of a subassembly target needs an explicit matrix. A child at the identity raises `ValueError`.
 - The target model must be the exact uploaded file, as the [context revision gotcha](../../../Gotchas/Conversion/Fusion/Assembly/FusionContextRevision.md) explains.
 - The base must be an empty Kit `parameter` design without links.
-- `ReadDocument` rejects the Fusion exports of a saved Kit root, because of the stream padding.
+- `ReadDocument` rejects a Design tail longer than 16 bytes.
 
 ## Related information
 

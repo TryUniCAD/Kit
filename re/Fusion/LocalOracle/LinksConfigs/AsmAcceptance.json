@@ -872,8 +872,17 @@
           "last_object_continuation": false
         }
       },
-      "kit_read": false,
-      "kit_error": "Unexplained trailing Fusion entity payload bytes"
+      "kit_read": true,
+      "links": 2,
+      "contexts_per_segment": [
+        2,
+        2,
+        2
+      ],
+      "link_names": [
+        "KitAsmPartA",
+        "KitAsmSub"
+      ]
     },
     "ReexportFirstKitAsmRoot": {
       "name": "ReexportFirstKitAsmRoot.f3d",
@@ -896,8 +905,17 @@
           "last_object_continuation": false
         }
       },
-      "kit_read": false,
-      "kit_error": "Unexplained trailing Fusion entity payload bytes"
+      "kit_read": true,
+      "links": 2,
+      "contexts_per_segment": [
+        2,
+        2,
+        2
+      ],
+      "link_names": [
+        "KitAsmPartA",
+        "KitAsmSub"
+      ]
     },
     "ReexportSecondKitAsmRoot": {
       "name": "ReexportSecondKitAsmRoot.f3d",
@@ -920,8 +938,17 @@
           "last_object_continuation": false
         }
       },
-      "kit_read": false,
-      "kit_error": "Unexplained trailing Fusion entity payload bytes"
+      "kit_read": true,
+      "links": 2,
+      "contexts_per_segment": [
+        2,
+        2,
+        2
+      ],
+      "link_names": [
+        "KitAsmPartA",
+        "KitAsmSub"
+      ]
     }
   },
   "reexport": {

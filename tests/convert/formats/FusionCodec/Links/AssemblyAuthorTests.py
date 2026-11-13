@@ -89,9 +89,9 @@ KPartInSub = (0.0, -1.0, 0.0, 2.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0)
 
 KAffineRow = (0.0, 0.0, 0.0, 1.0)
 
-KLineagePrefix = "urn:adsk.wipprod:dm.lineage:SyntheticAssembly"
+KLineagePrefix = "urn:kit:synthetic:lineage:"
 
-KVersionPrefix = "urn:adsk.wipprod:fs.file:vf.SyntheticAssembly"
+KVersionPrefix = "urn:kit:synthetic:file:"
 
 
 def LoadFixture(StemName: str) -> DocumentModel:
@@ -325,7 +325,9 @@ def BadSpecs() -> tuple[AssemblySpec, ...]:
         Replace(Valid, Placements=(PlacedPart(0, Rigid), PlacedPart(0, Rigid))),
         Replace(Valid, Joint=RigidJoint(0, 0)),
         Replace(Valid, Base=Replace(BaseSpec, ProfileKind="extrusion")),
-        Replace(Valid, Targets=(Replace(Target, VersionUrn="urn:adsk:no-version"),)),
+        Replace(
+            Valid, Targets=(Replace(Target, VersionUrn="urn:kit:synthetic:noversion"),)
+        ),
         Replace(Valid, Targets=(Replace(Target, DisplayName="Bad/Name"),)),
         Replace(Valid, Placements=(PlacedPart(0, Rigid[:15]),)),
     )

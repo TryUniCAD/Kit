@@ -243,12 +243,12 @@ The Fusion app bundle has 232 design files and 21 nested designs, and none has a
 | Kit-authored root with two Kit parts, a Kit subassembly, a ground pin and a rigid joint | Opened with resolved references, 3 of 3 transforms bit-exact |
 | Part A edit through `updateAllReferences` on the Kit-authored root | Part A v1 to v2, body height 0.5 cm to 0.8 cm |
 | Kit-authored root saved as version 2 and opened again | References, transforms, ground pin and joint kept, 0 unhealthy items |
-| Kit read of the Fusion export of the saved Kit root | Fails on 10 padding bytes at the end of the Design stream |
+| Kit read of the Fusion exports of the saved Kit root | 3 of 3, 10 Design tail bytes kept and written back byte-equal |
 
 ## Boundaries
 
 - Kit authors rigid as-built joints only. No native revolute control exists.
-- `ReadDocument` rejects Fusion exports of a saved Kit root, because the Design stream ends with 10 padding bytes that change between exports.
+- `ReadDocument` keeps at most 16 bytes after the last Design record. A longer Design tail raises `ValueError`.
 - Kit does not author configured designs.
 - `ReadDocument` does not read the example1 members, because of mesh stream members and unqualified PCB classes.
 - The inline-typed reference form and the cadmpeg cross-document grammar are not qualified.

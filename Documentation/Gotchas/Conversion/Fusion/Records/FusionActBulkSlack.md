@@ -34,7 +34,7 @@ The bytes change between saves of equal records. They may hold uninitialized mem
 
 ## Workaround
 
-Read every ACT record except the last one strictly. Read the last record with `ReadSlack` and keep its unread bytes in `ParsedSegment.BulkSlack`. Write those bytes back after the last record so the stream stays byte-exact. Keep the strict check for every other segment and every other record.
+Read every ACT record except the last one strictly. Read the last record with `ReadSlack` and keep its unread bytes in `ParsedSegment.BulkSlack`. Write those bytes back after the last record so the stream stays byte-exact. The Design stream also keeps a tail of at most 16 bytes, as the [stream padding gotcha](../Assembly/FusionStreamPadding.md) explains. Keep the strict check for the Browser stream and every other record.
 
 ## Evidence
 
