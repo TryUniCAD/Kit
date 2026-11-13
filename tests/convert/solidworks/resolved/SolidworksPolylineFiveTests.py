@@ -161,7 +161,7 @@ def TestFCPDV(TmpPath: FilePath) -> None:
     assert NativeData.operations[0].length_mm == PytestLib.approx(37.0)
     assert NativeData.bounding_box is not None
     assert NativeData.bounding_box.center_mm == PytestLib.approx((18.5, 13.5, 18.5))
-    ExpectedDiameter = 1000.0 * ((26.5**2 + 23.5**2 + 18.5**2) ** 0.5)
+    ExpectedDiameter = 2000.0 * ((26.5**2 + 23.5**2 + 18.5**2) ** 0.5)
     assert NativeData.bounding_box.diameter_mm == PytestLib.approx(ExpectedDiameter)
     RequireNVFrame(ArchiveData)
 
