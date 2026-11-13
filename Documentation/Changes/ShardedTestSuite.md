@@ -21,6 +21,11 @@ It does not use a fixed shard list.
    It also fails when a shard record is missing or incomplete.
 
 `Merge queue acceptance` requires the plan, every shard, and the report.
+It also requires `Run the complete test suite`.
+That compatibility job succeeds only when the plan, every shard, and the report succeed.
+The merge-group `CI Agg` loads its allowlist from the trusted base commit.
+The base before this change requires `Run the complete test suite`, so the first sharded candidate needs that check.
+To remove the job, first make the name optional in the allowlist, then remove the job in a later PR.
 `CI Agg` requires the plan and the report by name.
 It matches `Test suite / Shard (n)` checks by pattern.
 On pull requests, GitHub reports the skipped shard job with its expression text.
@@ -68,6 +73,8 @@ GitHub limits one matrix to 256 jobs.
   The largest estimate was 107 seconds.
 - Black, Ruff, Pyright, Mypy, steering, Zizmor, and Prettier passed locally on the changed files.
 - No tests ran locally.
+- Pedantic Zizmor fails with exit code 12 when the `actions: read` permission has no comment.
+  The comment on that permission stays for this reason.
 - [ShardPlanTests.py](../../tests/Policy/ShardPlanTests.py) runs real pytest collection, planning, shard runs, and verification as separate processes.
   PR CI runs it in the workflow quality job.
 - [QueueAggregationTests.py](../../tests/Policy/QueueAggregationTests.py) checks that a failed plan, shard, or report fails `CI Agg`.

@@ -12,7 +12,6 @@ from tools.TestShards.TallyReports import TallyReports
 from tools.TestShards.WriteDurations import WriteDurations
 
 
-# command orchestration proves the sharded run executed the complete planned suite once
 def MainRun(ArgList: list[str] | None = None) -> int:
     ArgsInfo = BuildMergeArgs().parse_args(ArgList)
     ReportsPath: FilePath = ArgsInfo.ReportsPath

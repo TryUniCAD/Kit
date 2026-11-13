@@ -203,6 +203,21 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
 
+  verify-end-to-end:
+    if: ${{ !cancelled() && github.event_name == 'merge_group' }}
+    needs: [test-plan, test-shard, test-report]
+    name: Run the complete test suite
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      JOB_RESULTS: ${{ toJSON(needs) }}
+    steps:
+      - name: Require the plan, every shard, and the completeness report
+        run: |
+          set -euo pipefail
+          echo "$JOB_RESULTS" | jq --exit-status 'length == 3 and all(.[]; .result == "success")'
+          echo "The planned shards ran the complete test suite" >> "$GITHUB_STEP_SUMMARY"
+
   analyze:
     if: github.event_name == 'merge_group'
     name: Analyze ${{ matrix.language }}
@@ -786,6 +801,7 @@ jobs:
         test-plan,
         test-shard,
         test-report,
+        verify-end-to-end,
         analyze,
         bandit,
         semgrep,

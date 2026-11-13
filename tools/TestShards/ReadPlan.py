@@ -8,7 +8,6 @@ from tools.TestShards.ParseShard import ParseShard
 from tools.TestShards.ShardPlan import ShardPlan
 
 
-# completeness checks reload the exact plan that the shard runners consumed
 def ReadPlan(PlanPath: FilePath) -> list[ShardPlan]:
     Decoded: object = JsonLib.loads(PlanPath.read_text(encoding="utf-8"))
     ShardList = (

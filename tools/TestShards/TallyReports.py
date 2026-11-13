@@ -8,7 +8,6 @@ from tools.TestShards.ReportTally import ReportTally
 from tools.TestShards.ShardLog import ShardLog
 
 
-# one merged view of every shard log drives both verification and the next duration history
 def TallyReports(ShardLogs: Sequence[ShardLog]) -> ReportTally:
     Durations: dict[str, float] = {}
     Outcomes: dict[str, str] = {}

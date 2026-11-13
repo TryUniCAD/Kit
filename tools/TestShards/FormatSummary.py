@@ -7,7 +7,6 @@ from tools.TestShards.ReportTally import ReportTally
 from tools.TestShards.ShardPlan import ShardPlan
 
 
-# queue summaries compare planned and measured shard time so balance drift stays visible
 def FormatSummary(
     Plans: Sequence[ShardPlan], Tally: ReportTally, Problems: Sequence[str]
 ) -> str:

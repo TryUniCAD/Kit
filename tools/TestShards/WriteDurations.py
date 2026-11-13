@@ -7,7 +7,6 @@ from pathlib import Path as FilePath
 from tools.TestShards.ShardPlan import ShardPlan
 
 
-# measured durations become the history that balances the next merge group plan
 def WriteDurations(
     OutputPath: FilePath, Plans: Sequence[ShardPlan], Durations: Mapping[str, float]
 ) -> None:

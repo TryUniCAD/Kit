@@ -5,7 +5,6 @@ from typing import cast as CastValue
 from tools.TestShards.ShardPlan import ShardPlan
 
 
-# strict decoding stops a malformed plan from silently shrinking the verified test set
 def ParseShard(Entry: object) -> ShardPlan:
     if not isinstance(Entry, dict):
         raise ValueError("shard plan entry is not an object")

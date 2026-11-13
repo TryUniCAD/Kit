@@ -9,7 +9,6 @@ from tools.TestShards.PhaseReport import PhaseReport
 from tools.TestShards.ShardLog import ShardLog
 
 
-# pytest report logs record every executed phase so shard coverage can be proven afterwards
 def ReadReportLog(LogPath: FilePath) -> ShardLog:
     Phases: list[PhaseReport] = []
     Finished = False

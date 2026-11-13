@@ -4,7 +4,6 @@ import argparse as ArgParse
 from pathlib import Path as FilePath
 
 
-# dedicated parsing keeps workflow flags stable while verification stays library friendly
 def BuildMergeArgs() -> ArgParse.ArgumentParser:
     ParserInfo = ArgParse.ArgumentParser(
         description="Verify shard report logs against the plan and record durations."

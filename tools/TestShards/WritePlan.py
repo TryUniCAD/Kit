@@ -7,7 +7,6 @@ from pathlib import Path as FilePath
 from tools.TestShards.ShardPlan import ShardPlan
 
 
-# one serialized plan feeds every shard runner and the final completeness report
 def WritePlan(
     OutputPath: FilePath, Plans: Sequence[ShardPlan], MaxTests: int, HistoryCount: int
 ) -> None:

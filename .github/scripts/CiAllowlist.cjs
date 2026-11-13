@@ -3,6 +3,7 @@ const WorkflowPath = WorkflowRoot + "PullRequest.yml";
 const QueuePath = WorkflowRoot + "MergeQueue.yml";
 const QueueGate = "Merge queue acceptance";
 const QueueJobs = [
+  "Run the complete test suite",
   "Test suite / Plan",
   "Test suite / Report",
   "Analyze actions",

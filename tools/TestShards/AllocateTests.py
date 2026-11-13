@@ -8,7 +8,6 @@ from tools.TestShards.EstimateTests import EstimateTests
 from tools.TestShards.ShardPlan import ShardPlan
 
 
-# longest first placement under a hard size cap keeps the slowest runner near the ideal wall time
 def AllocateTests(
     TestIds: Sequence[str], Durations: Mapping[str, float], MaxTests: int
 ) -> list[ShardPlan]:

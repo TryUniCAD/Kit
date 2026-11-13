@@ -2,11 +2,9 @@ from __future__ import annotations
 
 import re as Regex
 
-# quiet collection ends with this footer so parsed identifiers can be cross checked by count
 KCountPattern = Regex.compile(r"^(\d+)(?:/\d+)? tests? collected\b")
 
 
-# quiet collection output is the stable node id listing pytest offers without custom hooks
 def ReadCollected(OutputText: str) -> tuple[str, ...]:
     LineList = OutputText.splitlines()
     if "" not in LineList:

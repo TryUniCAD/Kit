@@ -4,7 +4,6 @@ import argparse as ArgParse
 from pathlib import Path as FilePath
 
 
-# dedicated parsing keeps workflow flags stable while planning stays library friendly
 def BuildPlanArgs() -> ArgParse.ArgumentParser:
     ParserInfo = ArgParse.ArgumentParser(
         description="Allocate collected pytest node ids to capped runtime shards."

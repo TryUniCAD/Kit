@@ -11,7 +11,6 @@ from tools.TestShards.ReadCollected import ReadCollected
 from tools.TestShards.WritePlan import WritePlan
 
 
-# command orchestration lets the queue size its shard matrix from the live collection
 def MainRun(ArgList: list[str] | None = None) -> int:
     ParserInfo = BuildPlanArgs()
     ArgsInfo = ParserInfo.parse_args(ArgList)

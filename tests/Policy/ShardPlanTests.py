@@ -5,10 +5,8 @@ import sys as System
 import tempfile as Tempfile
 from pathlib import Path as FilePath
 
-# repository discovery keeps planner modules importable from every invocation directory
 KRootPath = FilePath(__file__).resolve().parents[2]
 
-# a small real suite exercises parametrized class skipped and module level node ids
 KSampleSuite = """
 import pytest
 
@@ -31,7 +29,6 @@ class TestGroup:
 """
 
 
-# every stage runs as its own process so the check matches the queue job boundaries
 def RunCommand(
     ArgList: list[str], WorkPath: FilePath
 ) -> Subprocess.CompletedProcess[str]:
@@ -45,7 +42,6 @@ def RunCommand(
     )
 
 
-# real collection output feeds the planner exactly as the queue planning job does
 def PlanSample(SuitePath: FilePath) -> tuple[FilePath, list[str]]:
     _ = (SuitePath / "pytest.ini").write_text("[pytest]\n", encoding="utf-8")
     _ = (SuitePath / "test_sample.py").write_text(KSampleSuite, encoding="utf-8")
@@ -62,7 +58,6 @@ def PlanSample(SuitePath: FilePath) -> tuple[FilePath, list[str]]:
     return PlanPath, Collected.stdout.split("\n\n")[0].split("\n")
 
 
-# shard runners consume the plan exactly as the queue job selects one index with jq
 def RunShards(PlanPath: FilePath, SuitePath: FilePath) -> list[str]:
     PlanData = JsonLib.loads(PlanPath.read_text(encoding="utf-8"))
     ShardIds: list[str] = []
@@ -81,7 +76,6 @@ def RunShards(PlanPath: FilePath, SuitePath: FilePath) -> list[str]:
     return ShardIds
 
 
-# a lost shard log must fail verification and name every test it would have run
 def VerifyLoss(MergeArgs: list[str], SuitePath: FilePath) -> None:
     ShellUtil.rmtree(SuitePath / "Reports" / "2")
     Missing = RunCommand(MergeArgs, KRootPath)
@@ -95,7 +89,6 @@ def VerifyLoss(MergeArgs: list[str], SuitePath: FilePath) -> None:
     assert sum(LineText.endswith(" never ran") for LineText in ErrorLines) == 3
 
 
-# the complete flow proves collection planning shard execution and completeness agree
 def TestShardFlow() -> None:
     with Tempfile.TemporaryDirectory() as TempPath:
         SuitePath = FilePath(TempPath)
@@ -115,7 +108,6 @@ def TestShardFlow() -> None:
         VerifyLoss(MergeArgs, SuitePath)
 
 
-# recorded durations spread slow tests apart while every shard keeps the size cap
 def TestShardCap() -> None:
     with Tempfile.TemporaryDirectory() as TempPath:
         WorkPath = FilePath(TempPath)

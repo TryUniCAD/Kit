@@ -12,6 +12,7 @@ import pytest as Pytest
         "Scorecard",
         "dlint",
         "Analyze python",
+        "Run the complete test suite",
         "Test suite / Plan",
         "Test suite / Shard (2)",
         "Test suite / Report",

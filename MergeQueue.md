@@ -133,6 +133,8 @@ Each shard holds at most 300 tests.
 Each `Test suite / Shard (n)` job runs only its planned node IDs.
 `Test suite / Report` fails unless every planned test ran exactly once.
 The acceptance gate requires the plan, every shard, and the report to succeed.
+`Run the complete test suite` remains as a compatibility job that requires the same three jobs.
+The trusted-base `CI Agg` of the first sharded candidate still requires that name.
 The CI allowlist matches shard check names by pattern because the shard count changes with the suite.
 
 The checked-in desired queue has no bypass actors, uses squash merges, requires `ALLGREEN`, builds

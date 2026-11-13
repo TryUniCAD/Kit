@@ -5,7 +5,6 @@ from collections.abc import Sequence
 from tools.TestShards.ShardPlan import ShardPlan
 
 
-# readable plan summaries let reviewers see shard sizes and expected runtimes in each queue run
 def DescribePlan(Plans: Sequence[ShardPlan], MaxTests: int, HistoryCount: int) -> str:
     TestCount = sum(len(ShardInfo.TestIds) for ShardInfo in Plans)
     LineList = [

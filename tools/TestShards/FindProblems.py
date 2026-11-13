@@ -5,11 +5,9 @@ from collections.abc import Sequence
 from tools.TestShards.ReportTally import ReportTally
 from tools.TestShards.ShardPlan import ShardPlan
 
-# long lists stay readable in job logs while the remaining count is still reported
 KListedLimit = 50
 
 
-# acceptance requires every planned test to run exactly once across all shard sessions
 def FindProblems(
     Plans: Sequence[ShardPlan], Tally: ReportTally, LogCount: int
 ) -> list[str]:

@@ -5,7 +5,6 @@ from collections.abc import Mapping
 from tools.TestShards.PhaseReport import PhaseReport
 
 
-# typed decoding keeps report log fields trustworthy before they decide completeness
 def ParsePhase(Fields: Mapping[object, object]) -> PhaseReport:
     TestId = Fields.get("nodeid")
     Phase = Fields.get("when")

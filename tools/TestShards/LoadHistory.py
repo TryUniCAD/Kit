@@ -6,7 +6,6 @@ from pathlib import Path as FilePath
 from typing import cast as CastValue
 
 
-# earlier merge group durations let the planner balance runtime instead of only test counts
 def LoadHistory(HistoryPath: FilePath | None) -> dict[str, float]:
     if HistoryPath is None or not HistoryPath.is_file():
         return {}
