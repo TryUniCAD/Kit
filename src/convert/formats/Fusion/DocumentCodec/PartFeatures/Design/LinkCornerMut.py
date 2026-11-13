@@ -8,6 +8,12 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.FilletSpec import (
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartStage import PartStage
 
 
+def CornerCount(Feature: object) -> int:
+    if isinstance(Feature, (FilletSpec, ChamferSpec)):
+        return 1 + len(Feature.MoreCornersMm)
+    return 1
+
+
 def LinkCornerMut(Author: AuthorState, Stage: PartStage, Prefix: str) -> None:
     Reference = Author.Reference
     MainRole = Prefix + "feature"
@@ -36,5 +42,7 @@ def LinkCornerMut(Author: AuthorState, Stage: PartStage, Prefix: str) -> None:
     Author.Change(
         MainRole,
         rChamferData=[Reference(Prefix + "data")],
-        primaryIDRowIndexMap=[{"key": 1, "value": 1}],
+        primaryIDRowIndexMap=[
+            {"key": Index + 1, "value": 1} for Index in range(CornerCount(Feature))
+        ],
     )

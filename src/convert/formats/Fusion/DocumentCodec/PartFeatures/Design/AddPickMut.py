@@ -35,3 +35,24 @@ def AddPickMut(
         refBodies=[Reference("dc_body")],
         trackingType=TrackingType,
     )
+
+
+def AddMorePickMut(
+    Author: AuthorState,
+    Prefix: str,
+    RoleName: str,
+    Recipe: RecipeValue,
+    CacheFields: dict[str, object],
+) -> None:
+    AddNodeMut(Author, RoleName, "BrepRef", Prefix + "feature")
+    Author.Allocate(RoleName + "_recipe", "ASMRecipe", Fields={"m_Recipe": Recipe})
+    Author.Allocate(RoleName + "_cache", "ETCachedLineSeg3d", Fields=CacheFields)
+    Reference = Author.Reference
+    Author.Change(
+        RoleName,
+        rRecipe=Reference(RoleName + "_recipe"),
+        rScope=PartScope(Author),
+        caches=[Reference(RoleName + "_cache")],
+        refBodies=[Reference("dc_body")],
+        trackingType=8,
+    )

@@ -36,6 +36,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.CheckCopy import 
 )
 
 KFeatureLimit = 16
+KCornerLimit = 8
 KLinkedSpecs = (PatternSpec, CircularSpec, MirrorSpec, PlaneSpec)
 
 
@@ -57,6 +58,27 @@ def CheckName(NameValue: object) -> None:
         or "\x00" in NameValue
     ):
         raise ValueError("Invalid Fusion part feature name")
+
+
+def CheckCorners(Feature: FilletSpec | ChamferSpec) -> None:
+    Extras = CastValue(object, Feature.MoreCornersMm)
+    if not isinstance(Extras, tuple):
+        raise ValueError("Fusion corner edits require a tuple of corners")
+    Points = CastValue(tuple[object, ...], Extras)
+    if len(Points) >= KCornerLimit:
+        raise ValueError("Fusion corner edits take at most eight corners")
+    for Point in Points:
+        if not isinstance(Point, tuple):
+            raise ValueError("Fusion part corners require two planar coordinates")
+        Coordinates = CastValue(tuple[object, ...], Point)
+        if len(Coordinates) != 2:
+            raise ValueError("Fusion part corners require two planar coordinates")
+        for Value in Coordinates:
+            if type(Value) not in (int, float) or not IsFinite(CastValue(float, Value)):
+                raise ValueError("Fusion part feature values must be finite numbers")
+    Corners = (Feature.CornerMm, *Feature.MoreCornersMm)
+    if len(set(Corners)) != len(Corners):
+        raise ValueError("Fusion corner edits require distinct corners")
 
 
 def CheckBevel(Feature: ChamferSpec) -> None:
@@ -92,6 +114,8 @@ def CheckFeature(Feature: KPartFeature) -> None:
             raise ValueError("Fusion part feature values must be finite numbers")
     if CastValue(float, Amounts[-1]) <= 0:
         raise ValueError("Fusion part feature sizes must be positive")
+    if isinstance(Feature, (FilletSpec, ChamferSpec)):
+        CheckCorners(Feature)
     if isinstance(Feature, ChamferSpec):
         CheckBevel(Feature)
 

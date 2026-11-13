@@ -15,6 +15,9 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ChamferSpec import 
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CircularSpec import (
     CircularSpec,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.FilletSpec import (
+    FilletSpec,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.HoleSpec import HoleSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MirrorSpec import (
     MirrorSpec,
@@ -71,6 +74,8 @@ def TestFamilySolid(NameValue: str) -> None:
         "MirrorFeature",
         "ChamferTwoDistances",
         "ChamferDistanceAngle",
+        "FilletTwoEdges",
+        "ChamferTwoEdges",
     ),
 )
 def TestFamNative(NameValue: str) -> None:
@@ -136,6 +141,8 @@ KRejected: tuple[tuple[KPartFeature, ...], ...] = (
     (KBlock, ChamferSpec((40.0, 30.0), 3.0, "Bevel", 0.0, 90.0)),
     (KBlock, ChamferSpec((40.0, 30.0), 3.0, "Bevel", -2.0)),
     (KBlock, ChamferSpec((40.0, 30.0), 3.0, "Bevel", 45.0)),
+    (KBlock, FilletSpec((40.0, 30.0), 3.0, "Rounds", ((40.0, 30.0),))),
+    (KBlock, ChamferSpec((40.0, 30.0), 3.0, MoreCornersMm=((20.0, 30.0),))),
 )
 
 

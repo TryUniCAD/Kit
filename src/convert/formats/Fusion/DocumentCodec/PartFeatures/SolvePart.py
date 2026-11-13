@@ -91,19 +91,29 @@ def ApplyExtrude(
     )
 
 
+def CornerSolid(
+    Solid: PrismSolid, Feature: FilletSpec | ChamferSpec, Operation: int
+) -> PrismSolid:
+    Rounded = isinstance(Feature, FilletSpec)
+    if isinstance(Feature, FilletSpec):
+        Amount, Bevel = Feature.RadiusMm / 10.0, (0.0, 0.0)
+    else:
+        Amount = Feature.DistanceMm / 10.0
+        Bevel = (Feature.SecondMm / 10.0, Radians(Feature.AngleDegrees))
+    for Index, CornerMm in enumerate((Feature.CornerMm, *Feature.MoreCornersMm)):
+        Corner = (CornerMm[0] / 10.0, CornerMm[1] / 10.0)
+        Label = FaceLabel(str(Index + 1), (Operation,))
+        Solid = EditCorner(Solid, Corner, Amount, Label, Rounded, Bevel)
+    return Solid
+
+
 def ApplyFeature(
     Solid: PrismSolid | None, Feature: KPartFeature, Operation: int
 ) -> PrismSolid:
     if Solid is None:
         raise ValueError("Fusion part features require a body from a new extrude")
-    Label = FaceLabel("1", (Operation,))
-    if isinstance(Feature, FilletSpec):
-        Corner = (Feature.CornerMm[0] / 10.0, Feature.CornerMm[1] / 10.0)
-        return EditCorner(Solid, Corner, Feature.RadiusMm / 10.0, Label, True)
-    if isinstance(Feature, ChamferSpec):
-        Corner = (Feature.CornerMm[0] / 10.0, Feature.CornerMm[1] / 10.0)
-        Bevel = (Feature.SecondMm / 10.0, Radians(Feature.AngleDegrees))
-        return EditCorner(Solid, Corner, Feature.DistanceMm / 10.0, Label, False, Bevel)
+    if isinstance(Feature, (FilletSpec, ChamferSpec)):
+        return CornerSolid(Solid, Feature, Operation)
     if isinstance(Feature, ExtrudeSpec):
         raise ValueError("Fusion part extrudes require a sketch plan")
     if isinstance(Feature, HoleSpec):

@@ -6,6 +6,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.AddParamMut import
     ExprText,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.AddPickMut import (
+    AddMorePickMut,
     AddPickMut,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.PartNodes import (
@@ -62,37 +63,58 @@ def AddBevelMut(
     return ("other",)
 
 
+def AddPicksMut(Author: AuthorState, Stage: PartStage, Prefix: str) -> list[str]:
+    Feature = Stage.Feature
+    if not isinstance(Feature, (FilletSpec, ChamferSpec)):
+        raise ValueError("Fusion part corner feature requires a fillet or chamfer")
+    Picks: list[str] = []
+    Corners = (Feature.CornerMm, *Feature.MoreCornersMm)
+    for Index, CornerMm in enumerate(Corners):
+        CornerCm = (CornerMm[0] / 10.0, CornerMm[1] / 10.0)
+        Recipe = CornerRecipe(Stage.Before, CornerCm)
+        Cache = CornerCache(Stage, CornerCm)
+        RoleName = Prefix + "pick" + ("" if Index == 0 else str(Index + 1))
+        if Index == 0:
+            AddPickMut(Author, Prefix, Recipe, 8, "ETCachedLineSeg3d", Cache)
+        else:
+            AddMorePickMut(Author, Prefix, RoleName, Recipe, Cache)
+        Picks.append(RoleName)
+    Reference = Author.Reference
+    Author.Change(
+        Prefix + "target", dataRefs=[Reference(PickRole) for PickRole in Picks]
+    )
+    return Picks
+
+
+def AddSeedsMut(Author: AuthorState, Prefix: str, Picks: list[str]) -> None:
+    Reference = Author.Reference
+    Author.Allocate(Prefix + "progenitors", "ProgenitorTable")
+    Pairs: list[dict[str, object]] = []
+    for Index, PickRole in enumerate(Picks):
+        SeedRole = Prefix + "seed" + ("" if Index == 0 else str(Index + 1))
+        Recipe = Author.FindEntity(PickRole + "_recipe").FieldValues["m_Recipe"]
+        Author.Allocate(SeedRole, "BrepProgenitor", NamedPairs=[])
+        Author.Allocate(SeedRole + "_recipe", "ASMRecipe", Fields={"m_Recipe": Recipe})
+        Author.Change(SeedRole, m_brepRecipe=Reference(SeedRole + "_recipe"))
+        Pairs.append({"first": Reference(SeedRole), "second": Index + 1})
+    Author.Change(Prefix + "progenitors", ProgenitorTagVec=Pairs, tagId=len(Picks) + 1)
+
+
 def AddCornerMut(Author: AuthorState, Stage: PartStage, Prefix: str) -> list[str]:
     Feature = Stage.Feature
     if not isinstance(Feature, (FilletSpec, ChamferSpec)):
         raise ValueError("Fusion part corner feature requires a fillet or chamfer")
-    CornerCm = (Feature.CornerMm[0] / 10.0, Feature.CornerMm[1] / 10.0)
     MainRole = Prefix + "feature"
     AddNodeMut(Author, MainRole, FamilyOf(Feature).ClassName, None)
-    Recipe = CornerRecipe(Stage.Before, CornerCm)
-    AddPickMut(
-        Author, Prefix, Recipe, 8, "ETCachedLineSeg3d", CornerCache(Stage, CornerCm)
-    )
-    Author.Allocate(Prefix + "progenitors", "ProgenitorTable")
-    Author.Allocate(Prefix + "seed", "BrepProgenitor", NamedPairs=[])
-    Author.Allocate(Prefix + "seed_recipe", "ASMRecipe", Fields={"m_Recipe": Recipe})
-    Author.Change(
-        Prefix + "seed", m_brepRecipe=Author.Reference(Prefix + "seed_recipe")
-    )
-    Author.Change(
-        Prefix + "progenitors",
-        ProgenitorTagVec=[{"first": Author.Reference(Prefix + "seed"), "second": 1}],
-        tagId=2,
-    )
+    Picks = AddPicksMut(Author, Stage, Prefix)
+    AddSeedsMut(Author, Prefix, Picks)
+    Roles = [Prefix + "target", *Picks]
     if isinstance(Feature, FilletSpec):
         AddParamMut(Author, Prefix + "weight", MainRole, "TangencyWeight", 1.0, "")
         AddParamMut(
             Author, Prefix + "amount", MainRole, "Radius", Feature.RadiusMm, "mm"
         )
-        return [
-            Prefix + NameValue for NameValue in ("target", "pick", "weight", "amount")
-        ]
+        return Roles + [Prefix + "weight", Prefix + "amount"]
     Extra = AddBevelMut(Author, Prefix, Feature)
     AddNodeMut(Author, Prefix + "data", "DcChamferData", MainRole, False)
-    Roles = ("target", "pick", "amount", *Extra, "data")
-    return [Prefix + NameValue for NameValue in Roles]
+    return Roles + [Prefix + NameValue for NameValue in ("amount", *Extra, "data")]

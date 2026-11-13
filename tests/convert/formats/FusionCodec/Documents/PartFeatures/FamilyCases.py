@@ -151,6 +151,23 @@ KFamilyCases: dict[str, tuple[tuple[KPartFeature, ...], float, int, int]] = {
         7,
         15,
     ),
+    "FilletTwoEdges": (
+        (KBlock, FilletSpec((40.0, 30.0), 3.0, "Corner rounds", ((0.0, 0.0),))),
+        23.922743,
+        8,
+        18,
+    ),
+    "ChamferTwoEdges": (
+        (
+            KBlock,
+            ChamferSpec(
+                (40.0, 30.0), 3.0, "Corner bevels", MoreCornersMm=((0.0, 0.0),)
+            ),
+        ),
+        23.82,
+        8,
+        18,
+    ),
 }
 KFamilyNames: dict[type[object], str] = {
     ExtrudeSpec: "DcExtrudeFeature",

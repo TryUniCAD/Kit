@@ -8,3 +8,4 @@ class ChamferSpec:
     FeatureName: str = "Chamfer"
     SecondMm: float = 0.0
     AngleDegrees: float = 0.0
+    MoreCornersMm: tuple[tuple[float, float], ...] = ()
