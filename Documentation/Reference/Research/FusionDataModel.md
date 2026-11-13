@@ -45,26 +45,35 @@ A file that passes the checks of one layer can still fail to load, rebuild, or m
 Fusion does not report every such failure as an error.
 Some failures appear only as a changed area or volume after conversion.
 
-| Difficulty                                                   | Consequence for a reader or writer                                       |
-| ------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| Class numbers come from each segment's registry              | A numeric class tag cannot identify a feature across files               |
-| Primary and inherited records have separate indexes          | A complete object can occupy several nonadjacent records                 |
-| Timeline order comes from explicit references                | Physical order and object numbers cannot reconstruct feature history     |
-| Design IDs differ from kernel entity numbers                 | An integer match across the two domains is insufficient                  |
-| Body maps select geometry histories                          | A convenient blob or its first BODY can describe the wrong object        |
-| Persistent names survive topology changes                    | Current face order cannot replace feature selection identity             |
-| Solved caches accompany procedural definitions               | A plausible NURBS surface can differ from the exact model                |
-| Several caches repeat parameter values                       | Editing one binary64 field can leave inconsistent feature state          |
-| Unknown fields can affect regeneration                       | Byte replay cannot prove independent document generation                 |
-| ZIP method 93 is uncommon in older readers                   | A generic archive tool can fail before inspecting any CAD records        |
-| Archived kernel states are not stored in rollback order      | Physical state order cannot replace the delta-state graph                |
-| Periodic faces can close a solid without edges               | A polygon Euler check rejects valid spheres and tori                     |
-| T-spline root links are orientation state                    | Re-rooting a valid control cage changes the converted body               |
-| Edit counters change during ordinary edits                   | A changed counter is not evidence of a schema or topology change         |
-| Serializer framing depends on the class, not on its name     | Two similarly named classes can use different identity framing           |
-| Native mass caches have their own numeric precision          | An exact analytic check rejects valid saved mass properties              |
-| A T-spline unit declaration disagrees with stored coordinates | A literal unit conversion scales the control cage by a factor of 100     |
-| Legacy collections keep stale counters                       | A plausible counter is not a timeline position                           |
+| Difficulty                                                    | Consequence for a reader or writer                                   |
+| ------------------------------------------------------------- | -------------------------------------------------------------------- |
+| Class numbers come from each segment's registry               | A numeric class tag cannot identify a feature across files           |
+| Primary and inherited records have separate indexes           | A complete object can occupy several nonadjacent records             |
+| Timeline order comes from explicit references                 | Physical order and object numbers cannot reconstruct feature history |
+| Design IDs differ from kernel entity numbers                  | An integer match across the two domains is insufficient              |
+| Body maps select geometry histories                           | A convenient blob or its first BODY can describe the wrong object    |
+| Persistent names survive topology changes                     | Current face order cannot replace feature selection identity         |
+| Solved caches accompany procedural definitions                | A plausible NURBS surface can differ from the exact model            |
+| Several caches repeat parameter values                        | Editing one binary64 field can leave inconsistent feature state      |
+| Unknown fields can affect regeneration                        | Byte replay cannot prove independent document generation             |
+| ZIP method 93 is uncommon in older readers                    | A generic archive tool can fail before inspecting any CAD records    |
+| Archived kernel states are not stored in rollback order       | Physical state order cannot replace the delta-state graph            |
+| Periodic faces can close a solid without edges                | A polygon Euler check rejects valid spheres and tori                 |
+| T-spline root links are orientation state                     | Re-rooting a valid control cage changes the converted body           |
+| Edit counters change during ordinary edits                    | A changed counter is not evidence of a schema or topology change     |
+| Serializer framing depends on the class, not on its name      | Two similarly named classes can use different identity framing       |
+| Native mass caches have their own numeric precision           | An exact analytic check rejects valid saved mass properties          |
+| A T-spline unit declaration disagrees with stored coordinates | A literal unit conversion scales the control cage by a factor of 100 |
+| Legacy collections keep stale counters                        | A plausible counter is not a timeline position                       |
+| Fusion does not recompute features on open                    | A writer must store the solved geometry of every feature state       |
+| A Form body comes from stored BRep, not from its cage         | A Form writer must store the exact converted body                    |
+| G1 cap weights have no recovered closed form                  | Each Form cage layout needs a measured conversion table              |
+| ASM subtype references index one table per stream             | Reordering or subsetting records must renumber or inline definitions |
+| Each bulletin names its entity on the new side                | A wrong backup chain opens but terminates Fusion on close            |
+| A drawing's DWG member holds its views and annotations        | Entity segments alone cannot author or regenerate a drawing          |
+| Saved bulk streams can end with unexplained bytes             | A strict reader rejects valid Fusion saves                           |
+| Protein assets carry heap residue from the saving machine     | A fixture can leak account data that outer-member scans miss         |
+| Configured designs need an unrestricted account               | No configuration layout can be observed with the current account     |
 
 ### Container layer
 
@@ -73,6 +82,17 @@ The study corpus declares 10,732 stored members and 10,537 Zstandard members.
 Generic archive tools and the REA F3D inspector reject method 93 before they read any CAD record.
 A writer must produce Zstandard members that the Fusion reader accepts.
 See the [tool limitation](../../Gotchas/Conversion/Fusion/FusionArchiveInspection.md).
+
+Fusion writes stored, zero-byte directory entries.
+It also opens deflated directory entries that hold the 2-byte empty Deflate stream.
+See the [directory entry gotcha](../../Gotchas/Conversion/Fusion/Records/FusionDeflatedDirectories.md).
+
+Material and appearance assets are nested ZIP archives inside `.protein` members.
+Their property members can hold uninitialized heap bytes from the saving machine.
+In saved fixtures, that residue held account identifiers, display names and home directory paths.
+A privacy scan must therefore recurse into every nested archive and scan decompressed bytes.
+Kit's readers do not decode the residue.
+See the [heap residue gotcha](../../Gotchas/Conversion/Fusion/Records/FusionProteinHeapResidue.md).
 
 ### Object-graph layer
 
@@ -94,6 +114,10 @@ Physical record order, object numbers, and the legacy `m_curFeatureId` field do 
 That legacy field has the value 1 in both one-feature and two-feature controls.
 See the [legacy feature state gotcha](../../Gotchas/Conversion/Fusion/Api/FusionLegacyFeatureState.md).
 
+A saved bulk stream can end with bytes after its last indexed record.
+Two exports of one saved document carried different trailing bytes, so the bytes are not record data.
+Kit keeps them within per-stream limits, as [Trailing stream bytes](#trailing-stream-bytes) describes.
+
 ### Identity layer
 
 Four identity domains occur in one document.
@@ -112,6 +136,12 @@ A writer must not derive one counter from another.
 A mesh body uses `pMeshUuid`, which equals the component registry `fusion_uuid`.
 Neither the filename UUID nor the container mesh UUID is that identity.
 
+A document that references other designs adds a cross-document scope.
+A link GUID joins the root manifest, the asset manifest, the version contexts and the bundle graph.
+A version-context token keys each cross-document reference within one segment.
+A reference update replaces the link GUID and the tokens.
+See [External references, assemblies and configurations](#external-references-assemblies-and-configurations).
+
 ### Geometry layer
 
 Geometry is stored as ASM SMB and SMBH binary streams.
@@ -125,6 +155,14 @@ A full circle can store its arc from 0 to 2π while its snapshot edge runs from 
 A circle sketch snapshot contains an open planar sheet with an unpartnered coedge.
 Each of these valid native states fails a validator that assumes closed polygon solids.
 
+Spline surfaces, interpolated curves and parameter-space curves are subtype scopes inside ordinary ASM records.
+A `ref N` scope indexes one subtype table for the whole stream.
+Record order and record subsets therefore change what a reference names.
+An edge can have one to four coedge uses, and a free face or free edge can occupy a root slot.
+Each bulletin names its entity on its new side and stores a backup only on its old side.
+Fusion opened journals that broke this rule, then terminated while it closed them.
+See [Complex surface geometry](#complex-surface-geometry-and-explicit-nurbs-bodies) and [Journal structure](#journal-structure).
+
 ### Evaluation-state layer
 
 Some fields change the solved result but look like bookkeeping.
@@ -137,6 +175,18 @@ See the [orientation gotcha](../../Gotchas/Conversion/Fusion/TSpline/RootLinksAr
 Other fields look like state but are only counters.
 The TSM `ver` record increments during ordinary edits.
 Setting it to the native value does not change the solved body.
+
+Fusion 2706.1.17 does not recompute features when it opens a document.
+Truncated journals and persisted dirty flags opened as stale geometry with healthy timeline items.
+Only `computeAll` produced the feature geometry.
+A Form body likewise comes from its stored BRep members, not from a conversion of its cage.
+Correct geometry after an open therefore proves only that Fusion read the stored solved state.
+See the [stale open gotcha](../../Gotchas/Conversion/Fusion/Features/FeatureStaleOpen.md) and the [Form authority gotcha](../../Gotchas/Conversion/Fusion/TSpline/StoredFormBrepAuthority.md).
+
+Fusion converts each Form cage layout with a fixed linear map from grips to converted poles.
+No closed form was found for the G1 cap weights around extraordinary vertices.
+A writer must therefore apply a measured table for each qualified layout.
+See [Stencil cage conversion](#stencil-cage-conversion).
 
 Numeric caches have their own precision.
 A native cylinder save stores transverse moments `17.385321755015763` and `17.38532263840058` for one axisymmetric body.
@@ -152,6 +202,10 @@ The OGS serializer selects resource framing per class.
 `PrimitiveLODGeometryNode` clears the resource flag, but `SimpleMesh`, `VertexBuffer`, and `CircleArc<double>` keep it.
 See the [inline graphics gotcha](../../Gotchas/Conversion/Fusion/Graphics/FusionInlineGraphics.md).
 Complete document acceptance reconstructs these members instead of omitting them.
+Two members are outside typed reconstruction.
+Kit writes a drawing's embedded DWG database as opaque bytes from a read drawing.
+Nonempty configuration sidecars are unknown, because no configured control exists.
+See [DWG authority](#dwg-authority) and [Configurations](#configurations).
 
 ### Tooling and oracle layer
 
@@ -161,6 +215,10 @@ Upstream structural research labels some T-spline fields differently from the na
 The Fusion API is also not a perfect oracle.
 One axial torus request ignored its supplied center.
 Only measured native load, rebuild, edit, save, and reopen results decide a disputed field.
+
+Some native limits come from the account, not from the format.
+`Design.createConfiguredDesign` failed because the account is restricted.
+Uploads under the Personal-use licence stayed read-only, so an edited drawing could not be saved.
 
 ### Method that resolved the format
 
@@ -176,6 +234,8 @@ Only measured native load, rebuild, edit, save, and reopen results decide a disp
 
 A field is qualified only when all applicable steps agree.
 An unexplained field is a rejection boundary, not a retained opaque value.
+Two uninterpreted byte ranges are retained by explicit, bounded rules.
+They are trailing bytes after the last record of a bulk stream and the embedded DWG of a drawing.
 
 ## Container and document families
 
@@ -209,7 +269,13 @@ File extensions alone therefore cannot select a lossless package projection.
 ```mermaid
 flowchart TD
     Package[Optional F3Z package] --> Document[Native document]
+    Package --> Drawing[Optional F2D drawing root]
+    Drawing --> DrawingSegments[Model sources and tracked entities]
+    Drawing --> Dwg[Embedded DWG sheets views and annotations]
     Document --> Root[Root manifest]
+    Root --> Links[External link table]
+    Links --> Contexts[Segment version contexts]
+    Contexts --> CrossRef[Cross-document references]
     Root --> Asset[Asset manifest]
     Asset --> Design[Design segment]
     Asset --> ACT[Active Component Tree segment]
@@ -220,6 +286,9 @@ flowchart TD
     Feature --> Parameter[Parameters and bindings]
     Feature --> Selection[Persistent selections]
     Feature --> BodyMap[Body identity and history map]
+    Feature --> Form[Form feature and SubD node]
+    Form --> Tsm[T-spline cage program]
+    Form --> BodyMap
     BodyMap --> ASM[ASM geometry and journal]
     BodyMap --> Snapshot[Solid profile and sketch snapshots]
     ASM --> Topology[Body and oriented boundary topology]
@@ -264,24 +333,29 @@ Kernel references additionally require the geometry blob and history state.
 | Current/max state IDs    | Independent signed 32-bit integers  | Kernel history stream               | Selected state versus allocation watermark                    |
 | Next entity tag          | Native signed 32-bit allocator      | Kernel history stream               | Entity tag allocation, separate from record indexes           |
 | Inline subtype reference | Schema-specific slot                | Local subtype table                 | Local subtype resolution, never global entity indexing        |
+| Link GUID                | GUID text                           | Root manifest link table            | Asset link row, version contexts and bundle `neutronRole`     |
+| Version-context token    | Unsigned 64-bit integer             | One segment's version contexts      | Cross-document reference to its context row                   |
 
 ## Primitive wire types
 
 The supported Design grammar uses little-endian integers and binary64 numbers.
 String counts measure encoded units, not Python string length.
 
-| Primitive                 | Wire representation                        | Validation                                               |
-| ------------------------- | ------------------------------------------ | -------------------------------------------------------- |
-| `u32`                     | Four little-endian bytes                   | Exact unsigned range                                     |
-| `u64`                     | Eight little-endian bytes                  | Exact unsigned range                                     |
-| `f64`                     | Eight IEEE-754 little-endian bytes         | Finite value for the recovered parameter profile         |
-| ASCII string              | `u32` byte count followed by bytes         | Bounded count and valid encoding                         |
-| UTF-16 string             | `u32` code-unit count followed by UTF-16LE | Bounded encoded length and field-specific control policy |
-| Local reference           | `01`, `u64` identity, `00 00`              | Exact marker and suffix                                  |
-| Absent optional reference | `00`                                       | Distinct from a present reference containing zero        |
-| Ordered reference list    | `u32` count followed by local references   | Bounded count and context-specific uniqueness            |
+| Primitive                 | Wire representation                              | Validation                                               |
+| ------------------------- | ------------------------------------------------ | -------------------------------------------------------- |
+| `u32`                     | Four little-endian bytes                         | Exact unsigned range                                     |
+| `u64`                     | Eight little-endian bytes                        | Exact unsigned range                                     |
+| `f64`                     | Eight IEEE-754 little-endian bytes               | Finite value for the recovered parameter profile         |
+| ASCII string              | `u32` byte count followed by bytes               | Bounded count and valid encoding                         |
+| UTF-16 string             | `u32` code-unit count followed by UTF-16LE       | Bounded encoded length and field-specific control policy |
+| Local reference           | `01`, `u64` identity, `00 00`                    | Exact marker and suffix                                  |
+| Cross-document reference  | `01`, `u64`, `01`, `u64` token, `00`, GUID, `00` | Known token and a 36-character counted class GUID        |
+| Absent optional reference | `00`                                             | Distinct from a present reference containing zero        |
+| Ordered reference list    | `u32` count followed by local references         | Bounded count and context-specific uniqueness            |
 
 The two suffix bytes belong to reference framing.
+A cross-document reference sets the byte after the object number to 1 and adds a version-context token.
+It is 60 bytes long, as [Cross-document references](#cross-document-references) describes.
 Other reference dialects require their own schemas.
 The supported parameter writer does not silently emit cross-segment references.
 
@@ -299,7 +373,8 @@ Kit's [MetaSegment](../../../src/convert/formats/Fusion/SegmentCodec/Metadata/Me
 | Primary       | Ordered `(object_id, offset)` rows | Primary BulkStream records                                                     |
 | Continuations | Ordered `(object_id, offset)` rows | Inherited BulkStream records                                                   |
 | NextId        | `u64`                              | Retained allocation state                                                      |
-| Reserved      | `u32`                              | Retained field without an invented meaning                                     |
+| Reserved      | `u32`                              | Version-context count, equal to the number of `Contexts` rows                  |
+| Contexts      | Ordered `MetaContext` rows         | Token, link GUID, document GUID, version URN, asset GUID and segment number    |
 | Properties    | Ordered `(name, value)` rows       | Retained named unsigned properties                                             |
 
 Observed core segments use metadata version 8.
@@ -551,21 +626,22 @@ The [study token reader](../../../re/Fusion/Study/asm_records.py) bounds each fi
 The independent [ezdxf SAB implementation](https://github.com/mozman/ezdxf/blob/master/src/ezdxf/acis/sab.py) supplied token vocabulary.
 Its general ACIS support does not supply Fusion's parametric persistence schema.
 
-| Tag    | Observed payload                     | Interpretation                                      |
-| ------ | ------------------------------------ | --------------------------------------------------- |
-| 4      | Signed 64-bit integer                | Integer token                                       |
-| 6      | Binary64                             | Double token                                        |
-| 7      | Byte length and UTF-8 bytes          | String token                                        |
-| 10, 11 | No following payload                 | Boolean tokens                                      |
-| 12     | Signed 64-bit integer                | Entity pointer                                      |
-| 13     | Byte length and UTF-8 bytes          | Entity name                                         |
-| 14     | Byte length and UTF-8 bytes          | Entity name prefix                                  |
-| 15, 16 | No following payload                 | Subtype delimiters                                  |
-| 17     | No following payload                 | Record end                                          |
-| 18     | Signed 64-bit length and UTF-8 bytes | Literal string                                      |
-| 19, 20 | Three binary64 values                | Position or direction vector                        |
-| 21     | Signed 64-bit integer                | Enumeration token                                   |
-| 23     | Eight bytes                          | Context-dependent value, requiring an owning schema |
+| Tag    | Observed payload                       | Interpretation                                      |
+| ------ | -------------------------------------- | --------------------------------------------------- |
+| 4      | Signed 64-bit integer                  | Integer token                                       |
+| 6      | Binary64                               | Double token                                        |
+| 7      | Byte length and UTF-8 bytes            | String token up to 255 bytes                        |
+| 8      | Unsigned 16-bit length and UTF-8 bytes | String token above 255 bytes                        |
+| 10, 11 | No following payload                   | Boolean tokens                                      |
+| 12     | Signed 64-bit integer                  | Entity pointer                                      |
+| 13     | Byte length and UTF-8 bytes            | Entity name                                         |
+| 14     | Byte length and UTF-8 bytes            | Entity name prefix                                  |
+| 15, 16 | No following payload                   | Subtype delimiters                                  |
+| 17     | No following payload                   | Record end                                          |
+| 18     | Signed 64-bit length and UTF-8 bytes   | Literal string                                      |
+| 19, 20 | Three binary64 values                  | Position or direction vector                        |
+| 21     | Signed 64-bit integer                  | Enumeration token                                   |
+| 23     | Eight bytes                            | Context-dependent value, requiring an owning schema |
 
 Tag 23 is an integer only within the verified `int64_attrib-name_attrib-gen-attrib` schema.
 Treating every tag 23 as a floating value corrupts stored identities.
@@ -608,7 +684,8 @@ Seams and periodic surfaces require chart-aware trimming.
 
 The data model must distinguish an exact definition from an approximation cache.
 Each cache needs its owner, parameter domain, representation, tolerance evidence, and provenance.
-An unexplained trailer remains unresolved even when the control grid is readable.
+Every field of the 116 complex corpus members is consumed by a typed subtype rule.
+A field outside those rules remains a rejection boundary even when the control grid is readable.
 
 The [ASM cache study](../../../re/Fusion/Notes/AsmCaches.md) records a loft cache deviation of approximately 2.85 micrometres at sampled points.
 It also records pcurve discrepancies reaching approximately 0.00616 UV units in sampled comparisons.
@@ -616,9 +693,11 @@ Those values are neither global bounds nor interchangeable units.
 They demonstrate why a decoded NURBS cache cannot automatically replace the original procedural definition.
 
 Rational spline points and weights must retain their storage convention.
-The observed rational layouts store Euclidean coordinates followed by weights.
-The surface grid order can differ from the API's control-point order.
-Knot multiplicities, periodicity, explicit bounds, and subtype references require independent interpretation.
+The observed rational layouts store Euclidean poles with weights kept separately.
+Surface poles are stored in V rows with U changing fastest, while the API uses U-major order.
+Stored knots are distinct values with multiplicities, and a clamped end has multiplicity equal to the degree.
+The API instead uses p+1 end copies.
+Periodicity, explicit bounds and subtype references follow [Complex surface geometry](#complex-surface-geometry-and-explicit-nurbs-bodies).
 
 ## Native writing obligations
 
@@ -638,9 +717,9 @@ The writer must construct a mutually consistent document graph from semantic inp
 4. Emit sketch definitions, constraints, and profile selections.
 5. Emit parameters, name registries, bindings, and feature controls.
 6. Emit explicit history order, groups, suppression, and rollback state.
-7. Emit exact B-rep definitions and applicable kernel history.
+7. Emit the solved B-rep of every feature state and its kernel history, because Fusion does not recompute on open.
 8. Emit body maps, persistent naming, and selection lineage.
-9. Emit matching ACT, Browser, manifests, and auxiliary members.
+9. Emit matching ACT, Browser, manifests, link tables, version contexts, and auxiliary members.
 10. Derive indexes, lengths, compression frames, and ZIP checksums.
 
 The existing core archive builder satisfies only part of these obligations.
@@ -801,7 +880,7 @@ The [latest native geometry acceptance](../../../re/Fusion/LocalOracle/Features/
 The archive opens with correct 19 mm geometry before recomputation, reports healthy features, rolls back to sketch-only state and restores, then preserves a 23 mm edit through native save/reopen.
 The [production embedded geometry entry](../../Changes/Fusion/FusionEmbeddedGeometry.md) records the promoted serializers and their separate native acceptance.
 That geometry experiment retains its own source envelope. Separate [independent document authoring](../../Changes/Fusion/FusionIndependentAuthoring.md) now establishes complete parameter, circular-sketch, and circular-extrusion F3D generation without a source archive or template.
-Fusion accepts these independent documents, including correct initial solid geometry, healthy editable history, rollback/restore, parameter rebuild, and native save/reopen. Other feature families remain separate acceptance boundaries. The [production document codec](../../Changes/Fusion/FusionNativeDocumentCodec.md) now implements the same complete authoring path entirely under `src/`, with a separate successful native load, rollback, edit, save, and reopen report.
+Fusion accepts these independent documents, including correct initial solid geometry, healthy editable history, rollback/restore, parameter rebuild, and native save/reopen. Each further feature family needs its own acceptance, as [Independently authored part features](#independently-authored-part-features) records. The [production document codec](../../Changes/Fusion/FusionNativeDocumentCodec.md) now implements the same complete authoring path entirely under `src/`. A separate report records its successful native load, rollback, edit, save, and reopen.
 The [envelope research](../../../re/Fusion/Reconstruction/DocumentEnvelope/EnvelopeRecipe.md) fully decodes controlled manifests and ACT/Browser records.
 The [material serialization entry](../../Changes/Fusion/Materials/FusionMaterialSerialization.md) records complete controlled instance decoding and native acceptance of regenerated material packages.
 The [production material codec](../../Changes/Fusion/Materials/FusionMaterialCodec.md) promotes typed binary store reading/writing and records native acceptance of deliberately changed density and appearance values.
@@ -814,6 +893,7 @@ The [metadata header interpretation](../../Changes/Fusion/FusionMetadataHeaderSe
 | Byte-exact record re-encoding | Reproducibility of the admitted grammar              | Regeneration and independent document generation  |
 | Saved API comparisons         | Captured semantics for named controls                | Uncaptured variants and current output acceptance |
 | PR CI                         | Checks executed on the reported revision             | Deferred queue checks and vendor behavior         |
+| Fusion open without recompute | That Fusion reads the stored solved state            | That the stored state equals a regeneration       |
 | Fusion open and rebuild       | Actual vendor acceptance for measured outputs        | Untested feature families                         |
 
 A local Fusion installation is now available and authorized for controlled captures.
@@ -834,7 +914,22 @@ The initial JSON-reference command form returned `Invalid entity ref` for all en
 The property visitor can omit members without its JSON callbacks, so these files are semantic observations rather than a complete wire schema.
 Installed binary symbols and member-registration code provide additional field-name and type evidence.
 They do not replace measured load and rebuild results.
-Production discovery must remain disabled until the complete acceptance requirements are met.
+The public registry discovers `fusion.f3d`, as [Public conversion boundary](#public-conversion-boundary) describes.
+Each profile that it admits must meet its own acceptance requirements, and other inputs are rejected.
+
+Fusion 2706.1.17 does not recompute features when it opens a document.
+An open with correct geometry therefore shows only that Fusion read the stored solved state.
+Feature acceptance also needs every rollback marker, `computeAll`, a driving edit and a reopen.
+Each stage is compared with a native control built in the same session.
+
+| Current boundary        | Evidence and limit                                                                                                          |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Form cage conversion    | Seven tabled stencil layouts and qualified open grids only, as [Stencil cage conversion](#stencil-cage-conversion) lists    |
+| Part feature families   | Eleven authored families, with revolve, sweep, loft, draft and six others captured as records only                          |
+| Configured designs      | No control exists, because `Design.createConfiguredDesign` is blocked for the account                                       |
+| Saved-document census   | 14 of 1,159 F3D and F3Z files are still unreadable, as [Saved-document census](#saved-document-census-and-acceptance) lists |
+| Drawings                | No DWG object decoding or drawing authoring, and no verified save after a model edit                                        |
+| Procedural ASM geometry | Read and re-emitted, but not evaluated, and procedural edits do not update stored approximations                            |
 
 ## Complete planar cuboid histories
 
@@ -845,10 +940,6 @@ Both a typed native read/re-emission and an independently generated history pass
 ## Controlled sketch dimension transitions
 
 A four-state native capture separates rectangle geometry, driving dimensions and user-parameter bindings. The baseline has four shared-endpoint lines and no reported geometric constraints or dimensions. Adding horizontal and vertical distance dimensions creates two distinct model parameters whose expressions refer to the existing user parameters. Editing those users changes both lengths but also moves the unanchored lower boundary. Dimensions therefore cannot be modeled as coordinates or assumed origin constraints. [The capture entry](../../Changes/Fusion/FusionSketchDimensionCaptures.md) lists exact source hashes and observed transitions; these are native research inputs, not independent dimension-authoring acceptance.
-
-## Historical drawing containers
-
-The installed public drawing example supplies one unique F3Z with an F2D root and three dependent F3Ds. Its version-two metadata has a 32-bit legacy software version, 44 class declarations, 27 primaries and two inherited continuations. The drawing graph points to an embedded AC1027 DWG; decoding the Neutron wrapper does not decode drawing sheets and annotations. Companion F3Ds share the older single-segment layout, so metadata generation must be separated from document family. [The drawing persistence entry](../../Changes/Fusion/FusionDrawingPersistenceModel.md) links exact framing, native field evidence, dependency joins, historical identifier behavior and the remaining DWG boundary.
 
 ## Analytic circular frusta
 
@@ -884,7 +975,7 @@ The cone longitudinal scale remains independent of physical radius. A native sou
 
 A native extrusion snapshot `.smb` contains three bodies: the solved solid, a double-sided profile and a single-sided sketch sheet. Its header root count four includes the ASM header. The complete cuboid profile has 168 records: 100 for the solid without the two history-specific body attributes, and two 34-record rectangular regions. `PrismSnapshot` preserves typed solid/region frames, carrier bounds and directions, topology orders, vertex ownership and identity tags; it reconstructs every record independently and rejects unsupported fields. Two source-specific snapshot replacements [passed native load, rollback, rebuild, driving-height edits and save/reopen](../../../re/Fusion/LocalOracle/PrismSnapshot/NativeAcceptance.json).
 
-`DocumentModel.Snapshots` and `.Configurations` retain qualified snapshots and the paired empty configuration sidecars. Configuration names and roles must match their exact Design serializer triggers. Nonempty configuration contents remain unsupported. The qualified OGS scene profile below now completes both controlled native envelopes; additional graphics callbacks still fail explicitly. See [the complete snapshot model](../../../re/Fusion/Reconstruction/NativeAuxiliary/SnapshotModel.md) and [API/verification entry](../../Changes/Fusion/FusionNativeSnapshots.md).
+`DocumentModel.Snapshots` and `.Configurations` retain qualified snapshots and the paired empty configuration sidecars. Configuration names and roles must match their exact Design serializer triggers. Nonempty configuration contents remain unsupported, because no configured control exists, as [Configurations](#configurations) explains. The qualified OGS scene profile below now completes both controlled native envelopes. Additional graphics callbacks still fail explicitly. See [the complete snapshot model](../../../re/Fusion/Reconstruction/NativeAuxiliary/SnapshotModel.md) and [API/verification entry](../../Changes/Fusion/FusionNativeSnapshots.md).
 
 ## Independently authored constrained rectangles
 
@@ -910,7 +1001,7 @@ The native browser adds an exact version-zero empty-own-member `VisualAnalysesBr
 
 ## Public conversion boundary
 
-The public registry now discovers `fusion.f3d` and `f3d` in both directions. `MakeFusionDoc(DocumentSpec(...))` constructs neutral parameters, sketches, constraints, feature history, analytic topology and typed materials for six qualified profiles: parameter, circle, rectangle, circular extrusion, cuboid and frustum. Its versioned `fusion.authoring` contract contains a semantic specification; emission requires exact agreement with the complete neutral graph independently derived from that specification.
+The public registry now discovers `fusion.f3d` and `f3d` in both directions. `MakeFusionDoc(DocumentSpec(...))` constructs neutral parameters, sketches, constraints, feature history, analytic topology and typed materials for six qualified profiles: parameter, circle, rectangle, circular extrusion, cuboid and frustum. `DocumentSpec.Features` adds ordered part features to the cuboid or `part` profile, as [Independently authored part features](#independently-authored-part-features) describes. Its versioned `fusion.authoring` contract contains a semantic specification. Emission requires exact agreement with the complete neutral graph independently derived from that specification.
 
 Strict reading retains decoded native state in a versioned `fusion.native_state` contract using an explicit dataclass/enum allowlist. No archive, Design byte block or donor geometry block is retained in this route. The only byte-valued assets are validated preview images. Writing independently emits the typed model and verifies both the decoded model and neutral projection before staging output. Modified neutral fields cannot be silently superseded by retained native state. The initial public projection accepts constructor-shaped profiles only; complete native-envelope codec support described above is broader than this initial neutral projector.
 
@@ -948,7 +1039,143 @@ A typed body transform contains three basis columns, translation in centimetres,
 
 `DocumentBody.History` now retains the complete typed `JournalModel` when its state graph or entity inventory exceeds a qualified two-state analytic insertion view. Parsing the complete journal precedes this view selection; parser failures never trigger a permissive fallback. `DocumentSnap.Snapshot` also admits a typed `GeometryState` with explicit body roots, including circular sheets, mixed solid/profile/sketch snapshots and multiple bodies.
 
-An edge used by one coedge has a null partner; two incident uses require reciprocal partners. Loop next/prior references remain reciprocal in both cases. Header root counts equal active body roots plus the ASM header. Allocation permutations preserve active body-root order even when tags are absent. These rules support open tetrahedra and two-body mesh conversions without treating every body as a convex closed solid. [Complete document geometry](../../Changes/Fusion/Geometry/FusionDocumentGeometry.md) records the exact schema, bounds and native acceptance.
+An edge used by one coedge has a null partner. Two incident uses require reciprocal partners. Saved documents extend this to rings of three or four uses, as [Journal structure](#journal-structure) describes. Loop next/prior references remain reciprocal in every case. Header root counts equal active body roots, free faces and free edges, plus the ASM header. Allocation permutations preserve active body-root order even when tags are absent. These rules support open tetrahedra and two-body mesh conversions without treating every body as a convex closed solid. [Complete document geometry](../../Changes/Fusion/Geometry/FusionDocumentGeometry.md) records the exact schema, bounds and native acceptance.
+
+## Fusion-saved document coverage
+
+`ReadDocument` followed by `EmitParsed` must read and re-emit each document that Fusion saves.
+The re-emitted document must read to an equal model.
+Gaps in classes, graphics, body ids, journal records and journal structure blocked earlier Fusion saves.
+Each fix rests on native registration evidence or a corpus census, and on native acceptance.
+The [saved document coverage entry](../../Changes/Fusion/Records/FusionSavedDocumentCoverage.md) gives the API and the remaining failures by cause.
+
+### Saved-only classes and versions
+
+`SavedClasses.json` holds classes that Fusion saves but Kit does not author.
+`ReadDocSchemas` reads it.
+`AuthorSchemas` does not read it, so authored class tables do not change.
+
+| Class                                                          | Version | Base                                   | Own members |
+| -------------------------------------------------------------- | ------- | -------------------------------------- | ----------- |
+| `TransientEntityHolder` `D87EC2D8-35C1-4AA2-A308-09AF07C490FF` | 0       | `98542EB9-A4F2-4137-A808-DBB5B3CD6159` | None        |
+| `DcDraftFeature` `F4163A07-9E71-4C46-BD92-ACE5B5B40BED`        | 6       | `666BFBBC-2150-4C5F-AAF7-09AB3C3D9E47` | 13          |
+
+`DcDraftFeature` version 6 adds `m_fixedPlaneDraftAngleMode`, a `u32` at native registration index 12.
+The other twelve members are the same as in version 5.
+Wire order is the ASCII order of the member names.
+
+| Field                             | Wire type                                    |
+| --------------------------------- | -------------------------------------------- |
+| `MovingPartingLineDraftAngleType` | `u32`                                        |
+| `draftType`                       | `u32`                                        |
+| `m_bFlipped`                      | `bool`                                       |
+| `m_bTangentPropagation`           | `bool`                                       |
+| `m_directionType`                 | `u32`                                        |
+| `m_draftAngle1`                   | `ref` `D91D429C-1BB5-4640-B49F-69AF14F463E9` |
+| `m_draftAngle2`                   | `ref` `D91D429C-1BB5-4640-B49F-69AF14F463E9` |
+| `m_facePickPoint`                 | `struct` of `x` and `y` as `f64`             |
+| `m_facesRef`                      | `ref` `2CA5A1CD-C99B-4C9B-91AF-57989148E841` |
+| `m_fixedPlaneDraftAngleMode`      | `u32`                                        |
+| `m_rFixedEdgesDataRef`            | `ref` `2CA5A1CD-C99B-4C9B-91AF-57989148E841` |
+| `m_rRefPlaneDataRef`              | `ref` `2CA5A1CD-C99B-4C9B-91AF-57989148E841` |
+| `rPartingLineToolDataRef`         | `ref` `2CA5A1CD-C99B-4C9B-91AF-57989148E841` |
+
+The seven version 6 records in the corpus have `m_fixedPlaneDraftAngleMode` 1, `draftType` 1, `m_directionType` 1 and `MovingPartingLineDraftAngleType` 3.
+The [saved-only class gotcha](../../Gotchas/Conversion/Fusion/Records/FusionSavedOnlyClasses.md) gives the registration evidence.
+
+Segment metadata lists only classes that have records.
+A class that the type closure reaches only through a reference, a value type or a base has no metadata row.
+`PickSchema` then selects the newest catalog version.
+For each of the six classes with two catalog versions, the newest version is the current Fusion 2706.1.17 registration.
+A version that the metadata states must still match exactly.
+The [unused version gotcha](../../Gotchas/Conversion/Fusion/Records/FusionUnusedVersionClosure.md) gives the six classes.
+
+`DRMatrix` version 16 `matrix3d` qualifies 16 row-major `f64` values.
+Version 16 changed only `arcLengthForPeriodicFace`, from a double to a strong reference.
+Saved offset and fillet documents store translations in `matrix3d`.
+The [matrix row gotcha](../../Gotchas/Conversion/Fusion/Records/FusionMatrixVersionRows.md) gives the rows.
+
+### Graphics, body ids and typed views
+
+| Topic                | Saved form                                                                                                      | Gotcha                                                                                |
+| -------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Triangle strips      | `OgsSimpleMesh` primitive code 5 is a triangle strip. Sketch dimensions use four-vertex strips without indexes. | [Strip primitive](../../Gotchas/Conversion/Fusion/Records/FusionStripPrimitive.md)    |
+| Body entity ids      | Saved cylinder and frustum histories can store ids on faces 4, 5 and 6 and on vertices 20 and 21.               | [Entity ids](../../Gotchas/Conversion/Fusion/Records/FusionRotationalEntityIds.md)    |
+| Scene display items  | Body LODs hold display items of types 0, 6 and 7, with geometry in the `Fusion_mesh_NNN` stream family.         | [Display items](../../Gotchas/Conversion/Fusion/Records/SceneDisplayItems.md)         |
+| Billboard version    | Older scene globals declare `BillBoardAttribute` version 1, which has no `FlipVisibility`.                      | [Billboard version](../../Gotchas/Conversion/Fusion/Records/SceneBillboardVersion.md) |
+| Typed view selection | A typed view that rejects the stored tokens leaves the exact journal or geometry model in place.                | [Typed view](../../Gotchas/Conversion/Fusion/Records/FusionTypedViewFallback.md)      |
+
+`XferMeshMut` accepts primitive codes 2 to 5, and `XferRenderMut` accepts codes 2 to 4.
+`EntityIds` keeps the five face and vertex ids in `HistoryModel.Tracking` and `FrustumHistory.Tracking`.
+`EnhancedEdge` and `EnhancedFace` hold the edge and face display items.
+`ReadBodyPart` and `ReadSnapPart` decode the exact journal or geometry model before they try the typed view.
+A journal or geometry parse error still rejects the document.
+Typed views put records in a canonical order, while journal and geometry models re-emit their stored bytes.
+
+### Journal records
+
+Saved journals hold these records in addition to the records that Kit authors.
+
+| Record                                                             | Kit model       | Saved content                                                                       |
+| ------------------------------------------------------------------ | --------------- | ----------------------------------------------------------------------------------- |
+| `name_attrib-gen-attrib` and `int64_attrib-name_attrib-gen-attrib` | `NameAttrib`    | A name and an optional signed 64-bit integer with tag 23                            |
+| `no_merge_attribute-st-attrib`                                     | `NoMergeAttrib` | A system attribute with links and no payload                                        |
+| Nested `generic_tag_attrib_def`                                    | `NestedTag`     | A child tag with an empty identifier, its owner and an operation number             |
+| `FDM_feature_attrib_def`                                           | `FeatureAttrib` | Data name, feature tag, flags, layout count, type code, points and a tail value     |
+| `wire`                                                             | `WireNode`      | Next wire, first coedge, owner shell, a reserved reference and an out or in logical |
+
+An `FDM_feature_attrib_def` carries a `feature_data` layout or a `thread_face_data` layout.
+The thread layout has three points and a tail of 0 or 1.
+Shell slot 6 is the first wire of the shell.
+A saved wire is a sketch tool wire that a shell owns and that owns a coedge.
+The [nested tag gotcha](../../Gotchas/Conversion/Fusion/Records/JournalNestedTag.md), the [wide integer gotcha](../../Gotchas/Conversion/Fusion/Records/JournalWideInteger.md), the [thread attribute gotcha](../../Gotchas/Conversion/Fusion/Geometry/ThreadAttributeLayouts.md) and the [wire shell gotcha](../../Gotchas/Conversion/Fusion/Geometry/WireShellSlots.md) give the layouts.
+
+### Journal structure
+
+| Shape              | Rule                                                                                               | Gotcha                                                                             |
+| ------------------ | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| Open working delta | `WorkingNode` equals `ActiveNode`, with `StateId` 0, one empty board and a next node               | [Working delta](../../Gotchas/Conversion/Fusion/Records/StructureWorkingDelta.md)  |
+| Record size        | One board holds at most 4,096 changes, and one journal record holds at most 16,384 tokens          | [Board size](../../Gotchas/Conversion/Fusion/Records/StructureBoardSize.md)        |
+| Free roots         | The header root count includes faces without a shell and edges without a coedge                    | [Free roots](../../Gotchas/Conversion/Fusion/Records/StructureFreeRoots.md)        |
+| Apex edge          | A live edge without a curve closes a cone face at its apex, and its start vertex is its end vertex | [Degenerate edge](../../Gotchas/Conversion/Fusion/Geometry/DegenerateHoleEdges.md) |
+| Torus sign         | A torus carrier can have a negative minor radius with a smaller magnitude than the major radius    | [Torus sign](../../Gotchas/Conversion/Fusion/Records/StructureTorusSign.md)        |
+| Edge rings         | An edge has 1 to 4 coedge uses, and three or four uses form one partner ring with both senses      | [Edge rings](../../Gotchas/Conversion/Fusion/Records/StructureEdgeRing.md)         |
+
+Thin extrudes write 4-use rings with alternating senses.
+Boundary fill journals keep cell bodies in older states.
+These states hold 3-use rings and 4-use rings with equal senses next to each other.
+
+### Trailing stream bytes
+
+Current Fusion saves can end a bulk stream with bytes after its last indexed record.
+Kit keeps them as `ParsedSegment.BulkSlack`, writes them back unchanged and does not interpret them.
+
+| Stream  | Trailing bytes kept | Evidence                                                                                 |
+| ------- | ------------------- | ---------------------------------------------------------------------------------------- |
+| ACT     | Any number          | [ACT slack gotcha](../../Gotchas/Conversion/Fusion/Records/FusionActBulkSlack.md)        |
+| Design  | 0 to 16             | [Design padding gotcha](../../Gotchas/Conversion/Fusion/Assembly/FusionStreamPadding.md) |
+| Browser | 0                   | Strict check                                                                             |
+
+Three Fusion exports of one saved Kit assembly root ended the Design stream with 10 bytes.
+The two later exports had trailing bytes that differ from the first, so the bytes are not record data.
+A longer Design tail still raises `ValueError`.
+
+### Saved-document census and acceptance
+
+| Corpus scope                                      | Before       | After          |
+| ------------------------------------------------- | ------------ | -------------- |
+| `re/Fusion/LocalOracle/**/vendor_*.f3d`           | 126 of 159   | 159 of 159     |
+| All F3D and F3Z files under `re/` and `examples/` | 859 of 1,072 | 1,058 of 1,072 |
+
+Each passing file reads, re-emits and reads again to an equal model.
+The complex geometry change added nine history archives that all pass, so the full census is 1,145 of 1,159.
+The 14 failures are unchanged.
+Three example files from an older Fusion declare 48 class versions that the catalog does not hold.
+The other 11 failures are research files that Kit made.
+
+The [native acceptance report](../../../re/Fusion/LocalOracle/ReaderCoverage/NativeAcceptance.json) compares a control and a re-emitted document for each of 26 cases.
+The stages are open, rebuild, rollback, restore, save and reopen.
+Fusion 2706.1.17 accepted all 26 cases.
 
 ## Periodic carriers and trim-free solids
 
@@ -1050,7 +1277,201 @@ A larger native box has ten of 48 edges in the other direction, so that order is
 | Authored initial body  | Area 12.710567668877099 cm²                                                          |
 | Authored edited body   | Area 12.43421957296201 cm² and volume 3.8361736781260087 cm³                         |
 
-Full F3D Form-graph routing, rational evaluation, arbitrary T-junctions, radial symmetry, and deleted slots remain rejection boundaries.
+Rational evaluation, arbitrary T-junctions, radial symmetry, and deleted slots remain rejection boundaries.
+[Form documents](#form-documents) describes the F3D graph that joins a cage to its converted body.
+
+## Form documents
+
+A Form document joins one T-spline control cage to one converted BRep body.
+The cage is the `.tsm` member in `TSplines.BlobParts`.
+The converted body is committed ASM geometry in `Breps.BlobParts`.
+`ReadDocument` reads the complete graph, and `EmitParsed` writes it again.
+`DocumentModel.Forms` holds one `DocumentForm(Name, Surface)` for each TSM member.
+The [Form document change entry](../../Changes/Fusion/TSpline/FusionFormDocuments.md) gives the API and the complete procedure.
+
+### Form design graph
+
+The Design segment adds these classes to an ordinary body document.
+
+| Class                                                                             | Fields that join the graph                                                                             | Target                                                         |
+| --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
+| `DcTSplineFeature`                                                                | `rTSplineToolBody`, `subDInfoMap`, `dcBodies`, `childNodes`, `rProgenitorTable`, `rDirectModelingData` | Tool body, surface node, `DcBody`, progenitor tables           |
+| `493A89BA-E146-498D-9033-2783FE727AF4`                                            | `rBaseFeature`                                                                                         | The Form feature                                               |
+| `DcTSplineToolBody`                                                               | `rTSplineFeature`, `toolbodyCaches`                                                                    | The Form feature, `ETCachedTopology`                           |
+| `TsSurface`                                                                       | `rSerializer`, `frame`, `rVSurface`, `tess`                                                            | Serializer, control frame, surface node, `SurfaceTessellation` |
+| `TSplineSerializer`                                                               | `partName`, `rSurface`                                                                                 | `TSplines.BlobParts/TSpline.<uuid>.tsm`, `TsSurface`           |
+| `ControlFrameMesh`                                                                | `facets`, `edges`, `vertices`, `grips`, `rSurface`                                                     | Frame entities, `TsSurface`                                    |
+| `ControlFrameFacet`, `ControlFrameEdge`, `ControlFrameVertex`, `ControlFrameGrip` | `rMesh`, `tsID`                                                                                        | `ControlFrameMesh`, TSM table index                            |
+| `SubDSurfaceNode`                                                                 | `rDcTSplineFeature`, `rSurface`, `rGroupParent`, named `BASEFEAT_PM_BODIES_REF`                        | Feature, `TsSurface`, cache `Bodies`, converted `Body`         |
+| `Body`                                                                            | Named `FORMFEAT_DM_SUBD_REF`, `rGroupParent`                                                           | `SubDSurfaceNode`, history `Bodies`                            |
+| `TSplineEntityProgenitor`                                                         | `entityType`, `tsEntityProgenitors`                                                                    | TSM faces and parameter windows                                |
+
+The `subDInfoMap` maps the surface node to an operation identifier and a `ProgenitorTable`.
+That table lists one `TSplineEntityProgenitor` for each named face or boundary edge of the converted body.
+Each entry lists TSM face indexes with a `(uLow, uHigh, vLow, vHigh)` window.
+Type 0 entries have full windows and name converted faces.
+Type 1 entries collapse one parameter and name boundary edges.
+The plane control has one type 0 entry and four type 1 entries.
+The box controls have six type 0 entries.
+
+The component has two `Bodies` groups.
+The history group owns the converted `Body` and the `BRepHistorySerializer` of the `.smbh` member.
+The cache group, `FusionComponent.rCacheBodies`, owns the surface node and the `BRepSerializer` of the `.smb` member.
+
+### Form joins
+
+`CheckDocForms` runs during read and before emission.
+
+| Join                   | Rule                                                                               |
+| ---------------------- | ---------------------------------------------------------------------------------- |
+| Serializer and part    | Each `partName` names one TSM member, and each member has one serializer           |
+| Serializer and surface | `TsSurface.rSerializer` names the serializer that names the surface                |
+| Control frame          | Facet, edge, vertex and grip `tsID` values are `range(n)` for the TSM table counts |
+| Surface node           | `TsSurface.rVSurface` names the node, and the node names the surface               |
+| Converted body         | The node vector names each `Body`, and each `Body` names the node back             |
+| Embedded program       | Every T-spline program in the `.smb` and `.smbh` members equals a TSM member       |
+
+### Converted BRep grammar
+
+The converted body uses three ASM entity kinds with T-spline subtype content.
+
+| Entity           | Subtype scope        | Contents                                                                                                                                              |
+| ---------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `spline-surface` | `t_spl_sur` or `ref` | Revision, exact bicubic `nubs` surface, fit tolerance, six jump arrays, four optional ranges, type code, `t_spl_subtrans_object` or `ref`, face index |
+| `intcurve-curve` | `exact_int_cur`      | Revision, cached `nubs` curve, fit tolerance, null supports, cache bounds, three jump arrays, extension, two ranges, two codes                        |
+| `pcurve`         | `exp_par_cur`        | Cached 2D `nubs` curve, fit tolerance, `spline` support with a `t_spl_sur` definition or `ref`, four optional bounds, U and V offsets                 |
+
+The `t_spl_subtrans_object` scope stores the complete TSM program and a patch program.
+The patch program has one line for each converted face.
+Each line lists TSM faces with a window and an offset.
+Text uses tag 7 up to 255 bytes and tag 8 above.
+Subtype references follow the stream-wide table in [Subtype references](#subtype-references).
+The [subtype table gotcha](../../Gotchas/Conversion/Fusion/TSpline/SplineSubtypeTable.md) and the [text width gotcha](../../Gotchas/Conversion/Fusion/TSpline/SplineTextWidth.md) give the measured values.
+
+### Converted body authority
+
+Fusion 2706.1.17 takes the editable cage from the TSM member.
+It takes the body from the stored BRep members.
+It did not convert the cage again on open, on `computeAll`, or on an empty edit.
+It refused to open a Form document without the BRep members.
+It accepted a stale BRep with health 0.
+The [authority gotcha](../../Gotchas/Conversion/Fusion/TSpline/StoredFormBrepAuthority.md) gives the variants.
+
+`t_spl_sur` derives from `exact_spl_sur`.
+Its stored B-spline surface is the exact face geometry, not an approximation of the program.
+The kernel refuses a `t_spl_sur` without that surface.
+Fusion used a moved stored surface as the face geometry.
+A set `TsSurface.bConversionFailed` flag did not start a conversion.
+The [converted surface gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConvertedSurfaceIsExact.md) gives the kernel and native evidence.
+A Form writer must therefore store the exact converted body.
+
+### Grid cage conversion
+
+`ConvertGrid` converts a qualified open grid cage exactly.
+A qualified cage has valence-4 interior vertices, unit knot intervals, unit weights and no interior creases.
+Its limit surface is one bicubic B-spline whose poles are the grips in grid order.
+The vertex spoke frame and the compound grips decide that order.
+Fusion also records each interior knot with a third-derivative jump in the surface and curve discontinuity lists.
+`SwapGridCage` puts a new cage of the same grid layout into a Form document.
+The [pole order gotcha](../../Gotchas/Conversion/Fusion/TSpline/GridCagePoleOrder.md) and the [discontinuity gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConvertedDiscontinuityLists.md) give the rules.
+
+### Stencil cage conversion
+
+Fusion converts each cage layout with a fixed linear map from the grips to the converted poles and points.
+The layout is the topology with its root links, grip mapping, creases, smart grips, header rules and grip weights.
+Single-grip probes recovered the map for seven layouts.
+Further moves of all grips confirmed each map within 2.1e-14 cm.
+Regular regions use small dyadic and triadic fractions.
+Vertex limit points use the Catmull–Clark limit mask.
+
+No closed form was found for the G1 cap weights around extraordinary vertices.
+They are not small fractions or simple quadratic surds.
+They repeat between layouts with the same corner neighbourhood.
+`ConvertCage` therefore applies a packaged table measured for the cage layout.
+`SwapFormCage` writes the result into a document of that layout.
+Fusion records each interior knot in the discontinuity list of the lowest derivative order that jumps there.
+The [linearity gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConversionIsLinear.md) and the [valence gotcha](../../Gotchas/Conversion/Fusion/TSpline/CageValenceAboveFour.md) give the evidence.
+
+| Layout                                    | Grips         | Faces, edges, vertices             | Source                            |
+| ----------------------------------------- | ------------- | ---------------------------------- | --------------------------------- |
+| Box primitive and symmetric box           | 26            | 6, 12, 8                           | Fusion primitive                  |
+| Creased plane                             | 34            | 2, 7, 6                            | Fusion plane with 11 crease edges |
+| Creased box                               | 26            | 6, 13, 9                           | Fusion box with one crease edge   |
+| Box with 3 × 3 faces per side             | 56            | 6, 12, 8                           | Kit cage                          |
+| Valence-5, valence-6 and valence-8 prisms | 32, 38 and 50 | 15, 35, 22; 18, 42, 26; 24, 56, 34 | Kit cages                         |
+
+Kit refuses every other stencil layout, non-unit knot intervals and non-unit weights.
+Weight 2 on every grip of the box shrank its area to a quarter.
+Fusion therefore divides the stored grip coordinates by the weight.
+Kit cannot read the converted cache of a weighted cage, as the [weighted grip gotcha](../../Gotchas/Conversion/Fusion/TSpline/WeightedGripCoordinates.md) shows.
+
+The geometry follows the map, but the crease edges do not keep one structure.
+Fusion stores a crease as `tangent` while its faces meet flat and as `unknown` once they bend.
+It split some bent creases into two edges, at a root of the dihedral function or at the start of a flat part.
+`ClassifyEdges` measures the crease angle and sets the class, or refuses a crease that Fusion might split.
+Fusion also refuses a cage whose faces fold back, and `CheckFolds` refuses the same bodies.
+The [crease edge class gotcha](../../Gotchas/Conversion/Fusion/TSpline/CreaseEdgeClass.md) and the [folded cage gotcha](../../Gotchas/Conversion/Fusion/TSpline/FoldedCageRefusal.md) give the evidence.
+
+### Source-free Form documents
+
+`EmitFormDoc` writes a complete Form document from a typed cage and a typed converted body, without a source archive.
+It authors the progenitor tables, frame records, Form feature, SubD node, serializer, body records, timeline and naming.
+Every identity is new.
+`CreateFormBrep` writes the history journal and the snapshot of the converted body.
+The document has no graphics segment.
+A closed body needs `bodyType` 2, and the cached tool entity needs a top-entity identity.
+Without either, `computeAll` drops the body.
+`ConvertForm` derives the body from the cage alone.
+It uses `GridBody` for an open grid and `CageBody` for a stencil layout.
+`CageBody` places the stencil result in the packaged body shape of the layout.
+It then classifies the crease edges and checks for folds.
+A body shape keeps the edge and face structure, pcurves, fit tolerances, labels, progenitor windows, edge bounds and patch cells of one native carrier.
+These fields stay fixed when the grips of a layout move, apart from rounding noise, labels and the crease edge class.
+
+### Form document verification
+
+The production round trip read 32 local Form archives.
+All 32 gave an equal model after emission.
+Their members were byte-equal, except for canonical `.protein` packages.
+The three edited archives store graphics world kind 2, which Kit reads with the BRep level-of-detail layout.
+The [edited world gotcha](../../Gotchas/Conversion/Fusion/TSpline/EditedFormGraphicsWorld.md) gives the layout.
+
+[Native acceptance](../../../re/Fusion/LocalOracle/FormDocuments/Acceptance/NativeAcceptance.json) compared four re-emitted documents with their native controls in Fusion 2706.1.17.
+All four cases have status `accepted`.
+
+| Case          | Faces, edges, vertices | Area after edit (cm²) | Volume after edit (cm³) |
+| ------------- | ---------------------- | --------------------- | ----------------------- |
+| Plane         | 1, 4, 4                | 3.75882224444742      | None                    |
+| Creased plane | 2, 7, 6                | 3.7597048123427688    | None                    |
+| Box           | 6, 12, 8               | 23.229292504382165    | 9.339333654763482       |
+| Symmetric box | 6, 12, 8               | 22.896262895240067    | 9.137857029717933       |
+
+Each re-emitted document reported the same values as its control after open, edit, save, and reopen.
+The Form health stayed 0, and zero documents remained open.
+
+[Grid acceptance](../../../re/Fusion/LocalOracle/FormDocuments/Grid/NativeAcceptance.json) accepted two Kit-converted plane documents.
+Each equalled Fusion's own conversion of the same cage within 1e-8 cm after open, edit, conversion, save and reopen.
+
+| Case   | Area as loaded (cm²) | Area after edit (cm²) |
+| ------ | -------------------- | --------------------- |
+| Affine | 3.981294020792737    | 3.9230459543150173    |
+| Warped | 4.005512887961321    | 3.9455217633195576    |
+
+Three further runs accepted documents that Kit wrote without a source archive or a native carrier.
+Each run compared the Kit document with Fusion's conversion of the same TSM within 1e-8 cm.
+The stages were open, edit, conversion, save and reopen.
+
+| Report                                                                                              | Kit documents                         |
+| --------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| [Source-free bodies](../../../re/Fusion/LocalOracle/FormDocuments/Sourceless/NativeAcceptance.json) | 9 cages with typed bodies             |
+| [Cage documents](../../../re/Fusion/LocalOracle/FormDocuments/CageDocuments/NativeAcceptance.json)  | 14 cages with `ConvertForm` bodies    |
+| [Stencil swaps](../../../re/Fusion/LocalOracle/FormDocuments/StencilAccept/NativeAcceptance.json)   | 8 cages swapped into native documents |
+
+The cage documents cover a warped plane grid and every tabled stencil layout.
+Their fresh, bent, sagged, twisted and sheared cages took no part in any fit.
+An offline comparison of the saved oracles found equal structure and edge classes.
+Its largest point gap was 1.2e-13 cm, as the [shape report](../../../re/Fusion/Reconstruction/FormDocuments/Cages/StencilShapes.json) records.
+[FusionAcceptanceEvidence.md](FusionAcceptanceEvidence.md#form-documents) lists the digests of all five reports.
 
 ## Authored round bodies and trimmed round histories
 
@@ -1059,7 +1480,9 @@ The authored body has one closed periodic face, one loop-free shell, and one lum
 It has no edges and no vertices.
 The reader admits a loop-free face only on an unbounded sphere or torus carrier that terminates its shell.
 Native `sphere::save_data` and `torus::save_data` establish the stored field order.
-The qualified reader and writer admit positive stored radii only.
+The writer admits positive stored radii only.
+The reader also admits a negative torus minor radius whose magnitude is smaller than the major radius.
+[Journal structure](#journal-structure) records that saved form.
 
 | Carrier | Stored fields in native order                                        | Rejected values                                  |
 | ------- | -------------------------------------------------------------------- | ------------------------------------------------ |
@@ -1080,6 +1503,759 @@ The qualified reader and writer admit positive stored radii only.
 The authored volumes and areas equal the analytic sphere and torus formulas.
 Each trimmed history kept every active and archived record and every state through rollback, rebuild, edit, save, and reopen.
 See the [round body change entry](../../Changes/Fusion/Geometry/FusionRoundBodies.md).
+
+## Complex surface geometry and explicit NURBS bodies
+
+Spline surfaces, interpolated curves and parameter-space curves are subtype scopes inside ordinary ASM records.
+Kit reads and writes them in the typed journal codec.
+It also authors explicit NURBS sheets and closed solids.
+The [complex geometry entry](../../Changes/Fusion/Geometry/FusionComplexGeometry.md) gives the API, the limits and the native acceptance.
+
+### Spline and tolerant record kinds
+
+| Entity                   | Subtype slot        | Other fields                                                                     |
+| ------------------------ | ------------------- | -------------------------------------------------------------------------------- |
+| `spline-surface`         | `surface`           | Reversal flag, four optional parameter bounds                                    |
+| `intcurve-curve`         | `curve`             | Reversal flag, two optional parameter bounds                                     |
+| `pcurve`                 | `pcurve` for form 0 | Form, reversal flag, U and V offsets                                             |
+| `tcoedge-coedge`         | None                | Coedge fields, parameter range, curve reference, curve form, inline curve, stamp |
+| `tedge-edge`             | None                | Edge fields, tolerance, save version, stamp                                      |
+| `tvertex-vertex`         | None                | Vertex fields, sentinel, two tolerances, stamp                                   |
+| `stitch_hint-sys-attrib` | None                | System attribute links, three doubles                                            |
+| `vertedge-sys-attrib`    | None                | System attribute links, count, edge pointer and version-gated integer pairs      |
+
+The `wire`, `FDM_feature_attrib_def` and `no_merge_attribute-st-attrib` records also occur beside spline geometry.
+[Journal records](#journal-records) defines them once for every saved document.
+
+A `pcurve` of form -2, -1, 1 or 2 has no subtype scope.
+It names an `intcurve-curve` record that holds the parameter curve.
+The absolute form selects the first or second 2D B-spline block of that intcurve.
+A negative form reverses the selected curve.
+In the corpus, negative forms occur only on reversed coedges and positive forms only on forward coedges.
+A coedge record keeps a pointer to its `pcurve` record, and -1 means no pcurve.
+
+The 8 corpus `tvertex-vertex` records have a tolerance equal to the largest tolerance of their `tedge-edge` records plus 1e-10.
+Kit refuses a tolerant vertex that is tighter than one of its tolerant edges.
+It also refuses a referenced form whose sign disagrees with the coedge sense.
+The [referenced pcurve form gotcha](../../Gotchas/Conversion/Fusion/Geometry/ReferencedPcurveForms.md) and the [tolerant vertex gotcha](../../Gotchas/Conversion/Fusion/Geometry/TolerantVertexOrder.md) give the corpus counts and the native cases.
+
+### Subtype grammar
+
+A subtype scope opens with tag 15 and a name and closes with tag 16.
+The name selects a fixed field sequence.
+The sequence can contain nested subtype scopes, B-spline blocks and optional fields.
+Every field of the 116 complex corpus members is consumed by a typed rule.
+
+| Family     | Subtype names                                                                                                                                                                        |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `surface`  | `exact_spl_sur`, `cyl_spl_sur`, `sum_spl_sur`, `helix_spl_line`, `sweep_sur`, `loft_spl_sur`, `cl_loft_spl_sur`, `srf_srf_v_bl_spl_sur`, `VBL_SURF`, `g2_blend_spl_sur`, `t_spl_sur` |
+| `curve`    | `exact_int_cur`, `par_int_cur`, `int_int_cur`, `spring_int_cur`, `helix_int_cur`                                                                                                     |
+| `pcurve`   | `exp_par_cur`                                                                                                                                                                        |
+| `subtrans` | `t_spl_subtrans_object`                                                                                                                                                              |
+
+Every corpus subtype except `helix_int_cur` and `helix_spl_line` contains at least one B-spline block.
+In `exact_spl_sur`, `exact_int_cur` and `exp_par_cur`, the B-spline is the definition itself.
+In the procedural subtypes, B-spline blocks are approximations or nested definitions beside the defining data.
+The installed kernel save routines give the field order of `exp_par_cur`, `exact_spl_sur` and the shared `spl_sur` data.
+The [kernel evidence](../../../re/Fusion/Reconstruction/ComplexGeometry/KernelEvidence.json) records each routine and its address range.
+
+Eleven subtypes read into frozen records with named fields.
+The grammar rules still define the byte layout.
+`CurveContext` holds the shared intcurve data, and `SplineCommon` holds the shared spline-surface data.
+`BlendFrame` holds the shared blend data.
+`BlendSupport`, `OffsetRadius` and `InterpRadius` hold the blend supports and radii.
+The kernel slice gives 92 derived and 65 inferred field names in 27 record classes.
+The [kernel fields](../../../re/Fusion/Reconstruction/ComplexGeometry/TypedFields/KernelFields.json) give the routine of each name.
+`cl_loft_spl_sur`, `cyl_spl_sur`, `sum_spl_sur` and the helix subtypes keep the positional tree.
+The [typed field order gotcha](../../Gotchas/Conversion/Fusion/Geometry/TypedSubtypeFieldOrder.md) gives the rule for edits.
+
+### Subtype references
+
+A `ref N` scope indexes one table for the complete stream.
+Each inline definition adds one entry in pre-order, and a reference adds none.
+The target is always earlier in the stream.
+The slot sets the family of the target, but not its subtype name.
+A surface slot of the corpus names nine different surface subtypes.
+The [reference targets](../../../re/Fusion/Reconstruction/ComplexGeometry/SubtypeTargets.json) give the counts.
+
+An entity permutation must renumber every reference.
+A subset of entities must inline each definition that it no longer contains.
+An order that puts a reference before its definition cannot be written.
+The [subtype family gotcha](../../Gotchas/Conversion/Fusion/Geometry/SubtypeFamilies.md) gives the workaround.
+
+### B-spline blocks
+
+| Item                  | Stored form                                           |
+| --------------------- | ----------------------------------------------------- |
+| Header                | Rational form, degrees, closure and singularity codes |
+| Knots                 | Distinct values with their multiplicities             |
+| Clamped end           | Multiplicity equal to the degree                      |
+| Pole count            | `sum(multiplicity) - degree + 1` in each direction    |
+| Surface poles         | V rows, with U changing fastest inside each row       |
+| Weights               | Separate from the Euclidean poles                     |
+| Surface rational form | `both`, `u` or `v`                                    |
+
+The Fusion API uses p+1 end copies and a U-major pole order.
+The [end knot gotcha](../../Gotchas/Conversion/Fusion/Geometry/SplineEndKnots.md) and the [pole order gotcha](../../Gotchas/Conversion/Fusion/Geometry/SplinePoleOrder.md) give the conversions.
+
+### Pcurve sense, seams and collapsed sides
+
+A pcurve runs on the edge range when the coedge and pcurve reversal flags agree.
+It runs on the negated edge range when they differ.
+The [pcurve sense gotcha](../../Gotchas/Conversion/Fusion/Geometry/PcurveSense.md) gives the corpus counts and the exceptions.
+
+A seam edge of a closed spline face has two uses in one loop with opposite senses.
+Each use has its own `pcurve` record.
+One of the two records has an `OffsetU` or `OffsetV` of one period, and the other has none.
+The 31 corpus seams put the offset on the forward use 21 times and on the reversed use 10 times.
+A collapsed side of a B-spline surface has no edge.
+Each of the 4 corpus faces with a collapsed side has one seam edge and one closed edge.
+Coedges on plane, cone and torus faces store no `pcurve`.
+The [seam gotcha](../../Gotchas/Conversion/Fusion/Geometry/SeamPcurveOffsets.md), the [collapsed side gotcha](../../Gotchas/Conversion/Fusion/Geometry/SingularSplineSides.md) and the [analytic coedge gotcha](../../Gotchas/Conversion/Fusion/Geometry/AnalyticFacePcurves.md) give the counts and the native results.
+
+### Complex geometry corpus coverage
+
+The 712 study archives contain 1,170 BRep members, of which 1,083 are unique.
+116 unique members contain complex records, and all 116 round-trip byte for byte.
+The [inventory summary](../../../re/Fusion/Reconstruction/ComplexGeometry/InventorySummary.json) and the [bounds census](../../../re/Fusion/Reconstruction/ComplexGeometry/VerifyBounds.json) record these counts.
+
+| Record                   | Active records | Members |
+| ------------------------ | -------------- | ------- |
+| `pcurve`                 | 2,076          | 116     |
+| `intcurve-curve`         | 1,242          | 112     |
+| `spline-surface`         | 475            | 116     |
+| `tcoedge-coedge`         | 16             | 2       |
+| `tedge-edge`             | 8              | 2       |
+| `tvertex-vertex`         | 8              | 2       |
+| `stitch_hint-sys-attrib` | 4              | 4       |
+| `vertedge-sys-attrib`    | 4              | 2       |
+
+The largest corpus record has 6,687 tokens, and the largest bulletin board has 2,224 changes.
+At that census, 1,020 of the 1,083 unique members round-tripped byte for byte.
+Its 63 remaining errors were qualified fields, root counts, an attribute kind, history variants, edge-use counts, one torus radius and one missing reference.
+[Fusion-saved document coverage](#fusion-saved-document-coverage) later qualified the root-count, attribute, edge-use and torus-sign families.
+Its census counts whole files, so this reference does not restate a later member count.
+
+### Complex geometry native evidence
+
+Fusion 2706.1.17 accepted three authored NURBS bodies, one typed pole edit, eight byte-exact snapshots and six byte-exact histories in the first pass.
+The authored bodies reported `adsk::core::NurbsSurface` faces with zero pole, knot and weight drift.
+Fusion reported their straight cubic edges as `Line3D`.
+
+Fusion did not repeat its own rebuild of a rule fillet.
+Two control runs differed by a relative 5.06e-5.
+The [rule fillet gotcha](../../Gotchas/Conversion/Fusion/Geometry/RuleFilletRebuildDrift.md) gives the comparison rule.
+The `.smb` snapshot of a fillet archive holds the bodies before the fillet.
+The [snapshot gotcha](../../Gotchas/Conversion/Fusion/Geometry/SnapshotFeatureInputs.md) gives the measured bodies.
+
+Nine corpus histories with helix subtypes, thread attributes, wire records, a degenerate edge or the largest records were re-emitted byte for byte.
+Fusion opened each one and its control with equal values at every stage within 1e-8.
+
+The second pass sent 11 consistent edits.
+A knot insertion in a `cl_loft_spl_sur`, `sum_spl_sur`, `cyl_spl_sur`, `par_int_cur`, `int_int_cur` or `exp_par_cur` B-spline kept the shape.
+A refined `cyl_spl_sur` profile reached through a `curve` reference changed the reported edge.
+Fusion reported the refined B-spline pole for pole in each edited face, coedge or edge, except one pcurve.
+Fusion reported that refined `int_int_cur` pcurve as the same curve with the inserted knot at full multiplicity.
+The [refined pcurve knots gotcha](../../Gotchas/Conversion/Fusion/Geometry/RefinedPcurveKnots.md) gives the comparison.
+Fusion reported an edited tolerant edge and tolerant vertex with the stored values.
+An edited stitch hint survived a Fusion export in a separate diagnostic run.
+
+Fusion accepted five more authored bodies in the second pass.
+They are two sheets with an inner loop or a collapsed side, two seamed solids with plane faces and a doubly closed torus.
+Each kept its topology, area and surface poles through save and reopen, and each solid kept its volume.
+Fusion reported each seam coedge curve with its offset added.
+It also reported coedge curves on plane and cylinder faces that store no `pcurve`.
+`BRepBody.volume` of two seamed solids differed by up to 3.26e-5 relative.
+The very high accuracy volume agreed within 2.4e-10.
+The [body volume gotcha](../../Gotchas/Conversion/Fusion/Geometry/BodyVolumeAccuracy.md) gives the values.
+[FusionAcceptanceEvidence.md](FusionAcceptanceEvidence.md#complex-surface-geometry) lists each run, its status and its digest.
+
+### Complex geometry boundaries
+
+Kit does not evaluate procedural surfaces or curves.
+An edit of a procedural field does not update the stored approximation.
+No native case changed a procedural field.
+The authoring path writes exact B-spline subtypes, plane and cone records only.
+`helix_int_cur`, `helix_spl_line` and `wire` records went to Fusion only as byte-identical re-emissions.
+`vertedge-sys-attrib` records have byte-level evidence only.
+57 of the 62 history snapshots hold bodies that are outside the history.
+Fusion exited once in a run whose next case had a form sign against its coedge sense.
+No consistent input repeated the exit, and Kit now refuses that edit.
+
+## Independently authored part features
+
+`DocumentSpec.Features` adds an ordered tuple of part features to an unconstrained cuboid or to a part profile.
+With `ProfileKind="part"`, the first feature must be a `new` `ExtrudeSpec`, and no other feature may create a body.
+`CheckFeatures` accepts at most 16 features, requires a shell to be last and reserves generated `d<digits>` parameter names.
+`SolvePart` applies each feature to an exact prism model in millimetre inputs and centimetre geometry.
+The model is a stack of slabs with vertical walls and flat caps.
+Every authored surface is therefore a plane or a vertical cylinder.
+Rejected profiles, missed bodies, collapsed sides and over-thick shells raise `ValueError` before any record is written.
+The [part feature change entry](../../Changes/Fusion/Features/FusionPartFeatures.md) gives the API and the limits.
+
+| Family              | Design feature         | Operations          | Journal state | Driving parameters                                               |
+| ------------------- | ---------------------- | ------------------- | ------------- | ---------------------------------------------------------------- |
+| Sketch extrusion    | `DcExtrudeFeature`     | 3 with its sketch   | One           | `AlongDistance`, `AgainstDistance`, `TaperAngle`                 |
+| Hole                | `DcHoleFeature`        | 1                   | One           | `HoleDiameter`, `HoleDepth`, `TipAngle`, `CBDiameter`, `CBDepth` |
+| Rectangular pattern | `DcRectangularPattern` | `CountU` × `CountV` | One           | `countU`, `CountV`, `uSpaceDistance`, `vSpaceDistance`           |
+| Circular pattern    | `DcCircularPattern`    | `Count`             | One           | `countU`, `TotalAngle`                                           |
+| Offset plane        | `DcWorkPlane`          | 1                   | None          | `AlongDistance`, `ExtraOffset`                                   |
+| Construction axis   | `DcWorkAxis`           | 1                   | None          | None                                                             |
+| Construction point  | `DcWorkPoint`          | 1                   | None          | None                                                             |
+| Mirror              | `DcMirrorPattern`      | 2                   | One           | `countU`, `mirrorStitchTolerance`                                |
+| Fillet              | `DcFilletEdgeFeature`  | 1                   | One           | `TangencyWeight`, `Radius`                                       |
+| Chamfer             | `DcChamferFeature`     | 1                   | One           | `Distance`, `Distance 1`, `Distance 2`, `Rotate Angle`           |
+| Shell               | `DcShellFeature`       | 2                   | One           | `innerThickness`                                                 |
+
+### Extrusions and holes
+
+A sketch extrusion writes a `DcSketch` on the origin XY plane with its lines, arcs and circles, the region recipe and the profile.
+A `new` extrusion owns the body.
+A `join`, `cut` or `intersect` extrusion adds a body target with tracking type 8.
+One-sided, flipped, symmetric and two-sided extents use the native extent records.
+
+A hole writes a `DRPoint` on the current top face and a `DRVector` with `refType` 19 along +Z.
+Both carry `param`, the offset of the hole centre from the plane root of the top face.
+An extruded cap face has its root at the centre of the bounding box of its sketch profile.
+Its u direction is +X and its v direction is +Y.
+A hole at the root uses `refType` 6 and a plain face recipe.
+Any other hole uses `refType` 17 and the bound face recipe of the top face.
+A top face with one circular boundary uses a single-edge recipe that names the rim edge tag.
+A through hole adds a body extent reference with tracking type 5.
+A blind hole has a 180° tip, so its floor is a plane.
+A counterbore adds `CBDiameter` and `CBDepth`.
+The [hole placement gotcha](../../Gotchas/Conversion/Fusion/Features/FeatureHolePlacement.md) gives the recipes.
+
+### Patterns and mirrors
+
+A rectangular or circular pattern copies an earlier cut extrusion or hole.
+A mirror copies one about an earlier offset plane parallel to YZ.
+The copy writes `DcPatternSource`, a `ModelDataRef` and an `EntityDataRef` to the source feature.
+It adds one `DcPatternBodyOccurrence` per copy and an `occOperationIdsMap` entry per copy after the source.
+Rectangular occurrence tags follow `(u + v)(u + v + 1) / 2 + u + 1` with U varying fastest.
+Circular and mirror occurrence tags count from 1.
+Source walls and floors carry a `TrackAttrib` that names the source reference.
+Copy faces, floors included, carry the source tag plus the pattern and copy operation identifiers.
+
+A circular pattern or mirror names one face in `DcPatternSource.adjacentFaceCaches`.
+For an extrusion source, Kit names the base face, where the source sketch lies.
+With the top face, a later hole warned after the first `computeAll` in 36 of 82 probe runs.
+A rectangular pattern uses the X and Y origin axes, and a circular pattern turns about the Z axis.
+The mirror's `countU` and `mirrorStitchTolerance` stay out of `allParameters`.
+The [copy occurrence gotcha](../../Gotchas/Conversion/Fusion/Features/FeatureCopyOccurrence.md) gives the probe results.
+
+### Corner features
+
+A fillet or chamfer writes one `BrepRef` under its `ModelDataRef` target for each selected vertical edge.
+Each edge also adds one progenitor seed, and the progenitor table `tagId` is the edge count plus one.
+The new faces carry primary identifiers 1, 2 and so on in selection order, all with the feature's single operation.
+A chamfer writes one `primaryIDRowIndexMap` row per edge.
+`DcChamferData.chamferType` is 1 for an equal distance, 2 for two distances and 3 for a distance and an angle.
+Type 2 links `chamferDistanceTwoParam` to `Distance 2`, and type 3 links `chamferAngleParam` to `Rotate Angle`.
+In both native controls, the first distance runs along the side that ends at the corner in the counter-clockwise profile.
+
+### Construction geometry
+
+An offset plane writes a `WorkPlane` before its `DcWorkPlane`.
+It also writes a base `EntityDataRef` to the origin plane and a `DRMatrix` with the plane frame.
+The plane has start and end state −1, an empty feature user name and the plane name on `WorkGeometry.userName`.
+It consumes one operation identifier but no journal state.
+The [stateless plane gotcha](../../Gotchas/Conversion/Fusion/Features/FeatureStatelessPlane.md) gives the native control.
+
+A construction axis on a vertical body edge writes a `WorkAxis` before its `DcWorkAxis`, whose `creationType` is 4.
+The axis `DRVector` has `refType` 8, `axisTrackType` 8 and the edge as `line3d`.
+Its edge `BrepRef` has tracking type 33 and an `ETCachedLineSeg3d` cache.
+The edge recipe names the incoming wall, the outgoing wall, the floor and the roof, with `ReferenceFaceIndex` 0.
+The `WorkAxis` line starts at the bottom vertex and spans the edge, with parameters −0.1 to 1.1.
+
+A construction point on the bottom vertex of that edge writes a `WorkPoint` and a `DcWorkPoint` whose `creationType` is 0.
+Its `DRPoint` has `refType` 10.
+The vertex `BrepRef` has tracking type 513 and an `ETCachedPoint3d` cache.
+The vertex recipe lists the floor, the outgoing wall and the incoming wall.
+Both features behave like the offset plane.
+They have start and end state −1, an empty feature user name, one operation identifier and no journal state.
+Each raises `highWaterMarkAxes` or `highWaterMarkPoints` on `WorkGeometries`.
+
+### Timeline, journal and identity rules
+
+Feature `n` takes the next state ID after the last solid feature.
+`LinkTimeline` updates the creation order, the entity and feature identifier maps, the per-class `featureIndexMap` and the component `operationSeedId`.
+Parameters use `d<n>` user names after the existing parameter watermark.
+Their expressions omit a trailing `.0`.
+
+`EmitPartHist` writes one journal state for each solid-changing feature.
+Each state contains the complete solved body.
+A face that keeps its draft key across two states is a modification and keeps its tag.
+A face whose key changes is a deletion plus an insertion, and the inserted face receives a fresh tag.
+The body claims tag 0 before any face.
+That tag must equal the `mapBodyId` key of `BRepHistorySerializer`, or Fusion shows a body without geometry.
+The [body tag gotcha](../../Gotchas/Conversion/Fusion/Features/FeatureBodyTag.md) gives the failure.
+
+Every bulletin names the object entity on its new side.
+A modified object keeps one entity, and each modification stores a backup of the earlier data on its old side only.
+Kit first wrote each earlier version as the created entity and as the next backup.
+Fusion opened and rolled back those journals.
+It then terminated in `HISTORY_STREAM::delete_delta_states` while it disposed the closed documents.
+The 43 native controls that the Kit journal reader accepts all follow the identity rule.
+The [bulletin identity gotcha](../../Gotchas/Conversion/Fusion/Features/FeatureBulletinIdentity.md) gives the controls.
+
+Every reference scope, `BrepRef.rScope` and `ETCachedTopology.scope`, carries the component `persistentId`.
+A body identifier in this field still opens with correct geometry.
+After `computeAll`, the shell then reports `Face 1 missing` and the body reverts to the extruded box.
+The [reference rule gotcha](../../Gotchas/Conversion/Fusion/Features/FeatureReferenceRules.md) gives the variants.
+
+### No recompute on open
+
+Fusion 2706.1.17 does not recompute a feature when it opens a document.
+Truncated native journals and five persisted dirty-flag variants opened as the stale box with healthy timeline items.
+Only `computeAll` produced the feature geometry.
+The writer must therefore emit the solved journal for every state.
+The [stale open gotcha](../../Gotchas/Conversion/Fusion/Features/FeatureStaleOpen.md) gives the variants.
+
+### Part feature acceptance
+
+Native acceptance opens each Kit document without a recompute and compares it with a native API control built in the same session.
+It walks every rollback marker, runs `computeAll`, applies the driving parameter edits, exports, reopens and recomputes again.
+Each suite started and ended with no open document.
+
+| Suite        | Families                                                           | Accepted cases |
+| ------------ | ------------------------------------------------------------------ | -------------- |
+| Corners      | Fillet, chamfer, shell                                             | 5 of 5         |
+| Extrusions   | New, join, cut and intersect with every extent                     | 15 of 15       |
+| Holes        | Simple and counterbore, blind and through                          | 4 of 4         |
+| Patterns     | Offset plane, rectangular and circular patterns, mirror, hole grid | 5 of 5         |
+| Multi        | `MultiPocketPart`, `MultiDiscPart`                                 | 2 of 2         |
+| Edges        | Two-distance and distance-angle chamfers, multi-edge corners       | 5 of 5         |
+| Construction | Offset plane, edge axis, vertex point                              | 2 of 2         |
+
+`MultiPocketPart` combines a slot cut, a hole, a hole pattern, a fillet, a plane and a mirror.
+`MultiDiscPart` combines a disc, a pocket, a circular pattern and a counterbore.
+`CornerSetPart` and `ConstructionPart` add holes, corners, axes and points to a cut part.
+[FusionAcceptanceEvidence.md](FusionAcceptanceEvidence.md#independently-authored-part-features) lists the seven reports and their digests.
+
+Revolve, countersink, combine, sweep, loft, draft, split, move, copy-body and offset-face features are captured as [native family records](../../../re/Fusion/Reconstruction/FeatureAuthoring/FamilyRecords.json.xz) only.
+Kit does not author them.
+When they were captured, the draft and copy-body controls used class versions outside the typed catalog.
+[Saved-only classes and versions](#saved-only-classes-and-versions) later added `DcDraftFeature` version 6 for reading.
+
+## External references, assemblies and configurations
+
+A Fusion design that inserts another cloud design keeps the link in five places.
+Kit reads and writes all five places through `ReadDocument` and `EmitParsed`.
+The [external reference entry](../../Changes/Fusion/Assembly/FusionExternalReferences.md) gives the reader model.
+The [assembly authoring entry](../../Changes/Fusion/Assembly/FusionAssemblyAuthoring.md) gives the writer.
+
+| Layer                     | Member                                             | Typed model                   | Join key                         |
+| ------------------------- | -------------------------------------------------- | ----------------------------- | -------------------------------- |
+| Root link table           | Root `Manifest.dat`                                | `RootManifest.Links`          | Link GUID                        |
+| Asset link rows           | Asset `Manifest.dat`                               | `AssetHeader.Links`           | Link GUID                        |
+| Version contexts          | Each `MetaStream.dat`                              | `MetaSegment.Contexts`        | Link GUID and token              |
+| Cross-document references | Entity payloads                                    | `CrossRef`                    | Token                            |
+| Bundle graph              | `RedirectionsStream.dat`, `DesignDescription.json` | `DocRedirects`, `BundleModel` | `neutronRole` equals a link GUID |
+
+### Root and asset link rows
+
+The root manifest has an ordered ancestry GUID list after the version table.
+The link table follows the ancestry list.
+The asset GUID and the terminal follow the link table.
+
+| Link field   | Wire type              | Content                                                 |
+| ------------ | ---------------------- | ------------------------------------------------------- |
+| `LinkId`     | GUID                   | Link GUID                                               |
+| `SourcePath` | UTF-16 text            | Export target path                                      |
+| `CachePath`  | UTF-16 text            | Local cache file of the referenced design               |
+| `XrefPath`   | UTF-16 text            | Local `_XRef_` cache file with an `_LV<version>` suffix |
+| Words        | Four `u32`             | `2, 4, 1, 0` in all observed links                      |
+| `Properties` | Count and UTF-16 pairs | Named text values                                       |
+
+| Property             | Content                                                      |
+| -------------------- | ------------------------------------------------------------ |
+| `LineageId`          | Lineage URN of the referenced design                         |
+| `LineageUrn`         | Same value as `LineageId` in every fixture link              |
+| `toDocDisplayName`   | Name of the referenced design                                |
+| `URL`                | Version URN, `urn:adsk.wipprod:fs.file:vf.<key>?version=<n>` |
+| `linkedAssetGUID`    | Asset GUID of the referenced design                          |
+| `linkClassification` | `OriginalDesign`, present after a cloud save                 |
+
+The three paths are workstation values, and the properties hold cloud identities.
+Fixtures replace both with placeholders, as the [link path gotcha](../../Gotchas/Conversion/Fusion/Assembly/FusionLinkPaths.md) describes.
+The terminal is an export label for API exports.
+It is a display name and a lineage URN for cloud bundle members.
+
+The asset manifest stores its kind and subtype as one text, separated by a zero character.
+
+| Asset link field | Content                                                                                                     |
+| ---------------- | ----------------------------------------------------------------------------------------------------------- |
+| `LinkId`         | Root manifest link GUID                                                                                     |
+| `AssetId`        | Asset GUID of the referenced design, equal to `linkedAssetGUID`                                             |
+| `SnapshotId`     | Snapshot GUID of the referenced design                                                                      |
+| `LinkWord`       | 1 in all observed rows                                                                                      |
+| Marker           | 2 in all observed rows                                                                                      |
+| `PhysicalGuid`   | `physicalChangeGuid` asset property of the referenced design, or the zero GUID when that property is absent |
+
+### Version contexts
+
+The `u32` after `NextId` in `MetaStream.dat` is the context count.
+The earlier model retained it as `Reserved` without a meaning.
+The contexts come before the property list.
+The [context count gotcha](../../Gotchas/Conversion/Fusion/Assembly/FusionContextCount.md) gives the evidence.
+
+| Field        | Wire type   | Content                                                                  |
+| ------------ | ----------- | ------------------------------------------------------------------------ |
+| `Token`      | `u64`       | Key for `CrossRef` values in this segment                                |
+| `LinkId`     | UTF-16 text | Root manifest link GUID                                                  |
+| `RevisionId` | UTF-16 text | Document GUID of the referenced cloud design, the same for every version |
+| `VersionUrn` | UTF-16 text | Version URN, equal to the link `URL` in every fixture context            |
+| `AssetId`    | UTF-16 text | Equal to `linkedAssetGUID` in every fixture context                      |
+| `SegmentId`  | `u32`       | 0 for Design and Browser, 1 for ACT                                      |
+
+Each segment has one context for each link.
+The Design and Browser contexts of a link share one token.
+The ACT context of the same link has a different token.
+The [context revision gotcha](../../Gotchas/Conversion/Fusion/Assembly/FusionContextRevision.md) explains the `RevisionId` value.
+
+### Cross-document references
+
+The observed cross-document reference has 60 bytes.
+
+```text
+u8        present = 1
+u64       target object number
+u8        cross_document = 1
+u64       version context token
+u8        0
+LP-ASCII  target class GUID, 36 characters
+u8        0
+```
+
+Each token equals a context token of the same segment.
+The target object number addresses a record in the referenced design.
+The class GUID names the class of the target record.
+
+| Target           | Class GUID                             |
+| ---------------- | -------------------------------------- |
+| Design component | `E03784ED-5E19-4E14-B9F2-3B07017018CD` |
+| ACT component    | `D956D02C-2806-4E57-8B2E-EFA323A5C2B8` |
+
+cadmpeg documents a different cross-document grammar with a segment number, an asset GUID, a link name and an optional version URN.
+It also documents a 51-byte inline-typed local form with length byte `0x24` after the object number.
+Kit did not find either form in 15 native controls, 1,004 study F3D files or the example bundle members.
+`ReadRefMut` raises `Unsupported inline-typed Fusion entity reference` for the `0x24` byte.
+
+### Records of one external instance
+
+The difference between the `R0_empty` and `R1_part_a` controls gives the records of one external instance.
+
+| Segment | New record                            | Function                                                                                |
+| ------- | ------------------------------------- | --------------------------------------------------------------------------------------- |
+| Design  | `XRefManager`                         | Owner of the external references of the component                                       |
+| Design  | `ComponentInstance`                   | Occurrence with `initialTransform`, `transform` and `rTargetComponent` as `CrossRef`    |
+| Design  | `DcComponentInstance`                 | Compute node of the occurrence, primary and continued records                           |
+| Design  | `DynamicUpdateData`, two records      | `timeStamp` and `xRefPredecessorsHash`                                                  |
+| Design  | `DcXRefPCIFeature`                    | Timeline feature "Component Insert" with the placement transform                        |
+| Design  | `DcStatus`                            | Compute status of the feature                                                           |
+| Design  | `ProgenitorTable`                     | Progenitor table of the feature, primary and continued records                          |
+| Design  | `DcOccurrence`                        | Occurrence path and transform state                                                     |
+| ACT     | `ACTInstance`                         | Instance with `ACTRef` and `targetComponent` as `CrossRef`                              |
+| ACT     | `RevGUIDACTDataMany`, two records     | Revision GUID for each tracked change type                                              |
+| ACT     | `ACTRefdTable`                        | Referenced table with tracked change types, reference count, link name and revision map |
+| Browser | `FusionComponentInstanceBrowserEntry` | Browser node with `CrossRef` subjects into the target                                   |
+
+Existing records also change.
+Examples are the ACT table, the instance roots, the component, the design fragment and the compute and dependency managers.
+
+The occurrence matrix is stored in four Design fields of `R1_part_a`.
+They are `ComponentInstance.initialTransform`, `ComponentInstance.transform`, the `DcXRefPCIFeature` placement and the `DcOccurrence` state.
+The matrix is row-major with the translation in the fourth column, in centimetres.
+No graphics value of `R1_part_a` equals this matrix.
+A typed change of these four fields moves the occurrence in Fusion.
+An identity placement stores an empty matrix value, as the [identity matrix gotcha](../../Gotchas/Conversion/Fusion/Assembly/FusionIdentityMatrix.md) records.
+
+`ACTRefdTable::initializeMemberSet` in `NsACT10.dylib` registers six members for schema version 1.
+
+| Member                      | Fusion type                                     | Saved | Content in the controls                                            |
+| --------------------------- | ----------------------------------------------- | ----- | ------------------------------------------------------------------ |
+| `ACTRefdTableEntries`       | `map<wstring, pair<set<string>, unsigned int>>` | Yes   | Target component identifier, tracked change types, reference count |
+| `RevisionGuidForChangeType` | `map<string, uuid>`                             | Yes   | `revisionGuidForChangeType` of the target ACT table                |
+| `CachedRevGuid`             | `uuid`                                          | Yes   | `RevisionGuid` of the target ACT table                             |
+| `RefdAsset`                 | `int64` runtime pointer                         | No    | Not written                                                        |
+| `RefdDocLinkName`           | `wstring`                                       | Yes   | Link GUID                                                          |
+| `RefdAssetGuid`             | `uuid`                                          | Yes   | Target asset GUID                                                  |
+
+The pair has no registered member names.
+`addEntry` and `_replaceEntry` set the count to 1 for a new key and add 1 for an existing key.
+`removeEntry` subtracts 1 and removes the key at 0.
+Kit calls the count `referenceCount`.
+`isOutOfDate` compares `CachedRevGuid` with the target revision, and then each tracked change type.
+
+Saved roots with an as-built joint have two more graphics structures.
+A render frame has a third link flag, `RenderFrame.HasEmptyLink`.
+`SelectabilityAttribute` links an `AlphaImageSelectionQualifier` with one optional image path.
+The [linked graphics gotcha](../../Gotchas/Conversion/Fusion/Assembly/FusionLinkedGraphics.md) gives the layouts.
+
+### Assembly authoring rules
+
+`EmitAssembly` writes a new root that references other designs.
+These rules match the `R4_joint` control and a native insert of a Kit part.
+
+| Item                              | Rule                                                                                                                                                             |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Design object numbers             | `XRefManager`, then per placement: instance, compute node, update data, placement feature, update data, status, progenitor table, occurrence, nested occurrences |
+| Ground pin                        | Directly after its placement: override, feature, data reference, recipe, external recipe, update data, status, progenitor table                                  |
+| Joint                             | Joint, feature, nine occurrence references, update data, status, progenitor table, compute occurrence, joint occurrence                                          |
+| ACT object numbers                | Instance, data, `ACTRefdTable` and data copy for each placement                                                                                                  |
+| Feature numbers                   | From `operationSeedId`, in timeline order                                                                                                                        |
+| Record order                      | Primary records by object number, each followed by its continuation                                                                                              |
+| Observer index of a target object | One more than the largest index on that object in the target design                                                                                              |
+| Identity placement                | Empty matrix value                                                                                                                                               |
+
+`updateAllReferences` after a new version of Part A replaced the Part A link.
+
+| Item                           | Before           | After                      |
+| ------------------------------ | ---------------- | -------------------------- |
+| Link GUID                      | Old              | New                        |
+| `URL`                          | `?version=1`     | `?version=2`               |
+| Design, Browser and ACT tokens | Old              | New                        |
+| `ACTRefdTable` record          | Object 10        | Object 16                  |
+| `linkClassification`           | `OriginalDesign` | Absent until the next save |
+
+The subassembly link kept its GUID, tokens and version.
+The [link renewal gotcha](../../Gotchas/Conversion/Fusion/Assembly/FusionLinkRenewal.md) gives the records.
+
+### F3Z dependency graph
+
+| Member                        | Typed model    | Content                                                                        |
+| ----------------------------- | -------------- | ------------------------------------------------------------------------------ |
+| `Properties.dat`              | `DocProps`     | Four zero bytes, or a length-prefixed JSON object with an optional `docstruct` |
+| `RedirectionsStream.dat`      | `DocRedirects` | Designs and `XREF` references                                                  |
+| `ComponentReferenceData.json` | Fixed          | `{}`                                                                           |
+| `DesignDescription.json`      | `BundleModel`  | Bundle graph                                                                   |
+
+The `docstruct` object has `version`, `type`, `subtype` and Boolean `attributes`.
+The observed types are `part-design` and `assembly-design`.
+The redirection designs of a member list the member itself and each design that it references.
+Each reference has the properties `neutronRole` and `neutronData`.
+`neutronRole` equals a root manifest link GUID of the member.
+The `DesignDescription.json` edges of a member equal its redirection references.
+All nine members of the example bundle satisfy these relations.
+The [dependency graph entry](../../Changes/Fusion/Assembly/FusionDependencyGraph.md) gives the typed models.
+
+### Configurations
+
+A design has `DesignConfigurationTable.<GUID>.dsgcfg` and `DesignConfigurationRule.<GUID>.dsgcfgrule` sidecars.
+A Design serializer trigger names each sidecar.
+All observed sidecars contain `{}`, and no observed file has a sidecar larger than 2 bytes.
+The configuration table, rule, row and cell layouts are not known.
+
+`Design.createConfiguredDesign` failed in Fusion 2706.1.17 with an account restriction.
+The error was `Cannot create configuration top table as the user is restricted.`
+No configured control therefore exists.
+The Fusion app bundle has 232 design files and 21 nested designs, and none has a configuration sidecar.
+`FusionXLayer10.dylib` also holds `Cannot retrieve configuration top table as the user is restricted.`
+The [app bundle scan](../../../re/Fusion/Reconstruction/LinksConfigs/AppConfigScan.json) records the search.
+The [licence gotcha](../../Gotchas/Conversion/Fusion/Configuration/FusionConfigurationLicense.md) and the [configuration boundary entry](../../Changes/Fusion/Configuration/FusionConfigurationBoundary.md) give the evidence.
+Configured designs remain outside Kit until an unrestricted account supplies controls.
+
+### External reference verification
+
+| Check                                                                           | Result                                                               |
+| ------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| Native controls read and written                                                | 14 of 14, typed model equal after a second read                      |
+| Byte-identical members                                                          | All except `.protein`, part `.smb` and part `.smbh`                  |
+| Context count equals link count                                                 | 14 of 14 controls, all segments                                      |
+| `CrossRef` tokens in the context set                                            | 14 of 14 controls                                                    |
+| Example bundle graph relations                                                  | 9 of 9 members                                                       |
+| Inline-typed references found                                                   | 0                                                                    |
+| Nonempty configuration sidecars found                                           | 0 in 1,063 files                                                     |
+| Fusion opens uploaded Kit outputs with resolved references                      | 2 of 2, largest transform error 0.0                                  |
+| `updateAllReferences` on Kit outputs                                            | Part A v1 to v2, body height 0.5 cm to 0.8 cm                        |
+| Save as version 2 and reopen                                                    | 2 of 2, references and transforms kept                               |
+| Kit-authored root with two parts, a subassembly, a ground pin and a rigid joint | Resolved references, 3 of 3 transforms with error 0.0                |
+| Kit-authored root after a Part A edit and a save as version 2                   | References, transforms, ground pin and joint kept, 0 unhealthy items |
+| Kit read of three Fusion exports of the saved Kit root                          | 3 of 3, 10 trailing Design bytes kept and written back byte-equal    |
+
+[FusionAcceptanceEvidence.md](FusionAcceptanceEvidence.md#external-references-and-assemblies) lists the reports, their statuses and their digests.
+
+Kit authors rigid as-built joints only, because no native revolute control exists.
+Kit does not author configured designs.
+`ReadDocument` does not read the example bundle members, because of mesh stream members and unqualified PCB classes.
+The inline-typed reference form and the cadmpeg cross-document grammar are not qualified.
+
+## Drawing documents
+
+An F2D drawing stores its model link and tracked model elements in entity segments.
+It stores its sheets, views and annotations in an embedded AutoCAD database.
+Kit reads and re-emits modern F2D drawings, the historical drawing example and drawing-root F3Z bundles.
+It does not author drawings.
+The [drawing codec entry](../../Changes/Fusion/Drawing/FusionDrawingCodec.md) gives the API.
+The [drawing persistence entry](../../Changes/Fusion/FusionDrawingPersistenceModel.md) gives the earlier native field evidence.
+
+### Drawing package layer
+
+An F2D file is a ZIP package with contiguous entries, no extra fields and no archive comment.
+Kit reproduces every observed entry with these layouts.
+
+| Entry kind                           | Method         | Flags  | Creator | Extract | External attributes |
+| ------------------------------------ | -------------- | ------ | ------- | ------- | ------------------- |
+| Directory                            | 0              | 0x0800 | 814     | 10      | 0x41ED0010          |
+| Modern file                          | 93 (Zstandard) | 0x0800 | 814     | 20      | 0x81A40000          |
+| Modern `ComponentReferenceData.json` | 0              | 0x0800 | 814     | 20      | 0x81A40000          |
+| Historical directory                 | 0              | 0x0000 | 814     | 10      | 0x41FD0010          |
+| Historical file                      | 8 (Deflate)    | 0x0000 | 814     | 20      | 0x81B40000          |
+
+Deflate members use level 6 with a raw window of 15 bits and memory level 8.
+Zstandard members use level 3, a checksum and no content size.
+The [frame gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingZstdFrames.md) explains the dependency on the encoder build.
+
+The active asset folder of a modern drawing is `Documentation[Active]/`.
+
+| Member                                            | Content                                          |
+| ------------------------------------------------- | ------------------------------------------------ |
+| `Manifest.dat`                                    | Root manifest, version 20                        |
+| `Properties.dat`                                  | Document properties                              |
+| `ComponentReferenceData.json`                     | Component references, `{}` in the controls       |
+| `Documentation[Active]/Manifest.dat`              | Asset manifest, version 20                       |
+| `Documentation[Active]/DrawingManifest.json`      | Active sheet, sheet size, standard, units, zones |
+| `Documentation[Active]/AutomationSettings/*.json` | Nine drawing automation settings                 |
+| `FusionDrawingDesignSegmentType1/`                | Drawing entity segment, metadata and bulk        |
+| `FusionDrawingACTSegmentType1/`                   | Drawing ACT segment, metadata and bulk           |
+| `Dwg.BlobParts/ExtFile.<guid>.dwg`                | Embedded AutoCAD database                        |
+| `SheetThumbnails/*.png`, `Previews/small.png`     | Sheet and document images                        |
+
+### Drawing manifests
+
+The modern root manifest has magic 1234 and version 20.
+It stores a 64-bit software word and an optional save label after the document name.
+The legacy root manifest has version 10 and a 32-bit software word.
+Each legacy reference row has an extra unresolved string.
+
+| Value in the Kit controls | Root manifest        | Asset manifest                         |
+| ------------------------- | -------------------- | -------------------------------------- |
+| Modules                   | `("Application", 2)` | `("Application", 4)`, `("Server", 36)` |
+| Software word             | 3046685422794047505  | Not present                            |
+| Kind                      | Not present          | `Neutron3DAssetType`                   |
+| Link word, allocation     | Not present          | 1, 3                                   |
+| Change word               | Not present          | 8                                      |
+| Segments                  | Not present          | Design segment 0, ACT segment 1        |
+
+The root reference row joins the drawing to its design.
+Its properties include the design display name, version URL and lineage URN.
+Its three paths are workstation cache paths, so fixtures replace them, as the [private path gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingPrivatePaths.md) records.
+
+### Drawing entity segments
+
+Both modern segments use the ordinary metadata and bulk grammar.
+A drawing-specific vocabulary adds 14 class schemas to the design catalog.
+`BuildVocabulary.py` generates it from the native reflection dump with SHA-256 `947d0a61e2e68b00b6fb57579cc8b4e8318de44080b2ab275526c132688f2187`.
+The [vocabulary record](../../../re/Fusion/Reconstruction/Drawings/Vocabulary.json) holds that digest and the 14 emitted classes.
+
+| Class                       | Version | Typed content in the controls                            |
+| --------------------------- | ------- | -------------------------------------------------------- |
+| `FusionDocExternalFileRefs` | 12      | References to model sources, sheets and tracked entities |
+| `ExtFileSerializer`         | 0       | `persistedFileName`, the DWG member name                 |
+| `FusionDocSheets`           | 2       | `activeSheetId` `2E50`                                   |
+| `FusionDocSheet`            | 4       | Sheet identity, order, thumbnails and title-block path   |
+| `FusionDocModelSources`     | 3       | Next identifiers and the last model source               |
+| `FusionDocModelSource`      | 12      | Design link name, source identifier, sheet list, filters |
+| `TrackedEntity`             | 0       | One record for each tracked model element                |
+| `TrackedBrep`               | 1       | Body persistent identifier and version                   |
+| `TrackedOccurrence`         | 2       | Occurrence scope                                         |
+
+`FusionDocModelSource.animationMarker` is a native `std::pair<std::wstring,double>`.
+Kit reads it as a pair of a UTF-16 string and a double.
+All three controls store an empty string and 0.0.
+
+`FusionDocComponentFilterValue.comps` maps `BaseOccurrencePathValue` keys to `FusionDocComponentState` values.
+The value type has no reflected members, so Kit cannot decode a nonempty map.
+The controls store an empty map.
+The drawing profile selects `BaseOccurrencePathValue` version 5, which is the reflected current version.
+Classes of the other segment are selected at the version that its own metadata declares.
+The catalog holds some drawing classes at two versions, so a version-free choice is ambiguous.
+
+| Control      | Design primaries | ACT primaries | Tracked entities | Native dimensions |
+| ------------ | ---------------- | ------------- | ---------------- | ----------------- |
+| A0 views     | 39               | 5             | 1                | 0                 |
+| A1 dimension | 51               | 5             | 3                | 1                 |
+| A2 automatic | 69               | 5             | 6                | 3                 |
+
+No segment class stores a view, a view curve or a dimension.
+Adding one dimension to the A0 drawing raised the tracked-entity count from 1 to 3.
+
+### DWG authority
+
+The embedded DWG holds the sheet layout, the views and the annotations.
+`ReadInventory` reads its file header, page map, section map, class table and handle map.
+It does not decode objects, and Kit writes the DWG member as opaque bytes taken from a read drawing.
+
+The DWG is not a cache that Fusion regenerates from the segments.
+A drawing without its DWG member showed the dialog `Cannot find the specified drawing file.` and its open did not complete.
+A drawing with the A0 segments and the A1 DWG opened with the A1 dimension and views.
+On open, Fusion writes the embedded DWG and a SAB export of the referenced body to a temporary folder.
+It then starts the drawing engine, which runs one `VIEWEDIT` command for each view.
+View curves are therefore recomputed from the referenced body, but view definitions come from the DWG.
+The [missing database gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingMissingDatabase.md) and the [engine stall gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingEngineStall.md) give the observations.
+
+### Historical drawing example
+
+The installed public drawing example supplies one unique F3Z with an F2D root and three dependent F3Ds.
+Its version-two metadata has a 32-bit legacy software version, 44 class declarations, 27 primaries and two inherited continuations.
+The historical example uses `Design1/` for its single entity segment.
+It also has a root `RedirectionsStream.dat` and no sheet or settings members.
+Its DWG declares `AC1027` and 46 classes, including `ACDBVIEWREP` and `ACDBVIEWREPBLOCKREFERENCE`.
+Companion F3Ds share the older single-segment layout, so metadata generation must be separated from document family.
+The [historical metadata gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionHistoricalDrawingMetadata.md) gives the framing.
+
+### Drawing-root bundles
+
+A drawing-root F3Z holds `Manifest.json`, `DesignDescription.json`, the F2D and the referenced F3D files.
+The drawing object has a `DERIVED` relationship to its design.
+`RouteBundle` returns a `DrawingBundle` when the root object is an F2D.
+The historical bundle uses an older description grammar, as the [grammar gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionHistoricalBundleGrammar.md) records.
+
+### Drawing acceptance
+
+The [drawing acceptance report](../../../re/Fusion/Reconstruction/Drawings/NativeAcceptance.json) records native runs in Fusion 2706.1.17.
+The historical bundle and the modern A1 control both re-emit byte for byte.
+Each variant was uploaded as a drawing-root F3Z.
+
+| Variant          | Content                                   | Result                                                 |
+| ---------------- | ----------------------------------------- | ------------------------------------------------------ |
+| `P0Control`      | A1 control as Fusion saved it             | Opened with 3 views and 1 dimension                    |
+| `H0Historical`   | Historical example bundle                 | Opened with 1 view and 0 dimensions                    |
+| `M1Reemitted`    | A1 control read and emitted by Kit        | Opened with the same measurements as `P0Control`       |
+| `P4ViewsControl` | A0 control as Fusion saved it             | Opened with 3 views and 0 dimensions                   |
+| `P2NoDwg`        | A1 control without its DWG member         | Engine error dialog, and the open never completed      |
+| `P3SwappedDwg`   | A1 segments with the A0 DWG               | No engine session header within 207 seconds            |
+| `P5ReverseSwap`  | A0 segments with the A1 DWG               | Opened with 3 views and 1 dimension, as in the A1 DWG  |
+| `M2Reemitted`    | A1 control emitted by Kit, uploaded twice | Files were read-only, so the edit and save did not run |
+
+The A1 control and its Kit re-emission gave these measurements.
+
+| Item               | Value                                                       |
+| ------------------ | ----------------------------------------------------------- |
+| Sheet              | 420 mm by 297 mm with `ISO_TITLEBLOCK`                      |
+| Base view          | Type 0, orientation 3, scale 4.0 and 5 curves               |
+| Base view outline  | x from 100.47 mm to 260.47 mm, y from 80.61 mm to 160.61 mm |
+| Hole circle        | Center (220.47 mm, 120.61 mm) and radius 16 mm              |
+| Projected views    | 4 curves each                                               |
+| Document reference | Source design version 1, not out of date                    |
+
+The orientation and scale getters fail on the projected views, as the [getter gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionProjectedViewGetters.md) records.
+
+An edit run changed `kitWidth` from 40 mm to 60 mm in the referenced design.
+The body volume changed from 7.4973 cm³ to 11.4973 cm³.
+
+| Stage                         | Reference version | Out of date | Base view x range      |
+| ----------------------------- | ----------------- | ----------- | ---------------------- |
+| Before the edit               | 1                 | No          | 100.47 mm to 260.47 mm |
+| After open, before the update | 1                 | Yes         | 100.47 mm to 260.47 mm |
+| After `updateAllReferences()` | 2                 | No          | 60.47 mm to 300.47 mm  |
+
+The [reference update gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingReferenceUpdate.md) explains why the update call is needed.
+That run then timed out while it waited for the drawing cloud save, so the report gives it status `failed`.
+The Personal-use licence kept new uploads read-only, as the [read-only gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionPersonalReadOnlySave.md) records.
+Save and reopen after a model edit are therefore not verified.
+A new drawing would need DWG view and annotation objects, which Kit does not decode or write.
 
 ## External corroboration
 
@@ -1107,13 +2283,13 @@ The [cadmpeg comparison](../../../re/Fusion/External/CadmpegComparison.md) reads
 It cites both projects by path and line, and Kit copies no cadmpeg code.
 Both projects read the same container bytes, and most container differences are names only.
 
-| Comparison                 | cadmpeg                                                        | Kit                                                                   |
-| -------------------------- | -------------------------------------------------------------- | --------------------------------------------------------------------- |
-| Breadth                    | 58 feature families, assemblies, configurations, Form bodies   | Qualified sketch, extrusion, taper, round, mesh, and T-spline profiles |
-| Field names                | Structural labels from file observation                        | Native class and member names from installed libraries               |
-| Writing modes              | Replay, patch, and source-free generation                      | Typed re-emission and source-free generation                          |
-| Native proof of new output | No recorded Fusion open of generated output                    | Fusion open, rollback, rebuild, edit, save, and reopen                |
-| Feature history replay     | Not implemented                                                | Not implemented                                                       |
+| Comparison                 | cadmpeg                                                      | Kit                                                                                                                                           |
+| -------------------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Breadth                    | 58 feature families, assemblies, configurations, Form bodies | Qualified sketch, extrusion, taper, round, mesh, T-spline and Form profiles, eleven part feature families, external references and assemblies |
+| Field names                | Structural labels from file observation                      | Native class and member names from installed libraries                                                                                        |
+| Writing modes              | Replay, patch, and source-free generation                    | Typed re-emission and source-free generation                                                                                                  |
+| Native proof of new output | No recorded Fusion open of generated output                  | Fusion open, rollback, rebuild, edit, save, and reopen                                                                                        |
+| Feature history replay     | Not implemented                                              | Not implemented, so authored features store a solved journal state                                                                            |
 
 All 58 cadmpeg feature-family GUIDs resolve to `Dc*` classes in the Kit binary class catalogue.
 Kit evidence resolves the cadmpeg history-preamble item HS-01 and the parameter-collection item DR-80.
@@ -1121,17 +2297,20 @@ It partly resolves DR-334 and the sketch mesh-section items DR-264, DR-288, and 
 
 Kit evidence contradicts these cadmpeg statements.
 
-| Topic                     | cadmpeg statement                     | Kit evidence                                         |
-| ------------------------- | ------------------------------------- | ---------------------------------------------------- |
-| TSM `l` record            | Next link, then previous link         | Previous link, then next link, from `Link_prev`      |
-| TSM `ec` record           | Crease marker with flags              | Edge index and binary64 end condition, not a crease  |
-| TSM namespaces 100, 50000 | Editor selections                     | `ExCrease` and `ExSmartGrip`                         |
-| TSM `ver`                 | Identifies the generating implementation | Edit counter that changes during ordinary edits   |
-| History preamble          | Two copies of a stream size           | Current state and maximum allocated state            |
-| Header history bit        | Authoritative for journal presence    | Explicit stream markers are authoritative            |
-| MetaStream UUID           | Asset GUID                            | Segment `currentVersion`                             |
-| Class `6CCF41D5`          | Presentation frame                    | `DynamicUpdateData`                                  |
+| Topic                     | cadmpeg statement                              | Kit evidence                                                   |
+| ------------------------- | ---------------------------------------------- | -------------------------------------------------------------- |
+| TSM `l` record            | Next link, then previous link                  | Previous link, then next link, from `Link_prev`                |
+| TSM `ec` record           | Crease marker with flags                       | Edge index and binary64 end condition, not a crease            |
+| TSM namespaces 100, 50000 | Editor selections                              | `ExCrease` and `ExSmartGrip`                                   |
+| TSM `ver`                 | Identifies the generating implementation       | Edit counter that changes during ordinary edits                |
+| History preamble          | Two copies of a stream size                    | Current state and maximum allocated state                      |
+| Header history bit        | Authoritative for journal presence             | Explicit stream markers are authoritative                      |
+| MetaStream UUID           | Asset GUID                                     | Segment `currentVersion`                                       |
+| Class `6CCF41D5`          | Presentation frame                             | `DynamicUpdateData`                                            |
+| Version context           | Token, asset GUID and optional revision fields | Second field equals a root manifest link GUID in every control |
 
-cadmpeg covers areas that Kit rejects today.
-These areas include cross-document references, configuration rules, procedural and tolerant ASM geometry, and ParaMesh color channels.
+Kit now reads the observed cross-document reference form and the procedural and tolerant ASM records.
+It reads procedural geometry without evaluating it.
+cadmpeg still covers areas that Kit rejects today.
+These areas include configuration rules, cadmpeg's alternative cross-document grammar and ParaMesh color channels.
 They are the next research candidates, not supported Kit behavior.

@@ -50,7 +50,7 @@ Four [complete frustum history replacements](../../../re/Fusion/LocalOracle/Tape
 
 PR compatibility run [43229332005](https://github.com/TryUniCAD/Kit/actions/runs/43229332005), on revision `ad3c764fbd778a2f1a2a30a7fc047d7d0fc49c39`, passed all 828 cases in 38.16 seconds. That includes the complete 712-file Design reconstruction set and all five cuboid-history compatibility/rejection cases. A later conical-solid run [43233457278](https://github.com/TryUniCAD/Kit/actions/runs/43233457278) on revision `2fbad758d47c38a69ecbfb9756e5dccf333e5759` passed all 853 cases in 51.84 seconds. The rectangle/material revision ran 868 cases with 864 passing; the four failures identified incorrect helper assumptions about direct material objects and local manager references. After those corrections, revision `9f6753ce885eff64fdcc907361175ff65253fb6d` passed all 885 cases in [run 43237855649](https://github.com/TryUniCAD/Kit/actions/runs/43237855649), including all material-document and new tapered-history cases. Revision `223781e4a066ef5cc3bcedb05cac61ca3868e738` then passed all 897 cases in [run 43239432056](https://github.com/TryUniCAD/Kit/actions/runs/43239432056), including twelve complete tapered-document cases. Revision `d673214fb134e099ddcd7e187fdf640135b99520` passed all 906 cases in 41.46 seconds in [run 43241250257](https://github.com/TryUniCAD/Kit/actions/runs/43241250257), including nine snapshot/configuration cases. Revision `53ad933e3ca32d70985a7d543d66c9766021ae07` passed all 920 cases in 40.53 seconds in [run 43242480290](https://github.com/TryUniCAD/Kit/actions/runs/43242480290), including fourteen constrained rectangle/cuboid cases. General tests run remotely only. Native application acceptance is separately recorded above; a green codec round-trip alone does not establish target-application acceptance.
 
-Full arbitrary Fusion interoperability remains unproven. Open boundaries include general BRep carriers and archived revision journals, procedural and tolerant topology, additional feature families and constraint systems, drawing semantics, T-splines, mesh bodies, and complete handling of all auxiliary container members. Unsupported production forms are rejected instead of being presented as semantic conversion. Native merge-group acceptance and current-head configured reviewer approvals are independent PR requirements; no merge or queue enrollment is authorized by this work.
+Full arbitrary Fusion interoperability remains unproven. Open boundaries include arbitrary constraint systems and part feature families beyond the eleven authored ones. They also include Form cages outside the seven tabled stencil layouts and qualified grids, and configured designs. Drawing authoring, DWG object semantics, procedural surface evaluation and the 14 unreadable saved F3D and F3Z files remain open too. Unsupported production forms are rejected instead of being presented as semantic conversion. Native merge-group acceptance and current-head configured reviewer approvals are independent PR requirements. No merge or queue enrollment is authorized by this work.
 
 ## Complete native snapshot parts
 
@@ -147,3 +147,105 @@ Revision `55aeed29b454d084ac23567f75c7b3602a9e5468` ran the extended archive com
 | `CheckRotaryBody` collection error     | The `Check*` collection pattern selected a helper function                              | Rename the helper                               |
 
 Steering also rejected two test names over 15 letters and a four-letter variable. These repairs await subsequent remote CI. Native acceptance does not substitute for that result.
+
+## Fusion-saved document coverage
+
+[Native acceptance](../../../re/Fusion/LocalOracle/ReaderCoverage/NativeAcceptance.json), SHA-256 `e0c4beb239e8e8c5150ad3247568d11fdbd492ac07df6e2d81a0d0ac5b8c42a6`, has status `accepted` in Fusion 2706.1.17. All 26 cases are `accepted`, and zero documents remained open. Each case compares a Fusion-saved control with its `ReadDocument` and `EmitParsed` re-emission through open, rebuild, rollback, restore, save and reopen. The saved outputs have 52 distinct SHA-256 values. The [preparation report](../../../re/Fusion/LocalOracle/ReaderCoverage/Preparation.json) has SHA-256 `a6150ee6a25efc517b9481844aaf8e07eb3087f5b4615dd4f3c362b7b5606201`.
+
+The offline census in the [saved document coverage entry](../../Changes/Fusion/Records/FusionSavedDocumentCoverage.md) reads 159 of 159 vendor exports and 1,145 of 1,159 F3D and F3Z files. The 14 unreadable files are three older example files with 48 uncatalogued class versions and 11 Kit research files. See the [data model section](FusionDataModel.md#fusion-saved-document-coverage).
+
+## Complex surface geometry
+
+| Report                                                                                                 | SHA-256                                                            | Status     | Observed result                                                                                                  |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ | ---------- | ---------------------------------------------------------------------------------------------------------------- |
+| [First pass](../../../re/Fusion/LocalOracle/ComplexGeometry/NativeAcceptance.json)                     | `92e56ed767afee3a0ac69583b3c6cb6d14dd04b17f145b10cef622b84e08f4f7` | `accepted` | Three authored NURBS bodies, one pole edit, eight snapshots and six histories accepted                           |
+| [Bounds](../../../re/Fusion/LocalOracle/ComplexGeometry/Bounds/NativeAcceptance.json)                  | `ad13eb2d21b1d880725205d28e9f7da064c827ae1c15f8ccb638fe3447d7fe39` | `accepted` | Nine re-emitted corpus histories equal their controls at every stage within 1e-8                                 |
+| [Second pass subtypes](../../../re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Runs/Subtypes.json)   | `b7e5f02c83cbf4b7a6d68b30c951d14f1ad5deb8e4ad4332df9f9bef9937a5dc` | `failed`   | Seven of nine subtype edits reflected. `StitchHint` failed at export, and `TolerantFormRefine` was not reflected |
+| [Second pass diagnosis](../../../re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Runs/Diagnose.json)  | `70c0540137ae0d490a3acf9ad2d5e34cb118829644d48a885c4d447c17ba1cd5` | `failed`   | The stitch hint survived export. The refined pcurve was reported with its inserted knot at full multiplicity     |
+| [Second pass remainder](../../../re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Runs/Remaining.json) | `04331a7d4b3f497dea32f9b2af296a6799e8a38d7f0430abb9ff94ba35af72fd` | `accepted` | Two `cyl_spl_sur` refinements reflected and five authored bodies accepted                                        |
+| [Interrupted run](../../../re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Runs/Crashed.json)         | `9ac76cd9316e73809c57a57653c94aa1eb66edaaaa6e57a8c68eec2f75b9de43` | None       | Fusion exited during the run, so the report has no final status or closing document count                        |
+
+The first pass and the second pass remainder started and ended with zero open documents. Their authored and edited bodies measured as follows.
+
+| Case               | Faces, edges, vertices | Area (cm²)         | Volume (cm³)       |
+| ------------------ | ---------------------- | ------------------ | ------------------ |
+| `AuthoredPatch`    | 1, 4, 4                | 7.366308780834109  | None               |
+| `AuthoredRational` | 1, 4, 4                | 11.361644058057117 | None               |
+| `AuthoredPillow`   | 6, 12, 8               | 25.0885564915581   | 10.501319359009246 |
+| `EditedPatch`      | 1, 4, 4                | 6.782947284786066  | None               |
+| `HoledPatch`       | 1, 8, 8                | 6.809012806990166  | None               |
+| `CollapsedPatch`   | 1, 3, 3                | 4.429902308098689  | None               |
+| `CappedTube`       | 3, 3, 2                | 19.80532565024299  | 6.96792035947401   |
+| `DomedCylinder`    | 3, 3, 3                | 18.93842138073986  | 6.850844430134102  |
+| `NurbsTorus`       | 1, 2, 1                | 39.47841761360506  | 9.869604403401263  |
+
+The first four rows come from the first pass and the last five from the second pass remainder. The `RuleFillet` history had a control self-drift of 5.061870858686882e-05 and a re-emitted drift of 4.2369471785593015e-05. Fusion's own rebuilds of that rule fillet differ, as the [rule fillet gotcha](../../Gotchas/Conversion/Fusion/Geometry/RuleFilletRebuildDrift.md) describes.
+
+The [first-pass preparation](../../../re/Fusion/LocalOracle/ComplexGeometry/Preparation.json) has SHA-256 `e6429d77642bd10d615be946e6998a5d1737c5ce0eb10bd09cf644ab63c446a8`. The [second-pass preparation](../../../re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Preparation.json) has `4a05a7f438719e884162cc81d1ddd0a39bd84fa039091b94b72dfd05db1b3ef9`, and the [analysis](../../../re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Analysis.json) has `4a311525eb1a710d6e8bb83c0856e03bbc5186847af1124475992020d570d52d`. Procedural surfaces are read and re-emitted but not evaluated. See the [data model section](FusionDataModel.md#complex-surface-geometry-and-explicit-nurbs-bodies).
+
+## Form documents
+
+| Report                                                                                               | SHA-256                                                            | Cases             | Observed result                                                                                       |
+| ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ----------------- | ----------------------------------------------------------------------------------------------------- |
+| [Re-emitted controls](../../../re/Fusion/LocalOracle/FormDocuments/Acceptance/NativeAcceptance.json) | `b018171b82ad933a65611f5e56b54f0b48b6660bae06bc936267544f876fa552` | 4 of 4 accepted   | Plane, creased plane, box and symmetric box equal their native controls through edit, save and reopen |
+| [Grid conversion](../../../re/Fusion/LocalOracle/FormDocuments/Grid/NativeAcceptance.json)           | `ba7536f4cfed4b6cc60a50aed672d62bbcb96168571c3050527f4fd024266769` | 2 of 2 accepted   | Affine and warped plane grids equal Fusion's conversion within 1e-8 cm                                |
+| [Source-free bodies](../../../re/Fusion/LocalOracle/FormDocuments/Sourceless/NativeAcceptance.json)  | `7adc4ba5e0cf76ccd26cf1e70766f54147dbba9d8167f71d827b6e1bb7b544b1` | 9 of 9 accepted   | `EmitFormDoc` with typed bodies, 175 comparisons with largest deviation 2.6645352591003757e-15        |
+| [Cage documents](../../../re/Fusion/LocalOracle/FormDocuments/CageDocuments/NativeAcceptance.json)   | `c78966db2f218253691c07ddf02d92984dc2c0aacbbba8404338f25232f7a617` | 14 of 14 accepted | `EmitFormDoc` with `ConvertForm` bodies within 1e-8 cm and zero recorded problems                     |
+| [Stencil swaps](../../../re/Fusion/LocalOracle/FormDocuments/StencilAccept/NativeAcceptance.json)    | `f7455953a99fb482fa03054aa73e165a40cbf0d683c87a8139f6dae84e25a95d` | 8 of 8 accepted   | `SwapFormCage` into native documents within 1e-8 cm                                                   |
+
+Every Form report started and ended with zero open documents in Fusion 2706.1.17. The re-emitted controls report has top-level status `completed`, and each of its four cases has status `accepted`. Their edited areas are 3.75882224444742, 3.7597048123427688, 23.229292504382165 and 22.896262895240067 cm². The two boxes have edited volumes 9.339333654763482 and 9.137857029717933 cm³. The grid cases changed area from 3.981294020792737 to 3.9230459543150173 cm² and from 4.005512887961321 to 3.9455217633195576 cm².
+
+Stencil conversion is qualified for the seven tabled cage layouts only. Weighted grips, other layouts and folded cages are rejected. See the [data model section](FusionDataModel.md#form-documents).
+
+## Independently authored part features
+
+All seven suites have status `accepted` in Fusion 2706.1.17, with zero open documents before and after each run. Each opened Kit documents without a recompute and compared them with native API controls built in the same session. It then walked every rollback marker, ran `computeAll`, applied the driving edits, exported, reopened and recomputed again.
+
+| Suite        | Report                                                                                                      | SHA-256                                                            | Cases |
+| ------------ | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ----- |
+| Corners      | [Native report](../../../re/Fusion/LocalOracle/FeatureAuthoring/Authored/NativeAcceptance.json)             | `4d7eaa8de776e0e459fe938f33b5de2d83b0845eb45cfbea016ee988599ef6d5` | 5     |
+| Extrusions   | [Native report](../../../re/Fusion/LocalOracle/FeatureAuthoring/Authored/NativeAcceptanceExtrudes.json)     | `e68e16f55300e7ec2dbf6d538333f5340219c6b2a1e82b8d485b17da0bc3c559` | 15    |
+| Holes        | [Native report](../../../re/Fusion/LocalOracle/FeatureAuthoring/Authored/NativeAcceptanceHoles.json)        | `89d1f1868bfd029abe8ff8d816634e05f701bd278d8d8423db8e151b96b3b01c` | 4     |
+| Patterns     | [Native report](../../../re/Fusion/LocalOracle/FeatureAuthoring/Authored/NativeAcceptancePatterns.json)     | `ab475ca5dbee530f401f638e514414d2961424cc41c29091f20f3f58a8d0ae28` | 5     |
+| Multi        | [Native report](../../../re/Fusion/LocalOracle/FeatureAuthoring/Authored/NativeAcceptanceMulti.json)        | `8b10c925607e7ff5847610beca787720e9bcb39e5b0d2821482655e63d087d9d` | 2     |
+| Edges        | [Native report](../../../re/Fusion/LocalOracle/FeatureAuthoring/Authored/NativeAcceptanceEdges.json)        | `9f4db2d91eacb3548063a58800cb7c2b0d5f6f2f421601ab7deb66e9b7d92d23` | 5     |
+| Construction | [Native report](../../../re/Fusion/LocalOracle/FeatureAuthoring/Authored/NativeAcceptanceConstruction.json) | `79020b46b4f1cdeacff40b6406c279cd4cc8272ec53eb90777dd0bb952499fc1` | 2     |
+
+The 38 cases matched their controls at open, at every marker, after recompute and after the edits. They also matched after reopen, with parameters preserved, and after the final recompute. `MultiPocketPart` has 19 faces, 43 edges and 30 vertices and changed from 22.62232750 to 22.59228325 cm³ across 10 marker positions. `MultiDiscPart` changed from 13.38318470 to 12.85539714 cm³. The fillet case changed from 23.96137167 to 23.93132741 cm³, the shell case from 7.152 to 10.128 cm³ and `ConstructionPart` from 23.39588499 to 30.54523896 cm³. The [authored file manifest](../../../re/Fusion/LocalOracle/FeatureAuthoring/Authored/Manifest.json) has SHA-256 `6b5065057edb35f88420320e8bd5ddc1250ec9aa8ca2b5e0b5adf77a0a31bef1`.
+
+Revolve, countersink, combine, sweep, loft, draft, split, move, copy-body and offset-face features are not authored. See the [data model section](FusionDataModel.md#independently-authored-part-features).
+
+## External references and assemblies
+
+| Report                                                                                | SHA-256                                                            | Observed result                                                                                                     |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| [Link evidence](../../../re/Fusion/LocalOracle/LinksConfigs/LinkEvidence.json)        | `01d61a8915733fe8ae2213abe13ab88d2c0cd8f5fb297849fad86752f538e45b` | 15 sanitized native controls, 14 replayed through `ReadDocument` and `EmitParsed`. Configuration controls `blocked` |
+| [Link acceptance](../../../re/Fusion/LocalOracle/LinksConfigs/LinkAcceptance.json)    | `8d806ab1f7c11f8d18b8f9f32c893250bbdbdb6ed73123f80f5884b8ab7cfe58` | Uploaded Kit outputs opened with resolved references, updated and reopened at version 2                             |
+| [Assembly acceptance](../../../re/Fusion/LocalOracle/LinksConfigs/AsmAcceptance.json) | `20eb2c161764e09ddea429bf79125fcb36c0fe7395b5f3a0ace18b46319c4ea6` | A root written by `EmitAssembly` opened, updated, saved as version 2 and reopened                                   |
+
+Link acceptance run `Accept1` failed, because Fusion refuses a local import with external references: `New design cannot be created from a local file containing external references`. The `Accept2_upload` step recorded only status `started`. Run `Accept2` then completed three cases: a native root and the Kit outputs `KitLinkReplayR5` and `KitLinkMovedR1`. Each had a largest transform error of 0.0 and zero unhealthy items, and the reference update moved Part A to version 2. Run `Accept2_saves` completed both saved cases, and each reopened at version 2.
+
+The assembly acceptance has status `completed` and started and ended with zero open documents. The root moved from version 1 to version 2. Part A changed from 5.0 mm to 8 mm through `updateAllReferences`, so its body height changed from 0.5 to 0.8 cm. Part B stayed 1.2 cm. At all four stages the occurrence paths were equal and the largest transform error was 0.0 for `KitAsmPartA:1`, `KitAsmSub:1` and `KitAsmSub:1+KitAsmPartB:1`. Joint `Rigid 1` had health 0, and the four timeline items had no unhealthy item. Kit read all three Fusion exports of the saved root, each with two links and a 17,946-byte Design stream.
+
+Native probe `A` has status `failed` with a script `TypeError` on an unhashable `FusionDocument`, and it left two documents open. Its export was still recorded. Probes `B` and `Sub` completed. Configured designs could not be created: `Design.createConfiguredDesign` raised `Cannot create configuration top table as the user is restricted.` The plain-part export `C0_plain.f3d` has 48,973 bytes. See the [data model section](FusionDataModel.md#external-references-assemblies-and-configurations).
+
+## Drawing documents
+
+The [drawing acceptance report](../../../re/Fusion/Reconstruction/Drawings/NativeAcceptance.json), SHA-256 `c9755162628a36e10d6000b2a9ff30f4fa131000a3f98b29261f633d82e70aa0`, records eight variants in Fusion 2706.1.17. The historical bundle and the modern A1 control re-emit byte for byte. The report has no single status. Its status table records byte-exact round trip, re-emitted open, reverse-swap open and view update as `passed`.
+
+| Variant          | Views | Dimensions | Result                                                |
+| ---------------- | ----- | ---------- | ----------------------------------------------------- |
+| `P0Control`      | 3     | 1          | Opened                                                |
+| `H0Historical`   | 1     | 0          | Opened                                                |
+| `M1Reemitted`    | 3     | 1          | Opened with the same measurements as `P0Control`      |
+| `P4ViewsControl` | 3     | 0          | Opened                                                |
+| `P5ReverseSwap`  | 3     | 1          | Opened with the dimension of its DWG                  |
+| `P2NoDwg`        | None  | None       | `Cannot find the specified drawing file.` dialog      |
+| `P3SwappedDwg`   | None  | None       | No drawing engine session header within 207 seconds   |
+| `M2Reemitted`    | None  | None       | Uploads were read-only, so the edit was not attempted |
+
+The edit run has status `failed`, because it timed out waiting for the drawing cloud save. Before that timeout it recorded a design volume change from 7.497345175425612 to 11.497345175425611 cm³. The reference moved from version 1, out of date, to version 2, not out of date. The base view x range moved from 100.47–260.47 mm to 60.47–300.47 mm. Both saved-edit attempts failed, so save and reopen after a model edit are not verified. Kit does not author drawings or decode DWG objects. See the [data model section](FusionDataModel.md#drawing-documents).
+
+## Fixture privacy scrub
+
+Fusion-saved fixtures carried account data in nested protein assets. The [scrub ledger](../../../re/Fusion/LocalOracle/ScrubLedger.json), SHA-256 `6e7541616a67b94ad5c12109b921f8da12f2fcb5d32ea71a7839904e58f22a92`, lists 171 rewritten fixtures under `re/Fusion/LocalOracle` and one captured reflection archive. Each fixture records its Fusion-saved and committed SHA-256, and all 171 committed digests match the checked-in files. The rewrite uses same-length placeholders, and Kit readers do not decode the replaced bytes. See the [fixture scrub entry](../../Changes/Fusion/Privacy/FusionFixtureScrub.md) and the [heap residue gotcha](../../Gotchas/Conversion/Fusion/Records/FusionProteinHeapResidue.md).
