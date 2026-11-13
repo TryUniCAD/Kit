@@ -32,6 +32,12 @@ from convert.formats.Fusion.DocumentCodec.Rectangle.LinkRectangle import LinkRec
 from convert.formats.Fusion.DocumentCodec.Rectangle.Dimensions.ConstrainMut import (
     ConstrainMut,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.AddPartMut import (
+    AddPartMut,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Vocabulary.FeatureDefaults import (
+    FeatureDefaults,
+)
 from convert.formats.Fusion.SegmentCodec.Features.Binary.CheckUuid import CheckUuid
 
 
@@ -71,4 +77,10 @@ def BuildDesign(SpecValue: DocumentSpec, AssetId: str) -> DesignResult:
             Builder(Author)
     if SpecValue.ConstrainRectangle:
         ConstrainMut(Author)
+    if SpecValue.ProfileKind == "part":
+        Author.Defaults.update(SketchDefaults())
+        Author.Defaults.update(ExtrudeDefaults())
+    if SpecValue.Features:
+        Author.Defaults.update(FeatureDefaults())
+        AddPartMut(Author)
     return EmitDesign(Author)

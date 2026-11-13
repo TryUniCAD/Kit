@@ -4,6 +4,9 @@ from typing import Literal
 from convert.formats.Fusion.DocumentCodec.Materials.Model.MaterialSpec import (
     MaterialSpec,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartFeature import (
+    KPartFeature,
+)
 
 
 @MakeDataClass(frozen=True, slots=True)
@@ -12,7 +15,7 @@ class DocumentSpec:
     ParamName: str
     LengthMm: float
     ProfileKind: Literal[
-        "parameter", "circle", "extrusion", "rectangle", "cuboid", "frustum"
+        "parameter", "circle", "extrusion", "rectangle", "cuboid", "frustum", "part"
     ] = "extrusion"
     RadiusMm: float = 12.5
     ParamComment: str = ""
@@ -26,3 +29,4 @@ class DocumentSpec:
     ConstrainRectangle: bool = False
     WidthParamName: str = "rectangleWidth"
     DepthParamName: str = "rectangleDepth"
+    Features: tuple[KPartFeature, ...] = ()

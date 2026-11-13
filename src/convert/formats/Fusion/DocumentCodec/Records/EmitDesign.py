@@ -77,7 +77,7 @@ def EmitDesign(Author: AuthorState) -> DesignResult:
         )
     )
     Streams = SegmentStreams(Author.Policy.DesignSegmentId, Metadata, BulkData)
-    HasBody = Author.SpecValue.ProfileKind in ("extrusion", "cuboid", "frustum")
+    HasBody = Author.SpecValue.ProfileKind in ("extrusion", "cuboid", "frustum", "part")
     return DesignResult(
         Streams,
         Records,

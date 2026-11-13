@@ -1,6 +1,8 @@
 from convert.adapters.Fusion.Authoring.MakeFeatures import MakeFeatures
 from convert.adapters.Fusion.Authoring.MakeGeometry import MakeGeometry
 from convert.adapters.Fusion.Authoring.MakeParams import MakeParams
+from convert.adapters.Fusion.Authoring.MakePartBody import MakePartBody
+from convert.adapters.Fusion.Authoring.MakePartParams import MakePartParams
 from convert.adapters.Fusion.Authoring.MakeSketch import MakeSketch
 from convert.adapters.Fusion.Authoring.ProfileShape import HasSolid
 from convert.adapters.Fusion.State.EncodeState import EncodeState
@@ -19,6 +21,8 @@ def MakeFusionDoc(SpecValue: DocumentSpec) -> CadDocument:
     Geometry, BodyValue = (
         MakeGeometry(SpecValue) if HasSolid(SpecValue) else (None, None)
     )
+    if SpecValue.Features:
+        Geometry, BodyValue = None, MakePartBody(SpecValue)
     HasSketch = SpecValue.ProfileKind != "parameter"
     Color = SpecValue.Material.Color
     Materials = (
@@ -36,7 +40,7 @@ def MakeFusionDoc(SpecValue: DocumentSpec) -> CadDocument:
     return CadDocument(
         CadSource("fusion.f3d", "", ""),
         (Configuration("default", SpecValue.Title, True),),
-        MakeParams(SpecValue),
+        MakeParams(SpecValue) + MakePartParams(SpecValue),
         (SupportPlane("plane", "XY", Transform()),) if HasSketch else (),
         (MakeSketch(SpecValue),) if HasSketch else (),
         (),

@@ -3,6 +3,9 @@ from typing import cast as CastValue
 
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from convert.formats.Fusion.DocumentCodec.Materials.CheckMaterial import CheckMaterial
+from convert.formats.Fusion.DocumentCodec.PartFeatures.CheckFeatures import (
+    CheckFeatures,
+)
 from convert.formats.Fusion.DocumentCodec.Tapered.CheckTaper import CheckTaper
 from convert.formats.Fusion.DocumentCodec.Rectangle.Dimensions.CheckRectDims import (
     CheckRectDims,
@@ -19,6 +22,7 @@ def CheckDocSpec(SpecValue: DocumentSpec) -> None:
         "rectangle",
         "cuboid",
         "frustum",
+        "part",
     ):
         raise ValueError("Unsupported Fusion document profile")
     for Amount in (
@@ -46,6 +50,7 @@ def CheckDocSpec(SpecValue: DocumentSpec) -> None:
     CheckMaterial(SpecValue.Material)
     CheckTaper(SpecValue)
     CheckRectDims(SpecValue)
+    CheckFeatures(SpecValue)
     NameValue = SpecValue.ParamName
     if (
         not NameValue

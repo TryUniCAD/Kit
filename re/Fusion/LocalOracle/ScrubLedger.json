@@ -194,6 +194,498 @@
       }
     },
     {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_Chamfer.f3d",
+      "fusionSavedSha256": "1d180bcbe398ccda6a811aaaa08902ae4e0c54be02730488a541e60d974a8e77",
+      "committedSha256": "6b4659dc2f47124b3ab1919bf2285c08786a76d3b6c1bd54b1bb8506b2d78bf0",
+      "counts": {
+        "account": 2,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_ChamferDistanceAngle.f3d",
+      "fusionSavedSha256": "7db1b53496ca887acaf7a047cbafdb6d123172bb6cbecfec5e526099f0b6454a",
+      "committedSha256": "523bcbde89c8a186fb753132e07953e248de85c9cb05e6f314a4d5958a4152f6",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_ChamferTwoEdges.f3d",
+      "fusionSavedSha256": "a6389ed34dc640c8fbccd33a12acd872c00da52a894daa6d3e0a413f8b29db2c",
+      "committedSha256": "49c702335878397fe139e702cb5326fd133a87d86d728d539f04a5ad575f6b4f",
+      "counts": {
+        "account": 4,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_ConstructionPart.f3d",
+      "fusionSavedSha256": "381dca62e3127c7b059babfd87dc1d500a46683badd36ce82e14d72ca540bedc",
+      "committedSha256": "73ed41255d3111777c444001bd8ddf34b4c8a51ff75a03a96b5cc915252fdc16",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_ConstructionSet.f3d",
+      "fusionSavedSha256": "92e63a1eb524f7531ef7d201e4c6b63a536dbd473fc78fa0ef2e75b927d47a08",
+      "committedSha256": "0c990086a6c39ccc0c3aec1e71a838b33b2db8bf8d910e337b1cbedbe784f54f",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_CornerSetPart.f3d",
+      "fusionSavedSha256": "e18b0b584210a802c0ecbb9e58ea46ef8356efd1de1d40aa71698076d5545321",
+      "committedSha256": "fed9e580a1fe9ed7a166a69135228a710ab0d252a35d9c22d0615677c484de68",
+      "counts": {
+        "account": 0,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_ExtrudeBlindCut.f3d",
+      "fusionSavedSha256": "fa80b807e120c70ac8d08a9e5f334fed4e3f4a4865c97f6d73e539c80ccad23d",
+      "committedSha256": "ec8b126a680fbc366c18e3bde5b85b743ca562add7181480d1e0247518a238bd",
+      "counts": {
+        "account": 4,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_ExtrudeCut.f3d",
+      "fusionSavedSha256": "97e7d448edfe7fd1661f3eeec8fb0dec29a005b8585e03e4b7788752cc3cb3c5",
+      "committedSha256": "29752caefe2f9e56199a826dae8313ceae633a3bd0a390927a11d8cc3d393722",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 2
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_ExtrudeFlip.f3d",
+      "fusionSavedSha256": "b8743357f503e03672ff751cb0089446f8088a6677402a09f78b0133a0dcf7e1",
+      "committedSha256": "dc5d61698807200f8249b82c7e1cb67d313091057f4b3a66c5a58e6995d07be2",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_ExtrudeJoin.f3d",
+      "fusionSavedSha256": "3557271d2f34a4a85aab9c263b3513a513d52937d8c4a3ff5190075a34693ee7",
+      "committedSha256": "3655b535ee50075ff3de6faeb8a9b6a40107e400537a4604a0fc0cb36039fd16",
+      "counts": {
+        "account": 0,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 2
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_ExtrudeSlotCut.f3d",
+      "fusionSavedSha256": "0ec8dcf9aa8f345ebecf2036f786e25778bd68213427deb03229000d8184f1e6",
+      "committedSha256": "4e87128fc0e4cc2e0357776bd74ba94aa7a471c42eed07edcb22437172563a54",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 2
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_ExtrudeSymmetric.f3d",
+      "fusionSavedSha256": "ca9eb24d774d7052dd2cb6a5a9a6cb323513eef4d3b240993c3ed4f4fd74c881",
+      "committedSha256": "cef237b0bef7abd3703bdc0c6051c4408a85b9969d562a484e42d4f663eb3522",
+      "counts": {
+        "account": 0,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_ExtrudeSymmetricCut.f3d",
+      "fusionSavedSha256": "37d7f01fd2e2b2a4311036214988d5b573a1a2fd2020e2a86683b26151b0f07f",
+      "committedSha256": "38df60777b59c619fcf2cc44d8e09033cb12683fd4244a62d076b45bc2848fd0",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_ExtrudeTwoSided.f3d",
+      "fusionSavedSha256": "a1715a6bb178a1101dac9f84148a529be4c73fb39936b0eb63319ab8680e9daa",
+      "committedSha256": "d764e85878953708a41da8a7c0eb6b4652784d9a8e55b0b6b0397f85cfb3b9d1",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_Fillet.f3d",
+      "fusionSavedSha256": "dbc713760059aeb6796667bc377114c95259c4bf8e72870ca65434e58ce2a638",
+      "committedSha256": "751b8339f4464f18a355e231ed38f293a2ab8471d1e407bf7e020d4a6b3a362c",
+      "counts": {
+        "account": 4,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_FilletShell.f3d",
+      "fusionSavedSha256": "3ca184a25be597ce9ada79ecf8deac7353b9364b7b0d96da7baa6f923adcbe00",
+      "committedSha256": "34b9221a4b9e2e8e906279b8cd7b5ca3a9150ca4ddda84251ca78c5b37dcd7f8",
+      "counts": {
+        "account": 2,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_FilletTwoEdges.f3d",
+      "fusionSavedSha256": "14d892d63c76ffda40bafe696bae174061c800d2d6b79f5dae16e0f9a58c0be9",
+      "committedSha256": "b5cbb748caded0aaf45be2f09476ce1d398af2443b4fda6df36aa119725e4cc4",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_HoleCounterbore.f3d",
+      "fusionSavedSha256": "587b67c952003575f4488492556d6aea3b4168c965523ff4f8c5f773d2856f4b",
+      "committedSha256": "a2d3b92f72827487f6a248315e42736e545a87de1423a890dd240da33863ff16",
+      "counts": {
+        "account": 3,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_HoleCounterboreFlat.f3d",
+      "fusionSavedSha256": "b6c48a91cb7b716ba9b8afd32cd9af4d3257be51a059659f03b8071198b34dd6",
+      "committedSha256": "792c56a86b8f887015e79eaf01856fefc31fd9d1fdde66e076140701a198f5b1",
+      "counts": {
+        "account": 2,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_HoleFlat.f3d",
+      "fusionSavedSha256": "23421262142719007791912797c48c5a908c3f254557641290d60fa61f11a488",
+      "committedSha256": "86198494a254e1878e83329b229898b0a70d5299e88b6ffe0625679b62f62663",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_HoleThrough.f3d",
+      "fusionSavedSha256": "59394c767f2d2af69e0940dff83b8f894e194ce6db76dfa08e6ebdb9d7f55529",
+      "committedSha256": "b8c95f62f1999b78c05926944963497ddc890608b67ff9eb684903b0fc6022bc",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_MirrorFeature.f3d",
+      "fusionSavedSha256": "84769d668334a352c650aa83959d967b16aa210b42dec55279a85fa81638a362",
+      "committedSha256": "ec30c285d7d30934f84aef2aa3155e5758db6d1181c0473dc5201151f678f83e",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_PartConcaveShell.f3d",
+      "fusionSavedSha256": "d0f0639b701cf984073b8eaa63eb7e979a9793d8b9341f139fd514b4dad6fdcd",
+      "committedSha256": "f00d820be9d9cd58537d5615fd18215d72aeafc821afa45dc314ca6c097a2017",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_PlaneOffset.f3d",
+      "fusionSavedSha256": "c5f30bd5ac45032ac2fedba87576fafe9c34f6fe2b11f6a3aba9b8699cf42b7f",
+      "committedSha256": "9b70a591d9709a7fb4a560287aa1fab9af8920e2f3896a3ab5615430da4cf86f",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_ProfileSlot.f3d",
+      "fusionSavedSha256": "acf62098c231e71beed0f0024a34d35bac39b69f951b3acfea2fb0f94a4efad3",
+      "committedSha256": "e042be203901139d14f9a7147fc1b59f4728fda2b47db59767f69994f1ec5d10",
+      "counts": {
+        "account": 0,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 1
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_RectPattern.f3d",
+      "fusionSavedSha256": "d9bf9d4b20719b49714799a96f402f55ca8095e917d8b53693f953d461b93144",
+      "committedSha256": "b0857282e476bb7081d7676aa170a271fdc66aff0dd2ebe0d502eb1a3cbcb92d",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Controls/Chamfer.f3d",
+      "fusionSavedSha256": "2971560f32a3c73e13e077dd9aba9b3a7b40ed31b24c1d8b66da3aa8024972af",
+      "committedSha256": "9585493f2d4b2e229a592490cfc4e61907e969100651d66f180c0a650a6b2729",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Controls/CircPattern.f3d",
+      "fusionSavedSha256": "74f0b0c578b6a10bae32352cee1fda570342f3feb4d8819cd2229905f0d9b920",
+      "committedSha256": "7a7b9c307d3c8393445b4dfddea26dbd8905889e66f3ee1dec2aef104212c3f0",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Controls/CircPatternCount.f3d",
+      "fusionSavedSha256": "84eddb9a211d3bb7ae954c91df4d61aab98415c6765578f75a465ce51e48ed22",
+      "committedSha256": "81bcfb5489dc1cead01a2beacb498014a22834a215d3c306550d8b8f55b170cb",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Controls/Construction.f3d",
+      "fusionSavedSha256": "06d205eb01c8a464f5f6ca779608bc4297f99fa075439e7c3bcc7d2ce6bc1d7b",
+      "committedSha256": "d0b86d456cd99035bf3ac7eca942b6c40a07d1b60e11437a13fd03e9757c9267",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Controls/ExtrudeIntersect.f3d",
+      "fusionSavedSha256": "bfe440d932f974b7d78b1266c585d7bc68937d1aeb5b83d4aff5ae252b6f3944",
+      "committedSha256": "fc310e2d2b2f8b40161e851de6203560051acb04d7c59c8e5041a8fa3fda5c31",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Controls/ExtrudeToObject.f3d",
+      "fusionSavedSha256": "f12ad43331147ed6ff7381b2136886d2d51748e6678f45d27750f0a98a60c910",
+      "committedSha256": "fe9a280adb35488d882ae8993ed6e62a421cf8a96782141dd8fcc742e69e4b93",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Controls/Loft.f3d",
+      "fusionSavedSha256": "8c9b5168205f7d3b1740bd9e481841fda52535b169a7d308e841c136e8e73348",
+      "committedSha256": "be4d2452dd264761e74e63a354607aee1436e437cffa68fc5493c6416b24b054",
+      "counts": {
+        "account": 2,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Controls/MirrorBody.f3d",
+      "fusionSavedSha256": "5da8c50033cc6a2f1754c9ae8777dfe9029da7f414de0f3af4b3e7c9e3d2d1ef",
+      "committedSha256": "f74d0456320e24e7210e72448f271cb54e9f1a215a9f53c72806c66bbb3c7225",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Controls/RectPattern.f3d",
+      "fusionSavedSha256": "d8341574329a766cc94ba31f1387e9e3f57498c678ef08be0d7ef1a85c000527",
+      "committedSha256": "e561ac0cf3d8e1e7259404ba991380e6156fa9d66c36c2221165665d4ec4298a",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Controls/Shell.f3d",
+      "fusionSavedSha256": "56775d6bdb3b2987d28d7b2cf14defac6771ce55272b626da8add5a671b711bf",
+      "committedSha256": "59a1ab57a43a68c3ee1a15645aeb4381576457251cb6eb7e9857bc56b419eaef",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Controls/Sweep.f3d",
+      "fusionSavedSha256": "16dea624be2287974c2abf44631403ede9bf537221308ecdd82eccf44293aa6c",
+      "committedSha256": "e42d5c99a6bcfd2373ed50c014c42118b33167248768fb17e05ae43ab0a7d430",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Recompute/ChamferWithoutChamferState.f3d",
+      "fusionSavedSha256": "0457ce26ef44df4623871ab274e33449eb11a032112ecd7ec72995ab2d36d16d",
+      "committedSha256": "f1cdd7c7b050a6fd1a50d94b2d00069b3064fb308595a5d004741032e68a1570",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Recompute/MirrorBodyWithoutMirrorState.f3d",
+      "fusionSavedSha256": "5c1245f90b92b5d035a2f90b74131a314735c36c3330467484b79dc837ae5b1c",
+      "committedSha256": "357902fd757660aa2b063c9a596786cbcb4b63989c85685543afb5cc3731b6c7",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Recompute/RectPatternWithoutPatternState.f3d",
+      "fusionSavedSha256": "64cdf665b1bc5872ae41b4381e51e04c278466ca49ea06a5540124344cf16a5e",
+      "committedSha256": "3ae4146d0bbf8e010e722a862a63a7a1eef7a736f22a05056a12c5ba7d9bdd38",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Recompute/ShellWithoutShellState.f3d",
+      "fusionSavedSha256": "4de48b983f1a04cff64a8506fdd8c6ce5c50e1a72012e9d385b58225dfbbb243",
+      "committedSha256": "182cbaf01e44b00f4ec4859e5f8166e4360340e2bc0da9628b05c977799ebbb4",
+      "counts": {
+        "account": 1,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
       "path": "re/Fusion/LocalOracle/Features/extrude_13mm.f3d",
       "fusionSavedSha256": "27b291d09e040cec9a40c8a6fb48b07d83e2bc4e3a2ac1ffa06a8ef85aaf07a4",
       "committedSha256": "25a1547213e492f7887f32f029673d287cba3fe435aa64a508038951a65b0f55",

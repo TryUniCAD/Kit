@@ -4069,7 +4069,7 @@
         "FieldName": "matrix3d",
         "ValueType": {
           "KindValue": "matrix",
-          "HasMatrixRows": false
+          "HasMatrixRows": true
         },
         "IsSaved": true
       },

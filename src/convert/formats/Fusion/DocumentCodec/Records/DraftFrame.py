@@ -9,6 +9,12 @@ from convert.formats.Fusion.EntityCodec.Model.EntityFrame import EntityFrame
 from convert.formats.Fusion.EntityCodec.Model.NamedMetadata import NamedMetadata
 
 
+def MetaValue(Value: object) -> int | float:
+    if isinstance(Value, float):
+        return Value
+    return ReadInteger(Value)
+
+
 def DraftFrame(Author: AuthorState, Entity: DraftEntity) -> EntityFrame:
     Subjects = DraftSubjects(Author, Entity)
     Metadata = (
@@ -18,7 +24,7 @@ def DraftFrame(Author: AuthorState, Entity: DraftEntity) -> EntityFrame:
             NamedMetadata(
                 ReadString(Entry["name"]),
                 ReadString(Entry["metatype"]),
-                ReadInteger(Entry["value"]),
+                MetaValue(Entry["value"]),
             )
             for Entry in Entity.NamedPairs
         )

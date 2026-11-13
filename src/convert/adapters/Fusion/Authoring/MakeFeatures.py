@@ -1,3 +1,4 @@
+from convert.adapters.Fusion.Authoring.MakePartSteps import MakePartSteps
 from convert.adapters.Fusion.Authoring.ProfileShape import HasSolid
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from interchange.enums.EnumFeatures import BooleanOp, FeatureKind
@@ -36,4 +37,4 @@ def MakeFeatures(SpecValue: DocumentSpec) -> tuple[FeatureStep, ...]:
         BooleanOp.KCreate,
         Definition,
     )
-    return (SketchStep, ExtrudeStep)
+    return (SketchStep, ExtrudeStep, *MakePartSteps(SpecValue))

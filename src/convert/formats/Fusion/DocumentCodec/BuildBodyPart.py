@@ -13,6 +13,9 @@ from convert.formats.Fusion.DocumentCodec.Model.DesignResult import DesignResult
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from convert.formats.Fusion.GeometryCodec.CylinderBody import CylinderBody
 from convert.formats.Fusion.GeometryCodec.GeometryStamp import GeometryStamp
+from convert.formats.Fusion.DocumentCodec.PartFeatures.BuildPartBody import (
+    BuildPartBody,
+)
 from convert.formats.Fusion.DocumentCodec.Rectangle.BuildPrismPart import BuildPrismPart
 from convert.formats.Fusion.DocumentCodec.Tapered.BuildTaperPart import BuildTaperPart
 
@@ -20,6 +23,8 @@ from convert.formats.Fusion.DocumentCodec.Tapered.BuildTaperPart import BuildTap
 def BuildBodyPart(
     SpecValue: DocumentSpec, Design: DesignResult
 ) -> tuple[ContainerPart, ...]:
+    if SpecValue.ProfileKind in ("cuboid", "part") and SpecValue.Features:
+        return BuildPartBody(SpecValue, Design)
     if SpecValue.ProfileKind == "cuboid":
         return BuildPrismPart(SpecValue, Design)
     if SpecValue.ProfileKind == "frustum":
