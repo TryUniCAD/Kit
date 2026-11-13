@@ -5,6 +5,7 @@ from typing import TypeAlias
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.AddParamMut import (
     AddParamMut,
+    ExprText,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.PartNodes import (
     AddNodeMut,
@@ -22,7 +23,10 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Hole.AddHoleRefs import (
     AddThroughMut,
     TopologyCache,
 )
-from convert.formats.Fusion.DocumentCodec.PartFeatures.Hole.CheckHole import IsBored
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Hole.CheckHole import (
+    IsBored,
+    IsSunk,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.HoleSpec import HoleSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartStage import PartStage
 
@@ -67,7 +71,26 @@ def AddSizesMut(Author: AuthorState, Prefix: str, Feature: HoleSpec) -> list[str
         AddParamMut(Author, Prefix + "bore_depth", Owner, "CBDepth", BoreDepth, "mm")
         AddParamMut(Author, Prefix + "bore_width", Owner, "CBDiameter", BoreWidth, "mm")
         Roles.extend((Prefix + "bore_depth", Prefix + "bore_width"))
-    return Roles
+    return Roles + AddSinkMut(Author, Prefix, Feature)
+
+
+def AddSinkMut(Author: AuthorState, Prefix: str, Feature: HoleSpec) -> list[str]:
+    if not IsSunk(Feature):
+        return []
+    Owner, Width = Prefix + "feature", Feature.SinkDiameterMm
+    AddParamMut(Author, Prefix + "sink_width", Owner, "CSDiameter", Width, "mm")
+    Angle = Feature.SinkAngleDegrees
+    Expression = ExprText(Angle) + " deg"
+    AddParamMut(
+        Author,
+        Prefix + "sink_angle",
+        Owner,
+        "CSAngle",
+        Radians(Angle),
+        "deg",
+        Expression,
+    )
+    return [Prefix + "sink_width", Prefix + "sink_angle"]
 
 
 def HoleParam(SpotValue: dict[str, float], Middle: tuple[float, float]) -> KHoleParam:
@@ -144,16 +167,18 @@ def LinkHoleMut(
     Author: AuthorState, Prefix: str, Feature: HoleSpec, Extent: list[str]
 ) -> None:
     Reference = Author.Reference
-    Bored = IsBored(Feature)
+    IsCounterbored, IsCountersunk = IsBored(Feature), IsSunk(Feature)
     Author.Change(
         Prefix + "feature",
-        holeType=1 if Bored else 0,
+        holeType=2 if IsCountersunk else int(IsCounterbored),
         bThroughAll=not Feature.DepthMm,
         rHoleDepth=Reference(Prefix + "depth" if Feature.DepthMm else None),
         rHoleDiameter=Reference(Prefix + "diameter"),
         rTipAngle=Reference(Prefix + "tip"),
-        rCBDepth=Reference(Prefix + "bore_depth" if Bored else None),
-        rCBDiameter=Reference(Prefix + "bore_width" if Bored else None),
+        rCBDepth=Reference(Prefix + "bore_depth" if IsCounterbored else None),
+        rCBDiameter=Reference(Prefix + "bore_width" if IsCounterbored else None),
+        rCSAngle=Reference(Prefix + "sink_angle" if IsCountersunk else None),
+        rCSDiameter=Reference(Prefix + "sink_width" if IsCountersunk else None),
         rDRMultipleOrigins=[Reference(Prefix + "spot")],
         rDRNormal=Reference(Prefix + "axis"),
         rHoleToolBody=Reference(Prefix + "tool"),

@@ -9,3 +9,5 @@ class HoleSpec:
     BoreDiameterMm: float = 0.0
     BoreDepthMm: float = 0.0
     FeatureName: str = "Hole"
+    SinkDiameterMm: float = 0.0
+    SinkAngleDegrees: float = 90.0

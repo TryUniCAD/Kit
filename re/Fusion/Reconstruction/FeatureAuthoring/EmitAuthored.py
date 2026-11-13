@@ -35,8 +35,12 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import Sh
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import PatternSpec  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CircularSpec import CircularSpec  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MirrorSpec import MirrorSpec  # noqa: E402
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MoveSpec import MoveSpec  # noqa: E402
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.OffsetSpec import OffsetSpec  # noqa: E402
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.DraftSpec import DraftSpec  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec  # noqa: E402
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.RevolveSpec import RevolveSpec  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.SolidMass import SolidMass  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.BuildShape import BuildShape  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.SolvePart import SolvePart  # noqa: E402
@@ -88,6 +92,8 @@ CUBOID = {
     "Chamfer": (ChamferSpec((40.0, 30.0), 3.0),),
     "Shell": (ShellSpec(2.0),),
     "FilletShell": (FilletSpec((40.0, 30.0), 3.0), ShellSpec(2.0)),
+    "ShellOpenSide": (ShellSpec(2.0, "Open shell", SidesMm=((20.0, 0.0),)),),
+    "ShellOpenCorner": (ShellSpec(2.0, "Open corner", SidesMm=((20.0, 0.0), (40.0, 15.0))),),
     "MultiFeature": (
         FilletSpec((40.0, 30.0), 3.0, "Corner Round"),
         ChamferSpec((0.0, 0.0), 3.0, "Corner Bevel"),
@@ -125,6 +131,8 @@ PART = {
     "HoleThrough": (base(), HoleSpec((20.0, 15.0), 8.0, FeatureName="Top hole")),
     "HoleCounterboreFlat": (base(), HoleSpec((20.0, 15.0), 6.0, 10.0, 10.0, 4.0, "Top hole")),
     "HoleCounterbore": (base(), HoleSpec((20.0, 15.0), 6.0, 0.0, 10.0, 4.0, "Top hole")),
+    "HoleCountersink": (base(), HoleSpec((20.0, 15.0), 6.0, FeatureName="Top hole", SinkDiameterMm=10.0)),
+    "HoleCountersinkFlat": (base(), HoleSpec((20.0, 15.0), 6.0, 10.0, FeatureName="Top hole", SinkDiameterMm=12.0, SinkAngleDegrees=82.0)),
     "RectPattern": (base(), POCKET, PatternSpec(1, 3, 12.0, 2, 14.0, "Pocket grid")),
     "FeatureCircPattern": (base(), POCKET, CircularSpec(1, 2, 40.0, "Pocket arc")),
     "MirrorFeature": (base(), POCKET, PlaneSpec(20.0, "yz", "Mid plane"), MirrorSpec(1, 2, "Pocket mirror")),
@@ -170,6 +178,30 @@ PART = {
     ),
 }
 
+DISC = ExtrudeSpec((CircleCurve((0, 0), 25),), 10.0, "new", "one", 0.0, "Disc sketch", "Disc extrude")
+
+PART.update({
+    "RevolveFull": (RevolveSpec(10.0, 20.0, 0.0, 30.0, 360.0, "new", "Revolve sketch", "Tube revolve"),),
+    "RevolveHalf": (RevolveSpec(10.0, 20.0, 0.0, 30.0, 180.0, "new", "Revolve sketch", "Tube revolve"),),
+    "RevolveJoin": (DISC, RevolveSpec(10.0, 15.0, 10.0, 20.0, 360.0, "join", "Ring sketch", "Ring revolve")),
+    "RevolveCut": (DISC, RevolveSpec(15.0, 22.0, 6.0, 10.0, 90.0, "cut", "Groove sketch", "Groove revolve")),
+})
+PART.update({
+    "MoveTurnPart": (base(), MoveSpec((5.0, 5.0, 2.0), "Body turn", 30.0), FilletSpec((24.64101615137754, 50.98076211353316), 3.0, "Turned round")),
+})
+CUBOID["MoveBody"] = (MoveSpec((10.0, 0.0, 0.0), "Body move"),)
+PART.update({
+    "OffsetTop": (base(), OffsetSpec(5.0, "Top offset")),
+    "OffsetTopTrim": (base(), OffsetSpec(-5.0, "Top trim")),
+    "OffsetSide": (base(), OffsetSpec(4.0, "Side offset", (40.0, 15.0))),
+    "OffsetRoundFront": (base(), FilletSpec((40.0, 30.0), 3.0, "Corner round"), OffsetSpec(4.0, "Front offset", (20.0, 0.0))),
+})
+PART.update({
+    "DraftSides": (base(), DraftSpec(5.0, "Side draft")),
+    "DraftInward": (base(), DraftSpec(-5.0, "Side taper")),
+    "DraftCutPart": (base(), ChamferSpec((40.0, 30.0), 3.0, FeatureName="Corner cut"), DraftSpec(5.0, "Side draft")),
+})
+
 CASES = {**CUBOID, **PART}
 
 EDITS = {
@@ -177,6 +209,8 @@ EDITS = {
     "Chamfer": [{"feature": "Chamfer", "expression": "2 mm"}],
     "Shell": [{"feature": "Shell", "expression": "3 mm"}],
     "FilletShell": [{"feature": "Shell", "expression": "1.5 mm"}, {"feature": "height", "expression": "25 mm"}],
+    "ShellOpenSide": [{"feature": "Open shell", "expression": "3 mm"}, {"feature": "height", "expression": "25 mm"}],
+    "ShellOpenCorner": [{"feature": "Open corner", "expression": "4 mm"}, {"feature": "height", "expression": "15 mm"}],
     "MultiFeature": [{"feature": "Corner Round", "expression": "5 mm"}, {"feature": "height", "expression": "25 mm"}],
     "ExtrudeNew": [{"feature": "Base extrude", "role": "AlongDistance", "expression": "25 mm"}],
     "ExtrudeSymmetric": [{"feature": "Base extrude", "role": "AlongDistance", "expression": "16 mm"}],
@@ -197,6 +231,8 @@ EDITS = {
     "HoleThrough": [{"feature": "Top hole", "role": "HoleDiameter", "expression": "10 mm"}, {"feature": "Base extrude", "role": "AlongDistance", "expression": "25 mm"}],
     "HoleCounterboreFlat": [{"feature": "Top hole", "role": "CBDiameter", "expression": "12 mm"}, {"feature": "Top hole", "role": "CBDepth", "expression": "3 mm"}],
     "HoleCounterbore": [{"feature": "Top hole", "role": "HoleDiameter", "expression": "5 mm"}, {"feature": "Base extrude", "role": "AlongDistance", "expression": "25 mm"}],
+    "HoleCountersink": [{"feature": "Top hole", "role": "CSDiameter", "expression": "12 mm"}, {"feature": "Base extrude", "role": "AlongDistance", "expression": "25 mm"}],
+    "HoleCountersinkFlat": [{"feature": "Top hole", "role": "CSAngle", "expression": "100 deg"}, {"feature": "Top hole", "role": "HoleDepth", "expression": "14 mm"}],
     "RectPattern": [{"feature": "Pocket grid", "role": "uSpaceDistance", "expression": "11 mm"}, {"feature": "Pocket grid", "role": "CountV", "expression": "1"}],
     "FeatureCircPattern": [{"feature": "Pocket arc", "role": "TotalAngle", "expression": "30 deg"}],
     "MirrorFeature": [{"feature": "Mid plane", "role": "AlongDistance", "expression": "18 mm"}],
@@ -211,6 +247,19 @@ EDITS = {
     "CornerSetPart": [{"feature": "Corner rounds", "expression": "5 mm"}, {"feature": "Corner bevel", "role": "Rotate Angle", "expression": "45 deg"}, {"feature": "Side hole", "role": "HoleDiameter", "expression": "8 mm"}],
     "ConstructionSet": [{"feature": "Offset plane", "role": "AlongDistance", "expression": "12 mm"}, {"feature": "Base extrude", "role": "AlongDistance", "expression": "25 mm"}],
     "ConstructionPart": [{"feature": "Base extrude", "role": "AlongDistance", "expression": "26 mm"}, {"feature": "Corner round", "expression": "4 mm"}],
+    "RevolveFull": [{"feature": "Tube revolve", "role": "AlongAngle", "expression": "270 deg"}],
+    "RevolveHalf": [{"feature": "Tube revolve", "role": "AlongAngle", "expression": "120 deg"}],
+    "RevolveJoin": [{"feature": "Ring revolve", "role": "AlongAngle", "expression": "180 deg"}, {"feature": "Disc extrude", "role": "AlongDistance", "expression": "12 mm"}],
+    "RevolveCut": [{"feature": "Groove revolve", "role": "AlongAngle", "expression": "120 deg"}],
+    "MoveBody": [{"feature": "height", "expression": "25 mm"}],
+    "MoveTurnPart": [{"feature": "Base extrude", "role": "AlongDistance", "expression": "25 mm"}, {"feature": "Turned round", "expression": "4 mm"}],
+    "OffsetTop": [{"feature": "Top offset", "role": "distance", "expression": "8 mm"}, {"feature": "Base extrude", "role": "AlongDistance", "expression": "25 mm"}],
+    "OffsetTopTrim": [{"feature": "Top trim", "role": "distance", "expression": "-8 mm"}],
+    "OffsetSide": [{"feature": "Side offset", "role": "distance", "expression": "6 mm"}, {"feature": "Base extrude", "role": "AlongDistance", "expression": "25 mm"}],
+    "OffsetRoundFront": [{"feature": "Front offset", "role": "distance", "expression": "-5 mm"}, {"feature": "Corner round", "expression": "4 mm"}],
+    "DraftSides": [{"feature": "Side draft", "role": "Angle1", "expression": "8 deg"}, {"feature": "Base extrude", "role": "AlongDistance", "expression": "25 mm"}],
+    "DraftInward": [{"feature": "Side taper", "role": "Angle1", "expression": "-3 deg"}],
+    "DraftCutPart": [{"feature": "Side draft", "role": "Angle1", "expression": "3 deg"}, {"feature": "Corner cut", "expression": "4 mm"}],
 }
 
 
@@ -244,15 +293,41 @@ def step(feature):
             "sketch": feature.SketchName,
             "name": feature.FeatureName,
         }
+    if isinstance(feature, DraftSpec):
+        return {"kind": "draft", "angle": f"{feature.AngleDegrees:g} deg", "name": feature.FeatureName}
+    if isinstance(feature, OffsetSpec):
+        result = {"kind": "offset", "amount": mm(feature.DistanceMm), "name": feature.FeatureName}
+        if feature.SideMm is not None:
+            result["side_cm"] = [feature.SideMm[0] / 10.0, feature.SideMm[1] / 10.0]
+        return result
+    if isinstance(feature, MoveSpec):
+        return {"kind": "move", "offset_cm": [v / 10.0 for v in feature.OffsetMm], "turn_degrees": feature.TurnDegrees, "name": feature.FeatureName}
+    if isinstance(feature, RevolveSpec):
+        return {
+            "kind": "revolve",
+            "inner_cm": feature.InnerMm / 10.0,
+            "outer_cm": feature.OuterMm / 10.0,
+            "lower_cm": feature.LowerMm / 10.0,
+            "upper_cm": feature.UpperMm / 10.0,
+            "angle": f"{feature.AngleDegrees:g} deg",
+            "operation": feature.Operation,
+            "sketch": feature.SketchName,
+            "name": feature.FeatureName,
+        }
     if isinstance(feature, HoleSpec):
         result = {"kind": "hole", "center_cm": [v / 10.0 for v in feature.CenterMm], "diameter": mm(feature.DiameterMm), "name": feature.FeatureName}
         if feature.DepthMm:
             result["depth"] = mm(feature.DepthMm)
         if feature.BoreDiameterMm:
             result.update(bore_diameter=mm(feature.BoreDiameterMm), bore_depth=mm(feature.BoreDepthMm))
+        if feature.SinkDiameterMm:
+            result.update(sink_diameter=mm(feature.SinkDiameterMm), sink_angle=f"{feature.SinkAngleDegrees:g} deg")
         return result
     if isinstance(feature, ShellSpec):
-        return {"kind": "shell", "amount": mm(feature.ThicknessMm), "name": feature.FeatureName}
+        result = {"kind": "shell", "amount": mm(feature.ThicknessMm), "name": feature.FeatureName}
+        if feature.SidesMm:
+            result["sides_cm"] = [[x / 10.0, y / 10.0] for x, y in feature.SidesMm]
+        return result
     if isinstance(feature, PatternSpec):
         return {"kind": "pattern", "source": feature.SourceIndex, "count_u": feature.CountU, "spacing_u": mm(feature.SpacingUMm), "count_v": feature.CountV, "spacing_v": mm(feature.SpacingVMm), "name": feature.FeatureName}
     if isinstance(feature, CircularSpec):

@@ -9230,7 +9230,7 @@
         "FieldName": "transform",
         "ValueType": {
           "KindValue": "matrix",
-          "HasMatrixRows": false
+          "HasMatrixRows": true
         },
         "IsSaved": true
       }

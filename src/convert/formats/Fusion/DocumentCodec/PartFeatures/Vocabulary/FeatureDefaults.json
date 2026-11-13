@@ -104,6 +104,24 @@
     "rAngle": null,
     "rAxisDir": null
   },
+  "DcDraftFeature": {
+    "MovingPartingLineDraftAngleType": 3,
+    "draftType": 1,
+    "m_bFlipped": false,
+    "m_bTangentPropagation": true,
+    "m_directionType": 1,
+    "m_draftAngle1": null,
+    "m_draftAngle2": null,
+    "m_facePickPoint": {
+      "x": 2.0,
+      "y": 1.0
+    },
+    "m_facesRef": null,
+    "m_fixedPlaneDraftAngleMode": 1,
+    "m_rFixedEdgesDataRef": null,
+    "m_rRefPlaneDataRef": null,
+    "rPartingLineToolDataRef": null
+  },
   "DcFilletEdgeData": {
     "bAsymmetric": false,
     "bChord": false,
@@ -188,6 +206,41 @@
     "mirrorStitchTolerance": null,
     "rRefPlaneDataRef": null
   },
+  "DcMoveFeature": {
+    "dcMoveMatrix": null
+  },
+  "DcMoveMatrix": {
+    "alignAngle": 0.0,
+    "alignGeometryOrigin": null,
+    "alignGeometryTarget": null,
+    "alignOriginDataRef": null,
+    "alignPointOrigin": null,
+    "alignPointTarget": null,
+    "alignSense": 0,
+    "alignTargetDataRef": null,
+    "moveDirectionType": 0,
+    "moveMethodType": 5,
+    "moveTransform": {
+      "identity": true
+    },
+    "point2PointOrigin": null,
+    "point2PointTarget": null,
+    "point2PositionCSType": 1,
+    "point2PositionPoint": null,
+    "rFeature": null,
+    "rotateAngle": null,
+    "rotateAxis": null,
+    "translateAnchorOccRef": null,
+    "translateAxis": null,
+    "translateDistance": null,
+    "translateSharedFirstComponentFrame": false,
+    "translateX": null,
+    "translateY": null,
+    "translateZ": null
+  },
+  "DcOffsetFacesFeature": {
+    "rParamDistance": null
+  },
   "DcPatternBaseData": {
     "additionalAffectedBodies": [],
     "cachedDcCIs": [],
@@ -259,6 +312,24 @@
     "rCountVParam": null,
     "rUDirMR": null,
     "rVDirMR": null
+  },
+  "DcRevolveFeature": {
+    "booleanOperation": 4,
+    "extendFaceOption": 2,
+    "isFullRevolve": false,
+    "isProjectAxis": false,
+    "isSolidOperation": true,
+    "isSymmetric": false,
+    "isTwoSide": false,
+    "rAgainstAngle": null,
+    "rAlongAngle": null,
+    "rAxisDataRef": null,
+    "rFromEntityRef": null,
+    "rRevolveToolBody": null,
+    "rToEntityRef": null
+  },
+  "DcRevolveToolBody": {
+    "rRevolveFeature": null
   },
   "DcShellFeature": {
     "TangentPropagation": false,

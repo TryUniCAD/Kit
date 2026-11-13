@@ -1,3 +1,6 @@
+from dataclasses import replace as ReplaceValue
+from math import radians as Radians, tan as Tangent
+
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CircleCurve import (
     CircleCurve,
 )
@@ -22,7 +25,9 @@ KHoleLimit = 1e-9
 
 
 def HoleTop(Solid: PrismSolid, Feature: HoleSpec) -> float:
-    Widest = max(Feature.DiameterMm, Feature.BoreDiameterMm) / 2.0
+    Widest = (
+        max(Feature.DiameterMm, Feature.BoreDiameterMm, Feature.SinkDiameterMm) / 2.0
+    )
     LoopValue = ProfileLoop(
         (CircleCurve(Feature.CenterMm, Widest),), (Solid.BodyLabel,)
     )
@@ -51,18 +56,38 @@ def HoleLabels(Operation: int, Names: tuple[str, str]) -> tuple[FaceLabel, FaceL
     return FaceLabel(Names[0], (Operation,)), FaceLabel(Names[1], (Operation,))
 
 
+def SinkDepth(Feature: HoleSpec) -> float:
+    if not Feature.SinkDiameterMm:
+        return 0.0
+    Spread = (Feature.SinkDiameterMm - Feature.DiameterMm) / 2.0
+    return Spread / Tangent(Radians(Feature.SinkAngleDegrees) / 2.0) / 10.0
+
+
+def SinkSlab(
+    Feature: HoleSpec, Bounds: tuple[float, float], Operation: int
+) -> PrismSlab:
+    Labels = HoleLabels(Operation, ("10", "10"))
+    Narrow = CircleSlab(Feature, Bounds, Labels, Feature.DiameterMm)
+    Widened = CircleSlab(Feature, Bounds, Labels, Feature.SinkDiameterMm)
+    return ReplaceValue(Narrow, RoofLoops=Widened.Loops)
+
+
 def HoleShapers(
     Solid: PrismSolid, Feature: HoleSpec, Operation: int
 ) -> tuple[PrismSlab, ...]:
     Ceiling = HoleTop(Solid, Feature)
     Bottom = Solid.Slabs[0].LowerCm
     Lower = Ceiling - Feature.DepthMm / 10.0 if Feature.DepthMm else Bottom
-    Upper = Ceiling - Feature.BoreDepthMm / 10.0
+    Upper = Ceiling - Feature.BoreDepthMm / 10.0 - SinkDepth(Feature)
     if Lower < Bottom - KHoleLimit or (Feature.DepthMm and Lower <= Bottom):
         raise ValueError("Fusion blind holes must end inside the body")
-    if Upper <= Bottom + KHoleLimit:
-        raise ValueError("Fusion counterbores must end inside the body")
+    if Upper <= max(Lower, Bottom) + KHoleLimit:
+        raise ValueError(
+            "Fusion counterbores and countersinks must end inside the hole"
+        )
     Shapers: list[PrismSlab] = []
+    if Feature.SinkDiameterMm:
+        Shapers.append(SinkSlab(Feature, (Upper, Ceiling), Operation))
     if Feature.BoreDepthMm:
         Labels = HoleLabels(Operation, ("7", "8"))
         Bounds = (Upper, Ceiling)

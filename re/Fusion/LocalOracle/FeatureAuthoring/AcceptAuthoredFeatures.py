@@ -15,7 +15,7 @@ runpy init_globals; the report then goes to NativeAcceptance<SUITE>.json.
 
 import hashlib
 import json
-from math import isclose
+from math import isclose, radians
 from pathlib import Path
 import traceback
 
@@ -75,6 +75,38 @@ def corner_vertex(body, x, y):
     if not found:
         raise RuntimeError("Corner vertex not found")
     return min(found, key=lambda v: v.geometry.z)
+
+
+def side_face(body, x, y):
+    box = body.boundingBox
+    z = (box.minPoint.z + box.maxPoint.z) / 2.0
+    found = []
+    for face in body.faces:
+        if face.geometry.surfaceType != adsk.core.SurfaceTypes.PlaneSurfaceType:
+            continue
+        ok, normal = face.evaluator.getNormalAtPoint(face.pointOnFace)
+        base_point = face.pointOnFace
+        apart = (x - base_point.x) * normal.x + (y - base_point.y) * normal.y + (z - base_point.z) * normal.z
+        low, high = face.boundingBox.minPoint, face.boundingBox.maxPoint
+        inside = low.x - 1e-6 <= x <= high.x + 1e-6 and low.y - 1e-6 <= y <= high.y + 1e-6
+        if abs(apart) < 1e-6 and abs(normal.z) < 1e-6 and inside:
+            found.append(face)
+    if len(found) != 1:
+        raise RuntimeError("Side face not found")
+    return found[0]
+
+
+def draft_faces(body):
+    sides, floor = [], None
+    for face in body.faces:
+        if face.geometry.surfaceType != adsk.core.SurfaceTypes.PlaneSurfaceType:
+            continue
+        ok, normal = face.evaluator.getNormalAtPoint(face.pointOnFace)
+        if abs(normal.z) < 1e-6:
+            sides.append(face)
+        elif normal.z < -0.999 and floor is None:
+            floor = face
+    return sides, floor
 
 
 def top_face(body):
@@ -138,10 +170,28 @@ def add_extrude(comp, step):
     return feats.add(inp)
 
 
+def add_revolve(comp, step):
+    sketch = comp.sketches.add(comp.xZConstructionPlane)
+    sketch.name = step["sketch"]
+    inner, outer, lower, upper = step["inner_cm"], step["outer_cm"], step["lower_cm"], step["upper_cm"]
+    corners = [sketch.modelToSketchSpace(pt(x, 0, z)) for x, z in ((inner, lower), (outer, lower), (outer, upper), (inner, upper))]
+    lines = sketch.sketchCurves.sketchLines
+    for index in range(4):
+        lines.addByTwoPoints(corners[index], corners[(index + 1) % 4])
+    if sketch.profiles.count != 1:
+        raise RuntimeError("Control sketch has " + str(sketch.profiles.count) + " profiles")
+    feats = comp.features.revolveFeatures
+    inp = feats.createInput(sketch.profiles.item(0), comp.zConstructionAxis, OPERATIONS[step["operation"]])
+    inp.setAngleExtent(False, vi(step["angle"]))
+    return feats.add(inp)
+
+
 def add_hole(comp, body, step):
     feats = comp.features.holeFeatures
     if step.get("bore_diameter"):
         inp = feats.createCounterboreInput(vi(step["diameter"]), vi(step["bore_diameter"]), vi(step["bore_depth"]))
+    elif step.get("sink_diameter"):
+        inp = feats.createCountersinkInput(vi(step["diameter"]), vi(step["sink_diameter"]), vi(step["sink_angle"]))
     else:
         inp = feats.createSimpleInput(vi(step["diameter"]))
     face = top_face(body)
@@ -199,6 +249,8 @@ def build_control(comp, entry):
     for step in entry["steps"]:
         if step["kind"] == "extrude":
             feature = add_extrude(comp, step)
+        elif step["kind"] == "revolve":
+            feature = add_revolve(comp, step)
         elif step["kind"] == "hole":
             feature = add_hole(comp, body, step)
         elif step["kind"] in ("pattern", "circular", "mirror"):
@@ -213,6 +265,22 @@ def build_control(comp, entry):
             inp = comp.constructionPoints.createInput()
             inp.setByPoint(corner_vertex(body, *step["corner_cm"]))
             feature = comp.constructionPoints.add(inp)
+        elif step["kind"] == "draft":
+            feats = comp.features.draftFeatures
+            sides, floor = draft_faces(body)
+            inp = feats.createInput(sides, floor, True)
+            inp.setSingleAngle(False, vi(step["angle"]))
+            feature = feats.add(inp)
+        elif step["kind"] == "offset":
+            feats = comp.features.offsetFacesFeatures
+            face = side_face(body, *step["side_cm"]) if "side_cm" in step else top_face(body)
+            feature = feats.add(feats.createInput([face], vi(step["amount"])))
+        elif step["kind"] == "move":
+            feats = comp.features.moveFeatures
+            matrix = adsk.core.Matrix3D.create()
+            matrix.setToRotation(radians(step["turn_degrees"]), adsk.core.Vector3D.create(0, 0, 1), pt(0, 0, 0))
+            matrix.translation = adsk.core.Vector3D.create(*step["offset_cm"])
+            feature = feats.add(feats.createInput(coll(body), matrix))
         elif step["kind"] == "fillet":
             feats = comp.features.filletFeatures
             inp = feats.createInput()
@@ -231,7 +299,8 @@ def build_control(comp, entry):
             feature = feats.add(inp)
         else:
             feats = comp.features.shellFeatures
-            inp = feats.createInput(coll(top_face(body)), False)
+            faces = [top_face(body)] + [side_face(body, *point) for point in step.get("sides_cm", [])]
+            inp = feats.createInput(coll(*faces), False)
             inp.insideThickness = vi(step["amount"])
             feature = feats.add(inp)
         feature.name = step["name"]

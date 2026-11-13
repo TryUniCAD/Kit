@@ -2,16 +2,16 @@ from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CircularSpec import (
     CircularSpec,
 )
-from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ExtrudeSpec import (
-    ExtrudeSpec,
-)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MirrorSpec import (
     MirrorSpec,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import (
     PatternSpec,
 )
-from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.FamilyRules import FamilyOf
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.FamilyRules import (
+    FamilyOf,
+    IsSketched,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartStage import PartStage
 from convert.formats.Fusion.DocumentCodec.Values.MakeAttributes import MakeAttributes
 
@@ -25,7 +25,7 @@ def TimelineOwners(
         Owners = [("dc_sketch", (First,)), ("dc_extrude", (First + 1, First + 2))]
     for Index, Stage in enumerate(Stages):
         Prefix = "f" + str(Index + 1) + "_"
-        if isinstance(Stage.Feature, ExtrudeSpec):
+        if IsSketched(Stage.Feature):
             Owners.append((Prefix + "dc_sketch", Stage.Operations[:1]))
             Owners.append((Prefix + "feature", Stage.Operations[1:]))
             continue
@@ -90,7 +90,7 @@ def LinkTimeline(Author: AuthorState, Stages: tuple[PartStage, ...]) -> None:
     for Stage in Stages:
         NameValue = FamilyOf(Stage.Feature).ClassName + "MetaType"
         Counts[NameValue] = Counts.get(NameValue, 0) + 1
-        if isinstance(Stage.Feature, ExtrudeSpec):
+        if IsSketched(Stage.Feature):
             Counts["DcSketchMetaType"] = Counts.get("DcSketchMetaType", 0) + 1
     Author.Change(
         "fragment",

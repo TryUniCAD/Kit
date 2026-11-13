@@ -9,6 +9,8 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.BuildShape import (
     BuildShape,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.CapFace import CapFace
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.WallFace import WallFace
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PlaneSpan import KPlaneSpan
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSolid import (
     PrismSolid,
 )
@@ -44,3 +46,23 @@ def RoofTagSet(Solids: tuple[PrismSolid, ...], Index: int) -> tuple[int, int, in
 
 def RoofTag(Solids: tuple[PrismSolid, ...], Index: int) -> int:
     return RoofTagSet(Solids, Index)[0]
+
+
+def SideTags(
+    Solids: tuple[PrismSolid, ...], Index: int, Spans: tuple[KPlaneSpan, ...]
+) -> tuple[int, ...]:
+    Ledger = TagLedger()
+    Found: dict[KPlaneSpan, int] = {}
+    for Ordinal, Solid in enumerate(Solids[: Index + 1]):
+        Shape = BuildShape(Solid)
+        FaceTags = LedgerTags((Shape,), Ledger)[0][0]
+        if Ordinal != Index:
+            continue
+        Found = {
+            FaceValue.Span: FaceTags[FaceKey(FaceValue)]
+            for FaceValue in Shape.Faces
+            if isinstance(FaceValue, WallFace)
+        }
+    if any(SpanValue not in Found for SpanValue in Spans):
+        raise ValueError("Fusion part shell sides require whole side faces")
+    return tuple(Found[SpanValue] for SpanValue in Spans)

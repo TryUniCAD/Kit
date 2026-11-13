@@ -17,6 +17,11 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.HoleSpec import Hol
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MirrorSpec import (
     MirrorSpec,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MoveSpec import MoveSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.OffsetSpec import (
+    OffsetSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.DraftSpec import DraftSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartFeature import (
     KPartFeature,
 )
@@ -25,6 +30,9 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import 
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.RevolveSpec import (
+    RevolveSpec,
+)
 from interchange.enums.EnumFeatures import FeatureKind
 from interchange.features.FeatureStep import FeatureStep
 
@@ -39,6 +47,10 @@ KStepKinds: dict[type[object], FeatureKind] = {
     PlaneSpec: FeatureKind.KReference,
     AxisSpec: FeatureKind.KReference,
     PointSpec: FeatureKind.KReference,
+    RevolveSpec: FeatureKind.KRevolution,
+    MoveSpec: FeatureKind.KNative,
+    OffsetSpec: FeatureKind.KOffset,
+    DraftSpec: FeatureKind.KDraft,
 }
 
 

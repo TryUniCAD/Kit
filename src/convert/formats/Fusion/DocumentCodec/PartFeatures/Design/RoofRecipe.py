@@ -21,6 +21,35 @@ from convert.formats.Fusion.EntityCodec.Recipes.Model.UvOrderEntry import UvOrde
 from convert.formats.Fusion.EntityCodec.Recipes.Model.VertexRecipe import VertexRecipe
 
 KRimOrders = (UvOrderEntry(0, UvOrder(2, 2, 2, 2, 1, 0, 1)),)
+KSidePlans = (
+    ((0, 1), (0, 2, 1), (3, 0, 1)),
+    ((0, 3), (3, 0, 1), (3, 4, 0)),
+    ((0, 4), (0, 4, 2), (3, 4, 0)),
+    ((2, 0), (0, 2, 1), (0, 4, 2)),
+)
+
+
+def SideRecipe(Solid: PrismSolid, Index: int) -> RecipeValue:
+    SlabValue = Solid.Slabs[-1]
+    LoopValue = SlabValue.Loops[0]
+    Labels = [
+        LoopValue[Index].Label,
+        Solid.Slabs[0].FloorLabel,
+        LoopValue[Index - 1].Label,
+        LoopValue[(Index + 1) % len(LoopValue)].Label,
+        SlabValue.RoofLabel,
+    ]
+    Edges = tuple(
+        EdgeRecipe(
+            -1,
+            -1,
+            tuple(PickFace(Place) for Place in Faces),
+            (PickVertex(Opening), PickVertex(Closing)),
+            -1,
+        )
+        for Faces, Opening, Closing in KSidePlans
+    )
+    return RecipeValue(3, RecipeTags(Labels), (), BoundFaceRecipe(0, -1, Edges))
 
 
 def RoofPlans(Solid: PrismSolid) -> list[tuple[tuple[FaceLabel, ...], ...]]:

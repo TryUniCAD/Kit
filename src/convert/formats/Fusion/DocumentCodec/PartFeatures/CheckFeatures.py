@@ -33,8 +33,26 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import 
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import ShellSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.RevolveSpec import (
+    RevolveSpec,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.CheckCopy import (
     CheckCopy,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MoveSpec import MoveSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Move.CheckMove import CheckMove
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.OffsetSpec import (
+    OffsetSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.DraftSpec import DraftSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Draft.CheckDraft import (
+    CheckDraft,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Offset.CheckOffset import (
+    CheckOffset,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Revolve.CheckRevolve import (
+    CheckRevolve,
 )
 
 KFeatureLimit = 16
@@ -87,6 +105,28 @@ def CheckCorners(Feature: FilletSpec | ChamferSpec) -> None:
         raise ValueError("Fusion corner edits require distinct corners")
 
 
+def CheckSides(Feature: ShellSpec) -> None:
+    Extras = CastValue(object, Feature.SidesMm)
+    if not isinstance(Extras, tuple):
+        raise ValueError("Fusion shell sides require a tuple of points")
+    Points = CastValue(tuple[object, ...], Extras)
+    if len(Points) >= KCornerLimit:
+        raise ValueError("Fusion shell edits take at most seven open sides")
+    for Point in Points:
+        CheckPair(Point)
+    if len(set(Feature.SidesMm)) != len(Points):
+        raise ValueError("Fusion shell sides must be distinct")
+
+
+def CheckShape(Feature: KPartFeature) -> None:
+    if isinstance(Feature, (FilletSpec, ChamferSpec)):
+        CheckCorners(Feature)
+    if isinstance(Feature, ChamferSpec):
+        CheckBevel(Feature)
+    if isinstance(Feature, ShellSpec):
+        CheckSides(Feature)
+
+
 def CheckBevel(Feature: ChamferSpec) -> None:
     Extras = (
         CastValue(object, Feature.SecondMm),
@@ -101,14 +141,28 @@ def CheckBevel(Feature: ChamferSpec) -> None:
         raise ValueError("Fusion chamfers take a second distance or an acute angle")
 
 
+def CheckOwned(Feature: MoveSpec | OffsetSpec | HoleSpec | DraftSpec) -> None:
+    if isinstance(Feature, MoveSpec):
+        CheckMove(Feature)
+    elif isinstance(Feature, DraftSpec):
+        CheckDraft(Feature)
+    elif isinstance(Feature, OffsetSpec):
+        CheckOffset(Feature)
+    else:
+        CheckHole(Feature)
+
+
 def CheckFeature(Feature: KPartFeature) -> None:
     _ = FamilyOf(Feature)
     if isinstance(Feature, ExtrudeSpec):
         CheckExtrude(Feature)
         return
+    if isinstance(Feature, RevolveSpec):
+        CheckRevolve(Feature)
+        return
     CheckName(CastValue(object, Feature.FeatureName))
-    if isinstance(Feature, HoleSpec):
-        CheckHole(Feature)
+    if isinstance(Feature, (MoveSpec, OffsetSpec, HoleSpec, DraftSpec)):
+        CheckOwned(Feature)
         return
     if isinstance(Feature, (AxisSpec, PointSpec)):
         CheckPair(CastValue(object, Feature.CornerMm))
@@ -123,14 +177,13 @@ def CheckFeature(Feature: KPartFeature) -> None:
             raise ValueError("Fusion part feature values must be finite numbers")
     if CastValue(float, Amounts[-1]) <= 0:
         raise ValueError("Fusion part feature sizes must be positive")
-    if isinstance(Feature, (FilletSpec, ChamferSpec)):
-        CheckCorners(Feature)
-    if isinstance(Feature, ChamferSpec):
-        CheckBevel(Feature)
+    CheckShape(Feature)
 
 
 def IsNewBody(Feature: KPartFeature) -> bool:
-    return isinstance(Feature, ExtrudeSpec) and Feature.Operation == "new"
+    if not isinstance(Feature, (ExtrudeSpec, RevolveSpec)):
+        return False
+    return Feature.Operation == "new"
 
 
 def CheckOrder(SpecValue: DocumentSpec) -> None:
@@ -138,10 +191,14 @@ def CheckOrder(SpecValue: DocumentSpec) -> None:
     Fresh = [Index for Index, Feature in enumerate(Features) if IsNewBody(Feature)]
     Expected = [0] if SpecValue.ProfileKind == "part" else []
     if Fresh != Expected:
-        raise ValueError("Fusion part bodies start with exactly one new extrude")
+        raise ValueError("Fusion part bodies start with exactly one new solid")
+    IsMoved = False
     for Index, Feature in enumerate(Features):
         if isinstance(Feature, ShellSpec) and Index != len(Features) - 1:
             raise ValueError("Fusion part shell must be the final feature")
+        if isinstance(Feature, HoleSpec) and IsMoved:
+            raise ValueError("Fusion part holes cannot follow a move")
+        IsMoved = IsMoved or isinstance(Feature, MoveSpec)
 
 
 def CheckFeatures(SpecValue: DocumentSpec) -> None:

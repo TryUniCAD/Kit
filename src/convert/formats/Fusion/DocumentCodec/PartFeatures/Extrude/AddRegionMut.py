@@ -34,11 +34,7 @@ def RegionTags(
 
 
 def AddRegionMut(
-    Author: AuthorState,
-    Prefix: str,
-    Feature: ExtrudeSpec,
-    Sketched: SketchPlan,
-    Operation: int,
+    Author: AuthorState, Prefix: str, TagList: list[dict[str, object]]
 ) -> None:
     Reference = Author.Reference
     MainRole = Prefix + "feature"
@@ -65,7 +61,7 @@ def AddRegionMut(
         rScope=ScopeValue,
         trackingType=65,
     )
-    Recipe = {"first": RegionTags(Feature, Sketched, Operation), "second": True}
+    Recipe = {"first": TagList, "second": True}
     RecipeData = [
         Author.MakeGroup(
             "SkRegionRecipeDataValue",

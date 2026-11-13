@@ -1,4 +1,4 @@
-from math import cos as Cosine, pi as KPiValue, sin as SineOf
+from math import cos as Cosine, hypot as Hypotenuse, pi as KPiValue, sin as SineOf
 
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.EllipseNode import EllipseNode
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.EntityPrefix import EntityPrefix
@@ -22,18 +22,24 @@ def EdgeEnds(EdgeValue: KShapeEdge) -> tuple[KSpacePoint, KSpacePoint]:
         if IsFullCircle(EdgeValue.Span):
             Finish = Start
         return (*Start, EdgeValue.LevelCm), (*Finish, EdgeValue.LevelCm)
-    return (*EdgeValue.PointCm, EdgeValue.LowerCm), (
-        *EdgeValue.PointCm,
-        EdgeValue.UpperCm,
-    )
+    Summit = EdgeValue.TopCm or EdgeValue.PointCm
+    return (*EdgeValue.PointCm, EdgeValue.LowerCm), (*Summit, EdgeValue.UpperCm)
+
+
+def SpaceLength(Start: KSpacePoint, Finish: KSpacePoint) -> float:
+    return Hypotenuse(Finish[0] - Start[0], Finish[1] - Start[1], Finish[2] - Start[2])
 
 
 def EdgeCurve(EdgeValue: KShapeEdge) -> tuple[StraightNode | EllipseNode, float, float]:
     Prefix = EntityPrefix(-1, -1)
     Start, Finish = EdgeEnds(EdgeValue)
     if not isinstance(EdgeValue, LevelEdge):
-        Height = EdgeValue.UpperCm - EdgeValue.LowerCm
-        return StraightNode(Prefix, Start, (0.0, 0.0, 1.0), 0.0, Height), 0.0, Height
+        Reach = SpaceLength(Start, Finish)
+        Heading = tuple(
+            (Finish[AxisValue] - Start[AxisValue]) / Reach for AxisValue in range(3)
+        )
+        Direction = (Heading[0], Heading[1], Heading[2])
+        return StraightNode(Prefix, Start, Direction, 0.0, Reach), 0.0, Reach
     SpanValue = EdgeValue.Span
     Length = SpanLength(SpanValue)
     if isinstance(SpanValue, LineSpan):

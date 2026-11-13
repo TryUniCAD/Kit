@@ -21,7 +21,15 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import 
     PatternSpec,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MoveSpec import MoveSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.OffsetSpec import (
+    OffsetSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.DraftSpec import DraftSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.RevolveSpec import (
+    RevolveSpec,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import ShellSpec
 
 KPartFeature: TypeAlias = (
@@ -36,4 +44,8 @@ KPartFeature: TypeAlias = (
     | PlaneSpec
     | AxisSpec
     | PointSpec
+    | RevolveSpec
+    | MoveSpec
+    | OffsetSpec
+    | DraftSpec
 )

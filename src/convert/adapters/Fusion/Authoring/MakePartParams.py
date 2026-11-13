@@ -13,6 +13,9 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.HoleSpec import Hol
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartFeature import (
     KPartFeature,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.OffsetSpec import (
+    OffsetSpec,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import (
     PatternSpec,
 )
@@ -37,6 +40,8 @@ def DrivingLength(Feature: KPartFeature) -> tuple[str, float] | None:
         return "uSpaceDistance", Feature.SpacingUMm
     if isinstance(Feature, PlaneSpec):
         return "AlongDistance", Feature.OffsetMm
+    if isinstance(Feature, OffsetSpec):
+        return "distance", Feature.DistanceMm
     return None
 
 

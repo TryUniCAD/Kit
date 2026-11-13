@@ -26,6 +26,14 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import 
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.RevolveSpec import (
+    RevolveSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MoveSpec import MoveSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.OffsetSpec import (
+    OffsetSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.DraftSpec import DraftSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import ShellSpec
 
 KFamilyRules: dict[type[object], FamilyRule] = {
@@ -40,6 +48,10 @@ KFamilyRules: dict[type[object], FamilyRule] = {
     PlaneSpec: FamilyRule("DcWorkPlane", "WorkPlane", 1, 4),
     AxisSpec: FamilyRule("DcWorkAxis", "WorkAxis", 1, 4),
     PointSpec: FamilyRule("DcWorkPoint", "WorkPoint", 1, 4),
+    RevolveSpec: FamilyRule("DcRevolveFeature", "Revolve", 2, 8),
+    MoveSpec: FamilyRule("DcMoveFeature", "Move", 1, 4),
+    OffsetSpec: FamilyRule("DcOffsetFacesFeature", "OffsetFaces", 2, 16),
+    DraftSpec: FamilyRule("DcDraftFeature", "Draft", 2, 16),
 }
 
 
@@ -60,3 +72,7 @@ def OperationsOf(Feature: KPartFeature) -> int:
 
 def IsStateless(Feature: KPartFeature) -> bool:
     return isinstance(Feature, (PlaneSpec, AxisSpec, PointSpec))
+
+
+def IsSketched(Feature: KPartFeature) -> bool:
+    return isinstance(Feature, (ExtrudeSpec, RevolveSpec))

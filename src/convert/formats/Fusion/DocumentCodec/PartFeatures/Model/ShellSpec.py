@@ -5,3 +5,4 @@ from dataclasses import dataclass as MakeDataClass
 class ShellSpec:
     ThicknessMm: float
     FeatureName: str = "Shell"
+    SidesMm: tuple[tuple[float, float], ...] = ()

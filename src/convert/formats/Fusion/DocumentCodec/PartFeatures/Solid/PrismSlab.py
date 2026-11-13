@@ -11,3 +11,4 @@ class PrismSlab:
     Loops: tuple[KPlaneLoop, ...]
     FloorLabel: FaceLabel
     RoofLabel: FaceLabel
+    RoofLoops: tuple[KPlaneLoop, ...] = ()

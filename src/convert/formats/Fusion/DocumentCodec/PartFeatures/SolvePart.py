@@ -42,9 +42,16 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.PatternSolid impo
     CopySolid,
     KCopySpec,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.RevolveSpec import (
+    RevolveSpec,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Profile.SketchPlan import (
     PlanSketch,
     SketchPlan,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Revolve.RevolveSolid import (
+    ApplyRevolve,
+    RevolveProfile,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.BlockSolid import (
     BlockSolid,
@@ -56,12 +63,25 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.ExtrudeSolid import
     ExtrudeSolid,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.FaceLabel import FaceLabel
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MoveSpec import MoveSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Move.MoveSolid import MoveSolid
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.OffsetSpec import (
+    OffsetSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.DraftSpec import DraftSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Draft.DraftSolid import (
+    DraftSolid,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Offset.OffsetSolid import (
+    OffsetSolid,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.HollowSolid import (
     HollowSolid,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSolid import (
     PrismSolid,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.SlabRoof import IsTapered
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.ToolSlab import (
     ToolEdgeTags,
     ToolLabels,
@@ -119,10 +139,16 @@ def ApplyFeature(
         raise ValueError("Fusion part features require a body from a new extrude")
     if isinstance(Feature, (FilletSpec, ChamferSpec)):
         return CornerSolid(Solid, Feature, Operation)
-    if isinstance(Feature, ExtrudeSpec):
+    if isinstance(Feature, (ExtrudeSpec, RevolveSpec)):
         raise ValueError("Fusion part extrudes require a sketch plan")
     if isinstance(Feature, HoleSpec):
         return HoleSolid(Solid, Feature, Operation)
+    if isinstance(Feature, MoveSpec):
+        return MoveSolid(Solid, Feature)
+    if isinstance(Feature, OffsetSpec):
+        return OffsetSolid(Solid, Feature, Operation)
+    if isinstance(Feature, DraftSpec):
+        return DraftSolid(Solid, Feature, Operation)
     if isinstance(Feature, PlaneSpec):
         return Solid
     if isinstance(Feature, (AxisSpec, PointSpec)):
@@ -130,7 +156,8 @@ def ApplyFeature(
         return Solid
     if isinstance(Feature, (PatternSpec, CircularSpec, MirrorSpec)):
         raise ValueError("Fusion part copies require their source stage")
-    return HollowSolid(Solid, Feature.ThicknessMm / 10.0, Operation)
+    Sides = tuple((Point[0] / 10.0, Point[1] / 10.0) for Point in Feature.SidesMm)
+    return HollowSolid(Solid, Feature.ThicknessMm / 10.0, Operation, Sides)
 
 
 def BaseSolid(SpecValue: DocumentSpec, Policy: AuthorPolicy) -> PrismSolid | None:
@@ -155,6 +182,11 @@ def CopyContext(
     return Index, Plane.OffsetMm / 10.0
 
 
+def CheckTaper(Solid: PrismSolid | None, Feature: KPartFeature) -> None:
+    if Solid is not None and IsTapered(Solid) and not IsStateless(Feature):
+        raise ValueError("Fusion countersinks must be the last solid feature")
+
+
 def StageSolid(
     Solid: PrismSolid | None,
     Feature: KPartFeature,
@@ -162,6 +194,7 @@ def StageSolid(
     Context: tuple[tuple[PartStage, ...], tuple[KPartFeature, ...], int],
 ) -> PrismSolid:
     Stages, Features, Index = Context
+    CheckTaper(Solid, Feature)
     if not isinstance(Feature, (PatternSpec, CircularSpec, MirrorSpec)):
         return ApplyFeature(Solid, Feature, Operation)
     if Solid is None:
@@ -171,6 +204,29 @@ def StageSolid(
     Source = Stages[Feature.SourceIndex]
     Extra = CopyContext(Features, Feature, Index)
     return CopySolid(Solid, Feature, Operation, Source, Extra)
+
+
+def SketchStage(Feature: KPartFeature, NextTag: int, Ordinal: int) -> SketchPlan | None:
+    if isinstance(Feature, ExtrudeSpec):
+        return ReplaceValue(PlanSketch(Feature.Profile, NextTag), Ordinal=Ordinal)
+    if isinstance(Feature, RevolveSpec):
+        Profile = RevolveProfile(Feature)
+        return ReplaceValue(PlanSketch(Profile, NextTag), Ordinal=Ordinal)
+    return None
+
+
+def SketchSolid(
+    Solid: PrismSolid | None,
+    Feature: KPartFeature,
+    Operation: int,
+    Sketched: SketchPlan,
+) -> PrismSolid:
+    CheckTaper(Solid, Feature)
+    if isinstance(Feature, ExtrudeSpec):
+        return ApplyExtrude(Solid, Feature, Operation, Sketched)
+    if isinstance(Feature, RevolveSpec):
+        return ApplyRevolve(Solid, Feature, Operation, Sketched)
+    raise ValueError("Fusion sketched features are extrudes or revolves")
 
 
 def SolvePart(
@@ -187,11 +243,11 @@ def SolvePart(
     for Index, Feature in enumerate(SpecValue.Features):
         RuleValue = FamilyOf(Feature)
         Counts[RuleValue.ClassName] = Counts.get(RuleValue.ClassName, 0) + 1
-        Sketched = None
-        if isinstance(Feature, ExtrudeSpec):
-            Sketched = PlanSketch(Feature.Profile, NextTag)
+        Drawn = sum(Stage.Sketch is not None for Stage in Stages) + 2 - IsPart
+        Sketched = SketchStage(Feature, NextTag, Drawn)
+        if Sketched is not None:
             NextTag = Sketched.NextTag
-            After = ApplyExtrude(Solid, Feature, Operation, Sketched)
+            After = SketchSolid(Solid, Feature, Operation, Sketched)
         else:
             Context = (tuple(Stages), SpecValue.Features, Index)
             After = StageSolid(Solid, Feature, Operation, Context)

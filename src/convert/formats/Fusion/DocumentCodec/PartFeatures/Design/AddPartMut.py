@@ -10,6 +10,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.AddCornerMut impor
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.AddShellMut import (
     AddShellMut,
+    ShellTags,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.LinkCornerMut import (
     LinkCornerMut,
@@ -23,7 +24,6 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.LinkTimeline impor
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.PartCache import PartCache
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.RoofTag import (
     CapTagSet,
-    RoofTag,
     RoofTagSet,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Extrude.AddExtrudeFeat import (
@@ -54,8 +54,28 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import Sh
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.AddCopyMut import (
     AddCopyMut,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.RevolveSpec import (
+    RevolveSpec,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.AddPlaneMut import (
     AddPlaneMut,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MoveSpec import MoveSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Move.AddMoveMut import AddMoveMut
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.OffsetSpec import (
+    OffsetSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.DraftSpec import DraftSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Draft.AddDraftMut import (
+    AddDraftMut,
+    DraftTags,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Offset.AddOffsetMut import (
+    AddOffsetMut,
+    OffsetPick,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Revolve.AddRevolveFeat import (
+    AddRevolveFeat,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSolid import (
     PrismSolid,
@@ -72,7 +92,7 @@ def AddStageMut(
     Solids, Place, Stages = Context
     Feature = Stage.Feature
     if isinstance(Feature, ShellSpec):
-        return AddShellMut(Author, Stage, Prefix, RoofTag(Solids, Place))
+        return AddShellMut(Author, Stage, Prefix, ShellTags(Solids, Place, Stage))
     if isinstance(Feature, HoleSpec):
         Middle = RoofMiddle(Stages, Stage)
         return AddHoleMut(
@@ -82,6 +102,12 @@ def AddStageMut(
         return AddPlaneMut(Author, Stage, Prefix)
     if isinstance(Feature, (AxisSpec, PointSpec)):
         return AddWorkMut(Author, Stage, Prefix)
+    if isinstance(Feature, MoveSpec):
+        return AddMoveMut(Author, Stage, Prefix)
+    if isinstance(Feature, OffsetSpec):
+        return AddOffsetMut(Author, Stage, Prefix, OffsetPick(Solids, Place, Stage))
+    if isinstance(Feature, DraftSpec):
+        return AddDraftMut(Author, Stage, Prefix, DraftTags(Solids, Place, Stage))
     if isinstance(Feature, (PatternSpec, CircularSpec, MirrorSpec)):
         Source = Stages[Feature.SourceIndex].Feature
         IsRoof = isinstance(Feature, PatternSpec) or isinstance(Source, HoleSpec)
@@ -100,8 +126,11 @@ def AddPartMut(Author: AuthorState) -> None:
     Offset = 0 if BaseValue is not None else -1
     for Index, Stage in enumerate(Stages):
         Prefix = "f" + str(Index + 1) + "_"
-        if isinstance(Stage.Feature, ExtrudeSpec):
-            AddExtrudeFeat(Author, Stage, Prefix)
+        if isinstance(Stage.Feature, (ExtrudeSpec, RevolveSpec)):
+            Builder = AddExtrudeFeat
+            if isinstance(Stage.Feature, RevolveSpec):
+                Builder = AddRevolveFeat
+            Builder(Author, Stage, Prefix)
             continue
         Context = (Solids, Index + Offset, Stages)
         Children = AddStageMut(Author, Stage, Prefix, Context)

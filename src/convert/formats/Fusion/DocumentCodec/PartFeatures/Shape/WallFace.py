@@ -10,3 +10,4 @@ class WallFace:
     LowerCm: float
     UpperCm: float
     Loops: tuple[tuple[ShapeUse, ...], ...]
+    RoofSpan: KPlaneSpan | None = None

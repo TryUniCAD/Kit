@@ -4004,5 +4004,1388 @@
         "edges": 17
       }
     ]
+  },
+  "RevolveFull": {
+    "file": "RevolveFull.f3d",
+    "base": "part",
+    "bytes": 106203,
+    "sha256": "3f61b1fd61afbdd2f883fce47d3a3ca648e690935c673b25748f8d9e1afae7cb",
+    "features": [
+      "RevolveSpec(InnerMm=10.0, OuterMm=20.0, LowerMm=0.0, UpperMm=30.0, AngleDegrees=360.0, Operation='new', SketchName='Revolve sketch', FeatureName='Tube revolve')"
+    ],
+    "steps": [
+      {
+        "kind": "revolve",
+        "inner_cm": 1.0,
+        "outer_cm": 2.0,
+        "lower_cm": 0.0,
+        "upper_cm": 3.0,
+        "angle": "360 deg",
+        "operation": "new",
+        "sketch": "Revolve sketch",
+        "name": "Tube revolve"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Tube revolve",
+        "role": "AlongAngle",
+        "expression": "270 deg"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 28.274333882308138,
+        "area_cm2": 75.39822368615503,
+        "faces": 4,
+        "edges": 4
+      }
+    ]
+  },
+  "RevolveHalf": {
+    "file": "RevolveHalf.f3d",
+    "base": "part",
+    "bytes": 111879,
+    "sha256": "b916b524af49b4adf6da8c5064f692e6ccc9ebfa467ed15624277669dcc6e6e9",
+    "features": [
+      "RevolveSpec(InnerMm=10.0, OuterMm=20.0, LowerMm=0.0, UpperMm=30.0, AngleDegrees=180.0, Operation='new', SketchName='Revolve sketch', FeatureName='Tube revolve')"
+    ],
+    "steps": [
+      {
+        "kind": "revolve",
+        "inner_cm": 1.0,
+        "outer_cm": 2.0,
+        "lower_cm": 0.0,
+        "upper_cm": 3.0,
+        "angle": "180 deg",
+        "operation": "new",
+        "sketch": "Revolve sketch",
+        "name": "Tube revolve"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Tube revolve",
+        "role": "AlongAngle",
+        "expression": "120 deg"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 14.137166941154069,
+        "area_cm2": 43.69911184307752,
+        "faces": 6,
+        "edges": 12
+      }
+    ]
+  },
+  "RevolveJoin": {
+    "file": "RevolveJoin.f3d",
+    "base": "part",
+    "bytes": 118865,
+    "sha256": "b7c0602b3fe29142ce5a759fc7f71028f8882252776c71622cd82732280bc391",
+    "features": [
+      "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(0, 0), RadiusMm=25),), DistanceMm=10.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Disc sketch', FeatureName='Disc extrude')",
+      "RevolveSpec(InnerMm=10.0, OuterMm=15.0, LowerMm=10.0, UpperMm=20.0, AngleDegrees=360.0, Operation='join', SketchName='Ring sketch', FeatureName='Ring revolve')"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "circle",
+            "center_cm": [
+              0.0,
+              0.0
+            ],
+            "radius_cm": 2.5
+          }
+        ],
+        "amount": "10 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Disc sketch",
+        "name": "Disc extrude"
+      },
+      {
+        "kind": "revolve",
+        "inner_cm": 1.0,
+        "outer_cm": 1.5,
+        "lower_cm": 1.0,
+        "upper_cm": 2.0,
+        "angle": "360 deg",
+        "operation": "join",
+        "sketch": "Ring sketch",
+        "name": "Ring revolve"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Ring revolve",
+        "role": "AlongAngle",
+        "expression": "180 deg"
+      },
+      {
+        "feature": "Disc extrude",
+        "role": "AlongDistance",
+        "expression": "12 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 19.634954084936208,
+        "area_cm2": 54.97787143782138,
+        "faces": 3,
+        "edges": 2
+      },
+      {
+        "volume_cm3": 23.56194490192345,
+        "area_cm2": 70.68583470577035,
+        "faces": 7,
+        "edges": 6
+      }
+    ]
+  },
+  "RevolveCut": {
+    "file": "RevolveCut.f3d",
+    "base": "part",
+    "bytes": 123438,
+    "sha256": "14636293cf8c6e8b7831fdb83e4449a457f72f5c1e7ce2aa40a4e9c5e7030831",
+    "features": [
+      "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(0, 0), RadiusMm=25),), DistanceMm=10.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Disc sketch', FeatureName='Disc extrude')",
+      "RevolveSpec(InnerMm=15.0, OuterMm=22.0, LowerMm=6.0, UpperMm=10.0, AngleDegrees=90.0, Operation='cut', SketchName='Groove sketch', FeatureName='Groove revolve')"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "circle",
+            "center_cm": [
+              0.0,
+              0.0
+            ],
+            "radius_cm": 2.5
+          }
+        ],
+        "amount": "10 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Disc sketch",
+        "name": "Disc extrude"
+      },
+      {
+        "kind": "revolve",
+        "inner_cm": 1.5,
+        "outer_cm": 2.2,
+        "lower_cm": 0.6,
+        "upper_cm": 1.0,
+        "angle": "90 deg",
+        "operation": "cut",
+        "sketch": "Groove sketch",
+        "name": "Groove revolve"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Groove revolve",
+        "role": "AlongAngle",
+        "expression": "120 deg"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 19.634954084936208,
+        "area_cm2": 54.97787143782138,
+        "faces": 3,
+        "edges": 2
+      },
+      {
+        "volume_cm3": 18.82128158765645,
+        "area_cm2": 57.86265000147783,
+        "faces": 8,
+        "edges": 14
+      }
+    ]
+  },
+  "HoleCountersink": {
+    "file": "HoleCountersink.f3d",
+    "base": "part",
+    "bytes": 125357,
+    "sha256": "c58b4606ae0f8920d1803409d2ba7f7ea6d55f9da02ccdb8aab4e0afb73bb6cf",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "HoleSpec(CenterMm=(20.0, 15.0), DiameterMm=6.0, DepthMm=0.0, BoreDiameterMm=0.0, BoreDepthMm=0.0, FeatureName='Top hole', SinkDiameterMm=10.0, SinkAngleDegrees=90.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "hole",
+        "center_cm": [
+          2.0,
+          1.5
+        ],
+        "diameter": "6 mm",
+        "name": "Top hole",
+        "sink_diameter": "10 mm",
+        "sink_angle": "90 deg"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Top hole",
+        "role": "CSDiameter",
+        "expression": "12 mm"
+      },
+      {
+        "feature": "Base extrude",
+        "role": "AlongDistance",
+        "expression": "25 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.38843663010119,
+        "area_cm2": 55.03563983376178,
+        "faces": 8,
+        "edges": 15
+      }
+    ]
+  },
+  "HoleCountersinkFlat": {
+    "file": "HoleCountersinkFlat.f3d",
+    "base": "part",
+    "bytes": 124890,
+    "sha256": "4cb6ca070e33c70d6f1a907715019e0d2649510ae2981b61866b72b71f69bb1a",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "HoleSpec(CenterMm=(20.0, 15.0), DiameterMm=6.0, DepthMm=10.0, BoreDiameterMm=0.0, BoreDepthMm=0.0, FeatureName='Top hole', SinkDiameterMm=12.0, SinkAngleDegrees=82.0)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "hole",
+        "center_cm": [
+          2.0,
+          1.5
+        ],
+        "diameter": "6 mm",
+        "name": "Top hole",
+        "depth": "10 mm",
+        "sink_diameter": "12 mm",
+        "sink_angle": "82 deg"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Top hole",
+        "role": "CSAngle",
+        "expression": "100 deg"
+      },
+      {
+        "feature": "Top hole",
+        "role": "HoleDepth",
+        "expression": "14 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.587153059443214,
+        "area_cm2": 53.67912478785588,
+        "faces": 9,
+        "edges": 15
+      }
+    ]
+  },
+  "ShellOpenSide": {
+    "file": "ShellOpenSide.f3d",
+    "base": "cuboid",
+    "bytes": 129457,
+    "sha256": "c8a2d2b6d6ac925df4eda3495df01fdd18089e0a73f132874f027e0ed076c293",
+    "features": [
+      "ShellSpec(ThicknessMm=2.0, FeatureName='Open shell', SidesMm=((20.0, 0.0),))"
+    ],
+    "steps": [
+      {
+        "kind": "shell",
+        "amount": "2 mm",
+        "name": "Open shell",
+        "sides_cm": [
+          [
+            2.0,
+            0.0
+          ]
+        ]
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Open shell",
+        "expression": "3 mm"
+      },
+      {
+        "feature": "height",
+        "expression": "25 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 5.856000000000003,
+        "area_cm2": 62.08,
+        "faces": 10,
+        "edges": 24
+      }
+    ]
+  },
+  "ShellOpenCorner": {
+    "file": "ShellOpenCorner.f3d",
+    "base": "cuboid",
+    "bytes": 129868,
+    "sha256": "2d6b5e8149b389b3e61998ee9cdc8a53556f2057a0c077ae003e1d599de289ed",
+    "features": [
+      "ShellSpec(ThicknessMm=2.0, FeatureName='Open corner', SidesMm=((20.0, 0.0), (40.0, 15.0)))"
+    ],
+    "steps": [
+      {
+        "kind": "shell",
+        "amount": "2 mm",
+        "name": "Open corner",
+        "sides_cm": [
+          [
+            2.0,
+            0.0
+          ],
+          [
+            4.0,
+            1.5
+          ]
+        ]
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Open corner",
+        "expression": "4 mm"
+      },
+      {
+        "feature": "height",
+        "expression": "15 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 4.8480000000000025,
+        "area_cm2": 52.0,
+        "faces": 9,
+        "edges": 21
+      }
+    ]
+  },
+  "MoveBody": {
+    "file": "MoveBody.f3d",
+    "base": "cuboid",
+    "bytes": 129709,
+    "sha256": "d6f9beb24637c7a0bd5ee9ac66e1903aabe3e0ca3e60017e950aa669d240c31a",
+    "features": [
+      "MoveSpec(OffsetMm=(10.0, 0.0, 0.0), FeatureName='Body move', TurnDegrees=0.0)"
+    ],
+    "steps": [
+      {
+        "kind": "move",
+        "offset_cm": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "turn_degrees": 0.0,
+        "name": "Body move"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "height",
+        "expression": "25 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      }
+    ]
+  },
+  "MoveTurnPart": {
+    "file": "MoveTurnPart.f3d",
+    "base": "part",
+    "bytes": 143585,
+    "sha256": "caa0948a362c985cacc02212b6e2b8cd9b3a2b32a4f5342d411bb20fa368a187",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "MoveSpec(OffsetMm=(5.0, 5.0, 2.0), FeatureName='Body turn', TurnDegrees=30.0)",
+      "FilletSpec(CornerMm=(24.64101615137754, 50.98076211353316), RadiusMm=3.0, FeatureName='Turned round', MoreCornersMm=())"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "move",
+        "offset_cm": [
+          0.5,
+          0.5,
+          0.2
+        ],
+        "turn_degrees": 30.0,
+        "name": "Body turn"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          2.464101615137754,
+          5.098076211353316
+        ],
+        "amount": "3 mm",
+        "name": "Turned round"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Base extrude",
+        "role": "AlongDistance",
+        "expression": "25 mm"
+      },
+      {
+        "feature": "Turned round",
+        "expression": "4 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.96137166941154,
+        "area_cm2": 51.703849465488474,
+        "faces": 7,
+        "edges": 15
+      }
+    ]
+  },
+  "OffsetTop": {
+    "file": "OffsetTop.f3d",
+    "base": "part",
+    "bytes": 130123,
+    "sha256": "70cc4d248b16c18969163ca32fcd2575eb03b76d227d7da44a5de03b8d5e3dd5",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "OffsetSpec(DistanceMm=5.0, FeatureName='Top offset', SideMm=None)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "offset",
+        "amount": "5 mm",
+        "name": "Top offset"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Top offset",
+        "role": "distance",
+        "expression": "8 mm"
+      },
+      {
+        "feature": "Base extrude",
+        "role": "AlongDistance",
+        "expression": "25 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 30.0,
+        "area_cm2": 59.0,
+        "faces": 6,
+        "edges": 12
+      }
+    ]
+  },
+  "OffsetTopTrim": {
+    "file": "OffsetTopTrim.f3d",
+    "base": "part",
+    "bytes": 130137,
+    "sha256": "5ab4ce499e1d526d179cc69097f1a04228a19cb7dab3ee50e151135ea4f31482",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "OffsetSpec(DistanceMm=-5.0, FeatureName='Top trim', SideMm=None)"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "offset",
+        "amount": "-5 mm",
+        "name": "Top trim"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Top trim",
+        "role": "distance",
+        "expression": "-8 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 18.0,
+        "area_cm2": 45.0,
+        "faces": 6,
+        "edges": 12
+      }
+    ]
+  },
+  "OffsetSide": {
+    "file": "OffsetSide.f3d",
+    "base": "part",
+    "bytes": 128137,
+    "sha256": "dca9d07e525de0fbb613427747e187c17fe7d62c77037dc791dd0577cab35268",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "OffsetSpec(DistanceMm=4.0, FeatureName='Side offset', SideMm=(40.0, 15.0))"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "offset",
+        "amount": "4 mm",
+        "name": "Side offset",
+        "side_cm": [
+          4.0,
+          1.5
+        ]
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Side offset",
+        "role": "distance",
+        "expression": "6 mm"
+      },
+      {
+        "feature": "Base extrude",
+        "role": "AlongDistance",
+        "expression": "25 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 26.400000000000002,
+        "area_cm2": 56.00000000000001,
+        "faces": 6,
+        "edges": 12
+      }
+    ]
+  },
+  "OffsetRoundFront": {
+    "file": "OffsetRoundFront.f3d",
+    "base": "part",
+    "bytes": 141676,
+    "sha256": "3af795826914cefe29e710f3d3be258484abefe198abdc3b02c76a2227fd456e",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "FilletSpec(CornerMm=(40.0, 30.0), RadiusMm=3.0, FeatureName='Corner round', MoreCornersMm=())",
+      "OffsetSpec(DistanceMm=4.0, FeatureName='Front offset', SideMm=(20.0, 0.0))"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          4.0,
+          3.0
+        ],
+        "amount": "3 mm",
+        "name": "Corner round"
+      },
+      {
+        "kind": "offset",
+        "amount": "4 mm",
+        "name": "Front offset",
+        "side_cm": [
+          2.0,
+          0.0
+        ]
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Front offset",
+        "role": "distance",
+        "expression": "-5 mm"
+      },
+      {
+        "feature": "Corner round",
+        "expression": "4 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.96137166941154,
+        "area_cm2": 51.703849465488474,
+        "faces": 7,
+        "edges": 15
+      },
+      {
+        "volume_cm3": 27.161371669411544,
+        "area_cm2": 56.503849465488486,
+        "faces": 7,
+        "edges": 15
+      }
+    ]
+  },
+  "DraftSides": {
+    "file": "DraftSides.f3d",
+    "base": "part",
+    "bytes": 136321,
+    "sha256": "3354e8360a6a4b00184ce9977f09d61bd0577e41672c24fa0adc18d75dc66bf7",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "DraftSpec(AngleDegrees=5.0, FeatureName='Side draft')"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "draft",
+        "angle": "5 deg",
+        "name": "Side draft"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Side draft",
+        "role": "Angle1",
+        "expression": "8 deg"
+      },
+      {
+        "feature": "Base extrude",
+        "role": "AlongDistance",
+        "expression": "25 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 26.531328085345095,
+        "area_cm2": 56.08427198598807,
+        "faces": 6,
+        "edges": 12
+      }
+    ]
+  },
+  "DraftInward": {
+    "file": "DraftInward.f3d",
+    "base": "part",
+    "bytes": 136327,
+    "sha256": "c89cf022d355376f25b364903a7f050a295df4ecc928ab2e82b5193fcd03203d",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "DraftSpec(AngleDegrees=-5.0, FeatureName='Side taper')"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "draft",
+        "angle": "-5 deg",
+        "name": "Side taper"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Side taper",
+        "role": "Angle1",
+        "expression": "-3 deg"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 21.63196292789336,
+        "area_cm2": 48.37457543629705,
+        "faces": 6,
+        "edges": 12
+      }
+    ]
+  },
+  "DraftCutPart": {
+    "file": "DraftCutPart.f3d",
+    "base": "part",
+    "bytes": 153517,
+    "sha256": "3993ea7fafd34c8063f2a00bee4640eb8f8413079865698ba8222a631f56e830",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "ChamferSpec(CornerMm=(40.0, 30.0), DistanceMm=3.0, FeatureName='Corner cut', SecondMm=0.0, AngleDegrees=0.0, MoreCornersMm=())",
+      "DraftSpec(AngleDegrees=5.0, FeatureName='Side draft')"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "chamfer",
+        "corner_cm": [
+          4.0,
+          3.0
+        ],
+        "amount": "3 mm",
+        "name": "Corner cut"
+      },
+      {
+        "kind": "draft",
+        "angle": "5 deg",
+        "name": "Side draft"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Side draft",
+        "role": "Angle1",
+        "expression": "3 deg"
+      },
+      {
+        "feature": "Corner cut",
+        "expression": "4 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.91,
+        "area_cm2": 51.558528137423856,
+        "faces": 7,
+        "edges": 15
+      },
+      {
+        "volume_cm3": 26.40707624324079,
+        "area_cm2": 55.545182616928436,
+        "faces": 7,
+        "edges": 15
+      }
+    ]
   }
 }

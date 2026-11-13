@@ -21,10 +21,11 @@ def Neighbours(
 
 
 def AddSeedsMut(
-    Author: AuthorState, Prefix: str, Sketched: SketchPlan
+    Author: AuthorState, Prefix: str, Sketched: SketchPlan, Order: tuple[int, ...]
 ) -> list[dict[str, object]]:
     Pairs: list[dict[str, object]] = []
-    for Index, Segment in enumerate(Sketched.Edges):
+    for Index, Place in enumerate(Order):
+        Segment = Sketched.Edges[Place]
         SeedRole = Prefix + "seed" + str(Index)
         Author.Allocate(SeedRole, "SketchCurveProgenitor", NamedPairs=[])
         Author.Allocate(SeedRole + "_recipe", "SketchCurveRecipe")

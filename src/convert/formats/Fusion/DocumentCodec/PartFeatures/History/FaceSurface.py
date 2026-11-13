@@ -1,10 +1,11 @@
-from math import cos as Cosine, sin as SineOf
+from math import atan2 as ArcTangent, cos as Cosine, hypot as Hypotenuse, sin as SineOf
 
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.ConeNode import ConeNode
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.EntityPrefix import EntityPrefix
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.PlaneNode import PlaneNode
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.ShapeBody import KShapeFace
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.WallFace import WallFace
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.ArcSpan import ArcSpan
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.LineSpan import LineSpan
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.SpanMath import SpanHeading
 
@@ -27,7 +28,7 @@ def FaceSurface(FaceValue: KShapeFace) -> tuple[PlaneNode | ConeNode, bool]:
         Plane = PlaneNode(
             Prefix,
             Origin,
-            (HeadY, -HeadX, 0.0),
+            WallNormal(FaceValue, (HeadY, -HeadX)),
             (HeadX, HeadY, 0.0),
             False,
             None,
@@ -43,6 +44,7 @@ def FaceSurface(FaceValue: KShapeFace) -> tuple[PlaneNode | ConeNode, bool]:
         0.0,
     )
     Origin = (SpanValue.CenterCm[0], SpanValue.CenterCm[1], FaceValue.LowerCm)
+    Slope = WallSlope(FaceValue)
     Cylinder = ConeNode(
         Prefix,
         Origin,
@@ -51,8 +53,8 @@ def FaceSurface(FaceValue: KShapeFace) -> tuple[PlaneNode | ConeNode, bool]:
         1.0,
         None,
         None,
-        0.0,
-        1.0,
+        SineOf(Slope),
+        Cosine(Slope),
         SpanValue.RadiusCm,
         False,
         None,
@@ -61,3 +63,26 @@ def FaceSurface(FaceValue: KShapeFace) -> tuple[PlaneNode | ConeNode, bool]:
         None,
     )
     return Cylinder, SpanValue.SweepAngle < 0
+
+
+def WallNormal(
+    FaceValue: WallFace, Outward: tuple[float, float]
+) -> tuple[float, float, float]:
+    RoofSpan = FaceValue.RoofSpan
+    if not isinstance(RoofSpan, LineSpan) or not isinstance(FaceValue.Span, LineSpan):
+        return (Outward[0], Outward[1], 0.0)
+    Start = FaceValue.Span.StartCm
+    Spread = (RoofSpan.StartCm[0] - Start[0]) * Outward[0] + (
+        RoofSpan.StartCm[1] - Start[1]
+    ) * Outward[1]
+    Height = FaceValue.UpperCm - FaceValue.LowerCm
+    Slant = Hypotenuse(Height, Spread)
+    return (Outward[0] * Height / Slant, Outward[1] * Height / Slant, -Spread / Slant)
+
+
+def WallSlope(FaceValue: WallFace) -> float:
+    RoofSpan = FaceValue.RoofSpan
+    if not isinstance(RoofSpan, ArcSpan) or not isinstance(FaceValue.Span, ArcSpan):
+        return 0.0
+    Growth = RoofSpan.RadiusCm - FaceValue.Span.RadiusCm
+    return ArcTangent(Growth, FaceValue.UpperCm - FaceValue.LowerCm)

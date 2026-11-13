@@ -23,7 +23,7 @@ def AddGeometryMut(Author: AuthorState) -> None:
         )
     for RoleName, NameValue, AxisFirst, AxisSecond in [
         ("xy_plane", "XY", MakePoint(1.0), MakePoint(0.0, 1.0)),
-        ("xz_plane", "XZ", MakePoint(1.0), MakePoint(0.0, 0.0, 1.0)),
+        ("xz_plane", "XZ", MakePoint(0.0, 0.0, 1.0), MakePoint(1.0)),
         ("yz_plane", "YZ", MakePoint(0.0, 1.0), MakePoint(0.0, 0.0, 1.0)),
     ]:
         Author.Allocate(

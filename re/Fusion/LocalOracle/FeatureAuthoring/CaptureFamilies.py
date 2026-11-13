@@ -23,7 +23,7 @@ FO = adsk.fusion.FeatureOperations
 
 
 def checkpoint():
-    (root / "CaptureFamilies.json").write_text(json.dumps(report, indent=2).replace(str(Path(__file__).resolve().parents[4]) + "/", "").replace(str(Path.home()), "~") + "\n")
+    (root / globals().get("REPORT", "CaptureFamilies.json")).write_text(json.dumps(report, indent=2).replace(str(Path(__file__).resolve().parents[4]) + "/", "").replace(str(Path.home()), "~") + "\n")
 
 
 def vi(text):
@@ -150,7 +150,7 @@ def c_shell_side(comp, design):
 def c_offset_top(comp, design):
     body = base(comp).bodies.item(0)
     feats = comp.features.offsetFacesFeatures
-    inp = feats.createInput(coll(planar_face(body, 0, 0, 1)), vi("5 mm"))
+    inp = feats.createInput([planar_face(body, 0, 0, 1)], vi("5 mm"))
     f = feats.add(inp)
     f.name = "Top offset"
 
@@ -158,7 +158,7 @@ def c_offset_top(comp, design):
 def c_offset_side(comp, design):
     body = base(comp).bodies.item(0)
     feats = comp.features.offsetFacesFeatures
-    inp = feats.createInput(coll(planar_face(body, 1, 0, 0)), vi("4 mm"))
+    inp = feats.createInput([planar_face(body, 1, 0, 0)], vi("4 mm"))
     f = feats.add(inp)
     f.name = "Side offset"
 
@@ -169,7 +169,7 @@ def c_offset_bore(comp, design):
     body = comp.bRepBodies.item(0)
     bore = [f for f in body.faces if f.geometry.surfaceType == adsk.core.SurfaceTypes.CylinderSurfaceType][0]
     feats = comp.features.offsetFacesFeatures
-    inp = feats.createInput(coll(bore), vi("1 mm"))
+    inp = feats.createInput([bore], vi("1 mm"))
     f = feats.add(inp)
     f.name = "Bore offset"
 
@@ -298,6 +298,8 @@ def observe(design):
 
 try:
     for name, build in controls:
+        if globals().get("ONLY") and name not in globals()["ONLY"]:
+            continue
         entry = {"name": name, "status": "started"}
         report["controls"].append(entry)
         doc = None

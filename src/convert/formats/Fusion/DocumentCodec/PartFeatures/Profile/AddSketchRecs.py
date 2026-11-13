@@ -5,15 +5,31 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Profile.AddSketchGeom imp
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Profile.AddSketchNode import (
     AddSketchNode,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Profile.SketchFrame import (
+    FrameMatrix,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Profile.SketchPlan import (
     SketchPlan,
 )
 from convert.formats.Fusion.DocumentCodec.Values.MakeAttributes import MakeAttributes
 
 
+def AddFrameMut(Author: AuthorState, Prefix: str, PlaneRole: str) -> None:
+    Matrix = FrameMatrix(PlaneRole)
+    Frame: dict[str, object] | None = {"transform": Matrix} if Matrix else None
+    Author.Allocate(
+        Prefix + "ucs", "CoordinateSystem", ParentRole="component", Fields=Frame
+    )
+
+
 def AddSketchRoot(
-    Author: AuthorState, Prefix: str, Sketched: SketchPlan, NameValue: str, Ordinal: int
+    Author: AuthorState,
+    Prefix: str,
+    Sketched: SketchPlan,
+    Names: tuple[str, str],
+    Ordinal: int,
 ) -> None:
+    NameValue, PlaneRole = Names
     Generation = Author.Policy.SketchGeneration
     RoleName = Prefix + "sketch"
     Author.Allocate(
@@ -24,7 +40,7 @@ def AddSketchRoot(
     )
     if "sketches_root" not in Author.Roles:
         Author.Allocate("sketches_root", "SketchesRoot", RootName="SketchesRoot")
-    Author.Allocate(Prefix + "ucs", "CoordinateSystem", ParentRole="component")
+    AddFrameMut(Author, Prefix, PlaneRole)
     Author.Allocate(
         Prefix + "origin",
         "Point3D",
@@ -53,8 +69,12 @@ def AddSketchRoot(
 
 
 def AddSketchRecs(
-    Author: AuthorState, Prefix: str, Sketched: SketchPlan, NameValue: str, Ordinal: int
+    Author: AuthorState,
+    Prefix: str,
+    Sketched: SketchPlan,
+    Names: tuple[str, str],
+    Ordinal: int,
 ) -> None:
-    AddSketchRoot(Author, Prefix, Sketched, NameValue, Ordinal)
+    AddSketchRoot(Author, Prefix, Sketched, Names, Ordinal)
     AddSketchGeom(Author, Prefix, Sketched)
-    AddSketchNode(Author, Prefix, Ordinal)
+    AddSketchNode(Author, Prefix, Ordinal, Names[1])

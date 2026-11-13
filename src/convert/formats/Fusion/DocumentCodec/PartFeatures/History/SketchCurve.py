@@ -10,6 +10,10 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.ShapeUse import KSh
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.WallFace import WallFace
 
 
+def MadeBy(OperationIds: tuple[int, ...]) -> tuple[int, ...]:
+    return tuple(Value for Value in OperationIds if Value > 0)
+
+
 def SketchCurve(
     BodyValue: ShapeBody, FaceValue: KShapeFace, EdgeValue: KShapeEdge
 ) -> int | None:
@@ -17,10 +21,9 @@ def SketchCurve(
         return None
     if EdgeValue.LevelCm != BodyValue.BaseLevelCm:
         return None
-    Owner = FaceLabelOf(FaceValue).OperationIds
-    if (
-        not isinstance(FaceValue, WallFace)
-        and Owner != EdgeValue.Span.Label.OperationIds
+    Owner = MadeBy(FaceLabelOf(FaceValue).OperationIds)
+    if not isinstance(FaceValue, WallFace) and Owner != MadeBy(
+        EdgeValue.Span.Label.OperationIds
     ):
         return None
     Curves = dict(BodyValue.SketchCurves)

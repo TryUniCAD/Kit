@@ -23,6 +23,11 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.LineCurve import (
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MirrorSpec import (
     MirrorSpec,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.DraftSpec import DraftSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MoveSpec import MoveSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.OffsetSpec import (
+    OffsetSpec,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartFeature import (
     KPartFeature,
 )
@@ -33,6 +38,10 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import (
     PlaneSpec,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.RevolveSpec import (
+    RevolveSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import ShellSpec
 
 KBlock = ExtrudeSpec(
     (
@@ -181,6 +190,67 @@ KFamilyCases: dict[str, tuple[tuple[KPartFeature, ...], float, int, int]] = {
         8,
         18,
     ),
+    "HoleCountersink": (
+        (KBlock, HoleSpec((20.0, 15.0), 6.0, SinkDiameterMm=10.0)),
+        23.388437,
+        8,
+        15,
+    ),
+    "HoleCountersinkFlat": (
+        (
+            KBlock,
+            HoleSpec(
+                (20.0, 15.0), 6.0, 10.0, SinkDiameterMm=12.0, SinkAngleDegrees=82.0
+            ),
+        ),
+        23.587153,
+        9,
+        15,
+    ),
+    "RevolveFull": ((RevolveSpec(10.0, 20.0, 0.0, 30.0),), 28.274334, 4, 4),
+    "RevolveHalf": ((RevolveSpec(10.0, 20.0, 0.0, 30.0, 180.0),), 14.137167, 6, 12),
+    "RevolveJoin": (
+        (
+            ExtrudeSpec((CircleCurve((0.0, 0.0), 25.0),), 10.0),
+            RevolveSpec(10.0, 15.0, 10.0, 20.0, 360.0, "join"),
+        ),
+        23.561945,
+        7,
+        6,
+    ),
+    "RevolveCut": (
+        (
+            ExtrudeSpec((CircleCurve((0.0, 0.0), 25.0),), 10.0),
+            RevolveSpec(15.0, 22.0, 6.0, 10.0, 90.0, "cut"),
+        ),
+        18.821282,
+        8,
+        14,
+    ),
+    "ShellOpenSide": (
+        (KBlock, ShellSpec(2.0, "Open shell", SidesMm=((20.0, 0.0),))),
+        5.856,
+        10,
+        24,
+    ),
+    "MoveTurn": (
+        (KBlock, MoveSpec((5.0, 5.0, 2.0), "Body turn", 30.0)),
+        24.0,
+        6,
+        12,
+    ),
+    "OffsetSide": (
+        (KBlock, OffsetSpec(4.0, "Side offset", (40.0, 15.0))),
+        26.4,
+        6,
+        12,
+    ),
+    "DraftSides": (
+        (KBlock, DraftSpec(5.0, "Side draft")),
+        26.531328,
+        6,
+        12,
+    ),
 }
 KFamilyNames: dict[type[object], str] = {
     ExtrudeSpec: "DcExtrudeFeature",
@@ -193,6 +263,11 @@ KFamilyNames: dict[type[object], str] = {
     PointSpec: "DcWorkPoint",
     FilletSpec: "DcFilletEdgeFeature",
     ChamferSpec: "DcChamferFeature",
+    RevolveSpec: "DcRevolveFeature",
+    ShellSpec: "DcShellFeature",
+    MoveSpec: "DcMoveFeature",
+    OffsetSpec: "DcOffsetFacesFeature",
+    DraftSpec: "DcDraftFeature",
 }
 
 

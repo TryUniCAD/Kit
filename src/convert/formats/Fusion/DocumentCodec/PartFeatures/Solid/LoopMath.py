@@ -8,6 +8,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PlaneSpan import (
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.SpanMath import (
     ArcPoint,
+    IsFullCircle,
     SpanFinish,
     SpanStart,
 )
@@ -66,8 +67,39 @@ def WindNumber(Polygon: list[tuple[float, float]], Point: tuple[float, float]) -
     return Winding
 
 
+def ChordSide(
+    Start: tuple[float, float], Finish: tuple[float, float], Point: tuple[float, float]
+) -> float:
+    return (Finish[0] - Start[0]) * (Point[1] - Start[1]) - (Point[0] - Start[0]) * (
+        Finish[1] - Start[1]
+    )
+
+
+def SegmentWind(Value: KPlaneSpan, Point: tuple[float, float]) -> int:
+    if not isinstance(Value, ArcSpan):
+        return 0
+    OffsetX, OffsetY = Point[0] - Value.CenterCm[0], Point[1] - Value.CenterCm[1]
+    if OffsetX * OffsetX + OffsetY * OffsetY >= Value.RadiusCm * Value.RadiusCm:
+        return 0
+    Turning = 1 if Value.SweepAngle > 0.0 else -1
+    if IsFullCircle(Value):
+        return Turning
+    Start, Finish = SpanStart(Value), SpanFinish(Value)
+    Middle = ArcPoint(Value, Value.StartAngle + Value.SweepAngle / 2.0)
+    if ChordSide(Start, Finish, Middle) * ChordSide(Start, Finish, Point) > 0.0:
+        return Turning
+    return 0
+
+
+def LoopWind(LoopValue: KPlaneLoop, Point: tuple[float, float]) -> int:
+    Corners = [SpanStart(Value) for Value in LoopValue]
+    return WindNumber(Corners, Point) + sum(
+        SegmentWind(Value, Point) for Value in LoopValue
+    )
+
+
 def IsInRegion(Loops: tuple[KPlaneLoop, ...], Point: tuple[float, float]) -> bool:
-    return sum(WindNumber(LoopPolygon(LoopValue), Point) for LoopValue in Loops) > 0
+    return sum(LoopWind(LoopValue, Point) for LoopValue in Loops) > 0
 
 
 def IsLoopClosed(LoopValue: KPlaneLoop) -> bool:
