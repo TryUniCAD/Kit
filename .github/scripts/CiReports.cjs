@@ -2,7 +2,11 @@ const Fs = require("node:fs");
 const Path = require("node:path");
 const Crypto = require("node:crypto");
 const Process = require("node:child_process");
-const { CiWorkflows, WorkflowPath } = require("./CiAllowlist.cjs");
+const {
+  CiWorkflows,
+  HasQualityCode,
+  WorkflowPath,
+} = require("./CiAllowlist.cjs");
 
 async function ReadReports(Github, Context, Refs, Workflows, Reused = false) {
   const Repository = Context.repo;
@@ -108,8 +112,29 @@ async function ReadReports(Github, Context, Refs, Workflows, Reused = false) {
           url: "",
         });
     }
+    if (
+      Spec.expected &&
+      ![...LatestRuns.values()].some((Run) => Run.workflow === Workflow)
+    )
+      Rows.push({
+        name: Spec.expected,
+        state: "pending",
+        conclusion: "missing",
+        url: "",
+      });
   }
   return Rows;
+}
+
+async function IsQualityDue(Github, Context) {
+  const Pull = Context.payload.pull_request;
+  if (Pull.head.repo?.id !== Context.payload.repository.id) return false;
+  const Files = await Github.paginate(Github.rest.pulls.listFiles, {
+    ...Context.repo,
+    pull_number: Pull.number,
+    per_page: 100,
+  });
+  return Files.length < (Pull.changed_files ?? 0) || HasQualityCode(Files);
 }
 
 async function LoadEvidence(Github, Repository, Artifact) {
@@ -391,6 +416,7 @@ async function Aggregate({ github: Github, context: Context, core: Core }) {
     IsPull,
     false,
     Context.payload.action === "opened",
+    IsPull && (await IsQualityDue(Github, Context)),
   );
   let Reuse = { reuse: false };
   if (!IsPull) {
