@@ -48,6 +48,8 @@ The segmenter tiles all bytes with 332 objects, 40 class definitions, base 109, 
 Symbolic re-emission is byte-identical, with 30 external class references and six external object references.
 Primitive tracing adds 3,169 reads.
 The typed program has 2,708 operations across 495 serializer owners and zero uncovered bytes.
+Native-to-neutral projection creates five line entities with source-marker provenance and one five-edge closed wire, instead of dropping the editable profile or duplicating its line markers through the generic marker path.
+The five-line solver-relation guard does not change the recovered six-line or pin history paths.
 `re/tooling/windbg/Generation/CheckResolvedProgram.py` independently verifies re-emission against the original native bytes.
 
 ## Semantic fields

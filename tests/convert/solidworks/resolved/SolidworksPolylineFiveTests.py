@@ -7,8 +7,10 @@ import pytest as PytestLib
 
 from convert import open_document as OpenDoc
 from convert import write_document as WriteDoc
+from convert.adapters.base import ReadOptions
 from convert.adapters.base.UsabilityError import ApplicationUsabilityError
 from convert.adapters.solidworks import SldprtArchive
+from convert.adapters.solidworks.core.Adapter import ReadNativePart, SldprtAdapter
 from convert.adapters.solidworks.container.Format import (
     CONFIGURATION_STREAM as ConfigStream,
     KEYWORDS_STREAM as KeyStream,
@@ -97,6 +99,20 @@ def RequireNVFrame(ArchiveData: SldprtArchive) -> None:
     assert len(ArchiveData.require(ConfigStream)) == 25476
 
 
+def RequirePolyRead(ArchiveData: SldprtArchive, TargetPath: FilePath) -> None:
+    Document = ReadNativePart(
+        SldprtAdapter(),
+        ArchiveData,
+        TargetPath.read_bytes(),
+        str(TargetPath),
+        ReadOptions(include_brep=False),
+    )
+    Sketch = Document.sketches[0]
+    EdgeIds = tuple(f"sldprt:sketch:26:profile:0:edge:{Index}" for Index in range(5))
+    assert tuple(Entity.id for Entity in Sketch.entities) == EdgeIds
+    assert Sketch.closed_profile_entity_ids == (EdgeIds,)
+
+
 def TestFiveWrite(TmpPath: FilePath) -> None:
     SourceDoc = BuildDocument()
     TargetPath = TmpPath / "PolylineFive.SLDPRT"
@@ -129,6 +145,7 @@ def TestFiveWrite(TmpPath: FilePath) -> None:
     assert NativeData.operations[0].direction_code == 0
     assert NativeData.operations[0].termination_code == 0
     assert NativeData.operations[0].length_mm == PytestLib.approx(9.0)
+    RequirePolyRead(ArchiveData, TargetPath)
     Reopened = OpenDoc(TargetPath)
     assert len(Reopened.sketches[0].entities) == 5
     assert (
