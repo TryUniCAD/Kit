@@ -4328,7 +4328,7 @@
     "cyl_spl_sur"
    ],
    "source": "re/Fusion/Study/embosstext-cd769aa41cdf/two_texts.f3d",
-   "sourceSha256": "9a18f943b1819a248b60cc5c3fe83f031b34ad50f4829122eb87820cf7425f9f",
+   "sourceSha256": "dadc36ee79ac5c0df351e60bac2e63d5eb39261d585a2a1febfd5faac1a66103",
    "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.ee211d92-6c85-4cfd-aa2a-eeb838748350.smb",
    "original": "re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Subtypes/CylSplOriginal.smb",
    "originalSha256": "1625f0f2b26c4e1688fbf34f980b23f99ec23041036083783d1367e0dd56eee6",
@@ -4433,7 +4433,7 @@
     "curve reference"
    ],
    "source": "re/Fusion/Study/embosstext-cd769aa41cdf/two_texts.f3d",
-   "sourceSha256": "9a18f943b1819a248b60cc5c3fe83f031b34ad50f4829122eb87820cf7425f9f",
+   "sourceSha256": "dadc36ee79ac5c0df351e60bac2e63d5eb39261d585a2a1febfd5faac1a66103",
    "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.ee211d92-6c85-4cfd-aa2a-eeb838748350.smb",
    "original": "re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Subtypes/CylSplOriginal.smb",
    "originalSha256": "1625f0f2b26c4e1688fbf34f980b23f99ec23041036083783d1367e0dd56eee6",
@@ -4507,7 +4507,7 @@
     "cyl_spl_sur"
    ],
    "source": "re/Fusion/Study/embosstext-cd769aa41cdf/two_texts.f3d",
-   "sourceSha256": "9a18f943b1819a248b60cc5c3fe83f031b34ad50f4829122eb87820cf7425f9f",
+   "sourceSha256": "dadc36ee79ac5c0df351e60bac2e63d5eb39261d585a2a1febfd5faac1a66103",
    "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.ee211d92-6c85-4cfd-aa2a-eeb838748350.smb",
    "original": "re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Subtypes/CylSplOriginal.smb",
    "originalSha256": "1625f0f2b26c4e1688fbf34f980b23f99ec23041036083783d1367e0dd56eee6",
@@ -5000,7 +5000,7 @@
     "stitch_hint"
    ],
    "source": "re/Fusion/Study/patchcontinuity-b9b0be85a281/brep_curvature.f3d",
-   "sourceSha256": "4e6c85c63ff82fbcee77e02571287701e46f3f55a55d499fe65668768ef3fe0d",
+   "sourceSha256": "8ea9cb82b86a711830c23a542a581b8fbc3ccd69e08027b0c1a6fa9a732b8a08",
    "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.0fe6384e-1436-4bb3-a550-ff30240d0188.smb",
    "original": "re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Subtypes/StitchOriginal.smb",
    "originalSha256": "4a3012e2629eb0ac68d8be61634279e07caed4daaef927ab1ff973fec745d8f8",
@@ -5048,7 +5048,7 @@
     "vertedge"
    ],
    "source": "re/Fusion/Study/splines-9a18bae21127/splines.f3d",
-   "sourceSha256": "f334c3da6d0b789fbf9f22834359e1fc4736b3d44d8bb4254632f18d7081d5c6",
+   "sourceSha256": "41132e6e45ed0fa6becadfc062d8b0ea6199f9166032a6b41da0864dc1d59554",
    "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.6b3a0333-d53f-4a1e-a46d-fff522ed1067.smb",
    "original": "re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Subtypes/VertedgeOriginal.smb",
    "originalSha256": "b03c64905f0419137307e0e1cf74b2d84f9fa107c7e4f59f3ff1b5947c04a298",
@@ -5111,7 +5111,7 @@
     "exp_par_cur"
    ],
    "source": "re/Fusion/Study/rulefilletsurfaces-7b26b40f98f7/offsets_one_two_witnesses.f3d",
-   "sourceSha256": "ce6782f4019521b602d2cdaf596b88290b4ae44e57e729b41929448bf4c34894",
+   "sourceSha256": "b44430d3d5b7ee9a1bb8dca43d010056c40f86cb289a1c7a556d3a63ef9e1c10",
    "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.1ac0b318-176a-45d7-92a2-90bce1dd61d7.smbh via EmitStateSmb",
    "original": "re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Subtypes/RuleOffsetsOriginal.smb",
    "originalSha256": "45aea7075b2f755663b8df6c824fb1e9d5d3c9e4eb4a94aa20eb5cdfca498cd3",
@@ -5175,7 +5175,7 @@
     "par_int_cur"
    ],
    "source": "re/Fusion/Study/rulefilletsurfaces-7b26b40f98f7/offsets_one_two_witnesses.f3d",
-   "sourceSha256": "ce6782f4019521b602d2cdaf596b88290b4ae44e57e729b41929448bf4c34894",
+   "sourceSha256": "b44430d3d5b7ee9a1bb8dca43d010056c40f86cb289a1c7a556d3a63ef9e1c10",
    "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.1ac0b318-176a-45d7-92a2-90bce1dd61d7.smbh via EmitStateSmb",
    "original": "re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Subtypes/RuleOffsetsOriginal.smb",
    "originalSha256": "45aea7075b2f755663b8df6c824fb1e9d5d3c9e4eb4a94aa20eb5cdfca498cd3",

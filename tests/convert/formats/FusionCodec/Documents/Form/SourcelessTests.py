@@ -60,7 +60,7 @@ KPlanePrimitives: tuple[tuple[str, str], ...] = (
     ),
     (
         "re/Fusion/LocalOracle/FormDocuments/Grid/Primitives/Plane2x5.f3d",
-        "219384ad0a12269b232f287ccd150198b42aaa04599786b51b1ad3430f6336fd",
+        "0d0d28c44c9cb2919f7642a8eb3402c95adcf86bdea2e3d7ea45803091c9a6bc",
     ),
     (
         "re/Fusion/LocalOracle/FormDocuments/Grid/Primitives/Plane3x2.f3d",

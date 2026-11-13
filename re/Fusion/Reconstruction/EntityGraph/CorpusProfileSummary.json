@@ -7,7 +7,7 @@
   "archiveCount": 712,
   "classVersionPairs": 412,
   "uniqueClasses": 412,
-  "inventorySha256": "2d97e15c7fbfbc910036b2a46b4fd8078b5418e04cbe4be8fb016635fca8b003",
+  "inventorySha256": "76431db539e32797f90de6f26d6235ef6de01124e677d0f7cbe6606ed6fbb274",
   "reflectionSha256": "54d93410a407ff808e5824c5ad797bf63fa89b3686e15be848960ca49ba4a161",
   "sketchTagEvidence": {
     "path": "SketchTagSemantics.json",
@@ -20,7 +20,7 @@
     },
     {
       "path": "SketchSplitSamples.json",
-      "sha256": "add7d91c29949a6c85aa02abc2f3b965823b9ed88925fbfebfee26e13bdc00ac"
+      "sha256": "3386d71cf4febce2b1d0f950cde5693053aa7948676ca3a4794c805c8fdea22b"
     }
   ],
   "unsupportedCppTypes": [

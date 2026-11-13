@@ -1,7 +1,7 @@
 {
  "scope": "Numeric gaps between the Kit and oracle stages of re/Fusion/LocalOracle/FormDocuments/IntervalDocuments/NativeAcceptance.json, with vertex lists matched as point sets",
  "python": "3.14.7",
- "acceptance_sha256": "182c1656449abe7d52d30e03ad64bc1a95652b0879b35ce7fd6689d5b1e1de77",
+ "acceptance_sha256": "755d2e35d810186dcb45a7d0eda49d23566f489fbda58e03e6bf7f567d57225c",
  "acceptance_status": "accepted",
  "documents_after": 0,
  "cases": [

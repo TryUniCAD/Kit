@@ -10,7 +10,10 @@ method, and every header field other than CRC, sizes and offsets is kept.
 
 Usage: python3.14 ScrubSaved.py [--dry-run] [--ledger PATH] ARCHIVE...
 All archives in one run share one placeholder map, so a cloud id that appears
-in several archives receives the same placeholder in each of them.
+in several archives receives the same placeholder in each of them. The ledger,
+ScrubLedger.json beside this script unless --ledger names another, lists every
+placeholder already written. Values that lie inside a listed placeholder are
+left unchanged, so a second run over a scrubbed archive changes no byte.
 """
 
 import argparse
@@ -56,8 +59,10 @@ NAME_KEYS = (
     "firstName",
     "lastName",
 )
-RULES = ("account", "name", "home", "urn", "echo")
+RULES = ("account", "partial", "bare", "name", "home", "urn", "echo")
+ORDER = ("urn", "account", "partial", "bare", "name", "home", "echo")
 MIN_KEY_TAIL = 4
+MIN_PARTIAL_KEY = 2
 MIN_LEARNED = 6
 MIN_FRAGMENT = 7
 MIN_HEX_FRAGMENT = 10
@@ -69,9 +74,24 @@ LOCAL_SIG = b"PK\x03\x04"
 CENTRAL_SIG = b"PK\x01\x02"
 END_SIG = b"PK\x05\x06"
 DESCRIPTOR_SIG = b"PK\x07\x08"
+STORE = struct.Struct("<4L")
+BLOCK = struct.Struct("<LHH")
+STORE_HEADER = (136, 0xFFFFFFFF, 0xFFFFFFFF, 0)
+BLOCK_SIZE = 136
+BLOCK_CAPACITY = 128
 DEFLATE_LEVELS = {0: 6, 2: 9, 4: 2, 6: 1}
 HOME_PLACEHOLDER = b"user"
-REASON = "Fusion copies uninitialized heap bytes with account identifiers, home paths and cloud ids into saved archives, so these fixtures were rewritten with same-length placeholders before publication."
+REASON = (
+    "Fusion copies uninitialized heap bytes with account identifiers, home paths and cloud ids into saved archives, so these fixtures were rewritten with same-length placeholders before publication. "
+    "Protein AssetData property stores are a 16-byte header followed by 136-byte blocks, and each block's 8-byte header records how many of its 128 capacity bytes are used; "
+    "the truncated-key rule reads only the unused capacity after those bytes, and the bare-value rule accepts a value only when its quote, colon and quote begin exactly where that unused capacity begins. "
+    "In AssetData members that are not block stores, the truncated-key rule reads the whole member and the bare-value rule is off. "
+    "The placeholders list holds every placeholder already written, and values inside those placeholders are left unchanged, so a second run makes no replacement."
+)
+
+
+def suffixes(keys, minimum):
+    return {key[start:] for key in keys for start in range(len(key) - minimum + 1)}
 
 
 def key_tails(keys):
@@ -89,6 +109,17 @@ def wide(pattern):
 
 ACCOUNT = re.compile(rb"(?:" + alternation(ACCOUNT_KEYS) + rb')"\s*:\s*("?)([A-Za-z0-9_.+/=-]+)')
 ACCOUNT_TAIL = re.compile(rb"(?:" + key_tails(ACCOUNT_KEYS) + rb')"\s*:\s*("?)([A-Za-z0-9_.+/=-]*[0-9][A-Za-z0-9_.+/=-]*)')
+PARTIAL = re.compile(
+    rb'(?<![A-Za-z0-9_"])(?:(?:'
+    + alternation(suffixes(ACCOUNT_KEYS, MIN_PARTIAL_KEY))
+    + rb')"\s*:\s*"([A-Za-z0-9_.+/=-]+)|(?:'
+    + alternation(suffixes(NAME_KEYS, MIN_PARTIAL_KEY))
+    + rb')"\s*:\s*"([^"\x00-\x1f]{1,80}))'
+)
+BARE = re.compile(rb'"\s*:\s*"([A-Za-z0-9]{6,40})(?:"|\Z)')
+DIGIT = re.compile(rb"[0-9]")
+ID_SHAPE = re.compile(rb"(?=[A-Za-z0-9_=-]*[0-9])(?=[A-Za-z0-9_=-]*[A-Za-z])[A-Za-z0-9_=-]{6,}")
+ASSET_DATA = re.compile(rb"(?:^|/)AssetData/[^/]+\.bin$")
 NAMED = re.compile(rb"(?:" + alternation(NAME_KEYS) + rb')"\s*:\s*"([^"\x00-\x1f]{1,80})')
 OWNER = b'","ownerId"'
 LINK = (b"?show=", b"?version=")
@@ -131,12 +162,17 @@ def backward(blob, marker, allowed, limit, minimum):
 
 
 class Masker:
-    def __init__(self, key):
+    def __init__(self, key, placeholders=()):
         self.key = key
         self.learned = set()
         self.cache = {}
         self.echo = None
         self.anchors = {}
+        self.written = set()
+        self.listed = b"\x00" + b"\x00".join(sorted(placeholders)) + b"\x00"
+
+    def known(self, value):
+        return bool(value) and value in self.listed
 
     def learn(self, value, minimum=MIN_LEARNED):
         if len(value) >= minimum and not keep(value):
@@ -212,8 +248,24 @@ def home_mask(name):
     return (HOME_PLACEHOLDER + b"_" * len(name))[: len(name)]
 
 
-def find_spans(blob, masker, learn):
-    spans = {rule: [] for rule in RULES}
+def residue(payload, parent, name):
+    if not parent.endswith(b".protein") or not ASSET_DATA.search(name):
+        return [], False
+    whole = [(0, len(payload))]
+    if len(payload) < STORE.size or STORE.unpack_from(payload) != STORE_HEADER or (len(payload) - STORE.size) % BLOCK_SIZE:
+        return whole, False
+    regions = []
+    for base in range(STORE.size, len(payload), BLOCK_SIZE):
+        _, used, flags = BLOCK.unpack_from(payload, base)
+        if used > BLOCK_CAPACITY or flags not in (0, 1):
+            return whole, False
+        if used < BLOCK_CAPACITY:
+            regions.append((base + BLOCK.size + used, base + BLOCK_SIZE))
+    return regions, True
+
+
+def keyed(blob, regions, delimited):
+    found = []
     seen = set()
     for pattern in (ACCOUNT, ACCOUNT_TAIL):
         for match in pattern.finditer(blob):
@@ -221,44 +273,60 @@ def find_spans(blob, masker, learn):
             if keep(value) or match.start(2) in seen:
                 continue
             seen.add(match.start(2))
-            if not match.group(1) and not re.search(rb"[0-9]", value):
+            if match.group(1) or DIGIT.search(value):
+                found.append(("account", match.start(2), match.end(2), 1, True))
+    for low, high in regions:
+        chunk = blob[low:high]
+        for match in PARTIAL.finditer(chunk):
+            group = 1 if match.group(1) is not None else 2
+            start, end = low + match.start(group), low + match.end(group)
+            value = match.group(group)
+            if start in seen or keep(value):
                 continue
-            if learn:
-                masker.learn(value)
-            else:
-                spans["account"].append((match.start(2), match.end(2), masker.canon(value)))
-    named = [(match.start(1), match.end(1)) for match in NAMED.finditer(blob)]
-    named += backward(blob, OWNER, NAME_BYTES, 80, 1)
-    for start, end in named:
-        value = blob[start:end]
-        if learn:
-            masker.learn(value)
-        else:
-            spans["name"].append((start, end, masker.canon(value)))
-    found = [(match.start(1), match.end(1), 1) for pattern in (URN, HUB, PROJECT) for match in pattern.finditer(blob)]
-    found += [(match.start(1), match.end(1), 2) for match in URN_WIDE.finditer(blob)]
-    found += [(start, end, 1) for marker in LINK for start, end in backward(blob, marker, LINK_BYTES, 256, 6)]
-    for start, end, step in found:
+            seen.add(start)
+            found.append(("partial", start, end, 1, group == 1 and ID_SHAPE.fullmatch(value) is not None))
+        bare = BARE.match(chunk) if delimited else None
+        if bare and low + bare.start(1) not in seen and not keep(bare.group(1)):
+            seen.add(low + bare.start(1))
+            found.append(("bare", low + bare.start(1), low + bare.end(1), 1, ID_SHAPE.fullmatch(bare.group(1)) is not None))
+    found += [("name", match.start(1), match.end(1), 1, True) for match in NAMED.finditer(blob)]
+    found += [("name", start, end, 1, True) for start, end in backward(blob, OWNER, NAME_BYTES, 80, 1)]
+    urns = [(match.start(1), match.end(1), 1) for pattern in (URN, HUB, PROJECT) for match in pattern.finditer(blob)]
+    urns += [(match.start(1), match.end(1), 2) for match in URN_WIDE.finditer(blob)]
+    urns += [(start, end, 1) for marker in LINK for start, end in backward(blob, marker, LINK_BYTES, 256, 6)]
+    for start, end, step in urns:
+        if not keep(blob[start:end][::step]):
+            found.append(("urn", start, end, step, True))
+    return found
+
+
+def widened(mask, step):
+    return mask.decode("latin-1").encode("utf-16-le") if step == 2 else mask
+
+
+def find_spans(blob, masker, learn, regions=(), delimited=False):
+    spans = {rule: [] for rule in RULES}
+    for rule, start, end, step, teach in keyed(blob, regions, delimited):
         raw = blob[start:end]
-        value = raw[::2] if step == 2 else raw
-        if keep(value):
+        value = raw[::step]
+        if masker.known(value):
+            spans[rule].append((start, end, raw, None))
             continue
         if learn:
-            masker.learn(value)
+            if teach:
+                masker.learn(value)
             continue
         mask = masker.canon(value)
-        spans["urn"].append((start, end, mask.decode("latin-1").encode("utf-16-le") if step == 2 else mask))
+        spans[rule].append((start, end, widened(mask, step), mask))
     if learn:
         return spans
     for pattern, step in ((HOME, 1), (HOME_WIDE, 2)):
         for match in pattern.finditer(blob):
-            raw = match.group(1)
-            name = raw[::2] if step == 2 else raw
+            name = match.group(1)[::step]
             if name in SHARED or name == home_mask(name):
                 continue
-            mask = home_mask(name)
-            spans["home"].append((match.start(1), match.end(1), mask.decode("latin-1").encode("utf-16-le") if step == 2 else mask))
-    spans["echo"] = echo_spans(blob, masker)
+            spans["home"].append((match.start(1), match.end(1), widened(home_mask(name), step), None))
+    spans["echo"] = echo_spans(blob, masker, regions if delimited else [(0, len(blob))])
     return spans
 
 
@@ -286,53 +354,60 @@ def accept(blob, start, end, head, tail, shape):
     return True
 
 
-def widen(blob, start, end, allowed, step):
-    while start >= step and blob[start - step] in allowed and (step == 1 or blob[start - 1] == 0):
+def widen(blob, start, end, allowed, step, floor, ceiling):
+    while start - step >= floor and blob[start - step] in allowed and (step == 1 or blob[start - 1] == 0):
         start -= step
-    while end + step <= len(blob) and blob[end] in allowed and (step == 1 or blob[end + 1] == 0):
+    while end + step <= ceiling and blob[end] in allowed and (step == 1 or blob[end + 1] == 0):
         end += step
     return start, end
 
 
-def echo_spans(blob, masker):
+def echo_spans(blob, masker, regions):
     found = set()
     if masker.echo is None:
         return []
     for match in masker.echo.finditer(blob):
+        floor, ceiling = next(((low, high) for low, high in regions if low <= match.start() and match.end() <= high), (None, None))
+        if floor is None:
+            continue
         for offset, form, cover, step, value in masker.anchors[match.group(0)]:
             start, end = match.start(), match.end()
             low, high = offset, offset + (end - start)
-            while low >= step and start >= step and blob[start - step : start] == form[low - step : low]:
+            while low >= step and start - step >= floor and blob[start - step : start] == form[low - step : low]:
                 start, low = start - step, low - step
-            while high + step <= len(form) and blob[end : end + step] == form[high : high + step]:
+            while high + step <= len(form) and end + step <= ceiling and blob[end : end + step] == form[high : high + step]:
                 end, high = end + step, high + step
             shape, allowed = alphabet(value)
-            if not accept(blob, start, end, low == 0, high == len(form), shape):
+            if masker.known(blob[start:end][::step]) or not accept(blob, start, end, low == 0, high == len(form), shape):
                 continue
-            wide_start, wide_end = widen(blob, start, end, allowed, step)
+            wide_start, wide_end = widen(blob, start, end, allowed, step, floor, ceiling)
             if (wide_start, wide_end) != (start, end):
                 text = blob[wide_start:wide_end][::step]
+                if masker.known(text):
+                    continue
                 fresh = masker.fresh(text)
-                found.add((wide_start, wide_end, fresh.decode("latin-1").encode("utf-16-le") if step == 2 else fresh))
+                found.add((wide_start, wide_end, widened(fresh, step), fresh))
             else:
-                found.add((start, end, cover[low:high]))
+                found.add((start, end, cover[low:high], cover[low:high][::step]))
     return sorted(found)
 
 
-def apply_spans(blob, spans, counts):
+def apply_spans(blob, spans, counts, masker):
     taken = []
     output = bytearray(blob)
-    for rule in ("urn", "account", "name", "home", "echo"):
-        for start, end, mask in sorted(spans[rule]):
+    for rule in ORDER:
+        for start, end, mask, narrow in sorted(spans[rule], key=lambda span: span[:2]):
             if any(start < other_end and other_start < end for other_start, other_end in taken):
                 continue
             if len(mask) != end - start:
                 raise ValueError("placeholder length differs from the replaced span")
+            taken.append((start, end))
             if blob[start:end] == mask:
                 continue
             output[start:end] = mask
-            taken.append((start, end))
             counts[rule] += 1
+            if narrow is not None:
+                masker.written.add(narrow)
     return bytes(output)
 
 
@@ -345,6 +420,7 @@ class Entry:
         self.flags, self.method = fields[3], fields[4]
         self.crc, self.csize, self.usize = fields[7], fields[8], fields[9]
         self.length = CENTRAL.size + fields[10] + fields[11] + fields[12]
+        self.name = blob[offset + CENTRAL.size : offset + CENTRAL.size + fields[10]]
         self.local = fields[16]
         if 0xFFFFFFFF in (self.csize, self.usize, self.local):
             raise ValueError("ZIP64 members are not supported")
@@ -405,7 +481,7 @@ def parse_archive(blob):
     return entries, fields[6], end
 
 
-def walk_archive(blob, masker, counts, learn, depth):
+def walk_archive(blob, masker, counts, learn, depth, parent=b""):
     entries, directory, end = parse_archive(blob)
     output = bytearray()
     moved = {}
@@ -418,7 +494,7 @@ def walk_archive(blob, masker, counts, learn, depth):
         moved[entry.central] = len(output)
         position = entry.end
         payload = read_member(blob, entry)
-        fresh = walk_payload(payload, masker, counts, learn, depth)
+        fresh = walk_payload(payload, masker, counts, learn, depth, parent, entry.name)
         if learn or fresh == payload:
             output += blob[entry.local : entry.end]
             continue
@@ -449,13 +525,14 @@ def walk_archive(blob, masker, counts, learn, depth):
     return bytes(output)
 
 
-def walk_payload(payload, masker, counts, learn, depth):
+def walk_payload(payload, masker, counts, learn, depth, parent, name):
     if payload[:4] == LOCAL_SIG and depth < MAX_DEPTH:
-        return walk_archive(payload, masker, counts, learn, depth + 1)
-    spans = find_spans(payload, masker, learn)
+        return walk_archive(payload, masker, counts, learn, depth + 1, name)
+    regions, delimited = residue(payload, parent, name)
+    spans = find_spans(payload, masker, learn, regions, delimited)
     if learn:
         return payload
-    return apply_spans(payload, spans, counts)
+    return apply_spans(payload, spans, counts, masker)
 
 
 def check_archive(before, after):
@@ -482,12 +559,22 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("paths", nargs="+", type=Path)
     parser.add_argument("--dry-run", action="store_true")
-    parser.add_argument("--ledger", type=Path)
+    parser.add_argument("--ledger", type=Path, default=Path(__file__).resolve().with_name("ScrubLedger.json"))
     options = parser.parse_args()
-    masker = Masker(secrets.token_bytes(32))
-    blobs = {path: path.read_bytes() for path in options.paths}
-    for path, blob in blobs.items():
-        walk_archive(blob, masker, {rule: 0 for rule in RULES}, True, 0)
+    ledger = json.loads(options.ledger.read_text()) if options.ledger.exists() else {"reason": REASON, "files": []}
+    listed = {value.encode("latin-1") for value in ledger.get("placeholders", [])}
+    masker = Masker(secrets.token_bytes(32), listed)
+    blobs = {}
+    failed = 0
+    for path in options.paths:
+        blob = path.read_bytes()
+        try:
+            walk_archive(blob, masker, {rule: 0 for rule in RULES}, True, 0)
+        except (ValueError, KeyError, struct.error, zipfile.BadZipFile, zlib.error, zstd.ZstdError) as error:
+            print(f"{path} skipped: {error}")
+            failed += 1
+            continue
+        blobs[path] = blob
     masker.seal()
     rows = []
     for path, blob in blobs.items():
@@ -500,18 +587,19 @@ def main():
         rows.append({"path": path.as_posix(), "fusionSavedSha256": digest(blob), "committedSha256": digest(fresh), "counts": counts})
         if not options.dry_run:
             path.write_bytes(fresh)
-    if options.ledger and not options.dry_run:
-        ledger = json.loads(options.ledger.read_text()) if options.ledger.exists() else {"reason": REASON, "files": []}
+    if rows and not options.dry_run:
         known = {row["path"]: row for row in ledger["files"]}
         for row in rows:
             prior = known.get(row["path"])
             if prior and prior["committedSha256"] == row["fusionSavedSha256"]:
                 row["fusionSavedSha256"] = prior["fusionSavedSha256"]
-                row["counts"] = {rule: prior["counts"][rule] + row["counts"][rule] for rule in RULES}
+                row["counts"] = {rule: prior["counts"].get(rule, 0) + row["counts"][rule] for rule in RULES}
             known[row["path"]] = row
+        ledger["reason"] = REASON
         ledger["files"] = [known[name] for name in sorted(known)]
+        ledger["placeholders"] = sorted(value.decode("latin-1") for value in listed | masker.written)
         options.ledger.write_text(json.dumps(ledger, indent=2) + "\n")
-    return 0
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":

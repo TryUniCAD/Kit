@@ -6488,7 +6488,7 @@
    "label": "OffsetPositive",
    "scope": "wire, wire shell",
    "source": "re/Fusion/Study/surfacetrimtools-650ca09579b1/sketch_line_offset_positive.f3d",
-   "source_sha256": "33dd68a8450ea918eb1b7df071128a369beae72bf659891a5e7e999845a9f45a",
+   "source_sha256": "b1d2118bd41f7c5e3057f8d4b65aedca28b509ab846f05ef6de73faad0ef8440",
    "target": "re/Fusion/LocalOracle/ComplexGeometry/Bounds/OffsetPositiveHistory.f3d",
    "target_sha256": "f890c4355ee5e4b6bd46d7c83e3498d2183bd2052465b6277524eb51762c194b",
    "member_sha256": [
@@ -6509,7 +6509,7 @@
     {
      "variant": "Control",
      "source": "re/Fusion/Study/surfacetrimtools-650ca09579b1/sketch_line_offset_positive.f3d",
-     "source_sha256": "33dd68a8450ea918eb1b7df071128a369beae72bf659891a5e7e999845a9f45a",
+     "source_sha256": "b1d2118bd41f7c5e3057f8d4b65aedca28b509ab846f05ef6de73faad0ef8440",
      "stages": {
       "opened": {
        "marker": 4,
@@ -7242,7 +7242,7 @@
    "label": "ReversedNegative",
    "scope": "wire, wire shell",
    "source": "re/Fusion/Study/surfacetrimtools-650ca09579b1/sketch_line_reversed_negative.f3d",
-   "source_sha256": "bc70972980d63d3b9511d4f4a8db22b31a94f43e337f1e9538494d6e8da2731b",
+   "source_sha256": "7e61821875c40ecd556e79ea7b34bfb6a433161147a44b12c41850350868e586",
    "target": "re/Fusion/LocalOracle/ComplexGeometry/Bounds/ReversedNegativeHistory.f3d",
    "target_sha256": "c809aa73cc2291d50676e2e4163309691b1d1044f859c3186f4e87013d70cf1b",
    "member_sha256": [
@@ -7263,7 +7263,7 @@
     {
      "variant": "Control",
      "source": "re/Fusion/Study/surfacetrimtools-650ca09579b1/sketch_line_reversed_negative.f3d",
-     "source_sha256": "bc70972980d63d3b9511d4f4a8db22b31a94f43e337f1e9538494d6e8da2731b",
+     "source_sha256": "7e61821875c40ecd556e79ea7b34bfb6a433161147a44b12c41850350868e586",
      "stages": {
       "opened": {
        "marker": 4,
@@ -7996,9 +7996,9 @@
    "label": "TwoTexts",
    "scope": "history record above 4096 tokens",
    "source": "re/Fusion/Study/embosstext-cd769aa41cdf/two_texts.f3d",
-   "source_sha256": "9a18f943b1819a248b60cc5c3fe83f031b34ad50f4829122eb87820cf7425f9f",
+   "source_sha256": "dadc36ee79ac5c0df351e60bac2e63d5eb39261d585a2a1febfd5faac1a66103",
    "target": "re/Fusion/LocalOracle/ComplexGeometry/Bounds/TwoTextsHistory.f3d",
-   "target_sha256": "f421426d9ae651bad962d4a96e008dd39fe572f13573fc5fa3cd0763c986ed85",
+   "target_sha256": "f1685830519377cd67d86c20a43ece836eb96172947453ab40946806c11d8dc9",
    "member_sha256": [
     {
      "member": "FusionAssetName[Active]/Breps.BlobParts/BREP.c1988ba3-752f-42d2-babe-839d8495e61c.smbh",
@@ -8017,7 +8017,7 @@
     {
      "variant": "Control",
      "source": "re/Fusion/Study/embosstext-cd769aa41cdf/two_texts.f3d",
-     "source_sha256": "9a18f943b1819a248b60cc5c3fe83f031b34ad50f4829122eb87820cf7425f9f",
+     "source_sha256": "dadc36ee79ac5c0df351e60bac2e63d5eb39261d585a2a1febfd5faac1a66103",
      "stages": {
       "opened": {
        "marker": 5,
@@ -10301,7 +10301,7 @@
     {
      "variant": "Reemitted",
      "source": "re/Fusion/LocalOracle/ComplexGeometry/Bounds/TwoTextsHistory.f3d",
-     "source_sha256": "f421426d9ae651bad962d4a96e008dd39fe572f13573fc5fa3cd0763c986ed85",
+     "source_sha256": "f1685830519377cd67d86c20a43ece836eb96172947453ab40946806c11d8dc9",
      "stages": {
       "opened": {
        "marker": 5,
@@ -20653,7 +20653,7 @@
    "status": "accepted"
   }
  ],
- "preparation_sha256": "441bf361395e4ddf06189c9f6484a5abc68be55e97fd1c12e12d1be505ea7b00",
+ "preparation_sha256": "dea8ef58c368bcb8cfd4e546a89341ec7f7198fb2fabd377ade86e9c154a6075",
  "status": "accepted",
  "documents_after": 0
 }

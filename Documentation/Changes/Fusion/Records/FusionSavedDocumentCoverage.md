@@ -119,7 +119,7 @@ Fusion 2706.1.17 accepted all 26 cases. In each case, the control and the re-emi
 | Item | Value |
 | --- | --- |
 | Report | [`NativeAcceptance.json`](../../../../re/Fusion/LocalOracle/ReaderCoverage/NativeAcceptance.json) |
-| Report SHA-256 | `e0c4beb239e8e8c5150ad3247568d11fdbd492ac07df6e2d81a0d0ac5b8c42a6` |
+| Report SHA-256 | `503fdfc703b07842c25e0295b201ceb9754da6cd5338dfee68e840a4c09bcc43` |
 | Status | `accepted` |
 | Cases | 26 |
 | Files that Fusion saved | 52 |

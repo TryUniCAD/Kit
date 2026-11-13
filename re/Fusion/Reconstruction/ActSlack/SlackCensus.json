@@ -414,7 +414,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/Authored/vendor_native_history23mm.f3d",
-   "sha256": "424cc3a8d304c8d3b22c414e92f124c49d30d2cf8d605d69ae5ec29b6f5a76bf",
+   "sha256": "6eb79af28340240f43fced7894c81af4aa28413887c458b9a5ac300d6f894cc3",
    "act_slack_bytes": 2,
    "act_slack_sha256": "f44b6f48ee1c4c4ccbdba60aab4e4aa2292231ecbe1302da92643dd1699f43dd",
    "model_equal": true,
@@ -750,7 +750,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/DocumentGeometry/vendor_FacetedClosedReemitted.f3d",
-   "sha256": "f4ea96dfc63aa1ca310e181d762de5138ebb2e7df213fa4c161dbff69c5835e3",
+   "sha256": "a472cc9ba354f2c71490193404da97a1923bcd78dfe812c7741ed5a4180e1aba",
    "act_slack_bytes": 2,
    "act_slack_sha256": "ca2fd00fa001190744c15c317643ab092e7048ce086a243e2be9437c898de1bb",
    "model_equal": true,
@@ -1423,7 +1423,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/JournalStates/vendor_OffsetCylinderControlEdited.f3d",
-   "sha256": "1d1dd6a1bde1e70a1bcc18f01838098c7b1d91692215a15856b33d3eb3dca9e3",
+   "sha256": "72204dc8c1e1395187b9a178e7b1346a629eb36f4bf3b76a73d225d69809f48c",
    "act_slack_bytes": 2,
    "act_slack_sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
    "model_equal": true,
@@ -1743,7 +1743,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/ParaMesh/PreparedMesh01.f3d",
-   "sha256": "aa235e162a79385b9dd6b49bb496ed189f76a5b3a9257e1be2a37ab342ec330b",
+   "sha256": "a0042790e260dcddfae779f7165df004d7e4e7c72441f26561d5cb31a5c7ca95",
    "act_slack_bytes": 0,
    "act_slack_sha256": null,
    "model_equal": true,
@@ -1950,7 +1950,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/PrismHistory/vendor_HistoryAuthored37mm.f3d",
-   "sha256": "7839a0fcb3726272d5f9a00dcadde6b2ffa6ba8ee51a0caab2666f043a7817f8",
+   "sha256": "c1ce5036156644170c115388f462716926b11f23479e247408ca7e9b4721e13d",
    "act_slack_bytes": 2,
    "act_slack_sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
    "model_equal": true,
@@ -2613,7 +2613,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/RoundBodies/CompositeCircularHistory.f3d",
-   "sha256": "7cf1d20f76211b350c9442ce931f1bd847b4afde1a559c4f02dd14bec062871d",
+   "sha256": "9ce3118e2bb7b5838efb46d3d3b2520dd88be7db9f11d4bbbb5a9e7fcd02e2b6",
    "act_slack_bytes": 0,
    "act_slack_sha256": null,
    "model_equal": true,

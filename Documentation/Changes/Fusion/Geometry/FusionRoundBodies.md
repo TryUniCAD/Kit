@@ -30,7 +30,7 @@ The trimmed history path is the general linear journal from the [document histor
 
 ## Verification evidence
 
-[Native acceptance](../../../../re/Fusion/LocalOracle/RoundBodies/NativeAcceptance.json), SHA-256 `9014426c969d9ac4ceb9dbe07f3a14cc23e033f75e9834e57098f868e9fbe2fb`, has status `accepted` in Fusion 2706.1.17. Zero documents remained open.
+[Native acceptance](../../../../re/Fusion/LocalOracle/RoundBodies/NativeAcceptance.json), SHA-256 `7ce52b6fd762408fd9aa0fe98380ad9cd4e223588c26882ef1e285c0c6025b9f`, has status `accepted` in Fusion 2706.1.17. Zero documents remained open.
 
 | Group | Cases | Native checks |
 | --- | --- | --- |

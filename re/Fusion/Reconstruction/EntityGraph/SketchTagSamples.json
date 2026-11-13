@@ -1,7 +1,7 @@
 {
   "schema": "FusionSketchTagSamples/1",
   "scope": "Read-only corpus decoding; one example per nonzero discriminator value; only fully decoded records counted",
-  "inventorySha256": "2d97e15c7fbfbc910036b2a46b4fd8078b5418e04cbe4be8fb016635fca8b003",
+  "inventorySha256": "76431db539e32797f90de6f26d6235ef6de01124e677d0f7cbe6606ed6fbb274",
   "archives": 712,
   "unresolvedRecords": 0,
   "archiveFailures": [],

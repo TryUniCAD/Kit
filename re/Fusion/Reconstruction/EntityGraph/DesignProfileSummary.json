@@ -7,7 +7,7 @@
   "sources": [
     {
       "path": "Fusion/Reconstruction/EntityGraph/GraphInventory.json.xz",
-      "sha256": "a82177d9414de5af7a2d2ac377e747ec261a64440c38c305cbbfadc15c004045"
+      "sha256": "383f4aa2f4a83dd04d1cfb3c2830d69887072abb5970636b150270c2aecb85bc"
     },
     {
       "path": "Fusion/LocalOracle/Reflection/Versions.json",
@@ -15,7 +15,7 @@
     },
     {
       "path": "Fusion/Reconstruction/BinaryClasses.json",
-      "sha256": "9d4a0608482d9db93ea62c9fe207889144c1c415bc314f147cf8bd2c44986135"
+      "sha256": "bedbf4b795713c142be6cd28cafafa9e9c7d1ac0f8d465d9e251098ce87c0a83"
     },
     {
       "path": "Fusion/Reconstruction/EntityGraph/ValueCallbacks.json",
@@ -65,5 +65,5 @@
   "referenceTypeCount": 121,
   "unresolvedReferenceTypes": [],
   "evidence": "DesignProfileEvidence.json.xz",
-  "evidenceSha256": "76189f3e3aef3bfe97ea2d2f017d73a79b45b7a32f154d3c2fd2f20975b9eb99"
+  "evidenceSha256": "deefa8f0421a0839625ea2b8a1a59418aa2a16d46e9266489758549e9c9cd829"
 }

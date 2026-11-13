@@ -368,7 +368,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/FourthDocuments/Saved/KitBoxWeightedFresh.f3d",
-   "sha256": "5882e01d0836e1f21c8634fec445086a31e369eccd50c3046c4a5d12790fec35",
+   "sha256": "f038944ef85af4db77270e839c5099fa2857bcf3b9ff3568989bc8d3b4410bb0",
    "weights": [
     0.5,
     0.7,
@@ -395,7 +395,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/FourthDocuments/Loaded/OracleBox3Weighted.f3d",
-   "sha256": "aa065237542042ab9cfeb2016803820612cae34f03eb1720329dbb7087f85437",
+   "sha256": "ea28ef6c711c7be8d541f4296fe5e8f22977df93f8f12f759e78af8a23a6fb82",
    "weights": [
     1.0,
     2.0

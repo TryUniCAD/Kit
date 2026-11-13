@@ -21,14 +21,19 @@ The census of the 366 Fusion archives that the native I/O work added found resid
 
 No outer member held account data. A scan that reads only outer members, or that searches compressed bytes, finds none of it.
 
+Both property members are block stores. A 16-byte header is followed by 136-byte blocks, and each block's 8-byte header records how many of its 128 capacity bytes are used. The residue sits in the unused capacity after those bytes. Writing a block's header and used bytes cuts the heap text at the start of that unused capacity. A fragment can therefore begin with only the last two characters of a key, as in `Id": "`, or with no key at all, as in `": "`.
+
 ## Workaround
 
-Recurse into every nested ZIP and scan the decompressed member bytes. Treat a value after an account key, a key tail or an owner marker as private. Then search the same run for fragments of each learned value, because truncated copies appear without keys.
+Recurse into every nested ZIP and scan the decompressed member bytes. Treat a value after an account key, a key tail or an owner marker as private. In the unused capacity of each block, also treat a value after any key suffix of two or more characters as private, and treat an id-shaped value after a bare `": "` at the start of that capacity as private. Then search the same run for fragments of each learned value, because truncated copies appear without keys. Keep those searches inside the unused capacity so that no used byte changes. Archives saved from the same account in other corpora carry the same values, and a fragment that has no key in one archive can have its key in another. Scan all of them in one run so that a value learned in one archive is found in the others.
 
-Run [`ScrubSaved.py`](../../../../../re/Fusion/LocalOracle/ScrubSaved.py) on Fusion-saved archives before committing them. It replaces account values, display names, home directory names and cloud ids with same-length placeholders. It recompresses only the changed members and keeps member order, names, compression methods, timestamps, attributes, extra fields and comments. Record the saved and committed digests in the scrub ledger, and update every report that cites the saved digest or size.
+Run [`ScrubSaved.py`](../../../../../re/Fusion/LocalOracle/ScrubSaved.py) on Fusion-saved archives before committing them. It replaces account values, display names, home directory names and cloud ids with same-length placeholders. It recompresses only the changed members and keeps member order, names, compression methods, timestamps, attributes, extra fields and comments. Record the saved and committed digests in the scrub ledger, and update every report that cites the saved digest or size. The ledger also lists the written placeholders, and the scrubber leaves values inside them unchanged, so a second run over a scrubbed archive changes nothing.
 
 ## Evidence
 
 - [Scrub ledger](../../../../../re/Fusion/LocalOracle/ScrubLedger.json)
 - [Scrubber](../../../../../re/Fusion/LocalOracle/ScrubSaved.py)
 - [Fixture scrub change entry](../../../../Changes/Fusion/Privacy/FusionFixtureScrub.md)
+- [Scrub rule change entry](../../../../Changes/Fusion/Privacy/FusionScrubRules.md)
+- [Study corpus scrub change entry](../../../../Changes/Fusion/Privacy/FusionStudyScrub.md)
+- [Material store padding](../FusionMaterialStorePadding.md)

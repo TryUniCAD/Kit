@@ -4,17 +4,17 @@
   "artifacts": [
     {
       "archive": "GraphPayloads.json.xz",
-      "compressedBytes": 54752,
+      "compressedBytes": 54756,
       "uncompressedBytes": 3937510,
-      "sha256": "a31df77d8321653730dbfcf2b4a4d15d6de6acf3e8bab7e2913df69d54a69191",
-      "uncompressedSha256": "69bf26d243534b7ca7681b04c9285ed015c054aa59f86c4b11d117bd3c6b3019"
+      "sha256": "2010534329d1574120eabcfa810160d1e52ae6c8676b7c0a6ed0cc5675de298d",
+      "uncompressedSha256": "a7afe347ff32235ca2100b155601ebce5715b7a890c4b0f37f02f6d6dcc75db7"
     },
     {
       "archive": "GraphInventory.json.xz",
-      "compressedBytes": 20100,
+      "compressedBytes": 20096,
       "uncompressedBytes": 399096,
-      "sha256": "a82177d9414de5af7a2d2ac377e747ec261a64440c38c305cbbfadc15c004045",
-      "uncompressedSha256": "a6d56cc1f294f31ab70bcb5ba9fdfef42e936ca2cbae86594f8ffb7f0f2b742c"
+      "sha256": "383f4aa2f4a83dd04d1cfb3c2830d69887072abb5970636b150270c2aecb85bc",
+      "uncompressedSha256": "f336439f4d8a13f777c6d173b6f146cdb1d8b72e13e7b1cb11fd9877aa9e1951"
     },
     {
       "archive": "NativeComparison.json.xz",

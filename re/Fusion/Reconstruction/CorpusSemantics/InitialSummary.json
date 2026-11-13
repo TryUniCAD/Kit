@@ -89,7 +89,7 @@
     }
   ],
   "evidence": "Inventory.json.xz",
-  "rawSha256": "3fc1796618a70d67740697e1dcfb9358beb9e81e96b8d567e3410a4778d37bc3",
-  "compressedSha256": "a28ab4077fb6a52235186c5ff24dbc8d36b17bb92076b7ad16e31975808b648b",
+  "rawSha256": "c0746a9135c732cf0fddf79f2e6ec38baf137c12cbd5feedb028dce4fbe5f3f2",
+  "compressedSha256": "c16b20117b6e5706be58202261ff8f512d32fac64a017ed8ee83206ebd29ca76",
   "archiveFailures": []
 }

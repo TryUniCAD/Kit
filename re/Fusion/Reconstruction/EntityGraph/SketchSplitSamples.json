@@ -1,7 +1,7 @@
 {
   "schema": "FusionSketchSplitSamples/1",
   "scope": "Read-only saved corpus decoding; no production reader or local tests executed",
-  "inventorySha256": "2d97e15c7fbfbc910036b2a46b4fd8078b5418e04cbe4be8fb016635fca8b003",
+  "inventorySha256": "76431db539e32797f90de6f26d6235ef6de01124e677d0f7cbe6606ed6fbb274",
   "archives": 712,
   "tagValues": 5077,
   "archiveFailures": [],

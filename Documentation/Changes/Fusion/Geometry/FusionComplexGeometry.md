@@ -230,7 +230,7 @@ The largest corpus record has 6687 tokens, and the largest bulletin board has 22
 
 ### First pass
 
-[Native acceptance](../../../../re/Fusion/LocalOracle/ComplexGeometry/NativeAcceptance.json), SHA-256 `92e56ed767afee3a0ac69583b3c6cb6d14dd04b17f145b10cef622b84e08f4f7`, has status `accepted` in Fusion 2706.1.17. Zero documents were open before and after the run. The [preparation](../../../../re/Fusion/LocalOracle/ComplexGeometry/Preparation.json), SHA-256 `e6429d77642bd10d615be946e6998a5d1737c5ce0eb10bd09cf644ab63c446a8`, binds each input and output hash.
+[Native acceptance](../../../../re/Fusion/LocalOracle/ComplexGeometry/NativeAcceptance.json), SHA-256 `6e9a616056ae539b3c6ee6caf22f3f0fc8ad35b6dfa68cec322da9291a55a4e4`, has status `accepted` in Fusion 2706.1.17. Zero documents were open before and after the run. The [preparation](../../../../re/Fusion/LocalOracle/ComplexGeometry/Preparation.json), SHA-256 `5a5de5583d81de989688909dbc08870cca8b9ac74542160f0aa009140ab8cad9`, binds each input and output hash.
 
 Each authored body went through `TemporaryBRepManager` import, a persisted body, save and reopen. The values after reopen were equal to the values before.
 
@@ -267,7 +267,7 @@ The [rule fillet gotcha](../../../Gotchas/Conversion/Fusion/Geometry/RuleFilletR
 
 ### Lifted bounds
 
-[Bounds acceptance](../../../../re/Fusion/LocalOracle/ComplexGeometry/Bounds/NativeAcceptance.json), SHA-256 `ad13eb2d21b1d880725205d28e9f7da064c827ae1c15f8ccb638fe3447d7fe39`, has status `accepted` in Fusion 2706.1.17. Zero documents were open before and after the run. Each case opened the corpus archive and a copy with its BRep members re-emitted by Kit. Every member was byte-exact. Every stage of the two copies was equal within 1e-8.
+[Bounds acceptance](../../../../re/Fusion/LocalOracle/ComplexGeometry/Bounds/NativeAcceptance.json), SHA-256 `d44670ba057d49a737a3b2a53135367bcf84f8d4c0b0e7e1e38b9fedf16d3af8`, has status `accepted` in Fusion 2706.1.17. Zero documents were open before and after the run. Each case opened the corpus archive and a copy with its BRep members re-emitted by Kit. Every member was byte-exact. Every stage of the two copies was equal within 1e-8.
 
 | Case | Content | Edit |
 | --- | --- | --- |
@@ -282,7 +282,7 @@ A first run of these cases stopped when Fusion exited during the `TwoTexts` cont
 
 ### Second pass
 
-The [second-pass preparation](../../../../re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Preparation.json), SHA-256 `4a05a7f438719e884162cc81d1ddd0a39bd84fa039091b94b72dfd05db1b3ef9`, binds each input and output hash. It holds 11 consistent edits and 7 edits that are inconsistent by construction. A knot insertion adds one knot and recomputes the poles, so the shape stays the same. The largest shape drift of an insertion was 3.8e-15.
+The [second-pass preparation](../../../../re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Preparation.json), SHA-256 `74cd0b937bad6350e28d2e49bd36b79f52988732179d193501b93a35a836e570`, binds each input and output hash. It holds 11 consistent edits and 7 edits that are inconsistent by construction. A knot insertion adds one knot and recomputes the poles, so the shape stays the same. The largest shape drift of an insertion was 3.8e-15.
 
 Each consistent edit went through `TemporaryBRepManager` import, a persisted body, save and reopen, together with its unedited original. Each body was valid, and the values after reopen were equal to the values before. Fusion 2706.1.17 reported these results for the edited body.
 

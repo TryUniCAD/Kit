@@ -768,7 +768,7 @@
   "archives": [
    {
     "file": "re/Fusion/LocalOracle/FormDocuments/IntervalDocuments/Loaded/OraclePlane2x5Interval3.f3d",
-    "sha256": "caabbd22d2fbed44db80fe56920cdab6ddc7c484176cfb1f948ccdd10b4f96f2",
+    "sha256": "74e9a482385e93eca999de828ffa5ce733f2ef5f03fa4c24afec16fe31a2e999",
     "read": "ok",
     "saved_intervals": {
      "3.0": 27
@@ -816,7 +816,7 @@
    },
    {
     "file": "re/Fusion/LocalOracle/FormDocuments/IntervalDocuments/Saved/KitPlane4x4Interval2.f3d",
-    "sha256": "6ac90656bfad7c1574d8b2aaf7e6fc51eff74241a402dcdd7880d91c3f730067",
+    "sha256": "a4923fc7ffa2a934ca51bc042235f57e434d65df569901fa20f30e60e1be3563",
     "read": "ok",
     "saved_intervals": {
      "2.0": 40

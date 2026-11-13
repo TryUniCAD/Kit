@@ -316,9 +316,9 @@ Two Fusion 2706.1.17 runs accepted new Form documents that `EmitFormDoc` wrote f
 
 | Report | SHA-256 | Cases |
 | --- | --- | --- |
-| [Fourth pass documents](../../../../re/Fusion/LocalOracle/FormDocuments/FourthDocuments/NativeAcceptance.json) | `3dbeae87d9d062576c184547c3670303c882cc2cef71dceb1e9b6c932e2b580f` | A fresh valence-7 cage and four weighted cages |
-| [Interval documents](../../../../re/Fusion/LocalOracle/FormDocuments/IntervalDocuments/NativeAcceptance.json) | `182c1656449abe7d52d30e03ad64bc1a95652b0879b35ce7fd6689d5b1e1de77` | Two warped grids with knot intervals 2 and 3 |
-| [Merged head documents](../../../../re/Fusion/LocalOracle/FormDocuments/MergeDocuments/NativeAcceptance.json) | `35926c871aae5180b3e0c631b62c384c5643658bae7c65b064420ec572eacc31` | The box, creased plane, valence-5 and warped grid cages of the cage document run |
+| [Fourth pass documents](../../../../re/Fusion/LocalOracle/FormDocuments/FourthDocuments/NativeAcceptance.json) | `764e4df5aa575bf14092e70cd84ce83799a9888a9f41154fd763c9b1c0403ac6` | A fresh valence-7 cage and four weighted cages |
+| [Interval documents](../../../../re/Fusion/LocalOracle/FormDocuments/IntervalDocuments/NativeAcceptance.json) | `755d2e35d810186dcb45a7d0eda49d23566f489fbda58e03e6bf7f567d57225c` | Two warped grids with knot intervals 2 and 3 |
+| [Merged head documents](../../../../re/Fusion/LocalOracle/FormDocuments/MergeDocuments/NativeAcceptance.json) | `dceac85c91a93f774959d803a2691784fa11553069636b3bb2d98e07f276b1fd` | The box, creased plane, valence-5 and warped grid cages of the cage document run |
 
 | Case | Faces, edges, vertices | Area as loaded (cm²) | Area after edit (cm²) | Largest gap as loaded (cm) |
 | --- | --- | --- | --- | --- |

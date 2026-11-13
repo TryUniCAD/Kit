@@ -16,7 +16,7 @@
   "in_progress_case": "TwoTexts",
   "in_progress_variant": "Control",
   "input": "re/Fusion/Study/embosstext-cd769aa41cdf/two_texts.f3d",
-  "input_sha256": "9a18f943b1819a248b60cc5c3fe83f031b34ad50f4829122eb87820cf7425f9f",
+  "input_sha256": "dadc36ee79ac5c0df351e60bac2e63d5eb39261d585a2a1febfd5faac1a66103",
   "first_steps": "importToNewDocument, then observe, which read Parameter.value for every parameter",
   "observed": "No failed status, traceback or documents_after was written. The Fusion process was gone and the coordinator relaunched it. The runner waited until it was stopped.",
   "report_discarded": true

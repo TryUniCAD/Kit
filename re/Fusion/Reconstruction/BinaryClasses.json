@@ -30885,8 +30885,8 @@
       },
       {
         "file": "asymmetricfilletflips-b09b81df3c08/unequal_flipped_true.f3d",
-        "sha256": "81383885ebe42c879567abfb00ff7f3b96367da10736ee0a404da19875cd9207",
-        "byteLength": 71655,
+        "sha256": "9d043e9b458f1c7d4aad7989e46333a7f7455f5f40739dde5e157f5c08574ad5",
+        "byteLength": 71630,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -31245,8 +31245,8 @@
       },
       {
         "file": "bodyselections-62e42366c722/mirror_two_bodies_plane.f3d",
-        "sha256": "f6ead5f5b69cc313a3af6f318655d2c036f19045585060ab9e591939e7e2e17e",
-        "byteLength": 83100,
+        "sha256": "5f062a9dc7f314250d472f7d77ab7645e760fa4ea0592450502708e8ead093f7",
+        "byteLength": 83063,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -31299,8 +31299,8 @@
       },
       {
         "file": "bodyselections-62e42366c722/shell_two_faces.f3d",
-        "sha256": "01e76ca915288b87cda953ee1dfc611708e5dd84b7a8a4a1212ef311ded96cc0",
-        "byteLength": 74769,
+        "sha256": "9126afac153744535db45c83d95bb85e2e02e08838f545eaae177210e35f5cf7",
+        "byteLength": 74738,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -31641,8 +31641,8 @@
       },
       {
         "file": "circularsymsuppression-bef7ede4d911/quantity5_suppress_id1.f3d",
-        "sha256": "a0c81697dc9cfc2c3c73f1b32c7a49c6b455d76ec1d3bc7fd28780ec5775a738",
-        "byteLength": 69884,
+        "sha256": "780ff293aa548814abe83d7aef9726080416e01d30df4d6c539019a90c9fcbeb",
+        "byteLength": 69872,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -31659,8 +31659,8 @@
       },
       {
         "file": "circularsymsuppression-bef7ede4d911/quantity5_suppress_id3.f3d",
-        "sha256": "dfd200373fd20eff5148ff3c4d5a3687c6843b34fb94dcab867e2a76873e279e",
-        "byteLength": 69074,
+        "sha256": "2fd053ea5d3150420fca93405d48f322cf5e21c79c08dada32247d220fb55a10",
+        "byteLength": 69061,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -31677,8 +31677,8 @@
       },
       {
         "file": "circularsymsuppression-c837268fa458/quantity4_suppress_id0.f3d",
-        "sha256": "e5561a5720b4119ae8df6a0a63c1811dfea74b7c015f19684040881f4c3eb4e3",
-        "byteLength": 68589,
+        "sha256": "51cbbff78a80305d341b1f9b4f384470de608bed490e8261a27dfa635dea3ba1",
+        "byteLength": 68548,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -31785,8 +31785,8 @@
       },
       {
         "file": "combinemodes-dcb4956eca6b/intersect_keep.f3d",
-        "sha256": "5a57ead07504bdfefca70f066a25358666938888ee97ae04a6d9ab66b52e03a0",
-        "byteLength": 75210,
+        "sha256": "1d3a052627e2a45fd5b9b3b8a3880cd31272e3ad2bb6794fc110cf75b6937645",
+        "byteLength": 75189,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -31857,8 +31857,8 @@
       },
       {
         "file": "componentcolorcontrast-775cb30dfc1e/known_component_color.f3d",
-        "sha256": "31431ede448564c8814188af8379cb235a20a35da5b8713ebf78990b73364472",
-        "byteLength": 31238,
+        "sha256": "2f77038585c8bde58c4be16b75c76207db0143a8dd76203159a7da619458c442",
+        "byteLength": 31210,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -31947,8 +31947,8 @@
       },
       {
         "file": "constructionmodes-e355ad6031c0/axis_two_points.f3d",
-        "sha256": "2815288d661abad66eec1cf14daf936740d8daea035335095f37ced974f72b7e",
-        "byteLength": 36267,
+        "sha256": "09bb8602c63c0900042328fb341b971cb95257afc1e4a9206799a0188c45d201",
+        "byteLength": 36250,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -32001,8 +32001,8 @@
       },
       {
         "file": "constructionmodes-e355ad6031c0/point_two_edges.f3d",
-        "sha256": "2eb344f77c1ef8c1dee56a7c37d9d65cca6e17d4c71c2f4cacbbc48cb0c14a32",
-        "byteLength": 55245,
+        "sha256": "cb816b63eb4b507c64c04a1acf659ce62987bd3332a1ef5d1eebe01f5089a2a8",
+        "byteLength": 55227,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -32415,8 +32415,8 @@
       },
       {
         "file": "edgemodes-87edbf67527b/chamfer_angle.f3d",
-        "sha256": "34b41672d4e0c4d77f4584c9cfe3d86771306360b0b4003fc663e30d8be5e3a5",
-        "byteLength": 68133,
+        "sha256": "2cb6dab429b2d8767ee723ecac3b24a7df635f323e087203a487b39d83fd27ff",
+        "byteLength": 68104,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -32433,8 +32433,8 @@
       },
       {
         "file": "edgemodes-87edbf67527b/chamfer_angle_flipped.f3d",
-        "sha256": "8c4b1b97526d2765cce73a47621e164bd8bd05890e0cb2c69e3bcaf2ac295e50",
-        "byteLength": 68575,
+        "sha256": "ef45b14b8248a7387d81751bb2555b1c2040142ed97a06f0088ad295e38baeec",
+        "byteLength": 68548,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -32595,8 +32595,8 @@
       },
       {
         "file": "edgemodes-87edbf67527b/fillet_setback.f3d",
-        "sha256": "9f3a9919e7562c8168e0f9a43fc1992280da7bce5def722af4ec3d1de6e49f55",
-        "byteLength": 68211,
+        "sha256": "a9a90b3f32ca2b246b561bbcda3de04570e4c60c19872d99f98ff9dfed87b8b5",
+        "byteLength": 68183,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -32631,8 +32631,8 @@
       },
       {
         "file": "edgemodes-87edbf67527b/fillet_variable.f3d",
-        "sha256": "bbc954b76d9ec9a6cad735924aca86fca9e1ef92d09eee428a78fa8cd150e5f5",
-        "byteLength": 75988,
+        "sha256": "03980bfd563ccde28cc5ee8702b2a1a8c0e01b0d5a2209616ccc9bd9b86c5cd1",
+        "byteLength": 75962,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -32811,8 +32811,8 @@
       },
       {
         "file": "embosstext-cd769aa41cdf/two_texts.f3d",
-        "sha256": "9a18f943b1819a248b60cc5c3fe83f031b34ad50f4829122eb87820cf7425f9f",
-        "byteLength": 189567,
+        "sha256": "dadc36ee79ac5c0df351e60bac2e63d5eb39261d585a2a1febfd5faac1a66103",
+        "byteLength": 189546,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -33027,8 +33027,8 @@
       },
       {
         "file": "faceedits-3f120cbee8d9/delete_hole_face.f3d",
-        "sha256": "3bb432e1a5434f9696863024872f7a658295afcb252e015e4c91630898f1d1cd",
-        "byteLength": 70359,
+        "sha256": "041b03653f9330ae39aa5ab36d89e753759b4ed6e45476f00f298db0a5ef0064",
+        "byteLength": 70350,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -33567,8 +33567,8 @@
       },
       {
         "file": "linetrimholdouts-456e1d19906d/reverse_rectangle_creation.f3d",
-        "sha256": "58fbdb079666496e5a33aea1a1ababa98d35cf2b8d2511cda2c22c5e40378818",
-        "byteLength": 61342,
+        "sha256": "b518c732cb2c0c31115d229b51751807e9ec431e917e24c01a95282baa174760",
+        "byteLength": 61325,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -34017,8 +34017,8 @@
       },
       {
         "file": "loftoperations-0cfcad35feb7/join.f3d",
-        "sha256": "2968c5684feabc778a7d6436f4256e2887abbb196c42b7bbb6fb55cede17fff1",
-        "byteLength": 111753,
+        "sha256": "83c868a33012a14fd2fe6849817657b85976c4c433a912974305555371f9d3a3",
+        "byteLength": 111732,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -34377,8 +34377,8 @@
       },
       {
         "file": "meshcombinefacegroups-33142f03b86e/adjacent_pair.f3d",
-        "sha256": "c093980c2ee1e30ac44f48e723508451690f1fe654bc3e34a1a1189eb221147c",
-        "byteLength": 55548,
+        "sha256": "8096aea900bcb59feb84fc29a1c721d38fd13f9ce988a29b3facdb2215b7765d",
+        "byteLength": 55537,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -34395,8 +34395,8 @@
       },
       {
         "file": "meshcombinefacegroups-33142f03b86e/adjacent_pair_reversed.f3d",
-        "sha256": "223f993ba13f13f298022c1aa834168ef03338b7e42280324bdfb08c9a59e568",
-        "byteLength": 55518,
+        "sha256": "9a1c4fd65e2b90e16ff6698cbe9f7afa12c5d30006f842e4c70e0277ee4d2cd8",
+        "byteLength": 55496,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -34413,8 +34413,8 @@
       },
       {
         "file": "meshcombinefacegroups-33142f03b86e/connected_triple.f3d",
-        "sha256": "ae3c9af1a2ce93d7e5d21b43a1dc06fba97711337a01b7452a748e53aab96788",
-        "byteLength": 56681,
+        "sha256": "1ee425c543f7fbaa90d3ba2927169c5929e014c520a65d0f0fbf75d58b7ddd4a",
+        "byteLength": 56648,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -34683,8 +34683,8 @@
       },
       {
         "file": "meshfacegroups-0b682fa7d749/fast_twenty_degrees.f3d",
-        "sha256": "4ca7f3ab95f283c2d2a62c4017a182b8545d4f13d0d45a981a388ac991157e15",
-        "byteLength": 54776,
+        "sha256": "f0085b812f6c6ce19bff0aea03a3d2a8bef70b9f72154f8c3a748cc334e76824",
+        "byteLength": 54763,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -34737,8 +34737,8 @@
       },
       {
         "file": "meshplanecuts-18f2683c83f5/trim_no_fill.f3d",
-        "sha256": "c13e3702935ab2bfccf8f0b4220aca75a9c32af942eac088eebe9e1497b2c458",
-        "byteLength": 61812,
+        "sha256": "b9003c6f749568d048db0938435d24272d30a409e7824b996d0675dd016aaa11",
+        "byteLength": 61780,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -34773,8 +34773,8 @@
       },
       {
         "file": "meshreducedeviations-05a5d48e46d0/adaptive_deviation_point_zero_five.f3d",
-        "sha256": "0044248753923d4803a87b65a8e3e136837f575f5b084cda9abe317ec0f9be00",
-        "byteLength": 53213,
+        "sha256": "71b0d45def0498af22e2d0907aec9046801c14dd48939b6dc9585559c0cbdfc9",
+        "byteLength": 53179,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -34935,8 +34935,8 @@
       },
       {
         "file": "meshremoves-8b2188cd274d/one_remove_one.f3d",
-        "sha256": "90d9e64d638f98a1f3abea7e5086789eeebbef9037812da0a0960deb1b1c1bca",
-        "byteLength": 37069,
+        "sha256": "757a1d4065fae22280748abb46c85ac3423758b863e9c64d90202e911f9cba13",
+        "byteLength": 37040,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -34989,8 +34989,8 @@
       },
       {
         "file": "meshrepairrebuilds-66d4316c2e8d/accurate_density_eight_offset_point_zero_five.f3d",
-        "sha256": "926c189c1f5eb0f618efe9aa07251f40efd247137b4c044f96f1fe6c4ceb7618",
-        "byteLength": 97870,
+        "sha256": "67fbaeaa960378bd8c390942d4461dc4086b7de8c740b67f12b87161141af6ab",
+        "byteLength": 97854,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -35007,8 +35007,8 @@
       },
       {
         "file": "meshrepairrebuilds-66d4316c2e8d/accurate_density_eight_offset_zero.f3d",
-        "sha256": "f1072119ca090e71436aed204805af8d3f35dd703c9e1afab7bc0755d0038858",
-        "byteLength": 64684,
+        "sha256": "6881251026ee49a1835070fa37949fc8f62eb04d9abd6f42e59c764e9bf9b0d3",
+        "byteLength": 64646,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -35025,8 +35025,8 @@
       },
       {
         "file": "meshrepairrebuilds-66d4316c2e8d/fast_density_eight.f3d",
-        "sha256": "bf48d7013bfe6a29d7d95edca84738906f9e8f2e73bf55af2557878a8bd8b0f3",
-        "byteLength": 102140,
+        "sha256": "6d08f2b4d71dcd81eefad51bb5ff18adf3df99529d370fea61d54ae5e0039505",
+        "byteLength": 102115,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -35115,8 +35115,8 @@
       },
       {
         "file": "meshreversenormals-2bc2dd3780cc/closed_twice.f3d",
-        "sha256": "353d804dfa85158eb4ad16f63bf5a3cfbedc1d3be1f9344c847793534d372f65",
-        "byteLength": 54950,
+        "sha256": "307444253e2afaaa6dce9f80a179facee3abe6a090ac1c7a09bfab51cc9018e8",
+        "byteLength": 54922,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -35205,8 +35205,8 @@
       },
       {
         "file": "meshshells-f5a2d6730f62/closed_thickness_point_one.f3d",
-        "sha256": "735c351812bdc99ddd22ec6d515a5bd6d8babaac3d641be537d65dea079ce044",
-        "byteLength": 85627,
+        "sha256": "2e5a016479dbf07c3cffdf907b1b023b1854f8236a4a90cb7d4811ce297dbf1f",
+        "byteLength": 85600,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -35259,8 +35259,8 @@
       },
       {
         "file": "meshsmooths-56f38f13430a/smooth_default_point_zero_two.f3d",
-        "sha256": "e6740b771cc828efc4a4ef571ea87863ec11bd0fe7ddc1758ba395a67e4cc7c5",
-        "byteLength": 52487,
+        "sha256": "54c7375c4dd340efa90c226c444fc089424673b656aacf3667ec1615a0bcc914",
+        "byteLength": 52462,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -35277,8 +35277,8 @@
       },
       {
         "file": "meshsmooths-56f38f13430a/smooth_point_one.f3d",
-        "sha256": "77416c5093b5170ee65dad12ba43fa275e2c12958749dccf305f935b7c3c8109",
-        "byteLength": 50719,
+        "sha256": "3d96f9beb467090be0577f8a9da4e01b2b27c01fb06257938893eef72842a228",
+        "byteLength": 50692,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -35331,8 +35331,8 @@
       },
       {
         "file": "mirrorassemblydatum-65c867cc41d9/plane_xz_negative_offset.f3d",
-        "sha256": "c187d8176b49db671a9965e92201c04e5f8938295db54cd5442ec8dbbac4c3f9",
-        "byteLength": 34160,
+        "sha256": "78401cfaa71b4061c02bc262b06d05d3b2252e81071fd39619aa6720adaa4e25",
+        "byteLength": 34134,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -35349,8 +35349,8 @@
       },
       {
         "file": "mirrorassemblydatum-700af16e9fc6/nested_occurrence_rotated_parent_xz.f3d",
-        "sha256": "0e5fdd1998c7663a2d6b218335358012a6d89bbaf809b5a378dda52c64634391",
-        "byteLength": 64183,
+        "sha256": "363706dd7e634577ead81908ea327570920be027d82399eb0a6c8d02c73d383a",
+        "byteLength": 64166,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -35385,8 +35385,8 @@
       },
       {
         "file": "mirrorfeatures-1ffa1b15c612/body_brep_face_plane.f3d",
-        "sha256": "b72a387e28fee597471ce99b2ff9740596079f92f394fc7f53cd95ee0ccad255",
-        "byteLength": 74408,
+        "sha256": "16205337b426a17eb10006c51f0154c68fc79cb04fc6ef620b63b5dcb8837645",
+        "byteLength": 74385,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -35403,8 +35403,8 @@
       },
       {
         "file": "mirrorfeatures-1ffa1b15c612/feature_adjust.f3d",
-        "sha256": "b89c6038c4f0dbadf5792a3baeadd2d1a288e60a0f69a08b9f766a895be3e82a",
-        "byteLength": 74530,
+        "sha256": "c213754b0694665f1079b70128561936ff503e96de97baf69d172b27c1c3e218",
+        "byteLength": 74512,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -35421,8 +35421,8 @@
       },
       {
         "file": "mirrorfeatures-1ffa1b15c612/feature_identical.f3d",
-        "sha256": "2a27f2f51777916994c88d96bb06a0914cf6554e07219d66dd1dd637ab3e833b",
-        "byteLength": 74721,
+        "sha256": "2e4b85ef6606d8698b30134ebb260d3ac35bd00f9ddfd3ddbb81cb64e5826769",
+        "byteLength": 74697,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -35475,8 +35475,8 @@
       },
       {
         "file": "mixedprofiletrims-a125a4c1749e/line_circle_reverse_creation.f3d",
-        "sha256": "81669f73a5ef24919b9bb171756858db5940995a8d274c3d0c8adfd74fadcdff",
-        "byteLength": 115467,
+        "sha256": "02076dc61de88581d234732ecce73cd04075fb582a1b8569175e32a38495fc62",
+        "byteLength": 115433,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -35925,8 +35925,8 @@
       },
       {
         "file": "moretools-88a2cd6cad0b/SplitBody.f3d",
-        "sha256": "2210e9bfb89e06db69d01dc9b7d51901cb7e228d94e2667fbb5ee83f3c39d77e",
-        "byteLength": 164954,
+        "sha256": "77af0429aa137b0b7983cfc133ef3e7bd4f862f3cb1089618d0910fea11d3289",
+        "byteLength": 164930,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -36087,8 +36087,8 @@
       },
       {
         "file": "movemodes-34cba3ced135/point_to_position.f3d",
-        "sha256": "aadb282d6db62cd3457fdafb7a4c3de28e5d6321fa229a4c62625386792134ee",
-        "byteLength": 62141,
+        "sha256": "58a636c25522f20e8cffde8822047751e3f2cde6288e1731f3a3cfaa5851daf9",
+        "byteLength": 62119,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -36483,8 +36483,8 @@
       },
       {
         "file": "parameterfunctions-bc10224394fe/sqrt_sum.f3d",
-        "sha256": "abe397dc3b710890f1f8792cc5304b3982c7452cada6b0982507d8e8b2f5bd6c",
-        "byteLength": 31089,
+        "sha256": "880b70642d9f7c5c79e7bfcc8931765eb8b1d8c73bd6a398530d75aed391a9e4",
+        "byteLength": 31071,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -36501,8 +36501,8 @@
       },
       {
         "file": "parameteridentity-8fc83529b236/01_literal.f3d",
-        "sha256": "77381405b647267a4f1f1a4624dad674f2e9ddcffe12ebf75dea7a6819d18294",
-        "byteLength": 31092,
+        "sha256": "1f15fe1d562450852c804542f8255dbfc2d8e4c42b60e1304df7a7774ed14666",
+        "byteLength": 31065,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -36519,8 +36519,8 @@
       },
       {
         "file": "parameteridentity-8fc83529b236/02_alpha_reference.f3d",
-        "sha256": "b6d7b7b2adb6fc93c597ea0c019c281cfe5de8d3c773f791d29b5cc2a0f67a9b",
-        "byteLength": 31159,
+        "sha256": "1aeedc0be4defe857a7ea3db67134a7a610efa179e729f57367444f455ceeb03",
+        "byteLength": 31140,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -36537,8 +36537,8 @@
       },
       {
         "file": "parameteridentity-8fc83529b236/03_bravo_reference.f3d",
-        "sha256": "bc7d3ecb1fab356a4efc60955124c62b7771734b7fe343099802a0a9dd7f6e0c",
-        "byteLength": 31167,
+        "sha256": "34ee20a9603e324a19acd54e7955a60fa67395e7bfb1d9c27bf7bcd636360796",
+        "byteLength": 31140,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -36555,8 +36555,8 @@
       },
       {
         "file": "parameteridentity-8fc83529b236/04_literal_return.f3d",
-        "sha256": "138058bbabd9df7b3b68bf3bba65de61aca1c54814d2c2bca1f9823f1c8b66f0",
-        "byteLength": 31139,
+        "sha256": "71a46a40c457a56f9ad075abd7e825d040bbf07e7421020def79eb59de142c85",
+        "byteLength": 31105,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -36699,8 +36699,8 @@
       },
       {
         "file": "partinglinedrafts-c4d07c76fcd5/moving_both_three.f3d",
-        "sha256": "a5bfdc9a53afb3b29d247c869ef4b2c155dbbc33a34df454a40d61485c78d5f3",
-        "byteLength": 72054,
+        "sha256": "43a34924dcd41fdf979cd50a338b79ae912ff3ce042ef7bf9e08dd1315025d16",
+        "byteLength": 72025,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -36717,8 +36717,8 @@
       },
       {
         "file": "patchcontinuity-b9b0be85a281/brep_curvature.f3d",
-        "sha256": "4e6c85c63ff82fbcee77e02571287701e46f3f55a55d499fe65668768ef3fe0d",
-        "byteLength": 69095,
+        "sha256": "8ea9cb82b86a711830c23a542a581b8fbc3ccd69e08027b0c1a6fa9a732b8a08",
+        "byteLength": 69065,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -36753,8 +36753,8 @@
       },
       {
         "file": "patchcontinuity-b9b0be85a281/brep_tangent.f3d",
-        "sha256": "f8e33e7d6686fd7515f611d723e97bcc69eb4fedacef012f4ef5b4f9929b325a",
-        "byteLength": 68963,
+        "sha256": "a9ecbc3537bb5d3a03ead9c30797151b2eb96917a132270715340b00f4498b2d",
+        "byteLength": 68946,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -36879,8 +36879,8 @@
       },
       {
         "file": "pathpatterninputs-7edfa558db34/root_occurrence.f3d",
-        "sha256": "144bcbc930fc9859dd10ebd4d91c63bef9e79aa7cb563f5eb98c57c031dbb07f",
-        "byteLength": 92291,
+        "sha256": "7d48d3f9a81deffe3cf60086de6a3249d835872834958199bb1b64d93f4d66be",
+        "byteLength": 92277,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -37401,8 +37401,8 @@
       },
       {
         "file": "pipeoperations-6afc81788dbf/join.f3d",
-        "sha256": "3c16c11feb88bfecd5479a9b0ce5e72d422108f293c687386cf1a9281cfd99ff",
-        "byteLength": 101403,
+        "sha256": "7d20d0e8a0a2276c2c21894e89488fb2c7ee44eab4a061f7b8d0621c677a23b4",
+        "byteLength": 101371,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -37419,8 +37419,8 @@
       },
       {
         "file": "pipepaths-3d11bd427946/brep_edge_circular.f3d",
-        "sha256": "f3aff579649e9ded729e3256534dc3a95889e5e5104fea1f5b468bf4a8fe40d5",
-        "byteLength": 71027,
+        "sha256": "3ec4b209afa3703efe06037336c9fb75ab3e07f80e45475b54894576797a888d",
+        "byteLength": 71002,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -37437,8 +37437,8 @@
       },
       {
         "file": "pipepaths-3d11bd427946/composite_circular.f3d",
-        "sha256": "fd296fa69d22e825b3294cd01105f65b442ec2648b284e9f7ea8f7c201836e84",
-        "byteLength": 115818,
+        "sha256": "4aad3c95cbc1aacd3df299024d785123f8d391fd21c056b018ed5564f2465eb6",
+        "byteLength": 115793,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -37491,8 +37491,8 @@
       },
       {
         "file": "placedprofiletrims-037ed41056a4/angled_rectangle_overlap.f3d",
-        "sha256": "b2ffb04c65cbdc61ff97800ad0a0ff6e9154f1d136dc8901c540578fdcdf92e9",
-        "byteLength": 77122,
+        "sha256": "1492620349885bb1804bd2db456f9fd38453b5b05f74f9a0c2f3473d745978ff",
+        "byteLength": 77098,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -37509,8 +37509,8 @@
       },
       {
         "file": "placedprofiletrims-037ed41056a4/offset_xy_circle_lens.f3d",
-        "sha256": "20853a802b7f529261b98ff4e2fffcc4787877cc063c0c062851df2459ce9d79",
-        "byteLength": 105769,
+        "sha256": "9b2e4a94249e1ccae97a2f65efffbe1a8240021500c57beaee529e1e78f08551",
+        "byteLength": 105742,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -37527,8 +37527,8 @@
       },
       {
         "file": "placedprofiletrims-037ed41056a4/origin_xz_mixed_segment.f3d",
-        "sha256": "a06ed776a4b5d4b4b54a43af8d622df65b8dcf447d81693d7023da6e31dd0668",
-        "byteLength": 60166,
+        "sha256": "361f289bdab910863ddc85ea06f5569f7d50e029d0fee8c7374eeae65bfe5412",
+        "byteLength": 60150,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -37599,8 +37599,8 @@
       },
       {
         "file": "planedefinitions-6cd0820a832e/offset.f3d",
-        "sha256": "fc0df3d6638fef80de06e22d4034af9fcf325dfc63435e75f4c360bcbbfd4815",
-        "byteLength": 32822,
+        "sha256": "aba24983c1c2e9f697a11e9248e226616c5768b4835c070f29f28d49daac8a72",
+        "byteLength": 32801,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -37779,8 +37779,8 @@
       },
       {
         "file": "projectionfamilies-d987c50c2d73/include_arc.f3d",
-        "sha256": "c69311087ddb99282166de9bb97c46d786696e7b0e426c3bc78ea9e994aedd8e",
-        "byteLength": 61082,
+        "sha256": "2ecc1666747a7147a04b67c8bce033689d55646d67e670aec2003a12f381d0d1",
+        "byteLength": 61060,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -37833,8 +37833,8 @@
       },
       {
         "file": "projectionfamilies-d987c50c2d73/intersect_plane.f3d",
-        "sha256": "125c521d4a0c2df8b400a1eeb943096eb734223d33ef29a31a870821777b0d90",
-        "byteLength": 32457,
+        "sha256": "e3d28a1b2cf918acb309d94c9b85e86b2c59d1bea09c7a052605cfc0ea2c75be",
+        "byteLength": 32440,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -38229,8 +38229,8 @@
       },
       {
         "file": "remainingbodyinputs-7b3357274e85/mirror_occurrence.f3d",
-        "sha256": "6ff0ea506671fb12d0505f93de678d0f2d40873bfbffb4565d778563e28b5bdb",
-        "byteLength": 67308,
+        "sha256": "fea66d16a80b6f53e81500d3e5ebc2b8a926b3ffd4a1e93e56a3071ec1821e04",
+        "byteLength": 67290,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -38247,8 +38247,8 @@
       },
       {
         "file": "remainingbodyinputs-7b3357274e85/mirror_two_features.f3d",
-        "sha256": "3cf39c08f0a00ee66205ed1ac6b31d5f73b471b60ea5002e43d92e2867efc587",
-        "byteLength": 81004,
+        "sha256": "17eadf0ff70672272520c5675a9c72bd674ed8fd6bea7a1bd71df54ed83724e8",
+        "byteLength": 80992,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -38553,8 +38553,8 @@
       },
       {
         "file": "revolvemodes-8eb734486235/negative.f3d",
-        "sha256": "c5a3445d8b95cdc420e4e558a115431b9c4890f8c72c25a70ca547c72dedd655",
-        "byteLength": 67158,
+        "sha256": "fe19ede01391ffdb71a1e577dcf7b7eacb6d4e2047d72cf9896c9ee397c3e868",
+        "byteLength": 67143,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -38751,8 +38751,8 @@
       },
       {
         "file": "rigidgroups-0784a68632cd/root_suppressed.f3d",
-        "sha256": "2d17ccd91198c62b8d286062516c98b5816a4ba2ae1dca5e72385a70dc622c4a",
-        "byteLength": 67015,
+        "sha256": "a218a94781e775522dd99e5ff778f809d2d45c3c074b5ca7a1015620db78d5f8",
+        "byteLength": 67000,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -38787,8 +38787,8 @@
       },
       {
         "file": "rulefilletsurfaces-7b26b40f98f7/offsets_one_three_witnesses.f3d",
-        "sha256": "790ff6a64560f9184190efcfe074b3ee8bb44ab2ab90bfed4d4f4c7d82c56533",
-        "byteLength": 209846,
+        "sha256": "e2aebce531cea29fae0e1a95aaf28ea98da69e28fff7ee393e24e025661d6255",
+        "byteLength": 209821,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -38823,8 +38823,8 @@
       },
       {
         "file": "rulefilletsurfaces-7b26b40f98f7/offsets_one_two_witnesses.f3d",
-        "sha256": "ce6782f4019521b602d2cdaf596b88290b4ae44e57e729b41929448bf4c34894",
-        "byteLength": 212111,
+        "sha256": "b44430d3d5b7ee9a1bb8dca43d010056c40f86cb289a1c7a556d3a63ef9e1c10",
+        "byteLength": 212090,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -38841,8 +38841,8 @@
       },
       {
         "file": "rulefilletsurfaces-9dd46198ca8a/offsets_one_two.f3d",
-        "sha256": "e4920ced5f952f99fe0bed8eda71ead47098afa4d26308fdd53dc3141f35fd52",
-        "byteLength": 157781,
+        "sha256": "9ef641d04fd0c86aef4083fa9c1a13c7ee320c722d36c56075a9b8a1e238a6d4",
+        "byteLength": 157751,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -38931,8 +38931,8 @@
       },
       {
         "file": "scaleshellinputs-97ef1cfd19e4/shell_two_bodies.f3d",
-        "sha256": "72bedd834c5fa8593adf4c5ec343b8ba851172b82ebb63f71d0707681940ca84",
-        "byteLength": 77436,
+        "sha256": "6c5809a55095554f933f29b6aa1be37aad8126ee5eac9ee8bc916036bfa18d71",
+        "byteLength": 77421,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -38967,8 +38967,8 @@
       },
       {
         "file": "silhouettedirections-805c2eaa2411/faces_brep_face_yz.f3d",
-        "sha256": "0cd9bdcee63f3de7db6bf9abe2ab71a8e7ed19fa72d445401670977c6fcc788e",
-        "byteLength": 135927,
+        "sha256": "1681ab361c2f398538d00b1c5ae8cd562a672c801721abcf025f0804524bea96",
+        "byteLength": 135910,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -38985,8 +38985,8 @@
       },
       {
         "file": "silhouettedirections-805c2eaa2411/faces_custom_axis_x.f3d",
-        "sha256": "a6d95dd32bc559863bdaef032fa5cf9a73561602b8d68ba8b3012b479bcbd9e2",
-        "byteLength": 134803,
+        "sha256": "5896f0ff85598f9614ca7adf73864f7f2bab68ea26747c5a40f643c068c94f3d",
+        "byteLength": 134776,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39003,8 +39003,8 @@
       },
       {
         "file": "silhouettesplits-7d78a686cdbb/faces_axis_x.f3d",
-        "sha256": "e8275df9bac66c59e11edc0b85c5a6cf95711dc16accb68f55bfbc04ad1fba0e",
-        "byteLength": 172958,
+        "sha256": "bc5ccbc21ee1141113f53789cc15f649993d7097abca6feee63a4f77da0e9edf",
+        "byteLength": 172926,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39021,8 +39021,8 @@
       },
       {
         "file": "silhouettesplits-7d78a686cdbb/faces_axis_y.f3d",
-        "sha256": "5a87fb216decd50b1d2ffb4c33f9cb8ec810e3db6c0c29a558a376a93ce295e2",
-        "byteLength": 172676,
+        "sha256": "ee27dc33eaa3e7ebdf393243773cc9e22011d5a14b058c471e769dfc4a917629",
+        "byteLength": 172665,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39057,8 +39057,8 @@
       },
       {
         "file": "silhouettesplits-7d78a686cdbb/solid_axis_x.f3d",
-        "sha256": "4b7be3ad15fdef384de541e1906a73e93077014fa3685d50897bad20a64943ea",
-        "byteLength": 170566,
+        "sha256": "bf5f5c3c13455fa64c4afdfca391045d18366b4806b0d4a9a078c381b02e15e3",
+        "byteLength": 170547,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39075,8 +39075,8 @@
       },
       {
         "file": "silhouettesplits-f21b83e21695/shelled_hollow_axis_x.f3d",
-        "sha256": "d61783e3fab8e338c04b824af02a6cee738b463ffb9d5ead84ea3d0b89940bbc",
-        "byteLength": 172866,
+        "sha256": "5a03d107325718dda9c03b884832db472a5af8b3f66b1cf746d1e22ffba1de89",
+        "byteLength": 172838,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39237,8 +39237,8 @@
       },
       {
         "file": "sketches-0ccea2ac0f9c/horizontal.f3d",
-        "sha256": "3ad5400f03cf72bdc7eb502297634759873888c4cd36a1e3de3f2c7322321da3",
-        "byteLength": 76054,
+        "sha256": "e701a5dd445f602718e4271c7da723e3fc4451092a53b6f963a0911833925a96",
+        "byteLength": 76030,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39273,8 +39273,8 @@
       },
       {
         "file": "sketches-0ccea2ac0f9c/vertical.f3d",
-        "sha256": "c5a41b8369814e5a86a967a01d6efd617f25ce21fd8f83facc26c7ff169cde70",
-        "byteLength": 76369,
+        "sha256": "d405c19980e6711edf406e9851b9bc5a32896f778a1c1f2ff328048aa8a9f9c3",
+        "byteLength": 76348,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39291,8 +39291,8 @@
       },
       {
         "file": "sketchmixedpatterns-fcb7610f3c95/circular_arc_circle.f3d",
-        "sha256": "b3f6eaa3aa03db09c4367832d4c56d768ef0e93c58c52a6fe3d49049a60ec030",
-        "byteLength": 70562,
+        "sha256": "d5b143d162ea15ace4390f144f703ed45e56423356f3131f6c91aa323704e127",
+        "byteLength": 70532,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39309,8 +39309,8 @@
       },
       {
         "file": "sketchmixedpatterns-fcb7610f3c95/circular_fitted_spline.f3d",
-        "sha256": "f37bc816a6b0be8b9499deb954f3cb24fa09b2a9d7b144b294c5588f6860ed99",
-        "byteLength": 70375,
+        "sha256": "195938cdd84a4b19aff8bedd22e4c5d32645cd260b01f9d023c8280278759e64",
+        "byteLength": 70359,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39327,8 +39327,8 @@
       },
       {
         "file": "sketchmixedpatterns-fcb7610f3c95/rectangular_ellipse_line.f3d",
-        "sha256": "a3c6c5a50411fa6696a8d6f27b4d73894e021c8c243e788502d5ea312995ad5e",
-        "byteLength": 117103,
+        "sha256": "ac6db26aedff5f5b30d6b5eee6ad72d95cd952d16761be2d17b30480345647ed",
+        "byteLength": 117068,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39345,8 +39345,8 @@
       },
       {
         "file": "sketchmixedpatterns-fcb7610f3c95/rectangular_fitted_spline_arc.f3d",
-        "sha256": "1fe4803a688514b69b82d179cc607eac61f1f99cef3fd514d0c2e35e207b10b8",
-        "byteLength": 106164,
+        "sha256": "b99d5645769b11ea021b59e5430cc3dfd5910fc21e10d40987526e03c898b3fb",
+        "byteLength": 106152,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39399,8 +39399,8 @@
       },
       {
         "file": "sketchpatterngaps-330282788fce/rectangular_direction_one.f3d",
-        "sha256": "75c16951aac2b1b09fe96ded9ac21fd9ebbc1821a4c62ed0391e864dec5fb876",
-        "byteLength": 53871,
+        "sha256": "9288236be4ffc45980acd97bc08524414ecbb5116ebcea251e5bf87c6c908021",
+        "byteLength": 53852,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39435,8 +39435,8 @@
       },
       {
         "file": "sketchpatterngaps-330282788fce/rectangular_symmetric_suppressed.f3d",
-        "sha256": "459397c92eade5fd3f368d5907e0546ea2a82249849c90acc8874d8af2f4c662",
-        "byteLength": 91991,
+        "sha256": "b0c11fc5e72db18731dcc3d5ffe8b59ea90acb832e7e7eec10573ae17934bebe",
+        "byteLength": 91979,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39489,8 +39489,8 @@
       },
       {
         "file": "sketchpatternmodes-5b83cb71a99d/circular_suppressed.f3d",
-        "sha256": "77261790fa1637bfcf55c780b2e1eb2099d3ea8fd29061ebfbcda097aad79a93",
-        "byteLength": 61707,
+        "sha256": "ea4fd4d3486c17f95672065e5c89779ccfcdcd7bcd30750e9acc2b40a2b28d4b",
+        "byteLength": 61692,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39543,8 +39543,8 @@
       },
       {
         "file": "sketchpatternmodes-5b83cb71a99d/rectangular_line_circle.f3d",
-        "sha256": "b5b661b7770bc3502f6a088986a96b512c72104700a1d305f8889c1d2866e9a4",
-        "byteLength": 117590,
+        "sha256": "9c2eda1efae94fc6b1440cc6bb95e2deafbd057c2fa1e14b367f309463f6d2fb",
+        "byteLength": 117575,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39615,8 +39615,8 @@
       },
       {
         "file": "sketchprojections-67c0c4531b8f/included_line.f3d",
-        "sha256": "fe0368eb909507af5acc14b869c5133384d9d8a3f900d3d9e6cde1f9b484f052",
-        "byteLength": 48331,
+        "sha256": "ff7ef6c44d9e29acf6aa39a468ab6855238daa150b2d29883cd1cd73c2ecb02e",
+        "byteLength": 48312,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39633,8 +39633,8 @@
       },
       {
         "file": "sketchprojections-67c0c4531b8f/linked_circle.f3d",
-        "sha256": "f65cbff74c050dbf6c82e8a896619704564206640e8f5baa85d4b909f1e3a569",
-        "byteLength": 116248,
+        "sha256": "590c29c4a5384781de05fd9972bb5f6b18b70e77828372291fe81eec23b4ac0d",
+        "byteLength": 116231,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39759,8 +39759,8 @@
       },
       {
         "file": "sketchsurfaceconstraints-5a2cd669cd19/line_parallel_to_plane.f3d",
-        "sha256": "dc72e12d81a77faaee1982a55f9ba0eb87c96e354e5e35eaf83ff5f2cc59f9f8",
-        "byteLength": 35984,
+        "sha256": "1c3f2260d61339a286b76fd652ad1397dc9f26b96a9d2111a544e26885a61c6f",
+        "byteLength": 35968,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39777,8 +39777,8 @@
       },
       {
         "file": "sketchsurfaceconstraints-5a2cd669cd19/perpendicular_to_plane.f3d",
-        "sha256": "e98739d3d6f86b1a6e0ef252c41a760d5d2f03ab35db0a58cb67be2aec97e32c",
-        "byteLength": 63019,
+        "sha256": "0df865d87cc185fe8097fd70856822feb27a94cadbe293c03e9ba90880487f85",
+        "byteLength": 63006,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39795,8 +39795,8 @@
       },
       {
         "file": "sketchsymmetricindices-2ba1d336c9cf/circular_even_high.f3d",
-        "sha256": "e4c3e663df999cac119b84ca16e3fc38323b94b32396abf61fd0a2a95e92d505",
-        "byteLength": 80942,
+        "sha256": "ba642caa3d6fb21832db6d25199718c28634c643599e3b04c5d9a1ba8e3a9f57",
+        "byteLength": 80932,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39831,8 +39831,8 @@
       },
       {
         "file": "sketchsymmetricindices-2ba1d336c9cf/rectangular_first_even.f3d",
-        "sha256": "81e783d1ff75f99c106712246117cc5262a3c5272b32dc7d572a10697f9b5a39",
-        "byteLength": 99436,
+        "sha256": "cf80b4171ff9bcf4a64c022a7a9c57124a11b75923524e3eabec99944f7812c5",
+        "byteLength": 99413,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39885,8 +39885,8 @@
       },
       {
         "file": "sketchsymmetricindices-bde2c81eaa4a/rectangular_both_holdout.f3d",
-        "sha256": "a45a81d7ece0a9e5df61b6b337e07d0fb7eead4fddf4ba1377b9d39ce85e4619",
-        "byteLength": 108971,
+        "sha256": "3bd02b66dc718ed5473cd686357c743fd1cd990e2a968ddf7f1585f385c8025d",
+        "byteLength": 108940,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -39903,8 +39903,8 @@
       },
       {
         "file": "sketchsymmetricindices-daa09c9428a1/rectangular_both_boundary.f3d",
-        "sha256": "849207052522adde426cca43b8d1b095a7acfc3bca5f2c758e4a787e40bba9b7",
-        "byteLength": 115512,
+        "sha256": "6f30623ecafcb569615f2c2e593d5c05ef1c30f54764c8794c48392a332eba3a",
+        "byteLength": 115496,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -40083,8 +40083,8 @@
       },
       {
         "file": "sketchtextpaths-63fe53b89eed/arc_along_above.f3d",
-        "sha256": "f14907659ea6d0c8672dc95d8c6f5dc96d98340a302a6f6f1f977cd20198351c",
-        "byteLength": 83505,
+        "sha256": "76559e18ff01174c2e1bc111d621612660d9dc3df5fe54af3b25fc1cc1dca632",
+        "byteLength": 83480,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -40173,8 +40173,8 @@
       },
       {
         "file": "sketchtextpaths-63fe53b89eed/line_fit_above.f3d",
-        "sha256": "9bfb33f34c666ba434853cdbbda22d9e2059856606f539f705a0f3cb5c4196c4",
-        "byteLength": 72337,
+        "sha256": "c8deb561d16abe669473c90b59f1674306db1724ff8ed3d83d2f7d9ea00aec6c",
+        "byteLength": 72306,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -40443,8 +40443,8 @@
       },
       {
         "file": "specialfillets-a279c7bccbd1/rule_between_faces_swapped.f3d",
-        "sha256": "21cc083b892337809c234b5a33912394f567e66b3ff689eae75c3f0691f14941",
-        "byteLength": 66161,
+        "sha256": "212fa12888e9fe56b04cd8140283dd987349b7a498800a69d48e8ec4a8bc148d",
+        "byteLength": 66140,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -40461,8 +40461,8 @@
       },
       {
         "file": "specialfillets-d50f7a4f04e0/full_automatic.f3d",
-        "sha256": "9f757a57d003f03f1dc85e766c4161d8eb280497ea763531d6741c722872672b",
-        "byteLength": 70829,
+        "sha256": "d9e2a7f8578b55c4d79770914cd47bf4bc4187c0b3e479f94dc4cca89b1288d9",
+        "byteLength": 70797,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -40497,8 +40497,8 @@
       },
       {
         "file": "specialfillets-d50f7a4f04e0/rule_all_both.f3d",
-        "sha256": "c02089b7dc09eb2efec101a27450ed5fcd169e6cbdd18c65661bad58a8c6235f",
-        "byteLength": 116017,
+        "sha256": "8901220d0724d1e6e7ac40410d02b4cea1fd39f4fd4c8a8afa4f5738d5b0f7d7",
+        "byteLength": 115988,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -40551,8 +40551,8 @@
       },
       {
         "file": "specialfillets-d50f7a4f04e0/rule_asymmetric.f3d",
-        "sha256": "20b767dcbcb153c88bb931b196556830bf85c0ec8557fda32b4c56aea6d07ce8",
-        "byteLength": 157390,
+        "sha256": "bad73417f897ac331e900d6b5818f44a48293d315fa3a88e49f05e2bf2e57ba8",
+        "byteLength": 157369,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -40623,8 +40623,8 @@
       },
       {
         "file": "splines-9a18bae21127/splines.f3d",
-        "sha256": "f334c3da6d0b789fbf9f22834359e1fc4736b3d44d8bb4254632f18d7081d5c6",
-        "byteLength": 176120,
+        "sha256": "41132e6e45ed0fa6becadfc062d8b0ea6199f9166032a6b41da0864dc1d59554",
+        "byteLength": 176095,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -40641,8 +40641,8 @@
       },
       {
         "file": "splitbodymultisheets-c78bec32dc3f/sheet_body_no_extend.f3d",
-        "sha256": "77e42d381df48be08a4e5f92500ab456bb4a7dda649dde04ddb8bcc1fe9e0575",
-        "byteLength": 90203,
+        "sha256": "986edf29d9f22cf8013151403913106245b8e272f0b67f1259b7438584bef4d3",
+        "byteLength": 90169,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -41523,8 +41523,8 @@
       },
       {
         "file": "surfacetrimtools-560510587441/sheet_face.f3d",
-        "sha256": "1b7772d7eadfd5736bde1f70d8662b13e7295a5ab63a32aac5b6b5982c927ef9",
-        "byteLength": 62235,
+        "sha256": "3010a0f20eb2591dce953798574fa078d2509dd49c36b2fdc81c4e4cfe21bc04",
+        "byteLength": 62184,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -41541,8 +41541,8 @@
       },
       {
         "file": "surfacetrimtools-650ca09579b1/sketch_line_offset_positive.f3d",
-        "sha256": "33dd68a8450ea918eb1b7df071128a369beae72bf659891a5e7e999845a9f45a",
-        "byteLength": 80951,
+        "sha256": "b1d2118bd41f7c5e3057f8d4b65aedca28b509ab846f05ef6de73faad0ef8440",
+        "byteLength": 80933,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -41559,8 +41559,8 @@
       },
       {
         "file": "surfacetrimtools-650ca09579b1/sketch_line_reversed_negative.f3d",
-        "sha256": "bc70972980d63d3b9511d4f4a8db22b31a94f43e337f1e9538494d6e8da2731b",
-        "byteLength": 80130,
+        "sha256": "7e61821875c40ecd556e79ea7b34bfb6a433161147a44b12c41850350868e586",
+        "byteLength": 80108,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -41847,8 +41847,8 @@
       },
       {
         "file": "sweepoperations-62378e7c0294/guided_cut.f3d",
-        "sha256": "bbab2196da87f7f766d16d564c87a294761727bcd63f4ea312b0d4390c8dbbf5",
-        "byteLength": 88029,
+        "sha256": "6726d6be6c7ed9fbb3530689b8ece232e13ed371aa1d066913512afac86b813f",
+        "byteLength": 88007,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -42441,8 +42441,8 @@
       },
       {
         "file": "thinextrudeoperations-edb76642a509/cut.f3d",
-        "sha256": "f0c1e0c66dd249375a226c4ba12a609ce5377b19cb5c6c20655170e29649c68c",
-        "byteLength": 82573,
+        "sha256": "96bf7b24df2a524e16858b905c53e07dca67af6a618fcd20dc746df573d073c9",
+        "byteLength": 82559,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -42495,8 +42495,8 @@
       },
       {
         "file": "thinextrudes-c1632bcb5efe/closed_center.f3d",
-        "sha256": "7cd5cee1eabae2805c4a8c1d637124aaed5e6fab1af1f7d333dd9927e1fcb4a5",
-        "byteLength": 78471,
+        "sha256": "c3f1d65e369119df821fb4da7db9bfe93f2c0b0a817b8aa464b9251415768595",
+        "byteLength": 78458,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -42549,8 +42549,8 @@
       },
       {
         "file": "thinextrudes-c1632bcb5efe/closed_two_sides_center.f3d",
-        "sha256": "b965f3faa55935193287ce3e36515a71ad764ef220db5bc0415fb327cc0f33a7",
-        "byteLength": 85480,
+        "sha256": "8343d35f7d125b655e1bcbbcc5018b2e1988c854513f242d9a4b53841a4ebe10",
+        "byteLength": 85460,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -42567,8 +42567,8 @@
       },
       {
         "file": "thinextrudes-c1632bcb5efe/closed_two_sides_mixed.f3d",
-        "sha256": "35704e7a39b5d72a3748468408557445b64e5d550e235b6d22a7dd400ca22362",
-        "byteLength": 88143,
+        "sha256": "5b6fc0a8f0f90209e87460cf9785e983482bdc53ef1cfa06f246e10382fbd0d7",
+        "byteLength": 88122,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -42621,8 +42621,8 @@
       },
       {
         "file": "threadfamilies-459264fae49b/ansi_unified_external.f3d",
-        "sha256": "7e3c70a7b8c05d285461104845e2ba990570ce8ede180643b1bf6222696b48fa",
-        "byteLength": 533578,
+        "sha256": "4cdc4bc0945dc7f7ac4afdb565118a9ac978c5a2f84ca796b82b5a82d835a476",
+        "byteLength": 533548,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -42927,8 +42927,8 @@
       },
       {
         "file": "timeline-5867579925b5/reordered_b.f3d",
-        "sha256": "6e94d4227be8e720600de4bbf36f25d9a95702427a56e2d7e7b6c80a4746e241",
-        "byteLength": 138600,
+        "sha256": "705627fe74725569f1fd7801e6f4f55085ddf23a12edc1a906da4a4cb403c2b1",
+        "byteLength": 138576,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -42963,8 +42963,8 @@
       },
       {
         "file": "timeline-5867579925b5/suppressed_b.f3d",
-        "sha256": "ed3fa34a5b4541bd87eee022be45b853c317fa47d2625c3cf4ee1f70339868f5",
-        "byteLength": 109515,
+        "sha256": "7f5f072a8b885dd0300f62149b2288cc8c96f82f251d8e3890ed76bafa7233cb",
+        "byteLength": 109495,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -42999,8 +42999,8 @@
       },
       {
         "file": "timeline-72406b67a839/reordered_b.f3d",
-        "sha256": "5fac53fda9afd5da3bcb9b3321a86e7f5ff55b34cf5f4b6e57341fad601c4dce",
-        "byteLength": 138616,
+        "sha256": "1feb585cc7276853f58a3b33c3bfc17caa43f057c4ec0949930dd3b89f95bcc0",
+        "byteLength": 138590,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -43035,8 +43035,8 @@
       },
       {
         "file": "timeline-expanded-2396e32f2574/expanded.f3d",
-        "sha256": "06ed3edfbe0b128657ebfd60494f765be0e23981f4dc6cf2a64a420adefa91e6",
-        "byteLength": 143923,
+        "sha256": "97aed2baa9c9edcf3c8c6c08936f84c0cbac83898f20489116c05ec59ed83ed9",
+        "byteLength": 143910,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -43125,8 +43125,8 @@
       },
       {
         "file": "tools-fda3948848f4/Hole.f3d",
-        "sha256": "2e5ae7b0bbcc319906a9008bdc02165aef95e7f5ea33c060584fecb3d9c29fa1",
-        "byteLength": 77909,
+        "sha256": "a845166eaa87859f8971665ccfd34cad1989ca1523d29489e76b67a984e5b86e",
+        "byteLength": 77891,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -43215,8 +43215,8 @@
       },
       {
         "file": "trimmedprofiles-a804f8da1496/circle_lens.f3d",
-        "sha256": "806c168b06375b7ddffc38b983ff57838ccb60f0821a013d9e88631f42e385e4",
-        "byteLength": 104479,
+        "sha256": "0c01587c7eae14939f2e7b3b79df8a75a11c5fe2e48ee7fa2adc5df36af0e882",
+        "byteLength": 104459,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -43395,8 +43395,8 @@
       },
       {
         "file": "userparameters-e9c6959ff5fd/favorite.f3d",
-        "sha256": "aa32a60e0701a2465167f37b22fd1fc11698a33996a53eec7bf1f291dcc162fc",
-        "byteLength": 30989,
+        "sha256": "ab677d021fd50caf9e88d7532b4b21d72aa9d523afc99b774d7270d2110a72ca",
+        "byteLength": 30963,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -43449,8 +43449,8 @@
       },
       {
         "file": "userparameters-e9c6959ff5fd/text.f3d",
-        "sha256": "2970c0aba8d5688eb05f3155ee985171c2b3a687233e67d89518c9d6423e6d35",
-        "byteLength": 31042,
+        "sha256": "18122997c19faf16fa75a992d499bdfb18946dc1a5e87b531bc86aa20ae63c30",
+        "byteLength": 31018,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -43467,8 +43467,8 @@
       },
       {
         "file": "userparameters-e9c6959ff5fd/unitless.f3d",
-        "sha256": "6d7e51614dde9c18f1604679f58a187c7356739bfbbc0a2c661a97a284bc1171",
-        "byteLength": 31028,
+        "sha256": "534fefa8e0ffe8c32bb5806e112eb05298793788844ebb61d52429717b16e7ce",
+        "byteLength": 31007,
         "designSegments": [
           {
             "metadataVersion": 8,
@@ -43521,8 +43521,8 @@
       },
       {
         "file": "variablefillets-a5080b076434/one_three_quarters.f3d",
-        "sha256": "19b11b9827e8865746b08f9c9eccd39b3775babe6adf2f7b1ecd342291bfd617",
-        "byteLength": 79325,
+        "sha256": "53a6d2a34a26d850be69aefad3e1e238c10781d0fddcb1f6e6ba4792f6ef9da2",
+        "byteLength": 79290,
         "designSegments": [
           {
             "metadataVersion": 8,
