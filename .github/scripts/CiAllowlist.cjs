@@ -4,6 +4,8 @@ const QueuePath = WorkflowRoot + "MergeQueue.yml";
 const QueueGate = "Merge queue acceptance";
 const QueueJobs = [
   "Run the complete test suite",
+  "Test suite / Plan",
+  "Test suite / Report",
   "Analyze actions",
   "Analyze python",
   "Bandit",
@@ -22,6 +24,12 @@ const QueueJobs = [
   "Trivy",
   "TruffleHog",
 ];
+const ShardJobs = /^Test suite \/ Shard \(\d+\)$/;
+const KQualityPath = "dynamic/github-code-quality/codeql";
+const KQualityRun = "Code Quality";
+const KQualityJobs = /^Analyze \(.+\)$/;
+const KQualitySources =
+  /\.(?:cjs|cs|cts|go|java|js|jsx|kt|kts|mjs|mts|py|pyi|rb|ts|tsx)$/i;
 const StaticChecks = {
   "PythonQuality.yml": {
     required: ["Ruff", "Black", "Pyright", "Mypy"],
@@ -67,7 +75,20 @@ const TargetChecks = {
   "PullRequestDiffBreakdown.yml": "Publish diff breakdown",
 };
 
-function CiWorkflows(IsPull, IncludeAgg = false, Opened = false) {
+function HasQualityCode(Files) {
+  return Files.some((File) =>
+    [File.filename, File.previous_filename].some(
+      (Name) => typeof Name === "string" && KQualitySources.test(Name),
+    ),
+  );
+}
+
+function CiWorkflows(
+  IsPull,
+  IncludeAgg = false,
+  Opened = false,
+  Analyzed = false,
+) {
   const Event = IsPull ? "pull_request" : "merge_group";
   const Workflows = new Map(
     Object.entries(StaticChecks).map(([File, Spec]) => [
@@ -79,11 +100,16 @@ function CiWorkflows(IsPull, IncludeAgg = false, Opened = false) {
     Workflows.set(QueuePath, {
       event: Event,
       required: [QueueGate, ...QueueJobs],
+      matching: [ShardJobs],
     });
     return Workflows;
   }
 
-  const Deferred = [...QueueJobs, "Analyze ${{ matrix.language }}"];
+  const Deferred = [
+    ...QueueJobs,
+    "Analyze ${{ matrix.language }}",
+    "Test suite / Shard (${{ matrix.shard }})",
+  ];
   Workflows.set(QueuePath, {
     event: Event,
     required: [QueueGate],
@@ -94,13 +120,11 @@ function CiWorkflows(IsPull, IncludeAgg = false, Opened = false) {
     event: Event,
     required: ["Build and verify release artifacts"],
   });
-  Workflows.set("dynamic/github-code-quality/codeql", {
+  Workflows.set(KQualityPath, {
     event: "dynamic",
-    required: [
-      "Analyze (python)",
-      "Analyze (java-kotlin)",
-      "Analyze (javascript-typescript)",
-    ],
+    required: [],
+    matching: [KQualityJobs],
+    expected: Analyzed ? KQualityRun : null,
   });
   for (const [File, Name] of Object.entries(TargetChecks))
     Workflows.set(WorkflowRoot + File, {
@@ -122,4 +146,4 @@ function CiWorkflows(IsPull, IncludeAgg = false, Opened = false) {
   return Workflows;
 }
 
-module.exports = { CiWorkflows, WorkflowPath };
+module.exports = { CiWorkflows, HasQualityCode, WorkflowPath };
