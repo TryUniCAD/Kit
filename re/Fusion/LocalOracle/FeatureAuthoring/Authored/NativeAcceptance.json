@@ -1,6 +1,6 @@
 {
   "fusion_version": "2706.1.17",
-  "documents_before": 2,
+  "documents_before": 0,
   "suite": "FilletChamferShell",
   "scope": "Kit-authored part feature documents compared with same-script native API controls: open without recompute, every rollback marker, computeAll, driving parameter edits, export and reopen",
   "cases": [
@@ -1410,7 +1410,7 @@
         "work": [],
         "marker": 3
       },
-      "saved_sha256": "a8e25ea71760148b98d3ed42f51687ecf67880083b125c9419e3b9d5b56ddfa5",
+      "saved_sha256": "06636d48c1b38fb8da9669f2f464f0faed9ceb18eaabe5e9f280c80babd607d2",
       "status": "accepted"
     },
     {
@@ -2699,7 +2699,7 @@
         "work": [],
         "marker": 3
       },
-      "saved_sha256": "1aaa86ff3c8124b27e44cd9f8ee21a0b9e7884aae043d42c9fbb3900cc5faa74",
+      "saved_sha256": "019ebb91534fb9f53fbb73ad10b9a655ec060c26634083e61159d1fe5af26a8e",
       "status": "accepted"
     },
     {
@@ -4020,7 +4020,7 @@
         "work": [],
         "marker": 3
       },
-      "saved_sha256": "1e3d67b578a0e83da0ec220b345f56c29fd5708475b4ca1365acd9aba79cf155",
+      "saved_sha256": "64d213da9504a9466e7c7af0e4714020343a8a8aaff2f2306c5d28eb8ff4d22a",
       "status": "accepted"
     },
     {
@@ -5931,7 +5931,7 @@
         "work": [],
         "marker": 4
       },
-      "saved_sha256": "4a6191a66a3fab529313fc3d8f6a6edee380f26488833514ee6b2c131e216fef",
+      "saved_sha256": "2db550d13ed6783be0fd2e15b37d7922f8be28d4bc328de48ec22b963d701a03",
       "status": "accepted"
     },
     {
@@ -9116,10 +9116,10 @@
         "work": [],
         "marker": 6
       },
-      "saved_sha256": "3e56607436634f2aa2cd62ba1781eca9eef2f4dcd5cff6b0ae42d32a092444ab",
+      "saved_sha256": "51edc1b62fc6229b183374b9a408a1c2f254f60ed900d843b69bb7cf31e99390",
       "status": "accepted"
     }
   ],
   "status": "accepted",
-  "documents_after": 2
+  "documents_after": 0
 }

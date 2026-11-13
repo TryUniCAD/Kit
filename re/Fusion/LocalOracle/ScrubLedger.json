@@ -451,11 +451,11 @@
     },
     {
       "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_Chamfer.f3d",
-      "fusionSavedSha256": "e2de28092e22c2536747e2d9dc1891db5ba20cca1362e4ccd355cc7fc7e9fa07",
-      "committedSha256": "1aaa86ff3c8124b27e44cd9f8ee21a0b9e7884aae043d42c9fbb3900cc5faa74",
+      "fusionSavedSha256": "bf6d867a20d9bb9ed9c0280a3fec24fc9cbd258ff4917ba7f80b05242c5d3e34",
+      "committedSha256": "019ebb91534fb9f53fbb73ad10b9a655ec060c26634083e61159d1fe5af26a8e",
       "counts": {
-        "account": 4,
-        "partial": 1,
+        "account": 1,
+        "partial": 0,
         "bare": 0,
         "name": 0,
         "home": 0,
@@ -661,8 +661,8 @@
     },
     {
       "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_Fillet.f3d",
-      "fusionSavedSha256": "6191e8c7181c3dd9825ff356226108c800d6f777247f38c2290c44b6c5a86790",
-      "committedSha256": "a8e25ea71760148b98d3ed42f51687ecf67880083b125c9419e3b9d5b56ddfa5",
+      "fusionSavedSha256": "9c950b313e62b09ba0802cc5973e902812a81133ad845d2d52a6ee643660f9f6",
+      "committedSha256": "06636d48c1b38fb8da9669f2f464f0faed9ceb18eaabe5e9f280c80babd607d2",
       "counts": {
         "account": 1,
         "partial": 0,
@@ -675,8 +675,8 @@
     },
     {
       "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_FilletShell.f3d",
-      "fusionSavedSha256": "b6b830c53ca939324f6f919a3da31b41736d674d2d06dc8abeca111cc2e1150c",
-      "committedSha256": "4a6191a66a3fab529313fc3d8f6a6edee380f26488833514ee6b2c131e216fef",
+      "fusionSavedSha256": "21360597732e611b64fb6667bb220f27abbc8b22a61da8d7de303120ce1e01f8",
+      "committedSha256": "2db550d13ed6783be0fd2e15b37d7922f8be28d4bc328de48ec22b963d701a03",
       "counts": {
         "account": 1,
         "partial": 0,
@@ -815,16 +815,16 @@
     },
     {
       "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_MultiFeature.f3d",
-      "fusionSavedSha256": "79f14f3472a88b4fea4b0bd6e209d2fb877c9a9bb4340359e7ae8dd055bbfb05",
-      "committedSha256": "3e56607436634f2aa2cd62ba1781eca9eef2f4dcd5cff6b0ae42d32a092444ab",
+      "fusionSavedSha256": "bdcadb3b579677eea4495f4a1b1a62203b3e63e37ddc1b5e57a8be335ca8eade",
+      "committedSha256": "51edc1b62fc6229b183374b9a408a1c2f254f60ed900d843b69bb7cf31e99390",
       "counts": {
-        "account": 0,
+        "account": 1,
         "partial": 0,
         "bare": 0,
         "name": 0,
         "home": 0,
         "urn": 0,
-        "echo": 1
+        "echo": 0
       }
     },
     {
@@ -1189,20 +1189,6 @@
         "home": 0,
         "urn": 0,
         "echo": 0
-      }
-    },
-    {
-      "path": "re/Fusion/LocalOracle/FeatureAuthoring/Authored/vendor_Shell.f3d",
-      "fusionSavedSha256": "a05f471cb8da56905df7f84e6fe82dc123f048dd21eb407ed2115bf9b5378a37",
-      "committedSha256": "1e3d67b578a0e83da0ec220b345f56c29fd5708475b4ca1365acd9aba79cf155",
-      "counts": {
-        "account": 0,
-        "partial": 0,
-        "bare": 0,
-        "name": 0,
-        "home": 0,
-        "urn": 0,
-        "echo": 1
       }
     },
     {
@@ -4704,6 +4690,7 @@
     "1E4A515F7CE",
     "2026C70C-EEF8-FF09-A7AA-5BDA831786C6",
     "24BA425B-0186-3021-DF65-C300B386E73E",
+    "29AED44D-D965-DCAF-216C-7D7EE7022AC5",
     "2a033a08c8d854da4611ac0884ca320c",
     "2c83222a8792765707f744006d",
     "309-9D29-61E4A515F7CE",
@@ -4755,6 +4742,7 @@
     "C5D94CDB-4DFB-CC8B-FDCD-78D0D3BF4D93",
     "CAYUUNNY3",
     "CC0E9B96-7B66-027B-4913-E4E541B99F42",
+    "CXK33KSC9BHMT1HE",
     "Cjnbygve",
     "D-FA87-160A-EE75-7052859BC9",
     "D05233EE-C989-DD61-A8C0-E846EC5384BE",

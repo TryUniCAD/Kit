@@ -344,7 +344,7 @@ def find_spans(blob, masker, learn, regions=(), delimited=False):
             if name in SHARED or name == home_mask(name):
                 continue
             spans["home"].append((match.start(1), match.end(1), widened(home_mask(name), step), None))
-    spans["echo"] = echo_spans(blob, masker, regions if delimited else [(0, len(blob))])
+    spans["echo"] = echo_spans(blob, masker, regions)
     return spans
 
 

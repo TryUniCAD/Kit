@@ -1,3 +1,7 @@
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Brep.FreeEdge import FreeEdge
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Brep.SpaceMath import (
+    KSpaceVector,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.LevelEdge import LevelEdge
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.LevelSplit import PointKey
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.ShapeUse import ShapeUse
@@ -9,6 +13,10 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.SpanMath import (
 KVertexKey = tuple[float, float, float]
 
 
+def SpaceKey(Point: KSpaceVector) -> KVertexKey:
+    return (*PointKey((Point[0], Point[1])), Point[2])
+
+
 def UseEnds(UseValue: ShapeUse) -> tuple[KVertexKey, KVertexKey]:
     EdgeValue = UseValue.Edge
     if isinstance(EdgeValue, LevelEdge):
@@ -16,6 +24,8 @@ def UseEnds(UseValue: ShapeUse) -> tuple[KVertexKey, KVertexKey]:
         Finish = PointKey(SpanFinish(EdgeValue.Span))
         Former = (*Start, EdgeValue.LevelCm)
         Latter = (*Finish, EdgeValue.LevelCm)
+    elif isinstance(EdgeValue, FreeEdge):
+        Former, Latter = SpaceKey(EdgeValue.StartCm), SpaceKey(EdgeValue.FinishCm)
     else:
         Point = PointKey(EdgeValue.PointCm)
         Summit = PointKey(EdgeValue.TopCm or EdgeValue.PointCm)

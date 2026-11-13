@@ -27,22 +27,22 @@ The fifteenth item is an input guard in `Assembly/Solids/SnapshotScope.py`.
 It checks a fixed 12-byte prefix of a 96-byte workbook before an edit and refuses other layouts.
 It reads input and writes no vendor bytes, so it is not donor data.
 
-| Item                                     | Status                                               |
-| ---------------------------------------- | ---------------------------------------------------- |
-| Drawing view body path                   | Open                                                 |
-| Drawing view source bytes and body key   | Open                                                 |
-| Drawing view state mark                  | Open                                                 |
-| Drawing sheet defaults                   | Open                                                 |
-| Feature defaults                         | Partly fixed: captured values removed in this branch |
-| Drawing viewport size                    | Open                                                 |
-| Drawing auto-created layout mark         | Open                                                 |
-| Drawing dimension text ratios            | Open                                                 |
-| Form stencil and shape tables            | Open                                                 |
-| Drawing ISO standard                     | Open                                                 |
-| Drawing view shape flags                 | Open                                                 |
-| Drawing record numbering                 | Open                                                 |
-| Drawing dimensions and material families | Open                                                 |
-| Form crease thresholds                   | Open                                                 |
+| Item                                     | Status                                                                                |
+| ---------------------------------------- | ------------------------------------------------------------------------------------- |
+| Drawing view body path                   | Open                                                                                  |
+| Drawing view source bytes and body key   | Open                                                                                  |
+| Drawing view state mark                  | Open                                                                                  |
+| Drawing sheet defaults                   | Open                                                                                  |
+| Feature defaults                         | Fixed: schema type defaults only, with 73 earlier and 36 new cases accepted in Fusion |
+| Drawing viewport size                    | Open                                                                                  |
+| Drawing auto-created layout mark         | Open                                                                                  |
+| Drawing dimension text ratios            | Open                                                                                  |
+| Form stencil and shape tables            | Open                                                                                  |
+| Drawing ISO standard                     | Open                                                                                  |
+| Drawing view shape flags                 | Open                                                                                  |
+| Drawing record numbering                 | Open                                                                                  |
+| Drawing dimensions and material families | Open                                                                                  |
+| Form crease thresholds                   | Open                                                                                  |
 
 ## Limits
 

@@ -19,6 +19,9 @@ It is replaced when it holds a digit, and it feeds the fragment search when it m
 All three lead rules also accept a next key that the end of the member cuts off, such as `"hubIdHashed` with no closing quote.
 This rule found a user name fragment in eight part feature controls that Fusion saved again in the fourth feature round.
 The scrubber changed only those eight archives, their models stayed equal, and a second run changed no byte.
+The fragment search now reads only protein `AssetData` members.
+Before, it also read design streams, and a learned document id rewrote the same id in a Kit-authored `BulkStream.dat`.
+That run was reverted before any commit, and keyed rules still read every member.
 
 The [scrub ledger](../../../../re/Fusion/LocalOracle/ScrubLedger.json) now lists every placeholder already written.
 The scrubber leaves values inside those placeholders unchanged, so a second run over a scrubbed archive changes no byte.
