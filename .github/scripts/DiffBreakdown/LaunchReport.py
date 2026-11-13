@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse as Argparse
 
+from AppendSummary import AppendSummary
 from GitHubCli import GhFailure
 from RunReport import RunReport
 from WriteOutputs import KOutputPath, WriteJson
@@ -23,6 +24,7 @@ def LaunchReport() -> None:
             raise
         WriteJson(KOutputPath / "Status.json", {"Status": "rate_limited"})
         print(KLimitNotice)
+    AppendSummary()
 
 
 if __name__ == "__main__":

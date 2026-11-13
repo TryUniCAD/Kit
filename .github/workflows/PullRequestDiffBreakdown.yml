@@ -188,11 +188,7 @@ jobs:
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           PULL_NUMBER: ${{ github.event.pull_request.number }}
         shell: bash
-        run: |
-          python3 .github/scripts/DiffBreakdown/LaunchReport.py --publish
-          if [ -f DiffBreakdownResults/Report.md ]; then
-            cat DiffBreakdownResults/Report.md >> "$GITHUB_STEP_SUMMARY"
-          fi
+        run: python3 .github/scripts/DiffBreakdown/LaunchReport.py --publish
 
       - name: Preserve complete snapshot
         if: ${{ !cancelled() }}
@@ -208,6 +204,6 @@ jobs:
         shell: bash
         run: |
           if [ -f "$RUNNER_TEMP/ci-job-budget-exceeded" ]; then
-            cat "$RUNNER_TEMP/ci-job-budget-exceeded" >&2
+            echo "This job exceeded its runner budget" >&2
             exit 1
           fi

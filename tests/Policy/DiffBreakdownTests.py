@@ -82,15 +82,22 @@ def BuildFixture(RootPath: FilePath) -> tuple[RepoFixture, str, str]:
 
 
 def RunEngine(
-    RootPath: FilePath, BaseRef: str, HeadRef: str, *ArgItems: str
+    RootPath: FilePath,
+    BaseRef: str,
+    HeadRef: str,
+    *ArgItems: str,
+    Repository: str = "TryUniCAD/Kit",
+    SummaryPath: FilePath | None = None,
 ) -> Subprocess.CompletedProcess[str]:
     EnvValues = {
         KeyText: ValueText
         for KeyText, ValueText in OsLib.environ.items()
-        if KeyText not in {"GH_TOKEN", "GITHUB_TOKEN"}
+        if KeyText not in {"GH_TOKEN", "GITHUB_TOKEN", "GITHUB_STEP_SUMMARY"}
     }
+    if SummaryPath is not None:
+        EnvValues["GITHUB_STEP_SUMMARY"] = str(SummaryPath)
     EnvValues.update(
-        GITHUB_REPOSITORY="TryUniCAD/Kit",
+        GITHUB_REPOSITORY=Repository,
         GITHUB_EVENT_NAME="pull_request",
         GITHUB_SHA=HeadRef,
         GITHUB_RUN_ID="11",
@@ -112,14 +119,20 @@ def RunEngine(
 
 
 def TestDiffPreview() -> None:
-    with Tempfile.TemporaryDirectory() as TmpPath:
+    with (
+        Tempfile.TemporaryDirectory() as TmpPath,
+        Tempfile.TemporaryDirectory() as SummaryDir,
+    ):
         RootPath = FilePath(TmpPath)
+        SummaryPath = FilePath(SummaryDir) / "StepSummary.md"
         _, BaseRef, HeadRef = BuildFixture(RootPath)
-        RunResult = RunEngine(RootPath, BaseRef, HeadRef)
+        RunResult = RunEngine(RootPath, BaseRef, HeadRef, SummaryPath=SummaryPath)
         assert RunResult.returncode == 0, RunResult.stdout + RunResult.stderr
         OutputPath = RootPath / "DiffBreakdownResults"
         Snapshot = JsonLib.loads((OutputPath / "Snapshot.json").read_text())
         ReportText = (OutputPath / "Report.md").read_text()
+        SummaryText = SummaryPath.read_text(encoding="utf-8")
+    assert SummaryText == ReportText
     FileTypes = {Entry["Path"]: Entry["Category"] for Entry in Snapshot["Files"]}
     assert FileTypes == KExpectedTypes
     Categories = Snapshot["Categories"]
@@ -136,9 +149,32 @@ def TestDiffPreview() -> None:
 
 
 def TestTrustGuard() -> None:
+    with (
+        Tempfile.TemporaryDirectory() as TmpPath,
+        Tempfile.TemporaryDirectory() as SummaryDir,
+    ):
+        RootPath = FilePath(TmpPath)
+        SummaryPath = FilePath(SummaryDir) / "StepSummary.md"
+        _, BaseRef, HeadRef = BuildFixture(RootPath)
+        RunResult = RunEngine(
+            RootPath, BaseRef, HeadRef, "--publish", SummaryPath=SummaryPath
+        )
+        HasSummary = SummaryPath.exists()
+    assert RunResult.returncode != 0
+    assert "trusted pull_request_target revision" in RunResult.stderr
+    assert not HasSummary
+
+
+def TestRepoGuard() -> None:
     with Tempfile.TemporaryDirectory() as TmpPath:
         RootPath = FilePath(TmpPath)
         _, BaseRef, HeadRef = BuildFixture(RootPath)
-        RunResult = RunEngine(RootPath, BaseRef, HeadRef, "--publish")
-    assert RunResult.returncode != 0
-    assert "trusted pull_request_target revision" in RunResult.stderr
+        for Repository in (
+            "TryUniCAD/Kit/Extra",
+            "TryUniCAD/",
+            "/Kit",
+            "Try UniCAD/Kit",
+        ):
+            RunResult = RunEngine(RootPath, BaseRef, HeadRef, Repository=Repository)
+            assert RunResult.returncode != 0, Repository
+            assert "Invalid repository identity" in RunResult.stderr, Repository
