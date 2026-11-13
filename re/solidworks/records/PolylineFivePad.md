@@ -3,7 +3,8 @@
 ## Scope
 
 This family contains one closed, simple five-line sketch on the Front Plane followed by one blind boss extrusion.
-It is bounded to feature ids 26 and 32, direction 0, positive blind depth, and no sketch dimensions.
+It is bounded to feature ids 26 and 32, direction 0, positive blind depth, no sketch dimensions, and no solver relations.
+The public writer rejects sketches carrying geometric constraints rather than discarding solver intent while claiming an editable parametric result.
 Construction or fixed entities, other geometries, open or self-intersecting wires, other planes, and other end conditions remain rejected.
 
 ## Vendor evidence

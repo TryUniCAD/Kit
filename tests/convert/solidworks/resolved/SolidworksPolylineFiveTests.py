@@ -26,7 +26,7 @@ from tests.convert.solidworks.core.SolidworksWriterTests import FreecadRPD
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumGeometry import GeometryKind
 from interchange.geometry.models.GeometryCurves import LineGeometry
-from interchange.geometry.models.Sketch import SketchEntity
+from interchange.geometry.models.Sketch import SketchEntity, SketchRelation
 from interchange.geometry.models.VectorPlane import PlaneVector
 
 KPoints = (
@@ -161,7 +161,7 @@ def TestFCPDV(TmpPath: FilePath) -> None:
     assert NativeData.operations[0].length_mm == PytestLib.approx(37.0)
     assert NativeData.bounding_box is not None
     assert NativeData.bounding_box.center_mm == PytestLib.approx((18.5, 13.5, 18.5))
-    ExpectedDiameter = 2000.0 * ((26.5**2 + 23.5**2 + 18.5**2) ** 0.5)
+    ExpectedDiameter = 2.0 * ((26.5**2 + 23.5**2 + 18.5**2) ** 0.5)
     assert NativeData.bounding_box.diameter_mm == PytestLib.approx(ExpectedDiameter)
     RequireNVFrame(ArchiveData)
 
@@ -178,6 +178,18 @@ def TestOpenFails(TmpPath: FilePath) -> None:
     assert HasVendorPartEncoding(SourceDoc) is False
     with PytestLib.raises(ApplicationUsabilityError):
         _ = WriteDoc(SourceDoc, TmpPath / "Open.SLDPRT", allow_carrier=False)
+
+
+def TestRelations(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument()
+    Sketch = ReplaceData(
+        SourceDoc.sketches[0],
+        constraints=(SketchRelation("relation:0", "horizontal", ()),),
+    )
+    SourceDoc = ReplaceData(SourceDoc, sketches=(Sketch,))
+    assert HasVendorPartEncoding(SourceDoc) is False
+    with PytestLib.raises(ApplicationUsabilityError):
+        _ = WriteDoc(SourceDoc, TmpPath / "Relations.SLDPRT", allow_carrier=False)
 
 
 def TestCrossFails(TmpPath: FilePath) -> None:

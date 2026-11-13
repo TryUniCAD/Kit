@@ -22,11 +22,11 @@ KReferenceBuild = 2026306
 
 @Dataclass(frozen=True, slots=True)
 class Addition:
-    offset: int
-    payload: bytes
+    Offset: int
+    Payload: bytes
 
 
-def CheckedInsert(Buffer: bytes, Position: int, Payload: bytes) -> bytes:
+def InsertBytes(Buffer: bytes, Position: int, Payload: bytes) -> bytes:
     if Position < 0 or Position > len(Buffer):
         raise SldprtFormatError("Config-0 insertion point is outside the stream")
     return Buffer[:Position] + Payload + Buffer[Position:]
@@ -36,7 +36,7 @@ def EncodeSfTail() -> bytes:
     return EncodeString("") + EncodeString("") + Struct.pack("<II", 0, 0)
 
 
-def ModernVisual() -> bytes:
+def BuildVisual() -> bytes:
     Payload = bytearray(
         EncodeDSP(101, KGeneration, KReferenceBuild, KDefaultRenderStyle)
     )
@@ -67,7 +67,7 @@ def ApplyAdditions(Buffer: bytes, NameWidth: int) -> bytes:
     Shift = (
         NameWidth
         - KReferenceNameWidth
-        + len(ModernVisual())
+        + len(BuildVisual())
         - (KVisualEnd - KVisualStart)
     )
     Records = (
@@ -78,7 +78,7 @@ def ApplyAdditions(Buffer: bytes, NameWidth: int) -> bytes:
         Addition(2600, PlaneTail),
     )
     for Record in Records:
-        Buffer = CheckedInsert(Buffer, Record.offset + Shift, Record.payload)
+        Buffer = InsertBytes(Buffer, Record.Offset + Shift, Record.Payload)
     return Buffer
 
 
@@ -115,9 +115,11 @@ def BuildNVConfig(
         HighWater=ResolvedWater,
     )
     Shift = len(PartName.encode("utf-16le")) - KReferenceNameWidth
-    Buffer = Buffer[:KVisualStart] + ModernVisual() + Buffer[KVisualEnd + Shift :]
+    Buffer = (
+        Buffer[: KVisualStart + Shift] + BuildVisual() + Buffer[KVisualEnd + Shift :]
+    )
     Buffer = ApplyAdditions(Buffer, len(PartName.encode("utf-16le")))
     Buffer = UpdateGen(Buffer)
-    if len(Buffer) != KConfigBytes:
+    if len(Buffer) != KConfigBytes + Shift:
         raise SldprtFormatError("Config-0 2026 stream length is not the recovered size")
     return Buffer

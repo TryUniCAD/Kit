@@ -10,7 +10,9 @@ from convert.adapters.solidworks.programs.Common.FieldEncoder import (
     ReplayResolved,
 )
 
-from .PadFieldSets import AnnotationMap, BoundingMap, DisplayMap
+from .BuildBounds import BuildBounds
+from .BuildDisplay import BuildDisplay
+from .BuildNotes import BuildNotes
 from .PadGeometry import ComputeBounds
 from .PadValidation import ValidatePad
 from .Registry import (  # lgtm[py/unused-import]
@@ -48,9 +50,9 @@ def PadFieldMap(
     }
     FieldValues.update({OffsetPos: DepthMm / 1000.0 for OffsetPos in KDepthOffsets})
     Bounds = ComputeBounds(PointsMm, DepthMm)
-    FieldValues.update(BoundingMap(Bounds))
-    FieldValues.update(DisplayMap(Bounds))
-    FieldValues.update(AnnotationMap(PointsMm, DepthMm))
+    FieldValues.update(BuildBounds(Bounds))
+    FieldValues.update(BuildDisplay(Bounds))
+    FieldValues.update(BuildNotes(PointsMm, DepthMm))
     return FieldValues
 
 
