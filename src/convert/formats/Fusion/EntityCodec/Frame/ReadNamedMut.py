@@ -20,7 +20,7 @@ def ReadNamedMut(
         )
         if FieldName in Names:
             raise ValueError("Duplicate or unsupported Fusion entity named metadata")
-        Shape = NamedShape(TypeName, ElementName, Catalog.NamedTypes)
+        Shape = NamedShape(TypeName, ElementName, Catalog)
         Names.add(FieldName)
         Entries.append(
             NamedMetadata(

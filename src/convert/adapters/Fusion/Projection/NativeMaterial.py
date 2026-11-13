@@ -5,21 +5,19 @@ from convert.formats.Fusion.DocumentCodec.Materials.ProjectMaterial import (
     ProjectMaterial,
 )
 from convert.formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentModel
+from convert.formats.Fusion.DocumentCodec.Reading.Materials.ReadMatRefs import (
+    ReadMatRefs,
+)
 
 
 def NativeMaterial(ModelValue: DocumentModel) -> MaterialSpec:
-    if not ModelValue.Bodies:
-        if ModelValue.Materials:
-            raise ValueError("Unexpected material in a body-free Fusion profile")
-        return MaterialSpec()
-    if len(ModelValue.Materials) != 1:
-        raise ValueError("Qualified Fusion solids require one material package")
-    Package = ModelValue.Materials[0].Package
-    Physical = tuple(
-        Asset.InstanceId
-        for Asset in Package.Assets
-        if Asset.SchemaName == "PhysMatSchema"
+    Bodies = ReadMatRefs(ModelValue, "physicalMaterial")
+    if any(Package is None for Package, _ in Bodies):
+        raise ValueError("Fusion body has an undefined physical material")
+    Found = Bodies or ReadMatRefs(ModelValue, "defaultPhysicalMaterial")
+    Assets = tuple(
+        (Package, Identity) for Package, Identity in Found if Package is not None
     )
-    if len(Physical) != 1:
-        raise ValueError("Unsupported Fusion physical material projection")
-    return ProjectMaterial(Package, Physical[0])
+    if len(Assets) > 1:
+        raise ValueError("Fusion document uses more than one physical material")
+    return ProjectMaterial(*Assets[0]) if Assets else MaterialSpec()

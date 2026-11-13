@@ -18,8 +18,8 @@ def ReadPackage(Payload: bytes) -> MaterialPackage:
     if type(Payload) is not bytes or not 0 < len(Payload) <= KMaxPackage:
         raise ValueError("Invalid material package size")
     with OpenFusionZip(Payload) as Archive:
-        Prefix = ReadPackageRoot(Archive)
-        Result = ReadPackageBody(Archive, Prefix)
+        Prefix, HasResources = ReadPackageRoot(Archive)
+        Result = ReadPackageBody(Archive, Prefix, HasResources)
         CheckPackage(Result)
         if (
             Prefix != Result.AssetCore.Identifier + "/"

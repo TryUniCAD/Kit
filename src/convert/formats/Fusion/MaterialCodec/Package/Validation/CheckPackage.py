@@ -6,6 +6,9 @@ from convert.formats.Fusion.MaterialCodec.Package.SchemaModels import SchemaMode
 from convert.formats.Fusion.MaterialCodec.Package.Validation.CheckCoreRoles import (
     CheckCoreRoles,
 )
+from convert.formats.Fusion.MaterialCodec.Package.Validation.CheckFolder import (
+    CheckFolder,
+)
 from convert.formats.Fusion.MaterialCodec.Package.Validation.CheckResources import (
     CheckResources,
 )
@@ -23,3 +26,7 @@ def CheckPackage(Value: MaterialPackage) -> None:
         "application/xml",
     )
     CheckAssets(Value.Assets, BuildSchemas(Schemas))
+    if Value.Resources is not None:
+        if Value.Resources.Core.NameValue != "Resources":
+            raise ValueError("Unsupported material resource folder")
+        CheckFolder(Value.Resources, 0)

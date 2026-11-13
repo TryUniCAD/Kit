@@ -31,3 +31,4 @@ class DocumentModel:
     Forms: tuple[DocumentForm, ...] = ()
     Properties: DocProps | None = None
     Redirects: DocRedirects | None = None
+    Images: tuple[ContainerPart, ...] = ()

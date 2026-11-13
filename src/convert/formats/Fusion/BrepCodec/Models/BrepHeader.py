@@ -9,3 +9,4 @@ class BrepHeader:
     Scale: float
     AbsoluteTolerance: float
     NormalTolerance: float
+    IntWidth: int = 8

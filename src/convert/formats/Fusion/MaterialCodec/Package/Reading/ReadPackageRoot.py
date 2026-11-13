@@ -4,15 +4,16 @@ from convert.formats.Fusion.MaterialCodec.Package.Envelope.CheckFormats import (
 )
 from convert.formats.Fusion.MaterialCodec.Package.Envelope.ReadLinks import ReadLinks
 from convert.formats.Fusion.MaterialCodec.Package.PackageLimits import (
+    KFolderSets,
+    KMaxEntries,
     KMaxPackage,
-    KMaxSchemas,
     KMaxXmlBytes,
 )
 
 
-def ReadPackageRoot(Archive: IndexedArchive) -> str:
+def ReadPackageRoot(Archive: IndexedArchive) -> tuple[str, bool]:
     if (
-        len(Archive.Entries) > KMaxSchemas + 14
+        len(Archive.Entries) > KMaxEntries
         or sum(Entry.file_size for Entry in Archive.Entries.values()) > KMaxPackage
     ):
         raise ValueError("Material package index exceeds limits")
@@ -24,13 +25,11 @@ def ReadPackageRoot(Archive: IndexedArchive) -> str:
     ):
         raise ValueError("Material package requires one UUID asset folder")
     Prefix = Links[0] + "/"
-    if ReadLinks(Archive.ReadMember(Prefix + "cnx.xml", KMaxXmlBytes)) != (
-        "AssetData",
-        "Schemas",
-    ):
+    Folders = ReadLinks(Archive.ReadMember(Prefix + "cnx.xml", KMaxXmlBytes))
+    if Folders not in KFolderSets:
         raise ValueError("Unsupported material asset folders")
     CheckFormats(
         Archive.ReadMember("[Content_Types].xml", KMaxXmlBytes),
         Archive.ReadMember("autodesk-design-package.xml", KMaxXmlBytes),
     )
-    return Prefix
+    return Prefix, "Resources" in Folders

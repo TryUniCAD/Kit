@@ -24,6 +24,7 @@ def ReadTspline(Payload: bytes) -> TsplineSurface:
     )
     Creases = ReadCreases(Cursor)
     Symmetry = ReadSymmetry(Cursor)
+    EdgeKnots = tuple(ReadNumber(Fields[0]) for Fields in ReadRows(Cursor, "106ek", 1))
     SmartGrips = tuple(
         ReadInteger(Fields[0]) for Fields in ReadRows(Cursor, "50000grip", 1)
     )
@@ -35,6 +36,7 @@ def ReadTspline(Payload: bytes) -> TsplineSurface:
         Creases,
         Symmetry,
         SmartGrips,
+        EdgeKnots,
     )
     CheckSurface(Result)
     return Result

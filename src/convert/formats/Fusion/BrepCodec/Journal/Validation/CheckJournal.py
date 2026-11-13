@@ -1,3 +1,7 @@
+from convert.formats.Fusion.BrepCodec.Journal.JournalLimits import (
+    KJournalEntities,
+    KJournalStates,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Nodes.CheckComplex import (
     CheckComplex,
 )
@@ -28,8 +32,8 @@ def CheckJournal(Model: JournalModel) -> None:
         raise ValueError("Fusion journal tables must be immutable tuples")
     if (
         type(Model.ActiveCount) is not int
-        or not 1 <= Model.ActiveCount <= len(Model.Entities) <= 4096
-        or not 2 <= len(Model.States) <= 256
+        or not 1 <= Model.ActiveCount <= len(Model.Entities) <= KJournalEntities
+        or not 2 <= len(Model.States) <= KJournalStates
     ):
         raise ValueError("Fusion journal entity/state quotas exceeded")
     if (

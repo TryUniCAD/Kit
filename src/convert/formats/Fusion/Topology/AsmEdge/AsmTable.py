@@ -11,7 +11,11 @@ KAsmValue: TypeAlias = int | float | str | bytes | tuple[float, ...] | None
 # each serialized token keeps the wire discriminator needed by field readers
 KAsmToken: TypeAlias = tuple[int, KAsmValue]
 
-KRecordTokens = 16384
+KRecordTokens = 1 << 20
+
+KIntCodes = {4: "<i", 8: "<q"}
+
+KAsmWidths = {b"ASM BinaryFile8": 8, b"ASM BinaryFile4": 4}
 
 
 # initial entity ordinals are separate from stored body handles and history slots
@@ -29,10 +33,10 @@ class AsmTable:
 
 
 # a focused initial reader consumes every token by its bounded wire grammar
-def ReadAsmToken(Cursor: MetaCursor) -> KAsmToken:
+def ReadAsmToken(Cursor: MetaCursor, Width: int = 8) -> KAsmToken:
     TagValue = Cursor.TakeBytes(1)[0]
     if TagValue in (4, 12, 21, 23):
-        Value = Unpack("<q", Cursor.TakeBytes(8))[0]
+        Value = Unpack(KIntCodes[Width], Cursor.TakeBytes(Width))[0]
     elif TagValue == 6:
         Value = Unpack("<d", Cursor.TakeBytes(8))[0]
         if not IsFinite(Value):
@@ -44,7 +48,7 @@ def ReadAsmToken(Cursor: MetaCursor) -> KAsmToken:
     elif TagValue == 8:
         Value = Cursor.TakeBytes(Unpack("<H", Cursor.TakeBytes(2))[0]).decode("utf-8")
     elif TagValue == 18:
-        SizeValue = Unpack("<q", Cursor.TakeBytes(8))[0]
+        SizeValue = Unpack(KIntCodes[Width], Cursor.TakeBytes(Width))[0]
         Value = Cursor.TakeBytes(SizeValue)
     elif TagValue in (19, 20):
         Value = Unpack("<3d", Cursor.TakeBytes(24))
@@ -58,11 +62,11 @@ def ReadAsmToken(Cursor: MetaCursor) -> KAsmToken:
 
 
 # recursive entity subtype delimiters are framed but not evaluated
-def ReadAsmRecord(Cursor: MetaCursor, NameValue: str) -> AsmRecord:
+def ReadAsmRecord(Cursor: MetaCursor, NameValue: str, Width: int = 8) -> AsmRecord:
     Tokens: list[KAsmToken] = []
     Depth = 0
     for _ in range(KRecordTokens):
-        Token = ReadAsmToken(Cursor)
+        Token = ReadAsmToken(Cursor, Width)
         TagValue = Token[0]
         if TagValue == 17:
             if Depth:

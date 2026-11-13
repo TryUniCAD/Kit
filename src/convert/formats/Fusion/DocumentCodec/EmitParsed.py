@@ -5,6 +5,9 @@ from convert.formats.Fusion.DocumentCodec.Auxiliary.Graphics.EmitSceneParts impo
 from convert.formats.Fusion.DocumentCodec.Auxiliary.Configuration.CheckDocConfig import (
     CheckDocConfig,
 )
+from convert.formats.Fusion.DocumentCodec.Auxiliary.Images.CheckDocImages import (
+    CheckDocImages,
+)
 from convert.formats.Fusion.DocumentCodec.Auxiliary.Links.CheckDocLinks import (
     CheckDocLinks,
 )
@@ -46,6 +49,7 @@ def EmitParsed(Value: DocumentModel) -> bytes:
     CheckDocScene(Value)
     CheckDocMeshes(Value)
     CheckDocForms(Value)
+    CheckDocImages(Value)
     Streams = tuple(EmitDocSegment(Segment) for Segment in Value.Segments)
     Parts = (
         tuple(EmitBodyPart(BodyValue) for BodyValue in Value.Bodies)
@@ -55,6 +59,7 @@ def EmitParsed(Value: DocumentModel) -> bytes:
         + EmitSceneParts(Value.Graphics)
         + tuple(EmitMeshPart(MeshValue) for MeshValue in Value.Meshes)
         + tuple(EmitFormPart(FormValue) for FormValue in Value.Forms)
+        + Value.Images
     )
     Container = FusionContainer(
         Value.Document,

@@ -14,6 +14,7 @@ from convert.formats.Fusion.MaterialCodec.Package.PackageLimits import (
     KMaxXmlBytes,
     KVersionTable,
 )
+from convert.formats.Fusion.MaterialCodec.Package.Reading.ReadFolder import ReadFolder
 from convert.formats.Fusion.MaterialCodec.Package.Schema.ReadSchemaNode import (
     ReadSchemaNode,
 )
@@ -23,7 +24,9 @@ from convert.formats.Fusion.MaterialCodec.Package.Schema.SchemaIdentity import (
 from convert.formats.Fusion.MaterialCodec.Package.SchemaModels import SchemaModels
 
 
-def ReadPackageBody(Archive: IndexedArchive, Prefix: str) -> MaterialPackage:
+def ReadPackageBody(
+    Archive: IndexedArchive, Prefix: str, HasResources: bool
+) -> MaterialPackage:
     SchemaLinks = ReadResources(
         Archive.ReadMember(Prefix + "Schemas/cnx.xml", KMaxXmlBytes)
     )
@@ -68,4 +71,9 @@ def ReadPackageBody(Archive: IndexedArchive, Prefix: str) -> MaterialPackage:
         SchemaLinks,
         Schemas,
         DecodeMaterials(Streams, SchemaModels(Schemas)),
+        (
+            ReadFolder(Archive, Prefix + "Resources/", "Resources", 0)
+            if HasResources
+            else None
+        ),
     )

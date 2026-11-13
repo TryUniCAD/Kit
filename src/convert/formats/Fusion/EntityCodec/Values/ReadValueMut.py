@@ -9,6 +9,7 @@ from convert.formats.Fusion.EntityCodec.Values.ReadSeriesMut import ReadSeriesMu
 from convert.formats.Fusion.EntityCodec.Values.ReadGeArrayMut import ReadGeArrayMut
 from convert.formats.Fusion.EntityCodec.Values.ReadShapeMut import ReadShapeMut
 from convert.formats.Fusion.EntityCodec.Wire.AtomKinds import KAtomKinds
+from convert.formats.Fusion.EntityCodec.Wire.FlagByte import ReadFlagMut
 from convert.formats.Fusion.EntityCodec.Wire.ReadAtomMut import ReadAtomMut
 from convert.formats.Fusion.EntityCodec.Wire.ReadRefMut import ReadRefMut
 from convert.formats.Fusion.MetaCursor import MetaCursor
@@ -21,6 +22,8 @@ def ReadValueMut(
     Catalog.Quota.TakeValue()
     if Depth >= KMaxDepth:
         raise ValueError("Fusion entity values exceed the nesting limit")
+    if Shape.KindValue == "bool":
+        return ReadFlagMut(Cursor)
     if Shape.KindValue in KAtomKinds:
         return ReadAtomMut(Cursor, Shape)
     if Shape.KindValue in ("ascii", "utf16"):

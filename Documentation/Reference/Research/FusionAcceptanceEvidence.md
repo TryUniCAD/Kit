@@ -156,6 +156,8 @@ Steering also rejected two test names over 15 letters and a four-letter variable
 
 The offline census in the [saved document coverage entry](../../Changes/Fusion/Records/FusionSavedDocumentCoverage.md) reads 159 of 159 vendor exports and 1,145 of 1,159 F3D and F3Z files. The 14 unreadable files are three older example files with 48 uncatalogued class versions and 11 Kit research files. See the [data model section](FusionDataModel.md#fusion-saved-document-coverage).
 
+The [read gap change](../../Changes/Fusion/Records/FusionReadGaps.md) swept the 1,709 tracked files and their 1,725 design documents. `ReadDocument` reads 1,704 documents, against 1,690 before. Of these, 1,698 round-trip. `NativeMaterial` passes 1,656 documents, against 1,371 before. The 21 unread documents are 5 Kit containers that Fusion rejected, 2 cache rewrites that Fusion failed to import, 4 Form files whose patch words are doubles, and 10 bundle members that stop in the graphics cache. This census is offline. It adds no native acceptance run. See the [read gap rules](FusionDataModel.md#read-gap-rules).
+
 ## Complex surface geometry
 
 | Report                                                                                                 | SHA-256                                                            | Status     | Observed result                                                                                                  |

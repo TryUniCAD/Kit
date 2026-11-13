@@ -19,5 +19,7 @@ def ClassGroups(
         Visited.add(Identity)
         Schema = Catalog.Classes[Identity]
         Groups.append(Schema)
+        if Schema.IsOpaque:
+            break
         Identity = Schema.BaseGuid.upper()
     return tuple(Groups)

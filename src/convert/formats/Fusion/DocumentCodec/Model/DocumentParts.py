@@ -1,6 +1,7 @@
 from dataclasses import dataclass as MakeDataClass
 from convert.formats.Fusion.GraphicsCodec.Model.State.GraphicScene import GraphicScene
 
+from convert.formats.Fusion.ContainerCodec.Model.ContainerPart import ContainerPart
 from convert.formats.Fusion.DocumentCodec.Model.ConfigPart import ConfigPart
 from convert.formats.Fusion.DocumentCodec.Model.DocumentBody import DocumentBody
 from convert.formats.Fusion.DocumentCodec.Model.DocumentForm import DocumentForm
@@ -18,3 +19,4 @@ class DocumentParts:
     Graphics: GraphicScene | None = None
     Meshes: tuple[DocumentMesh, ...] = ()
     Forms: tuple[DocumentForm, ...] = ()
+    Images: tuple[ContainerPart, ...] = ()

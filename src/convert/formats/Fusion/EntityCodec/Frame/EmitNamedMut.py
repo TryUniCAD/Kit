@@ -13,7 +13,7 @@ def EmitNamedMut(Entries: tuple[NamedMetadata, ...], Catalog: EntityCatalog) -> 
     Output = FeatureSink()
     Output.AddCount(Entries, KMaxCount)
     for Entry in Entries:
-        Shape = NamedShape(Entry.TypeName, Entry.ElementName, Catalog.NamedTypes)
+        Shape = NamedShape(Entry.TypeName, Entry.ElementName, Catalog)
         Output.AddBytes(EmitText(Entry.FieldName))
         Output.AddBytes(EmitText(Entry.TypeName))
         if Entry.TypeName == KVectorName:

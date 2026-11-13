@@ -12,6 +12,7 @@ from convert.formats.Fusion.EntityCodec.Values.EmitGeArrayMut import EmitGeArray
 from convert.formats.Fusion.EntityCodec.Values.EmitShapeMut import EmitShapeMut
 from convert.formats.Fusion.EntityCodec.Wire.AtomKinds import KAtomKinds
 from convert.formats.Fusion.EntityCodec.Wire.EmitAtom import EmitAtom
+from convert.formats.Fusion.EntityCodec.Wire.FlagByte import EmitFlag
 from convert.formats.Fusion.EntityCodec.Wire.EmitReference import EmitReference
 from convert.formats.Fusion.SegmentCodec.Features.Binary.EmitText import EmitText
 
@@ -22,6 +23,8 @@ def EmitValueMut(
     Catalog.Quota.TakeValue()
     if Depth >= KMaxDepth:
         raise ValueError("Fusion entity values exceed the nesting limit")
+    if Shape.KindValue == "bool":
+        return EmitFlag(Value)
     if Shape.KindValue in KAtomKinds:
         return EmitAtom(Value, Shape)
     if Shape.KindValue in ("ascii", "utf16") and isinstance(Value, str):

@@ -33,5 +33,5 @@ def ReadBrepHeadMut(
         Numbers.append(Value)
     if tuple(Numbers) != (50.0 if HasHistory else 10.0, 1e-6, 1e-10):
         raise ValueError("Unsupported Fusion BRep scale or tolerances")
-    Header = BrepHeader(Version, Roots, Flags, *Numbers)
+    Header = BrepHeader(Version, Roots, Flags, Numbers[0], Numbers[1], Numbers[2])
     return Header, GeometryStamp(*Strings)

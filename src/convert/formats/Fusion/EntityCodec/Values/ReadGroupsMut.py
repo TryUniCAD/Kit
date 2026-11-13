@@ -14,15 +14,23 @@ def ReadGroupsMut(
     Reader: KReadValue,
 ) -> tuple[EntityGroup, ...]:
     return tuple(
-        EntityGroup(
-            Group.ClassGuid,
-            ReadFieldsMut(
-                Cursor,
-                tuple(sorted(Group.Members, key=lambda Field: Field.FieldName)),
-                Catalog,
-                Depth + 1,
-                Reader,
-            ),
+        (
+            EntityGroup(
+                Group.ClassGuid,
+                (),
+                Cursor.TakeBytes(len(Cursor.DataValue) - Cursor.Offset),
+            )
+            if Group.IsOpaque
+            else EntityGroup(
+                Group.ClassGuid,
+                ReadFieldsMut(
+                    Cursor,
+                    tuple(sorted(Group.Members, key=lambda Field: Field.FieldName)),
+                    Catalog,
+                    Depth + 1,
+                    Reader,
+                ),
+            )
         )
         for Group in Groups
     )

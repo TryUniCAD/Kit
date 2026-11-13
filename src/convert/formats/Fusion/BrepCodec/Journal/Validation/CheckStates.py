@@ -1,7 +1,8 @@
 from convert.formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
 from convert.formats.Fusion.BrepCodec.Models.CheckInteger import CheckInteger
-from convert.formats.Fusion.BrepCodec.Journal.Reading.ReadBoardMut import (
+from convert.formats.Fusion.BrepCodec.Journal.JournalLimits import (
     KBoardChanges,
+    KJournalBoards,
 )
 
 
@@ -30,7 +31,7 @@ def CheckStates(Model: JournalModel) -> None:
             or State.StateLinks
             or type(State.StateLinks) is not tuple
             or type(State.Boards) is not tuple
-            or len(State.Boards) > 256
+            or len(State.Boards) > KJournalBoards
         ):
             raise ValueError("Unsupported Fusion named or auxiliary state list")
         for Reference in (State.PreviousNode, State.NextNode):

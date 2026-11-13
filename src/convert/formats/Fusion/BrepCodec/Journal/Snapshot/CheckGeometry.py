@@ -1,3 +1,6 @@
+from convert.formats.Fusion.BrepCodec.Journal.JournalLimits import (
+    KJournalEntities,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Nodes.CheckComplex import (
     CheckComplex,
 )
@@ -26,7 +29,10 @@ from convert.formats.Fusion.BrepCodec.Journal.Validation.CheckModelHead import (
 
 def CheckGeometry(Model: GeometryState) -> None:
     CheckModelHead(Model.Header, False)
-    if type(Model.Entities) is not tuple or not 2 <= len(Model.Entities) <= 4096:
+    if (
+        type(Model.Entities) is not tuple
+        or not 2 <= len(Model.Entities) <= KJournalEntities
+    ):
         raise ValueError("Invalid Fusion geometry table size or mutability")
     if (
         not isinstance(Model.Entities[0], AsmRoot)

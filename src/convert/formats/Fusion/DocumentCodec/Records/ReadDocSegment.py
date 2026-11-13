@@ -1,7 +1,10 @@
 from convert.formats.Fusion.BulkSpans import ReadBulkSpans
 from convert.formats.Fusion.ContainerCodec.Model.SegmentStreams import SegmentStreams
 from convert.formats.Fusion.DocumentCodec.Model.ParsedSegment import ParsedSegment
-from convert.formats.Fusion.DocumentCodec.Records.SlackLimit import KMaxDesignSlack
+from convert.formats.Fusion.DocumentCodec.Records.SlackLimit import (
+    KMaxDesignSlack,
+    KSlackKinds,
+)
 from convert.formats.Fusion.EntityCodec.DecodeEntities import DecodeEntities
 from convert.formats.Fusion.EntityCodec.DecodeSlack import DecodeSlack
 from convert.formats.Fusion.EntityCodec.Schema.EntityProfile import EntityProfile
@@ -27,7 +30,7 @@ def ReadDocSegment(
         )
     )
     KindValue = Metadata.Header.Segment
-    if KindValue not in (SegmentKind.KAct, SegmentKind.KDesign):
+    if KindValue not in KSlackKinds:
         Values = DecodeEntities(Records, Metadata.Classes, Profile)
         return ParsedSegment(Metadata, Values, Profile)
     Values, Slack = DecodeSlack(Records, Metadata.Classes, Profile)

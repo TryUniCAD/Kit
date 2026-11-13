@@ -1,3 +1,6 @@
+from convert.formats.Fusion.BrepCodec.Journal.JournalLimits import (
+    KJournalBytes,
+)
 from convert.formats.Fusion.BrepCodec.Journal.ReadJournal import ReadJournal
 from convert.formats.Fusion.ContainerCodec.Model.ContainerPart import ContainerPart
 from convert.formats.Fusion.DocumentCodec.Model.DocumentBody import DocumentBody
@@ -10,10 +13,7 @@ def ReadBodyPart(Value: ContainerPart) -> DocumentBody:
         ".smbh"
     ):
         raise ValueError("Unsupported Fusion document part")
-    if (
-        type(Value.Payload) is not bytes
-        or not 0 < len(Value.Payload) <= 2 * 1024 * 1024
-    ):
+    if type(Value.Payload) is not bytes or not 0 < len(Value.Payload) <= KJournalBytes:
         raise ValueError("Invalid or oversized Fusion document history")
     Journal = ReadJournal(Value.Payload)
     Typed = ReadTypedBody(Value.Payload, PickBodyView(Journal))

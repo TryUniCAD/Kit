@@ -24,8 +24,8 @@ def CheckRoundNode(Value: SphereNode | TorusNode) -> None:
         or Radii[-1] == 0
     ):
         raise ValueError("Fusion round carriers require positive finite radii")
-    if isinstance(Value, TorusNode) and Value.MajorRadiusCm <= abs(Value.MinorRadiusCm):
-        raise ValueError("Only positive ring-torus carriers are qualified")
+    if isinstance(Value, TorusNode) and Value.MajorRadiusCm == abs(Value.MinorRadiusCm):
+        raise ValueError("Fusion horn-torus carriers are not qualified")
     for Bound in (Value.ULower, Value.UUpper, Value.VLower, Value.VUpper):
         if Bound is not None and (
             type(Bound) not in (int, float) or not IsFinite(Bound)

@@ -2,6 +2,9 @@ KMaxPackage = 16 * 1024 * 1024
 KMaxXmlBytes = 1024 * 1024
 KMaxSchemas = 64
 KMaxSchemaNodes = 20000
+KMaxEntries = 4096
+KMaxFolderDepth = 8
+KFolderSets = (("AssetData", "Schemas"), ("AssetData", "Resources", "Schemas"))
 KMaxXmlDepth = 8
 KVersionTable = (
     b"AssetTableOfContents:3.1,\n"

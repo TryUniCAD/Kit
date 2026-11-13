@@ -9,6 +9,7 @@ from pytest import mark as TestMark, raises as Raises
 from convert.formats.Fusion.BrepCodec.Journal.EmitJournal import EmitJournal
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.CoedgeNode import CoedgeNode
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.EdgeNode import EdgeNode
+from convert.formats.Fusion.BrepCodec.Journal.JournalLimits import KBoardChanges
 from convert.formats.Fusion.BrepCodec.Journal.JournalEntity import KJournalEntity
 from convert.formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
 from convert.formats.Fusion.BrepCodec.Journal.ReadJournal import ReadJournal
@@ -18,9 +19,6 @@ from convert.formats.Fusion.BrepCodec.Journal.Snapshot.EmitGeometry import (
 )
 from convert.formats.Fusion.BrepCodec.Journal.Snapshot.ReadGeometry import (
     ReadGeometry,
-)
-from convert.formats.Fusion.BrepCodec.Journal.Reading.ReadBoardMut import (
-    KBoardChanges,
 )
 from convert.formats.Fusion.DocumentCodec.EmitParsed import EmitParsed
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
@@ -239,7 +237,7 @@ def TestTorusRing() -> None:
     assert 0 < -TorusValue.MinorRadiusCm < TorusValue.MajorRadiusCm
     Flattened = Replace(TorusValue, MinorRadiusCm=-TorusValue.MajorRadiusCm)
     Edited = SwapEntity(Model.Entities, TorusIndex, Flattened)
-    with Raises(ValueError, match="Only positive ring-torus carriers"):
+    with Raises(ValueError, match="Fusion horn-torus carriers"):
         _ = EmitJournal(Replace(Model, Entities=Edited))
 
 

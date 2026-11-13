@@ -22,13 +22,14 @@ def ReadDocSchemas() -> tuple[ClassSchema, ...]:
         / "PartFeatures"
         / "Vocabulary"
         / "PasteClasses.json",
+        FusionPath / "DocumentCodec" / "Vocabulary" / "HistoricClasses.json",
     )
-    Catalog: dict[str, ClassSchema] = {}
+    Catalog: dict[tuple[str, int], ClassSchema] = {}
     for Source in Paths:
         for Schema in ReadVocabulary(Source):
-            ClassGuid = Schema.Value.ClassGuid.upper()
-            Previous = Catalog.get(ClassGuid)
+            KeyValue = (Schema.Value.ClassGuid.upper(), Schema.Value.SchemaVersion)
+            Previous = Catalog.get(KeyValue)
             if Previous is not None and Previous != Schema.Value:
                 raise ValueError("Conflicting native schema vocabulary")
-            Catalog[ClassGuid] = Schema.Value
+            Catalog[KeyValue] = Schema.Value
     return tuple(Catalog.values()) + KAuxiliarySchemas

@@ -21,6 +21,13 @@ def EmitGroupsMut(
             raise ValueError(
                 "Fusion entity inherited group identity differs from its schema"
             )
+        if Group.IsOpaque != (Value.Opaque is not None) or (
+            Value.Opaque is not None and Value.Fields
+        ):
+            raise ValueError("Fusion entity opaque group differs from its schema")
+        if Value.Opaque is not None:
+            Output.AddBytes(Value.Opaque)
+            continue
         Fields = tuple(sorted(Group.Members, key=lambda Field: Field.FieldName))
         Output.AddBytes(EmitFieldsMut(Value.Fields, Fields, Catalog, Depth + 1, Writer))
     return bytes(Output.Buffer)

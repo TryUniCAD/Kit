@@ -15,7 +15,7 @@ def MakeDesignProf(
     Targets: tuple[ExternalTarget, ...],
 ) -> EntityProfile:
     Catalog = DocumentCatalog(Schemas)
-    Selected = SelectClasses(Classes, Catalog)
+    Selected = SelectClasses(Classes, Catalog, True)
     Profile = EntityProfile(
         KNativeRoot,
         CloseCatalog(Selected, Catalog, Targets),

@@ -2,19 +2,20 @@ from math import isfinite as IsFinite
 from struct import pack as PackValue
 
 from convert.formats.Fusion.GeometryCodec.EncodeSmbString import EncodeSmbString
-from convert.formats.Fusion.Topology.AsmEdge.AsmTable import KAsmToken
+from convert.formats.Fusion.Topology.AsmEdge.AsmTable import KAsmToken, KIntCodes
 
 
-def EmitWireField(Field: KAsmToken) -> bytes:
+def EmitWireField(Field: KAsmToken, Width: int = 8) -> bytes:
     TagValue, Value = Field
     if TagValue in (4, 12, 21):
         if type(Value) is not int or not -(1 << 31) <= Value < (1 << 31):
             raise ValueError("Fusion journal integer exceeds native signed 32 bits")
-        return bytes((TagValue,)) + PackValue("<q", Value)
+        return bytes((TagValue,)) + PackValue(KIntCodes[Width], Value)
     if TagValue == 23:
-        if type(Value) is not int or not -(1 << 63) <= Value < (1 << 63):
-            raise ValueError("Fusion journal integer exceeds native signed 64 bits")
-        return b"\x17" + PackValue("<q", Value)
+        Limit = 1 << (8 * Width - 1)
+        if type(Value) is not int or not -Limit <= Value < Limit:
+            raise ValueError("Fusion journal integer exceeds its native width")
+        return b"\x17" + PackValue(KIntCodes[Width], Value)
     if (
         TagValue in (13, 14)
         and type(Value) is str

@@ -7,9 +7,7 @@ from pytest import mark as TestMarks, raises as RaisesError
 from convert.formats.Fusion.BrepCodec.Journal.EmitJournal import EmitJournal
 from convert.formats.Fusion.BrepCodec.Journal.EmitStateSmb import EmitStateSmb
 from convert.formats.Fusion.BrepCodec.Journal.ReadJournal import ReadJournal
-from convert.formats.Fusion.BrepCodec.Journal.Reading.ReadBoardMut import (
-    KBoardChanges,
-)
+from convert.formats.Fusion.BrepCodec.Journal.JournalLimits import KBoardChanges
 from convert.formats.Fusion.BrepCodec.Journal.Snapshot.EmitGeometry import EmitGeometry
 from convert.formats.Fusion.BrepCodec.Journal.Writing.EmitWireRecord import (
     EmitWireRecord,

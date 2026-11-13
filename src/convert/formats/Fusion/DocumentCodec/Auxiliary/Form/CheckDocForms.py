@@ -18,7 +18,7 @@ from convert.formats.Fusion.DocumentCodec.Auxiliary.Form.FormLayout import (
 )
 
 
-def CheckDocForms(Value: DocumentModel) -> None:
+def CheckDocForms(Value: DocumentModel, CheckBodies: bool = True) -> None:
     Owners = {
         Record.ObjectId: Record
         for Segment in Value.Segments
@@ -32,4 +32,5 @@ def CheckDocForms(Value: DocumentModel) -> None:
             CheckFormFrame(Record, Owners, Joined)
         if LeadGuid(Record) == KNodeGuid:
             CheckFormNodes(Record, Owners, Joined)
-    CheckFormBreps(Value, tuple(Joined.values()))
+    if CheckBodies:
+        CheckFormBreps(Value, tuple(Joined.values()))

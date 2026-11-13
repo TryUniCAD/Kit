@@ -14,6 +14,9 @@ def CheckClass(Schema: ClassSchema, Catalog: EntityCatalog) -> None:
     if type(Schema.SchemaVersion) is not int or not 0 <= Schema.SchemaVersion < 1 << 32:
         raise ValueError("Invalid Fusion entity schema version")
     CheckFlag(Schema.IsValue)
+    CheckFlag(Schema.IsOpaque)
+    if Schema.IsOpaque and (Schema.Members or Schema.IsValue):
+        raise ValueError("Fusion opaque entity class must have no declared members")
     if len(Schema.Members) > KMaxCount:
         raise ValueError("Invalid Fusion entity class declaration")
     Names = tuple(Field.FieldName for Field in Schema.Members)

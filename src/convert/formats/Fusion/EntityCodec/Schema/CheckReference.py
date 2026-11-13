@@ -17,6 +17,8 @@ def CheckReference(
         Actual = Catalog.ExternalClasses.get((Value.SegmentId, Value.ObjectId))
     elif isinstance(Value, CrossRef):
         Actual = Value.TypeGuid.upper()
+        if Actual not in Catalog.Classes:
+            return
     else:
         raise ValueError("Fusion entity reference requires a typed target")
     if Actual is None:

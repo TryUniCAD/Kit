@@ -75,8 +75,8 @@ def TestSlackGate() -> None:
     with RaisesError(ValueError, match="exceeds its limit"):
         _ = EmitDocSegment(ReplaceValue(Design, BulkSlack=bytes(17)))
     Browser = PickSegment(Model.Segments, SegmentKind.KBrowser)
-    with RaisesError(ValueError, match="Only the Fusion ACT and Design"):
-        _ = EmitDocSegment(ReplaceValue(Browser, BulkSlack=b"\0\0"))
+    Trailed = EmitDocSegment(ReplaceValue(Browser, BulkSlack=b"\0\0"))
+    assert Trailed.BulkData == EmitDocSegment(Browser).BulkData + b"\0\0"
     ActSegment = PickSegment(Model.Segments, SegmentKind.KAct)
     Mutable = CastValue(bytes, bytearray(2))
     with RaisesError(ValueError, match="must be bytes"):
@@ -86,11 +86,23 @@ def TestSlackGate() -> None:
 @MarkTests.skipif(
     PythonVersion < (3, 14), reason="native Fusion archive requires ZIP Zstandard"
 )
-@MarkTests.parametrize(
-    "CaseValue", ((SegmentKind.KDesign, 17), (SegmentKind.KBrowser, 2))
+def TestOtherTrail() -> None:
+    Archive = TrailArchive(SegmentKind.KDesign, 17)
+    with RaisesError(ValueError, match="trailing Fusion entity payload"):
+        _ = ReadDocument(Archive)
+
+
+@MarkTests.skipif(
+    PythonVersion < (3, 14), reason="native Fusion archive requires ZIP Zstandard"
 )
-def TestOtherTrail(CaseValue: tuple[SegmentKind, int]) -> None:
-    KindValue, Length = CaseValue
+def TestBrowserTail() -> None:
+    Model = ReadDocument(TrailArchive(SegmentKind.KBrowser, 2))
+    Browser = PickSegment(Model.Segments, SegmentKind.KBrowser)
+    assert Browser.BulkSlack == bytes(2)
+    assert ReadDocument(EmitParsed(Model)) == Model
+
+
+def TrailArchive(KindValue: SegmentKind, Length: int) -> bytes:
     Container = ReadContainer(ReadFormFile(*KSlackCases[0][:2]))
     Streams = tuple(
         (
@@ -100,6 +112,4 @@ def TestOtherTrail(CaseValue: tuple[SegmentKind, int]) -> None:
         )
         for Stream in Container.Streams
     )
-    Archive = EmitContainer(ReplaceValue(Container, Streams=Streams))
-    with RaisesError(ValueError, match="trailing Fusion entity payload"):
-        _ = ReadDocument(Archive)
+    return EmitContainer(ReplaceValue(Container, Streams=Streams))

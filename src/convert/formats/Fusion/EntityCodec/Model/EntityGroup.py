@@ -7,3 +7,4 @@ from convert.formats.Fusion.EntityCodec.Model.NamedValue import NamedValue
 class EntityGroup:
     ClassGuid: str
     Fields: tuple[NamedValue, ...]
+    Opaque: bytes | None = None

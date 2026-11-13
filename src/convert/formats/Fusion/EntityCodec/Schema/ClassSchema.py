@@ -10,3 +10,4 @@ class ClassSchema:
     SchemaVersion: int
     Members: tuple[FieldSpec, ...]
     IsValue: bool = False
+    IsOpaque: bool = False

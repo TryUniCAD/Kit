@@ -612,8 +612,11 @@ Feature writers must retain those definitions and the corresponding parameter bi
 
 ### ASM envelope
 
-The observed binary envelope begins with the fifteen-byte signature `ASM BinaryFile8`.
-Four signed 64-bit words follow: version, optional stored record count, top-level entity count including `asmheader`, and flags.
+The observed binary envelope begins with the fifteen-byte signature `ASM BinaryFile8` or `ASM BinaryFile4`.
+The digit is the integer width `W` in bytes.
+Older Fusion saves use `W = 4`, as [the integer width gotcha](../../Gotchas/Conversion/Fusion/History/FusionAsmIntegerWidth.md) shows.
+Four signed `W`-byte words follow: version, optional stored record count, top-level entity count including `asmheader`, and flags.
+In a history journal the first number is 50 in current saves and 40 or 30 in older saves. Snapshots hold 10.
 Three tagged strings identify product, kernel version, and creation-date text.
 Three tagged doubles retain units in millimetres, resolution tolerance, and normal tolerance.
 
@@ -628,20 +631,20 @@ Its general ACIS support does not supply Fusion's parametric persistence schema.
 
 | Tag    | Observed payload                       | Interpretation                                      |
 | ------ | -------------------------------------- | --------------------------------------------------- |
-| 4      | Signed 64-bit integer                  | Integer token                                       |
+| 4      | Signed `W`-byte integer                | Integer token                                       |
 | 6      | Binary64                               | Double token                                        |
 | 7      | Byte length and UTF-8 bytes            | String token up to 255 bytes                        |
 | 8      | Unsigned 16-bit length and UTF-8 bytes | String token above 255 bytes                        |
 | 10, 11 | No following payload                   | Boolean tokens                                      |
-| 12     | Signed 64-bit integer                  | Entity pointer                                      |
+| 12     | Signed `W`-byte integer                | Entity pointer                                      |
 | 13     | Byte length and UTF-8 bytes            | Entity name                                         |
 | 14     | Byte length and UTF-8 bytes            | Entity name prefix                                  |
 | 15, 16 | No following payload                   | Subtype delimiters                                  |
 | 17     | No following payload                   | Record end                                          |
-| 18     | Signed 64-bit length and UTF-8 bytes   | Literal string                                      |
+| 18     | Signed `W`-byte length and UTF-8 bytes | Literal string                                      |
 | 19, 20 | Three binary64 values                  | Position or direction vector                        |
-| 21     | Signed 64-bit integer                  | Enumeration token                                   |
-| 23     | Eight bytes                            | Context-dependent value, requiring an owning schema |
+| 21     | Signed `W`-byte integer                | Enumeration token                                   |
+| 23     | `W` bytes                              | Context-dependent value, requiring an owning schema |
 
 Tag 23 is an integer only within the verified `int64_attrib-name_attrib-gen-attrib` schema.
 Treating every tag 23 as a floating value corrupts stored identities.
@@ -1190,7 +1193,7 @@ Kit keeps them as `ParsedSegment.BulkSlack`, writes them back unchanged and does
 | ------- | ------------------- | ---------------------------------------------------------------------------------------- |
 | ACT     | Any number          | [ACT slack gotcha](../../Gotchas/Conversion/Fusion/Records/FusionActBulkSlack.md)        |
 | Design  | 0 to 16             | [Design padding gotcha](../../Gotchas/Conversion/Fusion/Assembly/FusionStreamPadding.md) |
-| Browser | 0                   | Strict check                                                                             |
+| Browser | Any number          | [ACT slack gotcha](../../Gotchas/Conversion/Fusion/Records/FusionActBulkSlack.md)        |
 
 Three Fusion exports of one saved Kit assembly root ended the Design stream with 10 bytes.
 The two later exports had trailing bytes that differ from the first, so the bytes are not record data.
@@ -1212,6 +1215,28 @@ The other 11 failures are research files that Kit made.
 The [native acceptance report](../../../re/Fusion/LocalOracle/ReaderCoverage/NativeAcceptance.json) compares a control and a re-emitted document for each of 26 cases.
 The stages are open, rebuild, rollback, restore, save and reopen.
 Fusion 2706.1.17 accepted all 26 cases.
+
+### Read gap rules
+
+The [read gap change](../../Changes/Fusion/Records/FusionReadGaps.md) swept the 1,709 tracked files and their 1,725 design documents.
+`ReadDocument` read 1,690 documents before and 1,704 after.
+Of the 1,704, 1,698 round-trip.
+It adds these format rules:
+
+- A class version that the catalog lacks takes its layout from the metadata row. Eight older versions have unique layouts. Any other version gets an opaque schema, bounded by the offset index.
+- A saved `bool` member is one byte. Bytes above 1 are kept as integers.
+- A sketch `secondaryTagId` is a free `u64`.
+- A cross-document reference may name a class outside the document profile.
+- A named metadata type can be a value class GUID.
+- `ASM BinaryFile4` and `ASM BinaryFile8` give the ASM integer width.
+- A torus carrier can be an apple torus.
+- A TSM member can hold a `106ek` edge knot block.
+- The Browser bulk stream can end with stale records.
+- A material package can hold a `Resources` folder tree. Assets that share a definition id keep their own definitions.
+- `ImageSerializer.partName` names a PNG part in `Images.BlobParts`.
+
+The document material is the physical asset of the body records, or else the component default.
+A body with an empty physical reference has an undefined material.
 
 ## Periodic carriers and trim-free solids
 

@@ -1,3 +1,6 @@
+from convert.formats.Fusion.BrepCodec.Journal.JournalLimits import (
+    KJournalBytes,
+)
 from convert.formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
 from convert.formats.Fusion.BrepCodec.Journal.Validation.CheckJournal import (
     CheckJournal,
@@ -20,12 +23,19 @@ from convert.formats.Fusion.GeometryCodec.EncodeSmbName import EncodeSmbName
 def EmitJournal(Model: JournalModel) -> bytes:
     CheckJournal(Model)
     _ = WalkStates(Model)
-    Header = EmitBrepHeader(Model.Stamp, Model.Header.RootCount, True, 50.0)
-    Entities = tuple(EmitWireRecord(MakeEntityNode(Value)) for Value in Model.Entities)
-    Preamble = EncodeSmbName("Begin-of-ASM-History-Data") + EmitWireRecord(
-        MakeStreamNode(Model.Stream)
+    Width = Model.Header.IntWidth
+    Header = EmitBrepHeader(
+        Model.Stamp, Model.Header.RootCount, True, Model.Header.Scale, Width
     )
-    States = b"".join(EmitWireRecord(MakeStateNode(Value)) for Value in Model.States)
+    Entities = tuple(
+        EmitWireRecord(MakeEntityNode(Value), Width) for Value in Model.Entities
+    )
+    Preamble = EncodeSmbName("Begin-of-ASM-History-Data") + EmitWireRecord(
+        MakeStreamNode(Model.Stream), Width
+    )
+    States = b"".join(
+        EmitWireRecord(MakeStateNode(Value), Width) for Value in Model.States
+    )
     Ending = (
         EncodeSmbName("End-of-ASM-History-Section")
         + b"".join(Entities[Model.ActiveCount :])
@@ -34,6 +44,6 @@ def EmitJournal(Model: JournalModel) -> bytes:
     Payload = (
         Header + b"".join(Entities[: Model.ActiveCount]) + Preamble + States + Ending
     )
-    if len(Payload) > 2 * 1024 * 1024:
+    if len(Payload) > KJournalBytes:
         raise ValueError("Encoded Fusion journal exceeds its byte quota")
     return Payload

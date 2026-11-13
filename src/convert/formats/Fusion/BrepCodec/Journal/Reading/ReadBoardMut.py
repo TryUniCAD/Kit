@@ -1,3 +1,6 @@
+from convert.formats.Fusion.BrepCodec.Journal.JournalLimits import (
+    KBoardChanges,
+)
 from convert.formats.Fusion.BrepCodec.Journal.States.BulletinBoard import BulletinBoard
 from convert.formats.Fusion.BrepCodec.Journal.States.BulletinChange import (
     BulletinChange,
@@ -12,8 +15,6 @@ from convert.formats.Fusion.BrepCodec.Journal.Reading.Fields.ReadLongMut import 
 from convert.formats.Fusion.BrepCodec.Journal.Reading.Fields.IsPresentMut import (
     IsPresentMut,
 )
-
-KBoardChanges = 4096
 
 
 def ReadBoardMut(Cursor: FieldCursor) -> BulletinBoard:
