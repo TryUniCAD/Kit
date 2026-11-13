@@ -1,10 +1,12 @@
 # Complex ASM surface geometry and explicit NURBS bodies
 
-The typed BRep journal codec now reads and writes spline surfaces, interpolated curves, parameter-space curves and tolerant topology. It also authors explicit NURBS sheets and closed NURBS solids from control points, knots and weights. Before this change, 113 corpus members stopped with `Unsupported Fusion journal entity kind: spline-surface`.
+The typed BRep journal codec now reads and writes spline surfaces, interpolated curves, parameter-space curves and tolerant topology. Eleven procedural subtypes have named fields. The codec also reads wire records, thread and no-merge attributes, degenerate edges and records up to 16384 tokens. It authors NURBS sheets and closed solids with holes, seams, collapsed sides and plane or cylinder faces. Before this change, 113 corpus members stopped with `Unsupported Fusion journal entity kind: spline-surface`.
 
 ## Usage
 
 `ReadJournal`, `ReadGeometry`, `EmitJournal`, `EmitGeometry`, `EmitStateSmb`, `PermuteJournal` and `PermuteGeometry` accept the new entities. There is no new reader entry point. Module paths in this entry are relative to `convert.formats.Fusion.BrepCodec.Journal`.
+
+`EmitStateSmb(Model, StateId, Snapshot=True)` writes the bodies of one history state in the record order of a Fusion `.smb` snapshot. The [snapshot record order gotcha](../../../Gotchas/Conversion/Fusion/Geometry/SnapshotRecordOrder.md) gives the rule.
 
 | ASM entity | Class | Module | Fields |
 | --- | --- | --- | --- |
@@ -16,14 +18,29 @@ The typed BRep journal codec now reads and writes spline surfaces, interpolated 
 | `tvertex-vertex` | `TvertexNode` | `Complex.Nodes.TvertexNode` | `Base`, `Sentinel`, `Tolerance`, `SavedTolerance`, `Stamp` |
 | `stitch_hint-sys-attrib` | `StitchAttrib` | `Attributes.StitchAttrib` | `Links`, `HintValues` |
 | `vertedge-sys-attrib` | `VertedgeAttrib` | `Attributes.VertedgeAttrib` | `Links`, `EdgeSlots` |
+| `wire` | `WireNode` | `Geometry.WireNode` | `Prefix`, `NextWire`, `FirstCoedge`, `OwnerShell`, `Inside` |
+| `FDM_feature_attrib_def` attribute | `FeatureAttrib` | `Attributes.FeatureAttrib` | `Links`, `DataName`, `FeatureTag`, `Flags`, `TypeCode`, `Points`, `TailCode` |
+| `no_merge_attribute-st-attrib` | `NoMergeAttrib` | `Attributes.NoMergeAttrib` | `Links` |
 
-`KComplexTypes` in `Complex.ComplexEntity` lists the first six classes. `CoedgeNode.Pcurve` keeps the coedge reference to its `pcurve` entity, and -1 means no pcurve.
+`KComplexTypes` in `Complex.ComplexEntity` lists the first six classes. `CoedgeNode.Pcurve` keeps the coedge reference to its `pcurve` entity, and -1 means no pcurve. `ShellNode.FirstWire` is shell slot 6, and -1 means no wire. A live edge can have no curve when its start vertex is its end vertex.
 
 ### Subtype values
 
 `Surface` and `Curve` hold one subtype value. `SubtypeNode(SubtypeName, Body)` is an inline definition. `SubtypeRef(Family, Index)` refers to the `Index`th definition of the stream. `TsplineSurf` is the typed T-spline definition from the [Form document entry](../TSpline/FusionFormDocuments.md).
 
-`Body` is a tree of `KGrammarValue` values from `Complex.Grammar.GrammarValue`. The tree uses tuples, `ChoiceValue`, nested subtype values, `LoftSubdata`, `BsCurve` and `BsSurface`. `KSubtypeRules` in `Complex.Grammar.SubtypeRules` gives the field sequence of each subtype.
+`KSubtypeRules` in `Complex.Grammar.SubtypeRules` gives the field sequence of each subtype. For eleven subtypes, `Body` is a frozen record with named fields. For the other subtypes, `Body` is a tree of `KGrammarValue` values from `Complex.Grammar.GrammarValue`. The tree uses tuples, `ChoiceValue`, nested subtype values, `LoftSubdata`, `BsCurve` and `BsSurface`.
+
+| Subtype | Record | Module |
+| --- | --- | --- |
+| `exact_spl_sur` | `ExactSplSur` with `SplineCommon` | `Complex.Typed.SurfaceRecords` |
+| `exp_par_cur` | `ExpParCur` | `Complex.Typed.CurveRecords` |
+| `exact_int_cur`, `par_int_cur`, `int_int_cur`, `spring_int_cur` | `ExactIntCur`, `ParIntCur`, `IntIntCur`, `SpringIntCur`, each with `CurveContext` | `Complex.Typed.CurveRecords` |
+| `sweep_sur` | `SweepSur`, `SweepProfile` and the path records of `Complex.Typed.SweepPaths` | `Complex.Typed.SweepRecords` |
+| `loft_spl_sur` | `LoftSplSur`, `LoftSection`, `LoftPiece` | `Complex.Typed.LoftRecords` |
+| `srf_srf_v_bl_spl_sur`, `g2_blend_spl_sur` | `SrfSrfBlend`, `GtwoBlend`, with the parts of `Complex.Typed.BlendParts` | `Complex.Typed.BlendRecords` |
+| `VBL_SURF` | `VblSurf`, `VblBoundary` | `Complex.Typed.VertexRecords` |
+
+`KTypedCodecs` in `Complex.Typed.TypedCodecs` maps each of these names to its two converters. The reader converts the grammar tree to the record, and the writer converts it back, so the bytes do not change. The field names come from the save routines of the installed ASM kernel. [Kernel fields](../../../../re/Fusion/Reconstruction/ComplexGeometry/TypedFields/KernelFields.json) gives 92 derived and 65 inferred names in 27 records. `cl_loft_spl_sur`, `cyl_spl_sur`, `sum_spl_sur`, `helix_spl_line` and `helix_int_cur` keep the tree form.
 
 | Family | Subtype names |
 | --- | --- |
@@ -54,10 +71,14 @@ A `pcurve` with `Form` 0 holds its curve inline. With `Form` -2, -1, 1 or 2, `Cu
 | --- | --- | --- |
 | `BsCurve` | `Complex.Spline.BsCurve` | `Rational`, `Degree`, `Closure`, `Knots`, `Multiplicity`, `Dimension`, `Poles`, `Weights` |
 | `BsSurface` | `Complex.Spline.BsSurface` | `Rational`, `RationalForm`, `UDegree`, `VDegree`, `UClosure`, `VClosure`, `USingular`, `VSingular`, `UKnots`, `UMultiplicity`, `VKnots`, `VMultiplicity`, `Poles`, `Weights` |
-| `NurbsEdge` | `Complex.Authoring.NurbsBody` | `StartVertex`, `EndVertex`, `Curve` |
-| `NurbsUse` | `Complex.Authoring.NurbsBody` | `EdgeIndex`, `Reversed`, `Pcurve` |
-| `NurbsFace` | `Complex.Authoring.NurbsBody` | `Surface`, `Uses` |
+| `PlaneCarrier` | `Complex.Authoring.NurbsBody` | `OriginCm`, `Normal`, `ReferenceAxis` |
+| `CylinderCarrier` | `Complex.Authoring.NurbsBody` | `OriginCm`, `AxisVector`, `MajorAxisCm` |
+| `NurbsEdge` | `Complex.Authoring.NurbsBody` | `StartVertex`, `EndVertex`, `Curve`, `Bounds` |
+| `NurbsUse` | `Complex.Authoring.NurbsBody` | `EdgeIndex`, `Reversed`, `Pcurve`, `OffsetU`, `OffsetV` |
+| `NurbsFace` | `Complex.Authoring.NurbsBody` | `Surface`, `Uses`, `Holes` |
 | `NurbsBody` | `Complex.Authoring.NurbsBody` | `PointsCm`, `Edges`, `Faces`, `EntityTag` |
+
+`NurbsFace.Surface` is a `BsSurface`, a `PlaneCarrier` or a `CylinderCarrier`. The writer emits `exact_spl_sur` in a `spline-surface`, a `plane-surface` or a `cone-surface` record with a unit radius ratio and no bounds. `Uses` is the outer loop and each tuple in `Holes` is an inner loop. `NurbsEdge.Bounds` limits the edge to part of its curve, and `None` uses the full knot range.
 
 The B-spline values use the ASM storage conventions.
 
@@ -71,7 +92,15 @@ The B-spline values use the ASM storage conventions.
 | `RationalForm` | `both`, `u` or `v` for a rational surface. Empty for a nonrational surface. |
 | Units | Centimeters for 3D poles. Surface parameters for 2D pcurve poles. |
 
-Give each `NurbsUse.Pcurve` in the direction and range of its edge curve. The writer negates the pcurve of a reversed use. Each face has one loop.
+Give each `NurbsUse.Pcurve` in the direction and range of its edge curve. The writer negates the pcurve of a reversed use. A use on a plane or cylinder has no pcurve. `OffsetU` and `OffsetV` move the pcurve by whole periods of a closed surface direction.
+
+| Topology | How to model it |
+| --- | --- |
+| Inner loop | A tuple in `NurbsFace.Holes`, clockwise in the surface parameters |
+| Seam of a closed direction | One edge with two uses in the same face and opposite senses. One use has `OffsetU` or `OffsetV` of plus or minus one period, so the two pcurves lie one period apart. |
+| Collapsed surface side | `USingular` or `VSingular` 1 for the low side or 2 for the high side. The loop has no use on that side. |
+| Closed edge | `StartVertex` equal to `EndVertex`, with a closed or periodic curve |
+| Mixed solid | NURBS, plane and cylinder faces that share edges, each edge with two uses |
 
 | Helper | Module | Result |
 | --- | --- | --- |
@@ -90,13 +119,26 @@ The reader consumes each subtype with an exact field sequence. It raises `ValueE
 
 | Check | Rule |
 | --- | --- |
-| Shell | Each edge has one use in an open sheet, or two uses in a closed shell |
+| Shell | Each edge has one or two uses. A closed shell has two uses for each edge. |
 | Shared edge | The two uses have opposite senses |
-| Vertices | 2 to 4096 points, and each point bounds an edge |
-| Edge curve | The curve ends are within 1e-6 cm of their vertices |
-| Pcurve range | The pcurve knot range equals the edge knot range |
-| Pcurve position | The surface point of the pcurve is within 1e-6 cm of the edge point at 17 samples and every knot |
-| Loop | Each use ends where the next use starts |
+| Vertices | 1 to 4096 points, and each point bounds an edge |
+| Edge curve | The ends of the edge range are within 1e-6 cm of their vertices. `Bounds` stays inside the curve knot range. |
+| Pcurve range | The pcurve knot range equals the edge range |
+| Pcurve position | The surface point of the pcurve plus its offsets is within 1e-6 cm of the edge point at 17 samples and every knot |
+| Pcurve offset | Finite, and only in a closed surface direction |
+| Closed direction | The end pole columns or rows and their weights are equal |
+| Singular side | All poles of the collapsed side are within 1e-6 cm of one point |
+| Analytic face | No pcurve or offset. The edge is within 1e-6 cm of the plane or cylinder at every sample. |
+| Analytic frame | Unit direction, perpendicular reference axis, positive cylinder radius |
+| Loop | Each loop has at least one use. Each use ends where the next use starts. |
+| Seam | The two pcurves of an edge used twice in one spline face start one period apart in exactly one closed direction |
+
+The readers and the emitters also check two rules that all 116 complex corpus members obey.
+
+| Rule | Error |
+| --- | --- |
+| A referenced `pcurve` form is positive on a forward coedge and negative on a reversed coedge | `Fusion pcurve form sign disagrees with its coedge sense` |
+| A `tvertex-vertex` tolerance is at least the tolerance of each `tedge-edge` that ends at it | `Fusion tolerant vertex is tighter than its tolerant edge` |
 
 `StitchAttrib` requires three finite doubles. `VertedgeAttrib` admits at most `KVertedgeCap` (64) edge slots. A vertex with a `vertedge-sys-attrib` can omit its edge reference. A `sketch_attrib_def` custom attribute can name a vertex.
 
@@ -145,28 +187,48 @@ The next table counts the outer subtype scope of each active record. Nested scop
 | `pcurve` reference | 96 | `g2_blend_spl_sur` | 1 |
 | `int_int_cur` | 74 | `VBL_SURF` | 60 |
 
-The [complete verification](../../../../re/Fusion/Reconstruction/ComplexGeometry/VerifyAll.json) read and re-emitted every unique member with Python 3.14. 943 of 1083 members were byte-exact. 113 of the 116 members with complex records were byte-exact. The reader at the base commit `5a7949c81` read 820 members.
+The [complete verification](../../../../re/Fusion/Reconstruction/ComplexGeometry/VerifyAll.json) read and re-emitted every unique member with Python 3.14. The reader at the base commit `5a7949c81` read 820 members. The [bounds verification](../../../../re/Fusion/Reconstruction/ComplexGeometry/VerifyBounds.json) repeated the run after the record limits, wires and attributes were added.
 
 | Base result | Members | Result now |
 | --- | --- | --- |
-| `spline-surface` entity kind | 112 | Byte-exact |
-| `spline-surface` entity kind | 1 | `Oversized Fusion ASM record` |
+| `spline-surface` entity kind | 113 | Byte-exact |
 | `intcurve-curve` entity kind | 1 | Byte-exact |
 | `vertedge-sys-attrib` entity kind | 1 | Byte-exact |
 | Historical reference absent or class-incompatible | 9 | Byte-exact |
-| Oversized journal entity table | 13 | 8 `Oversized Fusion bulletin board`, 5 `Oversized Fusion ASM record` |
+| Oversized journal entity table | 13 | Byte-exact |
+
+| Verification | Byte-exact members | Complex members byte-exact |
+| --- | --- | --- |
+| Complete verification | 943 of 1083 | 113 of 116 |
+| Bounds verification | 1020 of 1083 | 116 of 116 |
+
+The bounds verification changed these 77 members to byte-exact.
+
+| Former error | Members |
+| --- | --- |
+| `Missing required Fusion topology reference`, an edge without a curve | 28 |
+| `Unsupported Fusion journal attribute family` | 18 |
+| `Unsupported Fusion journal entity kind: no_merge_attribute-st-attrib` | 12 |
+| `Oversized Fusion bulletin board` | 8 |
+| `Oversized Fusion ASM record` | 6 |
+| `Unsupported Fusion journal qualified field`, the shell wire slot | 5 |
+
+The largest corpus record has 6687 tokens, and the largest bulletin board has 2224 changes. Both are in `rectsymholdouts-cf85ce4a0382/multiple_bodies.f3d`.
 
 ## Limits
 
-- Three complex members are not read as a whole. `two_texts.f3d` has a history record above 4096 tokens. The `modeled_full.f3d` members of the tapped-hole and thread studies have an unsupported attribute family.
-- The 379 complex records of these three members read and re-emit exactly one at a time ([records](../../../../re/Fusion/Reconstruction/ComplexGeometry/VerifyRecords.json)). All 8 `helix_int_cur` and 4 `helix_spl_line` corpus definitions are in the two `modeled_full.f3d` members. These two subtypes therefore have record-level evidence only.
-- Procedural subtype bodies are positional grammar trees. Only B-spline blocks, T-spline values and loft subdata have named dataclasses.
-- Kit does not evaluate procedural surfaces or curves. The authoring path writes `exact_spl_sur`, `exact_int_cur` and `exp_par_cur` only.
-- Authored faces have one loop. Native acceptance covers open, nonperiodic and nonsingular B-spline surfaces only.
-- `wire` records are not typed. The five members that contain them stop earlier with `Unsupported Fusion journal qualified field`.
-- The entity table limit is now 4096 entities.
+- 63 corpus members still stop with an error. The largest groups are 18 generic tags with an attribute pointer, 23 root count disagreements and 9 `int64_attrib` records.
+- `cl_loft_spl_sur`, `cyl_spl_sur`, `sum_spl_sur`, `helix_spl_line` and `helix_int_cur` bodies keep the positional tree form. 65 typed field names describe only what is stored.
+- Kit does not evaluate procedural surfaces or curves. An edit of a procedural field does not update the stored approximation. The authoring path writes `exact_spl_sur`, `exact_int_cur`, `exp_par_cur`, plane and cone records only.
+- Kit does not check that a `tcoedge-coedge` range spans its edge. It does not check that a `vertedge-sys-attrib` names every edge at its vertex.
+- The readers do not check seam offsets. Only `CreateNurbsBody` requires the two uses of a seam to lie one period apart.
+- Fusion lists no separate body for a wire. Wire records have archive-level native evidence only.
+- `EmitStateSmb` with `Snapshot=True` starts from body records only. 57 of the 62 corpus snapshots also hold bodies outside the history, such as sketch sheets. Kit cannot write those bodies from the history.
+- The entity table limit is 4096 entities. A record can have 16384 tokens, and a bulletin board 4096 changes.
 
 ## Verification evidence
+
+### First pass
 
 [Native acceptance](../../../../re/Fusion/LocalOracle/ComplexGeometry/NativeAcceptance.json), SHA-256 `92e56ed767afee3a0ac69583b3c6cb6d14dd04b17f145b10cef622b84e08f4f7`, has status `accepted` in Fusion 2706.1.17. Zero documents were open before and after the run. The [preparation](../../../../re/Fusion/LocalOracle/ComplexGeometry/Preparation.json), SHA-256 `e6429d77642bd10d615be946e6998a5d1737c5ce0eb10bd09cf644ab63c446a8`, binds each input and output hash.
 
@@ -201,18 +263,125 @@ Eight decoded corpus snapshots were byte-exact. Each imported as valid bodies an
 
 The [rule fillet gotcha](../../../Gotchas/Conversion/Fusion/Geometry/RuleFilletRebuildDrift.md) explains the last row. The [native coverage](../../../../re/Fusion/Reconstruction/ComplexGeometry/NativeCoverage.json) lists the subtypes in every member that Fusion opened.
 
-The native cases have these boundaries.
-
-- Only the authored bodies and `EditedPatch` contain bytes that Fusion did not write. The corpus snapshots and histories are byte-identical re-emissions.
-- The four fillet snapshots contain no complex records. Their complex subtypes were opened through the history members only.
-- `cyl_spl_sur`, `sum_spl_sur`, `helix_spl_line`, `cl_loft_spl_sur` and `helix_int_cur` did not occur in a native case.
-- Curve references, `pcurve` references and referenced `pcurve` forms did not occur in a native case.
-- Tolerant topology, stitch hints and vertex edge attributes did not occur in a native case.
-- `EmitStateSmb` output for a corpus history was not opened in Fusion. In all 62 history archives it differs from the archive snapshot ([states](../../../../re/Fusion/Reconstruction/ComplexGeometry/VerifyStates.json)).
-
 [Kernel evidence](../../../../re/Fusion/Reconstruction/ComplexGeometry/KernelEvidence.json) binds the field order to the save routines of the installed ASM kernel. It covers `exp_par_cur`, `exact_spl_sur`, `spl_sur`, `TCOEDGE`, `TEDGE`, `TVERTEX`, `ATTRIB_STITCH_HINT`, `ATTRIB_VERTEDGE` and `ATTRIB_SYS`. The current arm64 slice has SHA-256 `5ad7bc0099f1093e82f99110355ad2100b77fc47446c3d75befaaac81484d4a4`.
 
-Remote integration cases cover the 113 byte-exact members, a stable reorder of each member, and a forward-reference reorder of each of the 62 histories. Other cases cover the 62 history states, the three boundary members and their complex records, stitch hints and vertex edges. They also cover the three authored bodies against the accepted fixtures, nine authoring faults, three guards and three subtype table cases. Local tests did not run. Black, Ruff, Mypy, Pyright and steering checks passed.
+### Lifted bounds
+
+[Bounds acceptance](../../../../re/Fusion/LocalOracle/ComplexGeometry/Bounds/NativeAcceptance.json), SHA-256 `ca556b2133824a9109aeda34447f6421e27ee3b74e2c6258c4ba78d05b151a87`, has status `accepted` in Fusion 2706.1.17. Zero documents were open before and after the run. Each case opened the corpus archive and a copy with its BRep members re-emitted by Kit. Every member was byte-exact. Every stage of the two copies was equal within 1e-8.
+
+| Case | Content | Edit |
+| --- | --- | --- |
+| `ModeledThread` | `helix_int_cur`, `helix_spl_line`, thread attributes | Parameter `d1` from 2.0 cm to 3.0 cm. The thread extent grew by the expected 1.0 cm. |
+| `TappedHole` | `helix_int_cur`, `helix_spl_line`, thread attributes, a degenerate edge | Parameter `d7` from 1.0 cm to 0.8 cm. The thread extent shrank by the expected 0.2 cm. |
+| `AlongVector`, `ClosestPoint` | `wire`, a wire shell, a no-merge attribute | None |
+| `SketchLine`, `OffsetPositive`, `ReversedNegative` | `wire`, a wire shell | None |
+| `TwoTexts` | A history record above 4096 tokens | None |
+| `MultipleBodies` | The largest record and bulletin board of the corpus | None |
+
+A first run of these cases stopped when Fusion exited during the `TwoTexts` control. The [crash record](../../../../re/Fusion/LocalOracle/ComplexGeometry/Bounds/CrashRecord.json) gives the last step. Two probe runs and the accepted run of the same control did not repeat the exit.
+
+### Second pass
+
+The [second-pass preparation](../../../../re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Preparation.json), SHA-256 `4a05a7f438719e884162cc81d1ddd0a39bd84fa039091b94b72dfd05db1b3ef9`, binds each input and output hash. It holds 11 consistent edits and 7 edits that are inconsistent by construction. A knot insertion adds one knot and recomputes the poles, so the shape stays the same. The largest shape drift of an insertion was 3.8e-15.
+
+Each consistent edit went through `TemporaryBRepManager` import, a persisted body, save and reopen, together with its unedited original. Each body was valid, and the values after reopen were equal to the values before. Fusion 2706.1.17 reported these results for the edited body.
+
+| Case | Edited record | Edit | Result |
+| --- | --- | --- | --- |
+| `ClLoftRefine` | `cl_loft_spl_sur` approximation | V knot 0.5, 148 to 185 poles | 1 face with the refined poles |
+| `SumSplRefine` | `sum_spl_sur` approximation | U knot 0.25, 6 to 9 poles | 1 face with the refined poles |
+| `CylSplRefine` | `cyl_spl_sur` approximation | U knot 0.5, 6 to 8 poles | 1 face with the refined poles |
+| `CylSplCurveRefine` | `cyl_spl_sur` profile curve, reached by a `curve` reference | Knot 0.5, 3 to 4 poles | 1 edge with the refined curve |
+| `PcurveFormRefine` | First pcurve of a `par_int_cur`, used by forms 1 and -1 | Knot 0.5, 2 to 3 poles | Both coedges with the refined pcurve |
+| `TolerantFormRefine` | Second pcurve of an `int_int_cur`, used by form 2 | Knot -2.3126131813790116, 4 to 5 poles | The same curve with the knot at multiplicity 3 |
+| `PcurveRefine` | `exp_par_cur` definition reached by a `pcurve` reference | Knot 0.5, 2 to 3 poles | 2 coedges with the refined pcurve |
+| `CurveRefine` | `par_int_cur` definition reached by a `curve` reference | Knot 0.18692982572692135, 10 to 11 poles | 2 edges with the refined curve |
+| `TolerantEdge` | `tedge-edge` tolerance | 1.6486711089754196e-05 to 2e-05 | 1 edge with tolerance 2e-05 |
+| `TolerantVertex` | `tvertex-vertex` `Tolerance` and `SavedTolerance` | 2.325530054202186e-05 to 6e-05 | Vertex tolerance 6e-05 |
+| `StitchHint` | `stitch_hint-sys-attrib` first value | 0.0011554212243761065 to 0.12615542122437612 | The exported body holds the new value |
+
+The [refined pcurve knots gotcha](../../../Gotchas/Conversion/Fusion/Geometry/RefinedPcurveKnots.md) explains the `TolerantFormRefine` row. The API gives no attribute values, so `StitchHint` exported both bodies with `TemporaryBRepManager.exportToFile`. Kit read both exports and re-emitted them byte for byte. The `PcurveRefine` and `CurveRefine` original is the `EmitStateSmb` output of a corpus history. Fusion opened it as a valid body.
+
+Kit refuses three of the inconsistent edits on read and on emit. The other four pass the Kit checks and have digests only.
+
+| Case | Edit | Kit result |
+| --- | --- | --- |
+| `PcurveFormSign` | Form 1 to -1 on a forward coedge | `ValueError`, form sign |
+| `TolerantFormTwo` | Form 2 to -2 on a forward coedge | `ValueError`, form sign |
+| `TolerantOrder` | Vertex tolerance 2.325530054202186e-05 to 1e-05, below an edge tolerance | `ValueError`, tolerant vertex |
+| `PcurveFormOffset` | `OffsetU` -2π to 0 on a seam pcurve | Accepted |
+| `CylSplAxis` | `cyl_spl_sur` axis (0, 0, 1) to (0.25, 0, 1) | Accepted |
+| `TolerantCoedge` | `tcoedge-coedge` range 0 to 5 changed to 0 to 4 | Accepted |
+| `VertedgeSlots` | One edge slot of a `vertedge-sys-attrib` cleared | Accepted |
+
+An earlier run queued the `PcurveFormSign` edit before the form check existed. Fusion exited during that run. The last checkpoint of the [crashed run](../../../../re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Runs/Crashed.json) holds 5 authored and 5 subtype cases, and `PcurveFormSign` was the next case. The step at which Fusion exited is not known. The [edited body](../../../../re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Runs/CrashedPcurveFormSignMutant.smb) has SHA-256 `be312ee6bf41e33c4af93bf13deb7d155b763c3002ab34a3604f12b04642e93d`. No consistent input repeated the exit, and the edit was not sent again.
+
+The second pass also authored five bodies with `CreateNurbsBody`. Each went through `TemporaryBRepManager` import, a persisted body, save and reopen. Each body and face was valid, and the values after reopen were equal to the values before.
+
+| Body | Content | Topology | Native faces |
+| --- | --- | --- | --- |
+| `HoledPatch` | Bicubic sheet with a rectangular inner loop | 1 face, 8 edges, 8 vertices | `NurbsSurface` |
+| `CollapsedPatch` | Bicubic sheet with a collapsed high V side | 1 face, 3 edges, 3 vertices | `NurbsSurface` |
+| `CappedTube` | Rational U-closed side with one seam, and two plane caps | 3 faces, 3 edges, 2 vertices | `NurbsSurface`, 2 `Plane` |
+| `DomedCylinder` | Cylinder face with two loops, a plane bottom and a U-closed dome with a collapsed side | 3 faces, 3 edges, 3 vertices | `Cylinder`, `NurbsSurface`, `Plane` |
+| `NurbsTorus` | One rational face closed in U and V, with two seams and one vertex | 1 face, 2 edges, 1 vertex | `NurbsSurface` |
+
+| Body | Area relative error | Volume relative error | Centroid drift (cm) | Worst sample drift (cm) | Coedge curves equal to the prediction |
+| --- | --- | --- | --- | --- | --- |
+| `HoledPatch` | 1.40e-9 | None, open sheet | None | 5.24e-16 | 8 of 8 |
+| `CollapsedPatch` | 2.7e-14 | None, open sheet | None | 5.09e-16 | 3 of 3 |
+| `CappedTube` | 3.69e-10 | 2.30e-11 | 1.21e-11 | 5.66e-16 | 4 of 4 |
+| `DomedCylinder` | 8.4e-15 | 7.31e-11 | 5.68e-11 | 7.02e-16 | 3 of 3 |
+| `NurbsTorus` | 2.34e-10 | 2.34e-10 | 5.1e-16 | 6.66e-16 | 4 of 4 |
+
+The pole, knot and weight drift of each NURBS face was 0, and each vertex was at its expected point. Fusion reported every edge as `NurbsCurve3D`. The area, volume and centroid come from `getPhysicalProperties` at `VeryHighCalculationAccuracy`. These gotchas give the other observations.
+
+| Observation | Gotcha |
+| --- | --- |
+| Each seam coedge curve includes its offset | [Seam pcurve offsets](../../../Gotchas/Conversion/Fusion/Geometry/SeamPcurveOffsets.md) |
+| A collapsed side has no edge | [Collapsed spline sides](../../../Gotchas/Conversion/Fusion/Geometry/SingularSplineSides.md) |
+| Plane and cylinder coedges have a curve that the stream does not store | [Coedge curves on analytic faces](../../../Gotchas/Conversion/Fusion/Geometry/AnalyticFacePcurves.md) |
+| `BRepBody.volume` of two solids differs by up to 3.26e-5 relative | [Body volume accuracy](../../../Gotchas/Conversion/Fusion/Geometry/BodyVolumeAccuracy.md) |
+
+All three run reports completed after the relaunch that followed the crashed run. Zero documents were open before and after each run. The [analysis](../../../../re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Analysis.json), SHA-256 `4a311525eb1a710d6e8bb83c0856e03bbc5186847af1124475992020d570d52d`, decodes the stitch exports and compares the reported representations and authored measures.
+
+| Run report | SHA-256 | Cases |
+| --- | --- | --- |
+| [Subtypes](../../../../re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Runs/Subtypes.json) | `b7e5f02c83cbf4b7a6d68b30c951d14f1ad5deb8e4ad4332df9f9bef9937a5dc` | 9 subtype cases. `StitchHint` stopped on an export argument, and `TolerantFormRefine` had another representation. |
+| [Diagnose](../../../../re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Runs/Diagnose.json) | `70c0540137ae0d490a3acf9ad2d5e34cb118829644d48a885c4d447c17ba1cd5` | `StitchHint` with the export corrected, and `TolerantFormRefine` with the reported curves kept |
+| [Remaining](../../../../re/Fusion/LocalOracle/ComplexGeometry/SecondPass/Runs/Remaining.json) | `04331a7d4b3f497dea32f9b2af296a6799e8a38d7f0430abb9ff94ba35af72fd` | The 5 authored bodies, `CylSplRefine` and `CylSplCurveRefine`, with status `accepted` |
+
+### History snapshots
+
+The [state comparison](../../../../re/Fusion/Reconstruction/ComplexGeometry/CompareStates.json) covers the 62 corpus histories with a `.smb` snapshot. No default `EmitStateSmb` output equals its snapshot. The snapshot holds its records in a breadth-first order. It drops the body time and tag attributes and the edge track attributes. 5 snapshots hold only history bodies, and `Snapshot=True` rebuilt all 5 byte for byte. The other 57 also hold 226 bodies that no retained history state contains. The [snapshot record order gotcha](../../../Gotchas/Conversion/Fusion/Geometry/SnapshotRecordOrder.md) and the [snapshot identity gotcha](../../../Gotchas/Conversion/Fusion/Geometry/SnapshotHistoryIdentity.md) give the rules.
+
+### Boundaries
+
+- Only the authored bodies, `EditedPatch` and the second-pass edits hold bytes that Fusion did not write. The other native inputs are byte-identical re-emissions.
+- The four fillet snapshots contain no complex records. Their complex subtypes were opened through the history members only.
+- `helix_int_cur`, `helix_spl_line`, `wire` records and the thread and no-merge attributes went to Fusion only in byte-identical re-emissions.
+- Each subtype edit inserts a knot into a stored B-spline. No native case changed a procedural field, such as the axis of a `cyl_spl_sur`.
+- `tcoedge-coedge` records went to Fusion unedited only. `vertedge-sys-attrib` records did not occur in a native case. The prepared edit of each was inconsistent and was not sent.
+- `EmitStateSmb` output of one corpus history went to Fusion, as the `PcurveRefine` original. 57 of the 62 snapshots hold bodies that Kit cannot write from the history.
+- The authored bodies have `exact_spl_sur`, plane and cylinder faces only. Kit does not author other analytic carriers or procedural subtypes.
+- The Fusion exit in the run with the `PcurveFormSign` case has no known cause.
+
+### Tests
+
+Remote integration cases in `tests/convert/formats/FusionCodec/Brep/Complex/` cover these items.
+
+| Test file | Cases |
+| --- | --- |
+| `ComplexCorpusTests.py` | 113 complex members byte for byte and in a stable reorder. A forward-reference reorder and the state of each of the 62 histories. The 3 lifted complex members and their complex records. |
+| `BoundMemberTests.py` | The 9 lifted histories and their states, the largest record and board, and both limits |
+| `FeatureAttribTests.py`, `WireRecordTests.py` | Thread layouts, no-merge attributes, a degenerate edge, wire records and their faults |
+| `TypedFieldTests.py` | Named blend, sweep, loft and NURBS fields, an edit, three faults, a record walk and the positional subtypes |
+| `SnapshotFormTests.py` | 5 snapshots rebuilt byte for byte, the snapshot form of the 62 histories and the 3 first-pass bodies, and the faults |
+| `SystemAttribTests.py`, `SubtypeTableTests.py` | Stitch hints, vertex edges and the subtype table |
+| `AuthoredNurbsTests.py`, `WiderNurbsTests.py` | 3 first-pass and 5 second-pass authored bodies against the committed fixtures, 9 and 13 faults, and the guards |
+| `ComplexChecksTests.py` | A flipped form sign and a tolerant vertex below its edge |
+
+Local tests did not run. Black, Ruff, Mypy, Pyright, steering, rationale and path checks passed.
 
 ## Related information
 
@@ -222,4 +391,18 @@ Remote integration cases cover the 113 byte-exact members, a stable reorder of e
 - [Subtype families](../../../Gotchas/Conversion/Fusion/Geometry/SubtypeFamilies.md)
 - [Straight spline edges](../../../Gotchas/Conversion/Fusion/Geometry/StraightSplineEdges.md)
 - [Snapshot feature inputs](../../../Gotchas/Conversion/Fusion/Geometry/SnapshotFeatureInputs.md)
+- [Rule fillet rebuild drift](../../../Gotchas/Conversion/Fusion/Geometry/RuleFilletRebuildDrift.md)
+- [Typed subtype field order](../../../Gotchas/Conversion/Fusion/Geometry/TypedSubtypeFieldOrder.md)
+- [Wire shell slots](../../../Gotchas/Conversion/Fusion/Geometry/WireShellSlots.md)
+- [Degenerate edges](../../../Gotchas/Conversion/Fusion/Geometry/DegenerateHoleEdges.md)
+- [Thread attribute layouts](../../../Gotchas/Conversion/Fusion/Geometry/ThreadAttributeLayouts.md)
+- [Snapshot record order](../../../Gotchas/Conversion/Fusion/Geometry/SnapshotRecordOrder.md)
+- [Snapshot history identity](../../../Gotchas/Conversion/Fusion/Geometry/SnapshotHistoryIdentity.md)
+- [Referenced pcurve forms](../../../Gotchas/Conversion/Fusion/Geometry/ReferencedPcurveForms.md)
+- [Refined pcurve knots](../../../Gotchas/Conversion/Fusion/Geometry/RefinedPcurveKnots.md)
+- [Tolerant vertex order](../../../Gotchas/Conversion/Fusion/Geometry/TolerantVertexOrder.md)
+- [Seam pcurve offsets](../../../Gotchas/Conversion/Fusion/Geometry/SeamPcurveOffsets.md)
+- [Collapsed spline sides](../../../Gotchas/Conversion/Fusion/Geometry/SingularSplineSides.md)
+- [Coedge curves on analytic faces](../../../Gotchas/Conversion/Fusion/Geometry/AnalyticFacePcurves.md)
+- [Body volume accuracy](../../../Gotchas/Conversion/Fusion/Geometry/BodyVolumeAccuracy.md)
 - [Spline subtype table of Form bodies](../../../Gotchas/Conversion/Fusion/TSpline/SplineSubtypeTable.md)
