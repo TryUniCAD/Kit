@@ -149,6 +149,10 @@ from convert.adapters.solidworks.programs.resolved.polyline.fivepoint.Program im
     EncodeProgram as EncodePolylineFiveProgram,
     PadFieldMap as PolylineFiveFieldMap,
 )
+from convert.adapters.solidworks.programs.resolved.polyline.threepoint.Program import (
+    EncodeProgram as EncodePolylineThreeProgram,
+    PadFieldMap as PolylineThreeFieldMap,
+)
 from convert.adapters.solidworks.programs.resolved.polyline.sixpoint.Program import (
     EncodeProgram as EncodePolylineSixProgram,
     PadFieldMap as PolylineSixFieldMap,
@@ -2319,7 +2323,11 @@ def BuildPolyTree(
     ):
         return None
     try:
-        if len(PolylineValue) == 5:
+        if len(PolylineValue) == 3:
+            ProgramData = EncodePolylineThreeProgram(
+                PolylineThreeFieldMap(PolylineValue, DepthValue)
+            )
+        elif len(PolylineValue) == 5:
             ProgramData = EncodePolylineFiveProgram(
                 PolylineFiveFieldMap(PolylineValue, DepthValue)
             )
@@ -2332,7 +2340,7 @@ def BuildPolyTree(
     except SldprtFormatError:
         return None
     HeaderStamps = KFrontBossHeaderStamps
-    Generation = KModernGeneration if len(PolylineValue) == 5 else 18000
+    Generation = KModernGeneration if len(PolylineValue) in {3, 5} else 18000
     return VendorResolved(ProgramData, HeaderStamps, Generation=Generation)
 
 
@@ -5837,7 +5845,7 @@ def HasPolyline(
         return False
     if (
         PointsData is None
-        or len(PointsData) not in {5, 6}
+        or len(PointsData) not in {3, 5, 6}
         or len(PointsData) != len(SketchData.entities)
     ):
         return False
@@ -7988,7 +7996,7 @@ def PolylinePoints(SketchObject: _WriteObject) -> tuple[tuple[float, float], ...
     PolylineData = tuple(
         (ItemData for ItemData in ProfilesData if ItemData.kind == "polyline")
     )
-    if len(PolylineData) != 1 or len(PolylineData[0].coordinates) not in {10, 12}:
+    if len(PolylineData) != 1 or len(PolylineData[0].coordinates) not in {6, 10, 12}:
         return None
     CoordinateData = PolylineData[0].coordinates
     PointsData = tuple(
@@ -8394,7 +8402,7 @@ def EncodePolyMut(
     Consumed: set[str],
     LocalId: int,
 ) -> int | None:
-    if len(Selected) not in {5, 6} or not all(
+    if len(Selected) not in {3, 5, 6} or not all(
         Entity is not None and isinstance(Entity.geometry, LineGeom)
         for Entity in Selected
     ):
@@ -9938,7 +9946,7 @@ def HasPadProof(
     DepthValue = PadObject.dimensions[0].value_mm
     ExpectedDepth = (
         (1, 1, 1, 1, -1, -1)
-        if PolylineValue is not None and len(PolylineValue) == 5
+        if PolylineValue is not None and len(PolylineValue) in {3, 5}
         else (1, 1, -1, -1, 1, 1)
     )
     ExpectedDims = tuple(

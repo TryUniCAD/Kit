@@ -100,6 +100,7 @@ Wiki publication is not part of this revision.
 
 The revised five-line feature guide follows [the writing rules](WritingRules.md), [the information plan](../Maintenance/InformationPlan.md), and [the review procedure](../Maintenance/Review.md).
 Source inspection, terminology review, and command-output comparison inform the change record: [native five-line histories](../Changes/Solidworks/SolidworksFiveLineNativeHistories.md).
+The independently scoped triangle guide follows the same rules, with claim boundaries, source findings, and measured SOLIDWORKS 34.5.2 rebuild and live-depth-edit evidence: [native three-line histories](../Changes/Solidworks/SolidworksThreeLineNativeHistories.md).
 A complete ASD dictionary assessment and representative-user task evaluation remain unavailable, as they were during the earlier review.
 A rendered-document review has not been performed for this page, so it is not claimed by publication.
 No full ASD-STE100 or ISO/IEC/IEEE 2651x conformance is implied by the measured native reader and writer behavior.

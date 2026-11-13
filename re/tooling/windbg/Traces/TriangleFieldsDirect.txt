@@ -1,0 +1,20 @@
+.symopt+0x4000
+.symopt-0x20000
+sxi 80090016
+sxi 80290410
+sxi e06d7363
+sxi e0434352
+bu swccu+0x4260 ".if ((poi(@rcx+0x40)-poi(@rcx+0x48)) == 0x2969) { .printf \"F char %x %x %y\\n\", poi(@rcx+0x40)-poi(@rcx+0x48), poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp) }; gc"
+bu swccu+0x4270 ".if ((poi(@rcx+0x40)-poi(@rcx+0x48)) == 0x2969) { .printf \"F uchar %x %x %y\\n\", poi(@rcx+0x40)-poi(@rcx+0x48), poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp) }; gc"
+bu swccu+0x42d0 ".if ((poi(@rcx+0x40)-poi(@rcx+0x48)) == 0x2969) { .printf \"F short %x %x %y\\n\", poi(@rcx+0x40)-poi(@rcx+0x48), poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp) }; gc"
+bu swccu+0x42e0 ".if ((poi(@rcx+0x40)-poi(@rcx+0x48)) == 0x2969) { .printf \"F ushort %x %x %y\\n\", poi(@rcx+0x40)-poi(@rcx+0x48), poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp) }; gc"
+bu swccu+0x4340 ".if ((poi(@rcx+0x40)-poi(@rcx+0x48)) == 0x2969) { .printf \"F int %x %x %y\\n\", poi(@rcx+0x40)-poi(@rcx+0x48), poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp) }; gc"
+bu swccu+0x4350 ".if ((poi(@rcx+0x40)-poi(@rcx+0x48)) == 0x2969) { .printf \"F long %x %x %y\\n\", poi(@rcx+0x40)-poi(@rcx+0x48), poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp) }; gc"
+bu swccu+0x43b0 ".if ((poi(@rcx+0x40)-poi(@rcx+0x48)) == 0x2969) { .printf \"F ulong %x %x %y\\n\", poi(@rcx+0x40)-poi(@rcx+0x48), poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp) }; gc"
+bu swccu+0x4410 ".if ((poi(@rcx+0x40)-poi(@rcx+0x48)) == 0x2969) { .printf \"F float %x %x %y\\n\", poi(@rcx+0x40)-poi(@rcx+0x48), poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp) }; gc"
+bu swccu+0x4470 ".if ((poi(@rcx+0x40)-poi(@rcx+0x48)) == 0x2969) { .printf \"F double %x %x %y\\n\", poi(@rcx+0x40)-poi(@rcx+0x48), poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp) }; gc"
+bu swccu+0x44d0 ".if ((poi(@rcx+0x40)-poi(@rcx+0x48)) == 0x2969) { .printf \"F dbkey %x %x %y\\n\", poi(@rcx+0x40)-poi(@rcx+0x48), poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp) }; gc"
+bu swccu+0x44e0 ".if ((poi(@rcx+0x40)-poi(@rcx+0x48)) == 0x2969) { .printf \"F int64 %x %x %y\\n\", poi(@rcx+0x40)-poi(@rcx+0x48), poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp) }; gc"
+bu swccu+0x4540 ".if ((poi(@rcx+0x40)-poi(@rcx+0x48)) == 0x2969) { .printf \"F uint64 %x %x %y\\n\", poi(@rcx+0x40)-poi(@rcx+0x48), poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp) }; gc"
+bu swccu+0xa2d0 ".if ((poi(@rcx+0x38)-poi(@rcx+0x48)) == 0x2969) { .detach; qd }; gc"
+g
