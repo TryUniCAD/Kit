@@ -144,13 +144,12 @@ The cases did not run locally.
 
 ## Limits
 
-Kit does not author a new assembly that references other designs.
-The [data model draft](../../../../re/Fusion/Reconstruction/LinksConfigs/DataModelSection.md) lists the records that such an assembly needs.
-The `ACTRefdTable` field split is an inference from the schema dump.
-The fields are an entry map, a revision GUID, an asset, an asset GUID, a link name and a revision map.
+The [assembly authoring change](FusionAssemblyAuthoring.md) adds new assemblies that reference other designs.
+It also confirms the `ACTRefdTable` field split from the Fusion binary.
 
 ## Related information
 
+- [Assembly authoring change](FusionAssemblyAuthoring.md)
 - [Dependency graph change](FusionDependencyGraph.md)
 - [Configuration boundary](../Configuration/FusionConfigurationBoundary.md)
 - [Link renewal gotcha](../../../Gotchas/Conversion/Fusion/Assembly/FusionLinkRenewal.md)

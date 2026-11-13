@@ -54,7 +54,7 @@ Each asset link row has the fields in the table.
 | `SnapshotId` | Snapshot GUID of the referenced design |
 | `LinkWord` | 1 in all observed rows |
 | Marker | 2 in all observed rows |
-| `PhysicalGuid` | A GUID different from `LinkId` |
+| `PhysicalGuid` | `physicalChangeGuid` asset property of the referenced design, or the zero GUID when that property is absent |
 
 ### Version contexts
 
@@ -66,7 +66,7 @@ The contexts come before the property list.
 | --- | --- | --- |
 | `Token` | `u64` | Key for `CrossRef` values in this segment |
 | `LinkId` | UTF-16 text | Root manifest link GUID |
-| `RevisionId` | UTF-16 text | Revision GUID |
+| `RevisionId` | UTF-16 text | Document GUID of the referenced cloud design, the same for every version |
 | `VersionUrn` | UTF-16 text | Version URN, equal to the link `URL` in all 54 fixture contexts |
 | `AssetId` | UTF-16 text | Equal to `linkedAssetGUID` in all 54 fixture contexts |
 | `SegmentId` | `u32` | 0 for Design and Browser, 1 for ACT |
@@ -123,7 +123,7 @@ The difference between `R0_empty` and `R1_part_a` gives the records of one exter
 | Design | `DcOccurrence` | Occurrence path and transform state |
 | ACT | `ACTInstance` | Instance with `ACTRef` and `targetComponent` as `CrossRef` |
 | ACT | `RevGUIDACTDataMany`, two records | Revision GUID for each tracked change type |
-| ACT | `ACTRefdTable` | Referenced table with tracked change types, link name and revision map |
+| ACT | `ACTRefdTable` | Referenced table with tracked change types, reference count, link name and revision map |
 | Browser | `FusionComponentInstanceBrowserEntry` | Browser node with `CrossRef` subjects into the target |
 
 Existing records also change.
@@ -134,6 +134,44 @@ These are `ComponentInstance.initialTransform`, `ComponentInstance.transform`, t
 The matrix is row-major with the translation in the fourth column, in centimetres.
 No graphics value of `R1_part_a` equals this matrix.
 A typed change of these four fields moves the occurrence in Fusion.
+
+### `ACTRefdTable`
+
+`ACTRefdTable::initializeMemberSet` in `NsACT10.dylib` registers six members for schema version 1.
+
+| Member | Fusion type | Saved | Content in the controls |
+| --- | --- | --- | --- |
+| `ACTRefdTableEntries` | `map<wstring, pair<set<string>, unsigned int>>` | Yes | Target component identifier, tracked change types, reference count |
+| `RevisionGuidForChangeType` | `map<string, uuid>` | Yes | `revisionGuidForChangeType` of the target ACT table |
+| `CachedRevGuid` | `uuid` | Yes | `RevisionGuid` of the target ACT table |
+| `RefdAsset` | `int64` runtime pointer | No | Not written |
+| `RefdDocLinkName` | `wstring` | Yes | Link GUID |
+| `RefdAssetGuid` | `uuid` | Yes | Target asset GUID |
+
+The pair has no registered member names.
+`addEntry` and `_replaceEntry` set the count to 1 for a new key and add 1 for an existing key.
+`removeEntry` subtracts 1 and removes the key at 0.
+Kit calls the count `referenceCount`.
+`isOutOfDate` compares `CachedRevGuid` with the target revision, and then each tracked change type.
+
+### Authoring rules
+
+`EmitAssembly` writes a new root that references other designs.
+These rules match `R4_joint` and a native insert of a Kit part.
+
+| Item | Rule |
+| --- | --- |
+| Design object numbers | `XRefManager`, then per placement: instance, compute node, update data, placement feature, update data, status, progenitor table, occurrence, nested occurrences |
+| Ground pin | Directly after its placement: override, feature, data reference, recipe, external recipe, update data, status, progenitor table |
+| Joint | Joint, feature, nine occurrence references, update data, status, progenitor table, compute occurrence, joint occurrence |
+| ACT object numbers | Instance, data, `ACTRefdTable` and data copy for each placement |
+| Feature numbers | From `operationSeedId`, in timeline order |
+| Record order | Primary records by object number, each followed by its continuation |
+| Observer index of a target object | One more than the largest index on that object in the target design |
+| Identity placement | Empty matrix value |
+
+Fusion accepted a root that `EmitAssembly` wrote.
+`AsmAcceptance.json` in `re/Fusion/LocalOracle/LinksConfigs` records the run.
 
 ### Reference update
 
@@ -182,6 +220,11 @@ No observed file has a sidecar larger than 2 bytes.
 The configuration table, rule, row and cell layouts are not known.
 `Design.createConfiguredDesign` failed with an account restriction, so no configured control exists.
 
+A second search found no other source of a configured design.
+The Fusion app bundle has 232 design files and 21 nested designs, and none has a configuration sidecar.
+`FusionXLayer10.dylib` also holds `Cannot retrieve configuration top table as the user is restricted.`
+`AppConfigScan.json` records the bundle scan.
+
 ## Verification
 
 | Check | Result |
@@ -197,11 +240,15 @@ The configuration table, rule, row and cell layouts are not known.
 | Kit-written occurrence matrix shown by Fusion | Equal, largest error 0.0 |
 | `updateAllReferences` on Kit outputs | Part A v1 to v2, body height 0.5 cm to 0.8 cm |
 | Save as version 2 and reopen | 2 of 2, references and transforms kept |
+| Kit-authored root with two Kit parts, a Kit subassembly, a ground pin and a rigid joint | Opened with resolved references, 3 of 3 transforms bit-exact |
+| Part A edit through `updateAllReferences` on the Kit-authored root | Part A v1 to v2, body height 0.5 cm to 0.8 cm |
+| Kit-authored root saved as version 2 and opened again | References, transforms, ground pin and joint kept, 0 unhealthy items |
+| Kit read of the Fusion export of the saved Kit root | Fails on 10 padding bytes at the end of the Design stream |
 
 ## Boundaries
 
-- Kit does not author a new assembly that references other designs.
+- Kit authors rigid as-built joints only. No native revolute control exists.
+- `ReadDocument` rejects Fusion exports of a saved Kit root, because the Design stream ends with 10 padding bytes that change between exports.
 - Kit does not author configured designs.
 - `ReadDocument` does not read the example1 members, because of mesh stream members and unqualified PCB classes.
 - The inline-typed reference form and the cadmpeg cross-document grammar are not qualified.
-- The `ACTRefdTable` field split is an inference from the schema dump.
