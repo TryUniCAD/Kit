@@ -6,7 +6,7 @@ The design members of a native F3Z bundle have the same container layout as an A
 
 ## Actual behavior
 
-The nine members of `examples/.f3z/example1.f3z` differ from the API exports.
+The nine members of `re/Fusion/examples/.f3z/example1.f3z` differ from the API exports.
 
 | Item | Members | Observed content |
 | --- | --- | --- |

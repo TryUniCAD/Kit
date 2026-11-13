@@ -13,7 +13,7 @@ The referenced designs are not in the file.
 
 ## Workaround
 
-Use a native F3Z bundle, for example `examples/.f3z/example1.f3z`, as dependency graph evidence.
+Use a native F3Z bundle, for example `re/Fusion/examples/.f3z/example1.f3z`, as dependency graph evidence.
 Do not expect the API archive export to include the referenced designs.
 Look for the produced file by its stem, because Fusion appends `.f3d`.
 

@@ -59,4 +59,4 @@ def inspect_bundle(source):
 
 if __name__ == "__main__":
     target = pathlib.Path(__file__).with_name("BundleEvidence.json")
-    target.write_text(json.dumps(inspect_bundle(pathlib.Path("examples/.f3z/example1.f3z")), indent=2) + "\n")
+    target.write_text(json.dumps(inspect_bundle(pathlib.Path("re/Fusion/examples/.f3z/example1.f3z")), indent=2) + "\n")

@@ -77,7 +77,7 @@ if __name__ == '__main__':
         'acceptance': acceptance,
         'census': {'baseline': {'pass': 903, 'read': 169}, 'branch': {'pass': 912, 'read': 160}, 'regressions': 0, 'new_differing_members': 0},
         'bundles': {
-            'examples/.f3z/example1.f3z': 'Fusion-saved outer archive: deflate members with save timestamps',
+            're/Fusion/examples/.f3z/example1.f3z': 'Fusion-saved outer archive: deflate members with save timestamps',
             're/Fusion/LocalOracle/Bundles/kit_production_example1.f3z': 'Kit-made outer archive: stored members, 1980 timestamps, reordered; every inner document is byte-identical to the Fusion-saved bundle',
         },
         'remaining': {

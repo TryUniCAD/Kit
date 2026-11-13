@@ -6,7 +6,7 @@ The `world` member references every byte of each `stream_mesh_NNN` and `Fusion_m
 
 ## Actual behavior
 
-Two documents in `examples/.f3z/example1.f3z` hold mesh data after the last referenced span. Member numbers count the bundle documents in file-name order from 0.
+Two documents in `re/Fusion/examples/.f3z/example1.f3z` hold mesh data after the last referenced span. Member numbers count the bundle documents in file-name order from 0.
 
 | Document | Stream | Referenced bytes | Member bytes |
 | --- | --- | --- | --- |

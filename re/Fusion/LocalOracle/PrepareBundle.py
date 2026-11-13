@@ -12,7 +12,7 @@ from convert.formats.Fusion.BundleCodec.EmitBundle import EmitBundle
 from convert.formats.Fusion.BundleCodec.ReadBundle import ReadBundle
 
 
-source = repository / "examples/.f3z/example1.f3z"
+source = repository / "re/Fusion/examples/.f3z/example1.f3z"
 source_data = source.read_bytes()
 bundle = ReadBundle(source_data)
 output_data = EmitBundle(bundle)

@@ -8,7 +8,7 @@ A graphics object identity is the `%p` text of a native pointer. The macOS save 
 
 On macOS, `%p` writes lowercase hexadecimal digits after a `0x` prefix. On Windows, `%p` writes exactly 16 uppercase hexadecimal digits without a prefix.
 
-Kit accepted only the macOS form. It raised `ValueError` with the message `Invalid graphics object identity for GroupNode` for `examples/.f3d/example2.f3d`.
+Kit accepted only the macOS form. It raised `ValueError` with the message `Invalid graphics object identity for GroupNode` for `re/Fusion/examples/.f3d/example2.f3d`.
 
 ## Workaround
 

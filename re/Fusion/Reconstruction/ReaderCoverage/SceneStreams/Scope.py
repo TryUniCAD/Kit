@@ -9,7 +9,7 @@ sys.path.insert(0, str(ROOT / 're/Fusion/Reconstruction/ReaderCoverage'))
 import Census
 
 FILES = (
-    'examples/.f3d/example2.f3d',
+    're/Fusion/examples/.f3d/example2.f3d',
     're/Fusion/Study/timeline-5867579925b5/grouped.f3d',
     're/Fusion/Study/timeline-5867579925b5/reordered_b.f3d',
     're/Fusion/Study/timeline-5867579925b5/rolled_back.f3d',
@@ -18,7 +18,7 @@ FILES = (
     're/Fusion/Study/timeline-72406b67a839/suppressed_b.f3d',
     're/Fusion/Study/timeline-expanded-2396e32f2574/expanded.f3d',
     're/Fusion/Study/timeline-fee448f6a592/suppressed_b.f3d',
-    'examples/.f3z/example1.f3z',
+    're/Fusion/examples/.f3z/example1.f3z',
     're/Fusion/LocalOracle/Bundles/kit_production_example1.f3z',
 )
 

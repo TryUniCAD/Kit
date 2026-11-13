@@ -51,7 +51,7 @@ KDocuments = (
 )
 
 KBundles = (
-    "examples/.f3z/example1.f3z",
+    "re/Fusion/examples/.f3z/example1.f3z",
     "re/Fusion/LocalOracle/Bundles/kit_production_example1.f3z",
 )
 
@@ -164,7 +164,7 @@ def TestSceneParts(Position: int) -> None:
 
 @KRequiresCodec
 def TestWindowsIds() -> None:
-    Container = ReadContainer(LoadBytes("examples/.f3d/example2.f3d"))
+    Container = ReadContainer(LoadBytes("re/Fusion/examples/.f3d/example2.f3d"))
     Scene = ReadSceneParts(Container.Parts)
     Emitted = EmitSceneParts(Scene)
     Original = {

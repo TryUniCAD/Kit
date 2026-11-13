@@ -8,7 +8,7 @@ It did not execute integration tests, perform native calls, or upload files.
 
 | Item | Value |
 | --- | --- |
-| Source | `examples/.f3z/example1.f3z` |
+| Source | `re/Fusion/examples/.f3z/example1.f3z` |
 | Source SHA-256 | `e14866ac96457805a93e63fa269beb4dc8c69caa80c819de4a195db45ccc23c6` |
 | Output | `re/Fusion/LocalOracle/Bundles/kit_production_example1.f3z` |
 | Output SHA-256 | `33a42876f25ecc72844cf37af3ab35cb17ed6bfe621ff4e21ce4b3a62c6afe54` |

@@ -2,7 +2,7 @@
 
 ## Evidence and scope
 
-The supplied corpus contains one `.f3z`: `examples/.f3z/example1.f3z`.
+The supplied corpus contains one `.f3z`: `re/Fusion/examples/.f3z/example1.f3z`.
 Its SHA-256 is `e14866ac96457805a93e63fa269beb4dc8c69caa80c819de4a195db45ccc23c6`.
 The archive has 9,063,269 bytes, eleven ZIP members, nine F3D documents, and two JSON envelopes.
 Every outer member uses ZIP method 8. The bundle has no directory entries.
@@ -177,7 +177,7 @@ Outer-envelope reconstruction is not evidence of native upload acceptance.
 
 ## Sources and attribution
 
-- Supplied `examples/.f3z/example1.f3z`, digest above.
+- Supplied `re/Fusion/examples/.f3z/example1.f3z`, digest above.
 - [Official archive import method](https://help.autodesk.com/cloudhelp/ENU/Fusion-360-API/files/core_ImportManager_createFusionArchiveImportOptions.htm).
 - [Official asynchronous upload method](https://help.autodesk.com/cloudhelp/ENU/Fusion-360-API/files/core_DataFolder_uploadFile.htm).
 - [cadmpeg F3D specification, section 1.5](../../External/cadmpeg/docs/formats/f3d.md), pinned commit `de2726870ff728352163f601ab4e60bbd54fbade`.

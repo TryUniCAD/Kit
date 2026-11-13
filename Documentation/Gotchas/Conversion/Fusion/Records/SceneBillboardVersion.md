@@ -6,7 +6,7 @@ Every saved scene declares `BillBoardAttribute` serializer version 2. Each billb
 
 ## Actual behavior
 
-`examples/.f3d/example2.f3d` and the documents in `examples/.f3z/example1.f3z` declare version 1. `BillBoardAttributeSerializer::DeSerialize` reads `FlipVisibility` only for version 2.
+`re/Fusion/examples/.f3d/example2.f3d` and the documents in `re/Fusion/examples/.f3z/example1.f3z` declare version 1. `BillBoardAttributeSerializer::DeSerialize` reads `FlipVisibility` only for version 2.
 
 Kit accepted only version 2. It raised `ValueError("Unsupported graphics serializer versions or environment")` for these scenes.
 

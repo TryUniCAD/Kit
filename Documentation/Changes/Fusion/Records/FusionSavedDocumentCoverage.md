@@ -100,7 +100,7 @@ Fourteen files still fail.
 
 | Files | Error | Cause |
 | --- | --- | --- |
-| `examples/.f3d/example2.f3d`, `examples/.f3z/example1.f3z`, `re/Fusion/LocalOracle/Bundles/kit_production_example1.f3z` | `Unqualified Fusion native class or schema version` | An older Fusion saved these 19 documents. They declare 14 class versions older than the catalog and 34 classes that the catalog does not hold. |
+| `re/Fusion/examples/.f3d/example2.f3d`, `re/Fusion/examples/.f3z/example1.f3z`, `re/Fusion/LocalOracle/Bundles/kit_production_example1.f3z` | `Unqualified Fusion native class or schema version` | An older Fusion saved these 19 documents. They declare 14 class versions older than the catalog and 34 classes that the catalog does not hold. |
 | 4 files in `re/Fusion/LocalOracle/FormDocuments/Stale` | `Converted Form BRep embeds a T-spline program absent from its parts` | A research script rewrote these members. Each moves a grip in the Form member or in the BRep cache, but not in both. |
 | 2 files in `re/Fusion/LocalOracle/FormDocuments/Cache` | `Unsupported Fusion journal qualified field` | A research script rewrote the `t_spl_sur` cache with approximation level none. The reader does not qualify that value. |
 | 4 `AuthoredParameter.f3d` files in `re/Fusion/Reconstruction/ContainerAuthoring` | `Fusion primary offsets must increase in identity order` | Kit authored these diagnostic containers. They are not Fusion saves. |

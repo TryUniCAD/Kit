@@ -13,7 +13,7 @@ from convert.formats.Fusion.DocumentCodec.Records.DocumentCatalog import Documen
 from convert.formats.Fusion.DocumentCodec.Records.ReadDocSchemas import ReadDocSchemas
 from convert.formats.Fusion.SegmentCodec.Metadata.ReadMetaWire import ReadMetaWire
 
-SOURCES = ('examples/.f3d/example2.f3d', 'examples/.f3z/example1.f3z', 're/Fusion/LocalOracle/Bundles/kit_production_example1.f3z')
+SOURCES = ('re/Fusion/examples/.f3d/example2.f3d', 're/Fusion/examples/.f3z/example1.f3z', 're/Fusion/LocalOracle/Bundles/kit_production_example1.f3z')
 
 registry = {item['identifier'].upper(): item for item in json.loads((ROOT / 're/Fusion/Reconstruction/BinaryClasses.json').read_text())['classes']}
 catalog = DocumentCatalog(ReadDocSchemas())

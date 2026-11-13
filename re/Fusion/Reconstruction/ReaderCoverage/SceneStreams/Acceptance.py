@@ -21,7 +21,7 @@ from convert.formats.Fusion.GraphicsCodec.Model.Values.EnhancedEdge import Enhan
 from convert.formats.Fusion.GraphicsCodec.Model.Values.EnhancedFace import EnhancedFace
 
 REENCODED = ('.protein', '.smb', '.smbh')
-BUNDLES = ('examples/.f3z/example1.f3z', 're/Fusion/LocalOracle/Bundles/kit_production_example1.f3z')
+BUNDLES = ('re/Fusion/examples/.f3z/example1.f3z', 're/Fusion/LocalOracle/Bundles/kit_production_example1.f3z')
 
 
 def members(data):
@@ -91,7 +91,7 @@ if __name__ == '__main__':
             report['scenes'][f'example1 member {position}'] = scene(data)
         except Exception as error:
             report['scenes'][f'example1 member {position}'] = f'{type(error).__name__}: {error}'
-    report['scenes']['examples/.f3d/example2.f3d'] = scene((ROOT / 'examples/.f3d/example2.f3d').read_bytes())
+    report['scenes']['re/Fusion/examples/.f3d/example2.f3d'] = scene((ROOT / 're/Fusion/examples/.f3d/example2.f3d').read_bytes())
     for name in BUNDLES:
         value = ReadBundle((ROOT / name).read_bytes())
         report['bundles'][name] = ReadBundle(EmitBundle(value)) == value
