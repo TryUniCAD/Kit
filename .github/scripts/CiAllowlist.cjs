@@ -3,7 +3,8 @@ const WorkflowPath = WorkflowRoot + "PullRequest.yml";
 const QueuePath = WorkflowRoot + "MergeQueue.yml";
 const QueueGate = "Merge queue acceptance";
 const QueueJobs = [
-  "Run the complete test suite",
+  "Test suite / Plan",
+  "Test suite / Report",
   "Analyze actions",
   "Analyze python",
   "Bandit",
@@ -22,6 +23,7 @@ const QueueJobs = [
   "Trivy",
   "TruffleHog",
 ];
+const ShardJobs = /^Test suite \/ Shard \(\d+\)$/;
 const StaticChecks = {
   "PythonQuality.yml": {
     required: ["Ruff", "Black", "Pyright", "Mypy"],
@@ -79,11 +81,16 @@ function CiWorkflows(IsPull, IncludeAgg = false, Opened = false) {
     Workflows.set(QueuePath, {
       event: Event,
       required: [QueueGate, ...QueueJobs],
+      matching: [ShardJobs],
     });
     return Workflows;
   }
 
-  const Deferred = [...QueueJobs, "Analyze ${{ matrix.language }}"];
+  const Deferred = [
+    ...QueueJobs,
+    "Analyze ${{ matrix.language }}",
+    "Test suite / Shard (${{ matrix.shard }})",
+  ];
   Workflows.set(QueuePath, {
     event: Event,
     required: [QueueGate],
