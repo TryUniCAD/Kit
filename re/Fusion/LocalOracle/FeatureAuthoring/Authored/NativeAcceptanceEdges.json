@@ -7,7 +7,7 @@
     {
       "name": "ChamferTwoDistances",
       "file": "ChamferTwoDistances.f3d",
-      "sha256": "de5ba6b1659bc005df4fdc5cd6171e19fe4b4750b632d67a17e53e8618ffe135",
+      "sha256": "3a4d7b9b4be977172c5e21f3327f554699704fc546201123e2e6fecadfd24397",
       "steps": [
         {
           "kind": "extrude",
@@ -221,6 +221,7 @@
               "role": "Distance 2"
             }
           ],
+          "work": [],
           "marker": 3
         },
         "markers": [
@@ -280,6 +281,7 @@
                 "role": "Distance 2"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -338,6 +340,7 @@
                 "role": "Distance 2"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -429,6 +432,7 @@
                 "role": "Distance 2"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -521,6 +525,7 @@
                 "role": "Distance 2"
               }
             ],
+            "work": [],
             "marker": 3
           }
         ],
@@ -614,6 +619,7 @@
               "role": "Distance 2"
             }
           ],
+          "work": [],
           "marker": 3
         }
       },
@@ -715,6 +721,7 @@
             "role": "Distance 2"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "markers": [
@@ -782,6 +789,7 @@
               "role": "Distance 2"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -848,6 +856,7 @@
               "role": "Distance 2"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -947,6 +956,7 @@
               "role": "Distance 2"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -1047,6 +1057,7 @@
               "role": "Distance 2"
             }
           ],
+          "work": [],
           "marker": 3
         }
       ],
@@ -1149,6 +1160,7 @@
             "role": "Distance 2"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "edited": {
@@ -1249,6 +1261,7 @@
             "role": "Distance 2"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopened": {
@@ -1349,6 +1362,7 @@
             "role": "Distance 2"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopen_computed": true,
@@ -1450,15 +1464,16 @@
             "role": "Distance 2"
           }
         ],
+        "work": [],
         "marker": 3
       },
-      "saved_sha256": "78e0146b63112b4882e7efd7555cf39737b63de859e8cf52ce5174bc85cbbc82",
+      "saved_sha256": "7811f01fb1979d38347ce3c095cb0fccf809530ab55842cc7c4e691c7f72f310",
       "status": "accepted"
     },
     {
       "name": "ChamferDistanceAngle",
       "file": "ChamferDistanceAngle.f3d",
-      "sha256": "ce05f7bd6cc64839a48ec281047846da466f0b7d3e7aad04629a33b35905757d",
+      "sha256": "47cf09ac0e7203d660a5aded309e3cf7a89d3fefc8a0b1fb1692b91b65306617",
       "steps": [
         {
           "kind": "extrude",
@@ -1672,6 +1687,7 @@
               "role": "Rotate Angle"
             }
           ],
+          "work": [],
           "marker": 3
         },
         "markers": [
@@ -1731,6 +1747,7 @@
                 "role": "Rotate Angle"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -1789,6 +1806,7 @@
                 "role": "Rotate Angle"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -1880,6 +1898,7 @@
                 "role": "Rotate Angle"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -1972,6 +1991,7 @@
                 "role": "Rotate Angle"
               }
             ],
+            "work": [],
             "marker": 3
           }
         ],
@@ -2065,6 +2085,7 @@
               "role": "Rotate Angle"
             }
           ],
+          "work": [],
           "marker": 3
         }
       },
@@ -2166,6 +2187,7 @@
             "role": "Rotate Angle"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "markers": [
@@ -2233,6 +2255,7 @@
               "role": "Rotate Angle"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -2299,6 +2322,7 @@
               "role": "Rotate Angle"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -2398,6 +2422,7 @@
               "role": "Rotate Angle"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -2498,6 +2523,7 @@
               "role": "Rotate Angle"
             }
           ],
+          "work": [],
           "marker": 3
         }
       ],
@@ -2600,6 +2626,7 @@
             "role": "Rotate Angle"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "edited": {
@@ -2700,6 +2727,7 @@
             "role": "Rotate Angle"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopened": {
@@ -2800,6 +2828,7 @@
             "role": "Rotate Angle"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopen_computed": true,
@@ -2901,15 +2930,16 @@
             "role": "Rotate Angle"
           }
         ],
+        "work": [],
         "marker": 3
       },
-      "saved_sha256": "523bcbde89c8a186fb753132e07953e248de85c9cb05e6f314a4d5958a4152f6",
+      "saved_sha256": "ba767096df65726db4b048c32af81dd06c8ea5db42f53719b3ff0e7054fada11",
       "status": "accepted"
     },
     {
       "name": "FilletTwoEdges",
       "file": "FilletTwoEdges.f3d",
-      "sha256": "bfd83a2b8406ab372c5f22573bb82b7c830d29dcf7397424de573711b32e0a25",
+      "sha256": "7c3ff3e44f532d2caef5b248ccea6e8c32fc65d9a5b384e6d04334e110343e42",
       "steps": [
         {
           "kind": "extrude",
@@ -3132,6 +3162,7 @@
               "role": "Radius"
             }
           ],
+          "work": [],
           "marker": 3
         },
         "markers": [
@@ -3191,6 +3222,7 @@
                 "role": "Radius"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -3249,6 +3281,7 @@
                 "role": "Radius"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -3340,6 +3373,7 @@
                 "role": "Radius"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -3433,6 +3467,7 @@
                 "role": "Radius"
               }
             ],
+            "work": [],
             "marker": 3
           }
         ],
@@ -3527,6 +3562,7 @@
               "role": "Radius"
             }
           ],
+          "work": [],
           "marker": 3
         }
       },
@@ -3629,6 +3665,7 @@
             "role": "Radius"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "markers": [
@@ -3696,6 +3733,7 @@
               "role": "Radius"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -3762,6 +3800,7 @@
               "role": "Radius"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -3861,6 +3900,7 @@
               "role": "Radius"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -3962,6 +4002,7 @@
               "role": "Radius"
             }
           ],
+          "work": [],
           "marker": 3
         }
       ],
@@ -4065,6 +4106,7 @@
             "role": "Radius"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "edited": {
@@ -4166,6 +4208,7 @@
             "role": "Radius"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopened": {
@@ -4267,6 +4310,7 @@
             "role": "Radius"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopen_computed": true,
@@ -4369,15 +4413,16 @@
             "role": "Radius"
           }
         ],
+        "work": [],
         "marker": 3
       },
-      "saved_sha256": "b5cbb748caded0aaf45be2f09476ce1d398af2443b4fda6df36aa119725e4cc4",
+      "saved_sha256": "2ab8f51fd77c98a197d18329a9b4894e3f1bfc0e7f37050c4227b8a4f5a8c837",
       "status": "accepted"
     },
     {
       "name": "ChamferTwoEdges",
       "file": "ChamferTwoEdges.f3d",
-      "sha256": "1a3e50b7ad3a685e6ec9f7aed5dc37d93ead1ad8955f90637005362c8ae2d039",
+      "sha256": "0e1fc083495e9dde29cdaf021ecb7941aabb4b6481f53ec5eaf113a5ce1fcffc",
       "steps": [
         {
           "kind": "extrude",
@@ -4592,6 +4637,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 3
         },
         "markers": [
@@ -4643,6 +4689,7 @@
                 "role": "Distance"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -4693,6 +4740,7 @@
                 "role": "Distance"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -4776,6 +4824,7 @@
                 "role": "Distance"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -4861,6 +4910,7 @@
                 "role": "Distance"
               }
             ],
+            "work": [],
             "marker": 3
           }
         ],
@@ -4947,6 +4997,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 3
         }
       },
@@ -5041,6 +5092,7 @@
             "role": "Distance"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "markers": [
@@ -5100,6 +5152,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -5158,6 +5211,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -5249,6 +5303,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -5342,6 +5397,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 3
         }
       ],
@@ -5437,6 +5493,7 @@
             "role": "Distance"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "edited": {
@@ -5530,6 +5587,7 @@
             "role": "Distance"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopened": {
@@ -5623,6 +5681,7 @@
             "role": "Distance"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopen_computed": true,
@@ -5717,15 +5776,16 @@
             "role": "Distance"
           }
         ],
+        "work": [],
         "marker": 3
       },
-      "saved_sha256": "49c702335878397fe139e702cb5326fd133a87d86d728d539f04a5ad575f6b4f",
+      "saved_sha256": "c3428b38beaf35d643f9fc7fdd699c4eaa3c786014e7dce4a2f24a11fd9e242f",
       "status": "accepted"
     },
     {
       "name": "CornerSetPart",
       "file": "CornerSetPart.f3d",
-      "sha256": "11d6df200e464bfb0cf4d5b5abc99a26fc153e950e380099a25bce676a1b6ba4",
+      "sha256": "2aa2e6c171c8d4232b110d9f813885109305303b3e874d46843cd5905533676b",
       "steps": [
         {
           "kind": "extrude",
@@ -6037,6 +6097,7 @@
               "role": "Rotate Angle"
             }
           ],
+          "work": [],
           "marker": 5
         },
         "markers": [
@@ -6140,6 +6201,7 @@
                 "role": "Rotate Angle"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -6242,6 +6304,7 @@
                 "role": "Rotate Angle"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -6377,6 +6440,7 @@
                 "role": "Rotate Angle"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -6513,6 +6577,7 @@
                 "role": "Rotate Angle"
               }
             ],
+            "work": [],
             "marker": 3
           },
           {
@@ -6651,6 +6716,7 @@
                 "role": "Rotate Angle"
               }
             ],
+            "work": [],
             "marker": 4
           },
           {
@@ -6790,6 +6856,7 @@
                 "role": "Rotate Angle"
               }
             ],
+            "work": [],
             "marker": 5
           }
         ],
@@ -6930,6 +6997,7 @@
               "role": "Rotate Angle"
             }
           ],
+          "work": [],
           "marker": 5
         }
       },
@@ -7078,6 +7146,7 @@
             "role": "Rotate Angle"
           }
         ],
+        "work": [],
         "marker": 5
       },
       "markers": [
@@ -7189,6 +7258,7 @@
               "role": "Rotate Angle"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -7299,6 +7369,7 @@
               "role": "Rotate Angle"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -7442,6 +7513,7 @@
               "role": "Rotate Angle"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -7586,6 +7658,7 @@
               "role": "Rotate Angle"
             }
           ],
+          "work": [],
           "marker": 3
         },
         {
@@ -7732,6 +7805,7 @@
               "role": "Rotate Angle"
             }
           ],
+          "work": [],
           "marker": 4
         },
         {
@@ -7879,6 +7953,7 @@
               "role": "Rotate Angle"
             }
           ],
+          "work": [],
           "marker": 5
         }
       ],
@@ -8028,6 +8103,7 @@
             "role": "Rotate Angle"
           }
         ],
+        "work": [],
         "marker": 5
       },
       "edited": {
@@ -8175,6 +8251,7 @@
             "role": "Rotate Angle"
           }
         ],
+        "work": [],
         "marker": 5
       },
       "reopened": {
@@ -8322,6 +8399,7 @@
             "role": "Rotate Angle"
           }
         ],
+        "work": [],
         "marker": 5
       },
       "reopen_computed": true,
@@ -8470,9 +8548,10 @@
             "role": "Rotate Angle"
           }
         ],
+        "work": [],
         "marker": 5
       },
-      "saved_sha256": "fed9e580a1fe9ed7a166a69135228a710ab0d252a35d9c22d0615677c484de68",
+      "saved_sha256": "f2661fb3a6521389d02ef9ecc97a1f3b9c32c2fd90ee77e97051671c95ae68d9",
       "status": "accepted"
     }
   ],

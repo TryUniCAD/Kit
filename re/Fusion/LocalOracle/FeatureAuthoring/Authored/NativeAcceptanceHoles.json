@@ -7,7 +7,7 @@
     {
       "name": "HoleFlat",
       "file": "HoleFlat.f3d",
-      "sha256": "8782627949363f64fbf55d442bcd77edb1ee6fada24491d7ef4c2063c483189e",
+      "sha256": "76604972505e07989784508e2730e2cd3bfa18fc842f4c964ca06118fafbd26d",
       "steps": [
         {
           "kind": "extrude",
@@ -235,6 +235,7 @@
               "role": "TipAngle"
             }
           ],
+          "work": [],
           "marker": 3
         },
         "markers": [
@@ -302,6 +303,7 @@
                 "role": "TipAngle"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -368,6 +370,7 @@
                 "role": "TipAngle"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -467,6 +470,7 @@
                 "role": "TipAngle"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -568,6 +572,7 @@
                 "role": "TipAngle"
               }
             ],
+            "work": [],
             "marker": 3
           }
         ],
@@ -670,6 +675,7 @@
               "role": "TipAngle"
             }
           ],
+          "work": [],
           "marker": 3
         }
       },
@@ -780,6 +786,7 @@
             "role": "TipAngle"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "markers": [
@@ -855,6 +862,7 @@
               "role": "TipAngle"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -929,6 +937,7 @@
               "role": "TipAngle"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -1036,6 +1045,7 @@
               "role": "TipAngle"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -1145,6 +1155,7 @@
               "role": "TipAngle"
             }
           ],
+          "work": [],
           "marker": 3
         }
       ],
@@ -1256,6 +1267,7 @@
             "role": "TipAngle"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "edited": {
@@ -1365,6 +1377,7 @@
             "role": "TipAngle"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopened": {
@@ -1474,6 +1487,7 @@
             "role": "TipAngle"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopen_computed": true,
@@ -1584,15 +1598,16 @@
             "role": "TipAngle"
           }
         ],
+        "work": [],
         "marker": 3
       },
-      "saved_sha256": "86198494a254e1878e83329b229898b0a70d5299e88b6ffe0625679b62f62663",
+      "saved_sha256": "8ded190d5042c16df309969e7cdb49c254d41451135ea4a59511c6eb0bec8e4e",
       "status": "accepted"
     },
     {
       "name": "HoleThrough",
       "file": "HoleThrough.f3d",
-      "sha256": "957daad6cec5acb01d043d6954d464d4e49f0b90bf3be35c41b2921d5b1d1bc7",
+      "sha256": "197f3293bbad294dd38aa4c73a77533fe5272e4ff54a2dd0296912d29511bdf5",
       "steps": [
         {
           "kind": "extrude",
@@ -1810,6 +1825,7 @@
               "role": "TipAngle"
             }
           ],
+          "work": [],
           "marker": 3
         },
         "markers": [
@@ -1869,6 +1885,7 @@
                 "role": "TipAngle"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -1927,6 +1944,7 @@
                 "role": "TipAngle"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -2018,6 +2036,7 @@
                 "role": "TipAngle"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -2110,6 +2129,7 @@
                 "role": "TipAngle"
               }
             ],
+            "work": [],
             "marker": 3
           }
         ],
@@ -2203,6 +2223,7 @@
               "role": "TipAngle"
             }
           ],
+          "work": [],
           "marker": 3
         }
       },
@@ -2304,6 +2325,7 @@
             "role": "TipAngle"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "markers": [
@@ -2371,6 +2393,7 @@
               "role": "TipAngle"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -2437,6 +2460,7 @@
               "role": "TipAngle"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -2536,6 +2560,7 @@
               "role": "TipAngle"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -2636,6 +2661,7 @@
               "role": "TipAngle"
             }
           ],
+          "work": [],
           "marker": 3
         }
       ],
@@ -2738,6 +2764,7 @@
             "role": "TipAngle"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "edited": {
@@ -2838,6 +2865,7 @@
             "role": "TipAngle"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopened": {
@@ -2938,6 +2966,7 @@
             "role": "TipAngle"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopen_computed": true,
@@ -3039,15 +3068,16 @@
             "role": "TipAngle"
           }
         ],
+        "work": [],
         "marker": 3
       },
-      "saved_sha256": "b8c95f62f1999b78c05926944963497ddc890608b67ff9eb684903b0fc6022bc",
+      "saved_sha256": "e25efc61bf523cede11cae401925bb4a6d620b428b2f242ec6d87843964c789c",
       "status": "accepted"
     },
     {
       "name": "HoleCounterboreFlat",
       "file": "HoleCounterboreFlat.f3d",
-      "sha256": "f787ec0e403caee674c0f6d72f4bb99250a95b049c74e3beb5224663dcdce5db",
+      "sha256": "f2a6c885360ac6de4be052f7c86f07a012c5278990bd13e51ef3213b8edfa0e6",
       "steps": [
         {
           "kind": "extrude",
@@ -3295,6 +3325,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 3
         },
         "markers": [
@@ -3378,6 +3409,7 @@
                 "role": "CBDiameter"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -3460,6 +3492,7 @@
                 "role": "CBDiameter"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -3575,6 +3608,7 @@
                 "role": "CBDiameter"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -3694,6 +3728,7 @@
                 "role": "CBDiameter"
               }
             ],
+            "work": [],
             "marker": 3
           }
         ],
@@ -3814,6 +3849,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 3
         }
       },
@@ -3942,6 +3978,7 @@
             "role": "CBDiameter"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "markers": [
@@ -4033,6 +4070,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -4123,6 +4161,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -4246,6 +4285,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -4373,6 +4413,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 3
         }
       ],
@@ -4502,6 +4543,7 @@
             "role": "CBDiameter"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "edited": {
@@ -4629,6 +4671,7 @@
             "role": "CBDiameter"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopened": {
@@ -4756,6 +4799,7 @@
             "role": "CBDiameter"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopen_computed": true,
@@ -4884,15 +4928,16 @@
             "role": "CBDiameter"
           }
         ],
+        "work": [],
         "marker": 3
       },
-      "saved_sha256": "792c56a86b8f887015e79eaf01856fefc31fd9d1fdde66e076140701a198f5b1",
+      "saved_sha256": "016df7cc13f47dfa893bc81602d689d27f4a0c6dd6b3b54ae20a167165d73363",
       "status": "accepted"
     },
     {
       "name": "HoleCounterbore",
       "file": "HoleCounterbore.f3d",
-      "sha256": "7f7c64ffe434536f2a8e1f00807f085cd8b75c4d1707bfbd25b3ab57e5a2c5b4",
+      "sha256": "02df68acfcab706e13af531259b6166a7c18f473e5bac50082cf0c886f2fea73",
       "steps": [
         {
           "kind": "extrude",
@@ -4982,7 +5027,7 @@
         },
         {
           "volume_cm3": 23.23345139252409,
-          "area_cm2": 55.707079331235946,
+          "area_cm2": 55.70707933123596,
           "faces": 9,
           "edges": 16
         }
@@ -5130,6 +5175,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 3
         },
         "markers": [
@@ -5205,6 +5251,7 @@
                 "role": "CBDiameter"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -5279,6 +5326,7 @@
                 "role": "CBDiameter"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -5386,6 +5434,7 @@
                 "role": "CBDiameter"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -5496,6 +5545,7 @@
                 "role": "CBDiameter"
               }
             ],
+            "work": [],
             "marker": 3
           }
         ],
@@ -5607,6 +5657,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 3
         }
       },
@@ -5726,6 +5777,7 @@
             "role": "CBDiameter"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "markers": [
@@ -5809,6 +5861,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -5891,6 +5944,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -6006,6 +6060,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -6124,6 +6179,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 3
         }
       ],
@@ -6244,6 +6300,7 @@
             "role": "CBDiameter"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "edited": {
@@ -6362,6 +6419,7 @@
             "role": "CBDiameter"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopened": {
@@ -6480,6 +6538,7 @@
             "role": "CBDiameter"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopen_computed": true,
@@ -6599,9 +6658,10 @@
             "role": "CBDiameter"
           }
         ],
+        "work": [],
         "marker": 3
       },
-      "saved_sha256": "a2d3b92f72827487f6a248315e42736e545a87de1423a890dd240da33863ff16",
+      "saved_sha256": "383e561af4feec42800139cf1a9e96caea104756576679f9715ae5638810edf0",
       "status": "accepted"
     }
   ],

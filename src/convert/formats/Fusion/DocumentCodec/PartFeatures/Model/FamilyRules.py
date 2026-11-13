@@ -1,3 +1,13 @@
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.BodyGridSpec import (
+    BodyGridSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.BodyRingSpec import (
+    BodyRingSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CombineSpec import (
+    CombineSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SplitSpec import SplitSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.AxisSpec import AxisSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ChamferSpec import (
     ChamferSpec,
@@ -35,6 +45,10 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.OffsetSpec import (
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.DraftSpec import DraftSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import ShellSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.LoftSpec import LoftSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SweepSpec import (
+    SweepSpec,
+)
 
 KFamilyRules: dict[type[object], FamilyRule] = {
     FilletSpec: FamilyRule("DcFilletEdgeFeature", "Fillet", 1, 8),
@@ -52,6 +66,12 @@ KFamilyRules: dict[type[object], FamilyRule] = {
     MoveSpec: FamilyRule("DcMoveFeature", "Move", 1, 4),
     OffsetSpec: FamilyRule("DcOffsetFacesFeature", "OffsetFaces", 2, 16),
     DraftSpec: FamilyRule("DcDraftFeature", "Draft", 2, 16),
+    CombineSpec: FamilyRule("DcCombineFeature", "Combine", 1, 4),
+    SplitSpec: FamilyRule("DcSplitBodyFeature", "Split", 1, 4),
+    BodyGridSpec: FamilyRule("DcRectangularPattern", "R-Pattern", 0, 4),
+    BodyRingSpec: FamilyRule("DcCircularPattern", "C-Pattern", 0, 4),
+    LoftSpec: FamilyRule("DcLoftFeature", "Loft", 4, 8),
+    SweepSpec: FamilyRule("DcSweepFeature", "Sweep", 3, 8),
 }
 
 
@@ -63,9 +83,9 @@ def FamilyOf(Feature: KPartFeature) -> FamilyRule:
 
 
 def OperationsOf(Feature: KPartFeature) -> int:
-    if isinstance(Feature, PatternSpec):
+    if isinstance(Feature, (PatternSpec, BodyGridSpec)):
         return Feature.CountU * Feature.CountV
-    if isinstance(Feature, CircularSpec):
+    if isinstance(Feature, (CircularSpec, BodyRingSpec)):
         return Feature.Count
     return FamilyOf(Feature).OperationCount
 

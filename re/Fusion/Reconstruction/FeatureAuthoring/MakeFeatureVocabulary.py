@@ -21,10 +21,10 @@ from convert.formats.Fusion.SegmentCodec.Bulk.BulkRecord import BulkRecord
 from convert.formats.Fusion.SegmentCodec.Metadata.ReadMetaWire import ReadMetaWire
 
 CONTROLS = REPO / "re/Fusion/LocalOracle/FeatureAuthoring/Controls"
-SOURCES = ("Fillet", "Chamfer", "Shell", "ExtrudeCut", "RectPattern", "MirrorBody", "MultiFeature", "HoleFlat", "HoleThrough", "HoleCounterboreFlat", "Construction", "OffsetPlane", "FeatureCircPattern", "MirrorFeature", "RevolveFull", "RevolveHalf")
+SOURCES = tuple(sys.argv[1:]) or ("Combine", "SplitBody")
 TARGET = REPO / "src/convert/formats/Fusion/DocumentCodec/PartFeatures/Vocabulary"
 ROOT = "98542EB9-A4F2-4137-A808-DBB5B3CD6159"
-AUTHORED = {"ASMRecipe", "DRBody", "DRPoint", "DRVector", "DcHoleFeature", "DcHoleToolBody", "BrepProgenitor", "BrepRef", "DcChamferData", "DcChamferFeature", "DcFilletEdgeData", "DcFilletEdgeFeature", "DcShellFeature", "ETCachedCurve3d", "DcIntParameter", "DcPatternFeature", "DcPatternBaseData", "DcPatternSource", "DcPatternOccurrence", "DcPatternBodyOccurrence", "DcRectangularPattern", "DcRectangularPatternData", "DcCircularPattern", "DcCircularPatternData", "DcMirrorPattern", "DcMirrorPatternData", "DcWorkGeometry", "DcWorkPlane", "ETCachedLineSeg3d"}
+AUTHORED = {"ASMRecipe", "DRBody", "DRPoint", "DRVector", "DcHoleFeature", "DcHoleToolBody", "BrepProgenitor", "BrepRef", "DcChamferData", "DcChamferFeature", "DcFilletEdgeData", "DcFilletEdgeFeature", "DcShellFeature", "ETCachedCurve3d", "DcIntParameter", "DcPatternFeature", "DcPatternBaseData", "DcPatternSource", "DcPatternOccurrence", "DcPatternBodyOccurrence", "DcRectangularPattern", "DcRectangularPatternData", "DcCircularPattern", "DcCircularPatternData", "DcMirrorPattern", "DcMirrorPatternData", "DcWorkGeometry", "DcWorkPlane", "ETCachedLineSeg3d", "DcCombineFeature", "DcSplitBodyFeature", "DcSplitFeature", "OccurrenceDataRef", "ETCachedPlane", "EntityDataRef", "DcSweepFeature", "DcSweepToolBody", "SweepFaceProgenitor", "SketchEntityRecipe", "SketchCurveEntityRecipe", "ETCachedCircleArc", "DcLoftFeature", "DcLoftToolBody", "DcLoftSectionData", "LoftProgenitor"}
 
 
 def known_guids():
@@ -110,7 +110,9 @@ def author_value(value, shape, catalog_names):
 
 
 def main():
-    known = known_guids()
+    existing = json.loads((TARGET / "FeatureClasses.json").read_text())
+    kept_defaults = json.loads((TARGET / "FeatureDefaults.json").read_text())
+    known = known_guids() | {entry["ClassGuid"].upper() for entry in existing}
     catalog = DocumentCatalog(ReadDocSchemas())
     selected = {}
     spaces = {}
@@ -150,7 +152,7 @@ def main():
     missing = [g for g, s in selected.items() if s.BaseGuid.upper() not in known and s.BaseGuid.upper() not in selected and s.BaseGuid.upper() != ROOT and s.BaseGuid]
     if missing:
         raise ValueError("lineage gap " + repr(missing))
-    vocabulary = []
+    vocabulary = list(existing)
     for guid in sorted(selected):
         schema = selected[guid]
         name = class_name(guid, schema.IsValue)
@@ -159,9 +161,11 @@ def main():
             if schema.IsValue:
                 continue
             raise ValueError("no native default for " + name)
+    vocabulary.sort(key=lambda entry: entry["ClassGuid"].upper())
     TARGET.mkdir(parents=True, exist_ok=True)
     (TARGET / "FeatureClasses.json").write_text(json.dumps(vocabulary, indent=2) + "\n")
-    ordered = {name: defaults[name] for name in sorted(defaults) if name in AUTHORED}
+    merged = kept_defaults | {name: value for name, value in defaults.items() if name in AUTHORED}
+    ordered = {name: merged[name] for name in sorted(merged)}
     (TARGET / "FeatureDefaults.json").write_text(json.dumps(ordered, indent=2, sort_keys=True) + "\n")
     print(len(vocabulary), "classes", len(ordered), "defaults")
     print(sorted(e["NameValue"] for e in vocabulary))

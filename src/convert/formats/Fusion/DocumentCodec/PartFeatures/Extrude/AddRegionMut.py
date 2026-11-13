@@ -34,10 +34,13 @@ def RegionTags(
 
 
 def AddRegionMut(
-    Author: AuthorState, Prefix: str, TagList: list[dict[str, object]]
+    Author: AuthorState,
+    Prefix: str,
+    TagList: list[dict[str, object]],
+    Owner: str = "",
 ) -> None:
     Reference = Author.Reference
-    MainRole = Prefix + "feature"
+    MainRole = Owner or Prefix + "feature"
     AddNodeMut(Author, Prefix + "profile", "ModelDataRef", MainRole)
     AddNodeMut(Author, Prefix + "region", "SketchRegionRef", MainRole)
     Author.Allocate(Prefix + "region_recipe", "SketchRegionRecipe")

@@ -249,8 +249,8 @@ Three Fusion 2706.1.17 runs accepted Form documents that Kit wrote. Each run con
 
 | Report | SHA-256 | Status | Kit documents |
 | --- | --- | --- | --- |
-| [Source-free bodies](../../../../re/Fusion/LocalOracle/FormDocuments/Sourceless/NativeAcceptance.json) | `7adc4ba5e0cf76ccd26cf1e70766f54147dbba9d8167f71d827b6e1bb7b544b1` | `accepted` | `EmitFormDoc` with typed bodies for 9 cages |
-| [Cage documents](../../../../re/Fusion/LocalOracle/FormDocuments/CageDocuments/NativeAcceptance.json) | `c78966db2f218253691c07ddf02d92984dc2c0aacbbba8404338f25232f7a617` | `accepted` | `EmitFormDoc` with `ConvertForm` for 14 cages |
+| [Source-free bodies](../../../../re/Fusion/LocalOracle/FormDocuments/Sourceless/NativeAcceptance.json) | `acc43da40fa16f28a3441f719c43cf6608b0b56081e1606495e2a986fd646ee4` | `accepted` | `EmitFormDoc` with typed bodies for 9 cages |
+| [Cage documents](../../../../re/Fusion/LocalOracle/FormDocuments/CageDocuments/NativeAcceptance.json) | `76d2a6a35c902f6776270584b1db9363b0f6ecb9c4c2e85c3e68e26822a7ad8f` | `accepted` | `EmitFormDoc` with `ConvertForm` for 14 cages |
 | [Stencil swaps](../../../../re/Fusion/LocalOracle/FormDocuments/StencilAccept/NativeAcceptance.json) | `f7455953a99fb482fa03054aa73e165a40cbf0d683c87a8139f6dae84e25a95d` | `accepted` | `SwapFormCage` into native documents for 8 cages |
 
 Zero documents were open before and after each run. The Form health and the timeline health were 0 at every stage. Each reopened Kit body equalled the edited body, and every closed body stayed solid.
@@ -316,9 +316,9 @@ Two Fusion 2706.1.17 runs accepted new Form documents that `EmitFormDoc` wrote f
 
 | Report | SHA-256 | Cases |
 | --- | --- | --- |
-| [Fourth pass documents](../../../../re/Fusion/LocalOracle/FormDocuments/FourthDocuments/NativeAcceptance.json) | `764e4df5aa575bf14092e70cd84ce83799a9888a9f41154fd763c9b1c0403ac6` | A fresh valence-7 cage and four weighted cages |
+| [Fourth pass documents](../../../../re/Fusion/LocalOracle/FormDocuments/FourthDocuments/NativeAcceptance.json) | `d177065b1b2287601ef4bc3e1ab3d4ff94b6557406cc764153675c7329d8577d` | A fresh valence-7 cage and four weighted cages |
 | [Interval documents](../../../../re/Fusion/LocalOracle/FormDocuments/IntervalDocuments/NativeAcceptance.json) | `755d2e35d810186dcb45a7d0eda49d23566f489fbda58e03e6bf7f567d57225c` | Two warped grids with knot intervals 2 and 3 |
-| [Merged head documents](../../../../re/Fusion/LocalOracle/FormDocuments/MergeDocuments/NativeAcceptance.json) | `dceac85c91a93f774959d803a2691784fa11553069636b3bb2d98e07f276b1fd` | The box, creased plane, valence-5 and warped grid cages of the cage document run |
+| [Merged head documents](../../../../re/Fusion/LocalOracle/FormDocuments/MergeDocuments/NativeAcceptance.json) | `184566db0f35f7ac49e3b3a1e1f127493999a85b59ec9d3653e905a54ae68d48` | The box, creased plane, valence-5 and warped grid cages of the cage document run |
 
 | Case | Faces, edges, vertices | Area as loaded (cm²) | Area after edit (cm²) | Largest gap as loaded (cm) |
 | --- | --- | --- | --- | --- |

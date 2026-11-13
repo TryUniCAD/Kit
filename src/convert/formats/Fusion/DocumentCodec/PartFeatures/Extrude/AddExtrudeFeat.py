@@ -26,6 +26,10 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Extrude.ExtrudeShape impo
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ExtrudeSpec import (
     ExtrudeSpec,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.LoftSpec import LoftSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SweepSpec import (
+    SweepSpec,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartStage import PartStage
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.RevolveSpec import (
     RevolveSpec,
@@ -40,7 +44,11 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Profile.SketchPlan import
 
 def StageRange(Author: AuthorState, Stage: PartStage) -> tuple[int, int]:
     Feature = Stage.Feature
+    IsFirst = Stage.After.Ordinal == 1
+    IsNew = isinstance(Feature, (LoftSpec, SweepSpec))
     if isinstance(Feature, (ExtrudeSpec, RevolveSpec)) and Feature.Operation == "new":
+        IsNew = True
+    if IsNew and IsFirst:
         return Author.Policy.HistoryInitialId, Stage.StateId
     return Stage.StateId - 1, Stage.StateId
 

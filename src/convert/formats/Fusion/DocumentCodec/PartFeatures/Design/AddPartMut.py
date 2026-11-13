@@ -38,6 +38,16 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ExtrudeSpec import 
     ExtrudeSpec,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.HoleSpec import HoleSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.LoftSpec import LoftSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SweepSpec import (
+    SweepSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Sweep.AddSweepFeat import (
+    AddSweepFeat,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Loft.AddLoftFeat import (
+    AddLoftFeat,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CircularSpec import (
     CircularSpec,
 )
@@ -77,8 +87,21 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Offset.AddOffsetMut impor
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Revolve.AddRevolveFeat import (
     AddRevolveFeat,
 )
-from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSolid import (
-    PrismSolid,
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Bodies.AddBodyFeat import (
+    AddBodyStage,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Bodies.BodyStage import (
+    KBodySpecs,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Bodies.LinkBodiesMut import (
+    LinkBodiesMut,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.TagState import (
+    BodyTags,
+    TagState,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.FamilyRules import (
+    IsStateless,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.SolvePart import SolvePart
 
@@ -87,7 +110,7 @@ def AddStageMut(
     Author: AuthorState,
     Stage: PartStage,
     Prefix: str,
-    Context: tuple[tuple[PrismSolid, ...], int, tuple[PartStage, ...]],
+    Context: tuple[tuple[TagState, ...], int, tuple[PartStage, ...]],
 ) -> list[str]:
     Solids, Place, Stages = Context
     Feature = Stage.Feature
@@ -118,24 +141,47 @@ def AddStageMut(
     return Children
 
 
+def AddSketchedMut(
+    Author: AuthorState, Stage: PartStage, Prefix: str, Stages: tuple[PartStage, ...]
+) -> None:
+    if isinstance(Stage.Feature, LoftSpec):
+        AddLoftFeat(Author, Stage, Prefix, Stages)
+        return
+    if isinstance(Stage.Feature, SweepSpec):
+        AddSweepFeat(Author, Stage, Prefix)
+        return
+    Builder = AddExtrudeFeat
+    if isinstance(Stage.Feature, RevolveSpec):
+        Builder = AddRevolveFeat
+    Builder(Author, Stage, Prefix)
+
+
 def AddPartMut(Author: AuthorState) -> None:
     BaseValue, Stages = SolvePart(Author.SpecValue)
-    Solids = (() if BaseValue is None else (BaseValue,)) + tuple(
-        Stage.After for Stage in Stages
+    States = (
+        () if BaseValue is None else (TagState(BaseValue, (BaseValue,)),)
+    ) + tuple(TagState(Stage.After, Stage.Bodies) for Stage in Stages)
+    Journal = (() if BaseValue is None else ((BaseValue,),)) + tuple(
+        Stage.Bodies for Stage in Stages if not IsStateless(Stage.Feature)
     )
+    JournalTags = BodyTags(Journal)
     Offset = 0 if BaseValue is not None else -1
     for Index, Stage in enumerate(Stages):
         Prefix = "f" + str(Index + 1) + "_"
-        if isinstance(Stage.Feature, (ExtrudeSpec, RevolveSpec)):
-            Builder = AddExtrudeFeat
-            if isinstance(Stage.Feature, RevolveSpec):
-                Builder = AddRevolveFeat
-            Builder(Author, Stage, Prefix)
+        Author.FocusOrdinal = Stage.Before.Ordinal
+        if isinstance(Stage.Feature, (ExtrudeSpec, RevolveSpec, LoftSpec, SweepSpec)):
+            AddSketchedMut(Author, Stage, Prefix, Stages)
             continue
-        Context = (Solids, Index + Offset, Stages)
-        Children = AddStageMut(Author, Stage, Prefix, Context)
+        if isinstance(Stage.Feature, KBodySpecs):
+            Children = AddBodyStage(Author, Stage, Prefix, JournalTags)
+        else:
+            Context = (States, Index + Offset, Stages)
+            Children = AddStageMut(Author, Stage, Prefix, Context)
         LinkFeatureMut(Author, Stage, Prefix, Children)
+    Author.FocusOrdinal = 1
     LinkTimeline(Author, Stages)
     if BaseValue is None:
         LinkMaterialMut(Author)
-    Author.Change("body", cache=PartCache(Author, Solids[-1]))
+        LinkBodiesMut(Author, Stages[-1], JournalTags)
+        return
+    Author.Change("body", cache=PartCache(Author, States[-1].Focus))

@@ -32,6 +32,9 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.AddCopyRefs impor
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.PatternSolid import (
     KCopySpec,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.BodyRole import (
+    FocusRole,
+)
 
 KCopyClasses: dict[type[object], tuple[str, str]] = {
     PatternSpec: ("DcRectangularPattern", "DcRectangularPatternData"),
@@ -79,7 +82,7 @@ def LinkBaseMut(Author: AuthorState, Prefix: str, Stage: PartStage) -> None:
     )
     Author.Change(
         Prefix + "data",
-        additionalAffectedBodies=[Reference("dc_body")],
+        additionalAffectedBodies=[Reference(FocusRole(Author, "dc_body"))],
         extengType=not isinstance(Feature, PatternSpec),
         occOperationIdsMap=[
             {"key": TagValue, "value": Value} for TagValue, Value in Owned

@@ -231,6 +231,76 @@ def add_plane(comp, step):
     return planes.add(inp)
 
 
+def add_loft(comp, step):
+    lower = comp.sketches.add(comp.xYConstructionPlane)
+    lower.name = step["lower"]
+    draw_profile(lower, step["lower_profile"])
+    planes = comp.constructionPlanes
+    inp = planes.createInput()
+    inp.setByOffset(comp.xYConstructionPlane, vi(step["height"]))
+    plane = planes.add(inp)
+    plane.name = step["plane"]
+    upper = comp.sketches.add(plane)
+    upper.name = step["upper"]
+    draw_profile(upper, step["upper_profile"])
+    if lower.profiles.count != 1 or upper.profiles.count != 1:
+        raise RuntimeError("Control loft sketches need one profile each")
+    loft_input = comp.features.loftFeatures.createInput(FO.NewBodyFeatureOperation)
+    loft_input.loftSections.add(lower.profiles.item(0))
+    loft_input.loftSections.add(upper.profiles.item(0))
+    return comp.features.loftFeatures.add(loft_input)
+
+
+def add_sweep(comp, step):
+    left, right, lower, upper = step["profile_cm"]
+    profile = comp.sketches.add(comp.xZConstructionPlane)
+    profile.name = step["profile"]
+    corners = [profile.modelToSketchSpace(pt(x, 0, z)) for x, z in ((left, lower), (right, lower), (right, upper), (left, upper))]
+    lines = profile.sketchCurves.sketchLines
+    for index in range(4):
+        lines.addByTwoPoints(corners[index], corners[(index + 1) % 4])
+    route = comp.sketches.add(comp.xYConstructionPlane)
+    route.name = step["path_name"]
+    draw_profile(route, step["path"])
+    curves = route.sketchCurves
+    if profile.profiles.count != 1 or curves.count != len(step["path"]):
+        raise RuntimeError("Control sweep needs one profile and every path curve")
+    path = comp.features.createPath(coll(*[curves.item(index) for index in range(curves.count)]), False)
+    inp = comp.features.sweepFeatures.createInput(profile.profiles.item(0), path, FO.NewBodyFeatureOperation)
+    return comp.features.sweepFeatures.add(inp)
+
+
+def body_named(comp, ordinal):
+    body = comp.bRepBodies.itemByName("Body" + str(ordinal))
+    if body is None:
+        raise RuntimeError("Control body missing: Body" + str(ordinal))
+    return body
+
+
+def add_body_step(comp, features, step):
+    feats = comp.features
+    if step["kind"] == "combine":
+        tools = coll(*[body_named(comp, ordinal) for ordinal in step["tools"]])
+        inp = feats.combineFeatures.createInput(body_named(comp, step["target"]), tools)
+        inp.operation = OPERATIONS[step["operation"]]
+        inp.isKeepToolBodies = step["keep"]
+        return feats.combineFeatures.add(inp)
+    if step["kind"] == "split":
+        inp = feats.splitBodyFeatures.createInput(body_named(comp, step["target"]), features[step["plane"]], True)
+        return feats.splitBodyFeatures.add(inp)
+    source = coll(body_named(comp, step["source_body"]))
+    if step["kind"] == "body_pattern":
+        count = adsk.core.ValueInput.createByReal(step["count_u"])
+        inp = feats.rectangularPatternFeatures.createInput(source, comp.xConstructionAxis, count, vi(step["spacing_u"]), adsk.fusion.PatternDistanceType.SpacingPatternDistanceType)
+        inp.setDirectionTwo(comp.yConstructionAxis, adsk.core.ValueInput.createByReal(step["count_v"]), vi(step["spacing_v"]))
+        return feats.rectangularPatternFeatures.add(inp)
+    inp = feats.circularPatternFeatures.createInput(source, comp.zConstructionAxis)
+    inp.quantity = adsk.core.ValueInput.createByReal(step["count"])
+    inp.totalAngle = vi(step["angle"])
+    inp.isSymmetric = False
+    return feats.circularPatternFeatures.add(inp)
+
+
 def corner_edges(body, step):
     corners = step.get("corners_cm", [step["corner_cm"]])
     return coll(*[vertical_edge(body, *corner) for corner in corners])
@@ -251,12 +321,18 @@ def build_control(comp, entry):
             feature = add_extrude(comp, step)
         elif step["kind"] == "revolve":
             feature = add_revolve(comp, step)
+        elif step["kind"] == "loft":
+            feature = add_loft(comp, step)
+        elif step["kind"] == "sweep":
+            feature = add_sweep(comp, step)
         elif step["kind"] == "hole":
             feature = add_hole(comp, body, step)
         elif step["kind"] in ("pattern", "circular", "mirror"):
             feature = add_copy(comp, features, step)
         elif step["kind"] == "plane":
             feature = add_plane(comp, step)
+        elif step["kind"] in ("combine", "split", "body_pattern", "body_ring"):
+            feature = add_body_step(comp, features, step)
         elif step["kind"] == "axis":
             inp = comp.constructionAxes.createInput()
             inp.setByEdge(vertical_edge(body, *step["corner_cm"]))

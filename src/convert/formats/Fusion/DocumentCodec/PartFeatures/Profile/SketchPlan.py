@@ -27,6 +27,7 @@ class SketchPlan:
     Edges: tuple[SketchEdge, ...]
     NextTag: int
     Ordinal: int = 1
+    LiftCm: float = 0.0
 
 
 def NormalCurve(Curve: KProfileCurve) -> KProfileCurve:

@@ -39,14 +39,17 @@ def BuildPartBody(
         raise ValueError("Fusion part journals claim body tag zero first")
     BaseValue, Stages = SolvePart(SpecValue)
     KeptStages = tuple(Stage for Stage in Stages if not IsStateless(Stage.Feature))
-    Solids = (() if BaseValue is None else (BaseValue,)) + tuple(
-        Stage.After for Stage in KeptStages
+    Solids = (() if BaseValue is None else ((BaseValue,),)) + tuple(
+        Stage.Bodies for Stage in KeptStages
     )
     StateIds = (() if BaseValue is None else (Policy.HistoryCurrentId,)) + tuple(
         Stage.StateId for Stage in KeptStages
     )
     Payload = EmitPartHist(
-        tuple((TrackedShape(Solid, Design.Roles),) for Solid in Solids),
+        tuple(
+            tuple(TrackedShape(Solid, Design.Roles) for Solid in Bodies)
+            for Bodies in Solids
+        ),
         StateIds,
         Policy.HistoryInitialId,
         float(ReadTimeNano() // 1000),

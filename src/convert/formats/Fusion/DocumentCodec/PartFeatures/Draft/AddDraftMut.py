@@ -1,3 +1,6 @@
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.TagState import (
+    TagState,
+)
 from math import radians as Radians
 
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
@@ -36,9 +39,7 @@ from convert.formats.Fusion.EntityCodec.Recipes.Model.RecipeValue import RecipeV
 KDraftTags = tuple[tuple[int, ...], int]
 
 
-def DraftTags(
-    Solids: tuple[PrismSolid, ...], Place: int, Stage: PartStage
-) -> KDraftTags:
+def DraftTags(Solids: tuple[TagState, ...], Place: int, Stage: PartStage) -> KDraftTags:
     LoopValue = Stage.Before.Slabs[0].Loops[0]
     return SideTags(Solids, Place, LoopValue), CapTagSet(Solids, Place, False)[0]
 

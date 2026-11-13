@@ -26,3 +26,4 @@ class AuthorData:
     BodyId: str
     BrepPart: str
     Materials: AuthoredMat | None = None
+    FocusOrdinal: int = 1

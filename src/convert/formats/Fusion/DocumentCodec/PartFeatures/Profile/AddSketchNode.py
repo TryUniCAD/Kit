@@ -10,7 +10,9 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Profile.SketchFrame impor
 from convert.formats.Fusion.DocumentCodec.Values.ValueShapes import MakePoint
 
 
-def AddPlaneCache(Author: AuthorState, Prefix: str, PlaneRole: str) -> None:
+def AddPlaneCache(
+    Author: AuthorState, Prefix: str, PlaneRole: str, LiftCm: float = 0.0
+) -> None:
     Reference = Author.Reference
     Author.Allocate(Prefix + "plane_recipe", "EntityRecipe")
     Author.Allocate(Prefix + "plane_cache", "ETCachedPlane")
@@ -23,9 +25,12 @@ def AddPlaneCache(Author: AuthorState, Prefix: str, PlaneRole: str) -> None:
     Author.Change(
         Prefix + "plane_seed", m_entityRecipe=Reference(Prefix + "plane_seed_recipe")
     )
-    AxisU, AxisV = FrameAxes(PlaneRole)
+    AxisU, AxisV = FrameAxes(PlaneRole, LiftCm)
     PlaneValue = dict(
-        normalReversed=False, origin=MakePoint(), uAxis=AxisU, vAxis=AxisV
+        normalReversed=False,
+        origin=MakePoint(0.0, 0.0, LiftCm),
+        uAxis=AxisU,
+        vAxis=AxisV,
     )
     Author.Change(
         Prefix + "plane_cache",
@@ -35,7 +40,11 @@ def AddPlaneCache(Author: AuthorState, Prefix: str, PlaneRole: str) -> None:
 
 
 def AddSketchNode(
-    Author: AuthorState, Prefix: str, Ordinal: int, PlaneRole: str
+    Author: AuthorState,
+    Prefix: str,
+    Ordinal: int,
+    PlaneRole: str,
+    LiftCm: float = 0.0,
 ) -> None:
     Reference = Author.Reference
     MainRole = Prefix + "dc_sketch"
@@ -43,7 +52,7 @@ def AddSketchNode(
     Author.Allocate(Prefix + "sketch_table", "ProgenitorTable")
     AddNodeMut(Author, Prefix + "plane", "EntityDataRef", MainRole)
     AddNodeMut(Author, Prefix + "matrix", "DRMatrix", MainRole)
-    AddPlaneCache(Author, Prefix, PlaneRole)
+    AddPlaneCache(Author, Prefix, PlaneRole, LiftCm)
     Author.Change(
         MainRole,
         rSketch=Reference(Prefix + "sketch"),
@@ -68,7 +77,7 @@ def AddSketchNode(
         caches=[Reference(Prefix + "matrix_cache")],
         trackingType=4,
     )
-    Matrix = FrameMatrix(PlaneRole)
+    Matrix = FrameMatrix(PlaneRole, LiftCm)
     if Matrix:
         Author.Change(Prefix + "matrix", matrix3d=Matrix)
     Author.Change(Prefix + "sketch", rDcNode=Reference(MainRole))

@@ -2,6 +2,7 @@ from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CircularSpec import (
     CircularSpec,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.LoftSpec import LoftSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MirrorSpec import (
     MirrorSpec,
 )
@@ -13,7 +14,26 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.FamilyRules import 
     IsSketched,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartStage import PartStage
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SweepSpec import (
+    SweepSpec,
+)
 from convert.formats.Fusion.DocumentCodec.Values.MakeAttributes import MakeAttributes
+
+
+def TwinOwners(Stage: PartStage, Prefix: str) -> list[tuple[str, tuple[int, ...]]]:
+    Values = Stage.Operations
+    if isinstance(Stage.Feature, SweepSpec):
+        return [
+            (Prefix + "dc_sketch", Values[:1]),
+            (Prefix + "up_dc_sketch", Values[1:2]),
+            (Prefix + "feature", Values[2:]),
+        ]
+    return [
+        (Prefix + "dc_sketch", Values[:1]),
+        (Prefix + "wp_feature", Values[1:2]),
+        (Prefix + "up_dc_sketch", Values[2:3]),
+        (Prefix + "feature", Values[3:]),
+    ]
 
 
 def TimelineOwners(
@@ -25,6 +45,9 @@ def TimelineOwners(
         Owners = [("dc_sketch", (First,)), ("dc_extrude", (First + 1, First + 2))]
     for Index, Stage in enumerate(Stages):
         Prefix = "f" + str(Index + 1) + "_"
+        if isinstance(Stage.Feature, (LoftSpec, SweepSpec)):
+            Owners.extend(TwinOwners(Stage, Prefix))
+            continue
         if IsSketched(Stage.Feature):
             Owners.append((Prefix + "dc_sketch", Stage.Operations[:1]))
             Owners.append((Prefix + "feature", Stage.Operations[1:]))
@@ -46,9 +69,13 @@ def LinkSketches(Author: AuthorState, Stages: tuple[PartStage, ...]) -> None:
     Roles = [] if Author.SpecValue.ProfileKind == "part" else ["rectangle_sketch"]
     NextTag = Author.Policy.FirstSketchTag + 9
     for Index, Stage in enumerate(Stages):
-        if Stage.Sketch is not None:
-            Roles.append("f" + str(Index + 1) + "_sketch")
-            NextTag = Stage.Sketch.NextTag
+        for PlanValue, StemName in (
+            (Stage.Sketch, "_sketch"),
+            (Stage.Upper, "_up_sketch"),
+        ):
+            if PlanValue is not None:
+                Roles.append("f" + str(Index + 1) + StemName)
+                NextTag = PlanValue.NextTag
     if not Roles or (len(Roles) == 1 and Roles[0] == "rectangle_sketch"):
         return
     Author.Change(
@@ -90,8 +117,13 @@ def LinkTimeline(Author: AuthorState, Stages: tuple[PartStage, ...]) -> None:
     for Stage in Stages:
         NameValue = FamilyOf(Stage.Feature).ClassName + "MetaType"
         Counts[NameValue] = Counts.get(NameValue, 0) + 1
-        if IsSketched(Stage.Feature):
-            Counts["DcSketchMetaType"] = Counts.get("DcSketchMetaType", 0) + 1
+        Extra = ["DcSketchMetaType"] if IsSketched(Stage.Feature) else []
+        if isinstance(Stage.Feature, LoftSpec):
+            Extra = ["DcSketchMetaType", "DcSketchMetaType", "DcWorkPlaneMetaType"]
+        if isinstance(Stage.Feature, SweepSpec):
+            Extra = ["DcSketchMetaType", "DcSketchMetaType"]
+        for NameValue in Extra:
+            Counts[NameValue] = Counts.get(NameValue, 0) + 1
     Author.Change(
         "fragment",
         featureIndexMap=[

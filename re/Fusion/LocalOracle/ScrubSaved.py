@@ -43,6 +43,7 @@ ACCOUNT_KEYS = (
     "teamProjectID",
     "lineageHash",
     "user_hub_urn",
+    "user_hub_id",
     "session_id",
 )
 NAME_KEYS = (
@@ -121,6 +122,9 @@ DIGIT = re.compile(rb"[0-9]")
 ID_SHAPE = re.compile(rb"(?=[A-Za-z0-9_=-]*[0-9])(?=[A-Za-z0-9_=-]*[A-Za-z])[A-Za-z0-9_=-]{6,}")
 ASSET_DATA = re.compile(rb"(?:^|/)AssetData/[^/]+\.bin$")
 NAMED = re.compile(rb"(?:" + alternation(NAME_KEYS) + rb')"\s*:\s*"([^"\x00-\x1f]{1,80})')
+ACCOUNT_LEAD = re.compile(rb'(?<![\x20-\x7e])((?=[A-Za-z0-9_=-]*[0-9])[A-Za-z0-9_=-]{3,80})"\s*,\s*"(?:' + alternation(ACCOUNT_KEYS) + rb')"')
+HEX_LEAD = re.compile(rb'(?<![0-9a-f])([0-9a-f]{%d,80})"\s*,\s*"(?:' % MIN_HEX_FRAGMENT + alternation(ACCOUNT_KEYS) + rb')"')
+HEX_RUN = re.compile(rb"[0-9a-f]{%d,}" % MIN_HEX_FRAGMENT)
 OWNER = b'","ownerId"'
 LINK = (b"?show=", b"?version=")
 NAME_BYTES = re.compile(rb'[^"\x00-\x1f]')
@@ -289,6 +293,13 @@ def keyed(blob, regions, delimited):
         if bare and low + bare.start(1) not in seen and not keep(bare.group(1)):
             seen.add(low + bare.start(1))
             found.append(("bare", low + bare.start(1), low + bare.end(1), 1, ID_SHAPE.fullmatch(bare.group(1)) is not None))
+    for pattern in (ACCOUNT_LEAD, HEX_LEAD):
+        for match in pattern.finditer(blob):
+            value = match.group(1)
+            if keep(value) or match.start(1) in seen:
+                continue
+            seen.add(match.start(1))
+            found.append(("account", match.start(1), match.end(1), 1, HEX_RUN.fullmatch(value) is not None))
     found += [("name", match.start(1), match.end(1), 1, True) for match in NAMED.finditer(blob)]
     found += [("name", start, end, 1, True) for start, end in backward(blob, OWNER, NAME_BYTES, 80, 1)]
     urns = [(match.start(1), match.end(1), 1) for pattern in (URN, HUB, PROJECT) for match in pattern.finditer(blob)]

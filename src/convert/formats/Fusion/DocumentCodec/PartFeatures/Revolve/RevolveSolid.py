@@ -88,8 +88,6 @@ def ApplyRevolve(
     Shaper = RevolveSlab(Feature, Operation + 1)
     BodyLabel = FaceLabel(str(Operation + 1), (), KBodySecondary)
     if Feature.Operation == "new":
-        if Solid is not None:
-            raise ValueError("Fusion part authoring supports one solid body")
         return PrismSolid((Shaper,), BodyLabel)
     if Solid is None:
         raise ValueError("Fusion part revolve requires an existing body")

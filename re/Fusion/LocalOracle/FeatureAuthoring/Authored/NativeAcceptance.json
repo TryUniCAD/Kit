@@ -7,7 +7,7 @@
     {
       "name": "Fillet",
       "file": "Fillet.f3d",
-      "sha256": "9cc211955c167be62748af0d805781b0da14f9650553c8993b99c1d26d8dda93",
+      "sha256": "3c63718f1b1fe6dc52e86193846835b146d41e9ad987d4cd098824c7e18763f9",
       "steps": [
         {
           "kind": "fillet",
@@ -164,6 +164,7 @@
               "role": "Radius"
             }
           ],
+          "work": [],
           "marker": 3
         },
         "markers": [
@@ -223,6 +224,7 @@
                 "role": "Radius"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -281,6 +283,7 @@
                 "role": "Radius"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -372,6 +375,7 @@
                 "role": "Radius"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -464,6 +468,7 @@
                 "role": "Radius"
               }
             ],
+            "work": [],
             "marker": 3
           }
         ],
@@ -557,6 +562,7 @@
               "role": "Radius"
             }
           ],
+          "work": [],
           "marker": 3
         }
       },
@@ -658,6 +664,7 @@
             "role": "Radius"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "markers": [
@@ -725,6 +732,7 @@
               "role": "Radius"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -791,6 +799,7 @@
               "role": "Radius"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -890,6 +899,7 @@
               "role": "Radius"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -990,6 +1000,7 @@
               "role": "Radius"
             }
           ],
+          "work": [],
           "marker": 3
         }
       ],
@@ -1092,6 +1103,7 @@
             "role": "Radius"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "edited": {
@@ -1192,6 +1204,7 @@
             "role": "Radius"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopened": {
@@ -1292,6 +1305,7 @@
             "role": "Radius"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopen_computed": true,
@@ -1393,15 +1407,16 @@
             "role": "Radius"
           }
         ],
+        "work": [],
         "marker": 3
       },
-      "saved_sha256": "751b8339f4464f18a355e231ed38f293a2ab8471d1e407bf7e020d4a6b3a362c",
+      "saved_sha256": "f723cf321de64b42151fcc9bbbc618f1b3888852ae5ca13a6630534e287fcc66",
       "status": "accepted"
     },
     {
       "name": "Chamfer",
       "file": "Chamfer.f3d",
-      "sha256": "f078f3c41a3a45a8dafc9be206efc5ad2579aa243470981ef4a3021ec263664c",
+      "sha256": "30404ace16c4a11bc6f4c571a6be77a8ac7159abb732e5850c80c999835031d2",
       "steps": [
         {
           "kind": "chamfer",
@@ -1550,6 +1565,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 3
         },
         "markers": [
@@ -1601,6 +1617,7 @@
                 "role": "Distance"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -1651,6 +1668,7 @@
                 "role": "Distance"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -1734,6 +1752,7 @@
                 "role": "Distance"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -1818,6 +1837,7 @@
                 "role": "Distance"
               }
             ],
+            "work": [],
             "marker": 3
           }
         ],
@@ -1903,6 +1923,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 3
         }
       },
@@ -1996,6 +2017,7 @@
             "role": "Distance"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "markers": [
@@ -2055,6 +2077,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -2113,6 +2136,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -2204,6 +2228,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -2296,6 +2321,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 3
         }
       ],
@@ -2390,6 +2416,7 @@
             "role": "Distance"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "edited": {
@@ -2482,6 +2509,7 @@
             "role": "Distance"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopened": {
@@ -2574,6 +2602,7 @@
             "role": "Distance"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopen_computed": true,
@@ -2667,15 +2696,16 @@
             "role": "Distance"
           }
         ],
+        "work": [],
         "marker": 3
       },
-      "saved_sha256": "6b4659dc2f47124b3ab1919bf2285c08786a76d3b6c1bd54b1bb8506b2d78bf0",
+      "saved_sha256": "3f564defe8f5775de70b4ba6c8d65f0ee4c82f7de5b664d8483a728629704534",
       "status": "accepted"
     },
     {
       "name": "Shell",
       "file": "Shell.f3d",
-      "sha256": "aed374f3c5d02b423ca87e404a67ffdd75eb2a1781e3e83714d75af01ae7e8e8",
+      "sha256": "fa820b9560d3e25aa178610955c33da2cb64137879f1d6622d4a119b5e211ba4",
       "steps": [
         {
           "kind": "shell",
@@ -2824,6 +2854,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 3
         },
         "markers": [
@@ -2875,6 +2906,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -2925,6 +2957,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -3008,6 +3041,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -3096,6 +3130,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 3
           }
         ],
@@ -3185,6 +3220,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 3
         }
       },
@@ -3282,6 +3318,7 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "markers": [
@@ -3341,6 +3378,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -3399,6 +3437,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -3490,6 +3529,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -3586,6 +3626,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 3
         }
       ],
@@ -3684,6 +3725,7 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "edited": {
@@ -3780,6 +3822,7 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopened": {
@@ -3876,6 +3919,7 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopen_computed": true,
@@ -3973,15 +4017,16 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 3
       },
-      "saved_sha256": "fbb966512352484bb2469bdc909fffe89fdbf7f8878ee70a87e1c63b06a40df0",
+      "saved_sha256": "dcb443fe7cbc44797f3178941c14cea0b9ec6e56e88fbce72269c534e5ee4385",
       "status": "accepted"
     },
     {
       "name": "FilletShell",
       "file": "FilletShell.f3d",
-      "sha256": "878366fee530852e08747a4be25783090ff0f587d245557089a65c3be49f8755",
+      "sha256": "6cb637517450e07640ba03f21d9938e10bf2adb77768f031be94ee1f33c011b9",
       "steps": [
         {
           "kind": "fillet",
@@ -4174,6 +4219,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 4
         },
         "markers": [
@@ -4247,6 +4293,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -4319,6 +4366,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -4424,6 +4472,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -4530,6 +4579,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 3
           },
           {
@@ -4642,6 +4692,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 4
           }
         ],
@@ -4755,6 +4806,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 4
         }
       },
@@ -4876,6 +4928,7 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "markers": [
@@ -4957,6 +5010,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -5037,6 +5091,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -5150,6 +5205,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -5264,6 +5320,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 3
         },
         {
@@ -5384,6 +5441,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 4
         }
       ],
@@ -5506,6 +5564,7 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "edited": {
@@ -5626,6 +5685,7 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "reopened": {
@@ -5746,6 +5806,7 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "reopen_computed": true,
@@ -5867,15 +5928,16 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 4
       },
-      "saved_sha256": "34b9221a4b9e2e8e906279b8cd7b5ca3a9150ca4ddda84251ca78c5b37dcd7f8",
+      "saved_sha256": "447c008b6ef0cdfe7fd7d781e6bb9ad5fd6cb5157a8968bb16fdc40e15e2cef9",
       "status": "accepted"
     },
     {
       "name": "MultiFeature",
       "file": "MultiFeature.f3d",
-      "sha256": "01acf36c04a431c6e822e8a4ea56c1d366c74186abf83d9d649b51fb4c1053d5",
+      "sha256": "f5c1de5d83a6c0cd326d39003328855fb2a302ff7fd9e0cc9660f8cf5f47008c",
       "steps": [
         {
           "kind": "fillet",
@@ -6140,6 +6202,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 6
         },
         "markers": [
@@ -6249,6 +6312,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -6357,6 +6421,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -6498,6 +6563,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -6640,6 +6706,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 3
           },
           {
@@ -6783,6 +6850,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 4
           },
           {
@@ -6927,6 +6995,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 5
           },
           {
@@ -7079,6 +7148,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 6
           }
         ],
@@ -7232,6 +7302,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 6
         }
       },
@@ -7393,6 +7464,7 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 6
       },
       "markers": [
@@ -7510,6 +7582,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -7626,6 +7699,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -7775,6 +7849,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -7925,6 +8000,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 3
         },
         {
@@ -8076,6 +8152,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 4
         },
         {
@@ -8228,6 +8305,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 5
         },
         {
@@ -8388,6 +8466,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 6
         }
       ],
@@ -8550,6 +8629,7 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 6
       },
       "edited": {
@@ -8710,6 +8790,7 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 6
       },
       "reopened": {
@@ -8870,6 +8951,7 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 6
       },
       "reopen_computed": true,
@@ -9031,9 +9113,10 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 6
       },
-      "saved_sha256": "fc09f32836f6308b9c2379c94f8518d6599b9497d605779a3c100fafed3ecc68",
+      "saved_sha256": "ab6b03f77dda54a305495cc458c89a21a0342c535fb1836b505ed4b590024400",
       "status": "accepted"
     }
   ],

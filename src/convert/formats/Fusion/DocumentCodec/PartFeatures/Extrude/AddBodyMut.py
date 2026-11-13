@@ -1,10 +1,22 @@
+from uuid import uuid4 as MakeUuid
+
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.BodyRole import BodyRole
+
+
+def CountLabels(Count: int, First: int = 3) -> tuple[bytes, ...]:
+    return tuple(str(Index + First).encode("ascii") for Index in range(Count))
 
 
 def BodyTagInfo(
-    Author: AuthorState, Count: int, Operation: int
+    Author: AuthorState, Count: int, Operation: int, First: int = 3
 ) -> list[dict[str, object]]:
-    Labels = tuple(str(Index + 3).encode("ascii") for Index in range(Count))
+    return TagInfoOf(Author, CountLabels(Count, First), Operation, False)
+
+
+def TagInfoOf(
+    Author: AuthorState, Labels: tuple[bytes, ...], Operation: int, Primary: bool
+) -> list[dict[str, object]]:
     Offsets = [0]
     for Label in Labels:
         Offsets.append(Offsets[-1] + len(Label))
@@ -15,58 +27,64 @@ def BodyTagInfo(
                 facePrimIdData=list(b"".join(Labels)),
                 facePrimIdOffsets=Offsets,
                 operationId=Operation,
-                primary=False,
+                primary=Primary,
             ),
         )
     ]
 
 
-def AddBodyMut(
-    Author: AuthorState, Prefix: str, Count: int, Operations: tuple[int, ...]
-) -> dict[str, object]:
+def AddBodyRecs(Author: AuthorState, Ordinal: int, Owner: str) -> str:
     Reference = Author.Reference
-    Author.Allocate("body_progenitor", "BodyProgenitor")
-    Author.Allocate("body", "Body", ParentRole="bodies")
-    Author.Allocate("bodies_root", "BodiesRoot", RootName="BodiesRoot")
-    Author.Allocate("body_passive_ids", "PassiveIdGenerator")
-    Author.Allocate("dc_body", "DcBody", ParentRole="fragment")
+    BodyUuid = Author.BodyId if Ordinal == 1 else str(MakeUuid())
+    BodyName, DcBodyName = BodyRole(Ordinal, "body"), BodyRole(Ordinal, "dc_body")
+    Author.Allocate(BodyName, "Body", ParentRole="bodies")
+    Author.Allocate(DcBodyName, "DcBody", ParentRole="fragment")
+    if Ordinal == 1:
+        Author.Allocate("bodies_root", "BodiesRoot", RootName="BodiesRoot")
+        Author.Allocate("body_passive_ids", "PassiveIdGenerator")
+        Author.Change("body_passive_ids", rBodies=Reference("bodies"))
+        Author.Change("bodies", passiveIdGenerator=Reference("body_passive_ids"))
     Author.Change(
-        "body_progenitor",
-        bodyUuid=Author.BodyId,
+        BodyName,
+        actIdentifier=str(Author.Policy.DesignSegmentId)
+        + "_"
+        + str(Author.Roles[BodyName]),
+        creationIndex=Ordinal,
+        massProperties=Author.MakeValue("MassPropertiesValue"),
+        persistentId=BodyUuid,
+        rGroupParent=Reference("bodies"),
+        userName=Author.SpecValue.BodyName if Ordinal == 1 else "",
+    )
+    Author.Change(
+        DcBodyName,
+        bodyUuid=BodyUuid,
+        rBody=Reference(BodyName),
+        rOwnFeature=Reference(Owner),
+    )
+    return BodyUuid
+
+
+def AddBodyMut(
+    Author: AuthorState,
+    Prefix: str,
+    Count: int,
+    Operations: tuple[int, ...],
+    First: int = 3,
+    Labels: tuple[bytes, ...] = (),
+) -> dict[str, object]:
+    Ordinal = Author.FocusOrdinal
+    SeedName = BodyRole(Ordinal, "body_progenitor")
+    Author.Allocate(SeedName, "BodyProgenitor")
+    BodyUuid = AddBodyRecs(Author, Ordinal, Prefix + "feature")
+    Named = Labels or CountLabels(Count, First)
+    Author.Change(
+        SeedName,
+        bodyUuid=BodyUuid,
         featureTagOccMap=[
-            {"key": BodyTagInfo(Author, Count, Operation), "value": 1}
+            {"key": TagInfoOf(Author, Named, Operation, False), "value": 1}
             for Operation in Operations
         ],
     )
-    Author.Change(
-        "body",
-        actIdentifier=str(Author.Policy.DesignSegmentId)
-        + "_"
-        + str(Author.Roles["body"]),
-        massProperties=Author.MakeValue("MassPropertiesValue"),
-        persistentId=Author.BodyId,
-        rGroupParent=Reference("bodies"),
-        userName=Author.SpecValue.BodyName,
-    )
-    Author.Change("bodies_root", rootId="BodiesRoot", rooted=[Reference("body")])
-    Author.Change(
-        "bodies",
-        creationIndex=1,
-        groupChildren=[Reference("body")],
-        passiveIdGenerator=Reference("body_passive_ids"),
-    )
-    Author.Change("body_passive_ids", rBodies=Reference("bodies"))
-    Author.Change(
-        "brep_history",
-        mapBodyId=[{"key": Author.Policy.BodyKey, "value": Author.Roles["body"]}],
-        partName=Author.BrepPart,
-    )
-    Author.Change(
-        "dc_body",
-        bodyUuid=Author.BodyId,
-        rBody=Reference("body"),
-        rOwnFeature=Reference(Prefix + "feature"),
-    )
-    Author.Change("fragment", dcBodies=[Reference("dc_body")])
-    Author.Change(Prefix + "feature", dcBodies=[Reference("dc_body")])
-    return {"first": Reference("body_progenitor"), "second": Count + 3}
+    DcBodyName = BodyRole(Ordinal, "dc_body")
+    Author.Change(Prefix + "feature", dcBodies=[Author.Reference(DcBodyName)])
+    return {"first": Author.Reference(SeedName), "second": Count + First}

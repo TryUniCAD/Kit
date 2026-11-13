@@ -7,8 +7,8 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.ShapeBody import Sh
 def LedgerTags(
     Bodies: tuple[ShapeBody, ...], Ledger: TagLedger
 ) -> list[tuple[dict[tuple[object, ...], int], int]]:
-    BodyTags = [Ledger.Claim(("body", Ordinal)) for Ordinal in range(len(Bodies))]
+    BodyTags = [Ledger.Claim(("body", BodyValue.Ordinal)) for BodyValue in Bodies]
     return [
-        (Ledger.FaceTags(BodyValue, Ordinal), BodyTags[Ordinal])
-        for Ordinal, BodyValue in enumerate(Bodies)
+        (Ledger.FaceTags(BodyValue, BodyValue.Ordinal), BodyTag)
+        for BodyValue, BodyTag in zip(Bodies, BodyTags, strict=True)
     ]

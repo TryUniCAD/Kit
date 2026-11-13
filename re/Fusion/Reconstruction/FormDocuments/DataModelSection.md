@@ -177,8 +177,8 @@ Each run compared the Kit document with Fusion's conversion of the same TSM with
 
 | Report | SHA-256 | Kit documents |
 | --- | --- | --- |
-| [Source-free bodies](../../../re/Fusion/LocalOracle/FormDocuments/Sourceless/NativeAcceptance.json) | `7adc4ba5e0cf76ccd26cf1e70766f54147dbba9d8167f71d827b6e1bb7b544b1` | 9 cages with typed bodies |
-| [Cage documents](../../../re/Fusion/LocalOracle/FormDocuments/CageDocuments/NativeAcceptance.json) | `c78966db2f218253691c07ddf02d92984dc2c0aacbbba8404338f25232f7a617` | 14 cages with `ConvertForm` bodies |
+| [Source-free bodies](../../../re/Fusion/LocalOracle/FormDocuments/Sourceless/NativeAcceptance.json) | `acc43da40fa16f28a3441f719c43cf6608b0b56081e1606495e2a986fd646ee4` | 9 cages with typed bodies |
+| [Cage documents](../../../re/Fusion/LocalOracle/FormDocuments/CageDocuments/NativeAcceptance.json) | `76d2a6a35c902f6776270584b1db9363b0f6ecb9c4c2e85c3e68e26822a7ad8f` | 14 cages with `ConvertForm` bodies |
 | [Stencil swaps](../../../re/Fusion/LocalOracle/FormDocuments/StencilAccept/NativeAcceptance.json) | `f7455953a99fb482fa03054aa73e165a40cbf0d683c87a8139f6dae84e25a95d` | 8 cages swapped into native documents |
 
 The cage documents cover a warped plane grid, the box, the symmetric box, the creased box and the creased plane.

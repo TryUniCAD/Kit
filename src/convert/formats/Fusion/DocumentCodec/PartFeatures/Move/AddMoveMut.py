@@ -10,6 +10,9 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Extrude.AddTargetMut impo
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MoveSpec import MoveSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartStage import PartStage
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Move.MoveSolid import MoveFrame
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.BodyRole import (
+    FocusRole,
+)
 
 
 def MoveEntries(Feature: MoveSpec) -> list[float]:
@@ -49,7 +52,7 @@ def AddMoveMut(Author: AuthorState, Stage: PartStage, Prefix: str) -> list[str]:
         Prefix + "target_body",
         rRecipe=Reference(Prefix + "target_recipe"),
         rScope=PartScope(Author),
-        refBodies=[Reference("dc_body")],
+        refBodies=[Reference(FocusRole(Author, "dc_body"))],
         trackingType=8,
         operIdTypeMap=[{"key": int(Label.PrimaryId), "value": KBodyOperationType}],
     )

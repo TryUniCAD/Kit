@@ -11,12 +11,7 @@
     "rRecipe": null
   },
   "DRBody": {
-    "operIdTypeMap": [
-      {
-        "key": 301,
-        "value": 33
-      }
-    ],
+    "operIdTypeMap": [],
     "rRecipe": null
   },
   "DRPoint": {
@@ -27,9 +22,9 @@
     },
     "pickPtParam": null,
     "point3d": {
-      "x": 2.0,
-      "y": 1.5,
-      "z": 2.0
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
     },
     "refType": 6,
     "tangentPointData": [
@@ -47,12 +42,12 @@
     "axisTrackType": 8,
     "line3d": {
       "parametricDirection": {
-        "x": 2.075,
+        "x": 0.0,
         "y": 0.0,
-        "z": 0.0
+        "z": 1.0
       },
       "pointOnLine": {
-        "x": 0.175,
+        "x": 0.0,
         "y": 0.0,
         "z": 0.0
       }
@@ -104,6 +99,14 @@
     "rAngle": null,
     "rAxisDir": null
   },
+  "DcCombineFeature": {
+    "booleanOperation": 0,
+    "deletedBodies": [],
+    "isKeepTools": false,
+    "isNewComponent": false,
+    "occDR2FeatIdMap": [],
+    "toolBodiesDateRefs": []
+  },
   "DcDraftFeature": {
     "MovingPartingLineDraftAngleType": 3,
     "draftType": 1,
@@ -113,8 +116,8 @@
     "m_draftAngle1": null,
     "m_draftAngle2": null,
     "m_facePickPoint": {
-      "x": 2.0,
-      "y": 1.0
+      "x": 0.0,
+      "y": 0.0
     },
     "m_facesRef": null,
     "m_fixedPlaneDraftAngleMode": 1,
@@ -200,6 +203,42 @@
     "isRoundToNearestInt": true,
     "value": 3
   },
+  "DcLoftFeature": {
+    "IsEndTangencyFlippedDirection": true,
+    "IsStartTangencyFlippedDirection": true,
+    "bChainOption": true,
+    "bMergeCurves": true,
+    "booleanOperation": 4,
+    "centerLineRef": null,
+    "endRailsTakeOffIndex": -1,
+    "endRailsTakeOffOption": 0,
+    "endSectionEdgeAlignmentOption": 0,
+    "endSectionTakeOffAngle": null,
+    "endSectionTakeOffOption": 0,
+    "endSectionWeight": null,
+    "guidRailRefs": [],
+    "isClosedLoft": false,
+    "isSolidOperation": true,
+    "mappingCount": 0,
+    "rLoftToolBody": null,
+    "sectionDatas": [],
+    "startRailsTakeOffIndex": -1,
+    "startRailsTakeOffOption": 0,
+    "startSectionEdgeAlignmentOption": 0,
+    "startSectionTakeOffAngle": null,
+    "startSectionTakeOffOption": 0,
+    "startSectionWeight": null
+  },
+  "DcLoftSectionData": {
+    "mappingPoints": [],
+    "paramOnEdges": [],
+    "rParentFeature": null,
+    "rSectionRef": null,
+    "sectionType": 2
+  },
+  "DcLoftToolBody": {
+    "rLoftFeature": null
+  },
   "DcMirrorPattern": {},
   "DcMirrorPatternData": {
     "Combine": false,
@@ -249,28 +288,7 @@
     "computeType": 1,
     "countUMax": -1,
     "extengType": false,
-    "occOperationIdsMap": [
-      {
-        "key": 2,
-        "value": 309
-      },
-      {
-        "key": 3,
-        "value": 307
-      },
-      {
-        "key": 5,
-        "value": 310
-      },
-      {
-        "key": 6,
-        "value": 308
-      },
-      {
-        "key": 9,
-        "value": 311
-      }
-    ],
+    "occOperationIdsMap": [],
     "patternOccurrences": [],
     "rCountUParam": null,
     "rDcFeature": null,
@@ -337,6 +355,45 @@
     "rParamInnerThickness": null,
     "rParamOuterThickness": null
   },
+  "DcSplitBodyFeature": {},
+  "DcSplitFeature": {
+    "isExtendTool": true,
+    "occDR2FeatIdMap": [],
+    "toolBodiesDR": []
+  },
+  "DcSweepFeature": {
+    "booleanOperation": 4,
+    "chainPropagation": true,
+    "isAlongDirectionSameAsProfileNormal": 3,
+    "isEndtoEndMatching": false,
+    "isLinearMapping": false,
+    "isSolidOperation": true,
+    "isXScale": true,
+    "isYScale": true,
+    "profileNormal": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0
+    },
+    "rAgainstDistance": null,
+    "rAgainstRailDistance": null,
+    "rAlongDistance": null,
+    "rAlongRailDistance": null,
+    "rSweepGuideSurfacesRef": null,
+    "rSweepPathsRef": null,
+    "rSweepRailsRef": null,
+    "rSweepToolBody": null,
+    "rTaperAngle": null,
+    "rTwistAngle": null,
+    "sweepType": 2
+  },
+  "DcSweepToolBody": {
+    "isAgainstDistanceParameterValid": false,
+    "isAgainstRailDistanceParameterValid": false,
+    "isAlongDistanceParameterValid": true,
+    "isAlongRailDistanceParameterValid": false,
+    "rSweepFeature": null
+  },
   "DcWorkAxis": {
     "creationType": 4,
     "rWorkAxis": null,
@@ -360,6 +417,28 @@
     "rWorkPoint": null,
     "rWorkPointRef": null
   },
+  "ETCachedCircleArc": {
+    "rCachedGeometry": {
+      "center": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "endAngle": 0.0,
+      "normal": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      },
+      "radius": 0.0,
+      "refVec": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "startAngle": 0.0
+    }
+  },
   "ETCachedCurve3d": {
     "endPtProgenitor": null,
     "rCachedEdge": null,
@@ -370,11 +449,11 @@
       "displacement": {
         "x": 0.0,
         "y": 0.0,
-        "z": 2.0
+        "z": 0.0
       },
       "startPoint": {
-        "x": 4.0,
-        "y": 3.0,
+        "x": 0.0,
+        "y": 0.0,
         "z": 0.0
       }
     }
@@ -385,5 +464,87 @@
       "y": 0.0,
       "z": 0.0
     }
+  },
+  "LoftProgenitor": {
+    "sectionProgenitors": []
+  },
+  "OccurrenceDataRef": {
+    "OccurrenceACTRef": [
+      {
+        "fields": {
+          "actDataForCIs": [],
+          "actRef": [
+            {
+              "fields": {
+                "actRefdTable": null,
+                "changeTypesToTrack": [],
+                "crossAsset": false,
+                "owningEntity": null,
+                "rActData": null,
+                "refdEntity": null
+              },
+              "identifier": "3AFBE085-BFA1-4DA6-BE71-45A6C61ECB99"
+            }
+          ],
+          "deepTracking": false,
+          "path": [
+            {
+              "fields": {
+                "componentInstances": [],
+                "creationState": 3,
+                "passiveOccurrencePath": [
+                  {
+                    "fields": {
+                      "instanceIds": []
+                    },
+                    "identifier": "C7F1A2B3-4D5E-6F70-8190-A1B2C3D4E5F6"
+                  }
+                ],
+                "sourceACTComponent": null,
+                "sourceComponent": null
+              },
+              "identifier": "4C835764-5BAB-4421-B5D2-06015BEF6EB2"
+            }
+          ],
+          "topCompActRef": [
+            {
+              "fields": {
+                "actRefdTable": null,
+                "changeTypesToTrack": [],
+                "crossAsset": false,
+                "owningEntity": null,
+                "rActData": null,
+                "refdEntity": null
+              },
+              "identifier": "3AFBE085-BFA1-4DA6-BE71-45A6C61ECB99"
+            }
+          ]
+        },
+        "identifier": "162D3DA8-6A30-4BFE-BC78-698FA32D28DC"
+      }
+    ],
+    "bEnableACTTracking": false,
+    "cachedOccurrence": null,
+    "cachedTransform": {
+      "identity": true
+    },
+    "contextFeature": null,
+    "parentFeature": null,
+    "recipe": null,
+    "referenceType": 0,
+    "updateFlag": 0
+  },
+  "SketchCurveEntityRecipe": {
+    "secondaryTag": 0
+  },
+  "SketchEntityRecipe": {
+    "sketchId": 0,
+    "tag": 0
+  },
+  "SweepFaceProgenitor": {
+    "guideFaceProg": null,
+    "pathProg": null,
+    "profileProg": null,
+    "vertexProg": null
   }
 }

@@ -1,3 +1,6 @@
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.TagState import (
+    TagState,
+)
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.AddParamMut import (
     AddParamMut,
@@ -24,9 +27,6 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartStage import Pa
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Offset.OffsetLoop import (
     OffsetIndex,
 )
-from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSolid import (
-    PrismSolid,
-)
 from convert.formats.Fusion.EntityCodec.Recipes.Model.RecipeValue import RecipeValue
 
 
@@ -38,7 +38,7 @@ def OffsetFeature(Stage: PartStage) -> OffsetSpec:
 
 
 def OffsetPick(
-    Solids: tuple[PrismSolid, ...], Place: int, Stage: PartStage
+    Solids: tuple[TagState, ...], Place: int, Stage: PartStage
 ) -> tuple[RecipeValue, int]:
     Feature = OffsetFeature(Stage)
     if Feature.SideMm is None:

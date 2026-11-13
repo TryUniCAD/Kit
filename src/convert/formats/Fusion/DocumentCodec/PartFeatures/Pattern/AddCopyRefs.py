@@ -10,6 +10,9 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Hole.AddHoleRefs import (
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.PlaneFrame import (
     PointOf,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.BodyRole import (
+    FocusRole,
+)
 
 KAxisRows: dict[str, tuple[float, float, float]] = {
     "x_axis": (2.0, 0.0, 0.0),
@@ -75,7 +78,9 @@ def AddAxisMut(
 
 def AddBodyCacheMut(Author: AuthorState, RoleName: str, TagValue: int) -> None:
     TopologyCache(Author, RoleName, TagValue)
-    Author.Change(RoleName, progenitor=AddSeedMut(Author, RoleName, "dc_body"))
+    Author.Change(
+        RoleName, progenitor=AddSeedMut(Author, RoleName, FocusRole(Author, "dc_body"))
+    )
 
 
 def AddSourceMut(
@@ -86,7 +91,7 @@ def AddSourceMut(
     AddNodeMut(Author, Prefix + "source_set", "DcPatternSource", Owner)
     AddPlaceMut(Author, Prefix, ("source", "ModelDataRef"), {})
     RefRole = AddEntityRefMut(Author, Prefix, "source_ref", (SourceRole, 4))
-    Author.Change(RefRole, refBodies=[Reference("dc_body")])
+    Author.Change(RefRole, refBodies=[Reference(FocusRole(Author, "dc_body"))])
     Author.Change(Prefix + "source", dataRefs=[Reference(RefRole)])
     AddBodyCacheMut(Author, Prefix + "source_body", TagSet[1])
     Bodies = [Reference(Prefix + "source_body")]

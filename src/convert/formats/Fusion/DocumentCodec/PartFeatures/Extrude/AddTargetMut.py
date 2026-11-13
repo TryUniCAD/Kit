@@ -7,6 +7,9 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.FaceLabel import Fa
 from convert.formats.Fusion.EntityCodec.Recipes.Model.BodyRecipe import BodyRecipe
 from convert.formats.Fusion.EntityCodec.Recipes.Model.RecipeTag import RecipeTag
 from convert.formats.Fusion.EntityCodec.Recipes.Model.RecipeValue import RecipeValue
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.BodyRole import (
+    FocusRole,
+)
 
 KBodyOperationType = 33
 
@@ -37,7 +40,7 @@ def AddTargetMut(Author: AuthorState, Prefix: str, Label: FaceLabel) -> list[str
         Prefix + "target_body",
         rRecipe=Reference(Prefix + "target_recipe"),
         rScope=PartScope(Author),
-        refBodies=[Reference("dc_body")],
+        refBodies=[Reference(FocusRole(Author, "dc_body"))],
         trackingType=8,
         operIdTypeMap=[{"key": int(Label.PrimaryId), "value": KBodyOperationType}],
     )

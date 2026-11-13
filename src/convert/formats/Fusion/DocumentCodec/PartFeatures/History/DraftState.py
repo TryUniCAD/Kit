@@ -30,8 +30,10 @@ KKernelVersion = "232.5.0.65535"
 
 def DraftNodes(Plans: list[BodyPlan], FindIndex: DraftLookup) -> list[KDraftNode]:
     Nodes: list[KDraftNode] = [(("root",), AsmRoot(-1, -1, KKernelVersion))]
-    for PlanValue in Plans:
-        Nodes.extend(DraftFrame(PlanValue, FindIndex))
+    Frames = [DraftFrame(PlanValue, FindIndex) for PlanValue in Plans]
+    Nodes.extend(Frame[0] for Frame in Frames)
+    for Frame in Frames:
+        Nodes.extend(Frame[1:])
     for PlanValue in Plans:
         Nodes.extend(DraftFaces(PlanValue, FindIndex))
         Nodes.extend(DraftEdges(PlanValue, FindIndex))
@@ -41,10 +43,11 @@ def DraftNodes(Plans: list[BodyPlan], FindIndex: DraftLookup) -> list[KDraftNode
 def DraftState(
     Bodies: tuple[ShapeBody, ...], Ledger: TagLedger, UnixMicros: float
 ) -> KDraftState:
+    Ordered = tuple(sorted(Bodies, key=lambda BodyValue: BodyValue.Ordinal))
     Plans = [
-        PlanBody(BodyValue, Ordinal, FaceTags, BodyTag, UnixMicros)
-        for Ordinal, (BodyValue, (FaceTags, BodyTag)) in enumerate(
-            zip(Bodies, LedgerTags(Bodies, Ledger), strict=True)
+        PlanBody(BodyValue, BodyValue.Ordinal, FaceTags, BodyTag, UnixMicros)
+        for BodyValue, (FaceTags, BodyTag) in zip(
+            Ordered, LedgerTags(Ordered, Ledger), strict=True
         )
     ]
     KeyList = [NodeValue[0] for NodeValue in DraftNodes(Plans, DraftLookup(None))]

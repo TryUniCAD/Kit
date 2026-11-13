@@ -289,7 +289,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/CageDocuments/Saved/KitBoxFresh.f3d",
-   "sha256": "418811c770c46a6d9e0fc0bd6ed2ca29ab77a2174eb6e3a15375fc4f6d89d6c4",
+   "sha256": "ae2404401ad04c64d62b55abe1ab039ff6f1518379e62588a0126a6c151ccd61",
    "face_cosine_min": 0.9867904221303252,
    "edge_cosine_min": 0.9926487825753499,
    "verdict": "accepted"
@@ -310,7 +310,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/CageDocuments/Saved/KitCreasedBoxSheared.f3d",
-   "sha256": "d75e87cac40a9a3ef730d081b1dfdb97349a0a5886f665e65750b50d3848cccd",
+   "sha256": "6b98aa4c15417018e0a2937320f6a2738a2d64c82e596177c867bebc54f82a65",
    "face_cosine_min": 0.9918012665662882,
    "edge_cosine_min": 0.9943663465521577,
    "verdict": "accepted"
@@ -324,14 +324,14 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/CageDocuments/Saved/KitCreasedPlaneFresh.f3d",
-   "sha256": "5f04628cb8d89aac99889a9474aff3bb8c540b7bc5a90841aabc0b39ef9fac79",
+   "sha256": "fdefa12304b0ca3d2b5e0e4d3aaa1aa30d6cbe8488cefd305a1600523ff71f00",
    "face_cosine_min": 0.9984143273697097,
    "edge_cosine_min": 0.9983825153253091,
    "verdict": "accepted"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/CageDocuments/Saved/KitCreasedPlaneSagged.f3d",
-   "sha256": "971902fa8e9fc63b3d6a075dd99ee03c143ed2d7fce29b640d7af20cc3e222c1",
+   "sha256": "94b3244f24714f9315db9afc5546eac2807e303faf6e2ecb575478d6b5dbcaaa",
    "face_cosine_min": 0.9956484462639735,
    "edge_cosine_min": 0.9955416761629672,
    "verdict": "accepted"
@@ -583,7 +583,7 @@
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/Sourceless/Saved/KitCreasedPlane.f3d",
-   "sha256": "1ecb587bbf13b6f25e0d63b1301c9a7a9d99461eb19ef3669aebb4ca7a92b9c1",
+   "sha256": "8ca06b203580a5d01a84318fc433d8b145379e928a22289267560613a8991c4a",
    "face_cosine_min": 0.9990110008270381,
    "edge_cosine_min": 0.9985164949359928,
    "verdict": "accepted"

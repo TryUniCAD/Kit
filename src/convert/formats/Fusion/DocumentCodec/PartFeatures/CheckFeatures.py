@@ -2,6 +2,12 @@ from math import isfinite as IsFinite
 from typing import cast as CastValue
 
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Bodies.BodyStage import (
+    KBodySpecs,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Bodies.CheckBodies import (
+    CheckBodySpec,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.CheckExtrude import (
     CheckExtrude,
 )
@@ -33,6 +39,14 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import 
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import ShellSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Loft.CheckLoft import CheckLoft
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.LoftSpec import LoftSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SweepSpec import (
+    SweepSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Sweep.CheckSweep import (
+    CheckSweep,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.RevolveSpec import (
     RevolveSpec,
 )
@@ -152,15 +166,28 @@ def CheckOwned(Feature: MoveSpec | OffsetSpec | HoleSpec | DraftSpec) -> None:
         CheckHole(Feature)
 
 
-def CheckFeature(Feature: KPartFeature) -> None:
-    _ = FamilyOf(Feature)
+def HasSketchRule(Feature: KPartFeature) -> bool:
     if isinstance(Feature, ExtrudeSpec):
         CheckExtrude(Feature)
-        return
-    if isinstance(Feature, RevolveSpec):
+    elif isinstance(Feature, RevolveSpec):
         CheckRevolve(Feature)
+    elif isinstance(Feature, LoftSpec):
+        CheckLoft(Feature)
+    elif isinstance(Feature, SweepSpec):
+        CheckSweep(Feature)
+    else:
+        return False
+    return True
+
+
+def CheckFeature(Feature: KPartFeature) -> None:
+    _ = FamilyOf(Feature)
+    if HasSketchRule(Feature):
         return
     CheckName(CastValue(object, Feature.FeatureName))
+    if isinstance(Feature, KBodySpecs):
+        CheckBodySpec(Feature)
+        return
     if isinstance(Feature, (MoveSpec, OffsetSpec, HoleSpec, DraftSpec)):
         CheckOwned(Feature)
         return
@@ -181,6 +208,8 @@ def CheckFeature(Feature: KPartFeature) -> None:
 
 
 def IsNewBody(Feature: KPartFeature) -> bool:
+    if isinstance(Feature, (LoftSpec, SweepSpec)):
+        return True
     if not isinstance(Feature, (ExtrudeSpec, RevolveSpec)):
         return False
     return Feature.Operation == "new"
@@ -188,10 +217,17 @@ def IsNewBody(Feature: KPartFeature) -> bool:
 
 def CheckOrder(SpecValue: DocumentSpec) -> None:
     Features = SpecValue.Features
-    Fresh = [Index for Index, Feature in enumerate(Features) if IsNewBody(Feature)]
-    Expected = [0] if SpecValue.ProfileKind == "part" else []
-    if Fresh != Expected:
-        raise ValueError("Fusion part bodies start with exactly one new solid")
+    IsPart = SpecValue.ProfileKind == "part"
+    if IsPart and not IsNewBody(Features[0]):
+        raise ValueError("Fusion part bodies start with a new solid")
+    Extra = [
+        Index
+        for Index, Feature in enumerate(Features)
+        if isinstance(Feature, KBodySpecs)
+        or ((Index or not IsPart) and IsNewBody(Feature))
+    ]
+    if Extra and not IsPart:
+        raise ValueError("Fusion multi-body features need a sketched part")
     IsMoved = False
     for Index, Feature in enumerate(Features):
         if isinstance(Feature, ShellSpec) and Index != len(Features) - 1:

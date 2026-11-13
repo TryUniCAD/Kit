@@ -20,15 +20,23 @@ KFrontMatrix = (
 )
 
 
-def FrameAxes(PlaneRole: str) -> tuple[dict[str, object], dict[str, object]]:
-    if PlaneRole == "xz_plane":
+def FrameAxes(
+    PlaneRole: str, LiftCm: float = 0.0
+) -> tuple[dict[str, object], dict[str, object]]:
+    if PlaneRole == "xz_plane" and not LiftCm:
         return MakePoint(0.0, 0.0, 1.0), MakePoint(1.0)
-    if PlaneRole != "xy_plane":
+    if PlaneRole != "xy_plane" and not LiftCm:
         raise ValueError("Fusion part sketches lie on the XY or XZ plane")
     return MakePoint(1.0), MakePoint(0.0, 1.0)
 
 
-def FrameMatrix(PlaneRole: str) -> dict[str, object]:
+def FrameMatrix(PlaneRole: str, LiftCm: float = 0.0) -> dict[str, object]:
+    if LiftCm:
+        Entries = [0.0] * 16
+        for Index in (0, 5, 10, 15):
+            Entries[Index] = 1.0
+        Entries[11] = LiftCm
+        return {"entries": Entries}
     if PlaneRole == "xz_plane":
         return {"entries": list(KFrontMatrix)}
     return {}

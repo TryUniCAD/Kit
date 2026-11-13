@@ -20,3 +20,6 @@ class PartStage:
     StateId: int
     FamilyIndex: int
     Sketch: SketchPlan | None = None
+    Bodies: tuple[PrismSolid, ...] = ()
+    Shown: tuple[int, ...] = ()
+    Upper: SketchPlan | None = None

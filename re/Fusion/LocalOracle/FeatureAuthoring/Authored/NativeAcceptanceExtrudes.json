@@ -7,7 +7,7 @@
     {
       "name": "ExtrudeNew",
       "file": "ExtrudeNew.f3d",
-      "sha256": "41e8624732ea0c6be02ff92ddb1dbe2921bf456fdbb30a6ba4e49fafa2e5be08",
+      "sha256": "91dd7462b7e3932d2277d9a7012cb6c0199a2bf13cb8cd5574efe23d0b7bcaf7",
       "steps": [
         {
           "kind": "extrude",
@@ -181,6 +181,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         },
         "markers": [
@@ -218,6 +219,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -254,6 +256,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -323,6 +326,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 2
           }
         ],
@@ -393,6 +397,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         }
       },
@@ -471,6 +476,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "markers": [
@@ -516,6 +522,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -560,6 +567,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -637,6 +645,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         }
       ],
@@ -716,6 +725,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "edited": {
@@ -793,6 +803,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "reopened": {
@@ -870,6 +881,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "reopen_computed": true,
@@ -948,15 +960,16 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
-      "saved_sha256": "66e064abfa2a46899f9396f642cf5a14311e2c16d413d5dd969ea6dde0c4746a",
+      "saved_sha256": "f761d523a534968a3e38f01fee0291ffa60fa30cc2ba87bf809ad5356050e557",
       "status": "accepted"
     },
     {
       "name": "ExtrudeSymmetric",
       "file": "ExtrudeSymmetric.f3d",
-      "sha256": "85b86c03231108fdc10e449b975577a577c6641a16e0aa73eb8a0baaaef04c58",
+      "sha256": "60548a255c9ac7fc522ad7eb59304be2abdd50d3821f1a1f3fc62c14a95a7c90",
       "steps": [
         {
           "kind": "extrude",
@@ -1130,6 +1143,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         },
         "markers": [
@@ -1167,6 +1181,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -1203,6 +1218,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -1272,6 +1288,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 2
           }
         ],
@@ -1342,6 +1359,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         }
       },
@@ -1420,6 +1438,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "markers": [
@@ -1465,6 +1484,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -1509,6 +1529,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -1586,6 +1607,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         }
       ],
@@ -1665,6 +1687,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "edited": {
@@ -1742,6 +1765,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "reopened": {
@@ -1819,6 +1843,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "reopen_computed": true,
@@ -1897,15 +1922,16 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
-      "saved_sha256": "cef237b0bef7abd3703bdc0c6051c4408a85b9969d562a484e42d4f663eb3522",
+      "saved_sha256": "6408cfbca92e3f23d128935ca82daff308148b03c14894084b38787687eb6a00",
       "status": "accepted"
     },
     {
       "name": "ExtrudeTwoSided",
       "file": "ExtrudeTwoSided.f3d",
-      "sha256": "3b3fd8386868832882450f2317b82b5a2b9b5f6a15369470895411f9ef395a3d",
+      "sha256": "87491296cdb58906bc4154cea29926493c71e96cd98f5768dc8a743ae5aebcac",
       "steps": [
         {
           "kind": "extrude",
@@ -2095,6 +2121,7 @@
               "role": "Side2TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         },
         "markers": [
@@ -2148,6 +2175,7 @@
                 "role": "Side2TaperAngle"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -2200,6 +2228,7 @@
                 "role": "Side2TaperAngle"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -2285,6 +2314,7 @@
                 "role": "Side2TaperAngle"
               }
             ],
+            "work": [],
             "marker": 2
           }
         ],
@@ -2371,6 +2401,7 @@
               "role": "Side2TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         }
       },
@@ -2465,6 +2496,7 @@
             "role": "Side2TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "markers": [
@@ -2526,6 +2558,7 @@
               "role": "Side2TaperAngle"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -2586,6 +2619,7 @@
               "role": "Side2TaperAngle"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -2679,6 +2713,7 @@
               "role": "Side2TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         }
       ],
@@ -2774,6 +2809,7 @@
             "role": "Side2TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "edited": {
@@ -2867,6 +2903,7 @@
             "role": "Side2TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "reopened": {
@@ -2960,6 +2997,7 @@
             "role": "Side2TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "reopen_computed": true,
@@ -3054,15 +3092,16 @@
             "role": "Side2TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
-      "saved_sha256": "d764e85878953708a41da8a7c0eb6b4652784d9a8e55b0b6b0397f85cfb3b9d1",
+      "saved_sha256": "108a99ff1668ed7d6de8c06c9ba1a94544b8af2c9fec5b11c857e51191f03664",
       "status": "accepted"
     },
     {
       "name": "ExtrudeFlip",
       "file": "ExtrudeFlip.f3d",
-      "sha256": "14d93f791b4a5406e31f03e872b33fc0862f30dbaa412245ae687f938ddc6714",
+      "sha256": "fdd94dbc0952edb55fb3feb106d02443b72e61bbc6b5f1370668c2fe40ed13f3",
       "steps": [
         {
           "kind": "extrude",
@@ -3236,6 +3275,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         },
         "markers": [
@@ -3273,6 +3313,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -3309,6 +3350,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -3378,6 +3420,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 2
           }
         ],
@@ -3448,6 +3491,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         }
       },
@@ -3526,6 +3570,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "markers": [
@@ -3571,6 +3616,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -3615,6 +3661,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -3692,6 +3739,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         }
       ],
@@ -3771,6 +3819,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "edited": {
@@ -3848,6 +3897,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "reopened": {
@@ -3925,6 +3975,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "reopen_computed": true,
@@ -4003,15 +4054,16 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
-      "saved_sha256": "dc5d61698807200f8249b82c7e1cb67d313091057f4b3a66c5a58e6995d07be2",
+      "saved_sha256": "368b49436167a92fa7cbf6cd3078f275e8043f02bd65b87dfef8aa74a3c05574",
       "status": "accepted"
     },
     {
       "name": "ProfileSlot",
       "file": "ProfileSlot.f3d",
-      "sha256": "760951d773de9f9987770eccac010752e5e5c50e1bb167bd245c4f5e33f0c607",
+      "sha256": "06369ca86855d33a077e30b9fe3cc107e75acee655a2943d336f2177cd81a622",
       "steps": [
         {
           "kind": "extrude",
@@ -4187,6 +4239,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         },
         "markers": [
@@ -4224,6 +4277,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -4260,6 +4314,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -4329,6 +4384,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 2
           }
         ],
@@ -4399,6 +4455,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         }
       },
@@ -4477,6 +4534,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "markers": [
@@ -4522,6 +4580,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -4566,6 +4625,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -4643,6 +4703,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         }
       ],
@@ -4722,6 +4783,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "edited": {
@@ -4799,6 +4861,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "reopened": {
@@ -4876,6 +4939,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "reopen_computed": true,
@@ -4954,15 +5018,16 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
-      "saved_sha256": "e042be203901139d14f9a7147fc1b59f4728fda2b47db59767f69994f1ec5d10",
+      "saved_sha256": "e064b0dc6bf36c35677c87c55e44ec2cca90ac55256618a383279bd9ca577c58",
       "status": "accepted"
     },
     {
       "name": "ProfileConcave",
       "file": "ProfileConcave.f3d",
-      "sha256": "3745d80b5f592184cdc5b203a4bb00aaa121a9d7e3009d108b0b96b99b2abbba",
+      "sha256": "3f2deb13e8c2620a1369165105ccc4b56f5ad3c85080c1fbebb8a99b7b27324b",
       "steps": [
         {
           "kind": "extrude",
@@ -5161,6 +5226,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         },
         "markers": [
@@ -5198,6 +5264,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -5234,6 +5301,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -5305,6 +5373,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 2
           }
         ],
@@ -5377,6 +5446,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         }
       },
@@ -5457,6 +5527,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "markers": [
@@ -5502,6 +5573,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -5546,6 +5618,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -5625,6 +5698,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         }
       ],
@@ -5706,6 +5780,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "edited": {
@@ -5785,6 +5860,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "reopened": {
@@ -5864,6 +5940,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "reopen_computed": true,
@@ -5944,15 +6021,16 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
-      "saved_sha256": "44147901e5a772cd807e55a7204ac6aa79fb9f6da1fd0bff1c94b0a8c8943087",
+      "saved_sha256": "68250ddb5bcd16efbbc0295969f3dea7da2c6a846a2afd488a2c709f28d9403b",
       "status": "accepted"
     },
     {
       "name": "ProfileCircle",
       "file": "ProfileCircle.f3d",
-      "sha256": "9bd2c7c56a4228141b9ffeeb9d92348771169c6b3810496e6c009d4b992fd968",
+      "sha256": "1615fdb79662f7cb24d61b3c09926a8e468d807945031fad04765a039ec8b0f4",
       "steps": [
         {
           "kind": "extrude",
@@ -6087,6 +6165,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         },
         "markers": [
@@ -6124,6 +6203,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -6160,6 +6240,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -6226,6 +6307,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 2
           }
         ],
@@ -6293,6 +6375,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         }
       },
@@ -6368,6 +6451,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "markers": [
@@ -6413,6 +6497,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -6457,6 +6542,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -6531,6 +6617,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         }
       ],
@@ -6607,6 +6694,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "edited": {
@@ -6681,6 +6769,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "reopened": {
@@ -6755,6 +6844,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
       "reopen_computed": true,
@@ -6830,15 +6920,16 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 2
       },
-      "saved_sha256": "d5e50ab32bd4c0e8534402f04d54aa2b6f6352a63c52cf0f6963433075f65031",
+      "saved_sha256": "9514c9599074745fc83a957c04469ffebd6d2b79abe34a070a8e147ab3ef4fab",
       "status": "accepted"
     },
     {
       "name": "ExtrudeJoin",
       "file": "ExtrudeJoin.f3d",
-      "sha256": "d893421790331abd4b492aa1a139db0ca19777b08af21dc6dc89da55557b47cb",
+      "sha256": "5d303db72ca48dd209aeab4e488d77858dd0b6b123759a6d8ced36fbd81535a6",
       "steps": [
         {
           "kind": "extrude",
@@ -7069,6 +7160,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 4
         },
         "markers": [
@@ -7134,6 +7226,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -7198,6 +7291,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -7295,6 +7389,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -7392,6 +7487,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 3
           },
           {
@@ -7491,6 +7587,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 4
           }
         ],
@@ -7591,6 +7688,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 4
         }
       },
@@ -7699,6 +7797,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "markers": [
@@ -7772,6 +7871,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -7844,6 +7944,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -7949,6 +8050,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -8054,6 +8156,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 3
         },
         {
@@ -8161,6 +8264,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 4
         }
       ],
@@ -8270,6 +8374,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "edited": {
@@ -8377,6 +8482,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "reopened": {
@@ -8484,6 +8590,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "reopen_computed": true,
@@ -8592,15 +8699,16 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
-      "saved_sha256": "3655b535ee50075ff3de6faeb8a9b6a40107e400537a4604a0fc0cb36039fd16",
+      "saved_sha256": "2a597154a079934179bc3e1b6211e6ae8448ce28578b6a10e3141ee118aed40c",
       "status": "accepted"
     },
     {
       "name": "ExtrudeCut",
       "file": "ExtrudeCut.f3d",
-      "sha256": "951748d23e8b3f3f46bde28abac55da0c19181c67f042a460f23038f704ae82c",
+      "sha256": "0555ea63876a1c9937e040a46c588bbc7d766d11837e12ee6b75eb127c2d5ea3",
       "steps": [
         {
           "kind": "extrude",
@@ -8830,6 +8938,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 4
         },
         "markers": [
@@ -8895,6 +9004,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -8959,6 +9069,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -9056,6 +9167,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -9153,6 +9265,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 3
           },
           {
@@ -9251,6 +9364,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 4
           }
         ],
@@ -9351,6 +9465,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 4
         }
       },
@@ -9458,6 +9573,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "markers": [
@@ -9531,6 +9647,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -9603,6 +9720,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -9708,6 +9826,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -9813,6 +9932,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 3
         },
         {
@@ -9919,6 +10039,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 4
         }
       ],
@@ -10027,6 +10148,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "edited": {
@@ -10134,6 +10256,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "reopened": {
@@ -10241,6 +10364,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "reopen_computed": true,
@@ -10349,15 +10473,16 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
-      "saved_sha256": "dae656c4069b1a667f9b3ca98b1d44e155a888fae4c247ff0c3973d009b3a03d",
+      "saved_sha256": "4284b25febe81af91a078782fb204b6729192181aa9a2e51e909c6372b900ef6",
       "status": "accepted"
     },
     {
       "name": "ExtrudeIntersect",
       "file": "ExtrudeIntersect.f3d",
-      "sha256": "26739b5e542f36f553aa5f2d154bd7ae2deb227e10671f55836431611ab5d723",
+      "sha256": "26ab9b84d09d4f177995f3aaf2d6e76ce0d54e07e32b21ab4eb8c6e87b974d9e",
       "steps": [
         {
           "kind": "extrude",
@@ -10583,6 +10708,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 4
         },
         "markers": [
@@ -10648,6 +10774,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -10712,6 +10839,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -10809,6 +10937,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -10906,6 +11035,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 3
           },
           {
@@ -11000,6 +11130,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 4
           }
         ],
@@ -11095,6 +11226,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 4
         }
       },
@@ -11198,6 +11330,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "markers": [
@@ -11271,6 +11404,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -11343,6 +11477,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -11448,6 +11583,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -11553,6 +11689,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 3
         },
         {
@@ -11655,6 +11792,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 4
         }
       ],
@@ -11759,6 +11897,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "edited": {
@@ -11861,6 +12000,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "reopened": {
@@ -11963,6 +12103,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "reopen_computed": true,
@@ -12066,15 +12207,16 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
-      "saved_sha256": "ae96a1e05b7a40682b44aa594b2abdde9fc53b0e0c72bc11e0992b53b52314d4",
+      "saved_sha256": "195733de43463f55b3be674b3a7ce03a4def5f40da25ccedd9e868373f885fde",
       "status": "accepted"
     },
     {
       "name": "ExtrudeBlindCut",
       "file": "ExtrudeBlindCut.f3d",
-      "sha256": "f934acad0b0445ca1e251f096b401dcf688ad89b6cde591dcb95d42d000393d8",
+      "sha256": "5682645b953718471d22e8affd3a316f0a2c542e9f3299a96553900277404808",
       "steps": [
         {
           "kind": "extrude",
@@ -12305,6 +12447,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 4
         },
         "markers": [
@@ -12370,6 +12513,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -12434,6 +12578,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -12531,6 +12676,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -12628,6 +12774,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 3
           },
           {
@@ -12727,6 +12874,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 4
           }
         ],
@@ -12827,6 +12975,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 4
         }
       },
@@ -12935,6 +13084,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "markers": [
@@ -13008,6 +13158,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -13080,6 +13231,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -13185,6 +13337,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -13290,6 +13443,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 3
         },
         {
@@ -13397,6 +13551,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 4
         }
       ],
@@ -13506,6 +13661,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "edited": {
@@ -13613,6 +13769,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "reopened": {
@@ -13720,6 +13877,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "reopen_computed": true,
@@ -13828,15 +13986,16 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
-      "saved_sha256": "ec8b126a680fbc366c18e3bde5b85b743ca562add7181480d1e0247518a238bd",
+      "saved_sha256": "13036bbed79b187d537919571cb7548e8c73220890149b2c97861a9d45e2d336",
       "status": "accepted"
     },
     {
       "name": "ExtrudeSlotCut",
       "file": "ExtrudeSlotCut.f3d",
-      "sha256": "014cada899596034e42cee9886397d38b5b11ea20ce77b3ec70d892982915bec",
+      "sha256": "2e061ac4dea6bccec062df7995c395c872920ddbc5d26aea7313a0fcd7f853d0",
       "steps": [
         {
           "kind": "extrude",
@@ -14107,6 +14266,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 4
         },
         "markers": [
@@ -14172,6 +14332,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -14236,6 +14397,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -14333,6 +14495,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -14430,6 +14593,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 3
           },
           {
@@ -14531,6 +14695,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 4
           }
         ],
@@ -14634,6 +14799,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 4
         }
       },
@@ -14744,6 +14910,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "markers": [
@@ -14817,6 +14984,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -14889,6 +15057,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -14994,6 +15163,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -15099,6 +15269,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 3
         },
         {
@@ -15208,6 +15379,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 4
         }
       ],
@@ -15319,6 +15491,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "edited": {
@@ -15429,6 +15602,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "reopened": {
@@ -15539,6 +15713,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "reopen_computed": true,
@@ -15650,15 +15825,16 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
-      "saved_sha256": "4e87128fc0e4cc2e0357776bd74ba94aa7a471c42eed07edcb22437172563a54",
+      "saved_sha256": "09aafca0d455ea04b3ae7ab3fb69c38ee20dd104b8ef85c189787690f87b6441",
       "status": "accepted"
     },
     {
       "name": "ExtrudeSymmetricCut",
       "file": "ExtrudeSymmetricCut.f3d",
-      "sha256": "e437735d0133471d86d2d637fad195a993f681afa1a422b7829f8be767921a00",
+      "sha256": "33409e3d6e38f2fc8ffefc325bbd9d064f8e70c3c0e72fa121b374aeaf930871",
       "steps": [
         {
           "kind": "extrude",
@@ -15889,6 +16065,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 4
         },
         "markers": [
@@ -15954,6 +16131,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -16018,6 +16196,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -16115,6 +16294,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -16212,6 +16392,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 3
           },
           {
@@ -16311,6 +16492,7 @@
                 "role": "TaperAngle"
               }
             ],
+            "work": [],
             "marker": 4
           }
         ],
@@ -16411,6 +16593,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 4
         }
       },
@@ -16519,6 +16702,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "markers": [
@@ -16592,6 +16776,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -16664,6 +16849,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -16769,6 +16955,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -16874,6 +17061,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 3
         },
         {
@@ -16981,6 +17169,7 @@
               "role": "TaperAngle"
             }
           ],
+          "work": [],
           "marker": 4
         }
       ],
@@ -17090,6 +17279,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "edited": {
@@ -17197,6 +17387,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "reopened": {
@@ -17304,6 +17495,7 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "reopen_computed": true,
@@ -17412,15 +17604,16 @@
             "role": "TaperAngle"
           }
         ],
+        "work": [],
         "marker": 4
       },
-      "saved_sha256": "38df60777b59c619fcf2cc44d8e09033cb12683fd4244a62d076b45bc2848fd0",
+      "saved_sha256": "b62bdf1539e6a8f38b22ef2a3354aeb932396b37e758787bca3d24aa51ef3947",
       "status": "accepted"
     },
     {
       "name": "PartCutFillet",
       "file": "PartCutFillet.f3d",
-      "sha256": "8b502c454f8c69927ee40d2fe96e4ef6bbb48d3d2c21d82348d2396679669e5d",
+      "sha256": "4fa2a1102e9cbd504ac7be39eaad763559893ebf1c216503daae9379c2a3baee",
       "steps": [
         {
           "kind": "extrude",
@@ -17765,6 +17958,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 6
         },
         "markers": [
@@ -17866,6 +18060,7 @@
                 "role": "Distance"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -17966,6 +18161,7 @@
                 "role": "Distance"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -18099,6 +18295,7 @@
                 "role": "Distance"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -18232,6 +18429,7 @@
                 "role": "Distance"
               }
             ],
+            "work": [],
             "marker": 3
           },
           {
@@ -18369,6 +18567,7 @@
                 "role": "Distance"
               }
             ],
+            "work": [],
             "marker": 4
           },
           {
@@ -18507,6 +18706,7 @@
                 "role": "Distance"
               }
             ],
+            "work": [],
             "marker": 5
           },
           {
@@ -18646,6 +18846,7 @@
                 "role": "Distance"
               }
             ],
+            "work": [],
             "marker": 6
           }
         ],
@@ -18787,6 +18988,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 6
         }
       },
@@ -18935,6 +19137,7 @@
             "role": "Distance"
           }
         ],
+        "work": [],
         "marker": 6
       },
       "markers": [
@@ -19044,6 +19247,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -19152,6 +19356,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -19293,6 +19498,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -19434,6 +19640,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 3
         },
         {
@@ -19579,6 +19786,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 4
         },
         {
@@ -19725,6 +19933,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 5
         },
         {
@@ -19872,6 +20081,7 @@
               "role": "Distance"
             }
           ],
+          "work": [],
           "marker": 6
         }
       ],
@@ -20021,6 +20231,7 @@
             "role": "Distance"
           }
         ],
+        "work": [],
         "marker": 6
       },
       "edited": {
@@ -20169,6 +20380,7 @@
             "role": "Distance"
           }
         ],
+        "work": [],
         "marker": 6
       },
       "reopened": {
@@ -20317,6 +20529,7 @@
             "role": "Distance"
           }
         ],
+        "work": [],
         "marker": 6
       },
       "reopen_computed": true,
@@ -20466,15 +20679,16 @@
             "role": "Distance"
           }
         ],
+        "work": [],
         "marker": 6
       },
-      "saved_sha256": "df87bf9ef27b0fd784228d619742cc9e8b0af1bff29764c926645231aad1ce4b",
+      "saved_sha256": "cb2bc2543b89e43f84e5e7c826ef57a2eb101416a4d84223462fe016519bde84",
       "status": "accepted"
     },
     {
       "name": "PartConcaveShell",
       "file": "PartConcaveShell.f3d",
-      "sha256": "b8b61d69eb467620f4c4127f6796928eaa8de9cf2dbcb2c0cadfd2b4bc76e02a",
+      "sha256": "d2d530d4264963be5676294db1883fb8c34b2b918ef700a478d5d66d19d294b7",
       "steps": [
         {
           "kind": "extrude",
@@ -20750,6 +20964,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 4
         },
         "markers": [
@@ -20823,6 +21038,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -20895,6 +21111,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -21002,6 +21219,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -21110,6 +21328,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 3
           },
           {
@@ -21226,6 +21445,7 @@
                 "role": "innerThickness"
               }
             ],
+            "work": [],
             "marker": 4
           }
         ],
@@ -21343,6 +21563,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 4
         }
       },
@@ -21468,6 +21689,7 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "markers": [
@@ -21549,6 +21771,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -21629,6 +21852,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -21744,6 +21968,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -21860,6 +22085,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 3
         },
         {
@@ -21984,6 +22210,7 @@
               "role": "innerThickness"
             }
           ],
+          "work": [],
           "marker": 4
         }
       ],
@@ -22110,6 +22337,7 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "edited": {
@@ -22234,6 +22462,7 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "reopened": {
@@ -22358,6 +22587,7 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "reopen_computed": true,
@@ -22483,9 +22713,10 @@
             "role": "innerThickness"
           }
         ],
+        "work": [],
         "marker": 4
       },
-      "saved_sha256": "f00d820be9d9cd58537d5615fd18215d72aeafc821afa45dc314ca6c097a2017",
+      "saved_sha256": "cd8e8c0d8bd349e6c02d82bbdea220d21dd9efe331fb8a4f23d377ff499340ca",
       "status": "accepted"
     }
   ],

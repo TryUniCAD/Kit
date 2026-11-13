@@ -1,3 +1,6 @@
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.TagState import (
+    TagState,
+)
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.AddParamMut import (
     AddParamMut,
@@ -21,16 +24,11 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.RoofTag import (
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartStage import PartStage
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import ShellSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.OpenShell import SideIndex
-from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSolid import (
-    PrismSolid,
-)
 
 KShellTags = tuple[int, tuple[tuple[int, int], ...]]
 
 
-def ShellTags(
-    Solids: tuple[PrismSolid, ...], Place: int, Stage: PartStage
-) -> KShellTags:
+def ShellTags(Solids: tuple[TagState, ...], Place: int, Stage: PartStage) -> KShellTags:
     Feature = Stage.Feature
     if not isinstance(Feature, ShellSpec):
         raise ValueError("Fusion part shell authoring requires a shell feature")

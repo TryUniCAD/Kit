@@ -41,6 +41,12 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.DraftSpec import Dr
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.RevolveSpec import RevolveSpec  # noqa: E402
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CombineSpec import CombineSpec  # noqa: E402
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SplitSpec import SplitSpec  # noqa: E402
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.BodyGridSpec import BodyGridSpec  # noqa: E402
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.BodyRingSpec import BodyRingSpec  # noqa: E402
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.LoftSpec import LoftSpec  # noqa: E402
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SweepSpec import SweepSpec  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.SolidMass import SolidMass  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.BuildShape import BuildShape  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.SolvePart import SolvePart  # noqa: E402
@@ -201,6 +207,35 @@ PART.update({
     "DraftInward": (base(), DraftSpec(-5.0, "Side taper")),
     "DraftCutPart": (base(), ChamferSpec((40.0, 30.0), 3.0, FeatureName="Corner cut"), DraftSpec(5.0, "Side draft")),
 })
+POST = ExtrudeSpec((CircleCurve((40, 30), 10),), 20.0, "new", "one", 0.0, "Post sketch", "Post extrude")
+CUBE = ExtrudeSpec(rect(0, 0, 10, 10), 10.0, "new", "one", 0.0, "Cube sketch", "Cube extrude")
+RING_CUBE = ExtrudeSpec(rect(20, -5, 30, 5), 10.0, "new", "one", 0.0, "Cube sketch", "Cube extrude")
+PART.update({
+    "ExtrudeSecondBody": (base(), ExtrudeSpec((CircleCurve((60, 15), 5),), 20.0, "new", "one", 0.0, "Post sketch", "Post extrude")),
+    "RevolveBody": (base(), RevolveSpec(60.0, 80.0, 0.0, 10.0, 360.0, "new", "Ring sketch", "Ring revolve")),
+    "CombineJoin": (base(), POST, CombineSpec(1, (2,), "join", False, "Body combine")),
+    "CombineCut": (base(), POST, CombineSpec(1, (2,), "cut", False, "Body combine")),
+    "CombineIntersect": (base(), POST, CombineSpec(1, (2,), "intersect", False, "Body combine")),
+    "CombineKeep": (base(), POST, CombineSpec(1, (2,), "join", True, "Body combine")),
+    "SplitYZ": (base(), PlaneSpec(20.0, "yz", "Split plane"), SplitSpec(1, 1, "Body split")),
+    "SplitXZ": (base(), PlaneSpec(10.0, "xz", "Split plane"), SplitSpec(1, 1, "Body split")),
+    "SplitXY": (base(), PlaneSpec(8.0, "xy", "Split plane"), SplitSpec(1, 1, "Body split")),
+    "BodyRectPattern": (CUBE, BodyGridSpec(1, 3, 15.0, 2, 20.0, "Cube grid")),
+    "BodyCircPattern": (RING_CUBE, BodyRingSpec(1, 4, 360.0, "Cube ring")),
+})
+PART.update({
+    "LoftRects": (LoftSpec(rect(0, 0, 40, 30), rect(10, 10, 30, 20), 30.0, FeatureName="Block loft"),),
+    "LoftCircles": (LoftSpec((CircleCurve((0, 0), 10),), (CircleCurve((0, 0), 5),), 30.0, FeatureName="Cone loft"),),
+    "LoftWedgeBody": (base(), LoftSpec(rect(50, 0, 90, 30), rect(55, 20, 75, 25), 25.0, "Wedge base", "Wedge plane", "Wedge top", "Wedge loft")),
+})
+BEND = (LineCurve((0, 0), (0, 20)), ArcCurve((-30, 20), 30, 0, 90))
+S_CURVE = (LineCurve((0, 0), (0, 10)), ArcCurve((20, 10), 20, 180, -90), ArcCurve((20, 50), 20, -90, 90))
+PART.update({
+    "SweepBend": (SweepSpec(BEND, -5.0, 5.0, 0.0, 10.0, FeatureName="Bend sweep"),),
+    "SweepHook": (SweepSpec((*BEND, LineCurve((-30, 50), (-50, 50))), -5.0, 5.0, 0.0, 10.0, FeatureName="Bend sweep"),),
+    "SweepSCurve": (SweepSpec(S_CURVE, -3.0, 5.0, 2.0, 8.0, "Bar profile", "Bar path", "Bar sweep"),),
+    "SweepSecondBody": (base(), SweepSpec(BEND, -15.0, -5.0, 0.0, 10.0, "Rail profile", "Rail path", "Rail sweep")),
+})
 
 CASES = {**CUBOID, **PART}
 
@@ -260,6 +295,24 @@ EDITS = {
     "DraftSides": [{"feature": "Side draft", "role": "Angle1", "expression": "8 deg"}, {"feature": "Base extrude", "role": "AlongDistance", "expression": "25 mm"}],
     "DraftInward": [{"feature": "Side taper", "role": "Angle1", "expression": "-3 deg"}],
     "DraftCutPart": [{"feature": "Side draft", "role": "Angle1", "expression": "3 deg"}, {"feature": "Corner cut", "expression": "4 mm"}],
+    "ExtrudeSecondBody": [{"feature": "Post extrude", "role": "AlongDistance", "expression": "15 mm"}],
+    "RevolveBody": [{"feature": "Ring revolve", "role": "AlongAngle", "expression": "180 deg"}],
+    "CombineJoin": [{"feature": "Post extrude", "role": "AlongDistance", "expression": "30 mm"}],
+    "CombineCut": [{"feature": "Post extrude", "role": "AlongDistance", "expression": "15 mm"}],
+    "CombineIntersect": [{"feature": "Base extrude", "role": "AlongDistance", "expression": "15 mm"}],
+    "CombineKeep": [{"feature": "Post extrude", "role": "AlongDistance", "expression": "30 mm"}],
+    "SplitYZ": [{"feature": "Split plane", "role": "AlongDistance", "expression": "25 mm"}],
+    "SplitXZ": [{"feature": "Split plane", "role": "AlongDistance", "expression": "20 mm"}],
+    "SplitXY": [{"feature": "Split plane", "role": "AlongDistance", "expression": "12 mm"}],
+    "BodyRectPattern": [{"feature": "Cube grid", "role": "uSpaceDistance", "expression": "18 mm"}, {"feature": "Cube grid", "role": "CountV", "expression": "3"}],
+    "BodyCircPattern": [{"feature": "Cube ring", "role": "countU", "expression": "6"}],
+    "LoftRects": [{"feature": "Loft plane", "role": "AlongDistance", "expression": "40 mm"}],
+    "LoftCircles": [{"feature": "Loft plane", "role": "AlongDistance", "expression": "20 mm"}],
+    "LoftWedgeBody": [{"feature": "Wedge plane", "role": "AlongDistance", "expression": "30 mm"}],
+    "SweepBend": [{"feature": "Bend sweep", "role": "AlongDistance", "expression": "0.5"}],
+    "SweepHook": [{"feature": "Bend sweep", "role": "AlongDistance", "expression": "0.75"}],
+    "SweepSCurve": [{"feature": "Bar sweep", "role": "AlongDistance", "expression": "0.5"}],
+    "SweepSecondBody": [{"feature": "Rail sweep", "role": "AlongDistance", "expression": "0.5"}, {"feature": "Base extrude", "role": "AlongDistance", "expression": "25 mm"}],
 }
 
 
@@ -282,6 +335,34 @@ def curve_step(curve):
 
 
 def step(feature):
+    if isinstance(feature, SweepSpec):
+        return {
+            "kind": "sweep",
+            "profile_cm": [feature.LeftMm / 10.0, feature.RightMm / 10.0, feature.LowerMm / 10.0, feature.UpperMm / 10.0],
+            "path": [curve_step(curve) for curve in feature.Path],
+            "profile": feature.ProfileName,
+            "path_name": feature.PathName,
+            "name": feature.FeatureName,
+        }
+    if isinstance(feature, LoftSpec):
+        return {
+            "kind": "loft",
+            "lower_profile": [curve_step(curve) for curve in feature.LowerProfile],
+            "upper_profile": [curve_step(curve) for curve in feature.UpperProfile],
+            "height": mm(feature.HeightMm),
+            "lower": feature.LowerName,
+            "plane": feature.PlaneName,
+            "upper": feature.UpperName,
+            "name": feature.FeatureName,
+        }
+    if isinstance(feature, CombineSpec):
+        return {"kind": "combine", "target": feature.TargetBody, "tools": list(feature.ToolBodies), "operation": feature.Operation, "keep": feature.KeepTools, "name": feature.FeatureName}
+    if isinstance(feature, SplitSpec):
+        return {"kind": "split", "plane": feature.PlaneIndex, "target": feature.TargetBody, "name": feature.FeatureName}
+    if isinstance(feature, BodyGridSpec):
+        return {"kind": "body_pattern", "source_body": feature.SourceBody, "count_u": feature.CountU, "spacing_u": mm(feature.SpacingUMm), "count_v": feature.CountV, "spacing_v": mm(feature.SpacingVMm), "name": feature.FeatureName}
+    if isinstance(feature, BodyRingSpec):
+        return {"kind": "body_ring", "source_body": feature.SourceBody, "count": feature.Count, "angle": f"{feature.TotalDegrees:g} deg", "name": feature.FeatureName}
     if isinstance(feature, ExtrudeSpec):
         return {
             "kind": "extrude",
@@ -396,6 +477,7 @@ def main():
         target = OUTPUT / (name + ".f3d")
         target.write_bytes(payload)
         solids = ([] if start is None else [start]) + [stage.After for stage in stages]
+        bodies = [expectation(solid) for solid in stages[-1].Bodies if solid.Ordinal in stages[-1].Shown] if stages else []
         manifest[name] = {
             "file": target.name,
             "base": "part" if name in PART else "cuboid",
@@ -405,6 +487,7 @@ def main():
             "steps": [step(feature) for feature in features],
             "edits": EDITS[name],
             "kit_states": [expectation(solid) for solid in solids],
+            "kit_bodies": bodies,
         }
         print(name, len(payload), manifest[name]["sha256"][:16], manifest[name]["kit_states"][-1])
     path.write_text(json.dumps(manifest, indent=2) + "\n")

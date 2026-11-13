@@ -26,6 +26,10 @@ def IsTapered(Solid: PrismSolid) -> bool:
     return any(SlabValue.RoofLoops for SlabValue in Solid.Slabs)
 
 
+def IsSealed(Solid: PrismSolid) -> bool:
+    return Solid.Sealed or IsTapered(Solid)
+
+
 def IsSameSpan(First: KPlaneSpan, Second: KPlaneSpan) -> bool:
     return type(First) is type(Second) and (
         ReplaceValue(First, Label=Second.Label) == Second

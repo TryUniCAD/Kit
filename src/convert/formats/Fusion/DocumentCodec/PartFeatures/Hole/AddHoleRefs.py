@@ -9,6 +9,9 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Extrude.AddTargetMut impo
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.FaceLabel import FaceLabel
 from convert.formats.Fusion.EntityCodec.Recipes.Model.RecipeValue import RecipeValue
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.BodyRole import (
+    FocusRole,
+)
 
 
 def TopologyCache(Author: AuthorState, RoleName: str, TagValue: int) -> None:
@@ -33,7 +36,7 @@ def AddFaceRefMut(
         rRecipe=Reference(RoleName + "_recipe"),
         rScope=PartScope(Author),
         caches=[Reference(RoleName + "_cache")],
-        refBodies=[Reference("dc_body")],
+        refBodies=[Reference(FocusRole(Author, "dc_body"))],
         trackingType=Tracking[0],
     )
 
@@ -66,7 +69,7 @@ def AddThroughMut(
     Author.Allocate(Prefix + "extent_cache", "ETCachedMatrix3d")
     Recipe: dict[str, object] = {"m_Recipe": BodyRecipeOf(Label)}
     Author.Allocate(Prefix + "extent_recipe", "ASMRecipe", Fields=Recipe)
-    Entity: dict[str, object] = {"m_entityId": Author.Roles["body"]}
+    Entity: dict[str, object] = {"m_entityId": Author.Roles[FocusRole(Author, "body")]}
     Author.Allocate(Prefix + "extent_entity", "EntityRecipe", Fields=Entity)
     SeedValue: dict[str, object] = {
         "m_entityRecipe": Reference(Prefix + "extent_entity")
@@ -87,7 +90,7 @@ def AddThroughMut(
         rRecipe=Reference(Prefix + "extent_recipe"),
         rScope=PartScope(Author),
         caches=[Reference(Prefix + "extent_topology")],
-        refBodies=[Reference("dc_body")],
+        refBodies=[Reference(FocusRole(Author, "dc_body"))],
         trackingType=9,
         operIdTypeMap=[{"key": int(Label.PrimaryId), "value": KBodyOperationType}],
     )

@@ -11,3 +11,5 @@ class PrismSolid:
     SketchCurves: tuple[tuple[FaceLabel, int], ...] = ()
     EdgeTags: tuple[tuple[FaceLabel, float, FaceLabel], ...] = ()
     Tracks: tuple[tuple[FaceLabel, int], ...] = ()
+    Ordinal: int = 1
+    Sealed: bool = False

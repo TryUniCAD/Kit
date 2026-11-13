@@ -4,6 +4,8 @@
 
 A part starts from a sketch extrusion with `ProfileKind="part"`, or from the unconstrained cuboid with `ProfileKind="cuboid"`. The part profile supports sketch extrusions, revolves, holes, rectangular and circular feature patterns, offset construction planes and mirrors. It also supports construction axes on vertical body edges and construction points on their bottom vertices. Both profiles support fillets, chamfers and shells. A hole can add a counterbore or a countersink. A shell can also open a connected run of straight side faces. A move turns the body about the Z axis and then translates it. An offset face moves the top face or one straight side face along its normal. A draft tilts every straight side face about the bottom face. A fillet or chamfer can round or cut several vertical edges, and a chamfer can take two distances or a distance and an angle.
 
+A part can also hold several bodies. A later `new` extrusion or `new` revolve adds a body. A combine joins, cuts or intersects bodies, a split cuts a body in two along an offset plane, and a body pattern copies a whole body along a grid or around the Z axis. A loft joins two parallel profiles as a new body. A sweep moves a rectangle along a path of lines and arcs as a new body.
+
 ## Usage
 
 ```python
@@ -80,6 +82,12 @@ Path("PocketPlate.f3d").write_bytes(EmitDocument(Specification))
 | `MoveSpec`     | `KNative`     | None                      |
 | `OffsetSpec`   | `KOffset`     | `distance`                |
 | `DraftSpec`    | `KDraft`      | None                      |
+| `CombineSpec`  | `KBoolean`    | None                      |
+| `SplitSpec`    | `KNative`     | None                      |
+| `BodyGridSpec` | `KPattern`    | `uSpaceDistance`          |
+| `BodyRingSpec` | `KPattern`    | None                      |
+| `LoftSpec`     | `KLoft`       | `AlongDistance` of the loft plane |
+| `SweepSpec`    | `KSweep`      | None                      |
 
 ## Feature inputs
 
@@ -100,13 +108,19 @@ Path("PocketPlate.f3d").write_bytes(EmitDocument(Specification))
 | `MoveSpec`     | `OffsetMm`, `FeatureName`, `TurnDegrees`                                                  | `DcMoveFeature`         |
 | `OffsetSpec`   | `DistanceMm`, `FeatureName`, `SideMm`                                                     | `DcOffsetFacesFeature`  |
 | `DraftSpec`    | `AngleDegrees`, `FeatureName`                                                             | `DcDraftFeature`        |
+| `CombineSpec`  | `TargetBody`, `ToolBodies`, `Operation`, `KeepTools`, `FeatureName`                       | `DcCombineFeature`      |
+| `SplitSpec`    | `PlaneIndex`, `TargetBody`, `FeatureName`                                                 | `DcSplitBodyFeature`    |
+| `BodyGridSpec` | `SourceBody`, `CountU`, `SpacingUMm`, `CountV`, `SpacingVMm`, `FeatureName`               | `DcRectangularPattern`  |
+| `BodyRingSpec` | `SourceBody`, `Count`, `TotalDegrees`, `FeatureName`                                      | `DcCircularPattern`     |
+| `LoftSpec`     | `LowerProfile`, `UpperProfile`, `HeightMm`, `LowerName`, `PlaneName`, `UpperName`, `FeatureName` | `DcLoftFeature` |
+| `SweepSpec`    | `Path`, `LeftMm`, `RightMm`, `LowerMm`, `UpperMm`, `ProfileName`, `PathName`, `FeatureName` | `DcSweepFeature` |
 
-All coordinates are millimetres on the XY sketch plane. Every sketch lies on the origin XY plane, and every extrusion runs along Z.
+All coordinates are millimetres on the XY sketch plane. Every sketch lies on the origin XY plane, except the revolve and sweep profiles on the XZ plane and the top sketch of a loft. Every extrusion runs along Z.
 
 | `ExtrudeSpec` field | Values                                                                                                     |
 | ------------------- | ---------------------------------------------------------------------------------------------------------- |
 | `Profile`           | One closed loop of `LineCurve` and `ArcCurve` values, or one `CircleCurve`, with at most 64 curves          |
-| `Operation`         | `new` for the first feature only, then `join`, `cut` or `intersect`                                       |
+| `Operation`         | `new` for the first feature or another body, `join`, `cut` or `intersect` while one body is visible       |
 | `Extent`            | `one` along +Z, `flip` along −Z, `symmetric` about the sketch plane, `two` with `AgainstMm` along −Z        |
 
 An `ArcCurve` takes a centre, a radius, a start angle and a signed sweep in degrees. The sweep must be shorter than a full turn. A hole is drilled downward from the current top face at `CenterMm`. `DepthMm` of 0 cuts through all, and a blind hole has a flat 180° tip. A positive `BoreDiameterMm` and `BoreDepthMm` add a counterbore. A positive `SinkDiameterMm` adds a countersink cone instead. `SinkAngleDegrees` sets its included angle and defaults to 90. A countersunk hole must be the last solid feature.
@@ -121,13 +135,19 @@ An `ArcCurve` takes a centre, a radius, a start angle and a signed sweep in degr
 
 `PatternSpec` and `CircularSpec` copy an earlier cut extrusion or hole, named by its index in `Features`. A rectangular pattern steps along X and Y. A circular pattern turns about the Z axis through `TotalDegrees`, with 360 giving an even full ring. `PlaneSpec` offsets an origin plane along its normal. `AxisSpec` places an axis on the vertical body edge at `CornerMm`, from the floor to the roof. `PointSpec` places a point on the bottom vertex of that edge. The edge must run through every slab of the body with the same two walls. `MirrorSpec` reflects an earlier cut extrusion or hole about an earlier `PlaneSpec` parallel to YZ.
 
+Bodies are numbered from 1 in the order they are made. A combine, split or body pattern names a visible body by its number. `CombineSpec` merges each body in `ToolBodies` into `TargetBody` with the `join`, `cut` or `intersect` operation. The tools disappear unless `KeepTools` is true, and each tool must be one straight slab. `SplitSpec` cuts `TargetBody` along the earlier `PlaneSpec` at index `PlaneIndex`, and the plane must cross the body. The piece on the lower side of the plane keeps the body number, and the other piece takes the next number. `BodyGridSpec` and `BodyRingSpec` copy `SourceBody` like `PatternSpec` and `CircularSpec`, and the copies take the next numbers. A part holds at most 16 bodies. A `new` extrusion or revolve can follow any number of bodies, but every other feature needs exactly one visible body. Combines and splits reject drafted bodies, and only the part profile can add bodies.
+
+`LoftSpec` sketches `LowerProfile` on the XY plane and adds a construction plane `HeightMm` above it. It sketches `UpperProfile` on that plane and lofts between the two profiles as a new body. Both profiles use the `ExtrudeSpec` curve rules, need the same number of curves and list matching curves in the same order. Each pair of lines must be parallel and point the same way, and a pair of circles must share a centre, so every side face is a plane or a cone. Arcs are rejected. The loft is the first feature or another body. No later feature can change the loft body, and combines reject it.
+
+`SweepSpec` sketches a rectangle on the XZ plane and sweeps it along `Path` as a new body. The rectangle spans `LeftMm` to `RightMm` along X and `LowerMm` to `UpperMm` along Z. `Path` holds lines and arcs on the XY plane. The path starts at the origin, leaves it along +Y and chains end to start. Each joint must be smooth, and two neighbouring curves cannot lie on the same line or circle. The profile must stay clear of every arc centre, and the swept body cannot cross itself. The edge of the profile at +X follows the right-hand side of the path. The feature keeps the native `AlongDistance` parameter, which sets the swept fraction of the path. A sweep is the first feature or another body. No later feature can change the sweep body. Combines, splits and body patterns reject it.
+
 `CornerMm` is an `(x, y)` point on one convex vertical corner between two straight sides of the current body. `MoreCornersMm` adds up to seven more corners to the same feature. `DistanceMm` runs along the side that ends at the corner. A positive `SecondMm` runs along the side that leaves it. A positive `AngleDegrees` sets the angle between the chamfer face and the first side instead. Fillets and chamfers can follow earlier features. A shell opens the top face, keeps the outer walls and must be the final feature. Each `(x, y)` point in `SidesMm` names one straight side face to open as well. The open sides must form one connected run, and the sides next to the run must be straight.
 
-`CheckFeatures` rejects unsupported families, non-finite or non-positive values and more than 16 features. A part must start with exactly one `new` extrusion. Copies accept at most 64 occurrences. It also rejects invalid names and a user parameter named `d<digits>`. `SolvePart` rejects a feature that misses the body, consumes an adjacent side or collapses the profile.
+`CheckFeatures` rejects unsupported families, non-finite or non-positive values and more than 16 features. A part must start with a `new` extrusion or revolve, a loft or a sweep. Copies accept at most 64 occurrences. It also rejects invalid names and a user parameter named `d<digits>`. `SolvePart` rejects a feature that misses the body, consumes an adjacent side or collapses the profile.
 
 ## Construction
 
-`SolvePart` applies every feature to an exact prism model and keeps each intermediate solid. The model stores a stack of slabs with vertical walls and flat caps. Profile booleans cut and join these slabs exactly. Wall pieces with the same label on one line merge across slabs into one face. An open shell side is therefore one U-shaped face, as in the native control. An offset face keeps its tag and appends the negated first operation of the feature. Each face that shares an edge with it appends the negated second operation, as in the native controls. A drafted slab keeps its bottom profile and stores the leaning top profile. Its side faces are exact planes, and its rising edges are slanted lines. Each drafted face appends the negated first operation, and both caps keep their tags, as in the native control. `EmitPartHist` writes one journal state for each solid-changing feature. Each state contains the complete solved body, with exact planes, cylinders, lines and circles. Fusion does not recompute features when it opens a document, so these solved states are required. See [the stale-open gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureStaleOpen.md).
+`SolvePart` applies every feature to an exact prism model and keeps each intermediate solid. The model stores a stack of slabs with vertical walls and flat caps. Profile booleans cut and join these slabs exactly. Wall pieces with the same label on one line merge across slabs into one face. An open shell side is therefore one U-shaped face, as in the native control. An offset face keeps its tag and appends the negated first operation of the feature. Each face that shares an edge with it appends the negated second operation, as in the native controls. A drafted slab keeps its bottom profile and stores the leaning top profile. A loft slab stores the top profile in the same way, with both caps and every side tagged by the loft operation and no sketch curve links, as in the native control. Its side faces are exact planes, and its rising edges are slanted lines. A sweep is one slab whose outline follows the path. Its walls are planes along the path lines and vertical cylinders along the path arcs. The floor and the roof are each one face that carries the tags of every path segment. Each drafted face appends the negated first operation, and both caps keep their tags, as in the native control. `EmitPartHist` writes one journal state for each solid-changing feature. Each state contains the complete solved body, with exact planes, cylinders, lines and circles. Fusion does not recompute features when it opens a document, so these solved states are required. With several bodies, each state holds every body made so far, including the tools that a combine consumed. Each body claims its tag in the first state that holds it, in body order. The Design marks a consumed body hidden and eliminated. See [the stale-open gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureStaleOpen.md).
 
 Each feature subgraph contains the feature, its parameters, its references, its geometry caches and its progenitor tables. An extrusion also writes its sketch, curves, region recipe and profile. A pattern or mirror writes the source references, one occurrence for each copy and one operation identifier per copy. `LinkTimeline` adds the features to the creation order, the identifier maps, the per-class index map and the component operation seed.
 
@@ -147,6 +167,11 @@ Each feature subgraph contains the feature, its parameters, its references, its 
 | Move                | 1                            | One           |
 | Offset face         | 2                            | One           |
 | Draft               | 2                            | One           |
+| Combine             | 1                            | One           |
+| Split               | 1                            | One           |
+| Body pattern        | `CountU` × `CountV` or `Count` | One         |
+| Loft                | 4                            | One           |
+| Sweep               | 3                            | One           |
 
 Four journal and record rules are necessary for native acceptance:
 
@@ -157,7 +182,7 @@ Four journal and record rules are necessary for native acceptance:
 | `BrepRef.rScope` and `ETCachedTopology.scope` carry the component identifier | `computeAll` loses the shell face and reverts to the box     |
 | Every bulletin names the object's identity entity on its new side            | Fusion terminates while it disposes the closed document      |
 
-The [body tag gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureBodyTag.md) and the [reference rules gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureReferenceRules.md) record the evidence. The [stateless plane gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureStatelessPlane.md) and the [copy occurrence gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureCopyOccurrence.md) record the native rules for planes and copies. The [hole placement gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureHolePlacement.md) records how a hole keeps its centre through a recompute. The [bulletin identity gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureBulletinIdentity.md) records the journal rule that keeps Fusion alive after closing an authored document. The [circle seam gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureCircleSeam.md) records where profile circles start. The copy occurrence gotcha also records why a copy names the base face of its source extrusion. The [revolve frame gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureRevolveFrame.md) records the native frame of the XZ sketch plane.
+The [body tag gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureBodyTag.md) and the [reference rules gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureReferenceRules.md) record the evidence. The [stateless plane gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureStatelessPlane.md) and the [copy occurrence gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureCopyOccurrence.md) record the native rules for planes and copies. The [hole placement gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureHolePlacement.md) records how a hole keeps its centre through a recompute. The [bulletin identity gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureBulletinIdentity.md) records the journal rule that keeps Fusion alive after closing an authored document. The [circle seam gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureCircleSeam.md) records where profile circles start. The copy occurrence gotcha also records why a copy names the base face of its source extrusion. The [revolve frame gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureRevolveFrame.md) records the native frame of the XZ sketch plane. The [combine tool gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureCombineTools.md) records how a consumed tool stays in the journal. The [split sides gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureSplitSides.md) records the native labels of the two pieces of a split. The [loft sections gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureLoftSections.md) records how a loft pairs its section curves. The [sweep faces gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureSweepFaces.md) records the native face tags of a sweep.
 
 ## Native acceptance
 
@@ -180,6 +205,9 @@ Construction cases also compare the origin and direction of each axis and the po
 | Moves        | `NativeAcceptanceMoves.json`        | 2 of 2         |
 | Offsets      | `NativeAcceptanceOffsets.json`      | 4 of 4         |
 | Drafts       | `NativeAcceptanceDrafts.json`       | 3 of 3         |
+| Bodies       | `NativeAcceptanceBodies.json`       | 11 of 11       |
+| Lofts        | `NativeAcceptanceLofts.json`        | 3 of 3         |
+| Sweeps       | `NativeAcceptanceSweeps.json`       | 4 of 4         |
 
 Volumes are those of the opened Kit document after `computeAll`. The edited volume follows the listed parameter edits.
 
@@ -303,6 +331,45 @@ Volumes are those of the opened Kit document after `computeAll`. The edited volu
 | `DraftInward` | four sides drafted 5° in | 21.63196293 | 6, 12, 8 | Side taper Angle1 -3 deg | 22.56187898 |
 | `DraftCutPart` | 3 mm chamfer, then five sides drafted 5° out | 26.40707624 | 7, 15, 10 | Side draft Angle1 3 deg, Corner cut size 4 mm | 25.31089818 |
 
+### Bodies
+
+Each volume lists the visible bodies in the order Fusion returns them. Every case was compared body by body with its native control.
+
+| Case | Features | Volume (cm³) | Faces, edges, vertices | Edits | Edited volume (cm³) |
+| --- | --- | ---: | --- | --- | ---: |
+| `ExtrudeSecondBody` | block, then a 5 mm circle extruded 20 mm as a new body | 24.00000000 + 1.57079633 | 6, 12, 8; 3, 2, 2 | Post extrude AlongDistance 15 mm | 24.00000000 + 1.17809725 |
+| `RevolveBody` | block, then a 60 to 80 mm by 0 to 10 mm ring revolved as a new body | 24.00000000 + 87.96459430 | 6, 12, 8; 4, 4, 4 | Ring revolve AlongAngle 180 deg | 24.00000000 + 43.98229715 |
+| `CombineJoin` | block and a 10 mm post, joined | 28.71238898 | 7, 15, 10 | Post extrude AlongDistance 30 mm | 31.85398163 |
+| `CombineCut` | block and a 10 mm post, post cut from the block | 22.42920367 | 7, 15, 10 | Post extrude AlongDistance 15 mm | 22.82190275 |
+| `CombineIntersect` | block and a 10 mm post, intersected | 1.57079633 | 5, 9, 6 | Base extrude AlongDistance 15 mm | 1.17809725 |
+| `CombineKeep` | block and a 10 mm post, joined with the tool kept | 28.71238898 + 6.28318531 | 7, 15, 10; 3, 2, 2 | Post extrude AlongDistance 30 mm | 31.85398163 + 9.42477796 |
+| `SplitYZ` | block split by a YZ plane at 20 mm | 12.00000000 + 12.00000000 | 6, 12, 8 each | Split plane AlongDistance 25 mm | 15.00000000 + 9.00000000 |
+| `SplitXZ` | block split by an XZ plane at 10 mm | 8.00000000 + 16.00000000 | 6, 12, 8 each | Split plane AlongDistance 20 mm | 16.00000000 + 8.00000000 |
+| `SplitXY` | block split by an XY plane at 8 mm | 9.60000000 + 14.40000000 | 6, 12, 8 each | Split plane AlongDistance 12 mm | 14.40000000 + 9.60000000 |
+| `BodyRectPattern` | 10 mm cube, body pattern 3 × 2 at 15 and 20 mm | 6 × 1.00000000 | 6, 12, 8 each | Cube grid uSpaceDistance 18 mm, Cube grid CountV 3 | 9 × 1.00000000 |
+| `BodyCircPattern` | 10 mm cube, body pattern 4 over 360 deg | 4 × 1.00000000 | 6, 12, 8 each | Cube ring countU 6 | 6 × 1.00000000 |
+
+### Lofts
+
+The two rectangle and circle cases match the native loft controls. The edit moves the loft plane, so the top profile rises or falls.
+
+| Case | Features | Volume (cm³) | Faces, edges, vertices | Edits | Edited volume (cm³) |
+| --- | --- | ---: | --- | --- | ---: |
+| `LoftRects` | 40 × 30 mm rectangle lofted to a 20 × 10 mm rectangle 30 mm higher | 19.00000000 | 6, 12, 8 | Loft plane AlongDistance 40 mm | 25.33333333 |
+| `LoftCircles` | 10 mm circle lofted to a coaxial 5 mm circle 30 mm higher | 5.49778714 | 3, 2, 2 | Loft plane AlongDistance 20 mm | 3.66519143 |
+| `LoftWedgeBody` | block, then a 40 × 30 mm rectangle lofted to an off-centre 20 × 5 mm rectangle 25 mm higher as a new body | 24.00000000 + 14.16666667 | 6, 12, 8 each | Wedge plane AlongDistance 30 mm | 24.00000000 + 17.00000000 |
+
+### Sweeps
+
+`SweepBend` and `SweepHook` match the native sweep controls. Each edit shortens the sweep to a fraction of its path.
+
+| Case | Features | Volume (cm³) | Faces, edges, vertices | Edits | Edited volume (cm³) |
+| --- | --- | ---: | --- | --- | ---: |
+| `SweepBend` | 10 × 10 mm rectangle swept along a 20 mm line and a quarter arc of 30 mm radius | 6.71238898 | 8, 18, 12 | Bend sweep AlongDistance 0.5 | 3.35619449 |
+| `SweepHook` | the same rectangle along a line, a quarter arc and a second 20 mm line | 8.71238898 | 10, 24, 16 | Bend sweep AlongDistance 0.75 | 6.53429174 |
+| `SweepSCurve` | 8 × 6 mm rectangle off the path centre, swept along a line and two quarter arcs of 20 mm radius that turn opposite ways | 3.49592895 | 10, 24, 16 | Bar sweep AlongDistance 0.5 | 1.68456625 |
+| `SweepSecondBody` | block, then a rectangle 5 to 15 mm left of the bend path swept as a new body | 24.00000000 + 5.14159265 | 6, 12, 8; 8, 18, 12 | Rail sweep AlongDistance 0.5, Base extrude AlongDistance 25 mm | 30.00000000 + 2.90412966 |
+
 The [manifest](../../../../re/Fusion/LocalOracle/FeatureAuthoring/Authored/Manifest.json) records the SHA-256 of each authored document. Each acceptance report repeats that digest and records the digest of the Fusion-saved export.
 
 ## Verification
@@ -321,27 +388,40 @@ The integration cases live in `tests/convert/formats/FusionCodec/Documents/PartF
 | `SuiteEvidenceTests.py` | Every acceptance report, its digests and its bulletin identities         |
 | `WorkGeomTests.py`      | Axis and point states and records against the native control             |
 | `CopyFaceTests.py`      | Copy face tags, source tracks and the adjacent face cache of a pattern    |
+| `BodyTests.py`          | Multi-body solids against native controls, body records, states and rejects |
+| `LoftTests.py`          | Loft solids against native controls, records, sketch frames, states and rejects |
+| `SweepTests.py`         | Sweep solids against native controls and path lengths, face tags, records, states and rejects |
 
 `PartCases.py`, `FamilyCases.py`, `PartRecords.py`, `NativeControl.py` and `BulletinRefs.py` are shared helpers. Local Black, Ruff, Mypy, Pyright, steering, rationale-comment and path-policy checks passed.
 
 ## Limits
 
-The writer authors one body from sketch extrusions on the origin XY plane along Z. Every authored surface is a plane, a vertical cylinder or a vertical cone.
+The writer authors bodies from sketch extrusions on the origin XY plane along Z, from revolves about Z, from lofts between profiles parallel to XY and from sweeps along paths in the XY plane. Every authored surface is a plane, a vertical cylinder or a cone about a vertical axis.
 
 | Request                                                                    | Status                                       |
 | -------------------------------------------------------------------------- | -------------------------------------------- |
-| Sweep and loft                                                             | Not authored                                 |
+| Sweep profiles other than a rectangle on the XZ plane                      | Not authored                                 |
+| Sweep paths off the XY plane, with splines, twist, taper or guide rails    | Not authored                                 |
+| Sweep paths that miss the origin, leave it off +Y or kink, and sweeps that cross themselves or reach an arc centre | Rejected with `ValueError` |
+| Features that change a sweep body, and combines, splits or body patterns of it | Rejected with `ValueError`               |
+| Lofts with arcs, twisted or off-axis pairs, or curve counts that differ    | Rejected with `ValueError`                   |
+| Lofts with rails, more than two sections or sections off the XY direction  | Not authored                                 |
+| Features that change a loft body, and combines with a loft body            | Rejected with `ValueError`                   |
 | Drafts of some sides, curved sides or about another fixed plane            | Not authored                                 |
 | Drilled tips                                                               | Not authored                                 |
-| Combine, split, copy and body patterns                                     | Not authored, because the part has one body  |
+| Copy and paste of a body                                                   | Not authored, because Kit has no schema for `DcPasteBodies` or `DcReparentBodiesFeature` |
+| Splits along a face, a body or a plane that is not an offset origin plane  | Not authored                                 |
+| Combine tools with several slabs, and combines or splits of drafted bodies | Rejected with `ValueError`                   |
+| Mirrors of bodies                                                          | Not authored                                 |
+| Other features while several bodies are visible                            | Rejected with `ValueError`                   |
 | Moves that turn about an axis other than Z                                 | Not authored                                 |
 | Holes after a move                                                         | Not authored                                 |
 | Offset faces on curved faces or on several faces at once                   | Not authored                                 |
 | Offset faces on bodies with several slabs, circles or countersinks         | Rejected with `ValueError`                   |
 | Axes and points that are not on a vertical body edge                       | Not authored                                 |
-| Chain selections and corners on horizontal or curved edges                 | Not authored                                 |
+| Chain selections and corners on horizontal or curved edges                 | Not authored, because the prism model has no horizontal cylinders or tori |
 | Shells that open curved sides or separate runs of sides                    | Rejected with `ValueError`                   |
-| Patterns and mirrors of joins, fillets or bodies                           | Rejected with `ValueError`                   |
+| Feature patterns and mirrors of joins or fillets                           | Rejected with `ValueError`                   |
 | Mirrors about planes that are not parallel to YZ                           | Rejected with `ValueError`                   |
 
 [Native records for the missing families](../../../../re/Fusion/Reconstruction/FeatureAuthoring/FamilyRecords.json.xz) are captured as research evidence only. A corner edit next to a curved side raises `ValueError`.

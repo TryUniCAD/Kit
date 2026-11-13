@@ -9,6 +9,9 @@ Both rules read only the unused capacity that each block header leaves after its
 In `AssetData` members that are not block stores, the suffix rule reads the whole member and the bare-value rule is off.
 The fragment search is now also confined to that unused capacity, so no used material byte can change.
 Values found by the new rules feed the fragment search only when they mix letters and digits.
+A value that starts right after heap bytes and ends just before an account key is replaced when it holds a digit and only id characters.
+A run of ten or more lowercase hex digits that ends just before an account key is replaced even when a path is glued in front of it.
+Only hex runs from these two lead rules feed the fragment search, so words such as `Identity` and material paths never do.
 
 The [scrub ledger](../../../../re/Fusion/LocalOracle/ScrubLedger.json) now lists every placeholder already written.
 The scrubber leaves values inside those placeholders unchanged, so a second run over a scrubbed archive changes no byte.
@@ -19,6 +22,8 @@ The scrubber reads the ledger beside it unless `--ledger` names another, and the
 A dry run over the Fusion archives that this branch added found new replacements in 16 of them: 14 that were already in the ledger and 2 new ones.
 Each replacement was residue text such as a parameter, feature or telemetry event name or a product version.
 A dry run over archives that are already on `main` also proposed replacements; this entry does not change them.
+With the lead rules, a dry run over the 1,591 tracked Fusion archives under `re/` changed 64 archives, all new part feature saves and Form saves that still held hashed hub id tails or a `user_hub_id` value.
+An earlier draft that learned whole lead values matched `Identity` and a material path, and it proposed changes to 1,551 archives; that draft was not applied.
 The [protein residue gotcha](../../../Gotchas/Conversion/Fusion/Records/FusionProteinHeapResidue.md) describes the block layout.
 
 ## Verification
@@ -26,5 +31,7 @@ The [protein residue gotcha](../../../Gotchas/Conversion/Fusion/Records/FusionPr
 `ReadDocument` models and `EmitParsed` round trips stayed equal for all 16 changed archives.
 `ReadFusionDoc` documents differed only in the whole-archive digest and passthrough payload.
 A second run over the 173 ledger archives, and over the 734 tracked Fusion archives that are not on `main` apart from one third-party bundle, changed no byte.
+
+For the lead rules, `ReadDocument` models stayed equal for all 64 changed archives, and a second run over the 1,591 archives changed no byte.
 
 Static checks ran locally; no local automated tests were run.

@@ -4,6 +4,9 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.PartNodes import (
     PartScope,
 )
 from convert.formats.Fusion.EntityCodec.Recipes.Model.RecipeValue import RecipeValue
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.BodyRole import (
+    FocusRole,
+)
 
 
 def AddPickMut(
@@ -32,7 +35,7 @@ def AddPickMut(
         rRecipe=Reference(Prefix + "pick_recipe"),
         rScope=PartScope(Author),
         caches=[Reference(Prefix + "pick_cache")],
-        refBodies=[Reference("dc_body")],
+        refBodies=[Reference(FocusRole(Author, "dc_body"))],
         trackingType=TrackingType,
     )
 
@@ -54,7 +57,7 @@ def AddBrepRefMut(
         rRecipe=Reference(RoleName + "_recipe"),
         rScope=PartScope(Author),
         caches=[Reference(RoleName + "_cache")],
-        refBodies=[Reference("dc_body")],
+        refBodies=[Reference(FocusRole(Author, "dc_body"))],
         trackingType=Tracking,
     )
     return RoleName

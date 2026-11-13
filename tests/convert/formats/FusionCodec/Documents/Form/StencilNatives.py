@@ -36,7 +36,7 @@ KStencilNatives: tuple[tuple[str, str, str], ...] = (
     ),
     (
         "re/Fusion/LocalOracle/FormDocuments/CageDocuments/Saved/KitBoxFresh.f3d",
-        "418811c770c46a6d9e0fc0bd6ed2ca29ab77a2174eb6e3a15375fc4f6d89d6c4",
+        "ae2404401ad04c64d62b55abe1ab039ff6f1518379e62588a0126a6c151ccd61",
         "Box",
     ),
     (
@@ -221,7 +221,7 @@ KStencilNatives: tuple[tuple[str, str, str], ...] = (
     ),
     (
         "re/Fusion/LocalOracle/FormDocuments/CageDocuments/Saved/KitCreasedBoxSheared.f3d",
-        "d75e87cac40a9a3ef730d081b1dfdb97349a0a5886f665e65750b50d3848cccd",
+        "6b98aa4c15417018e0a2937320f6a2738a2d64c82e596177c867bebc54f82a65",
         "CreasedBox",
     ),
     (
@@ -306,7 +306,7 @@ KStencilNatives: tuple[tuple[str, str, str], ...] = (
     ),
     (
         "re/Fusion/LocalOracle/FormDocuments/CageDocuments/Saved/KitCreasedPlaneSagged.f3d",
-        "971902fa8e9fc63b3d6a075dd99ee03c143ed2d7fce29b640d7af20cc3e222c1",
+        "94b3244f24714f9315db9afc5546eac2807e303faf6e2ecb575478d6b5dbcaaa",
         "CreasedPlane",
     ),
     (
@@ -331,7 +331,7 @@ KStencilNatives: tuple[tuple[str, str, str], ...] = (
     ),
     (
         "re/Fusion/LocalOracle/FormDocuments/Sourceless/Saved/KitCreasedPlane.f3d",
-        "1ecb587bbf13b6f25e0d63b1301c9a7a9d99461eb19ef3669aebb4ca7a92b9c1",
+        "8ca06b203580a5d01a84318fc433d8b145379e928a22289267560613a8991c4a",
         "CreasedPlane",
     ),
     (

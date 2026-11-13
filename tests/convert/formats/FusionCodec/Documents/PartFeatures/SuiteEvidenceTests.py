@@ -28,6 +28,9 @@ KSuites = (
     "NativeAcceptanceMoves.json",
     "NativeAcceptanceOffsets.json",
     "NativeAcceptanceDrafts.json",
+    "NativeAcceptanceBodies.json",
+    "NativeAcceptanceLofts.json",
+    "NativeAcceptanceSweeps.json",
 )
 
 

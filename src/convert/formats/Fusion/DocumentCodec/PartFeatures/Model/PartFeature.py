@@ -1,5 +1,15 @@
 from typing import TypeAlias
 
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.BodyGridSpec import (
+    BodyGridSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.BodyRingSpec import (
+    BodyRingSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CombineSpec import (
+    CombineSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SplitSpec import SplitSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.AxisSpec import AxisSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ChamferSpec import (
     ChamferSpec,
@@ -31,6 +41,10 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.RevolveSpec import 
     RevolveSpec,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import ShellSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.LoftSpec import LoftSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SweepSpec import (
+    SweepSpec,
+)
 
 KPartFeature: TypeAlias = (
     FilletSpec
@@ -48,4 +62,10 @@ KPartFeature: TypeAlias = (
     | MoveSpec
     | OffsetSpec
     | DraftSpec
+    | CombineSpec
+    | SplitSpec
+    | BodyGridSpec
+    | BodyRingSpec
+    | LoftSpec
+    | SweepSpec
 )

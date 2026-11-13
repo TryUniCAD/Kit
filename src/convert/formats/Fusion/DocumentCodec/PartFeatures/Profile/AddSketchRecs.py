@@ -14,8 +14,10 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Profile.SketchPlan import
 from convert.formats.Fusion.DocumentCodec.Values.MakeAttributes import MakeAttributes
 
 
-def AddFrameMut(Author: AuthorState, Prefix: str, PlaneRole: str) -> None:
-    Matrix = FrameMatrix(PlaneRole)
+def AddFrameMut(
+    Author: AuthorState, Prefix: str, PlaneRole: str, LiftCm: float = 0.0
+) -> None:
+    Matrix = FrameMatrix(PlaneRole, LiftCm)
     Frame: dict[str, object] | None = {"transform": Matrix} if Matrix else None
     Author.Allocate(
         Prefix + "ucs", "CoordinateSystem", ParentRole="component", Fields=Frame
@@ -40,7 +42,7 @@ def AddSketchRoot(
     )
     if "sketches_root" not in Author.Roles:
         Author.Allocate("sketches_root", "SketchesRoot", RootName="SketchesRoot")
-    AddFrameMut(Author, Prefix, PlaneRole)
+    AddFrameMut(Author, Prefix, PlaneRole, Sketched.LiftCm)
     Author.Allocate(
         Prefix + "origin",
         "Point3D",
@@ -77,4 +79,4 @@ def AddSketchRecs(
 ) -> None:
     AddSketchRoot(Author, Prefix, Sketched, Names, Ordinal)
     AddSketchGeom(Author, Prefix, Sketched)
-    AddSketchNode(Author, Prefix, Ordinal, Names[1])
+    AddSketchNode(Author, Prefix, Ordinal, Names[1], Sketched.LiftCm)

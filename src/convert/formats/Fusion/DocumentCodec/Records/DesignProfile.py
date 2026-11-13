@@ -3,6 +3,8 @@ from convert.formats.Fusion.EntityCodec.Schema.EntityProfile import EntityProfil
 from convert.formats.Fusion.EntityCodec.Schema.ExternalTarget import ExternalTarget
 from convert.formats.Fusion.EntityCodec.Vocabulary.ReadCatalog import ReadCatalog
 
+KNamedKinds = ("form", "part")
+
 
 def DesignProfile(Author: AuthorState) -> EntityProfile:
     Bindings = (
@@ -24,5 +26,5 @@ def DesignProfile(Author: AuthorState) -> EntityProfile:
         "98542EB9-A4F2-4137-A808-DBB5B3CD6159",
         tuple(Schema.Value for Schema in Author.Schemas),
         tuple(Targets),
-        ReadCatalog().NamedTypes if Author.SpecValue.ProfileKind == "form" else (),
+        ReadCatalog().NamedTypes if Author.SpecValue.ProfileKind in KNamedKinds else (),
     )

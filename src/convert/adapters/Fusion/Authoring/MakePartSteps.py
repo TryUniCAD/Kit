@@ -22,6 +22,20 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.OffsetSpec import (
     OffsetSpec,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.DraftSpec import DraftSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.BodyGridSpec import (
+    BodyGridSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.BodyRingSpec import (
+    BodyRingSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CombineSpec import (
+    CombineSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SplitSpec import SplitSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.LoftSpec import LoftSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SweepSpec import (
+    SweepSpec,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartFeature import (
     KPartFeature,
 )
@@ -51,6 +65,12 @@ KStepKinds: dict[type[object], FeatureKind] = {
     MoveSpec: FeatureKind.KNative,
     OffsetSpec: FeatureKind.KOffset,
     DraftSpec: FeatureKind.KDraft,
+    CombineSpec: FeatureKind.KBoolean,
+    SplitSpec: FeatureKind.KNative,
+    BodyGridSpec: FeatureKind.KPattern,
+    BodyRingSpec: FeatureKind.KPattern,
+    LoftSpec: FeatureKind.KLoft,
+    SweepSpec: FeatureKind.KSweep,
 }
 
 

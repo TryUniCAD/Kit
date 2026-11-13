@@ -7,6 +7,14 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Construct.WorkCorner impo
     CornerWalls,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Hole.HoleSolid import HoleSolid
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Bodies.CheckBodies import (
+    KBodyLimit,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Bodies.BodyStage import (
+    BodyStageMut,
+    KBodySpecs,
+    KBodyState,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.AxisSpec import AxisSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ChamferSpec import (
     ChamferSpec,
@@ -26,6 +34,15 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.FilletSpec import (
     FilletSpec,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.HoleSpec import HoleSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.LoftSpec import LoftSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Loft.LoftSolid import LoftSolid
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SweepSpec import (
+    SweepSpec,
+)
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Sweep.SweepSolid import (
+    SweepProfile,
+    SweepSolid,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PartFeature import (
     KPartFeature,
 )
@@ -38,6 +55,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import 
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import ShellSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.PatternSolid import (
     CopySolid,
     KCopySpec,
@@ -81,7 +99,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.HollowSolid import 
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.PrismSolid import (
     PrismSolid,
 )
-from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.SlabRoof import IsTapered
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.SlabRoof import IsSealed
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Solid.ToolSlab import (
     ToolEdgeTags,
     ToolLabels,
@@ -102,8 +120,6 @@ def ApplyExtrude(
     BodyLabel = FaceLabel(str(Operation + 1), (), len(Feature.Profile) + 3)
     Tagged = ToolEdgeTags(Feature, Operation + 1, Sketched.Edges[0].CurveTag)
     if Feature.Operation == "new":
-        if Solid is not None:
-            raise ValueError("Fusion part authoring supports one solid body")
         return PrismSolid((Shaper,), BodyLabel, Curves, Tagged)
     if Solid is None:
         raise ValueError("Fusion part extrude requires an existing body")
@@ -156,6 +172,8 @@ def ApplyFeature(
         return Solid
     if isinstance(Feature, (PatternSpec, CircularSpec, MirrorSpec)):
         raise ValueError("Fusion part copies require their source stage")
+    if not isinstance(Feature, ShellSpec):
+        raise ValueError("Fusion body features change bodies as a whole")
     Sides = tuple((Point[0] / 10.0, Point[1] / 10.0) for Point in Feature.SidesMm)
     return HollowSolid(Solid, Feature.ThicknessMm / 10.0, Operation, Sides)
 
@@ -183,8 +201,10 @@ def CopyContext(
 
 
 def CheckTaper(Solid: PrismSolid | None, Feature: KPartFeature) -> None:
-    if Solid is not None and IsTapered(Solid) and not IsStateless(Feature):
-        raise ValueError("Fusion countersinks must be the last solid feature")
+    if Solid is not None and IsSealed(Solid) and not IsStateless(Feature):
+        raise ValueError(
+            "Fusion tapered or swept bodies must come from the last solid feature"
+        )
 
 
 def StageSolid(
@@ -212,7 +232,40 @@ def SketchStage(Feature: KPartFeature, NextTag: int, Ordinal: int) -> SketchPlan
     if isinstance(Feature, RevolveSpec):
         Profile = RevolveProfile(Feature)
         return ReplaceValue(PlanSketch(Profile, NextTag), Ordinal=Ordinal)
+    if isinstance(Feature, LoftSpec):
+        Lower = PlanSketch(Feature.LowerProfile, NextTag)
+        return ReplaceValue(Lower, Ordinal=Ordinal)
+    if isinstance(Feature, SweepSpec):
+        Outline = PlanSketch(SweepProfile(Feature), NextTag)
+        return ReplaceValue(Outline, Ordinal=Ordinal)
     return None
+
+
+def PlanStages(
+    Feature: KPartFeature, NextTag: int, Ordinal: int
+) -> tuple[SketchPlan | None, SketchPlan | None, int]:
+    Sketched = SketchStage(Feature, NextTag, Ordinal)
+    NextTag = NextTag if Sketched is None else Sketched.NextTag
+    if isinstance(Feature, SweepSpec):
+        PathPlan = PlanSketch(Feature.Path, NextTag)
+        return Sketched, ReplaceValue(PathPlan, Ordinal=Ordinal + 1), PathPlan.NextTag
+    if not isinstance(Feature, LoftSpec):
+        return Sketched, None, NextTag
+    Upper = ReplaceValue(
+        PlanSketch(Feature.UpperProfile, NextTag),
+        Ordinal=Ordinal + 1,
+        LiftCm=Feature.HeightMm / 10.0,
+    )
+    return Sketched, Upper, Upper.NextTag
+
+
+def CountFamilyMut(Counts: dict[str, int], Feature: KPartFeature) -> int:
+    Names = [FamilyOf(Feature).ClassName]
+    if isinstance(Feature, LoftSpec):
+        Names.append("DcWorkPlane")
+    for NameValue in Names:
+        Counts[NameValue] = Counts.get(NameValue, 0) + 1
+    return Counts[Names[0]]
 
 
 def SketchSolid(
@@ -226,7 +279,49 @@ def SketchSolid(
         return ApplyExtrude(Solid, Feature, Operation, Sketched)
     if isinstance(Feature, RevolveSpec):
         return ApplyRevolve(Solid, Feature, Operation, Sketched)
-    raise ValueError("Fusion sketched features are extrudes or revolves")
+    if isinstance(Feature, LoftSpec):
+        return LoftSolid(Feature, Operation + 3)
+    if isinstance(Feature, SweepSpec):
+        return SweepSolid(Feature, Operation + 2)
+    raise ValueError("Fusion sketched features are extrudes, revolves, lofts or sweeps")
+
+
+def IsNewBody(Feature: KPartFeature) -> bool:
+    if isinstance(Feature, (LoftSpec, SweepSpec)):
+        return True
+    if not isinstance(Feature, (ExtrudeSpec, RevolveSpec)):
+        return False
+    return Feature.Operation == "new"
+
+
+def LoneBody(State: KBodyState, Feature: KPartFeature) -> PrismSolid | None:
+    Bodies, Shown = State
+    if not Shown or IsNewBody(Feature):
+        return None
+    if len(Shown) != 1 and not IsStateless(Feature):
+        raise ValueError("Fusion part features need exactly one visible body")
+    return Bodies[Shown[0]]
+
+
+def FeatureSolidMut(
+    State: KBodyState,
+    Feature: KPartFeature,
+    Operation: int,
+    Context: tuple[tuple[PartStage, ...], tuple[KPartFeature, ...], int],
+    Sketched: SketchPlan | None,
+) -> tuple[PrismSolid, PrismSolid]:
+    if isinstance(Feature, KBodySpecs):
+        return BodyStageMut(State, Feature, Operation, Context[1:])
+    Solid = LoneBody(State, Feature)
+    if Sketched is not None:
+        After = SketchSolid(Solid, Feature, Operation, Sketched)
+    else:
+        After = StageSolid(Solid, Feature, Operation, Context)
+    if Solid is None:
+        After = ReplaceValue(After, Ordinal=len(State[0]) + 1)
+        State[1].append(After.Ordinal)
+    State[0][After.Ordinal] = After
+    return (After if Solid is None else Solid), After
 
 
 def SolvePart(
@@ -235,30 +330,38 @@ def SolvePart(
     Policy = AuthorPolicy()
     BaseValue = BaseSolid(SpecValue, Policy)
     IsPart = BaseValue is None
-    Solid, Operation = BaseValue, Policy.FirstOperationId + (0 if IsPart else 3)
+    Operation = Policy.FirstOperationId + (0 if IsPart else 3)
+    State: KBodyState = ({}, []) if BaseValue is None else ({1: BaseValue}, [1])
     StateId = Policy.HistoryCurrentId - (1 if IsPart else 0)
     NextTag = Policy.FirstSketchTag + (0 if IsPart else KBaseSketchTags)
     Counts: dict[str, int] = {"DcExtrudeFeature": 0 if IsPart else 1}
     Stages: list[PartStage] = []
     for Index, Feature in enumerate(SpecValue.Features):
-        RuleValue = FamilyOf(Feature)
-        Counts[RuleValue.ClassName] = Counts.get(RuleValue.ClassName, 0) + 1
-        Drawn = sum(Stage.Sketch is not None for Stage in Stages) + 2 - IsPart
-        Sketched = SketchStage(Feature, NextTag, Drawn)
-        if Sketched is not None:
-            NextTag = Sketched.NextTag
-            After = SketchSolid(Solid, Feature, Operation, Sketched)
-        else:
-            Context = (tuple(Stages), SpecValue.Features, Index)
-            After = StageSolid(Solid, Feature, Operation, Context)
+        FamilyIndex = CountFamilyMut(Counts, Feature)
+        Drawn = sum(
+            (Stage.Sketch is not None) + (Stage.Upper is not None) for Stage in Stages
+        )
+        Sketched, Upper, NextTag = PlanStages(Feature, NextTag, Drawn + 2 - IsPart)
+        Context = (tuple(Stages), SpecValue.Features, Index)
+        Before, After = FeatureSolidMut(State, Feature, Operation, Context, Sketched)
+        if len(State[0]) > KBodyLimit:
+            raise ValueError("Fusion parts hold at most sixteen bodies")
         Count = OperationsOf(Feature)
         StateId += 0 if IsStateless(Feature) else 1
-        Before = After if Solid is None else Solid
         Places = (tuple(range(Operation, Operation + Count)), StateId)
+        Bodies = tuple(State[0][Ordinal] for Ordinal in sorted(State[0]))
         Stages.append(
             PartStage(
-                Feature, Before, After, *Places, Counts[RuleValue.ClassName], Sketched
+                Feature,
+                Before,
+                After,
+                *Places,
+                FamilyIndex,
+                Sketched,
+                Bodies,
+                tuple(State[1]),
+                Upper,
             )
         )
-        Solid, Operation = After, Operation + Count
+        Operation += Count
     return BaseValue, tuple(Stages)
