@@ -16,6 +16,15 @@ The API call is available, but the account cannot use it.
 The design stays an ordinary part.
 Its configuration sidecars stay empty JSON objects.
 
+No other source of a configured design was found.
+
+| Source | Result |
+| --- | --- |
+| 232 design files and 21 nested designs in the Fusion app bundle | No configuration sidecar |
+| Fusion API | `Design.createConfiguredDesign` is the only call that makes a configured design |
+| `FusionXLayer10.dylib` | Also holds `Cannot retrieve configuration top table as the user is restricted.` |
+| Public web | No configured sample that downloads without a login |
+
 ## Workaround
 
 Use an account that can create configured designs.
@@ -25,4 +34,5 @@ Do not take empty sidecars from an unconfigured design as evidence for configure
 
 - [Configuration control script](../../../../../re/Fusion/LocalOracle/LinksConfigs/CreateConfigControls.py)
 - [Sanitized result](../../../../../re/Fusion/LocalOracle/LinksConfigs/LinkEvidence.json), key `configuration`
+- [App bundle scan](../../../../../re/Fusion/Reconstruction/LinksConfigs/AppConfigScan.json)
 - [Configuration boundary change](../../../../Changes/Fusion/Configuration/FusionConfigurationBoundary.md)

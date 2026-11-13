@@ -70,8 +70,13 @@ def TestSlackDrop() -> None:
 def TestSlackGate() -> None:
     Model = ReadDocument(ReadFormFile(*KSlackCases[0][:2]))
     Design = PickSegment(Model.Segments, SegmentKind.KDesign)
-    with RaisesError(ValueError, match="Only the Fusion ACT"):
-        _ = EmitDocSegment(ReplaceValue(Design, BulkSlack=b"\0\0"))
+    Padded = EmitDocSegment(ReplaceValue(Design, BulkSlack=b"\0\0"))
+    assert Padded.BulkData == EmitDocSegment(Design).BulkData + b"\0\0"
+    with RaisesError(ValueError, match="exceeds its limit"):
+        _ = EmitDocSegment(ReplaceValue(Design, BulkSlack=bytes(17)))
+    Browser = PickSegment(Model.Segments, SegmentKind.KBrowser)
+    with RaisesError(ValueError, match="Only the Fusion ACT and Design"):
+        _ = EmitDocSegment(ReplaceValue(Browser, BulkSlack=b"\0\0"))
     ActSegment = PickSegment(Model.Segments, SegmentKind.KAct)
     Mutable = CastValue(bytes, bytearray(2))
     with RaisesError(ValueError, match="must be bytes"):
@@ -81,12 +86,15 @@ def TestSlackGate() -> None:
 @MarkTests.skipif(
     PythonVersion < (3, 14), reason="native Fusion archive requires ZIP Zstandard"
 )
-@MarkTests.parametrize("KindValue", (SegmentKind.KDesign, SegmentKind.KBrowser))
-def TestOtherTrail(KindValue: SegmentKind) -> None:
+@MarkTests.parametrize(
+    "CaseValue", ((SegmentKind.KDesign, 17), (SegmentKind.KBrowser, 2))
+)
+def TestOtherTrail(CaseValue: tuple[SegmentKind, int]) -> None:
+    KindValue, Length = CaseValue
     Container = ReadContainer(ReadFormFile(*KSlackCases[0][:2]))
     Streams = tuple(
         (
-            ReplaceValue(Stream, BulkData=Stream.BulkData + b"\0\0")
+            ReplaceValue(Stream, BulkData=Stream.BulkData + bytes(Length))
             if ReadMetaWire(Stream.Metadata).Header.Segment is KindValue
             else Stream
         )
