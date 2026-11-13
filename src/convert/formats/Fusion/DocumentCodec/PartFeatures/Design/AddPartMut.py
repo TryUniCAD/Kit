@@ -2,6 +2,9 @@ from convert.formats.Fusion.DocumentCodec.Materials.LinkMaterialMut import (
     LinkMaterialMut,
 )
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Construct.AddWorkMut import (
+    AddWorkMut,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.AddCornerMut import (
     AddCornerMut,
 )
@@ -29,6 +32,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Hole.AddHoleMut import (
     AddHoleMut,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Hole.HoleRoot import RoofMiddle
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.AxisSpec import AxisSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ExtrudeSpec import (
     ExtrudeSpec,
 )
@@ -44,6 +48,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import 
     PatternSpec,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import ShellSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.AddCopyMut import (
     AddCopyMut,
@@ -74,6 +79,8 @@ def AddStageMut(
         )
     if isinstance(Feature, PlaneSpec):
         return AddPlaneMut(Author, Stage, Prefix)
+    if isinstance(Feature, (AxisSpec, PointSpec)):
+        return AddWorkMut(Author, Stage, Prefix)
     if isinstance(Feature, (PatternSpec, CircularSpec, MirrorSpec)):
         return AddCopyMut(Author, Stage, Prefix, RoofTagSet(Solids, Place + 1))
     Children = AddCornerMut(Author, Stage, Prefix)

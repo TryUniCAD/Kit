@@ -1,5 +1,6 @@
 from convert.adapters.Fusion.Authoring.MakePartParams import DrivingLength
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.AxisSpec import AxisSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ChamferSpec import (
     ChamferSpec,
 )
@@ -23,6 +24,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import 
     PatternSpec,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec
 from interchange.enums.EnumFeatures import FeatureKind
 from interchange.features.FeatureStep import FeatureStep
 
@@ -35,6 +37,8 @@ KStepKinds: dict[type[object], FeatureKind] = {
     CircularSpec: FeatureKind.KPattern,
     MirrorSpec: FeatureKind.KMirror,
     PlaneSpec: FeatureKind.KReference,
+    AxisSpec: FeatureKind.KReference,
+    PointSpec: FeatureKind.KReference,
 }
 
 

@@ -37,16 +37,17 @@ def AddPickMut(
     )
 
 
-def AddMorePickMut(
+def AddBrepRefMut(
     Author: AuthorState,
-    Prefix: str,
-    RoleName: str,
+    Roles: tuple[str, str],
     Recipe: RecipeValue,
-    CacheFields: dict[str, object],
-) -> None:
-    AddNodeMut(Author, RoleName, "BrepRef", Prefix + "feature")
+    Cache: tuple[str, dict[str, object], int],
+) -> str:
+    OwnerRole, RoleName = Roles
+    CacheClass, CacheFields, Tracking = Cache
+    AddNodeMut(Author, RoleName, "BrepRef", OwnerRole)
     Author.Allocate(RoleName + "_recipe", "ASMRecipe", Fields={"m_Recipe": Recipe})
-    Author.Allocate(RoleName + "_cache", "ETCachedLineSeg3d", Fields=CacheFields)
+    Author.Allocate(RoleName + "_cache", CacheClass, Fields=CacheFields)
     Reference = Author.Reference
     Author.Change(
         RoleName,
@@ -54,5 +55,17 @@ def AddMorePickMut(
         rScope=PartScope(Author),
         caches=[Reference(RoleName + "_cache")],
         refBodies=[Reference("dc_body")],
-        trackingType=8,
+        trackingType=Tracking,
     )
+    return RoleName
+
+
+def AddMorePickMut(
+    Author: AuthorState,
+    Prefix: str,
+    RoleName: str,
+    Recipe: RecipeValue,
+    CacheFields: dict[str, object],
+) -> None:
+    Roles = (Prefix + "feature", RoleName)
+    _ = AddBrepRefMut(Author, Roles, Recipe, ("ETCachedLineSeg3d", CacheFields, 8))

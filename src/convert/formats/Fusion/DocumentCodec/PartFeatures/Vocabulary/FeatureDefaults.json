@@ -266,6 +266,11 @@
     "rParamInnerThickness": null,
     "rParamOuterThickness": null
   },
+  "DcWorkAxis": {
+    "creationType": 4,
+    "rWorkAxis": null,
+    "rWorkAxisRef": null
+  },
   "DcWorkGeometry": {
     "isVisibleBeforeRollback": true
   },
@@ -276,6 +281,13 @@
     "isProportionalParam": true,
     "rWorkPlane": null,
     "rWorkPlaneMatrix": null
+  },
+  "DcWorkPoint": {
+    "chainPropagation": true,
+    "creationType": 0,
+    "pointOnPathType": 0,
+    "rWorkPoint": null,
+    "rWorkPointRef": null
   },
   "ETCachedCurve3d": {
     "endPtProgenitor": null,
@@ -294,6 +306,13 @@
         "y": 3.0,
         "z": 0.0
       }
+    }
+  },
+  "ETCachedPoint3d": {
+    "rCachedGeometry": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
     }
   }
 }

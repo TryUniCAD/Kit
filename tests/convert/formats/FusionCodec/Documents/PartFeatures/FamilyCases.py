@@ -1,5 +1,6 @@
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ArcCurve import ArcCurve
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.AxisSpec import AxisSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ChamferSpec import (
     ChamferSpec,
 )
@@ -31,6 +32,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import 
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import (
     PlaneSpec,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec
 
 KBlock = ExtrudeSpec(
     (
@@ -114,6 +116,17 @@ KFamilyCases: dict[str, tuple[tuple[KPartFeature, ...], float, int, int]] = {
         16,
     ),
     "PlaneOffset": ((KBlock, PlaneSpec(15.0, "xy")), 24.0, 6, 12),
+    "ConstructionSet": (
+        (
+            KBlock,
+            PlaneSpec(15.0, "xy", "Offset plane"),
+            AxisSpec((40.0, 30.0), "Edge axis"),
+            PointSpec((40.0, 30.0), "Corner point"),
+        ),
+        24.0,
+        6,
+        12,
+    ),
     "MultiPocketPart": (
         (
             KBlock,
@@ -176,6 +189,8 @@ KFamilyNames: dict[type[object], str] = {
     CircularSpec: "DcCircularPattern",
     MirrorSpec: "DcMirrorPattern",
     PlaneSpec: "DcWorkPlane",
+    AxisSpec: "DcWorkAxis",
+    PointSpec: "DcWorkPoint",
     FilletSpec: "DcFilletEdgeFeature",
     ChamferSpec: "DcChamferFeature",
 }

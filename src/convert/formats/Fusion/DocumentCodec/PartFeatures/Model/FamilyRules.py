@@ -1,3 +1,4 @@
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.AxisSpec import AxisSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ChamferSpec import (
     ChamferSpec,
 )
@@ -24,6 +25,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import 
     PatternSpec,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import ShellSpec
 
 KFamilyRules: dict[type[object], FamilyRule] = {
@@ -36,6 +38,8 @@ KFamilyRules: dict[type[object], FamilyRule] = {
     CircularSpec: FamilyRule("DcCircularPattern", "C-Pattern", 0, 4),
     MirrorSpec: FamilyRule("DcMirrorPattern", "Mirror", 2, 4),
     PlaneSpec: FamilyRule("DcWorkPlane", "WorkPlane", 1, 4),
+    AxisSpec: FamilyRule("DcWorkAxis", "WorkAxis", 1, 4),
+    PointSpec: FamilyRule("DcWorkPoint", "WorkPoint", 1, 4),
 }
 
 
@@ -55,4 +59,4 @@ def OperationsOf(Feature: KPartFeature) -> int:
 
 
 def IsStateless(Feature: KPartFeature) -> bool:
-    return isinstance(Feature, PlaneSpec)
+    return isinstance(Feature, (PlaneSpec, AxisSpec, PointSpec))

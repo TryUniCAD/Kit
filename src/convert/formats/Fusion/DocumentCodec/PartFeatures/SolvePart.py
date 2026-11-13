@@ -3,7 +3,11 @@ from math import radians as Radians
 
 from convert.formats.Fusion.DocumentCodec.Model.AuthorPolicy import AuthorPolicy
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Construct.WorkCorner import (
+    CornerWalls,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Hole.HoleSolid import HoleSolid
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.AxisSpec import AxisSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ChamferSpec import (
     ChamferSpec,
 )
@@ -33,6 +37,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import 
     PatternSpec,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.PatternSolid import (
     CopySolid,
     KCopySpec,
@@ -119,6 +124,9 @@ def ApplyFeature(
     if isinstance(Feature, HoleSpec):
         return HoleSolid(Solid, Feature, Operation)
     if isinstance(Feature, PlaneSpec):
+        return Solid
+    if isinstance(Feature, (AxisSpec, PointSpec)):
+        _ = CornerWalls(Solid, (Feature.CornerMm[0] / 10.0, Feature.CornerMm[1] / 10.0))
         return Solid
     if isinstance(Feature, (PatternSpec, CircularSpec, MirrorSpec)):
         raise ValueError("Fusion part copies require their source stage")

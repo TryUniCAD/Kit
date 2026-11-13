@@ -9,6 +9,7 @@ from convert.formats.Fusion.DocumentCodec.EmitParsed import EmitParsed
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.PartTopology import (
     MeasurePart,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.AxisSpec import AxisSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ChamferSpec import (
     ChamferSpec,
 )
@@ -31,6 +32,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import 
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import (
     PlaneSpec,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.SolvePart import SolvePart
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from convert.formats.Fusion.EntityCodec.Model.OptionalValue import OptionalValue
@@ -76,6 +78,7 @@ def TestFamilySolid(NameValue: str) -> None:
         "ChamferDistanceAngle",
         "FilletTwoEdges",
         "ChamferTwoEdges",
+        "ConstructionSet",
     ),
 )
 def TestFamNative(NameValue: str) -> None:
@@ -143,6 +146,9 @@ KRejected: tuple[tuple[KPartFeature, ...], ...] = (
     (KBlock, ChamferSpec((40.0, 30.0), 3.0, "Bevel", 45.0)),
     (KBlock, FilletSpec((40.0, 30.0), 3.0, "Rounds", ((40.0, 30.0),))),
     (KBlock, ChamferSpec((40.0, 30.0), 3.0, MoreCornersMm=((20.0, 30.0),))),
+    (KBlock, AxisSpec((20.0, 30.0))),
+    (KBlock, AxisSpec((40.0, 30.0), "")),
+    (KBlock, PointSpec((40.0, float("nan")))),
 )
 
 

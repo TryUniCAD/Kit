@@ -6,6 +6,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.CheckExtrude import (
     CheckExtrude,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Hole.CheckHole import CheckHole
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.AxisSpec import AxisSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ChamferSpec import (
     ChamferSpec,
 )
@@ -30,6 +31,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import 
     PatternSpec,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import ShellSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Pattern.CheckCopy import (
     CheckCopy,
@@ -60,6 +62,17 @@ def CheckName(NameValue: object) -> None:
         raise ValueError("Invalid Fusion part feature name")
 
 
+def CheckPair(Point: object) -> None:
+    if not isinstance(Point, tuple):
+        raise ValueError("Fusion part corners require two planar coordinates")
+    Coordinates = CastValue(tuple[object, ...], Point)
+    if len(Coordinates) != 2:
+        raise ValueError("Fusion part corners require two planar coordinates")
+    for Value in Coordinates:
+        if type(Value) not in (int, float) or not IsFinite(CastValue(float, Value)):
+            raise ValueError("Fusion part feature values must be finite numbers")
+
+
 def CheckCorners(Feature: FilletSpec | ChamferSpec) -> None:
     Extras = CastValue(object, Feature.MoreCornersMm)
     if not isinstance(Extras, tuple):
@@ -68,14 +81,7 @@ def CheckCorners(Feature: FilletSpec | ChamferSpec) -> None:
     if len(Points) >= KCornerLimit:
         raise ValueError("Fusion corner edits take at most eight corners")
     for Point in Points:
-        if not isinstance(Point, tuple):
-            raise ValueError("Fusion part corners require two planar coordinates")
-        Coordinates = CastValue(tuple[object, ...], Point)
-        if len(Coordinates) != 2:
-            raise ValueError("Fusion part corners require two planar coordinates")
-        for Value in Coordinates:
-            if type(Value) not in (int, float) or not IsFinite(CastValue(float, Value)):
-                raise ValueError("Fusion part feature values must be finite numbers")
+        CheckPair(Point)
     Corners = (Feature.CornerMm, *Feature.MoreCornersMm)
     if len(set(Corners)) != len(Corners):
         raise ValueError("Fusion corner edits require distinct corners")
@@ -103,6 +109,9 @@ def CheckFeature(Feature: KPartFeature) -> None:
     CheckName(CastValue(object, Feature.FeatureName))
     if isinstance(Feature, HoleSpec):
         CheckHole(Feature)
+        return
+    if isinstance(Feature, (AxisSpec, PointSpec)):
+        CheckPair(CastValue(object, Feature.CornerMm))
         return
     if isinstance(Feature, KLinkedSpecs):
         return

@@ -1,5 +1,6 @@
 from typing import TypeAlias
 
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.AxisSpec import AxisSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ChamferSpec import (
     ChamferSpec,
 )
@@ -20,6 +21,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import 
     PatternSpec,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ShellSpec import ShellSpec
 
 KPartFeature: TypeAlias = (
@@ -32,4 +34,6 @@ KPartFeature: TypeAlias = (
     | CircularSpec
     | MirrorSpec
     | PlaneSpec
+    | AxisSpec
+    | PointSpec
 )
