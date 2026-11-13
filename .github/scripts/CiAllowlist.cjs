@@ -25,10 +25,10 @@ const QueueJobs = [
   "TruffleHog",
 ];
 const ShardJobs = /^Test suite \/ Shard \(\d+\)$/;
-const QualityPath = "dynamic/github-code-quality/codeql";
-const QualityRun = "Code Quality";
-const QualityJobs = /^Analyze \(.+\)$/;
-const QualitySources =
+const KQualityPath = "dynamic/github-code-quality/codeql";
+const KQualityRun = "Code Quality";
+const KQualityJobs = /^Analyze \(.+\)$/;
+const KQualitySources =
   /\.(?:cjs|cs|cts|go|java|js|jsx|kt|kts|mjs|mts|py|pyi|rb|ts|tsx)$/i;
 const StaticChecks = {
   "PythonQuality.yml": {
@@ -78,7 +78,7 @@ const TargetChecks = {
 function HasQualityCode(Files) {
   return Files.some((File) =>
     [File.filename, File.previous_filename].some(
-      (Name) => typeof Name === "string" && QualitySources.test(Name),
+      (Name) => typeof Name === "string" && KQualitySources.test(Name),
     ),
   );
 }
@@ -120,11 +120,11 @@ function CiWorkflows(
     event: Event,
     required: ["Build and verify release artifacts"],
   });
-  Workflows.set(QualityPath, {
+  Workflows.set(KQualityPath, {
     event: "dynamic",
     required: [],
-    matching: [QualityJobs],
-    expected: Analyzed ? QualityRun : null,
+    matching: [KQualityJobs],
+    expected: Analyzed ? KQualityRun : null,
   });
   for (const [File, Name] of Object.entries(TargetChecks))
     Workflows.set(WorkflowRoot + File, {

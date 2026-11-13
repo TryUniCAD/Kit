@@ -112,12 +112,14 @@ async function ReadReports(Github, Context, Refs, Workflows, Reused = false) {
           url: "",
         });
     }
-    if (
-      Spec.expected &&
-      ![...LatestRuns.values()].some((Run) => Run.workflow === Workflow)
-    )
+    if (!Spec.expected) continue;
+    const HasRun = [...LatestRuns.values()].some(
+      (Run) => Run.workflow === Workflow,
+    );
+    const HasJob = Rows.some((Row) => Row.workflow === Workflow);
+    if (!HasRun || !HasJob)
       Rows.push({
-        name: Spec.expected,
+        name: HasRun ? `${Spec.expected} analysis` : Spec.expected,
         state: "pending",
         conclusion: "missing",
         url: "",

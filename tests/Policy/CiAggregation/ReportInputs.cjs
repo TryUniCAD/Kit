@@ -1,21 +1,26 @@
 const { BuildExpected } = require("./ExpectedChecks.cjs");
 const { BuildReviews } = require("./ReviewReports.cjs");
 
-const QualityPath = "dynamic/github-code-quality/codeql";
-const QualityAbsent = ["quality-fork", "quality-docs", "quality-missing"];
+const KQualityPath = "dynamic/github-code-quality/codeql";
+const KQualityAbsent = ["quality-fork", "quality-docs", "quality-missing"];
+
+function IsQualityKept(CaseMode, CheckName) {
+  if (KQualityAbsent.includes(CaseMode) || CaseMode === "quality-empty")
+    return false;
+  return CaseMode !== "quality-subset" || CheckName === "Analyze (python)";
+}
 
 function BuildReports(CaseMode, Verdict, CheckName) {
   const IsQueue = CaseMode.startsWith("queue");
   const HeadSha = "a".repeat(40);
   const Built = BuildExpected(IsQueue, HeadSha);
-  const Quality = Built.Runs.find((Run) => Run.path === QualityPath);
-  const Removed = QualityAbsent.includes(CaseMode);
+  const Quality = Built.Runs.find((Run) => Run.path === KQualityPath);
+  const Removed = KQualityAbsent.includes(CaseMode);
   const Runs = Built.Runs.filter((Run) => !(Removed && Run === Quality));
   const Checks = Built.Checks.filter(
     (Check) =>
       Check.check_suite.id !== Quality?.check_suite_id ||
-      (!Removed &&
-        (CaseMode !== "quality-subset" || Check.name === "Analyze (python)")),
+      IsQualityKept(CaseMode, Check.name),
   );
   const Expected = Checks.map(({ name, html_url }) => ({ name, html_url }));
   const Files =

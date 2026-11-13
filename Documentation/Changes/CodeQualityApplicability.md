@@ -27,6 +27,7 @@ A renamed file counts when its old or new name matches.
 A truncated file list counts as analyzed source.
 
 When the aggregate expects the run, a missing run keeps the aggregate pending as `Code Quality`.
+An expected run without a matched job keeps the aggregate pending as `Code Quality analysis`.
 When the aggregate does not expect the run, it still checks a run that GitHub reports.
 A failed or pending matched job then fails or holds the aggregate.
 
@@ -43,7 +44,8 @@ The queue CodeQL jobs `Analyze actions` and `Analyze python` remain required on 
 It covers a fork PR, a documentation-only PR, and a run with one language.
 These cases must pass without the missing jobs.
 The existing failed-job case still fails the aggregate.
-[`ReviewerAggregationTests.py`](../../tests/Policy/ReviewerAggregationTests.py) covers a same-repository source PR with no run.
-That aggregate must stay pending and wait for `Code Quality`.
+[`ReviewerAggregationTests.py`](../../tests/Policy/ReviewerAggregationTests.py) covers two same-repository source PRs.
+With no run, the aggregate must wait for `Code Quality`.
+With a successful run and no `Analyze` job, the aggregate must wait for `Code Quality analysis`.
 These tests run in remote PR CI. No local tests ran.
 See [merge queue operations](../../MergeQueue.md) and [the Code Quality coverage gotcha](../Gotchas/Ci/CodeQualityRunCoverage.md).
