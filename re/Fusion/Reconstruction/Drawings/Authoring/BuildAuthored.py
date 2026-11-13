@@ -32,9 +32,11 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
+sys.path.insert(0, str(HERE.parent / 'Rules'))
 sys.path.insert(0, str(HERE.parents[4] / 'src'))
 
 import BuildVariants  # noqa: E402
+import KitSolids  # noqa: E402
 
 from convert.formats.Fusion.DrawingCodec.Author.BuildBundle import BuildBundle  # noqa: E402
 from convert.formats.Fusion.DrawingCodec.Author.BuildDrawing import BuildDrawing  # noqa: E402
@@ -119,14 +121,15 @@ def build(label, control, design_bytes, name):
     guid = geometry_guid(design_bytes)
     if label == 'K4StaleViews':
         guid = str(uuid.UUID(int=0))
-    source = ViewSource(306, '1_Component', guid, (0.0, 0.0, 0.0), (4.0, 2.0, 1.0))
+    source = ViewSource(306, '1_Component', guid, (0.0, 0.0, 0.0), (4.0, 2.0, 1.0), Solid=KitSolids.box_solid((0.0, 0.0, 0.0), (4.0, 2.0, 1.0)))
     layout_name = 'Kit Authored ' + name
     draft = DwgDraft(
         SheetDraft(layout_name, (TitleText('TITLE_1', 'Kit Authored'), TitleText('SHEET', '1/1'), TitleText('DRAWING_NUMBER', name))),
         LAYOUT_HANDLE, MOMENT, str(uuid.uuid4()), str(uuid.uuid4()),
         views_for(label), source if views_for(label) else None, dimensions_for(label),
     )
-    dwg = AuthorDwg(draft)
+    with KitSolids.no_edges():
+        dwg = AuthorDwg(draft)
     model = ReadDwgFile(dwg)
     if EmitDwgFile(model) != dwg:
         raise ValueError('authored DWG does not read back')

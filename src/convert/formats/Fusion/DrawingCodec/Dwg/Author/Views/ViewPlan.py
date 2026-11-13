@@ -31,6 +31,7 @@ class ViewPlan:
     TargetPoint: KPointTriple
     EyePoint: KPointTriple
     Extent: KPointTriple
+    ShowHidden: bool
 
 
 def Spread(Frame: ViewFrame, Extent: KPointTriple) -> KPointPair:
@@ -73,6 +74,7 @@ def PlanView(
         Middle,
         Added(Middle, Scaled(Frame.Eye, Reach)),
         Paper,
+        Draft.ShowHidden,
     )
 
 
@@ -87,6 +89,10 @@ def PlanViews(
             Frame = BaseFrame(Draft)
         else:
             Parent = Plans[Draft.Parent]
+            if Draft.ShowHidden != Parent.ShowHidden:
+                raise ValueError(
+                    "Authored DWG projected view must show hidden edges as its parent"
+                )
             Offset = (
                 Draft.Center[0] - Parent.Center[0],
                 Draft.Center[1] - Parent.Center[1],

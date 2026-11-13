@@ -47,6 +47,7 @@ import BuildPruned  # noqa: E402
 import BuildPruned2  # noqa: E402
 import BuildTransplant as T  # noqa: E402
 import BuildVariants  # noqa: E402
+import KitSolids  # noqa: E402
 from PruneDwg import Graph, field, prune, target, with_fields  # noqa: E402
 
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.AuthorDwg import AuthorDwg  # noqa: E402
@@ -87,14 +88,21 @@ STATE = (4 + 18, 4 + 90)
 PARTS = ('EedBlocks', 'CommonData', 'ClassData', 'HandleRefs')
 
 
-def kit(layout, paper):
-    source = ViewSource(0x1C5, '1_Component', '0f0e0d0c-0b0a-4908-8706-050403020100', (0.0, 0.0, 0.0), (4.0, 2.0, 1.0))
+def kit(layout, paper, solid=None, hidden=False):
+    """Kit's build of a layout. Without a solid the views carry no edges, as the leaf grafts need; with one they
+    carry the edges Kit computes from it, in visible or hidden style."""
+    shape = solid if solid is not None else KitSolids.box_solid((0.0, 0.0, 0.0), (4.0, 2.0, 1.0))
+    source = ViewSource(0x1C5, '1_Component', '0f0e0d0c-0b0a-4908-8706-050403020100', (0.0, 0.0, 0.0), (4.0, 2.0, 1.0), Solid=shape)
     base, first, second = LAYOUTS[layout]
-    views = (ViewDraft(base, 4.0), ViewDraft(first[0], 4.0, Parent=first[1]), ViewDraft(second[0], 4.0, Parent=second[1]))
+    views = (ViewDraft(base, 4.0, ShowHidden=hidden), ViewDraft(first[0], 4.0, Parent=first[1], ShowHidden=hidden),
+             ViewDraft(second[0], 4.0, Parent=second[1], ShowHidden=hidden))
     sheet = SheetDraft('Kit Sheet', (TitleText('TITLE_1', 'Kit Drawing'),), paper)
     draft = DwgDraft(sheet, 0x2E50, datetime(2026, 11, 13, 12), '11111111-2222-4333-8444-555555555555',
                      '66666666-7777-4888-8999-aaaaaaaaaaaa', views, source, ())
-    return ReadDwgFile(AuthorDwg(draft))
+    if solid is not None:
+        return ReadDwgFile(AuthorDwg(draft))
+    with KitSolids.no_edges():
+        return ReadDwgFile(AuthorDwg(draft))
 
 
 def refs(value, own, path=''):

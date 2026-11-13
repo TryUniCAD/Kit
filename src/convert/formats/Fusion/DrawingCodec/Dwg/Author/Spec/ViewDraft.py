@@ -11,3 +11,4 @@ class ViewDraft:
     EyeDirection: KPointTriple = (0.0, 0.0, -1.0)
     UpVector: KPointTriple = (0.0, 1.0, 0.0)
     Parent: int = -1
+    ShowHidden: bool = False

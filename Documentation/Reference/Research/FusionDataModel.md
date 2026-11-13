@@ -2375,6 +2375,54 @@ Each view rep stores the edges its view shows, and `VIEWEDIT` projects those edg
 It does not find the visible edges again, so a view with no stored edges opens empty until the view updates.
 The [missing database gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingMissingDatabase.md) and the [engine stall gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingEngineStall.md) give the observations.
 
+### Stored view edges
+
+Each `ACDBVIEWREP` body lists the edges its view shows.
+The Wheel saves hold 369 view bodies with 2,691 rows, and every row has the same form.
+The A3 control and BoxA, two unrelated designs, use it too.
+
+| Field                    | Value                                                                  |
+| ------------------------ | ---------------------------------------------------------------------- |
+| `EdgeId`                 | B-rep edge id or silhouette id, unsigned 32-bit                        |
+| `EdgeLongA`, `EdgeLongB` | 1 and 1                                                                |
+| `EdgeFlagA`              | 1 for a visible edge, 0 for a hidden one                               |
+| `EdgeLongC`, `EdgeFlagB` | 0                                                                      |
+| `HasCurve`               | 1                                                                      |
+| Cached line (kind 23)    | Start point and end minus start, in model millimetres                  |
+| Cached circle (kind 11)  | Centre, normal, the DWG arbitrary axis of the normal, radius, 0 to 2π, `CurveReal` 0 |
+| `EdgeEntity`             | Soft pointer (code 4) to the drawn entity                              |
+
+Rows are sorted by `EdgeId` read as a signed 32-bit number in all 369 bodies.
+No id repeats in a body.
+All 255 cached circles are whole and have `CurveReal` 0.
+
+A B-rep edge id is the edge's 0-based position among the distinct edges met in a walk of the body.
+The walk takes the shell's faces in order, each face's loops in order and each loop's coedges from its first coedge.
+All 10 control ids and all 8 BoxA ids match.
+The coedge index does not match: it gives 10 and 14 where the control stores 9 and 12.
+
+A cylinder or cone silhouette has id 0xFFFFFFFF − 2048 × face index − side.
+Side 0 lies at offset sight × axis from the surface axis.
+The silhouette line runs along the axis between the face's two boundary circles.
+Wheel cylinders and cones in four directions and the control hole fit this rule.
+
+The drawn entity is the stored piece of the 3D edge in model millimetres, in the view's inner block.
+It sits on layer Visible or Hidden, and the view's viewport projects it.
+A line is a LINE, a whole circle a CIRCLE and part of a circle an ARC.
+Circle and arc centres are in object coordinates about the curve normal, in 246 of 246 Wheel entities with a reversed normal.
+The shared fields are ByLayer colour, line type scale 1, lineweight 29, no extension dictionary and no reactors.
+
+A circle seen edge on is one ARC, the half nearer the eye.
+A piece that projects onto a nearer drawn piece with the same tangent is not stored.
+A piece is hidden when the ray toward the eye enters a face.
+In the 1,920 saved line rows every drawn LINE is the whole cached line.
+
+`ViewLongB` 2 shows visible edges and stores no hidden rows, and 1 adds the hidden rows.
+A projected view carries 4 plus its base view's style.
+A view update adds 0x2000 to `ViewFlags`.
+Two Wheel views switched from hidden to visible style keep their hidden silhouette rows with invisible entities.
+Every view Fusion computed in visible style stores no hidden rows.
+
 ### Drawing authoring rules
 
 Kit's drawing author holds no data captured from one save.
@@ -2389,6 +2437,8 @@ Each value below is a rule or a constant seen in every save Kit has.
 | Base view style fields             | `ViewLongB` is 2 for visible edges and 1 with hidden edges; flag bits 0x1 shaded, 0x400 interference edges, 0x800 thread edges; API views add 0x2000 |
 | Orthographic base view layout      | Left, right, top, bottom, front and back base views share one record layout; two isometric base views use a longer one Kit does not decode |
 | Projected view shape (15, 6, 40032) | All 4 projected views, to the right and above the base; Fusion opened left, below and back views with it |
+| Projected view style               | 4 plus the base view's style: 6 for visible edges, 5 with hidden edges, as Fusion's update wrote in E1 |
+| View edges                         | Computed from the view source solid and the view direction; equal to Fusion's own in 24 of 24 grafted views and both BoxA views |
 | Projected view frames              | The control's right and above views equal Kit's on every value a layout changes; after an update, Fusion drew left, below and back views at Kit's places and sizes |
 | View rep viewport                  | The view's frame viewport in all 63 view reps of 5 saves                      |
 | Design segment ids 0 to 38         | The empty drawing design; the same 34 records in the three modern saves read  |

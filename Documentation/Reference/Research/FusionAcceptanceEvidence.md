@@ -282,8 +282,7 @@ Each graft below opened with views of 5, 4 and 4 curves, 1 dimension and a 420 �
 | `S1AsmeB` to `S3AsmeA` | `T3Sheet` on ASME B, D and A paper in millimetres with Kit's ASME border   | [T7](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT7.json) |
 | `V1LeftBelow` to `V3AboveBelow` | Kit's left and below, right and back, or above and below projected views | [T10](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT10.json) |
 | `V4KitModel` to `V6RightBackKitModel` | Also Kit's model space places for the views | [T10](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT10.json) |
-| `V7NoEdges` to `V9AboveBelowNoCurves` | Views with no stored edges, as Kit writes them, then also no curves | [T10](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT10.json) |
-
+| `V7NoEdges` to `V9AboveBelowNoCurves` | Views with no stored edges, as Kit wrote them then, then also no curves | [T10](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT10.json) |
 The ASME grafts opened with the same views and dimension on sheets of 431.8 × 279.4, 863.6 × 558.8 and 215.9 × 279.4 mm.
 Fusion took each sheet size from the DWG layout.
 
@@ -291,6 +290,27 @@ All nine view grafts opened with one dimension on a 420 × 297 mm sheet.
 Views with stored edges showed 5, 4 and 4 curves; views without them showed none until a scale change made Fusion find the edges.
 
 An empty DWG member gave the dialog `Drawing file is not valid.`, so Fusion does not rebuild a missing DWG.
+
+### Stored view edge rounds
+
+The [T16 report](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT16.json) records rounds E1 and T16 in Fusion 2706.1.17.
+Each graft removed every stored edge from the A3 control's views.
+Each run opened the graft, read the curves, halved the base scale and restored it, read again and exported a DWG.
+The export keeps the edge lists Fusion computed in that update.
+
+| Graft | Views | Curves on open | Curves after the update | Fusion's exported edges |
+| ----- | ----- | -------------- | ----------------------- | ----------------------- |
+| `E1HiddenA` | Right and above, hidden style, no edges | 0, 0, 0 | 5, 6, 6 | The training set for the hidden style |
+| `T16VisibleA`, `T16HiddenA` | Right and above, Kit's edges | 5, 4, 4 and 5, 6, 6 | The same, in the same boxes | Equal to Kit's |
+| `T16VisibleLeftBelow`, `T16HiddenLeftBelow` | Left and below, held out | 5, 4, 4 and 5, 6, 6 | The same, in the same boxes | Equal to Kit's |
+| `T16VisibleRightBack`, `T16HiddenRightBack` | Right and back, held out | 5, 4, 5 and 5, 6, 5 | The same, in the same boxes | Equal to Kit's |
+| `T16VisibleAboveBelow`, `T16HiddenAboveBelow` | Above and below, held out | 5, 4, 4 and 5, 6, 6 | The same, in the same boxes | Equal to Kit's |
+
+In all 24 T16 views, Fusion's exported rows and drawn entities equal Kit's, apart from handles.
+The layout A boxes equal those Fusion drew in E1 after its own update.
+Kit's views of BoxA, an unrelated Fusion-saved design, equal its stored rows in both views.
+That check ran offline, because no other Fusion-saved drawing has a single body seen along an axis.
+Fillets, part arcs and partly hidden edges have no Fusion evidence, and Kit raises for them.
 
 ## Fixture privacy scrub
 

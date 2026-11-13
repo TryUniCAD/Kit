@@ -54,6 +54,7 @@ It recomputes them when `updateAllReferences()` updates an out-of-date reference
 Native removal variants define the minimal state of a drawing.
 Fusion needs the DWG member, a view rep object for each view, contiguous section ids and handles that name present objects.
 It does not need the stored view curves, the title block, the border, AutoCAD Mechanical objects or the data-store section.
+A view without stored edges opens empty, though, so Kit writes them.
 The [data model section](../../../../re/Fusion/Reconstruction/Drawings/DataModelSection.md) lists each variant.
 The [section id gotcha](../../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingSectionIds.md) records the section rule.
 
@@ -64,7 +65,7 @@ The draft names the sheet, the title block texts, the views, the view source and
 Kit writes every object from typed values, declared vocabulary and rules.
 No table, header block or row captured from a Fusion save ships in `src`.
 The caller supplies the fingerprint and version GUIDs and the save moment.
-The view blocks stay empty, because Fusion recomputes view curves on a reference update.
+Each view stores the edges it shows, computed from the view source solid, as the view edges section explains.
 
 `BuildDrawing` builds the F2D members around that DWG from a `DrawingSpec`.
 `BuildBundle` builds the drawing-root F3Z with the referenced design.
@@ -95,6 +96,8 @@ The view blocks stay empty, because Fusion recomputes view curves on a reference
 | Base view directions     | Along a model axis; Fusion writes slanted views in another record layout, so Kit refuses them |
 | Projected views          | A view beside its parent looks back along the parent's right axis and one above or below looks back along its up axis; the shared axis stays; the view angle points from the parent to the view |
 | View rep viewport        | The view's frame viewport, the one that looks straight at the paper, as in all 63 view reps of 5 Fusion saves |
+| View style               | `ViewLongB` 2 for visible edges, 1 with hidden edges; a projected view takes 4 plus its base view's style |
+| View edges               | Computed from the view source solid and the view direction, in Fusion's stored form; see below |
 | Round dimensions         | Text placed by Kit, so flags 10 and the DIMUPT override; radius also DIMSE1; diameter sign U+2205 |
 | Hole data                | Styled JSON with sorted keys and tab indents, built from the body id                    |
 | View state body mark     | `21 84 DE 7B 09`, once after each body's bounds in every view state Kit has read        |
@@ -138,6 +141,35 @@ Kit therefore has no rule that makes Fusion 2706.1.17 open an authored DWG.
 
 The F2D author works on its own.
 `N2AuthoredF2d` put Kit-built members around a Fusion-saved DWG, and it opened with 3 views and 1 dimension.
+
+### View edges
+
+Fusion 2706.1.17 draws a view on open only from the edges its view rep stores, as the [stored edge gotcha](../../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingStoredEdges.md) explains.
+Kit therefore computes each view's edges and writes them as Fusion does.
+`ViewSource.Solid` carries the body's B-rep, and a view without it raises.
+`ViewDraft.ShowHidden` picks the style, and a projected view must share its parent's style.
+The [data model](../../../Reference/Research/FusionDataModel.md#stored-view-edges) gives the stored form and its evidence.
+
+| Step         | Rule                                                                                  |
+| ------------ | ------------------------------------------------------------------------------------- |
+| Edge ids     | Position among the distinct edges of the walk over shell faces, face loops and loop coedges |
+| Candidates   | Every line and circle edge that does not project to a point, and the two silhouettes of each cylinder and cone |
+| Silhouettes  | Id 0xFFFFFFFF − 2048 × face index − side; side 0 at offset sight × axis; the line spans the face's boundary circles |
+| Covered      | A piece that projects onto a nearer candidate with a parallel tangent is not stored    |
+| Hidden       | A piece is hidden when the ray toward the eye enters a face strictly inside it          |
+| Rows         | Visible style stores visible pieces; hidden style stores both, flag 0 and layer Hidden for hidden ones; rows sorted by signed id |
+| Cached curve | The whole edge: a line's start and span, or a circle's centre, normal, arbitrary axis, radius and full turn |
+| Drawn entity | The stored piece in model millimetres: LINE, CIRCLE, or ARC for a circle seen edge on, centres in object coordinates |
+
+These cases have no Fusion evidence, so Kit raises for them.
+
+| Case                                           | Why                                                         |
+| ---------------------------------------------- | ----------------------------------------------------------- |
+| An edge split into more than one piece         | No saved view draws part of a line; ids never repeat in a body |
+| An edge that is part of a circle               | All 255 saved cached circles are whole                     |
+| A tangent edge, as fillets make                | Whether and how Fusion draws tangent edges is not recorded |
+| Spheres, tori, splines and other surfaces      | Silhouettes of other surfaces are not decoded              |
+| More than one body, or a moved body            | Every decoded view shows one untransformed body           |
 
 ## Verification
 
@@ -225,5 +257,11 @@ Fusion opened all nine view grafts, as the [T10](../../../../re/Fusion/Reconstru
 On open, Fusion projects only the edges a view stores, so a view that changes direction shows its old edges from the new side.
 After a scale change, Fusion found the edges again and drew each view at Kit's planned place and size.
 A view with no stored edges opens empty until such an update, as the [stored edge gotcha](../../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingStoredEdges.md) records.
-Kit writes no edges, so the views of a drawing Kit authors fill in only when Fusion updates them.
+
+Round T16 grafted the views Kit authors, with their edges, onto the control in four layouts and both styles.
+Left, below and back views are held out: no rule came from them.
+All 8 grafts opened with Kit's curves, and the counts and boxes on open equal those after a scale change.
+The DWG Fusion exported after that update holds its own edges, and they equal Kit's in all 24 views.
+Kit's views of BoxA, an unrelated Fusion-saved design, equal its stored edges.
+The [T16 report](../../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT16.json) records both checks.
 The [round dimension gotcha](../../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingRoundDimensions.md) lists what differs for radius and diameter.

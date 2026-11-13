@@ -1,5 +1,7 @@
 from dataclasses import dataclass as MakeDataClass
 
+from interchange.brep.topology.BrepModel import BrepModel
+
 KPointTriple = tuple[float, float, float]
 
 
@@ -12,3 +14,4 @@ class ViewSource:
     BoundsMax: KPointTriple
     MaterialText: str = ""
     OccurrencePath: tuple[int, ...] = ()
+    Solid: BrepModel | None = None

@@ -27,8 +27,11 @@ KPointTriple = tuple[float, float, float]
 KBodyBits = 0x8000000001
 KMatrixHead = 0x40
 KMatrixNames = ("XX", "XY", "XZ", "X", "YX", "YY", "YZ", "Y", "ZX", "ZY", "ZZ", "Z")
-KBaseShape = (11, 2, 3104)
-KChildShape = (15, 6, 40032)
+KBaseShape = (11, 3104)
+KChildShape = (15, 40032)
+KVisibleStyle = 2
+KHiddenStyle = 1
+KInheritStyle = 4
 
 
 def BodyKey() -> tuple[tuple[str, KDraftValue], ...]:
@@ -67,7 +70,7 @@ def BodyPath(Source: ViewSource) -> tuple[DraftRecord, ...]:
     return tuple(DraftRecord((("PathId", LinkId),)) for LinkId in Chain)
 
 
-def ViewBody(Source: ViewSource) -> DraftRecord:
+def ViewBody(Source: ViewSource, Edges: tuple[DraftRecord, ...]) -> DraftRecord:
     Leading = (*GuidItems(Source.GeometryGuid), ("MatrixHead", KMatrixHead))
     BodyChain = BodyPath(Source)
     Longs = tuple((Called, 0) for Called in ("BodyLongA", "BodyLongB", "BodyLongC"))
@@ -78,8 +81,8 @@ def ViewBody(Source: ViewSource) -> DraftRecord:
         ("Path", BodyChain),
         ("BodyLongD", 1),
         ("BodyLongE", 4294967295),
-        ("EdgeCount", 0),
-        ("Edges", ()),
+        ("EdgeCount", len(Edges)),
+        ("Edges", Edges),
     )
     return DraftRecord((*BodyKey(), *Leading, *MatrixItems(), *Longs, *Closing))
 
@@ -130,14 +133,23 @@ def TrailFields(
     }
 
 
+def ViewStyle(Planned: ViewPlan, IsBase: bool) -> int:
+    Style = KHiddenStyle if Planned.ShowHidden else KVisibleStyle
+    return Style if IsBase else KInheritStyle + Style
+
+
 def ViewFields(
-    KeySet: ViewKeys, Planned: ViewPlan, IsBase: bool, Source: ViewSource
+    KeySet: ViewKeys,
+    Planned: ViewPlan,
+    IsBase: bool,
+    Source: ViewSource,
+    Edges: tuple[DraftRecord, ...],
 ) -> dict[str, KDraftValue]:
-    LongA, LongB, Flags = KBaseShape if IsBase else KChildShape
+    LongA, Flags = KBaseShape if IsBase else KChildShape
     return {
         "ClassVersion": 1,
         "ViewLongA": LongA,
-        "ViewLongB": LongB,
+        "ViewLongB": ViewStyle(Planned, IsBase),
         "ViewLongC": 0,
         "ViewFlags": Flags,
         "ViewLongD": 100,
@@ -145,7 +157,7 @@ def ViewFields(
         "ViewRepKey": HandleNumber(KeySet.ViewRep),
         "ViewFlagA": 1,
         "BodyCount": 1,
-        "Bodies": (ViewBody(Source),),
+        "Bodies": (ViewBody(Source, Edges),),
         **TrailFields(KeySet, Planned, Source),
     }
 
@@ -209,6 +221,7 @@ def PlaceViewRepMut(
     Parent: ViewPlan | None,
     Family: tuple[tuple[ViewKeys, ViewPlan], ...],
     Source: ViewSource,
+    Edges: tuple[DraftRecord, ...],
 ) -> str:
     return PlaceMut(
         Ledger,
@@ -222,6 +235,6 @@ def PlaceViewRepMut(
             "Reactors": (),
             "Xdic": HardOwner(KeySet.ViewRep + "/Xdic"),
         },
-        ViewFields(KeySet, Planned, Parent is None, Source),
+        ViewFields(KeySet, Planned, Parent is None, Source, Edges),
         ViewRepEed(Planned, Parent, Family),
     )

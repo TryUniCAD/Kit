@@ -36,6 +36,7 @@ import BuildPruned3  # noqa: E402
 import BuildPruned4  # noqa: E402
 import BuildTransplant as T  # noqa: E402
 import BuildVariants  # noqa: E402
+import KitSolids  # noqa: E402
 from PruneDwg import Graph, field, prune, target, with_fields  # noqa: E402
 
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.AuthorDwg import AuthorDwg  # noqa: E402
@@ -61,13 +62,14 @@ DIMENSIONS = {
 
 
 def kit_with(paper, dimension):
-    source = ViewSource(0x1C5, '1_Component', '0f0e0d0c-0b0a-4908-8706-050403020100', (-1.0, 0.0, 0.5), (4.0, 2.0, 1.5))
+    source = ViewSource(0x1C5, '1_Component', '0f0e0d0c-0b0a-4908-8706-050403020100', (-1.0, 0.0, 0.5), (4.0, 2.0, 1.5), Solid=KitSolids.box_solid((-1.0, 0.0, 0.5), (4.0, 2.0, 1.5)))
     views = (ViewDraft((180.0, 120.0), 4.0),)
     sheet = SheetDraft('Kit Sheet', (TitleText('TITLE_1', 'Kit Drawing'),), paper)
     dims = () if dimension is None else (dimension,)
     draft = DwgDraft(sheet, 0x2E50, datetime(2026, 11, 13, 12), '11111111-2222-4333-8444-555555555555',
                      '66666666-7777-4888-8999-aaaaaaaaaaaa', views, source, dims)
-    return ReadDwgFile(AuthorDwg(draft))
+    with KitSolids.no_edges():
+        return ReadDwgFile(AuthorDwg(draft))
 
 
 def dimension_of(graph):

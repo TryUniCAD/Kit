@@ -11,11 +11,16 @@ from convert.formats.Fusion.DrawingCodec.Dwg.Author.Sheet.PlaceRecord import (
     ByteGroups,
     PlaceRecordMut,
 )
+from convert.formats.Fusion.DrawingCodec.Dwg.Author.Edges.SolidParts import SolidShape
+from convert.formats.Fusion.DrawingCodec.Dwg.Author.Edges.ViewEdges import ViewEdges
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.Spec.ViewSource import ViewSource
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.Views.PlaceAction import (
     PlaceActionMut,
     PlaceDependMut,
     PlaceParamMut,
+)
+from convert.formats.Fusion.DrawingCodec.Dwg.Author.Views.PlaceEdges import (
+    PlaceEdgesMut,
 )
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.Views.ViewKeys import ViewKeys
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.Views.ViewPlan import ViewPlan
@@ -99,6 +104,7 @@ def PlaceViewActMut(
     Planned: ViewPlan,
     Family: KFamily,
     Source: ViewSource,
+    Shape: SolidShape,
 ) -> None:
     Action = KeySet.Action
     Elders = [Member for Member in Family if Member[1].Index == Planned.Parent]
@@ -123,8 +129,10 @@ def PlaceViewActMut(
             "ViewRep": HardOwner(KeySet.ViewRep),
         },
     )
+    EdgeRows = ViewEdges(Shape, Planned.Frame, Planned.ShowHidden)
+    Edges = PlaceEdgesMut(Ledger, KeySet, EdgeRows)
     _ = PlaceViewRepMut(
-        Ledger, KeySet, Planned, Elders[0][1] if Elders else None, Family, Source
+        Ledger, KeySet, Planned, Elders[0][1] if Elders else None, Family, Source, Edges
     )
     Owner = {"Owner": SoftPointer(KeySet.ViewRep)}
     _ = PlaceMut(

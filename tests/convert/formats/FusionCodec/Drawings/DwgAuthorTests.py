@@ -18,6 +18,7 @@ from convert.formats.Fusion.DrawingCodec.Dwg.Model.DwgFile import DwgFile
 from convert.formats.Fusion.DrawingCodec.Dwg.Model.DwgHandleRef import DwgHandleRef
 from convert.formats.Fusion.DrawingCodec.Dwg.Model.DwgRecord import DwgField, DwgRecord
 from convert.formats.Fusion.DrawingCodec.Dwg.ReadDwgFile import ReadDwgFile
+from tests.convert.formats.FusionCodec.Drawings.ViewSolids import BoxSolid
 
 KMoment = DateTime(2026, 11, 12, 12, 0, 0)
 KLayoutHandle = 0x2E50
@@ -27,6 +28,7 @@ KSource = ViewSource(
     "0f0e0d0c-0b0a-4908-8706-050403020100",
     (-1.0, 0.0, 0.5),
     (4.0, 2.0, 1.5),
+    Solid=BoxSolid((-10.0, 0.0, 5.0), (40.0, 20.0, 15.0)),
 )
 KViews = (
     ViewDraft((180.46875, 120.609375), 4.0),
