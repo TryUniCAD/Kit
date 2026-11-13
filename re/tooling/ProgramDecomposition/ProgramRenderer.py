@@ -51,8 +51,6 @@ def RenderOwner(OwnerSites: tuple[tuple[object, str], ...]) -> str:
     SourceLines = [
         "from __future__ import annotations",
         "",
-        "",
-        "# exact trace spellings stay centralized so variant tables never duplicate owners",
         "KOwnerSites = {",
     ]
     SourceLines.extend(
@@ -62,11 +60,7 @@ def RenderOwner(OwnerSites: tuple[tuple[object, str], ...]) -> str:
         )
     )
     SourceLines.extend(("}", ""))
-    RenderedText = FormatSource("\n".join(SourceLines))
-    OwnerMarker = (
-        "\n# exact trace spellings stay centralized so variant tables never duplicate owners"
-    )
-    return RenderedText.replace(OwnerMarker, "\n" + OwnerMarker, 1)
+    return FormatSource("\n".join(SourceLines))
 
 
 # needed to keep reverse engineering responsibilities isolated and maintainable
@@ -77,8 +71,6 @@ def RenderMethod(OwnerModule: str, MethodData: MethodData) -> str:
         "from convert.adapters.solidworks.programs.Common.ProgramContract import KMethodProgram as KMethodProgramType",
         f"from {OwnerModule} import KOwnerSites",
         "",
-        "",
-        "# isolated method data lets new reverse engineered serializers compose independently",
         "KMethodProgram: KMethodProgramType = (",
         "    KOwnerSites,",
         "    {",
@@ -95,9 +87,7 @@ def RenderMethod(OwnerModule: str, MethodData: MethodData) -> str:
         )
         SourceLines.append("        ),")
     SourceLines.extend(("    },", ")", ""))
-    RenderedText = FormatSource("\n".join(SourceLines))
-    MethodMarker = "\n# isolated method data lets new reverse engineered serializers compose independently"
-    return RenderedText.replace(MethodMarker, "\n" + MethodMarker, 1)
+    return FormatSource("\n".join(SourceLines))
 
 
 # canonical constant names keep generated registries compliant without changing legacy public symbols
@@ -133,7 +123,6 @@ def AddAliasesMut(
         SourceLines.extend(
             (
                 "",
-                "# compatibility binding preserves its established public import after decomposition",
                 f"{OriginalName} = {ConstName}",
             )
         )
@@ -155,23 +144,9 @@ def RenderRegistry(ProgramData: ProgramData, ModulePaths: tuple[str, ...]) -> st
         AliasName = MakeAlias(ItemIndex)
         AliasNames.append(AliasName)
         SourceLines.append(f"from {ModulePath} import KMethodProgram as {AliasName}")
-    SourceLines.extend(
-        (
-            "",
-            "",
-            "# explicit ordering keeps generated imports deterministic while offsets govern composition",
-            "KMethodPrograms = (",
-        )
-    )
+    SourceLines.extend(("", "KMethodPrograms = ("))
     SourceLines.extend((f"    {AliasName}," for AliasName in AliasNames))
-    SourceLines.extend(
-        (
-            ")",
-            "",
-            "",
-            "# composed tables stay immutable because generated registries expose stable format facts",
-        )
-    )
+    SourceLines.append(")")
     if ProgramData.OpsName == "StreamPrograms":
         StreamNames = tuple(
             (StreamName for StreamName, SpareValue in ProgramData.Streams)
@@ -200,15 +175,12 @@ def RenderRegistry(ProgramData: ProgramData, ModulePaths: tuple[str, ...]) -> st
     SourceLines.extend(
         (
             "",
-            "# generated registry exports remain explicit for facade composition and extension imports",
             f"__all__ = [{', '.join(repr(NameText) for NameText in ExportNames)}]",
         )
     )
     AddAliasesMut(SourceLines, ProgramData, OwnerConst, OpsConst)
     SourceLines.append("")
-    RenderedText = FormatSource("\n".join(SourceLines))
-    RegistryMarker = "\n# explicit ordering keeps generated imports deterministic while offsets govern composition"
-    return RenderedText.replace(RegistryMarker, "\n" + RegistryMarker, 1)
+    return FormatSource("\n".join(SourceLines))
 
 
 # removal discovery stays isolated so facade parsing and source reconstruction have separate contracts

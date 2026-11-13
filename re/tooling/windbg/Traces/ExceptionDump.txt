@@ -1,0 +1,4 @@
+.symopt+0x4000
+.symopt-0x20000
+bp mfc140u!AfxThrowFileException ".dump /ma \"Z:\Documents\UniCAD\Kit-solidworks-native\.rescratch\polyline\config-exception.dmp\"; .detach; qd"
+g

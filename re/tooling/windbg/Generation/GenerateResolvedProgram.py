@@ -88,6 +88,8 @@ def ParseArguments() -> Argparse.Namespace:
     Parser.add_argument("trace", type=PathInfo)
     Parser.add_argument("segments", type=PathInfo)
     Parser.add_argument("output", type=PathInfo)
+    Parser.add_argument("--stream", default=ResolvedStream)
+    Parser.add_argument("--structural", action="store_true")
     return Parser.parse_args()
 
 
@@ -127,7 +129,9 @@ def AddOpMut(
 
 
 # needed to keep reverse engineering responsibilities isolated and maintainable
-def TraceRows(TraceText: str) -> tuple[tuple[str, int, str], ...]:
+def TraceRows(
+    TraceText: str, Buffer: int | None = None
+) -> tuple[tuple[str, int, str], ...]:
     ResultRows: list[tuple[str, int, str]] = []
     for SourceLine in TraceText.splitlines():
         if not SourceLine.startswith("F "):
@@ -135,8 +139,14 @@ def TraceRows(TraceText: str) -> tuple[tuple[str, int, str], ...]:
         PartsList = SourceLine.split()
         if len(PartsList) < 5 or PartsList[1] not in KPrimWidths:
             continue
-        OwnerText = " ".join(PartsList[4:]).split(" (")[0]
-        ResultRows.append((PartsList[1], int(PartsList[2], 16), OwnerText))
+        if Buffer is not None and int(PartsList[2], 16) != Buffer:
+            continue
+        PositionIndex = 3 if Buffer is not None else 2
+        OwnerIndex = 4
+        OwnerText = " ".join(PartsList[OwnerIndex:]).split(" (")[0]
+        ResultRows.append(
+            (PartsList[1], int(PartsList[PositionIndex], 16), OwnerText)
+        )
     return tuple(ResultRows)
 
 
@@ -544,15 +554,18 @@ def RenderSource(
 def RunMain() -> int:
     Arguments = ParseArguments()
     Archive = SldprtArchive.open(Arguments.part)
-    StreamData = Archive.require(ResolvedStream)
+    StreamData = Archive.require(Arguments.stream)
     TraceText = Arguments.trace.read_text(encoding="utf-8", errors="replace")
     SegmentData = JsonData.loads(Arguments.segments.read_text(encoding="utf-8"))
     Segments = tuple(SegmentData["segments"])
-    RowsList = TraceRows(TraceText)
+    RowsList = TraceRows(
+        TraceText, Buffer=len(StreamData) if Arguments.structural else None
+    )
     Operations: list[tuple[int, int, str, str, AnyInfo]] = []
     Covered: set[int] = set()
     AddStructures(Operations, Covered, StreamData, Segments, RowsList)
-    AddDirectFields(Operations, Covered, StreamData, Segments)
+    if not Arguments.structural:
+        AddDirectFields(Operations, Covered, StreamData, Segments)
     AddPrimitives(Operations, Covered, StreamData, RowsList)
     Missing = sorted(set(range(len(StreamData))) - Covered)
     if Missing:

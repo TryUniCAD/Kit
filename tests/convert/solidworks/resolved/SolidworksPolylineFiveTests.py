@@ -18,10 +18,6 @@ from convert.adapters.solidworks.core.Native import (
     HasVendorPartEncoding,
     decode_native_model as DecodeNativeModel,
 )
-from convert.adapters.solidworks.programs.resolved.polyline.fivepoint.Program import (
-    EncodeProgram,
-    PadFieldMap,
-)
 from convert.adapters.solidworks.programs.resolved.polyline.fivepoint.Registry import (
     KFieldOwners,
     KResolvedOps,
@@ -40,7 +36,7 @@ KPoints = (
     (19.0, 32.0),
     (-5.0, 14.0),
 )
-KResolvedDigest = "58f24db25ce3a7069b511e2b551ead8228234971932fc95a28a7d5e264020bab"
+KResolvedDigest = "cbd02ec7dc243cffe942106d788ff33193efebbe9beae49a2e498c660a66902d"
 
 
 def BuildDocument(
@@ -68,11 +64,7 @@ def BuildDocument(
     return ReplaceData(SourceDoc, sketches=(Sketch,))
 
 
-def TestFCPTP() -> None:
-    Overrides = PadFieldMap(KPoints, 9.0)
-    PayloadData = EncodeProgram(Overrides)
-    assert len(PayloadData) == 11205
-    assert Hashlib.sha256(PayloadData).hexdigest() == KResolvedDigest
+def CheckFCFrame(ResolvedData: bytes) -> None:
     assert len(KResolvedOps) == 2708
     assert len(KFieldOwners) == 495
     CursorPos = 0
@@ -92,18 +84,17 @@ def TestFCPTP() -> None:
         ObjectCount += KindName in {"definition", "classref", "objectref", "null"}
         DefineCount += KindName == "definition"
         CursorPos += FieldWidth
-    assert CursorPos == len(PayloadData)
+    assert CursorPos == len(ResolvedData)
     assert ObjectCount == 332
     assert DefineCount == 40
-    assert Overrides[6121] == 0.0
-    assert Overrides[6623] == 0.019
-    assert (
-        Overrides[10014]
-        == Overrides[10086]
-        == Overrides[10574]
-        == Overrides[10598]
-        == 0.009
-    )
+
+
+def CheckNVFrame(ArchiveData: SldprtArchive) -> None:
+    assert "_MO_VERSION_19000/Biography" in ArchiveData.streams
+    assert "_MO_VERSION_18000/Biography" not in ArchiveData.streams
+    assert len(ArchiveData.require("Contents/Definition")) == 3816
+    assert len(ArchiveData.require("Contents/CMgr")) == 2159
+    assert len(ArchiveData.require(ConfigStream)) == 25476
 
 
 def TestFiveWrite(TmpPath: FilePath) -> None:
@@ -124,6 +115,11 @@ def TestFiveWrite(TmpPath: FilePath) -> None:
     assert ResultData.IsNearLossless is True
     assert len(ResolvedData) == 11205
     assert Hashlib.sha256(ResolvedData).hexdigest() == KResolvedDigest
+    CheckFCFrame(ResolvedData)
+    assert NativeData.bounding_box is not None
+    assert NativeData.bounding_box.center_mm == PytestLib.approx((18.5, 16.0, 4.5))
+    assert NativeData.bounding_box.diameter_mm == PytestLib.approx(57.56735185849701)
+    CheckNVFrame(ArchiveData)
     assert tuple(
         (Evalue.kind, Evalue.coordinates) for Evalue in NativeData.sketches[0].profiles
     ) == (("polyline", (0.0, 0.0, 35.0, 0.0, 42.0, 17.0, 19.0, 32.0, -5.0, 14.0)),)
@@ -141,6 +137,35 @@ def TestFiveWrite(TmpPath: FilePath) -> None:
     )
 
 
+def TestFCPDV(TmpPath: FilePath) -> None:
+    Points = (
+        (5.0, -10.0),
+        (45.0, -5.0),
+        (35.0, 25.0),
+        (12.0, 37.0),
+        (-8.0, 12.0),
+    )
+    SourceDoc = BuildDocument(Points, Depth=37.0)
+    TargetPath = TmpPath / "Shifted37.SLDPRT"
+    ResultData = WriteDoc(SourceDoc, TargetPath, allow_carrier=False)
+    ArchiveData = SldprtArchive.open(TargetPath)
+    NativeData = DecodeNativeModel(
+        ArchiveData.require(KeyStream),
+        ArchiveData.require(ResolvedStream),
+        ArchiveData.require(ConfigStream),
+        resolved_stream=ResolvedStream,
+    )
+    assert ResultData.IsVendorLoadable is True
+    assert ResultData.IsAppUsable is True
+    assert ResultData.IsNearLossless is True
+    assert NativeData.operations[0].length_mm == PytestLib.approx(37.0)
+    assert NativeData.bounding_box is not None
+    assert NativeData.bounding_box.center_mm == PytestLib.approx((18.5, 13.5, 18.5))
+    ExpectedDiameter = 2000.0 * ((26.5**2 + 23.5**2 + 18.5**2) ** 0.5)
+    assert NativeData.bounding_box.diameter_mm == PytestLib.approx(ExpectedDiameter)
+    CheckNVFrame(ArchiveData)
+
+
 def TestOpenFails(TmpPath: FilePath) -> None:
     SourceDoc = BuildDocument()
     Sketch = SourceDoc.sketches[0]
@@ -152,7 +177,7 @@ def TestOpenFails(TmpPath: FilePath) -> None:
     SourceDoc = ReplaceData(SourceDoc, sketches=(Sketch,))
     assert HasVendorPartEncoding(SourceDoc) is False
     with PytestLib.raises(ApplicationUsabilityError):
-        WriteDoc(SourceDoc, TmpPath / "Open.SLDPRT", allow_carrier=False)
+        _ = WriteDoc(SourceDoc, TmpPath / "Open.SLDPRT", allow_carrier=False)
 
 
 def TestCrossFails(TmpPath: FilePath) -> None:
@@ -160,4 +185,4 @@ def TestCrossFails(TmpPath: FilePath) -> None:
     SourceDoc = BuildDocument(Crossed)
     assert HasVendorPartEncoding(SourceDoc) is False
     with PytestLib.raises(ApplicationUsabilityError):
-        WriteDoc(SourceDoc, TmpPath / "Crossing.SLDPRT", allow_carrier=False)
+        _ = WriteDoc(SourceDoc, TmpPath / "Crossing.SLDPRT", allow_carrier=False)

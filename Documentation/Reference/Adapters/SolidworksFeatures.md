@@ -104,7 +104,10 @@ It does not accept sketch dimensions, construction entities, fixed entities, ope
 The five-line resolved stream carries ten independent vertex fields and four depth copies.
 Public writing produces 332 serialized objects and 2,708 typed operations across 11,205 bytes.
 Kit reads the profile back as an ordered polyline and reconstructs the editable depth.
-See [the measured change record](../Changes/SolidworksFiveLineNativeHistories.md) and [the five-line format closure](../../../re/solidworks/records/PolylineFivePad.md).
+The typed 2026 profile requires a matching document-generation hierarchy; naming a 2026 storage prefix is not enough.
+The independent [generation-2026 manager](../Changes/Solidworks/SolidworksCmgr2026Generation.md) constructs its native records for one feature atom and has passed open, rebuild, body-count, volume, and live-depth-edit checks.
+Fresh public five-line writing also passes these checks for the 9 mm control and shifted 37 mm profile; see [the completed 2026 configuration family](../Changes/Solidworks/SolidworksCmgr2026Generation.md). Later inserts account for the computed growth of this visual family rather than retaining pre-growth positions.
+See [the measured change record](../Changes/Solidworks/SolidworksFiveLineNativeHistories.md), [the five-line format closure](../../../re/solidworks/records/PolylineFivePad.md), and [the generation-skew gotcha](../../Gotchas/Conversion/SolidworksDocumentGenerationSkew.md).
 
 ## Sources
 

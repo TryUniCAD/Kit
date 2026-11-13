@@ -31,7 +31,7 @@ internal static class TraceSession
 
     public static int Main(string[] args)
     {
-        if (args.Length < 3 || args.Length > 6)
+        if (args.Length < 3 || args.Length > 7)
         {
             Console.Error.WriteLine("usage: TraceSession log script part [hard_seconds quiet_seconds]");
             return 64;
@@ -42,6 +42,7 @@ internal static class TraceSession
         int hardSeconds = args.Length > 3 ? int.Parse(args[3], CultureInfo.InvariantCulture) : 300;
         int quietSeconds = args.Length > 4 ? int.Parse(args[4], CultureInfo.InvariantCulture) : 45;
         int attachPid = args.Length > 5 ? int.Parse(args[5], CultureInfo.InvariantCulture) : 0;
+        string alternateOracle = args.Length > 6 ? args[6] : null;
         string debuggerPath = @"C:\Users\odin\Documents\kit-re\debuggers\cdb.exe";
         string executablePath = @"C:\Program Files\SOLIDWORKS Corp\SOLIDWORKS\SLDWORKS.exe";
         if (!File.Exists(logPath) && !Directory.Exists(Path.GetDirectoryName(logPath)) || !File.Exists(scriptPath) || !File.Exists(partPath) || !File.Exists(debuggerPath) || !File.Exists(executablePath) || hardSeconds <= 0 || quietSeconds <= 0 || quietSeconds >= hardSeconds)
@@ -89,7 +90,7 @@ internal static class TraceSession
             debugger.BeginErrorReadLine();
             if (attachPid > 0)
             {
-                string oraclePath = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(logPath), "..", "OracleMeasure.exe"));
+                string oraclePath = alternateOracle ?? Path.GetFullPath(Path.Combine(Path.GetDirectoryName(logPath), "..", "OracleMeasure.exe"));
                 if (!File.Exists(oraclePath))
                 {
                     throw new FileNotFoundException("oracle reader is missing", oraclePath);

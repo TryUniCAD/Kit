@@ -8,7 +8,6 @@ from convert.adapters.solidworks.programs.Owners.Sldmodu.DimensionC.Serialize im
 )
 
 
-# isolated method data lets new reverse engineered serializers compose independently
 KMethodProgram: KMethodProgramType = (
     KOwnerSites,
     {
