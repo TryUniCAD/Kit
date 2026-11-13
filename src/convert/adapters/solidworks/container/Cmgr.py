@@ -842,7 +842,7 @@ def StampList(Stamps: tuple[FeatureStamp, ...]) -> bytes:
 # this definition exists because focused behavior needs one stable owner
 def BuildModel(Params: CMgrParameters) -> Model:
     if Params.generation == KModernGeneration:
-        from convert.adapters.solidworks.container.Cmgr2026 import (
+        from convert.adapters.solidworks.container.CmgrNextGen import (
             BuildModel as BuildNextGen,
         )
 

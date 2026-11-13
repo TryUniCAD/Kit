@@ -12,7 +12,7 @@ The scope is deliberately limited to a single feature atom. The encoder rejects 
 
 The existing `Build` argument is optional. When it is omitted, the encoder chooses generation 18000 with build 2025268 or generation 19000 with build 2026306. Existing 2025 callers and public keyword spellings retain their prior default bytes.
 
-`src/convert/adapters/solidworks/container/Cmgr2026.py` contains the independent appearance and tail records. `Cmgr.py` performs generation validation and dispatch without invoking CAD software in production.
+`src/convert/adapters/solidworks/container/CmgrNextGen.py` contains the independent appearance and tail records. `Cmgr.py` performs generation validation and dispatch without invoking CAD software in production.
 
 ## Verification
 

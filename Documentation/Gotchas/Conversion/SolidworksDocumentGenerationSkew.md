@@ -16,7 +16,7 @@ The generation-sensitive records are not interchangeable versions of an opaque c
 
 Forward the document generation explicitly and emit a coherent record family for that generation. Do not mix a newly named `_MO_VERSION_19000` prefix with 2025 configuration bodies, and do not replace configuration bodies with donor streams.
 
-The independent 2026 `CMgr` encoder in `src/convert/adapters/solidworks/container/Cmgr2026.py` retains the existing typed archive framing and field contracts. Its single-feature output rebuilt in SOLIDWORKS 34.5.2 with one body, 9,189 mm³, and an editable `D1@Boss-Extrude1`; a 17 mm unsaved live edit rebuilt to 17,357 mm³.
+The independent 2026 `CMgr` encoder in `src/convert/adapters/solidworks/container/CmgrNextGen.py` retains the existing typed archive framing and field contracts. Its single-feature output rebuilt in SOLIDWORKS 34.5.2 with one body, 9,189 mm³, and an editable `D1@Boss-Extrude1`; a 17 mm unsaved live edit rebuilt to 17,357 mm³.
 
 `Contents/Config-0` also shifts when its visual body grows. Once the 2026 visual replacement adds 196 bytes, additions must be anchored after that computed delta, not at the pre-growth offsets. For example, the plane-style record belongs at 2796, not 2600. Using the earlier offset splits the reference-plane record before its new tail and raises `AfxThrowFileException(1,-1,null)` (`genericException`, per Microsoft).
 
