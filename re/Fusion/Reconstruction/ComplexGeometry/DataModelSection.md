@@ -14,7 +14,7 @@ The draft also proposes one row for the tag table in "ASM envelope".
 Spline surfaces, interpolated curves and parameter-space curves are subtype scopes inside ordinary ASM records.
 Kit reads and writes them in the typed journal codec.
 It also authors explicit NURBS sheets and closed solids.
-The [complex geometry entry](../../Changes/Fusion/Geometry/FusionComplexGeometry.md) gives the API, the limits and the native acceptance.
+The [complex geometry entry](../../../../Documentation/Changes/Fusion/Geometry/FusionComplexGeometry.md) gives the API, the limits and the native acceptance.
 
 ### Record kinds
 
@@ -41,12 +41,12 @@ A coedge record keeps a pointer to its `pcurve` record, and -1 means no pcurve.
 Shell slot 6 is the first wire of the shell.
 `FDM_feature_attrib_def` carries a `feature_data` or a `thread_face_data` layout.
 A live edge record can have a null curve when it closes a cone face at its apex, and its start vertex is its end vertex.
-The [wire shell gotcha](../../Gotchas/Conversion/Fusion/Geometry/WireShellSlots.md), the [degenerate edge gotcha](../../Gotchas/Conversion/Fusion/Geometry/DegenerateHoleEdges.md) and the [thread attribute gotcha](../../Gotchas/Conversion/Fusion/Geometry/ThreadAttributeLayouts.md) give the layouts.
+The [wire shell gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Geometry/WireShellSlots.md), the [degenerate edge gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Geometry/DegenerateHoleEdges.md) and the [thread attribute gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Geometry/ThreadAttributeLayouts.md) give the layouts.
 
 The 8 corpus `tvertex-vertex` records have a tolerance equal to the largest tolerance of their `tedge-edge` records plus 1e-10.
 Kit refuses a tolerant vertex that is tighter than one of its tolerant edges.
 It also refuses a referenced form whose sign disagrees with the coedge sense.
-The [referenced pcurve form gotcha](../../Gotchas/Conversion/Fusion/Geometry/ReferencedPcurveForms.md) and the [tolerant vertex gotcha](../../Gotchas/Conversion/Fusion/Geometry/TolerantVertexOrder.md) give the corpus counts and the native cases.
+The [referenced pcurve form gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Geometry/ReferencedPcurveForms.md) and the [tolerant vertex gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Geometry/TolerantVertexOrder.md) give the corpus counts and the native cases.
 
 ### Subtype grammar
 
@@ -78,7 +78,7 @@ The 157 field names in 27 record classes came from earlier binary inspection.
 That evidence was removed, so the names are research labels.
 They are not confirmed by a black-box experiment.
 `cl_loft_spl_sur`, `cyl_spl_sur`, `sum_spl_sur` and the helix subtypes keep the positional tree.
-The [typed field order gotcha](../../Gotchas/Conversion/Fusion/Geometry/TypedSubtypeFieldOrder.md) gives the rule for edits.
+The [typed field order gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Geometry/TypedSubtypeFieldOrder.md) gives the rule for edits.
 
 ### Subtype references
 
@@ -87,12 +87,12 @@ Each inline definition adds one entry in pre-order, and a reference adds none.
 The target is always earlier in the stream.
 The slot sets the family of the target, but not its subtype name.
 A surface slot of the corpus names nine different surface subtypes.
-The [reference targets](../../../re/Fusion/Reconstruction/ComplexGeometry/SubtypeTargets.json) give the counts.
+The [reference targets](SubtypeTargets.json) give the counts.
 
 An entity permutation must renumber every reference.
 A subset of entities must inline each definition that it no longer contains.
 An order that puts a reference before its definition cannot be written.
-The [subtype family gotcha](../../Gotchas/Conversion/Fusion/Geometry/SubtypeFamilies.md) gives the workaround.
+The [subtype family gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Geometry/SubtypeFamilies.md) gives the workaround.
 
 ### B-spline blocks
 
@@ -107,13 +107,13 @@ The [subtype family gotcha](../../Gotchas/Conversion/Fusion/Geometry/SubtypeFami
 | Surface rational form | `both`, `u` or `v` |
 
 The Fusion API uses p+1 end copies and a U-major pole order.
-The [end knot gotcha](../../Gotchas/Conversion/Fusion/Geometry/SplineEndKnots.md) and the [pole order gotcha](../../Gotchas/Conversion/Fusion/Geometry/SplinePoleOrder.md) give the conversions.
+The [end knot gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Geometry/SplineEndKnots.md) and the [pole order gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Geometry/SplinePoleOrder.md) give the conversions.
 
 ### Pcurve sense
 
 A pcurve runs on the edge range when the coedge and pcurve reversal flags agree.
 It runs on the negated edge range when they differ.
-The [pcurve sense gotcha](../../Gotchas/Conversion/Fusion/Geometry/PcurveSense.md) gives the corpus counts and the exceptions.
+The [pcurve sense gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Geometry/PcurveSense.md) gives the corpus counts and the exceptions.
 
 ### Seams and collapsed sides
 
@@ -124,7 +124,7 @@ The 31 corpus seams put the offset on the forward use 21 times and on the revers
 A collapsed side of a B-spline surface has no edge.
 Each of the 4 corpus faces with a collapsed side has one seam edge and one closed edge.
 Coedges on plane, cone and torus faces store no `pcurve`.
-The [seam gotcha](../../Gotchas/Conversion/Fusion/Geometry/SeamPcurveOffsets.md), the [collapsed side gotcha](../../Gotchas/Conversion/Fusion/Geometry/SingularSplineSides.md) and the [analytic coedge gotcha](../../Gotchas/Conversion/Fusion/Geometry/AnalyticFacePcurves.md) give the counts and the native results.
+The [seam gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Geometry/SeamPcurveOffsets.md), the [collapsed side gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Geometry/SingularSplineSides.md) and the [analytic coedge gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Geometry/AnalyticFacePcurves.md) give the counts and the native results.
 
 ### Corpus coverage
 
@@ -153,9 +153,9 @@ Fusion reported their straight cubic edges as `Line3D`.
 
 Fusion did not repeat its own rebuild of a rule fillet.
 Two control runs differed by a relative 5.06e-5.
-The [rule fillet gotcha](../../Gotchas/Conversion/Fusion/Geometry/RuleFilletRebuildDrift.md) gives the comparison rule.
+The [rule fillet gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Geometry/RuleFilletRebuildDrift.md) gives the comparison rule.
 The `.smb` snapshot of a fillet archive holds the bodies before the fillet.
-The [snapshot gotcha](../../Gotchas/Conversion/Fusion/Geometry/SnapshotFeatureInputs.md) gives the measured bodies.
+The [snapshot gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Geometry/SnapshotFeatureInputs.md) gives the measured bodies.
 
 Nine corpus histories with helix subtypes, thread attributes, wire records, a degenerate edge or the largest records were re-emitted byte for byte.
 Fusion opened each one and its control with equal values at every stage within 1e-8.
@@ -165,7 +165,7 @@ A knot insertion in a `cl_loft_spl_sur`, `sum_spl_sur`, `cyl_spl_sur`, `par_int_
 A refined `cyl_spl_sur` profile reached through a `curve` reference changed the reported edge.
 Fusion reported the refined B-spline pole for pole in each edited face, coedge or edge, except one pcurve.
 Fusion reported that refined `int_int_cur` pcurve as the same curve with the inserted knot at full multiplicity.
-The [refined pcurve knots gotcha](../../Gotchas/Conversion/Fusion/Geometry/RefinedPcurveKnots.md) gives the comparison.
+The [refined pcurve knots gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Geometry/RefinedPcurveKnots.md) gives the comparison.
 Fusion reported an edited tolerant edge and tolerant vertex with the stored values.
 An edited stitch hint survived a Fusion export.
 
@@ -175,7 +175,7 @@ Each kept its topology, area and surface poles through save and reopen, and each
 Fusion reported each seam coedge curve with its offset added.
 It also reported coedge curves on plane and cylinder faces that store no `pcurve`.
 `BRepBody.volume` of two seamed solids differed by up to 3.26e-5 relative, and the very high accuracy volume agreed within 2.4e-10.
-The [body volume gotcha](../../Gotchas/Conversion/Fusion/Geometry/BodyVolumeAccuracy.md) gives the values.
+The [body volume gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Geometry/BodyVolumeAccuracy.md) gives the values.
 
 ### Boundaries
 

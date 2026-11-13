@@ -69,7 +69,7 @@ The patch program has one line for each converted face.
 Each line lists TSM faces with a window and an offset.
 A `ref N` scope indexes a table of subtype definitions in stream order.
 Text uses tag 7 up to 255 bytes and tag 8 above.
-The [subtype gotcha](../../Gotchas/Conversion/Fusion/TSpline/SplineSubtypeTable.md) and the [text width gotcha](../../Gotchas/Conversion/Fusion/TSpline/SplineTextWidth.md) give the measured values.
+The [subtype gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/TSpline/SplineSubtypeTable.md) and the [text width gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/TSpline/SplineTextWidth.md) give the measured values.
 
 ### Converted body authority
 
@@ -78,14 +78,14 @@ It takes the body from the stored BRep members.
 It did not convert the cage again on open, on `computeAll`, or on an empty edit.
 It refused to open a Form document without the BRep members.
 It accepted a stale BRep with health 0.
-The [authority gotcha](../../Gotchas/Conversion/Fusion/TSpline/StoredFormBrepAuthority.md) gives the variants.
+The [authority gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/TSpline/StoredFormBrepAuthority.md) gives the variants.
 
 A `t_spl_sur` record holds a stored B-spline surface.
 Fusion used a moved stored surface as the face geometry, and a set `TsSurface.bConversionFailed` flag did not start a conversion.
 So the stored surface is the exact face geometry, not an approximation of the program.
 Earlier binary inspection also said that `t_spl_sur` derives from `exact_spl_sur` and that the kernel refuses one without the stored surface.
 That evidence was removed, and those two claims are not confirmed by a black-box experiment.
-The [converted surface gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConvertedSurfaceIsExact.md) gives the details.
+The [converted surface gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/TSpline/ConvertedSurfaceIsExact.md) gives the details.
 A writer must therefore store the exact converted body.
 
 ### Grid cage conversion
@@ -97,7 +97,7 @@ The knots, patch cells and progenitor windows are multiples of the knot interval
 The vertex spoke frame and the compound grips decide that order.
 Fusion also records each interior knot with a third-derivative jump in the surface and curve discontinuity lists.
 `SwapGridCage` puts a new cage of the same grid layout into a Form document.
-The [pole order gotcha](../../Gotchas/Conversion/Fusion/TSpline/GridCagePoleOrder.md) and the [discontinuity gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConvertedDiscontinuityLists.md) give the rules.
+The [pole order gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/TSpline/GridCagePoleOrder.md) and the [discontinuity gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/TSpline/ConvertedDiscontinuityLists.md) give the rules.
 
 ### Stencil cage conversion
 
@@ -107,10 +107,10 @@ Single-grip probes recovered the map for eight layouts, and further moves of all
 Regular regions use small dyadic and triadic fractions, and vertex limit points use the Catmull–Clark limit mask.
 The G1 cap weights around extraordinary vertices are not small fractions or simple quadratic surds.
 They repeat between layouts with the same corner neighbourhood.
-Fusion builds them by solving a sparse linear system, as the [cap gotcha](../../Gotchas/Conversion/Fusion/TSpline/ExtraordinaryCapIsSolved.md) shows.
+Fusion builds them by solving a sparse linear system, as the [cap gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/TSpline/ExtraordinaryCapIsSolved.md) shows.
 `ConvertCage` applies the packaged table of the cage layout, and `SwapFormCage` writes the result into a document of that layout.
 Fusion records each interior knot in the discontinuity list of the lowest derivative order that jumps there.
-The [linearity gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConversionIsLinear.md) and the [valence gotcha](../../Gotchas/Conversion/Fusion/TSpline/CageValenceAboveFour.md) give the evidence.
+The [linearity gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/TSpline/ConversionIsLinear.md) and the [valence gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/TSpline/CageValenceAboveFour.md) give the evidence.
 
 | Layout | Grips | Faces, edges, vertices | Source |
 | --- | --- | --- | --- |
@@ -123,16 +123,16 @@ The [linearity gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConversionIsLinea
 Each TSM grip coordinate is x · w, so the table applies to the homogeneous grips.
 A converted face or curve is rational only when one of its rows uses a weighted grip.
 It then stores the `nurbs` cache with the form `both`, Cartesian poles and their weights.
-The [weighted face gotcha](../../Gotchas/Conversion/Fusion/TSpline/WeightedFaceRationality.md) gives the rule.
+The [weighted face gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/TSpline/WeightedFaceRationality.md) gives the rule.
 Kit refuses every other layout and every stencil layout with knot intervals other than 1.
-Bands that join two extraordinary valences change their faces with the grips, as the [layout gotcha](../../Gotchas/Conversion/Fusion/TSpline/LayoutFollowsGeometry.md) shows.
+Bands that join two extraordinary valences change their faces with the grips, as the [layout gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/TSpline/LayoutFollowsGeometry.md) shows.
 
 The geometry follows the map, but the crease edges do not keep one structure.
 Fusion stores a crease as `tangent` while its faces meet flat and as `unknown` once they bend.
 It split some bent creases into two edges, at a root of the dihedral function or at the start of a flat part.
 `ClassifyEdges` measures the crease angle, splits at flat knots and labels each piece `tangent` up to 1° and `unknown` above. It refuses the two split cases that the rule does not cover.
 Fusion also refuses a cage whose faces fold back, and `CheckFolds` refuses the same bodies.
-The [crease edge class gotcha](../../Gotchas/Conversion/Fusion/TSpline/CreaseEdgeClass.md) and the [folded cage gotcha](../../Gotchas/Conversion/Fusion/TSpline/FoldedCageRefusal.md) give the evidence.
+The [crease edge class gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/TSpline/CreaseEdgeClass.md) and the [folded cage gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/TSpline/FoldedCageRefusal.md) give the evidence.
 
 ### Source-free Form documents
 
@@ -151,10 +151,10 @@ These fields stay fixed when the grips of a layout move, apart from rounding noi
 The production round trip read 32 local Form archives.
 All 32 gave an equal model after emission and byte-equal members, except for canonical `.protein` packages.
 The three edited archives store graphics world kind 2, which Kit reads with the BRep level-of-detail layout.
-The [edited world gotcha](../../Gotchas/Conversion/Fusion/TSpline/EditedFormGraphicsWorld.md) gives the layout.
+The [edited world gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/TSpline/EditedFormGraphicsWorld.md) gives the layout.
 Archives saved by current Fusion can have bytes after the final ACT record.
-Kit keeps those bytes as `ParsedSegment.BulkSlack`, and the [ACT slack gotcha](../../Gotchas/Conversion/Fusion/Records/FusionActBulkSlack.md) gives the evidence.
-[Native acceptance](../../../re/Fusion/LocalOracle/FormDocuments/Acceptance/NativeAcceptance.json), SHA-256 `b018171b82ad933a65611f5e56b54f0b48b6660bae06bc936267544f876fa552`, accepted four re-emitted controls in Fusion 2706.1.17.
+Kit keeps those bytes as `ParsedSegment.BulkSlack`, and the [ACT slack gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Records/FusionActBulkSlack.md) gives the evidence.
+[Native acceptance](../../LocalOracle/FormDocuments/Acceptance/NativeAcceptance.json), SHA-256 `b018171b82ad933a65611f5e56b54f0b48b6660bae06bc936267544f876fa552`, accepted four re-emitted controls in Fusion 2706.1.17.
 
 | Case | Faces, edges, vertices | Area after edit (cm²) | Volume after edit (cm³) |
 | --- | --- | --- | --- |
@@ -165,7 +165,7 @@ Kit keeps those bytes as `ParsedSegment.BulkSlack`, and the [ACT slack gotcha](.
 
 Each re-emitted document equalled its native control within 1e-7 after open, edit, save, and reopen.
 The Form health stayed 0, and zero documents remained open.
-[Grid acceptance](../../../re/Fusion/LocalOracle/FormDocuments/Grid/NativeAcceptance.json), SHA-256 `ba7536f4cfed4b6cc60a50aed672d62bbcb96168571c3050527f4fd024266769`, accepted two Kit-converted plane documents in Fusion 2706.1.17.
+[Grid acceptance](../../LocalOracle/FormDocuments/Grid/NativeAcceptance.json), SHA-256 `ba7536f4cfed4b6cc60a50aed672d62bbcb96168571c3050527f4fd024266769`, accepted two Kit-converted plane documents in Fusion 2706.1.17.
 Each document equalled Fusion's own conversion of the same cage within 1e-8 after open, edit, conversion, save and reopen.
 
 | Case | Area as loaded (cm²) | Area after edit (cm²) |
@@ -178,9 +178,9 @@ Each run compared the Kit document with Fusion's conversion of the same TSM with
 
 | Report | SHA-256 | Kit documents |
 | --- | --- | --- |
-| [Source-free bodies](../../../re/Fusion/LocalOracle/FormDocuments/Sourceless/NativeAcceptance.json) | `acc43da40fa16f28a3441f719c43cf6608b0b56081e1606495e2a986fd646ee4` | 9 cages with typed bodies |
-| [Cage documents](../../../re/Fusion/LocalOracle/FormDocuments/CageDocuments/NativeAcceptance.json) | `76d2a6a35c902f6776270584b1db9363b0f6ecb9c4c2e85c3e68e26822a7ad8f` | 14 cages with `ConvertForm` bodies |
-| [Stencil swaps](../../../re/Fusion/LocalOracle/FormDocuments/StencilAccept/NativeAcceptance.json) | `f7455953a99fb482fa03054aa73e165a40cbf0d683c87a8139f6dae84e25a95d` | 8 cages swapped into native documents |
+| [Source-free bodies](../../LocalOracle/FormDocuments/Sourceless/NativeAcceptance.json) | `acc43da40fa16f28a3441f719c43cf6608b0b56081e1606495e2a986fd646ee4` | 9 cages with typed bodies |
+| [Cage documents](../../LocalOracle/FormDocuments/CageDocuments/NativeAcceptance.json) | `76d2a6a35c902f6776270584b1db9363b0f6ecb9c4c2e85c3e68e26822a7ad8f` | 14 cages with `ConvertForm` bodies |
+| [Stencil swaps](../../LocalOracle/FormDocuments/StencilAccept/NativeAcceptance.json) | `f7455953a99fb482fa03054aa73e165a40cbf0d683c87a8139f6dae84e25a95d` | 8 cages swapped into native documents |
 
 The cage documents cover a warped plane grid, the box, the symmetric box, the creased box and the creased plane.
 They also cover the 3 × 3 box and the valence-5, valence-6 and valence-8 prisms.
@@ -191,4 +191,4 @@ Two fourth-pass runs accepted seven more Kit documents with zero documents open 
 They cover a fresh valence-7 cage, four weighted cages and two grids with knot intervals 2 and 3.
 Every Kit body equalled the loaded Fusion conversion within 1.2e-13 cm, and every edited body matched exactly.
 
-The [Form document change entry](../../Changes/Fusion/TSpline/FusionFormDocuments.md) gives the complete procedure.
+The [Form document change entry](../../../../Documentation/Changes/Fusion/TSpline/FusionFormDocuments.md) gives the complete procedure.
