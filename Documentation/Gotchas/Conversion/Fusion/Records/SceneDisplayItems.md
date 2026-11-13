@@ -6,18 +6,18 @@ A body LOD node with a nonzero `HasLODs` mask holds a `DisplayItemType` word of 
 
 ## Actual behavior
 
-`LODGeometryNodeSerializer::SerializeForBody` writes the display item type of the render geometry. Type 0 is followed by a `RenderGeom` link. Other types are followed by the data of the display item serializer.
+A body LOD node writes the display item type of its render geometry. Type 0 is followed by a `RenderGeom` link. Other types are followed by the data of the display item.
 
-| Type | Native serializer | Data after the type word |
+| Type | Item | Data after the type word |
 | --- | --- | --- |
-| 6 | `OgsEnhancedEdgeSerializer` | `Props` u32[4]: stream, offset, position floats, normal floats |
-| 7 | `OgsEnhancedFaceSerializer` | `Props` u32[6], `EdgeNum` u32, edge ordinals u32[`EdgeNum`] |
+| 6 | Edge | `Props` u32[4]: stream, offset, position floats, normal floats |
+| 7 | Face | `Props` u32[6], `EdgeNum` u32, edge ordinals u32[`EdgeNum`] |
 
 The six face `Props` words are stream, offset, position floats, normal floats, texture floats and index count.
 
 An edge item writes six floats for each vertex in `Fusion_mesh_NNN`. The floats are the position and then the normal. A face item writes eight floats for each vertex: position, normal and texture coordinates. The 32-bit triangle indices follow the vertex data.
 
-A face edge ordinal is the serialization position of an earlier type 6 item in the same body. The native body serializer creates one ordinal map for each body.
+A face edge ordinal is the serialization position of an earlier type 6 item in the same body.
 
 Kit raised `ValueError("Unsupported graphics display item or LOD set")` when it found type 6.
 

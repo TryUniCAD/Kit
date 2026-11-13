@@ -40,7 +40,7 @@ The typed BRep journal codec now reads and writes spline surfaces, interpolated 
 | `srf_srf_v_bl_spl_sur`, `g2_blend_spl_sur` | `SrfSrfBlend`, `GtwoBlend`, with the parts of `Complex.Typed.BlendParts` | `Complex.Typed.BlendRecords` |
 | `VBL_SURF` | `VblSurf`, `VblBoundary` | `Complex.Typed.VertexRecords` |
 
-`KTypedCodecs` in `Complex.Typed.TypedCodecs` maps each of these names to its two converters. The reader converts the grammar tree to the record, and the writer converts it back, so the bytes do not change. The field names come from the save routines of the installed ASM kernel. [Kernel fields](../../../../re/Fusion/Reconstruction/ComplexGeometry/TypedFields/KernelFields.json) gives 92 derived and 65 inferred names in 27 records. `cl_loft_spl_sur`, `cyl_spl_sur`, `sum_spl_sur`, `helix_spl_line` and `helix_int_cur` keep the tree form.
+`KTypedCodecs` in `Complex.Typed.TypedCodecs` maps each of these names to its two converters. The reader converts the grammar tree to the record, and the writer converts it back, so the bytes do not change. The field names, 92 derived and 65 inferred in 27 records, came from binary inspection of the installed ASM kernel. That evidence was removed at the tip, and a black-box experiment does not confirm the names. The byte-exact round trip does not depend on them. `cl_loft_spl_sur`, `cyl_spl_sur`, `sum_spl_sur`, `helix_spl_line` and `helix_int_cur` keep the tree form.
 
 | Family | Subtype names |
 | --- | --- |
@@ -263,7 +263,7 @@ Eight decoded corpus snapshots were byte-exact. Each imported as valid bodies an
 
 The [rule fillet gotcha](../../../Gotchas/Conversion/Fusion/Geometry/RuleFilletRebuildDrift.md) explains the last row. The [native coverage](../../../../re/Fusion/Reconstruction/ComplexGeometry/NativeCoverage.json) lists the subtypes in every member that Fusion opened.
 
-[Kernel evidence](../../../../re/Fusion/Reconstruction/ComplexGeometry/KernelEvidence.json) binds the field order to the save routines of the installed ASM kernel. It covers `exp_par_cur`, `exact_spl_sur`, `spl_sur`, `TCOEDGE`, `TEDGE`, `TVERTEX`, `ATTRIB_STITCH_HINT`, `ATTRIB_VERTEDGE` and `ATTRIB_SYS`. The current arm64 slice has SHA-256 `5ad7bc0099f1093e82f99110355ad2100b77fc47446c3d75befaaac81484d4a4`.
+Binary inspection first matched the field order of `exp_par_cur`, `exact_spl_sur`, `spl_sur`, `TCOEDGE`, `TEDGE`, `TVERTEX`, `ATTRIB_STITCH_HINT`, `ATTRIB_VERTEDGE` and `ATTRIB_SYS` to kernel save routines. That evidence was removed at the tip. The stored order keeps saved-document support: Kit re-emits the corpus members byte for byte, and Fusion opened them.
 
 ### Lifted bounds
 

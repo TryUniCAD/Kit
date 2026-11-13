@@ -22,7 +22,6 @@ No other source of a configured design was found.
 | --- | --- |
 | 232 design files and 21 nested designs in the Fusion app bundle | No configuration sidecar |
 | Fusion API | `Design.createConfiguredDesign` is the only call that makes a configured design |
-| `FusionXLayer10.dylib` | Also holds `Cannot retrieve configuration top table as the user is restricted.` |
 | Public web | No configured sample that downloads without a login |
 
 ## Workaround

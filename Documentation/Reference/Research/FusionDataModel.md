@@ -17,12 +17,12 @@ The [class catalogue](../../../re/Fusion/Study/fusion-class-catalog.json) record
 Only 76 classes have observed semantic labels in that catalogue.
 A class label does not establish its complete field schema.
 
-The new [binary catalogue](../../../re/Fusion/Reconstruction/BinaryClasses.json) supplies 1,218 class-identifier mappings from 14 installed libraries.
+The [class-identifier catalogue](../../../re/Fusion/Reconstruction/BinaryClasses.json) pairs 1,218 class names with their identifiers.
+Every one of those identifiers also appears in the runtime reflection capture described in [Native member schemas](#native-member-schemas).
 Its full-corpus inventory names all 403 declared Design classes: 283 have primary objects and 120 are registry-only declarations.
 Across 712 archives it records 120,210 class declarations and 227,625 primary objects, with zero metadata extraction failures.
 Each captured class has only one stored version in that corpus, so this coverage does not prove historical migration support.
-The [parameter registration evidence](../../../re/Fusion/Reconstruction/BinaryParameters.json) records exact field types, inheritance, version branches, and method addresses with source binary digests.
-The local [schema dump](../../../re/Fusion/LocalOracle/Allocation/ParameterSchema.xml) independently lists 155 current types and 404 member names.
+A local runtime [schema dump](../../../re/Fusion/LocalOracle/Allocation/ParameterSchema.xml) lists 155 current types and 404 member names.
 
 The [geometry frontier](../../../re/Fusion/Study/asm-geometry-frontier-current.json) records 1,160 blobs and 3,761 initial body graphs.
 Its scope excludes complete feature definitions, unexplained fields, trailing states, and native writing.
@@ -100,14 +100,14 @@ Each indexed segment pairs a bulk stream with a metadata stream.
 The metadata stream declares a class registry that is local to that segment.
 The same class can have a different number in another segment or file.
 A class identifier is therefore a GUID, not a number.
-The corpus declares 403 class GUIDs, and only the installed libraries name most of them.
+The corpus declares 403 class GUIDs, and saved files label only a few of them.
+The class-identifier catalogue and the runtime reflection capture name them all.
 
 A primary record and its inherited records have separate indexes.
 A complete object is the join of those records, not one contiguous byte range.
 Each class also has its own schema and inheritance versions.
-`Ns::MemberSet::addNewMember` registers members in two maps and a vector.
-That decompiled routine shows that map order is not wire order.
-The persistence visitor sets the wire order.
+Saved records store members in lexical name order, not in registration order.
+See [Bulk record](#bulk-record).
 
 The timeline comes from explicit references in `DcCreationOrderFeatures.representationFeatures`.
 Physical record order, object numbers, and the legacy `m_curFeatureId` field do not give the timeline.
@@ -130,8 +130,11 @@ They use similar integers for unrelated objects.
 | Delta-state identifiers | States of the kernel history stream     | Rollback restores the wrong state                        |
 | Persistent entity tags  | Named topology across states            | A feature selects a different face after a rebuild       |
 
-The journal header stores the current state, the maximum allocated state, a retained-state limit, and the next entity tag.
-A rolled-back native stream stores `3,10,0,6`, so the current and maximum states differ.
+The journal header starts with four counters.
+Kit reads them as the current state, the maximum allocated state, a retained-state limit, and the next entity tag.
+A rolled-back native stream stores `3,10,0,6`, so the first two counters differ.
+That rollback control supports the first two names.
+The names of the third and fourth counters are not confirmed by a black-box experiment.
 A writer must not derive one counter from another.
 A mesh body uses `pMeshUuid`, which equals the component registry `fusion_uuid`.
 Neither the filename UUID nor the container mesh UUID is that identity.
@@ -198,8 +201,8 @@ See the [mass precision gotcha](../../Gotchas/Conversion/Fusion/Api/FusionCircul
 
 The OGS graphics scene, ParaMesh streams, materials, previews, and configurations are separate members.
 Each member has its own serializer and identity rules.
-The OGS serializer selects resource framing per class.
-`PrimitiveLODGeometryNode` clears the resource flag, but `SimpleMesh`, `VertexBuffer`, and `CircleArc<double>` keep it.
+The OGS scene selects resource framing per class.
+In the saved circular controls, `PrimitiveLODGeometryNode` has the resource flag clear, but `SimpleMesh`, `VertexBuffer`, and `CircleArc<double>` have it set.
 See the [inline graphics gotcha](../../Gotchas/Conversion/Fusion/Graphics/FusionInlineGraphics.md).
 Complete document acceptance reconstructs these members instead of omitting them.
 Two members have limits.
@@ -209,9 +212,8 @@ See [DWG authority](#dwg-authority) and [Configurations](#configurations).
 
 ### Tooling and oracle layer
 
-External tools identify names but do not establish field widths or meanings.
-The installed universal Mach-O libraries require an arm64 slice before decompilation.
-Upstream structural research labels some T-spline fields differently from the native getters.
+External tools can name fields but do not establish field widths or meanings.
+Upstream structural research labels some T-spline fields differently from Kit's controlled experiments.
 The Fusion API is also not a perfect oracle.
 One axial torus request ignored its supplied center.
 Only measured native load, rebuild, edit, save, and reopen results decide a disputed field.
@@ -225,8 +227,7 @@ Uploads under the Personal-use licence stayed read-only, so an edited drawing co
 | Step                    | Evidence produced                                                                |
 | ----------------------- | -------------------------------------------------------------------------------- |
 | Corpus inventory        | 712 tracked archives, 21,269 members, and every declared class GUID              |
-| Binary symbol evidence  | 1,218 class-identifier mappings from 14 installed libraries                      |
-| External inventories    | `reverse-engineer` and REA outputs that bind exported names to library digests   |
+| Runtime reflection      | Registered class, member, type, and version names from a running Fusion          |
 | Controlled variants     | One-variable native files, such as the T-spline root and edge variants           |
 | Byte-exact re-emission  | Typed decode and encode that reproduce native members without source bytes      |
 | Independent authoring   | New files from dimensions, cages, or analytic bodies, with no source template    |
@@ -253,9 +254,6 @@ They are trailing bytes after the last record of a bulk stream and the embedded 
 The local `.f3z` example contains nine F3D members, `Manifest.json`, and `DesignDescription.json`.
 REA 6.8.0 identified those eleven entries and their digests in the [saved evidence](../../../re/Fusion/Reconstruction/ReaAssemblyEvidence.json).
 REA did not infer Fusion-specific semantics from that inventory.
-REA's Ghidra provider also decompiled `Ns::MemberSet::addNewMember` from an arm64 slice of the installed data-model library.
-The [binary-tool evidence](../../../re/Fusion/Reconstruction/ReaBinaryEvidence.json) records the exact input digest, address, tool versions, evidence identifier, and the resulting registration-map observations.
-The universal Mach-O input first required thinning; generic archive inspection and native-code decompilation are distinct REA capabilities.
 Its F3D inspection rejected the study's ZIP method 93 compression.
 See the [tool limitation](../../Gotchas/Conversion/Fusion/FusionArchiveInspection.md).
 
@@ -331,7 +329,7 @@ Kernel references additionally require the geometry blob and history state.
 | Persistent name key      | Schema-specific typed value         | Naming registry and feature lineage | Verified registry, creator, and selection route               |
 | Delta-state identity     | Native signed 32-bit integer        | Kernel history stream               | State-tree links and feature-to-history transitions           |
 | Current/max state IDs    | Independent signed 32-bit integers  | Kernel history stream               | Selected state versus allocation watermark                    |
-| Next entity tag          | Native signed 32-bit allocator      | Kernel history stream               | Entity tag allocation, separate from record indexes           |
+| Next entity tag          | Signed 32-bit integer               | Kernel history stream               | Separate from record indexes; the name is not confirmed by a black-box experiment |
 | Inline subtype reference | Schema-specific slot                | Local subtype table                 | Local subtype resolution, never global entity indexing        |
 | Link GUID                | GUID text                           | Root manifest link table            | Asset link row, version contexts and bundle `neutronRole`     |
 | Version-context token    | Unsigned 64-bit integer             | One segment's version contexts      | Cross-document reference to its context row                   |
@@ -389,7 +387,7 @@ The decimal code has a preceding `u32` byte count.
 The next indexed offset determines the payload boundary.
 There is no general payload-length field that can replace the metadata index.
 
-`Ns::EntityMetaType::save` then writes a counted root-identity string, an entity-subjects flag, and optional subject data.
+The payload then holds a counted root-identity string, an entity-subjects flag, and optional subject data.
 A separate flag precedes optional named metadata.
 The four zero bytes at the start of an ordinary payload are the empty root-string count, not a class version.
 Class schema versions belong to the metadata registry, represented by `MetaClass.SchemaVersion`.
@@ -401,7 +399,7 @@ That index locates this entity's observer interface in the referenced subject's 
 It is not a feature-control position.
 
 Member traversal uses lexical member-name order, separately for each class member set.
-Native registration order and C++ in-memory field offsets therefore do not define wire order.
+The registration order in the runtime reflection capture therefore does not define wire order.
 Inherited member sets and custom serializers still require their own traversal rules.
 
 The class code equals 256 plus the registry row position.
@@ -442,8 +440,9 @@ The following offsets start after that count word.
 | 31                | Ordered member references  | `11 * count` bytes |
 | `31 + 11 * count` | Owning component reference | 11 bytes           |
 
-The installed binary names this class `Ns::Parameters::ParameterTable` and the field at body offset 11 `highWaterMark`.
-It registers that field as an unsigned 32-bit integer, independently of the member list.
+The runtime reflection capture names this class `ParameterTableMetaType`.
+It lists `highWaterMark` as an unsigned 32-bit member, separate from the member list.
+The allocation captures below match that member to the four bytes at body offset 11.
 The writer takes `HighWaterMark` explicitly and derives only the actual member count.
 It must not reset allocation history to the number of surviving members.
 The current semantic proof admits only the stricter dense-ordinal profile in which this mark equals the member count.
@@ -458,12 +457,12 @@ The [controlled allocation captures](../../../re/Fusion/LocalOracle/Allocation/C
 | Delete the first      | 1                    | 2               | 2                          |
 | Create a third        | 2                    | 3               | 2, 3                       |
 
-The binary `getNextID` increments the mark and returns it; removal does not decrement it.
+Creating a parameter raises the mark, and removing one does not lower it.
 
 ### Name registry
 
 The registry class GUID is `E276745D-D84E-40D5-88BC-8C94DD4ACCDF`.
-The installed binary names it `Ns::Parameters::ParameterSearchByNameHelper`.
+The runtime reflection capture names it `ParameterSearchByNameHelperMetaType`.
 Its supported payload begins with an empty root-string count, byte `01`, and an entity-subject count.
 Each dependency row contains an eleven-byte reference and four zero bytes.
 The first row references the collection, followed by its members in the qualified collection order.
@@ -477,7 +476,7 @@ These subject rows describe native observer relationships, not expression depend
 ### Numeric parameter
 
 The numeric parameter class GUID is `7A6A3D31-BE74-4E19-9115-20642944C2E4`.
-The installed binary names it `Ns::Parameters::Parameter`.
+The runtime reflection capture names it `ParameterMetaType`.
 The supported full payload begins with an empty root-string count.
 The body then contains these fields in order:
 
@@ -522,7 +521,7 @@ The complete schema-10 member set has this lexical order:
 | ----------------- | ----------------- | ------------------------------------------------- |
 | `UserDefaultUnit` | Boolean           | False                                             |
 | `actIdentifier`   | Internal string   | Empty                                             |
-| `birthday`        | `u32`             | Expression-engine version, observed value 6       |
+| `birthday`        | `u32`             | Observed value 6; meaning not confirmed           |
 | `booleanValue`    | Boolean           | False for numeric values                          |
 | `comment`         | Internal string   | User comment                                      |
 | `creationIndex`   | `u32`             | Persistent allocation index                       |
@@ -542,7 +541,8 @@ The complete schema-10 member set has this lexical order:
 | `userName`        | Internal string   | Parameter identifier                              |
 | `value`           | Binary64          | Evaluated numeric value                           |
 
-The constructor gets `birthday` from the expression engine's `latestVersion`; it is not a date.
+`birthday` held 6 in every capture.
+The reading of `birthday` as an expression-engine version, not a date, is not confirmed by a black-box experiment.
 The terminal zero byte is an inherited null `CommonBaseEntity.rClientObject` reference.
 The following collection reference is inherited `ManagedEntity.rParent`.
 Member registration alone is insufficient to select persistent fields: member options exclude some registered fields, including the observed `expanded` member.
@@ -550,7 +550,7 @@ Member registration alone is insufficient to select persistent fields: member op
 ### Numeric binding
 
 The supported floating binding class is `D91D429C-1BB5-4640-B49F-69AF14F463E9`.
-The installed binary names it `Na::DesignCapture::DcDoubleParameter`.
+The runtime reflection capture names it `DcDoubleParameterMetaType`.
 Its full payload contains an empty root-string count followed by an 85-byte body.
 Offsets below start after that count word.
 
@@ -583,13 +583,9 @@ Complete typed integer writing is outside the implemented floating profile.
 
 The bookkeeping class is `6CCF41D5-40BE-48ED-A834-18F3EAED6C57`.
 Its 43-byte payload contains sixteen zeros, a binding reference, a raw `u64`, and eight zeros.
-The installed binary names the class `Na::DesignCapture::DynamicUpdateData` and the unsigned 64-bit member `timeStamp`.
-The timestamp's units, epoch, and initialization contract remain unproven.
+The runtime reflection capture names the class `DynamicUpdateDataMetaType` and lists an unsigned 64-bit member `timeStamp`.
+The timestamp's clock, units, epoch, and initialization contract are not confirmed by a black-box experiment.
 A writer must not invent those semantics or a default.
-
-Binary inspection shows `DynamicUpdateData.mark` stores the raw return from `std::chrono::system_clock::now`.
-The inspected macOS libc++ header defines that clock's duration as microseconds.
-This platform-specific fact does not establish a portable epoch, cross-platform representation, or a safe invented initialization value.
 
 ### Expressions, units, and sketches
 
@@ -620,10 +616,12 @@ In a history journal the first number is 50 in current saves and 40 or 30 in old
 Three tagged strings identify product, kernel version, and creation-date text.
 Three tagged doubles retain units in millimetres, resolution tolerance, and normal tolerance.
 
-Native disassembly resolves the modern internal version as `version * 100 + ((flags >> 1) & 127)`.
-The low history bit is not sufficient to infer journal presence because a header rewrite can clear it; explicit stream markers remain authoritative.
-The standalone binary importer converts lengths to Fusion centimetres using restored units divided by ten.
-See [binary route and header evidence](../../../re/Fusion/Reconstruction/BinaryImport/StaticEvidence.json).
+How Fusion combines the version word with the flags word is not confirmed by a black-box experiment.
+Kit does not infer journal presence from the low flag bit; explicit stream markers decide.
+Whether Fusion relies on that bit is not confirmed by a black-box experiment.
+A standalone SMB that declares units 10 and stores centimetre coordinates imported at its expected size.
+How the importer treats other unit values is not confirmed by a black-box experiment.
+See the [binary import framing](../../../re/Fusion/Reconstruction/BinaryImport/ImportFraming.md).
 
 The [study token reader](../../../re/Fusion/Study/asm_records.py) bounds each field and records its original offset.
 The independent [ezdxf SAB implementation](https://github.com/mozman/ezdxf/blob/master/src/ezdxf/acis/sab.py) supplied token vocabulary.
@@ -736,7 +734,8 @@ Its existence does not establish complete independent parametric generation.
 
 ## Native member schemas
 
-The read-only reflection bridge recovered 1,958 registered metatypes from Fusion 2706.1.17: 1,718 entity types, 198 value types, 36 other member metatypes, and six other types.
+A runtime reflection capture lists 1,958 registered metatypes from a running Fusion 2706.1.17: 1,718 entity types, 198 value types, 36 other member metatypes, and six other types.
+The capture outputs remain under `re/Fusion/LocalOracle/Reflection`; the native bridge that produced them was removed from the tree.
 The initial snapshot contained 1,916 distinct entity/value member sets, of which 260 were initialized, exposing 938 registered fields.
 The field categories were 492 intrinsic values, 158 collections, 130 strong references, 98 value types, 59 passive references, and one optional value.
 Uninitialized sets remain unknown; a null member list must not be treated as an empty serialized class.
@@ -744,22 +743,16 @@ The snapshot initially covered initialized schemas for 174 of the 403 declared c
 After 64 separately dispatched representative imports, the [expanded capture](../../../re/Fusion/LocalOracle/Reflection/Schema064.json) contains 488 initialized member sets and 1,910 fields.
 Those fields comprise 909 intrinsic values, 369 strong references, 320 collections, 179 value types, 132 passive references, and one optional value.
 [Coverage accounting](../../../re/Fusion/LocalOracle/Reflection/Coverage.json) identifies initialized schemas for 401 of 403 corpus classes.
-The remaining two are the `Ns::Entity` root and `Ns::EntityTracking::ProgenitorAuxDataValueMetaType`; their uninitialized member sets must not be silently treated as complete empty schemas.
+The remaining two are the `Entity` root and `ProgenitorAuxDataValueMetaType`; their uninitialized member sets must not be silently treated as complete empty schemas.
 All 64 source archives opened successfully in the isolated run, whose final report records zero open documents.
 The [import log](../../../re/Fusion/LocalOracle/Reflection/WarmProgress.json) records source digests and per-import schema digests; the intermediate raw snapshots are retained in `Reflection/Snapshots.tar.xz`.
 Opening vendor-authored controls supplies schema evidence, not acceptance of Kit-generated documents.
 
-[Schema bridge evidence](../../../re/Fusion/LocalOracle/BridgeEvidence.json) records exact C++ method signatures, RTTI checks, compiler ABI checks, native binary hashes, and bounded read-only traversal.
-[The raw native snapshot](../../../re/Fusion/LocalOracle/Reflection/Schema.json) preserves member registration order, script names, declared type encodings, native member categories, and option masks.
-Registration order differs from the lexical name traversal used by the studied persistence visitor.
-A member's C++ memory offset is not its wire offset.
+[The raw reflection snapshot](../../../re/Fusion/LocalOracle/Reflection/Schema.json) preserves member registration order, script names, declared type encodings, member categories, and option masks.
+Saved records use lexical member-name order, not that registration order.
+Reflection alone does not prove that a class has no custom save or load behavior.
 
-[Static feature-member extraction](../../../re/Fusion/Reconstruction/BinaryFeatureMembers.json) independently recovers 38 versioned registration schemas across 12 classes.
-All 80 current own fields match the runtime reflection in name, declared type, options, registration order, lexical persistence order, and inheritance.
-The source `Ns::Entity` root has no recovered initializer and is explicitly left unresolved.
-Neither agreement nor a complete registration trace proves that a class has no custom save/load implementation.
-
-The exact-version getter capture exposes 494 initialized class/version pairs, including six older schemas retained after the corpus imports.
+The exact-version reflection capture exposes 494 initialized class/version pairs, including six older schemas retained after the corpus imports.
 There are 1,641 absent and 1,428 uninitialized lookup results; neither category authorizes treating the schema as empty.
 The [version differences](../../../re/Fusion/LocalOracle/Reflection/VersionDifferences.json) establish these own-field changes:
 
@@ -767,7 +760,7 @@ The [version differences](../../../re/Fusion/LocalOracle/Reflection/VersionDiffe
 | ----------------------- | ----------------- | ------------------------------------------------------------------------------------------ |
 | `DcDraftFeature`        | 5 → 6             | Adds `m_fixedPlaneDraftAngleMode`                                                          |
 | `DRMatrix`              | 15 → 16           | `arcLengthForPeriodicFace` changes from a double to a strong `DcDoubleParameter` reference |
-| `Parameters::Parameter` | 9 → 10            | Adds `isExternal`                                                                          |
+| `Parameter`             | 9 → 10            | Adds `isExternal`                                                                          |
 | `ComponentBaseInstance` | 10 → 11           | Adds `initialTransform`                                                                    |
 | `BaseOccurrencePath`    | 4 → 5             | Replaces `instanceIndices` with `passiveOccurrencePath`                                    |
 | `PMISettings`           | 2 → 4             | Adds leading/trailing-zero and precision settings plus general-note size and custom size   |
@@ -776,9 +769,10 @@ These are observed registered-field differences, not inferred migration algorith
 The directly requested own-set version is known; a returned base pointer does not expose its historical version.
 A reader must select every class's schema from the archive registry rather than assuming the current application version or inheriting the derived class's version number.
 
-The member constructor initializes its option mask to `0x33`.
-The studied persistence visitor uses bit `0x1` to decide persistence; clearing that bit excludes a registered field from the saved sequence.
-For example, `DcSketch.rLastFeatureBeforeActivate` has mask `0x32`, while its nine other current members retain `0x33`.
+Most members in the reflection capture have option mask `0x33`.
+A member is present in saved records only when bit `0x1` of its mask is set.
+The reflected feature decoder applies that rule and closes every byte of its controlled records, as described below.
+For example, `DcSketch.rLastFeatureBeforeActivate` has mask `0x32`, while its nine other current members have `0x33`.
 `DcFeature.startCacheHS` and `endCacheHS` are also excluded, whereas `startModelHS` and `endModelHS` persist.
 Other option bits retain their raw values unless their visitor context has been established.
 
@@ -806,7 +800,7 @@ The decoder accounts for all 1,734 bytes and agrees with all 238 native field ob
 After converting the decoded values through JSON, the independent encoder reconstructs each original payload exactly, receiving no original payload or residual-byte argument.
 The admitted profile uses current class versions, null or local numeric references, and empty named metadata; unsupported forms are rejected.
 This proves the measured feature-record grammar rather than complete archive generation.
-UUID-valued members such as `associationId` use a counted UTF-16 UUID string, while `AcGeVector3d` writes three doubles; native serializer addresses and binary digests support both representations.
+UUID-valued members such as `associationId` use a counted UTF-16 UUID string, while `AcGeVector3d` stores three doubles; the controlled records show both representations.
 
 The following table lists the current own fields for the two feature classes; inherited members are listed separately in the evidence artifact.
 Enum fields that use the native uint32 intrinsic metatype are encoded as unsigned 32-bit values even when their declared C++ type is an enum.
@@ -869,15 +863,15 @@ The [BRep corpus classification](../../Changes/Fusion/FusionBrepCorpusCoverage.m
 
 The [packaged native schema catalog](../../Changes/Fusion/FusionNativeSchemaCatalog.md) selects exact archive-declared versions and dependency closure without reading research fixtures. The [planar geometry writer](../../Changes/Fusion/FusionPlanarGeometry.md) independently derives cuboid topology; both its SMT and SMB outputs pass native measurements and save/reopen with a translated 17×23×31 mm solid. This standalone geometry qualification does not yet establish parametric rectangle-document authoring.
 
-The [native generic-tag semantics](../../Changes/Fusion/FusionGenericTagSemantics.md) distinguish primary byte lengths, primary identifier bytes, signed secondary identities, ordered operation identities, and approach identities. The earlier selector/generation-reference terminology is superseded by native serializer evidence. The [complete controlled cuboid history model](../../../re/Fusion/Reconstruction/CuboidHistory/CuboidHistoryModel.md) specifies 102 initial records and their 101-insertion journal, with verified Design/progenitor identity joins.
+The [generic-tag semantics](../../Changes/Fusion/FusionGenericTagSemantics.md) read the first field of a tag group as the primary identifier's byte length. All 441 decoded groups in sixty corpus box histories agree. The earlier selector name is dropped, because that field is a byte count. The names and signed widths of the secondary, operation and approach identities are not confirmed by a black-box experiment. The [complete controlled cuboid history model](../../../re/Fusion/Reconstruction/CuboidHistory/CuboidHistoryModel.md) specifies 102 initial records and their 101-insertion journal, with verified Design/progenitor identity joins.
 
-The [ASCII sketch attribute model](../../Changes/Fusion/FusionSketchAttributeSemantics.md) resolves unsigned curve identities, direction wildcards, role flags, and one-based fragment ordinals. Its role-flags position differs from the binary Design callback, which explains why reusing one positional tuple would silently misread the two forms.
+The [ASCII sketch attribute model](../../Changes/Fusion/FusionSketchAttributeSemantics.md) resolves unsigned curve identities, direction wildcards, role flags, and one-based fragment ordinals. Its role-flags position differs from the binary sketch-tag record in the Design segment, which explains why reusing one positional tuple would silently misread the two forms.
 
 ## Verification boundaries
 
 The expanded [typed entity graph research](../../Changes/Fusion/FusionTypedEntityGraphs.md) establishes byte-exact reconstruction of 824 Design records and 75,675 payload bytes in three controlled files. The subsequent [full corpus coverage](../../Changes/Fusion/FusionCorpusEntityCoverage.md) decodes all 261,141 indexed Design records and 25,458,293 payload bytes across all 712 archives with no unexplained suffixes.
 It includes generic references and containers, nested values and custom callbacks; three recipe members remain typed but incompletely named semantically.
-Custom value callbacks can override ordinary lexical order, as demonstrated by RGBA color persistence. The [extended callback model](../../../re/Fusion/Reconstruction/EntityGraph/ExtendedCallbacks.md) specifies AcGe line, ellipse and NURBS arrays, recursive ASM selection recipes, tag tables, UV orders, and lazy progenitor metadata, with native serializer evidence.
+Custom value callbacks can override ordinary lexical order, as demonstrated by RGBA color persistence. The [extended callback model](../../../re/Fusion/Reconstruction/EntityGraph/ExtendedCallbacks.md) specifies AcGe line, ellipse and NURBS arrays, recursive ASM selection recipes, tag tables, UV orders, and lazy progenitor metadata, from full corpus decoding.
 
 The [latest native geometry acceptance](../../../re/Fusion/LocalOracle/Features/FullBrepAcceptance.json) reconstructs all 289 Design records and replaces both BRep members with independently authored cylinder/profile topology and history.
 The archive opens with correct 19 mm geometry before recomputation, reports healthy features, rolls back to sketch-only state and restores, then preserves a 23 mm edit through native save/reopen.
@@ -887,7 +881,8 @@ Fusion accepts these independent documents, including correct initial solid geom
 The [envelope research](../../../re/Fusion/Reconstruction/DocumentEnvelope/EnvelopeRecipe.md) fully decodes controlled manifests and ACT/Browser records.
 The [material serialization entry](../../Changes/Fusion/Materials/FusionMaterialSerialization.md) records complete controlled instance decoding and native acceptance of regenerated material packages.
 The [production material codec](../../Changes/Fusion/Materials/FusionMaterialCodec.md) promotes typed binary store reading/writing and records native acceptance of deliberately changed density and appearance values.
-The [metadata header interpretation](../../Changes/Fusion/FusionMetadataHeaderSemantics.md) identifies packed software versions, current-version UUIDs, and ancestry framing.
+The [metadata header interpretation](../../Changes/Fusion/FusionMetadataHeaderSemantics.md) reads a packed software version that matches the saving build, and an ancestry count.
+Its other field names, including the current-version UUID, are not confirmed by a black-box experiment.
 
 | Evidence                      | What it establishes                                  | What remains unverified                           |
 | ----------------------------- | ---------------------------------------------------- | ------------------------------------------------- |
@@ -915,7 +910,7 @@ The [controlled source captures](../../../re/Fusion/LocalOracle/Features/Capture
 The property queries yielded 211 records for the sketch and 243 for each extrusion control, with 14 and 15 named roots explicitly skipped.
 The initial JSON-reference command form returned `Invalid entity ref` for all entries; querying positive numeric IDs in each active import succeeded.
 The property visitor can omit members without its JSON callbacks, so these files are semantic observations rather than a complete wire schema.
-Installed binary symbols and member-registration code provide additional field-name and type evidence.
+The runtime reflection capture provides additional field-name and type evidence.
 They do not replace measured load and rebuild results.
 The public registry discovers `fusion.f3d`, as [Public conversion boundary](#public-conversion-boundary) describes.
 Each profile that it admits must meet its own acceptance requirements, and other inputs are rejected.
@@ -946,7 +941,7 @@ A four-state native capture separates rectangle geometry, driving dimensions and
 
 ## Analytic circular frusta
 
-Independent SMT/SMB authoring now includes positive-radius expanding and shrinking circular frusta and the equal-radius cylindrical limit. The conical carrier stores a base ellipse, signed slope sine/cosine and longitudinal parameter scale; that scale is a length, not a second radius. The complete 26-record topology is derived from dimensions, and six native artifacts passed volume, area, center, bounds, topology and save/reopen checks. [The feature entry](../../Changes/Fusion/FusionFrustumGeometry.md) and [cone data model](../../../re/Fusion/Reconstruction/FrustumModel/FrustumModel.md) bind formulas to native serialization/evaluation evidence. These standalone solids are separate from the complete history profile below.
+Independent SMT/SMB authoring now includes positive-radius expanding and shrinking circular frusta and the equal-radius cylindrical limit. The conical carrier stores a base ellipse, signed slope sine/cosine and longitudinal parameter scale; that scale is a length, not a second radius. The complete 26-record topology is derived from dimensions, and six native artifacts passed volume, area, center, bounds, topology and save/reopen checks. [The feature entry](../../Changes/Fusion/FusionFrustumGeometry.md) and [cone data model](../../../re/Fusion/Reconstruction/FrustumModel/FrustumModel.md) bind the formulas to those native measurements. These standalone solids are separate from the complete history profile below.
 
 ## Independent rectangular documents and material identity
 
@@ -1024,7 +1019,7 @@ Both the standalone sketch and cuboid report fully constrained in Fusion. Width 
 
 ## Distinct history state and entity-tag counters
 
-Native save routines and named accessors resolve the first four journal scalars as current state ID, maximum allocated state ID, retained-state limit and next entity tag. Current and maximum state can differ: a rolled-back native stream stores `3,10,0,6`. The board scalar is the enum mainline/stacked/succeeded/failed, not an arbitrary board ordinal. `HistoryState` now preserves these distinctions while retaining the default authored bytes. [The API correction](../../Changes/Fusion/FusionHistoryStates.md) links exact binary instruction evidence and 69 framed histories, and explicitly excludes unresolved multi-state/archive semantics.
+Kit reads the first four journal scalars as current state ID, maximum allocated state ID, retained-state limit and next entity tag. Current and maximum state can differ: a rolled-back native stream stores `3,10,0,6`. That rollback control supports the first two names. The other two names are not confirmed by a black-box experiment. Kit reads the board scalar as a status with the values 0 to 3, not as a board ordinal. The status names mainline, stacked, succeeded and failed are not confirmed by a black-box experiment. `HistoryState` keeps these values separate while retaining the default authored bytes. [The API correction](../../Changes/Fusion/FusionHistoryStates.md) links 69 framed histories and explicitly excludes unresolved multi-state/archive semantics.
 
 ## Mesh container research
 
@@ -1032,11 +1027,11 @@ All 103 indexed `.paramesh` members have a version-2 envelope, a protobuf regist
 
 ## Complete native graphics and material compatibility
 
-The OGS world is a versioned shared-object graph, with separate typed mesh allocations. Root-world dispatch differs from nested optional world references. Group/render/text nodes, object handles, entity links, property serializers, vertex formats, texture-mapping caches and BRep/sketch LOD branches each have their own framing. `DocumentModel.Graphics` holds the decoded scene; document validation joins its entity references to primary owners in the named segments. The [graphics model](../../Changes/Fusion/Graphics/FusionNativeGraphics.md) links exact field order, native instructions and version evidence. Unsupported world callbacks and buffer layouts remain explicit errors.
+The OGS world is a versioned shared-object graph, with separate typed mesh allocations. Root-world dispatch differs from nested optional world references. Group/render/text nodes, object handles, entity links, property serializers, vertex formats, texture-mapping caches and BRep/sketch LOD branches each have their own framing. `DocumentModel.Graphics` holds the decoded scene; document validation joins its entity references to primary owners in the named segments. The [graphics model](../../Changes/Fusion/Graphics/FusionNativeGraphics.md) links the decoded field order and version evidence. Unsupported world callbacks and buffer layouts remain explicit errors.
 
 Two original native envelopes now cross `ReadDocument` → `EmitParsed` completely: three entity segments, a history, a solid/profile/sketch snapshot, a material package, two configuration sidecars and the graphics scene. Their world/mesh pairs reconstruct exactly at 14,552/860 and 24,382/956 bytes. The complete archives contain 347 and 246 entity records and 39 and 41 shared graphics objects. [Native control/reconstruction comparison](../../../re/Fusion/LocalOracle/NativeDocuments/NativeAcceptance.json) matches geometry, mass, density, inertia, material/appearance identities and colors, parameters, sketches and timeline state through rollback, rebuild, height edits and save/reopen. This goes beyond source-specific replacement of a single member. Preview images remain explicit image assets.
 
-The native browser adds an exact version-zero empty-own-member `VisualAnalysesBrowserEntry` schema. Material resolution also requires an explicit compatibility rule: native priority two prefers an existing base asset's `_Post2015` partner when both exist. A body can therefore name the base reference while its definition/library identify the partner. The codec applies the proven resolver and then checks role, definition and library joins; it does not accept arbitrary similar assets or a missing base. Both instances and their original identities remain present in the typed package.
+The native browser adds an exact version-zero empty-own-member `VisualAnalysesBrowserEntry` schema. Material resolution also requires an explicit compatibility rule. In both native controls, a body names the base reference while its definition/library identify the base asset's `_Post2015` partner. The codec prefers that partner when both assets exist, then checks role, definition and library joins; it does not accept arbitrary similar assets or a missing base. Fusion's general resolver order is not confirmed by a black-box experiment. Both instances and their original identities remain present in the typed package.
 
 ## Public conversion boundary
 
@@ -1085,7 +1080,7 @@ An edge used by one coedge has a null partner. Two incident uses require recipro
 `ReadDocument` followed by `EmitParsed` must read and re-emit each document that Fusion saves.
 The re-emitted document must read to an equal model.
 Gaps in classes, graphics, body ids, journal records and journal structure blocked earlier Fusion saves.
-Each fix rests on native registration evidence or a corpus census, and on native acceptance.
+Each fix rests on runtime reflection evidence or a corpus census, and on native acceptance.
 The [saved document coverage entry](../../Changes/Fusion/Records/FusionSavedDocumentCoverage.md) gives the API and the remaining failures by cause.
 
 ### Saved-only classes and versions
@@ -1258,13 +1253,13 @@ It adds these format rules:
 
 ## Periodic carriers and trim-free solids
 
-The [sphere/torus research](../../Changes/Fusion/Geometry/FusionRoundCarrierResearch.md) binds native text, binary fields and installed kernel save/restore/evaluation instructions. Sphere parameterization stores separate reference and pole directions; torus parameterization stores axis, two signed-length fields and reference direction. Neither is defined only by a display mesh. Four optional U/V bounds follow the carrier-specific fields.
+The [sphere/torus research](../../Changes/Fusion/Geometry/FusionRoundCarrierResearch.md) binds the text and binary fields of owned native controls. Sphere parameterization stores separate reference and pole directions; torus parameterization stores axis, two signed-length fields and reference direction. Neither is defined only by a display mesh. Four optional U/V bounds follow the carrier-specific fields.
 
 Owned sphere and torus bodies have one face, zero edges and zero vertices. A periodic untrimmed carrier can close a solid without explicit edge loops. Closed polygon-shell validation must remain a separate geometric specialization. The native request also cannot replace measured ground truth: one axial torus API call ignored its supplied center, while explicit transformation produced the intended persisted carrier. This finding is confined to the captured call/build and is not a format placement convention. These records were research when first captured. The [round body section](#authored-round-bodies-and-trimmed-round-histories) now adds production authoring and acceptance.
 
 ## Circular sketch display resources
 
-The [circular graphics extension](../../Changes/Fusion/Graphics/FusionCircularGraphics.md) resolves regular/nonculling sketch-node lists, inline primitive LOD nodes and shared render-mesh, vertex-buffer and circular-arc resources. Class names alone do not determine identity framing: serializer constructors clear the resource flag for primitive LOD nodes but retain it for the mesh and analytic primitive. The generic render mesh uses a different vertex path from Fusion's body mesh override. Circle-arc graphics store their sampling interval, radius, center, normal, angular interval and reference point as distinct typed fields.
+The [circular graphics extension](../../Changes/Fusion/Graphics/FusionCircularGraphics.md) resolves regular/nonculling sketch-node lists, inline primitive LOD nodes and shared render-mesh, vertex-buffer and circular-arc resources. Class names alone do not determine identity framing: in the saved controls, primitive LOD nodes have the resource flag clear, while the mesh and analytic primitive have it set. The generic render mesh uses a different vertex path from Fusion's body mesh override. Circle-arc graphics store their sampling interval, radius, center, normal, angular interval and reference point as distinct typed fields.
 
 Native circle/cylinder/frustum documents now reconstruct their complete graphics worlds and mesh streams exactly. Their independent parameter edits and save/reopen acceptance include the authoritative entity graph, BRep, snapshots, materials and configurations as well as the display state. [The public circular projection](../../Changes/Fusion/Adapter/FusionNativeCircularProjection.md) joins those decoded records through their actual references and retains the full native state.
 
@@ -1273,7 +1268,7 @@ Native circle/cylinder/frustum documents now reconstruct their complete graphics
 A Fusion Form body stores its T-spline control cage as a `.tsm` text program.
 The converted BRep body is separate committed geometry.
 The production codec is `ReadTspline`, `EmitTspline`, and `MakeClosedCage` in `convert.formats.Fusion.TSplineCodec`.
-The [field model](../../../re/Fusion/Reconstruction/TSpline/FieldModel.md) binds each field to native serializers and getters in `libtsplines.14.dylib`.
+The [field model](../../../re/Fusion/Reconstruction/TSpline/FieldModel.md) describes each field from twelve controlled Fusion exports.
 
 ### Declaration profile
 
@@ -1308,17 +1303,21 @@ A reader must keep the declaration and the coordinates as separate values.
 
 Table indexes are implicit positions in each record family.
 Face `-1` marks a boundary half-edge.
-The low two bits of the last link word are the native `Link_valenceOffset`.
+Kit reads the low two bits of the last link word as a valence offset.
+Three readings are not confirmed by a black-box experiment: that valence offset, the previous-then-next order of the first two link fields, and the hidden-face bit of `f` records.
 The codec rejects higher bits that are not proven.
 
 ### Extension namespaces
 
-| Namespace | Native class           | Model                                               |
-| --------- | ---------------------- | --------------------------------------------------- |
-| 100       | `tskern::ExCrease`     | Creased edge and vertex index sets                  |
-| 105       | `tskern::ExSymmetry`   | One planar symmetry frame and six correspondence maps |
-| 50000     | `tskern::ExSmartGrip`  | Ordered smart-grip index set                        |
-| 50001     | `tskern::ExFreeze`     | Not supported and rejected                          |
+| Namespace | Model                                                 |
+| --------- | ----------------------------------------------------- |
+| 100       | Creased edge and vertex index sets                    |
+| 105       | One planar symmetry frame and six correspondence maps |
+| 50000     | Ordered smart-grip index set                          |
+| 50001     | Not supported and rejected                            |
+
+A native interior-edge crease changes the namespace-100 edge set and can add smart grips.
+These records are therefore surface state, not editor selections.
 
 The `105a` correspondence maps separate each index pair with two spaces.
 The writer reproduces that separator, so all twelve controlled native files re-emit byte for byte.
@@ -1326,8 +1325,7 @@ The writer reproduces that separator, so all twelve controlled native files re-e
 ### Orientation roots
 
 The `f`, `e`, and `v` root links are orientation state of the T-spline basis functions.
-`libtsplines` exports them as `Face_originLink`, `Edge_originLink`, and `Vert_orientLink`.
-It also exports `Vert_orientDirection`, `FnTopology_setFaceOrigin`, and `SurfOrient_makeCanonical`.
+The controlled imports below show that changing them changes the converted body.
 
 Controlled imports used a 17 × 23 × 31 mm box cage with the control points, creases, and face incidence of the Fusion box primitive.
 
@@ -1436,12 +1434,12 @@ It refused to open a Form document without the BRep members.
 It accepted a stale BRep with health 0.
 The [authority gotcha](../../Gotchas/Conversion/Fusion/TSpline/StoredFormBrepAuthority.md) gives the variants.
 
-`t_spl_sur` derives from `exact_spl_sur`.
-Its stored B-spline surface is the exact face geometry, not an approximation of the program.
-The kernel refuses a `t_spl_sur` without that surface.
-Fusion used a moved stored surface as the face geometry.
+A `t_spl_sur` face stores a B-spline surface beside the T-spline program.
+Fusion refused to open a variant without that surface.
+It used a moved stored surface as the face geometry.
+The stored surface is therefore the exact face geometry, not an approximation of the program.
 A set `TsSurface.bConversionFailed` flag did not start a conversion.
-The [converted surface gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConvertedSurfaceIsExact.md) gives the kernel and native evidence.
+The [converted surface gotcha](../../Gotchas/Conversion/Fusion/TSpline/ConvertedSurfaceIsExact.md) gives the native variants.
 A Form writer must therefore store the exact converted body.
 
 ### Grid cage conversion
@@ -1548,7 +1546,7 @@ Its largest point gap was 1.2e-13 cm, as the [shape report](../../../re/Fusion/R
 The authored body has one closed periodic face, one loop-free shell, and one lump.
 It has no edges and no vertices.
 The reader admits a loop-free face only on an unbounded sphere or torus carrier that terminates its shell.
-Native `sphere::save_data` and `torus::save_data` establish the stored field order.
+Owned native text and binary controls give the stored field order, and Fusion accepts bodies authored in that order.
 The writer admits positive stored radii only.
 The reader also admits a negative torus minor radius whose magnitude is smaller than the major radius.
 [Journal structure](#journal-structure) records that saved form.
@@ -1625,16 +1623,15 @@ Every field of the 116 complex corpus members is consumed by a typed rule.
 Every corpus subtype except `helix_int_cur` and `helix_spl_line` contains at least one B-spline block.
 In `exact_spl_sur`, `exact_int_cur` and `exp_par_cur`, the B-spline is the definition itself.
 In the procedural subtypes, B-spline blocks are approximations or nested definitions beside the defining data.
-The installed kernel save routines give the field order of `exp_par_cur`, `exact_spl_sur` and the shared `spl_sur` data.
-The [kernel evidence](../../../re/Fusion/Reconstruction/ComplexGeometry/KernelEvidence.json) records each routine and its address range.
+The typed rules consume every field of the corpus members, so the saved data fixes the field order of `exp_par_cur`, `exact_spl_sur` and the shared `spl_sur` data.
 
 Eleven subtypes read into frozen records with named fields.
 The grammar rules still define the byte layout.
 `CurveContext` holds the shared intcurve data, and `SplineCommon` holds the shared spline-surface data.
 `BlendFrame` holds the shared blend data.
 `BlendSupport`, `OffsetRadius` and `InterpRadius` hold the blend supports and radii.
-The kernel slice gives 92 derived and 65 inferred field names in 27 record classes.
-The [kernel fields](../../../re/Fusion/Reconstruction/ComplexGeometry/TypedFields/KernelFields.json) give the routine of each name.
+Their 27 record classes use 157 field names.
+Those names are labels; they are not confirmed by a black-box experiment.
 `cl_loft_spl_sur`, `cyl_spl_sur`, `sum_spl_sur` and the helix subtypes keep the positional tree.
 The [typed field order gotcha](../../Gotchas/Conversion/Fusion/Geometry/TypedSubtypeFieldOrder.md) gives the rule for edits.
 
@@ -2028,7 +2025,7 @@ Every bulletin names the object entity on its new side.
 A modified object keeps one entity, and each modification stores a backup of the earlier data on its old side only.
 Kit first wrote each earlier version as the created entity and as the next backup.
 Fusion opened and rolled back those journals.
-It then terminated in `HISTORY_STREAM::delete_delta_states` while it disposed the closed documents.
+It then terminated while it disposed the closed documents.
 The 43 native controls that the Kit journal reader accepts all follow the identity rule.
 The [bulletin identity gotcha](../../Gotchas/Conversion/Fusion/Features/FeatureBulletinIdentity.md) gives the controls.
 
@@ -2213,7 +2210,7 @@ No graphics value of `R1_part_a` equals this matrix.
 A typed change of these four fields moves the occurrence in Fusion.
 An identity placement stores an empty matrix value, as the [identity matrix gotcha](../../Gotchas/Conversion/Fusion/Assembly/FusionIdentityMatrix.md) records.
 
-`ACTRefdTable::initializeMemberSet` in `NsACT10.dylib` registers six members for schema version 1.
+The runtime reflection capture lists six `ACTRefdTable` members for schema version 1.
 
 | Member                      | Fusion type                                     | Saved | Content in the controls                                            |
 | --------------------------- | ----------------------------------------------- | ----- | ------------------------------------------------------------------ |
@@ -2293,7 +2290,6 @@ The configuration table, rule, row and cell layouts are not known.
 The error was `Cannot create configuration top table as the user is restricted.`
 No configured control therefore exists.
 The Fusion app bundle has 232 design files and 21 nested designs, and none has a configuration sidecar.
-`FusionXLayer10.dylib` also holds `Cannot retrieve configuration top table as the user is restricted.`
 The [app bundle scan](../../../re/Fusion/Reconstruction/LinksConfigs/AppConfigScan.json) records the search.
 The [licence gotcha](../../Gotchas/Conversion/Fusion/Configuration/FusionConfigurationLicense.md) and the [configuration boundary entry](../../Changes/Fusion/Configuration/FusionConfigurationBoundary.md) give the evidence.
 Configured designs remain outside Kit until an unrestricted account supplies controls.
@@ -2331,7 +2327,7 @@ Kit reads and re-emits modern F2D drawings, the historical drawing example and d
 Its typed DWG model re-emits the embedded databases byte for byte.
 Kit builds F2D packages and drawing-root bundles from typed sheets, views and dimensions, but Fusion 2706.1.17 has not yet opened a DWG that Kit authors.
 The [drawing codec entry](../../Changes/Fusion/Drawing/FusionDrawingCodec.md) gives the API.
-The [drawing persistence entry](../../Changes/Fusion/FusionDrawingPersistenceModel.md) gives the earlier native field evidence.
+The [drawing persistence entry](../../Changes/Fusion/FusionDrawingPersistenceModel.md) gives the earlier field evidence from the historical example.
 
 ### Drawing package layer
 
@@ -2404,7 +2400,7 @@ The [vocabulary record](../../../re/Fusion/Reconstruction/Drawings/Vocabulary.js
 | `TrackedBrep`               | 1       | Body persistent identifier and version                   |
 | `TrackedOccurrence`         | 2       | Occurrence scope                                         |
 
-`FusionDocModelSource.animationMarker` is a native `std::pair<std::wstring,double>`.
+The runtime reflection capture types `FusionDocModelSource.animationMarker` as `std::pair<std::wstring,double>`.
 Kit reads it as a pair of a UTF-16 string and a double.
 All three controls store an empty string and 0.0.
 
@@ -2597,23 +2593,8 @@ The [header tail gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingHe
 
 ## External corroboration
 
-Two kinds of external evidence corroborate the model.
-Neither kind replaces native acceptance.
-
-### Binary inventories
-
-The npm package `reverse-engineer` `0.1.0-alpha.1` inventoried three installed Fusion libraries.
-It reads Mach-O headers, export tries, and string tables without executing the target.
-The [saved inventories](../../../re/Fusion/External/ReverseEngineer/README.md) record each command and replace local paths.
-
-| Library                 | SHA-256 prefix | Corroborated model element                                          |
-| ----------------------- | -------------- | ------------------------------------------------------------------- |
-| `libtsplines.14.dylib`  | `820d4a39`     | TSM orientation exports and the TSM keyword table                   |
-| `NsDataModel10.dylib`   | `47ddbeca`     | Paired bulk and metadata streams and XML attribute keys             |
-| `libASMkern232.dylib`   | `816da13b`     | `HISTORY_STREAM`, `DELTA_STATE`, and `BULLETIN_BOARD` journal graph |
-
-The earlier REA `rea-agents` 6.8.0 evidence remains separate.
-It inventoried the F3Z example and decompiled `Ns::MemberSet::addNewMember` through Ghidra.
+An external open-source project corroborates parts of the model.
+It does not replace native acceptance.
 
 ### Comparison with cadmpeg
 
@@ -2624,28 +2605,28 @@ Both projects read the same container bytes, and most container differences are 
 | Comparison                 | cadmpeg                                                      | Kit                                                                                                                                              |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Breadth                    | 58 feature families, assemblies, configurations, Form bodies | Qualified sketch, extrusion, taper, round, mesh, T-spline and Form profiles, 18 accepted part feature suites, external references and assemblies |
-| Field names                | Structural labels from file observation                      | Native class and member names from installed libraries                                                                                           |
+| Field names                | Structural labels from file observation                      | Class and member names from runtime reflection and saved documents                                                                               |
 | Writing modes              | Replay, patch, and source-free generation                    | Typed re-emission and source-free generation                                                                                                     |
 | Native proof of new output | No recorded Fusion open of generated output                  | Fusion open, rollback, rebuild, edit, save, and reopen                                                                                           |
 | Feature history replay     | Not implemented                                              | Not implemented, so authored features store a solved journal state                                                                               |
 
-All 58 cadmpeg feature-family GUIDs resolve to `Dc*` classes in the Kit binary class catalogue.
+All 58 cadmpeg feature-family GUIDs resolve to `Dc*` classes in the Kit class-identifier catalogue.
 Kit evidence resolves the cadmpeg history-preamble item HS-01 and the parameter-collection item DR-80.
-It partly resolves DR-334 and the sketch mesh-section items DR-264, DR-288, and DR-289.
+It partly resolves the sketch mesh-section items DR-264, DR-288, and DR-289.
 
 Kit evidence contradicts these cadmpeg statements.
 
 | Topic                     | cadmpeg statement                              | Kit evidence                                                   |
 | ------------------------- | ---------------------------------------------- | -------------------------------------------------------------- |
-| TSM `l` record            | Next link, then previous link                  | Previous link, then next link, from `Link_prev`                |
-| TSM `ec` record           | Crease marker with flags                       | Edge index and binary64 end condition, not a crease            |
-| TSM namespaces 100, 50000 | Editor selections                              | `ExCrease` and `ExSmartGrip`                                   |
+| TSM `ec` record           | Crease marker with flags                       | Edge index and end condition; native creases leave it unchanged |
+| TSM namespaces 100, 50000 | Editor selections                              | Crease and smart-grip state that native creases change         |
 | TSM `ver`                 | Identifies the generating implementation       | Edit counter that changes during ordinary edits                |
-| History preamble          | Two copies of a stream size                    | Current state and maximum allocated state                      |
-| Header history bit        | Authoritative for journal presence             | Explicit stream markers are authoritative                      |
-| MetaStream UUID           | Asset GUID                                     | Segment `currentVersion`                                       |
-| Class `6CCF41D5`          | Presentation frame                             | `DynamicUpdateData`                                            |
+| History preamble          | Two copies of a stream size                    | Current state and maximum allocated state, from a rollback control |
+| Class `6CCF41D5`          | Presentation frame                             | `DynamicUpdateData` in the runtime reflection capture          |
 | Version context           | Token, asset GUID and optional revision fields | Second field equals a root manifest link GUID in every control |
+
+Kit also reads the TSM `l` record as previous link then next link, uses explicit stream markers instead of the header history bit, and calls the MetaStream UUID the segment `currentVersion`.
+These three readings differ from cadmpeg but are not confirmed by a black-box experiment.
 
 Kit now reads the observed cross-document reference form and the procedural and tolerant ASM records.
 It reads procedural geometry without evaluating it.

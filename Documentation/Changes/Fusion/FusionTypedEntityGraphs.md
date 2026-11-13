@@ -39,4 +39,5 @@ It additionally identifies the nested material store's block allocator, TOC and 
 Verbose generated evidence is retained in digest-indexed compressed archives, while interpretation and native acceptance reports remain readable.
 
 See the [custom value order gotcha](../../Gotchas/Conversion/Fusion/FusionCustomValuePersistence.md), [material padding gotcha](../../Gotchas/Conversion/Fusion/FusionMaterialStorePadding.md), and [graphics cache omission evidence](../../Gotchas/Conversion/Fusion/FusionGraphicsCacheOmission.md).
-General automated tests remain PR-only; these new observations came from research decoding, static native-code analysis, and explicitly authorized application acceptance.
+General automated tests remain PR-only; these new observations came from research decoding and explicitly authorized application acceptance.
+Static native-code analysis also informed them; it was removed at the tip and is not a black-box confirmation.

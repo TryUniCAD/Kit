@@ -16,9 +16,9 @@ The `wire` record has the common entity prefix and these fields.
 | 4 | First coedge | Live coedge |
 | 5 | Owner shell | Live shell |
 | 6 | Reserved reference | Null in all 5 records |
-| 7 | Side logical | `F`, which the kernel writes as `out` |
+| 7 | Side logical | `F` in all 5 records |
 
-A wire coedge stores the wire in its owner slot 8 instead of a loop. Its next and prior slots point to itself, and its partner slot is null. Kernel routine `WIRE::save_common` writes the next wire, the first coedge and the owner shell. For save versions above 10699, it also writes the reserved reference and the side logical.
+A wire coedge stores the wire in its owner slot 8 instead of a loop. Its next and prior slots point to itself, and its partner slot is null.
 
 ## Workaround
 

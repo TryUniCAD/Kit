@@ -6,7 +6,7 @@ The `f <link>`, `e <link>` and `v <link> NORTH` records look like allocation boo
 
 ## Actual behavior
 
-The root links are orientation state of the T-spline basis functions. Fusion's `libtsplines` exports them as `Face_originLink`, `Edge_originLink` and `Vert_orientLink`, with `Vert_orientDirection`, `FnTopology_setFaceOrigin` and `SurfOrient_makeCanonical` beside them. A different root gives the same control cage but different BRep numerics after conversion.
+The root links are orientation state of the T-spline basis functions. A different root gives the same control cage but different BRep numerics after conversion.
 
 Fusion 2706.1.17 imported controlled 17 × 23 × 31 mm box cages. Each cage had equal control-point, smooth-point, crease and face-incidence hashes to Fusion's own box primitive.
 
@@ -30,5 +30,4 @@ The `ver` record is an edit counter that Fusion increments on export. Setting it
 - [Root-variant capture](../../../../../re/Fusion/LocalOracle/TSplineCodec/RootVariants/Capture.json)
 - [Edge-variant capture](../../../../../re/Fusion/LocalOracle/TSplineCodec/EdgeVariants/Capture.json)
 - [T-spline native acceptance](../../../../../re/Fusion/LocalOracle/TSplineCodec/NativeAcceptance.json)
-- [`reverse-engineer` export inventory](../../../../../re/Fusion/External/ReverseEngineer/libtsplines.14.exports-orientation.txt)
 - [T-spline codec change entry](../../../../Changes/Fusion/TSpline/FusionTsplineCodec.md)

@@ -11,7 +11,7 @@ The typed BRep journal codec now reads, writes and independently authors closed 
 | `SphereBody` | `RadiusMm`, `CenterMm`, `EntityTag` | Positive finite radius |
 | `TorusBody` | `MajorRadiusMm`, `MinorRadiusMm`, `CenterMm`, `AxisVector`, `ReferenceAxis`, `EntityTag` | Ring torus: major radius greater than minor radius; orthogonal unit frame |
 
-The authored body has one closed periodic face, one loop-free shell and one lump. It has no edges and no vertices. `ReadJournal` and `ReadGeometry` read the same sphere and torus nodes from native files. Field order follows `sphere::save_data` and `torus::save_data` in the research entry.
+The authored body has one closed periodic face, one loop-free shell and one lump. It has no edges and no vertices. `ReadJournal` and `ReadGeometry` read the same sphere and torus nodes from native files. The field order follows the decoded native controls in the research entry.
 
 ## Semantic checks
 

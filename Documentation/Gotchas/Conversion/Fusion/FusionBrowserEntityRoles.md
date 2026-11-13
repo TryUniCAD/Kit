@@ -5,8 +5,8 @@ A Browser entry's generic persisted entity reference does not permit arbitrary t
 Pointing the five relationship folders at the separate `Relationships` entity loads successfully but crashes during Browser activation.
 
 The controlled failure passed all three segment loads and initialized the asset before the crash.
-The native call stack enters `RelationshipsBrowserEntry::appearance`, then invokes the wrong target's virtual method.
-The resulting `Entity::accept` call receives an invalid visitor and reaches `Entity::metaType` through a null pointer.
+A corrected candidate binds the folders to `AssyConstraints`.
+Fusion accepted it through read, edit, save and reopen.
 
 Bind these Browser folders, their subjects, and their root map keys to `AssyConstraints`.
 Validate semantic target classes in addition to generic reference framing.

@@ -6,14 +6,7 @@ Each converted Form face is a `t_spl_sur` spline surface. It embeds the complete
 
 ## Actual behavior
 
-`t_spl_sur` derives from `exact_spl_sur`. The stored B-spline surface is the exact face geometry. The class adds the T-spline program and the region index for editing.
-
-| Kernel routine | Behavior |
-| --- | --- |
-| `t_spl_sur::restore_data` | Restores the `exact_spl_sur` data, then the program and the region index |
-| `exact_spl_sur::restore_data` | Raises `sys_error(0xfde9)` when the B-spline surface is absent |
-| `t_spl_sur` members | No evaluation or approximation override exists |
-| `t_spl_sur::check` | Checks that the program and the stored B-spline surface agree |
+The stored B-spline surface is the exact face geometry. The record adds the T-spline program and the region index for editing.
 
 Fusion 2706.1.17 confirmed this with three variants of the native plane and box documents.
 
@@ -31,7 +24,6 @@ Write the exact conversion of the cage in every converted face. Do not omit the 
 
 ## Evidence
 
-- [Kernel facts](../../../../../re/Fusion/Reconstruction/FormDocuments/KernelFacts.json)
 - [Cache variant preparation](../../../../../re/Fusion/Reconstruction/FormDocuments/PrepareCache.py)
 - [Cache probe with the level-none refusal](../../../../../re/Fusion/LocalOracle/FormDocuments/Cache/Probe.json)
 - [Grid acceptance with the moved-pole variants](../../../../../re/Fusion/LocalOracle/FormDocuments/Grid/NativeAcceptance.json)

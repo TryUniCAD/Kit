@@ -4,7 +4,7 @@
 
 The research author creates complete native F3D archives directly from semantic specifications. It does not read a source archive, a vendor-generated blank document, captured object payloads, or a runtime graph template.
 It allocates fresh persistent identities, constructs Design, ACT, and Browser graphs, writes their metadata and bulk streams, and creates root/asset manifests, properties, preview images, and ZIP directories.
-The class/version/member catalogue is declarative format vocabulary recovered from native registration and serializer evidence; it supplies no saved instance values.
+The class/version/member catalogue is declarative format vocabulary from the runtime reflection captures and the class catalogue; it supplies no saved instance values.
 
 The [Design author](../../../re/Fusion/Reconstruction/DocumentAuthoring/README.md) documents root collections, parameter ownership, origin geometry, dependency state, component identities, and allocation policy. The [container author](../../../re/Fusion/Reconstruction/ContainerAuthoring/ContainerModel.md) documents the manifest and cross-segment relationships.
 

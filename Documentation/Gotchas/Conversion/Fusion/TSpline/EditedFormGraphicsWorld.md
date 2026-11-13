@@ -8,12 +8,12 @@ A Form document saved after a control-point edit has the same graphics layout as
 
 Three edited Form archives store a group with world kind 2 in `OGS.BlobFolder/OGS/DefaultScene/world`. Kit raised `ValueError("Unsupported custom graphics world")` for them.
 
-The native writer for kind 2 is `FusionGroupNodeSerializer::SerializeTSplineBody`. It writes the same level-of-detail layout as a BRep world but has no `ValidBody` flag.
+Kind 2 has the same level-of-detail layout as a BRep world but has no `ValidBody` flag.
 
-| World kind | Native serializer | Leading flag | Layout |
+| World kind | Leading flag | Layout |
 | --- | --- | --- | --- |
-| 1 | `SerializeBrepBody` | `ValidBody` | Edge group, `EdgesCount`, edge levels, face group, `FacesCount`, face levels, `HasModelBox`, optional `ModelBox` |
-| 2 | `SerializeTSplineBody` | None | Edge group, `EdgesCount`, edge levels, face group, `FacesCount`, face levels, `HasModelBox`, optional `ModelBox` |
+| 1 | `ValidBody` | Edge group, `EdgesCount`, edge levels, face group, `FacesCount`, face levels, `HasModelBox`, optional `ModelBox` |
+| 2 | None | Edge group, `EdgesCount`, edge levels, face group, `FacesCount`, face levels, `HasModelBox`, optional `ModelBox` |
 
 The same archives also store an `OpacityAttribute`. Its fields are `Absolute` as a bool and `Opacity` as a 32-bit float, after the base attribute fields.
 
@@ -31,7 +31,6 @@ All three edited archives now read and re-emit with an equal model. Their OGS me
 
 ## Evidence
 
-- [Native serializer facts](../../../../../re/Fusion/Reconstruction/ActSlack/NativeFacts.json)
 - [Slack census with the edited archives](../../../../../re/Fusion/Reconstruction/ActSlack/SlackCensus.json)
 - [Edited world isolation](../../../../../re/Fusion/Reconstruction/FormDocuments/EditedWorlds.json)
 - [Form document change entry](../../../../Changes/Fusion/TSpline/FusionFormDocuments.md)

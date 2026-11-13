@@ -47,13 +47,11 @@ Kit did not make or copy any configuration record.
 | Fusion app bundle | `ScanAppConfigs.py` opened 232 design files and 21 nested designs | No configuration sidecar in any file |
 | Fusion API stubs | Calls in `adsk/fusion.py` that make a configured design | Only `Design.createConfiguredDesign` |
 | Fusion API stubs | `Occurrences.addFromConfiguration` | Needs a configured design from the same project |
-| `FusionXLayer10.dylib` | Restriction texts | Both the create text and the retrieve text are present |
 | Public web | Autodesk help pages and model sites | No configured sample that downloads without a login |
 | Other cloud projects | Not searched | The task rules forbid access outside the acceptance project |
 
 The 232 files are 220 fastener templates, 7 sample bundles, 3 offline test files and 2 other designs.
-The retrieve text suggests that this account also cannot read the table of an existing configured design through the API.
-Kit did not test this, because no configured design was available.
+Whether this account can read the table of an existing configured design through the API is not tested, because no configured design was available.
 
 [`AppConfigScan.json`](../../../../re/Fusion/Reconstruction/LinksConfigs/AppConfigScan.json) records the bundle scan with paths relative to the bundle.
 The [scan script](../../../../re/Fusion/Reconstruction/LinksConfigs/ScanAppConfigs.py) reads the bundle and writes nothing into it.

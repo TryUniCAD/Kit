@@ -3,11 +3,16 @@
 ## Behavior
 
 Local Fusion 2706.1.17 supplied controlled parameter-allocation captures and a native schema dump.
-The [binary class catalogue](../../../re/Fusion/Reconstruction/BinaryClasses.json) maps 1,218 class identifiers across 14 installed libraries.
+The [class catalogue](../../../re/Fusion/Reconstruction/BinaryClasses.json) maps 1,218 class identifiers to class names.
+Every identifier also appears in the runtime reflection capture.
 It names all 403 Design classes present in the 712-archive corpus.
-The [parameter evidence](../../../re/Fusion/Reconstruction/BinaryParameters.json) records field types, inheritance, schema evolution, allocation behavior, and instruction addresses tied to binary digests.
+The [schema dump](../../../re/Fusion/LocalOracle/Allocation/ParameterSchema.xml) lists the registered parameter member names.
+The [wire observations](../../../re/Fusion/LocalOracle/Allocation/WireObservations.json) record the controlled allocation captures.
 
-The recovered model corrects several earlier interpretations:
+The recovered model corrects several earlier interpretations.
+The deletion and reallocation captures confirm the allocation item.
+The other field meanings first came from binary inspection, which was removed at the tip.
+They are not separately confirmed by a black-box experiment.
 
 - The initial zero word is an empty root-identity string count, not a class version.
 - Class versions live in the metadata registry.
@@ -24,7 +29,7 @@ Archive integration coverage includes the new deletion and reallocation captures
 See the [data model](../../Reference/Research/FusionDataModel.md), [oracle command reference](../../Reference/Research/FusionOracleCommands.md), and [allocation watermark gotcha](../../Gotchas/Conversion/Fusion/FusionParameterWatermark.md).
 The research command bridge runs scripts inside the installed application; production codecs remain independent of that application.
 Class-name coverage is not complete field-schema coverage or proof of a complete native document writer.
-Binary addresses and current runtime schemas apply to the recorded application build.
+Runtime schemas apply to the recorded application build.
 
 ## Verification
 

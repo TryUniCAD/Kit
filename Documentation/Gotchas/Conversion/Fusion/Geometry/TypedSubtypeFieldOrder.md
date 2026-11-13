@@ -20,10 +20,9 @@ Some grammar items have no field. A fixed token, such as the cross-section enum 
 
 ## Workaround
 
-Declare a new field at its stream position. Keep each subtype-bearing field, such as a surface or curve record, in the order that the kernel save routine writes it. Construct a `SubtypeNode` for a typed subtype name with its record class, not with a tuple.
+Declare a new field at its stream position. Keep each subtype-bearing field, such as a surface or curve record, in the order it appears in the stream. Construct a `SubtypeNode` for a typed subtype name with its record class, not with a tuple.
 
 ## Evidence
 
-- [Kernel field derivation](../../../../../re/Fusion/Reconstruction/ComplexGeometry/TypedFields/KernelFields.json)
 - [Typed verification](../../../../../re/Fusion/Reconstruction/ComplexGeometry/TypedFields/TypedVerify.json)
 - Remote integration cases `TestRecordWalk` and `TestPositional` in `TypedFieldTests.py`

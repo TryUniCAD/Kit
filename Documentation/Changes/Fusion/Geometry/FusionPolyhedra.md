@@ -30,8 +30,9 @@ The underlying typed journal still preserves its full supported record values. T
 ## Transform semantics
 
 A `TransformNode` has an attribute reference, entity tag, three basis columns, translation in centimetres, one scale factor and three independent classification flags: rotation, reflection and shear. It has no third reserved reference between its entity tag and the first basis vector.
+The flag names came from binary inspection and are not confirmed by a black-box experiment.
 
-The proven mapping is:
+The placed tetrahedron confirms this mapping for one rotation, scale and translation:
 
 `world = scale × (x × columnX + y × columnY + z × columnZ) + translationCm`
 
@@ -41,7 +42,7 @@ The scale applies to the matrix product before translation. The serializer retai
 
 [The two native controls](../../../../re/Fusion/Reconstruction/PlanarTopology/ControlSummary.json) are a four-face tetrahedron with volume 4 cm³ and a five-face triangular pipe with volume approximately 1.2470765814495919 cm³. Their complete histories have 54 and 74 active records respectively. Body tags are 30 and 0; state intervals are `2→4` and `2→3`. [Design joins](../../../../re/Fusion/Reconstruction/PlanarTopology/DesignStatesSummary.json) identify the mesh-conversion and pipe features and their real parameter bindings.
 
-[Transform evidence](../../../../re/Fusion/Reconstruction/PlanarTopology/TransformEvidence.json) completely decodes 290 transform records from 208 distinct source blobs. All of those sampled transforms are identity placements. Separate native instruction traces establish field order and nonidentity coordinate evaluation: `TRANSFORM::save_common`, `write_matrix`, `write_transf`, `read_transf`, and the matrix/transform position operators. Binary and compressed-disassembly hashes accompany the evidence.
+[Transform evidence](../../../../re/Fusion/Reconstruction/PlanarTopology/TransformEvidence.json) completely decodes 290 transform records from 208 distinct source blobs. All of those sampled transforms are identity placements. Binary inspection first gave the field order and the evaluation of nonidentity placements. That evidence was removed at the tip. The placed tetrahedron below confirms one nonidentity transform by a black-box experiment.
 
 The acceptance preparation creates source-specific exact and permuted history replacements for both controls. It separately creates source-free tetrahedron and triangular-prism bodies with dimensions different from the controls, plus a tetrahedron with a 90° Z rotation, scale 1.25 and translation `(11,-7,5)` mm. [Native acceptance](../../../../re/Fusion/LocalOracle/PlanarTopology/NativeAcceptance.json), SHA-256 `9974d4d3abb6305e21d3a843e8bbd19defbad1d4d49830de9b21fa4e95e0976d`, passed both source controls, all four exact/permuted history candidates and all three source-free bodies. [The preparation report](../../../../re/Fusion/LocalOracle/PlanarTopology/ProductionPreparation.json) binds every artifact to its input and output digests. Exact source-history outputs matched the original bytes; permutations changed them. All rollback markers, restore/rebuild and save/reopen observations matched the controls, including the pipe section edit from 6 to 8 mm. The standalone bodies reopened with volumes 2.0201666666666673, 4.5695 and 3.945638020833335 cm³, correct topology, analytic centroids and bounds. The placed tetrahedron reopened at centroid `(0.38125,-0.16875,1.46875)` cm and bounds `(-1.775,-0.7,0.5)..(1.1,1.425,4.375)` cm. Zero documents remained open. Preparation and native execution were separate from tests.
 

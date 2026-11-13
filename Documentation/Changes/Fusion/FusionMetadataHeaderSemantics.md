@@ -2,29 +2,30 @@
 
 ## Behavior
 
-Static native analysis identifies previously positional metadata header fields.
-The [header model](../../../re/Fusion/Reconstruction/HeaderGrammar/HeaderModel.md) explains the fields and their persistence methods.
+Kit now names previously positional metadata header fields.
+The [header model](../../../re/Fusion/Reconstruction/HeaderGrammar/HeaderModel.md) explains the fields.
+Most names first came from binary inspection, which was removed at the tip.
+Only the software version below also has saved-document evidence.
 
 `MetaHeader.HeaderWords` holds one little-endian 64-bit saved software version.
 Its construction is `(major << 50) | (minor << 38) | build`.
-The controlled words `(17, 709361728)` represent Fusion version `2706.1.17`.
-Major and minor fields use 14 and 12 bits. Newly constructed build values use 32 bits.
+The controlled words `(17, 709361728)` decode to Fusion version `2706.1.17`, the version that saved the controls.
+The widths of 14 bits for major and 12 bits for minor came from binary inspection.
+One saved version does not confirm them.
 
-The wide UUID called `Namespace` represents the segment's `currentVersion`.
-The storage identifier fields represent segment type, add-in, and neutron type.
-The following word counts ancestry UUIDs. Each ancestry entry uses counted UTF-16 text.
-The native save method and `isDescendedFrom` traverse the same ancestry vector.
+Kit reads the wide UUID once called `Namespace` as the segment's `currentVersion`.
+It reads the storage identifier fields as segment type, add-in, and neutron type.
+It reads the following word as a count of ancestry UUIDs, each in counted UTF-16 text.
+These readings came from binary inspection and are not confirmed by a black-box experiment.
+The qualified controls have no ancestry entries.
 
-The [manifest analysis](../../../re/Fusion/Reconstruction/HeaderGrammar/ManifestNative.json) also identifies document identity and current-version UUIDs.
-The observed value 5 before segment declarations is the next segment ID, not a format constant.
-Per-module version maps contain persisted migrator numbers.
+Binary inspection also read the two manifest root UUIDs as document identity and current version.
+It read the value 5 before segment declarations as the next segment ID, not a format constant.
+It read the per-module version maps as persisted migrator numbers.
+These readings are not confirmed by a black-box experiment.
 
 ## Evidence and limits
 
-[NativeHeader.json](../../../re/Fusion/Reconstruction/HeaderGrammar/NativeHeader.json) records source digests, addresses, and bounded disassembly excerpts.
-`InspectHeader.py` regenerates these observations without loading vendor libraries.
 This addition interprets existing fields. It does not expand production header support.
 Current production framing admits the observed empty-ancestry profile only.
 No local automated tests ran for this documentation and research addition.
-
-See the [universal binary disassembly gotcha](../../Gotchas/Conversion/Fusion/FusionUniversalDisassembly.md).

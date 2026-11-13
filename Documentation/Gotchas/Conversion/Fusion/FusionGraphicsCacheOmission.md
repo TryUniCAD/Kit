@@ -1,7 +1,7 @@
 # OGS graphics caches are optional in the controlled native document
 
 The archive's OGS world and mesh members initially looked like mandatory parts of a writable Fusion document.
-Native code inspection instead found paths that tolerate an absent graphics blob and create one during save.
+A controlled experiment showed that they are optional for this document.
 
 The controlled experiment removed all five `OGS.BlobFolder` entries from the reconstructed 19 mm extrusion archive.
 Fusion opened it with correct initial geometry, retained both timeline entries, rebuilt, accepted a 23 mm edit, and saved/reopened successfully.

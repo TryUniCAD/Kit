@@ -14,7 +14,7 @@ Fusion 2706.1.17 records each interior knot where the third derivative jumps. Th
 | The same plane after one vertex move | 1.0 | 1.0 and 2.0 | (), (), (−1.0) and (−2.0, −1.0) |
 | Warped Kit cage after one vertex move | 1.0 | 1.0 and 2.0 | (1.0), (1.0, 2.0), (−1.0) and (−2.0, −1.0) |
 
-The kernel routine `exact_spl_sur::calculate_disc_info` calls `test_discontinuity` with the kernel tolerances. Kit does not reproduce that tolerance rule. The census measured the largest third-derivative jump at each interior knot of 26 equal bodies that Fusion wrote.
+Kit does not reproduce Fusion's exact tolerance rule. The census measured the largest third-derivative jump at each interior knot of 26 equal bodies that Fusion wrote.
 
 | Knot class | Knots | Jump size |
 | --- | --- | --- |
@@ -40,7 +40,6 @@ The different archive is the cache probe whose surface poles Kit moved without i
 
 ## Evidence
 
-- [Kernel facts](../../../../../re/Fusion/Reconstruction/FormDocuments/KernelFacts.json)
 - [Grid census with the jump margins](../../../../../re/Fusion/Reconstruction/FormDocuments/GridCensus.json)
 - [Grid acceptance](../../../../../re/Fusion/LocalOracle/FormDocuments/Grid/NativeAcceptance.json)
 - [Jump order census](../../../../../re/Fusion/Reconstruction/FormDocuments/Stencil/JumpCensus.json)

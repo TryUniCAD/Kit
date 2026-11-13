@@ -16,7 +16,7 @@ The typed graphics reader/writer now handles the saved scene in native circle sk
 
 ## Evidence and verification
 
-[Native instruction evidence](../../../../re/Fusion/Reconstruction/OgsScene/PrimitiveLodEvidence.json) binds installed-library hashes, serializer constructors, resource-flag decisions and field addresses. The [framing gotcha](../../../Gotchas/Conversion/Fusion/Graphics/FusionInlineGraphics.md) explains the independent class-name, object-handle and body-inline boundaries.
+Binary inspection first supplied the serializer constructors and resource-flag decisions. That evidence was removed at the tip. The exact reconstruction and native acceptance below are the black-box evidence for this profile. The [framing gotcha](../../../Gotchas/Conversion/Fusion/Graphics/FusionInlineGraphics.md) explains the independent class-name, object-handle and body-inline boundaries.
 
 [Preparation](../../../../re/Fusion/LocalOracle/RotationalDocuments/Preparation.json) produced three complete archives. The native circle has 44 shared objects; cylinder and frustum have 43 each. The graphics world and every graphics stream reconstruct exactly for all three. The circle archive's entire uncompressed member set is byte-exact. Cylinder/frustum may canonically regenerate geometry/material members while retaining their typed semantics.
 

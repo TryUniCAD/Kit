@@ -2,7 +2,7 @@
 
 ## Corrected behavior
 
-The BRep codec now models generic-tag fields using their native meanings.
+The BRep codec now models generic-tag fields using the meanings the saved corpus supports.
 It derives each primary identifier's byte count and validates that count when reading.
 Body tags with operation identities longer than three decimal characters now have the correct count.
 
@@ -15,11 +15,11 @@ The canonical document author uses its existing `BodyProgenitorTag` as the body'
 Its redundant `AuthorPolicy.GenerationRef` setting has been removed.
 The accepted default identities and their serialized bytes remain unchanged.
 
-## Native field contract
+## Field contract
 
-The native serializer writes these fields for each tag group:
+Each saved tag group holds these fields:
 
-| Order | Native field                 | Wire representation | Production handling                        |
+| Order | Field                        | Wire representation | Production handling                        |
 | ----- | ---------------------------- | ------------------- | ------------------------------------------ |
 | 1     | Primary byte-array length    | Tagged integer      | Derived from primary text; checked on read |
 | 2     | Primary identifier bytes     | Counted text        | `FeatureTag.PrimaryId`                     |
@@ -28,11 +28,11 @@ The native serializer writes these fields for each tag group:
 | 5     | Ordered operation identities | Tagged integers     | `OperationIds`                             |
 | 6     | Approach identity            | Tagged integer      | `ApproachId`                               |
 
-Secondary, operation, and approach identities have signed 32-bit native domains.
-BinaryFile8 stores them in tagged 64-bit integer fields without changing their semantic range.
-The final approach identity is not an unexplained terminator.
+BinaryFile8 stores secondary, operation, and approach identities in tagged 64-bit integer fields.
+Kit limits them to signed 32 bits.
+That limit and the field names for the secondary and approach identities came from binary inspection.
+They are not confirmed by a black-box experiment.
 
-The serializer reads the primary array's end-minus-begin length, copies its bytes, appends NUL, and calls `write_string`.
 The qualified writer admits printable ASCII primary identifiers from one through 255 bytes.
 Unicode and embedded NUL behavior remain outside this profile.
 It accepts at most 256 ordered operation identities, including an empty sequence.
@@ -57,18 +57,13 @@ General body tag groups and arbitrary primary body strings are not introduced by
 
 Current production callers and preparation bridges use the new API.
 Historical reports retain their original field spellings so their evidence remains auditable.
-The historical research-only `body_generation_reference` and `selector` names are superseded by this native interpretation.
+The historical research-only `body_generation_reference` and `selector` names are superseded by this interpretation.
 Legacy research specification keys remain accepted by their existing preparation bridge and map to the corrected production fields.
 
 ## Evidence
 
-The [native serializer evidence](../../../re/Fusion/Reconstruction/CuboidHistory/GenericTagEvidence.json)
-records symbols, disassembly, import stubs, field offsets, and controlled tag examples.
-The inspected `NsASMEntityTracking10` binary SHA-256 is `969dcdb023b55169bcd97fdfe5e95f833fadb7d0a85c7daf193302470157e875`.
-
-`tag_data::save` at `0x2f844` emits the primary length from its byte-array pointers.
-Named native setters identify `secondary_id`, `operation_id`, and `approach_id`.
-The imported `write_int(int)` and `ASM::asm_array<int>` establish the signed native integer widths.
+The [tag evidence](../../../re/Fusion/Reconstruction/CuboidHistory/GenericTagEvidence.json)
+records the controlled tag examples and the decoded candidate histories.
 
 All 441 decoded generic-tag groups across sixty candidate box histories have matching declared primary byte lengths.
 Observed secondary identities include zero, one, seven, eight, and thirteen.
@@ -79,7 +74,7 @@ Its secondary identity seven matches its Design-side body progenitor tag.
 The controlled cylinder bottom-edge group is `[4, "-102", 0, 1, 301, 0]`.
 The four counts the bytes of `-102`; it does not identify an edge type.
 
-This evidence defines field semantics and types.
+This evidence defines field order and byte lengths.
 It does not establish arbitrary tag identity assignments as valid native feature-history links.
 
 ## Verification

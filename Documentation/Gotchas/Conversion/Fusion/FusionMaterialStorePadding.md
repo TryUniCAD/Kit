@@ -6,8 +6,7 @@ Unused capacity can contain unrelated allocation residue; treating all 128 bytes
 
 Follow the chain, validate the used-byte count, and concatenate only those used bytes.
 The `0xffffffff` next-index sentinel terminates the chain; the observed flag value 1 marks a start block.
-The native `DataStore::initBlock_` and `DataStoreRecord::read` implementations corroborate this framing.
 
-The [envelope model](../../../../re/Fusion/Reconstruction/DocumentEnvelope/EnvelopeRecipe.md) and [native evidence](../../../../re/Fusion/Reconstruction/DocumentEnvelope/NativeEvidence.json) document the exact build and addresses.
+The [envelope model](../../../../re/Fusion/Reconstruction/DocumentEnvelope/EnvelopeRecipe.md) documents the exact build.
 The block allocator, definition records, and controlled instance properties are decoded.
 The [typed material grammar](../../../../re/Fusion/Reconstruction/ProteinInstances/MaterialGrammar.md) excludes padding and regenerates unused capacity as zero bytes.

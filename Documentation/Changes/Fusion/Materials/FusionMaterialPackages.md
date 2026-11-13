@@ -12,7 +12,7 @@ The full package is bounded to 16 MiB, including declared expansion, with at mos
 
 `DocumentModel.Materials` contains `MaterialPart(Name, Package)` values. `ReadDocument` and `EmitParsed` handle these explicitly alongside typed BRep histories. The document boundary validates the material manager's part name, physical/appearance reference vectors, body-to-manager references, asset roles, definition identities and library identities. Nonempty dangling references fail; legacy empty assignments remain representable. Unknown document part types still fail instead of being retained or discarded.
 
-The [independent authoring entry](FusionAuthoredMaterials.md) describes the public material specification and body joins. The [binary codec](FusionMaterialCodec.md) and [research grammar](../../../../re/Fusion/Reconstruction/ProteinInstances/MaterialGrammar.md) describe scalar/property encoding and static evidence.
+The [independent authoring entry](FusionAuthoredMaterials.md) describes the public material specification and body joins. The [binary codec](FusionMaterialCodec.md) and [research grammar](../../../../re/Fusion/Reconstruction/ProteinInstances/MaterialGrammar.md) describe scalar/property encoding.
 
 ## Verification
 

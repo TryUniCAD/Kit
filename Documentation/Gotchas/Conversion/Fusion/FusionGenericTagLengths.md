@@ -7,8 +7,9 @@ The next integer after primary text can appear related to history generation.
 
 ## Actual behavior
 
-Native `tag_data::save` derives the leading integer from its primary byte-array length.
-Native accessors identify the subsequent fields as secondary identity, operation identities, and approach identity.
+In all 441 generic-tag groups of the research corpus, the leading integer equals the byte length of the primary text.
+Kit names the later fields secondary identity, operation identities and approach identity.
+Those names come from earlier binary inspection and are not confirmed by a black-box experiment.
 
 The earlier body writer emitted a fixed count of three.
 That matches primary text `301` but disagrees with four-digit primary text such as `1701`.
@@ -26,12 +27,13 @@ Use `BodyIdentity.SecondaryId` for the explicit secondary identity.
 Keep history generation in `HistoryState`, where it has its own independent field.
 
 The qualified primary-text domain is printable ASCII, with one through 255 bytes.
-Signed 32-bit native tag identities remain signed even when the stream uses 64-bit integer tokens.
+Kit keeps tag identities as signed 32-bit values even when the stream uses 64-bit integer tokens.
+That width comes from earlier binary inspection and is not confirmed by a black-box experiment.
 
 ## Evidence
 
-The [native instruction report](../../../../re/Fusion/Reconstruction/CuboidHistory/GenericTagEvidence.json)
-records the serializer chain and 441 consistent groups from the research corpus.
+The [generic-tag report](../../../../re/Fusion/Reconstruction/CuboidHistory/GenericTagEvidence.json)
+records 441 consistent groups from the research corpus.
 The [semantic correction](../../../Changes/Fusion/FusionGenericTagSemantics.md)
 describes API migration and archive integration coverage.
 

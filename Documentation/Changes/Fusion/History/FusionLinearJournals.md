@@ -15,7 +15,7 @@ The API lives in `convert.formats.Fusion.BrepCodec.Journal`:
 
 `JournalModel` holds the semantic header and provenance stamp, active entity count, complete typed entity table, stream state and delta states. Geometry values explicitly use centimetres; direction vectors and carrier parameters retain their distinct field roles. The writer does not infer units from numerical values.
 
-The entity union includes bodies, lumps, shells, faces, loops, coedges, edges, vertices, points, planes, cones, ellipses and straight carriers. Attribute models cover timestamps, generic feature tags, ASCII sketch links and tracked entity tags. Generic-tag and sketch-link fields reuse the existing validated identity models. Native `FPM_tracked_attrib_def` contributes one signed 32-bit tracking identity under schema version one.
+The entity union includes bodies, lumps, shells, faces, loops, coedges, edges, vertices, points, planes, cones, ellipses and straight carriers. Attribute models cover timestamps, generic feature tags, ASCII sketch links and tracked entity tags. Generic-tag and sketch-link fields reuse the existing validated identity models. `FPM_tracked_attrib_def` contributes one signed 32-bit tracking identity under schema version one.
 
 `StreamState` separates current ID, maximum allocated ID, retained-state limit and next entity tag. `DeltaState` separates state IDs from physical node references, flags, optional names and bulletin boards. `BulletinChange` represents old/new entity references directly; insertion, deletion and replacement are derived from which reference is null. `LiveState.Versions` maps each logical slot to its selected physical revision.
 
@@ -23,7 +23,7 @@ The entity union includes bodies, lumps, shells, faces, loops, coedges, edges, v
 
 The reader and writer both validate the complete state chain and every materialized entity table. They require reciprocal previous/next references, unique state IDs, a matching current-state root, all archived revisions referenced by bulletins, no alias cycles, class-compatible live entity references and eventual rollback to the initial ASM header. Non-null entity tags must remain below the declared allocator. Required solid topology references cannot be null.
 
-The profile is bounded to 2 MiB, 1,024 total entity records, 256 states, 256 boards per state and 1,000 changes per board and 4,096 wire fields per record. Native integers use signed 32-bit semantic domains, even when stored in tagged 64-bit wire slots. Numeric payloads must be finite. Text is qualified ASCII. The header is ASM BinaryFile8 save version 23200, two roots, flags three, unit metadata 50 and the established tolerances.
+The profile is bounded to 2 MiB, 1,024 total entity records, 256 states, 256 boards per state and 1,000 changes per board and 4,096 wire fields per record. Kit bounds integers to signed 32-bit domains, even when they are stored in tagged 64-bit wire slots. Numeric payloads must be finite. Text is qualified ASCII. The header is ASM BinaryFile8 save version 23200, two roots, flags three, unit metadata 50 and the established tolerances.
 
 Supported histories are linear, with backward and visible states, self-linked partner nodes, null merge references, succeeded boards, zero retained-state limit and an empty final state list. Working-node and owner-entity references must be null. Names, branching/merged histories, other save options, unsupported entity/attribute kinds, non-null reserved fields and trailing bytes fail explicitly. The final state-list role and non-null history owner-entity semantics remain unresolved and are not retained opaquely.
 
@@ -33,7 +33,7 @@ This API operates on a complete BRep history member. It does not automatically a
 
 ## Evidence and verification
 
-The [detailed data model](../../../../re/Fusion/Reconstruction/JournalStates/JournalModel.md), [native instruction evidence](../../../../re/Fusion/Reconstruction/JournalStates/NativeStateDetails.json) and [Design identity joins](../../../../re/Fusion/Reconstruction/JournalStates/DesignStatesSummary.json) explain the field meanings and remaining boundaries. Source and binary digests accompany the compressed record and disassembly evidence.
+The [detailed data model](../../../../re/Fusion/Reconstruction/JournalStates/JournalModel.md) and [Design identity joins](../../../../re/Fusion/Reconstruction/JournalStates/DesignStatesSummary.json) explain the field meanings and remaining boundaries. Some field names, such as the hidden-state flag, the merged-state reference, the retained-state limit and the tracked-attribute width, first came from binary inspection. That evidence was removed at the tip and is not a black-box confirmation. Source digests accompany the compressed record evidence.
 
 Research serializers reconstructed both controlled three-state histories exactly: Draft has 35 active and 22 archived records; OffsetFaces has 35 active and 25 archived records. Both materialize states `14 → 9 → 2` with `35 → 36 → 1` live entities. The earlier cylinder includes the tracked face attribute that the current body no longer needs.
 

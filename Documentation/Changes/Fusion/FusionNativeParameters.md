@@ -34,5 +34,6 @@ Source inspection corroborated the collection reference against the existing rec
 General automated tests run in remote CI.
 After explicit local-oracle authorization, Fusion accepted a Kit-edited parameter archive and retained a rebuilt dependent expression after save and reopen.
 See the [recorded acceptance scope](../../../re/Fusion/LocalOracle/Rewritten/Acceptance.json); it does not establish complete native document generation.
-Binary member-registration evidence identifies the parameter table's allocation high-water mark independently of its member count.
+The deletion and reallocation captures show that the parameter table's allocation high-water mark is independent of its member count.
+The schema dump names this member `highWaterMark`.
 The writer accepts that mark explicitly instead of deriving it from surviving members.

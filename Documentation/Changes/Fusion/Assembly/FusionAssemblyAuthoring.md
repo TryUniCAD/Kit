@@ -49,30 +49,27 @@ The builder reads the child transforms from the target model.
 
 ## `ACTRefdTable` fields
 
-The field split is now confirmed from the Fusion binary.
-`ACTRefdTable::initializeMemberSet` in `NsACT10.dylib` registers six members for schema version 1.
+The saved native controls carry five `ACTRefdTable` members for schema version 1.
 
-| Member | Fusion type | Saved | Content in the native controls |
-| --- | --- | --- | --- |
-| `ACTRefdTableEntries` | Map from text to a pair of a text set and an unsigned count | Yes | Target component identifier, tracked change types and reference count |
-| `RevisionGuidForChangeType` | Map from text to GUID | Yes | Equal to `revisionGuidForChangeType` of the target ACT table |
-| `CachedRevGuid` | GUID | Yes | Equal to `RevisionGuid` of the target ACT table |
-| `RefdAsset` | Pointer | No | Runtime asset |
-| `RefdDocLinkName` | Text | Yes | Link GUID |
-| `RefdAssetGuid` | GUID | Yes | Target asset GUID |
+| Member | Fusion type | Content in the native controls |
+| --- | --- | --- |
+| `ACTRefdTableEntries` | Map from text to a pair of a text set and an unsigned count | Target component identifier, tracked change types and reference count |
+| `RevisionGuidForChangeType` | Map from text to GUID | Equal to `revisionGuidForChangeType` of the target ACT table |
+| `CachedRevGuid` | GUID | Equal to `RevisionGuid` of the target ACT table |
+| `RefdDocLinkName` | Text | Link GUID |
+| `RefdAssetGuid` | GUID | Target asset GUID |
 
 The map value is a plain pair without member names.
-`addEntry` sets the second value to 1 for a new key and adds 1 for an existing key.
-`removeEntry` subtracts 1 and removes the key at 0.
+In the controls the second value is 1 for a single reference and 2 for Part A after the update.
 Kit now calls this value `referenceCount` instead of `entryWord`.
+How Fusion lowers or removes an entry is not confirmed by a black-box experiment.
 
 | Controls | `referenceCount` values |
 | --- | --- |
 | `R1_part_a` to `R8_updated_saved`, `S0_inserted` and `S1_saved` | 1 in every `ACTRefdTable` |
 | `R9_archive` | 1 for the subassembly, 2 for Part A after the update |
 
-`isOutOfDate` compares `CachedRevGuid` with the current revision GUID of the target.
-If they differ, it compares each tracked change type with the target.
+How Fusion uses `CachedRevGuid` to find a stale reference is not confirmed by a black-box experiment.
 
 ## Tests
 

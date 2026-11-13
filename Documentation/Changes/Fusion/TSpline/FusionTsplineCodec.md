@@ -10,11 +10,11 @@ The immutable model contains the cubic declaration profile, quad topology, nativ
 
 The three TSM root fields are evaluation state. The first vertex of each face loop is the face origin. `CageOrientation(Spokes, EdgeOrigins)` sets the other two explicitly. `Spokes[i]` is the neighbor vertex that the orientation link of vertex `i` points to. `EdgeOrigins` lists one directed `(start, end)` pair for each cage edge. Without `Orientation`, each vertex uses its first outgoing link in face order and each edge starts at its lower vertex index. A spoke to a non-neighbor, a missing or repeated edge, or a spoke list of the wrong length is rejected.
 
-Fusion exports these fields as `Face_originLink`, `Edge_originLink` and `Vert_orientLink` in `libtsplines`. Two cages with identical control points, creases and face incidence can solve to different BRep numerics when these roots differ. The [orientation gotcha](../../../Gotchas/Conversion/Fusion/TSpline/RootLinksAreOrientation.md) gives the measured effect.
+Two cages with identical control points, creases and face incidence can solve to different BRep numerics when these roots differ. The [orientation gotcha](../../../Gotchas/Conversion/Fusion/TSpline/RootLinksAreOrientation.md) gives the measured effect.
 
 The qualified profile is `#TS0200`, cubic `G1CAPS`, `SUBD_CREASES`, `NURCCS`, behavior 14.2.0 and compatibility 13.3.0. It admits unit knot intervals, zero boundary end conditions, valence 2–4, and the captured four-spoke compound layouts. Unknown records, high flag bits, deleted slots, radial/multiple symmetry, nonzero end conditions and unqualified declaration profiles are rejected. This component does not yet provide full F3D Form-document routing or a general T-spline evaluator.
 
-The [field model](../../../../re/Fusion/Reconstruction/TSpline/FieldModel.md) binds the grammar to native ARM64 serializers/getters, RTTI and controlled edits. It corrects three misleading structural interpretations: links store previous before next; `ec` stores an end-condition double; namespaces 100 and 50000 mean crease and smart-grip state.
+The [field model](../../../../re/Fusion/Reconstruction/TSpline/FieldModel.md) binds the grammar to controlled edits. It corrects three misleading structural interpretations: links store previous before next; `ec` stores an end-condition double; namespaces 100 and 50000 mean crease and smart-grip state. The crease contrast shows that namespace 100 holds the creased edges and that `ec` is not the crease set. The authored box, accepted by Fusion, follows the previous-before-next link order. The end-condition reading of `ec` and the smart-grip name of namespace 50000 came from binary inspection. They are not confirmed by a black-box experiment.
 
 ## Verification
 

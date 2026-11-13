@@ -8,7 +8,7 @@ The ACT segment bulk stream ends with its final record. The final record is a `R
 
 Fusion 2706.1.17 often writes a few bytes after the final ACT record. Kit's bulk slicer gives the last record every byte up to the stream end. The strict reader then raised `ValueError("Unexplained trailing Fusion entity payload bytes")`.
 
-The native member set of `RevGUIDACTDataMany` registers only `revGuidMap`. `ACTChangeDataMany` registers no member. No native field can therefore own the extra bytes.
+The runtime reflection capture lists `revGuidMap` as the only own member of `RevGUIDACTDataManyMetaType`. `ACTChangeDataManyMetaType` has no own member.
 
 Repeated native saves of unchanged documents separate the record from the extra bytes.
 
@@ -43,5 +43,5 @@ The Browser stream has the same tail. `re/Fusion/examples/.f3z/example1.f3z` mem
 - [Slack census](../../../../../re/Fusion/Reconstruction/ActSlack/SlackCensus.json)
 - [Repeated native saves](../../../../../re/Fusion/Reconstruction/ActSlack/Saves.json)
 - [Native save probe](../../../../../re/Fusion/LocalOracle/ActSlack/Probe.json)
-- [Native member facts](../../../../../re/Fusion/Reconstruction/ActSlack/NativeFacts.json)
+- [Runtime reflection capture](../../../../../re/Fusion/LocalOracle/Reflection/Versions.json)
 - [Form document change entry](../../../../Changes/Fusion/TSpline/FusionFormDocuments.md)
