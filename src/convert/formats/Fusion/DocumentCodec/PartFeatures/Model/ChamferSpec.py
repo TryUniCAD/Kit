@@ -6,3 +6,5 @@ class ChamferSpec:
     CornerMm: tuple[float, float]
     DistanceMm: float
     FeatureName: str = "Chamfer"
+    SecondMm: float = 0.0
+    AngleDegrees: float = 0.0

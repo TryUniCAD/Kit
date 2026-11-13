@@ -9,6 +9,9 @@ from convert.formats.Fusion.DocumentCodec.EmitParsed import EmitParsed
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.PartTopology import (
     MeasurePart,
 )
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ChamferSpec import (
+    ChamferSpec,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CircularSpec import (
     CircularSpec,
 )
@@ -61,7 +64,14 @@ def TestFamilySolid(NameValue: str) -> None:
 
 
 @MarkTests.parametrize(
-    "NameValue", ("RectPattern", "FeatureCircPattern", "MirrorFeature")
+    "NameValue",
+    (
+        "RectPattern",
+        "FeatureCircPattern",
+        "MirrorFeature",
+        "ChamferTwoDistances",
+        "ChamferDistanceAngle",
+    ),
 )
 def TestFamNative(NameValue: str) -> None:
     _, Stages = SolvePart(FamilySpec(KFamilyCases[NameValue][0]))
@@ -122,6 +132,10 @@ KRejected: tuple[tuple[KPartFeature, ...], ...] = (
     (KBlock, KPocket, MirrorSpec(1, 1)),
     (KBlock, PlaneSpec(float("inf"))),
     (KBlock, HoleSpec((20.0, 15.0), 8.0, 25.0)),
+    (KBlock, ChamferSpec((40.0, 30.0), 3.0, "Bevel", 2.0, 30.0)),
+    (KBlock, ChamferSpec((40.0, 30.0), 3.0, "Bevel", 0.0, 90.0)),
+    (KBlock, ChamferSpec((40.0, 30.0), 3.0, "Bevel", -2.0)),
+    (KBlock, ChamferSpec((40.0, 30.0), 3.0, "Bevel", 45.0)),
 )
 
 

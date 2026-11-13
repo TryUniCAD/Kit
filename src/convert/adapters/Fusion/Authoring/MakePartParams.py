@@ -25,7 +25,8 @@ def DrivingLength(Feature: KPartFeature) -> tuple[str, float] | None:
     if isinstance(Feature, FilletSpec):
         return "Radius", Feature.RadiusMm
     if isinstance(Feature, ChamferSpec):
-        return "Distance", Feature.DistanceMm
+        Label = "Distance 1" if Feature.SecondMm > 0 else "Distance"
+        return Label, Feature.DistanceMm
     if isinstance(Feature, ShellSpec):
         return "innerThickness", Feature.ThicknessMm
     if isinstance(Feature, ExtrudeSpec):

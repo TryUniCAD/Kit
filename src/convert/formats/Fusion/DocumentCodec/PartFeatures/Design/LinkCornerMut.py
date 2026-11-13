@@ -1,4 +1,7 @@
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ChamferSpec import (
+    ChamferSpec,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.FilletSpec import (
     FilletSpec,
 )
@@ -18,10 +21,17 @@ def LinkCornerMut(Author: AuthorState, Stage: PartStage, Prefix: str) -> None:
         )
         Author.Change(MainRole, filletEdgeData=[Reference(Prefix + "data")])
         return
+    Feature = Stage.Feature
+    Extra: dict[str, object] = {}
+    if isinstance(Feature, ChamferSpec) and Feature.SecondMm > 0:
+        Extra = dict(chamferType=2, chamferDistanceTwoParam=Reference(Prefix + "other"))
+    elif isinstance(Feature, ChamferSpec) and Feature.AngleDegrees > 0:
+        Extra = dict(chamferType=3, chamferAngleParam=Reference(Prefix + "other"))
     Author.Change(
         Prefix + "data",
         chamferDistanceOneParam=Reference(Prefix + "amount"),
         rInputEdgesRef=Reference(Prefix + "target"),
+        **Extra,
     )
     Author.Change(
         MainRole,

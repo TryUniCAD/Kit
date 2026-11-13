@@ -59,6 +59,20 @@ def CheckName(NameValue: object) -> None:
         raise ValueError("Invalid Fusion part feature name")
 
 
+def CheckBevel(Feature: ChamferSpec) -> None:
+    Extras = (
+        CastValue(object, Feature.SecondMm),
+        CastValue(object, Feature.AngleDegrees),
+    )
+    for Value in Extras:
+        if type(Value) not in (int, float) or not IsFinite(CastValue(float, Value)):
+            raise ValueError("Fusion chamfer values must be finite numbers")
+    if min(Feature.SecondMm, Feature.AngleDegrees) < 0:
+        raise ValueError("Fusion chamfer values must not be negative")
+    if min(Feature.SecondMm, Feature.AngleDegrees) > 0 or Feature.AngleDegrees >= 90:
+        raise ValueError("Fusion chamfers take a second distance or an acute angle")
+
+
 def CheckFeature(Feature: KPartFeature) -> None:
     _ = FamilyOf(Feature)
     if isinstance(Feature, ExtrudeSpec):
@@ -78,6 +92,8 @@ def CheckFeature(Feature: KPartFeature) -> None:
             raise ValueError("Fusion part feature values must be finite numbers")
     if CastValue(float, Amounts[-1]) <= 0:
         raise ValueError("Fusion part feature sizes must be positive")
+    if isinstance(Feature, ChamferSpec):
+        CheckBevel(Feature)
 
 
 def IsNewBody(Feature: KPartFeature) -> bool:

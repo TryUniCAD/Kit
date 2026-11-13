@@ -1,4 +1,5 @@
 from dataclasses import replace as ReplaceValue
+from math import radians as Radians
 
 from convert.formats.Fusion.DocumentCodec.Model.AuthorPolicy import AuthorPolicy
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
@@ -101,7 +102,8 @@ def ApplyFeature(
         return EditCorner(Solid, Corner, Feature.RadiusMm / 10.0, Label, True)
     if isinstance(Feature, ChamferSpec):
         Corner = (Feature.CornerMm[0] / 10.0, Feature.CornerMm[1] / 10.0)
-        return EditCorner(Solid, Corner, Feature.DistanceMm / 10.0, Label, False)
+        Bevel = (Feature.SecondMm / 10.0, Radians(Feature.AngleDegrees))
+        return EditCorner(Solid, Corner, Feature.DistanceMm / 10.0, Label, False, Bevel)
     if isinstance(Feature, ExtrudeSpec):
         raise ValueError("Fusion part extrudes require a sketch plan")
     if isinstance(Feature, HoleSpec):

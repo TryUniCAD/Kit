@@ -17,6 +17,7 @@ def EditCorner(
     AmountCm: float,
     Label: FaceLabel,
     Rounded: bool,
+    Bevel: tuple[float, float] = (0.0, 0.0),
 ) -> PrismSolid:
     Slabs: list[PrismSlab] = []
     for SlabValue in Solid.Slabs:
@@ -29,6 +30,7 @@ def EditCorner(
         if len(Found) != 1:
             raise ValueError("Fusion part corner must be one vertical edge of the body")
         Ordinal, Index = Found[0]
-        Loops[Ordinal] = CornerEdit(Loops[Ordinal], Index, AmountCm, Label, Rounded)
+        Shape = (Rounded, Bevel)
+        Loops[Ordinal] = CornerEdit(Loops[Ordinal], Index, AmountCm, Label, Shape)
         Slabs.append(ReplaceValue(SlabValue, Loops=tuple(Loops)))
     return ReplaceValue(Solid, Slabs=tuple(Slabs))

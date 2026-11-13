@@ -1,5 +1,8 @@
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ArcCurve import ArcCurve
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ChamferSpec import (
+    ChamferSpec,
+)
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CircleCurve import (
     CircleCurve,
 )
@@ -136,6 +139,18 @@ KFamilyCases: dict[str, tuple[tuple[KPartFeature, ...], float, int, int]] = {
         14,
         14,
     ),
+    "ChamferTwoDistances": (
+        (KBlock, ChamferSpec((40.0, 30.0), 3.0, "Corner bevel", 2.0)),
+        23.94,
+        7,
+        15,
+    ),
+    "ChamferDistanceAngle": (
+        (KBlock, ChamferSpec((40.0, 30.0), 3.0, "Corner bevel", 0.0, 30.0)),
+        23.948038,
+        7,
+        15,
+    ),
 }
 KFamilyNames: dict[type[object], str] = {
     ExtrudeSpec: "DcExtrudeFeature",
@@ -145,6 +160,7 @@ KFamilyNames: dict[type[object], str] = {
     MirrorSpec: "DcMirrorPattern",
     PlaneSpec: "DcWorkPlane",
     FilletSpec: "DcFilletEdgeFeature",
+    ChamferSpec: "DcChamferFeature",
 }
 
 

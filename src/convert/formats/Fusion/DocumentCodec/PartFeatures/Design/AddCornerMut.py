@@ -1,6 +1,9 @@
+from math import radians as Radians
+
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.AddParamMut import (
     AddParamMut,
+    ExprText,
 )
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.AddPickMut import (
     AddPickMut,
@@ -30,6 +33,33 @@ def CornerCache(Stage: PartStage, CornerCm: tuple[float, float]) -> dict[str, ob
             displacement={"x": 0.0, "y": 0.0, "z": Height},
         )
     }
+
+
+def AddBevelMut(
+    Author: AuthorState, Prefix: str, Feature: ChamferSpec
+) -> tuple[str, ...]:
+    MainRole = Prefix + "feature"
+    Amount = Feature.DistanceMm
+    if Feature.SecondMm > 0:
+        AddParamMut(Author, Prefix + "amount", MainRole, "Distance 1", Amount, "mm")
+        Other = Feature.SecondMm
+        AddParamMut(Author, Prefix + "other", MainRole, "Distance 2", Other, "mm")
+        return ("other",)
+    AddParamMut(Author, Prefix + "amount", MainRole, "Distance", Amount, "mm")
+    if Feature.AngleDegrees <= 0:
+        return ()
+    Angle = Feature.AngleDegrees
+    Expression = ExprText(Angle) + " deg"
+    AddParamMut(
+        Author,
+        Prefix + "other",
+        MainRole,
+        "Rotate Angle",
+        Radians(Angle),
+        "deg",
+        Expression,
+    )
+    return ("other",)
 
 
 def AddCornerMut(Author: AuthorState, Stage: PartStage, Prefix: str) -> list[str]:
@@ -62,8 +92,7 @@ def AddCornerMut(Author: AuthorState, Stage: PartStage, Prefix: str) -> list[str
         return [
             Prefix + NameValue for NameValue in ("target", "pick", "weight", "amount")
         ]
-    AddParamMut(
-        Author, Prefix + "amount", MainRole, "Distance", Feature.DistanceMm, "mm"
-    )
+    Extra = AddBevelMut(Author, Prefix, Feature)
     AddNodeMut(Author, Prefix + "data", "DcChamferData", MainRole, False)
-    return [Prefix + NameValue for NameValue in ("target", "pick", "amount", "data")]
+    Roles = ("target", "pick", "amount", *Extra, "data")
+    return [Prefix + NameValue for NameValue in Roles]
