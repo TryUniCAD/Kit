@@ -39,6 +39,9 @@ cannot satisfy a required CI job.
 The [breaking change label check](Documentation/Changes/BreakingChangeLabelChecks.md)
 separates PR event types into different concurrency groups and reads current metadata.
 
+The [PR diff breakdown](Documentation/Reference/Operations/DiffBreakdown.md)
+publishes an immutable composition report for each new PR head from trusted base code.
+
 PR aggregation includes lint, formatting, types, repository policies, metadata
 labels, release artifact validation, and GitHub-managed Code Quality for Python,
 Java/Kotlin, and JavaScript/TypeScript. The first-time contributor label applies
@@ -48,9 +51,6 @@ and SBOM scans, and the acceptance gate. PR runs of the queue workflow report
 the acceptance gate with the heavy jobs deferred. Missing jobs keep the
 aggregate pending. Unexpected skips, cancellations, timeouts, and failures
 fail the aggregate. The summary links individual reports.
-The aggregator client uses three bounded retries for transient GitHub API request failures.
-This preserves the current-head and all-check acceptance rules; authentication and validation errors remain non-retryable.
-The [retry change entry](Documentation/Changes/CiAggregationApiRetries.md) records observed HTTP 503 failures and the trusted-base verification boundary.
 
 When adding or renaming CI, update the allowlist alongside the workflow and
 register each job under the event that runs it. Keep automated review outside
@@ -63,7 +63,11 @@ Do not change live rulesets as part of this workflow.
 
 A successful PR aggregate publishes a small immutable evidence artifact bound
 to its repository, PR number, head repository, head SHA and tree, event base SHA,
-base ancestry, workflow event, workflow run, and attempt. The merge queue
+base ancestry, workflow event, workflow run, and attempt. A queued PR is
+included when its head is an ancestor of the candidate or when the candidate's
+`gh-readonly-queue/<branch>/pr-<number>-<sha>` ref names it. Squash candidates
+never contain the PR head as an ancestor, so the ref is the only membership
+signal for them. The merge queue
 checks current CI health for every included PR and validates the artifact's
 origin and SHA-256 digest. Reuse requires identical candidate and PR-head trees,
 identical base commits, and ancestry from that base to the PR head. With that
