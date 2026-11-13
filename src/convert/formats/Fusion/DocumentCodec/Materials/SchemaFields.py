@@ -15,6 +15,6 @@ def SchemaFields(
             Fields.update(
                 SchemaFields(Attributes["val"], Schemas, (*Ancestry, NameValue))
             )
-        if "id" in Attributes:
+        if "id" in Attributes and Child.TagName != "PropertyAlias":
             Fields[Attributes["id"]] = Child
     return Fields

@@ -39,14 +39,18 @@ def TestBodyMat(
     Model = ReadDocument(Source.read_bytes())
     CheckMatLinks(Model)
     Assets = Model.Materials[0].Package.Assets
-    assert len(Assets) == 4
+    assert sorted(Asset.SchemaName for Asset in Assets) == [
+        "PhysMatSchema",
+        "PrismOpaqueSchema",
+        "StructuralBasicSchema",
+    ]
     for Asset in Assets:
         Fields = {Field.FieldName: Field.Value for Field in Asset.Properties}
         for FieldName in ("structural_Density", "thermal_Density"):
             if FieldName in Fields:
                 assert Fields[FieldName] == UnitValue(69633, Density)
-        if "metal_f0" in Fields:
-            assert Fields["metal_f0"] == Material.Color
+        if "opaque_albedo" in Fields:
+            assert Fields["opaque_albedo"] == Material.Color
         if Asset.AssetRole == "physicalmaterial":
             Names = {Field.FieldName: Field.Value for Field in Asset.Definitions}
             assert Names["UIName"] == Material.NameValue

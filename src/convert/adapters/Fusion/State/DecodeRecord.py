@@ -4,6 +4,10 @@ from enum import Enum as EnumBase
 from typing import Protocol, cast as CastValue
 
 from convert.adapters.Fusion.State.StateTypes import KStateNames
+from convert.formats.Fusion.DocumentCodec.Materials.Model.FinishSpec import FinishSpec
+from convert.formats.Fusion.DocumentCodec.Materials.Model.MechanicSpec import (
+    MechanicSpec,
+)
 
 
 class RecordMaker(Protocol):
@@ -30,6 +34,18 @@ def DecodeRecord(NameValue: object, Values: dict[str, object]) -> object:
         == "convert.formats.Fusion.GraphicsCodec.Model.Nodes.SketchWorld.SketchWorld"
     ):
         Values = {"RegularNodes": (), "NoCullingNodes": (), **Values}
+    if (
+        NameValue
+        == "convert.formats.Fusion.DocumentCodec.Materials.Model.MaterialSpec.MaterialSpec"
+    ):
+        Values = {
+            "ClassName": "Generic",
+            "Mechanics": MechanicSpec(),
+            "Thermal": None,
+            "Finish": FinishSpec(),
+            "TypeName": None,
+            **Values,
+        }
     if not IsDataClass(ClassType) or set(Values) != {
         Field.name for Field in DataFields(ClassType)
     }:

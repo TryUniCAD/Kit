@@ -41,8 +41,12 @@ It reads input and writes no vendor bytes, so it is not donor data.
 | Drawing ISO standard                     | Fixed: paper, borders, header and standard objects from rules; no save history                         |
 | Drawing view shape flags                 | Fixed for axis base views and all projected views; slanted base views are refused                      |
 | Drawing record numbering                 | Fixed: one counter per source and sheet, checked on a save with 5 sheets                               |
-| Drawing dimensions and material families | Partly fixed: linear, aligned, vertical, radius, diameter and short layouts; materials open            |
+| Drawing dimensions and material families | Partly fixed: linear, aligned, vertical, radius, diameter and short layouts; materials fixed           |
 | Form crease thresholds                   | Open                                                                                                   |
+
+[Material families](../Materials/FusionMaterialFamilies.md) records the material fix.
+The writer picks every family from the class and values it is given, using only schema vocabulary.
+Nineteen held-out cases match Fusion's own documents in local Fusion.
 
 ## Limits
 

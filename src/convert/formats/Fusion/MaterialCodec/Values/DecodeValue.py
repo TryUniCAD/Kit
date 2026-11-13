@@ -5,6 +5,8 @@ from convert.formats.Fusion.MaterialCodec.Wire.MaterialReader import MaterialRea
 
 
 def DecodeValue(ReaderMut: MaterialReader, Field: PropertySpec) -> KMaterialValue:
+    if Field.ValueKind == "TextureURI":
+        return tuple(ReaderMut.ReadText() for _ in range(ReaderMut.ReadSmall()))
     if Field.IsMultiple:
         return tuple(
             DecodeScalar(ReaderMut, Field) for _ in range(ReaderMut.ReadCount())

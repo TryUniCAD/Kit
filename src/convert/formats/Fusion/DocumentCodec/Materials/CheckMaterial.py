@@ -1,10 +1,20 @@
 from math import isfinite as IsFinite
 from typing import cast as CastValue
 
+from convert.formats.Fusion.DocumentCodec.Materials.CheckParts import (
+    CheckColor,
+    CheckParts,
+)
+from convert.formats.Fusion.DocumentCodec.Materials.Model.FinishSpec import FinishSpec
 from convert.formats.Fusion.DocumentCodec.Materials.Model.MaterialSpec import (
     MaterialSpec,
 )
-from convert.formats.Fusion.MaterialCodec.Models.ColorValue import ColorValue
+from convert.formats.Fusion.DocumentCodec.Materials.Model.MechanicSpec import (
+    MechanicSpec,
+)
+from convert.formats.Fusion.DocumentCodec.Materials.Model.ThermalSpec import (
+    ThermalSpec,
+)
 
 
 def CheckMaterial(SpecValue: MaterialSpec) -> None:
@@ -23,19 +33,20 @@ def CheckMaterial(SpecValue: MaterialSpec) -> None:
         or not 0 < SpecValue.Density <= 25000
     ):
         raise ValueError("Material density must be positive and at most 25000 kg/m3")
-    if not isinstance(CastValue(object, SpecValue.Color), ColorValue):
-        raise ValueError("A typed material RGBA color is required")
-    for Channel in (
-        SpecValue.Color.RedValue,
-        SpecValue.Color.GreenValue,
-        SpecValue.Color.BlueValue,
-        SpecValue.Color.AlphaValue,
+    CheckColor(SpecValue.Color)
+    if (
+        not isinstance(CastValue(object, SpecValue.ClassName), str)
+        or not SpecValue.ClassName
+        or len(SpecValue.ClassName) > 64
     ):
-        if (
-            type(Channel) not in (int, float)
-            or not IsFinite(Channel)
-            or not 0 <= Channel <= 1
-        ):
-            raise ValueError(
-                "Material color channels must be finite between zero and one"
-            )
+        raise ValueError("Invalid authored material class")
+    if SpecValue.TypeName is not None and (
+        not isinstance(CastValue(object, SpecValue.TypeName), str)
+        or not SpecValue.TypeName
+        or len(SpecValue.TypeName) > 64
+    ):
+        raise ValueError("Invalid authored material type")
+    CheckParts(SpecValue.Mechanics, MechanicSpec)
+    if SpecValue.Thermal is not None:
+        CheckParts(SpecValue.Thermal, ThermalSpec)
+    CheckParts(SpecValue.Finish, FinishSpec)

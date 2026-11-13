@@ -7,8 +7,18 @@ from convert.formats.Fusion.DocumentCodec.Auxiliary.PrismSnapshot.Models.RegionE
 from convert.formats.Fusion.DocumentCodec.Auxiliary.PrismSnapshot.Models.RegionFrame import (
     RegionFrame,
 )
+from convert.formats.Fusion.DocumentCodec.Materials.Model.DirectionValue import (
+    DirectionValue,
+)
+from convert.formats.Fusion.DocumentCodec.Materials.Model.FinishSpec import FinishSpec
 from convert.formats.Fusion.DocumentCodec.Materials.Model.MaterialSpec import (
     MaterialSpec,
+)
+from convert.formats.Fusion.DocumentCodec.Materials.Model.MechanicSpec import (
+    MechanicSpec,
+)
+from convert.formats.Fusion.DocumentCodec.Materials.Model.ThermalSpec import (
+    ThermalSpec,
 )
 from convert.formats.Fusion.DocumentCodec.Model.ConfigPart import ConfigPart
 from convert.formats.Fusion.DocumentCodec.Model.DocumentBody import DocumentBody
@@ -30,6 +40,10 @@ KDocumentTypes: tuple[type[object], ...] = (
     RegionEdge,
     RegionFrame,
     MaterialSpec,
+    MechanicSpec,
+    DirectionValue,
+    ThermalSpec,
+    FinishSpec,
     ConfigPart,
     DocumentBody,
     DocumentModel,

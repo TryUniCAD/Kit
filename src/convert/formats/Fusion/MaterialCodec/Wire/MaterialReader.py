@@ -9,6 +9,9 @@ class MaterialReader(MaterialCursor):
     def ReadUInt(self) -> int:
         return int(UnpackValue("<I", self.TakeBytes(4))[0])
 
+    def ReadSmall(self) -> int:
+        return self.TakeBytes(1)[0]
+
     def ReadInt(self) -> int:
         return int(UnpackValue("<i", self.TakeBytes(4))[0])
 

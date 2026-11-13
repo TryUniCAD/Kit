@@ -1,3 +1,6 @@
+from convert.formats.Fusion.MaterialCodec.Package.Schema.NumberAttributes import (
+    KNumberAttrs,
+)
 from convert.formats.Fusion.MaterialCodec.Package.Schema.TextAttributes import (
     KTextAttrs,
 )
@@ -11,7 +14,7 @@ KSchemaAttrs = {
     "Uuid": ("id", "val", "label", "definitionIteratorData", "public"),
     "Boolean": ("id", "val", "label", "definitionIteratorData", "public"),
     "Integer": ("id", "val", "label", "public", "readonly"),
-    "Float": ("id", "val", "label", "unit", "allowconnectedassets"),
+    **KNumberAttrs,
     "Color": ("id", "label", "valA", "valB", "valG", "valR", "allowconnectedassets"),
     "Choice": ("id", "val", "label"),
     "ChoiceValue": ("id", "val", "label"),
@@ -43,8 +46,12 @@ KSchemaChildren = {
         "Reference",
         "ui",
         "implementation",
+        "Distance",
+        "TextureURI",
+        "PropertyAlias",
     ),
     "Float": ("Bounds",),
+    "Distance": ("Bounds",),
     "Integer": ("Bounds",),
     "Choice": ("ChoiceValue",),
 }

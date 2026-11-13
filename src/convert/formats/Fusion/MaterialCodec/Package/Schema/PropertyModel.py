@@ -7,12 +7,14 @@ from convert.formats.Fusion.MaterialCodec.Models.PropertySpec import (
 )
 from convert.formats.Fusion.MaterialCodec.Package.Model.SchemaNode import SchemaNode
 
+KTagKinds = {"Distance": "Float"}
+
 
 def PropertyModel(Value: SchemaNode) -> PropertySpec:
     Attributes = dict(Value.Attributes)
     return PropertySpec(
         Attributes["id"],
-        CastValue(KPropertyKind, Value.TagName),
+        CastValue(KPropertyKind, KTagKinds.get(Value.TagName, Value.TagName)),
         Attributes.get("definitionIteratorData") == "true",
         Attributes.get("readonly") == "true",
         Attributes.get("allowmultiplevalues") == "true",

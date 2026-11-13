@@ -25,7 +25,7 @@ def SchemaModels(Schemas: tuple[SchemaNode, ...]) -> tuple[MaterialSchema, ...]:
             tuple(
                 PropertyModel(Child)
                 for Child in Schema.Children
-                if "id" in dict(Child.Attributes)
+                if "id" in dict(Child.Attributes) and Child.TagName != "PropertyAlias"
             ),
         )
         for Schema in Schemas

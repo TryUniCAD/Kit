@@ -953,6 +953,42 @@ The first authored solids had correct geometry and cached geometric centers but 
 
 The default explicit generic material has density 1000 kg/m³. Native cylinder and cuboid documents now report valid material identities and correct mass centers through rollback, rebuild, driving-height edits and native save/reopen. The full 108,583-byte cuboid—including three segments, 228 entity records, one history, nine material schemas and four assets—reconstructs byte for byte through `ReadDocument`/`EmitParsed`. Editing its two typed density fields to 2870 kg/m³ changes native mass as expected and survives the same lifecycle. See [independent materials](../../Changes/Fusion/Materials/FusionAuthoredMaterials.md), [typed package model](../../Changes/Fusion/Materials/FusionMaterialPackages.md), [byte-exact evidence](../../../re/Fusion/LocalOracle/RectangleAuthoring/TypedReemission.json), and [edited-material native acceptance](../../../re/Fusion/LocalOracle/RectangleAuthoring/EditedMaterialNativeAcceptance.json).
 
+## Material families
+
+A physical material asset links its aspects through `physmat_aspects`.
+Each linked asset has one concrete schema.
+A concrete schema has a `ui` child, a `type` child and a `localname`.
+The type names the aspect: Structural, Thermal or materialappearance.
+The local name names the family.
+
+| Aspect     | Families                                                |
+| ---------- | ------------------------------------------------------- |
+| Structural | Basic, Generic, Metal, Plastic, Wood, Gas, Liquid       |
+| Thermal    | Solid, Gas, Liquid, or no aspect                        |
+| Appearance | PrismOpaque, PrismMetal, PrismTransparent, PrismLayered |
+
+Basic has no elastic fields. No advanced asset in the library has the default Young's modulus.
+Gas and liquid materials use the gas and liquid schemas in both aspects.
+The appearance family does not follow the structural family.
+`interior_model` is 0 for Opaque, 1 for Metal, 2 for Layered and 3 for Transparent.
+All colorspace choices in one appearance are equal.
+
+`physmat_Type` is a separate choice of 14 labels, such as Plastic, Stone or Glass.
+Every Metal, Plastic, Wood, Gas and Liquid material carries the label of its family.
+Generic and Basic materials carry many labels.
+
+Advanced structural schemas copy each mechanical value to directional fields, such as `_X` or `_12`.
+`structural_Behavior` says whether the material is isotropic, orthotropic or transverse isotropic.
+Wood schemas add strength fields along and across the grain.
+
+A stored value carries its own unit code.
+`transparent_distance` is declared in inches but stored in millimeters.
+A `TextureURI` list has a one-byte count.
+
+Kit writes every family from the material class and its values.
+Nineteen held-out materials match Fusion's own documents in local Fusion.
+See [material families](../../Changes/Fusion/Materials/FusionMaterialFamilies.md).
+
 ## Complete circular frustum history
 
 The 35-record cylinder-like inventory also represents tapered extrusions. Classification must inspect the conical carrier and journal, not only record count. The [typed frustum codec](../../Changes/Fusion/FusionTaperedHistory.md) recovers 26 geometric/topological records, nine attribute records and the complete 34-insertion journal. The semantic model stores lower/upper radii, height, base placement, identities, tags, journal states and a typed parameterization frame.

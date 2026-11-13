@@ -15,6 +15,7 @@ def CheckProperty(Field: PropertySpec) -> None:
         "Float",
         "Color",
         "Reference",
+        "TextureURI",
         "ui",
         "implementation",
     ):
@@ -34,8 +35,14 @@ def CheckProperty(Field: PropertySpec) -> None:
         if Field.ValueKind != "Float" or not Field.UnitName:
             raise ValueError("Only Fusion material floats can declare units")
         _ = EncodeText(Field.UnitName)
-    if Field.IsMultiple and Field.ValueKind not in ("String", "URL", "Uuid"):
-        raise ValueError("Only material text lists have accepted wire evidence")
+    if Field.IsMultiple and Field.ValueKind not in (
+        "String",
+        "URL",
+        "Uuid",
+        "Float",
+        "TextureURI",
+    ):
+        raise ValueError("Only material text and number lists have wire evidence")
     if Field.IsDefinition and Field.ConnectMode != "none":
         raise ValueError("Material definition connections are unsupported")
     if Field.ValueKind == "Reference" and Field.ConnectMode == "none":

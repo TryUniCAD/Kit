@@ -27,7 +27,7 @@ def ReadMatValue(Value: SchemaNode) -> KMaterialValue:
             if Child.TagName == "ChoiceValue"
         }
         return int(Choices[TextValue])
-    if Value.TagName == "Float":
+    if Value.TagName in ("Float", "Distance"):
         Magnitude = float(TextValue)
         UnitName = Attributes.get("unit")
         return (

@@ -1,10 +1,5 @@
 from convert.formats.Fusion.DocumentCodec.Materials.AssetDefaults import AssetDefaults
-from convert.formats.Fusion.DocumentCodec.Materials.MatProperties import MatProperties
 from convert.formats.Fusion.DocumentCodec.Materials.Model.AssetFamily import AssetFamily
-from convert.formats.Fusion.DocumentCodec.Materials.Model.MaterialIds import MaterialIds
-from convert.formats.Fusion.DocumentCodec.Materials.Model.MaterialSpec import (
-    MaterialSpec,
-)
 from convert.formats.Fusion.DocumentCodec.Materials.SchemaFields import SchemaFields
 from convert.formats.Fusion.MaterialCodec.Models.MaterialAsset import MaterialAsset
 from convert.formats.Fusion.MaterialCodec.Models.MaterialSchema import MaterialSchema
@@ -13,8 +8,6 @@ from convert.formats.Fusion.MaterialCodec.Package.Model.SchemaNode import Schema
 
 
 def BuildMatAsset(
-    SpecValue: MaterialSpec,
-    Identity: MaterialIds,
     Family: AssetFamily,
     Nodes: dict[str, SchemaNode],
     Schemas: tuple[MaterialSchema, ...],
@@ -28,7 +21,7 @@ def BuildMatAsset(
         ("VersionGUID", Family.DefinitionId),
     ):
         Definitions[FieldName] = PropertyValue(FieldName, TextValue)
-    for Property in MatProperties(SpecValue, Identity, Family.SchemaName):
+    for Property in Family.Properties:
         if Property.FieldName not in Properties:
             raise ValueError("Authored material field is absent from its schema")
         Properties[Property.FieldName] = Property

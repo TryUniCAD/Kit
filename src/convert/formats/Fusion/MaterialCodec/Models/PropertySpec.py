@@ -11,6 +11,7 @@ KPropertyKind: TypeAlias = Literal[
     "Float",
     "Color",
     "Reference",
+    "TextureURI",
     "ui",
     "implementation",
 ]

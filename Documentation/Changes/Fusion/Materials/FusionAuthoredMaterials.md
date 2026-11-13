@@ -51,7 +51,9 @@ Parameter-only and sketch-only profiles do not create a material package.
 
 ## Semantic construction
 
-The factory creates `PhysMatSchema`, `StructuralMetalSchema`, `ThermalSolidSchema`, and `PrismMetalSchema` assets.
+This entry first created `PhysMatSchema`, `StructuralMetalSchema`, `ThermalSolidSchema`, and `PrismMetalSchema` assets for every material.
+[Material families](FusionMaterialFamilies.md) now choose the structural, thermal and appearance schemas from the material class and its values.
+The default material now uses `StructuralBasicSchema` and `PrismOpaqueSchema`, with no thermal aspect.
 The physical asset connects to the other three assets through `physmat_aspects`.
 Structural and thermal density use the specified value with native unit code `69633`, representing kilograms per cubic metre.
 Appearance reflectance uses the supplied RGBA color.

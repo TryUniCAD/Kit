@@ -1,6 +1,9 @@
 from convert.adapters.Fusion.Native.Graph.GraphValues import ObjectFields, TextValue
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
+from convert.formats.Fusion.DocumentCodec.Materials.Vocabulary.FamilyFields import (
+    KColorFields,
+)
 from convert.formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentModel
 from convert.formats.Fusion.DocumentCodec.Reading.Materials.ResolveMatAsset import (
     ResolveMatAsset,
@@ -42,7 +45,10 @@ def ReadMaterial(
     Properties = {
         Property.FieldName: Property.Value for Property in Appearance.Properties
     }
-    Color = Properties.get("metal_f0")
+    Colors = tuple(
+        Properties[FieldKey] for FieldKey in KColorFields if FieldKey in Properties
+    )
+    Color = Colors[0] if len(Colors) == 1 else None
     Names = {Property.FieldName: Property.Value for Property in Material.Properties}
     Definitions = {
         Property.FieldName: Property.Value for Property in Material.Definitions
