@@ -51,7 +51,7 @@ def compare(result, entities):
         if (stored.Knots, stored.Multiplicity) != (curve.Knots, curve.Multiplicity):
             row['layout_equal'] = False
         row['curve_max'] = max(row['curve_max'], gap(stored.Poles, curve.Poles))
-        if tuple(tuple(item) for item in entity.Curve.Body[0][1].Body[7:10]) != lists:
+        if tuple(tuple(item) for item in entity.Curve.Body.Context.Discontinuities) != lists:
             row['jumps_equal'] = False
     row['point_max'] = gap([entity.PositionCm for entity in points], result.Points)
     return row

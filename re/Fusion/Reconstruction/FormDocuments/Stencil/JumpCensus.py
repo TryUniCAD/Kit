@@ -19,8 +19,7 @@ TARGET = BASE / 'JumpCensus.json'
 
 
 def stored_lists(curve):
-    revision, approximation = curve.Body[0]
-    return tuple(tuple(values) for values in approximation.Body[7:10])
+    return tuple(tuple(values) for values in curve.Body.Context.Discontinuities)
 
 
 def census(path):

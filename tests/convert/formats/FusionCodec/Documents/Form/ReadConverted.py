@@ -12,10 +12,13 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Authoring.NegateCurve impo
     NegateCurve,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import (
-    ChoiceValue,
     KGrammarValue,
     KSubtypeEntry,
     SubtypeNode,
+)
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.CurveRecords import (
+    ExactIntCur,
+    ExpParCur,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.EntitySubtree import (
     EntitySubtree,
@@ -272,13 +275,9 @@ def FloatList(Value: KGrammarValue) -> tuple[float, ...]:
 
 
 def CurveJumps(Value: SubtypeNode) -> tuple[tuple[float, ...], ...]:
-    Revision = Value.Body
-    assert type(Revision) is tuple and type(Revision[0]) is tuple
-    Approximation = Revision[0][1]
-    assert isinstance(Approximation, ChoiceValue)
-    Fields = Approximation.Body
-    assert type(Fields) is tuple
-    return tuple(FloatList(Entry) for Entry in Fields[7:10])
+    Record = Value.Body
+    assert isinstance(Record, ExactIntCur)
+    return tuple(FloatList(Entry) for Entry in Record.Context.Discontinuities)
 
 
 def VertexSlotMut(State: ReadState, Index: int) -> int:
@@ -325,14 +324,14 @@ def ReadUseMut(State: ReadState, Index: int, Region: int) -> FormUse:
     assert isinstance(Carrier.Curve, SubtypeNode)
     Trace = PcurveSpline(Carrier.Curve)
     Members = Carrier.Curve.Body
-    assert type(Members) is tuple and isinstance(Members[1], float)
-    Holder = Members[2]
-    assert isinstance(Holder, ChoiceValue) and type(Holder.Body) is tuple
+    assert isinstance(Members, ExpParCur)
+    Holder = Members.Surface
+    assert type(Holder.Body) is tuple
     Surface = ResolveEntry(Holder.Body[1], State.Table)
     assert isinstance(Surface, TsplineSurf) and Surface.FaceIndex == Region
     Trace = NegateCurve(Trace) if Coedge.Reversed else Trace
     EdgeIndex = EdgeSlotMut(State, Coedge.EdgeRef)
-    return FormUse(EdgeIndex, Coedge.Reversed, Trace, Members[1])
+    return FormUse(EdgeIndex, Coedge.Reversed, Trace, Members.FitTolerance)
 
 
 def ReadFaceMut(State: ReadState, Index: int) -> FormFace:

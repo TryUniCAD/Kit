@@ -105,8 +105,7 @@ def walk_loop(entities, face):
 
 
 def jumps_of(curve):
-    approximation = curve.Body[0][1]
-    return tuple(tuple(entry) for entry in approximation.Body[7:10])
+    return tuple(tuple(entry) for entry in curve.Body.Context.Discontinuities)
 
 
 class Reader:
@@ -144,11 +143,11 @@ class Reader:
         node = self.entities[index]
         pcurve = self.entities[node.Pcurve]
         body = pcurve.Curve.Body
-        surface = resolve(body[2].Body[1], self.table)
+        surface = resolve(body.Surface.Body[1], self.table)
         if surface.FaceIndex != region_face or pcurve.Reversed or (pcurve.OffsetU, pcurve.OffsetV) != (0.0, 0.0):
             raise ValueError('pcurve carrier or form differs from the builder contract')
-        curve = NegateCurve(body[0]) if node.Reversed else body[0]
-        return FormUse(self.edge(node.EdgeRef), node.Reversed, curve, body[1])
+        curve = NegateCurve(body.Spline) if node.Reversed else body.Spline
+        return FormUse(self.edge(node.EdgeRef), node.Reversed, curve, body.FitTolerance)
 
     def face(self, index):
         node = self.entities[index]

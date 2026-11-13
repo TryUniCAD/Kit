@@ -9,6 +9,7 @@ ROOT = BASE.parents[4]
 sys.path.insert(0, str(ROOT / 'src'))
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import ChoiceValue
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.BsCurve import BsCurve
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.CurveRecords import CurveContext
 from convert.formats.Fusion.BrepCodec.Journal.Geometry.PointNode import PointNode
 from convert.formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
 from convert.formats.Fusion.BrepCodec.Journal.Spline.NubsSurface import NubsSurface
@@ -33,11 +34,10 @@ def mask(value):
         return dataclasses.replace(value, Poles=())
     if isinstance(value, PointNode):
         return dataclasses.replace(value, PositionCm=())
+    if isinstance(value, CurveContext):
+        value = dataclasses.replace(value, Discontinuities=((), (), ()))
     if isinstance(value, ChoiceValue):
-        body = value.Body
-        if type(body) is tuple and body and isinstance(body[0], BsCurve) and body[0].Dimension == 3 and len(body) == 11:
-            body = (*body[:7], (), (), (), *body[10:])
-        return ChoiceValue(value.ChoiceKey, mask(body))
+        return ChoiceValue(value.ChoiceKey, mask(value.Body))
     if type(value) is tuple:
         return tuple(mask(item) for item in value)
     if dataclasses.is_dataclass(value) and not isinstance(value, type):
@@ -94,7 +94,7 @@ def main():
                 differences[type(base[index]).__name__ + found[found.index(']') + 1:]] += 1
             for entity in form_entities(ReadDocument((WORK / 'tmp' / name / (label + '.f3d')).read_bytes())):
                 if isinstance(entity, PcurveNode):
-                    curve, fit = entity.Curve.Body[0], entity.Curve.Body[1]
+                    curve, fit = entity.Curve.Body.Spline, entity.Curve.Body.FitTolerance
                     noise['pcurve_fit_max'] = max(noise['pcurve_fit_max'], fit)
                     noise['pcurve_pole_offset_max'] = max([noise['pcurve_pole_offset_max']] + [abs(value - round(value * 4) / 4) for pole in curve.Poles for value in pole])
         row = {'cage': name, 'entities': len(base), 'entity_types': dict(Counter(type(item).__name__ for item in base)), 'variants_compared': compared, 'masked_differences': dict(sorted(differences.items())), 'pcurve_noise': noise}

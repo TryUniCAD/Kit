@@ -6,6 +6,9 @@ from convert.formats.Fusion.BrepCodec.Journal.Attributes.TimeAttrib import TimeA
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Authoring.NegateCurve import (
     NegateCurve,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.CurveRecords import (
+    ExpParCur,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import (
     ChoiceValue,
     SubtypeNode,
@@ -180,7 +183,7 @@ def MakeCurveNodes(Model: FormBody, Links: FormLinks) -> tuple[KJournalEntity, .
             False,
             SubtypeNode(
                 "exp_par_cur",
-                (
+                ExpParCur(
                     (
                         NegateCurve(UseValue.Pcurve)
                         if UseValue.Reversed

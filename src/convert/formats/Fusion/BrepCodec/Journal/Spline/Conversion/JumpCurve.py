@@ -1,31 +1,31 @@
+from dataclasses import replace as ReplaceValue
+
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Authoring.ExactSubtypes import (
     ExactCurve,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import (
-    ChoiceValue,
     SubtypeNode,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.BsCurve import BsCurve
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.CurveRecords import (
+    ExactIntCur,
+)
 
 
 def OrderCurve(Curve: BsCurve, Lists: tuple[tuple[float, ...], ...]) -> SubtypeNode:
-    if len(Lists) != 3:
+    if type(Lists) is not tuple or len(Lists) != 3:
         raise ValueError("Fusion exact curve needs three discontinuity lists")
     Plain = ExactCurve(Curve)
-    PlainBody = Plain.Body
-    if not isinstance(PlainBody, tuple) or not isinstance(PlainBody[0], tuple):
+    Record = Plain.Body
+    if not isinstance(Record, ExactIntCur):
         raise ValueError("Fusion exact curve has an unexpected body")
-    Revision, Approximation = PlainBody[0]
-    if not isinstance(Approximation, ChoiceValue) or not isinstance(
-        Approximation.Body, tuple
-    ):
-        raise ValueError("Fusion exact curve has an unexpected approximation")
-    Fields = Approximation.Body
-    Changed = ChoiceValue(
-        Approximation.ChoiceKey,
-        (*Fields[:7], *(tuple(Values) for Values in Lists), *Fields[10:]),
+    Breaks = (
+        tuple(float(Value) for Value in Lists[0]),
+        tuple(float(Value) for Value in Lists[1]),
+        tuple(float(Value) for Value in Lists[2]),
     )
-    return SubtypeNode(Plain.SubtypeName, ((Revision, Changed), *PlainBody[1:]))
+    Context = ReplaceValue(Record.Context, Discontinuities=Breaks)
+    return SubtypeNode(Plain.SubtypeName, ReplaceValue(Record, Context=Context))
 
 
 def JumpCurve(Curve: BsCurve, Jumps: tuple[float, ...]) -> SubtypeNode:

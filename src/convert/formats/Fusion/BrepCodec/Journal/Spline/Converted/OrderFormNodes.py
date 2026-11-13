@@ -1,5 +1,8 @@
 from dataclasses import replace as ReplaceValue
 
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.CurveRecords import (
+    ExpParCur,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import (
     ChoiceValue,
     KSubtypeValue,
@@ -52,12 +55,11 @@ def PlaceSurface(Entity: KJournalEntity, Surface: KSubtypeValue) -> KJournalEnti
     if not isinstance(Entity, PcurveNode) or not isinstance(Entity.Curve, SubtypeNode):
         raise ValueError("Converted Form surface carrier has an unexpected record")
     CurveBody = Entity.Curve.Body
-    if type(CurveBody) is not tuple or len(CurveBody) != 3:
+    if not isinstance(CurveBody, ExpParCur):
         raise ValueError("Converted Form pcurve has an unexpected body")
     Carrier = ChoiceValue("spline", (False, Surface, (None, None, None, None)))
-    return ReplaceValue(
-        Entity, Curve=SubtypeNode("exp_par_cur", (CurveBody[0], CurveBody[1], Carrier))
-    )
+    Changed = ReplaceValue(CurveBody, Surface=Carrier)
+    return ReplaceValue(Entity, Curve=SubtypeNode("exp_par_cur", Changed))
 
 
 def SettleSurfaces(

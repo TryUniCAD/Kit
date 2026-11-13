@@ -9,6 +9,11 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue impor
     KGrammarValue,
     SubtypeNode,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TypedRecord import (
+    KRecordTypes,
+    RebuildRecord,
+    RecordParts,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Subtypes.EntitySubtree import (
     EntitySubtree,
     SwapSubtree,
@@ -96,6 +101,9 @@ def SwapTree(Value: KGrammarValue, Context: StencilSwap) -> KGrammarValue:
         return SubtypeNode(Value.SubtypeName, SwapTree(Value.Body, Context))
     if isinstance(Value, ChoiceValue):
         return ChoiceValue(Value.ChoiceKey, SwapTree(Value.Body, Context))
+    if isinstance(Value, KRecordTypes):
+        Parts = tuple(SwapTree(Element, Context) for Element in RecordParts(Value))
+        return RebuildRecord(Value, Parts)
     if type(Value) is tuple:
         return tuple(SwapTree(Element, Context) for Element in Value)
     return Value
