@@ -248,20 +248,13 @@ def BuildNested() -> tuple[bytes, bytes, bytes, bytes]:
 
 
 def ClassRecords(Model: DocumentModel, ClassGuid: str) -> tuple[EntityRecord, ...]:
-    Found: list[EntityRecord] = []
-    for Segment in Model.Segments:
-        Owners = {
-            Identity
-            for Entry in Segment.Metadata.Classes
-            if Entry.ClassGuid.upper() == ClassGuid.upper()
-            for Identity in Entry.OwnerIds
-        }
-        Found.extend(
-            Record
-            for Record in Segment.Records
-            if Record.IsPrimary and Record.ObjectId in Owners
-        )
-    return tuple(Found)
+    return tuple(
+        Record
+        for Segment in Model.Segments
+        for Record in Segment.Records
+        if Record.IsPrimary
+        and any(Group.ClassGuid.upper() == ClassGuid.upper() for Group in Record.Groups)
+    )
 
 
 def FieldOf(Record: EntityRecord, FieldName: str) -> object:
