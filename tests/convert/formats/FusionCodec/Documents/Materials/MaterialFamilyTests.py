@@ -35,7 +35,7 @@ from convert.formats.Fusion.MaterialCodec.Package.Model.MaterialPackage import (
 )
 from convert.formats.Fusion.MaterialCodec.Package.ReadPackage import ReadPackage
 from tests.convert.formats.FusionCodec.Documents.Materials.BadFamilies import KBadCases
-from tests.convert.formats.FusionCodec.Documents.Materials.FamilyCases import (
+from tests.convert.formats.FusionCodec.Documents.Materials.MaterialCases import (
     KClassTypes,
     KFamilyCases,
 )
