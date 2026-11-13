@@ -202,8 +202,8 @@ The OGS serializer selects resource framing per class.
 `PrimitiveLODGeometryNode` clears the resource flag, but `SimpleMesh`, `VertexBuffer`, and `CircleArc<double>` keep it.
 See the [inline graphics gotcha](../../Gotchas/Conversion/Fusion/Graphics/FusionInlineGraphics.md).
 Complete document acceptance reconstructs these members instead of omitting them.
-Two members are outside typed reconstruction.
-Kit writes a drawing's embedded DWG database as opaque bytes from a read drawing.
+Two members have limits.
+Kit reads a drawing's embedded DWG into typed objects and authors sheets from rules, but Fusion does not open a DWG written entirely by Kit.
 Nonempty configuration sidecars are unknown, because no configured control exists.
 See [DWG authority](#dwg-authority) and [Configurations](#configurations).
 
@@ -928,10 +928,10 @@ Each stage is compared with a native control built in the same session.
 | Current boundary        | Evidence and limit                                                                                                          |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | Form cage conversion    | Seven tabled stencil layouts and qualified open grids only, as [Stencil cage conversion](#stencil-cage-conversion) lists    |
-| Part feature families   | Eleven authored families, with revolve, sweep, loft, draft and six others captured as records only                          |
+| Part feature families   | 18 accepted suites with 109 cases, including revolve, sweep, loft, draft, shell and rounds; other families are records only |
 | Configured designs      | No control exists, because `Design.createConfiguredDesign` is blocked for the account                                       |
-| Saved-document census   | 14 of 1,159 F3D and F3Z files are still unreadable, as [Saved-document census](#saved-document-census-and-acceptance) lists |
-| Drawings                | No DWG object decoding or drawing authoring, and no verified save after a model edit                                        |
+| Saved-document census   | 11 of 1,725 design documents are still unread, as [Read gap rules](#read-gap-rules) lists                                   |
+| Drawings                | Authored sheets, views, edges and dimensions; a DWG written entirely by Kit does not open, and slanted views are refused    |
 | Procedural ASM geometry | Read and re-emitted, but not evaluated, and procedural edits do not update stored approximations                            |
 
 ## Complete planar cuboid histories
@@ -2441,7 +2441,7 @@ Adding one dimension to the A0 drawing raised the tracked-entity count from 1 to
 
 The embedded DWG holds the sheet layout, the views and the annotations.
 `ReadInventory` reads its file header, page map, section map, class table and handle map.
-It does not decode objects, and Kit writes the DWG member as opaque bytes taken from a read drawing.
+Kit also decodes the objects into typed records and authors new sheets, views, view edges and dimensions from rules.
 
 The DWG is not a cache that Fusion regenerates from the segments.
 A drawing without its DWG member showed the dialog `Cannot find the specified drawing file.` and its open did not complete.
@@ -2634,13 +2634,13 @@ The [cadmpeg comparison](../../../re/Fusion/External/CadmpegComparison.md) reads
 It cites both projects by path and line, and Kit copies no cadmpeg code.
 Both projects read the same container bytes, and most container differences are names only.
 
-| Comparison                 | cadmpeg                                                      | Kit                                                                                                                                           |
-| -------------------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| Breadth                    | 58 feature families, assemblies, configurations, Form bodies | Qualified sketch, extrusion, taper, round, mesh, T-spline and Form profiles, eleven part feature families, external references and assemblies |
-| Field names                | Structural labels from file observation                      | Native class and member names from installed libraries                                                                                        |
-| Writing modes              | Replay, patch, and source-free generation                    | Typed re-emission and source-free generation                                                                                                  |
-| Native proof of new output | No recorded Fusion open of generated output                  | Fusion open, rollback, rebuild, edit, save, and reopen                                                                                        |
-| Feature history replay     | Not implemented                                              | Not implemented, so authored features store a solved journal state                                                                            |
+| Comparison                 | cadmpeg                                                      | Kit                                                                                                                                              |
+| -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Breadth                    | 58 feature families, assemblies, configurations, Form bodies | Qualified sketch, extrusion, taper, round, mesh, T-spline and Form profiles, 18 accepted part feature suites, external references and assemblies |
+| Field names                | Structural labels from file observation                      | Native class and member names from installed libraries                                                                                           |
+| Writing modes              | Replay, patch, and source-free generation                    | Typed re-emission and source-free generation                                                                                                     |
+| Native proof of new output | No recorded Fusion open of generated output                  | Fusion open, rollback, rebuild, edit, save, and reopen                                                                                           |
+| Feature history replay     | Not implemented                                              | Not implemented, so authored features store a solved journal state                                                                               |
 
 All 58 cadmpeg feature-family GUIDs resolve to `Dc*` classes in the Kit binary class catalogue.
 Kit evidence resolves the cadmpeg history-preamble item HS-01 and the parameter-collection item DR-80.
