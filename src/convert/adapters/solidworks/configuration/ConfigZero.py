@@ -257,7 +257,9 @@ def LegacyConfig(MappedValues: Mapping[str, object]) -> bytes:
     ):
         raise TypeError("EncodeConfig() received an invalid keyword value")
     if MappedGeneration == 19000:
-        from convert.adapters.solidworks.configuration.Config2026 import BuildNVConfig
+        from convert.adapters.solidworks.configuration.ConfigNextGen import (
+            BuildNVConfig,
+        )
 
         return BuildNVConfig(
             MappedPartName,

@@ -4,7 +4,7 @@ import struct as Struct
 
 from convert.adapters.solidworks.container.Archive import encode_string as EncodeString
 from convert.adapters.solidworks.container.Cmgr import KDefaultRenderStyle
-from convert.adapters.solidworks.container.Cmgr2026 import EncodeDSP
+from convert.adapters.solidworks.container.CmgrNextGen import EncodeDSP
 from convert.adapters.solidworks.container.Container import SldprtFormatError
 from convert.adapters.solidworks.programs.configuration.default.Program import (
     EncodeProgram as EncodeBaseProgram,
