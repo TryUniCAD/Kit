@@ -1,0 +1,110 @@
+from __future__ import annotations
+
+from convert.adapters.solidworks.programs.Common.ProgramContract import (
+    KMethodProgram as KMethodProgramType,
+)
+from convert.adapters.solidworks.programs.Owners.Sldmodu.StructConnectionCutSurfIdRepC.GetThisClass import (
+    KOwnerSites,
+)
+
+
+# isolated method data lets new reverse engineered serializers compose independently
+KMethodProgram: KMethodProgramType = (
+    KOwnerSites,
+    {
+        "ResolvedFeatures": (
+            (8203, 4, 296, "primitive:ulong", 1),
+            (8207, 4, 315, "primitive:ulong", 0),
+            (8211, 4, 455, "primitive:ulong", 7),
+            (8215, 4, 662, "primitive:long", 768),
+            (8219, 4, 739, "primitive:ulong", 0),
+            (
+                8223,
+                8,
+                1111,
+                "primitive:double",
+                float.fromhex("0x1.249ad2594c37dp+332"),
+            ),
+            (
+                8231,
+                8,
+                1124,
+                "primitive:double",
+                float.fromhex("0x1.249ad2594c37dp+332"),
+            ),
+            (8559, 4, 1651, "primitive:ulong", 0),
+            (8563, 4, 2236, "primitive:long", 0),
+            (8567, 4, 2513, "primitive:long", 19000),
+            (8571, 4, 2530, "primitive:long", 0),
+            (8581, 4, 296, "primitive:ulong", 1),
+            (8585, 4, 315, "primitive:ulong", 0),
+            (8589, 4, 455, "primitive:ulong", 7),
+            (8593, 4, 662, "primitive:long", 768),
+            (8597, 4, 739, "primitive:ulong", 0),
+            (
+                8601,
+                8,
+                1111,
+                "primitive:double",
+                float.fromhex("0x1.249ad2594c37dp+332"),
+            ),
+            (
+                8609,
+                8,
+                1124,
+                "primitive:double",
+                float.fromhex("0x1.249ad2594c37dp+332"),
+            ),
+            (8745, 4, 1651, "primitive:ulong", 0),
+            (8749, 4, 2236, "primitive:long", 0),
+            (8753, 4, 2513, "primitive:long", 19000),
+            (8757, 4, 2530, "primitive:long", 0),
+            (8871, 4, 296, "primitive:ulong", 1),
+            (8875, 4, 315, "primitive:ulong", 0),
+            (8879, 4, 455, "primitive:ulong", 7),
+            (8883, 4, 662, "primitive:long", 768),
+            (8887, 4, 739, "primitive:ulong", 0),
+            (
+                8891,
+                8,
+                1111,
+                "primitive:double",
+                float.fromhex("0x1.249ad2594c37dp+332"),
+            ),
+            (
+                8899,
+                8,
+                1124,
+                "primitive:double",
+                float.fromhex("0x1.249ad2594c37dp+332"),
+            ),
+            (8923, 4, 1651, "primitive:ulong", 0),
+            (8927, 4, 2236, "primitive:long", 0),
+            (8931, 4, 2513, "primitive:long", 19000),
+            (8935, 4, 2530, "primitive:long", 0),
+            (8945, 4, 296, "primitive:ulong", 1),
+            (8949, 4, 315, "primitive:ulong", 0),
+            (8953, 4, 455, "primitive:ulong", 7),
+            (8957, 4, 662, "primitive:long", 768),
+            (8961, 4, 739, "primitive:ulong", 0),
+            (
+                8965,
+                8,
+                1111,
+                "primitive:double",
+                float.fromhex("0x1.249ad2594c37dp+332"),
+            ),
+            (
+                8973,
+                8,
+                1124,
+                "primitive:double",
+                float.fromhex("0x1.249ad2594c37dp+332"),
+            ),
+            (8997, 4, 1651, "primitive:ulong", 0),
+            (9001, 4, 2236, "primitive:long", 0),
+            (9005, 4, 2513, "primitive:long", 19000),
+            (9009, 4, 2530, "primitive:long", 0),
+        ),
+    },
+)
