@@ -10,6 +10,9 @@ Two questions need work outside Fusion.
   report keeps the coedge curve Fusion reported. This script compares it with the
   predicted refined curve as geometry, and tests whether Fusion raised the inserted
   knot to full multiplicity.
+* Authored bodies: one row per authored body and run, with the persisted and reopened
+  measures, the largest drifts and the body volume of the default accuracy beside the
+  very high accuracy volume.
 
 Reads every completed run report in ComplexGeometry/SecondPass/Runs except Crashed.json.
 Run with /opt/homebrew/bin/python3.14 -I.
@@ -91,14 +94,54 @@ def representation(case, pair):
     return dict(label=case["label"], pcurve=pair["pcurve"], form=pair["form"], insertedKnot=inserted, degree=degree, predictedPoles=len(predicted), reportedPoles=len(reported["controlPoints"]), reportedKnots=reported["knots"], recomputedPredictionGap=prediction_poles, reportedKnotMultiplicity=reported["knots"].count(inserted), fullMultiplicityKnotsEqual=same_knots, fullMultiplicityPoleGap=pole_gap, geometryDrift=drift, samples=len(samples))
 
 
+def largest(entries, key):
+    values = [entry[key] for entry in entries if entry.get(key) is not None]
+    return max(values) if values else None
+
+
+def checked(checks, expected):
+    shape = checks["summary"]
+    row = dict(valid=shape["valid"], solid=shape["solid"], faces=shape["faces"], edges=shape["edges"], vertices=shape["vertices"], surfaceTypes=shape["surfaceTypes"], curveTypes=shape["curveTypes"])
+    row.update(areaCm2=checks["physical"]["areaCm2"], areaRelativeError=checks["areaRelativeError"], volumeCm3=checks["physical"]["volumeCm3"], volumeRelativeError=checks.get("volumeRelativeError"), centerDriftCm=checks.get("centerDriftCm"))
+    if expected["solid"] and shape["volumeCm3"] is not None:
+        row["bodyVolumeCm3"] = shape["volumeCm3"]
+        row["bodyVolumeRelativeError"] = abs(shape["volumeCm3"] - expected["volumeCm3"]) / expected["volumeCm3"]
+    surfaces = checks["surfaces"]
+    row.update(nurbsFaces=len(surfaces), surfacesMatched=sum(1 for entry in surfaces if entry.get("matched")), poleDriftCm=largest(surfaces, "poleDriftCm"), knotDrift=largest(surfaces, "knotDrift"), weightDrift=largest(surfaces, "weightDrift"), worstSampleDriftCm=largest(surfaces, "worstSampleDriftCm"))
+    row["fusionSurfaces"] = [dict(degree=[entry["fusion"]["degreeU"], entry["fusion"]["degreeV"]], count=[entry["fusion"]["countU"], entry["fusion"]["countV"]], properties=[entry["fusion"]["propertiesU"], entry["fusion"]["propertiesV"]], weights=entry["fusion"]["weights"]) for entry in surfaces]
+    coedges = checks["coedges"]
+    row.update(pcurvesExpected=coedges["expected"], pcurvesMatched=coedges["matched"], fusionPcurves=len(coedges["fusion"]), vertexDriftCm=checks["vertexDriftCm"], problems=checks["problems"])
+    return row
+
+
+def authored_rows(report, prepared):
+    rows = []
+    for case in report["authored"]:
+        row = dict(run=report["run"], label=case["label"], status=case.get("status"), stage=case.get("stage"))
+        if "temporary" in case:
+            row["temporary"] = case["temporary"]
+        expected = prepared[case["label"]]["expected"]
+        for key in ("persisted", "reopened"):
+            if key in case:
+                row[key] = checked(case[key], expected)
+        row["savedSha256"] = case.get("saved_sha256")
+        if "persisted" in case and "reopened" in case:
+            row["reopenedSummaryEqual"] = case["persisted"]["summary"] == case["reopened"]["summary"]
+        rows.append(row)
+    return rows
+
+
 def main():
-    prepared = {item["label"]: item for item in json.loads((FOLDER / "Preparation.json").read_text())["subtypes"]}
-    attributes, representations, runs = [], [], []
+    preparation = json.loads((FOLDER / "Preparation.json").read_text())
+    prepared = {item["label"]: item for item in preparation["subtypes"]}
+    shapes = {item["label"]: item for item in preparation["authored"]}
+    attributes, representations, runs, authored = [], [], [], []
     for path in sorted((FOLDER / "Runs").glob("*.json")):
         if path.name == "Crashed.json":
             continue
         report = json.loads(path.read_text())
-        runs.append(dict(run=report["run"], path=str(path.relative_to(ROOT)), sha256=hashlib.sha256(path.read_bytes()).hexdigest(), status=report["status"], documentsAfter=report.get("documents_after")))
+        runs.append(dict(run=report["run"], path=str(path.relative_to(ROOT)), sha256=hashlib.sha256(path.read_bytes()).hexdigest(), status=report["status"], fusionVersion=report.get("fusion_version"), documentsBefore=report.get("documents_before"), documentsAfter=report.get("documents_after"), cases=[case["label"] for case in report["authored"] + report["subtypes"]], failures=report["failures"]))
+        authored.extend(authored_rows(report, shapes))
         for case in report["subtypes"]:
             if "exported" in case:
                 prediction = prepared[case["label"]]["prediction"]
@@ -113,8 +156,12 @@ def main():
                     entry = representation(dict(case, detail=prepared[case["label"]]["detail"]), pair)
                     entry["run"] = report["run"]
                     representations.append(entry)
-    result = dict(schema="FusionComplexSecondAnalysis/2", script="re/Fusion/Reconstruction/ComplexGeometry/AnalyzeSecondPass.py", runs=runs, attributes=attributes, representations=representations)
+    result = dict(schema="FusionComplexSecondAnalysis/3", script="re/Fusion/Reconstruction/ComplexGeometry/AnalyzeSecondPass.py", runs=runs, authored=authored, attributes=attributes, representations=representations)
     (FOLDER / "Analysis.json").write_text(json.dumps(result, indent=1) + "\n")
+    for item in runs:
+        print(item["run"], item["status"], item["documentsBefore"], item["documentsAfter"], item["failures"])
+    for item in authored:
+        print(item["run"], item["label"], item["status"], json.dumps({key: value for key, value in item.get("reopened", {}).items() if key not in ("fusionSurfaces",)}))
     for item in attributes:
         print(item["run"], item["label"], item.get("retained"), item["original"].get("decoded"), item["mutant"].get("decoded"), item["original"].get("stitchHints"), item["mutant"].get("stitchHints"), item["original"].get("error"))
     for item in representations:
