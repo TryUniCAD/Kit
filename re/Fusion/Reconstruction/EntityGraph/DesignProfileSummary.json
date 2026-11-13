@@ -15,11 +15,11 @@
     },
     {
       "path": "Fusion/Reconstruction/BinaryClasses.json",
-      "sha256": "bedbf4b795713c142be6cd28cafafa9e9c7d1ac0f8d465d9e251098ce87c0a83"
+      "sha256": "6a5c2ab89b8227258d8b049a33f400db20be66fcc5a7549a3778a18e226f9850"
     },
     {
       "path": "Fusion/Reconstruction/DocumentAuthoring/Variants/RecipeConstructors.json",
-      "sha256": "34d97ef4d905a5b9063890fa457aed31aa178e7b66e4be587ab3cd16afc7edf2"
+      "sha256": "d047be589505ac036178ef1b728b64eeb8370ebb1020dc1c64640fd9d3244fae"
     }
   ],
   "classCount": 183,
@@ -61,5 +61,5 @@
   "referenceTypeCount": 121,
   "unresolvedReferenceTypes": [],
   "evidence": "DesignProfileEvidence.json.xz",
-  "evidenceSha256": "b1b05c4b2de88cf5ae1c2e060b20bc65bcf8b97d6c93e1c28babe12a204c0e1e"
+  "evidenceSha256": "37ec88b537a3386744dd0b6e3ada84e97a721ccd1fd6c1b5d06efaeb627a8916"
 }
