@@ -12,22 +12,115 @@ from convert.formats.Fusion.DrawingCodec.Dwg.Author.PlaceMut import (
     AppendMut,
     PlaceMut,
 )
+from convert.formats.Fusion.DrawingCodec.Dwg.Author.Sheet.BorderPlan import PlanBorder
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.Sheet.PlaceBlock import OwnMut
+from convert.formats.Fusion.DrawingCodec.Dwg.Author.Sheet.PlaceBorder import (
+    EntityCommon,
+    PlaceBorderMut,
+    PlaceSegmentMut,
+    SheetBlockMut,
+)
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.Sheet.SheetKeys import (
-    KBorderBlock,
     KPaperSpace,
     KTitleBlock,
 )
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.Sheet.SheetSizes import (
     PaperSize,
 )
+from convert.formats.Fusion.DrawingCodec.Dwg.Author.Sheet.TitlePlan import (
+    KLabelHeight,
+    PlanTitle,
+    TitlePlan,
+)
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.Spec.TitleText import TitleText
 
 KWidthDefault = 0x10
+KTopLeftFlags = 0x7D
+KTopAlign = 3
+KTitleLayer = "LAYER:TITLEBLOCK"
+KTitleStyle = "STYLE:FusionTitle"
+KAttdefCommon: dict[str, KDraftValue] = {
+    "HasGraphics": 0,
+    "EntityMode": 0,
+    "ReactorCount": 0,
+    "NoXdic": 1,
+    "HasDsData": 0,
+    "ColorIndex": 256,
+    "LtypeScale": 1.0,
+    "LtypeFlags": 0,
+    "MaterialFlags": 0,
+    "PlotFlags": 0,
+    "ShadowFlags": 0,
+    "HasFullStyle": 0,
+    "HasFaceStyle": 0,
+    "HasEdgeStyle": 0,
+    "Invisible": 0,
+    "LineWeight": 29,
+}
 KDefinitionOnly = ("DefVersion", "Prompt")
 KTitleInsert = KPaperSpace + "/Title"
 KBorderInsert = KPaperSpace + "/Border"
 KPoint = tuple[float, float]
+
+
+def TopLeftData(Corner: KPoint, Height: float) -> dict[str, KDraftValue]:
+    return {
+        "DataFlags": KTopLeftFlags,
+        "Insertion": (Corner[0], Corner[1] - Height),
+        "Alignment": Corner,
+        "Extrusion": (0.0, 0.0, 1.0),
+        "Thickness": 0.0,
+        "Height": Height,
+        "VertAlign": KTopAlign,
+        "Style": HardPointer(KTitleStyle),
+    }
+
+
+def AttdefCommon(BlockKey: str) -> dict[str, KDraftValue]:
+    return {
+        **KAttdefCommon,
+        "Owner": SoftPointer(BlockKey),
+        "Reactors": (),
+        "Layer": HardPointer(KTitleLayer),
+    }
+
+
+def TitleBlockMut(Ledger: DraftBook, Title: TitlePlan) -> None:
+    BlockKey = SheetBlockMut(Ledger, KTitleBlock.split(":", 1)[1])
+    for Index, Segment in enumerate(Title.Lines):
+        PlaceSegmentMut(
+            Ledger, BlockKey, f"{BlockKey}/Line{Index}", KTitleLayer, Segment
+        )
+    for Index, Field in enumerate(Title.Fields):
+        LabelKey = f"{BlockKey}/Label{Index}"
+        _ = OwnMut(Ledger, BlockKey, LabelKey)
+        _ = PlaceMut(
+            Ledger,
+            LabelKey,
+            "TEXT",
+            EntityCommon(BlockKey, KTitleLayer),
+            {**TopLeftData(Field.LabelCorner, KLabelHeight), "TextValue": Field.Prompt},
+        )
+        FieldKey = f"{KTitleBlock}/{Field.Tag}"
+        _ = OwnMut(Ledger, BlockKey, FieldKey)
+        _ = PlaceMut(
+            Ledger,
+            FieldKey,
+            "ATTDEF",
+            AttdefCommon(BlockKey),
+            {
+                **TopLeftData(Field.ValueCorner, Field.ValueHeight),
+                "TextValue": "",
+                "AttribVersion": 0,
+                "AttribType": 1,
+                "Tag": Field.Tag,
+                "FieldLength": 0,
+                "AttribFlags": 0,
+                "LockPosition": 1,
+                "DefVersion": 0,
+                "Prompt": Field.Prompt,
+            },
+        )
 
 
 def PlaceInsertMut(
@@ -37,7 +130,7 @@ def PlaceInsertMut(
     Corner: KPoint,
     ClassData: Mapping[str, KDraftValue],
 ) -> None:
-    Layer = "LAYER:BORDER" if BlockKey == KBorderBlock else "LAYER:TITLEBLOCK"
+    Layer = KTitleLayer if BlockKey == KTitleBlock else "LAYER:BORDER"
     _ = PlaceMut(
         Ledger,
         KeyText,
@@ -99,7 +192,9 @@ def TagOf(Definition: DraftRow) -> str:
 def PlaceTitleMut(
     Ledger: DraftBook, Paper: PaperSize, Texts: tuple[TitleText, ...]
 ) -> None:
-    PlaceInsertMut(Ledger, KBorderInsert, KBorderBlock, (0.0, 0.0), {"HasAttribs": 0})
+    BorderBlock = PlaceBorderMut(Ledger, PlanBorder(Paper))
+    TitleBlockMut(Ledger, PlanTitle())
+    PlaceInsertMut(Ledger, KBorderInsert, BorderBlock, (0.0, 0.0), {"HasAttribs": 0})
     Definitions = [
         Entry
         for Entry in Ledger.DraftRows

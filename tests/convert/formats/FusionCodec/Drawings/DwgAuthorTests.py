@@ -15,17 +15,18 @@ from convert.formats.Fusion.DrawingCodec.Dwg.Author.Spec.ViewSource import ViewS
 from convert.formats.Fusion.DrawingCodec.Dwg.EmitDwgFile import EmitDwgFile
 from convert.formats.Fusion.DrawingCodec.Dwg.Header.HeaderFrame import FrameParts
 from convert.formats.Fusion.DrawingCodec.Dwg.Model.DwgFile import DwgFile
+from convert.formats.Fusion.DrawingCodec.Dwg.Model.DwgHandleRef import DwgHandleRef
 from convert.formats.Fusion.DrawingCodec.Dwg.Model.DwgRecord import DwgField, DwgRecord
 from convert.formats.Fusion.DrawingCodec.Dwg.ReadDwgFile import ReadDwgFile
 
 KMoment = DateTime(2026, 11, 12, 12, 0, 0)
 KLayoutHandle = 0x2E50
 KSource = ViewSource(
-    306,
+    0x1C5,
     "1_Component",
     "0f0e0d0c-0b0a-4908-8706-050403020100",
-    (0.0, 0.0, 0.0),
-    (4.0, 2.0, 1.0),
+    (-1.0, 0.0, 0.5),
+    (4.0, 2.0, 1.5),
 )
 KViews = (
     ViewDraft((180.46875, 120.609375), 4.0),
@@ -91,13 +92,13 @@ def TestNewSheet() -> None:
     assert Counts["DIMENSION_LINEAR"] == 0
     Layouts = [Fields["LayoutName"] for Fields in FieldsOf(Model, "LAYOUT")]
     assert set(Layouts) == {"Kit Sheet", "Model"}
-    Versions = [
+    Stamps = [
         Fields
         for Fields in FieldsOf(Model, "XRECORD")
         if [(Member.FieldName, Member.FieldValue) for Member in ItemsOf(Fields)]
         == [("70", 45)]
     ]
-    assert len(Versions) == 1
+    assert not Stamps
 
 
 def TestNewShell() -> None:
@@ -164,6 +165,26 @@ def TestNewViews() -> None:
         if Member.FieldName == "1071" and Member.FieldValue in RepHandles
     ]
     assert len(Listed) == 3 and set(Listed) == RepHandles
+
+
+def TestViewPorts() -> None:
+    Model = ReadBack(AuthorDwg(MakeDraft(KViews)))
+    Ports = {
+        Entry.ObjectHandle: Entry
+        for Entry in Model.DwgObjects
+        if Entry.ClassKind == "VIEWPORT"
+    }
+    Drawn = {Fields["Viewport"] for Fields in FieldsOf(Model, "DRAWINGVIEW")}
+    for Fields in FieldsOf(Model, "ACDBVIEWREP"):
+        Linked = Fields["Viewport"]
+        assert isinstance(Linked, DwgHandleRef) and Linked.RefCode == 4
+        assert Linked not in Drawn
+        Frame = {
+            Member.FieldName: Member.FieldValue
+            for Member in Ports[Linked.RefValue].ClassData.RecordFields
+        }
+        assert Frame["ViewDirection"] == (0.0, 0.0, 1.0)
+        assert Frame["ViewTarget"] == (0.0, 0.0, 0.0)
 
 
 def TestDimension() -> None:

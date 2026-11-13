@@ -259,6 +259,39 @@ The [drawing acceptance report](../../../re/Fusion/Reconstruction/Drawings/Nativ
 
 The edit run has status `failed`, because it timed out waiting for the drawing cloud save. Before that timeout it recorded a design volume change from 7.497345175425612 to 11.497345175425611 cm³. The reference moved from version 1, out of date, to version 2, not out of date. The base view x range moved from 100.47–260.47 mm to 60.47–300.47 mm. Both saved-edit attempts failed, so save and reopen after a model edit are not verified. Kit decodes every DWG object into typed values and builds F2D packages and drawing-root bundles. `N2AuthoredF2d`, a Kit-built F2D around a Fusion-saved DWG, opened in 4.3 s with 3 views and 1 dimension. No DWG that Kit authors has opened. Bisection traced the stall to two checks: four header values that depend on the header variables through a check no unkeyed checksum reproduces, and Autodesk's trusted-file text, which Kit does not write because it claims an Autodesk save, as the [header tail gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingHeaderTail.md) and the [authored shell gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingAuthoredShell.md) record. See the [data model section](FusionDataModel.md#drawing-documents).
 
+### Drawing rule grafts
+
+Kit-authored DWGs do not open, so the drawing rules are checked by graft in Fusion 2706.1.17.
+An object graft keeps the A3 control's header and swaps in the objects a rule generates.
+A container graft keeps the control's Fusion-saved DWG and re-emits the F2D with one rule applied.
+Each graft below opened with views of 5, 4 and 4 curves, 1 dimension and a 420 × 297 mm sheet.
+
+| Graft                | Replaced                                                                     | Report |
+| -------------------- | ---------------------------------------------------------------------------- | ------ |
+| `L1Lean` to `L4Core` | Removed save history, Fusion dictionary items and unused standard objects    | [G2](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundG2.json) |
+| `T1Tables`           | Kit's 8 layers, 6 line types, 2 text styles, dimension style, active viewport | [T3](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT3.json) |
+| `T2Standard`         | Also materials, multiline style, view standard, layout plot fields           | [T3](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT3.json) |
+| `T3Sheet`            | Also Kit's border block, title block, inserts and 15 title attributes        | [T4](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT4.json) |
+| `C1NoTemplateThumbs` | No template sheet thumbnails                                                 | [T4](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT4.json) |
+| `C2NeutralCycle`     | Kit's neutral component colour                                               | [T4](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT4.json) |
+| `C3Renumbered`       | The control's design records renumbered without gaps                         | [T5](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT5.json) |
+| `C4KitMembers`       | Every member except the DWG built by Kit, with Kit's record numbering       | [T5](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT5.json) |
+| `D1Vertical` to `D4Diameter` | Kit's dimension of each kind and its block, in place of the plain control dimension | [T6](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT6.json) |
+| `D5Short`, `D6OnLine` | A short aligned dimension with arrows and text outside, with and without extension lines | [T8](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT8.json) |
+| `D7Split`, `D8Flank` | A short aligned dimension with only its text outside, and a short vertical one with only its arrows outside | [T9](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT9.json) |
+| `S1AsmeB` to `S3AsmeA` | `T3Sheet` on ASME B, D and A paper in millimetres with Kit's ASME border   | [T7](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT7.json) |
+| `V1LeftBelow` to `V3AboveBelow` | Kit's left and below, right and back, or above and below projected views | [T10](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT10.json) |
+| `V4KitModel` to `V6RightBackKitModel` | Also Kit's model space places for the views | [T10](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT10.json) |
+| `V7NoEdges` to `V9AboveBelowNoCurves` | Views with no stored edges, as Kit writes them, then also no curves | [T10](../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT10.json) |
+
+The ASME grafts opened with the same views and dimension on sheets of 431.8 × 279.4, 863.6 × 558.8 and 215.9 × 279.4 mm.
+Fusion took each sheet size from the DWG layout.
+
+All nine view grafts opened with one dimension on a 420 × 297 mm sheet.
+Views with stored edges showed 5, 4 and 4 curves; views without them showed none until a scale change made Fusion find the edges.
+
+An empty DWG member gave the dialog `Drawing file is not valid.`, so Fusion does not rebuild a missing DWG.
+
 ## Fixture privacy scrub
 
 Fusion-saved fixtures carried account data in nested protein assets. The [scrub ledger](../../../re/Fusion/LocalOracle/ScrubLedger.json), SHA-256 `d27d81cdda91fc740179816b22898c4f2bbbbced674ee546a6f80dd7918054a9`, lists 351 rewritten archives and one captured reflection archive. There are 234 fixtures under `re/Fusion/LocalOracle` and 117 study saves under `re/Fusion/Study`. Each archive records its Fusion-saved and committed SHA-256, and all 351 committed digests match the checked-in files. Fusion saved 28 part feature controls again during later acceptance runs. Those saves held no account residue, so the ledger no longer lists them. The rewrite uses same-length placeholders, and Kit readers do not decode the replaced bytes. See the [fixture scrub entry](../../Changes/Fusion/Privacy/FusionFixtureScrub.md), the [scrub rules entry](../../Changes/Fusion/Privacy/FusionScrubRules.md), the [study scrub entry](../../Changes/Fusion/Privacy/FusionStudyScrub.md) and the [heap residue gotcha](../../Gotchas/Conversion/Fusion/Records/FusionProteinHeapResidue.md).

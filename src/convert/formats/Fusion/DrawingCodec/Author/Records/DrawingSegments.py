@@ -43,13 +43,13 @@ def DrawingSegments(
     ActRows = OrderRows(KActClasses, History.ActOrder)
     DesignItems = AssignTypes(DesignRecords(SpecValue, FileName, History), DesignRows)
     ActItems = AssignTypes(KActRecords, ActRows)
-    NextId = DesignNextId(SpecValue.Annotations, History)
+    NextId = DesignNextId(SpecValue, History)
     Metas = (
         SegmentMeta(
             SegmentKind.KDrawingDesign, DesignRows, DesignItems, NextId, KDesignProps
         ),
         SegmentMeta(
-            SegmentKind.KDrawingAct, ActRows, ActItems, History.ActNextId, KActProps
+            SegmentKind.KDrawingAct, ActRows, ActItems, ActNextId(History), KActProps
         ),
     )
     Result: list[ParsedSegment] = []
@@ -126,3 +126,9 @@ def SegmentMeta(
     )
     Properties = tuple(MetaProperty(NameValue, Value) for NameValue, Value in Props)
     return MetaSegment(Header, Classes, Stored, (), (), NextId, 0, Properties)
+
+
+def ActNextId(History: SaveState) -> int:
+    if History.ActNextId is not None:
+        return History.ActNextId
+    return 1 + max(Record.ObjectId for Record in KActRecords)

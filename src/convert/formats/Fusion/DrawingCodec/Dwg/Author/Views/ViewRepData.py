@@ -1,4 +1,5 @@
 from math import sqrt as SquareRoot
+from uuid import UUID
 
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.DraftBook import DraftBook
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.DraftLinks import (
@@ -18,13 +19,13 @@ from convert.formats.Fusion.DrawingCodec.Dwg.Author.PlaceMut import PlaceMut
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.Sheet.SheetKeys import (
     KFusionSource,
 )
+from convert.formats.Fusion.DrawingCodec.Dwg.Author.Spec.ViewSource import ViewSource
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.Views.ViewKeys import ViewKeys
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.Views.ViewPlan import ViewPlan
 
 KPointTriple = tuple[float, float, float]
-KBodyBits = 549755813889
-KSourceId = bytes.fromhex("053b4a98885323d112747272a0f4bac4")
-KBodyPath = (DraftRecord((("PathId", 306),)), DraftRecord((("PathId", 306),)))
+KBodyBits = 0x8000000001
+KMatrixHead = 0x40
 KMatrixNames = ("XX", "XY", "XZ", "X", "YX", "YY", "YZ", "Y", "ZX", "ZY", "ZZ", "Z")
 KBaseShape = (11, 2, 3104)
 KChildShape = (15, 6, 40032)
@@ -42,14 +43,39 @@ def MatrixItems() -> tuple[tuple[str, KDraftValue], ...]:
     )
 
 
-def ViewBody() -> DraftRecord:
-    Leading = ("SourceId", KSourceId), ("SourceTail", 58), ("MatrixHead", 64)
+def GuidItems(GuidText: str) -> tuple[tuple[str, KDraftValue], ...]:
+    try:
+        Parsed = UUID(GuidText)
+    except ValueError as Failure:
+        raise ValueError(
+            f"Authored DWG body GUID {GuidText!r} is malformed"
+        ) from Failure
+    HeadPart, MiddlePart, LowPart = Parsed.fields[0:3]
+    return (
+        ("GuidHead", HeadPart),
+        ("GuidMiddle", MiddlePart),
+        ("GuidLow", LowPart),
+        ("GuidTail", Parsed.bytes[8:]),
+        ("GuidFlag", 0),
+    )
+
+
+def BodyPath(Source: ViewSource) -> tuple[DraftRecord, ...]:
+    Chain = (*Source.OccurrencePath, Source.BodyId, Source.BodyId)
+    if any(LinkId <= 0 for LinkId in Chain):
+        raise ValueError("Authored DWG body path needs positive entity ids")
+    return tuple(DraftRecord((("PathId", LinkId),)) for LinkId in Chain)
+
+
+def ViewBody(Source: ViewSource) -> DraftRecord:
+    Leading = (*GuidItems(Source.GeometryGuid), ("MatrixHead", KMatrixHead))
+    BodyChain = BodyPath(Source)
     Longs = tuple((Called, 0) for Called in ("BodyLongA", "BodyLongB", "BodyLongC"))
     Closing = (
         ("BodyFlagA", 0),
         ("BodyFlagB", 1),
-        ("PathCount", 2),
-        ("Path", KBodyPath),
+        ("PathCount", len(BodyChain)),
+        ("Path", BodyChain),
         ("BodyLongD", 1),
         ("BodyLongE", 4294967295),
         ("EdgeCount", 0),
@@ -58,19 +84,22 @@ def ViewBody() -> DraftRecord:
     return DraftRecord((*BodyKey(), *Leading, *MatrixItems(), *Longs, *Closing))
 
 
-def BodyKeyRow() -> DraftRecord:
+def BodyKeyRow(Source: ViewSource) -> DraftRecord:
+    BodyChain = BodyPath(Source)
     return DraftRecord(
         (
             *BodyKey(),
             ("KeyLongB", 0),
-            ("PathCount", 2),
-            ("Path", KBodyPath),
+            ("PathCount", len(BodyChain)),
+            ("Path", BodyChain),
             ("KeyFlagB", 0),
         )
     )
 
 
-def TrailFields(KeySet: ViewKeys, Planned: ViewPlan) -> dict[str, KDraftValue]:
+def TrailFields(
+    KeySet: ViewKeys, Planned: ViewPlan, Source: ViewSource
+) -> dict[str, KDraftValue]:
     return {
         "ViewCenter": Planned.Center,
         "TrailLongA": 0,
@@ -82,7 +111,7 @@ def TrailFields(KeySet: ViewKeys, Planned: ViewPlan) -> dict[str, KDraftValue]:
         "HolderCount": 0,
         "HolderKeys": (),
         "BodyKeyCount": 1,
-        "BodyKeys": (BodyKeyRow(),),
+        "BodyKeys": (BodyKeyRow(Source),),
         "TextA": "",
         "TextB": "",
         "BlockRef": SoftPointer(KeySet.InnerRef),
@@ -91,7 +120,7 @@ def TrailFields(KeySet: ViewKeys, Planned: ViewPlan) -> dict[str, KDraftValue]:
         "Orientation": HardOwner(KeySet.ViewRep + "/Orientation"),
         "OrientationDef": HardOwner(KeySet.ViewRep + "/Definition"),
         "NullA": KNullSoft,
-        "Viewport": SoftPointer(KeySet.Port),
+        "Viewport": SoftPointer(KeySet.Frame),
         "NullB": KNullHard,
         "SelfRef": SoftPointer(KeySet.ViewRep),
         "ModelBlockRef": SoftPointer(KeySet.ModelRef),
@@ -102,7 +131,7 @@ def TrailFields(KeySet: ViewKeys, Planned: ViewPlan) -> dict[str, KDraftValue]:
 
 
 def ViewFields(
-    KeySet: ViewKeys, Planned: ViewPlan, IsBase: bool
+    KeySet: ViewKeys, Planned: ViewPlan, IsBase: bool, Source: ViewSource
 ) -> dict[str, KDraftValue]:
     LongA, LongB, Flags = KBaseShape if IsBase else KChildShape
     return {
@@ -116,8 +145,8 @@ def ViewFields(
         "ViewRepKey": HandleNumber(KeySet.ViewRep),
         "ViewFlagA": 1,
         "BodyCount": 1,
-        "Bodies": (ViewBody(),),
-        **TrailFields(KeySet, Planned),
+        "Bodies": (ViewBody(Source),),
+        **TrailFields(KeySet, Planned, Source),
     }
 
 
@@ -179,6 +208,7 @@ def PlaceViewRepMut(
     Planned: ViewPlan,
     Parent: ViewPlan | None,
     Family: tuple[tuple[ViewKeys, ViewPlan], ...],
+    Source: ViewSource,
 ) -> str:
     return PlaceMut(
         Ledger,
@@ -192,6 +222,6 @@ def PlaceViewRepMut(
             "Reactors": (),
             "Xdic": HardOwner(KeySet.ViewRep + "/Xdic"),
         },
-        ViewFields(KeySet, Planned, Parent is None),
+        ViewFields(KeySet, Planned, Parent is None, Source),
         ViewRepEed(Planned, Parent, Family),
     )

@@ -1,7 +1,6 @@
 from convert.formats.Fusion.DrawingCodec.Author.Records.RecordTools import (
     ChildTail,
     MakeRecord,
-    ObjectTail,
 )
 from convert.formats.Fusion.EntityCodec.Model.EntityGroup import EntityGroup
 from convert.formats.Fusion.EntityCodec.Model.NamedValue import NamedValue
@@ -319,22 +318,6 @@ KContainerRecords = (
     ),
     MakeRecord(24, (EntityGroup("981E7978-171B-445C-9533-8401DB6665FE", ()),)),
     MakeRecord(
-        25,
-        (
-            EntityGroup(
-                "658C29F4-1479-4B3E-AC06-7028B0BD003E",
-                (
-                    NamedValue("DesignDocumentIdAndHashCode", ValueMap(())),
-                    NamedValue("designNextId", 1),
-                    NamedValue("lastUsedModelSource", LocalRef(39)),
-                    NamedValue("modelSourceNextId", 2),
-                ),
-            ),
-        ),
-    ),
-    MakeRecord(25, (*ChildTail(LocalRef(23), (LocalRef(39),)),), IsPrimary=False),
-    MakeRecord(26, (*ChildTail(LocalRef(23), (LocalRef(43),)),), IsPrimary=False),
-    MakeRecord(
         36,
         (
             EntityGroup(
@@ -548,8 +531,4 @@ KContainerRecords = (
             ),
         ),
     ),
-    MakeRecord(39, (*ObjectTail(LocalRef(25)),), IsPrimary=False),
-    MakeRecord(40, (EntityGroup("DFDD9951-64B7-4760-AA32-0543FD74B80F", ()),)),
-    MakeRecord(40, (*ChildTail(LocalRef(39)),), IsPrimary=False),
-    MakeRecord(43, (*ObjectTail(LocalRef(26)),), IsPrimary=False),
 )

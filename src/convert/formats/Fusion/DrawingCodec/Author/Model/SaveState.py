@@ -5,7 +5,6 @@ from convert.formats.Fusion.DrawingCodec.Author.Defaults.DesignClasses import (
     KDesignOrder,
 )
 from convert.formats.Fusion.DrawingCodec.Author.Defaults.DrawingPolicy import (
-    KActNextId,
     KChangeWord,
     KCycleColor,
     KFirstSave,
@@ -20,7 +19,7 @@ class SaveState:
     PriorVersions: tuple[str, ...] = ()
     ChangeWord: int = KChangeWord
     DesignNextId: int | None = None
-    ActNextId: int = KActNextId
+    ActNextId: int | None = None
     InstanceGates: bool = False
     PropertyColumns: bool = False
     CycleColor: tuple[float, float, float] = KCycleColor

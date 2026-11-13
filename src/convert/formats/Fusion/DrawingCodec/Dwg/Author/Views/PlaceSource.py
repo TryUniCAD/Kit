@@ -24,15 +24,9 @@ from convert.formats.Fusion.DrawingCodec.Dwg.Author.Sheet.SheetKeys import (
     KSourceManager,
 )
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.Spec.ViewSource import ViewSource
+from convert.formats.Fusion.DrawingCodec.Dwg.Author.Views.HoleData import HoleData
 
 KRoundTrip = "ACAD_XREC_ROUNDTRIP"
-KHoleData = (
-    '{\n\t"BodyInfos" : \n\t[\n\t\t{\n\t\t\t"BodyInDirectModeling" : false,'
-    '\n\t\t\t"ComponentOccurencePaths" : \n\t\t\t[\n\t\t\t\tnull\n\t\t\t],'
-    '\n\t\t\t"FeatureSetIndex" : 0,\n\t\t\t"bodyId" : {BodyId}\n\t\t}\n\t],'
-    '\n\t"FeatureSets" : \n\t[\n\t\t{\n\t\t\t"Features" : null,'
-    '\n\t\t\t"LocalModifiers" : null\n\t\t}\n\t],\n\t"IdenticalFeatures" : null\n}'
-)
 KIdentity = (
     1.0,
     0.0,
@@ -102,7 +96,7 @@ def PlaceSourceMut(Ledger: DraftBook, Source: ViewSource) -> None:
         {
             "TextTwo": Source.ComponentText,
             "TextThree": Source.ComponentText,
-            "TextFour": KHoleData.replace("{BodyId}", str(Source.BodyId)),
+            "TextFour": HoleData(Source.BodyId),
         },
     )
     _ = EnrolMut(Ledger, KRootFolder, "SY_VIEWSOURCEMGR", KSourceManager)

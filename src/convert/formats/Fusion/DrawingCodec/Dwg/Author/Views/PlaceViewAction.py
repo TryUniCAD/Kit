@@ -74,8 +74,7 @@ def PlaceStateMut(
         Planned.TargetPoint,
         Planned.EyePoint,
         Planned.Frame.Up,
-        Source.GeometryGuid,
-        Planned.Extent,
+        ((Source.GeometryGuid, Source.BoundsMin, Source.BoundsMax),),
     )
     _ = PlaceRecordMut(
         Ledger,
@@ -125,7 +124,7 @@ def PlaceViewActMut(
         },
     )
     _ = PlaceViewRepMut(
-        Ledger, KeySet, Planned, Elders[0][1] if Elders else None, Family
+        Ledger, KeySet, Planned, Elders[0][1] if Elders else None, Family, Source
     )
     Owner = {"Owner": SoftPointer(KeySet.ViewRep)}
     _ = PlaceMut(

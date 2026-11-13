@@ -10,7 +10,6 @@ from convert.formats.Fusion.DrawingCodec.Dwg.Author.PlaceMut import PlaceMut
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.Sheet.PlaceFolder import (
     EnrolMut,
 )
-from convert.formats.Fusion.DrawingCodec.Dwg.Author.Sheet.PlaceNod import PlaceNodMut
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.Sheet.PlaceNetwork import (
     PlaceNetworkMut,
 )
@@ -21,6 +20,7 @@ from convert.formats.Fusion.DrawingCodec.Dwg.Author.Sheet.PlaceTitle import (
     PlaceTitleMut,
 )
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.Sheet.SheetKeys import (
+    KFirstSheetTab,
     KLayoutFolder,
     KLayoutKey,
     KLayoutViewports,
@@ -39,22 +39,10 @@ from convert.formats.Fusion.DrawingCodec.Dwg.Author.Spec.SheetDraft import (
 
 
 def LayoutEed() -> tuple[DraftEed, ...]:
-    Plotter = (
-        ("1000", "AutoCAD PDF (High Quality Print).pc3"),
-        ("1000", "DWG To PDF"),
-        ("1000", "File"),
-        ("1000", ""),
-        ("1070", 0),
-    )
     return (
-        DraftEed(HardPointer("APPID:ACAD_PSEXT"), DraftRecord(Plotter)),
         DraftEed(
             HardPointer("APPID:FUSIONCURRENTTITLEBLOCK"),
             DraftRecord((("1000", "ISO_TITLEBLOCK"),)),
-        ),
-        DraftEed(
-            HardPointer("APPID:FUSDOC_XDATA_AUTO_CREATED_LAYOUT"),
-            DraftRecord((("1071", 1048815),)),
         ),
     )
 
@@ -91,6 +79,15 @@ def PlaceLayoutMut(Ledger: DraftBook, LayoutName: str, Paper: PaperSize) -> None
         {},
         {
             "LayoutName": LayoutName,
+            "TabOrder": KFirstSheetTab,
+            "PaperWidth": Paper.PaperWidth,
+            "PaperHeight": Paper.PaperHeight,
+            "PaperSize": Paper.MediaName,
+            "PaperUnits": 1 if Paper.IsMetric else 0,
+            "WindowMin": (0.0, 0.0),
+            "WindowMax": (0.0, 0.0),
+            "LimitMin": (0.0, 0.0),
+            "LimitMax": (Paper.PaperWidth, Paper.PaperHeight),
             "ExtentMin": (0.0, 0.0, 0.0),
             "ExtentMax": (Paper.PaperWidth, Paper.PaperHeight, 0.0),
             "BlockRecord": SoftPointer(KPaperSpace),
@@ -107,6 +104,5 @@ def PlaceSheetMut(Ledger: DraftBook, Draft: SheetDraft) -> None:
     PlacePaperMut(Ledger)
     PlaceLayoutMut(Ledger, Draft.LayoutName, Paper)
     PlaceNetworkMut(Ledger)
-    PlaceNodMut(Ledger)
     _ = PlaceOverallMut(Ledger, Paper)
     PlaceTitleMut(Ledger, Paper, Draft.TitleTexts)

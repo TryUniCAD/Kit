@@ -8,8 +8,10 @@ from convert.formats.Fusion.DrawingCodec.Dwg.Author.DraftValue import (
     DraftRecord,
     KDraftValue,
 )
+from math import cos as Cosine
+from math import sin as SineOf
+
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.Notes.DimensionPlan import (
-    KExtentRatio,
     KTextHeight,
     DimensionPlan,
     PlanDimension,
@@ -33,19 +35,39 @@ KPointLayer = "LAYER:Defpoints"
 KByBlock = 8192
 KLineWeight = 30
 KJagGroups = (("1070", 387), ("1070", 0), ("1070", 389), ("1010", (0.0, 0.0, 0.0)))
+KSuppressFirst = 75
+KUserPlaced = 288
+KStyleOverrides: dict[str, tuple[int, ...]] = {
+    "Radius": (KSuppressFirst, KUserPlaced),
+    "Diameter": (KUserPlaced,),
+}
+KPlacedText = 10
 KDraftFields = dict[str, KDraftValue]
+KClassNames = {
+    "Horizontal": "DIMENSION_LINEAR",
+    "Vertical": "DIMENSION_LINEAR",
+    "Aligned": "DIMENSION_ALIGNED",
+    "Radius": "DIMENSION_RADIUS",
+    "Diameter": "DIMENSION_DIAMETER",
+}
 
 
 def FactorItem(NameText: str, Value: float) -> DraftEed:
     return DraftEed(HardPointer("APPID:" + NameText), DraftRecord((("1040", Value),)))
 
 
-def FactorEed(Factor: float) -> tuple[DraftEed, ...]:
-    Style = (
+def FactorEed(Factor: float, DimensionKind: str) -> tuple[DraftEed, ...]:
+    Overrides: tuple[tuple[str, KDraftValue], ...] = tuple(
+        Override
+        for Variable in KStyleOverrides.get(DimensionKind, ())
+        for Override in (("1070", Variable), ("1070", 1))
+    )
+    Style: tuple[tuple[str, KDraftValue], ...] = (
         ("1000", "DSTYLE"),
         ("1002", 0),
         ("1070", 144),
         ("1040", Factor),
+        *Overrides,
         ("1002", 1),
     )
     return (
@@ -99,6 +121,7 @@ def PlaceTextMut(Ledger: DraftBook, BlockKey: str, Planned: DimensionPlan) -> No
     KeyText = OwnMut(Ledger, BlockKey, f"{BlockKey}/Text")
     Point = (*Planned.TextPoint, 0.0)
     Width = Planned.TextWidth
+    Across = (Cosine(Planned.TextAngle), SineOf(Planned.TextAngle), 0.0)
     _ = PlaceMut(
         Ledger,
         KeyText,
@@ -106,27 +129,52 @@ def PlaceTextMut(Ledger: DraftBook, BlockKey: str, Planned: DimensionPlan) -> No
         BlockCommon(BlockKey, KDimLayer),
         {
             "Insertion": Point,
-            "XAxis": (1.0, 0.0, 0.0),
-            "ExtentHeight": KTextHeight * KExtentRatio,
+            "XAxis": Across,
+            "RectWidth": 0.0,
+            "RectHeight": 0.0,
+            "TextHeight": KTextHeight,
+            "ExtentHeight": Planned.TextHeight,
             "ExtentWidth": Width,
             "TextValue": Planned.TextValue,
-            "ContextXAxis": (1.0, 0.0, 0.0),
+            "ContextXAxis": Across,
             "ContextInsertion": Point,
+            "ContextWidth": 0.0,
+            "ContextHeight": 0.0,
             "ContextExtWidth": Width,
-            "ContextExtHeight": KTextHeight * KExtentRatio,
+            "ContextExtHeight": Planned.TextHeight,
         },
     )
 
 
 def PlacePointsMut(Ledger: DraftBook, BlockKey: str, Planned: DimensionPlan) -> None:
-    for Index, Point in enumerate(
-        (Planned.FirstPoint, Planned.SecondPoint, Planned.LinePoint)
-    ):
+    for Index, Point in enumerate(Planned.Anchors):
         KeyText = OwnMut(Ledger, BlockKey, f"{BlockKey}/Point{Index}")
         Place = {"PointX": Point[0], "PointY": Point[1], "PointZ": 0.0}
         _ = PlaceMut(
             Ledger, KeyText, "POINT", BlockCommon(BlockKey, KPointLayer), Place
         )
+
+
+def KindFields(Planned: DimensionPlan) -> KDraftFields:
+    First = (*Planned.FirstPoint, 0.0)
+    Second = (*Planned.SecondPoint, 0.0)
+    if Planned.DimensionKind in ("Radius", "Diameter"):
+        Leader = 0.0
+        return {
+            "PointTen": First,
+            "PointFifteen": Second,
+            "LeaderLength": Leader,
+            "DimFlags": KPlacedText,
+        }
+    Fields: KDraftFields = {
+        "PointThirteen": First,
+        "PointFourteen": Second,
+        "PointTen": (*Planned.LinePoint, 0.0),
+        "ExtRotation": 0.0,
+    }
+    if Planned.DimensionKind != "Aligned":
+        Fields["DimRotation"] = Planned.LineAngle
+    return Fields
 
 
 def PlaceDimMut(Ledger: DraftBook, Index: int, Draft: DimensionDraft) -> str:
@@ -139,18 +187,16 @@ def PlaceDimMut(Ledger: DraftBook, Index: int, Draft: DimensionDraft) -> str:
     _ = PlaceMut(
         Ledger,
         KeyText,
-        "DIMENSION_LINEAR",
+        KClassNames[Planned.DimensionKind],
         {"ReactorCount": 0, "Reactors": ()},
         {
             "TextMidpoint": Planned.TextPoint,
             "Measurement": Planned.Measurement,
-            "PointThirteen": (*Planned.FirstPoint, 0.0),
-            "PointFourteen": (*Planned.SecondPoint, 0.0),
-            "PointTen": (*Planned.LinePoint, 0.0),
-            "DimRotation": 0.0,
+            "DimStyle": HardPointer(KStyleKey),
             "DimBlock": HardPointer(BlockKey),
+            **KindFields(Planned),
         },
-        FactorEed(Planned.LinearFactor),
+        FactorEed(Planned.LinearFactor, Planned.DimensionKind),
     )
     AppendMut(Ledger, KStyleKey + ".Reactors", SoftPointer(KeyText))
     return KeyText

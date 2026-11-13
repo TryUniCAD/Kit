@@ -29,6 +29,23 @@ def settle(seconds):
         adsk.doEvents()
 
 
+def poke(document):
+    sheet = adsk.drawing.DrawingDocument.cast(document).drawing.activeSheet
+    rows = []
+    for index in range(sheet.views.count):
+        view = sheet.views.item(index)
+        scale = common.safe(lambda: view.scaleValue)
+        step = {'before': view.viewCurves.count, 'scale': scale}
+        step['set_half'] = common.safe(lambda: setattr(view, 'scaleValue', scale / 2) or True)
+        settle(3)
+        step['half'] = common.safe(lambda: view.viewCurves.count)
+        step['set_back'] = common.safe(lambda: setattr(view, 'scaleValue', scale) or True)
+        settle(3)
+        step['after'] = common.safe(lambda: view.viewCurves.count)
+        rows.append(step)
+    return {'views': rows, 'info': common.drawing_info(document)}
+
+
 def references(document):
     rows = []
     collection = common.safe(lambda: document.documentReferences, False)
@@ -103,6 +120,9 @@ def inspect(label, folder):
     row['dimension_types'] = common.safe(lambda: [int(sheet_dimension.type) for sheet_dimension in iterate(adsk.drawing.DrawingDocument.cast(document).drawing.activeSheet.drawingDimensions)])
     row['references'] = references(document)
     row['modified_after_open'] = common.safe(lambda: document.isModified)
+    if selection.get('poke'):
+        checkpoint(label + ' poking views')
+        row['poked'] = common.safe(lambda: poke(document))
     if row['open_seconds'] > selection.get('slow_open_seconds', 480):
         row['slow_open'] = True
     elif selection.get('export_dwg'):

@@ -12,12 +12,13 @@ from convert.formats.Fusion.DrawingCodec.Author.Defaults.DrawingPolicy import (
     KLinkWord,
     KLinkWords,
     KRootModules,
-    KSheetSizes,
     KTypeName,
     KTypeText,
     KUnits,
 )
 from convert.formats.Fusion.DrawingCodec.Author.Model.DrawingSpec import DrawingSpec
+from convert.formats.Fusion.DrawingCodec.Dwg.Author.Sheet.BorderPlan import ZoneCounts
+from convert.formats.Fusion.DrawingCodec.Dwg.Author.Sheet.SheetSizes import SheetSize
 from convert.formats.Fusion.DrawingCodec.Author.Model.SaveState import SaveState
 from convert.formats.Fusion.DrawingCodec.Manifest.AssetLink import AssetLink
 from convert.formats.Fusion.DrawingCodec.Manifest.DrawingAsset import DrawingAsset
@@ -117,14 +118,13 @@ def BuildAsset(SpecValue: DrawingSpec, History: SaveState) -> DrawingAsset:
 
 
 def BuildSheet(SpecValue: DrawingSpec) -> SheetLayout:
-    Width, Height, AcrossZones, DownZones = KSheetSizes[SpecValue.Sheet.SheetSize]
+    Paper = SheetSize(SpecValue.Sheet.SheetSize)
     return SheetLayout(
         SpecValue.Sheet.SheetName,
         SpecValue.Sheet.SheetSize,
         SpecValue.Sheet.Standard,
         KUnits,
-        Width,
-        Height,
-        AcrossZones,
-        DownZones,
+        Paper.PaperWidth,
+        Paper.PaperHeight,
+        *ZoneCounts(Paper),
     )

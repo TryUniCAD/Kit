@@ -2,11 +2,6 @@ from re import fullmatch as MatchText
 from typing import cast as CastValue
 from uuid import UUID as ParseUuid
 
-from convert.formats.Fusion.DrawingCodec.Author.Defaults.DrawingPolicy import (
-    KSheetSizes,
-    KStandards,
-    KTemplateSheet,
-)
 from convert.formats.Fusion.DrawingCodec.Author.Model.DesignTarget import DesignTarget
 from convert.formats.Fusion.DrawingCodec.Author.Model.DrawingIdentity import (
     DrawingIdentity,
@@ -14,6 +9,7 @@ from convert.formats.Fusion.DrawingCodec.Author.Model.DrawingIdentity import (
 from convert.formats.Fusion.DrawingCodec.Author.Model.DrawingSpec import DrawingSpec
 from convert.formats.Fusion.DrawingCodec.Author.Model.SaveState import SaveState
 from convert.formats.Fusion.DrawingCodec.Author.Model.SheetSpec import SheetSpec
+from convert.formats.Fusion.DrawingCodec.Dwg.Author.Sheet.SheetSizes import SheetSize
 from convert.formats.Fusion.DrawingCodec.Model.DrawingDatabase import DrawingDatabase
 
 KTokenPattern = r"[A-Za-z0-9_-]{22}"
@@ -43,15 +39,11 @@ def CheckSheet(Sheet: SheetSpec, LayoutHandle: int) -> None:
         Sheet.SheetName
     ):
         raise ValueError("Invalid drawing sheet")
-    if Sheet.SheetSize not in KSheetSizes:
+    if type(Sheet.SheetSize) is not str:
         raise ValueError("Unsupported drawing sheet size " + repr(Sheet.SheetSize))
-    if Sheet.Standard not in KStandards:
+    if Sheet.Standard != SheetSize(Sheet.SheetSize).StandardName:
         raise ValueError("Unsupported drawing standard " + repr(Sheet.Standard))
-    if (
-        type(LayoutHandle) is not int
-        or not 0 < LayoutHandle <= 0xFFFFFFFF
-        or f"{LayoutHandle:X}" == KTemplateSheet
-    ):
+    if type(LayoutHandle) is not int or not 0 < LayoutHandle <= 0xFFFFFFFF:
         raise ValueError("Invalid drawing layout handle")
 
 

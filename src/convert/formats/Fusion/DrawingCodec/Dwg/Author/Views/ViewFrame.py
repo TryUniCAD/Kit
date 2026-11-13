@@ -46,9 +46,15 @@ def IsUnit(Vector: KPointTriple) -> bool:
     return abs(SquareRoot(DotProduct(Vector, Vector)) - 1) < KTolerance
 
 
+def IsAxis(Vector: KPointTriple) -> bool:
+    return sum(abs(Component) > KTolerance for Component in Vector) == 1
+
+
 def BaseFrame(Draft: ViewDraft) -> ViewFrame:
     if not IsUnit(Draft.EyeDirection) or not IsUnit(Draft.UpVector):
         raise ValueError("Authored DWG view directions must be unit vectors")
+    if not IsAxis(Draft.EyeDirection) or not IsAxis(Draft.UpVector):
+        raise ValueError("Authored DWG base views must look along a model axis")
     if abs(DotProduct(Draft.EyeDirection, Draft.UpVector)) > KTolerance:
         raise ValueError("Authored DWG view up vector must be normal to its eye")
     if Draft.ViewScale <= 0:

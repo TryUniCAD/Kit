@@ -52,12 +52,12 @@ def summary(row):
     return keep
 
 
-def inspect(tag, label, folder, stall):
+def inspect(tag, label, folder, stall, poke=False):
     name = 'Bx' + label
     path = VARIANTS / ('Inspect' + name + '.json')
     if path.exists():
         path.unlink()
-    write('Selection.json', {'labels': [label], 'tag': name, 'folder': folder, 'export_dwg': False})
+    write('Selection.json', {'labels': [label], 'tag': name, 'folder': folder, 'export_dwg': False, 'poke': poke})
     outcome = guarded('InspectUploads.py', '--watch', str(path), '--stall', str(stall), '--events', str(VARIANTS / ('Events' + tag + '.json')), '--label', label)
     report = json.loads(path.read_text()) if path.exists() else {}
     row = report.get('uploads', {}).get(label)
@@ -70,6 +70,7 @@ def main():
     parser.add_argument('labels', nargs='+')
     parser.add_argument('--folder')
     parser.add_argument('--stall', type=int, default=60)
+    parser.add_argument('--poke', action='store_true', help='after open, halve and restore each view scale and count curves')
     args = parser.parse_args()
     target = VARIANTS / ('Bisect' + args.tag + '.json')
     round_report = {'tag': args.tag, 'labels': args.labels, 'started': time.strftime('%H:%M:%S'), 'rows': []}
@@ -80,7 +81,7 @@ def main():
     round_report['folder'] = folder
     target.write_text(json.dumps(round_report, indent=1) + '\n')
     for label in args.labels:
-        row = inspect(args.tag, label, folder, args.stall)
+        row = inspect(args.tag, label, folder, args.stall, args.poke)
         round_report['rows'].append(row)
         target.write_text(json.dumps(round_report, indent=1) + '\n')
         print(json.dumps(row), flush=True)

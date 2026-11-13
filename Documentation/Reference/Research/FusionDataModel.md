@@ -2371,8 +2371,46 @@ A drawing without its DWG member showed the dialog `Cannot find the specified dr
 A drawing with the A0 segments and the A1 DWG opened with the A1 dimension and views.
 On open, Fusion writes the embedded DWG and a SAB export of the referenced body to a temporary folder.
 It then starts the drawing engine, which runs one `VIEWEDIT` command for each view.
-View curves are therefore recomputed from the referenced body, but view definitions come from the DWG.
+Each view rep stores the edges its view shows, and `VIEWEDIT` projects those edges from the body in the view direction.
+It does not find the visible edges again, so a view with no stored edges opens empty until the view updates.
 The [missing database gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingMissingDatabase.md) and the [engine stall gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingEngineStall.md) give the observations.
+
+### Drawing authoring rules
+
+Kit's drawing author holds no data captured from one save.
+Each value below is a rule or a constant seen in every save Kit has.
+
+| Value                              | Source                                                                        |
+| ---------------------------------- | ----------------------------------------------------------------------------- |
+| Border, header, tables, title block | Paper rule, ISO 5457, ISO 7200, ISO 3098 and ISO 128; see the change log     |
+| View state body mark `21 84 DE 7B 09` | Once after each body's bounds in all 9 view state captures of 4 saves, 3 designs, 1 or 2 bodies |
+| View body key bits `0x8000000001` | All 70 body and holder keys of 5 saves, 3 designs; the key flag is the body's index |
+| Base view shape (11, 2, 3104)      | All 4 base views of the modern saves; an older save has flags 0               |
+| Base view style fields             | `ViewLongB` is 2 for visible edges and 1 with hidden edges; flag bits 0x1 shaded, 0x400 interference edges, 0x800 thread edges; API views add 0x2000 |
+| Orthographic base view layout      | Left, right, top, bottom, front and back base views share one record layout; two isometric base views use a longer one Kit does not decode |
+| Projected view shape (15, 6, 40032) | All 4 projected views, to the right and above the base; Fusion opened left, below and back views with it |
+| Projected view frames              | The control's right and above views equal Kit's on every value a layout changes; after an update, Fusion drew left, below and back views at Kit's places and sizes |
+| View rep viewport                  | The view's frame viewport in all 63 view reps of 5 saves                      |
+| Design segment ids 0 to 38         | The empty drawing design; the same 34 records in the three modern saves read  |
+| Hole data                          | Styled JSON with sorted keys and tab indents, built from the body id          |
+| ASME paper                         | Inch sizes written in millimetres; no Fusion save holds an ASME border, and an ISO drawing refuses ASME sizes |
+| Short linear dimensions            | Arrows inside from 2 arrows and 2 text gaps, text inside from its width and 2 gaps; matches 68 saved dimensions |
+
+Fusion numbers drawing segment records in creation order, so its saves have gaps from deleted objects.
+The A1 control uses 39 and 40 for the model source and its parts lists, 43 for the sheet, and 45, 68 and 74 for its three tracked edges.
+Kit numbers from one counter after the empty design.
+Each model source takes two ids, each sheet one, and each tracked edge six.
+The design's next id is the first id after Kit's records.
+Fusion opened the A1 control renumbered without gaps, and opened Kit's numbered records around the control's DWG.
+
+A sheet record's `sheetOrder` equals the tab order of its paper layout.
+In the three modern saves the model layout has tab 0 and the single sheet has tab 2.
+A save with five sheets numbers them 2 to 6 in creation order, and each sheet record carries its layout's tab.
+An older save with two sheets uses tabs 1 and 2.
+
+Each model source is named `<index>_Component`, with `designId` 1 for the one design.
+The sources folder points at the last source made and holds the next source index.
+The five-sheet save has five sources, numbered this way, with next index 6.
 
 ### Historical drawing example
 

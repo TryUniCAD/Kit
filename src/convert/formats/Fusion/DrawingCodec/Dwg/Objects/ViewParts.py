@@ -40,7 +40,7 @@ KLabelStyle = (
     "BL LabelAttachment; BD LabelOffset; BL LabelAlignment; TU LabelPattern; "
 )
 KEdgeCurve = "B HasCurve; if HasCurve==1 { " + KCachedCurve + " }; "
-KSourceKey = "Bytes SourceId 16; Bits SourceTail 7; "
+KSourceKey = "BL GuidHead; BS GuidMiddle; BS GuidLow; Bytes GuidTail 8; B GuidFlag; "
 KBodyKey = "BL KeyLong; Bits KeyBits 40; B KeyFlag; "
 KBodyPath = "BL PathCount; each Path PathCount { BLL PathId }; "
 KViewBody = (

@@ -32,25 +32,11 @@ KStorageUrn = "urn:adsk.objects:os.object:wip.dm.prod/"
 
 KZeroGuid = "00000000-0000-0000-0000-000000000000"
 
-KFirstTracked = 45
-
-KTrackedSpan = 6
-
-KActNextId = 5
-
-KSheetOrder = 2
-
-KTemplateSheet = "D3"
-
 KTitleBlockId = "1"
 
 KUnits = "mm"
 
-KStandards = ("ISO",)
-
-KSheetSizes = {"A3 Landscape": (420.0, 297.0, 8, 6)}
-
-KCycleColor = (0.3059000074863434, 0.5881999731063843, 0.7372999787330627)
+KCycleColor = (0.8, 0.8, 0.8)
 
 KFirstStamp = (0, KZipEpoch)
 

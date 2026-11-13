@@ -1,4 +1,5 @@
 KNamedObjects = "NOD"
+KFirstSheetTab = 2
 KBlockEntries = "Control:BLOCK.Entries"
 KPaperSpace = "BLOCK_HEADER:*Paper_Space"
 KModelSpace = "BLOCK_HEADER:*Model_Space"
@@ -17,6 +18,5 @@ KRootNetwork = KRootNetworks + "/ACAD_ASSOCNETWORK"
 KOverallPort = KPaperSpace + "/Overall"
 KScaleKey = "NOD/ACAD_SCALELIST/B3"
 KTitleBlock = "BLOCK_HEADER:ISO_TITLEBLOCK"
-KBorderBlock = "BLOCK_HEADER:ISO_A3_SHEET"
 KSourceManager = KRootFolder + "/SY_VIEWSOURCEMGR"
 KFusionSource = KSourceManager + "/Xdic/ACAD_XREC_ROUNDTRIP/Source"

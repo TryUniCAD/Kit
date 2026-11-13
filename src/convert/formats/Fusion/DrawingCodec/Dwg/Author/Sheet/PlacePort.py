@@ -31,7 +31,10 @@ from convert.formats.Fusion.DrawingCodec.Dwg.Author.Sheet.SheetSizes import (
     PaperSize,
 )
 
-KOverallFlags = 819200
+KAlwaysOn = 0x8000
+KGridBeyond = 0x40000
+KAdaptiveGrid = 0x80000
+KOverallFlags = KAlwaysOn | KGridBeyond | KAdaptiveGrid
 KScaleRecord = "ASDK_XREC_ANNOTATION_SCALE_INFO"
 
 
@@ -62,12 +65,12 @@ def PlaceOverallMut(Ledger: DraftBook, Paper: PaperSize) -> str:
         },
         {
             "Center": (*Center, 0.0),
-            "Width": Paper.PortWidth,
-            "Height": Paper.PortHeight,
+            "Width": Paper.PaperWidth,
+            "Height": Paper.PaperHeight,
             "ViewTarget": (0.0, 0.0, 0.0),
             "ViewDirection": (0.0, 0.0, 1.0),
             "TwistAngle": 0.0,
-            "ViewHeight": Paper.PortHeight,
+            "ViewHeight": Paper.PaperHeight,
             "ViewCenter": Center,
             "StatusFlags": KOverallFlags,
             "UcsAtOrigin": 0,

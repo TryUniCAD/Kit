@@ -11,3 +11,4 @@ class ViewSource:
     BoundsMin: KPointTriple
     BoundsMax: KPointTriple
     MaterialText: str = ""
+    OccurrencePath: tuple[int, ...] = ()
