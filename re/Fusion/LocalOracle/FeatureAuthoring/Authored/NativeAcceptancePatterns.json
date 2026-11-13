@@ -221,6 +221,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 3
         },
         "markers": [
@@ -280,6 +281,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -338,6 +340,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -429,6 +432,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -520,6 +524,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 3
           }
         ],
@@ -612,6 +617,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 3
         }
       },
@@ -712,6 +718,7 @@
             "role": "ExtraOffset"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "markers": [
@@ -779,6 +786,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -845,6 +853,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -944,6 +953,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -1043,6 +1053,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 3
         }
       ],
@@ -1144,6 +1155,7 @@
             "role": "ExtraOffset"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "edited": {
@@ -1243,6 +1255,7 @@
             "role": "ExtraOffset"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopened": {
@@ -1342,6 +1355,7 @@
             "role": "ExtraOffset"
           }
         ],
+        "work": [],
         "marker": 3
       },
       "reopen_computed": true,
@@ -1442,9 +1456,10 @@
             "role": "ExtraOffset"
           }
         ],
+        "work": [],
         "marker": 3
       },
-      "saved_sha256": "c537b19bfbaef26e93a74086f5b63e46010bc6caaf81c1f63dde9adce44b0ed1",
+      "saved_sha256": "c5f30bd5ac45032ac2fedba87576fafe9c34f6fe2b11f6a3aba9b8699cf42b7f",
       "status": "accepted"
     },
     {
@@ -1744,6 +1759,7 @@
               "role": "vSpaceDistance"
             }
           ],
+          "work": [],
           "marker": 5
         },
         "markers": [
@@ -1847,6 +1863,7 @@
                 "role": "vSpaceDistance"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -1949,6 +1966,7 @@
                 "role": "vSpaceDistance"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -2084,6 +2102,7 @@
                 "role": "vSpaceDistance"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -2219,6 +2238,7 @@
                 "role": "vSpaceDistance"
               }
             ],
+            "work": [],
             "marker": 3
           },
           {
@@ -2355,6 +2375,7 @@
                 "role": "vSpaceDistance"
               }
             ],
+            "work": [],
             "marker": 4
           },
           {
@@ -2496,6 +2517,7 @@
                 "role": "vSpaceDistance"
               }
             ],
+            "work": [],
             "marker": 5
           }
         ],
@@ -2635,6 +2657,7 @@
               "role": "vSpaceDistance"
             }
           ],
+          "work": [],
           "marker": 5
         }
       },
@@ -2785,6 +2808,7 @@
             "role": "vSpaceDistance"
           }
         ],
+        "work": [],
         "marker": 5
       },
       "markers": [
@@ -2896,6 +2920,7 @@
               "role": "vSpaceDistance"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -3006,6 +3031,7 @@
               "role": "vSpaceDistance"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -3149,6 +3175,7 @@
               "role": "vSpaceDistance"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -3292,6 +3319,7 @@
               "role": "vSpaceDistance"
             }
           ],
+          "work": [],
           "marker": 3
         },
         {
@@ -3436,6 +3464,7 @@
               "role": "vSpaceDistance"
             }
           ],
+          "work": [],
           "marker": 4
         },
         {
@@ -3585,6 +3614,7 @@
               "role": "vSpaceDistance"
             }
           ],
+          "work": [],
           "marker": 5
         }
       ],
@@ -3736,6 +3766,7 @@
             "role": "vSpaceDistance"
           }
         ],
+        "work": [],
         "marker": 5
       },
       "edited": {
@@ -3882,6 +3913,7 @@
             "role": "vSpaceDistance"
           }
         ],
+        "work": [],
         "marker": 5
       },
       "reopened": {
@@ -4028,6 +4060,7 @@
             "role": "vSpaceDistance"
           }
         ],
+        "work": [],
         "marker": 5
       },
       "reopen_computed": true,
@@ -4175,15 +4208,16 @@
             "role": "vSpaceDistance"
           }
         ],
+        "work": [],
         "marker": 5
       },
-      "saved_sha256": "cff6a33129ad8e41cc7d1519994036d12be764b8da4a0e693f52614ab05f4440",
+      "saved_sha256": "d9bf9d4b20719b49714799a96f402f55ca8095e917d8b53693f953d461b93144",
       "status": "accepted"
     },
     {
       "name": "FeatureCircPattern",
       "file": "FeatureCircPattern.f3d",
-      "sha256": "41c186bab28d95c18fe11cd347abf87eca3fa7449306925fefbb7a055b18b56f",
+      "sha256": "46772ea52c2fe46104d25bc95921abd3daa442b9a820748cd511fcf86e2a44ee",
       "steps": [
         {
           "kind": "extrude",
@@ -4451,6 +4485,7 @@
               "role": "TotalAngle"
             }
           ],
+          "work": [],
           "marker": 5
         },
         "markers": [
@@ -4538,6 +4573,7 @@
                 "role": "TotalAngle"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -4624,6 +4660,7 @@
                 "role": "TotalAngle"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -4743,6 +4780,7 @@
                 "role": "TotalAngle"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -4862,6 +4900,7 @@
                 "role": "TotalAngle"
               }
             ],
+            "work": [],
             "marker": 3
           },
           {
@@ -4982,6 +5021,7 @@
                 "role": "TotalAngle"
               }
             ],
+            "work": [],
             "marker": 4
           },
           {
@@ -5104,6 +5144,7 @@
                 "role": "TotalAngle"
               }
             ],
+            "work": [],
             "marker": 5
           }
         ],
@@ -5228,6 +5269,7 @@
               "role": "TotalAngle"
             }
           ],
+          "work": [],
           "marker": 5
         }
       },
@@ -5359,6 +5401,7 @@
             "role": "TotalAngle"
           }
         ],
+        "work": [],
         "marker": 5
       },
       "markers": [
@@ -5454,6 +5497,7 @@
               "role": "TotalAngle"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -5548,6 +5592,7 @@
               "role": "TotalAngle"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -5675,6 +5720,7 @@
               "role": "TotalAngle"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -5802,6 +5848,7 @@
               "role": "TotalAngle"
             }
           ],
+          "work": [],
           "marker": 3
         },
         {
@@ -5930,6 +5977,7 @@
               "role": "TotalAngle"
             }
           ],
+          "work": [],
           "marker": 4
         },
         {
@@ -6060,6 +6108,7 @@
               "role": "TotalAngle"
             }
           ],
+          "work": [],
           "marker": 5
         }
       ],
@@ -6192,6 +6241,7 @@
             "role": "TotalAngle"
           }
         ],
+        "work": [],
         "marker": 5
       },
       "edited": {
@@ -6323,6 +6373,7 @@
             "role": "TotalAngle"
           }
         ],
+        "work": [],
         "marker": 5
       },
       "reopened": {
@@ -6454,6 +6505,7 @@
             "role": "TotalAngle"
           }
         ],
+        "work": [],
         "marker": 5
       },
       "reopen_computed": true,
@@ -6586,15 +6638,16 @@
             "role": "TotalAngle"
           }
         ],
+        "work": [],
         "marker": 5
       },
-      "saved_sha256": "2283874cd675a3d91c4709eb2db6c73a50f508d677387c1842082cfab7909b73",
+      "saved_sha256": "a4a399e34f045d57ff91890cc2091ab50c0c11944d86225fa3ec14662250dd93",
       "status": "accepted"
     },
     {
       "name": "MirrorFeature",
       "file": "MirrorFeature.f3d",
-      "sha256": "63963d08ef16316ed6b8b1c75604d3b6c884ad7106de359596a19a4bc569d9d8",
+      "sha256": "2bf7b5edd4331c0931adc232900df3f2d4812bcdb3e4d5b9da5e0670572361fb",
       "steps": [
         {
           "kind": "extrude",
@@ -6879,6 +6932,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 6
         },
         "markers": [
@@ -6972,6 +7026,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -7064,6 +7119,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -7189,6 +7245,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -7314,6 +7371,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 3
           },
           {
@@ -7440,6 +7498,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 4
           },
           {
@@ -7566,6 +7625,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 5
           },
           {
@@ -7693,6 +7753,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 6
           }
         ],
@@ -7821,6 +7882,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 6
         }
       },
@@ -7957,6 +8019,7 @@
             "role": "ExtraOffset"
           }
         ],
+        "work": [],
         "marker": 6
       },
       "markers": [
@@ -8058,6 +8121,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -8158,6 +8222,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -8291,6 +8356,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -8424,6 +8490,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 3
         },
         {
@@ -8558,6 +8625,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 4
         },
         {
@@ -8692,6 +8760,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 5
         },
         {
@@ -8827,6 +8896,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 6
         }
       ],
@@ -8964,6 +9034,7 @@
             "role": "ExtraOffset"
           }
         ],
+        "work": [],
         "marker": 6
       },
       "edited": {
@@ -9099,6 +9170,7 @@
             "role": "ExtraOffset"
           }
         ],
+        "work": [],
         "marker": 6
       },
       "reopened": {
@@ -9234,6 +9306,7 @@
             "role": "ExtraOffset"
           }
         ],
+        "work": [],
         "marker": 6
       },
       "reopen_computed": true,
@@ -9370,15 +9443,16 @@
             "role": "ExtraOffset"
           }
         ],
+        "work": [],
         "marker": 6
       },
-      "saved_sha256": "862569975a16b2b1f9a1239c56d51a0d26b62f656b6d09fadd2f8faa15d293a8",
+      "saved_sha256": "84769d668334a352c650aa83959d967b16aa210b42dec55279a85fa81638a362",
       "status": "accepted"
     },
     {
       "name": "HoleGrid",
       "file": "HoleGrid.f3d",
-      "sha256": "1ac5672de7d6c5e8d6d56df2eda7107cd8c4a3ae0061637c9a27a557a5513289",
+      "sha256": "ad487b9ae1c338c448c9fdedf5a636cec971abb41ca318584c5cfc9a95f221a9",
       "steps": [
         {
           "kind": "extrude",
@@ -9670,6 +9744,7 @@
               "role": "vSpaceDistance"
             }
           ],
+          "work": [],
           "marker": 4
         },
         "markers": [
@@ -9775,6 +9850,7 @@
                 "role": "vSpaceDistance"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -9879,6 +9955,7 @@
                 "role": "vSpaceDistance"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -10016,6 +10093,7 @@
                 "role": "vSpaceDistance"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -10155,6 +10233,7 @@
                 "role": "vSpaceDistance"
               }
             ],
+            "work": [],
             "marker": 3
           },
           {
@@ -10304,6 +10383,7 @@
                 "role": "vSpaceDistance"
               }
             ],
+            "work": [],
             "marker": 4
           }
         ],
@@ -10454,6 +10534,7 @@
               "role": "vSpaceDistance"
             }
           ],
+          "work": [],
           "marker": 4
         }
       },
@@ -10612,6 +10693,7 @@
             "role": "vSpaceDistance"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "markers": [
@@ -10725,6 +10807,7 @@
               "role": "vSpaceDistance"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -10837,6 +10920,7 @@
               "role": "vSpaceDistance"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -10982,6 +11066,7 @@
               "role": "vSpaceDistance"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -11129,6 +11214,7 @@
               "role": "vSpaceDistance"
             }
           ],
+          "work": [],
           "marker": 3
         },
         {
@@ -11286,6 +11372,7 @@
               "role": "vSpaceDistance"
             }
           ],
+          "work": [],
           "marker": 4
         }
       ],
@@ -11445,6 +11532,7 @@
             "role": "vSpaceDistance"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "edited": {
@@ -11602,6 +11690,7 @@
             "role": "vSpaceDistance"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "reopened": {
@@ -11759,6 +11848,7 @@
             "role": "vSpaceDistance"
           }
         ],
+        "work": [],
         "marker": 4
       },
       "reopen_computed": true,
@@ -11917,9 +12007,10 @@
             "role": "vSpaceDistance"
           }
         ],
+        "work": [],
         "marker": 4
       },
-      "saved_sha256": "55f992ec099383e0de40dacc352889db94bc4f1871be23d5df0ab6e542e96345",
+      "saved_sha256": "2246b727c31f8d7fb8338508b7621d929974422c5748318af7d2b07773e3bc51",
       "status": "accepted"
     }
   ],

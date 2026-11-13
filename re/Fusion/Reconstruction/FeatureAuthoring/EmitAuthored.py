@@ -24,6 +24,7 @@ sys.dont_write_bytecode = True
 from convert.formats.Fusion.DocumentCodec.EmitDocument import EmitDocument  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ArcCurve import ArcCurve  # noqa: E402
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.AxisSpec import AxisSpec  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ChamferSpec import ChamferSpec  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CircleCurve import CircleCurve  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.ExtrudeSpec import ExtrudeSpec  # noqa: E402
@@ -35,6 +36,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PatternSpec import 
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.CircularSpec import CircularSpec  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.MirrorSpec import MirrorSpec  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PlaneSpec import PlaneSpec  # noqa: E402
+from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.PointSpec import PointSpec  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Design.SolidMass import SolidMass  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.Shape.BuildShape import BuildShape  # noqa: E402
 from convert.formats.Fusion.DocumentCodec.PartFeatures.SolvePart import SolvePart  # noqa: E402
@@ -153,6 +155,19 @@ PART = {
         FilletSpec((40.0, 30.0), 4.0, "Corner rounds", ((0.0, 0.0),)),
         ChamferSpec((40.0, 0.0), 3.0, "Corner bevel", 0.0, 30.0),
     ),
+    "ConstructionSet": (
+        base(),
+        PlaneSpec(15.0, "xy", "Offset plane"),
+        AxisSpec((40.0, 30.0), "Edge axis"),
+        PointSpec((40.0, 30.0), "Corner point"),
+    ),
+    "ConstructionPart": (
+        base(),
+        POCKET,
+        AxisSpec((0.0, 0.0), "Corner axis"),
+        PointSpec((40.0, 0.0), "Corner point"),
+        FilletSpec((40.0, 30.0), 3.0, "Corner round"),
+    ),
 }
 
 CASES = {**CUBOID, **PART}
@@ -194,6 +209,8 @@ EDITS = {
     "FilletTwoEdges": [{"feature": "Corner rounds", "expression": "4 mm"}],
     "ChamferTwoEdges": [{"feature": "Corner bevels", "expression": "2 mm"}],
     "CornerSetPart": [{"feature": "Corner rounds", "expression": "5 mm"}, {"feature": "Corner bevel", "role": "Rotate Angle", "expression": "45 deg"}, {"feature": "Side hole", "role": "HoleDiameter", "expression": "8 mm"}],
+    "ConstructionSet": [{"feature": "Offset plane", "role": "AlongDistance", "expression": "12 mm"}, {"feature": "Base extrude", "role": "AlongDistance", "expression": "25 mm"}],
+    "ConstructionPart": [{"feature": "Base extrude", "role": "AlongDistance", "expression": "26 mm"}, {"feature": "Corner round", "expression": "4 mm"}],
 }
 
 
@@ -244,6 +261,9 @@ def step(feature):
         return {"kind": "plane", "base": feature.BasePlane, "offset": mm(feature.OffsetMm), "name": feature.FeatureName}
     if isinstance(feature, MirrorSpec):
         return {"kind": "mirror", "source": feature.SourceIndex, "plane": feature.PlaneIndex, "name": feature.FeatureName}
+    if isinstance(feature, (AxisSpec, PointSpec)):
+        kind = "axis" if isinstance(feature, AxisSpec) else "point"
+        return {"kind": kind, "corner_cm": [feature.CornerMm[0] / 10.0, feature.CornerMm[1] / 10.0], "name": feature.FeatureName}
     amount = feature.RadiusMm if isinstance(feature, FilletSpec) else feature.DistanceMm
     result = {
         "kind": "fillet" if isinstance(feature, FilletSpec) else "chamfer",

@@ -70,6 +70,13 @@ def vertical_edge(body, x, y):
     raise RuntimeError("Vertical edge not found")
 
 
+def corner_vertex(body, x, y):
+    found = [v for v in body.vertices if abs(v.geometry.x - x) < 1e-6 and abs(v.geometry.y - y) < 1e-6]
+    if not found:
+        raise RuntimeError("Corner vertex not found")
+    return min(found, key=lambda v: v.geometry.z)
+
+
 def top_face(body):
     best = None
     for face in body.faces:
@@ -198,6 +205,14 @@ def build_control(comp, entry):
             feature = add_copy(comp, features, step)
         elif step["kind"] == "plane":
             feature = add_plane(comp, step)
+        elif step["kind"] == "axis":
+            inp = comp.constructionAxes.createInput()
+            inp.setByEdge(vertical_edge(body, *step["corner_cm"]))
+            feature = comp.constructionAxes.add(inp)
+        elif step["kind"] == "point":
+            inp = comp.constructionPoints.createInput()
+            inp.setByPoint(corner_vertex(body, *step["corner_cm"]))
+            feature = comp.constructionPoints.add(inp)
         elif step["kind"] == "fillet":
             feats = comp.features.filletFeatures
             inp = feats.createInput()
@@ -222,6 +237,24 @@ def build_control(comp, entry):
         feature.name = step["name"]
         features.append(feature)
         body = comp.bRepBodies.item(0) if comp.bRepBodies.count else None
+
+
+def work_geometry(comp):
+    work = []
+    for item in list(comp.constructionAxes) + list(comp.constructionPoints):
+        values = None
+        try:
+            geometry = item.geometry
+            if geometry is not None and hasattr(geometry, "direction"):
+                direction = geometry.direction.copy()
+                direction.normalize()
+                values = list(geometry.origin.asArray()) + list(direction.asArray())
+            elif geometry is not None:
+                values = list(geometry.asArray())
+        except Exception:
+            values = None
+        work.append({"name": item.name, "values": values})
+    return work
 
 
 def observe(design):
@@ -257,15 +290,28 @@ def observe(design):
         except Exception:
             role = None
         params.append({"name": p.name, "expression": p.expression, "value": p.value, "unit": p.unit, "owner": owner, "role": role})
-    return {"timeline": timeline, "bodies": bodies, "parameters": params, "marker": design.timeline.markerPosition}
+    return {"timeline": timeline, "bodies": bodies, "parameters": params, "work": work_geometry(comp), "marker": design.timeline.markerPosition}
 
 
 def healthy(observed):
     return all(i["health"] == HEALTHY and not i["message"] for i in observed["timeline"] if not i["rolled_back"])
 
 
+def same_work(left, right):
+    if [w["name"] for w in left] != [w["name"] for w in right]:
+        return False
+    for a, b in zip(left, right):
+        if (a["values"] is None) != (b["values"] is None):
+            return False
+        if a["values"] is not None and (len(a["values"]) != len(b["values"]) or not all(isclose(x, y, rel_tol=1e-7, abs_tol=1e-7) for x, y in zip(a["values"], b["values"]))):
+            return False
+    return True
+
+
 def same_geometry(left, right):
     if len(left["bodies"]) != len(right["bodies"]):
+        return False
+    if not same_work(left.get("work", []), right.get("work", [])):
         return False
     for a, b in zip(left["bodies"], right["bodies"]):
         if (a["faces"], a["edges"], a["vertices"], a["solid"], a["surface_types"]) != (b["faces"], b["edges"], b["vertices"], b["solid"], b["surface_types"]):

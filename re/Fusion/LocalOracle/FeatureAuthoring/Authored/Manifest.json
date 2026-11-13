@@ -2358,7 +2358,7 @@
     "file": "FeatureCircPattern.f3d",
     "base": "part",
     "bytes": 140162,
-    "sha256": "41c186bab28d95c18fe11cd347abf87eca3fa7449306925fefbb7a055b18b56f",
+    "sha256": "46772ea52c2fe46104d25bc95921abd3daa442b9a820748cd511fcf86e2a44ee",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(8, 8), RadiusMm=3),), DistanceMm=20.0, Operation='cut', Extent='one', AgainstMm=0.0, SketchName='Pocket sketch', FeatureName='Pocket extrude')",
@@ -2479,7 +2479,7 @@
     "file": "MirrorFeature.f3d",
     "base": "part",
     "bytes": 135339,
-    "sha256": "63963d08ef16316ed6b8b1c75604d3b6c884ad7106de359596a19a4bc569d9d8",
+    "sha256": "2bf7b5edd4331c0931adc232900df3f2d4812bcdb3e4d5b9da5e0670572361fb",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(8, 8), RadiusMm=3),), DistanceMm=20.0, Operation='cut', Extent='one', AgainstMm=0.0, SketchName='Pocket sketch', FeatureName='Pocket extrude')",
@@ -2710,8 +2710,8 @@
   "HoleGrid": {
     "file": "HoleGrid.f3d",
     "base": "part",
-    "bytes": 145584,
-    "sha256": "1ac5672de7d6c5e8d6d56df2eda7107cd8c4a3ae0061637c9a27a557a5513289",
+    "bytes": 146041,
+    "sha256": "ad487b9ae1c338c448c9fdedf5a636cec971abb41ca318584c5cfc9a95f221a9",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "HoleSpec(CenterMm=(8.0, 8.0), DiameterMm=5.0, DepthMm=10.0, BoreDiameterMm=0.0, BoreDepthMm=0.0, FeatureName='Corner hole')",
@@ -2829,8 +2829,8 @@
   "MultiPocketPart": {
     "file": "MultiPocketPart.f3d",
     "base": "part",
-    "bytes": 192485,
-    "sha256": "7885b484add37dc6a74b03268b37a8ab613d6053342504560a07f40370c0b290",
+    "bytes": 192870,
+    "sha256": "17a97cbf70e3409712be2fb5b66d3f39105386f558702b615245dff0245ce247",
     "features": [
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
       "ExtrudeSpec(Profile=(LineCurve(StartMm=(10, 19), FinishMm=(14, 19)), ArcCurve(CenterMm=(14, 22), RadiusMm=3, StartDegrees=-90.0, SweepDegrees=180.0), LineCurve(StartMm=(14, 25), FinishMm=(10, 25)), ArcCurve(CenterMm=(10, 22), RadiusMm=3, StartDegrees=90.0, SweepDegrees=180.0)), DistanceMm=8.0, Operation='cut', Extent='one', AgainstMm=0.0, SketchName='Slot sketch', FeatureName='Slot pocket')",
@@ -3057,8 +3057,8 @@
   "MultiDiscPart": {
     "file": "MultiDiscPart.f3d",
     "base": "part",
-    "bytes": 143245,
-    "sha256": "cd82fae16328d5b3fa9dd4f25f715466e6d5a31a01f2c13cb89b667a4d54da4d",
+    "bytes": 143666,
+    "sha256": "3a0e12fe2936298f6d1d0eed6abd525d8d440315beca6bf74f0b818713c73eca",
     "features": [
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(0, 0), RadiusMm=20),), DistanceMm=12.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Disc sketch', FeatureName='Disc extrude')",
       "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(12, 0), RadiusMm=3),), DistanceMm=6.0, Operation='cut', Extent='one', AgainstMm=0.0, SketchName='Pocket sketch', FeatureName='Pocket extrude')",
@@ -3716,6 +3716,292 @@
         "area_cm2": 54.0748020913945,
         "faces": 10,
         "edges": 23
+      }
+    ]
+  },
+  "ConstructionSet": {
+    "file": "ConstructionSet.f3d",
+    "base": "part",
+    "bytes": 119912,
+    "sha256": "01525d78a267fc983460e37ca8eaa66e88e58704c920c559c5088e0d6407d4f0",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "PlaneSpec(OffsetMm=15.0, BasePlane='xy', FeatureName='Offset plane')",
+      "AxisSpec(CornerMm=(40.0, 30.0), FeatureName='Edge axis')",
+      "PointSpec(CornerMm=(40.0, 30.0), FeatureName='Corner point')"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "plane",
+        "base": "xy",
+        "offset": "15 mm",
+        "name": "Offset plane"
+      },
+      {
+        "kind": "axis",
+        "corner_cm": [
+          4.0,
+          3.0
+        ],
+        "name": "Edge axis"
+      },
+      {
+        "kind": "point",
+        "corner_cm": [
+          4.0,
+          3.0
+        ],
+        "name": "Corner point"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Offset plane",
+        "role": "AlongDistance",
+        "expression": "12 mm"
+      },
+      {
+        "feature": "Base extrude",
+        "role": "AlongDistance",
+        "expression": "25 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      }
+    ]
+  },
+  "ConstructionPart": {
+    "file": "ConstructionPart.f3d",
+    "base": "part",
+    "bytes": 140704,
+    "sha256": "56f0b2b1dd96495b9f13516c92758c19f55599f63e7d04fdaca17e327d5407fa",
+    "features": [
+      "ExtrudeSpec(Profile=(LineCurve(StartMm=(0, 0), FinishMm=(40, 0)), LineCurve(StartMm=(40, 0), FinishMm=(40, 30)), LineCurve(StartMm=(40, 30), FinishMm=(0, 30)), LineCurve(StartMm=(0, 30), FinishMm=(0, 0))), DistanceMm=20.0, Operation='new', Extent='one', AgainstMm=0.0, SketchName='Base sketch', FeatureName='Base extrude')",
+      "ExtrudeSpec(Profile=(CircleCurve(CenterMm=(8, 8), RadiusMm=3),), DistanceMm=20.0, Operation='cut', Extent='one', AgainstMm=0.0, SketchName='Pocket sketch', FeatureName='Pocket extrude')",
+      "AxisSpec(CornerMm=(0.0, 0.0), FeatureName='Corner axis')",
+      "PointSpec(CornerMm=(40.0, 0.0), FeatureName='Corner point')",
+      "FilletSpec(CornerMm=(40.0, 30.0), RadiusMm=3.0, FeatureName='Corner round', MoreCornersMm=())"
+    ],
+    "steps": [
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              0.0
+            ],
+            "end_cm": [
+              4.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              4.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              3.0
+            ]
+          },
+          {
+            "kind": "line",
+            "start_cm": [
+              0.0,
+              3.0
+            ],
+            "end_cm": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "new",
+        "extent": "one",
+        "sketch": "Base sketch",
+        "name": "Base extrude"
+      },
+      {
+        "kind": "extrude",
+        "profile": [
+          {
+            "kind": "circle",
+            "center_cm": [
+              0.8,
+              0.8
+            ],
+            "radius_cm": 0.3
+          }
+        ],
+        "amount": "20 mm",
+        "against": "0 mm",
+        "operation": "cut",
+        "extent": "one",
+        "sketch": "Pocket sketch",
+        "name": "Pocket extrude"
+      },
+      {
+        "kind": "axis",
+        "corner_cm": [
+          0.0,
+          0.0
+        ],
+        "name": "Corner axis"
+      },
+      {
+        "kind": "point",
+        "corner_cm": [
+          4.0,
+          0.0
+        ],
+        "name": "Corner point"
+      },
+      {
+        "kind": "fillet",
+        "corner_cm": [
+          4.0,
+          3.0
+        ],
+        "amount": "3 mm",
+        "name": "Corner round"
+      }
+    ],
+    "edits": [
+      {
+        "feature": "Base extrude",
+        "role": "AlongDistance",
+        "expression": "26 mm"
+      },
+      {
+        "feature": "Corner round",
+        "expression": "4 mm"
+      }
+    ],
+    "kit_states": [
+      {
+        "volume_cm3": 24.0,
+        "area_cm2": 52.0,
+        "faces": 6,
+        "edges": 12
+      },
+      {
+        "volume_cm3": 23.434513322353837,
+        "area_cm2": 55.20442450666159,
+        "faces": 7,
+        "edges": 14
+      },
+      {
+        "volume_cm3": 23.434513322353837,
+        "area_cm2": 55.20442450666159,
+        "faces": 7,
+        "edges": 14
+      },
+      {
+        "volume_cm3": 23.434513322353837,
+        "area_cm2": 55.20442450666159,
+        "faces": 7,
+        "edges": 14
+      },
+      {
+        "volume_cm3": 23.395884991765378,
+        "area_cm2": 54.90827397215007,
+        "faces": 8,
+        "edges": 17
       }
     ]
   }

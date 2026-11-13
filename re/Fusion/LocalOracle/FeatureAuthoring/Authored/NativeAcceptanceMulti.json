@@ -7,7 +7,7 @@
     {
       "name": "MultiPocketPart",
       "file": "MultiPocketPart.f3d",
-      "sha256": "7885b484add37dc6a74b03268b37a8ab613d6053342504560a07f40370c0b290",
+      "sha256": "17a97cbf70e3409712be2fb5b66d3f39105386f558702b615245dff0245ce247",
       "steps": [
         {
           "kind": "extrude",
@@ -480,6 +480,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 9
         },
         "markers": [
@@ -655,6 +656,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -829,6 +831,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -1036,6 +1039,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -1243,6 +1247,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 3
           },
           {
@@ -1455,6 +1460,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 4
           },
           {
@@ -1668,6 +1674,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 5
           },
           {
@@ -1882,6 +1889,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 6
           },
           {
@@ -2097,6 +2105,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 7
           },
           {
@@ -2312,6 +2321,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 8
           },
           {
@@ -2532,6 +2542,7 @@
                 "role": "ExtraOffset"
               }
             ],
+            "work": [],
             "marker": 9
           }
         ],
@@ -2753,6 +2764,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 9
         }
       },
@@ -2982,6 +2994,7 @@
             "role": "ExtraOffset"
           }
         ],
+        "work": [],
         "marker": 9
       },
       "markers": [
@@ -3165,6 +3178,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -3347,6 +3361,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -3562,6 +3577,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -3777,6 +3793,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 3
         },
         {
@@ -3997,6 +4014,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 4
         },
         {
@@ -4218,6 +4236,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 5
         },
         {
@@ -4440,6 +4459,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 6
         },
         {
@@ -4663,6 +4683,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 7
         },
         {
@@ -4886,6 +4907,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 8
         },
         {
@@ -5114,6 +5136,7 @@
               "role": "ExtraOffset"
             }
           ],
+          "work": [],
           "marker": 9
         }
       ],
@@ -5344,6 +5367,7 @@
             "role": "ExtraOffset"
           }
         ],
+        "work": [],
         "marker": 9
       },
       "edited": {
@@ -5572,6 +5596,7 @@
             "role": "ExtraOffset"
           }
         ],
+        "work": [],
         "marker": 9
       },
       "reopened": {
@@ -5800,6 +5825,7 @@
             "role": "ExtraOffset"
           }
         ],
+        "work": [],
         "marker": 9
       },
       "reopen_computed": true,
@@ -6029,15 +6055,16 @@
             "role": "ExtraOffset"
           }
         ],
+        "work": [],
         "marker": 9
       },
-      "saved_sha256": "9ce4768a005933b3382c904e866e020cd07ad8d0aa04c743c8b3c05790d7c083",
+      "saved_sha256": "4d321ce60f5d758c20c87a33b2c2a6467bef4ccbcdf665f056a79da6decccd37",
       "status": "accepted"
     },
     {
       "name": "MultiDiscPart",
       "file": "MultiDiscPart.f3d",
-      "sha256": "cd82fae16328d5b3fa9dd4f25f715466e6d5a31a01f2c13cb89b667a4d54da4d",
+      "sha256": "3a0e12fe2936298f6d1d0eed6abd525d8d440315beca6bf74f0b818713c73eca",
       "steps": [
         {
           "kind": "extrude",
@@ -6153,7 +6180,7 @@
           ]
         },
         "recomputed": {
-          "healthy": false,
+          "healthy": true,
           "matches_control": true
         },
         "edited": {
@@ -6335,6 +6362,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 6
         },
         "markers": [
@@ -6460,6 +6488,7 @@
                 "role": "CBDiameter"
               }
             ],
+            "work": [],
             "marker": 0
           },
           {
@@ -6584,6 +6613,7 @@
                 "role": "CBDiameter"
               }
             ],
+            "work": [],
             "marker": 1
           },
           {
@@ -6738,6 +6768,7 @@
                 "role": "CBDiameter"
               }
             ],
+            "work": [],
             "marker": 2
           },
           {
@@ -6892,6 +6923,7 @@
                 "role": "CBDiameter"
               }
             ],
+            "work": [],
             "marker": 3
           },
           {
@@ -7048,6 +7080,7 @@
                 "role": "CBDiameter"
               }
             ],
+            "work": [],
             "marker": 4
           },
           {
@@ -7210,6 +7243,7 @@
                 "role": "CBDiameter"
               }
             ],
+            "work": [],
             "marker": 5
           },
           {
@@ -7375,6 +7409,7 @@
                 "role": "CBDiameter"
               }
             ],
+            "work": [],
             "marker": 6
           }
         ],
@@ -7545,6 +7580,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 6
         }
       },
@@ -7719,6 +7755,7 @@
             "role": "CBDiameter"
           }
         ],
+        "work": [],
         "marker": 6
       },
       "markers": [
@@ -7852,6 +7889,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 0
         },
         {
@@ -7984,6 +8022,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 1
         },
         {
@@ -8146,6 +8185,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 2
         },
         {
@@ -8308,6 +8348,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 3
         },
         {
@@ -8472,6 +8513,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 4
         },
         {
@@ -8642,6 +8684,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 5
         },
         {
@@ -8815,6 +8858,7 @@
               "role": "CBDiameter"
             }
           ],
+          "work": [],
           "marker": 6
         }
       ],
@@ -8853,8 +8897,8 @@
           },
           {
             "name": "Center bore",
-            "health": 1,
-            "message": "Failed to evaluate the direction due to the invalid input<b>1 Reference Failures</b><br/>Failed to evaluate the direction due to the invalid inputCenter bore",
+            "health": 0,
+            "message": "",
             "rolled_back": false
           }
         ],
@@ -8990,6 +9034,7 @@
             "role": "CBDiameter"
           }
         ],
+        "work": [],
         "marker": 6
       },
       "edited": {
@@ -9167,6 +9212,7 @@
             "role": "CBDiameter"
           }
         ],
+        "work": [],
         "marker": 6
       },
       "reopened": {
@@ -9344,6 +9390,7 @@
             "role": "CBDiameter"
           }
         ],
+        "work": [],
         "marker": 6
       },
       "reopen_computed": true,
@@ -9522,12 +9569,13 @@
             "role": "CBDiameter"
           }
         ],
+        "work": [],
         "marker": 6
       },
-      "saved_sha256": "ea0de811ab9263c15833a2b64f27cb1dbb0a71314d45a599881602f6be62bb7d",
-      "status": "rejected"
+      "saved_sha256": "8819ec50f78ce9cfec122adccf0bb7f985d68952798b3126fb1ef6acd624f2ac",
+      "status": "accepted"
     }
   ],
-  "status": "rejected",
+  "status": "accepted",
   "documents_after": 0
 }
