@@ -158,6 +158,7 @@ from convert.adapters.solidworks.core.SketchIdentity import (
     MarkerId as MarkerId,
 )
 from convert.adapters.solidworks.core.Display import NativeDisplay
+from convert.adapters.solidworks.core.PolylineSketch import MapPolyline
 from convert.adapters.solidworks.core.Native import (
     NativeDimension,
     NativeFeature,
@@ -6427,6 +6428,14 @@ def ProfileSketch(
         Offset for Profile in Sketch.profiles for Offset in Profile.marker_offsets
     }
     for ProfileIndex, Profile in enumerate(Sketch.profiles):
+        if Profile.kind == "polyline":
+            LineEntities, LineRefs, LineOffsets = MapPolyline(
+                Sketch, ProfileIndex, Profile
+            )
+            Entities.extend(LineEntities)
+            RefMap.update(LineRefs)
+            ProfileEntities.update(LineOffsets)
+            continue
         if Profile.kind == "rectangle":
             XZero, YZero, XOneValue, YOneValue = Profile.coordinates
             Endpoints = (
@@ -6581,6 +6590,14 @@ def MarkerRefsMut(
 def ClosedSketch(Sketch: NativeSketch) -> tuple[tuple[str, ...], ...]:
     ClosedProfiles: list[tuple[str, ...]] = []
     for ProfileIndex, Profile in enumerate(Sketch.profiles):
+        if Profile.kind == "polyline":
+            ClosedProfiles.append(
+                tuple(
+                    ProfileEdgeId(Sketch.object_id, ProfileIndex, EdgeIndex)
+                    for EdgeIndex in range(len(Profile.coordinates) // 2)
+                )
+            )
+            continue
         if Profile.kind == "rectangle":
             ClosedProfiles.append(
                 tuple(

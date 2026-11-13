@@ -5,7 +5,8 @@
 Kit now constructs a native SOLIDWORKS blind boss extrusion from a closed, simple five-line sketch on the canonical front plane.
 The writer selects this program only for feature IDs 26 and 32, direction zero, blind termination, no construction or fixed geometry, no sketch dimensions, and no solver relations.
 Sketches carrying geometric constraints are rejected instead of silently dropping those relations and claiming an editable, parametric result.
-The reader reconstructs an ordered polyline and its driving depth.
+The reader reconstructs an ordered polyline and its driving depth. Native-to-neutral conversion projects the five profile edges into owned line entities with per-marker provenance and a canonical closed wire, excluding those markers from the generic fallback path.
+The existing six-line and pin paths are unchanged; the solver-relation rejection applies only to the new five-line family.
 Other profile lengths, profiles containing other geometry types, and unrecovered end conditions continue to fail closed.
 
 ## Native data model
