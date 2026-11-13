@@ -34,6 +34,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Snapshot.GeometryState import (
 )
 from convert.formats.Fusion.BrepCodec.Models.BodyIdentity import BodyIdentity
 from convert.formats.Fusion.BrepCodec.Models.BrepHeader import BrepHeader
+from convert.formats.Fusion.BrepCodec.Models.EntityIds import EntityIds
 from convert.formats.Fusion.BrepCodec.Models.FeatureTag import FeatureTag
 from convert.formats.Fusion.BrepCodec.Models.HistoryModel import HistoryModel
 from convert.formats.Fusion.BrepCodec.Models.HistoryState import HistoryState
@@ -77,6 +78,7 @@ KBrepTypes: tuple[type[object], ...] = (
     GeometryState,
     BodyIdentity,
     BrepHeader,
+    EntityIds,
     FeatureTag,
     HistoryModel,
     HistoryState,
