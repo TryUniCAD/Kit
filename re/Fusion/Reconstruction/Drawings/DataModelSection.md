@@ -196,7 +196,14 @@ The ISO standard rows come from typed values that the research builders took fro
 | Shell                | Ten sections with ids 1 to 10, Kit AppInfo and four header values from the version GUID |
 
 Fusion did not finish opening an authored DWG.
-The [header tail gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Drawing/FusionDrawingHeaderTail.md) and the [authored shell gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Drawing/FusionDrawingAuthoredShell.md) record why.
+Two checks of a Fusion save stop it.
+
+| Check                                    | What it depends on                                  | Why Kit cannot meet it                           |
+| ---------------------------------------- | --------------------------------------------------- | ------------------------------------------------ |
+| Four BS values after the header handles  | The header variables, data and strings alike        | No unkeyed checksum reproduces the values        |
+| Autodesk trusted-file text               | AppInfo or `AcDb:AppInfoHistory` carrying the text  | The text states an Autodesk save, so Kit does not write it |
+
+The [header tail gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Drawing/FusionDrawingHeaderTail.md) and the [authored shell gotcha](../../../../Documentation/Gotchas/Conversion/Fusion/Drawing/FusionDrawingAuthoredShell.md) record the bisection.
 
 ## Drawing-root bundles
 
@@ -269,3 +276,24 @@ The report keeps each plan, inspection, round, dialog, quarantine entry and recy
 | `S5SheetDimension`   | Kit-authored sheet with one dimension                 | Open had not finished after 602 s              |
 
 A guard restarted Fusion after each stall, so each stalled variant ended its run.
+
+The third pass bisected the content of those stalls.
+`BuildBisect.py` builds the variants, and `BisectRound.py` opens each one in its own run of `RunGuarded.mjs`.
+That runner holds the oracle lock while it restarts Fusion after a stall of 60 s, so a stall no longer ends the round.
+A restart took about 70 s.
+
+| Variant           | Change                                                         | Result               |
+| ----------------- | -------------------------------------------------------------- | -------------------- |
+| `B0Base`          | `Q1NoDataStore` again, with the A1 header values               | Opened in 4.4 s      |
+| `B10FifthLong`    | The BL after the four header values set to 1                   | Opened in 3.5 s      |
+| `B8UserReal`      | `USERR4` from 0.0 to 1.0                                       | Not open after 61 s  |
+| `B1VersionGuid`   | `VERSIONGUID`                                                  | Not open after 61 s  |
+| `B9AllVaried`     | Every header variable that differs between saves               | Not open after 61 s  |
+| `C7AppOnly`       | `Q8AuthoredSections` with Kit AppInfo                          | Not open after 61 s  |
+| `C1AppNoTrust`    | `Q8AuthoredSections` with the Fusion product entry only        | Not open after 61 s  |
+| `C2AppKitProduct` | `Q8AuthoredSections` with Kit's product and the trusted-file entry | Opened in 3.5 s  |
+
+The four header values cover the header variables, but not the objects, the sections or the F2D members.
+The second stall needs the Autodesk trusted-file text to be absent from both AppInfo and `AcDb:AppInfoHistory`.
+`U4AuthoredShellTail` stalled because Kit's AppInfo and Kit's section set together removed both copies.
+The acceptance report keeps these rounds under `bisection`, with the earlier pair rounds on `Q8AuthoredSections`.

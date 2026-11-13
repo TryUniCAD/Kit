@@ -54,3 +54,8 @@ Each stalled or rejected variant goes on a quarantine list that the script refus
 Variants with a Fusion-saved shell opened in 3.3 s to 6.1 s in these runs.
 `D2NoViewCurves` needed 371.7 s, so a limit below that can stop a slow but valid open.
 The stalled variants showed no progress after 121 s to 602 s.
+
+The bisection runs used `RunGuarded.mjs` in `re/Fusion/Reconstruction/Drawings/Native`.
+It holds the shared oracle lock while it stops and relaunches Fusion, so the next open finds a fresh Fusion.
+A restart took about 70 s, including the check that Fusion is online again.
+These variants opened in 3.5 s to 4.4 s, so a stall limit of 60 s separated them from the stalls.

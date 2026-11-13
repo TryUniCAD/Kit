@@ -74,12 +74,18 @@ Two parts of the authored DWG cause the wait.
 
 | Cause                                   | Evidence                                                    |
 | --------------------------------------- | ----------------------------------------------------------- |
-| Four header values after the handles    | Zero, Kit-chosen and foreign values each stalled an otherwise Fusion-saved DWG |
-| Kit's shell sections together           | Each section opened alone, and all of them together stalled |
+| Four header values after the handles    | Zero, Kit-chosen and foreign values each stalled an otherwise Fusion-saved DWG. With the saved values kept, a change to one header variable also stalled it |
+| Missing Autodesk trusted-file text      | The open stalled when neither AppInfo nor `AcDb:AppInfoHistory` carried the text, and opened when AppInfo carried it next to Kit's product entry |
 
-The [header tail gotcha](../../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingHeaderTail.md) and the [authored shell gotcha](../../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingAuthoredShell.md) record the runs.
+The four values depend on the header variables, both data and strings.
+They do not cover the objects, the other sections or the F2D members.
+No unkeyed CRC, Adler, digest or seeded generator reproduces them in 31 Fusion saves.
+The trusted-file text states that an Autodesk application saved the file.
+
+The [header tail gotcha](../../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingHeaderTail.md) and the [authored shell gotcha](../../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingAuthoredShell.md) record the bisection runs.
 Kit does not copy Fusion-written header values into an authored file.
-Kit never writes the trusted-file AppInfo entry, which Fusion does not need.
+Kit never writes the trusted-file text.
+Kit therefore has no rule that makes Fusion 2706.1.17 open an authored DWG.
 
 The F2D author works on its own.
 `N2AuthoredF2d` put Kit-built members around a Fusion-saved DWG, and it opened with 3 views and 1 dimension.
@@ -108,6 +114,8 @@ Native runs in Fusion 2706.1.17 gave these results.
 | Reference after `updateAllReferences()` | Version 2, not out of date                                    |
 | Kit-built F2D around a Fusion-saved DWG | Opened in 4.3 s with views of 5, 4 and 4 curves and 1 dimension |
 | Kit-modified DWG with Fusion header values | Opened in 3.3 s to 6.1 s with 3 views and 1 dimension      |
+| Same, with one header variable changed  | Open had not finished after 61 s                              |
+| Same, with no trusted-file text left    | Open had not finished after 61 s                              |
 | Kit-authored DWG                        | Open had not finished when stopped after 121 s to 602 s       |
 | Authored view recompute and model edit  | Not run, because no authored drawing opened                   |
 | Fusion save and reopen after an edit    | Not run, because the Personal license kept every upload read-only |

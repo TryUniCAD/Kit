@@ -9926,28 +9926,214 @@
   "view_recompute": "Fusion shows the view curves stored in the DWG on open. It recomputes them from the referenced body when updateAllReferences updates an out-of-date reference (D2NoViewCurves, E7StaleBrep, E8StaleRevision, M1 edit).",
   "dwg_writer": "ReadDwgFile and EmitDwgFile decode and re-emit the A0, A1 and A2 controls and the historical DWG byte for byte from typed values.",
   "authoring": "AuthorDwg, BuildDrawing and BuildBundle build a drawing-root F3Z from typed inputs with no source DWG bytes. Fusion 2706.1.17 did not finish opening any Kit-authored DWG.",
-  "header_shorts": "Fusion checks the four BS values after the header handle stream. Zero values, Kit-derived values and the values of another Fusion save all stalled the open. Kit does not copy Fusion-written values into authored files.",
-  "trusted_dwg": "Kit never writes the trusted-file AppInfo entry or another product's AppInfo. W1KitAppInfo showed that Fusion does not need it."
+  "header_shorts": "Fusion checks the four BS values after the header handle stream. They depend on the header variables: changing USERR4 (B8UserReal) or VERSIONGUID (B1VersionGuid) with the A1 values kept stalled the open. They do not depend on objects, the handle map, classes or the other sections. No unkeyed CRC, Adler, digest or seeded PRNG over the header bytes reproduces them in 31 Fusion saves. Kit does not copy or imitate Fusion-written values in authored files.",
+  "trusted_dwg": "Kit never writes the Autodesk trusted-file AppInfo entry or another product's AppInfo, because that text states an Autodesk save. Fusion stalls when neither AppInfo nor AppInfoHistory carries that text (C1AppNoTrust, C7AppOnly), and opens with it (C2AppKitProduct). W1KitAppInfo opened only because its AppInfoHistory still carried the text."
  },
  "observations": {
   "missing_database_dialog": "Fusion Drawings Message: Cannot find the specified drawing file. Please verify that the file exists.",
   "invalid_drawing_dialog": "Fusion Drawings Message: Drawing file is not valid. (D6Minimal, Q3NoOptional, Q5NoRevHistory)",
   "section_ids": "A gap in the section ids made the drawing invalid. Q8AuthoredSections, with contiguous ids and without Preview and AppInfoHistory, opened.",
-  "authored_shell_combination": "Each Kit shell part opened alone on Q1NoDataStore (W1, W3 to W6, Q8). All of them together with valid header values (U4AuthoredShellTail) did not finish opening.",
+  "authored_shell_combination": "Each Kit shell part opened alone on Q1NoDataStore (W1, W3 to W6, Q8). U4AuthoredShellTail stalled because it combined Kit AppInfo with the Q8 section set, which drops AppInfoHistory, so no section carried the Autodesk trusted-file text. Kit auxiliary header, summary, free space and class counts do not matter.",
   "forced_stop_helpers": "After a forced stop, the bundled node helper and the crash reporter held the script bridge port until they were stopped.",
   "editable_limit": {
    "api_message": "DataFile.isReadOnly is True for every new upload under the Personal-use license.",
    "save_behavior": "Document.save returned True for a read-only file, and no new version appeared within 300 seconds."
   },
-  "recycle_refusals": "The server refused some deletions with InternalValidationError."
+  "recycle_refusals": "The server refused some deletions with InternalValidationError.",
+  "header_tail_layout": "The 77 tail bits are four BS values, one BL value and three fill bits. Every save writes the BL as zero (code 10). The U9OwnShortsZeroPad export wrote a full BL, because the zero fill bits of that variant read as a BL code 00. Fusion does not check the BL (B10FifthLong opened)."
  },
  "status": {
   "byte_exact_round_trip": "passed",
   "typed_dwg_reemission": "passed for A0, A1, A2 and the historical DWG",
   "kit_built_f2d_open": "passed (N2AuthoredF2d)",
   "model_edit_updates_views": "passed on the Kit-emitted A1 control",
-  "authored_dwg_open": "failed: the open does not finish",
-  "authored_view_recompute_and_edit": "not run, because no authored drawing opened and uploads are read-only",
+  "authored_dwg_open": "failed: an authored DWG needs header values that Kit cannot compute and the Autodesk trusted-file text that Kit does not write",
+  "authored_view_recompute_and_edit": "not run, because no authored drawing opened",
   "fusion_save_and_reopen_after_edit": "blocked by the Personal-use read-only uploads"
+ },
+ "bisection": {
+  "base": "Q1NoDataStore for B labels, Q8AuthoredSections for C labels",
+  "stall_limit_seconds": 60,
+  "pairs": {
+   "base": "Q8AuthoredSections",
+   "parts": {
+    "A": "Kit AppInfo",
+    "X": "Kit auxiliary header",
+    "S": "Kit summary"
+   },
+   "variants": [
+    {
+     "label": "Y0",
+     "parts": "0",
+     "dwg_sha256": "49ad620f4e6377c2959ce75a098b8b7419b634e0967952252b39dc6d37c32802",
+     "dwg_bytes": 60058,
+     "result": "opened",
+     "open_seconds": 4.9,
+     "view_curves": [
+      5,
+      4,
+      4
+     ],
+     "dimensions": 1
+    },
+    {
+     "label": "YX",
+     "parts": "X",
+     "dwg_sha256": "114c3ae3028fc5cd07b9eadbb2f39861b95b9edc1b30aa65c230a3acf20172bf",
+     "dwg_bytes": 60025,
+     "result": "opened",
+     "open_seconds": 3.6,
+     "view_curves": [
+      5,
+      4,
+      4
+     ],
+     "dimensions": 1
+    },
+    {
+     "label": "YS",
+     "parts": "S",
+     "dwg_sha256": "f4654753a6f6bf614338058f866f53da0e00cd5a824814185bfd01f5fbf57298",
+     "dwg_bytes": 60058,
+     "result": "opened",
+     "open_seconds": 3.2,
+     "view_curves": [
+      5,
+      4,
+      4
+     ],
+     "dimensions": 1
+    },
+    {
+     "label": "YAX",
+     "parts": "AX",
+     "dwg_sha256": "186e87d3765b8f14107b1d04c524aa92df22677cee2ae1bd4d55b6714d44b3f6",
+     "dwg_bytes": 60025,
+     "result": "stalled",
+     "waited_seconds": [
+      61,
+      184
+     ]
+    }
+   ]
+  },
+  "rounds": [
+   {
+    "tag": "R1",
+    "started": "20:42:59",
+    "finished": "20:55:26",
+    "upload_status": "completed",
+    "variants": [
+     {
+      "label": "B0Base",
+      "change": "Q1NoDataStore emitted again, with the A1 header values",
+      "dwg_sha256": "f7ff0da7ffe8ae1303bffc707ab6c6a802823a203aa2a99eef0e6d9730ebcb65",
+      "dwg_bytes": 65448,
+      "guard": "completed",
+      "result": "opened",
+      "open_seconds": 4.4,
+      "view_curves": [
+       5,
+       4,
+       4
+      ],
+      "dimensions": 1
+     },
+     {
+      "label": "C7AppOnly",
+      "change": "Q8AuthoredSections with Kit AppInfo",
+      "dwg_sha256": "88cf1ef8c3d230901ac8f1e403d43266c0267cf9c227b7f001b3c1206605e0a6",
+      "dwg_bytes": 60058,
+      "guard": "stalled",
+      "result": "stalled",
+      "waited_seconds": 61,
+      "dialog": null,
+      "restart_seconds": 69
+     },
+     {
+      "label": "B8UserReal",
+      "change": "USERR4 changed from 0.0 to 1.0, a header variable that every save shares",
+      "dwg_sha256": "4fc0b5f3473d989feee6d2a077111a86b9369e94bb903770cff7f2070f8d933f",
+      "dwg_bytes": 65448,
+      "guard": "stalled",
+      "result": "stalled",
+      "waited_seconds": 61,
+      "dialog": null,
+      "restart_seconds": 69
+     },
+     {
+      "label": "B10FifthLong",
+      "change": "BL value 1 written after the four BS values",
+      "dwg_sha256": "37e85d32ecf085bad4a83de9aee0cee39b41c0df9dbd94808285094c8bca69e7",
+      "dwg_bytes": 65448,
+      "guard": "completed",
+      "result": "opened",
+      "open_seconds": 3.5,
+      "view_curves": [
+       5,
+       4,
+       4
+      ],
+      "dimensions": 1
+     },
+     {
+      "label": "B9AllVaried",
+      "change": "Every header variable that differs between Fusion saves changed together",
+      "dwg_sha256": "9a2b748cd0e24c6aa42f2fefe62ffe23c76fc9cf5ed7a455d76743171a0a6713",
+      "dwg_bytes": 65416,
+      "guard": "stalled",
+      "result": "stalled",
+      "waited_seconds": 61,
+      "dialog": null,
+      "restart_seconds": 69
+     },
+     {
+      "label": "C1AppNoTrust",
+      "change": "Q8AuthoredSections with the Fusion product entry only and Kit auxiliary header",
+      "dwg_sha256": "fd7e23d10729c2a3bf209d5457d56b7d8055863f01a78b4f2f740b3e4aa49204",
+      "dwg_bytes": 60025,
+      "guard": "stalled",
+      "result": "stalled",
+      "waited_seconds": 61,
+      "dialog": null,
+      "restart_seconds": 69
+     },
+     {
+      "label": "C2AppKitProduct",
+      "change": "Q8AuthoredSections with Kit product entry, the trusted-file entry and Kit auxiliary header",
+      "dwg_sha256": "868eaa4fe9c78a90f5963fe112e47d8827274b4d59d3a5ab14a9d55dc210e9c0",
+      "dwg_bytes": 60025,
+      "guard": "completed",
+      "result": "opened",
+      "open_seconds": 3.5,
+      "view_curves": [
+       5,
+       4,
+       4
+      ],
+      "dimensions": 1
+     }
+    ]
+   },
+   {
+    "tag": "R2",
+    "started": "20:55:51",
+    "finished": "20:59:24",
+    "upload_status": "completed",
+    "variants": [
+     {
+      "label": "B1VersionGuid",
+      "change": "VERSIONGUID changed, a header string",
+      "dwg_sha256": "94a3115dc572af7bcdd19d5c5799a4275b8335fb6fdbe6db2a15e3a1881ac508",
+      "dwg_bytes": 65448,
+      "guard": "stalled",
+      "result": "stalled",
+      "waited_seconds": 61,
+      "dialog": null,
+      "restart_seconds": 70
+     }
+    ]
+   }
+  ]
  }
 }

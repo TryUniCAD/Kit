@@ -2264,8 +2264,10 @@ Save and reopen after a model edit are therefore not verified.
 Kit now decodes every DWG object of the controls into typed values and writes sheets, view reps, view blocks and dimensions.
 A Kit-built F2D around a Fusion-saved DWG opened in 4.3 s with 3 views and 1 dimension.
 A DWG that Kit authors stalls the open for two reasons.
-The header variables end with four BS values that Fusion checks and rewrites on every save, and no tested checksum produces them.
-Kit's shell sections each open when swapped alone into a control, but all of them together stall.
+The header variables end with four BS values that Fusion checks and rewrites on every save.
+They depend on the header variables, numbers and strings alike, and no unkeyed checksum, CRC or seeded generator over 31 Fusion saves reproduces them.
+Fusion also stalls when Autodesk's trusted-file text is in neither the AppInfo nor the AppInfo history section.
+That text states that an Autodesk application saved the file, so Kit does not write it.
 The [header tail gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingHeaderTail.md) and the [authored shell gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingAuthoredShell.md) give the variants.
 
 ## External corroboration
