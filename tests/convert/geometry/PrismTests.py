@@ -3,6 +3,12 @@ from collections import Counter
 from pytest import raises as Raises
 
 from convert.geometry.Extrude.Polygon.PolygonExtrude import BuildPrism
+from convert.geometry.Parasolid import (
+    DecodeBrepMut as DecodeBrepModel,
+    EncodeBrepModel,
+)
+from interchange.brep.topology.BrepModel import BrepModel
+from interchange.brep.topology.BrepTopology import BrepFace
 from interchange.brep.surfaces.BrepSurfaces import PlaneSurface
 from interchange.geometry.models.GeometryCurves import LineGeometry
 from interchange.geometry.models.Transform import KTransformIdentity, Transform
@@ -123,3 +129,51 @@ def CheckPrismGuard() -> None:
             0.0,
             1.0,
         )
+
+
+# loop winding against the face normal decides whether a kernel accepts a solid
+def WindingDot(Model: BrepModel, FaceValue: BrepFace) -> float:
+    Loops = {LoopValue.id: LoopValue for LoopValue in Model.loops}
+    Coedges = {CoedgeValue.id: CoedgeValue for CoedgeValue in Model.coedges}
+    Edges = {EdgeValue.id: EdgeValue for EdgeValue in Model.edges}
+    Vertices = {VertexValue.id: VertexValue for VertexValue in Model.vertices}
+    Surfaces = {SurfaceValue.id: SurfaceValue for SurfaceValue in Model.surfaces}
+    Surface = Surfaces[FaceValue.surface_id]
+    assert isinstance(Surface, PlaneSurface)
+    Points: list[SpaceVector] = []
+    for CoedgeId in Loops[FaceValue.loop_ids[0]].coedge_ids:
+        CoedgeValue = Coedges[CoedgeId]
+        EdgeValue = Edges[CoedgeValue.edge_id]
+        VertexId = (
+            EdgeValue.end_vertex_id
+            if CoedgeValue.reversed
+            else EdgeValue.start_vertex_id
+        )
+        Points.append(Vertices[VertexId].point)
+    SumXValue = SumYValue = SumZValue = 0.0
+    for Index, Start in enumerate(Points):
+        NextPoint = Points[(Index + 1) % len(Points)]
+        SumXValue += (Start.y - NextPoint.y) * (Start.z + NextPoint.z)
+        SumYValue += (Start.z - NextPoint.z) * (Start.x + NextPoint.x)
+        SumZValue += (Start.x - NextPoint.x) * (Start.y + NextPoint.y)
+    Normal = Surface.normal
+    return SumXValue * Normal.x + SumYValue * Normal.y + SumZValue * Normal.z
+
+
+# encoding orients authored solids so every face winds against its surface normal
+def TestBoxWinding() -> None:
+    Profile = MakeRing(((0, 0), (0, 30), (40, 30), (40, 0)))
+    Model, _, _, _ = BuildPrism("box", KTransformIdentity, Profile, 0.0, 20.0)
+    Original = tuple(Model.loops[0].coedge_ids)
+    PayloadData = EncodeBrepModel(Model, PartValue=False)
+    assert tuple(Model.loops[0].coedge_ids) == Original
+    Decoded = DecodeBrepModel(PayloadData)
+    assert Decoded is not None
+    assert (len(Decoded.faces), len(Decoded.loops)) == (6, 6)
+    assert (len(Decoded.coedges), len(Decoded.edges), len(Decoded.vertices)) == (
+        24,
+        12,
+        8,
+    )
+    assert all((WindingDot(Decoded, FaceValue) < 0.0) for FaceValue in Decoded.faces)
+    assert EncodeBrepModel(Decoded, PartValue=False) == PayloadData

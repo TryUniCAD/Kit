@@ -151,3 +151,10 @@ See [the NX data model](../../../re/nx/notes/DataModel.md) and
 - [NX acceptance evidence](../../../re/nx/notes/AcceptanceEvidence.md)
 - [B-rep model](../Model/Brep.md)
 - [Document model](../Model/Document.md)
+
+## Authored solids
+
+Geometry built by Kit is measured by NX because the Parasolid encoder orients
+every planar face so its loop winds against the surface normal and starts each
+edge's fin ring at the non-reversed coedge. See
+[the orientation change](../../Changes/Nx/NxAuthoredSolidOrientation.md).

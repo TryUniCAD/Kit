@@ -254,12 +254,95 @@ def IsNativePayload(DataValue: bytes | bytearray) -> bool:
 
 
 # this declaration exists because focused behavior needs one stable owner
+def NewellSum(Points: Sequence[VectorThree]) -> tuple[float, float, float]:
+    XValue = YValue = ZValue = 0.0
+    for Position, Start in enumerate(Points):
+        NextPoint = Points[(Position + 1) % len(Points)]
+        XValue += (Start.y - NextPoint.y) * (Start.z + NextPoint.z)
+        YValue += (Start.z - NextPoint.z) * (Start.x + NextPoint.x)
+        ZValue += (Start.x - NextPoint.x) * (Start.y + NextPoint.y)
+    return (XValue, YValue, ZValue)
+
+
+# this declaration exists because focused behavior needs one stable owner
+def LoopPoints(
+    LoopData: BrepLoop,
+    Coedges: Mapping[str, BrepCoedge],
+    Edges: Mapping[str, BrepEdge],
+    Vertices: Mapping[str, BrepVertex],
+) -> list[VectorThree]:
+    Points: list[VectorThree] = []
+    for CoedgeId in LoopData.coedge_ids:
+        Coedge = Coedges[CoedgeId]
+        EdgeData = Edges[Coedge.edge_id]
+        Vertex = Vertices[
+            EdgeData.end_vertex_id if Coedge.reversed else EdgeData.start_vertex_id
+        ]
+        Points.append(Vertex.point)
+    return Points
+
+
+# this declaration exists because focused behavior needs one stable owner
+def FlipFacesOf(Model: BrepModel) -> tuple[set[str], dict[str, str]]:
+    Surfaces = {Surface.id: Surface for Surface in Model.surfaces}
+    Loops = {LoopData.id: LoopData for LoopData in Model.loops}
+    Coedges = {Coedge.id: Coedge for Coedge in Model.coedges}
+    Edges = {EdgeData.id: EdgeData for EdgeData in Model.edges}
+    Vertices = {Vertex.id: Vertex for Vertex in Model.vertices}
+    LoopFace = {
+        LoopId: FaceData.id for FaceData in Model.faces for LoopId in FaceData.loop_ids
+    }
+    FlipFaces: set[str] = set()
+    for FaceData in Model.faces:
+        Normal = getattr(Surfaces[FaceData.surface_id], "normal", None)
+        if Normal is None or not FaceData.loop_ids:
+            continue
+        Points = LoopPoints(Loops[FaceData.loop_ids[0]], Coedges, Edges, Vertices)
+        if len(Points) < 3:
+            continue
+        PointSum = NewellSum(Points)
+        NormalDot = (
+            PointSum[0] * Normal.x + PointSum[1] * Normal.y + PointSum[2] * Normal.z
+        )
+        if (NormalDot if FaceData.same_sense else -NormalDot) > 0.0:
+            FlipFaces.add(FaceData.id)
+    return (FlipFaces, LoopFace)
+
+
+# this declaration exists because focused behavior needs one stable owner
+def OrientShells(Model: BrepModel) -> BrepModel:
+    FlipFaces, LoopFace = FlipFacesOf(Model)
+    if not FlipFaces:
+        return Model
+    FlipCoedges: set[str] = set()
+    NewLoops: list[BrepLoop] = []
+    for LoopData in Model.loops:
+        if LoopFace.get(LoopData.id) not in FlipFaces:
+            NewLoops.append(LoopData)
+            continue
+        FlipCoedges.update(LoopData.coedge_ids)
+        NewLoops.append(
+            Replace(LoopData, coedge_ids=tuple(Builtins.reversed(LoopData.coedge_ids)))
+        )
+    NewCoedges = [
+        (
+            Replace(Coedge, reversed=not Coedge.reversed)
+            if Coedge.id in FlipCoedges
+            else Coedge
+        )
+        for Coedge in Model.coedges
+    ]
+    return Replace(Model, loops=tuple(NewLoops), coedges=tuple(NewCoedges))
+
+
+# this declaration exists because focused behavior needs one stable owner
 def EncodeBrepModel(
     Model: BrepModel,
     *,
     PartValue: bool = True,
     SolidFeatureIds: Mapping[str, int] | None = None,
 ) -> bytes:
+    Model = OrientShells(Model)
     DesignBodyIds = frozenset(
         (
             BodyData.design_body_id
@@ -2016,7 +2099,16 @@ def EmitEdgesMut(
             Indices.KDummyFins,
         )
         if FirstFin is None:
-            FirstFin = Indices.KCoedges[Topology.edge_coedges[EdgeData.id][0]]
+            EdgeRing = Topology.edge_coedges[EdgeData.id]
+            Forward = next(
+                (
+                    CoedgeId
+                    for CoedgeId in EdgeRing
+                    if not FinState.KEncodedCoedgeReversed[CoedgeId]
+                ),
+                EdgeRing[0],
+            )
+            FirstFin = Indices.KCoedges[Forward]
         VTwelveNode(Output, 16, Indices.KEdges[EdgeData.id])
         WriteSignedMut(Output, Nodes.KNodeIds[Indices.KEdges[EdgeData.id]])
         WritePointerMut(Output, 0)
