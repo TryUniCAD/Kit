@@ -61,6 +61,24 @@ def NativePayload(DocValue: CadDoc) -> BrepPayload | None:
     return None
 
 
+# self references name the saved part so only other parts require companion files
+def FindNeeds(DocValue: CadDoc) -> tuple[str, ...]:
+    if DocValue.assembly is not None:
+        return ("referenced NX component files",)
+    References = DocValue.metadata.get("nx.external_references")
+    if not isinstance(References, (tuple, list)):
+        return ()
+    ReferenceValues = CastValue(tuple[object, ...], References)
+    SourceName = FilePath(DocValue.source.path).name.casefold()
+    Others = [
+        ReferenceText
+        for ReferenceText in ReferenceValues
+        if isinstance(ReferenceText, str)
+        and FilePath(ReferenceText).name.casefold() not in ("", SourceName)
+    ]
+    return ("referenced NX component files",) if Others else ()
+
+
 # writing rebuilds the nx container from its parsed stream map instead of copying
 def WriteNx(
     DocValue: CadDoc, Target: KTargetType, Options: WriteOptions | None = None
@@ -79,9 +97,7 @@ def WriteNx(
     CheckOutput(DataValue, Payload.data)
     CheckHeader(Payload.data, DataValue)
     PathValue = WriteBytesMut(Target, DataValue, Settings.overwrite)
-    Requirements = (
-        ("referenced NX component files",) if DocValue.assembly is not None else ()
-    )
+    Requirements = FindNeeds(DocValue)
     Metadata = {
         "mode": "native_container_rewrite",
         "compatibility": "native-stream-rewrite",
