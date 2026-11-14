@@ -11,10 +11,10 @@ from convert.adapters.base.ProbeResult import ProbeResult
 from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.nx.CompoundReader import ReadCompound, ReadStreams
 from convert.adapters.nx.Format import KInfoValue
+from convert.adapters.nx.Geometry import ReadGeometry
 from convert.adapters.nx.Payload import NxPayload
 from convert.adapters.nx.PayloadReader import ReadPayload
 from convert.adapters.nx.SplmReader import ReadSplm, SplmStreams
-from convert.geometry.Parasolid import DecodeBrepMut
 from interchange.records.RecordTopology import TopologyCounts
 from interchange import (
     Body as BodyRecord,
@@ -46,9 +46,6 @@ KNativeFeatureId = "nx:native-feature"
 # the native document payload keeps the complete source container for replay
 KNativeDocKind = "native-document"
 
-# the parasolid payload kind identifies inflated geometry streams
-KParasolidKind = "partition"
-
 # the nx part suffix is the only accepted source extension
 KPartSuffix = ".prt"
 
@@ -66,15 +63,36 @@ def ReadSource(Source: KSourceType) -> tuple[bytes, str]:
     Reader = getattr(Source, "read", None)
     if not callable(Reader):
         raise TypeError("NX source must be a path, bytes, or binary stream")
-    TellMethod = getattr(Source, "tell", None)
-    SeekMethod = getattr(Source, "seek", None)
-    Position = TellMethod() if callable(TellMethod) else None
+    Position = TryTell(Source)
     Value = Reader()
-    if Position is not None and callable(SeekMethod):
-        _ = SeekMethod(Position)
+    if Position is not None:
+        TrySeek(Source, Position)
     if not isinstance(Value, (bytes, bytearray)):
         raise TypeError("NX source stream must be binary")
     return (bytes(Value), getattr(Source, "name", "<stream>"))
+
+
+# pipe sources reject positioning so probing must treat the position as unknown
+def TryTell(Source: object) -> int | None:
+    TellMethod = getattr(Source, "tell", None)
+    if not callable(TellMethod):
+        return None
+    try:
+        Position = TellMethod()
+    except (OSError, ValueError):
+        return None
+    return Position if isinstance(Position, int) else None
+
+
+# restoring the position keeps later readers able to replay the same stream
+def TrySeek(Source: object, Position: int) -> None:
+    SeekMethod = getattr(Source, "seek", None)
+    if not callable(SeekMethod):
+        return
+    try:
+        _ = SeekMethod(Position)
+    except (OSError, ValueError):
+        return
 
 
 # probing recognizes both modern and compound nx containers without decoding
@@ -109,9 +127,9 @@ def ReadNx(Source: KSourceType, Options: ReadOptions | None = None) -> CadDoc:
     Payload = ReadPayload(PartData)
     Attributes = ParseAttributes(Streams)
     References = ParseReferences(Streams)
-    Geometry = DecodeGeometry(Payload, Settings)
-    BrepValue = Geometry[0]
-    Payloads = Geometry[2]
+    Geometry = ReadGeometry(Payload, Settings)
+    BrepValue = Geometry.brep
+    Payloads = Geometry.payloads
     Feature = MakeNativeStep(Payload, PartData)
     BodyRecords = MakeBodies(BrepValue, Feature.id)
     if BrepValue is not None:
@@ -156,7 +174,7 @@ def ReadNx(Source: KSourceType, Options: ReadOptions | None = None) -> CadDoc:
         bodies=BodyRecords,
         brep_payloads=(NativePayload, *Payloads),
         brep=BrepValue,
-        diagnostics=MakeDiagnostics(Payload, Feature),
+        diagnostics=MakeDiagnostics(Payload, Feature, Geometry.diagnostics),
         capabilities=frozenset(),
         metadata=FrozenMapping(MetaValue),
         units=UnitSystem.KMillimeter,
@@ -175,7 +193,9 @@ def ReadNx(Source: KSourceType, Options: ReadOptions | None = None) -> CadDoc:
 
 # diagnostics keep legacy geometry omission visible instead of silently empty
 def MakeDiagnostics(
-    Payload: NxPayload, Feature: FeatureStep
+    Payload: NxPayload,
+    Feature: FeatureStep,
+    GeometryDiagnostics: tuple[DiagnosticInfo, ...],
 ) -> tuple[DiagnosticInfo, ...]:
     Output = [
         DiagnosticInfo(
@@ -194,7 +214,7 @@ def MakeDiagnostics(
                 entity_id=Feature.id,
             )
         )
-    return tuple(Output)
+    return (*Output, *GeometryDiagnostics)
 
 
 # the native payload keeps the complete source container for replay
@@ -271,44 +291,6 @@ def ParseReferences(Streams: dict[str, bytes]) -> tuple[str, ...]:
             if TextValue not in Output:
                 Output.append(TextValue)
     return tuple(Output)
-
-
-# geometry decoding uses the existing parasolid reader at the stream boundary
-def DecodeGeometry(
-    Payload: NxPayload, Settings: ReadOptions
-) -> tuple[BrepModel | None, tuple[BodyRecord, ...], tuple[BrepPayload, ...]]:
-    if not Settings.include_brep:
-        return (None, (), ())
-    Models: list[BrepModel] = []
-    Payloads: list[BrepPayload] = []
-    for Index, Stream in enumerate(Payload.streams):
-        if Stream.kind != "parasolid":
-            continue
-        try:
-            ModelValue = DecodeBrepMut(Stream.inflated)
-        except (TypeError, ValueError):
-            continue
-        if ModelValue is None:
-            continue
-        Models.append(ModelValue)
-        Payloads.append(
-            BrepPayload(
-                f"nx:parasolid:{Index}",
-                "parasolid",
-                KParasolidKind,
-                ModelValue.schema_version,
-                Hashlib.sha256(Stream.inflated).hexdigest(),
-                data=Stream.inflated,
-                source_stream=f"UG_PART:{Stream.offset}",
-                role=PayloadRole.KBrep,
-                file_extension=".x_b",
-            )
-        )
-    if not Models:
-        return (None, (), tuple(Payloads))
-    if len(Models) > 1:
-        raise ValueError("multiple NX Parasolid body streams are not merged")
-    return (Models[0], (), tuple(Payloads))
 
 
 # native feature records retain the object model without inventing parameters
