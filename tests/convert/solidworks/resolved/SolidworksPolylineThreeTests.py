@@ -23,7 +23,11 @@ from convert.adapters.solidworks.container.Format import (
     KIT_NATIVE_STREAM as KitNativeStream,
     RESOLVED_FEATURES_STREAM as ResolvedStream,
 )
-from convert.adapters.solidworks.core.Adapter import ReadNativePart, SldprtAdapter
+from convert.adapters.solidworks.core.Adapter import (
+    DocWithout as DocumentWithoutSource,
+    ReadNativePart,
+    SldprtAdapter,
+)
 from convert.adapters.solidworks.core.Native import (
     HasVendorPartEncoding,
     decode_native_model as DecodeNativeModel,
@@ -403,7 +407,7 @@ def TestTriRel(TmpPath: FilePath) -> None:
         Reopened.sketches[0],
         constraints=(SketchRelation("relation:0", "horizontal", ()),),
     )
-    Changed = ReplaceData(Reopened, sketches=(Sketch,))
+    Changed = DocumentWithoutSource(ReplaceData(Reopened, sketches=(Sketch,)))
     assert HasVendorPartEncoding(Changed) is False
     with PytestLib.raises(SldprtFormatError):
         _ = WriteDoc(Changed, SecondPath)
