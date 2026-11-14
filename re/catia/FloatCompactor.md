@@ -21,6 +21,60 @@ The reference entry is eight bytes of reference value and eight bytes of bit wid
 reconstructs a float from the reference exponent and mantissa, then adds or subtracts a masked
 delta. The exact bit layout is not yet reduced to a writer rule.
 
+## Decoded `ReadFloatWithRef2` algorithm
+
+`ReadFloatWithRef2` takes a `float*` reference array and emits one float per entry. For each entry
+`ref`:
+
+1. If `abs(ref) < threshold`, read 32 bits and emit them as a literal `f32`.
+2. Else read a 59-bit selector `S`.
+   - `S == 0`: emit `ref` unchanged.
+   - `S == 0x1f`: read 32 bits and emit a literal `f32`.
+   - Else: rebuild the base float bits from `ref`, read a 63-bit value `D`, read a variable-width
+     mask, and emit `base - mask` when `D != 0`, otherwise `base + mask`.
+
+The base float bits are:
+
+```text
+mantissa = (ref_low >> 40) & 0x7fffff
+sign     = (ref_high >> 32) & 1
+exponent = ((ref_high & 0xffffffff) + 0x7f) & 0xff
+bits     = (sign << 31) | (exponent << 23) | mantissa
+```
+
+The mask is:
+
+```text
+width = (0x20 - (S & 0xffff)) & 0xffff
+shift = 0x80000000 >> (width & 0xff)
+read  = ReadBits(width + 0x21) when width != 0x1f else 0
+mask  = shift | read
+```
+
+`ReadBits(dest, count, capacity)` calls `ReadBitsUncleared` and masks the result to `count` bits.
+`ReadBitsUncleared` maintains a 64-bit buffer at `+0x08` and a signed bit position at `+0x10`, and
+refills eight bytes at a time through `ReadUChar`.
+
+The 63-bit value `D` is used only as a zero/nonzero flag in the subtraction branch. This is
+unusual; confirm it on a traced span before implementing the writer.
+
+## Verified base reconstruction
+
+The base formula round-trips a reference entry to its source float:
+
+```text
+0.785398 -> 0.785398006439209
+1.0      -> 1.0
+-2.5     -> -2.5
+7.5      -> 7.5
+4.2      -> 4.199999809265137
+0.0      -> 0.0
+1e12     -> 999999995904.0
+```
+
+That confirms the mantissa/exponent/sign extraction, but not the stream bit order or the reference
+array contents.
+
 ## Corpus observation
 
 The `SurfacicReps` header carries a reference `0.785398` and a scale `1e12`. The header float count
