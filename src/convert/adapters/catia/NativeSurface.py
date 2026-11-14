@@ -6,7 +6,6 @@ import struct
 
 from interchange import (
     BrepSurface,
-    CylinderSurface,
     NativeSurface,
     PlaneSurface,
     SpaceVector,
@@ -19,7 +18,7 @@ KSurfaceKinds = frozenset({0x32, 0x33, 0x34, 0x35, 0x38})
 KSurfaceLens = {0x32: 49, 0x33: 73, 0x34: 73, 0x35: 65, 0x38: 77}
 
 # this binding exists because shared behavior needs one stable value
-KBoundsOff = {0x32: 8, 0x33: 32, 0x34: 32, 0x35: 24, 0x38: 36}
+KBoundsOff = {0x32: 5, 0x33: 29, 0x34: 29, 0x35: 21, 0x38: 33}
 
 # this binding exists because shared behavior needs one stable value
 KParamCount = {0x32: 0, 0x33: 6, 0x34: 6, 0x35: 4, 0x38: 7}
@@ -54,17 +53,6 @@ def Normalize(Values: tuple[float, float, float]) -> tuple[float, float, float]:
 
 
 # this definition exists because focused behavior needs one stable owner
-def AxisFromBounds(Bounds: tuple[float, ...]) -> tuple[float, float, float]:
-    HalfExtent = Bounds[3:6]
-    Index = min(range(3), key=lambda Value: abs(HalfExtent[Value]))
-    if Index == 0:
-        return (1.0, 0.0, 0.0)
-    if Index == 1:
-        return (0.0, 1.0, 0.0)
-    return (0.0, 0.0, 1.0)
-
-
-# this definition exists because focused behavior needs one stable owner
 def RefFromAxis(AxisValue: tuple[float, float, float]) -> tuple[float, float, float]:
     if abs(AxisValue[0]) < 0.9:
         return Normalize((1.0, 0.0, 0.0))
@@ -81,14 +69,14 @@ def ParseSurf(SourceData: bytes, Offset: int) -> tuple[SurfaceRec, int]:
     Length = KSurfaceLens[KindValue]
     RawBytes = SourceData[Offset : Offset + Length]
     Params = tuple(
-        struct.unpack_from(">f", RawBytes, 8 + 4 * Index)[0]
+        struct.unpack_from(">f", RawBytes, 5 + 4 * Index)[0]
         for Index in range(KParamCount[KindValue])
     )
     Bounds = tuple(
         struct.unpack_from("<f", RawBytes, KBoundsOff[KindValue] + 4 * Index)[0]
         for Index in range(10)
     )
-    SignValue = struct.unpack_from("b", RawBytes, Length - 1)[0]
+    SignValue = struct.unpack_from("b", RawBytes, Length - 4)[0]
     return (
         SurfaceRec(KindValue, Offset, Params, Bounds, SignValue, RawBytes),
         Offset + Length,
@@ -104,19 +92,12 @@ def MakeSurf(
     SurfaceId = f"catia:surface:{Index}"
     Bounds = RecordValue.bounds
     Center = (Bounds[0], Bounds[1], Bounds[2])
-    AxisValue = AxisFromBounds(Bounds)
-    RefValue = RefFromAxis(AxisValue)
-    if RecordValue.kind == 0x32:
-        Normal = Normalize(VectorValue) if VectorValue else AxisValue
+    if RecordValue.kind == 0x32 and VectorValue is not None:
+        Normal = Normalize(VectorValue)
+        RefValue = RefFromAxis(Normal)
         if all(math.isfinite(Value) for Value in (*Center, *Normal, *RefValue)):
             return PlaneSurface(
                 SurfaceId, Vector(Center), Vector(Normal), Vector(RefValue)
-            )
-    if RecordValue.kind == 0x33:
-        Radius = max(Bounds[3:6])
-        if math.isfinite(Radius) and Radius > 0.0:
-            return CylinderSurface(
-                SurfaceId, Vector(Center), Vector(AxisValue), Vector(RefValue), Radius
             )
     return NativeSurface(
         SurfaceId,

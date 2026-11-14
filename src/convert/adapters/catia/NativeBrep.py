@@ -86,6 +86,20 @@ def Largest(Folder: CfvTwoFolder, NameValue: str) -> CfvTwoStream:
 
 
 # this definition exists because focused behavior needs one stable owner
+def ParseSurfaces(SourceData: bytes) -> list[SurfaceRec]:
+    Surfaces: list[SurfaceRec] = []
+    Offset = 17
+    while Offset + 5 <= len(SourceData):
+        try:
+            SurfaceValue, NextOffset = ParseSurf(SourceData, Offset)
+        except (IndexError, ValueError):
+            break
+        Surfaces.append(SurfaceValue)
+        Offset = NextOffset
+    return Surfaces
+
+
+# this definition exists because focused behavior needs one stable owner
 def ParseBrep(Archive: CfvTwoArchive) -> BrepData:
     if not Archive.nested:
         raise ValueError("nested container is missing")
@@ -94,17 +108,11 @@ def ParseBrep(Archive: CfvTwoArchive) -> BrepData:
     SurfStream = Largest(Folder, "SurfacicReps")
     MainData = Archive.stream_bytes(MainStream, Folder)
     SurfData = Archive.stream_bytes(SurfStream, Folder)
-    Surfaces: list[SurfaceRec] = []
-    Offset = 17
-    while Offset + 5 <= len(SurfData):
-        try:
-            SurfaceValue, NextOffset = ParseSurf(SurfData, Offset)
-        except (IndexError, ValueError):
-            break
-        Surfaces.append(SurfaceValue)
-        Offset = NextOffset
+    Surfaces = ParseSurfaces(SurfData)
     Roster = ParseRoster(SurfData)
     FbbOffset, FaceCount = FindFbb(MainData)
+    if len(Surfaces) != FaceCount:
+        raise ValueError("surface count does not match the face count")
     EdgeOffset = FbbOffset + 8 * FaceCount
     for Width in (1, 2, 3):
         try:
@@ -167,6 +175,22 @@ def BuildEdge(
 
 
 # this definition exists because focused behavior needs one stable owner
+def CycleArea(
+    Cycle: tuple[int, ...],
+    VertexByHandle: dict[int, str],
+    VertexById: dict[str, BrepVertex],
+) -> float:
+    Points = [VertexById[VertexByHandle[Handle]].point for Handle in Cycle]
+    Total = [0.0, 0.0, 0.0]
+    for Index, Point in enumerate(Points):
+        NextPoint = Points[(Index + 1) % len(Points)]
+        Total[0] += Point.y * NextPoint.z - Point.z * NextPoint.y
+        Total[1] += Point.z * NextPoint.x - Point.x * NextPoint.z
+        Total[2] += Point.x * NextPoint.y - Point.y * NextPoint.x
+    return 0.5 * math.sqrt(sum(Value * Value for Value in Total))
+
+
+# this definition exists because focused behavior needs one stable owner
 def BuildFaceMut(
     FaceIndex: int,
     SurfaceValue: SurfaceRec,
@@ -183,7 +207,12 @@ def BuildFaceMut(
     Coedges: list[BrepCoedge] = []
     Loops: list[BrepLoop] = []
     LoopIds: list[str] = []
-    for CycleIndex, Cycle in enumerate(Boundary(TrimValue), start=1):
+    Cycles = Boundary(TrimValue)
+    Areas = [CycleArea(Cycle, VertexByHandle, VertexById) for Cycle in Cycles]
+    OuterIndex = (
+        max(range(len(Cycles)), key=lambda Value: Areas[Value]) if Cycles else -1
+    )
+    for CycleIndex, Cycle in enumerate(Cycles, start=1):
         CoedgeIds: list[str] = []
         for Position, StartHandle in enumerate(Cycle):
             EndHandle = Cycle[(Position + 1) % len(Cycle)]
@@ -206,7 +235,9 @@ def BuildFaceMut(
             )
             CoedgeIds.append(CoedgeId)
         LoopId = f"catia:loop:{FaceIndex}:{CycleIndex}"
-        Loops.append(BrepLoop(LoopId, tuple(CoedgeIds), outer=CycleIndex == 1))
+        Loops.append(
+            BrepLoop(LoopId, tuple(CoedgeIds), outer=CycleIndex - 1 == OuterIndex)
+        )
         LoopIds.append(LoopId)
     FaceValue = BrepFace(
         f"catia:face:{FaceIndex}",

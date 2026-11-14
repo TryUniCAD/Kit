@@ -5,6 +5,8 @@ import struct
 
 from convert.adapters.catia.Container import BuildCfvTwo, BuildDecl
 from interchange import (
+    BrepCoedge,
+    BrepEdge,
     BrepFace,
     BrepModel,
     BrepVertex,
@@ -61,13 +63,20 @@ def CanWrite(Model: BrepModel) -> bool:
 
 
 # this definition exists because focused behavior needs one stable owner
-def PackTrim(Handles: tuple[int, ...], Width: int) -> bytes:
+def PackTrim(
+    Handles: tuple[int, ...],
+    Width: int,
+    VectorValue: tuple[float, float, float] | None,
+) -> bytes:
     if len(Handles) < 3:
         raise ValueError("trim loop is too short")
-    DataValue = bytearray(b"\x01\x44")
+    KindValue = 0x44 | (0x08 if VectorValue is not None else 0)
+    DataValue = bytearray(b"\x01" + bytes([KindValue]))
     DataValue.append(1)
     DataValue.append(0xFF)
     DataValue.extend(struct.pack("<I", len(Handles)))
+    if VectorValue is not None:
+        DataValue.extend(struct.pack("<fff", *VectorValue))
     DataValue.append(len(Handles))
     for Handle in Handles:
         DataValue.extend(Handle.to_bytes(Width, "big"))
@@ -100,7 +109,7 @@ def PackVert(Points: tuple[BrepVertex, ...]) -> bytes:
 
 
 # this definition exists because focused behavior needs one stable owner
-def PackSurf(FaceValue: object, Points: tuple[SpaceVector, ...]) -> bytes:
+def PackSurf(FaceValue: BrepFace, Points: tuple[SpaceVector, ...]) -> bytes:
     XValues = [Point.x for Point in Points]
     YValues = [Point.y for Point in Points]
     ZValues = [Point.z for Point in Points]
@@ -139,9 +148,22 @@ def PackRoster(Count: int) -> bytes:
 
 
 # this definition exists because focused behavior needs one stable owner
+def FaceNormal(FaceValue: BrepFace, Model: BrepModel) -> tuple[float, float, float]:
+    SurfaceValue = next(
+        Value for Value in Model.surfaces if Value.id == FaceValue.surface_id
+    )
+    if isinstance(SurfaceValue, PlaneSurface):
+        Normal = SurfaceValue.normal
+        return (Normal.x, Normal.y, Normal.z)
+    return (0.0, 0.0, 1.0)
+
+
+# this definition exists because focused behavior needs one stable owner
 def FaceHandlesMut(
     FaceValue: BrepFace,
     Model: BrepModel,
+    CoedgeById: dict[str, BrepCoedge],
+    EdgeById: dict[str, BrepEdge],
     VertexIndex: dict[str, int],
     SeenPairs: set[tuple[int, int]],
     Edges: list[tuple[int, int]],
@@ -151,10 +173,8 @@ def FaceHandlesMut(
     )
     Handles: list[int] = []
     for CoedgeId in LoopValue.coedge_ids:
-        CoedgeValue = next(Value for Value in Model.coedges if Value.id == CoedgeId)
-        EdgeValue = next(
-            Value for Value in Model.edges if Value.id == CoedgeValue.edge_id
-        )
+        CoedgeValue = CoedgeById[CoedgeId]
+        EdgeValue = EdgeById[CoedgeValue.edge_id]
         Start = VertexIndex[EdgeValue.start_vertex_id]
         EndIndex = VertexIndex[EdgeValue.end_vertex_id]
         if CoedgeValue.reversed:
@@ -172,13 +192,23 @@ def BuildMain(Model: BrepModel) -> bytes:
     VertexIndex = {
         VertexValue.id: Index for Index, VertexValue in enumerate(Model.vertices)
     }
+    CoedgeById = {Value.id: Value for Value in Model.coedges}
+    EdgeById = {Value.id: Value for Value in Model.edges}
     Width = 2
     Trims: list[bytes] = []
     Edges: list[tuple[int, int]] = []
     SeenPairs: set[tuple[int, int]] = set()
     for FaceValue in Model.faces:
-        Handles = FaceHandlesMut(FaceValue, Model, VertexIndex, SeenPairs, Edges)
-        Trims.append(PackTrim(Handles, Width))
+        Handles = FaceHandlesMut(
+            FaceValue,
+            Model,
+            CoedgeById,
+            EdgeById,
+            VertexIndex,
+            SeenPairs,
+            Edges,
+        )
+        Trims.append(PackTrim(Handles, Width, FaceNormal(FaceValue, Model)))
     DataValue = bytearray(b"".join(Trims))
     DataValue.extend(KFbbRow * len(Model.faces))
     DataValue.extend(PackEdge(tuple(Edges), Width))
@@ -189,6 +219,8 @@ def BuildMain(Model: BrepModel) -> bytes:
 # this definition exists because focused behavior needs one stable owner
 def BuildSurf(Model: BrepModel) -> bytes:
     VertexById = {VertexValue.id: VertexValue for VertexValue in Model.vertices}
+    CoedgeById = {Value.id: Value for Value in Model.coedges}
+    EdgeById = {Value.id: Value for Value in Model.edges}
     Records: list[bytes] = []
     for FaceValue in Model.faces:
         LoopValue = next(
@@ -196,11 +228,14 @@ def BuildSurf(Model: BrepModel) -> bytes:
         )
         Points: list[SpaceVector] = []
         for CoedgeId in LoopValue.coedge_ids:
-            CoedgeValue = next(Value for Value in Model.coedges if Value.id == CoedgeId)
-            EdgeValue = next(
-                Value for Value in Model.edges if Value.id == CoedgeValue.edge_id
+            CoedgeValue = CoedgeById[CoedgeId]
+            EdgeValue = EdgeById[CoedgeValue.edge_id]
+            VertexId = (
+                EdgeValue.end_vertex_id
+                if CoedgeValue.reversed
+                else EdgeValue.start_vertex_id
             )
-            Points.append(VertexById[EdgeValue.start_vertex_id].point)
+            Points.append(VertexById[VertexId].point)
         Records.append(PackSurf(FaceValue, tuple(Points)))
     Records.extend(PackCurve(Index) for Index in range(len(Model.edges)))
     Records.extend((PackRoster(len(Model.vertices)),))

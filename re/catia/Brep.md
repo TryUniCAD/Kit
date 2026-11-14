@@ -2,7 +2,7 @@
 
 ## Scope
 
-This page describes the standard nested B-rep layout used by 25 of the 27 parts in
+This page describes the standard nested B-rep layout used by 22 of the 27 parts in
 `re/catia/examples/.CATPart`. The two `4876` parts use a different layout and are recorded as
 unsupported.
 
@@ -127,7 +127,7 @@ The reader creates one shell, one region, and one body. The body id is `catia:bo
 
 ## Evidence
 
-- `re/catia/tooling/ParseBrep.py` decodes 25 of 27 parts.
+- `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
 - `re/catia/tooling/BuildModel.py` validates every decoded model.
 - `src/convert/adapters/catia/NativeBrep.py` is the production reader.
 - `CATMathStream.dll` SHA-256 `712e258f9c39f552e52f441713719cc5f1d7bea61dfb1b29c642af7cfb24e01b`.

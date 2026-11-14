@@ -8,7 +8,7 @@ This directory records the CATIA V5 container, native B-rep, and loader findings
 | Layer | State | Evidence |
 | --- | --- | --- |
 | `V5_CFV2` outer and nested containers | Confirmed on 27 parts and 3 products | `Container.md`, `src/convert/adapters/catia/Container.py` |
-| Standard nested B-rep spine | Confirmed on 25 of 27 parts | `Brep.md`, `src/convert/adapters/catia/NativeBrep.py` |
+| Standard nested B-rep spine | Confirmed on 22 of 27 parts | `Brep.md`, `src/convert/adapters/catia/NativeBrep.py` |
 | Plane and cylinder surfaces | Confirmed from bounds and trim vectors | `Brep.md` |
 | Native B-rep writer | Implemented for plane faces with one loop | `Writer.md`, `src/convert/adapters/catia/NativeWriter.py` |
 | OSMX feature graph | Symbol table decoded; object records unresolved | `FeatureGraph.md` |
