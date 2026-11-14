@@ -38,4 +38,6 @@ short-identity guard.
 - Only the six object shape is generated. A part with expressions carries 7 to 42
   objects depending on the feature, and those are not emitted.
 - Section 0 still comes from the source part, so no part is written without a
-  source document yet.
+  source document yet. It is document independent for a part without a body
+  (fifteen bytes differ between two such parts, all path, base name and identity),
+  but its 27032 byte class dictionary has to be derived rather than copied.

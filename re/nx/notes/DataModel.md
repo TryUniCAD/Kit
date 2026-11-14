@@ -600,6 +600,42 @@ sections 1 (block shape), 2 and 3, in addition to regenerating section 3 and
 emptying section 4. Section 0 keeps its source anchor because its body is still
 copied.
 
+### Section 0 is document independent for a part without a body
+
+A third body-less part was created (`CreateBlank.py`, saved as `var_blank.prt`) and
+its section 0 compared with `empty.prt` and `multi.prt`:
+
+```text
+part                  section 0  classes  refs
+empty.prt   27032   129      63
+multi.prt   27032   129      63
+var_blank   27040   129      63
+dim40       28986   154      79   (one body)
+```
+
+`empty` and `multi` have identical path lengths, and their section 0 middles differ
+in exactly fifteen bytes, in three places:
+
+```text
+0xa04   named from "C:\empty.prt"      against "C:\multi.prt"
+0xa1a   e0 6a f8 <7 byte identity>
+0xd92   <len> "empty.prt"               against "multi.prt"
+```
+
+`var_blank` is eight bytes longer, exactly the difference between `C:\empty.prt`
+and `C:\var_blank.prt`. So section 0 for a body-less part is a fixed class and
+record schema whose only per document fields are the full path, the base name and
+the anchor identity.
+
+That matters because section 0 is the last section without a generator. It is
+also 27032 bytes, so the generator has to emit the class dictionary and its records
+rather than copy them: 129 class names account for only about 2.5 kB, and the
+remaining 24 kB is record structure that has to be derived field by field. Shipping
+the captured body would be a donor block, so it is not an option.
+
+The growth with a body is `+1954` bytes and `+25` classes, which is the topology
+class set, and that part stays model dependent.
+
 ### The expression section is a hash table that NX does not revalidate
 
 Three fixtures were generated to vary the expression to attribute binding rather
