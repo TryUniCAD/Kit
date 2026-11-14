@@ -39,7 +39,7 @@ result = CatiaAdapter().write(
 
 ## Limits
 
-- The reader decodes 25 of 27 corpus parts. The two `4876` parts use an unsupported layout.
+- The reader decodes 22 of 27 corpus parts. Five parts use a shared surface pool or an unsupported layout.
 - The reader reconstructs plane and cylinder geometry from bounds and trim vectors.
 - The reader does not decode compressed carrier parameters, feature records, sketches, dimensions,
   constraints, or relations.
@@ -50,7 +50,7 @@ result = CatiaAdapter().write(
 
 ## Verification
 
-- `re/catia/tooling/ParseBrep.py` decodes 25 of 27 parts.
+- `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
 - `re/catia/tooling/BuildModel.py` validates every decoded model with zero errors.
 - A six-face box emitted by the writer reads back as six faces, twelve edges, and eight vertices
   with zero validation errors.

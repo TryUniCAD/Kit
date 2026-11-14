@@ -14,8 +14,8 @@ rows, and vertex roster.
 It maps the result to a neutral `BrepModel` with faces, loops, coedges, edges, vertices, and
 analytic plane or cylinder surfaces.
 
-The reader decodes 25 of 27 corpus parts.
-The two `4876` parts use an unsupported layout.
+The reader decodes 22 of 27 corpus parts.
+Five parts use a shared surface pool or an unsupported layout.
 The reader does not decode compressed carrier parameters, feature records, sketches, dimensions,
 constraints, or relations.
 

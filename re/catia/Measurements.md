@@ -13,7 +13,7 @@
 
 ## Reader checks
 
-`re/catia/tooling/ParseBrep.py` decodes 25 of 27 parts. `re/catia/tooling/BuildModel.py` validates
+`re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts. `re/catia/tooling/BuildModel.py` validates
 every decoded model with zero errors.
 
 ## Writer check

@@ -49,22 +49,25 @@ def Count(SourceData: bytes, Offset: int) -> tuple[int, int]:
 def FindFbb(SourceData: bytes) -> tuple[int, int]:
     BestOffset = -1
     BestCount = 0
-    for Offset in range(len(SourceData) - 4):
+    Offset = 0
+    Limit = len(SourceData) - 4
+    while Offset <= Limit:
         if SourceData[Offset : Offset + 4] not in (
             b"\x30\x04\x04\xff",
             b"\xb0\x04\x04\xff",
         ):
+            Offset += 1
             continue
+        Start = Offset
         CountValue = 0
-        Cursor = Offset
-        while SourceData[Cursor : Cursor + 4] in (
+        while Offset <= Limit and SourceData[Offset : Offset + 4] in (
             b"\x30\x04\x04\xff",
             b"\xb0\x04\x04\xff",
         ):
             CountValue += 1
-            Cursor += 8
+            Offset += 8
         if CountValue > BestCount:
-            BestOffset = Offset
+            BestOffset = Start
             BestCount = CountValue
     if BestOffset < 0:
         raise ValueError("FBB spine is missing")
@@ -101,9 +104,15 @@ def ParseTrim(SourceData: bytes, Offset: int, Width: int) -> tuple[TrimRec, int]
         VectorValue = struct.unpack_from("<fff", SourceData, Cursor)
         Cursor += 12
     Lengths: list[int] = []
+    LengthBudget = len(SourceData) - Cursor
     for _ in range(Counts[1] + Counts[2]):
+        if LengthBudget <= 0:
+            raise ValueError("trim lengths exceed the stream")
         Value, Cursor = Count(SourceData, Cursor)
+        LengthBudget = len(SourceData) - Cursor
         Lengths.append(Value)
+    if Total > max(0, len(SourceData) - Cursor) // max(1, Width):
+        raise ValueError("trim handles exceed the stream")
     Handles, Cursor = ReadHandles(SourceData, Cursor, Total, Width)
     return (
         TrimRec(
