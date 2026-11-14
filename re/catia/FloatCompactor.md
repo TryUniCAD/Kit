@@ -176,6 +176,26 @@ cannot load the x64 DLL: `LoadLibraryEx` returns error `193` (`ERROR_BAD_EXE_FOR
 no x64 C compiler, no x64 Python, and no x64 PowerShell. Building the harness needs an x64
 toolchain installed in the VM.
 
+## Harness result
+
+An x64 Python 3.12.7 was installed in the VM. `re/catia/tooling/CompactorProbe.py` loads
+`CATMathStream.dll`, constructs `CATMathStreamImpl` over a memory buffer, constructs
+`CATDoubleCompactor`, and calls `WriteDoubleWithRef` then `ReadDoubleWithRef`.
+
+The writer runs and produces streams. The equal branch round-trips. The delta branch does not:
+the reader returns the reference value, which means its selector read is zero. Measured streams:
+
+```text
+value=1.5 ref=1.0 stream=00000000000000d00000000000000000 read=1.0
+value=4.2 ref=4.0 stream=00343333333333c10000000000000000 read=4.0
+value=-3.25 ref=-3.0 stream=00000000002800ff0000000000000000 read=3.0
+value=2.0 ref=2.0 stream=00000000000000000000000000000000 read=2.0
+```
+
+The writer places the selector in the first 8-byte word; the reader's `ReadBits` returns zero
+for it. The read-side `CATMathStreamImpl` setup is not consuming the buffer, so the harness needs
+its read position and buffer fields corrected before the selector can be measured.
+
 ## Caller and reference array
 
 `CATAdvancedMathematics.dll` imports `ReadFloatWithRef2` and `WriteFloatWithRef2` from
