@@ -3,19 +3,21 @@
 ## Behavior
 
 A standalone `PartDesign::AdditiveBox` with an identity placement and only the principal
-default planes now lowers to the recovered rectangle-pad program. Two real property
-schemas are accepted:
+default planes now lowers to the recovered rectangle-pad program. The FreeCAD 1.0.2 and
+1.1.4 schema is accepted when it carries `FuzzyTolerance = -1`,
+`AttacherEngine = Engine 3D`, and `Refine = True`.
 
-- FreeCAD 1.0.2 and 1.1.4, which include `FuzzyTolerance = -1` and
-  `AttacherEngine = Engine 3D`
-- FreeCAD 0.21.2, which omits both properties and may carry `Refine = False`
+The FreeCAD 0.21.2 variant that omits the tolerance and attacher engine and uses
+`Refine = False` is rejected. `Refine = False` is an authored cleanup choice that the
+recovered rectangle-pad program does not serialize, so accepting it would drop intent.
 
 Every recognized pad property is validated exactly: `Length`, `Width`, and `Height` must be
-positive lengths, `MapMode` must be `0`, `MapPathParameter` must be `0`, `MapReversed` must
-be false, `Visibility` must be true, `Refine` must be a boolean, `AttacherType` must be
-`Attacher::AttachEngine3D`, `Label` must equal the feature name, and `Label2` must be
-empty. `Suppressed`, when present, must be false. Unknown properties decline native
-encoding instead of being dropped.
+positive lengths, `MapMode` must be `0`, `MapPathParameter` must be exactly `0`,
+`MapReversed` must be false, `Visibility` must be true, `Refine` must be true,
+`AttacherType` must be `Attacher::AttachEngine3D`, `Label` must equal the feature name, and
+`Label2` must be empty. `Suppressed`, when present, must be false, and `FuzzyTolerance`,
+when present, must be exactly `-1`. Unknown properties decline native encoding instead of
+being dropped.
 
 The source B-rep must remain the exact eight-vertex, twelve-edge, six-face box at the
 origin, so the emitted sketch and pad match the authored solid.
@@ -43,11 +45,12 @@ application-usable, near-lossless, self-contained output.
 ## Verification
 
 `tests/convert/solidworks/core/SolidworksCorpusTests.py` adds `TestAddBox`, which opens
-`re/solidworks/examples/FreeCAD/AdditiveBox-1.1.4.FCStd` and
-`AdditiveBox-0.21.2.FCStd` through the public reader, requires native preflight to accept
-them, writes each with `allow_carrier=False`, requires vendor-loadable,
-application-usable, near-lossless, self-contained output, then decodes the emitted native
-model and requires a `(0, 0, 20, 30)` rectangle and a `10 mm` pad.
+`re/solidworks/examples/FreeCAD/AdditiveBox-1.1.4.FCStd` through the public reader,
+requires native preflight to accept it, writes it with `allow_carrier=False`, requires
+vendor-loadable, application-usable, near-lossless, self-contained output, then decodes
+the emitted native model and requires a `(0, 0, 20, 30)` rectangle and a `10 mm` pad.
+`TestAddBoxNo` opens `AdditiveBox-0.21.2.FCStd`, requires native preflight to reject it,
+and requires the public writer to raise `ApplicationUsabilityError`.
 
 The fixtures are copied from the cadmpeg FreeCAD corpus under the Apache License 2.0; the
 attribution is in [the fixture notice](../../../re/solidworks/examples/FreeCAD/NOTICE.md).

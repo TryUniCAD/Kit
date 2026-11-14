@@ -4051,10 +4051,7 @@ def HasAddBoxSchema(PathData: dict[str, Param], FeatureName: str) -> bool:
         if NameValue in {"Length", "Width", "Height"}:
             continue
         if NameValue == "Refine":
-            if not (
-                IsFreecadParam(ParamValue, KindValue, True)
-                or IsFreecadParam(ParamValue, KindValue, False)
-            ):
+            if not IsFreecadParam(ParamValue, KindValue, True, Exact=True):
                 return False
             continue
         Expected = {
@@ -4066,11 +4063,16 @@ def HasAddBoxSchema(PathData: dict[str, Param], FeatureName: str) -> bool:
             "Label": FeatureName,
             "Label2": "",
         }[NameValue]
-        if not IsFreecadParam(ParamValue, KindValue, Expected):
+        if not IsFreecadParam(
+            ParamValue,
+            KindValue,
+            Expected,
+            Exact=NameValue in {"MapPathParameter"},
+        ):
             return False
     for NameValue, (KindValue, Expected) in Optional.items():
         if NameValue in PathData and not IsFreecadParam(
-            PathData[NameValue], KindValue, Expected
+            PathData[NameValue], KindValue, Expected, Exact=True
         ):
             return False
     return True

@@ -4,6 +4,7 @@ from pathlib import Path as FilePath
 
 import pytest as PytestLib
 
+from convert import ApplicationUsabilityError
 from convert import open_document as OpenDocument
 from convert import write_document as WriteDocument
 from convert.adapters.solidworks import SldprtArchive
@@ -64,25 +65,38 @@ def TestCorpus(TmpPath: FilePath) -> None:
 # additive box schemas differ across freecad versions so both are accepted
 @PytestLib.mark.skipif(not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable")
 def TestAddBox(TmpPath: FilePath) -> None:
-    for NameValue in ("AdditiveBox-1.1.4.FCStd", "AdditiveBox-0.21.2.FCStd"):
-        SourcePath = KAddBoxRoot / NameValue
-        DocumentValue = OpenDocument(SourcePath)
-        assert HasVendorPartEncoding(DocumentValue) is True
-        TargetPath = TmpPath / f"{SourcePath.stem}.SLDPRT"
-        ResultInfo = WriteDocument(DocumentValue, TargetPath, allow_carrier=False)
-        assert ResultInfo.vendor_loadable is True
-        assert ResultInfo.application_usable is True
-        assert ResultInfo.near_lossless is True
-        assert ResultInfo.metadata["native_self_contained"] is True
-        ArchiveData = SldprtArchive.open(TargetPath)
-        NativeData = DecodeNativeModel(
-            ArchiveData.require(KeyStream),
-            ArchiveData.require(ResolvedStream),
-            ArchiveData.require(ConfigStream),
-            resolved_stream=ResolvedStream,
+    SourcePath = KAddBoxRoot / "AdditiveBox-1.1.4.FCStd"
+    DocumentValue = OpenDocument(SourcePath)
+    assert HasVendorPartEncoding(DocumentValue) is True
+    TargetPath = TmpPath / f"{SourcePath.stem}.SLDPRT"
+    ResultInfo = WriteDocument(DocumentValue, TargetPath, allow_carrier=False)
+    assert ResultInfo.vendor_loadable is True
+    assert ResultInfo.application_usable is True
+    assert ResultInfo.near_lossless is True
+    assert ResultInfo.metadata["native_self_contained"] is True
+    ArchiveData = SldprtArchive.open(TargetPath)
+    NativeData = DecodeNativeModel(
+        ArchiveData.require(KeyStream),
+        ArchiveData.require(ResolvedStream),
+        ArchiveData.require(ConfigStream),
+        resolved_stream=ResolvedStream,
+    )
+    assert NativeData.sketches[0].profiles[0].kind == "rectangle"
+    assert NativeData.sketches[0].profiles[0].coordinates == PytestLib.approx(
+        (0.0, 0.0, 20.0, 30.0)
+    )
+    assert NativeData.operations[0].length_mm == PytestLib.approx(10.0)
+
+
+# refine false changes authored cleanup so the older schema must decline
+@PytestLib.mark.skipif(not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable")
+def TestAddBoxNo(TmpPath: FilePath) -> None:
+    SourcePath = KAddBoxRoot / "AdditiveBox-0.21.2.FCStd"
+    DocumentValue = OpenDocument(SourcePath)
+    assert HasVendorPartEncoding(DocumentValue) is False
+    with PytestLib.raises(ApplicationUsabilityError):
+        _ = WriteDocument(
+            DocumentValue,
+            TmpPath / f"{SourcePath.stem}.SLDPRT",
+            allow_carrier=False,
         )
-        assert NativeData.sketches[0].profiles[0].kind == "rectangle"
-        assert NativeData.sketches[0].profiles[0].coordinates == PytestLib.approx(
-            (0.0, 0.0, 20.0, 30.0)
-        )
-        assert NativeData.operations[0].length_mm == PytestLib.approx(10.0)
