@@ -21,6 +21,13 @@ is exact for the simple parts (`Copper_Washer`, the washers, `Banjo`, the nuts, 
 superset for the complex parts (`Reservoir` 109 versus 88, `4784` 830 versus 772). It covers only the
 corner handles, not the tessellation points.
 
+For `Copper_Washer` the face-to-loop structure is complete: the four edge loops are the four
+boundary circles (outer and inner at `x = 0` and `x = 1`), and the six faces are the two annular
+planes and the four cylinder halves. Placing the loop handles on their circles at equal angular
+spacing makes both planar faces coplanar with their trim vectors at zero deviation. This is a
+placement, not a decode: each planar face also uses interior handles that are in no loop, and their
+positions are not recovered.
+
 The surface records are ordered by face only when the two counts match. For all 22 parts where the
 surface count equals the face count, the surface planarity sequence is identical to the face
 planarity sequence. For the five parts with fewer surfaces than faces, the surface planarity

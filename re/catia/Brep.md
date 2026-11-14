@@ -691,6 +691,38 @@ distinct handles that appear in arity-2 edges and comparing to the vertex count:
 So for the simple parts the arity-2 handles are exactly the vertices, and for the complex parts they
 are a strict superset. The extra arity-2 handles in the complex parts are not explained.
 
+## The face-to-loop structure is complete for Copper_Washer
+
+The four loops and six faces form a complete, consistent B-rep. Assigning each face to the loops its
+handles fall in gives:
+
+| Face | Loops | Surface | Meaning |
+| ---: | --- | --- | --- |
+| 0 | A, B | cylinder r=8 | outer cylinder half |
+| 1 | A, B | cylinder r=8 | outer cylinder half |
+| 2 | A, C | plane x=0 | annular plane at x=0 |
+| 3 | B, D | plane x=1 | annular plane at x=1 |
+| 4 | C, D | cylinder r=5 | inner cylinder half |
+| 5 | C, D | cylinder r=5 | inner cylinder half |
+
+Loop A is the outer circle at `x = 0`, loop B the outer circle at `x = 1`, loop C the inner circle
+at `x = 0`, and loop D the inner circle at `x = 1`. The two planar faces are bounded by the outer
+and inner circles at their own `x`, and the four cylinder halves are bounded by the outer or inner
+circles at both `x` values. This is exactly the topology of a flat washer.
+
+Placing the loop handles on their circles at equal angular spacing, with the eight corner vertices
+fixed by the arity-2 map, makes both planar faces coplanar with their trim vectors at zero deviation:
+
+```
+face 2 planar n=(-1,0,0)  placed 42/56  maxdev=0.000000
+face 3 planar n=(1,0,0)   placed 37/50  maxdev=0.000000
+```
+
+The placement is not a decode, though. Each planar face has handles that are in no loop: face 2 uses
+nine distinct handles (`2, 4, 7, 13, 18, 23, 29, 33, 35`) that are not in loop A or loop C. Those
+are interior tessellation points, and their positions are not recovered. So the loop points are
+placed correctly, but the full tessellation is not determined by the loops alone.
+
 ## The trim handles are not point indices
 
 The trim handles are dense: `Reservoir` uses every value in `0..1430`, and `Copper_Washer` uses
