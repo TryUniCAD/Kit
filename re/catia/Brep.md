@@ -172,6 +172,16 @@ Each surface record ends with `ff <lo> <hi> 00` or `01 <lo> <hi> 00`. The 16-bit
 The span is 382, while the part has 338 faces. The value is a candidate face-range handle, but
 the mapping is not confirmed. The handles do not appear in `MainDataStream`.
 
+`Reservoir.CATPart` has two plane surfaces and 71 faces. Its trailing handles are `0x0be7` and
+`0x0c3c`, a span of 85. The span does not match the face count (71), the loop count, the coedge
+count (3438 for `Pedal_Body`), or the vertex count (424 for `Pedal_Body`, 88 for `Reservoir`).
+The trailing handle is therefore not a simple face, loop, coedge, or vertex index.
+
+The trim vector is the surface axis for cylinders, cones, and tori, and the normal for planes.
+`Pedal_Body` has 66 faces with a vector; 32 match a carrier axis and 34 are plane normals. The
+assignment is not contiguous in trim order, so a single vector match does not identify the
+surface when several surfaces share an axis.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
