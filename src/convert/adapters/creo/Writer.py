@@ -18,7 +18,7 @@ from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.creo.CreoFormat import CreoFormat
 from convert.adapters.creo.Format import KFormatId
 from convert.adapters.creo.Header import ReadHeader
-from convert.adapters.creo.Reader import DocumentFingerprint
+from convert.adapters.creo.Reader import GetFingerprint
 from convert.adapters.creo.Toc import ReadToc
 
 
