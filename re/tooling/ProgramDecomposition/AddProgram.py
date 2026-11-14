@@ -16,15 +16,13 @@ from ProgramRenderer import (
     RewriteFacade,
 )
 
-KRepoRoot = PathInfo(__file__).resolve().parents[3]
-KProgramRoot = KRepoRoot / "src" / "convert" / "adapters" / "solidworks" / "programs"
 KManifestPath = PathInfo(__file__).resolve().parent / "ProgramManifest.py"
 
 
 def ParseArgs() -> Argparse.Namespace:
     Parser = Argparse.ArgumentParser()
     Parser.add_argument("source_root", type=PathInfo)
-    Parser.add_argument("--program-root", type=PathInfo, default=KProgramRoot)
+    Parser.add_argument("--program-root", type=PathInfo, required=True)
     Parser.add_argument("--manifest", type=PathInfo, default=KManifestPath)
     return Parser.parse_args()
 

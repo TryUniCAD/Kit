@@ -52,7 +52,7 @@ The attachment tie uses the first rightmost coordinate, verified by the two-righ
 
 ## Accepted production path
 
-`re/tooling/ProgramDecomposition/AddProgram.py` adds the three-line facade, registry, and typed methods without replacing unrelated owner catalogs or streams. Complete verification now reports 45 programs, 77 streams, 215 catalogs, 2,461 owners, 3,995 methods, and 190,316 operations.
+`re/tooling/ProgramDecomposition/AddProgram.py` adds the three-line facade, registry, and typed methods without replacing unrelated owner catalogs or streams. Its `--program-root` destination is explicit rather than an implicit production-tree default. Complete verification now reports 45 programs, 77 streams, 215 catalogs, 2,461 owners, 3,995 methods, and 190,316 operations.
 
 Fresh public neutral-document writes produce one three-line `Sketch1` and one forward `Boss-Extrude1`. Late-bound SOLIDWORKS 34.5.2 inspection confirms the native profile feature and extrusion, and `D1@Boss-Extrude1` remains live and editable. All four fresh files have zero load errors and warnings, one body, and a successful rebuild.
 
@@ -98,7 +98,7 @@ Every result has zero load errors/warnings, one body, successful rebuild, correc
 
 Closure extraction now uses exact endpoint equality rather than the previous 1e-12-mm tolerance. A self-authored 1e-13-mm gap is rejected through the public writer, so starts are never used as permission to invent a closed chain. Bound pattern counts remain numeric counts rather than being converted into millimetres.
 
-A family-shaped triangle whose binary depth is unsupported or contradictory now raises `SldprtFormatError` through native reading instead of retaining approximate display text. A typed resolved-stream witness mutation exercises this fail-closed path through a valid archive built with `BuildSldprt`. Rounded label metadata is edited through the untrusted-XML parser and rebuilt with the container's own matched signatures rather than changing compressed archive bytes directly. The labelled 17.995855-mm fixture also opens successfully with one body and correct depth in SOLIDWORKS, but the resulting self-emulated freecad/proof rewrite still remains outside the accepted scope.
+A family-shaped triangle whose binary depth is unsupported or contradictory now raises `SldprtFormatError` through native reading instead of retaining approximate display text. A typed resolved-stream witness mutation exercises this fail-closed path through a valid archive built with `BuildSldprt`. Rounded label metadata is edited through the untrusted-XML parser with its pre-XML prefix retained, then rebuilt with the container's own matched signatures rather than changing compressed archive bytes directly. The edited fixtures omit `Kit/Interchange` and `Kit/Native`; remote CI exposed that retaining those streams made public `open_document` return the embedded neutral model and bypass both native-depth assertions. The labelled 17.995855-mm fixture also opens successfully with one body and correct depth in SOLIDWORKS, but the resulting self-emulated freecad/proof rewrite still remains outside the accepted scope.
 
 A separate self-emulated freecad/proof compatibility path remains outside this acceptance; it is not substituted for these independently authored native replay results. `AuthorTriangles.vbs /precise` supplies the last two source documents.
 

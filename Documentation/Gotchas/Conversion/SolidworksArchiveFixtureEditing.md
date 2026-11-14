@@ -12,7 +12,9 @@ Whole-container replacements also make arbitrary archive bytes into an invalid t
 
 ## Workaround
 
-Open the native archive, decode the keyword stream, edit only the intended `Dimension` element through the untrusted-XML parser, and serialize it. Rebuild using `BuildSldprt` with the original input archive as the container template so its stream records, signatures, sizes, and checksums are recomputed. The source document's own streams may be used for this source-specific metadata case; they are not a production donor template.
+Open the native archive, decode the keyword stream, edit only the intended `Dimension` element through the untrusted-XML parser, and serialize it with the original pre-XML prefix retained. Rebuild using `BuildSldprt` with the original input archive as the container template so its stream records, signatures, sizes, and checksums are recomputed. The source document's own streams may be used for this source-specific metadata case; they are not a production donor template.
+
+Self-generated files also contain `Kit/Interchange`. Public `open_document` intentionally returns that embedded neutral document before native decoding. A regression intended to exercise native depth recovery must omit `Kit/Interchange` and its matching `Kit/Native` attestation from the edited fixture. Otherwise a valid archive and a correct depth guard can both be present while the assertion measures only the embedded copy.
 
 Use changed typed fields such as the resolved depth witness only where an invalid-input guard needs to be exercised. Generate valid compressed containers through the same helper for every such case, then use `open_document` for acceptance. Promotion into production still requires the independently recovered grammar rather than this test-fixture utility.
 

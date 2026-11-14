@@ -35,7 +35,7 @@ The 2026 generation uses the independently typed `Definition` (3,816 bytes), `CM
 
 ## Additive program generation
 
-`re/tooling/ProgramDecomposition/AddProgram.py` loads one `resolved/polyline/<family>/Program.py` source and renders only that family's registry and method tables. It does not delete or regenerate other families.
+`re/tooling/ProgramDecomposition/AddProgram.py` loads one `resolved/polyline/<family>/Program.py` source and renders only that family's registry and method tables. It requires an explicit `--program-root` destination rather than defaulting to production modules. It does not delete or regenerate other families.
 
 An existing owner module can be reused only when every required owner key/value pair is already present. Extra entries for other families remain intact. A missing owner module may be added without changing existing entries. Conflicting values are rejected rather than silently merged.
 
@@ -82,7 +82,7 @@ Native reads retain `NativeProfile.native_coordinates_mm` separately from the no
 
 `RecoverTriDepth` recovers exact binary depth only for the independently recovered 10,601- and 10,603-byte three-line layouts. It requires four matching positive doubles at shifted 9408/9480/9968/9992, two exactly negated doubles at shifted 9806/9830, and consistency with the presentation label. The result supplies both the operation length and neutral feature scalar with a native offset. `DimensionParam` uses this native scalar when available rather than reusing rounded display text.
 
-`IsTriSource` also identifies the family-shaped case where an unbound depth cannot be recovered. For a canonical forward blind boss in that case, `DecodePadMut` now raises `SldprtFormatError` instead of preserving an approximate dimension label. This prevents a conflicting or unsupported depth witness from being rewritten as though it were authoritative. A valid rebuilt archive with one deliberately corrupted positive witness exercises the rejection through `open_document`.
+`IsTriSource` also identifies the family-shaped case where an unbound depth cannot be recovered. For a canonical forward blind boss in that case, `DecodePadMut` now raises `SldprtFormatError` instead of preserving an approximate dimension label. This prevents a conflicting or unsupported depth witness from being rewritten as though it were authoritative. The same rejection applies to another resolved-stream layout or a later-feature history whose `D1` remains unbound; these are unsupported histories, not permission to retain a rounded label. A valid rebuilt archive with one deliberately corrupted positive witness exercises the rejection through `open_document` after removal of the embedded neutral channel.
 
 Native polyline closure now requires exact shared endpoints before line starts are serialized. A 1e-13-mm endpoint gap is rejected as an open wire instead of being silently replaced with a new closed wire. Exact near-origin writing remains supported.
 

@@ -20,6 +20,8 @@ from convert.adapters.solidworks.container.Container import (
 from convert.adapters.solidworks.container.Format import (
     CONFIGURATION_STREAM as ConfigStream,
     KEYWORDS_STREAM as KeyStream,
+    KIT_DOCUMENT_STREAM as KitDocStream,
+    KIT_NATIVE_STREAM as KitNativeStream,
     RESOLVED_FEATURES_STREAM as ResolvedStream,
 )
 from convert.adapters.solidworks.core.Adapter import ReadNativePart, SldprtAdapter
@@ -48,8 +50,13 @@ KPrecisionPoints = (
 def BuildVariant(TargetPath: FilePath, Changes: dict[str, bytes]) -> bytes:
     Template = TargetPath.read_bytes()
     ArchiveData = SldprtArchive.open(TargetPath)
+    Streams = {
+        NameValue: Payload
+        for NameValue, Payload in ArchiveData.streams.items()
+        if NameValue not in {KitDocStream, KitNativeStream}
+    }
     return BuildSldprt(
-        {**ArchiveData.streams, **Changes},
+        {**Streams, **Changes},
         Template=Template,
         FormatVersion=ArchiveData.format_version,
     )
@@ -67,9 +74,10 @@ def EncodeLabels(Keywords: bytes) -> bytes:
             setattr(Element, "text", "18.00")
             Found += 1
     assert Found > 0
-    return CastValue(
+    Encoded = CastValue(
         bytes, XmlTree.tostring(RootElement, encoding="utf-8", xml_declaration=True)
     )
+    return Keywords[:Start] + Encoded
 
 
 def RequireTriFrame(ArchiveData: SldprtArchive, TargetPath: FilePath) -> None:
