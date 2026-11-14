@@ -256,6 +256,20 @@ alignment breaks at group 18 (offset 929), where the data becomes a mix of three
 five-float groups. A heuristic parser that reads a five-float group when `z1 == z2` and a
 three-float triple otherwise yields 999 points, still short of the 1431 handles.
 
+## Surface trailer is not a curve-row pointer
+
+The three-byte surface trailer was tested as a pointer into the curve-row region and as a face
+index. Both are false.
+
+`Copper_Washer.CATPart` has six surface records with trailers 445, 449, 476, 495, 499 (the sixth
+record's last three bytes are the first curve row, not a trailer). The curve rows start at 404,
+431, 458, 485, 512, 539, 566, 593. No trailer equals a curve-row start, and `trailer / 8 + 404`
+does not land on a curve-row start either. The trailers modulo 6 are 1, 5, 2, 3, 1, which is not
+a permutation of the six face indices.
+
+The trailer differences are 4, 27, 19, 4. The 27 matches the curve-row length, but 4 and 19 do
+not, so the trailer is not a simple stride into the curve rows.
+
 ## Open work
 
 1. Locate the shared tessellation vertex table and its coordinate encoding.
