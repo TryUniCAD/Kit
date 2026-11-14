@@ -13,6 +13,7 @@ from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.nx.CompoundReader import ReadCompound, ReadStreams
 from convert.adapters.nx.ExprValue import EncodeValue
 from convert.adapters.nx.GeometryEdit import ScaleBodyLength
+from convert.adapters.nx.RootSection import AuthorSections
 from convert.adapters.nx.Format import KInfoValue
 from convert.adapters.nx.PayloadReader import ReadPayload
 from convert.adapters.nx.Reader import DocDigest
@@ -113,6 +114,11 @@ def WriteNx(
     Overrides, Expressions, RequestedLength, Rename = EditStreamsMut(
         DocValue, Payload.data, Overrides
     )
+    Authored = bool(DocValue.metadata.get("nx.author_sections"))
+    if Authored:
+        Overrides["UG_PART/UG_PART"] = AuthorSections(
+            PartPayload(Overrides, Payload.data)
+        )
     DataValue = RebuildNative(Payload.data, Overrides)
     CheckOutput(DataValue, Payload.data)
     CheckSeals(DataValue)
@@ -133,6 +139,7 @@ def WriteNx(
         "part_renamed": Rename is not None,
         "expression_values": Expressions is not None,
         "body_length": RequestedLength,
+        "author_sections": Authored,
         "source_sha256": Payload.sha256,
         "output_sha256": Hashlib.sha256(DataValue).hexdigest(),
         "referenced_files_written": 0,

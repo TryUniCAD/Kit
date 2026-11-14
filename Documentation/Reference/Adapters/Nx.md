@@ -158,3 +158,10 @@ Geometry built by Kit is measured by NX because the Parasolid encoder orients
 every planar face so its loop winds against the surface normal and starts each
 edge's fin ring at the non-reversed coedge. See
 [the orientation change](../../Changes/Nx/NxAuthoredSolidOrientation.md).
+
+## Authored sections
+
+`nx.author_sections` regenerates the root object model section from parameters
+and empties the feature record, so those two sections no longer come from the
+source part. Sections 0, 1 and 2 still do. See
+[the authored sections change](../../Changes/Nx/NxAuthorSections.md).

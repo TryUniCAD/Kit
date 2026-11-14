@@ -9,6 +9,7 @@ from convert.adapters import AdapterRegistry, CadAdapter, ReadOptions, WriteOpti
 from convert.adapters.nx import NxAdapter, ProbeNx, ReadNx, WriteNx
 from convert.adapters.nx.ExprValue import DecodeValue, EncodeValue
 from convert.adapters.nx.PayloadBuild import ResizePayload
+from convert.adapters.nx.RootSection import KRootCounter, RootMiddle
 from convert.adapters.nx.PayloadReader import ReadPayload
 from convert.adapters.nx.Splm import KChecksumOffset, KHeaderRegion
 from convert.adapters.nx.SplmBuild import BuildSplm, DirectoryLength
@@ -472,3 +473,39 @@ def TestNxResize() -> None:
     except ValueError:
         return
     raise AssertionError("section resize accepted a wrong body count")
+
+
+# the root middle is a fixed layout around one counter and one anchor identity
+def TestNxRoot() -> None:
+    Middle = RootMiddle(KRootCounter, b"\xff" * 7)
+    assert len(Middle) == 176
+    assert Middle[0x08:0x0C] == KRootCounter.to_bytes(4, "little")
+    assert Middle[0x2C:0x30] == (KRootCounter + 49).to_bytes(4, "little")
+    assert Middle[0x30:0x34] == (KRootCounter + 76).to_bytes(4, "little")
+    assert Middle[0x7B:0x7E] == b"\xe0\x6a\xf8"
+    assert Middle[0x7E:0x85] == b"\xff" * 7
+    assert b"NX 2506.9120 - External User Function" in Middle
+    assert Middle.endswith(b"\x01\x01")
+    try:
+        _ = RootMiddle(0, b"\xff" * 7)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("root middle accepted a zero counter")
+
+
+# authored sections need a payload that carries a root and a feature section
+def TestNxAuth() -> None:
+    Document = ReadNx(SyntheticPart(), ReadOptions(strict=False))
+    try:
+        _ = WriteNx(
+            Replace(
+                Document,
+                metadata={**Document.metadata, "nx.author_sections": True},
+            ),
+            BytesIo(),
+            WriteOptions(),
+        )
+    except ValueError:
+        return
+    raise AssertionError("authored sections accepted a payload without sections")
