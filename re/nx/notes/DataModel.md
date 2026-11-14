@@ -164,9 +164,58 @@ Changing only the saved part name in the section headers fails with
 cross-referenced from another record lane. The middle and record areas are still
 opaque and must be decoded before a section can be authored from neutral data.
 
-Current status: the encoder is not complete for authoring. No from-scratch part
-has been loaded in NX, and the writer still requires a retained SPLMSSTR
-payload. A section begins with an optional `c0 d1 f1 ed`
+### Empty-part schema is version-global
+
+Two parts created independently by NX 2506 (`empty.prt` and `empty_alpha.prt`)
+have byte-identical reference lanes, class lanes, and counts in all four
+sections. That includes class names, storage and base tokens, and the eight-byte
+schema fingerprints. The only differences are the flag high byte, the timestamp,
+a ten-byte identity value inside the middle lane, the 12-byte section digest, and
+the fields that carry the part-name length.
+
+The class fingerprint is therefore a per-version schema constant and not a
+per-document value. It is stable for the same class name across `empty.prt`,
+`block.prt`, and `variant400.prt` (139 shared names, zero mismatches). It does
+not match md5, sha1, sha256, xxh32, fnv64, or crc64 of the class name, so it is
+assigned rather than derived.
+
+The document GUID in the header trailer is free. Replacing it with a new random
+version-4 UUID still loads (`new_guid.prt`, `unloaded 0`).
+
+### Name length is an offset lane
+
+The header name is a length-prefixed string. Growing it shifts every
+body-absolute offset in the middle lane, and grows section 0 a second time
+because section 0 also carries a file-name frame that stores `len + 2`. The
+measured offset lanes are 216 fields in section 0, four in section 1, seven in
+section 2, and three in section 3. Fields after the section-0 frame move by
+twice the delta, and the section pointer moves the same way.
+
+The payload index also stores offsets in all three words of a row, and its last
+row points at `payload_length - 2`; every one of those must be remapped when any
+section size changes.
+
+`re/nx/tools/AuthorName.py` applies those rules to the researched empty-part
+model. Generated parts with new names and new UUIDs load in NX 2506 and report
+the expected part name with zero bodies, features, and expressions:
+
+```text
+RESULT ...\study_1.prt unloaded 0
+  NAME study_1
+  BODIES 0
+  FEATURES 0
+  EXPRESSIONS 0
+RESULT ...\study_2.prt unloaded 0
+  NAME study_2
+  BODIES 0
+  FEATURES 0
+  EXPRESSIONS 0
+```
+
+Current status: the class and reference lanes and the middle bytes are still
+copied from `empty.prt`, so this is research and not shippable under the donor
+rule. No body, feature, or expression record has been authored, and the
+production writer still requires a retained SPLMSSTR payload. A section begins with an optional `c0 d1 f1 ed`
 separator, `ff ff ff ff`, four zero bytes, a big-endian payload size, and the
 `OM 01 01` signature. Section bodies contain the NX object-model class
 registry, attribute registry, object records, feature history, expression
