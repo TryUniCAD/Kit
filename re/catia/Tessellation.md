@@ -44,6 +44,28 @@ Edge handles and trim handles share one global point-id space but are not identi
 The trim mesh adds interior points that no edge polyline uses. The coordinate table for this
 shared point-id space is not yet located.
 
+## Coordinate table search
+
+The `MainDataStream` head region before the trim chain (bytes `0..1472` in `Washer_8.CATPart`) is
+not a plain `f32` coordinate table. The longest run of plausible `f32` values is 106 floats at
+offset 1036, and those values are almost all zero. The `30 04 04 fd ff` record appears only three
+times, so it is not a repeated point table.
+
+The `SurfacicReps` tail after the curve rows is 56 bytes, too small for 94 points. The coordinate
+table is therefore compressed or stored in a stream that is not yet identified. This is the same
+`CATFloatCompactor` blocker recorded in `FloatCompactor.md`.
+
+## Face-to-surface reference search
+
+The face-to-surface reference is not in the face-outer-bound run. The `30 04 04 ff ff` record
+count equals the face count (washer 6, bolt 22, pedal 338, reservoir 71), and its payload is
+constant. The `30 04 04 fd ff` record appears exactly three times in every part, so it is not a
+per-face table.
+
+The trim packet carries no surface index: its fields are the kind mask, counts, total, optional
+vector, lengths, and handles. The edge rows carry only arity and handles. The reference is
+therefore in a table that is not yet identified.
+
 ## Surface pool
 
 Surfaces are also shared. `Pedal_Body.CATPart` has 24 surface records and 338 faces.
