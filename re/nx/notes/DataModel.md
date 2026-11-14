@@ -116,6 +116,12 @@ Function` (same length) in every section and rebuilding the container with
 placeholder streams and recomputed seals loads in NX 2506 (`authored_text.prt`,
 `unloaded 0`), so the record-area text lane is writable.
 
+Truncating a class lane by even one entry fails: `empty.prt` section 3 has
+nine classes and eight loads as corrupt (580044), section 1 has seventeen and
+sixteen fails, section 2 has fourteen and thirteen fails. The full class table
+is therefore referenced by the middle lanes, and a minimal hand-authored schema
+cannot be produced by shortening an existing one.
+
 Truncating the class or reference lanes to a minimal set fails with
 `Corrupt data found when loading an OM file` (code 580044) even when the middle
 and record lanes are preserved. The object lane references class ordinals, so a
