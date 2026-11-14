@@ -5,6 +5,7 @@ import math
 
 from convert.adapters.catia.Container import CfvTwoArchive, CfvTwoFolder, CfvTwoStream
 from convert.adapters.catia.NativeSurface import (
+    AxisFromCarrier,
     KSurfaceKinds,
     MakeSurf,
     ParseSurf,
@@ -148,21 +149,83 @@ def ParseBrep(Archive: CfvTwoArchive) -> BrepData:
 
 
 # this definition exists because focused behavior needs one stable owner
+def CornerVertexIndex(BrepValue: BrepData, Handle: int, Faces: set[int]) -> int:
+    Planes: list[tuple[tuple[float, float, float], tuple[float, float, float]]] = []
+    Cylinders: list[
+        tuple[tuple[float, float, float], tuple[float, float, float], float]
+    ] = []
+    for FaceIndex in Faces:
+        SurfaceValue = BrepValue.surfaces[FaceIndex]
+        if SurfaceValue.kind == 0x32:
+            Normal = BrepValue.trims[FaceIndex].vector
+            if Normal is not None:
+                Planes.append(
+                    (
+                        Normal,
+                        (
+                            SurfaceValue.bounds[0],
+                            SurfaceValue.bounds[1],
+                            SurfaceValue.bounds[2],
+                        ),
+                    )
+                )
+        elif SurfaceValue.kind == 0x33 and len(SurfaceValue.params) >= 6:
+            Params = SurfaceValue.params
+            Cylinders.append(
+                (
+                    AxisFromCarrier(Params),
+                    (Params[0], Params[1], Params[2]),
+                    abs(Params[5]),
+                )
+            )
+    for Index, VertexRow in enumerate(BrepValue.vertices):
+        Point = VertexRow.point
+        if not all(
+            abs(sum(Normal[Axis] * (Point[Axis] - Center[Axis]) for Axis in range(3)))
+            < 1e-3
+            for Normal, Center in Planes
+        ):
+            continue
+        if not all(
+            abs(
+                math.sqrt(
+                    max(
+                        0.0,
+                        sum((Point[Axis] - Center[Axis]) ** 2 for Axis in range(3))
+                        - sum(
+                            (Point[Axis] - Center[Axis]) * AxisValue[Axis]
+                            for Axis in range(3)
+                        )
+                        ** 2,
+                    )
+                )
+                - Radius
+            )
+            < 1e-3
+            for AxisValue, Center, Radius in Cylinders
+        ):
+            continue
+        return Index
+    return Handle % len(BrepValue.vertices)
+
+
+# this definition exists because focused behavior needs one stable owner
 def BuildVertices(
     BrepValue: BrepData,
 ) -> tuple[tuple[BrepVertex, ...], dict[int, str]]:
     if not BrepValue.vertices:
         raise ValueError("vertex table is empty")
-    Handles = sorted(
-        {Handle for TrimValue in BrepValue.trims for Handle in TrimValue.handles}
-    )
+    Usage: dict[int, set[int]] = {}
+    for FaceIndex, TrimValue in enumerate(BrepValue.trims):
+        for Handle in set(TrimValue.handles):
+            Usage.setdefault(Handle, set()).add(FaceIndex)
     Vertices = tuple(
         BrepVertex(f"catia:vertex:{Index + 1}", Vector(VertexRow.point))
         for Index, VertexRow in enumerate(BrepValue.vertices)
     )
     VertexByHandle = {
-        Handle: f"catia:vertex:{(Handle % len(BrepValue.vertices)) + 1}"
-        for Handle in Handles
+        Handle: f"catia:vertex:{CornerVertexIndex(BrepValue, Handle, Faces) + 1}"
+        for Handle, Faces in sorted(Usage.items())
     }
     return Vertices, VertexByHandle
 

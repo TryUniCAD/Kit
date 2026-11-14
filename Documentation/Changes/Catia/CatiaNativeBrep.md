@@ -11,9 +11,13 @@ analytic plane, cylinder, cone, sphere, and torus surfaces.
 The trim handles are dense indices into a shared tessellation table, not B-rep vertex identifiers.
 The handle-to-point map is not decoded. The handle count exceeds the B-rep vertex count in every
 part (`Reservoir` has 1431 handles and 88 vertices, `Copper_Washer` has 76 handles and 8 vertices),
-and the coordinate region is a sequence of float runs separated by record markers. The reader
-therefore maps a handle to a vertex with a placeholder rule and derives loops from the tessellation
-boundary. That is a documented structural approximation, not the native B-rep topology or geometry.
+and the coordinate region is a sequence of float runs separated by record markers. The reader maps a
+handle to a vertex by the corner structure: for each handle it collects the planes and cylinders of
+the faces that use it, and picks the vertex-table point that satisfies every plane and cylinder
+constraint. That replaces the earlier `handle % len(vertices)` placeholder and makes the planar
+faces coplanar for the simple parts. It is still a structural approximation, not the native B-rep
+topology or geometry, because the in-plane positions are the vertex-table points, not the stored
+tessellation.
 
 One partial map is recovered: the handles that appear in arity-2 edges are the B-rep vertices. This
 is exact for the simple parts (`Copper_Washer`, the washers, `Banjo`, the nuts, and
@@ -106,14 +110,18 @@ result = CatiaAdapter().write(
   surface pool is recovered for every part. The five failing parts still fail because they have
   fewer surfaces than faces and the face-to-surface reuse map is not decoded.
 - The handle-to-point map is not decoded. The reader's vertex positions are a structural
-  placeholder, so the decoded geometry is not the file's geometry even for the 22 parts that pass
+  approximation, so the decoded geometry is not the file's geometry even for the 22 parts that pass
   validation. The handle count exceeds the B-rep vertex count (`Reservoir` 1431 handles and 88
   vertices, `Copper_Washer` 76 handles and 8 vertices), so the handles are not vertex indices. The
-  coordinate region is a sequence of float runs separated by 1- to 8-byte record headers. The
-  `Reservoir` five-float group is `(x, y1, z, y2, z)` with `z1 == z2`, but the `Copper_Washer`
-  region does not follow that layout, and no run of plain three-float triples at the washer's radii
-  exists anywhere in the stream, so the tessellation compression is not decoded. The 363-byte block
-  before the first large run is a sparse bit array, not a compactor stream: the compactor decodes it
+  reader now maps each handle to the vertex-table point that satisfies the plane and cylinder
+  constraints of the faces that use it, which makes the planar faces coplanar for the simple parts
+  (deviation drops from 1.0-34.5 to 0.0-0.001), but the in-plane positions are still the vertex-table
+  points, not the stored tessellation. The coordinate region is a sequence of float runs separated by
+  1- to 8-byte record headers. The `Reservoir` five-float group is `(x, y1, z, y2, z)` with
+  `z1 == z2`, but the `Copper_Washer` region does not follow that layout, and no run of plain
+  three-float triples at the washer's radii exists anywhere in the stream, so the tessellation
+  compression is not decoded. The 363-byte block before the first large run is a sparse bit array,
+  not a compactor stream: the compactor decodes it
   to denormals and then `1e297`.
 - The reader reconstructs plane and cylinder geometry from bounds and trim vectors.
 - The reader does not decode feature records, sketches, dimensions,
