@@ -30,11 +30,14 @@ units against a trim vector of `(-1, 0, 0)`.
 
 ## Workaround
 
-Do not treat the decoded vertex positions as the file's geometry. The reader maps each handle to the
-vertex-table point that satisfies the plane and cylinder constraints of the faces that use it. That
-makes the planar faces coplanar for the simple parts (deviation drops from 1.0-34.5 to 0.0-0.001),
-but the in-plane positions are still the vertex-table points, not the stored tessellation. Recovering
-the real positions needs the per-face loop split and the record markers in the point table.
+Do not treat the decoded vertex positions as the file's geometry. The reader places each handle by
+the corner structure: arity-2 handles get distinct vertex-table points by a bipartite match, 2-face
+handles are spread at equal angles along the intersection arc of their two faces, and 1-face handles
+take the nearest satisfying vertex. That makes the planar faces coplanar for the simple parts
+(deviation drops from 1.0-34.5 to 0.0-0.0015) and puts all 76 `Copper_Washer` vertices on the
+washer's circles, but the angular positions are assumed equal-spaced, not the stored tessellation.
+Recovering the real positions needs the per-face loop split and the record markers in the point
+table.
 
 ## Evidence
 

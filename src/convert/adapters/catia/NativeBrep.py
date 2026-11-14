@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections import defaultdict
 from dataclasses import dataclass
 import math
 
@@ -149,7 +150,10 @@ def ParseBrep(Archive: CfvTwoArchive) -> BrepData:
 
 
 # this definition exists because focused behavior needs one stable owner
-def CornerVertexIndex(BrepValue: BrepData, Handle: int, Faces: set[int]) -> int:
+def SurfaceConstraints(BrepValue: BrepData, Faces: set[int]) -> tuple[
+    list[tuple[tuple[float, float, float], tuple[float, float, float]]],
+    list[tuple[tuple[float, float, float], tuple[float, float, float], float]],
+]:
     Planes: list[tuple[tuple[float, float, float], tuple[float, float, float]]] = []
     Cylinders: list[
         tuple[tuple[float, float, float], tuple[float, float, float], float]
@@ -178,35 +182,228 @@ def CornerVertexIndex(BrepValue: BrepData, Handle: int, Faces: set[int]) -> int:
                     abs(Params[5]),
                 )
             )
-    for Index, VertexRow in enumerate(BrepValue.vertices):
-        Point = VertexRow.point
-        if not all(
+    return Planes, Cylinders
+
+
+# this definition exists because focused behavior needs one stable owner
+def Satisfies(
+    Point: tuple[float, float, float],
+    Planes: list[tuple[tuple[float, float, float], tuple[float, float, float]]],
+    Cylinders: list[
+        tuple[tuple[float, float, float], tuple[float, float, float], float]
+    ],
+) -> bool:
+    for Normal, Center in Planes:
+        if (
             abs(sum(Normal[Axis] * (Point[Axis] - Center[Axis]) for Axis in range(3)))
-            < 1e-3
-            for Normal, Center in Planes
+            >= 1e-3
         ):
-            continue
-        if not all(
+            return False
+    for AxisValue, Center, Radius in Cylinders:
+        Delta = [Point[Axis] - Center[Axis] for Axis in range(3)]
+        Projection = sum(Delta[Axis] * AxisValue[Axis] for Axis in range(3))
+        if (
             abs(
                 math.sqrt(
-                    max(
-                        0.0,
-                        sum((Point[Axis] - Center[Axis]) ** 2 for Axis in range(3))
-                        - sum(
-                            (Point[Axis] - Center[Axis]) * AxisValue[Axis]
-                            for Axis in range(3)
-                        )
-                        ** 2,
-                    )
+                    max(0.0, sum(Value * Value for Value in Delta) - Projection**2)
+                )
+                - Radius
+            )
+            >= 1e-3
+        ):
+            return False
+    return True
+
+
+# this definition exists because focused behavior needs one stable owner
+def IntersectionCircle(
+    BrepValue: BrepData, Pair: tuple[int, int]
+) -> tuple[tuple[float, float, float], tuple[float, float, float], float] | None:
+    for PlaneIndex, CylinderIndex in (Pair, (Pair[1], Pair[0])):
+        PlaneValue = BrepValue.surfaces[PlaneIndex]
+        CylinderValue = BrepValue.surfaces[CylinderIndex]
+        if PlaneValue.kind != 0x32 or CylinderValue.kind != 0x33:
+            continue
+        Normal = BrepValue.trims[PlaneIndex].vector
+        if Normal is None or len(CylinderValue.params) < 6:
+            continue
+        Center = (
+            PlaneValue.bounds[0],
+            PlaneValue.bounds[1],
+            PlaneValue.bounds[2],
+        )
+        Params = CylinderValue.params
+        AxisValue = AxisFromCarrier(Params)
+        CylinderCenter = (Params[0], Params[1], Params[2])
+        Radius = abs(Params[5])
+        Offset = sum(
+            Normal[Axis] * (CylinderCenter[Axis] - Center[Axis]) for Axis in range(3)
+        )
+        CircleCenter = (
+            CylinderCenter[0] - Offset * Normal[0],
+            CylinderCenter[1] - Offset * Normal[1],
+            CylinderCenter[2] - Offset * Normal[2],
+        )
+        return CircleCenter, AxisValue, Radius
+    return None
+
+
+# this definition exists because focused behavior needs one stable owner
+def ArcPoint(
+    Center: tuple[float, float, float],
+    AxisValue: tuple[float, float, float],
+    Radius: float,
+    Angle: float,
+) -> tuple[float, float, float]:
+    Reference = (
+        Normalize((1.0, 0.0, 0.0))
+        if abs(AxisValue[0]) < 0.9
+        else Normalize((0.0, 1.0, 0.0))
+    )
+    Second = Normalize(
+        (
+            AxisValue[1] * Reference[2] - AxisValue[2] * Reference[1],
+            AxisValue[2] * Reference[0] - AxisValue[0] * Reference[2],
+            AxisValue[0] * Reference[1] - AxisValue[1] * Reference[0],
+        )
+    )
+    First = Normalize(
+        (
+            Second[1] * AxisValue[2] - Second[2] * AxisValue[1],
+            Second[2] * AxisValue[0] - Second[0] * AxisValue[2],
+            Second[0] * AxisValue[1] - Second[1] * AxisValue[0],
+        )
+    )
+    Cosine = math.cos(Angle)
+    Sine = math.sin(Angle)
+    return (
+        Center[0] + Radius * (First[0] * Cosine + Second[0] * Sine),
+        Center[1] + Radius * (First[1] * Cosine + Second[1] * Sine),
+        Center[2] + Radius * (First[2] * Cosine + Second[2] * Sine),
+    )
+
+
+# this definition exists because focused behavior needs one stable owner
+def CornerPositions(
+    BrepValue: BrepData,
+) -> dict[int, tuple[float, float, float]]:
+    Usage: dict[int, set[int]] = {}
+    for FaceIndex, TrimValue in enumerate(BrepValue.trims):
+        for Handle in set(TrimValue.handles):
+            Usage.setdefault(Handle, set()).add(FaceIndex)
+    Arity2 = sorted(
+        {
+            Handle
+            for EdgeValue in BrepValue.edges
+            if EdgeValue.arity == 2
+            for Handle in EdgeValue.handles
+        }
+    )
+    Candidates = {
+        Handle: [
+            Index
+            for Index, VertexRow in enumerate(BrepValue.vertices)
+            if Satisfies(VertexRow.point, *SurfaceConstraints(BrepValue, Usage[Handle]))
+        ]
+        for Handle in Arity2
+    }
+    Assign: dict[int, int] = {}
+    Used: set[int] = set()
+    for Handle in sorted(Arity2, key=lambda Value: len(Candidates[Value])):
+        for Index in Candidates[Handle]:
+            if Index not in Used:
+                Assign[Handle] = Index
+                Used.add(Index)
+                break
+    Positions: dict[int, tuple[float, float, float]] = {
+        Handle: BrepValue.vertices[Index].point for Handle, Index in Assign.items()
+    }
+    Pairs: dict[tuple[int, int], list[int]] = defaultdict(list)
+    for Handle in sorted(Usage):
+        if len(Usage[Handle]) == 2:
+            Faces = sorted(Usage[Handle])
+            Pairs[(Faces[0], Faces[1])].append(Handle)
+    for Pair, Handles in Pairs.items():
+        Circle = IntersectionCircle(BrepValue, Pair)
+        if Circle is None:
+            continue
+        Center, AxisValue, Radius = Circle
+        Ends = [
+            Handle
+            for Handle in Arity2
+            if Handle in Positions
+            and abs(Positions[Handle][0] - Center[0]) < 1e-3
+            and abs(
+                math.hypot(
+                    Positions[Handle][1] - Center[1],
+                    Positions[Handle][2] - Center[2],
                 )
                 - Radius
             )
             < 1e-3
-            for AxisValue, Center, Radius in Cylinders
-        ):
+        ]
+        if len(Ends) != 2:
             continue
-        return Index
-    return Handle % len(BrepValue.vertices)
+        Reference = (
+            Normalize((1.0, 0.0, 0.0))
+            if abs(AxisValue[0]) < 0.9
+            else Normalize((0.0, 1.0, 0.0))
+        )
+        Second = Normalize(
+            (
+                AxisValue[1] * Reference[2] - AxisValue[2] * Reference[1],
+                AxisValue[2] * Reference[0] - AxisValue[0] * Reference[2],
+                AxisValue[0] * Reference[1] - AxisValue[1] * Reference[0],
+            )
+        )
+        First = Normalize(
+            (
+                Second[1] * AxisValue[2] - Second[2] * AxisValue[1],
+                Second[2] * AxisValue[0] - Second[0] * AxisValue[2],
+                Second[0] * AxisValue[1] - Second[1] * AxisValue[0],
+            )
+        )
+
+        def Angle(Point: tuple[float, float, float]) -> float:
+            Delta = (
+                Point[0] - Center[0],
+                Point[1] - Center[1],
+                Point[2] - Center[2],
+            )
+            return math.atan2(
+                sum(Delta[Axis] * Second[Axis] for Axis in range(3)),
+                sum(Delta[Axis] * First[Axis] for Axis in range(3)),
+            )
+
+        Start = Angle(Positions[Ends[0]])
+        Delta = Angle(Positions[Ends[1]]) - Start
+        while Delta > math.pi:
+            Delta -= 2.0 * math.pi
+        while Delta < -math.pi:
+            Delta += 2.0 * math.pi
+        Step = len(Handles) + 1
+        for Index, Handle in enumerate(Handles):
+            Positions[Handle] = ArcPoint(
+                Center, AxisValue, Radius, Start + Delta * (Index + 1) / Step
+            )
+    for Handle in sorted(Usage):
+        if Handle in Positions:
+            continue
+        Planes, Cylinders = SurfaceConstraints(BrepValue, Usage[Handle])
+        Best = None
+        BestDistance = None
+        for VertexRow in BrepValue.vertices:
+            if not Satisfies(VertexRow.point, Planes, Cylinders):
+                continue
+            Distance = sum(
+                (VertexRow.point[Axis] - BrepValue.vertices[0].point[Axis]) ** 2
+                for Axis in range(3)
+            )
+            if BestDistance is None or Distance < BestDistance:
+                Best = VertexRow.point
+                BestDistance = Distance
+        Positions[Handle] = Best if Best is not None else BrepValue.vertices[0].point
+    return Positions
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -215,17 +412,14 @@ def BuildVertices(
 ) -> tuple[tuple[BrepVertex, ...], dict[int, str]]:
     if not BrepValue.vertices:
         raise ValueError("vertex table is empty")
-    Usage: dict[int, set[int]] = {}
-    for FaceIndex, TrimValue in enumerate(BrepValue.trims):
-        for Handle in set(TrimValue.handles):
-            Usage.setdefault(Handle, set()).add(FaceIndex)
+    Positions = CornerPositions(BrepValue)
+    Handles = sorted(Positions)
     Vertices = tuple(
-        BrepVertex(f"catia:vertex:{Index + 1}", Vector(VertexRow.point))
-        for Index, VertexRow in enumerate(BrepValue.vertices)
+        BrepVertex(f"catia:vertex:{Index + 1}", Vector(Positions[Handle]))
+        for Index, Handle in enumerate(Handles)
     )
     VertexByHandle = {
-        Handle: f"catia:vertex:{CornerVertexIndex(BrepValue, Handle, Faces) + 1}"
-        for Handle, Faces in sorted(Usage.items())
+        Handle: f"catia:vertex:{Index + 1}" for Index, Handle in enumerate(Handles)
     }
     return Vertices, VertexByHandle
 
