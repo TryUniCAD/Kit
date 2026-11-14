@@ -46,6 +46,7 @@ Complete ASD-STE100 and ISO/IEC/IEEE 2651x conformance remains unverified.
 - [SOLIDWORKS feature resolution](Reference/Adapters/SolidworksFeatures.md)
 - [FreeCAD adapter](Reference/Adapters/Freecad.md)
 - [CATIA adapter](Reference/Adapters/Catia.md)
+- [Siemens NX adapter](Reference/Adapters/Nx.md)
 - [JSON adapter and registry](Reference/Adapters/Json.md)
 
 Adapter registration does not prove complete format coverage.
