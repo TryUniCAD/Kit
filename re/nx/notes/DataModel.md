@@ -401,6 +401,31 @@ that is not yet derived, so the encoder refuses them.
 No value appears anywhere in the container as a binary64, a shifted binary64, a
 float32, or UTF-16 text.
 
+### The middle tables are mandatory in both directions
+
+Stripping the single object out of the seventeen-class save, keeping its class
+lane, clearing the occupancy lane back to the empty trailer, and shifting every
+middle offset by the removal delta also fails:
+
+```text
+seventeen classes, zero objects, generated trailer  -> 580044
+```
+
+So the per-class and per-object tables in the middle are not optional padding.
+They have to be regenerated whenever the class count or the object count
+changes, in either direction. Together with the earlier results this rules out
+every shortcut:
+
+```text
+add classes only                      580044
+add classes and shift offsets         580044
+add classes and the occupancy lane    580044
+remove the object from a template     580044
+```
+
+What remains is a genuine encoder for the section-2 middle tables, which is the
+research programme described above, not a formatting detail.
+
 ### Class tails carry one-based ordinals
 
 Decoding the three tokens of every class declaration shows the base token is a
