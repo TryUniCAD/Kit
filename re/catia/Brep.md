@@ -363,6 +363,28 @@ has bit 0 clear and `0x30 >> 2 = 12`, which is outside the valid `1..8` length r
 cannot start a tag-difference sequence. The row is a fixed flag record, not the face record that
 carries the surface reference.
 
+### The shell record carries index arrays, and the face surface is list slot 2
+
+The `.pdata` exception directory gives the real function boundaries, which the export table does
+not. `CATCXFace::UnStream` is `0x54eef0..0x54f10a` split into six `.pdata` regions, and
+`CATCXFace::UnStreamV2R0` is `0x54f110..0x54f212`. The function at `0x54f220` is a separate write
+function, not part of the unstream.
+
+`CATCXShell::UnStream` at `0x5540a0..0x554a19` reads a boolean, three `u32` scalars, three `u32`
+arrays, and a tag resolved with `CATCGMContainer::FindObjectFromTag`. It then loops over the first
+array and, for each entry, takes `list[index + 1]` from the linked-object list, resolves it with
+`GetImplementCXFace`, and adds it to the shell. So the shell record stores *indices into the
+linked-object list*, not tags.
+
+`CATCXFace::UnStream` takes the same linked-object list and uses slot 2 as the face's surface: it
+calls `list[2]`, checks the `0x6000002` interface, and stores the result as the face support. Slot
+1 is read first and is a different object. So the face's surface is the third entry of the face's
+own linked-object list.
+
+The face unstream is vtable slot 27 (offset `0xd8`) of the `CATCXFace` vtable at `0xbc7b18`. The
+caller that populates the face's linked-object list is the remaining unknown: the shell unstream
+does not call it, and the body unstream reads only scalars and a byte count.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
