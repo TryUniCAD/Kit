@@ -144,6 +144,24 @@ A synthetic double round-trip over four selector/last-field combinations scores 
 doubling in the writer and the missing halving in the reader cannot both be right, so the
 selector still needs a dynamic trace.
 
+## Tessellation coordinate caller
+
+`CATSplineCompactor::HandleArray` at `0x18009cb00` in `CATGeometricObjectsCGM.dll` is the caller
+that builds the tessellation coordinate table. It calls the double compactor through these IAT
+slots:
+
+| Slot | Import |
+| --- | --- |
+| `0x1dd718` | `ReadDoubleWithRef` |
+| `0x1dd720` | `WriteDoubleWithRef` |
+| `0x1dd728` | `ReadDoubleStandard` |
+| `0x1dd730` | `WriteDoubleStandard` |
+
+`HandleArray` builds the reference `Number` from a spline prediction at `rsi`, then reads or
+writes one double per coordinate against that prediction. So the shared tessellation coordinates
+are compressed by the double compactor, not the float compactor. Decoding them is blocked on the
+same selector.
+
 ## Caller and reference array
 
 `CATAdvancedMathematics.dll` imports `ReadFloatWithRef2` and `WriteFloatWithRef2` from
