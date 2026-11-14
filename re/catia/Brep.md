@@ -766,6 +766,48 @@ at `199..226`, and every 19-byte window in it decodes to a two-bit distribution 
 (for example `{0:21, 1:10, 2:18, 3:27}`), which is the opposite of `Reservoir`'s `{0:866, 1:289,
 2:198, 3:78}`. So either the block boundaries differ per part or the block is not the same encoding.
 
+## The Copper_Washer B-rep rebuilds from the corner structure
+
+The corner structure is enough to rebuild the whole B-rep. The eight vertices are the arity-2
+handles, and the eight edges are the 2-face handle groups. Each edge lies on the intersection of its
+two faces, which for a plane and a cylinder is a circle, so each edge is a circular arc between its
+two endpoint vertices.
+
+| Edge (faces) | Circle | Handles | Endpoints |
+| --- | --- | ---: | --- |
+| (1, 2) | outer at `x = 0` | 9 | `0 -> 36` |
+| (0, 2) | outer at `x = 0` | 10 | `36 -> 0` |
+| (1, 3) | outer at `x = 1` | 9 | `38 -> 74` |
+| (0, 3) | outer at `x = 1` | 10 | `74 -> 38` |
+| (2, 5) | inner at `x = 0` | 8 | `5 -> 31` |
+| (2, 4) | inner at `x = 0` | 7 | `31 -> 5` |
+| (3, 5) | inner at `x = 1` | 8 | `43 -> 69` |
+| (3, 4) | inner at `x = 1` | 7 | `69 -> 43` |
+
+Placing the edge handles at equal angular spacing along their arcs places 74 of the 76 handles. The
+two unplaced handles are `30` and `68`, the 1-face seam handles, which lie on the inner circles at
+the seam angle. With the placement, both planar faces verify at zero deviation with every handle
+placed:
+
+```
+face 2 planar n=(-1,0,0)  placed 56/56  maxdev=0.000000
+face 3 planar n=(1,0,0)   placed 50/50  maxdev=0.000000
+```
+
+The arcs are consistent with semicircles of the expected radii:
+
+| Edge | Arc length | Expected |
+| --- | ---: | ---: |
+| outer (9 handles) | 25.030 | `pi * 8 = 25.133` |
+| outer (10 handles) | 25.047 | `pi * 8 = 25.133` |
+| inner (8 handles) | 15.628 | `pi * 5 = 15.708` |
+| inner (7 handles) | 15.607 | `pi * 5 = 15.708` |
+
+So the topology and the arc geometry are correct. The angular positions are assumed equal-spaced,
+not decoded: the two semicircles of each circle carry 9 and 10 handles (outer) and 7 and 8 handles
+(inner), which is not consistent with one uniform spacing around the full circle. So the placement
+is a reconstruction from the topology, not a decode of the stored tessellation.
+
 ## The trim handles are not point indices
 
 The trim handles are dense: `Reservoir` uses every value in `0..1430`, and `Copper_Washer` uses

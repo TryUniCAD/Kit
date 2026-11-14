@@ -33,6 +33,14 @@ split into two edges (outer 10 + 9 handles, inner 7 + 8). So the planar faces ar
 by the circles, and the handles that looked like interior points are the 2-face handles of the
 `(0, 2)` edge on the outer circle at `x = 0`.
 
+The corner structure is enough to rebuild the whole `Copper_Washer` B-rep: the eight arity-2 handles
+are the vertices, the eight 2-face handle groups are the edges, and each edge is a circular arc on
+the intersection of its two faces. Placing the edge handles at equal angular spacing places 74 of
+the 76 handles and makes both planar faces coplanar with their trim vectors at zero deviation
+(56/56 and 50/50 points). The arc lengths match semicircles of the expected radii. The angular
+positions are assumed equal-spaced, not decoded, so this is a reconstruction from the topology, not
+a decode of the stored tessellation.
+
 The surface records are ordered by face only when the two counts match. For all 22 parts where the
 surface count equals the face count, the surface planarity sequence is identical to the face
 planarity sequence. For the five parts with fewer surfaces than faces, the surface planarity
