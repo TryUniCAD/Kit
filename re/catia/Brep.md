@@ -1013,6 +1013,14 @@ live: not in the face header, not in the trim record, and not in a tag array. Th
 possibility is that the writer deduplicates surfaces and the reader re-derives the map
 geometrically, which is why the pooled parts have fewer surfaces than faces.
 
+A constraint solver over that geometry does not converge. Treating each face as a variable over the
+surfaces of its planarity class, and each two-face handle group as a constraint that the two
+surfaces must share a vertex-table point, then running arc consistency to a fixed point, leaves 12
+of 71 `Reservoir` faces with a unique surface after four rounds. Adding the requirement that a
+surface carry at least as many vertex-table points as the face has arity-2 handles makes only one
+face unique before the rounds. The vertex table has 88 points and the arity-2 handles number 109, so
+the handles are not a bijection onto the vertices and the constraint is too weak to pin the map.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
