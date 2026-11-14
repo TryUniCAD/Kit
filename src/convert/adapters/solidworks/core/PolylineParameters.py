@@ -83,7 +83,7 @@ def IsBoundLength(Value: ParameterValue | None, Expected: float) -> bool:
         and not isinstance(RawValue, bool)
         and isinstance(RawValue, (int, float))
         and MathValue.isfinite(float(RawValue))
-        and MathValue.isclose(float(RawValue), Expected, rel_tol=0.0, abs_tol=1e-09)
+        and float(format(float(RawValue), ".15g")) == float(format(Expected, ".15g"))
     )
 
 
