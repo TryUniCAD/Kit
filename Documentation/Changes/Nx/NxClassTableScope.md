@@ -116,6 +116,26 @@ the builder is created from `NXOpen.Features.Chamfer.Null`, and `GetTargets` doe
 exist on it. `FirstOffset` is a string, so the offsets are set by text rather than by an
 expression object.
 
+## Why the discriminator is not on the critical path
+
+Settling "increment depends on the class" against "increment depends on the class count"
+would not by itself make the table emittable. Both readings leave the same unknown:
+
+```text
+entry = class value  +  set increment
+        ^^^^^^^        ^^^^^^^^^^^^^
+        unknown        small, uniform (0, 15, 16, 20 measured)
+```
+
+The increment is the _small_ part and it is already measured as uniform across every class
+in a set. The class value is the _large_ part, differs per class, and no hash, offset or
+field model has reproduced it. So an equal-count fixture would refine a term that is
+already characterised, not supply the term that is missing.
+
+That is the reason this work stopped chasing the fifth class set: the emitter needs a
+function of the class **name**, and that is what sixteen probes have failed to find,
+whether the increment turns out to be per class or per count.
+
 ## Consequence
 
 The class table cannot yet be computed: the increment is uniform and small, but the
