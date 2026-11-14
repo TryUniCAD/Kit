@@ -89,8 +89,11 @@ decoded and planarity does not determine it.
 
 The adapter also writes a native `V5_CFV2` CATPart from a neutral `BrepModel` when
 `WriteOptions(values={"native_brep": True})` is set.
-The writer supports plane faces with one loop per face.
+The writer supports plane and cylinder faces with one loop per face.
 It computes every count, length, offset, and directory entry from the neutral model.
+A cylinder face is written as a 73-byte `0x33` surface record with the six-float carrier
+(origin, axis, radius) in big-endian `f32`, and its trim record carries no vector because the
+vector is a plane normal only.
 
 ## Usage
 
@@ -144,7 +147,9 @@ result = CatiaAdapter().write(
 - The reader reconstructs plane and cylinder geometry from bounds and trim vectors.
 - The reader does not decode feature records, sketches, dimensions,
   constraints, or relations.
-- The writer supports plane faces with one loop per face.
+- The writer supports plane and cylinder faces with one loop per face. A cylinder face needs a seam
+  edge traversed in both directions to close its single loop, so the writer emits two distinct seam
+  edges between the same vertex pair.
 - The writer does not emit feature history, sketches, dimensions, or constraints.
 - The writer reports `vendor_loadable=False` and `application_usable=False`.
 - CATIA acceptance is not measured because the local CATIA install has no license.
@@ -158,7 +163,11 @@ result = CatiaAdapter().write(
   `Pedal_Body`, and `Reservoir`.
 - A six-face box emitted by the writer reads back as six faces, twelve edges, and eight vertices
   with zero validation errors.
-- `tests/convert/catia/CatiaNativeTests.py` covers the corpus reader and the writer round trip.
+- A three-face cylinder (two planes and one cylinder) emitted by the writer reads back as three
+  faces, eight edges, and eight vertices, with one `CylinderSurface` of radius 2.5 and axis `+z`,
+  and zero validation errors.
+- `tests/convert/catia/CatiaNativeTests.py` covers the corpus reader, the box writer round trip, and
+  the cylinder writer round trip.
 
 ## Related information
 

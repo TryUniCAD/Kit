@@ -10,6 +10,7 @@ from interchange import (
     BrepFace,
     BrepModel,
     BrepVertex,
+    CylinderSurface,
     PlaneSurface,
     SpaceVector,
 )
@@ -56,7 +57,8 @@ def CanWrite(Model: BrepModel) -> bool:
     if not Model.faces or not Model.vertices or not Model.edges:
         return False
     if any(
-        not isinstance(SurfaceValue, PlaneSurface) for SurfaceValue in Model.surfaces
+        not isinstance(SurfaceValue, (PlaneSurface, CylinderSurface))
+        for SurfaceValue in Model.surfaces
     ):
         return False
     return all(len(FaceValue.loop_ids) == 1 for FaceValue in Model.faces)
@@ -109,7 +111,12 @@ def PackVert(Points: tuple[BrepVertex, ...]) -> bytes:
 
 
 # this definition exists because focused behavior needs one stable owner
-def PackSurf(FaceValue: BrepFace, Points: tuple[SpaceVector, ...]) -> bytes:
+def PackSurf(
+    FaceValue: BrepFace, Points: tuple[SpaceVector, ...], Model: BrepModel
+) -> bytes:
+    SurfaceValue = next(
+        Value for Value in Model.surfaces if Value.id == FaceValue.surface_id
+    )
     XValues = [Point.x for Point in Points]
     YValues = [Point.y for Point in Points]
     ZValues = [Point.z for Point in Points]
@@ -126,6 +133,38 @@ def PackSurf(FaceValue: BrepFace, Points: tuple[SpaceVector, ...]) -> bytes:
     Radius = max(math.dist(Center, (Point.x, Point.y, Point.z)) for Point in Points)
     Bounds = (*Center, *HalfExtent, *Center, Radius)
     SignValue = 1 if getattr(FaceValue, "same_sense", True) else -1
+    if isinstance(SurfaceValue, CylinderSurface):
+        AxisValue = (
+            SurfaceValue.axis.x,
+            SurfaceValue.axis.y,
+            SurfaceValue.axis.z,
+        )
+        Length = math.sqrt(sum(Value * Value for Value in AxisValue))
+        if Length <= 1e-12:
+            AxisValue = (0.0, 0.0, 1.0)
+        else:
+            AxisValue = (
+                AxisValue[0] / Length,
+                AxisValue[1] / Length,
+                AxisValue[2] / Length,
+            )
+        if AxisValue[2] < 0.0:
+            AxisValue = (-AxisValue[0], -AxisValue[1], -AxisValue[2])
+        Carrier = (
+            SurfaceValue.origin.x,
+            SurfaceValue.origin.y,
+            SurfaceValue.origin.z,
+            AxisValue[0],
+            AxisValue[1],
+            SurfaceValue.radius,
+        )
+        return (
+            b"\x00\x02\x00\x33\x33"
+            + struct.pack(">6f", *Carrier)
+            + struct.pack("<10f", *Bounds)
+            + struct.pack("b", SignValue)
+            + b"\x00\x00\x00"
+        )
     return (
         b"\x00\x02\x00\x33\x32"
         + struct.pack("<10f", *Bounds)
@@ -148,14 +187,16 @@ def PackRoster(Count: int) -> bytes:
 
 
 # this definition exists because focused behavior needs one stable owner
-def FaceNormal(FaceValue: BrepFace, Model: BrepModel) -> tuple[float, float, float]:
+def FaceNormal(
+    FaceValue: BrepFace, Model: BrepModel
+) -> tuple[float, float, float] | None:
     SurfaceValue = next(
         Value for Value in Model.surfaces if Value.id == FaceValue.surface_id
     )
     if isinstance(SurfaceValue, PlaneSurface):
         Normal = SurfaceValue.normal
         return (Normal.x, Normal.y, Normal.z)
-    return (0.0, 0.0, 1.0)
+    return None
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -236,7 +277,7 @@ def BuildSurf(Model: BrepModel) -> bytes:
                 else EdgeValue.start_vertex_id
             )
             Points.append(VertexById[VertexId].point)
-        Records.append(PackSurf(FaceValue, tuple(Points)))
+        Records.append(PackSurf(FaceValue, tuple(Points), Model))
     Records.extend(PackCurve(Index) for Index in range(len(Model.edges)))
     Records.extend((PackRoster(len(Model.vertices)),))
     Payload = b"".join(Records)
