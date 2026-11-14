@@ -241,6 +241,30 @@ The empty control's record has the same `id`, `type`, and `sect_name`, but its
 are longer. The array lengths are therefore document-dependent, not fixed.
 The ladder's extrude and sketch records follow it, but their field boundaries are not yet closed.
 
+### Decoded feature chain
+
+`re/creo/tools/TaggedStream.py` now decodes the full `AllFeatur` feature chain of both controls.
+The chain is a linked list: `first_feat_ptr` points at the first feature, and each feature's
+`next_feat_ptr` points at the next one. A zero `next_feat_ptr` ends the list.
+
+| File | Feature chain |
+| --- | --- |
+| `empty/solid_start_part_mmks.prt` | `FRONT` (id 7, type 923), `TOP` (5, 923), `RIGHT` (3, 923), `DEFAULT_CSYS` (11, 979) |
+| `ladder/ladder1.prt.2` | the same four, plus `id 67` (type 923) |
+
+The chain matches the model tree Creo shows for both files.
+Type `923` is a datum plane and type `979` is a coordinate system.
+The ladder's fifth feature is the sketch's datum plane; the sketch and extrude definitions live in
+`FeatDefs` (`Sld_FeatDefs`), not in `AllFeatur`.
+
+The grammar that makes the chain decode is recorded in
+[the loader notes](../loader/Loader.md#tagged-stream-parser-status):
+
+- the field table is global, and `f7 <id>` selects the id-th field;
+- `f1`-`f4` close tokens may precede a value and pop structure levels first;
+- `f8`/`f9` array counts are part of the first definition and are reused by later records;
+- `next_feat_ptr` restarts the field index at the feature schema's first field.
+
 ### Loader-confirmed record schemas
 
 The `metatoolsapi.dll` `CreoSerializer` exports give the authoritative field order and types for the

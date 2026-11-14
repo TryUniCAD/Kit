@@ -17,13 +17,27 @@ A neutral edit cannot be expressed by replaying the old bytes.
 
 ## Missing work
 
-1. Decode the tagged field transition cache and the field table for `AllFeatur`, `FeatDefs`, and `FeatDefsDtm`.
+1. Decode the `AllFeatur` footer and the `Sld_FeatDefs` records in `FeatDefs` and `FeatDefsDtm`.
 2. Decode the geometry prototype lanes and the contour and topology references in `VisibGeom`.
 3. Map feature identity, parent links, dimensions, relations, and configuration overrides to the neutral model.
 4. Prove which derived sections Creo recomputes after a feature edit.
 5. Build a symbolic writer that recomputes every index, count, checksum, and derived section.
 6. Measure a generated part in a fresh Creo process between healthy controls.
 7. Change a driving dimension, rebuild, and measure the geometry change.
+
+## Decoded so far
+
+`re/creo/tools/TaggedStream.py` decodes the full `AllFeatur` feature chain of both controls:
+
+| File | Feature chain |
+| --- | --- |
+| `empty/solid_start_part_mmks.prt` | `FRONT` (7), `TOP` (5), `RIGHT` (3), `DEFAULT_CSYS` (11, type 979) |
+| `ladder/ladder1.prt.2` | the same four, plus `id 67` (type 923) |
+
+The chain matches the model tree Creo shows.
+The grammar is recorded in [the loader notes](../loader/Loader.md#tagged-stream-parser-status).
+The parser stops at the `AllFeatur` footer, which uses a different field order.
+The footer and `Sld_FeatDefs` are the next decode targets.
 
 ## One-feature ladder result
 

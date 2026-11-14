@@ -13,6 +13,7 @@ There is no independent PSB writer and no acceptance result for a newly authored
 | `container/` | Header, table of contents, section storage, sample inventory |
 | `data-model/` | Tagged stream, geometry, design, units, parameters, confidence |
 | `loader/` | Vendor module hashes, tagged-stream primitives, and serializer field tables |
+| `tools/` | Research-only tagged-stream parser |
 | `oracle/` | Local Creo control procedure, observed results, and the empty/ladder corpus |
 | `open-items/` | The writer gap and next measurements |
 

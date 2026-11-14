@@ -168,15 +168,36 @@ CreoQuantType, Length, Time, Mass, Temperature, Current
 `f8`/`f9` arrays, the `e4`-`e7` repeats, and the one-byte double constants `0x0f` (0.0)
 and `0x18` (1.0).
 
-The parser stops on the `f7 <id>` field selection. The `f7` id is the model module's
-global field id, not the stream's `e0` definition order. The stream defines a field
-once with `e0`; later records select it with `f7 <id>`. The id is assigned by the
-`ProcStructField` registration order in `metatoolsapi.dll`, so the parser needs that
-registered table before it can resolve the later records.
+The confirmed grammar is:
 
-The explicit first record and the empty control parse up to the first `f7`-only
-record. The next step is to recover the registered field table from the
-`ProcStructField` call order in the `CreoSerializer` serializers.
+1. `e0 <type> <name> 00` defines a field and appends it to the global field table.
+   The field table is global, not per structure: nested fields are appended in the
+   order they are first defined.
+2. The field value follows the definition, but `f1`-`f4` close tokens may appear
+   first. Each close token pops that many structure levels, and the value is read at
+   the resulting level.
+3. `f7 <id>` selects the id-th field of the global field table (1-based). The value
+   follows, and the field index advances, so the fields after an `f7` selection are
+   read positionally.
+4. `f8 <count>` and `f9 <rows> <cols>` are part of the first definition of an array
+   field. Later records reuse the stored count and emit the values without the
+   `f8`/`f9` prefix.
+5. `next_feat_ptr` is a linked-list pointer. Its value is a structure begin, and the
+   next feature's fields restart at the first field of the feature schema (`id`).
+6. `e1` is null, `e2`/`e3` begin a structure, `e4`-`e7` repeat the previous value,
+   `f5` negates, `f6` is -1, `fb` closes an array.
+
+The parser decodes the full `AllFeatur` feature chain of both controls:
+
+| File | Features |
+| --- | --- |
+| `empty/solid_start_part_mmks.prt` | `FRONT` (7), `TOP` (5), `RIGHT` (3), `DEFAULT_CSYS` (11, type 979) |
+| `ladder/ladder1.prt.2` | the same four, plus `id 67` (type 923) |
+
+The feature chain matches the model tree that Creo shows for both files.
+The parser stops at the `AllFeatur` footer, which uses a different field order
+(`misc_id_tab_ptr`, `misc_hist`, `parent_table`, `avail_feat_parents`, `layer_list`).
+The footer is the next decode target, followed by `Sld_FeatDefs` in `FeatDefs`.
 
 ## Open questions
 
