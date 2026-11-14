@@ -430,6 +430,43 @@ n = 1   7 1 3 5 4 6 7 8
 n = 8   14 1 3 5 4 6 7 14 15 8 9 10 11 12 13
 ```
 
+### A first expression can be added to a part that has none
+
+`re/nx/tools/ExprBuild.py` takes a part with no expressions, an expression name,
+and a value, and emits a part that NX 2506 reports as having that expression. It
+does not slice a saved middle: the section-2 middle is emitted by `EmitOne` from
+the flag rule, offset list, count words, anchor block, occupancy lane, default
+group record, and expression record, and the class and reference lanes are
+emitted from `re/nx/tools/ExprSchema.py` (seventeen class declarations and five
+references).
+
+```text
+first_expr_6.prt    EXPRESSION kit_block_len 6.0
+spec_ratio.prt      EXPRESSION ratio 0.75
+spec_width.prt      EXPRESSION width 40.0
+spec_length.prt     EXPRESSION length 100.0
+```
+
+All four load with `unloaded 0` and report zero bodies, because only the
+expression section was authored.
+
+Two fields decide whether the part loads:
+
+- The section pointer is the offset of the record area, that is
+  `header_length + len(middle)`. It has to be recomputed whenever the expression
+  name length changes. Leaving a stale pointer produces
+  `corrupt data found when loading an OM file` (580044).
+- The seven bytes after `e0 6a f8` in the anchor block are a saved pointer value,
+  not free identity. Zero gives `found bad saved pointer value in file` (580143),
+  and a random value such as `11 22 33 44 55 66 77` gives the same. Every
+  single-bit mutation of a real value loads, and `ff ff ff ff ff ff ff` loads and
+  means unset, so the encoder writes all ones.
+
+What is still captured: the base part. Sections 0, 1, and 3 of the source part
+are carried through unchanged, and their middles are not yet generative. The
+seven-byte anchor value is also not derived; it is written as the unset
+constant.
+
 ### Middle regeneration: three of five structures solved
 
 `re/nx/tools/MiddleBuild.py` regenerates parts of the section-2 middle from
@@ -683,7 +720,8 @@ The value uses the handle encoding above. The template still supplies the
 record skeleton, the three expression classes, and the reference, so a record
 built without a template is still open.
 
-Current status: the class and reference lanes are emitted from a table and the
+Current status: the expression section can be produced from a name and a value,
+but the base part still comes from a saved document. The class and reference lanes are emitted from a table and the
 middles are reproduced from a lane, but the table and the prefix and state bytes
 of sections 0-2 are still derived from a document, so this is research and not
 shippable under the donor rule. No body, feature, or expression record has been

@@ -85,7 +85,8 @@ def Record(Name: bytes, Value: float, Index: int) -> bytes:
         + bytes([len(Name) + 2])
         + Name
         + b"\x00"
-        + b"\x04\x06"
+        + b"\x04"
+        + bytes([len(repr(Value)) + 2])
         + repr(Value).encode()
         + b"\x00"
         + b"\xff\x00\x0a"
@@ -141,3 +142,73 @@ def Landmarks(Middle: bytes) -> list[int]:
         if Probe >= 0:
             Records.append(Probe)
     return [Anchor, Anchor + 0x1B, Names - 1, Trail, Trail + 4, Default - 2, *Records]
+
+
+KAnchorHead = bytes.fromhex("41000305010004050200")
+KAnchorTail = bytes.fromhex(
+    "0200000202ffff"
+    "ff41ff4200ff00000043"
+    "0000ff"
+)
+KAnchorEnd = bytes.fromhex("011e01000101")
+
+
+def AnchorBlock(Count: int, Identity: bytes) -> bytes:
+    if len(Identity) != 7:
+        raise ValueError("nx anchor identity is seven bytes")
+    return (
+        KAnchorHead
+        + b"\xe0\x6a\xf8"
+        + Identity
+        + bytes([8 + Count])
+        + b"\x02\x13"
+        + bytes([9 + Count])
+        + KAnchorTail
+        + b"\x01\x01"
+        + bytes([1 + Count])
+        + KAnchorEnd
+    )
+
+
+def EmitOne(
+    HeaderLength: int,
+    Name: bytes,
+    Value: float,
+    Identity: bytes,
+    Slot: int = 24,
+    Marker: int = 0x44,
+) -> bytes:
+    Body = bytearray()
+    Body.extend(bytes([0x02]) * 7 + bytes([0x02]) * 2 + bytes([0x01]) * 7)
+    TextField = len(Body)
+    Body.extend(bytes(4))
+    Body.extend(bytes(0x54 - len(Body)))
+    OffsetField = len(Body)
+    Body.extend(bytes(4 * 7))
+    WordField = len(Body)
+    Body.extend(bytes(4 * 8))
+    TextAt = len(Body)
+    Body.extend(b"\x03\x01" + bytes([len(b"NX 2506.9120 - External User Function") + 2]))
+    Body.extend(b"NX 2506.9120 - External User Function")
+    Body.extend(b"\x00")
+    Body.extend(b"\x08SYSTEM\x00")
+    AnchorAt = len(Body)
+    Body.extend(AnchorBlock(1, Identity))
+    NamesAt = len(Body)
+    Body.extend(bytes([2]) + KNames)
+    LaneAt = len(Body)
+    Body.extend(Lane(1, [(Slot, bytes.fromhex("c4719778"))], [(Slot, Marker)]))
+    DefaultAt = len(Body)
+    Body.extend(Default(1))
+    RecordAt = len(Body)
+    Body.extend(Record(Name, Value, 1))
+    import struct as S
+
+    S.pack_into("<I", Body, TextField, HeaderLength + TextAt)
+    LandmarkValues = Landmarks(bytes(Body))
+    for Index, Landmark in enumerate(LandmarkValues):
+        S.pack_into("<I", Body, OffsetField + 4 * Index, HeaderLength + Landmark)
+    Words = [7, 1, 3, 5, 4, 6, 7, 8]
+    for Index, Word in enumerate(Words):
+        S.pack_into("<I", Body, WordField + 4 * Index, Word)
+    return bytes(Body)
