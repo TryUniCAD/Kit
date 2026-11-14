@@ -2349,7 +2349,7 @@ def BuildPolyTree(
         or PlaneObjectId != 2
         or (PadObject.object_id != 32)
         or SketchObject.dimensions
-        or (len(PolylineValue) == 3 and HasPolyLoss(DocData, PadObject.source_id))
+        or HasPolyLoss(DocData, PadObject.source_id)
     ):
         return None
     try:
@@ -2378,7 +2378,8 @@ def BuildPolyTree(
 
 
 def IsTriSketch(SketchData: Sketch) -> bool:
-    if len(SketchData.entities) != 3:
+    CountValue = len(SketchData.entities)
+    if CountValue not in {3, 5, 6}:
         return False
     if SketchData.closed_profile_entity_ids:
         return True
@@ -2389,10 +2390,10 @@ def IsTriSketch(SketchData: Sketch) -> bool:
     return all(
         (
             MathValue.isclose(
-                LineData.end.x, Lines[(Index + 1) % 3].start.x, abs_tol=1e-06
+                LineData.end.x, Lines[(Index + 1) % CountValue].start.x, abs_tol=1e-06
             )
             and MathValue.isclose(
-                LineData.end.y, Lines[(Index + 1) % 3].start.y, abs_tol=1e-06
+                LineData.end.y, Lines[(Index + 1) % CountValue].start.y, abs_tol=1e-06
             )
             for Index, LineData in enumerate(Lines)
         )

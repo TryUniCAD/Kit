@@ -22,7 +22,7 @@ The projection now requires the exact complete pad-property set and validates ev
 
 ## Workaround
 
-Inspect every original source parameter while the three-line candidate is being selected, before length-only serialization. `HasPolyLoss` admits only native `D1` length or a recognized, non-expression FreeCAD pad property on the extrusion. Other owners, extra lengths, sketch dimensions, non-length values, and expressions decline native encoding. Both native preflight and native encoding pass the original neutral document to this guard.
+Inspect every original source parameter while the polyline candidate is being selected, before length-only serialization. The same guard and candidate detection apply to the three-, five-, and six-line families. `HasPolyLoss` admits only native `D1` length or a recognized, non-expression FreeCAD pad property on the extrusion. Other owners, extra lengths, sketch dimensions, non-length values, and expressions decline native encoding. Both native preflight and native encoding pass the original neutral document to this guard.
 
 Public integration coverage adds `CustomCount` to the sketch and extrusion, adds `CustomLength` to the extrusion, sets `FuzzyTolerance` to `-1 + 5e-11`, sets a custom `Label2`, and sets `Offset` to `5e-11` on both the pad parameter and extrusion definition. Additional cases introduce a stale FreeCAD `Length`, an unsupported length unit, a driven `Length` role, and a second configuration. Every case requires `HasVendorPartEncoding == False`; the default public `write_document` then raises `SldprtFormatError` even though `allow_carrier` defaults to true. The unchanged baseline controls use the measured `-1` tolerance and default labels, and still exercise exact native length recovery.
 

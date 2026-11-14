@@ -44,6 +44,13 @@ from tests.convert.solidworks.resolved.SolidworksPolylineFiveTests import BuildD
 
 KPoints = ((0.0, 0.0), (42.0, 0.0), (12.0, 31.0))
 KPointOffsets = (6121, 6129, 6299, 6307, 6461, 6469)
+KFivePoints = (
+    (0.0, 0.0),
+    (35.0, 0.0),
+    (42.0, 17.0),
+    (19.0, 32.0),
+    (-5.0, 14.0),
+)
 KPrecisionPoints = (
     (-7.123456789012345, -11.234567890123456),
     (39.34567890123456, -4.456789012345678),
@@ -325,6 +332,31 @@ def TestFivePrecise(TmpPath: FilePath) -> None:
     )
     assert len(FirstEdges) == 5
     assert FirstEdges == SecondEdges
+
+
+def TestFiveParam(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KFivePoints)
+    assert HasVendorPartEncoding(SourceDoc) is True
+    ExtraParam = Parameter(
+        "test:parameter:five",
+        "CustomLength",
+        ParameterValue(3.5, ValueKind.LENGTH, "mm"),
+        owner_id=SourceDoc.feature_timeline[0].id,
+        attributes={"freecad_path": "CustomLength"},
+    )
+    Changed = ReplaceData(SourceDoc, parameters=(*SourceDoc.parameters, ExtraParam))
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(Changed, TmpPath / "FiveParamLoss.SLDPRT")
+
+
+def TestFiveExtra(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KFivePoints)
+    SecondSketch = ReplaceData(SourceDoc.sketches[0], id="test:sketch:five-second")
+    Changed = ReplaceData(SourceDoc, sketches=(*SourceDoc.sketches, SecondSketch))
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(Changed, TmpPath / "FiveExtra.SLDPRT")
 
 
 def TestTriCut(TmpPath: FilePath) -> None:
