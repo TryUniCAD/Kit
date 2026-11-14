@@ -2,6 +2,7 @@ from __future__ import annotations as Annotations
 from convert.adapters.solidworks.core.AxisSketchId import AxisSketchId
 from convert.adapters.solidworks.core.PolylineParameters import HasPolyLoss
 from convert.adapters.solidworks.core.TriDepth import IsTriSource, RecoverTriDepth
+from convert.adapters.solidworks.core.UnitScale import MmFromMetres
 from collections.abc import Callable
 from dataclasses import dataclass as Dataclass, field as Field, replace as Replace
 import hashlib as Hashlib
@@ -13712,18 +13713,6 @@ def OrderPolyEdges(
     ):
         return None
     return (OrderedVertices, OrderedEdges)
-
-
-def MmFromMetres(Metres: float) -> float:
-    Candidate = Metres * KMillimetres
-    for _ in range(8):
-        BackValue = Candidate / KMillimetres
-        if BackValue == Metres:
-            return Candidate
-        Candidate = MathValue.nextafter(
-            Candidate, MathValue.inf if BackValue < Metres else -MathValue.inf
-        )
-    return Candidate
 
 
 # polyline construction owns point validation and marker offset ordering
