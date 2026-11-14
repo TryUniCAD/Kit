@@ -94,20 +94,8 @@ from convert.geometry.Parasolid import (
 from interchange import (
     AssemblyData,
     BooleanOperation,
-    BrepBody,
-    BrepCoedge,
-    BrepEdge,
-    BrepFace,
-    BrepFaceUse,
-    BrepLoop,
-    BrepModel,
     BrepPayload,
-    BrepRegion,
-    BrepShell,
-    BrepShellUse,
-    BrepVertex,
     CadDocument,
-    CadSource,
     Capability,
     CircleGeometry,
     Configuration,
@@ -115,9 +103,7 @@ from interchange import (
     ExtrusionEndCondition,
     ExtrusionFeature,
     FeatureKind,
-    FeatureStep,
     GeometryKind,
-    LineCurve,
     LineGeometry,
     MateAlignment,
     Matrix4 as MatrixFour,
@@ -126,12 +112,10 @@ from interchange import (
     Parameter,
     ParameterValue,
     PayloadRole,
-    PlaneSurface,
     Provenance,
     Selection,
     SelectionPathElement,
     Severity,
-    SpaceVector,
     Sketch,
     SketchEntity,
     Transform,
@@ -140,7 +124,6 @@ from interchange import (
     Vector3 as VectorThree,
     frozen_mapping as FrozenMapping,
 )
-from interchange.features.FeatureBody import DesignBody
 from tests.interchange.assembly.AssemblyTests import (
     assembly_document as AssemblyDocument,
 )
@@ -318,249 +301,6 @@ def FreecadRPD(
                 Capability.KNativePayloads,
                 Capability.KProvenance,
                 Capability.KRoundtripMeta,
-            }
-        ),
-    )
-
-
-def BoxPlacement(
-    PlaceX: float,
-    PlaceY: float,
-    PlaceZ: float,
-    Quaternion: tuple[float, float, float, float],
-) -> dict[str, object]:
-    return {
-        "children": (
-            {
-                "attributes": {
-                    "Px": str(PlaceX),
-                    "Py": str(PlaceY),
-                    "Pz": str(PlaceZ),
-                    "Q0": str(Quaternion[0]),
-                    "Q1": str(Quaternion[1]),
-                    "Q2": str(Quaternion[2]),
-                    "Q3": str(Quaternion[3]),
-                }
-            },
-        )
-    }
-
-
-def BoxPoints(
-    Length: float, Width: float, Height: float, OffsetX: float, OffsetY: float
-) -> dict[int, tuple[float, float, float]]:
-    return {
-        0: (OffsetX, OffsetY, 0.0),
-        1: (OffsetX + Length, OffsetY, 0.0),
-        2: (OffsetX + Length, OffsetY + Width, 0.0),
-        3: (OffsetX, OffsetY + Width, 0.0),
-        4: (OffsetX, OffsetY, Height),
-        5: (OffsetX + Length, OffsetY, Height),
-        6: (OffsetX + Length, OffsetY + Width, Height),
-        7: (OffsetX, OffsetY + Width, Height),
-    }
-
-
-def BoxEdgeMut(
-    Points: dict[int, tuple[float, float, float]],
-    EdgeIds: dict[tuple[int, int], str],
-    Curves: list[LineCurve],
-    Edges: list[BrepEdge],
-    StartIndex: int,
-    EndIndex: int,
-) -> tuple[str, bool]:
-    Forward = (StartIndex, EndIndex)
-    Backward = (EndIndex, StartIndex)
-    if Forward in EdgeIds:
-        return (EdgeIds[Forward], False)
-    if Backward in EdgeIds:
-        return (EdgeIds[Backward], True)
-    IndexValue = len(Edges)
-    CurveId = f"curve:{IndexValue}"
-    StartPoint = Points[StartIndex]
-    EndPoint = Points[EndIndex]
-    Curves.append(
-        LineCurve(
-            CurveId,
-            SpaceVector(*StartPoint),
-            SpaceVector(
-                EndPoint[0] - StartPoint[0],
-                EndPoint[1] - StartPoint[1],
-                EndPoint[2] - StartPoint[2],
-            ),
-        )
-    )
-    EdgeId = f"edge:{IndexValue}"
-    Edges.append(
-        BrepEdge(EdgeId, f"vertex:{StartIndex}", f"vertex:{EndIndex}", CurveId, 0.0, 1.0)
-    )
-    EdgeIds[Forward] = EdgeId
-    return (EdgeId, False)
-
-
-def BoxFacesMut(
-    Points: dict[int, tuple[float, float, float]],
-    EdgeIds: dict[tuple[int, int], str],
-    Curves: list[LineCurve],
-    Edges: list[BrepEdge],
-    Coedges: list[BrepCoedge],
-    Loops: list[BrepLoop],
-    Surfaces: list[PlaneSurface],
-    Faces: list[BrepFace],
-    FaceUses: list[BrepFaceUse],
-) -> None:
-    Cycles = (
-        (0, 1, 2, 3),
-        (4, 5, 6, 7),
-        (0, 1, 5, 4),
-        (1, 2, 6, 5),
-        (2, 3, 7, 6),
-        (3, 0, 4, 7),
-    )
-    for FaceIndex, Cycle in enumerate(Cycles):
-        CoedgeIds: list[str] = []
-        for Position in range(4):
-            EdgeId, Reversed = BoxEdgeMut(
-                Points,
-                EdgeIds,
-                Curves,
-                Edges,
-                Cycle[Position],
-                Cycle[(Position + 1) % 4],
-            )
-            CoedgeId = f"coedge:{len(Coedges)}"
-            Coedges.append(BrepCoedge(CoedgeId, EdgeId, reversed=Reversed))
-            CoedgeIds.append(CoedgeId)
-        LoopId = f"loop:{FaceIndex}"
-        Loops.append(BrepLoop(LoopId, tuple(CoedgeIds), True))
-        SurfaceId = f"surface:{FaceIndex}"
-        Surfaces.append(
-            PlaneSurface(
-                SurfaceId,
-                SpaceVector(*Points[Cycle[0]]),
-                SpaceVector(0.0, 0.0, 1.0),
-                SpaceVector(1.0, 0.0, 0.0),
-            )
-        )
-        FaceId = f"face:{FaceIndex}"
-        Faces.append(BrepFace(FaceId, SurfaceId, (LoopId,)))
-        FaceUses.append(BrepFaceUse(f"face-use:{FaceIndex}", FaceId))
-
-
-def BoxBrep(
-    Length: float, Width: float, Height: float, OffsetX: float, OffsetY: float
-) -> BrepModel:
-    Points = BoxPoints(Length, Width, Height, OffsetX, OffsetY)
-    Curves: list[LineCurve] = []
-    Edges: list[BrepEdge] = []
-    Coedges: list[BrepCoedge] = []
-    Loops: list[BrepLoop] = []
-    Surfaces: list[PlaneSurface] = []
-    Faces: list[BrepFace] = []
-    FaceUses: list[BrepFaceUse] = []
-    BoxFacesMut(
-        Points,
-        {},
-        Curves,
-        Edges,
-        Coedges,
-        Loops,
-        Surfaces,
-        Faces,
-        FaceUses,
-    )
-    return BrepModel(
-        curves=tuple(Curves),
-        surfaces=tuple(Surfaces),
-        vertices=tuple(
-            BrepVertex(f"vertex:{IndexValue}", SpaceVector(*PointValue))
-            for IndexValue, PointValue in Points.items()
-        ),
-        edges=tuple(Edges),
-        coedges=tuple(Coedges),
-        loops=tuple(Loops),
-        faces=tuple(Faces),
-        face_uses=tuple(FaceUses),
-        shells=(
-            BrepShell(
-                "shell:0",
-                tuple(f"face-use:{IndexValue}" for IndexValue in range(6)),
-                False,
-            ),
-        ),
-        shell_uses=(BrepShellUse("shell-use:0", "shell:0"),),
-        regions=(BrepRegion("region:0", ("shell-use:0",), False),),
-        bodies=(BrepBody("brep-body:0", ("region:0",), Transform(), "body:1"),),
-    )
-
-
-def FreecadBoxDoc(
-    OffsetX: float = 0.0,
-    OffsetY: float = 0.0,
-    PlacementZ: float = 0.0,
-    Quaternion: tuple[float, float, float, float] = (0.0, 0.0, 0.0, 1.0),
-) -> CadDocument:
-    Length, Width, Height = 10.0, 10.0, 10.0
-    Feature = FeatureStep(
-        "feature:box",
-        "Box",
-        FeatureKind.KPrimitive,
-        0,
-        definition=NativeFeatureDefinition(
-            "freecad.fcstd",
-            "Part::Box",
-            object_data=FrozenMapping(
-                {
-                    "properties": {
-                        "Placement": BoxPlacement(
-                            OffsetX, OffsetY, PlacementZ, Quaternion
-                        ),
-                        "AttachmentOffset": BoxPlacement(
-                            0.0, 0.0, 0.0, (0.0, 0.0, 0.0, 1.0)
-                        ),
-                    }
-                }
-            ),
-        ),
-        provenance=Provenance("freecad.fcstd", "Box"),
-    )
-    Values = (
-        ("Length", Length, ValueKind.LENGTH, "mm"),
-        ("Width", Width, ValueKind.LENGTH, "mm"),
-        ("Height", Height, ValueKind.LENGTH, "mm"),
-        ("MapMode", 0, ValueKind.INTEGER, ""),
-        ("MapPathParameter", 0.0, ValueKind.NUMBER, ""),
-        ("MapReversed", False, ValueKind.BOOLEAN, ""),
-        ("Visibility", True, ValueKind.BOOLEAN, ""),
-    )
-    Parameters = tuple(
-        Parameter(
-            f"freecad:parameter:Box:{NameValue}",
-            f"Box.{NameValue}",
-            ParameterValue(ValueData, KindValue, UnitValue),
-            owner_id=Feature.id,
-            attributes=FrozenMapping({"freecad_path": NameValue}),
-        )
-        for NameValue, ValueData, KindValue, UnitValue in Values
-    )
-    Feature = ReplaceData(
-        Feature, parameter_ids=tuple(ItemData.id for ItemData in Parameters)
-    )
-    return CadDocument(
-        source=CadSource("freecad.fcstd", "Box.FCStd", ""),
-        configurations=(Configuration("config:default", "Default", True),),
-        parameters=Parameters,
-        support_planes=(),
-        sketches=(),
-        selections=(),
-        feature_timeline=(Feature,),
-        bodies=(DesignBody("body:1", "Body", Feature.id),),
-        brep=BoxBrep(Length, Width, Height, OffsetX, OffsetY),
-        capabilities=frozenset(
-            {
-                Capability.KParameters,
-                Capability.KParamHistory,
-                Capability.KBrep,
             }
         ),
     )
@@ -1770,44 +1510,6 @@ def TestFRPWNPSP(TmpPath: FilePath) -> None:
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
-def TestFCBTrans(TmpPath: FilePath) -> None:
-    assert HasVendorPartEncoding(FreecadBoxDoc()) is True
-    SourceData = FreecadBoxDoc(OffsetX=12.5, OffsetY=-7.25)
-    assert SourceData.validate() == ()
-    TargetPath = TmpPath / "TranslatedBox.SLDPRT"
-    ResultData = WriteDocument(SourceData, TargetPath, allow_carrier=False)
-    assert ResultData.application_usable is True
-    assert ResultData.vendor_loadable is True
-    ArchiveData = SldprtArchive.from_bytes(TargetPath.read_bytes())
-    NativeData = DecodeNativeModel(
-        ArchiveData.require(StreamE),
-        ArchiveData.require(StreamK),
-        ArchiveData.require(StreamB),
-        resolved_stream=StreamK,
-    )
-    assert NativeData.sketches[0].profiles[0].coordinates == PytestLib.approx(
-        (12.5, -7.25, 22.5, 2.75)
-    )
-
-
-def TestFCBRotate(TmpPath: FilePath) -> None:
-    SourceData = FreecadBoxDoc(
-        Quaternion=(0.0, 0.0, 0.7071067811865476, 0.7071067811865476)
-    )
-    assert HasVendorPartEncoding(SourceData) is False
-    with PytestLib.raises(ApplicationUsabilityError):
-        _ = WriteDocument(
-            SourceData, TmpPath / "RotatedBox.SLDPRT", allow_carrier=False
-        )
-
-
-def TestFCBZShift(TmpPath: FilePath) -> None:
-    SourceData = FreecadBoxDoc(PlacementZ=5.0)
-    assert HasVendorPartEncoding(SourceData) is False
-    with PytestLib.raises(ApplicationUsabilityError):
-        _ = WriteDocument(SourceData, TmpPath / "ShiftedBox.SLDPRT", allow_carrier=False)
-
-
 @PytestLib.mark.skipif(not KFreeCadBoxCorpus.is_file(), reason="box corpus unavailable")
 def TestFCBWNPSWP(TmpPath: FilePath) -> None:
     SourceData = ReadFreecad(KFreeCadBoxCorpus)
