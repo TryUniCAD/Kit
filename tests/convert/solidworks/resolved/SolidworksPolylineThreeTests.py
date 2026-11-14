@@ -32,7 +32,7 @@ from convert.adapters.solidworks.programs.resolved.polyline.threepoint.Registry 
     KFieldOwners,
     KResolvedOps,
 )
-from interchange import Vector3 as VectorThree
+from interchange import BooleanOperation, Vector3 as VectorThree
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumValues import ParameterRole, ValueKind
 from interchange.features.FeatureExtrude import ExtrudeFeature
@@ -325,6 +325,17 @@ def TestFivePrecise(TmpPath: FilePath) -> None:
     )
     assert len(FirstEdges) == 5
     assert FirstEdges == SecondEdges
+
+
+def TestTriCut(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    FeatureData = ReplaceData(
+        SourceDoc.feature_timeline[0], operation=BooleanOperation.INTERSECT
+    )
+    Changed = ReplaceData(SourceDoc, feature_timeline=(FeatureData,))
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(Changed, TmpPath / "TriCut.SLDPRT")
 
 
 def TestTriExtra(TmpPath: FilePath) -> None:

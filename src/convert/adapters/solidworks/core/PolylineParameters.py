@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import math as MathValue
 
+from interchange import BooleanOperation as BoolOperation
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumValues import ParameterRole, ValueKind
 from interchange.features.FeatureExtrude import ExtrudeFeature
@@ -166,6 +167,12 @@ def HasPolyLoss(DocumentData: CadDocument, PadId: str) -> bool:
         Feature for Feature in DocumentData.feature_timeline if Feature.id == PadId
     )
     if len(Features) != 1:
+        return True
+    Operation = Features[0].operation
+    if Operation is not None and str(Operation).casefold() not in {
+        BoolOperation.CREATE.value,
+        BoolOperation.JOIN.value,
+    }:
         return True
     Definition = Features[0].definition
     if (
