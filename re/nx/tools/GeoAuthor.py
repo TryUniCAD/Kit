@@ -7,6 +7,7 @@ sys.path.insert(0, str(FilePath(__file__).parent))
 
 from ExprValue import Encode
 from GeoSwap import ReplaceGeometry
+from convert.adapters.nx.PayloadBuild import ResizePayload
 
 from convert.adapters.nx.PayloadReader import ReadPayload
 from convert.adapters.nx.SplmReader import ReadSplm, RebuildSplm, SplmStreams
@@ -51,6 +52,20 @@ def DimensionLanes(Payload: bytes, Old: float, New: float) -> bytes:
     return bytes(Output)
 
 
+def StubFeatureSection(Payload: bytes) -> bytes:
+    Info = ReadPayload(Payload)
+    Bodies = [
+        Payload[Section.body_offset : Section.body_offset + Section.size]
+        for Section in Info.sections
+    ]
+    if len(Bodies) < 5:
+        raise ValueError("NX payload has no feature record section to replace")
+    Bodies[4] = b"OM\x01\x01"
+    Resized = ResizePayload(Payload, Bodies)
+    Last = ReadPayload(Resized).sections[-1]
+    return Resized[: Last.body_offset + Last.size]
+
+
 def AuthorBox(
     Source: bytes, Length: float, Width: float, Height: float, SourceLength: float
 ) -> bytes:
@@ -61,6 +76,7 @@ def AuthorBox(
     Encoded = EncodeBrepModel(Model, PartValue=False)
     Replaced = ReplaceGeometry(Payload, Encoded)
     Replaced = DimensionLanes(Replaced, SourceLength, Length)
+    Replaced = StubFeatureSection(Replaced)
     Check = ReadPayload(Replaced)
     if Check.streams[0].inflated != Encoded:
         raise AssertionError("authored geometry did not survive the payload splice")
