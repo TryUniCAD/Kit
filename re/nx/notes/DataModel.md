@@ -504,6 +504,41 @@ attribute records (`body_id`, `UGS/ObjectState`, density, group owners) that tie
 the Parasolid body to the body object in section 0. A body without them is
 listed by NX but not measured.
 
+### Authored topology still needs the NX shell orientation
+
+Four variants of the same authored box were measured in NX 2506 to isolate what
+the object model needs beyond the encoded geometry:
+
+```text
+BuildPrism as built                       BODIES 1, VOLUME 0.0,     AREA 0.0
++ plane origins moved to face centroids   BODIES 1, VOLUME 0.0,     AREA 0.0
++ line origins at midpoints, edge params
+  +-length/2                              BODIES 1, VOLUME 0.0,     AREA 0.0
++ parasolid order / fin attributes        BODIES 1, VOLUME 0.0,     AREA 0.0
++ loop traversal reversed                 BODIES 1, VOLUME 6000.0,  AREA 600.0
++ plane normals flipped                   BODIES 1, VOLUME 0.0,     AREA 0.0
++ clockwise profile                        BODIES 1, VOLUME 0.0,     AREA 0.0
+```
+
+So `body_id`, density and the `UGS/ObjectState` records are not the blocker: the
+encoder already writes density, timestamp, matching and atom identifiers, and
+adding the ordering and fin attributes changes nothing. What changes the result
+is loop traversal, and the reversed variant measures a wrong shape rather than
+the authored one, so the flip is not the correct convention either.
+
+A direct measurement shows the mismatch. Integrating the divergence over the
+decoded loops gives:
+
+```text
+NX box 40 x 30 x 20        signed volume -24000.0
+BuildPrism box 60 x 30 x 20 signed volume +36000.0
+```
+
+NX stores box shells with the opposite loop orientation to the one
+`BuildPrism` produces, and NX only measures a body whose shell follows its own
+convention. Reproducing that convention for an authored topology is the
+remaining piece for a body written entirely from constants.
+
 ### A parametric body write is accepted and measured
 
 Scaling the decoded model keeps those attribute records, and then the spliced
