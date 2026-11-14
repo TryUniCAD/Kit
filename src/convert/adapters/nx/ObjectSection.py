@@ -549,10 +549,21 @@ def RelabelLanes(SectionBody: bytes) -> bytes:
 
 # a named view record carries its name as a length prefixed text token
 KViewHead = b"\x02\x02\x41\x41"
+KViewHeads = (
+    b"\x02\x02\x41\x41",
+    b"\x02\x02\x41\x4b",
+    b"\x02\x02\x41\x06",
+    b"\x02\x02\x42\x0c",
+    b"\x02\x02\x3a\x0c",
+    b"\x02\x02\xff\x0c",
+    b"\x02\x02\x42\x06",
+    b"\x02\x02\x3a\x06",
+    b"\x02\x02\xff\x06",
+)
 
 
 def ViewName(Record: bytes) -> tuple[bytes, int, int]:
-    if not Record.startswith(KViewHead):
+    if Record[:4] not in KViewHeads:
         raise ValueError("NX view record has no known head")
     for Position in range(len(KViewHead), len(Record) - 2):
         if Record[Position] != KTextToken:

@@ -3,7 +3,9 @@
 ## Behaviour
 
 `convert.adapters.nx.ObjectSection.ViewName` reads the name a named view record
-carries, and `RenameView` rewrites it in place:
+carries. It matches a whitelist of view heads (`41 41`, `41 4b`, `41 06`, `42 0c`,
+`3a 0c`, `ff 0c`, `42 06`, `3a 06`, `ff 06`) because a part with a body stores its views
+under different class bytes than a part without one, and `RenameView` rewrites it in place:
 
 ```text
 02 02 41 41 ...  03 <len> <text> 00 ...   head, name token, matrix and extents
@@ -47,11 +49,20 @@ empty.prt  multi.prt  var_blank.prt
 -508.0  508.0  -2639.645431  2639.645431  -2688.083332  2688.083332  0.755929  0.013963
 ```
 
-so for a part without a body the extents are a default scale rather than a measurement,
-and they can be emitted as constants. A part with a body stores its views in a different
-shape — the name token is not found by `ViewName` for `dim40.prt` or `const_box60.prt` —
-so body-derived extents need that shape decoded first, and it is not yet known whether
-the extents follow the bounding box.
+and a part with a body decodes to the same numbers, though its views sit under different
+class bytes:
+
+```text
+dim40.prt      Top    -508.0  508.0  -508.0  508.0  -2639.6454  2639.6454
+dim40.prt      Front  -508.0  508.0  -2639.6454  2639.6454  -2688.0833  2688.0833
+const_box60    same, view for view
+```
+
+So the extents do **not** track the body: a 40 by 30 by 20 solid and an empty part store
+identical view extents. They are fixed defaults, which means they can be emitted as
+constants instead of measured — the opposite of what the bounding box hypothesis
+predicted. The earlier candidate that looked body shaped (`0.08 0.06 0.04` in a 133 byte
+record) turned out to be a parts list, not a view.
 
 ## Limits
 
