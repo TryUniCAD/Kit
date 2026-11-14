@@ -12,13 +12,15 @@ There is no independent PSB writer and no acceptance result for a newly authored
 | --- | --- |
 | `container/` | Header, table of contents, section storage, sample inventory |
 | `data-model/` | Tagged stream, geometry, design, units, parameters, confidence |
-| `oracle/` | Local Creo control procedure and observed results |
+| `oracle/` | Local Creo control procedure, observed results, and the empty/ladder corpus |
 | `open-items/` | The writer gap and next measurements |
 
 ## Hard result
 
 The local Creo 2027.2 installation opened a vendor empty-part control.
 A hand-built legacy ASCII part was rejected.
+A one-feature ladder with a live extrude and a solid body was authored in the same session and
+retained at `oracle/ladder/ladder1.prt.2`.
 No generated native part with a body has been accepted.
 
 Do not describe container inventory or exact replay as a Creo writer.

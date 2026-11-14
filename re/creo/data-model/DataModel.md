@@ -151,6 +151,96 @@ Feature identity is split across a native id, a user-visible name, a type, a par
 The data model needs all of these to rebuild a live tree.
 Copying a feature row without its references is not a feature.
 
+### Ladder field additions
+
+The one-feature ladder at `re/creo/oracle/ladder/ladder1.prt.2` adds these `AllFeatur` field names
+that are absent from the empty control:
+
+```text
+flags
+first_hybrid_body_id
+topo_parents
+avail_feat_parents
+dtm_id_tab
+dtm_id
+dim_id
+comp_hist
+owner_id
+component_ids
+sorted
+revnums
+owner_type
+owner_ind
+ref_id
+hist_ref_info
+coll_refs_info
+ref_revnum
+ref_plcm_revnum
+ref_status
+dma_update_revnum
+flags_arr
+upd_ctrl_data
+upd_ref_revnum
+upd_coll_refs_info
+upd_aggr_rev_info
+rev_info_arr
+info(basic_geom_rev_info)
+mdl_geom_rev
+revision(mdl_g_rev_dtl_t_ft_regen)
+rev_cnt
+tstamp
+version
+versions
+aggr_rev_info
+aux_rev_data
+edg_id_tab_ptr
+ed_hist
+lo_id_tab_ptr
+lo_hist
+```
+
+The names confirm that the ladder carries feature-parent links, dimension ids, component ids, and
+revision records.
+They are the fields a writer must populate for a live tree, not just a shape.
+
+### First feature record
+
+The first `AllFeatur` record in both the empty control and the ladder decodes as the same datum
+feature. The ladder's record is:
+
+```text
+id = 7
+indep_attributes_arr = [4097, 0, 0, 0, 0, 0]
+feat_type_ptr = empty
+table_id = -1
+type = 923
+feattype_key = null
+form = 0
+attributes = [0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0]
+placement = 0
+intersection = -1
+internal_udf_type = -1
+param_choice_ptr = empty
+blend_choice = 0
+depth_choice = 0
+angle_choice = 0
+pat_choice = -1
+round_choice = -1
+subsec_choice = -1
+sweep_choice = 0
+dome_choice = 0
+draft_choice = 0
+misc_choice = [0, 0, 0, 0, 0, 0]
+sect_name = "FRONT"
+```
+
+The `sect_name` and the empty `feat_type_ptr` identify the default `FRONT` datum plane.
+The record is a useful anchor because it is present in both files and its field order is stable.
+The empty control's record has the same `id`, `type`, and `sect_name`, but its
+`indep_attributes_arr` has four elements and its `attributes` array has eleven; the ladder's arrays
+are longer. The array lengths are therefore document-dependent, not fixed.
+The ladder's extrude and sketch records follow it, but their field boundaries are not yet closed.
+
 ## Units
 
 `UnitSystemDef` carries the active unit system.

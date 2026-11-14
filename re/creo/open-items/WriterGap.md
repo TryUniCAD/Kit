@@ -25,16 +25,26 @@ A neutral edit cannot be expressed by replaying the old bytes.
 6. Measure a generated part in a fresh Creo process between healthy controls.
 7. Change a driving dimension, rebuild, and measure the geometry change.
 
+## One-feature ladder result
+
+The first rung is authored and retained at `re/creo/oracle/ladder/ladder1.prt.2`.
+It is a rectangle on `TOP` extruded as a solid with the default blind depth.
+The paired empty control is `re/creo/oracle/empty/solid_start_part_mmks.prt`.
+
+The ladder adds `FeatDefs`, `MdlRefInfo`, `IdsGenAllRepsDb`, `IdsGenSimpRepDb`, and `SldRegenRevInfo`.
+`AllFeatur` grows by 4360 bytes and `VisibGeom` grows by 2868 bytes.
+Those two sections are the next decode targets.
+The section diff and the `DispDataTable` compression anomaly are recorded in
+[the oracle notes](../oracle/Oracle.md).
+
 ## Next measurement
 
-The next useful experiment is a one-feature ladder authored in Creo:
+The next useful experiment is the second rung of the ladder:
 
-- a rectangular sketch on the default top plane;
-- a blind extrude with one depth;
-- the same part with a second depth;
+- the same rectangle and extrude with a different depth;
 - the same part with a second feature.
 
-The ladder localises the feature record, the sketch record, the depth parameter, and the body reference.
+The second rung separates the depth parameter from the feature and sketch records.
 The result must be recorded here before any writer field is promoted.
 
 ## Status
