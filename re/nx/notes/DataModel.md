@@ -401,6 +401,27 @@ that is not yet derived, so the encoder refuses them.
 No value appears anywhere in the container as a binary64, a shifted binary64, a
 float32, or UTF-16 text.
 
+### The occupancy lane is a slot table
+
+Between the four `EXP_hash_*` names and the `Default Group` record sits an
+occupancy lane. Its shape across the three saves:
+
+```text
+expressions  lane
+0            01 21 01 00 01 11 02 02 01 02 41
+1            01 21 (24 x 01) c4 71 97 78 (8 x 01) 21 (24 x ff) 44 (7 x ff) 02 21 01 00 01 11 02 02 01 02 41
+8            01 21 8b 80 8b 81 (22 x 01) 8b 7a .. 8b 7f 01 21 44 45 (24 x ff) 46 47 48 49 4a 4b 09 21 01 00 01 11 02 02 01 02 41
+```
+
+`01 21` opens a slot table, a single `01` marks a free slot, and a two-byte
+value marks an occupied one. A second table follows the next `21`, and runs of
+`ff` appear to be high-water marks. The table lengths track the class count plus
+the live object count, not the object count alone, which is why the one-object
+save has a longer first table than the eight-object save.
+
+The lane is therefore an allocator state, not a per-object list. Reproducing it
+needs the allocator's free-list order, which the three samples do not determine.
+
 ### Section 2 state lane encodes live counts
 
 Three saves with zero, one, and eight expressions show the state lane prefix
