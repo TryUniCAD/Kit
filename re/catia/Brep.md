@@ -316,6 +316,32 @@ A disassembly search of `CATGeometricObjectsCGM.dll` for a surface-kind dispatch
 dispatch on the kind byte with a simple compare chain, so the face record cannot be located by
 following the surface reader's callers from a constant.
 
+### The face stores its surface as a linked object
+
+`CATTopologicalObjects.dll` exports the face stream functions:
+
+| Symbol | RVA |
+| --- | ---: |
+| `CATCXFace::Stream` | `0x54eba0` |
+| `CATCXFace::StreamV2R0` | `0x54ed60` |
+| `CATCXFace::UnStream` | `0x54eef0` |
+| `CATCXFace::UnStreamV2R0` | `0x54f110` |
+
+`StreamV2R0` calls `CATCGMStreamImpl::WriteLinkedObjectsCount(face, 2)` and then
+`CATCGMStreamImpl::WriteObject(support, face)`, where `support` is the face's surface obtained
+through the face vtable at offset `0x400`. So the face record begins with a linked-object count of
+two and then a reference to the surface. The second linked object is read after the surface.
+
+This rules out the FBB row as the face record. The 71 FBB rows are byte-identical, so they cannot
+carry a per-face surface reference. The face record with the surface reference must be a different
+record, and the trim record that precedes the FBB run carries no surface field.
+
+The linked-object reference is written by `CATCGMStreamImpl::WriteObject` and read by
+`CATCGMStream::ReadObject`. The reference encoding is not a plain tag in `MainDataStream`: the
+surface tags do not appear there in any of the four integer encodings tested. The reference is
+therefore resolved through the stream's object table, which is not the `SurfacicReps` surface
+record order.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
