@@ -94,6 +94,19 @@ function of the name alone, and not of the value alone: it changes when two expr
 come to hold equal values, which is what the five slots for three expressions keeps
 pointing at.
 
+`dim40` already refutes value sharing as the explanation for the count: its three
+dimensions are all distinct (`40`, `30`, `20`) and it still carries five value slots, holding
+
+```text
+505e 30.0    505e 30.0
+5054 20.0    5064 40.0    5064 40.0
+```
+
+so the duplicates are `40` twice and `30` twice while all three expressions hold different
+numbers. Whatever produces five slots for three expressions, it is not two expressions
+sharing one value — `var_formula` (where `p1` and `p2` are both 20) was the only case where
+that reading fitted, and it does not fit the fixture with distinct values.
+
 Standard hashes were tested against the measured positions and none reproduces them:
 
 ```text
