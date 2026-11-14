@@ -401,6 +401,28 @@ that is not yet derived, so the encoder refuses them.
 No value appears anywhere in the container as a binary64, a shifted binary64, a
 float32, or UTF-16 text.
 
+### Section 2 state lane encodes live counts
+
+Three saves with zero, one, and eight expressions show the state lane prefix
+carries live counts that scale with the expression count:
+
+```text
+expressions  bytes at lane +10   bytes at lane +34/+46
+0            02 13 09            01 01 01 01 1e 01 00 01 01 01
+1            02 13 0a            01 01 02 01 1e 01 00 01 01 02
+8            02 13 11            01 01 09 01 1e 01 00 01 01 09
+```
+
+So the first count is `9 + n` and the repeated pair is `1 + n`, where `n` is the
+number of expression objects. Those are the only two prefix bytes that change
+with `n`; the rest of the prefix is a ten-byte identity value and fixed lane
+markers.
+
+The tail that follows the four `EXP_hash_*` names is an occupancy bitmap over
+classes and objects. It does not scale with `n` alone: it interleaves class
+ordinals that have instances with literal `01` bytes, and object handless such
+as `8b 80`, `8b 81`, `46`, `47` in the eight-expression save.
+
 ### Adding an expression to a part that never had one
 
 The section 2 delta between a part with no expressions and a part with one is
