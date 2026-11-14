@@ -7,6 +7,10 @@ KSlice = 0x30C
 KOrderStart = 0x664
 KGapStart = 0x9B8
 KRecordCount = 214
+KInstanceRecord = 48
+KReference = 7
+KInstanceSkip = 22
+KReferenceOffsets = (22, 30, 38)
 KNames = b"\x77\x0fm_nextInstance"
 KHeadTag = b"\x41\x00\x03\x03"
 KAnchor = b"\xe0\x6a\xf8"
@@ -130,6 +134,7 @@ def ReplaceHead(
 
 
 __all__ = [
+    "RelabelRefs",
     "RewriteRecords",
     "PairRecord",
     "AttributeRecord",
@@ -272,3 +277,53 @@ def RewriteRecords(SectionBody: bytes) -> bytes:
         if len(Written) == Finish - Begin:
             Section[Begin:Finish] = Written
     return bytes(Section)
+
+
+# one record family shares seven byte references that can be relabelled freely
+def RelabelRefs(SectionBody: bytes) -> bytes:
+    Count = ObjectCount(SectionBody)
+    TableAt = TableStart(SectionBody, Count)
+    Starts = [
+        int(Struct.unpack_from("<I", SectionBody, TableAt + 4 * Index)[0])
+        for Index in range(Count)
+    ]
+    Stops = Starts[1:] + [len(SectionBody) - 12]
+    Shared = [
+        (Begin, Finish)
+        for Begin, Finish in zip(Starts, Stops)
+        if Finish - Begin == KInstanceRecord
+        and SectionBody[Begin + 2 : Begin + 4] == b"\x41\x4d"
+    ]
+    if not Shared:
+        return SectionBody
+
+    def IsInside(Position: int) -> bool:
+        return any(
+            Begin + KInstanceSkip <= Position and Position + KReference <= Finish - 3
+            for Begin, Finish in Shared
+        )
+
+    Values = [
+        SectionBody[Begin + Offset : Begin + Offset + KReference]
+        for Begin, _ in Shared
+        for Offset in KReferenceOffsets
+    ]
+    Output = bytes(SectionBody)
+    Label = 1
+    for Value in dict.fromkeys(Values):
+        Spots: list[int] = []
+        Cursor = 0
+        while True:
+            Found = Output.find(Value, Cursor)
+            if Found < 0:
+                break
+            Spots.append(Found)
+            Cursor = Found + 1
+        if not Spots or not all(IsInside(Place) for Place in Spots):
+            continue
+        Replacement = bytes([0x40 + (Label & 0x3F), 0x11, 0x22, 0x33, 0x44, 0x55, 0x66])
+        Label += 1
+        if Replacement in Output:
+            continue
+        Output = Output.replace(Value, Replacement)
+    return Output
