@@ -268,6 +268,30 @@ was searched for as a plain array and not found. Every test below is a negative 
 - `CATFace` is exported only by `CATPartDesignFeature.dll`, and that module exports no
   `CATFace::UnStream`. `CATTopologicalObjectsCGM.dll` exports no face unstream either, so the
   face record layout cannot be read from the export tables alone.
+- The `CATFace` strings in `CATTopologicalObjectsCGM.dll` are fragments of the export name table,
+  not a registered class name. No pointer to them exists in the image, so the meta class cannot be
+  located from the string.
+
+### The deficit is entirely in the non-planar faces
+
+`Reservoir` decomposes cleanly by surface kind.
+
+- 13 trims carry a non-zero vector and 58 carry no vector.
+- The surface pool has 13 planes and 43 non-plane surfaces (23 cylinders, 9 cones, 11 torus).
+- So the 13 planar faces map one-to-one onto the 13 planes, and the 58 non-planar faces share the
+  43 non-plane surfaces. The 15-face deficit is exactly `58 - 43`.
+
+The plane surface record does not store its normal. The bounds are an axis-aligned box, and the
+normal is the axis with the smallest extent. That matches the trim vector for axis-aligned planes
+(`surf 7` and `surf 51` both give `(0, 1, 0)`), but it fails for the tilted face whose trim vector
+is `(-0.5736, 0, -0.8192)`, because a tilted plane's axis-aligned box has three non-zero extents.
+The face's trim vector is therefore the authoritative normal, and the surface record is incomplete
+without the face that uses it.
+
+The 78 curve records each carry two face references in their last two bytes (for example
+`(2, 0)`, `(3, 0)`, `(5, 2)` in `Copper_Washer`), so the curve table gives edge-to-face adjacency.
+It does not give a surface reference, so it cannot be used to build the face-to-surface map
+directly.
 
 ## Evidence
 
