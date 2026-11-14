@@ -690,6 +690,47 @@ so they are scalar values rather than structures, and invalid ones are tolerated
 That is the whole extent of what section 0 will accept: 209 of 214 records must be
 correct, which is 97.7 percent of the graph.
 
+### Section 0 is a record dictionary of 116 shapes
+
+Counting each record by length and first four bytes, the three body-less parts are
+identical:
+
+```text
+part            records  distinct shapes
+empty.prt           214              116
+multi.prt           214              116
+var_blank.prt       214              116
+```
+
+The most common shapes are:
+
+```text
+size 21  head 01 02 04 0b   x18        size 27  head 02 02 41 4d  x5
+size 13  head 01 02 04 03   x13        size 34  head 02 02 41 4d  x5
+size 20  head 01 02 04 05    x8        size 14  head 02 02 41 00  x4
+size 46  head 03 11 03 01    x8        size 62  head 02 02 41 00  x3
+size 12  head 01 02 04 02    x7        size 46  head 05 11 05 01  x3
+size 48  head 03 11 03 01    x6
+```
+
+So the dictionary is a small number of record families with names and ids inside,
+not 214 unrelated blobs.
+
+### Group nulling does not remove the id coupling
+
+Two groups were regenerated across the whole dictionary rather than one record:
+
+```text
+trailing 00 01 00 zeroed in 18 records                    loads
+12 byte id region after 02 02 ?? 4d zeroed in 14 records  OPEN_FAILED
+same region replaced with a position derived sequence     OPEN_FAILED
+```
+
+The trailing words are free; the id regions are not, because records reference each
+other through them. A single id byte can change and the part still loads, but the
+whole group has to stay mutually consistent, so emitting section 0 needs an id
+allocator over the dictionary rather than replacement of individual fields.
+
 ### Every section 0 record is load bearing
 
 Controlled mutation of one record at a time in `empty.prt`'s section 0, keeping the
