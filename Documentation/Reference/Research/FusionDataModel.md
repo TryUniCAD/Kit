@@ -1442,6 +1442,7 @@ The cache's revision id is the new document revision, not a neutral zero identif
 The [mass-cache change](../../Changes/Fusion/TSpline/FusionFormMassCache.md) gives the measured initial and edited properties. The [field evidence](../../../re/Fusion/Reconstruction/FormDocuments/General/CapMassCacheModel.json) labels every cache value, its derivation, and its confidence status.
 Native API inertia is mass-weighted by each body's material density. Comparisons across different materials divide the six returned moments by density before checking the volumetric tensor.
 Mass integration hoists expanded knot vectors, computes nonzero basis-span indices once, and evaluates only local spline poles per sample; full-surface validation occurs once before emission.
+The [area precision gotcha](../../Gotchas/Conversion/Fusion/TSpline/FormBodies/NativeAreaCacheHasPrecision.md) separates `1e-4` relative native cache comparison from the `1e-8` geometric and remaining mass tolerances.
 
 ### Converted BRep grammar
 

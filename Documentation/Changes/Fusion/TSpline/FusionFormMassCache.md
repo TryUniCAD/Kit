@@ -14,7 +14,8 @@ The [local sampling gotcha](../../../Gotchas/Conversion/Fusion/TSpline/FormBodie
 Origin-based second moments produce inertia, while the first moments separately produce the center of mass.
 Translation terms therefore remain in the tensor and in its off-diagonal fields.
 The sixteen-point rule is a mathematical integration rule, not fitted document data.
-The [area-resolution gotcha](../../../Gotchas/Conversion/Fusion/TSpline/FormBodies/AreaNormNeedsQuadratureResolution.md) records the earlier eight-node cache failure and why the strict area comparison remains.
+The [native area precision gotcha](../../../Gotchas/Conversion/Fusion/TSpline/FormBodies/NativeAreaCacheHasPrecision.md) records convergence within `4e-13` cm² and the separate native cache approximation.
+The area cache uses `1e-4` relative and `1e-8` absolute comparison tolerance; all other cache and geometry assertions retain their strict tolerances.
 The cache requires no vendor-saved measurements or CAD runtime. The [field model](../../../../re/Fusion/Reconstruction/FormDocuments/General/CapMassCacheModel.json) records each field and its confidence status.
 
 Open sheets have zero volume and no invented center.
@@ -59,7 +60,9 @@ It records 264 differences caused by comparing unlike materials directly; it is 
 ## Integration coverage
 
 `TestCapMass` independently emits each F3D, reads its typed `MassPropertyCacheValue`, and compares it with the native control's cache.
-The comparison covers area, volume, center, inertia, and off-diagonal products at `1e-8` absolute and relative tolerance.
+Area uses `1e-4` relative and `1e-8` absolute tolerance for the native cache's numeric precision.
+Volume, center, inertia, and off-diagonal products use `1e-8` absolute and relative tolerance.
+The exact BRep comparisons remain at `1e-8` cm.
 `TestCapDeclFlow` also distinguishes Kit's original declaration from Fusion's G1 canonicalization.
 The final controls required two privacy scrubs; all 11 typed models remained identical afterward.
 Remote CI executes these integration cases. No local automated test suite ran.

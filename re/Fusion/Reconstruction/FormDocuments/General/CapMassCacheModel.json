@@ -42,6 +42,7 @@
   "fresh_process_verified": true,
   "off_origin_translation_cm": [13, -21, 42],
    "comparison_rule": "Compare three center coordinates and six inertia components after dividing API moments by physical density",
+   "cache_comparisons": {"area_relative_tolerance": 0.0001, "other_mass_relative_tolerance": 1e-8, "absolute_tolerance": 1e-8, "brep_geometry_tolerance_cm": 1e-8},
    "api_return_rule": "getXYZMomentsOfInertia returns one success flag followed by six mass-weighted moments",
    "material_densities_kg_cm3": {"kit": 0.001, "native": 0.00785},
    "report": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json",

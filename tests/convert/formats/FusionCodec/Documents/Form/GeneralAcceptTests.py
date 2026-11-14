@@ -203,8 +203,8 @@ def TestCapMass(CaseValue: tuple[str, ...]) -> None:
     assert ReadConverted(Emitted) == Converted
     Cached = MaterialFields(NamedGroups(Emitted, "Body")[0]["cache"])
     Expected = MaterialFields(NamedGroups(Native, "Body")[0]["cache"])
-    for FieldName in ("area", "volume"):
-        assert Cached[FieldName] == ApproxValue(Expected[FieldName], rel=1e-8, abs=1e-8)
+    assert Cached["area"] == ApproxValue(Expected["area"], rel=1e-4, abs=1e-8)
+    assert Cached["volume"] == ApproxValue(Expected["volume"], rel=1e-8, abs=1e-8)
     for FieldName in ("cog", "moi", "moiOffDiag"):
         assert ReadPoint(Cached[FieldName]) == ApproxValue(
             ReadPoint(Expected[FieldName]), rel=1e-8, abs=1e-8
