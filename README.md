@@ -29,6 +29,7 @@ The [standards scope](Documentation/Standards/Scope.md) identifies the writing r
 | CATIA V5             | `.CATPart`, `.CATProduct` | Reader and writer |
 | Kit interchange JSON | `.json`                   | Reader and writer |
 | Autodesk Fusion      | `.f3d`                    | Reader and writer |
+| Siemens NX           | `.prt`                    | Reader and writer |
 
 Registration does not establish complete feature coverage or lossless translation.
 Native replay and carrier preservation have different meanings from editable cross-format output.
