@@ -7,7 +7,7 @@ from typing import cast as CastValue
 
 from convert.adapters import AdapterRegistry, CadAdapter, ReadOptions, WriteOptions
 from convert.adapters.nx import NxAdapter, ProbeNx, ReadNx, WriteNx
-from convert.adapters.nx.Splm import BuildSplm
+from convert.adapters.nx.SplmBuild import BuildSplm
 from interchange import FeatureKind
 
 # the synthetic payload keeps integration coverage free of vendor saved files
