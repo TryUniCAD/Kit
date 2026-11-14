@@ -600,13 +600,32 @@ empty.prt                   identity 3b17ffdb906210   table [1033, 1060, 1088]  
 Splicing that middle into `empty.prt` with the unset pointer loads in NX 2506:
 
 ```text
-cm_empty.prt       unloaded 0  bodies 0
-cm_empty_unset.prt unloaded 0  bodies 0
+cm_empty.prt        unloaded 0  bodies 0
+cm_empty_unset.prt  unloaded 0  bodies 0
+cm_empty3.prt       unloaded 0  bodies 0   (fully generated section, unset pointer)
 ```
 
-Of the 356 bytes, 216 are generated here; the remaining 140 are the 28 byte
-descriptor and the 112 byte record, which are still passed in because their field
-semantics are not decoded yet.
+The descriptor and the record are now emitted too, so the whole 356 byte middle
+comes from the generator:
+
+```text
+descriptor, body less    02 02 ff x 10 00 41 ff x 5 06 00 f0 00 01 01 01 00 00
+                          every optional reference is 0xff, meaning absent
+record, body less         112 bytes, identical in empty.prt and multi.prt except two count bytes
+```
+
+The descriptor differs from a one body part only at eight positions, and the
+record differs at exactly two:
+
+```text
+record positions 0x20 and 0x43    07 and 08 for a body less part
+                                  0a and 0b once a body is present
+```
+
+So the descriptor holds optional single byte references that are absent when the
+part has no body, and the record is fixed infrastructure with two counts. A part
+written with this generated section, using the unset pointer instead of the
+source's, loads in NX 2506 with `unloaded 0`.
 
 ### Section 1's minimum object set is three objects
 

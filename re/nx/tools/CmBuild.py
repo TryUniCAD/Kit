@@ -22,13 +22,37 @@ KAnchor = b"\xe0\x6a\xf8"
 KUnset = b"\xff" * 7
 KOrder = (3, 1, 3, 4)
 KHeadTail = bytes.fromhex("05021306020000")
+KRecordBody = bytes.fromhex(
+    "0202FF0080CD0104012FA47AE147AE147BFFFFFFFFFFFF03"
+    "0844454C4554450000000001000107FFFFFFFFFFFF00FFFF"
+    "FFFFFFFFFFFFFF0000000000000000000000000001020100"
+    "000089CA01010200A5A5B6010000FF00FF9FB3C01FFFFE01"
+    "00000101010102060101000001000000"
+)
+KDescriptor = bytes.fromhex(
+    "0202ffffffffffffffffffff0041ffffffffff0600f0000101010000"
+)
+
 # the body less middle is a fixed preamble followed by three objects
+def EmptyRecord(First: int = 7, Second: int = 8) -> bytes:
+    if not 0 <= First < 256 or not 0 <= Second < 256:
+        raise ValueError("NX construction record counts must fit one byte")
+    Value = bytearray(KRecordBody)
+    Value[0x20] = First
+    Value[0x43] = Second
+    return bytes(Value)
+
+
+def EmptyDescriptor() -> bytes:
+    return KDescriptor
+
+
 def EmptyMiddle(
     Base: int,
-    Descriptor: bytes,
-    Record: bytes,
     Identity: bytes = KUnset,
     Counter: int = KCounter,
+    First: int = 7,
+    Second: int = 8,
 ) -> bytes:
     Flags = bytes([2]) * 8 + bytes([1]) * 9
     Anchor = (
@@ -39,6 +63,8 @@ def EmptyMiddle(
         + b"\x08SYSTEM\x00"
     )
     Head = KHead + KAnchor + Identity + KHeadTail
+    Descriptor = EmptyDescriptor()
+    Record = EmptyRecord(First, Second)
     Order = b"".join(Value.to_bytes(4, "little") for Value in KOrder)
     Preamble = KNames + Flags + Counter.to_bytes(4, "little") + bytes(KZeros)
     First = len(Preamble) + 4 * KObjects + len(Order) + len(Anchor)
@@ -89,12 +115,7 @@ def Main(ArgValues: list[str]) -> int:
         _, _, _, Sections = Load(Base + Name)
         Middle = Sections[1].middle
         Base_ = Sections[1].pointer - len(Middle)
-        Built = EmptyMiddle(
-            Base_,
-            Sections[1].middle[0xD8:0xF4],
-            Sections[1].middle[0xF4:],
-            Sections[1].middle[0xCA:0xD1],
-        )
+        Built = EmptyMiddle(Base_, Sections[1].middle[0xCA:0xD1])
         print(
             Name,
             "base",
@@ -105,12 +126,7 @@ def Main(ArgValues: list[str]) -> int:
             Built == Middle,
         )
     Payload, Parsed, Bodies, Sections = Load(Base + ArgValues[0])
-    Middle = EmptyMiddle(
-        Sections[1].pointer - len(Sections[1].middle),
-        Sections[1].middle[0xD8:0xF4],
-        Sections[1].middle[0xF4:],
-        Sections[1].middle[0xCA:0xD1],
-    )
+    Middle = EmptyMiddle(Sections[1].pointer - len(Sections[1].middle))
     Bodies = list(Bodies)
     Bodies[1] = Adopt(Sections[1], Middle)
     Written = ResizePayload(Payload, Bodies)
