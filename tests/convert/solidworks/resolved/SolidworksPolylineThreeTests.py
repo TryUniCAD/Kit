@@ -347,6 +347,45 @@ def TestTriExtra(TmpPath: FilePath) -> None:
         _ = WriteDoc(Changed, TmpPath / "TriExtra.SLDPRT")
 
 
+def TestTriPlane(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    Plane = SourceDoc.support_planes[0]
+    Origin = Plane.transform.origin
+    Moved = ReplaceData(
+        Plane,
+        transform=ReplaceData(
+            Plane.transform,
+            origin=VectorThree(Origin.x, Origin.y, Origin.z + 5e-10),
+        ),
+    )
+    Changed = ReplaceData(SourceDoc, support_planes=(Moved,))
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(Changed, TmpPath / "PlaneLoss.SLDPRT")
+
+
+def TestTriBits(TmpPath: FilePath) -> None:
+    FirstPath = TmpPath / "DepthBits.SLDPRT"
+    SecondPath = TmpPath / "DepthBitsAgain.SLDPRT"
+    _ = WriteDoc(
+        BuildDocument(KPoints, Depth=64.83001982466192),
+        FirstPath,
+        allow_carrier=False,
+    )
+    ArchiveData = SldprtArchive.open(FirstPath)
+    Reopened = ReadNativePart(
+        SldprtAdapter(),
+        ArchiveData,
+        FirstPath.read_bytes(),
+        str(FirstPath),
+        ReadOptions(include_brep=False),
+    )
+    _ = WriteDoc(Reopened, SecondPath)
+    FirstResolved = ArchiveData.require(ResolvedStream)
+    SecondResolved = SldprtArchive.open(SecondPath).require(ResolvedStream)
+    assert FirstResolved[9408:9416] == SecondResolved[9408:9416]
+
+
 def TestThreeDepth(TmpPath: FilePath) -> None:
     Points = ((-7.0, -11.0), (39.0, -4.0), (17.0, 38.0))
     SourceDoc = BuildDocument(Points, Depth=17.0)

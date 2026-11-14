@@ -3738,12 +3738,7 @@ def PrincipalPlaneB(Planes: tuple[SupportPlane, ...]) -> dict[str, int]:
             if ObjectId in Claimed:
                 continue
             TargetNormal = Frame[3]
-            if all(
-                (
-                    MathValue.isclose(ItemData, 0.0, abs_tol=1e-09)
-                    for ItemData in OriginValue
-                )
-            ) and MathValue.isclose(
+            if all((ItemData == 0.0 for ItemData in OriginValue)) and (
                 abs(
                     sum(
                         (
@@ -3753,10 +3748,8 @@ def PrincipalPlaneB(Planes: tuple[SupportPlane, ...]) -> dict[str, int]:
                             )
                         )
                     )
-                ),
-                1.0,
-                rel_tol=0.0,
-                abs_tol=1e-09,
+                )
+                == 1.0
             ):
                 Result[Plane.id] = ObjectId
                 Claimed.add(ObjectId)

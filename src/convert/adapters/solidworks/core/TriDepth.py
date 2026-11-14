@@ -5,6 +5,8 @@ import math as MathValue
 import struct as Struct
 from typing import TYPE_CHECKING
 
+from convert.adapters.solidworks.core.UnitScale import MmFromMetres
+
 if TYPE_CHECKING:
     from convert.adapters.solidworks.core.Native import NativeDimension, NativeSketch
 
@@ -46,7 +48,7 @@ def RecoverTriDepth(
         or Positive[0] <= 0.0
     ):
         return None
-    ValueMm = Positive[0] * 1000.0
+    ValueMm = MmFromMetres(Positive[0])
     if not MathValue.isclose(
         ValueMm, Dimension.value_mm, rel_tol=0.0, abs_tol=0.005000001
     ):
