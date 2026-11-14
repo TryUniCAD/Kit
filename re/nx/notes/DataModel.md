@@ -61,12 +61,23 @@ section hold a 96 bit digest, and the u32 at header offset `0x52` equals
 appear in one section. NX 2506 saved sections with class counts 214, 3, 6, and
 2 for an empty part.
 
+The public cadmpeg code is a decoder only: its `cadmpeg-codec-nx` crate parses
+sections, registries, operation records, and expressions but exposes no writer
+or serializer. Its section model (`TypeDefinition`, `FieldDefinition`,
+`IndexedSection`) confirms the layered structure but does not provide encoding
+rules for a new part. The registry framing observed above does not match the
+`06 name_len:u16` class-record form in the prose, so the leading block is a
+separate type or field declaration lane.
+
 The OM sections themselves are not optional. Zeroing the index row that names
 one section makes NX report `Internal error` (code 65) even though the section
 bytes remain in the payload. A from-scratch author therefore has to emit every
 indexed section, including the class registry and object records. That encoder
 is the remaining authoring work; the index, stream set, and container seals are
-already understood. A section begins with an optional `c0 d1 f1 ed`
+already understood.
+
+Current status: the encoder is not implemented. No from-scratch part has been
+loaded in NX, and the writer still requires a retained SPLMSSTR payload. A section begins with an optional `c0 d1 f1 ed`
 separator, `ff ff ff ff`, four zero bytes, a big-endian payload size, and the
 `OM 01 01` signature. Section bodies contain the NX object-model class
 registry, attribute registry, object records, feature history, expression
