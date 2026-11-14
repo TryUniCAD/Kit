@@ -90,5 +90,22 @@ checks that a payload without object model sections is refused.
 - The expression section keeps its object graph; only its anchor identity is
   generated. Replacing it with a part's body-less expression section makes NX
   refuse the part, because the sections reference each other by payload offset.
+- Measured provenance of a written part, comparing every payload byte with the
+  source document:
+
+  ```text
+  section 0  36694 bytes  100.0% identical to source
+  section 1   2807 bytes   99.8% identical (seven identity bytes generated)
+  section 2   1820 bytes   99.6% identical (seven identity bytes generated)
+  section 3    607 bytes   99.0% identical
+  section 4      4 bytes   generated
+
+  payload    41932 bytes   41913 identical (99.95%)
+  ```
+
+  So the written part is still the source document with a few generated fields.
+  The from-scratch requirement is not met, and section 0 is the reason: it has no
+  generator at all.
+
 - The counter is taken from the source: `KRootCounter` is the value observed in
   every fixture. Deriving it from emitted objects is part of the remaining work.
