@@ -31,6 +31,22 @@ trailing 00 01 00 zeroed in 18 records                     loads
 same region with a position derived sequence               OPEN_FAILED
 ```
 
+## Class identifiers
+
+The per-document change in the class table was tested as a counter offset on a fixed
+base per class name, and it is not one:
+
+```text
+128 of 129 shared classes differ between empty.prt and dim40.prt
+no constant offset explains them, searched up to 4096
+47 of the 129 entries grow by one byte     11->12, 12->13 and 13->14
+differing digits are split: bytes 1 to 3 and bytes 10 to 12
+```
+
+so the entry packs two fields and one of them moves with the document. The three
+body-less fixtures are identical entry for entry, so the field follows the document's
+class population rather than its path.
+
 ## Consequence
 
 The trailing words are free, but the id regions are coupling: a single byte can

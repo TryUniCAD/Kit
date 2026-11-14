@@ -865,6 +865,30 @@ cls_zero.prt   first class id zeroed              OPEN_FAILED
 which means the identifiers are validated against the records that reference them,
 so they cannot be invented either.
 
+### The class identifier delta is not an offset
+
+Testing whether the per-document change is a counter applied to a fixed base per class
+name, by decoding the entries as big-endian integers and looking for a constant
+difference:
+
+```text
+128 of 129 shared classes differ between empty.prt and dim40.prt
+no constant offset explains them, searched up to 4096
+line length pairs   11->11 x12   12->12 x56   12->13 x35   11->12 x4   13->13 x13   13->14 x8
+differing positions  byte 1 x12  byte 2 x56  byte 3 x13  byte 10 x8  byte 11 x50  byte 12 x13
+delta magnitudes     16 x49     18 x15     13 x2     4 x40      5 x10      6 x4
+```
+
+So the entry is a variable length encoding that changes in two separate digit
+positions, one near the start and one near the end, and grows a byte for 47 of the 129
+classes. That is the signature of two packed fields, not of a base plus a document
+offset, and one of the fields moves with the document rather than the class.
+
+The three body-less parts are identical in every entry, so the field moves with the
+document's class population, not with the file name or path. Reproducing it requires
+knowing what those two fields are, which the file corpus does not expose: no hash of
+the class name I tried matches, and the deltas are not a constant.
+
 ### Section 0 class identifiers are per document values
 
 The class table is identical across body-less parts, but not across a body part:
