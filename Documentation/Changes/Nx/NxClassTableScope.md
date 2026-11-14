@@ -137,6 +137,17 @@ little-endian base 128 integer (71 to 80 bits) and compared against `fnv1a-64` a
 murmur3 x64 fold at every bit shift from 0 to 23, with no match. That is the eighteenth
 negative for a name-derived function.
 
+The packed "module id plus class ordinal" reading was tested too, by grouping the entries
+by name prefix (`UGS::OM`, `UGS::RM`, `UGS::Sketch`, ... 85 groups) and looking for a shared
+high bit prefix inside each group:
+
+```text
+modules with a shared top-30-bit prefix   0 of 6 multi-member groups
+```
+
+classes in the same module share no high bits at all, so the entry is not a module id with
+an ordinal in the low bits.
+
 That is the reason this work stopped chasing the fifth class set: the emitter needs a
 function of the class **name**, and that is what sixteen probes have failed to find,
 whether the increment turns out to be per class or per count.
