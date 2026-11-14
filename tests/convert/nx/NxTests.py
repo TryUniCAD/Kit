@@ -206,3 +206,27 @@ def TestNxEmpty() -> None:
     )
     Result = WriteNx(Changed, BytesIo(), WriteOptions())
     assert Result.vendor_loadable is True
+
+
+# the index may end before a twelve byte boundary with filler bytes
+def TestNxFiller() -> None:
+    Payload = (
+        (0).to_bytes(12, "little")
+        + (1).to_bytes(4, "little")
+        + (1).to_bytes(4, "little")
+        + (32).to_bytes(4, "little")
+        + bytes(8)
+    )
+    DataValue = BuildSplm(
+        [
+            ("/Root/", None),
+            ("/Root/part/", None),
+            ("/Root/UG_PART/", None),
+            ("/Root/part/attrs", KAttributes),
+            ("/Root/UG_PART/UG_PART", Payload),
+        ],
+        FileTag=0x2BBA,
+        HeaderTrailer=KTrailer,
+    )
+    Document = ReadNx(DataValue, ReadOptions(strict=False))
+    assert Document.metadata["nx.segment_count"] == 2

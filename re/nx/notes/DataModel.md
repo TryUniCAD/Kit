@@ -41,8 +41,16 @@ type_code:u32  subtype_code:u32  value:u32
 ```
 
 Row ordinal 1 is `type_code=1`, `subtype_code=1`, and `value` is the payload
-offset after the index. The index words name object-model sections and
-compressed stream wrappers. A section begins with an optional `c0 d1 f1 ed`
+offset after the index. The index may end up to eleven bytes before a twelve
+byte boundary; the row count is the aligned part. The index words name
+object-model sections and compressed stream wrappers.
+
+NX 2506 also saves parts with no compressed streams. Their payload holds only
+the index and OM sections, and NX requires both the `UG_PART` payload and its
+`UG_PART/ExternalReferences` stream. Fast-load streams, `qafmetadata`,
+`part/attrs`, and the saved toggle stream can be one byte each in a loadable
+part. Replacing the `ExternalReferences` stream with a one byte placeholder
+fails with `Unexpected end of file`. A section begins with an optional `c0 d1 f1 ed`
 separator, `ff ff ff ff`, four zero bytes, a big-endian payload size, and the
 `OM 01 01` signature. Section bodies contain the NX object-model class
 registry, attribute registry, object records, feature history, expression
