@@ -14,6 +14,7 @@ KPartSuffix = ".prt"
 KCapabilities = frozenset(
     {
         Capability.KBrep,
+        Capability.KConfigurations,
         Capability.KBodyStructure,
         Capability.KNativePayloads,
         Capability.KRoundtripMeta,

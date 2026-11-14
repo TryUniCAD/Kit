@@ -8,6 +8,7 @@ from typing import cast as CastValue
 from convert.adapters.base.ContractTypes import IsBinaryTarget, KTargetType
 from convert.adapters.base.TransferContract import CapTransfer, TransferMode
 from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.base.WritePolicy import GetDocumentCaps
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.nx.CompoundReader import ReadCompound, ReadStreams
 from convert.adapters.nx.Format import KInfoValue
@@ -17,7 +18,6 @@ from convert.adapters.nx.SplmReader import ReadSplm, RebuildSplm, SplmStreams
 from interchange import (
     BrepPayload,
     CadDocument as CadDoc,
-    Capability,
     Diagnostic as DiagnosticInfo,
     Severity,
     frozen_mapping as FrozenMapping,
@@ -80,9 +80,7 @@ def WriteNx(
     CheckHeader(Payload.data, DataValue)
     PathValue = WriteBytesMut(Target, DataValue, Settings.overwrite)
     Requirements = (
-        ("referenced NX component files",)
-        if DocValue.metadata.get("nx.external_references")
-        else ()
+        ("referenced NX component files",) if DocValue.assembly is not None else ()
     )
     Metadata = {
         "mode": "native_container_rewrite",
@@ -101,15 +99,7 @@ def WriteNx(
     }
     Transfers = tuple(
         CapTransfer(Value, TransferMode.KNative)
-        for Value in sorted(
-            (
-                Capability.KBrep,
-                Capability.KBodyStructure,
-                Capability.KNativePayloads,
-                Capability.KRoundtripMeta,
-            ),
-            key=lambda Value: Value.value,
-        )
+        for Value in sorted(GetDocumentCaps(DocValue), key=lambda Value: Value.value)
     )
     return WriteResult(
         PathValue,
