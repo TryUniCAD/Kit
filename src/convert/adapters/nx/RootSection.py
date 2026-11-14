@@ -99,7 +99,8 @@ def AuthorSections(Payload: bytes, HeadText: bytes | None = None) -> bytes:
     Offset = PointerOffset(SectionBody)
     Pointer = Struct.unpack_from("<I", SectionBody, Offset)[0]
     Start = MiddleStart(SectionBody, Pointer)
-    Middle = RootMiddle(KRootCounter, KUnset)
+    Counter = int.from_bytes(SectionBody[Start + 0x08 : Start + 0x0C], "little")
+    Middle = RootMiddle(Counter, KUnset)
     Authored = bytearray(SectionBody[:Start])
     Authored.extend(Middle)
     Authored.extend(SectionBody[Pointer:])
@@ -136,7 +137,9 @@ def WithStub(
             Pointer = int(
                 Struct.unpack_from("<I", SectionBody, PointerOffset(SectionBody))[0]
             )
-            SectionBody = Adopt(SectionBody, ConstructMiddle(Pointer - KMiddleLength))
+            Start = Pointer - KMiddleLength
+            Counter = int.from_bytes(SectionBody[Start + 0x2C : Start + 0x30], "little")
+            SectionBody = Adopt(SectionBody, ConstructMiddle(Start, Counter=Counter))
         elif Index == 2 and ObjectCount(SectionBody) == KExprObjects:
             Pointer = int(
                 Struct.unpack_from("<I", SectionBody, PointerOffset(SectionBody))[0]

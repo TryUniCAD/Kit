@@ -600,6 +600,21 @@ sections 1 (block shape), 2 and 3, in addition to regenerating section 3 and
 emptying section 4. Section 0 keeps its source anchor because its body is still
 copied.
 
+### Generated middles need the document counter from the source
+
+Two constants were wrong until a part with a different counter was written. The
+counter is a per document high water mark, not a format constant:
+
+```text
+section 1 counter     empty 0x3d8   multi 0x3d8   var_blank 0x3dc   dim40 0x3d8
+section 3 counter     empty 0x1e3   multi 0x1e3   var_blank 0x1e7   dim40 0x1e3
+```
+
+`ConstructMiddle` emits it at middle offset `0x2c` and derives two later values from
+it; `RootMiddle` emits it at offset `0x08` and derives offsets `0x2c` and `0x30`. With
+the counter read from the section being replaced, both generators reproduce all five
+fixtures byte for byte, and `var_blank.prt` stops being the only part that NX refuses.
+
 ### The head tail integers are not validated
 
 The two variable length integers at the end of the head record are not validated

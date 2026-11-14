@@ -28,7 +28,9 @@ KRecordBody = bytes.fromhex(
 
 
 # the body less construction middle is one fixed preamble and three objects
-def ConstructMiddle(BaseOffset: int, Identity: bytes = KUnset) -> bytes:
+def ConstructMiddle(
+    BaseOffset: int, Identity: bytes = KUnset, Counter: int = KCounter
+) -> bytes:
     if len(Identity) != 7:
         raise ValueError("NX construction identity must be seven bytes")
     HeadBytes = KHead + KAnchor + Identity + KHeadTail
@@ -39,7 +41,7 @@ def ConstructMiddle(BaseOffset: int, Identity: bytes = KUnset) -> bytes:
         + b"\x00"
         + b"\x08SYSTEM\x00"
     )
-    Preamble = KNames + KFlags + KCounter.to_bytes(4, "little") + bytes(KZeros)
+    Preamble = KNames + KFlags + Counter.to_bytes(4, "little") + bytes(KZeros)
     Order = b"".join(Value.to_bytes(4, "little") for Value in KOrder)
     First = len(Preamble) + 4 * KObjects + len(Order) + len(Anchor)
     Offsets = [First, First + len(HeadBytes), First + len(HeadBytes) + len(KDescriptor)]
@@ -92,6 +94,7 @@ def Adopt(SectionBody: bytes, Middle: bytes) -> bytes:
 __all__ = [
     "Adopt",
     "ConstructMiddle",
+    "KCounter",
     "ObjectCount",
     "Record",
     "KUnset",

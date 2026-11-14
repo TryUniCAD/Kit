@@ -489,6 +489,10 @@ def TestNxRoot() -> None:
     assert Middle[0x7E:0x85] == b"\xff" * 7
     assert b"NX 2506.9120 - External User Function" in Middle
     assert Middle.endswith(b"\x01\x01")
+    Other = RootMiddle(0x1E7, b"\xff" * 7)
+    assert Other[0x08:0x0C] == (0x1E7).to_bytes(4, "little")
+    assert Other[0x2C:0x30] == (0x1E7 + 49).to_bytes(4, "little")
+    assert Other[0x30:0x34] == (0x1E7 + 76).to_bytes(4, "little")
     try:
         _ = RootMiddle(0, b"\xff" * 7)
     except ValueError:
@@ -526,6 +530,8 @@ def TestNxConstr() -> None:
     ]
     assert Table == [0x34C + 0xBD, 0x34C + 0xD8, 0x34C + 0xF4]
     assert Middle[0xBD:0xC7] == b"\x41\x00\x03\x05\x01\x00\x04\x05\x02\x00"
+    Framed = ConstructMiddle(0x34C, b"\xff" * 7, 0x3DC)
+    assert int.from_bytes(Framed[0x2C:0x30], "little") == 0x3DC
     assert len(Record()) == 112
     assert Record()[0x20] == 7 and Record()[0x43] == 8
     assert Record(10, 11)[0x20] == 10 and Record(10, 11)[0x43] == 11

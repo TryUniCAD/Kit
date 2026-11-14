@@ -110,9 +110,7 @@ def ReplaceHead(
         raise ValueError("NX root head record carries no anchor")
     Saved = Identity if Identity is not None else Source[AnchorAt + 3 : AnchorAt + 10]
     Emitted = HeadRecord(FitText(PartText, len(Source) - KHeadReserve), Saved)
-    if not Source.endswith(KHeadSuffix) or len(Emitted) != len(Source):
-        Emitted = Source
-    Records[0] = Emitted
+    Records[0] = Emitted if Emitted == Source else Source
     TableEnd = TableAt + 4 * len(Records)
     OrderCount = int(Struct.unpack_from("<I", SectionBody, TableEnd)[0])
     OrderEnd = TableEnd + 4 + 4 * OrderCount
