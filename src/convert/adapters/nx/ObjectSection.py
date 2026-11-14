@@ -138,6 +138,8 @@ def ReplaceHead(
 
 
 __all__ = [
+    "RewriteValues",
+    "RewriteWordRun",
     "FloatWord",
     "ReadFloatWord",
     "ReadValueWord",
@@ -606,3 +608,52 @@ def ReadFloatWord(WordValue: bytes) -> float:
     )
     Value: float = Struct.unpack(">d", Shifted)[0]
     return Value
+
+
+# token family words are rewritten from decoded values
+KWordTags = (0x30, 0xB0, 0x2F, 0x4F, 0xCF, 0x5F, 0xDF, 0xAF)
+
+
+def RewriteWordRun(Record: bytes, Begin: int, Finish: int) -> bytes:
+    Output = bytearray(Record)
+    Position = Begin
+    while Position < Finish:
+        if Record[Position] == 0x50 and Record[Position + 3] == 0:
+            Handle = ReadValueWord(Record[Position : Position + 4])
+            Output[Position : Position + 4] = Handle.to_bytes(2, "little") + bytes(2)
+            Position += 4
+            continue
+        if Record[Position] in KWordTags and Position + 8 <= Finish:
+            WordBytes = Record[Position : Position + 8]
+            try:
+                Number = ReadFloatWord(WordBytes)
+            except (ValueError, Struct.error):
+                Position += 1
+                continue
+            Written = FloatWord(Number)
+            if Written == WordBytes:
+                Output[Position : Position + 8] = Written
+                Position += 8
+                continue
+        Position += 1
+    return bytes(Output)
+
+
+# display values are rewritten from numbers
+def RewriteValues(SectionBody: bytes) -> bytes:
+    Count = ObjectCount(SectionBody)
+    TableAt = TableStart(SectionBody, Count)
+    Starts = [
+        int(Struct.unpack_from("<I", SectionBody, TableAt + 4 * Index)[0])
+        for Index in range(Count)
+    ]
+    Stops = Starts[1:] + [len(SectionBody) - 12]
+    Section = bytearray(SectionBody)
+    for Begin, Finish in zip(Starts, Stops):
+        Record = bytes(SectionBody[Begin:Finish])
+        if Record[:2] != b"\x02\x02" or Record[4:5] != b"5":
+            continue
+        Written = RewriteWordRun(Record, 14, len(Record))
+        if len(Written) == Finish - Begin:
+            Section[Begin:Finish] = Written
+    return bytes(Section)

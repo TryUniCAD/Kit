@@ -28,6 +28,8 @@ from convert.adapters.nx.ObjectSection import (
     SlotRecord,
     FloatWord,
     ReadFloatWord,
+    RewriteValues,
+    RewriteWordRun,
     ValueWord,
     ViewName,
 )
@@ -841,3 +843,21 @@ def TestNxFloat() -> None:
     except ValueError:
         return
     raise AssertionError("float word reader accepted an empty word")
+
+
+# the token family words are re-emitted from decoded values rather than copied
+def TestNxValues() -> None:
+    Record = (
+        b"\x02\x02\x41\x00"
+        + b"\x35\x06"
+        + bytes(8)
+        + ValueWord(100.0) * 2
+        + FloatWord(360.0)
+        + ValueWord(100.0)
+        + bytes(2)
+    )
+    Frame = bytes(12) + Record + bytes(12)
+    assert RewriteWordRun(Record, 14, len(Record)) == Record
+    Shifted = bytearray(Frame)
+    Shifted[0x14:0x18] = ValueWord(100.0)
+    assert RewriteValues(bytes(Shifted))

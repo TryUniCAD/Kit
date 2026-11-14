@@ -23,6 +23,7 @@ from convert.adapters.nx.ObjectSection import (
     RelabelTokens,
     ReplaceHead,
     RewriteRecords,
+    RewriteValues,
 )
 from convert.adapters.nx.PayloadBuild import ResizePayload
 from convert.adapters.nx.PayloadReader import ReadPayload
@@ -136,7 +137,7 @@ def WithStub(
         if Index == 0 and HeadText is not None:
             SectionBody = ReplaceHead(SectionBody, HeadText)
             SectionBody = RelabelTokens(
-                RelabelLanes(RelabelRefs(RewriteRecords(SectionBody)))
+                RelabelLanes(RelabelRefs(RewriteValues(RewriteRecords(SectionBody))))
             )
         elif Index == KRootIndex:
             SectionBody = RootBody
