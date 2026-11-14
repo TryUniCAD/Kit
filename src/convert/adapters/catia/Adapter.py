@@ -2181,12 +2181,14 @@ def WriteCatia(
     Overwrite: bool = False,
     Validate: bool = True,
     AllowNonNative: bool = True,
+    NativeBrep: bool = False,
     **LegacyValues: object,
 ) -> WriteResult:
     LegacyCopy = dict(LegacyValues)
     Overwrite = bool(LegacyCopy.pop("overwrite", Overwrite))
     Validate = bool(LegacyCopy.pop("validate", Validate))
     AllowNonNative = bool(LegacyCopy.pop("allow_non_native", AllowNonNative))
+    NativeBrep = bool(LegacyCopy.pop("native_brep", NativeBrep))
     if LegacyCopy:
         Unexpected = next(iter(LegacyCopy))
         raise TypeError(
@@ -2198,7 +2200,12 @@ def WriteCatia(
         WriteOptions(
             overwrite=Overwrite,
             validate=Validate,
-            values=FrozenMapping({"allow_non_native": AllowNonNative}),
+            values=FrozenMapping(
+                {
+                    "allow_non_native": AllowNonNative,
+                    "native_brep": NativeBrep,
+                }
+            ),
         ),
     )
 
