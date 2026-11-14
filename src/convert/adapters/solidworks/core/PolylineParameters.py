@@ -5,7 +5,7 @@ import math as MathValue
 from interchange import BooleanOperation as BoolOperation
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumValues import ParameterRole, ValueKind
-from interchange.features.FeatureExtrude import ExtrudeFeature
+from interchange.features.FeatureExtrude import ExtrudeEnd, ExtrudeFeature
 from interchange.records.RecordParameter import ParameterValue
 
 KFreecadPadProps = frozenset(
@@ -182,6 +182,8 @@ def HasPolyLoss(DocumentData: CadDocument, PadId: str) -> bool:
         or not IsUnsetLength(Definition.second_offset, 0.0)
         or not IsUnsetAngle(Definition.draft_angle, 0.0)
         or not IsUnsetAngle(Definition.second_draft_angle, 0.0)
+        or Definition.end_condition is not ExtrudeEnd.BLIND
+        or Definition.symmetric
         or Definition.second_end_condition is not None
         or bool(Definition.up_to_reference)
         or bool(Definition.second_up_to_reference)

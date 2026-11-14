@@ -36,7 +36,7 @@ from convert.adapters.solidworks.programs.resolved.polyline.threepoint.Registry 
     KFieldOwners,
     KResolvedOps,
 )
-from interchange import BooleanOperation, Vector3 as VectorThree
+from interchange import BooleanOperation, ExtrusionEndCondition, Vector3 as VectorThree
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumValues import ParameterRole, ValueKind
 from interchange.features.FeatureExtrude import ExtrudeFeature
@@ -411,6 +411,28 @@ def TestTriRel(TmpPath: FilePath) -> None:
     assert HasVendorPartEncoding(Changed) is False
     with PytestLib.raises(SldprtFormatError):
         _ = WriteDoc(Changed, SecondPath)
+
+
+def TestTriEnd(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    for Index, Condition in enumerate(
+        (
+            ExtrusionEndCondition.KUpToLast,
+            ExtrusionEndCondition.KThroughAll,
+        )
+    ):
+        FeatureData = SourceDoc.feature_timeline[0]
+        assert isinstance(FeatureData.definition, ExtrudeFeature)
+        FeatureData = ReplaceData(
+            FeatureData,
+            definition=ReplaceData(
+                FeatureData.definition, end_condition=Condition
+            ),
+        )
+        Changed = ReplaceData(SourceDoc, feature_timeline=(FeatureData,))
+        assert HasVendorPartEncoding(Changed) is False
+        with PytestLib.raises(SldprtFormatError):
+            _ = WriteDoc(Changed, TmpPath / f"TriEnd{Index}.SLDPRT")
 
 
 def TestTriFlag(TmpPath: FilePath) -> None:
