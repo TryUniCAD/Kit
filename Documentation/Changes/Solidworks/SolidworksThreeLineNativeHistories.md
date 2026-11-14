@@ -76,6 +76,25 @@ Random case 19 demonstrates a live 17.995855→5 mm edit, rebuilding to 7,533.64
 
 These 64 independently rebuilt blind pads demonstrate this family's seeded variability. They do not establish arbitrary SLDPRT histories, other feature families, assemblies, drawings, or complete B-rep coverage.
 
+## Native replay acceptance
+
+Native reads retain `NativeProfile.native_coordinates_mm` separately from the normalized presentation coordinates. Public neutral sketch construction uses the measured coordinates instead of discarding digits after 12 decimal places. Both source-metre consistency checks use the same `Clean(round(..., 12))` normalization, including a 1e-12-mm-to-zero boundary; they do not introduce a second incompatible comparison.
+
+`RecoverTriDepth` recovers exact binary depth only for the independently recovered 10,601- and 10,603-byte three-line layouts. It requires four matching positive doubles at shifted 9408/9480/9968/9992, two exactly negated doubles at shifted 9806/9830, and consistency with the presentation label. The result supplies both the operation length and neutral feature scalar with a native offset. `DimensionParam` uses this native scalar when available rather than reusing rounded display text.
+
+Public `open_document` followed by `write_document(..., allow_carrier=False)` succeeds for all four replay controls. SOLIDWORKS 34.5.2 measured zero load errors and warnings, one body, and successful rebuild for each:
+
+| Replay control                                | Depth, mm |       Volume, mm³ | Surface area, mm² |
+| --------------------------------------------- | --------: | ----------------: | ----------------: |
+| `tri3r010`, rounded display 19.53             | 19.529617 | 74,669.2099156988 | 13,182.8305763142 |
+| `tri3r019`, rounded display 18                | 17.995855 | 27,114.8781546765 | 6,375.98230826179 |
+| vendor-authored high precision                |    13.375 | 14,392.0569347259 |  4,171.2939338546 |
+| vendor-authored near-origin, first x 8e-13 mm |         9 | 5,858.99999999989 | 2,367.42764547688 |
+
+The near-origin output retains its 8e-16-metre first coordinate through the common normalization rule. The high-precision replay's live 6.25 mm edit rebuilds to 6,725.26024987192 mm³ and 3,095.63966028405 mm² before closing without saving. These measurements match the independent source and analytic results.
+
+`AuthorTriangles.vbs /precise` authors the last two independent controls. `tests/convert/solidworks/resolved/SolidworksPolylineThreeTests.py` additionally covers a self-authored rounded label, exact native depth/vertex reads, exact writer doubles, and the near-origin boundary without assuming a broader freecad interpretation for all neutral histories.
+
 ## Verification and scope
 
 Compilation, repository steering, Ruff, mypy, pyright, Prettier, path policy, and the full additive program verifier pass. Integration coverage lives in `tests/convert/solidworks/resolved/SolidworksPolylineThreeTests.py` and is exercised by remote CI, not a prohibited local unit-test run.

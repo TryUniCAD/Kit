@@ -16,9 +16,8 @@ from .Native import NativeProfile, NativeSketch
 def MapPolyline(
     Sketch: NativeSketch, ProfileIndex: int, Profile: NativeProfile
 ) -> tuple[list[SketchEntity], dict[str, str], dict[int, str]]:
-    Vertices = tuple(
-        zip(Profile.coordinates[::2], Profile.coordinates[1::2], strict=True)
-    )
+    Coordinates = Profile.native_coordinates_mm or Profile.coordinates
+    Vertices = tuple(zip(Coordinates[::2], Coordinates[1::2], strict=True))
     Entities: list[SketchEntity] = []
     RefMap: dict[str, str] = {}
     ProfileEntities: dict[int, str] = {}

@@ -1,5 +1,6 @@
 from __future__ import annotations as Annotations
 from convert.adapters.solidworks.core.AxisSketchId import AxisSketchId
+from convert.adapters.solidworks.core.TriDepth import RecoverTriDepth
 from collections.abc import Callable
 from dataclasses import dataclass as Dataclass, field as Field, replace as Replace
 import hashlib as Hashlib
@@ -414,7 +415,7 @@ def ApplySketchMut(StateData: DecodeState, Feature: NativeFeature) -> None:
 
 
 # focused operation decoder preserves one native feature family
-def DecodeExtrude(
+def DecodePadMut(
     StateData: DecodeState, Feature: NativeFeature
 ) -> NativeOperation | None:
     Record = StateData.RecordById.get(Feature.object_id)
@@ -444,6 +445,17 @@ def DecodeExtrude(
     EndData = EndSpec(
         StateData.Resolved, OperationStart, OperationEnd, StateData.Classes
     )
+    Dimensions = Feature.dimensions
+    if len(Dimensions) == 1:
+        Recovered = RecoverTriDepth(
+            StateData.Resolved, StateData.LatestSketch, Dimensions[0]
+        )
+        if Recovered is not None:
+            Dimensions = (Recovered,)
+            NativeIndex = StateData.NativeIndexById[Feature.object_id]
+            StateData.NativeFeatures[NativeIndex] = Replace(
+                StateData.NativeFeatures[NativeIndex], dimensions=Dimensions
+            )
     Operation = NativeOperation(
         object_id=Feature.object_id,
         name=Feature.name,
@@ -455,7 +467,7 @@ def DecodeExtrude(
         native_offset=OperationStart,
         native_end=ClassRecordEnd(StateData.Resolved, StateData.Classes, OperationStart)
         or OperationEnd,
-        length_mm=DimensionValue(Feature.dimensions, "length"),
+        length_mm=DimensionValue(Dimensions, "length"),
         radius_mm=None,
         family_code=Family,
         operation_code=OperationCode,
@@ -466,7 +478,7 @@ def DecodeExtrude(
         selected_local_ids=(),
         native_stream=StateData.StreamName,
         depth_copies=DepthCopies(
-            StateData.Resolved, OperationOffset(Feature.dimensions, "length")
+            StateData.Resolved, OperationOffset(Dimensions, "length")
         ),
         mirrored_direction_offset=(
             EndData.mirrored_direction_offset if EndData else None
@@ -1049,7 +1061,7 @@ def DecodeOperation(
 ) -> NativeOperation | None:
     FeatureType = Feature.kind.casefold()
     if FeatureType == "extrusion":
-        return DecodeExtrude(StateData, Feature)
+        return DecodePadMut(StateData, Feature)
     if FeatureType in {"lpattern", "linearpattern"}:
         return DecodeLinear(StateData, Feature)
     if FeatureType in {"cirpattern", "circularpattern"}:
@@ -1182,6 +1194,7 @@ class NativeProfile:
     parameter_name: str | None = None
     dimension_kind: str | None = None
     start_angle_degrees: float | None = None
+    native_coordinates_mm: tuple[float, ...] | None = None
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -13634,6 +13647,19 @@ def CreatePoly(
     MarkerOffsets = tuple(
         EdgeData[EdgeIndex].offset for EdgeIndex in OrderedEdges
     ) + tuple(MarkersData[VertexIndex].offset for VertexIndex in OrderedVertices)
+    NativePoints = tuple(
+        MarkersData[VertexIndex].coordinates_metres for VertexIndex in OrderedVertices
+    )
+    NativeCoordinates = (
+        None
+        if any(PointData is None for PointData in NativePoints)
+        else tuple(
+            CoordinateValue * KMillimetres
+            for PointData in NativePoints
+            if PointData is not None
+            for CoordinateValue in PointData
+        )
+    )
     Profile = NativeProfile(
         "polyline",
         tuple(
@@ -13642,6 +13668,7 @@ def CreatePoly(
             for CoordinateValue in PointData
         ),
         MarkerOffsets,
+        native_coordinates_mm=NativeCoordinates,
     )
     return (Profile, MarkerOffsets)
 

@@ -6,6 +6,7 @@ import struct as StructLib
 
 import pytest as PytestLib
 
+from convert import open_document as OpenDoc
 from convert import write_document as WriteDoc
 from convert.adapters.base import ReadOptions
 from convert.adapters.base.UsabilityError import ApplicationUsabilityError
@@ -24,11 +25,18 @@ from convert.adapters.solidworks.programs.resolved.polyline.threepoint.Registry 
     KFieldOwners,
     KResolvedOps,
 )
+from interchange.document.models.DocumentModel import CadDocument
+from interchange.geometry.models.GeometryCurves import LineGeometry
 from interchange.geometry.models.Sketch import SketchRelation
 from tests.convert.solidworks.resolved.SolidworksPolylineFiveTests import BuildDocument
 
 KPoints = ((0.0, 0.0), (42.0, 0.0), (12.0, 31.0))
 KPointOffsets = (6121, 6129, 6299, 6307, 6461, 6469)
+KPrecisionPoints = (
+    (-7.123456789012345, -11.234567890123456),
+    (39.34567890123456, -4.456789012345678),
+    (17.567890123456787, 38.67890123456789),
+)
 
 
 def RequireTriFrame(ArchiveData: SldprtArchive, TargetPath: FilePath) -> None:
@@ -121,11 +129,7 @@ def TestThreeDepth(TmpPath: FilePath) -> None:
 
 
 def TestPrecision(TmpPath: FilePath) -> None:
-    Points = (
-        (-7.123456789012345, -11.234567890123456),
-        (39.34567890123456, -4.456789012345678),
-        (17.567890123456787, 38.67890123456789),
-    )
+    Points = KPrecisionPoints
     SourceDoc = BuildDocument(Points, Depth=13.375)
     TargetPath = TmpPath / "PreciseTriangle.SLDPRT"
     Result = WriteDoc(SourceDoc, TargetPath, allow_carrier=False)
@@ -140,6 +144,49 @@ def TestPrecision(TmpPath: FilePath) -> None:
     for OffsetPos, Expected in zip(KPointOffsets, ExpectedMetres, strict=True):
         assert ResolvedData[OffsetPos : OffsetPos + 8] == StructLib.pack("<d", Expected)
     RequireTriFrame(SldprtArchive.open(TargetPath), TargetPath)
+
+
+def TestNearOrigin(TmpPath: FilePath) -> None:
+    Points = ((8e-13, 0.0), (42.0, 0.0), (12.0, 31.0))
+    TargetPath = TmpPath / "NearOriginTriangle.SLDPRT"
+    Result = WriteDoc(BuildDocument(Points), TargetPath, allow_carrier=False)
+    assert Result.IsVendorLoadable is True
+    assert Result.IsAppUsable is True
+    assert Result.IsNearLossless is True
+    ArchiveData = SldprtArchive.open(TargetPath)
+    ResolvedData = ArchiveData.require(ResolvedStream)
+    assert ResolvedData[6121:6129] == StructLib.pack("<d", 8e-13 / 1000.0)
+    RequireTriFrame(ArchiveData, TargetPath)
+
+
+def RequireTriRead(Document: CadDocument, Baseline: bytes) -> None:
+    ExpectedDepth = StructLib.unpack_from("<d", Baseline, 9408)[0] * 1000.0
+    DepthParam = next(Param for Param in Document.parameters if Param.name == "D1")
+    assert DepthParam.value.value == ExpectedDepth
+    for Index, Entity in enumerate(Document.sketches[0].entities):
+        assert isinstance(Entity.geometry, LineGeometry)
+        for Point, Offset in (
+            (Entity.geometry.start, KPointOffsets[Index * 2]),
+            (Entity.geometry.end, KPointOffsets[((Index + 1) % 3) * 2]),
+        ):
+            Expected = StructLib.unpack_from("<d", Baseline, Offset)[0] * 1000.0
+            ExpectedNext = StructLib.unpack_from("<d", Baseline, Offset + 8)[0] * 1000.0
+            assert (Point.x, Point.y) == (Expected, ExpectedNext)
+
+
+def TestLabels(TmpPath: FilePath) -> None:
+    SourcePath = TmpPath / "NativeSource.SLDPRT"
+    _ = WriteDoc(
+        BuildDocument(KPrecisionPoints, Depth=17.995855),
+        SourcePath,
+        allow_carrier=False,
+    )
+    Baseline = SldprtArchive.open(SourcePath).require(ResolvedStream)
+    SourceBytes = SourcePath.read_bytes()
+    assert SourceBytes.count(b"17.995855") == 1
+    _ = SourcePath.write_bytes(SourceBytes.replace(b"17.995855", b"18.00000", 1))
+    Document = OpenDoc(SourcePath)
+    RequireTriRead(Document, Baseline)
 
 
 def TestThreeTie(TmpPath: FilePath) -> None:

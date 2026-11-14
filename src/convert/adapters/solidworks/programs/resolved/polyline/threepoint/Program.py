@@ -40,7 +40,10 @@ def PadFieldMap(
         NativeValues = tuple(
             Coordinate for PointPair in PointsMetres for Coordinate in PointPair
         )
-        Normalized = tuple(round(Value * 1000.0, 12) for Value in NativeValues)
+        Normalized = tuple(
+            0.0 if abs(Value) <= 1e-12 else Value
+            for Value in (round(Value * 1000.0, 12) for Value in NativeValues)
+        )
         if (
             len(PointsMetres) != 3
             or any(len(PointPair) != 2 for PointPair in PointsMetres)
