@@ -385,6 +385,27 @@ The face unstream is vtable slot 27 (offset `0xd8`) of the `CATCXFace` vtable at
 caller that populates the face's linked-object list is the remaining unknown: the shell unstream
 does not call it, and the body unstream reads only scalars and a byte count.
 
+### The face record field order
+
+`CATCXFace::StreamV2R0` at `0x54ed60..0x54eee6` writes the face record in this order:
+
+1. `WriteLinkedObjectsCount(face, 2)`, which writes a plain `u32` count of 2 through
+   `CATMathStreamImpl::WriteULong`;
+2. `WriteObject(support, face)`, the surface reference as a scalable tag difference;
+3. `WriteObject(second, face)`, a second reference as a scalable tag difference;
+4. `WriteShort(0xb0(face))`, a `u16`;
+5. one more call through `0x180b792c0`;
+6. `WriteUChar`, a single byte.
+
+So a face record is at least nine bytes and variable-length, because the two tag differences are
+variable-length. The FBB row is eight bytes and identical for all faces, so it cannot be the face
+record.
+
+The face record is also not `02 00 00 00` followed by a tag difference. `Reservoir`
+`MainDataStream` contains only three occurrences of `02 00 00 00`, at offsets 37, 47, and 18110,
+not 71. So the count is not written as a plain `u32` at the start of each face record in that
+stream, and the face records are not laid out as a simple sequence there.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
