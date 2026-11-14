@@ -199,37 +199,51 @@ The head region `0..29364` has a longest plausible `f32` run of 64 (little-endia
 (big-endian), far short of the 2666 tessellation points. The `SurfacicReps` tail has a longest
 run of 47. The tessellation coordinates are therefore compressed, not plain floats.
 
-## `SurfacicReps` is the visualization surface table, not the B-rep surface table
+## `SurfacicReps` is the B-rep surface table, and its records are interleaved
 
-The five failing parts are not a decoding bug in the surface parser. They fail because the reader
-is reading the wrong stream.
+`SurfacicReps` carries the analytic B-rep surface records. The earlier hypothesis that it is only a
+visualization table is wrong, and the data disproves it.
 
-Two independent checks establish this.
+Each surface record is a plane, cylinder, cone, sphere, or torus with a carrier and ten bounds
+floats. For 22 of the 27 corpus parts the number of these records equals the face count exactly.
+That is not a coincidence across 22 parts: the records are per-face B-rep surfaces.
 
-First, the stream inventory is identical for every part in the corpus. All 27 parts carry the same
-twelve streams (`MAIN`, `Describe` twice, `MainDataStream` three times, `Header` twice,
-`SceneGraph` twice, `SurfacicReps`). The five failing parts (`4784`, `4876`, `4876_1`,
-`Pedal_Body`, `Reservoir`) have exactly the same stream set as a passing part such as
-`BRK_PRS_Sensor`. A missing or extra stream is therefore not the cause.
+The five failing parts are not a wrong-stream problem. They are a parsing problem plus a missing
+face-to-surface map.
 
-Second, `SurfacicReps` is a child of the `SceneGraph` stream, and the literal stream name appears
-only in visualization modules. The `SceneGraph` table of contents lists `SurfacicReps`,
-`MainDataStream`, and `SceneGraph`. Searching the installed CATIA `B32\win_b64\code\bin` tree for
-the string `SurfacicReps` returns only `CATPolyhedralVisuOperators.dll`, `CATTlgUIUtility.dll`,
-`CATVisDmuStream.dll`, `CATVisualization.dll`, and `CATViz.dll`. No geometry or B-rep module
-references it. `CATGeometricObjectsCGM.dll`, `CATGeometricObjects.dll`,
-`CATTopologicalObjects.dll`, and `CATGeometricObjectsCATIA.dll` do not contain the string.
+The parsing problem is that surface records are interleaved with curve records. A contiguous parse
+from offset 17 stops at the first curve record, so the reader saw only 4, 1, 1, 24, and 2 surfaces
+for `4784`, `4876`, `4876_1`, `Pedal_Body`, and `Reservoir`. Scanning for the `00 33 <kind>` marker
+and validating each record recovers the full pool: 270, 714, 714, 314, and 56 records. Every marker
+parses, every sign byte is `+1` or `-1`, every bound is finite, and no record overlaps another. The
+same scan returns exactly the face count for all 22 passing parts, including
+`Brake_bias_90_degree_coupler`, where a naive marker count over-counts by one and the strict filter
+removes the false positive.
 
-So `SurfacicReps` is the visualization representation. For simple parts the visualization patch
-count happens to equal the face count, which is why 22 parts decode. For parts whose visualization
-merges or splits patches relative to the B-rep faces, the counts diverge and the reader rejects the
-part.
+The remaining problem is that the five failing parts have fewer surfaces than faces, so several
+faces share one surface. The face-to-surface map is not a plain array. No 71-value window in
+`Reservoir` `MainDataStream` or `SurfacicReps` is a surjective map onto the 56 surface indices, in
+`u8`, `u16` little-endian, or `u16` big-endian form. The surface record header is a carrier byte
+count (2 for planes, 26 for cylinders and cones, 30 for spheres and torus), not a face index. The
+trim records carry no surface index. The FBB face rows are byte-identical, so they cannot carry one
+either.
 
-The B-rep surface table must therefore live in the B-rep `MainDataStream` (or another B-rep
-stream), not in `SurfacicReps`. The region `12376..18807` of `Reservoir` `MainDataStream` is not a
-length-prefixed record table: reading it as `<u8 type> <u8 flag> <u32 len> <payload>` yields a
-2850-byte first record and then a zero-length record, and the bytes at `15232` are high-entropy
-bit-packed data, not a record header.
+The vendor symbols are consistent with the stream being consumed by the visualization pipeline:
+`CATViz.dll` exports `CATSurfacicRep::CATSurfacicRep`, `CATRepMapping::DecodeSurfacicRep`,
+`CAT3DRep::UnStream`, and `CATVizSurfacicRepProxy`, and `CATViz.dll` and `PLNExtractCGR.dll` are
+the only installed modules that reference the literal `MainDataStream` string. That does not make
+the stream visualization-only; the analytic surface records and the exact face-count match show it
+carries the B-rep surface data.
+
+The `SurfacicReps` header field at offset 14 is not the first curve-row offset. Measured values are
+403 (`Copper_Washer`, first curve 404), 459 (`Washer_8`, first curve 404), 1097 (`Bolt_M5x40`,
+first curve 1594), and 2964 (`Reservoir`, first curve 4539). It is not a byte offset into the curve
+rows, and it is not the end of the surface-record region.
+
+The region `12376..18807` of `Reservoir` `MainDataStream` is not a length-prefixed record table:
+reading it as `<u8 type> <u8 flag> <u32 len> <payload>` yields a 2850-byte first record and then a
+zero-length record, and the bytes at `15232` are high-entropy bit-packed data, not a record header.
+Only `Reservoir` contains a `42 ff` record at all, so it is not a shared B-rep surface table.
 
 ## Evidence
 

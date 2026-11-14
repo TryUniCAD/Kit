@@ -4,7 +4,12 @@ from dataclasses import dataclass
 import math
 
 from convert.adapters.catia.Container import CfvTwoArchive, CfvTwoFolder, CfvTwoStream
-from convert.adapters.catia.NativeSurface import MakeSurf, ParseSurf, SurfaceRec
+from convert.adapters.catia.NativeSurface import (
+    KSurfaceKinds,
+    MakeSurf,
+    ParseSurf,
+    SurfaceRec,
+)
 from convert.adapters.catia.NativeTopology import (
     Boundary,
     EdgeRec,
@@ -88,14 +93,27 @@ def Largest(Folder: CfvTwoFolder, NameValue: str) -> CfvTwoStream:
 # this definition exists because focused behavior needs one stable owner
 def ParseSurfaces(SourceData: bytes) -> list[SurfaceRec]:
     Surfaces: list[SurfaceRec] = []
-    Offset = 17
-    while Offset + 5 <= len(SourceData):
+    End = -1
+    for Marker in range(len(SourceData) - 5):
+        if SourceData[Marker : Marker + 2] != b"\x00\x33":
+            continue
+        if SourceData[Marker + 2] not in KSurfaceKinds:
+            continue
+        Offset = Marker - 2
+        if Offset < End:
+            continue
         try:
             SurfaceValue, NextOffset = ParseSurf(SourceData, Offset)
         except (IndexError, ValueError):
-            break
+            continue
+        if SurfaceValue.sign not in (1, -1):
+            continue
+        if not all(
+            math.isfinite(Value) and abs(Value) < 1e6 for Value in SurfaceValue.bounds
+        ):
+            continue
         Surfaces.append(SurfaceValue)
-        Offset = NextOffset
+        End = NextOffset
     return Surfaces
 
 
@@ -112,7 +130,10 @@ def ParseBrep(Archive: CfvTwoArchive) -> BrepData:
     Roster = ParseRoster(SurfData)
     FbbOffset, FaceCount = FindFbb(MainData)
     if len(Surfaces) != FaceCount:
-        raise ValueError("surface count does not match the face count")
+        raise ValueError(
+            "surface count does not match the face count ("
+            + f"{len(Surfaces)} surfaces, {FaceCount} faces)"
+        )
     EdgeOffset = FbbOffset + 8 * FaceCount
     for Width in (1, 2, 3):
         try:

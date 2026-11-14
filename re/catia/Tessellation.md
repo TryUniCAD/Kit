@@ -270,6 +270,20 @@ a permutation of the six face indices.
 The trailer differences are 4, 27, 19, 4. The 27 matches the curve-row length, but 4 and 19 do
 not, so the trailer is not a simple stride into the curve rows.
 
+## Roster offsets are not curve-row starts
+
+The 88-entry roster at `SurfacicReps` 7371..7987 was tested as a pointer table into the curve
+rows. It is not.
+
+`Copper_Washer.CATPart` has eight roster entries with offsets 410, 419, 429, 439, 455, 466, 482,
+489. The curve rows start at 404, 431, 458, 485, 512, 539, 566, 593. Every roster offset falls
+inside a curve row, not at its start, and the deltas are 6, 15, 25, 8, 24, 8, 24, 4. The deltas
+are not constant and do not match any field boundary in the 27-byte curve row.
+
+The roster is the vertex roster (eight entries for eight vertices), so its offsets should point
+into the vertex table in `MainDataStream`, not into `SurfacicReps`. The vertex table for
+`Copper_Washer` starts at 1500, so the roster offsets 410..489 do not address it either.
+
 ## Open work
 
 1. Locate the shared tessellation vertex table and its coordinate encoding.

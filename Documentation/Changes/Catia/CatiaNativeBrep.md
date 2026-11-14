@@ -44,6 +44,10 @@ result = CatiaAdapter().write(
 ## Limits
 
 - The reader decodes 22 of 27 corpus parts. Five parts use a shared surface pool or an unsupported layout.
+- Surface records in `SurfacicReps` are interleaved with curve records. The reader scans for the
+  `00 33 <kind>` marker and validates each record instead of parsing contiguously, so the full
+  surface pool is recovered for every part. The five failing parts still fail because they have
+  fewer surfaces than faces and the face-to-surface map is not decoded.
 - The reader reconstructs plane and cylinder geometry from bounds and trim vectors.
 - The reader does not decode feature records, sketches, dimensions,
   constraints, or relations.
@@ -56,6 +60,9 @@ result = CatiaAdapter().write(
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
 - `re/catia/tooling/BuildModel.py` validates every decoded model with zero errors.
+- The marker scan returns exactly the face count for all 22 passing parts and the full surface pool
+  for the five failing parts: 270, 714, 714, 314, and 56 records for `4784`, `4876`, `4876_1`,
+  `Pedal_Body`, and `Reservoir`.
 - A six-face box emitted by the writer reads back as six faces, twelve edges, and eight vertices
   with zero validation errors.
 - `tests/convert/catia/CatiaNativeTests.py` covers the corpus reader and the writer round trip.
