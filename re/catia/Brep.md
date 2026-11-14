@@ -808,6 +808,34 @@ not decoded: the two semicircles of each circle carry 9 and 10 handles (outer) a
 (inner), which is not consistent with one uniform spacing around the full circle. So the placement
 is a reconstruction from the topology, not a decode of the stored tessellation.
 
+## The intersection-arc placement generalizes to plane-cone
+
+The 2-face handle groups fall into nine surface-kind pairs across the corpus. Counting groups and
+the handles in them:
+
+| Kind pair | Groups | Handles | Placed on a circle |
+| --- | ---: | ---: | ---: |
+| plane-cylinder | 190 | 1249 | 1249 |
+| plane-cone | 191 | 555 | 423 |
+| plane-torus | 35 | 259 | 0 |
+| cylinder-cylinder | 45 | 112 | 0 |
+| cylinder-torus | 10 | 74 | 0 |
+| cone-cone | 32 | 72 | 0 |
+| torus-torus | 20 | 61 | 0 |
+| plane-sphere | 11 | 45 | 0 |
+| sphere-sphere | 6 | 10 | 0 |
+
+A plane-cone intersection is a circle exactly when the plane is perpendicular to the cone axis. The
+cone carrier gives the origin, the axis, and the half-angle, so the circle radius is
+`distance(origin, plane) * tan(half_angle)` and the center is the cone origin projected onto the
+plane. That covers 423 of the 555 plane-cone handles. The other 132 are oblique sections (ellipse,
+parabola, hyperbola) and are not circles, so they stay on the vertex-table fallback rather than being
+forced onto a circle.
+
+The placement invariant is checkable and holds exactly. For every handle, the placed point must
+satisfy every surface of the faces that use it: on the plane, and at the cylinder or cone radius.
+Across the 22 decoded parts that is 4682 of 4682 handles on-surface, with zero exceptions.
+
 ## The trim handles are not point indices
 
 The trim handles are dense: `Reservoir` uses every value in `0..1430`, and `Copper_Washer` uses

@@ -219,30 +219,44 @@ def Satisfies(
 def IntersectionCircle(
     BrepValue: BrepData, Pair: tuple[int, int]
 ) -> tuple[tuple[float, float, float], tuple[float, float, float], float] | None:
-    for PlaneIndex, CylinderIndex in (Pair, (Pair[1], Pair[0])):
+    for PlaneIndex, OtherIndex in (Pair, (Pair[1], Pair[0])):
         PlaneValue = BrepValue.surfaces[PlaneIndex]
-        CylinderValue = BrepValue.surfaces[CylinderIndex]
-        if PlaneValue.kind != 0x32 or CylinderValue.kind != 0x33:
+        OtherValue = BrepValue.surfaces[OtherIndex]
+        if PlaneValue.kind != 0x32:
             continue
         Normal = BrepValue.trims[PlaneIndex].vector
-        if Normal is None or len(CylinderValue.params) < 6:
+        if Normal is None or len(OtherValue.params) < 6:
             continue
         Center = (
             PlaneValue.bounds[0],
             PlaneValue.bounds[1],
             PlaneValue.bounds[2],
         )
-        Params = CylinderValue.params
+        Params = OtherValue.params
         AxisValue = AxisFromCarrier(Params)
-        CylinderCenter = (Params[0], Params[1], Params[2])
-        Radius = abs(Params[5])
-        Offset = sum(
-            Normal[Axis] * (CylinderCenter[Axis] - Center[Axis]) for Axis in range(3)
-        )
+        Origin = (Params[0], Params[1], Params[2])
+        if OtherValue.kind == 0x33:
+            Radius = abs(Params[5])
+        elif OtherValue.kind == 0x34:
+            HalfAngle = abs(Params[5])
+            if not 0.0 < HalfAngle < math.pi / 2.0:
+                continue
+            Alignment = abs(sum(Normal[Axis] * AxisValue[Axis] for Axis in range(3)))
+            if abs(Alignment - 1.0) > 1e-3:
+                continue
+            Distance = abs(
+                sum(Normal[Axis] * (Origin[Axis] - Center[Axis]) for Axis in range(3))
+            )
+            Radius = Distance * math.tan(HalfAngle)
+        else:
+            continue
+        if not math.isfinite(Radius) or Radius <= 0.0:
+            continue
+        Offset = sum(Normal[Axis] * (Origin[Axis] - Center[Axis]) for Axis in range(3))
         CircleCenter = (
-            CylinderCenter[0] - Offset * Normal[0],
-            CylinderCenter[1] - Offset * Normal[1],
-            CylinderCenter[2] - Offset * Normal[2],
+            Origin[0] - Offset * Normal[0],
+            Origin[1] - Offset * Normal[1],
+            Origin[2] - Offset * Normal[2],
         )
         return CircleCenter, AxisValue, Radius
     return None

@@ -14,12 +14,18 @@ part (`Reservoir` has 1431 handles and 88 vertices, `Copper_Washer` has 76 handl
 and the coordinate region is a sequence of float runs separated by record markers. The reader places
 each handle by the corner structure. The arity-2 handles are assigned distinct vertex-table points
 by a bipartite match over the plane and cylinder constraints. The 2-face handles are placed on the
-intersection curve of their two faces: for a plane-cylinder pair that is a circle, and the handles
+intersection curve of their two faces: for a plane-cylinder pair that is a circle, and for a
+plane-cone pair whose plane is perpendicular to the cone axis that is also a circle, and the handles
 are spread at equal angles along the arc between the two endpoint vertices. The 1-face handles take
 the nearest satisfying vertex. That replaces the earlier `handle % len(vertices)` placeholder and
 makes the planar faces coplanar for the simple parts. It is still a structural approximation, not
 the native B-rep topology or geometry, because the angular positions are assumed equal-spaced, not
 the stored tessellation.
+
+Every placed handle satisfies all the surfaces of the faces that use it. Across the 22 decoded parts
+that is 4682 of 4682 handles on-surface, with zero exceptions. The plane-cone case covers 423 of the
+555 plane-cone handles; the other 132 are oblique sections (ellipse, parabola, hyperbola) and are
+left on the vertex-table fallback rather than being forced onto a circle.
 
 One partial map is recovered: the handles that appear in arity-2 edges are the B-rep vertices. This
 is exact for the simple parts (`Copper_Washer`, the washers, `Banjo`, the nuts, and
@@ -117,10 +123,12 @@ result = CatiaAdapter().write(
   vertices, `Copper_Washer` 76 handles and 8 vertices), so the handles are not vertex indices. The
   reader now places each handle by the corner structure: arity-2 handles get distinct vertex-table
   points by a bipartite match, 2-face handles are spread at equal angles along the intersection arc
-  of their two faces, and 1-face handles take the nearest satisfying vertex. That makes the planar
-  faces coplanar for the simple parts (deviation drops from 1.0-34.5 to 0.0-0.0015) and puts all 76
-  `Copper_Washer` vertices on the washer's circles, but the angular positions are assumed
-  equal-spaced, not the stored tessellation. The coordinate region is a sequence of float runs
+  of their two faces (plane-cylinder, and plane-cone when the plane is perpendicular to the cone
+  axis), and 1-face handles take the nearest satisfying vertex. That makes the planar faces coplanar
+  for the simple parts (deviation drops from 1.0-34.5 to 0.0-0.0015) and puts all 76 `Copper_Washer`
+  vertices on the washer's circles, and all 4682 handles across the 22 decoded parts satisfy every
+  surface of the faces that use them. The angular positions are still assumed equal-spaced, not the
+  stored tessellation. The coordinate region is a sequence of float runs
   separated by 1- to 8-byte record headers. The `Reservoir` five-float group is `(x, y1, z, y2, z)`
   with `z1 == z2`, but the `Copper_Washer` region does not follow that layout, and no run of plain
   three-float triples at the washer's radii exists anywhere in the stream, so the tessellation

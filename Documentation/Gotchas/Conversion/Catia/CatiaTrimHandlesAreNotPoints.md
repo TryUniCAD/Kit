@@ -32,11 +32,13 @@ units against a trim vector of `(-1, 0, 0)`.
 
 Do not treat the decoded vertex positions as the file's geometry. The reader places each handle by
 the corner structure: arity-2 handles get distinct vertex-table points by a bipartite match, 2-face
-handles are spread at equal angles along the intersection arc of their two faces, and 1-face handles
-take the nearest satisfying vertex. That makes the planar faces coplanar for the simple parts
-(deviation drops from 1.0-34.5 to 0.0-0.0015) and puts all 76 `Copper_Washer` vertices on the
-washer's circles, but the angular positions are assumed equal-spaced, not the stored tessellation.
-Recovering the real positions needs the per-face loop split and the record markers in the point
+handles are spread at equal angles along the intersection arc of their two faces (plane-cylinder, and
+plane-cone when the plane is perpendicular to the cone axis), and 1-face handles take the nearest
+satisfying vertex. That makes the planar faces coplanar for the simple parts (deviation drops from
+1.0-34.5 to 0.0-0.0015), puts all 76 `Copper_Washer` vertices on the washer's circles, and leaves all
+4682 handles across the 22 decoded parts satisfying every surface of the faces that use them. The
+angular positions are still assumed equal-spaced, not the stored tessellation. Recovering the real
+positions needs the per-face loop split and the record markers in the point
 table.
 
 ## Evidence
