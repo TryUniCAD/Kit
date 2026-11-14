@@ -486,6 +486,21 @@ difference, then the class identifier, then calls the object's own `Stream` meth
 scalars, the three arrays, the face count, and the face-reference loop. So the shell record is
 `tag difference + class id + shell fields`, and the class id is not `30 04 04`.
 
+### The class identifier is a plain u32
+
+`CATCGMStreamImpl::ReadObject` at `0x71b40` reads the tag with
+`ReadTagDifferenceAsLONG64_Scalable` and the class identifier with `CATMathStreamImpl::ReadULong`
+at `0x1801e3c48`, a plain `u32`. So the object header is a scalable tag difference followed by a
+four-byte class identifier.
+
+The body header `30 04 04 fd ff 00 00 00 01 00` does not split cleanly under that rule: `0x30` has
+bit 0 clear and `0x30 >> 2 = 12`, outside the valid `1..8` length range, so the first byte is not a
+scalable tag difference. The same holds for the face row `30 04 04 ff ff e1 e1 e1`. So the first
+byte of both records is a separate type tag, and the tag difference and class identifier follow it.
+
+The shell's class identifier is therefore not recoverable from the two `30 04 04` prefixes. It has
+to be read from the class table that `ReadObject` consults after reading the `u32`.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
