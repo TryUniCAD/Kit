@@ -401,6 +401,28 @@ that is not yet derived, so the encoder refuses them.
 No value appears anywhere in the container as a binary64, a shifted binary64, a
 float32, or UTF-16 text.
 
+### Class insertion is rejected on its own
+
+Bisecting the template-free attempt shows the class lane is the failure point,
+not the occupancy lane:
+
+```text
+three classes appended, counts and reference updated, middle untouched  -> 580044
+three classes inserted at index 8, same                                 -> 580044
+same plus every middle field pointing into the middle shifted by the
+  class-lane growth (+143 bytes, 8 fields patched)                      -> 580044
+```
+
+So adding a class cannot be done by concatenating a declaration and fixing
+offsets. The declaration tails carry base-class and reference tokens
+(`81 f4 11 ...` for `UGS::EXP_expression`, `65 0f ...` for
+`UGS::ModlUtils::CachedWaveLinkData`, `81 90 0e ...` for `UGS::EXP_generic`),
+and those tokens only decode against the class ordering that produced them.
+
+That ordering is part of the class registry contract, so an authored schema has
+to be self-consistent end to end: ordinals in the tails, ordinals in the middle
+index tables, and the occupancy lane all have to agree.
+
 ### The lane is regenerable from four parameters
 
 The occupancy lane is fully determined by the occupied slot index, the object
