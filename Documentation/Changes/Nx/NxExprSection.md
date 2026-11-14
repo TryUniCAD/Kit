@@ -102,8 +102,25 @@ var_two   n=6   30 slots  11 value slots   2*6-1 = 11
 ```
 
 with the remainder being plain slots, `3n + 1` of them (`10` for `dim40`, `19` for
-`var_two`). Two points are not a derivation, so this is recorded rather than encoded, but it
-is the first count rule that fits both large fixtures.
+`var_two`). A third fixture settles what `n` counts. `var_e4.prt` is a block plus one spare expression
+(4 expressions, 3 dimensions):
+
+```text
+var_e4   objects 25   slots 15   value slots 5   positions 8, 11, 12, 13, 14
+```
+
+`6 + 6n` would predict 30 objects and `2n - 1` would predict 7 value slots; the measured
+figures are 25 and 5. So the rules count **driving dimensions**, not expressions:
+
+```text
+objects      6 + 6d      d dimensions    3 -> 24, 6 -> 42
+value slots  2d - 1                       3 -> 5,  6 -> 11
+plain slots  3d + 1                       3 -> 10, 6 -> 19
+```
+
+and a spare expression that drives nothing adds a single object rather than six. The value
+slot positions are also identical across every 3-dimension part measured: `dim40`,
+`dim50`, `dim60`, `const_box60` and `var_e4` all place them at 8, 11, 12, 13 and 14.
 
 `dim40` already refutes value sharing as the explanation for the count: its three
 dimensions are all distinct (`40`, `30`, `20`) and it still carries five value slots, holding
