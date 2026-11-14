@@ -61,7 +61,7 @@ def inspect(tag, label, folder, stall, poke=False):
     outcome = guarded('InspectUploads.py', '--watch', str(path), '--stall', str(stall), '--events', str(VARIANTS / ('Events' + tag + '.json')), '--label', label)
     report = json.loads(path.read_text()) if path.exists() else {}
     row = report.get('uploads', {}).get(label)
-    return {'label': label, 'guard': {key: outcome.get(key) for key in ('status', 'stage', 'age', 'dialog', 'wall_seconds')}, 'restart': (outcome.get('restart') or {}).get('seconds'), 'result': summary(row) if row is not None else None, 'stage': report.get('stage')}
+    return {'label': label, 'guard': {key: outcome.get(key) for key in ('status', 'stage', 'age', 'dialog', 'windows', 'wall_seconds')}, 'restart': (outcome.get('restart') or {}).get('seconds'), 'result': summary(row) if row is not None else None, 'stage': report.get('stage')}
 
 
 def main():

@@ -1,5 +1,5 @@
 // Run one Fusion script under the shared oracle lock, and restart Fusion under that same lock when a watched
-// drawing open stalls, shows the "Fusion Drawings Message" dialog or Fusion exits.
+// drawing open stalls, shows the "Fusion Drawings Message" or "Fusion" message dialog, or Fusion exits.
 //
 // Usage: node RunGuarded.mjs <script.py> [--timeout S] [--watch <checkpoint.json>] [--stage <text>]
 //                            [--stall S] [--events <events.json>] [--label <name>]
@@ -73,7 +73,15 @@ function alive(pid) {
 function dialogText() {
   const main = fusionPids();
   if (!main.length) return null;
-  const script = `tell application "System Events" to tell (first process whose unix id is ${main[0]}) to get value of static texts of (every window whose name is "Fusion Drawings Message")`;
+  const script = `tell application "System Events" to tell (first process whose unix id is ${main[0]}) to get value of static texts of (every window whose name is "Fusion Drawings Message" or name is "Fusion")`;
+  const out = spawnSync('osascript', ['-e', script], { encoding: 'utf8', timeout: 20000 }).stdout || '';
+  return out.trim() || null;
+}
+
+function windowTitles() {
+  const main = fusionPids();
+  if (!main.length) return null;
+  const script = `tell application "System Events" to tell (first process whose unix id is ${main[0]}) to get title of every window`;
   const out = spawnSync('osascript', ['-e', script], { encoding: 'utf8', timeout: 20000 }).stdout || '';
   return out.trim() || null;
 }
@@ -215,6 +223,7 @@ try {
       outcome.stage = watched.stage;
       outcome.age = Math.round(watched.age);
       outcome.dialog = text;
+      if (!text) outcome.windows = windowTitles();
       outcome.restart = await restartFusion(outcome.status);
       break;
     }

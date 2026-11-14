@@ -32,7 +32,7 @@ It reads input and writes no vendor bytes, so it is not donor data.
 | Drawing view body path                   | Fixed: ids come from the view source                                                                    |
 | Drawing view source bytes and body key   | Fixed: source id and tail from the draft; body bits proven constant in 70 keys of 5 saves of 3 designs  |
 | Drawing view state mark                  | Fixed: proven constant after each body's bounds in 9 view states of 4 saves of 3 designs                |
-| Drawing sheet defaults                   | Open in part: 640 of 666 rows explained; 26 fields of unknown meaning keep one value in every save      |
+| Drawing sheet defaults                   | Fixed: 640 of 666 rows explained; 26 more tested in Fusion: 10 reject some values, 16 accept all tried  |
 | Feature defaults                         | Fixed: schema type defaults only, with 73 earlier and 36 new cases accepted in Fusion                   |
 | Drawing viewport size                    | Fixed: the viewport shows the whole paper                                                               |
 | Drawing auto-created layout mark         | Fixed: removed                                                                                          |
@@ -46,7 +46,11 @@ It reads input and writes no vendor bytes, so it is not donor data.
 
 The [sheet default reasons](../../../../re/Fusion/Reconstruction/Drawings/SheetDefaultReasons.json) give every row of `SheetDefaults.json` a basis and a note.
 The [drawing codec entry](../Drawing/FusionDrawingCodec.md) sums them up.
-Twenty-six fields have no known meaning, so the sheet defaults item stays open until an experiment shows why each value cannot change.
+Twenty-six rows have no known meaning, so each was changed in Fusion.
+In ten rows, some other values make Fusion report damage or stop its open. Kit must write a value Fusion accepts, and it writes the value of every Fusion save.
+In sixteen rows, every value tried opens. Fusion's value is a free choice there, and Kit keeps it to match every Fusion save.
+The [graft report](../../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundUnknowns.json) records each outcome.
+The meaning of these fields is still unknown.
 
 [Material families](../Materials/FusionMaterialFamilies.md) records the material fix.
 The writer picks every family from the class and values it is given, using only schema vocabulary.

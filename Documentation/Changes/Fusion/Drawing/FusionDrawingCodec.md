@@ -119,12 +119,28 @@ So the stream holds no primitives.
 [`SheetDefaultReasons.json`](../../../../re/Fusion/Reconstruction/Drawings/SheetDefaultReasons.json) gives each of the 666 default rows a basis and a note.
 It also counts the instances that hold the value in three Fusion-made drawings.
 Of the rows, 640 have a known meaning: 355 from public DWG and DXF references, 129 empty values, 74 identity values, 31 versions, 31 names from Fusion's drawing schema, 7 template settings and 13 neutral Kit choices.
-The other 26 have no known meaning.
+The other 26 rows have no known meaning.
 They are words and bits of the hole reference data, the inventor subentity manager, the hatch manager and the geometry dependency.
 They also include bit 3 of the dimension flags, the dimension bit after the measurement, one MTEXT bit and one drawing view real.
 Each keeps one value in every instance Kit has read.
+
+Each of these 26 rows was tested in Fusion 2706.1.17.
+A test changes the field in the A3 control drawing and opens the drawing in Fusion.
+[`GraftRoundUnknowns.json`](../../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundUnknowns.json) records the 45 variants and their outcomes.
+The reasons file gives these rows the `tested` basis and lists each value Fusion opened or rejected.
+
+- In 10 rows, Fusion rejects some other values. It reports the drawing as damaged, or its open does not finish within 300 seconds.
+  - The inventor subentity manager word opens with 64, 65, 66, 96 and 127. Fusion reports damage with 1, 2, 8, 16, 32, 48, 63, 128, 192, 256 and 1000. Its open with 0 does not finish. So the tested values that open are exactly those with bit 6 set and no higher bit.
+  - The three hole reference data words reject 0. The second word also rejects 2.
+  - The three hole reference data bits reject 1. So do the third and fifth hatch manager words and the MTEXT bit.
+- In 16 rows, Fusion opened the drawing with another value. It showed the same views and dimension. Kit keeps the value of every Fusion save.
+  - These rows are bit 3 of the dimension flags, the dimension bit, and the subentity manager bit and raw word.
+  - They are also the geometry dependency word and bit, the second and fourth hatch manager words, the fifth reference data text and the drawing view real.
+
+The dimension rows were tested on the linear dimension, because all four dimension kinds share this common data.
 The hole reference data has only one instance in the three drawings, so its evidence is weakest.
 The diameter and radius dimension rows have no instance in the three drawings.
+The tests show which values Fusion accepts, but not what the fields mean.
 
 Fusion-saved drawings differ in the component colour, so it is per document and not a format constant.
 

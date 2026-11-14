@@ -4,8 +4,10 @@ Each row gets a basis and a note. The basis says why Kit may write the value:
 spec (a public DWG specification defines it), empty (the field's none, off or null
 state), identity (a unit scale, the world normal or the origin), version (a record or
 class version), vocabulary (a name in Fusion's drawing schema), template (a setting of
-the ISO drawing template), choice (a neutral value Kit picks), or observed (no meaning
-is known; the value is only the same in every instance Kit has read).
+the ISO drawing template), choice (a neutral value Kit picks), tested (Fusion was asked
+in object-level grafts; the note lists the values it opened, reported as damaged, or
+stopped answering on), or observed (no meaning is known; the value is only the same in
+every instance Kit has read).
 
 The evidence columns count the instances of each class in the given Fusion drawings
 and how many hold the default. Only counts and SHA-256 digests are written, never
@@ -14,6 +16,7 @@ values or names from the drawings.
 
 import argparse
 import collections
+import functools
 import hashlib
 import json
 import sys
@@ -28,6 +31,9 @@ import GenerateDefaults  # noqa: E402
 
 ROOT = HERE.parents[4]
 DEFAULTS = ROOT / 'src/convert/formats/Fusion/DrawingCodec/Dwg/Author/Standard/SheetDefaults.json'
+GRAFTS = HERE.parent / 'Rules' / 'GraftRoundUnknowns.json'
+DIMENSIONS = ('DIMENSION_ALIGNED', 'DIMENSION_DIAMETER', 'DIMENSION_LINEAR', 'DIMENSION_RADIUS')
+OUTCOMES = (('opened', 'Fusion opens the drawing with'), ('damaged', 'Fusion reports the drawing as damaged with'), ('stalled', 'Fusion stops answering while it opens the drawing with'))
 ODA = 'ODA Open Design Specification for .dwg files'
 LIBRE = 'LibreDWG'
 
@@ -235,7 +241,69 @@ ASSOC = {
 ASSOC_REF_FLAGS = {('ACDBREFERENCEDATA', 'FlagThree'): ('observed', 'Reference data bit; 0 in every instance')}
 
 
+def spoken(value):
+    return json.dumps(value) if isinstance(value, str) else str(value)
+
+
+def ordered(item):
+    try:
+        return (0, float(item[0]), item[0])
+    except ValueError:
+        return (1, 0.0, item[0])
+
+
+@functools.cache
+def grafted():
+    if not GRAFTS.exists():
+        return {}
+    record = json.loads(GRAFTS.read_text())
+    found = collections.defaultdict(lambda: collections.defaultdict(dict))
+    for label, graft in record['grafts'].items():
+        runs = [run['outcome'] for run in graft['runs']]
+        if not runs:
+            continue
+        outcome = 'damaged' if 'damaged' in runs else 'opened' if 'opened' in runs else 'stalled'
+        edits = graft['edits']
+        if not edits:
+            continue
+        keys = {(edit['class'], edit['field']) for edit in edits}
+        if outcome != 'opened' and len(keys) > 1:
+            continue
+        for edit in edits:
+            cell = found[(edit['class'], edit['field'])]
+            cell['opened'].setdefault(spoken(edit['old']), 'Y0Base')
+            cell[outcome].setdefault(spoken(edit['new']), label)
+    return found
+
+
+def tested(class_name, field, value, known):
+    key = (class_name, field)
+    shared = class_name in DIMENSIONS and key not in grafted()
+    if shared:
+        key = ('DIMENSION_LINEAR', field)
+    cell = grafted().get(key)
+    if not cell or len(cell) == 1 and set(cell['opened']) == {spoken(value)}:
+        return None
+    parts = []
+    for outcome, words in OUTCOMES:
+        if cell.get(outcome):
+            values = ', '.join(f'{shown} ({label})' for shown, label in sorted(cell[outcome].items(), key=ordered))
+            parts.append(f'{words} {values}')
+    prefix = known[1].split('; ')[0].rstrip('.') + '. '
+    note = prefix + '; '.join(parts) + f'. Kit writes {spoken(value)}, the value of every Fusion save'
+    if shared:
+        note += '. The field is common dimension data; the graft changed it on DIMENSION_LINEAR'
+    return ('tested', note)
+
+
 def reason(class_name, field, value):
+    known = described(class_name, field)
+    if known[0] == 'observed':
+        return tested(class_name, field, value, known) or known
+    return known
+
+
+def described(class_name, field):
     if (class_name, field) in ASSOC_REF_FLAGS:
         return ASSOC_REF_FLAGS[(class_name, field)]
     if class_name == 'LAYOUT' and field == 'PlotFlags':
