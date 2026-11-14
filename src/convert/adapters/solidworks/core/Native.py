@@ -2404,6 +2404,8 @@ def IsTriCandidate(AuthoredObjs: tuple[_WriteObject, ...], DocData: CadDoc) -> b
     if not any((ItemData.class_name == "moExtrusion_c" for ItemData in AuthoredObjs)):
         return False
     Matches = tuple(SketchData for SketchData in DocData.sketches if IsPolySketch(SketchData))
+    if not Matches:
+        return False
     if any(len(SketchData.entities) == 3 for SketchData in Matches):
         return True
     return len(AuthoredObjs) == 2 and len(DocData.sketches) == 1
