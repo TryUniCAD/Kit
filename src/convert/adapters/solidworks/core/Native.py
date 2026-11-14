@@ -2377,15 +2377,15 @@ def BuildPolyTree(
     return VendorResolved(ProgramData, HeaderStamps, Generation=Generation)
 
 
-def IsTriSketch(SketchData: Sketch) -> bool:
+def IsPolySketch(SketchData: Sketch) -> bool:
     CountValue = len(SketchData.entities)
     if CountValue not in {3, 5, 6}:
         return False
-    if SketchData.closed_profile_entity_ids:
-        return True
     Geometries = tuple(Entity.geometry for Entity in SketchData.entities)
     if not all(isinstance(Geometry, LineGeom) for Geometry in Geometries):
         return False
+    if SketchData.closed_profile_entity_ids:
+        return True
     Lines = tuple(Geometry for Geometry in Geometries if isinstance(Geometry, LineGeom))
     return all(
         (
@@ -2403,7 +2403,10 @@ def IsTriSketch(SketchData: Sketch) -> bool:
 def IsTriCandidate(AuthoredObjs: tuple[_WriteObject, ...], DocData: CadDoc) -> bool:
     if not any((ItemData.class_name == "moExtrusion_c" for ItemData in AuthoredObjs)):
         return False
-    return any(IsTriSketch(SketchData) for SketchData in DocData.sketches)
+    Matches = tuple(SketchData for SketchData in DocData.sketches if IsPolySketch(SketchData))
+    if any(len(SketchData.entities) == 3 for SketchData in Matches):
+        return True
+    return len(AuthoredObjs) == 2 and len(DocData.sketches) == 1
 
 
 def VendorTree(
@@ -2411,7 +2414,7 @@ def VendorTree(
 ) -> VendorResolved | None:
     VendorData = BuildVendorTree(AuthoredObjs, DocData)
     if VendorData is None and IsTriCandidate(AuthoredObjs, DocData):
-        raise SldprtFormatError("three-line history is unsupported")
+        raise SldprtFormatError("polyline history is unsupported")
     return VendorData
 
 

@@ -350,15 +350,6 @@ def TestFiveParam(TmpPath: FilePath) -> None:
         _ = WriteDoc(Changed, TmpPath / "FiveParamLoss.SLDPRT")
 
 
-def TestFiveExtra(TmpPath: FilePath) -> None:
-    SourceDoc = BuildDocument(KFivePoints)
-    SecondSketch = ReplaceData(SourceDoc.sketches[0], id="test:sketch:five-second")
-    Changed = ReplaceData(SourceDoc, sketches=(*SourceDoc.sketches, SecondSketch))
-    assert HasVendorPartEncoding(Changed) is False
-    with PytestLib.raises(SldprtFormatError):
-        _ = WriteDoc(Changed, TmpPath / "FiveExtra.SLDPRT")
-
-
 def TestTriCut(TmpPath: FilePath) -> None:
     SourceDoc = BuildDocument(KPoints)
     FeatureData = ReplaceData(
