@@ -387,6 +387,19 @@ The remaining problem is locating the header. The `Copper_Washer` region before 
 gives a count of `30075`, which is far too large for 76 handles, so the header is not at `199` or the
 count field is not a plain `Long` at that offset. The header offset is not yet pinned down.
 
+The call site does not resolve it either. There is no direct `callq` to `0x18009cf50` in any of the
+available DLLs, and no 8-byte VMA reference to it in any `.rdata` or vtable. The only reference is
+the 4-byte RVA `0x9cf50` in a dispatch table in `CATMathStream.dll` at file offset `0x13fbac`, among
+entries `0x8d720, 0x80010, 0x80020, 0x80030, 0x97af0, 0x80040, 0x80050, 0x80060, 0x9cf50, 0x87f20,
+0x9ab80, 0xa09a0, ...`. So the streamer is reached through an indirect dispatch, and the offset it
+passes is not visible as a static argument.
+
+The coordinates are also not in the global frame. A search of the whole `Copper_Washer` stream for
+float triples and double triples on the washer's circles (`x` in `{0, 1}`, radius 8 or 5) finds
+nothing: zero float triples and zero double triples. The stream has 46 doubles equal to 0.0 and no
+double equal to 1.0. So the stored coordinates, if present, are in a local frame or a different
+ordering, and the global-frame search does not find them.
+
 ## The two-bit block boundaries do not transfer between parts
 
 `Reservoir` has a 363-byte block at `206..569` whose two-bit decode is zero-dominated

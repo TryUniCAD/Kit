@@ -54,7 +54,11 @@ getters for vertex coordinates, UV, W, vectors, strip/fan/line indices, and isol
 read computes `count * 3` and passes it to `ReadFloat`, so the vertex coordinates are `count * 3`
 plain floats, preceded by a 23-byte header (UShort, 16-byte UUID, UChar, Long count) and a presence
 Boolean. The remaining problem is locating that header: a 23-byte header at `199` gives a count of
-`30075`, far too large for 76 handles, so the header offset is not yet pinned down.
+`30075`, far too large for 76 handles. The call site does not resolve it either: there is no direct
+`callq` to `0x18009cf50` and no 8-byte VMA reference, only a 4-byte RVA in a dispatch table at file
+offset `0x13fbac`, so the streamer is reached through an indirect dispatch. A whole-stream search for
+float and double triples on the washer's circles finds nothing, so the stored coordinates are in a
+local frame or a different ordering.
 
 The surface records are ordered by face only when the two counts match. For all 22 parts where the
 surface count equals the face count, the surface planarity sequence is identical to the face
