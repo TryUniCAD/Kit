@@ -32,7 +32,9 @@ application-usable, near-lossless, self-contained output.
 
 - the placement must be identity; a translation or rotation still declines native encoding
   because the recovered box program fixes the sketch to the model origin
-- only the principal default planes are allowed; a custom datum plane is rejected
+- only the exact principal default planes are allowed; a custom datum plane or a default
+  plane rotated about its normal is rejected so the authored frame is not replaced by
+  canonical axes
 - the B-rep must be the exact origin box; a translated or otherwise modified solid is
   rejected
 - the output is classified `native-metadata-with-kit-neutral` rather than `native-exact`
@@ -50,7 +52,9 @@ requires native preflight to accept it, writes it with `allow_carrier=False`, re
 vendor-loadable, application-usable, near-lossless, self-contained output, then decodes
 the emitted native model and requires a `(0, 0, 20, 30)` rectangle and a `10 mm` pad.
 `TestAddBoxNo` opens `AdditiveBox-0.21.2.FCStd`, requires native preflight to reject it,
-and requires the public writer to raise `ApplicationUsabilityError`.
+and requires the public writer to raise `ApplicationUsabilityError`. `TestBoxPlane` rotates
+the first principal plane of the 1.1.4 fixture about its normal and requires the same
+rejection.
 
 The fixtures are copied from the cadmpeg FreeCAD corpus under the Apache License 2.0; the
 attribution is in [the fixture notice](../../../re/solidworks/examples/FreeCAD/NOTICE.md).
