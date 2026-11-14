@@ -114,7 +114,8 @@ fields. Geometric doubles are metres; Kit converts them to millimetres.
 
 The production reader parses both envelopes, extracts the native stream map,
 decodes Parasolid geometry through the existing Kit reader, retains the exact
-native document, and exposes the native feature graph. The production writer
+native document, and exposes the native feature graph as one imported step. The
+production writer
 rebuilds the SPLMSSTR directory from parsed streams and supports equal-length
 native payload replacement. It refuses header-changing writes because the
 header checksum coverage is not yet recomputed.
@@ -122,3 +123,13 @@ header checksum coverage is not yet recomputed.
 It does not author a new NX part from a neutral model, does not emit new NX
 feature records, and does not project NX expressions into neutral parameters.
 Those are the remaining gaps to the full acceptance criterion.
+
+The reader refuses to claim parametric history: the feature step uses the
+`imported` kind, so capability inference does not report `parametric_history`.
+It does accept neutral edits away from the retained native graph: the writer
+compares a stored projection digest and raises when features, parameters,
+bodies, sketches, planes, or selections changed.
+
+Legacy compound parts keep attributes and the object model but return no B-rep
+and record `nx.legacy_geometry_unavailable`. Their payload streams are not
+decoded, so a write is refused instead of converting to a modern container.
