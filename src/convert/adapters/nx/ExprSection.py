@@ -33,6 +33,13 @@ def VersionBlock() -> bytes:
     )
 
 
+# a block part adds five property slots and one record for each of its expressions
+def ExprObjectCount(Expressions: int) -> int:
+    if Expressions < 0:
+        raise ValueError("NX expression count must not be negative")
+    return KObjects + 6 * Expressions
+
+
 # the expression section middle is a fixed layout of six objects
 def ExprMiddle(BaseOffset: int, Identity: bytes = KUnset) -> bytes:
     if len(Identity) != 7:
@@ -100,6 +107,7 @@ def Adopt(SectionBody: bytes, Middle: bytes) -> bytes:
 
 __all__ = [
     "Adopt",
+    "ExprObjectCount",
     "ExprMiddle",
     "KMiddleLength",
     "KObjects",

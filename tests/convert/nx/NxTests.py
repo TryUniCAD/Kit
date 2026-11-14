@@ -11,7 +11,11 @@ from convert.adapters.nx import NxAdapter, ProbeNx, ReadNx, WriteNx
 from convert.adapters.nx.ExprValue import DecodeValue, EncodeValue
 from convert.adapters.nx.PayloadBuild import ResizePayload
 from convert.adapters.nx.Construction import ConstructMiddle, ObjectCount, Record
-from convert.adapters.nx.ExprSection import ExprMiddle, KMiddleLength as KExprMiddle
+from convert.adapters.nx.ExprSection import (
+    ExprMiddle,
+    ExprObjectCount,
+    KMiddleLength as KExprMiddle,
+)
 from convert.adapters.nx.ObjectSection import (
     AttributeRecord,
     HeadRecord,
@@ -861,3 +865,15 @@ def TestNxValues() -> None:
     Shifted = bytearray(Frame)
     Shifted[0x14:0x18] = ValueWord(100.0)
     assert RewriteValues(bytes(Shifted))
+
+
+# a block part adds five property slots and one record for each expression
+def TestNxExprCount() -> None:
+    assert ExprObjectCount(0) == 6
+    assert ExprObjectCount(3) == 24
+    assert ExprObjectCount(6) == 42
+    try:
+        _ = ExprObjectCount(-1)
+    except ValueError:
+        return
+    raise AssertionError("expression inventory accepted a negative count")
