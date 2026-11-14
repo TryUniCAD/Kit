@@ -7716,7 +7716,7 @@ def FreeCadFeature(
 
 # this definition exists because focused behavior needs one stable owner
 def HasPadSchema(DocValue: CadDocument, Feature: FeatureStep) -> bool:
-    if DocValue.source.format_id.casefold() == "freecad.fcstd":
+    if DocValue.source.format_id.casefold() in {"freecad.fcstd", "solidworks.sldprt"}:
         return True
     NativeId = Feature.attributes.get("native_object_id")
     return isinstance(NativeId, int) and not isinstance(NativeId, bool)
