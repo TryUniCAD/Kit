@@ -15,6 +15,7 @@ from convert.adapters.nx.Payload import NxPayload
 from convert.adapters.nx.PayloadReader import ReadPayload
 from convert.adapters.nx.SplmReader import ReadSplm, SplmStreams
 from convert.geometry.Parasolid import DecodeBrepMut
+from interchange.records.RecordTopology import TopologyCounts
 from interchange import (
     Body as BodyRecord,
     BrepModel,
@@ -28,7 +29,6 @@ from interchange import (
     NativeFeatureDefinition,
     PayloadRole,
     Severity,
-    TopologyCounts,
     UnitSystem,
     frozen_mapping as FrozenMapping,
     infer_capabilities as InferCapabilities,
