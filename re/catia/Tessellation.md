@@ -284,12 +284,67 @@ The roster is the vertex roster (eight entries for eight vertices), so its offse
 into the vertex table in `MainDataStream`, not into `SurfacicReps`. The vertex table for
 `Copper_Washer` starts at 1500, so the roster offsets 410..489 do not address it either.
 
+## The float-run gaps are record headers
+
+The coordinate region is not one contiguous float array. It is a sequence of float runs separated
+by 1- to 8-byte headers. The headers carry a repeating shape.
+
+`Reservoir` runs and the header before each:
+
+| Run offset | Floats | Header |
+| ---: | ---: | --- |
+| 1941 | 128 | `00 00 20 a8` |
+| 2461 | 46 | `00 00 00 a8 00 00 38 42` |
+| 2653 | 908 | `00 00 00 27 00 00 3c 42` |
+| 6445 | 9 | `00 70 07 2c 00 00 c0 3f` |
+| 6489 | 124 | `00 98 07 2c 00 00 c0 3f` |
+| 6993 | 16 | `00 88 07 2c 00 00 c0 3f` |
+| 7065 | 126 | `00 c0 07 2c 00 00 c0 3f` |
+| 8253 | 121 | `00 ec 0c 2d 00 00 c0 3f` |
+
+The 8-byte headers end in a float: `00 00 c0 3f` is 1.5, `00 00 38 42` is 46.0, `00 00 3c 42` is
+47.0. The 4-byte prefix is not a count: it does not correlate with the run length, and its high byte
+is `0x2c` or `0x2d` in most headers.
+
+The header before the first large run is 386 bytes and carries the counts directly:
+
+```
+2c 10 00 00  4140   body 3 count
+ff ff 02 00 01
+ff 97 05 00 00  1431   handle count
+ff 97 05 00 00  1431   handle count
+00 00 00 00     0
+```
+
+The remaining 364 bytes are high-entropy. Decoding them with the ported double compactor from
+offset 0 with reference 0.0 produces values around `1e297`, so the block is not a compactor stream
+at that offset.
+
+## The coordinate table holds 1003 points, not 1431
+
+Parsing the region `569..12401` with the five-float group `(x, y1, z, y2, z)` and the three-float
+triple `(x, y, z)` yields 1003 points: 51 five-float groups and 901 triples, with no skipped bytes.
+The first points are `(-35.5, -0.5, 37.418)`, `(-35.5, 0.5, 37.418)`, `(-35.353, -0.854, 37.42)`,
+which are symmetric pairs on a plane at `z = 37.418`.
+
+The handle space is 1431 values, so the handles are not indices into this 1003-point table. The
+table cannot hold 1431 three-float points in 11832 bytes: that would be 8.27 bytes per point, below
+the 12-byte minimum.
+
+## The `42 ff` region is not connectivity
+
+`Reservoir` has one `42 ff` record at 12376: a `u32` count of 2850 followed by 2850 `u16` values.
+The values are not point indices. They span `0..65535` with 943 distinct values, and the first
+values are `0, 65179, 0, 65179, 0, 65179, 42368, 65284, ...`, a delta-like pattern rather than a
+triangle index list. Only 832 of 2850 values are at most 1002, the point count.
+
 ## Open work
 
 1. Locate the shared tessellation vertex table and its coordinate encoding.
 2. Decode the tessellation-to-B-rep edge linkage.
 3. Decode the face-to-surface reference for shared surface pools.
 4. Resolve the surface record trailer rule.
+5. Decode the 4-byte prefix in the run headers and the 364-byte high-entropy block.
 
 ## Evidence
 

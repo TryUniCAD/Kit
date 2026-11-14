@@ -60,7 +60,9 @@ result = CatiaAdapter().write(
   fewer surfaces than faces and the face-to-surface reuse map is not decoded.
 - The handle-to-point map is not decoded. The reader's vertex positions are a structural
   placeholder, so the decoded geometry is not the file's geometry even for the 22 parts that pass
-  validation.
+  validation. The coordinate region is a sequence of float runs separated by 1- to 8-byte record
+  headers, and it holds 1003 points for `Reservoir` against a 1431-value handle space, so the
+  handles are not indices into it.
 - The reader reconstructs plane and cylinder geometry from bounds and trim vectors.
 - The reader does not decode feature records, sketches, dimensions,
   constraints, or relations.
