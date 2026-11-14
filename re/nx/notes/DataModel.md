@@ -576,6 +576,59 @@ aligned authored body vs decoded body   3393 bytes each, 586 differing bytes
                                         VOLUME 0.0
 ```
 
+### Section 3 is generated from parameters
+
+`re/nx/tools/RootBuild.py` emits the section 3 middle from a counter and the
+seven byte anchor identity. One formula reproduces every fixture exactly:
+
+```text
+dim40.prt      counter 0x1e3  len 176  identical True
+const_box60    counter 0x1e3  len 176  identical True
+empty.prt      counter 0x1e3  len 176  identical True
+empty_expr     counter 0x1e8  len 176  identical True
+multi.prt      counter 0x1e3  len 176  identical True
+sweep.prt      counter 0x1e3  len 176  identical True
+```
+
+The layout, all from named pieces:
+
+```text
+0x00  02 02 02 01 01 01 01 01      seven flag bytes
+0x08  u32 counter                  document id high water mark
+0x0c  32 zero bytes
+0x2c  u32 counter + 49
+0x30  u32 counter + 76
+0x34  u32 2       0x38  u32 1        0x3c  u32 3
+0x40  03 01 <len+2> "NX 2506.9120 - External User Function" 00
+      08 "SYSTEM" 00   41 00   03 05 01 00   04 05 02 00
+      e0 6a f8 <7 byte identity>
+      fixed lane bytes and 01 01
+```
+
+The section header pointer is `header length + len(middle)`, which the generator
+computes from its own emitted body, and the anchor identity may be the unset
+constant `ff` times seven.
+
+Splicing that generated body, plus the authored geometry and a stubbed section 4,
+into a payload gives a part NX 2506 measures:
+
+```text
+gen_s3.prt  STATUS 0
+BODIES 1, FEATURES 1, EXPRESSIONS 3
+VOLUME 36000.0, AREA 7199.999999999999, MASS 0.28190304
+```
+
+Sections 1 and 0 are model dependent, not constant:
+
+```text
+section   body-less parts   one body part
+1         356 bytes, 17 classes, 8 refs    1247 bytes, 30 classes, 14 refs
+0         27032 bytes, 129 classes, 63 refs  28986 bytes, 154 classes, 79 refs
+```
+
+So they carry the construction and topology object graph and have to be built per
+model, which is the remaining work.
+
 ### A part with an authored feature section still measures
 
 `re/nx/tools/GeoAuthor.py` now stubs section 4 after splicing authored geometry,
