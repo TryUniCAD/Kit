@@ -12,7 +12,7 @@ Some source facades also preserve legacy aliases such as `StreamPrograms` alongs
 
 ## Workaround
 
-Do not rebuild unrelated catalogs when introducing one independently recovered family. Use `re/tooling/ProgramDecomposition/AddProgram.py`, which reads one `resolved/polyline/<family>/Program.py` and renders only its family registry and methods.
+Do not rebuild unrelated catalogs when introducing one independently recovered family. Use `re/tooling/ProgramDecomposition/AddProgram.py`, which reads one `resolved/polyline/<family>/Program.py` and renders only its family registry and methods. Its `--program-root` argument is required so an invocation cannot silently select the production adapter tree.
 
 Reuse an owner module only when all required owner key/value pairs are a subset of the existing catalog. Extra existing owner sites must remain untouched. Adding a missing module is fine; silently merging incompatible values is not.
 
