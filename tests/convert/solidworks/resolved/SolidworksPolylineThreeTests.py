@@ -35,6 +35,7 @@ from convert.adapters.solidworks.programs.resolved.polyline.threepoint.Registry 
 )
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumValues import ValueKind
+from interchange.features.FeatureExtrude import ExtrudeFeature
 from interchange.geometry.models.GeometryCurves import LineGeometry
 from interchange.geometry.models.Sketch import SketchRelation
 from interchange.records.RecordParameter import Parameter, ParameterValue
@@ -297,6 +298,37 @@ def TestFuzzyLoss(TmpPath: FilePath) -> None:
     assert HasVendorPartEncoding(Changed) is False
     with PytestLib.raises(ApplicationUsabilityError):
         _ = WriteDoc(Changed, TmpPath / "FuzzyLoss.SLDPRT", allow_carrier=False)
+
+
+def TestOffsetLoss(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    FeatureData = SourceDoc.feature_timeline[0]
+    assert isinstance(FeatureData.definition, ExtrudeFeature)
+    FeatureData = ReplaceData(
+        FeatureData,
+        definition=ReplaceData(
+            FeatureData.definition,
+            offset=ParameterValue(5e-11, ValueKind.LENGTH, "mm"),
+        ),
+    )
+    Changed = ReplaceData(
+        SourceDoc,
+        feature_timeline=(FeatureData,),
+        parameters=tuple(
+            (
+                ReplaceData(
+                    ParamData,
+                    value=ParameterValue(5e-11, ValueKind.LENGTH, "mm"),
+                )
+                if ParamData.attributes.get("freecad_path") == "Offset"
+                else ParamData
+            )
+            for ParamData in SourceDoc.parameters
+        ),
+    )
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(ApplicationUsabilityError):
+        _ = WriteDoc(Changed, TmpPath / "OffsetLoss.SLDPRT", allow_carrier=False)
 
 
 def TestLabelLoss(TmpPath: FilePath) -> None:
