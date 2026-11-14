@@ -50,7 +50,14 @@ the index and OM sections, and NX requires both the `UG_PART` payload and its
 `UG_PART/ExternalReferences` stream. Fast-load streams, `qafmetadata`,
 `part/attrs`, and the saved toggle stream can be one byte each in a loadable
 part. Replacing the `ExternalReferences` stream with a one byte placeholder
-fails with `Unexpected end of file`. A section begins with an optional `c0 d1 f1 ed`
+fails with `Unexpected end of file`.
+
+The OM sections themselves are not optional. Zeroing the index row that names
+one section makes NX report `Internal error` (code 65) even though the section
+bytes remain in the payload. A from-scratch author therefore has to emit every
+indexed section, including the class registry and object records. That encoder
+is the remaining authoring work; the index, stream set, and container seals are
+already understood. A section begins with an optional `c0 d1 f1 ed`
 separator, `ff ff ff ff`, four zero bytes, a big-endian payload size, and the
 `OM 01 01` signature. Section bodies contain the NX object-model class
 registry, attribute registry, object records, feature history, expression
