@@ -134,6 +134,9 @@ def ReplaceHead(
 
 
 __all__ = [
+    "LaneParts",
+    "LaneRecord",
+    "RelabelLanes",
     "RelabelTokens",
     "ParseSlots",
     "SlotRecord",
@@ -401,3 +404,111 @@ def RelabelTokens(SectionBody: bytes) -> bytes:
             if Output[Position] == KSlotOccupied and Output[Position + 1] in Values:
                 Output[Position + 1] = Values[Output[Position + 1]]
     return bytes(Output)
+
+
+# a lane record names a count then a flag run a mask and a list of slot tokens
+KLaneMarker = b"\x02\xe0"
+KLaneTail = b"\x01\x11"
+KTextToken = 0x03
+
+
+# a text token is a tag a length and the bytes it counts
+def LaneTokens(Record: bytes, Start: int) -> tuple[bytes, ...]:
+    Tokens: list[bytes] = []
+    Position = Start
+    while Position < len(Record):
+        Marker = Record[Position]
+        if Marker == KSlotEmpty:
+            Tokens.append(Record[Position : Position + 1])
+            Position += 1
+        elif Marker == KSlotOccupied and Position + 1 < len(Record):
+            Tokens.append(Record[Position : Position + 2])
+            Position += 2
+        elif Marker == KTextToken and Position + 1 < len(Record):
+            Width = Record[Position + 1]
+            Tokens.append(Record[Position : Position + 2 + Width])
+            Position += 2 + Width
+        elif 0x10 <= Marker < KSlotOccupied:
+            Tokens.append(Record[Position : Position + 1])
+            Position += 1
+        else:
+            raise ValueError("NX lane record token is invalid")
+    return tuple(Tokens)
+
+
+def LaneParts(Record: bytes) -> tuple[int, bytes, bytes, tuple[bytes, ...]]:
+    if len(Record) < 12 or Record[1] != 0x11 or Record[4] != 0x11:
+        raise ValueError("NX lane record has no known header")
+    Count = Record[0]
+    if Record[2] != Count:
+        raise ValueError("NX lane record count is not repeated")
+    MarkerAt = Record.find(KLaneMarker, 5)
+    if MarkerAt < 0:
+        raise ValueError("NX lane record has no mask marker")
+    Flags = Record[5:MarkerAt]
+    MaskAt = MarkerAt + len(KLaneMarker)
+    if Record[MaskAt + 4 : MaskAt + 6] != KLaneTail:
+        raise ValueError("NX lane record mask is not terminated")
+    return (Count, Flags, Record[MaskAt : MaskAt + 4], LaneTokens(Record, MaskAt + 6))
+
+
+def LaneRecord(
+    Count: int, Flags: bytes, MaskValue: bytes, Tokens: tuple[bytes, ...]
+) -> bytes:
+    if len(MaskValue) != 4:
+        raise ValueError("NX lane record mask must be four bytes")
+    if not 0 <= Count <= 0xFF:
+        raise ValueError("NX lane record count must fit one byte")
+    Output = bytearray([Count, 0x11, Count, 0x01, 0x11])
+    Output.extend(Flags)
+    Output.extend(KLaneMarker)
+    Output.extend(MaskValue)
+    Output.extend(KLaneTail)
+    for Token in Tokens:
+        Output.extend(Token)
+    return bytes(Output)
+
+
+# labels are free and shared so one map relabels every lane token consistently
+def RelabelLanes(SectionBody: bytes) -> bytes:
+    Count = ObjectCount(SectionBody)
+    TableAt = TableStart(SectionBody, Count)
+    Starts = [
+        int(Struct.unpack_from("<I", SectionBody, TableAt + 4 * Index)[0])
+        for Index in range(Count)
+    ]
+    Stops = Starts[1:] + [len(SectionBody) - 12]
+    LaneRecords: list[tuple[int, int, tuple[bytes, ...]]] = []
+    Labels: dict[bytes, int] = {}
+    for Begin, Finish in zip(Starts, Stops):
+        Record = bytes(SectionBody[Begin:Finish])
+        try:
+            _, _, _, Tokens = LaneParts(Record)
+        except ValueError:
+            continue
+        LaneRecords.append((Begin, Finish, Tokens))
+        for Token in Tokens:
+            if Token[0] == KSlotOccupied or 0x10 <= Token[0] < KSlotOccupied:
+                if Token not in Labels:
+                    Labels[Token] = 0x10 + len(Labels)
+    if not LaneRecords:
+        return SectionBody
+    Section = bytearray(SectionBody)
+    for Begin, Finish, Tokens in LaneRecords:
+        LaneCount, Flags, MaskValue, _ = LaneParts(bytes(SectionBody[Begin:Finish]))
+        Written = [
+            (
+                bytes([KSlotOccupied, Labels[Token]])
+                if Token[0] == KSlotOccupied
+                else (
+                    bytes([Labels[Token]])
+                    if 0x10 <= Token[0] < KSlotOccupied
+                    else Token
+                )
+            )
+            for Token in Tokens
+        ]
+        Built = LaneRecord(LaneCount, Flags, MaskValue, tuple(Written))
+        if len(Built) == Finish - Begin:
+            Section[Begin:Finish] = Built
+    return bytes(Section)

@@ -15,6 +15,8 @@ from convert.adapters.nx.ExprSection import ExprMiddle, KMiddleLength as KExprMi
 from convert.adapters.nx.ObjectSection import (
     AttributeRecord,
     HeadRecord,
+    LaneParts,
+    LaneRecord,
     ObjectCount,
     PairRecord,
     ParseAttribute,
@@ -716,3 +718,71 @@ def TestNxSlots() -> None:
     except ValueError:
         return
     raise AssertionError("slot grammar accepted an out of range slot")
+
+
+# a lane record names a count a flag run a mask and a list of slot tokens
+def TestNxLane() -> None:
+    Record = bytes.fromhex(
+        "0311030111"
+        + "01" * 9
+        + "02"
+        + "01" * 9
+        + "02"
+        + "e0"
+        + "55559556"
+        + "0111"
+        + "6f"
+        + "ff" * 6
+        + "70"
+        + "ff" * 8
+    )
+    Count, Flags, MaskValue, Tokens = LaneParts(Record)
+    assert Count == 3
+    assert len(Flags) == 19
+    assert MaskValue == bytes.fromhex("55559556")
+    assert Tokens == (
+        b"\x6f",
+        b"\xff",
+        b"\xff",
+        b"\xff",
+        b"\xff",
+        b"\xff",
+        b"\xff",
+        b"\x70",
+        b"\xff",
+        b"\xff",
+        b"\xff",
+        b"\xff",
+        b"\xff",
+        b"\xff",
+        b"\xff",
+        b"\xff",
+    )
+    assert LaneRecord(Count, Flags, MaskValue, Tokens) == Record
+    TextRecord = LaneParts(
+        bytes.fromhex(
+            "0611060111"
+            + "01" * 3
+            + "040102"
+            + "01" * 4
+            + "0501030102"
+            + "e0"
+            + "66559956"
+            + "0111"
+            + "0307"
+            + "2054485255"
+            + "00"
+        )
+    )
+    assert TextRecord[0] == 6 and TextRecord[3][0] == bytes.fromhex("0307205448525500")
+    for Malformed in (b"", bytes(12), Record[:-1] + b"\x00"):
+        try:
+            _ = LaneParts(Malformed)
+        except ValueError:
+            continue
+        raise AssertionError("lane grammar accepted a malformed record")
+    try:
+        _ = LaneRecord(3, b"\x01", b"\x00\x00\x00", ())
+    except ValueError:
+        return
+    raise AssertionError("lane grammar accepted a short mask")
