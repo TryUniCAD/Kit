@@ -595,11 +595,41 @@ one face's contribution instead of six. NX is not mis-scaling the body; it binds
 only one face of the shell. The normal variant therefore measures nothing
 because no face binds at all.
 
-That points at shell membership: how the body's shell lists its face uses and in
-which order, not at the coordinates, the attributes, or the parameter values.
-The next experiment is to compare the encoded shell and face-use records against
-those of a decoded body, since the encoder currently derives them from model
-list order.
+That pointed at shell membership, but the record scan contradicts it. Scanning
+the encoded streams for bridge and loop records gives:
+
+```text
+NX stream                  bridges 6, loops 6
+re-encoded NX body         bridges 0, loops 0      measures 24000
+BuildPrism authored body   bridges 0, loops 0      measures 0
+```
+
+So zero bridge and loop records do not stop NX measuring a body, and the `1/6`
+ratio was not missing faces. The scanner is also not a reliable oracle here,
+because the stream that measures and the stream that does not look identical to
+it.
+
+Identity handling is fragile. Renaming every entity in the decoded model while
+leaving its `parasolid.vertex_fins` and `first_fin` references unchanged moves
+the measurement from `24000` to `8000`:
+
+```text
+encoded decoded body                 VOLUME 23999.999999999996
+same body, entity ids renamed        VOLUME 8000.0, AREA 2400.0
+```
+
+The rename leaves those fin references pointing at the old ids, so the encoder
+loses part of the fin chain and NX measures a fragment. Authored ids that update
+every reference still measure `0.0`:
+
+```text
+BuildPrism with sldprt-style ids     BODIES 1, VOLUME 0.0, AREA 0.0
+```
+
+What is left is the encoder's handling of a model that has no
+`carrier_record` attributes: the decoded body carries per-record chain links,
+and the encoder orders geometry records through them. An authored model has no
+links at all, and every id scheme tried so far still measures nothing.
 
 ### A parametric body write is accepted and measured
 
