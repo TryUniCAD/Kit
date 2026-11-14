@@ -2347,7 +2347,7 @@ def BuildPolyTree(
         or SketchObject.dimensions
         or (
             len(PolylineValue) == 3
-            and HasPolyLoss(DocData, SketchObject.source_id, PadObject.source_id)
+            and HasPolyLoss(DocData, PadObject.source_id)
         )
     ):
         return None

@@ -29,24 +29,16 @@ KFreecadPadProps = frozenset(
 )
 
 
-def HasPolyLoss(
-    DocumentData: CadDocument, SketchId: str, PadId: str
-) -> bool:
+def HasPolyLoss(DocumentData: CadDocument, PadId: str) -> bool:
     IsFreecad = DocumentData.source.format_id.casefold() == "freecad.fcstd"
     for ParamData in DocumentData.parameters:
-        if (
-            ParamData.owner_id not in {SketchId, PadId}
-            or ParamData.value.kind is ValueKind.LENGTH
-        ):
-            continue
         PathValue = ParamData.attributes.get("freecad_path")
-        if (
-            IsFreecad
-            and ParamData.owner_id == PadId
-            and isinstance(PathValue, str)
-            and PathValue in KFreecadPadProps
-            and ParamData.expression is None
-        ):
-            continue
+        if ParamData.owner_id == PadId and ParamData.expression is None:
+            if (
+                IsFreecad
+                and isinstance(PathValue, str)
+                and PathValue in KFreecadPadProps
+            ) or (ParamData.value.kind is ValueKind.LENGTH and ParamData.name == "D1"):
+                continue
         return True
     return False
