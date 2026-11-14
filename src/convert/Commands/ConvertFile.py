@@ -11,6 +11,21 @@ def ConvertFile(Options: CliOptions) -> dict[str, object]:
     if Options.Destination is None:
         raise ValueError("Conversion requires a destination")
     Registry = GetRegistry()
+    DestFormat = Options.DestFormat
+    if DestFormat is None:
+        Writers = tuple(
+            Adapter
+            for Adapter in Registry.GetWriters()
+            if Options.Destination.suffix.casefold()
+            in {Extension.casefold() for Extension in Adapter.info.Extensions}
+        )
+        if not Writers:
+            raise ValueError(
+                "no writer supports the destination suffix; use --to FORMAT"
+            )
+        if len(Writers) != 1:
+            raise ValueError("Destination suffix is ambiguous; use --to FORMAT")
+        DestFormat = Writers[0].info.FormatId
     Reader = (
         Registry.GetReader(Options.SourceFormat)
         if Options.SourceFormat
@@ -26,7 +41,7 @@ def ConvertFile(Options: CliOptions) -> dict[str, object]:
     Result = WriteDocument(
         Document,
         Options.Destination,
-        DestFormat=Options.DestFormat,
+        DestFormat=DestFormat,
         Configuration=Options.Configuration,
         Overwrite=Options.Overwrite,
         ValidateData=True,

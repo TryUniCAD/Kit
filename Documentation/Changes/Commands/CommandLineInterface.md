@@ -21,6 +21,8 @@ The conversion report distinguishes writer evidence from target-application acce
 It includes transfer representations, usability claims, dropped capabilities, external requirements, and diagnostics.
 Existing SDK defaults and adapter qualification boundaries remain unchanged.
 The CLI additionally refuses explicit opaque feature/geometry records and unqualified research metadata before invoking a writer.
+Output suffixes must select one registered writer unless `--to` specifies the format explicitly.
+This prevents the SDK's [sole-writer fallback](../../Gotchas/Conversion/Commands/WriterSuffixFallback.md) from silently accepting an unknown filename type.
 
 The neutral decode view wraps `CadDocument` JSON from any registered reader in a development report.
 Its explicit report identity prevents accidental reuse as an accepted interchange document.
