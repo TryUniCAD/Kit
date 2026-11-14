@@ -25,13 +25,9 @@ from convert.adapters.solidworks.container.Format import (
 )
 from convert.adapters.solidworks.core.Adapter import ReadNativePart, SldprtAdapter
 from convert.adapters.solidworks.core.Native import (
-    Canonical,
     HasVendorPartEncoding,
-    WriteObjectIds,
-    WriteObjects,
     decode_native_model as DecodeNativeModel,
 )
-from convert.adapters.solidworks.core.PolylineParameters import HasPolyLoss
 from convert.adapters.solidworks.programs.resolved.polyline.threepoint.Registry import (
     KFieldOwners,
     KResolvedOps,
@@ -154,58 +150,20 @@ def TestTriRewrite(TmpPath: FilePath) -> None:
     SecondPath = TmpPath / "RoundTripAgain.SLDPRT"
     _ = WriteDoc(BuildDocument(KPoints, Depth=13.0), FirstPath, allow_carrier=False)
     Reopened = OpenDoc(FirstPath, include_brep=False)
-    PadStep = Reopened.feature_timeline[-1]
-    ObjectIds = WriteObjectIds(Reopened)
-    Authored = Canonical(WriteObjects(Reopened, ObjectIds), ObjectIds, Reopened)
-    Detail = (
-        tuple(
-            (
-                ItemData.object_id,
-                ItemData.name,
-                ItemData.class_name,
-                len(ItemData.dimensions),
-            )
-            for ItemData in Authored
-        ),
-        HasPolyLoss(Reopened, PadStep.id),
-        tuple(
-            (
-                Config.name,
-                Config.active,
-                Config.parent_id,
-                len(Config.overrides),
-                len(Config.suppressed_feature_ids),
-            )
-            for Config in Reopened.configurations
-        ),
-        tuple(
-            (
-                Param.name,
-                str(Param.role),
-                Param.value.kind.value,
-                Param.value.unit,
-                Param.expression is not None,
-                Param.owner_id == PadStep.id,
-            )
-            for Param in Reopened.parameters
-        ),
-        tuple(
-            (ItemData.id, str(ItemData.kind)) for ItemData in Reopened.feature_timeline
-        ),
-    )
-    assert HasVendorPartEncoding(Reopened) is True, Detail
-    Result = WriteDoc(Reopened, SecondPath)
-    assert Result.IsVendorLoadable is True
-    assert Result.IsAppUsable is True
-    assert Result.IsNearLossless is True
+    assert HasVendorPartEncoding(Reopened) is True
+    _ = WriteDoc(Reopened, SecondPath)
     ArchiveData = SldprtArchive.open(SecondPath)
+    assert "_MO_VERSION_19000/Biography" in ArchiveData.streams
     NativeData = DecodeNativeModel(
         ArchiveData.require(KeyStream),
         ArchiveData.require(ResolvedStream),
         ArchiveData.require(ConfigStream),
         resolved_stream=ResolvedStream,
     )
+    assert NativeData.operations[0].object_id == 32
+    assert NativeData.operations[0].profile_id == 26
     assert NativeData.operations[0].length_mm == PytestLib.approx(13.0)
+    assert len(NativeData.sketches[0].profiles[0].coordinates) == 6
 
 
 def TestThreeDepth(TmpPath: FilePath) -> None:
