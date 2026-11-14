@@ -630,7 +630,11 @@ def RewriteWordRun(Record: bytes, Begin: int, Finish: int) -> bytes:
             except (ValueError, Struct.error):
                 Position += 1
                 continue
-            Written = FloatWord(Number)
+            try:
+                Written = FloatWord(Number)
+            except (OverflowError, ValueError):
+                Position += 1
+                continue
             if Written == WordBytes:
                 Output[Position : Position + 8] = Written
                 Position += 8
@@ -639,7 +643,7 @@ def RewriteWordRun(Record: bytes, Begin: int, Finish: int) -> bytes:
     return bytes(Output)
 
 
-# display values are rewritten from numbers
+# display values in every record family are rewritten from numbers
 def RewriteValues(SectionBody: bytes) -> bytes:
     Count = ObjectCount(SectionBody)
     TableAt = TableStart(SectionBody, Count)
@@ -651,7 +655,7 @@ def RewriteValues(SectionBody: bytes) -> bytes:
     Section = bytearray(SectionBody)
     for Begin, Finish in zip(Starts, Stops):
         Record = bytes(SectionBody[Begin:Finish])
-        if Record[:2] != b"\x02\x02" or Record[4:5] != b"5":
+        if Record[:2] != b"\x02\x02":
             continue
         Written = RewriteWordRun(Record, 14, len(Record))
         if len(Written) == Finish - Begin:
