@@ -2379,15 +2379,21 @@ def BuildPolyTree(
     return VendorResolved(ProgramData, HeaderStamps, Generation=Generation)
 
 
-def IsTriCandidate(AuthoredObjs: tuple[_WriteObject, ...]) -> bool:
-    return len(AuthoredObjs) == 2 and len(PolylinePoints(AuthoredObjs[0]) or ()) == 3
+def IsTriCandidate(
+    AuthoredObjs: tuple[_WriteObject, ...], DocData: CadDoc
+) -> bool:
+    return (
+        len(AuthoredObjs) == 2
+        and len(DocData.sketches) == 1
+        and len(DocData.sketches[0].entities) == 3
+    )
 
 
 def VendorTree(
     AuthoredObjs: tuple[_WriteObject, ...], DocData: CadDoc
 ) -> VendorResolved | None:
     VendorData = BuildVendorTree(AuthoredObjs, DocData)
-    if VendorData is None and IsTriCandidate(AuthoredObjs):
+    if VendorData is None and IsTriCandidate(AuthoredObjs, DocData):
         raise SldprtFormatError("three-line history is unsupported")
     return VendorData
 
