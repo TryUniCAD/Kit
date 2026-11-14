@@ -49,6 +49,26 @@ differ in dimension, expression count, expression names and body count share one
 table byte for byte, and a part missing one class differs in 152 of 153 entries. See
 [the class table change](NxClassTableScope.md).
 
+## The `5f 01 04 01` family
+
+Twelve records in `dim40.prt` share the frame `02 02 ff 00 5f 01 04 01`, spanning 10 to
+4374 bytes:
+
+```text
+10     02 02 ff 00 5f 01 04 01 00 01
+14     02 02 ff 00 5f 01 04 01 00 00 00 00 00 01
+17     02 02 ff 00 5f 01 04 01 80 e4 ff 83 e8 83 e8 00 00
+78 90 91 255 489 500 976 1353 4374   the remaining nine
+```
+
+The three small members end with `01` and carry runs of zeros, so they read as a count or a
+flag with padding rather than as a token lane: the 17 byte member mixes two-byte tokens
+(`80 e4`, `83 e8` twice) with a single `ff` and two zeros, which no single token walk
+consumes. The largest member is 4374 bytes of mixed content.
+
+So this family is not one grammar. It needs to be split into a small numeric shape and a
+large mixed shape before any of it can be re-emitted, and that work is not started.
+
 ## Consequence
 
 The trailing words are free, but the id regions are coupling: a single byte can
