@@ -14,6 +14,11 @@ The handles are dense indices into a shared tessellation vertex table.
 The trim packet is an indexed triangle mesh. Its boundary cycles approximate the B-rep loops but
 are not the B-rep loops.
 
+Edge table rows are also polylines: `02 <arity> <handle[arity]>`. The arity is the point count,
+not two. `Washer_8.CATPart` has arities `11, 11, 11, 11, 14, 14, 9, 14`. Edge handles and trim
+handles share one global point-id space but are not the same set (washer 93 vs 94, pedal 1698 vs
+2666). The coordinate table for that space is not yet located.
+
 ## Workaround
 
 Do not treat a trim handle as a vertex index.

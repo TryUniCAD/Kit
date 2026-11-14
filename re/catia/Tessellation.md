@@ -27,6 +27,23 @@ The current reader derives loops from the tessellation boundary and maps handles
 B-rep vertex count. That produces a valid neutral model for simple parts, but it is a derived
 approximation, not the native topology.
 
+## Edge rows are polylines
+
+The edge table rows are not two-endpoint edges. Each row is `02 <arity> <handle[arity]>`, and
+`arity` is the number of tessellation points along the edge. `Washer_8.CATPart` has arities
+`11, 11, 11, 11, 14, 14, 9, 14` and a handle sum of 103.
+
+Edge handles and trim handles share one global point-id space but are not identical sets:
+
+| Part | Edge handles | Trim handles | Same set |
+| --- | ---: | ---: | --- |
+| `Washer_8.CATPart` | 93 | 94 | no |
+| `Bolt_M5x40.CATPart` | 130 | 174 | no |
+| `Pedal_Body.CATPart` | 1698 | 2666 | no |
+
+The trim mesh adds interior points that no edge polyline uses. The coordinate table for this
+shared point-id space is not yet located.
+
 ## Surface pool
 
 Surfaces are also shared. `Pedal_Body.CATPart` has 24 surface records and 338 faces.
