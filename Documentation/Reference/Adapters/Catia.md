@@ -14,6 +14,10 @@ rows, and vertex roster.
 It maps the result to a neutral `BrepModel` with faces, loops, coedges, edges, vertices, and
 analytic plane or cylinder surfaces.
 
+The trim handles are dense indices into a shared tessellation vertex table, not B-rep vertex
+identifiers. The reader derives loops from the tessellation boundary. That is a documented
+approximation, not the native B-rep topology.
+
 The reader decodes 22 of 27 corpus parts.
 Five parts use a shared surface pool or an unsupported layout.
 The reader does not decode compressed carrier parameters, feature records, sketches, dimensions,
