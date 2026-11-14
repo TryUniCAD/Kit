@@ -107,9 +107,12 @@ matters, the geometry cache may be regenerable.
 
 ## Creo / Pro/ENGINEER (`.prt`, `.asm`, `.drw`)
 
-No Kit study yet. Files often begin with a readable `#UGC:` header line followed by sections; confirm
-on samples. Oracle: J-Link/OTK; trail files record UI sessions. Expect an object store very unlike
-MFC serialisation.
+The PSB container is mapped in `re/creo/`: `#UGC:2` header, fixed-width table of contents, continuation
+tables, Unix-compress sections, and the native JPEG thumbnail. The production adapter reads the
+container and replays retained source bytes. Native geometry, feature, parameter, and dimension records
+remain partial. There is no independent writer and no generated-part acceptance result. Oracle:
+J-Link/OTK or trail files; the local Creo 2027.2 control opened the vendor empty part. Expect an object
+store very unlike MFC serialisation.
 
 ## AutoCAD (`.dwg`)
 

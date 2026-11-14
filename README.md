@@ -27,6 +27,7 @@ The [standards scope](Documentation/Standards/Scope.md) identifies the writing r
 | SOLIDWORKS assembly  | `.SLDASM`                 | Reader and writer |
 | FreeCAD              | `.FCStd`                  | Reader and writer |
 | CATIA V5             | `.CATPart`, `.CATProduct` | Reader and writer |
+| PTC Creo part        | `.prt`                    | Reader and source replay |
 | Kit interchange JSON | `.json`                   | Reader and writer |
 | Autodesk Fusion      | `.f3d`                    | Reader and writer |
 

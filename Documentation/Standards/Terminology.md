@@ -63,7 +63,7 @@ Do not translate, capitalize, or paraphrase them in commands or result compariso
 | ------------------ | ----------------------------------------------------------------------------------------- |
 | Transfer modes     | `native`, `mixed`, `carrier`                                                              |
 | Carrier reasons    | `target_unsupported`, `writer_unimplemented`, `source_opaque`                             |
-| Format identifiers | `solidworks.sldprt`, `solidworks.sldasm`, `freecad.fcstd`, `catia.v5`, `interchange.json` |
+| Format identifiers | `solidworks.sldprt`, `solidworks.sldasm`, `freecad.fcstd`, `catia.v5`, `creo.prt`, `interchange.json` |
 | Output error code  | `output_not_application_usable`                                                           |
 
 Source: [transfer contract](../../src/convert/adapters/base/TransferContract.py).
