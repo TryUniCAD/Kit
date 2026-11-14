@@ -85,10 +85,10 @@ def TestReplay() -> None:
 
 def TestPublic() -> None:
     DataValue = BuildSample()
-    DocumentValue = OpenDoc(DataValue, SourceFormat=KFormatId)
+    DocumentValue = OpenDoc(DataValue, source_format=KFormatId)
     with TemporaryDirectory() as Folder:
         Target = FilePath(Folder) / "copy.prt"
-        ResultValue = WriteDoc(DocumentValue, Target, DestFormat=KFormatId)
+        ResultValue = WriteDoc(DocumentValue, Target, destination_format=KFormatId)
         assert Target.read_bytes() == DataValue
         assert ResultValue.bytes_written == len(DataValue)
 
