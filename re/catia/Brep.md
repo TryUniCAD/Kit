@@ -125,6 +125,36 @@ The reader maps the spine to `BrepModel`:
 
 The reader creates one shell, one region, and one body. The body id is `catia:body:1`.
 
+## Surface record layout
+
+The record length decomposes as `5 + carrier + 40 + 1 + 3`:
+
+| Kind | Length | Carrier bytes |
+| --- | ---: | ---: |
+| plane `0x32` | 49 | 0 |
+| cylinder `0x33` | 73 | 24 |
+| cone `0x34` | 73 | 24 |
+| sphere `0x35` | 65 | 16 |
+| torus `0x38` | 77 | 28 |
+
+The five-byte header is `00 <carrier:u8> 00 33 <kind>`. The carrier bytes are the compressed
+parameters. The next 40 bytes are ten `f32` bounds. The orientation byte follows, then three
+padding bytes.
+
+## Surface trailing handle
+
+Each surface record ends with `ff <lo> <hi> 00` or `01 <lo> <hi> 00`. The 16-bit value
+`<hi><lo>` increases monotonically across the 24 `Pedal_Body` surfaces:
+
+```text
+0xa60c 0xa60f 0xa618 0xa61e 0xa627 0xa62d 0xa630 0xa649
+0xa706 0xa70c 0xa715 0xa724 0xa736 0xa73f 0xa748 0xa751
+0xa75a 0xa763 0xa769 0xa76c 0xa775 0xa77b 0xa781 0xa78a
+```
+
+The span is 382, while the part has 338 faces. The value is a candidate face-range handle, but
+the mapping is not confirmed. The handles do not appear in `MainDataStream`.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
