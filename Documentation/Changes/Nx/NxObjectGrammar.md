@@ -76,8 +76,19 @@ rw_var_blank.prt    bodies 0
   ```
 
   so for these two families NX treats the values as labels and an emitter may assign
-  its own. The `02 02 41 4d` family does not behave the same way: filling its id
-  region with a constant is refused, so it still needs a decoded layout.
+  its own.
+
+- The `02 02 41 4d` instance-id family does not behave the same way. It is a fixed 21
+  byte frame followed by one to three groups of one tag byte and seven value bytes,
+  and the group is checked as a whole:
+
+  ```text
+  tag byte changed                      OPEN_FAILED
+  a single value byte changed           loads
+  the value run replaced with 0x11      OPEN_FAILED
+  ```
+
+  so it still needs the checked aggregate decoded, and it remains source-carried.
 
 - The remaining 122 records across the other families are not decoded.
 - `RewriteRecords` has no unit test: it needs a whole section 0 to exercise, and the

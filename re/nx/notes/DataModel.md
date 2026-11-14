@@ -690,6 +690,37 @@ so they are scalar values rather than structures, and invalid ones are tolerated
 That is the whole extent of what section 0 will accept: 209 of 214 records must be
 correct, which is 97.7 percent of the graph.
 
+### The instance-id family resists substitution
+
+The `02 02 41 4d` family (14 records, 27 / 34 / 48 bytes) has a fixed 21 byte frame
+`02 02 <class> 4d 00 f0 05 02 03 01 03 01 c0 45 04 00 80 86 02 00 01`, then tagged
+groups, then `00 01 00`:
+
+```text
+27 bytes   frame + 00 00 00                      + 00 01 00
+34 bytes   frame + 30 <7 bytes>                  + 00 01 00
+48 bytes   frame + 30 <7> b0 <7> 30 <7>          + 00 01 00
+```
+
+so a group is one tag byte and seven value bytes, and the record carries one to three
+of them.
+
+Single byte changes and wholesale changes behave differently:
+
+```text
+tag byte 21 (0x30 -> 0x31)                    OPEN_FAILED
+value byte 22, 25, 28 or 29 changed           loads
+value bytes 22..30 all set to 0x11            OPEN_FAILED
+bytes 22..28 filled, 29 and 30 preserved      OPEN_FAILED
+byte 30 (0x00 -> 0x11)                        OPEN_FAILED
+```
+
+Individual value bytes are tolerated while replacing the run is not, so the group is
+checked as an aggregate rather than field by field, and the tag byte and the byte
+before `00 01 00` are structural. That makes this family the one that does not reduce
+to a simple grammar like the attribute and pair families did, and it is still carried
+from the source.
+
 ### The decoded families are now generated, not copied
 
 `ObjectSection.RewriteRecords` re-emits every attribute and pair record with labels the
