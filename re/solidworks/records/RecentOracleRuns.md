@@ -45,3 +45,10 @@ EDITED_AREA_MM2=2840.95104346666
 ```
 
 Expected: volume 0.5*42*31\*13 = 8463 mm3.
+
+## Batch limitation
+
+A 57-file `OracleBatch.vbs` run stopped on the interactive `Open External Referenced
+documents` dialog and was terminated after 20 minutes. The single-file runs above succeeded.
+The prompt behavior is recorded in
+`Documentation/Gotchas/Conversion/SolidworksOracleModalPrompts.md`.
