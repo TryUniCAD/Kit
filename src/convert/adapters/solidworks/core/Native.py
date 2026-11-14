@@ -2348,10 +2348,7 @@ def BuildPolyTree(
         or PlaneObjectId != 2
         or (PadObject.object_id != 32)
         or SketchObject.dimensions
-        or (
-            len(PolylineValue) == 3
-            and HasPolyLoss(DocData, PadObject.source_id)
-        )
+        or (len(PolylineValue) == 3 and HasPolyLoss(DocData, PadObject.source_id))
     ):
         return None
     try:
@@ -2379,13 +2376,27 @@ def BuildPolyTree(
     return VendorResolved(ProgramData, HeaderStamps, Generation=Generation)
 
 
-def IsTriCandidate(
-    AuthoredObjs: tuple[_WriteObject, ...], DocData: CadDoc
-) -> bool:
-    return (
-        len(AuthoredObjs) == 2
-        and len(DocData.sketches) == 1
-        and len(DocData.sketches[0].entities) == 3
+def IsTriCandidate(AuthoredObjs: tuple[_WriteObject, ...], DocData: CadDoc) -> bool:
+    if (
+        len(AuthoredObjs) != 2
+        or len(DocData.sketches) != 1
+        or len(DocData.sketches[0].entities) != 3
+    ):
+        return False
+    Geometries = tuple(Entity.geometry for Entity in DocData.sketches[0].entities)
+    if not all(isinstance(Geometry, LineGeom) for Geometry in Geometries):
+        return False
+    Lines = tuple(Geometry for Geometry in Geometries if isinstance(Geometry, LineGeom))
+    return all(
+        (
+            MathValue.isclose(
+                LineData.end.x, Lines[(Index + 1) % 3].start.x, abs_tol=1e-06
+            )
+            and MathValue.isclose(
+                LineData.end.y, Lines[(Index + 1) % 3].start.y, abs_tol=1e-06
+            )
+            for Index, LineData in enumerate(Lines)
+        )
     )
 
 
