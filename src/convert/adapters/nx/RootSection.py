@@ -17,6 +17,7 @@ from convert.adapters.nx.ExprSection import (
     KMiddleLength as KExprMiddle,
     KObjects as KExprObjects,
 )
+from convert.adapters.nx.ObjectSection import ReplaceHead
 from convert.adapters.nx.PayloadBuild import ResizePayload
 from convert.adapters.nx.PayloadReader import ReadPayload
 
@@ -87,7 +88,7 @@ def PointerOffset(SectionBody: bytes) -> int:
 
 
 # authored sections regenerate the root middle and empty the feature record
-def AuthorSections(Payload: bytes) -> bytes:
+def AuthorSections(Payload: bytes, HeadText: bytes | None = None) -> bytes:
     Parsed = ReadPayload(Payload)
     if Parsed.legacy:
         raise ValueError("NX authored sections require a modern payload")
@@ -103,7 +104,7 @@ def AuthorSections(Payload: bytes) -> bytes:
     Authored.extend(Middle)
     Authored.extend(SectionBody[Pointer:])
     Struct.pack_into("<I", Authored, Offset, Start + len(Middle))
-    return WithStub(Payload, Parsed, bytes(Authored))
+    return WithStub(Payload, Parsed, bytes(Authored), HeadText)
 
 
 # every section anchors its saved state on one seven byte identity after e0 6a f8
@@ -119,11 +120,15 @@ def PatchAnchor(SectionBody: bytes, Identity: bytes = KUnset) -> bytes:
 
 
 # the payload must end at the last section body because trailing bytes are refused
-def WithStub(Payload: bytes, Parsed: NxPayload, RootBody: bytes) -> bytes:
+def WithStub(
+    Payload: bytes, Parsed: NxPayload, RootBody: bytes, HeadText: bytes | None
+) -> bytes:
     Bodies: list[bytes] = []
     for Index, Section in enumerate(Parsed.sections):
         SectionBody = Payload[Section.body_offset : Section.body_offset + Section.size]
-        if Index == KRootIndex:
+        if Index == 0 and HeadText is not None:
+            SectionBody = ReplaceHead(SectionBody, HeadText)
+        elif Index == KRootIndex:
             SectionBody = RootBody
         elif Index == KFeatureIndex and Index < len(Parsed.sections):
             SectionBody = KFeatureStub

@@ -117,7 +117,7 @@ def WriteNx(
     Authored = bool(DocValue.metadata.get("nx.author_sections"))
     if Authored:
         Overrides["UG_PART/UG_PART"] = AuthorSections(
-            PartPayload(Overrides, Payload.data)
+            PartPayload(Overrides, Payload.data), HeadText(Target, DocValue)
         )
     DataValue = RebuildNative(Payload.data, Overrides)
     CheckOutput(DataValue, Payload.data)
@@ -210,6 +210,16 @@ def CheckNeutral(DocValue: CadDoc) -> None:
         raise ValueError(
             "NX writing does not support neutral feature or parameter edits"
         )
+
+
+# the root head record names the part that the write targets
+def HeadText(Target: KTargetType, DocValue: CadDoc) -> bytes | None:
+    if isinstance(Target, (str, FilePath)):
+        return b'Part renamed from "' + str(Target).encode("utf-8", "replace") + b'"'
+    PartName = DocValue.metadata.get("nx.part_name")
+    if isinstance(PartName, str) and PartName:
+        return b'Part renamed from "' + PartName.encode("utf-8", "replace") + b'"'
+    return None
 
 
 # container rebuilding recomputes the modern directory from parsed streams

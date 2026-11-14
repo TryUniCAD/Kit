@@ -11,6 +11,7 @@ from convert.adapters.nx.ExprValue import DecodeValue, EncodeValue
 from convert.adapters.nx.PayloadBuild import ResizePayload
 from convert.adapters.nx.Construction import ConstructMiddle, ObjectCount, Record
 from convert.adapters.nx.ExprSection import ExprMiddle, KMiddleLength as KExprMiddle
+from convert.adapters.nx.ObjectSection import HeadRecord, ObjectCount
 from convert.adapters.nx.RootSection import KRootCounter, PatchAnchor, RootMiddle
 from convert.adapters.nx.PayloadReader import ReadPayload
 from convert.adapters.nx.Splm import KChecksumOffset, KHeaderRegion
@@ -588,3 +589,42 @@ def TestNxExpr() -> None:
     except ValueError:
         return
     raise AssertionError("expression middle accepted a short identity")
+
+
+# the root head record is a tag a length prefixed text and a fixed tail
+def CheckHeadRecord(PartText: bytes) -> None:
+    Record = HeadRecord(PartText)
+    assert Record[:4] == b"\x41\x00\x03\x03"
+    assert Record[4] == len(PartText) + 2
+    assert Record[5 : 5 + len(PartText)] == PartText
+    assert Record[5 + len(PartText)] == 0
+    AnchorAt = Record.find(b"\xe0\x6a\xf8")
+    assert AnchorAt > 0
+    assert Record[AnchorAt + 3 : AnchorAt + 10] == b"\xff" * 7
+    try:
+        _ = HeadRecord(b"")
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("head record accepted an empty text")
+    try:
+        _ = HeadRecord(PartText, b"\xff" * 6)
+    except ValueError:
+        return
+    raise AssertionError("head record accepted a short identity")
+
+
+# the root head record is a tag a length prefixed text and a fixed tail
+def TestNxObject() -> None:
+    CheckHeadRecord(b'Part renamed from "C:\\kit\\part.prt"')
+    CheckHeadRecord(b"x" * 40)
+    Header = bytearray(0x29 + 9 + 32 + 4)
+    Header[0x25:0x29] = (9).to_bytes(4, "little")
+    Header[0x29 + 9 : 0x29 + 9 + 4] = (214).to_bytes(4, "little")
+    assert ObjectCount(bytes(Header)) == 214
+    Header[0x29 + 9 : 0x29 + 9 + 4] = bytes(4)
+    try:
+        _ = ObjectCount(bytes(Header))
+    except ValueError:
+        return
+    raise AssertionError("object count accepted zero objects")

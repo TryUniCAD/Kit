@@ -600,6 +600,27 @@ sections 1 (block shape), 2 and 3, in addition to regenerating section 3 and
 emptying section 4. Section 0 keeps its source anchor because its body is still
 copied.
 
+### Section 0 field grammar
+
+Single field mutations in `empty.prt`, each loaded in NX 2506:
+
+```text
+head tag 41 -> 42                  refuses     head anchor changed       loads
+head kind 03 03 -> 03 04           refuses     head identity -> ff x 7   loads
+head length prefix 22 -> 21 or 23  refuses     head path text changed    loads
+record 4 any byte                  loads       record 1 or 2 tail zeroed refuses
+record 3 or 6 id byte              loads       class id in header        refuses
+```
+
+So tags, length prefixes and index lists are validated while text, anchors,
+identities, instance ids and trailing words are free. Changing the head text also
+requires the section pointer to shift, because that field names the end of the
+middle: the record table stays consistent but the pointer is absolute.
+
+The head tail ends with two variable length integers that depend on the document
+(`80 d5 02` for a body less part, `fa 02` for one with a body), so the emitted
+record is only accepted when its length matches the source shape.
+
 ### All 214 section 0 records were mutated; five are optional
 
 Each of the 214 records in `empty.prt`'s section 0 was blanked to `0xff` in place,
