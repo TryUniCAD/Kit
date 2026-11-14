@@ -181,10 +181,8 @@ def HasPolyLoss(DocumentData: CadDocument, PadId: str) -> bool:
     if DefinitionLength is None:
         return True
     Direction = Definition.direction
-    if Direction is not None and not (
-        MathValue.isclose(Direction.x, 0.0, abs_tol=1e-12)
-        and MathValue.isclose(Direction.y, 0.0, abs_tol=1e-12)
-        and MathValue.isclose(Direction.z, 1.0, abs_tol=1e-12)
+    if Direction is not None and (
+        Direction.x != 0.0 or Direction.y != 0.0 or Direction.z != 1.0
     ):
         return True
     IsFreecad = DocumentData.source.format_id.casefold() == "freecad.fcstd" or any(
@@ -219,20 +217,21 @@ def HasPadParamLoss(
             or ParamData.role is not ParameterRole.DRIVING
         ):
             return True
-        IsDepth = (
-            ParamData.value.kind is ValueKind.LENGTH and ParamData.name == "D1"
-        ) or (IsFreecad and PathValue == "Length")
-        if IsDepth:
-            if not IsBoundLength(ParamData.value, DefinitionLength):
-                return True
-            continue
         if IsFreecad and isinstance(PathValue, str) and PathValue in KFreecadPadProps:
+            if PathValue == "Length":
+                if not IsBoundLength(ParamData.value, DefinitionLength):
+                    return True
+                continue
             Expected = ExpectedValues.get(PathValue)
             if Expected is None or not IsPadValue(
                 ParamData.value, Expected[0], Expected[1]
             ):
                 return True
             PadPaths.append(PathValue)
+            continue
+        if ParamData.value.kind is ValueKind.LENGTH and ParamData.name == "D1":
+            if not IsBoundLength(ParamData.value, DefinitionLength):
+                return True
             continue
         return True
     ExpectedPaths = set(KFreecadPadProps) - {"Length"}

@@ -203,18 +203,41 @@ def TestTriPrecise(TmpPath: FilePath) -> None:
 
 def TestDirection(TmpPath: FilePath) -> None:
     SourceDoc = BuildDocument(KPoints)
-    FeatureData = SourceDoc.feature_timeline[0]
-    assert isinstance(FeatureData.definition, ExtrudeFeature)
-    FeatureData = ReplaceData(
-        FeatureData,
-        definition=ReplaceData(
-            FeatureData.definition, direction=VectorThree(0.0, 0.0, 2.0)
+    for Index, Direction in enumerate(
+        (VectorThree(0.0, 0.0, 2.0), VectorThree(5e-13, 0.0, 1.0))
+    ):
+        FeatureData = SourceDoc.feature_timeline[0]
+        assert isinstance(FeatureData.definition, ExtrudeFeature)
+        FeatureData = ReplaceData(
+            FeatureData,
+            definition=ReplaceData(FeatureData.definition, direction=Direction),
+        )
+        Changed = ReplaceData(SourceDoc, feature_timeline=(FeatureData,))
+        assert HasVendorPartEncoding(Changed) is False
+        with PytestLib.raises(SldprtFormatError):
+            _ = WriteDoc(Changed, TmpPath / f"DirectionLoss{Index}.SLDPRT")
+
+
+def TestPadAlias(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    Changed = ReplaceData(
+        SourceDoc,
+        parameters=tuple(
+            (
+                ReplaceData(
+                    ParamData,
+                    value=ParameterValue(5e-11, ValueKind.LENGTH, "mm"),
+                    attributes={"freecad_path": "Offset"},
+                )
+                if ParamData.attributes.get("freecad_path") == "Length"
+                else ParamData
+            )
+            for ParamData in SourceDoc.parameters
         ),
     )
-    Changed = ReplaceData(SourceDoc, feature_timeline=(FeatureData,))
     assert HasVendorPartEncoding(Changed) is False
     with PytestLib.raises(SldprtFormatError):
-        _ = WriteDoc(Changed, TmpPath / "DirectionLoss.SLDPRT")
+        _ = WriteDoc(Changed, TmpPath / "PadAliasLoss.SLDPRT")
 
 
 def TestPadValue(TmpPath: FilePath) -> None:
