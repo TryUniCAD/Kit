@@ -168,6 +168,14 @@ selector width (57/58), writer selector formula (four variants), reader width fo
 variants), and last-field width (two variants) found no round-trip. The selector is entirely
 inside `ReadDoubleWithRef`/`WriteDoubleWithRef` and cannot be settled by static reading.
 
+## Harness blocker
+
+A dynamic harness was attempted in the Parallels Windows 11 VM. The VM is ARM64
+(`PROCESSOR_ARCHITECTURE=ARM64`), while `CATMathStream.dll` is x86-64. The ARM64 PowerShell
+cannot load the x64 DLL: `LoadLibraryEx` returns error `193` (`ERROR_BAD_EXE_FORMAT`). The VM has
+no x64 C compiler, no x64 Python, and no x64 PowerShell. Building the harness needs an x64
+toolchain installed in the VM.
+
 ## Caller and reference array
 
 `CATAdvancedMathematics.dll` imports `ReadFloatWithRef2` and `WriteFloatWithRef2` from
