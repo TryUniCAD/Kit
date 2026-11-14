@@ -1,3 +1,5 @@
+from contextlib import suppress as Suppress
+
 from convert.formats.Fusion.DrawingCodec.Dwg.Image.PageKinds import KDataPageType
 from convert.formats.Fusion.DrawingCodec.Dwg.Model.DwgFile import DwgFile
 from convert.formats.Fusion.DrawingCodec.Dwg.Model.DwgPackPlan import DwgPackPlan
@@ -7,10 +9,8 @@ from convert.formats.Fusion.DrawingCodec.Dwg.Pack.PlanPage import PlanPage
 
 def PackOrPlan(Payload: bytes, PackPlan: DwgPackPlan | None) -> bytes:
     if PackPlan is not None:
-        try:
+        with Suppress(ValueError):
             return PackPage(Payload, PackPlan)
-        except ValueError:
-            pass
     return PackPage(Payload, PlanPage(Payload))
 
 
