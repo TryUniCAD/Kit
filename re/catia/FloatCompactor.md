@@ -269,6 +269,17 @@ The literal branch reads `ReadBits(0, 0x40)` (all 64 bits). The delta branch rea
 `ReadBits(0x3f, 0x40)` for the sign (1 bit), `ReadBits(width + 1, 0x40)` for the low mask bits,
 and reconstructs `base ± (shift | low_bits)`.
 
+## Coordinate lane entry point
+
+`CATSplineCompactor::StaticUnstream` at `0x9cf90` in `CATGeometricObjectsCGM.dll` is the entry
+point for the coordinate lane. It constructs a `CATSplineCompactor` on the stack, copies the knot
+vector fields, and calls `HandleArray` (`0x9cc50`), which reads one double per coordinate through
+`ReadDoubleWithRef`.
+
+The signature is `(CATMathStreamImpl* stream, unsigned int dimension, CATKnotVector* knots,
+short ?, double* out1, double* out2, double* out3)`. Decoding the lane needs the stream position
+at the coordinate block and the knot vector. Both are still unidentified.
+
 ## Caller and reference array
 
 `CATAdvancedMathematics.dll` imports `ReadFloatWithRef2` and `WriteFloatWithRef2` from
