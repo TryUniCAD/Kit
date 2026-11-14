@@ -659,6 +659,20 @@ layout of forty one objects, and the only per document values are the seven byte
 identity plus internal object ids, which `src` already emits as arbitrary values
 for sections 1 (body less) and 3.
 
+### A canonical captured graph is not an emitter
+
+An earlier revision of the writer shipped the single block construction middle as
+two constants split around the anchor identity. It reproduced `dim40.prt` byte for
+byte, and NX measured the part, but 1240 of its 1247 bytes were a saved document's
+bytes. That is a donor block and it has been removed.
+
+The replacement must be a field emitter, and the measurements above say what it
+has to reproduce: `3 + 41` objects for one body, `3 + 2 * 41` for two, with the
+per body chain, the group byte, the `BLOCK_PARMS` record and the nineteen compact
+entries. Until that exists, a part with a body keeps its source construction
+graph, and the only construction sections `src` emits are the three object
+body-less shape.
+
 ### Per body and document level objects separate cleanly
 
 Comparing `var_two` (two blocks, 85 objects) with `dim40` (one block, 44) splits

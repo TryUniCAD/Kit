@@ -56,8 +56,8 @@ guard, the record counts and the object count reader.
 
 - Only the three object shape is generated. A part with a body carries forty four
   objects, and the forty one construction objects are not emitted yet.
-- A part with one block feature is handled separately by
-  [the block section change](NxBlockSection.md), where the construction graph is
-  emitted and only its identity is generated.
+- A part with a body keeps its source construction graph. An earlier attempt
+  shipped a canonical captured single-block graph and was removed: reproducing a
+  saved part's bytes is a donor block, which this repository forbids.
 - Sections 0 and 2 still come from the source part, so no part is written without
   a source document yet.
