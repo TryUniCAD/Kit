@@ -387,6 +387,28 @@ def TestTriPlane(TmpPath: FilePath) -> None:
         _ = WriteDoc(Changed, TmpPath / "PlaneLoss.SLDPRT")
 
 
+def TestTriRel(TmpPath: FilePath) -> None:
+    FirstPath = TmpPath / "NativeRelation.SLDPRT"
+    SecondPath = TmpPath / "NativeRelationAgain.SLDPRT"
+    _ = WriteDoc(BuildDocument(KPoints, Depth=9.0), FirstPath, allow_carrier=False)
+    ArchiveData = SldprtArchive.open(FirstPath)
+    Reopened = ReadNativePart(
+        SldprtAdapter(),
+        ArchiveData,
+        FirstPath.read_bytes(),
+        str(FirstPath),
+        ReadOptions(include_brep=False),
+    )
+    Sketch = ReplaceData(
+        Reopened.sketches[0],
+        constraints=(SketchRelation("relation:0", "horizontal", ()),),
+    )
+    Changed = ReplaceData(Reopened, sketches=(Sketch,))
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(Changed, SecondPath)
+
+
 def TestTriBits(TmpPath: FilePath) -> None:
     FirstPath = TmpPath / "DepthBits.SLDPRT"
     SecondPath = TmpPath / "DepthBitsAgain.SLDPRT"

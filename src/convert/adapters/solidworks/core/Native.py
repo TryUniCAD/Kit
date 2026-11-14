@@ -2333,6 +2333,23 @@ def BuildCircleTree(
     )
 
 
+def PadSketch(DocData: CadDoc, PadId: str) -> Sketch | None:
+    Feature = next(
+        (ItemData for ItemData in DocData.feature_timeline if ItemData.id == PadId),
+        None,
+    )
+    if Feature is None or Feature.sketch_id is None:
+        return None
+    return next(
+        (
+            ItemData
+            for ItemData in DocData.sketches
+            if ItemData.id == Feature.sketch_id
+        ),
+        None,
+    )
+
+
 # polyline specialization isolates polygon profile serialization behavior
 def BuildPolyTree(
     SketchObject: WriteObject,
@@ -2343,8 +2360,11 @@ def BuildPolyTree(
     EndCodes: tuple[int, int],
     DocData: CadDoc,
 ) -> VendorResolved | None:
+    SketchData = PadSketch(DocData, PadObject.source_id)
     if (
         PolylineValue is None
+        or SketchData is None
+        or bool(SketchData.constraints)
         or EndCodes != (0, 0)
         or PlaneObjectId != 2
         or (PadObject.object_id != 32)
