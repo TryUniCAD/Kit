@@ -44,6 +44,21 @@ Edge handles and trim handles share one global point-id space but are not identi
 The trim mesh adds interior points that no edge polyline uses. The coordinate table for this
 shared point-id space is not yet located.
 
+## Washer coordinate run
+
+`Washer_8.CATPart` `MainDataStream` has a 318-float run at offset 223. The clean values are
+washer geometry: `-7.5, 1.6, -7.133, -2.318, 1.6, 2.318, 1.6, -6.068, -4.408, 1.6, 4.408, 1.6,
+-4.408, -6.068, 1.6, 6.068, 1.6, -4.2`. The bounding box is `-7.5..7.5`, matching the outer
+radius, and `1.6` is the washer thickness.
+
+Only 148 of the 318 floats are clean; the rest are denormals (`1.7e-15`, `2.8e-14`, `-1.5e-9`).
+The clean values sit at offsets with gaps of 4, 8, 12, and 16 bytes, so the record is not a plain
+`(x, y, z)` float array. `318 / 3 = 106` is an integer, which is suggestive but contradicted by
+the denormals.
+
+The same pattern holds for `Bolt_M5x40.CATPart` (390 floats at 243, `390 / 3 = 130`) and
+`Reservoir.CATPart` (2959 floats at 565, not divisible by 3).
+
 ## Coordinate run in the head
 
 `Pedal_Body.CATPart` `MainDataStream` contains a long run of plausible little-endian `f32`
