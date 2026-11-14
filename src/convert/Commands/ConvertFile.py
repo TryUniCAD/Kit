@@ -1,23 +1,39 @@
-from convert.api.ApiConvert import ConvertFile as ConvertDoc
+from convert.api.ApiContext import GetRegistry
+from convert.api.ApiOpen import OpenDocument
+from convert.api.ApiWrite import WriteDocument
+from convert.Commands.CheckPortable import CheckPortable
 from convert.Commands.CliOptions import CliOptions
 from convert.Commands.WriteReport import WriteReport
+from convert.formats.SourceFormat import ResolveFormat
 
 
 def ConvertFile(Options: CliOptions) -> dict[str, object]:
     if Options.Destination is None:
         raise ValueError("Conversion requires a destination")
-    Result = ConvertDoc(
+    Registry = GetRegistry()
+    Reader = (
+        Registry.GetReader(Options.SourceFormat)
+        if Options.SourceFormat
+        else Registry.PickReader(Options.Source)
+    )
+    Document = OpenDocument(
         Options.Source,
+        SourceFormat=Reader.info.FormatId,
+        Configuration=Options.Configuration,
+        StrictMode=True,
+    )
+    CheckPortable(Document)
+    Result = WriteDocument(
+        Document,
         Options.Destination,
-        SourceFormat=Options.SourceFormat,
         DestFormat=Options.DestFormat,
         Configuration=Options.Configuration,
         Overwrite=Options.Overwrite,
-        StrictMode=True,
+        ValidateData=True,
         AllowCarrier=False,
     )
     return {
-        "source_format": Result.source_format,
-        "destination_format": Result.destination_format,
-        **WriteReport(Result.output),
+        "source_format": ResolveFormat(Document, Reader),
+        "destination_format": Result.AdapterName,
+        **WriteReport(Result),
     }

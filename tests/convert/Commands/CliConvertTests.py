@@ -1,12 +1,13 @@
+from dataclasses import replace as ReplaceData
 from json import loads as LoadJson
 from pathlib import Path as FilePath
 from shutil import which as FindProgram
 from subprocess import run as RunProcess
 
+from convert.adapters.Fusion.Authoring.MakeFusionDoc import MakeFusionDoc
 from convert.formats.Fusion.DocumentCodec.EmitDocument import EmitDocument
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from interchange.document.models.DocumentModel import CadDocument
-from tests.convert.api.ApiTestPaths import KSamplePath
 from tests.convert.Commands.CliProcess import CliProcess
 
 
@@ -33,25 +34,27 @@ def CheckCliCatalog(TmpPath: FilePath) -> None:
 
 
 def CheckCliConvert(TmpPath: FilePath) -> None:
+    Source = TmpPath / "source.f3d"
+    Original = EmitDocument(
+        DocumentSpec("CLI circle", "radius", 12.0, ProfileKind="circle")
+    )
+    _ = Source.write_bytes(Original)
     Target = TmpPath / "decoded.json"
-    Result = CliProcess(TmpPath, "convert", str(KSamplePath), str(Target), "--json")
+    Result = CliProcess(TmpPath, "convert", str(Source), str(Target), "--json")
     assert Result.returncode == 0, Result.stderr
     Report = LoadJson(Result.stdout)
-    assert Report["source_format"] == "solidworks.sldprt"
+    assert Report["source_format"] == "fusion.f3d"
     assert Report["destination_format"] == "interchange.json"
     assert Report["dropped"] == [] and Report["requirements"] == []
     assert Report["application_usable"] is True
-    assert (
-        CadDocument.from_json(Target.read_text()).Source.FormatId == "solidworks.sldprt"
-    )
+    assert CadDocument.from_json(Target.read_text()).Source.FormatId == "fusion.f3d"
     Before = Target.read_bytes()
-    Repeated = CliProcess(TmpPath, "convert", str(KSamplePath), str(Target))
+    Repeated = CliProcess(TmpPath, "convert", str(Source), str(Target))
     assert Repeated.returncode == 1 and Target.read_bytes() == Before
-    Overwrite = CliProcess(
-        TmpPath, "convert", str(KSamplePath), str(Target), "--overwrite"
-    )
+    Overwrite = CliProcess(TmpPath, "convert", str(Source), str(Target), "--overwrite")
     assert Overwrite.returncode == 0, Overwrite.stderr
     assert "Writer evidence only" in Overwrite.stdout
+    assert Source.read_bytes() == Original
 
 
 def CheckCliRound(TmpPath: FilePath) -> None:
@@ -65,23 +68,48 @@ def CheckCliRound(TmpPath: FilePath) -> None:
     Neutral = TmpPath / "neutral.json"
     First = CliProcess(TmpPath, "convert", str(Source), str(Neutral), "--json")
     assert First.returncode == 0, First.stderr
+    assert LoadJson(First.stdout)["source_format"] == "fusion.f3d"
+    assert LoadJson(First.stdout)["destination_format"] == "interchange.json"
     Restored = TmpPath / "restored.f3d"
     Second = CliProcess(
-        TmpPath, "convert", str(Neutral), str(Restored), "--to", "f3d", "--json"
+        TmpPath,
+        "convert",
+        str(Neutral),
+        str(Restored),
+        "--from",
+        "interchange.json",
+        "--to",
+        "f3d",
+        "--json",
     )
     assert Second.returncode == 0, Second.stderr
+    assert LoadJson(Second.stdout)["source_format"] == "interchange.json"
+    assert LoadJson(Second.stdout)["destination_format"] == "fusion.f3d"
     assert Restored.read_bytes() == Original
     assert Source.read_bytes() == Original
 
 
 def CheckCliPolicy(TmpPath: FilePath) -> None:
+    Source = TmpPath / "source.json"
+    Original = ReplaceData(
+        MakeFusionDoc(
+            DocumentSpec("CLI parameter", "height", 17.0, ProfileKind="parameter")
+        ),
+        materials=(),
+        metadata={},
+    ).to_json()
+    _ = Source.write_text(Original)
     Target = TmpPath / "blocked.CATPart"
     _ = Target.write_bytes(b"existing output")
     Result = CliProcess(
-        TmpPath, "convert", str(KSamplePath), str(Target), "--overwrite", "--json"
+        TmpPath, "convert", str(Source), str(Target), "--overwrite", "--json"
     )
     assert Result.returncode == 1 and Result.stdout == ""
     Error = LoadJson(Result.stderr)
     assert Error["details"]["code"] == "output_not_application_usable"
     assert Target.read_bytes() == b"existing output"
-    assert sorted(Value.name for Value in TmpPath.iterdir()) == ["blocked.CATPart"]
+    assert Source.read_text() == Original
+    assert sorted(Value.name for Value in TmpPath.iterdir()) == [
+        "blocked.CATPart",
+        "source.json",
+    ]

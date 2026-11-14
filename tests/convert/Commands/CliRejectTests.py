@@ -2,6 +2,8 @@ from pathlib import Path as FilePath
 
 from pytest import mark as TestMark
 
+from convert.formats.Fusion.DocumentCodec.EmitDocument import EmitDocument
+from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from tests.convert.api.ApiTestPaths import KSamplePath
 from tests.convert.Commands.CliProcess import CliProcess
 
@@ -68,10 +70,17 @@ def CheckBadFiles(TmpPath: FilePath) -> None:
         assert "Traceback" not in Result.stderr
     Missing = CliProcess(TmpPath, "decode", str(TmpPath / "missing.f3d"))
     assert Missing.returncode == 1 and "Traceback" not in Missing.stderr
+    TypedSource = TmpPath / "typed.f3d"
+    _ = TypedSource.write_bytes(
+        EmitDocument(
+            DocumentSpec("CLI parameter", "height", 17.0, ProfileKind="parameter")
+        )
+    )
     Unknown = CliProcess(
-        TmpPath, "convert", str(KSamplePath), str(TmpPath / "out.unsupported")
+        TmpPath, "convert", str(TypedSource), str(TmpPath / "out.unsupported")
     )
     assert Unknown.returncode == 1 and not (TmpPath / "out.unsupported").exists()
+    assert "no writer supports the destination" in Unknown.stderr
 
 
 def CheckCliBounds(TmpPath: FilePath) -> None:
