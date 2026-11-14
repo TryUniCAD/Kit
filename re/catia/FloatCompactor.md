@@ -162,6 +162,12 @@ writes one double per coordinate against that prediction. So the shared tessella
 are compressed by the double compactor, not the float compactor. Decoding them is blocked on the
 same selector.
 
+`GetComputedRef` (`0x9be00`) and `GetComputedRefWithSize` (`0x9be30`) only build the spline
+prediction. They do not contain the selector. A systematic search over 64 combinations of
+selector width (57/58), writer selector formula (four variants), reader width formula (four
+variants), and last-field width (two variants) found no round-trip. The selector is entirely
+inside `ReadDoubleWithRef`/`WriteDoubleWithRef` and cannot be settled by static reading.
+
 ## Caller and reference array
 
 `CATAdvancedMathematics.dll` imports `ReadFloatWithRef2` and `WriteFloatWithRef2` from
