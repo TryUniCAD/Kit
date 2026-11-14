@@ -8,6 +8,8 @@ Depth is an independent finite positive value. Source vertex order and the three
 
 The recovered scope does not accept solver relations, sketch dimensions, construction or fixed entities, open or self-intersecting wires, degenerate profiles, other planes, reversed directions, or other termination conditions. Unsupported inputs fail closed instead of discarding semantic content.
 
+Three-line candidates also inspect original sketch- and extrusion-owned parameters before length-only serialization. An unsupported non-length value declines native encoding. Recognized FreeCAD pad metadata remains on the existing validated projection path; an additional `CustomCount` field on either owner is rejected through the public writer instead of disappearing while parameter capabilities are granted.
+
 The right-angle rightmost-vertex tie is supported. `tri3tie`, with two rightmost vertices, demonstrates that tying `x` does not require rejecting the profile. The measured first-rightmost attachment convention preserves its zero-y coordinate.
 
 ## Recovered native structure
@@ -88,7 +90,7 @@ Native polyline closure now requires exact shared endpoints before line starts a
 
 Bound `instance_count` is also kept as a unitless count instead of being multiplied by 1000 and labelled in millimetres. Length and angle conversions remain separate.
 
-Regression fixtures now use typed XML and `BuildSldprt` rather than searching or replacing raw container bytes. Compressed payloads, checksums, directory offsets, and file signatures are re-emitted correctly for both the rounded-label input and invalid-depth input. The self-emulated freecad/proof compatibility path remains outside the accepted native replay scope and is not replaced by these fixture repairs.
+Regression fixtures now use typed XML and `BuildSldprt` rather than searching or replacing raw container bytes. Compressed payloads, checksums, directory offsets, and file signatures are re-emitted correctly for both the rounded-label input and invalid-depth input. Native-reader fixtures remove `Kit/Interchange` and `Kit/Native`, preserve the keyword prefix, and request `include_brep=False` because these feature-only files intentionally have no Parasolid payload. The self-emulated freecad/proof compatibility path remains outside the accepted native replay scope and is not replaced by these fixture repairs.
 
 Public `open_document` followed by `write_document(..., allow_carrier=False)` succeeds for all four replay controls. SOLIDWORKS 34.5.2 measured zero load errors and warnings, one body, and successful rebuild for each:
 
@@ -123,4 +125,5 @@ This remains one bounded native feature family with four controls and a seeded 6
 - [Exact polyline closure](../../Gotchas/Conversion/SolidworksPolylineClosure.md)
 - [Archive fixture editing](../../Gotchas/Conversion/SolidworksArchiveFixtureEditing.md)
 - [Scalar kind handling](../../Gotchas/Conversion/SolidworksScalarKinds.md)
+- [Polyline parameter loss](../../Gotchas/Conversion/SolidworksPolylineParameterLoss.md)
 - [Dependent Code Quality reporting](../../Gotchas/Ci/StackedCodeQualityReport.md)
