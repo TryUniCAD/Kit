@@ -546,6 +546,46 @@ NX stores box shells with the opposite loop orientation to the one
 convention. Reproducing that convention for an authored topology is the
 remaining piece for a body written entirely from constants.
 
+### Authored topology: attributes, ordering and conventions are all ruled out
+
+More probes narrow the BuildPrism measurement failure.
+
+Attribute records are not required. Re-encoding the decoded NX body produces a
+stream without any of the identifiers that NX writes:
+
+```text
+                   NX stream   re-encoded
+body_id            present     absent
+UGS/ObjectState    present     absent
+32 hex identifiers 5          0
+```
+
+That re-encoded stream still loads and measures `VOLUME 23999.999999999996`, so
+the body is measured from geometry alone.
+
+Record ordering is not required either. Assigning `parasolid.face_order`,
+`surface_order`, `curve_order`, `edge_order`, `point_order`,
+`surface_face_order`, `front_face_order`, `curve_edge_order`, `vertex_fins` and
+`first_fin` in model order changes nothing:
+
+```text
+BuildPrism + order and fin attributes      BODIES 1, VOLUME 0.0, AREA 0.0
+```
+
+Nor is the parameterization convention. Building the model with NX's own
+conventions (plane origins at face centroids, line origins at edge midpoints,
+edge parameters `+-length/2`) still measures nothing:
+
+```text
+BuildPrism + centroid / midpoint / +-L/2   BODIES 1, VOLUME 0.0, AREA 0.0
+```
+
+Every single-field and combined variant still measures `0.0`, while the same
+encoder output for a decoded body measures correctly, and reversing loop
+traversal measures `6000.0` with area `600.0`, which is not a valid box. The
+remaining difference is inside the face and loop record layout that NX writes
+and the encoder derives, not in the attribute or ordering layer.
+
 ### A parametric body write is accepted and measured
 
 Scaling the decoded model keeps those attribute records, and then the spliced
