@@ -1,7 +1,7 @@
 from __future__ import annotations as Annotations
 import struct as Struct
 
-from convert.adapters.nx.Xxh32 import HashXxh
+from convert.adapters.nx.HashXxh import HashXxh
 from convert.adapters.nx.Splm import (
     KAbsentFooter,
     KChecksumOffset,

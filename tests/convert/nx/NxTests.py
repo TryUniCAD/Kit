@@ -10,7 +10,7 @@ from convert.adapters.nx import NxAdapter, ProbeNx, ReadNx, WriteNx
 from convert.adapters.nx.Splm import KChecksumOffset, KHeaderRegion
 from convert.adapters.nx.SplmBuild import BuildSplm, DirectoryLength
 from convert.adapters.nx.SplmReader import ReadSplm
-from convert.adapters.nx.Xxh32 import HashXxh
+from convert.adapters.nx.HashXxh import HashXxh
 from interchange import FeatureKind
 
 # the synthetic payload keeps integration coverage free of vendor saved files
