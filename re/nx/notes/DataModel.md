@@ -576,6 +576,54 @@ aligned authored body vs decoded body   3393 bytes each, 586 differing bytes
                                         VOLUME 0.0
 ```
 
+### Section 1's minimum object set is three objects
+
+Locating the table by its declared count rather than by a fixed offset makes the
+tool exact for both shapes, and shows how small the body-less section is:
+
+```text
+part       objects  counts[0]  first offsets        sizes
+empty      3        3          1033, 1060, 1088     27, 28, 112
+multi      3        3          1033, 1060, 1088     27, 28, 112
+dim40      44       44         1850, 1877, 1905...  27, 28, 14, 14, 14, 14 ... 3, 3, 231
+dim60      44       44         1850, 1876, 1904...  26, 28, 14, 14, 14, 14 ... 3, 3, 231
+```
+
+So a part with no body carries exactly three objects: the head, one 28 byte
+descriptor and one 112 byte record. The 41 extra objects in a part with one body
+are the construction graph, and the class list says which families appear:
+
+```text
+body-less classes   17: RootObject, CM_part, SaveAuditTrail, SaveAuditTrailEntry,
+                    FEATURE_RECORD, OptIntValue, CM_STUB_PARMS,
+                    NXParasolidVersioningService, TaggedObject, StorableObject,
+                    MethodicObject, VersionedObject, SubObject, RM_entity,
+                    OptAttValue, FEATURE_PARMS, NativeVersioningService
+one body adds       13: FACE_REFERENCE, EDGE_REFERENCE, BREF, CM_LIST,
+                    BLOCK_PARMS, CM_BREF_DATA, CM_NODE, CM_reference,
+                    CM_object, RM_entity already present, PRIMITIVE_PARMS,
+                    CM_GENERIC_NODE
+```
+
+The whole body-less middle is 356 bytes and lays out as:
+
+```text
+0x00  18 "m_legacyInactiveModules" 81 0c
+0x1e  02 02 02 02 02 02 02 01 x 9      flag bytes
+0x28  u32 0x3d8                        counter
+0x2c  32 zero bytes
+0x4c  ...
+0x70  u32 x 3                         object table, body relative
+0x7c  u32 x 4                         order array headed by the object count
+0x8e  03 01 27 "NX 2506.9120 - External User Function" 00 08 "SYSTEM" 00
+      41 00 03 05 01 00 04 05 02 00 e0 6a f8 <7 byte pointer> 10 05 02 13 06 02 00 00
+      head object with its anchor
+      descriptor and the 112 byte record that carries "DELETE" and a 0.02 double
+```
+
+Emission order follows the table: head, 28 byte descriptor, then the 112 byte
+record. The counter at 0x28 is 0x3d8 for both body-less parts.
+
 ### Section 1 descriptor grammar
 
 `re/nx/tools/CmDump.py` decodes the table and every record, and the three

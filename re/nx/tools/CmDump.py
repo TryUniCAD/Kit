@@ -28,18 +28,27 @@ def Execute(Name: str) -> tuple[bytes, Section]:
     return (Body, ParseSection(Body))
 
 
-def Table(Middle: bytes, Body: bytes) -> list[int]:
-    Offsets: list[int] = []
-    Position = KTableStart
-    while Position + 4 <= len(Middle):
-        Value = int(Struct.unpack_from("<I", Middle, Position)[0])
-        if Offsets and Value <= Offsets[-1]:
-            break
-        if Value >= len(Body):
-            break
-        Offsets.append(Value)
-        Position += 4
-    return Offsets
+def Table(Middle: bytes, Body: bytes, Count: int) -> list[int]:
+    for Start in range(0, len(Middle) - 4 * Count):
+        Offsets: list[int] = []
+        Position = Start
+        while len(Offsets) < Count and Position + 4 <= len(Middle):
+            Value = int(Struct.unpack_from("<I", Middle, Position)[0])
+            if Offsets and Value <= Offsets[-1]:
+                break
+            if Value >= len(Body):
+                break
+            Offsets.append(Value)
+            Position += 4
+        if len(Offsets) != Count:
+            continue
+        Follow = Position + 4
+        if Follow > len(Middle):
+            continue
+        Order = int(Struct.unpack_from("<I", Middle, Position)[0])
+        if Order <= Count:
+            return Offsets
+    raise ValueError("construction section object table was not found")
 
 
 def Descriptor(Record: bytes) -> dict[str, object]:
@@ -70,7 +79,7 @@ def Sizes(Offsets: list[int], Body: bytes) -> list[int]:
 
 def Report(Name: str) -> None:
     Body, Section = Execute(Name)
-    Offsets = Table(Section.middle, Body)
+    Offsets = Table(Section.middle, Body, Section.counts[0])
     Lengths = Sizes(Offsets, Body)
     print(
         Name,
