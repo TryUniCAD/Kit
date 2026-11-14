@@ -150,6 +150,33 @@ The record length is not constant per kind. Two cylinder records with identical 
 headers in `Washer_8.CATPart` measure 73 and 70 bytes. The three-byte difference is an
 unresolved trailer rule.
 
+## Pooled mapping hypothesis test
+
+Two hypotheses were tested against `Reservoir.CATPart` and both are false.
+
+The two big-endian `u16` runs at 19348 and 19924 are not loop-to-face links. They are the
+handle arrays of trim packets. The run at 19350 starts inside the handle region of the trim
+packet at 19333 (`kind 0x42`, counts `(0, 9, 0)`, total 51). The run at 19939 starts inside the
+handle region of the trim packet at 19923 (`kind 0x42`, counts `(0, 8, 0)`, total 48). The
+values are tessellation handles, not face indices.
+
+The face-outer-bound run is not per-loop. All 71 rows of `Reservoir.CATPart` are byte-identical
+(`30 04 04 ff ff e1 e1 e1`), so the run carries no per-row tag and cannot distinguish faces from
+loops. The run is a count, not a table.
+
+The surface record trailer is not a record offset. The 56 trailers are monotonically increasing
+(3047, 3132, 3196, ... 4543), but the bytes at those offsets in `SurfacicReps` and
+`MainDataStream` are float data, not record headers. The trailer is therefore not a pointer to a
+curve row, a surface record, or a face table.
+
+The trim packets do not group into 56 faces by signature. Eleven adjacent pairs share a
+signature (25/26, 28/29, 30/31, 33/34, 35/36, 38/39, 40/41, 42/43, 52/53, 54/55, 58/59), but
+their handle sets differ, so the pairs are distinct loops, not the outer and inner loops of one
+face. Pairing them gives 60 groups, not 56.
+
+The corpus reader still decodes 22 of 27 parts. The five pooled parts (`4784`, `4876`,
+`4876_1`, `Pedal_Body`, `Reservoir`) still fail at the surface-count check.
+
 ## Open work
 
 1. Locate the shared tessellation vertex table and its coordinate encoding.
