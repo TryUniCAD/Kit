@@ -1,6 +1,6 @@
 from __future__ import annotations as Annotations
 from convert.adapters.solidworks.core.AxisSketchId import AxisSketchId
-from convert.adapters.solidworks.core.TriDepth import RecoverTriDepth
+from convert.adapters.solidworks.core.TriDepth import IsTriSource, RecoverTriDepth
 from collections.abc import Callable
 from dataclasses import dataclass as Dataclass, field as Field, replace as Replace
 import hashlib as Hashlib
@@ -456,6 +456,16 @@ def DecodePadMut(
             StateData.NativeFeatures[NativeIndex] = Replace(
                 StateData.NativeFeatures[NativeIndex], dimensions=Dimensions
             )
+        elif (
+            Feature.object_id == 32
+            and StateData.LatestSketch is not None
+            and StateData.LatestSketch.support_plane_id == 2
+            and EndData is not None
+            and EndData.direction_code == 0
+            and EndData.termination_code == 0
+            and IsTriSource(StateData.LatestSketch, Dimensions[0])
+        ):
+            raise SldprtFormatError("triangle depth witnesses are unsupported")
     Operation = NativeOperation(
         object_id=Feature.object_id,
         name=Feature.name,
@@ -8382,12 +8392,8 @@ def LineLoopPoints(
     ):
         return None
     if any(
-        (
-            not IsSamePoint(
-                EndData[ItemIndex], StartData[(ItemIndex + 1) % len(StartData)]
-            )
-            for ItemIndex in range(len(StartData))
-        )
+        EndData[ItemIndex] != StartData[(ItemIndex + 1) % len(StartData)]
+        for ItemIndex in range(len(StartData))
     ):
         return None
     return StartData

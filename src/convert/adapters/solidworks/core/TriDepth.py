@@ -13,19 +13,22 @@ KPositiveOffsets = (9408, 9480, 9968, 9992)
 KNegativeOffsets = (9806, 9830)
 
 
+def IsTriSource(Sketch: NativeSketch | None, Dimension: NativeDimension) -> bool:
+    return (
+        Sketch is not None
+        and len(Sketch.profiles) == 1
+        and Sketch.profiles[0].kind == "polyline"
+        and len(Sketch.profiles[0].coordinates) == 6
+        and Dimension.name == "D1"
+        and Dimension.kind == "length"
+        and Dimension.native_value is None
+    )
+
+
 def RecoverTriDepth(
     DataValue: bytes, Sketch: NativeSketch | None, Dimension: NativeDimension
 ) -> NativeDimension | None:
-    if (
-        len(DataValue) not in {10601, 10603}
-        or Sketch is None
-        or len(Sketch.profiles) != 1
-        or Sketch.profiles[0].kind != "polyline"
-        or len(Sketch.profiles[0].coordinates) != 6
-        or Dimension.name != "D1"
-        or Dimension.kind != "length"
-        or Dimension.native_value is not None
-    ):
+    if len(DataValue) not in {10601, 10603} or not IsTriSource(Sketch, Dimension):
         return None
     Shift = len(DataValue) - KSourceLength
     Positive = tuple(

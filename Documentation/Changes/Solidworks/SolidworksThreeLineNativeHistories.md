@@ -82,6 +82,14 @@ Native reads retain `NativeProfile.native_coordinates_mm` separately from the no
 
 `RecoverTriDepth` recovers exact binary depth only for the independently recovered 10,601- and 10,603-byte three-line layouts. It requires four matching positive doubles at shifted 9408/9480/9968/9992, two exactly negated doubles at shifted 9806/9830, and consistency with the presentation label. The result supplies both the operation length and neutral feature scalar with a native offset. `DimensionParam` uses this native scalar when available rather than reusing rounded display text.
 
+`IsTriSource` also identifies the family-shaped case where an unbound depth cannot be recovered. For a canonical forward blind boss in that case, `DecodePadMut` now raises `SldprtFormatError` instead of preserving an approximate dimension label. This prevents a conflicting or unsupported depth witness from being rewritten as though it were authoritative. A valid rebuilt archive with one deliberately corrupted positive witness exercises the rejection through `open_document`.
+
+Native polyline closure now requires exact shared endpoints before line starts are serialized. A 1e-13-mm endpoint gap is rejected as an open wire instead of being silently replaced with a new closed wire. Exact near-origin writing remains supported.
+
+Bound `instance_count` is also kept as a unitless count instead of being multiplied by 1000 and labelled in millimetres. Length and angle conversions remain separate.
+
+Regression fixtures now use typed XML and `BuildSldprt` rather than searching or replacing raw container bytes. Compressed payloads, checksums, directory offsets, and file signatures are re-emitted correctly for both the rounded-label input and invalid-depth input. The self-emulated freecad/proof compatibility path remains outside the accepted native replay scope and is not replaced by these fixture repairs.
+
 Public `open_document` followed by `write_document(..., allow_carrier=False)` succeeds for all four replay controls. SOLIDWORKS 34.5.2 measured zero load errors and warnings, one body, and successful rebuild for each:
 
 | Replay control                                | Depth, mm |       Volume, mm³ | Surface area, mm² |
@@ -112,3 +120,7 @@ This remains one bounded native feature family with four controls and a seeded 6
 - [Triangle coordinate precision](../../Gotchas/Conversion/SolidworksTriangleCoordinatePrecision.md)
 - [Triangle depth recovery](../../Gotchas/Conversion/SolidworksTriangleDepthRecovery.md)
 - [Late-bound OpenDoc evidence](../../Gotchas/Conversion/OracleLateBoundOpenDoc.md)
+- [Exact polyline closure](../../Gotchas/Conversion/SolidworksPolylineClosure.md)
+- [Archive fixture editing](../../Gotchas/Conversion/SolidworksArchiveFixtureEditing.md)
+- [Scalar kind handling](../../Gotchas/Conversion/SolidworksScalarKinds.md)
+- [Dependent Code Quality reporting](../../Gotchas/Ci/StackedCodeQualityReport.md)

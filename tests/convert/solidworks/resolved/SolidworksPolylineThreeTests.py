@@ -3,14 +3,20 @@ from __future__ import annotations
 from dataclasses import replace as ReplaceData
 from pathlib import Path as FilePath
 import struct as StructLib
+from typing import cast as CastValue
+import xml.etree.ElementTree as XmlTree
 
 import pytest as PytestLib
 
 from convert import open_document as OpenDoc
 from convert import write_document as WriteDoc
-from convert.adapters.base import ReadOptions
+from convert.adapters.base import ParseUntrusted, ReadOptions
 from convert.adapters.base.UsabilityError import ApplicationUsabilityError
 from convert.adapters.solidworks import SldprtArchive
+from convert.adapters.solidworks.container.Container import (
+    BuildSldprt,
+    SldprtFormatError,
+)
 from convert.adapters.solidworks.container.Format import (
     CONFIGURATION_STREAM as ConfigStream,
     KEYWORDS_STREAM as KeyStream,
@@ -37,6 +43,33 @@ KPrecisionPoints = (
     (39.34567890123456, -4.456789012345678),
     (17.567890123456787, 38.67890123456789),
 )
+
+
+def BuildVariant(TargetPath: FilePath, Changes: dict[str, bytes]) -> bytes:
+    Template = TargetPath.read_bytes()
+    ArchiveData = SldprtArchive.open(TargetPath)
+    return BuildSldprt(
+        {**ArchiveData.streams, **Changes},
+        Template=Template,
+        FormatVersion=ArchiveData.format_version,
+    )
+
+
+def EncodeLabels(Keywords: bytes) -> bytes:
+    Start = Keywords.find(b"<")
+    RootElement = ParseUntrusted(Keywords[Start:])
+    Found = 0
+    for Element in RootElement.iter():
+        if (
+            Element.tag.rsplit("}", 1)[-1] == "Dimension"
+            and Element.attrib.get("Name") == "D1"
+        ):
+            setattr(Element, "text", "18.00")
+            Found += 1
+    assert Found > 0
+    return CastValue(
+        bytes, XmlTree.tostring(RootElement, encoding="utf-8", xml_declaration=True)
+    )
 
 
 def RequireTriFrame(ArchiveData: SldprtArchive, TargetPath: FilePath) -> None:
@@ -181,12 +214,42 @@ def TestLabels(TmpPath: FilePath) -> None:
         SourcePath,
         allow_carrier=False,
     )
-    Baseline = SldprtArchive.open(SourcePath).require(ResolvedStream)
-    SourceBytes = SourcePath.read_bytes()
-    assert SourceBytes.count(b"17.995855") == 1
-    _ = SourcePath.write_bytes(SourceBytes.replace(b"17.995855", b"18.00000", 1))
+    ArchiveData = SldprtArchive.open(SourcePath)
+    Baseline = ArchiveData.require(ResolvedStream)
+    Labels = EncodeLabels(ArchiveData.require(KeyStream))
+    _ = SourcePath.write_bytes(BuildVariant(SourcePath, {KeyStream: Labels}))
     Document = OpenDoc(SourcePath)
     RequireTriRead(Document, Baseline)
+
+
+def TestDepthGuard(TmpPath: FilePath) -> None:
+    SourcePath = TmpPath / "InvalidTriangleDepth.SLDPRT"
+    _ = WriteDoc(BuildDocument(KPoints), SourcePath, allow_carrier=False)
+    ArchiveData = SldprtArchive.open(SourcePath)
+    Payload = bytearray(ArchiveData.require(ResolvedStream))
+    StructLib.pack_into("<d", Payload, 9408, 0.03125)
+    _ = SourcePath.write_bytes(
+        BuildVariant(SourcePath, {ResolvedStream: bytes(Payload)})
+    )
+    with PytestLib.raises(SldprtFormatError):
+        _ = OpenDoc(SourcePath)
+
+
+def TestOpenWire(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    First = SourceDoc.sketches[0].entities[0]
+    assert isinstance(First.geometry, LineGeometry)
+    EndPoint = ReplaceData(First.geometry.end, x=First.geometry.end.x + 1e-13)
+    Geometry = ReplaceData(First.geometry, end=EndPoint)
+    Entities = (
+        ReplaceData(First, geometry=Geometry),
+        *SourceDoc.sketches[0].entities[1:],
+    )
+    Sketch = ReplaceData(SourceDoc.sketches[0], entities=Entities)
+    SourceDoc = ReplaceData(SourceDoc, sketches=(Sketch,))
+    assert HasVendorPartEncoding(SourceDoc) is False
+    with PytestLib.raises(ApplicationUsabilityError):
+        _ = WriteDoc(SourceDoc, TmpPath / "OpenWire.SLDPRT", allow_carrier=False)
 
 
 def TestThreeTie(TmpPath: FilePath) -> None:
