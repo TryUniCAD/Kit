@@ -2,6 +2,8 @@ from __future__ import annotations as Annotations
 
 import struct as Struct
 
+from convert.adapters.nx.ExprValue import EncodeValue
+
 # the root object section is lanes then a table then an order array then records
 KSlice = 0x30C
 KOrderStart = 0x664
@@ -136,6 +138,8 @@ def ReplaceHead(
 
 
 __all__ = [
+    "ReadValueWord",
+    "ValueWord",
     "RenameView",
     "ViewName",
     "LaneParts",
@@ -569,3 +573,14 @@ def RenameView(Record: bytes, ViewLabel: bytes) -> bytes:
     Output = bytearray(Record)
     Output[Position + 2 : Position + Width] = ViewLabel
     return bytes(Output)
+
+
+# a numeric word is an expression handle padded to four bytes
+def ValueWord(Value: float) -> bytes:
+    return EncodeValue(Value).to_bytes(2, "little") + bytes(2)
+
+
+def ReadValueWord(WordValue: bytes) -> int:
+    if len(WordValue) != 4 or WordValue[2:] != bytes(2):
+        raise ValueError("NX value word must be a handle and two zero bytes")
+    return int.from_bytes(WordValue[:2], "little")

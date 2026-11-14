@@ -26,6 +26,7 @@ from convert.adapters.nx.ObjectSection import (
     RegToken,
     SlotPrefix,
     SlotRecord,
+    ValueWord,
     ViewName,
 )
 from convert.adapters.nx.RootSection import KRootCounter, PatchAnchor, RootMiddle
@@ -811,3 +812,16 @@ def TestNxView() -> None:
     except ValueError:
         return
     raise AssertionError("view name read a record without a name")
+
+
+# the numeric words in the token family are expression handles padded to four bytes
+def TestNxWord() -> None:
+    assert ValueWord(100.0) == bytes.fromhex("50790000")
+    assert ValueWord(50.0) == bytes.fromhex("50690000")
+    assert ValueWord(20.0) == bytes.fromhex("50540000")
+    assert ValueWord(5.0) == bytes.fromhex("50340000")
+    try:
+        _ = ValueWord(0.5)
+    except ValueError:
+        return
+    raise AssertionError("value word accepted a value below the encoding limit")
