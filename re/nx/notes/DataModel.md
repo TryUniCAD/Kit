@@ -52,6 +52,15 @@ the index and OM sections, and NX requires both the `UG_PART` payload and its
 part. Replacing the `ExternalReferences` stream with a one byte placeholder
 fails with `Unexpected end of file`.
 
+Every OM section starts with a 0x56 byte header: `OM 01 01`, version `10`,
+a section type word, flag bytes, a timestamp, the product string, the saved part
+name, a class count, two flag words, and three counts. The last 12 bytes of each
+section hold a 96 bit digest, and the u32 at header offset `0x52` equals
+`section_size - 12`. The type registry follows at `0x56` with variable framing:
+`01 len name id[11]`, `03 len name id[1]`, and bare `len name` entries all
+appear in one section. NX 2506 saved sections with class counts 214, 3, 6, and
+2 for an empty part.
+
 The OM sections themselves are not optional. Zeroing the index row that names
 one section makes NX report `Internal error` (code 65) even though the section
 bytes remain in the payload. A from-scratch author therefore has to emit every
