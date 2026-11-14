@@ -546,6 +546,32 @@ NX stores box shells with the opposite loop orientation to the one
 convention. Reproducing that convention for an authored topology is the
 remaining piece for a body written entirely from constants.
 
+### Encoder-side inspection: ordering is rank driven and the model is valid
+
+Reading the writer shows how ordering works:
+
+```text
+OrderIds(Values, Entities, "parasolid.surface_order")   sorts by the rank attribute
+MakeGeomLinks                                           orders faces per surface
+                                                        and edges per curve
+FillBodyMut                                             partitions records per body
+```
+
+An authored model that supplies those ranks in creation order is therefore
+already the sorted case, which is why setting them changed nothing. The authored
+model is also topologically sound: every loop closes.
+
+```text
+nx body    loops 6, broken joins 0
+BuildPrism loops 6, broken joins 0
+```
+
+Both encodings are 3393 bytes with the same record layout; they differ in
+absolute values and in which record owns which numbers. NX still discards the
+authored one. The remaining candidates are record-level fields the decoder does
+not model, because it reconstructs the model from carrier records rather than
+from the writer's own emitters.
+
 ### Authored topology: attributes, ordering and conventions are all ruled out
 
 More probes narrow the BuildPrism measurement failure.
