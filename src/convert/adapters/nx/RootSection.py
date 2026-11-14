@@ -3,6 +3,7 @@ from __future__ import annotations as Annotations
 import struct as Struct
 
 from convert.adapters.nx.Payload import NxPayload
+from convert.adapters.nx.BlockSection import BlockMiddle, KBlockObjects
 from convert.adapters.nx.Construction import (
     Adopt,
     ConstructMiddle,
@@ -98,6 +99,16 @@ def AuthorSections(Payload: bytes) -> bytes:
     return WithStub(Payload, Parsed, bytes(Authored))
 
 
+# a one body block keeps its object graph and takes the generated identity
+def PatchIdentity(SectionBody: bytes, Pointer: int, Middle: bytes) -> bytes:
+    Start = Pointer - len(Middle)
+    if Start <= 0:
+        raise ValueError("NX construction section middle start is invalid")
+    Value = bytearray(SectionBody)
+    Value[Start : Start + len(Middle)] = Middle
+    return bytes(Value)
+
+
 # the payload must end at the last section body because trailing bytes are refused
 def WithStub(Payload: bytes, Parsed: NxPayload, RootBody: bytes) -> bytes:
     Bodies: list[bytes] = []
@@ -112,6 +123,11 @@ def WithStub(Payload: bytes, Parsed: NxPayload, RootBody: bytes) -> bytes:
                 Struct.unpack_from("<I", SectionBody, PointerOffset(SectionBody))[0]
             )
             SectionBody = Adopt(SectionBody, ConstructMiddle(Pointer - KMiddleLength))
+        elif Index == 1 and ObjectCount(SectionBody) == KBlockObjects:
+            Pointer = int(
+                Struct.unpack_from("<I", SectionBody, PointerOffset(SectionBody))[0]
+            )
+            SectionBody = PatchIdentity(SectionBody, Pointer, BlockMiddle())
         Bodies.append(SectionBody)
     Resized = ResizePayload(Payload, Bodies)
     EndValue = ReadPayload(Resized).sections[-1]

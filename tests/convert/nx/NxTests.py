@@ -9,6 +9,7 @@ from convert.adapters import AdapterRegistry, CadAdapter, ReadOptions, WriteOpti
 from convert.adapters.nx import NxAdapter, ProbeNx, ReadNx, WriteNx
 from convert.adapters.nx.ExprValue import DecodeValue, EncodeValue
 from convert.adapters.nx.PayloadBuild import ResizePayload
+from convert.adapters.nx.BlockSection import BlockMiddle, KBlockMiddle
 from convert.adapters.nx.Construction import ConstructMiddle, ObjectCount, Record
 from convert.adapters.nx.RootSection import KRootCounter, RootMiddle
 from convert.adapters.nx.PayloadReader import ReadPayload
@@ -544,3 +545,20 @@ def TestNxConstr() -> None:
         )
         == 3
     )
+
+
+# the single block graph keeps one anchor identity inside a fixed middle
+def TestNxBlock() -> None:
+    Middle = BlockMiddle()
+    assert len(Middle) == KBlockMiddle == 1247
+    AnchorAt = Middle.find(b"\xe0\x6a\xf8")
+    assert AnchorAt > 0
+    assert Middle[AnchorAt + 3 : AnchorAt + 10] == b"\xff" * 7
+    Other = BlockMiddle(b"\x01" * 7)
+    assert Middle[:AnchorAt] == Other[:AnchorAt]
+    assert Middle[AnchorAt + 10 :] == Other[AnchorAt + 10 :]
+    try:
+        _ = BlockMiddle(b"\xff" * 6)
+    except ValueError:
+        return
+    raise AssertionError("block middle accepted a short identity")
