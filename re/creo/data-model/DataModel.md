@@ -241,6 +241,43 @@ The empty control's record has the same `id`, `type`, and `sect_name`, but its
 are longer. The array lengths are therefore document-dependent, not fixed.
 The ladder's extrude and sketch records follow it, but their field boundaries are not yet closed.
 
+### Loader-confirmed record schemas
+
+The `metatoolsapi.dll` `CreoSerializer` exports give the authoritative field order and types for the
+high-level records. The full field tables are in [the loader notes](../loader/Loader.md).
+
+`CreoDesignatedItem` is the live feature-tree record:
+
+```text
+Id, Type, SubType, DsgnName, CreoName, OwnerId, OwnerType, ModelLikeAttr,
+FeatureStatus, FeatureInStockAttr, Symbols, KeyPropsFlag
+```
+
+`Symbols` is a sequence of `CreoParameter`. `OwnerId` and `OwnerType` are the parent links.
+
+`CreoParameter` is the dimension record:
+
+```text
+CreoParameterValue, CreoParameterDef, CreoModel, CreoName, IsReadOnlyInProE,
+IsReadOnlyInDB, IsSystemParameter, DBName, ValueType, Default, Restriction,
+AccessTbl, DefinitOwner, IsChanged, QuantType, Description, Class, Label
+```
+
+`CreoParameterValue` is the value record:
+
+```text
+Integer, Bool, Real, DoubleEpsilon, Unit, String, DateTime, Icon, Link, User,
+CreoQuantType, Length, Time, Mass, Temperature, Current
+```
+
+`Real` is the numeric value, `Unit` is the unit token, and `CreoQuantType` selects the quantity
+family. A writer that emits `Real` without `CreoParameter` identity and `CreoQuantType` would produce
+a dumb number, not a driving dimension.
+
+`CreoItem` is the model-level record. Its `CreoDesignatedItems` field is the feature sequence, its
+`CreoModelParameters` field is the parameter table, and its `CreoDependencies` field is the
+dependency table.
+
 ## Units
 
 `UnitSystemDef` carries the active unit system.
