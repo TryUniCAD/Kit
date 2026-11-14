@@ -7715,11 +7715,19 @@ def FreeCadFeature(
 
 
 # this definition exists because focused behavior needs one stable owner
+def HasPadSchema(DocValue: CadDocument, Feature: FeatureStep) -> bool:
+    if DocValue.source.format_id.casefold() == "freecad.fcstd":
+        return True
+    NativeId = Feature.attributes.get("native_object_id")
+    return isinstance(NativeId, int) and not isinstance(NativeId, bool)
+
+
 def FreecadSingle(
     DocValue: CadDocument, Sketch: Sketch, Feature: FeatureStep
 ) -> WriteDimension | None:
     if (
-        DocValue.assembly is not None
+        not HasPadSchema(DocValue, Feature)
+        or DocValue.assembly is not None
         or DocValue.selections
         or (len(DocValue.sketches) != 1)
         or (
