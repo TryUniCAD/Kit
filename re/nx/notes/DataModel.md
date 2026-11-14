@@ -413,14 +413,30 @@ expressions  lane
 8            01 21 8b 80 8b 81 (22 x 01) 8b 7a .. 8b 7f 01 21 44 45 (24 x ff) 46 47 48 49 4a 4b 09 21 01 00 01 11 02 02 01 02 41
 ```
 
-`01 21` opens a slot table, a single `01` marks a free slot, and a two-byte
-value marks an occupied one. A second table follows the next `21`, and runs of
-`ff` appear to be high-water marks. The table lengths track the class count plus
-the live object count, not the object count alone, which is why the one-object
-save has a longer first table than the eight-object save.
+`01 21` opens a slot table with `0x21 = 33` slots, and `33 = class count + 16`
+for the seventeen-class saves. Each slot is one of:
 
-The lane is therefore an allocator state, not a per-object list. Reproducing it
-needs the allocator's free-list order, which the three samples do not determine.
+```text
+01                    free
+HH LL                 occupied, two-byte handle
+HH LL LL LL           occupied, four-byte handle
+```
+
+Decoding the two seventeen-class saves by slot gives exactly 33 entries each:
+
+```text
+1 expr   (24 free) (1 x 4-byte c4 71 97 78) (8 free)             = 33
+8 exprs  (2 x 2-byte) (24 free) (6 x 2-byte) (1 free)            = 33
+```
+
+A second table follows the next `21` and has 32 entries, mixing `ff` and
+two-byte handles. A trailer `<1 + n> 21 01 00 01 11 02 02 01 02 41` closes the
+lane, which matches the live count decoded above.
+
+The lane is therefore an allocator state keyed by class count, not a per-object
+list. Writing it needs the free-list order and the handle values that the object
+records will use, so it has to be produced together with the object state
+block.
 
 ### Section 2 state lane encodes live counts
 
