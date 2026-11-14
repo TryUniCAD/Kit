@@ -401,6 +401,40 @@ that is not yet derived, so the encoder refuses them.
 No value appears anywhere in the container as a binary64, a shifted binary64, a
 float32, or UTF-16 text.
 
+### Adding an expression to a part that never had one
+
+The section 2 delta between a part with no expressions and a part with one is
+now measured. Classes are not appended blindly: NX inserts two of them at index
+8 and appends the third.
+
+```text
+index 8  UGS::EXP_expression                 81 f4 11 50 1c b9 b1 31 ab 22 41 05
+index 9  UGS::ModlUtils::CachedWaveLinkData  65 0f ed df c5 d7 28 46 03 ec 01
+last     UGS::EXP_generic                    81 90 0e cf c3 b4 e4 ee a8 d5 95 02
+ref      UGS::ModlUtils::CachedWaveLinkData  07
+counts   (6, 1, 0, 14, ...) -> (7, 1, 0, 17, ...)
+```
+
+Inserting at index 8 renumbers every later class ordinal, so the middle lane has
+to be regenerated with the new numbering.
+
+Appending the record and the class declarations without touching the state lane
+fails with `Corrupt data found when loading an OM file` (580044), even with the
+counts and the section pointer updated.
+
+The middle grows by 155 bytes, decomposed as:
+
+```text
+offset list    6 -> 7 entries                 +4
+count words    7 -> 8 words                   +4
+state lane     155 -> 287 bytes             +132
+  of which a 32 byte class bitmap with a 4 byte id
+  a 45 byte object state block
+  a 52 byte expression record
+```
+
+So an authored expression needs all five structures regenerated together.
+
 ### An expression is authored from a neutral spec
 
 `re/nx/tools/ExprAuthor.py` takes a template part, an expression name, and a
