@@ -11,6 +11,7 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WritePolicy import GetDocumentCaps
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.nx.CompoundReader import ReadCompound, ReadStreams
+from convert.adapters.nx.ExprValue import EncodeValue
 from convert.adapters.nx.Format import KInfoValue
 from convert.adapters.nx.PayloadReader import ReadPayload
 from convert.adapters.nx.Reader import DocDigest
@@ -108,6 +109,14 @@ def WriteNx(
     if not Payload.data.startswith(b"SPLMSSTR"):
         raise ValueError("NX writing requires a modern SPLMSSTR source")
     Overrides = MakeOverrides(DocValue, Payload.data)
+    Expressions = ExprOverrides(DocValue)
+    if Expressions is not None:
+        Current = Overrides.get("UG_PART/UG_PART")
+        if Current is None:
+            Current = dict(SplmStreams(ReadSplm(Payload.data)))["/Root/UG_PART/UG_PART"]
+        Overrides["UG_PART/UG_PART"] = SwapExpressions(
+            Current, CastValue(Mapping[str, float], Expressions)
+        )
     Rename = PartRename(DocValue)
     if Rename is not None:
         Overrides.update(RenameStreams(Payload.data, Rename, Overrides))
@@ -129,6 +138,7 @@ def WriteNx(
         "attribute_overrides": HasEntries(AttributesRequested),
         "stream_overrides": HasEntries(StreamsRequested),
         "part_renamed": Rename is not None,
+        "expression_values": Expressions is not None,
         "source_sha256": Payload.sha256,
         "output_sha256": Hashlib.sha256(DataValue).hexdigest(),
         "referenced_files_written": 0,
@@ -173,6 +183,56 @@ def CheckNeutral(DocValue: CadDoc) -> None:
 # container rebuilding recomputes the modern directory from parsed streams
 def RebuildNative(DataValue: bytes, Overrides: dict[str, bytes]) -> bytes:
     return RebuildSplm(ReadSplm(DataValue), Overrides)
+
+
+# expression values are sixteen bit handles stored after a fixed record marker
+def ExprOverrides(DocValue: CadDoc) -> dict[str, float] | None:
+    Requested = DocValue.metadata.get("nx.expression_values")
+    if Requested is None:
+        return None
+    if not isinstance(Requested, Mapping):
+        raise ValueError("NX expression values must be a mapping")
+    Output: dict[str, float] = {}
+    for ExprName, Value in CastValue(dict[object, object], Requested).items():
+        if not isinstance(ExprName, str) or not ExprName:
+            raise ValueError("NX expression values require non empty names")
+        if isinstance(Value, bool) or not isinstance(Value, (int, float)):
+            raise ValueError("NX expression values require numbers")
+        Output[ExprName] = float(Value)
+    if not Output:
+        return None
+    return Output
+
+
+# each expression record frames its name then carries one or three value handles
+def SwapExpressions(DataValue: bytes, Values: Mapping[str, float]) -> bytes:
+    Output = DataValue
+    for ExprName, Value in Values.items():
+        NameBytes = ExprName.encode("utf-8")
+        Frame = b"\x04" + bytes([len(NameBytes) + 2]) + NameBytes + b"\x00"
+        Handle = EncodeValue(Value).to_bytes(2, "little")
+        Start = Output.find(Frame)
+        Patched = False
+        while Start >= 0:
+            Window = Output[Start : Start + len(Frame) + 96]
+            Single = Window.find(b"\x82\xc0\x01\x00")
+            Triple = Window.find(b"\x82\xcc\x01\x01")
+            if Triple >= 0 and (Single < 0 or Triple < Single):
+                Position = Start + Triple + 4
+                for CopyIndex in range(3):
+                    Offset = Position + CopyIndex * 4
+                    Output = Output[:Offset] + Handle + Output[Offset + 2 :]
+                Patched = True
+                break
+            if Single >= 0:
+                Position = Start + Single + 4
+                Output = Output[:Position] + Handle + Output[Position + 2 :]
+                Patched = True
+                break
+            Start = Output.find(Frame, Start + 1)
+        if not Patched:
+            raise ValueError(f"NX expression record has no value field: {ExprName}")
+    return Output
 
 
 # a requested part name must keep its length because section offsets are absolute

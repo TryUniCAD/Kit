@@ -7,6 +7,7 @@ from typing import cast as CastValue
 
 from convert.adapters import AdapterRegistry, CadAdapter, ReadOptions, WriteOptions
 from convert.adapters.nx import NxAdapter, ProbeNx, ReadNx, WriteNx
+from convert.adapters.nx.ExprValue import DecodeValue, EncodeValue
 from convert.adapters.nx.Splm import KChecksumOffset, KHeaderRegion
 from convert.adapters.nx.SplmBuild import BuildSplm, DirectoryLength
 from convert.adapters.nx.SplmReader import ReadSplm
@@ -285,3 +286,75 @@ def TestNxNoRename() -> None:
         except ValueError:
             continue
         raise AssertionError(f"rename accepted {BadName}")
+
+
+# expression handles must round trip the values nx stores in its records
+def TestNxExprValue() -> None:
+    for Value in (0.75, 1.0, 2.0, 3.0, 4.5, 6.0, 12.5, 40.0, 100.0, 250.0):
+        assert abs(DecodeValue(EncodeValue(Value)) - Value) < 1e-9
+    assert EncodeValue(12.5) == 0x4950
+    assert EncodeValue(40.0) == 0x6450
+    assert EncodeValue(1.0) == 1
+    for BadValue in (0.0, -1.0, 0.5):
+        try:
+            _ = EncodeValue(BadValue)
+        except ValueError:
+            continue
+        raise AssertionError(f"expression encoder accepted {BadValue}")
+
+
+# the expression value override rewrites the handle in the native record
+def TestNxExprWrite() -> None:
+    Payload = (
+        (0).to_bytes(12, "little")
+        + (1).to_bytes(4, "little")
+        + (1).to_bytes(4, "little")
+        + (40).to_bytes(4, "little")
+        + b"sample_expr_record\x00"
+        + b"\x82\xc0\x01\x00"
+        + EncodeValue(12.5).to_bytes(2, "little")
+        + b"\x00\x00"
+    )
+    DataValue = BuildSplm(
+        [
+            ("/Root/", None),
+            ("/Root/part/", None),
+            ("/Root/UG_PART/", None),
+            ("/Root/part/attrs", KAttributes),
+            ("/Root/UG_PART/UG_PART", Payload),
+        ],
+        FileTag=0x2BBA,
+        HeaderTrailer=KTrailer,
+    )
+    Document = ReadNx(DataValue, ReadOptions(strict=False))
+    Changed = Replace(
+        Document,
+        metadata={**Document.metadata, "nx.expression_values": {"sample": 40.0}},
+    )
+    import tempfile as TempLib
+    from pathlib import Path as PathLib
+
+    with TempLib.TemporaryDirectory() as Folder:
+        Target = PathLib(Folder) / "expr.prt"
+        Result = WriteNx(Changed, Target, WriteOptions())
+        assert Result.metadata["expression_values"] is True
+        Written = Target.read_bytes()
+        assert b"\x82\xc0\x01\x00" + EncodeValue(40.0).to_bytes(2, "little") in Written
+
+
+# unknown expressions and unencodable values are refused instead of patched
+def TestNxExprGuard() -> None:
+    Document = ReadNx(SyntheticPart(), ReadOptions(strict=False))
+    for BadValues in ({"missing": 1.0}, {"synthetic": 0.25}):
+        try:
+            _ = WriteNx(
+                Replace(
+                    Document,
+                    metadata={**Document.metadata, "nx.expression_values": BadValues},
+                ),
+                BytesIo(),
+                WriteOptions(),
+            )
+        except ValueError:
+            continue
+        raise AssertionError(f"expression override accepted {BadValues}")

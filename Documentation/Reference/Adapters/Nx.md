@@ -91,6 +91,20 @@ WriteNx(Changed, "renamed.prt")
 The new name must keep the current byte length and the `.prt` suffix. NX stores
 the name in five places, so a rename updates all of them or none.
 
+An existing expression value can be changed with `nx.expression_values`:
+
+```python
+Changed = replace(
+    Document, metadata={**Document.metadata, "nx.expression_values": {"kit_len": 25.0}}
+)
+WriteNx(Changed, "part-value.prt")
+```
+
+Values are encoded as a sixteen-bit float, so any value of 0.75 or more is
+accepted. NX reports the new value on load. Geometry is not regenerated because
+driving dimensions are cached in the feature record rather than in the
+expression record.
+
 ## Limits
 
 - The writer does not create new NX geometry, features, expressions, or
