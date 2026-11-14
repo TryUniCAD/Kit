@@ -10,6 +10,7 @@ from convert.adapters.nx import NxAdapter, ProbeNx, ReadNx, WriteNx
 from convert.adapters.nx.ExprValue import DecodeValue, EncodeValue
 from convert.adapters.nx.PayloadBuild import ResizePayload
 from convert.adapters.nx.Construction import ConstructMiddle, ObjectCount, Record
+from convert.adapters.nx.ExprSection import ExprMiddle, KMiddleLength as KExprMiddle
 from convert.adapters.nx.RootSection import KRootCounter, PatchAnchor, RootMiddle
 from convert.adapters.nx.PayloadReader import ReadPayload
 from convert.adapters.nx.Splm import KChecksumOffset, KHeaderRegion
@@ -564,3 +565,26 @@ def TestNxAnchor() -> None:
     except ValueError:
         return
     raise AssertionError("anchor patch accepted a short identity")
+
+
+# the expression section of a part without expressions is a fixed six object layout
+def TestNxExpr() -> None:
+    Middle = ExprMiddle(0)
+    assert len(Middle) == KExprMiddle == 337
+    assert int.from_bytes(Middle[0x0D:0x11], "little") == 0x79
+    Table = [
+        int.from_bytes(Middle[0x45 + 4 * Index : 0x49 + 4 * Index], "little")
+        for Index in range(6)
+    ]
+    assert Table == [0xAA, 0xC5, 0xDF, 0x121, 0x125, 0x13B]
+    assert int.from_bytes(Middle[0x5D:0x61], "little") == 6
+    assert Middle[0x79:0x7C] == b"\x03\x01\x27"
+    assert Middle[0xAA:0xB4] == b"\x41\x00\x03\x05\x01\x00\x04\x05\x02\x00"
+    AnchorAt = Middle.find(b"\xe0\x6a\xf8")
+    assert Middle[AnchorAt + 3 : AnchorAt + 10] == b"\xff" * 7
+    assert Middle.endswith(b"\x00\x3f\x00\x00")
+    try:
+        _ = ExprMiddle(0, b"\xff" * 6)
+    except ValueError:
+        return
+    raise AssertionError("expression middle accepted a short identity")

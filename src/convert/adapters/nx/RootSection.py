@@ -9,6 +9,14 @@ from convert.adapters.nx.Construction import (
     KMiddleLength,
     ObjectCount,
 )
+from convert.adapters.nx.ExprSection import (
+    Adopt as AdoptExpr,
+)
+from convert.adapters.nx.ExprSection import (
+    ExprMiddle,
+    KMiddleLength as KExprMiddle,
+    KObjects as KExprObjects,
+)
 from convert.adapters.nx.PayloadBuild import ResizePayload
 from convert.adapters.nx.PayloadReader import ReadPayload
 
@@ -124,6 +132,11 @@ def WithStub(Payload: bytes, Parsed: NxPayload, RootBody: bytes) -> bytes:
                 Struct.unpack_from("<I", SectionBody, PointerOffset(SectionBody))[0]
             )
             SectionBody = Adopt(SectionBody, ConstructMiddle(Pointer - KMiddleLength))
+        elif Index == 2 and ObjectCount(SectionBody) == KExprObjects:
+            Pointer = int(
+                Struct.unpack_from("<I", SectionBody, PointerOffset(SectionBody))[0]
+            )
+            SectionBody = AdoptExpr(SectionBody, ExprMiddle(Pointer - KExprMiddle))
         elif Index == 2:
             SectionBody = PatchAnchor(SectionBody)
         Bodies.append(SectionBody)

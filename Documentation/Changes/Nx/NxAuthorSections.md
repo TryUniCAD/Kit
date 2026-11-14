@@ -87,9 +87,11 @@ checks that a payload without object model sections is refused.
   keeps its forty four object construction graph.
 - Section 0 still comes from the source part. It carries the topology and object
   classes (129 to 154 classes, 63 to 79 references) and has no generator.
-- The expression section keeps its object graph; only its anchor identity is
-  generated. Replacing it with a part's body-less expression section makes NX
-  refuse the part, because the sections reference each other by payload offset.
+- The expression section is regenerated only for the six object shape, which is a
+  part without expressions. A part with expressions keeps its object graph and
+  only its anchor identity is generated. Replacing a part's expression section
+  with another part's makes NX refuse the file, because the sections reference
+  each other by payload offset.
 - Measured provenance of a written part, comparing every payload byte with the
   source document:
 

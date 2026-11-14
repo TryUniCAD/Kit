@@ -600,6 +600,52 @@ sections 1 (block shape), 2 and 3, in addition to regenerating section 3 and
 emptying section 4. Section 0 keeps its source anchor because its body is still
 copied.
 
+### The expression section is a hash table that NX does not revalidate
+
+Three fixtures were generated to vary the expression to attribute binding rather
+than the feature type (`CreateExprVariant.py`): a block whose dimensions are
+renamed to `length`, `width` and `height`, and a block whose `p1` is edited to the
+formula `p0/2`.
+
+Renaming the expressions in place, without touching anything else, is accepted:
+
+```text
+dim40 section 2, p0 p1 p2 replaced by aa bb cc (same lengths)
+  STATUS 0  BODIES 1  EXPRESSIONS 3
+  EXPRESSION cc 20.0   EXPRESSION bb 30.0   EXPRESSION aa 40.0
+  VOLUME 23999.999999999996
+```
+
+So the section is a hash table keyed by expression name, but NX does not
+revalidate the bucket layout on load. That is what makes emission possible: a
+canonical layout with generated names is accepted.
+
+Values are carried by a two byte handle, not by the text:
+
+```text
+Encode(40.0) = 0x6450 -> 50 64      Encode(30.0) = 0x5e50 -> 50 5e
+Encode(20.0) = 0x5450 -> 50 54      Encode(12.5) = 0x4950 -> 50 49
+```
+
+Patching only the five `50 64` occurrences in `dim40`'s section 2 to `50 6e`
+(`Encode(60.0)`) makes NX report `EXPRESSION p0 60.0` with the body unchanged.
+Patching the `40` text instead makes NX refuse the file, so the text is a display
+string that must stay consistent with the handle.
+
+The record grammar is:
+
+```text
+02 02 04 <len(name)+2> <name> 00
+  <len(text)+2> <text> 00        when the value is stored inline
+  or 06 <slot> ff                when the value is shared with a slot object
+  00 0a <10 bytes> 11 <index> 02 <count> 01 82 cc 01 <n> <handle> <handle> <handle> f0 00
+```
+
+and a slot object is `02 02 00 00 ff 00 00 21 01 01 01 01 01 00 <handle> 00 00 00 00 ff`
+(21 bytes) or the same without the handle (18 bytes). Which expression is stored
+inline and which is shared follows the hash order, which is why renaming moves the
+`50 64` / `50 5e` / `50 54` handles between slots.
+
 ### The expression section inventory follows the feature, not the count
 
 Six parts, measured object by object (`re/nx/tools/CmDump.py` locates the table by
