@@ -600,6 +600,37 @@ sections 1 (block shape), 2 and 3, in addition to regenerating section 3 and
 emptying section 4. Section 0 keeps its source anchor because its body is still
 copied.
 
+### Section 0 class identifiers are per document values
+
+The class table is identical across body-less parts, but not across a body part:
+
+```text
+empty vs multi vs var_blank   129 classes, map equal True
+refs equal                    True
+empty classes subset of dim40 False   128 of 129 differ
+```
+
+The differences are small and systematic:
+
+```text
+UGS::OM::RootObject    body-less 38 64 b0 4b a5 fe 91 1b f6 79 02
+                        body     38 74 b0 4b a5 fe 91 1b f6 79 02
+UGS::RM_part           body-less 65 67 8f c0 f7 e4 25 5a 70 c8 01
+                        body     65 77 8f c0 f7 e4 25 5a 70 c8 01
+UGS::POINT             body-less 83 84 69 0e 7e 9c 17 4a b9 d4 b5 05
+                        body     83 84 80 80 0e 7e 9c 17 4a b9 d4 b5 09
+```
+
+One byte steps by `0x10`, and the last byte steps by a small amount, while the middle
+bytes are unchanged. So the entry is an encoded value carrying a per document
+component, not a fixed kernel identifier and not a hash of the class name.
+
+That rules out shipping the class table as a name to identifier constant: the
+identifiers have to be computed, and the function that computes them is in the
+kernel. Reference entries are different: `UGS::OM::Meta` is `02` in every part and
+the whole reference map is identical across body-less parts and a subset of the
+body part, so references look stable.
+
 ### Section 0's body is fully mapped and cannot be reduced
 
 The body-less section 0 recomposes byte for byte from five named regions:
