@@ -65,6 +65,20 @@ expressions moved the handles between slots.
 So a composer can be written for the six fixed objects but not yet for the slots: their
 order follows the expression name hash, and that hash is not derived.
 
+That was confirmed without a new fixture, by renaming the three dimensions in an existing
+part (`var_named.prt` is `dim40.prt` with `p0`, `p1`, `p2` renamed to `length`, `width`,
+`height`) and comparing the value word positions:
+
+```text
+dim40        ---- ---- ---- ---- ---- ---- ---- ---- 6450 ---- ---- 5450 5e50 5e50 6450
+var_named    5450 5e50 ---- 6450 ---- ---- ---- ---- 5e50 ---- ---- ---- 6450 ---- ----
+values unchanged (40.0, 30.0, 20.0) but positions moved
+```
+
+The same values sit in different slots after a rename, so the arrangement follows the
+**name**, not the value. `ExprObjectCount(6 + 6n)` fixes how many slots exist but not where
+they go, and reproducing the placement needs the name hash the kernel uses.
+
 Other feature families do not obey it — `var_sph` with one sphere expression carries 10
 objects and `var_cyl` with two cylinder expressions 14, against 12 and 18 from the rule —
 so the rule is specific to block dimension expressions.
