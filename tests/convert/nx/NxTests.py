@@ -6,12 +6,21 @@ from typing import cast as CastValue
 
 
 from convert.adapters import AdapterRegistry, CadAdapter, ReadOptions, WriteOptions
+from typing import Callable
 from convert.adapters.nx import NxAdapter, ProbeNx, ReadNx, WriteNx
 from convert.adapters.nx.ExprValue import DecodeValue, EncodeValue
 from convert.adapters.nx.PayloadBuild import ResizePayload
 from convert.adapters.nx.Construction import ConstructMiddle, ObjectCount, Record
 from convert.adapters.nx.ExprSection import ExprMiddle, KMiddleLength as KExprMiddle
-from convert.adapters.nx.ObjectSection import HeadRecord, ObjectCount
+from convert.adapters.nx.ObjectSection import (
+    AttributeRecord,
+    HeadRecord,
+    ObjectCount,
+    PairRecord,
+    ParseAttribute,
+    ParsePair,
+    RegToken,
+)
 from convert.adapters.nx.RootSection import KRootCounter, PatchAnchor, RootMiddle
 from convert.adapters.nx.PayloadReader import ReadPayload
 from convert.adapters.nx.Splm import KChecksumOffset, KHeaderRegion
@@ -634,3 +643,38 @@ def TestNxObject() -> None:
     except ValueError:
         return
     raise AssertionError("object count accepted zero objects")
+
+
+# two root object record families read back as the fields they are written from
+def TestNxGrammar() -> None:
+    for KeyText, ValueText, Ordinal, Marker in (
+        (b"X", b"", 0x2F, 1),
+        (b"CBORE<o> ", b"", 0x32, 1),
+        (b"-", b" DEEP", 0x31, 1),
+        (b"Major:<o> ", b"", 0x10, 0),
+        (b"", b"", 0x16, 0),
+    ):
+        Record = AttributeRecord(KeyText, ValueText, Ordinal, Marker)
+        assert ParseAttribute(Record) == (KeyText, ValueText, Ordinal, Marker)
+    for First, Second in ((0x6F, 0x70), (0x64, 0x65), (0xA6, 0xA7), (0x0A, 0x0B)):
+        Record = PairRecord(First, Second)
+        assert ParsePair(Record) == (First, Second)
+    assert RegToken(0x6F) == b"\x6f"
+    assert RegToken(0xA6) == b"\x80\xa6"
+    assert RegToken(0x1A6) == b"\x81\xa6"
+    Guards: tuple[Callable[[], object], ...] = (
+        lambda: AttributeRecord(b"x" * 254, b"", 0),
+        lambda: PairRecord(-1, 0),
+    )
+    for Guard in Guards:
+        try:
+            _ = Guard()
+        except ValueError:
+            continue
+        raise AssertionError("record grammar accepted an out of range value")
+    for Malformed in (b"\x01\x02\x04\x02\x00", b"\x03\x11\x00"):
+        try:
+            _ = ParseAttribute(Malformed) if Malformed[0] == 1 else ParsePair(Malformed)
+        except ValueError:
+            continue
+        raise AssertionError("record grammar accepted a malformed record")

@@ -690,6 +690,35 @@ so they are scalar values rather than structures, and invalid ones are tolerated
 That is the whole extent of what section 0 will accept: 209 of 214 records must be
 correct, which is 97.7 percent of the graph.
 
+### Two record families are decoded
+
+The attribute family (`01 02 04`, 77 records) is a key and value pair with an
+ordinal and a one byte marker:
+
+```text
+01 02 04 <len(key)+2>  key 00   01 02 04 <len(value)+2>  value 00   <ordinal> <marker>
+```
+
+Examples, which also show that the marker is `01` for some records and `00` for
+others:
+
+```text
+01 02 04 03 58 00 01 02 04 02 00 2f 01          key X   value ""     2f 01
+01 02 04 03 2d 00 01 02 04 07 20 44 45 45 50 00 31 01   key -   value " DEEP"  31 01
+01 02 04 0c 4d 61 6a 6f 72 3a 3c 6f 3e 20 00 01 02 04 02 00 10 00   key Major:<o>  10 00
+```
+
+The pair family (`03 11`, 15 records) is a 30 byte frame, a registry token, six
+absent slots, another token and eight absent slots:
+
+```text
+03 11 03 01 11 01 x 7 02 01 x 9 02 e0 55 55 95 56 01 11  <token> ff x 6 <token> ff x 8
+```
+
+Both families round-trip byte for byte across all three body-less fixtures, which is
+92 of 214 records. The ids and ordinals inside them still come from the source, so
+the grammars make the records re-emittable rather than derivable.
+
 ### Section 0 is a record dictionary of 116 shapes
 
 Counting each record by length and first four bytes, the three body-less parts are

@@ -130,14 +130,114 @@ def ReplaceHead(
 
 
 __all__ = [
+    "PairRecord",
+    "AttributeRecord",
     "HeadRecord",
     "KAnchor",
     "KRecordCount",
     "FitText",
     "MovePointer",
     "ObjectCount",
+    "ParseAttribute",
+    "ParsePair",
+    "ReadToken",
     "RecordsOf",
+    "RegToken",
     "TableStart",
     "KUnset",
     "ReplaceHead",
 ]
+
+
+# an attribute record is a key and value pair followed by an ordinal and a terminator
+def AttributeRecord(
+    KeyText: bytes, ValueText: bytes, Ordinal: int, Marker: int = 1
+) -> bytes:
+    if len(KeyText) > 253 or len(ValueText) > 253:
+        raise ValueError("NX attribute record text is too long")
+    if not 0 <= Ordinal <= 255:
+        raise ValueError("NX attribute record ordinal must fit one byte")
+    if Marker not in (0, 1):
+        raise ValueError("NX attribute record flag must be zero or one")
+    return (
+        b"\x01\x02\x04"
+        + bytes([len(KeyText) + 2])
+        + KeyText
+        + b"\x00"
+        + b"\x01\x02\x04"
+        + bytes([len(ValueText) + 2])
+        + ValueText
+        + b"\x00"
+        + bytes([Ordinal, Marker])
+    )
+
+
+# the attribute grammar reads back as the same three fields it writes
+def ParseAttribute(Record: bytes) -> tuple[bytes, bytes, int, int]:
+    if Record[:3] != b"\x01\x02\x04":
+        raise ValueError("NX attribute record has no key marker")
+    KeyLength = Record[3] - 2
+    if KeyLength < 0:
+        raise ValueError("NX attribute record key length is invalid")
+    KeyText = Record[4 : 4 + KeyLength]
+    ValueAt = 4 + KeyLength
+    if Record[ValueAt] != 0 or Record[ValueAt + 1 : ValueAt + 4] != b"\x01\x02\x04":
+        raise ValueError("NX attribute record key is not terminated")
+    ValueLength = Record[ValueAt + 4] - 2
+    if ValueLength < 0:
+        raise ValueError("NX attribute record value length is invalid")
+    ValueText = Record[ValueAt + 5 : ValueAt + 5 + ValueLength]
+    EndAt = ValueAt + 5 + ValueLength
+    if (
+        Record[EndAt] != 0
+        or len(Record) != EndAt + 3
+        or Record[EndAt + 2] not in (0, 1)
+    ):
+        raise ValueError("NX attribute record value is not terminated")
+    return (KeyText, ValueText, Record[EndAt + 1], Record[EndAt + 2])
+
+
+# a pair record is a fixed frame with two registry tokens and absent slot runs
+KPairFrame = bytes.fromhex(
+    "0311030111010101010101010201010101010101010102e0555595560111"
+)
+KPairGap = bytes([0xFF]) * 6
+KPairTail = bytes([0xFF]) * 8
+
+
+# registry tokens store up to 0x7f directly and larger values behind a 0x80 prefix
+def RegToken(Value: int) -> bytes:
+    if not 0 <= Value <= 0x7FFF:
+        raise ValueError("NX registry token is out of range")
+    if Value <= 0x7F:
+        return bytes([Value])
+    return bytes([0x80 | (Value >> 8), Value & 0xFF])
+
+
+def ReadToken(Stream: bytes, Position: int) -> tuple[int, int]:
+    Prefix = Stream[Position]
+    if Prefix <= 0x7F:
+        return (Prefix, 1)
+    if 0x80 <= Prefix <= 0x8F and Position + 1 < len(Stream):
+        return (((Prefix & 0x0F) << 8) | Stream[Position + 1], 2)
+    raise ValueError("NX registry token is invalid")
+
+
+# a pair record names two adjacent object ids
+def PairRecord(First: int, Second: int) -> bytes:
+    return KPairFrame + RegToken(First) + KPairGap + RegToken(Second) + KPairTail
+
+
+# the pair grammar reads back as the two ids it writes
+def ParsePair(Record: bytes) -> tuple[int, int]:
+    if not Record.startswith(KPairFrame):
+        raise ValueError("NX pair record has no known frame")
+    First, Width = ReadToken(Record, len(KPairFrame))
+    GapAt = len(KPairFrame) + Width
+    if Record[GapAt : GapAt + len(KPairGap)] != KPairGap:
+        raise ValueError("NX pair record gap is not absent slots")
+    Second, Width = ReadToken(Record, GapAt + len(KPairGap))
+    TailAt = GapAt + len(KPairGap) + Width
+    if Record[TailAt:] != KPairTail:
+        raise ValueError("NX pair record tail is not absent slots")
+    return (First, Second)
