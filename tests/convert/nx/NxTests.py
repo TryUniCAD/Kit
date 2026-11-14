@@ -882,7 +882,7 @@ def TestNxExprCount() -> None:
 
 
 # an expression property slot is a fixed frame a handle and a terminator
-def TestNxSlotObject() -> None:
+def TestNxSlot() -> None:
     Object = SlotObject(0x0050)
     assert len(Object) == 18
     assert Object[:8] == bytes.fromhex("02020000ff000021")
