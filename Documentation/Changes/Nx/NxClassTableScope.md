@@ -97,7 +97,20 @@ chamfer.FirstOffset            a string, not an expression object
 ```
 
 So the edge query is solved (`GetFaces` then `GetEdges`) while the chamfer builder in this
-release does not expose a collector, and the fixture is still unavailable. A third probe
+release does not expose a collector, and the fixture is still unavailable.
+
+Other feature builders were probed for a usable target collector:
+
+```text
+work.Features.CreateHolePackageBuilder   exists, needs one argument
+work.Features.CreateHoleBuilder          does not exist
+work.Features.CreatePocketBuilder        does not exist
+work.Features.CreateDatumAxisBuilder     exists, exposes no Target or Collector attribute
+work.Features.CreateExtrudeBuilder       exists, exposes no Target or Collector attribute
+```
+
+so the fixture needs a builder invocation this work did not find, and the class-table
+discriminator stays open. A third probe
 confirmed the builder's only selection attribute is `SmartCollector`, which is `None` when
 the builder is created from `NXOpen.Features.Chamfer.Null`, and `GetTargets` does not
 exist on it. `FirstOffset` is a string, so the offsets are set by text rather than by an
