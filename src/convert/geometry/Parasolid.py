@@ -283,6 +283,23 @@ def LoopPoints(
 
 
 # this declaration exists because focused behavior needs one stable owner
+def SolidFaces(Model: BrepModel) -> set[str]:
+    ShellUses = {ShellUse.id: ShellUse for ShellUse in Model.shell_uses}
+    FaceUses = {FaceUse.id: FaceUse for FaceUse in Model.face_uses}
+    ShellSolid: dict[str, bool] = {}
+    for Region in Model.regions:
+        for ShellUseId in Region.shell_use_ids:
+            ShellSolid[ShellUses[ShellUseId].shell_id] = Region.solid
+    Result: set[str] = set()
+    for Shell in Model.shells:
+        if not ShellSolid.get(Shell.id, False):
+            continue
+        for FaceUseId in Shell.face_use_ids:
+            Result.add(FaceUses[FaceUseId].face_id)
+    return Result
+
+
+# this declaration exists because focused behavior needs one stable owner
 def FlipFacesOf(Model: BrepModel) -> tuple[set[str], dict[str, str]]:
     Surfaces = {Surface.id: Surface for Surface in Model.surfaces}
     Loops = {LoopData.id: LoopData for LoopData in Model.loops}
@@ -292,10 +309,11 @@ def FlipFacesOf(Model: BrepModel) -> tuple[set[str], dict[str, str]]:
     LoopFace = {
         LoopId: FaceData.id for FaceData in Model.faces for LoopId in FaceData.loop_ids
     }
+    Solid = SolidFaces(Model)
     FlipFaces: set[str] = set()
     for FaceData in Model.faces:
         Normal = getattr(Surfaces[FaceData.surface_id], "normal", None)
-        if Normal is None or not FaceData.loop_ids:
+        if FaceData.id not in Solid or Normal is None or not FaceData.loop_ids:
             continue
         Points = LoopPoints(Loops[FaceData.loop_ids[0]], Coedges, Edges, Vertices)
         if len(Points) < 3:

@@ -47,8 +47,9 @@ reproduces the same bytes.
 
 ## Limits
 
-- Orientation is only computed for planar surfaces, which are the ones that
-  carry a single normal. Curved faces keep the winding the caller supplied.
+- Orientation is only computed for planar faces of solid regions, which are the
+  ones that carry a single normal. Curved faces and sheet bodies keep the
+  winding the caller supplied, so existing sheet output is byte identical.
 - The container, object-model sections and feature records still come from a
   retained native part. This change makes authored geometry measurable; it does
   not make an NX part writable without a source document.
