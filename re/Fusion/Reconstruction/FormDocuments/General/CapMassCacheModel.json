@@ -45,7 +45,7 @@
    "cache_comparisons": {"planar_area_relative_tolerance": 1e-8, "other_mass_relative_tolerance": 1e-8, "absolute_tolerance": 1e-8, "brep_geometry_tolerance_cm": 1e-8},
    "curved_area_rule": "Keep quadrature convergence evidence without claiming exact equality with a different native estimator",
    "shift_rule": "Check translated center and all six tensor components with the parallel-axis formula at 1e-8 absolute and relative tolerance",
-   "analytic_cube_rule": "Check area 6, volume 1, center 0.5 on each axis, diagonal inertia 2/3, and off-diagonal products -1/4 through a real six-face closed BRep at 1e-8 absolute and relative tolerance",
+   "analytic_cube_rule": "Emit and read a real six-face closed unit-cube document, then check cache area 6, volume 1, center 0.5 on each axis, diagonal inertia 2/3, and off-diagonal products -1/4 at 1e-8 absolute and relative tolerance",
    "api_return_rule": "getXYZMomentsOfInertia returns one success flag followed by six mass-weighted moments",
    "material_densities_kg_cm3": {"kit": 0.001, "native": 0.00785},
    "report": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json",

@@ -14,15 +14,16 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Converted.FormBody import (
     FormFace,
     FormWindow,
 )
-from convert.formats.Fusion.DocumentCodec.Form.CenteredMass import CenteredMass
 from convert.formats.Fusion.DocumentCodec.Form.EmitFormDoc import EmitFormDoc
-from convert.formats.Fusion.DocumentCodec.Form.FormMass import FormMass
 from convert.formats.Fusion.DocumentCodec.Form.FormSpec import FormSpec
-from convert.formats.Fusion.DocumentCodec.Form.LinkFormBodyMut import IsClosedForm
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from convert.formats.Fusion.TSplineCodec.ReadTspline import ReadTspline
-from tests.convert.formats.FusionCodec.Documents.Form.AnalyticCube import MakeCube
 from tests.convert.formats.FusionCodec.Documents.Form.CapCases import KCapCases
+from tests.convert.formats.FusionCodec.Documents.Form.CappedCages import (
+    BoxCreases,
+    BoxParts,
+    MakeSurface,
+)
 from tests.convert.formats.FusionCodec.Documents.Form.GeneralCases import (
     KGeneralCases,
 )
@@ -198,25 +199,30 @@ def TestCapDeclFlow(CaseValue: tuple[str, ...]) -> None:
     )
 
 
+@KNeedZip
 def TestCubeMass() -> None:
-    Model = MakeCube()
-    assert (len(Model.PointsCm), len(Model.Edges), len(Model.Faces)) == (8, 12, 6)
-    MassValues = FormMass(Model, IsClosedForm(Model))
-    Center, Diagonal, Products = CenteredMass(MassValues)
-    assert MassValues["area"] == ApproxValue(6.0, rel=1e-8, abs=1e-8)
-    assert MassValues["volume"] == ApproxValue(1.0, rel=1e-8, abs=1e-8)
-    ExpectedCenter = dict.fromkeys(
-        ("x", "y", "z"), ApproxValue(0.5, rel=1e-8, abs=1e-8)
+    Parts = BoxParts((1, 1, 1))
+    Plain = MakeSurface(Parts)
+    Surface = ReplaceValue(Plain, Creases=BoxCreases(Parts, Plain, 1.0))
+    Converted = ConvertForm(Surface)
+    Emitted = ReadDocument(
+        EmitFormDoc(FormSpec("Kit analytic cube", Surface, Converted))
     )
-    ExpectedDiagonal = dict.fromkeys(
-        ("x", "y", "z"), ApproxValue(2.0 / 3.0, rel=1e-8, abs=1e-8)
+    assert Emitted.Forms[0].Surface == Surface
+    assert ReadConverted(Emitted) == Converted
+    assert (len(Converted.PointsCm), len(Converted.Edges), len(Converted.Faces)) == (
+        8,
+        12,
+        6,
     )
-    ExpectedProducts = dict.fromkeys(
-        ("x", "y", "z"), ApproxValue(-0.25, rel=1e-8, abs=1e-8)
+    Cached = MaterialFields(NamedGroups(Emitted, "Body")[0]["cache"])
+    assert Cached["area"] == ApproxValue(6.0, rel=1e-8, abs=1e-8)
+    assert Cached["volume"] == ApproxValue(1.0, rel=1e-8, abs=1e-8)
+    assert ReadPoint(Cached["cog"]) == ApproxValue((0.5, 0.5, 0.5), rel=1e-8, abs=1e-8)
+    assert ReadPoint(Cached["moi"]) == ApproxValue((2.0 / 3.0,) * 3, rel=1e-8, abs=1e-8)
+    assert ReadPoint(Cached["moiOffDiag"]) == ApproxValue(
+        (-0.25, -0.25, -0.25), rel=1e-8, abs=1e-8
     )
-    assert Center == ExpectedCenter
-    assert Diagonal == ExpectedDiagonal
-    assert Products == ExpectedProducts
 
 
 @KNeedZip

@@ -59,10 +59,10 @@ It records 264 differences caused by comparing unlike materials directly; it is 
 
 ## Integration coverage
 
-`TestCubeMass` builds an analytic closed unit cube with 8 vertices, 12 edges, and 6 outward bicubic faces with exact `[0, 1]` parameter boundaries.
-It composes the production closed-body detection, six-face BRep integration, and cache vector assembly.
-The control asserts area 6 cm², volume 1 cm³, center `(0.5, 0.5, 0.5)` cm, diagonal inertia `2/3 cm⁵`, and all three off-diagonal products `-1/4 cm⁵` at `1e-8` absolute and relative tolerance.
-This independently rejects a shared absolute mass-scale error that translation invariance cannot detect.
+`TestCubeMass` builds a closed unit-cube cage with the existing sharp-box constructors, converts it, emits a complete F3D, and reads the archive back.
+The recovered body has 8 vertices, 12 edges, and 6 outward bicubic faces with exact parameter boundaries.
+The test asserts the typed cache's area 6 cm², volume 1 cm³, center `(0.5, 0.5, 0.5)` cm, diagonal inertia `2/3 cm⁵`, and all three off-diagonal products `-1/4 cm⁵` at `1e-8` absolute and relative tolerance.
+This full writer/reader integration independently rejects a shared absolute mass-scale error that translation invariance cannot detect.
 
 `TestShiftMass` independently emits Box3 and its translated G2 counterpart through the current writer.
 It checks area and volume invariance, the translated center, and the parallel-axis prediction for all six origin-tensor components at `1e-8` absolute and relative tolerance.

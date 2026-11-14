@@ -25,8 +25,9 @@ The [native off-origin lifecycle](../../../../../../re/Fusion/LocalOracle/FormDo
 The oracle divides those moments by each body's physical density before comparing geometry across different materials.
 `TestShiftMass` generates both compared archives through the current `EmitFormDoc` writer.
 It checks the center translation and all six tensor components against the exact parallel-axis formula.
-`TestCubeMass` independently constrains the absolute scale with a closed unit-cube BRep.
+`TestCubeMass` independently constrains the absolute scale with a closed unit-cube BRep emitted and read through the complete document codec.
 Its exact area, volume, center, diagonal inertia, and off-diagonal products prevent a shared scale error from passing the translation identity.
+The archive round-trip also checks the recovered cage and converted body, rather than calling mass helpers as an isolated unit.
 
 ## Evidence
 
