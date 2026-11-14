@@ -576,6 +576,69 @@ aligned authored body vs decoded body   3393 bytes each, 586 differing bytes
                                         VOLUME 0.0
 ```
 
+### The attribute contract is one field: `parasolid.first_fin`
+
+Stripping attributes one family at a time from a body NX measures gives the
+minimal contract:
+
+```text
+all attributes                                              VOLUME 24000
+minus parasolid.*_order on faces/surfaces/curves/edges/verts VOLUME 24000
+minus parasolid.vertex_fins                                 VOLUME 24000
+minus carrier_record, sense, everything but first_fin       VOLUME 24000
+minus parasolid.first_fin                                   VOLUME  8000
+```
+
+So `parasolid.first_fin` on each edge is the only attribute that changes the
+measurement. The rank layer, the senses, the vertex fin ring, the carrier
+records and the per-entity tolerances are all irrelevant.
+
+`parasolid.first_fin` is written as the edge's first fin, and NX's own bodies
+always name the coedge whose `reversed` flag is `False`:
+
+```text
+edge 10    ring reversed [False, True]   first_fin is ring position 0
+edge 24    ring reversed [True, False]   first_fin is ring position 1
+edge 101   ring reversed [True, False]   first_fin is ring position 1
+...8 more, no exceptions
+```
+
+Without the attribute `EmitEdgesMut` falls back to
+`edge_coedges[edge][0]`, which is the reversed fin about half the time, and NX
+then binds one face instead of six.
+
+Supplying it for an authored body is necessary but not sufficient: an authored
+60 x 30 x 20 box with the attribute still measures `0.0`.
+
+### NX winds faces opposite to their surface normals
+
+For every face of NX's own box the loop winds against the surface normal, and
+for every face of `BuildPrism`'s box it winds with it:
+
+```text
+nx body      loop normal . surface normal  = -1  on all six faces
+authored box loop normal . surface normal  = +1  on all six faces
+```
+
+This is the last systematic difference between the two models. It is not
+sufficient on its own: flipping `same_sense`, negating the normals, or reversing
+each loop with its fins gives a model whose encoded and re-decoded winding is
+`-1`, and NX still measures `0.0`:
+
+```text
+authored + same_sense flipped        winding -1   VOLUME 0.0
+authored + normals negated           winding -1   VOLUME 0.0
+authored + loops reversed and fins   winding -1   VOLUME 0.0
+authored + both                      winding +1   VOLUME 0.0
+```
+
+Everything else about the two models is identical: same vertices, same six
+planes with unit normals, six faces, six loops of four coedges, twelve edges with
+one curve each and one coedge per face, one closed shell in one solid region, and
+the same fins per vertex. Record-list permutations, loop rotations, id renames,
+plane-origin placement, curve-origin placement and edge parameter direction were
+each applied to the working body and every one of them still measured `24000`.
+
 ### NX cannot re-serialise an authored body either
 
 Asking NX to open the authored 40 x 30 x 20 part and save it under a new name
