@@ -401,6 +401,39 @@ that is not yet derived, so the encoder refuses them.
 No value appears anywhere in the container as a binary64, a shifted binary64, a
 float32, or UTF-16 text.
 
+### The lane is regenerable from four parameters
+
+The occupancy lane is fully determined by the occupied slot index, the object
+id, the class marker, and the live count `n`:
+
+```text
+01 21 <33 slots> 21 <32 class bytes> <1 + n> 21 01 00 01 11 02 02 01 02 41
+```
+
+Building it for the one-expression save with slot 24, id `c4 71 97 78`, marker
+`44`, and `n = 1` reproduces the captured lane byte for byte:
+
+```text
+actual lane tail len 82 built 82 equal True
+```
+
+Object ids are allocatable rather than fixed. Replacing the id with `c4 00 00
+01`, `c4 aa bb cc`, `c3 34 50 5f`, `c0 00 00 01`, `c5 00 00 01`, and `de ad be
+ef` all load, while `11 22 33 44` and `ff 00 00 01` fail with 580504. The first
+byte is a bounded tag and the remaining three bytes are free.
+
+Generating the lane for a part that had no expressions still fails. Both class
+orders were tried against the template-free lane and record:
+
+```text
+three classes appended at 14..16, marker 0x4a   -> 580044
+two classes inserted at index 8, marker 0x44    -> 580044
+```
+
+So the remaining gap is not the lane: it is the class-declaration tails, which
+carry base-class and reference ordinals, and the object state block that has to
+agree with them.
+
 ### The occupancy lane is a slot table
 
 Between the four `EXP_hash_*` names and the `Default Group` record sits an
