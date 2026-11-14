@@ -245,6 +245,30 @@ reading it as `<u8 type> <u8 flag> <u32 len> <payload>` yields a 2850-byte first
 zero-length record, and the bytes at `15232` are high-entropy bit-packed data, not a record header.
 Only `Reservoir` contains a `42 ff` record at all, so it is not a shared B-rep surface table.
 
+### Face-to-surface map: negative results
+
+`Reservoir` has 71 faces and 56 surfaces, so 15 faces share a surface with another face. The map
+was searched for as a plain array and not found. Every test below is a negative result.
+
+- No 71-value window in `MainDataStream` or `SurfacicReps` is a surjective map onto `0..55` in
+  `u8`, `u16` little-endian, `u16` big-endian, `u32` little-endian, or `u32` big-endian form.
+- No 71-value `u8` window with stride 1, 2, 3, 4, 6, or 8 is such a map.
+- No 71-value window with values in `1..56` and at least 40 distinct values exists in either stream.
+- The surface record header is a carrier byte count: 2 for planes, 26 for cylinders and cones, 30
+  for spheres and torus. It is not a face index.
+- The trim record carries no surface index. Its `kind` bits select which of three counts and the
+  optional vector are present, and the counts sum to 348, 273, and 30 over the 71 trims, which
+  matches neither the 150 edges nor the 88 vertices.
+- The FBB face rows are byte-identical (`30 04 04 ff ff e1 e1 e1`), so they cannot carry a
+  per-face surface index.
+- The surface record's three-byte tail is monotonically increasing (3047..4543) and points into
+  float data in `MainDataStream`, not at a surface offset, a record end, or a curve-row start.
+- The 78 curve rows start at 4539 and all carry tag `0x60`. They are not addressed by the surface
+  tails.
+- `CATFace` is exported only by `CATPartDesignFeature.dll`, and that module exports no
+  `CATFace::UnStream`. `CATTopologicalObjectsCGM.dll` exports no face unstream either, so the
+  face record layout cannot be read from the export tables alone.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
