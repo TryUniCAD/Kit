@@ -66,6 +66,29 @@ length, and the change is not one additive constant. The differing field indices
 stable for a given class across all three sets, which rules out an ordinal that shifts
 when the set changes, and points at per-class packed fields.
 
+## The ordinal model is refuted by the existing sets
+
+If an entry depended on the class's position in the set, removing or adding a class would
+leave every entry before that position unchanged and shift the rest. Measured against
+`empty.prt`:
+
+```text
+part        classes  entries identical to the 129 set
+var_cyl        161   1 of 161
+dim40          154   1 of 154
+var_sph        153   1 of 153
+```
+
+One entry survives in each case, so the change is not a shift from an insertion point:
+it reaches every class, including those whose position is unchanged. That rules out a
+set ordinal as the carrier of the increment.
+
+A fifth class set would only distinguish "increment depends on the class" from "increment
+depends on the class count", and the fixtures available do not offer two sets with equal
+counts and different membership. A chamfer part was attempted to supply one and the
+journal failed before saving (`NXOpen.Body` exposes no `Edges` attribute, and the chamfer
+builder needs an edge rule), so that comparison is not available yet.
+
 ## Consequence
 
 The class table cannot yet be computed: the increment is uniform and small, but the

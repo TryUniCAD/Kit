@@ -1067,6 +1067,24 @@ So the table is a per class set constant, not per document data. That makes it c
 and means a rewrite never has to touch it, but the class constants and the offset rule
 are still not derived.
 
+### The class increment is not a set ordinal
+
+If the per set increment were carried by the class's position in the set, adding or
+removing one class would leave the entries before it untouched. Measured against
+`empty.prt`, exactly one entry survives in each comparison:
+
+```text
+var_cyl   161 classes   1 of 161 entries identical
+dim40     154 classes   1 of 154
+var_sph   153 classes   1 of 153
+```
+
+So the change reaches classes whose position is unchanged, and the increment is carried
+per class rather than by an ordinal. Distinguishing "depends on the class" from "depends
+on the class count" needs two sets with equal counts and different membership, which the
+corpus does not contain; a chamfer part was attempted to supply one and the journal failed
+before saving because `NXOpen.Body` exposes no `Edges` attribute.
+
 ### The class identifier delta is not an offset
 
 Testing whether the per-document change is a counter applied to a fixed base per class
