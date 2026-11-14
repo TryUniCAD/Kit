@@ -2376,16 +2376,12 @@ def BuildPolyTree(
     return VendorResolved(ProgramData, HeaderStamps, Generation=Generation)
 
 
-def IsTriCandidate(AuthoredObjs: tuple[_WriteObject, ...], DocData: CadDoc) -> bool:
-    if (
-        len(AuthoredObjs) != 2
-        or len(DocData.sketches) != 1
-        or len(DocData.sketches[0].entities) != 3
-    ):
+def IsTriSketch(SketchData: Sketch) -> bool:
+    if len(SketchData.entities) != 3:
         return False
-    if DocData.sketches[0].closed_profile_entity_ids:
+    if SketchData.closed_profile_entity_ids:
         return True
-    Geometries = tuple(Entity.geometry for Entity in DocData.sketches[0].entities)
+    Geometries = tuple(Entity.geometry for Entity in SketchData.entities)
     if not all(isinstance(Geometry, LineGeom) for Geometry in Geometries):
         return False
     Lines = tuple(Geometry for Geometry in Geometries if isinstance(Geometry, LineGeom))
@@ -2400,6 +2396,12 @@ def IsTriCandidate(AuthoredObjs: tuple[_WriteObject, ...], DocData: CadDoc) -> b
             for Index, LineData in enumerate(Lines)
         )
     )
+
+
+def IsTriCandidate(AuthoredObjs: tuple[_WriteObject, ...], DocData: CadDoc) -> bool:
+    if not any((ItemData.class_name == "moExtrusion_c" for ItemData in AuthoredObjs)):
+        return False
+    return any(IsTriSketch(SketchData) for SketchData in DocData.sketches)
 
 
 def VendorTree(
@@ -13712,6 +13714,18 @@ def OrderPolyEdges(
     return (OrderedVertices, OrderedEdges)
 
 
+def MmFromMetres(Metres: float) -> float:
+    Candidate = Metres * KMillimetres
+    for _ in range(8):
+        BackValue = Candidate / KMillimetres
+        if BackValue == Metres:
+            return Candidate
+        Candidate = MathValue.nextafter(
+            Candidate, MathValue.inf if BackValue < Metres else -MathValue.inf
+        )
+    return Candidate
+
+
 # polyline construction owns point validation and marker offset ordering
 def CreatePoly(
     MarkersData: Sequence[NativeMarker],
@@ -13739,7 +13753,7 @@ def CreatePoly(
         None
         if any(PointData is None for PointData in NativePoints)
         else tuple(
-            CoordinateValue * KMillimetres
+            MmFromMetres(CoordinateValue)
             for PointData in NativePoints
             if PointData is not None
             for CoordinateValue in PointData
