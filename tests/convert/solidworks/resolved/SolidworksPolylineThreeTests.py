@@ -388,7 +388,7 @@ def TestUnitLoss(TmpPath: FilePath) -> None:
             (
                 ReplaceData(
                     ParamData,
-                    value=ParameterValue(0.9, ValueKind.LENGTH, "cm"),
+                    value=ParameterValue(0.9, ValueKind.LENGTH, "ft"),
                 )
                 if ParamData.attributes.get("freecad_path") == "Length"
                 else ParamData
@@ -409,7 +409,7 @@ def TestDepthUnit(TmpPath: FilePath) -> None:
         FeatureData,
         definition=ReplaceData(
             FeatureData.definition,
-            length=ParameterValue(0.9, ValueKind.LENGTH, "cm"),
+            length=ParameterValue(9.0, ValueKind.LENGTH, "cm"),
         ),
     )
     Changed = ReplaceData(SourceDoc, feature_timeline=(FeatureData,))
