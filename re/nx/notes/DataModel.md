@@ -690,6 +690,28 @@ so they are scalar values rather than structures, and invalid ones are tolerated
 That is the whole extent of what section 0 will accept: 209 of 214 records must be
 correct, which is 97.7 percent of the graph.
 
+### Ids and ordinals in the decoded families are labels
+
+Rewriting the values across a whole family, rather than one record, decides whether
+NX treats them as data or as labels:
+
+```text
+15 pair records with the two ids swapped            loads
+14 pair records with both ids raised by one         loads
+77 attribute ordinals raised by one                 loads
+77 attribute ordinals all set to 0x40               loads
+8 records of the 02 02 41 4d family filled with 11  OPEN_FAILED
+```
+
+So the pair ids and attribute ordinals are free: NX rebuilds whatever index it needs
+on load, and an emitter may assign its own values. The `02 02 41 4d` family is not
+free that way, which means its id region contains a length prefix or sentinel rather
+than a plain value.
+
+The earlier conclusion that section 0's ids must stay mutually consistent was too
+strong: whole-group nulling failed because it collided with sentinels, not because
+the values were being checked.
+
 ### Two record families are decoded
 
 The attribute family (`01 02 04`, 77 records) is a key and value pair with an

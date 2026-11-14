@@ -39,8 +39,20 @@ malformed-record rejections.
 
 - The remaining 122 records across the other families (for example `02 02 41 4d`
   and `02 02 41 00`) are not decoded.
-- The ordinals and the paired ids are still taken from the source, because the
-  allocator that assigns them is not derived; the grammars make the records
-  re-emittable, not yet derivable.
+- The ordinals and the paired ids do not have to be copied. Rewriting them across
+  the whole family is accepted:
+
+  ```text
+  all 15 pair records with First and Second swapped        loads
+  14 pair records with both ids incremented by one         loads
+  all 77 attribute ordinals incremented by one             loads
+  all 77 attribute ordinals set to the same value 0x40     loads
+  ```
+
+  so for these two families NX treats the values as labels and an emitter may assign
+  its own. The `02 02 41 4d` family does not behave the same way: filling its id
+  region with a constant is refused, so it still needs a decoded layout.
+
+- The remaining 122 records across the other families are not decoded.
 - Section 0 is still carried from the source, so no part is written without a source
   document.
