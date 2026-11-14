@@ -562,19 +562,17 @@ relative to the previous tag, so the absolute tag of each object depends on the 
 objects are emitted. That order is not recoverable from a byte-pattern scan, because the same
 difference bytes mean different absolute tags at different stream positions.
 
-## The surface list is in face order, deduplicated
+## The surface list is in face order only when the counts match
 
-The surface records are ordered by face, not by tag. Two measurements establish this.
+For all 22 parts where the surface count equals the face count, the surface planarity sequence is
+*identical* to the face planarity sequence. A face is planar exactly when its trim record carries a
+vector, and a surface is planar exactly when its kind is `0x32`. The two sequences match at every
+index for all 22 parts, with no exceptions. So `surfaces[i]` is the surface of `faces[i]` for those
+parts.
 
-First, for all 22 parts where the surface count equals the face count, the surface planarity
-sequence is *identical* to the face planarity sequence. A face is planar exactly when its trim
-record carries a vector, and a surface is planar exactly when its kind is `0x32`. The two sequences
-match at every index for all 22 parts, with no exceptions. So `surfaces[i]` is the surface of
-`faces[i]` for those parts.
-
-Second, for the five parts where the surface count is smaller than the face count, the surface
-planarity sequence is a *subsequence* of the face planarity sequence. The greedy alignment matches
-all surfaces in every case:
+For the five parts where the surface count is smaller than the face count, the surface planarity
+sequence is a *subsequence* of the face planarity sequence. The greedy alignment matches all
+surfaces in every case:
 
 | Part | Faces | Surfaces | Matched | Skipped faces |
 | --- | ---: | ---: | ---: | --- |
@@ -584,17 +582,41 @@ all surfaces in every case:
 | `Pedal_Body` | 338 | 314 | 314 | 24 |
 | `Reservoir` | 71 | 56 | 56 | 15 |
 
-So the surface list is the face list with duplicate surfaces removed, in face order. The skipped
-faces reuse a surface that an earlier face introduced. The deficit is exactly the number of skipped
-faces in every part.
+A subsequence match is much weaker than an index match, and it does not survive a stronger test.
+The stronger test asks for a *monotone surjection*: a non-decreasing map from faces to surfaces that
+uses every surface and gives every face a surface of the same planarity class. That is the exact
+shape of "the surface list is the face list with duplicates removed, in face order".
+
+Solving that as a path problem (each face either keeps the current surface or advances by one, and
+the planarity must match) gives:
+
+| Part | Monotone surjection exists | Solutions |
+| --- | --- | ---: |
+| `Reservoir` | yes | 12600 |
+| `Pedal_Body` | yes | 129679067468302852500 |
+| `4784` | no | 0 |
+| `4876` | no | 0 |
+| `4876_1` | no | 0 |
+
+So the surface list is *not* in face order for `4784`, `4876`, and `4876_1`. For `Reservoir` and
+`Pedal_Body` a monotone surjection exists but is wildly non-unique, so planarity does not determine
+the map even there. The earlier "surface list is the face list with duplicates removed" conclusion
+was wrong; the subsequence match was a weak property of binary sequences, not evidence of ordering.
 
 The trim kind is a second, weaker planarity signal. A trim kind of `0x4a` or above always carries a
 vector (994 of 994), but 68 trims below `0x4a` also carry one. The vector is authoritative; the kind
 nibble is not.
 
-The remaining unknown is which earlier surface each skipped face reuses. The planarity subsequence
-narrows the candidate set to the surfaces of the same planarity class, but it does not pick one.
-Resolving it needs the face's own geometry, which needs the handle-to-point map.
+The missing surfaces are not stored anywhere else. `MainDataStream` contains no `00 33 <kind>`
+surface marker in any of the five parts (the one or two byte hits are coincidental), and the
+`SurfacicReps` header field at offset 18 is `2` for `Reservoir` and `26` for the others, not the
+surface count. So the five parts genuinely share surface records, and the face-to-surface reference
+must come from the face record's own object reference, not from a positional rule.
+
+The trim record has no spare field for a surface index. Its layout is fully consumed by the kind
+byte, the three optional counts, the `ff`-prefixed total, the optional vector, the lengths, and the
+handles. The surface record has no face-count field either: no byte position in any record sums to
+the face count over the record set.
 
 ## The trim handles are not point indices
 

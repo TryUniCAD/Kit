@@ -15,12 +15,14 @@ the point table is split into runs by record markers. The reader therefore maps 
 vertex with a placeholder rule and derives loops from the tessellation boundary. That is a
 documented structural approximation, not the native B-rep topology or geometry.
 
-The surface records are ordered by face. For all 22 parts where the surface count equals the face
-count, the surface planarity sequence is identical to the face planarity sequence. For the five
-parts with fewer surfaces than faces, the surface planarity sequence is a subsequence of the face
-planarity sequence, so the surface list is the face list with duplicate surfaces removed. The
-reader still requires the two counts to match, because the reuse map for the skipped faces is not
-decoded.
+The surface records are ordered by face only when the two counts match. For all 22 parts where the
+surface count equals the face count, the surface planarity sequence is identical to the face
+planarity sequence. For the five parts with fewer surfaces than faces, the surface planarity
+sequence is only a subsequence of the face planarity sequence, and that is not enough to order the
+list: a monotone surjection from faces to surfaces exists for `Reservoir` and `Pedal_Body` but is
+non-unique (12600 and 1.3e20 solutions), and does not exist at all for `4784`, `4876`, and `4876_1`.
+The reader still requires the two counts to match, because the face-to-surface reference is not
+decoded and planarity does not determine it.
 
 The adapter also writes a native `V5_CFV2` CATPart from a neutral `BrepModel` when
 `WriteOptions(values={"native_brep": True})` is set.
