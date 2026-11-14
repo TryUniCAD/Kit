@@ -149,15 +149,26 @@ def TestTriRewrite(TmpPath: FilePath) -> None:
     FirstPath = TmpPath / "RoundTrip.SLDPRT"
     SecondPath = TmpPath / "RoundTripAgain.SLDPRT"
     _ = WriteDoc(BuildDocument(KPoints, Depth=13.0), FirstPath, allow_carrier=False)
-    Reopened = OpenDoc(FirstPath, include_brep=False)
+    ArchiveData = SldprtArchive.open(FirstPath)
+    Reopened = ReadNativePart(
+        SldprtAdapter(),
+        ArchiveData,
+        FirstPath.read_bytes(),
+        str(FirstPath),
+        ReadOptions(include_brep=False),
+    )
+    Definition = Reopened.feature_timeline[-1].definition
+    assert isinstance(Definition, ExtrudeFeature)
+    assert Definition.offset is None
+    assert Definition.draft_angle is None
     assert HasVendorPartEncoding(Reopened) is True
     _ = WriteDoc(Reopened, SecondPath)
-    ArchiveData = SldprtArchive.open(SecondPath)
-    assert "_MO_VERSION_19000/Biography" in ArchiveData.streams
+    Rewritten = SldprtArchive.open(SecondPath)
+    assert "_MO_VERSION_19000/Biography" in Rewritten.streams
     NativeData = DecodeNativeModel(
-        ArchiveData.require(KeyStream),
-        ArchiveData.require(ResolvedStream),
-        ArchiveData.require(ConfigStream),
+        Rewritten.require(KeyStream),
+        Rewritten.require(ResolvedStream),
+        Rewritten.require(ConfigStream),
         resolved_stream=ResolvedStream,
     )
     assert NativeData.operations[0].object_id == 32
