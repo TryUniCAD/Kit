@@ -342,6 +342,27 @@ surface tags do not appear there in any of the four integer encodings tested. Th
 therefore resolved through the stream's object table, which is not the `SurfacicReps` surface
 record order.
 
+### The object reference is a scalable tag difference
+
+`CATCGMStreamImpl::WriteObject` at `0x72970` reads the object tag from offset `0x70` and writes it
+with `CATMathStreamImpl::WriteTagDifferenceAsCATULONG64_Scalable` at `0xb8ed0`. The read side is
+`CATMathStreamImpl::ReadTagDifferenceAsLONG64_Scalable` at `0xb8480`.
+
+The encoding is a variable-length signed delta:
+
+- one byte when the delta is at most 63: `(delta << 2) | sign | 1`, where `sign` is `2` for a
+  negative delta and `0` for a positive one, and bit 0 is always set;
+- otherwise the first byte is `(n << 2) | sign` with `n` in `1..8`, followed by `n` bytes of
+  magnitude.
+
+So a reference is a *difference* from the previous tag in the stream, not an absolute tag. That is
+why the absolute surface tags do not appear in `MainDataStream`.
+
+The FBB row `30 04 04 ff ff e1 e1 e1` is not a sequence of tag differences. Its first byte `0x30`
+has bit 0 clear and `0x30 >> 2 = 12`, which is outside the valid `1..8` length range, so the row
+cannot start a tag-difference sequence. The row is a fixed flag record, not the face record that
+carries the surface reference.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
