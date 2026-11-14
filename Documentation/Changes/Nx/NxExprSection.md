@@ -48,6 +48,23 @@ which is the six fixed objects (head, lane descriptor, names lane, occupancy blo
 default group, group record) plus, per expression, five property slots and one record.
 That is the same 5:1 ratio measured earlier, now expressed as a count.
 
+The count rule does not extend to the slot order. Measured slot by slot, value slots are
+not grouped per expression:
+
+```text
+dim40   n=3   15 slots, value handles at positions 8, 11, 12, 13, 14
+              6450 5450 5e50 5e50 6450
+var_two n=6   30 slots, value handles at 11 of 30 positions
+```
+
+`dim40` has five value slots for three expressions and `var_two` ten for six, and the
+positions are not the `n` value plus `4n` plain split the count suggests. The values appear
+scattered, which matches the hash ordered arrangement measured earlier when renaming
+expressions moved the handles between slots.
+
+So a composer can be written for the six fixed objects but not yet for the slots: their
+order follows the expression name hash, and that hash is not derived.
+
 Other feature families do not obey it — `var_sph` with one sphere expression carries 10
 objects and `var_cyl` with two cylinder expressions 14, against 12 and 18 from the rule —
 so the rule is specific to block dimension expressions.
