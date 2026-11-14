@@ -9,6 +9,8 @@ KGapStart = 0x9B8
 KRecordCount = 214
 KInstanceSizes = (27, 34, 48)
 KReferenceTags = (0x30, 0xB0)
+KInstanceFrame = b"\x00\xf0"
+KInstanceClass = b"\xc0\x45"
 KReference = 7
 KInstanceSkip = 21
 KNames = b"\x77\x0fm_nextInstance"
@@ -308,7 +310,9 @@ def InstanceValues(SectionBody: bytes) -> list[bytes]:
     for Begin, Finish in zip(Starts, Stops):
         if Finish - Begin not in KInstanceSizes:
             continue
-        if SectionBody[Begin + 3 : Begin + 4] != b"M":
+        if SectionBody[Begin + 4 : Begin + 6] != KInstanceFrame:
+            continue
+        if SectionBody[Begin + 12 : Begin + 14] != KInstanceClass:
             continue
         Position = Begin + KInstanceSkip
         while Position + KReference <= Finish - 3:
