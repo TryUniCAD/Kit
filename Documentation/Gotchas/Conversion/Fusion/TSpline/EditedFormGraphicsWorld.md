@@ -11,7 +11,7 @@ Three edited Form archives store a group with world kind 2 in `OGS.BlobFolder/OG
 Kind 2 has the same level-of-detail layout as a BRep world but has no `ValidBody` flag.
 
 | World kind | Leading flag | Layout |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | 1 | `ValidBody` | Edge group, `EdgesCount`, edge levels, face group, `FacesCount`, face levels, `HasModelBox`, optional `ModelBox` |
 | 2 | None | Edge group, `EdgesCount`, edge levels, face group, `FacesCount`, face levels, `HasModelBox`, optional `ModelBox` |
 

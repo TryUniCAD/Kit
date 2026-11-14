@@ -229,7 +229,8 @@ No MCP preference change is part of the bootstrap described here.
 
 ## Verification boundary
 
-The verified results are the native Python probe, the disposable parameter allocation archives, the active-document schema dump, entity-reference enumeration, one parameter property query, its short entity dump, and the binary segment capture.
+The verified results are the native Python probe, the disposable parameter allocation archives and the active-document schema dump.
+The other verified results are entity-reference enumeration, one parameter property query, its short entity dump, and the binary segment capture.
 The XML segment capture failed; its output structure is unknown.
 Commands without a capture report are not described here.
 No local automated test suite was executed to produce this reference.

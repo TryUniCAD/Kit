@@ -36,7 +36,7 @@ The bytes change between saves of equal records. They may hold uninitialized mem
 
 Read every ACT record except the last one strictly. Read the last record with `ReadSlack` and keep its unread bytes in `ParsedSegment.BulkSlack`. Write those bytes back after the last record so the stream stays byte-exact. The Design stream also keeps a tail of at most 16 bytes, as the [stream padding gotcha](../Assembly/FusionStreamPadding.md) explains. Keep the strict check for every other record.
 
-The Browser stream has the same tail. `re/Fusion/examples/.f3z/example1.f3z` member 7 ends its Browser stream with 5,372 bytes after the last indexed record. Every metadata owner has an index entry, and the last record decodes to its own end. The tail holds 15 zero bytes and then record headers with type code `292` and object ids 21, 22 and 23, which are stale records of an earlier save. Kit therefore keeps a Browser tail of any length in `BulkSlack`, as it does for ACT. See the [read gap notes](../../../../../re/Fusion/Reconstruction/ReadGaps/ReadGapNotes.md#browser-stream-tail).
+The Browser stream has the same tail. `re/Fusion/examples/.f3z/example1.f3z` member 7 ends its Browser stream with 5,372 bytes after the last indexed record. Every metadata owner has an index entry, and the last record decodes to its own end. The tail holds 15 zero bytes and then record headers with type code `292` and object ids 21, 22 and 23. These headers are stale records of an earlier save. Kit therefore keeps a Browser tail of any length in `BulkSlack`, as it does for ACT. See the [read gap notes](../../../../../re/Fusion/Reconstruction/ReadGaps/ReadGapNotes.md#browser-stream-tail).
 
 ## Evidence
 

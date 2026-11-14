@@ -3,7 +3,8 @@
 ## Behavior and usage
 
 The research author creates complete native F3D archives directly from semantic specifications. It does not read a source archive, a vendor-generated blank document, captured object payloads, or a runtime graph template.
-It allocates fresh persistent identities, constructs Design, ACT, and Browser graphs, writes their metadata and bulk streams, and creates root/asset manifests, properties, preview images, and ZIP directories.
+It allocates fresh persistent identities, constructs Design, ACT, and Browser graphs, and writes their metadata and bulk streams.
+The research author also creates root/asset manifests, properties, preview images, and ZIP directories.
 The class/version/member catalogue is declarative format vocabulary from the runtime reflection captures and the class catalogue; it supplies no saved instance values.
 
 The [Design author](../../../re/Fusion/Reconstruction/DocumentAuthoring/README.md) documents root collections, parameter ownership, origin geometry, dependency state, component identities, and allocation policy. The [container author](../../../re/Fusion/Reconstruction/ContainerAuthoring/ContainerModel.md) documents the manifest and cross-segment relationships.
@@ -28,7 +29,7 @@ The [parameter acceptance report](../../../re/Fusion/LocalOracle/Authored/Parame
 
 The [circle acceptance report](../../../re/Fusion/LocalOracle/Authored/CircleAcceptance.json) records independent archive digest `da4771d9c1dfe7c31737a2f8846b8e19fbd93189421a2a25babba1d3c80c6f37`. Its 112 Design entities and 135 physical records restore one named circular sketch, one timeline feature, one closed profile, and radius 12.5 mm. Fusion reports healthy state before and after recomputation. A radius edit to 18 mm survives native save/reopen. A subsequent native extrusion uses the authored profile and parameter, producing a healthy three-face solid with volume 17.55836134091411 cm³. Both acceptance runs close their documents.
 
-The [extrusion acceptance report](../../../re/Fusion/LocalOracle/Authored/ExtrusionAcceptance.json) records independent archive digest `7c3dbb1a213d9a3ef5fa609a721fba2de5a5870d0249d64c7c77f07968456523`. Its complete Design, ACT, Browser, manifests, and 5,299-byte BRep history were generated from semantic inputs. The geometry payload comes from production `EmitHistory`; no source geometry or history is read. Before recomputation, Fusion exposes both healthy timeline features and a radius-12.5 mm, height-17.25 mm cylinder with volume 8.467573949129104 cm³, three faces, two edges, and two vertices. Rollback removes the body and retains the sketch; restoring the timeline restores the solid. Full recomputation succeeds. Editing `authoredLength` to 23 mm produces volume 11.290098598838801 cm³ and survives native save/reopen. The saved digest is `81c5f35d8bdda4f2cee8721299cc2757e496f2f386a9c26741c6d46ece000199`.
+The [extrusion acceptance report](../../../re/Fusion/LocalOracle/Authored/ExtrusionAcceptance.json) records independent archive digest `7c3dbb1a213d9a3ef5fa609a721fba2de5a5870d0249d64c7c77f07968456523`. Its complete Design, ACT, Browser, manifests, and 5,299-byte BRep history were generated from semantic inputs. The geometry payload comes from production `EmitHistory`; no source geometry or history is read. Before recomputation, Fusion exposes both healthy timeline features and a radius-12.5 mm, height-17.25 mm cylinder. The cylinder has volume 8.467573949129104 cm³, three faces, two edges, and two vertices. Rollback removes the body and retains the sketch; restoring the timeline restores the solid. Full recomputation succeeds. Editing `authoredLength` to 23 mm produces volume 11.290098598838801 cm³ and survives native save/reopen. The saved digest is `81c5f35d8bdda4f2cee8721299cc2757e496f2f386a9c26741c6d46ece000199`.
 
 These results establish complete independently generated parameter, circle-sketch, and circular-extrusion F3D documents with editable history. They do not establish arbitrary feature families.
 
@@ -42,7 +43,7 @@ Native loading revealed independent obligations beyond byte-level parsing:
 4. Relationship Browser entries must target `AssyConstraints`, not the separate `Relationships` object. Correctly framed references to the wrong class caused a native activation crash.
 5. Root manifest document-type strings, document and asset revision identities, segment allocator state, and metadata software-version fields have distinct meanings.
 
-The [archive directory gotcha](../../Gotchas/Conversion/Fusion/FusionArchiveDirectories.md), [Browser target gotcha](../../Gotchas/Conversion/Fusion/FusionBrowserEntityRoles.md), and [metadata/header evidence](FusionMetadataHeaderSemantics.md) record the failure chain and corrections. A read-only inventory of 712 corpus archives found increasing primary identity order across all 2,136 Design/ACT/Browser segments, covering 259,464 primary records and 34,228 continuations without extraction errors.
+The [archive directory gotcha](../../Gotchas/Conversion/Fusion/FusionArchiveDirectories.md), [Browser target gotcha](../../Gotchas/Conversion/Fusion/FusionBrowserEntityRoles.md), and [metadata/header evidence](FusionMetadataHeaderSemantics.md) record the failure chain and corrections. A read-only inventory of 712 corpus archives found increasing primary identity order across all 2,136 Design/ACT/Browser segments. The inventory covered 259,464 primary records and 34,228 continuations without extraction errors.
 
 ## Limits
 

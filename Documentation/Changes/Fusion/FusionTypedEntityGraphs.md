@@ -2,7 +2,8 @@
 
 ## Behavior
 
-The research graph codec now reads and re-encodes every indexed Design record in the controlled circle, 7 mm extrusion, and 13 mm extrusion archives: 824 records and 75,675 payload bytes, with no unexplained suffixes.
+The research graph codec now reads and re-encodes every indexed Design record in the controlled circle, 7 mm extrusion, and 13 mm extrusion archives.
+The total is 824 records and 75,675 payload bytes, with no unexplained suffixes.
 It interprets inherited schema groups, subjects, named metadata, cross-segment and named-root references, generic containers, nested material/mass values, geometry callbacks, and the observed recipe callbacks.
 The [coverage summary](../../../re/Fusion/Reconstruction/EntityGraph/GraphSummary.json) binds the source archives, reflection catalog, counts, and compressed field evidence.
 The [entity data model](../../../re/Fusion/Reconstruction/EntityGraph/DataModel.md) documents each framing layer and the native semantic comparison.
@@ -35,7 +36,8 @@ Production adapter discovery stays disabled.
 ## Archive envelope research
 
 The [envelope model](../../../re/Fusion/Reconstruction/DocumentEnvelope/EnvelopeRecipe.md) fully decodes the controlled root/asset manifests and ACT/Browser records.
-It additionally identifies the nested material store's block allocator, TOC and definition schemas; the subsequent [material serialization entry](Materials/FusionMaterialSerialization.md) completes the controlled instance values and records native package acceptance.
+It additionally identifies the nested material store's block allocator, TOC and definition schemas.
+The subsequent [material serialization entry](Materials/FusionMaterialSerialization.md) completes the controlled instance values and records native package acceptance.
 Verbose generated evidence is retained in digest-indexed compressed archives, while interpretation and native acceptance reports remain readable.
 
 See the [custom value order gotcha](../../Gotchas/Conversion/Fusion/FusionCustomValuePersistence.md), [material padding gotcha](../../Gotchas/Conversion/Fusion/FusionMaterialStorePadding.md), and [graphics cache omission evidence](../../Gotchas/Conversion/Fusion/FusionGraphicsCacheOmission.md).

@@ -20,7 +20,7 @@ The [production rewrite](../../../../re/Fusion/LocalOracle/Features/ProductionMa
 
 [Native Fusion acceptance](../../../../re/Fusion/LocalOracle/Features/ProductionMaterialAcceptance.json) verifies structural and thermal density changed from 7850 to 6300 and appearance color changed to RGBA `(51, 102, 153, 255)`. These changes survive a dependent extrusion parameter edit to 23 mm, rebuild, native save, and reopen in Fusion 2706.1.17. The input digest is `104d3aeb906eba7e59f568e039e5c796b8a4fa1f11bfcc10a4108123b2b4451b`; the native saved result is `b1cb8eddd9ada07db6e1511c949f5da418e12649519a798c0da92dc9ec1b9069`.
 
-PR compatibility coverage reads the native material package, edits typed values through a disk ZIP boundary, verifies regenerated allocation, and rejects malformed complete stores and missing connection targets. Padding mutation verifies that unused capacity is excluded from logical semantics. Automated tests run only in PR CI; no local test execution occurred. Static formatting, lint, and both configured type checkers passed before this addition was pushed.
+PR compatibility coverage reads the native material package, edits typed values through a disk ZIP boundary, and verifies regenerated allocation. The coverage also rejects malformed complete stores and missing connection targets. Padding mutation verifies that unused capacity is excluded from logical semantics. Automated tests run only in PR CI; no local test execution occurred. Static formatting, lint, and both configured type checkers passed before this addition was pushed.
 
 ## Limits
 

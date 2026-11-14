@@ -1,6 +1,6 @@
 # Edge rounds on horizontal and curved edges
 
-`FilletSpec` and `ChamferSpec` take `LevelMm`. With a level, each `(x, y)` point in `CornerMm` and `MoreCornersMm` names the horizontal body edge that passes through `(x, y, LevelMm)`. The edge can be a line or an arc, such as a top or bottom edge of a block, the rim of a disc or a bore, the base of a joined boss or a rim made of lines and corner rounds. Without a level, the points still name vertical corners as before.
+`FilletSpec` and `ChamferSpec` take `LevelMm`. With a level, each `(x, y)` point in `CornerMm` and `MoreCornersMm` names the horizontal body edge that passes through `(x, y, LevelMm)`. The edge can be a line or an arc. For example, the edge can be a top or bottom edge of a block, or the rim of a disc or a bore. The edge can also be the base of a joined boss or a rim made of lines and corner rounds. Without a level, the points still name vertical corners as before.
 
 ```python
 from convert.formats.Fusion.DocumentCodec.EmitDocument import EmitDocument
@@ -43,7 +43,7 @@ The fillet keeps the `Radius` parameter, and the chamfer keeps `Distance`, `Dist
 
 ## Selection
 
-Fusion selects a tangent chain from each picked edge. Kit follows the loop of the cap face from the picked edge, first forward and then backward, while the side faces meet with the same normal. A chain that returns to its start is a closed loop, such as the rim of a disc, a slot or a block with rounded corners.
+Fusion selects a tangent chain from each picked edge. Kit follows the loop of the cap face from the picked edge, first forward and then backward. Kit continues along the loop while the side faces meet with the same normal. A chain that returns to its start is a closed loop. Examples include the rim of a disc, a slot or a block with rounded corners.
 
 Picked edges that meet at a sharp convex corner of the same loop join into one chain. Picking all four top edges of a block therefore rounds the whole top loop, as a loop selection does in Fusion. The two blends meet on a mitre in the plane that halves the corner. A fillet mitre is a quarter ellipse, and a chamfer mitre is a line.
 
@@ -67,13 +67,13 @@ The solver keeps the prism model and applies edge rounds last, to the finished b
 | Arc       | Torus about the vertical axis of the arc | Cone through the two leg circles |
 | Mitre     | Quarter ellipse edge between two cylinders | Line between two planes |
 
-Each blend face takes the feature operation and its own number in chain order. Faces next to the chain are trimmed to the new spring edges. A chain end must meet a flat end face square to the edge. The mass and the area are exact: the swept section is integrated along each line and each arc, and along a mitre the section length changes linearly.
+Each blend face takes the feature operation and its own number in chain order. Faces next to the chain are trimmed to the new spring edges. A chain end must meet a flat end face square to the edge. The mass and the area are exact. The swept section is integrated along each line and each arc, and along a mitre the section length changes linearly.
 
 A chamfer's first distance, or its distance with an angle, lies on the face whose loop runs with the picked edge in Fusion's edge direction. On an upward cap that is the cap, except on an arc made by a vertical-edge fillet. On a downward cap it is the side face. The whole chain takes the side of its picked edge. [The chamfer legs gotcha](../../../Gotchas/Conversion/Fusion/Features/FeatureChamferLegs.md) gives the evidence.
 
 ## Native acceptance
 
-`AcceptRounds.py` runs the acceptance script on 30 cases and writes `NativeAcceptanceRounds.json`. The report has status `accepted` in Fusion 2706.1.17, with no document open before or after the run. Each case matched its native control at open, at every rollback marker, after `computeAll`, after the edit, after reopening the export and after its last `computeAll`. The block is 40 × 30 × 20 mm, the disc has a 10 mm radius, the slot bar is 36 × 16 mm, and the L-shaped bar is the block without a 20 × 15 mm corner. The boss and the bore have a 5 mm radius, and the square post is 20 × 10 mm in the middle of the block. The boss and the post rise 10 mm above the block. Volumes are those of the opened Kit document after `computeAll`.
+`AcceptRounds.py` runs the acceptance script on 30 cases and writes `NativeAcceptanceRounds.json`. The report has status `accepted` in Fusion 2706.1.17, with no document open before or after the run. Each case matched its native control at open, at every rollback marker, after `computeAll` and after the edit. Each case also matched its native control after reopening the export and after its last `computeAll`. The block is 40 × 30 × 20 mm, and the disc has a 10 mm radius. The slot bar is 36 × 16 mm, and the L-shaped bar is the block without a 20 × 15 mm corner. The boss and the bore have a 5 mm radius, and the square post is 20 × 10 mm in the middle of the block. The boss and the post rise 10 mm above the block. Volumes are those of the opened Kit document after `computeAll`.
 
 | Case | Features | Volume (cm³) | Faces, edges, vertices | Edit | Edited volume (cm³) |
 | --- | --- | ---: | --- | --- | ---: |
@@ -112,7 +112,7 @@ The first 13 cases fixed the geometry. `BevelTopTwo`, `BevelTopAngle`, `BevelBot
 
 ## Verification
 
-`RoundTests.py` checks the solids against four native controls, the records, the journal tori, the leg side on top, bottom and corner-round edges, the loop volumes against closed forms and the rejects. `SuiteEvidenceTests.py` checks the report and its digests. Tests run remotely, and no local tests were executed.
+`RoundTests.py` checks the solids against four native controls, the records and the journal tori. It also checks the leg side on top, bottom and corner-round edges, the loop volumes against closed forms and the rejects. `SuiteEvidenceTests.py` checks the report and its digests. Tests run remotely, and no local tests were executed.
 
 ## Limits
 

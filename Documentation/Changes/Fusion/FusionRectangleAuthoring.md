@@ -1,6 +1,6 @@
 # Independent rectangle and cuboid authoring
 
-The native Fusion document writer adds two semantic profiles: `rectangle` creates a closed four-line sketch, and `cuboid` adds an ordinary positive-Z solid extrusion with a driving height parameter. Both construct fresh Design, ACT, Browser, and container data. The cuboid history is independently generated from its dimensions, topology, tags, and history states.
+The native Fusion document writer adds two semantic profiles. The `rectangle` profile creates a closed four-line sketch. The `cuboid` profile adds an ordinary positive-Z solid extrusion with a driving height parameter. Both construct fresh Design, ACT, Browser, and container data. The cuboid history is independently generated from its dimensions, topology, tags, and history states.
 
 ## Usage
 
@@ -42,7 +42,7 @@ The cuboid's six face tags, four bottom sketch links, carrier directions, and hi
 
 The [research plan](../../../re/Fusion/Reconstruction/RectangleAuthoring/AuthoringPlan.md) links the complete decoded control and every identity join. Its ordinary rectangle control has 303 physical Design records, four Line3D entities, shared corner points, and empty constraint/dimension collections. This is evidence for the model; it is not used as a writer template.
 
-The new archive integration cases emit fresh 17×23×31 mm documents, reopen them through the public reader, verify shared corners and carriers, inspect typed prism geometry/history, and reemit/reopen the complete model. They run remotely; no local tests were executed. Local Black, Ruff, Pyright, Mypy, steering, and diff checks passed.
+The new archive integration cases emit fresh 17×23×31 mm documents and reopen them through the public reader. The cases verify shared corners and carriers, inspect typed prism geometry/history, and reemit/reopen the complete model. They run remotely; no local tests were executed. Local Black, Ruff, Pyright, Mypy, steering, and diff checks passed.
 
 The [acceptance generator](../../../re/Fusion/Reconstruction/RectangleAuthoring/Generate.py) prepares named rectangle and cuboid artifacts without a source archive.
 [Fusion 2706.1.17 acceptance](../../../re/Fusion/LocalOracle/RectangleAuthoring/NativeAcceptance.json) passed for both profiles.

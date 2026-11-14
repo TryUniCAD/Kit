@@ -21,14 +21,14 @@ The canonical authored preamble remains `[4, 4, 0, 1, -1, 0, 1, -1]` and its boa
 
 ## Evidence
 
-The rolled-back archive refutes the earlier idea that the first two values duplicate one generation or size. The earlier readings of the fourth integer as a stream identity or history-entry count, and of the board integer as an ordinal, were set aside on binary evidence only. A black-box experiment does not confirm the replacement readings.
+The rolled-back archive refutes the earlier idea that the first two values duplicate one generation or size. The earlier readings of the fourth integer as a stream identity or history-entry count were set aside on binary evidence only. The earlier reading of the board integer as an ordinal was also set aside on binary evidence only. A black-box experiment does not confirm the replacement readings.
 
 [The read-only inventory](../../../re/Fusion/Reconstruction/JournalStates/Inventory.json) fully frames 69 distinct histories: 67 two-state and two three-state streams. The rolled-back archive stores current state `3` and maximum state `10`, with next entity tag `6`. Preserving the maximum avoids discarding allocation history during rollback.
 
 ## Verification and limits
 
-Six added remote archive integration cases cover the rolled-back native journal, regenerated geometry with its distinct current/maximum metadata, three invalid board-status values and two invalid maximum-state values. Existing authored archive cases exercise the unchanged defaults. Black, Ruff, mypy, strict Pyright and repository steering checks passed the twelve changed or added production/integration modules. No local tests or production codec execution ran for this correction.
+Six added remote archive integration cases cover the rolled-back native journal and regenerated geometry with its distinct current/maximum metadata. The cases also cover three invalid board-status values and two invalid maximum-state values. Existing authored archive cases exercise the unchanged defaults. Black, Ruff, mypy, strict Pyright and repository steering checks passed the twelve changed or added production/integration modules. No local tests or production codec execution ran for this correction.
 
 This change qualifies the corrected metadata in the existing complete two-state insertion journal. It does not add archived geometry, replacement/deletion bulletins, branching state trees, nonzero retention limits or a `-1` fourth preamble value. That variant is known only from binary inspection. The Draft and offset-cylinder streams have three states and archived revisions; their fully framed research records are not a claim of complete semantic support. See the [state-counter gotcha](../../Gotchas/Conversion/Fusion/Geometry/FusionHistoryCounters.md).
 
-The newly readable rolled-back source also passes [native control/reconstruction comparison](History/FusionRolledHistoryAcceptance.md), including initial marker preservation, rollback, restoration of all three future bodies, a driving-parameter edit and native save/reopen. Its former rejection expectation is replaced with positive complete-history reconstruction coverage.
+The newly readable rolled-back source also passes [native control/reconstruction comparison](History/FusionRolledHistoryAcceptance.md). The comparison includes initial marker preservation, rollback, restoration of all three future bodies, a driving-parameter edit and native save/reopen. Its former rejection expectation is replaced with positive complete-history reconstruction coverage.

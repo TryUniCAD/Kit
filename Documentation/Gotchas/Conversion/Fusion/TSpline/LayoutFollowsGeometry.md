@@ -34,7 +34,7 @@ A tie is two rays that reach one fresh vertex in the same step from perpendicula
 
 Grips 5, 18, 12 and 7 never flip it. Shifting or doubling the whole cage scales the flip point with the cage, so the rule is invariant under translation and uniform scale. One tie can change the outcome of another tie later in the race.
 
-With Fusion's tie outcomes forced, Kit reproduces Fusion's bodies within 2e-13. No tested tie-break fits all flip points. The tested tie-breaks were ray straightness, ray index, cage and limit track lengths, next-link lengths and angles, edge arc lengths, curvature jumps across the lines, the shape of the candidate faces, pole order flips, and equalities of grip distances, angles and dot products.
+With Fusion's tie outcomes forced, Kit reproduces Fusion's bodies within 2e-13. No tested tie-break fits all flip points. The tested tie-breaks were ray straightness, ray index, cage and limit track lengths, and next-link lengths and angles. The tested tie-breaks were also edge arc lengths, curvature jumps across the lines, the shape of the candidate faces, and pole order flips. The remaining tested tie-breaks were equalities of grip distances, angles and dot products.
 
 ## Workaround
 

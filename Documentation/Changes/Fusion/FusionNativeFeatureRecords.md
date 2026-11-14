@@ -25,8 +25,10 @@ The [data model](../../Reference/Research/FusionDataModel.md) links the field-le
 ## Verification and limits
 
 The independent research decoder explained 1,734 bytes across ten records and matched 238 native field observations.
-The production codec then generated a same-source archive with fully reconstructed sketch, extrusion, and managed continuation records, an edited extrusion name, and 19 mm parameter/binding values.
-[Fusion accepted that archive](../../../re/Fusion/LocalOracle/Features/GraphAcceptance.json), retained both timeline entries, rebuilt the 19 mm cylinder, accepted a further 23 mm edit, and retained its name and geometry after native save and reopen.
+The production codec then generated a same-source archive with fully reconstructed sketch, extrusion, and managed continuation records.
+The archive also had an edited extrusion name and 19 mm parameter/binding values.
+[Fusion accepted that archive](../../../re/Fusion/LocalOracle/Features/GraphAcceptance.json), retained both timeline entries and rebuilt the 19 mm cylinder.
+Fusion also accepted a further 23 mm edit and retained the extrusion name and geometry after native save and reopen.
 The [rewrite record](../../../re/Fusion/LocalOracle/Features/GraphRewrite.json) lists the reconstructed records and fields.
 
 The first naming experiment expected the sketch's design-capture label to control its visible timeline name; it did not.

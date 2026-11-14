@@ -2,7 +2,8 @@
 
 ## Behavior
 
-The research workspace now includes controlled circular-sketch and extrusion archives at 7 mm and 13 mm, native entity-property captures, and a same-source native parameter/binding rewrite to 19 mm.
+The research workspace now includes controlled circular-sketch and extrusion archives at 7 mm and 13 mm.
+The workspace also includes native entity-property captures and a same-source native parameter/binding rewrite to 19 mm.
 The capture scripts preserve the original active document and close only documents created by the experiment.
 The dispatcher propagates script failures to a nonzero process status.
 
@@ -15,7 +16,9 @@ It records field names, declared types, reference categories, option masks, sche
 The expanded run opened 64 representative corpus archives in separate native tasks and ended with zero open documents.
 Its final snapshot contains 488 initialized schemas and 1,910 fields, covering initialized member sets for 401 of the corpus's 403 declared classes.
 The two uninitialized classes and every intermediate snapshot digest remain explicit in the coverage and import records.
-The reflected research codec decodes and regenerates ten controlled sketch, extrusion, and continuation records: all 1,734 bytes are explained, all 238 native field values agree, and re-encoding from JSON values is byte-identical without residual payload data.
+The reflected research codec decodes and regenerates ten controlled sketch, extrusion, and continuation records.
+All 1,734 bytes are explained, and all 238 native field values agree.
+Re-encoding from JSON values is byte-identical without residual payload data.
 The optional version exporter also captured 494 initialized exact class/version lookups, including six older schemas used by the corpus.
 It distinguishes absent from uninitialized entries and does not assign a historical version to a base pointer that exposes none.
 
@@ -39,7 +42,8 @@ Named roots are explicitly skipped, and the property visitor can omit fields tha
 ## Verification and limitations
 
 Fusion 2706.1.17 exported the three controls and returned 211, 243, and 243 numeric entity-property records without errors; 14, 15, and 15 named roots were skipped.
-The [native acceptance record](../../../re/Fusion/LocalOracle/Features/Acceptance.json) verifies a 19 mm rebuilt extrusion, a subsequent 23 mm edit, and 23 mm geometry after save and reopen, retaining the sketch and extrusion timeline entries.
+The [native acceptance record](../../../re/Fusion/LocalOracle/Features/Acceptance.json) verifies a 19 mm rebuilt extrusion, a subsequent 23 mm edit, and 23 mm geometry after save and reopen.
+The record also verifies that the sketch and extrusion timeline entries were retained.
 The [geometry-cache gotcha](../../Gotchas/Conversion/Fusion/FusionGeometryCaches.md) records the stale 7 mm body before rebuild.
 
 This adds no complete native document writer or independent BRep generator.

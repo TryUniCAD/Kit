@@ -15,7 +15,7 @@ Every Fusion document with a material package has one body. The body names one p
 | Form body `FA1F0081` | `physicalMaterial` | 247 |
 | `ComponentBase` | `defaultPhysicalMaterial` | 1,266 with an asset, 429 empty |
 
-Many documents have no BRep body. 163 have only a component default. 59 have only mesh bodies. 29 have `Body` records without a BRep part. 22 packages hold two physical assets, because the body asset differs from the component default. The old projection raised for all 284 shapes.
+Many documents have no BRep body. There are 163 documents with only a component default, 59 with only mesh bodies and 29 with `Body` records without a BRep part. In 22 packages, the body asset differs from the component default, so each package holds two physical assets. The old projection raised for all 284 shapes.
 
 ## Workaround
 

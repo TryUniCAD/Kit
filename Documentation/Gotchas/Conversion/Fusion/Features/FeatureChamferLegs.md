@@ -3,7 +3,8 @@
 ## Expectation
 
 A chamfer on a horizontal edge takes a first distance and a second distance or an angle.
-Kit first put the first distance on the cap, the top or bottom face next to the edge, and the second leg on the side face.
+Kit first put the first distance on the cap, the top or bottom face next to the edge.
+Kit put the second leg on the side face.
 That rule held for the top edges it was fitted on.
 
 ## Actual behavior
@@ -36,7 +37,9 @@ In a tangent chain the selected edge decides for the whole chain.
 ## Workaround
 
 `CornerSolid` records the label of each vertical-edge fillet face in `PrismSolid.Blends`.
-`IsWithCap` in `RoundGroup.py` applies the direction rule to one edge, and `PlanLegs` swaps the legs of a chain when its selected edge runs against the cap.
-`LevelPicks` writes each edge cache in the same direction, so the start point, the displacement, the arc normal and the reference vector match the native caches.
+`IsWithCap` in `RoundGroup.py` applies the direction rule to one edge.
+`PlanLegs` swaps the legs of a chain when its selected edge runs against the cap.
+`LevelPicks` writes each edge cache in the same direction.
+So the start point, the displacement, the arc normal and the reference vector match the native caches.
 The rule was formed from the ten chamfer controls of the earlier runs. `BevelArcBottom`, `BevelStepTwo` and `BevelPostTwo` were added after it and matched their controls on the first run.
 [Edge rounds](../../../../Changes/Fusion/Features/FusionEdgeRounds.md) lists every case.

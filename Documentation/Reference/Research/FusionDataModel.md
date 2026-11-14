@@ -734,7 +734,8 @@ Its existence does not establish complete independent parametric generation.
 
 ## Native member schemas
 
-A runtime reflection capture lists 1,958 registered metatypes from a running Fusion 2706.1.17: 1,718 entity types, 198 value types, 36 other member metatypes, and six other types.
+A runtime reflection capture lists 1,958 registered metatypes from a running Fusion 2706.1.17.
+These metatypes are 1,718 entity types, 198 value types, 36 other member metatypes, and six other types.
 The capture outputs remain under `re/Fusion/LocalOracle/Reflection`; the native bridge that produced them was removed from the tree.
 The initial snapshot contained 1,916 distinct entity/value member sets, of which 260 were initialized, exposing 938 registered fields.
 The field categories were 492 intrinsic values, 158 collections, 130 strong references, 98 value types, 59 passive references, and one optional value.
@@ -791,11 +792,15 @@ DcExtrudeFeature v8
                   Entity
 ```
 
-`DcMultiBodyFeature` accounts for the previously unexplained body collections: `cachedDcBodies` is a set of strong body references, `dcBodies` is a vector of strong body references, and `removedBodies` is a vector of passive body references.
+`DcMultiBodyFeature` accounts for the previously unexplained body collections.
+`cachedDcBodies` is a set of strong body references.
+`dcBodies` is a vector of strong body references.
+`removedBodies` is a vector of passive body references.
 All three persist and precede `DcBodyFeature.targetDataRefs` in the inherited traversal.
 The controlled extrusion stores its `ManagedEntity.rParent` in a separate continuation record; the class registry and actual record boundaries must be preserved when grouping inherited bytes.
 
-The [reflected feature codec evidence](../../../re/Fusion/Reconstruction/ReflectedFeaturePayloads.json) closes every byte of ten selected records across the three new controls: three 253-byte sketch payloads, two 450-byte extrusion payloads, and five 15-byte managed-entity continuations.
+The [reflected feature codec evidence](../../../re/Fusion/Reconstruction/ReflectedFeaturePayloads.json) closes every byte of ten selected records across the three new controls.
+These records are three 253-byte sketch payloads, two 450-byte extrusion payloads, and five 15-byte managed-entity continuations.
 The decoder accounts for all 1,734 bytes and agrees with all 238 native field observations.
 After converting the decoded values through JSON, the independent encoder reconstructs each original payload exactly, receiving no original payload or residual-byte argument.
 The admitted profile uses current class versions, null or local numeric references, and empty named metadata; unsupported forms are rejected.
@@ -853,7 +858,7 @@ Enum fields that use the native uint32 intrinsic metatype are encoded as unsigne
 
 ## Bundle and vertex semantics
 
-The [F3Z bundle codec](../../Changes/Fusion/FusionBundleCodec.md) models the outer manifest, closed document graph, identity joins, reference groups, and complete serialized members. The [bundle data model](../../../re/Fusion/Reconstruction/BundleAuthoring/BundleDataModel.md) documents all envelope fields and the nine-document corpus example. This envelope qualification does not claim arbitrary nested F3D or F2D conversion. Native F3Z acceptance uses [asynchronous cloud upload](../../Gotchas/Conversion/Fusion/FusionBundleUpload.md). The reconstructed nine-document bundle now passes root load, all eight reference resolutions, full rebuild, parameter editing, and cloud save/reopen, with 87 timeline entries and 160 occurrences preserved.
+The [F3Z bundle codec](../../Changes/Fusion/FusionBundleCodec.md) models the outer manifest, closed document graph, identity joins, reference groups, and complete serialized members. The [bundle data model](../../../re/Fusion/Reconstruction/BundleAuthoring/BundleDataModel.md) documents all envelope fields and the nine-document corpus example. This envelope qualification does not claim arbitrary nested F3D or F2D conversion. Native F3Z acceptance uses [asynchronous cloud upload](../../Gotchas/Conversion/Fusion/FusionBundleUpload.md). The reconstructed nine-document bundle now passes root load, all eight reference resolutions, full rebuild, parameter editing, and cloud save/reopen. The bundle preserves 87 timeline entries and 160 occurrences.
 
 The production BRep reader retains vertex edge indices independently from mapped record ordinals. A native `(2, 0)` cylinder history now passes semantic reconstruction and native edit/rebuild/save/reopen; [the index gotcha](../../Gotchas/Conversion/Fusion/FusionVertexEdgeIndices.md) records the evidence and restricted value set.
 
@@ -865,16 +870,17 @@ The [packaged native schema catalog](../../Changes/Fusion/FusionNativeSchemaCata
 
 The [generic-tag semantics](../../Changes/Fusion/FusionGenericTagSemantics.md) read the first field of a tag group as the primary identifier's byte length. All 441 decoded groups in sixty corpus box histories agree. The earlier selector name is dropped, because that field is a byte count. The names and signed widths of the secondary, operation and approach identities are not confirmed by a black-box experiment. The [complete controlled cuboid history model](../../../re/Fusion/Reconstruction/CuboidHistory/CuboidHistoryModel.md) specifies 102 initial records and their 101-insertion journal, with verified Design/progenitor identity joins.
 
-The [ASCII sketch attribute model](../../Changes/Fusion/FusionSketchAttributeSemantics.md) resolves unsigned curve identities, direction wildcards, role flags, and one-based fragment ordinals. Its role-flags position differs from the binary sketch-tag record in the Design segment, which explains why reusing one positional tuple would silently misread the two forms.
+The [ASCII sketch attribute model](../../Changes/Fusion/FusionSketchAttributeSemantics.md) resolves unsigned curve identities, direction wildcards, role flags, and one-based fragment ordinals. Its role-flags position differs from the binary sketch-tag record in the Design segment. This difference explains why reusing one positional tuple would silently misread the two forms.
 
 ## Verification boundaries
 
 The expanded [typed entity graph research](../../Changes/Fusion/FusionTypedEntityGraphs.md) establishes byte-exact reconstruction of 824 Design records and 75,675 payload bytes in three controlled files. The subsequent [full corpus coverage](../../Changes/Fusion/FusionCorpusEntityCoverage.md) decodes all 261,141 indexed Design records and 25,458,293 payload bytes across all 712 archives with no unexplained suffixes.
 It includes generic references and containers, nested values and custom callbacks; three recipe members remain typed but incompletely named semantically.
-Custom value callbacks can override ordinary lexical order, as demonstrated by RGBA color persistence. The [extended callback model](../../../re/Fusion/Reconstruction/EntityGraph/ExtendedCallbacks.md) specifies AcGe line, ellipse and NURBS arrays, recursive ASM selection recipes, tag tables, UV orders, and lazy progenitor metadata, from full corpus decoding.
+Custom value callbacks can override ordinary lexical order, as demonstrated by RGBA color persistence. The [extended callback model](../../../re/Fusion/Reconstruction/EntityGraph/ExtendedCallbacks.md) comes from full corpus decoding. The model specifies AcGe line, ellipse and NURBS arrays, recursive ASM selection recipes, tag tables, UV orders, and lazy progenitor metadata.
 
 The [latest native geometry acceptance](../../../re/Fusion/LocalOracle/Features/FullBrepAcceptance.json) reconstructs all 289 Design records and replaces both BRep members with independently authored cylinder/profile topology and history.
-The archive opens with correct 19 mm geometry before recomputation, reports healthy features, rolls back to sketch-only state and restores, then preserves a 23 mm edit through native save/reopen.
+The archive opens with correct 19 mm geometry before recomputation and reports healthy features.
+The archive rolls back to sketch-only state and restores, then preserves a 23 mm edit through native save/reopen.
 The [production embedded geometry entry](../../Changes/Fusion/FusionEmbeddedGeometry.md) records the promoted serializers and their separate native acceptance.
 That geometry experiment retains its own source envelope. Separate [independent document authoring](../../Changes/Fusion/FusionIndependentAuthoring.md) now establishes complete parameter, circular-sketch, and circular-extrusion F3D generation without a source archive or template.
 Fusion accepts these independent documents, including correct initial solid geometry, healthy editable history, rollback/restore, parameter rebuild, and native save/reopen. Each further feature family needs its own acceptance, as [Independently authored part features](#independently-authored-part-features) records. The [production document codec](../../Changes/Fusion/FusionNativeDocumentCodec.md) now implements the same complete authoring path entirely under `src/`. A separate report records its successful native load, rollback, edit, save, and reopen.
@@ -895,7 +901,8 @@ Its other field names, including the current-version UUID, are not confirmed by 
 | Fusion open and rebuild       | Actual vendor acceptance for measured outputs        | Untested feature families                         |
 
 A local Fusion installation is now available and authorized for controlled captures.
-Fusion 2706.1.17 accepted the [Kit-edited parameter archive](../../../re/Fusion/LocalOracle/Rewritten/Acceptance.json), exposed its changed values and comments, rebuilt a new dependent expression, and retained that expression after native save and reopen.
+Fusion 2706.1.17 accepted the [Kit-edited parameter archive](../../../re/Fusion/LocalOracle/Rewritten/Acceptance.json) and exposed its changed values and comments.
+Fusion rebuilt a new dependent expression and retained that expression after native save and reopen.
 That archive preserves its own non-parameter source records and contains no modeled bodies or feature timeline.
 The result establishes this parameter-edit path, not independent full-document generation, B-rep writing, or complete feature-history acceptance.
 The subsequent [controlled extrusion acceptance](../../../re/Fusion/LocalOracle/Features/Acceptance.json) includes a circular sketch, an extrusion, one solid body, and a dependent model parameter.
@@ -904,7 +911,8 @@ Fusion opened the edited archive with the new parameter values and both timeline
 Before full rebuild, the saved body still had the source's 7 mm height and 2.1991148575129498 cm³ volume.
 After `computeAll()`, its height was 19 mm and its volume was 5.969026041820864 cm³.
 A subsequent native edit to 23 mm, export, and reopen retained the two timeline entries and a 7.225663103256217 cm³ body.
-This distinguishes a functioning same-source parametric edit from an independent B-rep writer: the latter must also derive the cached geometry and history state without the vendor runtime.
+This distinguishes a functioning same-source parametric edit from an independent B-rep writer.
+An independent B-rep writer must also derive the cached geometry and history state without the vendor runtime.
 
 The [controlled source captures](../../../re/Fusion/LocalOracle/Features/Capture.json) and [native entity graph capture](../../../re/Fusion/LocalOracle/Features/GraphCapture.json) tie the measured parameters, dimensions, topology counts, and property values to archive digests.
 The property queries yielded 211 records for the sketch and 243 for each extrusion control, with 14 and 15 named roots explicitly skipped.
@@ -931,9 +939,9 @@ Each stage is compared with a native control built in the same session.
 
 ## Complete planar cuboid histories
 
-The production `BrepCodec.Prism` reader and writer qualify the ordinary axis-aligned rectangular extrusion history: 86 topology/geometry records, sixteen owned identity attributes, and a two-state journal with all 101 entity insertions. `PrismFrame` preserves parameter frames separately from dimensional geometry: face ordering and senses, loop start corners, line origins and displacement scales, edge intervals, optional carrier bounds, vertex ownership and plane bases. These fields are necessary for a lossless semantic reader; dimensions alone do not describe a stored BRep. Canonical output reallocates all record IDs and remaps references without retaining raw records.
+The production `BrepCodec.Prism` reader and writer qualify the ordinary axis-aligned rectangular extrusion history. The history has 86 topology/geometry records, sixteen owned identity attributes, and a two-state journal with all 101 entity insertions. `PrismFrame` preserves parameter frames separately from dimensional geometry. These frames cover face ordering and senses, loop start corners, line origins and displacement scales, and edge intervals. The frames also cover optional carrier bounds, vertex ownership and plane bases. These fields are necessary for a lossless semantic reader; dimensions alone do not describe a stored BRep. Canonical output reallocates all record IDs and remaps references without retaining raw records.
 
-Both a typed native read/re-emission and an independently generated history passed local Fusion import, rollback, full rebuild, native distance edit from 25 to 37 mm, save and reopen. Geometry changed from 30 to 44.4 cm³ with six faces, twelve edges and eight vertices. Each acceptance archive retained its own surrounding source Design, so complete independent rectangular document authoring remains a separate boundary. See [the API and scope](../../Changes/Fusion/FusionPrismHistory.md), [the controlled semantic model](../../../re/Fusion/Reconstruction/CuboidHistory/CuboidHistoryModel.md), and [native evidence](../../../re/Fusion/LocalOracle/PrismHistory/NativeAcceptance.json).
+Both a typed native read/re-emission and an independently generated history passed local Fusion import, rollback and full rebuild. Both also passed a native distance edit from 25 to 37 mm, save and reopen. Geometry changed from 30 to 44.4 cm³ with six faces, twelve edges and eight vertices. Each acceptance archive retained its own surrounding source Design, so complete independent rectangular document authoring remains a separate boundary. See [the API and scope](../../Changes/Fusion/FusionPrismHistory.md), [the controlled semantic model](../../../re/Fusion/Reconstruction/CuboidHistory/CuboidHistoryModel.md), and [native evidence](../../../re/Fusion/LocalOracle/PrismHistory/NativeAcceptance.json).
 
 ## Controlled sketch dimension transitions
 
@@ -947,7 +955,7 @@ Independent SMT/SMB authoring now includes positive-radius expanding and shrinki
 
 The production document writer now constructs rectangle sketches and ordinary cuboid extrusions from dimensions without a source archive. Four shared corner entities and four Line3D entities establish the closed boundary; four curve-progenitor recipes retain endpoint-adjacent tag sets. The generated region recipe uses explicit perimeter order, which passed native regeneration. By default, width and depth are authoring inputs, while height is a driving user parameter. The optional constrained profile described below adds native width/depth dimensions. [Rectangle authoring](../../Changes/Fusion/FusionRectangleAuthoring.md) records the complete graph, analytic mass cache, body-history joins and native 17×23×31 mm acceptance, including a height edit to 37 mm.
 
-The first authored solids had correct geometry and cached geometric centers but no valid physical material identity. Native mass and density were zero, `body.material` failed with an empty-identity error, and the API reported a zero mass center. Assigning a native material fixed those values without changing geometry, isolating the missing package/identity links. The production correction constructs four material assets and nine schema declarations from semantic inputs, assigns fresh definition/instance/library/package identities, regenerates the complete material package and links it through the Design asset manager to both body material and appearance. No assigned native control package enters the production author.
+The first authored solids had correct geometry and cached geometric centers but no valid physical material identity. Native mass and density were zero, `body.material` failed with an empty-identity error, and the API reported a zero mass center. Assigning a native material fixed those values without changing geometry, isolating the missing package/identity links. The production correction constructs four material assets and nine schema declarations from semantic inputs. The correction assigns fresh definition/instance/library/package identities and regenerates the complete material package. The correction links the package through the Design asset manager to both body material and appearance. No assigned native control package enters the production author.
 
 The default explicit generic material has density 1000 kg/m³. Native cylinder and cuboid documents now report valid material identities and correct mass centers through rollback, rebuild, driving-height edits and native save/reopen. The full 108,583-byte cuboid—including three segments, 228 entity records, one history, nine material schemas and four assets—reconstructs byte for byte through `ReadDocument`/`EmitParsed`. Editing its two typed density fields to 2870 kg/m³ changes native mass as expected and survives the same lifecycle. See [independent materials](../../Changes/Fusion/Materials/FusionAuthoredMaterials.md), [typed package model](../../Changes/Fusion/Materials/FusionMaterialPackages.md), [byte-exact evidence](../../../re/Fusion/LocalOracle/RectangleAuthoring/TypedReemission.json), and [edited-material native acceptance](../../../re/Fusion/LocalOracle/RectangleAuthoring/EditedMaterialNativeAcceptance.json).
 
@@ -1003,7 +1011,7 @@ The cone longitudinal scale remains independent of physical radius. A native sou
 
 `DocumentSpec(ProfileKind="frustum", TaperDegrees=...)` generates the complete circular sketch, ordinary extrusion feature, height and angle parameters, geometry/history, analytic mass cache and fresh physical/appearance package. The taper parameter has degree display units and expression but stores radians both in its model parameter and compute binding. The base radius is the circular profile radius; the upper radius is `r + h·tan(angle)`. Volume, area, centroid and origin inertia derive from the same input dimensions.
 
-[Native acceptance](../../../re/Fusion/LocalOracle/TaperedAuthoring/NativeAcceptance.json) covers independently authored expansion, contraction and zero taper with density 2870 kg/m³. Each has correct geometry and physical properties before recomputation, passes rollback/rebuild, accepts a height change to 27 mm and taper change to −3 degrees, then saves/reopens successfully. The full XYZ inertia tensor is measured against analytic values. All three [read and re-emit byte exactly](../../../re/Fusion/LocalOracle/TaperedAuthoring/TypedReemission.json), including three segments, 213 entity records, one history, nine material schemas and four assets. See [the API and measured values](../../Changes/Fusion/FusionTaperedDocuments.md).
+[Native acceptance](../../../re/Fusion/LocalOracle/TaperedAuthoring/NativeAcceptance.json) covers independently authored expansion, contraction and zero taper with density 2870 kg/m³. Each has correct geometry and physical properties before recomputation and passes rollback/rebuild. Each accepts a height change to 27 mm and taper change to −3 degrees, then saves/reopens successfully. The full XYZ inertia tensor is measured against analytic values. All three [read and re-emit byte exactly](../../../re/Fusion/LocalOracle/TaperedAuthoring/TypedReemission.json), including three segments, 213 entity records, one history, nine material schemas and four assets. See [the API and measured values](../../Changes/Fusion/FusionTaperedDocuments.md).
 
 ## Native snapshots and configuration sidecars
 
@@ -1015,7 +1023,7 @@ A native extrusion snapshot `.smb` contains three bodies: the solved solid, a do
 
 `DocumentSpec.ConstrainRectangle=True` constructs four orientation constraints, a fixed lower-left corner, and two driving linear dimensions. Each dimension links its own user parameter, model parameter, numeric binding and update node. Its primary record combines `FusionSketchLinearDim` and `SketchDimension`; the continuation starts at `Dimension`, rather than at the first namespace change. Observer slots are allocated independently for each target entity, including the shared corner and settings entity. Parameter names and creation indices follow the existing parameter-table watermark.
 
-Both the standalone sketch and cuboid report fully constrained in Fusion. Width 17→19 mm and depth 23→29 mm edits preserve the origin; the cuboid also survives rollback/rebuild and height 31→37 mm. The resulting 19×29×37 mm solid has volume 20.387 cm³ and mass 0.05851069 kg at 2870 kg/m³. Native save/reopen preserves the dimensions, constraint state, feature health and material. The complete independently authored archives reconstruct byte exactly through public typed read/write: 57,994 bytes/203 entity records for the sketch and 113,517 bytes/246 records plus history/material for the cuboid. See [the API and persistent graph](../../Changes/Fusion/FusionConstrainedRectangles.md), [native evidence](../../../re/Fusion/LocalOracle/DimensionAuthoring/NativeAcceptance.json) and [typed reconstruction evidence](../../../re/Fusion/LocalOracle/DimensionAuthoring/TypedReemission.json).
+Both the standalone sketch and cuboid report fully constrained in Fusion. Width 17→19 mm and depth 23→29 mm edits preserve the origin; the cuboid also survives rollback/rebuild and height 31→37 mm. The resulting 19×29×37 mm solid has volume 20.387 cm³ and mass 0.05851069 kg at 2870 kg/m³. Native save/reopen preserves the dimensions, constraint state, feature health and material. The complete independently authored archives reconstruct byte exactly through public typed read/write. The reconstruction covers 57,994 bytes/203 entity records for the sketch and 113,517 bytes/246 records plus history/material for the cuboid. See [the API and persistent graph](../../Changes/Fusion/FusionConstrainedRectangles.md), [native evidence](../../../re/Fusion/LocalOracle/DimensionAuthoring/NativeAcceptance.json) and [typed reconstruction evidence](../../../re/Fusion/LocalOracle/DimensionAuthoring/TypedReemission.json).
 
 ## Distinct history state and entity-tag counters
 
@@ -1029,9 +1037,9 @@ All 103 indexed `.paramesh` members have a version-2 envelope, a protobuf regist
 
 The OGS world is a versioned shared-object graph, with separate typed mesh allocations. Root-world dispatch differs from nested optional world references. Group/render/text nodes, object handles, entity links, property serializers, vertex formats, texture-mapping caches and BRep/sketch LOD branches each have their own framing. `DocumentModel.Graphics` holds the decoded scene; document validation joins its entity references to primary owners in the named segments. The [graphics model](../../Changes/Fusion/Graphics/FusionNativeGraphics.md) links the decoded field order and version evidence. Unsupported world callbacks and buffer layouts remain explicit errors.
 
-Two original native envelopes now cross `ReadDocument` → `EmitParsed` completely: three entity segments, a history, a solid/profile/sketch snapshot, a material package, two configuration sidecars and the graphics scene. Their world/mesh pairs reconstruct exactly at 14,552/860 and 24,382/956 bytes. The complete archives contain 347 and 246 entity records and 39 and 41 shared graphics objects. [Native control/reconstruction comparison](../../../re/Fusion/LocalOracle/NativeDocuments/NativeAcceptance.json) matches geometry, mass, density, inertia, material/appearance identities and colors, parameters, sketches and timeline state through rollback, rebuild, height edits and save/reopen. This goes beyond source-specific replacement of a single member. Preview images remain explicit image assets.
+Two original native envelopes now cross `ReadDocument` → `EmitParsed` completely. The crossing covers three entity segments, a history, a solid/profile/sketch snapshot, a material package, two configuration sidecars and the graphics scene. Their world/mesh pairs reconstruct exactly at 14,552/860 and 24,382/956 bytes. The complete archives contain 347 and 246 entity records and 39 and 41 shared graphics objects. [Native control/reconstruction comparison](../../../re/Fusion/LocalOracle/NativeDocuments/NativeAcceptance.json) matches geometry, mass, density, inertia, material/appearance identities and colors, parameters, sketches and timeline state through rollback, rebuild, height edits and save/reopen. This goes beyond source-specific replacement of a single member. Preview images remain explicit image assets.
 
-The native browser adds an exact version-zero empty-own-member `VisualAnalysesBrowserEntry` schema. Material resolution also requires an explicit compatibility rule. In both native controls, a body names the base reference while its definition/library identify the base asset's `_Post2015` partner. The codec prefers that partner when both assets exist, then checks role, definition and library joins; it does not accept arbitrary similar assets or a missing base. Fusion's general resolver order is not confirmed by a black-box experiment. Both instances and their original identities remain present in the typed package.
+The native browser adds an exact version-zero empty-own-member `VisualAnalysesBrowserEntry` schema. Material resolution also requires an explicit compatibility rule. In both native controls, a body names the base reference while its definition/library identify the base asset's `_Post2015` partner. The codec prefers that partner when both assets exist, then checks role, definition and library joins. The codec does not accept arbitrary similar assets or a missing base. Fusion's general resolver order is not confirmed by a black-box experiment. Both instances and their original identities remain present in the typed package.
 
 ## Public conversion boundary
 
@@ -1053,7 +1061,7 @@ Independent reversal of each active/archive allocation partition, followed by re
 
 ## Typed ParaMesh geometry components
 
-The [production ParaMesh codec](../../Changes/Fusion/Mesh/FusionParaMeshCodec.md) reconstructs the complete version-2 component envelope, protobuf registry, MessagePack stream-name identities, descriptors and six known-length LZMA streams. Immutable semantic fields retain float32 vertex coordinates, ordered triangle corners, octahedral normal pairs, explicit corner overrides, feature edges and per-triangle face-group keys. Container, Design, normal-resource and face-group UUIDs belong to distinct namespaces. The corner stream uses a different terminal difference rule from the other integer streams; the terminal corner word remains an explicit integer with unresolved higher-level meaning.
+The [production ParaMesh codec](../../Changes/Fusion/Mesh/FusionParaMeshCodec.md) reconstructs the complete version-2 component envelope, protobuf registry, MessagePack stream-name identities, descriptors and six known-length LZMA streams. Immutable semantic fields retain float32 vertex coordinates, ordered triangle corners, octahedral normal pairs, explicit corner overrides, feature edges and per-triangle face-group keys. Container, Design, normal-resource and face-group UUIDs belong to distinct namespaces. The corner stream uses a different terminal difference rule from the other integer streams. The terminal corner word remains an explicit integer with unresolved higher-level meaning.
 
 The writer derives every encoded stream and compression block from these fields. Independent research hashes cover all 103 indexed components in 52 archives, with 7,691 vertices and 14,935 triangles. Native control comparisons additionally qualify five reconstructed components across grouped-octahedron and hollowed-tetrahedron documents. Those experiments preserve each original's own non-mesh members. Whole-document mesh ownership/placement, additional graphics callbacks and native feature projection require their own joins and qualification; component acceptance does not supply them automatically. See the [full wire model](../../../re/Fusion/Reconstruction/ParaMesh/WireModel.md).
 
@@ -1255,11 +1263,11 @@ It adds these format rules:
 
 The [sphere/torus research](../../Changes/Fusion/Geometry/FusionRoundCarrierResearch.md) binds the text and binary fields of owned native controls. Sphere parameterization stores separate reference and pole directions; torus parameterization stores axis, two signed-length fields and reference direction. Neither is defined only by a display mesh. Four optional U/V bounds follow the carrier-specific fields.
 
-Owned sphere and torus bodies have one face, zero edges and zero vertices. A periodic untrimmed carrier can close a solid without explicit edge loops. Closed polygon-shell validation must remain a separate geometric specialization. The native request also cannot replace measured ground truth: one axial torus API call ignored its supplied center, while explicit transformation produced the intended persisted carrier. This finding is confined to the captured call/build and is not a format placement convention. These records were research when first captured. The [round body section](#authored-round-bodies-and-trimmed-round-histories) now adds production authoring and acceptance.
+Owned sphere and torus bodies have one face, zero edges and zero vertices. A periodic untrimmed carrier can close a solid without explicit edge loops. Closed polygon-shell validation must remain a separate geometric specialization. The native request also cannot replace measured ground truth. One axial torus API call ignored its supplied center, while explicit transformation produced the intended persisted carrier. This finding is confined to the captured call/build and is not a format placement convention. These records were research when first captured. The [round body section](#authored-round-bodies-and-trimmed-round-histories) now adds production authoring and acceptance.
 
 ## Circular sketch display resources
 
-The [circular graphics extension](../../Changes/Fusion/Graphics/FusionCircularGraphics.md) resolves regular/nonculling sketch-node lists, inline primitive LOD nodes and shared render-mesh, vertex-buffer and circular-arc resources. Class names alone do not determine identity framing: in the saved controls, primitive LOD nodes have the resource flag clear, while the mesh and analytic primitive have it set. The generic render mesh uses a different vertex path from Fusion's body mesh override. Circle-arc graphics store their sampling interval, radius, center, normal, angular interval and reference point as distinct typed fields.
+The [circular graphics extension](../../Changes/Fusion/Graphics/FusionCircularGraphics.md) resolves regular/nonculling sketch-node lists, inline primitive LOD nodes and shared render-mesh, vertex-buffer and circular-arc resources. Class names alone do not determine identity framing. In the saved controls, primitive LOD nodes have the resource flag clear, while the mesh and analytic primitive have it set. The generic render mesh uses a different vertex path from Fusion's body mesh override. Circle-arc graphics store their sampling interval, radius, center, normal, angular interval and reference point as distinct typed fields.
 
 Native circle/cylinder/frustum documents now reconstruct their complete graphics worlds and mesh streams exactly. Their independent parameter edits and save/reopen acceptance include the authoritative entity graph, BRep, snapshots, materials and configurations as well as the display state. [The public circular projection](../../Changes/Fusion/Adapter/FusionNativeCircularProjection.md) joins those decoded records through their actual references and retains the full native state.
 
@@ -1304,7 +1312,8 @@ A reader must keep the declaration and the coordinates as separate values.
 Table indexes are implicit positions in each record family.
 Face `-1` marks a boundary half-edge.
 Kit reads the low two bits of the last link word as a valence offset.
-Three readings are not confirmed by a black-box experiment: that valence offset, the previous-then-next order of the first two link fields, and the hidden-face bit of `f` records.
+Three readings are not confirmed by a black-box experiment.
+The three readings are that valence offset, the previous-then-next order of the first two link fields, and the hidden-face bit of `f` records.
 The codec rejects higher bits that are not proven.
 
 ### Extension namespaces
@@ -1463,7 +1472,7 @@ The rules below were fitted on controlled cages and checked on cages that no rul
 - Regular regions are the Catmull–Clark limit, written as a uniform bicubic B-spline of the cage.
 - Each B-rep face is a block of cage faces bounded by spoke lines of extraordinary points, creases and fixed crease points.
 - The spoke lines advance one link per round, and two lines that meet head-on join. The line past a dart starts one round late. Two lines that reach one vertex in the same round from perpendicular sides are a tie, and Fusion settles a tie from the grip positions.
-- An extraordinary point (EP) gets double knots at h and 2h. h is a quarter face, or an eighth when another EP or a corner point is next to it.
+- An extraordinary point (EP) gets double knots at h and 2h. Here, h is a quarter face, or an eighth when another EP or a corner point is next to it.
 - A face's knots along a spoke come from the strip of cells beside that spoke. Knots that other cells add are inserted after the cap solve.
 - Poles outside the caps are blossoms of the Catmull–Clark net at those knots.
 - The cap poles come from one exact linear solve per EP. The [cap gotcha](../../Gotchas/Conversion/Fusion/TSpline/ExtraordinaryCapIsSolved.md) lists its rows.
@@ -1623,7 +1632,8 @@ Every field of the 116 complex corpus members is consumed by a typed rule.
 Every corpus subtype except `helix_int_cur` and `helix_spl_line` contains at least one B-spline block.
 In `exact_spl_sur`, `exact_int_cur` and `exp_par_cur`, the B-spline is the definition itself.
 In the procedural subtypes, B-spline blocks are approximations or nested definitions beside the defining data.
-The typed rules consume every field of the corpus members, so the saved data fixes the field order of `exp_par_cur`, `exact_spl_sur` and the shared `spl_sur` data.
+The typed rules consume every field of the corpus members.
+Therefore, the saved data fixes the field order of `exp_par_cur`, `exact_spl_sur` and the shared `spl_sur` data.
 
 Eleven subtypes read into frozen records with named fields.
 The grammar rules still define the byte layout.
@@ -1858,7 +1868,8 @@ For arcs in a chain the native recipes list the cap before the side face, and th
 Kit lists the side face first and writes no UV orders there, and Fusion accepted both at open and after `computeAll`.
 
 Each edge cache, `ETCachedLineSeg3d` or `ETCachedCircleArc`, runs in Fusion's edge direction.
-A profile, cut or join edge runs with the loop of its cap when the cap faces up and with the loop of its side face when the cap faces down.
+A profile, cut or join edge runs with the loop of its cap when the cap faces up.
+A profile, cut or join edge runs with the loop of its side face when the cap faces down.
 An edge made by a vertical-edge fillet runs with the loop of the fillet face.
 A full circle cache has the circle's major axis as `refVec`, opposite its seam vertex, and spans 0 to 2π.
 A chamfer puts its first distance on the face whose loop runs with the picked edge, and the whole chain follows that edge.
@@ -2507,7 +2518,8 @@ Each value below is a rule or a constant seen in every save Kit has.
 | Short linear dimensions            | Arrows inside from 2 arrows and 2 text gaps, text inside from its width and 2 gaps; matches 68 saved dimensions |
 
 Fusion numbers drawing segment records in creation order, so its saves have gaps from deleted objects.
-The A1 control uses 39 and 40 for the model source and its parts lists, 43 for the sheet, and 45, 68 and 74 for its three tracked edges.
+The A1 control uses 39 and 40 for the model source and its parts lists, and 43 for the sheet.
+The A1 control uses 45, 68 and 74 for its three tracked edges.
 Kit numbers from one counter after the empty design.
 Each model source takes two ids, each sheet one, and each tracked edge six.
 The design's next id is the first id after Kit's records.
@@ -2625,7 +2637,8 @@ Kit evidence contradicts these cadmpeg statements.
 | Class `6CCF41D5`          | Presentation frame                             | `DynamicUpdateData` in the runtime reflection capture          |
 | Version context           | Token, asset GUID and optional revision fields | Second field equals a root manifest link GUID in every control |
 
-Kit also reads the TSM `l` record as previous link then next link, uses explicit stream markers instead of the header history bit, and calls the MetaStream UUID the segment `currentVersion`.
+Kit also reads the TSM `l` record as previous link then next link.
+Kit uses explicit stream markers instead of the header history bit and calls the MetaStream UUID the segment `currentVersion`.
 These three readings differ from cadmpeg but are not confirmed by a black-box experiment.
 
 Kit now reads the observed cross-document reference form and the procedural and tolerant ASM records.

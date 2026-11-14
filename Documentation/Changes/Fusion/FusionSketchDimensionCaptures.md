@@ -1,6 +1,6 @@
 # Controlled Fusion sketch dimension captures
 
-`re/Fusion/LocalOracle/CaptureRectangleDimensions.py` creates a temporary native rectangle sketch and exports four successive states for differential format research: the undimensioned baseline, a horizontal driving dimension, horizontal and vertical driving dimensions, and a subsequent edit of both user parameters. This is a native source generator, not a production codec or evidence of Kit-authored sketch dimensions.
+`re/Fusion/LocalOracle/CaptureRectangleDimensions.py` creates a temporary native rectangle sketch and exports four successive states for differential format research. The states are the undimensioned baseline, a horizontal driving dimension, horizontal and vertical driving dimensions, and a subsequent edit of both user parameters. This is a native source generator, not a production codec or evidence of Kit-authored sketch dimensions.
 
 Run it through the serialized local oracle:
 

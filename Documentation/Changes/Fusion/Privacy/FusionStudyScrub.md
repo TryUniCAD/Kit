@@ -3,7 +3,8 @@
 ## Behavior
 
 The saved archives under `re/Fusion/Study/` were already on `main`.
-Their protein material stores carried the same kind of account residue as the [branch fixtures](FusionFixtureScrub.md): a hashed hub id, a user id, session ids and space collection ids.
+Their protein material stores carried the same kind of account residue as the [branch fixtures](FusionFixtureScrub.md).
+The residue was a hashed hub id, a user id, session ids and space collection ids.
 Several of those values are identical to values that this branch had already replaced in its own fixtures.
 
 [`ScrubSaved.py`](../../../../re/Fusion/LocalOracle/ScrubSaved.py) ran over the study archives together with the archives that this branch added.
@@ -15,7 +16,8 @@ Study reports, censuses, frozen evidence digests and scripts that cited an archi
 Reports that cite those reports by digest were updated in the same way.
 
 Compressed evidence cites archive and member digests too.
-Each `.xz` and `.tar.xz` file that held one was decompressed, updated and recompressed with the check type and preset that reproduce the original stream byte for byte.
+Each `.xz` and `.tar.xz` file that held one was decompressed, updated and recompressed.
+The recompression used the check type and preset that reproduce the original stream byte for byte.
 Tar members keep their order and metadata.
 The Mesh test source bundle and fifteen research evidence files changed this way.
 Six of them also held the digest that a reflection file had before the [fixture scrub](FusionFixtureScrub.md).

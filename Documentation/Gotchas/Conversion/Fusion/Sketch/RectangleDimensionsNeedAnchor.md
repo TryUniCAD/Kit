@@ -6,6 +6,6 @@ The qualified fully constrained profile fixes the actual lower-left corner and a
 
 The saved corner `isFullyConstrained` flags remain false even when the native sketch API reports the entire sketch fully constrained. These fields are not a substitute for solver acceptance and must not be rewritten merely to make them agree with the sketch result.
 
-Dimension construction also crosses two namespaces before its continuation boundary: `FusionSketchLinearDim` and `SketchDimension` remain in the same primary record although their class namespaces are `Fusion` and `MSketch`. The continuation starts at `Dimension`, not at the first namespace change. A generic namespace split alone is insufficient for this hierarchy.
+Dimension construction also crosses two namespaces before its continuation boundary. `FusionSketchLinearDim` and `SketchDimension` remain in the same primary record although their class namespaces are `Fusion` and `MSketch`. The continuation starts at `Dimension`, not at the first namespace change. A generic namespace split alone is insufficient for this hierarchy.
 
 The [controlled differential model](../../../../../re/Fusion/Reconstruction/SketchConstraints/ConstraintModel.md) distinguishes fixed-point, geometric-constraint and dimension changes. [Independent native acceptance](../../../../../re/Fusion/LocalOracle/DimensionAuthoring/NativeAcceptance.json) verifies fully constrained, origin-stable editing and save/reopen for the [opt-in writer](../../../../Changes/Fusion/FusionConstrainedRectangles.md).

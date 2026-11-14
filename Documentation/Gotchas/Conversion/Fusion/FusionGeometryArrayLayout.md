@@ -12,4 +12,4 @@ Treating capacity as data, inserting the definition getter's rationality flag, o
 
 ## Workaround and evidence
 
-Dispatch by the declared callback metatype, retain all three array descriptors, consume exactly the logical element count, and qualify the geometry version. Use the documented start-plus-displacement line representation. [The callback model](../../../../re/Fusion/Reconstruction/EntityGraph/ExtendedCallbacks.md) links native `AcGeFileIO::outFields` excerpts and the 712-archive byte-accounting evidence.
+Dispatch by the declared callback metatype, and retain all three array descriptors. Consume exactly the logical element count, and qualify the geometry version. Use the documented start-plus-displacement line representation. [The callback model](../../../../re/Fusion/Reconstruction/EntityGraph/ExtendedCallbacks.md) links native `AcGeFileIO::outFields` excerpts and the 712-archive byte-accounting evidence.

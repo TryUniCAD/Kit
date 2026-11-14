@@ -36,7 +36,8 @@ Runtime schemas apply to the recorded application build.
 Fusion exported four controlled archives and reopened the post-deletion archive with both saved parameters intact.
 `computeAll()` returned true on that vendor-authored control.
 The schema dump contains 155 native types and 404 member names.
-Fusion also accepted [a Kit-edited parameter archive](../../../re/Fusion/LocalOracle/Rewritten/Acceptance.json), read both new numeric values and comments, rebuilt a newly edited dependency, saved it, and reopened it with the same expression and value.
+Fusion also accepted [a Kit-edited parameter archive](../../../re/Fusion/LocalOracle/Rewritten/Acceptance.json) and read both new numeric values and comments.
+Fusion rebuilt a newly edited dependency, saved it, and reopened it with the same expression and value.
 The output retains the same source document's non-parameter records and has no modeled bodies or feature timeline.
 This proves the measured parameter-edit path only.
 General automated tests remain in PR CI.

@@ -118,7 +118,9 @@ So the stream holds no primitives.
 
 [`SheetDefaultReasons.json`](../../../../re/Fusion/Reconstruction/Drawings/SheetDefaultReasons.json) gives each of the 666 default rows a basis and a note.
 It also counts the instances that hold the value in three Fusion-made drawings.
-Of the rows, 640 have a known meaning: 355 from public DWG and DXF references, 129 empty values, 74 identity values, 31 versions, 31 names from Fusion's drawing schema, 7 template settings and 13 neutral Kit choices.
+Of the rows, 640 have a known meaning.
+Of those, 355 are from public DWG and DXF references, 129 are empty values and 74 are identity values.
+The remaining known rows are 31 versions, 31 names from Fusion's drawing schema, 7 template settings and 13 neutral Kit choices.
 The other 26 rows have no known meaning.
 They are words and bits of the hole reference data, the inventor subentity manager, the hatch manager and the geometry dependency.
 They also include bit 3 of the dimension flags, the dimension bit after the measurement, one MTEXT bit and one drawing view real.
@@ -135,7 +137,7 @@ The reasons file gives these rows the `tested` basis and lists each value Fusion
   - The three hole reference data bits reject 1. So do the third and fifth hatch manager words and the MTEXT bit.
 - In 16 rows, Fusion opened the drawing with another value. It showed the same views and dimension. Kit keeps the value of every Fusion save.
   - These rows are bit 3 of the dimension flags, the dimension bit, and the subentity manager bit and raw word.
-  - They are also the geometry dependency word and bit, the second and fourth hatch manager words, the fifth reference data text and the drawing view real.
+  - They are also the geometry dependency word and bit, and the second and fourth hatch manager words. These rows are also the fifth reference data text and the drawing view real.
 
 The dimension rows were tested on the linear dimension, because all four dimension kinds share this common data.
 The hole reference data has only one instance in the three drawings, so its evidence is weakest.
@@ -274,11 +276,13 @@ A Fusion save with five sheets holds six vertical, six aligned, two radius and o
 Kit's vertical and aligned layout matches Fusion's, and Kit's text extents match all fifteen texts.
 Fusion keeps both arrows inside when the line is at least two arrows and two text gaps long, 9.8 mm.
 It keeps the text inside, above the line, when the line is at least the text width and two gaps long.
-Text that does not fit goes past the second arrow, 1.4 mm beyond a 3.5 mm line, over a line that ends 1.4 mm after it.
+Text that does not fit goes past the second arrow, 1.4 mm beyond a 3.5 mm line.
+That text sits over a line that ends 1.4 mm after it.
 Arrows that do not fit point in from outside, with a 3.5 mm line past each arrow that has no text beside it.
 An extension line whose point lies on the dimension line is left out.
 The view scales of four Fusion saves put a 3.54 mm and a 10 mm dimension at 30 lengths from 2.12 mm to 50 mm.
-The limits sit between 9.72 and 9.90 mm for the arrows, between 11.77 and 11.99 mm for text 9.07 mm wide, and between 6.0 and 7.5 mm for text 4.67 mm wide.
+The limits sit between 9.72 and 9.90 mm for the arrows, and between 11.77 and 11.99 mm for text 9.07 mm wide.
+For text 4.67 mm wide, the limits sit between 6.0 and 7.5 mm.
 Kit's lines, arrows and text points match all 68 saved linear and aligned dimensions to 6 × 10⁻⁶ mm.
 Fusion orders each arrow's corners along the reading direction's normal, and so does Kit.
 Fusion opened `D5Short` and `D6OnLine`, as the [T8](../../../../re/Fusion/Reconstruction/Drawings/Rules/GraftRoundT8.json) report records.

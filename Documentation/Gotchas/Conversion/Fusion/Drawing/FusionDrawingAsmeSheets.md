@@ -13,7 +13,8 @@ Kit's standard objects use millimetres, so Kit writes an ASME sheet in millimetr
 Kit's ASME border follows the ASME sheet family, not a Fusion template:
 
 * 0.5 in margins on every side and no filing margin.
-* Each zone is a quarter of an A sheet, 4.25 in along a side from the 8.5 in side and 5.5 in along a side from the 11 in side.
+* Each zone is a quarter of an A sheet.
+  Each zone is 4.25 in along a side from the 8.5 in side and 5.5 in along a side from the 11 in side.
   A has 2 × 2 zones, B 4 × 2, C 4 × 4, D 8 × 4 and E 8 × 8.
 * The zones span the whole sheet, so the outer zones take the margins.
 * Numbers count from the right and letters from the bottom, so zone A1 is the lower right corner.

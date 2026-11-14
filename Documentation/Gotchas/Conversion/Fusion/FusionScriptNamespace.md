@@ -2,7 +2,8 @@
 
 ## Expectation
 
-A script dispatched by a native command might run like a registered Fusion API script, with its file path in `__file__` and a call to `run(context)`.
+A script dispatched by a native command might run like a registered Fusion API script.
+The dispatched script would then have its file path in `__file__` and receive a call to `run(context)`.
 
 ## Actual behavior
 

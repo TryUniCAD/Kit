@@ -353,7 +353,7 @@ All three run reports completed after the relaunch that followed the crashed run
 
 ### History snapshots
 
-The [state comparison](../../../../re/Fusion/Reconstruction/ComplexGeometry/CompareStates.json) covers the 62 corpus histories with a `.smb` snapshot. No default `EmitStateSmb` output equals its snapshot. The snapshot holds its records in a breadth-first order. It drops the body time and tag attributes and the edge track attributes. 5 snapshots hold only history bodies, and `Snapshot=True` rebuilt all 5 byte for byte. The other 57 also hold 226 bodies that no retained history state contains. The [snapshot record order gotcha](../../../Gotchas/Conversion/Fusion/Geometry/SnapshotRecordOrder.md) and the [snapshot identity gotcha](../../../Gotchas/Conversion/Fusion/Geometry/SnapshotHistoryIdentity.md) give the rules.
+The [state comparison](../../../../re/Fusion/Reconstruction/ComplexGeometry/CompareStates.json) covers the 62 corpus histories with a `.smb` snapshot. No default `EmitStateSmb` output equals its snapshot. The snapshot holds its records in a breadth-first order. It drops the body time and tag attributes and the edge track attributes. Of the snapshots, 5 hold only history bodies, and `Snapshot=True` rebuilt all 5 byte for byte. The other 57 also hold 226 bodies that no retained history state contains. The [snapshot record order gotcha](../../../Gotchas/Conversion/Fusion/Geometry/SnapshotRecordOrder.md) and the [snapshot identity gotcha](../../../Gotchas/Conversion/Fusion/Geometry/SnapshotHistoryIdentity.md) give the rules.
 
 ### Boundaries
 
@@ -362,7 +362,7 @@ The [state comparison](../../../../re/Fusion/Reconstruction/ComplexGeometry/Comp
 - `helix_int_cur`, `helix_spl_line`, `wire` records and the thread and no-merge attributes went to Fusion only in byte-identical re-emissions.
 - Each subtype edit inserts a knot into a stored B-spline. No native case changed a procedural field, such as the axis of a `cyl_spl_sur`.
 - `tcoedge-coedge` records went to Fusion unedited only. `vertedge-sys-attrib` records did not occur in a native case. The prepared edit of each was inconsistent and was not sent.
-- `EmitStateSmb` output of one corpus history went to Fusion, as the `PcurveRefine` original. 57 of the 62 snapshots hold bodies that Kit cannot write from the history.
+- `EmitStateSmb` output of one corpus history went to Fusion, as the `PcurveRefine` original. Of the 62 snapshots, 57 hold bodies that Kit cannot write from the history.
 - The authored bodies have `exact_spl_sur`, plane and cylinder faces only. Kit does not author other analytic carriers or procedural subtypes.
 - The Fusion exit in the run with the `PcurveFormSign` case has no known cause.
 

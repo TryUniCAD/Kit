@@ -2,7 +2,7 @@
 
 ## Behavior
 
-Kit can now author a complete native F3D document from an immutable semantic specification using production Python modules. `EmitDocument` allocates fresh identities, builds the Design feature graph and ACT/Browser relationships, serializes versioned entity metadata and bulk records, emits cylinder topology and its modeling journal, and writes root/asset manifests, previews, and required ZIP directories.
+Kit can now author a complete native F3D document from an immutable semantic specification using production Python modules. `EmitDocument` allocates fresh identities, builds the Design feature graph and ACT/Browser relationships, and serializes versioned entity metadata and bulk records. `EmitDocument` also emits cylinder topology and its modeling journal, and writes root/asset manifests, previews, and required ZIP directories.
 
 The writer reads no source archive, captured entity graph, donor geometry, research module, or runtime CAD library. The packaged JSON contains declarative class, inheritance, member, and wire-type vocabulary; it contains no saved entity values or archive payloads.
 
@@ -52,7 +52,7 @@ Fusion 2706.1.17 accepted the [complete production-authored document](../../../r
 - Native save/reopen retaining the edited dimensions and healthy history.
 - Zero documents left open by acceptance.
 
-The separately promoted parameter and circle profiles also pass native editing and save/reopen, recorded in [parameter acceptance](../../../re/Fusion/LocalOracle/Authored/ProductionParameterAcceptance.json) and [circle acceptance](../../../re/Fusion/LocalOracle/Authored/ProductionCircleAcceptance.json). The complete reader/re-emitter reconstructs all 213 physical entity records across the three segments and the typed history, producing exactly the same 61,439-byte archive and SHA-256; [the reconstruction report](../../../re/Fusion/LocalOracle/Authored/ProductionReemitted.json) records the boundary.
+The separately promoted parameter and circle profiles also pass native editing and save/reopen, recorded in [parameter acceptance](../../../re/Fusion/LocalOracle/Authored/ProductionParameterAcceptance.json) and [circle acceptance](../../../re/Fusion/LocalOracle/Authored/ProductionCircleAcceptance.json). The complete reader/re-emitter reconstructs all 213 physical entity records across the three segments and the typed history. The reader/re-emitter produces exactly the same 61,439-byte archive and SHA-256; [the reconstruction report](../../../re/Fusion/LocalOracle/Authored/ProductionReemitted.json) records the boundary.
 
 A subsequent [semantic comment edit](../../../re/Fusion/LocalOracle/Authored/ProductionEdited.json) changes the decoded user-parameter comment and re-emits every entity and BRep history field. [Native acceptance](../../../re/Fusion/LocalOracle/Authored/ProductionEditedAcceptance.json) confirms the changed comment on open and after save/reopen, alongside correct initial geometry, rollback, and a later 23 mm parameter rebuild. This exercises an actual typed-model mutation, not only byte equality.
 

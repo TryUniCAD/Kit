@@ -20,7 +20,7 @@ A Fusion torus carrier is a ring torus. Its minor radius magnitude is smaller th
 
 ## Workaround
 
-Accept a torus carrier with a positive major radius and a nonzero minor radius whose magnitude differs from the major radius. The horn torus, with equal magnitudes, has no corpus record and stays refused.
+Accept a torus carrier with a positive major radius and a nonzero minor radius. The minor radius magnitude must differ from the major radius. The horn torus, with equal magnitudes, has no corpus record and stays refused.
 
 ## Evidence
 

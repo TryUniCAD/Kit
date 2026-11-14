@@ -16,7 +16,7 @@ The first remote compatibility run rejected the native history because it compar
 
 ## Verification
 
-Production `ReadHistory` and `EmitHistory` reconstructed the complete history of `extrude_07mm.f3d`, preserving `(2, 0)`, while retaining that document's own other members. Fusion 2706.1.17 opened the result with the correct 7 mm cylinder before recomputation, rolled back to the sketch, restored and rebuilt the solid, accepted a 23 mm parameter edit, and saved/reopened with healthy features.
+Production `ReadHistory` and `EmitHistory` reconstructed the complete history of `extrude_07mm.f3d`, preserving `(2, 0)`, while retaining that document's own other members. Fusion 2706.1.17 opened the result with the correct 7 mm cylinder before recomputation, rolled back to the sketch, and restored and rebuilt the solid. Fusion also accepted a 23 mm parameter edit and saved/reopened with healthy features.
 
 The [native report](../../../../re/Fusion/LocalOracle/Authored/NativeHistoryAcceptance.json) records accepted output SHA-256 `29f70738c26cab17f8abab536b08fa9ece6381c53608e6530295209f7e206797` and zero documents left open. The [preparation manifest](../../../../re/Fusion/LocalOracle/Authored/NativeHistoryReemitted.json) records source and history digests. This establishes the observed index variant, not arbitrary vertex adjacency encodings.
 

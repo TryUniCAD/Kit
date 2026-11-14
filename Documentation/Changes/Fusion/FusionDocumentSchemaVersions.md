@@ -2,7 +2,7 @@
 
 Document Design reading selects exact class/version/base declarations from a combined trusted catalog. The packaged corpus vocabulary remains authoritative for each class/version it declares. The accepted authoring vocabulary supplements only missing versions. Existing native callback descriptors, named metadata types and reference constraints remain in use.
 
-This repairs a remote CI regression in which all accepted authored document profiles failed before entity decoding: class `4C835764-5BAB-4421-B5D2-06015BEF6EB2` requested schema version five, which is present in the authoring vocabulary but absent from the corpus catalog. The native rectangle Design case and history cases passed in the same run. Corpus coverage therefore did not imply coverage of every accepted authoring version.
+This repairs a remote CI regression in which all accepted authored document profiles failed before entity decoding. Class `4C835764-5BAB-4421-B5D2-06015BEF6EB2` requested schema version five. That version is present in the authoring vocabulary but absent from the corpus catalog. The native rectangle Design case and history cases passed in the same run. Corpus coverage therefore did not imply coverage of every accepted authoring version.
 
 `DocumentCatalog` combines declarations without importing object values or archive fixtures. `MakeDesignProf` selects metadata-declared versions, closes required value/base declarations and validates the resulting profile. There is no parse-error fallback, version wildcard or acceptance of an unknown class. An unknown version or incompatible base still fails.
 
