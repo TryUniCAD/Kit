@@ -7,10 +7,10 @@ KSlice = 0x30C
 KOrderStart = 0x664
 KGapStart = 0x9B8
 KRecordCount = 214
-KInstanceRecord = 48
+KInstanceSizes = (27, 34, 48)
+KReferenceTags = (0x30, 0xB0)
 KReference = 7
-KInstanceSkip = 22
-KReferenceOffsets = (22, 30, 38)
+KInstanceSkip = 21
 KNames = b"\x77\x0fm_nextInstance"
 KHeadTag = b"\x41\x00\x03\x03"
 KAnchor = b"\xe0\x6a\xf8"
@@ -291,7 +291,7 @@ def RewriteRecords(SectionBody: bytes) -> bytes:
 
 
 # one record family shares seven byte references that can be relabelled freely
-def RelabelRefs(SectionBody: bytes) -> bytes:
+def InstanceValues(SectionBody: bytes) -> list[bytes]:
     Count = ObjectCount(SectionBody)
     TableAt = TableStart(SectionBody, Count)
     Starts = [
@@ -299,43 +299,38 @@ def RelabelRefs(SectionBody: bytes) -> bytes:
         for Index in range(Count)
     ]
     Stops = Starts[1:] + [len(SectionBody) - 12]
-    Shared = [
-        (Begin, Finish)
-        for Begin, Finish in zip(Starts, Stops)
-        if Finish - Begin == KInstanceRecord
-        and SectionBody[Begin + 2 : Begin + 4] == b"\x41\x4d"
-    ]
-    if not Shared:
+    Values: list[bytes] = []
+    for Begin, Finish in zip(Starts, Stops):
+        if Finish - Begin not in KInstanceSizes:
+            continue
+        if SectionBody[Begin + 3 : Begin + 4] != b"M":
+            continue
+        Position = Begin + KInstanceSkip
+        while Position + KReference <= Finish - 3:
+            Marker = Position
+            while Marker < Finish and SectionBody[Marker] == 0:
+                Marker += 1
+            if Marker >= Finish or SectionBody[Marker] not in KReferenceTags:
+                break
+            Values.append(SectionBody[Marker + 1 : Marker + 1 + KReference])
+            Position = Marker + 1 + KReference
+    return Values
+
+
+# references are shared so every occurrence takes the same new label
+def RelabelRefs(SectionBody: bytes) -> bytes:
+    Values = InstanceValues(SectionBody)
+    if not Values:
         return SectionBody
-
-    def IsInside(Position: int) -> bool:
-        return any(
-            Begin + KInstanceSkip <= Position and Position + KReference <= Finish - 3
-            for Begin, Finish in Shared
-        )
-
-    Values = [
-        SectionBody[Begin + Offset : Begin + Offset + KReference]
-        for Begin, _ in Shared
-        for Offset in KReferenceOffsets
-    ]
     Output = bytes(SectionBody)
     Label = 1
     for Value in dict.fromkeys(Values):
-        Spots: list[int] = []
-        Cursor = 0
-        while True:
-            Found = Output.find(Value, Cursor)
-            if Found < 0:
-                break
-            Spots.append(Found)
-            Cursor = Found + 1
-        if not Spots or not all(IsInside(Place) for Place in Spots):
+        if len(Value) != KReference:
             continue
         Replacement = bytes([0x40 + (Label & 0x3F), 0x11, 0x22, 0x33, 0x44, 0x55, 0x66])
-        Label += 1
-        if Replacement in Output:
+        if Replacement in Output or Output.count(Value) < 1:
             continue
+        Label += 1
         Output = Output.replace(Value, Replacement)
     return Output
 
@@ -343,9 +338,9 @@ def RelabelRefs(SectionBody: bytes) -> bytes:
 # a slot record lists occupied and empty registry slots in hash order
 KSlotFrame = bytes.fromhex("02024100364104010111")
 KSlotFamily = b"\x02\x02\x41\x00"
-KSlotLabelAt = 0x10
 KSlotEmpty = 0xFF
 KSlotOccupied = 0x80
+KSlotLabelAt = 0x10
 
 
 # the slot grammar reads back as the same token list it writes

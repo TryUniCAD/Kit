@@ -44,8 +44,9 @@ slt_multi.prt bodies 0     slt_dim40.prt       bodies 1
 slt_var_blank.prt bodies 0
 ```
 
-with section 0 differing from the source in 164 bytes for a body-less part and 122 for
-`const_box60`, against 144 and 102 before this change.
+together with the token and reference relabelling described in
+[the record grammar change](NxObjectGrammar.md), so section 0 differs from the source in
+260 bytes for a body-less part and 134 for `const_box60`.
 
 `TestNxSlots` checks the frame, the token round trip, the empty-only case, that a
 reordering keeps the length, and both guards.
