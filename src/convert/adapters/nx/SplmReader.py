@@ -171,7 +171,7 @@ def RebuildSplm(
     )
 
 
-# override keys accept both root relative and absolute stream names
+# callers pass either spelling so overrides apply regardless of prefix
 def ReplacementMap(Overrides: dict[str, bytes] | None) -> dict[str, bytes]:
     return {
         (PathValue if PathValue.startswith("/Root/") else "/Root/" + PathValue): Value

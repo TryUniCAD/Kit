@@ -49,7 +49,7 @@ def FindSections(DataValue: bytes) -> tuple[OmSection, ...]:
     return tuple(Sections)
 
 
-# one section validates its optional separator before accepting a size
+# the separator must match before a size is trusted because offsets derive from it
 def ReadSection(DataValue: bytes, BodyOffset: int) -> OmSection | None:
     Prefix = BodyOffset - 12
     Start = Prefix
