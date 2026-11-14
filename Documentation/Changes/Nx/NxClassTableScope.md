@@ -14,14 +14,18 @@ parts carry the same set of class names, and different otherwise:
 ```text
 group      parts  same class set  same entries
 body-less      5            True          True
-block          7            True          True
+block          8            True          True
 ```
 
 The body-less group is `empty`, `multi`, `var_blank`, `var_x1` and `var_x2`; the block
-group is `dim40`, `dim50`, `dim60`, `const_box60`, `var_two`, `var_named` and
-`var_formula`. Those seven differ in dimension, in expression count (three to six), in
-expression names, and in body count (one or two), and their class tables are identical
-in every byte.
+group is `dim40`, `dim50`, `dim60`, `const_box60`, `var_two`, `var_named`,
+`var_formula` and `var_datum`. Those eight differ in dimension, in expression count
+(three to six), in expression names, in body count (one or two) and in feature count
+(one block, or a block plus a fixed datum plane), and their class tables are identical
+in every byte: 154 of 154 entries.
+
+The reference hypothesis was tested and refuted: `dim40` and `var_sph` carry the same
+79 references, in the same order, yet their entries differ.
 
 `var_sph.prt` carries the block set minus exactly one class, `UGS::Solid::Edge`, and
 152 of its 153 entries differ from the block table. `var_cyl.prt` carries 161 classes
@@ -45,11 +49,22 @@ var_sph.prt       153    79  56, 115, 9648, 56917797, 15606, 2
 var_cyl.prt       161    83  56, 120, 9648, 56917797, 15606, 2
 ```
 
-The second field is the class's own constant plus a per-set increment of 0, 16, 15 and
-20, and the increment is not the class count difference (24, 25, 32) nor the reference
-count difference alone (`var_sph` and `dim40` share 79 references but differ by one).
-The same uniform increment appears in every class's entry, at a bit offset that varies
-by class, which is why the raw entries differ in different byte positions.
+The second field is the class's own constant plus a per-set increment of 0, 16, 15 and 20. It is not the class count difference (0, 25, 24, 32), and not the reference count
+difference, since `var_sph` and `dim40` share 79 references yet differ by one.
+
+Comparing the full field sequence of each entry rather than its first field:
+
+```text
+part        fields per entry   most common change   single-field classes
+dim40           4 to 11        two fields            4
+var_sph         4 to 11        two fields            4 to 8
+var_cyl         4 to 11        two fields            2
+```
+
+so between two class sets most entries change in two places, 32 to 47 entries change
+length, and the change is not one additive constant. The differing field indices are
+stable for a given class across all three sets, which rules out an ordinal that shifts
+when the set changes, and points at per-class packed fields.
 
 ## Consequence
 

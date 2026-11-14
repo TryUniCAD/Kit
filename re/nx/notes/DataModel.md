@@ -931,13 +931,18 @@ Twelve parts were compared entry by entry:
 ```text
 group      parts  same class set  same entries
 body-less      5            True          True
-block          7            True          True
+block          8            True          True
 ```
 
-The block group is `dim40`, `dim50`, `dim60`, `const_box60`, `var_two`, `var_named` and
-`var_formula`. They differ in dimension, in expression count (three to six), in
-expression names and in body count (one or two), and their class tables are identical in
-every byte. `var_sph.prt` is the block set minus one class, `UGS::Solid::Edge`, and 152
+The block group is `dim40`, `dim50`, `dim60`, `const_box60`, `var_two`, `var_named`,
+`var_formula` and `var_datum`. They differ in dimension, in expression count (three to
+six), in expression names, in body count (one or two) and in feature count, and their
+class tables are identical in every byte. `var_datum.prt` was created for this test as a
+block plus a fixed datum plane through `CreateFixedDatumPlane(point, matrix)`, and its
+section 0 is 28995 bytes against `dim40`'s 28986, with the same 154 classes.
+
+The reference hypothesis is refuted: `dim40` and `var_sph` carry the same 79 references
+in the same order and still differ in 152 of 153 entries. `var_sph.prt` is the block set minus one class, `UGS::Solid::Edge`, and 152
 of its 153 entries differ. `var_cyl.prt` has 161 classes and differs too.
 
 Decoded as little-endian 7-bit fields, an entry is a short sequence of small integers
