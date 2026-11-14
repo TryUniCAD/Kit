@@ -576,6 +576,45 @@ aligned authored body vs decoded body   3393 bytes each, 586 differing bytes
                                         VOLUME 0.0
 ```
 
+### The construction graph is feature typed, not topology typed
+
+New fixtures were generated with NX journals (`CreateCylinder.py`,
+`CreateSphere.py`, `CreateTwoBlocks.py`) so the construction section can be
+compared across features:
+
+```text
+fixture      bodies  faces  edges  objects  structures  feature parameter record
+var_sph          1      1      0        9         7     147 bytes  SPHERE_PARMS
+var_cyl          1      3      2       18        15     158 bytes  CYLINDER_PARMS
+dim40            1      6     12       44        38     169 bytes  BLOCK_PARMS
+var_two          2     12     24       85        76     169 bytes  BLOCK_PARMS x 2
+```
+
+`var_two` is exactly `2 * 44 - 3`, so the graph is additive over bodies and the
+body less base of three objects is shared: objects = 3 + per body count.
+
+The per body count is a property of the feature, not of the face and edge counts:
+
+```text
+sphere     6 = 9 - 3
+cylinder  15 = 18 - 3
+block     41 = 44 - 3
+```
+
+A linear model over faces and edges does not fit (`k + a * faces + b * edges`
+gives `a + b = 4.5` from the sphere and cylinder), and the parameter record grows
+with the feature instead: 147, 158 and 169 bytes for sphere, cylinder and block.
+
+So emitting the one body construction section requires one template per feature
+type, and the block template is now the best characterised: 41 objects at sizes
+
+```text
+27, 28, 14 x 6, 16 x 12, 169, 112, 24, 21, 3 x 19, 231
+```
+
+The three byte entries are the per face and per edge references, which is why the
+block has nineteen and the sphere and cylinder far fewer.
+
 ### The body less section 1 middle is emitted from fields
 
 `re/nx/tools/CmBuild.py` builds the 356-byte middle from named fields: the names
