@@ -36,6 +36,23 @@ Mutation, each loaded in NX 2506:
 
 So the flag and the zero run are free: the value is not a count NX reconciles on load.
 
+## The 78 byte member
+
+The smallest of the ten large members is a nested run of ones with three group heads:
+
+```text
+02 02 ff 00 5f 01 04 01          frame
+03 01 x15                        group head and fifteen ones
+03 01 x15                        group head and fifteen ones
+03 01 x7  11 01 x8               group head, seven ones, a separator, eight ones
+03 01 x7  11 01 x8               group head, seven ones, a separator, eight ones
+02 02                            terminator
+```
+
+so it has the same shape as the lane flag runs decoded earlier — a depth first nesting where
+`03` opens a level, `01` is a leaf and `11` closes one — but with a different frame and no
+mask word. It is one record, and no grammar is written for it.
+
 ## Limits
 
 - The flag's meaning is not known; it is free, not derived, so re-emitting it produces the
