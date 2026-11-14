@@ -13,7 +13,7 @@ from convert.adapters.nx.Splm import (
     SplmError,
 )
 
-# one serialized entry keeps its path payload offset and size
+# offsets stay paired with sizes because directory serialization needs both
 KEntryFields = tuple[str, bytes | None, int, int]
 
 
@@ -49,7 +49,7 @@ def BuildSplm(
     )
 
 
-# path validation keeps directory names inside the splmsstr grammar
+# invalid paths fail early because directory offsets depend on their byte lengths
 def ValidatePath(PathValue: str) -> None:
     Length = len(PathValue.encode("utf-8"))
     if (
