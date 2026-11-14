@@ -11,7 +11,7 @@ supported B-rep geometry through the existing Kit Parasolid reader.
 
 The neutral result contains:
 
-- the native NX feature graph as one `native` feature step;
+- the native NX feature graph as one `imported` feature step;
 - decoded Parasolid body records and B-rep topology;
 - part attributes from `/Root/part/attrs`;
 - external-reference strings;

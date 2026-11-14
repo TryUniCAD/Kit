@@ -1,4 +1,5 @@
 from __future__ import annotations as Annotations
+from collections.abc import Mapping
 from pathlib import Path as FilePath
 import hashlib as Hashlib
 import re as RegexLib
@@ -11,6 +12,7 @@ from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.nx.CompoundReader import ReadCompound, ReadStreams
 from convert.adapters.nx.Format import KInfoValue
 from convert.adapters.nx.PayloadReader import ReadPayload
+from convert.adapters.nx.Reader import DocDigest
 from convert.adapters.nx.SplmReader import ReadSplm, RebuildSplm, SplmStreams
 from interchange import (
     BrepPayload,
@@ -39,7 +41,12 @@ def CanSupportNx(DocValue: CadDoc, Target: KTargetType) -> bool:
             return False
     elif not IsBinaryTarget(Target):
         return False
-    return NativePayload(DocValue) is not None
+    Payload = NativePayload(DocValue)
+    return (
+        Payload is not None
+        and Payload.data is not None
+        and Payload.data.startswith(b"SPLMSSTR")
+    )
 
 
 # native payload lookup preserves one exact source container for replay
@@ -61,6 +68,7 @@ def WriteNx(
     Settings = Options or WriteOptions()
     if Settings.validate:
         DocValue.assert_valid()
+    CheckNeutral(DocValue)
     Payload = NativePayload(DocValue)
     if Payload is None or Payload.data is None:
         raise ValueError("NX writing requires a retained native NX document")
@@ -96,7 +104,6 @@ def WriteNx(
         for Value in sorted(
             (
                 Capability.KBrep,
-                Capability.KParamHistory,
                 Capability.KBodyStructure,
                 Capability.KNativePayloads,
                 Capability.KRoundtripMeta,
@@ -124,6 +131,17 @@ def WriteNx(
     )
 
 
+# neutral edits must fail explicitly because the writer only replays native data
+def CheckNeutral(DocValue: CadDoc) -> None:
+    Expected = DocValue.metadata.get("nx.neutral_signature")
+    if Expected is None:
+        return
+    if Expected != DocDigest(DocValue):
+        raise ValueError(
+            "NX writing does not support neutral feature or parameter edits"
+        )
+
+
 # container rebuilding recomputes the modern directory from parsed streams
 def RebuildNative(DataValue: bytes, Overrides: dict[str, bytes]) -> bytes:
     return RebuildSplm(ReadSplm(DataValue), Overrides)
@@ -132,7 +150,7 @@ def RebuildNative(DataValue: bytes, Overrides: dict[str, bytes]) -> bytes:
 # attribute overrides replace equal length values so the native header stays valid
 def MakeOverrides(DocValue: CadDoc, DataValue: bytes) -> dict[str, bytes]:
     Requested = DocValue.metadata.get("nx.attribute_overrides")
-    if not isinstance(Requested, dict) or not Requested:
+    if not isinstance(Requested, Mapping) or not Requested:
         return {}
     Streams = (
         {
