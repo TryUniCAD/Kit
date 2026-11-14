@@ -401,6 +401,38 @@ that is not yet derived, so the encoder refuses them.
 No value appears anywhere in the container as a binary64, a shifted binary64, a
 float32, or UTF-16 text.
 
+### Class tails carry one-based ordinals
+
+Decoding the three tokens of every class declaration shows the base token is a
+one-based ordinal into the class lane of the same section. Comparing the same
+class across the fourteen-class and seventeen-class saves proves it: every base
+above the insertion point shifts by exactly two.
+
+```text
+class                 base (14 classes)  base (17 classes)
+UGS::OM::TaggedObject        10                12
+UGS::OM::StorableObject      11                13
+UGS::OM::VersionedObject      9                11
+UGS::OM::SubObject           11                13
+UGS::OM::Set                  9                11
+```
+
+The reference token is a one-based ordinal into the reference lane, which is why
+`UGS::EXP_expression` uses `5` once `UGS::ModlUtils::CachedWaveLinkData` becomes
+the fifth reference.
+
+Remapping those ordinals by parent name still does not make the part load, so
+the class lane is not the only coupled structure:
+
+```text
+tokens copied verbatim                                            -> 580044
+bases remapped by parent name                                     -> 580044
+bases remapped, existing tails untouched, middle offsets shifted  -> 580044
+```
+
+The middle carries per-class tables sized from the class count, so a class
+cannot be added without regenerating those tables at the same time.
+
 ### Class insertion is rejected on its own
 
 Bisecting the template-free attempt shows the class lane is the failure point,
