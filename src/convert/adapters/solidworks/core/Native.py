@@ -2365,6 +2365,7 @@ def BuildPolyTree(
         PolylineValue is None
         or SketchData is None
         or bool(SketchData.constraints)
+        or any((ItemData.construction or ItemData.fixed for ItemData in SketchData.entities))
         or EndCodes != (0, 0)
         or PlaneObjectId != 2
         or (PadObject.object_id != 32)

@@ -413,6 +413,29 @@ def TestTriRel(TmpPath: FilePath) -> None:
         _ = WriteDoc(Changed, SecondPath)
 
 
+def TestTriFlag(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    for Index, FixedValue, ConstructionValue in (
+        (0, True, False),
+        (1, False, True),
+    ):
+        Sketch = ReplaceData(
+            SourceDoc.sketches[0],
+            entities=tuple(
+                ReplaceData(
+                    ItemData, fixed=FixedValue, construction=ConstructionValue
+                )
+                if Position == 0
+                else ItemData
+                for Position, ItemData in enumerate(SourceDoc.sketches[0].entities)
+            ),
+        )
+        Changed = ReplaceData(SourceDoc, sketches=(Sketch,))
+        assert HasVendorPartEncoding(Changed) is False
+        with PytestLib.raises(SldprtFormatError):
+            _ = WriteDoc(Changed, TmpPath / f"TriFlag{Index}.SLDPRT")
+
+
 def TestTriBits(TmpPath: FilePath) -> None:
     FirstPath = TmpPath / "DepthBits.SLDPRT"
     SecondPath = TmpPath / "DepthBitsAgain.SLDPRT"
