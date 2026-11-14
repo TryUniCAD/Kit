@@ -38,6 +38,21 @@ matrix and extents after it are data that NX does not revalidate on load.
 `TestNxView` checks the parse, the identity rename, an in-place rename, the
 length guard and the missing-name guard.
 
+## Where the extents come from
+
+The Front view of three body-less parts decodes to identical values:
+
+```text
+empty.prt  multi.prt  var_blank.prt
+-508.0  508.0  -2639.645431  2639.645431  -2688.083332  2688.083332  0.755929  0.013963
+```
+
+so for a part without a body the extents are a default scale rather than a measurement,
+and they can be emitted as constants. A part with a body stores its views in a different
+shape — the name token is not found by `ViewName` for `dim40.prt` or `const_box60.prt` —
+so body-derived extents need that shape decoded first, and it is not yet known whether
+the extents follow the bounding box.
+
 ## Limits
 
 - Only the name is decoded. The matrix, extents and masks that follow it are not
