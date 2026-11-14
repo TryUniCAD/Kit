@@ -23,9 +23,10 @@ dropped.
 The source B-rep must remain the exact eight-vertex, twelve-edge, six-face box at the
 origin, so the emitted sketch and pad match the authored solid. Validation lives in
 `src/convert/adapters/solidworks/core/BoxFaces.py`: every edge must be an axis-aligned
-line, every face an axis-aligned plane, and the two face offsets on each axis must be
-exactly `0` and the authored dimension. A curved face, a shifted planar face, or any other
-altered face is rejected even when the eight corners are unchanged.
+line, every face an axis-aligned plane, and the two face offsets on each axis must be `0`
+and the authored dimension within the same `1e-9` geometry tolerance as the vertex check. A
+curved face, a shifted planar face, or any other altered face is rejected even when the
+eight corners are unchanged.
 
 ## Usage
 
