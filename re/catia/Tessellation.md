@@ -224,6 +224,24 @@ The coordinate data is split across many float runs, not one table: 569 (342 flo
 (128), 8177 (17), 8249 (122), 8741 (13), 8797 (38), 8953 (856), plus smaller runs after 12586.
 The total is 3016 floats.
 
+## Missing-point search
+
+The ~224 points that separate the coordinate table (about 1206 points) from the handle range
+(1431) are not in the vertex table or `SurfacicReps`.
+
+The vertex table starts at 29773 and holds 88 vertices. The first vertices are
+`(-1.199, -2.194, 0.0)`, `(1.199, 2.194, -0.0)`, `(-10.308, -18.868, 50.0)`,
+`(6.233, 11.409, 15.0)`, and `(-6.233, -11.409, 15.0)`. They sit at `z=0`, `z=15`, `z=21`, and
+`z=50`, which are the B-rep vertex planes, not the tessellation points. Adding 88 vertices to
+1206 points gives 1294, still short of 1431.
+
+`SurfacicReps` has no large coordinate table. Its float runs are all 10 or 11 floats (surface
+carrier parameters and curve data), 605 floats in total.
+
+The region after the coordinate table (12376..18807) is not a float table. It is a sequence of
+`ff <tag:u24le>` records and offset-like values such as `9b fe`, `80 a5 04 ff`, `7d 26`, and
+`dc d6`, not coordinates.
+
 ## Open work
 
 1. Locate the shared tessellation vertex table and its coordinate encoding.
