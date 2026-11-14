@@ -130,6 +130,20 @@ decompression sample, not more static reading.
 literal branch and reproduces the leading-zero counts, but no tested selector/last-field
 combination round-trips the delta branch.
 
+## Double variant
+
+`ReadDoubleWithRef` at `0x18009b590` and `WriteDoubleWithRef` at `0x18009b7b0` are the 64-bit
+counterparts. They show the same shape and the same one-bit discrepancy:
+
+- reader reads the selector with `ReadBits(0x3a)` (58 bits) and computes `width = 0x40 - S`
+- writer writes the selector with `WriteBitsCleared(S, 0x39, 0x40)` (57 bits) where
+  `S = 2 * (0x40 - leading_zeros) | sign`
+- the last field is written with `want=0`, `capacity=0x3f - leading_zeros`
+
+A synthetic double round-trip over four selector/last-field combinations scores 0/20. The
+doubling in the writer and the missing halving in the reader cannot both be right, so the
+selector still needs a dynamic trace.
+
 ## Caller and reference array
 
 `CATAdvancedMathematics.dll` imports `ReadFloatWithRef2` and `WriteFloatWithRef2` from
