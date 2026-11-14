@@ -2350,8 +2350,6 @@ def BuildPolyTree(
         or SketchObject.dimensions
     ):
         return None
-    if len(PolylineValue) == 3 and HasPolyLoss(DocData, PadObject.source_id):
-        raise SldprtFormatError("three-line parameters are unsupported")
     try:
         if len(PolylineValue) == 3:
             PointsMetres = PolylinePoints(SketchObject, SourceMetres=True)
@@ -2394,6 +2392,10 @@ def BuildVendorTree(
     BoundsValue = WriteRectangle(SketchObject)
     CircleValue = WriteCircle(SketchObject)
     PolylineValue = PolylinePoints(SketchObject)
+    if len(PolylineValue or ()) == 3 and HasPolyLoss(
+        DocData, PadObject.source_id
+    ):
+        raise SldprtFormatError("three-line parameters are unsupported")
     EndCodes = ExtrusionEdit(PadObject.payload)
     if (
         SketchObject.class_name != "moProfileFeature_c"
