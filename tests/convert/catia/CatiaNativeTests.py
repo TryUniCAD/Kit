@@ -25,12 +25,26 @@ from interchange import (
     SpaceVector,
 )
 
+# this binding exists because shared behavior needs one stable value
 KRootValue = Path(__file__).parents[3]
+
+# this binding exists because shared behavior needs one stable value
 KCatparts = KRootValue / "re" / "catia" / "examples" / ".CATPart"
 
+# this binding exists because shared behavior needs one stable value
+KQuads = (
+    (0, 3, 2, 1),
+    (4, 5, 6, 7),
+    (0, 1, 5, 4),
+    (1, 2, 6, 5),
+    (2, 3, 7, 6),
+    (3, 0, 4, 7),
+)
 
-def BoxModel() -> BrepModel:
-    Points = [
+
+# this definition exists because focused behavior needs one stable owner
+def BoxPoints() -> list[SpaceVector]:
+    return [
         SpaceVector(0.0, 0.0, 0.0),
         SpaceVector(1.0, 0.0, 0.0),
         SpaceVector(1.0, 1.0, 0.0),
@@ -40,33 +54,33 @@ def BoxModel() -> BrepModel:
         SpaceVector(1.0, 1.0, 1.0),
         SpaceVector(0.0, 1.0, 1.0),
     ]
-    Vertices = tuple(
-        BrepVertex(f"catia:vertex:{Index + 1}", Point)
-        for Index, Point in enumerate(Points)
-    )
-    Quads = (
-        (0, 3, 2, 1),
-        (4, 5, 6, 7),
-        (0, 1, 5, 4),
-        (1, 2, 6, 5),
-        (2, 3, 7, 6),
-        (3, 0, 4, 7),
-    )
+
+
+# this definition exists because focused behavior needs one stable owner
+def BoxFaces(
+    Points: list[SpaceVector],
+) -> tuple[
+    list[LineCurve],
+    list[BrepEdge],
+    list[BrepCoedge],
+    list[BrepLoop],
+    list[BrepFace],
+]:
     Curves: list[LineCurve] = []
     Edges: list[BrepEdge] = []
     Coedges: list[BrepCoedge] = []
     Loops: list[BrepLoop] = []
     Faces: list[BrepFace] = []
-    for FaceIndex, Quad in enumerate(Quads):
+    for FaceIndex, QuadValue in enumerate(KQuads):
         CoedgeIds: list[str] = []
         for Position in range(4):
-            Start = Quad[Position]
-            End = Quad[(Position + 1) % 4]
+            Start = QuadValue[Position]
+            EndIndex = QuadValue[(Position + 1) % 4]
             CurveId = f"catia:curve:{len(Curves) + 1}"
             Direction = SpaceVector(
-                Points[End].x - Points[Start].x,
-                Points[End].y - Points[Start].y,
-                Points[End].z - Points[Start].z,
+                Points[EndIndex].x - Points[Start].x,
+                Points[EndIndex].y - Points[Start].y,
+                Points[EndIndex].z - Points[Start].z,
             )
             Curves.append(LineCurve(CurveId, Points[Start], Direction))
             EdgeId = f"catia:edge:{len(Edges) + 1}"
@@ -74,7 +88,7 @@ def BoxModel() -> BrepModel:
                 BrepEdge(
                     EdgeId,
                     f"catia:vertex:{Start + 1}",
-                    f"catia:vertex:{End + 1}",
+                    f"catia:vertex:{EndIndex + 1}",
                     CurveId,
                     0.0,
                     1.0,
@@ -92,6 +106,17 @@ def BoxModel() -> BrepModel:
                 (LoopId,),
             )
         )
+    return Curves, Edges, Coedges, Loops, Faces
+
+
+# this definition exists because focused behavior needs one stable owner
+def BoxModel() -> BrepModel:
+    Points = BoxPoints()
+    Vertices = tuple(
+        BrepVertex(f"catia:vertex:{Index + 1}", Point)
+        for Index, Point in enumerate(Points)
+    )
+    Curves, Edges, Coedges, Loops, Faces = BoxFaces(Points)
     Surfaces = tuple(
         PlaneSurface(
             f"catia:surface:{Index + 1}",
@@ -127,7 +152,8 @@ def BoxModel() -> BrepModel:
     )
 
 
-def TestNativeBrepCorpus() -> None:
+# this definition exists because focused behavior needs one stable owner
+def TestBrepCorpus() -> None:
     Decoded = 0
     for PathValue in sorted(KCatparts.glob("*.CATPart")):
         DocValue = OpenDoc(PathValue)
@@ -141,7 +167,8 @@ def TestNativeBrepCorpus() -> None:
     assert Decoded >= 25
 
 
-def TestNativeBrepWriter(TmpPath: Path) -> None:
+# this definition exists because focused behavior needs one stable owner
+def TestBrepWriter(TmpPath: Path) -> None:
     Model = BoxModel()
     DocValue = CadDocument(
         source=CadSource("catia.v5", "box.CATPart", "0" * 64),

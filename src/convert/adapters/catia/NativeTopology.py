@@ -3,10 +3,14 @@ from __future__ import annotations
 from dataclasses import dataclass
 import struct
 
+# this binding exists because shared behavior needs one stable value
 KDelimiter = b"\x10\x24\x04\xff\xff\x00\x00\x00"
+
+# this binding exists because shared behavior needs one stable value
 KTrimKinds = frozenset(range(0x40, 0x50))
 
 
+# this definition exists because focused behavior needs one stable owner
 @dataclass(frozen=True, slots=True)
 class TrimRec:
     kind: int
@@ -18,6 +22,7 @@ class TrimRec:
     handles: tuple[int, ...]
 
 
+# this definition exists because focused behavior needs one stable owner
 @dataclass(frozen=True, slots=True)
 class EdgeRec:
     arity: int
@@ -25,28 +30,37 @@ class EdgeRec:
     offset: int
 
 
+# this definition exists because focused behavior needs one stable owner
 @dataclass(frozen=True, slots=True)
 class VertRec:
     point: tuple[float, float, float]
     offset: int
 
 
-def Count(Data: bytes, Offset: int) -> tuple[int, int]:
-    Value = Data[Offset]
+# this definition exists because focused behavior needs one stable owner
+def Count(SourceData: bytes, Offset: int) -> tuple[int, int]:
+    Value = SourceData[Offset]
     if Value != 0xFF:
         return Value, Offset + 1
-    return struct.unpack_from("<I", Data, Offset + 1)[0], Offset + 5
+    return struct.unpack_from("<I", SourceData, Offset + 1)[0], Offset + 5
 
 
-def FindFbb(Data: bytes) -> tuple[int, int]:
+# this definition exists because focused behavior needs one stable owner
+def FindFbb(SourceData: bytes) -> tuple[int, int]:
     BestOffset = -1
     BestCount = 0
-    for Offset in range(len(Data) - 4):
-        if Data[Offset : Offset + 4] not in (b"\x30\x04\x04\xff", b"\xb0\x04\x04\xff"):
+    for Offset in range(len(SourceData) - 4):
+        if SourceData[Offset : Offset + 4] not in (
+            b"\x30\x04\x04\xff",
+            b"\xb0\x04\x04\xff",
+        ):
             continue
         CountValue = 0
         Cursor = Offset
-        while Data[Cursor : Cursor + 4] in (b"\x30\x04\x04\xff", b"\xb0\x04\x04\xff"):
+        while SourceData[Cursor : Cursor + 4] in (
+            b"\x30\x04\x04\xff",
+            b"\xb0\x04\x04\xff",
+        ):
             CountValue += 1
             Cursor += 8
         if CountValue > BestCount:
@@ -57,57 +71,67 @@ def FindFbb(Data: bytes) -> tuple[int, int]:
     return BestOffset, BestCount
 
 
-def ParseTrim(Data: bytes, Offset: int, Width: int) -> tuple[TrimRec, int]:
-    if Data[Offset] != 0x01 or Data[Offset + 1] not in KTrimKinds:
+# this definition exists because focused behavior needs one stable owner
+def ReadHandles(
+    SourceData: bytes, Cursor: int, Total: int, Width: int
+) -> tuple[tuple[int, ...], int]:
+    Handles: list[int] = []
+    for _ in range(Total):
+        Handles.append(int.from_bytes(SourceData[Cursor : Cursor + Width], "big"))
+        Cursor += Width
+    return tuple(Handles), Cursor
+
+
+# this definition exists because focused behavior needs one stable owner
+def ParseTrim(SourceData: bytes, Offset: int, Width: int) -> tuple[TrimRec, int]:
+    if SourceData[Offset] != 0x01 or SourceData[Offset + 1] not in KTrimKinds:
         raise ValueError("trim marker is missing")
-    Kind = Data[Offset + 1]
+    KindValue = SourceData[Offset + 1]
     Cursor = Offset + 2
     Counts = [0, 0, 0]
-    for Index, Mask in enumerate((0x01, 0x02, 0x04)):
-        if Kind & Mask:
-            Counts[Index], Cursor = Count(Data, Cursor)
-    if Data[Cursor] != 0xFF:
+    for Index, MaskValue in enumerate((0x01, 0x02, 0x04)):
+        if KindValue & MaskValue:
+            Counts[Index], Cursor = Count(SourceData, Cursor)
+    if SourceData[Cursor] != 0xFF:
         raise ValueError("trim total is missing")
-    Total = struct.unpack_from("<I", Data, Cursor + 1)[0]
+    Total = struct.unpack_from("<I", SourceData, Cursor + 1)[0]
     Cursor += 5
     VectorValue = None
-    if Kind & 0x08:
-        VectorValue = struct.unpack_from("<fff", Data, Cursor)
+    if KindValue & 0x08:
+        VectorValue = struct.unpack_from("<fff", SourceData, Cursor)
         Cursor += 12
     Lengths: list[int] = []
     for _ in range(Counts[1] + Counts[2]):
-        Value, Cursor = Count(Data, Cursor)
+        Value, Cursor = Count(SourceData, Cursor)
         Lengths.append(Value)
-    Handles: list[int] = []
-    for _ in range(Total):
-        Handles.append(int.from_bytes(Data[Cursor : Cursor + Width], "big"))
-        Cursor += Width
+    Handles, Cursor = ReadHandles(SourceData, Cursor, Total, Width)
     return (
         TrimRec(
-            Kind,
+            KindValue,
             Offset,
             (Counts[0], Counts[1], Counts[2]),
             Total,
             VectorValue,
             tuple(Lengths),
-            tuple(Handles),
+            Handles,
         ),
         Cursor,
     )
 
 
+# this definition exists because focused behavior needs one stable owner
 def ParseTrims(
-    Data: bytes, End: int, Width: int, FaceCount: int
+    SourceData: bytes, EndOffset: int, Width: int, FaceCount: int
 ) -> tuple[TrimRec, ...]:
     Chain: list[TrimRec] = []
-    Offset = End
+    Offset = EndOffset
     for _ in range(FaceCount):
         Found: tuple[int, TrimRec] | None = None
         for Start in range(Offset - 1, -1, -1):
-            if Data[Start] != 0x01 or Data[Start + 1] not in KTrimKinds:
+            if SourceData[Start] != 0x01 or SourceData[Start + 1] not in KTrimKinds:
                 continue
             try:
-                TrimValue, NextOffset = ParseTrim(Data, Start, Width)
+                TrimValue, NextOffset = ParseTrim(SourceData, Start, Width)
             except (IndexError, struct.error, ValueError):
                 continue
             if NextOffset == Offset:
@@ -121,59 +145,70 @@ def ParseTrims(
     return tuple(Chain)
 
 
-def ParseEdge(Data: bytes, Offset: int, Width: int) -> tuple[tuple[EdgeRec, ...], int]:
-    Rows: list[EdgeRec] = []
+# this definition exists because focused behavior needs one stable owner
+def ParseEdge(
+    SourceData: bytes, Offset: int, Width: int
+) -> tuple[tuple[EdgeRec, ...], int]:
+    RowValues: list[EdgeRec] = []
     Cursor = Offset
-    while Cursor < len(Data) and Data[Cursor] == 0x01:
-        Kind = Data[Cursor + 1]
-        if Kind not in (0x01, 0x02):
+    while Cursor < len(SourceData) and SourceData[Cursor] == 0x01:
+        KindValue = SourceData[Cursor + 1]
+        if KindValue not in (0x01, 0x02):
             break
-        CountValue, Cursor = Count(Data, Cursor + 2)
+        CountValue, Cursor = Count(SourceData, Cursor + 2)
         for _ in range(CountValue):
-            if Data[Cursor] != 0x02:
+            if SourceData[Cursor] != 0x02:
                 raise ValueError("edge row is missing")
-            Arity = Data[Cursor + 1]
+            Arity = SourceData[Cursor + 1]
             Cursor += 2
             Handles = tuple(
                 int.from_bytes(
-                    Data[Cursor + Width * Index : Cursor + Width * (Index + 1)], "big"
+                    SourceData[Cursor + Width * Index : Cursor + Width * (Index + 1)],
+                    "big",
                 )
                 for Index in range(Arity)
             )
             Cursor += Arity * Width
-            Rows.append(EdgeRec(Arity, Handles, Cursor - Arity * Width - 2))
-        if Data[Cursor : Cursor + 8] == KDelimiter:
+            RowValues.append(EdgeRec(Arity, Handles, Cursor - Arity * Width - 2))
+        if SourceData[Cursor : Cursor + 8] == KDelimiter:
             Cursor += 8
-    return tuple(Rows), Cursor
+    return tuple(RowValues), Cursor
 
 
-def ParseVert(Data: bytes, Offset: int) -> tuple[tuple[VertRec, ...], int]:
-    if Data[Offset : Offset + 2] != b"\x01\x06":
+# this definition exists because focused behavior needs one stable owner
+def ParseVert(SourceData: bytes, Offset: int) -> tuple[tuple[VertRec, ...], int]:
+    if SourceData[Offset : Offset + 2] != b"\x01\x06":
         raise ValueError("vertex table is missing")
-    CountValue, Cursor = Count(Data, Offset + 2)
-    Rows: list[VertRec] = []
+    CountValue, Cursor = Count(SourceData, Offset + 2)
+    RowValues: list[VertRec] = []
     for _ in range(CountValue):
-        if Data[Cursor : Cursor + 3] != b"\x05\x08\x01":
+        if SourceData[Cursor : Cursor + 3] != b"\x05\x08\x01":
             raise ValueError("vertex row is missing")
-        Point = struct.unpack_from("<fff", Data, Cursor + 3)
-        Rows.append(VertRec(Point, Cursor))
+        Point = struct.unpack_from("<fff", SourceData, Cursor + 3)
+        RowValues.append(VertRec(Point, Cursor))
         Cursor += 15
-    return tuple(Rows), Cursor
+    return tuple(RowValues), Cursor
 
 
-def ParseRoster(Data: bytes) -> tuple[VertRec, ...]:
-    End = len(Data)
-    while End >= 7 and Data[End - 7] != 0x54:
-        End -= 1
-    Rows: list[VertRec] = []
-    while End >= 7 and Data[End - 7] == 0x54 and Data[End - 3 : End] == b"\x00\x00\x00":
-        Start = End - 7
-        Rows.append(VertRec((0.0, 0.0, 0.0), Start))
-        End = Start
-    Rows.reverse()
-    return tuple(Rows)
+# this definition exists because focused behavior needs one stable owner
+def ParseRoster(SourceData: bytes) -> tuple[VertRec, ...]:
+    EndOffset = len(SourceData)
+    while EndOffset >= 7 and SourceData[EndOffset - 7] != 0x54:
+        EndOffset -= 1
+    RowValues: list[VertRec] = []
+    while (
+        EndOffset >= 7
+        and SourceData[EndOffset - 7] == 0x54
+        and SourceData[EndOffset - 3 : EndOffset] == b"\x00\x00\x00"
+    ):
+        Start = EndOffset - 7
+        RowValues.append(VertRec((0.0, 0.0, 0.0), Start))
+        EndOffset = Start
+    RowValues.reverse()
+    return tuple(RowValues)
 
 
+# this definition exists because focused behavior needs one stable owner
 def ExpandTri(TrimValue: TrimRec) -> tuple[tuple[int, int, int], ...]:
     Handles = TrimValue.handles
     CountA, CountB, CountC = TrimValue.counts
@@ -201,36 +236,54 @@ def ExpandTri(TrimValue: TrimRec) -> tuple[tuple[int, int, int], ...]:
     return tuple(Triangles)
 
 
+# this definition exists because focused behavior needs one stable owner
+def WalkCycleMut(
+    Start: int,
+    EndOffset: int,
+    NextByStart: dict[int, list[int]],
+    UsedPairs: set[tuple[int, int]],
+) -> tuple[int, ...]:
+    Cycle = [Start]
+    Current = EndOffset
+    UsedPairs.add((Start, EndOffset))
+    while Current != Start:
+        Cycle.append(Current)
+        Options = [
+            Value
+            for Value in NextByStart.get(Current, ())
+            if (Current, Value) not in UsedPairs
+        ]
+        if not Options:
+            break
+        Value = Options[0]
+        UsedPairs.add((Current, Value))
+        Current = Value
+    if Current == Start and len(Cycle) >= 3:
+        return tuple(Cycle)
+    return ()
+
+
+# this definition exists because focused behavior needs one stable owner
 def Boundary(TrimValue: TrimRec) -> tuple[tuple[int, ...], ...]:
     Directed: set[tuple[int, int]] = set()
     for First, Second, Third in ExpandTri(TrimValue):
-        for Start, End in ((First, Second), (Second, Third), (Third, First)):
-            if Start != End:
-                Directed.add((Start, End))
-    BoundaryEdges = [Edge for Edge in Directed if (Edge[1], Edge[0]) not in Directed]
+        for Start, EndOffset in ((First, Second), (Second, Third), (Third, First)):
+            if Start != EndOffset:
+                Directed.add((Start, EndOffset))
+    BoundaryEdges = [
+        EdgeValue
+        for EdgeValue in Directed
+        if (EdgeValue[1], EdgeValue[0]) not in Directed
+    ]
     NextByStart: dict[int, list[int]] = {}
-    for Start, End in BoundaryEdges:
-        NextByStart.setdefault(Start, []).append(End)
+    for Start, EndOffset in BoundaryEdges:
+        NextByStart.setdefault(Start, []).append(EndOffset)
     Cycles: list[tuple[int, ...]] = []
-    Used: set[tuple[int, int]] = set()
-    for Start, End in BoundaryEdges:
-        if (Start, End) in Used:
+    UsedPairs: set[tuple[int, int]] = set()
+    for Start, EndOffset in BoundaryEdges:
+        if (Start, EndOffset) in UsedPairs:
             continue
-        Cycle = [Start]
-        Current = End
-        Used.add((Start, End))
-        while Current != Start:
-            Cycle.append(Current)
-            Options = [
-                Value
-                for Value in NextByStart.get(Current, ())
-                if (Current, Value) not in Used
-            ]
-            if not Options:
-                break
-            Value = Options[0]
-            Used.add((Current, Value))
-            Current = Value
-        if Current == Start and len(Cycle) >= 3:
-            Cycles.append(tuple(Cycle))
+        Cycle = WalkCycleMut(Start, EndOffset, NextByStart, UsedPairs)
+        if Cycle:
+            Cycles.append(Cycle)
     return tuple(Cycles)

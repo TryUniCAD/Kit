@@ -5,26 +5,51 @@ import struct
 
 from convert.adapters.catia.Container import BuildCfvTwo, BuildDecl
 from interchange import (
+    BrepFace,
     BrepModel,
     BrepVertex,
     PlaneSurface,
     SpaceVector,
 )
 
+# this binding exists because shared behavior needs one stable value
 KRefAngle = math.pi / 4.0
+
+# this binding exists because shared behavior needs one stable value
 KRefScale = 1.0e12
+
+# this binding exists because shared behavior needs one stable value
 KDelimiter = b"\x10\x24\x04\xff\xff\x00\x00\x00"
+
+# this binding exists because shared behavior needs one stable value
 KFbbRow = b"\x30\x04\x04\xff\xff\xe1\xe1\xe1"
+
+# this binding exists because shared behavior needs one stable value
 KPartStream = "1000_00000002_2"
+
+# this binding exists because shared behavior needs one stable value
 KProductStream = "1000_00000001_1"
+
+# this binding exists because shared behavior needs one stable value
 KGeomStream = "1000_00000003_3"
+
+# this binding exists because shared behavior needs one stable value
 KMfbrpStream = "1000_00000004_4"
+
+# this binding exists because shared behavior needs one stable value
 KSeeBodyStream = "1000_00000005_5"
+
+# this binding exists because shared behavior needs one stable value
 KBrepModeStream = "1000_00000006_6"
+
+# this binding exists because shared behavior needs one stable value
 KStdStream = "1000_00000007_7"
+
+# this binding exists because shared behavior needs one stable value
 KCgrStream = "1000_00000008_8"
 
 
+# this definition exists because focused behavior needs one stable owner
 def CanWrite(Model: BrepModel) -> bool:
     if not Model.faces or not Model.vertices or not Model.edges:
         return False
@@ -35,6 +60,7 @@ def CanWrite(Model: BrepModel) -> bool:
     return all(len(FaceValue.loop_ids) == 1 for FaceValue in Model.faces)
 
 
+# this definition exists because focused behavior needs one stable owner
 def PackTrim(Handles: tuple[int, ...], Width: int) -> bytes:
     if len(Handles) < 3:
         raise ValueError("trim loop is too short")
@@ -48,17 +74,19 @@ def PackTrim(Handles: tuple[int, ...], Width: int) -> bytes:
     return bytes(DataValue)
 
 
+# this definition exists because focused behavior needs one stable owner
 def PackEdge(Edges: tuple[tuple[int, int], ...], Width: int) -> bytes:
     DataValue = bytearray(b"\x01\x02\xff")
     DataValue.extend(struct.pack("<I", len(Edges)))
-    for Start, End in Edges:
+    for Start, EndIndex in Edges:
         DataValue.extend(b"\x02\x02")
         DataValue.extend(Start.to_bytes(Width, "big"))
-        DataValue.extend(End.to_bytes(Width, "big"))
+        DataValue.extend(EndIndex.to_bytes(Width, "big"))
     DataValue.extend(KDelimiter)
     return bytes(DataValue)
 
 
+# this definition exists because focused behavior needs one stable owner
 def PackVert(Points: tuple[BrepVertex, ...]) -> bytes:
     DataValue = bytearray(b"\x01\x06\xff")
     DataValue.extend(struct.pack("<I", len(Points)))
@@ -71,6 +99,7 @@ def PackVert(Points: tuple[BrepVertex, ...]) -> bytes:
     return bytes(DataValue)
 
 
+# this definition exists because focused behavior needs one stable owner
 def PackSurf(FaceValue: object, Points: tuple[SpaceVector, ...]) -> bytes:
     XValues = [Point.x for Point in Points]
     YValues = [Point.y for Point in Points]
@@ -80,26 +109,28 @@ def PackSurf(FaceValue: object, Points: tuple[SpaceVector, ...]) -> bytes:
         (min(YValues) + max(YValues)) / 2.0,
         (min(ZValues) + max(ZValues)) / 2.0,
     )
-    Half = (
+    HalfExtent = (
         (max(XValues) - min(XValues)) / 2.0,
         (max(YValues) - min(YValues)) / 2.0,
         (max(ZValues) - min(ZValues)) / 2.0,
     )
     Radius = max(math.dist(Center, (Point.x, Point.y, Point.z)) for Point in Points)
-    Bounds = (*Center, *Half, *Center, Radius)
-    Sign = 1 if getattr(FaceValue, "same_sense", True) else -1
+    Bounds = (*Center, *HalfExtent, *Center, Radius)
+    SignValue = 1 if getattr(FaceValue, "same_sense", True) else -1
     return (
         b"\x00\x02\x00\x33\x32"
         + struct.pack("<10f", *Bounds)
-        + struct.pack("b", Sign)
+        + struct.pack("b", SignValue)
         + b"\x00\x00\x00"
     )
 
 
+# this definition exists because focused behavior needs one stable owner
 def PackCurve(Index: int) -> bytes:
     return b"\x60" + Index.to_bytes(3, "little") + b"\x00\x02\x00\x33\x36\x00\x00"
 
 
+# this definition exists because focused behavior needs one stable owner
 def PackRoster(Count: int) -> bytes:
     return b"".join(
         b"\x54" + Index.to_bytes(3, "little") + b"\x00\x00\x00"
@@ -107,6 +138,36 @@ def PackRoster(Count: int) -> bytes:
     )
 
 
+# this definition exists because focused behavior needs one stable owner
+def FaceHandlesMut(
+    FaceValue: BrepFace,
+    Model: BrepModel,
+    VertexIndex: dict[str, int],
+    SeenPairs: set[tuple[int, int]],
+    Edges: list[tuple[int, int]],
+) -> tuple[int, ...]:
+    LoopValue = next(
+        Value for Value in Model.loops if Value.id == FaceValue.loop_ids[0]
+    )
+    Handles: list[int] = []
+    for CoedgeId in LoopValue.coedge_ids:
+        CoedgeValue = next(Value for Value in Model.coedges if Value.id == CoedgeId)
+        EdgeValue = next(
+            Value for Value in Model.edges if Value.id == CoedgeValue.edge_id
+        )
+        Start = VertexIndex[EdgeValue.start_vertex_id]
+        EndIndex = VertexIndex[EdgeValue.end_vertex_id]
+        if CoedgeValue.reversed:
+            Start, EndIndex = EndIndex, Start
+        Handles.append(Start)
+        HandlePair = (min(Start, EndIndex), max(Start, EndIndex))
+        if HandlePair not in SeenPairs:
+            SeenPairs.add(HandlePair)
+            Edges.append(HandlePair)
+    return tuple(Handles)
+
+
+# this definition exists because focused behavior needs one stable owner
 def BuildMain(Model: BrepModel) -> bytes:
     VertexIndex = {
         VertexValue.id: Index for Index, VertexValue in enumerate(Model.vertices)
@@ -114,27 +175,10 @@ def BuildMain(Model: BrepModel) -> bytes:
     Width = 2
     Trims: list[bytes] = []
     Edges: list[tuple[int, int]] = []
-    Seen: set[tuple[int, int]] = set()
+    SeenPairs: set[tuple[int, int]] = set()
     for FaceValue in Model.faces:
-        LoopValue = next(
-            Value for Value in Model.loops if Value.id == FaceValue.loop_ids[0]
-        )
-        Handles: list[int] = []
-        for CoedgeId in LoopValue.coedge_ids:
-            CoedgeValue = next(Value for Value in Model.coedges if Value.id == CoedgeId)
-            EdgeValue = next(
-                Value for Value in Model.edges if Value.id == CoedgeValue.edge_id
-            )
-            Start = VertexIndex[EdgeValue.start_vertex_id]
-            End = VertexIndex[EdgeValue.end_vertex_id]
-            if CoedgeValue.reversed:
-                Start, End = End, Start
-            Handles.append(Start)
-            Pair = (min(Start, End), max(Start, End))
-            if Pair not in Seen:
-                Seen.add(Pair)
-                Edges.append(Pair)
-        Trims.append(PackTrim(tuple(Handles), Width))
+        Handles = FaceHandlesMut(FaceValue, Model, VertexIndex, SeenPairs, Edges)
+        Trims.append(PackTrim(Handles, Width))
     DataValue = bytearray(b"".join(Trims))
     DataValue.extend(KFbbRow * len(Model.faces))
     DataValue.extend(PackEdge(tuple(Edges), Width))
@@ -142,6 +186,7 @@ def BuildMain(Model: BrepModel) -> bytes:
     return bytes(DataValue)
 
 
+# this definition exists because focused behavior needs one stable owner
 def BuildSurf(Model: BrepModel) -> bytes:
     VertexById = {VertexValue.id: VertexValue for VertexValue in Model.vertices}
     Records: list[bytes] = []
@@ -166,6 +211,7 @@ def BuildSurf(Model: BrepModel) -> bytes:
     return Header + Payload
 
 
+# this definition exists because focused behavior needs one stable owner
 def BuildNest(Model: BrepModel) -> bytes:
     return BuildCfvTwo(
         (
@@ -180,6 +226,7 @@ def BuildNest(Model: BrepModel) -> bytes:
     )
 
 
+# this definition exists because focused behavior needs one stable owner
 def Summary() -> bytes:
     NameValue = b"CATSummaryInformation"
     Version = b"FirstStreamed<Version>5/<Version><Release>28/<Release><ServicePack>6/<ServicePack><BuildDate>03-10-2020.20.00/<BuildDate><HotFix>0/<HotFix>LastSaveVersion<Version>5/<Version><Release>28/<Release><ServicePack>6/<ServicePack><BuildDate>03-10-2020.20.00/<BuildDate><HotFix>0/<HotFix>MinimalVersionToReadCATIAV5R28"
@@ -197,10 +244,9 @@ def Summary() -> bytes:
     )
 
 
-def BuildPart(Model: BrepModel) -> bytes:
-    if not CanWrite(Model):
-        raise ValueError("native CATIA writing supports plane faces with one loop")
-    Declarations = b"".join(
+# this definition exists because focused behavior needs one stable owner
+def BuildDecls() -> bytes:
+    return b"".join(
         (
             BuildDecl("CATProdCont", "CATFeatCont", KProductStream, 1),
             BuildDecl("CATPrtCont", "CATProdCont", KPartStream, 2),
@@ -212,10 +258,16 @@ def BuildPart(Model: BrepModel) -> bytes:
             BuildDecl("CATCGRCont", "CATFeatCont", KCgrStream, 8),
         )
     )
+
+
+# this definition exists because focused behavior needs one stable owner
+def BuildPart(Model: BrepModel) -> bytes:
+    if not CanWrite(Model):
+        raise ValueError("native CATIA writing supports plane faces with one loop")
     return BuildCfvTwo(
         (
             ("Format", b"CATPart"),
-            ("Data", Declarations),
+            ("Data", BuildDecls()),
             (KProductStream, b"\x00"),
             (KPartStream, b"\x00"),
             (KGeomStream, BuildNest(Model)),
