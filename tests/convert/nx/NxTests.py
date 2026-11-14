@@ -19,7 +19,9 @@ from convert.adapters.nx.ObjectSection import (
     PairRecord,
     ParseAttribute,
     ParsePair,
+    ParseSlots,
     RegToken,
+    SlotRecord,
 )
 from convert.adapters.nx.RootSection import KRootCounter, PatchAnchor, RootMiddle
 from convert.adapters.nx.PayloadReader import ReadPayload
@@ -690,3 +692,27 @@ def TestNxNeutral() -> None:
         assert "not supported" in str(ErrorInfo)
         return
     raise AssertionError("a neutral document was accepted for NX writing")
+
+
+# a slot record frames a list of occupied and empty registry slots
+def TestNxSlots() -> None:
+    Tokens: tuple[int | None, ...] = (0x31, None, 0x43, None, 0x32)
+    Record = SlotRecord(Tokens)
+    assert Record[:10] == bytes.fromhex("02024100364104010111")
+    assert len(Record) == 10 + 3 * 2 + 2
+    assert ParseSlots(Record) == Tokens
+    assert ParseSlots(SlotRecord((None, None))) == (None, None)
+    assert SlotRecord((None, None))[10:] == b"\xff\xff"
+    ReversedTokens: tuple[int | None, ...] = tuple(reversed(Tokens))
+    assert len(SlotRecord(ReversedTokens)) == len(Record)
+    try:
+        _ = ParseSlots(bytes.fromhex("0202410036410401011100"))
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("slot grammar accepted an unknown token")
+    try:
+        _ = SlotRecord((0x100,))
+    except ValueError:
+        return
+    raise AssertionError("slot grammar accepted an out of range slot")

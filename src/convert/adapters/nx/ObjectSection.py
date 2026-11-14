@@ -134,6 +134,8 @@ def ReplaceHead(
 
 
 __all__ = [
+    "ParseSlots",
+    "SlotRecord",
     "RelabelRefs",
     "RewriteRecords",
     "PairRecord",
@@ -267,6 +269,14 @@ def RewriteRecords(SectionBody: bytes) -> bytes:
             KeyText, ValueText, _, Marker = ParseAttribute(Record)
             Written = AttributeRecord(KeyText, ValueText, Ordinal & 0x3F, Marker)
             Ordinal += 1
+        elif Record.startswith(KSlotFrame):
+            Tokens = ParseSlots(Record)
+            Written = SlotRecord(
+                tuple(
+                    sorted((Token for Token in Tokens if Token is not None))
+                    + [None] * sum(1 for Token in Tokens if Token is None)
+                )
+            )
         elif Record[:2] == b"\x03\x11":
             Width = (len(Record) - 46) // 2 + 1
             Prefix = 0x80 if Width == 2 else 0
@@ -327,3 +337,39 @@ def RelabelRefs(SectionBody: bytes) -> bytes:
             continue
         Output = Output.replace(Value, Replacement)
     return Output
+
+
+# a slot record lists occupied and empty registry slots in hash order
+KSlotFrame = bytes.fromhex("02024100364104010111")
+KSlotEmpty = 0xFF
+KSlotOccupied = 0x80
+
+
+# the slot grammar reads back as the same token list it writes
+def ParseSlots(Record: bytes) -> tuple[int | None, ...]:
+    if not Record.startswith(KSlotFrame):
+        raise ValueError("NX slot record has no known frame")
+    Tokens: list[int | None] = []
+    Position = len(KSlotFrame)
+    while Position < len(Record):
+        if Record[Position] == KSlotEmpty:
+            Tokens.append(None)
+            Position += 1
+        elif Record[Position] == KSlotOccupied and Position + 1 < len(Record):
+            Tokens.append(Record[Position + 1])
+            Position += 2
+        else:
+            raise ValueError("NX slot record token is invalid")
+    return tuple(Tokens)
+
+
+def SlotRecord(Tokens: tuple[int | None, ...]) -> bytes:
+    Output = bytearray(KSlotFrame)
+    for Token in Tokens:
+        if Token is None:
+            Output.append(KSlotEmpty)
+        elif 0 <= Token <= 0xFF:
+            Output.extend((KSlotOccupied, Token))
+        else:
+            raise ValueError("NX slot record token is out of range")
+    return bytes(Output)
