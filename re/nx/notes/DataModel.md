@@ -576,6 +576,40 @@ aligned authored body vs decoded body   3393 bytes each, 586 differing bytes
                                         VOLUME 0.0
 ```
 
+### Section 1 carries model content, not constants
+
+Three NX-saved boxes of the same feature with different lengths show what
+section 1 depends on:
+
+```text
+part      section 0  section 1 middle  differences in section 1
+dim40     36694      1247              baseline
+dim50     36683      1247              5 bytes, all in the 7 byte anchor
+dim60     36695      1246              608 bytes, every pointer table entry is 1 lower
+```
+
+So the block length does not appear in section 1, but one byte of its content
+does change between 40 and 60, and that one byte shifts every record pointer in
+its table by one. Section 1 therefore encodes an object graph that is a function
+of the model, not a constant template.
+
+Empty middles are refused, so the objects themselves are required and not only
+their class tables:
+
+```text
+section 1 middle emptied, classes and refs kept     fails to open
+section 1 middle reduced to its 0xcd byte head      fails to open
+section 2 middle emptied, classes and refs kept     fails to open
+```
+
+Combined with the earlier stub ladder this bounds the remaining work precisely:
+sections 0, 1 and 2 must each be emitted as real object graphs for the target
+payload. Section 3 is solved, section 4 may be a four byte stub.
+
+A template that reproduces another part's section bytes would collide with the
+no donor rule, so the remaining work is emitting those graphs field by field,
+which is what `MiddleBuild` already does for the expression section.
+
 ### Section 3 is generated from parameters
 
 `re/nx/tools/RootBuild.py` emits the section 3 middle from a counter and the

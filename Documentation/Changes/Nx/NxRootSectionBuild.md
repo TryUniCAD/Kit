@@ -46,3 +46,7 @@ MASS 0.28190304
   and topology object graph and still come from a saved part.
 - The counter is read from the file being rewritten; deriving it from the objects
   a writer emits is part of the remaining payload work.
+- Sections 0, 1 and 2 carry model dependent object graphs. Emptying a middle and
+  keeping its class and reference lanes makes NX refuse the part, and the same
+  section differs by one byte between a 40 and a 60 length box, so those sections
+  must be emitted as objects rather than as constants.
