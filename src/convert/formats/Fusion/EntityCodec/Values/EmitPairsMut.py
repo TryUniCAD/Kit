@@ -15,7 +15,7 @@ def EmitPairsMut(
     Depth: int,
     Writer: KEmitValue,
 ) -> bytes:
-    Pairs: tuple[ValuePair, ...]
+    Pairs: tuple[ValuePair[KEntityValue], ...]
     if Shape.KindValue == "pair" and isinstance(Value, ValuePair):
         Pairs = (Value,)
     elif Shape.KindValue == "map" and isinstance(Value, ValueMap):

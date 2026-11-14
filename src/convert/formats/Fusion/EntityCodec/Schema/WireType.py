@@ -37,7 +37,7 @@ KWireKind: TypeAlias = Literal[
 class WireType:
     KindValue: KWireKind
     Arguments: tuple[WireType, ...] = ()
-    Members: tuple[FieldSpec, ...] = ()
+    Members: tuple[FieldSpec[WireType], ...] = ()
     ClassGuid: str = ""
     FixedCount: int = 0
     AllowedInts: tuple[int, ...] = ()

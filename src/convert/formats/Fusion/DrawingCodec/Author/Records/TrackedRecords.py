@@ -13,6 +13,7 @@ from convert.formats.Fusion.EntityCodec.Model.NamedValue import NamedValue
 from convert.formats.Fusion.EntityCodec.Model.OptionalValue import OptionalValue
 from convert.formats.Fusion.EntityCodec.Model.ValueObject import ValueObject
 from convert.formats.Fusion.EntityCodec.Model.ValueSeries import ValueSeries
+from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.SegmentCodec.Features.Model.LocalRef import LocalRef
 
 KElementGuid = "9899B041-996B-477C-A815-EFAE79D94CBF"
@@ -61,7 +62,7 @@ def TrackedRecords(
     )
 
 
-def ElementGroup(RecipeId: int, Target: LocalRef | None) -> EntityGroup:
+def ElementGroup(RecipeId: int, Target: LocalRef | None) -> EntityGroup[KEntityValue]:
     return EntityGroup(
         KElementGuid,
         (
@@ -71,7 +72,7 @@ def ElementGroup(RecipeId: int, Target: LocalRef | None) -> EntityGroup:
     )
 
 
-def ScopeValue(AssetId: str, Ident: str, ScopeKind: int) -> ValueObject:
+def ScopeValue(AssetId: str, Ident: str, ScopeKind: int) -> ValueObject[KEntityValue]:
     Fields = (
         NamedValue("assetId", AssetId),
         NamedValue("scopeEntityIdentifier", Ident),
@@ -93,7 +94,7 @@ def OccurRecord(ObjectId: int) -> EntityRecord:
 
 
 def ScopeRecord(ObjectId: int, Design: DesignTarget) -> EntityRecord:
-    Fields = (
+    Fields: tuple[NamedValue[KEntityValue], ...] = (
         NamedValue("instanceIdentifiers", ValueSeries(())),
         NamedValue("passiveLeafComponent", ScopeValue(KZeroGuid, "", 1)),
         NamedValue("scope", ScopeValue(Design.AssetId, Design.ComponentGuid, 2)),

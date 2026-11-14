@@ -2,6 +2,7 @@ from convert.formats.Fusion.EntityCodec.Model.EntityRecord import EntityRecord
 from convert.formats.Fusion.EntityCodec.Model.ValueMap import ValueMap
 from convert.formats.Fusion.EntityCodec.Model.ValueObject import ValueObject
 from convert.formats.Fusion.EntityCodec.Model.ValueSeries import ValueSeries
+from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.LinkAuthor.MatrixMath import ComposeMatrix
 from convert.formats.Fusion.LinkAuthor.Model.PlaceKeys import PlaceKeys
 from convert.formats.Fusion.LinkAuthor.Model.RootFacts import RootFacts
@@ -21,7 +22,7 @@ def OccurRecord(
     RootInfo: RootFacts,
     ObjectId: int,
     Identities: tuple[int, ...],
-    States: tuple[ValueObject, ...],
+    States: tuple[ValueObject[KEntityValue], ...],
 ) -> EntityRecord:
     return MakeRecord(
         ObjectId,
@@ -43,7 +44,9 @@ def OccurRecords(
     Matrix: tuple[float, ...],
     PinFeature: int | None,
 ) -> tuple[EntityRecord, ...]:
-    States: tuple[ValueObject, ...] = (StateValue(False, KeySet.Feature, Matrix),)
+    States: tuple[ValueObject[KEntityValue], ...] = (
+        StateValue(False, KeySet.Feature, Matrix),
+    )
     if PinFeature is not None:
         States = (*States, StateValue(True, PinFeature, Matrix))
     if len(KeySet.Nested) != len(Facts.Children):

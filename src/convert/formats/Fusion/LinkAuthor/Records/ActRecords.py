@@ -11,6 +11,7 @@ from convert.formats.Fusion.EntityCodec.Model.ValueObject import ValueObject
 from convert.formats.Fusion.EntityCodec.Model.ValuePair import ValuePair
 from convert.formats.Fusion.EntityCodec.Model.ValueSeries import ValueSeries
 from convert.formats.Fusion.EntityCodec.Model.ValueStruct import ValueStruct
+from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.LinkAuthor.Model.LinkKeys import LinkKeys
 from convert.formats.Fusion.LinkAuthor.Model.PlaceKeys import PlaceKeys
 from convert.formats.Fusion.LinkAuthor.Model.RootFacts import RootFacts
@@ -60,7 +61,7 @@ def DataRecord(
 def RefdRecord(
     Facts: TargetFacts, Linkage: LinkKeys, KeySet: PlaceKeys
 ) -> EntityRecord:
-    Entry = ValueStruct(
+    Entry: ValueStruct[KEntityValue] = ValueStruct(
         (
             NamedValue("trackedTypes", ValueSeries(KChangeTypes)),
             NamedValue("referenceCount", 1),

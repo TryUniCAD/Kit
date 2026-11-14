@@ -125,7 +125,7 @@ def AddPairs(
     Records: tuple[EntityRecord, ...],
     ObjectId: int,
     FieldName: str,
-    Pairs: tuple[ValuePair, ...],
+    Pairs: tuple[ValuePair[KEntityValue], ...],
 ) -> tuple[EntityRecord, ...]:
     Current = ReadValue(Records, ObjectId, FieldName)
     if not isinstance(Current, ValueMap):

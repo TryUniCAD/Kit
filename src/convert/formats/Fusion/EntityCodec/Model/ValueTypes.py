@@ -13,7 +13,7 @@ from convert.formats.Fusion.EntityCodec.Model.ValueStruct import ValueStruct
 from convert.formats.Fusion.SegmentCodec.Features.Model.LocalRef import LocalRef
 from convert.formats.Fusion.EntityCodec.Recipes.Model.RecipeValue import RecipeValue
 
-KEntityValue: TypeAlias = (
+KEntityValue: TypeAlias = (  # lgtm[py/unused-global-variable]
     None
     | bool
     | int
@@ -22,13 +22,13 @@ KEntityValue: TypeAlias = (
     | LocalRef
     | SegmentRef
     | CrossRef
-    | ValueSeries
-    | ValuePair
-    | ValueMap
-    | ValueStruct
-    | ValueObject
+    | ValueSeries["KEntityValue"]
+    | ValuePair["KEntityValue"]
+    | ValueMap["KEntityValue"]
+    | ValueStruct["KEntityValue"]
+    | ValueObject["KEntityValue"]
     | MatrixValue
-    | OptionalValue
-    | GeometryArray
+    | OptionalValue["KEntityValue"]
+    | GeometryArray["KEntityValue"]
     | RecipeValue
 )

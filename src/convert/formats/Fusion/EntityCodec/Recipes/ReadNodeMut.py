@@ -65,7 +65,8 @@ def ReadNodeMut(
     )
     Vertices = tuple(
         CastValue(
-            VertexRecipe, ReadNodeMut(Cursor, "vertex_recipe_data", Catalog, Depth + 1)
+            VertexRecipe[EdgeRecipe],
+            ReadNodeMut(Cursor, "vertex_recipe_data", Catalog, Depth + 1),
         )
         for _ in range(ReadCountMut(Cursor, Catalog))
     )

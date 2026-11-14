@@ -38,5 +38,7 @@ class SegmentCatalog:
 
     def MakeGroups(
         self, ClassName: str, Fields: dict[str, KEntityValue]
-    ) -> tuple[EntityGroup, ...]:
-        return MakeAuxGroups(self, ClassName, Fields)
+    ) -> tuple[EntityGroup[KEntityValue], ...]:
+        return MakeAuxGroups(
+            self.ByName, self.ByGuid, self.Profile.RootGuid, ClassName, Fields
+        )

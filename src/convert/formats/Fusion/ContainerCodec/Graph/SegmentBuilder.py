@@ -21,7 +21,9 @@ class SegmentBuilder(SegmentCatalog):
         super().__init__(Segment, Schemas, External)
         self.Records: list[EntityRecord] = []
 
-    def MakeValue(self, ClassName: str, Fields: dict[str, KEntityValue]) -> ValueObject:
+    def MakeValue(
+        self, ClassName: str, Fields: dict[str, KEntityValue]
+    ) -> ValueObject[KEntityValue]:
         return ValueObject(self.MakeGroups(ClassName, Fields))
 
     def AddEntity(

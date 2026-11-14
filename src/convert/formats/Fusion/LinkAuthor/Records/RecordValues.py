@@ -32,18 +32,20 @@ KIdentity = (
 )
 
 
-def MakeGroup(ClassGuid: str, *Fields: tuple[str, KEntityValue]) -> EntityGroup:
+def MakeGroup(
+    ClassGuid: str, *Fields: tuple[str, KEntityValue]
+) -> EntityGroup[KEntityValue]:
     return EntityGroup(
         ClassGuid, tuple(NamedValue(FieldName, Value) for FieldName, Value in Fields)
     )
 
 
-def MakeRecord(ObjectId: int, *Groups: EntityGroup) -> EntityRecord:
+def MakeRecord(ObjectId: int, *Groups: EntityGroup[KEntityValue]) -> EntityRecord:
     return EntityRecord(ObjectId, 0, True, KPlainFrame, Groups)
 
 
 def FrameRecord(
-    ObjectId: int, Frame: EntityFrame, *Groups: EntityGroup
+    ObjectId: int, Frame: EntityFrame, *Groups: EntityGroup[KEntityValue]
 ) -> EntityRecord:
     return EntityRecord(ObjectId, 0, True, Frame, Groups)
 
@@ -59,11 +61,11 @@ def ParentRecord(ObjectId: int, Parent: int | None) -> EntityRecord:
     )
 
 
-def LocalSeries(Identities: tuple[int, ...]) -> ValueSeries:
+def LocalSeries(Identities: tuple[int, ...]) -> ValueSeries[KEntityValue]:
     return ValueSeries(tuple(LocalRef(Identity) for Identity in Identities))
 
 
-def TextPairs(Pairs: tuple[tuple[str, str], ...]) -> ValueMap:
+def TextPairs(Pairs: tuple[tuple[str, str], ...]) -> ValueMap[KEntityValue]:
     return ValueMap(tuple(ValuePair(First, Second) for First, Second in Pairs))
 
 

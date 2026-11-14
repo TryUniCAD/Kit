@@ -17,7 +17,7 @@ def SeriesItems(Value: KEntityValue) -> tuple[KEntityValue, ...]:
     return Value.Items
 
 
-def MappingItems(Value: KEntityValue) -> tuple[ValuePair, ...]:
+def MappingItems(Value: KEntityValue) -> tuple[ValuePair[KEntityValue], ...]:
     if not isinstance(Value, ValueMap):
         raise ValueError("Native Fusion semantic field requires a map")
     return Value.Entries

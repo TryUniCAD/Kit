@@ -25,10 +25,11 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TreeParts import (
     NeedTriple,
     NeedWhole,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TypedBase import TypedBase
 
 
 @MakeDataClass(frozen=True, slots=True)
-class SweepProfile:
+class SweepProfile(TypedBase):
     Curve: ChoiceValue
     ParamRange: KRange
     PlanarFrame: tuple[KTriple, KTriple] | None
@@ -37,7 +38,7 @@ class SweepProfile:
 
 
 @MakeDataClass(frozen=True, slots=True)
-class SweepSur:
+class SweepSur(TypedBase):
     Revision: int
     IsOnXy: bool
     ProfileId: int

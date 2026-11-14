@@ -61,6 +61,10 @@ class CadDocument(
     brep: BrepModel | None = None
     materials: tuple[MaterialRecord, ...] = ()
 
+    @property
+    def Assembly(self) -> AssemblyData | None:
+        return self.assembly
+
 
 # component documents embed linked portable documents without weakening graph typing
 @ModelDataMut

@@ -3,10 +3,10 @@ from typing import TYPE_CHECKING
 from convert.formats.Fusion.GraphicsCodec.Model.State.SceneObject import SceneObject
 
 if TYPE_CHECKING:
-    from convert.formats.Fusion.GraphicsCodec.Wire.SceneCodec import SceneCodec
+    from convert.formats.Fusion.GraphicsCodec.Wire.SceneState import SceneState
 
 
-def FinishScene(State: SceneCodec) -> tuple[SceneObject, ...]:
+def FinishScene(State: SceneState) -> tuple[SceneObject, ...]:
     if not State.HasGlobals:
         raise ValueError("Graphics world has no serializer version declaration")
     if State.IsReading and State.Position != len(State.Payload):

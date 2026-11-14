@@ -25,12 +25,13 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TreeParts import (
     NeedTriple,
     NeedWhole,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TypedBase import TypedBase
 
 KOffsetKinds = ("edge_offset", "fixed_width")
 
 
 @MakeDataClass(frozen=True, slots=True)
-class BlendSupport:
+class BlendSupport(TypedBase):
     SupportKind: str
     Surface: ChoiceValue
     Curve: ChoiceValue
@@ -42,7 +43,7 @@ class BlendSupport:
 
 
 @MakeDataClass(frozen=True, slots=True)
-class OffsetRadius:
+class OffsetRadius(TypedBase):
     RadiusKind: str
     LeadEnum: int
     IsCalibrated: bool
@@ -52,14 +53,14 @@ class OffsetRadius:
 
 
 @MakeDataClass(frozen=True, slots=True)
-class InterpSample:
+class InterpSample(TypedBase):
     Values: tuple[float, float, float, float]
     Position: KTriple
     Direction: KTriple
 
 
 @MakeDataClass(frozen=True, slots=True)
-class InterpRadius:
+class InterpRadius(TypedBase):
     LeadEnum: int
     IsCalibrated: bool
     FirstParam: float
@@ -70,7 +71,7 @@ class InterpRadius:
 
 
 @MakeDataClass(frozen=True, slots=True)
-class BlendFrame:
+class BlendFrame(TypedBase):
     FirstRange: KRange
     SecondRange: KRange
     FirstByte: int

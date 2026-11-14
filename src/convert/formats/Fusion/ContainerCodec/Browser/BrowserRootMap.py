@@ -19,7 +19,7 @@ def BrowserRootMap(
         for Entry in KBrowserNodes
         if not Entry.StringId
     )
-    Strings: dict[str | None, list[ValuePair]] = {}
+    Strings: dict[str | None, list[ValuePair[KEntityValue]]] = {}
     for Entry in KBrowserNodes:
         if Entry.StringId:
             Strings.setdefault(Entry.TargetRole, []).append(

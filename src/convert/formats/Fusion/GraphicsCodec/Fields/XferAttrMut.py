@@ -5,12 +5,15 @@ from convert.formats.Fusion.GraphicsCodec.Schema.VersionRules import KVersionRul
 from convert.formats.Fusion.GraphicsCodec.Fields.XferFieldsMut import XferFieldsMut
 
 from convert.formats.Fusion.GraphicsCodec.Model.Values.GraphicAttr import GraphicAttr
+from convert.formats.Fusion.GraphicsCodec.Model.Values.SceneSet import SceneSet
 
 if TYPE_CHECKING:
     from convert.formats.Fusion.GraphicsCodec.Wire.SceneCodec import SceneCodec
 
 
-def XferAttrMut(State: SceneCodec, Value: GraphicAttr | None) -> GraphicAttr:
+def XferAttrMut(
+    State: SceneCodec, Value: GraphicAttr[SceneSet] | None
+) -> GraphicAttr[SceneSet]:
     ClassName = State.TextValue(Value.ClassName if Value else None)
     Rules = KAttrRules.get(ClassName)
     if Rules is None:

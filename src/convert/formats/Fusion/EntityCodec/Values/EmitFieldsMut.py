@@ -1,13 +1,15 @@
 from convert.formats.Fusion.EntityCodec.Model.NamedValue import NamedValue
+from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.EntityCodec.Schema.EntityCatalog import EntityCatalog
 from convert.formats.Fusion.EntityCodec.Schema.FieldSpec import FieldSpec
+from convert.formats.Fusion.EntityCodec.Schema.WireType import WireType
 from convert.formats.Fusion.EntityCodec.Values.ValueCalls import KEmitValue
 from convert.formats.Fusion.SegmentCodec.Features.Binary.FeatureSink import FeatureSink
 
 
 def EmitFieldsMut(
-    Values: tuple[NamedValue, ...],
-    Fields: tuple[FieldSpec, ...],
+    Values: tuple[NamedValue[KEntityValue], ...],
+    Fields: tuple[FieldSpec[WireType], ...],
     Catalog: EntityCatalog,
     Depth: int,
     Writer: KEmitValue,

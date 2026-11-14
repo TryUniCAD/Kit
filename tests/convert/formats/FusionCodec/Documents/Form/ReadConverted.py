@@ -147,7 +147,7 @@ def EntityLabel(Entities: tuple[KJournalEntity, ...], Attribute: int) -> str:
     return Labels[0] if Labels else ""
 
 
-def ObjectWindow(ItemValue: object) -> FormWindow:
+def ObjectWindow(ItemValue: KEntityValue) -> FormWindow:
     assert isinstance(ItemValue, ValueObject)
     Fields = GroupFields(ItemValue.Groups)
     FaceIndex = Fields["faceIndex"]

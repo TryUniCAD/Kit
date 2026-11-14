@@ -10,14 +10,15 @@ from convert.formats.Fusion.GraphicsCodec.Model.Values.ObjectRef import ObjectRe
 from convert.formats.Fusion.GraphicsCodec.Model.Values.TextureValue import TextureValue
 from convert.formats.Fusion.GraphicsCodec.Model.Values.NodeTarget import NodeTarget
 from convert.formats.Fusion.GraphicsCodec.Model.Values.OverrideSet import OverrideSet
+from convert.formats.Fusion.GraphicsCodec.Model.Values.SceneSet import SceneSet
 
 if TYPE_CHECKING:
     from convert.formats.Fusion.GraphicsCodec.Wire.SceneCodec import SceneCodec
 
 
 def XferFieldMut(
-    State: SceneCodec, FieldRuleValue: FieldRule, Value: FieldValue | None
-) -> FieldValue:
+    State: SceneCodec, FieldRuleValue: FieldRule, Value: FieldValue[SceneSet] | None
+) -> FieldValue[SceneSet]:
     Result: (
         bool
         | int
@@ -28,7 +29,7 @@ def XferFieldMut(
         | TextureValue
         | ObjectRef
         | NodeTarget
-        | tuple[OverrideSet, ...]
+        | tuple[OverrideSet[SceneSet], ...]
     )
     Current = Value.DataValue if Value else None
     if FieldRuleValue.WireKind in ("texture", "qualifier"):

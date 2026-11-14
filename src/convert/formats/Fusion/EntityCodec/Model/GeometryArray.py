@@ -1,14 +1,11 @@
-from __future__ import annotations
-
 from dataclasses import dataclass as MakeDataClass
-from typing import TYPE_CHECKING
+from typing import Generic
 
-if TYPE_CHECKING:
-    from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
+from convert.formats.Fusion.EntityCodec.Model.MemberValue import KMemberValue
 
 
 @MakeDataClass(frozen=True, slots=True)
-class GeometryArray:
+class GeometryArray(Generic[KMemberValue]):
     PhysicalLength: int
     GrowLength: int
-    Values: tuple[KEntityValue, ...]
+    Values: tuple[KMemberValue, ...]

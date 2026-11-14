@@ -3,6 +3,7 @@ from convert.formats.Fusion.EntityCodec.Model.EntityGroup import EntityGroup
 from convert.formats.Fusion.EntityCodec.Model.EntityRecord import EntityRecord
 from convert.formats.Fusion.EntityCodec.Model.ValueMap import ValueMap
 from convert.formats.Fusion.EntityCodec.Model.ValueSeries import ValueSeries
+from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.LinkAuthor.Model.ActionKeys import ActionKeys
 from convert.formats.Fusion.LinkAuthor.Records.LinkGuids import (
     KComputable,
@@ -26,7 +27,7 @@ from convert.formats.Fusion.SegmentCodec.Features.Model.LocalRef import LocalRef
 KBirthday = 260
 
 
-def NodeGroup(DataId: int, Parent: int | None) -> EntityGroup:
+def NodeGroup(DataId: int, Parent: int | None) -> EntityGroup[KEntityValue]:
     return MakeGroup(
         KDcNode,
         ("isActive", True),
@@ -40,7 +41,7 @@ def NodeGroup(DataId: int, Parent: int | None) -> EntityGroup:
 
 def FeatureGroups(
     BaseName: str, KeySet: ActionKeys, Context: int | None, Children: tuple[int, ...]
-) -> tuple[EntityGroup, ...]:
+) -> tuple[EntityGroup[KEntityValue], ...]:
     return (
         MakeGroup(
             KDcFeature,

@@ -1,6 +1,7 @@
 from io import BytesIO as ByteStream
 from pathlib import Path as FilePath
 from sys import version_info as PythonVersion
+from typing import cast as CastValue
 from zipfile import ZipFile
 
 from pytest import mark as MarkTests
@@ -9,6 +10,7 @@ from convert.formats.Fusion.DocumentCodec.EmitParsed import EmitParsed
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from convert.formats.Fusion.GraphicsCodec.Model.Values.FieldValue import FieldValue
 from convert.formats.Fusion.GraphicsCodec.Model.Values.GraphicAttr import GraphicAttr
+from convert.formats.Fusion.GraphicsCodec.Model.Values.SceneSet import SceneSet
 from tests.convert.formats.FusionCodec.Documents.Form.ReadFormFile import (
     ReadFormFile,
 )
@@ -39,10 +41,11 @@ KOpacityCases: tuple[tuple[str, str, int], ...] = (
 def TestOpacity(CaseValue: tuple[str, str, int]) -> None:
     Payload = ReadFormFile(CaseValue[0], CaseValue[1])
     Model = ReadDocument(Payload)
+    Found = CastValue(
+        list[GraphicAttr[SceneSet]], FindValues(Model.Graphics, GraphicAttr)
+    )
     Opacity = [
-        AttrValue
-        for AttrValue in FindValues(Model.Graphics, GraphicAttr)
-        if AttrValue.ClassName == "OpacityAttribute"
+        AttrValue for AttrValue in Found if AttrValue.ClassName == "OpacityAttribute"
     ]
     assert len(Opacity) == CaseValue[2]
     for AttrValue in Opacity:

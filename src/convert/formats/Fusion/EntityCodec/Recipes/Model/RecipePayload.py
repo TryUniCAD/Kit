@@ -9,6 +9,11 @@ from convert.formats.Fusion.EntityCodec.Recipes.Model.EdgeRecipe import EdgeReci
 from convert.formats.Fusion.EntityCodec.Recipes.Model.FaceRecipe import FaceRecipe
 from convert.formats.Fusion.EntityCodec.Recipes.Model.VertexRecipe import VertexRecipe
 
-KRecipePayload: TypeAlias = (
-    BaseRecipe | BodyRecipe | FaceRecipe | BoundFaceRecipe | EdgeRecipe | VertexRecipe
+KRecipePayload: TypeAlias = (  # lgtm[py/unused-global-variable]
+    BaseRecipe
+    | BodyRecipe
+    | FaceRecipe
+    | BoundFaceRecipe
+    | EdgeRecipe
+    | VertexRecipe[EdgeRecipe]
 )

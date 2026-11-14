@@ -10,7 +10,7 @@ class NativeNode:
     SegmentId: int
     ObjectId: int
     ClassName: str
-    Groups: tuple[EntityGroup, ...]
+    Groups: tuple[EntityGroup[KEntityValue], ...]
     Frame: EntityFrame
 
     @property

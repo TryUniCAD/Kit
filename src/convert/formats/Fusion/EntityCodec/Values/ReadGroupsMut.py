@@ -1,4 +1,5 @@
 from convert.formats.Fusion.EntityCodec.Model.EntityGroup import EntityGroup
+from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.EntityCodec.Schema.ClassSchema import ClassSchema
 from convert.formats.Fusion.EntityCodec.Schema.EntityCatalog import EntityCatalog
 from convert.formats.Fusion.EntityCodec.Values.ReadFieldsMut import ReadFieldsMut
@@ -12,7 +13,7 @@ def ReadGroupsMut(
     Catalog: EntityCatalog,
     Depth: int,
     Reader: KReadValue,
-) -> tuple[EntityGroup, ...]:
+) -> tuple[EntityGroup[KEntityValue], ...]:
     return tuple(
         (
             EntityGroup(

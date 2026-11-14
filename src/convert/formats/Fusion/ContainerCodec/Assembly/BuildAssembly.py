@@ -15,6 +15,7 @@ from convert.formats.Fusion.EntityCodec.Model.SegmentRef import SegmentRef
 from convert.formats.Fusion.EntityCodec.Model.ValueMap import ValueMap
 from convert.formats.Fusion.EntityCodec.Model.ValuePair import ValuePair
 from convert.formats.Fusion.EntityCodec.Model.ValueSeries import ValueSeries
+from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.MetaIndex import SegmentKind
 from convert.formats.Fusion.SegmentCodec.Features.Model.LocalRef import LocalRef
 
@@ -25,7 +26,7 @@ def BuildAssembly(
     Schemas = ReadVocabulary(FilePath(__file__).with_name("ActClasses.json"))
     Profile = ExternalProfile(Design.Profile, Design.Records, 0)
     Builder = SegmentBuilder(SegmentKind.KAct, Schemas, Profile)
-    Empty = ValueSeries(())
+    Empty: ValueSeries[KEntityValue] = ValueSeries(())
     Revisions = RevisionMap(Design.RevisionId)
     _ = RevisionMap(SnapshotId)
     Entries = tuple(

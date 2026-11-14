@@ -6,6 +6,7 @@ from convert.formats.Fusion.GraphicsCodec.Values.XferTargetMut import XferTarget
 from convert.formats.Fusion.GraphicsCodec.Model.Values.NodeTarget import NodeTarget
 from convert.formats.Fusion.GraphicsCodec.Model.Values.ObjectRef import ObjectRef
 from convert.formats.Fusion.GraphicsCodec.Model.Values.OverrideSet import OverrideSet
+from convert.formats.Fusion.GraphicsCodec.Model.Values.SceneSet import SceneSet
 
 if TYPE_CHECKING:
     from convert.formats.Fusion.GraphicsCodec.Wire.SceneCodec import SceneCodec
@@ -13,7 +14,7 @@ if TYPE_CHECKING:
 
 def XferOverMut(
     State: SceneCodec, WireKind: str, Current: object
-) -> ObjectRef | NodeTarget | tuple[OverrideSet, ...] | None:
+) -> ObjectRef | NodeTarget | tuple[OverrideSet[SceneSet], ...] | None:
     if WireKind == "path":
         if Current is not None and not isinstance(Current, ObjectRef):
             raise ValueError("Expected a graphics node path reference")
@@ -26,4 +27,6 @@ def XferOverMut(
         raise ValueError("Unsupported graphics override field descriptor")
     if Current is not None and not isinstance(Current, tuple):
         raise ValueError("Expected graphics override sets")
-    return State.OverrideSets(CastValue(tuple[OverrideSet, ...] | None, Current))
+    return State.OverrideSets(
+        CastValue(tuple[OverrideSet[SceneSet], ...] | None, Current)
+    )

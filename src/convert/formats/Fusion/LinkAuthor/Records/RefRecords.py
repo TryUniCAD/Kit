@@ -3,6 +3,7 @@ from dataclasses import dataclass as MakeDataClass
 from convert.formats.Fusion.EntityCodec.Model.EntityRecord import EntityRecord
 from convert.formats.Fusion.EntityCodec.Model.ValueObject import ValueObject
 from convert.formats.Fusion.EntityCodec.Model.ValueSeries import ValueSeries
+from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.LinkAuthor.Records.LinkGuids import (
     KAssetRecipe,
     KDataRef,
@@ -28,8 +29,8 @@ class OccurRef:
     Parent: int
     IsRelative: bool
     Instances: tuple[str, ...]
-    LeafScope: ValueObject
-    RootScope: ValueObject
+    LeafScope: ValueObject[KEntityValue]
+    RootScope: ValueObject[KEntityValue]
 
 
 def RefRecords(Value: OccurRef) -> tuple[EntityRecord, ...]:

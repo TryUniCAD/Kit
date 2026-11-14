@@ -2,11 +2,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from convert.formats.Fusion.GraphicsCodec.Wire.MeshStreams import MeshStreams
+    from convert.formats.Fusion.GraphicsCodec.Wire.MeshState import MeshState
 
 
 def TransferSpanMut(
-    State: MeshStreams, Stream: int, Offset: int, Length: int, Payload: bytes | None
+    State: MeshState, Stream: int, Offset: int, Length: int, Payload: bytes | None
 ) -> bytes:
     if not 0 <= Stream < 1000 or Offset < 0 or Length < 0 or Offset + Length > 67108864:
         raise ValueError("Invalid graphics buffer range")

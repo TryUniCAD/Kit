@@ -13,7 +13,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Nodes.TvertexNode import (
     TvertexNode,
 )
 
-KComplexEntity: TypeAlias = (
+KComplexEntity: TypeAlias = (  # lgtm[py/unused-global-variable]
     SplineNode | IntcurveNode | PcurveNode | TcoedgeNode | TedgeNode | TvertexNode
 )
 

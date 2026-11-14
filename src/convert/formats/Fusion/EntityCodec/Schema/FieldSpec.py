@@ -1,14 +1,11 @@
-from __future__ import annotations
-
 from dataclasses import dataclass as MakeDataClass
-from typing import TYPE_CHECKING
+from typing import Generic, TypeVar
 
-if TYPE_CHECKING:
-    from convert.formats.Fusion.EntityCodec.Schema.WireType import WireType
+KFieldType = TypeVar("KFieldType")
 
 
 @MakeDataClass(frozen=True, slots=True)
-class FieldSpec:
+class FieldSpec(Generic[KFieldType]):
     FieldName: str
-    ValueType: WireType
+    ValueType: KFieldType
     IsSaved: bool = True

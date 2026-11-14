@@ -1,9 +1,9 @@
-from typing import TypedDict
+from typing import Generic, TypedDict, TypeVar
 
-from convert.formats.Fusion.EntityCodec.Vocabulary.WireJson import WireJson
+KFieldWire = TypeVar("KFieldWire")
 
 
-class FieldJson(TypedDict):
+class FieldJson(TypedDict, Generic[KFieldWire]):
     FieldName: str
-    ValueType: WireJson
+    ValueType: KFieldWire
     IsSaved: bool

@@ -3,12 +3,15 @@ from typing import TYPE_CHECKING
 from convert.formats.Fusion.GraphicsCodec.Fields.XferSetBaseMut import XferSetBaseMut
 
 from convert.formats.Fusion.GraphicsCodec.Model.Values.AppliedSet import AppliedSet
+from convert.formats.Fusion.GraphicsCodec.Model.Values.SceneSet import SceneSet
 
 if TYPE_CHECKING:
     from convert.formats.Fusion.GraphicsCodec.Wire.SceneCodec import SceneCodec
 
 
-def XferChildSetMut(State: SceneCodec, Value: AppliedSet | None) -> AppliedSet:
+def XferChildSetMut(
+    State: SceneCodec, Value: AppliedSet[SceneSet] | None
+) -> AppliedSet[SceneSet]:
     IsSpecific = State.IsFlag(Value is not None and Value.ApplyTypes is not None)
     SetValue = XferSetBaseMut(State, Value.SetValue if Value else None, 2)
     ApplyTypes = None

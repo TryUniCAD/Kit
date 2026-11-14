@@ -1,6 +1,7 @@
 from convert.formats.Fusion.EntityCodec.Limits import KMaxCount
 from convert.formats.Fusion.EntityCodec.Model.ValueMap import ValueMap
 from convert.formats.Fusion.EntityCodec.Model.ValuePair import ValuePair
+from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.EntityCodec.Schema.EntityCatalog import EntityCatalog
 from convert.formats.Fusion.EntityCodec.Schema.WireType import WireType
 from convert.formats.Fusion.EntityCodec.Values.ValueCalls import KReadValue
@@ -13,7 +14,7 @@ def ReadPairsMut(
     Catalog: EntityCatalog,
     Depth: int,
     Reader: KReadValue,
-) -> ValuePair | ValueMap:
+) -> ValuePair[KEntityValue] | ValueMap[KEntityValue]:
     Count = 1 if Shape.KindValue == "pair" else Cursor.ReadCount(KMaxCount)
     Pairs = tuple(
         ValuePair(

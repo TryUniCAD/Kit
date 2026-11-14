@@ -21,6 +21,7 @@ from convert.formats.Fusion.EntityCodec.Model.EntityRecord import EntityRecord
 from convert.formats.Fusion.EntityCodec.Model.MatrixValue import MatrixValue
 from convert.formats.Fusion.EntityCodec.Model.NamedValue import NamedValue
 from convert.formats.Fusion.EntityCodec.Model.ValueMap import ValueMap
+from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.LinkAuthor.CheckAsmSpec import CheckAsmSpec
 from convert.formats.Fusion.LinkAuthor.EmitAssembly import EmitAssembly, LinkDocument
 from convert.formats.Fusion.LinkAuthor.MatrixMath import ComposeMatrix
@@ -102,14 +103,15 @@ def MaskValue(Value: object, Roles: dict[int, tuple[str, int]]) -> object:
     if isinstance(Value, CrossRef):
         return (Value.ObjectId, Roles[Value.Token], Value.TypeGuid.upper())
     if isinstance(Value, NamedValue):
-        if Value.FieldName in KFreshFields:
-            return (Value.FieldName, KMasked)
-        if Value.FieldName == "passiveentries" and isinstance(Value.Value, ValueMap):
+        Named = CastValue(NamedValue[KEntityValue], Value)
+        if Named.FieldName in KFreshFields:
+            return (Named.FieldName, KMasked)
+        if Named.FieldName == "passiveentries" and isinstance(Named.Value, ValueMap):
             Pairs = sorted(
-                (MaskValue(Entry, Roles) for Entry in Value.Value.Entries), key=repr
+                (MaskValue(Entry, Roles) for Entry in Named.Value.Entries), key=repr
             )
-            return (Value.FieldName, tuple(Pairs))
-        return (Value.FieldName, MaskValue(Value.Value, Roles))
+            return (Named.FieldName, tuple(Pairs))
+        return (Named.FieldName, MaskValue(Named.Value, Roles))
     if isinstance(Value, EntityRecord):
         return (
             Value.ObjectId,
@@ -118,7 +120,8 @@ def MaskValue(Value: object, Roles: dict[int, tuple[str, int]]) -> object:
             MaskValue(Value.Groups, Roles),
         )
     if isinstance(Value, EntityGroup):
-        return (Value.ClassGuid.upper(), MaskValue(Value.Fields, Roles))
+        Group = CastValue(EntityGroup[KEntityValue], Value)
+        return (Group.ClassGuid.upper(), MaskValue(Group.Fields, Roles))
     if isinstance(Value, EntityFrame):
         Subjects = None
         if Value.Subjects is not None:

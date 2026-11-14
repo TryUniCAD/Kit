@@ -2,6 +2,7 @@ from convert.formats.Fusion.EntityCodec.Model.EntityGroup import EntityGroup
 from convert.formats.Fusion.EntityCodec.Model.SegmentRef import SegmentRef
 from convert.formats.Fusion.EntityCodec.Model.ValueObject import ValueObject
 from convert.formats.Fusion.EntityCodec.Model.ValueSeries import ValueSeries
+from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.LinkAuthor.Model.RootFacts import RootFacts
 from convert.formats.Fusion.LinkAuthor.Records.LinkGuids import (
     KActRefValue,
@@ -19,7 +20,9 @@ from convert.formats.Fusion.LinkAuthor.Records.RecordValues import (
 from convert.formats.Fusion.SegmentCodec.Features.Model.LocalRef import LocalRef
 
 
-def BaseGroup(RootInfo: RootFacts | None, Identities: tuple[int, ...]) -> EntityGroup:
+def BaseGroup(
+    RootInfo: RootFacts | None, Identities: tuple[int, ...]
+) -> EntityGroup[KEntityValue]:
     Passive = ValueObject(
         (MakeGroup(KPassivePath, ("instanceIds", ValueSeries(Identities))),)
     )
@@ -40,15 +43,21 @@ def BaseGroup(RootInfo: RootFacts | None, Identities: tuple[int, ...]) -> Entity
     )
 
 
-def OccurPath(RootInfo: RootFacts, Identities: tuple[int, ...]) -> ValueObject:
+def OccurPath(
+    RootInfo: RootFacts, Identities: tuple[int, ...]
+) -> ValueObject[KEntityValue]:
     return ValueObject((MakeGroup(KOccurPath), BaseGroup(RootInfo, Identities)))
 
 
-def BasePathValue(RootInfo: RootFacts, Identities: tuple[int, ...]) -> ValueObject:
+def BasePathValue(
+    RootInfo: RootFacts, Identities: tuple[int, ...]
+) -> ValueObject[KEntityValue]:
     return ValueObject((BaseGroup(RootInfo, Identities),))
 
 
-def ScopeValue(AssetId: str, EntityName: str, ScopeKind: int) -> ValueObject:
+def ScopeValue(
+    AssetId: str, EntityName: str, ScopeKind: int
+) -> ValueObject[KEntityValue]:
     return ValueObject(
         (
             MakeGroup(
@@ -62,7 +71,9 @@ def ScopeValue(AssetId: str, EntityName: str, ScopeKind: int) -> ValueObject:
     )
 
 
-def StateValue(IsGround: bool, Feature: int, Matrix: tuple[float, ...]) -> ValueObject:
+def StateValue(
+    IsGround: bool, Feature: int, Matrix: tuple[float, ...]
+) -> ValueObject[KEntityValue]:
     return ValueObject(
         (
             MakeGroup(
@@ -76,7 +87,7 @@ def StateValue(IsGround: bool, Feature: int, Matrix: tuple[float, ...]) -> Value
     )
 
 
-def EmptyActRef() -> ValueObject:
+def EmptyActRef() -> ValueObject[KEntityValue]:
     return ValueObject(
         (
             MakeGroup(
@@ -92,7 +103,7 @@ def EmptyActRef() -> ValueObject:
     )
 
 
-def OccurActRef() -> ValueObject:
+def OccurActRef() -> ValueObject[KEntityValue]:
     return ValueObject(
         (
             MakeGroup(

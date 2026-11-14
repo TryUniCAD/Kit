@@ -11,7 +11,7 @@ class SceneSet:
     FlagsValue: int = 0
     RemovedFlags: int = 0
     AppendTypes: tuple[int, ...] = ()
-    Attributes: tuple[GraphicAttr, ...] = ()
+    Attributes: tuple[GraphicAttr[SceneSet], ...] = ()
     ExternalRef: EntityRef | None = None
     NodeRef: str | None = None
-    ChildSets: tuple[AppliedSet, ...] = ()
+    ChildSets: tuple[AppliedSet[SceneSet], ...] = ()

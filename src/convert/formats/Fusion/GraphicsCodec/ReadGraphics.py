@@ -4,6 +4,8 @@ from convert.formats.Fusion.GraphicsCodec.Model.State.GraphicsStream import (
     GraphicsStream,
 )
 from convert.formats.Fusion.GraphicsCodec.Wire.SceneCodec import SceneCodec
+from convert.formats.Fusion.GraphicsCodec.Wire.ObjectValueMut import ObjectValueMut
+from convert.formats.Fusion.GraphicsCodec.Fields.XferOverrideMut import XferOverrideMut
 from convert.formats.Fusion.GraphicsCodec.Worlds.XferWorldMut import XferWorldMut
 
 
@@ -15,7 +17,14 @@ def ReadGraphics(
     if type(WorldData) is not bytes or len(WorldData) > 67108864:
         raise ValueError("Invalid graphics world input")
     try:
-        State = SceneCodec(WorldData, MeshStreams, FusionStreams, None)
+        State = SceneCodec(
+            WorldData,
+            MeshStreams,
+            FusionStreams,
+            None,
+            ObjectValueMut,
+            XferOverrideMut,
+        )
         RootWorld = XferWorldMut(State, None, True)
         Objects = State.Finalize()
         _ = State.MeshData.Finalize()

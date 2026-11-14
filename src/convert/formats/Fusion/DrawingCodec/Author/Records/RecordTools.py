@@ -5,6 +5,7 @@ from convert.formats.Fusion.EntityCodec.Model.NamedMetadata import NamedMetadata
 from convert.formats.Fusion.EntityCodec.Model.NamedValue import NamedValue
 from convert.formats.Fusion.EntityCodec.Model.SubjectValue import SubjectValue
 from convert.formats.Fusion.EntityCodec.Model.ValueSeries import ValueSeries
+from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.SegmentCodec.Features.Model.LocalRef import LocalRef
 
 KClientGuid = "A7AEA631-985B-4DD1-8CE2-DE2C-14B54081"
@@ -18,7 +19,7 @@ KObjectGuid = "63D6AD42-466A-40B7-9CCD-EB21BC500EF6"
 
 def ChildTail(
     Parent: LocalRef | None, Children: tuple[LocalRef, ...] = ()
-) -> tuple[EntityGroup, ...]:
+) -> tuple[EntityGroup[KEntityValue], ...]:
     return (
         EntityGroup(KClientGuid, (NamedValue("rClientObject", None),)),
         EntityGroup(KChildGuid, (NamedValue("children", ValueSeries(Children)),)),
@@ -26,7 +27,7 @@ def ChildTail(
     )
 
 
-def ObjectTail(Parent: LocalRef | None) -> tuple[EntityGroup, ...]:
+def ObjectTail(Parent: LocalRef | None) -> tuple[EntityGroup[KEntityValue], ...]:
     return (
         EntityGroup(KObjectGuid, (NamedValue("rClientObject", None),)),
         EntityGroup(KParentGuid, (NamedValue("rParent", Parent),)),
@@ -35,7 +36,7 @@ def ObjectTail(Parent: LocalRef | None) -> tuple[EntityGroup, ...]:
 
 def MakeRecord(
     ObjectId: int,
-    Groups: tuple[EntityGroup, ...],
+    Groups: tuple[EntityGroup[KEntityValue], ...],
     RootId: str = "",
     IsPrimary: bool = True,
     Subjects: tuple[SubjectValue, ...] | None = None,

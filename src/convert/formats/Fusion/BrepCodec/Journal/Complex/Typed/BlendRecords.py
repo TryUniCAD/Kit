@@ -27,10 +27,11 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TreeParts import (
     NeedRecord,
     NeedWhole,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TypedBase import TypedBase
 
 
 @MakeDataClass(frozen=True, slots=True)
-class SrfSrfBlend:
+class SrfSrfBlend(TypedBase):
     Revision: int
     FirstSupport: BlendSupport
     SecondSupport: BlendSupport
@@ -49,7 +50,7 @@ class SrfSrfBlend:
 
 
 @MakeDataClass(frozen=True, slots=True)
-class GtwoBlend:
+class GtwoBlend(TypedBase):
     Revision: int
     FirstGtwoReal: float
     SecondGtwoReal: float

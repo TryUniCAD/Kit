@@ -26,10 +26,11 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TreeParts import (
     NeedTriple,
     NeedWhole,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TypedBase import TypedBase
 
 
 @MakeDataClass(frozen=True, slots=True)
-class LoftPiece:
+class LoftPiece(TypedBase):
     PieceKind: int
     Curve: ChoiceValue
     Surface: ChoiceValue | None
@@ -42,7 +43,7 @@ class LoftPiece:
 
 
 @MakeDataClass(frozen=True, slots=True)
-class LoftSection:
+class LoftSection(TypedBase):
     SectionValue: float
     Pieces: tuple[LoftPiece, ...]
     SectionCurve: ChoiceValue
@@ -51,7 +52,7 @@ class LoftSection:
 
 
 @MakeDataClass(frozen=True, slots=True)
-class LoftSplSur:
+class LoftSplSur(TypedBase):
     Revision: int
     FirstSections: tuple[LoftSection, ...]
     SecondSections: tuple[LoftSection, ...]

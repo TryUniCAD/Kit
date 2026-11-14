@@ -1,12 +1,9 @@
-from __future__ import annotations
 from dataclasses import dataclass as MakeDataClass
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from convert.formats.Fusion.GraphicsCodec.Model.Values.SceneSet import SceneSet
+from typing import Generic
+from convert.formats.Fusion.GraphicsCodec.Model.Values.KSetValue import KSetValue
 
 
 @MakeDataClass(frozen=True, slots=True)
-class AppliedSet:
-    SetValue: SceneSet
+class AppliedSet(Generic[KSetValue]):
+    SetValue: KSetValue
     ApplyTypes: tuple[int, ...] | None

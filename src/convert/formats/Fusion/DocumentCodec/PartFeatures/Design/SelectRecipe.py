@@ -32,7 +32,7 @@ def PickFace(Index: int) -> FaceRecipe:
     return FaceRecipe(Index, -1)
 
 
-def PickVertex(Indices: tuple[int, ...]) -> VertexRecipe:
+def PickVertex(Indices: tuple[int, ...]) -> VertexRecipe[EdgeRecipe]:
     return VertexRecipe(-1, tuple(PickFace(Index) for Index in Indices), (), ())
 
 

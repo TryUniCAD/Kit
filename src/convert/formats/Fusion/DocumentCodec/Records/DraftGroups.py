@@ -3,12 +3,15 @@ from copy import deepcopy as CopyValue
 from convert.formats.Fusion.DocumentCodec.Model.AuthorState import AuthorState
 from convert.formats.Fusion.DocumentCodec.Model.DraftEntity import DraftEntity
 from convert.formats.Fusion.DocumentCodec.Values.ConvertFields import ConvertFields
+from convert.formats.Fusion.DocumentCodec.Values.ConvertValue import ConvertValue
 from convert.formats.Fusion.EntityCodec.Model.EntityGroup import EntityGroup
+from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.EntityCodec.Schema.FieldSpec import FieldSpec
+from convert.formats.Fusion.EntityCodec.Schema.WireType import WireType
 
 
 def CheckFilled(
-    ClassName: str, Members: tuple[FieldSpec, ...], Fields: dict[str, object]
+    ClassName: str, Members: tuple[FieldSpec[WireType], ...], Fields: dict[str, object]
 ) -> None:
     Missing = sorted(
         Member.FieldName
@@ -21,7 +24,9 @@ def CheckFilled(
         )
 
 
-def DraftGroups(Author: AuthorState, Entity: DraftEntity) -> tuple[EntityGroup, ...]:
+def DraftGroups(
+    Author: AuthorState, Entity: DraftEntity
+) -> tuple[EntityGroup[KEntityValue], ...]:
     Lineage = Author.Lineage(Author.ByName[Entity.ClassName].Value.ClassGuid)
     KnownFields = {
         Member.FieldName
@@ -31,7 +36,7 @@ def DraftGroups(Author: AuthorState, Entity: DraftEntity) -> tuple[EntityGroup, 
     }
     if set(Entity.FieldValues) - KnownFields:
         raise ValueError("Unknown authored entity fields")
-    Groups: list[EntityGroup] = []
+    Groups: list[EntityGroup[KEntityValue]] = []
     for Schema in Lineage:
         Fields = CopyValue(Author.Defaults.get(Schema.NameValue, {}))
         for Member in Schema.Value.Members:
@@ -52,7 +57,9 @@ def DraftGroups(Author: AuthorState, Entity: DraftEntity) -> tuple[EntityGroup, 
         Groups.append(
             EntityGroup(
                 Schema.Value.ClassGuid,
-                ConvertFields(Fields, Schema.Value.Members, Author.ByGuid),
+                ConvertFields(
+                    Fields, Schema.Value.Members, Author.ByGuid, ConvertValue
+                ),
             )
         )
     return tuple(Groups)

@@ -23,6 +23,7 @@ from convert.formats.Fusion.EntityCodec.Model.ValueMap import ValueMap
 from convert.formats.Fusion.EntityCodec.Model.ValueObject import ValueObject
 from convert.formats.Fusion.EntityCodec.Model.ValuePair import ValuePair
 from convert.formats.Fusion.EntityCodec.Model.ValueSeries import ValueSeries
+from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.SegmentCodec.Features.Model.LocalRef import LocalRef
 
 KSheetsGuid = "D67E6C0E-1316-4EF5-8967-9ACE29B9DF61"
@@ -37,7 +38,7 @@ KSheetFolder = 26
 KDrawingRoot = 23
 KSourceKind = "_Component"
 
-KFilterValue = ValueObject(
+KFilterValue: ValueObject[KEntityValue] = ValueObject(
     (
         EntityGroup(
             "62B5B83C-EDDB-483D-BCBD-1DB17B8386F0",
@@ -78,7 +79,7 @@ def SheetsRecord(SheetId: str, Planned: RecordIds) -> tuple[EntityRecord, ...]:
 
 
 def SourcesRecord(Planned: RecordIds) -> tuple[EntityRecord, ...]:
-    Fields = (
+    Fields: tuple[NamedValue[KEntityValue], ...] = (
         NamedValue("DesignDocumentIdAndHashCode", ValueMap(())),
         NamedValue("designNextId", 1),
         NamedValue("lastUsedModelSource", LocalRef(Planned.Sources[-1])),
@@ -134,13 +135,13 @@ def SourceRecord(
     SourceIndex: int,
 ) -> EntityRecord:
     Owner = (Design.InstanceId, Design.ComponentId)
-    Visible = ValueMap(
+    Visible: ValueMap[KEntityValue] = ValueMap(
         (
             ValuePair(ValueSeries((*Owner, Design.BodiesId)), True),
             ValuePair(ValueSeries((*Owner, Design.SketchesId)), False),
         )
     )
-    Fields = (
+    Fields: tuple[NamedValue[KEntityValue], ...] = (
         NamedValue("animationMarker", ValuePair("", 0.0)),
         NamedValue("bodyVisMap", Visible),
         NamedValue("designAssetGuid", KZeroGuid),
@@ -163,7 +164,7 @@ def SourceRecord(
     return MakeRecord(ObjectId, (EntityGroup(KSourceGuid, Fields),))
 
 
-def SourceColumns(PropertyColumns: bool) -> ValueSeries:
+def SourceColumns(PropertyColumns: bool) -> ValueSeries[KEntityValue]:
     Columns = KPartColumns[:KBaseColumns]
     if PropertyColumns:
         Columns += tuple(sorted(KPartColumns[KBaseColumns:], key=ColumnName))

@@ -17,10 +17,11 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TreeParts import (
     NeedRecord,
     NeedTriple,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TypedBase import TypedBase
 
 
 @MakeDataClass(frozen=True, slots=True)
-class PathHead:
+class PathHead(TypedBase):
     IsNoZ: bool
     PathCurve: ChoiceValue
     PathRange: KRange
@@ -29,14 +30,14 @@ class PathHead:
 
 
 @MakeDataClass(frozen=True, slots=True)
-class LawPath:
+class LawPath(TypedBase):
     Header: PathHead
     Formula: ChoiceValue
     IsTwistPeriodic: bool
 
 
 @MakeDataClass(frozen=True, slots=True)
-class RailPath:
+class RailPath(TypedBase):
     Header: PathHead
     IsNoRail: bool
     RailCurve: ChoiceValue
@@ -46,14 +47,14 @@ class RailPath:
 
 
 @MakeDataClass(frozen=True, slots=True)
-class NormalPath:
+class NormalPath(TypedBase):
     Header: PathHead
     Surface: ChoiceValue
     TrailFlag: bool
 
 
 @MakeDataClass(frozen=True, slots=True)
-class TwistPath:
+class TwistPath(TypedBase):
     Header: PathHead
     InnerPath: "KSweepPath"
     Position: KTriple

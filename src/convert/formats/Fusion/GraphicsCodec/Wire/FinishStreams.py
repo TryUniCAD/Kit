@@ -5,11 +5,11 @@ from convert.formats.Fusion.GraphicsCodec.Model.State.GraphicsStream import (
 )
 
 if TYPE_CHECKING:
-    from convert.formats.Fusion.GraphicsCodec.Wire.MeshStreams import MeshStreams
+    from convert.formats.Fusion.GraphicsCodec.Wire.MeshState import MeshState
 
 
 def FinishStreams(
-    State: MeshStreams,
+    State: MeshState,
 ) -> tuple[tuple[GraphicsStream, ...], dict[int, bytes]]:
     Results: list[GraphicsStream] = []
     Tails: dict[int, bytes] = {} if State.IsReading else dict(State.Tails)

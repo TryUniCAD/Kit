@@ -26,7 +26,7 @@ def ReadWireType(Value: object) -> WireType:
     )
 
 
-def ReadFieldSpec(Value: object) -> FieldSpec:
+def ReadFieldSpec(Value: object) -> FieldSpec[WireType]:
     Fields = ReadObject(Value)
     return FieldSpec(
         ReadString(Fields["FieldName"]),

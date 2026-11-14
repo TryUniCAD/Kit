@@ -20,10 +20,11 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TreeParts import (
     NeedRecord,
     NeedWhole,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TypedBase import TypedBase
 
 
 @MakeDataClass(frozen=True, slots=True)
-class CurveContext:
+class CurveContext(TypedBase):
     Revision: int
     ApproxCurve: BsCurve
     FitTolerance: float
@@ -37,14 +38,14 @@ class CurveContext:
 
 
 @MakeDataClass(frozen=True, slots=True)
-class ExpParCur:
+class ExpParCur(TypedBase):
     Spline: BsCurve
     FitTolerance: float
     Surface: ChoiceValue
 
 
 @MakeDataClass(frozen=True, slots=True)
-class ExactIntCur:
+class ExactIntCur(TypedBase):
     Context: CurveContext
     RangeBounds: KRange
     LowEndForm: int
@@ -52,19 +53,19 @@ class ExactIntCur:
 
 
 @MakeDataClass(frozen=True, slots=True)
-class ParIntCur:
+class ParIntCur(TypedBase):
     Context: CurveContext
     IsSurfOne: bool
     ExtraFlag: bool
 
 
 @MakeDataClass(frozen=True, slots=True)
-class IntIntCur:
+class IntIntCur(TypedBase):
     Context: CurveContext
 
 
 @MakeDataClass(frozen=True, slots=True)
-class SpringIntCur:
+class SpringIntCur(TypedBase):
     Context: CurveContext
     SpringSide: int
 

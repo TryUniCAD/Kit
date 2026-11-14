@@ -46,13 +46,13 @@ def ConvertValue(
             else OptionalValue(ConvertValue(Value, Shape.Arguments[0], Catalog))
         )
     if KindValue in ("sequence", "set", "fixed", "pair", "map"):
-        return ConvertSeries(Value, Shape, Catalog)
+        return ConvertSeries(Value, Shape, Catalog, ConvertValue)
     if KindValue == "struct":
-        return ValueStruct(ConvertFields(Value, Shape.Members, Catalog))
+        return ValueStruct(ConvertFields(Value, Shape.Members, Catalog, ConvertValue))
     if KindValue == "sketch-tag":
-        return ValueStruct(ConvertFields(Value, KSketchFields, Catalog))
+        return ValueStruct(ConvertFields(Value, KSketchFields, Catalog, ConvertValue))
     if KindValue == "object":
-        return ValueObject(ConvertGroups(Value, Catalog))
+        return ValueObject(ConvertGroups(Value, Catalog, ConvertValue))
     if KindValue == "matrix":
         return ConvertMatrix(Value)
     if KindValue == "recipe" and isinstance(Value, RecipeValue):

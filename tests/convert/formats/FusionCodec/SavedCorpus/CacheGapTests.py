@@ -16,6 +16,7 @@ from convert.formats.Fusion.DocumentCodec.Auxiliary.Links.IsOlderUrn import (
 from convert.formats.Fusion.DocumentCodec.EmitParsed import EmitParsed
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from convert.formats.Fusion.GraphicsCodec.Model.Values.GraphicAttr import GraphicAttr
+from convert.formats.Fusion.GraphicsCodec.Model.Values.SceneSet import SceneSet
 
 KRoot = FilePath(__file__).resolve().parents[5]
 
@@ -31,13 +32,20 @@ def MemberData(Position: int) -> bytes:
     return Bundle.Documents[Position].DataValue
 
 
+def AttrName(Value: object) -> str | None:
+    if not isinstance(Value, GraphicAttr):
+        return None
+    return CastValue(GraphicAttr[SceneSet], Value).ClassName
+
+
 def ClassNames(Value: object) -> set[str]:
     Pending: list[object] = [Value]
     Results: set[str] = set()
     while Pending:
         Current = Pending.pop()
-        if isinstance(Current, GraphicAttr):
-            Results.add(Current.ClassName)
+        AttrLabel = AttrName(Current)
+        if AttrLabel is not None:
+            Results.add(AttrLabel)
         if isinstance(Current, tuple):
             Pending.extend(CastValue(tuple[object, ...], Current))
         elif IsDataClass(Current) and not isinstance(Current, type):

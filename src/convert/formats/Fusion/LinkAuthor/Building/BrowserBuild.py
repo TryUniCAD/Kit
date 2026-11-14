@@ -2,6 +2,7 @@ from convert.formats.Fusion.EntityCodec.Model.EntityRecord import EntityRecord
 from convert.formats.Fusion.EntityCodec.Model.SegmentRef import SegmentRef
 from convert.formats.Fusion.EntityCodec.Model.ValueMap import ValueMap
 from convert.formats.Fusion.EntityCodec.Model.ValuePair import ValuePair
+from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.LinkAuthor.Edits.RecordEdit import (
     AppendItems,
     ReadValue,
@@ -38,7 +39,7 @@ def EditBrowser(
     Current = ReadValue(Records, RootInfo.BrowserRoot, "passiveentries")
     if not isinstance(Current, ValueMap):
         raise ValueError("Fusion browser entry map is malformed")
-    Added = tuple(
+    Added: tuple[ValuePair[KEntityValue], ...] = tuple(
         ValuePair(
             SegmentRef(KeySet.Instance, RootInfo.DesignSegment),
             LocalRef(KeySet.EntryId),

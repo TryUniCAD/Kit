@@ -1,5 +1,6 @@
 from convert.formats.Fusion.EntityCodec.Model.OptionalValue import OptionalValue
 from convert.formats.Fusion.EntityCodec.Model.ValueObject import ValueObject
+from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.LinkAuthor.Model.RootFacts import RootFacts
 from convert.formats.Fusion.LinkAuthor.Records.LinkGuids import (
     KConstraintOperand,
@@ -16,7 +17,7 @@ from convert.formats.Fusion.LinkAuthor.Records.RecordValues import (
 from convert.formats.Fusion.SegmentCodec.Features.Model.LocalRef import LocalRef
 
 
-def JointState() -> ValueObject:
+def JointState() -> ValueObject[KEntityValue]:
     return ValueObject(
         (
             MakeGroup(
@@ -34,7 +35,7 @@ def JointState() -> ValueObject:
     )
 
 
-def FeatureState(Feature: int) -> ValueObject:
+def FeatureState(Feature: int) -> ValueObject[KEntityValue]:
     return ValueObject(
         (
             MakeGroup(KJointOccState, ("state", OptionalValue(JointState()))),
@@ -45,7 +46,7 @@ def FeatureState(Feature: int) -> ValueObject:
 
 def OperandValue(
     RootInfo: RootFacts, InstanceId: int, Alignment: tuple[float, ...] | None
-) -> ValueObject:
+) -> ValueObject[KEntityValue]:
     return ValueObject(
         (
             MakeGroup(

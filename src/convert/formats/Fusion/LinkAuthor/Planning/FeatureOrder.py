@@ -1,5 +1,6 @@
 from convert.formats.Fusion.EntityCodec.Model.ValueMap import ValueMap
 from convert.formats.Fusion.EntityCodec.Model.ValuePair import ValuePair
+from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.LinkAuthor.Model.AssemblyPlan import AssemblyPlan
 
 KPlaceMeta = "DcXRefPCIFeatureMetaType"
@@ -31,7 +32,7 @@ def NodeOrder(Scheme: AssemblyPlan) -> tuple[int, ...]:
     )
 
 
-def IndexMap(Scheme: AssemblyPlan) -> ValueMap:
+def IndexMap(Scheme: AssemblyPlan) -> ValueMap[KEntityValue]:
     Counts = (
         (KPlaceMeta, len(Scheme.Places)),
         (KPinMeta, sum(1 for Pinning in Scheme.Pins if Pinning is not None)),

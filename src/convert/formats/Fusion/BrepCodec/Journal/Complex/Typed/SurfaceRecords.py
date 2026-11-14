@@ -17,10 +17,11 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TreeParts import (
     NeedSheet,
     NeedWhole,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TypedBase import TypedBase
 
 
 @MakeDataClass(frozen=True, slots=True)
-class SplineCommon:
+class SplineCommon(TypedBase):
     ApproxSurface: BsSurface
     FitTolerance: float
     FirstBreaks: KBreaks
@@ -28,7 +29,7 @@ class SplineCommon:
 
 
 @MakeDataClass(frozen=True, slots=True)
-class ExactSplSur:
+class ExactSplSur(TypedBase):
     Revision: int
     Common: SplineCommon
     FirstRange: KRange

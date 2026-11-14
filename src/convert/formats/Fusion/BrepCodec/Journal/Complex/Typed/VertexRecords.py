@@ -17,10 +17,11 @@ from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TreeParts import (
     NeedTriple,
     NeedWhole,
 )
+from convert.formats.Fusion.BrepCodec.Journal.Complex.Typed.TypedBase import TypedBase
 
 
 @MakeDataClass(frozen=True, slots=True)
-class VblBoundary:
+class VblBoundary(TypedBase):
     IsCross: bool
     MagicVector: KTriple
     FirstSmooth: bool
@@ -33,7 +34,7 @@ class VblBoundary:
 
 
 @MakeDataClass(frozen=True, slots=True)
-class VblSurf:
+class VblSurf(TypedBase):
     Revision: int
     Boundaries: tuple[VblBoundary, ...]
     TrailInt: int

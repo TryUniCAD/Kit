@@ -111,7 +111,8 @@ KRecordTypes = (
 
 
 class RecordBuilder(Protocol):
-    def __call__(self, *Parts: KGrammarValue) -> KTypedRecord: ...
+    def __call__(self, *Parts: KGrammarValue) -> KTypedRecord:
+        raise TypeError("a concrete typed subtype record constructor is required")
 
 
 def RecordParts(Value: KTypedRecord) -> tuple[KGrammarValue, ...]:

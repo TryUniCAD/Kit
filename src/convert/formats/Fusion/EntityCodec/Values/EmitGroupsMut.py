@@ -1,4 +1,5 @@
 from convert.formats.Fusion.EntityCodec.Model.EntityGroup import EntityGroup
+from convert.formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.formats.Fusion.EntityCodec.Schema.ClassSchema import ClassSchema
 from convert.formats.Fusion.EntityCodec.Schema.EntityCatalog import EntityCatalog
 from convert.formats.Fusion.EntityCodec.Values.EmitFieldsMut import EmitFieldsMut
@@ -7,7 +8,7 @@ from convert.formats.Fusion.SegmentCodec.Features.Binary.FeatureSink import Feat
 
 
 def EmitGroupsMut(
-    Values: tuple[EntityGroup, ...],
+    Values: tuple[EntityGroup[KEntityValue], ...],
     Groups: tuple[ClassSchema, ...],
     Catalog: EntityCatalog,
     Depth: int,
