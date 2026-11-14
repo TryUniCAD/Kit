@@ -536,6 +536,22 @@ The face and shell unstream functions do not call `ReadObject` directly. Only
 references are therefore read by a higher-level object reader that is not yet located, and that
 reader is what builds the table the body's domain references resolve against.
 
+### The linked-object list is an array of u32 tags
+
+`CATCGMStreamImpl::ReadListOfLinkedObjects` at `0x717f0` reads a `u32` count with
+`CATMathStreamImpl::ReadULong`, then an array of `u32` values with the array overload at
+`0x1801e3b50`, then for each value calls `CATCGMHashTableBase::KeyLocate` at `0x1801e5278` and
+appends the resolved object with `CATListPtrCATSurface::Append` at `0x180071ac2`.
+
+So the face's linked-object list is an array of `u32` tags resolved through the object hash table,
+and the resolved objects are surfaces. The face record therefore contains a `u32` count followed by
+that many `u32` surface tags.
+
+The surface record's three-byte tail values `445, 449, 476, 495, 499` in `Copper_Washer` do not
+appear as `u32` little-endian anywhere in any stream except inside the surface bounds floats, at
+`SurfacicReps` offsets 87, 160, 209, 258, and 331. So the tail is not the tag that the face record
+stores, and the tag array is not a plain `u32` array of those values.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
