@@ -32,6 +32,14 @@ reported:
 OPENED=True REBUILT=True BODIES=1 TITLE=OracleV8Part
 ```
 
+Three more rewritten V8 parts were opened individually with the same script:
+
+```
+part001 (socket head screw) OPENED=True REBUILT=True BODIES=1
+part010 (connecting rod)    OPENED=True REBUILT=True BODIES=1
+part015 (crankshaft)        OPENED=True REBUILT=True BODIES=1
+```
+
 ## Triangle depth edit
 
 `OracleTriangle.SLDPRT` was generated from a three-line 42 x 31 triangle with 13 mm depth.

@@ -34,4 +34,6 @@ run over the same directory produced 57 of 57 parts with `native-exact` compatib
 self-contained output, and a byte-identical second write in 19.4 seconds for the first
 pass. The CI job `Exercise native file reading and writing` runs the case against the
 tracked files. A separate manual oracle run opened the rewritten `BLOQUE V8.SLDPRT` in
-SOLIDWORKS, rebuilt it, and reported `OPENED=True REBUILT=True BODIES=1`.
+SOLIDWORKS, rebuilt it, and reported `OPENED=True REBUILT=True BODIES=1`. The socket
+head screw, connecting rod, and crankshaft rewrites were opened the same way with the same
+result.
