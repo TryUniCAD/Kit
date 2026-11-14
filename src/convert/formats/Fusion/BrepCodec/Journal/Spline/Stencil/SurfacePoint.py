@@ -10,7 +10,6 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.OrdinarySurfaceSamp
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.SplineFrame import (
     BasisLevel,
     BasisSlope,
-    FindSpan,
     MassFrame,
 )
 
@@ -19,12 +18,12 @@ def SurfaceSample(
     Surface: NubsSurface,
     KnotsU: list[float],
     KnotsV: list[float],
+    SpanU: int,
+    SpanV: int,
     ParamU: float,
     ParamV: float,
 ) -> tuple[KJournalVector, KJournalVector, KJournalVector]:
     Width = len(KnotsU) - Surface.DegreeU - 1
-    SpanU = FindSpan(KnotsU, Surface.DegreeU, ParamU)
-    SpanV = FindSpan(KnotsV, Surface.DegreeV, ParamV)
     ValuesU = BasisLevel(KnotsU, SpanU, Surface.DegreeU, ParamU)
     SlopesU = BasisSlope(KnotsU, SpanU, Surface.DegreeU, ParamU)
     ValuesV = BasisLevel(KnotsV, SpanV, Surface.DegreeV, ParamV)

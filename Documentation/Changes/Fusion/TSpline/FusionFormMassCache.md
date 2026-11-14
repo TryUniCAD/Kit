@@ -8,7 +8,8 @@ Area, volume, first moments, second moments, inertia, off-diagonal products, and
 
 `FormCache` uses sixteen-point Gaussian quadrature on every bicubic knot span.
 It applies the divergence theorem to the surface position and the cross product of the partial derivatives.
-`SurfaceSample` hoists expanded knot vectors and evaluates only the local pole window for each sample.
+`SurfaceMass` hoists expanded knot vectors and maps each nonzero interval to its basis span once.
+`SurfaceSample` evaluates only the local pole window for each sample.
 The [local sampling gotcha](../../../Gotchas/Conversion/Fusion/TSpline/FormBodies/MassSamplingUsesLocalPoles.md) records why full-net evaluators are unsuitable inside this loop.
 Origin-based second moments produce inertia, while the first moments separately produce the center of mass.
 Translation terms therefore remain in the tensor and in its off-diagonal fields.

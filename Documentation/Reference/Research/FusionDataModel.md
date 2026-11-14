@@ -1441,7 +1441,7 @@ Periodic surfaces retain their full domains.
 The cache's revision id is the new document revision, not a neutral zero identifier or a saved vendor value.
 The [mass-cache change](../../Changes/Fusion/TSpline/FusionFormMassCache.md) gives the measured initial and edited properties. The [field evidence](../../../re/Fusion/Reconstruction/FormDocuments/General/CapMassCacheModel.json) labels every cache value, its derivation, and its confidence status.
 Native API inertia is mass-weighted by each body's material density. Comparisons across different materials divide the six returned moments by density before checking the volumetric tensor.
-Mass integration hoists expanded knot vectors and evaluates only local spline poles per sample; full-surface validation occurs once before emission.
+Mass integration hoists expanded knot vectors, computes nonzero basis-span indices once, and evaluates only local spline poles per sample; full-surface validation occurs once before emission.
 
 ### Converted BRep grammar
 
