@@ -78,17 +78,19 @@ rw_var_blank.prt    bodies 0
   so for these two families NX treats the values as labels and an emitter may assign
   its own.
 
-- The `02 02 41 4d` instance-id family does not behave the same way. It is a fixed 21
-  byte frame followed by one to three groups of one tag byte and seven value bytes,
-  and the group is checked as a whole:
+- The `02 02 41 4d` instance-id family is checked across records rather than within
+  one. Changing a value byte in one record loads, replacing the whole value run in one
+  record is refused, and replacing a value consistently at every one of its
+  occurrences loads:
 
   ```text
-  tag byte changed                      OPEN_FAILED
-  a single value byte changed           loads
-  the value run replaced with 0x11      OPEN_FAILED
+  a5 00 f7 77 4c 1f c5  ->  11 22 33 44 55 66 77   at 8 places   loads
+  a4 a0 17 42 b2 81 da  ->  88 99 aa bb cc dd ee   at 4 places   loads
   ```
 
-  so it still needs the checked aggregate decoded, and it remains source-carried.
+  so the values are shared references and relabelling is allowed; what is missing is
+  the padding rule, since the tail is 6, 13 and 27 bytes for zero, one and three
+  values and the zero padding moves around the value list.
 
 - The remaining 122 records across the other families are not decoded.
 - `RewriteRecords` has no unit test: it needs a whole section 0 to exercise, and the

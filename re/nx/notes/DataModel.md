@@ -690,36 +690,40 @@ so they are scalar values rather than structures, and invalid ones are tolerated
 That is the whole extent of what section 0 will accept: 209 of 214 records must be
 correct, which is 97.7 percent of the graph.
 
-### The instance-id family resists substitution
+### The instance-id family is checked across records, not within one
 
 The `02 02 41 4d` family (14 records, 27 / 34 / 48 bytes) has a fixed 21 byte frame
-`02 02 <class> 4d 00 f0 05 02 03 01 03 01 c0 45 04 00 80 86 02 00 01`, then tagged
-groups, then `00 01 00`:
+`02 02 <class> 4d 00 f0 05 02 03 01 03 01 c0 45 04 00 80 86 02 00 01`, then a tail of
+tagged values and zero padding, ending `01 00`:
 
 ```text
-27 bytes   frame + 00 00 00                      + 00 01 00
-34 bytes   frame + 30 <7 bytes>                  + 00 01 00
-48 bytes   frame + 30 <7> b0 <7> 30 <7>          + 00 01 00
+27 bytes  tail 00 00 00 00 01 00
+34 bytes  tail 00 00 30 a4 a0 17 42 b2 81 da 00 01 00
+34 bytes  tail 30 a5 00 f7 77 4c 1f c5 00 00 00 01 00
+48 bytes  tail 30 9f 89 af bb 0b 42 a7  b0 99 aa b3 11 01 0c 47  30 90 78 58 61 56 b4 b8  00 01 00
+48 bytes  tail 30 98 13 b6 4b b3 5b 12  b0 98 13 b6 4b b3 5b 12  30 98 13 b6 4b b3 5b 12  00 01 00
 ```
 
-so a group is one tag byte and seven value bytes, and the record carries one to three
-of them.
-
-Single byte changes and wholesale changes behave differently:
+Mutating one record fails, but relabelling a value everywhere succeeds:
 
 ```text
-tag byte 21 (0x30 -> 0x31)                    OPEN_FAILED
-value byte 22, 25, 28 or 29 changed           loads
-value bytes 22..30 all set to 0x11            OPEN_FAILED
-bytes 22..28 filled, 29 and 30 preserved      OPEN_FAILED
-byte 30 (0x00 -> 0x11)                        OPEN_FAILED
+one value byte changed                        loads
+the value run replaced inside one record      OPEN_FAILED
+every occurrence of a5 00 f7 77 4c 1f c5
+  replaced by 11 22 33 44 55 66 77 (8 places)  loads
+every occurrence of a4 a0 17 42 b2 81 da
+  replaced by 88 99 aa bb cc dd ee (4 places)  loads
 ```
 
-Individual value bytes are tolerated while replacing the run is not, so the group is
-checked as an aggregate rather than field by field, and the tag byte and the byte
-before `00 01 00` are structural. That makes this family the one that does not reduce
-to a simple grammar like the attribute and pair families did, and it is still carried
-from the source.
+So the previous reading, that the group is validated as an aggregate, was wrong. The
+values are shared references: replacing them in one place leaves stale duplicates
+elsewhere. Replaced consistently, NX accepts any value, which is the same conclusion
+the pair family gave.
+
+What blocks emission is the padding rule. Tail length is 6, 13 and 27 bytes for zero,
+one and three values, which is 7 bytes per value over a 6 byte base, but the zero
+padding moves between the front and the back of the value list across records, so the
+boundary cannot yet be placed reliably.
 
 ### The decoded families are now generated, not copied
 
