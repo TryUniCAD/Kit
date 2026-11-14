@@ -7735,11 +7735,23 @@ def FreecadSingle(
         or Definition.second_end_condition is not None
         or Definition.up_to_reference
         or Definition.second_up_to_reference
-        or (not IsParamValueA(Definition.second_length, 10.0, ValueKind.LENGTH))
-        or (not IsParamValueA(Definition.offset, 0.0, ValueKind.LENGTH))
-        or (not IsParamValueA(Definition.second_offset, 0.0, ValueKind.LENGTH))
-        or (not IsParamValueA(Definition.draft_angle, 0.0, ValueKind.ANGLE))
-        or (not IsParamValueA(Definition.second_draft_angle, 0.0, ValueKind.ANGLE))
+        or (
+            not IsParamValueA(
+                Definition.second_length, 10.0, ValueKind.LENGTH, Exact=True
+            )
+        )
+        or (not IsParamValueA(Definition.offset, 0.0, ValueKind.LENGTH, Exact=True))
+        or (
+            not IsParamValueA(
+                Definition.second_offset, 0.0, ValueKind.LENGTH, Exact=True
+            )
+        )
+        or (not IsParamValueA(Definition.draft_angle, 0.0, ValueKind.ANGLE, Exact=True))
+        or (
+            not IsParamValueA(
+                Definition.second_draft_angle, 0.0, ValueKind.ANGLE, Exact=True
+            )
+        )
         or (Definition.direction is None)
         or (SupportPlaneValue is None)
         or (
@@ -7807,16 +7819,9 @@ def FreecadSingle(
         return None
     if any(
         (
-            not IsFreecadParam(Parameters[PathValue], KindValue, Value)
+            not IsFreecadParam(Parameters[PathValue], KindValue, Value, Exact=True)
             for PathValue, (KindValue, Value) in Expected.items()
         )
-    ):
-        return None
-    ToleranceValue = Parameters["FuzzyTolerance"].value.value
-    if (
-        isinstance(ToleranceValue, bool)
-        or not isinstance(ToleranceValue, (int, float))
-        or float(ToleranceValue) != -1.0
     ):
         return None
     return Dimension
@@ -7945,6 +7950,7 @@ def IsFreecadParam(
     Param: Parameter,
     KindValue: ValueKind,
     Expected: object,
+    Exact: bool = False,
 ) -> bool:
     if Expected is not None and not isinstance(Expected, (str, int, float, bool)):
         return False
@@ -7953,10 +7959,11 @@ def IsFreecadParam(
         return False
     if Expected is None:
         return isinstance(Value.value, str)
+    Tolerance = 0.0 if Exact else 1e-10
     if KindValue is ValueKind.LENGTH:
         Dimension = ParamDimension(Param)
         return Dimension is not None and MathValue.isclose(
-            Dimension.value_mm, float(Expected), rel_tol=0.0, abs_tol=1e-10
+            Dimension.value_mm, float(Expected), rel_tol=0.0, abs_tol=Tolerance
         )
     if KindValue in {ValueKind.NUMBER, ValueKind.ANGLE}:
         return (
@@ -7964,7 +7971,7 @@ def IsFreecadParam(
             and isinstance(Value.value, (int, float))
             and MathValue.isfinite(float(Value.value))
             and MathValue.isclose(
-                float(Value.value), float(Expected), rel_tol=0.0, abs_tol=1e-10
+                float(Value.value), float(Expected), rel_tol=0.0, abs_tol=Tolerance
             )
         )
     return Value.value == Expected
@@ -7972,20 +7979,26 @@ def IsFreecadParam(
 
 # this definition exists because focused behavior needs one stable owner
 def IsParamValueA(
-    Value: ParamValue | None, Expected: float, KindValue: ValueKind
+    Value: ParamValue | None,
+    Expected: float,
+    KindValue: ValueKind,
+    Exact: bool = False,
 ) -> bool:
     if Value is None or Value.kind is not KindValue:
         return False
+    Tolerance = 0.0 if Exact else 1e-10
     Dimension = ParamDimension(Param("", "D1", Value))
     if KindValue is ValueKind.LENGTH:
         return Dimension is not None and MathValue.isclose(
-            Dimension.value_mm, Expected, rel_tol=0.0, abs_tol=1e-10
+            Dimension.value_mm, Expected, rel_tol=0.0, abs_tol=Tolerance
         )
     return (
         not isinstance(Value.value, bool)
         and isinstance(Value.value, (int, float))
         and MathValue.isfinite(float(Value.value))
-        and MathValue.isclose(float(Value.value), Expected, rel_tol=0.0, abs_tol=1e-10)
+        and MathValue.isclose(
+            float(Value.value), Expected, rel_tol=0.0, abs_tol=Tolerance
+        )
     )
 
 
