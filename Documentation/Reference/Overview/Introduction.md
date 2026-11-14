@@ -40,7 +40,7 @@ It does not establish that every reader populates it or every writer emits it na
 ## Format selection
 
 Use [the format procedure](../../Tasks/SelectFormat.md) to inspect the installed catalogue.
-SOLIDWORKS, FreeCAD, CATIA, and interchange JSON have registered adapters.
+SOLIDWORKS, FreeCAD, CATIA, Creo, and interchange JSON have registered adapters.
 The [Fusion public adapter](../../Changes/Fusion/Adapter/FusionPublicAdapter.md) supports qualified authored parameter, circle, rectangle, cylinder, cuboid, and frustum profiles. The earlier partial reader remains an explicit `strict=False` option.
 Adapter registration is not a general support guarantee.
 

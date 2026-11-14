@@ -41,6 +41,7 @@ If more than one writer matches a stream, supply `destination_format` explicitly
 | `solidworks.sldasm` | `.SLDASM`                 | [SOLIDWORKS adapter](../Reference/Adapters/Solidworks.md) |
 | `freecad.fcstd`     | `.FCStd`                  | [FreeCAD adapter](../Reference/Adapters/Freecad.md)       |
 | `catia.v5`          | `.CATPart`, `.CATProduct` | [CATIA adapter](../Reference/Adapters/Catia.md)           |
+| `creo.prt`          | `.prt`                    | [Creo adapter](../Reference/Adapters/Creo.md)             |
 | `interchange.json`  | `.json`                   | [JSON adapter](../Reference/Adapters/Json.md)             |
 
 The discovery result from the installed revision takes precedence over this table.
