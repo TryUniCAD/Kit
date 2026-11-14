@@ -7719,8 +7719,7 @@ def FreecadSingle(
     DocValue: CadDocument, Sketch: Sketch, Feature: FeatureStep
 ) -> WriteDimension | None:
     if (
-        DocValue.source.format_id.casefold() != "freecad.fcstd"
-        or DocValue.assembly is not None
+        DocValue.assembly is not None
         or DocValue.selections
         or (len(DocValue.sketches) != 1)
         or (
@@ -9121,7 +9120,11 @@ def NativeEnvelope(
     AnnotationViewVariant: str = "default",
     Generation: int = 18000,
 ) -> Mapping[str, bytes]:
-    if Generation not in {18000, KModernGeneration} or DocValue.assembly is not None and Generation == KModernGeneration:
+    if (
+        Generation not in {18000, KModernGeneration}
+        or DocValue.assembly is not None
+        and Generation == KModernGeneration
+    ):
         raise SldprtFormatError(f"unsupported native document generation {Generation}")
     ConfigName = next(
         (Config.name for Config in DocValue.configurations if Config.active),
@@ -9743,9 +9746,7 @@ def Biography(
         Output.extend(Serialized(PathValue))
         Output.extend(Struct.pack("<III", 3, 1162821632, 5))
     Output.extend(
-        Struct.pack(
-            "<9I", Generation, 2025268, 1, 9, ReleaseNumber, 2, 10, 0, 26200
-        )
+        Struct.pack("<9I", Generation, 2025268, 1, 9, ReleaseNumber, 2, 10, 0, 26200)
     )
     Output.extend(Serialized(""))
     Output.extend(Struct.pack("<HQI", 6153, Filetime, 1806331904))
@@ -14756,7 +14757,9 @@ Vector2 = VectorTwo
 _SKETCH_PLANE_ID_RELATIVE = KSketchPlaneIdRelative  # lgtm[py/unused-global-variable]
 
 # this binding exists because shared behavior needs one stable value
-_SKETCH_PLANE_REFERENCE_PREFIX = KSketchPlaneRefPrefix  # lgtm[py/unused-global-variable]
+_SKETCH_PLANE_REFERENCE_PREFIX = (
+    KSketchPlaneRefPrefix  # lgtm[py/unused-global-variable]
+)
 
 # this binding exists because shared behavior needs one stable value
 _SKETCH_PLANE_REFERENCE_TAG = KSketchPlaneRefTag  # lgtm[py/unused-global-variable]
@@ -14765,13 +14768,17 @@ _SKETCH_PLANE_REFERENCE_TAG = KSketchPlaneRefTag  # lgtm[py/unused-global-variab
 _SKETCH_PLANE_SCAN_BYTES = KSketchPlaneScanBytes  # lgtm[py/unused-global-variable]
 
 # this binding exists because shared behavior needs one stable value
-_SOLIDWORKS_CONFIGURATION_FLAGS = KSolidworksConfigFlags  # lgtm[py/unused-global-variable]
+_SOLIDWORKS_CONFIGURATION_FLAGS = (
+    KSolidworksConfigFlags  # lgtm[py/unused-global-variable]
+)
 
 # this binding exists because shared behavior needs one stable value
 _SOLIDWORKS_XML_NAMESPACE = KSolidworksXmlNamespace  # lgtm[py/unused-global-variable]
 
 # this binding exists because shared behavior needs one stable value
-_SURFACE_EXTRUSION_FEATURE_TYPES = KSurfaceExtrusionFeature  # lgtm[py/unused-global-variable]
+_SURFACE_EXTRUSION_FEATURE_TYPES = (
+    KSurfaceExtrusionFeature  # lgtm[py/unused-global-variable]
+)
 
 # this binding exists because shared behavior needs one stable value
 _SYSTEM_OBJECT_IDS = KSystemObjectIds  # lgtm[py/unused-global-variable]
