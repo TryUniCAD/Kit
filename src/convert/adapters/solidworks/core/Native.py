@@ -3760,22 +3760,53 @@ def PrincipalPlaneB(Planes: tuple[SupportPlane, ...]) -> dict[str, int]:
     for Plane in Planes:
         Transform = Plane.transform
         OriginValue = (Transform.origin.x, Transform.origin.y, Transform.origin.z)
-        UValue = (Transform.x_axis.x, Transform.x_axis.y, Transform.x_axis.z)
-        VValue = (Transform.y_axis.x, Transform.y_axis.y, Transform.y_axis.z)
         NormalValue = (Transform.z_axis.x, Transform.z_axis.y, Transform.z_axis.z)
         for ObjectId, *Frame in Frames:
             if ObjectId in Claimed:
                 continue
-            if (
-                all((ItemData == 0.0 for ItemData in OriginValue))
-                and UValue == Frame[1]
-                and VValue == Frame[2]
-                and NormalValue == Frame[3]
+            TargetNormal = Frame[3]
+            if all((ItemData == 0.0 for ItemData in OriginValue)) and (
+                abs(
+                    sum(
+                        (
+                            LeftValue * RightValue
+                            for LeftValue, RightValue in zip(
+                                NormalValue, TargetNormal, strict=True
+                            )
+                        )
+                    )
+                )
+                == 1.0
             ):
                 Result[Plane.id] = ObjectId
                 Claimed.add(ObjectId)
                 break
     return Result
+
+
+def IsExactFrame(Plane: SupportPlane, ObjectId: int) -> bool:
+    Frames = {
+        2: ((0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 0.0, 1.0)),
+        3: ((0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, -1.0), (0.0, 1.0, 0.0)),
+        4: ((0.0, 0.0, 0.0), (0.0, 0.0, -1.0), (0.0, 1.0, 0.0), (1.0, 0.0, 0.0)),
+    }
+    Frame = Frames.get(ObjectId)
+    if Frame is None:
+        return False
+    Transform = Plane.transform
+    return (
+        (Transform.origin.x, Transform.origin.y, Transform.origin.z) == Frame[0]
+        and (Transform.x_axis.x, Transform.x_axis.y, Transform.x_axis.z) == Frame[1]
+        and (Transform.y_axis.x, Transform.y_axis.y, Transform.y_axis.z) == Frame[2]
+        and (Transform.z_axis.x, Transform.z_axis.y, Transform.z_axis.z) == Frame[3]
+    )
+
+
+def HasExactPlanes(Planes: tuple[SupportPlane, ...]) -> bool:
+    ObjectIds = PrincipalPlaneB(Planes)
+    return len(ObjectIds) == len(Planes) and all(
+        IsExactFrame(Plane, ObjectIds[Plane.id]) for Plane in Planes
+    )
 
 
 # focused owner exists because vendor metadata needs string keys before nested values can cross the parser boundary
@@ -4190,7 +4221,7 @@ def FreeCadBoxMut(
     if (
         DocData.source.format_id.casefold() != "freecad.fcstd"
         or DocData.assembly is not None
-        or (len(PrincipalPlaneB(DocData.support_planes)) != len(DocData.support_planes))
+        or not HasExactPlanes(DocData.support_planes)
         or DocData.sketches
         or DocData.selections
         or (len(DocData.bodies) != 1)
