@@ -199,6 +199,38 @@ The head region `0..29364` has a longest plausible `f32` run of 64 (little-endia
 (big-endian), far short of the 2666 tessellation points. The `SurfacicReps` tail has a longest
 run of 47. The tessellation coordinates are therefore compressed, not plain floats.
 
+## `SurfacicReps` is the visualization surface table, not the B-rep surface table
+
+The five failing parts are not a decoding bug in the surface parser. They fail because the reader
+is reading the wrong stream.
+
+Two independent checks establish this.
+
+First, the stream inventory is identical for every part in the corpus. All 27 parts carry the same
+twelve streams (`MAIN`, `Describe` twice, `MainDataStream` three times, `Header` twice,
+`SceneGraph` twice, `SurfacicReps`). The five failing parts (`4784`, `4876`, `4876_1`,
+`Pedal_Body`, `Reservoir`) have exactly the same stream set as a passing part such as
+`BRK_PRS_Sensor`. A missing or extra stream is therefore not the cause.
+
+Second, `SurfacicReps` is a child of the `SceneGraph` stream, and the literal stream name appears
+only in visualization modules. The `SceneGraph` table of contents lists `SurfacicReps`,
+`MainDataStream`, and `SceneGraph`. Searching the installed CATIA `B32\win_b64\code\bin` tree for
+the string `SurfacicReps` returns only `CATPolyhedralVisuOperators.dll`, `CATTlgUIUtility.dll`,
+`CATVisDmuStream.dll`, `CATVisualization.dll`, and `CATViz.dll`. No geometry or B-rep module
+references it. `CATGeometricObjectsCGM.dll`, `CATGeometricObjects.dll`,
+`CATTopologicalObjects.dll`, and `CATGeometricObjectsCATIA.dll` do not contain the string.
+
+So `SurfacicReps` is the visualization representation. For simple parts the visualization patch
+count happens to equal the face count, which is why 22 parts decode. For parts whose visualization
+merges or splits patches relative to the B-rep faces, the counts diverge and the reader rejects the
+part.
+
+The B-rep surface table must therefore live in the B-rep `MainDataStream` (or another B-rep
+stream), not in `SurfacicReps`. The region `12376..18807` of `Reservoir` `MainDataStream` is not a
+length-prefixed record table: reading it as `<u8 type> <u8 flag> <u32 len> <payload>` yields a
+2850-byte first record and then a zero-length record, and the bytes at `15232` are high-entropy
+bit-packed data, not a record header.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
