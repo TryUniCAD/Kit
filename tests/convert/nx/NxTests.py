@@ -890,7 +890,11 @@ def TestNxSlot() -> None:
     assert Object[14:17] == b"\x50\x00\x00"
     assert Object[17] == 0xFF
     assert ReadSlotHandle(Object) == 0x0050
-    for Guard in (lambda: SlotObject(-1), lambda: SlotObject(0x1000000)):
+    Guards: tuple[Callable[[], object], ...] = (
+        lambda: SlotObject(-1),
+        lambda: SlotObject(0x1000000),
+    )
+    for Guard in Guards:
         try:
             _ = Guard()
         except ValueError:
