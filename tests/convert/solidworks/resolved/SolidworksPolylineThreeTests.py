@@ -422,11 +422,13 @@ def TestTriFlag(TmpPath: FilePath) -> None:
         Sketch = ReplaceData(
             SourceDoc.sketches[0],
             entities=tuple(
-                ReplaceData(
-                    ItemData, fixed=FixedValue, construction=ConstructionValue
+                (
+                    ReplaceData(
+                        ItemData, fixed=FixedValue, construction=ConstructionValue
+                    )
+                    if Position == 0
+                    else ItemData
                 )
-                if Position == 0
-                else ItemData
                 for Position, ItemData in enumerate(SourceDoc.sketches[0].entities)
             ),
         )

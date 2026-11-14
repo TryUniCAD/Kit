@@ -3760,23 +3760,17 @@ def PrincipalPlaneB(Planes: tuple[SupportPlane, ...]) -> dict[str, int]:
     for Plane in Planes:
         Transform = Plane.transform
         OriginValue = (Transform.origin.x, Transform.origin.y, Transform.origin.z)
+        UValue = (Transform.x_axis.x, Transform.x_axis.y, Transform.x_axis.z)
+        VValue = (Transform.y_axis.x, Transform.y_axis.y, Transform.y_axis.z)
         NormalValue = (Transform.z_axis.x, Transform.z_axis.y, Transform.z_axis.z)
         for ObjectId, *Frame in Frames:
             if ObjectId in Claimed:
                 continue
-            TargetNormal = Frame[3]
-            if all((ItemData == 0.0 for ItemData in OriginValue)) and (
-                abs(
-                    sum(
-                        (
-                            LeftValue * RightValue
-                            for LeftValue, RightValue in zip(
-                                NormalValue, TargetNormal, strict=True
-                            )
-                        )
-                    )
-                )
-                == 1.0
+            if (
+                all((ItemData == 0.0 for ItemData in OriginValue))
+                and UValue == Frame[1]
+                and VValue == Frame[2]
+                and NormalValue == Frame[3]
             ):
                 Result[Plane.id] = ObjectId
                 Claimed.add(ObjectId)

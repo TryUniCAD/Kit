@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from dataclasses import replace as ReplaceData
 from pathlib import Path as FilePath
 
 import pytest as PytestLib
@@ -13,6 +14,7 @@ from convert.adapters.solidworks.container.Format import (
     KEYWORDS_STREAM as KeyStream,
     RESOLVED_FEATURES_STREAM as ResolvedStream,
 )
+from interchange import Transform, Vector3 as VectorThree
 from convert.adapters.solidworks.core.Native import (
     HasVendorPartEncoding,
     decode_native_model as DecodeNativeModel,
@@ -86,6 +88,30 @@ def TestAddBox(TmpPath: FilePath) -> None:
         (0.0, 0.0, 20.0, 30.0)
     )
     assert NativeData.operations[0].length_mm == PytestLib.approx(10.0)
+
+
+# a rotated principal basis must not collapse to canonical axes
+@PytestLib.mark.skipif(not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable")
+def TestBoxPlane(TmpPath: FilePath) -> None:
+    SourcePath = KAddBoxRoot / "AdditiveBox-1.1.4.FCStd"
+    DocumentValue = OpenDocument(SourcePath)
+    PlaneValue = DocumentValue.support_planes[0]
+    Rotated = ReplaceData(
+        PlaneValue,
+        transform=Transform(
+            origin=PlaneValue.transform.origin,
+            x_axis=VectorThree(0.0, 1.0, 0.0),
+            y_axis=VectorThree(-1.0, 0.0, 0.0),
+            z_axis=VectorThree(0.0, 0.0, 1.0),
+        ),
+    )
+    Changed = ReplaceData(
+        DocumentValue,
+        support_planes=(Rotated, *DocumentValue.support_planes[1:]),
+    )
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(ApplicationUsabilityError):
+        _ = WriteDocument(Changed, TmpPath / "RotatedBox.SLDPRT", allow_carrier=False)
 
 
 # refine false changes authored cleanup so the older schema must decline
