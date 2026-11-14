@@ -32,6 +32,12 @@ The root is the directory above a `Methods` or `Owners` directory, or else the d
 | A count fell or a root is gone                     |           1 | Lowered with `--update-baseline`       |
 | A path is missing or the baseline cannot be parsed |           2 | None                                   |
 
+The check compares a baseline entry for a fall only when the entry's root is inside a scanned directory.
+An update keeps every other entry unchanged.
+A scan of single files or of a directory below a root therefore cannot lower or remove that root's entry.
+The check resolves each path, so the same file given twice is counted once.
+An unknown rule code in the baseline is an input error.
+
 At introduction the check found 185,090 recorded field operations and 43 re-emission calls in 43 program roots.
 
 ## Usage

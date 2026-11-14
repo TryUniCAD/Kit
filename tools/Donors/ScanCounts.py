@@ -5,12 +5,12 @@ from pathlib import PurePosixPath
 
 from tools.Donors.CountSource import CountSource
 from tools.Donors.FindRoot import FindRoot
-from tools.Donors.ListSources import ListSources, ShowPath
-from tools.Donors.ReplayCount import ReplayCount
+from tools.Donors.ListSources import ListSources
 from tools.Donors.ReplayRules import KFieldRule, KReplayRule
+from tools.Donors.ShowPath import ShowPath
 
 
-def ScanCounts(PathValues: Sequence[str]) -> list[ReplayCount]:
+def ScanCounts(PathValues: Sequence[str]) -> dict[tuple[str, str], int]:
     CountMap: dict[tuple[str, str], int] = {}
     for SourcePath in ListSources(PathValues):
         SourceText = SourcePath.read_text(encoding="utf-8")
@@ -23,7 +23,4 @@ def ScanCounts(PathValues: Sequence[str]) -> list[ReplayCount]:
             if CountValue:
                 KeyPair = (RootText, RuleCode)
                 CountMap[KeyPair] = CountMap.get(KeyPair, 0) + CountValue
-    return sorted(
-        ReplayCount(KeyPair[0], KeyPair[1], CountValue)
-        for KeyPair, CountValue in CountMap.items()
-    )
+    return CountMap

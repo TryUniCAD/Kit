@@ -28,6 +28,8 @@ KProgramText = "EncodedData = ReplayResolved((), 0)\n"
 
 KBalancedText = "src/family\tREP001\t2\nsrc/family\tREP002\t1\n"
 
+KOtherText = "src/other\tREP001\t2\n"
+
 
 def WriteTree(FolderPath: FilePath, TableText: str, BaselineText: str) -> None:
     MethodPath = FolderPath / "src" / "family" / "Methods" / "Table.py"
@@ -39,8 +41,14 @@ def WriteTree(FolderPath: FilePath, TableText: str, BaselineText: str) -> None:
     _ = BaselinePath.write_text(BaselineText, encoding="utf-8")
 
 
+def WriteOther(FolderPath: FilePath) -> None:
+    OtherPath = FolderPath / "src" / "other" / "Methods" / "Table.py"
+    OtherPath.parent.mkdir(parents=True)
+    _ = OtherPath.write_text(KTableText, encoding="utf-8")
+
+
 def RunRatchet(
-    FolderPath: FilePath, *ExtraArgs: str
+    FolderPath: FilePath, *ArgValues: str
 ) -> Subprocess.CompletedProcess[str]:
     EnvValues = {**OsLib.environ, "PYTHONPATH": str(KRepoRoot)}
     return Subprocess.run(
@@ -50,8 +58,7 @@ def RunRatchet(
             "tools.Donors.CheckReplays",
             "--baseline-file",
             "Baseline.txt",
-            *ExtraArgs,
-            "src",
+            *ArgValues,
         ],
         capture_output=True,
         text=True,
@@ -59,6 +66,10 @@ def RunRatchet(
         cwd=FolderPath,
         env=EnvValues,
     )
+
+
+def ReadBaseline(FolderPath: FilePath) -> str:
+    return (FolderPath / "Baseline.txt").read_text(encoding="utf-8")
 
 
 class TestBalanced(Unittest.TestCase):
@@ -69,11 +80,26 @@ class TestBalanced(Unittest.TestCase):
         with Tempfile.TemporaryDirectory() as TmpPath:
             FolderPath = FilePath(TmpPath)
             WriteTree(FolderPath, KTableText, KBalancedText)
-            ResultInfo = RunRatchet(FolderPath)
+            ResultInfo = RunRatchet(FolderPath, "src")
         CaseSelf.assertEqual(
             ResultInfo.returncode, 0, ResultInfo.stdout + ResultInfo.stderr
         )
         CaseSelf.assertIn("2 recorded field operations", ResultInfo.stdout)
+
+
+class TestAliases(Unittest.TestCase):
+
+    @staticmethod
+    def CheckAliases() -> None:
+        CaseSelf = KAssertions
+        with Tempfile.TemporaryDirectory() as TmpPath:
+            FolderPath = FilePath(TmpPath)
+            WriteTree(FolderPath, KTableText, KBalancedText)
+            TablePath = FolderPath / "src" / "family" / "Methods" / "Table.py"
+            ResultInfo = RunRatchet(FolderPath, "src", str(TablePath.resolve()))
+        CaseSelf.assertEqual(
+            ResultInfo.returncode, 0, ResultInfo.stdout + ResultInfo.stderr
+        )
 
 
 class TestGrowth(Unittest.TestCase):
@@ -84,9 +110,9 @@ class TestGrowth(Unittest.TestCase):
         with Tempfile.TemporaryDirectory() as TmpPath:
             FolderPath = FilePath(TmpPath)
             WriteTree(FolderPath, KGrownText, KBalancedText)
-            ResultInfo = RunRatchet(FolderPath)
-            UpdateInfo = RunRatchet(FolderPath, "--update-baseline")
-            BaselineText = (FolderPath / "Baseline.txt").read_text(encoding="utf-8")
+            ResultInfo = RunRatchet(FolderPath, "src")
+            UpdateInfo = RunRatchet(FolderPath, "--update-baseline", "src")
+            BaselineText = ReadBaseline(FolderPath)
         CaseSelf.assertEqual(ResultInfo.returncode, 1)
         CaseSelf.assertIn("grew from 2 to 3", ResultInfo.stdout)
         CaseSelf.assertEqual(UpdateInfo.returncode, 1)
@@ -101,10 +127,8 @@ class TestNewRoot(Unittest.TestCase):
         with Tempfile.TemporaryDirectory() as TmpPath:
             FolderPath = FilePath(TmpPath)
             WriteTree(FolderPath, KTableText, KBalancedText)
-            OtherPath = FolderPath / "src" / "other" / "Methods" / "Table.py"
-            OtherPath.parent.mkdir(parents=True)
-            _ = OtherPath.write_text(KTableText, encoding="utf-8")
-            ResultInfo = RunRatchet(FolderPath)
+            WriteOther(FolderPath)
+            ResultInfo = RunRatchet(FolderPath, "src")
         CaseSelf.assertEqual(ResultInfo.returncode, 1)
         CaseSelf.assertIn("src/other: REP001", ResultInfo.stdout)
         CaseSelf.assertIn("are new (2)", ResultInfo.stdout)
@@ -119,15 +143,40 @@ class TestShrink(Unittest.TestCase):
         with Tempfile.TemporaryDirectory() as TmpPath:
             FolderPath = FilePath(TmpPath)
             WriteTree(FolderPath, KTableText, LooseText)
-            ResultInfo = RunRatchet(FolderPath)
-            UpdateInfo = RunRatchet(FolderPath, "--update-baseline")
-            FinalInfo = RunRatchet(FolderPath)
-            BaselineText = (FolderPath / "Baseline.txt").read_text(encoding="utf-8")
+            ResultInfo = RunRatchet(FolderPath, "src")
+            UpdateInfo = RunRatchet(FolderPath, "--update-baseline", "src")
+            FinalInfo = RunRatchet(FolderPath, "src")
+            BaselineText = ReadBaseline(FolderPath)
         CaseSelf.assertEqual(ResultInfo.returncode, 1)
         CaseSelf.assertIn("fell from 5 to 2", ResultInfo.stdout)
         CaseSelf.assertEqual(UpdateInfo.returncode, 0, UpdateInfo.stderr)
         CaseSelf.assertEqual(FinalInfo.returncode, 0, FinalInfo.stderr)
         CaseSelf.assertTrue(BaselineText.endswith(KBalancedText))
+
+
+class TestPartial(Unittest.TestCase):
+
+    @staticmethod
+    def CheckPartial() -> None:
+        CaseSelf = KAssertions
+        LooseText = (KBalancedText + KOtherText).replace("REP001\t2", "REP001\t5")
+        with Tempfile.TemporaryDirectory() as TmpPath:
+            FolderPath = FilePath(TmpPath)
+            WriteTree(FolderPath, KTableText, LooseText)
+            WriteOther(FolderPath)
+            UpdateInfo = RunRatchet(FolderPath, "--update-baseline", "src/family")
+            MethodInfo = RunRatchet(
+                FolderPath, "--update-baseline", "src/other/Methods"
+            )
+            PartialText = ReadBaseline(FolderPath)
+            FinalInfo = RunRatchet(FolderPath, "--update-baseline", "src")
+            BaselineText = ReadBaseline(FolderPath)
+        CaseSelf.assertEqual(UpdateInfo.returncode, 0, UpdateInfo.stderr)
+        CaseSelf.assertEqual(MethodInfo.returncode, 0, MethodInfo.stderr)
+        CaseSelf.assertIn("src/family\tREP001\t2\n", PartialText)
+        CaseSelf.assertIn("src/other\tREP001\t5\n", PartialText)
+        CaseSelf.assertEqual(FinalInfo.returncode, 0, FinalInfo.stderr)
+        CaseSelf.assertTrue(BaselineText.endswith(KBalancedText + KOtherText))
 
 
 class TestInputs(Unittest.TestCase):
@@ -138,8 +187,12 @@ class TestInputs(Unittest.TestCase):
         with Tempfile.TemporaryDirectory() as TmpPath:
             FolderPath = FilePath(TmpPath)
             WriteTree(FolderPath, KTableText, "src/family\tREP001\n")
-            MalformedInfo = RunRatchet(FolderPath)
+            MalformedInfo = RunRatchet(FolderPath, "src")
+            WriteTree(FolderPath / "unknown", KTableText, "src/family\tREP01\t2\n")
+            UnknownInfo = RunRatchet(FolderPath / "unknown", "src")
             (FolderPath / "Baseline.txt").unlink()
-            MissingInfo = RunRatchet(FolderPath)
+            MissingInfo = RunRatchet(FolderPath, "src")
         CaseSelf.assertEqual(MalformedInfo.returncode, 2)
+        CaseSelf.assertEqual(UnknownInfo.returncode, 2)
+        CaseSelf.assertIn("unknown baseline rule", UnknownInfo.stderr)
         CaseSelf.assertEqual(MissingInfo.returncode, 2)

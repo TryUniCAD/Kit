@@ -3,15 +3,8 @@ from __future__ import annotations
 import ast as AstLib
 import re as Regex
 
+from tools.Donors.IsIntValue import IsIntValue
 from tools.Donors.ReplayRules import KKindPattern
-
-
-def IsIntValue(AstNode: AstLib.expr) -> bool:
-    return (
-        isinstance(AstNode, AstLib.Constant)
-        and isinstance(AstNode.value, int)
-        and not isinstance(AstNode.value, bool)
-    )
 
 
 def IsFieldOp(AstNode: AstLib.AST) -> bool:

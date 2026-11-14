@@ -6,25 +6,18 @@ from pathlib import Path as FilePath
 KSkipFolders = frozenset({"__pycache__", ".venv", "build", "dist"})
 
 
-def ShowPath(SourcePath: FilePath) -> str:
-    try:
-        return SourcePath.resolve().relative_to(FilePath.cwd().resolve()).as_posix()
-    except ValueError:
-        return SourcePath.resolve().as_posix()
-
-
 def ListSources(PathValues: Sequence[str]) -> list[FilePath]:
     SourceSet: set[FilePath] = set()
     for PathValue in PathValues:
-        InputPath = FilePath(PathValue)
+        InputPath = FilePath(PathValue).resolve()
         if not InputPath.exists():
             raise FileNotFoundError(f"path does not exist: {PathValue}")
         if InputPath.is_file():
             SourceSet.add(InputPath)
             continue
         SourceSet.update(
-            SourcePath
+            SourcePath.resolve()
             for SourcePath in InputPath.rglob("*.py")
-            if not KSkipFolders.intersection(SourcePath.parts)
+            if not KSkipFolders.intersection(SourcePath.relative_to(InputPath).parts)
         )
     return sorted(SourceSet)
