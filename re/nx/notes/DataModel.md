@@ -600,6 +600,30 @@ sections 1 (block shape), 2 and 3, in addition to regenerating section 3 and
 emptying section 4. Section 0 keeps its source anchor because its body is still
 copied.
 
+### Every section 0 record is load bearing
+
+Controlled mutation of one record at a time in `empty.prt`'s section 0, keeping the
+length and the table unchanged, then loading in NX 2506:
+
+```text
+records 0..79 and 100..109 replaced with 0xff   every part OPEN_FAILED
+records 0..29 replaced with 0x00                every part OPEN_FAILED
+records 4, 20, 100 kept and the rest dropped    every part OPEN_FAILED
+```
+
+So no record can be blanked, and the graph cannot be truncated. Section 0 has to be
+emitted in full: 214 records, 24495 bytes, plus the 129 class entries.
+
+Mutating a class identifier in the header also fails:
+
+```text
+cls_mut1.prt   first class id byte 0x64 -> 0x74   OPEN_FAILED
+cls_zero.prt   first class id zeroed              OPEN_FAILED
+```
+
+which means the identifiers are validated against the records that reference them,
+so they cannot be invented either.
+
 ### Section 0 class identifiers are per document values
 
 The class table is identical across body-less parts, but not across a body part:

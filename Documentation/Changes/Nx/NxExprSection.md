@@ -42,5 +42,7 @@ short-identity guard.
   (fifteen bytes differ between two such parts, all path, base name and identity),
   but its 27032 byte class dictionary has to be derived rather than copied. Its
   body is now mapped as five regions (780 + 856 + 852 + 49 + 24495 bytes) that
-  recompose byte for byte, and truncating the 214 records to 4, 20 or 100 is
-  refused by NX, so the record area cannot be reduced.
+  recompose byte for byte. Controlled mutation shows it cannot be reduced or
+  approximated: blanking any of records 0..79 or 100..109 with `0xff`, blanking
+  records 0..29 with `0x00`, truncating to 4, 20 or 100 records, and mutating a
+  class identifier in the header all make NX refuse the part.
