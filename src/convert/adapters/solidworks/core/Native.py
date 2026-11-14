@@ -7812,6 +7812,13 @@ def FreecadSingle(
         )
     ):
         return None
+    ToleranceValue = Parameters["FuzzyTolerance"].value.value
+    if (
+        isinstance(ToleranceValue, bool)
+        or not isinstance(ToleranceValue, (int, float))
+        or float(ToleranceValue) != -1.0
+    ):
+        return None
     return Dimension
 
 

@@ -286,7 +286,7 @@ def TestFuzzyLoss(TmpPath: FilePath) -> None:
             (
                 ReplaceData(
                     ParamData,
-                    value=ParameterValue(5e-11, ValueKind.NUMBER, ""),
+                    value=ParameterValue(-1.0 + 5e-11, ValueKind.NUMBER, ""),
                 )
                 if ParamData.attributes.get("freecad_path") == "FuzzyTolerance"
                 else ParamData
