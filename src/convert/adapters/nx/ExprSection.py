@@ -33,6 +33,23 @@ def VersionBlock() -> bytes:
     )
 
 
+# a slot object is a fixed frame five flags a handle and a terminator
+KSlotHead = bytes.fromhex("02020000ff000021")
+KSlotFlags = bytes([1]) * 5 + bytes(1)
+
+
+def SlotObject(Handle: int) -> bytes:
+    if not 0 <= Handle <= 0xFFFFFF:
+        raise ValueError("NX slot handle must fit three bytes")
+    return KSlotHead + KSlotFlags + Handle.to_bytes(3, "little") + b"\xff"
+
+
+def ReadSlotHandle(Object: bytes) -> int:
+    if len(Object) != 18 or not Object.startswith(KSlotHead):
+        raise ValueError("NX slot object has no known frame")
+    return int.from_bytes(Object[14:17], "little")
+
+
 # a block part adds five property slots and one record for each of its expressions
 def ExprObjectCount(Expressions: int) -> int:
     if Expressions < 0:
@@ -108,6 +125,8 @@ def Adopt(SectionBody: bytes, Middle: bytes) -> bytes:
 __all__ = [
     "Adopt",
     "ExprObjectCount",
+    "ReadSlotHandle",
+    "SlotObject",
     "ExprMiddle",
     "KMiddleLength",
     "KObjects",

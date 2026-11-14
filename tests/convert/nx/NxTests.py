@@ -14,6 +14,8 @@ from convert.adapters.nx.Construction import ConstructMiddle, ObjectCount, Recor
 from convert.adapters.nx.ExprSection import (
     ExprMiddle,
     ExprObjectCount,
+    ReadSlotHandle,
+    SlotObject,
     KMiddleLength as KExprMiddle,
 )
 from convert.adapters.nx.ObjectSection import (
@@ -877,3 +879,25 @@ def TestNxExprCount() -> None:
     except ValueError:
         return
     raise AssertionError("expression inventory accepted a negative count")
+
+
+# an expression property slot is a fixed frame a handle and a terminator
+def TestNxSlotObject() -> None:
+    Object = SlotObject(0x0050)
+    assert len(Object) == 18
+    assert Object[:8] == bytes.fromhex("02020000ff000021")
+    assert Object[8:14] == bytes([1]) * 5 + bytes(1)
+    assert Object[14:17] == b"\x50\x00\x00"
+    assert Object[17] == 0xFF
+    assert ReadSlotHandle(Object) == 0x0050
+    for Guard in (lambda: SlotObject(-1), lambda: SlotObject(0x1000000)):
+        try:
+            _ = Guard()
+        except ValueError:
+            continue
+        raise AssertionError("slot object accepted an out of range handle")
+    try:
+        _ = ReadSlotHandle(bytes(17))
+    except ValueError:
+        return
+    raise AssertionError("slot reader accepted a short object")
