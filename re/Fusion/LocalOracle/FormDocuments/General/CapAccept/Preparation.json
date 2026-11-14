@@ -10,8 +10,13 @@
    "cage_source": "re/Fusion/LocalOracle/FormDocuments/General/Box3Same.tsm",
    "cap_type": "G1CAPS",
    "star_smoothness": 0.0,
+   "translation_cm": [
+    0.0,
+    0.0,
+    0.0
+   ],
    "grips": 56,
-   "convert_seconds": 2.93,
+   "convert_seconds": 1.0,
    "status": "prepared",
    "faces": 6,
    "edges": 12,
@@ -20,7 +25,7 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Box3Same.tsm",
    "tsm_sha256": "9b5154893bd19f87884ee17f9b66f397073c883372d88aaf2daa56ced23cadfa",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Box3Same.f3d",
-   "document_sha256": "6205e87e9cfacfa6fac1b14e81c037ff59388e68ed64eb002b724f23ab61724c"
+   "document_sha256": "bee623620fd08d62c669d12231d3cb4a54397925d0ff4a5a02e5f90a4ecd9d35"
   },
   {
    "case": "Box3G0",
@@ -28,8 +33,13 @@
    "cage_source": "re/Fusion/LocalOracle/FormDocuments/General/Box3Same.tsm",
    "cap_type": "G0CAPS",
    "star_smoothness": 0.0,
+   "translation_cm": [
+    0.0,
+    0.0,
+    0.0
+   ],
    "grips": 56,
-   "convert_seconds": 2.83,
+   "convert_seconds": 0.94,
    "status": "prepared",
    "faces": 6,
    "edges": 12,
@@ -38,7 +48,7 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Box3G0.tsm",
    "tsm_sha256": "20c8d76887afd18453a2bb3dbb47a88f994e158de0c730f46fda0890491f56fe",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Box3G0.f3d",
-   "document_sha256": "f8099000411e9cf7842882653811978e77c7087e6c301e1f2b05087be0b69ced"
+   "document_sha256": "840159785916525566c219afdd230df76692623af53aed79d318201e650e4b4d"
   },
   {
    "case": "Box3G2",
@@ -46,8 +56,13 @@
    "cage_source": "re/Fusion/LocalOracle/FormDocuments/General/Box3Same.tsm",
    "cap_type": "G2CAPS",
    "star_smoothness": 0.0,
+   "translation_cm": [
+    0.0,
+    0.0,
+    0.0
+   ],
    "grips": 56,
-   "convert_seconds": 2.91,
+   "convert_seconds": 0.94,
    "status": "prepared",
    "faces": 6,
    "edges": 12,
@@ -56,7 +71,7 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Box3G2.tsm",
    "tsm_sha256": "cc76ff1b1a0d44423434a7745b4415a5cc0fffbb2225bcaa44a1be0c9f62ba27",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Box3G2.f3d",
-   "document_sha256": "bd1a891f615c2805537648662d3e8e63ccbaa79b695763555b0fda5cc756780d"
+   "document_sha256": "33ad5e7be9c5e292928d3281dad40d722752371612b24d19e585ac100e80c9d3"
   },
   {
    "case": "Box3Star1",
@@ -64,8 +79,13 @@
    "cage_source": "re/Fusion/LocalOracle/FormDocuments/General/Box3Same.tsm",
    "cap_type": "G1CAPS",
    "star_smoothness": 1.0,
+   "translation_cm": [
+    0.0,
+    0.0,
+    0.0
+   ],
    "grips": 56,
-   "convert_seconds": 3.0,
+   "convert_seconds": 0.97,
    "status": "prepared",
    "faces": 6,
    "edges": 12,
@@ -74,7 +94,7 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Box3Star1.tsm",
    "tsm_sha256": "745eec0c3bade3640786193a91422503ca2381c611494c14dea68562d9570069",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Box3Star1.f3d",
-   "document_sha256": "8d1b519e71fdc98b4db5726cfe1bf20235402e96b14dd409b2177fba96f481fc"
+   "document_sha256": "8818a1c0a903e23ac08b609173e6e0c134b0c4b4275a76b3cb3305beadd84fe7"
   },
   {
    "case": "Box3Star2",
@@ -82,8 +102,13 @@
    "cage_source": "re/Fusion/LocalOracle/FormDocuments/General/Box3Same.tsm",
    "cap_type": "G1CAPS",
    "star_smoothness": 2.0,
+   "translation_cm": [
+    0.0,
+    0.0,
+    0.0
+   ],
    "grips": 56,
-   "convert_seconds": 2.95,
+   "convert_seconds": 0.96,
    "status": "prepared",
    "faces": 6,
    "edges": 12,
@@ -92,7 +117,7 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Box3Star2.tsm",
    "tsm_sha256": "c651c9f006ddf4d450b8025977681de62aa7c5369a762d9e8038c228412fb0c1",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Box3Star2.f3d",
-   "document_sha256": "b58839a2cc6ba162e0428d152f06ec7bdf5a47a795f1f042498cb287de3b30b9"
+   "document_sha256": "9a0a45a700dc59e8788e7a8aca554ae8475e3b979097b6e5446a96df15692c04"
   },
   {
    "case": "HeldPrism5Same",
@@ -100,8 +125,13 @@
    "cage_source": "re/Fusion/LocalOracle/FormDocuments/General/HeldOut/HeldPrism5.tsm",
    "cap_type": "G1CAPS",
    "star_smoothness": 0.0,
+   "translation_cm": [
+    0.0,
+    0.0,
+    0.0
+   ],
    "grips": 72,
-   "convert_seconds": 5.94,
+   "convert_seconds": 1.9,
    "status": "prepared",
    "faces": 15,
    "edges": 35,
@@ -110,7 +140,7 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/HeldPrism5Same.tsm",
    "tsm_sha256": "932e8afe9298faff3f03ed0a2d778dbf10342ae748eb6d938ba5526f649a25dc",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/HeldPrism5Same.f3d",
-   "document_sha256": "543cdd3f89dbcff075d029e2209a4df3baff51845661ff1462ae000b929b0db6"
+   "document_sha256": "b198fd8c5561d42488ef55f713de0961b52e89ee35ffa77581d292752c4d9e6f"
   },
   {
    "case": "HeldPrism5G0",
@@ -118,8 +148,13 @@
    "cage_source": "re/Fusion/LocalOracle/FormDocuments/General/HeldOut/HeldPrism5.tsm",
    "cap_type": "G0CAPS",
    "star_smoothness": 0.0,
+   "translation_cm": [
+    0.0,
+    0.0,
+    0.0
+   ],
    "grips": 72,
-   "convert_seconds": 5.72,
+   "convert_seconds": 1.85,
    "status": "prepared",
    "faces": 15,
    "edges": 35,
@@ -128,7 +163,7 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/HeldPrism5G0.tsm",
    "tsm_sha256": "6e536e2703b1351c6050abbac2f45b7c17041f55c83637e1bab23c628276d01d",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/HeldPrism5G0.f3d",
-   "document_sha256": "5a89242a55f6ec548f46a419c65e699c949a9c2aa1781a94b3d876d0973b4c3a"
+   "document_sha256": "7dde8bb200bceb9c279728c1bf1865b764847f9f776ba31d8956f284d0c18392"
   },
   {
    "case": "HeldPrism5G2",
@@ -136,8 +171,13 @@
    "cage_source": "re/Fusion/LocalOracle/FormDocuments/General/HeldOut/HeldPrism5.tsm",
    "cap_type": "G2CAPS",
    "star_smoothness": 0.0,
+   "translation_cm": [
+    0.0,
+    0.0,
+    0.0
+   ],
    "grips": 72,
-   "convert_seconds": 5.7,
+   "convert_seconds": 1.87,
    "status": "prepared",
    "faces": 15,
    "edges": 35,
@@ -146,7 +186,7 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/HeldPrism5G2.tsm",
    "tsm_sha256": "ce6e1d5a7f34376fc890fdb4db1959799fe1fd61d10060f68fc904f44021dd7b",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/HeldPrism5G2.f3d",
-   "document_sha256": "2daf63545825536165663c75ea6463eb7cf2e9aff67429879921f93db3510c13"
+   "document_sha256": "6f31450fdfd7f5f9b0465c02e689fd2a2bb152a9ccd9cb6e1ae20e6eb0619c30"
   },
   {
    "case": "HeldPrism5Star1",
@@ -154,8 +194,13 @@
    "cage_source": "re/Fusion/LocalOracle/FormDocuments/General/HeldOut/HeldPrism5.tsm",
    "cap_type": "G1CAPS",
    "star_smoothness": 1.0,
+   "translation_cm": [
+    0.0,
+    0.0,
+    0.0
+   ],
    "grips": 72,
-   "convert_seconds": 6.03,
+   "convert_seconds": 1.88,
    "status": "prepared",
    "faces": 15,
    "edges": 35,
@@ -164,7 +209,7 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/HeldPrism5Star1.tsm",
    "tsm_sha256": "7c475969191efb8fc77c86d7fce12d242ad1a5ada9a7573b7c892673a2fceffa",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/HeldPrism5Star1.f3d",
-   "document_sha256": "f9d517db840b323de977c47c424456459a4775a52e51b936c788e060c02e1aa6"
+   "document_sha256": "ff4902118e6d1074379c00d3b64032c1209092860bc351dc8923fcccddbc0876"
   },
   {
    "case": "HeldPrism5Star2",
@@ -172,8 +217,13 @@
    "cage_source": "re/Fusion/LocalOracle/FormDocuments/General/HeldOut/HeldPrism5.tsm",
    "cap_type": "G1CAPS",
    "star_smoothness": 2.0,
+   "translation_cm": [
+    0.0,
+    0.0,
+    0.0
+   ],
    "grips": 72,
-   "convert_seconds": 5.98,
+   "convert_seconds": 1.84,
    "status": "prepared",
    "faces": 15,
    "edges": 35,
@@ -182,7 +232,30 @@
    "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/HeldPrism5Star2.tsm",
    "tsm_sha256": "ad5773ad26beb72c26af1286b24057a9497b18b89858dfdea86b275872c31a15",
    "document_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/HeldPrism5Star2.f3d",
-   "document_sha256": "db681f313d16c404c51224b58bb42e87f2bf4a4e1d98cfdaa21e085e92c0a478"
+   "document_sha256": "1df2526513e55958aca4c4dd0eea7fee6e28975868575a5f4dc0f323aeb0c1b8"
+  },
+  {
+   "case": "Box3ShiftedG2",
+   "group": "held-out",
+   "cage_source": "re/Fusion/LocalOracle/FormDocuments/General/Box3Same.tsm",
+   "cap_type": "G2CAPS",
+   "star_smoothness": 0.0,
+   "translation_cm": [
+    13.0,
+    -21.0,
+    42.0
+   ],
+   "grips": 56,
+   "convert_seconds": 1.0,
+   "status": "prepared",
+   "faces": 6,
+   "edges": 12,
+   "vertices": 8,
+   "rational_faces": 0,
+   "tsm_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Box3ShiftedG2.tsm",
+   "tsm_sha256": "093ad1f2458862476991347b9b8f825449ffac696679a4de6e18a0dad9c512d0",
+   "document_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Box3ShiftedG2.f3d",
+   "document_sha256": "5b4ee251bb871b92f337236889715bae25ef0f977d9ebaca950943d5e49793d3"
   }
  ]
 }

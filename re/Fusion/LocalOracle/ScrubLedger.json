@@ -1712,6 +1712,34 @@
       }
     },
     {
+      "path": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/Box3G0.f3d",
+      "fusionSavedSha256": "c4694a113fd1a36919d7a74035aa00677b82c614eb1d6c139c61203dd47d9c4f",
+      "committedSha256": "d21c12f29efbb5efafdcc75dafe9eef76c4ed006788bb4666488f25ddb47daed",
+      "counts": {
+        "account": 1,
+        "partial": 0,
+        "bare": 0,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/Box3Same.f3d",
+      "fusionSavedSha256": "9f53cec3f9dd039b99c2bb4f214403e46f2eb8b05e296862bc01303dadb9b23d",
+      "committedSha256": "642511d1d217cecbc1e6d8434d841904ff94733f0b3fbd80d1e7cd139d813074",
+      "counts": {
+        "account": 3,
+        "partial": 1,
+        "bare": 0,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
       "path": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/Box3Star2.f3d",
       "fusionSavedSha256": "58a599a78ec7b749e7b47ad3d5bc174da4c7519dd83f626757b4cbca7b64899e",
       "committedSha256": "26e39f08be4d80a2bcdd8dfadba3e9171f0a946985e9496344563c348094dd5b",
@@ -1727,11 +1755,11 @@
     },
     {
       "path": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/HeldPrism5G0.f3d",
-      "fusionSavedSha256": "be98c9d7ad10548570e457acb4ff4c3b05c2a09a09246ba68480ecaf0992a5d4",
-      "committedSha256": "12a2fa030169a2692fb7c8e110f5aa3ddfb94534da94142a9ca44f948430a8a4",
+      "fusionSavedSha256": "ec17706208f27baf9dbc671da7c2f5d1e4f6c406e2c6a1453a9f706d7307d306",
+      "committedSha256": "aff4f19ca74ac3481b593fe2d238a636828ec3e3070502eb481d42ee7920e028",
       "counts": {
         "account": 3,
-        "partial": 1,
+        "partial": 0,
         "bare": 0,
         "name": 0,
         "home": 0,
@@ -1743,6 +1771,20 @@
       "path": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/HeldPrism5Star1.f3d",
       "fusionSavedSha256": "c6b705c0f2f78a4e5543ea810d5e7107865b04d557b4be3f92cd6091635de86e",
       "committedSha256": "5e44c90e5455032c59410fc6e0d7d179a642456e679d0ad75d693e7b34df0932",
+      "counts": {
+        "account": 3,
+        "partial": 1,
+        "bare": 0,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
+      "path": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/HeldPrism5Star2.f3d",
+      "fusionSavedSha256": "e59e46e2c914a98da83f157d2d5654339f93e70e465c1787cec1f016f3b2bb67",
+      "committedSha256": "6236e2b6599df26bc1e528668c337611e6f5a76280cd1ca1def9636e442aa2f0",
       "counts": {
         "account": 3,
         "partial": 1,
@@ -4773,6 +4815,7 @@
     "13A89BFC-5E82-D55C-4103-8CC7CC7738",
     "13A89BFC-5E82-D55C-4103-8CC7CC773851",
     "1E4A515F7CE",
+    "1lEeLQRAZBB1uY1o1ohd2_E2T",
     "2026C70C-EEF8-FF09-A7AA-5BDA831786C6",
     "24BA425B-0186-3021-DF65-C300B386E73E",
     "25cf1afb0b00cc5f2913a7ddbbf4b983",
@@ -4787,6 +4830,7 @@
     "401e004fcb334465b",
     "42018f9e388a8101f6",
     "4456c885651184d6f9",
+    "44fb2f7f0105",
     "45fbeb814d7d99a3b9ecdfd49a",
     "4BEA7DF0-C558-DCEC-963A-1CDAA8022AC2",
     "56508a66f90232f2e470",
@@ -4836,6 +4880,7 @@
     "D05233EE-C989-DD61-A8C0-E846EC5384BE",
     "D694DE8D-F56D-B2D7-ABBC-4A1194C5BC4B",
     "E26-7969-8247-2FC9-EAF77EB5B121",
+    "E26EE22B-335B-9202-5337-470865437C05",
     "E3E4B47C-1A29-1207-1D27-84560D805512",
     "E7314F2F-1920-A235-3AFC-E2C3CAA491F",
     "E81C932B21",
@@ -4872,6 +4917,7 @@
     "UTX54LR",
     "UTX54LRS3KZCB7RZ",
     "VQUKORL",
+    "Vdznptsx",
     "WEYELME",
     "WFLTQUD%,",
     "XEF14AXP2DYTF2KQ",
@@ -4907,8 +4953,10 @@
     "f2vDvCGSWEMF6",
     "f2vDvCGSWEMF6fF",
     "f2vDvCGSWEMF6fF8s9ptm0_H7A",
+    "f38d95a17e889b73d31957235a67ba9a",
     "f498.d.5f",
     "faes3",
+    "g1lEeLQRAZBB1uY1o1ohd2_E2T",
     "gFNILALF9aE",
     "gvggi0",
     "h2dNkPAVRCXX4mJ",
@@ -4936,6 +4984,7 @@
     "n7iGuSAJSSFZ5",
     "odhf374988",
     "ofaev3",
+    "ohnat0",
     "p4cBqXIRIPRU5",
     "p4cBqXIRIPRU5jM",
     "p6bWjMGAYDPG1",
@@ -4963,6 +5012,7 @@
     "yKDHISEF8eU6g2cxs6",
     "ybga9",
     "z1dKeVDVIFZA3oU",
-    "z1dKeVDVIFZA3oU0k3mpg7_K8O"
+    "z1dKeVDVIFZA3oU0k3mpg7_K8O",
+    "z3iUeFRSCHBL8aI"
   ]
 }

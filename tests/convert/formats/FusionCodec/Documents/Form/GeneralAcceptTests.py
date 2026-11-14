@@ -14,6 +14,8 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Converted.FormBody import (
     FormFace,
     FormWindow,
 )
+from convert.formats.Fusion.DocumentCodec.Form.EmitFormDoc import EmitFormDoc
+from convert.formats.Fusion.DocumentCodec.Form.FormSpec import FormSpec
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from convert.formats.Fusion.TSplineCodec.ReadTspline import ReadTspline
 from tests.convert.formats.FusionCodec.Documents.Form.CapCases import KCapCases
@@ -177,8 +179,9 @@ def TestGeneralCase(CaseValue: tuple[str, ...]) -> None:
 @MarkTests.parametrize("CaseValue", KCapCases, ids=lambda CaseValue: CaseValue[0])
 def TestCapDeclFlow(CaseValue: tuple[str, ...]) -> None:
     Surface = ReadTspline(ReadFormFile(CaseValue[1], CaseValue[2]))
-    EmittedPath = CaseValue[3].replace("/Fusion/", "/")
-    Emitted = ReadDocument(ReadFormFile(EmittedPath, CaseValue[5]))
+    Emitted = ReadDocument(
+        EmitFormDoc(FormSpec("Kit " + CaseValue[0], Surface, ConvertForm(Surface)))
+    )
     Native = ReadDocument(ReadFormFile(CaseValue[3], CaseValue[4]))
     assert Emitted.Forms[0].Surface.Header == Surface.Header
     assert Native.Forms[0].Surface.Header.CapType == "G1CAPS"
@@ -190,9 +193,14 @@ def TestCapDeclFlow(CaseValue: tuple[str, ...]) -> None:
 @KNeedZip
 @MarkTests.parametrize("CaseValue", KCapCases, ids=lambda CaseValue: CaseValue[0])
 def TestCapMass(CaseValue: tuple[str, ...]) -> None:
-    EmittedPath = CaseValue[3].replace("/Fusion/", "/")
-    Emitted = ReadDocument(ReadFormFile(EmittedPath, CaseValue[5]))
+    Surface = ReadTspline(ReadFormFile(CaseValue[1], CaseValue[2]))
+    Converted = ConvertForm(Surface)
+    Emitted = ReadDocument(
+        EmitFormDoc(FormSpec("Kit " + CaseValue[0], Surface, Converted))
+    )
     Native = ReadDocument(ReadFormFile(CaseValue[3], CaseValue[4]))
+    assert Emitted.Forms[0].Surface == Surface
+    assert ReadConverted(Emitted) == Converted
     Cached = MaterialFields(NamedGroups(Emitted, "Body")[0]["cache"])
     Expected = MaterialFields(NamedGroups(Native, "Body")[0]["cache"])
     for FieldName in ("area", "volume"):

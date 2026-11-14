@@ -100,15 +100,27 @@ def rounded(values):
     return [round(value, 6) for value in values]
 
 
+def physical_observation(body):
+    properties = body.physicalProperties
+    moments = list(properties.getXYZMomentsOfInertia())
+    if not moments[0] or properties.density <= 0:
+        raise RuntimeError('Physical inertia or density is unavailable')
+    material = {'name': body.material.name, 'density_kg_cm3': properties.density, 'mass_kg': properties.mass, 'inertia_kg_cm2': moments}
+    return material, [moments[0], *(value / properties.density for value in moments[1:])]
+
+
 def solved(design):
     bodies = []
+    materials = []
     for body in design.rootComponent.bRepBodies:
         faces = sorted((face_row(face) for face in body.faces), key=lambda row: rounded(row['grid_cm'][24]))
         edges = sorted((edge_row(edge) for edge in body.edges), key=lambda row: rounded(row['points_cm'][3]))
-        bodies.append({'solid': body.isSolid, 'faces': body.faces.count, 'edges': body.edges.count, 'vertices': body.vertices.count, 'area_cm2': body.area, 'volume_cm3': body.volume if body.isSolid else None, 'center_cm': xyz(body.physicalProperties.centerOfMass) if body.isSolid else None, 'bounds_cm': [xyz(body.boundingBox.minPoint), xyz(body.boundingBox.maxPoint)], 'face_rows': faces, 'edge_rows': edges, 'vertex_cm': sorted((xyz(vertex.geometry) for vertex in body.vertices), key=rounded)})
+        material, inertia = physical_observation(body) if body.isSolid else ({}, None)
+        materials.append(material)
+        bodies.append({'solid': body.isSolid, 'faces': body.faces.count, 'edges': body.edges.count, 'vertices': body.vertices.count, 'area_cm2': body.area, 'volume_cm3': body.volume if body.isSolid else None, 'center_cm': xyz(body.physicalProperties.centerOfMass) if body.isSolid else None, 'inertia_cm5': inertia, 'bounds_cm': [xyz(body.boundingBox.minPoint), xyz(body.boundingBox.maxPoint)], 'face_rows': faces, 'edge_rows': edges, 'vertex_cm': sorted((xyz(vertex.geometry) for vertex in body.vertices), key=rounded)})
     forms = design.rootComponent.features.formFeatures
     timeline = [{'name': item.name, 'health': item.healthState, 'message': item.errorOrWarningMessage} for item in design.timeline]
-    return {'timeline': timeline, 'form_health': [forms.item(index).healthState for index in range(forms.count)], 'bodies': bodies}
+    return {'timeline': timeline, 'form_health': [forms.item(index).healthState for index in range(forms.count)], 'bodies': bodies, 'material_observations': materials}
 
 
 def same(left, right, path, problems, worst):

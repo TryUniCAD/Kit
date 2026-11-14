@@ -7,7 +7,7 @@ Usage:
 
 Run ScrubSaved.py over the copied saves between the two steps, so the digests are the scrubbed ones.
 The saves are Fusion's conversion before any edit. GeneralAcceptTests compares ConvertForm of each TSM
-with the body read from the save. CapCases.py additionally holds each independently emitted F3D digest.
+with the body read from the save. Preparation.json holds each independently emitted F3D digest.
 """
 
 import hashlib
@@ -51,8 +51,6 @@ def cases():
         lines.append(f'        "{digest(tsm)}",')
         lines.append(f'        "{save.relative_to(ROOT)}",')
         lines.append(f'        "{digest(save)}",')
-        if ACCEPT.name == 'CapAccept':
-            lines.append(f'        "{digest(ACCEPT / (name + ".f3d"))}",')
         lines.append('    ),')
     lines.append(')')
     CASES.write_text('\n'.join(lines) + '\n')

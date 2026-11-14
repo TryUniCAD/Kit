@@ -1,67 +1,73 @@
 {
  "status": "accepted",
- "models_compared": 10,
- "changed_by_scrubber": 2,
+ "models_compared": 11,
+ "changed_by_scrubber": 3,
  "rows": [
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/Box3G0.f3d",
-   "model_sha256": "c583bf748759db41421a01b609643f0e264d0e3b8d1193b2dfcedc0384ae3d98",
-   "archive_sha256": "99dd277ce6fa3dff33da8e7dce8f717428fb9b352c0920eed1bbf2ef8907d974",
-   "fusion_saved_sha256": "99dd277ce6fa3dff33da8e7dce8f717428fb9b352c0920eed1bbf2ef8907d974"
+   "model_sha256": "765f05e638cce310bbfb1f671b1d693ac83876e7468903ed97d084b65dd4b804",
+   "archive_sha256": "5b36ed0a581b93aa99beee12faa79b94b877e938b3249e2408d3bed77cd0aa86",
+   "fusion_saved_sha256": "5b36ed0a581b93aa99beee12faa79b94b877e938b3249e2408d3bed77cd0aa86"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/Box3G2.f3d",
-   "model_sha256": "fb8900e5ab75956cf1206aee2a42c2a0a062e7b48cb721f9b871b380de66689f",
-   "archive_sha256": "4f4d64745a455ec6c4903e9572846e66de536d31b95447351d4502ec5a1f9e82",
-   "fusion_saved_sha256": "4f4d64745a455ec6c4903e9572846e66de536d31b95447351d4502ec5a1f9e82"
+   "model_sha256": "8e70840a41e8674a3a88f7393c22957792043bf2d4083ce324a44b85b4c338d7",
+   "archive_sha256": "b5dc1528676545b561e816c9dc7af3d84b66b3f738dd183ace48a1c458ac2844",
+   "fusion_saved_sha256": "b5dc1528676545b561e816c9dc7af3d84b66b3f738dd183ace48a1c458ac2844"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/Box3Same.f3d",
-   "model_sha256": "bc57d911977a6f50891e219d4978d2f730e3ac03c173ba535635632730c0dd6e",
-   "archive_sha256": "1b518c83e814d0a6f3e3af563c5265a719d99390124fe091cdc4e6e5f5d74c04",
-   "fusion_saved_sha256": "1b518c83e814d0a6f3e3af563c5265a719d99390124fe091cdc4e6e5f5d74c04"
+   "model_sha256": "4b77af9f2ca413b25e6f4c46db243dd283fca0184ac63a44c46b9885cbbba176",
+   "archive_sha256": "642511d1d217cecbc1e6d8434d841904ff94733f0b3fbd80d1e7cd139d813074",
+   "fusion_saved_sha256": "9f53cec3f9dd039b99c2bb4f214403e46f2eb8b05e296862bc01303dadb9b23d"
+  },
+  {
+   "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/Box3ShiftedG2.f3d",
+   "model_sha256": "452098d31a16e1b0c442b278df47eaf3859352b7ac13b98a0cc053bb0372b1cf",
+   "archive_sha256": "c6fd4fb6a4f1ccaf8affbe120aeef024f35582aec8e6b330fbf13729f1b627b8",
+   "fusion_saved_sha256": "c6fd4fb6a4f1ccaf8affbe120aeef024f35582aec8e6b330fbf13729f1b627b8"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/Box3Star1.f3d",
-   "model_sha256": "e868681a8036407e97c343762bff6371520f19591ec9d653d2e15916ceaa2ff3",
-   "archive_sha256": "839c7faa0fd422a47f64a592f73bcd91980a068442fdc9ccad1bce7764c76f6a",
-   "fusion_saved_sha256": "839c7faa0fd422a47f64a592f73bcd91980a068442fdc9ccad1bce7764c76f6a"
+   "model_sha256": "33188730397af12185e8d3e8186f5de5646657f3362c384491480943b3ccbe96",
+   "archive_sha256": "33954f9349a316ddddc085814199e9a5e1120a669dde904b0d255292c7456692",
+   "fusion_saved_sha256": "33954f9349a316ddddc085814199e9a5e1120a669dde904b0d255292c7456692"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/Box3Star2.f3d",
-   "model_sha256": "38cdb2c73bbc572b99d2fff0b86d1bb820da2f6a88fe1f2426cb58d4cf6a87c4",
-   "archive_sha256": "26e39f08be4d80a2bcdd8dfadba3e9171f0a946985e9496344563c348094dd5b",
-   "fusion_saved_sha256": "58a599a78ec7b749e7b47ad3d5bc174da4c7519dd83f626757b4cbca7b64899e"
+   "model_sha256": "9da06273a0f78232b5705d397bad59972b08642efda3c6fed826b76225c81a18",
+   "archive_sha256": "40e6cd8432af2a1ea51d253ab2682df53909c23c8d4dd897fb3bc826bc68af71",
+   "fusion_saved_sha256": "40e6cd8432af2a1ea51d253ab2682df53909c23c8d4dd897fb3bc826bc68af71"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/HeldPrism5G0.f3d",
-   "model_sha256": "97d26bbb377d47a1268aac501eebbbbf0a75d18b6bb7db2e3ee6fab213ffce6b",
-   "archive_sha256": "12a2fa030169a2692fb7c8e110f5aa3ddfb94534da94142a9ca44f948430a8a4",
-   "fusion_saved_sha256": "be98c9d7ad10548570e457acb4ff4c3b05c2a09a09246ba68480ecaf0992a5d4"
+   "model_sha256": "4b03f3140b5273091890e06472c705d19455f3a87cb1fdb748d7e93683540049",
+   "archive_sha256": "aff4f19ca74ac3481b593fe2d238a636828ec3e3070502eb481d42ee7920e028",
+   "fusion_saved_sha256": "ec17706208f27baf9dbc671da7c2f5d1e4f6c406e2c6a1453a9f706d7307d306"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/HeldPrism5G2.f3d",
-   "model_sha256": "32eef2b505894890bc0b4279395fe6c1442af5ae8b78f16cfec063b40e726166",
-   "archive_sha256": "985c2581641d51e16edfe4d777894d353cc603d974695b3dd45ba4ae7e4d2015",
-   "fusion_saved_sha256": "985c2581641d51e16edfe4d777894d353cc603d974695b3dd45ba4ae7e4d2015"
+   "model_sha256": "34687f9bf5031464a3d8630bfe18495207476fd56135a2cc79f8988a465e0f13",
+   "archive_sha256": "6374ab37acb5984f7bf7ff7b6438e1ff9d9591d01f80ad13778a5909abe16d16",
+   "fusion_saved_sha256": "6374ab37acb5984f7bf7ff7b6438e1ff9d9591d01f80ad13778a5909abe16d16"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/HeldPrism5Same.f3d",
-   "model_sha256": "f2c6748f8faaf1466a6b43183d4ec70dbed5f847f5b20a60cd70653441977dd5",
-   "archive_sha256": "f442dcc2c8a84695f17d88be075d9da52cfcbbdc33e923f5a689246ef8dfb6d5",
-   "fusion_saved_sha256": "f442dcc2c8a84695f17d88be075d9da52cfcbbdc33e923f5a689246ef8dfb6d5"
+   "model_sha256": "f4813c10cacdcc0725153e7eb56cd120e0224c63f555f411d48661e3e209f9a9",
+   "archive_sha256": "b7cd8a4ad8d18a7c109d3e56c8278bdd5c80f3b122cc322f324aef328ed3aa19",
+   "fusion_saved_sha256": "b7cd8a4ad8d18a7c109d3e56c8278bdd5c80f3b122cc322f324aef328ed3aa19"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/HeldPrism5Star1.f3d",
-   "model_sha256": "e074f7085a3c85637304b1dee1ecfc82cf90c003735b461ca011366d11ba34c9",
-   "archive_sha256": "da18eeddfb5c94dea9cb7193b6e7183f2dfa885997c108a3899d51be51b6429e",
-   "fusion_saved_sha256": "da18eeddfb5c94dea9cb7193b6e7183f2dfa885997c108a3899d51be51b6429e"
+   "model_sha256": "56b22104cb3e4421f126c7edbcf56f2004c952b5e28c163b9622640acd855160",
+   "archive_sha256": "edd8f8f4fffddc932bacd56305e5ef4c6b4d5222998ccf22ec4b7020bb5c6c29",
+   "fusion_saved_sha256": "edd8f8f4fffddc932bacd56305e5ef4c6b4d5222998ccf22ec4b7020bb5c6c29"
   },
   {
    "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/HeldPrism5Star2.f3d",
-   "model_sha256": "32f46352b332d2486e9c39cc1f591e1cbb4a5db9f134c62da82f1ce33eae7af3",
-   "archive_sha256": "7031a7a82a44b5bce707a496ad27771ea50370c1f239777e5f91b63c4d3bcfed",
-   "fusion_saved_sha256": "7031a7a82a44b5bce707a496ad27771ea50370c1f239777e5f91b63c4d3bcfed"
+   "model_sha256": "255a81d52218c021c7bab447870447c9417d07335bce1913f9dab74a77aa8d2d",
+   "archive_sha256": "6236e2b6599df26bc1e528668c337611e6f5a76280cd1ca1def9636e442aa2f0",
+   "fusion_saved_sha256": "e59e46e2c914a98da83f157d2d5654339f93e70e465c1787cec1f016f3b2bb67"
   }
  ]
 }

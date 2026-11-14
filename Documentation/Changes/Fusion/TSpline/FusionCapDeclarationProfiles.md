@@ -22,6 +22,7 @@ This rule has no per-layout table, saved geometry, donor payload, CAD runtime, o
 It builds each converted body through `ConvertForm` and each complete F3D through `EmitFormDoc`.
 The five Box3 cases reproduce the existing one-field controls.
 The five HeldPrism5 cases use a separate held-out cage with valence-five caps.
+`Box3ShiftedG2` moves every Box3 grip by `(13, -21, 42)` cm to expose coordinate-frame errors.
 
 Each prepared Box3 body has 6 faces, 12 edges, and 8 vertices.
 Each prepared HeldPrism5 body has 15 faces, 35 edges, and 22 vertices.
@@ -29,16 +30,18 @@ The [preparation report](../../../../re/Fusion/LocalOracle/FormDocuments/General
 
 ## Fusion acceptance
 
-Fusion 2706.1.17 accepted all 10 independently emitted documents.
-The [native acceptance report](../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json) has SHA-256 `325818d15840e18ff1d3afc1c2ebf9c737e91181254c49cf77556f7cef2cb0b1`.
-It contains 290 comparisons, zero problems, and a largest absolute deviation of `6.195044477408373e-14` cm.
+Fusion 2706.1.17 accepted all 11 independently emitted documents.
+The [native acceptance report](../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json) has SHA-256 `aabf9cc2ac6939fa70e235add96e8766091af54746f242261aa1f67618e49d6a`.
+It contains 319 comparisons, zero problems, and a largest absolute scalar deviation of `2.9103830456733704e-11` across the mixed-unit measurements.
 Zero documents were open before and after the run.
 The preflight process was 98846, and the measured process was 24703. `fresh_process_verified` is true.
 Every case has `dropped = []`, `vendor_loadable = true`, and `application_usable = true`.
 
 For each case, Fusion imported the same TSM as the native control. Kit's F3D opened separately.
 Both documents ran `computeAll`, moved the same control point, exported, and reopened.
-The comparison covered topology, timeline nodes, health, NURBS data, face grids, edge curves, bounds, centers, area, and volume.
+The comparison covered topology, timeline nodes, health, NURBS data, face grids, edge curves, bounds, centers, area, volume, and density-normalized inertia.
+The translated case proves origin-frame tensors across three coordinates and six tensor components.
+Its six normalized components match the native control at every stage; the [mass-cache change](FusionFormMassCache.md) gives the measured values and material-density rule.
 
 | Cage                              | Loaded area and volume                        | Edited and reopened area and volume           | Loaded center (cm)                                             | Edited and reopened center (cm)                               |
 | --------------------------------- | --------------------------------------------- | --------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------- |
@@ -49,16 +52,16 @@ The [static artifact inspection](../../../../re/Fusion/LocalOracle/FormDocuments
 It found 24 ZIP occurrences, including 16 files, with zero integrity contradictions.
 Its digest matched the preparation record. The static inspection did not execute Fusion or establish runtime semantics.
 
-The [scrub validation](../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/ScrubValidation.json) compared all 10 retained native controls before and after scrubbing.
-The scrubber changed two archives, and every typed document model remained identical.
-`changed_by_scrubber` is 2, and all 10 model digests match their pre-scrub values.
+The [scrub validation](../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/ScrubValidation.json) compared all 11 retained native controls before and after scrubbing.
+The scrubber changed three archives, and every typed document model remained identical.
+`changed_by_scrubber` is 3, and all 11 model digests match their pre-scrub values.
 
 ## Compatibility coverage
 
-The compressed TSM archive catalog now contains 22 cases, including all 10 declaration variants.
+The compressed TSM archive catalog now contains 23 cases, including all 11 prepared declaration cases.
 `TestTsmArchive` checks typed read, semantic digests, byte-exact emission, and a second read.
 `TestTsmReject` adds unknown cap-name and star-value rejection through the public reader.
-`TestGeneralCase` compares `ConvertForm` against the retained native body for all 10 variants.
+`TestGeneralCase` compares `ConvertForm` against the retained native body for all 11 variants.
 `TestCapDeclFlow` checks Kit emission against the source declaration and native G1 canonicalization.
 `TestCapMass` checks the derived mass fields against native caches, as the [mass-cache change](FusionFormMassCache.md) describes.
 These integration cases run in remote CI, not locally.

@@ -22,6 +22,7 @@ This does not remove the need for correct mass fields in Kit's independently wri
 Write one complete cache group from the typed BRep.
 Evaluate bicubic points and derivatives on every knot span.
 Integrate area, volume, first moments, and second moments with Gaussian quadrature and the divergence theorem.
-Translate second moments to the body's center for the inertia and off-diagonal fields.
+Keep second moments in the coordinate-origin frame, because the cache stores the center separately.
+Do not subtract centroid terms from inertia; `CuboidCache` and `PartCache` use the same origin-based convention.
 Open sheets have zero volumetric properties instead of an invented center.
 The [Form cache implementation](../../../../../../src/convert/formats/Fusion/DocumentCodec/Form/FormCache.py), [field model](../../../../../../re/Fusion/Reconstruction/FormDocuments/General/CapMassCacheModel.json), and [final native acceptance](../../../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json) record the derived result.

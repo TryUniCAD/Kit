@@ -8,7 +8,10 @@ Area, volume, first moments, second moments, inertia, off-diagonal products, and
 
 `FormCache` uses eight-point Gaussian quadrature on every bicubic knot span.
 It applies the divergence theorem to the surface position and the cross product of the partial derivatives.
-Centered second moments produce inertia about the body's center.
+`SurfaceSample` hoists expanded knot vectors and evaluates only the local pole window for each sample.
+The [local sampling gotcha](../../../Gotchas/Conversion/Fusion/TSpline/FormBodies/MassSamplingUsesLocalPoles.md) records why full-net evaluators are unsuitable inside this loop.
+Origin-based second moments produce inertia, while the first moments separately produce the center of mass.
+Translation terms therefore remain in the tensor and in its off-diagonal fields.
 The eight-point rule is a mathematical integration rule, not fitted document data.
 The cache requires no vendor-saved measurements or CAD runtime. The [field model](../../../../re/Fusion/Reconstruction/FormDocuments/General/CapMassCacheModel.json) records each field and its confidence status.
 
@@ -23,11 +26,12 @@ The [initial failure](../../../../re/Fusion/LocalOracle/FormDocuments/General/Ca
 It records 30 center-coordinate differences across 10 cases.
 The first center issue occurred before recompute, while the subsequent center values agreed.
 
-The accepted [native lifecycle](../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json) has SHA-256 `325818d15840e18ff1d3afc1c2ebf9c737e91181254c49cf77556f7cef2cb0b1`.
-Fusion 2706.1.17 accepted all 10 independently emitted documents in fresh process 24703.
+The accepted [native lifecycle](../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json) has SHA-256 `aabf9cc2ac6939fa70e235add96e8766091af54746f242261aa1f67618e49d6a`.
+Fusion 2706.1.17 accepted all 11 independently emitted documents in fresh process 24703.
 The previous preflight process was 98846, and `fresh_process_verified` is true.
-The run reports 290 comparisons, zero problems, zero dropped items, and zero open documents before and after.
+The run reports 319 comparisons, zero problems, zero dropped items, and zero open documents before and after.
 Top-level `vendor_loadable` and `application_usable` are both true.
+The largest absolute scalar deviation is `2.9103830456733704e-11` across the mixed-unit measurements.
 
 | Cage       | Initial area and volume                       | Initial center (cm)                                            |
 | ---------- | --------------------------------------------- | -------------------------------------------------------------- |
@@ -39,10 +43,21 @@ HeldPrism5 has volume 4.622316303609363 cm³ and center `(0.009218588314258315, 
 Those values survive export and reopen.
 The native after-controls match their edited control measurements with zero problems.
 
+`Box3ShiftedG2` proves the tensor frame after translating all grips by `(13, -21, 42)` cm.
+Its initial and edited centers are `(14.2, -19.80000255164962, 43.2)` and `(14.202998017352988, -19.79712185783366, 43.20305682252197)` cm.
+All six tensor components match the native control at every measured stage.
+
+`getXYZMomentsOfInertia()` returns one success flag followed by six mass-weighted moments.
+The native controls use Steel at `0.00785 kg/cm³`, while the Kit documents use `0.001 kg/cm³`.
+The oracle preserves those raw material observations and divides the six moments by each body's density before geometry comparison.
+This produces comparable volumetric tensors in `cm⁵`, rather than treating the material difference as a geometry defect.
+The earlier [raw-density comparison](../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/InertiaDensityFailure.json) has SHA-256 `3903a5228555b5ed5bf7ac19053af72bfc7de47d8a08a9b28fc154ac5eb10f13`.
+It records 264 differences caused by comparing unlike materials directly; it is not accepted evidence.
+
 ## Integration coverage
 
 `TestCapMass` independently emits each F3D, reads its typed `MassPropertyCacheValue`, and compares it with the native control's cache.
 The comparison covers area, volume, center, inertia, and off-diagonal products at `1e-8` absolute and relative tolerance.
 `TestCapDeclFlow` also distinguishes Kit's original declaration from Fusion's G1 canonicalization.
-The final controls required two privacy scrubs; all 10 typed models remained identical afterward.
+The final controls required three privacy scrubs; all 11 typed models remained identical afterward.
 Remote CI executes these integration cases. No local automated test suite ran.

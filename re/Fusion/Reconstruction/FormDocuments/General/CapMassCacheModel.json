@@ -12,7 +12,7 @@
  },
  "integration": {
   "label": "confirmed",
-  "rule": "Eight-point Gaussian quadrature over every bicubic knot span, followed by divergence-theorem vector moments and centered second moments",
+  "rule": "Eight-point Gaussian quadrature over every bicubic knot span, followed by divergence-theorem vector moments and origin-based second moments",
   "implementation": "src/convert/formats/Fusion/DocumentCodec/Form",
   "periodic_domain": "The full domain is retained",
   "nonperiodic_domain": "Every coedge must lie on a complete parameter-space boundary or CheckTrimming raises",
@@ -23,8 +23,8 @@
   "areaPrec": {"class": "format metadata", "meaning": "Zero precision value from the established cache schema", "label": "confirmed"},
   "cog": {"class": "derived", "meaning": "First vector moments divided by nonzero volume", "label": "confirmed"},
   "inertiaPrec": {"class": "format metadata", "meaning": "Zero precision value from the established cache schema", "label": "confirmed"},
-  "moi": {"class": "derived", "meaning": "Centered second moments about the center of mass", "label": "confirmed"},
-  "moiOffDiag": {"class": "derived", "meaning": "Negated centered cross products", "label": "confirmed"},
+  "moi": {"class": "derived", "meaning": "Second moments about the coordinate origin, with the center recorded separately", "label": "confirmed"},
+  "moiOffDiag": {"class": "derived", "meaning": "Negated cross products about the coordinate origin", "label": "confirmed"},
   "revisionGuid": {"class": "bookkeeping", "meaning": "The new AuthorState revision id", "label": "confirmed"},
   "volume": {"class": "derived", "meaning": "One third of the closed-surface position and normal dot-product integral", "label": "confirmed"},
   "volumePrec": {"class": "format metadata", "meaning": "Zero precision value from the established cache schema", "label": "confirmed"}
@@ -33,14 +33,19 @@
   "fusion": "2706.1.17",
   "previous_process": 98846,
   "accepted_process": 24703,
-  "cases": 10,
-  "comparisons": 290,
+  "cases": 11,
+  "comparisons": 319,
   "problem_count": 0,
   "dropped": [],
   "vendor_loadable": true,
   "application_usable": true,
   "fresh_process_verified": true,
-  "report": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json"
+  "off_origin_translation_cm": [13, -21, 42],
+   "comparison_rule": "Compare three center coordinates and six inertia components after dividing API moments by physical density",
+   "api_return_rule": "getXYZMomentsOfInertia returns one success flag followed by six mass-weighted moments",
+   "material_densities_kg_cm3": {"kit": 0.001, "native": 0.00785},
+   "report": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json",
+   "report_sha256": "aabf9cc2ac6939fa70e235add96e8766091af54746f242261aa1f67618e49d6a"
  },
  "declaration_behavior": {
   "label": "confirmed",
@@ -49,8 +54,8 @@
   "kit_before_native_import": "The original SurfaceHeader is retained"
  },
  "scrub": {
-  "archives_changed": 2,
-  "typed_models_unchanged": 10,
+  "archives_changed": 3,
+  "typed_models_unchanged": 11,
   "report": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/ScrubValidation.json"
  }
 }

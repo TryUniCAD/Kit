@@ -5,10 +5,10 @@ from convert.formats.Fusion.BrepCodec.Journal.Geometry.JournalVector import (
 )
 from convert.formats.Fusion.BrepCodec.Journal.Spline.NubsSurface import NubsSurface
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.SplineFrame import (
-    SurfaceFrame,
+    KnotList,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.SurfacePoint import (
-    SurfacePoint,
+    SurfaceSample,
 )
 from convert.formats.Fusion.DocumentCodec.Form.IntegrationRules import (
     KGaussRule,
@@ -22,6 +22,8 @@ def SurfaceMass(Surface: NubsSurface) -> dict[str, float]:
     Total = dict.fromkeys(("area", "volume", *KPowerMap), 0.0)
     KnotsU = tuple(Value.Value for Value in Surface.KnotsU)
     KnotsV = tuple(Value.Value for Value in Surface.KnotsV)
+    ExpandedU = KnotList(Surface.KnotsU)
+    ExpandedV = KnotList(Surface.KnotsV)
     for LowerU, UpperU in zip(KnotsU, KnotsU[1:], strict=False):
         for LowerV, UpperV in zip(KnotsV, KnotsV[1:], strict=False):
             for NodeU, WeightU in KGaussRule:
@@ -31,11 +33,12 @@ def SurfaceMass(Surface: NubsSurface) -> dict[str, float]:
                     Scale = (
                         (UpperU - LowerU) * (UpperV - LowerV) * WeightU * WeightV / 4.0
                     )
-                    Point = SurfacePoint(Surface, ParamU, ParamV)
-                    Frame = SurfaceFrame(Surface, ParamU, ParamV)
+                    Point, AlongU, AlongV = SurfaceSample(
+                        Surface, ExpandedU, ExpandedV, ParamU, ParamV
+                    )
                     Normal = CastValue(
                         KJournalVector,
-                        tuple(Value * Scale for Value in CrossProduct(*Frame)),
+                        tuple(Value * Scale for Value in CrossProduct(AlongU, AlongV)),
                     )
                     MassAccumMut(Total, Point, Normal)
     return Total
