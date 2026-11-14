@@ -324,12 +324,46 @@ The record itself ends with:
 
 so the expression name and its formula each use `04 <len+2> text 00` framing.
 
-Editing the name field works: a rebuilt part reports `kit_abc` in NX 2506. Editing
-the formula string alone does not change the reported value — the part still
-returns `12.5`, and no 12.5 exists anywhere in the container as a binary64, a
-shifted binary64, a float32, or UTF-16 text. The numeric value is therefore
-cached in an encoding that is not yet identified, and an authored expression
-needs that field before it can be written.
+Editing the name field works: a rebuilt part reports `kit_abc` in NX 2506.
+Editing the formula string alone does not change the reported value.
+
+The value is the 16-bit field after the `82 c0 01 00` marker at the end of the
+record. Editing that field changes what NX reports:
+
+```text
+0x4950 -> 12.5       (source value)
+0x5950 -> 25.0
+0x2850 -> 3.0
+```
+
+Measured pairs from NX-created parts:
+
+```text
+value    field     form
+1        0x0001    06 01
+2        0x0002    06 02
+0.5      0x0003    06 04
+3        0x2850    06 03
+12.5     0x4950    04 06 "12.5"
+25       0x5950    04 04 "25"
+100      0x7950    04 05 "100"
+0.125    0x4fe0    04 07 "0.125"
+```
+
+So the field is the number for the inline-string form but the mapping is not
+affine, and the `06 <n>` form references a value table. That table is visible in
+the first record of the same middle lane:
+
+```text
+01 05 03 "1" 00 03 "2" 00 03 "3" 00 05 "0.5" 00
+```
+
+The encoding is not yet inverted, so an arbitrary authored value cannot be
+written with confidence.
+
+No 12.5 exists anywhere in the container as a binary64, a shifted binary64, a
+float32, or UTF-16 text, so the field is a private encoding rather than a
+truncated double.
 
 Current status: the class and reference lanes are emitted from a table and the
 middles are reproduced from a lane, but the table and the prefix and state bytes
