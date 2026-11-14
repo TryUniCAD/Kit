@@ -242,6 +242,20 @@ The region after the coordinate table (12376..18807) is not a float table. It is
 `ff <tag:u24le>` records and offset-like values such as `9b fe`, `80 a5 04 ff`, `7d 26`, and
 `dc d6`, not coordinates.
 
+## Region 12376..18807 and mixed table format
+
+The region 12376..18807 is not a `CATFloatCompactor` stream and not a `u16`/`u32` offset table.
+Decompressing it with the compactor at references 47.2, 30.0, and 0.0 returns values close to the
+reference (47.2, 47.2, 47.2, ...), not coordinates. Its `u16` values are mostly above 1431
+(65346, 65179, 42368, 65284, 55004, 43439, 43596, 58089), and its `u32` values are mostly above
+31156, so they are not point or byte offsets.
+
+The coordinate table at 569..12376 is not a uniform five-float group. The first 18 groups are
+`(x, y1, z, y2, z)` with `z1 == z2`, for example `(-35.5, -0.5, 37.418, 0.5, 37.418)`. The
+alignment breaks at group 18 (offset 929), where the data becomes a mix of three-float triples and
+five-float groups. A heuristic parser that reads a five-float group when `z1 == z2` and a
+three-float triple otherwise yields 999 points, still short of the 1431 handles.
+
 ## Open work
 
 1. Locate the shared tessellation vertex table and its coordinate encoding.
