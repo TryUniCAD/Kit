@@ -631,6 +631,66 @@ byte, the three optional counts, the `ff`-prefixed total, the optional vector, t
 handles. The surface record has no face-count field either: no byte position in any record sums to
 the face count over the record set.
 
+## The arity-2 edge handles are the B-rep vertices
+
+`Copper_Washer` is small enough to check end to end. It has 6 faces, 8 vertices, 8 roster entries,
+12 edges, and 76 distinct handles. The 6 surfaces are two planes at `x = 0` and `x = 1` and four
+cylinder halves at radius 8 and radius 5, all with axis `x`. The trim vector is the plane normal:
+face 2 has vector `(-1, 0, 0)` and its surface is the plane at `x = 0`; face 3 has vector
+`(1, 0, 0)` and its surface is the plane at `x = 1`.
+
+The 12 edges are four closed loops plus four arity-2 connectors:
+
+```
+loops:       (0,1,3,6,12,17,22,28,32,34,37)   (38,39,41,44,50,55,60,66,70,72,75)
+             (5,8,10,14,16,20,24,26,31,30,27,25,21,19,15,11,9)
+             (43,46,48,52,54,58,62,64,69,68,65,63,59,57,53,49,47)
+connectors:  (36,74)  (0,38)  (31,69)  (5,43)
+```
+
+The four loops are the four boundary circles: outer at `x = 0`, outer at `x = 1`, inner at `x = 0`,
+inner at `x = 1`. The four connectors are the seam edges, and each connects a handle at `x = 0` to a
+handle at `x = 1` at the same `(y, z)`.
+
+The eight connector handles are `0, 5, 31, 36, 38, 43, 69, 74`, and there are exactly eight
+vertices. The eight loop endpoints are `0, 5, 31, 37, 38, 43, 69, 75`, which differ from the
+connector set only by `{37, 75}` versus `{36, 74}` (adjacent tessellation points). So the connector
+handles and the loop endpoints both identify the eight vertices, and the mapping is:
+
+| Handle | Vertex |
+| ---: | --- |
+| 0 | `(0, -8, 0)` |
+| 37 | `(0, 8, 0)` |
+| 38 | `(1, -8, 0)` |
+| 75 | `(1, 8, 0)` |
+| 5 | `(0, 5, 0)` |
+| 31 | `(0, -5, 0)` |
+| 43 | `(1, 5, 0)` |
+| 69 | `(1, -5, 0)` |
+
+This is a real handle-to-vertex map, but only for the eight corner handles. The other 68 handles are
+tessellation points along the four circles, and their positions are not recovered.
+
+The same test holds exactly for the simple parts and fails for the complex ones. Counting the
+distinct handles that appear in arity-2 edges and comparing to the vertex count:
+
+| Part | Vertices | Arity-2 handles | Match |
+| --- | ---: | ---: | --- |
+| `Copper_Washer` | 8 | 8 | yes |
+| `Washer_5` | 8 | 8 | yes |
+| `Washer_6` | 8 | 8 | yes |
+| `Washer_8` | 8 | 8 | yes |
+| `Banjo` | 50 | 50 | yes |
+| `Nut_ISO_7040-M6_1.1` | 40 | 40 | yes |
+| `Nut_M6` | 40 | 40 | yes |
+| `Brake_bias_90_degree_coupler` | 20 | 20 | yes |
+| `Reservoir` | 88 | 109 | no |
+| `4784` | 772 | 830 | no |
+| `Pedal_Body` | 424 | 491 | no |
+
+So for the simple parts the arity-2 handles are exactly the vertices, and for the complex parts they
+are a strict superset. The extra arity-2 handles in the complex parts are not explained.
+
 ## The trim handles are not point indices
 
 The trim handles are dense: `Reservoir` uses every value in `0..1430`, and `Copper_Washer` uses

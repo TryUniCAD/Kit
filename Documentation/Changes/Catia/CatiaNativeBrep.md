@@ -15,6 +15,12 @@ and the coordinate region is a sequence of float runs separated by record marker
 therefore maps a handle to a vertex with a placeholder rule and derives loops from the tessellation
 boundary. That is a documented structural approximation, not the native B-rep topology or geometry.
 
+One partial map is recovered: the handles that appear in arity-2 edges are the B-rep vertices. This
+is exact for the simple parts (`Copper_Washer`, the washers, `Banjo`, the nuts, and
+`Brake_bias_90_degree_coupler`, where the arity-2 handle count equals the vertex count) and a strict
+superset for the complex parts (`Reservoir` 109 versus 88, `4784` 830 versus 772). It covers only the
+corner handles, not the tessellation points.
+
 The surface records are ordered by face only when the two counts match. For all 22 parts where the
 surface count equals the face count, the surface planarity sequence is identical to the face
 planarity sequence. For the five parts with fewer surfaces than faces, the surface planarity
