@@ -1,5 +1,6 @@
 from __future__ import annotations as Annotations
 from convert.adapters.solidworks.core.AxisSketchId import AxisSketchId
+from convert.adapters.solidworks.core.BoxFaces import HasBoxFaces
 from convert.adapters.solidworks.core.PolylineParameters import HasPolyLoss
 from convert.adapters.solidworks.core.TriDepth import IsTriSource, RecoverTriDepth
 from convert.adapters.solidworks.core.UnitScale import MmFromMetres
@@ -40,7 +41,6 @@ from interchange import (
     Sketch,
     SketchEntity,
     Selection,
-    SpaceVector,
     SupportPlane,
     ValueKind,
     Vector2 as VectorTwo,
@@ -3875,26 +3875,6 @@ def IsFreeCad(ObjectData: Mapping[str, object], PropName: str) -> bool:
 
 
 # this definition exists because focused behavior needs one stable owner
-def IsAxisLine(Value: SpaceVector) -> bool:
-    Components = (Value.x, Value.y, Value.z)
-    return sum((abs(ItemData) for ItemData in Components)) == 1.0 and all(
-        ItemData in {-1.0, 0.0, 1.0} for ItemData in Components
-    )
-
-
-def HasBoxFaces(DocData: CadDocument) -> bool:
-    BrepData = DocData.brep
-    if BrepData is None or len(BrepData.curves) != 12 or len(BrepData.surfaces) != 6:
-        return False
-    return all(
-        (isinstance(ItemData, LineCurve) and IsAxisLine(ItemData.direction)
-         for ItemData in BrepData.curves)
-    ) and all(
-        (isinstance(ItemData, PlaneSurface) and IsAxisLine(ItemData.normal)
-         for ItemData in BrepData.surfaces)
-    )
-
-
 def HasFreeCadBox(
     DocData: CadDocument, LengthValue: float, WidthValue: float, HeightValue: float
 ) -> bool:
@@ -3906,7 +3886,7 @@ def HasFreeCadBox(
         or (len(BrepData.faces) != 6)
         or (len(BrepData.regions) != 1)
         or (len(BrepData.bodies) != 1)
-        or (not HasBoxFaces(DocData))
+        or (not HasBoxFaces(DocData, LengthValue, WidthValue, HeightValue))
     ):
         return False
     ExpectedData = {
