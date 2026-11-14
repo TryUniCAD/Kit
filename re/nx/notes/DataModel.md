@@ -576,6 +576,49 @@ aligned authored body vs decoded body   3393 bytes each, 586 differing bytes
                                         VOLUME 0.0
 ```
 
+### Section 1's pointer table indexes object records
+
+The monotonic u32 run at middle offset `0xcd` is a per object offset table, not a
+middle offset list. Every value is a body relative offset, and there is exactly
+one entry per object:
+
+```text
+part      counts[0]  entries  table ends  last offset inside body
+dim40        44        44      0x17d      True
+dim50        44        44      0x17d      True
+dim60        44        44      0x17d      True
+```
+
+The record sizes fall out of consecutive differences and are identical across all
+three fixtures except for the first record:
+
+```text
+record 0            27 bytes (26 in dim60)
+records 1..43       28, 14 x 6, 16 x 12, 169, 112, 24, 21, 3 x 19
+```
+
+Record 0 is the head that describes the structures: `41 00 03 05 01 00 04 05 02
+00`, then `e0 6a f8`, then the seven byte saved pointer, then `1d 02 13 1e 02 00
+00`. Records after it are small descriptors with a `02 02` tag, a class byte such
+as `3f` or `41`, a flag byte `f0`, a descending link byte (`52 51 50 4f 4e 4d 4c
+4b`), and the `93 8c` trailer:
+
+```text
+02 02 ff 41 00 01 52 07 f0 00 09 03 93 8c
+02 02 3f 41 00 01 51 04 f0 01 09 1f 93 8c
+02 02 3f 41 00 01 50 05 f0 02 09 1c 93 8c
+```
+
+Because the table stores body offsets, a record that is one byte shorter shifts
+every later entry, which is exactly the -1 seen between dim40 and dim60, and the
+same reason the two middles differ by one byte. That also disposes of the earlier
+idea that one byte of model content changed: the difference is the size of record
+0 and the resulting renumbering of the objects behind it.
+
+Immediately after the table at `0x17d` sits a u32 array of 44 indices (`0x18,
+0x01, 0x03, 0x0d, 0x0c, ...`), one per object, which is the order the objects are
+written in.
+
 ### Section 1 carries model content, not constants
 
 Three NX-saved boxes of the same feature with different lengths show what
