@@ -467,6 +467,25 @@ The body header's `ff 03 01 00 00` and `ff 01 00 00 00` are not the domain refer
 the `WriteLong` and part of the box, and the domain references are the single bytes `ff`, `03`,
 `01` immediately after the count.
 
+### Only two `30 04 04` type tags exist, and neither is the shell
+
+`Reservoir` `MainDataStream` contains exactly two five-byte prefixes that start with `30 04 04`:
+
+| Prefix | Count | Meaning |
+| --- | ---: | --- |
+| `30 04 04 ff ff` | 71 | face flag rows |
+| `30 04 04 fd ff` | 3 | body headers |
+
+There is no `30 04 04` variant for the shell. The shell record is not identified by a `30 04 04`
+type tag, so it cannot be found by scanning for a type prefix. It is reached only through the
+domain tag difference in the body record, which resolves through the stream's object table.
+
+The object header is written by `CATCGMStreamImpl::WriteObject` at `0x72970`: it writes the tag
+difference, then the class identifier, then calls the object's own `Stream` method. The shell's
+`Stream` method then writes the linked-object count, the body reference, the boolean, the three
+scalars, the three arrays, the face count, and the face-reference loop. So the shell record is
+`tag difference + class id + shell fields`, and the class id is not `30 04 04`.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
