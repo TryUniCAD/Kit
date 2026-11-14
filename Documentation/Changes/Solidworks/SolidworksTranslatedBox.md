@@ -44,8 +44,7 @@ No option or donor stream is required.
 
 - `TestFCBTrans` writes a box translated by `(12.5, -7.25)` through the public writer
   with `allow_carrier=False`, requires vendor-loadable and application-usable output,
-  and decodes the emitted sketch coordinates
-  `(12.5, -7.25, 22.5, -7.25, 22.5, 2.75, 12.5, 2.75)`.
+  and decodes the emitted rectangle bounds `(12.5, -7.25, 22.5, 2.75)`.
 - `TestFCBRotate` uses a 90-degree quaternion and requires native preflight to return
   false plus `ApplicationUsabilityError` from the public writer.
 - `TestFCBZShift` uses `Pz = 5` and requires the same rejection.
