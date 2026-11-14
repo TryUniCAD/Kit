@@ -40,10 +40,16 @@ The tool expects an extracted section body, not a whole `.prt` file. The extract
 
 The chain matches the model tree Creo shows for both files.
 
+`FeatDefsDtm` (`Sld_FeatDefsDtm`) also decodes the datum placement records. The first record is the
+`FRONT` datum with `id = 7`, `type = 515`, `offset = 1.0`, `geometry2_id = 8`, and
+`attr = [32768, 0, 0, 0, 0]`. That is the parametric placement of the datum plane, not just a name.
+
 ## Limits
 
 - The parser stops at the `AllFeatur` footer, which uses a different field order.
-- `Sld_FeatDefs` in `FeatDefs` and `FeatDefsDtm` is not decoded.
+- The parser stops at the `ent_outl` bounding-box matrix in `FeatDefsDtm`, which uses the packed
+  hex-nibble double encoding.
+- `Sld_FeatDefs` in `FeatDefs` is not decoded.
 - `VisibGeom` geometry records are not decoded.
 - The parser is research code; it does not change the production adapter, which remains
   container-only.

@@ -199,6 +199,41 @@ The parser stops at the `AllFeatur` footer, which uses a different field order
 (`misc_id_tab_ptr`, `misc_hist`, `parent_table`, `avail_feat_parents`, `layer_list`).
 The footer is the next decode target, followed by `Sld_FeatDefs` in `FeatDefs`.
 
+### Datum placement records
+
+`FeatDefsDtm` (`Sld_FeatDefsDtm`) decodes the datum placement records. The first record is the
+`FRONT` datum:
+
+```text
+id = 7
+symbol_key = -1
+model_type = 2
+local_sys = [0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1]
+own_ref_id = -1
+orient = 1
+place_instruction_ptrs = [ref 11]
+type = 515
+offset = 1.0
+dim_id = -1
+ref_id = -1
+geometry1_id = -1
+geometry2_id = 8
+memb_num1 = 0
+memb_num2 = 0
+attr = [32768, 0, 0, 0, 0]
+plin_info_arr = [ref 21]
+```
+
+`type = 515` is the placement type, `offset = 1.0` is the placement offset, and
+`geometry2_id = 8` is the reference geometry. `attr` is the datum attribute array.
+The record is the parametric placement of the datum plane, not just a name.
+
+The parser stops at the `ent_outl` bounding-box matrix, which uses the packed hex-nibble double
+encoding. The `ugc_ieee_unformat_double` function reads a hex string where each byte's low nibble
+is a hex digit, and stores the bytes into the double buffer from the end backwards. The `0x0f`
+(0.0) and `0x18` (1.0) one-byte constants are handled by the caller, not the function. The
+`ent_outl` values are the next decoder target.
+
 ## Open questions
 
 - The `Serialize<CreoDesignatedItem>` field order and names.
