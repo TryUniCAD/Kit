@@ -61,6 +61,9 @@ The resolved-feature grammar includes class definitions and object references.
 The archive map changes as records are read.
 Structural edits require consistent identifiers and map indices.
 See [feature resolution](SolidworksFeatures.md) for the observed grammar.
+See the [verified decode evidence](../../../re/solidworks/measurements/VerifiedDecodeEvidence/README.md)
+for neutral models from controlled cases in a prior research build.
+That evidence does not extend the current adapter's support.
 
 The `moCompFeature_c` record supplies feature-tree ordering information in the documented research families.
 Do not infer rebuild order from physical stream order alone.
