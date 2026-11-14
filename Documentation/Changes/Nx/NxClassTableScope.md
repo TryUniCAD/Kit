@@ -97,7 +97,11 @@ chamfer.FirstOffset            a string, not an expression object
 ```
 
 So the edge query is solved (`GetFaces` then `GetEdges`) while the chamfer builder in this
-release does not expose a collector, and the fixture is still unavailable.
+release does not expose a collector, and the fixture is still unavailable. A third probe
+confirmed the builder's only selection attribute is `SmartCollector`, which is `None` when
+the builder is created from `NXOpen.Features.Chamfer.Null`, and `GetTargets` does not
+exist on it. `FirstOffset` is a string, so the offsets are set by text rather than by an
+expression object.
 
 ## Consequence
 
