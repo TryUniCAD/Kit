@@ -202,103 +202,131 @@ class CatiaReader(PairProtocol):
         Manifest = ManifestBytes(Archive)
         if Manifest is not None:
             return EmbeddedDoc(Archive, DataValue, Label, Manifest, Settings)
-        DocType = DetectDocType(Archive, Label)
-        Payloads = NativePayloads(Archive, DataValue, DocType, Settings)
-        if DocType == ProductDocType:
-            AsmValue, AsmDiagnostics = NativeProductAsm(
-                Archive, Label, Settings, self.read
+        return ReadArchive(Archive, DataValue, Label, Settings, self.read)
+
+
+# this definition exists because focused behavior needs one stable owner
+def ReadPartData(
+    Archive: CfvTwoArchive,
+    DocType: str,
+    NativeModel: BrepModel | None,
+) -> tuple[
+    dict[str, object],
+    tuple[SupportPlane, ...],
+    tuple[FeatureStep, ...],
+    tuple[BodyRecord, ...],
+    tuple[DiagnosticInfo, ...],
+]:
+    try:
+        return NativePartData(Archive, DocType)
+    except CatiaAdapterA:
+        if NativeModel is None:
+            raise
+        Feature = FeatureStep(
+            id="catia:feature:graph",
+            name="CATIA native B-rep",
+            kind=FeatureKind.NATIVE,
+            order=0,
+            definition=NativeFeatureDefinition(
+                format_id="catia.v5.brep",
+                type_id="BRep",
+            ),
+        )
+        return (
+            {},
+            (),
+            (Feature,),
+            (BodyRecord("catia:body:1", "PartBody", Feature.id),),
+            (),
+        )
+
+
+# this definition exists because focused behavior needs one stable owner
+def BuildMeta(
+    Archive: CfvTwoArchive, DocType: str, PartMeta: dict[str, object]
+) -> dict[str, object]:
+    return {
+        "catia.document_type": DocType,
+        "catia.outer_directory_offset": Archive.outer.offset,
+        "catia.outer_directory_length": Archive.outer.length,
+        "catia.outer_streams": tuple(
+            (Stream.name, Stream.logical_length) for Stream in Archive.outer.streams
+        ),
+        "catia.nested_directory_count": len(Archive.nested),
+        "catia.container_classes": tuple(
+            (
+                Value.ordinal,
+                Value.class_name,
+                Value.base_class,
+                Value.stream_name,
             )
-        else:
-            AsmValue, AsmDiagnostics = (None, ())
-        NativeModel, NativeDiagnostics = (
-            DecodeNativeBrep(Archive) if DocType == PartDocType else (None, ())
+            for Value in Archive.declarations()
+        ),
+        **ContainerMeta(Archive),
+        **PartMeta,
+    }
+
+
+# this definition exists because focused behavior needs one stable owner
+def ReadArchive(
+    Archive: CfvTwoArchive,
+    DataValue: bytes,
+    Label: str,
+    Settings: ReadOptions,
+    ReadSource: Callable[[Source, ReadOptions | None], CadDoc],
+) -> CadDoc:
+    DocType = DetectDocType(Archive, Label)
+    Payloads = NativePayloads(Archive, DataValue, DocType, Settings)
+    if DocType == ProductDocType:
+        AsmValue, AsmDiagnostics = NativeProductAsm(
+            Archive, Label, Settings, ReadSource
         )
-        try:
-            PartMeta, SupportPlanes, FeatureTimeline, Bodies, PartDiagnostics = (
-                NativePartData(Archive, DocType)
-            )
-        except CatiaAdapterA:
-            if NativeModel is None:
-                raise
-            Feature = FeatureStep(
-                id="catia:feature:graph",
-                name="CATIA native B-rep",
-                kind=FeatureKind.NATIVE,
-                order=0,
-                definition=NativeFeatureDefinition(
-                    format_id="catia.v5.brep",
-                    type_id="BRep",
-                ),
-            )
-            PartMeta, SupportPlanes, PartDiagnostics = ({}, (), ())
-            FeatureTimeline = (Feature,)
-            Bodies = (BodyRecord("catia:body:1", "PartBody", Feature.id),)
-        Version = AppVersion(DataValue)
-        MetaValue = {
-            "catia.document_type": DocType,
-            "catia.outer_directory_offset": Archive.outer.offset,
-            "catia.outer_directory_length": Archive.outer.length,
-            "catia.outer_streams": tuple(
-                (
-                    (Stream.name, Stream.logical_length)
-                    for Stream in Archive.outer.streams
-                )
-            ),
-            "catia.nested_directory_count": len(Archive.nested),
-            "catia.container_classes": tuple(
-                (
-                    (
-                        Value.ordinal,
-                        Value.class_name,
-                        Value.base_class,
-                        Value.stream_name,
-                    )
-                    for Value in Archive.declarations()
-                )
-            ),
-            **ContainerMeta(Archive),
-            **PartMeta,
-        }
-        DocValue = CadDoc(
-            source=CadSource(
-                KFormatId,
-                Label,
-                Hashlib.sha256(DataValue).hexdigest(),
-                container_version="V5_CFV2",
-                application_version=Version,
-            ),
-            configurations=Selected(
-                (Config("catia:default", "Default", active=True),),
-                Settings.configuration,
-            ),
-            parameters=(),
-            support_planes=SupportPlanes,
-            sketches=(),
-            selections=(),
-            feature_timeline=FeatureTimeline,
-            bodies=Bodies,
-            brep_payloads=Payloads,
-            brep=(
-                NativeModel if NativeModel is not None else TypedBrep(Payloads, Bodies)
-            ),
-            diagnostics=AsmDiagnostics + PartDiagnostics + NativeDiagnostics,
-            capabilities=frozenset(),
-            metadata=WithWrapperMeta(MetaValue, KWrapperMetaKeys),
-            assembly=AsmValue,
-        )
-        DocValue = Replace(
-            DocValue, capabilities=InferCapabilities(DocValue, roundtrip_metadata=True)
-        )
-        Digest = SemanticDigest(DocValue)
-        DocValue = Replace(
-            DocValue,
-            metadata=FrozenMapping(
-                {**DocValue.metadata, "catia.roundtrip_sha256": Digest}
-            ),
-        )
-        if Settings.strict:
-            DocValue.assert_valid()
-        return DocValue
+    else:
+        AsmValue, AsmDiagnostics = (None, ())
+    NativeModel, NativeDiagnostics = (
+        DecodeNativeBrep(Archive) if DocType == PartDocType else (None, ())
+    )
+    PartMeta, SupportPlanes, FeatureTimeline, Bodies, PartDiagnostics = ReadPartData(
+        Archive, DocType, NativeModel
+    )
+    Version = AppVersion(DataValue)
+    MetaValue = BuildMeta(Archive, DocType, PartMeta)
+    DocValue = CadDoc(
+        source=CadSource(
+            KFormatId,
+            Label,
+            Hashlib.sha256(DataValue).hexdigest(),
+            container_version="V5_CFV2",
+            application_version=Version,
+        ),
+        configurations=Selected(
+            (Config("catia:default", "Default", active=True),),
+            Settings.configuration,
+        ),
+        parameters=(),
+        support_planes=SupportPlanes,
+        sketches=(),
+        selections=(),
+        feature_timeline=FeatureTimeline,
+        bodies=Bodies,
+        brep_payloads=Payloads,
+        brep=(NativeModel if NativeModel is not None else TypedBrep(Payloads, Bodies)),
+        diagnostics=AsmDiagnostics + PartDiagnostics + NativeDiagnostics,
+        capabilities=frozenset(),
+        metadata=WithWrapperMeta(MetaValue, KWrapperMetaKeys),
+        assembly=AsmValue,
+    )
+    DocValue = Replace(
+        DocValue, capabilities=InferCapabilities(DocValue, roundtrip_metadata=True)
+    )
+    Digest = SemanticDigest(DocValue)
+    DocValue = Replace(
+        DocValue,
+        metadata=FrozenMapping({**DocValue.metadata, "catia.roundtrip_sha256": Digest}),
+    )
+    if Settings.strict:
+        DocValue.assert_valid()
+    return DocValue
 
 
 # this definition exists because focused behavior needs one stable owner

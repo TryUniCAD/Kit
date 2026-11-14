@@ -27,6 +27,7 @@ from interchange import (
     BrepRegion,
     BrepShell,
     BrepShellUse,
+    BrepSurface,
     BrepVertex,
     Diagnostic,
     LineCurve,
@@ -34,9 +35,11 @@ from interchange import (
     SpaceVector,
 )
 
+# this binding exists because shared behavior needs one stable value
 KBodyId = "catia:body:1"
 
 
+# this definition exists because focused behavior needs one stable owner
 @dataclass(frozen=True, slots=True)
 class BrepData:
     surfaces: tuple[SurfaceRec, ...]
@@ -47,10 +50,22 @@ class BrepData:
     width: int
 
 
+# this definition exists because focused behavior needs one stable owner
+@dataclass(frozen=True, slots=True)
+class FaceBuild:
+    curves: tuple[LineCurve, ...]
+    edges: tuple[BrepEdge, ...]
+    coedges: tuple[BrepCoedge, ...]
+    loops: tuple[BrepLoop, ...]
+    face: BrepFace
+
+
+# this definition exists because focused behavior needs one stable owner
 def Vector(Values: tuple[float, float, float]) -> SpaceVector:
     return SpaceVector(*Values)
 
 
+# this definition exists because focused behavior needs one stable owner
 def Normalize(Values: tuple[float, float, float]) -> tuple[float, float, float]:
     Length = math.sqrt(sum(Value * Value for Value in Values))
     if Length <= 1e-12:
@@ -62,6 +77,7 @@ def Normalize(Values: tuple[float, float, float]) -> tuple[float, float, float]:
     )
 
 
+# this definition exists because focused behavior needs one stable owner
 def Largest(Folder: CfvTwoFolder, NameValue: str) -> CfvTwoStream:
     Matches = tuple(Stream for Stream in Folder.streams if Stream.name == NameValue)
     if not Matches:
@@ -69,6 +85,7 @@ def Largest(Folder: CfvTwoFolder, NameValue: str) -> CfvTwoStream:
     return max(Matches, key=lambda Stream: Stream.logical_length)
 
 
+# this definition exists because focused behavior needs one stable owner
 def ParseBrep(Archive: CfvTwoArchive) -> BrepData:
     if not Archive.nested:
         raise ValueError("nested container is missing")
@@ -101,78 +118,138 @@ def ParseBrep(Archive: CfvTwoArchive) -> BrepData:
     raise ValueError("topology spine is unsupported")
 
 
-def BuildBrep(Data: BrepData) -> BrepModel:
-    if not Data.vertices:
+# this definition exists because focused behavior needs one stable owner
+def BuildVertices(
+    BrepValue: BrepData,
+) -> tuple[tuple[BrepVertex, ...], dict[int, str]]:
+    if not BrepValue.vertices:
         raise ValueError("vertex table is empty")
     Handles = sorted(
-        {Handle for TrimValue in Data.trims for Handle in TrimValue.handles}
+        {Handle for TrimValue in BrepValue.trims for Handle in TrimValue.handles}
     )
-    VertexByHandle: dict[int, str] = {}
-    Vertices: list[BrepVertex] = [
-        BrepVertex(f"catia:vertex:{Index + 1}", Vector(Row.point))
-        for Index, Row in enumerate(Data.vertices)
-    ]
-    for Handle in Handles:
-        VertexByHandle[Handle] = f"catia:vertex:{(Handle % len(Data.vertices)) + 1}"
+    Vertices = tuple(
+        BrepVertex(f"catia:vertex:{Index + 1}", Vector(VertexRow.point))
+        for Index, VertexRow in enumerate(BrepValue.vertices)
+    )
+    VertexByHandle = {
+        Handle: f"catia:vertex:{(Handle % len(BrepValue.vertices)) + 1}"
+        for Handle in Handles
+    }
+    return Vertices, VertexByHandle
+
+
+# this definition exists because focused behavior needs one stable owner
+def BuildEdge(
+    HandlePair: tuple[int, int],
+    VertexByHandle: dict[int, str],
+    VertexById: dict[str, BrepVertex],
+    CurveCount: int,
+) -> tuple[LineCurve, BrepEdge]:
+    StartId = VertexByHandle[HandlePair[0]]
+    EndId = VertexByHandle[HandlePair[1]]
+    StartPoint = VertexById[StartId].point
+    EndPoint = VertexById[EndId].point
+    Direction = Normalize(
+        (
+            EndPoint.x - StartPoint.x,
+            EndPoint.y - StartPoint.y,
+            EndPoint.z - StartPoint.z,
+        )
+    )
+    CurveId = f"catia:curve:{CurveCount + 1}"
+    CurveValue = LineCurve(CurveId, StartPoint, Vector(Direction))
+    Length = math.dist(
+        (StartPoint.x, StartPoint.y, StartPoint.z),
+        (EndPoint.x, EndPoint.y, EndPoint.z),
+    )
+    EdgeId = f"catia:edge:{CurveCount + 1}"
+    return CurveValue, BrepEdge(EdgeId, StartId, EndId, CurveId, 0.0, Length)
+
+
+# this definition exists because focused behavior needs one stable owner
+def BuildFaceMut(
+    FaceIndex: int,
+    SurfaceValue: SurfaceRec,
+    TrimValue: TrimRec,
+    VertexByHandle: dict[int, str],
+    VertexById: dict[str, BrepVertex],
+    EdgeByPair: dict[tuple[int, int], str],
+    CurveCount: int,
+    EdgeCount: int,
+    CoedgeCount: int,
+) -> FaceBuild:
     Curves: list[LineCurve] = []
     Edges: list[BrepEdge] = []
-    EdgeByPair: dict[tuple[int, int], str] = {}
+    Coedges: list[BrepCoedge] = []
+    Loops: list[BrepLoop] = []
+    LoopIds: list[str] = []
+    for CycleIndex, Cycle in enumerate(Boundary(TrimValue), start=1):
+        CoedgeIds: list[str] = []
+        for Position, StartHandle in enumerate(Cycle):
+            EndHandle = Cycle[(Position + 1) % len(Cycle)]
+            HandlePair = (min(StartHandle, EndHandle), max(StartHandle, EndHandle))
+            EdgeId = EdgeByPair.get(HandlePair)
+            if EdgeId is None:
+                CurveValue, EdgeValue = BuildEdge(
+                    HandlePair,
+                    VertexByHandle,
+                    VertexById,
+                    CurveCount + len(Curves),
+                )
+                EdgeId = EdgeValue.id
+                EdgeByPair[HandlePair] = EdgeId
+                Curves.append(CurveValue)
+                Edges.append(EdgeValue)
+            CoedgeId = f"catia:coedge:{CoedgeCount + len(Coedges) + 1}"
+            Coedges.append(
+                BrepCoedge(CoedgeId, EdgeId, reversed=StartHandle > EndHandle)
+            )
+            CoedgeIds.append(CoedgeId)
+        LoopId = f"catia:loop:{FaceIndex}:{CycleIndex}"
+        Loops.append(BrepLoop(LoopId, tuple(CoedgeIds), outer=CycleIndex == 1))
+        LoopIds.append(LoopId)
+    FaceValue = BrepFace(
+        f"catia:face:{FaceIndex}",
+        f"catia:surface:{FaceIndex}",
+        tuple(LoopIds),
+        same_sense=SurfaceValue.sign >= 0,
+    )
+    return FaceBuild(
+        tuple(Curves), tuple(Edges), tuple(Coedges), tuple(Loops), FaceValue
+    )
+
+
+# this definition exists because focused behavior needs one stable owner
+def BuildBrep(BrepValue: BrepData) -> BrepModel:
+    Vertices, VertexByHandle = BuildVertices(BrepValue)
+    VertexById = {VertexValue.id: VertexValue for VertexValue in Vertices}
+    Curves: list[LineCurve] = []
+    Edges: list[BrepEdge] = []
     Coedges: list[BrepCoedge] = []
     Loops: list[BrepLoop] = []
     Faces: list[BrepFace] = []
-    Surfaces: list[object] = []
+    Surfaces: list[BrepSurface] = []
+    EdgeByPair: dict[tuple[int, int], str] = {}
     for FaceIndex, (SurfaceValue, TrimValue) in enumerate(
-        zip(Data.surfaces, Data.trims), start=1
+        zip(BrepValue.surfaces, BrepValue.trims), start=1
     ):
         Surfaces.append(MakeSurf(SurfaceValue, FaceIndex, TrimValue.vector))
-        LoopIds: list[str] = []
-        for CycleIndex, Cycle in enumerate(Boundary(TrimValue), start=1):
-            CoedgeIds: list[str] = []
-            for Position, StartHandle in enumerate(Cycle):
-                EndHandle = Cycle[(Position + 1) % len(Cycle)]
-                Pair = (min(StartHandle, EndHandle), max(StartHandle, EndHandle))
-                EdgeId = EdgeByPair.get(Pair)
-                if EdgeId is None:
-                    EdgeId = f"catia:edge:{len(Edges) + 1}"
-                    EdgeByPair[Pair] = EdgeId
-                    StartId = VertexByHandle[Pair[0]]
-                    EndId = VertexByHandle[Pair[1]]
-                    StartPoint = next(
-                        Value.point for Value in Vertices if Value.id == StartId
-                    )
-                    EndPoint = next(
-                        Value.point for Value in Vertices if Value.id == EndId
-                    )
-                    Direction = Normalize(
-                        (
-                            EndPoint.x - StartPoint.x,
-                            EndPoint.y - StartPoint.y,
-                            EndPoint.z - StartPoint.z,
-                        )
-                    )
-                    CurveId = f"catia:curve:{len(Curves) + 1}"
-                    Curves.append(LineCurve(CurveId, StartPoint, Vector(Direction)))
-                    Length = math.dist(
-                        (StartPoint.x, StartPoint.y, StartPoint.z),
-                        (EndPoint.x, EndPoint.y, EndPoint.z),
-                    )
-                    Edges.append(BrepEdge(EdgeId, StartId, EndId, CurveId, 0.0, Length))
-                CoedgeId = f"catia:coedge:{len(Coedges) + 1}"
-                Coedges.append(
-                    BrepCoedge(CoedgeId, EdgeId, reversed=StartHandle > EndHandle)
-                )
-                CoedgeIds.append(CoedgeId)
-            LoopId = f"catia:loop:{FaceIndex}:{CycleIndex}"
-            Loops.append(BrepLoop(LoopId, tuple(CoedgeIds), outer=CycleIndex == 1))
-            LoopIds.append(LoopId)
-        Faces.append(
-            BrepFace(
-                f"catia:face:{FaceIndex}",
-                f"catia:surface:{FaceIndex}",
-                tuple(LoopIds),
-                same_sense=SurfaceValue.sign >= 0,
-            )
+        FaceResult = BuildFaceMut(
+            FaceIndex,
+            SurfaceValue,
+            TrimValue,
+            VertexByHandle,
+            VertexById,
+            EdgeByPair,
+            len(Curves),
+            len(Edges),
+            len(Coedges),
         )
+        Curves.extend(FaceResult.curves)
+        Edges.extend(FaceResult.edges)
+        Coedges.extend(FaceResult.coedges)
+        Loops.extend(FaceResult.loops)
+        Faces.append(FaceResult.face)
     FaceUses = tuple(
         BrepFaceUse(f"catia:face-use:{Index}", FaceValue.id)
         for Index, FaceValue in enumerate(Faces, start=1)
@@ -182,11 +259,11 @@ def BuildBrep(Data: BrepData) -> BrepModel:
     )
     ShellUse = BrepShellUse("catia:shell-use:1", Shell.id)
     Region = BrepRegion("catia:region:1", (ShellUse.id,), solid=True)
-    Body = BrepBody(KBodyId, (Region.id,), design_body_id=KBodyId)
+    BodyValue = BrepBody(KBodyId, (Region.id,), design_body_id=KBodyId)
     return BrepModel(
         curves=tuple(Curves),
         surfaces=tuple(Surfaces),
-        vertices=tuple(Vertices),
+        vertices=Vertices,
         edges=tuple(Edges),
         coedges=tuple(Coedges),
         loops=tuple(Loops),
@@ -195,16 +272,17 @@ def BuildBrep(Data: BrepData) -> BrepModel:
         shells=(Shell,),
         shell_uses=(ShellUse,),
         regions=(Region,),
-        bodies=(Body,),
+        bodies=(BodyValue,),
     )
 
 
+# this definition exists because focused behavior needs one stable owner
 def DecodeBrep(
     Archive: CfvTwoArchive,
 ) -> tuple[BrepModel | None, tuple[Diagnostic, ...]]:
     try:
-        Data = ParseBrep(Archive)
-        Model = BuildBrep(Data)
+        BrepValue = ParseBrep(Archive)
+        Model = BuildBrep(BrepValue)
     except (IndexError, TypeError, ValueError) as ErrorInfo:
         return None, (
             Diagnostic(
