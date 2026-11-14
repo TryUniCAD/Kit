@@ -42,5 +42,5 @@ The result reports `mode="exact_native_roundtrip"` and keeps `vendor_loadable` a
 - [Data model](../../../re/creo/data-model/DataModel.md)
 - [Oracle notes](../../../re/creo/oracle/Oracle.md)
 - [Writer gap](../../../re/creo/open-items/WriterGap.md)
-- [ARM64 startup gotcha](../../Gotchas/Conversion/CreoArm64Startup.md)
+- [ARM64 startup gotcha](../../Gotchas/Conversion/CreoArmStartup.md)
 - [Legacy ASCII rejection gotcha](../../Gotchas/Conversion/CreoLegacyAsciiRejected.md)
