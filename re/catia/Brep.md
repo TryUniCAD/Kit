@@ -723,6 +723,49 @@ nine distinct handles (`2, 4, 7, 13, 18, 23, 29, 33, 35`) that are not in loop A
 are interior tessellation points, and their positions are not recovered. So the loop points are
 placed correctly, but the full tessellation is not determined by the loops alone.
 
+## The trim handles are corners, not points
+
+The decisive measurement is how many faces each handle belongs to. For `Copper_Washer`, counting the
+faces that use each handle gives:
+
+| Faces using the handle | Handles | Meaning |
+| --- | ---: | --- |
+| 3 | 4 | vertices |
+| 2 | 68 | edge interiors |
+| 1 | 4 | seam or interior |
+
+The four 3-face handles are `0, 5, 38, 43`, and the four 1-face handles are `30, 36, 68, 74`. So a
+handle is a *corner* on an edge, not a point. That is why the handle count (76) exceeds the vertex
+count (8): the handles are the corners along the edges, and each edge carries several of them.
+
+Grouping the 2-face handles by the face pair gives the eight face-to-face edges:
+
+| Face pair | Handles | Circle |
+| --- | ---: | --- |
+| 0, 2 | 10 | outer at `x = 0` |
+| 1, 2 | 9 | outer at `x = 0` |
+| 0, 3 | 10 | outer at `x = 1` |
+| 1, 3 | 9 | outer at `x = 1` |
+| 2, 4 | 7 | inner at `x = 0` |
+| 2, 5 | 8 | inner at `x = 0` |
+| 3, 4 | 7 | inner at `x = 1` |
+| 3, 5 | 8 | inner at `x = 1` |
+
+So each of the four circles is split into two edges: the outer circles into 10 + 9 handles, the
+inner circles into 7 + 8. The totals are 19 + 19 + 15 + 15 = 68 edge handles, plus 4 vertices and 4
+one-face handles, which is the full 76.
+
+This also explains the "interior" handles of the planar faces. Handles `2, 4, 7, 13, 18, 23, 29, 33,
+35` are not interior points at all: they are the 2-face handles of the `(0, 2)` edge, so they lie on
+the outer circle at `x = 0`. The planar face 2 uses them because they are on its boundary, and the
+cylinder face 0 uses them because they are on its boundary too. So the planar faces are bounded
+entirely by the circles, and the earlier "interior point" reading was wrong.
+
+The 2-bit block does not resolve the positions. For `Copper_Washer` the candidate block is 27 bytes
+at `199..226`, and every 19-byte window in it decodes to a two-bit distribution dominated by 2 and 3
+(for example `{0:21, 1:10, 2:18, 3:27}`), which is the opposite of `Reservoir`'s `{0:866, 1:289,
+2:198, 3:78}`. So either the block boundaries differ per part or the block is not the same encoding.
+
 ## The trim handles are not point indices
 
 The trim handles are dense: `Reservoir` uses every value in `0..1430`, and `Copper_Washer` uses

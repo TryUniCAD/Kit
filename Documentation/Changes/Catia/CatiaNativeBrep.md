@@ -24,9 +24,14 @@ corner handles, not the tessellation points.
 For `Copper_Washer` the face-to-loop structure is complete: the four edge loops are the four
 boundary circles (outer and inner at `x = 0` and `x = 1`), and the six faces are the two annular
 planes and the four cylinder halves. Placing the loop handles on their circles at equal angular
-spacing makes both planar faces coplanar with their trim vectors at zero deviation. This is a
-placement, not a decode: each planar face also uses interior handles that are in no loop, and their
-positions are not recovered.
+spacing makes both planar faces coplanar with their trim vectors at zero deviation.
+
+The trim handles are corners, not points. Counting the faces that use each handle gives 4 handles
+used by 3 faces (the vertices), 68 used by 2 faces (edge interiors), and 4 used by 1 face. Grouping
+the 2-face handles by face pair gives the eight face-to-face edges, and each of the four circles is
+split into two edges (outer 10 + 9 handles, inner 7 + 8). So the planar faces are bounded entirely
+by the circles, and the handles that looked like interior points are the 2-face handles of the
+`(0, 2)` edge on the outer circle at `x = 0`.
 
 The surface records are ordered by face only when the two counts match. For all 22 parts where the
 surface count equals the face count, the surface planarity sequence is identical to the face
