@@ -600,6 +600,38 @@ sections 1 (block shape), 2 and 3, in addition to regenerating section 3 and
 emptying section 4. Section 0 keeps its source anchor because its body is still
 copied.
 
+### The expression section inventory follows the feature, not the count
+
+Six parts, measured object by object (`re/nx/tools/CmDump.py` locates the table by
+its declared count):
+
+```text
+part            exprs  objects  18 byte  21 byte  slots  records
+empty.prt           0        6        0        0      0        0
+empty_expr.prt      1        7        0        0      0        1
+var_sph.prt         1       10        3        1      4        1
+var_cyl.prt         2       14        6        1      7        2
+dim40.prt           3       24       10        5     15        3
+var_two.prt         6       42       19       11     30        6
+```
+
+Two rules hold exactly:
+
+- there is one record per expression (0, 1, 1, 2, 3, 6)
+- the per expression slot count depends on the feature: five per expression for a
+  block (15 for 3, 30 for 6), four for one sphere expression, three and a half for
+  two cylinder expressions
+
+so the object count is not a function of the expression count. It is a function of
+how many attribute bindings each expression has, which is feature semantics rather
+than file layout. That is the same conclusion the construction section gave, and it
+is why the expression section cannot be emitted from `(name, value)` pairs alone.
+
+The fixed part of the section is still worth emitting: head, lane descriptor, the
+four `EXP_*` system names, the default group record, the occupancy lane and the
+per expression record bodies are all schema constants, and `MiddleBuild` already
+reproduces the body less middle (337 bytes) exactly.
+
 ### The expression section keeps a model dependent object graph
 
 Section 2 carries a per document graph that grows with the expression count:

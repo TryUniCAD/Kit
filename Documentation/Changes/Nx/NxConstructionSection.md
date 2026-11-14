@@ -61,3 +61,7 @@ guard, the record counts and the object count reader.
   saved part's bytes is a donor block, which this repository forbids.
 - Sections 0 and 2 still come from the source part, so no part is written without
   a source document yet.
+- Measured across six parts, the expression section carries one record per
+  expression but its slot count follows the feature (5 per block expression, 4 for
+  one sphere expression, 3.5 for two cylinder expressions), so it is emitted per
+  feature rather than per count.
