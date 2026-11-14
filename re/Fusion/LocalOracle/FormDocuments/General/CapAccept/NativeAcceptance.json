@@ -148,7 +148,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3SameConverted.f3d",
-    "converted_sha256": "9f53cec3f9dd039b99c2bb4f214403e46f2eb8b05e296862bc01303dadb9b23d",
+    "converted_sha256": "a19242fdad4db616aabc01612d0ffbd76b3267f901d2534fbd9505be672eb24c",
     "cage_tsm_sha256": "e1020229a23104e10d19fc3ab839b55531c8b5581d1ef45a0f8c6fc7f8241285",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -228,7 +228,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3Same.f3d",
-    "saved_sha256": "af634e5869a6ac0cfccfc8fb5a5bd15c9a1f14d1da7c351700d38248506ed30c",
+    "saved_sha256": "4d6d1f805d13f8326397064b8fc6fa3f40f0813ca13099677c6e67ae66f002a5",
     "reopened": {
      "timeline": [
       {
@@ -506,7 +506,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3SameConverted.f3d",
-    "converted_sha256": "b545a8bf5ac87f33a10a8888679b20006956a1db21ef0c20fc9af8e566749b4e",
+    "converted_sha256": "db870e5411ee2ef99772619e0cb66882979a7896674aadcbceb35e1408ff3e28",
     "cage_tsm_sha256": "e1020229a23104e10d19fc3ab839b55531c8b5581d1ef45a0f8c6fc7f8241285",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -586,7 +586,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3Same.f3d",
-    "saved_sha256": "35cc9adbae9cf0a7e8d708c29462b05c8487065d1997137b197292f10b80fc8c",
+    "saved_sha256": "8ef8668332dd1e8b4f9998a72fac075ed959e1c731bddf367c8ef67171b7cf1b",
     "reopened": {
      "timeline": [
       {
@@ -1012,7 +1012,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3G0Converted.f3d",
-    "converted_sha256": "5b36ed0a581b93aa99beee12faa79b94b877e938b3249e2408d3bed77cd0aa86",
+    "converted_sha256": "b1d934283681ea59cf9e49f0ac1f04d341bcfc812198210d274c900a19a0e9d2",
     "cage_tsm_sha256": "e1020229a23104e10d19fc3ab839b55531c8b5581d1ef45a0f8c6fc7f8241285",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -1092,7 +1092,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3G0.f3d",
-    "saved_sha256": "2f16a833dc003ffc7417b8d91ae5758b97d608c75bf68295fd3bef08bd823c69",
+    "saved_sha256": "cef9c7f149dcb5bc5609b49ca49a46953c538d79674f766f553e1e3cf3b8ab16",
     "reopened": {
      "timeline": [
       {
@@ -1370,7 +1370,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3G0Converted.f3d",
-    "converted_sha256": "273f7814feb9d2faca8da1dfd8d9de38be469b829b1228f260a456818ec30cf9",
+    "converted_sha256": "bb1e71b838b0dbc439d84b439317a0f474ba3bfad53e7948b5596f9488aa5b69",
     "cage_tsm_sha256": "e1020229a23104e10d19fc3ab839b55531c8b5581d1ef45a0f8c6fc7f8241285",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -1450,7 +1450,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3G0.f3d",
-    "saved_sha256": "aa79cab9a1d74d7bd8e9d63c7d8117678e33cdac45873524879f7968e233e37f",
+    "saved_sha256": "665ab20141afeaed586f99b62f729ec333786c666c4315c2d06e04da09ad4bcd",
     "reopened": {
      "timeline": [
       {
@@ -1876,7 +1876,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3G2Converted.f3d",
-    "converted_sha256": "b5dc1528676545b561e816c9dc7af3d84b66b3f738dd183ace48a1c458ac2844",
+    "converted_sha256": "631e9cb98d049797e85b9293c24934702fabb07e00547833469fc327f6f34ea1",
     "cage_tsm_sha256": "e1020229a23104e10d19fc3ab839b55531c8b5581d1ef45a0f8c6fc7f8241285",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -1956,7 +1956,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3G2.f3d",
-    "saved_sha256": "fb768d99e71e90118f8d4104d707e6c9de301fa5f985e13ed17f83c4482f4fe9",
+    "saved_sha256": "158e1999a14becd6b32f1fe3156d76818cb10625e48ed4e77c43be3bb40fd4c9",
     "reopened": {
      "timeline": [
       {
@@ -2234,7 +2234,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3G2Converted.f3d",
-    "converted_sha256": "e9522a24792c11501f5733857ddff78a4d7eb34038fdc82507dc1bd526e6ddc0",
+    "converted_sha256": "a8bd1dee6b53e9f73f434e8542fd05df36b26666002e4c89eb5234f9070c26e0",
     "cage_tsm_sha256": "e1020229a23104e10d19fc3ab839b55531c8b5581d1ef45a0f8c6fc7f8241285",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -2314,7 +2314,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3G2.f3d",
-    "saved_sha256": "89ec0c8fbb073f3e0931d1da638514b2c55b84a9de49112baa61120c9b19fb2c",
+    "saved_sha256": "9a168392958e0cfad0aefd99952301387d190abd77d21a443df41e878a195f55",
     "reopened": {
      "timeline": [
       {
@@ -2740,7 +2740,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3Star1Converted.f3d",
-    "converted_sha256": "33954f9349a316ddddc085814199e9a5e1120a669dde904b0d255292c7456692",
+    "converted_sha256": "0af02e0fa76771e73e9fbe423829755d7dfe4f08400cd812dd9e6917e0cecc52",
     "cage_tsm_sha256": "70a0bf8b117de55a3586cf0a16b602d20ffa3ad24d3a1a2ffd142bcff827f656",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -2820,7 +2820,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3Star1.f3d",
-    "saved_sha256": "73bc5db0949b48f4c422a72aee6f163792d47c6352501e0f387e52994c1093f4",
+    "saved_sha256": "e91eb1eb228586acad0df0034fadbd04085ab52db296b56899ac5636f1310ec0",
     "reopened": {
      "timeline": [
       {
@@ -3098,7 +3098,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3Star1Converted.f3d",
-    "converted_sha256": "e1097d980d7840b9fdbca9345bc3b0f9fad74182e709eddb05cea0332c346b34",
+    "converted_sha256": "e791ba5494970ca9febc29a6363bfeafd5d7bd36bd651af11927c5871a1480f3",
     "cage_tsm_sha256": "70a0bf8b117de55a3586cf0a16b602d20ffa3ad24d3a1a2ffd142bcff827f656",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -3178,7 +3178,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3Star1.f3d",
-    "saved_sha256": "2ae13192438f4e0426730da7077ab5b7468cb0c36486e5c9208c62979ca1d842",
+    "saved_sha256": "33e8a46fcd5edcc0ce55aa9f733bf51cfd33f2d9226f13845f227579e213bb82",
     "reopened": {
      "timeline": [
       {
@@ -3604,7 +3604,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3Star2Converted.f3d",
-    "converted_sha256": "40e6cd8432af2a1ea51d253ab2682df53909c23c8d4dd897fb3bc826bc68af71",
+    "converted_sha256": "d7a3e852e1dfc89dfcffbacb67aab52f4ec85d1b8e3a1f8c025a91542d2a9ea1",
     "cage_tsm_sha256": "55512119f4a630079099857341613df7a96442ed38fd1ae22bcf663a1bc7a902",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -3684,7 +3684,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3Star2.f3d",
-    "saved_sha256": "55aaef83fd38c6427255e374decacf399152bf34c338c8bca7323e3ce79e6df7",
+    "saved_sha256": "38c4c99e5cac56c46b8f4094dd27897133192b88289497ca2688d2eb36fdc449",
     "reopened": {
      "timeline": [
       {
@@ -3962,7 +3962,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3Star2Converted.f3d",
-    "converted_sha256": "1b8a8b696641adff11b5e810c3227471cbe1d91171218415e635d0f9c50dd731",
+    "converted_sha256": "1a993575af2b72164606291d25ee8fa8b10b1f9f2c04dd71b782990d3064e3f5",
     "cage_tsm_sha256": "55512119f4a630079099857341613df7a96442ed38fd1ae22bcf663a1bc7a902",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -4042,7 +4042,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3Star2.f3d",
-    "saved_sha256": "a60c837dba90f81d871aea702b492b3868699a36d2ac11191e20c84b0218c908",
+    "saved_sha256": "ae6b7df82662327afd41dbfd6ef3f331ccf1a7b446896523f465bef76f224280",
     "reopened": {
      "timeline": [
       {
@@ -4468,7 +4468,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5SameConverted.f3d",
-    "converted_sha256": "b7cd8a4ad8d18a7c109d3e56c8278bdd5c80f3b122cc322f324aef328ed3aa19",
+    "converted_sha256": "78742c1c4db690181bc866d6f22eadb08136b16312739d3287b7d8e13a8d3e8f",
     "cage_tsm_sha256": "b9c75f704c047662381501aec77ba2b51ca8465697e7c2dcce30819c19395211",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -4548,7 +4548,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5Same.f3d",
-    "saved_sha256": "a5994b26af635b371af7478f22b21a0e204c92ad893f7997101bdeb358307670",
+    "saved_sha256": "78780be102f25b59ee634fbc0bbe17b52e56d3efe943089e7fd3c1f2b396e04f",
     "reopened": {
      "timeline": [
       {
@@ -4826,7 +4826,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5SameConverted.f3d",
-    "converted_sha256": "74de2ed7a7857d35f2552036d8ed631087498c0c4002e369acdf9eef4eabe295",
+    "converted_sha256": "323a3b4945fed37d6bfbdb3e56ce533da1b8e24d958ed944ba778925f04faa16",
     "cage_tsm_sha256": "b9c75f704c047662381501aec77ba2b51ca8465697e7c2dcce30819c19395211",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -4906,7 +4906,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5Same.f3d",
-    "saved_sha256": "49593194fee6d938385a7e70befef996c89beb326b9467c890ff69296210f77c",
+    "saved_sha256": "e641d5b0a95952dacdc5f2e1ff9dad40bcb73a2ac704fe6a63ad73054e389f86",
     "reopened": {
      "timeline": [
       {
@@ -5332,7 +5332,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5G0Converted.f3d",
-    "converted_sha256": "ec17706208f27baf9dbc671da7c2f5d1e4f6c406e2c6a1453a9f706d7307d306",
+    "converted_sha256": "67eca8a785c9641d86643c1e95bb5c75d93d0c1fa8b5c79e7d6a46e976c94191",
     "cage_tsm_sha256": "b9c75f704c047662381501aec77ba2b51ca8465697e7c2dcce30819c19395211",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -5412,7 +5412,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5G0.f3d",
-    "saved_sha256": "ebd2610fe5de339153c1d3a156aec20dc3040f427aab607e921a0bacbb935cab",
+    "saved_sha256": "c0d24ec5cfaacbe2294be6ee465fba443978a0063007be16aac86bafb18c5b47",
     "reopened": {
      "timeline": [
       {
@@ -5690,7 +5690,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5G0Converted.f3d",
-    "converted_sha256": "05fd8004e678e2a437301fd4b8fb9f5997c382b691a1732429ed77a52b7b47d2",
+    "converted_sha256": "bc3546d5ec49d337c90493aa4c49b7f677d47abe8b793b14c158eea4ce724521",
     "cage_tsm_sha256": "b9c75f704c047662381501aec77ba2b51ca8465697e7c2dcce30819c19395211",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -5770,7 +5770,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5G0.f3d",
-    "saved_sha256": "ab35a1e0cb3e3d4f115f41566262af6d8ea9d72c367a23de2a8cfea955a289ce",
+    "saved_sha256": "c8821f8925e6f668b2e2ab86cdda2e09da15a8e025d7ae1101003fdb3a09110d",
     "reopened": {
      "timeline": [
       {
@@ -6196,7 +6196,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5G2Converted.f3d",
-    "converted_sha256": "6374ab37acb5984f7bf7ff7b6438e1ff9d9591d01f80ad13778a5909abe16d16",
+    "converted_sha256": "9afdc4b211e2830bbeaa1609cc807e232b4232834ad929dd1a188a276ad23834",
     "cage_tsm_sha256": "b9c75f704c047662381501aec77ba2b51ca8465697e7c2dcce30819c19395211",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -6276,7 +6276,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5G2.f3d",
-    "saved_sha256": "4bb1d8887a4e184f59ff8f33592ba57b0dddd3281dc46fef09f2a5de8381b5a5",
+    "saved_sha256": "365d07428a45ff33f96976b246deded9c3c712fac91cc669fb3a9acfa90f6ed6",
     "reopened": {
      "timeline": [
       {
@@ -6554,7 +6554,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5G2Converted.f3d",
-    "converted_sha256": "61cc2e629ac3680c5408282544a6d5035a1474c97dc39334b65b63999e0bbe62",
+    "converted_sha256": "fc1560afc3c7d05e561ad549bb32a5d21d0b15729000b9b59f3a8ae60bb9c189",
     "cage_tsm_sha256": "b9c75f704c047662381501aec77ba2b51ca8465697e7c2dcce30819c19395211",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -6634,7 +6634,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5G2.f3d",
-    "saved_sha256": "c3ab8234eae281e456bbe458e3b6b12eb9abf4cba5000c4b4c27fdb66d8f8373",
+    "saved_sha256": "7db3f4fea97960fbc072360768d15a629d74152cb4139c54790466072e5afc70",
     "reopened": {
      "timeline": [
       {
@@ -7060,7 +7060,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5Star1Converted.f3d",
-    "converted_sha256": "edd8f8f4fffddc932bacd56305e5ef4c6b4d5222998ccf22ec4b7020bb5c6c29",
+    "converted_sha256": "4b48d2d429732f5d4c390a615a21611c8a3b093674ce26f13270b2025821bfc0",
     "cage_tsm_sha256": "764007766f6d562223f3824706687f219958253b87270c544dead84633457e7c",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -7140,7 +7140,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5Star1.f3d",
-    "saved_sha256": "6e5bc0f5af834d1e893726700d507a27b87b33a438bb6b2a24fd4c63109d682b",
+    "saved_sha256": "9ef0485f3a5ae8ac0346b5e2c0a67092e48cac3bd3292580eabe6d48bc991f88",
     "reopened": {
      "timeline": [
       {
@@ -7418,7 +7418,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5Star1Converted.f3d",
-    "converted_sha256": "6fb8ade2bd97ec5671ad8f3e734aa959a39cdf263333060becd2f16336345adb",
+    "converted_sha256": "f54dbd740d4a0cafea153e1f44c0999c5df9bcdb7a1d92beeb22ee29870e7297",
     "cage_tsm_sha256": "764007766f6d562223f3824706687f219958253b87270c544dead84633457e7c",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -7498,7 +7498,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5Star1.f3d",
-    "saved_sha256": "aff436f2a1749d73f25edaa86fb9acd0cdb50076e530a60a66d56e984648c662",
+    "saved_sha256": "4050bf918663035f1ebfeee35a97e98b6dc64735c8454ac3c255fd8b9b25053d",
     "reopened": {
      "timeline": [
       {
@@ -7924,7 +7924,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5Star2Converted.f3d",
-    "converted_sha256": "e59e46e2c914a98da83f157d2d5654339f93e70e465c1787cec1f016f3b2bb67",
+    "converted_sha256": "3ec5c336956c8ae0f9782f3ad6462c8cd1b3d9bc9b815d5db30d92bb9636d115",
     "cage_tsm_sha256": "eba630479ba69e6e9453b7a8345287558dd2426916a6c9f87ce61d0e0fce11de",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -8004,7 +8004,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5Star2.f3d",
-    "saved_sha256": "1bbbb9d399c1d4dac4446a39d92862ccbb9086cdf5dc0a62221b8c2d490479db",
+    "saved_sha256": "4ae0a73b360e8a6da9852408105eee99d641d9fefc441a5896bde9d760a353f7",
     "reopened": {
      "timeline": [
       {
@@ -8282,7 +8282,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5Star2Converted.f3d",
-    "converted_sha256": "cecb2e92f8557feb180ce3c19e035fe417b096d20d13108a3501768e830f6ddb",
+    "converted_sha256": "c2132f169269e4226c3a81bf32e4aff6220d9ca1638c977ce960439fc29391a0",
     "cage_tsm_sha256": "eba630479ba69e6e9453b7a8345287558dd2426916a6c9f87ce61d0e0fce11de",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -8362,7 +8362,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5Star2.f3d",
-    "saved_sha256": "fd43aaa3214f6bbdda96ea69b6408df182a6bafe2793a00aaae78e8d87cd993e",
+    "saved_sha256": "908685a043241543b2817b653f266b43d62a73b0319d53922ab161075942de07",
     "reopened": {
      "timeline": [
       {
@@ -8788,7 +8788,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3ShiftedG2Converted.f3d",
-    "converted_sha256": "c6fd4fb6a4f1ccaf8affbe120aeef024f35582aec8e6b330fbf13729f1b627b8",
+    "converted_sha256": "64ffed3f510d1a777c8cba067c909bd023e7456c51d6ba753f5443eb896ee933",
     "cage_tsm_sha256": "ab9e2eb17a21be03b39e068aef25ad553827fe358d0a572496dd55b17a30cac5",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -8868,7 +8868,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3ShiftedG2.f3d",
-    "saved_sha256": "46e894739d3dc43d518fc47da0f4bf1e20c8d5452da8ea6afb325604082cf47c",
+    "saved_sha256": "0fa1a22e0e7e34b8873264a8f5ee818984ed2974019ffa75f6b16c1ae66a99a2",
     "reopened": {
      "timeline": [
       {
@@ -9146,7 +9146,7 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3ShiftedG2Converted.f3d",
-    "converted_sha256": "ccb57b2637ea2cd0588d79a73e9377ab80975004122f26b73f5d74968c12e2e6",
+    "converted_sha256": "035044a6a2b8bced833921fa96d65b19b02a8ba0c1e6e8a65479a3b68b44de40",
     "cage_tsm_sha256": "ab9e2eb17a21be03b39e068aef25ad553827fe358d0a572496dd55b17a30cac5",
     "cage_declarations": {
      "cap-type": "G1CAPS",
@@ -9226,7 +9226,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3ShiftedG2.f3d",
-    "saved_sha256": "f158ed48010fd62966ae0eca2770c26d8310c155d4439d1694cc78d3265ab524",
+    "saved_sha256": "e87da4df70aa85d7d9cb162e5c3d25ceaef21ec0f2bc19698bf71e10b7b01bc6",
     "reopened": {
      "timeline": [
       {

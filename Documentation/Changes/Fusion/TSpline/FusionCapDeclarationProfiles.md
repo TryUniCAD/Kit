@@ -31,7 +31,7 @@ The [preparation report](../../../../re/Fusion/LocalOracle/FormDocuments/General
 ## Fusion acceptance
 
 Fusion 2706.1.17 accepted all 11 independently emitted documents.
-The [native acceptance report](../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json) has SHA-256 `aabf9cc2ac6939fa70e235add96e8766091af54746f242261aa1f67618e49d6a`.
+The [native acceptance report](../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json) has SHA-256 `55e37af5b25d4603399b042fc8ae1fb8c1dba9639afae4818b4d08ba43e8f109`.
 It contains 319 comparisons, zero problems, and a largest absolute scalar deviation of `2.9103830456733704e-11` across the mixed-unit measurements.
 Zero documents were open before and after the run.
 The preflight process was 98846, and the measured process was 24703. `fresh_process_verified` is true.
@@ -53,8 +53,8 @@ It found 24 ZIP occurrences, including 16 files, with zero integrity contradicti
 Its digest matched the preparation record. The static inspection did not execute Fusion or establish runtime semantics.
 
 The [scrub validation](../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/ScrubValidation.json) compared all 11 retained native controls before and after scrubbing.
-The scrubber changed three archives, and every typed document model remained identical.
-`changed_by_scrubber` is 3, and all 11 model digests match their pre-scrub values.
+The scrubber changed two archives, and every typed document model remained identical.
+`changed_by_scrubber` is 2, and all 11 model digests match their pre-scrub values.
 
 ## Compatibility coverage
 

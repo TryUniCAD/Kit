@@ -1433,7 +1433,7 @@ The [cache gotcha](../../Gotchas/Conversion/Fusion/TSpline/FormBodies/FormMassCa
 
 The group carries area, area precision, center of gravity, inertia precision, three principal inertia fields, three off-diagonal fields, a revision id, volume, and volume precision.
 `FormCache` evaluates each bicubic surface and its derivatives over its knot spans.
-Eight-point Gaussian quadrature and the divergence theorem produce area, volume, first moments, and second moments.
+Sixteen-point Gaussian quadrature and the divergence theorem produce area, volume, first moments, and second moments.
 Origin-based second moments produce the inertia and off-diagonal fields, while the first moments separately produce the center of mass.
 Open sheets have zero volumetric properties because they have no enclosed volume.
 Nonperiodic faces must use complete parameter-space boundaries; `CheckTrimming` rejects other faces.

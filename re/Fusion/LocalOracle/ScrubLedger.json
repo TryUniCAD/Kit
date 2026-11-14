@@ -1768,6 +1768,20 @@
       }
     },
     {
+      "path": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/HeldPrism5G2.f3d",
+      "fusionSavedSha256": "9afdc4b211e2830bbeaa1609cc807e232b4232834ad929dd1a188a276ad23834",
+      "committedSha256": "2e296958c0ce40e30757cebba515d52f95be891729163b3c488727c9cf2fec84",
+      "counts": {
+        "account": 3,
+        "partial": 1,
+        "bare": 0,
+        "name": 0,
+        "home": 0,
+        "urn": 0,
+        "echo": 0
+      }
+    },
+    {
       "path": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/HeldPrism5Star1.f3d",
       "fusionSavedSha256": "c6b705c0f2f78a4e5543ea810d5e7107865b04d557b4be3f92cd6091635de86e",
       "committedSha256": "5e44c90e5455032c59410fc6e0d7d179a642456e679d0ad75d693e7b34df0932",
@@ -1783,8 +1797,8 @@
     },
     {
       "path": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/HeldPrism5Star2.f3d",
-      "fusionSavedSha256": "e59e46e2c914a98da83f157d2d5654339f93e70e465c1787cec1f016f3b2bb67",
-      "committedSha256": "6236e2b6599df26bc1e528668c337611e6f5a76280cd1ca1def9636e442aa2f0",
+      "fusionSavedSha256": "3ec5c336956c8ae0f9782f3ad6462c8cd1b3d9bc9b815d5db30d92bb9636d115",
+      "committedSha256": "d9626593756d66c8c309ea9c9e91a8db931338db96dd1fd2b92c99f13d0038af",
       "counts": {
         "account": 3,
         "partial": 1,
@@ -4842,6 +4856,7 @@
     "5eb0c950dcc1b9b9f9cbd40",
     "621-A3BC-6478CDD2BB4F",
     "650301bf863696cc0ad0ecbfb1ae6674",
+    "672e08f019d950e394288f6d65d073aa",
     "6d7e6cb9c401e004fcb334465b",
     "72090C7D-1C0A-7E52-CFC9-72C6C0575",
     "72090C7D-1C0A-7E52-CFC9-72C6C0575947",
@@ -4877,6 +4892,7 @@
     "CXK33KSC9BHMT1HE",
     "Cjnbygve",
     "D-FA87-160A-EE75-7052859BC9",
+    "D01F9DAA-2CF7-6830-387D-97C5A2DECAB6",
     "D05233EE-C989-DD61-A8C0-E846EC5384BE",
     "D694DE8D-F56D-B2D7-ABBC-4A1194C5BC4B",
     "E26-7969-8247-2FC9-EAF77EB5B121",
@@ -4938,6 +4954,7 @@
     "ae",
     "b57df9b6679c3c94c24624517",
     "b57df9b6679c3c94c24624517dfed8ba",
+    "b7cDnTOPGRUZ3tH",
     "bf618655a025a518bcb4d5c6a8",
     "bjdoh6",
     "bm",
@@ -4956,6 +4973,7 @@
     "f38d95a17e889b73d31957235a67ba9a",
     "f498.d.5f",
     "faes3",
+    "fwzrt5",
     "g1lEeLQRAZBB1uY1o1ohd2_E2T",
     "gFNILALF9aE",
     "gvggi0",

@@ -12,7 +12,7 @@
  },
  "integration": {
   "label": "confirmed",
-  "rule": "Eight-point Gaussian quadrature over every bicubic knot span, followed by divergence-theorem vector moments and origin-based second moments",
+  "rule": "Sixteen-point Gaussian quadrature over every bicubic knot span, followed by divergence-theorem vector moments and origin-based second moments",
   "implementation": "src/convert/formats/Fusion/DocumentCodec/Form",
   "periodic_domain": "The full domain is retained",
   "nonperiodic_domain": "Every coedge must lie on a complete parameter-space boundary or CheckTrimming raises",
@@ -45,7 +45,7 @@
    "api_return_rule": "getXYZMomentsOfInertia returns one success flag followed by six mass-weighted moments",
    "material_densities_kg_cm3": {"kit": 0.001, "native": 0.00785},
    "report": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json",
-   "report_sha256": "aabf9cc2ac6939fa70e235add96e8766091af54746f242261aa1f67618e49d6a"
+   "report_sha256": "55e37af5b25d4603399b042fc8ae1fb8c1dba9639afae4818b4d08ba43e8f109"
  },
  "declaration_behavior": {
   "label": "confirmed",
@@ -54,7 +54,7 @@
   "kit_before_native_import": "The original SurfaceHeader is retained"
  },
  "scrub": {
-  "archives_changed": 3,
+  "archives_changed": 2,
   "typed_models_unchanged": 11,
   "report": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/ScrubValidation.json"
  }

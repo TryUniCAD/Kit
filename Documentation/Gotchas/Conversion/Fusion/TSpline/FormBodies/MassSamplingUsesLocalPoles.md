@@ -8,7 +8,7 @@ That evaluator already returns the correct position and supports rational surfac
 ## Actual behavior
 
 `PointOnSurface` validates and lifts the complete control net for every call.
-Mass integration has 64 quadrature points per knot span.
+Mass integration has 256 quadrature points per knot span with the refined area-resolution rule.
 Repeated full-net evaluation therefore grows quadratically as cages acquire more spans.
 Reuse would also rebuild the expanded knot vectors for every position and derivative sample.
 

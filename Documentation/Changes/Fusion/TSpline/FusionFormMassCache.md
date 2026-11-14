@@ -6,13 +6,14 @@
 The previous zeroed cache returned a zero center of mass until Fusion recomputed the document.
 Area, volume, first moments, second moments, inertia, off-diagonal products, and the revision id now come from the typed model.
 
-`FormCache` uses eight-point Gaussian quadrature on every bicubic knot span.
+`FormCache` uses sixteen-point Gaussian quadrature on every bicubic knot span.
 It applies the divergence theorem to the surface position and the cross product of the partial derivatives.
 `SurfaceSample` hoists expanded knot vectors and evaluates only the local pole window for each sample.
 The [local sampling gotcha](../../../Gotchas/Conversion/Fusion/TSpline/FormBodies/MassSamplingUsesLocalPoles.md) records why full-net evaluators are unsuitable inside this loop.
 Origin-based second moments produce inertia, while the first moments separately produce the center of mass.
 Translation terms therefore remain in the tensor and in its off-diagonal fields.
-The eight-point rule is a mathematical integration rule, not fitted document data.
+The sixteen-point rule is a mathematical integration rule, not fitted document data.
+The [area-resolution gotcha](../../../Gotchas/Conversion/Fusion/TSpline/FormBodies/AreaNormNeedsQuadratureResolution.md) records the earlier eight-node cache failure and why the strict area comparison remains.
 The cache requires no vendor-saved measurements or CAD runtime. The [field model](../../../../re/Fusion/Reconstruction/FormDocuments/General/CapMassCacheModel.json) records each field and its confidence status.
 
 Open sheets have zero volume and no invented center.
@@ -26,7 +27,7 @@ The [initial failure](../../../../re/Fusion/LocalOracle/FormDocuments/General/Ca
 It records 30 center-coordinate differences across 10 cases.
 The first center issue occurred before recompute, while the subsequent center values agreed.
 
-The accepted [native lifecycle](../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json) has SHA-256 `aabf9cc2ac6939fa70e235add96e8766091af54746f242261aa1f67618e49d6a`.
+The accepted [native lifecycle](../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json) has SHA-256 `55e37af5b25d4603399b042fc8ae1fb8c1dba9639afae4818b4d08ba43e8f109`.
 Fusion 2706.1.17 accepted all 11 independently emitted documents in fresh process 24703.
 The previous preflight process was 98846, and `fresh_process_verified` is true.
 The run reports 319 comparisons, zero problems, zero dropped items, and zero open documents before and after.
@@ -59,5 +60,5 @@ It records 264 differences caused by comparing unlike materials directly; it is 
 `TestCapMass` independently emits each F3D, reads its typed `MassPropertyCacheValue`, and compares it with the native control's cache.
 The comparison covers area, volume, center, inertia, and off-diagonal products at `1e-8` absolute and relative tolerance.
 `TestCapDeclFlow` also distinguishes Kit's original declaration from Fusion's G1 canonicalization.
-The final controls required three privacy scrubs; all 11 typed models remained identical afterward.
+The final controls required two privacy scrubs; all 11 typed models remained identical afterward.
 Remote CI executes these integration cases. No local automated test suite ran.
