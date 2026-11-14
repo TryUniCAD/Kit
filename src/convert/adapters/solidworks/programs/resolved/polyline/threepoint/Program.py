@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
+from convert.adapters.solidworks.container.Container import SldprtFormatError
 from convert.adapters.solidworks.programs.Common.ProgramContract import (
     KFieldValue as FieldType,
 )
@@ -15,7 +16,7 @@ from .BuildNotes import BuildNotes
 from .PadGeometry import ComputeBounds
 from .PadValidation import ValidatePad
 
-from .Registry import (  # lgtm[py/unused-import]
+from .Registry import (
     FieldOwners as FieldOwners,
     ResolvedOps as ResolvedOps,
 )
@@ -27,16 +28,35 @@ KDepthOffsets = (9408, 9480, 9968, 9992)
 
 
 def PadFieldMap(
-    PointsMm: tuple[tuple[float, float], ...], DepthMm: float
+    PointsMm: tuple[tuple[float, float], ...],
+    DepthMm: float,
+    PointsMetres: tuple[tuple[float, float], ...] | None = None,
 ) -> dict[int, float]:
     ValidatePad(PointsMm, DepthMm)
     PointValues = tuple(
         Coordinate for PointPair in PointsMm for Coordinate in PointPair
     )
-    FieldValues = {
-        OffsetPos: ValueMeters / 1000.0
-        for OffsetPos, ValueMeters in zip(KPointOffsets, PointValues, strict=True)
-    }
+    if PointsMetres is not None:
+        NativeValues = tuple(
+            Coordinate for PointPair in PointsMetres for Coordinate in PointPair
+        )
+        Normalized = tuple(round(Value * 1000.0, 12) for Value in NativeValues)
+        if (
+            len(PointsMetres) != 3
+            or any(len(PointPair) != 2 for PointPair in PointsMetres)
+            or Normalized != PointValues
+        ):
+            raise SldprtFormatError("three-line source metres do not match millimetres")
+    else:
+        NativeValues = PointValues
+    CoordinateValues = (
+        NativeValues
+        if PointsMetres is not None
+        else tuple(Value / 1000.0 for Value in NativeValues)
+    )
+    FieldValues: dict[int, float] = dict(
+        zip(KPointOffsets, CoordinateValues, strict=True)
+    )
     FieldValues.update({OffsetPos: DepthMm / 1000.0 for OffsetPos in KDepthOffsets})
     Bounds = ComputeBounds(PointsMm, DepthMm)
     FieldValues.update(BuildBounds(Bounds))

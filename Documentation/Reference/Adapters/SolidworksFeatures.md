@@ -113,9 +113,9 @@ See [the measured change record](../Changes/Solidworks/SolidworksFiveLineNativeH
 ## Three-line native profiles
 
 The three-line family is a distinct 2026 blind-boss grammar, not a shortened five-line stream. It reconstructs one closed three-edge profile with source-marker provenance and preserves its editable forward blind extrusion.
-Its resolved stream contains 10,601 bytes, 300 objects, 40 definitions, and 2,518 typed operations. The dynamic layout contains six coordinate fields, four positive-depth fields, two negative-depth fields, eight bbox fields, 24 display fields, and seven annotation fields.
-Source relations, dimensions, fixed/construction geometry, noncanonical planes/directions/terminations, and invalid profiles are rejected. The rightmost-vertex tie has an independently measured first-rightmost attachment convention.
-Fresh public files open and rebuild in SOLIDWORKS 34.5.2 with one body, analytic geometry, and live depth edits.
+Its resolved stream contains 10,601 bytes, 300 objects, 40 definitions, and 2,518 typed operations. The dynamic layout contains six coordinate fields, four positive-depth fields, two negative-depth fields, eight bbox fields, 24 display fields, and seven annotation fields. Both sphere diameters are overridden at their operation starts, 8225 and 8447.
+Source relations, dimensions, fixed/construction geometry, noncanonical planes/directions/terminations, and invalid profiles are rejected. The rightmost-vertex tie has an independently measured first-rightmost attachment convention. Native coordinate serialization uses validated source metre pairs directly rather than recycling the neutral reader's 12-decimal presentation values.
+Fresh public files open and rebuild in SOLIDWORKS 34.5.2 with one body, analytic geometry, and live depth edits. A seeded 64-case corpus also passes compiled load, rebuild, body-count, depth, volume, area, and centre-of-mass checks; this is bounded family evidence, not broad format coverage.
 See [the three-line change record](../Changes/Solidworks/SolidworksThreeLineNativeHistories.md) and [the triangle research record](../../../re/solidworks/records/PolylineThreePad.md).
 
 ## Sources

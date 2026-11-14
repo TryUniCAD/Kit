@@ -11,6 +11,6 @@ def BuildBounds(Bounds: PadBounds) -> dict[int, float]:
         OutputData[OffsetPos] = Bounds.CentreY
     for OffsetPos in (8217, 8439, 4293, 4879):
         OutputData[OffsetPos] = Bounds.CentreZ
-    for OffsetPos in (8225, 8451):
+    for OffsetPos in (8225, 8447):
         OutputData[OffsetPos] = Bounds.Diameter
     return OutputData

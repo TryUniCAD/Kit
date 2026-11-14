@@ -150,7 +150,7 @@ from convert.adapters.solidworks.programs.resolved.polyline.fivepoint.Program im
     PadFieldMap as PolylineFiveFieldMap,
 )
 from convert.adapters.solidworks.programs.resolved.polyline.threepoint.Program import (
-    EncodeProgram as EncodePolylineThreeProgram,
+    EncodeProgram as EncodePolyTriProgram,
     PadFieldMap as PolylineThreeFieldMap,
 )
 from convert.adapters.solidworks.programs.resolved.polyline.sixpoint.Program import (
@@ -2324,8 +2324,11 @@ def BuildPolyTree(
         return None
     try:
         if len(PolylineValue) == 3:
-            ProgramData = EncodePolylineThreeProgram(
-                PolylineThreeFieldMap(PolylineValue, DepthValue)
+            PointsMetres = PolylinePoints(SketchObject, SourceMetres=True)
+            if PointsMetres is None:
+                return None
+            ProgramData = EncodePolyTriProgram(
+                PolylineThreeFieldMap(PolylineValue, DepthValue, PointsMetres)
             )
         elif len(PolylineValue) == 5:
             ProgramData = EncodePolylineFiveProgram(
@@ -7988,7 +7991,9 @@ def WriteCircle(SketchObject: _WriteObject) -> tuple[float, float, float] | None
 
 
 # this definition exists because focused behavior needs one stable owner
-def PolylinePoints(SketchObject: _WriteObject) -> tuple[tuple[float, float], ...] | None:
+def PolylinePoints(
+    SketchObject: _WriteObject, SourceMetres: bool = False
+) -> tuple[tuple[float, float], ...] | None:
     if SketchObject.kind != "Sketch" or not SketchObject.payload:
         return None
     MarkersData = list(ParseMarkers(SketchObject.payload, 0, len(SketchObject.payload)))
@@ -7999,6 +8004,24 @@ def PolylinePoints(SketchObject: _WriteObject) -> tuple[tuple[float, float], ...
     if len(PolylineData) != 1 or len(PolylineData[0].coordinates) not in {6, 10, 12}:
         return None
     CoordinateData = PolylineData[0].coordinates
+    if SourceMetres:
+        MetrePoints = tuple(
+            Marker.coordinates_metres
+            for Marker in MarkersData
+            if Marker.semantic == "point" and Marker.coordinates_metres is not None
+        )
+        Normalized = tuple(
+            Clean(round(Coordinate * KMillimetres, 12))
+            for Point in MetrePoints
+            for Coordinate in Point
+        )
+        if (
+            len(CoordinateData) != 6
+            or len(MetrePoints) != 3
+            or Normalized != CoordinateData
+        ):
+            return None
+        return MetrePoints
     PointsData = tuple(
         (
             (CoordinateData[ItemIndex], CoordinateData[ItemIndex + 1])
