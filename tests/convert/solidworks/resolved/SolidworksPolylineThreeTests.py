@@ -271,12 +271,8 @@ def TestParamLoss(TmpPath: FilePath) -> None:
         )
         Changed = ReplaceData(SourceDoc, parameters=(*SourceDoc.parameters, ExtraParam))
         assert HasVendorPartEncoding(Changed) is False
-        with PytestLib.raises(ApplicationUsabilityError):
-            _ = WriteDoc(
-                Changed,
-                TmpPath / f"ParamLoss{Index}.SLDPRT",
-                allow_carrier=False,
-            )
+        with PytestLib.raises(SldprtFormatError):
+            _ = WriteDoc(Changed, TmpPath / f"ParamLoss{Index}.SLDPRT")
 
 
 def TestFuzzyLoss(TmpPath: FilePath) -> None:
@@ -296,8 +292,8 @@ def TestFuzzyLoss(TmpPath: FilePath) -> None:
         ),
     )
     assert HasVendorPartEncoding(Changed) is False
-    with PytestLib.raises(ApplicationUsabilityError):
-        _ = WriteDoc(Changed, TmpPath / "FuzzyLoss.SLDPRT", allow_carrier=False)
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(Changed, TmpPath / "FuzzyLoss.SLDPRT")
 
 
 def TestOffsetLoss(TmpPath: FilePath) -> None:
@@ -327,8 +323,8 @@ def TestOffsetLoss(TmpPath: FilePath) -> None:
         ),
     )
     assert HasVendorPartEncoding(Changed) is False
-    with PytestLib.raises(ApplicationUsabilityError):
-        _ = WriteDoc(Changed, TmpPath / "OffsetLoss.SLDPRT", allow_carrier=False)
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(Changed, TmpPath / "OffsetLoss.SLDPRT")
 
 
 def TestLabelLoss(TmpPath: FilePath) -> None:
@@ -348,8 +344,8 @@ def TestLabelLoss(TmpPath: FilePath) -> None:
         ),
     )
     assert HasVendorPartEncoding(Changed) is False
-    with PytestLib.raises(ApplicationUsabilityError):
-        _ = WriteDoc(Changed, TmpPath / "LabelLoss.SLDPRT", allow_carrier=False)
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(Changed, TmpPath / "LabelLoss.SLDPRT")
 
 
 def TestOpenWire(TmpPath: FilePath) -> None:
