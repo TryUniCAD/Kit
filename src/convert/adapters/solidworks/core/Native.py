@@ -7784,6 +7784,7 @@ def FreecadSingle(
     Expected = {
         "AllowMultiFace": (ValueKind.BOOLEAN, True),
         "AlongSketchNormal": (ValueKind.BOOLEAN, True),
+        "FuzzyTolerance": (ValueKind.NUMBER, 0.0),
         "Label": (ValueKind.STRING, None),
         "Label2": (ValueKind.STRING, None),
         "Length": (ValueKind.LENGTH, Dimension.value_mm),
@@ -7802,7 +7803,7 @@ def FreecadSingle(
         "UseCustomVector": (ValueKind.BOOLEAN, False),
         "Visibility": (ValueKind.BOOLEAN, True),
     }
-    if not set(Expected) <= set(Parameters):
+    if set(Expected) != set(Parameters):
         return None
     if any(
         (
