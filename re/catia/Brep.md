@@ -519,6 +519,23 @@ This means the shell record cannot be found by scanning for a class-id byte patt
 reached only by resolving the body's domain tag difference through the object table, and the
 object table is built as the stream is read, not stored as a byte pattern in `MainDataStream`.
 
+### `ReadObject` reads only the table index
+
+`CATCGMStream::ReadObject` at `0x6eb70` is a thin wrapper that calls
+`CATCGMStreamImpl::ReadObject` at `0x71b40`. The implementation reads exactly one `u32` through
+`CATMathStreamImpl::ReadULong` at `0x180071c8a` and does not call
+`ReadTagDifferenceAsLONG64_Scalable` at all. The tag difference is read by the caller before the
+call, and the `u32` is the object-table index.
+
+So an object reference in the stream is two fields: a scalable tag difference that updates the
+current tag, and a `u32` table index that selects the object. The table is populated as the stream
+is read, so a byte-pattern scan cannot recover it.
+
+The face and shell unstream functions do not call `ReadObject` directly. Only
+`CATDynBooleanSharedFaceData::ReadFromStream` and `TopoDebugTools::ReadBody` do. The face and shell
+references are therefore read by a higher-level object reader that is not yet located, and that
+reader is what builds the table the body's domain references resolve against.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
