@@ -19,6 +19,7 @@ from convert.adapters.nx.ExprSection import (
 )
 from convert.adapters.nx.ObjectSection import (
     RelabelRefs,
+    RelabelTokens,
     ReplaceHead,
     RewriteRecords,
 )
@@ -133,7 +134,7 @@ def WithStub(
         SectionBody = Payload[Section.body_offset : Section.body_offset + Section.size]
         if Index == 0 and HeadText is not None:
             SectionBody = ReplaceHead(SectionBody, HeadText)
-            SectionBody = RelabelRefs(RewriteRecords(SectionBody))
+            SectionBody = RelabelTokens(RelabelRefs(RewriteRecords(SectionBody)))
         elif Index == KRootIndex:
             SectionBody = RootBody
         elif Index == KFeatureIndex and Index < len(Parsed.sections):

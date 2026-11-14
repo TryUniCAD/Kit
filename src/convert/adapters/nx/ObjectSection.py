@@ -134,6 +134,7 @@ def ReplaceHead(
 
 
 __all__ = [
+    "RelabelTokens",
     "ParseSlots",
     "SlotRecord",
     "RelabelRefs",
@@ -341,6 +342,8 @@ def RelabelRefs(SectionBody: bytes) -> bytes:
 
 # a slot record lists occupied and empty registry slots in hash order
 KSlotFrame = bytes.fromhex("02024100364104010111")
+KSlotFamily = b"\x02\x02\x41\x00"
+KSlotLabelAt = 0x10
 KSlotEmpty = 0xFF
 KSlotOccupied = 0x80
 
@@ -372,4 +375,34 @@ def SlotRecord(Tokens: tuple[int | None, ...]) -> bytes:
             Output.extend((KSlotOccupied, Token))
         else:
             raise ValueError("NX slot record token is out of range")
+    return bytes(Output)
+
+
+# the 02 02 41 00 family stores two byte tokens and accepts any consistent labels
+def RelabelTokens(SectionBody: bytes) -> bytes:
+    Count = ObjectCount(SectionBody)
+    TableAt = TableStart(SectionBody, Count)
+    Starts = [
+        int(Struct.unpack_from("<I", SectionBody, TableAt + 4 * Index)[0])
+        for Index in range(Count)
+    ]
+    Stops = Starts[1:] + [len(SectionBody) - 12]
+    Spans = [
+        (Begin, Finish)
+        for Begin, Finish in zip(Starts, Stops)
+        if SectionBody[Begin : Begin + 4] == KSlotFamily
+    ]
+    if not Spans:
+        return SectionBody
+    Values: dict[int, int] = {}
+    for Begin, Finish in Spans:
+        for Position in range(Begin, Finish - 1):
+            if SectionBody[Position] == KSlotOccupied:
+                Value = SectionBody[Position + 1]
+                Values[Value] = KSlotLabelAt + len(Values)
+    Output = bytearray(SectionBody)
+    for Begin, Finish in Spans:
+        for Position in range(Begin, Finish - 1):
+            if Output[Position] == KSlotOccupied and Output[Position + 1] in Values:
+                Output[Position + 1] = Values[Output[Position + 1]]
     return bytes(Output)
