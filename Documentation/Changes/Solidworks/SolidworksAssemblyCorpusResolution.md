@@ -25,8 +25,11 @@ the document has a file path. A caller that reads from bytes can pass
 - the normalization fixes name comparison only; a genuinely missing component still
   reports `sldasm.component_source_missing` and still fails a `allow_carrier=False` write
   with `external_requirements`
-- from-scratch mate generation remains unimplemented; the tracked assemblies above carry
-  their saved mate streams through the template path
+- the tracked assemblies above are source-backed rewrites: they report
+  `native-template` and preserve the saved mate streams of the document the caller
+  opened; from-scratch mate generation remains unimplemented and is not claimed
+- no donor fixture is used; the template is the caller's own opened document, and
+  `TestASMHead` asserts `native-template` so the provenance is explicit
 - `SLDDRW` remains unsupported and is rejected at
   `src/convert/adapters/solidworks/container/Format.py:208`
 

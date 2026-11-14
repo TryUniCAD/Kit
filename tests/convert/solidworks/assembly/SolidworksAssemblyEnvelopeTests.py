@@ -283,6 +283,7 @@ def TestASMUnicode(TmpPath: FilePath) -> None:
     )
     OutputPath = TmpPath / KUnicodeAssembly.name
     ResultInfo = WriteDocument(DocumentValue, OutputPath, allow_carrier=False)
+    assert ResultInfo.metadata["compatibility"] == "native-template"
     assert ResultInfo.metadata["native_self_contained"] is True
     assert ResultInfo.application_usable is True
     assert ResultInfo.near_lossless is True
@@ -306,6 +307,7 @@ def TestASMHead(TmpPath: FilePath) -> None:
     assert len(AssemblyValue.mates) == 240
     OutputPath = TmpPath / KHeadAssembly.name
     ResultInfo = WriteDocument(DocumentValue, OutputPath, allow_carrier=False)
+    assert ResultInfo.metadata["compatibility"] == "native-template"
     assert ResultInfo.metadata["native_self_contained"] is True
     assert ResultInfo.metadata["referenced_files_written"] == 11
     assert ResultInfo.application_usable is True
