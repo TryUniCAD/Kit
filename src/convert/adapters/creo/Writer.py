@@ -49,7 +49,7 @@ def NativeBytes(Value: CadDocument) -> tuple[bytes, str]:
     Actual = HashValue(DataValue).hexdigest()
     if Actual != Expected:
         raise CreoFormat("retained Creo source bytes changed after reading")
-    if DocumentFingerprint(Value) != Fingerprint:
+    if GetFingerprint(Value) != Fingerprint:
         raise CreoFormat(
             "Creo document was edited after reading; exact source replay cannot encode the edit"
         )
@@ -108,7 +108,8 @@ def WriteDocument(
         CapTransfer(CapabilityValue, TransferMode.KNative)
         for CapabilityValue in Capabilities
     )
-    SectionCount = int(DocumentValue.metadata.get("creo.section_count", 0))
+    SectionValue = DocumentValue.metadata.get("creo.section_count", 0)
+    SectionCount = SectionValue if isinstance(SectionValue, int) else 0
     Metadata = MappingProxyType(
         {
             "application_usable": False,
