@@ -9,11 +9,11 @@ It maps the result to a neutral `BrepModel` with faces, loops, coedges, edges, v
 analytic plane, cylinder, cone, sphere, and torus surfaces.
 
 The trim handles are dense indices into a shared tessellation table, not B-rep vertex identifiers.
-The handle-to-point map is not decoded: the handle count exceeds the point count in every part
-(`Reservoir` has 1431 handles and 1000 points, `Copper_Washer` has 76 handles and 38 points), and
-the point table is split into runs by record markers. The reader therefore maps a handle to a
-vertex with a placeholder rule and derives loops from the tessellation boundary. That is a
-documented structural approximation, not the native B-rep topology or geometry.
+The handle-to-point map is not decoded. The handle count exceeds the B-rep vertex count in every
+part (`Reservoir` has 1431 handles and 88 vertices, `Copper_Washer` has 76 handles and 8 vertices),
+and the coordinate region is a sequence of float runs separated by record markers. The reader
+therefore maps a handle to a vertex with a placeholder rule and derives loops from the tessellation
+boundary. That is a documented structural approximation, not the native B-rep topology or geometry.
 
 The surface records are ordered by face only when the two counts match. For all 22 parts where the
 surface count equals the face count, the surface planarity sequence is identical to the face
@@ -62,10 +62,14 @@ result = CatiaAdapter().write(
   fewer surfaces than faces and the face-to-surface reuse map is not decoded.
 - The handle-to-point map is not decoded. The reader's vertex positions are a structural
   placeholder, so the decoded geometry is not the file's geometry even for the 22 parts that pass
-  validation. The coordinate region is a sequence of float runs separated by 1- to 8-byte record
-  headers, and it holds 1003 points for `Reservoir` against a 1431-value handle space, so the
-  handles are not indices into it. The 363-byte block before the first large run is a sparse bit
-  array, not a compactor stream: the compactor decodes it to denormals and then `1e297`.
+  validation. The handle count exceeds the B-rep vertex count (`Reservoir` 1431 handles and 88
+  vertices, `Copper_Washer` 76 handles and 8 vertices), so the handles are not vertex indices. The
+  coordinate region is a sequence of float runs separated by 1- to 8-byte record headers. The
+  `Reservoir` five-float group is `(x, y1, z, y2, z)` with `z1 == z2`, but the `Copper_Washer`
+  region does not follow that layout, and no run of plain three-float triples at the washer's radii
+  exists anywhere in the stream, so the tessellation compression is not decoded. The 363-byte block
+  before the first large run is a sparse bit array, not a compactor stream: the compactor decodes it
+  to denormals and then `1e297`.
 - The reader reconstructs plane and cylinder geometry from bounds and trim vectors.
 - The reader does not decode feature records, sketches, dimensions,
   constraints, or relations.

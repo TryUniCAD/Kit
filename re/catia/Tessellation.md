@@ -366,6 +366,53 @@ The handle space is 1431 values, so the handles are not indices into this 1003-p
 table cannot hold 1431 three-float points in 11832 bytes: that would be 8.27 bytes per point, below
 the 12-byte minimum.
 
+## The handle-to-point map is not a plain index into any point table
+
+`Copper_Washer` is the cleanest case because it is small. It has 6 faces, 8 B-rep vertices, 8 roster
+entries, 12 edges, and 76 distinct handles spanning `0..75`. So the handles are not vertex indices:
+there are 8 vertices and 76 handles.
+
+The edge table is not a list of two-handle edges. It is a list of polylines with arity 9 to 11:
+
+```
+0: (37, 35, 33, 29, 23, 18, 13, 7, 4, 2, 0)
+1: (75, 73, 71, 67, 61, 56, 51, 45, 42, 40, 38)
+2: (0, 1, 3, 6, 12, 17, 22, 28, 32, 34, 37)
+3: (38, 39, 41, 44, 50, 55, 60, 66, 70, 72, 75)
+4: (5, 8, 10, 14, 16, 20, 24, 26, 31)
+5: (30, 27, 25, 21, 19, 15, 11, 9, 5)
+6: (43, 46, 48, 52, 54, 58, 62, 64, 69)
+7: (68, 65, 63, 59, 57, 53, 49, 47, 43)
+8: (36, 74)
+9: (0, 38)
+10: (31, 69)
+11: (5, 43)
+```
+
+Edges 0 and 2 are the same closed loop in opposite directions, as are 1 and 3, 4 and 5, and 6 and 7.
+So the tessellation has four closed loops (11, 11, 17, and 17 handles) joined by four connectors
+`(36,74)`, `(0,38)`, `(31,69)`, `(5,43)`. The loops are the washer's four boundary circles.
+
+The coordinate region `226..988` holds 190 floats, of which 180 are nonzero, so it is real data and
+not padding. `190 / 76 = 2.5` floats per handle, so it cannot be a plain three-float point array for
+76 handles (that needs 228 floats).
+
+The five-float grouping is arithmetically exact: `190 = 38 * 5`, and two points per group gives 76
+points, exactly the handle count. But the resulting points do not form the washer's circles. The
+washer's vertices are at radius 8 and 5 from its axis, and under the five-float reading only 21 of
+the 76 points land at radius 8 or 5; the rest are at 0, 3.5, 6.53, and other radii. So the grouping
+is not confirmed.
+
+The `Reservoir` five-float group is `(x, y1, z, y2, z)` with `z1 == z2`, for example
+`(-35.5, -0.5, 37.418, 0.5, 37.418)`. The `Copper_Washer` region does not follow that layout: its
+first group is `(-7.6085, -2.4721, 2.4721, -6.4721, -4.7023)`, where the third and fifth floats
+differ. So the two parts do not share one five-float layout, and the `Copper_Washer` layout is not
+recovered.
+
+A direct search for the tessellation as plain triples also fails: no run of 10 or more consecutive
+three-float triples at radius 5 or 8 exists anywhere in the stream, for any axis. So the tessellation
+is compressed, and the compression is not the five-float group as read.
+
 ## The `42 ff` region is not connectivity
 
 `Reservoir` has one `42 ff` record at 12376: a `u32` count of 2850 followed by 2850 `u16` values.
