@@ -228,14 +228,14 @@ def CheckHeader(Source: bytes, Output: bytes) -> None:
 # output validation reopens the rebuilt container and checks the part payload
 def CheckOutput(DataValue: bytes, Source: bytes) -> None:
     if DataValue.startswith(b"SPLMSSTR"):
-        Parsed = ReadSplm(DataValue)
+        ParsedSplm = ReadSplm(DataValue)
         Streams = {
             PathValue.removeprefix("/Root/"): Value
-            for PathValue, Value in SplmStreams(Parsed)
+            for PathValue, Value in SplmStreams(ParsedSplm)
         }
     else:
-        Parsed = ReadCompound(DataValue)
-        Streams = {Stream.path: Stream.data for Stream in ReadStreams(Parsed)}
+        ParsedCompound = ReadCompound(DataValue)
+        Streams = {Stream.path: Stream.data for Stream in ReadStreams(ParsedCompound)}
     PartData = Streams.get("UG_PART/UG_PART") or Streams.get("Root/UG_PART/UG_PART")
     if PartData is None:
         raise ValueError("rebuilt NX container lost its UG_PART payload")
@@ -255,7 +255,7 @@ def WriteBytesMut(
         return PathValue
     if not IsBinaryTarget(Target):
         raise TypeError("NX requires a binary output stream")
-    Count = Target.write(DataValue)
-    if Count is not None and Count != len(DataValue):
+    StreamCount = Target.write(DataValue)
+    if StreamCount is not None and StreamCount != len(DataValue):
         raise OSError("incomplete NX stream write")
     return None
