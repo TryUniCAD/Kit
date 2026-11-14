@@ -1,0 +1,5 @@
+.symopt+0x4000
+.symopt-0x20000
+bp swccu+0x4470 ".printf \"F double %x %x\\n\", poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp); bc *; .detach; qd"
+bl
+g

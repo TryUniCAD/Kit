@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 # global counts catch missing variants streams owners methods or recovered operations
-KGlobalStats = (44, 76, 215, 2461, 3926, 187798)
+KGlobalStats = (45, 77, 215, 2461, 3995, 190316)
 
 # focused program manifest data preserves all variant evidence in one dedicated module
 KProgramManifest = (
@@ -1119,7 +1119,7 @@ KProgramManifest = (
             ),
         ),
         "17e7ec275bf95a5941fe5bb07d93e4f8094d860d341f1a378d54fbc6eb24b29e",
-    ),
+    ),    ('resolved/polyline/threepoint', 'FieldOwners', 'ResolvedOps', ('ResolvedFeatures',), 2518, '52b6d6902a17954f8466a26ab7bff07c35812d8cf8c67f2b69649feccca54d00', ('FieldOwners', 'ResolvedOps', 'KPointOffsets', 'KDepthOffsets', 'PadFieldMap', 'EncodeProgram'), (('ResolvedFeatures', 10601, '5088c5c909bc432b12ee2f50f8aaa7934f3232e62ef30bb0a6d1563ac340ced0'),), 'a46f1c2677301f52adb0750d71adcff5678f4e98e40f3b4a93f56f4e065e3ffe'),
 )
 
 # verifier compatibility exposes the focused manifest through its stable public name

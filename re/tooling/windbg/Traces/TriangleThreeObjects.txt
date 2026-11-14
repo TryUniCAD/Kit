@@ -1,0 +1,7 @@
+.symopt+0x4000
+.symopt-0x20000
+bu swccu+0xa550 ".if (dwo(poi(@rcx+0x48)) == 0x6d) { .printf \"RO %p %x %d %p\\n\", poi(@rcx+0x48), poi(@rcx+0x38)-poi(@rcx+0x48), dwo(@rcx+0x50), @rsp }; gc"
+bu swccu+0xa2d0 ".if (dwo(poi(@rcx+0x48)) == 0x6d) { .printf \"RC %p %x %d %p\\n\", poi(@rcx+0x48), poi(@rcx+0x38)-poi(@rcx+0x48), dwo(@rcx+0x50), @rsp }; gc"
+g
+.kill
+qd

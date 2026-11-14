@@ -6217,6 +6217,14 @@ def Parameters(Model: NativeModel) -> tuple[Param, ...]:
 
 # this definition exists because focused behavior needs one stable owner
 def DimensionParam(Dimension: NativeDimension) -> ParamValue:
+    if Dimension.kind == "instance_count":
+        return ParamValue(Dimension.value_mm, ValueKind.NUMBER, "")
+    if Dimension.native_value is not None and Dimension.kind == "angle":
+        return ParamValue(
+            MathValue.degrees(Dimension.native_value), ValueKind.ANGLE, "deg"
+        )
+    if Dimension.native_value is not None:
+        return ParamValue(Dimension.native_value * 1000.0, ValueKind.LENGTH, "mm")
     if Dimension.kind == "angle":
         return ParamValue(Dimension.value_mm, ValueKind.ANGLE, "deg")
     return ParamValue(Dimension.value_mm, ValueKind.LENGTH, "mm")
