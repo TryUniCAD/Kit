@@ -8132,7 +8132,7 @@ def PolylinePoints(
             if Marker.semantic == "point" and Marker.coordinates_metres is not None
         )
     )
-    if len(MetrePoints) * 2 == len(CoordinateData):
+    if len(CoordinateData) in {10, 12} and len(MetrePoints) * 2 == len(CoordinateData):
         return tuple(
             (MmFromMetres(PointData[0]), MmFromMetres(PointData[1]))
             for PointData in MetrePoints
