@@ -127,6 +127,11 @@ The object/record lane of geometry parts is a run of seven-byte rows
 rows, matching its fifth count word; section 2 has one row. `empty.prt` has no
 rows.
 
+Truncating the feature-history middle to its product record fails with
+`An invalid class index was found reading an OM file: probable corruption`
+(code 580114). The middle therefore carries class-ordinal references that must
+match the class lane exactly; it cannot be replaced by a minimal product record.
+
 Changing only the saved part name in the section headers fails with
 `Corrupt data found when loading an OM file` (code 580044), so the name is
 cross-referenced from another record lane. The middle and record areas are still
