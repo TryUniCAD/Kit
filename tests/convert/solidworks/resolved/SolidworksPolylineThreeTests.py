@@ -34,8 +34,10 @@ from convert.adapters.solidworks.programs.resolved.polyline.threepoint.Registry 
     KResolvedOps,
 )
 from interchange.document.models.DocumentModel import CadDocument
+from interchange.enums.EnumValues import ValueKind
 from interchange.geometry.models.GeometryCurves import LineGeometry
 from interchange.geometry.models.Sketch import SketchRelation
+from interchange.records.RecordParameter import Parameter, ParameterValue
 from tests.convert.solidworks.resolved.SolidworksPolylineFiveTests import BuildDocument
 
 KPoints = ((0.0, 0.0), (42.0, 0.0), (12.0, 31.0))
@@ -226,7 +228,7 @@ def TestLabels(TmpPath: FilePath) -> None:
     Baseline = ArchiveData.require(ResolvedStream)
     Labels = EncodeLabels(ArchiveData.require(KeyStream))
     _ = SourcePath.write_bytes(BuildVariant(SourcePath, {KeyStream: Labels}))
-    Document = OpenDoc(SourcePath)
+    Document = OpenDoc(SourcePath, include_brep=False)
     RequireTriRead(Document, Baseline)
 
 
@@ -241,6 +243,27 @@ def TestDepthGuard(TmpPath: FilePath) -> None:
     )
     with PytestLib.raises(SldprtFormatError):
         _ = OpenDoc(SourcePath)
+
+
+def TestParamLoss(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    Owners = (SourceDoc.sketches[0].id, SourceDoc.feature_timeline[0].id)
+    for Index, OwnerId in enumerate(Owners):
+        ExtraParam = Parameter(
+            f"test:nonlength:{Index}",
+            "Count",
+            ParameterValue(2, ValueKind.NUMBER, ""),
+            owner_id=OwnerId,
+            attributes={"freecad_path": "CustomCount"},
+        )
+        Changed = ReplaceData(SourceDoc, parameters=(*SourceDoc.parameters, ExtraParam))
+        assert HasVendorPartEncoding(Changed) is False
+        with PytestLib.raises(ApplicationUsabilityError):
+            _ = WriteDoc(
+                Changed,
+                TmpPath / f"NonLength{Index}.SLDPRT",
+                allow_carrier=False,
+            )
 
 
 def TestOpenWire(TmpPath: FilePath) -> None:

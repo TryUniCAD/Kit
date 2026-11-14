@@ -16,6 +16,8 @@ Open the native archive, decode the keyword stream, edit only the intended `Dime
 
 Self-generated files also contain `Kit/Interchange`. Public `open_document` intentionally returns that embedded neutral document before native decoding. A regression intended to exercise native depth recovery must omit `Kit/Interchange` and its matching `Kit/Native` attestation from the edited fixture. Otherwise a valid archive and a correct depth guard can both be present while the assertion measures only the embedded copy.
 
+These feature-only fixtures intentionally contain no readable Parasolid payload. Once native decoding is reached, a strict public read must use `include_brep=False`; leaving the default enabled fails later in `BrepPayloads` and still does not verify the recovered dimension.
+
 Use changed typed fields such as the resolved depth witness only where an invalid-input guard needs to be exercised. Generate valid compressed containers through the same helper for every such case, then use `open_document` for acceptance. Promotion into production still requires the independently recovered grammar rather than this test-fixture utility.
 
 See [BuildSldprt](../../../../src/convert/adapters/solidworks/container/Container.py), [the corrected integration coverage](../../../../tests/convert/solidworks/resolved/SolidworksPolylineThreeTests.py), and [the native depth gotcha](SolidworksTriangleDepthRecovery.md).

@@ -1,5 +1,6 @@
 from __future__ import annotations as Annotations
 from convert.adapters.solidworks.core.AxisSketchId import AxisSketchId
+from convert.adapters.solidworks.core.PolylineParameters import HasPolyLoss
 from convert.adapters.solidworks.core.TriDepth import IsTriSource, RecoverTriDepth
 from collections.abc import Callable
 from dataclasses import dataclass as Dataclass, field as Field, replace as Replace
@@ -1916,7 +1917,7 @@ def HasVendorPart(DocData: CadDocument) -> bool:
     if not SourceObjects:
         return False
     AuthoredObjects = Canonical(SourceObjects, ObjectIds, DocData)
-    return BuildVendorTree(AuthoredObjects) is not None
+    return BuildVendorTree(AuthoredObjects, DocData) is not None
 
 
 # native envelope assembly keeps optional vendor stream replacement independently testable
@@ -2021,7 +2022,7 @@ def EncodeNative(DocValue: CadDocument, ModelName: str) -> NativePart:
         )
     )
     Objects = (*BaseValue, *Authored)
-    VendorData = BuildVendorTree(Authored)
+    VendorData = BuildVendorTree(Authored, DocValue)
     VendorResolved = VendorData.payload if VendorData is not None else None
     SourceKeywords = KeywordsPayload(
         DocValue,
@@ -2336,6 +2337,7 @@ def BuildPolyTree(
     PolylineValue: tuple[tuple[float, float], ...] | None,
     DepthValue: float,
     EndCodes: tuple[int, int],
+    DocData: CadDoc,
 ) -> VendorResolved | None:
     if (
         PolylineValue is None
@@ -2343,6 +2345,10 @@ def BuildPolyTree(
         or PlaneObjectId != 2
         or (PadObject.object_id != 32)
         or SketchObject.dimensions
+        or (
+            len(PolylineValue) == 3
+            and HasPolyLoss(DocData, SketchObject.source_id, PadObject.source_id)
+        )
     ):
         return None
     try:
@@ -2371,7 +2377,9 @@ def BuildPolyTree(
 
 
 # this definition exists because focused behavior needs one stable owner
-def BuildVendorTree(AuthoredObjs: tuple[_WriteObject, ...]) -> VendorResolved | None:
+def BuildVendorTree(
+    AuthoredObjs: tuple[_WriteObject, ...], DocData: CadDoc
+) -> VendorResolved | None:
     if len(AuthoredObjs) != 2:
         return RouteVendorTree(AuthoredObjs)
     SketchObject, PadObject = AuthoredObjs
@@ -2425,7 +2433,13 @@ def BuildVendorTree(AuthoredObjs: tuple[_WriteObject, ...]) -> VendorResolved | 
             PadObject, PlaneObjectId, CircleValue, DepthValue, DirectionCode, EndCodes
         )
     return BuildPolyTree(
-        SketchObject, PadObject, PlaneObjectId, PolylineValue, DepthValue, EndCodes
+        SketchObject,
+        PadObject,
+        PlaneObjectId,
+        PolylineValue,
+        DepthValue,
+        EndCodes,
+        DocData,
     )
 
 
