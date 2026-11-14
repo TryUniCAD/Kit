@@ -8,6 +8,10 @@ rows, and vertex roster from `MainDataStream` and `SurfacicReps`.
 It maps the result to a neutral `BrepModel` with faces, loops, coedges, edges, vertices, and
 analytic plane or cylinder surfaces.
 
+The trim handles are dense indices into a shared tessellation vertex table, not B-rep vertex
+identifiers. The reader derives loops from the tessellation boundary. That is a documented
+approximation, not the native B-rep topology.
+
 The adapter also writes a native `V5_CFV2` CATPart from a neutral `BrepModel` when
 `WriteOptions(values={"native_brep": True})` is set.
 The writer supports plane faces with one loop per face.

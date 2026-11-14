@@ -334,7 +334,7 @@ def DecodeBrep(
     return Model, (
         Diagnostic(
             "catia.brep.native_decoded",
-            "Native CATIA B-rep topology and analytic surfaces were decoded.",
+            "CATIA tessellation-derived topology and surface bounds were decoded.",
             Severity.INFO,
             attributes={
                 "face_count": len(Model.faces),
