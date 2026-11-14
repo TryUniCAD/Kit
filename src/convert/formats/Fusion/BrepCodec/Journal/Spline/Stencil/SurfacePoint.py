@@ -4,6 +4,9 @@ from convert.formats.Fusion.BrepCodec.Journal.Geometry.JournalVector import (
     KJournalVector,
 )
 from convert.formats.Fusion.BrepCodec.Journal.Spline.NubsSurface import NubsSurface
+from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.OrdinarySurfaceSample import (
+    OrdinarySample,
+)
 from convert.formats.Fusion.BrepCodec.Journal.Spline.Stencil.SplineFrame import (
     BasisLevel,
     BasisSlope,
@@ -56,14 +59,7 @@ def SurfaceSample(
         AlongU = MassFrame(Values, RisingU, Poles, Weights)[1]
         AlongV = MassFrame(Values, RisingV, Poles, Weights)[1]
     else:
-        PointValue = [0.0, 0.0, 0.0]
-        AlongU = [0.0, 0.0, 0.0]
-        AlongV = [0.0, 0.0, 0.0]
-        for Place, (RowIndex, ColumnIndex) in enumerate(Window):
-            for AxisIndex in range(3):
-                PointValue[AxisIndex] += Values[Place] * Poles[Place][AxisIndex]
-                AlongU[AxisIndex] += RisingU[Place] * Poles[Place][AxisIndex]
-                AlongV[AxisIndex] += RisingV[Place] * Poles[Place][AxisIndex]
+        PointValue, AlongU, AlongV = OrdinarySample(Values, RisingU, RisingV, Poles)
     return (
         CastValue(KJournalVector, tuple(PointValue)),
         CastValue(KJournalVector, tuple(AlongU)),
