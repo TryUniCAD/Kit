@@ -340,6 +340,53 @@ The 4-byte prefix in the run headers is not a count. It does not correlate with 
 is `0x2c` or `0x2d` in most headers. It is not a file offset either: `0x2c077000` is 738 million,
 far beyond the 31 KB stream.
 
+## The tessellation is a CATMathPolyBuffers structure with plain floats
+
+`CATMathStream.dll` exports the `CATMathPolyBuffers` class with getters for every tessellation
+buffer: `GetVertexCoordinatesBuffer` and `GetVertexCoordinatesBufferDouble`, `GetVertexUVBuffer` and
+`GetVertexUVBufferFloat`, `GetVertexWBuffer` and `GetVertexWBufferFloat`, `GetVertexVectorBuffer` and
+`GetVertexVectorBufferDouble`, `GetStripIndicesBuffer`, `GetFanIndicesBuffer`,
+`GetVertexLineIndicesBuffer`, `GetEdgeVertexLineIndicesBuffer`, `GetEdgeVertexLineParamsBuffer`,
+`GetIsolatedTriangleBuffer`, and the per-primitive count buffers.
+
+`CATMathPolyBuffersStreamer::Unstream` at `0x18009cf50` reads them in a fixed order. The call
+sequence is:
+
+```
+ReadUShort          version
+ReadCATUuid         uuid
+ReadUChar           flag
+ReadLong            count
+ReadBoolean + ReadFloat/ReadDouble   vertex coordinates, count * 3
+ReadBoolean + ReadFloat/ReadDouble   vertex UV,          count * 2
+ReadBoolean + ReadFloat/ReadDouble   vertex W,           count
+ReadBoolean + ReadFloat/ReadDouble   vertex vectors,     count * 3
+ReadLong x 5        scalars
+ReadLong[] x 5      arrays
+ReadShort
+ReadLong x 2
+ReadLong[] x 2
+ReadLong
+ReadBoolean
+ReadULong
+ReadLong
+ReadLong[]
+```
+
+The coordinate read is explicit. At `0x18009d076` the code computes `leal (%rcx,%rcx,2), %r8d`,
+which is `count * 3`, and passes it as the element count to `ReadFloat`. So the vertex coordinates
+are `count * 3` plain floats (or doubles), not a compressed stream.
+
+This changes the model. The tessellation is not a bit-packed or compactor-coded stream: it is a
+plain float array of `count * 3` values, preceded by a 23-byte header (UShort, 16-byte UUID, UChar,
+Long count) and a presence Boolean. The earlier search for a compactor code table was looking for
+the wrong thing.
+
+The remaining problem is locating the header. The `Copper_Washer` region before the coordinates is
+27 bytes at `199..226`, and the coordinates start at `226` with `-7.6084`. A 23-byte header at `199`
+gives a count of `30075`, which is far too large for 76 handles, so the header is not at `199` or the
+count field is not a plain `Long` at that offset. The header offset is not yet pinned down.
+
 ## The two-bit block boundaries do not transfer between parts
 
 `Reservoir` has a 363-byte block at `206..569` whose two-bit decode is zero-dominated

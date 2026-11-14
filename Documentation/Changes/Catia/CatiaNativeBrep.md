@@ -48,6 +48,14 @@ dominated by 2 and 3, and a sliding scan finds only zero-padding regions, not a 
 also does not hold the tessellation in the global frame: it has only about 15 zeros and one 1.0,
 far short of the ~38 + ~38 needed for 76 points on the `x = 0` and `x = 1` circles.
 
+The tessellation is not compressed at all. `CATMathStream.dll` exports `CATMathPolyBuffers` with
+getters for vertex coordinates, UV, W, vectors, strip/fan/line indices, and isolated triangles, and
+`CATMathPolyBuffersStreamer::Unstream` at `0x18009cf50` reads them in a fixed order. The coordinate
+read computes `count * 3` and passes it to `ReadFloat`, so the vertex coordinates are `count * 3`
+plain floats, preceded by a 23-byte header (UShort, 16-byte UUID, UChar, Long count) and a presence
+Boolean. The remaining problem is locating that header: a 23-byte header at `199` gives a count of
+`30075`, far too large for 76 handles, so the header offset is not yet pinned down.
+
 The surface records are ordered by face only when the two counts match. For all 22 parts where the
 surface count equals the face count, the surface planarity sequence is identical to the face
 planarity sequence. For the five parts with fewer surfaces than faces, the surface planarity
