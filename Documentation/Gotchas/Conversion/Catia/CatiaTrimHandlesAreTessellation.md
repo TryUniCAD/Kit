@@ -19,6 +19,11 @@ not two. `Washer_8.CATPart` has arities `11, 11, 11, 11, 14, 14, 9, 14`. Edge ha
 handles share one global point-id space but are not the same set (washer 93 vs 94, pedal 1698 vs
 2666). The coordinate table for that space is not yet located.
 
+The face-to-surface reference is not in the face-outer-bound run, the trim packet, or the edge
+rows. The `30 04 04 ff ff` record count equals the face count and its payload is constant. The
+`30 04 04 fd ff` record appears three times in every part. The reference is in a table that is
+not yet identified.
+
 ## Workaround
 
 Do not treat a trim handle as a vertex index.
