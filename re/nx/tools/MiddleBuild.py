@@ -127,3 +127,17 @@ def Main(ArgValues: list[str]) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(Main(sys.argv[1:]))
+
+
+def Landmarks(Middle: bytes) -> list[int]:
+    Anchor = Middle.find(b"\x08SYSTEM\x00") + len(b"\x08SYSTEM\x00")
+    Names = Middle.find(KNames)
+    Trail = Middle.find(b"\x01\x00\x01\x11")
+    Default = Middle.rfind(KDefault)
+    Records = []
+    Probe = Middle.find(b"\x00\x3f\x00\x00")
+    while Probe >= 0:
+        Probe = Middle.find(b"\x02\x02\x04", Probe + 4)
+        if Probe >= 0:
+            Records.append(Probe)
+    return [Anchor, Anchor + 0x1B, Names - 1, Trail, Trail + 4, Default - 2, *Records]
