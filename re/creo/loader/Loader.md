@@ -161,6 +161,23 @@ CreoQuantType, Length, Time, Mass, Temperature, Current
   strings; export table read with `objdump -p`.
 - The `Serialize<CreoDesignatedItem>` decompilation is the next artefact to record.
 
+## Tagged-stream parser status
+
+`re/creo/tools/TaggedStream.py` parses the explicit `e0 <type> <name> 00` fields, the
+`e3`/`e2` structure begins, the `f1`-`f4` closes, the `e8`-`eb` compact integers, the
+`f8`/`f9` arrays, the `e4`-`e7` repeats, and the one-byte double constants `0x0f` (0.0)
+and `0x18` (1.0).
+
+The parser stops on the `f7 <id>` field selection. The `f7` id is the model module's
+global field id, not the stream's `e0` definition order. The stream defines a field
+once with `e0`; later records select it with `f7 <id>`. The id is assigned by the
+`ProcStructField` registration order in `metatoolsapi.dll`, so the parser needs that
+registered table before it can resolve the later records.
+
+The explicit first record and the empty control parse up to the first `f7`-only
+record. The next step is to recover the registered field table from the
+`ProcStructField` call order in the `CreoSerializer` serializers.
+
 ## Open questions
 
 - The `Serialize<CreoDesignatedItem>` field order and names.

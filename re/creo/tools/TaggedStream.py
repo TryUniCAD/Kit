@@ -95,6 +95,7 @@ class Parser:
         self.reader = Reader(data)
         self.fields: list[tuple[str, int]] = []
         self.current: tuple[str, int] | None = None
+        self.nodes: list[Node] = []
 
     def ReadDouble(self) -> float:
         reader = self.reader
@@ -197,6 +198,7 @@ class Parser:
                 node = Node(name, type_id)
                 node.value = self.ReadValue(type_id)
                 nodes.append(node)
+                self.nodes.append(node)
                 continue
             if 0xF1 <= token <= 0xF4:
                 reader.pos += 1
@@ -257,5 +259,9 @@ def Dump(nodes: list[Node], depth: int = 0) -> None:
 if __name__ == "__main__":
     path = Path(sys.argv[1])
     parser = Parser(path.read_bytes())
-    nodes = parser.ReadFields(0)
+    try:
+        nodes = parser.ReadFields(0)
+    except ValueError as ErrorInfo:
+        print(f"# stopped at {parser.reader.pos:#x}: {ErrorInfo}")
+        nodes = parser.nodes
     Dump(nodes)
