@@ -64,8 +64,13 @@ guard, the object count reader and the zero-count guard.
 ## Limits
 
 - The head tail carries two variable length integers that differ per document
-  (`80 d5 02` for `empty.prt`, `fa 02` for a part with a body), so the record is
-  emitted only when the generated length matches the source. A part with a body
-  keeps its source head.
+  (`80 d5 02` for `empty.prt`, `fa 02` for a part with a body). They are not
+  validated: mutating any of their bytes still loads, so they do not need to be
+  decoded.
+- What a part with a body rejects is a change to the record length, even with the
+  source tail preserved (`74 -> 93`, `74 -> 43` and `74 -> 81` all fail while
+  `74 -> 74` with changed tail bytes loads). A body-less part accepts those length
+  changes, so the constraint is cross section coupling: a body part's sections have
+  to be regenerated together rather than resized one at a time.
 - The other 213 records, the class table and the identifiers are still carried
   from the source part, so no part is written without a source document yet.

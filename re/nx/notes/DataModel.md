@@ -600,6 +600,43 @@ sections 1 (block shape), 2 and 3, in addition to regenerating section 3 and
 emptying section 4. Section 0 keeps its source anchor because its body is still
 copied.
 
+### The head tail integers are not validated
+
+The two variable length integers at the end of the head record are not the reason a
+part with a body rejects a generated head. Each byte of them was mutated in
+`const_box60.prt` and loaded:
+
+```text
+tail byte 0 of the first integer     loads   bodies 1  exprs 3
+tail byte 1 of the first integer     loads   bodies 1  exprs 3
+the 0x13 after it                    loads   bodies 1  exprs 3
+first byte of the second integer     loads   bodies 1  exprs 3
+first byte of the third integer      loads   bodies 1  exprs 3
+last two bytes                       loads   bodies 1  exprs 3
+```
+
+So the encoding never has to be understood: the values are free like the anchor and
+the identity.
+
+What a part with a body does reject is a change to the record length, even when the
+source tail is preserved byte for byte:
+
+```text
+head 74 -> 93  keeping the source tail   OPEN_FAILED
+head 74 -> 43  keeping the source tail   OPEN_FAILED
+head 74 -> 81  with the body less tail   OPEN_FAILED
+head 74 -> 74  with any tail byte changed  loads
+```
+
+A body-less part accepts the same length changes, so the constraint is coupling
+between sections rather than the head itself. That matches the earlier finding that
+section bodies are not relocatable: a body part's sections carry cross references,
+so each section has to be regenerated with the others instead of resized in place.
+
+Appending a byte to section 2 or 3 also breaks both shapes, because the tail is then
+a malformed record. Length changes are only accepted when the result is a well formed
+section, which is why the head test worked and the append test did not.
+
 ### Section 0 field grammar
 
 Single field mutations in `empty.prt`, each loaded in NX 2506:
