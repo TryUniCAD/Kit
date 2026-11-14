@@ -64,10 +64,23 @@ def ReadSlotHandle(Object: bytes) -> int:
 
 
 # a block part adds five property slots and one record for each of its expressions
-def ExprObjectCount(Expressions: int) -> int:
-    if Expressions < 0:
-        raise ValueError("NX expression count must not be negative")
-    return KObjects + 6 * Expressions
+def ExprObjectCount(Dimensions: int) -> int:
+    if Dimensions < 0:
+        raise ValueError("NX dimension count must not be negative")
+    return KObjects + 6 * Dimensions
+
+
+# a dimension part carries two value slots and one plain slot per dimension plus one
+def ValueSlotCount(Dimensions: int) -> int:
+    if Dimensions < 1:
+        raise ValueError("NX dimension count must be at least one")
+    return 2 * Dimensions - 1
+
+
+def PlainSlotCount(Dimensions: int) -> int:
+    if Dimensions < 1:
+        raise ValueError("NX dimension count must be at least one")
+    return 3 * Dimensions + 1
 
 
 # the expression section middle is a fixed layout of six objects
@@ -138,6 +151,8 @@ def Adopt(SectionBody: bytes, Middle: bytes) -> bytes:
 __all__ = [
     "Adopt",
     "ExprObjectCount",
+    "PlainSlotCount",
+    "ValueSlotCount",
     "ReadSlotHandle",
     "ReadValueSlot",
     "SlotObject",

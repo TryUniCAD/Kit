@@ -14,6 +14,8 @@ from convert.adapters.nx.Construction import ConstructMiddle, ObjectCount, Recor
 from convert.adapters.nx.ExprSection import (
     ExprMiddle,
     ExprObjectCount,
+    PlainSlotCount,
+    ValueSlotCount,
     ReadSlotHandle,
     ReadValueSlot,
     SlotObject,
@@ -879,6 +881,9 @@ def TestNxExprCount() -> None:
     assert ExprObjectCount(0) == 6
     assert ExprObjectCount(3) == 24
     assert ExprObjectCount(6) == 42
+    assert ValueSlotCount(3) == 5 and ValueSlotCount(6) == 11
+    assert PlainSlotCount(3) == 10 and PlainSlotCount(6) == 19
+    assert ExprObjectCount(3) == 6 + ValueSlotCount(3) + PlainSlotCount(3) + 3
     try:
         _ = ExprObjectCount(-1)
     except ValueError:

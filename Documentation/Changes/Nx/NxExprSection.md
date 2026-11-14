@@ -181,6 +181,21 @@ Other feature families do not obey it — `var_sph` with one sphere expression c
 objects and `var_cyl` with two cylinder expressions 14, against 12 and 18 from the rule —
 so the rule is specific to block dimension expressions.
 
+## Inventory functions
+
+`ExprSection` now carries the measured counts as functions, so the composer has a
+definition to build against rather than a note:
+
+```text
+ExprObjectCount(d) = 6 + 6d      3 -> 24   6 -> 42
+ValueSlotCount(d)  = 2d - 1      3 ->  5   6 -> 11
+PlainSlotCount(d)  = 3d + 1      3 -> 10   6 -> 19
+```
+
+and the identity `ExprObjectCount(d) == 6 + ValueSlotCount(d) + PlainSlotCount(d) + d`
+holds, which is the object budget the composer must fill: six fixed objects, the value
+slots, the plain slots and one record per dimension.
+
 ## Limits
 
 - Only the six object shape is generated. A part with expressions carries 7 to 42
