@@ -1,8 +1,10 @@
 from __future__ import annotations as Annotations
 import struct as Struct
 
+from convert.adapters.nx.Xxh32 import HashXxh
 from convert.adapters.nx.Splm import (
     KAbsentFooter,
+    KChecksumOffset,
     KFooterRegion,
     KHeaderRegion,
     KMaxPathBytes,
@@ -23,7 +25,6 @@ def BuildSplm(
     FooterRecords: list[tuple[str, bytes | None]] | None = None,
     *,
     FileTag: int = 0,
-    Fingerprint: bytes = b"",
     HeaderTrailer: bytes = b"",
 ) -> bytes:
     FooterData = list(FooterRecords or ())
@@ -45,7 +46,7 @@ def BuildSplm(
         HeaderTrailer,
         FooterOffset,
         FileTag,
-        Fingerprint,
+        0x19 + DirectoryLength(HeaderRecords, KHeaderRegion),
     )
 
 
@@ -102,7 +103,7 @@ def AssembleSplm(
     HeaderTrailer: bytes,
     FooterOffset: int,
     FileTag: int,
-    Fingerprint: bytes,
+    HeaderEnd: int,
 ) -> bytes:
     Output = bytearray()
     Output.extend(KSplmMagic)
@@ -112,11 +113,14 @@ def AssembleSplm(
     Output.extend(int(FooterOffset).to_bytes(6, "little"))
     Output.extend(b"\x00\x00")
     Output.extend(WriteDirectory(HeaderEntries, KHeaderRegion))
-    Output.extend(HeaderTrailer)
+    Trailer = bytearray(HeaderTrailer)
+    SealHeaderMut(Output, Trailer, HeaderEnd)
+    Output.extend(Trailer)
     Output.extend(Payload)
     if FooterEntries:
-        Output.extend(WriteDirectory(FooterEntries, KFooterRegion))
-        Output.extend(Fingerprint[:4].ljust(4, b"\x00"))
+        FooterBytes = WriteDirectory(FooterEntries, KFooterRegion)
+        Output.extend(FooterBytes)
+        Output.extend(HashXxh(FooterBytes).to_bytes(4, "little"))
     return bytes(Output)
 
 
@@ -143,3 +147,13 @@ def WriteDirectory(Records: list[KEntryFields], Region: str) -> bytes:
         else:
             Output.extend(Struct.pack("<QQ", OffsetValue, SizeValue))
     return bytes(Output)
+
+
+# the trailer seal covers the header directory and every trailer byte before it
+def SealHeaderMut(Output: bytearray, Trailer: bytearray, HeaderEnd: int) -> None:
+    Index = KChecksumOffset
+    if Index + 4 > len(Trailer):
+        return
+    Prefix = bytes(Output[0x19:HeaderEnd]) + bytes(Trailer[:Index])
+    Value = HashXxh(Prefix)
+    Trailer[Index : Index + 4] = Value.to_bytes(4, "little")

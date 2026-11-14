@@ -19,6 +19,9 @@ KAbsentFooter = 0xFFFFFFFFFFFF
 # the root storage uuid is stable across nx saved parts
 KRootUuid = bytes.fromhex("611ec9b3fa60d1118ad90800362fb302")
 
+# the header trailer stores the xxh32 seal at this fixed relative offset
+KChecksumOffset = 0x21E
+
 # header entries name paths before the payload section
 KHeaderRegion = "HEADER"
 

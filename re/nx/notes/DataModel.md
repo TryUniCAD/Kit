@@ -22,10 +22,15 @@ complete directory. The root entry payload is the stable UUID
 `611ec9b3-fa60-d111-8ad9-0800362fb302`; it is not a file range.
 
 The header directory is followed by a reserved trailer before the first file
-payload. NX validates a checksum over that trailer and the header. Rebuilding
-a header with different directory sizes changes the checksum. The production
-writer therefore preserves the complete header and only replaces payloads of
-the same byte length.
+payload. The trailer stores an xxh32 seal, little-endian, at trailer offset
+`0x21E`. The seal covers the header directory from the `HEADER` marker at
+`0x19` through the seal field. The file ends with a second xxh32 value: the
+footer fingerprint covers the footer directory.
+
+Seven NX 2506 saves with different payload sizes and directory layouts matched
+both formulas exactly. Rebuilding a directory therefore only requires
+recomputing these two seals. The production writer does that for every rewrite,
+including rewrites that change stream sizes and shift later offsets.
 
 ## Canonical part payload
 
@@ -116,9 +121,9 @@ The production reader parses both envelopes, extracts the native stream map,
 decodes Parasolid geometry through the existing Kit reader, retains the exact
 native document, and exposes the native feature graph as one imported step. The
 production writer
-rebuilds the SPLMSSTR directory from parsed streams and supports equal-length
-native payload replacement. It refuses header-changing writes because the
-header checksum coverage is not yet recomputed.
+rebuilds the SPLMSSTR directory from parsed streams, supports equal-length
+native attribute replacement and whole-stream replacement at any byte length,
+and reseals the header and footer after every rewrite.
 
 It does not author a new NX part from a neutral model, does not emit new NX
 feature records, and does not project NX expressions into neutral parameters.

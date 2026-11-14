@@ -166,7 +166,6 @@ def RebuildSplm(
         HeaderData,
         FooterData,
         FileTag=FileValue.file_tag,
-        Fingerprint=FileValue.fingerprint,
         HeaderTrailer=FileValue.header_trailer,
     )
 

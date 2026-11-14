@@ -85,6 +85,39 @@ AREA 5699.999999999999
 CENTROID [X=22.500000000000004,Y=15.000000000000002,Z=10.000000000000002]
 ```
 
+## Header changing rewrite
+
+The production adapter wrote `adapter_header_edit.prt` by replacing
+`/Root/FastLoad/ExternalReferences` with a value four bytes longer. The rebuild
+shifted every later payload offset and recomputed the header seal and footer
+fingerprint. NX reported the same body, features, expressions, volume, area,
+centroid, and mass as the control:
+
+```text
+STATUS 0
+PART C:\Mac\Home\Documents\UniCAD\Kit\re\nx\oracle\adapter_header_edit.prt
+UNITS 1
+BODIES 1
+BODY 38459 True
+FEATURES 2
+FEATURE 38784 DATUM_CSYS False
+FEATURE 38785 BLOCK False
+EXPRESSIONS 6
+EXPRESSION p0 40.0
+EXPRESSION p1 30.0
+EXPRESSION p2 20.0
+EXPRESSION height 20.0
+EXPRESSION length 40.0
+EXPRESSION width 30.0
+VOLUME 23999.999999999996
+AREA 5200.0
+CENTROID [X=19.999999999999996,Y=15,Z=9.9999999999999982]
+MASS 0.18793536
+```
+
+The seal formula was confirmed on seven NX saved variants, including two
+directory layouts, before the writer produced the file.
+
 ## Container behavior
 
 The production parser also reads the compound-file corpus:

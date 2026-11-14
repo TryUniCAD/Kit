@@ -19,8 +19,16 @@ The neutral result contains:
 
 The writer accepts a document with a retained native NX payload. It parses the
 container, rebuilds the SPLMSSTR directory, and writes a native NX part.
-Equal-length native attribute overrides are supported. Header-changing edits
-are refused because NX validates a checksum over the header trailer.
+
+Rebuilding recomputes directory offsets and both native seals:
+
+- the header seal is `xxh32` over the header directory and trailer prefix,
+  stored at `trailer_start + 0x21E`
+- the footer fingerprint is `xxh32` over the footer directory
+
+Header-changing rewrites are therefore supported. Equal-length native
+attribute overrides update `/Root/part/attrs` and the matching object-model
+value. `nx.stream_overrides` replaces a whole stream at any byte length.
 
 ## Usage
 
@@ -37,7 +45,8 @@ See [the adapter guide](../../Reference/Adapters/Nx.md).
 
 - The writer does not author new NX geometry, feature records, expressions, or
   assemblies from a neutral model.
-- The writer does not support header-changing directory layouts.
+- Attribute overrides keep the value byte length because the object-model
+  record is length framed.
 - Legacy compound parts are read without B-rep projection. Writing one is
   refused because the modern container checksum layout would change.
 - NX expressions remain native objects; they are not projected into neutral
@@ -64,10 +73,19 @@ The live feature tree rebuilt after the `length` expression changed from `40`
 to `45`. NX reported volume `27000 mm3`, area `5700 mm2`, and centroid
 `(22.500000000000004, 15.000000000000002, 10.000000000000002)`.
 
-The repository boundaries were exercised by a synthetic SPLMSSTR integration
-test that builds a container from bytes, reads it, rewrites it with an
-equal-length attribute change, and reads the result again. No vendor part is
-shipped as a test fixture.
+NX also loaded a header-changing rewrite built by the adapter. The rewrite
+grew `/Root/FastLoad/ExternalReferences` by four bytes, shifted every later
+payload offset, resealed the header and footer, and kept one body, both
+features, six expressions, and the original mass.
+
+Seven NX-saved variants confirmed the seal algorithm. The computed `xxh32`
+digest matched the stored header seal and footer fingerprint in every file.
+
+The repository boundaries were exercised by synthetic SPLMSSTR integration
+tests that build a container from bytes, read it, rewrite it with an
+equal-length attribute change and with a different-length stream override,
+verify both seals, and read the result again. No vendor part is shipped as a
+test fixture.
 
 ## Related information
 
