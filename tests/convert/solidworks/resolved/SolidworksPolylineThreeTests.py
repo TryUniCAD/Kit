@@ -247,21 +247,33 @@ def TestDepthGuard(TmpPath: FilePath) -> None:
 
 def TestParamLoss(TmpPath: FilePath) -> None:
     SourceDoc = BuildDocument(KPoints)
-    Owners = (SourceDoc.sketches[0].id, SourceDoc.feature_timeline[0].id)
-    for Index, OwnerId in enumerate(Owners):
+    FeatureId = SourceDoc.feature_timeline[0].id
+    Cases = (
+        (SourceDoc.sketches[0].id, "Count", 2, ValueKind.NUMBER, "", "CustomCount"),
+        (FeatureId, "Count", 2, ValueKind.NUMBER, "", "CustomCount"),
+        (FeatureId, "CustomLength", 3.5, ValueKind.LENGTH, "mm", "CustomLength"),
+    )
+    for Index, (
+        OwnerId,
+        NameValue,
+        Scalar,
+        KindValue,
+        UnitValue,
+        PathValue,
+    ) in enumerate(Cases):
         ExtraParam = Parameter(
-            f"test:nonlength:{Index}",
-            "Count",
-            ParameterValue(2, ValueKind.NUMBER, ""),
+            f"test:parameter:{Index}",
+            NameValue,
+            ParameterValue(Scalar, KindValue, UnitValue),
             owner_id=OwnerId,
-            attributes={"freecad_path": "CustomCount"},
+            attributes={"freecad_path": PathValue},
         )
         Changed = ReplaceData(SourceDoc, parameters=(*SourceDoc.parameters, ExtraParam))
         assert HasVendorPartEncoding(Changed) is False
         with PytestLib.raises(ApplicationUsabilityError):
             _ = WriteDoc(
                 Changed,
-                TmpPath / f"NonLength{Index}.SLDPRT",
+                TmpPath / f"ParamLoss{Index}.SLDPRT",
                 allow_carrier=False,
             )
 

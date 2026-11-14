@@ -8,7 +8,7 @@ Depth is an independent finite positive value. Source vertex order and the three
 
 The recovered scope does not accept solver relations, sketch dimensions, construction or fixed entities, open or self-intersecting wires, degenerate profiles, other planes, reversed directions, or other termination conditions. Unsupported inputs fail closed instead of discarding semantic content.
 
-Three-line candidates also inspect original sketch- and extrusion-owned parameters before length-only serialization. An unsupported non-length value declines native encoding. Recognized FreeCAD pad metadata remains on the existing validated projection path; an additional `CustomCount` field on either owner is rejected through the public writer instead of disappearing while parameter capabilities are granted.
+Three-line candidates also inspect every original source parameter before length-only serialization. Only native `D1` length and the recognized, non-expression FreeCAD pad schema are admissible. Other owner values, extra lengths, sketch dimensions, and expressions decline native encoding instead of disappearing while parameter capabilities are granted. Public coverage rejects `CustomCount` on both the sketch and extrusion plus an additional pad-owned `CustomLength`.
 
 The right-angle rightmost-vertex tie is supported. `tri3tie`, with two rightmost vertices, demonstrates that tying `x` does not require rejecting the profile. The measured first-rightmost attachment convention preserves its zero-y coordinate.
 
