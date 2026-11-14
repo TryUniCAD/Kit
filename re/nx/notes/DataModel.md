@@ -401,6 +401,35 @@ that is not yet derived, so the encoder refuses them.
 No value appears anywhere in the container as a binary64, a shifted binary64, a
 float32, or UTF-16 text.
 
+### Offset list and count words decoded
+
+The per-object offset list is `6 + n` entries and every entry is a landmark in
+the emitted layout. Predicting them from landmarks matches the captured lists on
+all four saves:
+
+```text
+empty.prt      6 entries  equal True
+empty_expr.prt 7 entries  equal True
+multi.prt      14 entries equal True
+sweep.prt      46 entries equal True
+```
+
+The landmark order is:
+
+```text
+anchor, anchor + 0x1b, names - 1, trailer, trailer + 4, last default record - 2,
+then one entry per object record
+```
+
+The count words are `7 + n` values. The first value is `6 + n`, followed by
+`1, 3, 5, 4, 6, 7`, and then one value per object:
+
+```text
+n = 0   6 1 3 5 4 6 7
+n = 1   7 1 3 5 4 6 7 8
+n = 8   14 1 3 5 4 6 7 14 15 8 9 10 11 12 13
+```
+
 ### Middle regeneration: three of five structures solved
 
 `re/nx/tools/MiddleBuild.py` regenerates parts of the section-2 middle from
