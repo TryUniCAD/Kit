@@ -27,6 +27,12 @@ that is 4682 of 4682 handles on-surface, with zero exceptions. The plane-cone ca
 555 plane-cone handles; the other 132 are oblique sections (ellipse, parabola, hyperbola) and are
 left on the vertex-table fallback rather than being forced onto a circle.
 
+An edge whose two endpoints both lie on one of those intersection circles gets a `CircleCurve`
+instead of a chord. Across the corpus that is 1661 circular-arc edges, and the worst endpoint radius
+error is 1.8e-6. For `Copper_Washer` the inner circle at `x = 0` sums to exactly its circumference
+(31.416 against `2 * pi * 5`), and the outer circles sum to 48.209 against 50.265 because the seam
+gap and the seven straight edges are not arcs. Edges that are not on a circle stay `LineCurve`.
+
 One partial map is recovered: the handles that appear in arity-2 edges are the B-rep vertices. This
 is exact for the simple parts (`Copper_Washer`, the washers, `Banjo`, the nuts, and
 `Brake_bias_90_degree_coupler`, where the arity-2 handle count equals the vertex count) and a strict

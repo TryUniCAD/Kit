@@ -836,6 +836,26 @@ The placement invariant is checkable and holds exactly. For every handle, the pl
 satisfy every surface of the faces that use it: on the plane, and at the cylinder or cone radius.
 Across the 22 decoded parts that is 4682 of 4682 handles on-surface, with zero exceptions.
 
+## Edge curves are circular arcs, not chords
+
+An edge joins two consecutive handles in a face cycle. When both endpoints lie on the same
+intersection circle, the edge curve is a `CircleCurve` with that center, axis, and radius, and the
+edge parameters are the start angle and the swept angle. Otherwise the edge stays a `LineCurve`.
+
+Across the corpus that is 1661 circular-arc edges, and the worst endpoint radius error is 1.8e-6.
+For `Copper_Washer` the per-circle arc totals are:
+
+| Circle | Arcs | Total arc | Circumference |
+| --- | ---: | ---: | ---: |
+| inner at `x = 0`, r=5 | 17 | 31.416 | 31.416 |
+| inner at `x = 1`, r=5 | 16 | 27.925 | 31.416 |
+| outer at `x = 0`, r=8 | 21 | 48.209 | 50.265 |
+| outer at `x = 1`, r=8 | 21 | 48.209 | 50.265 |
+
+The inner circle at `x = 0` closes exactly. The others fall short by the seam gap and by the seven
+edges that are not on a circle, which is expected because the seam handles are 1-face handles and
+the connectors are arity-2 edges.
+
 ## The trim handles are not point indices
 
 The trim handles are dense: `Reservoir` uses every value in `0..1430`, and `Copper_Washer` uses

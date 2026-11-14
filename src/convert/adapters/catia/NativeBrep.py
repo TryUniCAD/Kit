@@ -36,6 +36,7 @@ from interchange import (
     BrepShellUse,
     BrepSurface,
     BrepVertex,
+    CircleCurve,
     Diagnostic,
     LineCurve,
     Severity,
@@ -60,7 +61,7 @@ class BrepData:
 # this definition exists because focused behavior needs one stable owner
 @dataclass(frozen=True, slots=True)
 class FaceBuild:
-    curves: tuple[LineCurve, ...]
+    curves: tuple[LineCurve | CircleCurve, ...]
     edges: tuple[BrepEdge, ...]
     coedges: tuple[BrepCoedge, ...]
     loops: tuple[BrepLoop, ...]
@@ -346,15 +347,7 @@ def CornerPositions(
             Handle
             for Handle in Arity2
             if Handle in Positions
-            and abs(Positions[Handle][0] - Center[0]) < 1e-3
-            and abs(
-                math.hypot(
-                    Positions[Handle][1] - Center[1],
-                    Positions[Handle][2] - Center[2],
-                )
-                - Radius
-            )
-            < 1e-3
+            and abs(math.dist(Positions[Handle], Center) - Radius) < 1e-3
         ]
         if len(Ends) != 2:
             continue
@@ -439,16 +432,80 @@ def BuildVertices(
 
 
 # this definition exists because focused behavior needs one stable owner
+def ArcCircles(
+    BrepValue: BrepData,
+) -> dict[int, tuple[tuple[float, float, float], tuple[float, float, float], float]]:
+    Usage: dict[int, set[int]] = {}
+    for FaceIndex, TrimValue in enumerate(BrepValue.trims):
+        for Handle in set(TrimValue.handles):
+            Usage.setdefault(Handle, set()).add(FaceIndex)
+    Pairs: dict[tuple[int, int], list[int]] = defaultdict(list)
+    for Handle in sorted(Usage):
+        if len(Usage[Handle]) == 2:
+            Faces = sorted(Usage[Handle])
+            Pairs[(Faces[0], Faces[1])].append(Handle)
+    Circles: dict[
+        int, tuple[tuple[float, float, float], tuple[float, float, float], float]
+    ] = {}
+    for Pair, Handles in Pairs.items():
+        Circle = IntersectionCircle(BrepValue, Pair)
+        if Circle is None:
+            continue
+        for Handle in Handles:
+            Circles[Handle] = Circle
+    return Circles
+
+
+# this definition exists because focused behavior needs one stable owner
 def BuildEdge(
     HandlePair: tuple[int, int],
     VertexByHandle: dict[int, str],
     VertexById: dict[str, BrepVertex],
     CurveCount: int,
-) -> tuple[LineCurve, BrepEdge]:
+    Circle: (
+        tuple[tuple[float, float, float], tuple[float, float, float], float] | None
+    ) = None,
+) -> tuple[LineCurve | CircleCurve, BrepEdge]:
     StartId = VertexByHandle[HandlePair[0]]
     EndId = VertexByHandle[HandlePair[1]]
     StartPoint = VertexById[StartId].point
     EndPoint = VertexById[EndId].point
+    CurveId = f"catia:curve:{CurveCount + 1}"
+    EdgeId = f"catia:edge:{CurveCount + 1}"
+    if Circle is not None:
+        Center, AxisValue, Radius = Circle
+        StartDelta = (
+            StartPoint.x - Center[0],
+            StartPoint.y - Center[1],
+            StartPoint.z - Center[2],
+        )
+        EndDelta = (
+            EndPoint.x - Center[0],
+            EndPoint.y - Center[1],
+            EndPoint.z - Center[2],
+        )
+        StartLength = math.sqrt(sum(Value * Value for Value in StartDelta))
+        EndLength = math.sqrt(sum(Value * Value for Value in EndDelta))
+        if StartLength > 1e-9 and EndLength > 1e-9:
+            Cosine = sum(StartDelta[Axis] * EndDelta[Axis] for Axis in range(3)) / (
+                StartLength * EndLength
+            )
+            Angle = math.acos(max(-1.0, min(1.0, Cosine)))
+            if 1e-9 < Angle < math.pi - 1e-9:
+                CurveValue = CircleCurve(
+                    CurveId,
+                    Vector(Center),
+                    Vector(AxisValue),
+                    Vector(
+                        (
+                            StartDelta[0] / StartLength,
+                            StartDelta[1] / StartLength,
+                            StartDelta[2] / StartLength,
+                        )
+                    ),
+                    Radius,
+                )
+                return CurveValue, BrepEdge(EdgeId, StartId, EndId, CurveId, 0.0, Angle)
     Direction = Normalize(
         (
             EndPoint.x - StartPoint.x,
@@ -456,14 +513,14 @@ def BuildEdge(
             EndPoint.z - StartPoint.z,
         )
     )
-    CurveId = f"catia:curve:{CurveCount + 1}"
-    CurveValue = LineCurve(CurveId, StartPoint, Vector(Direction))
+    LineValue: LineCurve | CircleCurve = LineCurve(
+        CurveId, StartPoint, Vector(Direction)
+    )
     Length = math.dist(
         (StartPoint.x, StartPoint.y, StartPoint.z),
         (EndPoint.x, EndPoint.y, EndPoint.z),
     )
-    EdgeId = f"catia:edge:{CurveCount + 1}"
-    return CurveValue, BrepEdge(EdgeId, StartId, EndId, CurveId, 0.0, Length)
+    return LineValue, BrepEdge(EdgeId, StartId, EndId, CurveId, 0.0, Length)
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -493,8 +550,11 @@ def BuildFaceMut(
     CurveCount: int,
     EdgeCount: int,
     CoedgeCount: int,
+    Circles: dict[
+        int, tuple[tuple[float, float, float], tuple[float, float, float], float]
+    ],
 ) -> FaceBuild:
-    Curves: list[LineCurve] = []
+    Curves: list[LineCurve | CircleCurve] = []
     Edges: list[BrepEdge] = []
     Coedges: list[BrepCoedge] = []
     Loops: list[BrepLoop] = []
@@ -511,11 +571,23 @@ def BuildFaceMut(
             HandlePair = (min(StartHandle, EndHandle), max(StartHandle, EndHandle))
             EdgeId = EdgeByPair.get(HandlePair)
             if EdgeId is None:
+                Circle = Circles.get(StartHandle) or Circles.get(EndHandle)
+                if Circle is not None:
+                    Center, _, Radius = Circle
+                    for Handle in HandlePair:
+                        Point = VertexById[VertexByHandle[Handle]].point
+                        if (
+                            abs(math.dist((Point.x, Point.y, Point.z), Center) - Radius)
+                            > 1e-3
+                        ):
+                            Circle = None
+                            break
                 CurveValue, EdgeValue = BuildEdge(
                     HandlePair,
                     VertexByHandle,
                     VertexById,
                     CurveCount + len(Curves),
+                    Circle,
                 )
                 EdgeId = EdgeValue.id
                 EdgeByPair[HandlePair] = EdgeId
@@ -546,7 +618,8 @@ def BuildFaceMut(
 def BuildBrep(BrepValue: BrepData) -> BrepModel:
     Vertices, VertexByHandle = BuildVertices(BrepValue)
     VertexById = {VertexValue.id: VertexValue for VertexValue in Vertices}
-    Curves: list[LineCurve] = []
+    Circles = ArcCircles(BrepValue)
+    Curves: list[LineCurve | CircleCurve] = []
     Edges: list[BrepEdge] = []
     Coedges: list[BrepCoedge] = []
     Loops: list[BrepLoop] = []
@@ -567,6 +640,7 @@ def BuildBrep(BrepValue: BrepData) -> BrepModel:
             len(Curves),
             len(Edges),
             len(Coedges),
+            Circles,
         )
         Curves.extend(FaceResult.curves)
         Edges.extend(FaceResult.edges)
