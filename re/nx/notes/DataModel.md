@@ -504,6 +504,34 @@ attribute records (`body_id`, `UGS/ObjectState`, density, group owners) that tie
 the Parasolid body to the body object in section 0. A body without them is
 listed by NX but not measured.
 
+### A parametric body write is accepted and measured
+
+Scaling the decoded model keeps those attribute records, and then the spliced
+geometry is measured correctly. `re/nx/tools/GeoAuthor.py` scales the vertex
+points, surface origins, curve origins and edge parameters, encodes the model,
+splices the stream, reseals, and rewrites the matching expression and feature
+dimension.
+
+```text
+authored_body60.prt  source 40, authored 60
+  BODIES 1, FEATURES 1
+  EXPRESSION p0 60.0, p1 30.0, p2 20.0
+  VOLUME 36000.0, AREA 7200.0, CENTROID (30, 15, 10), MASS 0.28190304
+
+authored_body25.prt  source 40, authored 25
+  BODIES 1, FEATURES 1
+  EXPRESSION p0 25.0, p1 30.0, p2 20.0
+  VOLUME 15000.0, AREA 3700.0, CENTROID (12.5, 15, 10), MASS 0.1174596
+```
+
+Both match the analytic values exactly, and the write goes through Kit's own
+Parasolid encoder and zlib framing, not through NX.
+
+What is still inherited rather than authored: the topology and the NX attribute
+records that come from the source body. Reproducing those records for an
+authored topology is the remaining step before a part can be built from a neutral
+spec with no source document.
+
 ### A first expression can be added to a part that has none
 
 `re/nx/tools/ExprBuild.py` takes a part with no expressions, an expression name,
