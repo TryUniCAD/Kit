@@ -16,4 +16,4 @@ Keep the missing report as an independently visible CI blocker rather than weake
 
 Model acceptance evidence and review findings remain separate from this missing managed report. Record the exact head, timeout, and absent check run so the remaining action is identifiable rather than mistaking it for a geometry or test failure.
 
-See [the Code Quality applicability rules](../../Changes/CodeQualityApplicability.md), [trusted-base aggregation](TrustedBaseAggregation.md), and [the normal PR aggregation gate](../../../../.github/workflows/PullRequest.yml).
+See [the Code Quality applicability rules](../../Changes/CodeQualityApplicability.md), [trusted-base aggregation](TrustedBaseAggregation.md), [the failed workflow-only backfill](StackedWorkflowBackfill.md), and [the normal PR aggregation gate](../../../../.github/workflows/PullRequest.yml).
