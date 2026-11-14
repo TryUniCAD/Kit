@@ -979,6 +979,40 @@ So `SurfacicReps` is a sequence of surface records each followed by its own cont
 the marker scan that recovers the records is the right approach. The control-point blocks are not
 the face-to-surface map either: they belong to the surface, not to a face.
 
+## The object headers are a contiguous chain that covers only the bodies
+
+`CATCGMStreamCGMImpl::Unserialize_ContentsFull` at `0x180063d30` walks the object headers in a loop:
+it calls `ReadHeaderObjectAt` at the current offset, takes the returned offset as the next position,
+and stops when the next offset passes the stream end. `ReadHeaderObjectAt` at `0x1800a56a0` stores
+the offset at `0x100(stream)` and checks `offset + 5` against `0x110(stream)`, so the header prefix
+is five bytes.
+
+In `Reservoir` the chain is contiguous: headers at 8, 54, 101, and 153, of 46, 47, 52, and 53 bytes,
+ending at 206. The marker is `30 04 04 fd ff` for the last three and `04 04 fd ff` for the first,
+which lacks the leading `30`. The chain ends at 206, where the two-bit block begins, so the chain
+covers the three bodies and nothing else.
+
+The face headers are the 71 rows at 27035..27603, each eight bytes: `30 04 04 ff ff e1 e1 e1`. The
+three trailing bytes are constant across all 71 rows. Decoded as tag differences they are three
+`+56` steps, and the 213 bytes across the run decode to `56, 112, 168, ..., 11928`, all multiples of
+56. That is a degenerate sequence, not a tag array, so the face header carries no per-face data.
+
+The trim records also carry no surface index. The first three are:
+
+```
+trim 0  off 18807  kind 0x4b  counts (1,1,0)  total 14  vec (0,0,-1)  14 handles
+trim 1  off 18857  kind 0x4f  counts (2,7,2)  total 66  vec (0,0,-1)  66 handles
+trim 2  off 19020  kind 0x42  counts (0,2,0)  total  8  vec None       8 handles
+```
+
+Each is fully consumed by the prefix, kind, three counts, `ff`-prefixed total, optional vector,
+lengths, and handles. There is no spare field.
+
+So the format does not store a face-to-surface reference in any of the places a reference could
+live: not in the face header, not in the trim record, and not in a tag array. The remaining
+possibility is that the writer deduplicates surfaces and the reader re-derives the map
+geometrically, which is why the pooled parts have fewer surfaces than faces.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.

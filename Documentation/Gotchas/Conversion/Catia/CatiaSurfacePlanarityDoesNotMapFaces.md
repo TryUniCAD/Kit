@@ -54,9 +54,19 @@ range but only 12 to 27 distinct values against 56 to 714 surfaces).
 
 Do not infer the face-to-surface map from planarity or from list position. The reader requires the
 surface count to equal the face count and rejects the five pooled parts, which is the honest
-behavior. The map must come from the face record's own object reference, which is the first entry of
-the linked-object list that the generic object header passes to `CATCXFace::UnStream`. The tag
-encoding for that list is decoded, but the object-header offset is not.
+behavior.
+
+The format does not store the reference anywhere a reference could live. The object headers are a
+contiguous chain from offset 8 to 206 in `Reservoir` and cover only the three bodies. The 71 face
+headers at 27035..27603 are eight bytes each, `30 04 04 ff ff e1 e1 e1`, and the three trailing
+bytes are constant across all 71 rows; decoded as tag differences they are three `+56` steps and the
+whole run decodes to `56, 112, 168, ..., 11928`, a degenerate sequence rather than a tag array. The
+trim records are fully consumed by the prefix, kind, three counts, `ff`-prefixed total, optional
+vector, lengths, and handles, with no spare field.
+
+So the remaining possibility is that the writer deduplicates surfaces and the reader re-derives the
+map geometrically. That is why the pooled parts have fewer surfaces than faces, and why the planar
+faces still correspond one-to-one with the plane surfaces.
 
 ## Evidence
 
