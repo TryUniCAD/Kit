@@ -39,7 +39,7 @@ def FindMarker(DataValue: bytes, Marker: bytes, Start: int) -> int:
     return DataValue.find(Marker, Start)
 
 
-def FailRow(Strict: bool, Notes: list[str], Message: str) -> None:
+def FailRowMut(Strict: bool, Notes: list[str], Message: str) -> None:
     if Strict:
         raise CreoFormat(Message)
     Notes.append(Message)
@@ -93,13 +93,13 @@ def ReadEntry(
         return (None, None)
     NameText = RowValue[0]
     if len(RowValue) < 4:
-        FailRow(Strict, Notes, f"Creo table row {NameText!r} is incomplete")
+        FailRowMut(Strict, Notes, f"Creo table row {NameText!r} is incomplete")
         return (None, None)
     OffsetValue = ParseHex(RowValue[1])
     LengthValue = ParseHex(RowValue[2])
     ExpandedValue = ParseHex(RowValue[3])
     if OffsetValue is None or LengthValue is None or ExpandedValue is None:
-        FailRow(Strict, Notes, f"Creo table row {NameText!r} has invalid numbers")
+        FailRowMut(Strict, Notes, f"Creo table row {NameText!r} has invalid numbers")
         return (None, None)
     Absolute = BaseValue + OffsetValue
     if NameText == "NEXT_TOC_ENTRY":
@@ -111,7 +111,7 @@ def ReadEntry(
         or Absolute + LengthValue > len(DataValue)
         or not DataValue.startswith(Expected, Absolute)
     ):
-        FailRow(Strict, Notes, f"Creo table row {NameText!r} has an invalid extent")
+        FailRowMut(Strict, Notes, f"Creo table row {NameText!r} has an invalid extent")
         return (None, None)
     return (MakeEntry(NameText, Absolute, LengthValue, ExpandedValue, RowValue), None)
 
@@ -165,7 +165,7 @@ def ReadToc(DataValue: bytes, BaseValue: int, Strict: bool = True) -> CreoToc:
             break
         Found = FindMarker(DataValue, b"#UGC_TOC", max(0, NextTable - 8))
         if Found < 0 or Found > NextTable + 64:
-            FailRow(Strict, Notes, "Creo continuation table is missing")
+            FailRowMut(Strict, Notes, "Creo continuation table is missing")
             break
         Position = Found
     return CreoToc(tuple(Entries), tuple(Notes))
@@ -241,7 +241,7 @@ def ExpandCode(
     return (Stack, FirstByte)
 
 
-def UpdateDict(
+def UpdateDictMut(
     Prefixes: list[int],
     LastBytes: list[int],
     Previous: int | None,
@@ -253,7 +253,7 @@ def UpdateDict(
         LastBytes.append(FirstByte)
 
 
-def ResetBlock(
+def ResetBlockMut(
     Prefixes: list[int],
     LastBytes: list[int],
     Position: int,
@@ -281,7 +281,7 @@ def InitState(Flags: int) -> tuple[int, bool, list[int], list[int]]:
     return (MaxBits, BlockMode, Prefixes, LastBytes)
 
 
-def DecodeCode(
+def DecodeCodeMut(
     CodeValue: int,
     Prefixes: list[int],
     LastBytes: list[int],
@@ -297,7 +297,7 @@ def DecodeCode(
     Output.extend(reversed(Stack))
     if AddFirst:
         Output.append(FirstByte)
-    UpdateDict(Prefixes, LastBytes, Previous, FirstByte, MaxBits)
+    UpdateDictMut(Prefixes, LastBytes, Previous, FirstByte, MaxBits)
     return min(CodeValue, len(Prefixes) - 1)
 
 
@@ -343,7 +343,7 @@ def Uncompress(DataValue: bytes, Expected: int) -> bytes:
         BitCount -= CodeSize
         GroupCount += 1
         if BlockMode and CodeValue == 256:
-            Position, BitBuffer, BitCount = ResetBlock(
+            Position, BitBuffer, BitCount = ResetBlockMut(
                 Prefixes,
                 LastBytes,
                 Position,
@@ -357,7 +357,7 @@ def Uncompress(DataValue: bytes, Expected: int) -> bytes:
             GroupCount = 0
             Previous = None
             continue
-        Previous = DecodeCode(
+        Previous = DecodeCodeMut(
             CodeValue, Prefixes, LastBytes, Previous, MaxBits, Output, Limit
         )
         Position, BitBuffer, BitCount, CodeSize, GroupCount = GrowCode(
