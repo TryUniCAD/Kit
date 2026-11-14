@@ -1,5 +1,6 @@
 from json import loads as LoadJson
 from pathlib import Path as FilePath
+from sys import version_info as KPythonVersion
 
 from pytest import mark as TestMark
 
@@ -16,6 +17,10 @@ def CheckSourceLink(Layer: str, TmpPath: FilePath) -> None:
     Source = TmpPath / "design.f3d"
     Source.symlink_to(Stored)
     Result = CliProcess(TmpPath, "decode", str(Source), "--layer", Layer)
+    if Layer == "native" and KPythonVersion < (3, 14):
+        assert Result.returncode == 1 and "Python 3.14" in Result.stderr
+        assert Source.is_symlink()
+        return
     assert Result.returncode == 0, Result.stderr
     assert LoadJson(Result.stdout)
     assert Source.is_symlink()

@@ -16,3 +16,6 @@ class CliOptions(Namespace):
         self.Partial = False
         self.Layer = "neutral"
         self.StreamName: str | None = None
+        self.ResearchRoot: FilePath | None = None
+        self.ResearchTool = ""
+        self.ToolArgs: list[str] = []

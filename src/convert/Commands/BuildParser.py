@@ -4,6 +4,7 @@ from pathlib import Path as FilePath
 
 from convert.Commands.ConvertArgs import AddConvertMut
 from convert.Commands.DecodeArgs import AddDecodeMut
+from convert.Commands.ResearchArgs import AddResearchMut
 
 
 def BuildParser() -> ArgumentParser:
@@ -34,4 +35,10 @@ def BuildParser() -> ArgumentParser:
     )
     _ = Decode.add_argument("Source", type=FilePath, metavar="SOURCE")
     AddDecodeMut(Decode)
+    Research = Commands.add_parser(
+        "research",
+        help="Run PR94 deterministic research tools from a trusted checkout",
+        allow_abbrev=False,
+    )
+    AddResearchMut(Research)
     return Parser

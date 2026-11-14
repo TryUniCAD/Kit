@@ -18,6 +18,9 @@ From a source checkout, install the command as an isolated tool:
 uv tool install .
 ```
 
+For Fusion container stream extraction or native inspection, install with `uv tool install --python 3.14 .`.
+These views require Python 3.14; container inventory remains available on older supported interpreters.
+
 For a published release containing this interface, use `uv tool install unicad-kit`.
 For repository development, follow [repository installation](Install.md), then use `uv run --frozen kit`.
 The equivalent module command is `uv run --frozen python -m convert`.
@@ -25,12 +28,12 @@ All commands below assume the installed tool is on `PATH`.
 
 ## Convert a file
 
-Supply a real source named `part.SLDPRT` before running this example.
-The destination `part.json` must be unused.
+Supply a real source named `model.f3d` with features supported by the SDK before running this example.
+The destination `model.json` must be unused.
 
 ```sh
 kit formats
-kit convert part.SLDPRT part.json
+kit convert model.f3d model.json
 ```
 
 The source reader is selected from the content and filename.
@@ -38,7 +41,7 @@ The destination suffix selects the writer.
 For explicit format selection, use the registered identifiers or aliases:
 
 ```sh
-kit convert part.SLDPRT part.json --from solidworks.sldprt --to interchange.json --json
+kit convert model.f3d model.json --from fusion.f3d --to interchange.json --json
 ```
 
 `kit formats --json` lists format identifiers, aliases, suffixes, and independent read/write availability.
@@ -48,6 +51,8 @@ Format registration does not establish complete feature coverage.
 Expected result: the output file and a conversion report, or a nonzero exit with an error.
 The report includes usability claims, transfers, dropped capabilities, external requirements, and writer diagnostics.
 The command always uses strict reading and `allow_carrier=False`.
+It refuses native-only feature definitions or sketch geometry before writing, including in nested components.
+Use `kit decode` or the pinned research readers to inspect those unsupported semantics.
 It does not expose an option to bypass the output policy.
 An unsuccessful policy check preserves an existing destination through the SDK staging boundary.
 
@@ -58,7 +63,7 @@ Use [result evaluation](InspectResult.md) for acceptance requirements.
 CAUTION: `--overwrite` permits replacement of existing output files, including companion files managed by an adapter.
 
 ```sh
-kit convert part.SLDPRT part.json --overwrite
+kit convert model.f3d model.json --overwrite
 ```
 
 Use `--configuration NAME` to select a named configuration.
@@ -66,7 +71,7 @@ Run `kit convert --help` for the complete option list.
 
 ## Decode a file for development
 
-Supply the same real source before these examples.
+Supply a real source named `part.SLDPRT` before these examples.
 The neutral view works with registered readers and emits a development report.
 Its `document` field contains the SDK document JSON.
 The report records `kind: "kit.decode"`, `layer`, and the explicit `partial` selection.
@@ -121,6 +126,11 @@ A partial decode does not establish conversion support or target editability.
 `--configuration` is available only for the neutral view.
 `--stream` is available only for the container view.
 
+## Deterministic research
+
+Use [the research CLI](ResearchCommandLine.md) for PR #94 pinned readers and existing controller/supervisor commands.
+Working-file inspection reports remain distinct from committed-input documents, receipts, and run summaries.
+
 ## Limits and recovery
 
 | Condition                                                       | Behavior and action                                                     |
@@ -131,7 +141,7 @@ A partial decode does not establish conversion support or target editability.
 | Destination already exists                                      | Select another path, or preserve a copy before using `--overwrite`      |
 | Format or feature is unsupported                                | Read the format reference and retain the source for implementation work |
 | Container inspection succeeds                                   | Do not infer member decoding, feature coverage, or native acceptance    |
-| ZIP method 93 cannot be decoded                                 | Use Python 3.14 for its standard-library Zstandard support              |
+| Fusion stream extraction or native inspection requires 3.14     | Install with `uv tool install --python 3.14 .`                          |
 
 The CLI adds no CAD application, debugger, or research runtime dependency.
 It exposes existing codecs and does not implement unresolved format semantics.
