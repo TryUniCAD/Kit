@@ -42,9 +42,11 @@ The attached object trace completed with `ORACLE_EXIT=0` and 300 reads of each o
 
 The correct primitive capture uses direct `cdb` attachment and stream-span filtering, not the failing wrapper/lazy-symbol path. It records 2,946 events, all against the 10,601-byte stream. The generated program has 2,518 operations over 495 serializer owners and zero uncovered bytes. Independent re-emission yields `5088c5c909bc432b12ee2f50f8aaa7934f3232e62ef30bb0a6d1563ac340ced0`.
 
-The dynamic field map contains 51 values: six coordinates, four positive-depth fields at 9408/9480/9968/9992, two negative-depth fields at 9806/9830, eight bbox fields at 8201–8225 and 8423–8451, 24 display-plane fields, four attachment witnesses at 9440/9448 and 9464/9472, two transformed attachment witnesses at 9637 and 9653, and the scaled attachment at 9726.
+The dynamic field map contains 51 values: six coordinates, four positive-depth fields at 9408/9480/9968/9992, two negative-depth fields at 9806/9830, eight bbox fields at 8201/8209/8217/8225 and 8423/8431/8439/8447, 24 display-plane fields, four attachment witnesses at 9440/9448 and 9464/9472, two transformed attachment witnesses at 9637 and 9653, and the scaled attachment at 9726.
 
-`range * 1.1 / 2000` is the measured expansion order for range values and expanded z. The scaled attachment is `x / 5000`. These are not arbitrary reassociations of the assessed geometry-preserving formulas.
+`range * 1.1 / 2000` is the measured expansion order for range values and expanded z. The scaled attachment is `x / 5000`. These are not arbitrary reassociations of the assessed geometry-preserving formulas. The second sphere diameter is an eight-byte operation beginning at 8447, not 8451; replay overrides apply only at operation starts.
+
+Triangle native serialization now passes the validated point-marker metre pairs directly to the six coordinate fields. The neutral reader's 12-decimal presentation values remain available for neutral display, but do not round high-precision source coordinates before native emission. Public coverage compares all six exact doubles and both nonbaseline diameters.
 
 The attachment tie uses the first rightmost coordinate, verified by the two-rightmost right-angle control. It is not discovered through the five-line uniqueness heuristic.
 
@@ -65,4 +67,18 @@ Changing the shifted public part to 5 mm rebuilds to 5,215 mm³ and 2,828.522651
 
 The capture digest is not expected to match arbitrary new documents' author metadata or all view-state floating-point values. Native open, feature-tree identity, body geometry, and live-edit acceptance are independently measured instead of using that digest as application acceptance.
 
-This completion is scoped to this family. There is no accepted randomized oracle corpus, arbitrary SLDPRT history support, complete B-rep grammar, SLDASM, or SLDDRW claim.
+## Seeded native corpus
+
+`AuthorTriangles.vbs` authored 64 distinct source parts with seed 982711, six-decimal coordinates/dot-decimal text, and independent depths. Author inspection confirms native `Sketch1`/`ProfileFeature` with three segments and `Boss-Extrude1`/`Extrusion`, one body, and successful rebuild for every authored source.
+
+The public-corpus builder recovers six-decimal neutral vertices from those research sources and exact depth from four matching binary positive-depth witnesses. `length_mm` is presentation text, not source precision. Ten-thousand-six-hundred-three-byte variants shift those witnesses by the stream-length delta. Reused public output is allowed only when all six coordinates and all four depth doubles match the requested neutral model.
+
+`VerifyRandomOracle.py` then measures fresh public files in the compiled SOLIDWORKS 34.5.2 oracle against independently calculated volume, area, and centre of mass. Final result: `ORACLE_TOTAL=64 ORACLE_PASS=64`, with zero load errors and warnings, successful rebuild, and one body in every case. Depth spans 3.931416–49.774612 mm. Volume spans 7,886.94036988702–152,118.315621051 mm³. Case evidence is held in `.rescratch/triangle-research/random64/generated-exact/oracle-results.json`, never read by production.
+
+The independent late-bound identity sweep also finishes `ORACLE_TOTAL=64 ORACLE_PASS=64`, with `OPEN_METHOD=OpenDoc`, three lines, `ProfileFeature`, `Extrusion`, one body, and successful rebuild on every output. Random case 19's live 17.995855→5 mm edit rebuilds to 7,533.64542964935 mm³ and 3,947.70779111985 mm² without saving, matching `area × depth` and `2 × area + perimeter × depth`.
+
+The separate high-precision public control verifies 14,392.0569347259 mm³ and 4,171.2939338546 mm² at 13.375 mm, with centre `(16.5967040785597, 7.66251477736625, 6.6875)` mm. Its live 6.25 mm edit rebuilds to 6,725.26024987192 mm³ and 3,095.63966028405 mm² before closing without saving. Those values also match the analytic profile independently.
+
+Transport-only failures and disagreements in harness parsing are not counted as model acceptance or rejection. The final corpus uses successful compiled `OpenDoc6` results only. `OracleRandomTriangles.vbs` performs an independent late-bound `OpenDoc` identity sweep, scoped to native feature names, three sketch segments, body count, and rebuild status; it does not invent unavailable `OpenDoc6` error variables or duplicate mass measurement.
+
+This completion is scoped to this bounded feature family and its 64-case seeded corpus. Arbitrary SLDPRT history support, wider feature/API/reference corpora, complete B-rep grammar, SLDASM, and SLDDRW remain unclaimed.

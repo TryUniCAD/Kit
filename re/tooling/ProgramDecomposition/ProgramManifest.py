@@ -1119,7 +1119,7 @@ KProgramManifest = (
             ),
         ),
         "17e7ec275bf95a5941fe5bb07d93e4f8094d860d341f1a378d54fbc6eb24b29e",
-    ),    ('resolved/polyline/threepoint', 'FieldOwners', 'ResolvedOps', ('ResolvedFeatures',), 2518, '52b6d6902a17954f8466a26ab7bff07c35812d8cf8c67f2b69649feccca54d00', ('FieldOwners', 'ResolvedOps', 'KPointOffsets', 'KDepthOffsets', 'PadFieldMap', 'EncodeProgram'), (('ResolvedFeatures', 10601, '5088c5c909bc432b12ee2f50f8aaa7934f3232e62ef30bb0a6d1563ac340ced0'),), 'd168fae7cb1ea205d237b82c542c90555b89288e99e82600ffa5491a0eedd117'),
+    ),    ('resolved/polyline/threepoint', 'FieldOwners', 'ResolvedOps', ('ResolvedFeatures',), 2518, '52b6d6902a17954f8466a26ab7bff07c35812d8cf8c67f2b69649feccca54d00', ('FieldOwners', 'ResolvedOps', 'KPointOffsets', 'KDepthOffsets', 'PadFieldMap', 'EncodeProgram'), (('ResolvedFeatures', 10601, '5088c5c909bc432b12ee2f50f8aaa7934f3232e62ef30bb0a6d1563ac340ced0'),), '4aaa2e3d99ba396b2a0937e2dc81204cf5f347637b3fc1ec9550008f56c8c95d'),
 )
 
 # verifier compatibility exposes the focused manifest through its stable public name

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import replace as ReplaceData
 from pathlib import Path as FilePath
+import struct as StructLib
 
 import pytest as PytestLib
 
@@ -27,6 +28,7 @@ from interchange.geometry.models.Sketch import SketchRelation
 from tests.convert.solidworks.resolved.SolidworksPolylineFiveTests import BuildDocument
 
 KPoints = ((0.0, 0.0), (42.0, 0.0), (12.0, 31.0))
+KPointOffsets = (6121, 6129, 6299, 6307, 6461, 6469)
 
 
 def RequireTriFrame(ArchiveData: SldprtArchive, TargetPath: FilePath) -> None:
@@ -111,7 +113,33 @@ def TestThreeDepth(TmpPath: FilePath) -> None:
     assert NativeData.bounding_box.center_mm == PytestLib.approx((16.0, 13.5, 8.5))
     ExpectedDiameter = 2.0 * ((23.0**2 + 24.5**2 + 8.5**2) ** 0.5)
     assert NativeData.bounding_box.diameter_mm == PytestLib.approx(ExpectedDiameter)
+    ResolvedData = ArchiveData.require(ResolvedStream)
+    for OffsetPos in (8225, 8447):
+        DiameterMetres = StructLib.unpack_from("<d", ResolvedData, OffsetPos)[0]
+        assert DiameterMetres * 1000.0 == PytestLib.approx(ExpectedDiameter)
     RequireTriFrame(ArchiveData, TargetPath)
+
+
+def TestPrecision(TmpPath: FilePath) -> None:
+    Points = (
+        (-7.123456789012345, -11.234567890123456),
+        (39.34567890123456, -4.456789012345678),
+        (17.567890123456787, 38.67890123456789),
+    )
+    SourceDoc = BuildDocument(Points, Depth=13.375)
+    TargetPath = TmpPath / "PreciseTriangle.SLDPRT"
+    Result = WriteDoc(SourceDoc, TargetPath, allow_carrier=False)
+    assert HasVendorPartEncoding(SourceDoc) is True
+    assert Result.IsVendorLoadable is True
+    assert Result.IsAppUsable is True
+    assert Result.IsNearLossless is True
+    ResolvedData = SldprtArchive.open(TargetPath).require(ResolvedStream)
+    ExpectedMetres = tuple(
+        Coordinate / 1000.0 for Point in Points for Coordinate in Point
+    )
+    for OffsetPos, Expected in zip(KPointOffsets, ExpectedMetres, strict=True):
+        assert ResolvedData[OffsetPos : OffsetPos + 8] == StructLib.pack("<d", Expected)
+    RequireTriFrame(SldprtArchive.open(TargetPath), TargetPath)
 
 
 def TestThreeTie(TmpPath: FilePath) -> None:
