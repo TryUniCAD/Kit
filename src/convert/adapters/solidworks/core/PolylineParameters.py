@@ -107,6 +107,51 @@ def IsBoundLength(Value: ParameterValue | None, Expected: float) -> bool:
     )
 
 
+def IsPadValue(
+    Value: ParameterValue | None, KindValue: ValueKind, Expected: object
+) -> bool:
+    if Value is None or Value.kind is not KindValue:
+        return False
+    RawValue = Value.value
+    if KindValue is ValueKind.LENGTH:
+        Millimeters = LengthMm(Value)
+        return Millimeters is not None and Millimeters == float(Expected)  # type: ignore[arg-type]
+    if KindValue in {ValueKind.NUMBER, ValueKind.ANGLE}:
+        return (
+            not isinstance(RawValue, bool)
+            and isinstance(RawValue, (int, float))
+            and MathValue.isfinite(float(RawValue))
+            and float(RawValue) == float(Expected)  # type: ignore[arg-type]
+        )
+    return RawValue == Expected
+
+
+def PadValues(
+    FeatureName: str, Definition: ExtrudeFeature
+) -> dict[str, tuple[ValueKind, object]]:
+    return {
+        "AllowMultiFace": (ValueKind.BOOLEAN, True),
+        "AlongSketchNormal": (ValueKind.BOOLEAN, True),
+        "FuzzyTolerance": (ValueKind.NUMBER, -1.0),
+        "Label": (ValueKind.STRING, FeatureName),
+        "Label2": (ValueKind.STRING, ""),
+        "Length2": (ValueKind.LENGTH, 10.0),
+        "Midplane": (ValueKind.BOOLEAN, Definition.symmetric),
+        "Offset": (ValueKind.LENGTH, 0.0),
+        "Offset2": (ValueKind.LENGTH, 0.0),
+        "Refine": (ValueKind.BOOLEAN, True),
+        "Reversed": (ValueKind.BOOLEAN, Definition.reversed),
+        "SideType": (ValueKind.INTEGER, 2 if Definition.symmetric else 0),
+        "Suppressed": (ValueKind.BOOLEAN, False),
+        "TaperAngle": (ValueKind.ANGLE, 0.0),
+        "TaperAngle2": (ValueKind.ANGLE, 0.0),
+        "Type": (ValueKind.INTEGER, 0),
+        "Type2": (ValueKind.INTEGER, 0),
+        "UseCustomVector": (ValueKind.BOOLEAN, False),
+        "Visibility": (ValueKind.BOOLEAN, True),
+    }
+
+
 def HasPolyLoss(DocumentData: CadDocument, PadId: str) -> bool:
     Configs = DocumentData.configurations
     if (
@@ -135,6 +180,13 @@ def HasPolyLoss(DocumentData: CadDocument, PadId: str) -> bool:
     DefinitionLength = LengthMm(Definition.length)
     if DefinitionLength is None:
         return True
+    Direction = Definition.direction
+    if Direction is not None and not (
+        MathValue.isclose(Direction.x, 0.0, abs_tol=1e-12)
+        and MathValue.isclose(Direction.y, 0.0, abs_tol=1e-12)
+        and MathValue.isclose(Direction.z, 1.0, abs_tol=1e-12)
+    ):
+        return True
     IsFreecad = DocumentData.source.format_id.casefold() == "freecad.fcstd" or any(
         (
             ParamData.owner_id == PadId
@@ -142,6 +194,22 @@ def HasPolyLoss(DocumentData: CadDocument, PadId: str) -> bool:
             for ParamData in DocumentData.parameters
         )
     )
+    return HasPadParamLoss(
+        DocumentData,
+        PadId,
+        DefinitionLength,
+        IsFreecad,
+        PadValues(Features[0].name, Definition),
+    )
+
+
+def HasPadParamLoss(
+    DocumentData: CadDocument,
+    PadId: str,
+    DefinitionLength: float,
+    IsFreecad: bool,
+    ExpectedValues: dict[str, tuple[ValueKind, object]],
+) -> bool:
     PadPaths: list[str] = []
     for ParamData in DocumentData.parameters:
         PathValue = ParamData.attributes.get("freecad_path")
@@ -159,6 +227,11 @@ def HasPolyLoss(DocumentData: CadDocument, PadId: str) -> bool:
                 return True
             continue
         if IsFreecad and isinstance(PathValue, str) and PathValue in KFreecadPadProps:
+            Expected = ExpectedValues.get(PathValue)
+            if Expected is None or not IsPadValue(
+                ParamData.value, Expected[0], Expected[1]
+            ):
+                return True
             PadPaths.append(PathValue)
             continue
         return True
