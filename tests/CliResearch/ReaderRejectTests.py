@@ -18,7 +18,7 @@ from tests.CliResearch.ResearchRoot import ResearchRoot
     ),
 )
 def CheckPinFailure(FieldName: str, FieldValue: str | int, TmpPath: FilePath) -> None:
-    Manifest = LoadJson((ResearchRoot() / "re/automation/Corpus.json").read_text())
+    Manifest = LoadJson((ResearchRoot() / "re/automation/Corpus.json").read_bytes())
     for Entry in Manifest["assets"]:
         if Entry["path"] == KSwAsset:
             Entry[FieldName] = FieldValue
@@ -39,7 +39,7 @@ def CheckPinFailure(FieldName: str, FieldValue: str | int, TmpPath: FilePath) ->
 
 
 def CheckBatchPins(TmpPath: FilePath) -> None:
-    Manifest = LoadJson((ResearchRoot() / "re/automation/Corpus.json").read_text())
+    Manifest = LoadJson((ResearchRoot() / "re/automation/Corpus.json").read_bytes())
     for Entry in Manifest["assets"]:
         if Entry["path"] == KArchiveAsset:
             Entry["sha256"] = "0" * 64

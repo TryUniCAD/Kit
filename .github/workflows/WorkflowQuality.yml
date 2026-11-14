@@ -160,6 +160,7 @@ jobs:
           tests/CliResearch/SwReaderTests.py
           tests/CliResearch/FusionReaderTests.py
           tests/CliResearch/ReaderRejectTests.py
+          tests/CliResearch/InterruptTests.py
           tests/CliResearch/LeaseFlowTests.py -q
 
   zizmor:

@@ -57,3 +57,4 @@ files. Actual subprocess execution must pass in remote CI on the accepted CLI
 head with the explicitly pinned research checkout. Target-application acceptance
 remains a separate requirement.
 See [Windows exit-status handling](../../Gotchas/Packaging/WindowsResearchExitStatus.md).
+JSON fixture reads use raw bytes to avoid [locale-dependent decoding](../../Gotchas/Ci/ResearchFixtureEncoding.md).

@@ -8,7 +8,7 @@ from tests.CliResearch.ResearchRoot import ResearchRoot
 
 def CheckReceipt(ArtifactPath: FilePath) -> None:
     RootPath = ResearchRoot()
-    Receipt = LoadJson((ArtifactPath / "receipt.json").read_text())
+    Receipt = LoadJson((ArtifactPath / "receipt.json").read_bytes())
     Revision = RunProcess(
         ("git", "-C", str(RootPath), "rev-parse", "HEAD"),
         capture_output=True,

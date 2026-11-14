@@ -1,5 +1,5 @@
 from os import execv as ExecProcess
-from subprocess import run as RunProcess
+from subprocess import Popen as StartProcess
 from sys import executable as KPythonPath, platform as KPlatform
 from typing import NoReturn
 
@@ -37,5 +37,10 @@ def RunResearch(Options: CliOptions) -> NoReturn:
         Arguments = ["--root", str(RootPath), *Arguments]
     CommandArgs = [KPythonPath, str(ScriptPath), *Arguments]
     if KPlatform == "win32":
-        raise SystemExit(RunProcess(CommandArgs, check=False).returncode)
+        with StartProcess(CommandArgs) as ChildProcess:
+            while True:
+                try:
+                    raise SystemExit(ChildProcess.wait())
+                except KeyboardInterrupt:
+                    continue
     ExecProcess(KPythonPath, CommandArgs)

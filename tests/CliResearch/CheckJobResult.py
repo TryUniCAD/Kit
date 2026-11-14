@@ -13,6 +13,6 @@ def CheckJobResult(WorkPath: FilePath, ConfigPath: FilePath) -> None:
     assert JobInfo["state"] == "completed"
     ResultHash = JobInfo["result"]
     Result = LoadJson(
-        (WorkPath / "Store/objects" / ResultHash[:2] / ResultHash).read_text()
+        (WorkPath / "Store/objects" / ResultHash[:2] / ResultHash).read_bytes()
     )
     assert Result["result"]

@@ -31,7 +31,7 @@ def CheckFusReceipt(TmpPath: FilePath) -> None:
     assert Receipts
     for ReceiptPath in Receipts:
         CheckReceipt(ReceiptPath.parent)
-    Summary = LoadJson((Bridged / "summary.json").read_text())
+    Summary = LoadJson((Bridged / "summary.json").read_bytes())
     assert Summary["counts"]["assets"] == 2 and Summary["counts"]["decoded"] >= 1
     assert Summary["allow_partial"] is True and Summary["portable_complete"] is False
     Rejected = ResearchCli(

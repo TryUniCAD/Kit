@@ -10,7 +10,7 @@ def WaitSession(WorkPath: FilePath) -> None:
             "*/session.json"
         ):
             try:
-                Record = LoadJson(RecordPath.read_text())
+                Record = LoadJson(RecordPath.read_bytes())
             except (OSError, ValueError):
                 continue
             if Record.get("job_id") == "cli:hold":
