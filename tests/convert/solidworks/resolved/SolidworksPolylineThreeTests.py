@@ -218,6 +218,20 @@ def TestDirection(TmpPath: FilePath) -> None:
             _ = WriteDoc(Changed, TmpPath / f"DirectionLoss{Index}.SLDPRT")
 
 
+def TestSecondEnd(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    FeatureData = SourceDoc.feature_timeline[0]
+    assert isinstance(FeatureData.definition, ExtrudeFeature)
+    FeatureData = ReplaceData(
+        FeatureData,
+        definition=ReplaceData(FeatureData.definition, up_to_reference="face:1"),
+    )
+    Changed = ReplaceData(SourceDoc, feature_timeline=(FeatureData,))
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(Changed, TmpPath / "SecondEndLoss.SLDPRT")
+
+
 def TestPadAlias(TmpPath: FilePath) -> None:
     SourceDoc = BuildDocument(KPoints)
     Changed = ReplaceData(
