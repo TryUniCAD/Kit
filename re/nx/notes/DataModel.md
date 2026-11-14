@@ -602,40 +602,34 @@ copied.
 
 ### The head tail integers are not validated
 
-The two variable length integers at the end of the head record are not the reason a
-part with a body rejects a generated head. Each byte of them was mutated in
-`const_box60.prt` and loaded:
+The two variable length integers at the end of the head record are not validated
+field by field. Each byte of them was mutated in `const_box60.prt` and loaded:
 
 ```text
-tail byte 0 of the first integer     loads   bodies 1  exprs 3
-tail byte 1 of the first integer     loads   bodies 1  exprs 3
-the 0x13 after it                    loads   bodies 1  exprs 3
-first byte of the second integer     loads   bodies 1  exprs 3
-first byte of the third integer      loads   bodies 1  exprs 3
-last two bytes                       loads   bodies 1  exprs 3
+first integer byte 0    loads  bodies 1  exprs 3     second integer byte 0  loads
+first integer byte 1    loads  bodies 1  exprs 3     third integer byte 0   loads
+the 0x13 after them     loads  bodies 1  exprs 3     last two bytes         loads
 ```
 
-So the encoding never has to be understood: the values are free like the anchor and
-the identity.
+So the encoding does not have to be understood to change those bytes.
 
-What a part with a body does reject is a change to the record length, even when the
-source tail is preserved byte for byte:
+They are not, however, interchangeable as a whole. Replacing the full head with the
+canonical body-less tail and a fitted text loads for `empty.prt`, `multi.prt`,
+`var_blank.prt` and `dim40.prt`, but not for `const_box60.prt`, which is the part
+whose geometry was authored by Kit:
 
 ```text
-head 74 -> 93  keeping the source tail   OPEN_FAILED
-head 74 -> 43  keeping the source tail   OPEN_FAILED
-head 74 -> 81  with the body less tail   OPEN_FAILED
-head 74 -> 74  with any tail byte changed  loads
+empty / multi / var_blank   generated head, tail 80 d5 02 ...  loads
+dim40                       generated head, tail 80 d5 02 ...  loads
+const_box60                 generated head, tail 80 d5 02 ...  OPEN_FAILED
+const_box60                 source tail, other text            OPEN_FAILED
+const_box60                 head text patched in place only    loads
 ```
 
-A body-less part accepts the same length changes, so the constraint is coupling
-between sections rather than the head itself. That matches the earlier finding that
-section bodies are not relocatable: a body part's sections carry cross references,
-so each section has to be regenerated with the others instead of resized in place.
-
-Appending a byte to section 2 or 3 also breaks both shapes, because the tail is then
-a malformed record. Length changes are only accepted when the result is a well formed
-section, which is why the head test worked and the append test did not.
+Changing the record length is also refused for every part with a body
+(`74 -> 93`, `74 -> 43`, `74 -> 81` all fail while `74 -> 74` loads). So the emitter
+is enabled only when the source head already carries the canonical body-less tail and
+the generated record keeps that length; every other shape keeps its source record.
 
 ### Section 0 field grammar
 

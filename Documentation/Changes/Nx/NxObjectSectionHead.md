@@ -64,13 +64,13 @@ guard, the object count reader and the zero-count guard.
 ## Limits
 
 - The head tail carries two variable length integers that differ per document
-  (`80 d5 02` for `empty.prt`, `fa 02` for a part with a body). They are not
-  validated: mutating any of their bytes still loads, so they do not need to be
-  decoded.
-- What a part with a body rejects is a change to the record length, even with the
-  source tail preserved (`74 -> 93`, `74 -> 43` and `74 -> 81` all fail while
-  `74 -> 74` with changed tail bytes loads). A body-less part accepts those length
-  changes, so the constraint is cross section coupling: a body part's sections have
-  to be regenerated together rather than resized one at a time.
-- The other 213 records, the class table and the identifiers are still carried
-  from the source part, so no part is written without a source document yet.
+  (`80 d5 02` for `empty.prt`, `fa 02` for a part with a body). Their bytes are not
+  validated individually: mutating any of them still loads.
+- They are not interchangeable as a whole. A generated head with the canonical
+  body-less tail loads for `empty.prt`, `multi.prt`, `var_blank.prt` and `dim40.prt`
+  but not for `const_box60.prt`, whose geometry was authored by Kit. A change to the
+  record length is refused for every part with a body. So the record is emitted only
+  when the source already carries the canonical tail and the generated record keeps
+  that length; other shapes keep their source record.
+- The other 213 records, the class table and the identifiers are still carried from
+  the source part, so no part is written without a source document yet.

@@ -13,6 +13,7 @@ KAnchor = b"\xe0\x6a\xf8"
 KUnset = b"\xff" * 7
 KHeadPrefix = bytes.fromhex("0305020004050100")
 KHeadSuffix = bytes.fromhex("80d5021304050100010180d5021380d6020000")
+KHeadReserve = 43
 
 
 # the head record names the part and anchors the identity of the saved state
@@ -64,6 +65,16 @@ def TableStart(SectionBody: bytes, Count: int) -> int:
     raise ValueError("NX object section carries no object table")
 
 
+# a record keeps the source length so the text is fitted into the same frame
+def FitText(PartText: bytes, Length: int) -> bytes:
+    if Length <= 0:
+        raise ValueError("NX root head record has no room for a text")
+    Prefix = b'Part renamed from "'
+    if PartText.startswith(Prefix) and PartText.endswith(b'"'):
+        PartText = PartText[len(Prefix) : -1]
+    return PartText[:Length].ljust(Length, b" ")
+
+
 # the section pointer names the end of the middle so a resize shifts it
 def MovePointer(Section: bytearray, Source: bytes) -> bytearray:
     NameLength = int(Struct.unpack_from("<I", Source, 0x25)[0])
@@ -88,13 +99,20 @@ def RecordsOf(SectionBody: bytes) -> tuple[int, list[int], list[bytes]]:
     return (TableAt, Starts, Records)
 
 
-# the head tail carries document varints so only the body less shape is emitted
-def ReplaceHead(SectionBody: bytes, PartText: bytes, Identity: bytes = KUnset) -> bytes:
+# the head keeps the source identity because a saved pointer is document bound
+def ReplaceHead(
+    SectionBody: bytes, PartText: bytes, Identity: bytes | None = None
+) -> bytes:
     TableAt, Starts, Records = RecordsOf(SectionBody)
     Source = Records[0]
-    Records[0] = HeadRecord(PartText, Identity)
-    if len(Source) != len(Records[0]):
-        Records[0] = Source
+    AnchorAt = Source.find(KAnchor)
+    if AnchorAt < 0:
+        raise ValueError("NX root head record carries no anchor")
+    Saved = Identity if Identity is not None else Source[AnchorAt + 3 : AnchorAt + 10]
+    Emitted = HeadRecord(FitText(PartText, len(Source) - KHeadReserve), Saved)
+    if not Source.endswith(KHeadSuffix) or len(Emitted) != len(Source):
+        Emitted = Source
+    Records[0] = Emitted
     TableEnd = TableAt + 4 * len(Records)
     OrderCount = int(Struct.unpack_from("<I", SectionBody, TableEnd)[0])
     OrderEnd = TableEnd + 4 + 4 * OrderCount
@@ -117,6 +135,7 @@ __all__ = [
     "HeadRecord",
     "KAnchor",
     "KRecordCount",
+    "FitText",
     "MovePointer",
     "ObjectCount",
     "RecordsOf",
