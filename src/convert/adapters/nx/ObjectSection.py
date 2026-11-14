@@ -138,6 +138,8 @@ def ReplaceHead(
 
 
 __all__ = [
+    "NestingRecord",
+    "ReadNesting",
     "ReadSmallRecord",
     "SmallRecord",
     "RewriteValues",
@@ -696,3 +698,34 @@ def ReadSmallRecord(Record: bytes) -> tuple[int, int]:
     if Record[len(KSmallFrame) : -1] != bytes(len(Record) - len(KSmallFrame) - 1):
         raise ValueError("NX small record payload is not a zero run")
     return (len(Record), Record[-1])
+
+
+# the nesting member of the small family is a run of heads and leaves
+KNestEnd = b"\x02\x02"
+
+
+def ReadNesting(Record: bytes) -> tuple[tuple[int, int], ...]:
+    if not Record.startswith(KSmallFrame) or not Record.endswith(KNestEnd):
+        raise ValueError("NX nesting record has no known frame")
+    Segments = []
+    Position = len(KSmallFrame)
+    while Position < len(Record) - len(KNestEnd):
+        SegmentHead = Record[Position]
+        Leaves = 0
+        Position += 1
+        while Position < len(Record) and Record[Position] == 1:
+            Leaves += 1
+            Position += 1
+        Segments.append((SegmentHead, Leaves))
+    return tuple(Segments)
+
+
+def NestingRecord(Segments: tuple[tuple[int, int], ...]) -> bytes:
+    Output = bytearray(KSmallFrame)
+    for SegmentHead, Leaves in Segments:
+        if not 0 <= SegmentHead <= 0xFF or Leaves < 1:
+            raise ValueError("NX nesting segment is out of range")
+        Output.append(SegmentHead)
+        Output.extend(bytes([1]) * Leaves)
+    Output.extend(KNestEnd)
+    return bytes(Output)
