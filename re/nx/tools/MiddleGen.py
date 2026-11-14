@@ -82,5 +82,86 @@ def Main(ArgValues: list[str]) -> int:
     return 0
 
 
+
+
+KTextMarker = b"\x03\x01"
+
+
+def LanePositions(Lane) -> list[int]:
+    return [Item[1] if isinstance(Item, tuple) else Item for Item in Lane]
+
+
+def FindText(Middle: bytes) -> int:
+    Position = Middle.find(KTextMarker)
+    while Position >= 0:
+        Length = Middle[Position + 2]
+        Text = Middle[Position + 3 : Position + 3 + (Length - 2)]
+        if Text.startswith(b"NX 25"):
+            return Position
+        Position = Middle.find(KTextMarker, Position + 1)
+    raise ValueError("middle has no product text record")
+
+
+def BuildMiddle(
+    HeaderLength: int, Middle: bytes, Product: bytes, Lane
+) -> bytes:
+    TextAt = FindText(Middle)
+    Length = Middle[TextAt + 2]
+    OldText = Middle[TextAt + 3 : TextAt + 3 + (Length - 2)]
+    Delta = len(Product) - len(OldText)
+    TextEnd = TextAt + 3 + len(OldText) + 1
+    Buffer = bytearray(Middle[:TextAt])
+    Buffer.extend(KTextMarker + bytes([len(Product) + 2]) + Product + b"\x00")
+    Buffer.extend(Middle[TextEnd:])
+    for Position in LanePositions(Lane):
+        if Position + 4 > len(Buffer):
+            continue
+        Value = struct.unpack_from("<I", Buffer, Position)[0]
+        if Value - HeaderLength >= TextEnd:
+            struct.pack_into("<I", Buffer, Position, Value + Delta)
+    return bytes(Buffer)
+
+
+def Check(Name: str, Product: bytes | None = None) -> None:
+    from pathlib import Path as FilePath
+
+    from convert.adapters.nx.PayloadReader import ReadPayload
+    from convert.adapters.nx.SplmReader import ReadSplm, SplmStreams
+
+    from AuthorName import LearnLane, OffsetLane
+
+    Base = "/Users/odin/Documents/UniCAD/Kit/re/nx/oracle/"
+    Empty = FilePath(Base + "empty.prt").read_bytes()
+    Partner = FilePath(Base + "empty_alpha.prt").read_bytes()
+
+    def Sections(Data: bytes):
+        Streams = dict(SplmStreams(ReadSplm(Data)))
+        Payload = Streams["/Root/UG_PART/UG_PART"]
+        return [
+            ParseSection(Payload[Item.body_offset : Item.body_offset + Item.size])
+            for Item in ReadPayload(Payload).sections
+        ], Payload
+
+    Left, _ = Sections(Empty)
+    Right, _ = Sections(Partner)
+    LearnLane(Left, Right, len(Right[0].part_name) - len(Left[0].part_name))
+    Target, Payload = Sections(FilePath(Base + Name).read_bytes())
+    Info = ReadPayload(Payload).sections
+    for Index, Section in enumerate(Target):
+        Body = Payload[Info[Index].body_offset : Info[Index].body_offset + Info[Index].size]
+        Header = len(Body) - len(Section.middle) - len(Section.record_area) - 12
+        try:
+            Rebuilt = BuildMiddle(
+                Header,
+                Section.middle,
+                Product or b"NX 2506.9120 - External User Function",
+                OffsetLane.get(Index, ()),
+            )
+        except ValueError:
+            continue
+        print(Name, "section", Index, "roundtrip", Rebuilt == Section.middle, len(Rebuilt), len(Section.middle))
+
+
 if __name__ == "__main__":
-    raise SystemExit(Main(sys.argv[1:]))
+    for Value in sys.argv[1:]:
+        Check(Value)
