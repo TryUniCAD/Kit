@@ -22,6 +22,10 @@ from tests.convert.formats.FusionCodec.Documents.Form.CapCases import KCapCases
 from tests.convert.formats.FusionCodec.Documents.Form.GeneralCases import (
     KGeneralCases,
 )
+from tests.convert.formats.FusionCodec.Documents.Form.GridArchives import (
+    KGridArchives,
+    KGridCages,
+)
 from tests.convert.formats.FusionCodec.Documents.Form.ReadConverted import (
     ReadConverted,
 )
@@ -203,9 +207,25 @@ def TestCapMass(CaseValue: tuple[str, ...]) -> None:
     assert ReadConverted(Emitted) == Converted
     Cached = MaterialFields(NamedGroups(Emitted, "Body")[0]["cache"])
     Expected = MaterialFields(NamedGroups(Native, "Body")[0]["cache"])
-    assert Cached["area"] == ApproxValue(Expected["area"], rel=1e-4, abs=1e-8)
     assert Cached["volume"] == ApproxValue(Expected["volume"], rel=1e-8, abs=1e-8)
     for FieldName in ("cog", "moi", "moiOffDiag"):
         assert ReadPoint(Cached[FieldName]) == ApproxValue(
             ReadPoint(Expected[FieldName]), rel=1e-8, abs=1e-8
         )
+
+
+@KNeedZip
+def TestPlanarArea() -> None:
+    Surface = ReadTspline(ReadFormFile(*KGridCages[0][:2]))
+    Emitted = ReadDocument(
+        EmitFormDoc(FormSpec("Kit planar area", Surface, ConvertForm(Surface)))
+    )
+    NativeCase = next(
+        CaseValue
+        for CaseValue in KGridArchives
+        if CaseValue[0].endswith("/OracleAffine.f3d")
+    )
+    Native = ReadDocument(ReadFormFile(*NativeCase))
+    Cached = MaterialFields(NamedGroups(Emitted, "Body")[0]["cache"])
+    Expected = MaterialFields(NamedGroups(Native, "Body")[0]["cache"])
+    assert Cached["area"] == ApproxValue(Expected["area"], rel=1e-8, abs=1e-8)

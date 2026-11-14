@@ -28,14 +28,15 @@
   "held_prism5_change_from_resolution_cm2": 3.21e-13,
   "box3_native_precision_relative_gap": 3.9907402810536285e-05,
   "held_prism5_native_precision_relative_gap": 7.007959167644797e-06,
-  "conclusion": "Increasing quadrature order does not explain the native-cache gap; the native area field is a numerical approximation. Keep exact BRep comparisons separately and use the native mass-cache precision class for its area field"
+  "conclusion": "Increasing quadrature order does not explain the curved native-cache gap. Preserve exact BRep comparisons and validate raw area with the exact planar fixture instead of loosening a curved comparison tolerance"
  },
  "comparison_rule": {
-  "area_relative_tolerance": 1e-4,
-  "area_absolute_tolerance": 1e-8,
+  "planar_area_relative_tolerance": 1e-8,
+  "planar_area_absolute_tolerance": 1e-8,
   "all_other_mass_relative_tolerance": 1e-8,
   "all_other_mass_absolute_tolerance": 1e-8,
-  "brep_geometry_tolerance_cm": 1e-8
+  "brep_geometry_tolerance_cm": 1e-8,
+  "curved_area_rule": "Preserve convergence evidence without asserting cross-kernel equality at a relaxed tolerance"
  },
  "notes": "The convergence differences use conservative decimal summaries of the exact values shown in the two remote runs. The relative gaps use the first-run values. The native controls are distinct fresh saves, so their last bits differ. No production fallback, donor value, or per-case fitted table is introduced"
 }

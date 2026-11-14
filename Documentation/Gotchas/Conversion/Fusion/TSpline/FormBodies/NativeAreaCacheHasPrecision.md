@@ -4,6 +4,7 @@
 
 A difference between an independently integrated area and Fusion's stored area cache must mean that the quadrature order is insufficient.
 Raising that order should move the integrated value toward the native one.
+Alternatively, a precision explanation could justify a looser equality assertion.
 
 ## Actual behavior
 
@@ -12,17 +13,17 @@ Box3 changed from `28.196624686525613` to `28.196624686525713 cm²`.
 HeldPrism5 changed from `14.69314686718681` to `14.693146867187131 cm²`.
 The measured convergence disproves the quadrature explanation.
 
-The native cache instead embodies its own numerical approximation.
-Its relative area gaps are about `3.991e-5` for Box3 and `7.008e-6` for HeldPrism5.
+The independent integral and native cache come from different numerical estimators.
+Their relative area differences are about `3.991e-5` for Box3 and `7.008e-6` for HeldPrism5.
 Fusion nevertheless evaluates the expected BRep area and geometry during load, edit, rebuild, export, and reopen.
 The [convergence record](../../../../../../re/Fusion/Reconstruction/FormDocuments/General/AreaConvergence.json) binds both remote runs and their exact values.
 The [eight-point run](https://github.com/TryUniCAD/Kit/actions/runs/43583291958) and [sixteen-point run](https://github.com/TryUniCAD/Kit/actions/runs/43584701390) both failed an incorrect exact-area assumption.
 
 ## Workaround
 
-Compare the current writer's `area` cache with the native mass-cache precision class, `1e-4` relative and `1e-8` absolute tolerance.
-Keep volume, center, inertia, and off-diagonal products at `1e-8` absolute and relative tolerance.
-Keep exact BRep geometry comparisons at `1e-8` cm in the native lifecycle.
-Do not copy a native area value into production or treat its approximation as a mathematical constant.
-Retain independent sixteen-point quadrature and its convergence evidence instead of replacing the writer's derived cache.
-The [mass-cache change](../../../../../Changes/Fusion/TSpline/FusionFormMassCache.md) distinguishes cache-field precision from exact geometry acceptance.
+Do not loosen an existing tolerance to accommodate different numerical estimators.
+Use an exact planar fixture where geometry and cached area have the same measured meaning and compare area at `1e-8` absolute and relative tolerance.
+`TestPlanarArea` supplies this check through the current writer and the native Affine control.
+Keep curved BRep geometry and all other mass fields at `1e-8` absolute and relative tolerance.
+Preserve the convergence record as evidence about the estimator, not as a cross-kernel equality assertion or a production correction value.
+The [mass-cache change](../../../../../Changes/Fusion/TSpline/FusionFormMassCache.md) distinguishes cache validation from native approximation and exact geometry acceptance.
