@@ -41,6 +41,13 @@ the 76 handles and makes both planar faces coplanar with their trim vectors at z
 positions are assumed equal-spaced, not decoded, so this is a reconstruction from the topology, not
 a decode of the stored tessellation.
 
+The two-bit block does not supply the angular positions. `Reservoir`'s block at `206..569` is
+zero-dominated, but every 19-byte window in `Copper_Washer`'s candidate region `199..226` is
+dominated by 2 and 3, and a sliding scan finds only zero-padding regions, not a block with the
+`Reservoir` profile. The float compactor does not decode the region either. The coordinate region
+also does not hold the tessellation in the global frame: it has only about 15 zeros and one 1.0,
+far short of the ~38 + ~38 needed for 76 points on the `x = 0` and `x = 1` circles.
+
 The surface records are ordered by face only when the two counts match. For all 22 parts where the
 surface count equals the face count, the surface planarity sequence is identical to the face
 planarity sequence. For the five parts with fewer surfaces than faces, the surface planarity

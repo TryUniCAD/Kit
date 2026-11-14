@@ -340,6 +340,39 @@ The 4-byte prefix in the run headers is not a count. It does not correlate with 
 is `0x2c` or `0x2d` in most headers. It is not a file offset either: `0x2c077000` is 738 million,
 far beyond the 31 KB stream.
 
+## The two-bit block boundaries do not transfer between parts
+
+`Reservoir` has a 363-byte block at `206..569` whose two-bit decode is zero-dominated
+(`{0:866, 1:289, 2:198, 3:78}`). The analogous region in `Copper_Washer` is the 27 bytes at
+`199..226`, between the last body record and the coordinate region at `226`. It does not decode the
+same way.
+
+Every 19-byte window in `199..226` (the length that gives exactly 76 two-bit values, one per handle)
+is dominated by 2 and 3, not by 0:
+
+```
+start 199: {0:1, 1:7, 2:27, 3:41}
+start 203: {0:15, 1:8, 2:21, 3:32}
+start 207: {0:21, 1:10, 2:18, 3:27}
+start 211: {0:26, 1:12, 2:13, 3:25}
+```
+
+So either the block boundaries differ per part or the block is not the same encoding. A sliding
+scan of the whole `Copper_Washer` stream for zero-dominated 19-byte windows finds only zero-padding
+regions (75 of 76 zeros at `750`, `898`, `1647`), not a block with the `Reservoir` profile.
+
+The float compactor does not decode the region either. On `199..226` with reference 8.0 it returns
+`7.9456, 7.8843, 7.8229, 7.8229, ...`, which decreases by a constant and then sticks, and with
+reference 1.0 it returns `0.9932, -0.9855, -0.9779, ...`. On `226..988` with reference 8.0 it
+returns `8.2648, 8.2648, 8.2648, 8.2648, 8.2658, 6.5643, ...`. None of these is the washer's
+coordinate set, so the compactor is not the decoder for this region.
+
+The coordinate region itself does not hold the washer's tessellation in the global frame. The
+washer's circles are at `x = 0` and `x = 1` with radius 8 and 5, so a stored tessellation would have
+many floats equal to 0.0 and 1.0. The region has only about 15 zeros and one 1.0, far short of the
+~38 + ~38 needed for 76 points. So the region is not the tessellation in the global frame, and the
+angular positions of the edge handles are not recoverable from it.
+
 ## The shell face-reference loop is not a plain index array
 
 The shell record is supposed to carry a face-reference loop of one entry per face. For `Reservoir`
