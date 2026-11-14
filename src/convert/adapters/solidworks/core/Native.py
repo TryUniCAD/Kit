@@ -2383,6 +2383,8 @@ def IsTriCandidate(AuthoredObjs: tuple[_WriteObject, ...], DocData: CadDoc) -> b
         or len(DocData.sketches[0].entities) != 3
     ):
         return False
+    if DocData.sketches[0].closed_profile_entity_ids:
+        return True
     Geometries = tuple(Entity.geometry for Entity in DocData.sketches[0].entities)
     if not all(isinstance(Geometry, LineGeom) for Geometry in Geometries):
         return False
