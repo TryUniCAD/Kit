@@ -181,6 +181,26 @@ Other feature families do not obey it — `var_sph` with one sphere expression c
 objects and `var_cyl` with two cylinder expressions 14, against 12 and 18 from the rule —
 so the rule is specific to block dimension expressions.
 
+## The six fixed objects of a three dimension part
+
+Diffing `dim40` against `dim50` — same names, one value different — isolates what is
+constant in the fixed objects:
+
+```text
+obj 0  head          27/26 bytes   identity and header differ
+obj 1  descriptor    26 bytes      identical
+obj 2  names lane   135 bytes      identical
+obj 3  occupancy     37 bytes      identical
+obj 4  group         37 bytes      identical
+obj 5  group record  32 bytes      one byte differs: the text of the first dimension,
+                                   34 -> 35, "40" -> "50"
+```
+
+so for a three dimension part the names lane, occupancy and both group objects do not depend
+on the dimension values at all, and the group record carries the values as text tokens
+(`04 34 30 00` is `"40"`). That is what a composer has to emit: four constant objects,
+one head with the part identity, and one record whose text follows the values.
+
 ## Inventory functions
 
 `ExprSection` now carries the measured counts as functions, so the composer has a
