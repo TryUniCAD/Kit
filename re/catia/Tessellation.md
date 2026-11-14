@@ -316,9 +316,21 @@ ff 97 05 00 00  1431   handle count
 00 00 00 00     0
 ```
 
-The remaining 364 bytes are high-entropy. Decoding them with the ported double compactor from
-offset 0 with reference 0.0 produces values around `1e297`, so the block is not a compactor stream
-at that offset.
+The remaining 363 bytes start at 206 with `34 d3 34 33 33 d3 34 33 33 cd d4 45 ...`. Decoding
+them with the ported double compactor produces 400 values without a read error, but the values are
+garbage: the first three are denormals that print as `0.0`, then the sequence jumps to `1e297` and
+stays there. The same happens for reference `1.0`, `46.0`, and `47.0`: the first three values are
+the reference plus a small delta, then the stream collapses to `0.0`. So the block is not a
+compactor stream at offset 0.
+
+The nibble histogram of the block is heavily skewed: `0` appears 290 times, `1` 91, `8` 66, `4` 59,
+`2` 56, `6` 47, `3` 19, `9` 18, `7` 16, `13` 28, and the rest under 10. A 40 percent zero rate with
+single-bit nibbles is the signature of a sparse bit array, not of a float stream.
+
+The 4-byte prefix in the run headers is not a count. It does not correlate with the run length
+(`0x2c077000` precedes a 9-float run and `0x2c079800` precedes a 124-float run), and its high byte
+is `0x2c` or `0x2d` in most headers. It is not a file offset either: `0x2c077000` is 738 million,
+far beyond the 31 KB stream.
 
 ## The coordinate table holds 1003 points, not 1431
 

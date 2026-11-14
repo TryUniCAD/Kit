@@ -62,7 +62,8 @@ result = CatiaAdapter().write(
   placeholder, so the decoded geometry is not the file's geometry even for the 22 parts that pass
   validation. The coordinate region is a sequence of float runs separated by 1- to 8-byte record
   headers, and it holds 1003 points for `Reservoir` against a 1431-value handle space, so the
-  handles are not indices into it.
+  handles are not indices into it. The 363-byte block before the first large run is a sparse bit
+  array, not a compactor stream: the compactor decodes it to denormals and then `1e297`.
 - The reader reconstructs plane and cylinder geometry from bounds and trim vectors.
 - The reader does not decode feature records, sketches, dimensions,
   constraints, or relations.
