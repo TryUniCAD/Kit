@@ -253,20 +253,78 @@ def UpdateDict(
         LastBytes.append(FirstByte)
 
 
-def Uncompress(DataValue: bytes, Expected: int) -> bytes:
-    if len(DataValue) < 4 or DataValue[:2] != b"\x1f\x9d":
-        raise CreoFormat("Creo section is not Unix-compressed")
-    Flags = DataValue[2]
+def ResetBlock(
+    Prefixes: list[int],
+    LastBytes: list[int],
+    Position: int,
+    BitBuffer: int,
+    BitCount: int,
+    GroupCount: int,
+    CodeSize: int,
+    DataValue: bytes,
+) -> tuple[int, int, int]:
+    del Prefixes[257:]
+    del LastBytes[257:]
+    return SkipGroup(Position, BitBuffer, BitCount, GroupCount, CodeSize, DataValue)
+
+
+def InitState(Flags: int) -> tuple[int, bool, list[int], list[int]]:
     MaxBits = Flags & 0x1F
     if MaxBits < 9 or MaxBits > 16:
         raise CreoFormat("Creo compression code width is invalid")
     BlockMode = bool(Flags & 0x80)
-    Limit = min(max(Expected, 1), KMaxSectionBytes)
     Prefixes = list(range(256))
     LastBytes = list(range(256))
     if BlockMode:
         Prefixes.append(0)
         LastBytes.append(0)
+    return (MaxBits, BlockMode, Prefixes, LastBytes)
+
+
+def DecodeCode(
+    CodeValue: int,
+    Prefixes: list[int],
+    LastBytes: list[int],
+    Previous: int | None,
+    MaxBits: int,
+    Output: bytearray,
+    Limit: int,
+) -> int | None:
+    EntryCode, AddFirst = SelectCode(CodeValue, len(Prefixes), Previous)
+    Stack, FirstByte = ExpandCode(Prefixes, LastBytes, EntryCode)
+    if len(Output) + len(Stack) + int(AddFirst) > Limit:
+        raise CreoFormat("Creo compression output exceeds its declaration")
+    Output.extend(reversed(Stack))
+    if AddFirst:
+        Output.append(FirstByte)
+    UpdateDict(Prefixes, LastBytes, Previous, FirstByte, MaxBits)
+    return min(CodeValue, len(Prefixes) - 1)
+
+
+def GrowCode(
+    Prefixes: list[int],
+    Position: int,
+    BitBuffer: int,
+    BitCount: int,
+    GroupCount: int,
+    CodeSize: int,
+    MaxBits: int,
+    DataValue: bytes,
+) -> tuple[int, int, int, int, int]:
+    if len(Prefixes) >= (1 << CodeSize) and CodeSize < MaxBits:
+        Position, BitBuffer, BitCount = SkipGroup(
+            Position, BitBuffer, BitCount, GroupCount, CodeSize, DataValue
+        )
+        CodeSize += 1
+        GroupCount = 0
+    return (Position, BitBuffer, BitCount, CodeSize, GroupCount)
+
+
+def Uncompress(DataValue: bytes, Expected: int) -> bytes:
+    if len(DataValue) < 4 or DataValue[:2] != b"\x1f\x9d":
+        raise CreoFormat("Creo section is not Unix-compressed")
+    MaxBits, BlockMode, Prefixes, LastBytes = InitState(DataValue[2])
+    Limit = min(max(Expected, 1), KMaxSectionBytes)
     Position = 3
     BitBuffer = 0
     BitCount = 0
@@ -285,30 +343,33 @@ def Uncompress(DataValue: bytes, Expected: int) -> bytes:
         BitCount -= CodeSize
         GroupCount += 1
         if BlockMode and CodeValue == 256:
-            del Prefixes[257:]
-            del LastBytes[257:]
-            Position, BitBuffer, BitCount = SkipGroup(
-                Position, BitBuffer, BitCount, GroupCount, CodeSize, DataValue
+            Position, BitBuffer, BitCount = ResetBlock(
+                Prefixes,
+                LastBytes,
+                Position,
+                BitBuffer,
+                BitCount,
+                GroupCount,
+                CodeSize,
+                DataValue,
             )
             CodeSize = 9
             GroupCount = 0
             Previous = None
             continue
-        EntryCode, AddFirst = SelectCode(CodeValue, len(Prefixes), Previous)
-        Stack, FirstByte = ExpandCode(Prefixes, LastBytes, EntryCode)
-        if len(Output) + len(Stack) + int(AddFirst) > Limit:
-            raise CreoFormat("Creo compression output exceeds its declaration")
-        Output.extend(reversed(Stack))
-        if AddFirst:
-            Output.append(FirstByte)
-        UpdateDict(Prefixes, LastBytes, Previous, FirstByte, MaxBits)
-        Previous = min(CodeValue, len(Prefixes) - 1)
-        if len(Prefixes) >= (1 << CodeSize) and CodeSize < MaxBits:
-            Position, BitBuffer, BitCount = SkipGroup(
-                Position, BitBuffer, BitCount, GroupCount, CodeSize, DataValue
-            )
-            CodeSize += 1
-            GroupCount = 0
+        Previous = DecodeCode(
+            CodeValue, Prefixes, LastBytes, Previous, MaxBits, Output, Limit
+        )
+        Position, BitBuffer, BitCount, CodeSize, GroupCount = GrowCode(
+            Prefixes,
+            Position,
+            BitBuffer,
+            BitCount,
+            GroupCount,
+            CodeSize,
+            MaxBits,
+            DataValue,
+        )
     return bytes(Output)
 
 
