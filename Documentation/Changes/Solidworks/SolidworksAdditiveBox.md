@@ -46,9 +46,8 @@ application-usable, near-lossless, self-contained output.
 - the output is classified `native-metadata-with-kit-neutral` rather than `native-exact`
   because the B-rep is rebuilt from the feature instead of carried as a native B-rep
   payload
-- SOLIDWORKS acceptance of these specific fixtures was not re-run in this session; the
-  earlier oracle evidence for the box program still applies to the same rectangle-pad
-  program
+- SOLIDWORKS accepted the 1.1.4 output: `OracleDrive.vbs` edited `D1@Boss-Extrude1` to
+  13 mm, rebuilt, and measured 7800 mm3 and 2500 mm2, matching 20 x 30 x 13 exactly
 
 ## Verification
 
@@ -63,6 +62,12 @@ the first principal plane of the 1.1.4 fixture about its normal and requires the
 rejection. `TestBoxDriven` changes the bound `Length` role to driven, `TestBoxCurved` replaces one
 planar face with a cylinder, and `TestBoxShift` moves one face plane off its box offset;
 all three require the same rejection.
+
+SOLIDWORKS Design Premium 2026 SP5.2 in Parallels opened the generated 1.1.4 output,
+rebuilt it after a depth edit to 13 mm, and measured volume 7800 mm3 and area 2500 mm2,
+which is exactly 20 x 30 x 13. The run is recorded in
+[recent oracle runs](../../../re/solidworks/records/RecentOracleRuns.md) and uses
+`re/tooling/harness/OracleDrive.vbs`.
 
 The fixtures are copied from the cadmpeg FreeCAD corpus under the Apache License 2.0; the
 attribution is in [the fixture notice](../../../re/solidworks/examples/FreeCAD/NOTICE.md).

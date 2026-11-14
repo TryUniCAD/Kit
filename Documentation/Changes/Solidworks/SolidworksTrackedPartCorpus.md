@@ -23,8 +23,9 @@ keeps partial checkouts working.
   histories, drawings, or from-scratch mate generation
 - the count is pinned to the 57 tracked parts, so adding or removing a tracked part
   requires updating the assertion
-- SOLIDWORKS acceptance of these outputs is not re-run here; the earlier oracle evidence
-  for the recovered families is recorded in the research records
+- CI does not run SOLIDWORKS; a manually written rewrite of `BLOQUE V8.SLDPRT` was opened
+  in SOLIDWORKS Design Premium 2026 SP5.2, rebuilt, and reported one body, recorded in
+  [recent oracle runs](../../../re/solidworks/records/RecentOracleRuns.md)
 
 ## Verification
 
@@ -32,4 +33,5 @@ keeps partial checkouts working.
 run over the same directory produced 57 of 57 parts with `native-exact` compatibility,
 self-contained output, and a byte-identical second write in 19.4 seconds for the first
 pass. The CI job `Exercise native file reading and writing` runs the case against the
-tracked files.
+tracked files. A separate manual oracle run opened the rewritten `BLOQUE V8.SLDPRT` in
+SOLIDWORKS, rebuilt it, and reported `OPENED=True REBUILT=True BODIES=1`.
