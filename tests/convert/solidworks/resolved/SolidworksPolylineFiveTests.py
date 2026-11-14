@@ -9,6 +9,7 @@ from convert import open_document as OpenDoc
 from convert import write_document as WriteDoc
 from convert.adapters.base import ReadOptions
 from convert.adapters.base.UsabilityError import ApplicationUsabilityError
+from convert.adapters.solidworks.container.Container import SldprtFormatError
 from convert.adapters.solidworks import SldprtArchive
 from convert.adapters.solidworks.core.Adapter import ReadNativePart, SldprtAdapter
 from convert.adapters.solidworks.container.Format import (
@@ -214,17 +215,13 @@ def TestRelations(TmpPath: FilePath) -> None:
         )
         SourceDoc = ReplaceData(SourceDoc, sketches=(Sketch,))
         assert HasVendorPartEncoding(SourceDoc) is False
-        with PytestLib.raises(ApplicationUsabilityError):
-            _ = WriteDoc(
-                SourceDoc,
-                TmpPath / f"Relations{len(Points)}.SLDPRT",
-                allow_carrier=False,
-            )
+        with PytestLib.raises(SldprtFormatError):
+            _ = WriteDoc(SourceDoc, TmpPath / f"Relations{len(Points)}.SLDPRT")
 
 
 def TestCrossFails(TmpPath: FilePath) -> None:
     Crossed = (KPoints[0], KPoints[1], KPoints[4], KPoints[2], KPoints[3])
     SourceDoc = BuildDocument(Crossed)
     assert HasVendorPartEncoding(SourceDoc) is False
-    with PytestLib.raises(ApplicationUsabilityError):
-        _ = WriteDoc(SourceDoc, TmpPath / "Crossing.SLDPRT", allow_carrier=False)
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(SourceDoc, TmpPath / "Crossing.SLDPRT")
