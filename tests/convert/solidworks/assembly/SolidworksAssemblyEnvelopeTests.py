@@ -2,13 +2,11 @@ from __future__ import annotations
 from dataclasses import replace as ReplaceData
 from io import BytesIO
 from pathlib import Path as FilePath
-from unicodedata import normalize as NormalizeName
+
+import pytest as PytestLib
 from convert import open_document as OpenDocument
 from convert import write_document as WriteDocument
-from convert.adapters.base import ReadOptions
 from convert.adapters.solidworks.core.Adapter import (
-    ComponentFile as ComponentFiles,
-    ResolvedPath as ResolveComponentPath,
     GeneratedB as GeneratedStreams,
     KAsmReaderRequiredStreams as Streams,
     Native as NativeAttestation,
@@ -45,6 +43,16 @@ from interchange.assembly.TransformMatrix import TransformMatrix
 from tests.convert.solidworks.core.SolidworksWriterTests import FreecadRPD
 from tests.interchange.assembly.AssemblyTests import (
     assembly_document as AssemblyDocument,
+)
+
+# centralizes shared evidence so every related assertion uses one value
+KUnicodeAssembly = (
+    FilePath(__file__).resolve().parents[4]
+    / "re"
+    / "solidworks"
+    / "examples"
+    / "Single Turbo Dual Overhead Cam V8 - KDP - 2024"
+    / "ENSAMBLE 3_IZQUIERDO.SLDASM"
 )
 
 # centralizes shared evidence so every related assertion uses one value
@@ -250,21 +258,24 @@ def TestPABHNSP(TmpPath: FilePath) -> None:
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
-def TestASMNameNorm(TmpPath: FilePath) -> None:
-    RootValue = TmpPath / "names"
-    RootValue.mkdir()
-    NfdName = NormalizeName("NFD", "ADMISIÓN.SLDPRT")
-    _ = (RootValue / NfdName).write_bytes(b"part")
-    IndexValue = ComponentFiles(
-        "",
-        ReadOptions(
-            values=FrozenMapping({"component_search_root": str(RootValue)})
-        ),
+@PytestLib.mark.skipif(
+    not KUnicodeAssembly.is_file(), reason="unicode assembly corpus unavailable"
+)
+def TestASMUnicode(TmpPath: FilePath) -> None:
+    DocumentValue = OpenDocument(KUnicodeAssembly, include_brep=False)
+    assert DocumentValue.assembly is not None
+    assert DocumentValue.assembly.documents
+    assert not any(
+        (
+            ItemValue.code == "sldasm.component_source_missing"
+            for ItemValue in DocumentValue.diagnostics
+        )
     )
-    NfcSource = "D:\\Archivos\\" + NormalizeName("NFC", "ADMISIÓN.SLDPRT")
-    Resolved = ResolveComponentPath(NfcSource, IndexValue)
-    assert Resolved is not None
-    assert Resolved.name == NfdName
+    OutputPath = TmpPath / KUnicodeAssembly.name
+    ResultInfo = WriteDocument(DocumentValue, OutputPath, allow_carrier=False)
+    assert ResultInfo.native_self_contained is True
+    assert ResultInfo.application_usable is True
+    assert ResultInfo.near_lossless is True
 
 
 def TestASBBundle(TmpPath: FilePath) -> None:
