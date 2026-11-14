@@ -17,7 +17,7 @@ from convert.adapters.nx.Reader import DocDigest
 from convert.adapters.nx.Splm import KAbsentFooter, KChecksumOffset, KHeaderRegion
 from convert.adapters.nx.SplmBuild import DirectoryLength
 from convert.adapters.nx.SplmReader import ReadSplm, RebuildSplm, SplmStreams
-from convert.adapters.nx.Xxh32 import HashXxh
+from convert.adapters.nx.HashXxh import HashXxh
 from interchange import (
     BrepPayload,
     CadDocument as CadDoc,
