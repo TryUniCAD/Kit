@@ -6,7 +6,7 @@ The `catia.v5` adapter now decodes the standard nested CATIA V5 B-rep spine.
 It reads the face-outer-bound run, trim packets, edge table, vertex table, surface records, curve
 rows, and vertex roster from `MainDataStream` and `SurfacicReps`.
 It maps the result to a neutral `BrepModel` with faces, loops, coedges, edges, vertices, and
-analytic plane or cylinder surfaces.
+analytic plane, cylinder, cone, sphere, and torus surfaces.
 
 The trim handles are dense indices into a shared tessellation vertex table, not B-rep vertex
 identifiers. The reader derives loops from the tessellation boundary. That is a documented
@@ -45,7 +45,7 @@ result = CatiaAdapter().write(
 
 - The reader decodes 22 of 27 corpus parts. Five parts use a shared surface pool or an unsupported layout.
 - The reader reconstructs plane and cylinder geometry from bounds and trim vectors.
-- The reader does not decode compressed carrier parameters, feature records, sketches, dimensions,
+- The reader does not decode feature records, sketches, dimensions,
   constraints, or relations.
 - The writer supports plane faces with one loop per face.
 - The writer does not emit feature history, sketches, dimensions, or constraints.
