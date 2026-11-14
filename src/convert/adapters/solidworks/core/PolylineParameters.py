@@ -34,7 +34,34 @@ KFreecadPadProps = frozenset(
 
 KLengthUnits = frozenset({"", "mm", "millimeter", "millimeters"})
 
+KLengthFactors = {
+    "": 1.0,
+    "mm": 1.0,
+    "millimeter": 1.0,
+    "millimeters": 1.0,
+    "cm": 10.0,
+    "m": 1000.0,
+    "in": 25.4,
+    "inch": 25.4,
+    "inches": 25.4,
+}
+
 KAngleUnits = frozenset({"", "deg", "degree", "degrees"})
+
+
+def LengthMm(Value: ParameterValue | None) -> float | None:
+    if Value is None or Value.kind is not ValueKind.LENGTH:
+        return None
+    RawValue = Value.value
+    Factor = KLengthFactors.get(Value.unit.casefold())
+    if (
+        Factor is None
+        or isinstance(RawValue, bool)
+        or not isinstance(RawValue, (int, float))
+        or not MathValue.isfinite(float(RawValue))
+    ):
+        return None
+    return float(RawValue) * Factor
 
 
 def IsExactLength(Value: ParameterValue | None, Expected: float) -> bool:
@@ -74,16 +101,9 @@ def IsUnsetAngle(Value: ParameterValue | None, Expected: float) -> bool:
 
 
 def IsBoundLength(Value: ParameterValue | None, Expected: float) -> bool:
-    if Value is None:
-        return False
-    RawValue = Value.value
-    return (
-        Value.kind is ValueKind.LENGTH
-        and Value.unit.casefold() in KLengthUnits
-        and not isinstance(RawValue, bool)
-        and isinstance(RawValue, (int, float))
-        and MathValue.isfinite(float(RawValue))
-        and float(format(float(RawValue), ".15g")) == float(format(Expected, ".15g"))
+    Millimeters = LengthMm(Value)
+    return Millimeters is not None and float(format(Millimeters, ".15g")) == float(
+        format(Expected, ".15g")
     )
 
 
@@ -112,12 +132,8 @@ def HasPolyLoss(DocumentData: CadDocument, PadId: str) -> bool:
         or not IsUnsetAngle(Definition.second_draft_angle, 0.0)
     ):
         return True
-    DefinitionLength = Definition.length.value
-    if (
-        isinstance(DefinitionLength, bool)
-        or not isinstance(DefinitionLength, (int, float))
-        or not MathValue.isfinite(float(DefinitionLength))
-    ):
+    DefinitionLength = LengthMm(Definition.length)
+    if DefinitionLength is None:
         return True
     IsFreecad = DocumentData.source.format_id.casefold() == "freecad.fcstd" or any(
         (
@@ -126,6 +142,7 @@ def HasPolyLoss(DocumentData: CadDocument, PadId: str) -> bool:
             for ParamData in DocumentData.parameters
         )
     )
+    PadPaths: list[str] = []
     for ParamData in DocumentData.parameters:
         PathValue = ParamData.attributes.get("freecad_path")
         if (
@@ -138,10 +155,13 @@ def HasPolyLoss(DocumentData: CadDocument, PadId: str) -> bool:
             ParamData.value.kind is ValueKind.LENGTH and ParamData.name == "D1"
         ) or (IsFreecad and PathValue == "Length")
         if IsDepth:
-            if not IsBoundLength(ParamData.value, float(DefinitionLength)):
+            if not IsBoundLength(ParamData.value, DefinitionLength):
                 return True
             continue
         if IsFreecad and isinstance(PathValue, str) and PathValue in KFreecadPadProps:
+            PadPaths.append(PathValue)
             continue
         return True
-    return False
+    return bool(PadPaths) and (
+        len(PadPaths) != len(KFreecadPadProps) or set(PadPaths) != KFreecadPadProps
+    )
