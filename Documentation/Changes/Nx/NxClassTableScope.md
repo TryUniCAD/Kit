@@ -85,9 +85,19 @@ set ordinal as the carrier of the increment.
 
 A fifth class set would only distinguish "increment depends on the class" from "increment
 depends on the class count", and the fixtures available do not offer two sets with equal
-counts and different membership. A chamfer part was attempted to supply one and the
-journal failed before saving (`NXOpen.Body` exposes no `Edges` attribute, and the chamfer
-builder needs an edge rule), so that comparison is not available yet.
+counts and different membership. A chamfer part was attempted to supply one and could not
+be built:
+
+```text
+body.Edges                     AttributeError, the property does not exist
+ufs.Modl.AskBodyEdges          AttributeError, the method does not exist
+body.GetFaces()[n].GetEdges()  works, 24 edges on a 40x30x20 block
+chamfer.SmartCollector         None, so SetTargets cannot be called
+chamfer.FirstOffset            a string, not an expression object
+```
+
+So the edge query is solved (`GetFaces` then `GetEdges`) while the chamfer builder in this
+release does not expose a collector, and the fixture is still unavailable.
 
 ## Consequence
 
