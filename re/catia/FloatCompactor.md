@@ -196,6 +196,34 @@ The writer places the selector in the first 8-byte word; the reader's `ReadBits`
 for it. The read-side `CATMathStreamImpl` setup is not consuming the buffer, so the harness needs
 its read position and buffer fields corrected before the selector can be measured.
 
+## Measured selector
+
+The read-side setup was fixed: the read `CATMathStreamImpl` must keep `0xb0 = 0x1c` (read mode),
+and the compactor flow is `0` for write and `1` for read. With that, the harness round-trips a
+delta value: `value=1.5 ref=1.0` reads back `1.5`.
+
+`re/catia/tooling/ReadBitsProbe.py` reads the selector directly from the stream
+`00000000000000d0...`:
+
+```text
+selector 0x34
+bits pos 6
+bits buf 0xd000000000000000
+impl pos 8
+```
+
+So the reader's selector is `0x34 = 0x40 - 12`, and `width = 0x40 - 0x34 = 12`, which equals the
+leading-zero count of the delta. The writer's selector is `2 * (0x40 - leading_zeros) | sign`,
+written as 57 bits; the reader reads 58 bits and gets `0x40 - leading_zeros`. The one-bit
+difference is the alignment, not a contradiction.
+
+The selector formula is therefore:
+
+```text
+writer: S = 2 * (0x40 - leading_zeros) | sign, written as 57 bits
+reader: S = ReadBits(58), width = 0x40 - S = leading_zeros
+```
+
 ## Caller and reference array
 
 `CATAdvancedMathematics.dll` imports `ReadFloatWithRef2` and `WriteFloatWithRef2` from
