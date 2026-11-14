@@ -45,7 +45,7 @@ from tests.interchange.assembly.AssemblyTests import (
     assembly_document as AssemblyDocument,
 )
 
-# centralizes shared evidence so every related assertion uses one value
+# tracked accented assembly proves nfc and nfd names resolve publicly
 KUnicodeAssembly = (
     FilePath(__file__).resolve().parents[4]
     / "re"
@@ -53,6 +53,16 @@ KUnicodeAssembly = (
     / "examples"
     / "Single Turbo Dual Overhead Cam V8 - KDP - 2024"
     / "ENSAMBLE 3_IZQUIERDO.SLDASM"
+)
+
+# largest tracked assembly needs a real read and rewrite acceptance check
+KHeadAssembly = (
+    FilePath(__file__).resolve().parents[4]
+    / "re"
+    / "solidworks"
+    / "examples"
+    / "Single Turbo Dual Overhead Cam V8 - KDP - 2024"
+    / "Cylinder Head Assy 1.SLDASM"
 )
 
 # centralizes shared evidence so every related assertion uses one value
@@ -276,6 +286,33 @@ def TestASMUnicode(TmpPath: FilePath) -> None:
     assert ResultInfo.metadata["native_self_contained"] is True
     assert ResultInfo.application_usable is True
     assert ResultInfo.near_lossless is True
+
+
+@PytestLib.mark.skipif(
+    not KHeadAssembly.is_file(), reason="head assembly corpus unavailable"
+)
+def TestASMHead(TmpPath: FilePath) -> None:
+    DocumentValue = OpenDocument(KHeadAssembly, include_brep=False)
+    AssemblyValue = DocumentValue.assembly
+    assert AssemblyValue is not None
+    assert not any(
+        (
+            ItemValue.code == "sldasm.component_source_missing"
+            for ItemValue in DocumentValue.diagnostics
+        )
+    )
+    assert len(AssemblyValue.documents) == 11
+    assert len(AssemblyValue.instances) == 119
+    assert len(AssemblyValue.mates) == 240
+    OutputPath = TmpPath / KHeadAssembly.name
+    ResultInfo = WriteDocument(DocumentValue, OutputPath, allow_carrier=False)
+    assert ResultInfo.metadata["native_self_contained"] is True
+    assert ResultInfo.metadata["referenced_files_written"] == 11
+    assert ResultInfo.application_usable is True
+    assert ResultInfo.near_lossless is True
+    assert len(tuple(TmpPath.iterdir())) == 12
+    Restored = OpenDocument(OutputPath, include_brep=False)
+    assert Restored.assembly == AssemblyValue
 
 
 def TestASBBundle(TmpPath: FilePath) -> None:
