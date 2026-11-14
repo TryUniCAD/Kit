@@ -448,6 +448,25 @@ the same for bodies 1 and 2 and differ for body 3, so they are not per-body face
 The body record therefore does not carry the face-to-surface map. The map has to come from the
 inline face records in the shell record, which are not at a fixed offset from the body header.
 
+### The body record writes one reference per domain
+
+`CATCXBody::Stream` at `0x541d60..0x541eb7` writes, in order:
+
+1. `WriteLinkedObjectsCount(body, count)`, a `u32`;
+2. a loop from 1 to `count` of `WriteObject(domain, body)`, one scalable tag difference per domain;
+3. `WriteLong(count)`, a `u32`;
+4. `WriteBox(0xd8(body))`, a `CATMathBox` of six floats;
+5. `WriteShort(0x11c(body))`, a `u16`.
+
+So the body record is `4 + count + 4 + 24 + 2` bytes. For body 1 with count 3 that is 37 bytes,
+and the 47-byte header leaves 10 bytes for the object header. The three domain references are
+scalable tag differences, so the shell record is reached through the tag, not at a fixed offset
+from the body header.
+
+The body header's `ff 03 01 00 00` and `ff 01 00 00 00` are not the domain references. They are
+the `WriteLong` and part of the box, and the domain references are the single bytes `ff`, `03`,
+`01` immediately after the count.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
