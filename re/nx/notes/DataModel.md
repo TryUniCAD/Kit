@@ -517,8 +517,15 @@ BuildPrism as built                       BODIES 1, VOLUME 0.0,     AREA 0.0
 + parasolid order / fin attributes        BODIES 1, VOLUME 0.0,     AREA 0.0
 + loop traversal reversed                 BODIES 1, VOLUME 6000.0,  AREA 600.0
 + plane normals flipped                   BODIES 1, VOLUME 0.0,     AREA 0.0
++ loop reversal and normal flip           BODIES 1, VOLUME 0.0,     AREA 0.0
++ loop reversal and same_sense flip       BODIES 1, VOLUME 0.0,     AREA 0.0
 + clockwise profile                        BODIES 1, VOLUME 0.0,     AREA 0.0
 ```
+
+The reversed-loop model itself is exact: it decodes back with signed volume
+`-36000.0`, the same sign as NX's own box, so the topology is a closed inverted
+shell. NX still measures `6000` for it, which means the orientation sign alone
+does not satisfy the reader.
 
 So `body_id`, density and the `UGS/ObjectState` records are not the blocker: the
 encoder already writes density, timestamp, matching and atom identifiers, and
