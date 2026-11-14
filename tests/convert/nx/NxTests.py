@@ -8,6 +8,8 @@ from typing import cast as CastValue
 from convert.adapters import AdapterRegistry, CadAdapter, ReadOptions, WriteOptions
 from convert.adapters.nx import NxAdapter, ProbeNx, ReadNx, WriteNx
 from convert.adapters.nx.ExprValue import DecodeValue, EncodeValue
+from convert.adapters.nx.PayloadBuild import ResizePayload
+from convert.adapters.nx.PayloadReader import ReadPayload
 from convert.adapters.nx.Splm import KChecksumOffset, KHeaderRegion
 from convert.adapters.nx.SplmBuild import BuildSplm, DirectoryLength
 from convert.adapters.nx.SplmReader import ReadSplm
@@ -415,3 +417,58 @@ def TestNxExprDim() -> None:
     except ValueError:
         return
     raise AssertionError("expression override accepted a feature dimension")
+
+
+# section replacement keeps the segment index consistent when a body changes length
+def TestNxResize() -> None:
+    def Section(BodyValue: bytes) -> bytes:
+        return (
+            b"\xff\xff\xff\xff"
+            + bytes(4)
+            + len(BodyValue).to_bytes(4, "big")
+            + BodyValue
+        )
+
+    First = b"OM\x01\x01" + b"first body"
+    Second = b"OM\x01\x01" + b"second body"
+    Blocks = Section(First) + Section(Second)
+    Start = 48
+    IndexHeader = (1).to_bytes(4, "little") + (1).to_bytes(4, "little")
+    IndexRows = (
+        IndexHeader
+        + (Start).to_bytes(4, "little")
+        + (1).to_bytes(4, "little")
+        + (1).to_bytes(4, "little")
+        + (Start).to_bytes(4, "little")
+        + (3).to_bytes(4, "little")
+        + (0).to_bytes(4, "little")
+        + (Start + len(Section(First))).to_bytes(4, "little")
+    )
+    Payload = bytes(12) + IndexRows + Blocks
+    Parsed = ReadPayload(Payload)
+    assert len(Parsed.sections) == 2
+    assert Parsed.sections[0].offset == Start
+    Bodies = [
+        Payload[SectionValue.body_offset : SectionValue.body_offset + SectionValue.size]
+        for SectionValue in Parsed.sections
+    ]
+    assert Bodies == [First, Second]
+    assert ResizePayload(Payload, Bodies) == Payload
+    Longer = First + b" and more"
+    Grown = ResizePayload(Payload, [Longer, Second])
+    Checked = ReadPayload(Grown)
+    assert len(Checked.sections) == 2
+    assert Checked.sections[0].size == len(Longer)
+    assert Checked.sections[1].offset == Start + len(Section(Longer))
+    assert (
+        Grown[
+            Checked.sections[1].body_offset : Checked.sections[1].body_offset
+            + Checked.sections[1].size
+        ]
+        == Second
+    )
+    try:
+        _ = ResizePayload(Payload, [First])
+    except ValueError:
+        return
+    raise AssertionError("section resize accepted a wrong body count")

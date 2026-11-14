@@ -576,6 +576,20 @@ aligned authored body vs decoded body   3393 bytes each, 586 differing bytes
                                         VOLUME 0.0
 ```
 
+### Payload sections resize but do not transplant
+
+`src/convert/adapters/nx/PayloadBuild.py` now rewrites a payload with replacement
+section bodies and recomputes the segment index. Replacing each body with itself
+reproduces four real payloads byte for byte, and a generated expression body that
+grows a section from 965 to 1263 bytes still opens in NX 2506 with
+`EXPRESSION kit_len 12.5`.
+
+Transplanting bodies between parts does not work. `empty.prt` with
+`empty_expr.prt`'s bodies has the right length and still will not open, because a
+body carries payload absolute references and part identity. Authoring therefore
+requires generating each body for the target payload, which is what
+`ExprBuild.py` does for the expression section.
+
 ### Solved: authored solids are measurable
 
 Two conventions were missing, both now emitted by `EncodeBrepModel`:
