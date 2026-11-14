@@ -576,6 +576,44 @@ aligned authored body vs decoded body   3393 bytes each, 586 differing bytes
                                         VOLUME 0.0
 ```
 
+### Section 1 descriptor grammar
+
+`re/nx/tools/CmDump.py` decodes the table and every record, and the three
+fixtures agree on the object layout:
+
+```text
+object  0        head, 27 bytes (26 in dim60): 41 00 03 05 01 00 04 05 02 00
+                e0 6a f8 <7 byte saved pointer> 1d 02 13 1e 02 00 00
+objects 1..19   typed descriptors
+object  20      169 bytes, carries "BLOCK"
+object  21      112 bytes, carries "DELETE"
+object  22      24 bytes
+object  23      21 bytes
+objects 24..42  3 byte entries
+object  43      a 6 byte entry list
+```
+
+A typed descriptor is a fixed shape:
+
+```text
+02 02 <class> 41 00 01 <link> <ref> <ref> f0 <object> 09 <weight> 93 8a
+02 02 <class> 41 00 01 <link> <ref>       f0 <object> 09 <weight> 93 8c
+```
+
+`f0` carries the object index, `09` carries a weight, and the last two bytes are
+`93 8a` for the sixteen byte form and `93 8c` for the fourteen byte form. The link
+byte descends `52 51 50 4f 4e 4d 4c 4b 4a 49 48 47 46 45 44 43 42 41` across the
+descriptor run, so the records form a linked chain in table order.
+
+```text
+dim40 and dim50: identical offsets and one byte lengths
+dim60:           object 0 is 26 bytes, every later offset one lower
+```
+
+What is still missing for emission is the mapping from each of the 30 class names
+to the class byte and the reference topology each descriptor names, which is the
+object schema rather than the byte layout.
+
 ### Section 1's pointer table indexes object records
 
 The monotonic u32 run at middle offset `0xcd` is a per object offset table, not a
