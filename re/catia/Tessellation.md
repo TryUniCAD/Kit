@@ -203,6 +203,27 @@ scattered points for face 0 (for example handle 836 maps to `(2.461, -1.345, 12.
 971 to `(16.674, 9.267, -17.724)`), not points on the face-0 plane at `z=0`. The table is
 therefore either incomplete or indexed by a different ordering.
 
+## Per-body and strip hypothesis test
+
+Two more hypotheses were tested against `Reservoir.CATPart` and both are false.
+
+The coordinate table is not per-body with the body-header tags as group indices. The three body
+headers at 54, 101, and 153 carry counts 3, 19, and 4140 and tags 1/259 (bodies 1 and 2) and
+767/1431/1431 (body 3). Interpreting the tags as group indices from the table start at 569 gives
+a coherent group only for tag 1 (offset 589, `(-35.353, -0.854, 37.42, 0.854, 37.42)`). Tag 259
+(offset 5749) is misaligned (`(16.231, -4.653, 15.858, 16.146, -4.636)`, `z1 != z2`), and tags 767
+and 1431 land on denormals. Interpreting the tags as float offsets or byte offsets also fails.
+
+The five-float groups are not strips with implicit interior points. Each group is exactly two
+points `(x, y1, z)` and `(x, y2, z)`, and the `z` values are equal within a group. The table has
+about 1206 points across all float runs, but the trim and edge handles go to 1430 with 1431
+distinct values, so about 224 points are missing.
+
+The coordinate data is split across many float runs, not one table: 569 (342 floats), 1941 (128),
+2457 (47), 2649 (909), 6289 (37), 6441 (10), 6485 (125), 6989 (17), 7061 (127), 7573 (21), 7661
+(128), 8177 (17), 8249 (122), 8741 (13), 8797 (38), 8953 (856), plus smaller runs after 12586.
+The total is 3016 floats.
+
 ## Open work
 
 1. Locate the shared tessellation vertex table and its coordinate encoding.
