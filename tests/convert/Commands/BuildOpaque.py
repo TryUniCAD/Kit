@@ -1,5 +1,6 @@
 from dataclasses import replace as ReplaceData
 
+from interchange.core.Common import FreezeMapping
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumFeatures import FeatureKind
 from interchange.enums.EnumGeometry import GeometryKind
@@ -11,7 +12,12 @@ from tests.interchange.fixtures.DocumentFixture import BuildDocument
 
 def BuildOpaque(RecordKind: str, IsNested: bool) -> CadDocument:
     Document = BuildDocument()
-    if RecordKind == "NativeFeature":
+    if RecordKind == "UnqualifiedResearch":
+        Document = ReplaceData(
+            Document,
+            metadata=FreezeMapping({"kit.research_read_status": "unqualified"}),
+        )
+    elif RecordKind == "NativeFeature":
         Document = ReplaceData(
             Document,
             feature_timeline=(

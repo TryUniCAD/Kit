@@ -17,7 +17,8 @@ Select a trusted checkout containing PR #94 and the corpus's pinned Git objects.
 The wheel contains the SDK and CLI, not research fixtures or the `re/` workspace.
 The supervisor requires Linux or macOS.
 
-The examples assume that the trusted checkout is the current directory.
+The examples use `/path/to/KitPr94` for the trusted research checkout.
+Replace it with its absolute path; the installed CLI checkout can be different.
 Replace example output paths with unused directories that you own.
 Preserve the original CAD files.
 
@@ -26,7 +27,7 @@ Preserve the original CAD files.
 Decode a pinned SOLIDWORKS part:
 
 ```sh
-kit research --root . solidworks --asset re/solidworks/examples/.SLDPRT/example.SLDPRT --output /tmp/KitPinnedPart
+kit research --root /path/to/KitPr94 solidworks --asset re/solidworks/examples/.SLDPRT/example.SLDPRT --output /tmp/KitPinnedPart
 ```
 
 Inspect `receipt.json` before using `document.json`.
@@ -34,14 +35,14 @@ Retain both files for subsequent research.
 The reader selects committed Git bytes and verifies path, blob, size, SHA-256, and prefix.
 The document remains unchanged SDK `CadDocument` serialization.
 Research documents carry `kit.research_read_status: unqualified` in their existing metadata field.
-SDK writers refuse those marked documents, including marked nested components, before staging output.
+The CLI refuses conversion of those marked documents, including marked nested components, before staging output.
 Keep the marker and receipt; the CLI does not promote research results into qualified conversion inputs.
 The separate receipt binds source, SDK, tools, options, hashes, and unresolved evidence.
 
 For Fusion, use Python 3.14 and select one or more committed assets:
 
 ```sh
-kit research --root . fusion --asset re/Fusion/Study/thinextrudes-c1632bcb5efe/ordinary_rectangle_control.f3d --output /tmp/KitPinnedFusion
+kit research --root /path/to/KitPr94 fusion --asset re/Fusion/Study/thinextrudes-c1632bcb5efe/ordinary_rectangle_control.f3d --output /tmp/KitPinnedFusion
 ```
 
 Repeat `--asset` for up to 1000 distinct inputs.
@@ -53,7 +54,7 @@ Use `--manifest PATH` for another supported manifest.
 SOLIDWORKS also accepts `--configuration NAME`.
 Fusion `--allow-partial` means strict-first decoding with explicit fallback, unlike inspection's forced `--partial` reader mode.
 Set `--root` once before the tool name; forwarded root overrides and their abbreviations are rejected.
-Use `kit research --root . fusion --help` for the authoritative reader help.
+Use `kit research --root /path/to/KitPr94 fusion --help` for the authoritative reader help.
 
 Expected result: the existing reader publishes its normal artifacts or reports its existing failure.
 Successful receipts do not establish portable completeness or native conversion acceptance.
@@ -63,9 +64,9 @@ Successful receipts do not establish portable completeness or native conversion 
 The corpus and controller retain their existing commands:
 
 ```sh
-kit research --root . corpus check --manifest re/automation/Corpus.json
-kit research --root . controller --store /tmp/KitResearchState init --max-running 4
-kit research --root . controller --store /tmp/KitResearchState status
+kit research --root /path/to/KitPr94 corpus check --manifest /path/to/KitPr94/re/automation/Corpus.json
+kit research --root /path/to/KitPr94 controller --store /tmp/KitResearchState init --max-running 4
+kit research --root /path/to/KitPr94 controller --store /tmp/KitResearchState status
 ```
 
 Use `controller --help` for evidence binding, batch submission, claims, lease renewal, and result submission.
@@ -73,15 +74,15 @@ The CLI preserves stale-lease status `3` and the controller's integrity checks.
 
 ## Run configured sessions
 
-Prepare an actual runner registry and `Supervisor.json` with the [supervisor guide](../Reference/Research/ResearchSupervisor.md).
+Prepare an actual runner registry and `Supervisor.json` with the [supervisor guide](https://github.com/Stephen316/Kit/blob/ac76ef09c3f99db23694459480cfa5e22ec1987a/Documentation/Reference/Research/ResearchSupervisor.md).
 Use only trusted configuration and runner programs.
 
 ```sh
-kit research --root . supervisor --config Supervisor.json submit Batch.json
-kit research --root . supervisor --config Supervisor.json run --idle-seconds 30
-kit research --root . supervisor --config Supervisor.json status
-kit research --root . supervisor --config Supervisor.json pause decode --reason "operator hold"
-kit research --root . supervisor --config Supervisor.json resume decode
+kit research --root /path/to/KitPr94 supervisor --config Supervisor.json submit Batch.json
+kit research --root /path/to/KitPr94 supervisor --config Supervisor.json run --idle-seconds 30
+kit research --root /path/to/KitPr94 supervisor --config Supervisor.json status
+kit research --root /path/to/KitPr94 supervisor --config Supervisor.json pause decode --reason "operator hold"
+kit research --root /path/to/KitPr94 supervisor --config Supervisor.json resume decode
 ```
 
 The supervisor owns pools, claims, leases, retries, restart fencing, and configured worker dispatch.
@@ -127,7 +128,7 @@ See [the change record](../Changes/Research/DeterministicResearchCli.md) for com
 ## Related information
 
 - [General CLI](CommandLine.md)
-- [Research plan](../Reference/Research/AutomationPlan.md)
-- [Step register](../Reference/Research/AutomationSteps.md)
-- [SOLIDWORKS reader](../Reference/Research/SolidworksResearchReader.md)
-- [Fusion reader](../Reference/Research/FusionResearchReader.md)
+- [Research plan](https://github.com/Stephen316/Kit/blob/ac76ef09c3f99db23694459480cfa5e22ec1987a/Documentation/Reference/Research/AutomationPlan.md)
+- [Step register](https://github.com/Stephen316/Kit/blob/ac76ef09c3f99db23694459480cfa5e22ec1987a/Documentation/Reference/Research/AutomationSteps.md)
+- [SOLIDWORKS reader](https://github.com/Stephen316/Kit/blob/ac76ef09c3f99db23694459480cfa5e22ec1987a/Documentation/Reference/Research/SolidworksResearchReader.md)
+- [Fusion reader](https://github.com/Stephen316/Kit/blob/ac76ef09c3f99db23694459480cfa5e22ec1987a/Documentation/Reference/Research/FusionResearchReader.md)

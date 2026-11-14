@@ -63,6 +63,7 @@ const StaticChecks = {
       "Zizmor",
       "actionlint",
       "Verify CI policy and pytest compatibility",
+      "Research CLI compatibility",
     ],
     preflight: "PR CI reuse (Workflow quality)",
   },

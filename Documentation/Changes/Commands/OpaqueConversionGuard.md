@@ -5,6 +5,7 @@
 `kit convert SOURCE DESTINATION` now checks the document returned by its selected
 SDK reader before invoking the writer. It refuses `NativeFeature` definitions
 and `NativeGeometry` sketch entities in the root or any nested assembly document.
+It also refuses PR #94's `kit.research_read_status: unqualified` metadata, including on nested components, even when the installed SDK predates that safeguard.
 These records preserve vendor payloads whose portable semantics are still unknown.
 Serializing them as interchange JSON does not make them conversion-ready.
 
@@ -34,7 +35,7 @@ cover the changed source and process cases. Execution evidence belongs to remote
 CI on the accepted PR head; no new native acceptance result is claimed here.
 
 Actual subprocess coverage exercises native SOLIDWORKS refusal, root and nested
-JSON `NativeFeature`/`NativeGeometry` refusal, missing and existing destinations,
+JSON native-feature/native-geometry and unqualified research-marker refusal, missing and existing destinations,
 source preservation, and continued developer decoding. Genuine typed Fusion
 cases retain successful JSON conversion, overwrite handling, native round trips,
 and selected-adapter report identities. Typed-source cases retain the unsupported

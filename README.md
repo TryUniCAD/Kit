@@ -43,13 +43,14 @@ Supply a real input file and an unused destination before running:
 
 ```sh
 kit formats
-kit convert bracket.SLDPRT bracket.json
-kit decode bracket.SLDPRT --layer container
+kit convert model.f3d model.json
+kit decode model.f3d --layer container
 ```
 
 The CLI uses strict reading and applies the output policy.
 It does not establish complete format coverage or target-application acceptance.
 See [command-line usage](Documentation/Tasks/CommandLine.md) for setup, developer views, and limits.
+Use [deterministic research commands](Documentation/Tasks/ResearchCommandLine.md) with PR #94's checkout for pinned decoding and evidence receipts.
 
 ## Conversion example
 

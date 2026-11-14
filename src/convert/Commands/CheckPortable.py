@@ -6,6 +6,11 @@ from interchange.geometry.models.GeometryCurves import NativeGeometry
 
 def CheckPortable(Document: CadDocument) -> None:
     for PartValue in WalkDocuments(Document):
+        if PartValue.metadata.get("kit.research_read_status") == "unqualified":
+            raise ValueError(
+                "UnqualifiedResearch documents are not conversion-ready; "
+                + "use kit decode or kit research for inspection"
+            )
         for Feature in PartValue.FeatureTimeline:
             if isinstance(Feature.definition, NativeFeature):
                 raise ValueError(

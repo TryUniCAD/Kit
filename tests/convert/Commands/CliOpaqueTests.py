@@ -7,7 +7,9 @@ from tests.convert.Commands.BuildOpaque import BuildOpaque
 from tests.convert.Commands.CliProcess import CliProcess
 
 
-@TestMark.parametrize("RecordKind", ("NativeFeature", "NativeGeometry"))
+@TestMark.parametrize(
+    "RecordKind", ("NativeFeature", "NativeGeometry", "UnqualifiedResearch")
+)
 @TestMark.parametrize("IsNested", (False, True))
 @TestMark.parametrize("HasOutput", (False, True))
 def CheckOpaqueJson(

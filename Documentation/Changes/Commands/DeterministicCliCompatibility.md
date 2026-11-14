@@ -25,6 +25,9 @@ The same checkout environment must be available to complete-suite CI jobs that
 execute these cases. The pin and CI configuration belong to the CLI PR; the
 tests verify receipt identity against that checkout's actual Git revision and
 SDK source digest.
+The compatibility pin is PR #94's cleaned revision `ac76ef09c3f99db23694459480cfa5e22ec1987a`.
+The dedicated job is registered in the CI allowlist, and merge-group shards select the same checkout when they execute this suite.
+Root `AGENTS.md` documents installation, pinned decoding, receipts, and existing controller/supervisor commands for developers and agents.
 
 ## Process coverage and limits
 

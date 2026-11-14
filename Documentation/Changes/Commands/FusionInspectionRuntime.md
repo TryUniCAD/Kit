@@ -13,7 +13,7 @@ The Fusion compatibility job covers successful extraction and native inspection 
 At `bd2812cf`, [workflow-quality run 43649929499](https://github.com/TryUniCAD/Kit/actions/runs/43649929499) passed its Python 3.11 process step.
 Python 3.14 success evidence and final-head readiness remain recorded in PR #94 comments.
 The first Python 3.14 run exposed invalid directory compression in the new fixture; file members now use method 93 while directories remain stored.
-See [the directory-compression gotcha](../../Gotchas/Conversion/Fusion/ZstandardDirectories.md).
+See [the directory-compression gotcha](../../Gotchas/Conversion/Fusion/Archive/ZstandardDirectories.md).
 No local tests were run.
 
 See [the command guide](../../Tasks/CommandLine.md) and [the runtime gotcha](../../Gotchas/Conversion/FusionInspectionRuntime.md).

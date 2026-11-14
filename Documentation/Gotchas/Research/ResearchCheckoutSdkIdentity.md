@@ -8,5 +8,6 @@ The launcher replaces its process with the selected checkout script in a fresh i
 Those scripts explicitly load their own checkout's `src/` tree.
 The wrapper forwards arguments and artifacts rather than importing research modules or rebuilding receipts.
 Remote cases compare direct and CLI artifacts byte for byte on the selected checkout.
-Cross-checkout execution is supported by this process boundary; separate cross-checkout runtime evidence remains unavailable.
+The standalone compatibility suite uses the installed CLI and a separately pinned research checkout, checking receipt revision and SDK-source digest.
+Its accepted-head remote result is required before claiming verified cross-checkout compatibility.
 See [the research CLI](../../Tasks/ResearchCommandLine.md).

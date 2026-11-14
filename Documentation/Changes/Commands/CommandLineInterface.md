@@ -15,10 +15,12 @@ The CLI uses standard-library argument parsing and introduces no runtime depende
 4. Expose neutral, container, and typed native decoding through `kit decode`.
 5. Protect source files and stage developer JSON output before publication.
 6. Verify installed commands and actual file boundaries in remote CI.
+7. Delegate pinned decoding and orchestration to PR #94's selected checkout through `kit research`.
 
 The conversion report distinguishes writer evidence from target-application acceptance.
 It includes transfer representations, usability claims, dropped capabilities, external requirements, and diagnostics.
 Existing SDK defaults and adapter qualification boundaries remain unchanged.
+The CLI additionally refuses explicit opaque feature/geometry records and unqualified research metadata before invoking a writer.
 
 The neutral decode view wraps `CadDocument` JSON from any registered reader in a development report.
 Its explicit report identity prevents accidental reuse as an accepted interchange document.
@@ -30,7 +32,7 @@ These development views do not establish editable conversion coverage.
 ## Usage and limits
 
 Follow [the command-line procedure](../../Tasks/CommandLine.md) for installation, examples, recovery, and exit statuses.
-Use `kit formats`, `kit convert input.SLDPRT output.json`, or `kit decode input.f3d --layer native`.
+Use `kit formats`, `kit convert input.f3d output.json`, or `kit decode input.f3d --layer native`.
 `--json` selects machine-readable conversion and discovery reports.
 `-o` selects a decode output file; otherwise decoding writes JSON to standard output.
 
@@ -58,10 +60,11 @@ Source inspection verified public option mapping, format discovery, static nativ
 Pinned Black, Pyright, and Mypy checks cover the new source and process coverage.
 No local tests or command smoke tests were run, as required by repository policy.
 
-New remote process cases cover the installed console command, module execution, adapter discovery, SOLIDWORKS-to-JSON conversion, and Fusion/JSON native round trips.
+New remote process cases cover the installed console command, module execution, adapter discovery, explicit opaque SOLIDWORKS refusal, and supported Fusion/JSON native round trips.
 They also cover container inventory and stream bytes, native records, partial reading, invalid arguments, malformed files, source aliases, existing outputs, and input limits.
 Review regression cases cover home-relative aliases, umask and replacement permissions, assembly labels, pre-inflation bounds, and rejection of partial development reports as conversion inputs.
 Wheel metadata checks verify both console and SDK plugin entry points.
 The existing Fusion compatibility job runs the new process cases; complete acceptance remains deferred to the merge-group candidate.
 Remote execution results and current-head review evidence are recorded in the PR.
 No new vendor-application acceptance is claimed by this CLI change.
+See [the deterministic compatibility record](DeterministicCliCompatibility.md) and root [agent instructions](../../../AGENTS.md) for the separate PR #94 checkout and reproducible CLI commands.
