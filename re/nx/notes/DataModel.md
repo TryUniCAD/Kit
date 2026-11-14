@@ -138,6 +138,13 @@ Truncating the feature-history middle to its product record fails with
 (code 580114). The middle therefore carries class-ordinal references that must
 match the class lane exactly; it cannot be replaced by a minimal product record.
 
+Product-text edits work only at constant length. Replacing the feature-history
+product text with a four-byte longer string fails with `Internal error:
+Non-specific OM error` (580504); shifting the visible control words by the same
+delta changes the failure to `The end of an OM file was reached unexpectedly`
+(580066). The record lane has additional length and offset fields that must be
+recomputed together.
+
 Changing only the saved part name in the section headers fails with
 `Corrupt data found when loading an OM file` (code 580044), so the name is
 cross-referenced from another record lane. The middle and record areas are still
