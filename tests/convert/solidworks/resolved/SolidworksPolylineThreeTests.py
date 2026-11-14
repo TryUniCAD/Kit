@@ -32,6 +32,7 @@ from convert.adapters.solidworks.programs.resolved.polyline.threepoint.Registry 
     KFieldOwners,
     KResolvedOps,
 )
+from interchange import Vector3 as VectorThree
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumValues import ParameterRole, ValueKind
 from interchange.features.FeatureExtrude import ExtrudeFeature
@@ -198,6 +199,95 @@ def TestTriPrecise(TmpPath: FilePath) -> None:
             FirstResolved[OffsetPos : OffsetPos + 8]
             == SecondResolved[OffsetPos : OffsetPos + 8]
         )
+
+
+def TestDirection(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    FeatureData = SourceDoc.feature_timeline[0]
+    assert isinstance(FeatureData.definition, ExtrudeFeature)
+    FeatureData = ReplaceData(
+        FeatureData,
+        definition=ReplaceData(
+            FeatureData.definition, direction=VectorThree(0.0, 0.0, 2.0)
+        ),
+    )
+    Changed = ReplaceData(SourceDoc, feature_timeline=(FeatureData,))
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(Changed, TmpPath / "DirectionLoss.SLDPRT")
+
+
+def TestPadValue(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    Changed = ReplaceData(
+        SourceDoc,
+        parameters=tuple(
+            (
+                ReplaceData(
+                    ParamData,
+                    value=ParameterValue(0.0, ValueKind.NUMBER, ""),
+                )
+                if ParamData.attributes.get("freecad_path") == "FuzzyTolerance"
+                else ParamData
+            )
+            for ParamData in SourceDoc.parameters
+        ),
+    )
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(Changed, TmpPath / "PadValueLoss.SLDPRT")
+
+
+def TestFivePrecise(TmpPath: FilePath) -> None:
+    Points = (
+        (0.1234567890123, 0.0),
+        (35.0, 0.0),
+        (42.0, 17.0),
+        (19.0, 32.0),
+        (-5.0, 14.0),
+    )
+    FirstPath = TmpPath / "FivePrecise.SLDPRT"
+    SecondPath = TmpPath / "FivePreciseAgain.SLDPRT"
+    _ = WriteDoc(BuildDocument(Points, Depth=9.0), FirstPath, allow_carrier=False)
+    FirstArchive = SldprtArchive.open(FirstPath)
+    FirstRead = ReadNativePart(
+        SldprtAdapter(),
+        FirstArchive,
+        FirstPath.read_bytes(),
+        str(FirstPath),
+        ReadOptions(include_brep=False),
+    )
+    _ = WriteDoc(FirstRead, SecondPath)
+    SecondArchive = SldprtArchive.open(SecondPath)
+    SecondRead = ReadNativePart(
+        SldprtAdapter(),
+        SecondArchive,
+        SecondPath.read_bytes(),
+        str(SecondPath),
+        ReadOptions(include_brep=False),
+    )
+    FirstEdges = tuple(
+        (
+            Geometry.start.x,
+            Geometry.start.y,
+            Geometry.end.x,
+            Geometry.end.y,
+        )
+        for Geometry in (Entity.geometry for Entity in FirstRead.sketches[0].entities)
+        if isinstance(Geometry, LineGeometry)
+    )
+    SecondEdges = tuple(
+        (
+            Geometry.start.x,
+            Geometry.start.y,
+            Geometry.end.x,
+            Geometry.end.y,
+        )
+        for Geometry in (Entity.geometry for Entity in SecondRead.sketches[0].entities)
+        if isinstance(Geometry, LineGeometry)
+    )
+    assert len(FirstEdges) == 5
+    assert FirstEdges == SecondEdges
 
 
 def TestTriExtra(TmpPath: FilePath) -> None:
