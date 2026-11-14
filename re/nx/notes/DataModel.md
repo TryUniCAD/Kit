@@ -83,8 +83,24 @@ allocation request in Storage Manager` (code 902), and zeroing the header
 counts fails with `Found bad saved pointer value in file` (code 580143). The
 registry and record content is therefore required even for an empty part.
 
-Current status: the encoder is not implemented. No from-scratch part has been
-loaded in NX, and the writer still requires a retained SPLMSSTR payload. A section begins with an optional `c0 d1 f1 ed`
+A research encoder now exists in `re/nx/tools/OmSection.py`. It parses and emits
+each section as: 0x56-byte header, reference count byte, reference declarations
+(`len=name+1, name, code`), the `0x01` terminator, class declarations with the
+commodity tail (storage token, base token, eight-byte schema fingerprint,
+reference token), the opaque middle lane, the record area, and the 12-byte
+digest. Re-encoding all four sections of `empty.prt` reproduces the
+`UG_PART` payload byte for byte, and a container built from the re-encoded
+payload with placeholder auxiliary streams and recomputed seals loads in NX 2506
+(`encoded_empty.prt`, `unloaded 0`).
+
+Changing only the saved part name in the section headers fails with
+`Corrupt data found when loading an OM file` (code 580044), so the name is
+cross-referenced from another record lane. The middle and record areas are still
+opaque and must be decoded before a section can be authored from neutral data.
+
+Current status: the encoder is not complete for authoring. No from-scratch part
+has been loaded in NX, and the writer still requires a retained SPLMSSTR
+payload. A section begins with an optional `c0 d1 f1 ed`
 separator, `ff ff ff ff`, four zero bytes, a big-endian payload size, and the
 `OM 01 01` signature. Section bodies contain the NX object-model class
 registry, attribute registry, object records, feature history, expression
