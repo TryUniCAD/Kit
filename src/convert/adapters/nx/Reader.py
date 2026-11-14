@@ -9,10 +9,11 @@ import xml.etree.ElementTree as XmlTree  # noqa: DUO107
 from convert.adapters.base.ContractTypes import KSourceType
 from convert.adapters.base.ProbeResult import ProbeResult
 from convert.adapters.base.ReadOptions import ReadOptions
-from convert.adapters.nx.Compound import CompoundFile
+from convert.adapters.nx.CompoundReader import ReadCompound, ReadStreams
 from convert.adapters.nx.Format import KInfoValue
 from convert.adapters.nx.Payload import NxPayload
-from convert.adapters.nx.Splm import SplmFile
+from convert.adapters.nx.PayloadReader import ReadPayload
+from convert.adapters.nx.SplmReader import ReadSplm, SplmStreams
 from convert.geometry.Parasolid import DecodeBrepMut
 from interchange import (
     Body as BodyRecord,
@@ -76,11 +77,11 @@ def ProbeNx(Source: KSourceType) -> ProbeResult:
     try:
         DataValue, _ = ReadSource(Source)
         if DataValue.startswith(b"SPLMSSTR"):
-            _ = SplmFile(DataValue)
+            _ = ReadSplm(DataValue)
             return ProbeResult(KFormatId, 1.0, "SPLMSSTR native NX container")
         if DataValue.startswith(bytes.fromhex("d0cf11e0a1b11ae1")):
-            Compound = CompoundFile(DataValue)
-            Paths = {Stream.path for Stream in Compound.Streams()}
+            Compound = ReadCompound(DataValue)
+            Paths = {Stream.path for Stream in ReadStreams(Compound)}
             if any(PathValue.endswith("UG_PART/UG_PART") for PathValue in Paths):
                 return ProbeResult(KFormatId, 1.0, "compound NX container")
         return ProbeResult(KFormatId, 0.0, "not an NX part container")
@@ -92,16 +93,20 @@ def ProbeNx(Source: KSourceType) -> ProbeResult:
 def ReadNx(Source: KSourceType, Options: ReadOptions | None = None) -> CadDoc:
     Settings = Options or ReadOptions()
     DataValue, Label = ReadSource(Source)
-    _Container, Streams, ContainerName = OpenContainer(DataValue)
+    ContainerData = OpenContainer(DataValue)
+    Streams = ContainerData[1]
+    ContainerName = ContainerData[2]
     PartData = Streams.get("UG_PART/UG_PART")
     if PartData is None:
         PartData = Streams.get("/Root/UG_PART/UG_PART")
     if PartData is None:
         raise ValueError("NX part has no UG_PART payload")
-    Payload = NxPayload(PartData)
+    Payload = ReadPayload(PartData)
     Attributes = ParseAttributes(Streams)
     References = ParseReferences(Streams)
-    BrepValue, _Bodies, Payloads = DecodeGeometry(Payload, Settings)
+    Geometry = DecodeGeometry(Payload, Settings)
+    BrepValue = Geometry[0]
+    Payloads = Geometry[2]
     Feature = MakeNativeStep(Payload, PartData)
     BodyRecords = MakeBodies(BrepValue, Feature.id)
     if BrepValue is not None:
@@ -188,14 +193,14 @@ def ReadNx(Source: KSourceType, Options: ReadOptions | None = None) -> CadDoc:
 # container opening normalizes both nx envelopes into one stream map
 def OpenContainer(DataValue: bytes) -> tuple[object, dict[str, bytes], str]:
     if DataValue.startswith(b"SPLMSSTR"):
-        Splm = SplmFile(DataValue)
+        SplmValue = ReadSplm(DataValue)
         Streams = {
             PathValue.removeprefix("/Root/"): Value
-            for PathValue, Value in Splm.Streams()
+            for PathValue, Value in SplmStreams(SplmValue)
         }
-        return (Splm, Streams, "SPLMSSTR")
-    Compound = CompoundFile(DataValue)
-    Streams = {Stream.path: Stream.data for Stream in Compound.Streams()}
+        return (SplmValue, Streams, "SPLMSSTR")
+    Compound = ReadCompound(DataValue)
+    Streams = {Stream.path: Stream.data for Stream in ReadStreams(Compound)}
     return (Compound, Streams, "compound")
 
 
@@ -205,11 +210,11 @@ def ParseAttributes(Streams: dict[str, bytes]) -> dict[str, str]:
     if not DataValue:
         return {}
     try:
-        Root = XmlTree.fromstring(DataValue)
+        RootValue = XmlTree.fromstring(DataValue)
     except XmlTree.ParseError:
         return {}
     Output: dict[str, str] = {}
-    for Element in Root.iter("Attribute"):
+    for Element in RootValue.iter("Attribute"):
         Title = Element.get("utf8title") or Element.get("title")
         Value = Element.get("utf8value") or Element.get("value")
         if Title and Value is not None:

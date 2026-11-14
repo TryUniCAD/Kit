@@ -8,18 +8,18 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.nx.Format import KInfoValue
 from convert.adapters.nx.Reader import ProbeNx, ReadNx
-from convert.adapters.nx.Writer import SupportsNx, WriteNx
+from convert.adapters.nx.Writer import CanSupportNx, WriteNx
 from interchange.document.models.DocumentModel import CadDocument
 
 
 # the nx adapter exposes one native reader and one native container writer
 class NxAdapter:
+
     # registry discovery needs metadata before any source is opened
     @property
     def Info(self) -> AdapterInfo:
         return KInfoValue
 
-    # lowercase metadata keeps the public adapter protocol stable
     info = Info
 
     # probing ranks native nx containers without decoding geometry
@@ -44,7 +44,7 @@ class NxAdapter:
 
     # writing accepts only documents that retain an nx native container
     def Supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
-        return SupportsNx(DocValue, Target)
+        return CanSupportNx(DocValue, Target)
 
     # lowercase support keeps the public adapter protocol stable
     def supports(self, document: CadDocument, destination: KTargetType) -> bool:

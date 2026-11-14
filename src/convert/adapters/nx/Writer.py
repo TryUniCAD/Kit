@@ -8,10 +8,10 @@ from convert.adapters.base.ContractTypes import IsBinaryTarget, KTargetType
 from convert.adapters.base.TransferContract import CapTransfer, TransferMode
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
-from convert.adapters.nx.Compound import CompoundFile
+from convert.adapters.nx.CompoundReader import ReadCompound, ReadStreams
 from convert.adapters.nx.Format import KInfoValue
-from convert.adapters.nx.Payload import NxPayload
-from convert.adapters.nx.Splm import SplmFile
+from convert.adapters.nx.PayloadReader import ReadPayload
+from convert.adapters.nx.SplmReader import ReadSplm, RebuildSplm, SplmStreams
 from interchange import (
     BrepPayload,
     CadDocument as CadDoc,
@@ -33,7 +33,7 @@ KPartSuffix = ".prt"
 
 
 # support accepts only native nx documents with one retained source container
-def SupportsNx(DocValue: CadDoc, Target: KTargetType) -> bool:
+def CanSupportNx(DocValue: CadDoc, Target: KTargetType) -> bool:
     if isinstance(Target, (str, FilePath)):
         if FilePath(Target).suffix.casefold() != KPartSuffix:
             return False
@@ -70,7 +70,7 @@ def WriteNx(
     DataValue = RebuildNative(Payload.data, Overrides)
     CheckOutput(DataValue, Payload.data)
     CheckHeader(Payload.data, DataValue)
-    PathValue = WriteBytes(Target, DataValue, Settings.overwrite)
+    PathValue = WriteBytesMut(Target, DataValue, Settings.overwrite)
     Requirements = (
         ("referenced NX component files",)
         if DocValue.metadata.get("nx.external_references")
@@ -126,7 +126,7 @@ def WriteNx(
 
 # container rebuilding recomputes the modern directory from parsed streams
 def RebuildNative(DataValue: bytes, Overrides: dict[str, bytes]) -> bytes:
-    return SplmFile(DataValue).Rebuild(Overrides)
+    return RebuildSplm(ReadSplm(DataValue), Overrides)
 
 
 # attribute overrides replace equal length values so the native header stays valid
@@ -137,10 +137,12 @@ def MakeOverrides(DocValue: CadDoc, DataValue: bytes) -> dict[str, bytes]:
     Streams = (
         {
             PathValue.removeprefix("/Root/"): Value
-            for PathValue, Value in SplmFile(DataValue).Streams()
+            for PathValue, Value in SplmStreams(ReadSplm(DataValue))
         }
         if DataValue.startswith(b"SPLMSSTR")
-        else {Stream.path: Stream.data for Stream in CompoundFile(DataValue).Streams()}
+        else {
+            Stream.path: Stream.data for Stream in ReadStreams(ReadCompound(DataValue))
+        }
     )
     Existing = Streams.get("part/attrs")
     if not Existing:
@@ -153,7 +155,7 @@ def MakeOverrides(DocValue: CadDoc, DataValue: bytes) -> dict[str, bytes]:
             raise ValueError("NX attribute overrides require string names and values")
         Updated = SwapAttribute(Updated, Title, Value)
         if PartData is not None:
-            PartData = SwapNativeAttribute(PartData, Title, Value)
+            PartData = SwapNativeValue(PartData, Title, Value)
     Overrides = {"part/attrs": Updated}
     if PartData is not None:
         Overrides["UG_PART/UG_PART"] = PartData
@@ -192,7 +194,7 @@ def SwapAttribute(DataValue: bytes, Title: str, Value: str) -> bytes:
 
 
 # native object records carry a duplicate attribute value that nx reports
-def SwapNativeAttribute(DataValue: bytes, Title: str, Value: str) -> bytes:
+def SwapNativeValue(DataValue: bytes, Title: str, Value: str) -> bytes:
     TitleBytes = Title.encode("utf-8")
     ValueBytes = Value.encode("utf-8")
     Marker = DataValue.find(TitleBytes + b"\x00")
@@ -209,8 +211,8 @@ def SwapNativeAttribute(DataValue: bytes, Title: str, Value: str) -> bytes:
 def CheckHeader(Source: bytes, Output: bytes) -> None:
     if not Source.startswith(b"SPLMSSTR") or not Output.startswith(b"SPLMSSTR"):
         return
-    Original = SplmFile(Source)
-    Updated = SplmFile(Output)
+    Original = ReadSplm(Source)
+    Updated = ReadSplm(Output)
     if Original.header_trailer != Updated.header_trailer:
         raise ValueError("NX header-changing writes require native checksum support")
     OriginalEntries = tuple(
@@ -226,22 +228,22 @@ def CheckHeader(Source: bytes, Output: bytes) -> None:
 # output validation reopens the rebuilt container and checks the part payload
 def CheckOutput(DataValue: bytes, Source: bytes) -> None:
     if DataValue.startswith(b"SPLMSSTR"):
-        Parsed = SplmFile(DataValue)
+        Parsed = ReadSplm(DataValue)
         Streams = {
             PathValue.removeprefix("/Root/"): Value
-            for PathValue, Value in Parsed.Streams()
+            for PathValue, Value in SplmStreams(Parsed)
         }
     else:
-        Parsed = CompoundFile(DataValue)
-        Streams = {Stream.path: Stream.data for Stream in Parsed.Streams()}
+        Parsed = ReadCompound(DataValue)
+        Streams = {Stream.path: Stream.data for Stream in ReadStreams(Parsed)}
     PartData = Streams.get("UG_PART/UG_PART") or Streams.get("Root/UG_PART/UG_PART")
     if PartData is None:
         raise ValueError("rebuilt NX container lost its UG_PART payload")
-    _ = NxPayload(PartData)
+    _ = ReadPayload(PartData)
 
 
 # byte destinations keep the same short write protection as other adapters
-def WriteBytes(
+def WriteBytesMut(
     Target: KTargetType, DataValue: bytes, Overwrite: bool
 ) -> FilePath | None:
     if isinstance(Target, (str, FilePath)):
