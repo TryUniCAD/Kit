@@ -78,6 +78,22 @@ values unchanged (40.0, 30.0, 20.0) but positions moved
 The same values sit in different slots after a rename, so the arrangement follows the
 **name**, not the value.
 
+A further measurement separates the two candidates:
+
+```text
+dim40        p0=40 p1=30 p2=20   ---- ---- ---- ---- ---- ---- ---- ---- 5064 ---- ---- 5054 505e 505e 5064
+dim50        p0=50 p1=30 p2=20   ---- ---- ---- ---- ---- ---- ---- ---- 5069 ---- ---- 5054 505e 505e 5069
+dim60        p0=60 p1=30 p2=20   ---- ---- ---- ---- ---- ---- ---- ---- 506e ---- ---- 5054 505e 505e 506e
+var_formula  p0=40 p1=20 p2=20   5054 5054 ---- 5064 ---- ---- ---- ---- 5054 ---- ---- ---- 5064 ---- ----
+```
+
+`dim40`, `dim50` and `dim60` share names and differ in `p0`'s value, and their positions are
+identical. `var_formula` shares the same three names but has `p1 = p0/2`, so `p1` and `p2`
+hold the same value, and its positions are completely different. So placement is not a
+function of the name alone, and not of the value alone: it changes when two expressions
+come to hold equal values, which is what the five slots for three expressions keeps
+pointing at.
+
 Standard hashes were tested against the measured positions and none reproduces them:
 
 ```text
