@@ -145,6 +145,11 @@ delta changes the failure to `The end of an OM file was reached unexpectedly`
 (580066). The record lane has additional length and offset fields that must be
 recomputed together.
 
+Removing any one of the four sections from `empty.prt` and rebuilding the index
+fails in NX 2506: without section 0 `580014`, without section 1 a memory access
+violation (`11`), without section 2 `641001`, without section 3 `580027`. All
+four sections and their full class tables are required even for an empty part.
+
 Changing only the saved part name in the section headers fails with
 `Corrupt data found when loading an OM file` (code 580044), so the name is
 cross-referenced from another record lane. The middle and record areas are still
