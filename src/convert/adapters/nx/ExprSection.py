@@ -1,5 +1,7 @@
 from __future__ import annotations as Annotations
 
+from convert.adapters.nx.ObjectSection import ValueWord
+
 import struct as Struct
 
 # a part without expressions carries one fixed expression section middle
@@ -42,6 +44,17 @@ def SlotObject(Handle: int) -> bytes:
     if not 0 <= Handle <= 0xFFFFFF:
         raise ValueError("NX slot handle must fit three bytes")
     return KSlotHead + KSlotFlags + Handle.to_bytes(3, "little") + b"\xff"
+
+
+# a value slot carries the expression value in a four byte word instead of a handle
+def ValueSlot(Value: float) -> bytes:
+    return KSlotHead + KSlotFlags + ValueWord(Value) + bytes(2) + b"\xff"
+
+
+def ReadValueSlot(Object: bytes) -> int:
+    if len(Object) != 21 or not Object.startswith(KSlotHead):
+        raise ValueError("NX value slot has no known frame")
+    return int.from_bytes(Object[14:16], "little")
 
 
 def ReadSlotHandle(Object: bytes) -> int:
@@ -126,7 +139,9 @@ __all__ = [
     "Adopt",
     "ExprObjectCount",
     "ReadSlotHandle",
+    "ReadValueSlot",
     "SlotObject",
+    "ValueSlot",
     "ExprMiddle",
     "KMiddleLength",
     "KObjects",

@@ -37,9 +37,34 @@ five flags and the handle are free.
 `TestNxSlotObject` checks the layout, the handle read, both handle guards and the short
 object guard.
 
+## The 21 byte value slot
+
+The same frame with the expression value in place of the handle, and three bytes shorter
+padding:
+
+```text
+02 02 00 00 ff 00 00 21    fixed frame
+01 01 01 01 01 00          five flags and a zero
+50 64 00 00                value word: the expression handle and two zero bytes
+00 00 ff                   padding and terminator
+```
+
+`ValueSlot(Value)` builds one and `ReadValueSlot` returns its handle. Every 21 byte slot in
+three fixtures is reproduced from the value its handle encodes:
+
+```text
+dim40.prt        5 value slots   5 reproduced
+const_box60.prt  5 value slots   5 reproduced
+var_two.prt     11 value slots  11 reproduced
+```
+
+so a block part's section 2 is now fully described at object level: `6 + 6n` objects made
+of the six fixed ones, `n` value slots carrying the dimension values, `4n` further slots,
+and `n` records.
+
 ## Limits
 
-- The 21 byte slots in the same section are not handled: `ReadSlotHandle` accepts only the
-  18 byte form, so those five objects per block part are still source-carried.
+- The 18 byte slots carry a handle whose low value (zero or `0x100`) is not yet decoded,
+  so their contents are reproduced only through the handle read out of them.
 - Nothing emits a whole expression section yet; this is one object of the `6 + 6n`
   inventory.

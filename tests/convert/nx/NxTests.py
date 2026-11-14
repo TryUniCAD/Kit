@@ -15,7 +15,9 @@ from convert.adapters.nx.ExprSection import (
     ExprMiddle,
     ExprObjectCount,
     ReadSlotHandle,
+    ReadValueSlot,
     SlotObject,
+    ValueSlot,
     KMiddleLength as KExprMiddle,
 )
 from convert.adapters.nx.ObjectSection import (
@@ -905,3 +907,17 @@ def TestNxSlot() -> None:
     except ValueError:
         return
     raise AssertionError("slot reader accepted a short object")
+
+
+# a value slot carries the expression value instead of a handle
+def TestNxValueSlot() -> None:
+    Object = ValueSlot(40.0)
+    assert len(Object) == 21
+    assert Object[14:18] == bytes.fromhex("50640000")
+    assert Object[-1] == 0xFF
+    assert ReadValueSlot(Object) == 0x6450
+    try:
+        _ = ReadValueSlot(Object[:18])
+    except ValueError:
+        return
+    raise AssertionError("value slot reader accepted an 18 byte object")
