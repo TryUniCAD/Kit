@@ -23,8 +23,8 @@ The [standards scope](Documentation/Standards/Scope.md) identifies the writing r
 
 | Format               | Suffixes                  | Registration      |
 | -------------------- | ------------------------- | ----------------- |
-| SOLIDWORKS part      | `.SLDPRT`                 | Reader and writer |
-| SOLIDWORKS assembly  | `.SLDASM`                 | Reader and writer |
+| SOLIDWORKS part      | `.SLDPRT`                 | Reader            |
+| SOLIDWORKS assembly  | `.SLDASM`                 | Reader            |
 | FreeCAD              | `.FCStd`                  | Reader and writer |
 | CATIA V5             | `.CATPart`, `.CATProduct` | Reader and writer |
 | PTC Creo part        | `.prt`                    | Reader and writer |
@@ -35,6 +35,7 @@ Registration does not establish complete feature coverage or lossless translatio
 Native replay and carrier preservation have different meanings from editable cross-format output.
 Check the format reference and result for each input.
 The PTC Creo writer is source replay only: it re-emits retained source bytes and does not author a new PSB model.
+SOLIDWORKS output is unavailable until a generative serializer replaces the removed recorded-payload writer.
 The [Fusion public adapter](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md) reads and writes qualified parameter, circle, rectangle, cylinder, cuboid, and frustum documents. Arbitrary feature graphs remain unsupported; `strict=False` explicitly selects the earlier partial reader.
 
 ## Conversion example
