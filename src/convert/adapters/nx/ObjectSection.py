@@ -707,7 +707,7 @@ KNestEnd = b"\x02\x02"
 def ReadNesting(Record: bytes) -> tuple[tuple[int, int], ...]:
     if not Record.startswith(KSmallFrame) or not Record.endswith(KNestEnd):
         raise ValueError("NX nesting record has no known frame")
-    Segments = []
+    Segments: list[tuple[int, int]] = []
     Position = len(KSmallFrame)
     while Position < len(Record) - len(KNestEnd):
         SegmentHead = Record[Position]
