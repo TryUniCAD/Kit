@@ -576,6 +576,34 @@ aligned authored body vs decoded body   3393 bytes each, 586 differing bytes
                                         VOLUME 0.0
 ```
 
+### The block construction template does not depend on dimensions
+
+A block made through a different creation path (`CreateDiagBlock.py`, two
+diagonal points) gives a controlled comparison against the origin-and-lengths
+block:
+
+```text
+dim40 vs dim50      sizes identical           5 bytes differ, all inside the head identity
+dim40 vs var_diag   sizes 169 -> 170, 231 -> 237   99 bytes over five objects
+```
+
+So changing the block's length changes nothing in the construction section: the
+dimension values live in section 0 and section 4, not here. Two sessions making
+the same 40 x 30 x 20 block differ only in identity and in regenerated ids:
+
+```text
+object  0  head            7 bytes   identity
+object 20  BLOCK_PARMS    64 bytes   ids and the diagonal form
+object 22  descriptor      1 byte    object index
+object 23  entry           2 bytes   object index
+object 43  tail          231 -> 237  ids
+```
+
+That is the enabling fact for emission: the per-body block template is a fixed
+layout of forty one objects, and the only per document values are the seven byte
+identity plus internal object ids, which `src` already emits as arbitrary values
+for sections 1 (body less) and 3.
+
 ### Per body and document level objects separate cleanly
 
 Comparing `var_two` (two blocks, 85 objects) with `dim40` (one block, 44) splits
