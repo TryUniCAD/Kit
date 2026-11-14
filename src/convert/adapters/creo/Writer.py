@@ -5,7 +5,6 @@ import os as OsModule
 from pathlib import Path as FilePath
 from types import MappingProxyType
 
-from interchange.document.models.DocumentCaps import InferCaps
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumDocument import Severity
 from interchange.records.RecordDiagnostic import Diagnostic
