@@ -1,8 +1,6 @@
 from __future__ import annotations
 
-import struct
 import sys
-from dataclasses import replace
 from pathlib import Path as FilePath
 
 sys.path.insert(0, str(FilePath(__file__).parent))
@@ -12,47 +10,24 @@ from GeoSwap import ReplaceGeometry
 
 from convert.adapters.nx.PayloadReader import ReadPayload
 from convert.adapters.nx.SplmReader import ReadSplm, RebuildSplm, SplmStreams
-from convert.geometry.Parasolid import DecodeBrepMut, EncodeBrepModel
-from interchange.geometry.models.VectorSpace import SpaceVector
+from convert.geometry.Extrude.Polygon.PolygonExtrude import BuildPrism
+from convert.geometry.Parasolid import EncodeBrepModel
+from interchange.geometry.models.GeometryCurves import LineGeometry
+from interchange.geometry.models.Transform import Transform
+from interchange.geometry.models.VectorPlane import PlaneVector
 
 
-def ScaleModel(Model, Factors: tuple[float, float, float]):
-    X, Y, Z = Factors
-
-    def Point(Value):
-        return SpaceVector(Value.x * X, Value.y * Y, Value.z * Z)
-
-    Vertices = [replace(Item, point=Point(Item.point)) for Item in Model.vertices]
-    Surfaces = [
-        replace(Item, origin=Point(Item.origin)) if hasattr(Item, "origin") else Item
-        for Item in Model.surfaces
-    ]
-    Curves = [
-        replace(Item, origin=Point(Item.origin)) if hasattr(Item, "origin") else Item
-        for Item in Model.curves
-    ]
-    Edges = [
-        replace(
-            Item,
-            start_parameter=(
-                Item.start_parameter * X if Item.start_parameter is not None else None
-            ),
-            end_parameter=(
-                Item.end_parameter * X if Item.end_parameter is not None else None
-            ),
-        )
-        for Item in Model.edges
-    ]
-    return replace(
-        Model, vertices=Vertices, surfaces=Surfaces, curves=Curves, edges=Edges
+def BoxBody(Length: float, Width: float, Height: float):
+    Points = (
+        PlaneVector(0.0, 0.0),
+        PlaneVector(Length, 0.0),
+        PlaneVector(Length, Width),
+        PlaneVector(0.0, Width),
     )
-
-
-def Bounds(Model) -> tuple[float, float, float]:
-    Xs = [Vertex.point.x for Vertex in Model.vertices]
-    Ys = [Vertex.point.y for Vertex in Model.vertices]
-    Zs = [Vertex.point.z for Vertex in Model.vertices]
-    return (max(Xs) - min(Xs), max(Ys) - min(Ys), max(Zs) - min(Zs))
+    Lines = tuple(
+        LineGeometry(Points[Index], Points[(Index + 1) % 4]) for Index in range(4)
+    )
+    return BuildPrism("box", Transform(), Lines, 0.0, Height)
 
 
 def DimensionLanes(Payload: bytes, Old: float, New: float) -> bytes:
@@ -60,49 +35,66 @@ def DimensionLanes(Payload: bytes, Old: float, New: float) -> bytes:
         return Payload
     OldHandle = Encode(Old).to_bytes(2, "little")
     NewHandle = Encode(New).to_bytes(2, "little")
-    OldText = repr(float(Old)).encode()
-    NewText = repr(float(New)).encode()
-    Out = bytearray(Payload)
+    Output = bytearray(Payload)
     Cursor = 0
     while True:
-        At = Out.find(b"\x00" + OldHandle + b"\x00\x00\xf0\x00", Cursor)
+        At = Output.find(b"\x00" + OldHandle + b"\x00\x00\xf0\x00", Cursor)
         if At < 0:
             break
-        Out[At + 1 : At + 3] = NewHandle
+        Output[At + 1 : At + 3] = NewHandle
         Cursor = At + 3
-    At = Out.find(b"p0: " + OldText)
+    OldText = repr(float(Old)).encode("ascii")
+    NewText = repr(float(New)).encode("ascii")
+    At = Output.find(b"p0: " + OldText)
     if At >= 0:
-        Out[At + 4 : At + 4 + len(OldText)] = NewText
-    return bytes(Out)
+        Output[At + 4 : At + 4 + len(OldText)] = NewText
+    return bytes(Output)
 
 
-def AuthorBox(Source: bytes, Length: float) -> bytes:
+def AuthorBox(
+    Source: bytes, Length: float, Width: float, Height: float, SourceLength: float
+) -> bytes:
     Parsed = ReadSplm(Source)
     Streams = dict(SplmStreams(Parsed))
     Payload = Streams["/Root/UG_PART/UG_PART"]
-    Stream = ReadPayload(Payload).streams[0]
-    Model = DecodeBrepMut(Stream.inflated)
-    SourceLength = Bounds(Model)[0]
-    if SourceLength <= 0:
-        raise ValueError("source body has no measurable length")
-    Scaled = ScaleModel(Model, (Length / SourceLength, 1.0, 1.0))
-    Encoded = EncodeBrepModel(Scaled, PartValue=False)
+    Model, Volume, AreaValue, _ = BoxBody(Length, Width, Height)
+    Encoded = EncodeBrepModel(Model, PartValue=False)
     Replaced = ReplaceGeometry(Payload, Encoded)
     Replaced = DimensionLanes(Replaced, SourceLength, Length)
     Check = ReadPayload(Replaced)
     if Check.streams[0].inflated != Encoded:
         raise AssertionError("authored geometry did not survive the payload splice")
-    print("source length", SourceLength, "authored length", Length, "encoded", len(Encoded))
+    print(
+        "authored box",
+        Length,
+        Width,
+        Height,
+        "volume",
+        Volume,
+        "area",
+        AreaValue,
+        "encoded",
+        len(Encoded),
+    )
     return RebuildSplm(Parsed, {"/Root/UG_PART/UG_PART": Replaced})
 
 
 def Main(ArgValues: list[str]) -> int:
-    if len(ArgValues) != 3:
-        print("usage: GeoAuthor.py <source.prt> <length_mm> <target.prt>")
+    if len(ArgValues) != 6:
+        print(
+            "usage: GeoAuthor.py <source.prt> <length> <width> <height>"
+            " <source_length> <target.prt>"
+        )
         return 2
-    Data = AuthorBox(FilePath(ArgValues[0]).read_bytes(), float(ArgValues[1]))
-    FilePath(ArgValues[2]).write_bytes(Data)
-    print("wrote", ArgValues[2], len(Data))
+    Data = AuthorBox(
+        FilePath(ArgValues[0]).read_bytes(),
+        float(ArgValues[1]),
+        float(ArgValues[2]),
+        float(ArgValues[3]),
+        float(ArgValues[4]),
+    )
+    FilePath(ArgValues[5]).write_bytes(Data)
+    print("wrote", ArgValues[5], len(Data))
     return 0
 
 

@@ -576,6 +576,36 @@ aligned authored body vs decoded body   3393 bytes each, 586 differing bytes
                                         VOLUME 0.0
 ```
 
+### Solved: authored solids are measurable
+
+Two conventions were missing, both now emitted by `EncodeBrepModel`:
+
+1. every solid face must wind its outer loop **against** the surface normal
+2. each edge's first fin must start at the coedge whose encoded direction is not
+   reversed, not at the first coedge in topology order
+
+With both, a box built from constants by `BuildPrism` measures correctly:
+
+```text
+60 x 30 x 20   BODIES 1, VOLUME 36000.0, AREA 7199.999999999999, MASS 0.28190304
+40 x 30 x 20   BODIES 1, VOLUME 23999.999999999996, AREA 5200.0
+25 x 30 x 20   BODIES 1, VOLUME 15000.0, AREA 3699.9999999999995
+```
+
+`re/nx/tools/GeoAuthor.py` now builds its body from `BuildPrism` constants and
+splices the encoded stream, so no vertex, surface, curve or edge comes from a
+saved document. Only the container and object-model sections are still a source
+part, which is the remaining from-scratch gap.
+
+Reversing a loop is not simply reversing its coedge list: that disconnects the
+chain and the encoder refuses the model with
+`B-rep loop ... is disconnected or open`. The list has to be reversed and every
+coedge's direction flag flipped together, which reverses the winding while
+keeping the cycle closed.
+
+Sheet bodies are left alone. Orientation is applied only to planar faces of
+solid regions, so a sheet triangle still encodes byte for byte as before.
+
 ### The attribute contract is one field: `parasolid.first_fin`
 
 Stripping attributes one family at a time from a body NX measures gives the
@@ -682,15 +712,12 @@ Entity tolerances are written as `KMissingParam` whenever the tolerance is zero,
 and the decoded model reports zero for every vertex, edge and face, so tolerance
 emission is already identical between working and authored streams.
 
-### What actually differs
+### What actually differed
 
-Both encodings are 3393 bytes, both decode to a closed, correctly oriented six
-face box with every loop on its surface, both carry the same ranks, fins, senses
-and parameterization, and NX still binds no faces for the authored one. After
-ruling out identity, ordering, convention, attributes, tolerances and schema,
-the difference is confined to bytes the decoder cannot name: the surface and
-curve carrier blocks that NX writes and that the encoder only reproduces when it
-has an original to reproduce.
+Both encodings are 3393 bytes and both decode to a closed six face box with
+every loop on its surface, so the visible model looked equivalent. The difference
+that mattered turned out to be two orientation conventions rather than any
+opaque block, and both are described above.
 
 ### Record-level comparison of a working and an authored stream
 
