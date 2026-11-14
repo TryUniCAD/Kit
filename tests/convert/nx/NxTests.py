@@ -678,3 +678,15 @@ def TestNxGrammar() -> None:
         except ValueError:
             continue
         raise AssertionError("record grammar accepted a malformed record")
+
+
+# a neutral document is refused with a message that states the supported scope
+def TestNxNeutral() -> None:
+    Document = ReadNx(SyntheticPart(), ReadOptions(strict=False))
+    try:
+        _ = WriteNx(Document, BytesIo(), WriteOptions())
+    except ValueError as ErrorInfo:
+        assert "retained native NX document" in str(ErrorInfo)
+        assert "not supported" in str(ErrorInfo)
+        return
+    raise AssertionError("a neutral document was accepted for NX writing")

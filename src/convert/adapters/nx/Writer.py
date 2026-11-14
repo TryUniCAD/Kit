@@ -107,7 +107,9 @@ def WriteNx(
     CheckNeutral(DocValue)
     Payload = NativePayload(DocValue)
     if Payload is None or Payload.data is None:
-        raise ValueError("NX writing requires a retained native NX document")
+        raise ValueError(
+            "NX writing requires a retained native NX document; authoring a part from a neutral document is not supported"
+        )
     if not Payload.data.startswith(b"SPLMSSTR"):
         raise ValueError("NX writing requires a modern SPLMSSTR source")
     Overrides = MakeOverrides(DocValue, Payload.data)

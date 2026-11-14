@@ -161,7 +161,32 @@ edge's fin ring at the non-reversed coedge. See
 
 ## Authored sections
 
-`nx.author_sections` regenerates the root object model section from parameters
-and empties the feature record, so those two sections no longer come from the
-source part. Sections 0, 1 and 2 still do. See
-[the authored sections change](../../Changes/Nx/NxAuthorSections.md).
+`nx.author_sections` regenerates the root object model section from parameters,
+empties the feature record, regenerates the construction and expression sections
+for the shapes it understands, and re-emits the decoded root object records with
+Kit-assigned labels. See
+[the authored sections change](../../Changes/Nx/NxAuthorSections.md) and
+[the root object record grammars](../../Changes/Nx/NxObjectGrammar.md).
+
+## Write scope
+
+Writing requires a document that still carries a native NX container. There is no
+path that authors a part from a neutral document, and asking for one raises
+
+```text
+NX writing requires a retained native NX document; authoring a part from a neutral
+document is not supported
+```
+
+What is still taken from the source part:
+
+```text
+root object section   122 of 214 records, all 129 class identifiers, and the head
+                      record of a part that has a body
+expression section    every shape except the six object, no expression shape
+construction section  every shape except the three object one
+```
+
+A part written this way is therefore a rewrite, not a new document: measured over
+`const_box60.prt`, 41930 of 41932 payload bytes are identical to the source. See
+[the write scope change](../../Changes/Nx/NxWriteScope.md).
