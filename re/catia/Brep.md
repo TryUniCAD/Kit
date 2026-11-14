@@ -182,6 +182,23 @@ The trim vector is the surface axis for cylinders, cones, and tori, and the norm
 assignment is not contiguous in trim order, so a single vector match does not identify the
 surface when several surfaces share an axis.
 
+## Per-face table search
+
+`MainDataStream` for `Pedal_Body` was scanned for a 338-entry table of surface or face indices.
+No table exists for any of these encodings:
+
+| Encoding | Limit | Hits |
+| --- | ---: | ---: |
+| `u8` | `< 24` | 0 |
+| `u16` | `< 24` | 0 |
+| `u32` | `< 24` | 0 |
+| `u16` | `< 338` | 0 |
+| `u32` | `< 338` | 0 |
+
+The head region `0..29364` has a longest plausible `f32` run of 64 (little-endian) or 90
+(big-endian), far short of the 2666 tessellation points. The `SurfacicReps` tail has a longest
+run of 47. The tessellation coordinates are therefore compressed, not plain floats.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
