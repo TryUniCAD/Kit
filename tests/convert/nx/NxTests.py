@@ -177,3 +177,39 @@ def TestNxOverride() -> None:
     Restored = ReadNx(DataValue, ReadOptions(strict=False))
     Attributes = CastValue(dict[str, str], Restored.metadata["nx.attributes"])
     assert Attributes["NX_ReferenceSet"] == "LongerValue"
+
+
+# published xxh32 vectors keep the seal helper independent from the writer
+def TestHashXxh() -> None:
+    assert HashXxh(b"") == 0x02CC5D05
+    assert HashXxh(b"a") == 0x550D7456
+    assert HashXxh(b"abc") == 0x32D153FF
+
+
+# unknown stream overrides must fail instead of disappearing
+def TestNxUnknown() -> None:
+    Document = ReadNx(SyntheticPart(), ReadOptions(strict=False))
+    Changed = Replace(
+        Document,
+        metadata={
+            **Document.metadata,
+            "nx.stream_overrides": {"/Root/part/missing": b"data"},
+        },
+    )
+    try:
+        _ = WriteNx(Changed, BytesIo(), WriteOptions())
+    except ValueError as ErrorInfo:
+        assert "unknown stream" in str(ErrorInfo)
+    else:
+        raise AssertionError("unknown NX stream override was accepted")
+
+
+# empty attribute overrides must not block a valid rewrite
+def TestNxEmpty() -> None:
+    Document = ReadNx(SyntheticPart(), ReadOptions(strict=False))
+    Changed = Replace(
+        Document,
+        metadata={**Document.metadata, "nx.attribute_overrides": {}},
+    )
+    Result = WriteNx(Changed, BytesIo(), WriteOptions())
+    assert Result.vendor_loadable is True

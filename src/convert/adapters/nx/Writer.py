@@ -72,14 +72,19 @@ def FindNeeds(DocValue: CadDoc) -> tuple[str, ...]:
     if not isinstance(References, (tuple, list)):
         return ()
     ReferenceValues = CastValue(tuple[object, ...], References)
-    SourceName = FilePath(DocValue.source.path).name.casefold()
+    SourceName = PathName(DocValue.source.path)
     Others = [
         ReferenceText
         for ReferenceText in ReferenceValues
         if isinstance(ReferenceText, str)
-        and FilePath(ReferenceText).name.casefold() not in ("", SourceName)
+        and PathName(ReferenceText) not in ("", SourceName)
     ]
     return ("referenced NX component files",) if Others else ()
+
+
+# windows references use backslashes so the saved part name needs normalization
+def PathName(ValueText: str) -> str:
+    return ValueText.replace("\\", "/").rsplit("/", 1)[-1].casefold()
 
 
 # reports need a plain flag because metadata values are untyped at the boundary
@@ -173,7 +178,7 @@ def MakeOverrides(DocValue: CadDoc, DataValue: bytes) -> dict[str, bytes]:
         for PathValue, Value in RawOverrides(DocValue).items()
     }
     Requested = DocValue.metadata.get("nx.attribute_overrides")
-    if Requested is None:
+    if Requested is None or not HasEntries(Requested):
         return Overrides
     if not isinstance(Requested, Mapping):
         raise ValueError("NX attribute overrides must be a mapping")
