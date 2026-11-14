@@ -14,10 +14,14 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Converted.FormBody import (
     FormFace,
     FormWindow,
 )
+from convert.formats.Fusion.DocumentCodec.Form.CenteredMass import CenteredMass
 from convert.formats.Fusion.DocumentCodec.Form.EmitFormDoc import EmitFormDoc
+from convert.formats.Fusion.DocumentCodec.Form.FormMass import FormMass
 from convert.formats.Fusion.DocumentCodec.Form.FormSpec import FormSpec
+from convert.formats.Fusion.DocumentCodec.Form.LinkFormBodyMut import IsClosedForm
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from convert.formats.Fusion.TSplineCodec.ReadTspline import ReadTspline
+from tests.convert.formats.FusionCodec.Documents.Form.AnalyticCube import MakeCube
 from tests.convert.formats.FusionCodec.Documents.Form.CapCases import KCapCases
 from tests.convert.formats.FusionCodec.Documents.Form.GeneralCases import (
     KGeneralCases,
@@ -30,7 +34,10 @@ from tests.convert.formats.FusionCodec.Documents.Materials.MaterialFields import
     MaterialFields,
 )
 from tests.convert.formats.FusionCodec.Documents.NamedGroups import NamedGroups
-from tests.convert.formats.FusionCodec.Documents.Rectangle.RectValues import ReadPoint
+from tests.convert.formats.FusionCodec.Documents.Rectangle.RectValues import (
+    ReadPoint,
+    ReadScalar,
+)
 from tests.convert.formats.FusionCodec.Documents.Form.ReadFormFile import (
     ReadFormFile,
 )
@@ -191,15 +198,36 @@ def TestCapDeclFlow(CaseValue: tuple[str, ...]) -> None:
     )
 
 
+def TestCubeMass() -> None:
+    Model = MakeCube()
+    assert (len(Model.PointsCm), len(Model.Edges), len(Model.Faces)) == (8, 12, 6)
+    MassValues = FormMass(Model, IsClosedForm(Model))
+    Center, Diagonal, Products = CenteredMass(MassValues)
+    assert MassValues["area"] == ApproxValue(6.0, rel=1e-8, abs=1e-8)
+    assert MassValues["volume"] == ApproxValue(1.0, rel=1e-8, abs=1e-8)
+    ExpectedCenter = dict.fromkeys(
+        ("x", "y", "z"), ApproxValue(0.5, rel=1e-8, abs=1e-8)
+    )
+    ExpectedDiagonal = dict.fromkeys(
+        ("x", "y", "z"), ApproxValue(2.0 / 3.0, rel=1e-8, abs=1e-8)
+    )
+    ExpectedProducts = dict.fromkeys(
+        ("x", "y", "z"), ApproxValue(-0.25, rel=1e-8, abs=1e-8)
+    )
+    assert Center == ExpectedCenter
+    assert Diagonal == ExpectedDiagonal
+    assert Products == ExpectedProducts
+
+
 @KNeedZip
 def TestShiftMass() -> None:
     BaseCase, ShiftedCase = (
-        next(CaseValue for CaseValue in KCapCases if CaseValue[0] == Name)
-        for Name in ("Box3Same", "Box3ShiftedG2")
+        next(CaseValue for CaseValue in KCapCases if CaseValue[0] == CaseName)
+        for CaseName in ("Box3Same", "Box3ShiftedG2")
     )
     BaseSurface = ReadTspline(ReadFormFile(BaseCase[1], BaseCase[2]))
     ShiftedSurface = ReadTspline(ReadFormFile(ShiftedCase[1], ShiftedCase[2]))
-    Base = ReadDocument(
+    BaseDoc = ReadDocument(
         EmitFormDoc(FormSpec("Kit Box3Same", BaseSurface, ConvertForm(BaseSurface)))
     )
     Shifted = ReadDocument(
@@ -207,7 +235,7 @@ def TestShiftMass() -> None:
             FormSpec("Kit Box3ShiftedG2", ShiftedSurface, ConvertForm(ShiftedSurface))
         )
     )
-    BaseCache = MaterialFields(NamedGroups(Base, "Body")[0]["cache"])
+    BaseCache = MaterialFields(NamedGroups(BaseDoc, "Body")[0]["cache"])
     ShiftedCache = MaterialFields(NamedGroups(Shifted, "Body")[0]["cache"])
     assert BaseCache["area"] == ApproxValue(ShiftedCache["area"], rel=1e-8, abs=1e-8)
     assert BaseCache["volume"] == ApproxValue(
@@ -221,17 +249,17 @@ def TestShiftMass() -> None:
         rel=1e-8,
         abs=1e-8,
     )
-    Moi = ReadPoint(BaseCache["moi"])
+    BaseMoi = ReadPoint(BaseCache["moi"])
     OffDiagonal = ReadPoint(BaseCache["moiOffDiag"])
-    Volume = BaseCache["volume"]
+    Volume = ReadScalar(BaseCache["volume"])
     ExpectedMoi = (
-        Moi[0]
+        BaseMoi[0]
         + Volume
         * (2 * Center[1] * OffsetY + OffsetY**2 + 2 * Center[2] * OffsetZ + OffsetZ**2),
-        Moi[1]
+        BaseMoi[1]
         + Volume
         * (2 * Center[0] * OffsetX + OffsetX**2 + 2 * Center[2] * OffsetZ + OffsetZ**2),
-        Moi[2]
+        BaseMoi[2]
         + Volume
         * (2 * Center[0] * OffsetX + OffsetX**2 + 2 * Center[1] * OffsetY + OffsetY**2),
     )
