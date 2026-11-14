@@ -169,6 +169,8 @@ Fusion refused cages whose faces fold back on themselves. `CheckFolds` samples f
 
 The stored surface of a converted Form face is exact geometry. `t_spl_sur` derives from `exact_spl_sur`, and the kernel refuses a surface without its B-spline data. Fusion 2706.1.17 used a moved stored surface as the face geometry and kept it after `computeAll`. A set `TsSurface.bConversionFailed` flag did not start a conversion. No procedural surface route exists, so a writer must store the exact conversion. The [converted surface gotcha](../../../Gotchas/Conversion/Fusion/TSpline/ConvertedSurfaceIsExact.md) gives the evidence.
 
+The `Body.cache` must derive physical properties from that geometry. [Derived mass caches](FusionFormMassCache.md) replace the earlier zero center with measured area, volume, center, and inertia.
+
 Kit therefore authors only the cages that `ConvertGrid` or `ConvertCage` converts exactly.
 
 | Cage                                                                        | Kit result                                       | Reason                                                                                                       |

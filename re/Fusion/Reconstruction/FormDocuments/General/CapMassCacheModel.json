@@ -1,0 +1,56 @@
+{
+ "scope": "Body.cache for independently emitted Form documents",
+ "wire_owner": "Body.cache",
+ "wire_type": "One MassPropertyCacheValue inherited group",
+ "empty_group_result": {
+  "label": "refuted",
+  "observed": "Fusion entity inherited group count differs from its schema"
+ },
+ "zero_group_result": {
+  "label": "refuted",
+  "observed": "All 10 initial centers were zero before computeAll and produced 30 differences in InitialMassFailure.json"
+ },
+ "integration": {
+  "label": "confirmed",
+  "rule": "Eight-point Gaussian quadrature over every bicubic knot span, followed by divergence-theorem vector moments and centered second moments",
+  "implementation": "src/convert/formats/Fusion/DocumentCodec/Form",
+  "periodic_domain": "The full domain is retained",
+  "nonperiodic_domain": "Every coedge must lie on a complete parameter-space boundary or CheckTrimming raises",
+  "open_surface_domain": "Area only; volume and vector moments are zero"
+ },
+ "fields": {
+  "area": {"class": "derived", "meaning": "Sum of magnitudes of scaled surface cross products", "label": "confirmed"},
+  "areaPrec": {"class": "format metadata", "meaning": "Zero precision value from the established cache schema", "label": "confirmed"},
+  "cog": {"class": "derived", "meaning": "First vector moments divided by nonzero volume", "label": "confirmed"},
+  "inertiaPrec": {"class": "format metadata", "meaning": "Zero precision value from the established cache schema", "label": "confirmed"},
+  "moi": {"class": "derived", "meaning": "Centered second moments about the center of mass", "label": "confirmed"},
+  "moiOffDiag": {"class": "derived", "meaning": "Negated centered cross products", "label": "confirmed"},
+  "revisionGuid": {"class": "bookkeeping", "meaning": "The new AuthorState revision id", "label": "confirmed"},
+  "volume": {"class": "derived", "meaning": "One third of the closed-surface position and normal dot-product integral", "label": "confirmed"},
+  "volumePrec": {"class": "format metadata", "meaning": "Zero precision value from the established cache schema", "label": "confirmed"}
+ },
+ "native_evidence": {
+  "fusion": "2706.1.17",
+  "previous_process": 98846,
+  "accepted_process": 24703,
+  "cases": 10,
+  "comparisons": 290,
+  "problem_count": 0,
+  "dropped": [],
+  "vendor_loadable": true,
+  "application_usable": true,
+  "fresh_process_verified": true,
+  "report": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json"
+ },
+ "declaration_behavior": {
+  "label": "confirmed",
+  "cap_types": "Fusion canonicalizes G0CAPS and G2CAPS to G1CAPS before editing and after reopen",
+  "star_smoothness": "Values 0, 1 and 2 are retained",
+  "kit_before_native_import": "The original SurfaceHeader is retained"
+ },
+ "scrub": {
+  "archives_changed": 2,
+  "typed_models_unchanged": 10,
+  "report": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/ScrubValidation.json"
+ }
+}

@@ -1301,6 +1301,8 @@ The qualified cap and star declarations do not select different cap solvers in F
 The [declaration acceptance report](../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json) compares ten complete document lifecycles.
 Kit preserves each declaration but derives its cap solve from the cage topology and grips.
 New cages keep the `G1CAPS` and zero-star defaults. Other values remain rejection boundaries.
+Fusion canonicalizes G0 and G2 declarations to G1 during its native lifecycle, but preserves the star value.
+The [canonicalization gotcha](../../Gotchas/Conversion/Fusion/TSpline/FusionCanonicalizesCapTypes.md) distinguishes that vendor behavior from Kit emission.
 See the [declaration change](../../Changes/Fusion/TSpline/FusionCapDeclarationProfiles.md).
 
 ### Topology and control points
@@ -1422,6 +1424,22 @@ The cache group, `FusionComponent.rCacheBodies`, owns the surface node and the `
 | Surface node           | `TsSurface.rVSurface` names the node, and the node names the surface               |
 | Converted body         | The node vector names each `Body`, and each `Body` names the node back             |
 | Embedded program       | Every T-spline program in the `.smb` and `.smbh` members equals a TSM member       |
+
+### Form mass cache
+
+The `Body.cache` inherited sequence requires one `MassPropertyCacheValue` group.
+An empty sequence fails the schema, and a zero group gives an incorrect zero center before recompute.
+The [cache gotcha](../../Gotchas/Conversion/Fusion/TSpline/FormMassCacheMustBeDerived.md) preserves that failed measurement.
+
+The group carries area, area precision, center of gravity, inertia precision, three principal inertia fields, three off-diagonal fields, a revision id, volume, and volume precision.
+`FormCache` evaluates each bicubic surface and its derivatives over its knot spans.
+Eight-point Gaussian quadrature and the divergence theorem produce area, volume, first moments, and second moments.
+Centered products produce the inertia and off-diagonal fields.
+Open sheets have zero volumetric properties because they have no enclosed volume.
+Nonperiodic faces must use complete parameter-space boundaries; `CheckTrimming` rejects other faces.
+Periodic surfaces retain their full domains.
+The cache's revision id is the new document revision, not a neutral zero identifier or a saved vendor value.
+The [mass-cache change](../../Changes/Fusion/TSpline/FusionFormMassCache.md) gives the measured initial and edited properties. The [field evidence](../../../re/Fusion/Reconstruction/FormDocuments/General/CapMassCacheModel.json) labels every cache value, its derivation, and its confidence status.
 
 ### Converted BRep grammar
 

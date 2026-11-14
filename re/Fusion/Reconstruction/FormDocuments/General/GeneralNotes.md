@@ -497,9 +497,16 @@ Branch `form-general-rules` (from e4e99c2b5). Research only; nothing here is loa
 
 - PrepareCapVariants.py emits G0CAPS, G1CAPS, G2CAPS and star smoothness 0, 1 and 2 through typed SurfaceHeader replacements on Box3 and held-out HeldPrism5.
 - ConvertCage now relies on CheckSurface, which admits those declarations and rejects unknown values without a second G1-only gate.
-- Local Fusion 2706.1.17 accepted all 10 independently emitted F3D documents through load, computeAll, control-point edit, export and reopen. CapAccept/NativeAcceptance.json records 190 comparisons, zero problems, worst absolute deviation 6.195044477408373e-14 cm and zero open documents before and after.
+- Local Fusion 2706.1.17 accepted all 10 independently emitted F3D documents through load, computeAll, control-point edit, export and reopen. CapAccept/NativeAcceptance.json records 290 comparisons, zero problems, worst absolute deviation 6.195044477408373e-14 cm and zero open documents before and after.
 - The retained Oracle*Converted controls are under CapAccept/Fusion. ScrubSaved changed zero bytes. ScrubValidation.json records ten identical typed models before and after.
 - REA inspected the independent HeldPrism5G2 F3D as a ZIP. ContainerInspection.json binds its preparation digest, 24 occurrences and zero integrity contradictions. This static inventory does not establish runtime semantics.
+- Fusion canonicalizes every G0CAPS and G2CAPS input to G1CAPS before editing and after reopen, while star smoothness remains unchanged. Kit still preserves the supplied declaration before native import; do not attribute the canonical export to a Kit data loss.
+- Refuted: omitting MassPropertyCacheValue as an empty collection fails the inherited schema with Fusion entity inherited group count differs from its schema.
+- The first fresh process 24703 also exposed 30 initial center-of-mass differences across 10 cache variants; Kit loaded all centers as zero before computeAll. InitialMassFailure.json preserves the failed report. Surface integration of the required mass cache is necessary, while the remaining body shapes already match.
+- A graceful restart first reported user cancelled -128, then the bridge closed and application running became false. SessionRecovery.json records the guarded subsequent fresh launch; no forced termination or open-document loss occurred.
+- Resolved: FormCache now evaluates the stored bicubic faces with an eight-point Gaussian rule. Divergence-theorem area and volume moments become centered inertia and off-diagonal terms. CheckTrimming refuses untrimmed nonperiodic faces outside full parameter boundaries, and open sheets retain zero volumetric values.
+- Fresh process 24703 accepted all 10 final documents with 290 comparisons, zero problems, zero dropped items and zero open documents before and after. NativeAcceptance.json now has SHA-256 325818d15840e18ff1d3afc1c2ebf9c737e91181254c49cf77556f7cef2cb0b1, with vendor_loadable and application_usable true. Initial Box3 and HeldPrism5 centers match their native controls before computeAll. Seven prior aliases are cap canonicalization rather than data loss.
+- ScrubSaved changed two final native controls. All 10 typed models remained identical. ScrubValidation.json has changed_by_scrubber 2, not zero. TestCapMassCache compares every emitted cache with the retained native cache at 1e-8 in remote CI.
 
 ## Open questions
 

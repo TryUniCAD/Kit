@@ -1,0 +1,48 @@
+# Derived Fusion Form mass caches
+
+## Behavior
+
+`EmitFormDoc` now writes one complete `MassPropertyCacheValue` for each emitted Form body.
+The previous zeroed cache returned a zero center of mass until Fusion recomputed the document.
+Area, volume, first moments, second moments, inertia, off-diagonal products, and the revision id now come from the typed model.
+
+`FormCache` uses eight-point Gaussian quadrature on every bicubic knot span.
+It applies the divergence theorem to the surface position and the cross product of the partial derivatives.
+Centered second moments produce inertia about the body's center.
+The eight-point rule is a mathematical integration rule, not fitted document data.
+The cache requires no vendor-saved measurements or CAD runtime. The [field model](../../../../re/Fusion/Reconstruction/FormDocuments/General/CapMassCacheModel.json) records each field and its confidence status.
+
+Open sheets have zero volume and no invented center.
+Nonperiodic faces must use complete parameter-space boundaries; `CheckTrimming` rejects other faces instead of integrating a wrong region.
+Periodic surfaces retain their complete parametric domain.
+The [cache gotcha](../../../Gotchas/Conversion/Fusion/TSpline/FormMassCacheMustBeDerived.md) records why zero placeholders and cache omission are not alternatives.
+
+## Native evidence
+
+The [initial failure](../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/InitialMassFailure.json) has SHA-256 `867c19ac0dbbe739ca55a5786b46e61b28bdda20777a75c3939c034e1e3b9f87`.
+It records 30 center-coordinate differences across 10 cases.
+The first center issue occurred before recompute, while the subsequent center values agreed.
+
+The accepted [native lifecycle](../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json) has SHA-256 `325818d15840e18ff1d3afc1c2ebf9c737e91181254c49cf77556f7cef2cb0b1`.
+Fusion 2706.1.17 accepted all 10 independently emitted documents in fresh process 24703.
+The previous preflight process was 98846, and `fresh_process_verified` is true.
+The run reports 290 comparisons, zero problems, zero dropped items, and zero open documents before and after.
+Top-level `vendor_loadable` and `application_usable` are both true.
+
+| Cage       | Initial area and volume                       | Initial center (cm)                                            |
+| ---------- | --------------------------------------------- | -------------------------------------------------------------- |
+| Box3       | 28.19774998549261 cm²; 12.441043578278578 cm³ | 1.1999999999999993, 1.1999974483503766, 1.199999999999999      |
+| HeldPrism5 | 14.693249836881733 cm²; 4.640593243655995 cm³ | 0.006053534296884169, 0.024431953783258003, 0.7660045084104143 |
+
+After the same control-point edit, Box3 has volume 12.398528701468491 cm³ and center `(1.2029980173529884, 1.2028781421663373, 1.2030568225219829)` cm.
+HeldPrism5 has volume 4.622316303609363 cm³ and center `(0.009218588314258315, 0.02659344913314795, 0.7670432896233793)` cm.
+Those values survive export and reopen.
+The native after-controls match their edited control measurements with zero problems.
+
+## Integration coverage
+
+`TestCapMassCache` independently emits each F3D, reads its typed `MassPropertyCacheValue`, and compares it with the native control's cache.
+The comparison covers area, volume, center, inertia, and off-diagonal products at `1e-8` absolute and relative tolerance.
+`TestCapDeclarationFlow` also distinguishes Kit's original declaration from Fusion's G1 canonicalization.
+The final controls required two privacy scrubs; all 10 typed models remained identical afterward.
+Remote CI executes these integration cases. No local automated test suite ran.

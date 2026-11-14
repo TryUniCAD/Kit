@@ -1,5 +1,9 @@
 {
  "fusion_version": "2706.1.17",
+ "oracle_process_id": 24703,
+ "previous_oracle_process_id": 98846,
+ "previous_documents_open": 0,
+ "fresh_process_verified": true,
  "scope": "Kit Form documents with G0CAPS, G1CAPS or G2CAPS and star smoothness 0, 1 or 2, against Fusion conversion of the same TSM",
  "tolerance_cm": 1e-08,
  "documents_before": 0,
@@ -27,6 +31,23 @@
        "vertices": 8,
        "area_cm2": 28.197749985492635,
        "volume_cm3": 12.441043578278615,
+       "center_cm": [
+        1.2,
+        1.1999974483503768,
+        1.2000000000000004
+       ],
+       "bounds_cm": [
+        [
+         0.0,
+         0.0,
+         0.0
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
        "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
        "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
@@ -53,6 +74,23 @@
        "vertices": 8,
        "area_cm2": 28.197749985492635,
        "volume_cm3": 12.441043578278615,
+       "center_cm": [
+        1.2,
+        1.1999974483503768,
+        1.2000000000000004
+       ],
+       "bounds_cm": [
+        [
+         0.0,
+         0.0,
+         0.0
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
        "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
        "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
@@ -60,8 +98,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3SameConverted.f3d",
-    "converted_sha256": "94f05af606780423445898627919b02b287144e17d2cd31452be66f68760632c",
+    "converted_sha256": "1b518c83e814d0a6f3e3af563c5265a719d99390124fe091cdc4e6e5f5d74c04",
     "cage_tsm_sha256": "e1020229a23104e10d19fc3ab839b55531c8b5581d1ef45a0f8c6fc7f8241285",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
+    },
     "edited_vertex_cm": [
      0.0,
      0.0,
@@ -87,6 +129,23 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
@@ -94,7 +153,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3Same.f3d",
-    "saved_sha256": "f0a55d2136996dd17bb75d131039af537048e28f0c0507388f2344326f41b8c5",
+    "saved_sha256": "a85fa701c72b53236da585bbbc50230c2cce84cd5f24e8d0513460650d74efef",
     "reopened": {
      "timeline": [
       {
@@ -114,6 +173,70 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    },
+    "reopened_cage_tsm_sha256": "75b593a2ef8f1205a82ca8e567fbf5dfca118d3535d52084dad8c3635e5dffa2",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
+    },
+    "control_after": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
@@ -141,6 +264,23 @@
        "vertices": 8,
        "area_cm2": 28.19774998549261,
        "volume_cm3": 12.441043578278578,
+       "center_cm": [
+        1.1999999999999993,
+        1.1999974483503766,
+        1.199999999999999
+       ],
+       "bounds_cm": [
+        [
+         5.354084802397586e-22,
+         5.354084802397586e-22,
+         5.354084802397586e-22
+        ],
+        [
+         2.4,
+         2.4,
+         2.4
+        ]
+       ],
        "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
        "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
        "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
@@ -167,6 +307,23 @@
        "vertices": 8,
        "area_cm2": 28.19774998549261,
        "volume_cm3": 12.441043578278578,
+       "center_cm": [
+        1.1999999999999993,
+        1.1999974483503766,
+        1.199999999999999
+       ],
+       "bounds_cm": [
+        [
+         5.354084802397586e-22,
+         5.354084802397586e-22,
+         5.354084802397586e-22
+        ],
+        [
+         2.4,
+         2.4,
+         2.4
+        ]
+       ],
        "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
        "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
        "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
@@ -174,8 +331,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3SameConverted.f3d",
-    "converted_sha256": "c62ff7493873ff42ae7bd010f9dd75292c134014df7887957ceacce1b631b5ee",
+    "converted_sha256": "073cb9e961b314e5a5bca57de65684d6e5600fa3c5e7c80084c4e939b7106817",
     "cage_tsm_sha256": "e1020229a23104e10d19fc3ab839b55531c8b5581d1ef45a0f8c6fc7f8241285",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
+    },
     "edited_vertex_cm": [
      0.0,
      0.0,
@@ -201,6 +362,23 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
@@ -208,7 +386,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3Same.f3d",
-    "saved_sha256": "72127d7c0ceb6fb168c2ec7492d7ebc256470c1ddc446629ece29a92ea641000",
+    "saved_sha256": "7f65788e65e534fc9892ad946900a3a05d4790bd9fa5f648cd266b4a4c179982",
     "reopened": {
      "timeline": [
       {
@@ -228,11 +406,33 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
       }
      ]
+    },
+    "reopened_cage_tsm_sha256": "75b593a2ef8f1205a82ca8e567fbf5dfca118d3535d52084dad8c3635e5dffa2",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
     }
    },
    "comparisons": [
@@ -244,6 +444,12 @@
     },
     {
      "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -261,6 +467,12 @@
      "problems": []
     },
     {
+     "comparison": "kit.solved~oracle.solved.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "kit.edited~oracle.edited.bodies",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
@@ -273,6 +485,12 @@
      "problems": []
     },
     {
+     "comparison": "kit.edited~oracle.edited.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "kit.reopened~oracle.reopened.bodies",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
@@ -280,6 +498,30 @@
     },
     {
      "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -345,12 +587,33 @@
      "problems": []
     },
     {
+     "comparison": "cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "edited_vertex_cm",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
     }
    ],
+   "dropped": [],
+   "vendor_loadable": true,
+   "application_usable": true,
    "areas_cm2": {
     "kit": {
      "loaded": [
@@ -407,6 +670,23 @@
        "vertices": 8,
        "area_cm2": 28.197749985492635,
        "volume_cm3": 12.441043578278615,
+       "center_cm": [
+        1.2,
+        1.1999974483503768,
+        1.2000000000000004
+       ],
+       "bounds_cm": [
+        [
+         0.0,
+         0.0,
+         0.0
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
        "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
        "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
@@ -433,6 +713,23 @@
        "vertices": 8,
        "area_cm2": 28.197749985492635,
        "volume_cm3": 12.441043578278615,
+       "center_cm": [
+        1.2,
+        1.1999974483503768,
+        1.2000000000000004
+       ],
+       "bounds_cm": [
+        [
+         0.0,
+         0.0,
+         0.0
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
        "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
        "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
@@ -440,8 +737,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3G0Converted.f3d",
-    "converted_sha256": "7b44dfb04b7460b00701ea191c1e454ce6e8d2997df7775d38c91b02a77d907f",
+    "converted_sha256": "99dd277ce6fa3dff33da8e7dce8f717428fb9b352c0920eed1bbf2ef8907d974",
     "cage_tsm_sha256": "e1020229a23104e10d19fc3ab839b55531c8b5581d1ef45a0f8c6fc7f8241285",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
+    },
     "edited_vertex_cm": [
      0.0,
      0.0,
@@ -467,6 +768,23 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
@@ -474,7 +792,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3G0.f3d",
-    "saved_sha256": "86e0368f6374377e7e9ea2a49f6de50f773bb483a8c2f118f1a3cab98583742d",
+    "saved_sha256": "83225a34486e13017b1553582085ed3f6b3ed2322ef85e6e3a5b91fc547a2305",
     "reopened": {
      "timeline": [
       {
@@ -494,6 +812,70 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    },
+    "reopened_cage_tsm_sha256": "75b593a2ef8f1205a82ca8e567fbf5dfca118d3535d52084dad8c3635e5dffa2",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
+    },
+    "control_after": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
@@ -521,6 +903,23 @@
        "vertices": 8,
        "area_cm2": 28.19774998549261,
        "volume_cm3": 12.441043578278578,
+       "center_cm": [
+        1.1999999999999993,
+        1.1999974483503766,
+        1.199999999999999
+       ],
+       "bounds_cm": [
+        [
+         5.354084802397586e-22,
+         5.354084802397586e-22,
+         5.354084802397586e-22
+        ],
+        [
+         2.4,
+         2.4,
+         2.4
+        ]
+       ],
        "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
        "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
        "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
@@ -547,6 +946,23 @@
        "vertices": 8,
        "area_cm2": 28.19774998549261,
        "volume_cm3": 12.441043578278578,
+       "center_cm": [
+        1.1999999999999993,
+        1.1999974483503766,
+        1.199999999999999
+       ],
+       "bounds_cm": [
+        [
+         5.354084802397586e-22,
+         5.354084802397586e-22,
+         5.354084802397586e-22
+        ],
+        [
+         2.4,
+         2.4,
+         2.4
+        ]
+       ],
        "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
        "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
        "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
@@ -554,8 +970,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3G0Converted.f3d",
-    "converted_sha256": "2d9aaf012a802454a81f1dc705c3c892cd0097f149ce93318c714217fd6a05bf",
+    "converted_sha256": "e65f85001dc98e6c4e4e1382f735300316f3e2c295016ca8777c544c3ca56406",
     "cage_tsm_sha256": "e1020229a23104e10d19fc3ab839b55531c8b5581d1ef45a0f8c6fc7f8241285",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
+    },
     "edited_vertex_cm": [
      0.0,
      0.0,
@@ -581,6 +1001,23 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
@@ -588,7 +1025,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3G0.f3d",
-    "saved_sha256": "da74b6e1d7558b2222c2143c45139dc6b801c30a708b01a3dd5b2d7faf651913",
+    "saved_sha256": "9a285e8c575027f6eb75c7cb78d48fa483381bdcc538991e280977b0d7f590be",
     "reopened": {
      "timeline": [
       {
@@ -608,11 +1045,33 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
       }
      ]
+    },
+    "reopened_cage_tsm_sha256": "75b593a2ef8f1205a82ca8e567fbf5dfca118d3535d52084dad8c3635e5dffa2",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
     }
    },
    "comparisons": [
@@ -624,6 +1083,12 @@
     },
     {
      "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -641,6 +1106,12 @@
      "problems": []
     },
     {
+     "comparison": "kit.solved~oracle.solved.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "kit.edited~oracle.edited.bodies",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
@@ -653,6 +1124,12 @@
      "problems": []
     },
     {
+     "comparison": "kit.edited~oracle.edited.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "kit.reopened~oracle.reopened.bodies",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
@@ -660,6 +1137,30 @@
     },
     {
      "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -725,12 +1226,33 @@
      "problems": []
     },
     {
+     "comparison": "cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "edited_vertex_cm",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
     }
    ],
+   "dropped": [],
+   "vendor_loadable": true,
+   "application_usable": true,
    "areas_cm2": {
     "kit": {
      "loaded": [
@@ -787,6 +1309,23 @@
        "vertices": 8,
        "area_cm2": 28.197749985492635,
        "volume_cm3": 12.441043578278615,
+       "center_cm": [
+        1.2,
+        1.1999974483503768,
+        1.2000000000000004
+       ],
+       "bounds_cm": [
+        [
+         0.0,
+         0.0,
+         0.0
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
        "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
        "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
@@ -813,6 +1352,23 @@
        "vertices": 8,
        "area_cm2": 28.197749985492635,
        "volume_cm3": 12.441043578278615,
+       "center_cm": [
+        1.2,
+        1.1999974483503768,
+        1.2000000000000004
+       ],
+       "bounds_cm": [
+        [
+         0.0,
+         0.0,
+         0.0
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
        "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
        "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
@@ -820,8 +1376,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3G2Converted.f3d",
-    "converted_sha256": "178bda9e1d518da45506064859f0890eab2c60a2ddbab27119848bf1baab1a29",
+    "converted_sha256": "4f4d64745a455ec6c4903e9572846e66de536d31b95447351d4502ec5a1f9e82",
     "cage_tsm_sha256": "e1020229a23104e10d19fc3ab839b55531c8b5581d1ef45a0f8c6fc7f8241285",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
+    },
     "edited_vertex_cm": [
      0.0,
      0.0,
@@ -847,6 +1407,23 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
@@ -854,7 +1431,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3G2.f3d",
-    "saved_sha256": "ad788872c248940c8855fbf744b0fe0ec095b16ae196a47eff7b5680b7fb2675",
+    "saved_sha256": "c1c0cd66a502464e7dbc8e39daeb04cb8a87e2779b8fe015e460d0ae9e05bb89",
     "reopened": {
      "timeline": [
       {
@@ -874,6 +1451,70 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    },
+    "reopened_cage_tsm_sha256": "75b593a2ef8f1205a82ca8e567fbf5dfca118d3535d52084dad8c3635e5dffa2",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
+    },
+    "control_after": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
@@ -901,6 +1542,23 @@
        "vertices": 8,
        "area_cm2": 28.19774998549261,
        "volume_cm3": 12.441043578278578,
+       "center_cm": [
+        1.1999999999999993,
+        1.1999974483503766,
+        1.199999999999999
+       ],
+       "bounds_cm": [
+        [
+         5.354084802397586e-22,
+         5.354084802397586e-22,
+         5.354084802397586e-22
+        ],
+        [
+         2.4,
+         2.4,
+         2.4
+        ]
+       ],
        "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
        "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
        "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
@@ -927,6 +1585,23 @@
        "vertices": 8,
        "area_cm2": 28.19774998549261,
        "volume_cm3": 12.441043578278578,
+       "center_cm": [
+        1.1999999999999993,
+        1.1999974483503766,
+        1.199999999999999
+       ],
+       "bounds_cm": [
+        [
+         5.354084802397586e-22,
+         5.354084802397586e-22,
+         5.354084802397586e-22
+        ],
+        [
+         2.4,
+         2.4,
+         2.4
+        ]
+       ],
        "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
        "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
        "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
@@ -934,8 +1609,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3G2Converted.f3d",
-    "converted_sha256": "186f57671ccae3c1e07b7cd28186e1e7f981283f3967b3b2404545316becb7d3",
+    "converted_sha256": "6919a4125175ae9be76ff6a4dfabaaf9dfb6159eb199eb73d0af6d59c4ace086",
     "cage_tsm_sha256": "e1020229a23104e10d19fc3ab839b55531c8b5581d1ef45a0f8c6fc7f8241285",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
+    },
     "edited_vertex_cm": [
      0.0,
      0.0,
@@ -961,6 +1640,23 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
@@ -968,7 +1664,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3G2.f3d",
-    "saved_sha256": "1f6a1dc182b40c47ce18a7f9a97adfd2a5c7fa8ff3b53b29a65c37ce61c186ec",
+    "saved_sha256": "3d6fd6947593462eed9afa697882cbd551ff401e3a3497ae9c25a3fc3fcef8f0",
     "reopened": {
      "timeline": [
       {
@@ -988,11 +1684,33 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
       }
      ]
+    },
+    "reopened_cage_tsm_sha256": "75b593a2ef8f1205a82ca8e567fbf5dfca118d3535d52084dad8c3635e5dffa2",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
     }
    },
    "comparisons": [
@@ -1004,6 +1722,12 @@
     },
     {
      "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -1021,6 +1745,12 @@
      "problems": []
     },
     {
+     "comparison": "kit.solved~oracle.solved.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "kit.edited~oracle.edited.bodies",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
@@ -1033,6 +1763,12 @@
      "problems": []
     },
     {
+     "comparison": "kit.edited~oracle.edited.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "kit.reopened~oracle.reopened.bodies",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
@@ -1040,6 +1776,30 @@
     },
     {
      "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -1105,12 +1865,33 @@
      "problems": []
     },
     {
+     "comparison": "cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "edited_vertex_cm",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
     }
    ],
+   "dropped": [],
+   "vendor_loadable": true,
+   "application_usable": true,
    "areas_cm2": {
     "kit": {
      "loaded": [
@@ -1167,6 +1948,23 @@
        "vertices": 8,
        "area_cm2": 28.197749985492635,
        "volume_cm3": 12.441043578278615,
+       "center_cm": [
+        1.2,
+        1.1999974483503768,
+        1.2000000000000004
+       ],
+       "bounds_cm": [
+        [
+         0.0,
+         0.0,
+         0.0
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
        "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
        "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
@@ -1193,6 +1991,23 @@
        "vertices": 8,
        "area_cm2": 28.197749985492635,
        "volume_cm3": 12.441043578278615,
+       "center_cm": [
+        1.2,
+        1.1999974483503768,
+        1.2000000000000004
+       ],
+       "bounds_cm": [
+        [
+         0.0,
+         0.0,
+         0.0
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
        "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
        "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
@@ -1200,8 +2015,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3Star1Converted.f3d",
-    "converted_sha256": "904a7f574bbf99e6d288f22b0dc7d5f93500d43928e63166c692ee3b8bc918bd",
+    "converted_sha256": "839c7faa0fd422a47f64a592f73bcd91980a068442fdc9ccad1bce7764c76f6a",
     "cage_tsm_sha256": "70a0bf8b117de55a3586cf0a16b602d20ffa3ad24d3a1a2ffd142bcff827f656",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "1"
+    },
     "edited_vertex_cm": [
      0.0,
      0.0,
@@ -1227,6 +2046,23 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
@@ -1234,7 +2070,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3Star1.f3d",
-    "saved_sha256": "1a2b8683b58b14d33ce6cef3d27aaf19efe80336d482dd9c4766b4dd9b1dd026",
+    "saved_sha256": "be98b8648c3b4bb62c6721003b7fb4e475d17ef189c496805a1c2f6aaf4c706c",
     "reopened": {
      "timeline": [
       {
@@ -1254,6 +2090,70 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    },
+    "reopened_cage_tsm_sha256": "0a8506cc18679b4ed08ed8ab6e3a8e1d15b096fc248a03a111e054f8cca30d31",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "1"
+    },
+    "control_after": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
@@ -1281,6 +2181,23 @@
        "vertices": 8,
        "area_cm2": 28.19774998549261,
        "volume_cm3": 12.441043578278578,
+       "center_cm": [
+        1.1999999999999993,
+        1.1999974483503766,
+        1.199999999999999
+       ],
+       "bounds_cm": [
+        [
+         5.354084802397586e-22,
+         5.354084802397586e-22,
+         5.354084802397586e-22
+        ],
+        [
+         2.4,
+         2.4,
+         2.4
+        ]
+       ],
        "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
        "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
        "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
@@ -1307,6 +2224,23 @@
        "vertices": 8,
        "area_cm2": 28.19774998549261,
        "volume_cm3": 12.441043578278578,
+       "center_cm": [
+        1.1999999999999993,
+        1.1999974483503766,
+        1.199999999999999
+       ],
+       "bounds_cm": [
+        [
+         5.354084802397586e-22,
+         5.354084802397586e-22,
+         5.354084802397586e-22
+        ],
+        [
+         2.4,
+         2.4,
+         2.4
+        ]
+       ],
        "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
        "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
        "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
@@ -1314,8 +2248,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3Star1Converted.f3d",
-    "converted_sha256": "55e6848a4842bf5ba048974b859536b427a0f584e090c30861ba4029e90b32b8",
+    "converted_sha256": "306e93c4035b54a1e38fd018317d75ab52ef0247bd01d1bb6bf194d4036d2ca6",
     "cage_tsm_sha256": "70a0bf8b117de55a3586cf0a16b602d20ffa3ad24d3a1a2ffd142bcff827f656",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "1"
+    },
     "edited_vertex_cm": [
      0.0,
      0.0,
@@ -1341,6 +2279,23 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
@@ -1348,7 +2303,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3Star1.f3d",
-    "saved_sha256": "968b31560742c7dd1c9dc7eed90846fd7430439bbba32d931a13a818eea9471b",
+    "saved_sha256": "5503923ea6861d3c23d71bae40f869a5599aef7035cd192fc8a52b9c2d1ffc40",
     "reopened": {
      "timeline": [
       {
@@ -1368,11 +2323,33 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
       }
      ]
+    },
+    "reopened_cage_tsm_sha256": "0a8506cc18679b4ed08ed8ab6e3a8e1d15b096fc248a03a111e054f8cca30d31",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "1"
     }
    },
    "comparisons": [
@@ -1384,6 +2361,12 @@
     },
     {
      "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -1401,6 +2384,12 @@
      "problems": []
     },
     {
+     "comparison": "kit.solved~oracle.solved.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "kit.edited~oracle.edited.bodies",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
@@ -1413,6 +2402,12 @@
      "problems": []
     },
     {
+     "comparison": "kit.edited~oracle.edited.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "kit.reopened~oracle.reopened.bodies",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
@@ -1420,6 +2415,30 @@
     },
     {
      "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -1485,12 +2504,33 @@
      "problems": []
     },
     {
+     "comparison": "cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "edited_vertex_cm",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
     }
    ],
+   "dropped": [],
+   "vendor_loadable": true,
+   "application_usable": true,
    "areas_cm2": {
     "kit": {
      "loaded": [
@@ -1547,6 +2587,23 @@
        "vertices": 8,
        "area_cm2": 28.197749985492635,
        "volume_cm3": 12.441043578278615,
+       "center_cm": [
+        1.2,
+        1.1999974483503768,
+        1.2000000000000004
+       ],
+       "bounds_cm": [
+        [
+         0.0,
+         0.0,
+         0.0
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
        "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
        "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
@@ -1573,6 +2630,23 @@
        "vertices": 8,
        "area_cm2": 28.197749985492635,
        "volume_cm3": 12.441043578278615,
+       "center_cm": [
+        1.2,
+        1.1999974483503768,
+        1.2000000000000004
+       ],
+       "bounds_cm": [
+        [
+         0.0,
+         0.0,
+         0.0
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
        "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
        "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
@@ -1580,8 +2654,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3Star2Converted.f3d",
-    "converted_sha256": "089dc2e301c0fc375287733bb41caaa1e12df37b523bd6a25cad74104cfa36e9",
+    "converted_sha256": "58a599a78ec7b749e7b47ad3d5bc174da4c7519dd83f626757b4cbca7b64899e",
     "cage_tsm_sha256": "55512119f4a630079099857341613df7a96442ed38fd1ae22bcf663a1bc7a902",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "2"
+    },
     "edited_vertex_cm": [
      0.0,
      0.0,
@@ -1607,6 +2685,23 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
@@ -1614,7 +2709,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3Star2.f3d",
-    "saved_sha256": "2973e683cfdd2b364e119f9889c74ec150b9e49a4f9b83b1633a3cdc3b4940c8",
+    "saved_sha256": "ba92365d26c53a8b3009200a4f311c2b049e20f0c99269732492a5d00792f11b",
     "reopened": {
      "timeline": [
       {
@@ -1634,6 +2729,70 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    },
+    "reopened_cage_tsm_sha256": "0feb83f3f32ce34a03a149d6ad046e2446b3afd3000d12e8e8fd0d726bdccbd4",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "2"
+    },
+    "control_after": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
@@ -1661,6 +2820,23 @@
        "vertices": 8,
        "area_cm2": 28.19774998549261,
        "volume_cm3": 12.441043578278578,
+       "center_cm": [
+        1.1999999999999993,
+        1.1999974483503766,
+        1.199999999999999
+       ],
+       "bounds_cm": [
+        [
+         5.354084802397586e-22,
+         5.354084802397586e-22,
+         5.354084802397586e-22
+        ],
+        [
+         2.4,
+         2.4,
+         2.4
+        ]
+       ],
        "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
        "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
        "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
@@ -1687,6 +2863,23 @@
        "vertices": 8,
        "area_cm2": 28.19774998549261,
        "volume_cm3": 12.441043578278578,
+       "center_cm": [
+        1.1999999999999993,
+        1.1999974483503766,
+        1.199999999999999
+       ],
+       "bounds_cm": [
+        [
+         5.354084802397586e-22,
+         5.354084802397586e-22,
+         5.354084802397586e-22
+        ],
+        [
+         2.4,
+         2.4,
+         2.4
+        ]
+       ],
        "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
        "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
        "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
@@ -1694,8 +2887,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3Star2Converted.f3d",
-    "converted_sha256": "979abdf74ff238e22e75d6d71c7cd77ced357ba31151cb172cefebd317486fd7",
+    "converted_sha256": "cfefb3154bf5ee668cf82258434dd1d164e76e63e29e55c74c07e0e006ef9847",
     "cage_tsm_sha256": "55512119f4a630079099857341613df7a96442ed38fd1ae22bcf663a1bc7a902",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "2"
+    },
     "edited_vertex_cm": [
      0.0,
      0.0,
@@ -1721,6 +2918,23 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
@@ -1728,7 +2942,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3Star2.f3d",
-    "saved_sha256": "2b411e95ec21c107efc60d9b4f7124457d0178546a94f7824472509fb2e2a85b",
+    "saved_sha256": "82ae6bcd424ebd66f9e7580a52e50a86c8bbebc82847ff80e9178fb9fce3f94a",
     "reopened": {
      "timeline": [
       {
@@ -1748,11 +2962,33 @@
        "vertices": 8,
        "area_cm2": 28.08639550286362,
        "volume_cm3": 12.398528701468491,
+       "center_cm": [
+        1.2029980173529884,
+        1.2028781421663373,
+        1.2030568225219829
+       ],
+       "bounds_cm": [
+        [
+         2.1158530436676322e-20,
+         2.8257497851182974e-20,
+         1.9495165544473083e-20
+        ],
+        [
+         2.3999999999999995,
+         2.4,
+         2.4000000000000004
+        ]
+       ],
        "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
        "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
        "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
       }
      ]
+    },
+    "reopened_cage_tsm_sha256": "0feb83f3f32ce34a03a149d6ad046e2446b3afd3000d12e8e8fd0d726bdccbd4",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "2"
     }
    },
    "comparisons": [
@@ -1764,6 +3000,12 @@
     },
     {
      "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -1781,6 +3023,12 @@
      "problems": []
     },
     {
+     "comparison": "kit.solved~oracle.solved.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "kit.edited~oracle.edited.bodies",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
@@ -1793,6 +3041,12 @@
      "problems": []
     },
     {
+     "comparison": "kit.edited~oracle.edited.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "kit.reopened~oracle.reopened.bodies",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
@@ -1800,6 +3054,30 @@
     },
     {
      "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -1865,12 +3143,33 @@
      "problems": []
     },
     {
+     "comparison": "cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "edited_vertex_cm",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
     }
    ],
+   "dropped": [],
+   "vendor_loadable": true,
+   "application_usable": true,
    "areas_cm2": {
     "kit": {
      "loaded": [
@@ -1927,6 +3226,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881707,
        "volume_cm3": 4.640593243655983,
+       "center_cm": [
+        0.006053534296883419,
+        0.024431953783258062,
+        0.7660045084104126
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.0728046268254428,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
        "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -1953,6 +3269,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881707,
        "volume_cm3": 4.640593243655983,
+       "center_cm": [
+        0.006053534296883419,
+        0.024431953783258062,
+        0.7660045084104126
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.0728046268254428,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
        "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -1960,8 +3293,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5SameConverted.f3d",
-    "converted_sha256": "e13a9dcbd1d86e66f757fa7bf27edd6162ccadb69c122d684b175b7da5e5e39a",
+    "converted_sha256": "f442dcc2c8a84695f17d88be075d9da52cfcbbdc33e923f5a689246ef8dfb6d5",
     "cage_tsm_sha256": "b9c75f704c047662381501aec77ba2b51ca8465697e7c2dcce30819c19395211",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
+    },
     "edited_vertex_cm": [
      -1.006732293,
      -0.669588166,
@@ -1987,6 +3324,23 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.026593449133147953,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -1994,7 +3348,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5Same.f3d",
-    "saved_sha256": "8c293c45a79c7f92fadda474bcde88197118a9581c01de0e7ed442286f8c946a",
+    "saved_sha256": "b657b19c5ad1564ab34a5995559ca43d17d0b38e9d77726defa8007a0c3b7f27",
     "reopened": {
      "timeline": [
       {
@@ -2014,6 +3368,70 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.026593449133147953,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "reopened_cage_tsm_sha256": "23f86ba3dfca09641e7625d1319b365bb736498b743502e0a50b4472f10eb6ce",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
+    },
+    "control_after": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.026593449133147953,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -2041,6 +3459,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881733,
        "volume_cm3": 4.640593243655995,
+       "center_cm": [
+        0.006053534296884169,
+        0.024431953783258003,
+        0.7660045084104143
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.011766195155218852
+        ],
+        [
+         1.0728046268254428,
+         1.0499316097358085,
+         1.5266176319849183
+        ]
+       ],
        "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
        "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
        "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
@@ -2067,6 +3502,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881733,
        "volume_cm3": 4.640593243655995,
+       "center_cm": [
+        0.006053534296884169,
+        0.024431953783258003,
+        0.7660045084104143
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.011766195155218852
+        ],
+        [
+         1.0728046268254428,
+         1.0499316097358085,
+         1.5266176319849183
+        ]
+       ],
        "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
        "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
        "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
@@ -2074,8 +3526,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5SameConverted.f3d",
-    "converted_sha256": "7e0a6292532a72086def29dca2bbb2a17e59f5283f23e7bc40d679ac2ff63f6b",
+    "converted_sha256": "1a287a379940e842b58890e71657415f42ee639eb47f0fc598186e0ed841990f",
     "cage_tsm_sha256": "b9c75f704c047662381501aec77ba2b51ca8465697e7c2dcce30819c19395211",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
+    },
     "edited_vertex_cm": [
      -1.006732293,
      -0.669588166,
@@ -2101,6 +3557,23 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.02659344913314795,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -2108,7 +3581,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5Same.f3d",
-    "saved_sha256": "ec42d55e5f3f10a630c2ac1afd9bf35fd425752fe9afbce38cded3e782382e2d",
+    "saved_sha256": "ce7a94d6d6afd1c32e52cff81e475c2f7557fa5609f8f17f38a331f1de2d95c7",
     "reopened": {
      "timeline": [
       {
@@ -2128,11 +3601,33 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.02659344913314795,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
       }
      ]
+    },
+    "reopened_cage_tsm_sha256": "23f86ba3dfca09641e7625d1319b365bb736498b743502e0a50b4472f10eb6ce",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
     }
    },
    "comparisons": [
@@ -2144,6 +3639,12 @@
     },
     {
      "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -2161,8 +3662,14 @@
      "problems": []
     },
     {
-     "comparison": "kit.edited~oracle.edited.bodies",
+     "comparison": "kit.solved~oracle.solved.timeline",
      "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.bodies",
+     "max_abs_deviation": 3.469446951953614e-18,
      "problem_count": 0,
      "problems": []
     },
@@ -2173,13 +3680,43 @@
      "problems": []
     },
     {
-     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "comparison": "kit.edited~oracle.edited.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
     },
     {
+     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "max_abs_deviation": 3.469446951953614e-18,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -2245,12 +3782,33 @@
      "problems": []
     },
     {
+     "comparison": "cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "edited_vertex_cm",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
     }
    ],
+   "dropped": [],
+   "vendor_loadable": true,
+   "application_usable": true,
    "areas_cm2": {
     "kit": {
      "loaded": [
@@ -2307,6 +3865,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881707,
        "volume_cm3": 4.640593243655983,
+       "center_cm": [
+        0.006053534296883419,
+        0.024431953783258062,
+        0.7660045084104126
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.0728046268254428,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
        "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -2333,6 +3908,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881707,
        "volume_cm3": 4.640593243655983,
+       "center_cm": [
+        0.006053534296883419,
+        0.024431953783258062,
+        0.7660045084104126
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.0728046268254428,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
        "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -2340,8 +3932,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5G0Converted.f3d",
-    "converted_sha256": "b7de65f97783b755350f1df41c41ab33a044be109633494a5f9bac145727345c",
+    "converted_sha256": "be98c9d7ad10548570e457acb4ff4c3b05c2a09a09246ba68480ecaf0992a5d4",
     "cage_tsm_sha256": "b9c75f704c047662381501aec77ba2b51ca8465697e7c2dcce30819c19395211",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
+    },
     "edited_vertex_cm": [
      -1.006732293,
      -0.669588166,
@@ -2367,6 +3963,23 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.026593449133147953,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -2374,7 +3987,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5G0.f3d",
-    "saved_sha256": "6625347eef28eca89f76ec2a5f97465a519254831862dbae3f4526425b9b819d",
+    "saved_sha256": "c5319e4fd2c504a3e648710c8f2e41b227a2c7b98e96d66bfdc03d1f5095c7a3",
     "reopened": {
      "timeline": [
       {
@@ -2394,6 +4007,70 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.026593449133147953,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "reopened_cage_tsm_sha256": "23f86ba3dfca09641e7625d1319b365bb736498b743502e0a50b4472f10eb6ce",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
+    },
+    "control_after": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.026593449133147953,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -2421,6 +4098,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881733,
        "volume_cm3": 4.640593243655995,
+       "center_cm": [
+        0.006053534296884169,
+        0.024431953783258003,
+        0.7660045084104143
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.011766195155218852
+        ],
+        [
+         1.0728046268254428,
+         1.0499316097358085,
+         1.5266176319849183
+        ]
+       ],
        "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
        "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
        "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
@@ -2447,6 +4141,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881733,
        "volume_cm3": 4.640593243655995,
+       "center_cm": [
+        0.006053534296884169,
+        0.024431953783258003,
+        0.7660045084104143
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.011766195155218852
+        ],
+        [
+         1.0728046268254428,
+         1.0499316097358085,
+         1.5266176319849183
+        ]
+       ],
        "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
        "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
        "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
@@ -2454,8 +4165,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5G0Converted.f3d",
-    "converted_sha256": "089863776cad0caaca834405acdedf90197db94ce9fadd7f5b1da28441952f38",
+    "converted_sha256": "a656a67411971ace30a6e6ddff9d522d44e99e8214ec5a1c973c2628462979bd",
     "cage_tsm_sha256": "b9c75f704c047662381501aec77ba2b51ca8465697e7c2dcce30819c19395211",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
+    },
     "edited_vertex_cm": [
      -1.006732293,
      -0.669588166,
@@ -2481,6 +4196,23 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.02659344913314795,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -2488,7 +4220,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5G0.f3d",
-    "saved_sha256": "0b7696aacdbf142bad3ac2da5887f26ec0e34edd4235d5069a60f56ff5574e04",
+    "saved_sha256": "12f85fb192f71ee379cf7cefd476232b9e5af23c8a7214e68fe7e2c9064b025b",
     "reopened": {
      "timeline": [
       {
@@ -2508,11 +4240,33 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.02659344913314795,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
       }
      ]
+    },
+    "reopened_cage_tsm_sha256": "23f86ba3dfca09641e7625d1319b365bb736498b743502e0a50b4472f10eb6ce",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
     }
    },
    "comparisons": [
@@ -2524,6 +4278,12 @@
     },
     {
      "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -2541,8 +4301,14 @@
      "problems": []
     },
     {
-     "comparison": "kit.edited~oracle.edited.bodies",
+     "comparison": "kit.solved~oracle.solved.timeline",
      "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.bodies",
+     "max_abs_deviation": 3.469446951953614e-18,
      "problem_count": 0,
      "problems": []
     },
@@ -2553,13 +4319,43 @@
      "problems": []
     },
     {
-     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "comparison": "kit.edited~oracle.edited.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
     },
     {
+     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "max_abs_deviation": 3.469446951953614e-18,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -2625,12 +4421,33 @@
      "problems": []
     },
     {
+     "comparison": "cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "edited_vertex_cm",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
     }
    ],
+   "dropped": [],
+   "vendor_loadable": true,
+   "application_usable": true,
    "areas_cm2": {
     "kit": {
      "loaded": [
@@ -2687,6 +4504,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881707,
        "volume_cm3": 4.640593243655983,
+       "center_cm": [
+        0.006053534296883419,
+        0.024431953783258062,
+        0.7660045084104126
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.0728046268254428,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
        "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -2713,6 +4547,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881707,
        "volume_cm3": 4.640593243655983,
+       "center_cm": [
+        0.006053534296883419,
+        0.024431953783258062,
+        0.7660045084104126
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.0728046268254428,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
        "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -2720,8 +4571,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5G2Converted.f3d",
-    "converted_sha256": "16e956c55e9253c23b6ad05327dc305db7589c6c2dbe3745583d8a9d06dac89d",
+    "converted_sha256": "985c2581641d51e16edfe4d777894d353cc603d974695b3dd45ba4ae7e4d2015",
     "cage_tsm_sha256": "b9c75f704c047662381501aec77ba2b51ca8465697e7c2dcce30819c19395211",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
+    },
     "edited_vertex_cm": [
      -1.006732293,
      -0.669588166,
@@ -2747,6 +4602,23 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.026593449133147953,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -2754,7 +4626,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5G2.f3d",
-    "saved_sha256": "68eb14e183ba645e07ae448720ce8b9ab928e17a4a749c864d54ba6549106c0a",
+    "saved_sha256": "3385b5126cb418a546a2474a2ef90915d38cc8134a084d27f18274082713387b",
     "reopened": {
      "timeline": [
       {
@@ -2774,6 +4646,70 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.026593449133147953,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "reopened_cage_tsm_sha256": "23f86ba3dfca09641e7625d1319b365bb736498b743502e0a50b4472f10eb6ce",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
+    },
+    "control_after": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.026593449133147953,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -2801,6 +4737,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881733,
        "volume_cm3": 4.640593243655995,
+       "center_cm": [
+        0.006053534296884169,
+        0.024431953783258003,
+        0.7660045084104143
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.011766195155218852
+        ],
+        [
+         1.0728046268254428,
+         1.0499316097358085,
+         1.5266176319849183
+        ]
+       ],
        "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
        "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
        "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
@@ -2827,6 +4780,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881733,
        "volume_cm3": 4.640593243655995,
+       "center_cm": [
+        0.006053534296884169,
+        0.024431953783258003,
+        0.7660045084104143
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.011766195155218852
+        ],
+        [
+         1.0728046268254428,
+         1.0499316097358085,
+         1.5266176319849183
+        ]
+       ],
        "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
        "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
        "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
@@ -2834,8 +4804,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5G2Converted.f3d",
-    "converted_sha256": "d37d500393003b9b64b7469e28aacae0d626810bfda2e4fbe44b9ecc3d2f14f3",
+    "converted_sha256": "1e49436cfe678362c031a4d6ee03356973dadeb3f06fdddd25f06a6222d75e47",
     "cage_tsm_sha256": "b9c75f704c047662381501aec77ba2b51ca8465697e7c2dcce30819c19395211",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
+    },
     "edited_vertex_cm": [
      -1.006732293,
      -0.669588166,
@@ -2861,6 +4835,23 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.02659344913314795,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -2868,7 +4859,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5G2.f3d",
-    "saved_sha256": "8951989be2a7eb5c28ff0eed6130f8cc6ca5ad5de6a4cb3a6413441245ce84f9",
+    "saved_sha256": "3226d698e430e4ffde81c58816c27926726b72a239e94bd4d480c19c50cd5005",
     "reopened": {
      "timeline": [
       {
@@ -2888,11 +4879,33 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.02659344913314795,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
       }
      ]
+    },
+    "reopened_cage_tsm_sha256": "23f86ba3dfca09641e7625d1319b365bb736498b743502e0a50b4472f10eb6ce",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "0"
     }
    },
    "comparisons": [
@@ -2904,6 +4917,12 @@
     },
     {
      "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -2921,8 +4940,14 @@
      "problems": []
     },
     {
-     "comparison": "kit.edited~oracle.edited.bodies",
+     "comparison": "kit.solved~oracle.solved.timeline",
      "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.bodies",
+     "max_abs_deviation": 3.469446951953614e-18,
      "problem_count": 0,
      "problems": []
     },
@@ -2933,13 +4958,43 @@
      "problems": []
     },
     {
-     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "comparison": "kit.edited~oracle.edited.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
     },
     {
+     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "max_abs_deviation": 3.469446951953614e-18,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -3005,12 +5060,33 @@
      "problems": []
     },
     {
+     "comparison": "cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "edited_vertex_cm",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
     }
    ],
+   "dropped": [],
+   "vendor_loadable": true,
+   "application_usable": true,
    "areas_cm2": {
     "kit": {
      "loaded": [
@@ -3067,6 +5143,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881707,
        "volume_cm3": 4.640593243655983,
+       "center_cm": [
+        0.006053534296883419,
+        0.024431953783258062,
+        0.7660045084104126
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.0728046268254428,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
        "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -3093,6 +5186,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881707,
        "volume_cm3": 4.640593243655983,
+       "center_cm": [
+        0.006053534296883419,
+        0.024431953783258062,
+        0.7660045084104126
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.0728046268254428,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
        "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -3100,8 +5210,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5Star1Converted.f3d",
-    "converted_sha256": "ee8a725301c267cbad69cf8212ed213f4bf2d7765518588d03fb8aac9b184287",
+    "converted_sha256": "da18eeddfb5c94dea9cb7193b6e7183f2dfa885997c108a3899d51be51b6429e",
     "cage_tsm_sha256": "764007766f6d562223f3824706687f219958253b87270c544dead84633457e7c",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "1"
+    },
     "edited_vertex_cm": [
      -1.006732293,
      -0.669588166,
@@ -3127,6 +5241,23 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.026593449133147953,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -3134,7 +5265,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5Star1.f3d",
-    "saved_sha256": "f83fbee31abd6c0f0665b1f3b41d51be3f0db8c3518793f5e9ed4af8d33b8dc7",
+    "saved_sha256": "1034815d8246fa52de657b07d9d856e819311da2da71223737c095d709a060eb",
     "reopened": {
      "timeline": [
       {
@@ -3154,6 +5285,70 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.026593449133147953,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "reopened_cage_tsm_sha256": "3f0f99b874146bd4a4cbae0b88dfffdbf4ae862d954439f472f945d49721e534",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "1"
+    },
+    "control_after": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.026593449133147953,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -3181,6 +5376,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881733,
        "volume_cm3": 4.640593243655995,
+       "center_cm": [
+        0.006053534296884169,
+        0.024431953783258003,
+        0.7660045084104143
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.011766195155218852
+        ],
+        [
+         1.0728046268254428,
+         1.0499316097358085,
+         1.5266176319849183
+        ]
+       ],
        "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
        "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
        "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
@@ -3207,6 +5419,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881733,
        "volume_cm3": 4.640593243655995,
+       "center_cm": [
+        0.006053534296884169,
+        0.024431953783258003,
+        0.7660045084104143
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.011766195155218852
+        ],
+        [
+         1.0728046268254428,
+         1.0499316097358085,
+         1.5266176319849183
+        ]
+       ],
        "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
        "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
        "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
@@ -3214,8 +5443,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5Star1Converted.f3d",
-    "converted_sha256": "d9258777e24fa9cbf1cb0fc72dddb5d93fa79c00c7034f8a9aa91b28a5a4d969",
+    "converted_sha256": "3a87349f0acc25b2c4be8fa5ce3f3155d4ae783dddc2248d53683a16a3650a85",
     "cage_tsm_sha256": "764007766f6d562223f3824706687f219958253b87270c544dead84633457e7c",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "1"
+    },
     "edited_vertex_cm": [
      -1.006732293,
      -0.669588166,
@@ -3241,6 +5474,23 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.02659344913314795,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -3248,7 +5498,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5Star1.f3d",
-    "saved_sha256": "12a49e48aecc0298fb725626c58d477f6d834514496d718d233404f09993c962",
+    "saved_sha256": "105916751a55d5e6a651ac535782f03368d49e179adc9908ea1d529fdb51492e",
     "reopened": {
      "timeline": [
       {
@@ -3268,11 +5518,33 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.02659344913314795,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
       }
      ]
+    },
+    "reopened_cage_tsm_sha256": "3f0f99b874146bd4a4cbae0b88dfffdbf4ae862d954439f472f945d49721e534",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "1"
     }
    },
    "comparisons": [
@@ -3284,6 +5556,12 @@
     },
     {
      "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -3301,8 +5579,14 @@
      "problems": []
     },
     {
-     "comparison": "kit.edited~oracle.edited.bodies",
+     "comparison": "kit.solved~oracle.solved.timeline",
      "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.bodies",
+     "max_abs_deviation": 3.469446951953614e-18,
      "problem_count": 0,
      "problems": []
     },
@@ -3313,13 +5597,43 @@
      "problems": []
     },
     {
-     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "comparison": "kit.edited~oracle.edited.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
     },
     {
+     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "max_abs_deviation": 3.469446951953614e-18,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -3385,12 +5699,33 @@
      "problems": []
     },
     {
+     "comparison": "cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "edited_vertex_cm",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
     }
    ],
+   "dropped": [],
+   "vendor_loadable": true,
+   "application_usable": true,
    "areas_cm2": {
     "kit": {
      "loaded": [
@@ -3447,6 +5782,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881707,
        "volume_cm3": 4.640593243655983,
+       "center_cm": [
+        0.006053534296883419,
+        0.024431953783258062,
+        0.7660045084104126
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.0728046268254428,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
        "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -3473,6 +5825,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881707,
        "volume_cm3": 4.640593243655983,
+       "center_cm": [
+        0.006053534296883419,
+        0.024431953783258062,
+        0.7660045084104126
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.0728046268254428,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
        "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -3480,8 +5849,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5Star2Converted.f3d",
-    "converted_sha256": "ef5ae526da58dee10113a70f73ec86c717cd9d406149adfd6a124742958a730e",
+    "converted_sha256": "7031a7a82a44b5bce707a496ad27771ea50370c1f239777e5f91b63c4d3bcfed",
     "cage_tsm_sha256": "eba630479ba69e6e9453b7a8345287558dd2426916a6c9f87ce61d0e0fce11de",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "2"
+    },
     "edited_vertex_cm": [
      -1.006732293,
      -0.669588166,
@@ -3507,6 +5880,23 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.026593449133147953,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -3514,7 +5904,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5Star2.f3d",
-    "saved_sha256": "35c04f933c36d895b35d8b4b5e5dd882aa55b2d6fc00c0bdc7a201c3bfbdb5a8",
+    "saved_sha256": "8acdca755456b949d42e144f13e7a24d4185a66bb58ca6cfb60f92396e37ab4f",
     "reopened": {
      "timeline": [
       {
@@ -3534,6 +5924,70 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.026593449133147953,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "reopened_cage_tsm_sha256": "8a5eead47cc74c0f6decfdb33e4dc2ef53d05c6d9b59d45766a22037d7a63fbd",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "2"
+    },
+    "control_after": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.026593449133147953,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -3561,6 +6015,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881733,
        "volume_cm3": 4.640593243655995,
+       "center_cm": [
+        0.006053534296884169,
+        0.024431953783258003,
+        0.7660045084104143
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.011766195155218852
+        ],
+        [
+         1.0728046268254428,
+         1.0499316097358085,
+         1.5266176319849183
+        ]
+       ],
        "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
        "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
        "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
@@ -3587,6 +6058,23 @@
        "vertices": 22,
        "area_cm2": 14.693249836881733,
        "volume_cm3": 4.640593243655995,
+       "center_cm": [
+        0.006053534296884169,
+        0.024431953783258003,
+        0.7660045084104143
+       ],
+       "bounds_cm": [
+        [
+         -0.977126439523098,
+         -1.0300478189311848,
+         0.011766195155218852
+        ],
+        [
+         1.0728046268254428,
+         1.0499316097358085,
+         1.5266176319849183
+        ]
+       ],
        "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
        "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
        "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
@@ -3594,8 +6082,12 @@
      ]
     },
     "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5Star2Converted.f3d",
-    "converted_sha256": "a6ba4843956cc506d8e07245fae12fc4e22aadf7ffd7dfa8ea6c5ae878be3ec7",
+    "converted_sha256": "072776b77b4a86372900c88cbae90aa64da475a2871314ab7a571716a897a382",
     "cage_tsm_sha256": "eba630479ba69e6e9453b7a8345287558dd2426916a6c9f87ce61d0e0fce11de",
+    "cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "2"
+    },
     "edited_vertex_cm": [
      -1.006732293,
      -0.669588166,
@@ -3621,6 +6113,23 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.02659344913314795,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
@@ -3628,7 +6137,7 @@
      ]
     },
     "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5Star2.f3d",
-    "saved_sha256": "28d46eb278b07d8e1f3a7515b8cda64510039c4b0089334c2d5c35b8aaa104ae",
+    "saved_sha256": "344c4f72b86e3d8ac58b9a61796cc6a3316e736002bf51c708596e9d37d65e6e",
     "reopened": {
      "timeline": [
       {
@@ -3648,11 +6157,33 @@
        "vertices": 22,
        "area_cm2": 14.67340314680529,
        "volume_cm3": 4.622316303609363,
+       "center_cm": [
+        0.009218588314258315,
+        0.02659344913314795,
+        0.7670432896233793
+       ],
+       "bounds_cm": [
+        [
+         -0.9714250982515404,
+         -1.0300478189311848,
+         0.01176619515521897
+        ],
+        [
+         1.072804626825443,
+         1.049931609735809,
+         1.5266176319848912
+        ]
+       ],
        "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
        "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
        "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
       }
      ]
+    },
+    "reopened_cage_tsm_sha256": "8a5eead47cc74c0f6decfdb33e4dc2ef53d05c6d9b59d45766a22037d7a63fbd",
+    "reopened_cage_declarations": {
+     "cap-type": "G1CAPS",
+     "star-smoothness": "2"
     }
    },
    "comparisons": [
@@ -3664,6 +6195,12 @@
     },
     {
      "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -3681,8 +6218,14 @@
      "problems": []
     },
     {
-     "comparison": "kit.edited~oracle.edited.bodies",
+     "comparison": "kit.solved~oracle.solved.timeline",
      "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.bodies",
+     "max_abs_deviation": 3.469446951953614e-18,
      "problem_count": 0,
      "problems": []
     },
@@ -3693,13 +6236,43 @@
      "problems": []
     },
     {
-     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "comparison": "kit.edited~oracle.edited.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
     },
     {
+     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "max_abs_deviation": 3.469446951953614e-18,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.timeline",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "oracle.control_after~oracle.reopened.timeline",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
@@ -3765,12 +6338,33 @@
      "problems": []
     },
     {
+     "comparison": "cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "reopened_cage_declarations",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
      "comparison": "edited_vertex_cm",
      "max_abs_deviation": 0.0,
      "problem_count": 0,
      "problems": []
     }
    ],
+   "dropped": [],
+   "vendor_loadable": true,
+   "application_usable": true,
    "areas_cm2": {
     "kit": {
      "loaded": [
@@ -3806,5 +6400,8 @@
   }
  ],
  "status": "accepted",
- "documents_after": 0
+ "documents_after": 0,
+ "dropped": [],
+ "vendor_loadable": true,
+ "application_usable": true
 }

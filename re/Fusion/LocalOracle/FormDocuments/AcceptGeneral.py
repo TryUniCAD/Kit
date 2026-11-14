@@ -1,6 +1,7 @@
 import hashlib
 import json
 from math import isclose
+import os
 from pathlib import Path
 import traceback
 
@@ -13,9 +14,15 @@ selection = folder / 'General' / 'tmp' / 'AcceptancePlan.txt'
 work = folder / 'General' / (selection.read_text().strip() if selection.exists() else 'Accept')
 saved_folder = work / 'tmp'
 preparation = json.loads((work / 'Preparation.json').read_text())
+probe_path = work / 'SessionProbe.json'
+probe = json.loads(probe_path.read_text()) if probe_path.exists() else {}
 app = adsk.core.Application.get()
 report = {
     'fusion_version': app.version,
+    'oracle_process_id': os.getpid(),
+    'previous_oracle_process_id': probe.get('oracle_process_id'),
+    'previous_documents_open': probe.get('documents_open'),
+    'fresh_process_verified': bool(probe.get('oracle_process_id') and probe['oracle_process_id'] != os.getpid()),
     'scope': preparation.get('acceptance_scope', 'Kit Form documents whose body comes from the general ConvertForm rules, against Fusion conversion of the same TSM'),
     'tolerance_cm': 1e-8,
     'documents_before': app.documents.count,
@@ -98,7 +105,7 @@ def solved(design):
     for body in design.rootComponent.bRepBodies:
         faces = sorted((face_row(face) for face in body.faces), key=lambda row: rounded(row['grid_cm'][24]))
         edges = sorted((edge_row(edge) for edge in body.edges), key=lambda row: rounded(row['points_cm'][3]))
-        bodies.append({'solid': body.isSolid, 'faces': body.faces.count, 'edges': body.edges.count, 'vertices': body.vertices.count, 'area_cm2': body.area, 'volume_cm3': body.volume if body.isSolid else None, 'face_rows': faces, 'edge_rows': edges, 'vertex_cm': sorted((xyz(vertex.geometry) for vertex in body.vertices), key=rounded)})
+        bodies.append({'solid': body.isSolid, 'faces': body.faces.count, 'edges': body.edges.count, 'vertices': body.vertices.count, 'area_cm2': body.area, 'volume_cm3': body.volume if body.isSolid else None, 'center_cm': xyz(body.physicalProperties.centerOfMass) if body.isSolid else None, 'bounds_cm': [xyz(body.boundingBox.minPoint), xyz(body.boundingBox.maxPoint)], 'face_rows': faces, 'edge_rows': edges, 'vertex_cm': sorted((xyz(vertex.geometry) for vertex in body.vertices), key=rounded)})
     forms = design.rootComponent.features.formFeatures
     timeline = [{'name': item.name, 'health': item.healthState, 'message': item.errorOrWarningMessage} for item in design.timeline]
     return {'timeline': timeline, 'form_health': [forms.item(index).healthState for index in range(forms.count)], 'bodies': bodies}
@@ -171,6 +178,10 @@ def from_tsm(path):
     return document
 
 
+def declarations(text):
+    return {line.split()[0]: line.split(None, 1)[1] for line in text.splitlines() if line.startswith(('cap-type ', 'star-smoothness '))}
+
+
 def exercise(document, label, stages):
     design = design_of(document)
     stages['loaded'] = solved(design)
@@ -185,7 +196,9 @@ def exercise(document, label, stages):
     if not form.startEdit():
         raise RuntimeError('Form edit did not start')
     body = form.tSplineBodies.item(0)
-    stages['cage_tsm_sha256'] = hashlib.sha256(body.getTSMDescription().encode()).hexdigest()
+    cage_text = body.getTSMDescription()
+    stages['cage_tsm_sha256'] = hashlib.sha256(cage_text.encode()).hexdigest()
+    stages['cage_declarations'] = declarations(cage_text)
     vertex = min(body.vertices, key=lambda item: key(item.geometry))
     stages['edited_vertex_cm'] = xyz(vertex.geometry)
     if not vertex.move(adsk.core.Vector3D.create(.11, .07, .13)):
@@ -202,6 +215,14 @@ def exercise(document, label, stages):
     close(document)
     again = open_archive(saved)
     stages['reopened'] = solved(design_of(again))
+    reopened_form = design_of(again).rootComponent.features.formFeatures.item(0)
+    if not reopened_form.startEdit():
+        raise RuntimeError('Reopened Form edit did not start')
+    reopened_text = reopened_form.tSplineBodies.item(0).getTSMDescription()
+    if not reopened_form.finishEdit():
+        raise RuntimeError('Reopened Form finish failed')
+    stages['reopened_cage_tsm_sha256'] = hashlib.sha256(reopened_text.encode()).hexdigest()
+    stages['reopened_cage_declarations'] = declarations(reopened_text)
     close(again)
 
 
@@ -227,7 +248,7 @@ def summary(stages):
 
 
 def run_case(prepared):
-    case = {'case': prepared['case'], 'group': prepared['group'], 'oracle': {}, 'kit': {}, 'comparisons': []}
+    case = {'case': prepared['case'], 'group': prepared['group'], 'oracle': {}, 'kit': {}, 'comparisons': [], 'dropped': ['case did not complete'], 'vendor_loadable': False, 'application_usable': False}
     report['cases'].append(case)
     for name, field in (('tsm_file', 'tsm_sha256'), ('document_file', 'document_sha256')):
         if hashlib.sha256((root / prepared[name]).read_bytes()).hexdigest() != prepared[field]:
@@ -235,19 +256,27 @@ def run_case(prepared):
     exercise(from_tsm(root / prepared['tsm_file']), 'Oracle' + prepared['case'], case['oracle'])
     exercise(open_archive(root / prepared['document_file']), 'Kit' + prepared['case'], case['kit'])
     oracle, kit = case['oracle'], case['kit']
+    control_after = open_archive(root / oracle['saved_file'])
+    oracle['control_after'] = solved(design_of(control_after))
+    close(control_after)
     problems = []
     for left, right in (('loaded', 'solved'), ('solved', 'solved'), ('edited', 'edited'), ('reopened', 'reopened')):
-        for field in ('bodies', 'form_health'):
+        for field in ('bodies', 'form_health', 'timeline'):
             problems += compare(case, f'kit.{left}~oracle.{right}.{field}', kit[left][field], oracle[right][field], f'kit.{left}~oracle.{right}.{field}')
+    for field in ('bodies', 'form_health', 'timeline'):
+        problems += compare(case, f'oracle.control_after~oracle.reopened.{field}', oracle['control_after'][field], oracle['reopened'][field], f'oracle.control_after~oracle.reopened.{field}')
     problems += compare(case, 'kit.reopened~kit.edited', kit['reopened']['bodies'], kit['edited']['bodies'], 'kit.reopened~kit.edited')
     for stage in ('loaded', 'solved', 'edited', 'reopened'):
         problems += compare(case, f'kit.{stage}.timeline_health', [item['health'] for item in kit[stage]['timeline']], [0] * len(kit[stage]['timeline']), f'kit.{stage}.timeline_health')
         problems += compare(case, f'kit.{stage}.form_health', kit[stage]['form_health'], [0], f'kit.{stage}.form_health')
-    for name in ('cage_tsm_sha256', 'edited_vertex_cm'):
+    for name in ('cage_tsm_sha256', 'cage_declarations', 'reopened_cage_tsm_sha256', 'reopened_cage_declarations', 'edited_vertex_cm'):
         problems += compare(case, name, kit[name], oracle[name], name)
     case['areas_cm2'] = {'kit': summary(kit), 'oracle': summary(oracle)}
     case['problem_count'] = len(problems)
-    case['status'] = 'accepted' if not problems else 'different'
+    case['dropped'] = problems
+    case['vendor_loadable'] = not problems
+    case['application_usable'] = not problems and bool(kit['loaded']['bodies'])
+    case['status'] = 'accepted' if case['vendor_loadable'] and case['application_usable'] and not case['dropped'] else 'different'
     if prepared.get('primitive'):
         row = {'spec': prepared['primitive']}
         case['primitive'] = row
@@ -275,7 +304,7 @@ try:
         if prepared.get('status') != 'prepared':
             continue
         guarded(run_case, prepared, report['cases'])
-    accepted = all(case.get('status') == 'accepted' for case in report['cases'])
+    accepted = bool(report['cases']) and all(case.get('status') == 'accepted' for case in report['cases'])
     report['status'] = 'accepted' if accepted else 'different'
 except Exception:
     report['status'] = 'failed'
@@ -284,4 +313,7 @@ finally:
     for document in list(opened):
         close(document)
     report['documents_after'] = app.documents.count
+    report['dropped'] = [case['case'] for case in report['cases'] if case.get('status') != 'accepted']
+    report['vendor_loadable'] = report['status'] == 'accepted' and not report['dropped']
+    report['application_usable'] = report['vendor_loadable']
     checkpoint()

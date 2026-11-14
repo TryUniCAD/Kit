@@ -1,7 +1,7 @@
 from dataclasses import replace as ReplaceValue
 from sys import version_info as PythonVersion
 
-from pytest import mark as MarkTests
+from pytest import approx as ApproxValue, mark as MarkTests
 
 from convert.formats.Fusion.BrepCodec.Journal.Complex.Spline.BsCurve import BsCurve
 from convert.formats.Fusion.BrepCodec.Journal.Spline.NubsSurface import NubsSurface
@@ -23,6 +23,11 @@ from tests.convert.formats.FusionCodec.Documents.Form.GeneralCases import (
 from tests.convert.formats.FusionCodec.Documents.Form.ReadConverted import (
     ReadConverted,
 )
+from tests.convert.formats.FusionCodec.Documents.Materials.MaterialFields import (
+    MaterialFields,
+)
+from tests.convert.formats.FusionCodec.Documents.NamedGroups import NamedGroups
+from tests.convert.formats.FusionCodec.Documents.Rectangle.RectValues import ReadPoint
 from tests.convert.formats.FusionCodec.Documents.Form.ReadFormFile import (
     ReadFormFile,
 )
@@ -162,7 +167,37 @@ def BodySpread(Built: FormBody, Native: FormBody) -> float:
 @MarkTests.parametrize(
     "CaseValue", KGeneralCases + KCapCases, ids=lambda CaseValue: CaseValue[0]
 )
-def TestGeneralCase(CaseValue: tuple[str, str, str, str, str]) -> None:
+def TestGeneralCase(CaseValue: tuple[str, ...]) -> None:
     Surface = ReadTspline(ReadFormFile(CaseValue[1], CaseValue[2]))
     Native = ReadConverted(ReadDocument(ReadFormFile(CaseValue[3], CaseValue[4])))
     assert BodySpread(ConvertForm(Surface), Native) <= KGeneralSlack
+
+
+@KNeedZip
+@MarkTests.parametrize("CaseValue", KCapCases, ids=lambda CaseValue: CaseValue[0])
+def TestCapDeclarationFlow(CaseValue: tuple[str, ...]) -> None:
+    Surface = ReadTspline(ReadFormFile(CaseValue[1], CaseValue[2]))
+    EmittedPath = CaseValue[3].replace("/Fusion/", "/")
+    Emitted = ReadDocument(ReadFormFile(EmittedPath, CaseValue[5]))
+    Native = ReadDocument(ReadFormFile(CaseValue[3], CaseValue[4]))
+    assert Emitted.Forms[0].Surface.Header == Surface.Header
+    assert Native.Forms[0].Surface.Header.CapType == "G1CAPS"
+    assert (
+        Native.Forms[0].Surface.Header.StarSmoothness == Surface.Header.StarSmoothness
+    )
+
+
+@KNeedZip
+@MarkTests.parametrize("CaseValue", KCapCases, ids=lambda CaseValue: CaseValue[0])
+def TestCapMassCache(CaseValue: tuple[str, ...]) -> None:
+    EmittedPath = CaseValue[3].replace("/Fusion/", "/")
+    Emitted = ReadDocument(ReadFormFile(EmittedPath, CaseValue[5]))
+    Native = ReadDocument(ReadFormFile(CaseValue[3], CaseValue[4]))
+    Cached = MaterialFields(NamedGroups(Emitted, "Body")[0]["cache"])
+    Expected = MaterialFields(NamedGroups(Native, "Body")[0]["cache"])
+    for FieldName in ("area", "volume"):
+        assert Cached[FieldName] == ApproxValue(Expected[FieldName], rel=1e-8, abs=1e-8)
+    for FieldName in ("cog", "moi", "moiOffDiag"):
+        assert ReadPoint(Cached[FieldName]) == ApproxValue(
+            ReadPoint(Expected[FieldName]), rel=1e-8, abs=1e-8
+        )

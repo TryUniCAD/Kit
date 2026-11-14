@@ -9,6 +9,8 @@ Other cap names and star values still raise `ValueError`.
 `ConvertCage` uses `CheckSurface` as its single declaration gate. It no longer applies a second G1-only restriction.
 `SurfaceHeader` keeps `G1CAPS` and star value 0 as the defaults for new cages.
 `WriteHeader` preserves the declaration stored in a parsed surface.
+Fusion canonicalizes G0 and G2 declarations to G1 during its native lifecycle. It preserves the star value.
+The [canonicalization gotcha](../../../Gotchas/Conversion/Fusion/TSpline/FusionCanonicalizesCapTypes.md) prevents confusion with Kit data loss.
 `SwapFormCage` still requires matching declarations in the old and new layouts.
 
 Fusion ignores these two declarations when it selects the cap solve for the qualified profiles. The cage topology and grips determine the resulting body.
@@ -28,25 +30,28 @@ The [preparation report](../../../../re/Fusion/LocalOracle/FormDocuments/General
 ## Fusion acceptance
 
 Fusion 2706.1.17 accepted all 10 independently emitted documents.
-The [native acceptance report](../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json) has SHA-256 `46b1cd7392fcd1dd26a602ea9e01becf71140c2999f68bdb734ead4877d6c3e6`.
-It contains 190 comparisons, zero problems, and a largest absolute deviation of `6.195044477408373e-14` cm.
+The [native acceptance report](../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json) has SHA-256 `325818d15840e18ff1d3afc1c2ebf9c737e91181254c49cf77556f7cef2cb0b1`.
+It contains 290 comparisons, zero problems, and a largest absolute deviation of `6.195044477408373e-14` cm.
 Zero documents were open before and after the run.
+The preflight process was 98846, and the measured process was 24703. `fresh_process_verified` is true.
+Every case has `dropped = []`, `vendor_loadable = true`, and `application_usable = true`.
 
 For each case, Fusion imported the same TSM as the native control. Kit's F3D opened separately.
 Both documents ran `computeAll`, moved the same control point, exported, and reopened.
-The comparison covered topology, health, NURBS data, face grids, edge curves, vertices, area, and volume.
+The comparison covered topology, timeline nodes, health, NURBS data, face grids, edge curves, bounds, centers, area, and volume.
 
-| Cage                              | Loaded area and volume                        | Edited and reopened area and volume           |
-| --------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Box3, all five declarations       | 28.19774998549261 cm²; 12.441043578278578 cm³ | 28.08639550286362 cm²; 12.398528701468491 cm³ |
-| HeldPrism5, all five declarations | 14.693249836881733 cm²; 4.640593243655995 cm³ | 14.67340314680529 cm²; 4.622316303609363 cm³  |
+| Cage                              | Loaded area and volume                        | Edited and reopened area and volume           | Loaded center (cm)                                             | Edited and reopened center (cm)                               |
+| --------------------------------- | --------------------------------------------- | --------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------- |
+| Box3, all five declarations       | 28.19774998549261 cm²; 12.441043578278578 cm³ | 28.08639550286362 cm²; 12.398528701468491 cm³ | 1.1999999999999993, 1.1999974483503766, 1.199999999999999      | 1.2029980173529884, 1.2028781421663373, 1.2030568225219829    |
+| HeldPrism5, all five declarations | 14.693249836881733 cm²; 4.640593243655995 cm³ | 14.67340314680529 cm²; 4.622316303609363 cm³  | 0.006053534296884169, 0.024431953783258003, 0.7660045084104143 | 0.009218588314258315, 0.02659344913314795, 0.7670432896233793 |
 
 The [static artifact inspection](../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/ContainerInspection.json) independently inventoried the held-out `G2CAPS` F3D.
 It found 24 ZIP occurrences, including 16 files, with zero integrity contradictions.
 Its digest matched the preparation record. The static inspection did not execute Fusion or establish runtime semantics.
 
 The [scrub validation](../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/ScrubValidation.json) compared all 10 retained native controls before and after scrubbing.
-The scrubber changed zero bytes, and every typed document model remained identical.
+The scrubber changed two archives, and every typed document model remained identical.
+`changed_by_scrubber` is 2, and all 10 model digests match their pre-scrub values.
 
 ## Compatibility coverage
 
@@ -54,6 +59,8 @@ The compressed TSM archive catalog now contains 22 cases, including all 10 decla
 `TestTsmArchive` checks typed read, semantic digests, byte-exact emission, and a second read.
 `TestTsmReject` adds unknown cap-name and star-value rejection through the public reader.
 `TestGeneralCase` compares `ConvertForm` against the retained native body for all 10 variants.
+`TestCapDeclarationFlow` checks Kit emission against the source declaration and native G1 canonicalization.
+`TestCapMassCache` checks the derived mass fields against native caches, as the [mass-cache change](FusionFormMassCache.md) describes.
 These integration cases run in remote CI, not locally.
 
 Run the reproducible research preparation with:

@@ -1,12 +1,13 @@
 """Research step after AcceptGeneral: keep Fusion's own conversion of each accepted cage.
 
 Usage:
-  CollectAccept.py copy   copies tmp/Oracle<Case>Converted.f3d of each accepted case to Accept/Fusion/<Case>.f3d
-  CollectAccept.py cases  writes tests/.../Form/GeneralCases.py from the kept saves and the Kit TSM files
+  CollectAccept.py copy [folder] copies tmp/Oracle<Case>Converted.f3d to <folder>/Fusion/<Case>.f3d
+  CollectAccept.py cases [folder] [catalog] writes the case catalog from the kept files
+  The defaults are General/Accept and GeneralCases.py; use CapAccept and CapCases.py for cap declarations
 
 Run ScrubSaved.py over the copied saves between the two steps, so the digests are the scrubbed ones.
 The saves are Fusion's conversion before any edit. GeneralAcceptTests compares ConvertForm of each TSM
-with the body read from the save.
+with the body read from the save. CapCases.py additionally holds each independently emitted F3D digest.
 """
 
 import hashlib
@@ -41,7 +42,7 @@ def copy():
 
 
 def cases():
-    lines = [VALUE_NAME + ': tuple[tuple[str, str, str, str, str], ...] = (']
+    lines = [VALUE_NAME + ': tuple[tuple[str, ...], ...] = (']
     for name, group in accepted():
         tsm, save = ACCEPT / (name + '.tsm'), KEPT / (name + '.f3d')
         lines.append('    (')
@@ -50,6 +51,8 @@ def cases():
         lines.append(f'        "{digest(tsm)}",')
         lines.append(f'        "{save.relative_to(ROOT)}",')
         lines.append(f'        "{digest(save)}",')
+        if ACCEPT.name == 'CapAccept':
+            lines.append(f'        "{digest(ACCEPT / (name + ".f3d"))}",')
         lines.append('    ),')
     lines.append(')')
     CASES.write_text('\n'.join(lines) + '\n')
