@@ -76,6 +76,13 @@ indexed section, including the class registry and object records. That encoder
 is the remaining authoring work; the index, stream set, and container seals are
 already understood.
 
+The trailing 12 bytes of each section are not validated. Zeroing that digest in
+one section, or in all four, still loads in NX 2506 with `unloaded 0`. Zeroing
+the registry and record bytes after the section header fails with `Bad size for
+allocation request in Storage Manager` (code 902), and zeroing the header
+counts fails with `Found bad saved pointer value in file` (code 580143). The
+registry and record content is therefore required even for an empty part.
+
 Current status: the encoder is not implemented. No from-scratch part has been
 loaded in NX, and the writer still requires a retained SPLMSSTR payload. A section begins with an optional `c0 d1 f1 ed`
 separator, `ff ff ff ff`, four zero bytes, a big-endian payload size, and the
