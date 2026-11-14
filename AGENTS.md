@@ -95,6 +95,17 @@ Read the [no donor blocks standard](.agents/skills/standard-pr-practice/referenc
 and the [Fusion donor data ban](Documentation/Reference/Research/FusionDonorBan.md)
 before writer work.
 
+A typed field program is donor data when its values or offsets come from a vendor
+save. Zero opaque bytes proves that each byte has a typed owner. It does not prove
+that Kit generated the value. The SOLIDWORKS programs under
+`src/convert/adapters/solidworks/programs/` are recorded payloads of this kind and
+are migration debt, not a pattern to copy. CI runs `tools/Donors/CheckReplays.py`
+against `tools/Donors/ReplayBaseline.txt`, and the counts may only fall. Do not add a
+program root, raise a count, or add a SOLIDWORKS family as another recorded program.
+Extend the generative serializer instead. The no donor blocks standard states the
+current SOLIDWORKS state and the required direction, and this paragraph takes
+precedence over its preserved state section.
+
 An administrator's explicit merge request remains valid through repairs and
 authorizes a supported admin override when independently enforced protections
 otherwise block a fully green, conflict-free PR. It never authorizes bypassing

@@ -72,3 +72,9 @@ jobs:
           uv run python -m tools.steering.SteeringCompliance \
             --baseline-file tools/steering/SteeringBaseline.txt \
             "${PythonFiles[@]}"
+
+      - name: Verify recorded payload ratchet
+        run: |
+          uv run python -m tools.Donors.CheckReplays \
+            --baseline-file tools/Donors/ReplayBaseline.txt \
+            src

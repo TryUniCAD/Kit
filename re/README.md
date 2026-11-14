@@ -104,7 +104,8 @@ cheapest end-to-end check that the recorded tables really do come out of the rec
 
 ## Scope honesty
 
-The SOLIDWORKS work reads and _patches_ SOLIDWORKS streams. It does not serialise one from nothing. The
-container framing is fully inverted (any of 1000 file ids can be written with no donor); stream
-content still comes from a donor part of the right feature topology. `solidworks/README.md` states
-exactly where that line falls.
+The SOLIDWORKS work reads SOLIDWORKS streams and writes the supported families by re-emitting typed
+recordings of saved streams with selected fields overridden. It does not serialise one from
+nothing. The container framing is fully inverted; stream content still follows a recorded part of
+the right feature topology. `tools/Donors/CheckReplays.py` counts that recorded debt in CI and lets
+it only fall. `solidworks/README.md` states exactly where that line falls.
