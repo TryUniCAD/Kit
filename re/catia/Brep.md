@@ -431,19 +431,32 @@ references are tag differences only.
 
 `SurfacicReps` contains no `02 00 00 00` at all, so the face records are not in that stream either.
 
-### The body header is 47 bytes and its count is not a face count
+### The body header is 30 bytes and its count is not a face count
 
-`Reservoir` has three body headers at offsets 54, 101, and 153, each 47 bytes. The layout is:
+`Reservoir` has three body records at offsets 54, 101, and 153. They are 47, 52, and 53 bytes long,
+not a fixed size. Each starts with the same 30-byte object header:
 
-- 30 bytes of object header, identical in all three:
-  `30 04 04 fd ff 00 00 00 01 00 62 d6 3c 42 00 00 00 00 00 00 d8 c0 95 63 37 3d 00 00 f0 41`;
-- a `u32` count at offset +30: 3, 19, and 4140;
-- two `ff`-prefixed counts: `ff 03 01 00 00` (259) and `ff 01 00 00 00` (1) for bodies 1 and 2;
-- three trailing bytes.
+```
+30 04 04 fd ff 00 00 00 01 00 62 d6 3c 42 00 00 00 00 00 00 d8 c0 95 63 37 3d 00 00 f0 41
+```
+
+That is a 5-byte record marker `30 04 04 fd ff`, five bytes `00 00 00 01 00`, and five floats
+`47.209, 0.0, -6.75, 0.0448, 30.0`. The marker is distinct from the face marker `30 04 04 ff ff`,
+which appears exactly 71 times at the face-outer-bound run. So the body and face records are
+distinguishable by their marker byte, and the three body records are the only `fd` markers.
+
+A `u32` count sits at offset +30: 3, 19, and 4140. After it the three records diverge:
+
+| Body | Offset | Length | Count | Tail |
+| --- | ---: | ---: | ---: | --- |
+| 1 | 54 | 47 | 3 | `ff 03 01 00 00` `ff 01 00 00 00` `00 62 00` |
+| 2 | 101 | 52 | 19 | `ff 03 01 00 00` `ff 01 00 00 00` `00 95 ff ed 78 00 00 00` |
+| 3 | 153 | 53 | 4140 | `ff ff 02 00 01` `ff 97 05 00 00` `ff 97 05 00 00` `00 00 00 00` |
 
 The counts 3, 19, and 4140 are neither the 71 faces nor the 56 surfaces. Body 3's 4140 is far
 larger than either, so the field is not a face or surface count. The two `ff`-prefixed values are
-the same for bodies 1 and 2 and differ for body 3, so they are not per-body face counts either.
+`259` and `1` for bodies 1 and 2, and `1431` twice for body 3. `1431` is the handle count, so body
+3's tail carries the handle count twice, but bodies 1 and 2 do not.
 
 The body record therefore does not carry the face-to-surface map. The map has to come from the
 inline face records in the shell record, which are not at a fixed offset from the body header.

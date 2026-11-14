@@ -327,10 +327,33 @@ The nibble histogram of the block is heavily skewed: `0` appears 290 times, `1` 
 `2` 56, `6` 47, `3` 19, `9` 18, `7` 16, `13` 28, and the rest under 10. A 40 percent zero rate with
 single-bit nibbles is the signature of a sparse bit array, not of a float stream.
 
+The block is exactly 363 bytes, which is 2904 bits, which is exactly 1452 two-bit values, which is
+exactly `4 * 363`. So the block is a whole number of two-bit values with no remainder, and the count
+is close to the 1431-value handle space (1452 versus 1431, a difference of 21). That is suggestive
+but not conclusive: the two-bit value distribution is `0:866, 1:289, 2:198, 3:78`, which is far too
+skewed for a per-quad corner index (a permutation of `0..3` per group of four would be uniform), and
+the values do not correlate with the trim structure. So the block is a two-bit array of about the
+handle count, but its meaning is not recovered.
+
 The 4-byte prefix in the run headers is not a count. It does not correlate with the run length
 (`0x2c077000` precedes a 9-float run and `0x2c079800` precedes a 124-float run), and its high byte
 is `0x2c` or `0x2d` in most headers. It is not a file offset either: `0x2c077000` is 738 million,
 far beyond the 31 KB stream.
+
+## The shell face-reference loop is not a plain index array
+
+The shell record is supposed to carry a face-reference loop of one entry per face. For `Reservoir`
+that would be 71 entries. No such loop exists as a plain index array:
+
+- no run of 71 consecutive `u32` values all below 71 exists in `MainDataStream`;
+- no run of 71 consecutive `u16` values all below 71 exists either;
+- no run of 71 records of the shape `u32 zero + odd byte` (a `ReadObject` table index of 0 followed
+  by a one-byte scalable tag difference) exists at stride 5;
+- no run of 71 `u32` zeros exists at stride 4.
+
+The same holds for `Pedal_Body` (338 faces) and for `Copper_Washer` (6 faces). So the face-reference
+loop is not a contiguous array of indices or of `index + tag-difference` pairs. It is either
+interleaved with other fields or encoded differently, and it is not recoverable by a stride scan.
 
 ## The coordinate table holds 1003 points, not 1431
 
