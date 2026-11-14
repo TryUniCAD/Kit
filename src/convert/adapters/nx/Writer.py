@@ -108,6 +108,9 @@ def WriteNx(
     if not Payload.data.startswith(b"SPLMSSTR"):
         raise ValueError("NX writing requires a modern SPLMSSTR source")
     Overrides = MakeOverrides(DocValue, Payload.data)
+    Rename = PartRename(DocValue)
+    if Rename is not None:
+        Overrides.update(RenameStreams(Payload.data, Rename, Overrides))
     DataValue = RebuildNative(Payload.data, Overrides)
     CheckOutput(DataValue, Payload.data)
     CheckSeals(DataValue)
@@ -125,6 +128,7 @@ def WriteNx(
         "native_self_contained": not Requirements,
         "attribute_overrides": HasEntries(AttributesRequested),
         "stream_overrides": HasEntries(StreamsRequested),
+        "part_renamed": Rename is not None,
         "source_sha256": Payload.sha256,
         "output_sha256": Hashlib.sha256(DataValue).hexdigest(),
         "referenced_files_written": 0,
@@ -169,6 +173,44 @@ def CheckNeutral(DocValue: CadDoc) -> None:
 # container rebuilding recomputes the modern directory from parsed streams
 def RebuildNative(DataValue: bytes, Overrides: dict[str, bytes]) -> bytes:
     return RebuildSplm(ReadSplm(DataValue), Overrides)
+
+
+# a requested part name must keep its length because section offsets are absolute
+def PartRename(DocValue: CadDoc) -> tuple[bytes, bytes] | None:
+    Requested = DocValue.metadata.get("nx.part_name")
+    if Requested is None:
+        return None
+    if not isinstance(Requested, str):
+        raise ValueError("NX part name must be a string")
+    NewName = FilePath(Requested.strip()).name
+    if not NewName.lower().endswith(KPartSuffix):
+        raise ValueError("NX part names must end with .prt")
+    OldName = FilePath(DocValue.source.path).name
+    if len(OldName) != len(NewName):
+        raise ValueError("NX part rename requires the same name length")
+    if OldName == NewName:
+        return None
+    return (OldName.encode("utf-8"), NewName.encode("utf-8"))
+
+
+# rename rewrites the payload name lanes and the self reference at equal length
+def RenameStreams(
+    DataValue: bytes, Rename: tuple[bytes, bytes], Overrides: dict[str, bytes]
+) -> dict[str, bytes]:
+    OldName, NewName = Rename
+    Streams = {
+        PathValue.removeprefix("/Root/"): Value
+        for PathValue, Value in SplmStreams(ReadSplm(DataValue))
+    }
+    Output: dict[str, bytes] = {}
+    for StreamKey, Current in Streams.items():
+        Replaced = Overrides.get(StreamKey, Current).replace(OldName, NewName)
+        if Replaced != Current:
+            Output[StreamKey] = Replaced
+    for StreamKey, Current in Overrides.items():
+        if StreamKey not in Output and OldName in Current:
+            Output[StreamKey] = Current.replace(OldName, NewName)
+    return Output
 
 
 # overrides combine native attribute edits with whole stream replacement
