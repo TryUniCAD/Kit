@@ -966,6 +966,19 @@ So the small `MainDataStream` is a pointer record, not a header table. `Surfacic
 at offset 17. None of these preambles contains a table of object-header offsets, so the object table
 is built at load time rather than read from a table.
 
+## The surface records are interleaved with per-surface control points
+
+The surface records are not contiguous. In `Reservoir` the first ten records start at 17, 66, 350,
+423, 500, 667, 740, 789, 979, and 1052, and the gaps between them are 0, 235, 0, 0, 94, 0, 0, 141,
+and 0 bytes. The gap bytes are six-float groups of a point and a normal, for example
+`(-19.32, 1.478, 21.76, 0.523, 1.236, 0.876)` followed by `(-19.32, 1.49, 21.76, 1.59, ...)`, where
+the two groups share `x` and `z` and differ in `y`. Each gap is preceded by a `ff <byte> 0c 00`
+marker.
+
+So `SurfacicReps` is a sequence of surface records each followed by its own control-point block, and
+the marker scan that recovers the records is the right approach. The control-point blocks are not
+the face-to-surface map either: they belong to the surface, not to a face.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
