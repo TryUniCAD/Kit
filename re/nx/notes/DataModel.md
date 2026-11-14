@@ -336,34 +336,35 @@ record. Editing that field changes what NX reports:
 0x2850 -> 3.0
 ```
 
-Measured pairs from NX-created parts:
+A 40-value sweep (`0.25` to `10.0` in `0.25` steps, one part) shows the field is
+not a numeric encoding. It is a per-part handle: the same value receives a
+different handle in a different part.
 
 ```text
-value    field     form
-1        0x0001    06 01
-2        0x0002    06 02
-0.5      0x0003    06 04
-3        0x2850    06 03
-12.5     0x4950    04 06 "12.5"
-25       0x5950    04 04 "25"
-100      0x7950    04 05 "100"
-0.125    0x4fe0    04 07 "0.125"
+value    sweep.prt   multi.prt
+0.5      0x0850      0x0003
+1.0      0x1450      0x0001
+2.0      0x2250      0x0002
+3.0      0x2a50      0x2850
 ```
 
-So the field is the number for the inline-string form but the mapping is not
-affine, and the `06 <n>` form references a value table. That table is visible in
-the first record of the same middle lane:
+Within one part the handles are allocated in creation order, with small integers
+for the first few values and a larger form afterwards. Editing the handle in an
+existing part changes what NX reports only because the new handle already
+resolves to another value in that part's own table. That is why an earlier edit
+appeared to prove a numeric encoding.
+
+The value table is visible in the first record of the same middle lane:
 
 ```text
 01 05 03 "1" 00 03 "2" 00 03 "3" 00 05 "0.5" 00
 ```
 
-The encoding is not yet inverted, so an arbitrary authored value cannot be
-written with confidence.
+So an authored expression needs a new handle plus a matching table entry, not a
+16-bit number. The allocation rule is not yet known.
 
-No 12.5 exists anywhere in the container as a binary64, a shifted binary64, a
-float32, or UTF-16 text, so the field is a private encoding rather than a
-truncated double.
+No value appears anywhere in the container as a binary64, a shifted binary64, a
+float32, or UTF-16 text.
 
 Current status: the class and reference lanes are emitted from a table and the
 middles are reproduced from a lane, but the table and the prefix and state bytes
