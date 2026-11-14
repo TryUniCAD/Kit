@@ -2025,7 +2025,7 @@ def EncodeNative(DocValue: CadDocument, ModelName: str) -> NativePart:
         )
     )
     Objects = (*BaseValue, *Authored)
-    VendorData = BuildVendorTree(Authored, DocValue)
+    VendorData = VendorTree(Authored, DocValue)
     VendorResolved = VendorData.payload if VendorData is not None else None
     SourceKeywords = KeywordsPayload(
         DocValue,
@@ -2348,6 +2348,10 @@ def BuildPolyTree(
         or PlaneObjectId != 2
         or (PadObject.object_id != 32)
         or SketchObject.dimensions
+        or (
+            len(PolylineValue) == 3
+            and HasPolyLoss(DocData, PadObject.source_id)
+        )
     ):
         return None
     try:
@@ -2375,6 +2379,19 @@ def BuildPolyTree(
     return VendorResolved(ProgramData, HeaderStamps, Generation=Generation)
 
 
+def IsTriCandidate(AuthoredObjs: tuple[_WriteObject, ...]) -> bool:
+    return len(AuthoredObjs) == 2 and len(PolylinePoints(AuthoredObjs[0]) or ()) == 3
+
+
+def VendorTree(
+    AuthoredObjs: tuple[_WriteObject, ...], DocData: CadDoc
+) -> VendorResolved | None:
+    VendorData = BuildVendorTree(AuthoredObjs, DocData)
+    if VendorData is None and IsTriCandidate(AuthoredObjs):
+        raise SldprtFormatError("three-line history is unsupported")
+    return VendorData
+
+
 # this definition exists because focused behavior needs one stable owner
 def BuildVendorTree(
     AuthoredObjs: tuple[_WriteObject, ...], DocData: CadDoc
@@ -2392,10 +2409,6 @@ def BuildVendorTree(
     BoundsValue = WriteRectangle(SketchObject)
     CircleValue = WriteCircle(SketchObject)
     PolylineValue = PolylinePoints(SketchObject)
-    if len(PolylineValue or ()) == 3 and HasPolyLoss(
-        DocData, PadObject.source_id
-    ):
-        raise SldprtFormatError("three-line parameters are unsupported")
     EndCodes = ExtrusionEdit(PadObject.payload)
     if (
         SketchObject.class_name != "moProfileFeature_c"
