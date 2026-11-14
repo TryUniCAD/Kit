@@ -212,10 +212,52 @@ RESULT ...\study_2.prt unloaded 0
   EXPRESSIONS 0
 ```
 
-Current status: the class and reference lanes and the middle bytes are still
-copied from `empty.prt`, so this is research and not shippable under the donor
-rule. No body, feature, or expression record has been authored, and the
-production writer still requires a retained SPLMSSTR payload. A section begins with an optional `c0 d1 f1 ed`
+### The feature-history middle is generated, not copied
+
+The middle lane of the feature-history section is now produced from structure
+rather than sliced from a document (`re/nx/tools/MiddleGen.py`):
+
+- eight flag bytes that carry class tokens and lane counts
+- four little-endian control words (`2`, `1`, `3`)
+- three computed body offsets: the text record, the `41` system anchor, and the
+  first `05 <token> 00 00 <token> <token>` state record
+- the product text record `03 01 <len+2> <text> 00`
+- the `08 SYSTEM 00` anchor and the state lane
+
+Re-encoding reproduces the captured middle byte for byte on all five NX 2506
+saves that have the lane:
+
+```text
+empty.prt       section 3 roundtrip True  176 176
+block.prt       section 3 roundtrip True  888 888
+block50.prt     section 3 roundtrip True  888 888
+variant400.prt  section 3 roundtrip True  903 903
+variant40000.prt section 3 roundtrip True  903 903
+```
+
+Because the offsets are computed, the product text can change length. A block
+part rebuilt with a four-byte longer product text in that lane loads in NX 2506
+with full parity:
+
+```text
+STATUS 0
+BODIES 1
+FEATURES 2  DATUM_CSYS, BLOCK
+EXPRESSIONS 6
+VOLUME 23999.999999999996
+AREA 5200.0
+MASS 0.18793536
+```
+
+The payload index also names four reference points for each section, not one:
+`offset`, `offset + 12`, `offset + 12 + size`, and `offset + 12 + size + 4`.
+Leaving any of them stale makes NX report `Part file is corrupt` (641001) even
+though the section bodies are consistent.
+
+Current status: the class and reference lanes, sections 0-2 middles, and the
+state lane are still copied from a document, so this is research and not
+shippable under the donor rule. No body, feature, or expression record has been
+authored, and the production writer still requires a retained SPLMSSTR payload. A section begins with an optional `c0 d1 f1 ed`
 separator, `ff ff ff ff`, four zero bytes, a big-endian payload size, and the
 `OM 01 01` signature. Section bodies contain the NX object-model class
 registry, attribute registry, object records, feature history, expression

@@ -203,3 +203,39 @@ def Main(ArgValues: list[str]) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(Main(sys.argv[1:]))
+
+
+def SplicePayload(Payload: bytes, Bodies: list[bytes]) -> bytes:
+    Parsed = ReadPayload(Payload)
+    Remap: dict[int, int] = {}
+    Output = bytearray()
+    Cursor = 0
+    for Index, (Info, Body) in enumerate(zip(Parsed.sections, Bodies)):
+        Output.extend(Payload[Cursor : Info.offset])
+        RegionEnd = (
+            Parsed.sections[Index + 1].offset
+            if Index + 1 < len(Parsed.sections)
+            else len(Payload)
+        )
+        Keep = Payload[Info.offset + 12 + Info.size : RegionEnd]
+        Start = len(Output)
+        Output.extend(
+            b"\xff\xff\xff\xff" + bytes(4) + len(Body).to_bytes(4, "big") + Body
+        )
+        Remap[Info.offset] = Start
+        Remap[Info.offset + 12] = Start + 12
+        Remap[Info.offset + 12 + Info.size] = Start + 12 + len(Body)
+        Remap[Info.offset + 12 + Info.size + 4] = Start + 12 + len(Body) + 4
+        Output.extend(Keep)
+        Cursor = RegionEnd
+    Output.extend(Payload[Cursor:])
+    Remap[len(Payload)] = len(Output)
+    Remap[len(Payload) - 1] = len(Output) - 1
+    Remap[len(Payload) - 2] = len(Output) - 2
+    Rows = bytearray(Payload[: Parsed.rows[1].value])
+    for Offset in range(0, len(Rows) // 12 * 12, 12):
+        for Field in range(3):
+            Value = StructLib.unpack_from("<I", Rows, Offset + Field * 4)[0]
+            if Value in Remap:
+                StructLib.pack_into("<I", Rows, Offset + Field * 4, Remap[Value])
+    return bytes(Rows) + bytes(Output)[len(Rows) :]
