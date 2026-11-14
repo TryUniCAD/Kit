@@ -361,7 +361,23 @@ The value table is visible in the first record of the same middle lane:
 ```
 
 So an authored expression needs a new handle plus a matching table entry, not a
-16-bit number. The allocation rule is not yet known.
+16-bit number.
+
+Two further probes constrain the handle. An unknown handle is not tolerated:
+setting it to `0x1234` makes NX report `The end of an OM file was reached
+unexpectedly` (580066). Adjacent handles are tolerated and decode to values that
+step by a factor of 2^16:
+
+```text
+handle   value
+0x4950   12.5
+0x4951   819200.0        = 12.5 * 65536
+0x4952   53687091200.0   = 12.5 * 65536^2
+```
+
+So the handle is a reference into an ordered internal table whose entries are
+multiplicative, not a plain index into the visible value list. The allocation
+rule is still not known.
 
 No value appears anywhere in the container as a binary64, a shifted binary64, a
 float32, or UTF-16 text.
