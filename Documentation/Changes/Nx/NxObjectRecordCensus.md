@@ -43,9 +43,11 @@ no constant offset explains them, searched up to 4096
 differing digits are split: bytes 1 to 3 and bytes 10 to 12
 ```
 
-so the entry packs two fields and one of them moves with the document. The three
-body-less fixtures are identical entry for entry, so the field follows the document's
-class population rather than its path.
+so the entry packs two fields and one of them moves with the document. Further
+measurement shows the scope is the class set rather than the document: seven parts that
+differ in dimension, expression count, expression names and body count share one class
+table byte for byte, and a part missing one class differs in 152 of 153 entries. See
+[the class table change](NxClassTableScope.md).
 
 ## Consequence
 
