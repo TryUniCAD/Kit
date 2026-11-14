@@ -152,11 +152,7 @@ def RebuildSplm(
     Replacements = ReplacementMap(Overrides)
     HeaderData: list[tuple[str, bytes | None]] = []
     FooterData: list[tuple[str, bytes | None]] = []
-    SeenPaths: set[str] = set()
     for Entry in FileValue.entries:
-        if Entry.path in SeenPaths:
-            continue
-        SeenPaths.add(Entry.path)
         Payload = None
         if Entry.size:
             Payload = Replacements.get(
