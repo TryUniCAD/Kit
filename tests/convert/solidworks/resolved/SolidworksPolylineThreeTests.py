@@ -177,6 +177,38 @@ def TestTriRewrite(TmpPath: FilePath) -> None:
     assert len(NativeData.sketches[0].profiles[0].coordinates) == 6
 
 
+def TestTriPrecise(TmpPath: FilePath) -> None:
+    Points = ((0.1, 0.2), (42.0, 0.3), (12.0, 31.0))
+    FirstPath = TmpPath / "PreciseRoundTrip.SLDPRT"
+    SecondPath = TmpPath / "PreciseRoundTripAgain.SLDPRT"
+    _ = WriteDoc(BuildDocument(Points, Depth=13.0), FirstPath, allow_carrier=False)
+    ArchiveData = SldprtArchive.open(FirstPath)
+    Reopened = ReadNativePart(
+        SldprtAdapter(),
+        ArchiveData,
+        FirstPath.read_bytes(),
+        str(FirstPath),
+        ReadOptions(include_brep=False),
+    )
+    _ = WriteDoc(Reopened, SecondPath)
+    FirstResolved = ArchiveData.require(ResolvedStream)
+    SecondResolved = SldprtArchive.open(SecondPath).require(ResolvedStream)
+    for OffsetPos in KPointOffsets:
+        assert (
+            FirstResolved[OffsetPos : OffsetPos + 8]
+            == SecondResolved[OffsetPos : OffsetPos + 8]
+        )
+
+
+def TestTriExtra(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    SecondSketch = ReplaceData(SourceDoc.sketches[0], id="test:sketch:second")
+    Changed = ReplaceData(SourceDoc, sketches=(*SourceDoc.sketches, SecondSketch))
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(Changed, TmpPath / "TriExtra.SLDPRT")
+
+
 def TestThreeDepth(TmpPath: FilePath) -> None:
     Points = ((-7.0, -11.0), (39.0, -4.0), (17.0, 38.0))
     SourceDoc = BuildDocument(Points, Depth=17.0)
