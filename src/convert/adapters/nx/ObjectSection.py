@@ -138,6 +138,7 @@ def ReplaceHead(
 
 
 __all__ = [
+    "RewriteNesting",
     "NestingRecord",
     "ReadNesting",
     "ReadSmallRecord",
@@ -702,6 +703,7 @@ def ReadSmallRecord(Record: bytes) -> tuple[int, int]:
 
 # the nesting member of the small family is a run of heads and leaves
 KNestEnd = b"\x02\x02"
+KNestHead = 0x03
 
 
 def ReadNesting(Record: bytes) -> tuple[tuple[int, int], ...]:
@@ -729,3 +731,25 @@ def NestingRecord(Segments: tuple[tuple[int, int], ...]) -> bytes:
         Output.extend(bytes([1]) * Leaves)
     Output.extend(KNestEnd)
     return bytes(Output)
+
+
+# the nesting record is unvalidated so its heads are rewritten to the leaf form
+def RewriteNesting(SectionBody: bytes) -> bytes:
+    Count = ObjectCount(SectionBody)
+    TableAt = TableStart(SectionBody, Count)
+    Starts = [
+        int(Struct.unpack_from("<I", SectionBody, TableAt + 4 * Index)[0])
+        for Index in range(Count)
+    ]
+    Stops = Starts[1:] + [len(SectionBody) - 12]
+    Section = bytearray(SectionBody)
+    for Begin, Finish in zip(Starts, Stops):
+        Record = bytes(SectionBody[Begin:Finish])
+        try:
+            Segments = ReadNesting(Record)
+        except ValueError:
+            continue
+        Canonical = NestingRecord(tuple((KNestHead, Leaves) for _, Leaves in Segments))
+        if len(Canonical) == Finish - Begin:
+            Section[Begin:Finish] = Canonical
+    return bytes(Section)

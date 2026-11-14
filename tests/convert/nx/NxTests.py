@@ -26,7 +26,10 @@ from convert.adapters.nx.ObjectSection import (
     LaneParts,
     LaneRecord,
     RenameView,
+    NestingRecord,
     ObjectCount,
+    ReadNesting,
+    RewriteNesting,
     PairRecord,
     ParseAttribute,
     ParsePair,
@@ -921,3 +924,20 @@ def TestNxValueSlot() -> None:
     except ValueError:
         return
     raise AssertionError("value slot reader accepted an 18 byte object")
+
+
+# the nesting record is a frame segments of leaves and a terminator
+def TestNxNest() -> None:
+    Record = (
+        bytes.fromhex("0202ff005f010401")
+        + b"\x03"
+        + b"\x01" * 3
+        + b"\x11"
+        + b"\x01" * 2
+        + b"\x02\x02"
+    )
+    Segments = ReadNesting(Record)
+    assert Segments == ((0x03, 3), (0x11, 2))
+    assert NestingRecord(Segments) == Record
+    Canonical = RewriteNesting(bytes(len(Record) - len(Record)) + Record)
+    assert Canonical == Record.replace(b"\x11", b"\x03")

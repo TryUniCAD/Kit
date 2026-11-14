@@ -22,6 +22,7 @@ from convert.adapters.nx.ObjectSection import (
     RelabelRefs,
     RelabelTokens,
     ReplaceHead,
+    RewriteNesting,
     RewriteRecords,
     RewriteValues,
 )
@@ -137,7 +138,11 @@ def WithStub(
         if Index == 0 and HeadText is not None:
             SectionBody = ReplaceHead(SectionBody, HeadText)
             SectionBody = RelabelTokens(
-                RelabelLanes(RelabelRefs(RewriteValues(RewriteRecords(SectionBody))))
+                RelabelLanes(
+                    RelabelRefs(
+                        RewriteNesting(RewriteValues(RewriteRecords(SectionBody)))
+                    )
+                )
             )
         elif Index == KRootIndex:
             SectionBody = RootBody
