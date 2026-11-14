@@ -34,7 +34,7 @@ def CheckPoolBridge(TmpPath: FilePath) -> None:
             *Arguments,
             "run",
             "--idle-seconds",
-            "3",
+            "15",
             "--max-seconds",
             "60",
         ),
