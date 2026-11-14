@@ -254,8 +254,60 @@ The payload index also names four reference points for each section, not one:
 Leaving any of them stale makes NX report `Part file is corrupt` (641001) even
 though the section bodies are consistent.
 
-Current status: the class and reference lanes, sections 0-2 middles, and the
-state lane are still copied from a document, so this is research and not
+### Class and reference lanes come from a table
+
+`re/nx/tools/SchemaTable.py` names every declaration as data: reference name and
+code, and class name with its storage code, base code, eight-byte fingerprint,
+and reference code. `SchemaBuild.py` emits the two lanes by concatenation, and
+the result is byte-identical to the captured lanes in all four sections:
+
+```text
+sec 0 refs 1468 1468 True classes 4795 4795 True
+sec 1 refs  164  164 True classes  592  592 True
+sec 2 refs   64   64 True classes  464  464 True
+sec 3 refs   25   25 True classes  306  306 True
+```
+
+An empty part assembled from that table, with a fresh UUID and a generated
+feature-history middle, loads in NX 2506:
+
+```text
+RESULT ...\schema_built.prt unloaded 0
+  NAME schema_built
+  BODIES 0
+  FEATURES 0
+  EXPRESSIONS 0
+```
+
+### Middle lanes round-trip, but only one tolerates text growth
+
+With the offset lane learned from two saves that differ only in name length,
+every middle reproduces byte for byte:
+
+```text
+empty.prt        sections 1 2 3 roundtrip True
+block.prt        sections 0 1 2 3 4 roundtrip True
+variant400.prt   sections 1 2 3 4 roundtrip True
+```
+
+Changing the product text length is safe only in the feature-history section. In
+a part with geometry, growing the text in other sections fails even though every
+learned offset is updated:
+
+```text
+sections {3}    payload 68039  loads
+sections {1,3}  580504  non-specific OM error
+sections {2,3}  580044  corrupt OM data
+sections {0,3}  580028  O/S file i/o operation failed
+sections {4,3}  580504  non-specific OM error
+```
+
+So those sections carry additional length or offset fields that the name-delta
+lane does not include. They still need a structural decode.
+
+Current status: the class and reference lanes are emitted from a table and the
+middles are reproduced from a lane, but the table and the prefix and state bytes
+of sections 0-2 are still derived from a document, so this is research and not
 shippable under the donor rule. No body, feature, or expression record has been
 authored, and the production writer still requires a retained SPLMSSTR payload. A section begins with an optional `c0 d1 f1 ed`
 separator, `ff ff ff ff`, four zero bytes, a big-endian payload size, and the
