@@ -75,6 +75,39 @@ The base formula round-trips a reference entry to its source float:
 That confirms the mantissa/exponent/sign extraction, but not the stream bit order or the reference
 array contents.
 
+## Bit stream order
+
+`CATMathStreamBits` keeps a 64-bit accumulator at `+0x08` and a signed bit position at `+0x10`.
+`WriteBitsCleared(value, want, capacity)` left-aligns the low `want` bits of `value` into a
+`capacity`-bit window, ORs them into the accumulator, advances the position by `capacity`, and
+flushes eight big-endian bytes when the position passes 63.
+
+A Python model of that writer round-trips 32-bit literals through a plain MSB-first reader:
+
+```text
+bytes 3f490fdb3fc000004020000040f00000000000007f7fffff0000000000000000
+got   ['0x3f490fdb', '0x3fc00000', '0x40200000', '0x40f00000', '0x0', '0x7f7fffff']
+match True
+```
+
+So the stream is a continuous MSB-first bit stream, and `capacity` is only the write window, not
+the field width.
+
+## Writer branch structure
+
+`WriteFloatWithRef2` is the inverse of the reader. For each `(value, ref)` pair:
+
+1. If `abs(ref) < threshold`, write the 32-bit value literal.
+2. Else if `value == ref`, write 59 zero bits.
+3. Else compute `delta = abs(value_bits - ref_bits)`.
+   - If `delta >= 0x40000000`, write selector `0x1f` as 59 bits, then the 32-bit value literal.
+   - Else write a 58-bit selector built from the leading-zero count of `delta` and the sign, then
+     the shifted delta bits.
+
+The selector formula is read from the writer but not yet confirmed by a trace. The reader's
+`width = 0x20 - (S & 0xffff)` and the writer's `2 * (0x20 - leading_zeros)` differ by a factor of
+two and one bit, so one of the two readings is incomplete.
+
 ## Corpus observation
 
 The `SurfacicReps` header carries a reference `0.785398` and a scale `1e12`. The header float count
