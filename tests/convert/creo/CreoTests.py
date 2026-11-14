@@ -36,16 +36,16 @@ def BuildSample(KindText: str = "PART", Damaged: bool = False) -> bytes:
     Thumb = b"#THMB_IMG_MAIN\n\xff\xd8\xff\xd9"
     BodyStart = BaseValue + len(Banner) + len(TocHead) + 162
     GeometryLength = len(Geometry) + (1000 if Damaged else 0)
-    Rows = TocRow("VisibGeom", BodyStart - BaseValue, GeometryLength, 6) + TocRow(
+    RowList = TocRow("VisibGeom", BodyStart - BaseValue, GeometryLength, 6) + TocRow(
         "THMB_IMG_MAIN",
         BodyStart - BaseValue + len(Geometry),
         len(Thumb),
         4,
     )
-    return Header + Banner + TocHead + Rows + Geometry + Thumb
+    return Header + Banner + TocHead + RowList + Geometry + Thumb
 
 
-def TestContainerRead() -> None:
+def TestRead() -> None:
     AdapterValue = CreoAdapter()
     DataValue = BuildSample()
     ProbeValue = AdapterValue.probe(DataValue)
@@ -69,7 +69,7 @@ def TestContainerRead() -> None:
     assert DocumentValue.bodies == ()
 
 
-def TestSourceReplay() -> None:
+def TestReplay() -> None:
     AdapterValue = CreoAdapter()
     DataValue = BuildSample()
     DocumentValue = AdapterValue.read(DataValue)
@@ -83,7 +83,7 @@ def TestSourceReplay() -> None:
         assert ResultValue.metadata["mode"] == "exact_native_roundtrip"
 
 
-def TestPublicApiRoundtrip() -> None:
+def TestPublic() -> None:
     DataValue = BuildSample()
     DocumentValue = OpenDoc(DataValue, SourceFormat=KFormatId)
     with TemporaryDirectory() as Folder:
@@ -93,7 +93,7 @@ def TestPublicApiRoundtrip() -> None:
         assert ResultValue.bytes_written == len(DataValue)
 
 
-def TestEditedDocumentRejected() -> None:
+def TestEdited() -> None:
     AdapterValue = CreoAdapter()
     DocumentValue = AdapterValue.read(BuildSample())
     EditedValue = Replace(DocumentValue, units=UnitSystem.KInch)
@@ -107,7 +107,7 @@ def TestEditedDocumentRejected() -> None:
             raise AssertionError("edited Creo document must not replay")
 
 
-def TestAssemblyRejected() -> None:
+def TestAssembly() -> None:
     AdapterValue = CreoAdapter()
     ProbeValue = AdapterValue.probe(BuildSample("ASSEMBLY"))
     assert ProbeValue.confidence == 0.0
@@ -119,7 +119,7 @@ def TestAssemblyRejected() -> None:
         raise AssertionError("assembly must not read as a part")
 
 
-def TestConfigurationRejected() -> None:
+def TestConfig() -> None:
     AdapterValue = CreoAdapter()
     try:
         _ = AdapterValue.read(
@@ -131,7 +131,7 @@ def TestConfigurationRejected() -> None:
         raise AssertionError("unknown configuration must be rejected")
 
 
-def TestDamagedTocRejected() -> None:
+def TestDamaged() -> None:
     AdapterValue = CreoAdapter()
     ProbeValue = AdapterValue.probe(BuildSample(Damaged=True))
     assert ProbeValue.confidence == 0.0
@@ -143,14 +143,14 @@ def TestDamagedTocRejected() -> None:
         raise AssertionError("damaged table of contents must be rejected")
 
 
-def TestStreamProbeNonDestructive() -> None:
+def TestStream() -> None:
     AdapterValue = CreoAdapter()
     StreamValue = BytesIo(BuildSample())
     _ = AdapterValue.probe(StreamValue)
     assert StreamValue.tell() == 0
 
 
-def TestDamagedInput() -> None:
+def TestBadInput() -> None:
     AdapterValue = CreoAdapter()
     ProbeValue = AdapterValue.probe(b"#UGC:2 PART 1")
     assert ProbeValue.confidence == 0.0

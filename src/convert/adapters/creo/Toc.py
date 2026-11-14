@@ -39,10 +39,16 @@ def FindMarker(DataValue: bytes, Marker: bytes, Start: int) -> int:
     return DataValue.find(Marker, Start)
 
 
+def FailRow(Strict: bool, Notes: list[str], Message: str) -> None:
+    if Strict:
+        raise CreoFormat(Message)
+    Notes.append(Message)
+
+
 def ReadRows(
     DataValue: bytes, Start: int, Count: int, Width: int
 ) -> tuple[list[list[str]], int]:
-    Rows: list[list[str]] = []
+    RowList: list[list[str]] = []
     Position = Start
     for _ in range(Count):
         EndValue = Position + Width
@@ -50,91 +56,116 @@ def ReadRows(
             raise CreoFormat("Creo table of contents is truncated")
         RowText = DataValue[Position:EndValue].decode("latin-1")
         Words = RowText.rstrip("#\r\n").split()
-        Rows.append(Words)
+        RowList.append(Words)
         Position = EndValue
-    return Rows, Position
+    return RowList, Position
+
+
+def MakeEntry(
+    NameText: str,
+    Absolute: int,
+    LengthValue: int,
+    ExpandedValue: int,
+    RowValue: list[str],
+) -> CreoEntry:
+    KindText = RowValue[5] if len(RowValue) > 5 else ""
+    ChecksumA = ParseHex(RowValue[7]) if len(RowValue) > 7 else 0
+    ChecksumB = ParseHex(RowValue[8]) if len(RowValue) > 8 else 0
+    return CreoEntry(
+        name=NameText,
+        offset=Absolute,
+        length=LengthValue,
+        expanded=ExpandedValue,
+        kind=KindText,
+        checksum_a=ChecksumA or 0,
+        checksum_b=ChecksumB or 0,
+    )
+
+
+def ReadEntry(
+    RowValue: list[str],
+    BaseValue: int,
+    DataValue: bytes,
+    Strict: bool,
+    Notes: list[str],
+) -> tuple[CreoEntry | None, int | None]:
+    if not RowValue:
+        return (None, None)
+    NameText = RowValue[0]
+    if len(RowValue) < 4:
+        FailRow(Strict, Notes, f"Creo table row {NameText!r} is incomplete")
+        return (None, None)
+    OffsetValue = ParseHex(RowValue[1])
+    LengthValue = ParseHex(RowValue[2])
+    ExpandedValue = ParseHex(RowValue[3])
+    if OffsetValue is None or LengthValue is None or ExpandedValue is None:
+        FailRow(Strict, Notes, f"Creo table row {NameText!r} has invalid numbers")
+        return (None, None)
+    Absolute = BaseValue + OffsetValue
+    if NameText == "NEXT_TOC_ENTRY":
+        return (None, Absolute)
+    Expected = b"#" + NameText.encode("latin-1") + b"\n"
+    if (
+        Absolute < 0
+        or LengthValue < len(Expected)
+        or Absolute + LengthValue > len(DataValue)
+        or not DataValue.startswith(Expected, Absolute)
+    ):
+        FailRow(Strict, Notes, f"Creo table row {NameText!r} has an invalid extent")
+        return (None, None)
+    return (MakeEntry(NameText, Absolute, LengthValue, ExpandedValue, RowValue), None)
+
+
+def ReadTable(
+    DataValue: bytes,
+    Position: int,
+    BaseValue: int,
+    Strict: bool,
+    Notes: list[str],
+) -> tuple[list[CreoEntry], int | None]:
+    LineEnd = DataValue.find(b"\n", Position)
+    if LineEnd < 0:
+        raise CreoFormat("Creo table header is truncated")
+    HeadText = DataValue[Position:LineEnd].decode("latin-1")
+    Words = HeadText.rstrip("#\r").split()
+    if len(Words) < 4 or Words[0] != "#UGC_TOC":
+        raise CreoFormat("Creo table header is invalid")
+    CountValue = int(Words[2], 10)
+    WidthValue = int(Words[3], 10)
+    if CountValue < 0 or CountValue > KMaxSections:
+        raise CreoFormat("Creo table entry count is invalid")
+    if WidthValue < 32 or WidthValue > 4096:
+        raise CreoFormat("Creo table row width is invalid")
+    RowList, _ = ReadRows(DataValue, LineEnd + 1, CountValue, WidthValue)
+    Entries: list[CreoEntry] = []
+    NextTable: int | None = None
+    for RowValue in RowList:
+        EntryValue, NextValue = ReadEntry(RowValue, BaseValue, DataValue, Strict, Notes)
+        if EntryValue is not None:
+            Entries.append(EntryValue)
+        if NextValue is not None:
+            NextTable = NextValue
+    return (Entries, NextTable)
 
 
 def ReadToc(DataValue: bytes, BaseValue: int, Strict: bool = True) -> CreoToc:
     Entries: list[CreoEntry] = []
     Notes: list[str] = []
-    Seen: set[int] = set()
+    SeenSet: set[int] = set()
     Position = FindMarker(DataValue, b"#UGC_TOC", BaseValue)
     if Position < 0:
         raise CreoFormat("Creo file has no table of contents")
-    while Position not in Seen and len(Entries) < KMaxSections:
-        Seen.add(Position)
-        LineEnd = DataValue.find(b"\n", Position)
-        if LineEnd < 0:
-            raise CreoFormat("Creo table header is truncated")
-        HeadText = DataValue[Position:LineEnd].decode("latin-1")
-        Words = HeadText.rstrip("#\r").split()
-        if len(Words) < 4 or Words[0] != "#UGC_TOC":
-            raise CreoFormat("Creo table header is invalid")
-        CountValue = int(Words[2], 10)
-        WidthValue = int(Words[3], 10)
-        if CountValue < 0 or CountValue > KMaxSections:
-            raise CreoFormat("Creo table entry count is invalid")
-        if WidthValue < 32 or WidthValue > 4096:
-            raise CreoFormat("Creo table row width is invalid")
-        Rows, _ = ReadRows(DataValue, LineEnd + 1, CountValue, WidthValue)
-        NextTable: int | None = None
-        for RowValue in Rows:
-            if not RowValue:
-                continue
-            NameText = RowValue[0]
-            if len(RowValue) < 4:
-                if Strict:
-                    raise CreoFormat(f"Creo table row {NameText!r} is incomplete")
-                Notes.append(f"Creo table row {NameText!r} is incomplete")
-                continue
-            OffsetValue = ParseHex(RowValue[1])
-            LengthValue = ParseHex(RowValue[2])
-            ExpandedValue = ParseHex(RowValue[3])
-            if OffsetValue is None or LengthValue is None or ExpandedValue is None:
-                if Strict:
-                    raise CreoFormat(f"Creo table row {NameText!r} has invalid numbers")
-                Notes.append(f"Creo table row {NameText!r} has invalid numbers")
-                continue
-            Absolute = BaseValue + OffsetValue
-            if NameText == "NEXT_TOC_ENTRY":
-                NextTable = Absolute
-                continue
-            SectionEnd = Absolute + LengthValue
-            Expected = b"#" + NameText.encode("latin-1") + b"\n"
-            if (
-                Absolute < 0
-                or LengthValue < len(Expected)
-                or SectionEnd > len(DataValue)
-                or not DataValue.startswith(Expected, Absolute)
-            ):
-                if Strict:
-                    raise CreoFormat(
-                        f"Creo table row {NameText!r} has an invalid extent"
-                    )
-                Notes.append(f"Creo table row {NameText!r} has an invalid extent")
-                continue
-            KindText = RowValue[5] if len(RowValue) > 5 else ""
-            ChecksumA = ParseHex(RowValue[7]) if len(RowValue) > 7 else 0
-            ChecksumB = ParseHex(RowValue[8]) if len(RowValue) > 8 else 0
-            Entries.append(
-                CreoEntry(
-                    name=NameText,
-                    offset=Absolute,
-                    length=LengthValue,
-                    expanded=ExpandedValue,
-                    kind=KindText,
-                    checksum_a=ChecksumA or 0,
-                    checksum_b=ChecksumB or 0,
-                )
-            )
+    while Position not in SeenSet and len(Entries) < KMaxSections:
+        SeenSet.add(Position)
+        TableEntries, NextTable = ReadTable(
+            DataValue, Position, BaseValue, Strict, Notes
+        )
+        Entries.extend(TableEntries)
         if NextTable is None:
             break
         Found = FindMarker(DataValue, b"#UGC_TOC", max(0, NextTable - 8))
         if Found < 0 or Found > NextTable + 64:
-            if Strict:
-                raise CreoFormat("Creo continuation table is missing")
-            Notes.append("Creo continuation table is missing")
+            FailRow(Strict, Notes, "Creo continuation table is missing")
             break
         Position = Found
     return CreoToc(tuple(Entries), tuple(Notes))
@@ -164,6 +195,64 @@ def SkipGroup(
     return (Position, BitBuffer, BitCount)
 
 
+def ReadBits(
+    DataValue: bytes, Position: int, BitBuffer: int, BitCount: int, CodeSize: int
+) -> tuple[int, int, int, bool]:
+    while BitCount < CodeSize:
+        if Position >= len(DataValue):
+            return (Position, BitBuffer, BitCount, False)
+        BitBuffer |= DataValue[Position] << BitCount
+        Position += 1
+        BitCount += 8
+    return (Position, BitBuffer, BitCount, True)
+
+
+def SelectCode(
+    CodeValue: int, TableSize: int, Previous: int | None
+) -> tuple[int, bool]:
+    if Previous is None:
+        if CodeValue >= TableSize:
+            raise CreoFormat("Creo compression first code is invalid")
+        return (CodeValue, False)
+    if CodeValue < TableSize:
+        return (CodeValue, False)
+    if CodeValue == TableSize:
+        return (Previous, True)
+    raise CreoFormat("Creo compression code is outside the table")
+
+
+def ExpandCode(
+    Prefixes: list[int], LastBytes: list[int], EntryCode: int
+) -> tuple[bytearray, int]:
+    Stack = bytearray()
+    Cursor = EntryCode
+    Guard = 0
+    while True:
+        if Cursor >= len(Prefixes) or Cursor >= len(LastBytes):
+            raise CreoFormat("Creo compression prefix is invalid")
+        Stack.append(LastBytes[Cursor])
+        if Cursor < 256:
+            break
+        Cursor = Prefixes[Cursor]
+        Guard += 1
+        if Guard > KMaxCodes:
+            raise CreoFormat("Creo compression dictionary loops")
+    FirstByte = Stack[-1] if Stack else 0
+    return (Stack, FirstByte)
+
+
+def UpdateDict(
+    Prefixes: list[int],
+    LastBytes: list[int],
+    Previous: int | None,
+    FirstByte: int,
+    MaxBits: int,
+) -> None:
+    if Previous is not None and len(Prefixes) < (1 << MaxBits):
+        Prefixes.append(Previous)
+        LastBytes.append(FirstByte)
+
+
 def Uncompress(DataValue: bytes, Expected: int) -> bytes:
     if len(DataValue) < 4 or DataValue[:2] != b"\x1f\x9d":
         raise CreoFormat("Creo section is not Unix-compressed")
@@ -186,12 +275,11 @@ def Uncompress(DataValue: bytes, Expected: int) -> bytes:
     Previous: int | None = None
     Output = bytearray()
     while len(Output) < Limit:
-        while BitCount < CodeSize:
-            if Position >= len(DataValue):
-                return bytes(Output)
-            BitBuffer |= DataValue[Position] << BitCount
-            Position += 1
-            BitCount += 8
+        Position, BitBuffer, BitCount, HasBits = ReadBits(
+            DataValue, Position, BitBuffer, BitCount, CodeSize
+        )
+        if not HasBits:
+            return bytes(Output)
         CodeValue = BitBuffer & ((1 << CodeSize) - 1)
         BitBuffer >>= CodeSize
         BitCount -= CodeSize
@@ -206,42 +294,14 @@ def Uncompress(DataValue: bytes, Expected: int) -> bytes:
             GroupCount = 0
             Previous = None
             continue
-        TableSize = len(Prefixes)
-        if Previous is None:
-            if CodeValue >= TableSize:
-                raise CreoFormat("Creo compression first code is invalid")
-            EntryCode = CodeValue
-            AddFirst = False
-        elif CodeValue < TableSize:
-            EntryCode = CodeValue
-            AddFirst = False
-        elif CodeValue == TableSize and Previous is not None:
-            EntryCode = Previous
-            AddFirst = True
-        else:
-            raise CreoFormat("Creo compression code is outside the table")
-        Stack = bytearray()
-        Cursor = EntryCode
-        Guard = 0
-        while True:
-            if Cursor >= len(Prefixes) or Cursor >= len(LastBytes):
-                raise CreoFormat("Creo compression prefix is invalid")
-            Stack.append(LastBytes[Cursor])
-            if Cursor < 256:
-                break
-            Cursor = Prefixes[Cursor]
-            Guard += 1
-            if Guard > KMaxCodes:
-                raise CreoFormat("Creo compression dictionary loops")
-        FirstByte = Stack[-1] if Stack else 0
+        EntryCode, AddFirst = SelectCode(CodeValue, len(Prefixes), Previous)
+        Stack, FirstByte = ExpandCode(Prefixes, LastBytes, EntryCode)
         if len(Output) + len(Stack) + int(AddFirst) > Limit:
             raise CreoFormat("Creo compression output exceeds its declaration")
         Output.extend(reversed(Stack))
         if AddFirst:
             Output.append(FirstByte)
-        if Previous is not None and len(Prefixes) < (1 << MaxBits):
-            Prefixes.append(Previous)
-            LastBytes.append(FirstByte)
+        UpdateDict(Prefixes, LastBytes, Previous, FirstByte, MaxBits)
         Previous = min(CodeValue, len(Prefixes) - 1)
         if len(Prefixes) >= (1 << CodeSize) and CodeSize < MaxBits:
             Position, BitBuffer, BitCount = SkipGroup(

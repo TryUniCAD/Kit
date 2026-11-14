@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import replace as Replace
-from hashlib import sha256 as Sha256
+from hashlib import sha256 as HashValue
 from pathlib import Path as FilePath
 
 from interchange.document.models.DocumentModel import CadDocument
@@ -81,7 +81,7 @@ def ThumbPayload(Thumb: bytes | None) -> tuple[BrepPayload, ...]:
         format_id="jpeg",
         kind="thumbnail",
         schema="jpeg",
-        sha256=Sha256(Thumb).hexdigest(),
+        sha256=HashValue(Thumb).hexdigest(),
         data=Thumb,
         source_stream="THMB_IMG_MAIN",
         role=PayloadRole.KAuxiliary,
@@ -104,15 +104,13 @@ def ReadLengthUnit(
         Start = BodyData.find(Marker)
         if Start < 0:
             return (None, "")
-        Tail = BodyData[Start + len(Marker) :]
-        Token = Tail.split(b"\x00", 1)[0].decode("latin-1").strip()
+        TailText = BodyData[Start + len(Marker) :]
+        Token = TailText.split(b"\x00", 1)[0].decode("latin-1").strip()
         return (KUnitByToken.get(Token), Token)
     return (None, "")
 
 
-def ValidateSections(
-    DataValue: bytes, Entries: tuple[CreoEntry, ...]
-) -> tuple[str, ...]:
+def CheckSections(DataValue: bytes, Entries: tuple[CreoEntry, ...]) -> tuple[str, ...]:
     Failures: list[str] = []
     for EntryValue in Entries:
         if EntryValue.name == "THMB_IMG_MAIN":
@@ -139,7 +137,7 @@ def SectionTable(
     )
 
 
-def DocumentFingerprint(Value: CadDocument) -> str:
+def GetFingerprint(Value: CadDocument) -> str:
     Parts = (
         repr(Value.configurations),
         repr(Value.parameters),
@@ -162,7 +160,7 @@ def DocumentFingerprint(Value: CadDocument) -> str:
             }
         ),
     )
-    return Sha256("\x1f".join(Parts).encode("utf-8")).hexdigest()
+    return HashValue("\x1f".join(Parts).encode("utf-8")).hexdigest()
 
 
 def ReadDocument(
@@ -177,7 +175,7 @@ def ReadDocument(
     SectionRows = SectionTable(TocValue.entries)
     SectionNames = tuple(RowValue[0] for RowValue in SectionRows)
     UnitValue, UnitToken = ReadLengthUnit(DataValue, TocValue.entries)
-    SectionFailures = ValidateSections(DataValue, TocValue.entries)
+    SectionFailures = CheckSections(DataValue, TocValue.entries)
     if Settings.strict and SectionFailures:
         raise CreoFormat(
             "Creo section validation failed: " + "; ".join(SectionFailures)
@@ -224,7 +222,7 @@ def ReadDocument(
             "creo.section_names": SectionNames,
             "creo.section_table": SectionRows,
             "creo.source_bytes": DataValue,
-            "creo.source_sha256": Sha256(DataValue).hexdigest(),
+            "creo.source_sha256": HashValue(DataValue).hexdigest(),
             "creo.thumbnail_present": Thumb is not None,
             "creo.unit_token": UnitToken,
             "creo.version_line": HeaderValue.version_line,
@@ -234,7 +232,7 @@ def ReadDocument(
         source=CadSource(
             KFormatId,
             Label,
-            Sha256(DataValue).hexdigest(),
+            HashValue(DataValue).hexdigest(),
             container_version="PSB",
             application_version=HeaderValue.product_version,
             attributes=FreezeMapping(
@@ -265,9 +263,7 @@ def ReadDocument(
     )
     Value = Replace(
         Value,
-        metadata=FreezeMapping(
-            {**Metadata, "creo.fingerprint": DocumentFingerprint(Value)}
-        ),
+        metadata=FreezeMapping({**Metadata, "creo.fingerprint": GetFingerprint(Value)}),
     )
     Value.assert_valid()
     return Value

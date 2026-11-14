@@ -65,16 +65,16 @@ def GetCommonName(Lines: tuple[str, ...]) -> str:
     return Names[0]
 
 
-def GetProductVersion(Text: str) -> str:
+def ReadVersion(TextValue: str) -> str:
     Markers = ("Version ", "Release ", "Release")
     for Marker in Markers:
-        Start = Text.find(Marker)
+        Start = TextValue.find(Marker)
         if Start < 0:
             continue
-        Tail = Text[Start + len(Marker) :].strip()
-        if not Tail:
+        TailText = TextValue[Start + len(Marker) :].strip()
+        if not TailText:
             continue
-        return Tail.split()[0].rstrip(",")
+        return TailText.split()[0].rstrip(",")
     return ""
 
 
@@ -110,7 +110,7 @@ def ReadHeader(DataValue: bytes) -> CreoHeader:
     )
     CommonName = GetCommonName(Lines)
     ModelName = CommonName
-    ProductVersion = GetProductVersion(VersionLine)
+    ProductVersion = ReadVersion(VersionLine)
     return CreoHeader(
         kind=KindText,
         base=BaseValue,

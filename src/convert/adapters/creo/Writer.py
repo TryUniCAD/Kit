@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from hashlib import sha256 as Sha256
+from hashlib import sha256 as HashValue
 import os as OsModule
 from pathlib import Path as FilePath
 from types import MappingProxyType
@@ -46,7 +46,7 @@ def NativeBytes(Value: CadDocument) -> tuple[bytes, str]:
         raise CreoFormat("retained Creo source bytes are not a PSB document")
     HeaderValue = ReadHeader(DataValue)
     _ = ReadToc(DataValue, HeaderValue.base)
-    Actual = Sha256(DataValue).hexdigest()
+    Actual = HashValue(DataValue).hexdigest()
     if Actual != Expected:
         raise CreoFormat("retained Creo source bytes changed after reading")
     if DocumentFingerprint(Value) != Fingerprint:
