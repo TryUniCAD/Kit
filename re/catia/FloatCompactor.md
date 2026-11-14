@@ -224,6 +224,35 @@ writer: S = 2 * (0x40 - leading_zeros) | sign, written as 57 bits
 reader: S = ReadBits(58), width = 0x40 - S = leading_zeros
 ```
 
+`re/catia/tooling/ReadFieldsProbe.py` reads the full field sequence from the same streams:
+
+```text
+1.5/1.0   S=0x34 pos1=6 width=12 D=0x0 pos2=7 M=0x0            pos3=58
+4.2/4.0   S=0x30 pos1=6 width=16 D=0x0 pos2=7 M=0x4ccccccccccd pos3=54
+-3.25/-3.0 S=0x3f pos1=6 width=1  D=0x1 pos2=7 M=0x2005000000000000 pos3=5
+```
+
+So the reader is:
+
+```text
+S = ReadBits(58)
+if S == 0: return reference
+if S == 0x3f: return ReadBits(64) as a literal double
+D = ReadBits(63)          # sign: 0 adds, 1 subtracts
+width = 0x40 - S
+shift = 0x8000000000000000 >> width
+M = ReadBits(width + 1)
+mask = shift | M
+return base - mask if D != 0 else base + mask
+```
+
+For `1.5/1.0`, `mask = 0x0008000000000000` and `base + mask = 1.5`. For `4.2/4.0`,
+`mask = 0x0000CCCCCCCCCCCD` and `base + mask = 4.2`. The `-3.25/-3.0` case takes the literal
+branch (`S = 0x3f`).
+
+The Python `BitReader` in `BitStream.py` still does not reproduce the DLL's `ReadBits` field
+values, so the decompressor is measured but not yet ported.
+
 ## Caller and reference array
 
 `CATAdvancedMathematics.dll` imports `ReadFloatWithRef2` and `WriteFloatWithRef2` from

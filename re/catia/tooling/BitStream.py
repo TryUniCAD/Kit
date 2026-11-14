@@ -23,7 +23,7 @@ class BitWriter:
         self.buffer = (self.buffer | placed) & MASK64
         self.position = (delta + capacity) & 0xFFFF
         if self.position > 0x3F:
-            self.output += self.buffer.to_bytes(8, "big")
+            self.output += self.buffer.to_bytes(8, "little")
             self.position -= 0x40
             if self.position != 0:
                 self.buffer = (value << ((capacity - self.position) & 0x3F)) & MASK64
@@ -32,7 +32,7 @@ class BitWriter:
 
     def Finish(self) -> bytes:
         if self.position > 0:
-            self.output += self.buffer.to_bytes(8, "big")
+            self.output += self.buffer.to_bytes(8, "little")
         return bytes(self.output)
 
 
@@ -46,7 +46,7 @@ class BitReader:
     def Refill(self) -> None:
         chunk = self.data[self.index : self.index + 8]
         self.index += 8
-        self.buffer = int.from_bytes(chunk.ljust(8, b"\0"), "big")
+        self.buffer = int.from_bytes(chunk.ljust(8, b"\0"), "little")
 
     def ReadUncleared(self, want: int, capacity: int) -> int:
         delta = (want - self.position) & 0xFFFF
@@ -83,6 +83,46 @@ def LeadingZeros(value: int) -> int:
     return 32 if value == 0 else 32 - value.bit_length()
 
 
+def DoubleBits(value: float) -> int:
+    return struct.unpack("<Q", struct.pack("<d", value))[0]
+
+
+def BitsDouble(bits: int) -> float:
+    return struct.unpack("<d", struct.pack("<Q", bits & 0xFFFFFFFFFFFFFFFF))[0]
+
+
+def MakeNumber(value: float) -> tuple[int, int]:
+    bits = DoubleBits(value)
+    exponent = (bits >> 52) & 0x7FF
+    low = 0 if exponent == 0 else ((bits | 0xFFF0000000000000) << 11) & MASK64
+    high = (exponent - 0x3FF) & MASK64
+    return low, high
+
+
+def BaseBits(low: int, high: int) -> int:
+    exponent = ((high & 0xFFFFFFFF) + 0x3FF) & 0xFFFFFFFF
+    mantissa = (low >> 11) & 0xFFFFFFFFFFFFF
+    sign = (high >> 32) & 1
+    return ((sign << 63) | ((exponent & 0x7FF) << 52) | mantissa) & MASK64
+
+
+def ReadDouble(reader: BitReader, reference: float) -> float:
+    selector = reader.Read(0x3A, 0x40)
+    if selector == 0:
+        return reference
+    if selector == 0x3F:
+        return BitsDouble(reader.Read(0x40, 0x40))
+    sign = reader.Read(0x3F, 0x40)
+    width = (0x40 - selector) & 0xFFFF
+    shift = (0x8000000000000000 >> (width & 0x3F)) & MASK64
+    low_bits = 0 if width == 0x3F else reader.Read((width + 1) & 0xFFFF, 0x40)
+    mask = (shift | low_bits) & MASK64
+    low, high = MakeNumber(reference)
+    base = BaseBits(low, high)
+    result = (base - mask) & MASK64 if sign != 0 else (base + mask) & MASK64
+    return BitsDouble(result)
+
+
 def RoundTripLiterals(values: tuple[float, ...]) -> tuple[float, ...]:
     writer = BitWriter()
     for value in values:
@@ -98,6 +138,13 @@ def main() -> None:
     print("match", all(abs(a - b) <= 1e-4 * max(1.0, abs(a)) for a, b in zip(values, got)))
     for value in (1, 2, 0x80000000, 0x10000, 0x1000, 0):
         print("clz", hex(value), LeadingZeros(value))
+    for label, stream, reference in (
+        ("1.5/1.0", "00000000000000d00000000000000000", 1.0),
+        ("4.2/4.0", "00343333333333c10000000000000000", 4.0),
+        ("-3.25/-3.0", "00000000002800ff0000000000000000", -3.0),
+    ):
+        reader = BitReader(bytes.fromhex(stream))
+        print("double", label, ReadDouble(reader, reference))
 
 
 if __name__ == "__main__":
