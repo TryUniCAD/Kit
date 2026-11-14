@@ -145,6 +145,26 @@ def TestThreeWrite(TmpPath: FilePath) -> None:
     RequireTriFrame(ArchiveData, TargetPath)
 
 
+def TestTriRewrite(TmpPath: FilePath) -> None:
+    FirstPath = TmpPath / "RoundTrip.SLDPRT"
+    SecondPath = TmpPath / "RoundTripAgain.SLDPRT"
+    _ = WriteDoc(BuildDocument(KPoints, Depth=13.0), FirstPath, allow_carrier=False)
+    Reopened = OpenDoc(FirstPath, include_brep=False)
+    assert HasVendorPartEncoding(Reopened) is True
+    Result = WriteDoc(Reopened, SecondPath)
+    assert Result.IsVendorLoadable is True
+    assert Result.IsAppUsable is True
+    assert Result.IsNearLossless is True
+    ArchiveData = SldprtArchive.open(SecondPath)
+    NativeData = DecodeNativeModel(
+        ArchiveData.require(KeyStream),
+        ArchiveData.require(ResolvedStream),
+        ArchiveData.require(ConfigStream),
+        resolved_stream=ResolvedStream,
+    )
+    assert NativeData.operations[0].length_mm == PytestLib.approx(13.0)
+
+
 def TestThreeDepth(TmpPath: FilePath) -> None:
     Points = ((-7.0, -11.0), (39.0, -4.0), (17.0, 38.0))
     SourceDoc = BuildDocument(Points, Depth=17.0)

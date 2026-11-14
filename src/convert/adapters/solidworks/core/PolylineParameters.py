@@ -65,6 +65,14 @@ def IsExactAngle(Value: ParameterValue | None, Expected: float) -> bool:
     )
 
 
+def IsUnsetLength(Value: ParameterValue | None, Expected: float) -> bool:
+    return Value is None or IsExactLength(Value, Expected)
+
+
+def IsUnsetAngle(Value: ParameterValue | None, Expected: float) -> bool:
+    return Value is None or IsExactAngle(Value, Expected)
+
+
 def HasPolyLoss(DocumentData: CadDocument, PadId: str) -> bool:
     Configs = DocumentData.configurations
     if (
@@ -83,11 +91,11 @@ def HasPolyLoss(DocumentData: CadDocument, PadId: str) -> bool:
     Definition = Features[0].definition
     if (
         not isinstance(Definition, ExtrudeFeature)
-        or not IsExactLength(Definition.second_length, 10.0)
-        or not IsExactLength(Definition.offset, 0.0)
-        or not IsExactLength(Definition.second_offset, 0.0)
-        or not IsExactAngle(Definition.draft_angle, 0.0)
-        or not IsExactAngle(Definition.second_draft_angle, 0.0)
+        or not IsUnsetLength(Definition.second_length, 10.0)
+        or not IsUnsetLength(Definition.offset, 0.0)
+        or not IsUnsetLength(Definition.second_offset, 0.0)
+        or not IsUnsetAngle(Definition.draft_angle, 0.0)
+        or not IsUnsetAngle(Definition.second_draft_angle, 0.0)
     ):
         return True
     DefinitionLength = Definition.length.value
@@ -107,18 +115,13 @@ def HasPolyLoss(DocumentData: CadDocument, PadId: str) -> bool:
         ):
             return True
         IsDepth = (
-            ParamData.value.kind is ValueKind.LENGTH
-            and ParamData.name == "D1"
+            ParamData.value.kind is ValueKind.LENGTH and ParamData.name == "D1"
         ) or (IsFreecad and PathValue == "Length")
         if IsDepth:
             if not IsExactLength(ParamData.value, float(DefinitionLength)):
                 return True
             continue
-        if (
-            IsFreecad
-            and isinstance(PathValue, str)
-            and PathValue in KFreecadPadProps
-        ):
+        if IsFreecad and isinstance(PathValue, str) and PathValue in KFreecadPadProps:
             continue
         return True
     return False
