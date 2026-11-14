@@ -65,6 +65,6 @@ It keeps `vendor_loadable` and `application_usable` false because this path does
 - [Writer](../../../src/convert/adapters/creo/Writer.py)
 - [Container findings](../../../re/creo/container/Container.md)
 - [Writer gap](../../../re/creo/open-items/WriterGap.md)
-- [ARM64 startup gotcha](../../Gotchas/Conversion/CreoArm64Startup.md)
+- [ARM64 startup gotcha](../../Gotchas/Conversion/CreoArmStartup.md)
 - [Legacy ASCII rejection gotcha](../../Gotchas/Conversion/CreoLegacyAsciiRejected.md)
 - [Change entry](../../Changes/Creo/CreoPsbContainer.md)
