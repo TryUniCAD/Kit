@@ -305,6 +305,32 @@ sections {4,3}  580504  non-specific OM error
 So those sections carry additional length or offset fields that the name-delta
 lane does not include. They still need a structural decode.
 
+### One expression costs 155 bytes in section 2
+
+NX 2506 saved two parts that differ only by a single expression
+(`kit_len = 12.5`). The parts differ as follows:
+
+- section 2 gains three classes: `UGS::EXP_expression`,
+  `UGS::EXP_generic`, and `UGS::ModlUtils::CachedWaveLinkData`
+- section 2 gains one reference, `UGS::ModlUtils::CachedWaveLinkData`
+- the section counts change from `(6, 1, 0, 14, ...)` to `(7, 1, 0, 17, ...)`
+- the section 2 middle grows from 337 to 492 bytes
+
+The record itself ends with:
+
+```text
+02 02 04 09 kit_len 00 04 06 12.5 00 ff 00 0a 00 ... 82 c0 01 00 50 49 00 00 00 00 ff
+```
+
+so the expression name and its formula each use `04 <len+2> text 00` framing.
+
+Editing the name field works: a rebuilt part reports `kit_abc` in NX 2506. Editing
+the formula string alone does not change the reported value — the part still
+returns `12.5`, and no 12.5 exists anywhere in the container as a binary64, a
+shifted binary64, a float32, or UTF-16 text. The numeric value is therefore
+cached in an encoding that is not yet identified, and an authored expression
+needs that field before it can be written.
+
 Current status: the class and reference lanes are emitted from a table and the
 middles are reproduced from a lane, but the table and the prefix and state bytes
 of sections 0-2 are still derived from a document, so this is research and not
