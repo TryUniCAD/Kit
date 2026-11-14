@@ -63,7 +63,7 @@ The compressed TSM archive catalog now contains 23 cases, including all 11 prepa
 `TestTsmReject` adds unknown cap-name and star-value rejection through the public reader.
 `TestGeneralCase` compares `ConvertForm` against the retained native body for all 11 variants.
 `TestCapDeclFlow` checks Kit emission against the source declaration and native G1 canonicalization.
-`TestCapMass` checks the derived mass fields against native caches, as the [mass-cache change](FusionFormMassCache.md) describes.
+`TestShiftMass` verifies translation invariance and the parallel-axis tensor prediction through the current writer, as the [mass-cache change](FusionFormMassCache.md) describes.
 These integration cases run in remote CI, not locally.
 
 Run the reproducible research preparation with:

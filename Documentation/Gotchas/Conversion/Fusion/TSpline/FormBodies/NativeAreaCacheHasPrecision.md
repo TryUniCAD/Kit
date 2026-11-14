@@ -23,7 +23,8 @@ The [eight-point run](https://github.com/TryUniCAD/Kit/actions/runs/43583291958)
 
 Do not loosen an existing tolerance to accommodate different numerical estimators.
 Use an exact planar fixture where geometry and cached area have the same measured meaning and compare area at `1e-8` absolute and relative tolerance.
-`TestPlanarArea` supplies this check through the current writer and the native Affine control.
+`TestPlanarArea` supplies this check through the current writer and the untouched native `Grid/Primitives/Plane3x2.f3d` control.
+It reuses that control's typed cage directly, so it cannot select an edited-area archive by mistake.
 Keep curved BRep geometry and all other mass fields at `1e-8` absolute and relative tolerance.
 Preserve the convergence record as evidence about the estimator, not as a cross-kernel equality assertion or a production correction value.
 The [mass-cache change](../../../../../Changes/Fusion/TSpline/FusionFormMassCache.md) distinguishes cache validation from native approximation and exact geometry acceptance.

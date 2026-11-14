@@ -23,7 +23,8 @@ Validate an asymmetric off-origin case as well as centered controls.
 The [native off-origin lifecycle](../../../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json) includes grips translated by `(13, -21, 42)` cm.
 `getXYZMomentsOfInertia()` returns one success flag and six mass-weighted moments.
 The oracle divides those moments by each body's physical density before comparing geometry across different materials.
-`TestCapMass` generates every compared archive through the current `EmitFormDoc` writer before checking these fields.
+`TestShiftMass` generates both compared archives through the current `EmitFormDoc` writer.
+It checks the center translation and all six tensor components against the exact parallel-axis formula.
 
 ## Evidence
 

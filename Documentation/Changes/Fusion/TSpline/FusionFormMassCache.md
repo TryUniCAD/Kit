@@ -59,9 +59,11 @@ It records 264 differences caused by comparing unlike materials directly; it is 
 
 ## Integration coverage
 
-`TestCapMass` independently emits each F3D, reads its typed `MassPropertyCacheValue`, and compares it with the native control's cache.
-Volume, center, inertia, and off-diagonal products use `1e-8` absolute and relative tolerance.
+`TestShiftMass` independently emits Box3 and its translated G2 counterpart through the current writer.
+It checks area and volume invariance, the translated center, and the parallel-axis prediction for all six origin-tensor components at `1e-8` absolute and relative tolerance.
+This detects an incorrect centroid frame without substituting a native curved-cache approximation.
 `TestPlanarArea` compares the exact planar cache area at `1e-8` absolute and relative tolerance.
+Its [native primitive report](../../../../re/Fusion/LocalOracle/FormDocuments/Grid/NativeAcceptance.json) records the untouched plane cages and healthy conversion. The test reuses the typed cage of `Grid/Primitives/Plane3x2.f3d` as its independent control.
 The exact curved BRep comparisons remain at `1e-8` cm, with the convergence record separate from native numerical approximation.
 `TestCapDeclFlow` also distinguishes Kit's original declaration from Fusion's G1 canonicalization.
 The final controls required two privacy scrubs; all 11 typed models remained identical afterward.

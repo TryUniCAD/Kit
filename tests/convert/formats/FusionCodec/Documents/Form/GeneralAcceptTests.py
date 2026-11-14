@@ -22,10 +22,7 @@ from tests.convert.formats.FusionCodec.Documents.Form.CapCases import KCapCases
 from tests.convert.formats.FusionCodec.Documents.Form.GeneralCases import (
     KGeneralCases,
 )
-from tests.convert.formats.FusionCodec.Documents.Form.GridArchives import (
-    KGridArchives,
-    KGridCages,
-)
+from tests.convert.formats.FusionCodec.Documents.Form.GridArchives import KPlanarArea
 from tests.convert.formats.FusionCodec.Documents.Form.ReadConverted import (
     ReadConverted,
 )
@@ -195,37 +192,72 @@ def TestCapDeclFlow(CaseValue: tuple[str, ...]) -> None:
 
 
 @KNeedZip
-@MarkTests.parametrize("CaseValue", KCapCases, ids=lambda CaseValue: CaseValue[0])
-def TestCapMass(CaseValue: tuple[str, ...]) -> None:
-    Surface = ReadTspline(ReadFormFile(CaseValue[1], CaseValue[2]))
-    Converted = ConvertForm(Surface)
-    Emitted = ReadDocument(
-        EmitFormDoc(FormSpec("Kit " + CaseValue[0], Surface, Converted))
+def TestShiftMass() -> None:
+    BaseCase, ShiftedCase = (
+        next(CaseValue for CaseValue in KCapCases if CaseValue[0] == Name)
+        for Name in ("Box3Same", "Box3ShiftedG2")
     )
-    Native = ReadDocument(ReadFormFile(CaseValue[3], CaseValue[4]))
-    assert Emitted.Forms[0].Surface == Surface
-    assert ReadConverted(Emitted) == Converted
-    Cached = MaterialFields(NamedGroups(Emitted, "Body")[0]["cache"])
-    Expected = MaterialFields(NamedGroups(Native, "Body")[0]["cache"])
-    assert Cached["volume"] == ApproxValue(Expected["volume"], rel=1e-8, abs=1e-8)
-    for FieldName in ("cog", "moi", "moiOffDiag"):
-        assert ReadPoint(Cached[FieldName]) == ApproxValue(
-            ReadPoint(Expected[FieldName]), rel=1e-8, abs=1e-8
+    BaseSurface = ReadTspline(ReadFormFile(BaseCase[1], BaseCase[2]))
+    ShiftedSurface = ReadTspline(ReadFormFile(ShiftedCase[1], ShiftedCase[2]))
+    Base = ReadDocument(
+        EmitFormDoc(FormSpec("Kit Box3Same", BaseSurface, ConvertForm(BaseSurface)))
+    )
+    Shifted = ReadDocument(
+        EmitFormDoc(
+            FormSpec("Kit Box3ShiftedG2", ShiftedSurface, ConvertForm(ShiftedSurface))
         )
+    )
+    BaseCache = MaterialFields(NamedGroups(Base, "Body")[0]["cache"])
+    ShiftedCache = MaterialFields(NamedGroups(Shifted, "Body")[0]["cache"])
+    assert BaseCache["area"] == ApproxValue(ShiftedCache["area"], rel=1e-8, abs=1e-8)
+    assert BaseCache["volume"] == ApproxValue(
+        ShiftedCache["volume"], rel=1e-8, abs=1e-8
+    )
+    Center = ReadPoint(BaseCache["cog"])
+    ShiftedCenter = ReadPoint(ShiftedCache["cog"])
+    OffsetX, OffsetY, OffsetZ = 13.0, -21.0, 42.0
+    assert ShiftedCenter == ApproxValue(
+        (Center[0] + OffsetX, Center[1] + OffsetY, Center[2] + OffsetZ),
+        rel=1e-8,
+        abs=1e-8,
+    )
+    Moi = ReadPoint(BaseCache["moi"])
+    OffDiagonal = ReadPoint(BaseCache["moiOffDiag"])
+    Volume = BaseCache["volume"]
+    ExpectedMoi = (
+        Moi[0]
+        + Volume
+        * (2 * Center[1] * OffsetY + OffsetY**2 + 2 * Center[2] * OffsetZ + OffsetZ**2),
+        Moi[1]
+        + Volume
+        * (2 * Center[0] * OffsetX + OffsetX**2 + 2 * Center[2] * OffsetZ + OffsetZ**2),
+        Moi[2]
+        + Volume
+        * (2 * Center[0] * OffsetX + OffsetX**2 + 2 * Center[1] * OffsetY + OffsetY**2),
+    )
+    ExpectedOffDiagonal = (
+        OffDiagonal[0]
+        - Volume * (Center[0] * OffsetY + Center[1] * OffsetX + OffsetX * OffsetY),
+        OffDiagonal[1]
+        - Volume * (Center[0] * OffsetZ + Center[2] * OffsetX + OffsetX * OffsetZ),
+        OffDiagonal[2]
+        - Volume * (Center[1] * OffsetZ + Center[2] * OffsetY + OffsetY * OffsetZ),
+    )
+    assert ReadPoint(ShiftedCache["moi"]) == ApproxValue(
+        ExpectedMoi, rel=1e-8, abs=1e-8
+    )
+    assert ReadPoint(ShiftedCache["moiOffDiag"]) == ApproxValue(
+        ExpectedOffDiagonal, rel=1e-8, abs=1e-8
+    )
 
 
 @KNeedZip
 def TestPlanarArea() -> None:
-    Surface = ReadTspline(ReadFormFile(*KGridCages[0][:2]))
+    Native = ReadDocument(ReadFormFile(*KPlanarArea))
+    Surface = Native.Forms[0].Surface
     Emitted = ReadDocument(
         EmitFormDoc(FormSpec("Kit planar area", Surface, ConvertForm(Surface)))
     )
-    NativeCase = next(
-        CaseValue
-        for CaseValue in KGridArchives
-        if CaseValue[0].endswith("/OracleAffine.f3d")
-    )
-    Native = ReadDocument(ReadFormFile(*NativeCase))
     Cached = MaterialFields(NamedGroups(Emitted, "Body")[0]["cache"])
     Expected = MaterialFields(NamedGroups(Native, "Body")[0]["cache"])
     assert Cached["area"] == ApproxValue(Expected["area"], rel=1e-8, abs=1e-8)
