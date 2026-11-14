@@ -91,6 +91,19 @@ WriteNx(Changed, "renamed.prt")
 The new name must keep the current byte length and the `.prt` suffix. NX stores
 the name in five places, so a rename updates all of them or none.
 
+A single solid body can be given a new length with `nx.body_length`:
+
+```python
+Changed = replace(
+    Document, metadata={**Document.metadata, "nx.body_length": 60.0}
+)
+WriteNx(Changed, "part-longer.prt")
+```
+
+The part must have exactly one solid body and its `p0` dimension must match the
+body's measured length. The writer scales the Parasolid geometry, re-encodes it,
+and rewrites `p0` so the feature and the body agree.
+
 An existing expression value can be changed with `nx.expression_values`:
 
 ```python

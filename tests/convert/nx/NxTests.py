@@ -358,3 +358,21 @@ def TestNxExprGuard() -> None:
         except ValueError:
             continue
         raise AssertionError(f"expression override accepted {BadValues}")
+
+
+# body length authoring refuses parts without a single measurable solid body
+def TestNxBodyGuard() -> None:
+    Document = ReadNx(SyntheticPart(), ReadOptions(strict=False))
+    for BadLength in (60.0, -5.0):
+        try:
+            _ = WriteNx(
+                Replace(
+                    Document,
+                    metadata={**Document.metadata, "nx.body_length": BadLength},
+                ),
+                BytesIo(),
+                WriteOptions(),
+            )
+        except ValueError:
+            continue
+        raise AssertionError(f"body length accepted {BadLength}")

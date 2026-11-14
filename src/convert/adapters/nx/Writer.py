@@ -12,6 +12,7 @@ from convert.adapters.base.WritePolicy import GetDocumentCaps
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.nx.CompoundReader import ReadCompound, ReadStreams
 from convert.adapters.nx.ExprValue import EncodeValue
+from convert.adapters.nx.GeometryEdit import ScaleBodyLength
 from convert.adapters.nx.Format import KInfoValue
 from convert.adapters.nx.PayloadReader import ReadPayload
 from convert.adapters.nx.Reader import DocDigest
@@ -109,17 +110,9 @@ def WriteNx(
     if not Payload.data.startswith(b"SPLMSSTR"):
         raise ValueError("NX writing requires a modern SPLMSSTR source")
     Overrides = MakeOverrides(DocValue, Payload.data)
-    Expressions = ExprOverrides(DocValue)
-    if Expressions is not None:
-        Current = Overrides.get("UG_PART/UG_PART")
-        if Current is None:
-            Current = dict(SplmStreams(ReadSplm(Payload.data)))["/Root/UG_PART/UG_PART"]
-        Overrides["UG_PART/UG_PART"] = SwapExpressions(
-            Current, CastValue(Mapping[str, float], Expressions)
-        )
-    Rename = PartRename(DocValue)
-    if Rename is not None:
-        Overrides.update(RenameStreams(Payload.data, Rename, Overrides))
+    Overrides, Expressions, RequestedLength, Rename = EditStreamsMut(
+        DocValue, Payload.data, Overrides
+    )
     DataValue = RebuildNative(Payload.data, Overrides)
     CheckOutput(DataValue, Payload.data)
     CheckSeals(DataValue)
@@ -139,6 +132,7 @@ def WriteNx(
         "stream_overrides": HasEntries(StreamsRequested),
         "part_renamed": Rename is not None,
         "expression_values": Expressions is not None,
+        "body_length": RequestedLength,
         "source_sha256": Payload.sha256,
         "output_sha256": Hashlib.sha256(DataValue).hexdigest(),
         "referenced_files_written": 0,
@@ -169,6 +163,37 @@ def WriteNx(
     )
 
 
+# payload edits run in a fixed order so each edit sees the previous result
+def EditStreamsMut(
+    DocValue: CadDoc, DataValue: bytes, Overrides: dict[str, bytes]
+) -> tuple[
+    dict[str, bytes], dict[str, float] | None, float | None, tuple[bytes, bytes] | None
+]:
+    Expressions = ExprOverrides(DocValue)
+    RequestedLength = BodyLength(DocValue)
+    Rename = PartRename(DocValue)
+    if Expressions is not None:
+        Overrides["UG_PART/UG_PART"] = SwapExpressions(
+            PartPayload(Overrides, DataValue),
+            CastValue(Mapping[str, float], Expressions),
+        )
+    if RequestedLength is not None:
+        Overrides["UG_PART/UG_PART"] = ScaleBodyLength(
+            PartPayload(Overrides, DataValue), RequestedLength
+        )
+    if Rename is not None:
+        Overrides.update(RenameStreams(DataValue, Rename, Overrides))
+    return (Overrides, Expressions, RequestedLength, Rename)
+
+
+# the object model stream is either already overridden or still native
+def PartPayload(Overrides: dict[str, bytes], DataValue: bytes) -> bytes:
+    Current = Overrides.get("UG_PART/UG_PART")
+    if Current is not None:
+        return Current
+    return dict(SplmStreams(ReadSplm(DataValue)))["/Root/UG_PART/UG_PART"]
+
+
 # neutral edits must fail explicitly because the writer only replays native data
 def CheckNeutral(DocValue: CadDoc) -> None:
     Expected = DocValue.metadata.get("nx.neutral_signature")
@@ -183,6 +208,16 @@ def CheckNeutral(DocValue: CadDoc) -> None:
 # container rebuilding recomputes the modern directory from parsed streams
 def RebuildNative(DataValue: bytes, Overrides: dict[str, bytes]) -> bytes:
     return RebuildSplm(ReadSplm(DataValue), Overrides)
+
+
+# a body length edit keeps the solid body and its driving dimension in step
+def BodyLength(DocValue: CadDoc) -> float | None:
+    Requested = DocValue.metadata.get("nx.body_length")
+    if Requested is None:
+        return None
+    if isinstance(Requested, bool) or not isinstance(Requested, (int, float)):
+        raise ValueError("NX body length requires a number of millimetres")
+    return float(Requested)
 
 
 # expression values are sixteen bit handles stored after a fixed record marker
