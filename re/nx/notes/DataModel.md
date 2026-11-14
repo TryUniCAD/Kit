@@ -546,6 +546,43 @@ NX stores box shells with the opposite loop orientation to the one
 convention. Reproducing that convention for an authored topology is the
 remaining piece for a body written entirely from constants.
 
+### The link layer decides how much of the body NX sees
+
+The decisive experiment is to strip only the link attributes from a decoded NX
+body and re-encode it, keeping every coordinate:
+
+```text
+decoded NX body, re-encoded                     VOLUME 23999.999999999996
+decoded NX body, carrier_record and .*_order
+  attributes removed, re-encoded                VOLUME 8000.0, AREA 2400.0
+authored BuildPrism body                        VOLUME 0.0,    AREA 0.0
+```
+
+`8000` is exactly a third of `24000`, and the earlier id-rename experiment also
+produced `8000`. So the measurement scales with how much of the record link
+layer survives, not with the coordinates: with the original links NX binds the
+whole body, with none it binds part of it, and for an authored model it binds
+nothing.
+
+Encoding an authored model is idempotent, while encoding a decoded body is not:
+
+```text
+encoded authored body, decoded, encoded again    identical    (canonical numbering)
+encoded NX body, decoded, encoded again          different    (source numbering kept)
+```
+
+That is the whole difference. NX's own stream carries its original attribute
+numbering inside the link layer, and the encoder preserves it for decoded
+models. An authored model has no numbering to preserve, so the writer invents a
+canonical one, and the object model's body records still refer to the original
+numbers, so nothing binds.
+
+This explains every earlier result at once: the attribute names, the rank
+values, the parameterization and the loop orientation were never the gate. The
+gate is that a body's Parasolid attribute numbering is shared with the object
+model, so authoring geometry from nothing means authoring that numbering and
+the object-model body records together.
+
 ### Encoder-side inspection: ordering is rank driven and the model is valid
 
 Reading the writer shows how ordering works:
