@@ -93,6 +93,19 @@ digest. Re-encoding all four sections of `empty.prt` reproduces the
 payload with placeholder auxiliary streams and recomputed seals loads in NX 2506
 (`encoded_empty.prt`, `unloaded 0`).
 
+The section header is dynamic: version and kind are big-endian, the platform
+text is `x64/Windows NT`, the saved part name is length-prefixed, then eight
+little-endian counts, a pointer, and a reference-count byte. Parsing those
+fields makes the same encoder round-trip `empty.prt` and `variant400.prt`
+section 3 exactly; variant sections with a separate record area still need the
+record lane decoded.
+
+The record area in `empty.prt` starts with three little-endian control words,
+then a product frame (`01 27` followed by `NX 2506.9120 - External User
+Function` and a terminator), then `08 SYSTEM 00`, `41 00`, and the object lane.
+The control words are `0x214`, `0x22f`, and `2` for the feature-history
+section.
+
 Changing only the saved part name in the section headers fails with
 `Corrupt data found when loading an OM file` (code 580044), so the name is
 cross-referenced from another record lane. The middle and record areas are still
