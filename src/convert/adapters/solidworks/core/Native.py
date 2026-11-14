@@ -4021,6 +4021,61 @@ def HasCadCylBrep(DocData: CadDocument, RadiusValue: float, HeightValue: float) 
     )
 
 
+def HasAddBoxSchema(PathData: dict[str, Param], FeatureName: str) -> bool:
+    Required = {
+        "Length": ValueKind.LENGTH,
+        "Width": ValueKind.LENGTH,
+        "Height": ValueKind.LENGTH,
+        "MapMode": ValueKind.INTEGER,
+        "MapPathParameter": ValueKind.NUMBER,
+        "MapReversed": ValueKind.BOOLEAN,
+        "Visibility": ValueKind.BOOLEAN,
+        "Refine": ValueKind.BOOLEAN,
+        "AttacherType": ValueKind.STRING,
+        "Label": ValueKind.STRING,
+        "Label2": ValueKind.STRING,
+    }
+    Optional = {
+        "Suppressed": (ValueKind.BOOLEAN, False),
+        "FuzzyTolerance": (ValueKind.NUMBER, -1.0),
+        "AttacherEngine": (ValueKind.STRING, "Engine 3D"),
+    }
+    if not set(Required) <= set(PathData) or not set(PathData) <= set(
+        Required
+    ) | set(Optional):
+        return False
+    for NameValue, KindValue in Required.items():
+        ParamValue = PathData[NameValue]
+        if ParamValue.value.kind is not KindValue:
+            return False
+        if NameValue in {"Length", "Width", "Height"}:
+            continue
+        if NameValue == "Refine":
+            if not (
+                IsFreecadParam(ParamValue, KindValue, True)
+                or IsFreecadParam(ParamValue, KindValue, False)
+            ):
+                return False
+            continue
+        Expected = {
+            "MapMode": 0,
+            "MapPathParameter": 0.0,
+            "MapReversed": False,
+            "Visibility": True,
+            "AttacherType": "Attacher::AttachEngine3D",
+            "Label": FeatureName,
+            "Label2": "",
+        }[NameValue]
+        if not IsFreecadParam(ParamValue, KindValue, Expected):
+            return False
+    for NameValue, (KindValue, Expected) in Optional.items():
+        if NameValue in PathData and not IsFreecadParam(
+            PathData[NameValue], KindValue, Expected
+        ):
+            return False
+    return True
+
+
 # focused continuation isolates the remaining native serialization phase
 def FinishBoxMut(
     PathData: dict[str, Param],
@@ -4049,6 +4104,10 @@ def FinishBoxMut(
                 MathValue.isfinite(ItemData) and ItemData > 0.0
                 for ItemData in (LengthValue, WidthValue, HeightValue)
             )
+        )
+        or (
+            DefinitionData.type_id == "PartDesign::AdditiveBox"
+            and not HasAddBoxSchema(PathData, FeatureData.name)
         )
         or not IsFreeCad(DefinitionData.object_data, "Placement")
         or (not IsFreeCad(DefinitionData.object_data, "AttachmentOffset"))
@@ -4134,7 +4193,7 @@ def FreeCadBoxMut(
     if (
         DocData.source.format_id.casefold() != "freecad.fcstd"
         or DocData.assembly is not None
-        or DocData.support_planes
+        or (len(PrincipalPlaneB(DocData.support_planes)) != len(DocData.support_planes))
         or DocData.sketches
         or DocData.selections
         or (len(DocData.bodies) != 1)
