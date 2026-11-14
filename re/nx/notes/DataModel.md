@@ -150,6 +150,15 @@ fails in NX 2506: without section 0 `580014`, without section 1 a memory access
 violation (`11`), without section 2 `641001`, without section 3 `580027`. All
 four sections and their full class tables are required even for an empty part.
 
+A research spec pipeline (`re/nx/tools/FromSpec.py` over `SchemaEmpty.py`)
+builds a complete part from constants plus a neutral spec: part name and product
+text. Changing the saved part name requires updating the section headers, the
+two middle-lane occurrences (`saved as "C:\<name>"` and the name frame), and
+the `EXTREFSTREAM` self reference. With those updated, the generated part loads
+in NX 2506 (`from_spec_named.prt`, `unloaded 0`). The schema and middle constants
+are still captured from `empty.prt`, so this pipeline is research only and not
+shippable under the donor rule.
+
 Changing only the saved part name in the section headers fails with
 `Corrupt data found when loading an OM file` (code 580044), so the name is
 cross-referenced from another record lane. The middle and record areas are still
