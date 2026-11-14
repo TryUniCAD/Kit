@@ -12,7 +12,12 @@ KPlatform = b"x64/Windows NT"
 
 @dataclass
 class Section:
-    header: bytes
+    version: int
+    kind: int
+    flags: int
+    stamp: int
+    part_name: bytes
+    counts: tuple[int, ...]
     ref_count: int
     refs: list[tuple[str, bytes]]
     classes: list[tuple[str, bytes]]
@@ -47,20 +52,34 @@ def ReadDeclaration(Data: bytes, At: int) -> tuple[str, int, int]:
 def ParseSection(Body: bytes) -> Section:
     if Body[:4] != b"OM\x01\x01":
         raise ValueError("not an om section")
-    Header = Body[:0x56]
-    Pointer = struct.unpack_from("<I", Header, 0x52)[0]
-    RefCount = Body[0x56]
+    Version, Kind, Flags, Stamp = struct.unpack_from(">IIII", Body, 4)
+    if Version != 10:
+        raise ValueError("unsupported section version")
+    Pos = 0x17
+    Platform = Body[Pos : Pos + 14]
+    if Platform != KPlatform:
+        raise ValueError("unexpected platform text")
+    Pos += 14
+    NameLength = struct.unpack_from("<I", Body, Pos)[0]
+    Pos += 4
+    PartName = Body[Pos : Pos + NameLength]
+    Pos += NameLength
+    Counts = struct.unpack_from("<8I", Body, Pos)
+    Pos += 32
+    Pointer = struct.unpack_from("<I", Body, Pos)[0]
+    Pos += 4
+    RefCount = Body[Pos]
+    Pos += 1
     Refs: list[tuple[str, bytes]] = []
     Classes: list[tuple[str, bytes]] = []
-    Pos = 0x57
     while True:
-        if Body[Pos] == 0x01:
+        if Pos >= Pointer or Body[Pos] == 0x01:
             Pos += 1
             break
         Name, TailAt, _ = ReadDeclaration(Body, Pos)
         Refs.append((Name, Body[TailAt : TailAt + 1]))
         Pos = TailAt + 1
-    while Body[Pos] != 0x02:
+    while Pos < Pointer and Body[Pos] != 0x02:
         try:
             Name, TailAt, _ = ReadDeclaration(Body, Pos)
             StorageWidth = ReadToken(Body, TailAt)[1]
@@ -74,7 +93,20 @@ def ParseSection(Body: bytes) -> Section:
     Middle = Body[Pos:Pointer]
     RecordArea = Body[Pointer : len(Body) - 12]
     Digest = Body[-12:]
-    return Section(Header, RefCount, Refs, Classes, Middle, RecordArea, Digest)
+    return Section(
+        Version,
+        Kind,
+        Flags,
+        Stamp,
+        PartName,
+        Counts,
+        RefCount,
+        Refs,
+        Classes,
+        Middle,
+        RecordArea,
+        Digest,
+    )
 
 
 def WriteDeclaration(Name: bytes, Tail: bytes) -> bytes:
@@ -82,7 +114,14 @@ def WriteDeclaration(Name: bytes, Tail: bytes) -> bytes:
 
 
 def BuildSection(Value: Section) -> bytes:
-    Body = bytearray(Value.header)
+    Body = bytearray(b"OM\x01\x01")
+    Body.extend(struct.pack(">IIII", Value.version, Value.kind, Value.flags, Value.stamp))
+    Body.extend(bytes(3))
+    Body.extend(KPlatform)
+    Body.extend(struct.pack("<I", len(Value.part_name)))
+    Body.extend(Value.part_name)
+    Body.extend(struct.pack("<8I", *Value.counts))
+    Body.extend(bytes(4))
     Body.append(Value.ref_count)
     for Name, Tail in Value.refs:
         Body.extend(WriteDeclaration(Name.encode("ascii"), Tail))
@@ -92,7 +131,7 @@ def BuildSection(Value: Section) -> bytes:
     Body.extend(Value.middle)
     Body.extend(Value.record_area)
     Body.extend(Value.digest)
-    struct.pack_into("<I", Body, 0x52, len(Body) - 12)
+    struct.pack_into("<I", Body, 0x25 + 4 + len(Value.part_name) + 32, len(Body) - 12)
     return bytes(Body)
 
 
@@ -118,6 +157,8 @@ def Main(ArgValues: list[str]) -> int:
             [Name for Name, _ in Value.refs],
             "classes",
             [Name for Name, _ in Value.classes][:6],
+            "counts",
+            Value.counts,
             "middle",
             len(Value.middle),
             "record_area",
