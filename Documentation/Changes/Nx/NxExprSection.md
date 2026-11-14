@@ -94,6 +94,17 @@ function of the name alone, and not of the value alone: it changes when two expr
 come to hold equal values, which is what the five slots for three expressions keeps
 pointing at.
 
+The count itself follows `2n - 1` on both large fixtures:
+
+```text
+dim40     n=3   15 slots   5 value slots   2*3-1 = 5
+var_two   n=6   30 slots  11 value slots   2*6-1 = 11
+```
+
+with the remainder being plain slots, `3n + 1` of them (`10` for `dim40`, `19` for
+`var_two`). Two points are not a derivation, so this is recorded rather than encoded, but it
+is the first count rule that fits both large fixtures.
+
 `dim40` already refutes value sharing as the explanation for the count: its three
 dimensions are all distinct (`40`, `30`, `20`) and it still carries five value slots, holding
 
