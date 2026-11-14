@@ -108,6 +108,30 @@ The selector formula is read from the writer but not yet confirmed by a trace. T
 `width = 0x20 - (S & 0xffff)` and the writer's `2 * (0x20 - leading_zeros)` differ by a factor of
 two and one bit, so one of the two readings is incomplete.
 
+## Caller and reference array
+
+`CATAdvancedMathematics.dll` imports `ReadFloatWithRef2` and `WriteFloatWithRef2` from
+`CATMathStream.dll`. The call sites are in `CATNurbsSurfaceCompactorF::HandleControlPoints` at
+RVA `0xa6df` (write) and `0xa6fa` (read), and again at `0xa8a5` and `0xa8c0`.
+
+The reference array is a predicted control point. `GetComputedCPIncremental` fills a three-float
+temporary, and the compactor delta-codes the actual control point against that prediction. The
+threshold is the constant at RVA `0x1d0524`, which is `1.0`:
+
+```text
+0x1d0524 0000803f f32le 1.0
+```
+
+So `abs(prediction) < 1.0` selects the literal branch. The same codec is used for surface
+parameters through `CATGeoFloatCompactor::ReframeParam` and `ReframePoint`.
+
+## Evidence
+
+- `CATAdvancedMathematics.dll` SHA-256 `0805a61d91c275bc167abf88e83be586c7f4379a1e977170f64e8bd31af4bc4f`.
+- IAT slot for `ReadFloatWithRef2` at RVA `0x1ce650`, for `WriteFloatWithRef2` at `0x1ce658`.
+- Call sites at RVA `0xa6df`, `0xa6fa`, `0xa8a5`, `0xa8c0`.
+- Threshold constant at RVA `0x1d0524` = `1.0`.
+
 ## Corpus observation
 
 The `SurfacicReps` header carries a reference `0.785398` and a scale `1e12`. The header float count
