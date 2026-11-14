@@ -562,6 +562,66 @@ relative to the previous tag, so the absolute tag of each object depends on the 
 objects are emitted. That order is not recoverable from a byte-pattern scan, because the same
 difference bytes mean different absolute tags at different stream positions.
 
+## The surface list is in face order, deduplicated
+
+The surface records are ordered by face, not by tag. Two measurements establish this.
+
+First, for all 22 parts where the surface count equals the face count, the surface planarity
+sequence is *identical* to the face planarity sequence. A face is planar exactly when its trim
+record carries a vector, and a surface is planar exactly when its kind is `0x32`. The two sequences
+match at every index for all 22 parts, with no exceptions. So `surfaces[i]` is the surface of
+`faces[i]` for those parts.
+
+Second, for the five parts where the surface count is smaller than the face count, the surface
+planarity sequence is a *subsequence* of the face planarity sequence. The greedy alignment matches
+all surfaces in every case:
+
+| Part | Faces | Surfaces | Matched | Skipped faces |
+| --- | ---: | ---: | ---: | --- |
+| `4784` | 416 | 270 | 270 | 146 |
+| `4876` | 870 | 714 | 714 | 156 |
+| `4876_1` | 870 | 714 | 714 | 156 |
+| `Pedal_Body` | 338 | 314 | 314 | 24 |
+| `Reservoir` | 71 | 56 | 56 | 15 |
+
+So the surface list is the face list with duplicate surfaces removed, in face order. The skipped
+faces reuse a surface that an earlier face introduced. The deficit is exactly the number of skipped
+faces in every part.
+
+The trim kind is a second, weaker planarity signal. A trim kind of `0x4a` or above always carries a
+vector (994 of 994), but 68 trims below `0x4a` also carry one. The vector is authoritative; the kind
+nibble is not.
+
+The remaining unknown is which earlier surface each skipped face reuses. The planarity subsequence
+narrows the candidate set to the surfaces of the same planarity class, but it does not pick one.
+Resolving it needs the face's own geometry, which needs the handle-to-point map.
+
+## The trim handles are not point indices
+
+The trim handles are dense: `Reservoir` uses every value in `0..1430`, and `Copper_Washer` uses
+every value in `0..75`. The tessellation point table does not have that many points.
+
+`Reservoir` `MainDataStream` holds 1000 points in the float table at `569..12369`, while the handles
+span 1431 values. `Copper_Washer` holds 38 points in the float table at `226..682`, while the
+handles span 76 values. In both cases the handle count is larger than the point count, and the ratio
+is not constant.
+
+`Copper_Washer` shows the structure directly. Face 0 is a triangle strip whose handles alternate
+between the two halves of the handle space: `0, 38, 2, 40, 4, 42, 7, 45, ...`. The offset is 38,
+which is the point count. So the handle space is two parallel loops of 38 entries, and the strip
+joins them. The two loops are the two boundaries of the annular face.
+
+The point table is not a plain triple array. `Copper_Washer` has a 116-float run at `226`, a 2-byte
+gap, then a 74-float run at `692`. `Reservoir` has twelve float runs between `569` and `12377`
+separated by 4- and 8-byte gaps. The gaps are record markers, and the second loop of a face is
+stored separately from the first.
+
+The current reader maps a handle to a vertex with `handle % len(vertices)`. That is a placeholder,
+not a decode. It produces a structurally valid model, which is why the 22 parts pass validation, but
+the geometry is not the file's geometry. A planar face's points are not coplanar under that mapping:
+`Copper_Washer` face 2 has a maximum plane deviation of 9.5 units against a trim vector of
+`(-1, 0, 0)`.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.

@@ -8,9 +8,19 @@ rows, and vertex roster from `MainDataStream` and `SurfacicReps`.
 It maps the result to a neutral `BrepModel` with faces, loops, coedges, edges, vertices, and
 analytic plane, cylinder, cone, sphere, and torus surfaces.
 
-The trim handles are dense indices into a shared tessellation vertex table, not B-rep vertex
-identifiers. The reader derives loops from the tessellation boundary. That is a documented
-approximation, not the native B-rep topology.
+The trim handles are dense indices into a shared tessellation table, not B-rep vertex identifiers.
+The handle-to-point map is not decoded: the handle count exceeds the point count in every part
+(`Reservoir` has 1431 handles and 1000 points, `Copper_Washer` has 76 handles and 38 points), and
+the point table is split into runs by record markers. The reader therefore maps a handle to a
+vertex with a placeholder rule and derives loops from the tessellation boundary. That is a
+documented structural approximation, not the native B-rep topology or geometry.
+
+The surface records are ordered by face. For all 22 parts where the surface count equals the face
+count, the surface planarity sequence is identical to the face planarity sequence. For the five
+parts with fewer surfaces than faces, the surface planarity sequence is a subsequence of the face
+planarity sequence, so the surface list is the face list with duplicate surfaces removed. The
+reader still requires the two counts to match, because the reuse map for the skipped faces is not
+decoded.
 
 The adapter also writes a native `V5_CFV2` CATPart from a neutral `BrepModel` when
 `WriteOptions(values={"native_brep": True})` is set.
@@ -47,7 +57,10 @@ result = CatiaAdapter().write(
 - Surface records in `SurfacicReps` are interleaved with curve records. The reader scans for the
   `00 33 <kind>` marker and validates each record instead of parsing contiguously, so the full
   surface pool is recovered for every part. The five failing parts still fail because they have
-  fewer surfaces than faces and the face-to-surface map is not decoded.
+  fewer surfaces than faces and the face-to-surface reuse map is not decoded.
+- The handle-to-point map is not decoded. The reader's vertex positions are a structural
+  placeholder, so the decoded geometry is not the file's geometry even for the 22 parts that pass
+  validation.
 - The reader reconstructs plane and cylinder geometry from bounds and trim vectors.
 - The reader does not decode feature records, sketches, dimensions,
   constraints, or relations.
