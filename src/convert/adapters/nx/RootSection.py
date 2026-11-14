@@ -99,6 +99,18 @@ def AuthorSections(Payload: bytes) -> bytes:
     return WithStub(Payload, Parsed, bytes(Authored))
 
 
+# every section anchors its saved state on one seven byte identity after e0 6a f8
+def PatchAnchor(SectionBody: bytes, Identity: bytes = KUnset) -> bytes:
+    if len(Identity) != 7:
+        raise ValueError("NX section identity must be seven bytes")
+    Value = bytearray(SectionBody)
+    AnchorAt = Value.find(KAnchor)
+    if AnchorAt < 0:
+        raise ValueError("NX section body carries no anchor")
+    Value[AnchorAt + len(KAnchor) : AnchorAt + len(KAnchor) + len(Identity)] = Identity
+    return bytes(Value)
+
+
 # a one body block keeps its object graph and takes the generated identity
 def PatchIdentity(SectionBody: bytes, Pointer: int, Middle: bytes) -> bytes:
     Start = Pointer - len(Middle)
@@ -128,6 +140,8 @@ def WithStub(Payload: bytes, Parsed: NxPayload, RootBody: bytes) -> bytes:
                 Struct.unpack_from("<I", SectionBody, PointerOffset(SectionBody))[0]
             )
             SectionBody = PatchIdentity(SectionBody, Pointer, BlockMiddle())
+        elif Index == 2:
+            SectionBody = PatchAnchor(SectionBody)
         Bodies.append(SectionBody)
     Resized = ResizePayload(Payload, Bodies)
     EndValue = ReadPayload(Resized).sections[-1]

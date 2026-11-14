@@ -25,6 +25,11 @@ The section pointer is recomputed from the emitted middle, and the payload is
 trimmed to the end of its last section body, because trailing bytes make NX
 refuse the file.
 
+`PatchAnchor` also replaces the seven byte identity that every section stores
+after its `e0 6a f8` anchor marker, and the writer applies it to the expression
+section. The identity may be the unset constant; NX refuses `00` and `01`
+repeated seven times, so the constant is the portable choice.
+
 ## Usage
 
 ```python
@@ -49,6 +54,20 @@ auth_only.prt  unloaded 0  bodies 1  volume 23999.999999999996  area 5200.0
 
 auth_60.prt    author sections plus nx.body_length 60
                unloaded 0  bodies 1  volume 36000.0  area 7200.0
+
+s2a_const_box60.prt  sections 1, 2 and 3 all carry identity ffffffffffffff
+                     unloaded 0  bodies 1  volume 36000.0  area 7199.999999999999
+s2a_empty.prt        unloaded 0  bodies 0
+s2a_dim40.prt        unloaded 0  bodies 1  volume 23999.999999999996  area 5200.0
+```
+
+Identity patched in place, with everything else untouched, shows the constant is
+accepted and other values are not:
+
+```text
+identity ffffffffffffff   loads   bodies 1  volume 36000.0
+identity 01010101010101   NX refuses the part
+identity 00000000000000   NX refuses the part
 ```
 
 The written payload shows the generated section reaching NX intact:
@@ -66,9 +85,10 @@ checks that a payload without object model sections is refused.
 
 - Section 1 is regenerated only for a part without a body; a part with a body
   keeps its forty four object construction graph.
-- Sections 0 and 2 still come from the source part. They carry the topology,
-  construction and expression object graphs, which are model dependent: emptying
-  a middle and keeping its class lanes makes NX refuse the part, and a 40 and a
-  60 length box differ inside section 1.
+- Section 0 still comes from the source part. It carries the topology and object
+  classes (129 to 154 classes, 63 to 79 references) and has no generator.
+- The expression section keeps its object graph; only its anchor identity is
+  generated. Replacing it with a part's body-less expression section makes NX
+  refuse the part, because the sections reference each other by payload offset.
 - The counter is taken from the source: `KRootCounter` is the value observed in
   every fixture. Deriving it from emitted objects is part of the remaining work.

@@ -576,6 +576,61 @@ aligned authored body vs decoded body   3393 bytes each, 586 differing bytes
                                         VOLUME 0.0
 ```
 
+### Every section anchors its saved state on one identity
+
+Sections 1, 2, 3 and 4 each store a seven byte identity immediately after the
+three byte marker `e0 6a f8`, and the identity can be the unset constant in place:
+
+```text
+const_box60 section 2 identity replaced with ff x 7, nothing else touched
+  STATUS 0  BODIES 1  EXPRESSIONS 3  p0 40.0  p1 30.0  p2 20.0
+  VOLUME 36000.0  AREA 7199.999999999999  MASS 0.28190304
+```
+
+Same experiment with other values, on the construction section:
+
+```text
+ffffffffffffff  loads
+01010101010101  refused
+00000000000000  refused
+```
+
+So `ff` is the portable placeholder and the writer now patches this field in
+sections 1 (block shape), 2 and 3, in addition to regenerating section 3 and
+emptying section 4. Section 0 keeps its source anchor because its body is still
+copied.
+
+### The expression section keeps a model dependent object graph
+
+Section 2 carries a per document graph that grows with the expression count:
+
+```text
+part         expressions  objects  middle bytes
+empty.prt            0         6           337
+empty_expr.prt       1         7           492
+dim40 / const       3        24          1043
+```
+
+The layout is the same shape as the construction section: flags lane, a body
+relative pointer to the version block, a u32 object table, an order array headed
+by the object count, then the version and `SYSTEM` anchor, the four `EXP_*` names,
+the occupancy lane, the default group record and one record per expression.
+
+```text
+dim40 table at 0x54  24 entries, first 0x440 (= middle start + 0x149)
+dim40 order at 0xb4  count 24 then 24 indices
+dim40 version at 0x118, first expression record at 0x38b
+```
+
+The first pointer field is `middle start + version block offset` in all three
+fixtures, and the object table entries are `middle start + object offset`, so the
+table is computable; what is not yet derived is the object inventory, since three
+expressions produce 24 objects against 6 for none.
+
+Trying to substitute a body less expression section into a part with a body
+(`s2_min.prt`) makes NX refuse the part, so the substitution route is closed: the
+expression section has to be generated for the document it belongs to.
+
 ### The block construction template does not depend on dimensions
 
 A block made through a different creation path (`CreateDiagBlock.py`, two

@@ -11,7 +11,7 @@ from convert.adapters.nx.ExprValue import DecodeValue, EncodeValue
 from convert.adapters.nx.PayloadBuild import ResizePayload
 from convert.adapters.nx.BlockSection import BlockMiddle, KBlockMiddle
 from convert.adapters.nx.Construction import ConstructMiddle, ObjectCount, Record
-from convert.adapters.nx.RootSection import KRootCounter, RootMiddle
+from convert.adapters.nx.RootSection import KRootCounter, PatchAnchor, RootMiddle
 from convert.adapters.nx.PayloadReader import ReadPayload
 from convert.adapters.nx.Splm import KChecksumOffset, KHeaderRegion
 from convert.adapters.nx.SplmBuild import BuildSplm, DirectoryLength
@@ -562,3 +562,23 @@ def TestNxBlock() -> None:
     except ValueError:
         return
     raise AssertionError("block middle accepted a short identity")
+
+
+# every section anchors its saved state on one identity after the anchor marker
+def TestNxAnchor() -> None:
+    SectionBody = b"\x00" * 9 + b"\xe0\x6a\xf8" + b"\x01" * 7 + b"\x00" * 4
+    Patched = PatchAnchor(SectionBody)
+    assert Patched[12:19] == b"\xff" * 7
+    assert Patched[:12] == SectionBody[:12]
+    assert Patched[19:] == SectionBody[19:]
+    try:
+        _ = PatchAnchor(b"\x00" * 20)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("anchor patch accepted a body without an anchor")
+    try:
+        _ = PatchAnchor(SectionBody, b"\xff" * 6)
+    except ValueError:
+        return
+    raise AssertionError("anchor patch accepted a short identity")
