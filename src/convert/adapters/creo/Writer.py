@@ -5,6 +5,7 @@ import os as OsModule
 from pathlib import Path as FilePath
 from types import MappingProxyType
 
+from interchange.document.models.DocumentCaps import InferCaps
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumDocument import Severity
 from interchange.records.RecordDiagnostic import Diagnostic
@@ -13,6 +14,7 @@ from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.base.TransferContract import CapTransfer
 from convert.adapters.base.TransferContract import TransferMode
 from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.base.WritePolicy import GetDocumentCaps
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.creo.CreoFormat import CreoFormat
 from convert.adapters.creo.Fingerprint import GetFingerprint
@@ -101,7 +103,7 @@ def WriteDocument(
     DataValue, _ = NativeBytes(DocumentValue)
     OutputValue = WriteBytes(Target, DataValue, Settings.overwrite)
     Capabilities = tuple(
-        sorted(DocumentValue.capabilities, key=lambda Value: Value.value)
+        sorted(GetDocumentCaps(DocumentValue), key=lambda Value: Value.value)
     )
     Transfers = tuple(
         CapTransfer(CapabilityValue, TransferMode.KNative)
