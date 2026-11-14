@@ -69,6 +69,28 @@ consumes. The largest member is 4374 bytes of mixed content.
 So this family is not one grammar. It needs to be split into a small numeric shape and a
 large mixed shape before any of it can be re-emitted, and that work is not started.
 
+## What is left is a long tail, not a few families
+
+Censusing by frame and length after the twelve decoded families:
+
+```text
+empty.prt  214 records  116 distinct frames+lengths
+dim40.prt  250 records  146 distinct frames+lengths
+
+commonest remaining frames are all decoded families
+  01 02 04 x18 len 21   attribute        03 11 03 01 x8 len 46   pair
+  01 02 04 x13 len 13   attribute        02 02 41 4d x5 len 34   instance
+  01 02 04 x8  len 20   attribute        02 02 41 00 x4 len 14   slot family
+```
+
+The ten largest remaining shapes are `5f 01 04 01`, from 78 to 4374 bytes, and each is a
+single record. Beyond them, 116 to 146 distinct frames for 214 to 250 records means most
+remaining fus are one or two records apiece with their own layout.
+
+So the section is now decoded where it was regular and the remainder is a long tail of
+unique records. Reaching them means one grammar per record rather than one per family,
+which is why the generated share has stopped rising even though the work continues.
+
 ## Consequence
 
 The trailing words are free, but the id regions are coupling: a single byte can
