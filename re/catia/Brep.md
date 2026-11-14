@@ -293,6 +293,29 @@ The 78 curve records each carry two face references in their last two bytes (for
 It does not give a surface reference, so it cannot be used to build the face-to-surface map
 directly.
 
+### The surface tail is a tag, and the tag space is shared with curves
+
+`Copper_Washer` has five readable surface tails, `445, 449, 476, 495, 499`, and eight curve tags,
+`428, 444, 447, 448, 452, 475, 479, 494`. The two sets interleave in one ascending sequence, so the
+tail is a tag in a shared object-tag space, not a byte offset.
+
+The surface tags do not appear anywhere in `MainDataStream` as `u16` little-endian, `u16`
+big-endian, `u24` little-endian, or `u32` little-endian. No 71-value window in `MainDataStream`
+holds tags in `400..500` in any of those encodings. So the face record does not reference the
+surface by tag in the B-rep stream.
+
+The three body headers in `Reservoir` carry counts `3`, `19`, and `4140`. Those are neither the 71
+faces nor the 56 surfaces, so the surface pool is not partitioned per body by that field.
+
+The tessellation coordinate table starts at 569 with 18 five-float records of the form
+`(x, y1, z, y2, z)` and switches at 929 to three-float records `(x, y, z)`. The trim handles reach
+1430 while the table holds roughly 990 points, so the handles do not index the table directly.
+
+A disassembly search of `CATGeometricObjectsCGM.dll` for a surface-kind dispatch found no
+`cmp $0x33` or `cmp $0x38`; the only `cmp $0x32` is in unrelated code. The surface reader does not
+dispatch on the kind byte with a simple compare chain, so the face record cannot be located by
+following the surface reader's callers from a constant.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
