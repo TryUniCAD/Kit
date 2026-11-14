@@ -65,7 +65,8 @@ def TestNxRead() -> None:
     assert Attributes["NX_ReferenceSet"] == "Empty"
     assert len(Document.feature_timeline) == 1
     assert (
-        CastValue(FeatureKind, Document.feature_timeline[0].kind) == FeatureKind.KNative
+        CastValue(FeatureKind, Document.feature_timeline[0].kind)
+        == FeatureKind.KImported
     )
     assert Document.bodies == ()
 

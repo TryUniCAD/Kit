@@ -94,7 +94,7 @@ def InflateMember(DataValue: bytes) -> tuple[bytes | None, int]:
     try:
         Decoder = ZlibValue.decompressobj()
         Output = Decoder.decompress(DataValue, KMaxInflated + 1)
-        Output += Decoder.flush()
+        Output += Decoder.flush(max(0, KMaxInflated + 1 - len(Output)))
     except ZlibValue.error:
         return (None, 0)
     if not Decoder.eof or len(Output) > KMaxInflated:

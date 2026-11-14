@@ -103,9 +103,13 @@ def ReadFatTable(
         Struct.unpack_from("<I", DataValue, 0x4C + 4 * Index)[0] for Index in range(109)
     ]
     NextSector = DifatStart
-    for _ in range(DifatCount):
+    SeenDifat: set[int] = set()
+    for _ in range(min(DifatCount, len(DataValue) // SectorSize)):
         if NextSector in (KFreeSector, KChainEnd):
             break
+        if NextSector in SeenDifat:
+            raise CompoundError("compound difat chain is cyclic")
+        SeenDifat.add(NextSector)
         Block = ReadSector(DataValue, SectorSize, NextSector)
         Count = SectorSize // 4 - 1
         Difat.extend(

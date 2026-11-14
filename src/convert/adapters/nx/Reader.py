@@ -66,7 +66,12 @@ def ReadSource(Source: KSourceType) -> tuple[bytes, str]:
     Reader = getattr(Source, "read", None)
     if not callable(Reader):
         raise TypeError("NX source must be a path, bytes, or binary stream")
+    TellMethod = getattr(Source, "tell", None)
+    SeekMethod = getattr(Source, "seek", None)
+    Position = TellMethod() if callable(TellMethod) else None
     Value = Reader()
+    if Position is not None and callable(SeekMethod):
+        _ = SeekMethod(Position)
     if not isinstance(Value, (bytes, bytearray)):
         raise TypeError("NX source stream must be binary")
     return (bytes(Value), getattr(Source, "name", "<stream>"))
@@ -117,25 +122,7 @@ def ReadNx(Source: KSourceType, Options: ReadOptions | None = None) -> CadDoc:
                 for Index, BodyValue in enumerate(BrepValue.bodies)
             ),
         )
-    NativePayload = BrepPayload(
-        KNativeDocId,
-        KFormatId,
-        KNativeDocKind,
-        ContainerName,
-        Hashlib.sha256(DataValue).hexdigest(),
-        data=DataValue,
-        source_stream="UG_PART/UG_PART",
-        role=PayloadRole.KDocument,
-        file_extension=KPartSuffix,
-        attributes=FrozenMapping(
-            {
-                "container": ContainerName,
-                "stream_count": len(Streams),
-                "segment_count": len(Payload.rows),
-                "section_count": len(Payload.sections),
-            }
-        ),
-    )
+    NativePayload = MakePayload(DataValue, Payload, Streams, ContainerName)
     Version = GetBuildVersion(PartData)
     MetaValue = {
         "nx.container": ContainerName,
@@ -169,25 +156,73 @@ def ReadNx(Source: KSourceType, Options: ReadOptions | None = None) -> CadDoc:
         bodies=BodyRecords,
         brep_payloads=(NativePayload, *Payloads),
         brep=BrepValue,
-        diagnostics=(
-            DiagnosticInfo(
-                "nx.native_object_model_retained",
-                "The NX object model and Parasolid streams are retained exactly; feature parameters are not projected into neutral parameters.",
-                Severity.WARNING,
-                entity_id=Feature.id,
-            ),
-        ),
+        diagnostics=MakeDiagnostics(Payload, Feature),
         capabilities=frozenset(),
         metadata=FrozenMapping(MetaValue),
         units=UnitSystem.KMillimeter,
     )
     DocValue = Replace(
         DocValue,
+        metadata=FrozenMapping(
+            {**MetaValue, "nx.neutral_signature": DocDigest(DocValue)}
+        ),
         capabilities=InferCapabilities(DocValue, RoundtripMeta=True),
     )
     if Settings.strict:
         DocValue.assert_valid()
     return DocValue
+
+
+# diagnostics keep legacy geometry omission visible instead of silently empty
+def MakeDiagnostics(
+    Payload: NxPayload, Feature: FeatureStep
+) -> tuple[DiagnosticInfo, ...]:
+    Output = [
+        DiagnosticInfo(
+            "nx.native_object_model_retained",
+            "The NX object model and Parasolid streams are retained exactly; feature parameters are not projected into neutral parameters.",
+            Severity.WARNING,
+            entity_id=Feature.id,
+        )
+    ]
+    if Payload.legacy:
+        Output.append(
+            DiagnosticInfo(
+                "nx.legacy_geometry_unavailable",
+                "Legacy compound NX parts retain attributes and the object model but do not project B-rep geometry.",
+                Severity.WARNING,
+                entity_id=Feature.id,
+            )
+        )
+    return tuple(Output)
+
+
+# the native payload keeps the complete source container for replay
+def MakePayload(
+    DataValue: bytes,
+    Payload: NxPayload,
+    Streams: dict[str, bytes],
+    ContainerName: str,
+) -> BrepPayload:
+    return BrepPayload(
+        KNativeDocId,
+        KFormatId,
+        KNativeDocKind,
+        ContainerName,
+        Hashlib.sha256(DataValue).hexdigest(),
+        data=DataValue,
+        source_stream="UG_PART/UG_PART",
+        role=PayloadRole.KDocument,
+        file_extension=KPartSuffix,
+        attributes=FrozenMapping(
+            {
+                "container": ContainerName,
+                "stream_count": len(Streams),
+                "segment_count": len(Payload.rows),
+                "section_count": len(Payload.sections),
+            }
+        ),
+    )
 
 
 # container opening normalizes both nx envelopes into one stream map
@@ -271,6 +306,8 @@ def DecodeGeometry(
         )
     if not Models:
         return (None, (), tuple(Payloads))
+    if len(Models) > 1:
+        raise ValueError("multiple NX Parasolid body streams are not merged")
     return (Models[0], (), tuple(Payloads))
 
 
@@ -279,7 +316,7 @@ def MakeNativeStep(Payload: NxPayload, PartData: bytes) -> FeatureStep:
     return FeatureStep(
         id=KNativeFeatureId,
         name="NX native feature graph",
-        kind=FeatureKind.KNative,
+        kind=FeatureKind.KImported,
         order=0,
         definition=NativeFeatureDefinition(
             format_id=KFormatId,
@@ -359,6 +396,32 @@ def CountBody(ModelValue: BrepModel, BodyValue: object) -> TopologyCounts:
         edge_count=len(ModelValue.edges),
         vertex_count=len(ModelValue.vertices),
     )
+
+
+# neutral edits need one stable projection comparison before native replay
+def DocDigest(DocValue: CadDoc) -> tuple[object, ...]:
+    Parameters = tuple(
+        (Value.id, Value.name, str(Value.expression), str(Value.value))
+        for Value in DocValue.parameters
+    )
+    Features = tuple(
+        (
+            Value.id,
+            Value.name,
+            str(Value.kind),
+            Value.order,
+            Value.suppressed,
+            Value.parameter_ids,
+        )
+        for Value in DocValue.feature_timeline
+    )
+    Bodies = tuple(
+        (Value.id, Value.name, Value.final_feature_id) for Value in DocValue.bodies
+    )
+    Sketches = tuple(Value.id for Value in DocValue.sketches)
+    Planes = tuple(Value.id for Value in DocValue.support_planes)
+    Selections = tuple(Value.id for Value in DocValue.selections)
+    return (Parameters, Features, Bodies, Sketches, Planes, Selections)
 
 
 # application version extraction keeps source provenance useful without guessing

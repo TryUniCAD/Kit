@@ -29,7 +29,7 @@ print(Document.metadata["nx.attributes"])
 
 The reader returns:
 
-- the native feature graph as one `native` feature step;
+- the native feature graph as one `imported` feature step;
 - Parasolid B-rep bodies when the embedded stream is supported;
 - part attributes from `/Root/part/attrs`;
 - external-reference strings;
