@@ -33,10 +33,31 @@ exp_const_box60.prt  unloaded 0  bodies 1  volume 36000.0  area 7199.99999999999
 count, the version tag, the head object, the generated identity and the
 short-identity guard.
 
+## Expression-bearing shapes
+
+For a part whose expressions are block dimensions the object inventory follows a rule
+rather than the feature:
+
+```text
+objects = 6 + 6n          n expressions
+dim40, const_box60   n=3   24 objects
+var_two              n=6   42 objects
+```
+
+which is the six fixed objects (head, lane descriptor, names lane, occupancy block,
+default group, group record) plus, per expression, five property slots and one record.
+That is the same 5:1 ratio measured earlier, now expressed as a count.
+
+Other feature families do not obey it — `var_sph` with one sphere expression carries 10
+objects and `var_cyl` with two cylinder expressions 14, against 12 and 18 from the rule —
+so the rule is specific to block dimension expressions.
+
 ## Limits
 
 - Only the six object shape is generated. A part with expressions carries 7 to 42
-  objects depending on the feature, and those are not emitted.
+  objects depending on the feature, and those are not emitted. The block family's count
+  is now known (`6 + 6n`) but the per object contents are not, so nothing is emitted for
+  it yet.
 - Section 0 still comes from the source part, so no part is written without a
   source document yet. It is document independent for a part without a body
   (fifteen bytes differ between two such parts, all path, base name and identity),
