@@ -3,8 +3,27 @@
 ## Purpose and scope
 
 The `catia.v5` adapter reads and writes `.CATPart` and `.CATProduct` containers.
-It supports source replay and neutral-data preservation paths.
+It supports source replay, neutral-data preservation, and a native B-rep path.
 Registration does not establish complete native CATIA feature reconstruction.
+
+## Native B-rep
+
+The reader decodes the standard nested B-rep spine in `MainDataStream` and `SurfacicReps`.
+It reads the face-outer-bound run, trim packets, edge table, vertex table, surface records, curve
+rows, and vertex roster.
+It maps the result to a neutral `BrepModel` with faces, loops, coedges, edges, vertices, and
+analytic plane or cylinder surfaces.
+
+The reader decodes 25 of 27 corpus parts.
+The two `4876` parts use an unsupported layout.
+The reader does not decode compressed carrier parameters, feature records, sketches, dimensions,
+constraints, or relations.
+
+The writer emits a native `V5_CFV2` CATPart from a neutral `BrepModel` when
+`WriteOptions(values={"native_brep": True})` is set.
+It supports plane faces with one loop per face.
+It reports `vendor_loadable=False` and `application_usable=False` because CATIA acceptance is not
+measured.
 
 ## Container
 
@@ -54,6 +73,7 @@ Do not report manifest recovery as complete native feature decoding.
 | `exact_carrier_roundtrip`        | Replay of a carrier source             | Does not establish native editability                                   |
 | `native_base_with_neutral_edits` | Native base with a neutral overlay     | CATIA can retain the original native state instead of the neutral edits |
 | `generated_cfv2`                 | New container with neutral information | Container generation does not establish usable native features          |
+| `native_brep`                    | Native B-rep from a neutral model      | Plane faces only; vendor acceptance is not measured                     |
 
 The native-base path uses the input document's own data.
 An unrelated donor file is not an authorized substitute.
@@ -82,5 +102,8 @@ Use [error recovery](../../Tasks/Troubleshoot.md) for rejected output.
 
 - [Adapter](../../../src/convert/adapters/catia/Adapter.py)
 - [Container](../../../src/convert/adapters/catia/Container.py)
+- [Native B-rep reader](../../../src/convert/adapters/catia/NativeBrep.py)
+- [Native B-rep writer](../../../src/convert/adapters/catia/NativeWriter.py)
 - [Format metadata](../../../src/convert/adapters/catia/Format.py)
 - [CATIA integration coverage](../../../tests/convert/catia/)
+- [CATIA research](../../../re/catia/README.md)

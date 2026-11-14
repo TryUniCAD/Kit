@@ -70,6 +70,9 @@ from convert.adapters.catia.Format import (
     PRODUCT_DOCUMENT_TYPE as ProductDocType,
     SUFFIX_BY_DOCUMENT_TYPE as SuffixByDocType,
 )
+from convert.adapters.catia.NativeBrep import DecodeBrep as DecodeNativeBrep
+from convert.adapters.catia.NativeWriter import BuildPart as BuildNativePart
+from convert.adapters.catia.NativeWriter import CanWrite as CanWriteNative
 
 # this binding exists because shared behavior needs one stable value
 KFormatId = InfoValue.format_id
@@ -207,9 +210,29 @@ class CatiaReader(PairProtocol):
             )
         else:
             AsmValue, AsmDiagnostics = (None, ())
-        PartMeta, SupportPlanes, FeatureTimeline, Bodies, PartDiagnostics = (
-            NativePartData(Archive, DocType)
+        NativeModel, NativeDiagnostics = (
+            DecodeNativeBrep(Archive) if DocType == PartDocType else (None, ())
         )
+        try:
+            PartMeta, SupportPlanes, FeatureTimeline, Bodies, PartDiagnostics = (
+                NativePartData(Archive, DocType)
+            )
+        except CatiaAdapterA:
+            if NativeModel is None:
+                raise
+            Feature = FeatureStep(
+                id="catia:feature:graph",
+                name="CATIA native B-rep",
+                kind=FeatureKind.NATIVE,
+                order=0,
+                definition=NativeFeatureDefinition(
+                    format_id="catia.v5.brep",
+                    type_id="BRep",
+                ),
+            )
+            PartMeta, SupportPlanes, PartDiagnostics = ({}, (), ())
+            FeatureTimeline = (Feature,)
+            Bodies = (BodyRecord("catia:body:1", "PartBody", Feature.id),)
         Version = AppVersion(DataValue)
         MetaValue = {
             "catia.document_type": DocType,
@@ -255,8 +278,10 @@ class CatiaReader(PairProtocol):
             feature_timeline=FeatureTimeline,
             bodies=Bodies,
             brep_payloads=Payloads,
-            brep=TypedBrep(Payloads, Bodies),
-            diagnostics=AsmDiagnostics + PartDiagnostics,
+            brep=(
+                NativeModel if NativeModel is not None else TypedBrep(Payloads, Bodies)
+            ),
+            diagnostics=AsmDiagnostics + PartDiagnostics + NativeDiagnostics,
             capabilities=frozenset(),
             metadata=WithWrapperMeta(MetaValue, KWrapperMetaKeys),
             assembly=AsmValue,
@@ -303,6 +328,8 @@ class CatiaWriter(PairProtocol):
         if Settings.validate:
             DocValue.assert_valid()
         DocType = TargetType(DocValue, Target)
+        if Settings.values.get("native_brep") is True:
+            return WriteNativeBrep(DocValue, Target, Settings, DocType)
         NativeChoice = UnchangedNative(DocValue, DocType)
         if NativeChoice is not None and CanReplayNative(Settings, DocValue):
             return WriteReplay(DocValue, Target, Settings, DocType, NativeChoice[0])
@@ -486,6 +513,53 @@ def WriteCarrier(
         "manifest_sha256": Hashlib.sha256(
             CarrierDoc.to_json(indent=None).encode("utf-8")
         ).hexdigest(),
+    }
+    return WriteResult(
+        PathValue,
+        KFormatId,
+        len(DataValue),
+        diagnostics=(*DocValue.diagnostics, DiagValue),
+        metadata=MappingProxyType(Metadata),
+        application_usable=False,
+        vendor_loadable=False,
+    )
+
+
+# this definition exists because focused behavior needs one stable owner
+def WriteNativeBrep(
+    DocValue: CadDocument,
+    Target: Destination,
+    Settings: WriteOptions,
+    DocType: str,
+) -> WriteResult:
+    if DocType != PartDocType:
+        raise CatiaAdapterA("native B-rep writing requires a CATPart destination")
+    Model = DocValue.brep
+    if Model is None or not CanWriteNative(Model):
+        raise CatiaAdapterA(
+            "native B-rep writing supports plane faces with one loop and complete topology"
+        )
+    DataValue = BuildNativePart(Model)
+    PathValue = WriteBytes(Target, DataValue, Settings.overwrite)
+    DiagValue = DiagnosticInfo(
+        "catia.native_brep_written",
+        "A native CATIA B-rep container was generated from the neutral model; vendor acceptance is not measured.",
+        Severity.WARNING,
+    )
+    Metadata = {
+        "mode": "native_brep",
+        "compatibility": "native-brep-unverified",
+        "vendor_loadable": False,
+        "native_geometry": True,
+        "native_history": False,
+        "native_assembly": False,
+        "native_self_contained": True,
+        "referenced_files_written": 0,
+        "container": "V5_CFV2",
+        "document_type": DocType,
+        "face_count": len(Model.faces),
+        "edge_count": len(Model.edges),
+        "vertex_count": len(Model.vertices),
     }
     return WriteResult(
         PathValue,
