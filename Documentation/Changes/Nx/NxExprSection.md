@@ -62,6 +62,23 @@ positions are not the `n` value plus `4n` plain split the count suggests. The va
 scattered, which matches the hash ordered arrangement measured earlier when renaming
 expressions moved the handles between slots.
 
+The three-dimension fixture's 135 byte names lane shows where the placement lives:
+
+```text
+04 0f EXP_lookup_exp 11 EXP_compare_exps 10 EXP_hash_string 0d EXP_hash_exp
+01 21
+8c 00 8c 01 8c 02           one token per expression, in order
+01 x29
+21
+53 54 55                    three slot markers
+ff x29
+04 21
+```
+
+so the lane carries one `8c <index>` token per expression and a three byte slot marker
+group, and those are what encode the placement. They are not decoded, and a composer needs
+them, so the six fixed objects are emittable but the twenty-four object shape is not yet.
+
 So a composer can be written for the six fixed objects but not yet for the slots: their
 order follows the expression name hash, and that hash is not derived.
 
