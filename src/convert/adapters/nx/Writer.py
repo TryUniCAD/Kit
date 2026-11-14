@@ -178,10 +178,12 @@ def MakeOverrides(DocValue: CadDoc, DataValue: bytes) -> dict[str, bytes]:
         for PathValue, Value in RawOverrides(DocValue).items()
     }
     Requested = DocValue.metadata.get("nx.attribute_overrides")
-    if Requested is None or not HasEntries(Requested):
+    if Requested is None:
         return Overrides
     if not isinstance(Requested, Mapping):
         raise ValueError("NX attribute overrides must be a mapping")
+    if not HasEntries(CastValue(object, Requested)):
+        return Overrides
     Streams = (
         {
             PathValue.removeprefix("/Root/"): Value

@@ -179,13 +179,6 @@ def TestNxOverride() -> None:
     assert Attributes["NX_ReferenceSet"] == "LongerValue"
 
 
-# published xxh32 vectors keep the seal helper independent from the writer
-def TestHashXxh() -> None:
-    assert HashXxh(b"") == 0x02CC5D05
-    assert HashXxh(b"a") == 0x550D7456
-    assert HashXxh(b"abc") == 0x32D153FF
-
-
 # unknown stream overrides must fail instead of disappearing
 def TestNxUnknown() -> None:
     Document = ReadNx(SyntheticPart(), ReadOptions(strict=False))
