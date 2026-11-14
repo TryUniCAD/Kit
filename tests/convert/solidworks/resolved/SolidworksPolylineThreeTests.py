@@ -401,6 +401,38 @@ def TestUnitLoss(TmpPath: FilePath) -> None:
         _ = WriteDoc(Changed, TmpPath / "UnitLoss.SLDPRT")
 
 
+def TestDepthUnit(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    FeatureData = SourceDoc.feature_timeline[0]
+    assert isinstance(FeatureData.definition, ExtrudeFeature)
+    FeatureData = ReplaceData(
+        FeatureData,
+        definition=ReplaceData(
+            FeatureData.definition,
+            length=ParameterValue(0.9, ValueKind.LENGTH, "cm"),
+        ),
+    )
+    Changed = ReplaceData(SourceDoc, feature_timeline=(FeatureData,))
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(Changed, TmpPath / "DepthUnitLoss.SLDPRT")
+
+
+def TestPadPathLoss(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    ExtraParam = Parameter(
+        "test:parameter:tolerance",
+        "CustomTolerance",
+        ParameterValue(-1.0, ValueKind.NUMBER, ""),
+        owner_id=SourceDoc.feature_timeline[0].id,
+        attributes={"freecad_path": "FuzzyTolerance"},
+    )
+    Changed = ReplaceData(SourceDoc, parameters=(*SourceDoc.parameters, ExtraParam))
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(Changed, TmpPath / "PadPathLoss.SLDPRT")
+
+
 def TestRoleLoss(TmpPath: FilePath) -> None:
     SourceDoc = BuildDocument(KPoints)
     Changed = ReplaceData(
