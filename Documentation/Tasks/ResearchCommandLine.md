@@ -16,6 +16,7 @@ Select a trusted checkout containing PR #94 and the corpus's pinned Git objects.
 `--root` authorizes execution of that checkout's research code and SDK.
 The wheel contains the SDK and CLI, not research fixtures or the `re/` workspace.
 The supervisor requires Linux or macOS.
+On Windows, reader, corpus, and controller commands wait for completion and return the tool's exit status.
 
 The examples use `/path/to/KitPr94` for the trusted research checkout.
 Replace it with its absolute path; the installed CLI checkout can be different.

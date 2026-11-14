@@ -9,7 +9,8 @@ Follow [the CLI procedure](../../Tasks/ResearchCommandLine.md) for installation,
 
 The selected trusted checkout supplies the executed SDK and research code.
 The wheel retains its SDK-only package scope.
-A fixed script allowlist and process replacement preserve output, native statuses, and signals without a shell or research imports.
+A fixed script allowlist preserves output and native statuses without a shell or research imports.
+Linux and macOS use process replacement; Windows waits for the reader/controller child and forwards its exit status.
 Pinned document JSON, separate receipts, fingerprints, and Fusion summaries remain authoritative.
 The launcher does not rebuild their contracts.
 Stale leases and incomplete Fusion batches retain status `3`; supervisor contention retains `4`.

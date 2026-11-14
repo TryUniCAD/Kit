@@ -27,6 +27,10 @@ tests verify receipt identity against that checkout's actual Git revision and
 SDK source digest.
 The compatibility pin is PR #94's cleaned revision `ac76ef09c3f99db23694459480cfa5e22ec1987a`.
 The dedicated job is registered in the CI allowlist, and merge-group shards select the same checkout when they execute this suite.
+The Windows compatibility job runs pinned reader, rejection, and controller cases with the same checkout.
+Windows launches wait for the child and forward its exit status; Linux and macOS retain process replacement.
+The supervisor's platform refusal is checked through the actual CLI.
+New action references retain the required version annotations, and shard selection uses the runner's standard `grep` command.
 Root `AGENTS.md` documents installation, pinned decoding, receipts, and existing controller/supervisor commands for developers and agents.
 
 ## Process coverage and limits
@@ -52,3 +56,4 @@ type analysis, repository steering, path policy, and diff checks cover these
 files. Actual subprocess execution must pass in remote CI on the accepted CLI
 head with the explicitly pinned research checkout. Target-application acceptance
 remains a separate requirement.
+See [Windows exit-status handling](../../Gotchas/Packaging/WindowsResearchExitStatus.md).

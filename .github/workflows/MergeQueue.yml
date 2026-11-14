@@ -206,13 +206,13 @@ jobs:
             "${RUNNER_TEMP}/ShardPlan/ShardPlan.json" > "${RUNNER_TEMP}/ShardTests.txt"
           test -s "${RUNNER_TEMP}/ShardTests.txt"
           echo "Running $(wc -l < "${RUNNER_TEMP}/ShardTests.txt") planned tests on $(nproc) CPUs" | tee -a "$GITHUB_STEP_SUMMARY"
-          if rg --quiet '^tests/CliResearch/' "${RUNNER_TEMP}/ShardTests.txt"; then
+          if grep --quiet '^tests/CliResearch/' "${RUNNER_TEMP}/ShardTests.txt"; then
             echo "research=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Checkout pinned PR94 tools for research CLI cases
         if: steps.selection.outputs.research == 'true'
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: Stephen316/Kit
           ref: ac76ef09c3f99db23694459480cfa5e22ec1987a

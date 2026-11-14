@@ -64,6 +64,7 @@ const StaticChecks = {
       "actionlint",
       "Verify CI policy and pytest compatibility",
       "Research CLI compatibility",
+      "Research CLI Windows compatibility",
     ],
     preflight: "PR CI reuse (Workflow quality)",
   },

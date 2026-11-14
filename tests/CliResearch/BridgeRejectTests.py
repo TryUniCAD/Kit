@@ -1,6 +1,6 @@
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
-from sys import executable as KPythonPath
+from sys import executable as KPythonPath, platform as KPlatform
 
 from pytest import mark as TestMark
 
@@ -47,3 +47,11 @@ def CheckRootGuard(TmpPath: FilePath) -> None:
     assert Unknown.returncode == 2
     HelpResult = ResearchCli(TmpPath, "controller", "--help")
     assert HelpResult.returncode == 0 and "submit-batch" in HelpResult.stdout
+
+
+def CheckPoolHost(TmpPath: FilePath) -> None:
+    Result = ResearchCli(TmpPath, "supervisor", "--help")
+    if KPlatform == "win32":
+        assert Result.returncode == 1 and "Linux or macOS" in Result.stderr
+        return
+    assert Result.returncode == 0 and "--config" in Result.stdout

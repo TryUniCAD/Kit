@@ -1,4 +1,5 @@
 from os import execv as ExecProcess
+from subprocess import run as RunProcess
 from sys import executable as KPythonPath, platform as KPlatform
 from typing import NoReturn
 
@@ -34,4 +35,7 @@ def RunResearch(Options: CliOptions) -> NoReturn:
         ):
             raise ValueError("Set research --root once, before the tool name")
         Arguments = ["--root", str(RootPath), *Arguments]
-    ExecProcess(KPythonPath, [KPythonPath, str(ScriptPath), *Arguments])
+    CommandArgs = [KPythonPath, str(ScriptPath), *Arguments]
+    if KPlatform == "win32":
+        raise SystemExit(RunProcess(CommandArgs, check=False).returncode)
+    ExecProcess(KPythonPath, CommandArgs)
