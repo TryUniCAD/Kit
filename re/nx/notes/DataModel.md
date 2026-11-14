@@ -576,6 +576,38 @@ aligned authored body vs decoded body   3393 bytes each, 586 differing bytes
                                         VOLUME 0.0
 ```
 
+### The body less section 1 middle is emitted from fields
+
+`re/nx/tools/CmBuild.py` builds the 356-byte middle from named fields: the names
+lane, eight `02` and nine `01` flag bytes, the `0x3d8` counter, sixty four zero
+bytes, the three object offsets computed from the object sizes, the four word
+order array, the version string and `SYSTEM` anchor block, and the head object
+with its anchor and seven byte pointer. Two parts reproduce byte for byte:
+
+```text
+empty.prt   base 0x34c  len 356  identical True
+multi.prt   base 0x34c  len 356  identical True
+```
+
+The table is computed rather than copied. Object offsets follow from the preamble
+length plus the sizes, and the entries are the middle start plus each offset:
+
+```text
+generated 356 byte middle   identity ffffffffffffff   table [1033, 1060, 1088]   counter 0x3d8
+empty.prt                   identity 3b17ffdb906210   table [1033, 1060, 1088]   counter 0x3d8
+```
+
+Splicing that middle into `empty.prt` with the unset pointer loads in NX 2506:
+
+```text
+cm_empty.prt       unloaded 0  bodies 0
+cm_empty_unset.prt unloaded 0  bodies 0
+```
+
+Of the 356 bytes, 216 are generated here; the remaining 140 are the 28 byte
+descriptor and the 112 byte record, which are still passed in because their field
+semantics are not decoded yet.
+
 ### Section 1's minimum object set is three objects
 
 Locating the table by its declared count rather than by a fixed offset makes the
