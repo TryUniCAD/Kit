@@ -132,6 +132,11 @@ in a set. The class value is the _large_ part, differs per class, and no hash, o
 field model has reproduced it. So an equal-count fixture would refine a term that is
 already characterised, not supply the term that is missing.
 
+The entry was also tested as a variable-length digest over the name: decoded as a
+little-endian base 128 integer (71 to 80 bits) and compared against `fnv1a-64` and a
+murmur3 x64 fold at every bit shift from 0 to 23, with no match. That is the eighteenth
+negative for a name-derived function.
+
 That is the reason this work stopped chasing the fifth class set: the emitter needs a
 function of the class **name**, and that is what sixteen probes have failed to find,
 whether the increment turns out to be per class or per count.
