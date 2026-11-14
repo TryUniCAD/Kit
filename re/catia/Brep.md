@@ -501,6 +501,24 @@ byte of both records is a separate type tag, and the tag difference and class id
 The shell's class identifier is therefore not recoverable from the two `30 04 04` prefixes. It has
 to be read from the class table that `ReadObject` consults after reading the `u32`.
 
+### The second field is an object-table index, not a class id
+
+`CATCGMStreamImpl::ReadObject` at `0x71b40` reads the scalable tag difference, then a `u32` at
+`0x180071c8a`, then tests the `u32`:
+
+- if it is zero, a new object is created and the stream continues with the object's own
+  `UnStream` data;
+- if it is non-zero, the value is used as an index into the object table at `0x2b8(stream)` and
+  the existing object is returned.
+
+So the second field is an object-table index, not a class identifier. The class is determined by
+the object's own `UnStream` method, which is dispatched from the object's vtable, not from a class
+id in the stream.
+
+This means the shell record cannot be found by scanning for a class-id byte pattern. The shell is
+reached only by resolving the body's domain tag difference through the object table, and the
+object table is built as the stream is read, not stored as a byte pattern in `MainDataStream`.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
