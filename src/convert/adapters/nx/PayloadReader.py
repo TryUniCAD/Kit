@@ -79,7 +79,7 @@ def FindStreams(DataValue: bytes) -> tuple[NxStream, ...]:
         if DataValue[Position] != 0x78:
             Position += 1
             continue
-        Inflated, UsedBytes = InflateMember(DataValue[Position:])
+        Inflated, UsedBytes = InflateMember(memoryview(DataValue)[Position:])
         if Inflated is None:
             Position += 1
             continue
@@ -90,7 +90,7 @@ def FindStreams(DataValue: bytes) -> tuple[NxStream, ...]:
 
 
 # inflation accepts only complete members and rejects oversized payloads
-def InflateMember(DataValue: bytes) -> tuple[bytes | None, int]:
+def InflateMember(DataValue: bytes | memoryview) -> tuple[bytes | None, int]:
     try:
         Decoder = ZlibValue.decompressobj()
         Output = Decoder.decompress(DataValue, KMaxInflated + 1)

@@ -152,7 +152,11 @@ def RebuildSplm(
     Replacements = ReplacementMap(Overrides)
     HeaderData: list[tuple[str, bytes | None]] = []
     FooterData: list[tuple[str, bytes | None]] = []
+    SeenPaths: set[str] = set()
     for Entry in FileValue.entries:
+        if Entry.path in SeenPaths:
+            continue
+        SeenPaths.add(Entry.path)
         Payload = None
         if Entry.size:
             Payload = Replacements.get(
@@ -160,8 +164,7 @@ def RebuildSplm(
                 FileValue.data[Entry.offset : Entry.offset + Entry.size],
             )
         Target = FooterData if Entry.region == KFooterRegion else HeaderData
-        if not any(PathValue == Entry.path for PathValue, _ in Target):
-            Target.append((Entry.path, Payload))
+        Target.append((Entry.path, Payload))
     return BuildSplm(
         HeaderData,
         FooterData,
