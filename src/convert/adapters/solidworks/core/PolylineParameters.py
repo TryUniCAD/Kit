@@ -119,7 +119,13 @@ def HasPolyLoss(DocumentData: CadDocument, PadId: str) -> bool:
         or not MathValue.isfinite(float(DefinitionLength))
     ):
         return True
-    IsFreecad = DocumentData.source.format_id.casefold() == "freecad.fcstd"
+    IsFreecad = DocumentData.source.format_id.casefold() == "freecad.fcstd" or any(
+        (
+            ParamData.owner_id == PadId
+            and ParamData.attributes.get("freecad_path") in KFreecadPadProps
+            for ParamData in DocumentData.parameters
+        )
+    )
     for ParamData in DocumentData.parameters:
         PathValue = ParamData.attributes.get("freecad_path")
         if (

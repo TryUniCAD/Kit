@@ -26,12 +26,12 @@ from convert.adapters.solidworks.container.Format import (
 from convert.adapters.solidworks.core.Adapter import ReadNativePart, SldprtAdapter
 from convert.adapters.solidworks.core.Native import (
     Canonical,
-    HasPolyLoss,
     HasVendorPartEncoding,
     WriteObjectIds,
     WriteObjects,
     decode_native_model as DecodeNativeModel,
 )
+from convert.adapters.solidworks.core.PolylineParameters import HasPolyLoss
 from convert.adapters.solidworks.programs.resolved.polyline.threepoint.Registry import (
     KFieldOwners,
     KResolvedOps,
@@ -159,8 +159,13 @@ def TestTriRewrite(TmpPath: FilePath) -> None:
     Authored = Canonical(WriteObjects(Reopened, ObjectIds), ObjectIds, Reopened)
     Detail = (
         tuple(
-            (Item.object_id, Item.name, Item.class_name, len(Item.dimensions))
-            for Item in Authored
+            (
+                ItemData.object_id,
+                ItemData.name,
+                ItemData.class_name,
+                len(ItemData.dimensions),
+            )
+            for ItemData in Authored
         ),
         HasPolyLoss(Reopened, PadStep.id),
         tuple(
@@ -184,7 +189,9 @@ def TestTriRewrite(TmpPath: FilePath) -> None:
             )
             for Param in Reopened.parameters
         ),
-        tuple((Item.id, str(Item.kind)) for Item in Reopened.feature_timeline),
+        tuple(
+            (ItemData.id, str(ItemData.kind)) for ItemData in Reopened.feature_timeline
+        ),
     )
     assert HasVendorPartEncoding(Reopened) is True, Detail
     Result = WriteDoc(Reopened, SecondPath)
