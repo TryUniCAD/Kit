@@ -73,6 +73,20 @@ def IsUnsetAngle(Value: ParameterValue | None, Expected: float) -> bool:
     return Value is None or IsExactAngle(Value, Expected)
 
 
+def IsBoundLength(Value: ParameterValue | None, Expected: float) -> bool:
+    if Value is None:
+        return False
+    RawValue = Value.value
+    return (
+        Value.kind is ValueKind.LENGTH
+        and Value.unit.casefold() in KLengthUnits
+        and not isinstance(RawValue, bool)
+        and isinstance(RawValue, (int, float))
+        and MathValue.isfinite(float(RawValue))
+        and MathValue.isclose(float(RawValue), Expected, rel_tol=0.0, abs_tol=1e-09)
+    )
+
+
 def HasPolyLoss(DocumentData: CadDocument, PadId: str) -> bool:
     Configs = DocumentData.configurations
     if (
@@ -118,7 +132,7 @@ def HasPolyLoss(DocumentData: CadDocument, PadId: str) -> bool:
             ParamData.value.kind is ValueKind.LENGTH and ParamData.name == "D1"
         ) or (IsFreecad and PathValue == "Length")
         if IsDepth:
-            if not IsExactLength(ParamData.value, float(DefinitionLength)):
+            if not IsBoundLength(ParamData.value, float(DefinitionLength)):
                 return True
             continue
         if IsFreecad and isinstance(PathValue, str) and PathValue in KFreecadPadProps:
