@@ -18,6 +18,7 @@ class Section:
     stamp: int
     part_name: bytes
     counts: tuple[int, ...]
+    pointer: int
     ref_count: int
     refs: list[tuple[str, bytes]]
     classes: list[tuple[str, bytes]]
@@ -100,6 +101,7 @@ def ParseSection(Body: bytes) -> Section:
         Stamp,
         PartName,
         Counts,
+        Pointer,
         RefCount,
         Refs,
         Classes,
@@ -121,7 +123,7 @@ def BuildSection(Value: Section) -> bytes:
     Body.extend(struct.pack("<I", len(Value.part_name)))
     Body.extend(Value.part_name)
     Body.extend(struct.pack("<8I", *Value.counts))
-    Body.extend(bytes(4))
+    Body.extend(struct.pack("<I", Value.pointer))
     Body.append(Value.ref_count)
     for Name, Tail in Value.refs:
         Body.extend(WriteDeclaration(Name.encode("ascii"), Tail))
@@ -131,7 +133,6 @@ def BuildSection(Value: Section) -> bytes:
     Body.extend(Value.middle)
     Body.extend(Value.record_area)
     Body.extend(Value.digest)
-    struct.pack_into("<I", Body, 0x25 + 4 + len(Value.part_name) + 32, len(Body) - 12)
     return bytes(Body)
 
 

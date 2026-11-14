@@ -100,11 +100,21 @@ fields makes the same encoder round-trip `empty.prt` and `variant400.prt`
 section 3 exactly; variant sections with a separate record area still need the
 record lane decoded.
 
+The header pointer is preserved per section and is not `size - 12`: it is the
+record-area offset, so the encoder stores and re-emits it. With that, all four
+`empty.prt` sections and all five `variant400.prt` sections round-trip byte for
+byte.
+
 The record area in `empty.prt` starts with three little-endian control words,
 then a product frame (`01 27` followed by `NX 2506.9120 - External User
 Function` and a terminator), then `08 SYSTEM 00`, `41 00`, and the object lane.
 The control words are `0x214`, `0x22f`, and `2` for the feature-history
 section.
+
+Replacing the product text `External User Function` with `Authored User
+Function` (same length) in every section and rebuilding the container with
+placeholder streams and recomputed seals loads in NX 2506 (`authored_text.prt`,
+`unloaded 0`), so the record-area text lane is writable.
 
 Changing only the saved part name in the section headers fails with
 `Corrupt data found when loading an OM file` (code 580044), so the name is
