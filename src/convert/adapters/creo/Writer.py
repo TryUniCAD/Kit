@@ -15,9 +15,9 @@ from convert.adapters.base.TransferContract import TransferMode
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.creo.CreoFormat import CreoFormat
+from convert.adapters.creo.Fingerprint import GetFingerprint
 from convert.adapters.creo.Format import KFormatId
 from convert.adapters.creo.Header import ReadHeader
-from convert.adapters.creo.Reader import GetFingerprint
 from convert.adapters.creo.Toc import ReadToc
 
 
@@ -44,7 +44,7 @@ def NativeBytes(Value: CadDocument) -> tuple[bytes, str]:
     if not DataValue.startswith(b"#UGC:"):
         raise CreoFormat("retained Creo source bytes are not a PSB document")
     HeaderValue = ReadHeader(DataValue)
-    _ = ReadToc(DataValue, HeaderValue.base)
+    _ = ReadToc(DataValue, HeaderValue.base, Strict=False)
     Actual = HashValue(DataValue).hexdigest()
     if Actual != Expected:
         raise CreoFormat("retained Creo source bytes changed after reading")

@@ -17,11 +17,12 @@ from interchange.core.Common import FreezeMapping
 
 from convert.adapters.base.ContractTypes import KSourceType
 from convert.adapters.base.ReadOptions import ReadOptions
+from convert.adapters.creo.Compress import KMaxSectionBytes
 from convert.adapters.creo.CreoFormat import CreoFormat
+from convert.adapters.creo.Fingerprint import GetFingerprint
 from convert.adapters.creo.Format import KFormatId
 from convert.adapters.creo.Header import ReadHeader
 from convert.adapters.creo.Toc import CreoEntry
-from convert.adapters.creo.Toc import KMaxSectionBytes
 from convert.adapters.creo.Toc import ReadSection
 from convert.adapters.creo.Toc import ReadToc
 
@@ -47,12 +48,18 @@ def SourceBytes(Source: KSourceType) -> tuple[bytes, str]:
     SeekMethod = getattr(Source, "seek", None)
     Position: int | None = None
     if callable(TellMethod) and callable(SeekMethod):
-        PositionValue: object = TellMethod()
+        try:
+            PositionValue: object = TellMethod()
+        except (OSError, ValueError):
+            PositionValue = None
         if isinstance(PositionValue, int):
             Position = PositionValue
     ValueData = Reader()
     if Position is not None and callable(SeekMethod):
-        _ = SeekMethod(Position)
+        try:
+            _ = SeekMethod(Position)
+        except (OSError, ValueError):
+            pass
     if not isinstance(ValueData, (bytes, bytearray)):
         raise TypeError("Creo source stream must be binary")
     return (bytes(ValueData), str(getattr(Source, "name", "<stream>")))
@@ -137,32 +144,6 @@ def SectionTable(
     )
 
 
-def GetFingerprint(Value: CadDocument) -> str:
-    Parts = (
-        repr(Value.configurations),
-        repr(Value.parameters),
-        repr(Value.support_planes),
-        repr(Value.sketches),
-        repr(Value.selections),
-        repr(Value.feature_timeline),
-        repr(Value.bodies),
-        repr(Value.meshes),
-        repr(Value.brep_payloads),
-        repr(Value.units),
-        repr(Value.assembly),
-        repr(Value.brep),
-        repr(Value.materials),
-        repr(
-            {
-                KeyText: ItemValue
-                for KeyText, ItemValue in Value.metadata.items()
-                if KeyText not in {"creo.source_bytes", "creo.fingerprint"}
-            }
-        ),
-    )
-    return HashValue("\x1f".join(Parts).encode("utf-8")).hexdigest()
-
-
 def ReadDocument(
     Source: KSourceType, Options: ReadOptions | None = None
 ) -> CadDocument:
@@ -198,9 +179,14 @@ def ReadDocument(
                 severity=Severity.KWarning,
             ),
         )
+    SectionNotes = tuple(
+        Diagnostic("creo.section_invalid", Failure, severity=Severity.KWarning)
+        for Failure in SectionFailures
+    )
     Diagnostics = (
         *Notes,
         *UnitNotes,
+        *SectionNotes,
         Diagnostic(
             "creo.container_only",
             "The PSB container, section directory, native thumbnail, and source bytes are decoded. Native geometry, sketches, dimensions, and feature records remain encoded, so no neutral feature or body is claimed.",
