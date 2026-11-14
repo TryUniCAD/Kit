@@ -177,6 +177,32 @@ face. Pairing them gives 60 groups, not 56.
 The corpus reader still decodes 22 of 27 parts. The five pooled parts (`4784`, `4876`,
 `4876_1`, `Pedal_Body`, `Reservoir`) still fail at the surface-count check.
 
+## Coordinate table format
+
+The coordinate data in `MainDataStream` is a plain little-endian `f32` table, not a
+`CATFloatCompactor` stream. It starts at 569 in `Reservoir.CATPart` and runs to 12376. The table
+uses a five-float group:
+
+```text
+x, y1, z, y2, z
+```
+
+Each group encodes two symmetric points `(x, y1, z)` and `(x, y2, z)`. The first group is
+`(-35.5, -0.5, 37.418, 0.5, 37.418)`, giving `(-35.5, -0.5, 37.418)` and
+`(-35.5, 0.5, 37.418)`. The `x` values decrease from -35.5 to 60, the `y` values are small
+(`±0.5`, `±0.854`, `±1.0`), and the `z` values span 33 to 60. The table has 2951 floats, or 590
+groups, or 1180 points.
+
+The table is not a single contiguous run. Denormal values such as `0xa8000000` break the run into
+segments at 569 (342 floats), 1941 (128), 2649 (909), 6485 (125), 7061 (127), 7661 (128), 8249
+(122), and 8953 (856). The denormals are effectively zero and do not change the group format.
+
+The handle-to-point mapping is not identity. The trim and edge handles go up to 1430 with 1431
+distinct values, but the table has only 1180 points. Mapping handle `i` to point `i` gives
+scattered points for face 0 (for example handle 836 maps to `(2.461, -1.345, 12.531)` and handle
+971 to `(16.674, 9.267, -17.724)`), not points on the face-0 plane at `z=0`. The table is
+therefore either incomplete or indexed by a different ordering.
+
 ## Open work
 
 1. Locate the shared tessellation vertex table and its coordinate encoding.
