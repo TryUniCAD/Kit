@@ -10,6 +10,12 @@ Dim SwApp, PartTemplate, CaseIndex, RandomCount
 Set SwApp = CreateObject("SldWorks.Application")
 PartTemplate = SwApp.GetUserPreferenceStringValue(8)
 WScript.Echo "SWREV=" & SwApp.RevisionNumber() & " TEMPLATE=" & PartTemplate
+If WScript.Arguments.Named.Exists("precise") Then
+    AuthorOne SwApp, PartTemplate, "tri3precise", Array(-7.123456789012345, -11.234567890123456, 39.34567890123456, -4.456789012345678, 17.567890123456787, 38.67890123456789), 13.375
+    AuthorOne SwApp, PartTemplate, "tri3nearorigin", Array(0.0000000000008, 0.0, 42.0, 0.0, 12.0, 31.0), 9.0
+    WScript.Echo "PRECISE_DONE=2"
+    WScript.Quit 0
+End If
 If WScript.Arguments.Named.Exists("random") Then
     RandomCount = CInt(WScript.Arguments.Named("random"))
     If RandomCount < 1 Or RandomCount > 512 Then WScript.Quit 66

@@ -14,6 +14,10 @@ The corrected bounded corpus uses a shifted offset of `baseline_offset + len(str
 
 Recover source research parameters from consistent native depth copies rather than dimension display text. Refuse conflicting, missing, or nonpositive values. Preserve rejected output attempts separately from fresh public writes, and do not overwrite existing files because the writer intentionally refuses replacement.
 
+The production reader's `RecoverTriDepth` applies the same bounded rule only to the recovered one-sketch, three-line blind-pad layouts. It requires four identical positive doubles and two exactly negated doubles, checks that the value is consistent with the rounded presentation label, and records the first native offset and raw scalar in both operation and neutral feature records. `RecoverTriDepth` returns `None` for other layouts or conflicting values; no blanket stream-size offset rule is claimed.
+
+Neutral `DimensionParam` uses `native_value * 1000` for length and `degrees(native_value)` for angles whenever a binary scalar is available. It uses the presentation value only as a fallback. This binds the exact depth into ordinary native reads instead of relying on public conversion flags.
+
 Regression and acceptance still use independently computed analytic geometry and SOLIDWORKS rebuild results. Four matching witnesses identify a source parameter; they do not independently establish vendor acceptance of a newly generated file.
 
 See [the corpus builder](../../../../re/tooling/harness/BuildRandomTriangles.py) and [the triangle change record](../../Changes/Solidworks/SolidworksThreeLineNativeHistories.md).

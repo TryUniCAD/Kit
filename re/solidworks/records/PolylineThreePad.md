@@ -79,6 +79,25 @@ The independent late-bound identity sweep also finishes `ORACLE_TOTAL=64 ORACLE_
 
 The separate high-precision public control verifies 14,392.0569347259 mm³ and 4,171.2939338546 mm² at 13.375 mm, with centre `(16.5967040785597, 7.66251477736625, 6.6875)` mm. Its live 6.25 mm edit rebuilds to 6,725.26024987192 mm³ and 3,095.63966028405 mm² before closing without saving. Those values also match the analytic profile independently.
 
+## Native source replay
+
+`NativeProfile.native_coordinates_mm` carries the measured metre-pair values into neutral sketch geometry without the 12-decimal presentation rounding. Both semantic consistency checks use `Clean(round(..., 12))`, avoiding the false rejection at a 1e-12-mm coordinate that using `round` alone caused.
+
+`RecoverTriDepth` replaces presentation-only depth only within the recovered 10,601/10,603 triangle layouts. It requires four identical positive values and two exactly negated values, validates the rounded label, and updates `StateData.NativeFeatures` plus the operation so `DimensionParam` can preserve the native scalar. There is no general stream-size offset rule or arbitrary history claim.
+
+Fresh public open/read/write cycles accepted four native inputs in SOLIDWORKS:
+
+| Input                                | Exact depth, mm |       Volume, mm³ |         Area, mm² |
+| ------------------------------------ | --------------: | ----------------: | ----------------: |
+| `tri3r010` with display 19.53        |       19.529617 | 74,669.2099156988 | 13,182.8305763142 |
+| `tri3r019` with display 18           |       17.995855 | 27,114.8781546765 | 6,375.98230826179 |
+| SOLIDWORKS-authored `tri3precise`    |          13.375 | 14,392.0569347259 |  4,171.2939338546 |
+| SOLIDWORKS-authored `tri3nearorigin` |               9 | 5,858.99999999989 | 2,367.42764547688 |
+
+Every result has zero load errors/warnings, one body, successful rebuild, correct centre of mass, and the exact source depth. The near-origin input uses 8e-13 mm for its first x coordinate and remains supported. The high-precision replay's 6.25 mm edit yields 6,725.26024987192 mm³ and 3,095.63966028405 mm² before closing without saving.
+
+A separate self-emulated freecad/proof compatibility path remains outside this acceptance; it is not substituted for these independently authored native replay results. `AuthorTriangles.vbs /precise` supplies the last two source documents.
+
 Transport-only failures and disagreements in harness parsing are not counted as model acceptance or rejection. The final corpus uses successful compiled `OpenDoc6` results only. `OracleRandomTriangles.vbs` performs an independent late-bound `OpenDoc` identity sweep, scoped to native feature names, three sketch segments, body count, and rebuild status; it does not invent unavailable `OpenDoc6` error variables or duplicate mass measurement.
 
 This completion is scoped to this bounded feature family and its 64-case seeded corpus. Arbitrary SLDPRT history support, wider feature/API/reference corpora, complete B-rep grammar, SLDASM, and SLDDRW remain unclaimed.
