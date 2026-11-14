@@ -21,7 +21,11 @@ def GetKind(LineText: str) -> str:
     if len(Words) < 2 or Words[0] != "#UGC:2":
         raise CreoFormat("Creo header must start with #UGC:2")
     KindText = Words[1]
-    if KindText not in {"PART", "ASSEMBLY", "PART/SHEETMETAL"}:
+    if KindText == "ASSEMBLY":
+        raise CreoFormat(
+            "Creo assemblies are not supported by the part-only creo.prt adapter"
+        )
+    if KindText not in {"PART", "PART/SHEETMETAL"}:
         raise CreoFormat(f"unsupported Creo model kind {KindText!r}")
     return KindText
 

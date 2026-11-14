@@ -55,7 +55,7 @@ def ReadRows(
     return Rows, Position
 
 
-def ReadToc(DataValue: bytes, BaseValue: int) -> CreoToc:
+def ReadToc(DataValue: bytes, BaseValue: int, Strict: bool = True) -> CreoToc:
     Entries: list[CreoEntry] = []
     Notes: list[str] = []
     Seen: set[int] = set()
@@ -84,12 +84,16 @@ def ReadToc(DataValue: bytes, BaseValue: int) -> CreoToc:
                 continue
             NameText = RowValue[0]
             if len(RowValue) < 4:
+                if Strict:
+                    raise CreoFormat(f"Creo table row {NameText!r} is incomplete")
                 Notes.append(f"Creo table row {NameText!r} is incomplete")
                 continue
             OffsetValue = ParseHex(RowValue[1])
             LengthValue = ParseHex(RowValue[2])
             ExpandedValue = ParseHex(RowValue[3])
             if OffsetValue is None or LengthValue is None or ExpandedValue is None:
+                if Strict:
+                    raise CreoFormat(f"Creo table row {NameText!r} has invalid numbers")
                 Notes.append(f"Creo table row {NameText!r} has invalid numbers")
                 continue
             Absolute = BaseValue + OffsetValue
@@ -104,6 +108,10 @@ def ReadToc(DataValue: bytes, BaseValue: int) -> CreoToc:
                 or SectionEnd > len(DataValue)
                 or not DataValue.startswith(Expected, Absolute)
             ):
+                if Strict:
+                    raise CreoFormat(
+                        f"Creo table row {NameText!r} has an invalid extent"
+                    )
                 Notes.append(f"Creo table row {NameText!r} has an invalid extent")
                 continue
             KindText = RowValue[5] if len(RowValue) > 5 else ""
@@ -124,6 +132,8 @@ def ReadToc(DataValue: bytes, BaseValue: int) -> CreoToc:
             break
         Found = FindMarker(DataValue, b"#UGC_TOC", max(0, NextTable - 8))
         if Found < 0 or Found > NextTable + 64:
+            if Strict:
+                raise CreoFormat("Creo continuation table is missing")
             Notes.append("Creo continuation table is missing")
             break
         Position = Found

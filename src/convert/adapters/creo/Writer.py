@@ -18,6 +18,7 @@ from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.creo.CreoFormat import CreoFormat
 from convert.adapters.creo.Format import KFormatId
 from convert.adapters.creo.Header import ReadHeader
+from convert.adapters.creo.Reader import DocumentFingerprint
 from convert.adapters.creo.Toc import ReadToc
 
 
@@ -32,7 +33,12 @@ def IsCreoPath(Target: KTargetType) -> bool:
 def NativeBytes(Value: CadDocument) -> tuple[bytes, str]:
     DataValue = Value.metadata.get("creo.source_bytes")
     Expected = Value.metadata.get("creo.source_sha256")
-    if not isinstance(DataValue, bytes) or not isinstance(Expected, str):
+    Fingerprint = Value.metadata.get("creo.fingerprint")
+    if (
+        not isinstance(DataValue, bytes)
+        or not isinstance(Expected, str)
+        or not isinstance(Fingerprint, str)
+    ):
         raise CreoFormat(
             "Creo writing requires a source-preserved Creo document; independent PSB synthesis is not implemented"
         )
@@ -43,6 +49,10 @@ def NativeBytes(Value: CadDocument) -> tuple[bytes, str]:
     Actual = Sha256(DataValue).hexdigest()
     if Actual != Expected:
         raise CreoFormat("retained Creo source bytes changed after reading")
+    if DocumentFingerprint(Value) != Fingerprint:
+        raise CreoFormat(
+            "Creo document was edited after reading; exact source replay cannot encode the edit"
+        )
     return (DataValue, HeaderValue.kind)
 
 

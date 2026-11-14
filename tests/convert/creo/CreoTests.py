@@ -1,10 +1,17 @@
 from __future__ import annotations
 
+from dataclasses import replace as Replace
+from io import BytesIO as BytesIo
 from pathlib import Path as FilePath
 from tempfile import TemporaryDirectory
 
+from convert import open_document as OpenDoc
+from convert import write_document as WriteDoc
+from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.creo.Adapter import CreoAdapter
+from convert.adapters.creo.CreoFormat import CreoFormat
 from convert.adapters.creo.Format import KFormatId
+from interchange.enums.EnumUnits import UnitSystem
 
 
 def TocRow(
@@ -17,8 +24,8 @@ def TocRow(
     return RowText.encode("ascii").ljust(80, b"#")[:80] + b"\n"
 
 
-def BuildSample() -> bytes:
-    FirstLine = b"#UGC:2 PART 1 2 3 4 5 6 7 8 00000000 \\"
+def BuildSample(KindText: str = "PART", Damaged: bool = False) -> bytes:
+    FirstLine = f"#UGC:2 {KindText} 1 2 3 4 5 6 7 8 00000000 \\".encode("ascii")
     HeaderBody = b"\n#- CMNM 008Test.prt\n#-END_OF_UGC_HEADER\n"
     Header = FirstLine + HeaderBody
     BaseValue = len(Header)
@@ -28,7 +35,8 @@ def BuildSample() -> bytes:
     Geometry = b"#VisibGeom\n\xe0\x00root\x00\xe3"
     Thumb = b"#THMB_IMG_MAIN\n\xff\xd8\xff\xd9"
     BodyStart = BaseValue + len(Banner) + len(TocHead) + 162
-    Rows = TocRow("VisibGeom", BodyStart - BaseValue, len(Geometry), 6) + TocRow(
+    GeometryLength = len(Geometry) + (1000 if Damaged else 0)
+    Rows = TocRow("VisibGeom", BodyStart - BaseValue, GeometryLength, 6) + TocRow(
         "THMB_IMG_MAIN",
         BodyStart - BaseValue + len(Geometry),
         len(Thumb),
@@ -73,6 +81,73 @@ def TestSourceReplay() -> None:
         assert ResultValue.application_usable is False
         assert ResultValue.vendor_loadable is False
         assert ResultValue.metadata["mode"] == "exact_native_roundtrip"
+
+
+def TestPublicApiRoundtrip() -> None:
+    DataValue = BuildSample()
+    DocumentValue = OpenDoc(DataValue, SourceFormat=KFormatId)
+    with TemporaryDirectory() as Folder:
+        Target = FilePath(Folder) / "copy.prt"
+        ResultValue = WriteDoc(DocumentValue, Target, DestFormat=KFormatId)
+        assert Target.read_bytes() == DataValue
+        assert ResultValue.bytes_written == len(DataValue)
+
+
+def TestEditedDocumentRejected() -> None:
+    AdapterValue = CreoAdapter()
+    DocumentValue = AdapterValue.read(BuildSample())
+    EditedValue = Replace(DocumentValue, units=UnitSystem.KInch)
+    with TemporaryDirectory() as Folder:
+        Target = FilePath(Folder) / "copy.prt"
+        try:
+            _ = AdapterValue.write(EditedValue, Target)
+        except CreoFormat as ErrorInfo:
+            assert "edited" in str(ErrorInfo)
+        else:
+            raise AssertionError("edited Creo document must not replay")
+
+
+def TestAssemblyRejected() -> None:
+    AdapterValue = CreoAdapter()
+    ProbeValue = AdapterValue.probe(BuildSample("ASSEMBLY"))
+    assert ProbeValue.confidence == 0.0
+    try:
+        _ = AdapterValue.read(BuildSample("ASSEMBLY"))
+    except CreoFormat as ErrorInfo:
+        assert "assembly" in str(ErrorInfo).casefold()
+    else:
+        raise AssertionError("assembly must not read as a part")
+
+
+def TestConfigurationRejected() -> None:
+    AdapterValue = CreoAdapter()
+    try:
+        _ = AdapterValue.read(
+            BuildSample(), Options=ReadOptions(configuration="production")
+        )
+    except CreoFormat as ErrorInfo:
+        assert "configuration" in str(ErrorInfo).casefold()
+    else:
+        raise AssertionError("unknown configuration must be rejected")
+
+
+def TestDamagedTocRejected() -> None:
+    AdapterValue = CreoAdapter()
+    ProbeValue = AdapterValue.probe(BuildSample(Damaged=True))
+    assert ProbeValue.confidence == 0.0
+    try:
+        _ = AdapterValue.read(BuildSample(Damaged=True))
+    except CreoFormat:
+        pass
+    else:
+        raise AssertionError("damaged table of contents must be rejected")
+
+
+def TestStreamProbeNonDestructive() -> None:
+    AdapterValue = CreoAdapter()
+    StreamValue = BytesIo(BuildSample())
+    _ = AdapterValue.probe(StreamValue)
+    assert StreamValue.tell() == 0
 
 
 def TestDamagedInput() -> None:

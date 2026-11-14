@@ -42,6 +42,7 @@ KInfoValue = AdapterInfo(
     extensions=KSuffixes,
     capabilities=frozenset(
         {
+            Capability.KConfigurations,
             Capability.KNativePayloads,
             Capability.KProvenance,
             Capability.KRoundtripMeta,
