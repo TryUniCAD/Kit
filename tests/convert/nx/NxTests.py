@@ -845,7 +845,7 @@ def TestNxFloat() -> None:
     raise AssertionError("float word reader accepted an empty word")
 
 
-# the token family words are re-emitted from decoded values rather than copied
+# token family words are rewritten from decoded values
 def TestNxValues() -> None:
     Record = (
         b"\x02\x02\x41\x00"
