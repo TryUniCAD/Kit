@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from contextlib import suppress
 from hashlib import sha256 as HashValue
 import os as OsModule
 from pathlib import Path as FilePath
@@ -79,10 +80,8 @@ def WriteBytes(
             OsModule.fsync(Handle.fileno())
         OsModule.replace(Temporary, PathValue)
     except BaseException:
-        try:
+        with suppress(FileNotFoundError):
             Temporary.unlink()
-        except FileNotFoundError:
-            pass
         raise
     return PathValue
 

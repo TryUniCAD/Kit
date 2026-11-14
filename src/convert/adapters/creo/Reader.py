@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from contextlib import suppress
 from dataclasses import replace as Replace
 from hashlib import sha256 as HashValue
 from pathlib import Path as FilePath
@@ -56,10 +57,8 @@ def SourceBytes(Source: KSourceType) -> tuple[bytes, str]:
             Position = PositionValue
     ValueData = Reader()
     if Position is not None and callable(SeekMethod):
-        try:
+        with suppress(OSError, ValueError):
             _ = SeekMethod(Position)
-        except (OSError, ValueError):
-            pass
     if not isinstance(ValueData, (bytes, bytearray)):
         raise TypeError("Creo source stream must be binary")
     return (bytes(ValueData), str(getattr(Source, "name", "<stream>")))
