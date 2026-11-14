@@ -576,6 +576,36 @@ aligned authored body vs decoded body   3393 bytes each, 586 differing bytes
                                         VOLUME 0.0
 ```
 
+### NX cannot re-serialise an authored body either
+
+Asking NX to open the authored 40 x 30 x 20 part and save it under a new name
+produces a rewrite of the geometry stream, and the rewrite is degenerate:
+
+```text
+auth40.prt   3393 bytes  SCH_1200000_12006  bridges 6  loops 6  points 9  curves 12  surfaces 6
+   NX save as
+auth40_resaved.prt 4481 bytes SCH_3701250_37102_13006
+                   bridges 0  loops 0  points 8  curves 13  surfaces 6
+   NX measurement    BODIES 1, VOLUME 0.0, AREA 0.0, MASS 0.0
+```
+
+Two things follow.
+
+First, NX does not repair the body on save. It keeps the zero measurement, which
+matches the earlier finding that NX never rebuilds geometry on open or on update.
+
+Second, and more useful, NX's own writer also fails to express this body: it
+drops every bridge and loop record, loses one point and invents a thirteenth
+curve. A body it can measure (`dim40.prt`) keeps `bridges 6, loops 6, points 9,
+curves 12` through the same round trip. So the authored body is invalid to the
+kernel itself, not merely something our encoder cannot spell.
+
+That closes the "we are emitting the wrong bytes for a valid body" hypothesis and
+leaves only one: the body our encoder assembles for a model with no
+`carrier_record` is not a valid kernel solid, and the shell and loop records it
+derives are rejected on read. Locating that requires the kernel's own validity
+contract, which is not observable through the file format.
+
 ### The doubles in the stream are plane coordinates, not tolerances
 
 An earlier guess that the small doubles early in the stream were tolerance
