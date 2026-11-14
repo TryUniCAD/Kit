@@ -116,6 +116,17 @@ Function` (same length) in every section and rebuilding the container with
 placeholder streams and recomputed seals loads in NX 2506 (`authored_text.prt`,
 `unloaded 0`), so the record-area text lane is writable.
 
+Truncating the class or reference lanes to a minimal set fails with
+`Corrupt data found when loading an OM file` (code 580044) even when the middle
+and record lanes are preserved. The object lane references class ordinals, so a
+minimal hand-authored schema must be paired with a re-encoded middle that uses
+those ordinals.
+
+The object/record lane of geometry parts is a run of seven-byte rows
+`05, kind, token[2], code_a, code_b, 4e`. `variant400.prt` section 4 has four
+rows, matching its fifth count word; section 2 has one row. `empty.prt` has no
+rows.
+
 Changing only the saved part name in the section headers fails with
 `Corrupt data found when loading an OM file` (code 580044), so the name is
 cross-referenced from another record lane. The middle and record areas are still
