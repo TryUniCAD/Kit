@@ -430,6 +430,80 @@ n = 1   7 1 3 5 4 6 7 8
 n = 8   14 1 3 5 4 6 7 14 15 8 9 10 11 12 13
 ```
 
+### NX never rebuilds geometry on open
+
+Feature parameters and body geometry are independent in a saved part. NX reads
+the stored body and reports its measurements; it does not replay the feature
+history to recompute them.
+
+Three independent saves prove this:
+
+```text
+dim60_delayed.prt  NX save with ModelUpdateDelay, p0=60
+                   open -> EXPRESSION p0 60.0, VOLUME 23999.999999999996
+                   DoUpdate -> VOLUME 23999.999999999996
+
+pend60.prt         NX save: suppress, update, delay, unsuppress, p0=60
+                   open -> BODIES 1, p0 60.0, VOLUME 23999.999999999996
+
+dim4_all.prt       our own patch of expression, dimension handle and
+                   dimension text -> p0 60.0, VOLUME 23999.999999999996
+```
+
+So a dimension edit without a matching body write produces an inconsistent but
+loadable part, and NX will not repair it. Authored geometry means authored body
+data, not authored parameters.
+
+### The geometry stream is a re-writable zlib partition
+
+Each body is one stream in the object-model payload:
+
+```text
+offset 42193, compressed 3414, inflated 6722 for dim40.prt
+45 byte header, then zlib data
+header +0x04  compressed size
+header +0x0E  compressed size again
+inflated      PS\0\0\0 3: TRANSMIT FILE created by modeller version 3701250
+```
+
+`re/nx/tools/GeoSwap.py` replaces that stream, patches the two size fields and
+the payload rows, and reseals the container. Recompressing the identical
+inflated bytes loads (`geo_same.prt`, `unloaded 0`), which proves the framing and
+the splice are correct.
+
+Kit's own Parasolid encoder is accepted by NX when it writes the model form:
+
+```text
+EncodeBrepModel(Model, PartValue=False)
+  PS\0\0\0 3: TRANSMIT FILE created by modeller version 1200000
+  ... SCH_1200000_12006 ...
+
+geo_model.prt  decoded NX box re-encoded and spliced
+  unloaded 0, BODIES 1, FEATURES 1, EXPRESSIONS 3
+  VOLUME 23999.999999999996, AREA 5200, MASS 0.18793536
+```
+
+### An authored box loads but is not measured as a solid
+
+`re/nx/tools/GeoAuthor.py` builds a box from constants with
+`BuildPrism("body", Transform(), four lines, 0, height)` and splices the encoded
+model:
+
+```text
+authored_box60.prt  60 x 30 x 20 from BuildPrism
+  unloaded 0, BODIES 1, FEATURES 1, EXPRESSIONS p0 60.0 / p1 30.0 / p2 20.0
+  VOLUME 0.0, AREA 0.0, MASS 0.0
+```
+
+The encoded model itself is sound: it decodes back to one body, one closed solid
+region, six faces with outward plane normals, twelve edges and eight vertices,
+and it computes volume 36000 and area 7200 before encoding.
+
+What is missing is the object-model contract: NX's stream carries extra
+attribute records (`body_id`, `UGS/ObjectState`, density, group owners) that tie
+the Parasolid body to the body object in section 0. A body without them is
+listed by NX but not measured.
+
 ### A first expression can be added to a part that has none
 
 `re/nx/tools/ExprBuild.py` takes a part with no expressions, an expression name,
