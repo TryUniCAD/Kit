@@ -76,7 +76,19 @@ values unchanged (40.0, 30.0, 20.0) but positions moved
 ```
 
 The same values sit in different slots after a rename, so the arrangement follows the
-**name**, not the value. `ExprObjectCount(6 + 6n)` fixes how many slots exist but not where
+**name**, not the value.
+
+Standard hashes were tested against the measured positions and none reproduces them:
+
+```text
+occupied slot positions   dim40 {8, 11, 12, 13, 14}   var_named {0, 1, 3, 8, 13}
+candidates                xxh32, crc32, fnv32, md5, sha1
+moduli                    13, 15 and 16
+result                    no candidate matches either set
+```
+
+Note also that three expressions occupy **five** slots, so the placement is not one bucket
+per name either way. `ExprObjectCount(6 + 6n)` fixes how many slots exist but not where
 they go, and reproducing the placement needs the name hash the kernel uses.
 
 Other feature families do not obey it — `var_sph` with one sphere expression carries 10
