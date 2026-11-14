@@ -600,6 +600,29 @@ sections 1 (block shape), 2 and 3, in addition to regenerating section 3 and
 emptying section 4. Section 0 keeps its source anchor because its body is still
 copied.
 
+### All 214 section 0 records were mutated; five are optional
+
+Each of the 214 records in `empty.prt`'s section 0 was blanked to `0xff` in place,
+keeping the length and the table, and every part was loaded in NX 2506
+(`mut_NNN.prt`, batches through `InspectDir.py`):
+
+```text
+records 0..213 tested
+survivors   112  113  114  115  116      each loads: STATUS 0, UNITS 1, BODIES 0
+the other 209 records are required; blanking any one makes NX refuse the part
+```
+
+The five survivors are one byte records:
+
+```text
+rec 112  0x36      rec 114  0x28      rec 116  0x1a
+rec 113  0x2d      rec 115  0x22
+```
+
+so they are scalar values rather than structures, and invalid ones are tolerated.
+That is the whole extent of what section 0 will accept: 209 of 214 records must be
+correct, which is 97.7 percent of the graph.
+
 ### Every section 0 record is load bearing
 
 Controlled mutation of one record at a time in `empty.prt`'s section 0, keeping the
