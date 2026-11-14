@@ -138,6 +138,8 @@ def ReplaceHead(
 
 
 __all__ = [
+    "ReadSmallRecord",
+    "SmallRecord",
     "RewriteValues",
     "RewriteWordRun",
     "FloatWord",
@@ -672,3 +674,25 @@ def RewriteValues(SectionBody: bytes) -> bytes:
         if len(Written) == Finish - Begin:
             Section[Begin:Finish] = Written
     return bytes(Section)
+
+
+# the small 5f records are a fixed frame a zero run and a free flag
+KSmallFrame = bytes.fromhex("0202ff005f010401")
+
+
+def SmallRecord(Length: int, TailFlag: int = 1) -> bytes:
+    if Length < len(KSmallFrame) + 2:
+        raise ValueError("NX small record must carry a zero run and a flag")
+    if not 0 <= TailFlag <= 0xFF:
+        raise ValueError("NX small record flag must fit one byte")
+    return KSmallFrame + bytes(Length - len(KSmallFrame) - 1) + bytes([TailFlag])
+
+
+def ReadSmallRecord(Record: bytes) -> tuple[int, int]:
+    if not Record.startswith(KSmallFrame):
+        raise ValueError("NX small record has no known frame")
+    if len(Record) < len(KSmallFrame) + 2:
+        raise ValueError("NX small record is too short")
+    if Record[len(KSmallFrame) : -1] != bytes(len(Record) - len(KSmallFrame) - 1):
+        raise ValueError("NX small record payload is not a zero run")
+    return (len(Record), Record[-1])
