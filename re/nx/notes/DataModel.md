@@ -576,6 +576,47 @@ aligned authored body vs decoded body   3393 bytes each, 586 differing bytes
                                         VOLUME 0.0
 ```
 
+### Per body and document level objects separate cleanly
+
+Comparing `var_two` (two blocks, 85 objects) with `dim40` (one block, 44) splits
+the construction graph. Byte equality only survives for the 112 byte record,
+because the descriptors embed object ids, so the split comes from the size
+multiset:
+
+```text
+dim40 sizes     27, 28, 14 x 6,  16 x 12, 169, 112, 24, 21, 3 x 19, 231
+var_two sizes   26, 28, 14 x 12, 16 x 24, 169, 112, 169, 24, 24, 21, 21,
+                3 x 34, 4 x 5, 480
+```
+
+Everything that doubles belongs to a body: the fourteen and sixteen byte
+descriptors, the 169 byte parameter record, the 24 and the 21 byte records, and
+the three byte entries. What stays single is the head, the 28 byte descriptor and
+the 112 byte record, plus a 480 byte record that only appears with two bodies.
+
+So the one body block layout is:
+
+```text
+document level   3 objects   27 head, 28 descriptor, 112 record
+per body        41 objects   14 x 6, 16 x 12, 169 BLOCK_PARMS, 24, 21, 3 x 19, 231
+```
+
+and `3 + 41 = 44` matches `dim40`, `3 + 2 * 41 = 85` matches `var_two`.
+
+The descriptors also reveal the per body marker. Every descriptor carries a group
+byte between `f0 <object>` and `09 <weight>`:
+
+```text
+body one   02 02 3f 41 00 01 66 06 f0 00 09 0a 93 8c
+body two   02 02 3f 41 00 01 5e 07 f0 06 0a 03 93 8c
+```
+
+`09` for the first body, `0a` for the second, and the same for the sixteen byte
+form. The link byte re-chains within a body (`66 65 64 63 62 61` then
+`5e 5d 5c 5b 5a 59`), so a body's objects are a self contained chain ending at
+its own parameter record. The compact entries carry the group too: `ff 41 1c`
+and `3f 41 1c` in `var_two` against `ff 41 2d` in `dim40`.
+
 ### The construction graph is feature typed, not topology typed
 
 New fixtures were generated with NX journals (`CreateCylinder.py`,
