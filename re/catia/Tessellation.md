@@ -44,6 +44,20 @@ Edge handles and trim handles share one global point-id space but are not identi
 The trim mesh adds interior points that no edge polyline uses. The coordinate table for this
 shared point-id space is not yet located.
 
+## Coordinate run in the head
+
+`Pedal_Body.CATPart` `MainDataStream` contains a long run of plausible little-endian `f32`
+values starting at offset 874. The run is 4193 floats and ends at 17646. The first values are
+`0, -9, -10, 0, 173, -2.121, 173, -1.8614, 171.9831, ...`, which are clearly 3D coordinates.
+
+Immediately before the run, at offset 874, is a little-endian `u64` count of `4186`. The count
+does not divide evenly into three, so the record is not a plain `(x, y, z)` triple array of that
+length. The run also spans all three axes over the same range (`-10` to `202.56`), which is
+unusual for a flat part.
+
+The run is therefore a real coordinate block, but its record structure (point count, stride, and
+whether it is a mesh, a curve, or a parameter array) is unresolved.
+
 ## Coordinate table search
 
 The `MainDataStream` head region before the trim chain (bytes `0..1472` in `Washer_8.CATPart`) is
