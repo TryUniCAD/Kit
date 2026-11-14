@@ -925,6 +925,47 @@ The object header offset is not yet located. Decoding tag differences at the bod
 two-bit block, the face-outer-bound run, the edge table, and the vertex table all fail on the first
 or second byte with an out-of-range length, so none of those regions starts with a tag array.
 
+## The pooled parts differ only in their non-planar faces
+
+The five parts that fail the surface-count check have an exact planar correspondence. Counting the
+faces whose trim record carries a vector (planar) against the surfaces of kind `0x32` (planes):
+
+| Part | Faces | Surfaces | Planar faces | Plane surfaces | Non-planar faces | Non-planar surfaces | Deficit |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `Reservoir` | 71 | 56 | 13 | 13 | 58 | 43 | 15 |
+| `Pedal_Body` | 338 | 314 | 66 | 66 | 272 | 248 | 24 |
+| `4784` | 416 | 270 | 91 | 91 | 325 | 179 | 146 |
+| `4876` | 870 | 714 | 359 | 359 | 511 | 355 | 156 |
+| `4876_1` | 870 | 714 | 359 | 359 | 511 | 355 | 156 |
+
+The planar count equals the plane-surface count exactly in every part, and the deficit equals the
+non-planar face count minus the non-planar surface count. So the surface pooling is entirely among
+non-planar faces: cylinders, cones, spheres, and tori are shared, planes are not.
+
+That narrows the map but does not determine it. Three cheap rules were tested and all fail:
+
+- the trim `counts` fields are not surface indices: they are all in range but have only 12 to 27
+  distinct values against 56 to 714 surfaces;
+- matching planar faces to plane surfaces by normal and then scoring candidate planes by how many
+  vertex-table points they contain is not unique: `Reservoir` has 0 unique of 13, `Pedal_Body` 22 of
+  66, `4784` 20 of 91;
+- no contiguous tag array of 56 or 71 tags exists in `MainDataStream` or `SurfacicReps` under a
+  bounded, distinct, plausible-range filter.
+
+## The stream preamble carries a payload length, not a header table
+
+`Reservoir` has three `MainDataStream` streams of 19, 63, and 31156 bytes. The 31156-byte one starts
+with `a3 ff b2 79 00 00 00 00`, where `b2 79` is `31154`, exactly the payload length after the
+8-byte preamble. The 63-byte one starts with `ff 3e 00 00`, where `3e 00` is `62`, exactly the
+payload length after a 1-byte preamble, and its payload carries the tolerances `0.1`, `1.0`, and
+`0.02`. The 19-byte one starts with `56 d0 10 00 36 00 00 00 07 00 00 00`, where `36 00 00 00` is
+`54`, the offset of the first body record, and `07 00 00 00` is `7`.
+
+So the small `MainDataStream` is a pointer record, not a header table. `SurfacicReps` starts with
+`ff 33 1f 00 00 db 0f 49 3f`, where `db 0f 49 3f` is `pi / 4`, and its first surface record begins
+at offset 17. None of these preambles contains a table of object-header offsets, so the object table
+is built at load time rather than read from a table.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.

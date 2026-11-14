@@ -32,11 +32,31 @@ surface marker in any of the five parts, and the `SurfacicReps` header field at 
 `Reservoir` and `26` for the others, not the surface count. The trim record has no spare field for a
 surface index, and no byte position in a surface record sums to the face count.
 
+The pooling is also entirely among non-planar faces. The planar face count equals the plane-surface
+count exactly in every pooled part, and the deficit equals the non-planar face count minus the
+non-planar surface count:
+
+| Part | Planar faces | Plane surfaces | Non-planar faces | Non-planar surfaces | Deficit |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| `Reservoir` | 13 | 13 | 58 | 43 | 15 |
+| `Pedal_Body` | 66 | 66 | 272 | 248 | 24 |
+| `4784` | 91 | 91 | 325 | 179 | 146 |
+| `4876` | 359 | 359 | 511 | 355 | 156 |
+| `4876_1` | 359 | 359 | 511 | 355 | 156 |
+
+So planes are never shared and cylinders, cones, spheres, and tori are. That narrows the map but
+still does not determine it: matching planar faces to plane surfaces by normal and scoring candidate
+planes by how many vertex-table points they contain is not unique (`Reservoir` 0 unique of 13,
+`Pedal_Body` 22 of 66, `4784` 20 of 91), and the trim `counts` fields are not surface indices (all in
+range but only 12 to 27 distinct values against 56 to 714 surfaces).
+
 ## Workaround
 
 Do not infer the face-to-surface map from planarity or from list position. The reader requires the
 surface count to equal the face count and rejects the five pooled parts, which is the honest
-behavior. The map must come from the face record's own object reference.
+behavior. The map must come from the face record's own object reference, which is the first entry of
+the linked-object list that the generic object header passes to `CATCXFace::UnStream`. The tag
+encoding for that list is decoded, but the object-header offset is not.
 
 ## Evidence
 

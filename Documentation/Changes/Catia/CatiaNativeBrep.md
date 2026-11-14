@@ -135,7 +135,12 @@ result = CatiaAdapter().write(
 - Surface records in `SurfacicReps` are interleaved with curve records. The reader scans for the
   `00 33 <kind>` marker and validates each record instead of parsing contiguously, so the full
   surface pool is recovered for every part. The five failing parts still fail because they have
-  fewer surfaces than faces and the face-to-surface reuse map is not decoded.
+  fewer surfaces than faces and the face-to-surface reuse map is not decoded. The pooling is
+  entirely among non-planar faces: the planar face count equals the plane-surface count exactly in
+  every pooled part (13/13, 66/66, 91/91, 359/359, 359/359), and the deficit equals the non-planar
+  face count minus the non-planar surface count. Planes are never shared; cylinders, cones, spheres,
+  and tori are. The stream preambles carry payload lengths, not an object-header table, so the
+  object table is built at load time.
 - The handle-to-point map is not decoded. The reader's vertex positions are a structural
   approximation, so the decoded geometry is not the file's geometry even for the 22 parts that pass
   validation. The handle count exceeds the B-rep vertex count (`Reservoir` 1431 handles and 88
