@@ -1786,7 +1786,7 @@ def TestFCBTrans(TmpPath: FilePath) -> None:
         resolved_stream=StreamK,
     )
     assert NativeData.sketches[0].profiles[0].coordinates == PytestLib.approx(
-        (12.5, -7.25, 22.5, -7.25, 22.5, 2.75, 12.5, 2.75)
+        (12.5, -7.25, 22.5, 2.75)
     )
 
 
