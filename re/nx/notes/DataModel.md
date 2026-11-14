@@ -576,6 +576,51 @@ aligned authored body vs decoded body   3393 bytes each, 586 differing bytes
                                         VOLUME 0.0
 ```
 
+### Which object model sections must be generated
+
+Stubbing one section body at a time (`OM\x01\x01`, four bytes) and loading the
+part in NX 2506 bounds the work:
+
+```text
+section 4 stubbed          BODIES 1, VOLUME 36000.0, AREA 7199.999999999999
+section 3 stubbed          fails to open
+section 1 stubbed          fails to open
+section 0 stubbed          fails to open
+sections 1 2 3 4 stubbed   fails to open
+```
+
+So the feature record (section 4, `UGS::FEATURE_RECORD`) is **not needed** for a
+body to load and measure; it only has to exist as a well formed section. Sections
+0 (topology and object classes), 1 (`UGS::CM_*`), 2 (`UGS::EXP_*`) and 3
+(`UGS::OCC*`, save audit trail) all have to carry real content.
+
+That reduces from scratch authoring to four section middles, and section 3 is
+nearly constant:
+
+```text
+part            middle  classes  refs  differences from dim40
+dim40.prt         176       9      2  baseline
+const_box60.prt   176       9      2  0
+empty.prt         176       9      2  7   bytes 0x7e..0x84
+empty_expr.prt    176       9      2  9   bytes 0x7e..0x84 plus 0x08 0x2c 0x30
+multi.prt         176       9      2  7   bytes 0x7e..0x84
+sweep.prt         176       9      2  7   bytes 0x7e..0x84
+```
+
+Across six unrelated parts the length, the class count and the reference count
+never move, and the only structural difference is the seven byte saved pointer at
+`0x7e` plus a timestamp. Section 2 already has a generator
+(`re/nx/tools/ExprBuild.py`), so section 3 is the smallest remaining middle to
+emit from parameters, followed by 1 and then 0.
+
+Every section body also round trips byte exactly through
+`BuildSection(ParseSection(body))`, for all five sections and all four sizes, so
+the record framing is fully understood; what is missing is middle generation.
+
+An authored payload must end at the last section body. Adding two trailing bytes
+after a stubbed section 4 makes NX refuse the file, while the same payload
+ending at the body opens and measures.
+
 ### Payload sections resize but do not transplant
 
 `src/convert/adapters/nx/PayloadBuild.py` now rewrites a payload with replacement

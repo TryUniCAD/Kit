@@ -61,3 +61,8 @@ disagrees.
 - The container, feature records and body object records still come from a
   retained native part; this change makes the payload half writable from
   parameters, it does not make a neutral document writable yet.
+
+Stubbing section bodies with `ResizePayload` bounds the authoring work: only
+section 4 (the feature record) may be an empty `OM\x01\x01` section, while
+sections 0, 1, 2 and 3 must carry real content. See
+[the stub gotcha](../../Gotchas/Conversion/NxPayloadStubSections.md).
