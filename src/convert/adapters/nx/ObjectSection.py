@@ -134,6 +134,8 @@ def ReplaceHead(
 
 
 __all__ = [
+    "RenameView",
+    "ViewName",
     "LaneParts",
     "LaneRecord",
     "RelabelLanes",
@@ -512,3 +514,35 @@ def RelabelLanes(SectionBody: bytes) -> bytes:
         if len(Built) == Finish - Begin:
             Section[Begin:Finish] = Built
     return bytes(Section)
+
+
+# a named view record carries its name as a length prefixed text token
+KViewHead = b"\x02\x02\x41\x41"
+
+
+def ViewName(Record: bytes) -> tuple[bytes, int, int]:
+    if not Record.startswith(KViewHead):
+        raise ValueError("NX view record has no known head")
+    for Position in range(len(KViewHead), len(Record) - 2):
+        if Record[Position] != KTextToken:
+            continue
+        Width = Record[Position + 1]
+        if Width < 2 or Position + 2 + Width > len(Record):
+            continue
+        if Record[Position + Width] != 0:
+            continue
+        Label = Record[Position + 2 : Position + Width]
+        if not Label or not all(0x20 <= Sample < 0x7F for Sample in Label):
+            continue
+        return (Label, Position, Width)
+    raise ValueError("NX view record carries no name token")
+
+
+# the name keeps its room so the record length and pointer stay unchanged
+def RenameView(Record: bytes, ViewLabel: bytes) -> bytes:
+    _, Position, Width = ViewName(Record)
+    if len(ViewLabel) + 2 != Width:
+        raise ValueError("NX view name must keep its byte length")
+    Output = bytearray(Record)
+    Output[Position + 2 : Position + Width] = ViewLabel
+    return bytes(Output)

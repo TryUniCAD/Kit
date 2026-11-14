@@ -17,6 +17,7 @@ from convert.adapters.nx.ObjectSection import (
     HeadRecord,
     LaneParts,
     LaneRecord,
+    RenameView,
     ObjectCount,
     PairRecord,
     ParseAttribute,
@@ -24,6 +25,7 @@ from convert.adapters.nx.ObjectSection import (
     ParseSlots,
     RegToken,
     SlotRecord,
+    ViewName,
 )
 from convert.adapters.nx.RootSection import KRootCounter, PatchAnchor, RootMiddle
 from convert.adapters.nx.PayloadReader import ReadPayload
@@ -786,3 +788,22 @@ def TestNxLane() -> None:
     except ValueError:
         return
     raise AssertionError("lane grammar accepted a short mask")
+
+
+# a named view record carries its name as a length prefixed text token
+def TestNxView() -> None:
+    Record = b"\x02\x02\x41\x41" + bytes(10) + b"\x03\x07Front\x00" + bytes(20)
+    assert ViewName(Record) == (b"Front", 14, 7)
+    assert RenameView(Record, b"Front") == Record
+    assert RenameView(Record, b"Baack")[16:21] == b"Baack"
+    try:
+        _ = RenameView(Record, b"Fron")
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("view rename accepted a different name length")
+    try:
+        _ = ViewName(b"\x02\x02\x41\x41" + bytes(8))
+    except ValueError:
+        return
+    raise AssertionError("view name read a record without a name")
