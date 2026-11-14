@@ -431,6 +431,23 @@ references are tag differences only.
 
 `SurfacicReps` contains no `02 00 00 00` at all, so the face records are not in that stream either.
 
+### The body header is 47 bytes and its count is not a face count
+
+`Reservoir` has three body headers at offsets 54, 101, and 153, each 47 bytes. The layout is:
+
+- 30 bytes of object header, identical in all three:
+  `30 04 04 fd ff 00 00 00 01 00 62 d6 3c 42 00 00 00 00 00 00 d8 c0 95 63 37 3d 00 00 f0 41`;
+- a `u32` count at offset +30: 3, 19, and 4140;
+- two `ff`-prefixed counts: `ff 03 01 00 00` (259) and `ff 01 00 00 00` (1) for bodies 1 and 2;
+- three trailing bytes.
+
+The counts 3, 19, and 4140 are neither the 71 faces nor the 56 surfaces. Body 3's 4140 is far
+larger than either, so the field is not a face or surface count. The two `ff`-prefixed values are
+the same for bodies 1 and 2 and differ for body 3, so they are not per-body face counts either.
+
+The body record therefore does not carry the face-to-surface map. The map has to come from the
+inline face records in the shell record, which are not at a fixed offset from the body header.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
