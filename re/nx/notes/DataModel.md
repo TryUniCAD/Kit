@@ -546,6 +546,39 @@ NX stores box shells with the opposite loop orientation to the one
 convention. Reproducing that convention for an authored topology is the
 remaining piece for a body written entirely from constants.
 
+### Record-level comparison of a working and an authored stream
+
+Scanning both encoded streams gives identical record structure:
+
+```text
+              working stream        authored stream
+surfaces      5 6 7 8 9 10          5 6 7 8 9 10
+bridges       81 82 83 84 85 86     81 82 83 84 85 86
+loops         75 76 77 78 79 80     75 76 77 78 79 80
+bridge 81     refs (82,1,75,4,5...) (82,1,75,4,5...)
+bridge 82     refs (83,81,77,4,6..) (83,81,76,4,6..)
+bridge 83     refs (84,82,80,4,8..) (84,82,77,4,7..)
+```
+
+Only the face to loop to surface pairing differs, which is the model's own
+ordering. The stream header is byte identical because both come from the same
+encoder, so a schema version hypothesis is out.
+
+Every semantic check passes on the authored stream, after decoding it again:
+
+```text
+nx decoded        faces 6, worst loop-to-surface distance 0.0, bad vertices 0
+authored model    faces 6, worst loop-to-surface distance 0.0, bad vertices 0
+authored encoded  faces 6, worst loop-to-surface distance 0.0, bad vertices 0
+nx re-encoded     faces 6, worst loop-to-surface distance 0.0, bad vertices 0
+```
+
+So the authored stream is a well formed, closed, consistently oriented six face
+box by every property this repository can observe, with matching ranks, fins,
+senses, parameterization and record structure, and NX still binds no faces. What
+NX checks beyond that is not visible through the decoder, which is where the
+from-scratch geometry work stops without a native reference implementation.
+
 ### The link layer decides how much of the body NX sees
 
 The decisive experiment is to strip only the link attributes from a decoded NX
