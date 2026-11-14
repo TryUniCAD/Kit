@@ -273,7 +273,7 @@ def TestASMUnicode(TmpPath: FilePath) -> None:
     )
     OutputPath = TmpPath / KUnicodeAssembly.name
     ResultInfo = WriteDocument(DocumentValue, OutputPath, allow_carrier=False)
-    assert ResultInfo.native_self_contained is True
+    assert ResultInfo.metadata["native_self_contained"] is True
     assert ResultInfo.application_usable is True
     assert ResultInfo.near_lossless is True
 
