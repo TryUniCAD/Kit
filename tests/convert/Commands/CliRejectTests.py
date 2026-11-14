@@ -4,7 +4,6 @@ from pytest import mark as TestMark
 
 from convert.formats.Fusion.DocumentCodec.EmitDocument import EmitDocument
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
-from interchange.document.models.DocumentModel import CadDocument
 from tests.convert.api.ApiTestPaths import KSamplePath
 from tests.convert.Commands.CliProcess import CliProcess
 
@@ -97,11 +96,19 @@ def CheckBadFiles(TmpPath: FilePath) -> None:
         "interchange.json",
         "--overwrite",
     )
-    assert Explicit.returncode == 0, Explicit.stderr
-    assert (
-        CadDocument.from_json(Target.read_bytes().decode("utf-8")).Source.FormatId
-        == "fusion.f3d"
+    assert Explicit.returncode == 1 and Target.read_bytes() == b"existing output"
+    assert "does not support the destination" in Explicit.stderr
+    Fusion = CliProcess(
+        TmpPath,
+        "convert",
+        str(TypedSource),
+        str(Target),
+        "--to",
+        "fusion.f3d",
+        "--overwrite",
     )
+    assert Fusion.returncode == 0, Fusion.stderr
+    assert Target.read_bytes() == TypedSource.read_bytes()
 
 
 def CheckCliBounds(TmpPath: FilePath) -> None:

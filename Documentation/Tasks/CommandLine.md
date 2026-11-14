@@ -39,6 +39,7 @@ kit convert model.f3d model.json
 The source reader is selected from the content and filename.
 The destination suffix selects the writer.
 Unknown or ambiguous suffixes require `--to FORMAT`; the CLI does not fall back to another output type.
+An explicit format still retains the selected writer's filename constraints; JSON output requires a `.json` pathname.
 For explicit format selection, use the registered identifiers or aliases:
 
 ```sh

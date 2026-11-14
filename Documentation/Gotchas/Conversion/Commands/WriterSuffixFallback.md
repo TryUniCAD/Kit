@@ -9,5 +9,8 @@ Unknown or ambiguous suffixes require an explicit `--to FORMAT`.
 Refusal happens before staging and preserves an existing destination even with `--overwrite`.
 
 [Fusion compatibility run 43653469450](https://github.com/TryUniCAD/Kit/actions/runs/43653469450) exposed this behavior: the unknown-suffix case failed while 2970 cases passed.
-The SDK selector is unchanged; process coverage also verifies that explicit JSON output to the same unconventional filename succeeds.
+The SDK selector is unchanged.
+An explicit format still retains that adapter's destination constraints: the JSON writer requires a `.json` pathname.
+The first new explicit-format case incorrectly expected JSON output to an unconventional name; [run 43654362487](https://github.com/TryUniCAD/Kit/actions/runs/43654362487) rejected it before writing.
+Process coverage now retains that JSON refusal and verifies byte-exact explicit Fusion output to the same unconventional filename.
 No local tests ran.
