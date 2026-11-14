@@ -14,7 +14,7 @@ from convert.adapters.solidworks.container.Format import (
     KEYWORDS_STREAM as KeyStream,
     RESOLVED_FEATURES_STREAM as ResolvedStream,
 )
-from interchange import Transform, Vector3 as VectorThree
+from interchange import CylinderSurface, ParameterRole, Transform, Vector3 as VectorThree
 from convert.adapters.solidworks.core.Native import (
     HasVendorPartEncoding,
     decode_native_model as DecodeNativeModel,
@@ -112,6 +112,60 @@ def TestBoxPlane(TmpPath: FilePath) -> None:
     assert HasVendorPartEncoding(Changed) is False
     with PytestLib.raises(ApplicationUsabilityError):
         _ = WriteDocument(Changed, TmpPath / "RotatedBox.SLDPRT", allow_carrier=False)
+
+
+# driven dimensions would become driving native dimensions so they decline
+@PytestLib.mark.skipif(not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable")
+def TestBoxDriven(TmpPath: FilePath) -> None:
+    SourcePath = KAddBoxRoot / "AdditiveBox-1.1.4.FCStd"
+    DocumentValue = OpenDocument(SourcePath)
+    Changed = ReplaceData(
+        DocumentValue,
+        parameters=tuple(
+            (
+                ReplaceData(ItemData, role=ParameterRole.DRIVEN)
+                if ItemData.attributes.get("freecad_path") == "Length"
+                else ItemData
+            )
+            for ItemData in DocumentValue.parameters
+        ),
+    )
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(ApplicationUsabilityError):
+        _ = WriteDocument(
+            Changed, TmpPath / "DrivenBox.SLDPRT", allow_carrier=False
+        )
+
+
+# curved faces on the box corners would be replaced by flat faces
+@PytestLib.mark.skipif(not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable")
+def TestBoxCurved(TmpPath: FilePath) -> None:
+    SourcePath = KAddBoxRoot / "AdditiveBox-1.1.4.FCStd"
+    DocumentValue = OpenDocument(SourcePath)
+    BrepValue = DocumentValue.brep
+    assert BrepValue is not None
+    SurfaceValue = BrepValue.surfaces[0]
+    Changed = ReplaceData(
+        DocumentValue,
+        brep=ReplaceData(
+            BrepValue,
+            surfaces=(
+                CylinderSurface(
+                    SurfaceValue.id,
+                    VectorThree(0.0, 0.0, 0.0),
+                    VectorThree(0.0, 0.0, 1.0),
+                    VectorThree(1.0, 0.0, 0.0),
+                    5.0,
+                ),
+                *BrepValue.surfaces[1:],
+            ),
+        ),
+    )
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(ApplicationUsabilityError):
+        _ = WriteDocument(
+            Changed, TmpPath / "CurvedBox.SLDPRT", allow_carrier=False
+        )
 
 
 # refine false changes authored cleanup so the older schema must decline

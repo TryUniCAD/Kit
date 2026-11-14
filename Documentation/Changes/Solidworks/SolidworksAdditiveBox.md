@@ -16,11 +16,14 @@ positive lengths, `MapMode` must be `0`, `MapPathParameter` must be exactly `0`,
 `MapReversed` must be false, `Visibility` must be true, `Refine` must be true,
 `AttacherType` must be `Attacher::AttachEngine3D`, `Label` must equal the feature name, and
 `Label2` must be empty. `Suppressed`, when present, must be false, and `FuzzyTolerance`,
-when present, must be exactly `-1`. Unknown properties decline native encoding instead of
-being dropped.
+when present, must be exactly `-1`. Every parameter must be driving, because the native
+pad writes driving dimensions. Unknown properties decline native encoding instead of being
+dropped.
 
 The source B-rep must remain the exact eight-vertex, twelve-edge, six-face box at the
-origin, so the emitted sketch and pad match the authored solid.
+origin, so the emitted sketch and pad match the authored solid. Every edge must be an
+axis-aligned line and every face an axis-aligned plane; a curved or otherwise altered face
+is rejected even when the eight corners are unchanged.
 
 ## Usage
 
@@ -54,7 +57,8 @@ the emitted native model and requires a `(0, 0, 20, 30)` rectangle and a `10 mm`
 `TestAddBoxNo` opens `AdditiveBox-0.21.2.FCStd`, requires native preflight to reject it,
 and requires the public writer to raise `ApplicationUsabilityError`. `TestBoxPlane` rotates
 the first principal plane of the 1.1.4 fixture about its normal and requires the same
-rejection.
+rejection. `TestBoxDriven` changes the bound `Length` role to driven and `TestBoxCurved`
+replaces one planar face with a cylinder; both require the same rejection.
 
 The fixtures are copied from the cadmpeg FreeCAD corpus under the Apache License 2.0; the
 attribution is in [the fixture notice](../../../re/solidworks/examples/FreeCAD/NOTICE.md).

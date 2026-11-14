@@ -40,6 +40,7 @@ from interchange import (
     Sketch,
     SketchEntity,
     Selection,
+    SpaceVector,
     SupportPlane,
     ValueKind,
     Vector2 as VectorTwo,
@@ -3874,6 +3875,26 @@ def IsFreeCad(ObjectData: Mapping[str, object], PropName: str) -> bool:
 
 
 # this definition exists because focused behavior needs one stable owner
+def IsAxisLine(Value: SpaceVector) -> bool:
+    Components = (Value.x, Value.y, Value.z)
+    return sum((abs(ItemData) for ItemData in Components)) == 1.0 and all(
+        ItemData in {-1.0, 0.0, 1.0} for ItemData in Components
+    )
+
+
+def HasBoxFaces(DocData: CadDocument) -> bool:
+    BrepData = DocData.brep
+    if BrepData is None or len(BrepData.curves) != 12 or len(BrepData.surfaces) != 6:
+        return False
+    return all(
+        (isinstance(ItemData, LineCurve) and IsAxisLine(ItemData.direction)
+         for ItemData in BrepData.curves)
+    ) and all(
+        (isinstance(ItemData, PlaneSurface) and IsAxisLine(ItemData.normal)
+         for ItemData in BrepData.surfaces)
+    )
+
+
 def HasFreeCadBox(
     DocData: CadDocument, LengthValue: float, WidthValue: float, HeightValue: float
 ) -> bool:
@@ -3885,6 +3906,7 @@ def HasFreeCadBox(
         or (len(BrepData.faces) != 6)
         or (len(BrepData.regions) != 1)
         or (len(BrepData.bodies) != 1)
+        or (not HasBoxFaces(DocData))
     ):
         return False
     ExpectedData = {
@@ -4048,6 +4070,8 @@ def HasCadCylBrep(DocData: CadDocument, RadiusValue: float, HeightValue: float) 
 
 
 def HasAddBoxSchema(PathData: dict[str, Param], FeatureName: str) -> bool:
+    if any(ParamValue.role is not ParamRole.DRIVING for ParamValue in PathData.values()):
+        return False
     Required = {
         "Length": ValueKind.LENGTH,
         "Width": ValueKind.LENGTH,
