@@ -606,6 +606,33 @@ So a necessary condition is known (rank attributes present) but not sufficient.
 The binding count behaves like a chain that the encoder breaks at a point, and
 the encoder's own emitters are the only place left to look.
 
+The rank values themselves are not special. A decoded body re-encodes with
+identity ranks and still binds every face, and an authored body written with the
+same identity ranks and the same fin attributes round-trips through the encoder
+with identical ranks:
+
+```text
+decoded face_order          [0, 1, 2, 3, 4, 5]
+authored face_order         [0, 1, 2, 3, 4, 5]
+decoded surface_order       [0, 1, 2, 3, 4, 5]
+authored surface_order      [0, 1, 2, 3, 4, 5]
+```
+
+Only `surface_face_order` (`[0, 2, 5, 4, 3, 1]`) and `curve_edge_order`
+(`[0, 1, 11, 3, 7, 10, 5, 2, 4, 9, 8, 6]`) are permutations, and they describe the
+face to surface and edge to curve pairing. An authored box whose faces each own
+one surface writes the identity pairing, which is equally valid in the model,
+and NX still binds nothing.
+
+Byte-level bisection cannot settle it: mixing a working and a failing stream at
+any boundary produces a file that will not load (`STATUS 1`), because the records
+are positionally self-consistent.
+
+What remains is one specific unknown: how `EmitBodyMut` numbers the bridge,
+face and surface records for a model that was never decoded. That needs a
+record-by-record comparison inside the emitter, because every property visible
+through the decoder already matches a working body.
+
 ### Encoder-side inspection: ordering is rank driven and the model is valid
 
 Reading the writer shows how ordering works:
