@@ -61,13 +61,17 @@ def TestCorpus(TmpPath: FilePath) -> None:
     assert len(Parts) == 57
     for PartPath in Parts:
         DocumentValue = OpenDocument(PartPath, include_brep=False)
-        ResultInfo = WriteDocument(
-            DocumentValue, TmpPath / PartPath.name, allow_carrier=False
-        )
+        FirstPath = TmpPath / PartPath.name
+        ResultInfo = WriteDocument(DocumentValue, FirstPath, allow_carrier=False)
         assert ResultInfo.metadata["compatibility"] == "native-exact", PartPath.name
         assert ResultInfo.metadata["native_self_contained"] is True, PartPath.name
         assert ResultInfo.application_usable is True, PartPath.name
         assert ResultInfo.near_lossless is True, PartPath.name
+        Reopened = OpenDocument(FirstPath, include_brep=False)
+        SecondPath = TmpPath / f"again-{PartPath.name}"
+        SecondInfo = WriteDocument(Reopened, SecondPath, allow_carrier=False)
+        assert SecondInfo.metadata["compatibility"] == "native-exact", PartPath.name
+        assert FirstPath.read_bytes() == SecondPath.read_bytes(), PartPath.name
 
 
 # additive box schemas differ across freecad versions so both are accepted
