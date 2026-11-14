@@ -14,6 +14,8 @@ The same candidate check also compares the bound depth parameter with the extrus
 
 An unset definition field is not authored intent. The native reader leaves `offset`, `second_offset`, `draft_angle`, `second_draft_angle`, and `second_length` as `None` because the blind-pad encoding stores only the depth, so treating `None` as loss rejected every document this writer had just produced. Only a present value that differs from the native default is a loss. The depth comparison allows a 1e-09 mm difference because the same authored dimension is decoded twice, once from millimetre text and once from the binary metre scalar, and that unit round-trip alone produces sub-picometre noise. Offsets, tolerances, and draft values keep exact comparison.
 
+The pad projection is selected by the pad history's own schema, not only by the declared source format: a `freecad.fcstd` source or a rewritten `solidworks.sldprt` part whose pad still carries the FreeCAD pad options is projected, while an unknown format keeps the previous rejection. Without that, re-reading a file this writer produced could not be written again, because the reopened neutral document reports a SOLIDWORKS source.
+
 The projection now requires the exact complete pad-property set and validates every value exactly. The measured FreeCAD default is `FuzzyTolerance = -1`, not the synthetic zero; the source feature name and empty `Label2` are the only accepted labels. A tolerance differing from `-1` by `5e-11` is rejected even though ordinary approximate numeric comparison would accept it. The same exact path covers the extrusion definition and pad parameter, including an `Offset` of `5e-11` on both. Owner checks alone cannot establish that a recognized property's value is representable.
 
 ## Workaround
