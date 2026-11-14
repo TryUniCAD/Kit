@@ -56,17 +56,35 @@ WriteNx(Changed, "part-rewrite.prt")
 ```
 
 The writer rebuilds the SPLMSSTR directory from the parsed stream map. It
-preserves the native header and checksum-covered trailer. Attribute overrides
-must keep the same byte length.
+recomputes every offset and both native seals, so a rewrite may change stream
+sizes.
 
-The writer refuses a header-changing edit. NX rejects such a file with
-`Checksum of data read does not match stored Checksum`.
+Attribute overrides must keep the same byte length because the matching
+object-model record is length framed. To replace a whole stream at a new
+length, use `nx.stream_overrides`:
+
+```python
+Changed = replace(
+    Document,
+    metadata={
+        **Document.metadata,
+        "nx.stream_overrides": {
+            "/Root/FastLoad/ExternalReferences": new_bytes,
+        },
+    },
+)
+WriteNx(Changed, "part-rewrite.prt")
+```
+
+The writer raises an error when a rebuilt seal does not match, so an
+inconsistent container is never written.
 
 ## Limits
 
 - The writer does not create new NX geometry, features, expressions, or
   assemblies.
-- The writer does not support header-changing directory layouts.
+- Attribute overrides keep their byte length because the object-model record is
+  length framed.
 - Legacy compound parts are readable without B-rep projection. Writing one is
   refused because the modern container checksum layout would change.
 - Full object-model field semantics remain research work.
@@ -79,6 +97,11 @@ suppressed. The six expressions, volume, area, centroid, and mass matched the
 control. Changing `length` from `40` to `45` and updating the model rebuilt the
 body to volume `27000 mm3`, area `5700 mm2`, and centroid
 `(22.500000000000004, 15.000000000000002, 10.000000000000002)`.
+NX also loaded a header-changing rewrite that grew
+`/Root/FastLoad/ExternalReferences` by four bytes and shifted every later
+offset. The header seal and footer fingerprint were recomputed from the format
+rules, not copied from the source.
+
 See [the NX data model](../../../re/nx/notes/DataModel.md) and
 [the change entry](../../Changes/Nx/NxNativeContainer.md).
 

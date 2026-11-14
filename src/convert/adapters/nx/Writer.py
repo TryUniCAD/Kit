@@ -14,7 +14,10 @@ from convert.adapters.nx.CompoundReader import ReadCompound, ReadStreams
 from convert.adapters.nx.Format import KInfoValue
 from convert.adapters.nx.PayloadReader import ReadPayload
 from convert.adapters.nx.Reader import DocDigest
+from convert.adapters.nx.Splm import KAbsentFooter, KChecksumOffset, KHeaderRegion
+from convert.adapters.nx.SplmBuild import DirectoryLength
 from convert.adapters.nx.SplmReader import ReadSplm, RebuildSplm, SplmStreams
+from convert.adapters.nx.Xxh32 import HashXxh
 from interchange import (
     BrepPayload,
     CadDocument as CadDoc,
@@ -79,6 +82,13 @@ def FindNeeds(DocValue: CadDoc) -> tuple[str, ...]:
     return ("referenced NX component files",) if Others else ()
 
 
+# reports need a plain flag because metadata values are untyped at the boundary
+def HasEntries(Value: object) -> bool:
+    return isinstance(Value, Mapping) and bool(
+        CastValue(Mapping[object, object], Value)
+    )
+
+
 # writing rebuilds the nx container from its parsed stream map instead of copying
 def WriteNx(
     DocValue: CadDoc, Target: KTargetType, Options: WriteOptions | None = None
@@ -95,9 +105,11 @@ def WriteNx(
     Overrides = MakeOverrides(DocValue, Payload.data)
     DataValue = RebuildNative(Payload.data, Overrides)
     CheckOutput(DataValue, Payload.data)
-    CheckHeader(Payload.data, DataValue)
+    CheckSeals(DataValue)
     PathValue = WriteBytesMut(Target, DataValue, Settings.overwrite)
     Requirements = FindNeeds(DocValue)
+    AttributesRequested = DocValue.metadata.get("nx.attribute_overrides")
+    StreamsRequested = DocValue.metadata.get("nx.stream_overrides")
     Metadata = {
         "mode": "native_container_rewrite",
         "compatibility": "native-stream-rewrite",
@@ -106,7 +118,8 @@ def WriteNx(
         "native_history": True,
         "native_parameters": True,
         "native_self_contained": not Requirements,
-        "attributes_changed": bool(Overrides),
+        "attribute_overrides": HasEntries(AttributesRequested),
+        "stream_overrides": HasEntries(StreamsRequested),
         "source_sha256": Payload.sha256,
         "output_sha256": Hashlib.sha256(DataValue).hexdigest(),
         "referenced_files_written": 0,
@@ -153,11 +166,17 @@ def RebuildNative(DataValue: bytes, Overrides: dict[str, bytes]) -> bytes:
     return RebuildSplm(ReadSplm(DataValue), Overrides)
 
 
-# attribute overrides replace equal length values so the native header stays valid
+# overrides combine native attribute edits with whole stream replacement
 def MakeOverrides(DocValue: CadDoc, DataValue: bytes) -> dict[str, bytes]:
+    Overrides = {
+        PathValue.removeprefix("/Root/"): Value
+        for PathValue, Value in RawOverrides(DocValue).items()
+    }
     Requested = DocValue.metadata.get("nx.attribute_overrides")
-    if not isinstance(Requested, Mapping) or not Requested:
-        return {}
+    if Requested is None:
+        return Overrides
+    if not isinstance(Requested, Mapping):
+        raise ValueError("NX attribute overrides must be a mapping")
     Streams = (
         {
             PathValue.removeprefix("/Root/"): Value
@@ -180,10 +199,32 @@ def MakeOverrides(DocValue: CadDoc, DataValue: bytes) -> dict[str, bytes]:
         Updated = SwapAttribute(Updated, Title, Value)
         if PartData is not None:
             PartData = SwapNativeValue(PartData, Title, Value)
-    Overrides = {"part/attrs": Updated}
+    if "part/attrs" in Overrides:
+        raise ValueError("NX stream overrides must not duplicate attribute paths")
+    Overrides["part/attrs"] = Updated
     if PartData is not None:
+        if "UG_PART/UG_PART" in Overrides:
+            raise ValueError("NX stream overrides must not duplicate attribute paths")
         Overrides["UG_PART/UG_PART"] = PartData
     return Overrides
+
+
+# raw stream overrides let callers replace a whole native payload at any length
+def RawOverrides(DocValue: CadDoc) -> dict[str, bytes]:
+    Requested = DocValue.metadata.get("nx.stream_overrides")
+    if Requested is None:
+        return {}
+    if not isinstance(Requested, Mapping):
+        raise ValueError("NX stream overrides must be a mapping")
+    Output: dict[str, bytes] = {}
+    RequestedDict = CastValue(dict[object, object], Requested)
+    for PathValue, Value in RequestedDict.items():
+        if not isinstance(PathValue, str) or not isinstance(Value, (bytes, bytearray)):
+            raise ValueError("NX stream overrides require a path and bytes")
+        if not PathValue.startswith("/Root/"):
+            raise ValueError("NX stream overrides must name a /Root/ path")
+        Output[PathValue] = bytes(Value)
+    return Output
 
 
 # equal length replacement keeps directory sizes and checksummed header untouched
@@ -231,22 +272,33 @@ def SwapNativeValue(DataValue: bytes, Title: str, Value: str) -> bytes:
     return DataValue[:Start] + ValueBytes + DataValue[EndValue:]
 
 
-# header preservation keeps nx native checksum coverage valid across rewrites
-def CheckHeader(Source: bytes, Output: bytes) -> None:
-    if not Source.startswith(b"SPLMSSTR") or not Output.startswith(b"SPLMSSTR"):
+# rebuilt containers must carry both native seals so nx can validate the header
+def CheckSeals(DataValue: bytes) -> None:
+    if not DataValue.startswith(b"SPLMSSTR"):
         return
-    Original = ReadSplm(Source)
-    Updated = ReadSplm(Output)
-    if Original.header_trailer != Updated.header_trailer:
-        raise ValueError("NX header-changing writes require native checksum support")
-    OriginalEntries = tuple(
-        (Entry.path, Entry.region, Entry.size) for Entry in Original.entries
+    Parsed = ReadSplm(DataValue)
+    HeaderEnd = 0x19 + DirectoryLength(
+        [
+            (Entry.path, None)
+            for Entry in Parsed.entries
+            if Entry.region == KHeaderRegion
+        ],
+        KHeaderRegion,
     )
-    UpdatedEntries = tuple(
-        (Entry.path, Entry.region, Entry.size) for Entry in Updated.entries
+    SealIndex = HeaderEnd + KChecksumOffset
+    FirstPayload = min(
+        (Entry.offset for Entry in Parsed.entries if Entry.size), default=len(DataValue)
     )
-    if OriginalEntries != UpdatedEntries:
-        raise ValueError("NX header-changing writes require native checksum support")
+    if SealIndex + 4 > min(FirstPayload, len(DataValue)):
+        return
+    StoredSeal = int.from_bytes(DataValue[SealIndex : SealIndex + 4], "little")
+    if HashXxh(DataValue[0x19:SealIndex]) != StoredSeal:
+        raise ValueError("rebuilt NX header seal is invalid")
+    if Parsed.footer_offset == KAbsentFooter or len(DataValue) < 4:
+        return
+    StoredTail = int.from_bytes(DataValue[-4:], "little")
+    if HashXxh(DataValue[Parsed.footer_offset : -4]) != StoredTail:
+        raise ValueError("rebuilt NX footer seal is invalid")
 
 
 # output validation reopens the rebuilt container and checks the part payload
