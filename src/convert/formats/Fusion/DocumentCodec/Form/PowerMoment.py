@@ -12,6 +12,8 @@ def PowerMoment(
     return (
         Point[AxisIndex] ** (Powers[AxisIndex] + 1)
         * Normal[AxisIndex]
-        * Product(Point[Index] ** Powers[Index] for Index in range(3) if Index != Axis)
+        * Product(
+            Point[Index] ** Powers[Index] for Index in range(3) if Index != AxisIndex
+        )
         / (Powers[AxisIndex] + 1)
     )

@@ -506,7 +506,7 @@ Branch `form-general-rules` (from e4e99c2b5). Research only; nothing here is loa
 - A graceful restart first reported user cancelled -128, then the bridge closed and application running became false. SessionRecovery.json records the guarded subsequent fresh launch; no forced termination or open-document loss occurred.
 - Resolved: FormCache now evaluates the stored bicubic faces with an eight-point Gaussian rule. Divergence-theorem area and volume moments become centered inertia and off-diagonal terms. CheckTrimming refuses untrimmed nonperiodic faces outside full parameter boundaries, and open sheets retain zero volumetric values.
 - Fresh process 24703 accepted all 10 final documents with 290 comparisons, zero problems, zero dropped items and zero open documents before and after. NativeAcceptance.json now has SHA-256 325818d15840e18ff1d3afc1c2ebf9c737e91181254c49cf77556f7cef2cb0b1, with vendor_loadable and application_usable true. Initial Box3 and HeldPrism5 centers match their native controls before computeAll. Seven prior aliases are cap canonicalization rather than data loss.
-- ScrubSaved changed two final native controls. All 10 typed models remained identical. ScrubValidation.json has changed_by_scrubber 2, not zero. TestCapMassCache compares every emitted cache with the retained native cache at 1e-8 in remote CI.
+- ScrubSaved changed two final native controls. All 10 typed models remained identical. ScrubValidation.json has changed_by_scrubber 2, not zero. TestCapMass compares every emitted cache with the retained native cache at 1e-8 in remote CI.
 
 ## Open questions
 

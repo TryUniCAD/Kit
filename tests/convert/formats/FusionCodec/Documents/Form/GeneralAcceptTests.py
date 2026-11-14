@@ -175,7 +175,7 @@ def TestGeneralCase(CaseValue: tuple[str, ...]) -> None:
 
 @KNeedZip
 @MarkTests.parametrize("CaseValue", KCapCases, ids=lambda CaseValue: CaseValue[0])
-def TestCapDeclarationFlow(CaseValue: tuple[str, ...]) -> None:
+def TestCapDeclFlow(CaseValue: tuple[str, ...]) -> None:
     Surface = ReadTspline(ReadFormFile(CaseValue[1], CaseValue[2]))
     EmittedPath = CaseValue[3].replace("/Fusion/", "/")
     Emitted = ReadDocument(ReadFormFile(EmittedPath, CaseValue[5]))
@@ -189,7 +189,7 @@ def TestCapDeclarationFlow(CaseValue: tuple[str, ...]) -> None:
 
 @KNeedZip
 @MarkTests.parametrize("CaseValue", KCapCases, ids=lambda CaseValue: CaseValue[0])
-def TestCapMassCache(CaseValue: tuple[str, ...]) -> None:
+def TestCapMass(CaseValue: tuple[str, ...]) -> None:
     EmittedPath = CaseValue[3].replace("/Fusion/", "/")
     Emitted = ReadDocument(ReadFormFile(EmittedPath, CaseValue[5]))
     Native = ReadDocument(ReadFormFile(CaseValue[3], CaseValue[4]))

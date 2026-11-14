@@ -15,7 +15,7 @@ The cache requires no vendor-saved measurements or CAD runtime. The [field model
 Open sheets have zero volume and no invented center.
 Nonperiodic faces must use complete parameter-space boundaries; `CheckTrimming` rejects other faces instead of integrating a wrong region.
 Periodic surfaces retain their complete parametric domain.
-The [cache gotcha](../../../Gotchas/Conversion/Fusion/TSpline/FormMassCacheMustBeDerived.md) records why zero placeholders and cache omission are not alternatives.
+The [cache gotcha](../../../Gotchas/Conversion/Fusion/TSpline/FormBodies/FormMassCacheMustBeDerived.md) records why zero placeholders and cache omission are not alternatives.
 
 ## Native evidence
 
@@ -41,8 +41,8 @@ The native after-controls match their edited control measurements with zero prob
 
 ## Integration coverage
 
-`TestCapMassCache` independently emits each F3D, reads its typed `MassPropertyCacheValue`, and compares it with the native control's cache.
+`TestCapMass` independently emits each F3D, reads its typed `MassPropertyCacheValue`, and compares it with the native control's cache.
 The comparison covers area, volume, center, inertia, and off-diagonal products at `1e-8` absolute and relative tolerance.
-`TestCapDeclarationFlow` also distinguishes Kit's original declaration from Fusion's G1 canonicalization.
+`TestCapDeclFlow` also distinguishes Kit's original declaration from Fusion's G1 canonicalization.
 The final controls required two privacy scrubs; all 10 typed models remained identical afterward.
 Remote CI executes these integration cases. No local automated test suite ran.

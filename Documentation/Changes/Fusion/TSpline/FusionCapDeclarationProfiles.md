@@ -10,7 +10,7 @@ Other cap names and star values still raise `ValueError`.
 `SurfaceHeader` keeps `G1CAPS` and star value 0 as the defaults for new cages.
 `WriteHeader` preserves the declaration stored in a parsed surface.
 Fusion canonicalizes G0 and G2 declarations to G1 during its native lifecycle. It preserves the star value.
-The [canonicalization gotcha](../../../Gotchas/Conversion/Fusion/TSpline/FusionCanonicalizesCapTypes.md) prevents confusion with Kit data loss.
+The [canonicalization gotcha](../../../Gotchas/Conversion/Fusion/TSpline/FormBodies/FusionCanonicalizesCapTypes.md) prevents confusion with Kit data loss.
 `SwapFormCage` still requires matching declarations in the old and new layouts.
 
 Fusion ignores these two declarations when it selects the cap solve for the qualified profiles. The cage topology and grips determine the resulting body.
@@ -59,8 +59,8 @@ The compressed TSM archive catalog now contains 22 cases, including all 10 decla
 `TestTsmArchive` checks typed read, semantic digests, byte-exact emission, and a second read.
 `TestTsmReject` adds unknown cap-name and star-value rejection through the public reader.
 `TestGeneralCase` compares `ConvertForm` against the retained native body for all 10 variants.
-`TestCapDeclarationFlow` checks Kit emission against the source declaration and native G1 canonicalization.
-`TestCapMassCache` checks the derived mass fields against native caches, as the [mass-cache change](FusionFormMassCache.md) describes.
+`TestCapDeclFlow` checks Kit emission against the source declaration and native G1 canonicalization.
+`TestCapMass` checks the derived mass fields against native caches, as the [mass-cache change](FusionFormMassCache.md) describes.
 These integration cases run in remote CI, not locally.
 
 Run the reproducible research preparation with:

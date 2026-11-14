@@ -11,7 +11,7 @@ An empty `cache` collection fails Kit's inherited schema check. The body require
 A cache whose vectors and scalars are zero lets Fusion open the body, but `physicalProperties.centerOfMass` initially returns `(0, 0, 0)`.
 The native control reports its correct center at the same stage.
 `computeAll` repairs the center, so checking only the later stage hides the persisted-cache defect.
-The [initial failure](../../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/InitialMassFailure.json) records 30 center-coordinate differences across 10 cases.
+The [initial failure](../../../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/InitialMassFailure.json) records 30 center-coordinate differences across 10 cases.
 
 An independently supplied cap declaration causes a related persistence distinction.
 Fusion canonicalizes `G0CAPS` and `G2CAPS` to `G1CAPS` when it imports a Form.
@@ -24,4 +24,4 @@ Evaluate bicubic points and derivatives on every knot span.
 Integrate area, volume, first moments, and second moments with Gaussian quadrature and the divergence theorem.
 Translate second moments to the body's center for the inertia and off-diagonal fields.
 Open sheets have zero volumetric properties instead of an invented center.
-The [Form cache implementation](../../../../../src/convert/formats/Fusion/DocumentCodec/Form/FormCache.py), [field model](../../../../../re/Fusion/Reconstruction/FormDocuments/General/CapMassCacheModel.json), and [final native acceptance](../../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json) record the derived result.
+The [Form cache implementation](../../../../../../src/convert/formats/Fusion/DocumentCodec/Form/FormCache.py), [field model](../../../../../../re/Fusion/Reconstruction/FormDocuments/General/CapMassCacheModel.json), and [final native acceptance](../../../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json) record the derived result.

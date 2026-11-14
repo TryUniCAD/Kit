@@ -1302,7 +1302,7 @@ The [declaration acceptance report](../../../re/Fusion/LocalOracle/FormDocuments
 Kit preserves each declaration but derives its cap solve from the cage topology and grips.
 New cages keep the `G1CAPS` and zero-star defaults. Other values remain rejection boundaries.
 Fusion canonicalizes G0 and G2 declarations to G1 during its native lifecycle, but preserves the star value.
-The [canonicalization gotcha](../../Gotchas/Conversion/Fusion/TSpline/FusionCanonicalizesCapTypes.md) distinguishes that vendor behavior from Kit emission.
+The [canonicalization gotcha](../../Gotchas/Conversion/Fusion/TSpline/FormBodies/FusionCanonicalizesCapTypes.md) distinguishes that vendor behavior from Kit emission.
 See the [declaration change](../../Changes/Fusion/TSpline/FusionCapDeclarationProfiles.md).
 
 ### Topology and control points
@@ -1429,7 +1429,7 @@ The cache group, `FusionComponent.rCacheBodies`, owns the surface node and the `
 
 The `Body.cache` inherited sequence requires one `MassPropertyCacheValue` group.
 An empty sequence fails the schema, and a zero group gives an incorrect zero center before recompute.
-The [cache gotcha](../../Gotchas/Conversion/Fusion/TSpline/FormMassCacheMustBeDerived.md) preserves that failed measurement.
+The [cache gotcha](../../Gotchas/Conversion/Fusion/TSpline/FormBodies/FormMassCacheMustBeDerived.md) preserves that failed measurement.
 
 The group carries area, area precision, center of gravity, inertia precision, three principal inertia fields, three off-diagonal fields, a revision id, volume, and volume precision.
 `FormCache` evaluates each bicubic surface and its derivatives over its knot spans.

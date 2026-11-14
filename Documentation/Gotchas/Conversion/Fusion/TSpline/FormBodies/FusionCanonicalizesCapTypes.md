@@ -10,7 +10,7 @@ Without a distinction, cap metadata could appear to disappear inside Kit's write
 Fusion canonicalizes both cap alternatives to `G1CAPS` before the first control-point edit and after save and reopen.
 It preserves `star-smoothness` values 0, 1, and 2.
 The behavior is identical for native controls and independently written Kit documents.
-The [fresh-process lifecycle](../../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json) records both declarations at every stage for every case.
+The [fresh-process lifecycle](../../../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json) records both declarations at every stage for every case.
 Kit's preparation check proves that its emitted F3D still preserves the input declaration before Fusion reads it.
 The cap solve and measured geometry are unchanged by this canonicalization.
 
@@ -24,6 +24,6 @@ Legacy swaps can continue to require identical declarations as a layout invarian
 
 ## Evidence
 
-- [Cap preparation](../../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Preparation.json)
-- [Native lifecycle](../../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json)
-- [Integration coverage](../../../../../tests/convert/formats/FusionCodec/Documents/Form/GeneralAcceptTests.py)
+- [Cap preparation](../../../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Preparation.json)
+- [Native lifecycle](../../../../../../re/Fusion/LocalOracle/FormDocuments/General/CapAccept/NativeAcceptance.json)
+- [Integration coverage](../../../../../../tests/convert/formats/FusionCodec/Documents/Form/GeneralAcceptTests.py)

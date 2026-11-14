@@ -6,7 +6,10 @@ KParamSlack = 1e-9
 
 def IsBoundary(Curve: BsCurve, Bounds: tuple[float, float, float, float]) -> bool:
     return any(
-        all(abs(Pole[AxisIndex] - Boundary) <= KParamSlack for Pole in Curve.Poles)
+        all(
+            abs(PoleValue[AxisIndex] - Boundary) <= KParamSlack
+            for PoleValue in Curve.Poles
+        )
         for AxisIndex, Boundary in (
             (0, Bounds[0]),
             (0, Bounds[1]),
@@ -27,5 +30,5 @@ def CheckTrimming(Model: FormBody) -> None:
             Cache.KnotsV[0].Value,
             Cache.KnotsV[-1].Value,
         )
-        if any(not IsBoundary(Use.Pcurve, Bounds) for Use in FaceValue.Uses):
+        if any(not IsBoundary(UseValue.Pcurve, Bounds) for UseValue in FaceValue.Uses):
             raise ValueError("Fusion Form mass cache cannot integrate trimmed faces")
