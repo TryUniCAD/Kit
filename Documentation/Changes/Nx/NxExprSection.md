@@ -40,4 +40,7 @@ short-identity guard.
 - Section 0 still comes from the source part, so no part is written without a
   source document yet. It is document independent for a part without a body
   (fifteen bytes differ between two such parts, all path, base name and identity),
-  but its 27032 byte class dictionary has to be derived rather than copied.
+  but its 27032 byte class dictionary has to be derived rather than copied. Its
+  body is now mapped as five regions (780 + 856 + 852 + 49 + 24495 bytes) that
+  recompose byte for byte, and truncating the 214 records to 4, 20 or 100 is
+  refused by NX, so the record area cannot be reduced.

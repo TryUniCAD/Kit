@@ -600,6 +600,41 @@ sections 1 (block shape), 2 and 3, in addition to regenerating section 3 and
 emptying section 4. Section 0 keeps its source anchor because its body is still
 copied.
 
+### Section 0's body is fully mapped and cannot be reduced
+
+The body-less section 0 recomposes byte for byte from five named regions:
+
+```text
+0x0000  780 bytes   names lane (7 member names) plus the flag lane
+0x030c  856 bytes   object table, 214 body relative offsets
+0x0664  852 bytes   order array, u32 count 212 then 212 indices
+0x09b8   49 bytes   version block, SYSTEM then the modeller string
+0x09e9 24495 bytes  214 object records
+total 27032 bytes, recomposed identical True
+```
+
+The 214 records start with the head object that carries the part path
+(`41 00 03 03 22 "Part renamed from "C:\empty.prt"" 00 ...`) and run to 62 byte
+tails. Sizes range from 12 to 75 bytes.
+
+Truncating the graph is refused. Keeping the first 4, 20 or 100 records, with the
+table, order array and count updated to match, produces parts NX will not open:
+
+```text
+s0_keep4.prt    OPEN_FAILED
+s0_keep20.prt   OPEN_FAILED
+s0_keep100.prt  OPEN_FAILED
+```
+
+The header is 6351 bytes and carries 129 classes and 63 references. A class entry
+is the class name plus an 11 or 12 byte big-endian value around 10^21, which is not
+md5, sha1, sha256 or crc32 of the name, while a reference entry is a small varint
+(`UGS::OM::Meta` is 2, `UGS::UGFONT` is 4). So class identity is a kernel assigned
+identifier, not a name hash, and it is not reproducible from the class name.
+
+That is the precise remaining blocker for a payload free writer: 24495 bytes of
+object records and 129 kernel class identifiers, with no reduction accepted by NX.
+
 ### Section 0 is document independent for a part without a body
 
 A third body-less part was created (`CreateBlank.py`, saved as `var_blank.prt`) and
