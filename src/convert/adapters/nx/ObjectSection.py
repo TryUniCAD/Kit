@@ -143,6 +143,7 @@ __all__ = [
     "RelabelLanes",
     "RelabelTokens",
     "ParseSlots",
+    "SlotPrefix",
     "SlotRecord",
     "RelabelRefs",
     "RewriteRecords",
@@ -277,13 +278,17 @@ def RewriteRecords(SectionBody: bytes) -> bytes:
             KeyText, ValueText, _, Marker = ParseAttribute(Record)
             Written = AttributeRecord(KeyText, ValueText, Ordinal & 0x3F, Marker)
             Ordinal += 1
-        elif Record.startswith(KSlotFrame):
-            Tokens = ParseSlots(Record)
+        elif Record[:2] == b"\x02\x02" and Record[3] == 0 and Record[4] == 0x36:
+            try:
+                Tokens = ParseSlots(Record)
+            except ValueError:
+                continue
             Written = SlotRecord(
+                SlotPrefix(Record),
                 tuple(
                     sorted((Token for Token in Tokens if Token is not None))
                     + [None] * sum(1 for Token in Tokens if Token is None)
-                )
+                ),
             )
         elif Record[:2] == b"\x03\x11":
             Width = (len(Record) - 46) // 2 + 1
@@ -352,12 +357,24 @@ KSlotOccupied = 0x80
 KSlotLabelAt = 0x10
 
 
+# the slot frame is a class byte and a kind byte inside a fixed run of markers
+def SlotPrefix(Record: bytes) -> bytes:
+    if (
+        Record[:2] == b"\x02\x02"
+        and Record[3] == 0
+        and Record[4] == 0x36
+        and Record[6:10] == b"\x04\x01\x01\x11"
+        and len(Record) > 10
+    ):
+        return Record[:10]
+    raise ValueError("NX slot record has no known frame")
+
+
 # the slot grammar reads back as the same token list it writes
 def ParseSlots(Record: bytes) -> tuple[int | None, ...]:
-    if not Record.startswith(KSlotFrame):
-        raise ValueError("NX slot record has no known frame")
+    Prefix = SlotPrefix(Record)
     Tokens: list[int | None] = []
-    Position = len(KSlotFrame)
+    Position = len(Prefix)
     while Position < len(Record):
         if Record[Position] == KSlotEmpty:
             Tokens.append(None)
@@ -370,8 +387,8 @@ def ParseSlots(Record: bytes) -> tuple[int | None, ...]:
     return tuple(Tokens)
 
 
-def SlotRecord(Tokens: tuple[int | None, ...]) -> bytes:
-    Output = bytearray(KSlotFrame)
+def SlotRecord(Prefix: bytes, Tokens: tuple[int | None, ...]) -> bytes:
+    Output = bytearray(Prefix)
     for Token in Tokens:
         if Token is None:
             Output.append(KSlotEmpty)
@@ -394,7 +411,9 @@ def RelabelTokens(SectionBody: bytes) -> bytes:
     Spans = [
         (Begin, Finish)
         for Begin, Finish in zip(Starts, Stops)
-        if SectionBody[Begin : Begin + 4] == KSlotFamily
+        if SectionBody[Begin : Begin + 2] == b"\x02\x02"
+        and SectionBody[Begin + 3] == 0
+        and SectionBody[Begin + 4] == 0x35
     ]
     if not Spans:
         return SectionBody

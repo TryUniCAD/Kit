@@ -12,7 +12,9 @@ token  ff         empty slot
 ```
 
 `convert.adapters.nx.ObjectSection.ParseSlots` decodes the token list and
-`SlotRecord` writes it back. `RewriteRecords` re-emits the record with the occupied
+`SlotRecord(Prefix, Tokens)` writes it back. The frame is matched by shape, not by
+class byte — `02 02 ?? 00 36 ?? 04 01 01 11` — because a part with a body uses
+`02 02 ff 00 36 32 04 01 01 11` for the same record. `RewriteRecords` re-emits the record with the occupied
 slots sorted ascending and the empty slots moved to the end.
 
 ## Verification
@@ -20,12 +22,12 @@ slots sorted ascending and the empty slots moved to the end.
 Round-trip identity on all fixtures that carry the record:
 
 ```text
-part            slot records  round-trip identical
-empty.prt                  1                    1
-multi.prt                  1                    1
-var_blank.prt              1                    1
-var_x1.prt                 1                    1
-var_x2.prt                 1                    1
+part            slot records  frames                                     round-trip
+empty.prt                  1  02 02 41 00 36 41 ...                              1
+multi.prt                  1  02 02 41 00 36 41 ...                              1
+var_blank.prt              1  02 02 41 00 36 41 ...                              1
+const_box60.prt            2  02 02 41 00 36 41 ... and 02 02 ff 00 36 32 ...    2
+dim40.prt                  2  02 02 41 00 36 41 ... and 02 02 ff 00 36 32 ...    2
 ```
 
 Token order is free, which was measured before relying on it: reversing all sixteen

@@ -24,6 +24,7 @@ from convert.adapters.nx.ObjectSection import (
     ParsePair,
     ParseSlots,
     RegToken,
+    SlotPrefix,
     SlotRecord,
     ViewName,
 )
@@ -701,14 +702,17 @@ def TestNxNeutral() -> None:
 # a slot record frames a list of occupied and empty registry slots
 def TestNxSlots() -> None:
     Tokens: tuple[int | None, ...] = (0x31, None, 0x43, None, 0x32)
-    Record = SlotRecord(Tokens)
+    Frame = bytes.fromhex("02024100364104010111")
+    Record = SlotRecord(Frame, Tokens)
     assert Record[:10] == bytes.fromhex("02024100364104010111")
     assert len(Record) == 10 + 3 * 2 + 2
     assert ParseSlots(Record) == Tokens
-    assert ParseSlots(SlotRecord((None, None))) == (None, None)
-    assert SlotRecord((None, None))[10:] == b"\xff\xff"
+    assert ParseSlots(SlotRecord(Frame, (None, None))) == (None, None)
+    assert SlotRecord(Frame, (None, None))[10:] == b"\xff\xff"
     ReversedTokens: tuple[int | None, ...] = tuple(reversed(Tokens))
-    assert len(SlotRecord(ReversedTokens)) == len(Record)
+    assert len(SlotRecord(Frame, ReversedTokens)) == len(Record)
+    PartFrame = bytes.fromhex("0202ff00363204010111") + b"\xff" * 3
+    assert SlotPrefix(PartFrame) == bytes.fromhex("0202ff00363204010111")
     try:
         _ = ParseSlots(bytes.fromhex("0202410036410401011100"))
     except ValueError:
@@ -716,7 +720,7 @@ def TestNxSlots() -> None:
     else:
         raise AssertionError("slot grammar accepted an unknown token")
     try:
-        _ = SlotRecord((0x100,))
+        _ = SlotRecord(Frame, (0x100,))
     except ValueError:
         return
     raise AssertionError("slot grammar accepted an out of range slot")
