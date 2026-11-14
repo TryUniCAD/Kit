@@ -137,9 +137,26 @@ The record length decomposes as `5 + carrier + 40 + 1 + 3`:
 | sphere `0x35` | 65 | 16 |
 | torus `0x38` | 77 | 28 |
 
-The five-byte header is `00 <carrier:u8> 00 33 <kind>`. The carrier bytes are the compressed
-parameters. The next 40 bytes are ten `f32` bounds. The orientation byte follows, then three
-padding bytes.
+The five-byte header is `00 <carrier:u8> 00 33 <kind>`. The carrier bytes are plain big-endian
+`f32` parameters, not `CATFloatCompactor` output. The next 40 bytes are ten little-endian `f32`
+bounds. The orientation byte follows, then three padding bytes.
+
+Carrier layout:
+
+| Kind | Carrier | Fields |
+| --- | ---: | --- |
+| plane `0x32` | 0 | normal comes from the trim vector or the bounds |
+| cylinder `0x33` | 6 | origin[3], axis[2], radius |
+| cone `0x34` | 6 | origin[3], axis[2], half-angle |
+| sphere `0x35` | 4 | center[3], radius |
+| torus `0x38` | 7 | center[3], axis[2], major radius, minor radius |
+
+The axis is `(ax, ay, sqrt(1 - ax*ax - ay*ay))`. A negative radius, half-angle, or major radius
+means the surface is oriented inward; the reader uses the absolute value.
+
+Verified on `Washer_8.CATPart`: outer cylinders `origin=(0,0,0.8)`, `axis=(0,0,1)`, `radius=7.5`;
+inner cylinders `radius=4.2`. On `Bolt_M5x40.CATPart`: cylinder `radius=2.5`, torus
+`major=2.7 minor=0.2`, cone `half-angle=0.7854`.
 
 ## Surface trailing handle
 

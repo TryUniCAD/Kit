@@ -2,9 +2,10 @@
 
 ## Finding
 
-`SurfacicReps` carrier parameters are not plain `f32` values. They are compressed by
-`CATFloatCompactor`. The ten trimmed-face bounds are plain little-endian `f32` values and remain
-readable without the compactor.
+`SurfacicReps` surface carrier parameters are plain big-endian `f32` values, not
+`CATFloatCompactor` output. The ten trimmed-face bounds are plain little-endian `f32` values.
+`CATFloatCompactor` is used elsewhere, for example the Nurbs control-point predictor in
+`CATAdvancedMathematics.dll`.
 
 ## Loader evidence
 
