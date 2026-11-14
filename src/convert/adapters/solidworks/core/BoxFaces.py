@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import math as MathValue
+
 from interchange import CadDocument, LineCurve, PlaneSurface, SpaceVector
 
 
@@ -34,7 +36,16 @@ def HasBoxFaces(
         OriginValue = (ItemData.origin.x, ItemData.origin.y, ItemData.origin.z)
         Offsets[AxisValue].append(abs(Components[AxisValue] * OriginValue[AxisValue]))
     return (
-        sorted(Offsets[0]) == sorted((0.0, LengthValue))
-        and sorted(Offsets[1]) == sorted((0.0, WidthValue))
-        and sorted(Offsets[2]) == sorted((0.0, HeightValue))
+        IsOffsetPair(Offsets[0], LengthValue)
+        and IsOffsetPair(Offsets[1], WidthValue)
+        and IsOffsetPair(Offsets[2], HeightValue)
     )
+
+
+def IsOffsetPair(Values: list[float], Expected: float) -> bool:
+    if len(Values) != 2:
+        return False
+    LeftValue, RightValue = sorted(Values)
+    return MathValue.isclose(
+        LeftValue, 0.0, rel_tol=0.0, abs_tol=1e-09
+    ) and MathValue.isclose(RightValue, Expected, rel_tol=0.0, abs_tol=1e-09)
