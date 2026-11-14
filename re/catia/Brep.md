@@ -406,6 +406,31 @@ The face record is also not `02 00 00 00` followed by a tag difference. `Reservo
 not 71. So the count is not written as a plain `u32` at the start of each face record in that
 stream, and the face records are not laid out as a simple sequence there.
 
+### The shell record holds the face references, not the face records
+
+`CATCXShell::Stream` at `0x553640..0x553dd6` writes, in order:
+
+1. `WriteLinkedObjectsCount(shell, n)`;
+2. `WriteObject(body, shell)`;
+3. `WriteBoolean`;
+4. three `WriteULong` scalars;
+5. three `WriteULong` arrays;
+6. `WriteLinkedObjectsCount(shell, face_count)`;
+7. a loop of `WriteObject(face, shell)`, one per face;
+8. two `WriteUChar` and two `WriteShort`.
+
+So the shell record stores the *face references* as scalable tag differences, not the face records
+themselves. `CATCXBody::Stream` at `0x541d60..0x541eb7` writes the domain count, one
+`WriteObject(domain, body)`, a `WriteLong`, and a `WriteShort`. Neither function writes the face
+record body.
+
+The face record is written when the face object is first emitted, which is the first
+`WriteObject(face, shell)` in the shell loop. The face record body follows that reference. So the
+face record is inline in the shell record, at the first face reference, and the remaining face
+references are tag differences only.
+
+`SurfacicReps` contains no `02 00 00 00` at all, so the face records are not in that stream either.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
