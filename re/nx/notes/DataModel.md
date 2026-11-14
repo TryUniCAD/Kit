@@ -577,11 +577,34 @@ models. An authored model has no numbering to preserve, so the writer invents a
 canonical one, and the object model's body records still refer to the original
 numbers, so nothing binds.
 
-This explains every earlier result at once: the attribute names, the rank
-values, the parameterization and the loop orientation were never the gate. The
-gate is that a body's Parasolid attribute numbering is shared with the object
-model, so authoring geometry from nothing means authoring that numbering and
-the object-model body records together.
+That reading was wrong. Splitting the strip into its two halves settles it:
+
+```text
+decoded body, carrier_record removed only        VOLUME 23999.999999999996
+decoded body, parasolid.*_order removed only     VOLUME 8000.0
+```
+
+`carrier_record` is not needed at all; the `parasolid.*_order` rank attributes
+are. So the binding is driven by the rank layer, not by a shared numbering with
+the object model.
+
+The measured totals are cumulative per bound face. For a 40 x 30 x 20 box the
+divergence sum is `-8000` for each of the three faces away from the origin and
+`0` for the three through it, so `24000` means every face bound, `8000` means one
+face bound, and `0` means none.
+
+Authored models do carry ranks, including the permuted `surface_face_order`,
+`curve_edge_order` and `point_order` values, plus `first_fin`, `vertex_fins` and
+`sense`, and still bind nothing:
+
+```text
+BuildPrism with ranks, fins and senses        BODIES 1, VOLUME 0.0
+BuildPrism with surface_face_order = surface rank, same result
+```
+
+So a necessary condition is known (rank attributes present) but not sufficient.
+The binding count behaves like a chain that the encoder breaks at a point, and
+the encoder's own emitters are the only place left to look.
 
 ### Encoder-side inspection: ordering is rank driven and the model is valid
 
