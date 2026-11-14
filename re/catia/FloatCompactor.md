@@ -108,6 +108,23 @@ The selector formula is read from the writer but not yet confirmed by a trace. T
 `width = 0x20 - (S & 0xffff)` and the writer's `2 * (0x20 - leading_zeros)` differ by a factor of
 two and one bit, so one of the two readings is incomplete.
 
+## Selector status
+
+`GetLeadingZerosCount` at `0x18009bf70` counts the 32-bit leading zeros of the delta:
+`0x1 -> 31`, `0x80000000 -> 0`, `0x10000 -> 15`. A Python model of the literal and equal
+branches round-trips:
+
+```text
+literal seq 3f490fd840f0000040866666c02000005368d4a500000000
+got [0.7854, 7.5, 4.2, -2.5, 999999995904.0] match True
+```
+
+The delta selector is still inconsistent under static reading. The reader computes
+`width = 0x20 - (S & 0xffff)`, while the writer computes `S = 2 * (0x20 - leading_zeros) | sign`
+and writes 58 bits where the reader reads 59. A synthetic writer/reader round-trip fails to
+terminate with those widths. Settling the selector needs a dynamic trace or an independent
+decompression sample, not more static reading.
+
 ## Caller and reference array
 
 `CATAdvancedMathematics.dll` imports `ReadFloatWithRef2` and `WriteFloatWithRef2` from
