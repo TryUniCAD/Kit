@@ -22,7 +22,9 @@ The current decoder assumes a 256-entry initial table and a nine-bit first code.
 ## Workaround
 
 Treat a decode failure in a display-only section as a section warning, not a document failure.
-The production reader already reports `creo.section_invalid` in lenient mode and raises in strict mode.
+The production reader skips the display-only section set (`DispDataTable`, `DispDataColor`,
+`ModelView#*`, `THMB_IMG_*`, `ColorSchemeInfo*`, `CGF*`, `IndentTag`, `FeatRefData`, `AssMrgPrt`)
+during strict validation, so a valid part with a display-section variant still reads.
 Do not use `DispDataTable` as evidence that the feature or geometry sections are undecodable; those
 sections are plain tagged streams in the same file.
 

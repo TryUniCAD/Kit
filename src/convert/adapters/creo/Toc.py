@@ -103,6 +103,8 @@ def ReadEntry(
     Absolute = BaseValue + OffsetValue
     if NameText == "NEXT_TOC_ENTRY":
         return (None, Absolute)
+    if NameText == "EMPTY_SPACE_FOR_REUSE":
+        return (None, None)
     Expected = b"#" + NameText.encode("latin-1") + b"\n"
     if (
         Absolute < 0

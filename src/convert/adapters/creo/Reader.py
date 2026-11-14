@@ -116,10 +116,27 @@ def ReadLengthUnit(
     return (None, "")
 
 
+KDisplaySections = frozenset(
+    {
+        "AssMrgPrt",
+        "CGFMappingTable",
+        "CGFPersistTable",
+        "ColorSchemeInfo",
+        "ColorSchemeInfoNew",
+        "DispDataColor",
+        "DispDataTable",
+        "FeatRefData",
+        "IndentTag",
+        "THMB_IMG_INDX",
+        "THMB_IMG_MAIN",
+    }
+)
+
+
 def CheckSections(DataValue: bytes, Entries: tuple[CreoEntry, ...]) -> tuple[str, ...]:
     Failures: list[str] = []
     for EntryValue in Entries:
-        if EntryValue.name == "THMB_IMG_MAIN":
+        if EntryValue.name in KDisplaySections:
             continue
         try:
             _ = ReadSection(DataValue, EntryValue)

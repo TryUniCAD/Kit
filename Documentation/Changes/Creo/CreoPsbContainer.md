@@ -32,6 +32,7 @@ The result reports `mode="exact_native_roundtrip"` and keeps `vendor_loadable` a
 - The container grammar was checked against a Creo 2027.2 empty-part control, two public Ender-3 parts, and the public cadmpeg and TeamCraft format descriptions.
 - Local Creo 2027.2 opened the empty-part control in a fresh session.
 - A one-feature ladder with a live extrude and a solid body was authored in the same session and retained as a research control.
+- The empty control and the one-feature ladder both read in default strict mode; display-only sections and the `EMPTY_SPACE_FOR_REUSE` table row are skipped rather than treated as model failures.
 - A hand-built legacy ASCII part was rejected by Creo 2027.2, so no legacy writer path is claimed.
 - Remote integration coverage builds a synthetic PSB file, reads its header, table, thumbnail, and source bytes, and verifies exact replay.
 - No vendor file, vendor block, or captured table is stored under `src/` or in the test fixture.
