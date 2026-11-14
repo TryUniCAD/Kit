@@ -47,7 +47,7 @@ from convert.formats.Fusion.DocumentCodec.PartFeatures.Model.SweepSpec import (
     SweepSpec,
 )
 
-KPartFeature: TypeAlias = (
+KPartFeature: TypeAlias = (  # lgtm[py/unused-global-variable]
     FilletSpec
     | ChamferSpec
     | ShellSpec

@@ -1,7 +1,7 @@
 from functools import cache as CacheValue
-from importlib.resources import files as ReadResources
 from json import loads as LoadJson
 from lzma import decompress as Decompress
+from pathlib import Path as FilePath
 from types import MappingProxyType as ReadOnlyMap
 from typing import cast as CastValue
 
@@ -15,9 +15,7 @@ from convert.formats.Fusion.EntityCodec.Vocabulary.ReadWireType import ReadWireT
 
 @CacheValue
 def ReadCatalog() -> NativeCatalog:
-    Source = ReadResources("convert.formats.Fusion.EntityCodec").joinpath(
-        "Vocabulary", "NativeClasses.xz"
-    )
+    Source = FilePath(__file__).with_name("NativeClasses.xz")
     Value = CastValue(CatalogJson, LoadJson(Decompress(Source.read_bytes())))
     Grouped: dict[str, tuple[ClassSchema, ...]] = {}
     for Entry in Value["Classes"]:

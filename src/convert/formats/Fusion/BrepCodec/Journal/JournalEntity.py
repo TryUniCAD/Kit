@@ -46,7 +46,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Geometry.TransformNode import (
     TransformNode,
 )
 
-KJournalEntity: TypeAlias = (
+KJournalEntity: TypeAlias = (  # lgtm[py/unused-global-variable]
     AsmRoot
     | BodyNode
     | TransformNode

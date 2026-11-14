@@ -32,7 +32,6 @@ def SizePages(
     if MapImage.PageType != KPageMapType or len(Systems) != 1:
         raise ValueError("DWG pages need one section map and a final page map")
     Sizes[MapImage.PageNumber] = MapImage.PageSize
-    MapRaw = EncodePageMap(DwgModel, Sizes)
     for _ in range(KSizeRounds):
         MapRaw = EncodePageMap(DwgModel, Sizes)
         MapPacked = PackOrPlan(MapRaw, MapImage.PackPlan)

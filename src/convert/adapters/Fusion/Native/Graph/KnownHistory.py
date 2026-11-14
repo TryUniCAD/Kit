@@ -6,4 +6,6 @@ from convert.formats.Fusion.BrepCodec.Frustum.Models.FrustumHistory import (
 from convert.formats.Fusion.BrepCodec.Models.HistoryModel import HistoryModel
 from convert.formats.Fusion.BrepCodec.Prism.Models.PrismHistory import PrismHistory
 
-KKnownHistory: TypeAlias = HistoryModel | FrustumHistory | PrismHistory
+KKnownHistory: TypeAlias = (  # lgtm[py/unused-global-variable]
+    HistoryModel | FrustumHistory | PrismHistory
+)

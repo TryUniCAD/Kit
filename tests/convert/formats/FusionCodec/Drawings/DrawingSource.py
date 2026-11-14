@@ -40,7 +40,7 @@ def DrawingSources() -> dict[str, bytes]:
     return {Label: DecodeText(TextValue) for Label, TextValue in Encoded.items()}
 
 
-def HistoricBundle() -> bytes:
+def HistoricBundle() -> bytes:  # lgtm[py/mixed-returns]
     Install = FilePath.home() / KInstallRoot
     Matches = sorted(
         Install.glob("*/Autodesk Fusion.app/Contents/Resources/CloudWorkFlowsData/*")

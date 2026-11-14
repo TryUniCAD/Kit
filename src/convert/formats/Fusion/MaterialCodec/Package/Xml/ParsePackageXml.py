@@ -1,5 +1,5 @@
 from xml.etree.ElementTree import Element as XmlElement
-from xml.etree.ElementTree import ParseError, fromstring as ParseXml
+from xml.etree.ElementTree import ParseError, fromstring as ParseXml  # noqa: DUO107
 
 from convert.formats.Fusion.MaterialCodec.Package.PackageLimits import (
     KMaxXmlBytes,

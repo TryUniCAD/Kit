@@ -1,4 +1,5 @@
-from xml.etree.ElementTree import Element as XmlElement, tostring as EmitXml
+from xml.etree.ElementTree import Element as XmlElement
+from xml.etree.ElementTree import tostring as EmitXml  # noqa: DUO107
 
 from convert.formats.Fusion.MaterialCodec.Package.PackageLimits import KMaxXmlBytes
 

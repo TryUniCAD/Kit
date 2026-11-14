@@ -1,5 +1,5 @@
-from importlib.resources import files as PackageFiles
 from json import loads as ReadJson
+from pathlib import Path as FilePath
 from typing import cast as CastValue
 
 from convert.formats.Fusion.DocumentCodec.Materials.Vocabulary.SchemaData import (
@@ -17,8 +17,6 @@ def ReadSchemaNode(Value: SchemaData) -> SchemaNode:
 
 
 def ReadMatSchema() -> tuple[SchemaNode, ...]:
-    Resource = PackageFiles(
-        "convert.formats.Fusion.DocumentCodec.Materials.Vocabulary"
-    ).joinpath("MaterialSchemas.json")
+    Resource = FilePath(__file__).with_name("MaterialSchemas.json")
     Values = CastValue(dict[str, SchemaData], ReadJson(Resource.read_bytes()))
     return tuple(ReadSchemaNode(Value) for Value in Values.values())
