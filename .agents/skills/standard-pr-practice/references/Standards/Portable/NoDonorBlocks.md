@@ -5,25 +5,28 @@ original source: `.agents/skills/no-donor-blocks/SKILL.md`
 This section replaces the preserved "THE STATE OF THE WORK" paragraph below where they disagree.
 [AGENTS.md](../../../../../../AGENTS.md) takes precedence over the preserved text.
 
-The supported SOLIDWORKS families do not generate their streams from format rules.
-Each family under `src/convert/adapters/solidworks/programs/` is one vendor-saved stream, re-encoded as typed field operations.
-Each operation stores an absolute offset, a width, an owner, a kind, and the value from that save.
-The writer re-emits the list and overrides selected offsets.
-`ReplayResolved` rejects output whose length differs from the save.
-A family therefore cannot change its object count or topology.
-Each new profile, such as a three-line or a five-line pad, needs another recorded program.
+Kit does not write SOLIDWORKS files.
+The SOLIDWORKS adapter is registered as a reader only.
+
+The removed writer did not generate its streams from format rules.
+Each supported family was one vendor-saved stream, re-encoded as typed field operations.
+Each operation stored an absolute offset, a width, an owner, a kind, and the value from that save.
+The writer re-emitted the list at the saved length and overrode selected offsets.
+A family could not change its object count or topology, so each new profile needed another recorded program.
+Every generated file also took its `Config-0` stream from one recorded configuration program.
 
 "Zero opaque bytes" proves that each byte has a typed owner.
 It does not prove that Kit generated the value.
 A recorded program is a patch at known offsets over a recorded payload, which the rule below forbids.
 
-CI runs `tools/Donors/CheckReplays.py` against `tools/Donors/ReplayBaseline.txt` to count this debt.
-At introduction it found 185,090 recorded field operations in 43 program roots.
-The counts may only fall.
+The removal deleted 43 recorded programs with 185,090 recorded field operations, the writer code that assembled them, and the research tool that generated them.
+CI runs `tools/Donors/CheckReplays.py` on `src` and fails on any recorded field operation or recorded payload re-emission call.
+The container, archive, configuration manager, definition, and resolved-feature codecs remain.
+They contain no recorded field programs, but their constants still need the classification in step 4.
 
 ### Required direction
 
-1. Do not add a program root, raise a count, or add a family as another recorded program.
+1. Do not restore the removed programs or add a writer that re-emits a recorded payload.
 2. Build one generative serializer.
    Give each class an object model that follows the decompiled `Serialize` field order in `re/data/Serialization/SerializeMap.json`.
    Write the archive with the recorded class tag, object tag, and map-counter rules.
@@ -35,8 +38,8 @@ The counts may only fall.
    Prove a neutral value for those caches in the oracle, or compute them.
    Record a constant only with evidence from unrelated designs.
 5. Make the first milestone a closed N-line blind pad for any N of 3 or more, from one code path.
-   Accept it only with held-out oracle cases, then delete the matching recorded programs.
-6. Measure progress by recorded field operations removed and by FCStd files accepted.
+   Accept it only with held-out oracle cases, then register the adapter as a writer for that family.
+6. Measure progress by FCStd files accepted through generated output.
 
 ---
 name: no-donor-blocks

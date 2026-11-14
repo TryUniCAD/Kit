@@ -1,34 +1,18 @@
 from __future__ import annotations
 
 import sys as System
-from collections.abc import Mapping, Sequence
+from collections.abc import Mapping
 
-from tools.Donors.ReplayRules import KFieldRule, KStandardPath
+from tools.Donors.ReplayRules import KStandardPath
 
 
-def ReportCounts(
-    CurrentMap: Mapping[tuple[str, str], int],
-    GrowthList: Sequence[str],
-    StaleList: Sequence[str],
-) -> int:
-    for ProblemText in (*GrowthList, *StaleList):
-        print(ProblemText)
-    if GrowthList:
-        CountText = f"recorded payload debt grew in {len(GrowthList)} places"
+def ReportCounts(CountMap: Mapping[str, tuple[int, int]], FileTotal: int) -> int:
+    for PathText, (FieldTotal, CallTotal) in sorted(CountMap.items()):
+        FieldText = f"{FieldTotal} recorded field operations"
+        print(f"{PathText}: {FieldText}, {CallTotal} re-emission calls")
+    if CountMap:
+        CountText = f"recorded payloads found in {len(CountMap)} files"
         print(f"{CountText}; see {KStandardPath}", file=System.stderr)
         return 1
-    if StaleList:
-        print(
-            "recorded payload debt fell; rerun with --update-baseline and commit it",
-            file=System.stderr,
-        )
-        return 1
-    FieldTotal = sum(
-        CountValue
-        for (_, RuleCode), CountValue in CurrentMap.items()
-        if RuleCode == KFieldRule
-    )
-    RootTotal = len({RootText for RootText, _ in CurrentMap})
-    SummaryText = f"{FieldTotal} recorded field operations remain in {RootTotal} roots"
-    print(f"recorded payload ratchet passed: {SummaryText}")
+    print(f"no recorded payloads in {FileTotal} files")
     return 0

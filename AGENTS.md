@@ -117,14 +117,14 @@ before writer work.
 
 A typed field program is donor data when its values or offsets come from a vendor
 save. Zero opaque bytes proves that each byte has a typed owner. It does not prove
-that Kit generated the value. The SOLIDWORKS programs under
-`src/convert/adapters/solidworks/programs/` are recorded payloads of this kind and
-are migration debt, not a pattern to copy. CI runs `tools/Donors/CheckReplays.py`
-against `tools/Donors/ReplayBaseline.txt`, and the counts may only fall. Do not add a
-program root, raise a count, or add a SOLIDWORKS family as another recorded program.
-Extend the generative serializer instead. The no donor blocks standard states the
-current SOLIDWORKS state and the required direction, and this paragraph takes
-precedence over its preserved state section.
+that Kit generated the value. Kit's SOLIDWORKS writer was built from recorded
+programs of this kind, so it was removed and SOLIDWORKS is a read-only format. CI runs
+`tools/Donors/CheckReplays.py` on `src` and fails on any recorded field operation or
+recorded payload re-emission call. Do not restore the removed programs or add a
+SOLIDWORKS writer family as a recorded program. Build the generative serializer
+instead. The no donor blocks standard states the current SOLIDWORKS state and the
+required direction, and this paragraph takes precedence over its preserved state
+section.
 
 An administrator's explicit merge request remains valid through repairs and
 authorizes a supported admin override when independently enforced protections
