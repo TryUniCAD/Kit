@@ -876,11 +876,54 @@ gap, then a 74-float run at `692`. `Reservoir` has twelve float runs between `56
 separated by 4- and 8-byte gaps. The gaps are record markers, and the second loop of a face is
 stored separately from the first.
 
-The current reader maps a handle to a vertex with `handle % len(vertices)`. That is a placeholder,
-not a decode. It produces a structurally valid model, which is why the 22 parts pass validation, but
-the geometry is not the file's geometry. A planar face's points are not coplanar under that mapping:
-`Copper_Washer` face 2 has a maximum plane deviation of 9.5 units against a trim vector of
-`(-1, 0, 0)`.
+The reader no longer uses `handle % len(vertices)`. It places each handle by the corner structure
+described above, which makes the planar faces coplanar and puts every handle on its surfaces. The
+angular positions are still assumed equal-spaced, so the geometry is a reconstruction, not a decode.
+
+## The object reference is a tag difference against a running tag
+
+The face-to-surface reference is a cross-stream object reference, and the reference encoding is now
+recovered from the binaries. Three functions in `CATMathStream.dll` and `CATGeometricObjects.dll`
+give the whole mechanism.
+
+`CATMathStreamImpl::ReadTagFromTagDifference` at `0x1800b8670` decodes one tag difference:
+
+```
+b = read_byte()
+if b & 1:  diff = b >> 2
+else:      n = b >> 2 (1..8); diff = read n bytes little-endian
+if b & 2:  tag = current - diff - 1
+else:      tag = current + diff
+```
+
+So bit 0 selects an inline 6-bit difference or a 1-to-8-byte difference, and bit 1 selects the
+direction. The `- 1` on the negative branch means the encoding is a bijection: `+0` and `-0` are
+distinct, so a zero difference still advances the tag.
+
+`CATMathStreamImpl::ReadTagDifferenceAsLONG64_Scalable` at `0x1800b8480` is the same byte layout
+returning a signed 64-bit difference, and `CATMathStreamImpl::ReadULongWithSign` at `0x1800a3420`
+reads the object index as a 4-bit-per-byte varint with continuation bit `0x10`.
+
+`CATCGMStreamImpl::ReadRelativeTag` at `0x180071da0` reads a whole tag array:
+
+```
+ReadLONG64_Scalable(stream, count, buffer)
+for i in range(count): out[i] = base_tag - buffer[i]
+```
+
+`CATCGMStreamImpl::ReadListOfLinkedObjects` at `0x1800717f0` then resolves each tag through the
+container's virtual method at vtable offset `0xc0` and appends the result to a
+`CATListPtrCATSurface`. The container is `0x2b0(stream)` and the object table is `0x2b8(stream)`,
+which is a `CATCGMHashTableBase` probed with `KeyLocate`.
+
+`CATCXFace::UnStream` at `0x18054eef0` does not read the surface itself. It calls
+`SkipRemainingLinkedObjectsToRead`, so the face's surface reference lives in the generic object
+header that precedes the face body, not in the face body. That is why the trim record has no spare
+field for a surface index: the reference was never in the trim record.
+
+The object header offset is not yet located. Decoding tag differences at the body records, the
+two-bit block, the face-outer-bound run, the edge table, and the vertex table all fail on the first
+or second byte with an out-of-range length, so none of those regions starts with a tag array.
 
 ## Evidence
 

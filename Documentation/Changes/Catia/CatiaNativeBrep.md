@@ -87,6 +87,16 @@ non-unique (12600 and 1.3e20 solutions), and does not exist at all for `4784`, `
 The reader still requires the two counts to match, because the face-to-surface reference is not
 decoded and planarity does not determine it.
 
+The reference encoding is now recovered from the binaries, though the header offset is not. A face
+takes its surface from the first entry of the linked-object list that the generic object header
+passes in, and `CATCXFace::UnStream` then calls `SkipRemainingLinkedObjectsToRead`. The list is read
+by `CATCGMStreamImpl::ReadListOfLinkedObjects`, which decodes a tag array with
+`ReadRelativeTag` (`out[i] = base_tag - stored[i]`) and resolves each tag through the container's
+virtual method at vtable offset `0xc0`. The container is `0x2b0(stream)` and the object table is
+`0x2b8(stream)`. The tag difference itself is one byte: bit 0 selects an inline 6-bit difference or a
+1-to-8-byte little-endian difference, and bit 1 selects `current - diff - 1` or `current + diff`.
+`re/catia/tooling/TagDifference.py` implements and self-tests that decoder.
+
 The adapter also writes a native `V5_CFV2` CATPart from a neutral `BrepModel` when
 `WriteOptions(values={"native_brep": True})` is set.
 The writer supports plane and cylinder faces with one loop per face.
