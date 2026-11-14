@@ -363,21 +363,40 @@ The value table is visible in the first record of the same middle lane:
 So an authored expression needs a new handle plus a matching table entry, not a
 16-bit number.
 
-Two further probes constrain the handle. An unknown handle is not tolerated:
-setting it to `0x1234` makes NX report `The end of an OM file was reached
-unexpectedly` (580066). Adjacent handles are tolerated and decode to values that
-step by a factor of 2^16:
+The handle is a 16-bit float: a four-bit exponent in the high nibble and a
+mantissa in the low twelve bits.
 
 ```text
-handle   value
-0x4950   12.5
-0x4951   819200.0        = 12.5 * 65536
-0x4952   53687091200.0   = 12.5 * 65536^2
+handle = (E << 12) | (0x50 + round((value / 2^(E-1) - 1) * 4096))
+E      = floor(log2(value)) + 1
 ```
 
-So the handle is a reference into an ordered internal table whose entries are
-multiplicative, not a plain index into the visible value list. The allocation
-rule is still not known.
+`0x50` is a fixed tag, not data. Values 1 and 2 use the compact form where the
+handle equals the value. The formula reproduces every captured handle:
+
+```text
+   0.75  known 0x0850 encoded 0x0850
+   3.00  known 0x2850 encoded 0x2850
+   3.25  known 0x2a50 encoded 0x2a50
+   7.75  known 0x3f50 encoded 0x3f50
+  10.00  known 0x4450 encoded 0x4450
+  12.50  known 0x4950 encoded 0x4950
+  13.50  known 0x4b50 encoded 0x4b50
+  25.00  known 0x5950 encoded 0x5950
+ 100.00  known 0x7950 encoded 0x7950
+```
+
+Computed handles were then written into a real part and NX reported the authored
+numbers:
+
+```text
+handle 0x3250 -> EXPRESSION kit_len 4.5
+handle 0x6450 -> EXPRESSION kit_len 40.0
+```
+
+An unknown handle is not tolerated: `0x1234` makes NX report `The end of an OM
+file was reached unexpectedly` (580066). Values below `0.75` use a compact form
+that is not yet derived, so the encoder refuses them.
 
 No value appears anywhere in the container as a binary64, a shifted binary64, a
 float32, or UTF-16 text.
