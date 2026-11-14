@@ -5,9 +5,10 @@ against the `ugc_read_structure` and `ugc_ieee_unformat_double` decompilations i
 `re/creo/loader/Loader.md`. This module is not production code; it exists to
 validate the field map against the empty control and the one-feature ladder.
 
-The parser propagates the `f1`-`f4` close count up the recursion and caches one
-field schema per structure name, so the second and later feature records reuse the
-first record's field table.
+The parser is a flat state machine: a depth counter, a schema stack, and the
+`f1`-`f4` close count applied to the correct depth. The `e3` structure begin
+pushes a schema keyed by the field that contains it, so the second feature record
+reuses the first feature's field table.
 """
 
 from __future__ import annotations
@@ -88,6 +89,7 @@ class Parser:
         self.reader = Reader(data)
         self.nodes: list[Node] = []
         self.schemas: dict[str, list[tuple[str, int]]] = {}
+        self.stack: list[tuple[str | None, list[tuple[str, int]]]] = []
 
     def ReadDouble(self) -> float:
         reader = self.reader
@@ -106,51 +108,39 @@ class Parser:
             raise ValueError(f"double expected at {start:#x}")
         return UnformatDouble(text)
 
-    def ReadValue(
-        self,
-        type_id: int,
-        schema: list[tuple[str, int]],
-        field_name: str | None = None,
-        allow_array: bool = True,
-    ) -> tuple[object, int]:
+    def SchemaFor(self, key: str | None) -> list[tuple[str, int]]:
+        if key is None:
+            return []
+        return self.schemas.setdefault(key, [])
+
+    def CurrentSchema(self) -> list[tuple[str, int]]:
+        if not self.stack:
+            return []
+        return self.stack[-1][1]
+
+    def Push(self, key: str | None) -> None:
+        self.stack.append((key, self.SchemaFor(key)))
+
+    def Pop(self, count: int) -> None:
+        for _ in range(count):
+            if self.stack:
+                self.stack.pop()
+
+    def ReadScalar(self, type_id: int) -> object:
         reader = self.reader
-        while reader.pos < len(reader.data) and 0xF1 <= reader.data[reader.pos] <= 0xF4:
-            reader.pos += 1
-        if reader.pos < len(reader.data) and reader.data[reader.pos] == 0xE1:
-            reader.pos += 1
-            return (None, 0)
-        if allow_array and reader.pos < len(reader.data) and reader.data[reader.pos] in (0xF8, 0xF9):
-            if reader.data[reader.pos] == 0xF8:
-                reader.pos += 1
-                count = reader.compact_int()
-            else:
-                reader.pos += 1
-                rows = reader.compact_int()
-                cols = reader.compact_int()
-                count = rows * cols
-            return (self.ReadArray(type_id, schema, count), 0)
-        if type_id == 0x00:
-            token = reader.byte()
-            if token in (0xE2, 0xE3):
-                return self.ReadFields(1, field_name)
-            raise ValueError(
-                f"structure value expected e2/e3, got {token:#04x} at {reader.pos - 1:#x}"
-            )
         if type_id in (0x01, 0x05, 0x07, 0x08, 0x09, 0x0B):
-            return (reader.compact_int(), 0)
+            return reader.compact_int()
         if type_id == 0x02:
-            return (self.ReadDouble(), 0)
+            return self.ReadDouble()
         if type_id in (0x03, 0x0A):
-            return (reader.cstring(), 0)
+            return reader.cstring()
         if type_id == 0x04:
-            return (reader.byte(), 0)
+            return reader.byte()
         if type_id == 0x06:
-            return (struct.unpack(">f", reader.take(4))[0], 0)
+            return struct.unpack(">f", reader.take(4))[0]
         raise ValueError(f"unknown field type {type_id:#04x} at {reader.pos:#x}")
 
-    def ReadArray(
-        self, type_id: int, schema: list[tuple[str, int]], count: int | None
-    ) -> list[object]:
+    def ReadArray(self, type_id: int, count: int | None) -> list[object]:
         reader = self.reader
         values: list[object] = []
         while reader.pos < len(reader.data):
@@ -183,19 +173,39 @@ class Parser:
                 break
             if token in (0xE0, 0xE2, 0xE3) or 0xF1 <= token <= 0xF4:
                 break
-            value, _ = self.ReadValue(type_id, schema, allow_array=False)
-            values.append(value)
+            values.append(self.ReadScalar(type_id))
         return values
 
-    def SchemaFor(self, key: str | None) -> list[tuple[str, int]]:
-        if key is None:
-            return []
-        return self.schemas.setdefault(key, [])
-
-    def ReadFields(self, depth: int, schema_key: str | None) -> tuple[list[Node], int]:
+    def ReadValue(self, type_id: int, field_name: str | None) -> object:
         reader = self.reader
-        nodes: list[Node] = []
-        schema = self.SchemaFor(schema_key)
+        while reader.pos < len(reader.data) and 0xF1 <= reader.data[reader.pos] <= 0xF4:
+            reader.pos += 1
+        if reader.pos < len(reader.data) and reader.data[reader.pos] == 0xE1:
+            reader.pos += 1
+            return None
+        if reader.pos < len(reader.data) and reader.data[reader.pos] in (0xF8, 0xF9):
+            if reader.data[reader.pos] == 0xF8:
+                reader.pos += 1
+                count = reader.compact_int()
+            else:
+                reader.pos += 1
+                rows = reader.compact_int()
+                cols = reader.compact_int()
+                count = rows * cols
+            return self.ReadArray(type_id, count)
+        if type_id == 0x00:
+            token = reader.byte()
+            if token in (0xE2, 0xE3):
+                self.Push(field_name)
+                return Node("<begin>", token)
+            raise ValueError(
+                f"structure value expected e2/e3, got {token:#04x} at {reader.pos - 1:#x}"
+            )
+        return self.ReadScalar(type_id)
+
+    def Run(self) -> list[Node]:
+        reader = self.reader
+        self.Push(None)
         current: tuple[str, int] | None = None
         while reader.pos < len(reader.data):
             token = reader.data[reader.pos]
@@ -203,82 +213,58 @@ class Parser:
                 reader.pos += 1
                 type_id = reader.byte()
                 name = reader.cstring()
-                if schema_key is None:
-                    schema_key = name
-                    schema = self.SchemaFor(schema_key)
+                schema = self.CurrentSchema()
                 schema.append((name, type_id))
                 current = (name, type_id)
                 node = Node(name, type_id)
-                node.value, close = self.ReadValue(type_id, schema, name)
-                nodes.append(node)
+                node.value = self.ReadValue(type_id, name)
                 self.nodes.append(node)
-                if close > 0:
-                    close -= 1
-                    if close > 0:
-                        return (nodes, close)
                 continue
             if 0xF1 <= token <= 0xF4:
                 reader.pos += 1
-                return (nodes, token - 0xF0 - 1)
+                self.Pop(token - 0xF0)
+                continue
             if token == 0xE1:
                 reader.pos += 1
-                nodes.append(Node("<null>", 0xE1))
+                self.nodes.append(Node("<null>", 0xE1))
                 continue
             if token in (0xE2, 0xE3):
                 reader.pos += 1
-                node = Node("<begin>", token)
-                node.value, close = self.ReadFields(1, schema_key)
-                nodes.append(node)
-                if close > 0:
-                    close -= 1
-                    if close > 0:
-                        return (nodes, close)
+                key = self.stack[-1][0] if self.stack else None
+                self.Push(key)
+                self.nodes.append(Node("<begin>", token))
                 continue
             if token == 0xF7:
                 reader.pos += 1
                 field_id = reader.compact_int()
+                schema = self.stack[0][1] if self.stack else []
                 if 1 <= field_id <= len(schema):
                     name, type_id = schema[field_id - 1]
                     current = (name, type_id)
                     node = Node(name, type_id)
-                    node.value, close = self.ReadValue(type_id, schema, name)
-                    nodes.append(node)
+                    node.value = self.ReadValue(type_id, name)
                     self.nodes.append(node)
-                    if close > 0:
-                        close -= 1
-                        if close > 0:
-                            return (nodes, close)
                 else:
-                    nodes.append(Node("<ref>", 0xF7, field_id))
+                    self.nodes.append(Node("<ref>", 0xF7, field_id))
                 continue
             if token in (0xF8, 0xF9) and current is not None:
                 name, type_id = current
                 node = Node(name, type_id)
-                node.value, close = self.ReadValue(type_id, schema, name)
-                nodes.append(node)
+                node.value = self.ReadValue(type_id, name)
                 self.nodes.append(node)
-                if close > 0:
-                    close -= 1
-                    if close > 0:
-                        return (nodes, close)
                 continue
             if token in (0xE4, 0xE5, 0xE6, 0xE7, 0xFA, 0xFB):
-                nodes.append(Node("<control>", token))
+                self.nodes.append(Node("<control>", token))
                 reader.pos += 1
                 continue
             if current is not None:
                 name, type_id = current
                 node = Node(name, type_id)
-                node.value, close = self.ReadValue(type_id, schema, name, allow_array=False)
-                nodes.append(node)
+                node.value = self.ReadScalar(type_id)
                 self.nodes.append(node)
-                if close > 0:
-                    close -= 1
-                    if close > 0:
-                        return (nodes, close)
                 continue
             raise ValueError(f"unexpected token {token:#04x} at {reader.pos:#x}")
-        return (nodes, 0)
+        return self.nodes
 
 
 def Dump(nodes: list[Node], depth: int = 0) -> None:
@@ -295,7 +281,7 @@ if __name__ == "__main__":
     path = Path(sys.argv[1])
     parser = Parser(path.read_bytes())
     try:
-        nodes, _ = parser.ReadFields(0, None)
+        nodes = parser.Run()
     except ValueError as ErrorInfo:
         print(f"# stopped at {parser.reader.pos:#x}: {ErrorInfo}")
         nodes = parser.nodes
