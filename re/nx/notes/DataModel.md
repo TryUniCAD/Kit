@@ -581,10 +581,25 @@ BuildPrism + centroid / midpoint / +-L/2   BODIES 1, VOLUME 0.0, AREA 0.0
 ```
 
 Every single-field and combined variant still measures `0.0`, while the same
-encoder output for a decoded body measures correctly, and reversing loop
-traversal measures `6000.0` with area `600.0`, which is not a valid box. The
-remaining difference is inside the face and loop record layout that NX writes
-and the encoder derives, not in the attribute or ordering layer.
+encoder output for a decoded body measures correctly. The reversed-loop variant
+is the informative one:
+
+```text
+authored box 60 x 30 x 20     volume 36000, area 7200
+reversed loop variant         volume  6000, area  600
+ratio                              1 / 6        1 / 12
+```
+
+`36000 / 6 = 6000` and `7200 / 12 = 600`, so the reversed variant measures exactly
+one face's contribution instead of six. NX is not mis-scaling the body; it binds
+only one face of the shell. The normal variant therefore measures nothing
+because no face binds at all.
+
+That points at shell membership: how the body's shell lists its face uses and in
+which order, not at the coordinates, the attributes, or the parameter values.
+The next experiment is to compare the encoded shell and face-use records against
+those of a decoded body, since the encoder currently derives them from model
+list order.
 
 ### A parametric body write is accepted and measured
 
