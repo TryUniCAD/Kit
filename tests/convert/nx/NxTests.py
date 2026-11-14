@@ -26,6 +26,8 @@ from convert.adapters.nx.ObjectSection import (
     RegToken,
     SlotPrefix,
     SlotRecord,
+    FloatWord,
+    ReadFloatWord,
     ValueWord,
     ViewName,
 )
@@ -825,3 +827,17 @@ def TestNxWord() -> None:
     except ValueError:
         return
     raise AssertionError("value word accepted a value below the encoding limit")
+
+
+# a float word is a single precision value widened to a double with a shifted top byte
+def TestNxFloat() -> None:
+    assert FloatWord(360.0) == bytes.fromhex("3076800000000000")
+    assert FloatWord(0.2) == bytes.fromhex("2fc99999a0000000")
+    assert ReadFloatWord(bytes.fromhex("3076800000000000")) == 360.0
+    assert abs(ReadFloatWord(bytes.fromhex("2fc99999a0000000")) - 0.2) < 1e-7
+    assert ReadFloatWord(bytes.fromhex("2fe8")) == 0.75
+    try:
+        _ = ReadFloatWord(b"")
+    except ValueError:
+        return
+    raise AssertionError("float word reader accepted an empty word")

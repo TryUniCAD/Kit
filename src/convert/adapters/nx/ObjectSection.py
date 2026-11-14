@@ -138,6 +138,8 @@ def ReplaceHead(
 
 
 __all__ = [
+    "FloatWord",
+    "ReadFloatWord",
     "ReadValueWord",
     "ValueWord",
     "RenameView",
@@ -584,3 +586,23 @@ def ReadValueWord(WordValue: bytes) -> int:
     if len(WordValue) != 4 or WordValue[2:] != bytes(2):
         raise ValueError("NX value word must be a handle and two zero bytes")
     return int.from_bytes(WordValue[:2], "little")
+
+
+# a float word is a single precision value widened to a double whose top byte is shifted
+KFloatShift = 0x10
+
+
+def FloatWord(Value: float) -> bytes:
+    Single = Struct.unpack(">f", Struct.pack(">f", Value))[0]
+    DoubleBytes = Struct.pack(">d", Single)
+    return bytes([(DoubleBytes[0] - KFloatShift) & 0xFF]) + DoubleBytes[1:]
+
+
+def ReadFloatWord(WordValue: bytes) -> float:
+    if not 1 <= len(WordValue) <= 8:
+        raise ValueError("NX float word must be one to eight bytes")
+    Shifted = bytes([(WordValue[0] + KFloatShift) & 0xFF]) + WordValue[1:].ljust(
+        7, bytes(1)
+    )
+    Value: float = Struct.unpack(">d", Shifted)[0]
+    return Value
