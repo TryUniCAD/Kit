@@ -11,7 +11,6 @@ import pytest as PytestLib
 from convert import open_document as OpenDoc
 from convert import write_document as WriteDoc
 from convert.adapters.base import ParseUntrusted, ReadOptions
-from convert.adapters.base.UsabilityError import ApplicationUsabilityError
 from convert.adapters.solidworks import SldprtArchive
 from convert.adapters.solidworks.container.Container import (
     BuildSldprt,
@@ -361,8 +360,8 @@ def TestOpenWire(TmpPath: FilePath) -> None:
     Sketch = ReplaceData(SourceDoc.sketches[0], entities=Entities)
     SourceDoc = ReplaceData(SourceDoc, sketches=(Sketch,))
     assert HasVendorPartEncoding(SourceDoc) is False
-    with PytestLib.raises(ApplicationUsabilityError):
-        _ = WriteDoc(SourceDoc, TmpPath / "OpenWire.SLDPRT", allow_carrier=False)
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(SourceDoc, TmpPath / "OpenWire.SLDPRT")
 
 
 def TestThreeTie(TmpPath: FilePath) -> None:
@@ -393,5 +392,5 @@ def TestRelations(TmpPath: FilePath) -> None:
     )
     SourceDoc = ReplaceData(SourceDoc, sketches=(Sketch,))
     assert HasVendorPartEncoding(SourceDoc) is False
-    with PytestLib.raises(ApplicationUsabilityError):
-        _ = WriteDoc(SourceDoc, TmpPath / "Relations.SLDPRT", allow_carrier=False)
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(SourceDoc, TmpPath / "Relations.SLDPRT")
