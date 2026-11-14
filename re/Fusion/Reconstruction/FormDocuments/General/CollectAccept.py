@@ -17,13 +17,15 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
 ROOT = BASE.parents[4]
-ACCEPT = ROOT / 're/Fusion/LocalOracle/FormDocuments/General/Accept'
+ACCEPT = ROOT / 're/Fusion/LocalOracle/FormDocuments/General' / (sys.argv[2] if len(sys.argv) > 2 else 'Accept')
 KEPT = ACCEPT / 'Fusion'
-CASES = ROOT / 'tests/convert/formats/FusionCodec/Documents/Form/GeneralCases.py'
+CASES = ROOT / 'tests/convert/formats/FusionCodec/Documents/Form' / (sys.argv[3] if len(sys.argv) > 3 else 'GeneralCases.py')
+VALUE_NAME = 'K' + CASES.stem
 
 
 def accepted():
-    report = json.loads((ACCEPT / 'GeneralAcceptance.json').read_text())
+    preparation = json.loads((ACCEPT / 'Preparation.json').read_text())
+    report = json.loads((ACCEPT / preparation.get('report', 'GeneralAcceptance.json')).read_text())
     return [(case['case'], case['group']) for case in report['cases'] if case.get('status') == 'accepted']
 
 
@@ -39,7 +41,7 @@ def copy():
 
 
 def cases():
-    lines = ['KGeneralCases: tuple[tuple[str, str, str, str, str], ...] = (']
+    lines = [VALUE_NAME + ': tuple[tuple[str, str, str, str, str], ...] = (']
     for name, group in accepted():
         tsm, save = ACCEPT / (name + '.tsm'), KEPT / (name + '.f3d')
         lines.append('    (')

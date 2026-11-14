@@ -9,19 +9,20 @@ import adsk.fusion
 
 folder = Path(__file__).resolve().parent
 root = folder.parents[3]
-work = folder / 'General' / 'Accept'
+selection = folder / 'General' / 'tmp' / 'AcceptancePlan.txt'
+work = folder / 'General' / (selection.read_text().strip() if selection.exists() else 'Accept')
 saved_folder = work / 'tmp'
 preparation = json.loads((work / 'Preparation.json').read_text())
 app = adsk.core.Application.get()
 report = {
     'fusion_version': app.version,
-    'scope': 'Kit Form documents whose body comes from the general ConvertForm rules, against Fusion conversion of the same TSM',
+    'scope': preparation.get('acceptance_scope', 'Kit Form documents whose body comes from the general ConvertForm rules, against Fusion conversion of the same TSM'),
     'tolerance_cm': 1e-8,
     'documents_before': app.documents.count,
     'cases': [],
 }
 opened = []
-target = work / 'GeneralAcceptance.json'
+target = work / preparation.get('report', 'GeneralAcceptance.json')
 grid = [index / 6 for index in range(7)]
 
 
@@ -44,7 +45,8 @@ def digest_rows(value):
 
 
 def checkpoint():
-    (saved_folder / 'GeneralAcceptanceFull.json').write_text(clean(json.dumps(report, indent=1)) + '\n')
+    full = saved_folder / target.with_name(target.stem + 'Full.json').name
+    full.write_text(clean(json.dumps(report, indent=1)) + '\n')
     target.write_text(clean(json.dumps(digest_rows(report), indent=1)) + '\n')
 
 

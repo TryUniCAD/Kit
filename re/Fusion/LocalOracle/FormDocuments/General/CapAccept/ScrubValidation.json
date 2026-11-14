@@ -1,0 +1,57 @@
+{
+ "status": "accepted",
+ "models_compared": 10,
+ "changed_by_scrubber": 0,
+ "rows": [
+  {
+   "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/Box3G0.f3d",
+   "model_sha256": "62ebfff8e7c04ffcc3525e3c95d67959af2e32577d978487d0dd5a67145b7861",
+   "archive_sha256": "7b44dfb04b7460b00701ea191c1e454ce6e8d2997df7775d38c91b02a77d907f"
+  },
+  {
+   "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/Box3G2.f3d",
+   "model_sha256": "82b65b8d8e6c022f0672b6cad7e99afe3aa14436e59160ebbdd3bd7c3a8a7ec9",
+   "archive_sha256": "178bda9e1d518da45506064859f0890eab2c60a2ddbab27119848bf1baab1a29"
+  },
+  {
+   "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/Box3Same.f3d",
+   "model_sha256": "9d89895d8140223cd89a5d33ac40a3ca9b3b840885d26b11903e0e4559a36578",
+   "archive_sha256": "94f05af606780423445898627919b02b287144e17d2cd31452be66f68760632c"
+  },
+  {
+   "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/Box3Star1.f3d",
+   "model_sha256": "2ada926b5f1076f009a4a2f737d8f3d0190ce4ab96d26bf5c423d71099227f00",
+   "archive_sha256": "904a7f574bbf99e6d288f22b0dc7d5f93500d43928e63166c692ee3b8bc918bd"
+  },
+  {
+   "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/Box3Star2.f3d",
+   "model_sha256": "7940b1562aea43262e3f359aaaadd6591f67ea8ee0421f1e94de5443b7f1042a",
+   "archive_sha256": "089dc2e301c0fc375287733bb41caaa1e12df37b523bd6a25cad74104cfa36e9"
+  },
+  {
+   "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/HeldPrism5G0.f3d",
+   "model_sha256": "5d337fe454d1ca28ec15b73e07c1c9799dc91161bfb63373a513f7f9c6dd437c",
+   "archive_sha256": "b7de65f97783b755350f1df41c41ab33a044be109633494a5f9bac145727345c"
+  },
+  {
+   "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/HeldPrism5G2.f3d",
+   "model_sha256": "bfd7a19d2dc65a9b1dcb17a211e5e9502ce938326c190343ee93bee321959404",
+   "archive_sha256": "16e956c55e9253c23b6ad05327dc305db7589c6c2dbe3745583d8a9d06dac89d"
+  },
+  {
+   "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/HeldPrism5Same.f3d",
+   "model_sha256": "030fcf2dcb85052c71c34e4dbbc80b52e9d467e170c6709eee925586711d3b04",
+   "archive_sha256": "e13a9dcbd1d86e66f757fa7bf27edd6162ccadb69c122d684b175b7da5e5e39a"
+  },
+  {
+   "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/HeldPrism5Star1.f3d",
+   "model_sha256": "40a83d5efccb71eab683abaa9c66488089833999722941c5844a6403b8fdc799",
+   "archive_sha256": "ee8a725301c267cbad69cf8212ed213f4bf2d7765518588d03fb8aac9b184287"
+  },
+  {
+   "file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/Fusion/HeldPrism5Star2.f3d",
+   "model_sha256": "ea735b70bd280e2924110e02798722b800fb2a5455b59ee6e487dd9ad366c6e0",
+   "archive_sha256": "ef5ae526da58dee10113a70f73ec86c717cd9d406149adfd6a124742958a730e"
+  }
+ ]
+}

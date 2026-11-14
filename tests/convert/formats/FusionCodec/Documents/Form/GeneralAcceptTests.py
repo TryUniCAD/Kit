@@ -16,6 +16,7 @@ from convert.formats.Fusion.BrepCodec.Journal.Spline.Converted.FormBody import (
 )
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from convert.formats.Fusion.TSplineCodec.ReadTspline import ReadTspline
+from tests.convert.formats.FusionCodec.Documents.Form.CapCases import KCapCases
 from tests.convert.formats.FusionCodec.Documents.Form.GeneralCases import (
     KGeneralCases,
 )
@@ -158,7 +159,9 @@ def BodySpread(Built: FormBody, Native: FormBody) -> float:
 
 
 @KNeedZip
-@MarkTests.parametrize("CaseValue", KGeneralCases, ids=lambda CaseValue: CaseValue[0])
+@MarkTests.parametrize(
+    "CaseValue", KGeneralCases + KCapCases, ids=lambda CaseValue: CaseValue[0]
+)
 def TestGeneralCase(CaseValue: tuple[str, str, str, str, str]) -> None:
     Surface = ReadTspline(ReadFormFile(CaseValue[1], CaseValue[2]))
     Native = ReadConverted(ReadDocument(ReadFormFile(CaseValue[3], CaseValue[4])))

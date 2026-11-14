@@ -491,7 +491,15 @@ Branch `form-general-rules` (from e4e99c2b5). Research only; nothing here is loa
 - Session 11 closed: every task item is committed on form-general-rules (head e86d2b8df before
   this note). Open research items: tie rule for perpendicular face-line arrivals, uncapped darts
   with plain neighbours, cuts in spans refined from both ends, two creases at one EP, crease caps
-  with knot ratio 1/2, mixed or fractional intervals in capped cages, Box3G* TSM profile.
+  with knot ratio 1/2, mixed or fractional intervals in capped cages.
+
+## Cap declaration qualification
+
+- PrepareCapVariants.py emits G0CAPS, G1CAPS, G2CAPS and star smoothness 0, 1 and 2 through typed SurfaceHeader replacements on Box3 and held-out HeldPrism5.
+- ConvertCage now relies on CheckSurface, which admits those declarations and rejects unknown values without a second G1-only gate.
+- Local Fusion 2706.1.17 accepted all 10 independently emitted F3D documents through load, computeAll, control-point edit, export and reopen. CapAccept/NativeAcceptance.json records 190 comparisons, zero problems, worst absolute deviation 6.195044477408373e-14 cm and zero open documents before and after.
+- The retained Oracle*Converted controls are under CapAccept/Fusion. ScrubSaved changed zero bytes. ScrubValidation.json records ten identical typed models before and after.
+- REA inspected the independent HeldPrism5G2 F3D as a ZIP. ContainerInspection.json binds its preparation digest, 24 occurrences and zero integrity contradictions. This static inventory does not establish runtime semantics.
 
 ## Open questions
 

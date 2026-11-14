@@ -1,0 +1,3810 @@
+{
+ "fusion_version": "2706.1.17",
+ "scope": "Kit Form documents with G0CAPS, G1CAPS or G2CAPS and star smoothness 0, 1 or 2, against Fusion conversion of the same TSM",
+ "tolerance_cm": 1e-08,
+ "documents_before": 0,
+ "cases": [
+  {
+   "case": "Box3Same",
+   "group": "probe",
+   "oracle": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.197749985492635,
+       "volume_cm3": 12.441043578278615,
+       "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
+       "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
+       "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.197749985492635,
+       "volume_cm3": 12.441043578278615,
+       "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
+       "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
+       "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3SameConverted.f3d",
+    "converted_sha256": "94f05af606780423445898627919b02b287144e17d2cd31452be66f68760632c",
+    "cage_tsm_sha256": "e1020229a23104e10d19fc3ab839b55531c8b5581d1ef45a0f8c6fc7f8241285",
+    "edited_vertex_cm": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3Same.f3d",
+    "saved_sha256": "f0a55d2136996dd17bb75d131039af537048e28f0c0507388f2344326f41b8c5",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    }
+   },
+   "kit": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.19774998549261,
+       "volume_cm3": 12.441043578278578,
+       "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
+       "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
+       "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.19774998549261,
+       "volume_cm3": 12.441043578278578,
+       "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
+       "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
+       "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3SameConverted.f3d",
+    "converted_sha256": "c62ff7493873ff42ae7bd010f9dd75292c134014df7887957ceacce1b631b5ee",
+    "cage_tsm_sha256": "e1020229a23104e10d19fc3ab839b55531c8b5581d1ef45a0f8c6fc7f8241285",
+    "edited_vertex_cm": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3Same.f3d",
+    "saved_sha256": "72127d7c0ceb6fb168c2ec7492d7ebc256470c1ddc446629ece29a92ea641000",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    }
+   },
+   "comparisons": [
+    {
+     "comparison": "kit.loaded~oracle.solved.bodies",
+     "max_abs_deviation": 3.730349362740526e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.bodies",
+     "max_abs_deviation": 3.730349362740526e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~kit.edited",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "edited_vertex_cm",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    }
+   ],
+   "areas_cm2": {
+    "kit": {
+     "loaded": [
+      28.19774998549261
+     ],
+     "solved": [
+      28.19774998549261
+     ],
+     "edited": [
+      28.08639550286362
+     ],
+     "reopened": [
+      28.08639550286362
+     ]
+    },
+    "oracle": {
+     "loaded": [
+      28.197749985492635
+     ],
+     "solved": [
+      28.197749985492635
+     ],
+     "edited": [
+      28.08639550286362
+     ],
+     "reopened": [
+      28.08639550286362
+     ]
+    }
+   },
+   "problem_count": 0,
+   "status": "accepted"
+  },
+  {
+   "case": "Box3G0",
+   "group": "probe",
+   "oracle": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.197749985492635,
+       "volume_cm3": 12.441043578278615,
+       "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
+       "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
+       "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.197749985492635,
+       "volume_cm3": 12.441043578278615,
+       "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
+       "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
+       "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3G0Converted.f3d",
+    "converted_sha256": "7b44dfb04b7460b00701ea191c1e454ce6e8d2997df7775d38c91b02a77d907f",
+    "cage_tsm_sha256": "e1020229a23104e10d19fc3ab839b55531c8b5581d1ef45a0f8c6fc7f8241285",
+    "edited_vertex_cm": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3G0.f3d",
+    "saved_sha256": "86e0368f6374377e7e9ea2a49f6de50f773bb483a8c2f118f1a3cab98583742d",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    }
+   },
+   "kit": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.19774998549261,
+       "volume_cm3": 12.441043578278578,
+       "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
+       "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
+       "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.19774998549261,
+       "volume_cm3": 12.441043578278578,
+       "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
+       "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
+       "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3G0Converted.f3d",
+    "converted_sha256": "2d9aaf012a802454a81f1dc705c3c892cd0097f149ce93318c714217fd6a05bf",
+    "cage_tsm_sha256": "e1020229a23104e10d19fc3ab839b55531c8b5581d1ef45a0f8c6fc7f8241285",
+    "edited_vertex_cm": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3G0.f3d",
+    "saved_sha256": "da74b6e1d7558b2222c2143c45139dc6b801c30a708b01a3dd5b2d7faf651913",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    }
+   },
+   "comparisons": [
+    {
+     "comparison": "kit.loaded~oracle.solved.bodies",
+     "max_abs_deviation": 3.730349362740526e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.bodies",
+     "max_abs_deviation": 3.730349362740526e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~kit.edited",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "edited_vertex_cm",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    }
+   ],
+   "areas_cm2": {
+    "kit": {
+     "loaded": [
+      28.19774998549261
+     ],
+     "solved": [
+      28.19774998549261
+     ],
+     "edited": [
+      28.08639550286362
+     ],
+     "reopened": [
+      28.08639550286362
+     ]
+    },
+    "oracle": {
+     "loaded": [
+      28.197749985492635
+     ],
+     "solved": [
+      28.197749985492635
+     ],
+     "edited": [
+      28.08639550286362
+     ],
+     "reopened": [
+      28.08639550286362
+     ]
+    }
+   },
+   "problem_count": 0,
+   "status": "accepted"
+  },
+  {
+   "case": "Box3G2",
+   "group": "probe",
+   "oracle": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.197749985492635,
+       "volume_cm3": 12.441043578278615,
+       "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
+       "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
+       "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.197749985492635,
+       "volume_cm3": 12.441043578278615,
+       "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
+       "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
+       "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3G2Converted.f3d",
+    "converted_sha256": "178bda9e1d518da45506064859f0890eab2c60a2ddbab27119848bf1baab1a29",
+    "cage_tsm_sha256": "e1020229a23104e10d19fc3ab839b55531c8b5581d1ef45a0f8c6fc7f8241285",
+    "edited_vertex_cm": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3G2.f3d",
+    "saved_sha256": "ad788872c248940c8855fbf744b0fe0ec095b16ae196a47eff7b5680b7fb2675",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    }
+   },
+   "kit": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.19774998549261,
+       "volume_cm3": 12.441043578278578,
+       "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
+       "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
+       "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.19774998549261,
+       "volume_cm3": 12.441043578278578,
+       "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
+       "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
+       "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3G2Converted.f3d",
+    "converted_sha256": "186f57671ccae3c1e07b7cd28186e1e7f981283f3967b3b2404545316becb7d3",
+    "cage_tsm_sha256": "e1020229a23104e10d19fc3ab839b55531c8b5581d1ef45a0f8c6fc7f8241285",
+    "edited_vertex_cm": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3G2.f3d",
+    "saved_sha256": "1f6a1dc182b40c47ce18a7f9a97adfd2a5c7fa8ff3b53b29a65c37ce61c186ec",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    }
+   },
+   "comparisons": [
+    {
+     "comparison": "kit.loaded~oracle.solved.bodies",
+     "max_abs_deviation": 3.730349362740526e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.bodies",
+     "max_abs_deviation": 3.730349362740526e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~kit.edited",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "edited_vertex_cm",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    }
+   ],
+   "areas_cm2": {
+    "kit": {
+     "loaded": [
+      28.19774998549261
+     ],
+     "solved": [
+      28.19774998549261
+     ],
+     "edited": [
+      28.08639550286362
+     ],
+     "reopened": [
+      28.08639550286362
+     ]
+    },
+    "oracle": {
+     "loaded": [
+      28.197749985492635
+     ],
+     "solved": [
+      28.197749985492635
+     ],
+     "edited": [
+      28.08639550286362
+     ],
+     "reopened": [
+      28.08639550286362
+     ]
+    }
+   },
+   "problem_count": 0,
+   "status": "accepted"
+  },
+  {
+   "case": "Box3Star1",
+   "group": "probe",
+   "oracle": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.197749985492635,
+       "volume_cm3": 12.441043578278615,
+       "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
+       "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
+       "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.197749985492635,
+       "volume_cm3": 12.441043578278615,
+       "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
+       "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
+       "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3Star1Converted.f3d",
+    "converted_sha256": "904a7f574bbf99e6d288f22b0dc7d5f93500d43928e63166c692ee3b8bc918bd",
+    "cage_tsm_sha256": "70a0bf8b117de55a3586cf0a16b602d20ffa3ad24d3a1a2ffd142bcff827f656",
+    "edited_vertex_cm": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3Star1.f3d",
+    "saved_sha256": "1a2b8683b58b14d33ce6cef3d27aaf19efe80336d482dd9c4766b4dd9b1dd026",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    }
+   },
+   "kit": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.19774998549261,
+       "volume_cm3": 12.441043578278578,
+       "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
+       "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
+       "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.19774998549261,
+       "volume_cm3": 12.441043578278578,
+       "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
+       "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
+       "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3Star1Converted.f3d",
+    "converted_sha256": "55e6848a4842bf5ba048974b859536b427a0f584e090c30861ba4029e90b32b8",
+    "cage_tsm_sha256": "70a0bf8b117de55a3586cf0a16b602d20ffa3ad24d3a1a2ffd142bcff827f656",
+    "edited_vertex_cm": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3Star1.f3d",
+    "saved_sha256": "968b31560742c7dd1c9dc7eed90846fd7430439bbba32d931a13a818eea9471b",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    }
+   },
+   "comparisons": [
+    {
+     "comparison": "kit.loaded~oracle.solved.bodies",
+     "max_abs_deviation": 3.730349362740526e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.bodies",
+     "max_abs_deviation": 3.730349362740526e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~kit.edited",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "edited_vertex_cm",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    }
+   ],
+   "areas_cm2": {
+    "kit": {
+     "loaded": [
+      28.19774998549261
+     ],
+     "solved": [
+      28.19774998549261
+     ],
+     "edited": [
+      28.08639550286362
+     ],
+     "reopened": [
+      28.08639550286362
+     ]
+    },
+    "oracle": {
+     "loaded": [
+      28.197749985492635
+     ],
+     "solved": [
+      28.197749985492635
+     ],
+     "edited": [
+      28.08639550286362
+     ],
+     "reopened": [
+      28.08639550286362
+     ]
+    }
+   },
+   "problem_count": 0,
+   "status": "accepted"
+  },
+  {
+   "case": "Box3Star2",
+   "group": "probe",
+   "oracle": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.197749985492635,
+       "volume_cm3": 12.441043578278615,
+       "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
+       "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
+       "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.197749985492635,
+       "volume_cm3": 12.441043578278615,
+       "face_rows_sha256": "7a8942fcbde506853b0d90f58f5bb3fc96b422020d037cf492e48670ff74616c",
+       "edge_rows_sha256": "330927c07b618541f9fd722076cbce37037fa86dc9e021dc5c086cb75d23b677",
+       "vertex_cm_sha256": "aedc813966604efa371943fa4912fd6d001abf0e2734a3a4c3aadb897a54c35b"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3Star2Converted.f3d",
+    "converted_sha256": "089dc2e301c0fc375287733bb41caaa1e12df37b523bd6a25cad74104cfa36e9",
+    "cage_tsm_sha256": "55512119f4a630079099857341613df7a96442ed38fd1ae22bcf663a1bc7a902",
+    "edited_vertex_cm": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleBox3Star2.f3d",
+    "saved_sha256": "2973e683cfdd2b364e119f9889c74ec150b9e49a4f9b83b1633a3cdc3b4940c8",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    }
+   },
+   "kit": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.19774998549261,
+       "volume_cm3": 12.441043578278578,
+       "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
+       "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
+       "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.19774998549261,
+       "volume_cm3": 12.441043578278578,
+       "face_rows_sha256": "74048e0826bfcbb6ae14ddfa15973251a76309fb13007e0d9b05f29cb9da8a5e",
+       "edge_rows_sha256": "1d6684fb8482ccd82b65d2d28780f5e790ab2fd83011db7a06e033970a010483",
+       "vertex_cm_sha256": "588de6ad24c14a55836d082775403aebed0872dba1b07e92f8f0b0e1c62777d6"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3Star2Converted.f3d",
+    "converted_sha256": "979abdf74ff238e22e75d6d71c7cd77ced357ba31151cb172cefebd317486fd7",
+    "cage_tsm_sha256": "55512119f4a630079099857341613df7a96442ed38fd1ae22bcf663a1bc7a902",
+    "edited_vertex_cm": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitBox3Star2.f3d",
+    "saved_sha256": "2b411e95ec21c107efc60d9b4f7124457d0178546a94f7824472509fb2e2a85b",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 6,
+       "edges": 12,
+       "vertices": 8,
+       "area_cm2": 28.08639550286362,
+       "volume_cm3": 12.398528701468491,
+       "face_rows_sha256": "d9d3b74bee4ec5a53b6b02563d3f43cfcf6fd1358fb0e750cf53f401e24ea85e",
+       "edge_rows_sha256": "87717f9700e188600d7022cded245374d0fed9f49667885aa64586f8cd00cc0e",
+       "vertex_cm_sha256": "b37b3e9fd8c7c713a8ac8e4aa5dd1d86ab422c05b8a7fbab81ee8cb8f97f211c"
+      }
+     ]
+    }
+   },
+   "comparisons": [
+    {
+     "comparison": "kit.loaded~oracle.solved.bodies",
+     "max_abs_deviation": 3.730349362740526e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.bodies",
+     "max_abs_deviation": 3.730349362740526e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~kit.edited",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "edited_vertex_cm",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    }
+   ],
+   "areas_cm2": {
+    "kit": {
+     "loaded": [
+      28.19774998549261
+     ],
+     "solved": [
+      28.19774998549261
+     ],
+     "edited": [
+      28.08639550286362
+     ],
+     "reopened": [
+      28.08639550286362
+     ]
+    },
+    "oracle": {
+     "loaded": [
+      28.197749985492635
+     ],
+     "solved": [
+      28.197749985492635
+     ],
+     "edited": [
+      28.08639550286362
+     ],
+     "reopened": [
+      28.08639550286362
+     ]
+    }
+   },
+   "problem_count": 0,
+   "status": "accepted"
+  },
+  {
+   "case": "HeldPrism5Same",
+   "group": "held-out",
+   "oracle": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881707,
+       "volume_cm3": 4.640593243655983,
+       "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
+       "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881707,
+       "volume_cm3": 4.640593243655983,
+       "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
+       "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5SameConverted.f3d",
+    "converted_sha256": "e13a9dcbd1d86e66f757fa7bf27edd6162ccadb69c122d684b175b7da5e5e39a",
+    "cage_tsm_sha256": "b9c75f704c047662381501aec77ba2b51ca8465697e7c2dcce30819c19395211",
+    "edited_vertex_cm": [
+     -1.006732293,
+     -0.669588166,
+     0.48020589
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5Same.f3d",
+    "saved_sha256": "8c293c45a79c7f92fadda474bcde88197118a9581c01de0e7ed442286f8c946a",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    }
+   },
+   "kit": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881733,
+       "volume_cm3": 4.640593243655995,
+       "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
+       "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
+       "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881733,
+       "volume_cm3": 4.640593243655995,
+       "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
+       "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
+       "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5SameConverted.f3d",
+    "converted_sha256": "7e0a6292532a72086def29dca2bbb2a17e59f5283f23e7bc40d679ac2ff63f6b",
+    "cage_tsm_sha256": "b9c75f704c047662381501aec77ba2b51ca8465697e7c2dcce30819c19395211",
+    "edited_vertex_cm": [
+     -1.006732293,
+     -0.669588166,
+     0.48020589
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5Same.f3d",
+    "saved_sha256": "ec42d55e5f3f10a630c2ac1afd9bf35fd425752fe9afbce38cded3e782382e2d",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    }
+   },
+   "comparisons": [
+    {
+     "comparison": "kit.loaded~oracle.solved.bodies",
+     "max_abs_deviation": 6.195044477408373e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.bodies",
+     "max_abs_deviation": 6.195044477408373e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~kit.edited",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "edited_vertex_cm",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    }
+   ],
+   "areas_cm2": {
+    "kit": {
+     "loaded": [
+      14.693249836881733
+     ],
+     "solved": [
+      14.693249836881733
+     ],
+     "edited": [
+      14.67340314680529
+     ],
+     "reopened": [
+      14.67340314680529
+     ]
+    },
+    "oracle": {
+     "loaded": [
+      14.693249836881707
+     ],
+     "solved": [
+      14.693249836881707
+     ],
+     "edited": [
+      14.67340314680529
+     ],
+     "reopened": [
+      14.67340314680529
+     ]
+    }
+   },
+   "problem_count": 0,
+   "status": "accepted"
+  },
+  {
+   "case": "HeldPrism5G0",
+   "group": "held-out",
+   "oracle": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881707,
+       "volume_cm3": 4.640593243655983,
+       "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
+       "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881707,
+       "volume_cm3": 4.640593243655983,
+       "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
+       "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5G0Converted.f3d",
+    "converted_sha256": "b7de65f97783b755350f1df41c41ab33a044be109633494a5f9bac145727345c",
+    "cage_tsm_sha256": "b9c75f704c047662381501aec77ba2b51ca8465697e7c2dcce30819c19395211",
+    "edited_vertex_cm": [
+     -1.006732293,
+     -0.669588166,
+     0.48020589
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5G0.f3d",
+    "saved_sha256": "6625347eef28eca89f76ec2a5f97465a519254831862dbae3f4526425b9b819d",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    }
+   },
+   "kit": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881733,
+       "volume_cm3": 4.640593243655995,
+       "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
+       "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
+       "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881733,
+       "volume_cm3": 4.640593243655995,
+       "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
+       "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
+       "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5G0Converted.f3d",
+    "converted_sha256": "089863776cad0caaca834405acdedf90197db94ce9fadd7f5b1da28441952f38",
+    "cage_tsm_sha256": "b9c75f704c047662381501aec77ba2b51ca8465697e7c2dcce30819c19395211",
+    "edited_vertex_cm": [
+     -1.006732293,
+     -0.669588166,
+     0.48020589
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5G0.f3d",
+    "saved_sha256": "0b7696aacdbf142bad3ac2da5887f26ec0e34edd4235d5069a60f56ff5574e04",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    }
+   },
+   "comparisons": [
+    {
+     "comparison": "kit.loaded~oracle.solved.bodies",
+     "max_abs_deviation": 6.195044477408373e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.bodies",
+     "max_abs_deviation": 6.195044477408373e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~kit.edited",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "edited_vertex_cm",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    }
+   ],
+   "areas_cm2": {
+    "kit": {
+     "loaded": [
+      14.693249836881733
+     ],
+     "solved": [
+      14.693249836881733
+     ],
+     "edited": [
+      14.67340314680529
+     ],
+     "reopened": [
+      14.67340314680529
+     ]
+    },
+    "oracle": {
+     "loaded": [
+      14.693249836881707
+     ],
+     "solved": [
+      14.693249836881707
+     ],
+     "edited": [
+      14.67340314680529
+     ],
+     "reopened": [
+      14.67340314680529
+     ]
+    }
+   },
+   "problem_count": 0,
+   "status": "accepted"
+  },
+  {
+   "case": "HeldPrism5G2",
+   "group": "held-out",
+   "oracle": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881707,
+       "volume_cm3": 4.640593243655983,
+       "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
+       "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881707,
+       "volume_cm3": 4.640593243655983,
+       "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
+       "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5G2Converted.f3d",
+    "converted_sha256": "16e956c55e9253c23b6ad05327dc305db7589c6c2dbe3745583d8a9d06dac89d",
+    "cage_tsm_sha256": "b9c75f704c047662381501aec77ba2b51ca8465697e7c2dcce30819c19395211",
+    "edited_vertex_cm": [
+     -1.006732293,
+     -0.669588166,
+     0.48020589
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5G2.f3d",
+    "saved_sha256": "68eb14e183ba645e07ae448720ce8b9ab928e17a4a749c864d54ba6549106c0a",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    }
+   },
+   "kit": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881733,
+       "volume_cm3": 4.640593243655995,
+       "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
+       "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
+       "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881733,
+       "volume_cm3": 4.640593243655995,
+       "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
+       "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
+       "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5G2Converted.f3d",
+    "converted_sha256": "d37d500393003b9b64b7469e28aacae0d626810bfda2e4fbe44b9ecc3d2f14f3",
+    "cage_tsm_sha256": "b9c75f704c047662381501aec77ba2b51ca8465697e7c2dcce30819c19395211",
+    "edited_vertex_cm": [
+     -1.006732293,
+     -0.669588166,
+     0.48020589
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5G2.f3d",
+    "saved_sha256": "8951989be2a7eb5c28ff0eed6130f8cc6ca5ad5de6a4cb3a6413441245ce84f9",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    }
+   },
+   "comparisons": [
+    {
+     "comparison": "kit.loaded~oracle.solved.bodies",
+     "max_abs_deviation": 6.195044477408373e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.bodies",
+     "max_abs_deviation": 6.195044477408373e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~kit.edited",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "edited_vertex_cm",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    }
+   ],
+   "areas_cm2": {
+    "kit": {
+     "loaded": [
+      14.693249836881733
+     ],
+     "solved": [
+      14.693249836881733
+     ],
+     "edited": [
+      14.67340314680529
+     ],
+     "reopened": [
+      14.67340314680529
+     ]
+    },
+    "oracle": {
+     "loaded": [
+      14.693249836881707
+     ],
+     "solved": [
+      14.693249836881707
+     ],
+     "edited": [
+      14.67340314680529
+     ],
+     "reopened": [
+      14.67340314680529
+     ]
+    }
+   },
+   "problem_count": 0,
+   "status": "accepted"
+  },
+  {
+   "case": "HeldPrism5Star1",
+   "group": "held-out",
+   "oracle": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881707,
+       "volume_cm3": 4.640593243655983,
+       "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
+       "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881707,
+       "volume_cm3": 4.640593243655983,
+       "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
+       "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5Star1Converted.f3d",
+    "converted_sha256": "ee8a725301c267cbad69cf8212ed213f4bf2d7765518588d03fb8aac9b184287",
+    "cage_tsm_sha256": "764007766f6d562223f3824706687f219958253b87270c544dead84633457e7c",
+    "edited_vertex_cm": [
+     -1.006732293,
+     -0.669588166,
+     0.48020589
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5Star1.f3d",
+    "saved_sha256": "f83fbee31abd6c0f0665b1f3b41d51be3f0db8c3518793f5e9ed4af8d33b8dc7",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    }
+   },
+   "kit": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881733,
+       "volume_cm3": 4.640593243655995,
+       "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
+       "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
+       "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881733,
+       "volume_cm3": 4.640593243655995,
+       "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
+       "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
+       "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5Star1Converted.f3d",
+    "converted_sha256": "d9258777e24fa9cbf1cb0fc72dddb5d93fa79c00c7034f8a9aa91b28a5a4d969",
+    "cage_tsm_sha256": "764007766f6d562223f3824706687f219958253b87270c544dead84633457e7c",
+    "edited_vertex_cm": [
+     -1.006732293,
+     -0.669588166,
+     0.48020589
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5Star1.f3d",
+    "saved_sha256": "12a49e48aecc0298fb725626c58d477f6d834514496d718d233404f09993c962",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    }
+   },
+   "comparisons": [
+    {
+     "comparison": "kit.loaded~oracle.solved.bodies",
+     "max_abs_deviation": 6.195044477408373e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.bodies",
+     "max_abs_deviation": 6.195044477408373e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~kit.edited",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "edited_vertex_cm",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    }
+   ],
+   "areas_cm2": {
+    "kit": {
+     "loaded": [
+      14.693249836881733
+     ],
+     "solved": [
+      14.693249836881733
+     ],
+     "edited": [
+      14.67340314680529
+     ],
+     "reopened": [
+      14.67340314680529
+     ]
+    },
+    "oracle": {
+     "loaded": [
+      14.693249836881707
+     ],
+     "solved": [
+      14.693249836881707
+     ],
+     "edited": [
+      14.67340314680529
+     ],
+     "reopened": [
+      14.67340314680529
+     ]
+    }
+   },
+   "problem_count": 0,
+   "status": "accepted"
+  },
+  {
+   "case": "HeldPrism5Star2",
+   "group": "held-out",
+   "oracle": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881707,
+       "volume_cm3": 4.640593243655983,
+       "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
+       "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881707,
+       "volume_cm3": 4.640593243655983,
+       "face_rows_sha256": "e8ec85c4bd333623b9b94882b09e17fa10f465670a99b9e1a7b80433e4853da9",
+       "edge_rows_sha256": "c70e498741f44bd1cd807fba941ce88a9d538ec71d2c35e0c092e2fa5b4de730",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5Star2Converted.f3d",
+    "converted_sha256": "ef5ae526da58dee10113a70f73ec86c717cd9d406149adfd6a124742958a730e",
+    "cage_tsm_sha256": "eba630479ba69e6e9453b7a8345287558dd2426916a6c9f87ce61d0e0fce11de",
+    "edited_vertex_cm": [
+     -1.006732293,
+     -0.669588166,
+     0.48020589
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/OracleHeldPrism5Star2.f3d",
+    "saved_sha256": "35c04f933c36d895b35d8b4b5e5dd882aa55b2d6fc00c0bdc7a201c3bfbdb5a8",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    }
+   },
+   "kit": {
+    "loaded": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881733,
+       "volume_cm3": 4.640593243655995,
+       "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
+       "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
+       "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
+      }
+     ]
+    },
+    "compute_all": true,
+    "solved": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.693249836881733,
+       "volume_cm3": 4.640593243655995,
+       "face_rows_sha256": "92df3c8cb11035f4a39801ecf2660ca2d48128f73a12e67eaf49176a3f917bf0",
+       "edge_rows_sha256": "0c09a1788fcdb5e77764f66088eb66b98c41d3b1357744814546c1a4bcaa7214",
+       "vertex_cm_sha256": "b5c4096c735e975e8b1df1e48581f4c345f628f5508f5ff09d6ecb8d33667e38"
+      }
+     ]
+    },
+    "converted_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5Star2Converted.f3d",
+    "converted_sha256": "a6ba4843956cc506d8e07245fae12fc4e22aadf7ffd7dfa8ea6c5ae878be3ec7",
+    "cage_tsm_sha256": "eba630479ba69e6e9453b7a8345287558dd2426916a6c9f87ce61d0e0fce11de",
+    "edited_vertex_cm": [
+     -1.006732293,
+     -0.669588166,
+     0.48020589
+    ],
+    "edited_compute": true,
+    "edited": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    },
+    "saved_file": "re/Fusion/LocalOracle/FormDocuments/General/CapAccept/tmp/KitHeldPrism5Star2.f3d",
+    "saved_sha256": "28d46eb278b07d8e1f3a7515b8cda64510039c4b0089334c2d5c35b8aaa104ae",
+    "reopened": {
+     "timeline": [
+      {
+       "name": "Form1",
+       "health": 0,
+       "message": ""
+      }
+     ],
+     "form_health": [
+      0
+     ],
+     "bodies": [
+      {
+       "solid": true,
+       "faces": 15,
+       "edges": 35,
+       "vertices": 22,
+       "area_cm2": 14.67340314680529,
+       "volume_cm3": 4.622316303609363,
+       "face_rows_sha256": "1a5d2e7e193ee57ffa1a7c09a95462105889110bea527748b9aceb25cf3e56db",
+       "edge_rows_sha256": "b98345e6b01ca7e2a17ebd530cca3deca44bd7605aa1e88aace392da4b4add3f",
+       "vertex_cm_sha256": "0ec4debaf8aa99f5f1258224638c5a044344998bc1a878fccf1ff27d9be1e721"
+      }
+     ]
+    }
+   },
+   "comparisons": [
+    {
+     "comparison": "kit.loaded~oracle.solved.bodies",
+     "max_abs_deviation": 6.195044477408373e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.bodies",
+     "max_abs_deviation": 6.195044477408373e-14,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved~oracle.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited~oracle.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.bodies",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~oracle.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened~kit.edited",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.loaded.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.solved.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.edited.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.timeline_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "kit.reopened.form_health",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "cage_tsm_sha256",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    },
+    {
+     "comparison": "edited_vertex_cm",
+     "max_abs_deviation": 0.0,
+     "problem_count": 0,
+     "problems": []
+    }
+   ],
+   "areas_cm2": {
+    "kit": {
+     "loaded": [
+      14.693249836881733
+     ],
+     "solved": [
+      14.693249836881733
+     ],
+     "edited": [
+      14.67340314680529
+     ],
+     "reopened": [
+      14.67340314680529
+     ]
+    },
+    "oracle": {
+     "loaded": [
+      14.693249836881707
+     ],
+     "solved": [
+      14.693249836881707
+     ],
+     "edited": [
+      14.67340314680529
+     ],
+     "reopened": [
+      14.67340314680529
+     ]
+    }
+   },
+   "problem_count": 0,
+   "status": "accepted"
+  }
+ ],
+ "status": "accepted",
+ "documents_after": 0
+}
