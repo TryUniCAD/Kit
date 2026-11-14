@@ -244,7 +244,7 @@ def FreecadRPD(
     ValueList = (
         ("AllowMultiFace", True, ValueKind.BOOLEAN, ""),
         ("AlongSketchNormal", True, ValueKind.BOOLEAN, ""),
-        ("FuzzyTolerance", 0.0, ValueKind.NUMBER, ""),
+        ("FuzzyTolerance", -1.0, ValueKind.NUMBER, ""),
         ("Label", "Pad", ValueKind.STRING, ""),
         ("Label2", "", ValueKind.STRING, ""),
         ("Length", Depth, ValueKind.LENGTH, "mm"),

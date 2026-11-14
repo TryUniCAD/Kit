@@ -7784,9 +7784,9 @@ def FreecadSingle(
     Expected = {
         "AllowMultiFace": (ValueKind.BOOLEAN, True),
         "AlongSketchNormal": (ValueKind.BOOLEAN, True),
-        "FuzzyTolerance": (ValueKind.NUMBER, 0.0),
-        "Label": (ValueKind.STRING, None),
-        "Label2": (ValueKind.STRING, None),
+        "FuzzyTolerance": (ValueKind.NUMBER, -1.0),
+        "Label": (ValueKind.STRING, Feature.name),
+        "Label2": (ValueKind.STRING, ""),
         "Length": (ValueKind.LENGTH, Dimension.value_mm),
         "Length2": (ValueKind.LENGTH, 10.0),
         "Midplane": (ValueKind.BOOLEAN, Definition.symmetric),

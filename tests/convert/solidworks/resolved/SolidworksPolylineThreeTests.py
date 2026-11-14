@@ -286,7 +286,7 @@ def TestFuzzyLoss(TmpPath: FilePath) -> None:
             (
                 ReplaceData(
                     ParamData,
-                    value=ParameterValue(1.0, ValueKind.NUMBER, ""),
+                    value=ParameterValue(5e-11, ValueKind.NUMBER, ""),
                 )
                 if ParamData.attributes.get("freecad_path") == "FuzzyTolerance"
                 else ParamData
@@ -297,6 +297,27 @@ def TestFuzzyLoss(TmpPath: FilePath) -> None:
     assert HasVendorPartEncoding(Changed) is False
     with PytestLib.raises(ApplicationUsabilityError):
         _ = WriteDoc(Changed, TmpPath / "FuzzyLoss.SLDPRT", allow_carrier=False)
+
+
+def TestLabelLoss(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    Changed = ReplaceData(
+        SourceDoc,
+        parameters=tuple(
+            (
+                ReplaceData(
+                    ParamData,
+                    value=ParameterValue("Custom", ValueKind.STRING, ""),
+                )
+                if ParamData.attributes.get("freecad_path") == "Label2"
+                else ParamData
+            )
+            for ParamData in SourceDoc.parameters
+        ),
+    )
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(ApplicationUsabilityError):
+        _ = WriteDoc(Changed, TmpPath / "LabelLoss.SLDPRT", allow_carrier=False)
 
 
 def TestOpenWire(TmpPath: FilePath) -> None:
