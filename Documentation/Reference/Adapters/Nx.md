@@ -79,6 +79,18 @@ WriteNx(Changed, "part-rewrite.prt")
 The writer raises an error when a rebuilt seal does not match, so an
 inconsistent container is never written.
 
+A part can be renamed with `nx.part_name`:
+
+```python
+Changed = replace(
+    Document, metadata={**Document.metadata, "nx.part_name": "black.prt"}
+)
+WriteNx(Changed, "renamed.prt")
+```
+
+The new name must keep the current byte length and the `.prt` suffix. NX stores
+the name in five places, so a rename updates all of them or none.
+
 ## Limits
 
 - The writer does not create new NX geometry, features, expressions, or

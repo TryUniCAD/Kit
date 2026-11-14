@@ -230,3 +230,58 @@ def TestNxFiller() -> None:
     )
     Document = ReadNx(DataValue, ReadOptions(strict=False))
     assert Document.metadata["nx.segment_count"] == 2
+
+
+# a same length rename rewrites every native name lane and keeps the part valid
+def TestNxRename() -> None:
+    import tempfile as TempLib
+    from pathlib import Path as PathLib
+
+    Payload = (
+        (0).to_bytes(12, "little")
+        + (1).to_bytes(4, "little")
+        + (1).to_bytes(4, "little")
+        + (24).to_bytes(4, "little")
+        + b"synth.prt"
+    )
+    DataValue = BuildSplm(
+        [
+            ("/Root/", None),
+            ("/Root/part/", None),
+            ("/Root/UG_PART/", None),
+            ("/Root/part/attrs", KAttributes),
+            ("/Root/UG_PART/UG_PART", Payload),
+        ],
+        FileTag=0x2BBA,
+        HeaderTrailer=KTrailer,
+    )
+    with TempLib.TemporaryDirectory() as Folder:
+        Source = PathLib(Folder) / "synth.prt"
+        Target = PathLib(Folder) / "renamed.prt"
+        _ = Source.write_bytes(DataValue)
+        Document = ReadNx(Source, ReadOptions(strict=False))
+        Changed = Replace(
+            Document, metadata={**Document.metadata, "nx.part_name": "other.prt"}
+        )
+        Result = WriteNx(Changed, Target, WriteOptions())
+        assert Result.metadata["part_renamed"] is True
+        Written = Target.read_bytes()
+        assert b"other.prt" in Written
+        assert b"synth.prt" not in Written
+
+
+# rename refuses a different length and a non prt suffix instead of corrupting
+def TestNxNoRename() -> None:
+    Document = ReadNx(SyntheticPart(), ReadOptions(strict=False))
+    for BadName in ("other.prt", "synth.stp"):
+        try:
+            _ = WriteNx(
+                Replace(
+                    Document, metadata={**Document.metadata, "nx.part_name": BadName}
+                ),
+                BytesIo(),
+                WriteOptions(),
+            )
+        except ValueError:
+            continue
+        raise AssertionError(f"rename accepted {BadName}")

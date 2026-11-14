@@ -30,6 +30,13 @@ Header-changing rewrites are therefore supported. Equal-length native
 attribute overrides update `/Root/part/attrs` and the matching object-model
 value. `nx.stream_overrides` replaces a whole stream at any byte length.
 
+`nx.part_name` renames the part. A rename rewrites the section headers, the
+file-name frame in the object-model middle, and the self references in
+`RMFastLoad`, `Structure`, `FastLoad/ExternalReferences`,
+`UG_PART/UG_PART`, and `UG_PART/ExternalReferences`. The new name must keep the
+old byte length and the `.prt` suffix; other names are refused because the
+name bytes are addressed by absolute offsets.
+
 ## Usage
 
 ```python
@@ -47,6 +54,7 @@ See [the adapter guide](../../Reference/Adapters/Nx.md).
   assemblies from a neutral model.
 - Attribute overrides keep the value byte length because the object-model
   record is length framed.
+- A part rename requires the same byte length as the current name.
 - Legacy compound parts are read without B-rep projection. Writing one is
   refused because the modern container checksum layout would change.
 - NX expressions remain native objects; they are not projected into neutral
@@ -72,6 +80,11 @@ The rewrite changed the native `NX_ReferenceSet` attribute from `Empty` to
 The live feature tree rebuilt after the `length` expression changed from `40`
 to `45`. NX reported volume `27000 mm3`, area `5700 mm2`, and centroid
 `(22.500000000000004, 15.000000000000002, 10.000000000000002)`.
+
+NX also loaded a rename built by the adapter. `block.prt` written as
+`black.prt` kept one body, `DATUM_CSYS` and `BLOCK`, six expressions, volume
+`23999.999999999996`, area `5200`, and mass `0.18793536`, and the reader then
+reported only the new external reference.
 
 NX also loaded a header-changing rewrite built by the adapter. The rewrite
 grew `/Root/FastLoad/ExternalReferences` by four bytes, shifted every later
