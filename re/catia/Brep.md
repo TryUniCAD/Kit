@@ -552,6 +552,16 @@ appear as `u32` little-endian anywhere in any stream except inside the surface b
 `SurfacicReps` offsets 87, 160, 209, 258, and 331. So the tail is not the tag that the face record
 stores, and the tag array is not a plain `u32` array of those values.
 
+`Copper_Washer` `MainDataStream` contains no `u32` value in `400..500` in either byte order. So the
+surface tags are not stored as `u32` in the B-rep stream at all. The tag array that
+`ReadListOfLinkedObjects` reads must therefore be encoded differently from a plain `u32` array, or
+the tags are assigned at read time from the object header rather than stored in the face record.
+
+The object header is a scalable tag difference plus a `u32` table index. The tag difference is
+relative to the previous tag, so the absolute tag of each object depends on the order in which the
+objects are emitted. That order is not recoverable from a byte-pattern scan, because the same
+difference bytes mean different absolute tags at different stream positions.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
