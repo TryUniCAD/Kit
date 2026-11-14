@@ -36,6 +36,7 @@ The check compares a baseline entry for a fall only when the entry's root is ins
 An update keeps every other entry unchanged.
 A scan of single files or of a directory below a root therefore cannot lower or remove that root's entry.
 The check resolves each path, so the same file given twice is counted once.
+Roots and scanned directories are compared as resolved absolute paths, so a scan of a parent directory covers the roots below the working directory.
 An unknown rule code in the baseline is an input error.
 
 At introduction the check found 185,090 recorded field operations and 43 re-emission calls in 43 program roots.
@@ -70,7 +71,7 @@ The check passed on `src` against the committed baseline.
 Its per-root counts match the documented programs: 3,522 operations for the box `ResolvedFeatures` program and 4,345 for the box `Config-0` program.
 No root outside `src/convert/adapters/solidworks/programs/` matched.
 Black, Ruff, mypy, pyright, repository-wide steering, zizmor, and Prettier passed locally.
-`tests/steering/ReplayRatchetTests.py` runs the command as a subprocess for equal, grown, new, fallen, and invalid inputs.
+`tests/steering/ReplayRatchetTests.py` runs the command as a subprocess for equal, aliased, grown, new, fallen, partial, parent-directory, outside-root, and invalid inputs.
 Those tests were not run locally under the repository test policy.
 PR CI runs them.
 

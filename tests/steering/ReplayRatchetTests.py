@@ -179,6 +179,43 @@ class TestPartial(Unittest.TestCase):
         CaseSelf.assertTrue(BaselineText.endswith(KBalancedText + KOtherText))
 
 
+class TestParent(Unittest.TestCase):
+
+    @staticmethod
+    def CheckParent() -> None:
+        CaseSelf = KAssertions
+        LooseText = KBalancedText.replace("REP001\t2", "REP001\t5")
+        with Tempfile.TemporaryDirectory() as TmpPath:
+            KitPath = FilePath(TmpPath) / "kit"
+            WriteTree(KitPath, KTableText, LooseText)
+            ResultInfo = RunRatchet(KitPath, "..")
+            UpdateInfo = RunRatchet(KitPath, "--update-baseline", "..")
+            BaselineText = ReadBaseline(KitPath)
+        CaseSelf.assertEqual(ResultInfo.returncode, 1)
+        CaseSelf.assertIn("fell from 5 to 2", ResultInfo.stdout)
+        CaseSelf.assertEqual(UpdateInfo.returncode, 0, UpdateInfo.stderr)
+        CaseSelf.assertTrue(BaselineText.endswith(KBalancedText))
+
+
+class TestOutside(Unittest.TestCase):
+
+    @staticmethod
+    def CheckOutside() -> None:
+        CaseSelf = KAssertions
+        with Tempfile.TemporaryDirectory() as TmpPath:
+            FolderPath = FilePath(TmpPath) / "kit"
+            OuterText = (FilePath(TmpPath).resolve() / "outer").as_posix()
+            OuterLine = f"{OuterText}\tREP001\t5\n"
+            WriteTree(FolderPath, KTableText, OuterLine + KBalancedText)
+            ResultInfo = RunRatchet(FolderPath, ".")
+            UpdateInfo = RunRatchet(FolderPath, "--update-baseline", ".")
+            BaselineText = ReadBaseline(FolderPath)
+        CaseSelf.assertEqual(ResultInfo.returncode, 0, ResultInfo.stdout)
+        CaseSelf.assertEqual(UpdateInfo.returncode, 0, UpdateInfo.stderr)
+        CaseSelf.assertIn(OuterLine, BaselineText)
+        CaseSelf.assertTrue(BaselineText.endswith(KBalancedText))
+
+
 class TestInputs(Unittest.TestCase):
 
     @staticmethod

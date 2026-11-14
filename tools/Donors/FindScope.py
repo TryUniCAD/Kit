@@ -2,14 +2,11 @@ from __future__ import annotations
 
 from collections.abc import Sequence
 from pathlib import Path as FilePath
-from pathlib import PurePosixPath
-
-from tools.Donors.ShowPath import ShowPath
 
 
-def FindScope(PathValues: Sequence[str]) -> tuple[PurePosixPath, ...]:
+def FindScope(PathValues: Sequence[str]) -> tuple[FilePath, ...]:
     return tuple(
-        PurePosixPath(ShowPath(FilePath(PathValue)))
+        FilePath(PathValue).resolve()
         for PathValue in PathValues
         if FilePath(PathValue).is_dir()
     )

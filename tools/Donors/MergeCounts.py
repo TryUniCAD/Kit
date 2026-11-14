@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
-from pathlib import PurePosixPath
+from pathlib import Path as FilePath
 
 from tools.Donors.IsCovered import IsCovered
 
@@ -9,7 +9,7 @@ from tools.Donors.IsCovered import IsCovered
 def MergeCounts(
     CurrentMap: Mapping[tuple[str, str], int],
     BaselineMap: Mapping[tuple[str, str], int],
-    ScopeList: Sequence[PurePosixPath],
+    ScopeList: Sequence[FilePath],
 ) -> dict[tuple[str, str], int]:
     MergedMap = {
         KeyPair: CountValue

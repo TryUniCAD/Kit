@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
-from pathlib import PurePosixPath
+from pathlib import Path as FilePath
 
 from tools.Donors.FormatLabel import FormatLabel
 from tools.Donors.IsCovered import IsCovered
@@ -10,7 +10,7 @@ from tools.Donors.IsCovered import IsCovered
 def FindStale(
     CurrentMap: Mapping[tuple[str, str], int],
     BaselineMap: Mapping[tuple[str, str], int],
-    ScopeList: Sequence[PurePosixPath],
+    ScopeList: Sequence[FilePath],
 ) -> list[str]:
     StaleList: list[str] = []
     for KeyPair, Allowed in sorted(BaselineMap.items()):
