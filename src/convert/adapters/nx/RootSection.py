@@ -3,6 +3,12 @@ from __future__ import annotations as Annotations
 import struct as Struct
 
 from convert.adapters.nx.Payload import NxPayload
+from convert.adapters.nx.Construction import (
+    Adopt,
+    ConstructMiddle,
+    KMiddleLength,
+    ObjectCount,
+)
 from convert.adapters.nx.PayloadBuild import ResizePayload
 from convert.adapters.nx.PayloadReader import ReadPayload
 
@@ -77,8 +83,8 @@ def AuthorSections(Payload: bytes) -> bytes:
     Parsed = ReadPayload(Payload)
     if Parsed.legacy:
         raise ValueError("NX authored sections require a modern payload")
-    if len(Parsed.sections) <= KFeatureIndex:
-        raise ValueError("NX authored sections require a root and feature section")
+    if len(Parsed.sections) <= KRootIndex:
+        raise ValueError("NX authored sections require a root section")
     Section = Parsed.sections[KRootIndex]
     SectionBody = Payload[Section.body_offset : Section.body_offset + Section.size]
     Offset = PointerOffset(SectionBody)
@@ -94,18 +100,19 @@ def AuthorSections(Payload: bytes) -> bytes:
 
 # the payload must end at the last section body because trailing bytes are refused
 def WithStub(Payload: bytes, Parsed: NxPayload, RootBody: bytes) -> bytes:
-    Bodies = [
-        (
-            RootBody
-            if Index == KRootIndex
-            else (
-                KFeatureStub
-                if Index == KFeatureIndex
-                else Payload[Section.body_offset : Section.body_offset + Section.size]
+    Bodies: list[bytes] = []
+    for Index, Section in enumerate(Parsed.sections):
+        SectionBody = Payload[Section.body_offset : Section.body_offset + Section.size]
+        if Index == KRootIndex:
+            SectionBody = RootBody
+        elif Index == KFeatureIndex and Index < len(Parsed.sections):
+            SectionBody = KFeatureStub
+        elif Index == 1 and ObjectCount(SectionBody) == 3:
+            Pointer = int(
+                Struct.unpack_from("<I", SectionBody, PointerOffset(SectionBody))[0]
             )
-        )
-        for Index, Section in enumerate(Parsed.sections)
-    ]
+            SectionBody = Adopt(SectionBody, ConstructMiddle(Pointer - KMiddleLength))
+        Bodies.append(SectionBody)
     Resized = ResizePayload(Payload, Bodies)
     EndValue = ReadPayload(Resized).sections[-1]
     return Resized[: EndValue.body_offset + EndValue.size]

@@ -9,6 +9,7 @@ from convert.adapters import AdapterRegistry, CadAdapter, ReadOptions, WriteOpti
 from convert.adapters.nx import NxAdapter, ProbeNx, ReadNx, WriteNx
 from convert.adapters.nx.ExprValue import DecodeValue, EncodeValue
 from convert.adapters.nx.PayloadBuild import ResizePayload
+from convert.adapters.nx.Construction import ConstructMiddle, ObjectCount, Record
 from convert.adapters.nx.RootSection import KRootCounter, RootMiddle
 from convert.adapters.nx.PayloadReader import ReadPayload
 from convert.adapters.nx.Splm import KChecksumOffset, KHeaderRegion
@@ -509,3 +510,37 @@ def TestNxAuth() -> None:
     except ValueError:
         return
     raise AssertionError("authored sections accepted a payload without sections")
+
+
+# the body less construction middle is a fixed 356 byte layout
+def TestNxConstr() -> None:
+    Middle = ConstructMiddle(0x34C)
+    assert len(Middle) == 356
+    assert int.from_bytes(Middle[0x2C:0x30], "little") == 0x3D8
+    assert Middle[0xCA:0xD1] == b"\xff" * 7
+    Table = [
+        int.from_bytes(Middle[0x70 + 4 * Index : 0x74 + 4 * Index], "little")
+        for Index in range(3)
+    ]
+    assert Table == [0x34C + 0xBD, 0x34C + 0xD8, 0x34C + 0xF4]
+    assert Middle[0xBD:0xC7] == b"\x41\x00\x03\x05\x01\x00\x04\x05\x02\x00"
+    assert len(Record()) == 112
+    assert Record()[0x20] == 7 and Record()[0x43] == 8
+    assert Record(10, 11)[0x20] == 10 and Record(10, 11)[0x43] == 11
+    try:
+        _ = ConstructMiddle(0x34C, b"\xff" * 6)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("construction middle accepted a short identity")
+    assert (
+        ObjectCount(
+            (0x29).to_bytes(0, "little")
+            + bytes(0x25)
+            + (9).to_bytes(4, "little")
+            + b"dim40.prt"
+            + (3).to_bytes(4, "little")
+            + bytes(28)
+        )
+        == 3
+    )

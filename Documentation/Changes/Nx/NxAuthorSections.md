@@ -64,7 +64,9 @@ checks that a payload without object model sections is refused.
 
 ## Limits
 
-- Sections 0, 1 and 2 still come from the source part. They carry the topology,
+- Section 1 is regenerated only for a part without a body; a part with a body
+  keeps its forty four object construction graph.
+- Sections 0 and 2 still come from the source part. They carry the topology,
   construction and expression object graphs, which are model dependent: emptying
   a middle and keeping its class lanes makes NX refuse the part, and a 40 and a
   60 length box differ inside section 1.
