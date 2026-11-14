@@ -75,8 +75,20 @@ ff x29
 04 21
 ```
 
-so the lane carries one `8c <index>` token per expression and a three byte slot marker
-group, and those are what encode the placement. They are not decoded, and a composer needs
+Mutation of those tokens, each loaded in NX 2506:
+
+```text
+8c 00 -> 8c 05                  loads
+8c 00 and 8c 02 swapped         loads
+53 54 55 third byte -> 56       OPEN_FAILED
+53 54 55 first byte -> 44       loads
+```
+
+So the per-expression index tokens are free labels and the slot marker group is only partly
+structural. That means **the placement is not validated**: a writer may order the objects
+itself, as long as the lane's indices agree with the order it chose. Byte equality with
+`dim40` therefore is not the right target for a composer — loading with the geometry intact
+is. They are not decoded, and a composer needs
 them, so the six fixed objects are emittable but the twenty-four object shape is not yet.
 
 So a composer can be written for the six fixed objects but not yet for the slots: their
