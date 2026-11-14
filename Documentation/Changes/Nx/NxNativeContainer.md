@@ -48,8 +48,11 @@ NX 2506 reports the authored volume and mass: a `40 x 30 x 20` block written as
 are stored as a sixteen-bit float with a fixed tag, so any positive value of
 0.75 or more is encodable. The override addresses the expression by name and
 rewrites its value field; an unknown name, a non-numeric value, or a value
-below 0.75 is refused. Changing a value does not regenerate geometry: NX
-reports the new expression value, while bodies keep their stored shape.
+below 0.75 is refused. Feature dimensions (`p0`, `p1`, `p2`) are refused
+because NX resolves those from the feature record, not the expression record;
+use `nx.body_length` for the driving dimension instead. Changing a value does
+not regenerate geometry: NX reports the new expression value, while bodies keep
+their stored shape.
 
 ## Usage
 

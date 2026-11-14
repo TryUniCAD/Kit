@@ -239,13 +239,17 @@ def ExprOverrides(DocValue: CadDoc) -> dict[str, float] | None:
     return Output
 
 
-# each expression record frames its name then carries one or three value handles
+# expression values live in the record and again in the feature dimension table
 def SwapExpressions(DataValue: bytes, Values: Mapping[str, float]) -> bytes:
     Output = DataValue
     for ExprName, Value in Values.items():
         NameBytes = ExprName.encode("utf-8")
         Frame = b"\x04" + bytes([len(NameBytes) + 2]) + NameBytes + b"\x00"
         Handle = EncodeValue(Value).to_bytes(2, "little")
+        if Output.find(NameBytes + b": ") >= 0:
+            raise ValueError(
+                "NX expression values cannot change a feature dimension, use nx.body_length"
+            )
         Start = Output.find(Frame)
         Patched = False
         while Start >= 0:

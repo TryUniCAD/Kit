@@ -376,3 +376,42 @@ def TestNxBodyGuard() -> None:
         except ValueError:
             continue
         raise AssertionError(f"body length accepted {BadLength}")
+
+
+# feature dimensions are refused because the body would keep the old shape
+def TestNxExprDim() -> None:
+    Payload = (
+        (0).to_bytes(12, "little")
+        + (1).to_bytes(4, "little")
+        + (1).to_bytes(4, "little")
+        + (64).to_bytes(4, "little")
+        + b"p1: 30; "
+        + b"sample_record\x00"
+        + b"\x82\xc0\x01\x00"
+        + EncodeValue(30.0).to_bytes(2, "little")
+        + b"\x00\x00"
+    )
+    DataValue = BuildSplm(
+        [
+            ("/Root/", None),
+            ("/Root/part/", None),
+            ("/Root/UG_PART/", None),
+            ("/Root/part/attrs", KAttributes),
+            ("/Root/UG_PART/UG_PART", Payload),
+        ],
+        FileTag=0x2BBA,
+        HeaderTrailer=KTrailer,
+    )
+    Document = ReadNx(DataValue, ReadOptions(strict=False))
+    try:
+        _ = WriteNx(
+            Replace(
+                Document,
+                metadata={**Document.metadata, "nx.expression_values": {"p1": 45.0}},
+            ),
+            BytesIo(),
+            WriteOptions(),
+        )
+    except ValueError:
+        return
+    raise AssertionError("expression override accepted a feature dimension")

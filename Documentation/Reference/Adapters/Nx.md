@@ -116,7 +116,8 @@ WriteNx(Changed, "part-value.prt")
 Values are encoded as a sixteen-bit float, so any value of 0.75 or more is
 accepted. NX reports the new value on load. Geometry is not regenerated because
 driving dimensions are cached in the feature record rather than in the
-expression record.
+expression record. Feature dimensions such as `p1` are refused for that reason;
+`nx.body_length` writes the driving dimension together with the body.
 
 ## Limits
 
