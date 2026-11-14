@@ -68,7 +68,7 @@ class BitReader:
         return result
 
     def Read(self, want: int, capacity: int) -> int:
-        return self.ReadUncleared(want, capacity) & ((1 << want) - 1)
+        return self.ReadUncleared(want, capacity) & ((1 << (64 - want)) - 1)
 
 
 def FloatBits(value: float) -> int:
@@ -111,7 +111,7 @@ def ReadDouble(reader: BitReader, reference: float) -> float:
     if selector == 0:
         return reference
     if selector == 0x3F:
-        return BitsDouble(reader.Read(0x40, 0x40))
+        return BitsDouble(reader.Read(0, 0x40))
     sign = reader.Read(0x3F, 0x40)
     width = (0x40 - selector) & 0xFFFF
     shift = (0x8000000000000000 >> (width & 0x3F)) & MASK64

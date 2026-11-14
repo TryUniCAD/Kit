@@ -253,6 +253,22 @@ branch (`S = 0x3f`).
 The Python `BitReader` in `BitStream.py` still does not reproduce the DLL's `ReadBits` field
 values, so the decompressor is measured but not yet ported.
 
+## Ported decompressor
+
+The divergence was the `ReadBits` mask. The DLL does `shl want; shr want`, which keeps the low
+`64 - want` bits, not the low `want` bits. With that corrected, `BitStream.py` reproduces the
+DLL's field values and the decompressor round-trips the measured streams:
+
+```text
+double 1.5/1.0 1.5
+double 4.2/4.0 4.2
+double -3.25/-3.0 -3.25
+```
+
+The literal branch reads `ReadBits(0, 0x40)` (all 64 bits). The delta branch reads
+`ReadBits(0x3f, 0x40)` for the sign (1 bit), `ReadBits(width + 1, 0x40)` for the low mask bits,
+and reconstructs `base ± (shift | low_bits)`.
+
 ## Caller and reference array
 
 `CATAdvancedMathematics.dll` imports `ReadFloatWithRef2` and `WriteFloatWithRef2` from
