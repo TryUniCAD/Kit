@@ -49,17 +49,16 @@ def SurfaceSample(
     RisingV = [
         ValuesU[ColumnIndex] * SlopesV[RowIndex] for RowIndex, ColumnIndex in Window
     ]
-    if Surface.Weights:
-        IndexedPlaces = [
-            (StartV + RowIndex) * Width + StartU + ColumnIndex
-            for RowIndex, ColumnIndex in Window
-        ]
-        Weights = tuple(Surface.Weights[Place] for Place in IndexedPlaces)
-        PointValue = MassFrame(Values, [0.0] * len(Values), Poles, Weights)[0]
-        AlongU = MassFrame(Values, RisingU, Poles, Weights)[1]
-        AlongV = MassFrame(Values, RisingV, Poles, Weights)[1]
-    else:
-        PointValue, AlongU, AlongV = OrdinarySample(Values, RisingU, RisingV, Poles)
+    if not Surface.Weights:
+        return OrdinarySample(Values, RisingU, RisingV, Poles)
+    IndexedPlaces = [
+        (StartV + RowIndex) * Width + StartU + ColumnIndex
+        for RowIndex, ColumnIndex in Window
+    ]
+    Weights = tuple(Surface.Weights[Place] for Place in IndexedPlaces)
+    PointValue = MassFrame(Values, [0.0] * len(Values), Poles, Weights)[0]
+    AlongU = MassFrame(Values, RisingU, Poles, Weights)[1]
+    AlongV = MassFrame(Values, RisingV, Poles, Weights)[1]
     return (
         CastValue(KJournalVector, tuple(PointValue)),
         CastValue(KJournalVector, tuple(AlongU)),
