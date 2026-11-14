@@ -348,6 +348,27 @@ def TestStaleDepth(TmpPath: FilePath) -> None:
         _ = WriteDoc(Changed, TmpPath / "StaleDepth.SLDPRT")
 
 
+def TestUnitLoss(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    Changed = ReplaceData(
+        SourceDoc,
+        parameters=tuple(
+            (
+                ReplaceData(
+                    ParamData,
+                    value=ParameterValue(0.9, ValueKind.LENGTH, "cm"),
+                )
+                if ParamData.attributes.get("freecad_path") == "Length"
+                else ParamData
+            )
+            for ParamData in SourceDoc.parameters
+        ),
+    )
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(Changed, TmpPath / "UnitLoss.SLDPRT")
+
+
 def TestRoleLoss(TmpPath: FilePath) -> None:
     SourceDoc = BuildDocument(KPoints)
     Changed = ReplaceData(
@@ -403,7 +424,7 @@ def TestOpenWire(TmpPath: FilePath) -> None:
     SourceDoc = BuildDocument(KPoints)
     First = SourceDoc.sketches[0].entities[0]
     assert isinstance(First.geometry, LineGeometry)
-    EndPoint = ReplaceData(First.geometry.end, x=First.geometry.end.x + 1e-13)
+    EndPoint = ReplaceData(First.geometry.end, x=First.geometry.end.x + 1.0)
     Geometry = ReplaceData(First.geometry, end=EndPoint)
     Entities = (
         ReplaceData(First, geometry=Geometry),
