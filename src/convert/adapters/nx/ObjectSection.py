@@ -130,6 +130,7 @@ def ReplaceHead(
 
 
 __all__ = [
+    "RewriteRecords",
     "PairRecord",
     "AttributeRecord",
     "HeadRecord",
@@ -241,3 +242,33 @@ def ParsePair(Record: bytes) -> tuple[int, int]:
     if Record[TailAt:] != KPairTail:
         raise ValueError("NX pair record tail is not absent slots")
     return (First, Second)
+
+
+# the decoded families take any value so the writer assigns its own labels
+def RewriteRecords(SectionBody: bytes) -> bytes:
+    Count = ObjectCount(SectionBody)
+    TableAt = TableStart(SectionBody, Count)
+    Starts = [
+        int(Struct.unpack_from("<I", SectionBody, TableAt + 4 * Index)[0])
+        for Index in range(Count)
+    ]
+    Stops = Starts[1:] + [len(SectionBody) - 12]
+    Section = bytearray(SectionBody)
+    Ordinal = 1
+    Label = 1
+    for Begin, Finish in zip(Starts, Stops):
+        Record = bytes(SectionBody[Begin:Finish])
+        if Record[:3] == b"\x01\x02\x04":
+            KeyText, ValueText, _, Marker = ParseAttribute(Record)
+            Written = AttributeRecord(KeyText, ValueText, Ordinal & 0x3F, Marker)
+            Ordinal += 1
+        elif Record[:2] == b"\x03\x11":
+            Width = (len(Record) - 46) // 2 + 1
+            Prefix = 0x80 if Width == 2 else 0
+            Written = PairRecord((Label & 0x3F) | Prefix, ((Label + 1) & 0x3F) | Prefix)
+            Label += 2
+        else:
+            continue
+        if len(Written) == Finish - Begin:
+            Section[Begin:Finish] = Written
+    return bytes(Section)

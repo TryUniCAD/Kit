@@ -17,7 +17,7 @@ from convert.adapters.nx.ExprSection import (
     KMiddleLength as KExprMiddle,
     KObjects as KExprObjects,
 )
-from convert.adapters.nx.ObjectSection import ReplaceHead
+from convert.adapters.nx.ObjectSection import ReplaceHead, RewriteRecords
 from convert.adapters.nx.PayloadBuild import ResizePayload
 from convert.adapters.nx.PayloadReader import ReadPayload
 
@@ -129,6 +129,7 @@ def WithStub(
         SectionBody = Payload[Section.body_offset : Section.body_offset + Section.size]
         if Index == 0 and HeadText is not None:
             SectionBody = ReplaceHead(SectionBody, HeadText)
+            SectionBody = RewriteRecords(SectionBody)
         elif Index == KRootIndex:
             SectionBody = RootBody
         elif Index == KFeatureIndex and Index < len(Parsed.sections):

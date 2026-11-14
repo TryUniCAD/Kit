@@ -690,6 +690,25 @@ so they are scalar values rather than structures, and invalid ones are tolerated
 That is the whole extent of what section 0 will accept: 209 of 214 records must be
 correct, which is 97.7 percent of the graph.
 
+### The decoded families are now generated, not copied
+
+`ObjectSection.RewriteRecords` re-emits every attribute and pair record with labels the
+writer assigns, and `nx.author_sections` runs it on section 0. Section 0 stops being a
+byte for byte copy:
+
+```text
+part             rewritten   section 0 differing bytes   payload identical
+empty.prt               88                       102        99.66 percent
+multi.prt               88                       102
+var_blank.prt           88                       102
+const_box60.prt         88                       102        99.73 percent
+dim40.prt               88                       102
+```
+
+All five still load in NX 2506, so the labels really are free at load time. The number
+is small against 36694 bytes of section 0, because only two of the sixteen families are
+decoded so far.
+
 ### Ids and ordinals in the decoded families are labels
 
 Rewriting the values across a whole family, rather than one record, decides whether
