@@ -25,11 +25,14 @@ def ReadPayload(DataValue: bytes) -> NxPayload:
     if Header[0] != 1 or Header[1] != 1:
         raise PayloadError("ug part segment index header is invalid")
     EndValue = Header[2]
-    if not 24 <= EndValue <= len(DataValue) or EndValue % 12:
+    if not 24 <= EndValue <= len(DataValue):
+        raise PayloadError("ug part segment index length is invalid")
+    TailBytes = EndValue % 12
+    if TailBytes > 11:
         raise PayloadError("ug part segment index length is invalid")
     RowValues = tuple(
         SegmentRow(*Struct.unpack_from("<III", DataValue, Offset))
-        for Offset in range(0, EndValue, 12)
+        for Offset in range(0, EndValue - TailBytes, 12)
     )
     return NxPayload(DataValue, False, RowValues, Sections, FindStreams(DataValue))
 
