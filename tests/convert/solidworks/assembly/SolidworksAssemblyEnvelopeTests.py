@@ -2,9 +2,13 @@ from __future__ import annotations
 from dataclasses import replace as ReplaceData
 from io import BytesIO
 from pathlib import Path as FilePath
+from unicodedata import normalize as NormalizeName
 from convert import open_document as OpenDocument
 from convert import write_document as WriteDocument
+from convert.adapters.base import ReadOptions
 from convert.adapters.solidworks.core.Adapter import (
+    ComponentFile as ComponentFiles,
+    ResolvedPath as ResolveComponentPath,
     GeneratedB as GeneratedStreams,
     KAsmReaderRequiredStreams as Streams,
     Native as NativeAttestation,
@@ -246,6 +250,23 @@ def TestPABHNSP(TmpPath: FilePath) -> None:
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
+def TestASMNameNorm(TmpPath: FilePath) -> None:
+    RootValue = TmpPath / "names"
+    RootValue.mkdir()
+    NfdName = NormalizeName("NFD", "ADMISIÓN.SLDPRT")
+    _ = (RootValue / NfdName).write_bytes(b"part")
+    IndexValue = ComponentFiles(
+        "",
+        ReadOptions(
+            values=FrozenMapping({"component_search_root": str(RootValue)})
+        ),
+    )
+    NfcSource = "D:\\Archivos\\" + NormalizeName("NFC", "ADMISIÓN.SLDPRT")
+    Resolved = ResolveComponentPath(NfcSource, IndexValue)
+    assert Resolved is not None
+    assert Resolved.name == NfdName
+
+
 def TestASBBundle(TmpPath: FilePath) -> None:
     PartValue = FreecadRPD()
     RootValue = ComponentDef("definition:root", "Assembly", ComponentKind.KAssembly)
