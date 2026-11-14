@@ -64,4 +64,5 @@ result = CatiaAdapter().write(
 
 - [CATIA adapter](../Reference/Adapters/Catia.md)
 - [CATIA B-rep findings](../../re/catia/Brep.md)
+- [CATIA tessellation findings](../../re/catia/Tessellation.md)
 - [CATIA measurements](../../re/catia/Measurements.md)
