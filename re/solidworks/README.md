@@ -11,12 +11,14 @@ not exercised by any available file; **not found**.
 
 ## The headline
 
-A `.SLDPRT` is a zip-like container of named streams. The container framing and the load-critical
-streams used by Kit's supported feature families are fully constructive: the writer emits typed
-fields and does not copy, embed, patch, or read a vendor stream. Eighteen resolved-feature programs
-currently reconstruct their declared lengths with zero opaque bytes. The format is not fully
-inverted for arbitrary modeling histories; unsupported FCStd documents fail closed. The exact
-repository-wide boundary is measured in `CorpusCoverage.md`.
+A `.SLDPRT` is a zip-like container of named streams. The container framing is constructive. The
+load-critical streams of Kit's supported feature families are not: each family is one recorded
+vendor stream, re-encoded as typed field operations, re-emitted at its saved length, with selected
+values overridden. The resolved-feature programs reconstruct their declared lengths with zero opaque
+bytes, which means every byte has a typed owner, not that Kit computed its value. The production
+programs hold 185,090 recorded field operations, and `tools/Donors/CheckReplays.py` lets that count
+only fall. The format is not fully inverted for arbitrary modeling histories; unsupported FCStd
+documents fail closed. The exact repository-wide boundary is measured in `CorpusCoverage.md`.
 
 | layer                                                                  | status                                                                                                                                                                   |
 | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -24,8 +26,8 @@ repository-wide boundary is measured in `CorpusCoverage.md`.
 | archive framing: class tags, object tags, map counter, string encoding | **cracked.** Confirmed against the real reader at runtime.                                                                                                               |
 | object segmentation and map renumbering                                | **cracked.** Traced streams tile with zero gaps and re-emit byte-identically.                                                                                            |
 | `Definition`, `CMgr`, `Config-0`, `ModelHeader`, assembly core         | **cracked for the supported programs.** Every reference byte has a typed owner; opaque count is zero.                                                                    |
-| supported feature records                                              | **constructive.** Exact boxes, pad, pocket chains, pad→pad, revolution, groove, fillet, chamfer, shell, linear pattern, and circular pattern have typed native programs. |
-| boss versus cut                                                        | **constructive by family.** Each recovered operation has its own typed tree; Kit does not mutate an arbitrary foreign feature record.                                    |
+| supported feature records                                              | **recorded.** Exact boxes, pad, pocket chains, pad→pad, revolution, groove, fillet, chamfer, shell, linear pattern, and circular pattern each re-emit one typed recording; topology is fixed by the save. |
+| boss versus cut                                                        | **recorded by family.** Each recovered operation has its own recorded typed tree; Kit does not mutate an arbitrary foreign feature record.                           |
 | arbitrary feature records and sketch profiles                          | **partial.** No donor fallback is allowed; unrecovered histories are rejected.                                                                                           |
 | repository FCStd corpus                                                | **38/163 accepted**, zero errors and zero vendor-only results; see `CorpusCoverage.md`.                                                                                  |
 | repository FCStd assemblies                                            | **0/5 accepted.** The assembly core is typed, but these component histories or assembly semantics remain unsupported.                                                    |

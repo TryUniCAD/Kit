@@ -9,9 +9,11 @@ not backed by Kit findings are starting hypotheses: confirm them on your samples
 ## SOLIDWORKS (`.SLDPRT`, `.SLDASM`, `.SLDDRW`)
 
 **State:** the most advanced study. Container framing, archive grammar, object segmentation and map
-renumbering are cracked. The load-critical streams for Kit's supported feature families are emitted
-from typed fields with zero opaque bytes. Arbitrary feature histories are not yet inverted; unsupported
-inputs are rejected. The current boundary is in `re/solidworks/README.md` and
+renumbering are cracked. The writer is not generative yet: each supported feature family re-emits a
+typed recording of one saved stream at its saved length, with selected fields overridden. Zero opaque
+bytes there means every byte has a typed owner, not that Kit computed it. That recorded payload debt
+is ratcheted by `tools/Donors/CheckReplays.py`; replacing it with a generative serializer is the open
+work. Arbitrary feature histories are not yet inverted; unsupported inputs are rejected. The current boundary is in `re/solidworks/README.md` and
 `re/solidworks/CorpusCoverage.md`.
 
 **Read first:** `re/solidworks/README.md` (in its stated order), `re/solidworks/records/Definition.md`

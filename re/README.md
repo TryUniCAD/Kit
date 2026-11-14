@@ -113,8 +113,10 @@ cheapest end-to-end check that the recorded tables really do come out of the rec
 
 ## Scope honesty
 
-This paragraph once said that SOLIDWORKS stream content came from a donor part. That is no longer
-the state, and donor content is banned from production output in any case. The supported feature
-families now emit their load-critical streams from typed fields, and unsupported histories are
-rejected. `solidworks/README.md` and `solidworks/CorpusCoverage.md` state exactly where the line
-currently falls.
+The SOLIDWORKS work reads SOLIDWORKS streams and writes the supported families by re-emitting typed
+recordings of saved streams with selected fields overridden. It does not serialise one from
+nothing. Typing every byte did not change that: a family's values and offsets still come from one
+saved part of the right feature topology, so the families are recorded payloads, and donor content
+is banned from production output. `tools/Donors/CheckReplays.py` counts that recorded debt in CI
+and lets it only fall; unsupported histories are rejected. `solidworks/README.md` and
+`solidworks/CorpusCoverage.md` state exactly where the line currently falls.

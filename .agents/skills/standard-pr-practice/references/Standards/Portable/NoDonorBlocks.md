@@ -1,5 +1,43 @@
 original source: `.agents/skills/no-donor-blocks/SKILL.md`
 
+## Current SOLIDWORKS state
+
+This section replaces the preserved "THE STATE OF THE WORK" paragraph below where they disagree.
+[AGENTS.md](../../../../../../AGENTS.md) takes precedence over the preserved text.
+
+The supported SOLIDWORKS families do not generate their streams from format rules.
+Each family under `src/convert/adapters/solidworks/programs/` is one vendor-saved stream, re-encoded as typed field operations.
+Each operation stores an absolute offset, a width, an owner, a kind, and the value from that save.
+The writer re-emits the list and overrides selected offsets.
+`ReplayResolved` rejects output whose length differs from the save.
+A family therefore cannot change its object count or topology.
+Each new profile, such as a three-line or a five-line pad, needs another recorded program.
+
+"Zero opaque bytes" proves that each byte has a typed owner.
+It does not prove that Kit generated the value.
+A recorded program is a patch at known offsets over a recorded payload, which the rule below forbids.
+
+CI runs `tools/Donors/CheckReplays.py` against `tools/Donors/ReplayBaseline.txt` to count this debt.
+At introduction it found 185,090 recorded field operations in 43 program roots.
+The counts may only fall.
+
+### Required direction
+
+1. Do not add a program root, raise a count, or add a family as another recorded program.
+2. Build one generative serializer.
+   Give each class an object model that follows the decompiled `Serialize` field order in `re/data/Serialization/SerializeMap.json`.
+   Write the archive with the recorded class tag, object tag, and map-counter rules.
+3. Prove the serializer with an object-level round trip.
+   Parse each traced stream into objects, write it again, and require identical bytes.
+4. Classify each field as authored, derived, constant, or volatile.
+   Compute authored and derived fields from the model.
+   `re/solidworks/archive/Grammar.md` section 6 lists derived caches that SOLIDWORKS recomputes on rebuild.
+   Prove a neutral value for those caches in the oracle, or compute them.
+   Record a constant only with evidence from unrelated designs.
+5. Make the first milestone a closed N-line blind pad for any N of 3 or more, from one code path.
+   Accept it only with held-out oracle cases, then delete the matching recorded programs.
+6. Measure progress by recorded field operations removed and by FCStd files accepted.
+
 ---
 name: no-donor-blocks
 description: "Never ship vendor bytes; reverse engineer proprietary binary formats until they can be emitted from first principles. Use when reading or writing SOLIDWORKS, CATIA, Parasolid, or any proprietary CAD format."

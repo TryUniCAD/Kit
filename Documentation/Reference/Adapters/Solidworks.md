@@ -73,6 +73,10 @@ A source replay uses the input document's own data.
 An unrelated donor fixture is prohibited in production writing.
 
 Native generation must derive each emitted structure from known format rules.
+The supported native families do not meet that rule yet.
+Each family under `src/convert/adapters/solidworks/programs/` emits a recorded payload, which is a typed recording of one saved stream.
+The [recorded payload ratchet](../../Changes/Solidworks/SolidworksRecordedPayloadRatchet.md) counts that debt in CI.
+The count may only fall.
 Unsupported feature families remain unsupported until their grammar and acceptance evidence are available.
 Do not present a carrier or a mode label as a completed translation.
 

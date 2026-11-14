@@ -139,8 +139,11 @@ feature histories or assembly semantics. They are therefore not counted as vendo
 
 ## Completion boundary
 
-There is no remaining opaque-byte debt in the stream programs used by the recovered families. There
-is substantial feature-semantic work left across the corpus, especially arbitrary sketch profiles,
+The stream programs used by the recovered families have no opaque bytes, but each one is a recorded
+payload: a typed re-encoding of one saved stream, re-emitted at its saved length with selected fields
+overridden. `tools/Donors/CheckReplays.py` counts 185,090 recorded field operations in them.
+Replacing these programs with generated streams is the main remaining SOLIDWORKS writer work. There
+is also substantial feature-semantic work left across the corpus, especially arbitrary sketch profiles,
 multi-object primitive and Boolean Part histories, broader revolution modes, non-campaign pattern
 histories, and the five real assemblies. A claim that nothing remains to reverse engineer would
 contradict this audit.
