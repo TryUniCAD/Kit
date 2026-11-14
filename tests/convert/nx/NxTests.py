@@ -105,3 +105,14 @@ def TestNxWrite() -> None:
         assert "preserve value byte length" in str(ErrorInfo)
     else:
         raise AssertionError("header changing NX edit was accepted")
+
+
+# registry writes must preserve the document capability set
+def TestNxRegistry() -> None:
+    Registry = AdapterRegistry()
+    _ = Registry.introspect("convert.adapters")
+    Document = ReadNx(SyntheticPart(), ReadOptions(strict=False))
+    Output = BytesIo()
+    Result = Registry.WriteDocument(Document, Output, destination_format="siemens.nx")
+    assert Result.vendor_loadable is True
+    assert Output.getvalue().startswith(b"SPLMSSTR")
