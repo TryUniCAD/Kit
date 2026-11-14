@@ -33,10 +33,11 @@ from convert.adapters.solidworks.programs.resolved.polyline.threepoint.Registry 
     KResolvedOps,
 )
 from interchange.document.models.DocumentModel import CadDocument
-from interchange.enums.EnumValues import ValueKind
+from interchange.enums.EnumValues import ParameterRole, ValueKind
 from interchange.features.FeatureExtrude import ExtrudeFeature
 from interchange.geometry.models.GeometryCurves import LineGeometry
 from interchange.geometry.models.Sketch import SketchRelation
+from interchange.records.RecordConfig import Configuration
 from interchange.records.RecordParameter import Parameter, ParameterValue
 from tests.convert.solidworks.resolved.SolidworksPolylineFiveTests import BuildDocument
 
@@ -324,6 +325,57 @@ def TestOffsetLoss(TmpPath: FilePath) -> None:
     assert HasVendorPartEncoding(Changed) is False
     with PytestLib.raises(SldprtFormatError):
         _ = WriteDoc(Changed, TmpPath / "OffsetLoss.SLDPRT")
+
+
+def TestStaleDepth(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    Changed = ReplaceData(
+        SourceDoc,
+        parameters=tuple(
+            (
+                ReplaceData(
+                    ParamData,
+                    value=ParameterValue(4.0, ValueKind.LENGTH, "mm"),
+                )
+                if ParamData.attributes.get("freecad_path") == "Length"
+                else ParamData
+            )
+            for ParamData in SourceDoc.parameters
+        ),
+    )
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(Changed, TmpPath / "StaleDepth.SLDPRT")
+
+
+def TestRoleLoss(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    Changed = ReplaceData(
+        SourceDoc,
+        parameters=tuple(
+            (
+                ReplaceData(ParamData, role=ParameterRole.DRIVEN)
+                if ParamData.attributes.get("freecad_path") == "Length"
+                else ParamData
+            )
+            for ParamData in SourceDoc.parameters
+        ),
+    )
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(Changed, TmpPath / "RoleLoss.SLDPRT")
+
+
+def TestConfigLoss(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    SecondConfig = Configuration("second", "Second")
+    Changed = ReplaceData(
+        SourceDoc,
+        configurations=(*SourceDoc.configurations, SecondConfig),
+    )
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(Changed, TmpPath / "ConfigLoss.SLDPRT")
 
 
 def TestLabelLoss(TmpPath: FilePath) -> None:
