@@ -25,7 +25,11 @@ from convert.adapters.solidworks.container.Format import (
 )
 from convert.adapters.solidworks.core.Adapter import ReadNativePart, SldprtAdapter
 from convert.adapters.solidworks.core.Native import (
+    Canonical,
+    HasPolyLoss,
     HasVendorPartEncoding,
+    WriteObjectIds,
+    WriteObjects,
     decode_native_model as DecodeNativeModel,
 )
 from convert.adapters.solidworks.programs.resolved.polyline.threepoint.Registry import (
@@ -150,7 +154,39 @@ def TestTriRewrite(TmpPath: FilePath) -> None:
     SecondPath = TmpPath / "RoundTripAgain.SLDPRT"
     _ = WriteDoc(BuildDocument(KPoints, Depth=13.0), FirstPath, allow_carrier=False)
     Reopened = OpenDoc(FirstPath, include_brep=False)
-    assert HasVendorPartEncoding(Reopened) is True
+    PadStep = Reopened.feature_timeline[-1]
+    ObjectIds = WriteObjectIds(Reopened)
+    Authored = Canonical(WriteObjects(Reopened, ObjectIds), ObjectIds, Reopened)
+    Detail = (
+        tuple(
+            (Item.object_id, Item.name, Item.class_name, len(Item.dimensions))
+            for Item in Authored
+        ),
+        HasPolyLoss(Reopened, PadStep.id),
+        tuple(
+            (
+                Config.name,
+                Config.active,
+                Config.parent_id,
+                len(Config.overrides),
+                len(Config.suppressed_feature_ids),
+            )
+            for Config in Reopened.configurations
+        ),
+        tuple(
+            (
+                Param.name,
+                str(Param.role),
+                Param.value.kind.value,
+                Param.value.unit,
+                Param.expression is not None,
+                Param.owner_id == PadStep.id,
+            )
+            for Param in Reopened.parameters
+        ),
+        tuple((Item.id, str(Item.kind)) for Item in Reopened.feature_timeline),
+    )
+    assert HasVendorPartEncoding(Reopened) is True, Detail
     Result = WriteDoc(Reopened, SecondPath)
     assert Result.IsVendorLoadable is True
     assert Result.IsAppUsable is True
