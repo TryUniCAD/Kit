@@ -401,6 +401,34 @@ that is not yet derived, so the encoder refuses them.
 No value appears anywhere in the container as a binary64, a shifted binary64, a
 float32, or UTF-16 text.
 
+### Middle regeneration: three of five structures solved
+
+`re/nx/tools/MiddleBuild.py` regenerates parts of the section-2 middle from
+parameters and is validated against the saved corpus.
+
+The leading flag run depends only on the object count `n`:
+
+```text
+n = 0     02 02 02 02 02 02 02 01 01 01 01 01 01
+n = 1     02 02 02 02 02 02 02 02 02 01 01 01 01 01 01 01
+n = 8     02 02 02 02 02 02 02 09 09 01 01 01 01 01 01 01
+n = 40    02 02 02 02 02 02 02 29 29 01 01 01 01 01 01 01
+```
+
+that is seven `02` bytes, then `1 + n` twice, then seven `01` bytes, with the
+`1 + n` bytes merging into the leading run when `n = 0` or `n = 1`.
+
+Validated results:
+
+```text
+n = 0 whole middle from parameters            337 -> 337  exact True
+n = 1 occupancy lane                          82 bytes     exact True
+n = 1 default-group block                                   exact True
+```
+
+Not yet generative for `n >= 1`: the head still carries a layout-derived offset
+and the per-object offset list plus count words, which grow with `n`.
+
 ### The middle tables are mandatory in both directions
 
 Stripping the single object out of the seventeen-class save, keeping its class
