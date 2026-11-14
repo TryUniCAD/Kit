@@ -110,6 +110,40 @@ Surfaces are also shared. `Pedal_Body.CATPart` has 24 surface records and 338 fa
 The face-to-surface reference is not decoded, so the reader rejects parts whose surface count
 does not equal the face count instead of returning a partial solid.
 
+The five rejected parts are exactly the parts whose surface count differs from the face count:
+
+| Part | Surface records | Face rows |
+| --- | ---: | ---: |
+| `4784` | 4 | 416 |
+| `4876` | 1 | 870 |
+| `4876_1` | 1 | 870 |
+| `Pedal_Body` | 24 | 338 |
+| `Reservoir` | 56 | 71 |
+
+The other 22 parts have one surface record per face row.
+
+`ParseSurfaces` stops early on pooled parts because the surface records are interleaved with
+three-dimensional curve records. `Reservoir` has 56 surface markers at 17, 66, 350, 423, 500,
+667, 740, 789, 979, 1052, 1129, 1249, 1322, 1371, 1444, 1521, 1598, 1647, 1724, 1801, and so on
+through 4418. The first two records are contiguous (17 + 49 = 66, 66 + 49 = 115), but the third
+record starts at 350, so the walk from offset 17 stops after two records. The gap 115..350 holds
+`ff <tag:u24le> 00 00 <floats>` records, not surface records.
+
+The two-dimensional curve rows start at 4539 and use `60 <tag:u24le> 00 12 00 33 37`. They are
+variable length (27 to 225 bytes) and end with a two-byte face-reference pair. `Reservoir` has 78
+such rows. Six faces (2, 3, 4, 10, 11, 21) have no curve row; the other 65 have at least one.
+
+The face-to-surface mapping is not identity. Checking whether surface `i` bounds contain the
+centres of face `i`'s curves matches only 4 of 65 faces. Checking whether a surface contains all
+of a face's curves gives either zero candidates or several, so the curve geometry alone does not
+identify the surface.
+
+`MainDataStream` has two big-endian `u16` runs of values below 56 at 19348 (48 values) and 19924
+(55 values). Both have a linked-list shape: the second value of a pair often reappears as the
+first value of a later pair. Neither run is a 71-entry face-to-surface table, and the values
+include face indices (67, 69, 70, 71) mixed with larger indices (81, 82, 84, 87, 90, 93), so the
+runs are not a pure surface-index array.
+
 ## Surface record length
 
 The record length is not constant per kind. Two cylinder records with identical five-byte
