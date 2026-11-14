@@ -18,6 +18,8 @@ The production reader's `RecoverTriDepth` applies the same bounded rule only to 
 
 Neutral `DimensionParam` uses `native_value * 1000` for length and `degrees(native_value)` for angles whenever a binary scalar is available. It uses the presentation value only as a fallback. This binds the exact depth into ordinary native reads instead of relying on public conversion flags.
 
+`IsTriSource` identifies the triangle-shaped unbound-dimension case independently of whether its bytes can be recovered. For a canonical-front-plane forward blind boss with that shape, a `None` result is an error rather than permission to retain rounded text: `DecodePadMut` raises `SldprtFormatError`. Other histories and layouts remain outside this bounded rule. The public test corrupts one positive witness through a properly rebuilt container and verifies that native reading rejects it instead of inventing a corrected depth.
+
 Regression and acceptance still use independently computed analytic geometry and SOLIDWORKS rebuild results. Four matching witnesses identify a source parameter; they do not independently establish vendor acceptance of a newly generated file.
 
 See [the corpus builder](../../../../re/tooling/harness/BuildRandomTriangles.py) and [the triangle change record](../../Changes/Solidworks/SolidworksThreeLineNativeHistories.md).

@@ -96,6 +96,10 @@ Fresh public open/read/write cycles accepted four native inputs in SOLIDWORKS:
 
 Every result has zero load errors/warnings, one body, successful rebuild, correct centre of mass, and the exact source depth. The near-origin input uses 8e-13 mm for its first x coordinate and remains supported. The high-precision replay's 6.25 mm edit yields 6,725.26024987192 mm³ and 3,095.63966028405 mm² before closing without saving.
 
+Closure extraction now uses exact endpoint equality rather than the previous 1e-12-mm tolerance. A self-authored 1e-13-mm gap is rejected through the public writer, so starts are never used as permission to invent a closed chain. Bound pattern counts remain numeric counts rather than being converted into millimetres.
+
+A family-shaped triangle whose binary depth is unsupported or contradictory now raises `SldprtFormatError` through native reading instead of retaining approximate display text. A typed resolved-stream witness mutation exercises this fail-closed path through a valid archive built with `BuildSldprt`. Rounded label metadata is edited through the untrusted-XML parser and rebuilt with the container's own matched signatures rather than changing compressed archive bytes directly. The labelled 17.995855-mm fixture also opens successfully with one body and correct depth in SOLIDWORKS, but the resulting self-emulated freecad/proof rewrite still remains outside the accepted scope.
+
 A separate self-emulated freecad/proof compatibility path remains outside this acceptance; it is not substituted for these independently authored native replay results. `AuthorTriangles.vbs /precise` supplies the last two source documents.
 
 Transport-only failures and disagreements in harness parsing are not counted as model acceptance or rejection. The final corpus uses successful compiled `OpenDoc6` results only. `OracleRandomTriangles.vbs` performs an independent late-bound `OpenDoc` identity sweep, scoped to native feature names, three sketch segments, body count, and rebuild status; it does not invent unavailable `OpenDoc6` error variables or duplicate mass measurement.
