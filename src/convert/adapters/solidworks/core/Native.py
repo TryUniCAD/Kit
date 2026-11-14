@@ -1917,7 +1917,10 @@ def HasVendorPart(DocData: CadDocument) -> bool:
     if not SourceObjects:
         return False
     AuthoredObjects = Canonical(SourceObjects, ObjectIds, DocData)
-    return BuildVendorTree(AuthoredObjects, DocData) is not None
+    try:
+        return BuildVendorTree(AuthoredObjects, DocData) is not None
+    except SldprtFormatError:
+        return False
 
 
 # native envelope assembly keeps optional vendor stream replacement independently testable
@@ -2345,12 +2348,10 @@ def BuildPolyTree(
         or PlaneObjectId != 2
         or (PadObject.object_id != 32)
         or SketchObject.dimensions
-        or (
-            len(PolylineValue) == 3
-            and HasPolyLoss(DocData, PadObject.source_id)
-        )
     ):
         return None
+    if len(PolylineValue) == 3 and HasPolyLoss(DocData, PadObject.source_id):
+        raise SldprtFormatError("three-line parameters are unsupported")
     try:
         if len(PolylineValue) == 3:
             PointsMetres = PolylinePoints(SketchObject, SourceMetres=True)
