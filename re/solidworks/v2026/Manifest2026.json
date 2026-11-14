@@ -1,0 +1,80 @@
+{
+ "product": "SOLIDWORKS 2026 SP05.2",
+ "sldworks": "34.5.2.0604",
+ "install_root": "C:\\Program Files\\SOLIDWORKS Corp\\SOLIDWORKS",
+ "tracked_in_git": false,
+ "binaries": [
+  {
+   "name": "sldappu.dll",
+   "bytes": 16519768,
+   "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf",
+   "file_version": "34.5.2.0604"
+  },
+  {
+   "name": "sldarchiveu.dll",
+   "bytes": 231512,
+   "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+   "file_version": "34.5.2.0604"
+  },
+  {
+   "name": "sldasmu.dll",
+   "bytes": 10863704,
+   "sha256": "05ab90ee7380335088505c47202137c63dbce18d7d516e7fd6703aee31d70390",
+   "file_version": "34.5.2.0604"
+  },
+  {
+   "name": "sldmatu.dll",
+   "bytes": 5517400,
+   "sha256": "8a07d6b5d8d7d4f9f064b28e1d60f853fd754caa6d507db28b06031f287e051e",
+   "file_version": "34.5.2.0604"
+  },
+  {
+   "name": "sldmfcu.dll",
+   "bytes": 8274520,
+   "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+   "file_version": "34.5.2.0604"
+  },
+  {
+   "name": "sldmgu.dll",
+   "bytes": 2363992,
+   "sha256": "99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c",
+   "file_version": "34.5.2.0604"
+  },
+  {
+   "name": "sldmodu.dll",
+   "bytes": 46536280,
+   "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+   "file_version": "34.5.2.0604"
+  },
+  {
+   "name": "sldmopartu.dll",
+   "bytes": 6836824,
+   "sha256": "aa3fa88eeb5349c8ac2161ce9b3f18ab4e23417598c6b57719c88d5d6c178da9",
+   "file_version": "34.5.2.0604"
+  },
+  {
+   "name": "sldsmmu.dll",
+   "bytes": 8364632,
+   "sha256": "460e6d82f6b811805860b6df03e7b551a4a573aad598bd27501226586b0c9b95",
+   "file_version": "34.5.2.0604"
+  },
+  {
+   "name": "slduiu.dll",
+   "bytes": 36036696,
+   "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+   "file_version": "34.5.2.0604"
+  },
+  {
+   "name": "sldworks.exe",
+   "bytes": 718936,
+   "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+   "file_version": "34.5.2.0604"
+  },
+  {
+   "name": "swccu.dll",
+   "bytes": 252504,
+   "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+   "file_version": "34.5.2.0604"
+  }
+ ]
+}
