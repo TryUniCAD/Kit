@@ -3828,9 +3828,41 @@ def IsFreeCad(ObjectData: Mapping[str, object], PropName: str) -> bool:
     )
 
 
+def FreeCadOffset(ObjectData: Mapping[str, object]) -> tuple[float, float] | None:
+    AttributesData = FreeCadProp(ObjectData, "Placement")
+    if AttributesData is None:
+        return None
+    KeysData = ("Px", "Py", "Pz", "Q0", "Q1", "Q2", "Q3")
+    try:
+        ValuesData: dict[str, float] = {}
+        for KeyData in KeysData:
+            RawValue = AttributesData[KeyData]
+            if not isinstance(RawValue, (str, int, float)):
+                return None
+            ValuesData[KeyData] = float(RawValue)
+    except (KeyError, TypeError, ValueError):
+        return None
+    if not all(MathValue.isfinite(ValueData) for ValueData in ValuesData.values()):
+        return None
+    if not (
+        MathValue.isclose(ValuesData["Q0"], 0.0, rel_tol=0.0, abs_tol=1e-12)
+        and MathValue.isclose(ValuesData["Q1"], 0.0, rel_tol=0.0, abs_tol=1e-12)
+        and MathValue.isclose(ValuesData["Q2"], 0.0, rel_tol=0.0, abs_tol=1e-12)
+        and MathValue.isclose(ValuesData["Q3"], 1.0, rel_tol=0.0, abs_tol=1e-12)
+        and MathValue.isclose(ValuesData["Pz"], 0.0, rel_tol=0.0, abs_tol=1e-12)
+    ):
+        return None
+    return (ValuesData["Px"], ValuesData["Py"])
+
+
 # this definition exists because focused behavior needs one stable owner
 def HasFreeCadBox(
-    DocData: CadDocument, LengthValue: float, WidthValue: float, HeightValue: float
+    DocData: CadDocument,
+    LengthValue: float,
+    WidthValue: float,
+    HeightValue: float,
+    OffsetX: float = 0.0,
+    OffsetY: float = 0.0,
 ) -> bool:
     BrepData = DocData.brep
     if (
@@ -3843,7 +3875,7 @@ def HasFreeCadBox(
     ):
         return False
     ExpectedData = {
-        (XValue, YValue, ZValue)
+        (OffsetX + XValue, OffsetY + YValue, ZValue)
         for XValue in (0.0, LengthValue)
         for YValue in (0.0, WidthValue)
         for ZValue in (0.0, HeightValue)
@@ -4024,6 +4056,7 @@ def FinishBoxMut(
     LengthValue = LengthData.value_mm
     WidthValue = WidthData.value_mm
     HeightValue = HeightData.value_mm
+    Translation = FreeCadOffset(DefinitionData.object_data)
     if (
         not all(
             (
@@ -4031,17 +4064,27 @@ def FinishBoxMut(
                 for ItemData in (LengthValue, WidthValue, HeightValue)
             )
         )
-        or not IsFreeCad(DefinitionData.object_data, "Placement")
+        or Translation is None
         or (not IsFreeCad(DefinitionData.object_data, "AttachmentOffset"))
-        or (not HasFreeCadBox(DocData, LengthValue, WidthValue, HeightValue))
+        or (
+            not HasFreeCadBox(
+                DocData,
+                LengthValue,
+                WidthValue,
+                HeightValue,
+                Translation[0],
+                Translation[1],
+            )
+        )
     ):
         return None
+    OffsetX, OffsetY = Translation
     SketchPayload = bytearray(PlaneRef(2))
     CornerData = (
-        (0.0, 0.0),
-        (LengthValue, 0.0),
-        (LengthValue, WidthValue),
-        (0.0, WidthValue),
+        (OffsetX, OffsetY),
+        (OffsetX + LengthValue, OffsetY),
+        (OffsetX + LengthValue, OffsetY + WidthValue),
+        (OffsetX, OffsetY + WidthValue),
     )
     for LocalIndex, PointData in enumerate(CornerData, 1):
         SketchPayload.extend(Coordinate(PointData, LocalIndex, KPointLocus))
