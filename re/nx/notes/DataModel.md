@@ -401,6 +401,26 @@ that is not yet derived, so the encoder refuses them.
 No value appears anywhere in the container as a binary64, a shifted binary64, a
 float32, or UTF-16 text.
 
+### An expression is authored from a neutral spec
+
+`re/nx/tools/ExprAuthor.py` takes a template part, an expression name, and a
+numeric value, and emits a part that NX 2506 reports as authored:
+
+```text
+name        value   result
+block_len   4.5     STATUS 0, EXPRESSION block_len 4.5
+kit_two     12.5    STATUS 0, EXPRESSION kit_two 12.5
+```
+
+The name may change length. The record is the last item in the middle lane, so
+the name length byte at `marker - 1` and the section pointer move by the same
+delta. Rewriting with the original name and value reproduces the template byte
+for byte, which proves the transform only touches the intended fields.
+
+The value uses the handle encoding above. The template still supplies the
+record skeleton, the three expression classes, and the reference, so a record
+built without a template is still open.
+
 Current status: the class and reference lanes are emitted from a table and the
 middles are reproduced from a lane, but the table and the prefix and state bytes
 of sections 0-2 are still derived from a document, so this is research and not
