@@ -125,6 +125,10 @@ and writes 58 bits where the reader reads 59. A synthetic writer/reader round-tr
 terminate with those widths. Settling the selector needs a dynamic trace or an independent
 decompression sample, not more static reading.
 
+`re/catia/tooling/BitStream.py` reproduces both bit-buffer state machines. It round-trips the
+literal branch and reproduces the leading-zero counts, but no tested selector/last-field
+combination round-trips the delta branch.
+
 ## Caller and reference array
 
 `CATAdvancedMathematics.dll` imports `ReadFloatWithRef2` and `WriteFloatWithRef2` from
@@ -147,6 +151,7 @@ parameters through `CATGeoFloatCompactor::ReframeParam` and `ReframePoint`.
 - `CATAdvancedMathematics.dll` SHA-256 `0805a61d91c275bc167abf88e83be586c7f4379a1e977170f64e8bd31af4bc4f`.
 - IAT slot for `ReadFloatWithRef2` at RVA `0x1ce650`, for `WriteFloatWithRef2` at `0x1ce658`.
 - Call sites at RVA `0xa6df`, `0xa6fa`, `0xa8a5`, `0xa8c0`.
+- `ReframeParam` (`0x5510`) and `ReframePoint` (`0x5620`) are called from the Nurbs predictor cases at RVA `0x9aa5`, `0x9b86`, `0x9df0`, `0x9e2f`, `0x9f4b`, `0xa16c`, `0xa182`, `0xa2c2`.
 - Threshold constant at RVA `0x1d0524` = `1.0`.
 
 ## Corpus observation
