@@ -546,6 +546,59 @@ NX stores box shells with the opposite loop orientation to the one
 convention. Reproducing that convention for an authored topology is the
 remaining piece for a body written entirely from constants.
 
+### Identity, ordering and convention are now all ruled out by direct test
+
+Four more oracle runs pinned down what is left. All of them use the same
+40 x 30 x 20 box that NX itself saved, so geometry values are identical between
+the working and authored streams.
+
+```text
+authored faces/surfaces numbered in creation order           VOLUME 0.0
+authored faces numbered from the source body's ids           VOLUME 0.0
+decoded body with its face list reversed                     VOLUME 24000.0
+decoded body with its surface list reversed                  VOLUME 24000.0
+decoded body with its vertex list reversed                   encoder refuses: changes vertex geometry
+```
+
+So numeric attribute identity is not the contract, and neither is list order:
+the encoder reproduces the same body when whole record lists are permuted.
+Permuting vertices is refused by `VerifyBrepData`, which proves the rank
+attributes are positional and consistent.
+
+The strongest variant aligned everything the model exposes: entity ids mapped by
+geometry key, record lists sorted into the source body's order, `parasolid.*`
+ranks re-derived from that order, `first_fin` and `vertex_fins` rebuilt, surface
+origins, normals and reference directions copied from the matching source
+surface, curve origins and directions copied, and edge parameters copied.
+
+```text
+aligned authored body vs decoded body   3393 bytes each, 586 differing bytes
+                                        VOLUME 0.0
+```
+
+### The doubles in the stream are plane coordinates, not tolerances
+
+An earlier guess that the small doubles early in the stream were tolerance
+fields is wrong, and the test that produced it was a false positive. Decoding
+them as float64 gives `0.02`, `0.015`, `0.03`, `0.04`. With `KLengthScale =
+0.001` these are the plan origins `20`, `15`, `30`, `40` millimetres. Zeroing
+all 43 occurrences in a working stream drops it to `VOLUME 0.0`, but only
+because it destroys the surface origins, not because tolerances matter.
+
+Entity tolerances are written as `KMissingParam` whenever the tolerance is zero,
+and the decoded model reports zero for every vertex, edge and face, so tolerance
+emission is already identical between working and authored streams.
+
+### What actually differs
+
+Both encodings are 3393 bytes, both decode to a closed, correctly oriented six
+face box with every loop on its surface, both carry the same ranks, fins, senses
+and parameterization, and NX still binds no faces for the authored one. After
+ruling out identity, ordering, convention, attributes, tolerances and schema,
+the difference is confined to bytes the decoder cannot name: the surface and
+curve carrier blocks that NX writes and that the encoder only reproduces when it
+has an original to reproduce.
+
 ### Record-level comparison of a working and an authored stream
 
 Scanning both encoded streams gives identical record structure:
