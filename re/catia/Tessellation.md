@@ -46,15 +46,24 @@ shared point-id space is not yet located.
 
 ## Washer coordinate run
 
-`Washer_8.CATPart` `MainDataStream` has a 318-float run at offset 223. The clean values are
+`Washer_8.CATPart` `MainDataStream` has a coordinate run at offset 223. The clean values are
 washer geometry: `-7.5, 1.6, -7.133, -2.318, 1.6, 2.318, 1.6, -6.068, -4.408, 1.6, 4.408, 1.6,
 -4.408, -6.068, 1.6, 6.068, 1.6, -4.2`. The bounding box is `-7.5..7.5`, matching the outer
 radius, and `1.6` is the washer thickness.
 
-Only 148 of the 318 floats are clean; the rest are denormals (`1.7e-15`, `2.8e-14`, `-1.5e-9`).
-The clean values sit at offsets with gaps of 4, 8, 12, and 16 bytes, so the record is not a plain
-`(x, y, z)` float array. `318 / 3 = 106` is an integer, which is suggestive but contradicted by
-the denormals.
+The run is exactly 204 floats, `0..203`, and ends at index 203. Index 204 is `2.63e-43`, the
+first value of a different denormal structure. `204 / 3 = 68`, so the run is 68 triples.
+
+The triples are not a plain `(x, y, z)` array with a fixed z lane. Every triple contains at least
+one value that is `0` or `1.6`, but the special value appears in position 0 for 16 triples, in
+position 1 for 10 triples, and in position 2 for 13 triples. A stride-3 scan over all start
+offsets finds no lane that is more than 52 percent special. The record is therefore not a
+fixed-stride point array.
+
+Treating the special value as z and the other two as x, y puts most points on the outer
+`r = 7.5` or inner `r = 4.2` circle, but five triples are off both circles: `(2.06, -3.17)`,
+`(-3.51, 3.51)`, `(-4.16, 4.16)`, `(2.76, 3.66)`, `(-1.93, 1.93)`. Swapping x and y does not
+move them onto a circle. The record is therefore not a simple point list with a per-triple z.
 
 The same pattern holds for `Bolt_M5x40.CATPart` (390 floats at 243, `390 / 3 = 130`) and
 `Reservoir.CATPart` (2959 floats at 565, not divisible by 3).
