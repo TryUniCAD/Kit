@@ -162,6 +162,7 @@ def HasPolyLoss(DocumentData: CadDocument, PadId: str) -> bool:
             PadPaths.append(PathValue)
             continue
         return True
+    ExpectedPaths = set(KFreecadPadProps) - {"Length"}
     return bool(PadPaths) and (
-        len(PadPaths) != len(KFreecadPadProps) or set(PadPaths) != KFreecadPadProps
+        len(PadPaths) != len(ExpectedPaths) or set(PadPaths) != ExpectedPaths
     )
