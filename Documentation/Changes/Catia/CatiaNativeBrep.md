@@ -420,6 +420,13 @@ result = CatiaAdapter().write(
 - The roster is one row per B-rep vertex, measured on all 27 corpus parts (`ParseRoster` row count
   equals `ParseBrep(...).vertices` length). The writer honours the same rule, so its box output has
   eight vertex rows and eight roster rows. `TestRoster` asserts the invariant over the corpus.
+- The dimension reference is refuted as an object number. Testing the 3- and 4-byte `e8`/`e9`
+  payloads against the object numbers from every `7c 06` header gives a `u32` resolution rate of
+  `0.000` in both byte orders, `u16` at `0.02` or below, and `u8` at every offset at or below chance
+  except the constant trailing byte `0x37`. The tag-difference decoding fits only 6 of 56 distinct
+  payloads and none consume the payload. The reference is a container tag resolved through a
+  save-order table that none of the parsed streams contains, so the name-to-value edge needs the
+  vendor runtime or that table, not another scan.
 - A new `src/convert/adapters/catia/Parametric.py` reads the parametric side of a `CATPart`: it walks
   the OSMX `7c` record tree, decodes each `7c 07` attribute block with the compact-int table, and
   exposes `RelationNames` (the `#In` inputs of every relation formula) and `AttributeValues` (every
