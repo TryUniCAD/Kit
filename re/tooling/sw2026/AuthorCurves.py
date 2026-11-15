@@ -240,6 +240,70 @@ def edited_case(case):
     return result
 
 
+def relation_intent(case):
+    descriptors = entities(case)
+    result = [
+        (17, [f"entity-{index}.center"])
+        for index, item in enumerate(descriptors)
+        if item["kind"] != "line" and not item["construction"]
+    ]
+    if case["profile"]["kind"] in ("segment", "capsule"):
+        for index in range(len(descriptors)):
+            next_index = (index + 1) % len(descriptors)
+            result.append((9, [f"entity-{index}.end", f"entity-{next_index}.start"]))
+            if case["profile"]["kind"] == "capsule":
+                result.append((6, [f"entity-{index}", f"entity-{next_index}"]))
+        if case["profile"]["kind"] == "capsule":
+            result.append((14, ["entity-0", "entity-2"]))
+    return result
+
+
+def binding_key(binding):
+    require(isinstance(binding, dict), "native entity binding must be an object")
+    kind = binding.get("kind")
+    require(
+        kind in ("point", "line", "arc"),
+        "native entity binding has an unsupported geometry kind",
+    )
+    expected = {"kind", "id"} if kind == "point" else {"kind", "id", "segment_type"}
+    require(
+        set(binding) == expected,
+        "native entity binding fields differ from the identity schema",
+    )
+    identity = binding["id"]
+    require(
+        isinstance(identity, (list, tuple))
+        and len(identity) == 2
+        and all(type(value) is int for value in identity),
+        "native GetID must supply two integer identity components",
+    )
+    segment_type = -1 if kind == "point" else binding["segment_type"]
+    require(
+        kind == "point"
+        or type(segment_type) is int
+        and segment_type == (0 if kind == "line" else 1),
+        "native segment kind and GetType disagree",
+    )
+    return kind, segment_type, *identity
+
+
+def relation_key(kind, bindings):
+    require(
+        type(kind) is int and kind in (9, 17, 6, 14),
+        "relation binding verification supports only the four authored relation kinds",
+    )
+    require(
+        isinstance(bindings, list) and len(bindings) == (1 if kind == 17 else 2),
+        "relation binding count differs from the authored relation kind",
+    )
+    keys = tuple(binding_key(binding) for binding in bindings)
+    require(
+        all((key[0] == "point") == (kind in (9, 17)) for key in keys),
+        "relation entity namespace differs from its authored kind",
+    )
+    return kind, tuple(sorted(keys))
+
+
 class CurveAuthor:
     def __init__(self, application, recorder, modules):
         self.app = application
@@ -250,6 +314,7 @@ class CurveAuthor:
         self.dimensions = []
         self.dimension_objects = {}
         self.relations = []
+        self.segment_sources = {}
         self.interfaces = self.rec.call(
             "load 2026 type library", self.sw.wc.gencache.EnsureModule,
             "{83A33D31-27C5-11CE-BFD4-00400513BB57}", 0, 34, 0,
@@ -287,18 +352,336 @@ class CurveAuthor:
     def point(self, point):
         return [float(self.get(point, name)) for name in ("X", "Y", "Z")]
 
+    def entity_binding(self, value, namespace):
+        require(value is not None, "native relation entity is null")
+        if namespace == "point":
+            self.typed(value, "SketchPoint")
+            result = {"kind": "point"}
+        else:
+            require(namespace == "segment", "unsupported native entity namespace")
+            kind = int(self.get(value, "GetType"))
+            require(kind in (0, 1), f"unsupported native segment GetType: {kind}")
+            self.typed(value, "SketchLine" if kind == 0 else "SketchArc")
+            result = {"kind": "line" if kind == 0 else "arc", "segment_type": kind}
+        result["id"] = list(self.get(value, "GetID"))
+        binding_key(result)
+        return result
+
+    def relation_source(self, label):
+        match = re.fullmatch(r"(entity-[0-9]+)(?:\.(start|end|center))?", label)
+        require(
+            match is not None and match[1] in self.segment_sources,
+            f"requested entity has no native segment source: {label}",
+        )
+        result = {"segment": copy.deepcopy(self.segment_sources[match[1]])}
+        if match[2] is not None:
+            result["point"] = match[2]
+        return result
+
+    def observe_relation(self, relation, result):
+        try:
+            result["type"] = int(self.get(relation, "GetRelationType"))
+            result["entities"] = int(self.get(relation, "GetEntitiesCount"))
+            result["entity_ids"] = []
+            result["bindings"] = [] if result["type"] in (9, 17, 6, 14) else None
+            self.rec.flush()
+            related = list(self.get(relation, "GetEntities") or [])
+            result["returned_entities"] = len(related)
+            self.rec.flush()
+            require(
+                len(related) == result["entities"],
+                "native relation count differs from its returned entities",
+            )
+            for value in related:
+                if result["bindings"] is None:
+                    result["entity_ids"].append(safe_result(self.get(value, "GetID")))
+                else:
+                    binding = self.entity_binding(
+                        value, "point" if result["type"] in (9, 17) else "segment"
+                    )
+                    result["bindings"].append(binding)
+                    result["entity_ids"].append(list(binding["id"]))
+                self.rec.flush()
+            result["suppressed"] = bool(self.get(relation, "Suppressed"))
+            self.rec.flush()
+            if result["bindings"] is not None:
+                relation_key(result["type"], result["bindings"])
+        except Exception as error:
+            result["observation_error"] = repr(error)
+            self.rec.flush()
+            raise
+        return result
+
     def relation(self, kind, values, labels):
-        if kind == 9 and tuple(self.get(values[0], "GetID")) == tuple(self.get(values[1], "GetID")):
-            self.relations.append({"type": kind, "entities": labels, "mode": "shared-point"})
+        require(
+            type(kind) is int and kind in (9, 17, 6, 14),
+            "unsupported authored relation kind",
+        )
+        require(
+            len(values) == len(labels) == (1 if kind == 17 else 2),
+            "authored relation values and labels differ",
+        )
+        request = {
+            "binding_schema": 1,
+            "type": kind,
+            "entities": list(labels),
+            "bindings": [],
+            "sources": [],
+            "mode": "requesting",
+        }
+        self.relations.append(request)
+        self.rec.data["requested_relations"] = self.relations
+        self.rec.flush()
+        for value, label in zip(values, labels):
+            request["bindings"].append(
+                self.entity_binding(value, "point" if kind in (9, 17) else "segment")
+            )
+            request["sources"].append(self.relation_source(label))
+            self.rec.flush()
+        expected = relation_key(kind, request["bindings"])
+        if kind == 9 and binding_key(request["bindings"][0]) == binding_key(
+            request["bindings"][1]
+        ):
+            request["mode"] = "shared-point"
+            self.rec.flush()
             return
         array = self.sw.VARIANT(self.sw.pythoncom.VT_ARRAY | self.sw.pythoncom.VT_DISPATCH, values)
         manager = self.get(self.sketch, "RelationManager")
-        relation = self.rec.call("ISketchRelationManager.AddRelation", self.sw.invoke, manager, "AddRelation", array, kind, parameters={"entities": labels, "type": kind, "binding": "untyped-method"})
+        relation = self.rec.call(
+            "ISketchRelationManager.AddRelation",
+            self.sw.invoke,
+            manager,
+            "AddRelation",
+            array,
+            kind,
+            parameters={
+                "entities": labels,
+                "entity_bindings": request["bindings"],
+                "type": kind,
+                "binding": "untyped-method",
+            },
+        )
         if relation is None:
             raise PendingCapability(f"relation type {kind} returned no relation for {labels}")
-        require(int(self.get(relation, "GetRelationType")) == kind, "native relation type differs from request")
-        require(int(self.get(relation, "GetEntitiesCount")) == len(values), "native relation entity count differs from request")
-        self.relations.append({"type": kind, "entities": labels, "mode": "native-relation"})
+        request["returned"] = {}
+        self.rec.flush()
+        returned = self.observe_relation(relation, request["returned"])
+        require(returned["type"] == kind, "native relation type differs from request")
+        require(
+            returned["entities"] == len(values),
+            "native relation entity count differs from request",
+        )
+        require(not returned["suppressed"], "new native relation is suppressed")
+        require(
+            relation_key(kind, returned["bindings"]) == expected,
+            "native relation entities differ from the exact requested bindings",
+        )
+        request["mode"] = "native-relation"
+        self.rec.flush()
+
+    def load_relation_bindings(self, case, requests):
+        validation = {
+            "binding_schema": 1,
+            "required_intent": relation_intent(case),
+            "requests": safe_result(requests),
+            "validated": False,
+        }
+        self.rec.data["requested_relation_validation"] = validation
+        self.rec.flush()
+        require(
+            isinstance(requests, list),
+            "verification requires recorded native relation bindings",
+        )
+        require(
+            all(isinstance(item, dict) for item in requests),
+            "recorded relation requests must be binding objects",
+        )
+        require(
+            [(item.get("type"), item.get("entities")) for item in requests]
+            == relation_intent(case),
+            "recorded requests differ from the neutral source's complete relation intent",
+        )
+        descriptors = entities(case)
+        for item in requests:
+            require(
+                type(item.get("binding_schema")) is int and item["binding_schema"] == 1,
+                "verification requires the native relation binding schema",
+            )
+            key = relation_key(item["type"], item.get("bindings"))
+            require(
+                isinstance(item.get("sources"), list)
+                and len(item["sources"]) == len(item["bindings"]),
+                "relation bindings require one native geometry source per entity",
+            )
+            for label, binding, source in zip(
+                item["entities"], item["bindings"], item["sources"]
+            ):
+                match = re.fullmatch(r"entity-([0-9]+)(?:\.(start|end|center))?", label)
+                require(
+                    match is not None and int(match[1]) < len(descriptors),
+                    "relation entity label has no neutral descriptor",
+                )
+                require(
+                    isinstance(source, dict)
+                    and set(source)
+                    == ({"segment", "point"} if match[2] else {"segment"}),
+                    "relation source fields differ from its entity role",
+                )
+                segment = binding_key(source["segment"])
+                expected_kind = (
+                    "line" if descriptors[int(match[1])]["kind"] == "line" else "arc"
+                )
+                require(
+                    segment[0] == expected_kind,
+                    "relation source uses the wrong native segment namespace",
+                )
+                if match[2]:
+                    require(
+                        binding["kind"] == "point" and source["point"] == match[2],
+                        "relation point source differs from its requested endpoint or centre role",
+                    )
+                else:
+                    require(
+                        binding_key(binding) == segment,
+                        "relation segment source differs from its requested binding",
+                    )
+            if item.get("mode") == "shared-point":
+                require(
+                    item["type"] == 9
+                    and binding_key(item["bindings"][0])
+                    == binding_key(item["bindings"][1]),
+                    "shared-point coincidence lacks exact point identity",
+                )
+            else:
+                require(
+                    item.get("mode") == "native-relation"
+                    and isinstance(item.get("returned"), dict),
+                    "verification requires a completed native relation request",
+                )
+                returned = item["returned"]
+                require(
+                    returned.get("type") == item["type"]
+                    and returned.get("entities")
+                    == returned.get("returned_entities")
+                    == len(item["bindings"])
+                    and returned.get("suppressed") is False
+                    and relation_key(item["type"], returned.get("bindings")) == key,
+                    "recorded returned relation did not match its requested bindings",
+                )
+        self.relations = copy.deepcopy(requests)
+        validation["validated"] = True
+        self.rec.data["requested_relations"] = self.relations
+        self.rec.flush()
+
+    def verify_relations(self, actual, verification):
+        manager = self.get(self.sketch, "RelationManager")
+        observed = verification["observed"]
+        for relation in self.get(manager, "GetRelations", 0) or []:
+            observed.append({})
+            self.rec.flush()
+            self.observe_relation(relation, observed[-1])
+        require(
+            not any(item["suppressed"] for item in observed),
+            "source sketch has suppressed relations",
+        )
+        geometry = {}
+        for item in actual:
+            key = binding_key(item["binding"])
+            require(
+                key not in geometry,
+                "native geometry repeats an entity identity within its segment namespace",
+            )
+            geometry[key] = item
+        used = set()
+        for index, request in enumerate(self.relations):
+            evidence = {
+                "request_index": index,
+                "type": request["type"],
+                "mode": request["mode"],
+                "requested_bindings": request["bindings"],
+                "resolved_sources": [],
+                "matched": False,
+            }
+            verification["requests"].append(evidence)
+            self.rec.flush()
+            for source in request["sources"]:
+                segment = geometry.get(binding_key(source["segment"]))
+                require(
+                    segment is not None,
+                    "a requested relation's native segment source is missing",
+                )
+                resolved = (
+                    segment["point_bindings"].get(source["point"])
+                    if "point" in source
+                    else segment["binding"]
+                )
+                require(
+                    resolved is not None,
+                    "a requested relation's endpoint or centre source is unavailable",
+                )
+                evidence["resolved_sources"].append(resolved)
+                self.rec.flush()
+            evidence["sources_match_requested_bindings"] = all(
+                binding_key(left) == binding_key(right)
+                for left, right in zip(
+                    evidence["resolved_sources"], request["bindings"]
+                )
+            )
+            self.rec.flush()
+            require(
+                evidence["sources_match_requested_bindings"],
+                "a requested relation's native source identity changed",
+            )
+            if request["mode"] == "shared-point":
+                evidence["shared_point_still_identical"] = binding_key(
+                    evidence["resolved_sources"][0]
+                ) == binding_key(evidence["resolved_sources"][1])
+                self.rec.flush()
+                require(
+                    evidence["shared_point_still_identical"],
+                    "shared-point coincidence was not retained",
+                )
+            else:
+                expected = relation_key(request["type"], request["bindings"])
+                matches = [
+                    offset
+                    for offset, item in enumerate(observed)
+                    if item["type"] == request["type"]
+                    and relation_key(item["type"], item["bindings"]) == expected
+                ]
+                available = [offset for offset in matches if offset not in used]
+                evidence["matching_relation_indices"] = matches
+                if available:
+                    selected = available[0]
+                elif request["type"] in (9, 17) and matches:
+                    selected = matches[0]
+                else:
+                    selected = None
+                evidence["matched_relation_index"] = selected
+                evidence["reused_exact_point_constraint"] = (
+                    selected in used if selected is not None else False
+                )
+                self.rec.flush()
+                require(
+                    selected is not None,
+                    "required native relation type and exact entity bindings were not retained",
+                )
+                used.add(selected)
+            evidence["matched"] = True
+            self.rec.flush()
+        for selector in (1, 2, 6):
+            rejected = self.get(manager, "GetRelations", selector) or []
+            verification["invalid_filters"].append(
+                {"selector": selector, "count": len(rejected)}
+            )
+            self.rec.flush()
+            require(
+                not rejected,
+                f"sketch has dangling, overdefining or broken relations: filter {selector}",
+            )
+        verification["passed"] = True
+        self.rec.flush()
+        return observed
 
     def dimension(self, segment, role, value, kind, location):
         self.get(self.model, "ClearSelection2", True)
@@ -377,6 +760,12 @@ class CurveAuthor:
         finally:
             self.set(manager, "AddToDB", False)
         typed = [self.typed(segment, "SketchLine" if item["kind"] == "line" else "SketchArc") for item, segment in zip(descriptors, created)]
+        self.segment_sources = {
+            f"entity-{index}": self.entity_binding(segment, "segment")
+            for index, segment in enumerate(created)
+        }
+        self.rec.data["authored_segment_bindings"] = self.segment_sources
+        self.rec.flush()
         for index, (item, segment) in enumerate(zip(descriptors, typed)):
             if item["kind"] != "line" and not item["construction"]:
                 self.relation(17, [self.get(segment, "GetCenterPoint2")], [f"entity-{index}.center"])
@@ -419,13 +808,45 @@ class CurveAuthor:
             kind = int(self.get(segment, "GetType"))
             require(kind in (0, 1), f"unexpected sketch segment type {kind}")
             obj = self.typed(segment, "SketchLine" if kind == 0 else "SketchArc")
-            item = {"construction": bool(self.get(segment, "ConstructionGeometry")), "id": list(self.get(segment, "GetID"))}
+            binding = self.entity_binding(segment, "segment")
+            item = {
+                "construction": bool(self.get(segment, "ConstructionGeometry")),
+                "id": list(binding["id"]),
+                "binding": binding,
+                "point_bindings": {},
+            }
             if kind == 0:
-                item.update(kind="line", start=self.point(self.get(obj, "GetStartPoint2"))[:2], end=self.point(self.get(obj, "GetEndPoint2"))[:2])
+                start, end = self.get(obj, "GetStartPoint2"), self.get(
+                    obj, "GetEndPoint2"
+                )
+                item.update(
+                    kind="line", start=self.point(start)[:2], end=self.point(end)[:2]
+                )
+                item["point_bindings"].update(
+                    start=self.entity_binding(start, "point"),
+                    end=self.entity_binding(end, "point"),
+                )
             else:
-                item.update(kind="circle" if bool(self.get(obj, "IsCircle")) else "arc", center=self.point(self.get(obj, "GetCenterPoint2"))[:2], radius=float(self.get(obj, "GetRadius")))
+                center = self.get(obj, "GetCenterPoint2")
+                item.update(
+                    kind="circle" if bool(self.get(obj, "IsCircle")) else "arc",
+                    center=self.point(center)[:2],
+                    radius=float(self.get(obj, "GetRadius")),
+                )
+                item["point_bindings"]["center"] = self.entity_binding(center, "point")
                 if item["kind"] == "arc":
-                    item.update(start=self.point(self.get(obj, "GetStartPoint2"))[:2], end=self.point(self.get(obj, "GetEndPoint2"))[:2], direction=int(self.get(obj, "GetRotationDir")))
+                    start, end = self.get(obj, "GetStartPoint2"), self.get(
+                        obj, "GetEndPoint2"
+                    )
+                    item.update(
+                        start=self.point(start)[:2],
+                        end=self.point(end)[:2],
+                        direction=int(self.get(obj, "GetRotationDir")),
+                    )
+                    item["point_bindings"].update(
+                        start=self.entity_binding(start, "point"),
+                        end=self.entity_binding(end, "point"),
+                    )
             result.append(item)
         return result
 
@@ -488,18 +909,23 @@ class CurveAuthor:
         require(sketch_feature is not None, "saved sketch cannot be found")
         self.sketch = self.get(sketch_feature, "GetSpecificFeature2")
         actual = self.geometry()
+        verification = {
+            "binding_schema": 1,
+            "observed": [],
+            "requests": [],
+            "invalid_filters": [],
+            "passed": False,
+        }
+        snapshot = {
+            "geometry": actual,
+            "relations": verification["observed"],
+            "relation_verification": verification,
+        }
+        self.rec.data[label] = snapshot
+        self.rec.flush()
         self.check_geometry(case, actual)
-        manager = self.get(self.sketch, "RelationManager")
-        relations = []
-        for relation in self.get(manager, "GetRelations", 0) or []:
-            related = self.get(relation, "GetEntities") or []
-            relations.append({"type": int(self.get(relation, "GetRelationType")), "entities": int(self.get(relation, "GetEntitiesCount")), "entity_ids": [safe_result(self.get(value, "GetID")) for value in related], "suppressed": bool(self.get(relation, "Suppressed"))})
-        require(not any(item["suppressed"] for item in relations), "source sketch has suppressed relations")
-        for kind in {item["type"] for item in self.relations if item["mode"] == "native-relation"}:
-            required = sum(item["type"] == kind and item["mode"] == "native-relation" for item in self.relations)
-            require(sum(item["type"] == kind for item in relations) >= required, f"required relation type {kind} was not retained")
-        for selector in (1, 2, 6):
-            require(not (self.get(manager, "GetRelations", selector) or []), f"sketch has dangling, overdefining or broken relations: filter {selector}")
+        self.load_relation_bindings(case, self.relations)
+        relations = self.verify_relations(actual, verification)
         boss = self.get(self.model, "FeatureByName", "CurveBoss")
         definition = self.get(boss, "GetDefinition")
         require(definition is not None, "extrusion definition is unavailable")
@@ -530,8 +956,17 @@ class CurveAuthor:
         self.rec.close_number("surface area", measured["area"], 2 * area + perimeter * depth, absolute=1e-18)
         for index in range(3):
             self.rec.close_number(f"center of mass {index}", measured["com"][index], expected_com[index], absolute=1e-9)
-        snapshot = {"geometry": actual, "relations": relations, "extrusion": extrusion, "bodies": len(body_objects), "mass": measured, "expected_com": expected_com, "feature_tree": self.feature_tree(), "body_boxes": [safe_result(self.get(body, "GetBodyBox")) for body in body_objects]}
-        self.rec.data[label] = snapshot
+        snapshot.update(
+            relations=relations,
+            extrusion=extrusion,
+            bodies=len(body_objects),
+            mass=measured,
+            expected_com=expected_com,
+            feature_tree=self.feature_tree(),
+            body_boxes=[
+                safe_result(self.get(body, "GetBodyBox")) for body in body_objects
+            ],
+        )
         self.rec.flush()
         return snapshot
 
@@ -573,10 +1008,10 @@ def run_worker(job_path, record_path):
             author.refresh_dimension_names()
         else:
             require(path.is_file() and digest(path) == job["source_sha256"], "saved source hash differs before fresh-process verification")
+            author.load_relation_bindings(case, job.get("requested_relations"))
             model, errors, warnings = rec.call("OpenDoc6", session.open, path, parameters={"path": str(path), "document_type": 1, "options": 1, "configuration": "", "errors": "out i4", "warnings": "out i4"})
             require(model is not None and errors == warnings == 0, f"saved source open failed or warned: {errors}, {warnings}")
             author.model = model
-            author.relations = job["requested_relations"]
             author.snapshot(case, "reopened")
             dimensions = job["dimensions"]
             for item in dimensions:

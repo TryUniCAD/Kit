@@ -145,6 +145,10 @@ The [controlled curve source authoring tool](../../Changes/Solidworks/Inspection
 prepares independent discovery and held-out inputs before curved-sketch writer
 implementation. A two-case source preflight passed creation, reopen and driving edits with healthy controls.
 The full-family lock and Kit-written curve acceptance remain pending.
+The [first full source attempt](../../../re/solidworks/measurements/2026/CurveSourceAttempt01.json)
+passed eighteen discovery cases and stopped on an annulus relation-count assertion with healthy controls.
+The [binding-aware source harness](../../Changes/Solidworks/Inspection/SolidworksCurveRelationBindings.md)
+now verifies exact native relation entities; controlled annulus and capsule remeasurement remains pending.
 The [explicit oracle interface bindings](../../Changes/Solidworks/Inspection/SolidworksExplicitOracleInterfaces.md)
 avoid automatic type discovery on child objects that reject `GetTypeInfo`.
 The [type-library inventory](../../Changes/Solidworks/Inspection/SolidworksTypeLibraryInventory.md)
