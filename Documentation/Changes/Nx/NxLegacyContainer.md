@@ -253,9 +253,19 @@ one belongs to. The id objects are module internals, not exports, so the export 
 the class, and the initialisation sites are not adjacent to the class registrations in the sampled
 regions.
 
-Recovering that grouping is the remaining step of the suggested route, and it is a real one rather
-than a measurement: it needs the static initialiser ordering or the object layout of the id, neither
-of which this entry establishes.
+Recovering that grouping is the remaining step of the suggested route. Enumerating functions through
+`.pdata` narrows it but does not close it:
+
+```text
+functions calling the registrant constructor                1538
+functions among those holding lowercase_underscore strings     0
+attribute id initialiser stubs (UString ctor with a name)    3261
+```
+
+the 1538 registration functions contain no attribute names at all, so the binding is not local: each
+attribute id is a separate 0x28 byte initialiser stub that fills a `.data` object, and the class must
+receive the resulting ids through a shared table rather than through its own registration function.
+Finding that table is the next step, and it is a step rather than a measurement.
 
 ## Class layout extents do not segment the object region
 
