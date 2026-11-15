@@ -392,6 +392,15 @@ only the start and end markers — no model commands. So a second oracle cannot 
 
 Both are waiting on a Creo launch; the guest agent is still refusing sessions.
 
+The limit is now measured rather than assumed: parsing the vendor element with our own parser yields **765 nodes** and
+consumes `3832` bytes of `3827`, but it reports only **two** `pointid` nodes — `[[0, 1], []]` — and two `verhor`
+values where six segments exist. So the desync begins inside `segtab_ptr`: the first element is decoded, the remaining
+five are lost.
+
+That makes the next prerequisite a **reader** task, not a writer one: teach the parser to decode the vendor's
+selector-plus-positional segment replay, then the profile's six point pairs are available and the aligned candidate
+can be built from real topology instead of sequential guesses.
+
 ### The sketch's segment replay could not be decoded reliably
 
 To test whether the sketch's *topology* is the remaining constraint, the vendor's six segment records were read out of

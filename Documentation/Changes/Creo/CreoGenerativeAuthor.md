@@ -86,6 +86,11 @@ This change was made **without a Creo run** — the guest agent is still unreach
 47-row artifact is unverified. The verification that it replaces a contradiction with agreement is byte-level, not
 a load.
 
+Measured, not assumed: our parser reads the vendor element as `765` nodes and consumes `3832` of `3827` bytes, but
+reports only **two** `pointid` nodes — `[[0, 1], []]` — where six segments exist. The desync starts inside `segtab_ptr`,
+so the profile's real point pairs are not yet readable, and the next step is a **reader** fix rather than another
+topology guess.
+
 The sketch's own segment list is where the next attempt has to start, and its replay form is the obstacle: the first
 segment is fully declared, but the other five are selector-plus-positional (`f7 2f e2 02 00 01 00 01 02 f6 00 00 f6 f6
 05 …`), and resolving where `dir`'s three slots end and `pointid`'s two begin was not guessed here. The aligned
