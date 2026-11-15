@@ -494,8 +494,13 @@ That is why cleaning record one alone loads and every other swap fails, and it m
 blocker: the csys class differs from the plane class at exactly two slots (`28`, `236`), and those two
 values are the only vendor-sourced mask content still needed.
 
-An earlier observation that a single-slot mask on all four records loaded is now treated as unreliable —
-four independent failures contradict it.
+Replacing the csys lane with the **plane** lane outright loads (`3` of `3`), so slots `28` and `236` are
+not class-specific and the requirement is one **per-schema** vector shared by every replay record. That
+reconciles all five observations at once and leaves exactly one vendor-derived value in the section.
+
+The harness was calibrated before these probes: the byte-identical control loaded `3` of `3`, the
+authored record one `2` of `2`, and `csysasplane` `3` of `3`, so silent exits are real rejections. False
+*successes* remain a risk, which is why the earlier single-load result for a one-slot mask was withdrawn.
 
 Two candidates (`allclean4`, `allclean4b`) were malformed and their launches carry no information:
 record four's lane is elements-only, so substituting `Author.FlagValue` injected a stray close and count.

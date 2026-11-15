@@ -339,9 +339,45 @@ reading that fits every measurement is that the loader recomputes or ignores the
 then checks each replay against a per-class expectation. It explains why record one alone may be cleaned
 while any replay may not, and why cleaning all four also fails.
 
-That makes the csys mask a real blocker rather than a cosmetic one: the csys class differs from the
-plane class at exactly two slots (`28` and `236`), and those two values are the only vendor-sourced mask
-content left once the emitter supplies the rest.
+### The csys does not need its own values
+
+The next probe replaces record four's lane with the **plane** mask outright. It loads:
+
+```text
+slots differing plane->csys: [(28, -536871041, -129), (236, 131072, 0)]
+csysasplane: record4 mask -> 252 slots, AllFeatur 3478 -> 3484
+!15-Nov-26 03:57:45  End   C:\Mac\Home\Documents\creo-authored\csysasplane.prt
+```
+
+Three loads out of three. So slots `28` and `236` are **not** class-specific: class `979` accepts the
+plane vector. The required content is therefore **one per-schema vector shared by every replay record**,
+not a per-class table.
+
+That reconciles every measurement:
+
+| Observation | Explanation |
+| --- | --- |
+| record one's mask may be all-clean | the definition record is exempt |
+| record two, three or four cleaned alone fails | each replay must carry the schema vector |
+| all four cleaned fails | records two to four lose the vector |
+| csys replaced by the plane vector loads | the vector is per schema, not per class |
+
+So `AllFeatur` needs exactly one 252-value schema vector, and it is the only vendor-derived content left
+in the section. It is not derivable from a record's own fields, because record one may carry anything
+while the replays must carry it.
+
+### Oracle reliability
+
+Every verdict in this page depends on the launch harness, so it was calibrated before the last probes:
+
+| File | Loads observed |
+| --- | --- |
+| byte-identical no-op rebuild of the control | `3` of `3` |
+| record one authored with our dates, all-clean mask | `2` of `2` |
+| csys lane replaced by the plane lane | `3` of `3` |
+
+No false failures were observed, so a silent exit is treated as a real rejection once it repeats. False
+*successes* remain a risk, which is why the earlier single-load result for a one-slot mask was withdrawn.
 
 ### Correction to the earlier mask section
 
