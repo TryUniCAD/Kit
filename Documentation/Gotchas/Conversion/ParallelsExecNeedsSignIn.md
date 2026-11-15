@@ -44,6 +44,25 @@ That restores the VM to `running`, but **not** to a working exec session: `prlct
 both the default and `--current-user` sessions fail with `Unable to open new session`, which is consistent with
 Windows sitting at its sign-in screen with Parallels Tools not yet serving.
 
+## The VM can also enter a boot loop that `prlctl capture` exposes
+
+After the forced power-off the guest did not settle at a sign-in screen. `prlctl capture` is the only way to see it
+from a headless host (there is no GUI session, so `screencapture` fails with `could not create image from display`):
+
+```text
+prlctl capture "Windows 11" --file /tmp/vm.png
+```
+
+Two captures two minutes apart both showed the Windows logo with a spinning dot — the dot had moved, so the guest was
+progressing, not frozen. Minutes later the VM cycled `stopping` → `running` on its own, and capture then failed:
+
+```text
+PrlDevDisplay_ConnectToVm: PrlJob_Wait: PRL_ERR_IO_STOPPED
+```
+
+That is a boot loop rather than a login screen, so no amount of waiting yields an exec session. `prlctl stop --kill`
+still worked at that point and returned the VM to `stopped`.
+
 ## Workaround
 
 Sign in to the Windows VM on the console (Parallels Desktop → the VM window), then `prlctl exec` works again.

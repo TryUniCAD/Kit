@@ -48,6 +48,12 @@ This change was made **without a Creo run** — the guest agent is still unreach
 47-row artifact is unverified. The verification that it replaces a contradiction with agreement is byte-level, not
 a load.
 
+**The verification host is in a boot loop.** `prlctl capture` — the only way to see a headless guest — showed the
+Windows logo with a progressing spinner, then the VM began cycling `stopping`/`running` by itself and capture failed
+with `PRL_ERR_IO_STOPPED`. So it is not sitting at a sign-in screen; it needs a recovery action at the Parallels
+console. `hybrid949` and `full949` are built and staged, and `re/creo/tools/Launch.py` prints the verdict in one
+command once the guest is healthy again.
+
 **The verification host is down and needs a console sign-in.** After a `modelcheck.bat` run wedged the guest
 agent, the VM then stuck in `stopping`, where `stop`, `stop --kill` and `reset` all refused; the stuck
 `prl_vm_app` process had to be terminated on the host before it would restart. It is `running` again but shows no
