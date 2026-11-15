@@ -549,6 +549,43 @@ all 41 replaced loads three times out of three (`auth42.prt`, `29176` bytes agai
 `SolidPrimdata`, `DispDataTable`, `THMB_IMG_MAIN`, `CGFPersistTable`, the two `kind b` rows and the two
 free-space extents.
 
+## The list length is load-bearing, and three of four records are authored
+
+The feature list cannot be truncated. That is what blocked every two-record candidate:
+
+| Candidate | Records | Creo |
+| --- | --- | --- |
+| `fullgen` | control's four, generated tail | loads |
+| `twocontrol`, `twocontrol2`, `twocontrol3` | control's own first two, three different boundaries | silent exit twice each |
+| `csyspair` | FRONT + csys, control bytes | silent exit twice |
+| `inplace1` | **our** record one, control records 2-4 | loads |
+| `inplace2` | **our** records 1-3, control csys | loads |
+| `inplace3` | **our** records 1-3 with all-clean masks and our dates, control csys | loads, 2 of 2 |
+
+So a part must declare the same four features the rest of the container describes; the one-feature section
+loaded only because it never opens a second element. Authoring therefore replaces records **in place**
+instead of appending them.
+
+`Author.ReplayOf` derives each replay from its own definition, and the three authored records compose with
+the boundary the control uses: `next_feat_ptr` declared once, `f2 e3` opening element two, bare `e3` for the
+later elements.
+
+### Retraction: the mask vector is not needed
+
+`inplace3` carries all-clean 252-slot masks in the definition **and** in both replays, and loads twice. That
+overturns the earlier per-record bisect, which reported every replay mask validated. That bisect predates
+three emitter fixes (`fc_hist` hardcoded instead of `first_geom_id`; the array-strip test matching the `f7`
+byte inside a value; replays hand-written rather than derived), so its candidates were malformed in ways
+unrelated to their masks. No per-schema mask payload is required.
+
+### What is left
+
+One vendor record: the csys (`619` bytes, class `979`). It is a replay of the first record's schema opened
+with `id 11`, `type 979`, `sect_name DEFAULT_CSYS`, and then it declares four fields of its own —
+`misc_id_tab_ptr` (`24` bytes), `misc_hist` (`436`), `parent_table` (`70`) and `avail_feat_parents` (`46`),
+the last two listing feature ids `3`, `5` and `7`. Declaring fields is legal for this record because a record
+that declares a new field must be last in its array, and it is.
+
 ## The list wrapper is proven, the list boundary is not
 
 Two results this round, one positive and one negative.
