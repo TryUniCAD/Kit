@@ -479,6 +479,24 @@ Generated scalars, mask encoding and mask length are all ruled out. Only the mas
 records* remains: record one alone may be all-clean, all four may not. The plane and csys classes differ
 at exactly two slots (`28`, `236`), so the closest reading is that the mask is validated per class.
 
+A per-record bisect with `re/creo/tools/MaskRecord.py` then located the constraint exactly:
+
+| Record swapped to all-clean | Result |
+| --- | --- |
+| one (definition) | loads |
+| two (first replay) | silent exit twice |
+| three (second replay) | silent exit twice |
+| four (csys) | silent exit twice |
+| all four | silent exit twice |
+
+The definition record's mask is exempt; every replay's mask is validated against a per-class expectation.
+That is why cleaning record one alone loads and every other swap fails, and it makes the csys mask a real
+blocker: the csys class differs from the plane class at exactly two slots (`28`, `236`), and those two
+values are the only vendor-sourced mask content still needed.
+
+An earlier observation that a single-slot mask on all four records loaded is now treated as unreliable —
+four independent failures contradict it.
+
 Two candidates (`allclean4`, `allclean4b`) were malformed and their launches carry no information:
 record four's lane is elements-only, so substituting `Author.FlagValue` injected a stray close and count.
 `allclean4c`, which uses `Author.SignedIntElements`, is the valid test.

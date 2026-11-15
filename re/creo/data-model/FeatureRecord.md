@@ -319,6 +319,38 @@ The closest reading is that the mask is validated per class rather than per reco
 the csys class differ at exactly two slots (`28` and `236`), and making every record clean removes that
 distinction.
 
+## Per record bisect: the definition mask is exempt
+
+`re/creo/tools/MaskRecord.py` replaces exactly one record's lane with an all-clean 252 slot vector and
+leaves the other three at their control values. The all-clean lane is `f6` plus `e7 7f` plus `e7 7c`, so
+every repeat count fits in one byte and the stream reads the same whether a reader takes `e7` as a byte
+count or as a compact count.
+
+| Record swapped | Class | Result |
+| --- | --- | --- |
+| one (definition, FRONT) | `923` | loads |
+| two (first replay, TOP) | `923` | silent exit twice |
+| three (second replay, RIGHT) | `923` | silent exit twice |
+| four (csys) | `979` | silent exit twice |
+| all four | mixed | silent exit twice |
+
+So the definition record's mask is **exempt**, and every replay record's mask is **validated**. The
+reading that fits every measurement is that the loader recomputes or ignores the schema-defining mask,
+then checks each replay against a per-class expectation. It explains why record one alone may be cleaned
+while any replay may not, and why cleaning all four also fails.
+
+That makes the csys mask a real blocker rather than a cosmetic one: the csys class differs from the
+plane class at exactly two slots (`28` and `236`), and those two values are the only vendor-sourced mask
+content left once the emitter supplies the rest.
+
+### Correction to the earlier mask section
+
+The earlier section reported that `cleanlane` — all four lanes replaced by a single slot — loaded. Under
+the model above it should not have, and the per-record bisect contradicts it with four independent
+failures. That single success is now treated as **unreliable**, most likely a launch that reported `End`
+from a session that had not yet reached the model. It should not be used as evidence that mask length is
+free.
+
 ### Two void candidates
 
 `allclean4` and `allclean4b` were malformed and their launches carry no information. Record four's lane
