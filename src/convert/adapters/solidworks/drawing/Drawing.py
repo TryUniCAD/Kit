@@ -8,9 +8,10 @@ from convert.adapters.solidworks.container.Container import (
     SldprtArchive,
     SldprtFormatError,
 )
-
-KKeywordsStream = "swXmlContents/KeyWords"
-KInformationStream = "docProps/ISolidWorksInformation.xml"
+from convert.adapters.solidworks.container.Format import (
+    INFORMATION_STREAM as KInfoStream,
+    KEYWORDS_STREAM as KKeyStream,
+)
 KSheetFormatProperty = "SW-All Sheet Format Data"
 
 
@@ -190,12 +191,12 @@ def ReadDrawing(Source: str | FilePath | bytes) -> DrawingData:
         PathValue = FilePath(Source).expanduser().resolve()
         Archive = SldprtArchive.open(PathValue)
         SourcePath = str(PathValue)
-    Keywords = Archive.get(KKeywordsStream)
-    Information = Archive.get(KInformationStream)
+    Keywords = Archive.get(KKeyStream)
+    Information = Archive.get(KInfoStream)
     if Keywords is None:
-        raise SldprtFormatError(f"drawing is missing {KKeywordsStream}")
+        raise SldprtFormatError(f"drawing is missing {KKeyStream}")
     if Information is None:
-        raise SldprtFormatError(f"drawing is missing {KInformationStream}")
+        raise SldprtFormatError(f"drawing is missing {KInfoStream}")
     RootValue = XmlRoot(Keywords)
     if LocalName(RootValue.tag) != "Keywords":
         raise SldprtFormatError("drawing keywords root is not Keywords")

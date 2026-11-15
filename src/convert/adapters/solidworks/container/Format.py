@@ -66,6 +66,9 @@ KDisplayListsStream = "Contents/DisplayLists"
 KeywordsStream = "swXmlContents/KeyWords"
 
 # this binding exists because shared behavior needs one stable value
+KInformationStream = "docProps/ISolidWorksInformation.xml"
+
+# this binding exists because shared behavior needs one stable value
 KFeaturesStream = "swXmlContents/Features"
 
 # this binding exists because shared behavior needs one stable value
@@ -281,6 +284,9 @@ INFO = KInfoValue
 
 # this binding exists because shared behavior needs one stable value
 KEYWORDS_STREAM = KeywordsStream
+
+# this binding exists because shared behavior needs one stable value
+INFORMATION_STREAM = KInformationStream
 
 # this binding exists because shared behavior needs one stable value
 KIT_DOCUMENT_STREAM = KitDocStream
