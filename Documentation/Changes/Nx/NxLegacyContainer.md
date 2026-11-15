@@ -281,6 +281,31 @@ of id objects — and what remains is a less direct route, such as ids resolved 
 at load time or registered when a class is first instantiated. Either way it is loader-time data
 rather than a table this branch can read out of the module statically.
 
+## The class-id header hypothesis fails
+
+With the layouts available, the base class states the shape a record header should have.
+`OM_object` and `OM_methodic_object` both declare three attributes only: `isa` at offset 8, size 2;
+`om_object_flags` at offset 10, size 2; and `om_storage_flags` at offset 12, size 1. That is a 13-byte
+header with a class id at offset 8, which makes a walker testable: read the id, look the class up,
+advance by that class's extent, repeat.
+
+Tested over `0x19a0` to `0xd9b0`, looking for any position where the little endian word is one of the
+95 resolved class ids and the next word is small and the following byte looks like a storage flag:
+
+```text
+candidate triples (id, flags, storage)      218 of 49000 positions
+gap to the next candidate == that class's extent    1 of 217
+extents of the matched classes              24 (95 times), 48 (63), 56 (26), 128 (23)
+observed gaps between candidates            6, 35, 40, 48, 50, 51, 52, 53, 54, 578, 1303
+```
+
+so the header shape does not hold in the data: the matched extents are dominated by base classes, the
+gaps cluster where no class extent lies, and the walker advances exactly once in 217 tries. 218 hits
+against roughly 70 expected from chance alone is not a signal either.
+
+That closes the seventh independent test of this region, and it is the one with the strongest prior,
+because it came from the schema rather than from the bytes.
+
 ## A correction: the legacy classes do resolve, and their layouts still do not segment
 
 An earlier statement in this entry said the legacy class names do not resolve in the NX 2506 registry
