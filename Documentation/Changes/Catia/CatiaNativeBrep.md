@@ -194,15 +194,18 @@ result = CatiaAdapter().write(
   validation. The handle count exceeds the B-rep vertex count (`Reservoir` 1431 handles and 88
   vertices, `Copper_Washer` 76 handles and 8 vertices), so the handles are not vertex indices. The
   reader now places each handle by the corner structure: arity-2 handles get distinct vertex-table
-  points by a bipartite match, 2-face handles are spread at equal angles along the intersection arc
+  points by an augmenting-path match (a greedy match left `MC_Inlet` with 62 of 63 corners), 2-face
+  handles are spread at equal angles along the intersection arc
   of their two faces (plane-cylinder, and plane-cone when the plane is perpendicular to the cone
-  axis), and 1-face handles take the nearest satisfying vertex. The 2-face handles follow the stored
+  axis), and 1-face handles take the nearest satisfying vertex, falling back to the least violating
+  vertex instead of the first vertex. The 2-face handles follow the stored
   edge order: `ArcOrder` finds the edge record whose handles contain the pair and reorders the arc
   handles to that order, so a clockwise arc no longer places its handles in handle-index order.
   That makes the planar faces coplanar
   for the simple parts (deviation drops from 1.0-34.5 to 0.0-0.0015) and puts all 76 `Copper_Washer`
-  vertices on the washer's circles, and all 4682 handles across the 22 decoded parts satisfy every
-  surface of the faces that use them. The angular positions are still assumed equal-spaced, not the
+  vertices on the washer's circles. The least violating fallback lowers the pooled-part plane
+  deviation from 67.1/150.4/85.1/58.5 to 55.4/64.1/58.9/36.0 for `4784`, `4876`, `Pedal_Body`, and
+  `Reservoir`. The angular positions are still assumed equal-spaced, not the
   stored tessellation. The coordinate region is a sequence of float runs
   separated by 1- to 8-byte record headers. The `Reservoir` five-float group is `(x, y1, z, y2, z)`
   with `z1 == z2`, but the `Copper_Washer` region does not follow that layout, and no run of plain
