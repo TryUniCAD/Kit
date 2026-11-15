@@ -209,6 +209,34 @@ A targeted scan for the accessor form `lea r8, [rip+disp32]` whose descriptor na
 register or a different code shape, and finding it means matching the general pattern rather than the one
 instance decoded above.
 
+## The accessor family, enumerated
+
+Correlating the two scans — every `.ddt`-targeting `lea` within 80 bytes of an
+`imul r64, r/m64, 0xd0` — gives **210** accessor groups. Each group has the same shape as the decoded
+one: a constant load at `0x1543a5070`, one descriptor load, the `.ddt` base, and the stride multiply.
+Resolving every descriptor's name yields the field each accessor addresses:
+
+```text
+0xe51761  (default_info)
+0xe531c9  (gp_geom)
+0xe549bb  (sec_file)
+0xe58c66  (plin_info_ref)
+0xe5a770  (subft_param)
+0xe5aeb4  (arrboycoeff)
+```
+
+**None of the 210 names `cr_flags_xar` or `more_cr_flags`.** Every name in the family is parenthesised,
+and parenthesised names mark union or choice members. `cr_flags_xar` is a plain name, as are
+`save_geoms`, `cvt_feat_dat` and the rest of its neighbours in the name pool.
+
+That is the answer to this line of search, and it is a redirect rather than a failure: the registry lookup
+exists for fields whose position is not fixed — the union members — while plain fields such as
+`cr_flags_xar` sit at **compile-time struct offsets** and need no registry entry at all. There is
+therefore no accessor to find for the mask fields.
+
+The search has to change shape. The mask consumer is code that reads the feature struct at a fixed
+offset, so it is found by identifying the struct base and the offset, not by following a descriptor.
+
 ## Next
 
 The path is now name-based again, in the module that owns the struct:
@@ -218,9 +246,9 @@ The path is now name-based again, in the module that owns the struct:
 2. follow it to the feature-struct offsets of `cr_flags_xar` and `more_cr_flags`;
 3. follow the mask consumer to learn which bit gates which field.
 
-Step 1 has a cheap entry point: the RIP-relative scan localises the cluster sites, and one is decoded
-above. The next move is the inverse search — enumerate the accessor family and resolve each descriptor's
-name until `cr_flags_xar` appears — because the straight `lea r8` filter for that name returns nothing.
+The registry route is closed: the 210 accessors cover union members only, and plain fields like
+`cr_flags_xar` are read at fixed struct offsets. What remains is to identify the feature-struct base and
+the offset of `cr_flags_xar`, then read the code that tests its bits.
 
 Step 1 needs a full analysis of a 326 MB PE. That is the remaining cost, and it is a different order of
 effort from the section-grammar work: not another emitter tweak.
