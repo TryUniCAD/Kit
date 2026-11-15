@@ -124,6 +124,34 @@ gen_rows.prt: 26239 bytes, 47 generated rows
 16 of 16 checks pass
 ```
 
+### Two ordering rules, and the solver tables were never the blocker
+
+`std.out` was used as a progress meter. Two corrections to the sketch's record order each moved the stop one record
+deeper:
+
+| Change | Trace stops at |
+| --- | --- |
+| before | `gsec2d_ptr` |
+| `f7 2f` re-selected before the second segment body | `segtab_ptr` |
+| `attributes` emitted between element five's `gen_info` and its `known_ent_info` | `dimtab_ptr` |
+
+A splice bisect also inverts the earlier diagnosis:
+
+| Candidate | Our records kept | Creo |
+| --- | --- | --- |
+| `sw_seg` | everything up to `segtab_ptr` | **loads** |
+| `sw_attr` | the six segment bodies | refused |
+| `sw_dim` | segments and `attributes` | refused |
+| `entsplice` | everything up to `ent_tab` | refused |
+
+So our `gsec_ptr`/`gsec2d_ptr` head is accepted, and the refusals beyond it implicate the **segment bodies and the
+sketch's dimension table**, not `ent_tab`. The entity graph was never what stopped this element — which is consistent
+with its values being inert.
+
+`dispdimattr` was then tried as a struct and the trace regressed to `gsec2d_ptr`, so it stays scalar; the next record
+to reconcile is `dimtab_ptr`, where the vendor declares its dimension elements once and then uses selectors while we
+re-declare inside `dim_ref`.
+
 ### Section order is measured and matched, and still refused
 
 The vendor's sketch interleaves its sibling `attributes` field between the fifth and sixth segment bodies

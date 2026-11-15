@@ -603,7 +603,7 @@ KMeasuredSegments = (
 )
 
 
-def MeasuredSegment(TypeValue: int, Dir: tuple[int, int, int], Points, ExtId: int, VerHor: int, Declare: bool) -> bytes:
+def MeasuredSegment(TypeValue: int, Dir: tuple[int, int, int], Points, ExtId: int, VerHor: int, Declare: bool, WithKnown: bool = True) -> bytes:
     Payload = b"\xE2"
     if Declare:
         Payload += Author.FieldValue(1, "type", Author.SignedInt(TypeValue))
@@ -624,6 +624,8 @@ def MeasuredSegment(TypeValue: int, Dir: tuple[int, int, int], Points, ExtId: in
         Payload += Author.FieldValue(1, "radius2", Author.SignedInt(-1))
         Payload += Author.FieldValue(1, "ext_id", Author.SignedInt(ExtId))
         Payload += Author.StructHeader("gen_info") + b"\xE2"
+        if not WithKnown:
+            return Payload
         Payload += Author.StructHeader("known_ent_info") + b"\xF1\xE2"
         Payload += Author.FieldValue(1, "attr", Author.SignedInt(0))
         Payload += Author.FieldValue(1, "known_ent_id", Author.SignedInt(-1))
@@ -639,6 +641,8 @@ def MeasuredSegment(TypeValue: int, Dir: tuple[int, int, int], Points, ExtId: in
     Payload += Author.SignedInt(-1)
     Payload += Author.SignedInt(ExtId)
     Payload += b"\xE2"
+    if not WithKnown:
+        return Payload
     Payload += b"\xE2" + Author.SignedInt(0) + Author.SignedInt(-1)
     return Payload
 
@@ -654,12 +658,22 @@ def MeasuredSketch(EntityCount: int = 0) -> bytes:
     for IndexValue, (TypeValue, Dir, Points, ExtId, VerHor) in enumerate(
         KMeasuredSegments
     ):
-        # the vendor places attributes between the fifth and sixth segment bodies
+        # the vendor closes the declared element and selects the schema again before the second body
+        if IndexValue == 1:
+            Payload += b"\xF7\x2F"
+        # the vendor places attributes between the fifth body's gen_info and its known_ent_info
+        Payload += MeasuredSegment(
+            TypeValue,
+            Dir,
+            Points,
+            ExtId,
+            VerHor,
+            IndexValue == 0,
+            IndexValue != 5,
+        )
         if IndexValue == 5:
             Payload += b"\xE0\x01attributes\x00\xF0\x08\xF1\xF7\x3A"
-        Payload += MeasuredSegment(
-            TypeValue, Dir, Points, ExtId, VerHor, IndexValue == 0
-        )
+            Payload += b"\xE2" + Author.SignedInt(0) + Author.SignedInt(-1)
     Payload += Author.StructHeader("dimtab_ptr") + b"\xF3\xF8\x04\xF7\x3E\xFB"
     for IndexValue, Value in enumerate(KDimensions):
         Payload += Dimension(Value, IndexValue)
@@ -745,4 +759,75 @@ def BuildSketchSwap(Source: Path, Target: Path) -> bytes:
     Result = Subset.Build(DataValue, Header.base, set(), {"FeatDefs": b"#FeatDefs\n" + Row})
     Target.write_bytes(Result)
     print(f"{Target.name}: {len(Result)} bytes; swapped element {len(Swapped)}")
+    return Result
+
+
+def BuildEntSwap(Source: Path, Target: Path) -> bytes:
+    """Our element up to ent_tab, then the vendor's solver tables."""
+    DataValue = Source.read_bytes()
+    Header = ReadHeader(DataValue)
+    Payload = None
+    for TableValue in Subset.ReadTables(DataValue, Header.base):
+        for Entry in TableValue.rows:
+            if Entry.name == "FeatDefs":
+                Offset = Header.base + Entry.offset
+                Body = DataValue[Offset : Offset + Entry.length]
+                Payload = Body[Body.find(b"\n") + 1 :]
+    if Payload is None:
+        raise SystemExit("the ladder has no FeatDefs row")
+    End = Payload.find(b"\xE0\x00feat_defs_917\x00")
+    Vendor = Payload[37:End]
+    Marker = b"\xE0\x00ent_tab\x00"
+    Ours = FullElement(66)
+    Swapped = Ours[: Ours.find(Marker)] + Vendor[Vendor.find(Marker) :]
+    Row = (
+        Author.StructHeader("Sld_FeatDefs")
+        + b"\xE3"
+        + Author.StructHeader("feat_defs_949")
+        + b"\xF8\x01\xF7\x02\xFB"
+        + Swapped
+        + Author.StructHeader("feat_defs_917")
+        + b"\xF4\x06\xF8\x01\xF7\x80\xC4\xFB"
+        + Author.SolidFeatureDefinition(74, (100.0,))
+    )
+    Result = Subset.Build(DataValue, Header.base, set(), {"FeatDefs": b"#FeatDefs\n" + Row})
+    Target.write_bytes(Result)
+    print(f"{Target.name}: {len(Result)} bytes; swapped element {len(Swapped)}")
+    return Result
+
+
+def BuildMarkerSwap(Source: Path, Target: Path, Marker: bytes) -> bytes:
+    """Our element up to Marker, then the vendor's records from Marker onward."""
+    DataValue = Source.read_bytes()
+    Header = ReadHeader(DataValue)
+    Payload = None
+    for TableValue in Subset.ReadTables(DataValue, Header.base):
+        for Entry in TableValue.rows:
+            if Entry.name == "FeatDefs":
+                Offset = Header.base + Entry.offset
+                Body = DataValue[Offset : Offset + Entry.length]
+                Payload = Body[Body.find(b"\n") + 1 :]
+    if Payload is None:
+        raise SystemExit("the ladder has no FeatDefs row")
+    End = Payload.find(b"\xE0\x00feat_defs_917\x00")
+    Vendor = Payload[37:End]
+    Ours = FullElement(66)
+    At = Ours.find(Marker)
+    VendorAt = Vendor.find(Marker)
+    if At < 0 or VendorAt < 0:
+        raise SystemExit(f"marker missing: {Marker!r}")
+    Swapped = Ours[:At] + Vendor[VendorAt:]
+    Row = (
+        Author.StructHeader("Sld_FeatDefs")
+        + b"\xE3"
+        + Author.StructHeader("feat_defs_949")
+        + b"\xF8\x01\xF7\x02\xFB"
+        + Swapped
+        + Author.StructHeader("feat_defs_917")
+        + b"\xF4\x06\xF8\x01\xF7\x80\xC4\xFB"
+        + Author.SolidFeatureDefinition(74, (100.0,))
+    )
+    Result = Subset.Build(DataValue, Header.base, set(), {"FeatDefs": b"#FeatDefs\n" + Row})
+    Target.write_bytes(Result)
+    print(f"{Target.name}: {len(Result)} bytes; swapped at {Marker!r}")
     return Result

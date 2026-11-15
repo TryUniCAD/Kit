@@ -428,6 +428,39 @@ So the parser now takes a `Legacy` flag: the reader uses the new rules, and `Rep
 | `gen_rows.prt` | `26239` bytes, 47 rows, `End` + `MT Part Solid` twice (`12:26:42`, `12:27:59`) |
 | vendor `949` element | `3827` of `3827` bytes, `pointid [[0,1], [1,2]]` |
 
+### Two ordering rules move the trace two levels deeper
+
+Using `std.out` as a progress meter, two institutional details of the sketch had to be corrected, and each moved the
+stop one record deeper:
+
+| Change | Trace stops at |
+| --- | --- |
+| before | `gsec2d_ptr` |
+| `f7 2f` selector emitted before the second segment body | `segtab_ptr` |
+| `attributes` emitted between element five's `gen_info` and its `known_ent_info` | `dimtab_ptr` |
+
+so the vendor's segment bodies are not simply `e2` + values: the declared first body is closed and the schema is
+re-selected (`f2 f7 2f`) before the second, and the sibling `attributes` field is interleaved *inside* the fifth body,
+between its `gen_info` and its `known_ent_info`.
+
+**A bisect shows the solver tables were never the element's blocker.** Splicing the vendor's records in at successive
+markers:
+
+| Candidate | Our records kept | Creo |
+| --- | --- | --- |
+| `sw_seg` | everything up to `segtab_ptr` | **loads** |
+| `sw_attr` | the six segment bodies | refused |
+| `sw_dim` | segments and `attributes` | refused |
+| `entsplice` | everything up to `ent_tab` | refused |
+
+`sw_seg` loading means our `gsec_ptr`/`gsec2d_ptr` head is right, and every refusal beyond it points at the **segment
+bodies and the sketch's dimension table**, not at `ent_tab`. That inverts the earlier reading: the entity graph was
+never what stopped this element.
+
+`dispdimattr` was then tried as a struct (`e2`) instead of a scalar, and the trace regressed from `dimtab_ptr` back to
+`gsec2d_ptr`, so the scalar form stays. The next record to reconcile is `dimtab_ptr`'s dimension table: the vendor's
+elements declare once and then use selectors, while ours re-declare inside `dim_ref`.
+
 ### `attributes` sits between the fifth and sixth segment, and matching that is not enough either
 
 The vendor's `segtab_ptr` body interleaves the sibling `attributes` field: segments one to five, then
