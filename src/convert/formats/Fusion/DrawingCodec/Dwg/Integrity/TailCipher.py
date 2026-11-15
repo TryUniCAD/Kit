@@ -29,7 +29,9 @@ def PiWords(WordCount: int) -> tuple[int, ...]:
     return tuple(int(Text[Start : Start + 8], 16) for Start in range(0, HexCount, 8))
 
 
-def KeySchedule(KeyValue: bytes) -> tuple[list[int], list[int], list[int], list[int], list[int]]:
+def KeySchedule(
+    KeyValue: bytes,
+) -> tuple[list[int], list[int], list[int], list[int], list[int]]:
     Words = PiWords(KWordCount)
     PValue = list(Words[:18])
     S0Value = list(Words[18 : 18 + 256])
@@ -46,16 +48,26 @@ def KeySchedule(KeyValue: bytes) -> tuple[list[int], list[int], list[int], list[
     LeftValue = 0
     RightValue = 0
     for Index in range(0, 18, 2):
-        LeftValue, RightValue = EncryptBlock(LeftValue, RightValue, PValue, S0Value, S1Value, S2Value, S3Value)
+        LeftValue, RightValue = EncryptBlock(
+            LeftValue, RightValue, PValue, S0Value, S1Value, S2Value, S3Value
+        )
         PValue[Index], PValue[Index + 1] = LeftValue, RightValue
     for BoxValue in (S0Value, S1Value, S2Value, S3Value):
         for Index in range(0, 256, 2):
-            LeftValue, RightValue = EncryptBlock(LeftValue, RightValue, PValue, S0Value, S1Value, S2Value, S3Value)
+            LeftValue, RightValue = EncryptBlock(
+                LeftValue, RightValue, PValue, S0Value, S1Value, S2Value, S3Value
+            )
             BoxValue[Index], BoxValue[Index + 1] = LeftValue, RightValue
     return PValue, S0Value, S1Value, S2Value, S3Value
 
 
-def FuncValue(Value: int, S0Value: list[int], S1Value: list[int], S2Value: list[int], S3Value: list[int]) -> int:
+def FuncValue(
+    Value: int,
+    S0Value: list[int],
+    S1Value: list[int],
+    S2Value: list[int],
+    S3Value: list[int],
+) -> int:
     AValue = (Value >> 24) & 0xFF
     BValue = (Value >> 16) & 0xFF
     CValue = (Value >> 8) & 0xFF
