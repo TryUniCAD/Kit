@@ -234,6 +234,27 @@ asking the loader for it.
 `LegacyCodes(Payload)` reads that table, `nx.legacy_coded_classes` reports how many entries are set,
 and `TestNxLegacy` now pins the table alongside the frames.
 
+## The object data is byte packed, not word aligned
+
+The object region of `wave_parent.prt` section 1, from `0x19a0` to the section end at `0xd9b0`, is
+49168 bytes. Measured across it:
+
+```text
+marker 01 00 00            329 occurrences, 279 of them 01 00 00 00
+marker 02 00 00            102 occurrences
+fill ff ff ff ff           393 occurrences
+float32 in a coordinate range
+  at byte offset 0         739, but the samples include 32767.748 and 32768.0 sentinels
+  at byte offset 1         588, with negatives such as -256000.531
+  at byte offset 2         643, samples -3.326, -3.394, -8192.0
+  at byte offset 3         726, samples 96.166, 3.178, 96.174
+```
+
+so the records are not word aligned: the coordinate floats sit one byte into a group, which is why
+reading the region as u32 or as aligned float32 produces nonsense. Any object record walker has to
+advance one byte at a time, and the `0xFF` fill and the two marker families have to be classified
+before ids and lengths can be read. That is the layer this entry stops at.
+
 ## The table after the attribute frames ends in sequential ids
 
 In `wave_parent.prt` section 1 the region between the class frames and the object data reads, in
