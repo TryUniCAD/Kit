@@ -45,6 +45,7 @@ from Classes import registry
 from Streams import StreamDoc, store_rooted, load_rooted
 from defs.Definition import load_definition, store_definition
 from builders.Model import configuration_manager, principal_planes, PersistentIds
+from builders.Model import relation_manager, system_folders, detail_cabinet
 from builders.Definition import part_definition, definition_stream
 from convert.adapters.solidworks.container.Container import build_sldprt, SldprtArchive
 reg = registry()
@@ -77,11 +78,39 @@ planes = principal_planes(
 streams['Research/PrincipalPlanes'] = store_rooted(
     StreamDoc('rooted', {'base': 1}, list(planes.values())), reg, 19000,
 )
+next_plane_id = allocator.next_id
+"""
+
+KSystems = """
+classes = (
+    'moCommentsFolder_c', 'moDocsFolder_c', 'moEnvFolder_c', 'moEqnFolder_c',
+    'moFavoriteFolder_c', 'moHistoryFolder_c', 'moMaterialFolder_c',
+    'moNotesAreaFtrFolder_c', 'moSelectionSetFolder_c', 'moSensorFolder_c',
+    'moSolidBodyFolder_c', 'moSurfaceBodyFolder_c',
+)
+system_owner = Obj('moPart_c')
+system_owner.f['f9d0'] = relation_manager(owner=system_owner)
+folders = system_folders(
+    names={cls: prefix + cls for cls in classes}, owner=system_owner,
+    allocator=allocator, date_code=2026001, parasolid_version=380,
+    created_at=1700000000,
+)
+cabinet = detail_cabinet(name=prefix + 'annotations', owner=system_owner,
+    allocator=allocator, date_code=2026001, parasolid_version=380)
+streams['Research/SystemFeatures'] = store_rooted(
+    StreamDoc('rooted', {'base': 1}, [*folders, cabinet]), reg, 19000,
+)
+"""
+
+KContainer = """
 blob = build_sldprt(streams)
 archive = SldprtArchive.from_bytes(blob)
 plane_doc, plane_ar = load_rooted(archive.require('Research/PrincipalPlanes'), reg, 1, 19000)
 if plane_doc.tail or store_rooted(plane_doc, reg, 19000) != streams['Research/PrincipalPlanes']:
     raise RuntimeError('principal plane graph changed after decoding')
+system_doc, system_ar = load_rooted(archive.require('Research/SystemFeatures'), reg, 1, 19000)
+if system_doc.tail or store_rooted(system_doc, reg, 19000) != streams['Research/SystemFeatures']:
+    raise RuntimeError('system feature graph changed after decoding')
 """
 
 KCheck = """
@@ -106,7 +135,11 @@ report = {
     'next_configuration_id': decoded['f40c'],
     'plane_ids': [plane['f08'] for plane in plane_doc.roots],
     'plane_normals': [plane['f6f8']['normal'] for plane in plane_doc.roots],
+    'next_plane_id': next_plane_id,
     'next_persistent_id': allocator.next_id,
+    'system_classes': [node.cls for node in system_doc.roots],
+    'system_ids': [node['f08'] for node in system_doc.roots],
+    'folder_times': [(((node['f2a4'] & 0xffffffff) << 32) | (node['f2a0'] & 0xffffffff)) // 10000000 - 11644473600 for node in system_doc.roots[:-1]],
     'density_kg_m3': doc.head['f1688'],
     'journal_name': doc.head['ffd8']['f18']['f08'],
     'stream_bytes': {name: len(data) for name, data in streams.items()},
@@ -118,7 +151,17 @@ report = {
 print(json.dumps(report, ensure_ascii=True))
 """
 
-KProgram = KImports + KGuard + KLoad + KBuild + KPlanes + KCheck + KReport
+KProgram = (
+    KImports
+    + KGuard
+    + KLoad
+    + KBuild
+    + KPlanes
+    + KSystems
+    + KContainer
+    + KCheck
+    + KReport
+)
 
 
 def RunBuilders(

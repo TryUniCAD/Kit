@@ -359,6 +359,105 @@ def principal_planes(
     }
 
 
+def folder(
+    *,
+    cls: str,
+    name: str,
+    owner: Obj,
+    allocator: PersistentIds,
+    date_code: int,
+    parasolid_version: int,
+    created_at: int,
+) -> Obj:
+    supported = {
+        "moCommentsFolder_c", "moDocsFolder_c", "moEnvFolder_c", "moEqnFolder_c",
+        "moFavoriteFolder_c", "moHistoryFolder_c", "moMaterialFolder_c",
+        "moNotesAreaFtrFolder_c", "moSelectionSetFolder_c", "moSensorFolder_c",
+        "moSolidBodyFolder_c", "moSurfaceBodyFolder_c",
+    }
+    if cls not in supported:
+        raise ArchiveError("system folder constructor is not classified for this runtime class")
+    if not isinstance(owner, Obj):
+        raise TypeError("system folders require an archive-object owner")
+    if type(created_at) is not int or not 0 <= created_at <= 0xFFFFFFFF:
+        raise ValueError("folder creation time must fit an unsigned Unix-seconds timestamp")
+    if cls == "moEqnFolder_c" and (not isinstance(owner.f.get("f9d0"), Obj) or owner.f["f9d0"].cls != "moRelMgr_c"):
+        raise ArchiveError("equation folders require the owner's native relation manager")
+    result = feature(
+        cls=cls, name=name, owner=owner, allocator=allocator, date_code=date_code,
+        parasolid_version=parasolid_version,
+    )
+    ticks = (created_at + 11644473600) * 10_000_000
+    low, high = ticks & 0xFFFFFFFF, ticks >> 32
+    result.f.update({
+        "f360": int(cls not in {"moCommentsFolder_c", "moSolidBodyFolder_c", "moSurfaceBodyFolder_c"}),
+        "f370": 0,
+        "f2a0": low - (1 << 32) if low & (1 << 31) else low,
+        "f2a4": high - (1 << 32) if high & (1 << 31) else high,
+    })
+    if cls in {"moHistoryFolder_c", "moFavoriteFolder_c"}:
+        result.f["f3c8"] = object_list()
+    if cls == "moFavoriteFolder_c":
+        result.f.update({"f3e8": object_list(), "f408": 1})
+    if cls == "moSelectionSetFolder_c":
+        result.f.update({"f3c0": object_list(), "f3e0": 1})
+    if cls == "moMaterialFolder_c":
+        result.f.update({"f378": "", "flags380": 0})
+    if cls == "moNotesAreaFtrFolder_c":
+        result.f.update({"f388": None, "f37c": 0, "f394": 0, "f378": 1, "f39c": 1})
+    if cls in {"moSolidBodyFolder_c", "moSurfaceBodyFolder_c"}:
+        result.f.update({"f37c": 0, "f380": 0, "f388": None, "f3d8": None})
+    if cls == "moEqnFolder_c":
+        result.f["_relation_manager"] = owner.f["f9d0"]
+        owner.f["f9d0"].f["_equation_folder"] = result
+    return result
+
+
+def detail_cabinet(
+    *,
+    name: str,
+    owner: Obj,
+    allocator: PersistentIds,
+    date_code: int,
+    parasolid_version: int,
+) -> Obj:
+    result = model_feature(
+        cls="moDetailCabinet_c", name=name, owner=owner, allocator=allocator,
+        date_code=date_code, parasolid_version=parasolid_version,
+    )
+    result.f.update({
+        "f368": object_list(),
+        "f370": 1.0,
+        "f378": 1.0,
+        "f388": object_list(),
+        "n3d8": 0,
+        "f3d8": [],
+        "f3f0": 0,
+    })
+    return result
+
+
+def system_folders(
+    *,
+    names: dict[str, str],
+    owner: Obj,
+    allocator: PersistentIds,
+    date_code: int,
+    parasolid_version: int,
+    created_at: int,
+) -> tuple[Obj, ...]:
+    if not isinstance(names, dict):
+        raise TypeError("system folders require authored runtime-class/name pairs")
+    return tuple(
+        folder(
+            cls=cls, name=name, owner=owner, allocator=allocator,
+            date_code=date_code, parasolid_version=parasolid_version,
+            created_at=created_at,
+        )
+        for cls, name in names.items()
+    )
+
+
 def empty_mass_properties() -> dict:
     result = {
         name: 0.0

@@ -4,6 +4,7 @@ Research builders now construct shared nodes, feature bases, plane wrappers,
 configuration-manager graphs and part-definition streams from explicit inputs
 and 2026 constructor rules. They also construct principal planes and the base
 part root from generated style/unit dependencies.
+Fresh system-folder and annotation-cabinet factories extend the same graph.
 These additions do not enable the production writer.
 
 ## Use
@@ -25,6 +26,8 @@ and [plane-wrapper gotcha](../../Gotchas/Conversion/Solidworks/PlaneWrapperGeome
 describe separate graph constraints.
 The [transform schema gotcha](../../Gotchas/Conversion/Solidworks/ProvisionalTransformFieldNames.md)
 records the active registry vocabulary found by remote construction.
+The [folder timestamp gotcha](../../Gotchas/Conversion/Solidworks/FolderFeatureCreationTimes.md)
+describes the separate native feature-constructor variant.
 
 ## Verification
 
