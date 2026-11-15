@@ -196,7 +196,10 @@ result = CatiaAdapter().write(
   reader now places each handle by the corner structure: arity-2 handles get distinct vertex-table
   points by a bipartite match, 2-face handles are spread at equal angles along the intersection arc
   of their two faces (plane-cylinder, and plane-cone when the plane is perpendicular to the cone
-  axis), and 1-face handles take the nearest satisfying vertex. That makes the planar faces coplanar
+  axis), and 1-face handles take the nearest satisfying vertex. The 2-face handles follow the stored
+  edge order: `ArcOrder` finds the edge record whose handles contain the pair and reorders the arc
+  handles to that order, so a clockwise arc no longer places its handles in handle-index order.
+  That makes the planar faces coplanar
   for the simple parts (deviation drops from 1.0-34.5 to 0.0-0.0015) and puts all 76 `Copper_Washer`
   vertices on the washer's circles, and all 4682 handles across the 22 decoded parts satisfy every
   surface of the faces that use them. The angular positions are still assumed equal-spaced, not the

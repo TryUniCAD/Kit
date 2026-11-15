@@ -9,6 +9,7 @@ from convert.adapters import WriteOptions
 from convert.adapters.catia.Adapter import CatiaAdapter, ReadCatia
 from convert.adapters.catia.Container import CfvTwoArchive, OsmxArchive
 from convert.adapters.catia.NativeBrep import (
+    ArcOrder,
     BuildVertices,
     DecodeBrep,
     DecodeTess,
@@ -351,6 +352,33 @@ def TestOsmDouble() -> None:
     assert 50.0 in Values
     assert 0.8 in Values
     assert 2.5 in Values
+
+
+# this definition exists because focused behavior needs one stable owner
+def TestArcOrder() -> None:
+    Archive = CfvTwoArchive.from_bytes(
+        (KCatparts / "Copper_Washer.CATPart").read_bytes()
+    )
+    BrepValue = ParseBrep(Archive)
+    Usage: dict[int, set[int]] = {}
+    for FaceIndex, TrimValue in enumerate(BrepValue.trims):
+        for Handle in set(TrimValue.handles):
+            Usage.setdefault(Handle, set()).add(FaceIndex)
+    Pairs: dict[tuple[int, int], list[int]] = {}
+    for Handle in sorted(Usage):
+        if len(Usage[Handle]) == 2:
+            Faces = sorted(Usage[Handle])
+            Pairs.setdefault((Faces[0], Faces[1]), []).append(Handle)
+    assert Pairs
+    Found = 0
+    for Handles in Pairs.values():
+        Order = ArcOrder(BrepValue, Handles)
+        assert Order is not None
+        for Handle in Handles:
+            assert Handle in Order
+        if Order != Handles:
+            Found += 1
+    assert Found > 0
 
 
 # this definition exists because focused behavior needs one stable owner

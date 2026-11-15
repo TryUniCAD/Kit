@@ -707,6 +707,36 @@ def AssignCorners(
     return {Handle: BrepValue.vertices[Index].point for Handle, Index in Assign.items()}
 
 
+# this definition exists because arc handles must follow the stored edge order
+def ArcOrder(BrepValue: BrepData, Handles: list[int]) -> list[int] | None:
+    HandleSet = set(Handles)
+    for EdgeValue in BrepValue.edges:
+        if EdgeValue.arity < 3:
+            continue
+        if not HandleSet.issubset(EdgeValue.handles):
+            continue
+        return list(EdgeValue.handles)
+    return None
+
+
+# this definition exists because arc handles must follow the stored edge order
+def ArcHandles(
+    BrepValue: BrepData,
+    Handles: list[int],
+    EndValues: list[int],
+    Positions: dict[int, tuple[float, float, float]],
+) -> tuple[list[int], list[int]]:
+    EdgeOrder = ArcOrder(BrepValue, Handles)
+    if EdgeOrder is None:
+        return (EndValues, Handles)
+    if EdgeOrder[0] in Positions and EdgeOrder[-1] in Positions:
+        return ([EdgeOrder[0], EdgeOrder[-1]], EdgeOrder[1:-1])
+    EdgeValues = [Handle for Handle in EdgeOrder if Handle in Handles]
+    if len(EdgeValues) == len(Handles):
+        return (EndValues, EdgeValues)
+    return (EndValues, Handles)
+
+
 # this definition exists because focused behavior needs one stable owner
 def PlaceArcMut(
     BrepValue: BrepData,
@@ -732,6 +762,7 @@ def PlaceArcMut(
         ]
         if len(EndValues) != 2:
             continue
+        EndValues, Handles = ArcHandles(BrepValue, Handles, EndValues, Positions)
         Reference = (
             Normalize((1.0, 0.0, 0.0))
             if abs(AxisValue[0]) < 0.9
