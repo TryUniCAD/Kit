@@ -7,8 +7,13 @@ from subprocess import run as RunProcess
 from sys import executable as PythonExec
 from typing import cast as CastValue
 
+# isolated child processes need a repository anchor independent of the current working directory
 KRepoRoot = FilePath(__file__).resolve().parents[4]
+
+# style purity must be measured beyond the parent interpreter and its loaded modules
 KProgram = FilePath(__file__).with_name("StyleBuilderProcess.py")
+
+# authored style choices make output dependence observable without captured vendor settings
 KStyles: dict[str, object] = {
     "standard": 1,
     "font_name": "authored font α",
@@ -25,6 +30,8 @@ KStyles: dict[str, object] = {
     ],
     "cutlist_expressions": ["authored item", "authored description", "authored stock"],
 }
+
+# explicit semantic unit choices separate conversion intent from saved document defaults
 KUnits: dict[str, object] = {
     "length_unit": "mm",
     "angle_unit": "degree",
@@ -33,10 +40,12 @@ KUnits: dict[str, object] = {
 }
 
 
+# separate authored requests prevent one style scenario from changing another scenario
 def MakeInput() -> dict[str, dict[str, object]]:
     return CopyValues({"styles": KStyles, "units": KUnits})
 
 
+# audited subprocess execution exposes hidden runtime dependencies that direct helper calls would miss
 def RunBuilders(Inputs: list[dict[str, dict[str, object]]]) -> list[dict[str, object]]:
     Outcome = RunProcess(
         [PythonExec, "-I", "-B", str(KProgram), str(KRepoRoot)],
@@ -50,6 +59,7 @@ def RunBuilders(Inputs: list[dict[str, dict[str, object]]]) -> list[dict[str, ob
     return CastValue(list[dict[str, object]], LoadJson(Outcome.stdout))
 
 
+# authored appearance changes must survive native graph encoding without altering unrelated units
 def TestStyleGraph() -> None:
     Changed = MakeInput()
     Changed["styles"]["font_name"] = "authored alternative font 輪郭"
@@ -87,6 +97,7 @@ def TestStyleGraph() -> None:
     assert Large["unit_hash"] == Small["unit_hash"]
 
 
+# unit cardinality and choices must control serialized tables while leaving style metadata unchanged
 def TestUnitTables() -> None:
     Custom = MakeInput()
     Custom["units"] = {
@@ -110,6 +121,7 @@ def TestUnitTables() -> None:
     assert Profile["style_hash"] == Paired["style_hash"]
 
 
+# unrecovered settings must fail closed instead of emitting plausible but unsupported native records
 def TestInputScope() -> None:
     Standard = MakeInput()
     Standard["styles"]["standard"] = 0

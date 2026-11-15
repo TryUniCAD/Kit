@@ -56,7 +56,7 @@ The [unit-vector gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Pr
 The [entity line-type gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Profile/EntityLineTypeField.md) records the adjacent fields' distinct roles
 The [process-program declaration gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Profile/ProcessProgramDeclarations.md) records the focused-file rule for generated test programs
 The [runtime-offset owner gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Profile/SketchAndProfileRuntimeOffsets.md) distinguishes sketch solver fields from equal offsets in the separate profile object
-The [base-tip gotcha](../../../Documentation/Gotchas/Ci/PullRequestBaseTip.md) records a stale PR base snapshot encountered during integration
+The [base-tip gotcha](../../Gotchas/Ci/ProcessChecks/PullRequestBaseTip.md) records a stale PR base snapshot encountered during integration
 
 No local tests or oracle measurements were run
 The Python source passed static AST syntax parsing without imports or execution

@@ -17,12 +17,23 @@ The shipped `slduiu.dll` independently proves zero at
 The [construction record](../../../../re/solidworks/records/ModelConstruction2026.md)
 records the binary and trace hashes.
 
+The follow-up static audit found the same default error in `su_CStringArray`.
+Its `swccu.dll` getter `0x31a3de90` returns descriptor `0x31a680c8`, whose
+schema at `+0x0c` is zero. Header user/company arrays therefore also require
+schema zero. `suObList` instead has schema one, so container classes must not
+share an assumed schema.
+
 ## Workaround
 
-Construct journals with `schema=0`. Determine each class schema from its registered
+Construct journals and string arrays with `schema=0`. Determine each class schema from its registered
 native class metadata, including the versionable bit, rather than extrapolating
 from a document survey or codec round trips. A codec can round-trip a constructed
 class header that the target loader rejects.
+
+The same static audit found `moCompRef_c` registered with schema `0xffff` and
+no create-object function at `sldmodu` `0x4cf68440`. It is a nonserializable base,
+so the standalone factory fails closed; concrete references still use its embedded
+field initializer.
 
 The corrected constant comes from the binary and live loader metadata, not a
 saved-file field. The complete candidate still requires native acceptance.

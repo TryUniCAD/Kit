@@ -84,6 +84,7 @@ def construct_part(*, registry, document, provenance, presentation, target):
         "plane_names", "units", "styles", "hatch_name", "drafting_standard",
         "journal_name", "tessellation", "detail_flags", "system_preference_7a",
         "design_intent", "selected_leader", "cjk_saved",
+        "folder_names", "cabinet_name",
     ))
     target = fields(target, "native target", ("date_code", "parasolid_version"))
     if document["plane_axis"] not in ("x", "y", "z"):
@@ -103,9 +104,10 @@ def construct_part(*, registry, document, provenance, presentation, target):
     graph = part_graph(
         name=document["name"], configuration_names=(document["configuration_name"],),
         plane_names=presentation["plane_names"], detail_definitions=detail_definitions(**styles),
+        folder_names=presentation["folder_names"], cabinet_name=presentation["cabinet_name"],
         document_units=document_units, analysis_units=analysis_units, hatch_name=presentation["hatch_name"],
         date_code=target["date_code"], parasolid_version=target["parasolid_version"],
-        updated_at=provenance["modified_at"], retain_construction_flag=True,
+        updated_at=provenance["modified_at"], created_at=provenance["created_at"], retain_construction_flag=True,
     )
     plane = graph.planes[document["plane_axis"]]
     frame = PlaneFrame(origin=(0.0, 0.0, 0.0), u=plane["_plane_u"], v=plane["_plane_v"])

@@ -7,7 +7,7 @@ test calls it with its subprocess report.
 
 ## Observed behavior
 
-The repository's [pytest configuration](../../../pyproject.toml) includes
+The repository's [pytest configuration](../../../../pyproject.toml) includes
 `Check*` in `python_functions`.
 The remote [model-builder workflow](https://github.com/TryUniCAD/Kit/actions/runs/43677223605)
 ran the actual subprocess/container test successfully, then failed because pytest

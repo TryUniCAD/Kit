@@ -9,10 +9,14 @@ from tests.convert.solidworks.research.FreshPartTests import AssertPart
 from tests.convert.solidworks.research.LockedPartInput import LockedPartInput
 from tests.convert.solidworks.research.PartArtifacts import SavePartOutput
 
+# repository resolution keeps child processes independent from the invoking working directory
 KRepoRoot = FilePath(__file__).resolve().parents[4]
+
+# the preexisting lock separates held out inputs from recovered grammar
 KLockPath = KRepoRoot / "re/solidworks/v2026/heldout/polygon/Lock.json"
 
 
+# locked inputs preserve an auditable boundary between grammar recovery and later verification
 def TestLockedParts() -> None:
     LockData = CastValue(dict[str, object], LoadJson(KLockPath.read_text()))
     Records = CastValue(list[dict[str, object]], LockData["records"])

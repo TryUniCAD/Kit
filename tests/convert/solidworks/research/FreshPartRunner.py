@@ -6,10 +6,14 @@ from subprocess import run as RunProcess
 from sys import executable as PythonExec
 from typing import cast as CastValue
 
+# repository resolution keeps child processes independent from the invoking working directory
 KRepoRoot = FilePath(__file__).resolve().parents[4]
+
+# one reviewed subprocess program keeps remote construction checks reproducible
 KProgram = FilePath(__file__).with_name("FreshPartProcess.py")
 
 
+# fresh interpreters expose hidden state and dependencies during native part construction
 def RunFreshPart(Request: dict[str, object]) -> dict[str, object]:
     Outcome = RunProcess(
         [PythonExec, "-I", "-B", str(KProgram), str(KRepoRoot)],

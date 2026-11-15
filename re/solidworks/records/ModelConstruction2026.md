@@ -229,6 +229,66 @@ slot `0x4d8`; both ordinary child classes resolve that slot to `0x4b2fe0b0`,
 which only increments runtime reference count `0x10`.
 Neither callback advances header ids or stamps on those ordinary paths.
 
+## Header counter and save lifecycle
+
+Status: **partial — code-derived rules, without generated-header native acceptance**.
+These rules refer to the manifest's `sldarchiveu.dll`, SHA-256
+`5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48`.
+The serializer evidence is REA
+`ev_99ce3579fb4002b5f0f926a20a8691b3b10de7c06da3b548f8649cdc37297589`.
+Its subject digest matches the manifest.
+
+| Operation                   | Rule                                                                                                                                                            | 2026 address |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| Constructor                 | Seed independent update/body counters `f40/f44` with `101`; initialize `f48` through local calendar time `1990-01-01`, and `f50` through the unset-time utility | `0x31a02540` |
+| Next update stamp           | Increment the 32-bit `f40` word, replace `f48` with current wall time, return the new counter; both formal arguments are unused in this build                   | `0x31a05350` |
+| Current update stamp        | Return `f40`; the optional name argument does not select a separate counter                                                                                     | `0x319f9810` |
+| Next body stamp             | Increment the independent unsigned `f44` word and return it                                                                                                     | `0x31a05340` |
+| Body stamp synchronization  | Replace `f44` only when the supplied unsigned value is larger                                                                                                   | `0x31a05680` |
+| Explicit update replacement | Store the supplied `f40` value and return the previous value                                                                                                    | `0x31a06100` |
+| Update rollback             | Decrement `f40` without changing `f48`                                                                                                                          | `0x31a04f20` |
+| Storage wrapper             | Select the header stream and call serialization without advancing either counter                                                                                | `0x31a05d00` |
+
+The loader normalizes the constructor update seed. After reading `f40` for
+versions above `150`, instructions `0x31a03fed`–`0x31a03ff3` change `101` to
+`102`. A temporary current-time assignment follows. For versions above `3676`,
+including `19000`, the later read at `0x31a0440a`–`0x31a04411` overwrites that
+temporary `f48` with its stored value. No corresponding body-counter
+normalization appears in this serializer.
+The lossless research codec preserves the original wire value; it does not
+simulate this native in-memory fixup.
+
+The clock name is misleading. Imported `su_CTime::GetTickCount` resolves to
+`swccu.dll` `0x31a4c5d0`. That function calls `_time64(NULL)` and copies its
+result into the returned time object. It is wall time in seconds, not the
+Windows millisecond uptime counter. REA evidence
+`ev_30b8661a0b8051b1107966b2e0e9d1fa2e04f257ef3d5c8216ef7cb4e37e9d30`
+records the exact module SHA-256
+`d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c`.
+
+Save-time `f50` normalization is conditional rather than an unconditional clock
+write. The serializer compares its local-calendar year to the unset-time
+sentinel's year. When those years match and archive condition `0x80` is absent,
+it chooses current `_time64` time for calendar month zero; otherwise it uses
+`f70`, falling back to current time if `f70 == -1`.
+The decision and assignment occupy `0x31a035a6`–`0x31a03612`.
+An authored modification time outside that sentinel year passes through this
+branch unchanged. This does not establish every higher-level save caller.
+
+The model's session operation and body lifecycle remain separate.
+`moAtom_c::setBody` at `sldmodu` `0x4bcfb360` returns immediately for a null body
+or feature. It allocates a body stamp only when its third argument is nonzero
+and its manager/model/header path exists.
+`moFeature_c::iUpdatePreviewBodyTimeStamps` at `0x4bb4a890` iterates actual preview
+bodies and allocates one body stamp per body. An empty preview array takes no
+allocation path there.
+The model-update completion routine `0x4c1c8320` contains an additional session
+update call at `0x4c1c88ba`, conditional on its update work and prior status.
+These paths explain why visible-feature counts cannot determine either counter.
+No fixed increment count is inferred for fresh generation.
+See [initial update normalization](../../../Documentation/Gotchas/Conversion/Solidworks/InitialUpdateStampIsNormalized.md)
+and [the header clock](../../../Documentation/Gotchas/Conversion/Solidworks/HeaderClockIsWallTime.md).
+
 ## Configuration construction
 
 `configuration_manager` accepts authored names, the current configuration index,
@@ -320,6 +380,16 @@ graphs, a crosshatch name, configuration names and version provenance.
 They do not read preferences, a saved part, a template or a field program.
 `part_graph` returns object references through `ModelGraph`; its system-feature
 tuple is separate from the part's fresh empty concept list.
+It now requires ordered authored `folder_names`, `cabinet_name` and `created_at`
+in addition to the existing part/plane/configuration metadata.
+The supported construction profile names all twelve classified folder classes;
+this is an explicit graph request, not a claim that every vendor template uses
+the same set or order.
+The returned `folders` mapping and `cabinet` retain their actual object identities.
+Its system-feature tuple follows the authored folder order, then the cabinet,
+then native principal-plane creation order `z/y/x`.
+The selected generic insertion order is authored; the automatic UI reordering
+callbacks are separate operations and are not silently approximated.
 Origin/profile construction and the separate resolved-stream composition remain
 required before this graph is a complete native part.
 
@@ -361,6 +431,34 @@ owner, allocator, version provenance and Unix-seconds creation time.
 object tuple, preserving pointer identity without a captured feature table.
 It does not invent a mandatory default-folder order.
 `detail_cabinet` constructs the separate annotation-cabinet model feature.
+
+Native folder `addToModel` callbacks use the owning model's slot `0xfd0`,
+`moConcept_c::addNewFeature` at `0x4bda66c0`, which assigns the owner, invokes
+the new-feature hook and delegates insertion through slot `0xfb8`.
+For a part that slot dispatches to `0x4c1c5040` as described above.
+The callbacks also bind model caches to the actual folder objects:
+
+| Folder         | Model slot | 2026 binding evidence               |
+| -------------- | ---------- | ----------------------------------- |
+| Environment    | `0x1e0`    | `0x4beb3ca0`; getter `0x4b2863b0`   |
+| Documents      | `0x1f0`    | `0x4beb3b90`; getter `0x4b285f80`   |
+| Comments       | `0x1f8`    | `0x4beb39d0`; getter `0x4b284d50`   |
+| Sensors        | `0x200`    | `0x4beb4240`; creation `0x4c016ab0` |
+| Favorites      | `0x218`    | `0x4b63e180`; creation `0x4c015bb0` |
+| Selection sets | `0x220`    | `0x4b641240`; creation `0x4c016a30` |
+| History        | `0x228`    | `0x4b6453c0`; creation `0x4c016260` |
+| Surface bodies | `0x1500`   | getter `0x4b289bd0`                 |
+| Solid bodies   | `0x1508`   | getter `0x4b2899f0`                 |
+
+Environment `f1e0` is serialized in the configuration graph. `part_graph` binds
+it to the same environment object also present in the system-feature tuple.
+The remaining cache relationships are retained as semantic pointer bindings,
+not invented archive-index fields. The relation-manager/equation-folder backlink
+also preserves the actual graph objects.
+System nodes receive the proven zero-status initialization mask, while the part
+retains its constructor's pending-update state until composition performs an
+explicit later operation. This does not complete origin solver state or body caches.
+See [system-folder bindings](../../../Documentation/Gotchas/Conversion/Solidworks/SystemFoldersHaveModelBindings.md).
 
 The folder base at `0x4beae110` calls the default feature constructor
 `0x4bb38710`, then assigns its owner.
@@ -420,6 +518,15 @@ It is a negative candidate result and not native acceptance.
 No saved document supplied the corrected value.
 See [runtime class schemas](../../../Documentation/Gotchas/Conversion/Solidworks/RuntimeClassSchemasDiffer.md).
 
+The owned-constructor class audit also checks every concrete model, folder,
+plane, configuration, self-component and display-data record against its exported
+registered class metadata. Those concrete records use wire schema `1`.
+The standalone `moCompRef_c` base is different: exported class metadata at
+`sldmodu` `0x4cf68440` has schema `0xffff` and a null create-object function.
+`component_reference` therefore fails closed. Its field initializer remains
+available for the base portion of concrete dimension and feature references;
+that base portion does not emit a standalone class header.
+
 The part-specific density field `f1688` comes from `uiPartDoc_c` constructor
 `sldprtu` `0x33374980`.
 The base UI density virtual at slot `0x11c0` resolves to `0x3338a480` for that class;
@@ -447,7 +554,7 @@ checks object aliases and rejects runtime data-file reads through Python's audit
 It deliberately keeps both vendor-acceptance flags false.
 Remote run [43675419713](https://github.com/TryUniCAD/Kit/actions/runs/43675419713)
 passed this configuration/definition process boundary at commit `07b9ce403`.
-The expanded principal-plane check and part-root additions await a new remote run.
+Later runs below cover the expanded principal-plane and part-root checks.
 The original suffix-based audit allowed unrecorded reads whose filenames looked
 like code. It does not establish an unqualified zero-runtime-read claim.
 The current harness imports its trusted bootstrap and `ConstructionGuard` first,
@@ -461,6 +568,17 @@ The repaired strict audit passed the actual subprocess/container boundary at
 `5b546278f` in [run 43681676456](https://github.com/TryUniCAD/Kit/actions/runs/43681676456),
 job `132713453212`. Both the native-file step and its enclosing policy job passed.
 This is component codec/access evidence, not native application acceptance.
+The expanded process check now also constructs the full requested base graph
+from generated style/unit dependencies, serializes Config and Resolved streams
+through one shared archive map, and verifies the environment alias and native
+self-component identity after decoding. It exercises zero/positive owner update
+flags through that file boundary. This expanded subprocess check passed at
+`6c8f92431` in [run 43688828337](https://github.com/TryUniCAD/Kit/actions/runs/43688828337),
+job `132734920405`. The job reported `5 failed, 134 passed, 158 skipped`;
+the model process was among the passing cases. Other signature-fixture,
+assembly-schema and composed-part callers kept the enclosing job red.
+The passing component process does not qualify those failures or establish
+native generated-part acceptance.
 The first strict-audit remote run at `236ccd510` correctly denied a lazy import
 of `encodings/utf_16_le.py` during Unicode string storage. The harness now resolves
 the native string codec names during its recorded initialization phase, before

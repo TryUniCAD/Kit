@@ -53,7 +53,7 @@ def fields(value, name, required, optional=()):
 
 def string_array(*, values):
     values = sequence(values, "string array")
-    return Obj("su_CStringArray", {"n": len(values), "items": [{"s": text(s, "array string")} for s in values]})
+    return Obj("su_CStringArray", {"n": len(values), "items": [{"s": text(s, "array string")} for s in values]}, schema=0)
 
 
 def object_list(*, values):
