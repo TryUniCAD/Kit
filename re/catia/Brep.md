@@ -1252,6 +1252,30 @@ Applying that to the first body at offset 8 gives `header[0x10] = byte at 16 = 0
 V5R5 path is therefore not the record start either, and the remaining unknown is the offset that
 `PositionHeaderObjectAt` passes after the five-byte marker.
 
+`PositionHeaderObjectAt` at `0x1800a5550` passes the offset unchanged: it stores it at
+`0x20(stream)` and calls `PositionHeaderObjectAt_V5R5` at `0x1800a7f70` when
+`0x28(stream) < 0x3ef`, or `ReadHeaderObjectAt` otherwise. So the offset is the record start.
+
+`PositionHeaderObjectAt_V5R5` reads a 21-byte header and requires a `0xb3` marker at `offset + 6` or
+`offset + 7`:
+
+```
+rdi[0x20] = rax + 0x15;      // advance 21 bytes
+rax = byte at offset + 6;
+rcx = byte at offset + 7;
+if (!flag) arg_0 = rcx; else arg_0 = rax;
+if (arg_0 != 0xb3) throw MathInReadStreamInvalidData_ERR_101;
+```
+
+and its next offset is `offset + 0x15 + field1 + field4`, where field1 is the byte at `offset + 0`
+(or `+3`) and field4 is the byte at `offset + 12` (or `+15`).
+
+The body records do not satisfy that either. The first body at offset 8 has `0x00` at both
+`offset + 6` and `offset + 7`, and the 192 positions in `Reservoir` where `0xb3` appears at `+6` or
+`+7` are all inside the coordinate table at 2228..4579, so they are float data. The body records
+therefore use neither the normal path nor the V5R5 path, which leaves
+`ReadHeaderObjectAt_SmallHeader` at `0x1800a7310`, selected by `0x2a(stream) & 0x10001`.
+
 A constraint solver over the geometry does not converge. Treating each face as a variable over the
 surfaces of its planarity class, and each two-face handle group as a constraint that the two
 surfaces must share a vertex-table point, then running arc consistency to a fixed point, leaves 12
