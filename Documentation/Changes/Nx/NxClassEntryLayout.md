@@ -198,9 +198,29 @@ encoding of the leading field is not settled.
 
 ## The tail byte
 
-The tail is one byte in all 152 classes, with values from 1 to 79 and no relation to the attribute
-count (5 of 152), the table index (2 of 152) or `GetCurrentSchemaVersion` (which returns -1 for
-class names). It is not derived.
+The tail is one byte in all 152 classes, with values from 1 to 79. These readings are excluded:
+
+```text
+attribute count                                    5 of 152
+table index                                        2 of 152
+ordinal within the class's schema, table order     8 of 152
+ordinal within the class's schema, registry id     6 of 152
+ordinal within the class's schema, name order      7 of 152
+GetCurrentSchemaVersion                            returns -1 for class names
+```
+
+The tails cluster per schema — the twelve `UGS::OM::Meta` classes carry 1..12 in some order — so it
+is a per-schema ordinal, but the ordering is neither the table order, the registry id nor the name,
+and 8 of 152 is far too low to call it derived.
+
+## The `+0x34` value itself
+
+That value is a per-class registry constant with the shape of an enumerated scheme rather than a
+size: the classes run `1, 2, 3, 5, 10, 11, 40, 50, 55, 60, 70, 86, 100, 101, 160, 170, 196, 200,
+201, 247, 253, 255, 289, 300, ...` up to `58000`, and none of them matches the class's attribute
+layout size (max offset plus size is 204 for `UGS::OM::RootObject` against `+0x34` = 55). It is a
+descriptor constant, extractable from the same registration sites that already yield the layout
+digest.
 
 ## What is left
 
