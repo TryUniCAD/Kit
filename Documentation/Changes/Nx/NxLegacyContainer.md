@@ -263,9 +263,23 @@ attribute id initialiser stubs (UString ctor with a name)    3261
 ```
 
 the 1538 registration functions contain no attribute names at all, so the binding is not local: each
-attribute id is a separate 0x28 byte initialiser stub that fills a `.data` object, and the class must
-receive the resulting ids through a shared table rather than through its own registration function.
-Finding that table is the next step, and it is a step rather than a measurement.
+attribute id is a separate 0x28 byte initialiser stub that fills a `.data` object.
+
+The obvious mechanism for that binding was then tested directly: for every registration function, take
+each `lea r8`, `lea r9` or `lea rdx` of a `.data` or `.rdata` address inside the function, read the
+first sixteen pointers at that address, and check whether any of them is one of the id objects the
+stubs fill.
+
+```text
+id objects with a resolved name                        591
+registration functions referencing a table of them       0  of 1538
+```
+
+so the ids are not passed to the registrant as an array of id objects either. Two mechanisms are now
+excluded — a local registration function carrying its attribute names, and a per-class pointer array
+of id objects — and what remains is a less direct route, such as ids resolved through a helper call
+at load time or registered when a class is first instantiated. Either way it is loader-time data
+rather than a table this branch can read out of the module statically.
 
 ## Class layout extents do not segment the object region
 
