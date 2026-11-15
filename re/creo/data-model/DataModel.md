@@ -293,7 +293,30 @@ serialised, with the vendor's own class identifiers in `string_xar`. Replacing o
 `PSB_Tokens` root is rejected (`dbg_err_crash`), and the unwrapped sizes are `1662`, `907` and `1490`
 bytes.
 
-That puts them in the same category as the mask vector: structured schema payload that a generator cannot
+### The model table is smaller than it looked
+
+The `expanded` column overstates it. `ND:0:Model_L05_PX:1` decompresses to **142 bytes**, and it holds
+only three things: the `PSB_Tokens` root, `format = 0`, and a single `type_har` array. There is no
+`int_har`, no `double_xar` and no `string_xar` in this row — the richer rows are the unit-system and
+PDM-trail tables.
+
+The `type_har` array declares `317` entries and decodes to 317 letters over 13 distinct values:
+`C F H I M N O P Q R S T U`.
+
+```text
+MOMOIOIOIOIOFCOFOMOFOMOFOFOFOFCCONOMOPQMOMOMOFOICOHONCOMOIOIOFONONOSTFTFTFUOMOFC
+```
+
+317 is close to the number of typed fields the model actually declares, so these letters may be one type
+letter per serialised field rather than an opaque blob. If that holds, the table is **derivable** from the
+field list our own reader already decodes, which would make it the first remaining row with a generative
+path rather than a transcription.
+
+That is a hypothesis, not a result. The test is to enumerate the fields of an authored model in
+declaration order, map each of our type ids (`0`, `1`, `2`, `4`, `9`, `10`) to a letter, and compare the
+resulting string with the control's. It has not been run.
+
+That places them in the same category as the mask vector: structured schema payload that a generator cannot
 compute from a record's own fields. The remaining rows split as:
 
 | Row | Kind | Assessment |
