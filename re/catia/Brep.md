@@ -1165,6 +1165,13 @@ them but not at a record boundary, and the only region whose size matches 71 fac
 `30 04 04` marker, the linked-object data is either inside the trim record's handle array or the
 face body is not streamed per face at all.
 
+Walking the chain with the size formula does not resolve it either. The two size fields are not at
+fixed raw offsets: `ReadHeaderObjectAt` assembles `header[0x10]` and `header[0x14]` from
+variable-length fields it reads out of the stream, so the raw bytes at `0x10` and `0x14` of a body
+record are not the sizes. For the first body at offset 8 the raw dwords are `0x00000000` and
+`0xc0d80000`, which do not sum to the 46-byte record length. Replicating the parse needs the full
+field grammar of the 0x740-byte function, which has not been recovered.
+
 A constraint solver over the geometry does not converge. Treating each face as a variable over the
 surfaces of its planarity class, and each two-face handle group as a constraint that the two
 surfaces must share a vertex-table point, then running arc consistency to a fixed point, leaves 12
