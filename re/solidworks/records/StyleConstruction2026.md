@@ -125,6 +125,20 @@ field-program replay, opaque payload or missing-key zero fallback.
 
 ## Field classification
 
+[Tupni](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tupni-ccs08.pdf)
+separates field boundaries, record sequences/types and constraints using
+execution dataflow, loops and instruction signatures, then aggregates evidence
+across inputs (§§3.3–3.9). It also explains input-path and ignored-field coverage
+limits (§7). This finding applies that separation to static evidence; it does
+not claim a Tupni execution trace, dynamic taint result or runtime path coverage.
+
+| Evidence category         | Current static evidence                                                                                                                          | Limit                                                                                         |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
+| Field width and ownership | Scalar store widths, explicit archive calls, and both GTol projection directions                                                                 | Bulk qword stores are split by the receiving field accesses, not assumed to be one wire field |
+| Repetition and bounds     | Two root 3×8 initialization loops; two GTol helper frame constructions; native unit-factory sequence of sixteen classes                          | Fixed constructor repetitions do not establish an unbounded wire grammar by themselves        |
+| Type identity             | Runtime-class record and factory bind GTol data to its actual constructor; each style subtype follows its own constructor and serialization plan | Similar instruction bodies or folded setter names do not establish identical semantic types   |
+| Constraints               | Standard-1 dispatch, `int(standard != 0)`, precision maximum and null-data projection branch                                                     | Other standards, populated GTol state and target behavior remain outside current evidence     |
+
 `Input` means an explicit neutral-document or authored setting. `Derived` means
 the stated formula or composition. `Seed` means a literal assignment or branch
 in the identified 2026 constructor, not invariance among related input files.

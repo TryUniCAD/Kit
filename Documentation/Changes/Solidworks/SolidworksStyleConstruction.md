@@ -6,6 +6,11 @@ includes typed dimension defaults, annotations, tables, drawing labels, helper
 records and Swift tolerances. It uses documented 2026 constructor rules and
 constructor-referenced language vocabulary; it reads no source save or template.
 
+The subprocess entry point delegates construction, codec round trips and result
+projection to focused helper modules. Those helpers accept the already loaded
+runtime contracts; importing them does not load a source save or start another
+process.
+
 The [construction record](../../../re/solidworks/records/StyleConstruction2026.md)
 documents exact keyword-only interfaces, native DLL owners, addresses, field
 classification and limits. Fonts, localized labels, print widths, unit choices
