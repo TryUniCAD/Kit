@@ -64,6 +64,14 @@ rpc.exports = {
     const Model = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "sldmodu.dll")
     const Common = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "swccu.dll")
     if (Model === undefined || Common === undefined) throw new Error("selected target modules are not loaded")
+    attach(Common.base.add(0xa3a7), {onEnter() {
+      try {
+        const Runtime = this.context.rax
+        const NameBytes = new Uint8Array(Runtime.readPointer().readByteArray(160))
+        const End = NameBytes.indexOf(0)
+        emit({kind: "archive-class-schema", class_name: String.fromCharCode(...NameBytes.slice(0, End < 0 ? NameBytes.length : End)), runtime_schema: Runtime.add(12).readU32(), file_schema: this.context.rsp.add(0x28).readU32(), archive: archive(this.context.rbx), instruction: location(Common.base.add(0xa3a7))})
+      } catch (ErrorInfo) { emit({kind: "archive-class-schema-error", error: String(ErrorInfo)}) }
+    }})
     const ThrowHooks = new Set()
     for (const Image of Process.enumerateModules().filter(Value => /^(mfc140u|vcruntime140|vcruntime140_1)\.dll$/i.test(Value.name))) {
       for (const Entry of Image.enumerateExports()) {

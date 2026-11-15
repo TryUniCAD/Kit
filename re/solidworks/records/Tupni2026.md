@@ -126,7 +126,7 @@ events must not establish sketch state or semantic stamp values. The original
 capture also omitted the input hash and retained module runtime bases. Both
 are collected in subsequent runner revisions; the missing original identities
 are not retroactively claimed as captured. See the
-[argument-type gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/TraceArgumentTypes.md).
+[argument-type gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Tracing/TraceArgumentTypes.md).
 
 ### First generated-file inspection
 
@@ -152,6 +152,19 @@ call chain. Native exceptions were forwarded unchanged. The final UI fault does
 not identify the earlier file-format rejection. The next capture adds runtime
 C++ throw boundaries and MFC file/archive throw exports where named exports are
 available, records candidate MSVC exception types, and hashes those modules.
+
+The typed-throw capture identified an MFC `CArchiveException` pointer, whose
+native object prefix contains cause 7. Static inspection of the exact swccu
+image corroborates the schema-rejection path: `0x31a3a2d0` compares the runtime
+class's schema at `+0xc` (with the versionable bit removed) against the file
+schema, then rejects a non-versionable mismatch through `0x31a3a536` and passes
+cause 7 at `0x31a3a543`. The observed stack region contains its post-call address
+`0x31a3a54d`. Capture `.rescratch/sw26/tupni/candidate-H3-throws.json` has digest
+`3de7764a67a86a00f36e71369654c05e50416cc3ab1e9bd82e03af03e3691141`.
+This narrows the question to the rejected class/schema pair; it does not yet
+identify a correct emitted value. A read-only instruction-site probe at
+`swccu+0xa3a7` will record that pair. It remains a selected native observation,
+not full instruction-level input taint.
 
 The first loader attempt activated 20 hooks after both loaded-module hashes
 matched. The action's running-object-table lookup failed with COM error

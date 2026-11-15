@@ -20,4 +20,4 @@ combine bounded native traces with explicit static dataflow. Add instruction
 provenance only when a supporting engine captured it. For compressed streams,
 use a decompressed input identity and retain refill-aware logical offsets.
 Keep clean vendor acceptance separate from instrumented research. See the
-[playbook](../../../../re/Playbook/Tupni.md) and its first-use ledger.
+[playbook](../../../../../re/Playbook/Tupni.md) and its first-use ledger.

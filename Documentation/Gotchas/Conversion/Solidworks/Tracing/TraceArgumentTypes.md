@@ -12,5 +12,5 @@ events. Its direct sketch-serialization events remain separate observations.
 Workaround: recover the exact native signature and wrapper indirection before
 interpreting memory fields. The corrected hook reads wrapper `+0x8` and records
 both object identity and the wrapper. A successful read is not type evidence.
-The [Tupni ledger](../../../../re/solidworks/records/Tupni2026.md) records the
+The [Tupni ledger](../../../../../re/solidworks/records/Tupni2026.md) records the
 affected capture and the correction. A subsequent capture must verify it.
