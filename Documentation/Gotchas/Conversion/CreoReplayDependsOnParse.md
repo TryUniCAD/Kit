@@ -51,8 +51,10 @@ Treat parser and replay as one unit. Any change to `ReadField`, `ReadValue`, `Re
 in `Run` must be re-verified by a Creo launch of the generated 47-row part, not just by `Verify.py` and the
 reader's own counts, because the replay bytes move with it.
 
-If a parser fix is only needed for reading (for example, to recover the sketch's segment topology for research),
-give it a separate entry point rather than changing `ReadField` for every caller.
+`StreamParser` now carries a `Legacy` flag for exactly this reason: the reader uses the corrected record rules while
+`Author.ReplayPieces` asks for `Legacy=True` and keeps the spans Creo has accepted. Verified after the split —
+`AllFeatur` still `1876` bytes, `gen_rows.prt` still clean twice. New parser behaviour must go behind that flag
+rather than changing the encoder's spans by accident.
 
 ## Evidence
 

@@ -175,11 +175,15 @@ class StreamReader:
 # nested records need a parser distinct from the cursor
 class StreamParser:
 
-    # the schema table is shared across nested records
+    # the replay encoder depends on record spans so it keeps the original consumption rules
     def __init__(
-        self, DataValue: bytes, Boundaries: dict[int, int] | None = None
+        self,
+        DataValue: bytes,
+        Boundaries: dict[int, int] | None = None,
+        Legacy: bool = False,
     ) -> None:
         self.Reader = StreamReader(DataValue)
+        self.Legacy = Legacy
         self.Nodes: list[StreamNode] = []
         self.Boundaries = Boundaries or {}
         self.Fields = ScanFields(DataValue)
@@ -335,6 +339,19 @@ class StreamParser:
             if Reader.Position < len(Reader.DataValue)
             else None
         )
+        # a continued array element opens with e2 or e3 which separates values from the field name
+        if (
+            not self.Legacy
+            and Field.type_id != 0x00
+            and TokenValue is not None
+            and TokenValue in (0xE2, 0xE3)
+        ):
+            Reader.Position += 1
+            TokenValue = (
+                Reader.DataValue[Reader.Position]
+                if Reader.Position < len(Reader.DataValue)
+                else None
+            )
         if TokenValue is not None and 0xE4 <= TokenValue <= 0xE6:
             Reader.Position += 1
             Node = StreamNode(Field.name, Field.type_id, offset=StartValue)
@@ -399,12 +416,33 @@ class StreamParser:
                         self.StructureStart.pop()
                 continue
             if TokenValue == 0xF7:
+                SelectorStart = Reader.Position
                 Reader.Position += 1
                 ReferenceValue = Reader.CompactInt()
                 if ReferenceValue is not None and 1 <= ReferenceValue <= len(
                     self.Fields
                 ):
-                    self.Index = ReferenceValue - 1
+                    # a continued element selector names the field after the opener so step back once
+                    TargetIndex = ReferenceValue - 1
+                    NextValue = (
+                        Reader.DataValue[Reader.Position]
+                        if Reader.Position < len(Reader.DataValue)
+                        else None
+                    )
+                    PreviousValue = (
+                        Reader.DataValue[SelectorStart - 1]
+                        if SelectorStart >= 1
+                        else None
+                    )
+                    if (
+                        not self.Legacy
+                        and NextValue in (0xE2, 0xE3)
+                        and PreviousValue == 0xF2
+                        and TargetIndex >= 1
+                        and self.Fields[TargetIndex].type_id != 0x00
+                    ):
+                        TargetIndex -= 1
+                    self.Index = TargetIndex
                     Field = self.Fields[self.Index]
                     Node = self.ReadField(Field)
                     self.Index += 1

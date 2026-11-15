@@ -97,31 +97,50 @@ segment is fully declared, but the other five are selector-plus-positional (`f7 
 candidate therefore used sequential point pairs, which need not match the profile the body was built from — and that
 alone may explain the refusal.
 
-### The segment replay decodes, and the fix had to be reverted
+### The segment replay decodes, behind a replay-safe parser mode
 
-Resolving the sketch's segment replay was tried and measured. The selector `f7 2f` names the field *after* the
-element's opener, so the element's first field is one before it; stepping back one field and skipping the following
+Resolving the sketch's segment replay produced both a decode and a design change. The selector `f7 2f` names the
+field *after* an element's opener, so the first field is one before it; stepping back and skipping the following
 `e2` opener decodes the second segment and makes the element parse exactly:
 
 ```text
-with the fix:  nodes 678, consumed 3827 of 3827
-               pointid [[0, 1], [1, 2]]   dir [[-1, 0, 0], [0, 1, 0]]
-without:       nodes 765, consumed 3832 of 3827
-               pointid [[0, 1], []]       dir [[2, 0, 1]]
+with the rule:  nodes 678, consumed 3827 of 3827   pointid [[0,1],[1,2]]  dir [[-1,0,0],[0,1,0]]
+without:        nodes 765, consumed 3832 of 3827   pointid [[0,1],[]]     dir [[2,0,1]]
 ```
 
-Segments three to six remain undecoded: element five starts `e2 c0 80 02 …`, and `c0 80 02` is the three-byte
-compact form of `32770`, so it is not a plain line record.
+It cannot be shared with the writer: `Author.ReplayPieces` takes every replay span from `StreamParser.ReadField`, so
+one byte of different consumption rewrites the replay — `AllFeatur` moved `1876 → 1871` and the clean 47-row part
+was refused, `std.out` stopping at `Sld_Features → first_feat_ptr → idtab_ptr → srf_id_tab_ptr`.
 
-**The fix was reverted because it changes the writer.** `Author.ReplayPieces` takes every replay span from
-`StreamParser.ReadField`, so one byte of different consumption produces a different replay: the generated
-`AllFeatur` payload moved from `1876` to `1871` bytes and the previously clean 47-row part was refused, with
-`std.out` stopping at `Sld_Features → first_feat_ptr → idtab_ptr → srf_id_tab_ptr`. Reverting restored `1876` and the
-part loads twice again (`12:19:08`, `12:24:23`, both `End` + `MT Part Solid`).
+`StreamParser` therefore takes a `Legacy` flag. The reader uses the new rules; `ReplayPieces` asks for
+`Legacy=True` and keeps the spans that Creo has accepted. Verified with both in place:
 
-The decoder fix is therefore understood and reproducible, but it cannot land alone: the replay encoder has to be
-derived independently of the reader before the parser can change. That interaction is recorded in
-[the replay gotcha](../../Gotchas/Conversion/CreoReplayDependsOnParse.md).
+```text
+PASS  generated AllFeatur         1876 bytes, 4 records
+PASS  generated FeatDefs          527 bytes, one definition with placement
+gen_rows.prt: 26239 bytes, 47 generated rows
+!15-Nov-26 12:26:42  End ...  MT Part Solid
+!15-Nov-26 12:27:59  End ...  MT Part Solid
+16 of 16 checks pass
+```
+
+### The sketch declares six segments and its body carries five
+
+The region between the declared first segment and `attributes` is exactly `67` bytes, and four positional elements
+plus one trailing opener account for all of it:
+
+| Element | Bytes | `pointid` |
+| --- | ---: | --- |
+| 2 | 16 | `(1, 2)` |
+| 3 | 17 | `(2, 3)` |
+| 4 | 17 | `(3, 0)` |
+| 5 | 16 | `(4, 5)` |
+| trailing `e2` | 1 | — |
+
+Element five's `type` is `c0 80 02` — the three-byte compact form of `32770`, not `02` — and it has no
+`known_ent_info`. So the declared count of six, the five bodies present, and that anomalous type are an open
+discrepancy, and building an "aligned" sketch from four known pairs would encode the discrepancy instead of
+resolving it.
 
 ### Iterating with the trace: the outline is validated, the sketch is next
 

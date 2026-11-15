@@ -1078,7 +1078,8 @@ def HasReferenceToken(Value: bytes) -> bool:
 
 # replays repeat the first record positionally so no field may be redeclared
 def ReplayPieces(Definition: bytes) -> list[tuple[int, str, bytes]]:
-    Parser = StreamParser(Definition)
+    # replay spans must not move when the reader learns a new record rule
+    Parser = StreamParser(Definition, Legacy=True)
     Spans: list[tuple[str, bytes]] = []
     Original = Parser.ReadField
 

@@ -401,36 +401,54 @@ That makes the next prerequisite a **reader** task, not a writer one: teach the 
 selector-plus-positional segment replay, then the profile's six point pairs are available and the aligned candidate
 can be built from real topology instead of sequential guesses.
 
-### The segment replay decodes, but the fix breaks the replay encoder
+### The segment replay decodes behind a replay-safe parser mode
 
-The selector form was resolved by measurement. `f7 2f` names the field *after* the element's opener, so the
-element's first field is one before it: stepping back one field and skipping the following `e2` opener decodes the
-second segment correctly and makes the whole element parse to its last byte.
-
-```text
-with the fix:  nodes 678, consumed 3827 of 3827
-               pointid [[0, 1], [1, 2]]      dir [[-1, 0, 0], [0, 1, 0]]
-without:       nodes 765, consumed 3832 of 3827
-               pointid [[0, 1], []]          dir [[2, 0, 1]]
-```
-
-Segments three to six still do not decode — element five begins `e2 c0 80 02 …`, where `c0 80 02` is the
-three-byte compact form of `32770`, so the element is not a plain line record — but the first two are now exact.
-
-**The fix was reverted, because it changes emitted bytes.** `Author.ReplayPieces` derives every replay span from
-`StreamParser.ReadField`, so a parser that consumes one byte differently produces a different replay. With the fix
-the generated `AllFeatur` payload changed from `1876` to `1871` bytes and the 47-row generative part, previously
-clean, was refused:
+The selector form was resolved by measurement. `f7 2f` names the field *after* an element's opener, so the element's
+first field is one before it. Stepping back one field and skipping the following `e2` opener makes the second
+segment decode exactly and the element parse to its last byte:
 
 ```text
-!15-Nov-26 12:13:48  Start C:\Mac\Home\Documents\creo-authored\gen_rows.prt     (no End)
-std.out: Sld_Features / first_feat_ptr / idtab_ptr / srf_id_tab_ptr
+with the rule:  nodes 678, consumed 3827 of 3827
+                pointid [[0, 1], [1, 2]]      dir [[-1, 0, 0], [0, 1, 0]]
+without:        nodes 765, consumed 3832 of 3827
+                pointid [[0, 1], []]          dir [[2, 0, 1]]
 ```
 
-Reverted, `1876` returns and the part loads twice again (`12:19:08` and `12:24:23`, both `End` + `MT Part Solid`).
-So the decoder improvement is understood and reproducible but cannot be landed without re-deriving the replay, and
-that interaction is recorded in
-`Documentation/Gotchas/Conversion/CreoReplayDependsOnParse.md`.
+**The rule cannot be shared with the writer.** `Author.ReplayPieces` derives every replay span from
+`StreamParser.ReadField`, so a parser that consumes one byte differently emits a different replay: `AllFeatur` moved
+from `1876` to `1871` bytes and the 47-row part, previously clean, was refused with `std.out` stopping at
+`Sld_Features → first_feat_ptr → idtab_ptr → srf_id_tab_ptr`.
+
+So the parser now takes a `Legacy` flag: the reader uses the new rules, and `ReplayPieces` constructs
+`StreamParser(Definition, Legacy=True)` and keeps the verified spans. Measured with both in place:
+
+| Check | Result |
+| --- | --- |
+| generated `AllFeatur` | `1876` bytes, unchanged |
+| `gen_rows.prt` | `26239` bytes, 47 rows, `End` + `MT Part Solid` twice (`12:26:42`, `12:27:59`) |
+| vendor `949` element | `3827` of `3827` bytes, `pointid [[0,1], [1,2]]` |
+
+### The positional region carries five element bodies for a declared six
+
+The whole region between the declared first segment and `attributes` is `67` bytes and accounts for **four**
+positional elements, not five:
+
+```text
+864: e2 | 02 00 01 00 | 01 02 | f6 00 00 f6 f6 05 | e2 | e2 00 f6      elem 2  (16 bytes)
+881: e2 | 02 01 00 e4 | 02 03 | f6 00 01 f6 f6 06 | e2 | e2 00 f6      elem 3  (17)
+898: e2 | 02 00 f6 00 | 03 00 | f6 00 00 f6 f6 07 | e2 | e2 00 f6      elem 4  (17)
+915: e2 | c0 80 02 f6 00 e4 | 04 05 | f6 00 01 f6 f6 00 | e2            elem 5  (16)
+930: e2                                                                 then attributes at 931
+```
+
+`16 + 17 + 17 + 16 + 1 = 67`, so the arithmetic is exact and there is no room for a sixth body. Note also that
+element five's `type` is `c0 80 02`, the three-byte compact form of `32770`, where every other segment uses `02`;
+and its `known_ent_info` is absent, ending with a bare `e2` before `attributes`.
+
+So `segtab_ptr` declares six elements while its body carries five, one of which uses a type form the writer has no
+evidence for. That is the state of the sketch decode: four segments are known `(0,1) (1,2) (2,3) (3,0)`, the fifth is
+`(4,5)` with an unexplained type, and the sixth is not present. Building an "aligned" sketch from that would encode
+the discrepancy rather than resolve it.
 
 ### The sketch's segment replay could not be decoded reliably
 
