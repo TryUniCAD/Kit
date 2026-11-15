@@ -18,5 +18,6 @@ The process also retains the binary origin archive round trip and runtime file-r
 Local verification is limited to static syntax and diff checks
 The process regression executes only in remote CI
 No local tests, builder imports or oracle calls were run
+The [shared API budget finding](../../Gotchas/Ci/GithubInstallationBudget.md) records an infrastructure failure during remote verification
 
 This repair does not establish generated-file acceptance, origin solver results or native rebuild correctness
