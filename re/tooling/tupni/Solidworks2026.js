@@ -24,7 +24,7 @@ function archive(Address) {
 }
 
 function sketch(Address) {
-  try { return {pointer: Address.toString(), status: Address.add(0x12c).readS32(), flags: Address.add(0x188).readU32(), stamp: Address.add(0x56c).readU32()} }
+  try { return {pointer: Address.toString(), saved_status: Address.add(0x128).readS32(), status: Address.add(0x12c).readS32(), flags: Address.add(0x188).readU32(), stamp: Address.add(0x56c).readU32()} }
   catch (ErrorInfo) { return {pointer: Address.toString(), error: String(ErrorInfo)} }
 }
 

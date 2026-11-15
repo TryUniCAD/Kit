@@ -33,6 +33,7 @@ def main():
     parser.add_argument("--seconds", type=float, default=5.0)
     parser.add_argument("--event-budget", type=int, default=100000)
     parser.add_argument("--module-manifest", type=Path)
+    parser.add_argument("--prepare-script", type=Path)
     parser.add_argument("--action-script", type=Path)
     parser.add_argument("--action-input", type=Path)
     args = parser.parse_args()
@@ -52,6 +53,8 @@ def main():
     }
     session = None
     script = None
+    preparation = None
+    prepared = None
     started = time.monotonic()
 
     def receive(message, data):
@@ -69,6 +72,13 @@ def main():
         record["frida_image"] = image_identity(args.frida_dir / "frida" / "_frida.pyd")
         frida = importlib.import_module("frida")
         record["frida_version"] = frida.__version__
+        if args.prepare_script is not None:
+            record["prepare_path"] = str(args.prepare_script)
+            record["prepare_sha256"] = hashlib.sha256(args.prepare_script.read_bytes()).hexdigest()
+            manager = runpy.run_path(str(args.prepare_script))["prepare"]()
+            prepared = manager.__enter__()
+            preparation = manager
+            record["preparation_result"] = prepared["identity"]
         device = frida.get_local_device()
         targets = [p for p in device.enumerate_processes() if p.name.casefold() == args.process.casefold() and (args.pid is None or p.pid == args.pid)]
         if len(targets) != 1:
@@ -97,7 +107,7 @@ def main():
             record["action_path"] = str(args.action_script)
             record["action_sha256"] = hashlib.sha256(args.action_script.read_bytes()).hexdigest()
             action = runpy.run_path(str(args.action_script))
-            record["action_result"] = action["exercise"](args.action_input)
+            record["action_result"] = action["exercise"](args.action_input, prepared)
         time.sleep(args.seconds)
         if args.module_manifest is not None:
             record["producer_statistics"] = script.exports_sync.statistics()
@@ -106,6 +116,11 @@ def main():
     except Exception as error:
         record["exception"] = repr(error)
     finally:
+        if script is not None and "hook_activation" in record:
+            try:
+                record["producer_statistics"] = script.exports_sync.statistics()
+            except Exception as error:
+                record["statistics_exception"] = repr(error)
         if script is not None:
             try:
                 script.unload()
@@ -117,11 +132,16 @@ def main():
                 record["detached"] = True
             except Exception as error:
                 record["detach_exception"] = repr(error)
+        if preparation is not None:
+            try:
+                preparation.__exit__(None, None, None)
+            except Exception as error:
+                record["preparation_cleanup_exception"] = repr(error)
         record["elapsed_seconds"] = time.monotonic() - started
         record["script_errors"] = [event for event in record["messages"] if event["message"].get("type") == "error"]
         args.output.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({key: value for key, value in record.items() if key not in ("messages", "host")}))
-    return int("exception" in record or "detach_exception" in record or "script_unload_exception" in record or bool(record["script_errors"]) or record["messages_dropped"] != 0)
+    return int("exception" in record or "detach_exception" in record or "script_unload_exception" in record or "preparation_cleanup_exception" in record or "statistics_exception" in record or bool(record["script_errors"]) or record["messages_dropped"] != 0 or record.get("producer_statistics", {}).get("dropped", 0) != 0)
 
 
 if __name__ == "__main__":

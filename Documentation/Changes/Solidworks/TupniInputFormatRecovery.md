@@ -20,7 +20,7 @@ results will be added only after execution.
 `re/tooling/tupni/Observe.py` captures an explicitly named process with an
 explicit native/emulated realm and caller-selected script. It records package
 version, script hash, events, truncation, exceptions and detach outcome. It
-limits a capture to at most 60 seconds and fails on script errors, dropped
+limits the post-action observation window to at most 60 seconds and fails on script errors, dropped
 messages or cleanup failures. `Identity.js` reports the actual process
 architecture and selected CAD module bases without changing model state.
 
@@ -36,3 +36,13 @@ on that client returned an explicit unsupported-OS error. The
 records the distinction. `Solidworks2026.js` adds version-bound sketch/status,
 feature-provenance and archive-primitive observations; `--module-manifest`
 requires matching loaded-module disk hashes before hook activation.
+
+`--prepare-script PrepareSolidworks.py` restarts the explicitly authorized,
+goal-owned oracle and retains its COM controller until tracing has detached.
+`--action-script ExerciseSolidworks.py --action-input training.SLDPRT` opens one
+selected training control read-only, rebuilds it, records geometry and feature
+errors, and closes it without saving. Initialization, the action and cleanup
+are included in total elapsed time, outside the bounded post-action window.
+The runner records preparation and action hashes, dialog handling and cleanup
+failures. The exercise never obtains a different application from the running
+object table. See the [controller lifetime finding](../../Gotchas/Conversion/Solidworks/TraceControllerLifetime.md).

@@ -8,14 +8,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "sw2026"))
 import Swapp
 
 
-def exercise(path):
+def exercise(path, prepared):
     if path is None or not path.is_file() or path.suffix.casefold() != ".sldprt":
         raise ValueError("one explicitly selected native training part is required")
-    Swapp.pythoncom.CoInitialize()
-    app = None
+    if prepared is None:
+        raise ValueError("a retained goal-owned controller is required")
+    app = prepared["controller"].app
     model = None
     try:
-        app = Swapp.wc.GetActiveObject(Swapp.PROGID)
         errors, warnings = Swapp.byref_long(), Swapp.byref_long()
         model = app.OpenDoc6(str(path), 1, Swapp.OPEN_SILENT | Swapp.OPEN_READONLY, "", errors, warnings)
         result = {
@@ -29,4 +29,3 @@ def exercise(path):
     finally:
         if app is not None and model is not None:
             app.CloseDoc(str(Swapp.cv(model, "GetTitle")))
-        Swapp.pythoncom.CoUninitialize()

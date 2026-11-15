@@ -89,6 +89,22 @@ unknown. It supplies no instruction taint or full symbolic dependency engine.
 
 ## First capture obligations
 
+The first loader attempt activated 20 hooks after both loaded-module hashes
+matched. The action's running-object-table lookup failed with COM error
+`-2147221021`, `Operation unavailable`. Only the hooks-ready event was captured;
+there were zero parser, status, constructor or stamp observations. Capture
+`.rescratch/sw26/tupni/ladder-L1-first.json`, SHA-256
+`2782d6ad91ae7f37d6744a7864dfbde6488c85e0f2b3223169d44e353ba8af64`,
+records a clean detach, zero script errors and 8.297 seconds elapsed.
+This setup failure supports no format inference.
+
+The next attempt uses the user's explicit restart authorization and retains the
+new COM controller in the same Python process until native tracing detaches.
+`Observe.py --prepare-script PrepareSolidworks.py` records preparation identity,
+and `ExerciseSolidworks.py` uses that retained controller. The hook also reports
+sketch `f128` saved status separately from `f12c` current status. A constructor
+value or a live status transition must not be substituted for saved status.
+
 Use the existing 2026 training controls, not the polygon held-out source streams.
 Observe archive primitive calls and object dispatch with actual runtime module
 bases and input cursor movement. Label that result a native API boundary trace.
