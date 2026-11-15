@@ -7,6 +7,7 @@ from convert.adapters.base.UsabilityError import UsabilityError
 from convert.adapters.registry.RegistryErrors import RegistryError
 from convert.Commands.BuildParser import BuildParser
 from convert.Commands.CliOptions import CliOptions
+from convert.Commands.ReadVersion import ReadVersion
 from convert.Commands.RunCommand import RunCommand
 
 
@@ -18,7 +19,7 @@ def MainEntry(ResearchRunner: Callable[[CliOptions], NoReturn] | None = None) ->
                 "Arguments must contain at most 4096 characters and no control characters"
             )
         Options = CliOptions()
-        _ = BuildParser().parse_args(namespace=Options)
+        _ = BuildParser(ReadVersion()).parse_args(namespace=Options)
         Options.Source = Options.Source.expanduser()
         if Options.Destination is not None:
             Options.Destination = Options.Destination.expanduser()

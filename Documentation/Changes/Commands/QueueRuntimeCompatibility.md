@@ -8,11 +8,13 @@ The isolated wheel command imported distribution metadata during parser construc
 Research fixtures now compare the configured absolute path lexically before accessing only the repository-owned checkout.
 They retain fixed-root and symlink guards; the developer command still accepts an explicitly trusted arbitrary checkout.
 The strict analyzer scope and suppression scans explicitly include `Cli` alongside SDK sources, tools, and tests.
-Version discovery uses the standard argument-parser action and reads installed metadata only for a top-level `--version` before a command, help, or the option terminator.
-Ordinary commands avoid that metadata dependency, including forwarded research arguments.
+The CLI prepares the version text only for a top-level `--version` before a command, help, or the option terminator, then passes it to the standard argument-parser action.
+Direct `BuildParser()` callers retain installed-version discovery independent from host arguments, including when they later parse an explicit argument list.
+Ordinary CLI commands avoid that metadata dependency, including forwarded research arguments.
 
 The existing isolated-wheel process case retains all blocked imports and operations and now also requires metadata to remain unloaded after formats.
 Six installed module cases verify the package version, early version exit, and invalid version placement across the SDK and developer modules.
+A hosted-parser process case also verifies explicit version parsing when the host process arguments request formats.
 No source policy, diagnostic severity, security rule, or queue gate was relaxed.
 
 Verification evidence: both [the first failed candidate](https://github.com/TryUniCAD/Kit/actions/runs/43718199570) and [the next failed candidate](https://github.com/TryUniCAD/Kit/actions/runs/43719461782) reported the same security and compatibility failures.

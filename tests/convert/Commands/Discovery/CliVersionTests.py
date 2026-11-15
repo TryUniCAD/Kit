@@ -33,3 +33,27 @@ def CheckVersion(
         return
     assert Result.stdout == ""
     assert "unrecognized arguments: --version" in Result.stderr
+
+
+# hosted parsers must discover the installed version independently from their host process arguments
+def CheckHostVer(TmpPath: FilePath) -> None:
+    Result = RunProcess(
+        (
+            KPythonPath,
+            "-I",
+            "-c",
+            """from sys import argv
+argv[:] = ["host", "formats"]
+from convert.Commands.BuildParser import BuildParser
+BuildParser().parse_args(["--version"])
+""",
+        ),
+        cwd=TmpPath,
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=60,
+    )
+    assert Result.returncode == 0, Result.stderr
+    assert Result.stdout.strip() == GetVersion("unicad-kit")
+    assert Result.stderr == ""

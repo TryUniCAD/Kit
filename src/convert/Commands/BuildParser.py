@@ -4,11 +4,14 @@ from pathlib import Path as FilePath
 from convert.Commands.ConvertArgs import AddConvertMut
 from convert.Commands.DecodeArgs import AddDecodeMut
 from convert.Commands.ResearchArgs import AddResearchMut
-from convert.Commands.ReadVersion import ReadVersion
 
 
 # command discovery and validation need one consistent public argument contract
-def BuildParser() -> ArgumentParser:
+def BuildParser(VersionText: str | None = None) -> ArgumentParser:
+    if VersionText is None:
+        from importlib.metadata import version as GetVersion
+
+        VersionText = GetVersion("unicad-kit")
     Parser = ArgumentParser(
         prog="kit",
         description="Convert CAD files and inspect decoded data.",
@@ -17,7 +20,7 @@ def BuildParser() -> ArgumentParser:
     _ = Parser.add_argument(
         "--version",
         action="version",
-        version=ReadVersion(),
+        version=VersionText,
     )
     Commands = Parser.add_subparsers(dest="Command", required=True)
     Formats = Commands.add_parser(

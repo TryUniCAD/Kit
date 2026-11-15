@@ -4,7 +4,8 @@ Using `version=importlib.metadata.version(...)` in the parser factory reads dist
 On the queue's Python interpreter, that lookup imports email utilities and then `urllib.parse`, which the isolated runtime blocks.
 The result was a wheel formats command failing before argument parsing completed.
 
-Defer metadata imports and lookup to a top-level version request.
+Have the CLI prepare version text only for a top-level version request and inject it into parser construction.
+Keep the direct parser factory's default installed-version discovery independent from process arguments so callers can parse explicit argument lists later.
 Keep argparse responsible for output, placement validation, and exit status, using its [documented version action](https://docs.python.org/3.11/library/argparse.html#action).
 Stop version discovery at commands, help, and the option terminator so forwarded arguments and filename operands do not trigger it.
 Keep the runtime import guard unchanged.
