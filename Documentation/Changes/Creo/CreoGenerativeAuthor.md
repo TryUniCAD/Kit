@@ -1056,6 +1056,28 @@ readback: 7 features 9 params 1 bodies
 (no End line; second run identical)
 ```
 
+A deletion bisect was then run over the element's sub-records, each rebuilt and launched once:
+
+| Deleted | Bytes | Creo |
+| --- | ---: | --- |
+| `relat_ptr` | 340 | no `End` line |
+| `nsket_info` | 58 | no `End` line |
+| `unsolved_ptr` | 568 | no `End` line |
+| `skamp_ptr` | 233 | no `End` line |
+| `triples_ptr` | 633 | no `End` line |
+| `order_tab` | 543 | no `End` line |
+| `draft_setup_ptr` | 164 | no `End` line |
+
+None is optional — with the caveat that the stream is positional, so a deletion proves the loader notices a
+missing record rather than that the record carries meaning. That closes the enumeration route: no subset of the
+element can be emitted, and a generated one has to reproduce the vendor's exact field sequence and nesting, 191
+declarations deep.
+
+Values, by contrast, are fully generateable — dimensions, frames, ids, even solver output (`skamp_id 4 -> 5`
+loads). So the writer's constraint is precisely delineated: **values are ours, sequence is not.** Reproducing a
+worked example's field program is what the no-donor standard forbids in shipped code, which is why the write side
+ends here rather than at a missing insight.
+
 That result first looked like "the tables' contents must agree". Two further measurements refute that.
 
 Editing a value **inside** the solver tables is accepted — rewriting the first `triples_ptr` entry's `skamp_id`

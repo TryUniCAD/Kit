@@ -331,6 +331,34 @@ mutually unrelated contents produces a section the solver cannot accept, which i
 edits reached from the other side — the row is tolerated where it is *inert* (a changed dimension, a flipped
 `verhor`, a rewired `pointid` that the solver re-derives) and refused where it must be *solved*.
 
+### Deletion bisect: every sub-record is load-bearing
+
+Seven sub-records of the vendor `949` element were deleted in turn, each rebuilt and launched once:
+
+| Deleted | Span | Bytes | Creo |
+| --- | --- | ---: | --- |
+| `relat_ptr` | `1325..1665` | 340 | no `End` line |
+| `nsket_info` | `1665..1723` | 58 | no `End` line |
+| `unsolved_ptr` | `1723..2291` | 568 | no `End` line |
+| `skamp_ptr` | `2291..2524` | 233 | no `End` line |
+| `triples_ptr` | `2524..3157` | 633 | no `End` line |
+| `order_tab` | `3157..3700` | 543 | no `End` line |
+| `draft_setup_ptr` | `3700..3864` | 164 | no `End` line |
+
+None is optional. The honest reading is narrower than "each is semantically required", though: the stream is
+**positional**, so removing a field from a struct shifts every field after it in that struct. A deletion therefore
+proves the loader notices a missing record, not that the record carries meaning.
+
+That is the same rule the value edits established from the other side — values are inert, position and presence
+are not — and it closes the enumeration route. There is no subset of the element that can be emitted: it has to
+reproduce the vendor's exact field sequence and nesting, 191 declarations deep, with all their sub-records.
+
+For a writer that is the hard requirement. Field *values* can be generated (dimensions, frames, ids, even solver
+output), but the *sequence* can only be obtained from a worked example, and reproducing a worked example's field
+program is exactly what the no-donor standard forbids in shipped code. So the write side is blocked by policy and
+by evidence at the same point: a body needs the element's exact 191-field program, and one example cannot be
+turned into a generative serializer without a specification of what each record means.
+
 **Retraction.** The paragraph that stood here concluded that a body needs a constraint solver because the
 solver tables' *consistency* is validated. Two measurements say otherwise.
 
