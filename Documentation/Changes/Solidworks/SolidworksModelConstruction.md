@@ -10,6 +10,11 @@ part or assembly object, with explicit self-component and relation ownership.
 `part_root` adds its part-only fields through the existing public interface.
 The shared helper does not infer an assembly subtype or populate part scalars
 at offsets owned by assembly maps.
+The active new-model constructor proves unit-component and relation-manager
+ownership for both parts and assemblies; those factories now accept both roots.
+Loading-constructor null seeds remain distinct from active graph allocation.
+Typed list stores preserve nonnull empty pointers; explicit loader fixups
+establish absent-list regeneration only at the identified fields.
 The record also maps the two-stage native serializer dispatch and the archive
 helper's map lookup, separating selected runtime version from intended target.
 `part_graph` now accepts explicit folder names, cabinet name and creation time,
@@ -79,10 +84,14 @@ The [header clock gotcha](../../Gotchas/Conversion/Solidworks/HeaderClockIsWallT
 records wall time behind the misleading vendor method name.
 The [modification-time gotcha](../../Gotchas/Conversion/Solidworks/HeaderModificationTimeHasSentinelYear.md)
 records the conditional save-time sentinel rule.
-The [model offset gotcha](../../Gotchas/Conversion/Solidworks/ModelOffsetsAreTypeSpecific.md)
+The [model offset gotcha](../../Gotchas/Conversion/Solidworks/Model/ModelOffsetsAreTypeSpecific.md)
 records the boundary between shared model and concrete-root fields.
-The [serialization-dispatch gotcha](../../Gotchas/Conversion/Solidworks/PartSerializeDispatchUsesArchiveContext.md)
+The [serialization-dispatch gotcha](../../Gotchas/Conversion/Solidworks/Model/PartSerializeDispatchUsesArchiveContext.md)
 records the native bridge and version-dependent section selection.
+The [constructor-path gotcha](../../Gotchas/Conversion/Solidworks/Model/LoadingConstructorsDoNotDefineFreshGraphs.md)
+records why active allocations need separate store-rule evidence.
+Model gotchas now live under `Solidworks/Model/`, and process-check gotchas
+under `Ci/ProcessChecks/`, preserving the directory-density limit.
 
 ## Verification
 
@@ -107,6 +116,6 @@ It does not establish vendor loadability or application usability.
 The stage extraction preserved the exact `12,575`-character generated program,
 SHA-256 `23d3aeb06e82ede7468f7dae3ced1b789a0fcd059a30a9e0f04869b371160ecb`,
 by static string comparison. That comparison did not execute the child program.
-The [process-stage gotcha](../../Gotchas/Ci/ModelProcessStagesNeedFiles.md)
+The [process-stage gotcha](../../Gotchas/Ci/ProcessChecks/ModelProcessStagesNeedFiles.md)
 records why short constants still need focused responsibility files.
 No tests or CAD oracle operations ran locally for this change.

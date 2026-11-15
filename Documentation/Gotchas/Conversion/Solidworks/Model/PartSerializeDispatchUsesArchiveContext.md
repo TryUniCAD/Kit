@@ -14,6 +14,6 @@ Modern sections consume their four-byte length before their body, including
 the known section-skip paths. If that length becomes a nested object tag,
 inspect actual dispatch and version state before modifying object-map counts.
 
-The [construction record](../../../../re/solidworks/records/ModelConstruction2026.md#native-archive-dispatch)
+The [construction record](../../../../../re/solidworks/records/ModelConstruction2026.md#native-archive-dispatch)
 records the exact vtable entries, bridge evidence and helper/version addresses.
 The candidate's selected runtime path remains a native measurement question.

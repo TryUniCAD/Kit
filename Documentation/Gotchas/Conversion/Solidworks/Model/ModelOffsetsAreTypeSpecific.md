@@ -14,6 +14,6 @@ Keep serializer `PartOnly` branches with the part construction even when the
 underlying runtime member was initialized in the model constructor. Do not
 copy a part field dictionary into an assembly builder.
 
-The [construction record](../../../../re/solidworks/records/ModelConstruction2026.md#part-root-graph)
+The [construction record](../../../../../re/solidworks/records/ModelConstruction2026.md#part-root-graph)
 records the exact shared methods and static field partition. Native fresh
 assembly acceptance remains unfinished.

@@ -190,8 +190,8 @@ def body_feature(**values) -> Obj:
 
 
 def unit_component(*, owner: Obj) -> Obj:
-    if not isinstance(owner, Obj) or owner.cls != "moPart_c":
-        raise ArchiveError("fresh unit components currently require a part owner")
+    if not isinstance(owner, Obj) or owner.cls not in ("moPart_c", "moAssembly_c"):
+        raise ArchiveError("fresh unit components require a classified part or assembly owner")
     return Obj("moUnitComponent_c", {"owner": owner, "has_ext": 0})
 
 
@@ -651,8 +651,8 @@ def configuration_manager(
 
 
 def relation_manager(*, owner: Obj) -> Obj:
-    if not isinstance(owner, Obj) or owner.cls != "moPart_c":
-        raise ArchiveError("fresh relation managers currently require a part owner")
+    if not isinstance(owner, Obj) or owner.cls not in ("moPart_c", "moAssembly_c"):
+        raise ArchiveError("fresh relation managers require a classified part or assembly owner")
     return Obj("moRelMgr_c", {
         "owner": owner,
         "f58": object_list(),
@@ -734,8 +734,8 @@ def model_fields(
     if any(not isinstance(units, Obj) or units.cls != "moUnitsTable_c" for units in (document_units, analysis_units)):
         raise ArchiveError("model construction requires explicit native unit-table graphs")
     if self_component is not None:
-        if not isinstance(self_component, Obj) or self_component.cls not in ("moUnitComponent_c", "moChainComponent_c", "moContextChainComponent_c"):
-            raise ArchiveError("model construction requires a classified concrete self component")
+        if not isinstance(self_component, Obj) or self_component.cls != "moUnitComponent_c":
+            raise ArchiveError("fresh model self components must be native unit components")
         if self_component.f.get("owner") is not node:
             raise ArchiveError("the native self component must point to its actual model record")
     if relation_graph is not None and (not isinstance(relation_graph, Obj) or relation_graph.cls != "moRelMgr_c" or relation_graph.f.get("owner") is not node):
