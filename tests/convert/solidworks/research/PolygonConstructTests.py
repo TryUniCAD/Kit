@@ -19,6 +19,17 @@ def TestOriginFlag(TmpPath: FilePath) -> None:
     assert Report["runtime_reads"] == []
 
 
+# unsolved origins need their actual serialized flag to reach native admission
+def TestOriginDirty(TmpPath: FilePath) -> None:
+    Outcome = RunPolygon(Directory=TmpPath, Scenario="ring", Count=3, Depth=0.025)
+    assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
+    Report = LoadJson(Outcome.stdout)
+    assert Report["origin_pending_flags"] & 1 == 1
+    assert Report["origin_statuses"] == [1, 1, 1]
+    assert Report["origin_colour"] == 5
+    assert Report["runtime_reads"] == []
+
+
 # variable topology must determine archive size without selecting recorded shapes
 def TestVariableN(TmpPath: FilePath) -> None:
     Sizes: list[int] = []
@@ -38,6 +49,17 @@ def TestVariableN(TmpPath: FilePath) -> None:
         assert not Report["vendor_loadable"] and not Report["application_usable"]
         Sizes.append(Report["stream_bytes"]["Research/Sketch"])
     assert Sizes[0] < Sizes[1] < Sizes[2]
+
+
+# exclusive native wrapper lifetimes require separate references for independent profiles
+def TestPlaneOwner(TmpPath: FilePath) -> None:
+    Outcome = RunPolygon(Directory=TmpPath, Scenario="ring", Count=3, Depth=0.025)
+    assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
+    Report = LoadJson(Outcome.stdout)
+    assert Report["plane_reuse_blocked"]
+    assert Report["plane_wrappers_distinct"]
+    assert Report["plane_owner_identity"]
+    assert Report["runtime_reads"] == []
 
 
 # valid larger sketches must stay practical as reference and creation counts grow

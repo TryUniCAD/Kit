@@ -53,6 +53,29 @@ It binds a supplied `moCompRefPlane_c` node, constructs the empty sketch, and re
 Its profile cache is null and its raw dynamic storage is empty by the constructor rules above
 This helper is the empty constructor graph used by the polygon-family emitter
 
+### Profile plane ownership
+
+Each independently constructed profile-data object exclusively owns its component-plane wrapper
+The principal plane and model may remain shared through their actual references; the wrapper allocation must be distinct
+This rule follows native adoption, replacement and destruction, independently of the candidate's observed failure
+
+| Operation | Native rule | Evidence and confidence |
+| --- | --- | --- |
+| Profile-data allocation | A fresh profile without an existing sketch allocates separate profile data and sketch; the existing-sketch branch can instead share profile data through the sketch's use count | `sldmodu 0x4c0ca780`, profile-data constructor `0x4c0ca250`; confirmed static |
+| Wrapper field | Primary profile `+0x3d0` points to profile data; profile-data `+0x78` holds the component-plane wrapper | Getter `0x4c0d62c0`; confirmed static |
+| Adoption | The setter stores the supplied wrapper pointer directly, without a retain operation | `0x4c0e4b80`, store `0x4c0e4b87`; confirmed static |
+| Replacement | The old wrapper receives deleting virtual `+8` with argument one before the new pointer is stored | `0x4c0e2c30`, deletion call `0x4c0e2c58`, store `0x4c0e2c67`; confirmed static |
+| Profile-data destruction | The destructor directly deletes its nonnull wrapper; it does not test or decrement a wrapper use count | `0x4c0cb1a0`, load `0x4c0cb1be`, call `0x4c0cb1cf`; deleting destructor `0x4c0cc110` calls that body at `0x4c0cc11f`; confirmed static |
+| Cleanup lifetime | Profile cleanup releases its sketch and deletes profile data when the prior sketch use count was one | Profile destructor `0x4c0cb500`, cleanup `0x4c0cf090`, sketch release `0x4c0cf394`, profile-data deletion `0x4c0cf3b0`; confirmed static |
+
+The current fresh API constructs separate sketches and profile-data objects; it does not implement native shared-sketch construction
+`new_profile` therefore refuses a wrapper already adopted by another fresh profile
+Its `_profile_owner` relation retains the actual profile object as semantic construction metadata and is not emitted as a format field
+Create a separate component-plane wrapper for the origin and polygon profile, even when both reference the same principal plane
+The wrapper's component copy has its own exclusive lifetime, as the [model ownership finding](../../../Documentation/Gotchas/Conversion/Solidworks/Model/PlaneReferencesOwnTheirComponents.md) records
+The focused subprocess regression rejects wrapper reuse, constructs a separate valid origin, and retains the existing origin archive round trip
+This ownership rule does not establish that a generated document loads, solves or rebuilds correctly
+
 `closed_profile` constructs one ring of arbitrary `n>=3` ordinary lines from semantic 2D vertices
 It preserves authored vertex order and binds the supplied plane frame
 It rejects duplicate vertices, zero or nonfinite area, intersecting nonadjacent edges, and nonfinite transformed coordinates
@@ -195,7 +218,7 @@ The current graph requires an explicit presentation choice until its semantic no
 
 ## Origin profile construction
 
-`origin_profile` constructs the separate document-origin profile from an allocated `moOriginProfileFeature_c`, the first plane wrapper and a frame at model origin
+`origin_profile` constructs the separate document-origin profile from an allocated `moOriginProfileFeature_c`, a dedicated first-plane wrapper and a frame at model origin
 Native caller `0x4c02e060` constructs that profile, then invokes sketch initializer `0x4c49b980`
 Origin constructor `0x4c0c9f80` delegates to the ordinary profile constructor and clears bits `2|4` in profile-data `f11c`
 Its primary vtable `0x4d0ef510`, slot `+0x1ed8`, still returns zero, so ordinary point serialization keeps `dflt=0`
@@ -219,14 +242,63 @@ After sketch update, the initializer calls `setNeedsUpdate(0,1,null)` on the ori
 Origin vtable `0x4d0ef510`, slot `+0xb8`, targets the feature wrapper at `0x4bb515c0`
 That status-zero path invokes the prior-state query at virtual `+0xc0`, then unconditionally calls node setter `0x4c03ed90` with status zero
 Instructions `0x4c03edf8` through `0x4c03ee99` store `f0c & 0xfffd7ff8`
-The builder applies this proved mutation to the origin node
+This is a post-solver mutation, not the state of an unsolved constructor graph
 The wrapper's later nonzero-status side effects are skipped by branches `0x4bb5169c` and `0x4bb51770`
 This does not close every indirect query or the preceding solver update
 The owner operation belongs at this point in model composition; later polygon and extrusion insertion can dirty the owner again
 It is not a rule to clear the final part's update state after those operations
 
-The builder records the native subsequent `sgSketch::update` at `0x4c549ab0` as unresolved regeneration work
-Its `_requires_update` metadata is explicit and does not claim post-solver cache/status identity or an accepted origin graph
+The factory retains the allocated node's constructor `f0c=1` while sketch `f128/f12c`, point `f34` and point colour remain at their constructor values
+The earlier factory incorrectly applied the post-solver clear before performing a solve
+The native bit-mask expression was correct, but its position in the generated lifecycle was not
+The stored pending bit satisfies the first per-feature admission predicate on the supported fresh path below
+Its `_requires_update` metadata remains descriptive and does not claim post-solver cache/status identity or an accepted origin graph
+
+### Origin repair and solve dispatch
+
+The post-load body at `0x4bb252e0` tests the feature's origin kind through virtual `+0x670`
+Origin vtable `0x4d0ef510` selects constant-one target `0x4b27e150`; ordinary profile vtable `0x4d0e8e80` selects constant-zero target `0x4b27cbe0`
+For an origin with a sketch, it calls `sgSketch::getOriginPointH` at `0x4bb26e31`
+The null result alone admits initializer `0x4c49b980` at call `0x4bb26e57`, return `0x4bb26e5c`
+A nonnull result takes branch `0x4bb26e3c`, deletes the temporary handle and skips the initializer
+The getter at `0x4c4b40e0` scans native point slots with stride `0x158` and calls each point's virtual `+0xb0` at `0x4c4b413a`
+The point target is the origin-marker predicate `0x4b340ec0`, so the packed marker controls this repair admission directly
+This closes the initializer/serializer/loader/getter dependency; it does not make point type one an alias for origin identity
+
+The ordinary profile engine body at `0x4c0dc6b0` validates its actual reference plane before reaching label `0x4c0dcb8d`
+That path calls `setSketchXforms` and then `sgSketch::update` at `0x4c0dccda`, return `0x4c0dccdf`
+There is no second profile `f0c` test between the admitted plane path and that solve
+This describes the body after engine admission, not a complete scheduling rule from a root dirty flag
+
+The profile needs-update override `0x4c0e07a0` first delegates to generic feature query `0x4bb4d610`, then tests its reference plane and block references
+The generic owner propagation requires owner virtual `+0x540` to return nonzero; the ordinary part target returns zero
+The separate below-update override `0x4c0e0970` reaches helper `0x4c707780`
+For the supported graph's absent derived-profile reference and sketch `f188=0`, branch `0x4c707878` returns zero at `0x4c708755`
+Null solver cache pointers and `_requires_update=True` therefore do not, by themselves, prove native solve scheduling
+Keep initializer repair, ordinary engine dispatch and final solver status as distinct lifecycle questions
+
+### Pending origin admission
+
+The actual part update entry `0x4c1d2940` calls body `0x4c1cc6d0`, which runs prepass `0x4c1c8e70` and main pass `0x4c1c9d50`
+For an ordinary non-atom feature, the prepass calls `0x4c1d04c0`, whose admission helper is `0x4c1d0110`
+That helper first calls the feature's needs-update virtual `+0xc0` with argument one
+A true result admits the feature immediately
+Otherwise it tests its own `f0c & 0x400`, an owner external-context gate and the earlier-change map before later feature-specific fallbacks
+An empty change map returns zero through `0x4c1d0440`; a dirty root alone is not an admission rule
+
+Node needs-update getter `0x4c03e5e0` returns one when the node's own `f0c` bit zero is set
+The constructed origin is the owning profile of its actual sketch, has no derived reference and retains that native constructor bit
+Its profile override `0x4c0e07a0` and generic feature query `0x4bb4d610` therefore produce a true needs-update result without relying on root propagation
+Admission through `0x4c1d04c0` sets bit mask `0x2` at runtime feature `+0x26c`
+Main pass `0x4c1c9d50` uses the runtime bit to call `0x4c1cd920`, which invokes update virtual `+0x138` without a second needs-update query
+For fresh profile `f3dc=0`, wrapper `0x4c0e6670` tail-jumps to engine `0x4c0dc6b0` at `0x4c0e6711`
+The admitted engine still requires a valid reference plane and healthy status before its sketch solve
+
+The factory therefore keeps the pending constructor bit instead of copying solved entity status two, colour four or current sketch status two
+The process regression now serializes the complete origin profile, decodes its actual `f0c`, checks the pre-solver state and re-encodes identical bytes
+Its external archive-map seed is the real model owner; the decoded sketch must point to the decoded profile itself
+These are component serialization and static admission checks, rather than target acceptance
+It does not establish a complete candidate's target opening, successful first solve, body regeneration or held-out acceptance
 
 ## Sketch update dataflow
 
