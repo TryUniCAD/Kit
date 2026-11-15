@@ -442,3 +442,73 @@ def BuildMirror(Source: Path, Target: Path) -> bytes:
     Target.write_bytes(Result)
     print(f"{Target.name}: {len(Result)} bytes; mirror element {len(Mirror)}")
     return Result
+
+
+KAlignedPoints = 8
+KAlignedSegments = ((0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6))
+
+
+def AlignedSketch() -> bytes:
+    """The sketch with the vendor's counts: eight points, six segments, matching solver tables."""
+    Payload = Author.StructHeader("gsec_ptr") + b"\xF8\x01\xF7\x2A\xFB"
+    Payload += b"\xE2"
+    Payload += Author.FieldValue(1, "type", Author.SignedInt(2))
+    Payload += Author.FieldValue(1, "is_ref_gsec", Author.SignedInt(0))
+    Payload += Author.FieldValue(10, "name", b"Sketch 1\x00")
+    Payload += Author.StructHeader("gsec2d_ptr") + b"\xE3"
+    Payload += Author.StructHeader("segtab_ptr") + b"\xF8\x06\xF7\x2F\xFB"
+    for IndexValue, (First, Second) in enumerate(KAlignedSegments):
+        Payload += Segment(First, Second, 4 + IndexValue, IndexValue == 0)
+    Payload += b"\xE0\x01attributes\x00\xF0\x08\xF1\xF7\x3A"
+    Payload += Author.StructHeader("dimtab_ptr") + b"\xF3\xF8\x04\xF7\x3E\xFB"
+    for IndexValue, Value in enumerate(KDimensions):
+        Payload += Dimension(Value, IndexValue)
+        Payload += DimensionRef(IndexValue, (IndexValue + 1) % KAlignedPoints)
+    Payload += SolverTables(KAlignedPoints)
+    return Payload
+
+
+def BuildAligned(Source: Path, Target: Path) -> bytes:
+    DataValue = Source.read_bytes()
+    Header = ReadHeader(DataValue)
+    Element = b"\xE3"
+    Element += Author.FieldValue(1, "id", Author.SignedInt(66))
+    Element += Author.FieldValue(1, "symbol_key", Author.SignedInt(-1))
+    Element += Author.FieldValue(1, "model_type", Author.SignedInt(2))
+    Element += Author.StructHeader("group_info_ptr") + b"\xE1"
+    Element += Author.StructHeader("place_rec_ptr") + Author.PlacementRecord()
+    Element += Author.StructHeader("sub_feat_arr") + b"\xF8\x01\xF7\x17\xFB"
+    Element += b"\xE3"
+    Element += Author.FieldValue(1, "id", Author.SignedInt(0))
+    Element += Author.FieldValue(1, "type", Author.SignedInt(160))
+    Element += Author.FieldValue(1, "sub_type", Author.SignedInt(-1))
+    Element += Author.StructHeader("data(subft_indexnumber)") + b"\xE3"
+    Element += Author.FieldValue(1, "index", Author.SignedInt(1))
+    Element += Author.FieldValue(1, "tool_type", Author.SignedInt(60001))
+    Element += Author.FieldValue(1, "sep_index", Author.SignedInt(-1))
+    Element += Author.StructHeader("expl_state_ref") + b"\xE1"
+    Element += Author.StructHeader("feat_outl_info") + b"\xE3"
+    Element += b"\xE0\x02ent_outl\x00\xF9\x02\x03" + Author.RunValues(KOutline)
+    Element += Author.FieldValue(1, "max_text_len", Author.SignedInt(0))
+    Element += Author.StructHeader("pre_roll_back") + b"\xE1"
+    Element += Author.StructHeader("post_roll_back") + b"\xE1"
+    Element += Author.StructHeader("post_regen") + b"\xE1"
+    Element += Author.StructHeader("parchild_table") + b"\xF1\xE3"
+    Element += b"\xE0\x09Structure_Invalid\x00" + Author.SignedInt(43981)
+    Element += Author.StructHeader("copy_info_ptr") + b"\xE1"
+    Element += Author.StructHeader("embed_info_ptr") + b"\xE1"
+    Element += AlignedSketch()
+    Row = (
+        Author.StructHeader("Sld_FeatDefs")
+        + b"\xE3"
+        + Author.StructHeader("feat_defs_949")
+        + b"\xF8\x01\xF7\x02\xFB"
+        + Element
+        + Author.StructHeader("feat_defs_917")
+        + b"\xF4\x06\xF8\x01\xF7\x80\xC4\xFB"
+        + Author.SolidFeatureDefinition(74, (100.0,))
+    )
+    Result = Subset.Build(DataValue, Header.base, set(), {"FeatDefs": b"#FeatDefs\n" + Row})
+    Target.write_bytes(Result)
+    print(f"{Target.name}: {len(Result)} bytes; aligned element {len(Element)}")
+    return Result

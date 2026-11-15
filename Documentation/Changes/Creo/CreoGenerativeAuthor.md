@@ -29,6 +29,20 @@ of one with two `1.0` coordinates.
 Corrected to `{0x0F: 1.0, 0x10: -1.0, 0x18: 0.0}`. The retained control still reads `6` faces, `12` edges, one solid
 and volume `18482541.490319017`, `valid=True`, because its frames are decoded by `VisibGeom`'s own routine.
 
+### The placement frame was a reflection, not a rotation
+
+Comparing the vendor's frame bytes with ours exposed a second defect. The vendor's `placement` frame is
+`0f 18 e5 0f 18 e5 0f 18 e5`, which decodes to `(1,0,0, 0,1,0, 0,0,1)` plus a zero translation — the identity. Ours
+was `(1,0,0,0, 0,1,0,0, 0,0,1,0)`, whose first three rows are `(1,0,0) (0,0,1) (0,1,0)`: a **reflection** with
+determinant `-1`, not a rotation. `KIdentityFrame` is corrected and now encodes byte for byte like the vendor's:
+
+```text
+PASS  identity frame matches the vendor encoding      0f 18 e5 0f 18 e5 0f 18 e5
+```
+
+It is a real fix and it is not the `949` blocker: the element still parses only as far as
+`sub_feat_arr → (subft_indexnumber)` before Creo exits.
+
 **This does change an earlier claim.** `AuthorBox((0,0,0),(100,60,40))` round-trips as volume `80000.0` with `4`
 vertices under the corrected table, not `240000.0` with `8`. The old numbers were measured with the wrong lanes, so
 they described the bug rather than the geometry; the authored box was never accepted by Creo, and it still is not.

@@ -1314,8 +1314,8 @@ def CsysFeatureRecord(
     return Payload
 
 
-# a feature that is not transformed stores the identity frame in its placement record
-KIdentityFrame = (1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0)
+# the frame is row major rotation then translation so the identity is three unit rows then zeros
+KIdentityFrame = (1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0)
 
 
 # a placement record is where a feature definition keeps its frame and revision state

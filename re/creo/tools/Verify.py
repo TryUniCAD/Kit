@@ -199,6 +199,15 @@ def CheckLanes() -> None:
     )
 
 
+def CheckFrame() -> None:
+    Encoded = Author.RunValues(Author.KIdentityFrame)
+    Check(
+        "identity frame matches the vendor encoding",
+        Encoded == bytes.fromhex("0f18e50f18e50f18e5"),
+        Encoded.hex(" "),
+    )
+
+
 def CheckWriterFlags() -> None:
     Source = Path("src/convert/adapters/creo/Writer.py").read_text()
     Check(
@@ -223,6 +232,7 @@ def main() -> int:
     CheckReplay()
     CheckGeneratedPart()
     CheckLanes()
+    CheckFrame()
     CheckWriterFlags()
     Width = max(len(Name) for Name, _, _ in KResults)
     for Name, Passed, Detail in KResults:
