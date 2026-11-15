@@ -56,6 +56,13 @@ distinguishes constructor seeds, copied target state and placement stamps.
 Part-target rules are explicit. Nested assembly aggregation and complete fresh
 reference construction remain outside the implemented primitives.
 
+The [chain-context finding](../../../re/solidworks/records/AssemblyConstruction2026.md#reference-chain-persistence-and-saved-context)
+distinguishes persistent manager membership, runtime-owner clearing, serialized
+acquisition counts and external-feature owner identity.
+The [chain-context gotcha](../../Gotchas/Conversion/Solidworks/Archive/ResolvedChainsDependOnStoreContext.md)
+records why a decompiler alias or standalone-store rejection does not justify
+forcing every chain into an unresolved mode.
+
 Local verification is static syntax parsing, documentation formatting and diff
 validation only. No constructor imports, local tests, serializer reproductions
 or vendor operations ran. The remote process check now constructs the initial

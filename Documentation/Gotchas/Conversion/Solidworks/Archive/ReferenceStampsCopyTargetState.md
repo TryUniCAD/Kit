@@ -10,6 +10,9 @@ It also copies the target model's geometry-change stamp. The part-target
 component-transform getter returns literal 101. Assembly targets use different
 aggregation methods and do not inherit that literal rule.
 
+The copied timestamp follows the target header's lifecycle. Native header
+updates can replace it with wall time. Insertion itself does not read a clock.
+
 Derive reference updates from the actual generated target and its header.
 Keep placement changes separate from target model updates. Do not fill every
 stamp with 101, derive stamps from component count, or reuse a captured time.

@@ -143,6 +143,7 @@ The ordinary reference vtable `0x4cf7a8b0` binds that slot to
 `moReference_c::setModelUpToDate` at `0x4bbcf680`.
 Its `+0x1cc0` call resolves the actual target model through helper
 `0x4bbc04e0`. When that model is present, the method replaces four stamp fields.
+The part-target rules below assume an attached target header.
 
 | Reference field | Classification                                        | Native source after insertion               | Part-target rule and evidence                                                                                                                             |
 | --------------- | ----------------------------------------------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -154,9 +155,15 @@ Its `+0x1cc0` call resolves the actual target model through helper
 
 The part dispatches were read from primary vtable `0x4d1252d8`. The header's
 current-update getter has the global-per-header behavior recorded in
-[ModelConstruction2026.md](ModelConstruction2026.md). The reference timestamp
-therefore comes from the actual target header's explicit authored time. It does
-not come from the host clock, instance count or a saved-control row.
+[ModelConstruction2026.md](ModelConstruction2026.md). Insertion copies the target
+header's current timestamp without reading a clock itself. Timestamp provenance
+follows the header lifecycle. The native next-update method replaces header
+`f48` with wall time. The fresh writer must derive its corresponding header
+state from explicit authored inputs and documented transitions.
+
+Without a target header, getters `0x4bdac640` and `0x4bdac6a0` return 101 and
+-1 respectively. Those fallbacks do not establish a completed, attached-header
+reference state.
 
 Assembly targets have different geometry and transform dispatches.
 Assembly vtable `0x4ce69b30` binds `+0x19e0` to `0x4b55ff40` and
@@ -174,6 +181,65 @@ flags. Those effects remain separate from the four proved stamp assignments.
 This finding does not add a partial reference object or advertise a complete
 fresh component graph. The [reference-stamp gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ReferenceStampsCopyTargetState.md)
 records the construction consequence.
+
+## Reference-chain persistence and saved context
+
+Ordinary resolved chains do not universally serialize in mode 2. Their store
+eligibility also depends on runtime persistence and the enclosing component.
+All native addresses in this section belong to the hashed `sldmodu.dll`.
+
+| Member or operation     | Classification                                            | Recovered rule                                                                                                                    | Evidence and remaining boundary                                                                                                                        |
+| ----------------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Chain `f24`             | Derived path state                                        | New ordinary paths start at 0; pre-store normalization can select 2, including for zero resolved count or missing/deleted entries | Constructors `0x4c28c5d0`/`0x4c28c670`, predicate `0x4c293430`, setter `0x4c2946b0`, store `0x4b66e370`; these examples are not the complete predicate |
+| Chain runtime `+0x38`   | Derived manager membership, absent from the wire          | `isPersistent` means this pointer is nonnull                                                                                      | Getter `0x4c0ee630`; the identical exported implementation also has an unrelated bitmap-method name                                                    |
+| Chain runtime `+0x18`   | Derived actual model owner, mostly contextual on the wire | `get()` uses this owner's reference-chain manager at model `+0x7d0`                                                               | Getter/cache entry `0x4c28f5f0` and `0x4c28f3a0`; null owner and condition-dependent owner-presence fields remain distinct                             |
+| Chain `f20`             | Derived lifetime count, serialized i32                    | Manager acquisition increments it; a new standalone copy resets it to 0                                                           | `0x4c28f3a0` and copy constructor `0x4c28c490`; neither path length nor one global constant defines completed ownership                                |
+| Persistent registration | Derived runtime ownership                                 | Registration calls a helper that assigns the manager to chain `+0x38`                                                             | `0x4c2977d0`, assignment `0x4c29adeb`; no runtime pointer value is emitted                                                                             |
+| Context component store | Temporary native serialization context                    | With a nonnull chain owner, clear it when `(not persistent or owner.virtual_1a0()) and not condition_80000000`; restore afterward | `moContextChainComponent_c::Serialize`, `0x4c222af0`; the wrapper has no direct `f24` write, but its delegated chain store can normalize the mode      |
+
+The chain serializer's apparent bitmap predicate is an exported-function alias,
+not evidence that a chain needs bitmap-loaded state. Raw instructions at
+`0x4c0ee630` return whether member `+0x38` is nonnull.
+
+The pre-store predicate also returns true for a nonnull typed list with mode 0
+and resolved count `+0x14` equal to 0. This does not require a missing entry.
+Mode 1 has additional head-reference type and opened-owner branches.
+Missing or deleted entries therefore describe examples, not the full predicate.
+
+On the normal condition-zero store path, a chain with a runtime owner can pass
+through its persistent-manager membership. A context component can instead
+temporarily clear that runtime owner before invoking the base serializer.
+Its exact predicate is `owner != null and (chain.+0x38 == null or
+owner.virtual_1a0() != 0) and not hasCondition(0x80000000)`.
+The part vtable `0x4d1252d8` binds `+0x1a0` to literal-true getter
+`0x4b27e150`. The assembly vtable `0x4ce69b30` binds it to literal-false
+getter `0x4b27cbe0`. Thus a persistent chain can also have its owner cleared
+on the part-owner branch. The wrapper has no direct mode write, while delegated
+pre-store normalization can still change the chain's mode.
+Special archive conditions and helper contexts have additional branches.
+A store implementation must follow the actual enclosing graph and archive
+context. Replacing every live chain mode with 2 would hide that distinction.
+
+The contextual constructor at `0x4b827ab0` calls `0x4c28f330` after creating
+its external context record. Helper `0x4c28f330` only ensures that the typed
+feature list exists. It does not mark the chain unresolved or register it as
+persistent. Context component copies and manager-owned chains therefore require
+separate ownership accounting.
+
+External feature entries also depend on the archive owner.
+Constructor `0x4bac9340` takes the feature's actual filed owner for the embedded
+file definition. For an assembly reference, that identifies the assembly
+containing the reference, rather than the part referenced by `f3b0`.
+The entry's `f44` and typed-string `f38` come from that concrete feature's id
+and name. Serializer `0x4c178a30` refreshes them through `0x4bacafa0` when the
+reference is live. In the normal condition-zero branch, it retains `f50` only
+when the reference's owning model matches archive-helper owner `+0x30`.
+Cross-context and special-condition branches can emit null instead.
+
+These rules close specific constructor and store-context questions. Complete
+cache acquisition/release accounting, cross-context identity and generated
+component graphs remain active work. See the
+[chain-context gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ResolvedChainsDependOnStoreContext.md).
 
 ## Authored file and configuration identity
 
