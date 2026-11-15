@@ -234,6 +234,28 @@ asking the loader for it.
 `LegacyCodes(Payload)` reads that table, `nx.legacy_coded_classes` reports how many entries are set,
 and `TestNxLegacy` now pins the table alongside the frames.
 
+## The region after the attribute frames aligns, but not as a record prologue
+
+Aligning the three parts at the end of their attribute frames shows a word table in each, and the
+first words do not agree beyond a short prefix:
+
+```text
+part             attribute frames end   first sixteen words after it
+wave_parent.prt              0x00109e   1 1 0 0 1 1 1 1 1 1 1 1 8 8 5 1
+vise_screw.prt               0x002ec3   1 1 4 9 1 3 15 33 12 1 1 2 1 1 7 1
+flange.prt                   0x003868   1 1 11 13 1 3 15 41 16 11 1 6 1 1 1 4
+```
+
+`1 1` opens all three and `1 3 15` appears at the same position in the two newer parts, so the first
+words are a header of some kind, but the values after them are per part rather than a fixed prologue,
+and `wave_parent.prt` diverges at the third word. In `wave_parent.prt` this table is bounded:
+`0x109e` to `0x197c`, ending in the sequential ids `0x32 0x33 0x34 0x35`, then `01 00 00 00`, the tag
+`00 02 00 03`, and the length prefixed string `NX 3.0.2.3`.
+
+so the three parts do not share a record prologue that a walker could key on: what they share is a
+short header prefix, after which the content is part specific. That is why this entry stops at the
+object layer rather than proposing a walker built on a coincidence in the first words.
+
 ## The object region has no fixed stride
 
 Two measurements bound how the object region can be walked, both over `0x19a0` to `0xd9b0` of
