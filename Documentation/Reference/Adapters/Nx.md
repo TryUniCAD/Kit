@@ -181,11 +181,14 @@ document is not supported
 What is still taken from the source part:
 
 ```text
-root object section   122 of 214 records, all 129 class identifiers, and the head
-                      record of a part that has a body
+root object section   122 of 214 records and the head record of a part that has a body
 expression section    every shape except the six object, no expression shape
 construction section  every shape except the three object one
 ```
+
+The class table is not carried. Its two per-class fields are the registration id plus
+one and the parent ordinal, both derivable, so the table is authorable from format
+knowledge. See [the class table grammar](../../Changes/Nx/NxClassTableGrammar.md).
 
 A part written this way is therefore a rewrite, not a new document: measured over
 `const_box60.prt`, 41930 of 41932 payload bytes are identical to the source. See

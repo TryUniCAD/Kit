@@ -18,15 +18,21 @@ authored from neutral data.
 
 The repository's adapter reference described the authored sections without saying how
 far they reach, and that reads as an implication that a from-scratch part is close.
-It is not: 122 of 214 root object records, all 129 per-document class identifiers, the
-head record of a part with a body, and every expression and construction section shape
-except the smallest two are still carried. Measured over `const_box60.prt`, 41930 of
-41932 payload bytes are identical to the source.
+It is not: 122 of 214 root object records, the head record of a part with a body, and
+every expression and construction section shape except the smallest two are still
+carried. Measured over `const_box60.prt`, 41930 of 41932 payload bytes are identical to
+the source.
 
-The per-document class identifiers were tested and are not derivable from the class
-names: 128 of 129 differ between `empty.prt` and `dim40.prt`, no constant offset
-explains them, and 47 entries change length, so the entry packs two fields one of which
-tracks the document.
+The class table is no longer in that list. Its second per-class field was recorded here
+as a document-tracking identifier that could not be derived. It is the parent ordinal:
+`0` is the root and any other value is the one-based index of the parent class in the
+same region. Measured on `empty.prt` (129 classes), `dim40.prt` (154) and
+`wave_modern.prt` (160), every base is in range and every base names a class whose name
+is a prefix of the child or shares its schema. The field differs between parts only
+because the class set differs, and the 47 length changes are bases crossing the direct
+to compact token boundary. The first field is the class's registration id plus one, a
+class constant. Both fields are therefore derivable, and the class table is authorable
+from format knowledge.
 
 ## Verification
 
