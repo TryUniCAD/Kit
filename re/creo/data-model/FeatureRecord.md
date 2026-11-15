@@ -582,6 +582,26 @@ revision graph over geometry that the kernel produced. That is consistent with e
 this class — a `917` replay carrying datum-shaped values is refused, and so is a `923` replay wearing the csys
 id.
 
+### The pair is refused too, even with the vendor's own geometry
+
+The obvious next test was the pair: the ladder's real `VisibGeom` surface set **and** its protrusion record
+together, so the surface references could resolve, with the generated `FeatDefs` alongside. Two variants were
+run, because the surfaces name feature `74` and the first attempt used record `67`:
+
+| Candidate | Fifth record | Surfaces | Result |
+| --- | --- | --- | --- |
+| `solid917d` | ladder record `67` (`2043` bytes) | ladder `VisibGeom` (`2899` bytes) | silent exit twice |
+| `solid917e` | ladder record `74` (`1424` bytes), the id the surfaces name | ladder `VisibGeom` | silent exit twice |
+
+`solid917d` was mis-paired by construction — the ladder's surface records carry `feat_id 74` while that record
+is `67` — so `solid917e` is the fair test, and it fails as well.
+
+So the gap is **not** purely geometric data that can be transplanted: even the vendor's own surfaces and its own
+protrusion record do not load inside our part. The surfaces reference the rest of the ladder's context — its
+other features, its persistence tables, its layer data — not just a record and a surface set.
+
+That closes field-level and record-level authoring of a solid from the two documents available.
+
 ### Non-null fields do not help: the 917 needs the surfaces it names
 
 The nulled record left one question open — maybe the values were simply too thin. So the ladder's record `67`

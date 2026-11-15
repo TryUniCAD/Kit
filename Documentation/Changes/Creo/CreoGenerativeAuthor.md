@@ -1043,6 +1043,15 @@ ignored — the parametric path is generative, not a single hardcoded record.
 this part does not have, and Creo accepted it; tagging it with `7`, which the feature list declares, also loads
 and is the better formed output, so that is the default.
 
+The pair was then tested directly, because it had not been: the ladder's real `VisibGeom` together with its
+protrusion record. Two variants were run — the ladder's record `67` with the surfaces, and the ladder's record
+`74` (the id the surface records actually name) with the same surfaces. Both exit with no `End` line, twice.
+
+`solid917d` was mis-paired by construction (surfaces naming `74`, record `67`), so `solid917e` is the fair test,
+and it fails too. So the missing piece is not geometric data that can be dropped in: the surfaces depend on the
+rest of the ladder's context — its other features, persistence tables and layer data. That closes
+record-level authoring of a solid from the two documents available.
+
 ### The 917 question is closed: it needs surfaces, and surfaces need the solid
 
 Filling the `37` fields with the ladder's own real structure did not help. Record `67`'s `2043` bytes were
