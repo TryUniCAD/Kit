@@ -39,12 +39,18 @@ model, so the counts are a conversion and not a replay. One drawing projects to 
 
 | Check                                                              | Result     |
 | ------------------------------------------------------------------ | ---------- |
-| F2D re-emitted byte-exactly through the typed DWG model             | 247 of 248 |
+| F2D re-emitted byte-exactly through the typed DWG model             | 187 of 248 |
+| F2D refused because the database is a draft or carries Kit's product | 60 |
+| F2D refused because the database does not parse                      | 1 |
 | Typed `LAYOUT` edit, emitted from the model, opened in Fusion       | 841 by 594 mm, 4.7 s |
 
-The one F2D that does not round-trip is a research control with an empty database, which the reader
-now rejects. C3 is met for drawings through the DWG model, with the limit that the model is the DWG
-model and not a neutral interchange model.
+The 187 that emit are Fusion saves with 77-bit header tails. The 60 refused are drafts and research
+variants: their tail is under 72 bits or their product entry names Kit, and the writer refuses them
+rather than emitting a drawing Fusion rejects. The one that does not parse is a research control with
+an empty database.
+
+C3 is met for drawings through the DWG model, with the limit that the model is the DWG model and not
+a neutral interchange model.
 
 ## C4. Fully parametric
 
