@@ -1282,7 +1282,7 @@ def TestNxSections() -> None:
 
 
 # a legacy object area is framed by a monotone index and a count prefixed table
-def TestNxObject() -> None:
+def TestNxFrame() -> None:
     Platform = "Intel x86/Windows NT"
     PartName = "authored.prt"
     SectionBytes = (
