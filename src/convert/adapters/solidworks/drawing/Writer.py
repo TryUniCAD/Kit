@@ -48,35 +48,42 @@ def MatchRecordMut(SourceView: DrawingView, Index: PositionIndex) -> int:
 def OutlineValues(
     ViewValue: DrawingView, DisplayRecord: DisplayView, Ratio: float
 ) -> tuple[float, float, float, float]:
+    LowerX = ViewValue.OutlineMinX
+    LowerY = ViewValue.OutlineMinY
+    UpperX = ViewValue.OutlineMaxX
+    UpperY = ViewValue.OutlineMaxY
     if (
-        ViewValue.OutlineMinX is not None
-        and ViewValue.OutlineMinY is not None
-        and ViewValue.OutlineMaxX is not None
-        and ViewValue.OutlineMaxY is not None
-    ):
-        return (
-            ViewValue.OutlineMinX,
-            ViewValue.OutlineMinY,
-            ViewValue.OutlineMaxX,
-            ViewValue.OutlineMaxY,
+        LowerX is not None
+        and LowerY is not None
+        and UpperX is not None
+        and UpperY is not None
+        and not all(
+            MathValue.isclose(ItemValue, SourceValue, rel_tol=0.0, abs_tol=1e-12)
+            for ItemValue, SourceValue in zip(
+                (LowerX, LowerY, UpperX, UpperY),
+                DisplayRecord.Outline,
+                strict=True,
+            )
         )
+    ):
+        return (LowerX, LowerY, UpperX, UpperY)
     PositionX = ViewValue.PositionX
     PositionY = ViewValue.PositionY
     if PositionX is None or PositionY is None:
         raise SldprtFormatError("drawing view is missing placement data")
-    LowerX, LowerY, UpperX, UpperY = DisplayRecord.Outline
+    SourceLowerX, SourceLowerY, SourceUpperX, SourceUpperY = DisplayRecord.Outline
     return (
         PositionX
-        + (LowerX - DisplayRecord.PositionX + KOutlinePadding) * Ratio
+        + (SourceLowerX - DisplayRecord.PositionX + KOutlinePadding) * Ratio
         - KOutlinePadding,
         PositionY
-        + (LowerY - DisplayRecord.PositionY + KOutlinePadding) * Ratio
+        + (SourceLowerY - DisplayRecord.PositionY + KOutlinePadding) * Ratio
         - KOutlinePadding,
         PositionX
-        + (UpperX - DisplayRecord.PositionX - KOutlinePadding) * Ratio
+        + (SourceUpperX - DisplayRecord.PositionX - KOutlinePadding) * Ratio
         + KOutlinePadding,
         PositionY
-        + (UpperY - DisplayRecord.PositionY - KOutlinePadding) * Ratio
+        + (SourceUpperY - DisplayRecord.PositionY - KOutlinePadding) * Ratio
         + KOutlinePadding,
     )
 
