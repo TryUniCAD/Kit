@@ -119,6 +119,11 @@ A hand-written trail was built from a recorded one:
 | `parametric.exe -g:no_graphics <trail>` | Creo starts, the argument is not treated as a trail; no replay |
 | `parametric.exe -g:no_graphics -uitrail <trail>` | Creo starts and exits with no recorded commands |
 | `parametric.exe -g:no_graphics -uitrailin <trail>` | same |
+| `-uitrail replay.txt` with the trail copied into `Parametric\bin` and a bare filename | same: new `trail.txt` holds only the preamble |
+| `-uitrail:replay.txt` | Creo exits immediately, leaving a `94`-byte trail with no welcome line |
+
+So the bare-filename form does not help, and the colon form is rejected outright. Four invocation shapes
+have now been tried and none executes the trail.
 
 In every case the new `trail.txt` holds only the session preamble, with no `#PART`, `#RETRIEVE` or model
 `Start` line, and no `auth42.prt.1` is written. So the option is recognised enough for Creo to start and
