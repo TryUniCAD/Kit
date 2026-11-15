@@ -356,7 +356,9 @@ class StreamParser:
                     Field = self.Fields[self.Index]
                     Node = self.ReadField(Field)
                     self.Index += 1
-                    if isinstance(Node.value, StreamNode):
+                    if Field.name == "next_feat_ptr" and isinstance(
+                        Node.value, StreamNode
+                    ):
                         self.Index = self.FeatureStart
                 continue
             if self.Index >= len(self.Fields) and self.StructureStart:
@@ -365,7 +367,9 @@ class StreamParser:
                 Field = self.Fields[self.Index]
                 Node = self.ReadField(Field)
                 self.Index += 1
-                if isinstance(Node.value, StreamNode):
+                if Field.name == "next_feat_ptr" and isinstance(
+                    Node.value, StreamNode
+                ):
                     self.Index = self.FeatureStart
                 continue
             if TokenValue in (0xE2, 0xE3):

@@ -35,9 +35,8 @@ Metadata reports `creo.dimension_count` and `creo.parameters_decoded`.
 
 ## Limits
 
-- Definition-site dimensions only. Positional replayed dimension rows inside the same `FeatDefs`
-  section are not yet decoded, so the ladder control yields two values where four distinct
-  rectangle dimensions are stored.
+- Both definition-site and positional replayed dimension rows decode. The ladder control stores
+  two copies of the sketch rectangle, so eight parameters with four distinct values are emitted.
 - Values are emitted with `ValueKind.KNumber`; length versus angle is not yet classified.
 - `creo.feature_history_decoded` and `creo.geometry_decoded` remain false.
 - The writer is unchanged and still performs exact source replay only.
@@ -51,11 +50,11 @@ ladder features [('creo:feature:7', ...), ('creo:feature:3', ...), ('creo:featur
                  ('creo:feature:67', ...), ('creo:feature:75', ...),
                  ('creo:feature:74', 'Creo protrusion 74',
                   ('creo:dimension:0', 'creo:dimension:1'))]
-ladder params   [('creo:dimension:0', -201.7190851617055, 'creo:feature:74'),
-                 ('creo:dimension:1', -201.7190851617055, 'creo:feature:74')]
-ladder meta     creo.feature_row_count=6 creo.dimension_count=2
+ladder params   8 values: -201.719085, -338.938151, -86.06681, -154.43033 (twice)
+ladder meta     creo.feature_row_count=6 creo.dimension_count=8
                 creo.parameters_decoded=True creo.feature_history_decoded=False
                 creo.geometry_decoded=False
+                feature 74 parameter_ids has 8 entries
 ```
 
 `TestFeatureRows` also asserts the synthetic path: two features, one `FeatDefs` dimension, a

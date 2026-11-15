@@ -66,7 +66,7 @@ It keeps `vendor_loadable` and `application_usable` false because this path does
 ## Limits
 
 - No independent PSB writer.
-- Feature identity plus definition-site dimension values only: no sketches or geometry.
+- Feature identity plus stored dimension values only: no sketches or geometry.
 - No native geometry or B-rep decoding.
 - No assembly component resolution.
 - No drawing, format, section, or layout support.
