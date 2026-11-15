@@ -46,6 +46,7 @@ def ConvertFile(Options: CliOptions) -> dict[str, object]:
         Overwrite=Options.Overwrite,
         ValidateData=True,
         AllowCarrier=False,
+        InputValues={"require_native_transfers": True},
     )
     return {
         "source_format": ResolveFormat(Document, Reader),
