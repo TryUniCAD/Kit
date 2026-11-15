@@ -37,12 +37,21 @@ def StructHeader(NameText: str) -> bytes:
     return b"\xE0\x00" + NameText.encode("latin-1") + b"\x00"
 
 
+def ChecksumValue(BodyValue: bytes) -> int:
+    return sum(BodyValue) & 0xFFFF
+
+
 def TocRow(
-    NameText: str, OffsetValue: int, LengthValue: int, ExpandedValue: int
+    NameText: str,
+    OffsetValue: int,
+    LengthValue: int,
+    ExpandedValue: int,
+    ChecksumValueA: int,
+    ChecksumValueB: int,
 ) -> bytes:
     RowText = (
         f"{NameText} {OffsetValue:x} {LengthValue:x} {ExpandedValue:x} "
-        f"{KTocVersion} {KTocKind} 1 0000 0000"
+        f"{KTocVersion} {KTocKind} 1 {ChecksumValueA:04x} {ChecksumValueB:04x}"
     )
     return RowText.encode("ascii").ljust(KTocWidth - 1, b"#")[: KTocWidth - 1] + b"\n"
 
@@ -81,7 +90,14 @@ def BuildContainer(
     for NameText, PayloadValue in Sections:
         SectionValue = b"#" + NameText.encode("latin-1") + b"\n" + PayloadValue
         Relative = BodyStart + len(Payloads) - BaseValue
-        Rows += TocRow(NameText, Relative, len(SectionValue), len(PayloadValue))
+        Rows += TocRow(
+            NameText,
+            Relative,
+            len(SectionValue),
+            len(PayloadValue),
+            ChecksumValue(PayloadValue),
+            0,
+        )
         Payloads += SectionValue
     return Header + KProductLine + TocHead + Rows + Payloads
 

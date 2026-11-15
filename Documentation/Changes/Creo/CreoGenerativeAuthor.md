@@ -64,8 +64,14 @@ Two container bisection steps were measured, and both still fail:
    the same value a vendor part reports. Creo still rejects with "not a valid PART file".
 2. Changed the table row's numeric column from `-1` to `1` and relaunched. Same rejection.
 
-The remaining differences are the section set (the authored file has only `AllFeatur` and
-`VisibGeom`) and the per-row checksum columns, which are still zero.
+3. Computed the table checksum column. The first checksum is `sum(stored section body) & 0xffff`;
+   this was verified against five vendor sections (`BasicData f9f2`, `MdlStatus 96df`,
+   `SolidPersistTable d31f`, `VisibGeom 0d36`, `AllFeatur e3e0`). Creo still rejects.
+4. Added generated empty `BasicData`, `MdlStatus`, `SolidPersistTable`, `FeatDefs`, and
+   `FeatDefsDtm` sections alongside `VisibGeom` and `AllFeatur`. Same rejection.
+
+The remaining differences are the second checksum column, the first-line numeric tokens, and the
+real bodies of the core sections. An empty struct is not a valid `BasicData` or `MdlStatus`.
 
 ## Limits
 
