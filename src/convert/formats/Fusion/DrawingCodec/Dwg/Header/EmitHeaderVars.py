@@ -28,7 +28,7 @@ KTailBitCount = 4 * 18
 KVersionCodes = {"AC1027": 26, "AC1032": 26}
 
 
-def TailBitsFromCipher(CipherValue: bytes) -> int:
+def EncodeTail(CipherValue: bytes) -> int:
     TextValue = "".join(
         "00" + format(CipherValue[Index], "08b") + format(CipherValue[Index + 1], "08b")
         for Index in range(0, len(CipherValue), 2)
@@ -53,7 +53,7 @@ def EmitHeaderVars(
     if VersionCode is None:
         raise ValueError("DWG header tail needs an encoded product code")
     TailPlain = PackFields("<HHHH", ChecksumValue, KProductCode, VersionCode, 0)
-    Writer.PutBits(TailBitsFromCipher(EncryptBytes(TailPlain)), KTailBitCount)
+    Writer.PutBits(EncodeTail(EncryptBytes(TailPlain)), KTailBitCount)
     Padding = -Writer.BitCount & 7
     Writer.PutBits(KHeaderFill & ((1 << Padding) - 1), Padding)
     AreaValue = PackFields("<I", BitSize) + Writer.ToBytes()

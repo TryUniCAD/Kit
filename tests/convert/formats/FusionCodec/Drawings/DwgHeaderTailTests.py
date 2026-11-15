@@ -33,7 +33,7 @@ def HeaderBytes(Content: bytes) -> bytes:
     )
 
 
-def Repaired(DataValue: bytearray, AreaFinish: int) -> bytes:
+def RepairCrcMut(DataValue: bytearray, AreaFinish: int) -> bytes:
     DataValue[AreaFinish : AreaFinish + 2] = PackFields(
         "<H", CrcSixteen(0xC0C1, bytes(DataValue[16:AreaFinish]))
     )
@@ -45,12 +45,12 @@ def FlipTail(DataValue: bytes, Model: DwgFile) -> bytes:
     _, AreaFinish = LocateArea(DataValue, Model.FileHeader)
     FirstTailBit = AreaFinish * 8 - Width
     Offset = FirstTailBit // 8
-    DataValue = bytearray(DataValue)
-    DataValue[Offset] ^= 1 << (7 - FirstTailBit % 8)
-    return Repaired(DataValue, AreaFinish)
+    Tampered = bytearray(DataValue)
+    Tampered[Offset] ^= 1 << (7 - FirstTailBit % 8)
+    return RepairCrcMut(Tampered, AreaFinish)
 
 
-def TestAuthoredTailTypes() -> None:
+def TestTailTypes() -> None:
     Content, Model = Authored()
     DataValue = HeaderBytes(Content)
     Width, TailBits, _ = FrameParts(dict(Model.SectionVars)[KHeaderName])
@@ -61,18 +61,18 @@ def TestAuthoredTailTypes() -> None:
     assert dict(Frames)[KHeaderName] == dict(Model.SectionVars)[KHeaderName]
 
 
-def TestTailCrcRepairTypes() -> None:
+def TestCrcRepair() -> None:
     Content, Model = Authored()
     DataValue = HeaderBytes(Content)
     _, AreaFinish = LocateArea(DataValue, Model.FileHeader)
     HeaderVars, Frames = TypeHeader(
-        Repaired(bytearray(DataValue), AreaFinish), Model.FileHeader
+        RepairCrcMut(bytearray(DataValue), AreaFinish), Model.FileHeader
     )
     assert HeaderVars.RecordFields
     assert Frames
 
 
-def TestTamperedChecksumRejects() -> None:
+def TestTailTamper() -> None:
     Content, Model = Authored()
     DataValue = HeaderBytes(Content)
     Tampered = FlipTail(DataValue, Model)

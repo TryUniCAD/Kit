@@ -1,33 +1,36 @@
-from decimal import Decimal, getcontext
 from functools import lru_cache
 from struct import pack as PackFields
 from struct import unpack as UnpackFields
 
 KWordCount = 18 + 4 * 256
-KKey = bytes.fromhex("e1a43cf0aa69e0e31755c78100d809de")
+KProductKey = bytes.fromhex("e1a43cf0aa69e0e31755c78100d809de")
 KMask = 0xFFFFFFFF
+
+
+def ArcTanInverse(InverseValue: int, UnitValue: int) -> int:
+    Total = 0
+    TermValue = UnitValue // InverseValue
+    Square = InverseValue * InverseValue
+    Index = 1
+    SignValue = 1
+    while TermValue:
+        Total += SignValue * (TermValue // Index)
+        TermValue //= Square
+        Index += 2
+        SignValue = -SignValue
+    return Total
 
 
 def PiWords(WordCount: int) -> tuple[int, ...]:
     HexCount = WordCount * 8
-    getcontext().prec = int(HexCount * 1.20412) + 80
-    SqrtTerm = 426880 * Decimal(10005).sqrt()
-    Multiplier = 1
-    Linear = 13591409
-    Power = 1
-    Index = 6
-    Total = Decimal(Linear)
-    Terms = int(getcontext().prec / 13.5) + 20
-    for Step in range(1, Terms):
-        Multiplier = (Index**3 - 16 * Index) * Multiplier // Step**3
-        Linear += 545140134
-        Power *= -262537412640768000
-        Total += Decimal(Multiplier * Linear) / Power
-        Index += 12
-    PiValue = SqrtTerm / Total
-    Scaled = int((PiValue - 3) * (Decimal(16) ** HexCount))
-    Text = format(Scaled, "0%dx" % HexCount)
-    return tuple(int(Text[Start : Start + 8], 16) for Start in range(0, HexCount, 8))
+    DigitCount = HexCount * 2 + 80
+    UnitValue = 10**DigitCount
+    PiValue = 16 * ArcTanInverse(5, UnitValue) - 4 * ArcTanInverse(239, UnitValue)
+    Scaled = (PiValue - 3 * UnitValue) * 16**HexCount // UnitValue
+    TextValue = format(Scaled, "0%dx" % HexCount)
+    return tuple(
+        int(TextValue[Start : Start + 8], 16) for Start in range(0, HexCount, 8)
+    )
 
 
 def KeySchedule(
@@ -35,61 +38,67 @@ def KeySchedule(
 ) -> tuple[list[int], list[int], list[int], list[int], list[int]]:
     Words = PiWords(KWordCount)
     PValue = list(Words[:18])
-    S0Value = list(Words[18 : 18 + 256])
-    S1Value = list(Words[18 + 256 : 18 + 512])
-    S2Value = list(Words[18 + 512 : 18 + 768])
-    S3Value = list(Words[18 + 768 : 18 + 1024])
+    BoxAValue = list(Words[18 : 18 + 256])
+    BoxBValue = list(Words[18 + 256 : 18 + 512])
+    BoxCValue = list(Words[18 + 512 : 18 + 768])
+    BoxDValue = list(Words[18 + 768 : 18 + 1024])
     KeyIndex = 0
     for Index in range(18):
-        Data = 0
+        KeyWord = 0
         for _ in range(4):
-            Data = ((Data << 8) | KeyValue[KeyIndex]) & KMask
+            KeyWord = ((KeyWord << 8) | KeyValue[KeyIndex]) & KMask
             KeyIndex = (KeyIndex + 1) % len(KeyValue)
-        PValue[Index] ^= Data
+        PValue[Index] ^= KeyWord
     LeftValue = 0
     RightValue = 0
     for Index in range(0, 18, 2):
         LeftValue, RightValue = EncryptBlock(
-            LeftValue, RightValue, PValue, S0Value, S1Value, S2Value, S3Value
+            LeftValue, RightValue, PValue, BoxAValue, BoxBValue, BoxCValue, BoxDValue
         )
         PValue[Index], PValue[Index + 1] = LeftValue, RightValue
-    for BoxValue in (S0Value, S1Value, S2Value, S3Value):
+    for BoxValue in (BoxAValue, BoxBValue, BoxCValue, BoxDValue):
         for Index in range(0, 256, 2):
             LeftValue, RightValue = EncryptBlock(
-                LeftValue, RightValue, PValue, S0Value, S1Value, S2Value, S3Value
+                LeftValue,
+                RightValue,
+                PValue,
+                BoxAValue,
+                BoxBValue,
+                BoxCValue,
+                BoxDValue,
             )
             BoxValue[Index], BoxValue[Index + 1] = LeftValue, RightValue
-    return PValue, S0Value, S1Value, S2Value, S3Value
+    return PValue, BoxAValue, BoxBValue, BoxCValue, BoxDValue
 
 
 def FuncValue(
     Value: int,
-    S0Value: list[int],
-    S1Value: list[int],
-    S2Value: list[int],
-    S3Value: list[int],
+    BoxAValue: list[int],
+    BoxBValue: list[int],
+    BoxCValue: list[int],
+    BoxDValue: list[int],
 ) -> int:
     AValue = (Value >> 24) & 0xFF
     BValue = (Value >> 16) & 0xFF
     CValue = (Value >> 8) & 0xFF
     DValue = Value & 0xFF
-    Result = (S0Value[AValue] + S1Value[BValue]) & KMask
-    Result ^= S2Value[CValue]
-    return (Result + S3Value[DValue]) & KMask
+    Result = (BoxAValue[AValue] + BoxBValue[BValue]) & KMask
+    Result ^= BoxCValue[CValue]
+    return (Result + BoxDValue[DValue]) & KMask
 
 
 def EncryptBlock(
     LeftValue: int,
     RightValue: int,
     PValue: list[int],
-    S0Value: list[int],
-    S1Value: list[int],
-    S2Value: list[int],
-    S3Value: list[int],
+    BoxAValue: list[int],
+    BoxBValue: list[int],
+    BoxCValue: list[int],
+    BoxDValue: list[int],
 ) -> tuple[int, int]:
     for Index in range(16):
         LeftValue ^= PValue[Index]
-        RightValue ^= FuncValue(LeftValue, S0Value, S1Value, S2Value, S3Value)
+        RightValue ^= FuncValue(LeftValue, BoxAValue, BoxBValue, BoxCValue, BoxDValue)
         LeftValue, RightValue = RightValue, LeftValue
     LeftValue, RightValue = RightValue, LeftValue
     RightValue ^= PValue[16]
@@ -101,14 +110,14 @@ def DecryptBlock(
     LeftValue: int,
     RightValue: int,
     PValue: list[int],
-    S0Value: list[int],
-    S1Value: list[int],
-    S2Value: list[int],
-    S3Value: list[int],
+    BoxAValue: list[int],
+    BoxBValue: list[int],
+    BoxCValue: list[int],
+    BoxDValue: list[int],
 ) -> tuple[int, int]:
     for Index in range(17, 1, -1):
         LeftValue ^= PValue[Index]
-        RightValue ^= FuncValue(LeftValue, S0Value, S1Value, S2Value, S3Value)
+        RightValue ^= FuncValue(LeftValue, BoxAValue, BoxBValue, BoxCValue, BoxDValue)
         LeftValue, RightValue = RightValue, LeftValue
     LeftValue, RightValue = RightValue, LeftValue
     RightValue ^= PValue[1]
@@ -118,7 +127,7 @@ def DecryptBlock(
 
 @lru_cache(maxsize=1)
 def KState() -> tuple[list[int], list[int], list[int], list[int], list[int]]:
-    return KeySchedule(KKey)
+    return KeySchedule(KProductKey)
 
 
 def EncryptBytes(DataValue: bytes) -> bytes:
