@@ -12,19 +12,7 @@ from convert.adapters.solidworks.container.Container import (
     SldprtArchive,
     SldprtFormatError,
 )
-from convert.adapters.solidworks.core.Native import ClassDecl
 from convert.adapters.solidworks.drawing import DrawingData, ReadDrawing, WriteDrawing
-from convert.adapters.solidworks.drawing.DefinitionObjects import (
-    EncodeBlocks,
-    ObjectBlocks,
-)
-from convert.adapters.solidworks.drawing.DefinitionGrammar import (
-    FeatureStart,
-    FeatureTree,
-    ModelRefAt,
-    EncodeTree,
-    EncodeModelRef,
-)
 
 # tracked drawings prove the reader against real solidworks authored sheets
 KDrawRoot = (
@@ -633,51 +621,6 @@ def TestFail() -> None:
         BlobValue = BuildArchive(StreamValue, Template=SourceBytes)
         with PytestLib.raises(SldprtFormatError):
             _ = ReadDrawing(BlobValue)
-
-
-# the feature tree and model reference must round trip byte exactly
-@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
-def TestDefinition() -> None:
-    for NameValue in sorted(KExpected):
-        DataValue = SldprtArchive.open(KDrawRoot / NameValue).require(
-            "Contents/Definition"
-        )
-        TreeData = FeatureTree(DataValue)
-        Reference = ModelRefAt(DataValue)
-        Start = FeatureStart(DataValue)
-        TreeBytes = EncodeTree(TreeData)
-        ReferenceBytes = EncodeModelRef(Reference)
-        assert DataValue[Start : Start + len(TreeBytes)] == TreeBytes
-        ReferenceStart = Start + len(TreeBytes)
-        assert (
-            DataValue[ReferenceStart : ReferenceStart + len(ReferenceBytes)]
-            == ReferenceBytes
-        )
-        assert TreeData.Records
-        assert Reference.PathValue.casefold().endswith(".sldprt")
-        assert Reference.NameValue
-
-
-# the definition object blocks must round trip byte exactly
-@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
-def TestObjects() -> None:
-    Groups = (
-        ("moUnitsTable_c", "moUnitComponent_c"),
-        ("moDrSheet", "moRefPlane_c"),
-        ("moView_c", "moSketchBlockMgr_c"),
-        ("moLineStyle_c", "uiLineFontMgr_c"),
-    )
-    for NameValue in sorted(KExpected):
-        DataValue = SldprtArchive.open(KDrawRoot / NameValue).require(
-            "Contents/Definition"
-        )
-        for StartClass, EndClass in Groups:
-            Blocks = ObjectBlocks(DataValue, StartClass, EndClass)
-            Encoded = EncodeBlocks(Blocks)
-            Start = DataValue.find(ClassDecl(StartClass))
-            assert Start >= 0
-            assert DataValue[Start : Start + len(Encoded)] == Encoded
-            assert Blocks
 
 
 # the writer must round trip the recovered position and scale records

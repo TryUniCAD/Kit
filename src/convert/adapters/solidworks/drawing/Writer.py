@@ -20,6 +20,9 @@ from convert.adapters.solidworks.drawing.Positions import (
     KMinScale,
     KOutlineOffset,
 )
+
+# the sheet outline keeps this fixed padding around the projected view
+KOutlinePadding = 0.004318
 from convert.adapters.solidworks.drawing.WriterBindings import BindViews, ViewIndex
 from convert.adapters.solidworks.drawing.WriterRecords import (
     DefinitionView,
@@ -33,19 +36,28 @@ from convert.adapters.solidworks.drawing.WriterRecords import (
 # the source position is the only stable key when a view has been renamed
 def MatchRecordMut(
     SourceView: DrawingView,
-    Indices: dict[tuple[float, float], list[int]],
+    Indices: list[tuple[float, float, int]],
 ) -> int:
     if SourceView.PositionX is None or SourceView.PositionY is None:
         raise SldprtFormatError("source view is missing placement data")
-    PositionKey = (round(SourceView.PositionX, 9), round(SourceView.PositionY, 9))
-    Candidates = Indices.get(PositionKey)
+    Candidates = [
+        Index
+        for XValue, YValue, Index in Indices
+        if MathValue.isclose(XValue, SourceView.PositionX, rel_tol=0.0, abs_tol=1e-09)
+        and MathValue.isclose(YValue, SourceView.PositionY, rel_tol=0.0, abs_tol=1e-09)
+    ]
     if not Candidates:
         raise SldprtFormatError("source view has no matching record")
-    CreationIndex = ViewIndex(SourceView.Name) - 1
+    try:
+        CreationIndex = ViewIndex(SourceView.Name) - 1
+    except SldprtFormatError:
+        CreationIndex = -1
     if CreationIndex in Candidates:
-        Candidates.remove(CreationIndex)
+        Indices.remove((SourceView.PositionX, SourceView.PositionY, CreationIndex))
         return CreationIndex
-    return Candidates.pop(0)
+    Selected = Candidates[0]
+    Indices.remove(next(ItemValue for ItemValue in Indices if ItemValue[2] == Selected))
+    return Selected
 
 
 # one view rewrite keeps the definition and display records in step
@@ -78,10 +90,18 @@ def RewriteViewMut(
         "<dddd",
         NewDisplay,
         OutlineOffset,
-        PositionX + (LowerX - DisplayRecord.PositionX) * Ratio,
-        PositionY + (LowerY - DisplayRecord.PositionY) * Ratio,
-        PositionX + (UpperX - DisplayRecord.PositionX) * Ratio,
-        PositionY + (UpperY - DisplayRecord.PositionY) * Ratio,
+        PositionX
+        + (LowerX - DisplayRecord.PositionX + KOutlinePadding) * Ratio
+        - KOutlinePadding,
+        PositionY
+        + (LowerY - DisplayRecord.PositionY + KOutlinePadding) * Ratio
+        - KOutlinePadding,
+        PositionX
+        + (UpperX - DisplayRecord.PositionX - KOutlinePadding) * Ratio
+        + KOutlinePadding,
+        PositionY
+        + (UpperY - DisplayRecord.PositionY - KOutlinePadding) * Ratio
+        + KOutlinePadding,
     )
     Struct.pack_into(
         "<dd", NewDefinition, DefinitionRecord.Offset, PositionX, PositionY

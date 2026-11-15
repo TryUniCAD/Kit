@@ -22,14 +22,14 @@ KViewEnd = "moSketchBlockMgr_c"
 KStyleEnd = "uiLineFontMgr_c"
 
 
-# one object block keeps the class name and its raw value bytes together
+# callers need the class name and its raw value bytes as one value
 @dataclass(frozen=True, slots=True)
 class ObjectBlock:
     ClassName: str
     Values: bytes
 
 
-# the next class declaration is found by its marker and printable name
+# the next declaration is needed because the value block has no length prefix
 def NextClass(DataValue: bytes, Offset: int) -> int:
     Cursor = Offset
     while Cursor < len(DataValue) - 6:
@@ -44,7 +44,7 @@ def NextClass(DataValue: bytes, Offset: int) -> int:
     return -1
 
 
-# one object block runs from its class declaration to the next declaration
+# the end class is needed because the object group has no length prefix
 def ObjectBlocks(
     DataValue: bytes, StartClass: str, EndClass: str
 ) -> tuple[ObjectBlock, ...]:
@@ -66,7 +66,7 @@ def ObjectBlocks(
     return tuple(Result)
 
 
-# the object blocks serialize back to the same declaration and value layout
+# the writer needs the exact declaration and value layout to keep the stream valid
 def EncodeBlocks(Blocks: tuple[ObjectBlock, ...]) -> bytes:
     Output = bytearray()
     for Block in Blocks:
