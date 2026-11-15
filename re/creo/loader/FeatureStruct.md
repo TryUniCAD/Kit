@@ -162,6 +162,53 @@ Sample clusters, reproducible with the same scan:
 The scan itself is cheap and deterministic. What it does not do is name the function or say which bit of
 `cr_flags_xar` gates which field, which still requires reading the disassembly of the cluster consumers.
 
+## One cluster, decoded
+
+Following site `0xe4c35b` back to its entry gives a complete, readable function at RVA `0xe4c300`:
+
+```text
+movl (%rdx), %r8d            ; selector
+ecx = r8d - 1 ; je -> ebx = 0
+ecx -= 1      ; je -> ebx = 0xd0
+ecx -= 1      ; je -> ebx = 0x1a0
+ecx == 1      ; je -> return 0
+else          ; error path: two strings, call 0x14099de72
+
+default path:
+  lea rax, 0x14bcd464e        ; return continuation
+  movq $0x270, 0x28(%rsp)
+  lea r9,  0x1543a5070        ; constant (all zero bytes in .ddt)
+  movq rax, 0x20(%rsp)
+  lea r8,  0x153ebc240        ; field descriptor
+  xor ecx, ecx
+  lea rdx, 0x153eb7000        ; .ddt base
+  call 0x149c706d7
+  add rbx, rax                ; offset + shape size
+```
+
+So the pattern is `offset(kind, field) = Lookup(.ddt base, descriptor, const) + size(kind)`, with
+`size(kind)` one of `0`, `0xd0`, `0x1a0`. Those three values are `0`, `1 * 0xd0` and `2 * 0xd0`, so
+they look like shape sizes that are multiples of the record stride, not the stride itself.
+
+## Descriptor records carry a flags column
+
+The descriptor at `0x153ebc240` is `{name_ptr, 0x400, 0, 0}` and its name resolves to
+`(toolmtn_vol_mill_data)`. Compare `cr_flags_xar`'s record, which is `{name_ptr, 1, 0, 0}`.
+
+So the second word is a per-field flag or size, not a constant `1` as the first record suggested. The
+parenthesised name and the `0x400` word mean the registry mixes plain fields with group or union
+markers.
+
+## This cluster is not the mask consumer
+
+`0xe4c35b` addresses `(toolmtn_vol_mill_data)`, a milling-data field, so the 6068 cluster sites are a
+generic field-accessor family rather than mask-specific code.
+
+A targeted scan for the accessor form `lea r8, [rip+disp32]` whose descriptor names `cr_flags_xar` or
+`more_cr_flags` returns **zero** hits. So the accessor for the mask fields is reached by a different
+register or a different code shape, and finding it means matching the general pattern rather than the one
+instance decoded above.
+
 ## Next
 
 The path is now name-based again, in the module that owns the struct:
@@ -171,9 +218,9 @@ The path is now name-based again, in the module that owns the struct:
 2. follow it to the feature-struct offsets of `cr_flags_xar` and `more_cr_flags`;
 3. follow the mask consumer to learn which bit gates which field.
 
-Step 1 has a cheap entry point: the RIP-relative scan above already localises the cluster sites, so the
-work is reading a handful of functions rather than analysing 219 MB. Steps 2 and 3 remain disassembly
-reading.
+Step 1 has a cheap entry point: the RIP-relative scan localises the cluster sites, and one is decoded
+above. The next move is the inverse search — enumerate the accessor family and resolve each descriptor's
+name until `cr_flags_xar` appears — because the straight `lea r8` filter for that name returns nothing.
 
 Step 1 needs a full analysis of a 326 MB PE. That is the remaining cost, and it is a different order of
 effort from the section-grammar work: not another emitter tweak.
