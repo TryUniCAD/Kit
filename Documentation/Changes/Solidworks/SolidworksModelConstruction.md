@@ -5,6 +5,11 @@ configuration-manager graphs and part-definition streams from explicit inputs
 and 2026 constructor rules. They also construct principal planes and the base
 part root from generated style/unit dependencies.
 Fresh system-folder and annotation-cabinet factories extend the same graph.
+`model_fields` now initializes the common model fields on a caller's actual
+part or assembly object, with explicit self-component and relation ownership.
+`part_root` adds its part-only fields through the existing public interface.
+The shared helper does not infer an assembly subtype or populate part scalars
+at offsets owned by assembly maps.
 `part_graph` now accepts explicit folder names, cabinet name and creation time,
 returns their objects, and binds the serialized environment pointer to that same
 system node. Folder order is authored rather than copied from a template.
@@ -72,6 +77,8 @@ The [header clock gotcha](../../Gotchas/Conversion/Solidworks/HeaderClockIsWallT
 records wall time behind the misleading vendor method name.
 The [modification-time gotcha](../../Gotchas/Conversion/Solidworks/HeaderModificationTimeHasSentinelYear.md)
 records the conditional save-time sentinel rule.
+The [model offset gotcha](../../Gotchas/Conversion/Solidworks/ModelOffsetsAreTypeSpecific.md)
+records the boundary between shared model and concrete-root fields.
 
 ## Verification
 
