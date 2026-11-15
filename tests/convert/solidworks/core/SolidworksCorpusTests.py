@@ -75,7 +75,9 @@ def TestCorpus(TmpPath: FilePath) -> None:
 
 
 # additive box schemas differ across freecad versions so both are accepted
-@PytestLib.mark.skipif(not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable")
+@PytestLib.mark.skipif(
+    not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable"
+)
 def TestAddBox(TmpPath: FilePath) -> None:
     SourcePath = KAddBoxRoot / "AdditiveBox-1.1.4.FCStd"
     DocumentValue = OpenDocument(SourcePath)
@@ -101,7 +103,9 @@ def TestAddBox(TmpPath: FilePath) -> None:
 
 
 # a rotated principal basis must not collapse to canonical axes
-@PytestLib.mark.skipif(not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable")
+@PytestLib.mark.skipif(
+    not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable"
+)
 def TestBoxPlane(TmpPath: FilePath) -> None:
     SourcePath = KAddBoxRoot / "AdditiveBox-1.1.4.FCStd"
     DocumentValue = OpenDocument(SourcePath)
@@ -125,7 +129,9 @@ def TestBoxPlane(TmpPath: FilePath) -> None:
 
 
 # driven dimensions would become driving native dimensions so they decline
-@PytestLib.mark.skipif(not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable")
+@PytestLib.mark.skipif(
+    not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable"
+)
 def TestBoxDriven(TmpPath: FilePath) -> None:
     SourcePath = KAddBoxRoot / "AdditiveBox-1.1.4.FCStd"
     DocumentValue = OpenDocument(SourcePath)
@@ -142,13 +148,13 @@ def TestBoxDriven(TmpPath: FilePath) -> None:
     )
     assert HasVendorPartEncoding(Changed) is False
     with PytestLib.raises(ApplicationUsabilityError):
-        _ = WriteDocument(
-            Changed, TmpPath / "DrivenBox.SLDPRT", allow_carrier=False
-        )
+        _ = WriteDocument(Changed, TmpPath / "DrivenBox.SLDPRT", allow_carrier=False)
 
 
 # curved faces on the box corners would be replaced by flat faces
-@PytestLib.mark.skipif(not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable")
+@PytestLib.mark.skipif(
+    not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable"
+)
 def TestBoxCurved(TmpPath: FilePath) -> None:
     SourcePath = KAddBoxRoot / "AdditiveBox-1.1.4.FCStd"
     DocumentValue = OpenDocument(SourcePath)
@@ -173,39 +179,51 @@ def TestBoxCurved(TmpPath: FilePath) -> None:
     )
     assert HasVendorPartEncoding(Changed) is False
     with PytestLib.raises(ApplicationUsabilityError):
-        _ = WriteDocument(
-            Changed, TmpPath / "CurvedBox.SLDPRT", allow_carrier=False
-        )
+        _ = WriteDocument(Changed, TmpPath / "CurvedBox.SLDPRT", allow_carrier=False)
 
 
 # a shifted face plane changes the box offset and must decline
-@PytestLib.mark.skipif(not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable")
+@PytestLib.mark.skipif(
+    not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable"
+)
 def TestBoxShift(TmpPath: FilePath) -> None:
     SourcePath = KAddBoxRoot / "AdditiveBox-1.1.4.FCStd"
     DocumentValue = OpenDocument(SourcePath)
     BrepValue = DocumentValue.brep
     assert BrepValue is not None
-    SurfaceValue = BrepValue.surfaces[0]
-    assert isinstance(SurfaceValue, PlaneSurface)
-    Changed = ReplaceData(
-        DocumentValue,
-        brep=ReplaceData(
-            BrepValue,
-            surfaces=(
-                ReplaceData(SurfaceValue, origin=VectorThree(1.0, 0.0, 0.0)),
-                *BrepValue.surfaces[1:],
+    Cases = ((0, VectorThree(1.0, 0.0, 0.0)), (1, VectorThree(-20.0, 0.0, 0.0)))
+    for Index, SurfaceIndex, OriginValue in (
+        (0, EntryData[0], EntryData[1]) for EntryData in Cases
+    ):
+        SurfaceValue = BrepValue.surfaces[SurfaceIndex]
+        assert isinstance(SurfaceValue, PlaneSurface)
+        Changed = ReplaceData(
+            DocumentValue,
+            brep=ReplaceData(
+                BrepValue,
+                surfaces=tuple(
+                    (
+                        ReplaceData(SurfaceValue, origin=OriginValue)
+                        if Position == SurfaceIndex
+                        else ItemData
+                    )
+                    for Position, ItemData in enumerate(BrepValue.surfaces)
+                ),
             ),
-        ),
-    )
-    assert HasVendorPartEncoding(Changed) is False
-    with PytestLib.raises(ApplicationUsabilityError):
-        _ = WriteDocument(
-            Changed, TmpPath / "ShiftedBox.SLDPRT", allow_carrier=False
         )
+        assert HasVendorPartEncoding(Changed) is False
+        with PytestLib.raises(ApplicationUsabilityError):
+            _ = WriteDocument(
+                Changed,
+                TmpPath / f"ShiftedBox{Index}.SLDPRT",
+                allow_carrier=False,
+            )
 
 
 # refine false changes authored cleanup so the older schema must decline
-@PytestLib.mark.skipif(not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable")
+@PytestLib.mark.skipif(
+    not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable"
+)
 def TestAddBoxNo(TmpPath: FilePath) -> None:
     SourcePath = KAddBoxRoot / "AdditiveBox-0.21.2.FCStd"
     DocumentValue = OpenDocument(SourcePath)

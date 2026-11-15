@@ -425,9 +425,7 @@ def TestTriEnd(TmpPath: FilePath) -> None:
         assert isinstance(FeatureData.definition, ExtrudeFeature)
         FeatureData = ReplaceData(
             FeatureData,
-            definition=ReplaceData(
-                FeatureData.definition, end_condition=Condition
-            ),
+            definition=ReplaceData(FeatureData.definition, end_condition=Condition),
         )
         Changed = ReplaceData(SourceDoc, feature_timeline=(FeatureData,))
         assert HasVendorPartEncoding(Changed) is False

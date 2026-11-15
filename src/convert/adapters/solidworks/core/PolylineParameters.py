@@ -182,7 +182,7 @@ def HasPolyLoss(DocumentData: CadDocument, PadId: str) -> bool:
         or not IsUnsetLength(Definition.second_offset, 0.0)
         or not IsUnsetAngle(Definition.draft_angle, 0.0)
         or not IsUnsetAngle(Definition.second_draft_angle, 0.0)
-        or Definition.end_condition is not ExtrudeEnd.BLIND
+        or Definition.end_condition != ExtrudeEnd.BLIND
         or Definition.symmetric
         or Definition.second_end_condition is not None
         or bool(Definition.up_to_reference)
