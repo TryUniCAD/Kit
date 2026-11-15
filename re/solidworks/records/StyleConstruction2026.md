@@ -217,6 +217,11 @@ grid storage, not arbitrary missing schema fields.
 
 ## Verification and remaining acceptance
 
+The bend-note subtype's constructor `0x3c7a3540` keeps `f58=0`.
+Its later folded `SetFlags(this,1)` call is `0x3c7a5970`, which writes
+`this+0x18`, not `this+0x58`. This distinction is reflected in the emitted
+base/subtype fields; a decompiler's unrelated setter name is not field evidence.
+
 Static AST parsing, formatting, type checking and repository naming checks are
 the only local checks. No local tests, reproductions, collection, builder imports
 or target application operations have run. The process-boundary checks create

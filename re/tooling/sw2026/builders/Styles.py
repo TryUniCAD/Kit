@@ -245,7 +245,7 @@ def annotation_style(*, kind, font_name, language_id):
     elif kind == "surface_finish":
         f.update({"f58": 0, "f5c": 2, "f60": 1.0, "f68": 1.0})
     elif kind == "bend":
-        f.update({"f58": 1, "f5c": 0, "f60": 0, "f68": 0.01016})
+        f.update({"f58": 0, "f5c": 0, "f60": 0, "f68": 0.01016})
     elif kind == "gtol":
         f.update({"f58": 1, "f5c": 1, "f60": 0x2E})
     elif kind == "datum":
