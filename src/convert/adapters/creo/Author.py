@@ -212,3 +212,119 @@ def AuthorBox(
         ("VisibGeom", AuthorGeometryPayload(Minimum, Maximum)),
     )
     return BuildContainer(Sections)
+
+
+def CloseValue(Level: int) -> bytes:
+    return bytes((0xF0 + Level,))
+
+
+def StructBegin(NameText: str) -> bytes:
+    return StructHeader(NameText) + b"\xE3"
+
+
+def NullStruct(NameText: str) -> bytes:
+    return StructHeader(NameText) + b"\xE1"
+
+
+def OpenStruct(NameText: str) -> bytes:
+    return StructHeader(NameText) + b"\xE2"
+
+
+def IntArrayStruct(NameText: str, Values: tuple[int, ...]) -> bytes:
+    Payload = b"\xE0\x01" + NameText.encode("latin-1") + b"\x00"
+    Payload += b"\xF8" + IntValue(len(Values))
+    for Value in Values:
+        Payload += IntValue(Value)
+    return Payload
+
+
+def SectionValue(NameText: str, Payload: bytes) -> bytes:
+    return b"#" + NameText.encode("latin-1") + b"\n" + Payload
+
+
+def EmptySectionPayloads() -> dict[str, bytes]:
+    return {
+        "Notes": SectionValue(
+            "Notes", StructBegin("Sld_Notes") + CloseValue(1)
+        ),
+        "PipeInfos": SectionValue(
+            "PipeInfos",
+            StructBegin("Sld_PipeInfo") + NullStruct("piping_info") + CloseValue(1),
+        ),
+        "AssMrgPrt": SectionValue(
+            "AssMrgPrt", StructBegin("assem_merge_parts") + CloseValue(1)
+        ),
+        "NeuAsmSld": SectionValue(
+            "NeuAsmSld",
+            StructBegin("Sld_NeutAssem") + NullStruct("neut_assem") + CloseValue(1),
+        ),
+        "FamilyInf": SectionValue(
+            "FamilyInf",
+            StructBegin("Sld_FamilyInfo") + NullStruct("drv_tbl_ptr") + CloseValue(1),
+        ),
+        "Hatching": SectionValue(
+            "Hatching",
+            StructBegin("Sld_Hatching")
+            + OpenStruct("hatch_data_save_xar")
+            + CloseValue(2),
+        ),
+        "Xsections": SectionValue(
+            "Xsections",
+            StructBegin("Sld_Xsections")
+            + NullStruct("xsec_data")
+            + OpenStruct("xsec_geom")
+            + CloseValue(2),
+        ),
+        "DispDataColor": SectionValue(
+            "DispDataColor", OpenStruct("ref_color_table") + CloseValue(1)
+        ),
+    }
+
+
+def FeatureIndexPayload(Classes: tuple[int, ...]) -> bytes:
+    return SectionValue(
+        "FeatDefsIndex",
+        StructBegin("Sld_FeatDefsIndex")
+        + IntArrayStruct("feat_defs_index", Classes)
+        + CloseValue(1),
+    )
+
+
+def FieldValue(TypeDigit: int, NameText: str, Value: bytes) -> bytes:
+    return bytes((0xE0, TypeDigit)) + NameText.encode("latin-1") + b"\x00" + Value
+
+
+def RefArrayValue(NameText: str, Count: int, Reference: int) -> bytes:
+    return (
+        FieldValue(0, NameText, b"\xF8" + IntValue(Count) + b"\xF7" + IntValue(Reference) + b"\xFB")
+    )
+
+
+def NeutralEmptyPayloads() -> dict[str, bytes]:
+    return {
+        "NovisGeom": SectionValue(
+            "NovisGeom",
+            StructBegin("Sld_NonVisGeom")
+            + OpenStruct("inactive_geom")
+            + StructHeader("external_geom")
+            + CloseValue(1)
+            + b"\xE2"
+            + CloseValue(2),
+        ),
+        "BasFullData": SectionValue(
+            "BasFullData",
+            StructBegin("Sld_BasFullData")
+            + RefArrayValue("dim_array", 3, 2)
+            + b"\xE1\xE1\xE1"
+            + FieldValue(1, "faceted_rep", CloseValue(1))
+            + b"\x00"
+            + CloseValue(1),
+        ),
+    }
+
+
+def AuthoredSections(FeatureClasses: tuple[int, ...]) -> dict[str, bytes]:
+    Bodies = EmptySectionPayloads()
+    Bodies.update(NeutralEmptyPayloads())
+    Bodies["FeatDefsIndex"] = FeatureIndexPayload(FeatureClasses)
+    return Bodies

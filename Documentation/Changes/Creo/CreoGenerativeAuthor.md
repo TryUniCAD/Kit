@@ -230,6 +230,69 @@ A generative author therefore has to emit all 52 section extents with readable b
 minimal-part shortcut, and the two-section authored container is not a valid model regardless of how
 clean its directory is.
 
+## Authored section bodies
+
+Eleven section bodies are now emitted from the tagged-stream grammar rather than the container
+alone. Each builder is a small set of grammar operations: a named struct header
+(`e0 00 <name> 00`), a compound begin (`e2`/`e3`), a close (`f1`-`f4`), a null struct
+(`e0 00 <name> 00 e1`), a typed field (`e0 <type> <name> 00 <value>`), and an integer array
+(`e0 01 <name> 00 f8 <count> <ints>`).
+
+`Author.AuthoredSections(FeatureClasses)` returns:
+
+```text
+AssMrgPrt      BasFullData   DispDataColor   FamilyInf      FeatDefsIndex
+Hatching       NeuAsmSld     Notes           NovisGeom      PipeInfos
+Xsections
+```
+
+Every builder reproduces the retained control byte-for-byte, so the grammar is confirmed rather
+than approximated:
+
+```text
+sections: 11  mismatches: []
+```
+
+The one model-dependent value is `FeatDefsIndex`, which carries the feature classes present. It is
+emitted from the caller's feature list, not from the file.
+
+Creo 2027.2 was then launched on the control container with all eleven bodies replaced by these
+builders, and `FeatDefsIndex` widened from two classes to three (`923, 979, 917`) so the candidate
+differs from the control by content, not only by layout:
+
+```text
+wrote 81541  delta +2  sections 11
+!15-Nov-26 01:31:22  Start C:\Mac\Home\Documents\creo-authored\auth11.prt
+!15-Nov-26 01:31:22  End   C:\Mac\Home\Documents\creo-authored\auth11.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid
+```
+
+So eleven authored section bodies are accepted by the vendor loader, including one whose content
+differs from the control.
+
+Two caveats are measured, not assumed. Truncating the authored `Notes` body to
+`e0 00 Sld_Notes 00 e3` still loads, so the loader tolerates a short stream there and byte equality
+is not the only acceptance path. And an earlier drop experiment proved `Notes` presence matters, so
+the authored set is load-bearing rather than ignored.
+
+The remaining 41 sections are not authored. The cheapest next targets, by measured body size:
+
+| Section | Body bytes | Status |
+| --- | ---: | --- |
+| `ActDatums` | 463 | datum planes; needs the repeat-encoded `local_sys` lane |
+| `BasicText` | 573 | mass properties plus the unit-system block |
+| `GeomDepen` | 434 | topology state; carries generated timestamps |
+| `Geomlists` | 640 | body table; carries generated timestamps |
+| `NeuPrtSld` | 918 | neutral part outline and layer/item names |
+| `FeatDefsDtm` | 1784 | datum placement records; decoded by the reader |
+| `AllFeatur` | 3489 | authored, but rejected on its own |
+| `VisibGeom` | 42 | authored, but rejected on its own |
+| `LargeText` | 5051 | names table |
+| `FullMData` | 6977 | properties and view data |
+| `BasicData` | 8232 | basic model data |
+| `MdlStatus` | 10301 | model status |
+| `SolidPersistTable` | 1148 stored | persistence table; Unix-compress payload |
+
 ## Limits
 
 - The authored part contains only `AllFeatur` and `VisibGeom`. Creo rejects it as "not a valid PART
