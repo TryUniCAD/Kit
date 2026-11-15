@@ -845,3 +845,102 @@ def CleanFlagValue() -> bytes:
 # replay records carry the elements without the count the first one declared
 def CleanFlagElements() -> bytes:
     return SignedIntElements((-1,) * KCleanFlagSlots)
+
+
+# the datum record is the only feature shape creo accepts without geometry
+def DatumFeatureRecord(
+    FeatureId: int,
+    FeatureClass: int,
+    SectionName: str,
+    FirstGeomId: int,
+    BodyId: int,
+    MaskValues: tuple[int, ...],
+    CreateDate: int,
+    RegenDate: int,
+    StampTime: int,
+    RandomNum: int,
+    HostId: int,
+    RevNum: int,
+    NumPlins: int,
+    LargestPrevRev: int,
+) -> bytes:
+    Payload = FieldValue(1, "id", SignedInt(FeatureId))
+    Payload += FieldValue(1, "indep_attributes_arr", SignedIntArray((4097, 0, 0, 0)))
+    Payload += StructHeader("feat_type_ptr") + b"\xe3"
+    Payload += FieldValue(1, "table_id", SignedInt(-1))
+    Payload += FieldValue(1, "type", SignedInt(FeatureClass))
+    Payload += FieldValue(10, "feattype_key", b"\xe1")
+    Payload += FieldValue(1, "form", SignedInt(0))
+    Payload += FieldValue(1, "attributes", SignedIntArray((0,) * 8 + (16, 0, 0)))
+    Payload += FieldValue(1, "placement", SignedInt(0))
+    Payload += FieldValue(1, "intersection", SignedInt(-1))
+    Payload += FieldValue(1, "internal_udf_type", SignedInt(-1))
+    Payload += StructHeader("param_choice_ptr") + b"\xe3"
+    Payload += FieldValue(1, "blend_choice", SignedInt(0))
+    Payload += FieldValue(1, "depth_choice", SignedInt(0))
+    Payload += FieldValue(1, "angle_choice", SignedInt(0))
+    Payload += FieldValue(1, "pat_choice", SignedInt(-1))
+    Payload += FieldValue(1, "round_choice", SignedInt(-1))
+    Payload += FieldValue(1, "subsec_choice", SignedInt(-1))
+    Payload += FieldValue(1, "sweep_choice", SignedInt(0))
+    Payload += FieldValue(1, "dome_choice", SignedInt(0))
+    Payload += FieldValue(1, "draft_choice", SignedInt(0))
+    Payload += FieldValue(1, "misc_choice", SignedIntArray((0,) * 6))
+    Payload += FieldValue(1, "assoc_type", b"\xf1" + SignedInt(0))
+    Payload += FieldValue(1, "comp_like_type", SignedInt(-1))
+    Payload += FieldValue(
+        10, "sect_name", b"\xf1" + SectionName.encode("latin-1") + b"\x00"
+    )
+    Payload += StructHeader("idtab_ptr") + b"\xe3"
+    Payload += FieldValue(0, "srf_id_tab_ptr", b"\xf8\x01\xf7\x1d\xfb")
+    Payload += b"\xe3"
+    Payload += FieldValue(1, "fc_hist", SignedIntArray((8, 0, 0, 0)))
+    Payload += StructHeader("save_geoms") + b"\xf2\xe3"
+    Payload += FieldValue(
+        2, "transform", b"\xf9\x04\x03" + RunValues(KIdentityColumn * 3)
+    )
+    Payload += FieldValue(1, "cr_flags_xar", FlagValue(MaskValues))
+    Payload += StructHeader("cvt_feat_dat") + b"\xe1"
+    Payload += StructHeader("feat_dates_ptr") + b"\xe3"
+    Payload += FieldValue(1, "creat_date", SignedInt(CreateDate))
+    Payload += FieldValue(1, "regen_date", SignedInt(RegenDate))
+    Payload += StructHeader("intrs_pairs_ptr") + b"\xf2\xe3"
+    Payload += FieldValue(1, "first_geom_id", b"\xf1" + SignedInt(FirstGeomId))
+    Payload += StructHeader("topology_increment") + b"\xe3"
+    Payload += StructHeader("body_geom_hdr") + b"\xe2"
+    Payload += FieldValue(0, "h_body_geom", b"\xf8\x01\xf7\x2a\xfb")
+    Payload += b"\xe2"
+    Payload += FieldValue(1, "p_body", SignedInt(BodyId))
+    Payload += FieldValue(1, "first_geom", SignedInt(0))
+    Payload += FieldValue(1, "body_id", SignedInt(BodyId))
+    Payload += FieldValue(1, "first_geom_id", SignedInt(-1))
+    Payload += FieldValue(1, "ids_null_goem", b"\xf2" + SignedIntArray((BodyId,)))
+    Payload += FieldValue(1, "first_quilt", b"\xf1" + SignedInt(0))
+    Payload += FieldValue(1, "first_lo", SignedInt(0))
+    Payload += FieldValue(1, "first_hybrid_body", SignedInt(0))
+    Payload += FieldValue(2, "outline", b"\xf9\x02\x03\x18\xe7\x05")
+    Payload += FieldValue(2, "max_part_size", b"\x18")
+    Payload += FieldValue(2, "cur_max_size", b"\x18")
+    Payload += StructHeader("xform_increment") + b"\xe1"
+    Payload += FieldValue(1, "roll_back_id", SignedInt(-1))
+    Payload += StructHeader("time_stamp") + b"\xe3"
+    Payload += FieldValue(1, "time", SignedInt(StampTime))
+    Payload += FieldValue(1, "random_num", SignedInt(RandomNum))
+    Payload += FieldValue(1, "hostid", SignedInt(HostId))
+    Payload += StructHeader("quilt_diff") + b"\xf1\xe1"
+    Payload += StructHeader("body_diff") + b"\xe1"
+    Payload += StructHeader("hybrid_body_diff") + b"\xe1"
+    Payload += StructHeader("lo_diff") + b"\xe1"
+    Payload += FieldValue(1, "attributes", SignedInt(32769))
+    Payload += StructHeader("objs_affected") + b"\xe1"
+    Payload += StructHeader("SpecTopolRefs") + b"\xe1"
+    Payload += StructHeader("ActiveTopolRefs") + b"\xe1"
+    Payload += FieldValue(1, "revnum", b"\xf1" + SignedInt(RevNum))
+    Payload += StructHeader("rev_rec") + b"\xe3"
+    Payload += StructHeader("extnd_rev_tab") + b"\xe1"
+    Payload += FieldValue(1, "num_plins", SignedInt(NumPlins))
+    Payload += FieldValue(1, "largest_prev_rev", SignedInt(LargestPrevRev))
+    Payload += FieldValue(1, "largest_prev_rev_delta", SignedInt(0))
+    Payload += StructHeader("revnum_cache_data") + b"\xe1"
+    Payload += FieldValue(1, "rev_flags", SignedInt(0))
+    return Payload

@@ -228,13 +228,56 @@ The dominant field is solved. Record one writes `Author.CleanFlagValue()` and th
 `Author.CleanFlagElements()`, which is a rule rather than a captured table: one clean slot, no vendor
 values, no document specific length.
 
+## The definition record is authored
+
+`Author.DatumFeatureRecord(...)` emits record one from the inventory above, field by field, and it is
+byte-identical to the control:
+
+```text
+definition record: 1601 bytes, byte-identical: True
+```
+
+The record is a flat run of `e0 <type> <name> 00` headers whose *values* carry the structural tokens, so
+the emitter is a straight sequence rather than a nested builder. Three details had to match exactly:
+
+| Detail | Actual bytes | Consequence |
+| --- | --- | --- |
+| `feattype_key` | `e0 0a` header, value `e1` | the header carries the field type, not always `e0 00` |
+| `sect_name` | `f1` then raw text plus NUL, no length prefix | `NameValue` is wrong here |
+| close tokens | ride at the front of a later field's value, e.g. `assoc_type` is `f1 00` | structural tokens belong to value spans |
+| `outline`, `max_part_size`, `cur_max_size` | `18` means `1.0` in this lane | the one byte double lane is context dependent |
+| `srf_id_tab_ptr` | `f8 01 f7 1d fb` then a bare `e3` | a reference array opens its element without a field name |
+
+Two values are generated rather than modelled: `creat_date`, `regen_date`, `time`, `random_num` and
+`hostid` are stamped by the vendor at save time, and we emit our own.
+
+### Verified in Creo
+
+Replacing record one with our emitter, using **our own** dates, stamp time, random number and host id,
+and an all-clean generated mask, is accepted:
+
+```text
+dtmrec4  control dates, all-clean 252 slot mask   End + MT Part Solid
+dtmrec3  our dates, control mask                  End + MT Part Solid
+dtmrec2  our dates, all-clean 252 slot mask       End + MT Part Solid
+dtmrec   our dates, one slot mask                 silent exit twice
+```
+
+So the record body, including its generated datetime and host fields, is authored and loadable. The one
+rejection is the mask **length**: the defining record's mask must have the same slot count as the replay
+records, because the replays carry elements only and inherit the shape. Length has to agree across the
+records of one section; the earlier all-one-slot control loaded because it changed all four together.
+
 ## What is needed
 
-`cr_flags_xar` no longer blocks anything. The remaining work on `AllFeatur` is the other seventy-seven
-nodes of the feature record: `id`, `indep_attributes_arr`, `feat_type_ptr`, the choice scalars,
-`sect_name`, `idtab_ptr`, `body_geom_hdr`, the transform, and the trailing pointers. Most are `-1`, `0`
-or null, and the inventory above gives the value and span of every one, so they can be emitted field by
-field the way `BasBasData` and `FeatDefsDtm` now are.
+The definition record is done and loadable. What remains is the **replay form**. A replay record is a
+positional subsequence of the definition record: values only, with the field headers and the closing
+tokens dropped. Record two of the control is `420` bytes against record one's `1601`, and it starts
+`03 05 90 01 00 e5 e3 f6 83 9b e1 00 00 e7 07 10 00 e4 00 f6 f6 e3 ...`, which is exactly record one's
+values in order with the headers removed.
+
+Two more pieces follow from that: the replay emitter, and the `feat_defs_979` coordinate system record,
+which is a different class with its own field set.
 
 Until that lands, `AllFeatur` stays unauthored, and with it the whole authored part: it is the one
 section that both our document validator and the vendor loader reject when absent.

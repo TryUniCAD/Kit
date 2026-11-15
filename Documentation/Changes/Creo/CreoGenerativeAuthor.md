@@ -421,6 +421,33 @@ sections 40  bytes 31271  delta -50268
 
 `FeatDefsDtm` therefore has no vendor-sourced content.
 
+## The datum feature record
+
+`Author.DatumFeatureRecord` emits the first `AllFeatur` record field by field, and it is byte-identical
+to the control (`1601` bytes). The record is a flat run of `e0 <type> <name> 00` headers whose values
+carry the structural tokens, so four details mattered:
+
+- `feattype_key` uses a `e0 0a` header, not `e0 00`
+- `sect_name` is `f1` plus raw text plus NUL, with no length prefix
+- close tokens ride at the front of a later field's value (`assoc_type` is `f1 00`), and one reference
+  array opens its element with a bare `e3`
+- `outline`, `max_part_size` and `cur_max_size` use the lane where `18` means `1.0`
+
+`creat_date`, `regen_date`, `time`, `random_num` and `hostid` are save-time stamps, so we generate ours.
+
+Four launches replaced record one with the emitter:
+
+| Candidate | Result |
+| --- | --- |
+| control dates, all-clean 252 slot mask | `End` + `MT Part Solid` |
+| our dates, control mask | `End` + `MT Part Solid` |
+| our dates, all-clean 252 slot mask | `End` + `MT Part Solid` |
+| our dates, one slot mask | silent exit twice |
+
+So the record body and its generated datetime and host fields are accepted. The rejection is the mask
+*length*: the defining record's slot count must match the replay records, which carry elements only. The
+earlier all-one-slot control loaded because it changed all four records together.
+
 ## VisibGeom and the authored container
 
 `Author.EmptyVisibGeom()` emits the empty geometry form, `Sld_VisGeom` with an opened `active_geom` and
