@@ -20,8 +20,8 @@ reports positions by parsing the binary streams would be guessing.
 
 ## Workaround
 
-Use `read_slddrw` for document, sheet, scale, view-name, model-path, reference,
-and note metadata. Treat view geometry as unavailable and do not infer it from
+Use `ReadDrawing` for document, sheet, scale, view-name, model-path, reference,
+and note metadata. Requesting `IncludeGeometry=True` raises `SldprtFormatError`. Treat view geometry as unavailable and do not infer it from
 the referenced part's B-rep, because the drawing carries its own projection and
 hidden-line state.
 

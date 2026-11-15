@@ -18,35 +18,35 @@ KSheetFormatProperty = "SW-All Sheet Format Data"
 
 @dataclass(frozen=True, slots=True)
 class DrawingView:
-    name: str
-    model_path: str
-    description: str
+    Name: str
+    ModelPath: str
+    Description: str
 
 
 @dataclass(frozen=True, slots=True)
 class DrawingSheet:
-    name: str
-    paper_size: str
-    scale_numerator: float
-    scale_denominator: float
-    width_m: float
-    height_m: float
-    views: tuple[DrawingView, ...]
+    Name: str
+    PaperSize: str
+    ScaleNumerator: float
+    ScaleDenominator: float
+    WidthMetres: float
+    HeightMetres: float
+    Views: tuple[DrawingView, ...]
 
 
 @dataclass(frozen=True, slots=True)
 class DrawingRef:
-    name: str
-    description: str
+    Name: str
+    Description: str
 
 
 @dataclass(frozen=True, slots=True)
 class DrawingData:
-    name: str
-    sheets: tuple[DrawingSheet, ...]
-    references: tuple[DrawingRef, ...]
-    notes: tuple[str, ...]
-    source_path: str
+    Name: str
+    Sheets: tuple[DrawingSheet, ...]
+    References: tuple[DrawingRef, ...]
+    Notes: tuple[str, ...]
+    SourcePath: str
 
 
 def LocalName(Value: str) -> str:
@@ -177,12 +177,18 @@ def ReadNotes(RootValue: XmlTree.Element) -> tuple[str, ...]:
         NoteValue
         for Element in RootValue.iter()
         if LocalName(Element.tag) == "Note"
-        for NoteValue in (TextValue(Element),)
-        if NoteValue
+        for NoteValue in (Element.text or "",)
+        if NoteValue.strip()
     )
 
 
-def ReadDrawing(Source: str | FilePath | bytes) -> DrawingData:
+def ReadDrawing(
+    Source: str | FilePath | bytes, IncludeGeometry: bool = False
+) -> DrawingData:
+    if IncludeGeometry:
+        raise SldprtFormatError(
+            "drawing view geometry is not supported; only sheet metadata is available"
+        )
     if isinstance(Source, bytes):
         Archive = SldprtArchive.from_bytes(Source, "drawing")
         SourcePath = ""

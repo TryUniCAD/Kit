@@ -10,7 +10,7 @@ from convert.adapters.solidworks.container.Container import (
     SldprtArchive,
     SldprtFormatError,
 )
-from convert.adapters.solidworks.drawing import DrawingData, read_slddrw as ReadDrawing
+from convert.adapters.solidworks.drawing import DrawingData, ReadDrawing
 
 # tracked drawings prove the reader against real solidworks authored sheets
 KDrawRoot = (
@@ -35,8 +35,8 @@ def TestOpen() -> None:
     for NameValue in sorted(KExpected):
         DataValue = ReadDrawing(KDrawRoot / NameValue)
         assert isinstance(DataValue, DrawingData)
-        assert DataValue.name == KExpected[NameValue][0]
-        assert DataValue.source_path.endswith(NameValue)
+        assert DataValue.Name == KExpected[NameValue][0]
+        assert DataValue.SourcePath.endswith(NameValue)
 
 
 # sheet geometry and view composition must match what solidworks authored
@@ -44,17 +44,17 @@ def TestOpen() -> None:
 def TestSheet() -> None:
     for NameValue, Expected in KExpected.items():
         DataValue = ReadDrawing(KDrawRoot / NameValue)
-        assert len(DataValue.sheets) == 1
-        SheetValue = DataValue.sheets[0]
-        assert SheetValue.name == "Sheet1"
-        assert SheetValue.paper_size == "0"
-        assert SheetValue.width_m == PytestLib.approx(0.2794)
-        assert SheetValue.height_m == PytestLib.approx(0.2159)
-        assert SheetValue.scale_numerator == PytestLib.approx(Expected[1])
-        assert SheetValue.scale_denominator == PytestLib.approx(Expected[2])
-        assert len(SheetValue.views) == Expected[3]
-        for ViewValue in SheetValue.views:
-            assert ViewValue.model_path.casefold().endswith(Expected[4])
+        assert len(DataValue.Sheets) == 1
+        SheetValue = DataValue.Sheets[0]
+        assert SheetValue.Name == "Sheet1"
+        assert SheetValue.PaperSize == "0"
+        assert SheetValue.WidthMetres == PytestLib.approx(0.2794)
+        assert SheetValue.HeightMetres == PytestLib.approx(0.2159)
+        assert SheetValue.ScaleNumerator == PytestLib.approx(Expected[1])
+        assert SheetValue.ScaleDenominator == PytestLib.approx(Expected[2])
+        assert len(SheetValue.Views) == Expected[3]
+        for ViewValue in SheetValue.Views:
+            assert ViewValue.ModelPath.casefold().endswith(Expected[4])
 
 
 # notes and references are the only recovered drawing text outside sheets
@@ -62,10 +62,34 @@ def TestSheet() -> None:
 def TestText() -> None:
     for NameValue in sorted(KExpected):
         DataValue = ReadDrawing(KDrawRoot / NameValue)
-        assert len(DataValue.notes) == 1
-        assert DataValue.notes[0].startswith("Kit five-line pad")
-        assert DataValue.references
-        assert any((ItemValue.description for ItemValue in DataValue.references))
+        assert len(DataValue.Notes) == 1
+        assert DataValue.Notes[0].startswith("Kit five-line pad")
+        assert DataValue.References
+        assert any((ItemValue.Description for ItemValue in DataValue.References))
+
+
+# authored note whitespace is part of the drawing text and must survive reading
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestNote() -> None:
+    SourcePath = KDrawRoot / "standard.SLDDRW"
+    SourceBytes = SourcePath.read_bytes()
+    Streams = SldprtArchive.from_bytes(SourceBytes).streams
+    Padded = Streams["swXmlContents/KeyWords"].replace(
+        b">Kit five-line pad / standard views<", b">  padded note  <"
+    )
+    assert Padded != Streams["swXmlContents/KeyWords"]
+    BlobValue = BuildArchive(
+        {**Streams, "swXmlContents/KeyWords": Padded}, Template=SourceBytes
+    )
+    DataValue = ReadDrawing(BlobValue)
+    assert DataValue.Notes == ("  padded note  ",)
+
+
+# requesting unavailable view geometry must fail instead of returning metadata
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestGeom() -> None:
+    with PytestLib.raises(SldprtFormatError):
+        _ = ReadDrawing(KDrawRoot / "standard.SLDDRW", IncludeGeometry=True)
 
 
 # a truncated or inconsistent drawing archive must never be read partially

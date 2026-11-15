@@ -2,8 +2,8 @@
 
 ## Behavior
 
-`convert.adapters.solidworks.drawing.read_slddrw` reads a real `.SLDDRW`
-container and returns a frozen `DrawingData` value.
+`convert.adapters.solidworks.drawing.ReadDrawing` reads sheet metadata from a
+real `.SLDDRW` container and returns a frozen `DrawingData` value.
 
 The reader uses two streams:
 
@@ -13,36 +13,41 @@ The reader uses two streams:
   row for each sheet, which gives the paper width and height in metres plus the
   sheet scale
 
-`DrawingData` exposes `name`, `sheets`, `references`, `notes`, and
-`source_path`. Each `DrawingSheet` carries `name`, `paper_size`,
-`scale_numerator`, `scale_denominator`, `width_m`, `height_m`, and its
-`DrawingView` records. Each view carries the view name, the referenced model
-path, and the description. `DrawingRef` carries the reference name and
-description.
+`DrawingData` exposes `Name`, `Sheets`, `References`, `Notes`, and `SourcePath`.
+Each `DrawingSheet` carries `Name`, `PaperSize`, `ScaleNumerator`,
+`ScaleDenominator`, `WidthMetres`, `HeightMetres`, and its `DrawingView`
+records. Each view carries `Name`, `ModelPath`, and `Description`. `DrawingRef`
+carries `Name` and `Description`. Note text is returned exactly, including
+leading or trailing spaces.
 
-The reader accepts a file path, a `Path`, or raw container bytes.
+The reader accepts a file path, a `Path`, or raw container bytes. It is an
+explicit opt-in module: it is not registered as a conversion adapter and it is
+not reachable through `open_document`.
 
 ## Usage
 
 ```python
-from convert.adapters.solidworks.drawing import read_slddrw
+from convert.adapters.solidworks.drawing import ReadDrawing
 
-drawing = read_slddrw("standard.SLDDRW")
-sheet = drawing.sheets[0]
-print(drawing.name, sheet.name, sheet.scale_numerator, sheet.scale_denominator)
-print([view.model_path for view in sheet.views])
+drawing = ReadDrawing("standard.SLDDRW")
+sheet = drawing.Sheets[0]
+print(drawing.Name, sheet.Name, sheet.ScaleNumerator, sheet.ScaleDenominator)
+print([view.ModelPath for view in sheet.Views])
 ```
+
+`ReadDrawing(..., IncludeGeometry=True)` raises `SldprtFormatError`. The geometry
+path is not implemented, so asking for it fails closed instead of returning a
+metadata-only value that a caller could mistake for a complete drawing.
 
 ## Limitations
 
-- this is a reader only; `open_document` and `write_document` still reject
-  `.SLDDRW` at `src/convert/adapters/solidworks/container/Format.py:208`
+- this is a metadata reader only; `open_document` and `write_document` still
+  reject `.SLDDRW` at `src/convert/adapters/solidworks/container/Format.py`
 - geometry is not decoded: `Contents/Definition`, `Contents/DisplayLists`, and
   `Contents/VBLists` remain unrecovered, so view positions, projection
   direction, outlines, dimensions, and annotations are not exposed
-- the recovered fields are metadata from `KeyWords` and the sheet-format
-  property; a missing or inconsistent stream raises `SldprtFormatError` instead
-  of returning a partial drawing
+- a missing or inconsistent stream raises `SldprtFormatError` instead of
+  returning a partial drawing
 - one sheet-format row is required per sheet name; an unmatched sheet fails
 - the scale comes from the sheet-format row when both fields are positive,
   otherwise from the `KeyWords` scale elements
@@ -62,9 +67,10 @@ drawings authored in SOLIDWORKS Design Premium 2026 SP5.2 and tracked under
 All three use `Sheet1`, paper-size code `0`, and 0.2794 m by 0.2159 m. `TestOpen`
 checks the document name and path, `TestSheet` checks sheet geometry, scale, view
 count, and referenced model, `TestText` checks the authored note and references,
-`TestFail` removes or corrupts each required stream and requires
-`SldprtFormatError`, and `TestWrite` confirms that the public document writer
-still rejects every drawing.
+and `TestNote` verifies that padded note whitespace survives. `TestFail` removes
+or corrupts each required stream and requires `SldprtFormatError`; `TestGeom`
+requires the geometry opt-in to fail; `TestWrite` confirms that the public
+document writer still rejects every drawing.
 
 The fixtures are outputs of the real SOLIDWORKS API. The authoring macro is
 `re/tooling/harness/AuthorDrawings.vbs`; its run is recorded in

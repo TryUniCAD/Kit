@@ -8,17 +8,10 @@ from convert.adapters.solidworks.drawing.Drawing import (
     ReadDrawing,
 )
 
-Drawing = DrawingData
-ReadSlddrw = ReadDrawing
-read_slddrw = ReadDrawing
-
 __all__ = [
-    "Drawing",
     "DrawingData",
     "DrawingRef",
     "DrawingSheet",
     "DrawingView",
     "ReadDrawing",
-    "ReadSlddrw",
-    "read_slddrw",
 ]
