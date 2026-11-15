@@ -1,0 +1,32 @@
+# SOLIDWORKS 2026 style and unit construction
+
+The research model builder can construct a fresh standard-1 `moDetailDefs_c`
+graph and counted native unit tables from authored semantic settings. The graph
+includes typed dimension defaults, annotations, tables, drawing labels, helper
+records and Swift tolerances. It uses documented 2026 constructor rules and
+constructor-referenced language vocabulary; it reads no source save or template.
+
+The [construction record](../../../re/solidworks/records/StyleConstruction2026.md)
+documents exact keyword-only interfaces, native DLL owners, addresses, field
+classification and limits. Fonts, localized labels, print widths, unit choices
+and precision are explicit caller settings. Unsupported standards, unknown unit
+codes and malformed inputs fail closed. The two unit tables belong to separate
+document/user and analysis slots; default model length and angle use the user
+table.
+
+The new process checks build independent candidates from JSON with runtime
+filesystem access blocked, then serialize and read the entire style and unit
+graphs through the existing native record codecs. They vary text, language,
+counted exclusions, unit enums and unit-table shape. These are process-boundary
+checks, not vendor acceptance. Local verification is limited to static parsing,
+formatting, type and naming checks. Remote execution evidence will be recorded
+after PR CI completes.
+
+Vendor loadability, rebuild behavior, editing and the GTol helper `f80`
+compatibility seed remain unproven. No source serializer, production adapter,
+CAD application automation or existing builder was changed. The parent native
+writer's full held-out acceptance criteria remain in force.
+
+New findings are recorded in [folded style setters](../../Gotchas/Conversion/Solidworks/FoldedStyleSetters.md),
+[PE import budgets](../../Gotchas/Conversion/Solidworks/PeImportBudgetHidesUnits.md)
+and [GTol constructor initialization](../../Gotchas/Conversion/Solidworks/GtolUninitializedConstructorField.md).
