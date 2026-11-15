@@ -85,6 +85,30 @@ def run():
         raise RuntimeError("Fusion did not write the exported archive")
     report["exported_bytes"] = exported.stat().st_size
     report["exported_path"] = str(exported)
+
+    checkpoint("reopening the export")
+    common.close_owned(owned, report)
+    settle(6)
+    reopen_options = app.importManager.createFusionArchiveImportOptions(
+        str(exported)
+    )
+    if reopen_options is None:
+        raise RuntimeError("reopen options were not created")
+    reopened = app.importManager.importToNewDocument(reopen_options)
+    if reopened is None:
+        raise RuntimeError("the export did not reopen")
+    owned.append(reopened)
+    settle(20)
+    report["reopened"] = describe(reopened)
+
+    before = report["imported"]
+    after = report["reopened"]
+    if after["expression"] != before["expression"]:
+        raise RuntimeError("the parameter did not survive the export")
+    if after["bodies"] != before["bodies"]:
+        raise RuntimeError("the body count did not survive the export")
+    if after["volume_cm3"] != before["volume_cm3"]:
+        raise RuntimeError("the body volume did not survive the export")
     report["status"] = "accepted"
 
 

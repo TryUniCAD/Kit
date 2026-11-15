@@ -58,8 +58,12 @@ Kit reads Fusion's output. The volume is identical at every step.
 ## Verification
 
 The run is recorded in `Out/Designs/ExportKitAuthoredCylinder.json` with `status` `accepted`. Fusion
-2706.1.17 imported the file, exported 54756 bytes, and Kit read that export with the same parameter
-values and the same `CylinderBody`.
+2706.1.17 imported the file, exported 54714 bytes, reopened that export, and reported the same
+parameter and the same volume.
+
+`ExportDesign.py` gates on the reopen rather than recording success from the import alone. It
+compares the reopened expression, body count and volume against the imported ones and raises if any
+differs, so a lost parameter or a lost body fails the run instead of passing it.
 
 ## Limits
 
