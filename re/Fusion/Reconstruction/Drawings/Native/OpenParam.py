@@ -107,6 +107,13 @@ def run():
         owned.append(document)
         settle(30)
         report[role] = describe(document)
+        if role == "edited":
+            design = adsk.fusion.Design.cast(
+                document.products.itemByProductType("DesignProductType")
+            )
+            report["recompute"] = common.safe(lambda: design.computeAll())
+            settle(20)
+            report["after_recompute"] = describe(document)
         common.close_owned(owned, report)
         settle(6)
     expected = plan["after_formula"]
@@ -115,8 +122,9 @@ def run():
     report["observed_expression"] = observed
     if observed != expected:
         raise RuntimeError("Fusion did not report the edited parameter")
+    after = report.get("after_recompute") or report["edited"]
     if report["control"]["bodies"] and (
-        report["edited"]["volumes_cm3"] == report["control"]["volumes_cm3"]
+        after["volumes_cm3"] == report["control"]["volumes_cm3"]
     ):
         raise RuntimeError("the body volume did not change with the parameter")
     report["status"] = "accepted"

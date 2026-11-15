@@ -41,10 +41,24 @@ parameter record and nothing else.
 | Fusion opens the control    | `d1` `30.00 mm`                               |
 | Fusion opens the edited file | `d1` `45.00 mm`, `d2` and `d3` unchanged     |
 
+## Geometry rebuild
+
+A second run uses a design with bodies: `re/Fusion/Study/bodymodes-405fbd002680/mirror_xy.f3d`, with
+`d1` at `20 mm` and two bodies of `24.0 cm³` each.
+
+| State                        | `d1`        | Volumes cm³    |
+| ---------------------------- | ----------- | -------------- |
+| control                      | `20 mm`     | `[24.0, 24.0]` |
+| edited, as opened            | `40.00 mm`  | `[24.0, 24.0]` |
+| edited, after `computeAll()` | `40.00 mm`  | `[48.0, 48.0]` |
+
+The volume doubles with the dimension, so the edited parameter drives the feature.
+Fusion does not rebuild the cached BRep on open, which is recorded in the
+[cached BRep gotcha](../../../Gotchas/Conversion/Fusion/Api/FusionCachedBrepRecompute.md).
+
 ## Limits
 
-The source design has no solid bodies, so this run proves the parameter record and not a rebuild of
-geometry from the new value. A design with a body would also show the volume change, and the script
-checks that when bodies are present.
-
 The edit changes one parameter. A formula that references another parameter is untested.
+
+A run that reads geometry from an edited design must call `Design.computeAll()` first, or it will
+compare stale volumes.
