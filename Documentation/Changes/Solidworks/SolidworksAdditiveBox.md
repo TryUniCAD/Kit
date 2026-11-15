@@ -27,7 +27,7 @@ line, every face an axis-aligned plane, and the two face offsets on each axis mu
 and the authored dimension within the same `1e-9` geometry tolerance as the vertex check. A
 curved face, a shifted planar face, a face moved from `Length` to `-Length`, or a displaced
 edge curve is rejected even when the eight corners are unchanged. Each edge curve must also
-lie on its two referenced vertices.
+lie on its two referenced vertices, and every B-rep body must have an identity transform.
 
 ## Usage
 
@@ -62,7 +62,8 @@ and requires the public writer to raise `ApplicationUsabilityError`. `TestBoxPla
 the first principal plane of the 1.1.4 fixture about its normal and requires the same
 rejection. `TestBoxDriven` changes the bound `Length` role to driven, `TestBoxCurved` replaces one
 planar face with a cylinder, and `TestBoxShift` moves a face off its box offset and then
-flips the opposite face from `Length` to `-Length`; all require the same rejection.
+flips the opposite face from `Length` to `-Length`, and `TestBoxFrame` gives the body a
+nonidentity transform; all require the same rejection.
 
 SOLIDWORKS Design Premium 2026 SP5.2 in Parallels opened the generated 1.1.4 output,
 rebuilt it after a depth edit to 13 mm, and measured volume 7800 mm3 and area 2500 mm2,

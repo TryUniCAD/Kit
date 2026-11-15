@@ -4,6 +4,8 @@ import math as MathValue
 
 from interchange import CadDocument, LineCurve, PlaneSurface, SpaceVector
 
+from convert.adapters.solidworks.core.BrepIdentity import IsIdentity
+
 
 def IsAxisLine(Value: SpaceVector) -> bool:
     Components = (Value.x, Value.y, Value.z)
@@ -38,6 +40,8 @@ def HasBoxFaces(
             isinstance(ItemData, LineCurve) and IsAxisLine(ItemData.direction)
             for ItemData in BrepData.curves
         )
+    ) or any(
+        (not IsIdentity(ItemData.transform) for ItemData in BrepData.bodies)
     ):
         return False
     VertexById = {ItemData.id: ItemData.point for ItemData in BrepData.vertices}

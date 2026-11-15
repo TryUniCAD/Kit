@@ -1,6 +1,7 @@
 from __future__ import annotations as Annotations
 from convert.adapters.solidworks.core.AxisSketchId import AxisSketchId
 from convert.adapters.solidworks.core.BoxFaces import HasBoxFaces
+from convert.adapters.solidworks.core.PolylineBrep import HasPolyBrep
 from convert.adapters.solidworks.core.PolylineParameters import HasPolyLoss
 from convert.adapters.solidworks.core.TriDepth import IsTriSource, RecoverTriDepth
 from convert.adapters.solidworks.core.UnitScale import MmFromMetres
@@ -2364,6 +2365,7 @@ def BuildPolyTree(
     SketchData = PadSketch(DocData, PadObject.source_id)
     if (
         PolylineValue is None
+        or (not HasPolyBrep(DocData, PolylineValue, DepthValue))
         or SketchData is None
         or bool(SketchData.constraints)
         or any((ItemData.construction or ItemData.fixed for ItemData in SketchData.entities))

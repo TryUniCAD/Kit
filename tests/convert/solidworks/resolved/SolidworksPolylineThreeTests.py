@@ -45,6 +45,7 @@ from interchange.geometry.models.Sketch import SketchRelation
 from interchange.records.RecordConfig import Configuration
 from interchange.records.RecordParameter import Parameter, ParameterValue
 from tests.convert.solidworks.resolved.SolidworksPolylineFiveTests import BuildDocument
+from tests.interchange.brep.BrepTests import triangle_brep as TriangleBrep
 
 KPoints = ((0.0, 0.0), (42.0, 0.0), (12.0, 31.0))
 KPointOffsets = (6121, 6129, 6299, 6307, 6461, 6469)
@@ -411,6 +412,14 @@ def TestTriRel(TmpPath: FilePath) -> None:
     assert HasVendorPartEncoding(Changed) is False
     with PytestLib.raises(SldprtFormatError):
         _ = WriteDoc(Changed, SecondPath)
+
+
+def TestTriBrep(TmpPath: FilePath) -> None:
+    SourceDoc = BuildDocument(KPoints)
+    Changed = ReplaceData(SourceDoc, brep=TriangleBrep())
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDoc(Changed, TmpPath / "TriBrep.SLDPRT")
 
 
 def TestTriEnd(TmpPath: FilePath) -> None:

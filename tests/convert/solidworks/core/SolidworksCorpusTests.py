@@ -220,6 +220,28 @@ def TestBoxShift(TmpPath: FilePath) -> None:
             )
 
 
+# a nonidentity body transform would be replaced by the origin box
+@PytestLib.mark.skipif(
+    not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable"
+)
+def TestBoxFrame(TmpPath: FilePath) -> None:
+    SourcePath = KAddBoxRoot / "AdditiveBox-1.1.4.FCStd"
+    DocumentValue = OpenDocument(SourcePath)
+    BrepValue = DocumentValue.brep
+    assert BrepValue is not None
+    BodyValue = ReplaceData(
+        BrepValue.bodies[0],
+        transform=Transform(origin=VectorThree(1.0, 0.0, 0.0)),
+    )
+    Changed = ReplaceData(
+        DocumentValue,
+        brep=ReplaceData(BrepValue, bodies=(BodyValue,)),
+    )
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(ApplicationUsabilityError):
+        _ = WriteDocument(Changed, TmpPath / "FramedBox.SLDPRT", allow_carrier=False)
+
+
 # refine false changes authored cleanup so the older schema must decline
 @PytestLib.mark.skipif(
     not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable"
