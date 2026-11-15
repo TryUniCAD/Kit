@@ -7,6 +7,8 @@ KRecordType = 0x06
 KNameFloor = 2
 KNameCeiling = 64
 KFrameTail = 4
+KAttributeType = 0x07
+KScanWindow = 64
 KFirstText = 0x20
 KLastText = 0x7F
 
@@ -19,6 +21,29 @@ def ReadName(Payload: bytes, Cursor: int, Length: int) -> bytes | None:
     if not all(KFirstText <= SymbolValue < KLastText for SymbolValue in Symbols):
         return None
     return Symbols
+
+
+# one attribute record of a legacy payload
+@DataClass(frozen=True)
+class LegacyAttribute:
+    Schema: str
+    SchemaFlag: int
+    ClassName: str
+    Attribute: str
+    Value: int
+
+
+# a length prefixed name appears inside both record kinds
+def ReadSpan(Payload: bytes, Cursor: int) -> tuple[str, int] | None:
+    if Cursor + 2 > len(Payload):
+        return None
+    Length = int.from_bytes(Payload[Cursor : Cursor + 2], "little")
+    if not KNameFloor <= Length <= KNameCeiling:
+        return None
+    NameText = ReadName(Payload, Cursor + 2, Length)
+    if NameText is None:
+        return None
+    return (NameText.decode("ascii"), Cursor + 2 + Length)
 
 
 # one class record of a legacy payload
@@ -121,9 +146,50 @@ def ClassTableEnd(Payload: bytes, Records: tuple[LegacyClass, ...]) -> int:
 
 __all__ = [
     "ClassTableEnd",
+    "LegacyAttribute",
+    "LegacyAttrs",
     "LegacyClass",
     "LegacyCodes",
     "LegacyStart",
     "LegacyTable",
     "ReadFrame",
 ]
+
+
+# an attribute record names a schema a class and one attribute followed by a value
+def ReadAttribute(Payload: bytes, Cursor: int) -> tuple[LegacyAttribute, int] | None:
+    if Cursor < 0 or Cursor + 3 > len(Payload) or Payload[Cursor] != KAttributeType:
+        return None
+    SchemaSpan = ReadSpan(Payload, Cursor + 1)
+    if SchemaSpan is None or SchemaSpan[1] + 4 > len(Payload):
+        return None
+    SchemaFlag = int.from_bytes(Payload[SchemaSpan[1] : SchemaSpan[1] + 4], "little")
+    ClassSpan = ReadSpan(Payload, SchemaSpan[1] + 4)
+    if ClassSpan is None:
+        return None
+    AttrSpan = ReadSpan(Payload, ClassSpan[1])
+    if AttrSpan is None or AttrSpan[1] + 4 > len(Payload):
+        return None
+    Value = int.from_bytes(Payload[AttrSpan[1] : AttrSpan[1] + 4], "little")
+    Record = LegacyAttribute(
+        SchemaSpan[0], SchemaFlag, ClassSpan[0], AttrSpan[0], Value
+    )
+    return (Record, AttrSpan[1] + 4)
+
+
+# the attribute records follow the class frames and run consecutively
+def LegacyAttrs(Payload: bytes) -> tuple[LegacyAttribute, ...]:
+    Start = ClassTableEnd(Payload, LegacyTable(Payload))
+    Cursor = -1
+    for Probe in range(Start, min(Start + KScanWindow, len(Payload))):
+        if ReadAttribute(Payload, Probe) is not None:
+            Cursor = Probe
+            break
+    Found: list[LegacyAttribute] = []
+    while Cursor >= 0:
+        Frame = ReadAttribute(Payload, Cursor)
+        if Frame is None:
+            break
+        Found.append(Frame[0])
+        Cursor = Frame[1]
+    return tuple(Found)

@@ -234,6 +234,38 @@ asking the loader for it.
 `LegacyCodes(Payload)` reads that table, `nx.legacy_coded_classes` reports how many entries are set,
 and `TestNxLegacy` now pins the table alongside the frames.
 
+## The attribute frames are fully framed and tile consecutively
+
+The type-7 frame is the class frame with one extra length prefixed name and the same trailing value:
+
+```text
+07 <u16 schema length> <schema> <u32 flag> <u16 class length> <class> <u16 attribute length> <attribute> <u32 value>
+```
+
+and the frames are adjacent, with no padding and no gaps, in every part:
+
+```text
+part             attribute frames   consecutive transitions   trailing value of first frame
+wave_parent.prt                 1                     n/a   207
+vise_screw.prt                 14                      13   124
+flange.prt                     13                      12   124
+```
+
+That also resolves the unexplained `u32 0xcf` at `wave_parent.prt 0x109a`: it is the `value` field of
+the `RM / RM_entity / first_record_area` frame, and 207 is the same value in all three parts. The
+runs of `01 00 00 00` that follow are a separate structure after the attribute frames, not part of
+the frame.
+
+`src/convert/adapters/nx/LegacyClasses.py` now parses it: `ReadAttribute`, `LegacyAttrs`, and the
+metadata key `nx.legacy_attribute_count`. Measured through the adapter:
+
+```text
+flange.prt       sections 4   classes 233   coded 232   attributes 13
+vise_screw.prt   sections 5   classes 192   coded 191   attributes 14
+wave_parent.prt  sections 5   classes  98   coded  97   attributes  1
+dim40.prt        sections 0   classes   0   coded   0   attributes  0
+```
+
 ## The body after the class frames is the same model in an older framing
 
 Walking section 1 past the class frames shows the body does not switch to an alien syntax. Each

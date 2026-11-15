@@ -38,6 +38,7 @@ from convert.adapters.nx.ClassEntry import ClassLink, EntryParts, NameDigest
 from convert.adapters.nx.LegacySection import ReadSections
 from convert.adapters.nx.LegacyClasses import (
     ClassTableEnd,
+    LegacyAttrs,
     LegacyCodes,
     LegacyTable,
     ReadFrame,
@@ -1180,10 +1181,33 @@ def TestNxLegacy() -> None:
             + ClassValue.to_bytes(4, "little")
         )
 
+    def Field(
+        SchemaText: str,
+        SchemaFlag: int,
+        ClassName: str,
+        FieldName: str,
+        FieldValue: int,
+    ) -> bytes:
+        return (
+            b"\x07"
+            + len(SchemaText).to_bytes(2, "little")
+            + SchemaText.encode("ascii")
+            + SchemaFlag.to_bytes(4, "little")
+            + len(ClassName).to_bytes(2, "little")
+            + ClassName.encode("ascii")
+            + len(FieldName).to_bytes(2, "little")
+            + FieldName.encode("ascii")
+            + FieldValue.to_bytes(4, "little")
+        )
+
+    PayloadHead = (
+        b"\x00\x10padding" * 3 + (7).to_bytes(2, "little") + (9).to_bytes(2, "little")
+    )
     PayloadBytes = (
-        b"\x00\x10padding" * 3
+        PayloadHead
         + Frame("UGS::OM::Meta", 1, "UGS::OM::RootObject", 55)
         + Frame("RM", 40, "UGS::RM_part", 100)
+        + Field("UGS::OM::Meta", 1, "UGS::OM::RootObject", "first_record_area", 207)
         + b"\x00tail"
     )
     Records = LegacyTable(PayloadBytes)
@@ -1194,11 +1218,17 @@ def TestNxLegacy() -> None:
     assert Records[0].Value == 55
     assert Records[1].Schema == "RM"
     assert Records[1].Value == 100
-    Start = PayloadBytes.find(b"\x06")
+    assert LegacyCodes(PayloadBytes) == (7, 9)
+    Start = len(PayloadHead)
     assert ClassTableEnd(PayloadBytes, Records) == Start + len(
         Frame("UGS::OM::Meta", 1, "UGS::OM::RootObject", 55)
     ) + len(Frame("RM", 40, "UGS::RM_part", 100))
-    assert LegacyCodes(PayloadBytes) == (7, 9)
+    Fields = LegacyAttrs(PayloadBytes)
+    assert len(Fields) == 1
+    assert Fields[0].Schema == "UGS::OM::Meta"
+    assert Fields[0].ClassName == "UGS::OM::RootObject"
+    assert Fields[0].Attribute == "first_record_area"
+    assert Fields[0].Value == 207
     assert ReadFrame(PayloadBytes, len(PayloadBytes) - 1) is None
     try:
         _ = LegacyTable(b"no classes here")
