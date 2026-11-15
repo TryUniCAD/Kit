@@ -134,7 +134,7 @@ def WriteDocument(
         *DocumentValue.diagnostics,
         Diagnostic(
             "creo.source_replay_only",
-            "The output is byte-identical to the retained Creo source. Independent PSB synthesis, geometry regeneration, and native feature authoring are not implemented.",
+            "The output is a byte-identical replay of the retained Creo source. Sections can be generated independently, but a part whose own feature produces a solid is not: no authored Creo body has been measured.",
             severity=Severity.KWarning,
         ),
     )

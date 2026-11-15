@@ -156,12 +156,29 @@ def CheckGeneratedPart() -> None:
     Check("definition index matches the control", Ours == Reference, Ours.hex(" "))
 
 
+def CheckWriterFlags() -> None:
+    Source = Path("src/convert/adapters/creo/Writer.py").read_text()
+    Check(
+        "writer reports replay only",
+        '"mode": "exact_native_roundtrip"' in Source
+        and '"vendor_loadable": False' in Source
+        and '"application_usable": False' in Source,
+        "mode, vendor_loadable and application_usable unchanged",
+    )
+    Check(
+        "writer diagnostic names the real limit",
+        "no authored Creo body has been measured" in Source,
+        "diagnostic does not claim body authoring",
+    )
+
+
 def main() -> int:
     CheckRebuilds()
     CheckReader()
     CheckEmitters()
     CheckReplay()
     CheckGeneratedPart()
+    CheckWriterFlags()
     Width = max(len(Name) for Name, _, _ in KResults)
     for Name, Passed, Detail in KResults:
         print(f"{'PASS' if Passed else 'FAIL'}  {Name:<{Width}}  {Detail}")
