@@ -26,5 +26,13 @@ architecture and selected CAD module bases without changing model state.
 
 On the Windows research host, invoke the Python runner with `--frida-dir`
 pointing to a private, pinned Frida installation, `--process SLDWORKS.exe`,
-`--realm emulated`, `--script Identity.js`, `--output capture.json` and
+`--realm native`, `--script Identity.js`, `--output capture.json` and
 `--seconds 5`. This is research instrumentation, never a conversion dependency.
+
+The first successful identity observation used the x64 Python/Frida pair and
+Frida's native realm, reporting an x64 CAD process. Selecting the emulated realm
+on that client returned an explicit unsupported-OS error. The
+[architecture gotcha](../../Gotchas/Conversion/Solidworks/TraceHostAndTargetArchitectures.md)
+records the distinction. `Solidworks2026.js` adds version-bound sketch/status,
+feature-provenance and archive-primitive observations; `--module-manifest`
+requires matching loaded-module disk hashes before hook activation.
