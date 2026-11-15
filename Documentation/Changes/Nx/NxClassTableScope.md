@@ -149,6 +149,27 @@ entry being a packed value whose low bits carry a per-set counter, and it is the
 evidence yet that the entry is structured rather than derived by hashing. The per-class constant
 is still not derived.
 
+## The first field is a small enum, not hash output
+
+Reading each entry's first base-128 field shows a small alphabet rather than a uniform one:
+
+```text
+distinct values of (first field mod 128) across 129 classes   18
+most common                                                    3 (40 classes), 32 (18), 0 (11), 1 (11)
+classes sharing the value 3        UGS::Sketch::Colors, UGS::POINT, UGS::LAYER_category,
+                                   UGS::UGFONT_table, UGS::COLOR_table, UGS::Display::Camera,
+                                   UGS::VIEW_base, and 33 more across Annot, PMI, Display, Sketch
+```
+
+a hash would spread the low seven bits uniformly over 128 values. eighteen distinct values means the
+first field is a **kind** enum, and it does not correlate with the module prefix or the entry length
+(the value 3 appears in eight different modules). The rows are also not sorted by value, so the
+table is not ordered by its constants.
+
+So the entry decomposes as a small enum plus roughly 64 to 73 further bits, and those further bits
+are the part no derivation has reproduced. This is the shape a later attempt should start from: decode
+the enum by correlating it with class names that share a kind, then attack the remainder.
+
 ## The class ids are not referenced elsewhere in the section
 
 One association route was left worth trying: if a class id appeared somewhere else in the object
