@@ -17,6 +17,7 @@ def BuildIncomplete(RecordKind: str, OwnerName: str = "") -> CadDocument:
         "ProvenanceOnly",
         "UnrepresentedPart",
         "SourceUnresolved",
+        "SourceDeferred",
     ):
         Definition = Assembly.definitions[-1]
         if RecordKind in ("MissingReference", "ExternalReference", "UnrepresentedPart"):
@@ -40,6 +41,10 @@ def BuildIncomplete(RecordKind: str, OwnerName: str = "") -> CadDocument:
             Definition = ReplaceData(Definition, kind=ComponentKind.KNative)
         elif RecordKind == "SourceUnresolved":
             Definition = ReplaceData(Definition, attributes={"source_resolved": False})
+        elif RecordKind == "SourceDeferred":
+            Definition = ReplaceData(
+                Definition, attributes={"source_resolution": "deferred"}
+            )
         elif RecordKind == "ProvenanceOnly":
             Definition = ReplaceData(Definition, source_path="original.part")
         else:

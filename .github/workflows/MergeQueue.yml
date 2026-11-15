@@ -215,7 +215,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: Stephen316/Kit
-          ref: ac76ef09c3f99db23694459480cfa5e22ec1987a
+          ref: c1c3fcce5b8b67373113ec44ad5d122a52bd7260
           path: ResearchCheckout
           fetch-depth: 0
           persist-credentials: false

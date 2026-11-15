@@ -35,6 +35,13 @@ def CheckPortable(Document: CadDocument) -> None:
                 ),
             ),
             ("RetainedPayload", bool(PartValue.brep_payloads)),
+            (
+                "MissingFeatureHistory",
+                not PartValue.feature_timeline
+                and bool(
+                    PartValue.brep is not None or PartValue.meshes or PartValue.bodies
+                ),
+            ),
         ):
             if IsBlocked:
                 raise ValueError(RecordName + KInspectText)
@@ -48,6 +55,7 @@ def CheckPortable(Document: CadDocument) -> None:
             any(
                 Definition.kind == ComponentKind.KNative
                 or Definition.attributes.get("source_resolved") is False
+                or Definition.attributes.get("source_resolution") == "deferred"
                 or (
                     Definition.kind in (ComponentKind.KPart, ComponentKind.KReference)
                     and not (

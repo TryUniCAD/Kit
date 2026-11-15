@@ -21,6 +21,7 @@ from tests.convert.Commands.WrapDocument import WrapDocument
         "UnrepresentedPart",
         "NativeComponent",
         "SourceUnresolved",
+        "SourceDeferred",
         "TransformUnresolved",
         "NativeTransforms",
         "NativeConstraints",

@@ -75,7 +75,7 @@ The CLI preserves stale-lease status `3` and the controller's integrity checks.
 
 ## Run configured sessions
 
-Prepare an actual runner registry and `Supervisor.json` with the [supervisor guide](https://github.com/Stephen316/Kit/blob/ac76ef09c3f99db23694459480cfa5e22ec1987a/Documentation/Reference/Research/ResearchSupervisor.md).
+Prepare an actual runner registry and `Supervisor.json` with the [supervisor guide](https://github.com/Stephen316/Kit/blob/c1c3fcce5b8b67373113ec44ad5d122a52bd7260/Documentation/Reference/Research/ResearchSupervisor.md).
 Use only trusted configuration and runner programs.
 
 ```sh
@@ -129,7 +129,7 @@ See [the change record](../Changes/Research/DeterministicResearchCli.md) for com
 ## Related information
 
 - [General CLI](CommandLine.md)
-- [Research plan](https://github.com/Stephen316/Kit/blob/ac76ef09c3f99db23694459480cfa5e22ec1987a/Documentation/Reference/Research/AutomationPlan.md)
-- [Step register](https://github.com/Stephen316/Kit/blob/ac76ef09c3f99db23694459480cfa5e22ec1987a/Documentation/Reference/Research/AutomationSteps.md)
-- [SOLIDWORKS reader](https://github.com/Stephen316/Kit/blob/ac76ef09c3f99db23694459480cfa5e22ec1987a/Documentation/Reference/Research/SolidworksResearchReader.md)
-- [Fusion reader](https://github.com/Stephen316/Kit/blob/ac76ef09c3f99db23694459480cfa5e22ec1987a/Documentation/Reference/Research/FusionResearchReader.md)
+- [Research plan](https://github.com/Stephen316/Kit/blob/c1c3fcce5b8b67373113ec44ad5d122a52bd7260/Documentation/Reference/Research/AutomationPlan.md)
+- [Step register](https://github.com/Stephen316/Kit/blob/c1c3fcce5b8b67373113ec44ad5d122a52bd7260/Documentation/Reference/Research/AutomationSteps.md)
+- [SOLIDWORKS reader](https://github.com/Stephen316/Kit/blob/c1c3fcce5b8b67373113ec44ad5d122a52bd7260/Documentation/Reference/Research/SolidworksResearchReader.md)
+- [Fusion reader](https://github.com/Stephen316/Kit/blob/c1c3fcce5b8b67373113ec44ad5d122a52bd7260/Documentation/Reference/Research/FusionResearchReader.md)
