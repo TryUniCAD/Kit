@@ -1,0 +1,127 @@
+# SOLIDWORKS 2026 assembly archive grammar
+
+Target-application acceptance is unproven. This work extends the research source-document codec; it does not construct a fresh assembly or establish vendor loadability, rebuild correctness, or mate editability. Remote byte-identity verification is pending for 14 load-critical streams across two training assemblies.
+
+## Authority and inputs
+
+The [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md) apply without reduction. Their stopping conditions are: “There are two acceptable stopping conditions. The first is success under every criterion on this page. The second is the end of the available context. Missing grammar is the work. It is not a blocker.” The parent goal continues beyond this component.
+
+The implementation is [ConfigAssembly.py](../../tooling/sw2026/serial/defs/ConfigAssembly.py). It registers assembly-owned records and reuses `ConfigPart`'s model base, sections, presence fields, normalization witnesses, and existing reference/math schemas. It never registers the shared model twice. The archive registry discovers the new module automatically.
+
+All native addresses below belong to the following 2026 modules, as recorded by [Manifest2026.json](../v2026/Manifest2026.json) and [SerializeMap2026.json](../../data/Serialization/SerializeMap2026.json):
+
+| DLL           | SHA-256                                                            |
+| ------------- | ------------------------------------------------------------------ |
+| `sldmodu.dll` | `569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e` |
+| `sldmfcu.dll` | `af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735` |
+
+Static evidence came from the existing private `assembly-serialize.c`, `assembly-core.c`, `assembly-config.c`, and `assembly-tail.c` dumps, plus read-only decompilation in isolated copies of the existing Ghidra projects. No shared database was changed. Decompiled vendor listings remain untracked. No native runtime or instruction trace was collected by this component.
+
+The two controls are declared in `re/solidworks/v2026/corpus/assemblies/Manifest.json`: `A0_one.SLDASM` contains one component; `A1_two.SLDASM` contains two components and three recorded mate creation attempts. Both are parser training fixtures, not held-out generated output. Their saved values must not become builder defaults or donor data.
+
+## Scope and classification
+
+The schema requires format version `19000`. Older and future layouts fail explicitly. A field with an offset name is identified by its wire owner, width, and order; that name does not assert a recovered product-level meaning.
+
+Every scalar, string, transform, cache value, and object link in the tables below is **source input** for this source-document codec. Presence markers and normalization witnesses preserve the original wire representation. Collection lengths and section lengths are **derived bookkeeping**, recomputed from their typed records. No value from either control is classified as a universal constant or neutral fresh-model cache.
+
+The confidence of the new grammar is **partial — static native evidence**, pending remote corpus reproduction. A successful Kit object round trip can confirm the exercised encoding but remains separate from native execution and target-application acceptance.
+
+## Assembly root
+
+`moAssembly_c::Serialize` at `sldmodu.dll!0x4b663c90` dispatches slots `0x4b8` and `0x4c0` for versions greater than `0xc7c`. At vtable `0x4ce69b30` those slots are `0x4b6746e0` and `0x4b677880`. The shared section helper `0x4c2114b0` reads or writes a four-byte byte-length prefix; its caller supplies section kind 1 or 2.
+
+| Order     | Record/member                               | Wire rule                                                                                                     | Native evidence                                                                     |
+| --------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| LW 1      | model base                                  | Existing `moModel_c.FUN_4c22ec80`, including direct-load bookkeeping                                          | `0x4b6746e0` calls `0x4c22ec80`                                                     |
+| LW 2–3    | `f1a18`, `f1a20`                            | Separate u8 presence markers, each followed by embedded `mgBBox_c` when nonzero; second exists after `0x17fa` | `0x4b6746e0`                                                                        |
+| LW 4–5    | `f14a0`, `f14d8`                            | Two embedded string-to-string maps after `0x23da`                                                             | `0x4b6746e0`; constructor `0x4b67e710` establishes both map types                   |
+| RES 1     | model base                                  | Existing `moModel_c.FUN_4c234150`; part-only fields remain absent for assembly root                           | `0x4b677880` calls `0x4c234150`                                                     |
+| RES 2–3   | `f1560`, `f1570`                            | i32, u16                                                                                                      | `0x4b677880`                                                                        |
+| RES 4–7   | `f15a0`, `f1608`, `f1748`, `f1740`          | Four object pointers in this order; nullable values remain actual object tags                                 | `0x4b677880`                                                                        |
+| RES 8–12  | `f1750`, `f1598`, `f1590`, `f1868`, `f1a28` | i32, i32, object, object, i32                                                                                 | `0x4b677880`; timings after `0xe09`, `f1a28` from `0x11c7`                          |
+| RES 13–14 | `f18c8`, `f18e8`                            | Two embedded object arrays, not object-pointer tags                                                           | `0x4b677880`; constructor `0x4b67e710` calls `su_CObArray` twice                    |
+| RES 15    | `f1710`                                     | i32 smart replacement presence, after `0x1feb`                                                                | `LoadSmartReplacementData` at `0x4b660620`                                          |
+| RES 16    | `f1718`, `f1720`, `f1708`, `f1738`          | When `f1710 != 0`: object, u32 count of `(i32 key, object, object)`, object, i32                              | Read `0x4b660620`; store `0x4b677880`; current version follows post-`0x2392` branch |
+| RES 17    | `f1940`                                     | i32 flag after `0x2795`                                                                                       | `0x4b677880`                                                                        |
+| RES 18–19 | `f1948`, `f1990`                            | Embedded object lists when flag is nonzero on read                                                            | `0x4b677880`; constructor `0x4b67e710` establishes list types                       |
+| RES 20    | `f1674`                                     | i32 after `0x27a3`                                                                                            | `0x4b677880`                                                                        |
+
+The native store uses `f1940 == 1` whereas the read accepts nonzero. The codec preserves the read record; this is not evidence that a fresh builder may choose other flag values. The downstream-id branch under archive condition `0x80` is explicitly unmodelled rather than skipped.
+
+## Configuration graph
+
+The serializer map identifies `0x4c221a20` as `moConfiguration_c`/`moDeformConfiguration_c`, despite misleading inferred `moMateGroup_c *` parameter types in one dump. Both concrete vtables use concept lightweight `0x4c17a7b0` and concept resolved `0x4c17b570`; they must not inherit the part configuration's empty resolved dispatch.
+
+| Owner                            | Fields in wire order                                                        | Encoding and condition                                                                                               | Native evidence                                                                           |
+| -------------------------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `moConfiguration_c`              | base, `fc48`, `fc50`                                                        | Existing base configuration, then two `moConfig_c` object pointers                                                   | `0x4c221a20`                                                                              |
+| same                             | `fca0`, `fca8`                                                              | Two object pointers when condition 1 is absent                                                                       | `0x4c221a20`                                                                              |
+| same                             | `fce8`                                                                      | i32 count, then config object pointers; count is not MFC variable-width list count                                   | Reader `0x4b8c04b0`, writer `0x4b8c11d0`                                                  |
+| same                             | `fba8`, `fbb0`, `fbc0`, `fbc4`, `fbc8`, `fce0`                              | object, object, i32, i32, object, mass-cache object                                                                  | `0x4c221a20`; final cache after `0x42d6`                                                  |
+| `moConfig_c`                     | `f08`, `f0c`, `f10`, `f14`, `f18`, `f28`, `f20`, `f34`, `f38`, `f3c`, `f40` | Eleven 32-bit integers in this order                                                                                 | `sldmfcu.dll!0x3c7c6310`                                                                  |
+| same                             | `f48`, `f50`                                                                | CString and i32, not an opaque 16-byte member                                                                        | Helper `sldmfcu.dll!0x3c7c6720`                                                           |
+| same                             | `f58`, `f5c`, `f60`, `f64`, `f68`, `f6c`, `f70`, `f74`                      | Seven i32, then u8 boolean witness after `0x42d2`                                                                    | `sldmfcu.dll!0x3c7c6310`                                                                  |
+| `moConfigObject_c`               | `f08`, `f10`, `f28`, `f40`, `f48`                                           | Config object pointer, component pointer, embedded referenced configuration, visual pointer, embedded children cache | `0x4c21dfc0`; helper `0x4b8ad480` supplies embedded referenced configuration during store |
+| same                             | `f140`, `f78`, `f18`, `f20`, `f148`, `f170`                                 | i32 presence + transform, embedded list, three i32, i32 presence + transform                                         | `0x4c21dfc0`                                                                              |
+| same                             | `fc0`, `fc8`                                                                | Flex cache object pointers only without condition 1                                                                  | `0x4c21dfc0`                                                                              |
+| same                             | `f178`, `f190`, `f118`, `fd0`                                               | CString, u8 boolean witness, embedded list, embedded list with temporary condition `0x200`                           | `0x4c21dfc0`; `f190` after `0x3f09`, final list after `0x2f54`                            |
+| `moFeatherWeightChildrenCache_c` | `f08`, `f28`                                                                | Embedded object array, u32                                                                                           | `0x4c223e60`; constructor `0x4b8a5230` sets array vtable at object `+0x50`                |
+
+`moBaseConfiguration_c::SerializeXmlData` at `0x4c2389a0` calls the shared feature XML serializer and updates an external XML extractor without further archive fields. The separate condition-1 configuration visual callback remains explicit unknown work.
+
+## Component and mate records
+
+`moReference_c` at `0x4b66f340` calls the shared feature serializer, then serializes these 2026 fields in order:
+
+| Group                     | Members                                                                                                                        | Wire rule                                                                                            |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| placement                 | `f360`, `f370`, `f3b0`                                                                                                         | u8-presence transform, u8-presence bounding box, external object pointer                             |
+| state                     | `f400`, `f408`, `f3e0`, `f3c0`                                                                                                 | u16, u16 boolean witness, u32, embedded referenced configuration                                     |
+| legacy carrier still read | discarded transform, `f378`                                                                                                    | u8-presence transform; u8 array presence followed by i32 count of individually u8-present transforms |
+| auxiliary state           | `f450`, `f3f0`, `f468`, `f458`, `f548`, `f470`, `f4b0`, `f488`, `f4b4`, `f454`, `f490`, `f4d8`, `f418`, `f41c`, `f4c0`, `f4dc` | i32, u32, object, i32, object, object, i32, object, i32, i32, object, then five i32                  |
+| provenance/reference      | `f3e8`, `f4f0`, `f4f8`, `f550`, `f500`, `f508`, `f524`, `f530`, `f388`                                                         | u32 time word, i32, object, i32, two CStrings, three i32                                             |
+| final state               | `f55c`, `f3f4`, `f3f8`, `f538`, discarded stack object, `f49c`, `f4a0`, `f4a4`, `f3dc`                                         | three u32, object, object, four i32; final i32 after `0x42d2`                                        |
+| conditional tail          | `f368`                                                                                                                         | u16 boolean witness only under condition `0x80`                                                      |
+
+Native aliases `moReferenceInternal_c`/`moReferenceBrowser_c` at `0x4b66ef10` and `moReferenceModel_c` at `0x4b66ef30` add no archive fields. Their vtable dispatch matches the reference base.
+
+| Owner                                                          | Wire rule after its base                                                                                                                                                                           | Native address |
+| -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| `moMateGroup_c`                                                | Shared model-feature base; i32 count of obsolete manager records; high-word/low-word u64 count of i32 list values; conditional `f4f8` i32 under `0x80`                                             | `0x4b669f90`   |
+| `moMateParent`                                                 | Shared model-feature base; i32 `f390`, `f394`, `f388`; u32 count of i32 values at `f370`                                                                                                           | `0x4b66b620`   |
+| `moMate`                                                       | Parent base; u16 `f3b4`, `f3b8`; u8-present vector at `f3c0`; i32 count of `(i32 key, reference-wrapper object)`                                                                                   | `0x4b668d90`   |
+| `moMateNGeoms_c`                                               | Mate base; array object `f430`; i32 count of reference-wrapper objects `f410`; u32 count of object-list pointers `f448`; three optional data objects; u16 `f438`; i32 boolean `f480`; two CStrings | `0x4b66ad10`   |
+| `moMate2Geoms_c`, coincident, parallel, perpendicular, tangent | N-geometries base; no additional 2026 archive fields                                                                                                                                               | `0x4b668a60`   |
+| `moMateEntityHelpData_c`                                       | u16 `f10`, then f64 `f18`, `f20`, `f28`                                                                                                                                                            | `0x4b6699f0`   |
+
+The obsolete manager record's nonzero branch is deliberately an explicit unknown. No guessed size or zero-fill is used. Other mate subclasses retain registry unknown-class errors until their serializers are recovered.
+
+## Cache and auxiliary nodes
+
+| Owner                       | Fields in order                                                                                                | Encoding                                                                                              | Native evidence                                                    |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| `moConfigSpecificInfo`      | `f08`, `f10`                                                                                                   | CString, i32                                                                                          | `0x4b7408d0`                                                       |
+| `moBCMate_c`                | base, `f18`, `f20`, `f24`, `f28`, `f30`, `f38`, `f3c`                                                          | Base above, CString, two u32, two CStrings, two i32                                                   | `0x4b73f570`                                                       |
+| `moBCConfigObjMapInfo_c`    | `f08`                                                                                                          | Embedded list                                                                                         | `0x4b73f2e0`                                                       |
+| `moBCConfigurationInfo_c`   | `f08`, `f10`, `f18`, `f1c`, `f20`, `f2c`, `f30`, `f34`, `f38`                                                  | Two CStrings, two i32, object, four i32                                                               | `0x4b73f3d0`                                                       |
+| `moBCNode_c`                | `f08`, `f0c`, `f10`, `f14`, `f18`, `f20`, `f28`, `f30`, `f38`, `f48`, `f40`, `f50`, `fb0`, `f58`, `f5c`, `f68` | Three i32, u32, CString, u32, two CStrings, i32, transform, two lists, three i32, final embedded list | `0x4b740570`; constructor `0x4b73bd40` constructs the final list at `+0x68` |
+| BC assembly/part node       | base, `fb8`                                                                                                    | BC node base and embedded list                                                                        | `0x4b73f1b0`                                                       |
+| `moBCChildNode_c`           | none                                                                                                           | Native serializer performs no archive reads or writes                                                 | `0x4b73f2b0`                                                       |
+| `moAssemblyTimings_c`       | four discarded words                                                                                           | Four i32; source values retained even though native save emits zero                                   | `0x4b663bf0`                                                       |
+| `moAssyFilePropContainer_c` | `f08`, `f10`                                                                                                   | Two object pointers                                                                                   | `0x4b2a12b0`                                                       |
+| `moBodyMassPropsCache_c`    | `f08`, `f10`, `f18`, `f1c`, `f20`, `f238`, `f28`                                                               | i32, f64, u32, u8 boolean, i32, CString, embedded mass properties                                     | `0x4b2afbd0`                                                       |
+| `moAssyMassPropsCache_c`    | `fc8`, `f08`                                                                                                   | f64; u32 count of `(u32 high key, u32 low key, embedded body mass cache)`                             | `0x4b2af900`                                                       |
+| `moExplViewManager_c`       | feature base, `f358`, `f360`, `f398`, `f3a0`, `f3a4`, `f368`                                                   | Two objects, f64, two i32, embedded word-to-object map                                                | `0x4b667070`                                                       |
+
+None of these cache values is accepted as a fresh neutral value. Parsed values remain source-document inputs; native recomputation and fresh construction require independent evidence.
+
+## Tupni application and verification
+
+The [Tupni playbook](../../Playbook/Tupni.md) and [trace authority finding](../../../Documentation/Gotchas/Conversion/Solidworks/TupniTraceAuthority.md) apply. This pass used static native dataflow to bind field operands to widths, loop bodies to counted record sequences, and call/vtable signatures to record ownership. It did not collect execution traces, taint a native input, or infer constants from fixture invariance.
+
+The new process-boundary test invokes the existing archive command in a subprocess, covering CMgr, Config-0, ModelHeader, ResolvedFeatures, Definition, Biography, and History across the two fixtures. It requires `14/14 streams round-trip with no tail across 2 files`. No fixture content is loaded by production code or used to generate a different model.
+
+Local checks are restricted to AST parsing and static formatting/lint. No local serializer invocation, imports, tests, fixture parsing, or CAD automation were executed. Remote CI result and exact reviewed head will be recorded after execution.
+
+Remaining work includes nonzero obsolete mate-manager records, additional mate/assembly subclasses, condition-specific callbacks, fresh assembly builders, held-out layouts, and controlled target-application acceptance. Missing grammar remains active work in the parent goal.
