@@ -56,6 +56,23 @@ The volume doubles with the dimension, so the edited parameter drives the featur
 Fusion does not rebuild the cached BRep on open, which is recorded in the
 [cached BRep gotcha](../../../Gotchas/Conversion/Fusion/Api/FusionCachedBrepRecompute.md).
 
+## Reader cross-check
+
+The same file was read by Kit and by Fusion, and the expressions compared:
+
+| Parameter | Kit reads   | Fusion reports |
+| --------- | ----------- | -------------- |
+| `d1`      | `20 mm`     | `20 mm`        |
+| `d2`      | `0.0 deg`   | `0.0 deg`      |
+| `d3`      | `2`         | not listed     |
+| `d4`      | `0.01 mm`   | not listed     |
+
+Every parameter Fusion exposes is read by Kit with the same expression.
+Kit also reads two records that Fusion does not list as parameters: a pattern count and a mirror
+stitch tolerance.
+Those are feature inputs stored in the same record stream, so Kit's read is a superset of
+`Design.allParameters` and not a different set.
+
 ## Limits
 
 The edit changes one parameter. A formula that references another parameter is untested.
