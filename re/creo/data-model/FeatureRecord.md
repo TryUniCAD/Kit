@@ -566,9 +566,24 @@ mine: ... f8 01 f7 1d fb e3 f7 1e 06 00 e5 f7 1f e3 0f 18 e5 ...
 
 The array counts, the typed-array introductions and the `f7 1e` duplicate selector are now right. The
 remaining error is that the selector is emitted for **every** repeated name, while the control emits it
-only for some: the second `fc_hist` and the second `p_body` carry `f7 1e` and `f7 2b`, but the second
-`save_geoms` carries none. The distinguishing property has not been identified yet, so `ReplayOf` is
-close but not exact, and the two-record question stays open.
+only for some. Measuring the definition shows why the two cases it emits are special:
+
+| Field | Node | Value length | Selector in the replay |
+| --- | ---: | ---: | --- |
+| `fc_hist` | 28 | `0`, a zero-length phantom | yes, `f7 1e` = node `30`, the real occurrence |
+| `save_geoms` | 29 | `1` (`e3`) | none |
+| `save_geoms` | 31 | `2` (`f2 e3`) | none |
+| `p_body` | 43 | `1` (`e2`) | yes, `f7 2b` = node `43`, the first occurrence |
+| `p_body` | 44 | `3` | none |
+
+So the selector value is a **node index**, and it appears in exactly the two situations where a positional
+read diverges from the definition:
+
+- after a zero-length phantom, where the reader counted a field the stream did not carry;
+- on a record opened with `e2` rather than `e3`, where the open token is the field's own first value, while
+  an `e3` open needs no selection.
+
+`ReplayOf` models neither case, so it is close but not exact and the two-record question stays open.
 
 Progress made getting there is real: `fc_hist` was being written as a hardcoded `8` instead of
 `first_geom_id`, and the array-strip test was scanning for the `f7` **byte** anywhere in a value rather
