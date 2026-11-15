@@ -382,12 +382,34 @@ byte comparison, and it exposed three defects in our emitter that are now fixed:
 | arrays | `18` for `0.0` and `0f` for `1.0` inside `envlp`, `outline`, `local_sys` | full 9-byte `52` doubles |
 
 With those fixed the payload matches the vendor **byte for byte for the first `138` bytes**, which covers
-the record header, `geom_id`, `geom_type`, `feat_id`, `orient`, `boundary_type`, `next_geom_ptr` and the
-`envlp` array introduction. The first difference is the first `envlp` value.
+`geom_id`, `geom_type`, `feat_id`, `orient`, `boundary_type`, `next_geom_ptr` and the `envlp` array
+introduction.
 
-That is meaningful: the structural divergence is gone. What remains is numeric — `envlp` in the vendor
-payload holds four real numbers (a parametric envelope) where we emit a `0,1,1,0` placeholder, and
-`outline` holds the trim coordinates.
+That is a prefix match, not a structural match, and the difference matters. Parsing the ladder's first
+surface element (`652` bytes; each of the five replays is `120`) gives the full field list:
+
+| Field | Value in the ladder's first surface |
+| --- | --- |
+| `geom_id` | `77` |
+| `geom_type` | `34` |
+| `feat_id` | `74` |
+| `orient` | `-1` |
+| `boundary_type` | `0` |
+| `next_geom_ptr` | `82` |
+| `envlp` | four doubles, `184.5078`, `86.0668`, `-154.4303`, `-115.6523` |
+| `outline` | six doubles |
+| `srf_prim_ptr(plane)` | **nested plane record** |
+| `local_sys` | twelve doubles |
+| `frst_cntr_ptr` | record: `frst_cntr_crv_hdr_ptr` `78`, `trv` `1`, `envlp`, `next_cntr_ptr` |
+| `topol_ref_data` | record: `owner_feat_revnum` `13`, `srf_flip_dat`, `list_id` `-5778`, `list_type` `98` |
+
+So our emitter covers the first seven fields and stops; the vendor record also carries a nested plane
+primitive, a first-contour reference with its own envelope, and topology reference data. That is why our
+payload is `399` bytes against `2899`.
+
+An earlier revision of this page said the structural divergence was gone. It is not: only the prefix
+agrees. What remains is both numeric (`envlp` and `outline` conventions) and structural (`srf_prim_ptr`,
+`frst_cntr_ptr`, `topol_ref_data`).
 
 The corrected payload is still rejected (silent exit twice), so the values matter too, but the emitter is
 now structurally faithful rather than guesswork.
