@@ -70,6 +70,8 @@ The serializer map identifies `0x4c221a20` as `moConfiguration_c`/`moDeformConfi
 
 `moBaseConfiguration_c::SerializeXmlData` at `0x4c2389a0` calls the shared feature XML serializer and updates an external XML extractor without further archive fields. The separate condition-1 configuration visual callback remains explicit unknown work.
 
+The final config-object list uses the native add/remove condition sequence: OR `0x200` before the embedded list, then clear `0x200` afterward. It does not restore a saved prior bitmask. The schema pins version `19000` explicitly, so changing the DSL's default version cannot silently broaden this recovered layout.
+
 ## Component and mate records
 
 `moReference_c` at `0x4b66f340` calls the shared feature serializer, then serializes these 2026 fields in order:
