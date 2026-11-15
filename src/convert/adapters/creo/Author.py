@@ -479,3 +479,80 @@ def DefaultBasBasData() -> bytes:
         (0,) * 21,
         0.0,
     )
+
+
+KIdentityColumn = (1.0, 0.0, 0.0, 0.0)
+
+
+def DatumPlaneRecord(
+    DatumId: int,
+    Orient: int,
+    Geometry2Id: int,
+    Columns: tuple[tuple[float, ...], ...],
+    Extent: float,
+) -> bytes:
+    Frame = tuple(Value for Column in Columns for Value in Column)
+    Outline = (Extent, Extent, 0.0, -Extent, -Extent, 0.0)
+    Payload = b"\xE3"
+    Payload += FieldValue(1, "id", IntValue(DatumId))
+    Payload += FieldValue(1, "symbol_key", b"\xF6")
+    Payload += FieldValue(1, "model_type", IntValue(2))
+    Payload += NullStruct("group_info_ptr")
+    Payload += StructBegin("place_rec_ptr")
+    Payload += FieldValue(2, "local_sys", b"\xF9\x04\x03" + RunValues(Frame))
+    Payload += FieldValue(1, "own_ref_id", b"\xF6")
+    Payload += FieldValue(1, "orient", IntValue(Orient))
+    Payload += FieldValue(0, "place_instruction_ptrs", b"\xF8\x01\xF7\x0B\xFB")
+    Payload += b"\xE3"
+    Payload += FieldValue(1, "type", IntValue(515))
+    Payload += FieldValue(2, "offset", ScalarValue(0.0))
+    Payload += FieldValue(1, "dim_id", b"\xF6")
+    Payload += FieldValue(1, "ref_id", b"\xF6")
+    Payload += FieldValue(1, "geometry1_id", b"\xF6")
+    Payload += FieldValue(1, "geometry2_id", IntValue(Geometry2Id))
+    Payload += FieldValue(1, "memb_num1", IntValue(0))
+    Payload += FieldValue(1, "memb_num2", IntValue(0))
+    Payload += FieldValue(1, "attr", b"\xF8\x03\xC0\x80\x00\x00\xE4")
+    Payload += FieldValue(0, "plin_info_arr", b"\xF8\x02\xF7\x15\xFB")
+    Payload += b"\xE3"
+    Payload += FieldValue(1, "type", IntValue(1))
+    Payload += StructBegin("data(plin_info_ref)")
+    Payload += FieldValue(1, "id_type1", b"\xF5\x04")
+    Payload += FieldValue(1, "id_type2", IntValue(5))
+    Payload += FieldValue(2, "offset2", ScalarValue(0.0))
+    Payload += b"\xF2"
+    Payload += b"\xF7\x15\xE3" + IntValue(6)
+    Payload += StructBegin("data(plin_info_ui_step)")
+    Payload += FieldValue(1, "step_ids", b"\xF8\x01\xF5\x64")
+    Payload += FieldValue(1, "attr", IntValue(0))
+    Payload += FieldValue(2, "uv", b"\xF3\xF8\x02\x18\xE4")
+    Payload += StructHeader("trf_arr") + b"\xF2"
+    Payload += b"\xF8\x01\xF7\x1F\xFB"
+    Payload += b"\xE3"
+    Payload += FieldValue(1, "type", IntValue(11))
+    Payload += FieldValue(1, "key", b"\xF6")
+    Payload += FieldValue(1, "idx", IntValue(0))
+    Payload += FieldValue(2, "transf", b"\xF9\x04\x03" + RunValues(Frame))
+    Payload += StructHeader("plcm_revnum") + b"\xF2"
+    Payload += b"\xE1"
+    Payload += StructHeader("next_prop") + CloseValue(1)
+    Payload += b"\xE1"
+    Payload += FieldValue(1, "cond_tbl_idx", b"\xF6")
+    Payload += FieldValue(10, "comment", b"\xE1")
+    Payload += StructHeader("merge_info_ptr") + b"\xE1"
+    Payload += FieldValue(1, "state_ind", b"\xF6")
+    Payload += StructHeader("alumni_info") + b"\xE1"
+    Payload += StructHeader("expl_state_ref") + b"\xE1"
+    Payload += StructBegin("feat_outl_info")
+    Payload += FieldValue(2, "ent_outl", b"\xF9\x02\x03" + RunValues(Outline))
+    Payload += StructHeader("pre_roll_back") + b"\xE1"
+    Payload += StructHeader("post_roll_back") + b"\xE1"
+    Payload += StructHeader("post_regen") + b"\xE1"
+    Payload += StructHeader("parchild_table") + CloseValue(1)
+    Payload += b"\xE3"
+    Payload += FieldValue(9, "Structure_Invalid", b"\xC0\xAB\xCD")
+    Payload += StructHeader("copy_info_ptr") + CloseValue(1)
+    Payload += b"\xE1"
+    Payload += StructHeader("embed_info_ptr") + b"\xE1"
+    Payload += CloseValue(1)
+    return Payload

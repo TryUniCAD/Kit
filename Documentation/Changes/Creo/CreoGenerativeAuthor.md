@@ -341,6 +341,33 @@ remains load-bearing: `FeatDefsDtm` (datum placement records). The other unautho
 three compressed `ND:` sections, `SolidPersistTable`, `SolidPrimdata`, `DispDataTable`,
 `THMB_IMG_MAIN`, `CGFPersistTable`, the two `kind b` sections, and the two free-space extents.
 
+## Datum placement record
+
+`FeatDefsDtm` is the last plain section that rejects an empty body. Its first record is now emitted
+from the grammar: `Author.DatumPlaneRecord(DatumId, Orient, Geometry2Id, Columns, Extent)`.
+
+```text
+datum record: ref 775 mine 775 byte-identical True
+```
+
+The record carries `id`, `symbol_key`, `model_type`, `place_rec_ptr` (`local_sys`, `own_ref_id`,
+`orient`, `place_instruction_ptrs` with one instruction and two `plin_info` entries, `trf_arr` with
+one transform), the revision and state scalars, and `feat_outl_info` with `ent_outl` and
+`parchild_table`. The schema is recorded in
+[the datum placement page](../../../re/creo/data-model/DatumPlacement.md).
+
+Three reduced bodies were measured and all fail with a model-load crash and no `End`:
+
+| Body | Result |
+| --- | --- |
+| `Sld_FeatDefsDtm e3 f1` | crash |
+| `feat_defs_923` empty array | crash |
+| `feat_defs_923` and `feat_defs_979` empty arrays | crash |
+| three definition-form plane records, no `feat_defs_979` | crash |
+
+So the record grammar is settled but the section still needs the `feat_defs_979` csys entry or the
+per-datum frames before Creo accepts it.
+
 ## Limits
 
 - The authored part contains only `AllFeatur` and `VisibGeom`. Creo rejects it as "not a valid PART

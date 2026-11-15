@@ -270,6 +270,11 @@ The empty control's record has the same `id`, `type`, and `sect_name`, but its
 are longer. The array lengths are therefore document-dependent, not fixed.
 The ladder's extrude and sketch records follow it, but their field boundaries are not yet closed.
 
+### Datum placement
+
+`FeatDefsDtm` stores one placement record per datum. The record grammar is decoded and emitted by
+`Author.DatumPlaneRecord`; the field table is in [the datum placement page](DatumPlacement.md).
+
 ### Decoded feature chain
 
 `re/creo/tools/TaggedStream.py` now decodes the full `AllFeatur` feature chain of both controls.
