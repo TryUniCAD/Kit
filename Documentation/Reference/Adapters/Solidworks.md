@@ -134,6 +134,8 @@ prepares independent discovery and held-out inputs before curved-sketch writer
 implementation. Its native preflight and full-family lock remain pending.
 The [explicit oracle interface bindings](../../Changes/Solidworks/Inspection/SolidworksExplicitOracleInterfaces.md)
 avoid automatic type discovery on child objects that reject `GetTypeInfo`.
+The [approved-session handoff tool](../../Changes/Solidworks/Inspection/SolidworksApprovedSessionHandoff.md)
+closes an explicitly selected clean session after user authorization, while measurement guards continue to refuse existing processes.
 The [local curve and radial construction rules](../../Changes/Solidworks/SolidworksCurveReferenceConstruction.md)
 bound both native reference scans and distinguish circle-marker updates from
 ordinary polygon points. These static rules do not establish curve acceptance.
