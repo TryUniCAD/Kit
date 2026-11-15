@@ -234,6 +234,27 @@ asking the loader for it.
 `LegacyCodes(Payload)` reads that table, `nx.legacy_coded_classes` reports how many entries are set,
 and `TestNxLegacy` now pins the table alongside the frames.
 
+## Class layout extents do not segment the object region
+
+The last untried prediction was that a record is the size of its class's attribute layout, so the
+region would repeat at that period. The extents come from the live registry, which reports each
+class's attributes with type, size and offset; `UGS::RM_part` is 155 bytes, `UGS::RM_entity` 72 and
+`UGS::OM::RootObject` 204.
+
+Agreement was then measured for every period from 4 to 512 over `0x19a0` to `0xd9b0`:
+
+```text
+period 155 (RM_part extent)     0.248
+period 72  (RM_entity extent)   0.236
+baseline: period 4 (zero runs)  0.316
+best overall periods            4, 8, 16, 52, 5 - all at or below 0.316
+```
+
+so records are not class-layout sized, and the best scoring periods are the zero-run artefacts rather
+than any structural size. The 567 word table before the region does not help either: its values are
+almost all in 0 to 14 with a maximum of 55032, so it is not a table of offsets into the object region
+that would let records be located rather than walked.
+
 ## An apparent 16 byte stride in the object data breaks at the third record
 
 Reading the object region as float32 at every byte offset turns up a tempting pattern:
