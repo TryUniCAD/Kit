@@ -281,6 +281,26 @@ of id objects — and what remains is a less direct route, such as ids resolved 
 at load time or registered when a class is first instantiated. Either way it is loader-time data
 rather than a table this branch can read out of the module statically.
 
+## The modern tag grammar does not appear in the legacy payload
+
+The modern middle's `<tag><value>` grammar was then tested against the legacy payload, both in the
+object region and across the whole file. A run is a maximal sequence of bytes where each byte is a
+tag (`0x80` to `0x84`) and the value width is fixed for the run.
+
+```text
+wave_parent.prt section 1, 0x19a0..0xd9b0
+  tag bytes present   0x80: 47   0x81: 12   0x82: 13   0x83: 7   0x84: 22
+  longest run at any start and width   0 records
+
+whole 71937 byte payload
+  runs of 3 or more records   5
+  longest run                 5 records, 20 bytes, at 0x01377
+```
+
+so the tags occur as isolated bytes, never as a run, and the longest run in the whole file is 20
+bytes. That is noise, not a grammar. The legacy object region is a different encoding, and the
+modern field grammar does not transfer to it.
+
 ## The modern field is a tag byte plus a width the tag selects
 
 Reading the first records of the migrated part's section 0 middle with exact boundaries:
