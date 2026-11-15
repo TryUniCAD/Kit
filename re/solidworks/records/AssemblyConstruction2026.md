@@ -8,11 +8,12 @@ The [CAD success criteria](../../../Documentation/Reference/Operations/CadSucces
 
 This finding uses static metadata, constructor dataflow, exported accessors, and caller structure from the installed 2026 binaries. No execution trace or target-application measurement was collected by this component. Decompiled listings and analysis databases remain outside repository checkouts. No saved control supplied a constructor value or a default table.
 
-| Module        | SHA-256                                                            |
-| ------------- | ------------------------------------------------------------------ |
-| `sldmodu.dll` | `569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e` |
-| `sldmfcu.dll` | `af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735` |
-| `sldmgu.dll`  | `99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c` |
+| Module            | SHA-256                                                            |
+| ----------------- | ------------------------------------------------------------------ |
+| `sldmodu.dll`     | `569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e` |
+| `sldmfcu.dll`     | `af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735` |
+| `sldmgu.dll`      | `99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c` |
+| `sldarchiveu.dll` | `5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48` |
 
 ## Concrete class ownership
 
@@ -52,6 +53,14 @@ The exported named assembly constructor `0x4b67efe0`, taking a document name, `s
 
 The active common constructor creates `moRelMgr_c(owner=this)` and assigns `f9d0`. It also calls `moUnitComponent_c(model=this, filed_owner=this)` at `0x4c00e850` and assigns its result to `f990` at `0x4c00e85a`. Both allocations are on the common path. The default/runtime-factory constructor's null seeds therefore do not describe the completed named-construction owner graph.
 
+Named assembly construction also clears its initial update state. At
+`0x4b67f7e8`–`0x4b67f7f6`, the caller supplies zero status, propagation argument
+one and a null source to `moModel_c::setNeedsUpdate` at `0x4c0363c0`. The primary
+assembly vtable `0x4ce69b30` binds slot `+0xb8` to that same setter and slot
+`+0xc0` to node query `0x4c03e5e0`. Later authored operations have their own
+state transitions; the initial named assembly must not retain a loading
+constructor's flags merely because they share a base class.
+
 The hypothesis that an assembly root should use a chain as its self component is **refuted before implementation**. Actual named assembly construction uses the unit component. Chain components describe instance paths. The common model-field factory is separately owned in `Model.py`, with explicit concrete node, self component, units, detail definitions, and relation graph inputs; the fresh composition must supply the active constructor's actual owner links.
 
 The active constructor also assigns `moUnitsTable_c(1)` to user units at `f9b8`, while analysis units `f9c0` remain null at this stage. This is direct 2026 construction evidence, independent of the older-version loader branch. Explicit authored analysis-unit settings may require their separate creation path. The `suObList` pointer store at `sldmfcu.dll!0x3c8cceb0` passes the actual pointer to `WriteObject` without testing emptiness. Allocated empty active-constructor lists therefore cannot be equated to null on that store path. The common model factory's current null fields and native loader-created empty lists still need final graph-policy analysis.
@@ -85,7 +94,7 @@ The header update counter belongs to the actual header object. [ModelConstructio
 | Model `f9d0`                 | Derived relation ownership                             | Named construction supplies `moRelMgr_c(owner=this)`                                                                           | Shared constructor `0x4c00d8f0`; final save and authored relation population remain separate obligations                        |
 | Chain component `owner`      | Derived owner reference                                | Parameterized construction takes the filed owner and its runtime header index                                                  | Constructor `0x4b8277f0`; the archive schema expresses the owner as the corresponding model object                              |
 | Chain component `f20`        | Derived reference path                                 | A supplied path is reused through its owner cache or cloned according to the constructor option and path state                 | `0x4b8277f0`, clone `0x4c28c490`; do not reuse a part unit-component record                                                     |
-| Chain component `f30`        | Derived path bookkeeping, partial                      | Helper starts at 101 and adds virtual slot `0x16f8` from each linked path entry                                                | `0x4c291ca0`; concrete entry ownership and the virtual value's semantic role still require closure                              |
+| Chain component `f30`        | Derived path bookkeeping, partial                      | `(101 + sum(reference.f3f0 for reference in path)) & 0xffffffff`                                                               | `0x4c291ca0`; all three concrete reference vtables bind slot `0x16f8` to getter `0x4b541640`, reading `f3f0`                    |
 | Context chain `f40`          | Derived external context                               | Created from the referenced filed owner on the resolved-path branch, or for shrink-wrap ownership under its separate predicate | Constructor `0x4b827ab0`, helper `0x4be8bcd0`; full external-file construction remains unresolved                               |
 | Context chain `f48`          | Unresolved context state                               | Constructor seed 0                                                                                                             | `0x4b827ab0`; seed is not an authored enum mapping                                                                              |
 | Reference-chain `f08`        | Derived path records                                   | Allocate a typed empty `moExtFeatureList_c`, then populate actual semantic path entries                                        | Constructors `0x4c28c5d0`/`0x4c28c670`, list constructor `0x4bac8d60`                                                           |
@@ -98,18 +107,100 @@ The header update counter belongs to the actual header object. [ModelConstructio
 
 The similarly named self-reference path is a separate runtime object. Assembly `makeSelfReference` at `0x4b6aa230` constructs `moReferenceEmbedded_c` with the model as both target and owner and stores it at `+0x1568`. The part method at `0x4c1b8530` stores its analogous object at `+0x1570`. Constructor `0x4bbb73e0` retains the target model at `+0x560`. Neither method assigns the serialized self component at `+0x990`; a newly constructed default transform in this runtime path is not evidence for a saved placement cache.
 
+Component wrappers have a distinct ownership rule. `moCompRef_c` constructor
+`0x4b7e8250` invokes the incoming component's virtual `copy(0)` at
+`0x4b7e8313` and stores the returned component at wrapper `f58` at
+`0x4b7e8319`. The unit-component vtable `0x4ce9c4d0 + 0x158` targets
+`0x4b82ab30`, which allocates `0x28` bytes and invokes copy constructor
+`0x4b8280c0`. Chain-component vtable `0x4ce9c808 + 0x158` targets
+`0x4b82a9d0`, which allocates `0x40` bytes and invokes `0x4b827560`.
+Wrappers therefore receive separate component objects while preserving their
+actual model-owner relationships. Sharing the model's self-component object
+directly between wrapper `f58` slots does not reproduce this native constructor.
+This is static ownership evidence; it is not a measured explanation of a native
+heap failure. The [component-lifetime gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Model/PlaneReferencesOwnTheirComponents.md)
+records the corresponding model-construction repair.
+
 Ordinary insertion `0x4b6a7df0` calls `addReference`, then `onAddReference`; it accepts a target model, authored transform, referenced configuration name, and insertion options. It can preserve an explicit requested id by advancing the actual header allocator until that id is reached.
 
 `addReference` at `0x4b6854d0` constructs a `moReference_c` through helper `0x4bbb7ba0` when its internal-reference option is zero. The nonzero branch invokes `0x4bbb74c0`, which uses the same helper and installs the `moReferenceInternal_c` vtables. With a nonnull authored transform, helper `0x4bbb7ba0` creates a copy at reference `f360` and increments `f3f0` from its constructor seed. This closes the reference's initial placement owner; it does not justify copying that matrix into every configuration transform cache.
 
 `onAddReference` at `0x4b6ab9c0` reaches configuration insertion helper `0x4b8d4910`. That helper constructs a reference chain rooted in the reference's actual owning model, appends the concrete reference, constructs its chain component, and calls `moConfiguration_c::getOrAddObject` at `0x4b8d1400`. The configuration copies its selected `fc48` or `fc50` option record into a `moConfigObject_c`; selection depends on the concrete reference kind. The chain becomes contextual in that object's constructor. The actual configuration-name lookup supplies the referenced persistent configuration id. It then passes the name/id to config-object setter `0x4b8b2380` and reference setter `0x4bbcd7a0`. Header identity, external links, remaining option domains and context-dependent transforms are not replaced with captured values.
 
+## Authored file and configuration identity
+
+`file_definition(*, path_name: str, document_kind: str, created_at: int) -> dict`
+constructs the embedded `moSharedFileDef_c` mapping. It supports ordinary
+generated native part and assembly files. It requires an explicit output
+reference path and unsigned 32-bit authored document creation time. The caller
+supplies document kind `"part"` or `"assembly"`; a conflicting file extension
+fails. It does not read the referenced file, current directory or host clock.
+
+`sldarchiveu.dll!0x319fb380` constructs a fresh `moExtObject_c` and its shared
+file definition, passes the path to `0x31a01ae0`, copies a supplied creation
+time to shared member `+0x28`, and uses its boolean argument for virtual-file
+state. The ordinary `sldmodu.dll!0x4be8bcd0` caller passes false. The path setter
+uses Windows `_wsplitpath`, stores the filename stem at `+0x10` and the full
+supplied path at `+0x18`. Serializer `sldarchiveu.dll!0x319fe940` writes those
+strings through typed `moCStringHandle_c` objects in path-then-name order.
+
+Native category helper `sldarchiveu.dll!0x319fcbe0` maps `.sldprt` to 2 and
+`.sldasm` to 3. Independent model-kind helper `sldmodu.dll!0x4be8d7d0` returns
+the same categories from concrete runtime classes. These are format-domain
+values, not values fitted to saved files.
+
+| Embedded field | Classification and construction rule                                       | Static evidence                                                                               |
+| -------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `h18`          | Authored reference path in a fresh typed string handle                     | Path setter `0x31a01ae0`, serializer `0x319fe940`                                             |
+| `h10`          | Derived Windows filename stem in a fresh typed string handle               | Same setter and serializer; name getter `0x31a008b0`                                          |
+| `f20`          | Derived native document category: part 2, assembly 3                       | `0x319fcbe0`, model-kind helper `0x4be8d7d0`                                                  |
+| `f08/f38`      | Ordinary external file, not virtual: flag 0 and empty virtual-owner string | Shared constructor `0x319fb870`, ordinary caller `0x4be8bcd0`, virtual query `0x31a00860`     |
+| `f28`          | Explicit authored creation time of the referenced generated document       | Parameterized constructor `0x319fb380`, timestamp getter `0x31a00a30`                         |
+| `f40/f50`      | No imported-path or PDM relationship in this initial ordinary-file profile | Shared constructor `0x319fb870`; imported-path getter `0x31a00820`, PDM getter `0x31a009f0`   |
+| `f35`          | Constructor-zero additional byte; later role remains unresolved            | Constructor `0x319fb870` clears bytes `+0x34/+0x35`; serializer `0x319fe940` persists `+0x35` |
+
+All unqualified addresses in that table belong to `sldarchiveu.dll` except the
+explicit model-kind helper and ordinary caller in `sldmodu.dll`. The helper
+emits the evidenced initial ordinary-file state. It does not accept virtual,
+imported or PDM metadata, and does not claim the unresolved byte's full domain
+or every later save-time mutation.
+
+The emitted string handle has native schema `0x80000001`: getter
+`sldmfcu.dll!0x3c7c7a60`, descriptor `0x3ce6d0b0`, factory `0x3c7c6890`.
+The shared definition remains embedded as a mapping, so it does not introduce a
+redundant archive object. Future external-object and path-feature nodes also
+have concrete wire schema 1: `moExtObject_c` descriptor
+`sldarchiveu.dll!0x31a244d8`/factory `0x319fabc0`, and `moExtFeature_c`
+descriptor `sldmodu.dll!0x4daefdb0`/factory `0x4c1767f0`.
+
+`referenced_configuration(*, name: str | None, local_id: int | None) -> dict`
+constructs the embedded configuration-name/id pair. An explicit name requires
+the actual generated nonnegative local id. Passing both as `None` selects the
+native unset-constructor pair, empty name and id -1; a partial pair fails.
+Native default constructor `sldarchiveu.dll!0x319f5c90` constructs the empty
+CString and stores -1 at `0x319f5cb9`. Setter `0x31a08280` copies the supplied name to `+0x08`
+and id to `+0x10`. Ordinary insertion resolves the selected generated
+configuration by name before assigning its id. There is no fixed default
+configuration name/id table.
+
+External-object graph construction remains active. Native `connect` at
+`sldarchiveu.dll!0x319ff850` increments different counters for connection kinds
+1, 2 and 3. Accessors identify them as active users (`f48`, `0x319f7910`),
+external-context features (`f4c`, `0x319f78f0`) and part-to-base-assembly links
+(`f50`, `0x319f7900`). The reference-list index is `f78`, named by getter
+`0x319f8a70` and setter `0x319f9b90`. These require actual generated graph
+counts and list placement, not constructor seeds copied into every linked
+record. Last-modification and last-save times are separate members `f60/f70`,
+identified by getters `0x319f8b30`/`0x31a008a0`; their final lifecycle policy
+still needs closure.
+
 ## Computed geometric bounds
 
 The first implemented assembly construction operation is
 `bounding_box(*, minimum: Sequence[float], maximum: Sequence[float]) -> dict` in
 [`builders/Assembly.py`](../../tooling/sw2026/builders/Assembly.py). Inputs are
-finite three-coordinate axis-aligned bounds in the model's length unit, with
+finite three-coordinate axis-aligned bounds in the same native coordinate unit
+as the generated geometry, with
 `minimum[i] <= maximum[i]`. It returns the embedded `mgBBox_c.restore` field
 mapping. Coordinates and derived state that exceed finite archive doubles fail
 explicitly. This computes one record; it does not construct a usable assembly
@@ -170,4 +261,4 @@ Getter bindings for those roles are recorded in [AssemblyArchive2026.md](Assembl
 
 The unresolved work is concrete and active: complete ordinary component-reference construction; external file/header/configuration identity; context-dependent placement propagation; complete per-configuration option domains; solver state and common mate data; bounds-cache ownership and final visibility/explosion policy; and controlled native load/rebuild/edit acceptance with passing controls.
 
-Only the geometric-bounds record constructor is implemented here. A complete fresh assembly builder and native acceptance are not claimed. No local tests, builder imports, fixture reproductions, or CAD operations were run. The caller and loop conclusions are static evidence, not Tupni execution traces.
+Only the geometric-bounds, ordinary-file-definition and referenced-configuration record constructors are implemented here. A complete fresh assembly builder and native acceptance are not claimed. No local tests, builder imports, fixture reproductions, or CAD operations were run. The caller and loop conclusions are static evidence, not Tupni execution traces.
