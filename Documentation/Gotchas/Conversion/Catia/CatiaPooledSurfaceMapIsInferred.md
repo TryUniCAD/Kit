@@ -100,6 +100,20 @@ the names are known; `CATObjectSpecsModeler.dll` exposes separate readers for th
 `u32` and references, never a double, so they do not hold the parameter values and they are not the
 cause of the `Mass` misparse.
 
+## The topology streamers carry no surface
+
+`CATCXEdge::Stream` (`0x1805471e0`) writes an edge count of `4`, or `5` when bit `0x200` is set on
+the object, then the vertices and points-on-edge-curve records, then named records. `CATCXLoop::Stream`
+is a jump to `CATCXEdgeDomain::Stream` (`0x180548090`), which writes the domain location, an edge
+count, and per-edge records. Neither writes a surface or a PCurve reference, so the surface named in
+the PCurve equation is not in the topology streamers.
+
+One more oracle was tried and failed. For `Reservoir` the correct map must decode 71 entries with
+exactly 56 distinct values below 56. Scanning both streams at every offset with
+`TagDifference.ReadTags` for `Current` in `0, 56, 71`, requiring `max(tags) < 56` and exactly 56
+distinct values, returns no hit. That rules out a tag-difference array of face-to-surface references
+in `MainDataStream` and `SurfacicReps` as well.
+
 ## Workaround
 
 Treat the five pooled parts as approximate. The reader emits

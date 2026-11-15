@@ -173,6 +173,13 @@ in `Reservoir` (offset `29353`), not 71, so the face list is not a contiguous ru
 face-local layouts over the corpus finds no run reaching 90% of the face count for `4784`,
 `Pedal_Body`, or `Reservoir`; `re/catia/tooling/ProbeLinks.py` prints the candidates.
 
+Neither topology streamer writes a surface: `CATCXEdge::Stream` (`0x1805471e0`) writes an edge count
+of `4` or `5`, the vertex records, then named records, and `CATCXLoop::Stream` jumps to
+`CATCXEdgeDomain::Stream` (`0x180548090`), which writes the location, an edge count, and per-edge
+records. A final oracle also failed: no offset in `MainDataStream` or `SurfacicReps` decodes, through
+`TagDifference.ReadTags`, to 71 entries with exactly 56 distinct values below 56, which is the shape
+`Reservoir`'s map must have.
+
 The reference encoding is now recovered from the binaries, though the header offset is not. A face
 takes its surface from the first entry of the linked-object list that the generic object header
 passes in, and `CATCXFace::UnStream` then calls `SkipRemainingLinkedObjectsToRead`. The list is read
