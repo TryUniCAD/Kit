@@ -4,13 +4,14 @@
 
 PR #127 merged as `4b730a8ff92f2a63dfdf3c16566d835b79c04835` without a merge-group acceptance run.
 Its PR workflow deferred the complete test suite and heavy security jobs.
-This audit runs those same jobs against the exact merged revision in GitHub Actions.
+The initial audit runs those same jobs against the exact merged revision in GitHub Actions.
+Any necessary repair receives a new immutable input SHA and a fresh audit; original failures remain recorded.
 
 ## Execution
 
 The audit uses the existing [queue workflow](../../../.github/workflows/MergeQueue.yml).
 A push to `codex/rationale-merged-audit` starts the additional audit phase.
-Every source checkout selects the full merged SHA from `AuditSha`.
+Every source checkout selects the full source SHA from `AuditSha`.
 The planner verifies its checkout before collecting tests.
 Scorecard also selects that SHA for its candidate scan.
 
@@ -29,6 +30,8 @@ It does not establish that a native queue accepted PR #127.
 The merged revision's ordinary push checks passed for rationale, steering, paths, imports, formatting, typing, and workflow policy.
 The initial inventory confirmed that all acceptance and heavy security jobs were deferred on PR #127.
 Remote audit results are recorded in the audit PR and its workflow run.
+The first run found two blocking security findings, described in [the repair entry](PostMergeAuditRepairs.md).
+The follow-up audit selects repair revision `28ab85d887da99edd2bff253e081dae2030728fb`.
 No tests ran locally.
 Any failed job leaves the audit incomplete until its cause is repaired and verified.
 

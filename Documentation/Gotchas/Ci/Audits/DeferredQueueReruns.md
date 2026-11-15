@@ -13,7 +13,8 @@ Rerunning that phase does not turn the event into a merge-group candidate.
 
 ## Resolution
 
-Use a remote audit phase that executes the complete job set against the immutable merged SHA.
+Use a remote audit phase that executes the complete job set against an immutable source SHA.
+Keep the original merged revision's results separate from any explicitly recorded repair revision.
 Require fresh suite execution and a successful result from every security job.
 Report the audit separately from native queue acceptance.
 

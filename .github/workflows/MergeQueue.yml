@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 env:
-  AuditSha: 4b730a8ff92f2a63dfdf3c16566d835b79c04835
+  AuditSha: 28ab85d887da99edd2bff253e081dae2030728fb
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.merge_group.head_sha || github.ref }}
@@ -40,7 +40,7 @@ jobs:
         run: |
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "$AuditSha"
-          echo "Auditing merged revision ${AuditSha} with every test scheduled fresh" >> "$GITHUB_STEP_SUMMARY"
+          echo "Auditing source revision ${AuditSha} with every test scheduled fresh" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -985,7 +985,7 @@ jobs:
             echo "Every acceptance and heavy security job passed on this merge-group candidate" >> "$GITHUB_STEP_SUMMARY"
           elif [ "$EVENT_NAME" = push ]; then
             echo "$JOB_RESULTS" | jq --exit-status 'length > 0 and all(.[]; .result == "success")'
-            echo "Every acceptance and heavy security job passed for merged revision ${AuditSha}" >> "$GITHUB_STEP_SUMMARY"
+            echo "Every acceptance and heavy security job passed for source revision ${AuditSha}" >> "$GITHUB_STEP_SUMMARY"
           else
             echo "::error::Unsupported validation phase"
             exit 1
