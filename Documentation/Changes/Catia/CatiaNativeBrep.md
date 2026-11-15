@@ -375,6 +375,9 @@ result = CatiaAdapter().write(
   `TorusSurface` of major radius 3.0, minor radius 0.75, and axis `+z`, with zero validation errors.
 - A three-face model whose curved surface is a sphere emitted by the writer reads back with one
   `SphereSurface` of radius 2.5, with zero validation errors.
+- `TestScore` runs the scorecard over all 27 corpus parts inside the suite: every exact part must have
+  zero faces whose vertices are more than `1e-3` off the face surface, and every inferred part must
+  have at least one. That pins the 22 exact parts against regression in CI.
 - `tests/convert/catia/CatiaNativeTests.py` covers the corpus reader, the box writer round trip, the
   cylinder writer round trip, the cone writer round trip, the torus writer round trip, the sphere
   writer round trip, and the two-loop writer round trip.

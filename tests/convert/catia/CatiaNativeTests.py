@@ -440,6 +440,68 @@ def TestBrepTess() -> None:
     assert OnGrid == len(Vertices)
 
 
+# this definition exists because an exact part must stay exact
+def TestScore() -> None:
+    for PathValue in sorted(KCatparts.glob("*.CATPart")):
+        Archive = CfvTwoArchive.from_bytes(PathValue.read_bytes())
+        Model, Diagnostics = DecodeBrep(Archive)
+        assert Model is not None, PathValue.name
+        Surfaces = {Value.id: Value for Value in Model.surfaces}
+        Vertices = {Value.id: Value for Value in Model.vertices}
+        Edges = {Value.id: Value for Value in Model.edges}
+        Loops = {Value.id: Value for Value in Model.loops}
+        Coedges = {Value.id: Value for Value in Model.coedges}
+        Heuristic = any(
+            Value.code == "catia.brep.native_surface_map_heuristic"
+            for Value in Diagnostics
+        )
+        BadCount = 0
+        for FaceValue in Model.faces:
+            Surface = Surfaces[FaceValue.surface_id]
+            if not isinstance(Surface, (PlaneSurface, CylinderSurface)):
+                continue
+            Worst = 0.0
+            for LoopId in FaceValue.loop_ids:
+                for CoedgeId in Loops[LoopId].coedge_ids:
+                    EdgeValue = Edges[Coedges[CoedgeId].edge_id]
+                    for VertexId in (
+                        EdgeValue.start_vertex_id,
+                        EdgeValue.end_vertex_id,
+                    ):
+                        Worst = max(
+                            Worst, SurfaceDistance(Vertices[VertexId].point, Surface)
+                        )
+            if Worst > 1e-3:
+                BadCount += 1
+        if Heuristic:
+            assert BadCount > 0, PathValue.name
+        else:
+            assert BadCount == 0, f"{PathValue.name} has {BadCount} bad faces"
+
+
+# this definition exists because a scorecard needs one surface distance
+def SurfaceDistance(
+    Point: SpaceVector, Surface: PlaneSurface | CylinderSurface
+) -> float:
+    if isinstance(Surface, PlaneSurface):
+        Origin = Surface.origin
+        Normal = Surface.normal
+        return abs(
+            (Point.x - Origin.x) * Normal.x
+            + (Point.y - Origin.y) * Normal.y
+            + (Point.z - Origin.z) * Normal.z
+        )
+    Origin = Surface.origin
+    AxisValue = Surface.axis
+    Delta = (Point.x - Origin.x, Point.y - Origin.y, Point.z - Origin.z)
+    Along = Delta[0] * AxisValue.x + Delta[1] * AxisValue.y + Delta[2] * AxisValue.z
+    Squared = (
+        Delta[0] * Delta[0] + Delta[1] * Delta[1] + Delta[2] * Delta[2] - Along * Along
+    )
+    Radius = float(Surface.radius)
+    return abs(math.sqrt(max(0.0, float(Squared))) - Radius)
+
+
 # this definition exists because focused behavior needs one stable owner
 def TestBrepWriter(TmpPath: Path) -> None:
     Model = BoxModel()
