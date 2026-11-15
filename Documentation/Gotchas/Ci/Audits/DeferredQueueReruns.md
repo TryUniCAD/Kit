@@ -17,4 +17,4 @@ Use a remote audit phase that executes the complete job set against the immutabl
 Require fresh suite execution and a successful result from every security job.
 Report the audit separately from native queue acceptance.
 
-See the [pinned post-merge audit](../../Changes/Ci/PostMergeQueueAudit.md).
+See the [pinned post-merge audit](../../../Changes/Ci/PostMergeQueueAudit.md).

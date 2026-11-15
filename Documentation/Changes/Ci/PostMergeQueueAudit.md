@@ -32,4 +32,4 @@ Remote audit results are recorded in the audit PR and its workflow run.
 No tests ran locally.
 Any failed job leaves the audit incomplete until its cause is repaired and verified.
 
-See [queue operations](../../../MergeQueue.md) and [deferred reruns](../../Gotchas/Ci/DeferredQueueReruns.md).
+See [queue operations](../../../MergeQueue.md) and [deferred reruns](../../Gotchas/Ci/Audits/DeferredQueueReruns.md).
