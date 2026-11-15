@@ -8,7 +8,7 @@ from Streams import StreamDoc, store_rooted
 from builders.Definition import definition_stream, part_definition
 from builders.Extrude import live_blind_extrusion
 from builders.Metadata import biography, fields, header, history, keywords, streams
-from builders.Model import body_feature, component_plane, model_feature, part_graph
+from builders.Model import body_feature, component_plane, logged_creation_time, model_feature, part_graph
 from builders.Sketch import PlaneFrame, closed_profile, origin_profile
 from builders.Styles import detail_definitions
 from builders.Units import unit_table_profile
@@ -110,7 +110,7 @@ def construct_part(*, registry, document, provenance, presentation, target):
     plane = graph.planes[document["plane_axis"]]
     frame = PlaneFrame(origin=(0.0, 0.0, 0.0), u=plane["_plane_u"], v=plane["_plane_v"])
     reference = component_plane(
-        plane=plane, component=graph.part["f990"], created_at=provenance["created_at"],
+        plane=plane, component=graph.part["f990"], created_at=logged_creation_time(timestamps=()),
         principal_normal=tuple(plane["f6f8"]["normal"][axis] for axis in ("x", "y", "z")),
     )
     feature_values = {

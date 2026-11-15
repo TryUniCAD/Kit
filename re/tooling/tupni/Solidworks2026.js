@@ -41,6 +41,18 @@ rpc.exports = {
     const Model = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "sldmodu.dll")
     const Common = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "swccu.dll")
     if (Model === undefined || Common === undefined) throw new Error("selected target modules are not loaded")
+    Process.setExceptionHandler(Details => {
+      const Registers = {}
+      for (const Name of ["pc", "sp", "rax", "rbx", "rcx", "rdx", "rsi", "rdi", "rbp", "r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15"]) {
+        if (Details.context[Name] !== undefined) Registers[Name] = Details.context[Name].toString()
+      }
+      let Frames = []
+      let BacktraceError = null
+      try { Frames = Thread.backtrace(Details.context, Backtracer.ACCURATE).map(location) }
+      catch (ErrorInfo) { BacktraceError = String(ErrorInfo) }
+      emit({kind: "native-exception", type: Details.type, address: location(Details.address), memory: Details.memory === undefined ? null : {operation: Details.memory.operation, address: Details.memory.address.toString()}, registers: Registers, backtrace: Frames, backtrace_error: BacktraceError, handled: false})
+      return false
+    })
     attach(Model.base.add(0x4c5916f0 - 0x4b140000), {
       onEnter(Args) {
         this.thread = Process.getCurrentThreadId()
@@ -55,8 +67,8 @@ rpc.exports = {
       }
     })
     attach(Model.base.add(0x4c5195d0 - 0x4b140000), {
-      onEnter(Args) { this.object = Args[0]; this.before = sketch(this.object); this.caller = location(this.returnAddress) },
-      onLeave(ReturnValue) { emit({kind: "sketch-update", before: this.before, after: sketch(this.object), result: ReturnValue.toString(), caller: this.caller}) }
+      onEnter(Args) { this.wrapper = Args[0]; this.object = this.wrapper.add(8).readPointer(); this.before = sketch(this.object); this.caller = location(this.returnAddress) },
+      onLeave(ReturnValue) { emit({kind: "sketch-update", wrapper: this.wrapper.toString(), before: this.before, after: sketch(this.object), result: ReturnValue.toString(), caller: this.caller}) }
     })
     attach(Model.base.add(0x4c5077f0 - 0x4b140000), {
       onEnter(Args) { emit({kind: "solver-status-map", handle: Args[0].toString(), raw_status: Args[1].toInt32(), drawing: Args[2].toInt32(), caller: location(this.returnAddress)}) }
@@ -71,7 +83,7 @@ rpc.exports = {
     })
     attach(Model.base.add(0x4c03a810 - 0x4b140000), {
       onEnter(Args) { this.object = Args[0]; this.arguments = [Args[1].toString(), Args[2].toString(), Args[3].toString()]; this.caller = location(this.returnAddress) },
-      onLeave(ReturnValue) { emit({kind: "update-session-stamp", object: this.object.toString(), arguments: this.arguments, result: ReturnValue.toString(), caller: this.caller}) }
+      onLeave(ReturnValue) { emit({kind: "update-session-stamp", object: this.object.toString(), arguments: this.arguments, raw_rax_not_semantic_result: ReturnValue.toString(), caller: this.caller}) }
     })
     const Seen = new Set()
     for (const Entry of Common.enumerateExports()) {

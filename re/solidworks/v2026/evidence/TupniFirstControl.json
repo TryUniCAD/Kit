@@ -1,0 +1,154 @@
+{
+  "authority": "native-api-boundary-observation",
+  "instruction_taint": false,
+  "capture_sha256": "cda33fba8a5c340f08f31ff96ff0faeea7f69d23ec1fce551baaff03ce06a1d0",
+  "script_sha256": "6d87037663e56c662f8ea89a6af2ec2969874fe7c5b523a7c4ed8df2bd801e5f",
+  "prepare_sha256": "6593baa2bae10047769368fdb3b74b4ebff7192404638b0a6848e5fb3181132f",
+  "action_sha256": "170243140b70313ece0ef37016d011ba87e202739b6c31f735ed7a622fd93942",
+  "revision": "34.5.2",
+  "module_sha256": {
+    "sldmodu.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "swccu.dll": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c"
+  },
+  "messages": 2693,
+  "event_counts": {
+    "hooks-ready": 1,
+    "feature-constructor": 26,
+    "model-needs-update": 24,
+    "sketch-serialize-enter": 2,
+    "archive-primitive": 2596,
+    "archive-count": 17,
+    "sketch-serialize-leave": 2,
+    "update-session-stamp": 14,
+    "sketch-update": 2,
+    "solver-status-map": 9
+  },
+  "events_dropped": 0,
+  "producer_statistics": {
+    "events": 2693,
+    "dropped": 0
+  },
+  "script_errors": [],
+  "elapsed_seconds": 74.21800000000803,
+  "attached": true,
+  "detached": true,
+  "control": {
+    "opened": true,
+    "open_errors": 0,
+    "open_warnings": 0,
+    "rebuilt": true,
+    "bodies": 1,
+    "mass": {
+      "volume": 8.000000000000001e-06,
+      "area": 0.0028,
+      "com": [
+        0.0,
+        0.0,
+        0.005
+      ],
+      "mass": 8.000000000000001e-06
+    },
+    "whats_wrong": 0
+  },
+  "constructor_versions": [
+    [
+      2026306,
+      370108
+    ]
+  ],
+  "sketch_loader_states": [
+    {
+      "sequence": 28,
+      "kind": "sketch-serialize-enter",
+      "sketch": {
+        "pointer": "0x70f73c30",
+        "saved_status": 1,
+        "status": 1,
+        "flags": 4294967295,
+        "stamp": 1
+      },
+      "archive": {
+        "pointer": "0x2f5a6ae0",
+        "buffer_start": "0x710f35e0",
+        "cursor": "0x710f49e2",
+        "buffer_offset": "0x1402",
+        "buffer_end": "0x710f6e27",
+        "map_count": 175,
+        "epoch": 1,
+        "logical_stream_offset": null
+      }
+    },
+    {
+      "sequence": 326,
+      "kind": "sketch-serialize-leave",
+      "sketch": {
+        "pointer": "0x70f73c30",
+        "saved_status": 1,
+        "status": 2,
+        "flags": 0,
+        "stamp": 1
+      },
+      "archive": {
+        "pointer": "0x2f5a6ae0",
+        "buffer_start": "0x710f35e0",
+        "cursor": "0x710f4bd6",
+        "buffer_offset": "0x15f6",
+        "buffer_end": "0x710f6e27",
+        "map_count": 179,
+        "epoch": 1,
+        "logical_stream_offset": null
+      }
+    },
+    {
+      "sequence": 327,
+      "kind": "sketch-serialize-enter",
+      "sketch": {
+        "pointer": "0x70f79110",
+        "saved_status": 1,
+        "status": 1,
+        "flags": 4294967295,
+        "stamp": 1
+      },
+      "archive": {
+        "pointer": "0x2f5a6ae0",
+        "buffer_start": "0x710f35e0",
+        "cursor": "0x710f4d79",
+        "buffer_offset": "0x1799",
+        "buffer_end": "0x710f6e27",
+        "map_count": 186,
+        "epoch": 1,
+        "logical_stream_offset": null
+      }
+    },
+    {
+      "sequence": 2644,
+      "kind": "sketch-serialize-leave",
+      "sketch": {
+        "pointer": "0x70f79110",
+        "saved_status": 1,
+        "status": 1,
+        "flags": 0,
+        "stamp": 10
+      },
+      "archive": {
+        "pointer": "0x2f5a6ae0",
+        "buffer_start": "0x710f35e0",
+        "cursor": "0x710f6096",
+        "buffer_offset": "0x2ab6",
+        "buffer_end": "0x710f6e27",
+        "map_count": 229,
+        "epoch": 1,
+        "logical_stream_offset": null
+      }
+    }
+  ],
+  "invalid_interpretations": [
+    "sketch-update uses wrapper address as sgSketch in this hook revision",
+    "void updateSessionStamp RAX is not a semantic stamp result"
+  ],
+  "missing_capture_identity": [
+    "input hash was not collected inside this run",
+    "runtime module bases were not retained in the capture manifest"
+  ],
+  "interpretation": "native API boundaries; no general field defaults, full instruction taint, generated-file acceptance or speedup established"
+}

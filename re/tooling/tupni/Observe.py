@@ -67,6 +67,10 @@ def main():
             event["binary_data_bytes"] = len(data)
         record["messages"].append(event)
 
+    def detached(reason, crash):
+        record["detach_event"] = {"reason": str(reason), "crash": None if crash is None else str(crash)}
+        record["detached"] = True
+
     try:
         record["python_image"] = image_identity(Path(sys.executable))
         record["frida_image"] = image_identity(args.frida_dir / "frida" / "_frida.pyd")
@@ -85,6 +89,7 @@ def main():
             raise RuntimeError(f"expected exactly one explicitly named target, found {len(targets)}")
         record["pid"] = targets[0].pid
         session = device.attach(targets[0].pid, realm=args.realm)
+        session.on("detached", detached)
         record["attached"] = True
         script = session.create_script(source.decode("utf-8"), name="kit-tupni-observation")
         script.on("message", receive)
@@ -92,6 +97,7 @@ def main():
         if args.module_manifest is not None:
             expected = json.loads(args.module_manifest.read_text(encoding="utf-8"))
             modules = script.exports_sync.moduleidentity()
+            record["module_runtime"] = modules
             record["module_images"] = {}
             for name, digest in expected.items():
                 matches = [module for module in modules if module["name"].casefold() == name.casefold()]
@@ -106,6 +112,8 @@ def main():
         if args.action_script is not None:
             record["action_path"] = str(args.action_script)
             record["action_sha256"] = hashlib.sha256(args.action_script.read_bytes()).hexdigest()
+            if args.action_input is not None:
+                record["action_input"] = image_identity(args.action_input)
             action = runpy.run_path(str(args.action_script))
             record["action_result"] = action["exercise"](args.action_input, prepared)
         time.sleep(args.seconds)

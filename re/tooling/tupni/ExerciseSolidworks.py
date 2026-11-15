@@ -10,7 +10,7 @@ import Swapp
 
 def exercise(path, prepared):
     if path is None or not path.is_file() or path.suffix.casefold() != ".sldprt":
-        raise ValueError("one explicitly selected native training part is required")
+        raise ValueError("one explicitly selected native part is required")
     if prepared is None:
         raise ValueError("a retained goal-owned controller is required")
     app = prepared["controller"].app
@@ -19,7 +19,7 @@ def exercise(path, prepared):
         errors, warnings = Swapp.byref_long(), Swapp.byref_long()
         model = app.OpenDoc6(str(path), 1, Swapp.OPEN_SILENT | Swapp.OPEN_READONLY, "", errors, warnings)
         result = {
-            "kind": "instrumented-training-control",
+            "kind": "instrumented-native-document",
             "path": str(path), "revision": str(Swapp.cv(app, "RevisionNumber")),
             "opened": model is not None, "open_errors": int(errors.value), "open_warnings": int(warnings.value),
         }

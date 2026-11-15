@@ -9,8 +9,9 @@ generative writer rules.
 The [first-use ledger](../../../re/solidworks/records/Tupni2026.md) records its
 application to the ongoing SOLIDWORKS 2026 investigation. The
 [maintained research guide](../../Reference/Research/TupniFormatRecovery.md)
-links the procedure and evidence. Native capture and measured improvement are
-pending; no existing static finding is retroactively credited to Tupni.
+links the procedure and evidence. The first native loader capture succeeded;
+measured improvement remains pending. No existing static finding is
+retroactively credited to Tupni.
 
 Verification at this revision consists of reading the primary paper, inspecting
 the target archive boundary and checking the actual VM architecture and tracing
@@ -46,3 +47,13 @@ are included in total elapsed time, outside the bounded post-action window.
 The runner records preparation and action hashes, dialog handling and cleanup
 failures. The exercise never obtains a different application from the running
 object table. See the [controller lifetime finding](../../Gotchas/Conversion/Solidworks/TraceControllerLifetime.md).
+
+The retained-control run collected 2,693 native boundary events with no dropped
+events, script errors or dialogs. Its control rebuilt as one correct solid.
+The ledger records the capture digest, observed handlers, fixed argument-type
+interpretation and missing original input/base identities. Subsequent captures
+retain input hashes and runtime module bases. The native exception observer
+records fault addresses, registers and a bounded accurate backtrace, then
+forwards the exception unchanged. It does not repair or suppress loader faults.
+Clean acceptance runs remain uninstrumented. No instruction-level taint or
+generalized writer rule is claimed from this first capture.
