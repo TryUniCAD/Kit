@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 
+# independently authored design inputs prevent saved native controls from supplying output values
 def MakePartInput(
     Vertices: list[list[float]], DepthValue: float, NameValue: str
 ) -> dict[str, object]:

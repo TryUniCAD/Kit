@@ -3,6 +3,7 @@ from __future__ import annotations
 from tests.convert.solidworks.research.ArchiveProcess import KCorpus, RunArchive
 
 
+# linked stream checks prevent independent archive maps from masking reference errors
 def TestLinked() -> None:
     Outcome = RunArchive(
         str(KCorpus / "*.SLDPRT"),
