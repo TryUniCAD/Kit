@@ -478,6 +478,10 @@ its actual part or assembly owner. Null components remain supported for the
 default reference-base constructor. Other concrete component copy paths and
 external state fail closed until their construction semantics are implemented.
 See [exclusive reference ownership](../../../Documentation/Gotchas/Conversion/Solidworks/Model/PlaneReferencesOwnTheirComponents.md).
+The subprocess coverage now constructs two wrappers for one semantic principal
+plane, writes their distinct component copies through the real container, and
+checks decoded object identity and the shared model-owner alias. This regression
+is committed for remote CI; it has not been run locally or accepted natively.
 
 ## Principal-plane graph
 

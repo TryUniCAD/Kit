@@ -110,6 +110,9 @@ records the distinct native allocation paths observed for one final body.
 The [reference-ownership gotcha](../../Gotchas/Conversion/Solidworks/Model/PlaneReferencesOwnTheirComponents.md)
 records the separate exclusive lifetimes of profile plane wrappers and their
 component copies.
+The process regression round-trips two references through the real container,
+checking distinct wrapper/component objects and their shared actual model owner.
+That new regression awaits remote CI and does not establish native acceptance.
 Model gotchas now live under `Solidworks/Model/`, and process-check gotchas
 under `Ci/ProcessChecks/`, preserving the directory-density limit.
 

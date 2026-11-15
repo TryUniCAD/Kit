@@ -59,6 +59,9 @@ def AssertBase(Report: dict[str, object]) -> None:
     assert Report["base_flag_trace"] == [1, 0, 1]
     assert Report["base_root_flags"] == 1
     assert Report["base_map_count"] == Report["base_resolved_map_start"]
+    assert Report["reference_classes"] == ["moCompRefPlane_c"] * 2
+    assert Report["reference_components_distinct"] is True
+    assert Report["reference_owners_shared"] is True
 
 
 # independent unicode and size inputs expose fixed output while the subprocess enforces the real access boundary
