@@ -128,8 +128,8 @@ field-program replay, opaque payload or missing-key zero fallback.
 `Input` means an explicit neutral-document or authored setting. `Derived` means
 the stated formula or composition. `Seed` means a literal assignment or branch
 in the identified 2026 constructor, not invariance among related input files.
-`Compatibility seed` is weaker: the current reader supplies it for a supported
-older record. None of these classifications establishes vendor acceptance.
+An older-reader compatibility assignment alone is weaker than native fresh-data
+construction. None of these classifications establishes vendor acceptance.
 Offsets name memory fields as used by the existing typed wire schemas.
 
 ### Detail root
@@ -198,24 +198,45 @@ grid storage, not arbitrary missing schema fields.
 
 ### Helpers and Swift
 
-| Record and field group                  | Classification and rule                                                                                                                                    | Native evidence                                                                                                                       |
-| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| annotation helper all serialized fields | Seed/derived: native flag/scalar initialization and fresh authored-face default format                                                                     | `sldmfcu.dll` ctor `0x3c7d0fe0`                                                                                                       |
-| surface finish all serialized fields    | Seed/derived: empty native strings, explicit type flags, native `pi/4` angle and two child formats                                                         | ctor `0x3c7d2710`                                                                                                                     |
-| note all serialized fields              | Seed/derived: native text/leader/border flags, empty counted property table and child formats                                                              | ctor `0x3c7d24b0`                                                                                                                     |
-| weld all serialized fields              | Seed/derived: two-sided native string/flag arrays, three fresh formats and two finish helpers                                                              | ctor `0x3c7d2850`                                                                                                                     |
-| GTol frame all serialized fields        | Seed/derived: two fresh frames, empty text arrays, null tolerance nodes, `f148=0` disables datum payloads, zero indicator count                            | frame ctor `0x3c7d1cc0`; helper allocation `0x3c7d9800`                                                                               |
-| GTol helper fields other than `f80`     | Seed/derived: native fields, two frame rows and child formats                                                                                              | helper ctor `0x3c7d1b50`, copy `0x3c7d76b0`                                                                                           |
-| GTol helper `f80`                       | Compatibility seed 0, matching the 2026 reader's explicit pre-`0x3751` fallback; not a constructor-derived constant and its application role is unresolved | serializer/loader `0x3c85ce50`; both owner transfer methods only copy it (`0x3c7db630`,`0x3c7dc8f0`)                                  |
-| centre mark all serialized fields       | Seed/derived: explicit native flags/geometry scalars and annotation helper                                                                                 | ctor `0x3c7d1080`                                                                                                                     |
-| datum feature all serialized fields     | Seed/derived: native strings and flags, fresh annotation helper                                                                                            | ctor `0x3c7d1120`                                                                                                                     |
-| datum target all serialized fields      | Seed/derived: native flags, `0.03` sizes, unused direction initialized to `(0,0,0)`, fresh annotation helper                                               | ctor `0x3c7d1180`; `sldmgu.dll` unit-vector ctor `0x31f19380` calls vector storage initializer `0x31dd3a00` with three zero registers |
-| Swift serialized double fields          | Seed: metric tolerance branch `setDefaultTolerances(this,1)` with constructor selector `f08=0`; positive/negative pairs computed from the same magnitude   | ctor `0x3c83c4a0`, defaults wrapper `0x3c83f670`, tolerance rules `0x3c83fcc0`                                                        |
-| Swift precision integer fields          | Derived: native `max(2, minimum)` where the metric minima are 1 or 2, therefore 2                                                                          | precision rules `0x3c83fa60`; maximum helper `0x3c798f40`                                                                             |
-| Swift remaining integer flags           | Seed: explicit constructor assignments and flag initializer; the three wire occurrences of `f220` all read the same initialized precision field            | flag rules `0x3c83f8d0`; serializer `0x3c83c760`                                                                                      |
-| Swift `f3dc`                            | Derived: `int(standard != 0)` in the owning root; not serialized by the current schema                                                                     | helper `0x3c7db840`, raw caller `0x3c7d184b`                                                                                          |
+| Record and field group                  | Classification and rule                                                                                                                                                                              | Native evidence                                                                                                                       |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| annotation helper all serialized fields | Seed/derived: native flag/scalar initialization and fresh authored-face default format                                                                                                               | `sldmfcu.dll` ctor `0x3c7d0fe0`                                                                                                       |
+| surface finish all serialized fields    | Seed/derived: empty native strings, explicit type flags, native `pi/4` angle and two child formats                                                                                                   | ctor `0x3c7d2710`                                                                                                                     |
+| note all serialized fields              | Seed/derived: native text/leader/border flags, empty counted property table and child formats                                                                                                        | ctor `0x3c7d24b0`                                                                                                                     |
+| weld all serialized fields              | Seed/derived: two-sided native string/flag arrays, three fresh formats and two finish helpers                                                                                                        | ctor `0x3c7d2850`                                                                                                                     |
+| GTol frame all serialized fields        | Seed/derived: two fresh frames, empty text arrays, null tolerance nodes, `f148=0` disables datum payloads, zero indicator count                                                                      | frame ctor `0x3c7d1cc0`; helper allocation `0x3c7d9800`                                                                               |
+| GTol helper fields other than `f80`     | Seed/derived: native fields, two frame rows and child formats                                                                                                                                        | helper ctor `0x3c7d1b50`, copy `0x3c7d76b0`                                                                                           |
+| GTol helper `f80`                       | Derived: native fresh GTol data `f24c`, initialized to 0 by its constructor; absent data also projects to 0. Positive authored modes are unsupported; this is not a root-helper constructor constant | `sldmodu.dll` constructor `0x4c7c5f80`, projection `0x4c7d2930` and reverse application `0x4c7d04a0`; exact instructions below        |
+| centre mark all serialized fields       | Seed/derived: explicit native flags/geometry scalars and annotation helper                                                                                                                           | ctor `0x3c7d1080`                                                                                                                     |
+| datum feature all serialized fields     | Seed/derived: native strings and flags, fresh annotation helper                                                                                                                                      | ctor `0x3c7d1120`                                                                                                                     |
+| datum target all serialized fields      | Seed/derived: native flags, `0.03` sizes, unused direction initialized to `(0,0,0)`, fresh annotation helper                                                                                         | ctor `0x3c7d1180`; `sldmgu.dll` unit-vector ctor `0x31f19380` calls vector storage initializer `0x31dd3a00` with three zero registers |
+| Swift serialized double fields          | Seed: metric tolerance branch `setDefaultTolerances(this,1)` with constructor selector `f08=0`; positive/negative pairs computed from the same magnitude                                             | ctor `0x3c83c4a0`, defaults wrapper `0x3c83f670`, tolerance rules `0x3c83fcc0`                                                        |
+| Swift precision integer fields          | Derived: native `max(2, minimum)` where the metric minima are 1 or 2, therefore 2                                                                                                                    | precision rules `0x3c83fa60`; maximum helper `0x3c798f40`                                                                             |
+| Swift remaining integer flags           | Seed: explicit constructor assignments and flag initializer; the three wire occurrences of `f220` all read the same initialized precision field                                                      | flag rules `0x3c83f8d0`; serializer `0x3c83c760`                                                                                      |
+| Swift `f3dc`                            | Derived: `int(standard != 0)` in the owning root; not serialized by the current schema                                                                                                               | helper `0x3c7db840`, raw caller `0x3c7d184b`                                                                                          |
 
 ## Verification and remaining acceptance
+
+### GTol `f80` fresh-data derivation
+
+The helper constructor's omission is real, but it does not require guessing an
+output value. `sldmodu.dll` (manifest SHA-256
+`569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e`)
+contains both projections between real GTol annotation data and the helper:
+
+| Step                      | Exact native evidence                                                                                                                    | Consequence                                                                           |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Runtime factory           | `moGtolData_c` runtime-class record `0x4db07580` names factory `0x4c944f10`; factory call `0x4c944f2c` invokes default ctor `0x4c7c5f80` | Identifies the actual data type and fresh constructor, independent of a saved control |
+| Fresh data initialization | Default ctor `0x4c7c5f80` explicitly writes a zero qword at `this+0x248`                                                                 | The 32-bit member `this+0x24c` is zero in newly constructed native GTol data          |
+| Data-to-helper projection | `FUN_4c7d2930`: `0x4c7d3648` reads `[data+0x24c]`; `0x4c7d3653` writes `[helper+0x80]`                                                   | Helper `f80` is derived from data `f24c`                                              |
+| Absent-data branch        | Pointer test `0x4c7d3631`; null branch `0x4c7d3650` chooses `r14d`, zeroed at `0x4c7d3196` and unchanged before this use                 | The same native projection assigns zero when data is absent                           |
+| Reverse application       | `FUN_4c7d04a0` loads the helper from the model defaults and writes its `f80` into GTol data `f24c`                                       | Confirms the corresponding semantic data member, not unrelated padding or a cache     |
+| Paired text               | The projection maps helper `f88/f90` to data `f268/f270` using `0x4c7ce390`; the data ctor initializes both strings empty                | The fresh associated text state follows native CString construction                   |
+
+The value 0 is therefore a native fresh-data derivation for the unused helper,
+not merely an older-version fallback. Its user-facing mode name is still
+unresolved. The builder does not expose nonzero modes or populated GTol text,
+and this derivation does not establish vendor acceptance of the assembled file.
 
 The bend-note subtype's constructor `0x3c7a3540` keeps `f58=0`.
 Its later folded `SetFlags(this,1)` call is `0x3c7a5970`, which writes
@@ -232,8 +253,8 @@ shape. They are scheduled through the existing remote workflow-quality native
 file-reading/writing step; no separate workflow or donor access is introduced.
 
 Remaining acceptance includes vendor load/rebuild/edit checks in the assembled
-document, the unresolved semantic role and held-out acceptance of the GTol `f80`
-compatibility seed, non-1 standard branches, optional populated GTol/datums and
+document, the user-facing name and nonzero modes of GTol `f80`, non-1 standard
+branches, optional populated GTol/datums and
 full authored dimension/annotation preference coverage. Helper constructors
 describe unused style records, not user-created annotations or feature support.
 Native constructor seeds are not inferred from ladder invariance. The unit

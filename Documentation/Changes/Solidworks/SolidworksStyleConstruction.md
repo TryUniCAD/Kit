@@ -22,8 +22,10 @@ checks, not vendor acceptance. Local verification is limited to static parsing,
 formatting, type and naming checks. Remote execution evidence will be recorded
 after PR CI completes.
 
-Vendor loadability, rebuild behavior, editing and the GTol helper `f80`
-compatibility seed remain unproven. No source serializer, production adapter,
+GTol helper `f80=0` is derived from the native GTol-data constructor and the
+actual data-to-helper projection, including its absent-data branch. Its
+user-facing mode name and nonzero modes remain unresolved. Vendor loadability,
+rebuild behavior and editing remain unproven. No source serializer, production adapter,
 CAD application automation or existing builder was changed. The parent native
 writer's full held-out acceptance criteria remain in force.
 
