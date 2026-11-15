@@ -4,6 +4,7 @@ from stat import S_IMODE as FileMode
 from tempfile import TemporaryDirectory
 
 
+# inspection output needs atomic publication without overwriting sources or discarding destination permissions
 def SaveDecode(Destination: FilePath, Content: str, Overwrite: bool) -> None:
     Destination = Destination.resolve()
     with TemporaryDirectory(dir=Destination.parent, prefix=".kit-") as Directory:

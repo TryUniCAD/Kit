@@ -7,6 +7,7 @@ from convert.Commands.CliOptions import CliOptions
 from convert.Commands.ResearchTools import KResearchScripts
 
 
+# research execution must use the selected checkout sdk and preserve downstream process outcomes
 def RunResearch(Options: CliOptions) -> NoReturn:
     if Options.ResearchRoot is None:
         raise ValueError("Research requires --root pointing to a trusted PR94 checkout")

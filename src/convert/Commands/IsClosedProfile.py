@@ -10,6 +10,7 @@ from interchange.geometry.models.VectorPlane import PlaneVector
 from interchange.geometry.models.VectorSpace import SpaceVector
 
 
+# generator qualification requires supported closed analytic profiles rather than declared profile identifiers alone
 def IsClosedProfile(Members: tuple[SketchEntity, ...]) -> bool:
     if any(Entity.construction for Entity in Members):
         return False

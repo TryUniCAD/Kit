@@ -4,12 +4,14 @@ from convert.Commands.Qualified.CanonicalFusion import CanonicalFusion
 from convert.Commands.Qualified.SemanticCore import SemanticCore
 from interchange.document.models.DocumentModel import CadDocument
 
+# unqualified geometry needs a consistent refusal before writers can claim usability
 KGeometryError = (
     "UnqualifiedGeometry records are not conversion-ready; "
     "use kit decode or kit research for inspection"
 )
 
 
+# typed records alone cannot establish that geometry matches its qualified sdk contract
 def CheckGeometry(Document: CadDocument) -> None:
     if not Document.bodies and Document.brep is None:
         return

@@ -5,6 +5,7 @@ from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumFeatures import FeatureKind
 
 
+# local geometry needs a complete active generator history before conversion can proceed
 def CheckFeatures(Document: CadDocument) -> None:
     Generators = set[str]()
     ActiveFeatures = set[str]()
@@ -20,6 +21,8 @@ def CheckFeatures(Document: CadDocument) -> None:
         for Configuration in Document.configurations
         for FeatureId in Configuration.suppressed_feature_ids
     }
+
+    # feature dependencies need chronological processing to establish active generators
     for Feature in sorted(Document.feature_timeline, key=lambda Value: Value.order):
         CheckStep(Feature, IdentitySets, Selections, Parameters, Frames, Sketches)
         if (

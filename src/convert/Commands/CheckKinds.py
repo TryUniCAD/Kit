@@ -7,6 +7,7 @@ from interchange.assembly.MateEntity import MateEntity
 from interchange.enums.EnumGeometry import ConstraintKind, GeometryKind
 from interchange.geometry.models.Sketch import SketchEntity, SketchRelation
 
+# portable conversion needs explicit supported kind sets for open typed records
 KRecordKinds: dict[type[object], frozenset[str]] = {
     Record: frozenset(
         KindValue.value for KindValue in Kinds if KindValue.value != "native"
@@ -21,6 +22,7 @@ KRecordKinds: dict[type[object], frozenset[str]] = {
 }
 
 
+# open record kind strings must not imply supported semantics merely because links validate
 def CheckKinds(Record: object) -> None:
     for RecordType, AllowedKinds in KRecordKinds.items():
         if (

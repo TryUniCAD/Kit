@@ -1,6 +1,7 @@
 from convert.api.ApiContext import GetRegistry
 
 
+# users need adapter discovery to distinguish available readers from supported output writers
 def FormatReport() -> list[dict[str, object]]:
     Registry = GetRegistry()
     Readers = {Adapter.info.FormatId: Adapter.info for Adapter in Registry.GetReaders()}

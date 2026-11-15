@@ -6,6 +6,7 @@ from interchange.features.FeatureKinds import CombineFeature
 from interchange.features.FeatureStep import FeatureStep
 
 
+# geometry must depend on active typed inputs rather than unrelated feature presence
 def CanGenerate(
     Feature: FeatureStep,
     Profiles: set[str],

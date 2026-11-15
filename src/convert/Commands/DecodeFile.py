@@ -8,6 +8,7 @@ from convert.Commands.ContainerView import ContainerView
 from convert.formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 
 
+# developer inspection needs explicit views that do not masquerade as accepted conversion artifacts
 def DecodeFile(Options: CliOptions) -> object:
     if Options.Layer != "neutral" and (
         Options.Partial or Options.Configuration is not None

@@ -3,6 +3,7 @@ from convert.Commands.FusionView import FusionView
 from convert.Commands.SolidworksView import SolidworksView
 
 
+# container inspection needs consistent format routing without assuming every archive has editable semantics
 def ContainerView(Options: CliOptions) -> dict[str, object]:
     FormatId = (Options.SourceFormat or Options.Source.suffix).casefold()
     if FormatId in ("fusion.f3d", "f3d", ".f3d"):

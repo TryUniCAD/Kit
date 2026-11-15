@@ -4,6 +4,7 @@ from sys import version_info as KPythonVersion
 from convert.formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionZip
 
 
+# archive investigation needs bounded stream evidence without implying recovered feature semantics
 def FusionView(Payload: bytes, StreamName: str | None) -> dict[str, object]:
     if StreamName is not None and KPythonVersion < (3, 14):
         raise ValueError("Fusion stream extraction requires Python 3.14 or newer")

@@ -6,12 +6,14 @@ from typing import cast as CastValue
 from convert.Commands.CheckKinds import CheckKinds
 from interchange.document.models.DocumentModel import CadDocument
 
+# retained source data needs a distinct refusal that directs callers toward inspection
 KMetadataError = (
     "RetainedMetadata records are not conversion-ready; "
     "use kit decode or kit research for inspection"
 )
 
 
+# retained native bytes must be refused wherever serialization preserves them in the document graph
 def CheckRetained(Document: CadDocument) -> None:
     Pending: list[object] = [Document]
     VisitedIds = set[int]()

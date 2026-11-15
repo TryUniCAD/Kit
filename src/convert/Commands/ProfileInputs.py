@@ -5,6 +5,7 @@ from convert.Commands.IsClosedProfile import IsClosedProfile
 from interchange.geometry.models.Sketch import Sketch
 
 
+# generator history needs actual closed supported sketch geometry rather than unverified profile references
 def ProfileInputs(Sketches: Sequence[Sketch]) -> set[str]:
     Profiles = set[str]()
     for SketchValue in Sketches:

@@ -1,3 +1,4 @@
+# trusted checkout execution requires fixed tool paths rather than arbitrary script selection
 KResearchScripts = {
     "solidworks": "SolidworksReader.py",
     "fusion": "FusionReader.py",

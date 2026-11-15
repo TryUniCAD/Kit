@@ -7,6 +7,7 @@ from convert.Commands.DecodeArgs import AddDecodeMut
 from convert.Commands.ResearchArgs import AddResearchMut
 
 
+# command discovery and validation need one consistent public argument contract
 def BuildParser() -> ArgumentParser:
     Parser = ArgumentParser(
         prog="kit",

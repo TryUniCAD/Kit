@@ -11,6 +11,7 @@ from convert.Commands.SaveDecode import SaveDecode
 from convert.Commands.RunResearch import RunResearch
 
 
+# command routing must apply shared file protections before conversion or inspection can publish output
 def RunCommand(Options: CliOptions) -> None:
     if Options.Command == "research":
         RunResearch(Options)

@@ -3,6 +3,7 @@ from base64 import b64encode as EncodeBase
 from convert.adapters.solidworks.container.Container import SldprtArchive
 
 
+# compressed container inspection needs bounded decoded evidence before exposing archive members
 def SolidworksView(
     Payload: bytes, StreamName: str | None, FormatId: str
 ) -> dict[str, object]:

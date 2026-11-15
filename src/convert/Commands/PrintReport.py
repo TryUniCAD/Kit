@@ -1,6 +1,7 @@
 from json import dumps as DumpJson
 
 
+# human conversion reports must expose writer evidence and unresolved application acceptance
 def PrintReport(Report: dict[str, object]) -> None:
     print("Wrote " + DumpJson(Report["path"], ensure_ascii=True))
     for FieldName in (

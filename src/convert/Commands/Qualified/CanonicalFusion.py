@@ -3,6 +3,7 @@ from dataclasses import replace as ReplaceData
 from interchange.document.models.DocumentModel import CadDocument
 
 
+# geometry qualification needs a fresh authoritative sdk projection independent of supplied neutral geometry
 def CanonicalFusion(Document: CadDocument, ContractName: str) -> CadDocument:
     from convert.adapters.Fusion.Authoring.MakeFusionDoc import MakeFusionDoc
     from convert.adapters.Fusion.Bridge.CheckContract import CheckContract

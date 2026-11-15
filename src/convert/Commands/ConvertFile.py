@@ -7,6 +7,7 @@ from convert.Commands.WriteReport import WriteReport
 from convert.formats.SourceFormat import ResolveFormat
 
 
+# file conversion must preserve reader identity while enforcing portable data and native writer policy
 def ConvertFile(Options: CliOptions) -> dict[str, object]:
     if Options.Destination is None:
         raise ValueError("Conversion requires a destination")

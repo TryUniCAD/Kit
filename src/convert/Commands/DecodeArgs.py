@@ -2,6 +2,7 @@ from argparse import ArgumentParser
 from pathlib import Path as FilePath
 
 
+# inspection needs separate partial and container controls without weakening conversion requirements
 def AddDecodeMut(Parser: ArgumentParser) -> None:
     _ = Parser.add_argument(
         "-o",

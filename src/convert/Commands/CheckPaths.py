@@ -1,6 +1,7 @@
 from pathlib import Path as FilePath
 
 
+# conversion and inspection must preserve source files and bound input resource use
 def CheckPaths(Source: FilePath, Destination: FilePath | None) -> None:
     if not Source.is_file():
         raise ValueError("Source must be an existing regular file")

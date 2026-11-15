@@ -2,7 +2,10 @@ from argparse import Namespace
 from pathlib import Path as FilePath
 
 
+# all command branches need one parsed options shape with predictable defaults
 class CliOptions(Namespace):
+
+    # unused command options need safe defaults before argument parsing selects a branch
     def __init__(self) -> None:
         super().__init__()
         self.Command = ""

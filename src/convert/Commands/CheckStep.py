@@ -9,17 +9,21 @@ from interchange.geometry.models.Sketch import Sketch
 from interchange.geometry.models.SupportPlane import SupportPlane
 from interchange.records.RecordParameter import Parameter
 
+# feature eligibility must exclude operations whose portable semantics are still unknown
 KPortableKinds = frozenset(
     KindValue
     for KindValue in FeatureKind
     if KindValue not in (FeatureKind.KNative, FeatureKind.KImported)
 )
+
+# incomplete histories need one recovery message across generator and dependency checks
 KFeatureError = (
     "IncompleteFeature records are not conversion-ready; "
     "use kit decode or kit research for inspection"
 )
 
 
+# feature history must provide validated definitions and supported kinds rather than descriptive labels
 def CheckStep(
     Feature: FeatureStep,
     IdentitySets: Mapping[str, set[str]],

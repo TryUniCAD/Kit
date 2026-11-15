@@ -10,11 +10,13 @@ from interchange.document.models.DocumentWalk import WalkDocuments
 from interchange.features.FeatureKinds import NativeFeature
 from interchange.geometry.models.GeometryCurves import NativeGeometry
 
+# unsupported records need a consistent inspection recovery path across structural guards
 KInspectText = (
     " records are not conversion-ready; use kit decode or kit research for inspection"
 )
 
 
+# writer success must not qualify opaque records incomplete assemblies or retained source data
 def CheckPortable(Document: CadDocument) -> None:
     for PartValue in WalkDocuments(Document):
         for RecordName, IsBlocked in (

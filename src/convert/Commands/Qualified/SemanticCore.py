@@ -6,6 +6,7 @@ from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumBase import WireEnum
 
 
+# qualified geometry comparisons must preserve semantics while excluding incidental provenance and annotations
 def SemanticCore(Value: object) -> object:
     if isinstance(Value, WireEnum):
         return SemanticCore(Value.value)
@@ -18,6 +19,8 @@ def SemanticCore(Value: object) -> object:
                 continue
             Member: object = getattr(Value, Field.name)
             if isinstance(Value, CadDocument) and Field.name == "feature_timeline":
+
+                # timeline equality must ignore storage order while preserving declared feature execution order
                 Member = tuple(
                     sorted(Value.feature_timeline, key=lambda Feature: Feature.order)
                 )

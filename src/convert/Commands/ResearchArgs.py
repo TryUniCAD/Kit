@@ -4,6 +4,7 @@ from pathlib import Path as FilePath
 from convert.Commands.ResearchTools import KResearchScripts
 
 
+# deterministic research tools need a trusted checkout and unchanged downstream arguments
 def AddResearchMut(Parser: ArgumentParser) -> None:
     _ = Parser.add_argument(
         "--root",

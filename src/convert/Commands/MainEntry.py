@@ -8,6 +8,7 @@ from convert.Commands.CliOptions import CliOptions
 from convert.Commands.RunCommand import RunCommand
 
 
+# command failures need stable exit codes and machine readable diagnostics for shell callers
 def MainEntry() -> int:
     try:
         if any(len(Value) > 4096 or not Value.isprintable() for Value in ArgValues[1:]):

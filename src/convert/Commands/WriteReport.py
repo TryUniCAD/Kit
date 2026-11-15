@@ -1,6 +1,7 @@
 from convert.adapters.base.WriteResult import WriteResult
 
 
+# conversion evidence needs a stable public representation without claiming target application acceptance
 def WriteReport(Result: WriteResult) -> dict[str, object]:
     return {
         "path": str(Result.OutputPath) if Result.OutputPath is not None else None,
