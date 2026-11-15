@@ -1,5 +1,6 @@
 from collections.abc import Sequence
 
+from convert.Commands.CheckKinds import CheckKinds
 from convert.Commands.IsClosedProfile import IsClosedProfile
 from interchange.geometry.models.Sketch import Sketch
 
@@ -9,6 +10,8 @@ def ProfileInputs(Sketches: Sequence[Sketch]) -> set[str]:
     for SketchValue in Sketches:
         if SketchValue.suppressed or len(SketchValue.closed_profile_entity_ids) != 1:
             continue
+        for Entity in SketchValue.entities:
+            CheckKinds(Entity)
         Entities = {Entity.id: Entity for Entity in SketchValue.entities}
         if len(Entities) != len(SketchValue.entities):
             continue
