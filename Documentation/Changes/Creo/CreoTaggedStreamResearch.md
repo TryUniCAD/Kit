@@ -120,6 +120,14 @@ A direct experiment that swapped `e2`/`e3` to cadmpeg's reading (`e2` open, `e3`
 byte-identical node counts and stop offsets on both controls. The `e3` question is therefore not
 what blocks the current rows; it stays recorded as an open question.
 
+`VisibGeom` also shows that `e3` is context dependent at array-element boundaries. `srf_array` is
+six elements of class 3; element 1 defines the schema inline, element 2 is introduced by
+`f2 f7 03 e3`, and element 3 follows a bare `e3` with `57 22 4a` (`geom_id 87`, `geom_type 34`,
+`feat_id 74`). Three local boundary rules were measured against both controls and all regress at
+least one section, so none was adopted. The measurements and the required level-tracking direction
+are recorded in
+[the compound-boundary gotcha](../../Gotchas/Conversion/CreoTaggedCompoundBoundary.md).
+
 ## Verification
 
 - The empty control decodes four features and the ladder decodes seven.

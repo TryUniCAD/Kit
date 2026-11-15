@@ -247,6 +247,20 @@ parser still treats both as begins. A direct experiment that swapped the roles t
 question is not what blocks the current rows. It stays recorded as an open question rather than a
 settled rule.
 
+### Compound boundaries
+
+`e3` is also context dependent at array-element boundaries. In `VisibGeom`, `srf_array` is
+`f8 06 f7 03 fb` (six elements of class 3). Element 1 defines the schema inline and ends at
+`list_type`. Element 2 is introduced by `f2 f7 03 e3`. Element 3 has no selection: a bare `e3`
+appears where the flat field table would enter the next type-0 sibling, followed directly by the
+element values (`57 22 4a` = `geom_id 87`, `geom_type 34`, `feat_id 74`).
+
+Three local rules were measured and rejected: `e2` as a row separator, `e3` as an unconditional
+close, and an array-class reset on a bare `e3`. All regress at least one section. A correct parser
+needs level tracking with per-level schema extents, not a single advancing index. The measurements
+are recorded in
+[the compound-boundary gotcha](../../../Documentation/Gotchas/Conversion/CreoTaggedCompoundBoundary.md).
+
 ### Datum placement records
 
 `FeatDefsDtm` (`Sld_FeatDefsDtm`) decodes the datum placement records. The first record is the
