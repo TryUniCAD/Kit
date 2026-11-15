@@ -20,9 +20,14 @@ does not sweep processes, and does not establish native feature acceptance.
 If activation or identity capture hangs, the partial report is evidence of the
 last completed stage; unknown process ownership does not authorize cleanup.
 
-Verification at publication is Python syntax parsing and scoped diff checking.
-The exact installation's multi-instance behavior remains unverified until the
-owner's controlled probe. No local repository tests ran.
+Verification includes Python syntax parsing, scoped diff checking, and a
+controlled native probe on the pinned executable. Activation returned a
+preexisting process, so the probe released its reference without an exit command.
+The later read-only inspection found an unsaved modified drawing in that hidden,
+user-controlled session. No local repository tests ran. The
+[native evidence](../../../../re/solidworks/measurements/2026/OracleInstanceReuse.json)
+and [session-reuse gotcha](../../../Gotchas/Conversion/Solidworks/Tracing/VersionedComActivationCanReuseUserSession.md)
+record the distinction between COM activation and process ownership.
 
 `OracleIdentity.py --existing-pid PID` can inspect a specifically selected
 already-running process through versioned activation when it is absent from
