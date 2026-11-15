@@ -1,0 +1,1642 @@
+{
+  "status": "generated candidate rejected after model finalization returned",
+  "authority": "native-api-boundary-observation",
+  "instruction_taint": false,
+  "captures": [
+    {
+      "kind": "control",
+      "raw_capture": "PostOriginControl.json",
+      "raw_sha256": "92d4f08db14f99591e8130ff3c97dbbf41d5c4bf4d40c28b87e6c02ea806e1a5",
+      "script_sha256": "aeebefe9b836e3a61ca1f0d90f0a9130a9170b104312a427036cf0aac60c2a3d",
+      "prepare_sha256": "56d211a3ac33948ea5889a55b1499c8f113bb262fb23ed16c2734b21cd3ded10",
+      "action_input_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "oracle_identity": {
+        "process_id": 6188,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "module_sha256": {
+        "KERNELBASE.dll": "218e41c3a47d2a13cc8177ec48370535ff29700aad71d506cf46b1660ec3d26c",
+        "USER32.dll": "9008b06071f1fe3b3ddf9bbd9097a062f2199aa29f736678feebd462c67a43b8",
+        "VCRUNTIME140.dll": "6d987d8cb2a47cff9c29c1fcbb853e7ef273c545f7d822728f7d2d448ca18758",
+        "VCRUNTIME140_1.dll": "f4d66bdd6789aaed53341dc3153655e0ef2a9201c3652400443896a592e795b6",
+        "mfc140u.dll": "88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1",
+        "SLDMFCU.dll": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+        "swccu.dll": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+        "sldarchiveu.dll": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+        "SLDMODU.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+        "sldmodu.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+        "sldmfcu.dll": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+      },
+      "counts": {
+        "hooks-ready": 1,
+        "archive-object-enter": 814,
+        "archive-class-schema": 133,
+        "archive-class-read": 814,
+        "archive-object-leave": 814,
+        "feature-constructor": 26,
+        "model-needs-update": 24,
+        "model-get-bodies-enter": 84,
+        "model-get-bodies-leave": 84,
+        "part-serialize-enter": 1,
+        "part-archive-helper": 498,
+        "part-version-fallback": 30,
+        "part-serialize-leave": 1,
+        "sketch-serialize-enter": 2,
+        "archive-primitive": 2596,
+        "archive-count": 17,
+        "sketch-serialize-leave": 2,
+        "model-modified-flag-enter": 3,
+        "model-modified-flag-leave": 3,
+        "header-next-update-stamp": 14,
+        "update-session-stamp": 14,
+        "sketch-whole-update-enter": 2,
+        "sketch-coordinate-commit": 2,
+        "sketch-update": 2,
+        "solver-status-map": 9,
+        "sketch-whole-update-leave": 2,
+        "header-next-body-stamp": 2,
+        "model-finalization-enter": 1,
+        "model-finalization-leave": 1
+      },
+      "elapsed_seconds": 43.40700000000652,
+      "message_drops": 0,
+      "producer_statistics": {
+        "events": 5996,
+        "dropped": 0
+      },
+      "script_errors": [],
+      "detach_event": {
+        "reason": "application-requested",
+        "crash": null
+      },
+      "native_result": {
+        "kind": "instrumented-native-document",
+        "path": "<oracle-stage>/inputs/L1_boss.SLDPRT",
+        "revision": "34.5.2",
+        "opened": true,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "rebuilt": true,
+        "bodies": 1,
+        "mass": {
+          "volume": 8.000000000000001e-06,
+          "area": 0.0028,
+          "com": [
+            0.0,
+            0.0,
+            0.005
+          ],
+          "mass": 8.000000000000001e-06
+        },
+        "features": [
+          {
+            "name": "Comments",
+            "type": "CommentsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Favorites",
+            "type": "FavoriteFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "History",
+            "type": "HistoryFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Selection Sets",
+            "type": "SelectionSetFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sensors",
+            "type": "SensorFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Annotations",
+            "type": "DetailCabinet",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Surface Bodies",
+            "type": "SurfaceBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Solid Bodies",
+            "type": "SolidBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Lights and Cameras",
+            "type": "EnvFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Equations",
+            "type": "EqnFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sketch1",
+            "type": "ProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Sketch1@L1_boss.Part",
+                "value": 0.04
+              },
+              {
+                "name": "D2@Sketch1@L1_boss.Part",
+                "value": 0.02
+              }
+            ]
+          },
+          {
+            "name": "Boss-Extrude1",
+            "type": "Extrusion",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Boss-Extrude1@L1_boss.Part",
+                "value": 0.01
+              },
+              {
+                "name": "D1@Sketch1@L1_boss.Part",
+                "value": 0.04
+              },
+              {
+                "name": "D2@Sketch1@L1_boss.Part",
+                "value": 0.02
+              }
+            ]
+          }
+        ],
+        "whats_wrong": 0
+      },
+      "selected_events": [
+        {
+          "sequence": 5976,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f0f78e0",
+          "arguments": [
+            "0x5fe2d8",
+            "0x0",
+            "0x0"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xd32869"
+          }
+        },
+        {
+          "sequence": 5977,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f0f78e0",
+          "raw_rax_not_semantic_result": "0x1",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xd32869"
+          }
+        },
+        {
+          "sequence": 5978,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f0f78e0",
+          "arguments": [
+            "0x5fda68",
+            "0x1",
+            "0x3"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x1072d3e"
+          }
+        },
+        {
+          "sequence": 5979,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f0f78e0",
+          "raw_rax_not_semantic_result": "0x1",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x1072d3e"
+          }
+        },
+        {
+          "sequence": 5980,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f0f78e0",
+          "arguments": [
+            "0x5fdc00",
+            "0x1",
+            "0x2"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106c333"
+          }
+        },
+        {
+          "sequence": 5981,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f0f78e0",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106c333"
+          }
+        },
+        {
+          "sequence": 5982,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f0f78e0",
+          "arguments": [
+            "0x5fdf28",
+            "0x1",
+            "0x3"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x1072d3e"
+          }
+        },
+        {
+          "sequence": 5983,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f0f78e0",
+          "raw_rax_not_semantic_result": "0x1",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x1072d3e"
+          }
+        },
+        {
+          "sequence": 5984,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f0f78e0",
+          "arguments": [
+            "0x5fe0c0",
+            "0x1",
+            "0x2"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106c333"
+          }
+        },
+        {
+          "sequence": 5985,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f0f78e0",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106c333"
+          }
+        },
+        {
+          "sequence": 5986,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f0f78e0",
+          "arguments": [
+            "0x5fcea8",
+            "0x0",
+            "0x0"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xd32869"
+          }
+        },
+        {
+          "sequence": 5987,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f0f78e0",
+          "raw_rax_not_semantic_result": "0x1",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xd32869"
+          }
+        },
+        {
+          "sequence": 5988,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f0f78e0",
+          "arguments": [
+            "0x5fe738",
+            "0x1",
+            "0x2"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106c333"
+          }
+        },
+        {
+          "sequence": 5989,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f0f78e0",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106c333"
+          }
+        },
+        {
+          "sequence": 5990,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f0f78e0",
+          "arguments": [
+            "0x5fe3b8",
+            "0x0",
+            "0x3"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 5991,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f0f78e0",
+          "raw_rax_not_semantic_result": "0x1",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 5992,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f0f78e0",
+          "arguments": [
+            "0x5fde18",
+            "0x0",
+            "0x3"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 5993,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f0f78e0",
+          "raw_rax_not_semantic_result": "0x1",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 5994,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f0f78e0",
+          "arguments": [
+            "0x5fddf8",
+            "0x0",
+            "0x2"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10604a0"
+          }
+        },
+        {
+          "sequence": 5995,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f0f78e0",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10604a0"
+          }
+        }
+      ],
+      "last_events": [
+        {
+          "sequence": 5990,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f0f78e0",
+          "arguments": [
+            "0x5fe3b8",
+            "0x0",
+            "0x3"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 5991,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f0f78e0",
+          "raw_rax_not_semantic_result": "0x1",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 5992,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f0f78e0",
+          "arguments": [
+            "0x5fde18",
+            "0x0",
+            "0x3"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 5993,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f0f78e0",
+          "raw_rax_not_semantic_result": "0x1",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 5994,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f0f78e0",
+          "arguments": [
+            "0x5fddf8",
+            "0x0",
+            "0x2"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10604a0"
+          }
+        },
+        {
+          "sequence": 5995,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f0f78e0",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10604a0"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "candidate",
+      "raw_capture": "PostOriginCandidate.json",
+      "raw_sha256": "fbd3e598965a8ca81639a8e1ddaf116a7d382ebb8b2769d0a08eda0941c47cbb",
+      "script_sha256": "aeebefe9b836e3a61ca1f0d90f0a9130a9170b104312a427036cf0aac60c2a3d",
+      "prepare_sha256": "56d211a3ac33948ea5889a55b1499c8f113bb262fb23ed16c2734b21cd3ded10",
+      "action_input_sha256": "3b68ad9e4d77c180b02cb59423aaa25be1d8b560d03b23470347055ffa03f03d",
+      "oracle_identity": {
+        "process_id": 6796,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "module_sha256": {
+        "KERNELBASE.dll": "218e41c3a47d2a13cc8177ec48370535ff29700aad71d506cf46b1660ec3d26c",
+        "USER32.dll": "9008b06071f1fe3b3ddf9bbd9097a062f2199aa29f736678feebd462c67a43b8",
+        "VCRUNTIME140.dll": "6d987d8cb2a47cff9c29c1fcbb853e7ef273c545f7d822728f7d2d448ca18758",
+        "VCRUNTIME140_1.dll": "f4d66bdd6789aaed53341dc3153655e0ef2a9201c3652400443896a592e795b6",
+        "mfc140u.dll": "88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1",
+        "SLDMFCU.dll": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+        "swccu.dll": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+        "sldarchiveu.dll": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+        "SLDMODU.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+        "sldmodu.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+        "sldmfcu.dll": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+      },
+      "counts": {
+        "hooks-ready": 1,
+        "archive-object-enter": 445,
+        "archive-class-schema": 72,
+        "archive-class-read": 445,
+        "archive-object-leave": 445,
+        "feature-constructor": 15,
+        "part-serialize-enter": 1,
+        "part-archive-helper": 381,
+        "part-version-fallback": 22,
+        "part-serialize-leave": 1,
+        "model-get-bodies-enter": 25,
+        "model-get-bodies-leave": 25,
+        "sketch-serialize-enter": 2,
+        "archive-primitive": 926,
+        "archive-count": 8,
+        "sketch-serialize-leave": 2,
+        "model-modified-flag-enter": 7,
+        "model-modified-flag-leave": 7,
+        "model-needs-update": 29,
+        "header-next-update-stamp": 13,
+        "update-session-stamp": 13,
+        "sketch-whole-update-enter": 1,
+        "sketch-coordinate-commit": 1,
+        "sketch-update": 1,
+        "solver-status-map": 1,
+        "sketch-whole-update-leave": 1,
+        "model-finalization-enter": 1,
+        "model-finalization-leave": 1
+      },
+      "elapsed_seconds": 28.65700000000652,
+      "message_drops": 0,
+      "producer_statistics": null,
+      "script_errors": [],
+      "detach_event": {
+        "reason": "process-terminated",
+        "crash": null
+      },
+      "native_result": {
+        "exception": "com_error(-2147023170, 'The remote procedure call failed.', None, None)"
+      },
+      "selected_events": [
+        {
+          "sequence": 863,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fbb70",
+            "0x0",
+            "0x0"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x420d78"
+          }
+        },
+        {
+          "sequence": 864,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x420d78"
+          }
+        },
+        {
+          "sequence": 2761,
+          "phase": "armed",
+          "kind": "model-modified-flag-enter",
+          "object": "0x71d78ac0",
+          "arguments": [
+            "0xffffff01",
+            "0xfffffffe",
+            "0x16e150"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xa0defc"
+          }
+        },
+        {
+          "sequence": 2762,
+          "phase": "armed",
+          "kind": "model-modified-flag-leave",
+          "object": "0x71d78ac0",
+          "raw_rax_not_semantic_result": "0x7ffb98619120",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xa0defc"
+          }
+        },
+        {
+          "sequence": 2765,
+          "phase": "armed",
+          "kind": "model-modified-flag-enter",
+          "object": "0x71d78ac0",
+          "arguments": [
+            "0xffffff01",
+            "0xfffffffe",
+            "0x16e150"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xa0defc"
+          }
+        },
+        {
+          "sequence": 2766,
+          "phase": "armed",
+          "kind": "model-modified-flag-leave",
+          "object": "0x71d78ac0",
+          "raw_rax_not_semantic_result": "0x7ffb98619120",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xa0defc"
+          }
+        },
+        {
+          "sequence": 2769,
+          "phase": "armed",
+          "kind": "model-modified-flag-enter",
+          "object": "0x71d78ac0",
+          "arguments": [
+            "0xffffff01",
+            "0xfffffffe",
+            "0x0"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xa0defc"
+          }
+        },
+        {
+          "sequence": 2770,
+          "phase": "armed",
+          "kind": "model-modified-flag-leave",
+          "object": "0x71d78ac0",
+          "raw_rax_not_semantic_result": "0x7ffb98619120",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xa0defc"
+          }
+        },
+        {
+          "sequence": 2773,
+          "phase": "armed",
+          "kind": "model-modified-flag-enter",
+          "object": "0x71d78ac0",
+          "arguments": [
+            "0xffffff01",
+            "0xfffffffe",
+            "0x0"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xa0defc"
+          }
+        },
+        {
+          "sequence": 2774,
+          "phase": "armed",
+          "kind": "model-modified-flag-leave",
+          "object": "0x71d78ac0",
+          "raw_rax_not_semantic_result": "0x7ffb98619120",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xa0defc"
+          }
+        },
+        {
+          "sequence": 2777,
+          "phase": "armed",
+          "kind": "model-modified-flag-enter",
+          "object": "0x71d78ac0",
+          "arguments": [
+            "0x1",
+            "0xfffffffe",
+            "0x71eeb5a0"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10f22f3"
+          }
+        },
+        {
+          "sequence": 2778,
+          "phase": "armed",
+          "kind": "model-modified-flag-leave",
+          "object": "0x71d78ac0",
+          "raw_rax_not_semantic_result": "0x7ffb98619120",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10f22f3"
+          }
+        },
+        {
+          "sequence": 2786,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fbe98",
+            "0x0",
+            "0x3"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2787,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2788,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fc4a8",
+            "0x0",
+            "0x0"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xb938da"
+          }
+        },
+        {
+          "sequence": 2789,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xb938da"
+          }
+        },
+        {
+          "sequence": 2790,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fc360",
+            "0x0",
+            "0x0"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x1102f7a"
+          }
+        },
+        {
+          "sequence": 2791,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x1102f7a"
+          }
+        },
+        {
+          "sequence": 2812,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fc410",
+            "0x0",
+            "0x3"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2813,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2843,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fbbd0",
+            "0x0",
+            "0x3"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x5d8185"
+          }
+        },
+        {
+          "sequence": 2844,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x5d8185"
+          }
+        },
+        {
+          "sequence": 2845,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fbd58",
+            "0x0",
+            "0x0"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xb938da"
+          }
+        },
+        {
+          "sequence": 2846,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xb938da"
+          }
+        },
+        {
+          "sequence": 2847,
+          "phase": "armed",
+          "kind": "model-finalization-enter",
+          "object": "0x71d78ac0",
+          "arguments": [
+            "0x5fd800",
+            "0x2fbda1b0",
+            "0x1"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x108bffb"
+          }
+        },
+        {
+          "sequence": 2848,
+          "phase": "armed",
+          "kind": "model-modified-flag-enter",
+          "object": "0x71d78ac0",
+          "arguments": [
+            "0x1",
+            "0xbb9",
+            "0x71d8f6b0"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10883b2"
+          }
+        },
+        {
+          "sequence": 2849,
+          "phase": "armed",
+          "kind": "model-modified-flag-leave",
+          "object": "0x71d78ac0",
+          "raw_rax_not_semantic_result": "0x7ffb98619120",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10883b2"
+          }
+        },
+        {
+          "sequence": 2851,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fbd20",
+            "0x0",
+            "0x3"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2852,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2853,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fbd00",
+            "0x0",
+            "0x2"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106c0b0"
+          }
+        },
+        {
+          "sequence": 2854,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106c0b0"
+          }
+        },
+        {
+          "sequence": 2857,
+          "phase": "armed",
+          "kind": "model-modified-flag-enter",
+          "object": "0x71d78ac0",
+          "arguments": [
+            "0x17cf01",
+            "0xfffffffffffffff0",
+            "0x17cf70"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10888c9"
+          }
+        },
+        {
+          "sequence": 2858,
+          "phase": "armed",
+          "kind": "model-modified-flag-leave",
+          "object": "0x71d78ac0",
+          "raw_rax_not_semantic_result": "0x7ffb98619120",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10888c9"
+          }
+        },
+        {
+          "sequence": 2859,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fbdc8",
+            "0x0",
+            "0x3"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x1088901"
+          }
+        },
+        {
+          "sequence": 2860,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x1088901"
+          }
+        },
+        {
+          "sequence": 2861,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fbda0",
+            "0x0",
+            "0x2"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x1088a14"
+          }
+        },
+        {
+          "sequence": 2862,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x1088a14"
+          }
+        },
+        {
+          "sequence": 2863,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fb308",
+            "0x0",
+            "0x3"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2864,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2865,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fb4c8",
+            "0x0",
+            "0x3"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2866,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2867,
+          "phase": "armed",
+          "kind": "model-finalization-leave",
+          "object": "0x71d78ac0",
+          "raw_rax_not_semantic_result": "0x1",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x108bffb"
+          }
+        },
+        {
+          "sequence": 2868,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fbba0",
+            "0x0",
+            "0x3"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2869,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2870,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fbbc0",
+            "0x0",
+            "0x2"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106c0b0"
+          }
+        },
+        {
+          "sequence": 2871,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106c0b0"
+          }
+        },
+        {
+          "sequence": 2872,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fbf70",
+            "0x0",
+            "0x3"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2873,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2874,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fbf70",
+            "0x0",
+            "0x2"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106c0b0"
+          }
+        },
+        {
+          "sequence": 2875,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106c0b0"
+          }
+        },
+        {
+          "sequence": 2876,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fc7c8",
+            "0x0",
+            "0x0"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xb938da"
+          }
+        },
+        {
+          "sequence": 2877,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xb938da"
+          }
+        },
+        {
+          "sequence": 2878,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fbdd8",
+            "0x0",
+            "0x3"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2879,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2880,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fc968",
+            "0x0",
+            "0x3"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2881,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2882,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fce20",
+            "0x0",
+            "0x0"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x45a254"
+          }
+        },
+        {
+          "sequence": 2883,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x45a254"
+          }
+        },
+        {
+          "sequence": 2884,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fcc78",
+            "0x0",
+            "0x0"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xd32869"
+          }
+        },
+        {
+          "sequence": 2885,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xd32869"
+          }
+        },
+        {
+          "sequence": 2886,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fab98",
+            "0x0",
+            "0x0"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xb938da"
+          }
+        },
+        {
+          "sequence": 2887,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xb938da"
+          }
+        },
+        {
+          "sequence": 2888,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5f8998",
+            "0x0",
+            "0x3"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2889,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2890,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5f8978",
+            "0x0",
+            "0x2"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10604a0"
+          }
+        },
+        {
+          "sequence": 2891,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10604a0"
+          }
+        }
+      ],
+      "last_events": [
+        {
+          "sequence": 2886,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5fab98",
+            "0x0",
+            "0x0"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xb938da"
+          }
+        },
+        {
+          "sequence": 2887,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xb938da"
+          }
+        },
+        {
+          "sequence": 2888,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5f8998",
+            "0x0",
+            "0x3"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2889,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          }
+        },
+        {
+          "sequence": 2890,
+          "phase": "armed",
+          "kind": "model-get-bodies-enter",
+          "object": "0x2f23b160",
+          "arguments": [
+            "0x5f8978",
+            "0x0",
+            "0x2"
+          ],
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10604a0"
+          }
+        },
+        {
+          "sequence": 2891,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f23b160",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10604a0"
+          }
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Entry and return events do not prove semantic validity",
+    "Raw return registers are not body counts",
+    "Candidate producer completion unavailable after process death",
+    "Exit status was not captured in these two runs"
+  ]
+}

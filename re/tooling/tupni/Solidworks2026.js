@@ -277,11 +277,17 @@ rpc.exports = {
           onEnter(Args) {
             this.object = Args[0]
             this.arguments = [Args[1].toString(), Args[2].toString(), Args[3].toString()]
+            if (Kind === "model-get-bodies") this.output = Args[1]
             this.caller = location(this.returnAddress)
             emit({kind: Kind + "-enter", object: this.object.toString(), arguments: this.arguments, caller: this.caller})
           },
           onLeave(ReturnValue) {
-            emit({kind: Kind + "-leave", object: this.object.toString(), raw_rax_not_semantic_result: ReturnValue.toString(), caller: this.caller})
+            const Event = {kind: Kind + "-leave", object: this.object.toString(), raw_rax_not_semantic_result: ReturnValue.toString(), caller: this.caller}
+            if (Kind === "model-get-bodies") {
+              try { Event.output_count = this.output.add(0x10).readS32() }
+              catch (ErrorInfo) { Event.output_count_error = String(ErrorInfo) }
+            }
+            emit(Event)
           }
         })
       }

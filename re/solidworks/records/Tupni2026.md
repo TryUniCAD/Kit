@@ -367,6 +367,19 @@ the immediate next call at `0x4c1c88c4` targets `moModel_c::setModifiedFlag` at
 their finalization owner `0x4c1c8320`, without changing native exception handling.
 New measurements are pending. No additional serializer value has been inferred.
 
+The [next controlled capture](../v2026/evidence/TupniFinalizationReturned.json)
+shows that finalization, all seven modified-flag calls and all 25 body-collection
+calls returned in the candidate before termination. The control remained
+healthy. The candidate's last observed body-collection return is at caller
+`SLDMODU+0x10604a0`. This refutes a failure inside the immediately selected
+modified-state or finalization methods, but not an earlier corrupting operation.
+Raw RAX zero is not an observed output-array count.
+The retained controller now keeps a Windows process query handle and records its
+exit code before cleanup, so subsequent captures can distinguish an NT failure
+status from an application-controlled exit. Body collection now reads its actual
+output array count at `suPtrArray+0x10`, the signed loop bound used in the native
+finalization code. New results remain pending.
+
 A new REA pseudocode request for the origin initializer returned no analysis:
 the Hopper bridge exceeded its startup timeout, and authenticated document
 cleanup was unavailable. That attempt supplies no native format finding.

@@ -89,6 +89,8 @@ The [oracle diagnostic correction](../../Changes/Solidworks/SolidworksOracleDiag
 records why the original source batch did not establish per-feature error status.
 The [oracle identity record](../../Changes/Solidworks/SolidworksOracleBuildIdentity.md)
 defines the executable build check used by clean inspection and retained tracing.
+The [process exit-status record](../../Changes/Solidworks/SolidworksOracleExitStatus.md)
+distinguishes observed termination codes from lost COM connections.
 The fresh [model component constructors](../../Changes/Solidworks/SolidworksModelConstruction.md)
 and [metadata constructors](../../Changes/Solidworks/SolidworksMetadataConstruction.md)
 build research object graphs from authored semantics and native constructor rules.
