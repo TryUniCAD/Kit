@@ -63,6 +63,7 @@ Assemblies with placed instances remain inspection-only because their placement 
 Retained source keys and binary metadata values are refused through nested containers and embedded documents; ordinary provenance text and digests remain eligible.
 Local B-rep, meshes, or bodies without a feature timeline are refused, including nested documents and local assembly geometry.
 Every document requires model feature history; parameter-only and empty assembly documents remain inspection-only.
+An entirely inactive timeline cannot supply that history, and standalone support planes require SDK geometry qualification; see [active history](../Changes/Commands/ActiveModelHistory.md).
 Each sketch requires a reference feature, including nested sketches; see [sketch history](../Changes/Commands/SketchHistoryGuard.md).
 Every sketch requires active driving dimensions, including solid profiles, and a matching SDK regeneration contract; see [model qualification](../Changes/Commands/ParametricModelGuard.md).
 Definitionless operations and native, imported, or unknown feature kinds are refused; a supported sketch reference cannot substitute for a typed generator of local geometry.

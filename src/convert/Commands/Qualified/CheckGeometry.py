@@ -13,7 +13,12 @@ KGeometryError = (
 
 # typed records alone cannot establish that geometry matches its qualified sdk contract
 def CheckGeometry(Document: CadDocument) -> None:
-    if not Document.bodies and Document.brep is None and not Document.sketches:
+    if (
+        not Document.bodies
+        and Document.brep is None
+        and not Document.sketches
+        and not Document.support_planes
+    ):
         return
     if any(
         not any(

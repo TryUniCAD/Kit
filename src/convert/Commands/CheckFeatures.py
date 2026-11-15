@@ -48,7 +48,8 @@ def CheckFeatures(Document: CadDocument) -> None:
             raise ValueError(KFeatureError)
         Generators.add(Feature.id)
     if (
-        Document.meshes
+        (Document.feature_timeline and not ActiveFeatures)
+        or Document.meshes
         or any(Sketch.id not in SketchInputs for Sketch in Document.sketches)
         or any(
             BodyValue.final_feature_id not in Generators
