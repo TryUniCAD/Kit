@@ -30,6 +30,25 @@ so each family has a validated frame in its first thirteen bytes and free bytes 
 instance records are free from offset 12, the view records from somewhere between 13 and 41, which
 is consistent with the earlier finding that a view's matrix and extents are not revalidated.
 
+## A free single byte does not license a free region
+
+Three rewrites of the 27 byte `02 02 41 5b` instance records were tried after the single byte flips
+above, each loaded in NX 2506:
+
+```text
+tail bytes 21..25 set to 01 in all six records      OPEN_FAILED
+tail bytes 21..25 set to 01 in one record           OPEN_FAILED
+class marker 12..13 set to 80 86 in all six         OPEN_FAILED
+```
+
+So single byte flips that load say less than they appear to: the bytes I flipped individually are
+either redundant or their new value happened to be acceptable, while any deliberate rewrite of the
+region is refused. The family therefore stays carried, and the earlier note that it is "free from
+offset 12" is withdrawn — that conclusion came from one-byte flips and does not generalise.
+
+This is a methodological caution worth keeping: in this format, a byte that survives a single flip
+is not thereby a field the writer may choose.
+
 ## The REA retry, with the file on the host
 
 `pskernel.dll` was copied out of the NX 2506 installation inside the virtual machine to the host
