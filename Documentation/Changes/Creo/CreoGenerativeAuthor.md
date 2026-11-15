@@ -187,7 +187,7 @@ Reverse swap: the authored container carrying the vendor `VisibGeom` body is rej
 
 ```text
 !%CE01:13:51 The file ...rev.prt is not a valid PART file.
-\```
+```
 
 So the authored container is *also* not a valid model: a two-section part with only `AllFeatur`
 and `VisibGeom` is missing the model payload Creo requires. The isolation matrix is:
