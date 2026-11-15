@@ -142,6 +142,8 @@ def RunMetadata(Inputs: list[dict[str, object]]) -> list[dict[str, object]]:
 def TestMetadata() -> None:
     Small, Large = RunMetadata([MakeInput(), LargerInput()])
     assert Small["read_blocked"] and Large["read_blocked"]
+    assert CastValue(int, Small["import_reads"]) > 0
+    assert CastValue(int, Large["import_reads"]) > 0
     assert (Small["next_id"], Large["next_id"]) == (100, 400)
     assert Small["header_owner"] == 0 and Small["models"] == {
         "Contents/Config-7-ModelHeader": 1
@@ -197,6 +199,7 @@ def TestLogNames() -> None:
             Log["name"] = DocumentName
     OriginalResult, RenamedResult = RunMetadata([MakeInput(), Renamed])
     assert OriginalResult["read_blocked"] and RenamedResult["read_blocked"]
+    assert CastValue(int, RenamedResult["import_reads"]) > 0
     assert RenamedResult["name"] == DocumentName
     assert RenamedResult["log_names"] == {
         "Header2": [DocumentName],

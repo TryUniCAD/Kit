@@ -19,7 +19,10 @@ Remote process coverage constructs metadata under the shared import and runtime
 file-access guard, encodes and independently decodes every archive stream, then
 requires exact re-encoding. The named-document case checks Unicode log names in
 Header2 and ModelHeader, corresponding KeyWords names, input-dependent stream
-lengths and unchanged Biography/History streams. No local tests, reproductions,
+lengths and unchanged Biography/History streams. Separate process construction,
+codec and reporting modules each own one responsibility; all load under the
+import-phase audit before strict construction denies file access. The runner
+also rejects a constructor that catches and hides a denied read. No local tests, reproductions,
 collection or builder imports are run. Current-head remote results belong in the
 PR; static parsing and formatting do not establish process success.
 
