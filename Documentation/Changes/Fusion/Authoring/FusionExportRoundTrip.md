@@ -30,6 +30,7 @@ Source: `KitAuthoredCylinder.f3d`, written by Kit from a `DocumentSpec`.
 | Fusion imports it | `kitLength` `40.0 mm`, 1 body, 19.634954084935366 cm³ |
 | Fusion exports it | 54756 bytes, `export_started` `True` |
 | Kit reads Fusion's export | `kitLength` `40.0 mm`, `d2` `kitLength`, `d3` `0 deg`, 1 body |
+| Fusion reopens its own export | 1 body `Kit Body`, 3 faces, 2 edges, 2 vertices, 19.634954084935366 cm³ |
 
 The parameters survive exactly, including the formula reference `d2 = kitLength`, which is a
 parameter that points at another parameter rather than a number.
@@ -42,6 +43,17 @@ fusion export  CylinderBody(Radius=12.5, Height=40.0, BasePoint=(0.0, 0.0, 0.0))
 ```
 
 `pi * 12.5^2 * 40` is 19634.95 mm³, which is the 19.634954084935366 cm³ Fusion reported on import.
+
+Fusion's export also reopens in Fusion with the same volume to the last digit, and with the body name
+Kit wrote:
+
+```
+Kit Body   faces 3   edges 2   vertices 2   volume 19.634954084935366 cm3
+parameters kitLength 40.0 mm, d2 kitLength, d3 0 deg
+```
+
+So the loop closes in both directions: Kit writes, Fusion reads and writes, Fusion reads again, and
+Kit reads Fusion's output. The volume is identical at every step.
 
 ## Verification
 
