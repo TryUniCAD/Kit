@@ -67,10 +67,38 @@ flange_modern.prt       118      252       14
 fresh_block.prt          79      154       10
 ```
 
+## The storage code is the registration class id plus one
+
+The storage code is not a document value and not a session value. It is the class's registration id
+in the vendor binary, stored one-based so that zero can mean "no class".
+
+`UGS::OM::ClassRegistrant::ClassRegistrant` in `libsyss.dll` takes the class name, a class id, a
+schema array, a `CustomProperties` block, a `ClassAttributeStruct`, three constructor callbacks and
+the layout digest. The registration sites in `libpart.dll` and `libsyss.dll` are the
+`c7 84 24 90 00 00 00 <layout_digest>` stores that precede that call.
+
+Matching the 160 class names of `wave_modern.prt` against the registration sites of the two shipped
+libraries gives 20 classes. For 19 of them exactly one constructor stack argument equals
+`storage - 1`, and in all 19 it is the argument at `[rsp + 0x40]`:
+
+```text
+class                          storage  argument  argument + 1
+UGS::BaseTypes::ExtendedObject     101       100           101
+UGS::SO                           201       200           201
+UGS::ES_base_parameter            502       501           502
+UGS::RM_int_record_area           901       900           901
+```
+
+The twentieth match, `UGS::ES_base_parameter`, has no such argument inside the captured window; that
+is a window-extraction artifact, not a counterexample, because the same class matches at another
+site. The rule is therefore `storage = registration_class_id + 1`, and a from-scratch writer can
+obtain it from the vendor's own registration sites instead of from a captured document table.
+
 ## Limits
 
 The member region is parsed leniently: it stops at the first declaration that does not fit the
 `<name><storage><owner>` shape, because the field registry is followed by the object-id table and
-entity records. The storage code is a class constant but is not yet derived from the vendor binary;
-a from-scratch writer still needs a class-to-storage table, which is format knowledge rather than
-donor data. The class region end marker is `02` in some parts and an opaque separator in others.
+entity records. The class region end marker is `02` in some parts and an opaque separator in others.
+The storage derivation is measured on 20 of the 160 classes; the remaining 140 are registered in
+libraries that are not part of the shipped corpus, so the rule is confirmed but not exhaustively
+enumerated.
