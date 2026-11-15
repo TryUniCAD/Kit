@@ -141,7 +141,7 @@ rpc.exports = {
   },
   activate(Profile = "full", ExceptionProbes = false) {
     if (Process.arch !== "x64" || Hooks.length !== 0) throw new Error("exactly one activation in an x64 target is required")
-    if (!["full", "loader", "sketch", "repair"].includes(Profile)) throw new Error("a supported observation profile is required")
+    if (!["full", "loader", "sketch", "repair", "frame"].includes(Profile)) throw new Error("a supported observation profile is required")
     const Model = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "sldmodu.dll")
     const Common = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "swccu.dll")
     const Archive = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "sldarchiveu.dll")
@@ -186,7 +186,7 @@ rpc.exports = {
       onLeave(ReturnValue) { if (this.active) emit({kind: "part-version-fallback", file_version: ReturnValue.toUInt32(), caller: this.caller}) }
     })
     }
-    if (Profile !== "repair") attach(Common.base.add(0xa3a7), {onEnter() {
+    if (Profile !== "repair" && Profile !== "frame") attach(Common.base.add(0xa3a7), {onEnter() {
       try {
         const Runtime = this.context.rax
         const NameBytes = new Uint8Array(Runtime.readPointer().readByteArray(160))
@@ -212,7 +212,8 @@ rpc.exports = {
         }})
       }
     }
-    Process.setExceptionHandler(Details => {
+    }
+    if (ExceptionProbes || Profile === "frame") Process.setExceptionHandler(Details => {
       const Registers = {}
       for (const Name of ["pc", "sp", "rax", "rbx", "rcx", "rdx", "rsi", "rdi", "rbp", "r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15"]) {
         if (Details.context[Name] !== undefined) Registers[Name] = Details.context[Name].toString()
@@ -224,6 +225,14 @@ rpc.exports = {
       emit({kind: "native-exception", type: Details.type, address: location(Details.address), memory: Details.memory === undefined ? null : {operation: Details.memory.operation, address: Details.memory.address.toString()}, registers: Registers, backtrace: Frames, backtrace_error: BacktraceError, handled: false})
       return false
     })
+    if (Profile === "frame") {
+      if (Application === undefined) throw new Error("selected application module is not loaded")
+      attach(Application.base.add(0x45bda7b0 - 0x453f0000), {onEnter(Args) {
+        try {
+          const Table = Args[0].readPointer()
+          emit({kind: "initial-frame-enter", thread: Process.getCurrentThreadId(), template: Args[0].toString(), frame: Args[1].toString(), document: Args[2].toString(), make_visible_raw: Args[3].toInt32(), vtable: location(Table), target: location(Table.add(0xf8).readPointer()), caller: location(this.returnAddress)})
+        } catch (ErrorInfo) { emit({kind: "initial-frame-probe-error", error: String(ErrorInfo)}) }
+      }})
     }
     if (Profile === "full" || Profile === "repair") {
       if (Application === undefined) throw new Error("selected application module is not loaded")
