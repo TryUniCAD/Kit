@@ -448,8 +448,24 @@ three fields are derived. The closing count is 16 for `d = 3` but 34 for `d = 6`
 the same function of `d`, and the marker byte differs (`21` against `41`), so the closing count
 is not derived yet.
 
-`ExprSection.ExprOccupancy(Dimensions)` therefore returns the measured `d = 3` object, byte
-identical on both fixtures that have one, and raises for any other count rather than
+A parts-with-more-dimensions fixture was attempted to test the closing count. A journal that
+commits a block and then a cylinder saved `var_d5.prt` with five expressions (`p0`..`p4`), but
+the cylinder builder refused every sizing call (`CylinderBuilder` has no `SetOriginAndSize`),
+and its two dimension expressions were left undriven: the part carries **26** objects, which is
+`6 + 6*3 + 2` — three dimensions plus two spares — and its occupancy object is byte identical
+to `dim40`'s. So the attempt produced spares rather than dimensions and gave no third point.
+
+The candidate rule for the closing count is `5d + count(fe) + 1`, which fits both measured
+objects exactly:
+
+```text
+d = 3   15 ids + 0 fe + 1 = 16    measured 16
+d = 6   30 ids + 3 fe + 1 = 34    measured 34
+```
+
+two points are a fit, not a derivation, and the marker byte (`21` against `41`) is still
+unexplained, so `ExprSection.ExprOccupancy(Dimensions)` returns the measured `d = 3` object,
+byte identical on every fixture that has one, and raises for any other count rather than
 extrapolating. That unblocks a three-dimension composer and nothing else.
 
 ## The names lane is emitted with writer-chosen slots
