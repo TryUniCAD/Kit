@@ -81,6 +81,19 @@ that Kit writes, each verified with a one-input control, but a drawing has no fe
 driving dimension that rebuilds geometry. Those controls show that Kit writes the fields Fusion
 reads; they are not parametric history.
 
+## BRep reader cross-check
+
+Kit reads the BRep journal of a Fusion-saved design and counts its topology entities. Fusion reports
+the same totals for the same file:
+
+| Source | Bodies | Faces | Edges | Vertices |
+| ------ | ------ | ----- | ----- | -------- |
+| Kit journal, `mirror_xy.f3d` | 3 `BodyNode` | 12 `FaceNode` | 24 `EdgeNode` | 16 `VertexNode` |
+| Fusion, same file | 2 bodies | 6 + 6 | 12 + 12 | 8 + 8 |
+
+The extra `BodyNode` is the assembly root. Each body is a 24.0 cm³ box, and the journal header reports
+`FileVersion` 23200, `RootCount` 3, `Scale` 50.0 and tolerances of 1e-6 and 1e-10.
+
 ## C5 to C7. Loadable, usable, and measured
 
 | Case                                   | Result                                        |
