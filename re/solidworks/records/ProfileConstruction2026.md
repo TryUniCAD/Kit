@@ -224,12 +224,12 @@ Runtime path coverage and target acceptance remain separate evidence
 | Derived-profile predicate | `moProfileFeature_c::isDerived` at `0x4c0de380` requires nonnull profile-data `+0x110` before testing a derived reference | False from the constructed null pointer | Closed static dependency |
 | Constrained-status getter and setter | `0x4c53d2c0` reads sketch `+0x12c`, except for the session's special mode returning seven; setter `0x4b2a77c0` writes the supplied status to that field | Constructor state is known, but a complete post-solver status rule remains unproved | Unresolved post-update state |
 | Separate saved status | `getConstrainedSavedStatus` at `0x4b2a74f0` reads sketch `+0x128`; serializer `0x4c5916f0` emits `f12c` followed by `f128`; `saveSketch` at `0x4c5a6170` delegates to that serializer | The store path does not copy the solver aggregate into `f128`; constructor one is retained separately rather than treating the two statuses as aliases | Closed field distinction; other lifecycle writes remain separate |
-| Entity constraint state | `0x4c502b70` queries solver virtual `+0x218` for each point and line, then passes the result to `0x4c5077f0`; `setConstraintStatus` at `0x4c5d5370` writes entity `+0x34` | The solver result is a required dependency; constructor `f34=1` is not independent proof of its final value; adjacent `f38` is line type, not another solver status | Unresolved solver dependency |
+| Entity constraint state | `0x4c502b70` queries solver virtual `+0x218` for each point and line, then passes the result to `0x4c5077f0`; `setConstraintStatus` at `0x4c5d5370` writes entity `+0x34` | The free-polygon authoring observation below reports raw eleven mapped to one for every point and line; adjacent `f38` is line type, not another solver status | Constructor and mapper rules corroborated on the three training graphs; generated-file execution remains unverified |
 | Entity colour | `setConstraintColor` at `0x4c5d5260` uses mapping `0x4c3e15b0`, then setter `0x4c3e29e0` writes entity `+0x30` | With the current `f54` mask, status one maps to colour five and status two maps to four; current `f30=5` matches status one, but does not prove the solver chose it | Closed mapping; final input unresolved |
 | Dependency reset | `clearDependancyFlags` at `0x4c538d10` calls `0x4c5d3100`; for local handles it calls `0x4c3e2bd0(entity,0)` and `0x4c3e24a0(entity,0)` | The first masks `f56` with `0x3fff`; the second clears bit `0x8000`; constructor `f56=0` is unchanged | Closed static mutation for local geometry |
 | Point cleanup | `cleanOutSketchPoints` at `0x4c4a6e30` considers removal only when a permanent point is invisible, local and has degree zero | Polygon vertices have degree two; origin type one is visible because point vtable `0x4cdd2d48`, slot `+0x190`, targets `0x4c491cb0` and tests mask `0x138a02` | Closed preservation predicate |
 | Constraint validation tails | `0x4c4bbf40` iterates sketch `+0x58`; `0x4c4bbc60` examines offset dimensions and display dimensions | The current graph has empty block, offset and sketch-display collections; the origin's logical point constraint passes the local admission predicate below | Closed empty loops and origin admission predicate; full update and solver state unresolved |
-| Modification stamp | `0x4c5195d0` adds the results of `0x4c5167d0` and `0x4c516600` to sketch `f56c`; update `0x4c549ab0` has a separate model-reference increment at `0x4c54ad3c` | The separate increment is excluded for the current local graphs by the branch proof below; the point helper still depends on finite solved coordinates and the plane helper has an empty bound; insertion stamp remains separately derived as `1+n` | Model-reference increment excluded; solver coordinate delta unresolved |
+| Modification stamp | `0x4c5195d0` adds the results of `0x4c5167d0` and `0x4c516600` to sketch `f56c`; update `0x4c549ab0` has a separate model-reference increment at `0x4c54ad3c` | The separate increment is excluded for the current local graphs by the branch proof below; the three free-polygon training graphs retain their constructor-derived insertion stamp `1+n` through update, rebuild and save | Native increment rule and zero training coordinate deltas corroborated; generated-file execution remains unverified |
 | Pattern/spline/styled helpers | `0x4c46f1b0`, `0x4c5483f0` and `0x4c52f470` iterate their corresponding collections | Empty collections make these loops inactive for the polygon and origin inputs | Closed static loop bounds |
 
 The jump table at `0x4c507948` maps raw solver status eleven to sketch/entity status one, raw one or ten to two, raw three to three, and raw zero/four/five/eight/nine to four
@@ -300,11 +300,12 @@ The `sgConstrainedStatus_e` return is a signed 32-bit enum; instruction `0x4c54c
 The internal coordinate helper has no exported formal prototype, but instruction `0x4c517278` writes its counter with `mov eax,r12d` before return `0x4c5172c8`
 Its observed counter should therefore retain raw `rax` and a separate unsigned 32-bit interpretation; the decompiler's inferred `ulonglong` is not evidence of a wider counter
 
-The next requested observation arms hooks before first authoring/rebuild on unrelated free polygons with three, eight and eleven lines
+The observation below arms hooks before authoring and first rebuild on unrelated free polygons with three, eight and eleven lines
 It records actual update entry/leave status and stamps, the coordinate helper's returned count, solver-commit deltas and point/line status-map entry/leave fields
 Those training observations remain distinct from the locked held-out generated-output acceptance gate
 
-Both polygon and origin graphs retain `_requires_update=True` until the remaining state rules are established
+Both polygon and origin graphs retain `_requires_update=True` while regeneration and origin first-solve work remain unresolved
+That metadata is not a serialized native update flag and does not establish that the target application will solve the emitted graph
 
 ## Native boundary training observation
 
@@ -324,7 +325,48 @@ The first `0x4c5195d0` hook read its solver-wrapper argument as a sketch and the
 The actual sketch is the pointer at solver-wrapper `+8`, as the static decompile establishes
 Those snapshots are excluded from status and stamp conclusions
 The return value is a solver-success result, not the modification-stamp delta
-Whole-update entry and leave observations at `0x4c549ab0`, with the corrected inner signature, remain needed across unrelated free-polygon inputs
+The free-polygon observation below supplies whole-update entry and leave events at `0x4c549ab0` with the corrected inner signature
+
+## Free polygon authoring and rebuild observation
+
+Capture `polygon-api-authoring.json` has SHA-256 `1561ff585126fe22975aec7ecdcf8fe07c92059bbf214c6e46c83aaf3ee2928d`
+It contains 8,543 events over 95.219 seconds, zero dropped events, zero script errors, successful detach and healthy original controls before and after the action
+Its script SHA-256 is `4d27876edf99675d854f0cf8deefa961ef93716102f2065b04f6e7ef6824a864`
+The loaded model DLL hash matches `569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e`
+This is native API-boundary observation with `instruction_taint=false`, not instruction-level taint tracking
+The oracle owner authored these three training cases after the family builder existed; they are not held-out generated-output acceptance
+
+Each case uses one irregular front-plane ring, `AddToDB=True`, no authored sketch relations and a native extrusion
+The API reports exactly `n` points and `n` segments, zero relations, one body, a successful rebuild and save result `(True,0,0)`
+Every line's end-point ID equals the next line's start-point ID, including closure; each of the `n` distinct point-ID pairs has degree two
+The positive native point-array raw and active counts independently equal `n`
+The captured zero-count snapshots omit their underlying array pointers and are excluded from empty-array conclusions
+
+| Training case | Shared point and line count | Author-close whole-update events | Explicit-rebuild regular-sketch events | Stamp before and after both updates and save |
+| --- | --- | --- | --- | --- |
+| `T3_free` | 3 | 3288–3297 | 3361–3370 | 4 |
+| `T8_free` | 8 | 4050–4069 | 4133–4152 | 9 |
+| `T11_free` | 11 | 5027–5052 | 5116–5141 | 12 |
+
+Both regular-sketch updates return status one in every case
+Across those six updates, all 88 point/line status-map events have raw status eleven and mapped status one; entity `f34=1` and colour five remain unchanged
+All six regular coordinate-commit calls return zero, and the complete update leaves saved status `f128=1`, current status `f12c=1`, `f188=0`, `f37c=0` and both observed runtime cache pointers null
+Save serializer entry and leave retain the same status and stamp values
+
+The stamp expression comes from native operations, not a table indexed by polygon size
+Constructor `0x4c495450` starts the stamp at one, and line-permanence routine `0x4c5d1740` increments it at instruction `0x4c5d1778`
+For the stated one-call-per-line sequence, insertion therefore contributes `n`
+The subsequent update adds coordinate, plane and optional 3D change counts through `0x4c5195d0`, plus the separate model-reference increment only on its alternate branch
+The supported local 2D graph excludes that alternate branch and has empty plane/3D work; the observed free-geometry coordinate deltas are zero
+Thus `stamp_final = 1 + n` is the existing constructor-and-update expression for this sequence, corroborated by the three native training graphs
+It is not a copied saved stamp, and these observations do not extend the zero-delta premise to constrained, external, 3D or edited geometry
+
+The three origin rebuilds each map one type-one point from raw status one to status two and colour four
+Their whole updates return two and retain saved status one, current status two and stamp one; all three coordinate-commit returns are zero
+Those origins were loaded from the native document template before the observed rebuild
+The capture does not observe the first solve inside fresh origin initializer `0x4c49b980`, nor a transition from constructor entity status one and colour five
+Fresh-origin final state and the emitted flags that actually cause its first update remain required native dataflow work
+The [lifecycle change entry](../../../Documentation/Changes/Solidworks/SolidworksFreePolygonLifecycle.md) states these limits
 
 ## Contracts
 
