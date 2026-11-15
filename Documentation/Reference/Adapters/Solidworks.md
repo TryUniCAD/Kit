@@ -85,6 +85,8 @@ Do not present a carrier or a mode label as a completed translation.
 The [2026 archive map handoff](../../Changes/Solidworks/SolidworksArchiveMapHandoff.md)
 and [locked source controls](../../Changes/Solidworks/SolidworksOracleControls.md)
 extend the research instruments without establishing writer support.
+The [oracle diagnostic correction](../../Changes/Solidworks/SolidworksOracleDiagnostics.md)
+records why the original source batch did not establish per-feature error status.
 
 The [2026 archive research](../../Changes/Solidworks/SolidworksArchiveResearch.md)
 adds version-specific class schemas and a byte-identity checker under `re/`.

@@ -1,6 +1,6 @@
 # Cross-stream archive maps in SOLIDWORKS 2026
 
-Status: **binary rule recovered; remote linked-stream verification pending**.
+Status: **binary rule recovered; eight linked streams passed remote verification**.
 This is archive bookkeeping, not persistent feature identifiers or writer acceptance.
 
 ## Native rule
@@ -53,6 +53,13 @@ requires a part model. A fresh manager's constructor value of zero must not
 be replaced by the ladder's saved value of one.
 
 ## Limits
+
+Head `d296a2714a78c127fd0df0b626c37b9a60247c3e` passed the
+[remote native-file job](https://github.com/TryUniCAD/Kit/actions/runs/43674084168/job/132690283373).
+Its linked process gate required exact configuration-seeded re-emission of all
+eight resolved streams, and the existing gate still required 56/56 complete
+critical-stream comparisons. The native-file job reported 124 passed and
+158 existing fixture-dependent skips in 18.82 seconds. No tests ran locally.
 
 An inherited map proves no field semantics, geometry, dimension edit, or
 vendor rebuild. Direct external objects introduced by a ModelHeader still

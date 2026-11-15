@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import ctypes
 import ctypes.wintypes as wt
+import csv
+import io
 import json
 import subprocess
 import sys
@@ -20,7 +22,6 @@ PROCESSES = (
     "swMsgHandler.exe",
     "SLDWORKS_Splash.exe",
     "SLDEXITAPP.exe",
-    "WerFault.exe",
     "sldProcMon.exe",
 )
 DOC_PART = 1
@@ -47,11 +48,19 @@ def _cls(h):
     return b.value
 
 
-def _dismiss_once(log):
+def process_ids():
+    result = subprocess.run(["tasklist", "/FO", "CSV", "/NH"], capture_output=True, text=True, check=True)
+    names = {name.casefold() for name in PROCESSES}
+    return {int(row[1].replace(",", "")) for row in csv.reader(io.StringIO(result.stdout)) if len(row) >= 2 and row[0].casefold() in names}
+
+
+def _dismiss_once(log, allowed_pids):
     found = []
 
     def top(h, _):
-        if _cls(h) == "#32770" and user32.IsWindowVisible(h):
+        pid = wt.DWORD()
+        user32.GetWindowThreadProcessId(h, ctypes.byref(pid))
+        if pid.value in allowed_pids and _cls(h) == "#32770" and user32.IsWindowVisible(h):
             found.append(h)
         return True
 
@@ -94,7 +103,7 @@ class Dismisser:
     def run(self):
         while not self.stop.is_set():
             try:
-                _dismiss_once(self.log)
+                _dismiss_once(self.log, process_ids())
             except Exception as error:
                 self.log.append({"error": repr(error)})
                 self.stop.set()
@@ -126,6 +135,10 @@ def cv(obj, name, *args):
 
 def byref_long():
     return VARIANT(pythoncom.VT_BYREF | pythoncom.VT_I4, 0)
+
+
+def byref_bool():
+    return VARIANT(pythoncom.VT_BYREF | pythoncom.VT_BOOL, False)
 
 
 def nothing():
@@ -223,8 +236,10 @@ def features(m):
     while f is not None:
         item = {"name": str(f.Name), "type": str(cv(f, "GetTypeName2"))}
         try:
-            code = f.GetErrorCode2(byref_long())
+            warning = byref_bool()
+            code = f.GetErrorCode2(warning)
             item["error"] = int(code) if not isinstance(code, tuple) else int(code[0])
+            item["warning"] = bool(warning.value) if not isinstance(code, tuple) else bool(code[1])
         except Exception as error:
             item["error_query_error"] = repr(error)
         try:
