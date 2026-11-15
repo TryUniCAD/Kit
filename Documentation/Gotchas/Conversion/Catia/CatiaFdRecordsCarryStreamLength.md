@@ -16,8 +16,45 @@ r2  at offset 153   span varies, different shape (ff ff 02 00 01 ...)
 ```
 
 `kind` is `3` for `r0` and `19` for `r1` in every one of the 27 corpus parts, and the 13-byte tail is
-the same `ff 03 01 00 00 ff 01 00 00 00 00 62 00`. The five floats vary per part and carry no metric
-that could be derived from the model:
+the same `ff 03 01 00 00 ff 01 00 00 00 00 62 00`.
+
+## Three of the five floats are the bounds-box centre
+
+`float[1]` is always `0.0`, and `float[2..4]` is the centre of the bounding box built from the
+`SurfacicReps` surface bounds — for each surface record, `centre ± halfExtent` (not `± radius`):
+
+```
+part              float[2..4]                  bounds-box centre
+Copper_Washer     0.5, 0.0, 0.0                0.5, 0.0, 0.0
+Washer_8          0.0, 0.0, 0.8                0.0, 0.0, 0.8
+Banjo             7.5, 0.0, -0.0               7.5, 0.0, 0.0
+BRK_PRS_Sensor    0.0, 0.0, -1.8               0.0, 0.0, -1.8
+Reservoir        -6.75, 0.045, 30.0            -6.758, -0.015, 30.0
+```
+
+`19` of 27 parts match exactly (`< 0.01`), `23` match within `0.05`, and the worst error is `1.217`
+on the pooled `4784`. So three of the five floats are derivable from the surface records.
+
+## The remaining float is a bounding-sphere radius
+
+`float[0]` is bounded by two measurements on every part: it is at least the box half-diagonal
+(`27/27`) and below `max(distance(surface centre, box centre) + surface radius)` (`23/27`):
+
+```
+part           float[0]   half-diagonal   max(centre dist + radius)
+Reservoir       47.2094   47.0035         60.4678
+Banjo           19.1640   17.6480         27.4674
+Copper_Washer   11.4708   11.3248         16.7593
+4876            84.5143   82.9242         97.8470
+Nut_M6           9.2931    8.6225         14.5420
+```
+
+that is consistent with a tight bounding sphere of the exact B-rep, which is slightly larger than the
+box half-diagonal because the box is a lower bound and the surface-bound spheres are an upper bound.
+the exact value needs exact geometry, so the writer cannot emit `float[0]` faithfully.
+
+Earlier notes said the floats carry no derivable metric at all; the table that supported that claim
+compared them against the *vertex* bounding box, which is the wrong box.
 
 | part | five floats | bbox extent | extent/2 diagonal |
 | --- | --- | --- | --- |

@@ -333,8 +333,12 @@ result = CatiaAdapter().write(
   `r1` (span 52) share a layout: `00 00 00 01`, one zero byte, five `f32`, a `u32` kind that is `3`
   and `19` respectively in all 27 parts, and a constant 13-byte tail; `r1` adds `95 ff <u16> 00 00 00`.
   The `u16` equals `(MainDataStream length - 199) mod 65536` for 26 of 27 parts (`Pedal_Body` is off by
-  `340`). The five floats vary per part and match no model metric (only `Reservoir` and `Washer_8`
-  happen to have the z half-extent as the fifth float). `re/catia/tooling/FdRecords.py` dumps and
+  `340`). Of the five floats, `float[1]` is always `0.0` and `float[2..4]` is the centre of the
+  bounding box built from `SurfacicReps` surface bounds (`centre ± halfExtent`): `19` of 27 parts
+  match within `0.01` and `23` within `0.05`, worst `1.217` on the pooled `4784`. `float[0]` is a
+  bounding-sphere radius, at least the box half-diagonal on `27/27` and below
+  `max(distance(surface centre, box centre) + surface radius)` on `23/27`, so it needs exact geometry
+  and the writer still cannot emit the records faithfully. `re/catia/tooling/FdRecords.py` dumps and
   checks them, so a vendor-saved comparison is one command away.
 - The writer's `MainDataStream` is not structurally identical to a vendor stream, and the difference is
   now measured by parsed structure rather than raw byte counts: the writer's box emits one vertex table
