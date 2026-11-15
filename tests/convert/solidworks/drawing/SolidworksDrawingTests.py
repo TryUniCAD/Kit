@@ -122,7 +122,7 @@ def TestStyles() -> None:
 def TestDimensions() -> None:
     for NameValue in ("coincident.SLDDRW", "large.SLDDRW", "multisheet.SLDDRW"):
         DataValue = ReadDrawing(KDrawRoot / NameValue, IncludeDimensions=True)
-        Parameters = DataValue.DimensionParameters
+        Parameters = DataValue.DimensionParams
         assert Parameters is not None
         assert len(Parameters) == 1
         Parameter = Parameters[0]
