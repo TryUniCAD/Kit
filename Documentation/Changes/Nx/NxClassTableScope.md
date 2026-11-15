@@ -373,6 +373,27 @@ so the additive model fits the one-step change and degrades as the set differenc
 group delta is not the general rule. What is solid is the weaker statement above: the table is
 deterministic per class set and moves with it.
 
+## The set-level movement tracks the reference table
+
+Measuring the same group across every fixture shows the movement is a set-level quantity, and it
+tracks the section's reference-table size rather than its class count:
+
+```text
+part              classes  refs   K      classes-154  refs-79
+dim40..var_d9         154    79    0          0          0     (12 parts, all K = 0)
+var_sph               153    79   -1         -1          0
+var_cyl               161    83   +4          7          4
+empty                 129    63  -16        -25        -16
+multi                 129    63  -16        -25        -16
+var_blank             129    63  -16        -25        -16
+```
+
+`K = refs - 79` holds for sixteen of seventeen parts and fails only on `var_sph`, where the class
+count moved by one while the reference count stayed at 79. So `K` is a function of the class set
+(and therefore of the reference table), not of the part: `dim40`, `var_two` (a two-body part with
+1,202 more section-0 bytes) and `var_d9` (2,437 more) all carry `K = 0` because their class set is
+the same.
+
 ## The bases are not stored in any vendor module## The bases are not stored in any vendor module
 
 With the additive law in hand the per-class base became testable: for `dim40.prt` (K = 0) the stored
