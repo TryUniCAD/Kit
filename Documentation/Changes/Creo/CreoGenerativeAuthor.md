@@ -34,8 +34,11 @@ The measured blocks, each with its evidence further down:
   `DispDataTable`, `THMB_IMG_MAIN`, `CGFPersistTable`, two kind-`b` rows and two free-space extents. Dropping
   them gives `cannot be retrieved`; the `ND:*` tables are also not derivable from our field enumeration and
   not replaceable. `SolidPersistTable` and `SolidPrimdata` are display-pipeline state, not B-rep.
-- **`DispDataTable` does not decompress** with the current LZW decoder (`Creo compression code is outside the
-  table`), a latent limitation because display data is never consumed.
+- **`DispDataTable` does not decompress**, and it is the only compressed row whose directory kind is `c`
+  (`a` and `12` decode; `maxbits`/block-mode flags are identical for all of them, and the width-growth
+  threshold was tested at four offsets). Its third code is `302` against a table of `258`, which cannot follow
+  its first literal, so `kind c` most likely uses a different codec. Latent, because display data is never
+  consumed.
 
 The ground-truth corpus the playbook asks for does not exist: `re/creo/oracle/` holds two documents, and four
 `-uitrail` invocation shapes failed to make Creo replay a trail, so a corpus cannot be generated headlessly

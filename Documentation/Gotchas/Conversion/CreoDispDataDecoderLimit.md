@@ -15,15 +15,27 @@ SolidPrimdata        OK expanded 301 (declared 301)   head e0 00 70 67 6c 5f 70 
 DispDataTable        FAILS: CreoFormat: Creo compression code is outside the table
 ```
 
-`DispDataTable` (`819` bytes on disk, `1138` declared) starts `1f 9d 10 e0 1e c5 73 29`, while the two that
-work start `1f 9d 10 e0 00 c0 39 c3 e6 0b`. The decoder raises `CreoFormat` from `Compress.SelectCode` when a
-code exceeds the current table size, so this looks like a code-width or table-reset difference rather than a
-wrong offset: the row's slice and magic are correct, and `expanded` is larger than the stored size as
-expected for a compressed row.
+`DispDataTable` (`819` bytes on disk, `1138` declared) is the only compressed row that fails, and it is the
+only one whose directory kind is `c`. Every row that decodes is kind `a` or `12`:
 
-The defect is **latent** today: `DispDataTable` is display pipeline data and the adapter does not consume it.
-It matters for a complete reader, and it would matter for any attempt to treat that row the way `FeatDefsDtm`
-was treated.
+```text
+ND:0:Model_L05_PX:1        kind a  -> ok 1662
+ND:0:UnitSystemDef_L03:1   kind a  -> ok 907
+ND:0:PDMTrail_L03:1        kind a  -> ok 1490
+SolidPersistTable          kind a  -> ok 1788
+SolidPrimdata              kind a  -> ok 301
+THMB_IMG_MAIN              kind 12 -> ok 1653
+DispDataTable              kind c  -> FAIL
+```
+
+The compression flags are identical for all of them (`maxbits 16`, block mode off), and the body is sliced at
+the same `#<name>\n` line, so the failure is in the stream rather than in how it is located: with the current
+decoder its third code is `302` against a table of `258`, which cannot follow a first literal of `224` in an
+LZW stream.
+
+The width-growth threshold was tested at offsets `0`, `-1`, `+1` and `-2`; the current `0` decodes six of the
+seven rows and every other offset either breaks those six or still fails this one. So this is not an
+off-by-one in the decoder: `kind c` payloads most likely use a different codec.
 
 ## Workaround
 
