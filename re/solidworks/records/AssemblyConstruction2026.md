@@ -12,6 +12,7 @@ This finding uses static metadata, constructor dataflow, exported accessors, and
 | ------------- | ------------------------------------------------------------------ |
 | `sldmodu.dll` | `569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e` |
 | `sldmfcu.dll` | `af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735` |
+| `sldmgu.dll`  | `99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c` |
 
 ## Concrete class ownership
 
@@ -53,7 +54,7 @@ The active common constructor creates `moRelMgr_c(owner=this)` and assigns `f9d0
 
 The hypothesis that an assembly root should use a chain as its self component is **refuted before implementation**. Actual named assembly construction uses the unit component. Chain components describe instance paths. The common model-field factory is separately owned in `Model.py`, with explicit concrete node, self component, units, detail definitions, and relation graph inputs; the fresh composition must supply the active constructor's actual owner links.
 
-The active constructor also assigns `moUnitsTable_c(1)` to user units at `f9b8`, while analysis units `f9c0` remain null at this stage. This is direct 2026 construction evidence, independent of the older-version loader branch. Explicit authored analysis-unit settings may require their separate creation path. Allocated empty list pointers still require serializer-level normalization analysis before becoming a wire-presence rule.
+The active constructor also assigns `moUnitsTable_c(1)` to user units at `f9b8`, while analysis units `f9c0` remain null at this stage. This is direct 2026 construction evidence, independent of the older-version loader branch. Explicit authored analysis-unit settings may require their separate creation path. The `suObList` pointer store at `sldmfcu.dll!0x3c8cceb0` passes the actual pointer to `WriteObject` without testing emptiness. Allocated empty active-constructor lists therefore cannot be equated to null on that store path. The common model factory's current null fields and native loader-created empty lists still need final graph-policy analysis.
 
 ## Assembly root field classification
 
@@ -97,7 +98,58 @@ The header update counter belongs to the actual header object. [ModelConstructio
 
 The similarly named self-reference path is a separate runtime object. Assembly `makeSelfReference` at `0x4b6aa230` constructs `moReferenceEmbedded_c` with the model as both target and owner and stores it at `+0x1568`. The part method at `0x4c1b8530` stores its analogous object at `+0x1570`. Constructor `0x4bbb73e0` retains the target model at `+0x560`. Neither method assigns the serialized self component at `+0x990`; a newly constructed default transform in this runtime path is not evidence for a saved placement cache.
 
-Ordinary insertion `0x4b6a7df0` calls `addReference`, then `onAddReference`; it accepts a target model, authored transform, referenced configuration name, and insertion options. It can preserve an explicit requested id by advancing the actual header allocator until that id is reached. The insertion path is the next dataflow target for concrete reference construction, placement, and per-configuration state.
+Ordinary insertion `0x4b6a7df0` calls `addReference`, then `onAddReference`; it accepts a target model, authored transform, referenced configuration name, and insertion options. It can preserve an explicit requested id by advancing the actual header allocator until that id is reached.
+
+`addReference` at `0x4b6854d0` constructs a `moReference_c` through helper `0x4bbb7ba0` when its internal-reference option is zero. The nonzero branch invokes `0x4bbb74c0`, which uses the same helper and installs the `moReferenceInternal_c` vtables. With a nonnull authored transform, helper `0x4bbb7ba0` creates a copy at reference `f360` and increments `f3f0` from its constructor seed. This closes the reference's initial placement owner; it does not justify copying that matrix into every configuration transform cache.
+
+`onAddReference` at `0x4b6ab9c0` reaches configuration insertion helper `0x4b8d4910`. That helper constructs a reference chain rooted in the reference's actual owning model, appends the concrete reference, constructs its chain component, and calls `moConfiguration_c::getOrAddObject` at `0x4b8d1400`. The configuration copies its selected `fc48` or `fc50` option record into a `moConfigObject_c`; selection depends on the concrete reference kind. The chain becomes contextual in that object's constructor. The actual configuration-name lookup supplies the referenced persistent configuration id. It then passes the name/id to config-object setter `0x4b8b2380` and reference setter `0x4bbcd7a0`. Header identity, external links, remaining option domains and context-dependent transforms are not replaced with captured values.
+
+## Computed geometric bounds
+
+The first implemented assembly construction operation is
+`bounding_box(*, minimum: Sequence[float], maximum: Sequence[float]) -> dict` in
+[`builders/Assembly.py`](../../tooling/sw2026/builders/Assembly.py). Inputs are
+finite three-coordinate axis-aligned bounds in the model's length unit, with
+`minimum[i] <= maximum[i]`. It returns the embedded `mgBBox_c.restore` field
+mapping. Coordinates and derived state that exceed finite archive doubles fail
+explicitly. This computes one record; it does not construct a usable assembly
+or prove which owner cache should receive those bounds.
+
+The following bounding-box constructor, serializer and getter addresses belong
+to the hashed `sldmgu.dll` above.
+`mgBBox_c::restore` at `0x31e02820` consumes ten doubles into members `+0x08`
+through `+0x50`. Binary `save` at `0x31e03790` writes the same sequence. Getter
+`high` at `0x31de5980` and getter `low` at `0x31de71b0` identify their respective
+members. The point-pair constructor `0x31ddcf60` sorts each coordinate pair,
+then computes the center and radius. Setter helper `0x31de85b0` computes the
+same derived values from its low/high inputs. Its diagonal helper `0x31de3ee0`
+explicitly squares the three differences, adds them and takes the square root.
+
+| Wire fields | Native member       | Classification and formula                                                                          |
+| ----------- | ------------------- | --------------------------------------------------------------------------------------------------- |
+| `b0/b1/b2`  | `+0x08/+0x10/+0x18` | Derived sphere center: `(minimum[i] + maximum[i]) * 0.5`                                            |
+| `b3/b4/b5`  | `+0x20/+0x28/+0x30` | Input-derived high corner: `maximum`                                                                |
+| `b6/b7/b8`  | `+0x38/+0x40/+0x48` | Input-derived low corner: `minimum`                                                                 |
+| `b9`        | `+0x50`             | Derived sphere radius: `sqrt(dx*dx + dy*dy + dz*dz) * 0.5`, where each difference is high minus low |
+
+The default constructor at `0x31ddd2c0` instead creates center `(0,0,0)`, high
+`(-1,-1,-1)`, low `(1,1,1)` and radius `-2`. Native `isSet` at `0x31de6ae0`
+returns false when radius is negative or any high coordinate is below its low
+coordinate. That invalid constructor seed is neither a computed geometric box
+nor an accepted neutral cache. The builder deliberately requires actual bounds.
+See the [bounds-state gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/BoundingBoxSphereState.md).
+
+Insertion `sldmodu.dll!0x4b6ab9c0` updates assembly `f1a18` only after obtaining
+both the reference box and current assembly box; it assigns the latter and
+unions the former. The separate `f1a20` cache and final visibility/explosion
+policy remain to be closed. Assembly `f1a28` feeds byte `+0x102` in the bounding
+traversal context (`0x4b6c1ab0`); handler `0x4b6c9860` uses it to retain matching
+user-component records even when their `hasBody` query is false. This closes a
+specific dataflow use but does not yet establish the complete authored option.
+
+The helper was statically parsed; no local builder import, serialization or
+test execution was performed. Remote process coverage will exercise it with the
+completed assembly graph rather than through a prohibited isolated unit test.
 
 ## Native configuration option profile
 
@@ -116,6 +168,6 @@ Getter bindings for those roles are recorded in [AssemblyArchive2026.md](Assembl
 
 ## Remaining construction work
 
-The unresolved work is concrete and active: ordinary component-reference creation; external file/header/configuration identity; actual placement propagation; complete per-configuration option domains; solver state and common mate data; geometric bounds and cache policy; and controlled native load/rebuild/edit acceptance with passing controls.
+The unresolved work is concrete and active: complete ordinary component-reference construction; external file/header/configuration identity; context-dependent placement propagation; complete per-configuration option domains; solver state and common mate data; bounds-cache ownership and final visibility/explosion policy; and controlled native load/rebuild/edit acceptance with passing controls.
 
-No fresh assembly builder or native acceptance is claimed by this finding. No local tests, builder imports, fixture reproductions, or CAD operations were run. The caller and loop conclusions are static evidence, not Tupni execution traces.
+Only the geometric-bounds record constructor is implemented here. A complete fresh assembly builder and native acceptance are not claimed. No local tests, builder imports, fixture reproductions, or CAD operations were run. The caller and loop conclusions are static evidence, not Tupni execution traces.
