@@ -215,6 +215,45 @@ classes. So the digest covers more than the attribute names: types, sizes, offse
 the schema too, and `Attribute` exposes those as `GetType`, `GetSize`, `GetOffset`, `GetRTL`,
 `GetDimensions`.
 
+## The digest is supplied at registration, not computed by the registrant
+
+The class schema is now dumped per attribute — name, type, size, offset, alignment, properties,
+RTC, class id and attribute id — for 153 classes, and refitting the digest over that data fails too:
+
+```text
+field sets     name, name+type+size, name+type+size+offset, type+size+offset,
+               type+size+offset+props, ids, name+ids, text form
+separators     none, NUL, pipe, semicolon
+digests        xxh32 (seed 0, 1), crc32, fnv1a-32, md5 (little and big), blake2b-4
+classes        135 with a nonzero digest
+matches        0 for every combination
+```
+
+so the digest is not a hash of the attribute records either. Reading the code instead of fitting it:
+`ClassRegistrant`'s constructor at `0x180069fd0` stores the field from **its own argument**:
+
+```text
+0x18006a0be  mov eax, dword ptr [rbp + 0x380]
+0x18006a0df  mov dword ptr [r13 + 0xb0], eax
+```
+
+`[rbp + 0x380]` is a stack argument slot in the constructor's frame, so the value arrives from the
+caller. The constructor does not compute it. The registration call site in `libpart.dll` builds the
+argument list next to the descriptor:
+
+```text
+0x1801447cf  lea rdx, [rip + 0xa30f3a]     parent name
+0x1801447d6  mov rcx, rbx                  this
+0x1801447d9  call qword ptr [ClassRegistrant constructor]
+             mov dword ptr [rsp + 0x28], 0x80000111
+             mov dword ptr [rsp + 0x30], 0x21000
+```
+
+which means the digest is a **compile-time constant carried by the registering module** and passed
+in, rather than something the loader derives. That is the first evidence that the class table can be
+recovered statically: each class's digest should sit, as a literal, at that class's registration
+site.
+
 ## What this means for a static writer
 
 The entry is a snapshot of **registry-derived per-class values**, one of which is the class digest.
