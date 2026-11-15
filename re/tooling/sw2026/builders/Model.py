@@ -596,6 +596,7 @@ def base_configuration_fields(
         "fb80": None,
         "fbd8": None,
     })
+    result.f["f0c"] &= 0xFFFD7FF8
     return result.f
 
 

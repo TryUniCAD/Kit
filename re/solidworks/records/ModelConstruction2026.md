@@ -389,6 +389,29 @@ assembly builder's responsibility. In particular, the part `fc48/fc50`
 selectors must not stand in for assembly option objects at those offsets.
 This source comparison did not run a builder or establish native acceptance.
 
+The active base constructor subsequently clears its feature node's update state.
+At `0x4bdbffdf`–`0x4bdbffed`, it supplies `(status=0, propagate=1,
+source=null)` to `moNode_c::setNeedsUpdate` at `0x4c03ed90`.
+The zero-status branch applies `node.f0c &= 0xfffd7ff8` without the
+positive-status environment or notification branches. Starting from the shared
+feature constructor's `f0c=1`, the configuration node therefore ends at zero.
+`base_configuration_fields` now applies that transition. Its previous preserved
+feature seed omitted this explicit base-constructor operation.
+
+The part-derived constructor `0x4b595780` adds its own fields without re-marking
+the node. The manager's initial selection also preserves the clear state:
+`setCurConfig` at `0x4b89f1f0` sees an absent old configuration, adds the new
+configuration, and calls `moFeature_c::setState(new, 0)` at `0x4bb522f0`.
+The constructor's feature state `f298` is already zero, so that call does not
+enter its changed-state branch. The folded configuration-manager setter at
+`0x4b3979d0` assigns only `f868`. These facts support the initial-manager graph;
+later authored changes remain separate operations.
+
+The embedded `moPartConfigObject_c.f0c=1` is a different field and remains one.
+It must not receive the feature-node update mask. The container subprocess now
+reports both fields for independently constructed one- and seven-configuration
+documents. See [configuration update-state construction](../../../Documentation/Gotchas/Conversion/Solidworks/Model/ConfigurationConstructionClearsUpdateState.md).
+
 The base configuration constructor `0x4bdbf820` initializes its options, maps,
 empty feature lists and mass-property cache.
 The derived part configuration constructor `0x4b595780` adds its body maps,

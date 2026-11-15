@@ -64,6 +64,18 @@ def AssertBase(Report: dict[str, object]) -> None:
     assert Report["reference_owners_shared"] is True
 
 
+# configuration measurements must distinguish the node transition from its embedded state and local identifier namespace
+def AssertConfigs(Report: dict[str, object], Prefix: str, Count: int) -> None:
+    assert Report["configuration_names"] == [
+        f"{Prefix}{Index}" for Index in range(Count)
+    ]
+    assert Report["configuration_ids"] == list(range(Count))
+    assert Report["configuration_versions"] == [19000] * Count
+    assert Report["configuration_node_flags"] == [0] * Count
+    assert Report["configuration_object_flags"] == [1] * Count
+    assert Report["next_configuration_id"] == Count
+
+
 # independent unicode and size inputs expose fixed output while the subprocess enforces the real access boundary
 def TestFreshGraphs(TmpPath: FilePath) -> None:
     Small = RunBuilders(TmpPath, 1, 1234.5, "first-")
@@ -72,16 +84,8 @@ def TestFreshGraphs(TmpPath: FilePath) -> None:
     assert Large.returncode == 0, Large.stdout + Large.stderr
     First = LoadJson(Small.stdout)
     Second = LoadJson(Large.stdout)
-    assert First["configuration_names"] == ["first-0"]
-    assert Second["configuration_names"] == [
-        f"independent-構成-{Index}" for Index in range(7)
-    ]
-    assert First["configuration_ids"] == [0]
-    assert Second["configuration_ids"] == list(range(7))
-    assert First["configuration_versions"] == [19000]
-    assert Second["configuration_versions"] == [19000] * 7
-    assert First["next_configuration_id"] == 1
-    assert Second["next_configuration_id"] == 7
+    AssertConfigs(First, "first-", 1)
+    AssertConfigs(Second, "independent-構成-", 7)
     for Report in (First, Second):
         AssertPlanes(Report)
         AssertSystems(Report)
