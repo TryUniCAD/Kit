@@ -271,6 +271,21 @@ rpc.exports = {
       onEnter(Args) { this.object = Args[0]; this.arguments = [Args[1].toString(), Args[2].toString(), Args[3].toString()]; this.caller = location(this.returnAddress) },
       onLeave(ReturnValue) { emit({kind: "update-session-stamp", object: this.object.toString(), arguments: this.arguments, raw_rax_not_semantic_result: ReturnValue.toString(), caller: this.caller}) }
     })
+    if (Profile === "full") {
+      for (const [Address, Kind] of [[0x4c1c8320, "model-finalization"], [0x4b79aaf0, "model-modified-flag"], [0x4bcf3170, "model-get-bodies"]]) {
+        attach(Model.base.add(Address - 0x4b140000), {
+          onEnter(Args) {
+            this.object = Args[0]
+            this.arguments = [Args[1].toString(), Args[2].toString(), Args[3].toString()]
+            this.caller = location(this.returnAddress)
+            emit({kind: Kind + "-enter", object: this.object.toString(), arguments: this.arguments, caller: this.caller})
+          },
+          onLeave(ReturnValue) {
+            emit({kind: Kind + "-leave", object: this.object.toString(), raw_rax_not_semantic_result: ReturnValue.toString(), caller: this.caller})
+          }
+        })
+      }
+    }
     for (const [Offset, Kind] of [[0x15350, "header-next-update-stamp"], [0x15340, "header-next-body-stamp"]]) {
       attach(Archive.base.add(Offset), {
         onEnter(Args) { this.object = Args[0]; this.before = header(this.object); this.caller = location(this.returnAddress) },

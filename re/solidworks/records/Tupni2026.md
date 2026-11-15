@@ -331,3 +331,44 @@ question, recovered expression, evidence authority, remote verification and
 clean native acceptance result. Failed attachment, truncation, absent events or
 an unhealthy control remains recorded. Counts and performance will be reported
 only after measurement.
+
+### Takeover: origin solve and post-origin continuation
+
+Clean inspection of remotely generated head `f374f8319`, artifact
+`14157729237` from run `43706398170`, still rejected `H3_scalene.SLDPRT`
+between two healthy original controls. Its digest is
+`3b68ad9e4d77c180b02cb59423aaa25be1d8b560d03b23470347055ffa03f03d`.
+All three fresh processes recorded executable build `34.5.2.0604`, SHA-256
+`3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe`.
+The [measurement](../measurements/2026/FreshPartProfileOwnership.json) retains
+the controlled rejection, source revision and exact oracle identity.
+
+The unchanged full observation profile then preserved a healthy training control:
+12,735 events, zero host/producer drops, zero script errors and a clean detach.
+The candidate capture retained 2,826 events, zero host drops and no script errors.
+Its process terminated, so producer completion statistics are unavailable.
+All 72 observed class/schema comparisons matched, all 381 part archive contexts
+were 19000, and 445 object entries/leaves balanced. The part serializer returned.
+The [selected evidence](../v2026/evidence/TupniOriginSolved.json) retains both
+capture hashes, loaded-module identities and relevant events.
+
+The origin now has exactly one active point before and after its first solve.
+The point's solver status changes 1 to 2 and color 5 to 4; sketch status changes
+1 to 2, and whole-update returns 2. This closes the earlier observation gap.
+The ordinary triangle loads three points and three correctly linked lines, but
+its solve is not observed before the crash. That absence does not prove an
+ordinary-profile field error or justify copying a saved state into the writer.
+
+The last observed session update returns to `SLDMODU+0x10888bf`, preferred
+address `0x4c1c88bf`. Saved 2026 native analysis and instruction inspection show
+the immediate next call at `0x4c1c88c4` targets `moModel_c::setModifiedFlag` at
+`0x4b79aaf0`. Subsequent body collection calls `moAtomManager_c::getBodies` at
+`0x4bcf3170`. The full profile now observes entry/leave of those two methods and
+their finalization owner `0x4c1c8320`, without changing native exception handling.
+New measurements are pending. No additional serializer value has been inferred.
+
+A new REA pseudocode request for the origin initializer returned no analysis:
+the Hopper bridge exceeded its startup timeout, and authenticated document
+cleanup was unavailable. That attempt supplies no native format finding.
+The existing hash-bound 2026 analysis remains the source for the continuation
+addresses. No vendor listings or software are added to this PR.

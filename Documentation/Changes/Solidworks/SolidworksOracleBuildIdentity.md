@@ -16,5 +16,10 @@ The identity is recorded in each clean result and in the retained tracing prepar
 Clean inspection also records the job and inspector hashes, plus supplied generator provenance.
 Run `OracleIdentity.py` to inspect an already running COM session without opening, rebuilding, saving, or closing documents.
 It does not establish native file acceptance.
-Static syntax inspection passed. Native execution evidence is pending.
+Static syntax inspection passed.
+The [controlled inspection](../../../re/solidworks/measurements/2026/FreshPartProfileOwnership.json) recorded file version `34.5.2.0604` in all three fresh processes.
+The executable SHA-256 was `3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe`, with PE machine `0x8664`.
+Both original controls opened and rebuilt correctly.
+The generated candidate still failed at native open.
+The [staging gotcha](../../Gotchas/Conversion/Solidworks/Tracing/ManagedWorktreesNeedOracleStaging.md) records the guest path boundary encountered during this inspection.
 No local repository tests were run.

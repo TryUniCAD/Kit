@@ -1,0 +1,2442 @@
+{
+  "authority": "native-api-boundary-observation",
+  "status": "origin solve completed but generated candidate rejected",
+  "instruction_taint": false,
+  "captures": [
+    {
+      "kind": "control",
+      "raw_file": "<oracle-stage>/FullControl.json",
+      "raw_sha256": "dbfc300a7e25a63cdb144bf65a5a0220c4f4c88214ce3eb0e6d68c77d6949ae9",
+      "script_sha256": "76a0899fc8e4517dc8795f4bc88e2190a1fff81713f7166f71e93f8a84f1c739",
+      "prepare_sha256": "56d211a3ac33948ea5889a55b1499c8f113bb262fb23ed16c2734b21cd3ded10",
+      "action_sha256": "4fad64dc6d18b2e9ec6f01dc41f18618deecfb9e25384221a34dcc26bc2ca6c7",
+      "action_input": {
+        "path": "<retained>/L1_boss.SLDPRT",
+        "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+        "bytes": 59315,
+        "pe_machine": null
+      },
+      "oracle_identity": {
+        "process_id": 7528,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "module_runtime": [
+        {
+          "name": "KERNELBASE.dll",
+          "path": "<retained>/KERNELBASE.dll",
+          "base": "0x7ffc03420000",
+          "size": 6909952
+        },
+        {
+          "name": "USER32.dll",
+          "path": "<retained>/USER32.dll",
+          "base": "0x7ffc07170000",
+          "size": 2633728
+        },
+        {
+          "name": "VCRUNTIME140.dll",
+          "path": "<retained>/VCRUNTIME140.dll",
+          "base": "0x7ffbe3530000",
+          "size": 212992
+        },
+        {
+          "name": "VCRUNTIME140_1.dll",
+          "path": "<retained>/VCRUNTIME140_1.dll",
+          "base": "0x7ffbe2bb0000",
+          "size": 73728
+        },
+        {
+          "name": "mfc140u.dll",
+          "path": "<retained>/mfc140u.dll",
+          "base": "0x7ffb97c80000",
+          "size": 12181504
+        },
+        {
+          "name": "swccu.dll",
+          "path": "<retained>/swccu.dll",
+          "base": "0x31a30000",
+          "size": 258048
+        },
+        {
+          "name": "SLDMFCU.dll",
+          "path": "<retained>/SLDMFCU.dll",
+          "base": "0x3c720000",
+          "size": 8753152
+        },
+        {
+          "name": "sldarchiveu.dll",
+          "path": "<retained>/sldarchiveu.dll",
+          "base": "0x319f0000",
+          "size": 245760
+        },
+        {
+          "name": "SLDMODU.dll",
+          "path": "<retained>/SLDMODU.dll",
+          "base": "0x4b140000",
+          "size": 46923776
+        }
+      ],
+      "module_images": {
+        "KERNELBASE.dll": {
+          "path": "<retained>/KERNELBASE.dll",
+          "sha256": "218e41c3a47d2a13cc8177ec48370535ff29700aad71d506cf46b1660ec3d26c",
+          "bytes": 6899064,
+          "pe_machine": "0xaa64"
+        },
+        "USER32.dll": {
+          "path": "<retained>/USER32.dll",
+          "sha256": "9008b06071f1fe3b3ddf9bbd9097a062f2199aa29f736678feebd462c67a43b8",
+          "bytes": 2632672,
+          "pe_machine": "0xaa64"
+        },
+        "VCRUNTIME140.dll": {
+          "path": "<retained>/VCRUNTIME140.dll",
+          "sha256": "6d987d8cb2a47cff9c29c1fcbb853e7ef273c545f7d822728f7d2d448ca18758",
+          "bytes": 203336,
+          "pe_machine": "0xaa64"
+        },
+        "VCRUNTIME140_1.dll": {
+          "path": "<retained>/VCRUNTIME140_1.dll",
+          "sha256": "f4d66bdd6789aaed53341dc3153655e0ef2a9201c3652400443896a592e795b6",
+          "bytes": 53280,
+          "pe_machine": "0x8664"
+        },
+        "mfc140u.dll": {
+          "path": "<retained>/mfc140u.dll",
+          "sha256": "88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1",
+          "bytes": 12118600,
+          "pe_machine": "0xaa64"
+        },
+        "swccu.dll": {
+          "path": "<retained>/swccu.dll",
+          "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+          "bytes": 252504,
+          "pe_machine": "0x8664"
+        },
+        "SLDMFCU.dll": {
+          "path": "<retained>/SLDMFCU.dll",
+          "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+          "bytes": 8274520,
+          "pe_machine": "0x8664"
+        },
+        "sldarchiveu.dll": {
+          "path": "<retained>/sldarchiveu.dll",
+          "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+          "bytes": 231512,
+          "pe_machine": "0x8664"
+        },
+        "SLDMODU.dll": {
+          "path": "<retained>/SLDMODU.dll",
+          "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "bytes": 46536280,
+          "pe_machine": "0x8664"
+        },
+        "sldmodu.dll": {
+          "path": "<retained>/SLDMODU.dll",
+          "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "bytes": 46536280,
+          "pe_machine": "0x8664"
+        },
+        "sldmfcu.dll": {
+          "path": "<retained>/SLDMFCU.dll",
+          "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+          "bytes": 8274520,
+          "pe_machine": "0x8664"
+        }
+      },
+      "counts": {
+        "hooks-ready": 1,
+        "archive-object-enter": 2252,
+        "archive-class-schema": 378,
+        "archive-class-read": 2252,
+        "archive-object-leave": 2252,
+        "feature-constructor": 67,
+        "model-needs-update": 37,
+        "part-serialize-enter": 2,
+        "part-archive-helper": 996,
+        "part-version-fallback": 59,
+        "part-serialize-leave": 2,
+        "sketch-serialize-enter": 7,
+        "archive-primitive": 4329,
+        "archive-count": 37,
+        "sketch-serialize-leave": 7,
+        "header-next-update-stamp": 15,
+        "update-session-stamp": 15,
+        "sketch-whole-update-enter": 4,
+        "sketch-coordinate-commit": 4,
+        "sketch-update": 4,
+        "sketch-whole-update-leave": 4,
+        "solver-status-map": 9,
+        "header-next-body-stamp": 2
+      },
+      "message_drops": 0,
+      "script_errors": [],
+      "producer_statistics": {
+        "events": 12735,
+        "dropped": 0
+      },
+      "elapsed_seconds": 60.21799999999348,
+      "detached": true,
+      "detach_event": {
+        "reason": "application-requested",
+        "crash": null
+      },
+      "context_versions": {
+        "19000": 996
+      },
+      "schema_mismatches": [],
+      "selected_events": [
+        {
+          "sequence": 2473,
+          "phase": "armed",
+          "kind": "sketch-serialize-leave",
+          "thread": 1256,
+          "sketch": {
+            "pointer": "0x71f38c70",
+            "profile": "0x7278aab0",
+            "points": {
+              "array": "0x2f936780",
+              "data": "0x2fc04970",
+              "raw_count": 1,
+              "active_count": 1,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x2f936840",
+              "data": "0x7245c090",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 1,
+            "status": 2,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "archive": {
+            "pointer": "0x71ccc5f0",
+            "buffer_start": "0x727680b0",
+            "cursor": "0x727696a6",
+            "buffer_offset": "0x15f6",
+            "buffer_end": "0x7276b8f7",
+            "map_count": 179,
+            "epoch": 1,
+            "logical_stream_offset": null
+          }
+        },
+        {
+          "sequence": 5214,
+          "phase": "armed",
+          "kind": "sketch-serialize-leave",
+          "thread": 1256,
+          "sketch": {
+            "pointer": "0x71f37430",
+            "profile": "0x7278bbf0",
+            "points": {
+              "array": "0x2f9377a0",
+              "data": "0x2fc4a970",
+              "raw_count": 4,
+              "active_count": 4,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x2f9371a0",
+              "data": "0x72922300",
+              "raw_count": 4,
+              "bounded_scan_complete": true,
+              "slots": [
+                {
+                  "index": 0,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 0,
+                  "end_point_index": 1
+                },
+                {
+                  "index": 1,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 1,
+                  "end_point_index": 2
+                },
+                {
+                  "index": 2,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 2,
+                  "end_point_index": 3
+                },
+                {
+                  "index": 3,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 3,
+                  "end_point_index": 0
+                }
+              ]
+            },
+            "saved_status": 1,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 10
+          },
+          "archive": {
+            "pointer": "0x71ccc5f0",
+            "buffer_start": "0x727680b0",
+            "cursor": "0x7276ab66",
+            "buffer_offset": "0x2ab6",
+            "buffer_end": "0x7276b8f7",
+            "map_count": 229,
+            "epoch": 1,
+            "logical_stream_offset": null
+          }
+        },
+        {
+          "sequence": 6272,
+          "phase": "armed",
+          "kind": "sketch-whole-update-enter",
+          "before": {
+            "pointer": "0x2f9c8e00",
+            "profile": "0x7278b7a0",
+            "points": {
+              "array": "0x72c54570",
+              "data": "0x72a84970",
+              "raw_count": 0,
+              "active_count": 0,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x72c55140",
+              "data": "0x72a845f0",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 0,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "transform": "0x5f8c90",
+          "result_pointer": "0x5f8830",
+          "update_engine": "0x5f8aa0",
+          "stack_i32": [
+            1,
+            1
+          ],
+          "constraint_balance": "0x0",
+          "tolerance_f64": 0,
+          "tolerance_raw_u64": "0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xf9ccdf"
+          }
+        },
+        {
+          "sequence": 6275,
+          "phase": "armed",
+          "kind": "sketch-whole-update-leave",
+          "before": {
+            "pointer": "0x2f9c8e00",
+            "profile": "0x7278b7a0",
+            "points": {
+              "array": "0x72c54570",
+              "data": "0x72a84970",
+              "raw_count": 0,
+              "active_count": 0,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x72c55140",
+              "data": "0x72a845f0",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 0,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "after": {
+            "pointer": "0x2f9c8e00",
+            "profile": "0x7278b7a0",
+            "points": {
+              "array": "0x72c54570",
+              "data": "0x72a84970",
+              "raw_count": 0,
+              "active_count": 0,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x72c55140",
+              "data": "0x72a845f0",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 0,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "constrained_status": 1,
+          "raw_rax": "0x1",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xf9ccdf"
+          }
+        },
+        {
+          "sequence": 6874,
+          "phase": "armed",
+          "kind": "sketch-serialize-leave",
+          "thread": 5236,
+          "sketch": {
+            "pointer": "0x8012cea0",
+            "profile": "0x7278c8e0",
+            "points": {
+              "array": "0x72484160",
+              "data": "0x72a51790",
+              "raw_count": 0,
+              "active_count": 0,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x72484190",
+              "data": "0x72a51810",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 0,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "archive": {
+            "pointer": "0x71cd2d70",
+            "buffer_start": "0x72bd2260",
+            "cursor": "0x72bd38e7",
+            "buffer_offset": "0x1687",
+            "buffer_end": "0x72bdb23c",
+            "map_count": 129,
+            "epoch": 3,
+            "logical_stream_offset": null
+          }
+        },
+        {
+          "sequence": 7272,
+          "phase": "armed",
+          "kind": "sketch-serialize-leave",
+          "thread": 5236,
+          "sketch": {
+            "pointer": "0x8012f910",
+            "profile": "0x7278c490",
+            "points": {
+              "array": "0x724857b0",
+              "data": "0x72a51d90",
+              "raw_count": 0,
+              "active_count": 0,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x72485840",
+              "data": "0x72a51e50",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 0,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "archive": {
+            "pointer": "0x71cd2d70",
+            "buffer_start": "0x72bd2260",
+            "cursor": "0x72bd437d",
+            "buffer_offset": "0x211d",
+            "buffer_end": "0x72bdb23c",
+            "map_count": 165,
+            "epoch": 3,
+            "logical_stream_offset": null
+          }
+        },
+        {
+          "sequence": 7532,
+          "phase": "armed",
+          "kind": "sketch-serialize-leave",
+          "thread": 5236,
+          "sketch": {
+            "pointer": "0x802edc10",
+            "profile": "0x72789970",
+            "points": {
+              "array": "0x72486b30",
+              "data": "0x72a528b0",
+              "raw_count": 0,
+              "active_count": 0,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x72486620",
+              "data": "0x72a52990",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 0,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "archive": {
+            "pointer": "0x71cd2d70",
+            "buffer_start": "0x72bd2260",
+            "cursor": "0x72bd47d2",
+            "buffer_offset": "0x2572",
+            "buffer_end": "0x72bdb23c",
+            "map_count": 175,
+            "epoch": 3,
+            "logical_stream_offset": null
+          }
+        },
+        {
+          "sequence": 11011,
+          "phase": "armed",
+          "kind": "sketch-serialize-leave",
+          "thread": 5236,
+          "sketch": {
+            "pointer": "0x802ee220",
+            "profile": "0x7278eb60",
+            "points": {
+              "array": "0x80141730",
+              "data": "0x72c6c2a0",
+              "raw_count": 1,
+              "active_count": 1,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x80140e30",
+              "data": "0x72a54570",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 1,
+            "status": 2,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "archive": {
+            "pointer": "0x71cbb770",
+            "buffer_start": "0x804a7280",
+            "cursor": "0x804a8876",
+            "buffer_offset": "0x15f6",
+            "buffer_end": "0x804a9e45",
+            "map_count": 178,
+            "epoch": 1,
+            "logical_stream_offset": null
+          }
+        },
+        {
+          "sequence": 12091,
+          "phase": "armed",
+          "kind": "sketch-serialize-leave",
+          "thread": 5236,
+          "sketch": {
+            "pointer": "0x802ee830",
+            "profile": "0x72791ad0",
+            "points": {
+              "array": "0x80141130",
+              "data": "0x72c645c0",
+              "raw_count": 5,
+              "active_count": 5,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x80141190",
+              "data": "0x71fc9bf0",
+              "raw_count": 5,
+              "bounded_scan_complete": true,
+              "slots": [
+                {
+                  "index": 0,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 0,
+                  "end_point_index": 1
+                },
+                {
+                  "index": 1,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 1,
+                  "end_point_index": 2
+                },
+                {
+                  "index": 2,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 2,
+                  "end_point_index": 3
+                },
+                {
+                  "index": 3,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 3,
+                  "end_point_index": 4
+                },
+                {
+                  "index": 4,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 4,
+                  "end_point_index": 0
+                }
+              ]
+            },
+            "saved_status": 1,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 6
+          },
+          "archive": {
+            "pointer": "0x71cbb770",
+            "buffer_start": "0x804a7280",
+            "cursor": "0x804a903d",
+            "buffer_offset": "0x1dbd",
+            "buffer_end": "0x804a9e45",
+            "map_count": 198,
+            "epoch": 1,
+            "logical_stream_offset": null
+          }
+        },
+        {
+          "sequence": 12650,
+          "phase": "armed",
+          "kind": "sketch-whole-update-enter",
+          "before": {
+            "pointer": "0x8012cea0",
+            "profile": "0x7278c8e0",
+            "points": {
+              "array": "0x72484160",
+              "data": "0x72a51790",
+              "raw_count": 0,
+              "active_count": 0,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x72484190",
+              "data": "0x72a51810",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 0,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "transform": "0x67cadf10",
+          "result_pointer": "0x67cadab0",
+          "update_engine": "0x67cae890",
+          "stack_i32": [
+            1,
+            1
+          ],
+          "constraint_balance": "0x0",
+          "tolerance_f64": 0,
+          "tolerance_raw_u64": "0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xf9ccdf"
+          }
+        },
+        {
+          "sequence": 12653,
+          "phase": "armed",
+          "kind": "sketch-whole-update-leave",
+          "before": {
+            "pointer": "0x8012cea0",
+            "profile": "0x7278c8e0",
+            "points": {
+              "array": "0x72484160",
+              "data": "0x72a51790",
+              "raw_count": 0,
+              "active_count": 0,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x72484190",
+              "data": "0x72a51810",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 0,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "after": {
+            "pointer": "0x8012cea0",
+            "profile": "0x7278c8e0",
+            "points": {
+              "array": "0x72484160",
+              "data": "0x72a51790",
+              "raw_count": 0,
+              "active_count": 0,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x72484190",
+              "data": "0x72a51810",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 0,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "constrained_status": 1,
+          "raw_rax": "0x1",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xf9ccdf"
+          }
+        },
+        {
+          "sequence": 12707,
+          "phase": "armed",
+          "kind": "sketch-whole-update-enter",
+          "before": {
+            "pointer": "0x71f38c70",
+            "profile": "0x7278aab0",
+            "points": {
+              "array": "0x2f936780",
+              "data": "0x2fc04970",
+              "raw_count": 1,
+              "active_count": 1,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x2f936840",
+              "data": "0x7245c090",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 1,
+            "status": 2,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "transform": "0x5fd150",
+          "result_pointer": "0x5fccf0",
+          "update_engine": "0x5fe060",
+          "stack_i32": [
+            1,
+            1
+          ],
+          "constraint_balance": "0x0",
+          "tolerance_f64": 0,
+          "tolerance_raw_u64": "0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xf9ccdf"
+          }
+        },
+        {
+          "sequence": 12710,
+          "phase": "armed",
+          "kind": "solver-status-map",
+          "handle": "0x5fbf88",
+          "raw_status": 1,
+          "drawing": 0,
+          "mapped_status": 2,
+          "before": {
+            "handle": "0x5fbf88",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208f2d8"
+            },
+            "sketch": "0x71f38c70",
+            "index": 0,
+            "resolved": true,
+            "kind": "point",
+            "pointer": "0x2fc04970",
+            "color": 4,
+            "constraint_status": 2,
+            "line_type": 1,
+            "point_type_i32": 1,
+            "xyz": [
+              0,
+              0,
+              0
+            ]
+          },
+          "after_mapping_before_caller_resumes": {
+            "handle": "0x5fbf88",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208f2d8"
+            },
+            "sketch": "0x71f38c70",
+            "index": 0,
+            "resolved": true,
+            "kind": "point",
+            "pointer": "0x2fc04970",
+            "color": 4,
+            "constraint_status": 2,
+            "line_type": 1,
+            "point_type_i32": 1,
+            "xyz": [
+              0,
+              0,
+              0
+            ]
+          },
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x13c43a9"
+          }
+        },
+        {
+          "sequence": 12711,
+          "phase": "armed",
+          "kind": "sketch-whole-update-leave",
+          "before": {
+            "pointer": "0x71f38c70",
+            "profile": "0x7278aab0",
+            "points": {
+              "array": "0x2f936780",
+              "data": "0x2fc04970",
+              "raw_count": 1,
+              "active_count": 1,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x2f936840",
+              "data": "0x7245c090",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 1,
+            "status": 2,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "after": {
+            "pointer": "0x71f38c70",
+            "profile": "0x7278aab0",
+            "points": {
+              "array": "0x2f936780",
+              "data": "0x2fc04970",
+              "raw_count": 1,
+              "active_count": 1,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x2f936840",
+              "data": "0x7245c090",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 1,
+            "status": 2,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "constrained_status": 2,
+          "raw_rax": "0x2",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xf9ccdf"
+          }
+        },
+        {
+          "sequence": 12714,
+          "phase": "armed",
+          "kind": "sketch-whole-update-enter",
+          "before": {
+            "pointer": "0x71f37430",
+            "profile": "0x7278bbf0",
+            "points": {
+              "array": "0x2f9377a0",
+              "data": "0x2fc4a970",
+              "raw_count": 4,
+              "active_count": 4,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x2f9371a0",
+              "data": "0x72922300",
+              "raw_count": 4,
+              "bounded_scan_complete": true,
+              "slots": [
+                {
+                  "index": 0,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 0,
+                  "end_point_index": 1
+                },
+                {
+                  "index": 1,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 1,
+                  "end_point_index": 2
+                },
+                {
+                  "index": 2,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 2,
+                  "end_point_index": 3
+                },
+                {
+                  "index": 3,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 3,
+                  "end_point_index": 0
+                }
+              ]
+            },
+            "saved_status": 1,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 10
+          },
+          "transform": "0x5fd150",
+          "result_pointer": "0x5fccf0",
+          "update_engine": "0x5fe060",
+          "stack_i32": [
+            1,
+            1
+          ],
+          "constraint_balance": "0x0",
+          "tolerance_f64": 0,
+          "tolerance_raw_u64": "0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xf9ccdf"
+          }
+        },
+        {
+          "sequence": 12717,
+          "phase": "armed",
+          "kind": "solver-status-map",
+          "handle": "0x5fbf88",
+          "raw_status": 11,
+          "drawing": 0,
+          "mapped_status": 1,
+          "before": {
+            "handle": "0x5fbf88",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208e588"
+            },
+            "sketch": "0x71f37430",
+            "index": 0,
+            "resolved": true,
+            "kind": "line",
+            "pointer": "0x72922300",
+            "color": 5,
+            "constraint_status": 1,
+            "line_type": 1
+          },
+          "after_mapping_before_caller_resumes": {
+            "handle": "0x5fbf88",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208e588"
+            },
+            "sketch": "0x71f37430",
+            "index": 0,
+            "resolved": true,
+            "kind": "line",
+            "pointer": "0x72922300",
+            "color": 5,
+            "constraint_status": 1,
+            "line_type": 1
+          },
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x13c2e43"
+          }
+        },
+        {
+          "sequence": 12718,
+          "phase": "armed",
+          "kind": "solver-status-map",
+          "handle": "0x5fbf88",
+          "raw_status": 11,
+          "drawing": 0,
+          "mapped_status": 1,
+          "before": {
+            "handle": "0x5fbf88",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208e588"
+            },
+            "sketch": "0x71f37430",
+            "index": 1,
+            "resolved": true,
+            "kind": "line",
+            "pointer": "0x729223f0",
+            "color": 5,
+            "constraint_status": 1,
+            "line_type": 1
+          },
+          "after_mapping_before_caller_resumes": {
+            "handle": "0x5fbf88",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208e588"
+            },
+            "sketch": "0x71f37430",
+            "index": 1,
+            "resolved": true,
+            "kind": "line",
+            "pointer": "0x729223f0",
+            "color": 5,
+            "constraint_status": 1,
+            "line_type": 1
+          },
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x13c2e43"
+          }
+        },
+        {
+          "sequence": 12719,
+          "phase": "armed",
+          "kind": "solver-status-map",
+          "handle": "0x5fbf88",
+          "raw_status": 11,
+          "drawing": 0,
+          "mapped_status": 1,
+          "before": {
+            "handle": "0x5fbf88",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208e588"
+            },
+            "sketch": "0x71f37430",
+            "index": 2,
+            "resolved": true,
+            "kind": "line",
+            "pointer": "0x729224e0",
+            "color": 5,
+            "constraint_status": 1,
+            "line_type": 1
+          },
+          "after_mapping_before_caller_resumes": {
+            "handle": "0x5fbf88",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208e588"
+            },
+            "sketch": "0x71f37430",
+            "index": 2,
+            "resolved": true,
+            "kind": "line",
+            "pointer": "0x729224e0",
+            "color": 5,
+            "constraint_status": 1,
+            "line_type": 1
+          },
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x13c2e43"
+          }
+        },
+        {
+          "sequence": 12720,
+          "phase": "armed",
+          "kind": "solver-status-map",
+          "handle": "0x5fbf88",
+          "raw_status": 11,
+          "drawing": 0,
+          "mapped_status": 1,
+          "before": {
+            "handle": "0x5fbf88",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208e588"
+            },
+            "sketch": "0x71f37430",
+            "index": 3,
+            "resolved": true,
+            "kind": "line",
+            "pointer": "0x729225d0",
+            "color": 5,
+            "constraint_status": 1,
+            "line_type": 1
+          },
+          "after_mapping_before_caller_resumes": {
+            "handle": "0x5fbf88",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208e588"
+            },
+            "sketch": "0x71f37430",
+            "index": 3,
+            "resolved": true,
+            "kind": "line",
+            "pointer": "0x729225d0",
+            "color": 5,
+            "constraint_status": 1,
+            "line_type": 1
+          },
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x13c2e43"
+          }
+        },
+        {
+          "sequence": 12721,
+          "phase": "armed",
+          "kind": "solver-status-map",
+          "handle": "0x5fbf88",
+          "raw_status": 11,
+          "drawing": 0,
+          "mapped_status": 1,
+          "before": {
+            "handle": "0x5fbf88",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208f2d8"
+            },
+            "sketch": "0x71f37430",
+            "index": 0,
+            "resolved": true,
+            "kind": "point",
+            "pointer": "0x2fc4a970",
+            "color": 5,
+            "constraint_status": 1,
+            "line_type": 1,
+            "point_type_i32": 0,
+            "xyz": [
+              -0.02,
+              -0.01,
+              0
+            ]
+          },
+          "after_mapping_before_caller_resumes": {
+            "handle": "0x5fbf88",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208f2d8"
+            },
+            "sketch": "0x71f37430",
+            "index": 0,
+            "resolved": true,
+            "kind": "point",
+            "pointer": "0x2fc4a970",
+            "color": 5,
+            "constraint_status": 1,
+            "line_type": 1,
+            "point_type_i32": 0,
+            "xyz": [
+              -0.02,
+              -0.01,
+              0
+            ]
+          },
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x13c43a9"
+          }
+        },
+        {
+          "sequence": 12722,
+          "phase": "armed",
+          "kind": "solver-status-map",
+          "handle": "0x5fbf88",
+          "raw_status": 11,
+          "drawing": 0,
+          "mapped_status": 1,
+          "before": {
+            "handle": "0x5fbf88",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208f2d8"
+            },
+            "sketch": "0x71f37430",
+            "index": 1,
+            "resolved": true,
+            "kind": "point",
+            "pointer": "0x2fc4aac8",
+            "color": 5,
+            "constraint_status": 1,
+            "line_type": 1,
+            "point_type_i32": 0,
+            "xyz": [
+              0.02,
+              -0.01,
+              0
+            ]
+          },
+          "after_mapping_before_caller_resumes": {
+            "handle": "0x5fbf88",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208f2d8"
+            },
+            "sketch": "0x71f37430",
+            "index": 1,
+            "resolved": true,
+            "kind": "point",
+            "pointer": "0x2fc4aac8",
+            "color": 5,
+            "constraint_status": 1,
+            "line_type": 1,
+            "point_type_i32": 0,
+            "xyz": [
+              0.02,
+              -0.01,
+              0
+            ]
+          },
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x13c43a9"
+          }
+        },
+        {
+          "sequence": 12723,
+          "phase": "armed",
+          "kind": "solver-status-map",
+          "handle": "0x5fbf88",
+          "raw_status": 11,
+          "drawing": 0,
+          "mapped_status": 1,
+          "before": {
+            "handle": "0x5fbf88",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208f2d8"
+            },
+            "sketch": "0x71f37430",
+            "index": 2,
+            "resolved": true,
+            "kind": "point",
+            "pointer": "0x2fc4ac20",
+            "color": 5,
+            "constraint_status": 1,
+            "line_type": 1,
+            "point_type_i32": 0,
+            "xyz": [
+              0.02,
+              0.01,
+              0
+            ]
+          },
+          "after_mapping_before_caller_resumes": {
+            "handle": "0x5fbf88",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208f2d8"
+            },
+            "sketch": "0x71f37430",
+            "index": 2,
+            "resolved": true,
+            "kind": "point",
+            "pointer": "0x2fc4ac20",
+            "color": 5,
+            "constraint_status": 1,
+            "line_type": 1,
+            "point_type_i32": 0,
+            "xyz": [
+              0.02,
+              0.01,
+              0
+            ]
+          },
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x13c43a9"
+          }
+        },
+        {
+          "sequence": 12724,
+          "phase": "armed",
+          "kind": "solver-status-map",
+          "handle": "0x5fbf88",
+          "raw_status": 11,
+          "drawing": 0,
+          "mapped_status": 1,
+          "before": {
+            "handle": "0x5fbf88",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208f2d8"
+            },
+            "sketch": "0x71f37430",
+            "index": 3,
+            "resolved": true,
+            "kind": "point",
+            "pointer": "0x2fc4ad78",
+            "color": 5,
+            "constraint_status": 1,
+            "line_type": 1,
+            "point_type_i32": 0,
+            "xyz": [
+              -0.02,
+              0.01,
+              0
+            ]
+          },
+          "after_mapping_before_caller_resumes": {
+            "handle": "0x5fbf88",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208f2d8"
+            },
+            "sketch": "0x71f37430",
+            "index": 3,
+            "resolved": true,
+            "kind": "point",
+            "pointer": "0x2fc4ad78",
+            "color": 5,
+            "constraint_status": 1,
+            "line_type": 1,
+            "point_type_i32": 0,
+            "xyz": [
+              -0.02,
+              0.01,
+              0
+            ]
+          },
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x13c43a9"
+          }
+        },
+        {
+          "sequence": 12725,
+          "phase": "armed",
+          "kind": "sketch-whole-update-leave",
+          "before": {
+            "pointer": "0x71f37430",
+            "profile": "0x7278bbf0",
+            "points": {
+              "array": "0x2f9377a0",
+              "data": "0x2fc4a970",
+              "raw_count": 4,
+              "active_count": 4,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x2f9371a0",
+              "data": "0x72922300",
+              "raw_count": 4,
+              "bounded_scan_complete": true,
+              "slots": [
+                {
+                  "index": 0,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 0,
+                  "end_point_index": 1
+                },
+                {
+                  "index": 1,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 1,
+                  "end_point_index": 2
+                },
+                {
+                  "index": 2,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 2,
+                  "end_point_index": 3
+                },
+                {
+                  "index": 3,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 3,
+                  "end_point_index": 0
+                }
+              ]
+            },
+            "saved_status": 1,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 10
+          },
+          "after": {
+            "pointer": "0x71f37430",
+            "profile": "0x7278bbf0",
+            "points": {
+              "array": "0x2f9377a0",
+              "data": "0x2fc4a970",
+              "raw_count": 4,
+              "active_count": 4,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x2f9371a0",
+              "data": "0x72922300",
+              "raw_count": 4,
+              "bounded_scan_complete": true,
+              "slots": [
+                {
+                  "index": 0,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 0,
+                  "end_point_index": 1
+                },
+                {
+                  "index": 1,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 1,
+                  "end_point_index": 2
+                },
+                {
+                  "index": 2,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 2,
+                  "end_point_index": 3
+                },
+                {
+                  "index": 3,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 3,
+                  "end_point_index": 0
+                }
+              ]
+            },
+            "saved_status": 1,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 10
+          },
+          "constrained_status": 1,
+          "raw_rax": "0x1",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xf9ccdf"
+          }
+        }
+      ],
+      "last_events": [
+        {
+          "sequence": 12729,
+          "phase": "armed",
+          "kind": "header-next-body-stamp",
+          "before": {
+            "pointer": "0x723983e0",
+            "update_stamp": 132,
+            "body_stamp": 106,
+            "update_time_i64": "1794740768"
+          },
+          "after": {
+            "pointer": "0x723983e0",
+            "update_stamp": 132,
+            "body_stamp": 107,
+            "update_time_i64": "1794740768"
+          },
+          "returned_u32": 107,
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xbbb51b"
+          }
+        },
+        {
+          "sequence": 12730,
+          "phase": "armed",
+          "kind": "header-next-update-stamp",
+          "before": {
+            "pointer": "0x723983e0",
+            "update_stamp": 132,
+            "body_stamp": 107,
+            "update_time_i64": "1794740768"
+          },
+          "after": {
+            "pointer": "0x723983e0",
+            "update_stamp": 133,
+            "body_stamp": 107,
+            "update_time_i64": "1794740768"
+          },
+          "returned_u32": 133,
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xefa91c"
+          }
+        },
+        {
+          "sequence": 12731,
+          "phase": "armed",
+          "kind": "update-session-stamp",
+          "object": "0x7245e040",
+          "arguments": [
+            "0x1",
+            "0xffffffff",
+            "0x2f3403c0"
+          ],
+          "raw_rax_not_semantic_result": "0x4",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x108e72a"
+          }
+        },
+        {
+          "sequence": 12732,
+          "phase": "armed",
+          "kind": "model-needs-update",
+          "object": "0x7245e040",
+          "requested_status": 0,
+          "before": 17,
+          "after": 16,
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x1088426"
+          }
+        },
+        {
+          "sequence": 12733,
+          "phase": "armed",
+          "kind": "header-next-update-stamp",
+          "before": {
+            "pointer": "0x723983e0",
+            "update_stamp": 133,
+            "body_stamp": 107,
+            "update_time_i64": "1794740768"
+          },
+          "after": {
+            "pointer": "0x723983e0",
+            "update_stamp": 134,
+            "body_stamp": 107,
+            "update_time_i64": "1794740768"
+          },
+          "returned_u32": 134,
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xefa91c"
+          }
+        },
+        {
+          "sequence": 12734,
+          "phase": "armed",
+          "kind": "update-session-stamp",
+          "object": "0x7245e040",
+          "arguments": [
+            "0x1",
+            "0xffffffff",
+            "0x4e28570"
+          ],
+          "raw_rax_not_semantic_result": "0x4",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10888bf"
+          }
+        }
+      ],
+      "native_result": {
+        "kind": "instrumented-native-document",
+        "path": "<retained>/L1_boss.SLDPRT",
+        "revision": "34.5.2",
+        "opened": true,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "rebuilt": true,
+        "bodies": 1,
+        "mass": {
+          "volume": 8.000000000000001e-06,
+          "area": 0.0028,
+          "com": [
+            0.0,
+            0.0,
+            0.005
+          ],
+          "mass": 8.000000000000001e-06
+        },
+        "features": [
+          {
+            "name": "Comments",
+            "type": "CommentsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Favorites",
+            "type": "FavoriteFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "History",
+            "type": "HistoryFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Selection Sets",
+            "type": "SelectionSetFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sensors",
+            "type": "SensorFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Annotations",
+            "type": "DetailCabinet",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Surface Bodies",
+            "type": "SurfaceBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Solid Bodies",
+            "type": "SolidBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Lights and Cameras",
+            "type": "EnvFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Equations",
+            "type": "EqnFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sketch1",
+            "type": "ProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Sketch1@L1_boss.Part",
+                "value": 0.04
+              },
+              {
+                "name": "D2@Sketch1@L1_boss.Part",
+                "value": 0.02
+              }
+            ]
+          },
+          {
+            "name": "Boss-Extrude1",
+            "type": "Extrusion",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Boss-Extrude1@L1_boss.Part",
+                "value": 0.01
+              },
+              {
+                "name": "D1@Sketch1@L1_boss.Part",
+                "value": 0.04
+              },
+              {
+                "name": "D2@Sketch1@L1_boss.Part",
+                "value": 0.02
+              }
+            ]
+          }
+        ],
+        "whats_wrong": 0
+      },
+      "controller_diagnostics": []
+    },
+    {
+      "kind": "candidate",
+      "raw_file": "<oracle-stage>/FullCandidate.json",
+      "raw_sha256": "18eef29a3a26912b3af3725f5c974afabd0301c19950e61321a6f069fde0613f",
+      "script_sha256": "76a0899fc8e4517dc8795f4bc88e2190a1fff81713f7166f71e93f8a84f1c739",
+      "prepare_sha256": "56d211a3ac33948ea5889a55b1499c8f113bb262fb23ed16c2734b21cd3ded10",
+      "action_sha256": "4fad64dc6d18b2e9ec6f01dc41f18618deecfb9e25384221a34dcc26bc2ca6c7",
+      "action_input": {
+        "path": "<retained>/H3_scalene.SLDPRT",
+        "sha256": "3b68ad9e4d77c180b02cb59423aaa25be1d8b560d03b23470347055ffa03f03d",
+        "bytes": 6999,
+        "pe_machine": null
+      },
+      "oracle_identity": {
+        "process_id": 3500,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "module_runtime": [
+        {
+          "name": "KERNELBASE.dll",
+          "path": "<retained>/KERNELBASE.dll",
+          "base": "0x7ffc03420000",
+          "size": 6909952
+        },
+        {
+          "name": "USER32.dll",
+          "path": "<retained>/USER32.dll",
+          "base": "0x7ffc07170000",
+          "size": 2633728
+        },
+        {
+          "name": "VCRUNTIME140.dll",
+          "path": "<retained>/VCRUNTIME140.dll",
+          "base": "0x7ffbe3530000",
+          "size": 212992
+        },
+        {
+          "name": "VCRUNTIME140_1.dll",
+          "path": "<retained>/VCRUNTIME140_1.dll",
+          "base": "0x7ffbe2bb0000",
+          "size": 73728
+        },
+        {
+          "name": "mfc140u.dll",
+          "path": "<retained>/mfc140u.dll",
+          "base": "0x7ffb97c80000",
+          "size": 12181504
+        },
+        {
+          "name": "SLDMFCU.dll",
+          "path": "<retained>/SLDMFCU.dll",
+          "base": "0x3c720000",
+          "size": 8753152
+        },
+        {
+          "name": "swccu.dll",
+          "path": "<retained>/swccu.dll",
+          "base": "0x31a30000",
+          "size": 258048
+        },
+        {
+          "name": "sldarchiveu.dll",
+          "path": "<retained>/sldarchiveu.dll",
+          "base": "0x319f0000",
+          "size": 245760
+        },
+        {
+          "name": "SLDMODU.dll",
+          "path": "<retained>/SLDMODU.dll",
+          "base": "0x4b140000",
+          "size": 46923776
+        }
+      ],
+      "module_images": {
+        "KERNELBASE.dll": {
+          "path": "<retained>/KERNELBASE.dll",
+          "sha256": "218e41c3a47d2a13cc8177ec48370535ff29700aad71d506cf46b1660ec3d26c",
+          "bytes": 6899064,
+          "pe_machine": "0xaa64"
+        },
+        "USER32.dll": {
+          "path": "<retained>/USER32.dll",
+          "sha256": "9008b06071f1fe3b3ddf9bbd9097a062f2199aa29f736678feebd462c67a43b8",
+          "bytes": 2632672,
+          "pe_machine": "0xaa64"
+        },
+        "VCRUNTIME140.dll": {
+          "path": "<retained>/VCRUNTIME140.dll",
+          "sha256": "6d987d8cb2a47cff9c29c1fcbb853e7ef273c545f7d822728f7d2d448ca18758",
+          "bytes": 203336,
+          "pe_machine": "0xaa64"
+        },
+        "VCRUNTIME140_1.dll": {
+          "path": "<retained>/VCRUNTIME140_1.dll",
+          "sha256": "f4d66bdd6789aaed53341dc3153655e0ef2a9201c3652400443896a592e795b6",
+          "bytes": 53280,
+          "pe_machine": "0x8664"
+        },
+        "mfc140u.dll": {
+          "path": "<retained>/mfc140u.dll",
+          "sha256": "88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1",
+          "bytes": 12118600,
+          "pe_machine": "0xaa64"
+        },
+        "SLDMFCU.dll": {
+          "path": "<retained>/SLDMFCU.dll",
+          "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+          "bytes": 8274520,
+          "pe_machine": "0x8664"
+        },
+        "swccu.dll": {
+          "path": "<retained>/swccu.dll",
+          "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+          "bytes": 252504,
+          "pe_machine": "0x8664"
+        },
+        "sldarchiveu.dll": {
+          "path": "<retained>/sldarchiveu.dll",
+          "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+          "bytes": 231512,
+          "pe_machine": "0x8664"
+        },
+        "SLDMODU.dll": {
+          "path": "<retained>/SLDMODU.dll",
+          "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "bytes": 46536280,
+          "pe_machine": "0x8664"
+        },
+        "sldmodu.dll": {
+          "path": "<retained>/SLDMODU.dll",
+          "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "bytes": 46536280,
+          "pe_machine": "0x8664"
+        },
+        "sldmfcu.dll": {
+          "path": "<retained>/SLDMFCU.dll",
+          "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+          "bytes": 8274520,
+          "pe_machine": "0x8664"
+        }
+      },
+      "counts": {
+        "hooks-ready": 1,
+        "archive-object-enter": 445,
+        "archive-class-schema": 72,
+        "archive-class-read": 445,
+        "archive-object-leave": 445,
+        "feature-constructor": 15,
+        "part-serialize-enter": 1,
+        "part-archive-helper": 381,
+        "part-version-fallback": 22,
+        "part-serialize-leave": 1,
+        "sketch-serialize-enter": 2,
+        "archive-primitive": 926,
+        "archive-count": 8,
+        "sketch-serialize-leave": 2,
+        "model-needs-update": 29,
+        "header-next-update-stamp": 13,
+        "update-session-stamp": 13,
+        "sketch-whole-update-enter": 1,
+        "sketch-coordinate-commit": 1,
+        "sketch-update": 1,
+        "solver-status-map": 1,
+        "sketch-whole-update-leave": 1
+      },
+      "message_drops": 0,
+      "script_errors": [],
+      "producer_statistics": null,
+      "elapsed_seconds": 34.953000000008615,
+      "detached": true,
+      "detach_event": {
+        "reason": "process-terminated",
+        "crash": null
+      },
+      "context_versions": {
+        "19000": 381
+      },
+      "schema_mismatches": [],
+      "selected_events": [
+        {
+          "sequence": 1541,
+          "phase": "armed",
+          "kind": "sketch-serialize-leave",
+          "thread": 10836,
+          "sketch": {
+            "pointer": "0x71ba9f00",
+            "profile": "0x1e252310",
+            "points": {
+              "array": "0x718265a0",
+              "data": "0x2f6ac790",
+              "raw_count": 1,
+              "active_count": 1,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x71826630",
+              "data": "0x717a8d70",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 1,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "archive": {
+            "pointer": "0x71563270",
+            "buffer_start": "0x71bfde00",
+            "cursor": "0x71bff1cb",
+            "buffer_offset": "0x13cb",
+            "buffer_end": "0x71c013f2",
+            "map_count": 126,
+            "epoch": 1,
+            "logical_stream_offset": null
+          }
+        },
+        {
+          "sequence": 2281,
+          "phase": "armed",
+          "kind": "sketch-serialize-leave",
+          "thread": 10836,
+          "sketch": {
+            "pointer": "0x71ba92e0",
+            "profile": "0x1e253000",
+            "points": {
+              "array": "0x714c2280",
+              "data": "0x1e2538b0",
+              "raw_count": 3,
+              "active_count": 3,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x714c1d70",
+              "data": "0x1f8018d0",
+              "raw_count": 3,
+              "bounded_scan_complete": true,
+              "slots": [
+                {
+                  "index": 0,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 0,
+                  "end_point_index": 1
+                },
+                {
+                  "index": 1,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 1,
+                  "end_point_index": 2
+                },
+                {
+                  "index": 2,
+                  "flags_f54": 4,
+                  "deleted": false,
+                  "start_point_index": 2,
+                  "end_point_index": 0
+                }
+              ]
+            },
+            "saved_status": 1,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 4
+          },
+          "archive": {
+            "pointer": "0x71563270",
+            "buffer_start": "0x71bfde00",
+            "cursor": "0x71bff796",
+            "buffer_offset": "0x1996",
+            "buffer_end": "0x71c013f2",
+            "map_count": 142,
+            "epoch": 1,
+            "logical_stream_offset": null
+          }
+        },
+        {
+          "sequence": 2816,
+          "phase": "armed",
+          "kind": "sketch-whole-update-enter",
+          "before": {
+            "pointer": "0x71ba9f00",
+            "profile": "0x1e252310",
+            "points": {
+              "array": "0x718265a0",
+              "data": "0x2f6ac790",
+              "raw_count": 1,
+              "active_count": 1,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x71826630",
+              "data": "0x717a8d70",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 1,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "transform": "0x5fbc70",
+          "result_pointer": "0x5fb810",
+          "update_engine": "0x5fd800",
+          "stack_i32": [
+            1,
+            1
+          ],
+          "constraint_balance": "0x0",
+          "tolerance_f64": 0,
+          "tolerance_raw_u64": "0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xf9ccdf"
+          }
+        },
+        {
+          "sequence": 2819,
+          "phase": "armed",
+          "kind": "solver-status-map",
+          "handle": "0x5faaa8",
+          "raw_status": 1,
+          "drawing": 0,
+          "mapped_status": 2,
+          "before": {
+            "handle": "0x5faaa8",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208f2d8"
+            },
+            "sketch": "0x71ba9f00",
+            "index": 0,
+            "resolved": true,
+            "kind": "point",
+            "pointer": "0x2f6ac790",
+            "color": 5,
+            "constraint_status": 1,
+            "line_type": 1,
+            "point_type_i32": 1,
+            "xyz": [
+              0,
+              0,
+              0
+            ]
+          },
+          "after_mapping_before_caller_resumes": {
+            "handle": "0x5faaa8",
+            "handle_vtable": {
+              "module": "SLDMODU.dll",
+              "rva": "0x208f2d8"
+            },
+            "sketch": "0x71ba9f00",
+            "index": 0,
+            "resolved": true,
+            "kind": "point",
+            "pointer": "0x2f6ac790",
+            "color": 4,
+            "constraint_status": 2,
+            "line_type": 1,
+            "point_type_i32": 1,
+            "xyz": [
+              0,
+              0,
+              0
+            ]
+          },
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x13c43a9"
+          }
+        },
+        {
+          "sequence": 2820,
+          "phase": "armed",
+          "kind": "sketch-whole-update-leave",
+          "before": {
+            "pointer": "0x71ba9f00",
+            "profile": "0x1e252310",
+            "points": {
+              "array": "0x718265a0",
+              "data": "0x2f6ac790",
+              "raw_count": 1,
+              "active_count": 1,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x71826630",
+              "data": "0x717a8d70",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 1,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "after": {
+            "pointer": "0x71ba9f00",
+            "profile": "0x1e252310",
+            "points": {
+              "array": "0x718265a0",
+              "data": "0x2f6ac790",
+              "raw_count": 1,
+              "active_count": 1,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x71826630",
+              "data": "0x717a8d70",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 1,
+            "status": 2,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "constrained_status": 2,
+          "raw_rax": "0x2",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xf9ccdf"
+          }
+        }
+      ],
+      "last_events": [
+        {
+          "sequence": 2820,
+          "phase": "armed",
+          "kind": "sketch-whole-update-leave",
+          "before": {
+            "pointer": "0x71ba9f00",
+            "profile": "0x1e252310",
+            "points": {
+              "array": "0x718265a0",
+              "data": "0x2f6ac790",
+              "raw_count": 1,
+              "active_count": 1,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x71826630",
+              "data": "0x717a8d70",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 1,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "after": {
+            "pointer": "0x71ba9f00",
+            "profile": "0x1e252310",
+            "points": {
+              "array": "0x718265a0",
+              "data": "0x2f6ac790",
+              "raw_count": 1,
+              "active_count": 1,
+              "bounded_scan_complete": true
+            },
+            "lines": {
+              "array": "0x71826630",
+              "data": "0x717a8d70",
+              "raw_count": 0,
+              "bounded_scan_complete": true,
+              "slots": []
+            },
+            "saved_status": 1,
+            "status": 2,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "constrained_status": 2,
+          "raw_rax": "0x2",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xf9ccdf"
+          }
+        },
+        {
+          "sequence": 2821,
+          "phase": "armed",
+          "kind": "header-next-update-stamp",
+          "before": {
+            "pointer": "0x2fa87950",
+            "update_stamp": 113,
+            "body_stamp": 101,
+            "update_time_i64": "1794740857"
+          },
+          "after": {
+            "pointer": "0x2fa87950",
+            "update_stamp": 114,
+            "body_stamp": 101,
+            "update_time_i64": "1794740857"
+          },
+          "returned_u32": 114,
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xefa91c"
+          }
+        },
+        {
+          "sequence": 2822,
+          "phase": "armed",
+          "kind": "update-session-stamp",
+          "object": "0x71bf93b0",
+          "arguments": [
+            "0x1",
+            "0xffffffff",
+            "0x1e252310"
+          ],
+          "raw_rax_not_semantic_result": "0x4",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x108e72a"
+          }
+        },
+        {
+          "sequence": 2823,
+          "phase": "armed",
+          "kind": "model-needs-update",
+          "object": "0x71bf93b0",
+          "requested_status": 0,
+          "before": 17,
+          "after": 16,
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x1088426"
+          }
+        },
+        {
+          "sequence": 2824,
+          "phase": "armed",
+          "kind": "header-next-update-stamp",
+          "before": {
+            "pointer": "0x2fa87950",
+            "update_stamp": 114,
+            "body_stamp": 101,
+            "update_time_i64": "1794740857"
+          },
+          "after": {
+            "pointer": "0x2fa87950",
+            "update_stamp": 115,
+            "body_stamp": 101,
+            "update_time_i64": "1794740857"
+          },
+          "returned_u32": 115,
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xefa91c"
+          }
+        },
+        {
+          "sequence": 2825,
+          "phase": "armed",
+          "kind": "update-session-stamp",
+          "object": "0x71bf93b0",
+          "arguments": [
+            "0x1",
+            "0xffffffff",
+            "0x5fbc00"
+          ],
+          "raw_rax_not_semantic_result": "0x4",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10888bf"
+          }
+        }
+      ],
+      "native_result": {
+        "exception": "com_error(-2147023170, 'The remote procedure call failed.', None, None)"
+      },
+      "controller_diagnostics": [
+        {
+          "stage": "close_documents",
+          "error": "AttributeError('SldWorks.Application.34.CloseAllDocuments')"
+        },
+        {
+          "stage": "exit_application",
+          "error": "AttributeError('SldWorks.Application.34.ExitApp')"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Selected function and instruction boundaries only",
+    "No complete instruction taint or native acceptance",
+    "Producer completion unavailable after candidate process death",
+    "Origin state transitions do not prove a general fresh save rule"
+  ]
+}
