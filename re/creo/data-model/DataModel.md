@@ -308,6 +308,40 @@ from `-201.7190851617055` to `-123.5`, length unchanged, loads twice with the bo
 segment's `verhor` from `1` to `0` likewise loads twice. So the row's *values* are tolerated; what is refused is
 a row whose *structure* differs from what the rest of the model expects.
 
+### A generated sketch-bearing element is refused
+
+`re/creo/tools/SketchDef.py` emits the `949` element with `sub_feat_arr` and the sketch: one section element
+(`id`, `type 160`, `sub_type -1`, `data(subft_indexnumber)` with `index 1`/`tool_type 60001`/`sep_index -1`,
+`expl_state_ref`, `feat_outl_info` with a `2x3` `ent_outl` and `max_text_len`, the three roll-back fields,
+`parchild_table`, `copy_info_ptr`, `embed_info_ptr`), then `gsec_ptr` — `type 2`, `is_ref_gsec 0`,
+`name Sketch 1`, `gsec2d_ptr` with a four-segment `segtab_ptr` over four point ids — then `attributes`,
+a four-dimension `dimtab_ptr`, `formula_ptr`, `qind`, `fixed_origin`, `anchor` with `totalpointid 4`,
+`checkarcs_flag`, and `location`. It is paired with the accepted generated `917` element.
+
+```text
+sketch949: 106673 bytes; row 2585
+readback: 7 features 9 params 1 bodies 18482541.49
+(no End line; second run identical)
+```
+
+So the shape is right enough to parse and wrong enough to be refused. What the emitted element omits, against the
+vendor's, is the solver machinery inside `gsec2d_ptr`:
+
+| Omitted | What it is |
+| --- | --- |
+| `dim_ref` records inside `dimtab_ptr` | each dimension's `item_id`, `sense`, `point`, `relat_ptr` |
+| `relat_ptr` | one record per relation with `id`, `used`, `a`/`b`/`c` arrays, `sign`, `idim`, `type` |
+| `nsket_info` | `scale`, `last_was_permanent` |
+| `unsolved_ptr` | `iges_file`, `solve_version`, `ent_tab`, `next_available_xid`, `chains` |
+| `ent_tab` chains and `bucket_xar` | entity table: `ent_mode`, `entry_ptr(entity_entry)`, `pers_attribs`, `ent_list`, `vert_tab` |
+| `skamp_ptr`, `triples_ptr`, `rigid_chains_ptr` | the solved relation triples (`rel_id`, `eqn_id`, `skamp_id`) |
+| `sket_pattern_info`, `gsec3d_ptr`, `first_chain_ptr` | pattern and 3D placement |
+| `order_tab`, `p_saved_result`, `draft_setup_ptr` | solved-section tables and the saved solve result |
+
+The pattern is consistent with everything measured before: the row does not store geometry, it stores a solver
+input **and** its solution (`p_saved_result`, `triples_ptr`), and a definition that has the segments and the
+dimensions but none of the relation or solve tables is not a model Creo will accept.
+
 ### The definition index is not the blocker
 
 `FeatDefsIndex` is a separate row and it lists which definition classes exist:

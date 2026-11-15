@@ -1043,6 +1043,29 @@ What the row does carry is the constraint solution: `relat_ptr` with `a`/`b`/`c`
 `formula_ptr` with eight indices. A writer can emit the segment fields, but not the points they reference
 without solving those constraints, which is what the sketch solver does.
 
+### The generated sketch-bearing element is refused, for a measurable reason
+
+`re/creo/tools/SketchDef.py` emits the full-shape `949` element — `sub_feat_arr` with one section element
+(`type 160`, `data(subft_indexnumber)`, `expl_state_ref`, `feat_outl_info` with a `2x3` `ent_outl`, the roll-back
+fields, `parchild_table`, `copy_info_ptr`, `embed_info_ptr`), `gsec_ptr` with `gsec2d_ptr`/`segtab_ptr` holding
+four line segments over four point ids, a four-dimension `dimtab_ptr`, `formula_ptr`, `qind`, `fixed_origin`,
+`anchor` and `location` — and pairs it with the accepted generated `917` element:
+
+```text
+sketch949: 106673 bytes; row 2585
+readback: 7 features 9 params 1 bodies 18482541.49
+(no End line; second run identical)
+```
+
+It parses through our reader and Creo refuses it. The omissions against the vendor's element are the solver
+tables: `dim_ref` records inside `dimtab_ptr`, `relat_ptr` with its `a`/`b`/`c` arrays, `nsket_info`,
+`unsolved_ptr`, the `ent_tab` chains and `bucket_xar`, `skamp_ptr`, `triples_ptr`, `rigid_chains_ptr`,
+`sket_pattern_info`, `gsec3d_ptr`, `first_chain_ptr`, `order_tab`, `p_saved_result` and `draft_setup_ptr`.
+
+That is consistent with the earlier measurement that the row stores no coordinates: it stores the solver's input
+*and* its solution (`p_saved_result`, `triples_ptr`), so a definition carrying segments and dimensions but no
+relation or solve tables is not a model Creo accepts.
+
 ### The definition index is not the blocker, and the `949` field map is complete
 
 `FeatDefsIndex` is a separate row listing the definition classes that exist — `feat_defs_index` with
