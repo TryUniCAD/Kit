@@ -1,11 +1,25 @@
 from __future__ import annotations
 
+import re as RegexLib
+
 from convert.adapters.solidworks.container.Container import SldprtFormatError
 from convert.adapters.solidworks.drawing.Models import DrawingData, DrawingView
 
 
 def ViewKey(SheetName: str, ViewName: str) -> tuple[str, str]:
     return (SheetName.casefold(), ViewName.casefold())
+
+
+# the creation index is needed because coincident views share one position
+KViewIndex = RegexLib.compile(r"(\d+)$")
+
+
+# the creation index is needed because coincident views share one position
+def ViewIndex(ViewName: str) -> int:
+    Match = KViewIndex.search(ViewName)
+    if Match is None:
+        raise SldprtFormatError("drawing view name has no creation index")
+    return int(Match.group(1))
 
 
 # the sheet and view names are the stable key so a reordered value still binds

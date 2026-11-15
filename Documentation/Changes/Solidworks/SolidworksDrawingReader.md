@@ -97,9 +97,10 @@ units table, sheet, view, and line style objects are not yet generated.
 `WriteDrawing(Source, Data)` rewrites the recovered view position and scale
 records in a source drawing container and returns a new container. It writes the
 `Contents/Definition` view record (`x`, `y`, `0.0`, scale, `1.0`) and the
-`Contents/DisplayLists` primary and twin records, and shifts the sheet outline by
-the position delta. Records are matched to views by the source view position, so
-a renamed view still receives its own record. Views are bound to the source by sheet and view
+`Contents/DisplayLists` primary and twin records, and scales and shifts the sheet outline by
+the scale ratio and position delta. Records are matched to views by the source view position and creation index, so
+a renamed view still receives its own record and coincident views keep their own
+records. Views are bound to the source by sheet and view
 name, so a reordered `Data` value still edits its own view and repeated view
 names on different sheets stay distinct. Renaming more than one view is
 ambiguous and raises `SldprtFormatError`. Negative and origin

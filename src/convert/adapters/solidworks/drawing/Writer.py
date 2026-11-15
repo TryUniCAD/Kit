@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from collections.abc import Sequence
 import math as MathValue
 import struct as Struct
 
@@ -21,35 +20,32 @@ from convert.adapters.solidworks.drawing.Positions import (
     KMinScale,
     KOutlineOffset,
 )
-from convert.adapters.solidworks.drawing.WriterBindings import BindViews
+from convert.adapters.solidworks.drawing.WriterBindings import BindViews, ViewIndex
 from convert.adapters.solidworks.drawing.WriterRecords import (
     DefinitionView,
     DefinitionViews,
     DisplayView,
     DisplayViews,
-    PlacedRecord,
+    RecordIndices,
 )
 
 
 # the source position is the only stable key when a view has been renamed
 def MatchRecordMut(
     SourceView: DrawingView,
-    Records: Sequence[PlacedRecord],
-    UsedIndices: set[int],
+    Indices: dict[tuple[float, float], list[int]],
 ) -> int:
     if SourceView.PositionX is None or SourceView.PositionY is None:
         raise SldprtFormatError("source view is missing placement data")
-    for Index, Record in enumerate(Records):
-        if Index in UsedIndices:
-            continue
-        if MathValue.isclose(
-            Record.PositionX, SourceView.PositionX, rel_tol=0.0, abs_tol=1e-09
-        ) and MathValue.isclose(
-            Record.PositionY, SourceView.PositionY, rel_tol=0.0, abs_tol=1e-09
-        ):
-            UsedIndices.add(Index)
-            return Index
-    raise SldprtFormatError("source view has no matching record")
+    PositionKey = (round(SourceView.PositionX, 9), round(SourceView.PositionY, 9))
+    Candidates = Indices.get(PositionKey)
+    if not Candidates:
+        raise SldprtFormatError("source view has no matching record")
+    CreationIndex = ViewIndex(SourceView.Name) - 1
+    if CreationIndex in Candidates:
+        Candidates.remove(CreationIndex)
+        return CreationIndex
+    return Candidates.pop(0)
 
 
 # one view rewrite keeps the definition and display records in step
@@ -73,8 +69,7 @@ def RewriteViewMut(
         and KMinScale <= ViewScale < KMaxScale
     ):
         raise SldprtFormatError("drawing view placement is invalid")
-    DeltaX = PositionX - DisplayRecord.PositionX
-    DeltaY = PositionY - DisplayRecord.PositionY
+    Ratio = ViewScale / DisplayRecord.Scale
     OutlineOffset = DisplayRecord.Primary + KOutlineOffset
     LowerX, LowerY, UpperX, UpperY = Struct.unpack_from(
         "<dddd", NewDisplay, OutlineOffset
@@ -83,10 +78,10 @@ def RewriteViewMut(
         "<dddd",
         NewDisplay,
         OutlineOffset,
-        LowerX + DeltaX,
-        LowerY + DeltaY,
-        UpperX + DeltaX,
-        UpperY + DeltaY,
+        PositionX + (LowerX - DisplayRecord.PositionX) * Ratio,
+        PositionY + (LowerY - DisplayRecord.PositionY) * Ratio,
+        PositionX + (UpperX - DisplayRecord.PositionX) * Ratio,
+        PositionY + (UpperY - DisplayRecord.PositionY) * Ratio,
     )
     Struct.pack_into(
         "<dd", NewDefinition, DefinitionRecord.Offset, PositionX, PositionY
@@ -119,11 +114,11 @@ def WriteDrawing(Source: bytes, DataValue: DrawingData) -> bytes:
         raise SldprtFormatError("drawing view records do not match the view count")
     NewDefinition = bytearray(Definition)
     NewDisplay = bytearray(Display)
-    UsedDefinition: set[int] = set()
-    UsedDisplay: set[int] = set()
+    DefinitionIndices = RecordIndices(DefinitionRecords)
+    DisplayIndices = RecordIndices(DisplayRecords)
     for SourceView, DataView in BindViews(SourceData, DataValue):
-        DefinitionIndex = MatchRecordMut(SourceView, DefinitionRecords, UsedDefinition)
-        DisplayIndex = MatchRecordMut(SourceView, DisplayRecords, UsedDisplay)
+        DefinitionIndex = MatchRecordMut(SourceView, DefinitionIndices)
+        DisplayIndex = MatchRecordMut(SourceView, DisplayIndices)
         RewriteViewMut(
             DataView,
             DefinitionRecords[DefinitionIndex],

@@ -765,6 +765,38 @@ def TestWriteMany() -> None:
         _ = WriteDrawing(SourceBytes, NewData)
 
 
+# coincident views must bind by creation index rather than record order
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestWriteSame() -> None:
+    SourceBytes = (KDrawRoot / "coincident.SLDDRW").read_bytes()
+    DataValue = ReadDrawing(SourceBytes, IncludeSheetEdges=True)
+    Sheets = tuple(
+        ReplaceData(
+            SheetValue,
+            Views=tuple(
+                ReplaceData(
+                    ViewValue,
+                    PositionX=0.05 if ViewValue.Name == "Drawing View1" else 0.15,
+                    PositionY=0.10,
+                )
+                for ViewValue in SheetValue.Views
+            ),
+        )
+        for SheetValue in DataValue.Sheets
+    )
+    BackValue = ReadDrawing(
+        WriteDrawing(SourceBytes, ReplaceData(DataValue, Sheets=Sheets)),
+        IncludeSheetEdges=True,
+    )
+    Actual = {
+        ViewValue.Name: ViewValue.PositionX
+        for SheetValue in BackValue.Sheets
+        for ViewValue in SheetValue.Views
+    }
+    assert Actual["Drawing View1"] == PytestLib.approx(0.05)
+    assert Actual["Drawing View2"] == PytestLib.approx(0.15)
+
+
 # repeated view names on different sheets must bind by sheet and view name
 @PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
 def TestWriteSheet() -> None:

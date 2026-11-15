@@ -80,6 +80,17 @@ def DefinitionViews(
     return tuple(Result)
 
 
+# a position index keeps the lookup constant and preserves coincident order
+def RecordIndices(
+    Records: Sequence[PlacedRecord],
+) -> dict[tuple[float, float], list[int]]:
+    Result: dict[tuple[float, float], list[int]] = {}
+    for Index, Record in enumerate(Records):
+        PositionKey = (round(Record.PositionX, 9), round(Record.PositionY, 9))
+        Result.setdefault(PositionKey, []).append(Index)
+    return Result
+
+
 # the twin is needed because the primary only carries the marker
 def DisplayViews(DataValue: bytes) -> tuple[DisplayView, ...]:
     Result: list[DisplayView] = []
