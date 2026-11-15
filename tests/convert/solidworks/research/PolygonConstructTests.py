@@ -40,6 +40,17 @@ def TestVariableN(TmpPath: FilePath) -> None:
     assert Sizes[0] < Sizes[1] < Sizes[2]
 
 
+# exclusive native wrapper lifetimes require separate references for independent profiles
+def TestPlaneOwner(TmpPath: FilePath) -> None:
+    Outcome = RunPolygon(Directory=TmpPath, Scenario="ring", Count=3, Depth=0.025)
+    assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
+    Report = LoadJson(Outcome.stdout)
+    assert Report["plane_reuse_blocked"]
+    assert Report["plane_wrappers_distinct"]
+    assert Report["plane_owner_identity"]
+    assert Report["runtime_reads"] == []
+
+
 # valid larger sketches must stay practical as reference and creation counts grow
 def TestLargeRing(TmpPath: FilePath) -> None:
     Outcome = RunPolygon(Directory=TmpPath, Scenario="ring", Count=10000, Depth=0.125)

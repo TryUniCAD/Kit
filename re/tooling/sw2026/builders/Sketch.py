@@ -347,6 +347,8 @@ def new_profile(*, profile: Obj, plane: Obj, frame: PlaneFrame):
         raise ConstructionError("profile placement requires a PlaneFrame")
     if "pd_f80" in profile.f:
         raise ConstructionError("profile already owns a sketch")
+    if plane.get("_profile_owner") is not None:
+        raise ConstructionError("a component-plane wrapper can belong to only one fresh profile")
     transform = frame_transform(frame=frame)
     sketch = new_sketch(profile=profile)
     fields = {
@@ -381,6 +383,7 @@ def new_profile(*, profile: Obj, plane: Obj, frame: PlaneFrame):
         "_frame": frame,
     }
     profile.f.update(fields)
+    plane["_profile_owner"] = profile
     return ProfileGraph(profile=profile, sketch=sketch)
 
 

@@ -43,6 +43,29 @@ It binds a supplied `moCompRefPlane_c` node, constructs the empty sketch, and re
 Its profile cache is null and its raw dynamic storage is empty by the constructor rules above
 This helper is the empty constructor graph used by the polygon-family emitter
 
+### Profile plane ownership
+
+Each independently constructed profile-data object exclusively owns its component-plane wrapper
+The principal plane and model may remain shared through their actual references; the wrapper allocation must be distinct
+This rule follows native adoption, replacement and destruction, independently of the candidate's observed failure
+
+| Operation | Native rule | Evidence and confidence |
+| --- | --- | --- |
+| Profile-data allocation | A fresh profile without an existing sketch allocates separate profile data and sketch; the existing-sketch branch can instead share profile data through the sketch's use count | `sldmodu 0x4c0ca780`, profile-data constructor `0x4c0ca250`; confirmed static |
+| Wrapper field | Primary profile `+0x3d0` points to profile data; profile-data `+0x78` holds the component-plane wrapper | Getter `0x4c0d62c0`; confirmed static |
+| Adoption | The setter stores the supplied wrapper pointer directly, without a retain operation | `0x4c0e4b80`, store `0x4c0e4b87`; confirmed static |
+| Replacement | The old wrapper receives deleting virtual `+8` with argument one before the new pointer is stored | `0x4c0e2c30`, deletion call `0x4c0e2c58`, store `0x4c0e2c67`; confirmed static |
+| Profile-data destruction | The destructor directly deletes its nonnull wrapper; it does not test or decrement a wrapper use count | `0x4c0cb1a0`, load `0x4c0cb1be`, call `0x4c0cb1cf`; deleting destructor `0x4c0cc110` calls that body at `0x4c0cc11f`; confirmed static |
+| Cleanup lifetime | Profile cleanup releases its sketch and deletes profile data when the prior sketch use count was one | Profile destructor `0x4c0cb500`, cleanup `0x4c0cf090`, sketch release `0x4c0cf394`, profile-data deletion `0x4c0cf3b0`; confirmed static |
+
+The current fresh API constructs separate sketches and profile-data objects; it does not implement native shared-sketch construction
+`new_profile` therefore refuses a wrapper already adopted by another fresh profile
+Its `_profile_owner` relation retains the actual profile object as semantic construction metadata and is not emitted as a format field
+Create a separate component-plane wrapper for the origin and polygon profile, even when both reference the same principal plane
+The wrapper's component copy has its own exclusive lifetime, as the [model ownership finding](../../../Documentation/Gotchas/Conversion/Solidworks/Model/PlaneReferencesOwnTheirComponents.md) records
+The focused subprocess regression rejects wrapper reuse, constructs a separate valid origin, and retains the existing origin archive round trip
+This ownership rule does not establish that a generated document loads, solves or rebuilds correctly
+
 `closed_profile` constructs one ring of arbitrary `n>=3` ordinary lines from semantic 2D vertices
 It preserves authored vertex order and binds the supplied plane frame
 It rejects duplicate vertices, zero or nonfinite area, intersecting nonadjacent edges, and nonfinite transformed coordinates
@@ -185,7 +208,7 @@ The current graph requires an explicit presentation choice until its semantic no
 
 ## Origin profile construction
 
-`origin_profile` constructs the separate document-origin profile from an allocated `moOriginProfileFeature_c`, the first plane wrapper and a frame at model origin
+`origin_profile` constructs the separate document-origin profile from an allocated `moOriginProfileFeature_c`, a dedicated first-plane wrapper and a frame at model origin
 Native caller `0x4c02e060` constructs that profile, then invokes sketch initializer `0x4c49b980`
 Origin constructor `0x4c0c9f80` delegates to the ordinary profile constructor and clears bits `2|4` in profile-data `f11c`
 Its primary vtable `0x4d0ef510`, slot `+0x1ed8`, still returns zero, so ordinary point serialization keeps `dflt=0`
