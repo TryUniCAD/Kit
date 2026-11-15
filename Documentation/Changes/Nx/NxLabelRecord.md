@@ -38,6 +38,31 @@ lb_dim40.prt bodies 1 volume 23999.999999999996
 Section 0 provenance in the body parts moves 350 -> 362 differing bytes; the body-less parts are
 unchanged at 346/347 because they do not carry these frames.
 
+## The validated byte correlates with the record index
+
+For the twelve records that share this frame in a part, the last byte plus the record's index in
+the object table is constant:
+
+```text
+dim40.prt    12 records   last + index = 76
+var_two.prt  12 records   last + index = 82
+             12 records   last + index = 83
+empty.prt     0 records
+```
+
+so the byte counts down with the record's position, in two groups of twelve for a two body part.
+That is a real correlation, and it suggested the field is a countdown a writer could shift.
+Two tests reject that reading, both refused by NX 2506:
+
+```text
+one record's last byte changed            OPEN_FAILED
+all twelve last bytes recomputed with K = 80   OPEN_FAILED
+all twelve last bytes recomputed with K = 70   OPEN_FAILED
+```
+
+so the value is validated against something the countdown does not capture — the countdown is a
+correlate, not the rule. It stays carried, and only the label byte at offset 16 is generated.
+
 ## Limits
 
 - The label's meaning is unknown; it is free, not derived.
