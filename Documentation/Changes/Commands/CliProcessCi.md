@@ -1,13 +1,24 @@
-# Run CLI process coverage before archive compatibility
+# Run CLI process coverage independently of archive compatibility
 
-The existing Fusion compatibility job now runs `tests/convert/Commands` in its own first test step.
-The archive step retains every existing codec/API case and follows after CLI process coverage succeeds.
-The CLI cases are removed from the archive invocation, so each case still executes once.
+The Fusion compatibility workflow runs `tests/convert/Commands` in the required
+`CLI conversion and inspection compatibility` job. The existing
+`Fusion archive compatibility` job retains every codec/API case. Each suite
+executes once, on its own Ubuntu 24.04 runner with a 10-minute timeout, locked
+Python 3.14 environment, and native schema provenance check.
 
-This provides earlier process-boundary feedback for conversion and inspection changes.
-Earlier combined runs reported their CLI failure summary after more than five minutes of combined execution; see [run 43654362487](https://github.com/TryUniCAD/Kit/actions/runs/43654362487).
-The change adds no runner or independent gate and preserves the existing registered compatibility job, timeout, and required checks.
-Merge-group execution retains both steps.
+Both jobs are registered in the CI allowlist for pull requests and merge groups.
+Existing checks, test cases, timeout limits, and acceptance gates remain enabled.
+The additional runner separates scheduling and installation cost from the test
+budgets instead of increasing the archive timeout.
 
-Workflow source and formatting were checked.
-Accepted-head remote results remain recorded in the CLI PR; no local tests ran.
+The earlier combined compatibility step took 8 minutes 15 seconds in
+[run 43655420515](https://github.com/TryUniCAD/Kit/actions/runs/43655420515).
+The expanded CLI-only step took 269.30 seconds in
+[job 132657682013](https://github.com/TryUniCAD/Kit/actions/runs/43663480845/job/132657682013),
+with 341 passes and 12 invalid negative fixtures rejected before their intended
+CLI boundary. The fixture repair and additional coverage require independent
+budgets. See [the suite-budget gotcha](../../Gotchas/Ci/CommandSuiteBudget.md).
+
+Workflow source, formatting, and policy registration were checked. Accepted-head
+execution evidence is recorded in the CLI PR. No local tests ran; green pull
+request checks do not establish merge-group or target-application acceptance.
