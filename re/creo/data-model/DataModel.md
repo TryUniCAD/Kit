@@ -292,6 +292,8 @@ The grammar that makes the chain decode is recorded in
 - the field table is global, and `f7 <id>` selects the id-th field;
 - `f1`-`f4` close tokens may precede a value and pop structure levels first;
 - `f8`/`f9` array counts are part of the first definition and are reused by later records;
+- a field-level `e4`/`e5`/`e6` repeats the preceding logical value once, twice, or three times,
+  and `e1` terminates a numeric array;
 - `next_feat_ptr` restarts the field index at the feature schema's first field.
 
 ### Datum placement records

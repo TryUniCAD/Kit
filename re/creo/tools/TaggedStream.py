@@ -45,6 +45,14 @@ class RawDouble:
 
 
 @dataclass
+class Repeat:
+    count: int
+
+    def __repr__(self) -> str:
+        return f"Repeat({self.count})"
+
+
+@dataclass
 class FieldDef:
     name: str
     type_id: int
@@ -227,7 +235,7 @@ class Parser:
             if token == 0xFB:
                 reader.pos += 1
                 break
-            if token in (0xE0, 0xE2, 0xE3) or 0xF1 <= token <= 0xF4:
+            if token in (0xE0, 0xE1, 0xE2, 0xE3) or 0xF1 <= token <= 0xF4:
                 break
             if type_id == 0x00:
                 values.append(reader.compact_int())
@@ -274,7 +282,14 @@ class Parser:
             reader.pos += 1
             self.Pop(close)
         node = Node(field_def.name, field_def.type_id)
-        if field_def.count is not None and field_def.type_id != 0x00:
+        token = reader.data[reader.pos] if reader.pos < len(reader.data) else None
+        if token is not None and 0xE4 <= token <= 0xE6:
+            reader.pos += 1
+            count = token - 0xE3
+            node.value = Repeat(count)
+            if self.nodes:
+                node.value = self.nodes[-1].value
+        elif field_def.count is not None and field_def.type_id != 0x00:
             node.value = self.ReadArray(field_def.type_id, field_def.count)
         else:
             node.value = self.ReadValue(field_def.type_id, field_def.count)
@@ -370,9 +385,17 @@ def Dump(nodes: list[Node], depth: int = 0) -> None:
             print(f"{'  ' * depth}{node.name} = {node.value!r}")
 
 
+def SectionBody(data: bytes) -> bytes:
+    if data[:1] == b"#":
+        end = data.find(b"\n")
+        if 0 < end < 128:
+            return data[end + 1 :]
+    return data
+
+
 if __name__ == "__main__":
     path = Path(sys.argv[1])
-    parser = Parser(path.read_bytes())
+    parser = Parser(SectionBody(path.read_bytes()))
     try:
         nodes = parser.Run()
     except ValueError as ErrorInfo:

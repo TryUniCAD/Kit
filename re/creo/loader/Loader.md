@@ -186,6 +186,10 @@ The confirmed grammar is:
    next feature's fields restart at the first field of the feature schema (`id`).
 6. `e1` is null, `e2`/`e3` begin a structure, `e4`-`e7` repeat the previous value,
    `f5` negates, `f6` is -1, `fb` closes an array.
+7. A field-level `e4`/`e5`/`e6` token repeats the preceding logical value once, twice,
+   or three times. `e1` also terminates a numeric array instead of being read as an
+   integer. Cadmpeg records the same repeat meaning (`e5` emits two copies of the
+   preceding value) and the same `e1` null token.
 
 The parser decodes the full `AllFeatur` feature chain of both controls:
 
@@ -204,13 +208,25 @@ The parser wraps the field index to the enclosing structure's start when it runs
 the field table. That is what lets the recursive `layer_list` decode: after `back_layer_id` the
 next field is the nested `layer_list` again.
 
-The ladder's `AllFeatur` decodes the five features and the footer prefix, then stops at `0x105e`
-in the sketch/extrude feature payload.
+The ladder's `AllFeatur` decodes the five features and the footer prefix, then stops at `0x130a`
+on an `f8` array opener inside a scalar lane. That is not a missing token: it means the flat
+positional field-index model is misaligned in the ladder's richer footer. The empty control is
+unaffected.
 
 The feature chain matches the model tree that Creo shows for both files.
-The parser stops at the `AllFeatur` footer, which uses a different field order
-(`misc_id_tab_ptr`, `misc_hist`, `parent_table`, `avail_feat_parents`, `layer_list`).
+The parser stops inside the ladder `AllFeatur` footer, which uses a different field order
+(`misc_id_tab_ptr`, `misc_hist`, `parent_table`, `avail_feat_parents`, `dtm_id_tab`, revision
+records, `layer_list`).
 The footer is the next decode target, followed by `Sld_FeatDefs` in `FeatDefs`.
+
+### Structural-token discrepancy
+
+Cadmpeg's public PSB grammar (`docs/formats/creo_prt.md` section 2.2) labels `e3` a compound
+close or row terminator and `e2` a nested compound-body opener or continuation. The research
+parser treats both as begins. That reading still decodes the empty control exactly, but it cannot
+be the whole rule because a richer row reuses `e3` as a separator. Reconciling the two readings is
+the open structural work item; it must land before the ladder footer and `FeatDefs` rows can be
+trusted.
 
 ### Datum placement records
 

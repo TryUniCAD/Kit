@@ -28,8 +28,7 @@ The confirmed grammar is recorded in
 python3 re/creo/tools/TaggedStream.py re/creo/oracle/ladder/ladder1.prt.2 --features
 ```
 
-The tool expects an extracted section body, not a whole `.prt` file. The extraction helper is the
-`ReadSection` call in the research notes.
+The tool accepts an extracted section body and skips a leading `#<name>\n` header when present.
 
 ## Result
 
@@ -80,7 +79,9 @@ curve prototype (`crv_id = 87`, `type = 34`), and stops at `0x272` in the curve 
 ## Limits
 
 - The empty control's `AllFeatur` decodes end-to-end. The ladder's `AllFeatur` decodes the five
-  features and the footer prefix, then stops in the sketch/extrude payload at `0x1065`.
+  features and the footer prefix, then stops at `0x130a` on an `f8` array opener inside a scalar
+  lane. That byte is not a missing token: it is the point where the flat positional field-index
+  model is misaligned in the ladder's richer footer.
 - `FeatDefs` decodes the first feature definition, then stops at `0x3be` because the flat
   field-index approach does not handle the nested structures.
 - `VisibGeom` decodes two plane prototypes and the first curve prototype, then stops at `0x272` in
@@ -91,17 +92,27 @@ curve prototype (`crv_id = 87`, `type = 34`), and stops at `0x272` in the curve 
 ## Trace mode
 
 `python3 re/creo/tools/TaggedStream.py <section.bin> --trace` prints the last 24 field reads as
-`<offset> field <index> <name> type <type>`. The trace shows that the ladder's `AllFeatur` stops at
-field 88 `owner_ind` (type `0x01`) at `0x1064`, where the byte is `0xe5`. The preceding fields are
-`sorted = 7`, `revnums = 16`, and `owner_type = 0`. The first occurrence of the same fields, in the
-field definitions at `0x1336`, has `sorted = 1`, `revnums = [ref 86, ref 86]`, `owner_type = 4`,
-and `owner_ind = 0`. The second occurrence's `revnums = 16` is a structure pointer, not a scalar,
-so the flat field-index approach misaligns before `owner_ind`. The trace makes that visible without
-guessing.
+`<offset> field <index> <name> type <type>`.
+
+Field-level `e4`/`e5`/`e6` repeats now resolve to the preceding logical value, and `e1` terminates
+a numeric array. With those rules the ladder's `AllFeatur` advances from `0x1065` (the former
+`owner_ind`/`e5` stop) to `0x130a`, where the next token is an array opener in a scalar lane. The
+empty control still decodes all four features and its footer unchanged, so the rules are additive.
+
+The remaining stop is the flat positional field-index model. The ladder footer defines
+`sorted`, `revnums`, `owner_type`, `owner_ind`, `ref_id`, and `owner_id` at `0x1336`, after the
+stream position that uses them, and `revnums` is a nested structure rather than a scalar. Reading
+those fields by a single advancing index therefore cannot stay aligned. Cadmpeg's public grammar
+labels `e3` a compound close or row terminator and `e2` an opener; the parser treats both as
+begins, which decodes the empty control but not the richer ladder footer. Reconciling the two is
+the next structural task.
 
 ## Verification
 
 - The empty control decodes four features and the ladder decodes five.
+- Field-level repeat resolution is additive: the empty control's 330 nodes are unchanged, and the
+  ladder advances from 389 to 461 nodes.
+- The CLI now accepts the extracted section body including its `#AllFeatur\n` header.
 - The feature ids and types match the model tree that Creo 2027.2 shows for both files.
 - The world-coordinate decode produces finite, ordered bounding boxes for both controls:
   the empty `ent_outl` is a symmetric square and the ladder `ent_outl` is a rectangle in the
