@@ -4,7 +4,7 @@ from Core import ArchiveError
 from Dsl import base, cstr, emb, f64, i32, obj, u16, u32, u8, ver
 from Schema import If, Op, Scope, run_load, run_store
 from defs.ConfigPart import Cond, NCond, Norm, Present, Section
-from defs.ResolvedCore import CONCEPT_LW, CONCEPT_RES, FEATURE_XML, concept_vt, vt, xo
+from defs.ResolvedCore import CONCEPT_LW, FEATURE_XML, concept_vt, vt, xo
 
 
 class Version2026(Op):
@@ -139,7 +139,7 @@ def define_config(reg):
     reg.define("moBaseConfiguration_c.SerializeXmlData", [base(FEATURE_XML)])
     for cls in ("moConfiguration_c", "moDeformConfiguration_c"):
         vt(0x4B8, cls, CONCEPT_LW)
-        vt(0x4C0, cls, CONCEPT_RES)
+        vt(0x4C0, cls, None)
         vt(0x3E8, cls, "moBaseConfiguration_c.SerializeXmlData")
         vt(0x3F8, cls, True)
     reg.define("moConfiguration_c", [
