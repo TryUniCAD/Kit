@@ -170,6 +170,28 @@ So the entry decomposes as a small enum plus roughly 64 to 73 further bits, and 
 are the part no derivation has reproduced. This is the shape a later attempt should start from: decode
 the enum by correlating it with class names that share a kind, then attack the remainder.
 
+## The low byte is a kind, the high part is not an id
+
+Splitting the first field as `(identifier << 8) | kind`:
+
+```text
+distinct kinds                                 22
+most common   3 (40 classes)  101 (10)  32 (10)  7 (8)  160 (8)  1 (8)  0 (7)
+distinct identifiers                           80 of 129
+identifier range                               0 .. 2,077,914,824,744
+identifiers sorted                             no
+repeated identifiers                           0, 6692, 6452, 6900, 6836 (and more)
+```
+
+so the low byte behaves like a small kind field — 22 values, dominated by 3 with forty classes — but
+the high part is not a sequential or unique identifier: it ranges over twelve orders of magnitude and
+repeats. That rules out the tidy `kind + ordinal` reading.
+
+What the grouping does show is that the first field's low byte partitions the table into
+name-independent kinds: the forty classes sharing `kind = 3` span Annot, PMI, Display and Sketch, so
+the kind is not the module. The remaining bits are still underived, and the first field does not
+decompose cleanly into two useful parts.
+
 ## The class ids are not referenced elsewhere in the section
 
 One association route was left worth trying: if a class id appeared somewhere else in the object
