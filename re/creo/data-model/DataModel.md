@@ -381,6 +381,17 @@ last record touched, not necessarily the broken one.
 startup, and passing it as an argument (`parametric.exe -g:no_graphics replay.txt`) produces a trail containing
 only the start and end markers — no model commands. So a second oracle cannot be produced here by driving Creo.
 
+`parchild_table` now carries that record (`SketchDef` emits `f1 e3` followed by
+`e0 09 Structure_Invalid 00` and the three-byte value `43981`), the element parses to the last byte (`379` nodes,
+`4142` of `4142` consumed), and both staged candidates rebuild deterministically:
+
+| Candidate | Element | Through our reader |
+| --- | --- | --- |
+| `full949` | ours throughout | `7 features, 9 params, 1 body` |
+| `hybrid949` | our prefix, vendor solver tail | `7 features, 7 params, 1 body` |
+
+Both are waiting on a Creo launch; the guest agent is still refusing sessions.
+
 ### The generated prefix is name-complete except one record
 
 Splitting both elements at `relat_ptr` — where our generated solver tables begin — and comparing the declarations in
