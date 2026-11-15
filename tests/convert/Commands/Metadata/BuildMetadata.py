@@ -9,6 +9,7 @@ from interchange.records.RecordProvenance import Provenance
 from tests.convert.api.ApiTestPaths import KSamplePath
 from tests.convert.Commands.BuildTypedAsm import BuildTypedAsm
 
+# retained source coverage must include aliases nested containers and empty declarations
 KMetadataCases = (
     "Canonical",
     "Alias",
@@ -24,6 +25,7 @@ KMetadataCases = (
 )
 
 
+# binary retention and harmless provenance must be distinguished on genuinely qualified source models
 def BuildMetadata(RecordKind: str, FieldName: str = "Document") -> CadDocument:
     Metadata: Mapping[str, object]
     if RecordKind == "Provenance":

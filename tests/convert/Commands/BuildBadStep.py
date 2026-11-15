@@ -7,6 +7,7 @@ from interchange.enums.EnumFeatures import FeatureKind
 from interchange.features.FeatureKinds import CombineFeature
 from tests.interchange.fixtures.DocumentFixture import BuildDocument
 
+# negative histories need explicit kind variants that remain valid neutral documents
 KBadKinds = {
     "GenericStep": FeatureKind.KExtrusion,
     "EmptyDefinition": FeatureKind.KExtrusion,
@@ -21,6 +22,7 @@ KBadKinds = {
 }
 
 
+# incomplete history coverage must reach cli qualification rather than fail during fixture construction
 def BuildBadStep(RecordKind: str) -> CadDocument:
     if RecordKind == "GenericStep":
         return BuildDocument()

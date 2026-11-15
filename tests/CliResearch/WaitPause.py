@@ -5,6 +5,7 @@ from time import monotonic as ReadClock, sleep as WaitBriefly
 from tests.CliResearch.ResearchClient import ResearchCli
 
 
+# pause assertions must wait for the actual worker termination record rather than race its shutdown
 def WaitPause(WorkPath: FilePath, ConfigPath: FilePath) -> None:
     Deadline = ReadClock() + 30
     while ReadClock() < Deadline:

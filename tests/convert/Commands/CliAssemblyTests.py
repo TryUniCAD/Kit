@@ -10,6 +10,7 @@ from tests.convert.api.ApiTestPaths import KSamplePath
 from tests.convert.Commands.CliProcess import CliProcess
 
 
+# assembly container inspection must retain format identity even when extension inference is unavailable
 def CheckAsmLabel(TmpPath: FilePath) -> None:
     Source = (
         KSamplePath.parents[1]
@@ -34,6 +35,7 @@ def CheckAsmLabel(TmpPath: FilePath) -> None:
     assert LoadJson(Explicit.stdout)["format"] == "solidworks.sldasm"
 
 
+# missing companion files must prevent conversion without destroying the inspectable assembly source
 @TestMark.parametrize("HasOutput", (False, True))
 def CheckAsmSources(HasOutput: bool, TmpPath: FilePath) -> None:
     Fixture = (
@@ -80,6 +82,7 @@ def CheckAsmSources(HasOutput: bool, TmpPath: FilePath) -> None:
         assert Target.read_bytes() == b"existing output"
 
 
+# deferred component discovery must remain distinguishable from resolved sources in sdk output
 def CheckDeferred(TmpPath: FilePath) -> None:
     Fixture = (
         KSamplePath.parents[1]

@@ -5,6 +5,7 @@ from tests.convert.Commands.BuildHistory import BuildHistory
 from tests.interchange.fixtures.AssemblyFixture import BuildAssembly
 
 
+# assembly coverage must include local mesh representations that have no embedded child history
 def BuildHistoryAsm() -> CadDocument:
     Document = BuildAssembly()
     assert Document.assembly is not None

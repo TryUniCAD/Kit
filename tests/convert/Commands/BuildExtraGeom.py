@@ -7,6 +7,7 @@ from interchange.records.RecordProvenance import Provenance
 from tests.convert.Commands.BuildHistory import BuildHistory
 
 
+# unowned geometry must remain unqualified even beside valid history or persuasive metadata
 def BuildExtraGeom(RecordKind: str) -> CadDocument:
     Document = MakeFusionDoc(DocumentSpec("Typed geometry owner", "height", 20.0))
     if RecordKind == "UnlinkedBrep":

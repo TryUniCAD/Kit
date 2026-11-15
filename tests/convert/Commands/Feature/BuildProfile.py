@@ -6,6 +6,7 @@ from interchange.document.models.DocumentModel import CadDocument
 from tests.convert.Commands.Feature.ProfileEntities import ProfileEntities
 
 
+# declared closed profile groups must be challenged by actual invalid contour geometry
 def BuildProfile(RecordKind: str) -> CadDocument:
     Document = MakeFusionDoc(
         DocumentSpec("Profile closure", "height", 20.0, ProfileKind="cuboid")

@@ -9,6 +9,7 @@ from tests.convert.Commands.Kind.BuildKinds import BuildKinds
 from tests.convert.Commands.WrapDocument import WrapDocument
 
 
+# opaque record kinds must refuse conversion without preventing inspection or replacing user output
 @TestMark.parametrize(
     "RecordName,Variant",
     tuple(
@@ -30,6 +31,7 @@ def CheckBadKinds(
     CheckJsonBlock(Document, "NativeRecord", HasOutput, TmpPath)
 
 
+# canonical text and enum spellings must remain equivalent across qualified model conversion
 @TestMark.parametrize(
     "RecordName", ("Component", "Mate", "MateEntity", "SketchEntity", "SketchRelation")
 )

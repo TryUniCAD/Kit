@@ -10,6 +10,7 @@ from interchange.geometry.models.VectorSpace import SpaceVector
 from tests.interchange.fixtures.DocumentFixture import BuildDocument
 
 
+# opaque geometry coverage must reach the native record guard through valid topology references
 def BuildNativeBrep(RecordKind: str) -> CadDocument:
     if RecordKind == "NativeCurve":
         Geometry = BrepModel(

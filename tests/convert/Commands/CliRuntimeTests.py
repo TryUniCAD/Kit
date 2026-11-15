@@ -9,6 +9,7 @@ from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from tests.convert.Commands.CliProcess import CliProcess
 
 
+# older runtimes must retain archive inventory while refusing unsupported extraction without publication
 def CheckFusRuntime(TmpPath: FilePath) -> None:
     Source = TmpPath / "runtime.f3d"
     _ = Source.write_bytes(EmitDocument(DocumentSpec("CLI runtime", "height", 19.0)))

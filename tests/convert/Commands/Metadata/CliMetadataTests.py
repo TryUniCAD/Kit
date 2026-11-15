@@ -9,6 +9,7 @@ from tests.convert.Commands.Metadata.BuildMetadata import BuildMetadata, KMetada
 from tests.convert.Commands.WrapDocument import WrapDocument
 
 
+# root metadata must not smuggle retained native archives into user conversion output
 @TestMark.parametrize("RecordKind", KMetadataCases)
 @TestMark.parametrize("IsNested", (False, True))
 @TestMark.parametrize("HasOutput", (False, True))
@@ -22,6 +23,7 @@ def CheckRetained(
     CheckJsonBlock(Document, "RetainedMetadata", HasOutput, TmpPath)
 
 
+# binary retention guards must traverse record attributes and provenance throughout nested documents
 @TestMark.parametrize(
     "FieldName", ("Feature", "Sketch", "Assembly", "Provenance", "Source")
 )
@@ -37,6 +39,7 @@ def CheckFields(
     CheckJsonBlock(Document, "RetainedMetadata", HasOutput, TmpPath)
 
 
+# plain provenance hashes and text must survive conversion without losing the geometry contract
 @TestMark.parametrize(
     "FieldName", ("Document", "Feature", "Sketch", "Assembly", "Provenance", "Source")
 )

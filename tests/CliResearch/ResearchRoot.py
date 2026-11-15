@@ -2,6 +2,7 @@ from os import environ as KEnvironment
 from pathlib import Path as FilePath
 
 
+# research compatibility must fail clearly when the pinned checkout was not provisioned
 def ResearchRoot() -> FilePath:
     RootValue = KEnvironment.get("KIT_RESEARCH_CHECKOUT")
     if RootValue is None:

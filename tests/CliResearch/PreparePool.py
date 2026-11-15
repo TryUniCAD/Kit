@@ -6,6 +6,7 @@ from tests.CliResearch.ResearchClient import ResearchCli
 from tests.CliResearch.ResearchRoot import ResearchRoot
 
 
+# session lifecycle coverage needs an actual configured runner and isolated durable state
 def PreparePool(WorkPath: FilePath) -> FilePath:
     StorePath = WorkPath / "Store"
     Started = ResearchCli(

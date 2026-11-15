@@ -5,6 +5,7 @@ from interchange.document.models.DocumentModel import CadDocument
 from tests.interchange.fixtures.AssemblyFixture import BuildAssembly
 
 
+# qualification coverage must inspect embedded child documents with consistent assembly references
 def WrapDocument(Document: CadDocument) -> CadDocument:
     Assembly = BuildAssembly()
     assert Assembly.assembly is not None

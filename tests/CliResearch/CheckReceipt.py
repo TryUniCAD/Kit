@@ -6,6 +6,7 @@ from subprocess import run as RunProcess
 from tests.CliResearch.ResearchRoot import ResearchRoot
 
 
+# research artifacts must identify their exact sdk sources without implying portable completeness
 def CheckReceipt(ArtifactPath: FilePath) -> None:
     RootPath = ResearchRoot()
     Receipt = LoadJson((ArtifactPath / "receipt.json").read_bytes())

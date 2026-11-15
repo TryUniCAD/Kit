@@ -14,6 +14,7 @@ from tests.convert.Commands.CliProcess import CliProcess
 from tests.convert.Commands.WrapDocument import WrapDocument
 
 
+# definitionless imported and unknown histories must fail conversion through the real cli process
 @TestMark.parametrize("RecordKind", tuple(KBadKinds))
 @TestMark.parametrize("IsNested", (False, True))
 @TestMark.parametrize("HasOutput", (False, True))
@@ -27,6 +28,7 @@ def CheckBadStep(
     CheckJsonBlock(Document, "IncompleteFeature", HasOutput, TmpPath)
 
 
+# a sketch reference alone must not qualify unrelated local body or mesh geometry
 @TestMark.parametrize("RecordKind", ("Brep", "Mesh"))
 @TestMark.parametrize("IsNested", (False, True))
 @TestMark.parametrize("HasOutput", (False, True))
@@ -40,6 +42,7 @@ def CheckSketchGeom(
     CheckJsonBlock(Document, "IncompleteFeature", HasOutput, TmpPath)
 
 
+# typed history must not hide unlinked geometry or substitute metadata for ownership
 @TestMark.parametrize("RecordKind", ("UnlinkedBrep", "PlainMesh", "TaggedMesh"))
 @TestMark.parametrize("IsNested", (False, True))
 @TestMark.parametrize("HasOutput", (False, True))
@@ -58,6 +61,7 @@ def CheckExtraGeom(
     CheckJsonBlock(Document, "IncompleteFeature", HasOutput, TmpPath)
 
 
+# supported sketch documents without local solid geometry must remain convertible
 @TestMark.parametrize("ProfileKind", ("circle", "rectangle"))
 @TestMark.parametrize("IsNested", (False, True))
 def CheckSketchOnly(

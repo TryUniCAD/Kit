@@ -10,6 +10,7 @@ from tests.convert.Commands.BuildVariants import BuildVariants
 from tests.convert.Commands.CliProcess import CliProcess
 
 
+# user conversion must reject configuration carrier fallback before publishing a target archive
 @TestMark.parametrize("HasOutput", (False, True))
 def CheckCliCarrier(HasOutput: bool, TmpPath: FilePath) -> None:
     Document = BuildVariants()
@@ -36,6 +37,7 @@ def CheckCliCarrier(HasOutput: bool, TmpPath: FilePath) -> None:
     )
 
 
+# the stricter cli policy must preserve existing sdk behavior for unsupported configuration transfer
 def CheckSdkDefault(TmpPath: FilePath) -> None:
     Source = TmpPath / "source.json"
     Original = BuildVariants().to_json()

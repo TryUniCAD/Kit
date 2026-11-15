@@ -3,6 +3,7 @@ from subprocess import CompletedProcess, run as RunProcess
 from sys import executable as KPythonPath
 
 
+# command coverage must cross the installed process boundary instead of calling handlers directly
 def CliProcess(Directory: FilePath, *Arguments: str) -> CompletedProcess[str]:
     return RunProcess(
         (KPythonPath, "-m", "convert", *Arguments),

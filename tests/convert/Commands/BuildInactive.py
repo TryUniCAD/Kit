@@ -6,6 +6,7 @@ from interchange.document.models.DocumentModel import CadDocument
 from interchange.features.FeatureStep import FeatureCfgState
 
 
+# suppression coverage needs valid dependency graphs across global and configuration state
 def BuildInactive(RecordKind: str) -> CadDocument:
     Document = MakeFusionDoc(
         DocumentSpec(

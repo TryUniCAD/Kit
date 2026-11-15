@@ -7,6 +7,7 @@ from interchange.payloads.PayloadRoles import PayloadRole
 from tests.interchange.fixtures.DocumentFixture import BuildDocument
 
 
+# retained payload refusal must cover every declared role including records without embedded bytes
 def BuildPayload(RoleValue: PayloadRole, HasData: bool) -> CadDocument:
     Content = b"retained native bytes"
     Payload = BrepPayload(

@@ -5,6 +5,7 @@ from sys import executable as KPythonPath
 from tests.CliResearch.ResearchRoot import ResearchRoot
 
 
+# direct research execution provides an independent artifact reference for the installed cli bridge
 def DirectReader(
     WorkPath: FilePath, ScriptName: str, *Arguments: str
 ) -> CompletedProcess[str]:

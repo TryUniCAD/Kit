@@ -6,6 +6,7 @@ from interchange.document.models.DocumentModel import CadDocument
 from interchange.records.RecordConfig import Configuration
 
 
+# configuration transfer coverage needs a real document that exposes target carrier fallback
 def BuildVariants() -> CadDocument:
     return ReplaceData(
         MakeFusionDoc(

@@ -8,6 +8,7 @@ from interchange.enums.EnumGeometry import ConstraintKind, GeometryKind
 from tests.convert.Commands.BuildTypedAsm import BuildTypedAsm
 
 
+# open kind coverage needs known equivalent values and opaque variants on otherwise qualified models
 def BuildKinds(RecordName: str, Variant: str) -> CadDocument:
     KnownValue, NativeValue = {
         "Component": (ComponentKind.KPart, ComponentKind.KNative),

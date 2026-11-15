@@ -12,6 +12,7 @@ from tests.convert.api.ApiTestPaths import KSamplePath
 from tests.convert.Commands.CliProcess import CliProcess
 
 
+# developer decoding must provide stable neutral inspection through both stdout and file publication
 def CheckCliNeutral(TmpPath: FilePath) -> None:
     Result = CliProcess(TmpPath, "decode", str(KSamplePath))
     assert Result.returncode == 0, Result.stderr
@@ -37,6 +38,7 @@ def CheckCliNeutral(TmpPath: FilePath) -> None:
     assert not list(TmpPath.glob(".kit-*"))
 
 
+# container inspection must expose exact stream bytes and refuse nonexistent members cleanly
 def CheckSwStream(TmpPath: FilePath) -> None:
     Result = CliProcess(
         TmpPath,
@@ -65,6 +67,7 @@ def CheckSwStream(TmpPath: FilePath) -> None:
     assert Missing.returncode == 1 and Missing.stdout == ""
 
 
+# fusion container and native inspection must respect the runtime required for archive extraction
 def CheckFusViews(TmpPath: FilePath) -> None:
     Source = TmpPath / "source.f3d"
     _ = Source.write_bytes(EmitDocument(DocumentSpec("CLI parameter", "height", 19.0)))
@@ -93,6 +96,7 @@ def CheckFusViews(TmpPath: FilePath) -> None:
     assert State["fields"]["Segments"]["tuple"]
 
 
+# explicit partial inspection must remain usable for supported documents without changing their format identity
 def CheckCliPartial(TmpPath: FilePath) -> None:
     Source = TmpPath / "source.f3d"
     _ = Source.write_bytes(EmitDocument(DocumentSpec("CLI parameter", "height", 19.0)))

@@ -4,6 +4,7 @@ from pathlib import Path as FilePath
 from tests.CliResearch.ResearchClient import ResearchCli
 
 
+# pool restart coverage needs evidence that the resumed worker actually published a durable result
 def CheckJobResult(WorkPath: FilePath, ConfigPath: FilePath) -> None:
     Finished = ResearchCli(
         WorkPath, "supervisor", "--config", str(ConfigPath), "jobs", "--job", "cli:hold"

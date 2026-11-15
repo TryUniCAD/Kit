@@ -7,6 +7,7 @@ from tests.convert.api.ApiTestPaths import KSamplePath
 from tests.convert.Commands.CliProcess import CliProcess
 
 
+# actual unqualified native features must refuse conversion without replacing user files
 @TestMark.parametrize("HasOutput", (False, True))
 def CheckNativeFile(HasOutput: bool, TmpPath: FilePath) -> None:
     Source = TmpPath / "source.SLDPRT"

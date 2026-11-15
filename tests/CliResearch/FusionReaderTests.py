@@ -7,6 +7,7 @@ from tests.CliResearch.ResearchAssets import KArchiveAsset, KControlAsset
 from tests.CliResearch.ResearchClient import ResearchCli
 
 
+# fusion dispatch must preserve direct reader artifacts and partial archive exit semantics
 def CheckFusReceipt(TmpPath: FilePath) -> None:
     Direct = TmpPath / "Direct"
     Bridged = TmpPath / "Bridged"

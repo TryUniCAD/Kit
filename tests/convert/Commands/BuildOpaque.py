@@ -10,6 +10,7 @@ from tests.interchange.fixtures.AssemblyFixture import BuildAssembly
 from tests.interchange.fixtures.DocumentFixture import BuildDocument
 
 
+# opaque feature geometry and research markers must remain inspectable without qualifying for conversion
 def BuildOpaque(RecordKind: str, IsNested: bool) -> CadDocument:
     Document = BuildDocument()
     if RecordKind == "UnqualifiedResearch":

@@ -11,6 +11,7 @@ from interchange.document.models.DocumentModel import CadDocument
 from tests.convert.Commands.CliProcess import CliProcess
 
 
+# installed entry points must expose actual format capabilities before users attempt conversion
 def CheckCliCatalog(TmpPath: FilePath) -> None:
     Result = CliProcess(TmpPath, "formats", "--json")
     assert Result.returncode == 0, Result.stderr
@@ -33,6 +34,7 @@ def CheckCliCatalog(TmpPath: FilePath) -> None:
     assert "convert" in HelpResult.stdout and "decode" in HelpResult.stdout
 
 
+# qualified native conversion must publish neutral data with explicit overwrite and source preservation
 def CheckCliConvert(TmpPath: FilePath) -> None:
     Source = TmpPath / "source.f3d"
     Original = EmitDocument(
@@ -57,6 +59,7 @@ def CheckCliConvert(TmpPath: FilePath) -> None:
     assert Source.read_bytes() == Original
 
 
+# the public cli must preserve supported cylinder authoring bytes across a native neutral roundtrip
 def CheckCliRound(TmpPath: FilePath) -> None:
     Source = TmpPath / "source.f3d"
     Original = EmitDocument(
@@ -89,6 +92,7 @@ def CheckCliRound(TmpPath: FilePath) -> None:
     assert Source.read_bytes() == Original
 
 
+# writer usability refusal must occur before replacing an existing user destination
 def CheckCliPolicy(TmpPath: FilePath) -> None:
     Source = TmpPath / "source.json"
     Original = ReplaceData(

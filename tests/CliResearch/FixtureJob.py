@@ -1,3 +1,4 @@
+# lease and pool scenarios need bounded real jobs with deterministic retry behavior
 def FixtureJob(JobName: str, *, HoldFirst: bool = False) -> dict[str, object]:
     return {
         "id": JobName,

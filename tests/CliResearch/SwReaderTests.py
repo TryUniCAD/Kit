@@ -6,6 +6,7 @@ from tests.CliResearch.ResearchAssets import KSwAsset
 from tests.CliResearch.ResearchClient import ResearchCli
 
 
+# solidworks dispatch must preserve reader receipts and refuse overwriting existing artifacts
 def CheckSwReceipts(TmpPath: FilePath) -> None:
     Direct = TmpPath / "Direct"
     Bridged = TmpPath / "Bridged"

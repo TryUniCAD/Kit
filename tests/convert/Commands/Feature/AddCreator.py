@@ -4,6 +4,7 @@ from interchange.document.models.DocumentModel import CadDocument
 from interchange.features.FeatureDistExt import DistanceExtrude
 
 
+# boolean prerequisite coverage needs a distinct active generator with valid parameter ownership
 def AddCreator(Document: CadDocument) -> CadDocument:
     Feature = Document.feature_timeline[-1]
     Definition = Feature.definition

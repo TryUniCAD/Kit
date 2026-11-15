@@ -12,6 +12,7 @@ from interchange.geometry.models.VectorPlane import PlaneVector
 from tests.convert.Commands.Feature.ProfileCases import KProfileCases
 
 
+# invalid profile contours need actual typed curves rather than untrusted closure metadata
 def ProfileEntities(RecordKind: str) -> tuple[SketchEntity, ...]:
     Entities: tuple[SketchEntity, ...]
     if RecordKind in ("CircleZero", "KindMismatch", "MultipleLoops"):

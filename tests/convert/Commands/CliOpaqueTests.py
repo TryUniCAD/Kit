@@ -7,6 +7,7 @@ from tests.convert.Commands.BuildOpaque import BuildOpaque
 from tests.convert.Commands.CliProcess import CliProcess
 
 
+# opaque neutral records must remain decodable while user conversion fails with actionable diagnostics
 @TestMark.parametrize(
     "RecordKind", ("NativeFeature", "NativeGeometry", "UnqualifiedResearch")
 )

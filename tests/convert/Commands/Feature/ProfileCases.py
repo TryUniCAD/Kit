@@ -1,3 +1,4 @@
+# contour qualification needs explicit geometric counterexamples that survive neutral document validation
 KProfileCases = {
     "OneLine": ((0.0, 0.0), (1.0, 0.0)),
     "OpenChain": ((0.0, 0.0), (2.0, 0.0), (2.0, 2.0), (0.0, 2.0)),
@@ -15,6 +16,8 @@ KProfileCases = {
     "Disconnected": ((0.0, 0.0), (2.0, 0.0), (2.0, 2.0), (0.0, 2.0), (0.0, 0.0)),
     "DuplicateMember": ((0.0, 0.0), (2.0, 0.0), (2.0, 2.0), (0.0, 2.0), (0.0, 0.0)),
 }
+
+# profile refusal coverage must include unsupported curves and ambiguous groups alongside line contours
 KProfileKinds = (
     *KProfileCases,
     "CircleZero",

@@ -8,6 +8,7 @@ from tests.CliResearch.ResearchClient import ResearchCli
 from tests.CliResearch.ResearchRoot import ResearchRoot
 
 
+# a changed corpus identity must prevent reader publication before any output appears
 @TestMark.parametrize(
     "FieldName,FieldValue",
     (
@@ -38,6 +39,7 @@ def CheckPinFailure(FieldName: str, FieldValue: str | int, TmpPath: FilePath) ->
     assert Result.returncode == 1 and not TargetPath.exists()
 
 
+# one invalid archive pin must prevent publication of every asset in its batch
 def CheckBatchPins(TmpPath: FilePath) -> None:
     Manifest = LoadJson((ResearchRoot() / "re/automation/Corpus.json").read_bytes())
     for Entry in Manifest["assets"]:

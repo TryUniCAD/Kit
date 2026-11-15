@@ -12,6 +12,7 @@ from tests.convert.Commands.CliProcess import CliProcess
 from tests.convert.Commands.WrapDocument import WrapDocument
 
 
+# body or mesh data without feature history must remain inspectable rather than convert successfully
 @TestMark.parametrize("RecordKind", ("Brep", "Mesh"))
 @TestMark.parametrize("HasParams", (False, True))
 @TestMark.parametrize("IsNested", (False, True))
@@ -27,6 +28,7 @@ def CheckNoHistory(
     CheckJsonBlock(Document, "MissingFeatureHistory", HasOutput, TmpPath)
 
 
+# assembly component links must not qualify local meshes that lack operation history
 @TestMark.parametrize("IsNested", (False, True))
 @TestMark.parametrize("HasOutput", (False, True))
 def CheckLocalMesh(IsNested: bool, HasOutput: bool, TmpPath: FilePath) -> None:
@@ -38,6 +40,7 @@ def CheckLocalMesh(IsNested: bool, HasOutput: bool, TmpPath: FilePath) -> None:
     CheckJsonBlock(Document, "MissingFeatureHistory", HasOutput, TmpPath)
 
 
+# parameter documents without local geometry must remain valid conversion inputs
 def CheckParamOnly(TmpPath: FilePath) -> None:
     Document = MakeFusionDoc(
         DocumentSpec("Parameter only", "height", 20.0, ProfileKind="parameter")

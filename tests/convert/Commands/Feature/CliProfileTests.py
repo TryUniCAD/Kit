@@ -8,6 +8,7 @@ from tests.convert.Commands.Feature.ProfileCases import KProfileKinds
 from tests.convert.Commands.WrapDocument import WrapDocument
 
 
+# profile tags must not replace finite nondegenerate closure evidence at the process boundary
 @TestMark.parametrize("RecordKind", KProfileKinds)
 @TestMark.parametrize("IsNested", (False, True))
 @TestMark.parametrize("HasOutput", (False, True))

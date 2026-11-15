@@ -17,6 +17,7 @@ from tests.convert.Commands.CliProcess import CliProcess
 from tests.convert.formats.FusionHistoryTests import HistoryArchive
 
 
+# home expansion must preserve source identity protection while still allowing inspection
 @TestMark.parametrize("Command", ("convert", "decode"))
 def CheckHomeAlias(Command: str, TmpPath: FilePath) -> None:
     Source = TmpPath / "source.SLDPRT"
@@ -31,6 +32,7 @@ def CheckHomeAlias(Command: str, TmpPath: FilePath) -> None:
     assert ReadHome.returncode == 0, ReadHome.stderr
 
 
+# atomic decoding must respect caller permissions and preserve the mode of overwritten files
 @TestMark.skipif(KPlatform == "win32", reason="POSIX permission contract")
 def CheckDecodeMode(TmpPath: FilePath) -> None:
     Target = TmpPath / "decoded.json"
@@ -54,6 +56,7 @@ def CheckDecodeMode(TmpPath: FilePath) -> None:
     assert not list(TmpPath.glob(".kit-*"))
 
 
+# declared stream sizes must not bypass decoded size limits during container inspection
 def CheckSwBound(TmpPath: FilePath) -> None:
     Source = TmpPath / "oversized.SLDPRT"
     Payload = bytearray(BuildSldprt({"Header2": b"data"}))
@@ -68,6 +71,7 @@ def CheckSwBound(TmpPath: FilePath) -> None:
         assert Result.stdout == "" and "Traceback" not in Result.stderr
 
 
+# research inspection reports must not become accepted conversion documents by accident
 def CheckPartialUse(TmpPath: FilePath) -> None:
     Source = TmpPath / "partial.f3d"
     _ = Source.write_bytes(HistoryArchive())

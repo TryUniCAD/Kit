@@ -5,6 +5,7 @@ from sys import executable as KPythonPath, platform as KPlatform
 from pytest import mark as TestMark
 
 
+# windows interruption must preserve worker cleanup and its eventual exit status
 @TestMark.skipif(KPlatform != "win32", reason="Windows launcher process ownership")
 def CheckInterrupt(TmpPath: FilePath) -> None:
     RootPath = TmpPath / "Checkout"

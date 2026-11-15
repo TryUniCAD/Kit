@@ -5,6 +5,7 @@ from interchange.document.models.DocumentModel import CadDocument
 from tests.convert.Commands.CliProcess import CliProcess
 
 
+# qualification refusals must preserve source and destination while keeping developer decoding available
 def CheckJsonBlock(
     Document: CadDocument, RecordName: str, HasOutput: bool, WorkPath: FilePath
 ) -> None:

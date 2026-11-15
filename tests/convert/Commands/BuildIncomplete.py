@@ -5,6 +5,7 @@ from interchange.document.models.DocumentModel import CadDocument
 from tests.convert.Commands.BuildTypedAsm import BuildTypedAsm
 
 
+# assembly qualification needs valid graphs with explicitly unresolved or missing component evidence
 def BuildIncomplete(RecordKind: str, OwnerName: str = "") -> CadDocument:
     Document = BuildTypedAsm()
     assert Document.assembly is not None

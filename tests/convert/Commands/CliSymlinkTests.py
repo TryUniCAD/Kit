@@ -10,6 +10,7 @@ from interchange.document.models.DocumentModel import CadDocument
 from tests.convert.Commands.CliProcess import CliProcess
 
 
+# source symlinks must remain usable for inspection without changing the link itself
 @TestMark.parametrize("Layer", ("neutral", "container", "native"))
 def CheckSourceLink(Layer: str, TmpPath: FilePath) -> None:
     Stored = TmpPath / "object"
@@ -26,6 +27,7 @@ def CheckSourceLink(Layer: str, TmpPath: FilePath) -> None:
     assert Source.is_symlink()
 
 
+# explicit destination symlinks must preserve their identity when publishing converted or decoded content
 def CheckTargetLink(TmpPath: FilePath) -> None:
     Source = TmpPath / "source.f3d"
     _ = Source.write_bytes(EmitDocument(DocumentSpec("Linked target", "height", 17.0)))

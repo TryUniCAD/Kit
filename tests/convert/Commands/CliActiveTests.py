@@ -9,6 +9,7 @@ from tests.convert.Commands.CliProcess import CliProcess
 from tests.convert.Commands.WrapDocument import WrapDocument
 
 
+# suppressed final features and dependencies must not qualify retained body geometry
 @TestMark.parametrize(
     "RecordKind",
     (
@@ -34,6 +35,7 @@ def CheckInactive(
     CheckJsonBlock(Document, "IncompleteFeature", HasOutput, TmpPath)
 
 
+# unrelated inactive references and tuple ordering must not invalidate otherwise qualified inputs
 @TestMark.parametrize("RecordKind", ("InactiveReference", "Unordered"))
 @TestMark.parametrize("IsNested", (False, True))
 def CheckActive(RecordKind: str, IsNested: bool, TmpPath: FilePath) -> None:

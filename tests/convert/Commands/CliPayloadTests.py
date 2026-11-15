@@ -8,6 +8,7 @@ from tests.convert.Commands.CheckJsonBlock import CheckJsonBlock
 from tests.convert.Commands.WrapDocument import WrapDocument
 
 
+# retained payload declarations must block conversion regardless of role nesting or embedded data
 @TestMark.parametrize("RoleValue", tuple(PayloadRole))
 @TestMark.parametrize("HasData", (False, True))
 @TestMark.parametrize("IsNested", (False, True))

@@ -3,6 +3,7 @@ from pathlib import Path as FilePath
 from time import monotonic as ReadClock, sleep as WaitBriefly
 
 
+# contention assertions must wait until the supervisor has persisted a real worker session
 def WaitSession(WorkPath: FilePath) -> None:
     Deadline = ReadClock() + 30
     while ReadClock() < Deadline:

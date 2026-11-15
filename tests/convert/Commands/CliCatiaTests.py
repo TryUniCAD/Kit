@@ -7,6 +7,7 @@ from interchange.document.models.DocumentModel import CadDocument
 from tests.convert.Commands.CliProcess import CliProcess
 
 
+# retained native assembly payloads must remain decodable while conversion preserves existing files
 @TestMark.parametrize("HasOutput", (False, True))
 @TestMark.parametrize("IsExplicit", (False, True))
 def CheckCatiaFile(HasOutput: bool, IsExplicit: bool, TmpPath: FilePath) -> None:

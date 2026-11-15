@@ -5,6 +5,7 @@ from tests.CliResearch.FixtureJob import FixtureJob
 from tests.CliResearch.ResearchClient import ResearchCli
 
 
+# changed source bindings must invalidate existing leases through the installed controller bridge
 def CheckLeaseFlow(TmpPath: FilePath) -> None:
     Arguments = ("--store", str(TmpPath / "State"))
     Started = ResearchCli(TmpPath, "controller", *Arguments, "init")

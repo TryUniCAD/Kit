@@ -10,6 +10,7 @@ from tests.convert.Commands.CliProcess import CliProcess
 from tests.convert.Commands.WrapDocument import WrapDocument
 
 
+# unresolved component evidence must block publication across root and nested assembly documents
 @TestMark.parametrize(
     "RecordKind",
     (
@@ -43,6 +44,7 @@ def CheckUnready(
     )
 
 
+# complete typed assembly graphs must retain a usable conversion path
 @TestMark.parametrize("IsNested", (False, True))
 @TestMark.parametrize("OwnerName", ("", "root", "subassembly"))
 @TestMark.parametrize(
@@ -66,6 +68,7 @@ def CheckResolved(
     assert Source.read_text(encoding="utf-8") == Original
 
 
+# every assembly graph owner must resolve child references before conversion can publish
 @TestMark.parametrize("OwnerName", ("root", "subassembly"))
 @TestMark.parametrize("IsNested", (False, True))
 @TestMark.parametrize("HasOutput", (False, True))

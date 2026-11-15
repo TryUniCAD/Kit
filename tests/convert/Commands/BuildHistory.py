@@ -8,6 +8,7 @@ from interchange.geometry.models.VectorSpace import SpaceVector
 from interchange.mesh.SurfaceMesh import SurfaceMesh
 
 
+# geometry without feature history needs valid neutral inputs independent of parameter presence
 def BuildHistory(RecordKind: str, HasParams: bool) -> CadDocument:
     Document = MakeFusionDoc(
         DocumentSpec("History boundary", "height", 20.0, ProfileKind="parameter")

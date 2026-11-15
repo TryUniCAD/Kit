@@ -6,6 +6,7 @@ from interchange.document.models.DocumentModel import CadDocument
 from tests.convert.Commands.BuildHistory import BuildHistory
 
 
+# unrelated sketch history must not qualify local geometry without a body generator
 def BuildSketchGeom(RecordKind: str) -> CadDocument:
     Document = MakeFusionDoc(
         DocumentSpec("Sketch-only history", "radius", 20.0, ProfileKind="circle")

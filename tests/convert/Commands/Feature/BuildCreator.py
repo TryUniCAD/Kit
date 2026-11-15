@@ -5,6 +5,7 @@ from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.features.FeatureExtrude import ExtrudeFeature
 
+# creator qualification needs explicit missing or unsupported prerequisites rather than malformed neutral references
 KCreatorCases = (
     "NoDependency",
     "EmptyProfile",
@@ -15,6 +16,7 @@ KCreatorCases = (
 )
 
 
+# creator refusals must isolate unsupported prerequisites on an otherwise valid typed source
 def BuildCreator(RecordKind: str) -> CadDocument:
     Document = MakeFusionDoc(DocumentSpec("Creator prerequisites", "height", 20.0))
     Sketch = Document.sketches[0]

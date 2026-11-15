@@ -5,6 +5,7 @@ from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from interchange.document.models.DocumentModel import CadDocument
 
 
+# geometry qualification must detect changed creator parameters paired with an old boundary representation
 def BuildStale() -> CadDocument:
     Original = MakeFusionDoc(DocumentSpec("Geometry contract", "height", 20.0))
     Changed = MakeFusionDoc(DocumentSpec("Geometry contract", "height", 25.0))

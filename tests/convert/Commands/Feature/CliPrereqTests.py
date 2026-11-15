@@ -9,6 +9,7 @@ from tests.convert.Commands.Feature.ModifierCases import KModifierCases
 from tests.convert.Commands.WrapDocument import WrapDocument
 
 
+# typed definitions must not qualify generators whose creation or operand prerequisites are missing
 @TestMark.parametrize("RecordKind", (*KModifierCases, *KCreatorCases))
 @TestMark.parametrize("IsNested", (False, True))
 @TestMark.parametrize("HasOutput", (False, True))
@@ -25,6 +26,7 @@ def CheckPrereqs(
     CheckJsonBlock(Document, "IncompleteFeature", HasOutput, TmpPath)
 
 
+# distinct active operands alone must not qualify generic boolean geometry without regeneration evidence
 @TestMark.parametrize("RecordKind", ("CombineValid", "CombineCut"))
 @TestMark.parametrize("IsNested", (False, True))
 @TestMark.parametrize("HasOutput", (False, True))

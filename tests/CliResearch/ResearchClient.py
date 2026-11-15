@@ -5,6 +5,7 @@ from sys import executable as KPythonPath
 from tests.CliResearch.ResearchRoot import ResearchRoot
 
 
+# compatibility checks must exercise the installed bridge against the explicitly pinned research checkout
 def ResearchCli(
     WorkPath: FilePath, ToolName: str, *Arguments: str
 ) -> CompletedProcess[str]:

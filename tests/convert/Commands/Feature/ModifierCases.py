@@ -10,7 +10,10 @@ from interchange.features.FeatureKinds import (
 from interchange.geometry.models.VectorSpace import SpaceVector
 from interchange.records.RecordParameter import ParameterValue
 
+# legacy modifier cases need a valid length so prerequisite failure remains the observed boundary
 KAmount = ParameterValue(1.0, ValueKind.KLength, "mm")
+
+# operand and kind combinations must exercise qualification gaps using actual typed definitions
 KModifierSpecs: dict[str, tuple[FeatureKind, FeatureDef, tuple[str, ...]]] = {
     "CombineEmpty": (FeatureKind.KBoolean, CombineFeature(), ()),
     "CombineOne": (FeatureKind.KBoolean, CombineFeature(), ("extrude",)),
@@ -33,6 +36,8 @@ KModifierSpecs: dict[str, tuple[FeatureKind, FeatureDef, tuple[str, ...]]] = {
     "ScaleEmpty": (FeatureKind.KScale, ScaleFeature(SpaceVector(1.0, 1.0, 1.0)), ()),
     "MismatchedKind": (FeatureKind.KScale, CombineFeature(), ("extrude",)),
 }
+
+# prerequisite refusals must remain separate from structurally complete but unqualified boolean cases
 KModifierCases = tuple(
     NameValue
     for NameValue in KModifierSpecs

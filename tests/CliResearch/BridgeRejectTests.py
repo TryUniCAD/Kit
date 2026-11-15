@@ -7,6 +7,7 @@ from pytest import mark as TestMark
 from tests.CliResearch.ResearchClient import ResearchCli
 
 
+# root argument ambiguity must fail before a research process can select another checkout
 @TestMark.parametrize(
     "RootFlag", ("--r", "--ro", "--roo", "--root", "--roo=other", "--root=other")
 )
@@ -23,6 +24,7 @@ def CheckRootPrefix(RootFlag: str, TmpPath: FilePath) -> None:
     assert Result.returncode == 1 and "--root once" in Result.stderr
 
 
+# research dispatch must require a trusted checkout and retain the controller command contract
 def CheckRootGuard(TmpPath: FilePath) -> None:
     Result = RunProcess(
         (
@@ -49,6 +51,7 @@ def CheckRootGuard(TmpPath: FilePath) -> None:
     assert HelpResult.returncode == 0 and "submit-batch" in HelpResult.stdout
 
 
+# supervisor availability must reflect the operating systems that support durable session ownership
 def CheckPoolHost(TmpPath: FilePath) -> None:
     Result = ResearchCli(TmpPath, "supervisor", "--help")
     if KPlatform == "win32":

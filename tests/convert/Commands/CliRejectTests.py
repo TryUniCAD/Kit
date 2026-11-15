@@ -8,6 +8,7 @@ from tests.convert.api.ApiTestPaths import KSamplePath
 from tests.convert.Commands.CliProcess import CliProcess
 
 
+# invalid command syntax must return usable cli diagnostics without a traceback
 @TestMark.parametrize(
     "Arguments",
     (
@@ -24,6 +25,7 @@ def CheckCliUsage(Arguments: tuple[str, ...], TmpPath: FilePath) -> None:
     assert "usage:" in Result.stderr and "Traceback" not in Result.stderr
 
 
+# incompatible inspection flags must fail before creating an output file
 @TestMark.parametrize(
     "Arguments",
     (
@@ -42,6 +44,7 @@ def CheckCliLayers(Arguments: tuple[str, ...], TmpPath: FilePath) -> None:
     assert not Target.exists() and "Traceback" not in Result.stderr
 
 
+# source aliases must never allow conversion or decoding to overwrite the input
 @TestMark.parametrize("Command", ("convert", "decode"))
 @TestMark.parametrize("LinkKind", ("same", "hard", "symbolic"))
 def CheckCliSource(Command: str, LinkKind: str, TmpPath: FilePath) -> None:
@@ -61,6 +64,7 @@ def CheckCliSource(Command: str, LinkKind: str, TmpPath: FilePath) -> None:
     assert Source.read_bytes() == Original and Target.read_bytes() == Original
 
 
+# invalid inputs and unsupported destinations must fail cleanly while explicit supported formats remain usable
 def CheckBadFiles(TmpPath: FilePath) -> None:
     Source = TmpPath / "invalid.f3d"
     _ = Source.write_bytes(b"not a CAD file")
@@ -111,6 +115,7 @@ def CheckBadFiles(TmpPath: FilePath) -> None:
     assert Target.read_bytes() == TypedSource.read_bytes()
 
 
+# input bounds must reject oversized files and unsafe argument text before processing
 def CheckCliBounds(TmpPath: FilePath) -> None:
     Source = TmpPath / "oversized.f3d"
     with Source.open("wb") as Output:

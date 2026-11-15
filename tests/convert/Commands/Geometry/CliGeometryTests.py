@@ -7,6 +7,7 @@ from tests.convert.Commands.Geometry.BuildStale import BuildStale
 from tests.convert.Commands.WrapDocument import WrapDocument
 
 
+# a valid authoring contract must not conceal geometry that disagrees with its regenerated source
 @TestMark.parametrize("IsNested", (False, True))
 @TestMark.parametrize("HasOutput", (False, True))
 def CheckStaleBody(IsNested: bool, HasOutput: bool, TmpPath: FilePath) -> None:

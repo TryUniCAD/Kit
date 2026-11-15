@@ -12,6 +12,7 @@ from tests.CliResearch.WaitPause import WaitPause
 from tests.CliResearch.WaitSession import WaitSession
 
 
+# the installed bridge must preserve pool exclusivity and durable pause resume behavior
 def CheckPoolBridge(TmpPath: FilePath) -> None:
     ConfigPath = PreparePool(TmpPath)
     Arguments = ("--config", str(ConfigPath))

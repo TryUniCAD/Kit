@@ -6,6 +6,7 @@ from interchange.document.models.DocumentModel import CadDocument
 from tests.interchange.fixtures.AssemblyFixture import BuildAssembly
 
 
+# positive assembly coverage needs qualified child geometry with consistent body and mate references
 def BuildTypedAsm() -> CadDocument:
     Document = BuildAssembly()
     assert Document.assembly is not None
