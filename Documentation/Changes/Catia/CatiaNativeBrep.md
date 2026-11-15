@@ -209,7 +209,10 @@ result = CatiaAdapter().write(
   to denormals and then `1e297`.
 - The reader reconstructs plane and cylinder geometry from bounds and trim vectors.
 - The reader does not decode feature records, sketches, dimensions,
-  constraints, or relations.
+  constraints, or relations. The corpus cannot validate such a decoder: all 27 parts carry the
+  `FromCATPart` symbol and no part has a `Sketch`, `Pad`, `Pocket`, `Constraint`, `Dimension`,
+  `Revolution`, `Groove`, `Chamfer`, `Fillet`, `Shaft`, `Hole`, `Pattern`, `Mirror`, `Extrude`, or
+  `Revolve` symbol, so every part is an imported dumb solid with no parametric history to decode.
 - The writer supports plane, cylinder, cone, sphere, and torus faces, and any number of loops per
   face. A cylinder or cone face needs a seam edge traversed in both directions to close its single
   loop, so the writer emits two distinct seam edges between the same vertex pair.

@@ -15,6 +15,46 @@ The OSMX stream is a symbol table, not the complete feature graph. The feature r
 records, dimensions, constraints, and relations are not decoded. The reader retains the exact OSMX
 bytes as a `NativeFeatureDefinition` payload.
 
+## The object graph before the symbol table
+
+The OSMX stream is not only a symbol table. In `Bolt_M5x40` the `_310c_670c0c48_ae0` stream is 4098
+bytes: the symbol table starts at 3418, so bytes 104..3410 are an object graph. The graph contains
+16-byte GUID-shaped runs such as `09 dc 64 11 00 00 01 1e 35 dc 47 a1 00 00 00 01`, repeated at
+offsets 112, 140, and 180. The u32 at offset 100 is 3410, which is the symbol table offset minus 8,
+so the graph ends 8 bytes before the table.
+
+The `_310c_670c0c48_ae2` stream (1968 bytes) is a second object graph. It is a sequence of 66-byte
+records: the four records at 0, 66, 132, and 198 each carry the same little-endian timestamp
+`0x670c0c48` (1728842824, 2024-10-13) at record offset 22. Each record has a small type at offset 0
+(`0f 00`, `00 02`, `00 23`, `00 44`), a u16 id at offset 12 (11, 17, 23, increments of 6), a u16
+size at offset 16 (56, 56, 124), a u32 offset at offset 28 (504, 505, 571), a u16 `4` at offset 32,
+a u32 at offset 34 (11, 13, 19), a flag byte at offset 38, and a run of u32 child indices. The
+record grammar is not fully resolved: the u32 at offset 34 does not equal the child count, and the
+first record has a different prefix from the other three.
+
+## The domain-byte scan is unreliable
+
+`CATMathFunctionGeneral::UnStream` reads a domain byte (`0x41` 'A', `0x47` 'G', `0x46` 'F', `0x43`
+'C') and a u16 type. Scanning `SurfacicReps` for that pair gives many hits, but they are false
+positives: little-endian floats contain `0x41` and `0x43` bytes. In `4784` the domain-C hits at
+8329, 8611, 8893, ... are spaced 282 bytes apart, and the bytes at 8329 are `43 41 00 42 e0 3d d8
+62`, which is the tail of a float run, not a function header. The PCurve record therefore cannot be
+located by a domain-byte scan.
+
+## The corpus has no parametric history
+
+Every one of the 27 corpus parts carries the `FromCATPart` symbol, which marks a shape imported
+from a CATPart rather than a natively modelled feature tree. Scanning every OSMX symbol table for
+`Sketch`, `Pad`, `Pocket`, `Constraint`, `Dimension`, `Revolution`, `Groove`, `Chamfer`, `Fillet`,
+`Shaft`, `Hole`, `Pattern`, `Mirror`, `Extrude`, and `Revolve` returns no hits in any part. The only
+`Body` symbols are the part-body names `Body.2` and `Body.3`. The symbol tables contain product and
+part metadata (`ASMPRODUCT`, `PRDREP`, `MechanicalPart`, `_FtrList`, `_ReferencePlanes`, `GSMPlane`,
+`xy-plane`) and nothing that names a modelling feature.
+
+The corpus therefore cannot validate a parametric-history decoder: there is no sketch, dimension, or
+constraint in it to decode. A parametric decoder needs a corpus of natively modelled parts, which
+must be produced through the vendor API or supplied by the user.
+
 ## Evidence
 
 - `src/convert/adapters/catia/Container.py` parses the OSMX symbol table.
