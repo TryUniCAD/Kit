@@ -94,7 +94,9 @@ placeholder values and Fusion refuses the file.
 
 The loadable row above is a failure, not a partial pass. The save-and-reopen leg is also unproven:
 `DataFile.isReadOnly` is true on this Personal Use license, and `saveAs` returns `True` and produces
-no file for a design (240 s) or a drawing (900 s).
+no file for a design (240 s), a drawing (900 s), or a design imported into a new document (300 s).
+The import route was tried to rule out the upload path, and it fails the same way, so the limit is on
+the account.
 
 ## C9. Complete implementation
 
