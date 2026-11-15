@@ -1043,6 +1043,36 @@ What the row does carry is the constraint solution: `relat_ptr` with `a`/`b`/`c`
 `formula_ptr` with eight indices. A writer can emit the segment fields, but not the points they reference
 without solving those constraints, which is what the sketch solver does.
 
+### The sketch stores no coordinates, and the definition class must match the feature class
+
+The last shape I said the write side needed was the sketch's point geometry. There is none to decode: enumerating
+every double in the ladder's `FeatDefs` row gives **twelve** distinct values — `0`/`1` constants, the four
+driving dimensions, and the display envelope — so the six segments, `relat_ptr` relation tables and `formula_ptr`
+indices are the whole sketch, and the points are computed by the solver at regeneration. `BasicData`,
+`FullMData` and `NeuPrtSld` carry no point table either, and `mpoint`/`spoint`/`vpoint` are `ModelView` display
+fields.
+
+That changes the question from "where are the coordinates" to "what does the loader check". Measured on the
+ladder's row, in place, at constant length, twice each:
+
+| Edit | Creo |
+| --- | --- |
+| dimension `value` `-201.719…` to `-123.5` | loads |
+| segment `verhor` `1` to `0` | loads |
+| segment `pointid` endpoint `1` to `2` | loads |
+
+So values and topology are both deferred to regeneration. Structure, by contrast, is checked:
+
+| Candidate | Structure | Creo |
+| --- | --- | --- |
+| `ladder_add_def` | ladder row plus one more `feat_defs_949` element | refused twice |
+| `ladder_with_917` | our single-element row plus the ladder's own `feat_defs_917` table | refused twice |
+
+`ladder_with_917` is the informative one — retaining the class-917 table did not help, so the fault is in our
+`949` element. The ladder's `949` element defines feature `66`; ours defines feature `74`, which is a solid
+feature. A definition has to sit in the class table matching its feature's class, so a `949` definition standing
+in for a solid feature is refused however complete the rest of the row is.
+
 ### Retraction: a feature-defs class table holds one element
 
 Two turns ago this entry said `DefaultFeatDefs` "writes one definition block per feature" and that matching the

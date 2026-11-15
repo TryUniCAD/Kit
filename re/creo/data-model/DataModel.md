@@ -308,6 +308,59 @@ from `-201.7190851617055` to `-123.5`, length unchanged, loads twice with the bo
 segment's `verhor` from `1` to `0` likewise loads twice. So the row's *values* are tolerated; what is refused is
 a row whose *structure* differs from what the rest of the model expects.
 
+### What the loader does and does not validate
+
+Three in-place edits of the ladder's `FeatDefs` row, each the same length, each launched twice:
+
+| Edit | Field | Creo |
+| --- | --- | --- |
+| dimension value | `value` `-201.719…` to `-123.5` | loads |
+| segment orientation | `verhor` `1` to `0` | loads |
+| segment topology | `pointid` endpoint `1` to `2` | loads |
+
+So the loader does not check the row's values, and it does not check the sketch's topology either — it defers
+solving to regeneration. What it does check is **structure**, on two counts measured this round:
+
+| Candidate | Structure | Creo |
+| --- | --- | --- |
+| `ladder_add_def` | the ladder's row plus one more `feat_defs_949` element (count `01` to `02`) | refused twice |
+| `ladder_with_917` | our generated single-element row, plus the ladder's own `feat_defs_917` table | refused twice |
+
+The second is the informative one: keeping the class-917 table did not help, so the fault is in the `949`
+element itself. The ladder's `949` element describes feature `66`, while ours describes feature `74` — and `74`
+is a solid feature (`917`). A definition therefore has to sit in the class table that matches its feature's
+class, which is why a `949` definition standing in for a solid feature is refused no matter how complete the
+rest of the row is.
+
+### The sketch stores no point coordinates at all
+
+Enumerating every double in the ladder's `FeatDefs` row — `180` values across all nodes — yields only **twelve**
+distinct numbers:
+
+| Value | Count | What it is |
+| --- | ---: | --- |
+| `1.0` / `0.0` | 111 / 31 | constants and flags |
+| `-154.43` | 11 | envelope / dimension |
+| `-86.067`, `86.067` | 5 / 4 | envelope |
+| `184.508` | 4 | envelope |
+| `±115.652` | 3 / 4 | envelope |
+| `-201.719`, `-338.938` | 2 / 2 | the driving dimensions |
+| `-270.33`, `-270.329` | 2 / 1 | envelope |
+
+There is no eight-point coordinate set anywhere in the row, and the three sections that could have held one do
+not: `BasicData` (`8221` bytes) has four `2x3` matrices that are all the same display envelope, `FullMData`
+(`7297`) and `NeuPrtSld` (`2443`) have no `f9` matrix at all, and `mpoint`/`spoint`/`vpoint` are `ModelView`
+display fields.
+
+So the sketch is *parametric* in the strict sense: the row stores six segments over eight point ids, the
+relation tables (`relat_ptr` with `a`/`b`/`c` per relation, `formula_ptr` with eight indices), the four driving
+dimensions and the display envelope. The point coordinates are **computed by the solver at regeneration**, which
+is also why `unsolved_ptr` exists (`iges_file`, `solve_version`, `ent_tab`, `next_available_xid`, `chains`).
+
+That reframes the writer problem correctly. A body-producing definition does not need stored coordinates — it
+needs a consistent segment topology, relation set and dimensions. What it cannot have is a definition whose
+structure disagrees with the rest of the model, which is exactly what every refused candidate had.
+
 ### The sketch chain: `gsec_ptr` to `segtab_ptr`
 
 A solid feature's definition carries its sketch. Decoded from the ladder's `Sketch 1`:
