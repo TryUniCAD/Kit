@@ -29,11 +29,11 @@ def main():
         handle = OpenProcess(0x00100410, False, args.expected_pid)
         if process_creation_time(handle) != args.expected_creation_filetime:
             raise RuntimeError("the selected process lifetime changed before activation")
-        application = Swapp.wc.DispatchEx(Swapp.PROGID)
+        application = Swapp.wc.GetActiveObject(Swapp.PROGID)
         identity = application_identity(application)
         result["identity"] = identity
         if identity["process_id"] != args.expected_pid or identity["process_creation_filetime"] != args.expected_creation_filetime:
-            raise RuntimeError("COM activation returned a different session")
+            raise RuntimeError("the active object belongs to a different session")
         if not identity["version_matches"] or identity["sha256"] != "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe":
             raise RuntimeError("the selected oracle build or executable changed")
         documents = Swapp.cv(application, "GetDocuments") or []
