@@ -109,7 +109,7 @@ def AuxHeader(HandSeed: int, Moment: DwgDayTime) -> DwgRecord:
 # save shorts needs an explicit validity boundary so drawing objects retain valid ownership and reference relationships
 def SaveShorts(VersionGuid: str) -> DwgRecord:
     try:
-        UUID(VersionGuid.strip("{}"))
+        _ = UUID(VersionGuid.strip("{}"))
     except ValueError as Failure:
         raise ValueError(
             f"Authored DWG version GUID {VersionGuid!r} is malformed"
