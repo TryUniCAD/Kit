@@ -73,6 +73,27 @@ Two container bisection steps were measured, and both still fail:
 The remaining differences are the second checksum column, the first-line numeric tokens, and the
 real bodies of the core sections. An empty struct is not a valid `BasicData` or `MdlStatus`.
 
+## Loader evidence
+
+`ugc_read_toc_from_file` (`coreutils_sh.dll` RVA `0x10d860`) routes version 1934 files through
+`FUN_1800ede70`, which reads table lines and calls `FUN_1800efb40` per row. The row parser is:
+
+```c
+pcVar5 = "%ws %llx %llx %d %d %d %d %04x %04x";
+/* newer tables: */
+pcVar5 = "%ws %Lx %Lx %Lx %d %x %d %x %x";
+pro_sscanf(param_1, pcVar5, lVar3, lVar3 + 0x88, lVar3 + 0x90,
+           puVar6, ..., lVar3 + 0xb0, lVar3 + 0xb4);
+```
+
+So both checksum columns are parsed into fields and are **not computed or validated** by
+`coreutils_sh.dll` at table-read time. That makes the second checksum unlikely to be the reason
+Creo rejects the authored file.
+
+`FUN_1800fbda0` then reads a binary tag section (`DAT_180205de0`) and decrypts it. The rejection
+"not a valid PART file" is therefore a model-layer check after the container parses, not a
+container-field check, and the authored file has no such model data.
+
 ## Limits
 
 - The authored part contains only `AllFeatur` and `VisibGeom`. Creo rejects it as "not a valid PART
