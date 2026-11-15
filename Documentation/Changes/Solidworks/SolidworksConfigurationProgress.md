@@ -13,5 +13,9 @@ distinguish progress from unfinished explicit override persistence.
 
 The complete-file process harness now decodes both independently stored streams
 and checks their progress relationship. Checks run only in remote PR CI.
-Remote validation and controlled native measurements of this repair remain
-pending; production writing and native generated-output acceptance remain disabled.
+Remote construction job `132815940695` passed its process checks. The
+[controlled native measurement](../../../re/solidworks/measurements/2026/FreshPartConfigurationProgress.json)
+now opens and regenerates the first generated prism into one solid without
+intervention, with zero errors or warnings between healthy controls and unchanged
+input hashes. Depth editing, saved-copy reopening and the remaining locked cases
+remain pending. Production writing remains disabled.

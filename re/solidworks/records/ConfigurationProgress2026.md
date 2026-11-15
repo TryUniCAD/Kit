@@ -1,7 +1,8 @@
 # Configuration progress after generated history construction
 
-Status: native rule recovered and shared builder implemented; generated native
-remeasurement pending. Production writing remains disabled.
+Status: the generated marker permits clean native regeneration of the first
+prism. Depth editing and the broader locked batch remain pending. Production
+writing remains disabled.
 
 ## Measured trigger
 
@@ -63,8 +64,22 @@ graph, never a saved document or a fitted literal.
 The complete-file subprocess check independently decodes `Header2` and `CMgr`
 and checks that the active configuration's persisted marker equals the header's
 next counter minus one. Existing strict construction access denial and linked
-archive-map checks remain enabled. Remote execution and native remeasurement of
-this revision are pending.
+archive-map checks remain enabled. Remote job `132815940695` passed the
+149 policy process checks and 163 native process checks, with 158 existing
+fixture skips, retaining artifact `14162162423` from head
+`0212d3ce3b391ebfdaac133a33ed049407c287cd`.
+
+The [new clean measurement](../measurements/2026/FreshPartConfigurationProgress.json)
+opens generated H3 SHA-256
+`f3318f14461e16d410125aef041e68c293becbbb3a8ddc0cff544cee13d2409a`,
+7,070 bytes, and rebuilds one solid without unsuppression or another vendor
+intervention. Volume is `9.932000000000002e-6 m³`, area
+`0.003166276360558158 m²`, and center is
+`(0.006666666666666669, 0.007000000000000002, 0.0065) m`.
+Both original controls pass on exact build `34.5.2.0604`; both input hashes
+remain unchanged. No open errors, warnings, feature errors, dialogs or cleanup
+errors are observed. Depth editing, saved-copy reopening and the remaining
+locked family cases are separate unfinished checks.
 
 ## Unfinished override persistence
 

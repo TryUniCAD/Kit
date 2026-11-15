@@ -15,11 +15,15 @@ The independent research composer generates fresh native containers and streams
 from neutral polygon and depth inputs without saved-stream inputs. This is not
 the public adapter and does not count toward the 165-file conversion target.
 
-The [latest controlled measurement](measurements/2026/FreshPartModelAppearance.json)
-opens the generated H3 part and rebuilds without errors or warnings between
-healthy original controls. Its sketch and extrusion are suppressed and it has
-zero bodies. Accepted generated outputs therefore remain **zero**; no native
-assembly or feature-family acceptance is established.
+The [appearance repair measurement](measurements/2026/FreshPartModelAppearance.json)
+first opened the generated H3 part with its sketch and extrusion suppressed and
+zero bodies. The
+[configuration progress measurement](measurements/2026/FreshPartConfigurationProgress.json)
+now opens and regenerates a fresh generated H3 part into one solid without
+intervention, with zero errors or warnings between healthy original controls.
+The locked input hashes remain unchanged. Editing, saved-copy reopening and
+the remaining family cases are still pending; no native assembly or complete
+feature-family acceptance is established and no FCStd conversion is counted.
 
 ## Last audit of the removed writer
 

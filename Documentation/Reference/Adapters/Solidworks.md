@@ -113,7 +113,12 @@ observes a vendor intervention on copied research parts without counting the
 changed state as generated-output acceptance.
 The [configuration progress operation](../../Changes/Solidworks/SolidworksConfigurationProgress.md)
 derives the completed-history marker from the generated persistent-ID allocator.
-Its effect on native regeneration remains under measurement.
+The first generated prism now opens and regenerates one solid without vendor
+intervention. Editing, saved-copy reopening and broader coverage remain under
+measurement.
+The [native depth-edit inspection](../../Changes/Solidworks/SolidworksNativeDepthEditInspection.md)
+checks generated geometry, a live parameter change and a saved-copy reopen in
+fresh application processes against explicit neutral-model expectations.
 The fresh [model component constructors](../../Changes/Solidworks/SolidworksModelConstruction.md)
 and [metadata constructors](../../Changes/Solidworks/SolidworksMetadataConstruction.md)
 build research object graphs from authored semantics and native constructor rules.
