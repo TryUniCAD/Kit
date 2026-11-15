@@ -5,9 +5,21 @@ import hashlib
 import importlib
 import json
 import platform
+import runpy
+import struct
 import sys
 import time
 from pathlib import Path
+
+
+def image_identity(path):
+    data = path.read_bytes()
+    result = {"path": str(path), "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data), "pe_machine": None}
+    if data[:2] == b"MZ" and len(data) >= 64:
+        offset = struct.unpack_from("<I", data, 60)[0]
+        if offset + 6 <= len(data) and data[offset:offset + 4] == b"PE\0\0":
+            result["pe_machine"] = hex(struct.unpack_from("<H", data, offset + 4)[0])
+    return result
 
 
 def main():
@@ -20,16 +32,18 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--seconds", type=float, default=5.0)
     parser.add_argument("--event-budget", type=int, default=100000)
+    parser.add_argument("--module-manifest", type=Path)
+    parser.add_argument("--action-script", type=Path)
+    parser.add_argument("--action-input", type=Path)
     args = parser.parse_args()
     if not 0 < args.seconds <= 60 or not 1 <= args.event_budget <= 1000000:
         parser.error("duration must be in (0,60] seconds and event budget in1..1000000")
     source = args.script.read_bytes()
     sys.path.insert(0, str(args.frida_dir))
-    frida = importlib.import_module("frida")
     record = {
         "authority": "native-api-boundary-observation", "instruction_taint": False,
         "host": {"platform": platform.platform(), "machine": platform.machine()},
-        "frida_version": frida.__version__, "frida_directory": str(args.frida_dir),
+        "frida_directory": str(args.frida_dir),
         "process_name": args.process, "pid_requested": args.pid, "realm": args.realm,
         "script_path": str(args.script), "script_sha256": hashlib.sha256(source).hexdigest(),
         "seconds_requested": args.seconds, "event_budget": args.event_budget,
@@ -51,6 +65,10 @@ def main():
         record["messages"].append(event)
 
     try:
+        record["python_image"] = image_identity(Path(sys.executable))
+        record["frida_image"] = image_identity(args.frida_dir / "frida" / "_frida.pyd")
+        frida = importlib.import_module("frida")
+        record["frida_version"] = frida.__version__
         device = frida.get_local_device()
         targets = [p for p in device.enumerate_processes() if p.name.casefold() == args.process.casefold() and (args.pid is None or p.pid == args.pid)]
         if len(targets) != 1:
@@ -61,8 +79,30 @@ def main():
         script = session.create_script(source.decode("utf-8"), name="kit-tupni-observation")
         script.on("message", receive)
         script.load()
+        if args.module_manifest is not None:
+            expected = json.loads(args.module_manifest.read_text(encoding="utf-8"))
+            modules = script.exports_sync.moduleidentity()
+            record["module_images"] = {}
+            for name, digest in expected.items():
+                matches = [module for module in modules if module["name"].casefold() == name.casefold()]
+                if len(matches) != 1:
+                    raise RuntimeError(f"expected one loaded module {name}, found {len(matches)}")
+                identity = image_identity(Path(matches[0]["path"]))
+                record["module_images"][name] = identity
+                if identity["sha256"] != digest:
+                    raise RuntimeError(f"loaded module image differs from the selected analysis target: {name}")
+            record["hook_activation"] = script.exports_sync.activate()
         print(json.dumps({"ready": True, "pid": targets[0].pid, "realm": args.realm}), flush=True)
+        if args.action_script is not None:
+            record["action_path"] = str(args.action_script)
+            record["action_sha256"] = hashlib.sha256(args.action_script.read_bytes()).hexdigest()
+            action = runpy.run_path(str(args.action_script))
+            record["action_result"] = action["exercise"](args.action_input)
         time.sleep(args.seconds)
+        if args.module_manifest is not None:
+            record["producer_statistics"] = script.exports_sync.statistics()
+            if record["producer_statistics"]["dropped"]:
+                raise RuntimeError("native producer event budget was exhausted")
     except Exception as error:
         record["exception"] = repr(error)
     finally:
