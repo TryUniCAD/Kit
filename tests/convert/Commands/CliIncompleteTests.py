@@ -42,8 +42,9 @@ def CheckUnready(
 
 
 @TestMark.parametrize("IsNested", (False, True))
-def CheckResolved(IsNested: bool, TmpPath: FilePath) -> None:
-    Document = BuildIncomplete("ResolvedReference")
+@TestMark.parametrize("OwnerName", ("", "root", "subassembly"))
+def CheckResolved(IsNested: bool, OwnerName: str, TmpPath: FilePath) -> None:
+    Document = BuildIncomplete("ResolvedReference", OwnerName)
     if IsNested:
         Document = WrapDocument(Document)
     Document.AssertValid()
@@ -54,5 +55,17 @@ def CheckResolved(IsNested: bool, TmpPath: FilePath) -> None:
     Result = CliProcess(TmpPath, "convert", str(Source), str(Target), "--json")
     assert Result.returncode == 0, Result.stderr
     assert LoadJson(Result.stdout)["destination_format"] == "interchange.json"
-    assert LoadJson(Target.read_text(encoding="utf-8"))["assembly"]
+    assert LoadJson(Target.read_text(encoding="utf-8")) == LoadJson(Original)
     assert Source.read_text(encoding="utf-8") == Original
+
+
+@TestMark.parametrize("OwnerName", ("root", "subassembly"))
+@TestMark.parametrize("IsNested", (False, True))
+@TestMark.parametrize("HasOutput", (False, True))
+def CheckGraphChild(
+    OwnerName: str, IsNested: bool, HasOutput: bool, TmpPath: FilePath
+) -> None:
+    Document = BuildIncomplete("MissingReference", OwnerName)
+    if IsNested:
+        Document = WrapDocument(Document)
+    CheckJsonBlock(Document, "IncompleteAssembly", HasOutput, TmpPath)

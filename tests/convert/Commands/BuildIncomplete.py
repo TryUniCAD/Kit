@@ -5,7 +5,7 @@ from interchange.document.models.DocumentModel import CadDocument
 from tests.interchange.fixtures.AssemblyFixture import BuildAssembly
 
 
-def BuildIncomplete(RecordKind: str) -> CadDocument:
+def BuildIncomplete(RecordKind: str, OwnerName: str = "") -> CadDocument:
     Document = BuildAssembly()
     assert Document.assembly is not None
     Assembly = Document.assembly
@@ -56,5 +56,17 @@ def BuildIncomplete(RecordKind: str) -> CadDocument:
                     "native-only" if RecordKind == "NativeTransforms" else "unresolved"
                 )
             },
+        )
+    if OwnerName:
+        Assembly = ReplaceData(
+            Assembly,
+            definitions=tuple(
+                (
+                    ReplaceData(Definition, source_path="original.assembly")
+                    if Definition.id == "definition:" + OwnerName
+                    else Definition
+                )
+                for Definition in Assembly.definitions
+            ),
         )
     return ReplaceData(Document, assembly=Assembly)

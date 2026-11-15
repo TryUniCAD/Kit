@@ -14,6 +14,11 @@ records. The same checks traverse nested component documents. Changing the
 source's filename, format-ID spelling, or JSON payload role does not qualify
 the retained bytes for conversion. Complete embedded/local typed reference
 representations remain eligible for normal writer policy checks.
+An assembly root or subassembly can record a `source_path` solely as provenance
+while its actual representation is a local child-instance graph. Such owners
+need no separate embedded document or body/mesh link. The guard recognizes these
+local owners and still checks every descendant for missing links or explicit
+unresolved state.
 
 Use `kit decode` or the deterministic research tools to inspect these artifacts
 while their semantics are recovered. The public SDK and CATIA reader are unchanged.

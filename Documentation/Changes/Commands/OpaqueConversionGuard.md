@@ -15,6 +15,11 @@ or reference links without embedded documents or local body/mesh representations
 explicitly unresolved source/transform flags, and native-only or unresolved
 transform/constraint status. A reference with a complete embedded or local typed
 representation is not refused merely because its kind is `reference`.
+Definitions that own local child instances also have an assembly representation,
+so root and subassembly `source_path` provenance remains valid. Each descendant
+is checked independently; owning a local graph does not waive missing-reference
+or explicit unresolved/native-only checks. Owner IDs are collected once per
+assembly, preserving linear traversal cost.
 These records preserve vendor payloads whose portable semantics are still unknown.
 Serializing them as interchange JSON does not make them conversion-ready.
 
@@ -63,3 +68,6 @@ payload roles with inline or absent bytes, opaque B-rep records, and incomplete
 assembly records at the root and within component documents. Complete embedded
 reference cases remain positive conversion checks. These new cases await remote
 execution; pinned formatting, typing, steering, and path checks pass locally.
+Root and subassembly provenance cases additionally verify complete JSON
+preservation at the root and inside component documents. Missing descendants
+still refuse publication for both missing and existing destinations.

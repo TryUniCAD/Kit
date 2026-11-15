@@ -39,6 +39,11 @@ def CheckPortable(Document: CadDocument) -> None:
             if IsBlocked:
                 raise ValueError(RecordName + KInspectText)
         Assembly = PartValue.assembly
+        OwnerIds = (
+            {Instance.owner_definition_id for Instance in Assembly.instances}
+            if Assembly is not None
+            else set[str]()
+        )
         if Assembly is not None and (
             any(
                 Definition.kind == ComponentKind.KNative
@@ -52,6 +57,7 @@ def CheckPortable(Document: CadDocument) -> None:
                         Definition.document_id
                         or Definition.body_ids
                         or Definition.mesh_ids
+                        or Definition.id in OwnerIds
                     )
                 )
                 for Definition in Assembly.definitions
