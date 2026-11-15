@@ -27,6 +27,13 @@ Creo measurement. So there is **no Creo-measured body count, volume, centre of m
 output**, and these acceptance criteria are not met. `Writer.py` therefore reports
 `mode=exact_native_roundtrip`, `vendor_loadable=False` and `application_usable=False`.
 
+**There is no Creo-side measurement channel available here in either direction.** Trail replay does not execute,
+and ModelCHECK — the shipped batch analyser — retrieves the part (`MT Part Solid` in its own trail) and then never
+finishes: no report, no `std.out`, still running after 55 seconds. See
+[the ModelCHECK gotcha](../../Gotchas/Conversion/CreoModelCheckUnattended.md). So even for parts that load, the
+body count, volume and centre of mass the acceptance criteria require cannot be read out of this installation
+unattended.
+
 Six of the `53` rows remain vendor-sourced and are measured non-derivable: `IndentTag` and `FeatRefData` are
 opaque blobs (`7.84` and `6.56` bits/byte entropy, no token declarations), and the three `PSB_Tokens` tables need
 their unit-system, model and PDM-trailer content.
