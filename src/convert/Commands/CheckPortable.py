@@ -25,6 +25,11 @@ def CheckPortable(Document: CadDocument) -> None:
         Freecad = PartValue.metadata.get("freecad")
         for RecordName, IsBlocked in (
             (
+                "CapturedObjects",
+                isinstance(Freecad, Mapping)
+                and bool(CastValue(Mapping[object, object], Freecad).get("objects")),
+            ),
+            (
                 "ExternalDocuments",
                 isinstance(Freecad, Mapping)
                 and bool(
