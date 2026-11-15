@@ -251,11 +251,16 @@ result = CatiaAdapter().write(
   `parametric`, and reports the feature vocabulary (`2DLine`, `2DCircle`, `2DPoint`, `Constraints`,
   `ConstraintDYS`, `EdgeFillet`, `Chamfer`, `CircPattern`, and their parameter names).
 - `re/catia/tooling/OsmGraph.py` walks the OSMX `7c` record tree and parses the `7c 07` attribute
-  blocks. It recovers 309 to 1411 attributes with 136 to 138 distinct names from the five parametric
+  blocks. It recovers 292 to 1410 attributes with 130 to 137 distinct names from the five parametric
   sample parts (`Pocket`, `Shaft`, `EndLimit`, `StartLimit`, `Profile`, `Direction`, `FirstAngle`,
   `SecondAngle`, `d_dia`, `p_pitch`, `n_nom_Slot_Width`, `ConstraintDYS`, `SketchSupport`,
   `AbsoluteAxis`), and 69 attributes with 33 distinct part-property names from the 27 corpus parts.
-  `Pedal_Body` recovers 210 attributes with 72 distinct names because it carries GSM point features.
+  `Pedal_Body` recovers attributes with 72 distinct names because it carries GSM point features.
+- The literal parameter values are `0xe6` doubles (eight little-endian bytes). The extractor recovers
+  `0.8`, `2.5`, `5.0`, `8.0`, `15.0`, `50.0` from `ISO_2338_PARALLEL_PIN` (the pin diameter, length,
+  and chamfer), `4.2`, `5.0`, `8.4`, `16.0`, `19.0`, `37.5` from the washer, and `360.0`, `90.0`,
+  `20.0` from the screws. The value extraction is exact; the attribute-name association is not yet
+  exact because the `7c 07` key byte and the `7c 06` header key list do not line up one-to-one.
 
 ## Related information
 

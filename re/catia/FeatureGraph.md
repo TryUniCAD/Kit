@@ -120,21 +120,33 @@ The literal dimension values are not in the attribute block. A dimension attribu
 parameter object, and the parameter object holds the value. Decoding the parameter objects is the
 next step.
 
-## The parameter values are not in the attribute block
+## The parameter values are `e6` doubles
 
 A dimension attribute such as `d_dia` carries a two-byte value and an object reference, for example
 `8c d5 40 e9 d4 17 04 37 fe fe`. The `d5 40` is a tag plus a one-byte value, and `e9 d4 17 04 37` is
 a four-byte object reference. The literal diameter is not in the attribute block.
 
+The literal values are stored as doubles with the `0xe6` tag: `0xe6` followed by eight
+little-endian bytes. `CATBmxStream::ReadInt` in `CATOmx.dll` (`0x1800016e0`) and the `ReadOsmValue`
+jump table in `CATObjectSpecsModeler.dll` (`0x1800d9c58`) confirm the tagged-value dispatch. Scanning
+the OSMX object graph for `0xe6` doubles recovers the real dimensions:
+
+| part | doubles |
+| --- | --- |
+| `ISO_2338_PARALLEL_PIN` | `200.0`, `8.0`, `15.0`, `2.5`, `50.0`, `0.8`, `6.2832` |
+| `ISO_7089_PLAIN_WASHER_GRADE_A_NORMAL_SERIES` | `5.0`, `0.375`, `37.5` |
+| `ISO_1207_GRADE_A_SLOTTED_CHEESE_HEAD_SCREW` | `360.0`, `0.4`, `20.0`, `3.3`, `1.6` |
+| `ISO_2010_GRADE_A_COUNTERSUNK_SLOTTED_RAISED_HEAD_SCREW` | `360.0`, `0.4`, `1.08`, `90.0`, `20.0` |
+
+`8.0`, `50.0`, and `0.8` are the pin diameter, length, and chamfer, and `6.2832` is `2π`, a full
+circle angle. The value extraction is exact; the attribute-name association is not yet exact because
+the `7c 07` key byte and the `7c 06` header key list do not line up one-to-one. The values
+themselves are decoded.
+
 The `7c 06` object header carries the object id and the part bounding box, not the parameter value:
 `7c 06 2a 00 00 00 01 00 38 39 ea 02 00 00 00 80 62 83 1b 2c 00 80 21 bb 23 43 80 05 66 9d 43 80
 c6 25 d0 3b 00 80 ff ff ff ff` has the same three floats (`163.73`, `314.8`, `0.00635`) in every
 object, so they are the part bounding box.
-
-The `7c 09` relation records and the `7c 0a` operand lists carry symbol references and small
-integers, not literal floats. A float scan of the `ISO_1207` object graph finds plausible dimension
-values (`1.95`, `2.0`, `1.45`, `1.7`, `8.0`, `8.75`, `2.05`, `4.0`, `2.25`, `0.25`, `2.54`), but the
-scan cannot attribute them to a named parameter. The parameter value encoding is the next step.
 
 ## Evidence
 

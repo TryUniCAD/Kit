@@ -45,7 +45,31 @@ sys.path.insert(0, str(Path(__file__).parents[3] / "src"))
 
 from convert.adapters.catia.Container import CfvTwoArchive, OsmxArchive
 
-KValueTags = {0x80: 5, 0x81: 1, 0xE8: 4, 0xE9: 5}
+KValueTags = {
+    0x80: 5,
+    0x81: 1,
+    0x82: 2,
+    0x83: 2,
+    0x84: 2,
+    0x85: 2,
+    0x86: 2,
+    0x87: 2,
+    0x8B: 2,
+    0x8C: 2,
+    0x90: 2,
+    0xD8: 2,
+    0xD9: 2,
+    0xDA: 2,
+    0xDB: 2,
+    0xDC: 2,
+    0xDD: 2,
+    0xDE: 2,
+    0xDF: 2,
+    0xE6: 9,
+    0xE8: 4,
+    0xE9: 5,
+    0xEA: 5,
+}
 
 
 def FindOsmx(Archive: CfvTwoArchive) -> tuple[bytes, OsmxArchive] | None:
@@ -118,10 +142,16 @@ def ParseValues(Data: bytes, Cursor: int, End: int) -> tuple[list[tuple[str, obj
             Values.append(("u32", struct.unpack_from("<I", Data, Cursor + 1)[0]))
         elif Tag == 0x81:
             Values.append(("bool", True))
+        elif Tag == 0xE6:
+            Values.append(("double", struct.unpack_from("<d", Data, Cursor + 1)[0]))
         elif Tag == 0xE8:
             Values.append(("ref3", Data[Cursor + 1 : Cursor + 4].hex()))
-        else:
+        elif Tag == 0xE9:
             Values.append(("ref4", Data[Cursor + 1 : Cursor + 5].hex()))
+        elif Tag == 0xEA:
+            Values.append(("int32", struct.unpack_from("<i", Data, Cursor + 1)[0]))
+        else:
+            Values.append(("small", Data[Cursor + 1]))
         Cursor += Width
     return Values, Cursor
 
@@ -183,15 +213,42 @@ def Extract(PathValue: Path) -> tuple[list[str], dict[str, int]]:
     return (Names, Counts)
 
 
+def ExtractValues(PathValue: Path) -> list[tuple[str, float]]:
+    Archive = CfvTwoArchive.from_bytes(PathValue.read_bytes())
+    Found = FindOsmx(Archive)
+    if Found is None:
+        return []
+    Data, Parsed = Found
+    Symbols = [Symbol.value for Symbol in Parsed.symbols]
+    Records = ParseRecords(Data, 104, Parsed.symbol_table_offset)
+    Highest = max(
+        (Data[Start + 6] for Subtag, Start, _ in Records if Subtag == 0x07),
+        default=0,
+    )
+    if Highest >= len(Symbols):
+        Symbols = AllSymbols(Archive)
+    Values: list[tuple[str, float]] = []
+    for Subtag, Start, Length in Records:
+        if Subtag != 0x07:
+            continue
+        for Name, Items in ParseAttributes(Data, Start, Length, Symbols):
+            for Kind, Value in Items:
+                if Kind == "double" and isinstance(Value, float):
+                    Values.append((Name, Value))
+    return Values
+
+
 def Main() -> None:
     Base = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("re/catia/examples/parametric")
     for PathValue in sorted(Base.rglob("*.CATPart")):
         if not PathValue.is_file():
             continue
         Names, Counts = Extract(PathValue)
+        Values = ExtractValues(PathValue)
         Top = sorted(Counts.items(), key=lambda Item: -Item[1])[:10]
         print(f"{PathValue.name:56s} attributes={len(Names):5d} distinct={len(Counts):4d}")
         print(f"  {Top}")
+        print(f"  doubles={len(Values)} {Values[:8]}")
 
 
 if __name__ == "__main__":

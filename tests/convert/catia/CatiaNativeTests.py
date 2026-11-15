@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math
+import struct
 from pathlib import Path
 
 from convert import open_document as OpenDoc
@@ -331,6 +332,25 @@ def TestOsmGraph() -> None:
     assert "Sketch" in Names
     assert "EndLimit" in Names
     assert "StartLimit" in Names
+
+
+# this definition exists because focused behavior needs one stable owner
+def TestOsmDouble() -> None:
+    Archive = CfvTwoArchive.from_bytes(
+        (KParametric / "ISO_2338_PARALLEL_PIN.CATPart").read_bytes()
+    )
+    DataValue, Parsed = OsmGraphStream(Archive)
+    Values: set[float] = set()
+    for Offset in range(104, Parsed.symbol_table_offset - 9):
+        if DataValue[Offset] != 0xE6:
+            continue
+        Value = struct.unpack_from("<d", DataValue, Offset + 1)[0]
+        if 0.001 <= abs(Value) <= 1e6 and abs(Value - round(Value, 4)) < 1e-6:
+            Values.add(round(Value, 4))
+    assert 8.0 in Values
+    assert 50.0 in Values
+    assert 0.8 in Values
+    assert 2.5 in Values
 
 
 # this definition exists because focused behavior needs one stable owner
