@@ -1,4 +1,5 @@
 from decimal import Decimal, getcontext
+from functools import lru_cache
 from struct import pack as PackFields
 from struct import unpack as UnpackFields
 
@@ -115,16 +116,18 @@ def DecryptBlock(
     return LeftValue & KMask, RightValue & KMask
 
 
-KState = KeySchedule(KKey)
+@lru_cache(maxsize=1)
+def KState() -> tuple[list[int], list[int], list[int], list[int], list[int]]:
+    return KeySchedule(KKey)
 
 
 def EncryptBytes(DataValue: bytes) -> bytes:
     LeftValue, RightValue = UnpackFields(">II", DataValue)
-    LeftValue, RightValue = EncryptBlock(LeftValue, RightValue, *KState)
+    LeftValue, RightValue = EncryptBlock(LeftValue, RightValue, *KState())
     return PackFields(">II", LeftValue, RightValue)
 
 
 def DecryptBytes(DataValue: bytes) -> bytes:
     LeftValue, RightValue = UnpackFields(">II", DataValue)
-    LeftValue, RightValue = DecryptBlock(LeftValue, RightValue, *KState)
+    LeftValue, RightValue = DecryptBlock(LeftValue, RightValue, *KState())
     return PackFields(">II", LeftValue, RightValue)
