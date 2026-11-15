@@ -675,10 +675,17 @@ def TestWriteView() -> None:
     assert len(BackView.SheetEdges) == len(ViewValue.SheetEdges)
     assert ViewValue.OutlineMinX is not None
     assert ViewValue.OutlineMinY is not None
+    assert ViewValue.PositionX is not None
+    assert ViewValue.PositionY is not None
     assert BackView.OutlineMinX is not None
     assert BackView.OutlineMinY is not None
-    assert BackView.OutlineMinX - ViewValue.OutlineMinX == PytestLib.approx(0.04)
-    assert BackView.OutlineMinY - ViewValue.OutlineMinY == PytestLib.approx(-0.03)
+    Ratio = 3.0 / 2.0
+    assert BackView.OutlineMinX == PytestLib.approx(
+        0.15 + (ViewValue.OutlineMinX - ViewValue.PositionX) * Ratio
+    )
+    assert BackView.OutlineMinY == PytestLib.approx(
+        0.20 + (ViewValue.OutlineMinY - ViewValue.PositionY) * Ratio
+    )
 
 
 # the writer must bind records by creation index when keyword order differs
