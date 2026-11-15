@@ -19,6 +19,9 @@ Fresh configuration `f9a8` now carries the selected target archive version.
 Its constructor seed `2045` is replaced by native saving when the configuration
 has an opened owner model. The process check covers this version in decoded
 CMgr records for different configuration counts.
+The native loader's configuration-to-archive transfer is also traced directly,
+and a controlled authoring capture corroborates independent update/body-stamp
+allocation without making final counter values writer constants.
 The record also maps the two-stage native serializer dispatch and the archive
 helper's map lookup, separating selected runtime version from intended target.
 `part_graph` now accepts explicit folder names, cabinet name and creation time,
@@ -96,6 +99,8 @@ The [constructor-path gotcha](../../Gotchas/Conversion/Solidworks/Model/LoadingC
 records why active allocations need separate store-rule evidence.
 The [configuration-version gotcha](../../Gotchas/Conversion/Solidworks/Model/ConfigurationVersionChangesOnSave.md)
 records why the constructor's legacy version is invalid as the fresh-save rule.
+The [body-stamp gotcha](../../Gotchas/Conversion/Solidworks/Model/BodyStampCountsAreNotBodyCounts.md)
+records the distinct native allocation paths observed for one final body.
 Model gotchas now live under `Solidworks/Model/`, and process-check gotchas
 under `Ci/ProcessChecks/`, preserving the directory-density limit.
 
@@ -124,6 +129,9 @@ at `cdfaf2567` in [run 43698581267](https://github.com/TryUniCAD/Kit/actions/run
 job `132764451630`: `158` passed and `158` skipped in the native-file step.
 The skipped cases require private source corpora absent from remote CI; this
 does not count them as generated-output acceptance.
+The configuration-version regression passed at `4ee66766b` in
+[run 43700657774](https://github.com/TryUniCAD/Kit/actions/runs/43700657774),
+job `132770843309`. Corrected generated-part native acceptance remains pending.
 The stage extraction preserved the exact `12,575`-character generated program,
 SHA-256 `23d3aeb06e82ede7468f7dae3ced1b789a0fcd059a30a9e0f04869b371160ecb`,
 by static string comparison. Later configuration-version regression coverage

@@ -238,6 +238,20 @@ node `f0c` bit `1` is set. Derived-part traversal is reached only after a zero
 node result. This closes the pending constructor query for the fresh ordinary
 part; it does not prove completion of a rebuild or every cleared-state query.
 
+Configuration rebuild state is separate from that model-node query.
+`moBaseConfiguration_c::needsRebuild` at `0x4bde3f50` returns zero for
+`f968 == 1`; otherwise its positive state is node `f0c` bit `8`.
+`setNeedsRebuild(1)` at `0x4bdf2290` first checks the `f4c4` block bit
+`0x04000000` and the opened owner's `f0c` bit `0x10`.
+With the ordinary constructor selectors `f784 == 0` and `f850 == 0`, the
+unblocked positive path sets `f0c |= 8` and `f4c4 |= 0x80`, clears runtime
+preview pointers and `b38`, and calls a visual-state notification.
+Other selectors set different bits. `f784` itself is not the rebuild boolean.
+No configuration-state mutation is added from this observation alone: the
+authored insertion caller and notification's serialized effects remain
+**partial**. The existing `mark_model_update` helper does not assert that the
+configuration's separate rebuild query is true.
+
 ## Header counter and save lifecycle
 
 Status: **partial — code-derived rules, without generated-header native acceptance**.
@@ -315,6 +329,32 @@ No fixed increment count is inferred for fresh generation.
 See [initial update normalization](../../../Documentation/Gotchas/Conversion/Solidworks/InitialUpdateStampIsNormalized.md)
 and [the header clock](../../../Documentation/Gotchas/Conversion/Solidworks/HeaderClockIsWallTime.md).
 
+The parent-owned native authoring observation `polygon-api-authoring.json`
+has SHA-256 `1561ff585126fe22975aec7ecdcf8fe07c92059bbf214c6e46c83aaf3ee2928d`.
+Its `8,543` events contain `82` header-update allocations and `16` body-stamp
+allocations, with zero dropped messages or script errors. Every allocation
+increments only its own unsigned counter by one and returns the new value;
+all `98` events satisfy that code-derived rule.
+
+| Authoring phase, repeated for 3, 8 and 11 vertices | Update counter | Body counter  | Allocation calls  |
+| -------------------------------------------------- | -------------- | ------------- | ----------------- |
+| New document                                       | none observed  | none observed | 0                 |
+| Sketch authoring                                   | `102 → 104`    | unchanged     | 2 update          |
+| Extrusion authoring                                | `104 → 106`    | `101 → 103`   | 2 update, 2 body  |
+| First explicit rebuild                             | `106 → 120`    | `103 → 105`   | 14 update, 2 body |
+| Save and close                                     | unchanged      | unchanged     | 0                 |
+
+Both instrumented controls rebuilt successfully with one body, volume
+`8e-6 m³`, and zero open errors or warnings. Each control advanced update
+`120 → 134` and body `105 → 107`. The control and authoring cases shared the
+instrumented process: this is **training lifecycle evidence**, not the fresh
+process acceptance procedure for generated output.
+The body-stamp callers are `0x4b700c36` and `0x4bcfb51b`, matching distinct
+regeneration and body-assignment paths. A single final body therefore does not
+imply one stamp allocation. The observed final counters are not builder inputs
+or constants; the writer must compute its own operation state.
+See [body-stamp allocation](../../../Documentation/Gotchas/Conversion/Solidworks/Model/BodyStampCountsAreNotBodyCounts.md).
+
 ## Configuration construction
 
 `configuration_manager` accepts authored names, the current configuration index,
@@ -343,16 +383,36 @@ the load branch reads the wire word for archive versions above `0x7ff`.
 The shared getter at `0x4b285780` has several linker-folded names; its relevant
 export here is `moBaseConfiguration_c::getOpenedModel`, not the decompiler's
 mate-group owner label.
+That wrapper dispatches virtual slot `0x1280`. Base-configuration primary
+vtable `0x4d027498` and part-configuration primary vtable `0x4ce2d008` resolve
+it to the constructor-backed feature owner getter `0x4bb45da0`.
+Thus the fresh linked owner takes the selected-version storage branch.
 
 Fresh part configurations require an actual owning part. Their stored version
 now derives from the same explicit target version used by the fresh feature
 base, `19000` in the supported profile. They no longer emit `2045`.
 The process check reads these words back from the generated CMgr stream for
-one and seven configurations. Remote execution and a new native candidate
-measurement are pending for this correction.
+one and seven configurations. Remote job `132770843309` passed for head
+`4ee66766b` in [run 43700657774](https://github.com/TryUniCAD/Kit/actions/runs/43700657774).
+A new native candidate measurement remains pending for this correction.
 The parent-owned failed native trace observed helper version `2045` despite
 global version `19000`; the healthy control observed both at `19000`.
-The exact loader transfer from `f9a8` remains under investigation.
+The loader transfer is now statically closed in `doccplu.dll`, SHA-256
+`ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8`.
+REA evidence
+`ev_a03f5697d0733e323913d16ec2c9c8815e58fb9ac3d072f7c66975d25c9822f2`
+decompiles `SolidStorage_c::iLoadModelDefn` at `0x18003bc50`.
+It constructs its archive-helper object at stack `rsp + 0x260`.
+When document virtual slot `0xee8` returns zero, the document is not a future
+version, and its UI version is at least `2045`, it selects the configuration
+supplied as the third argument, falling back to the second when absent.
+The call at `0x18003c2b1` obtains its `getVersionNumber()` result, and the store
+at `0x18003c2bc` writes that result to `rsp + 0xa20`:
+the helper object's `0x7c0` version word. The following ordinary part branch
+uses the native part-pointer loader.
+Thus the global version and container version cannot override this stored
+configuration version on that path. The semantic name of document slot
+`0xee8` remains unresolved; its explicit branch condition is preserved.
 See [configuration versions](../../../Documentation/Gotchas/Conversion/Solidworks/Model/ConfigurationVersionChangesOnSave.md).
 
 The variable-table presence flag is false for the newly empty variable-control maps.
