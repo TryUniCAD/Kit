@@ -775,15 +775,13 @@ def TestWriteOrder() -> None:
     assert ReorderedActual == Actual
 
 
-# a renamed view must still receive the placement of its source record
+# a view name is part of the model reference and cannot be rewritten
 @PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
 def TestWriteName() -> None:
     SourceBytes = (KDrawRoot / "orient-front.SLDDRW").read_bytes()
     DataValue = ReadDrawing(SourceBytes, IncludeSheetEdges=True)
     ViewValue = DataValue.Sheets[0].Views[0]
-    NewView = ReplaceData(
-        ViewValue, Name="My View", PositionX=-0.05, PositionY=-0.02, ViewScale=1.5
-    )
+    NewView = ReplaceData(ViewValue, PositionX=-0.05, PositionY=-0.02, ViewScale=1.5)
     NewData = ReplaceData(
         DataValue, Sheets=(ReplaceData(DataValue.Sheets[0], Views=(NewView,)),)
     )
@@ -792,6 +790,13 @@ def TestWriteName() -> None:
     assert BackView.PositionX == PytestLib.approx(-0.05)
     assert BackView.PositionY == PytestLib.approx(-0.02)
     assert BackView.ViewScale == PytestLib.approx(1.5)
+    assert BackView.Name == ViewValue.Name
+    RenamedView = ReplaceData(ViewValue, Name="My View")
+    RenamedData = ReplaceData(
+        DataValue, Sheets=(ReplaceData(DataValue.Sheets[0], Views=(RenamedView,)),)
+    )
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDrawing(SourceBytes, RenamedData)
     OriginView = ReplaceData(ViewValue, PositionX=0.0, PositionY=0.0, ViewScale=1.5)
     OriginData = ReplaceData(
         DataValue, Sheets=(ReplaceData(DataValue.Sheets[0], Views=(OriginView,)),)

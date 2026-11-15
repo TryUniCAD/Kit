@@ -57,16 +57,8 @@ def BindViews(
         for SheetName, ViewValue in SourceViews
         if ViewKey(SheetName, ViewValue.Name) not in Matched
     ]
-    if len(UnmatchedData) != len(UnmatchedSource):
+    if UnmatchedData or UnmatchedSource:
         raise SldprtFormatError("drawing view names do not match the source")
-    if len(UnmatchedData) > 1:
-        raise SldprtFormatError("drawing renames more than one view")
-    for (SheetName, DataView), (SourceSheet, SourceView) in zip(
-        UnmatchedData, UnmatchedSource, strict=True
-    ):
-        if SheetName.casefold() != SourceSheet.casefold():
-            raise SldprtFormatError("drawing renamed view changed its sheet")
-        Matched[ViewKey(SourceSheet, SourceView.Name)] = DataView
     return tuple(
         (ViewValue, Matched[ViewKey(SheetName, ViewValue.Name)])
         for SheetName, ViewValue in SourceViews
