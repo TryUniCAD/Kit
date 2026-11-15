@@ -472,17 +472,24 @@ an identity):
 
 So neither natural generated default works: all-clean and all-dirty both fail.
 
-The lane carries meaning in its token stream, not only in its values. Two more launches:
+The lane is neither value-driven nor size-driven. Six edits, one launch each:
 
-| candidate | result |
-| --- | --- |
-| first mask `-1` → `-2`, same token count | loads |
-| all `252` decoded values re-encoded canonically | process exits, no `End`, no `dbg_err_crash` |
+| edit | byte delta | result |
+| --- | ---: | --- |
+| control | 0 | loads |
+| first value `-1` → `-2` | +1 | loads |
+| repeats expanded explicitly, each copy reusing the previous value's token bytes | +57 | process exits, no `End` |
+| all `252` values re-encoded canonically | +68 | process exits, no `End` |
+| every value `-1` | −162 | `dbg_err_crash` |
+| every value `0` | −162 | `dbg_err_crash` |
 
-So a one-value deviation is tolerated while an equivalent re-encoding is not. The `e4`/`e5`/`e6`/`e7`
-tokens are therefore structural in this field, and the `252` slot count is a property of our reader's
-repeat expansion rather than a measured file fact. The `.ddt` index comparison is consequently not
-evidence, and the "one slot per registered field" idea is withdrawn.
+So replacing the repeats with explicit copies of the same values fails, and so does re-encoding those
+values, while a one-byte length change succeeds. The accepted form is the control's token shape with
+limited freedom inside it.
+
+Consequently the `252` slot count is a property of our reader's repeat expansion rather than a measured
+file fact, and the `.ddt` index comparison is not evidence: the "one slot per registered field" idea is
+withdrawn.
 
 Three further measurements narrow the table without yielding the bit assignment:
 

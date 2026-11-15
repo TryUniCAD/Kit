@@ -137,6 +137,31 @@ So the mask set is validated content, not a redundant cache. Both natural genera
 all-clean (`-1`) and all-dirty (`0`). The bit-to-field assignment therefore has to be decoded, or a
 mask layout that the loader accepts has to be found, before `AllFeatur` can be generated.
 
+## The lane's token shape is load-bearing
+
+Six edits were measured on the same field, one Creo launch each. Two load, four do not:
+
+| Edit | Byte delta | Result |
+| --- | ---: | --- |
+| control | 0 | loads |
+| first value `-1` → `-2` (`f6` → `f5 02`) | +1 | loads |
+| explicit expansion of every `e4`/`e5`/`e6`/`e7` repeat, each copy reusing the previous value's own token bytes | +57 | process exits, no `End` |
+| all 252 decoded values re-encoded canonically | +68 | process exits, no `End` |
+| every value set to `-1` | −162 | `dbg_err_crash`, no `End` |
+| every value set to `0` | −162 | `dbg_err_crash`, no `End` |
+
+A further attempt changed a byte inside a `f5` negation token and is **void**: it edited the token
+structure rather than a value, so its result carries no information and is not listed above.
+
+Two conclusions follow, and both matter:
+
+- the lane is **not** governed by values alone — replacing the twelve repeats with explicit copies of
+  the same values, or re-encoding those same values, both fail;
+- it is **not** governed by byte length alone either — a one-byte length change is accepted.
+
+So the accepted form is the control's token shape with limited freedom inside it, and neither "generate
+by value" nor "generate by size" reproduces it.
+
 ## The lane is not a plain value array
 
 Two further launches contradict the assumption that `cr_flags_xar` is a list of 252 integers whose
