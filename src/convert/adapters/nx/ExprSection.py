@@ -45,10 +45,10 @@ KOccupancy = {
 # the occupancy frame follows the dimension count and the continuation count
 def OccupancyMap(Dimensions: int) -> int:
     Needed = 5 * Dimensions + 2
-    Size = 32
-    while Size <= Needed:
-        Size *= 2
-    return Size
+    Result = 32
+    while Result <= Needed:
+        Result *= 2
+    return Result
 
 
 def OccupancyFrame(Dimensions: int, Continuations: int) -> tuple[bytes, bytes]:
