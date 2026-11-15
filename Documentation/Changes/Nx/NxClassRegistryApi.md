@@ -298,6 +298,35 @@ take imm                        ->  class digest
 That means the digest field of the class table is **statically derivable from vendor code** — not a
 document, not a live session — which is the first part of the table that is.
 
+## Registration is concentrated in modules that import the registrant constructor
+
+Anchoring on the import rather than on the name string settles where classes are registered. Of the
+modules inspected, only two import `ClassRegistrant`'s constructor at all:
+
+```text
+libpart.dll       imports ??0ClassRegistrant@OM@UGS@@QEAA@PE...   (one IAT slot)
+libmodlint.dll    imports it                                      (one IAT slot)
+libsyss.dll       does not import it — it defines it
+libmodl.dll       does not import it
+libmodlgeom.dll   does not import it
+pskernel.dll      does not import it
+```
+
+`libmodl.dll` and `libmodlgeom.dll` only import class-id globals such as
+`?ThisClassId@BaseDimension@Annot@UGS@@2AEAHEA`, so they consume identifiers rather than register
+classes. That is why none of the classes missing from the extraction appear there.
+
+`libmodlint.dll` does import the constructor, but its three `UGS::Solid::Body` references are not
+registrations: the surrounding block registers handlers under names like `UGS::DPLANE`,
+`UGS::BCURVE` and `UGS::FEATURE_RECORD` in a lookup table, which is a different table from the class
+registry. So a name string appearing next to class machinery does not imply a registration.
+
+Searching the installation for the constructor's import name shows dozens of modules importing it
+(`camservices.dll`, `libadvpbcore.dll`, `libaecdesign*.dll`, `libaerostruct*.dll`, …), so the
+remaining 100 digests are registered by modules that are not on this host. Closing them means
+copying the registering modules, which is a build-time extraction over the installed product rather
+than a runtime dependency.
+
 ## What this means for a static writer
 
 The entry is a snapshot of **registry-derived per-class values**, one of which is the class digest.
