@@ -104,6 +104,7 @@ def feature(
     service_pack: int = 5,
     subservice_pack: int = 2,
     hidden: bool = False,
+    node: Obj | None = None,
 ) -> Obj:
     if not isinstance(owner, Obj):
         raise TypeError("features require an archive-object owner")
@@ -119,7 +120,9 @@ def feature(
         raise ValueError("Parasolid version must be an explicit positive integer")
     if type(hidden) is not bool:
         raise TypeError("feature visibility must be boolean")
-    result = Obj(cls)
+    if node is not None and (not isinstance(node, Obj) or node.cls != cls or node.f):
+        raise ArchiveError("feature initialization requires an empty object of its concrete runtime class")
+    result = Obj(cls) if node is None else node
     fields = concept_fields(name=name, allocator=allocator, node=result)
     fields.update({
         "owner": owner,
@@ -515,8 +518,9 @@ def part_config_object() -> dict:
     return result
 
 
-def configuration(
+def base_configuration_fields(
     *,
+    node: Obj,
     name: str,
     owner: Obj,
     local_id: int,
@@ -524,9 +528,12 @@ def configuration(
     parasolid_version: int,
     updated_at: int,
     description: str = "",
-) -> Obj:
-    if not isinstance(owner, Obj) or owner.cls != "moPart_c":
-        raise ArchiveError("fresh part configurations require their actual part owner")
+) -> dict:
+    owners = {"moPartConfiguration_c": "moPart_c", "moConfiguration_c": "moAssembly_c"}
+    if not isinstance(node, Obj) or node.cls not in owners or node.f:
+        raise ArchiveError("base configuration fields require an empty concrete configuration object")
+    if not isinstance(owner, Obj) or owner.cls != owners[node.cls]:
+        raise ArchiveError("fresh configurations require their matching actual model owner")
     if type(local_id) is not int or not 0 <= local_id < 0x7FFFFFFF:
         raise ValueError("configuration ids must be nonnegative signed integers")
     if type(updated_at) is not int or not 0 <= updated_at <= 0xFFFFFFFF:
@@ -534,7 +541,7 @@ def configuration(
     if not isinstance(description, str) or "\x00" in description:
         raise ValueError("configuration descriptions must be strings without null characters")
     result = feature(
-        cls="moPartConfiguration_c", name=name, owner=owner, allocator=None,
+        cls=node.cls, node=node, name=name, owner=owner, allocator=None,
         date_code=date_code, parasolid_version=parasolid_version,
     )
     result.f["f08"] = local_id
@@ -544,20 +551,18 @@ def configuration(
             "f85c", "f670", "f6f8", "f688", "f968", "has610", "f784",
             "f828", "f82c", "f830", "f834", "f838", "f83c", "f840",
             "f850", "fb08", "fb34", "f74c", "hasb88", "fbd0", "f4c8",
-            "f4cc", "fa80", "fc60", "fcc8", "fc64", "ndc8_hi", "ndc8_lo",
+            "f4cc", "fa80",
         )
     })
     result.f.update({name: [] for name in (
         "f618", "f358", "f380", "f3d0", "f420", "f430", "fb00", "f460",
         "fb10", "fa50", "fb58", "fa70", "f450", "fb70", "fb98", "fbf8",
-        "fca8", "fce8", "fd20", "fdc8",
     )})
     result.f.update({
         f"n{name[1:]}": len(result.f[name])
         for name in (
             "f618", "f358", "f380", "f3d0", "f420", "f430", "fb00", "f460",
             "fb10", "fa50", "fb58", "fa70", "f450", "fb70", "fb98", "fbf8",
-            "fca8", "fce8", "fd20",
         )
     })
     result.f.update({
@@ -588,6 +593,30 @@ def configuration(
         "fb68": {"n": 0, "items": []},
         "fb80": None,
         "fbd8": None,
+    })
+    return result.f
+
+
+def configuration(
+    *,
+    name: str,
+    owner: Obj,
+    local_id: int,
+    date_code: int,
+    parasolid_version: int,
+    updated_at: int,
+    description: str = "",
+) -> Obj:
+    result = Obj("moPartConfiguration_c")
+    fields = base_configuration_fields(
+        node=result, name=name, owner=owner, local_id=local_id,
+        date_code=date_code, parasolid_version=parasolid_version,
+        updated_at=updated_at, description=description,
+    )
+    fields.update({name: 0 for name in ("fc60", "fcc8", "fc64", "ndc8_hi", "ndc8_lo")})
+    fields.update({name: [] for name in ("fca8", "fce8", "fd20", "fdc8")})
+    fields.update({f"n{name[1:]}": len(fields[name]) for name in ("fca8", "fce8", "fd20")})
+    fields.update({
         "f4d0": part_config_object(),
         "fc50": -1.0,
         "fc48": None,

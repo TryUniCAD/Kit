@@ -10,6 +10,11 @@ part or assembly object, with explicit self-component and relation ownership.
 `part_root` adds its part-only fields through the existing public interface.
 The shared helper does not infer an assembly subtype or populate part scalars
 at offsets owned by assembly maps.
+`base_configuration_fields` similarly initializes an actual empty part or
+assembly configuration node with its matching model owner. Concrete builders
+add their own option and component fields. The existing part configuration API
+and all `103` direct field rules are preserved by static AST comparison, split
+into `83` base and `20` part rules without executing the builders.
 The active new-model constructor proves unit-component and relation-manager
 ownership for both parts and assemblies; those factories now accept both roots.
 Loading-constructor null seeds remain distinct from active graph allocation.
@@ -112,7 +117,11 @@ records the separate exclusive lifetimes of profile plane wrappers and their
 component copies.
 The process regression round-trips two references through the real container,
 checking distinct wrapper/component objects and their shared actual model owner.
-That new regression awaits remote CI and does not establish native acceptance.
+The ownership regression passed remotely at `02b47edb8` in
+[run 43705037782](https://github.com/TryUniCAD/Kit/actions/runs/43705037782),
+job `132784186911`: `159` passed and `158` skipped in the native-file step.
+The subsequent base-configuration extraction awaits a fresh remote run.
+Neither establishes native generated-part acceptance.
 Model gotchas now live under `Solidworks/Model/`, and process-check gotchas
 under `Ci/ProcessChecks/`, preserving the directory-density limit.
 

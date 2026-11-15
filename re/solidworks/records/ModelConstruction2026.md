@@ -370,6 +370,25 @@ an owning part node, and explicit version/timestamp provenance.
 Each configuration is a new object with its own property lists and invalid mass cache.
 All collection counts derive from their collections.
 
+`base_configuration_fields` initializes the base configuration fields on a
+caller's actual empty concrete node. It accepts `node`, `name`, `owner`,
+`local_id`, `date_code`, `parasolid_version`, `updated_at` and an optional
+authored `description`. A `moPartConfiguration_c` requires its actual
+`moPart_c` owner; a `moConfiguration_c` requires its actual `moAssembly_c`
+owner. It returns that node's field dictionary without allocating a temporary
+configuration object or a persistent header id. The shared feature initializer
+accepts the same actual preallocated node and rejects mismatched or populated
+objects.
+
+The extraction preserves all `103` direct part-configuration field rules by
+static AST comparison: `83` base rules and `20` part-only rules, with no
+overlap. Inherited feature field rules remain shared. `configuration` keeps its
+existing interface and adds only the part-specific fields after initialization.
+Assembly options, component records and other concrete additions remain the
+assembly builder's responsibility. In particular, the part `fc48/fc50`
+selectors must not stand in for assembly option objects at those offsets.
+This source comparison did not run a builder or establish native acceptance.
+
 The base configuration constructor `0x4bdbf820` initializes its options, maps,
 empty feature lists and mass-property cache.
 The derived part configuration constructor `0x4b595780` adds its body maps,
@@ -392,9 +411,13 @@ The shared getter at `0x4b285780` has several linker-folded names; its relevant
 export here is `moBaseConfiguration_c::getOpenedModel`, not the decompiler's
 mate-group owner label.
 That wrapper dispatches virtual slot `0x1280`. Base-configuration primary
-vtable `0x4d027498` and part-configuration primary vtable `0x4ce2d008` resolve
+vtable `0x4d027498`, part-configuration primary vtable `0x4ce2d008` and
+assembly-configuration primary vtable `0x4cecc720` resolve
 it to the constructor-backed feature owner getter `0x4bb45da0`.
 Thus the fresh linked owner takes the selected-version storage branch.
+The assembly configuration constructor `0x4b8c4f30` supplies that actual owner
+to the same base constructor `0x4bdbf820`; the shared target-save rule applies
+without using the part-specific selector fields.
 
 Fresh part configurations require an actual owning part. Their stored version
 now derives from the same explicit target version used by the fresh feature
@@ -480,8 +503,11 @@ external state fail closed until their construction semantics are implemented.
 See [exclusive reference ownership](../../../Documentation/Gotchas/Conversion/Solidworks/Model/PlaneReferencesOwnTheirComponents.md).
 The subprocess coverage now constructs two wrappers for one semantic principal
 plane, writes their distinct component copies through the real container, and
-checks decoded object identity and the shared model-owner alias. This regression
-is committed for remote CI; it has not been run locally or accepted natively.
+checks decoded object identity and the shared model-owner alias. It passed at
+`02b47edb8` in [run 43705037782](https://github.com/TryUniCAD/Kit/actions/runs/43705037782),
+job `132784186911`; the native-file step reported `159` passed and `158`
+skipped. This is component/container evidence, without native acceptance of a
+generated part. No local tests ran.
 
 ## Principal-plane graph
 
