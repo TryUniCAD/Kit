@@ -106,11 +106,11 @@ The values were reproduced for 54 of the 60 corpus saves, and a drawing that car
 local Fusion 2706.1.17 and accepted a scaling edit.
 That work is research only and no longer has a product path:
 
-| Case                              | Result                                     |
-| --------------------------------- | ------------------------------------------ |
-| All 38 `AC1027` saves but one     | header bytes reproduced exactly             |
-| 17 of 22 `AC1032` saves           | header bytes reproduced exactly             |
-| The six remaining saves           | crafted or non-standard tail               |
+| Case                              | Result                                       |
+| --------------------------------- | -------------------------------------------- |
+| All 38 `AC1027` saves but one     | header bytes reproduced exactly              |
+| 17 of 22 `AC1032` saves           | header bytes reproduced exactly              |
+| The six remaining saves           | crafted or non-standard tail                 |
 | A drawing with the computed tail  | opened in Fusion and accepted a scaling edit |
 | A Kit-authored DWG                | still stalls, because Kit writes placeholders |
 
