@@ -281,6 +281,38 @@ of id objects — and what remains is a less direct route, such as ids resolved 
 at load time or registered when a class is first instantiated. Either way it is loader-time data
 rather than a table this branch can read out of the module statically.
 
+## The id stream is a sorted list of class indices
+
+The first fourteen values of the object data are strictly increasing and all below the 98-class
+count, and each names a plausible part class:
+
+```text
+idx  class                          gap to next value
+  2  OM_save_audit_trail                        4
+  3  OM_save_audit_trail_entry                 60
+  4  ES_part_attribute                          4
+  5  LAYER_category                            68
+  6  UGFONT_table                              24
+  7  COLOR_table                                4
+  8  CSYSTEM                                    4
+  9  CUTTER_display                             8
+ 10  SKELETON_grid_modeling                    20
+ 18  RM_sketch_color_prefs                      4
+ 26  SOLID_edge                                12
+ 31  ASSY_reference_design_model               24
+ 32  RM_double_record_area                    448
+ 33  LAYOUT_layout_cache                      296
+```
+
+so the values are **class indices**, not object ids: a scattered object-id list would not be strictly
+increasing, and the named classes are exactly the kind a part carries (layer, colour, coordinate
+system, cutter, skeleton, edge, layout cache).
+
+The gaps are the object data sizes for each class, and they do not match the class layout extents
+(`OM_save_audit_trail` extent 48 with gap 4, `LAYER_category` extent 73 with gap 68,
+`RM_double_record_area` extent 48 with gap 448), so the gap is an instance size rather than the
+layout size.
+
 ## The object data is a byte-packed id stream, not entries or length-prefixed records
 
 Walking the bytes after the third typed entry (0x19df in section 1) rules out both candidate
