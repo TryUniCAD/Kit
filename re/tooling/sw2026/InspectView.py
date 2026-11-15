@@ -15,7 +15,8 @@ def rotations(model):
     for index in range(1, 10):
         try:
             transform = model.GetStandardViewRotation(index)
-            result["standard"][str(index)] = list(Swapp.cv(transform, "ArrayData"))
+            data = transform if isinstance(transform, (list, tuple)) else Swapp.cv(transform, "ArrayData")
+            result["standard"][str(index)] = [float(value) for value in data]
         except Exception as error:
             result["standard"][str(index)] = {"exception": repr(error)}
     try:

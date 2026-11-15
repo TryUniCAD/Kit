@@ -10,6 +10,9 @@ geometry/feature status must be clean before capture.
 The report also queries the nine standard-view rotations and active camera
 orientation before and after the view change. An unavailable query retains its
 exception and does not become a canonical-orientation pass.
+The 2026 automation binding returns standard rotations as direct numeric tuples;
+the active orientation remains a math-transform object. The inspector accepts
+both explicitly rather than discarding a returned tuple as a missing property.
 
 The report retains stages, native status, geometry, feature tree, image hash and
 unchanged-input check. Use original controls around generated candidates.
