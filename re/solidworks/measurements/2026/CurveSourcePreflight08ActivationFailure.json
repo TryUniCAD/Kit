@@ -1,0 +1,240 @@
+{
+  "schema": "kit-sw2026-curve-source-activation-failure/1",
+  "status": "invalid source preflight: both controls failed COM activation; zero candidates measured",
+  "measurement_valid": false,
+  "source_batch": "CurvesPreflight08",
+  "source_revision": "4ed467bc94a9e7da00bc9782a603a525250242cd",
+  "source_tool_hashes": {
+    "AuthorCurves.py": "d04cb45bbc35cf454d6cfe59875f295230f7ff1370ad7970ba798e451b2f8e31",
+    "Swapp.py": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+  },
+  "specs_sha256": "514c6e5d39933b29b904a98400d980b361fc4cb92644e2e626cfec0236f0d7b0",
+  "expected_oracle_target": {
+    "authority": "configured neutral source specification, not an observed runtime identity",
+    "progid": "SldWorks.Application.34",
+    "file_version_words": [34, 5, 2, 604],
+    "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "observed_runtime_executable_identity": null,
+  "runtime_build_verified": false,
+  "supervisor": {
+    "source_revision": "d6974eb13ac608547eff66bdcf29bf5d89c57178",
+    "script": "re/tooling/sw2026/RunOracleBatch.py",
+    "script_sha256": "9faab30994516cc28fdf6a5b64b1771f8fb14156143b6a7d5804c075703ee1fd",
+    "bytes": 18234,
+    "frozen_manifest_and_host_report_hashes_match": true,
+    "scope": "host transport observation only; source worker and controls assessed separately"
+  },
+  "raw_sources": {
+    "CurvesPreflight08/Batch.json": {
+      "bytes": 9588,
+      "sha256": "db04cf136f87fc93be4b6f267d8acd43ce465ed62dfcf41fdf5adee85efec614",
+      "retained_external_only": true
+    },
+    "CurvesPreflight08.Host.json": {
+      "bytes": 15125,
+      "sha256": "359576c4f924c22a1fc514728a887f94e65b43f1ea856f7a2316295868db62fe",
+      "retained_external_only": true
+    },
+    "CurvesPreflight08.Host.json.stdout.log": {
+      "bytes": 343,
+      "sha256": "9ac6cf31ca2b6fbe680a61a5170a4c21c613dc55f3578d770fe3938bfac894f0",
+      "retained_external_only": true
+    },
+    "CurvesPreflight08.Host.json.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "retained_external_only": true
+    },
+    "HostToolsD697/SourceManifest.json": {
+      "bytes": 316,
+      "sha256": "48e8a35093fb7b7cd63f00fc7845fb855ee800179998dd0fbd0a71b907982b2f",
+      "retained_external_only": true
+    },
+    "HostToolsD697/RunOracleBatch.py": {
+      "bytes": 18234,
+      "sha256": "9faab30994516cc28fdf6a5b64b1771f8fb14156143b6a7d5804c075703ee1fd",
+      "retained_external_only": true
+    },
+    "CurvesPreflight08/Controls/ControlRectangle/Author/Job.json": {
+      "bytes": 1191,
+      "sha256": "bc3602b2ba57b0b82a39099c6d9eac9c8d3194cf5e141733a0f7d01178bcfca4",
+      "retained_external_only": true
+    },
+    "CurvesPreflight08/Controls/ControlRectangle/Author/Record.json": {
+      "bytes": 2933,
+      "sha256": "bc1cba6af9fea8f80b2c91ad3e95a2cc74d1667fd199eb8f111d45978e316385",
+      "retained_external_only": true
+    },
+    "CurvesPreflight08/Controls/ControlRectangle/Manifest.json": {
+      "bytes": 3740,
+      "sha256": "5ec9c4bc4f07d8b39b336bf6ff50478283dda6ee96a3c6371f3bba1b3c7330df",
+      "retained_external_only": true
+    },
+    "CurvesPreflight08/Controls/ControlCircle/Author/Job.json": {
+      "bytes": 1158,
+      "sha256": "edfa290050dfebad0bafae52c81e27a399f2176a4a9eadfbbc4396c138072122",
+      "retained_external_only": true
+    },
+    "CurvesPreflight08/Controls/ControlCircle/Author/Record.json": {
+      "bytes": 2898,
+      "sha256": "8fb8482ab89c3b91ee8a0e7ba82e39ce16d004439e4b40790e771bc34e7732d3",
+      "retained_external_only": true
+    },
+    "CurvesPreflight08/Controls/ControlCircle/Manifest.json": {
+      "bytes": 3670,
+      "sha256": "7dc04a574e0d35d88c1a7283c18a82d42517401be1db3fb1a5ad203f98c5cf33",
+      "retained_external_only": true
+    }
+  },
+  "controls": [
+    {
+      "case": "ControlRectangle",
+      "phase": "author",
+      "stage": "launch .34 COM",
+      "passed": false,
+      "started_at_utc": "2026-11-15T23:07:22.047525+00:00",
+      "finished_at_utc": "2026-11-15T23:09:22.839915+00:00",
+      "first_failure": {
+        "stage": "launch .34 COM",
+        "type": "com_error",
+        "error": "com_error(-2146959355, 'Server execution failed', None, None)",
+        "pending_capability": false
+      },
+      "hresult_decimal": -2146959355,
+      "hresult_unsigned_hex": "0x80080005",
+      "activation_call": {
+        "method": "launch .34 COM",
+        "arguments": [],
+        "error": "com_error(-2146959355, 'Server execution failed', None, None)",
+        "seconds": 120.59400000000005
+      },
+      "worker_exit_code": 2,
+      "worker_timed_out": false,
+      "worker_seconds": 121.42200000000003,
+      "runtime_executable_identity_obtained": false,
+      "observed_runtime_identity": null,
+      "native_checks_recorded": 0,
+      "geometry_snapshots_recorded": [],
+      "recorded_cleanup_errors": [],
+      "initialization_cleanup_note": "no verified fresh process; no document or exit command was issued",
+      "initialization_cleanup_note_authority": "worker traceback note; no process inventory repeated during publication",
+      "host_observed_raw_record_sha256": "bc1cba6af9fea8f80b2c91ad3e95a2cc74d1667fd199eb8f111d45978e316385"
+    },
+    {
+      "case": "ControlCircle",
+      "phase": "author",
+      "stage": "launch .34 COM",
+      "passed": false,
+      "started_at_utc": "2026-11-15T23:09:23.102845+00:00",
+      "finished_at_utc": "2026-11-15T23:11:14.693339+00:00",
+      "first_failure": {
+        "stage": "launch .34 COM",
+        "type": "com_error",
+        "error": "com_error(-2146959355, 'Server execution failed', None, None)",
+        "pending_capability": false
+      },
+      "hresult_decimal": -2146959355,
+      "hresult_unsigned_hex": "0x80080005",
+      "activation_call": {
+        "method": "launch .34 COM",
+        "arguments": [],
+        "error": "com_error(-2146959355, 'Server execution failed', None, None)",
+        "seconds": 111.45299999999997
+      },
+      "worker_exit_code": 2,
+      "worker_timed_out": false,
+      "worker_seconds": 111.82799999999997,
+      "runtime_executable_identity_obtained": false,
+      "observed_runtime_identity": null,
+      "native_checks_recorded": 0,
+      "geometry_snapshots_recorded": [],
+      "recorded_cleanup_errors": [],
+      "initialization_cleanup_note": "no verified fresh process; no document or exit command was issued",
+      "initialization_cleanup_note_authority": "worker traceback note; no process inventory repeated during publication",
+      "host_observed_raw_record_sha256": "8fb8482ab89c3b91ee8a0e7ba82e39ce16d004439e4b40790e771bc34e7732d3"
+    }
+  ],
+  "source_controller": {
+    "started_at_utc": "2026-11-15T23:07:21.492767+00:00",
+    "finished_at_utc": "2026-11-15T23:11:14.777769+00:00",
+    "before_controls_attempted": 2,
+    "before_controls_passed": 0,
+    "trailing_controls_completed": 0,
+    "candidate_cases_measured": 0,
+    "selected_candidate_cases_requested": 2,
+    "pending_cases": ["D19Annulus", "D23TangentCapsule"],
+    "first_failure": {
+      "case": "ControlRectangle",
+      "phase": "author",
+      "failure": {
+        "stage": "launch .34 COM",
+        "type": "com_error",
+        "error": "com_error(-2146959355, 'Server execution failed', None, None)",
+        "pending_capability": false
+      }
+    },
+    "controls_healthy": false,
+    "locked": false,
+    "incomplete_selection": true,
+    "stdout_summary_matches_batch": true
+  },
+  "host_transport": {
+    "authority": "completed host supervisor report, not a new native measurement",
+    "status": "transport_exited",
+    "host_platform": "darwin",
+    "current_user": true,
+    "started_at": "2026-11-15T23:07:20.568011+00:00",
+    "finished_at": "2026-11-15T23:11:15.717227+00:00",
+    "started_monotonic_ns": 1334184393656250,
+    "finished_monotonic_ns": 1334419540262333,
+    "elapsed_ns": 235146606083,
+    "elapsed_seconds": 235.146606083,
+    "monotonic_elapsed_recomputed": true,
+    "no_progress_elapsed_ns_at_exit": 204225250,
+    "configured_limits_seconds": {
+      "no_progress": 360.0,
+      "overall": 3600.0,
+      "terminate_wait": 10.0,
+      "kill_wait": 10.0,
+      "poll": 1.0
+    },
+    "host_deadline_triggered": false,
+    "deadline_scope": "this run observed a natural transport termination before the configured no-progress/overall deadlines; deadline enforcement was not exercised",
+    "transport_pid": 27817,
+    "transport_live": false,
+    "transport_exit_confirmed": true,
+    "transport_returncode": 2,
+    "supervisor_exit_code": 2,
+    "transport_stop_failed": false,
+    "observation_error_count": 0,
+    "guest_state_unknown": true,
+    "automatic_guest_kill": false,
+    "automatic_vm_reset": false,
+    "automatic_retry": false,
+    "external_inventory_required_before_another_batch": true,
+    "interpretation": "transport termination does not establish that the guest CAD process is absent or healthy; recovery remains with the oracle owner"
+  },
+  "acceptance": {
+    "source_preflight_passed": false,
+    "candidate_cases_measured": 0,
+    "controls_healthy": false,
+    "healthy_trailing_control_observed": false,
+    "family_lock_present": false,
+    "native_format_crash_attributed": false,
+    "cause_established": false,
+    "annulus_or_capsule_relation_normalization_verified": false,
+    "curve_writer_acceptance_established": false,
+    "full_cad_goal_complete": false,
+    "production_adapter_read_only": true
+  },
+  "publication": {
+    "transformation": "selected JSON metadata and bounded error strings; personal paths, full command argv and traceback paths omitted",
+    "raw_evidence_not_modified": true,
+    "native_cad_file_bytes_read_or_published": false,
+    "vendor_software_published": false,
+    "oracle_or_vm_calls_during_publication": false,
+    "scope": "COM activation and completed host transport failure evidence only; no causal diagnosis or CAD health assertion"
+  }
+}

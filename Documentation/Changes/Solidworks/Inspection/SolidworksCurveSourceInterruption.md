@@ -22,6 +22,15 @@ health. The [timeout gotcha](../../../Gotchas/Conversion/Solidworks/Tracing/Gues
 and [host supervisor](SolidworksOracleHostDeadline.md) describe the separate
 supervision boundary for subsequent runs.
 
+The [next source preflight](../../../../re/solidworks/measurements/2026/CurveSourcePreflight08ActivationFailure.json)
+completed its host transport with exit `2` after `235.146606083` seconds.
+Both source controls failed COM activation with `Server execution failed`
+(`0x80080005`), before any runtime executable identity or candidate measurement.
+No host deadline fired. The source controls are unhealthy, and the report retains
+guest state as unknown. It establishes no licensing cause or format defect.
+The publication independently rechecked all twelve original JSON, log and
+frozen-supervisor hashes, both control failures and the host monotonic lifetime.
+
 Use the record to audit this interrupted attempt. Do not resume its directory or
 count its author-only control phase as candidate acceptance. Start fresh source
 measurements between healthy controls before creating a family lock.

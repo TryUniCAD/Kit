@@ -160,12 +160,18 @@ The [revolved-radius dimension schema](../../Changes/Solidworks/Inspection/Solid
 adds the separate feature-dimension class structurally at version `19000`; its actual case reachability and constructor rules remain unproved.
 The [approved-session handoff tool](../../Changes/Solidworks/Inspection/SolidworksApprovedSessionHandoff.md)
 closes an explicitly selected clean session after user authorization, while measurement guards continue to refuse existing processes.
+The [existing-session inventory](../../Changes/Solidworks/Inspection/Sessions/SolidworksExistingSessionInventory.md)
+attaches only to an active object and reads its identity and document metadata.
+It never activates, closes or terminates an application, process or license server.
 The [host deadline supervisor](../../Changes/Solidworks/Inspection/SolidworksOracleHostDeadline.md)
 bounds one owned oracle transport with a host monotonic deadline and records guest state as unknown after a timeout.
 It does not cancel guest jobs, recover the VM or establish native acceptance.
 The [interrupted source preflight](../../Changes/Solidworks/Inspection/SolidworksCurveSourceInterruption.md)
 completed rectangle-control authoring, then stalled while reopening that control.
 No candidate or healthy trailing control was measured, so no family lock or format-crash attribution follows.
+The [next source preflight](../../../re/solidworks/measurements/2026/CurveSourcePreflight08ActivationFailure.json)
+failed both control activations before any candidate or runtime executable identity was obtained.
+The host transport ended normally with exit `2`; no deadline fired and no native acceptance follows.
 The [local curve and radial construction rules](../../Changes/Solidworks/SolidworksCurveReferenceConstruction.md)
 bound both native reference scans and distinguish circle-marker updates from
 ordinary polygon points. These static rules do not establish curve acceptance.
