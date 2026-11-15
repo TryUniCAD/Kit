@@ -51,14 +51,21 @@ it runs past the end of the field table, which is what lets the recursive `layer
 The parser now records an undecodable packed double as `RawDouble(<8 bytes>)` and continues, so
 `FeatDefsDtm` decodes through `ent_outl` to the next field.
 
+`FeatDefs` (`Sld_FeatDefs`) decodes the first feature definition, the ladder's extrude:
+`id = 66`, `type = 160`, `sub_type = -1`, `tool_type = 60001`, `index = 1`, and
+`max_text_len = 85`. `type = 160` is the feature definition type and `tool_type = 60001` is the
+extrude tool type. The parser stops at `0x3be` because the flat field-index approach does not
+handle the nested structures in `FeatDefs`.
+
 ## Limits
 
 - The empty control's `AllFeatur` decodes end-to-end. The ladder's `AllFeatur` decodes the five
   features and the footer prefix, then stops in the sketch/extrude payload at `0x1061`.
-- The `ent_outl` bounding-box matrix in `FeatDefsDtm` uses a packed encoding that is not yet
-  decoded. The parser records each undecodable double as `RawDouble(<8 bytes>)` and continues, so
-  the rest of `FeatDefsDtm` decodes.
-- `Sld_FeatDefs` in `FeatDefs` is not decoded.
+- The `ent_outl` bounding-box matrix in `FeatDefsDtm` and `FeatDefs` uses a packed encoding that is
+  not yet decoded. The parser records each undecodable double as `RawDouble(<8 bytes>)` and
+  continues, so the rest of the section decodes.
+- `FeatDefs` decodes the first feature definition, then stops at `0x3be` because the flat
+  field-index approach does not handle the nested structures.
 - `VisibGeom` geometry records are not decoded.
 - The parser is research code; it does not change the production adapter, which remains
   container-only.

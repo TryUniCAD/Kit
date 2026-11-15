@@ -306,6 +306,44 @@ through `ent_outl` to the next field. The empty control's `ent_outl` is two 9-by
 by `0x18` (1.0), differing only in the first byte (`0x46` vs `0x2d`), which is consistent with a
 sign or direction flag.
 
+### Feature definitions
+
+`FeatDefs` (`Sld_FeatDefs`) carries the feature definitions. The ladder's first definition is the
+extrude feature:
+
+```text
+id = 66
+symbol_key = -1
+model_type = 2
+local_sys = [0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1]
+own_ref_id = -1
+orient = 0
+trf_arr = [ref 11]
+type = 1
+key = -1
+idx = 0
+transf = [1.0, RawDouble(...)]
+plcm_revnum = None
+next_prop = None
+cond_tbl_idx = -1
+comment = None
+merge_info_ptr = None
+state_ind = -1
+alumni_info = None
+sub_feat_arr = [ref 23]
+id = 0
+type = 160
+sub_type = -1
+data(subft_indexnumber) = { index = 1, tool_type = 60001, sep_index = -1 }
+expl_state_ref = None
+feat_outl_info = { ent_outl = [...] }
+max_text_len = 85
+```
+
+`type = 160` is the feature definition type and `tool_type = 60001` is the extrude tool type.
+The parser stops at `0x3be` because the flat field-index approach does not handle the nested
+structures in `FeatDefs`; the field table is global but each structure has its own schema.
+
 ### Loader-confirmed record schemas
 
 The `metatoolsapi.dll` `CreoSerializer` exports give the authoritative field order and types for the

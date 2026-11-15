@@ -18,7 +18,8 @@ A neutral edit cannot be expressed by replaying the old bytes.
 ## Missing work
 
 1. Decode the packed `ent_outl`/`envlp` double encoding and the ladder's `dtm_id_tab` structure.
-2. Decode the `Sld_FeatDefs` records in `FeatDefs`.
+2. Decode the remaining `Sld_FeatDefs` records in `FeatDefs`; the first definition decodes through
+   `ent_outl`, then the flat field-index approach stops at `0x3be`.
 3. Decode the geometry prototype lanes and the contour and topology references in `VisibGeom`.
 4. Map feature identity, parent links, dimensions, relations, and configuration overrides to the neutral model.
 5. Prove which derived sections Creo recomputes after a feature edit.
