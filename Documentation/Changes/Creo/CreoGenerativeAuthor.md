@@ -470,8 +470,25 @@ an identity):
 | all masks `0` | crash, no `End` |
 | identity | loads |
 
-So neither natural generated default works: all-clean and all-dirty both fail. The bit assignment has
-to be decoded before `AllFeatur` can be generated.
+So neither natural generated default works: all-clean and all-dirty both fail.
+
+Three further measurements narrow the table without yielding the bit assignment:
+
+| Control | Features | Slots per `cr_flags_xar` |
+| --- | ---: | --- |
+| empty | 4 | `252` for all four |
+| ladder | 7 | `311` for the datum features and the protrusion, `278` twice, `0` once |
+
+Within a file the four datum features carry identical masks, so the table is per-file schema state
+rather than per-feature content. Its length is not the field-definition count (empty: `32` definitions
+before the field, `252` slots; ladder: `33` and `311`), though both files start with the same four
+values.
+
+Name-based RE cannot reach it: `strings` finds `Sld_Features` and `first_feat_ptr` in
+`coreutils_sh.dll`, `metatoolsapi.dll` and `diagexport.dll`, which is why the container and linked list
+were tractable, but `cr_flags_xar` appears in none of the four local binaries. The loader reads the
+feature struct positionally through a compiled layout, so the masks have to be understood from the
+model-side consumers in the PRO/TOOLKIT and `xtop` modules, not from the container modules.
 
 So `AllFeatur` remains unauthored, and with it the part, because it is the one section both our
 validator and the vendor loader reject when absent.

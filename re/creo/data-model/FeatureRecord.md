@@ -137,6 +137,36 @@ So the mask set is validated content, not a redundant cache. Both natural genera
 all-clean (`-1`) and all-dirty (`0`). The bit-to-field assignment therefore has to be decoded, or a
 mask layout that the loader accepts has to be found, before `AllFeatur` can be generated.
 
+## What the mask table is not
+
+Three measurements narrow it, and none of them match the obvious guesses.
+
+Slot count per file, and per feature within a file:
+
+| Control | Features | Slots per `cr_flags_xar` |
+| --- | ---: | --- |
+| empty | 4 | `252` for all four |
+| ladder | 7 | `311` for the datum features and the protrusion, `278` for two, `0` for one |
+
+Within a file the values are identical for the four datum features (`173` slots differ from `-1` in
+the empty control), so the table is per-file schema state, not per-feature content.
+
+Slot count is not the number of field definitions: the empty control defines `32` fields before its
+first `cr_flags_xar` and has `252` slots; the ladder defines `33` and has `311`. Both files begin with
+the same four values (`-1, -1, -1, -2049`), so the leading slots are stable while the length is not.
+
+## Why name-based RE does not reach it
+
+`cr_flags_xar` is not in the binaries we hold. `strings` finds `Sld_Features` and `first_feat_ptr` in
+`coreutils_sh.dll`, `metatoolsapi.dll` and `diagexport.dll`, which is why the container and the linked
+list were tractable: those names are in the loader. `cr_flags_xar` appears in none of the four local
+binaries, so the loader reads the feature struct **positionally through a compiled layout** and the
+name only ever existed inside the stream.
+
+Decoding which bit gates which field therefore cannot be done by following the field name. It needs
+the model-side consumers of the feature struct, which live in the PRO/TOOLKIT and `xtop` modules rather
+than in the container modules present here.
+
 ## What is needed
 
 1. Decode `cr_flags_xar` bit-to-field assignment, or prove that an all-dirty or all-clean array is
