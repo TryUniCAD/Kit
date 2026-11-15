@@ -83,6 +83,23 @@ round costs a full corner placement and the two largest parts gain under 3%. Tha
 unsatisfied handles from 209 to 181 of 1431 on `Reservoir` and from 1923 to 792 of 2666 on
 `Pedal_Body`. The map is still inferred.
 
+## The out-of-range keys are ids, not names
+
+Twelve `7c 07` blocks in the parametric samples carry keys `0xef..0xfd` (`239..253`) while the local
+symbol table has `234` entries for `ISO_2338_PARALLEL_PIN` and `238` for the washer. Those keys are
+not compact integers: `CATBmxStream::ReadInt` only covers `0x80` (escape), `0x81..0xd0`, and
+`0xd1..0xe4`, and every one of these keys is above `0xe4`, so the compact-int reading suggested for
+the attribute key is refuted for these blocks. A constant index shift does not explain them either:
+the best overlap with names already used in the same part is `11/12` at a shift of `38` for the pin
+and `12/13` at a shift of `19` for the washer, i.e. part-specific and indistinguishable from
+coincidence.
+
+The consistent reading is that these are early attributes, which CATIA stores by numeric id before
+the names are known; `CATObjectSpecsModeler.dll` exposes separate readers for that form
+(`ReadEarlyAttribute` `0x1800d93c0`, `ReadEarlySpecAttr` `0x1800d96e0`). They carry only an escaped
+`u32` and references, never a double, so they do not hold the parameter values and they are not the
+cause of the `Mass` misparse.
+
 ## Workaround
 
 Treat the five pooled parts as approximate. The reader emits
