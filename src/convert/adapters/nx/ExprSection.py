@@ -51,7 +51,7 @@ def OccupancyMap(Dimensions: int) -> int:
     return Size
 
 
-def ExprOccupancyFrame(Dimensions: int, Continuations: int) -> tuple[bytes, bytes]:
+def OccupancyFrame(Dimensions: int, Continuations: int) -> tuple[bytes, bytes]:
     if not 1 <= Dimensions <= 0x32:
         raise ValueError("NX occupancy needs one to fifty dimensions")
     if not 0 <= Continuations <= 5 * Dimensions:

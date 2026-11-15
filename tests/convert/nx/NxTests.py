@@ -19,7 +19,7 @@ from convert.adapters.nx.ExprSection import (
     ExprLane,
     ReadLane,
     ExprOccupancy,
-    ExprOccupancyFrame,
+    OccupancyFrame,
     OccupancyMap,
     ExprPreamble,
     GroupPair,
@@ -1071,13 +1071,13 @@ def TestNxOccFrame() -> None:
     assert OccupancyMap(3) == 32
     assert OccupancyMap(6) == 64
     assert OccupancyMap(9) == 64
-    assert ExprOccupancyFrame(3, 0) == (bytes.fromhex("100121"), bytes.fromhex("1021"))
-    assert ExprOccupancyFrame(6, 3) == (bytes.fromhex("1f0141"), bytes.fromhex("2241"))
-    assert ExprOccupancyFrame(9, 4) == (bytes.fromhex("2e0141"), bytes.fromhex("3241"))
+    assert OccupancyFrame(3, 0) == (bytes.fromhex("100121"), bytes.fromhex("1021"))
+    assert OccupancyFrame(6, 3) == (bytes.fromhex("1f0141"), bytes.fromhex("2241"))
+    assert OccupancyFrame(9, 4) == (bytes.fromhex("2e0141"), bytes.fromhex("3241"))
     assert ExprOccupancy(3)[:3] == bytes.fromhex("100121")
     assert ExprOccupancy(3)[-2:] == bytes.fromhex("1021")
     try:
-        _ = ExprOccupancyFrame(0, 0)
+        _ = OccupancyFrame(0, 0)
     except ValueError:
         return
     raise AssertionError("occupancy frame accepted zero dimensions")

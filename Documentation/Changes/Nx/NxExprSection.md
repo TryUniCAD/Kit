@@ -469,7 +469,7 @@ marker  = map + 1                    33 = 0x21, 65 = 0x41, 65 = 0x41
 map     = smallest power of two > 5d + 2     32, 64, 64
 ```
 
-so the frame of the object is derived, and `ExprSection.ExprOccupancyFrame(Dimensions,
+so the frame of the object is derived, and `ExprSection.OccupancyFrame(Dimensions,
 Continuations)` plus `OccupancyMap(Dimensions)` emit it, matching the head and terminator of all
 three parts:
 
