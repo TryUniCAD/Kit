@@ -402,6 +402,39 @@ the hatch pattern names and the default style file. The entries are interleaved 
 value records (doubles, counts and small integers), so the stream is not a pure sequence of tagged
 values: the tag-3 strings are the name table, and the records between them are the values.
 
+## The value records are a count followed by fixed-size entries
+
+The `03 00 00 00` words between the name-table entries are counts. The first one, at 0x206d, is
+followed by exactly three 12-byte entries and ends at the next tag-3 string:
+
+```text
+0x0206d  03 00 00 00                            count 3
+0x02071  0b 00 d4 00 01 01 00 04 01 00 01 00    entry 0
+0x0207d  03 00 00 00 14 00 ff ff 00 00 00 00    entry 1
+0x02089  28 00 15 00 ff ff 66 01 07 00 17 00    entry 2
+0x02095  03 00 00 00 04 00 00 00 "ALL\0"         next tag-3 string
+```
+
+and the thirteen records with a 34-byte gap are the same shape with 10-byte entries:
+
+```text
+0x06384  03 00 00 00                            count 3
+0x06388  b6 00 01 00 01 00 23 00 00 00          entry 0
+0x06392  14 00 ff ff 00 00 00 00 15 00          entry 1
+0x0639c  15 00 ff ff 66 01 07 00 17 00          entry 2
+0x063a6  03 00 00 00 ...                         next tag-3 string
+```
+
+so the record is `<u32 count>` followed by `count` entries, and the entry size is 12 in the first
+record and 10 in the thirteen 34-byte records. The entry size is not constant, and 58 of the 145
+`03 00 00 00` occurrences do not fit any `(count, size)` pair against the next tag-3 string, so the
+grammar is only partially resolved: the count and the entry list are real, but the entry size is
+selected by something not yet identified.
+
+The first record's entries also name classes: entry 0 starts with 11 (`ACOM_parameter`), entry 1
+with 3 (`OM_save_audit_trail_entry`) and entry 2 with 40 (`RM_int_record_area`), so the entry's
+first word is a class index and the remaining words are that class's values.
+
 ## The directory region is a byte-packed id stream
 
 Walking the bytes after the third typed entry (0x19df in section 1) rules out both candidate
