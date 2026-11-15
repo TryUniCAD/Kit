@@ -323,6 +323,11 @@ result = CatiaAdapter().write(
   round trips through this reader without reproducing the vendor header, roster, and trailer records,
   which is one more reason `vendor_loadable` stays false.
 - The writer reports `vendor_loadable=False` and `application_usable=False`.
+- No alternative vendor checker exists either. SOLIDWORKS is installed
+  (`C:\Program Files\SOLIDWORKS Corp\SOLIDWORKS\SLDWORKS.exe`, plus eDrawings, Composer, and Flow
+  Simulation), but `SLDWORKS.exe` exits like `CNEXT.exe` and `SldWorks.Application` is not registered
+  in COM (`HKCR\SldWorks.Application\CLSID` is absent), so SolidWorks 3D Interconnect cannot be used to
+  open the writer's CATPart as an independent check.
 - The vendor blocker is a missing licence configuration, verified in the Parallels VM: CATIA
   V5-6R2022 is installed (`CNEXT.exe` and
   `C:\ProgramData\DassaultSystemes\CATEnv\CATIA_P3.V5-6R2022.B32.txt` are present), but there is no
