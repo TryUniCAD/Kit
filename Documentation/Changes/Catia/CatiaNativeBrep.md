@@ -160,6 +160,13 @@ face header is therefore at least nine bytes, which rules the eight-byte
 exists in `Reservoir` at stride `9`, `13`, `17`, `21`, or `25`, and no `03 00 00 00` followed by
 three entries below the pool size exists anywhere in its `MainDataStream`.
 
+The link field framing is pinned: the count is written by
+`CATMathStreamImpl::WriteULong(value, "#NBLinkObjs")` (`CATMathStream.dll` `0x1800b7bb0`), whose
+prefix byte sets bit `0x10` for byte 1, `0x20` for byte 2, and `0x40` for byte 3 and is followed by
+one to four little-endian bytes, and the array is read by `ReadULong(uint*, count, "^LinkObj")` with
+the same element form. Decoding `MainDataStream` with that rule gives at most 18 consecutive records
+in `Reservoir` (offset `29353`), not 71, so the face list is not a contiguous run in that stream.
+
 The reference encoding is now recovered from the binaries, though the header offset is not. A face
 takes its surface from the first entry of the linked-object list that the generic object header
 passes in, and `CATCXFace::UnStream` then calls `SkipRemainingLinkedObjectsToRead`. The list is read

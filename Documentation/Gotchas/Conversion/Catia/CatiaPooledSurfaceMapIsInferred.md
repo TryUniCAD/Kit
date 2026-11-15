@@ -53,6 +53,15 @@ Recorded searches for that header all failed on `Reservoir`: no run of 71 record
 count-then-four-byte-entry shape exists at a fixed stride `9`, `13`, `17`, `21`, or `25`, and no
 `03 00 00 00` followed by three entries below the pool size exists anywhere in `MainDataStream`.
 
+The field framing is now pinned too. The count goes through
+`CATMathStreamImpl::WriteULong(value, "#NBLinkObjs")` (`CATMathStream.dll` `0x1800b7bb0`), which
+builds a prefix byte: bit `0x10` is set when byte 1 is non-zero, `0x20` for byte 2, and `0x40` for
+byte 3, and the low bit is never set. The prefix is followed by one to four little-endian bytes. The
+array is read with `ReadULong(uint*, count, "^LinkObj")`, so every element uses the same
+prefix-plus-bytes form. Decoding `MainDataStream` with that rule and looking for runs of
+`count`-then-`count`-entries records reaches only 18 records at offset `29353` in `Reservoir`, not the
+71 faces, so the list is either outside `MainDataStream` or interleaved with other named fields.
+
 `RefineMap` sharpens the inferred map without changing its status. It places the handles without the
 tessellation snap, then re-picks each plane face's pooled plane by the summed distance of the face's
 handles from the plane through the surface center along the stored trim normal, and each cylinder
