@@ -228,7 +228,7 @@ Runtime path coverage and target acceptance remain separate evidence
 | Entity colour | `setConstraintColor` at `0x4c5d5260` uses mapping `0x4c3e15b0`, then setter `0x4c3e29e0` writes entity `+0x30` | With the current `f54` mask, status one maps to colour five and status two maps to four; current `f30=5` matches status one, but does not prove the solver chose it | Closed mapping; final input unresolved |
 | Dependency reset | `clearDependancyFlags` at `0x4c538d10` calls `0x4c5d3100`; for local handles it calls `0x4c3e2bd0(entity,0)` and `0x4c3e24a0(entity,0)` | The first masks `f56` with `0x3fff`; the second clears bit `0x8000`; constructor `f56=0` is unchanged | Closed static mutation for local geometry |
 | Point cleanup | `cleanOutSketchPoints` at `0x4c4a6e30` considers removal only when a permanent point is invisible, local and has degree zero | Polygon vertices have degree two; origin type one is visible because point vtable `0x4cdd2d48`, slot `+0x190`, targets `0x4c491cb0` and tests mask `0x138a02` | Closed preservation predicate |
-| Constraint validation tails | `0x4c4bbf40` iterates sketch `+0x58`; `0x4c4bbc60` examines offset dimensions and display dimensions | The current graph has empty block, offset and sketch-display collections; origin's one logical point constraint still requires its own validation and solver path | Closed empty loops; origin handler unresolved |
+| Constraint validation tails | `0x4c4bbf40` iterates sketch `+0x58`; `0x4c4bbc60` examines offset dimensions and display dimensions | The current graph has empty block, offset and sketch-display collections; the origin's logical point constraint passes the local admission predicate below | Closed empty loops and origin admission predicate; full update and solver state unresolved |
 | Modification stamp | `0x4c5195d0` adds the results of `0x4c5167d0` and `0x4c516600` to sketch `f56c`; update `0x4c549ab0` has a separate model-reference increment at `0x4c54ad3c` | The separate increment is excluded for the current local graphs by the branch proof below; the point helper still depends on finite solved coordinates and the plane helper has an empty bound; insertion stamp remains separately derived as `1+n` | Model-reference increment excluded; solver coordinate delta unresolved |
 | Pattern/spline/styled helpers | `0x4c46f1b0`, `0x4c5483f0` and `0x4c52f470` iterate their corresponding collections | Empty collections make these loops inactive for the polygon and origin inputs | Closed static loop bounds |
 
@@ -237,6 +237,34 @@ The jump table at `0x4c507948` maps raw solver status eleven to sketch/entity st
 These are native branch rules, not evidence that a fresh free polygon or origin produced a particular solver result
 The final aggregator at `0x4c502b70` prioritizes invalid geometry, status four and status three, then returns one when any contributing entity is status one, otherwise two when a nonzero status was seen
 The `0x4c507b30` caller stores that aggregate in sketch `f12c`, except when its current state is the special mode seven
+
+### Origin logical-constraint admission
+
+The native origin initializer adds its logical constraint through `sgSketch::addToLogG1Array` at `0x4c4a2b90`
+That routine first calls validator `0x4c4bd420` and admits only return codes zero or ten
+Its destination is the logical-one array at sketch `+0x88`
+The constructed origin reaches return zero through the following static dependencies, independently of saved documents
+
+| Predicate | Native evidence | Constructed origin |
+| --- | --- | --- |
+| One real point handle | Logical-one vtable `0x4cedbd58`, slot `+0x3e8`, calls `0x4b27e150` and returns one; slot `+0x4a0` calls `0x4b285a00` and returns constraint `+0xa8` | The embedded handle refers to the origin point in its owning sketch |
+| Live, local, permanent point | `isDeleted` at `0x4c5cdd70` tests entity `f54` bit zero; `isPermanent` at `0x4c5cf300` uses `0x4c3e2320`, which tests `f54 & 3`; local-handle admission `0x4c4c08f0` returns one for handle kind zero and `f1c=-1` | Constructor `f54=4` is live and permanent; the handle is local and has the same sketch owner |
+| No underlying offset | `isUnderlyingOffset` at `0x4c5d0620` invokes point virtual `+0xa8`; point vtable `0x4cdd2d48` targets zero-return routine `0x4b27cbe0` | False without consulting session state |
+| Logical-type screening | `0x4c42b870` compares constraint `f80` with `0x11` at `0x4c42b89a` and branches to zero return `0x4c42bc0f` | Origin type seventeen passes this screening |
+| Point validity | Point-handle target `0x4c5ffa70` requires live local geometry, excludes point types two and nineteen, then tests point visibility through `0x4c5fffc0` | Origin `fe4=1` is permitted and visible; point virtual `+0x190`, target `0x4c491cb0`, tests visibility mask `0x138a02` |
+
+The point-validity helper has an additional session-dependent veto only when its external-neighbour collector returns a positive count
+Its callback `0x4c549650` delegates to `sgEntHandle::isExternal(1)`; this is not an ordinary point-degree count
+For the origin, all six curve arrays at sketch offsets `+0x10`, `+0x18`, `+0x28`, `+0x30`, `+0x38` and `+0x40` are empty
+Fallback collector `0x4c5fa7e0` therefore reaches `0x4c5fb597` with its accepted count zero
+When sketch runtime `+0x550` contains an adjacency helper, cached collector `0x4c1ecf60` tests the same six empty collections and reaches its explicit zero return at `0x4c1ed778`
+Neither route enters the session-dependent veto, so this conclusion does not require an assumed global option
+
+The validator's generic handle-valid branch reaches `0x4c4be821`; the one-handle count then selects zero return `0x4c4be914`
+This happens before its final virtual `+0x438` fallback
+That fallback is itself zero for logical-one constraints, which would produce validation code four if reached; a zero fallback alone is not proof of admission
+The logical-one loop in `validateAllConstraints` at `0x4c4e1120` removes a record only when this validator returns neither zero nor ten, so this predicate preserves the constructed origin constraint
+This closes the admission predicate, not every subsequent validation tail, solver operation, aggregate status or modification stamp
 
 ### Local update branch and stamp boundary
 
