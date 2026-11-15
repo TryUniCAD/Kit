@@ -1,6 +1,6 @@
 # SOLIDWORKS 2026 assembly archive grammar
 
-Target-application acceptance is unproven. This work extends the research source-document codec; it does not construct a fresh assembly or establish vendor loadability, rebuild correctness, or mate editability. Remote byte-identity verification is pending for 14 load-critical streams across two training assemblies.
+Target-application acceptance is unproven. This work extends the research source-document codec; it does not construct a fresh assembly or establish vendor loadability, rebuild correctness, or mate editability. The first remote byte-identity run passed 10 of 14 load-critical streams across two training assemblies; CMgr remains misaligned and prevents resolved-feature parsing.
 
 ## Authority and inputs
 
@@ -81,6 +81,33 @@ The serializer map identifies `0x4c221a20` as `moConfiguration_c`/`moDeformConfi
 `moBaseConfiguration_c::SerializeXmlData` at `0x4c2389a0` calls the shared feature XML serializer and updates an external XML extractor without further archive fields. The separate condition-1 configuration visual callback remains explicit unknown work.
 
 The final config-object list uses the native add/remove condition sequence: OR `0x200` before the embedded list, then clear `0x200` afterward. It does not restore a saved prior bitmask. The schema pins version `19000` explicitly, so changing the DSL's default version cannot silently broaden this recovered layout.
+
+Exported `sldmfcu.dll` accessors independently bind these `moConfig_c` members. Each address below is a static read of the named member, not an observed native execution. The source codec preserves them; a future builder must supply authored settings or derive dependent state and validate the still-unrecovered enum domains.
+
+| Member    | Native accessor or predicate                                                            | Address                    |
+| --------- | --------------------------------------------------------------------------------------- | -------------------------- |
+| `f08`     | `getAction`, `moConfigAction_e`                                                         | `0x3c7553e0`               |
+| `f0c`     | `getExpAction`                                                                          | `0x3c765df0`               |
+| `f10`     | `getVisibility` returns 1 exactly when `f10 != 0` and runtime member `f24 == 0`         | `0x3c7c6800`               |
+| `f14`     | `excludeFromBOM` reads the member; `setExcludeFromBOM` directly stores its i32 argument | `0x3c765e60`, `0x3c765fb0` |
+| `f18`     | `getSuppressionState`; raw value 3 maps to 0 when its boolean argument is true          | `0x3c7c67f0`               |
+| `f28`     | `getAutoSuppressed`                                                                     | `0x3c757f20`               |
+| `f20`     | `getSolvingOption`, `moConfigSolvingOption_e`                                           | `0x3c74f9b0`               |
+| `f34`     | `getSaveAssemblyAsPartOption`, `moASMSLDPRTCompPref_e`                                  | `0x3c759fd0`               |
+| `f38`     | `getDisplayMode`, `displayModeType`                                                     | `0x3c755370`               |
+| `f3c`     | `getHlrDisplayQuality`, `hlrDisplayQualityType`                                         | `0x3c755380`               |
+| `f40`     | `getEdgesInShadedMode`                                                                  | `0x3c7512a0`               |
+| `f48/f50` | `getDisplayState` passes the embedded `visStateNameId_c` at `+0x48` to its copy helper  | `0x3c7c67a0`               |
+| `f58`     | `getHiddeninFMTree`                                                                     | `0x3c7553d0`               |
+| `f5c`     | `getIsSuppByCompPat`                                                                    | `0x3c7553b0`               |
+| `f60`     | `getIsVisSetByCompPat`                                                                  | `0x3c755390`               |
+| `f64`     | `getIsAZone` tests equality with 1; `isAZoneFlagSet` tests inequality with -1           | `0x3c7c67c0`, `0x3c7c6820` |
+| `f68`     | `getTLTransparency`                                                                     | `0x3c76cf30`               |
+| `f6c`     | `isFlexiblePartComp`                                                                    | `0x3c757ff0`               |
+| `f70`     | `getUseMassPropertyFromRigidState`                                                      | `0x3c757ec0`               |
+| `f74`     | `getHideForSpeedPakAtTopLevel`, u8                                                      | `0x3c7c67b0`               |
+
+Dependent-state formulas and enum domains remain unresolved. Runtime-only members such as `f24`, `f30`, `f78`, and `f7c` are not added to the archive merely because an accessor exposes them.
 
 ## Component and mate records
 
