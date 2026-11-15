@@ -9,6 +9,8 @@ The model update helper applies the proven zero-status flag mutation after nativ
 origin initialization; the origin sketch's unresolved solver state stays explicit.
 The positive update helper marks the serialized model flag independently of
 header stamps and completed body updates.
+Reference creation times derive from authored creation logs or the native
+absent-log sentinel, independently of feature FILETIME words.
 These additions do not enable the production writer.
 
 ## Use
@@ -46,6 +48,8 @@ The [codec initialization gotcha](../../Gotchas/Conversion/Solidworks/LazyCodecs
 records a lazy code import exposed by the strict remote audit.
 The [kernel behavior-version gotcha](../../Gotchas/Conversion/Solidworks/KernelBehaviourVersion.md)
 distinguishes the feature's compatibility behavior from the full kernel build.
+The [reference-time gotcha](../../Gotchas/Conversion/Solidworks/FeatureReferenceCreationTimes.md)
+requires component references to agree with their referenced node's creation log.
 
 ## Verification
 
