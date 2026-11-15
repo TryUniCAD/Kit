@@ -4,8 +4,10 @@ from pathlib import Path as FilePath
 from subprocess import CompletedProcess, run as RunProcess
 from sys import executable as PythonExec
 
+# repository discovery must remain stable because the child process starts in an empty directory
 KRepoRoot = FilePath(__file__).resolve().parents[4]
 
+# isolated interpreter setup prevents ambient imports from hiding missing construction dependencies
 KImports = """
 from json import dumps as EncodeJson
 import sys as SystemLib
@@ -23,6 +25,7 @@ SystemLib.path.insert(0, str(WorkRoot / "re" / "tooling" / "sw2026" / "serial"))
 """
 
 
+# the audit must precede builder imports because construction must expose every data access
 KGuard = """
 from tests.convert.solidworks.research.ConstructionGuard import BuildAudit
 
@@ -32,6 +35,7 @@ SystemLib.addaudithook(AuditGuard.InspectEvent)
 """
 
 
+# native codecs need explicit imports because this boundary must exercise the shared serializer
 KNative = """
 from codecs import lookup as FindCodec
 from Core import Obj as NativeObj
@@ -40,6 +44,7 @@ from Streams import StreamDoc, store_rooted as StoreRooted, load_rooted as LoadR
 """
 
 
+# fresh graph construction needs the same node factories that the part composer uses
 KBuilders = """
 from defs.Definition import (
     load_definition as LoadDefinition,
@@ -58,6 +63,7 @@ from builders.Model import (
 """
 
 
+# codec initialization must finish before construction because lazy imports would cross the access boundary
 KCodec = """
 from builders.Definition import (
     part_definition as NewPartDef,
@@ -75,6 +81,7 @@ AuditGuard.BeginBuild()
 """
 
 
+# full base graph coverage requires its real style unit metadata and stream dependencies
 KBaseImports = """
 from builders.Model import part_graph as NewPartGraph
 from builders.Model import clear_model_update as ClearModelUpdate
@@ -89,6 +96,7 @@ from defs.ResolvedCore import store_resolved as StoreResolved
 """
 
 
+# independent authored inputs prevent a fixed saved configuration or definition from satisfying this check
 KBuild = """
 ConfigNames = [NamePrefix + str(IndexValue) for IndexValue in range(CountCfg)]
 ManagerNode = NewManager(
@@ -115,6 +123,7 @@ StreamMap = {
 """
 
 
+# principal plane coverage protects frame orientation and persistent identifiers from unrelated graph changes
 KPlanes = """
 IdAllocator = PersistentIds()
 PlaneNodes = NewPlanes(
@@ -132,6 +141,7 @@ NextPlaneId = IdAllocator.next_id
 """
 
 
+# system folder coverage preserves native ownership across all currently recovered concrete folder classes
 KFolders = """
 ClassNames = (
     "moCommentsFolder_c",
@@ -160,6 +170,7 @@ FolderNodes = NewFolders(
 """
 
 
+# annotation cabinets need separate coverage because their native base differs from ordinary folders
 KAnnotations = """
 CabinetNode = NewCabinet(
     name=NamePrefix + "annotations",
@@ -174,6 +185,7 @@ StreamMap["Research/SystemFeatures"] = StoreRooted(
 """
 
 
+# base model construction requires generated presentation and unit graphs rather than saved document defaults
 KBaseStyles = """
 BaseStyleData = NewDetails(
     standard=1,
@@ -194,6 +206,7 @@ BaseAnalysisUnits = NewUnits(
 """
 
 
+# the complete owned graph must reach serialization because standalone helper success cannot prove composition
 KBaseGraph = """
 BaseGraph = NewPartGraph(
     name=NamePrefix + "base part",
@@ -214,6 +227,7 @@ BaseGraph = NewPartGraph(
 """
 
 
+# owner flag transitions need evidence because dirty state must remain separate from stamp allocation
 KBaseLifecycle = """
 BaseFlagTrace = [BaseGraph.part["f0c"]]
 ClearModelUpdate(model=BaseGraph.part)
@@ -223,6 +237,7 @@ BaseFlagTrace.append(BaseGraph.part["f0c"])
 """
 
 
+# configuration and resolved streams must share one archive map because environment references cross their boundary
 KBaseStreams = """
 BaseConfigBytes, BaseStoreMap = StoreConfigState(
     StreamDoc("config", {"direct": 0}, [BaseGraph.part]), CodecReg, 19000
@@ -247,6 +262,7 @@ StreamMap["Contents/CMgr"] = StoreRooted(
 """
 
 
+# fresh header construction requires authored revision provenance that agrees with the allocated root identifier
 KBaseRevision = """
 BaseStamp = {
     "status": 0,
@@ -259,6 +275,7 @@ BaseLogs = [{"object_id": BaseGraph.part["f08"], "stamps": [BaseStamp]}]
 """
 
 
+# configuration loading needs its owning header because direct archive references derive from header state
 KBaseHeader = """
 BaseHeader = NewHeader(
     next_id=BaseGraph.next_persistent_id,
@@ -281,6 +298,7 @@ StreamMap["Contents/Config-0-ModelHeader"] = StoreRooted(
 """
 
 
+# generated streams must survive the real container boundary because in memory graphs alone miss framing defects
 KContainer = """
 BinaryFile = BuildContainer(StreamMap)
 ContainerFile = ArchiveFile.from_bytes(BinaryFile)
@@ -305,6 +323,7 @@ if (
 """
 
 
+# the shared reader must recover the constructed graph because writer self consistency is insufficient
 KBaseLoad = """
 BaseConfigDocu, BaseConfigReader = LoadConfig(
     ContainerFile.require("Contents/Config-0"), CodecReg, 19000, archive=ContainerFile
@@ -325,6 +344,7 @@ if BaseResolvedDocu.tail or BaseResolvedReader.left():
 """
 
 
+# cross stream aliases must retain object identity because duplicate environment or owner nodes change semantics
 KBaseAliases = """
 BasePartRead = BaseConfigDocu.roots[0]
 BaseEnvRead = next(
@@ -339,6 +359,7 @@ if BasePartRead["f990"]["owner"] is not BasePartRead:
 """
 
 
+# byte identity after decoding protects shared bookkeeping while ownership assertions protect the generated graph
 KBaseCheck = """
 BaseConfigAgain, BaseStoreAgain = StoreConfigState(BaseConfigDocu, CodecReg, 19000)
 if BaseConfigAgain != BaseConfigBytes:
@@ -355,6 +376,7 @@ if not all(
 """
 
 
+# component streams need independent round trips because complete base coverage could hide earlier component regressions
 KCheck = """
 ConfigDocu, ConfigReader = LoadRooted(
     ContainerFile.require("Contents/CMgr"), CodecReg, 1, 19000
@@ -378,6 +400,7 @@ if (
 """
 
 
+# component measurements expose input dependence because a successful exit alone cannot prove fresh construction
 KMetrics = """
 BuildReport = {
     "configuration_names": [ConfigNode["f18"]["f08"] for ConfigNode in ConfigNodes],
@@ -399,6 +422,7 @@ BuildReport = {
 """
 
 
+# explicit negative acceptance flags prevent codec evidence from being mistaken for native application acceptance
 KReport = """
 BuildReport.update(
     {
@@ -420,6 +444,7 @@ print(EncodeJson(BuildReport, ensure_ascii=True))
 """
 
 
+# base graph measurements make ownership identifiers and lifecycle evidence reviewable across the process boundary
 KBaseMetrics = """
 BuildReport.update(
     {
@@ -436,6 +461,7 @@ BuildReport.update(
 )
 """
 
+# one assembled child program keeps construction behind the same audit and isolation boundary
 KProgram = (
     KImports
     + KGuard
@@ -464,6 +490,7 @@ KProgram = (
 )
 
 
+# a fresh isolated interpreter prevents local caches and working directory fixtures from supplying constructor data
 def RunBuilders(
     Directory: FilePath, Count: int, Density: float, Prefix: str
 ) -> CompletedProcess[str]:

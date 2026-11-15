@@ -7,6 +7,7 @@ from typing import cast as CastValue
 from tests.convert.solidworks.research.ModelBuilderProcess import RunBuilders
 
 
+# plane evidence must preserve authored orientation because matching object counts alone would miss frame defects
 def AssertPlanes(Report: dict[str, object]) -> None:
     assert Report["plane_ids"] == [0, 1, 2]
     assert Report["next_plane_id"] == 3
@@ -17,6 +18,7 @@ def AssertPlanes(Report: dict[str, object]) -> None:
     ]
 
 
+# system feature evidence must preserve timestamps and identifiers because class presence alone misses constructor regressions
 def AssertSystems(Report: dict[str, object]) -> None:
     Classes = CastValue(list[str], Report["system_classes"])
     Times = CastValue(list[int], Report["folder_times"])
@@ -31,6 +33,7 @@ def AssertSystems(Report: dict[str, object]) -> None:
     assert Times == [1700000000] * (len(Classes) - 1)
 
 
+# access evidence must identify the active phase because empty read lists alone can hide disabled auditing
 def AssertAudit(Report: dict[str, object]) -> None:
     ModulePaths = CastValue(list[str], Report["module_reads"])
     assert ModulePaths
@@ -41,6 +44,7 @@ def AssertAudit(Report: dict[str, object]) -> None:
     assert Report["runtime_reads"] == []
 
 
+# base graph evidence must preserve shared bookkeeping because standalone component checks do not cover composition
 def AssertBase(Report: dict[str, object]) -> None:
     Classes = CastValue(list[str], Report["base_system_classes"])
     NodeIds = CastValue(list[int], Report["base_system_ids"])
@@ -57,6 +61,7 @@ def AssertBase(Report: dict[str, object]) -> None:
     assert Report["base_map_count"] == Report["base_resolved_map_start"]
 
 
+# independent unicode and size inputs expose fixed output while the subprocess enforces the real access boundary
 def TestFreshGraphs(TmpPath: FilePath) -> None:
     Small = RunBuilders(TmpPath, 1, 1234.5, "first-")
     Large = RunBuilders(TmpPath, 7, 7654.25, "independent-構成-")
