@@ -144,7 +144,7 @@ def TestPosNo() -> None:
     SourceBytes = SourcePath.read_bytes()
     Streams = SldprtArchive.from_bytes(SourceBytes).streams
     Original = Streams["Contents/DisplayLists"]
-    Changed = Original.replace(Struct.pack("<d", 0.11), Struct.pack("<d", 5.0))
+    Changed = Original.replace(Struct.pack("<d", 0.11), Struct.pack("<d", 5.0), 1)
     assert Changed != Original
     BlobValue = BuildArchive(
         {**Streams, "Contents/DisplayLists": Changed}, Template=SourceBytes
