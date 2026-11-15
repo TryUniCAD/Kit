@@ -108,9 +108,14 @@ def WriteDrawing(Source: bytes, DataValue: DrawingData) -> bytes:
     if Display is None:
         raise SldprtFormatError(f"drawing is missing {KDisplayStream}")
     SourceData = ReadDrawing(Source, IncludePositions=True)
+    SourceViews = tuple(
+        ViewValue for SheetValue in SourceData.Sheets for ViewValue in SheetValue.Views
+    )
     DisplayRecords = DisplayViews(Display)
     DefinitionRecords = DefinitionViews(Definition, DisplayRecords)
-    if len(DefinitionRecords) != len(DisplayRecords):
+    if len(DefinitionRecords) != len(SourceViews) or len(DisplayRecords) != len(
+        SourceViews
+    ):
         raise SldprtFormatError("drawing view records do not match the view count")
     NewDefinition = bytearray(Definition)
     NewDisplay = bytearray(Display)

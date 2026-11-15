@@ -4,7 +4,7 @@ from convert.adapters.solidworks.container.Container import SldprtFormatError
 from convert.adapters.solidworks.drawing.Models import DrawingData, DrawingView
 
 
-# one view key keeps the sheet and view names together
+# the sheet is needed because two sheets can repeat a view name
 def ViewKey(SheetName: str, ViewName: str) -> tuple[str, str]:
     return (SheetName.casefold(), ViewName.casefold())
 
