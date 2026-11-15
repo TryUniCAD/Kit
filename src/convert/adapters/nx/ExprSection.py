@@ -1,8 +1,8 @@
 from __future__ import annotations as Annotations
 
-from convert.adapters.nx.ObjectSection import ValueWord
-
 import struct as Struct
+
+from convert.adapters.nx.ObjectSection import ValueWord
 
 # a part without expressions carries one fixed expression section middle
 KVersion = b"NX 2506.9120 - External User Function"
@@ -155,6 +155,7 @@ __all__ = [
     "ValueSlotCount",
     "ReadSlotHandle",
     "ReadValueSlot",
+    "RewriteSlots",
     "SlotObject",
     "ValueSlot",
     "ExprMiddle",
@@ -162,3 +163,36 @@ __all__ = [
     "KObjects",
     "PointerOffset",
 ]
+
+
+# slot objects in an expression section are rewritten from their handles
+def RewriteSlots(SectionBody: bytes) -> bytes:
+    if not SectionBody.startswith(b"OM\x01\x01"):
+        return SectionBody
+    NameLength = int(Struct.unpack_from("<I", SectionBody, 0x25)[0])
+    if not 0 < NameLength <= 255:
+        return SectionBody
+    PointerAt = 0x29 + NameLength + 32
+    Pointer = int(Struct.unpack_from("<I", SectionBody, PointerAt)[0])
+    if not 0 < Pointer <= len(SectionBody) - 12:
+        return SectionBody
+    TableAt = Pointer - KMiddleLength + 0x54
+    Count = int(Struct.unpack_from("<I", SectionBody, TableAt - 4)[0])
+    if not 0 < Count <= 64:
+        return SectionBody
+    Starts = [
+        int(Struct.unpack_from("<I", SectionBody, TableAt + 4 * Index)[0])
+        for Index in range(Count)
+    ]
+    if Starts[0] >= Pointer:
+        return SectionBody
+    Stops = Starts[1:] + [Pointer]
+    Section = bytearray(SectionBody)
+    for Begin, Finish in zip(Starts, Stops):
+        Length = Finish - Begin
+        Object = SectionBody[Begin:Finish]
+        if Length == 18 and Object.startswith(bytes.fromhex("02020000ff000021")):
+            Section[Begin:Finish] = SlotObject(ReadSlotHandle(Object))
+        elif Length == 21 and Object.startswith(bytes.fromhex("02020000ff000021")):
+            Section[Begin:Finish] = ValueSlot(ReadValueSlot(Object))
+    return bytes(Section)
