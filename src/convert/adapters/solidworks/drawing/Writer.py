@@ -29,35 +29,56 @@ from convert.adapters.solidworks.drawing.WriterRecords import (
     DefinitionViews,
     DisplayView,
     DisplayViews,
-    RecordIndices,
+    PositionIndex,
 )
 
 
 # the source position is the only stable key when a view has been renamed
-def MatchRecordMut(
-    SourceView: DrawingView,
-    Indices: list[tuple[float, float, int]],
-) -> int:
+def MatchRecordMut(SourceView: DrawingView, Index: PositionIndex) -> int:
     if SourceView.PositionX is None or SourceView.PositionY is None:
         raise SldprtFormatError("source view is missing placement data")
-    Candidates = [
-        Index
-        for XValue, YValue, Index in Indices
-        if MathValue.isclose(XValue, SourceView.PositionX, rel_tol=0.0, abs_tol=1e-09)
-        and MathValue.isclose(YValue, SourceView.PositionY, rel_tol=0.0, abs_tol=1e-09)
-    ]
-    if not Candidates:
-        raise SldprtFormatError("source view has no matching record")
     try:
         CreationIndex = ViewIndex(SourceView.Name) - 1
     except SldprtFormatError:
         CreationIndex = -1
-    if CreationIndex in Candidates:
-        Indices.remove((SourceView.PositionX, SourceView.PositionY, CreationIndex))
-        return CreationIndex
-    Selected = Candidates[0]
-    Indices.remove(next(ItemValue for ItemValue in Indices if ItemValue[2] == Selected))
-    return Selected
+    return Index.Take(SourceView.PositionX, SourceView.PositionY, CreationIndex)
+
+
+# supplied outline bounds must reach the output instead of the source outline
+def OutlineValues(
+    ViewValue: DrawingView, DisplayRecord: DisplayView, Ratio: float
+) -> tuple[float, float, float, float]:
+    if (
+        ViewValue.OutlineMinX is not None
+        and ViewValue.OutlineMinY is not None
+        and ViewValue.OutlineMaxX is not None
+        and ViewValue.OutlineMaxY is not None
+    ):
+        return (
+            ViewValue.OutlineMinX,
+            ViewValue.OutlineMinY,
+            ViewValue.OutlineMaxX,
+            ViewValue.OutlineMaxY,
+        )
+    PositionX = ViewValue.PositionX
+    PositionY = ViewValue.PositionY
+    if PositionX is None or PositionY is None:
+        raise SldprtFormatError("drawing view is missing placement data")
+    LowerX, LowerY, UpperX, UpperY = DisplayRecord.Outline
+    return (
+        PositionX
+        + (LowerX - DisplayRecord.PositionX + KOutlinePadding) * Ratio
+        - KOutlinePadding,
+        PositionY
+        + (LowerY - DisplayRecord.PositionY + KOutlinePadding) * Ratio
+        - KOutlinePadding,
+        PositionX
+        + (UpperX - DisplayRecord.PositionX - KOutlinePadding) * Ratio
+        + KOutlinePadding,
+        PositionY
+        + (UpperY - DisplayRecord.PositionY - KOutlinePadding) * Ratio
+        + KOutlinePadding,
+    )
 
 
 # one view rewrite keeps the definition and display records in step
@@ -83,25 +104,11 @@ def RewriteViewMut(
         raise SldprtFormatError("drawing view placement is invalid")
     Ratio = ViewScale / DisplayRecord.Scale
     OutlineOffset = DisplayRecord.Primary + KOutlineOffset
-    LowerX, LowerY, UpperX, UpperY = Struct.unpack_from(
-        "<dddd", NewDisplay, OutlineOffset
-    )
     Struct.pack_into(
         "<dddd",
         NewDisplay,
         OutlineOffset,
-        PositionX
-        + (LowerX - DisplayRecord.PositionX + KOutlinePadding) * Ratio
-        - KOutlinePadding,
-        PositionY
-        + (LowerY - DisplayRecord.PositionY + KOutlinePadding) * Ratio
-        - KOutlinePadding,
-        PositionX
-        + (UpperX - DisplayRecord.PositionX - KOutlinePadding) * Ratio
-        + KOutlinePadding,
-        PositionY
-        + (UpperY - DisplayRecord.PositionY - KOutlinePadding) * Ratio
-        + KOutlinePadding,
+        *OutlineValues(ViewValue, DisplayRecord, Ratio),
     )
     Struct.pack_into(
         "<dd", NewDefinition, DefinitionRecord.Offset, PositionX, PositionY
@@ -134,15 +141,15 @@ def WriteDrawing(Source: bytes, DataValue: DrawingData) -> bytes:
         raise SldprtFormatError("drawing view records do not match the view count")
     NewDefinition = bytearray(Definition)
     NewDisplay = bytearray(Display)
-    DefinitionIndices = RecordIndices(DefinitionRecords)
-    DisplayIndices = RecordIndices(DisplayRecords)
+    DefinitionIndex = PositionIndex(DefinitionRecords)
+    DisplayIndex = PositionIndex(DisplayRecords)
     for SourceView, DataView in BindViews(SourceData, DataValue):
-        DefinitionIndex = MatchRecordMut(SourceView, DefinitionIndices)
-        DisplayIndex = MatchRecordMut(SourceView, DisplayIndices)
+        DefinitionSlot = MatchRecordMut(SourceView, DefinitionIndex)
+        DisplaySlot = MatchRecordMut(SourceView, DisplayIndex)
         RewriteViewMut(
             DataView,
-            DefinitionRecords[DefinitionIndex],
-            DisplayRecords[DisplayIndex],
+            DefinitionRecords[DefinitionSlot],
+            DisplayRecords[DisplaySlot],
             NewDefinition,
             NewDisplay,
         )

@@ -762,6 +762,13 @@ def TestWriteName() -> None:
     OriginBack = OriginValue.Sheets[0].Views[0]
     assert OriginBack.PositionX == PytestLib.approx(0.0)
     assert OriginBack.PositionY == PytestLib.approx(0.0)
+    OriginBytes = WriteDrawing(SourceBytes, OriginData)
+    AgainValue = ReadDrawing(
+        WriteDrawing(OriginBytes, OriginValue), IncludeSheetEdges=True
+    )
+    AgainBack = AgainValue.Sheets[0].Views[0]
+    assert AgainBack.PositionX == PytestLib.approx(0.0)
+    assert AgainBack.PositionY == PytestLib.approx(0.0)
 
 
 # renaming more than one view is ambiguous and must fail closed
@@ -835,6 +842,34 @@ def TestWriteSheet() -> None:
         for ViewValue in SheetValue.Views:
             assert ViewValue.PositionX == PytestLib.approx(0.10)
             assert ViewValue.PositionY == PytestLib.approx(0.10)
+    Repeated = tuple(
+        ReplaceData(
+            SheetValue,
+            Views=tuple(
+                ReplaceData(
+                    ViewValue,
+                    Name="Drawing View1",
+                    PositionX=0.15 if SheetValue.Name == "Sheet2" else 0.05,
+                    PositionY=0.20 if SheetValue.Name == "Sheet2" else 0.10,
+                )
+                for ViewValue in SheetValue.Views
+            ),
+        )
+        for SheetValue in DataValue.Sheets
+    )
+    RepeatedValue = ReadDrawing(
+        WriteDrawing(SourceBytes, ReplaceData(DataValue, Sheets=Repeated)),
+        IncludeSheetEdges=True,
+    )
+    RepeatedActual = {
+        SheetValue.Name: ViewValue
+        for SheetValue in RepeatedValue.Sheets
+        for ViewValue in SheetValue.Views
+    }
+    assert RepeatedActual["Sheet1"].PositionX == PytestLib.approx(0.05)
+    assert RepeatedActual["Sheet1"].PositionY == PytestLib.approx(0.10)
+    assert RepeatedActual["Sheet2"].PositionX == PytestLib.approx(0.15)
+    assert RepeatedActual["Sheet2"].PositionY == PytestLib.approx(0.20)
 
 
 # a view count that does not match the source records must fail closed
