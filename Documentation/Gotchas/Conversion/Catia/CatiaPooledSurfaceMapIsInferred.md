@@ -218,6 +218,23 @@ and the same values recur in separate gaps (`4f 8c a7 41` appears in three of th
 geometry samples of the neighbouring surface rather than per-face references. They do not contain a
 face index, and with only `7` gaps they cannot carry a map for `71` faces.
 
+## The corpus carries no CGM object headers at all
+
+The three header forms `CATMathStreamImpl` knows each have a marker byte: `0xb3` in the V5R5 form,
+`0xa0..0xaf` in the small-header form, and `0xe5` in the inline form
+(`CATMathStreamImpl_ObjectHead.cpp`, `0x1800a5722`). Counting those markers in the streams:
+
+```
+Reservoir      main 0xb3/0xaX chains 0     main 0xe5 47    surf 0xe5 4
+4784           -                           main 0xe5 253   surf 0xe5 36
+Copper_Washer  -                           main 0xe5 0     surf 0xe5 0
+```
+
+`Copper_Washer` has **no** `0xe5` byte anywhere, and a fifty-face part cannot serialize without
+object headers if it used that form, so the corpus does not write CGM object headers into
+`MainDataStream` or `SurfacicReps` at all. The B-rep is stored in a compact final form with no object
+table, which is why the surface reference is not reachable through any header path.
+
 ## Workaround
 
 Treat the five pooled parts as approximate. The reader emits
