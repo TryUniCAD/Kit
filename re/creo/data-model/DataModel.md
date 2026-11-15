@@ -275,6 +275,55 @@ The ladder's extrude and sketch records follow it, but their field boundaries ar
 `FeatDefsDtm` stores one placement record per datum. The record grammar is decoded and emitted by
 `Author.DatumPlaneRecord`; the field table is in [the datum placement page](DatumPlacement.md).
 
+### Where a Creo parameter lives: `FeatDefs` dimension records
+
+Parameters come from the `FeatDefs` row (`Sld_FeatDefs`), which the datum-only control **does not have** — only
+the ladder does. Its shape, decoded from the ladder's `5977`-byte payload (`1492` nodes):
+
+```text
+Sld_FeatDefs
+  feat_defs_949            list[1]
+    id, symbol_key, model_type, group_info_ptr, place_rec_ptr, own_ref_id, orient,
+    trf_arr, type, key, idx, transf, plcm_revnum, next_prop, cond_tbl_idx, comment,
+    merge_info_ptr, state_ind, alumni_info, sub_feat_arr
+```
+
+and inside a feature definition, the dimension table:
+
+```text
+dimtab_ptr        t00, count 2
+  type            1
+  value           t02 double      <- the dimension value
+  direct          -1
+  aux_value       t02 double
+  ext_id          -1
+  dispdimattr     0
+  dimattr         list[7]
+  dim_ref         t00, count 7
+    item_id, sense, point[2], relat_ptr
+      id 32770, used -1, a[4], b[4], c[3], sign, idim 32770, type 0, formula_ptr -1
+```
+
+The `value` nodes decode cleanly, and they match what the reader reports:
+
+| Dimension offsets | Values |
+| --- | --- |
+| `1045`, `4728` | `-201.7190851617055` |
+| `1186`, `4776` | `-338.93815066863453` |
+| `1234`, `4824` | `-86.06680966899467` |
+| `1282`, `4872` | `-154.4303300690026` |
+
+which is exactly the reader's eight parameters (four values, each appearing twice), so the dimension path is
+understood end to end on the read side.
+
+Generating one is blocked on two separate pieces, not one:
+
+1. **the row has to exist first.** `Subset.Build` can only `Drop`, `Replace`, `KeepSpace` or `Blank` rows it
+   already has; there is no insert path, and the datum-only control has no `FeatDefs` row to replace. Adding a
+   row means extending the directory tables, which the subset tool does not do.
+2. **the skeleton has no generator.** A `Sld_FeatDefs` row is `1492` nodes of feature-definition structure, of
+   which the dimension table is a small part; nothing in `Author.py` emits any of it.
+
 ### `SolidPersistTable` and `SolidPrimdata` are display tables, not B-rep
 
 Both rows are Unix-compress streams (`1f 9d`) and both are ordinary token format once decompressed —
