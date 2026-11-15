@@ -581,8 +581,16 @@ high-7 permutations giving 0.2: 0
 
 It is not a 56-bit fraction (`LE/2^56 = 0.007086927556`, `BE/2^56 = 0.894364650000`), and no
 four-byte window of it is a float32 that is a power-of-two multiple of `0.2` (the closest ratios are
-`2^36.2` and `2^-82.8`). The arithmetic that maps a component to its seven-byte payload is not yet
-decoded.
+`2^36.2` and `2^-82.8`).
+
+It is also not a double with one byte omitted: inserting a byte at each of the eight positions and
+sweeping that byte over all 256 values gives zero hits for `0.2`, and the 1,856 completions that land
+in `[0, 1]` are all denormals around `6.1e-300`. It is not a decimal fixed point either: the
+little-endian integer is `510666948802020` and the big-endian integer is `64445764871573505`, and
+neither divided or multiplied by `10^k` for `k` in `1..18` gives `0.2`. The bytes are not packed BCD
+(`e4`, `f5`, `ea`, `d0` are not valid digit pairs).
+
+The arithmetic that maps a component to its seven-byte payload is not yet decoded.
 
 The four records that decode but disagree with the v7 doubles are consistent with the same reading:
 each was changed to a different cube value (`Light Yellow Orange` 0.8 -> 1.0, `Dark Hard Orange`
