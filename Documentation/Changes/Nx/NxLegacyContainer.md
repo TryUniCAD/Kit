@@ -281,6 +281,31 @@ of id objects — and what remains is a less direct route, such as ids resolved 
 at load time or registered when a class is first instantiated. Either way it is loader-time data
 rather than a table this branch can read out of the module statically.
 
+## A correction: the legacy classes do resolve, and their layouts still do not segment
+
+An earlier statement in this entry said the legacy class names do not resolve in the NX 2506 registry
+"0 of 98 shared". That measurement compared them against `dim40.prt`'s 154 class names, not against
+the registry itself, and it was wrong. Querying the full 7806 class registry by name:
+
+```text
+wave_parent.prt class names resolved       95 of 98
+attributes per class                       0 to 47, reported for every one
+```
+
+so the layouts are available, and the extent test was repeated with them rather than with the modern
+classes' extents:
+
+```text
+classes with a layout                     95
+distinct extents in 4..512                41, the most common being 72, 80, 48, 36
+best periods overall                      4 (0.316), 8 (0.302), 16 (0.299) - the zero run artefacts
+best periods that are class extents       104 (0.266), 32 (0.266), 24 (0.265), 56 (0.260), 208 (0.258)
+```
+
+no class extent exceeds the zero-run baseline, so records are not fixed-size instances of a class
+even when the correct layouts are used. That is a stronger statement than the earlier one, and it
+rests on the right data.
+
 ## Class layout extents do not segment the object region
 
 The last untried prediction was that a record is the size of its class's attribute layout, so the
