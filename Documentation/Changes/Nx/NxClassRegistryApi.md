@@ -327,6 +327,42 @@ remaining 100 digests are registered by modules that are not on this host. Closi
 copying the registering modules, which is a build-time extraction over the installed product rather
 than a runtime dependency.
 
+## Widening the scan, and a second descriptor field pinned
+
+Intersecting "modules that contain the class name" with "modules that import the registrant
+constructor" gives the modules worth copying. Adding `libcmod`, `libdisp`, `libfacet`, `libcaemesh`,
+`libcompositesgeometry`, `libdraw` and `libindyflp` to the set lifts the extraction sharply, with
+the same zero-mismatch property:
+
+```text
+modules scanned       libpart, libsyss, libmodl, libmodlgeom, libmodlint, libcmod, libgwyint,
+                      libdisp, libfacet, libassyint, libcaemesh, libcompositesgeometry,
+                      libdraw, libindyflp, libkfint
+pairs extracted       1,701 (from 1,084)
+matches the registry   90 of 135 (from 35)
+disagreements            0
+still missing            45, including UGS::POINT, UGS::UGFONT_table, UGS::COLOR_table, UGS::MATRIX
+```
+
+Disassembling the descriptor block at each matched site pins a second field. The immediates the
+registration stores on the stack line up with the registry's own values:
+
+```text
+slot [rsp+0x90]  = class digest
+slot [rsp+0x28]  = the registrant's +0x34 value   90 of 90 sites
+slot [rsp+0x70]  = a small count (47, 25, 17, 26 ...)
+slot [rsp+0x40]  = the attribute count on 19 of 90 sites
+```
+
+so the registrant's `+0x34` value is a descriptor constant, and it is the same number the live
+registry exposes at `GetRegistrant + 0x34`.
+
+What the entry's prefix does **not** match is any of those immediates: searching every site's
+`(slot, immediate)` pairs against `base(class)` for equality or for any left shift by 0 to 39 bits
+gives **no hit at all**. `base(class)` is therefore not a descriptor constant in the form it is
+stored — it is derived from them, or it is not a registration-time quantity in the same way the
+digest is.
+
 ## What this means for a static writer
 
 The entry is a snapshot of **registry-derived per-class values**, one of which is the class digest.
