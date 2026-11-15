@@ -387,9 +387,10 @@ The builder requires that boolean explicitly and never copies a saved flag.
 `moAssembly_c` object from the common model LW/RES wire ownership boundary.
 Its keyword inputs are `node`, `name`, `allocator`, `detail_definitions`,
 `document_units`, `analysis_units`, `self_component` and `relation_graph`.
-It returns that object's field dictionary. The concrete self component is an
-explicit constructed object whose `owner` must be the same model object;
-the helper does not choose a chain subtype or construct an assembly component.
+It returns that object's field dictionary. The self component is explicitly
+absent or a constructed concrete object whose `owner` must be the same model
+object. Base constructor `0x4c00edb0` initializes `f990` to null; this helper
+does not choose a chain subtype or construct an assembly component.
 The relation graph is explicitly absent or a generated `moRelMgr_c` whose
 owner is that same model. Base constructor `0x4c00edb0` initializes `f9d0`
 to null; a later required manager must come from its real caller.
