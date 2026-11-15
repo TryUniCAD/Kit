@@ -57,3 +57,10 @@ records fault addresses, registers and a bounded accurate backtrace, then
 forwards the exception unchanged. It does not repair or suppress loader faults.
 Clean acceptance runs remain uninstrumented. No instruction-level taint or
 generalized writer rule is claimed from this first capture.
+
+The first generated candidate terminated before any feature or sketch read.
+Its trace records five earlier system exceptions and a final UI access
+violation, with uncertain unwind frames. The observer now adds named C++ and
+MFC file/archive throw boundaries when exported, reports candidate MSVC type
+metadata without treating it as proved CAD grammar, and records the observed
+module images. It preserves setup failures and target termination.

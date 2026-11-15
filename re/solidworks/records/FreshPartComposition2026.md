@@ -48,4 +48,3 @@ absent-log sentinel, rather than the root document's authored creation date.
 Feature FILETIME fields remain separate. The
 [model record](ModelConstruction2026.md) traces this rule to native log access
 and `ut_getUnsetTime`; this correction has not yet passed native acceptance.
-

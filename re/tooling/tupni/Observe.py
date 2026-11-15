@@ -99,6 +99,8 @@ def main():
             modules = script.exports_sync.moduleidentity()
             record["module_runtime"] = modules
             record["module_images"] = {}
+            for module in modules:
+                record["module_images"][module["name"]] = image_identity(Path(module["path"]))
             for name, digest in expected.items():
                 matches = [module for module in modules if module["name"].casefold() == name.casefold()]
                 if len(matches) != 1:

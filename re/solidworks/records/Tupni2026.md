@@ -140,6 +140,19 @@ training-control processes. The candidate is rejected. The
 controls and the candidate hash. A fault-location capture is the next use of
 the native observer; format or cache hypotheses remain unconfirmed.
 
+The first instrumented candidate capture completed with seven events: hooks
+ready, five system exceptions and one access violation in USER32 reading address
+`0x8`. Frida reported `process-terminated`; no feature constructor or sketch
+deserializer was reached. Capture
+`.rescratch/sw26/tupni/candidate-H3-first.json` has SHA-256
+`31ba472a3c00d8539f85a805bdf5c088df8c4f7aafbc148831d81fe677d6b625`.
+It retains input hash and runtime module bases. The requested accurate unwind
+produced non-code-looking entries around the C++ throws; these are not a proven
+call chain. Native exceptions were forwarded unchanged. The final UI fault does
+not identify the earlier file-format rejection. The next capture adds runtime
+C++ throw boundaries and MFC file/archive throw exports where named exports are
+available, records candidate MSVC exception types, and hashes those modules.
+
 The first loader attempt activated 20 hooks after both loaded-module hashes
 matched. The action's running-object-table lookup failed with COM error
 `-2147221021`, `Operation unavailable`. Only the hooks-ready event was captured;
