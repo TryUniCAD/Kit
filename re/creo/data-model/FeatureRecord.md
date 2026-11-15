@@ -506,6 +506,29 @@ schema, later records carry values only. That has a direct consequence for autho
 > a `917` protrusion cannot be appended to our authored part, because its fields are not in the schema
 > that our first record declares.
 
+**The delta is only three fields.** Comparing the ladder's first record against ours field by field:
+
+| Declared by the ladder, not by us | Type | Value |
+| --- | ---: | --- |
+| `flags` | `1` | `3`, placed between `transform` and `cr_flags_xar` |
+| `first_hybrid_body_id` | `1` | `-1`, between `first_geom_id` and `ids_null_goem` |
+| `topo_parents` | `0` | `f1 e1`, between `hostid` and `quilt_diff` |
+
+We declare five fields the ladder does not (`p_body`, `first_geom`, `first_hybrid_body`, `body_diff`,
+`hybrid_body_diff`), which is a schema-version difference rather than a gap.
+
+`Author.DatumFeatureRecord(..., ExtraSchema=True)` emits the three extra fields, and the authored part with
+that superset schema loads:
+
+```text
+extra3: superset schema (+flags, +first_hybrid_body_id, +topo_parents); record 1199 section 1394
+!15-Nov-26 05:23:57  End   C:\Mac\Home\Documents\creo-authored\extra3.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid
+```
+
+repeated, twice out of two. So the feature schema can be widened to the ladder's without losing
+loadability, which is the prerequisite for adding a `917` record.
+
 To add one, the **first** record would have to declare the union of datum and protrusion fields, and every
 later record would then have to carry values for that wider schema — including the replay-only sections
 that currently carry datum values. In other words the authored feature section is not extensible by

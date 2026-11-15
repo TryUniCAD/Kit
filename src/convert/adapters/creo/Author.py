@@ -931,6 +931,7 @@ def DatumFeatureRecord(
     RevNum: int,
     NumPlins: int,
     LargestPrevRev: int,
+    ExtraSchema: bool = False,
 ) -> bytes:
     Payload = FieldValue(1, "id", SignedInt(FeatureId))
     Payload += FieldValue(1, "indep_attributes_arr", SignedIntArray((4097, 0, 0, 0)))
