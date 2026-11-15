@@ -273,9 +273,9 @@ def PlainSlotCount(Dimensions: int) -> int:
 def ExprMiddle(BaseOffset: int, Identity: bytes = KUnset) -> bytes:
     if len(Identity) != 7:
         raise ValueError("NX expression identity must be seven bytes")
-    HeadBytes = KHead + KAnchor + Identity + KHeadTail
+    HeadBytes = KHead + KAnchor + Identity + ExprHeadTail(KObjects, 0)
     Version = VersionBlock()
-    Preamble = KFlags + (BaseOffset + 0x79).to_bytes(4, "little") + bytes(KZeros)
+    Preamble = ExprPreamble(KObjects, BaseOffset + 0x79)
     Order = (KObjects).to_bytes(4, "little") + b"".join(
         Value.to_bytes(4, "little") for Value in KOrder
     )

@@ -414,6 +414,40 @@ token run, so it read zero labels from `empty_expr` and could not round-trip it.
 lane needs the token-width rule as well as the frame arithmetic, and the width is not yet
 derived.
 
+## The emitter now builds its frame from the derived functions
+
+`ExprMiddle` no longer hard codes its preamble and head tail; it calls `ExprPreamble` and
+`ExprHeadTail`, so the six object shape is produced by the same functions the composer will
+use. The write path is unchanged — payload identity, section 0 and section 2 differing-byte
+counts are identical to before the refactor:
+
+```text
+part            section 0 differs  section 2 differs  payload identical
+empty.prt                      342                  7              99.00%
+multi.prt                      342                  6              99.02%
+var_blank.prt                  343                  6              99.00%
+const_box60.prt                346                  7              99.14%
+dim40.prt                      346                  7              99.14%
+```
+
+## The occupancy object is the remaining undecoded piece
+
+I recorded last turn that nothing in the expression section was left undecoded. That was
+wrong. The dimension shapes add an occupancy object that the six object shape does not have,
+and it is a slot map over allocated ids:
+
+```text
+dim40    d = 3   37 bytes   10 01 21 | fff fff 43 44 45 46 47 48 49 4a 4b ff 4c 4d ...
+                             ids 43..51, fifteen entries, then 10 21
+var_two  d = 6   69 bytes   1f 01 41 | ff ff 43 44 ... 60 22 41
+                             ids 43..60, thirty entries, then 22 41
+```
+
+The opening count is `5d + 1` and the id range is `5d` long in both parts, but the closing
+count is 16 for `dim40` and 34 for `var_two`, which is not the same function of `d`, and the
+marker byte differs (`21` against `41`). So the frame is partly measured and the id allocation
+is not, and `ExprMiddle` cannot emit a dimension shape until this object is decoded.
+
 ## The names lane is emitted with writer-chosen slots
 
 `ExprLane(Labels, Values)` and `ReadLane` now handle the slot map: a token's width comes from
