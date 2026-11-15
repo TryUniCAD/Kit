@@ -714,6 +714,18 @@ jobs:
           tar --extract --gzip --file "${ArchivePath}" --directory "${RUNNER_TEMP}" gitleaks
           chmod u+x "${RUNNER_TEMP}/gitleaks"
 
+      - name: Verify the history exception stays narrow
+        run: |
+          set -euo pipefail
+          if printf 'end_spec_offset=%s, axis_kind=%s if AxisValue is None\n' 'Token' 'None' \
+            | "${RUNNER_TEMP}/gitleaks" stdin \
+              --config .github/config/Gitleaks.toml --redact --exit-code 23; then
+            echo "::error::The history exception unexpectedly accepted an unrelated source"
+            exit 1
+          else
+            test "$?" -eq 23
+          fi
+
       - name: Run Gitleaks history secret audit
         run: >-
           "${RUNNER_TEMP}/gitleaks" git
