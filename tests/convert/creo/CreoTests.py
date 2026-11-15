@@ -52,7 +52,7 @@ def BuildFeatureSample() -> bytes:
     BaseValue = len(Header)
     Header = Header.replace(b"00000000", f"{BaseValue:08x}".encode("ascii"), 1)
     Banner = b"#Creo  TM  Version 13.0 (c) 2026 by PTC Inc.\n"
-    TocHead = b"#UGC_TOC 2 3 81 17".ljust(80, b"#")[:80] + b"\n"
+    TocHead = b"#UGC_TOC 2 4 81 17".ljust(80, b"#")[:80] + b"\n"
     FeatureBody = (
         b"\xe3\x07\x00\x00\xe3\xf6\x83\x9b\xe1"
         + b"\x00" * 8
@@ -66,8 +66,17 @@ def BuildFeatureSample() -> bytes:
         + b"\xe0\x01dim_ref\x00\x07"
     )
     Definition = b"#FeatDefs\n" + DefinitionBody
+    GeometryBody = (
+        b"\xe0\x00srf_array\x00\xf8\x01\xf7\x03\xfb\xe3"
+        + b"\xe0\x01geom_id\x00\x4d"
+        + b"\xe0\x01geom_type\x00\x22"
+        + b"\xe0\x01feat_id\x00\x4a"
+        + b"\xe0\x02envlp\x00\xf9\x02\x02\x18\xe7\x03"
+        + b"\xe0\x02outline\x00\xf9\x02\x03\x18\xe7\x05"
+    )
+    Geometry = b"#VisibGeom\n" + GeometryBody
     Thumb = b"#THMB_IMG_MAIN\n\xff\xd8\xff\xd9"
-    BodyStart = BaseValue + len(Banner) + len(TocHead) + 243
+    BodyStart = BaseValue + len(Banner) + len(TocHead) + 324
     RowList = (
         TocRow("AllFeatur", BodyStart - BaseValue, len(Feature), len(FeatureBody))
         + TocRow(
@@ -77,13 +86,28 @@ def BuildFeatureSample() -> bytes:
             len(DefinitionBody),
         )
         + TocRow(
-            "THMB_IMG_MAIN",
+            "VisibGeom",
             BodyStart - BaseValue + len(Feature) + len(Definition),
+            len(Geometry),
+            len(GeometryBody),
+        )
+        + TocRow(
+            "THMB_IMG_MAIN",
+            BodyStart - BaseValue + len(Feature) + len(Definition) + len(Geometry),
             len(Thumb),
             4,
         )
     )
-    return Header + Banner + TocHead + RowList + Feature + Definition + Thumb
+    return (
+        Header
+        + Banner
+        + TocHead
+        + RowList
+        + Feature
+        + Definition
+        + Geometry
+        + Thumb
+    )
 
 
 def TestRead() -> None:
@@ -142,6 +166,20 @@ def TestFeatureRows() -> None:
     assert DocumentValue.metadata["creo.feature_row_count"] == 2
     assert DocumentValue.metadata["creo.dimension_count"] == 1
     assert DocumentValue.metadata["creo.parameters_decoded"] is True
+    assert DocumentValue.metadata["creo.surface_count"] == 1
+    assert DocumentValue.metadata["creo.curve_count"] == 0
+    assert DocumentValue.metadata["creo.surface_prototypes_decoded"] is True
+    assert len(DocumentValue.bodies) == 1
+    BodyValue = DocumentValue.bodies[0]
+    assert BodyValue.id == "creo:body:1"
+    assert BodyValue.final_feature_id == "creo:feature:5"
+    assert BodyValue.topology.face_count == 1
+    assert BodyValue.topology.edge_count == 0
+    Faces = BodyValue.attributes["creo.faces"]
+    assert tuple(Face["id"] for Face in Faces) == ("creo:face:77",)
+    assert Faces[0]["geom_type"] == 34
+    assert Faces[0]["feature_id"] == 74
+    assert Faces[0]["envelope"] == (1.0, 1.0, 1.0, 1.0)
     assert DocumentValue.metadata["creo.feature_history_decoded"] is False
     assert DocumentValue.metadata["creo.geometry_decoded"] is False
 

@@ -36,9 +36,11 @@ The reader returns a `CadDocument` with:
 - the retained source bytes and digest;
 - `AllFeatur` feature identity rows as `FeatureStep` records, each with the Creo feature id, root
   schema class, class label, and a provenance span into the `AllFeatur` section;
-- `FeatDefs` definition-site dimension values as `Parameter` records, linked to the single
-  protrusion feature's `parameter_ids` when exactly one exists;
-- warnings that positional replayed dimensions, sketches, and geometry remain encoded.
+- `FeatDefs` stored dimension values as `Parameter` records, linked to the single protrusion
+  feature's `parameter_ids` when exactly one exists;
+- `VisibGeom` plane and curve prototypes as one surface-grouping `DesignBody` with face and edge
+  counts and per-face records;
+- warnings that surface closure, shell topology, and sketches remain encoded.
 
 Feature rows are discovered from the tag anchors documented in
 [the compound-boundary gotcha](../../Gotchas/Conversion/CreoTaggedCompoundBoundary.md): a boundary
@@ -66,7 +68,7 @@ It keeps `vendor_loadable` and `application_usable` false because this path does
 ## Limits
 
 - No independent PSB writer.
-- Feature identity plus stored dimension values only: no sketches or geometry.
+- Feature identity, stored dimension values, and surface prototypes only: no sketches or proven solid topology.
 - No native geometry or B-rep decoding.
 - No assembly component resolution.
 - No drawing, format, section, or layout support.

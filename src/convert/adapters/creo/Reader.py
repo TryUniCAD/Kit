@@ -11,6 +11,7 @@ from interchange.enums.EnumDocument import Severity
 from interchange.enums.EnumUnits import UnitSystem
 from interchange.enums.EnumValues import ParameterRole
 from interchange.enums.EnumValues import ValueKind
+from interchange.features.FeatureBody import DesignBody
 from interchange.payloads.PayloadRecord import BrepPayload
 from interchange.payloads.PayloadRoles import PayloadRole
 from interchange.records.RecordConfig import Configuration
@@ -20,6 +21,7 @@ from interchange.records.RecordParameter import ParameterValue
 from interchange.records.RecordProvenance import Provenance
 from interchange.records.RecordProvenance import ProvenanceSpan
 from interchange.records.RecordSource import CadSource
+from interchange.records.RecordTopology import TopologyCounts
 from interchange.core.Common import FreezeMapping
 
 from convert.adapters.base.ContractTypes import KSourceType
@@ -32,6 +34,7 @@ from convert.adapters.creo.Header import ReadHeader
 from convert.adapters.creo.Records import FeatureSteps
 from convert.adapters.creo.Records import ReadFeatureRows
 from convert.adapters.creo.Stream import ReadDimensions
+from convert.adapters.creo.VisibGeom import ReadGeometry
 from convert.adapters.creo.Toc import CreoEntry
 from convert.adapters.creo.Toc import ReadSection
 from convert.adapters.creo.Toc import ReadToc
@@ -296,6 +299,82 @@ def ReadDocument(
             else FeatureValue
             for FeatureValue in FeatureRecords
         )
+    SurfaceRows = ()
+    CurveRows = ()
+    GeometryEntry = next(
+        (
+            EntryValue
+            for EntryValue in TocValue.entries
+            if EntryValue.name == "VisibGeom"
+        ),
+        None,
+    )
+    if GeometryEntry is not None:
+        try:
+            SurfaceRows, CurveRows = ReadGeometry(ReadSection(DataValue, GeometryEntry))
+        except CreoFormat as ErrorInfo:
+            FeatureNotes = (
+                *FeatureNotes,
+                Diagnostic(
+                    "creo.geometry_invalid",
+                    f"The VisibGeom section could not be decoded: {ErrorInfo}",
+                    severity=Severity.KWarning,
+                ),
+            )
+    BodyRecords: tuple[DesignBody, ...] = ()
+    if SurfaceRows and FeatureRecords:
+        FaceRecords = tuple(
+            FreezeMapping(
+                {
+                    "id": f"creo:face:{Surface.geom_id}",
+                    "geom_type": Surface.geom_type,
+                    "feature_id": Surface.feature_id,
+                    "envelope": Surface.envelope,
+                    "outline": Surface.outline,
+                    "local_system": Surface.local_system,
+                }
+            )
+            for Surface in SurfaceRows
+        )
+        CurveRecords = tuple(
+            FreezeMapping(
+                {
+                    "id": f"creo:curve:{Curve.curve_id}",
+                    "curve_type": Curve.curve_type,
+                    "feature_id": Curve.feature_id,
+                    "points": Curve.points,
+                }
+            )
+            for Curve in CurveRows
+        )
+        BodyRecords = (
+            DesignBody(
+                id="creo:body:1",
+                name="Creo surface body",
+                final_feature_id=FeatureRecords[-1].id,
+                topology=TopologyCounts(
+                    face_count=len(SurfaceRows),
+                    edge_count=len(CurveRows),
+                ),
+                provenance=Provenance(
+                    KFormatId,
+                    "1",
+                    spans=(
+                        ProvenanceSpan(
+                            "VisibGeom", 0, len(SurfaceRows), "surface_prototypes"
+                        ),
+                    ),
+                ),
+                attributes=FreezeMapping(
+                    {
+                        "creo.faces": FaceRecords,
+                        "creo.curves": CurveRecords,
+                        "creo.surface_count": len(SurfaceRows),
+                        "creo.curve_count": len(CurveRows),
+                    }
+                ),
+            ),
+        )
     Diagnostics = (
         *Notes,
         *UnitNotes,
@@ -303,7 +382,7 @@ def ReadDocument(
         *FeatureNotes,
         Diagnostic(
             "creo.container_only",
-            "The PSB container, section directory, native thumbnail, source bytes, AllFeatur feature identity rows, and definition-site dimension values are decoded. Positional replayed dimensions, sketches, and geometry remain encoded, so no neutral body is claimed.",
+            "The PSB container, section directory, native thumbnail, source bytes, AllFeatur feature identity rows, stored dimension values, and VisibGeom surface/curve prototypes are decoded. Surface closure, topology, sketches, and B-rep shells remain encoded, so no solid body is claimed.",
             severity=Severity.KWarning,
         ),
     )
@@ -312,11 +391,14 @@ def ReadDocument(
             "adapter": KFormatId,
             "creo.base": HeaderValue.base,
             "creo.common_name": HeaderValue.common_name,
+            "creo.curve_count": len(CurveRows),
             "creo.dimension_count": len(DimensionRows),
             "creo.feature_history_decoded": False,
             "creo.feature_row_count": len(FeatureRows),
             "creo.feature_rows_decoded": bool(FeatureRows),
             "creo.geometry_decoded": False,
+            "creo.surface_count": len(SurfaceRows),
+            "creo.surface_prototypes_decoded": bool(SurfaceRows),
             "creo.header_lines": HeaderValue.header_lines,
             "creo.parameters_decoded": bool(ParameterRecords),
             "creo.kind": HeaderValue.kind,
@@ -355,7 +437,7 @@ def ReadDocument(
         sketches=(),
         selections=(),
         feature_timeline=FeatureRecords,
-        bodies=(),
+        bodies=BodyRecords,
         brep_payloads=Payloads,
         diagnostics=Diagnostics,
         capabilities=frozenset(

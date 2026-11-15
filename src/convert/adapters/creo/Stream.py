@@ -153,9 +153,12 @@ class StreamReader:
 
 
 class StreamParser:
-    def __init__(self, DataValue: bytes) -> None:
+    def __init__(
+        self, DataValue: bytes, Boundaries: dict[int, int] | None = None
+    ) -> None:
         self.Reader = StreamReader(DataValue)
         self.Nodes: list[StreamNode] = []
+        self.Boundaries = Boundaries or {}
         self.Fields = ScanFields(DataValue)
         self.ByOffset = {Field.offset: Index for Index, Field in enumerate(self.Fields)}
         self.Index = 0
@@ -240,7 +243,10 @@ class StreamParser:
                 break
             if TokenValue in (0xE0, 0xE1, 0xE2, 0xE3) or 0xF1 <= TokenValue <= 0xF4:
                 break
+            BeforeValue = Reader.Position
             Values.append(self.ReadScalar(TypeValue))
+            if Reader.Position == BeforeValue:
+                break
         return Values
 
     def ReadValue(self, TypeValue: int, Count: int | None) -> object:
@@ -316,7 +322,12 @@ class StreamParser:
 
     def Run(self) -> list[StreamNode]:
         Reader = self.Reader
+        Iterations = 0
+        LimitValue = len(Reader.DataValue) * 16 + 1024
         while Reader.Position < len(Reader.DataValue):
+            Iterations += 1
+            if Iterations > LimitValue:
+                break
             TokenValue = Reader.DataValue[Reader.Position]
             if TokenValue == 0xE0:
                 StartValue = Reader.Position
@@ -364,6 +375,9 @@ class StreamParser:
             if self.Index >= len(self.Fields) and self.StructureStart:
                 self.Index = self.StructureStart[-1]
             if self.Index < len(self.Fields):
+                if TokenValue == 0xE3 and Reader.Position in self.Boundaries:
+                    Reader.Position += 1
+                    self.Index = self.Boundaries[Reader.Position - 1]
                 Field = self.Fields[self.Index]
                 Node = self.ReadField(Field)
                 self.Index += 1
