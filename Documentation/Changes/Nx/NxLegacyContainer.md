@@ -234,6 +234,24 @@ asking the loader for it.
 `LegacyCodes(Payload)` reads that table, `nx.legacy_coded_classes` reports how many entries are set,
 and `TestNxLegacy` now pins the table alongside the frames.
 
+## An apparent 16 byte stride in the object data breaks at the third record
+
+Reading the object region as float32 at every byte offset turns up a tempting pattern:
+
+```text
+offset   value
+0x19a7   96.1657
+0x19b7   96.1743     16 bytes after the first
+0x19c7   96.1744     16 bytes after the second
+```
+
+and one byte earlier the same three positions hold -3.326, -3.394 and -3.396, also 16 apart. Two
+fields cannot overlap by three bytes, so at most one of those readings is real, and the fourth record
+decides it: `0x19d7` holds `3b 01 00 00`, a denormal rather than a coordinate.
+
+So the 16 byte stride is an artefact of two adjacent records, not the record size, and the float32
+anchors confirm what the marker gaps already showed: no stride, and no field offset, is stable.
+
 ## The region after the attribute frames aligns, but not as a record prologue
 
 Aligning the three parts at the end of their attribute frames shows a word table in each, and the
