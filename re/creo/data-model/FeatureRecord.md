@@ -563,7 +563,26 @@ with our own generated values was rejected twice:
 Six candidates now separate the cause: generated scalars, mask encoding and mask length are all ruled
 out, and only the mask *content across records* remains. See the table above.
 
-## The solid feature in the ladder
+## What a `917` record carries
+
+Record `67` — the ladder's first solid feature — declares **`37`** new fields, and every one is
+revision/history bookkeeping rather than geometry:
+
+```text
+dtm_id_tab, dtm_id, dim_id, comp_hist, owner_id, component_ids, sorted, revnums,
+owner_type, owner_ind, ref_id, hist_ref_info, coll_refs_info, ref_revnum,
+ref_plcm_revnum, ref_status, dma_update_revnum, flags_arr, upd_ctrl_data,
+upd_ref_revnum, upd_coll_refs_info, upd_aggr_rev_info, rev_info_arr, type,
+info(basic_geom_rev_info), mdl_geom_rev, revision(mdl_g_rev_dtl_t_ft_regen), val,
+rev_cnt, tstamp, version, versions, flags_arr, aggr_rev_info, aux_rev_data
+```
+
+So a `917` is not described by a parametric definition we can synthesise field by field: it is a reference and
+revision graph over geometry that the kernel produced. That is consistent with every earlier measurement of
+this class — a `917` replay carrying datum-shaped values is refused, and so is a `923` replay wearing the csys
+id.
+
+## The solid feature in the ladder## The solid feature in the ladder
 
 Authoring a protrusion is the remaining geometry blocker, so the ladder's feature list was inventoried:
 

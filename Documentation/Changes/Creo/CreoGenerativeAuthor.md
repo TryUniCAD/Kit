@@ -960,6 +960,26 @@ donor bytes, accepted by Creo. It moves the parametric criterion from "no eviden
 and read back" — while the part still has **no body**, so body count, volume and centre of mass remain
 unmeasured, and the 13 vendor rows are unchanged.
 
+## A `917` record is a revision graph, and authored surfaces are still refused
+
+Diffing record `67` — the ladder's first solid feature — against the learned schema shows it declares **37**
+new fields, all revision and reference bookkeeping: `comp_hist`, `owner_id`, `component_ids`, `revnums`,
+`hist_ref_info`, `coll_refs_info`, `ref_revnum`, `ref_status`, `rev_info_arr`, `mdl_geom_rev`,
+`revision(mdl_g_rev_dtl_t_ft_regen)`, `aggr_rev_info`, `aux_rev_data` and so on. Nothing there is a parametric
+description of a solid; it is a graph over geometry the vendor kernel produced. That matches every earlier
+attempt: a `917` replay carrying datum values is refused, and so is a `923` replay wearing the csys id.
+
+Retesting authored `VisibGeom` against the now-working assembly also fails — six generated surface records
+pointing at feature `7` (`geomfeat2`) exit with no `End` line, twice. So surfaces cannot be authored ahead of
+the solid that owns them.
+
+### A real bug found while testing this
+
+`PlaneDefine` ended with `return Payload + b"\xf2" if TrailingClose else Payload`, a name that only exists on
+`DatumFeatureRecord` — a bad patch that had landed in the wrong function and would raise `NameError` for any
+caller, including `AuthorBox`. It is repaired, and the surface record is still byte-identical to the ladder's
+first element (`409` bytes).
+
 ## Limits## Limits
 
 - The authored part contains only `AllFeatur` and `VisibGeom`. Creo rejects it as "not a valid PART

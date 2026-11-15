@@ -221,7 +221,7 @@ def PlaneDefine(
     Payload += StructHeader("srf_flip_dat") + b"\xe1"
     Payload += NameValue("list_id") + SignedInt(-5778)
     Payload += NameValue("list_type") + IntValue(98)
-    return Payload + b"\xf2" if TrailingClose else Payload
+    return Payload + b"\xf2"
 
 
 # later array elements may not redeclare fields
