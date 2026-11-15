@@ -965,7 +965,7 @@ def DatumFeatureRecord(
     Payload += StructHeader("idtab_ptr") + b"\xe3"
     Payload += FieldValue(0, "srf_id_tab_ptr", b"\xf8\x01\xf7\x1d\xfb")
     Payload += b"\xe3"
-    Payload += FieldValue(1, "fc_hist", SignedIntArray((8, 0, 0, 0)))
+    Payload += FieldValue(1, "fc_hist", SignedIntArray((FirstGeomId, 0, 0, 0)))
     Payload += StructHeader("save_geoms") + b"\xf2\xe3"
     Payload += FieldValue(
         2, "transform", b"\xf9\x04\x03" + RunValues(KIdentityColumn * 3)
@@ -1017,26 +1017,52 @@ def DatumFeatureRecord(
     return Payload
 
 
+# reference arrays keep their count so replay scanning must see real tokens
+def HasReferenceToken(Value: bytes) -> bool:
+    Index = 1
+    while Index < len(Value):
+        Token = Value[Index]
+        if Token == 0xF7:
+            return True
+        if Token == 0xF6 or Token <= 0x7F:
+            Index += 1
+        elif Token == 0xF5:
+            Index += 2
+        elif Token <= 0xBF:
+            Index += 2
+        elif Token <= 0xDF:
+            Index += 3
+        elif 0xE8 <= Token <= 0xEB:
+            Index += 1 + (Token - 0xE7)
+        else:
+            Index += 1
+    return False
+
+
 # replays repeat the first record positionally so no field may be redeclared
 def ReplayOf(Definition: bytes) -> bytes:
     Parser = StreamParser(Definition)
-    Spans: list[bytes] = []
+    Spans: list[tuple[str, bytes]] = []
     Original = Parser.ReadField
 
     # capturing spans is how the replay keeps the definition order
     def ReadField(Descriptor) -> object:
         Start = Parser.Reader.Position
         Node = Original(Descriptor)
-        Spans.append(Definition[Start : Parser.Reader.Position])
+        Spans.append((Descriptor.name, Definition[Start : Parser.Reader.Position]))
         return Node
 
     Parser.ReadField = ReadField
     Parser.Run()
     Payload = b""
-    for Value in Spans:
+    Seen: set[str] = set()
+    for Position, (NameText, Value) in enumerate(Spans, start=1):
+        if NameText in Seen:
+            Payload += b"\xf7" + CompactInt(Position)
+        Seen.add(NameText)
         if Value[:1] in (b"\xf1", b"\xf2"):
             Value = Value[1:]
-        if Value[:1] == b"\xf8" and b"\xf7" not in Value:
+        if Value[:1] == b"\xf8" and not HasReferenceToken(Value):
             Marker = Value[1]
             Width = (
                 1

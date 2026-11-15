@@ -556,9 +556,23 @@ conclusion about `917` does not follow. The likely cause is positional: `ExtraSc
 by three fields, and a replay must then carry three more values, which the hand-written replay does not.
 
 `Author.ReplayOf(Definition)` was added to derive a replay from a definition instead of duplicating the
-field list, so the two cannot desynchronise. It is **not yet validated**: applied to the control's first
-record it yields `536` bytes against the control replay's `537`, and a section built with it is still
-refused. Until it is exact, the two-record question stays open and the `917` question cannot be asked.
+field list, so the two cannot desynchronise. Building a `TOP` definition and deriving its replay gives
+`541` bytes against the control replay's `537`, with one structural difference left:
+
+```text
+ref : ... f8 01 f7 1d fb e3 f7 1e 06 00 e5 e3 0f 18 e5 ...
+mine: ... f8 01 f7 1d fb e3 f7 1e 06 00 e5 f7 1f e3 0f 18 e5 ...
+```
+
+The array counts, the typed-array introductions and the `f7 1e` duplicate selector are now right. The
+remaining error is that the selector is emitted for **every** repeated name, while the control emits it
+only for some: the second `fc_hist` and the second `p_body` carry `f7 1e` and `f7 2b`, but the second
+`save_geoms` carries none. The distinguishing property has not been identified yet, so `ReplayOf` is
+close but not exact, and the two-record question stays open.
+
+Progress made getting there is real: `fc_hist` was being written as a hardcoded `8` instead of
+`first_geom_id`, and the array-strip test was scanning for the `f7` **byte** anywhere in a value rather
+than for a real reference token, which wrongly kept the mask's `f8 80 fc` header.
 
 To add one, the **first** record would have to declare the union of datum and protrusion fields, and every
 later record would then have to carry values for that wider schema — including the replay-only sections
