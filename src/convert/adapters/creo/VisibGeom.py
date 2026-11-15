@@ -29,6 +29,12 @@ class CreoCurve:
     points: tuple[float, ...]
 
 
+@dataclass(frozen=True, slots=True)
+class CreoLogicalObject:
+    object_id: int
+    next_object_id: int | None
+
+
 def NumberValues(Value: object) -> tuple[float, ...]:
     if isinstance(Value, list):
         return tuple(
@@ -79,6 +85,25 @@ def ElementBoundaries(DataValue: bytes) -> dict[int, int]:
             Width = 1 if DataValue[OffsetValue + 1] <= 0x7F else 2
             SecondValue = DataValue[OffsetValue + 1 + Width]
             Boundaries[OffsetValue] = GeomIndex if SecondValue == 0x22 else CrvIdIndex
+    if "lo_array" in Names and "lo_id" in Names:
+        LoIndex = Names.index("lo_array")
+        LoIdIndex = next(
+            Index
+            for Index, Name in enumerate(Names)
+            if Name == "lo_id" and Index > LoIndex
+        )
+        for OffsetValue in range(len(DataValue) - 5):
+            if DataValue[OffsetValue] != 0xE3:
+                continue
+            _FeatureValue, AfterValue = ReadCompactAt(DataValue, OffsetValue + 1)
+            if AfterValue + 4 >= len(DataValue):
+                continue
+            if (
+                DataValue[AfterValue] == 0x82
+                and DataValue[AfterValue + 2] == 0x82
+                and DataValue[AfterValue + 4] == 0x4A
+            ):
+                Boundaries[OffsetValue] = LoIdIndex
     return Boundaries
 
 
@@ -113,3 +138,18 @@ def ReadGeometry(
                 )
             )
     return tuple(Surfaces), tuple(Curves)
+
+
+def ReadLogicalObjects(DataValue: bytes) -> tuple[CreoLogicalObject, ...]:
+    Nodes = StreamParser(DataValue, ElementBoundaries(DataValue)).Run()
+    Objects: list[CreoLogicalObject] = []
+    for Index, Node in enumerate(Nodes):
+        if Node.name != "lo_id" or not isinstance(Node.value, int):
+            continue
+        NextValue: int | None = None
+        for Candidate in Nodes[Index + 1 : Index + 9]:
+            if Candidate.name == "next_lo_ptr" and isinstance(Candidate.value, int):
+                NextValue = Candidate.value
+                break
+        Objects.append(CreoLogicalObject(Node.value, NextValue))
+    return tuple(Objects)

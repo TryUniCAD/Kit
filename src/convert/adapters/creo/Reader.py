@@ -35,6 +35,7 @@ from convert.adapters.creo.Records import FeatureSteps
 from convert.adapters.creo.Records import ReadFeatureRows
 from convert.adapters.creo.Stream import ReadDimensions
 from convert.adapters.creo.VisibGeom import ReadGeometry
+from convert.adapters.creo.VisibGeom import ReadLogicalObjects
 from convert.adapters.creo.Toc import CreoEntry
 from convert.adapters.creo.Toc import ReadSection
 from convert.adapters.creo.Toc import ReadToc
@@ -301,6 +302,7 @@ def ReadDocument(
         )
     SurfaceRows = ()
     CurveRows = ()
+    LogicalObjects = ()
     GeometryEntry = next(
         (
             EntryValue
@@ -311,7 +313,9 @@ def ReadDocument(
     )
     if GeometryEntry is not None:
         try:
-            SurfaceRows, CurveRows = ReadGeometry(ReadSection(DataValue, GeometryEntry))
+            GeometryData = ReadSection(DataValue, GeometryEntry)
+            SurfaceRows, CurveRows = ReadGeometry(GeometryData)
+            LogicalObjects = ReadLogicalObjects(GeometryData)
         except CreoFormat as ErrorInfo:
             FeatureNotes = (
                 *FeatureNotes,
@@ -371,6 +375,16 @@ def ReadDocument(
                         "creo.curves": CurveRecords,
                         "creo.surface_count": len(SurfaceRows),
                         "creo.curve_count": len(CurveRows),
+            "creo.logical_object_count": len(LogicalObjects),
+                        "creo.logical_objects": tuple(
+                            FreezeMapping(
+                                {
+                                    "id": Logical.object_id,
+                                    "next_id": Logical.next_object_id,
+                                }
+                            )
+                            for Logical in LogicalObjects
+                        ),
                     }
                 ),
             ),
@@ -392,6 +406,7 @@ def ReadDocument(
             "creo.base": HeaderValue.base,
             "creo.common_name": HeaderValue.common_name,
             "creo.curve_count": len(CurveRows),
+            "creo.logical_object_count": len(LogicalObjects),
             "creo.dimension_count": len(DimensionRows),
             "creo.feature_history_decoded": False,
             "creo.feature_row_count": len(FeatureRows),

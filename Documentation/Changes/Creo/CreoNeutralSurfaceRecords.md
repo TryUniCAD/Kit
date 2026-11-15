@@ -34,6 +34,7 @@ attributes      creo.faces, creo.curves, creo.surface_count, creo.curve_count
 
 Each face attribute carries `id`, `geom_type`, `feature_id`, `envelope`, `outline`, and
 `local_system`. Each curve attribute carries `id`, `curve_type`, `feature_id`, and `points`.
+The body also carries `creo.logical_objects`, the decoded `lo_id`/`next_lo_ptr` chain.
 
 Metadata reports `creo.surface_count`, `creo.curve_count`, and
 `creo.surface_prototypes_decoded`. `creo.geometry_decoded` remains false because surface closure
@@ -43,6 +44,9 @@ and shell topology are not established.
 
 - Prototype records only: no shared-edge topology, loop orientation, or shell closure, so the body
   is a surface grouping and not a proven solid.
+- The logical-object chain decodes (ladder: `95 -> 96 -> 97 -> 98 -> 99 -> 100 -> 0`), but the
+  edge records that would join it into shells still arrive partly as compound nodes
+  (`closed`, `end_id`), so closure cannot be proven.
 - `solid_count`, `shell_count`, and `vertex_count` stay zero.
 - Sketch entities and B-rep shells are not decoded.
 - The writer is unchanged and still performs exact source replay only.
@@ -53,8 +57,9 @@ Read through the production adapter on the retained ladder control:
 
 ```text
 bodies [('creo:body:1', 'Creo surface body', 6, 12, 'creo:feature:74')]
-meta   creo.surface_count=6 creo.curve_count=12
+meta   creo.surface_count=6 creo.curve_count=12 creo.logical_object_count=6
        creo.surface_prototypes_decoded=True creo.geometry_decoded=False
+logical_objects 95->96->97->98->99->100->0
 ```
 
 `TestFeatureRows` also asserts the synthetic path: one `VisibGeom` plane yields

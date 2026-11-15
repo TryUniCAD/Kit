@@ -180,6 +180,8 @@ def TestFeatureRows() -> None:
     assert Faces[0]["geom_type"] == 34
     assert Faces[0]["feature_id"] == 74
     assert Faces[0]["envelope"] == (1.0, 1.0, 1.0, 1.0)
+    assert BodyValue.attributes["creo.logical_objects"] == ()
+    assert DocumentValue.metadata["creo.logical_object_count"] == 0
     assert DocumentValue.metadata["creo.feature_history_decoded"] is False
     assert DocumentValue.metadata["creo.geometry_decoded"] is False
 
