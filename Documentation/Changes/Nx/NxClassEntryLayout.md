@@ -222,6 +222,24 @@ layout size (max offset plus size is 204 for `UGS::OM::RootObject` against `+0x3
 descriptor constant, extractable from the same registration sites that already yield the layout
 digest.
 
+## The store sites are a generic byte writer, not the entry assembler
+
+Reading the routine that contains those store sites shows it takes its payload from the caller:
+
+```text
+0x180144560  push rbp
+0x18014456a  movzx edi, word ptr [rbp + 0x48]     length, from the stack
+0x180144580  mov rcx, [rbx + 0x60]                stream buffer
+0x180144589  movzx eax, byte ptr [rsi]            payload, from rsi
+0x1801445ad  mov eax, dword ptr [rsi]             the 4 byte path
+0x1801445bc  call 0x18035908e                     memcpy for other lengths
+```
+
+so `0x180144560` writes whatever blob the caller hands it in `rsi` with length `[rbp+0x48]`, and the
+four byte block at `[rbp+0x50]` and the 16-bit table word are _additional parts the same routine
+appends_. That means the prefix's leading bytes are assembled **by the caller** and simply pass
+through here — the store sites the plan targets would log bytes that the caller already computed.
+
 ## What is left
 
 The prefix and the tail. Hooking `0x1801445xx` during a `SaveAs` and logging the two blocks and the
