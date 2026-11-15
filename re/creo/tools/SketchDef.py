@@ -27,7 +27,7 @@ from convert.adapters.creo.Header import ReadHeader
 
 KPoints = ((0, 1), (1, 2), (2, 3), (3, 0))
 KDimensions = (10.0, 20.0, 10.0, 20.0)
-KOutline = (0.0, 0.0, 10.0, 0.0, 10.0, 10.0)
+KOutline = (184.50782059963194, 0.0, 115.65227549271083, -154.4303300690026, 0.0, -86.06680966899467)
 
 
 def Segment(FirstPoint: int, SecondPoint: int, ExtId: int, Declare: bool) -> bytes:
@@ -245,7 +245,7 @@ def FullDefinitionBlock(FeatureId: int) -> bytes:
     Payload += Author.FieldValue(1, "index", Author.SignedInt(1))
     Payload += Author.FieldValue(1, "tool_type", Author.SignedInt(60001))
     Payload += Author.FieldValue(1, "sep_index", Author.SignedInt(-1))
-    Payload += Author.StructHeader("expl_state_ref") + b"\xE1"
+    Payload += Author.StructHeader("expl_state_ref") + b"\xF3\xE1"
     Payload += Author.StructHeader("feat_outl_info") + b"\xE3"
     Payload += b"\xE0\x02ent_outl\x00\xF9\x02\x03" + Author.RunValues(KOutline)
     Payload += Author.FieldValue(1, "max_text_len", Author.SignedInt(0))
@@ -258,7 +258,7 @@ def FullDefinitionBlock(FeatureId: int) -> bytes:
         + b"\xE0\x09Structure_Invalid\x00"
         + Author.SignedInt(43981)
     )
-    Payload += Author.StructHeader("copy_info_ptr") + b"\xE1"
+    Payload += Author.StructHeader("copy_info_ptr") + b"\xF1\xE1"
     Payload += Author.StructHeader("embed_info_ptr") + b"\xE1"
     Payload += Sketch()
     Payload += Author.FieldValue(
@@ -330,7 +330,7 @@ def FullElement(FeatureId: int) -> bytes:
     Payload += Author.FieldValue(1, "index", Author.SignedInt(1))
     Payload += Author.FieldValue(1, "tool_type", Author.SignedInt(60001))
     Payload += Author.FieldValue(1, "sep_index", Author.SignedInt(-1))
-    Payload += Author.StructHeader("expl_state_ref") + b"\xE1"
+    Payload += Author.StructHeader("expl_state_ref") + b"\xF3\xE1"
     Payload += Author.StructHeader("feat_outl_info") + b"\xE3"
     Payload += b"\xE0\x02ent_outl\x00\xF9\x02\x03" + Author.RunValues(KOutline)
     Payload += Author.FieldValue(1, "max_text_len", Author.SignedInt(0))
@@ -343,7 +343,7 @@ def FullElement(FeatureId: int) -> bytes:
         + b"\xE0\x09Structure_Invalid\x00"
         + Author.SignedInt(43981)
     )
-    Payload += Author.StructHeader("copy_info_ptr") + b"\xE1"
+    Payload += Author.StructHeader("copy_info_ptr") + b"\xF1\xE1"
     Payload += Author.StructHeader("embed_info_ptr") + b"\xE1"
     Payload += FullSketch()
     Payload += Author.FieldValue(
@@ -486,7 +486,7 @@ def BuildAligned(Source: Path, Target: Path) -> bytes:
     Element += Author.FieldValue(1, "index", Author.SignedInt(1))
     Element += Author.FieldValue(1, "tool_type", Author.SignedInt(60001))
     Element += Author.FieldValue(1, "sep_index", Author.SignedInt(-1))
-    Element += Author.StructHeader("expl_state_ref") + b"\xE1"
+    Element += Author.StructHeader("expl_state_ref") + b"\xF3\xE1"
     Element += Author.StructHeader("feat_outl_info") + b"\xE3"
     Element += b"\xE0\x02ent_outl\x00\xF9\x02\x03" + Author.RunValues(KOutline)
     Element += Author.FieldValue(1, "max_text_len", Author.SignedInt(0))
@@ -495,7 +495,7 @@ def BuildAligned(Source: Path, Target: Path) -> bytes:
     Element += Author.StructHeader("post_regen") + b"\xE1"
     Element += Author.StructHeader("parchild_table") + b"\xF1\xE3"
     Element += b"\xE0\x09Structure_Invalid\x00" + Author.SignedInt(43981)
-    Element += Author.StructHeader("copy_info_ptr") + b"\xE1"
+    Element += Author.StructHeader("copy_info_ptr") + b"\xF1\xE1"
     Element += Author.StructHeader("embed_info_ptr") + b"\xE1"
     Element += AlignedSketch()
     Row = (
@@ -511,4 +511,48 @@ def BuildAligned(Source: Path, Target: Path) -> bytes:
     Result = Subset.Build(DataValue, Header.base, set(), {"FeatDefs": b"#FeatDefs\n" + Row})
     Target.write_bytes(Result)
     print(f"{Target.name}: {len(Result)} bytes; aligned element {len(Element)}")
+    return Result
+
+
+def SubFeatBlock(FeatureId: int) -> bytes:
+    """Our sub_feat_arr record alone, from its declaration up to gsec_ptr."""
+    Element = FullElement(FeatureId)
+    Start = Element.find(b"\xE0\x00sub_feat_arr\x00")
+    End = Element.find(b"\xE0\x00gsec_ptr\x00")
+    if Start < 0 or End < 0:
+        raise SystemExit("our element has no sub_feat_arr or gsec_ptr")
+    return Element[Start:End]
+
+
+def BuildSubFeatSwap(Source: Path, Target: Path) -> bytes:
+    """The vendor element with only our sub_feat_arr record, to test that record in isolation."""
+    DataValue = Source.read_bytes()
+    Header = ReadHeader(DataValue)
+    Payload = None
+    for TableValue in Subset.ReadTables(DataValue, Header.base):
+        for Entry in TableValue.rows:
+            if Entry.name == "FeatDefs":
+                Offset = Header.base + Entry.offset
+                Body = DataValue[Offset : Offset + Entry.length]
+                Payload = Body[Body.find(b"\n") + 1 :]
+    if Payload is None:
+        raise SystemExit("the ladder has no FeatDefs row")
+    End = Payload.find(b"\xE0\x00feat_defs_917\x00")
+    Vendor = Payload[37:End]
+    Start = Vendor.find(b"\xE0\x00sub_feat_arr\x00")
+    Tail = Vendor.find(b"\xE0\x00gsec_ptr\x00")
+    Swapped = Vendor[:Start] + SubFeatBlock(66) + Vendor[Tail:]
+    Row = (
+        Author.StructHeader("Sld_FeatDefs")
+        + b"\xE3"
+        + Author.StructHeader("feat_defs_949")
+        + b"\xF8\x01\xF7\x02\xFB"
+        + Swapped
+        + Author.StructHeader("feat_defs_917")
+        + b"\xF4\x06\xF8\x01\xF7\x80\xC4\xFB"
+        + Author.SolidFeatureDefinition(74, (100.0,))
+    )
+    Result = Subset.Build(DataValue, Header.base, set(), {"FeatDefs": b"#FeatDefs\n" + Row})
+    Target.write_bytes(Result)
+    print(f"{Target.name}: {len(Result)} bytes; sub-feature block {len(SubFeatBlock(66))}")
     return Result

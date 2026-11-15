@@ -86,6 +86,24 @@ This change was made **without a Creo run** — the guest agent is still unreach
 47-row artifact is unverified. The verification that it replaces a contradiction with agreement is byte-level, not
 a load.
 
+### Iterating with the trace: the outline is validated, the sketch is next
+
+`std.out` was used as a guide to fix the recorded records one at a time:
+
+| Candidate | Change | Creo |
+| --- | --- | --- |
+| `subswap` | our `sub_feat_arr` block inside the vendor element | refused, no path printed |
+| `subswap2` | the same block with the `f3`/`f1` prefixes and the part's own `ent_outl` | **loads** |
+| `full949b` | the whole generated element, sub-feature fixed the same way | refused at `gsec_ptr → gsec2d_ptr` |
+| `aligned949b` | as above with six segments over eight points | refused at `gsec_ptr → gsec2d_ptr` |
+
+So `expl_state_ref` needs its `f3` prefix and `copy_info_ptr` its `f1`, and the sub-feature's `ent_outl` must be the
+part's real outline: a synthetic ten-unit box is refused where the correct outline loads. That is a different rule
+from dimension values, which are inert — the outline describes the body, so it is checked against it.
+
+With the sub-feature corrected the trace moves into `gsec2d_ptr`, and six segments do not help any more than four:
+what remains is the sketch's agreement with the profile the body was built from.
+
 ### The swap halves are both refused, so the splice method is dead
 
 The guest came back (`prlctl exec` answered `nt authority\system` after a fresh start), so the pending experiment ran:

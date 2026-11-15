@@ -392,6 +392,29 @@ only the start and end markers — no model commands. So a second oracle cannot 
 
 Both are waiting on a Creo launch; the guest agent is still refusing sessions.
 
+### The trace moves once the sub-feature outline matches the part
+
+Using `std.out` as a guide, the `949` element was iterated record by record. Three results, in order:
+
+| Candidate | Change | Trace stops at | Creo |
+| --- | --- | --- | --- |
+| `subswap` | our `sub_feat_arr` block inside the vendor element | no path printed | refused |
+| `subswap2` | the same, with `expl_state_ref` `f3` and `copy_info_ptr` `f1` prefixes and the part's own `ent_outl` | — | **loads** |
+| `full949b` | our whole element, sub-feature fixed the same way | `gsec_ptr → gsec2d_ptr` | refused |
+| `aligned949b` | as above with six segments over eight points | `gsec_ptr → gsec2d_ptr` | refused |
+
+Two things follow.
+
+**The sub-feature record's values are validated.** With a synthetic `ent_outl` of a ten-unit box the element is
+refused; with the part's own outline it loads. That is the opposite of the dimension-value result, and it makes
+sense: the outline describes the body, while a dimension only parameterises it. Note that `subswap2`'s block is then
+*byte-identical* to the vendor's, so it proves the surrounding structure is right and says nothing about our ability
+to generate the value.
+
+**The failure then moves into the sketch.** `gsec2d_ptr` is where `full949b` and `aligned949b` both stop, with four
+and six segments respectively, so the segment count alone is not the constraint: the sketch's contents must agree
+with the profile the body was built from.
+
 ### The splice experiment is confounded, and both halves are refused
 
 The plan was to isolate our prefix from our solver tail by splicing at `relat_ptr`. Both directions were built and
