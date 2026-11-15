@@ -13,6 +13,8 @@ import time
 import pythoncom
 import win32com.client as wc
 from win32com.client import VARIANT
+from win32api import OpenProcess
+from win32event import WAIT_TIMEOUT, WaitForSingleObject
 
 PROGID = "SldWorks.Application.34"
 EXPECTED_BUILD = "34.5.2"
@@ -30,6 +32,8 @@ OPEN_SILENT = 1
 OPEN_READONLY = 2
 SAVE_SILENT = 1
 SAVE_COPY = 2
+OWNED_HANDLES = {}
+OWNED_LOCK = threading.Lock()
 
 user32 = ctypes.windll.user32
 EnumProc = ctypes.WINFUNCTYPE(ctypes.c_bool, wt.HWND, wt.LPARAM)
@@ -48,10 +52,19 @@ def _cls(h):
     return b.value
 
 
-def process_ids():
+def process_ids(names=PROCESSES):
     result = subprocess.run(["tasklist", "/FO", "CSV", "/NH"], capture_output=True, text=True, check=True)
-    names = {name.casefold() for name in PROCESSES}
+    names = {name.casefold() for name in names}
     return {int(row[1].replace(",", "")) for row in csv.reader(io.StringIO(result.stdout)) if len(row) >= 2 and row[0].casefold() in names}
+
+
+def application_pids():
+    return process_ids(("SLDWORKS.exe",))
+
+
+def owned_process_ids():
+    with OWNED_LOCK:
+        return {pid for pid, handle in OWNED_HANDLES.items() if WaitForSingleObject(handle, 0) == WAIT_TIMEOUT}
 
 
 def _dismiss_once(log, allowed_pids, progress):
@@ -61,11 +74,13 @@ def _dismiss_once(log, allowed_pids, progress):
         pid = wt.DWORD()
         user32.GetWindowThreadProcessId(h, ctypes.byref(pid))
         if pid.value in allowed_pids and _cls(h) == "#32770" and user32.IsWindowVisible(h):
-            found.append(h)
+            found.append((h, pid.value))
         return True
 
     user32.EnumWindows(EnumProc(top), 0)
-    for d in found:
+    for d, pid in found:
+        if pid not in owned_process_ids():
+            continue
         title = _text(d)
         buttons = []
         statics = []
@@ -96,7 +111,9 @@ def _dismiss_once(log, allowed_pids, progress):
                     break
             if pick:
                 break
-        if pick:
+        current_pid = wt.DWORD()
+        user32.GetWindowThreadProcessId(d, ctypes.byref(current_pid))
+        if pick and current_pid.value == pid and pid in owned_process_ids():
             log.append({"dialog": title, "text": statics[:4], "button": _text(pick)})
             user32.SendMessageW(pick, 245, 0, 0)
 
@@ -111,7 +128,7 @@ class Dismisser:
     def run(self):
         while not self.stop.is_set():
             try:
-                _dismiss_once(self.log, process_ids(), self.progress)
+                _dismiss_once(self.log, owned_process_ids(), self.progress)
             except Exception as error:
                 self.log.append({"error": repr(error)})
                 self.stop.set()
@@ -127,9 +144,10 @@ class Dismisser:
 
 
 def sweep():
-    for p in PROCESSES:
-        subprocess.run(["taskkill", "/F", "/IM", p], capture_output=True, check=False)
     time.sleep(4.0)
+    existing = application_pids()
+    if existing:
+        raise RuntimeError(f"existing SOLIDWORKS processes prevent a fresh oracle session: {sorted(existing)}; no process was closed")
 
 
 def cv(obj, name, *args):
@@ -164,8 +182,22 @@ class Sw:
         pythoncom.CoInitialize()
         self.diagnostics = []
         self.app = None
+        self.process_id = None
+        self.process_handle = None
         try:
+            before = application_pids()
+            if before:
+                raise RuntimeError(f"existing SOLIDWORKS processes prevent COM activation: {sorted(before)}; no application was changed")
             self.app = wc.DispatchEx(PROGID)
+            process_id = int(cv(self.app, "GetProcessID"))
+            if process_id <= 0 or process_id in before or process_id not in application_pids():
+                raise RuntimeError("versioned COM activation did not return a verified fresh SOLIDWORKS process")
+            self.process_handle = OpenProcess(0x00100000, False, process_id)
+            if WaitForSingleObject(self.process_handle, 0) != WAIT_TIMEOUT:
+                raise RuntimeError("fresh SOLIDWORKS process exited before ownership registration")
+            self.process_id = process_id
+            with OWNED_LOCK:
+                OWNED_HANDLES[process_id] = self.process_handle
             self.app.Visible = visible
             self.app.UserControl = False
             try:
@@ -175,15 +207,21 @@ class Sw:
             self.revision = str(cv(self.app, "RevisionNumber"))
             self.launches = 0
         except Exception as error:
-            if self.app is not None:
+            if self.process_id is not None:
                 self.close()
             else:
-                self.diagnostics.append({"stage": "dispatch_failed", "error": "no owned COM interface returned; process ownership is unavailable"})
+                self.app = None
+                if self.process_handle is not None:
+                    self.process_handle.Close()
+                    self.process_handle = None
+                self.diagnostics.append({"stage": "ownership_unavailable", "error": "no verified fresh process; no document or exit command was issued"})
                 pythoncom.CoUninitialize()
             error.add_note("oracle initialization cleanup: " + repr(self.diagnostics))
             raise
 
     def close(self):
+        if self.process_handle is None:
+            return
         try:
             self.app.CloseAllDocuments(True)
         except Exception as error:
@@ -194,6 +232,10 @@ class Sw:
             self.diagnostics.append({"stage": "exit_application", "error": repr(error)})
         self.app = None
         pythoncom.CoUninitialize()
+        with OWNED_LOCK:
+            OWNED_HANDLES.pop(self.process_id, None)
+            self.process_handle.Close()
+            self.process_handle = None
 
     def template(self, kind="part"):
         return str(self.app.GetUserPreferenceStringValue(8 if kind == "part" else 9))

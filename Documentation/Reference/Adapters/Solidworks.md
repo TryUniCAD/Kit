@@ -135,11 +135,16 @@ implementation. Its native preflight and full-family lock remain pending.
 The [local curve and radial construction rules](../../Changes/Solidworks/SolidworksCurveReferenceConstruction.md)
 bound both native reference scans and distinguish circle-marker updates from
 ordinary polygon points. These static rules do not establish curve acceptance.
+The [radial presentation rules](../../Changes/Solidworks/Inspection/SolidworksRadialPresentationRules.md)
+derive radius and diameter prefixes and separate runtime selectors from archive fields.
+They classify individual flag operations, rather than a universal saved flag word.
 The [bounded curve lifecycle observer](../../Changes/Solidworks/Inspection/SolidworksCurveLifecycleObservation.md)
 retains the point/arc state and independent counters needed for controlled
 training observations; its new snapshots await a native run.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
+The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)
+preserves existing sessions and limits dialog responses to registered live processes.
 The fresh [model component constructors](../../Changes/Solidworks/SolidworksModelConstruction.md)
 and [metadata constructors](../../Changes/Solidworks/SolidworksMetadataConstruction.md)
 build research object graphs from authored semantics and native constructor rules.

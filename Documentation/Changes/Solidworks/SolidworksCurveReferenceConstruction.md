@@ -17,8 +17,11 @@ records why polygon point-update rules cannot establish final circle marker
 coordinates. The native predicate and solver skip branch are classified;
 the [marker placement record](../../../re/solidworks/records/CircleMarkerPlacement2026.md)
 derives the native angular search and distinct creation/rebuild fallbacks.
-Exact collision boundaries and complete first-solve acceptance remain separate
-obligations.
+The [index-specific collision gotcha](../../Gotchas/Conversion/Solidworks/Model/CircleMarkerCollisionsUseIndexSpecificBounds.md)
+records the new index's half-open XY box and the legacy index's closed XY box.
+The predicate excludes type-two markers and compares eligible ordinary points
+in the local sketch frame. Native engine selection and complete first-solve
+acceptance remain separate obligations.
 
 For full-circle radius and diameter displays, the native witness engine's
 guarded false-result branch explicitly assigns both witness points zero and

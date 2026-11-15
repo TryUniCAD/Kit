@@ -695,6 +695,9 @@ bounds the non-full-arc endpoint path
 Selected later graphics-update branches, radial flag mutations, final
 prefix/formatting, tolerance ownership and remaining presentation coordinates
 must still be closed before a radial display writer is justified
+The [radial presentation construction record](RadialPresentationConstruction2026.md)
+now closes the ordinary constructor's primary prefix and individual mode/instance
+flag operations, without claiming a complete saved display or accepted writer
 
 ## Full-circle zero witnesses and bounded arc endpoint ordering
 

@@ -32,3 +32,7 @@ Treat a matching preexisting PID as unowned unless actual task ownership or a
 user handoff establishes otherwise. An unavailable active-object registration
 and an invisible window do not establish an empty session. Preserve unsaved
 work and wait for the owner before restarting that shared oracle.
+
+The [shared controller repair](../../../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)
+adds this ownership boundary before activation and removes image-wide process termination.
+Its idle guard refuses an existing application, and dialog handling requires a registered live process handle.
