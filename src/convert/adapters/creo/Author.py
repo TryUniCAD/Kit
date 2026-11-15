@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from struct import pack as PackValue
 
+from convert.adapters.creo.Stream import StreamParser
+
 # vendor banner text the loader uses to recognise a psb container
 KProductLine = (
     b"#Creo  TM  Version P-60-34  (c) 2019 by PTC Inc.  All Rights Reserved. 6.0.3.0\n"
@@ -1016,101 +1018,38 @@ def DatumFeatureRecord(
 
 
 # replays repeat the first record positionally so no field may be redeclared
-def DatumFeatureReplay(
-    FeatureId: int,
-    FeatureClass: int,
-    SectionName: str,
-    FirstGeomId: int,
-    BodyId: int,
-    MaskValues: tuple[int, ...],
-    CreateDate: int,
-    RegenDate: int,
-    StampTime: int,
-    RandomNum: int,
-    HostId: int,
-    RevNum: int,
-    NumPlins: int,
-    LargestPrevRev: int,
-    Lead: bytes = b"\xf7\x03",
-) -> bytes:
-    Payload = Lead
-    Payload += SignedInt(FeatureId)
-    Payload += SignedIntElements((4097, 0, 0, 0))
-    Payload += b"\xe3"
-    Payload += SignedInt(-1)
-    Payload += SignedInt(FeatureClass)
-    Payload += b"\xe1"
-    Payload += SignedInt(0)
-    Payload += SignedIntElements((0,) * 8 + (16, 0, 0))
-    Payload += SignedInt(0)
-    Payload += SignedInt(-1)
-    Payload += SignedInt(-1)
-    Payload += b"\xe3"
-    Payload += SignedInt(0)
-    Payload += SignedInt(0)
-    Payload += SignedInt(0)
-    Payload += SignedInt(-1)
-    Payload += SignedInt(-1)
-    Payload += SignedInt(-1)
-    Payload += SignedInt(0)
-    Payload += SignedInt(0)
-    Payload += SignedInt(0)
-    Payload += SignedIntElements((0,) * 6)
-    Payload += SignedInt(0)
-    Payload += SignedInt(-1)
-    Payload += SectionName.encode("latin-1") + b"\x00"
-    Payload += b"\xe3"
-    Payload += b"\xf8\x01\xf7\x1d\xfb"
-    Payload += b"\xe3"
-    Payload += b"\xf7\x1e"
-    Payload += SignedIntElements((FirstGeomId, 0, 0, 0))
-    Payload += b"\xe3"
-    Payload += RunValues(KIdentityColumn * 3)
-    Payload += SignedIntElements(MaskValues)
-    Payload += b"\xe1"
-    Payload += b"\xe3"
-    Payload += SignedInt(CreateDate)
-    Payload += SignedInt(RegenDate)
-    Payload += b"\xe3"
-    Payload += SignedInt(FirstGeomId)
-    Payload += b"\xe3"
-    Payload += b"\xe2"
-    Payload += b"\xf8\x01\xf7\x2a\xfb"
-    Payload += b"\xe2"
-    Payload += b"\xf7\x2b"
-    Payload += SignedInt(BodyId)
-    Payload += SignedInt(0)
-    Payload += SignedInt(BodyId)
-    Payload += SignedInt(-1)
-    Payload += SignedInt(BodyId)
-    Payload += SignedInt(0)
-    Payload += SignedInt(0)
-    Payload += SignedInt(0)
-    Payload += b"\x18\xe7\x05"
-    Payload += b"\x18"
-    Payload += b"\x18"
-    Payload += b"\xe1"
-    Payload += SignedInt(-1)
-    Payload += b"\xe3"
-    Payload += SignedInt(StampTime)
-    Payload += SignedInt(RandomNum)
-    Payload += SignedInt(HostId)
-    Payload += b"\xe1"
-    Payload += b"\xe1"
-    Payload += b"\xe1"
-    Payload += b"\xe1"
-    Payload += SignedInt(32769)
-    Payload += b"\xe1"
-    Payload += b"\xe1"
-    Payload += b"\xe1"
-    Payload += SignedInt(RevNum)
-    Payload += b"\xe3"
-    Payload += b"\xe1"
-    Payload += SignedInt(NumPlins)
-    Payload += SignedInt(LargestPrevRev)
-    Payload += SignedInt(0)
-    Payload += b"\xe1"
-    Payload += SignedInt(0)
+def ReplayOf(Definition: bytes) -> bytes:
+    Parser = StreamParser(Definition)
+    Spans: list[bytes] = []
+    Original = Parser.ReadField
+
+    def ReadField(Descriptor) -> object:
+        Start = Parser.Reader.Position
+        Node = Original(Descriptor)
+        Spans.append(Definition[Start : Parser.Reader.Position])
+        return Node
+
+    Parser.ReadField = ReadField
+    Parser.Run()
+    Payload = b""
+    for Value in Spans:
+        if Value[:1] in (b"\xf1", b"\xf2"):
+            Value = Value[1:]
+        if Value[:1] == b"\xf8" and b"\xf7" not in Value:
+            Marker = Value[1]
+            Width = (
+                1
+                if Marker <= 0x7F
+                else (
+                    2
+                    if Marker <= 0xBF
+                    else 3 if Marker <= 0xDF else 1 + (Marker - 0xE7)
+                )
+            )
+            Value = Value[1 + Width :]
+        if Value[:1] in (b"\xf9",):
+            Value = Value[3:]
+        Payload += Value
     return Payload
 
 

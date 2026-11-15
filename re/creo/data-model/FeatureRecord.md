@@ -540,11 +540,25 @@ solid917: datum + 917 replay; section 1537 record2 137
 (no End line; second run identical)
 ```
 
-Refused, silently, twice. The replay carried datum-shaped values in the protrusion's slots, so this result
-does not separate "the loader rejects a `917` here" from "these values are not a protrusion". What it does
-establish is that adding the record is not sufficient on its own: the record's own fields — section,
-contour and topology references — have to describe a real protrusion, and those are what the vendor
-regenerates.
+Refused, silently, twice.
+
+**That result is void as evidence about protrusions.** A control with a second *datum* replay in the same
+position, class `923` instead of `917`, is refused in exactly the same way:
+
+```text
+twodatum: datum definition + datum replay; section 1525
+!15-Nov-26 05:28:55  Start C:\Mac\Home\Documents\creo-authored\twodatum.prt
+(no End line)
+```
+
+So our multi-record assembly is wrong on its own, independently of the feature class, and the earlier
+conclusion about `917` does not follow. The likely cause is positional: `ExtraSchema` widens the definition
+by three fields, and a replay must then carry three more values, which the hand-written replay does not.
+
+`Author.ReplayOf(Definition)` was added to derive a replay from a definition instead of duplicating the
+field list, so the two cannot desynchronise. It is **not yet validated**: applied to the control's first
+record it yields `536` bytes against the control replay's `537`, and a section built with it is still
+refused. Until it is exact, the two-record question stays open and the `917` question cannot be asked.
 
 To add one, the **first** record would have to declare the union of datum and protrusion fields, and every
 later record would then have to carry values for that wider schema — including the replay-only sections
