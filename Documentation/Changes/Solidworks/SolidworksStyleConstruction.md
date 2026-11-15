@@ -32,3 +32,5 @@ writer's full held-out acceptance criteria remain in force.
 New findings are recorded in [folded style setters](../../Gotchas/Conversion/Solidworks/FoldedStyleSetters.md),
 [PE import budgets](../../Gotchas/Conversion/Solidworks/PeImportBudgetHidesUnits.md)
 and [GTol constructor initialization](../../Gotchas/Conversion/Solidworks/GtolUninitializedConstructorField.md).
+The [style offset-key finding](../../Gotchas/Conversion/Solidworks/StyleSchemaOffsetKeys.md)
+records the exact schema-interface repair discovered by the first remote run.
