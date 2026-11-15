@@ -367,6 +367,34 @@ The field table is sound too, and an earlier guess of mine is wrong: the section
 data. The ladder's records genuinely append fields — record one declares 71, and the solid records (`67`,
 `75`, `74`) add more — which is why the count is far above 71.
 
+### Two parser changes tried, neither moves the short mask
+
+The 71 schema jumps in record `74` looked like a selector-driven table, so the selector branch was logged: only
+**17** of the `311` field reads in that record are preceded by a selector, and each resolved name appears
+exactly once. So the repetition is *not* selector-driven.
+
+The repetition comes from the reader's positional rewind — `if Index >= len(Fields) and StructureStart:
+Index = StructureStart[-1]` — which re-enters the field range when structure tracking drifts. Disabling it
+changes the node count but nothing else:
+
+| Measure | Baseline | Rewind disabled |
+| --- | --- | --- |
+| `AllFeatur` nodes | `1007` | `941` |
+| bytes consumed | `7838` | `7838` |
+| record `74` mask slots (offset `6393`) | `0` | `0` |
+| ladder features / params / faces / edges / solid / volume | `7 / 8 / 6 / 12 / 1 / 18482541.4903…` | identical |
+
+Together with the earlier inline-record attempt (mask `0` → `3`, but `VisibGeom` broke: `6` faces → `5`,
+volume → `None`), the position is:
+
+- the mask count is *alignment-sensitive* — the inline change moved it — so `0` is probably an artifact;
+- no change tried so far makes it correct without breaking something else;
+- the reader's headline results are unaffected by all of this, because they come from feature markers,
+  `FeatDefs` and `VisibGeom`, not from record `74`'s node labels.
+
+A single document cannot distinguish "the `917` records carry a table here" from "the reader is one field off".
+That is now the only open question in the feature section, and it is not answerable from the two oracle files.
+
 ### Record-by-record diff against the learned schema
 
 Counting, per record, how many fields the parser reads and how often the schema index jumps:
