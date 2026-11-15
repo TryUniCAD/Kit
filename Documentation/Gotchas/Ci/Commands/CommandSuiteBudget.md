@@ -10,4 +10,4 @@ environment, schema verification, and each 10-minute limit. Register both job
 names in the CI allowlist for pull requests and merge groups. The extra runner
 adds setup work but avoids sharing one execution budget across both suites.
 
-See [the change and actual timing evidence](../../Changes/Commands/CliProcessCi.md).
+See [the change and actual timing evidence](../../../Changes/Commands/CliProcessCi.md).

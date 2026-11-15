@@ -17,7 +17,7 @@ The expanded CLI-only step took 269.30 seconds in
 [job 132657682013](https://github.com/TryUniCAD/Kit/actions/runs/43663480845/job/132657682013),
 with 341 passes and 12 invalid negative fixtures rejected before their intended
 CLI boundary. The fixture repair and additional coverage require independent
-budgets. See [the suite-budget gotcha](../../Gotchas/Ci/CommandSuiteBudget.md).
+budgets. See [the suite-budget gotcha](../../Gotchas/Ci/Commands/CommandSuiteBudget.md).
 
 Workflow source, formatting, and policy registration were checked. Accepted-head
 execution evidence is recorded in the CLI PR. No local tests ran; green pull
