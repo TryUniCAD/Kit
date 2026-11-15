@@ -126,6 +126,7 @@ The probes live in `re/creo/tools/` and take no vendor bytes into `src/`:
 | `SketchDef.py` | a generated sketch-bearing class-`949` element, reduced and complete |
 | `Rebuild.py` | rebuilds the 47-row generative part with one command; byte-deterministic |
 | `Verify.py` | the checkable ledger: rebuilds, reader counts, an independent volume cross-check, emitters, index and the writer's own flags — 14 checks, no Creo needed |
+| `Launch.py` | launches a part and prints one verdict — `clean`, `load-with-error`, `refused`, `not-launched` or `unavailable` — instead of clearing trails by hand and grepping three patterns |
 
 Launching Creo 2027.2 in Parallels:
 
