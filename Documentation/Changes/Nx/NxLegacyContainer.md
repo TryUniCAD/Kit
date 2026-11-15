@@ -368,7 +368,7 @@ the part filename:
 
 so the object region is a sequence of typed blocks and tagged values, not a single record grammar.
 
-## The object data is a byte-packed id stream, not entries or length-prefixed records
+## The directory region is a byte-packed id stream
 
 Walking the bytes after the third typed entry (0x19df in section 1) rules out both candidate
 grammars immediately:
@@ -389,6 +389,9 @@ and the region as a whole is 4.1 percent `ff` (2031 of 49105 bytes) in 567 alter
 padding is not a fixed-size slot table either. The values are all below the 98-class count, which
 makes them candidate class or object indices, but they are below the per-class code range (37 to 97)
 recorded earlier, so they are not those codes.
+
+This is the directory region only. The object data proper starts at 0x1de3, and it is a
+length-prefixed record block (see the section above), so the two regions have different grammars.
 
 ## The header is 15 bytes followed by exactly three typed entries
 
