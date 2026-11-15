@@ -3,7 +3,7 @@ from __future__ import annotations
 from tests.convert.solidworks.research.ArchiveProcess import KCorpus, RunArchive
 
 
-def TestLinkedArchives() -> None:
+def TestLinked() -> None:
     Outcome = RunArchive(
         str(KCorpus / "*.SLDPRT"),
         "Contents/Config-0-ResolvedFeatures",
