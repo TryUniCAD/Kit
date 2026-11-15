@@ -51,7 +51,7 @@ def TocRow(
 ) -> bytes:
     RowText = (
         f"{NameText} {OffsetValue:x} {LengthValue:x} {ExpandedValue:x} "
-        f"{KTocVersion} {KTocKind} 1 {ChecksumValueA:04x} {ChecksumValueB:04x}"
+        f"{KTocVersion} {KTocKind} -1 {ChecksumValueA:04x} {ChecksumValueB:04x}"
     )
     return RowText.encode("ascii").ljust(KTocWidth - 1, b"#")[: KTocWidth - 1] + b"\n"
 

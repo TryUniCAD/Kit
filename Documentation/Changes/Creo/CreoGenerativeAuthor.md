@@ -108,6 +108,21 @@ The same launch path was run on the retained vendor empty control (research orac
 No "not a valid PART file" line. So the harness and licensing work, and the rejection is specific to
 the authored content, not to the headless launch.
 
+## Container layout facts
+
+Rebuilding the vendor control with byte-identical section bodies still fails, which exposed three
+layout rules the author did not yet model:
+
+- sections are separated by a literal `#\n` line that is **not** counted in the stored length
+  (`Model_L05_PX` ends at `0xd8c+1252`, the next section starts at `+2`);
+- the directory contains a `NEXT_TOC_ENTRY` row pointing at a continuation table
+  (`105a7 747 0 1934 1 -1 0000 0000` in the control), so a part has two tables;
+- the seventh column is `-1` for plain `kind 9` sections and `1` for compressed `kind a` sections.
+
+`Author.py` now emits `-1` for plain sections. The continuation table and the `#\n` separators are
+not yet authored, and the no-op rebuild still fails, so the geometry-replacement experiment is not
+yet conclusive.
+
 ## Limits
 
 - The authored part contains only `AllFeatur` and `VisibGeom`. Creo rejects it as "not a valid PART
