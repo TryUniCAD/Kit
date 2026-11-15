@@ -60,3 +60,25 @@ A 57-file `OracleBatch.vbs` run stopped on the interactive `Open External Refere
 documents` dialog and was terminated after 20 minutes. The single-file runs above succeeded.
 The prompt behavior is recorded in
 `Documentation/Gotchas/Conversion/SolidworksOracleModalPrompts.md`.
+
+## Drawing fixtures
+
+`AuthorDrawings.vbs` created three one-sheet drawings from the tracked five-line
+part fixtures in SOLIDWORKS Design Premium 2026 SP5.2 (revision 34.5.2):
+
+```
+VIEW=standard Drawing View1 TYPE=7 X=0.11 Y=0.23
+VIEW=standard Drawing View2 TYPE=7 X=0.22 Y=0.11
+VIEW=standard Drawing View3 TYPE=7 X=0.11 Y=0.23
+VIEW=standard Drawing View4 TYPE=7 X=0.22 Y=0.23
+REBUILT=True
+READ_VIEW=standard Sheet1 TYPE=1
+READ_VIEW=standard Drawing View1 TYPE=7
+...
+DRAWING_SAVED=...\standard.SLDDRW EXISTS=True READ_VIEWS=5
+```
+
+`minimal.SLDDRW` was saved with two views at 2:1 and `angled.SLDDRW` with three
+views at 1:1. The files are tracked under `re/solidworks/examples/Drawings/`.
+The container stream list and reader behavior are documented in
+[the drawing reader change entry](../../Documentation/Changes/Solidworks/SolidworksDrawingReader.md).
