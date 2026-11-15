@@ -383,6 +383,30 @@ The builder requires that boolean explicitly and never copies a saved flag.
 
 ## Part-root graph
 
+`model_fields` initializes an actual preallocated, empty `moPart_c` or
+`moAssembly_c` object from the common model LW/RES wire ownership boundary.
+Its keyword inputs are `node`, `name`, `allocator`, `detail_definitions`,
+`document_units`, `analysis_units`, `self_component` and `relation_graph`.
+It returns that object's field dictionary. The concrete self component is an
+explicit constructed object whose `owner` must be the same model object;
+the helper does not choose a chain subtype or construct an assembly component.
+The relation graph is explicitly absent or a generated `moRelMgr_c` whose
+owner is that same model. Base constructor `0x4c00edb0` initializes `f9d0`
+to null; a later required manager must come from its real caller.
+
+The common set follows LW method `0x4c22ec80` and RES method `0x4c234150`.
+`part_root` then supplies the part-specific sections `0x4c2309d0` and
+`0x4c2378b0`, including the shared serializer's `PartOnly` branches.
+Thus the dimension-increment arrays remain in part wire construction even
+though their runtime members are initialized by the model constructor.
+No part scalar is assigned to an assembly-specific map at the same offset.
+Static declaration inspection preserved all `132` existing part field owners,
+partitioned into `98` common and `34` part-only fields with no overlap.
+This is source-structure evidence, not a newly executed graph or native
+assembly acceptance. The existing subprocess check exercises `part_root`
+through this shared path when remote CI runs it.
+See [model offset ownership](../../../Documentation/Gotchas/Conversion/Solidworks/ModelOffsetsAreTypeSpecific.md).
+
 `part_root` and `part_graph` construct the base part and its principal planes.
 They require generated detail definitions, explicit document and analysis unit
 graphs, a crosshatch name, configuration names and version provenance.
