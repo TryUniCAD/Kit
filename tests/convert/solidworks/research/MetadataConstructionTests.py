@@ -193,8 +193,8 @@ def TestLogNames() -> None:
     ModelHeaders = CastValue(dict[str, dict[str, object]], Renamed["model_headers"])
     Headers = [CastValue(dict[str, object], Renamed["header2"]), *ModelHeaders.values()]
     for Header in Headers:
-        for Log in CastValue(list[dict[str, object]], Header["revision_logs"]):
-            Log["name"] = DocumentName
+        for LogRecord in CastValue(list[dict[str, object]], Header["revision_logs"]):
+            LogRecord["name"] = DocumentName
     OriginalResult, RenamedResult = RunMetadata([MakeInput(), Renamed])
     assert OriginalResult["read_blocked"] and RenamedResult["read_blocked"]
     assert RenamedResult["name"] == DocumentName
