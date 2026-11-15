@@ -37,6 +37,21 @@ allocates that node. No synthetic `f08` field is needed on a dimension.
 Configuration construction does not consume a persistent id.
 The manager's own constructor leaves its ordinary node id at `-1`.
 
+Persistent allocation follows construction lifetime, including objects omitted
+by a conditional serializer. The from-end-spec constructor `0x4bad3e00`
+creates a role-19 parallel-plane-distance display dimension even when end type
+zero causes its serializer to omit that dimension.
+The parameter-naming routine `0x4c821c40` asks the owner model's virtual slot
+`0x1250` with argument zero before allocating `dimension.f50`.
+For `moPart_c`, vtable `0x4d1252d8` resolves that slot to
+`moModel_c::isViewerModel` at `0x4c02d7d0`.
+With argument zero, the result is `(~(model[0x2b0] >> 2)) & 1`.
+The model constructor `0x4c00edb0` writes `0x0c` at that offset, so an ordinary
+fresh part returns false and this naming path consumes the header id.
+The profile builder must retain the actual transient dimension object through
+allocation rather than add a numeric gap to the next-id counter.
+See the [transient-dimension gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/TransientDimensionsConsumeIds.md).
+
 ## Shared feature constructors
 
 The functions live in `re/tooling/sw2026/builders/Model.py`.
@@ -322,6 +337,11 @@ all covered file opens, directory enumeration and process-launch events.
 The result reports both recorded imports and actual denied attempts; the test
 also checks that the construction phase is active and the builder import was seen.
 This stricter audit awaits its current-head remote result.
+The first strict-audit remote run at `236ccd510` correctly denied a lazy import
+of `encodings/utf_16_le.py` during Unicode string storage. The harness now resolves
+the native string codec names during its recorded initialization phase, before
+`BeginBuild`; construction retains the same unconditional file-access ban.
+See [lazy codec imports](../../../Documentation/Gotchas/Conversion/Solidworks/LazyCodecsAfterAudit.md).
 The expanded check also passes all twelve supported folder classes and the
 annotation cabinet through a separate generated stream in the container,
 then checks class identity, id allocation and recovered creation times.

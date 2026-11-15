@@ -35,6 +35,10 @@ The [test helper gotcha](../../Gotchas/Ci/CheckPrefixCollectsTests.md) records t
 repository's additional pytest collection prefix.
 The [dimension id gotcha](../../Gotchas/Conversion/Solidworks/DimensionAndParameterIds.md)
 records the header allocator's separate object-field binding for feature dimensions.
+The [transient dimension gotcha](../../Gotchas/Conversion/Solidworks/TransientDimensionsConsumeIds.md)
+explains why a native object omitted by storage can still advance that allocator.
+The [codec initialization gotcha](../../Gotchas/Conversion/Solidworks/LazyCodecsAfterAudit.md)
+records a lazy code import exposed by the strict remote audit.
 
 ## Verification
 
