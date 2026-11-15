@@ -11,6 +11,10 @@ Read side: complete for the retained control. It decodes `7` features, `8` param
 one solid and volume `18482541.490319017`, and a no-op container rebuild of the `81539`-byte control is
 byte-identical.
 
+The volume is not taken on trust from the reader's own plane intersection: the six surfaces also give three axis
+spans, and their product is the same number to six decimals (`338.938151 x 270.33 x 201.719085 = 18482541.490319`).
+`re/creo/tools/Verify.py` checks both, along with the rebuilds, the emitters and the writer's flags.
+
 Write side: **partial, and not vendor-loadable for anything with geometry.** What Creo has accepted cleanly —
 `End` plus `MT Part Solid`, no `dbg_err_crash`:
 
@@ -114,7 +118,7 @@ The probes live in `re/creo/tools/` and take no vendor bytes into `src/`:
 | `Class917.py` | a generated class-`917` definition element |
 | `SketchDef.py` | a generated sketch-bearing class-`949` element, reduced and complete |
 | `Rebuild.py` | rebuilds the 47-row generative part with one command; byte-deterministic |
-| `Verify.py` | the checkable ledger: rebuilds, reader counts, emitters, index and the writer's own flags — 13 checks, no Creo needed |
+| `Verify.py` | the checkable ledger: rebuilds, reader counts, an independent volume cross-check, emitters, index and the writer's own flags — 14 checks, no Creo needed |
 
 Launching Creo 2027.2 in Parallels:
 

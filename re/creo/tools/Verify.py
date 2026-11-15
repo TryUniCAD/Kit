@@ -21,6 +21,7 @@ sys.path.insert(0, "re/creo/tools")
 
 import Subset
 from convert.adapters.creo import Author
+from convert.adapters.creo import VisibGeom
 from convert.adapters.creo.Adapter import CreoAdapter
 from convert.adapters.creo.Header import ReadHeader
 from convert.adapters.creo.Stream import StreamParser
@@ -73,6 +74,35 @@ def CheckReader() -> None:
         "reader empty control",
         (len(Empty.feature_timeline), len(Empty.bodies)) == (4, 0),
         f"{len(Empty.feature_timeline)} features, {len(Empty.bodies)} bodies",
+    )
+
+
+def CheckVolume() -> None:
+    DataValue = KLadder.read_bytes()
+    Header = ReadHeader(DataValue)
+    for TableValue in Subset.ReadTables(DataValue, Header.base):
+        for Entry in TableValue.rows:
+            if Entry.name != "VisibGeom":
+                continue
+            Offset = Header.base + Entry.offset
+            Body = DataValue[Offset : Offset + Entry.length]
+            Payload = Body[Body.find(b"\n") + 1 :]
+    Surfaces, _Curves = VisibGeom.ReadGeometry(Payload)
+    Projections: dict[int, list[float]] = {0: [], 1: [], 2: []}
+    for Surface in Surfaces:
+        Plane = VisibGeom.PlaneValue(Surface)
+        if Plane is None:
+            continue
+        Normal, OffsetValue = Plane
+        Axis = max(range(3), key=lambda Index: abs(Normal[Index]))
+        Projections[Axis].append(OffsetValue if Normal[Axis] > 0 else -OffsetValue)
+    Spans = [max(Values) - min(Values) for Values in Projections.values()]
+    Independent = Spans[0] * Spans[1] * Spans[2]
+    Reported = CreoAdapter().read(KLadder).bodies[0].topology.volume
+    Check(
+        "volume cross-checked by plane spans",
+        abs(Independent - Reported) < 1e-6,
+        f"{Independent:.6f} from spans, {Reported:.6f} from the reader",
     )
 
 
@@ -175,6 +205,7 @@ def CheckWriterFlags() -> None:
 def main() -> int:
     CheckRebuilds()
     CheckReader()
+    CheckVolume()
     CheckEmitters()
     CheckReplay()
     CheckGeneratedPart()
