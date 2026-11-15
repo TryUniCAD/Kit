@@ -203,7 +203,11 @@ result = CatiaAdapter().write(
   handles to that order, so a clockwise arc no longer places its handles in handle-index order.
   That makes the planar faces coplanar
   for the simple parts (deviation drops from 1.0-34.5 to 0.0-0.0015) and puts all 76 `Copper_Washer`
-  vertices on the washer's circles. The least violating fallback lowers the pooled-part plane
+  vertices on the washer's circles. The tessellation snap now uses the dominant cylinder's carrier
+  origin, completes a partial decoded ring with `TessRing`, and refuses a snap that raises the
+  surface violation by more than `1e-6`. That keeps all 76 `Copper_Washer` vertices on the 18°/22.5°
+  grid and removes the `12.75`, `0.136`, and `1.5` plane deviations on `BRK_PRS_Sensor`, `Nut_M5`,
+  and `Sensor_Connection`. The least violating fallback lowers the pooled-part plane
   deviation from 67.1/150.4/85.1/58.5 to 55.4/64.1/58.9/36.0 for `4784`, `4876`, `Pedal_Body`, and
   `Reservoir`. The angular positions are still assumed equal-spaced, not the
   stored tessellation. The coordinate region is a sequence of float runs

@@ -681,9 +681,50 @@ def LocalFrame(
     return First, Second, AxisValue, Origin
 
 
+# this definition exists because a decoded tessellation region can cover part of a ring
+def TessRing(
+    BrepValue: BrepData,
+) -> list[tuple[float, float]]:
+    Groups: dict[float, list[float]] = {}
+    for FirstPoint, SecondPoint in BrepValue.tessellation:
+        Radius = math.hypot(FirstPoint, SecondPoint)
+        if Radius <= 1e-9:
+            continue
+        KeyValue = round(Radius, 3)
+        Groups.setdefault(KeyValue, []).append(math.atan2(SecondPoint, FirstPoint))
+    RingValues: list[tuple[float, float]] = []
+    for Radius, Angles in Groups.items():
+        Unique = sorted({round(Angle, 4) for Angle in Angles})
+        if len(Unique) < 3:
+            continue
+        StepValue = min(
+            Unique[Index + 1] - Unique[Index] for Index in range(len(Unique) - 1)
+        )
+        if StepValue <= 1e-6:
+            continue
+        BaseValue = Unique[0]
+        if any(
+            abs(
+                (Angle - BaseValue) / StepValue - round((Angle - BaseValue) / StepValue)
+            )
+            > 1e-3
+            for Angle in Unique
+        ):
+            continue
+        Count = int(round(2.0 * math.pi / StepValue))
+        if Count < len(Unique) or Count > 360:
+            continue
+        for Index in range(Count):
+            Angle = BaseValue + Index * StepValue
+            RingValues.append((Radius * math.cos(Angle), Radius * math.sin(Angle)))
+    return RingValues
+
+
 # this definition exists because focused behavior needs one stable owner
 def SnapToTessMut(
-    BrepValue: BrepData, Positions: dict[int, tuple[float, float, float]]
+    BrepValue: BrepData,
+    Positions: dict[int, tuple[float, float, float]],
+    Usage: dict[int, set[int]],
 ) -> None:
     if not BrepValue.tessellation:
         return
@@ -691,6 +732,7 @@ def SnapToTessMut(
     if Frame is None:
         return
     First, Second, AxisValue, Origin = Frame
+    Candidates = list(BrepValue.tessellation) + TessRing(BrepValue)
     for Handle, Point in Positions.items():
         Delta = (
             Point[0] - Origin[0],
@@ -703,7 +745,7 @@ def SnapToTessMut(
         Radius = math.hypot(FirstValue, SecondValue)
         Nearby = [
             (FirstPoint, SecondPoint)
-            for FirstPoint, SecondPoint in BrepValue.tessellation
+            for FirstPoint, SecondPoint in Candidates
             if abs(math.hypot(FirstPoint, SecondPoint) - Radius) < 1e-2
         ]
         if not Nearby:
@@ -714,7 +756,7 @@ def SnapToTessMut(
             Nearby,
             key=lambda Value: math.hypot(Value[0] - FirstValue, Value[1] - SecondValue),
         )
-        Positions[Handle] = (
+        Snapped = (
             Origin[0]
             + BestValue[0] * First[0]
             + BestValue[1] * Second[0]
@@ -728,6 +770,13 @@ def SnapToTessMut(
             + BestValue[1] * Second[2]
             + Along * AxisValue[2],
         )
+        Planes, Cylinders = SurfaceLimits(BrepValue, Usage[Handle])
+        if (
+            Violation(Snapped, Planes, Cylinders)
+            > Violation(Point, Planes, Cylinders) + 1e-6
+        ):
+            continue
+        Positions[Handle] = Snapped
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -921,7 +970,7 @@ def CornerPositions(
     Positions = AssignCorners(BrepValue, Usage, ArityTwo)
     PlaceArcMut(BrepValue, Usage, ArityTwo, Positions)
     PlaceRestMut(BrepValue, Usage, Positions)
-    SnapToTessMut(BrepValue, Positions)
+    SnapToTessMut(BrepValue, Positions, Usage)
     return Positions
 
 
