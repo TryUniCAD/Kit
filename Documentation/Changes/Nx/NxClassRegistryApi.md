@@ -117,6 +117,47 @@ The name length byte is also one greater than the name: `0x14` is 20 for a 19 ch
 entry's framing has at least one convention I have not identified, and every field-level conclusion in
 this document inherits that uncertainty. Recording it here rather than building on it.
 
+## The registry is callable at runtime, and its values are not in the table
+
+The registry can be queried from a journal in a running NX through `ctypes` and `GetProcAddress`
+on the decorated export names. This is a measurement of the kernel's own API, not a copy of any
+document:
+
+```text
+libsyss.dll module base         resolved
+?Name2ClassId                   resolved
+?GetNumClasses  ->  7806
+?GetSerialNumber ->  7804
+UGS::OM::RootObject      ->  91
+UGS::OM::RootObjectGroup ->   2
+UGS::RM_part             ->  2715
+UGS::POINT               ->  4492
+UGS::Sketch::Colors      ->  2743
+UGS::NotAClass           -> 65535   (invalid)
+```
+
+`Name2Registrant` then exposes per class the attribute count, the superclass id and the digest
+dword at `+0xb0`, so the registry's whole view of a class is readable.
+
+That makes the decisive comparison possible: query the registry for all **154** names in
+`dim40.prt`'s table and look for each value inside that class's stored entry.
+
+```text
+classes queried                                 154
+entries searched                                all
+id found inside its entry, any of le1/le2/le3/le4/be1/be2/be3/be4/base-128    0
+field matches against id / digest / attribute count / superclass id            0
+```
+
+So the table is **not** a copy of the registry's identifiers, digests, attribute counts or
+superclass links. The values are computed by the loader from something not exposed by these
+accessors, which is why no field lines up and why the entry is stable across parts with the same
+class set.
+
+Combined with the swap test (see `NxClassTableScope.md`), the conclusion is that a class table can
+only be produced by the loader that validates it. It cannot be derived from names, permuted between
+classes, copied from the registry, or shared between class sets.
+
 ## Limits
 
 - The entry's field positions are not assigned to registry properties.
