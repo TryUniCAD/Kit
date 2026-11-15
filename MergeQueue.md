@@ -12,6 +12,13 @@ checked-in desired ruleset and live rules separately.
 
 ## Validation phases
 
+The [post-merge rationale audit](Documentation/Changes/Ci/PostMergeQueueAudit.md)
+runs the complete queue job set on the immutable PR #127 merge revision and any explicitly recorded repair revision.
+Only pushes to `codex/rationale-merged-audit` trigger that audit phase.
+Its source checkouts use `AuditSha`, and every test module runs without result reuse.
+Repair audits select the triggering push's full commit SHA so the harness is included in their input.
+This audit evidence is separate from native merge-queue acceptance.
+
 PRs run Python lint, formatting, types, steering, import, path, skill, and
 workflow policies, including actionlint and Zizmor. Existing metadata labeling
 continues. Load every entry in `Reviewers` from
@@ -75,8 +82,10 @@ checks current CI health for every included PR and validates the artifact's
 origin and SHA-256 digest. Reuse requires identical candidate and PR-head trees,
 identical base commits, and ancestry from that base to the PR head. With that
 ancestry, merging the base into the PR head adds no files or content. Only
-whole-tree checks are reusable. Header, path-diff, and rationale-diff checks
-always execute freshly on the queue candidate. Supplementary merge-ref reports
+whole-tree checks are reusable. Path-diff and rationale checks always execute freshly on the queue candidate.
+The rationale gate scans every tracked owned Python source without a baseline.
+Missing comments on unchanged declarations and compatibility aliases also fail.
+The subsequent range check rejects newly added explanatory comments. Supplementary merge-ref reports
 are included only after their parents match the recorded head and base.
 
 Normal PR aggregation runs on `pull_request_target` using the trusted default
