@@ -329,6 +329,67 @@ That is the reason this work stopped chasing the fifth class set: the emitter ne
 function of the class **name**, and that is what sixteen probes have failed to find,
 whether the increment turns out to be per class or per count.
 
+## The entry decodes as big-endian base-128 and is a per-class constant plus a set scalar
+
+Three earlier conclusions in this entry were artefacts of decoding the entry **little-endian**. The
+correct convention is **most significant group first**, with bit 7 set on every group but the last:
+
+```text
+UGS::OM::RootObject        38 | 74 | b0 4b | a5 fe 91 1b | f6 79 | 02
+                          56 | 116| 6219  | 79661211     | 15225 | 2
+UGS::OM::SaveAuditTrail    80 c9 78 | 60 | 94 9c 18 | 6a | a8 9e 41 | 01
+                           9464     | 96 | 331288   | 106| 659265   | 1
+```
+
+With that decode, comparing parts that carry the same class set shows the table is per-class data
+and not part data:
+
+```text
+dim40 vs dim50   154 classes   153 of 154 entries identical
+dim40 vs var_two 154 classes   154 of 154 identical
+dim40 vs var_e4  154 classes   153 of 154 identical
+dim40 vs var_d9  154 classes   153 of 154 identical
+```
+
+and comparing parts whose class **count** differs shows every entry moving by the same small amount
+inside a single 7-bit group:
+
+```text
+part        classes   K      example: RootObject group 1
+dim40           154    0     116
+var_sph         153   -1     115
+var_cyl         161   +4     120
+empty           129  -16     100
+multi           129  -16     100
+```
+
+so `entry(class, set) = base(class) + K(set)` in one group. A handful of classes move by larger
+amounts (`UGS::Facet::JT::Body`, some annotation parameter classes), so the law is not uniform, but
+it holds for the large majority.
+
+That decode also explains the three retractions this entry carries. Decoding little-endian turns a
+`-1` in one group into a borrow that flips a run of high bits, which is what produced the "bit
+scatter" observation, the "not additive, 90 distinct deltas" measurement and the "constant plus
+increment is refuted" section. All three were decoding failures, not properties of the format.
+
+## The bases are not stored in any vendor module
+
+With the additive law in hand the per-class base became testable: for `dim40.prt` (K = 0) the stored
+entry **is** the base, so each base can be searched for verbatim.
+
+```text
+entries found verbatim in libpart.dll, libsyss.dll or pskernel.dll     0 of 154
+entries minus the varying first byte                                     0 of 154
+```
+
+and a systematic sweep over the bases tested 30 digest functions (md5, sha1, sha256, sha512,
+blake2b-8/16, xxh32 and xxh64 at seeds 0-3, fnv1a-32/64, fnv1-64, djb2, sdbm, crc32, adler32)
+against 10 name encodings (full, component, NUL-terminated, length-prefixed, 8-byte aligned, UTF-16LE,
+lower, upper, MSVC-mangled, dot-separated) at all eight bit shifts. No digest appears in any base.
+
+So the base is computed by the loader at load time and is not a stored constant, not a digest of the
+name, and not any registry field the API exposes.
+
 ## The entry values are validated per name
 
 The entry framing is now delimited by the name lengths rather than by base-128 continuation
