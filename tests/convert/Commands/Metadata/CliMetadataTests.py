@@ -1,13 +1,8 @@
-from dataclasses import replace as ReplaceData
-from hashlib import sha256 as HashContent
 from json import loads as LoadJson
 from pathlib import Path as FilePath
 
 from pytest import mark as TestMark
 
-from convert.adapters.Fusion.Authoring.MakeFusionDoc import MakeFusionDoc
-from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
-from tests.convert.api.ApiTestPaths import KSamplePath
 from tests.convert.Commands.CheckJsonBlock import CheckJsonBlock
 from tests.convert.Commands.CliProcess import CliProcess
 from tests.convert.Commands.Metadata.BuildMetadata import BuildMetadata, KMetadataCases
@@ -27,20 +22,27 @@ def CheckRetained(
     CheckJsonBlock(Document, "RetainedMetadata", HasOutput, TmpPath)
 
 
+@TestMark.parametrize(
+    "FieldName", ("Feature", "Sketch", "Assembly", "Provenance", "Source")
+)
+@TestMark.parametrize("RecordKind", ("Alias", "Nested", "Tuple", "NestedEmpty"))
 @TestMark.parametrize("IsNested", (False, True))
-def CheckProvenance(IsNested: bool, TmpPath: FilePath) -> None:
-    Document = ReplaceData(
-        MakeFusionDoc(DocumentSpec("Typed provenance history", "height", 20.0)),
-        metadata={
-            "source_sha256": HashContent(KSamplePath.read_bytes()).hexdigest(),
-            "source_path": "original.SLDPRT",
-            "source_format": "solidworks.sldprt",
-            "notes": {
-                "tags": ("research", "provenance"),
-                "revision": "source-revision",
-            },
-        },
-    )
+@TestMark.parametrize("HasOutput", (False, True))
+def CheckFields(
+    FieldName: str, RecordKind: str, IsNested: bool, HasOutput: bool, TmpPath: FilePath
+) -> None:
+    Document = BuildMetadata(RecordKind, FieldName)
+    if IsNested:
+        Document = WrapDocument(Document)
+    CheckJsonBlock(Document, "RetainedMetadata", HasOutput, TmpPath)
+
+
+@TestMark.parametrize(
+    "FieldName", ("Document", "Feature", "Sketch", "Assembly", "Provenance", "Source")
+)
+@TestMark.parametrize("IsNested", (False, True))
+def CheckProvenance(FieldName: str, IsNested: bool, TmpPath: FilePath) -> None:
+    Document = BuildMetadata("Provenance", FieldName)
     Document.AssertValid()
     if IsNested:
         Document = WrapDocument(Document)
