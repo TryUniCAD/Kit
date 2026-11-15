@@ -147,6 +147,8 @@ implementation. A two-case source preflight passed creation, reopen and driving 
 The full-family lock and Kit-written curve acceptance remain pending.
 The [explicit oracle interface bindings](../../Changes/Solidworks/Inspection/SolidworksExplicitOracleInterfaces.md)
 avoid automatic type discovery on child objects that reject `GetTypeInfo`.
+The [type-library inventory](../../Changes/Solidworks/Inspection/SolidworksTypeLibraryInventory.md)
+selects installed API declarations and enum constants without activating CAD.
 The [approved-session handoff tool](../../Changes/Solidworks/Inspection/SolidworksApprovedSessionHandoff.md)
 closes an explicitly selected clean session after user authorization, while measurement guards continue to refuse existing processes.
 The [local curve and radial construction rules](../../Changes/Solidworks/SolidworksCurveReferenceConstruction.md)
