@@ -466,12 +466,11 @@ def define(reg):
         Vgt(0x6A, [Vlt(0xDB9, [i32("old_6a")]), obj("f48")]),
         Vgt(0xA9C, [Vlt(0xDB9, [i32("old_a9c")])]),
     ])
-    for c in ("moLengthParameter_c", "moDensityParameter_c"):
-        reg.define(c, [
-            base("moParameter_c.FUN_4c17a330"),
-            f64("f58"),
-            NCond(0x80, [Vgt(0x3DA, [u8("f68"), Nz("f68", [f64("f60")])])]),
-        ])
+    reg.define("moDensityParameter_c", [
+        base("moParameter_c.FUN_4c17a330"),
+        f64("f58"),
+        NCond(0x80, [Vgt(0x3DA, [u8("f68"), Nz("f68", [f64("f60")])])]),
+    ])
     reg.define("moUnitComponent_c", [
         base("moComponent_c"),
         Cond(1, [Old("moUnitComponent_c condition 1")]),

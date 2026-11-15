@@ -23,5 +23,11 @@ The grammar reuses `dm.moDoubleParameter_c.FUN_4c177fe0` and registers the lengt
 class with normal node dispatch. Its numeric value remains authored; the optional
 second value follows the existing presence flag and archive conditions.
 
+The first integration revision exposed an older length-parameter registration
+inside `ConfigPart`. Remote CI rejected the duplicate before any stream check
+ran. The shared dimension module now owns that class alone; the configuration
+module retains its distinct density-parameter schema. This is a single owner,
+not permission to allow duplicate schema registration.
+
 This is not evidence of a complete display-dimension graph, solver state,
 editable native output, or a successful target-application rebuild.

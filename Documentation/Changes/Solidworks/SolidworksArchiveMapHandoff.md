@@ -19,7 +19,9 @@ The shared dimension grammar also recognizes the constructor-backed
 
 See the [2026 evidence table](../../../re/solidworks/records/ArchiveMapConstruction2026.md)
 for module addresses and limits. Static syntax and formatting are the local
-checks; linked-stream process verification is pending remote CI. No tests
-ran locally. This adds no production writer and establishes no native-output
+checks. Head `d296a2714a78c127fd0df0b626c37b9a60247c3e` passed the remote
+eight-file linked gate and all 56 existing critical-stream comparisons; the
+native-file job reported 124 passed and 158 existing fixture-dependent skips.
+No tests ran locally. This adds no production writer and establishes no native-output
 acceptance; the [adapter guide](../../Reference/Adapters/Solidworks.md) remains
 read-only.
