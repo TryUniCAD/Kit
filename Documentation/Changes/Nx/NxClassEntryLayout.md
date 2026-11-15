@@ -265,6 +265,27 @@ That orders the work: the prefix is produced by the per-class part of this routi
 after `0x180144651`, and the value it stores is read from `[rbx + 0x30]` at an index of
 `2 * [[r13 + 0x30] + 0x98]` — a per-session table, not a per-class constant this file can supply.
 
+## The writer hook: installed, fired, and negative
+
+A trampoline was installed on the entry assembler `0x180144100` (copy the `push`/`sub rsp` prologue
+into a `VirtualAlloc` page, append an absolute jump back, patch the entry with an absolute jump to a
+`ctypes` callback that logs and then calls the thunk) and a `SaveAs` of `dim40.prt` was driven from
+the same journal. The hook installed and fired **seven** times with these counts:
+
+```text
+9, 15, 17, 24, 30, 52, 157
+```
+
+so the routine is a general table writer, and the 157-entry call is the class-set one. But the table
+it reads at `[rbx + 0x30]` is **not** the prefix source: sampled at entry it is almost entirely
+`0xffff`, with a few small values (`0x8c`, `0x91`), and **zero** of its values match the first two
+bytes of any stored entry prefix. It is an allocated-id occupancy map, the same shape as the
+occupancy object in the expression section.
+
+So the prefix's 16-bit value is filled into that structure _during_ the routine, after the point
+where an entry hook can observe it, or it comes from somewhere else entirely. Reading it needs a
+mid-function observation, which is the trampoline problem the entry hook avoided.
+
 ## What is left
 
 The prefix and the tail. Hooking `0x1801445xx` during a `SaveAs` and logging the two blocks and the
