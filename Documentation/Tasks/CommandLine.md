@@ -55,6 +55,8 @@ The report includes usability claims, transfers, dropped capabilities, external 
 The command always uses strict reading and `allow_carrier=False`.
 It also requires every capability transfer to be native; mixed transfers and intrinsic target-limitation carriers are refused before output publication.
 It refuses native-only feature definitions or sketch geometry before writing, including in nested components.
+Component, mate, mate-entity, sketch-entity and sketch-constraint kinds must be known nonnative values.
+Native enum values, `"native"` strings and unknown kind strings are refused even when their links or geometry objects are valid.
 Retained native payloads, opaque B-rep records, and explicit incomplete assembly references or transforms are also refused.
 Retained source keys and binary metadata values are refused through nested containers and embedded documents; ordinary provenance text and digests remain eligible.
 Local B-rep, meshes, or bodies without a feature timeline are refused, including nested documents and local assembly geometry.
