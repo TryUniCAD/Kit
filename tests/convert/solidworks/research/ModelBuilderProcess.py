@@ -5,7 +5,7 @@ from subprocess import CompletedProcess, run as RunProcess
 from sys import executable as PythonExec
 
 KRepoRoot = FilePath(__file__).resolve().parents[4]
-KProgram = """
+KImports = """
 import json
 import sys
 from pathlib import Path
@@ -27,6 +27,9 @@ from builders.Model import configuration_manager
 from builders.Definition import part_definition, definition_stream
 from convert.adapters.solidworks.container.Container import build_sldprt, SldprtArchive
 
+"""
+
+KGuard = """
 reg = registry()
 reads = []
 
@@ -42,6 +45,9 @@ def audit(event, args):
     reads.append(str(path))
     raise RuntimeError('runtime file access during fresh construction: ' + str(path))
 
+"""
+
+KBuild = """
 sys.addaudithook(audit)
 names = [prefix + str(index) for index in range(count)]
 manager = configuration_manager(
@@ -59,6 +65,9 @@ streams = {
 }
 blob = build_sldprt(streams)
 archive = SldprtArchive.from_bytes(blob)
+"""
+
+KCheck = """
 cmgr, ar = load_rooted(archive.require('Contents/CMgr'), reg, 1, 19000)
 doc, dar = load_definition(archive.require('Contents/Definition'), reg, 19000)
 decoded = cmgr.roots[0]
@@ -71,6 +80,9 @@ if store_definition(doc, reg, 19000) != streams['Contents/Definition']:
     raise RuntimeError('document graph changed after decoding')
 if decoded['f360'] is not configs[0] or decoded['f368'] is not configs[0]:
     raise RuntimeError('current configuration aliases were not preserved')
+"""
+
+KReport = """
 report = {
     'configuration_names': [config['f18']['f08'] for config in configs],
     'configuration_ids': [config['f08'] for config in configs],
@@ -85,6 +97,8 @@ report = {
 }
 print(json.dumps(report, ensure_ascii=True))
 """
+
+KProgram = KImports + KGuard + KBuild + KCheck + KReport
 
 
 def RunBuilders(
