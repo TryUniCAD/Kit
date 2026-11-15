@@ -45,6 +45,7 @@ See the [rationale standard](../../../.agents/skills/standard-pr-practice/refere
 
 Source inspection identified 6,924 missing comments across 2,557 files before the backfill.
 The initial inventory covered 3,768 owned Python files and excluded `re/`.
+After the main update, the signature-row fixture helper also received its required rationale comment.
 Process-level regression coverage exercises the command against real temporary Git repositories.
 It covers missing declarations, aliases, nested scopes, lambdas, removal, unchanged debt, ignored baseline entries, and invalid rationale text.
 No tests ran locally.
