@@ -248,7 +248,7 @@ exactly **one** caller, at `0x180141f63`. Reading from the real entry shows what
 ```text
 0x180144121  cmp dword ptr [rcx + 0x2c], 0        a count of classes
 0x180144131  loop:
-0x180144135    mov rcx, qword ptr [rsi + rax]     每 class pointer
+0x180144135    mov rcx, qword ptr [rsi + rax]     one class pointer
 0x180144161    call 0x180066c40                   the inner accessor
 0x180144180    compare and append to a vector at [rbx + 0x300]
 0x1801441c9  mov rdi, [rbx + 0x308] - [rbx + 0x300]
