@@ -13,12 +13,12 @@ The existing entry points require no new command options.
 
 Previously, an exception after native open could discard the successful open result.
 A missing `opened` field therefore did not identify `OpenDoc6` as the failed call.
-The [stage attribution gotcha](../../Gotchas/Conversion/Solidworks/Tracing/MeasurementFailuresNeedStageEvidence.md) describes this evidence limit.
+The [stage attribution gotcha](../../../Gotchas/Conversion/Solidworks/Tracing/MeasurementFailuresNeedStageEvidence.md) describes this evidence limit.
 Clean health checks also require a nonempty feature tree and successful feature error-status queries.
 Unknown status is not treated as zero errors.
 
 Static Python syntax inspection passed.
-The [controlled stage sequence](../../../re/solidworks/measurements/2026/FreshPartStages.json) completed between two healthy original controls.
+The [controlled stage sequence](../../../../re/solidworks/measurements/2026/FreshPartStages.json) completed between two healthy original controls.
 The candidate returned no document with native open error `4194304` and zero warnings.
 No rebuild or later query ran for that candidate.
 Both controls completed all fourteen start/return markers and rebuilt one solid with zero errors or warnings.

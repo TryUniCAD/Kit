@@ -19,4 +19,4 @@ Preserve the original failing stage when cleanup executes.
 Keep process termination codes separate from COM exceptions.
 Treat historical aggregate reports as failed measurements when their exact failing stage is unavailable.
 
-The [stage report change](../../../../Changes/Solidworks/SolidworksOracleStageReports.md) describes the corrected entry points.
+The [stage report change](../../../../Changes/Solidworks/Inspection/SolidworksOracleStageReports.md) describes the corrected entry points.

@@ -14,7 +14,7 @@ This is a diagnostic intervention, not writer acceptance. Geometry obtained
 after an oracle changes suppression state does not count as generated-file
 success and cannot become donor output.
 
-The [controlled diagnostic](../../../re/solidworks/v2026/evidence/TupniUnsuppression.json)
+The [controlled diagnostic](../../../../re/solidworks/v2026/evidence/TupniUnsuppression.json)
 passes its original control. On the generated candidate, both explicit API
 unsuppression requests succeed, and rebuild produces one solid with volume
 `9.932000000000002e-6 m³`, area `0.003166276360558158 m²` and center

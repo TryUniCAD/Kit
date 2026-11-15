@@ -85,21 +85,21 @@ Do not present a carrier or a mode label as a completed translation.
 The [2026 archive map handoff](../../Changes/Solidworks/SolidworksArchiveMapHandoff.md)
 and [locked source controls](../../Changes/Solidworks/SolidworksOracleControls.md)
 extend the research instruments without establishing writer support.
-The [oracle diagnostic correction](../../Changes/Solidworks/SolidworksOracleDiagnostics.md)
+The [oracle diagnostic correction](../../Changes/Solidworks/Inspection/SolidworksOracleDiagnostics.md)
 records why the original source batch did not establish per-feature error status.
-The [oracle identity record](../../Changes/Solidworks/SolidworksOracleBuildIdentity.md)
+The [oracle identity record](../../Changes/Solidworks/Inspection/SolidworksOracleBuildIdentity.md)
 defines the executable build check used by clean inspection and retained tracing.
-The [process exit-status record](../../Changes/Solidworks/SolidworksOracleExitStatus.md)
+The [process exit-status record](../../Changes/Solidworks/Inspection/SolidworksOracleExitStatus.md)
 distinguishes observed termination codes from lost COM connections.
-The [native stage reports](../../Changes/Solidworks/SolidworksOracleStageReports.md)
+The [native stage reports](../../Changes/Solidworks/Inspection/SolidworksOracleStageReports.md)
 preserve open results when later measurement or cleanup fails.
-The [critical repair observer](../../Changes/Solidworks/SolidworksCriticalRepairTracing.md)
+The [critical repair observer](../../Changes/Solidworks/Inspection/SolidworksCriticalRepairTracing.md)
 tracks the current native rejection without establishing a serializer correction.
-The [minimal repair profile](../../Changes/Solidworks/SolidworksMinimalRepairProfile.md)
+The [minimal repair profile](../../Changes/Solidworks/Inspection/SolidworksMinimalRepairProfile.md)
 limits instruction hooks to the confirmed application flag boundaries.
-The [matching open-mode action](../../Changes/Solidworks/SolidworksObserverModeComparison.md)
+The [matching open-mode action](../../Changes/Solidworks/Inspection/SolidworksObserverModeComparison.md)
 separates writable inspection from the default read-only action.
-The [initial-frame observer](../../Changes/Solidworks/SolidworksInitialFrameObservation.md)
+The [initial-frame observer](../../Changes/Solidworks/Inspection/SolidworksInitialFrameObservation.md)
 records the template update target and native exception details.
 Its measurements require healthy controls and do not establish native acceptance.
 The [model appearance constructor](../../Changes/Solidworks/SolidworksModelVisualProperties.md)
@@ -108,7 +108,7 @@ The measured prior fault and each constructor-derived field are documented.
 The generated replacement opens and rebuilds without errors or warnings, but
 its sketch and extrusion are suppressed and it has no body. Native acceptance
 remains unfinished.
-The [suppression diagnostic](../../Changes/Solidworks/SolidworksSuppressionDiagnostic.md)
+The [suppression diagnostic](../../Changes/Solidworks/Inspection/SolidworksSuppressionDiagnostic.md)
 observes a vendor intervention on copied research parts without counting the
 changed state as generated-output acceptance.
 The [configuration progress operation](../../Changes/Solidworks/SolidworksConfigurationProgress.md)
@@ -116,7 +116,7 @@ derives the completed-history marker from the generated persistent-ID allocator.
 The first generated prism now opens and regenerates one solid without vendor
 intervention. Editing, saved-copy reopening and broader coverage remain under
 measurement.
-The [native depth-edit inspection](../../Changes/Solidworks/SolidworksNativeDepthEditInspection.md)
+The [native depth-edit inspection](../../Changes/Solidworks/Inspection/SolidworksNativeDepthEditInspection.md)
 checks generated geometry, a live parameter change and a saved-copy reopen in
 fresh application processes against explicit neutral-model expectations.
 The fresh [model component constructors](../../Changes/Solidworks/SolidworksModelConstruction.md)

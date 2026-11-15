@@ -14,15 +14,16 @@ of falling back to all desktop dialogs.
 records installed COM declarations, library identity and source hash without
 launching or attaching to CAD. Its actual 2026 inspection recovered a pointer
 to `VT_BOOL` for `IFeature.GetErrorCode2.IsWarning`. See the
-[Boolean output gotcha](../../Gotchas/Conversion/Solidworks/FeatureErrorBooleanOutput.md)
-and [descriptor](../../../re/solidworks/v2026/evidence/FeatureErrorTypeLibrary.json).
+[Boolean output gotcha](../../../Gotchas/Conversion/Solidworks/FeatureErrorBooleanOutput.md)
+and [descriptor](../../../../re/solidworks/v2026/evidence/FeatureErrorTypeLibrary.json).
 
 Actual evidence: the five source authoring operations saved successfully with
 one solid body and no dismissed dialogs; the original feature error queries
 were unavailable and remain labelled as such. The type-library inspection was
 static. No tests ran locally, and no generated-output acceptance is claimed.
 
-The [adapter guide](../../Reference/Adapters/Solidworks.md) remains read-only.
+The [adapter guide](../../../Reference/Adapters/Solidworks.md) remains read-only.
+
 ## Native progress windows
 
 The fresh-file inspector exposed a watchdog interference: an untitled native
@@ -32,4 +33,4 @@ observed three-stage progress window without clicking it. These windows are
 recorded separately in `progress_windows`; actual dismissed warnings and errors
 still fail health checks. The contaminated batch is not accepted and requires
 complete repetition. See the
-[progress-window finding](../../Gotchas/Conversion/Solidworks/Tracing/ProgressWindowsAreNotWarnings.md).
+[progress-window finding](../../../Gotchas/Conversion/Solidworks/Tracing/ProgressWindowsAreNotWarnings.md).
