@@ -450,6 +450,21 @@ run-length `type_har` string), `SolidPersistTable`, `SolidPrimdata`, `DispDataTa
 `THMB_IMG_MAIN`, `CGFPersistTable`, the two `kind b` rows (`IndentTag`, `FeatRefData`), the two
 free-space extents, and `AllFeatur`.
 
+## AllFeatur
+
+`AllFeatur` is the last structural blocker. Its record schema is inventoried in
+[the feature record page](../../../re/creo/data-model/FeatureRecord.md): 78 nodes for the first
+feature, `1620` bytes, of which `cr_flags_xar` alone is `402`.
+
+`cr_flags_xar` is a compact-int array of 32-bit dirty masks, each word `0xffffffff` with one or two
+bits cleared (`0xfffff7ff`, `0xfeffffff`, `0xffefffff`, `0xdfffffff`). Which bit maps to which field,
+and why those bits are dirty in a fresh part, is not decoded. Copying the control's array would be
+donor data, so it is not emitted. A generated all-`-1` default is plausible but unverifiable until the
+other 72 fields exist, and a wrong mask set fails as a silent model-load crash.
+
+So `AllFeatur` remains unauthored, and with it the part, because it is the one section both our
+validator and the vendor loader reject when absent.
+
 ## Limits
 
 - The authored part contains only `AllFeatur` and `VisibGeom`. Creo rejects it as "not a valid PART

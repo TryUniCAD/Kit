@@ -282,6 +282,12 @@ vendor loader; `FeatDefsDtm`, `BasBasData`, and `VisibGeom` are among them. What
 `AllFeatur`, the three `ND:*` `PSB_Tokens` tables, the persistence/tessellation rows, and the two
 free-space extents.
 
+### Feature record
+
+`AllFeatur` is a linked list of feature records. The field inventory, the linked-list rules, and the
+one undecoded field that blocks authoring (`cr_flags_xar`, 402 of the first record's 1620 bytes) are
+in [the feature record page](FeatureRecord.md).
+
 ### Decoded feature chain
 
 `re/creo/tools/TaggedStream.py` now decodes the full `AllFeatur` feature chain of both controls.
