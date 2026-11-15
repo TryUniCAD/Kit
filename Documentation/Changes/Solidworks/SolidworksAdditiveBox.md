@@ -25,8 +25,9 @@ origin, so the emitted sketch and pad match the authored solid. Validation lives
 `src/convert/adapters/solidworks/core/BoxFaces.py`: every edge must be an axis-aligned
 line, every face an axis-aligned plane, and the two face offsets on each axis must be `0`
 and the authored dimension within the same `1e-9` geometry tolerance as the vertex check. A
-curved face, a shifted planar face, or any other altered face is rejected even when the
-eight corners are unchanged.
+curved face, a shifted planar face, a face moved from `Length` to `-Length`, or a displaced
+edge curve is rejected even when the eight corners are unchanged. Each edge curve must also
+lie on its two referenced vertices.
 
 ## Usage
 
@@ -60,8 +61,8 @@ the emitted native model and requires a `(0, 0, 20, 30)` rectangle and a `10 mm`
 and requires the public writer to raise `ApplicationUsabilityError`. `TestBoxPlane` rotates
 the first principal plane of the 1.1.4 fixture about its normal and requires the same
 rejection. `TestBoxDriven` changes the bound `Length` role to driven, `TestBoxCurved` replaces one
-planar face with a cylinder, and `TestBoxShift` moves one face plane off its box offset;
-all three require the same rejection.
+planar face with a cylinder, and `TestBoxShift` moves a face off its box offset and then
+flips the opposite face from `Length` to `-Length`; all require the same rejection.
 
 SOLIDWORKS Design Premium 2026 SP5.2 in Parallels opened the generated 1.1.4 output,
 rebuilt it after a depth edit to 13 mm, and measured volume 7800 mm3 and area 2500 mm2,
