@@ -1516,11 +1516,34 @@ factory `CreatePCurveEquation` takes a `CATSurface` argument:
 ```
 
 So the face-to-surface map is the composition face -> loop -> edge -> PCurve -> surface, and the
-surface tag is written by the PCurve's Stream, not by the face or the body. The PCurve Stream is not
-in `CATTopologicalObjects.dll`; the `CATPCurveEquation` implementation is behind the
-`CATCGMExtGeoFactoryImpl` factory, whose `CreatePCurveEquationBasic` (`0x1800d7350`) is a
-`NoDefaultImplemention` stub, so the concrete Stream lives in a DLL that is not in the local set.
-Decoding it needs that DLL or a controlled corpus.
+surface tag is written by the PCurve's Stream, not by the face or the body.
+
+The concrete PCurve Stream is in `CATGeometricObjectsCGM.dll`, which is in the local CATIA install
+at `C:\Program Files\Dassault Systemes\B32\win_b64\code\bin`. `CreatePCurveEquationBasic` there is
+`?CreatePCurveEquationBasic@CATGeoFactoryCGM@@...` at `0x180053e60`, and it sets the vtable at
+`0x1801f32c0`. The Stream slot is `0x1800bf2b0` and it writes, in order: the linked-object count
+(`WriteLinkedObjectsCount`), the surface (`WriteObject` on the object at `0x90`), four doubles at
+`0xe0`, `0xe8`, `0xf0`, `0xf8` (the parameter range), and two `CATMathFunctionGeneral` streams at
+`0xd0` and `0xd8`. So the surface tag is the first object written by the PCurve Stream.
+
+## The `00 33 37` records are edge records, not PCurves
+
+The `SurfacicReps` tail also holds `00 33 37` records with eighteen data bytes and `00 33 36`
+records with two. The eighteen bytes are four big-endian floats plus two bytes. For `Copper_Washer`
+the floats are `(0, 0, 0, 8.0)` or `(1, 0, 0, 8.0)` for the outer circle and `(0, 0, 0, 5.0)` or
+`(1, 0, 0, 5.0)` for the inner circle, and the two bytes are `(3, 0)`, `(2, 0)`, `(3, 1)`, `(2, 1)`,
+`(5, 2)`, `(4, 2)`, `(5, 3)`, `(4, 3)`. The two bytes are a face pair, not a surface tag: for
+`Reservoir` the first byte ranges 0..69 and the second 1..67, both inside the 71-face range and
+outside the 56-surface range. So the record is an edge between two faces, and the four floats are
+the edge's circle.
+
+The circle radius is the cylinder radius when the edge is a plane-cylinder intersection. For
+`Copper_Washer` all eight edges give exactly one cylinder face whose radius matches a cylinder
+surface (8 edges, 0 ambiguous, 0 no-match). For `Reservoir` 24 edges give one cylinder face, 24 are
+ambiguous (both faces are cylinders of the same radius) and 30 have no radius match. The radius
+therefore gives a partial face-to-surface map but not a unique one, because many `Reservoir`
+cylinders share a radius (0.5, 1.0, 2.0, 2.5, 3.0, 7.5, 17.5, 19.0, 20.5, 22.0). The map still
+needs the PCurve surface tag or a controlled corpus.
 
 ## Evidence
 
