@@ -1083,6 +1083,22 @@ readback: 7 features 9 params 1 bodies
 (no End line; second run identical)
 ```
 
+Emitting those sixty-one declarations as *structure* rather than nulls — `ent_tab` with `bucket_index`, an empty
+`bucket_xar` array, `vert_tab`, an empty `chains` array, `first_chain_ptr` with `quilt_id`/`plane_id`/`plane_flip`
+and empty `ref_planes`, a `save_entity_ptr(line)` record, an empty `order_table` — is also refused (`ent949`, no
+`End` line twice), while still parsing through our reader as `7 features, 9 params, 1 body`.
+
+So the sequence of measurements closes the question:
+
+| Variant | Entity tables | Creo |
+| --- | --- | --- |
+| `full949` | null | refused |
+| `typed949` | null, field types corrected | refused |
+| `ent949` | present, empty | refused |
+
+They need **content** — the entity, vertex and chain records the solver derives — not presence. That is the last
+unmet requirement in the element, and it is a solver's output rather than a field map.
+
 ### What a generative `949` element is missing, counted
 
 Diffing the ordered declarations of the vendor element against ours gives the first quantitative statement of the

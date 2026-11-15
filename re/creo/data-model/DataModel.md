@@ -331,6 +331,29 @@ mutually unrelated contents produces a section the solver cannot accept, which i
 edits reached from the other side — the row is tolerated where it is *inert* (a changed dimension, a flipped
 `verhor`, a rewired `pointid` that the solver re-derives) and refused where it must be *solved*.
 
+### Emitting the entity tables structurally is not enough either
+
+The diff showed sixty-one declarations we were nulling. Emitting them as *structure* — `ent_tab` with
+`bucket_index`, an empty `bucket_xar` array, a `vert_tab` and an empty `chains` array, `first_chain_ptr` with
+`quilt_id`/`plane_id`/`plane_flip`/empty `ref_planes`, a `save_entity_ptr(line)` record and an empty `order_table`
+— produces an element that parses (the reader still finds `7 features, 9 params, 1 body`) and is refused:
+
+```text
+ent949: 108613 bytes; row 4525
+(no End line; second run identical)
+```
+
+Together with the earlier variants that closes the question in three steps:
+
+| Variant | Entity tables | Creo |
+| --- | --- | --- |
+| `full949` | null | refused |
+| `typed949` | null, three field types corrected | refused |
+| `ent949` | present but empty | refused |
+
+So those tables need **content** — entity, vertex and chain records derived from the constraints — not merely
+presence. That is the sketch solver's output, and it is the last unmet requirement in the element.
+
 ### Diffing our generated element against the vendor's, declaration by declaration
 
 Comparing the ordered `e0 <type> <name> 00` declarations of both elements quantifies the gap for the first time:

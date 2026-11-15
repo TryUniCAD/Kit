@@ -173,7 +173,12 @@ def SolverTables(PointCount: int) -> bytes:
     Payload += Author.FieldValue(1, "solve_version", b"\xF1\x01")
     Payload += Author.StructHeader("ent_tab") + b"\xE3"
     Payload += Author.FieldValue(1, "next_available_xid", Author.SignedInt(PointCount))
-    Payload += Author.StructHeader("chains") + b"\xE1"
+    Payload += Author.FieldValue(1, "bucket_index", Author.SignedInt(0))
+    # the entity table is emitted structurally with empty arrays rather than as a null
+    Payload += Author.StructHeader("bucket_xar") + b"\xF8\x00"
+    Payload += Author.StructHeader("vert_tab") + b"\xF1\xE3"
+    Payload += Author.FieldValue(1, "next_available_xid", Author.SignedInt(PointCount))
+    Payload += Author.StructHeader("chains") + b"\xF8\x00"
     Payload += Author.StructHeader("skamp_ptr") + b"\xF3\xF8\x08\xF7\x7A\xFB"
     for IndexValue in range(PointCount):
         Payload += b"\xE2"
@@ -195,7 +200,16 @@ def SolverTables(PointCount: int) -> bytes:
     Payload += Author.FieldValue(1, "type", Author.SignedInt(7))
     Payload += Author.FieldValue(1, "flip", Author.SignedInt(1))
     Payload += Author.FieldValue(1, "own_ref_id", Author.SignedInt(-1))
-    Payload += Author.StructHeader("first_chain_ptr") + b"\xE1"
+    Payload += Author.StructHeader("first_chain_ptr") + b"\xE3"
+    Payload += Author.FieldValue(1, "quilt_id", Author.SignedInt(-1))
+    Payload += Author.FieldValue(1, "plane_id", Author.SignedInt(0))
+    Payload += Author.FieldValue(1, "plane_flip", Author.SignedInt(0))
+    Payload += Author.StructHeader("ref_planes") + b"\xF8\x00"
+    Payload += Author.StructHeader("save_entity_ptr(line)") + b"\xE3"
+    Payload += Author.FieldValue(1, "id", Author.SignedInt(-1))
+    Payload += Author.FieldValue(1, "type", Author.SignedInt(0))
+    Payload += Author.StructHeader("back_entity_ptr(line)") + b"\xE1"
+    Payload += Author.StructHeader("order_table") + b"\xF8\x00"
     Payload += Author.StructHeader("order_tab") + b"\xF1\xE3"
     Payload += Author.StructHeader("p_saved_result") + b"\xE3"
     Payload += Author.StructHeader("draft_setup_ptr") + b"\xE3"
