@@ -671,6 +671,15 @@ def clear_model_update(*, model: Obj) -> None:
     model.f["f0c"] = flags & 0xFFFD7FF8
 
 
+def mark_model_update(*, model: Obj) -> None:
+    if not isinstance(model, Obj) or model.cls not in ("moModel_c", "moPart_c"):
+        raise ArchiveError("positive model update is classified only for model and part owners")
+    flags = model.f.get("f0c")
+    if type(flags) is not int or not 0 <= flags <= 0xFFFFFFFF:
+        raise ArchiveError("model update requires an initialized unsigned flag word")
+    model.f["f0c"] = (flags & 0xFFFD7FF9) | 1
+
+
 def _part_collections() -> dict:
     fields = {name: [] for name in (
         "f168", "f178", "fcd8", "f1310", "fec0", "f1288", "ffe0",

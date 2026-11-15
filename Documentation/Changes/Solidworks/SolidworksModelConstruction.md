@@ -7,6 +7,8 @@ part root from generated style/unit dependencies.
 Fresh system-folder and annotation-cabinet factories extend the same graph.
 The model update helper applies the proven zero-status flag mutation after native
 origin initialization; the origin sketch's unresolved solver state stays explicit.
+The positive update helper marks the serialized model flag independently of
+header stamps and completed body updates.
 These additions do not enable the production writer.
 
 ## Use
@@ -55,5 +57,7 @@ directory enumeration and process launches during construction.
 The configuration/definition boundary passed remotely at commit `07b9ce403` in
 [run 43675419713](https://github.com/TryUniCAD/Kit/actions/runs/43675419713).
 That earlier run used a weaker suffix-based audit and establishes codec evidence
-only. The stricter audit and expanded component check await current-head verification.
+only. The stricter audit and expanded component check passed at `5b546278f` in
+[run 43681676456](https://github.com/TryUniCAD/Kit/actions/runs/43681676456),
+native-file job `132713453212`. This establishes the component/access boundary.
 No tests or CAD oracle operations ran locally for this change.
