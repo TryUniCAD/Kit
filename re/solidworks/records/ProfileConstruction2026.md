@@ -64,6 +64,7 @@ This does not claim support for a neutral sketch that contains additional author
 | End conditions | The fresh extrusion passes type zero for both ends to the end-spec constructor; the constructor uses single-end flag one | `sldmodu 0x4bad3ce5`, `0x4bad35c0`; confirmed static |
 | End-spec remaining fields | Null direction/reference pointers, empty reference arrays, zero disabled draft/reverse flags, `f128=1`, and other zero constructor flags | `sldmodu 0x4bad35c0`; confirmed static |
 | Feature fields | Node flags add `0x140`, `f810=-1`, `f838=0.0`, and `f818` refers to the constructed end specification | `sldmodu 0x4bad3ab0`; confirmed static |
+| Runtime-only from-offset dimension | After `D1` through `D4`, from-end constructor creates zero-length `D19`; retain its graph and allocator identity even when type zero omits it from storage | `sldmodu 0x4bad3e00` calls `0x4c8a4840` unconditionally; confirmed static |
 | Profile dependency | Sketched-feature profile lookup scans its node list at `+0x60` and recognizes profile children | `sldmodu 0x4c5aa750`, add-profile call `0x4bad2bb0`; confirmed static |
 | Length parameter | Runtime class `moLengthParameter_c`, schema 1, size `0x70`, reuses double-parameter serializer `0x4c177fe0` | Runtime record `sldmodu 0x4daefb70`, factory `0x4c1764c0`, constructor `0x4c19bbe0`, vtable `0x4d123bf0`; confirmed static |
 
@@ -77,6 +78,13 @@ Native distance constructor `0x4c8a4840` calls display-dimension constructor `0x
 `live_blind_extrusion` builds four such graphs, constructs their end specification, and attaches the profile dependency to the supplied extrusion node
 The result retains separate parameter, dimension, handle, display, end-spec, profile and feature object identities
 Changing the first length parameter changes the graph's live forward depth; target rebuild and dimension-edit acceptance remain unproved
+`ExtrusionGraph.dimensions` and `dimension_count` describe the four serialized display graphs
+`from_offset` retains the fifth constructed graph for `D19`, and `constructed_dimensions` includes it
+Its display remains at from-end `f28`, which the serializer omits when `t=0`
+This is an actual constructor-lifecycle object, not an arithmetic adjustment to the allocator
+Ordinary part vtable `0x4d1252d8`, slot `+0x1250`, targets `moModel_c::isViewerModel` at `0x4c02d7d0`
+With argument zero it reads `(~(model[0x2b0] >> 2)) & 1`; constructor `0x4c00edb0` initializes that word to `0xc`, giving false
+The naming path therefore consumes the normal header ID for the transient `D19` dimension
 
 The fresh `moFeatureDimHandle_c` local dimension is schema key `ff0`, corresponding to runtime member `+0xf0`
 `moDimHandle_c` constructor `0x4c83c220` sets `+0x100=null`
@@ -156,6 +164,25 @@ Append routine `0x4c4a2b90` invokes reset `0x4c822050`, leaving serialized dimen
 The builder records the native subsequent `sgSketch::update` at `0x4c549ab0` as unresolved regeneration work
 Its `_requires_update` metadata is explicit and does not claim post-solver cache/status identity or an accepted origin graph
 
+## Sketch update dataflow
+
+This pass applies the field, loop, handler and constraint analysis described in [Tupni, sections 3.3–3.6](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tupni-ccs08.pdf)
+Operand consumers establish field roles, loop bounds establish record counts, handler targets distinguish record kinds, and branch expressions establish dependencies
+This is static decompilation and disassembly analysis, not a dynamic taint trace or a Tupni execution
+Runtime path coverage and target acceptance remain separate evidence
+
+| Sink | Native dataflow | Result for the constructed graph | Status |
+| --- | --- | --- | --- |
+| Sketch `f188` | `sgSketch::update` at `0x4c549ab0` stores whether `0x4c6fcfc0` returns an inter-component reference | Zero for the current local point/line graphs with absent extension pointers, empty other geometry/reference arrays and `pd_f110=null`; origin's local logical point constraint does not add such a reference | Closed by static predicates; builder derives the value and fails closed when unsupported references are introduced |
+| Derived-profile predicate | `moProfileFeature_c::isDerived` at `0x4c0de380` requires nonnull profile-data `+0x110` before testing a derived reference | False from the constructed null pointer | Closed static dependency |
+| Constrained-status getter | `0x4c53d2c0` reads sketch `+0x12c`, except for the session's special mode returning seven | Constructor state is known, but a complete post-solver status rule remains unproved | Unresolved post-update state |
+| Entity constraint state | `setConstraintStatus` at `0x4c5d5370` writes common entity `+0x34`; other solver paths also set constraint colour/state | The common constructor's `f34/f38` are not claimed to equal final solver state | Unresolved post-update state |
+| Dependency reset | `clearDependancyFlags` at `0x4c538d10` iterates permanent entities and calls `0x4c5d3100` with a type mask | Requires that helper's final entity-field dataflow, not a guessed zero | Unresolved indirect mutation |
+| Modification stamp | The conditional `f56c` increment inside update `0x4c549ab0` depends on model-reference and temporary update results | Canonical insertion stamp remains separately derived as `1+n`; post-update delta is not assumed | Unresolved conditional delta |
+| Pattern/spline/styled helpers | `0x4c46f1b0`, `0x4c5483f0` and `0x4c52f470` iterate their corresponding collections | Empty collections make these loops inactive for the polygon and origin inputs | Closed static loop bounds |
+
+Both polygon and origin graphs retain `_requires_update=True` until the remaining state rules are established
+
 ## Contracts
 
 Helpers use keyword-only semantic inputs and return `Core.Obj` nodes or typed field mappings
@@ -180,6 +207,8 @@ The sweep change has not been executed locally; its process-boundary regression 
 The sketch component explicitly seeds its external profile owner in the archive map; it is not a complete part or a vendor-loadability check
 Its cases cover variable N, a 10,000-line ring, crossings, touches, vertical overlap, adjacent backtracking and valid collinear edges
 It checks actual decoded dimension IDs and leaves parameter node IDs at their constructor value `-1`
-An audit hook rejects non-code file access and process launches during construction
+The shared `BuildAudit` hook starts before builder/schema imports, permits only actual import-loader code access during startup, then rejects runtime file access and child-process launches during construction
+It does not exempt arbitrary reads by filename suffix
+The sketch-info component test selects `ctx874=1`, so its external profile-owner reference is actually present in the encoded grammar and its identity assertion remains meaningful
 This coverage has only been syntax-checked locally and is pending its remote execution
 The success criteria remain unsatisfied until held-out generated files pass target opening, rebuild, geometry measurements, feature-tree inspection, and dimension editing between healthy controls

@@ -236,8 +236,8 @@ def feature_dimension(*, feature: Obj, dimension_id: int, value: float, angular:
         raise ConstructionError("feature dimension values must be finite numeric inputs")
     if angular and value != 0:
         raise ConstructionError("blind construction currently requires zero draft angles")
-    if not angular and value < 1e-14:
-        raise ConstructionError("native dimension construction clamps lengths below 1e-14 to zero")
+    if not angular and (value < 0 or 0 < value < 1e-14):
+        raise ConstructionError("native length dimensions require zero or a positive value of at least 1e-14")
     parameter = Obj("moAngleParameter_c" if angular else "moLengthParameter_c")
     node_fields(name=f"D{dimension_id}", allocator=None, node=parameter)
     parameter.f.update({"_owner": feature, "f0c": 0, "f48": None, "f58": float(value), "f68": 0})
@@ -373,10 +373,15 @@ class ExtrusionGraph:
     profile: ProfileGraph
     end_spec: Obj
     dimensions: tuple[DimensionGraph, ...]
+    from_offset: DimensionGraph
 
     @property
     def dimension_count(self):
         return len(self.dimensions)
+
+    @property
+    def constructed_dimensions(self):
+        return (*self.dimensions, self.from_offset)
 
     @property
     def parameters(self):
@@ -401,6 +406,8 @@ def live_blind_extrusion(*, feature: Obj, profile: ProfileGraph, depth: float, a
     if type(design_intent) is not bool or type(selected_leader) is not int or not -(1 << 31) <= selected_leader < (1 << 31):
         raise ConstructionError("live blind construction requires explicit design intent and selected-leader presentation inputs")
     dimensions = tuple(feature_dimension(feature=feature, dimension_id=i + 1, value=depth if i < 2 else 0.0, angular=i >= 2, allocator=allocator, design_intent=design_intent, selected_leader=selected_leader) for i in range(4))
+    from_offset = feature_dimension(feature=feature, dimension_id=19, value=0.0, angular=False, allocator=allocator, design_intent=design_intent, selected_leader=selected_leader)
     end_spec = blind_end_spec(forward_distance=dimensions[0].display, reverse_distance=dimensions[1].display, forward_draft=dimensions[2].display, reverse_draft=dimensions[3].display)
+    end_spec["f140"]["f28"] = from_offset.display
     blind_extrusion(feature=feature, profile=profile, end_spec=end_spec, depth=depth)
-    return ExtrusionGraph(feature=feature, profile=profile, end_spec=end_spec, dimensions=dimensions)
+    return ExtrusionGraph(feature=feature, profile=profile, end_spec=end_spec, dimensions=dimensions, from_offset=from_offset)

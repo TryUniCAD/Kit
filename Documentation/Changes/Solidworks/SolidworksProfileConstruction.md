@@ -22,6 +22,7 @@ It rejects nonadjacent touches and adjacent backtracking overlaps while retainin
 `Extrude.py` constructs native blind end specifications and their live dimensional graph
 `live_blind_extrusion` takes an allocated extrusion body feature, a constructed polygon profile, authored depth, shared ID allocator, design-intent boolean and explicit selected-leader presentation value
 It constructs two length parameters and two zero draft-angle parameters with names `D1` through `D4`
+It also retains the native transient zero-length `D19` from-offset graph and its real allocated ID, even though blind type zero omits that display from storage
 Each parameter has its own feature dimension, local handle and display/text graph
 It attaches the native end specification and profile dependency to the feature
 The returned `ExtrusionGraph` retains those node references and reports its current forward parameter value
@@ -39,6 +40,7 @@ These helpers are intermediate research
 The vertex-only profile contract contains no authored sketch dimensions or constraints
 It does not preserve a source sketch that contains additional design intent
 The origin graph explicitly records that its post-constructor sketch update remains unresolved
+The local inter-component-reference flag is now derived from the native update predicate; final solver status and modification-stamp delta remain unresolved for both polygon and origin graphs
 The dimensional graph requires the explicit presentation input and completed shared model graph
 They do not change adapter capabilities
 See [the construction evidence](../../../re/solidworks/records/ProfileConstruction2026.md) for binary addresses, confidence labels, contracts, and remaining fields
@@ -51,6 +53,6 @@ The Python source passed static AST syntax parsing without imports or execution
 Remote CI remains pending
 New process integration coverage writes fresh sketch and blind-end object archives into a container, decodes them, checks reference and byte identity, then edits the live forward parameter and re-encodes it
 Its geometry cases include variable vertex counts, a 10,000-line ring, crossings, touches, vertical overlaps, backtracking and valid collinear vertices
-It verifies dimension allocation and rejects construction-time non-code file access or process launches
+It verifies dimension allocation and uses the shared `BuildAudit` guard before builder/schema imports, without a filename-suffix escape for direct data reads
 The component sketch archive uses a seeded external profile owner and does not establish complete part-file acceptance
 Held-out native acceptance, rebuild, body measurements, and dimension edits remain unverified
