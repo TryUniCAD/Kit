@@ -63,11 +63,11 @@ KHeadSuffixEnd = bytes.fromhex("0000")
 def HeadSuffix(NextId: int) -> bytes:
     if not 0 < NextId < 0x10000:
         raise ValueError("NX root head record next id is out of range")
-    Low = (NextId - 1) & 0xFF
+    LowByte = (NextId - 1) & 0xFF
     return (
-        bytes([0x80, Low, 0x02])
+        bytes([0x80, LowByte, 0x02])
         + KHeadSuffixTail
-        + bytes([0x80, Low, 0x02, 0x13, 0x80, NextId & 0xFF, 0x02])
+        + bytes([0x80, LowByte, 0x02, 0x13, 0x80, NextId & 0xFF, 0x02])
         + KHeadSuffixEnd
     )
 

@@ -688,9 +688,7 @@ def CheckHeadRecord(PartText: bytes) -> None:
         raise AssertionError("head record accepted a short identity")
     assert HeadRecord(PartText, b"\xff" * 6)[AnchorAt + 3 : AnchorAt + 9] == b"\xff" * 6
     assert HeadSuffix(214) == KHeadSuffix
-    assert HeadSuffix(251) == bytes.fromhex(
-        "80fa021304050100010180fa021380fb020000"
-    )
+    assert HeadSuffix(251) == bytes.fromhex("80fa021304050100010180fa021380fb020000")
 
 
 # the root head record is a tag a length prefixed text and a fixed tail

@@ -188,3 +188,29 @@ dim40.prt         7822 bytes  identical
 The two per-class fields are derivable: the first is the class's registration id
 plus one, and the second is the parent ordinal. The class table is therefore no
 longer carried from the source document.
+
+## Head record authoring
+
+The root head record is now emitted for both identity shapes. `HeadParts` splits
+the source record at the suffix, `HeadRecord` accepts six or seven identity bytes,
+and `HeadSuffix(NextId)` rebuilds the nineteen byte suffix from the next object id:
+
+```text
+HeadSuffix(214) == empty.prt suffix        True
+HeadSuffix(251) == const_box60.prt suffix  True
+HeadRecord(source text) == source head     empty, const_box60, dim40, multi, sweep
+```
+
+Writing through the adapter and opening in NX 2506:
+
+```text
+const_box61.prt  STATUS 0  BODIES 1  FEATURES 1  EXPRESSIONS 3
+                 VOLUME 36000.0  AREA 7199.999999999999  MASS 0.28190304
+headtest/empty.prt  STATUS 0  BODIES 0  FEATURES 0  EXPRESSIONS 0
+headtest/dim40.prt  STATUS 0  BODIES 1  FEATURES 1  EXPRESSIONS 3
+                 VOLUME 23999.999999999996  AREA 5200.0  MASS 0.18793536
+```
+
+The body, feature tree, expressions, volume, area, centroid, and mass match the
+controls, so the head record is re-emitted rather than carried for both a
+body-less part and a part with a body.
