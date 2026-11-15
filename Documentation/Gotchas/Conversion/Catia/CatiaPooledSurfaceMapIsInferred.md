@@ -235,6 +235,16 @@ object headers if it used that form, so the corpus does not write CGM object hea
 `MainDataStream` or `SurfacicReps` at all. The B-rep is stored in a compact final form with no object
 table, which is why the surface reference is not reachable through any header path.
 
+## A dimension carries an attribute id, and its value lives in the owning object
+
+With the compact-int decoder in place, the `d_dia` attribute parses as
+`('int', 1088), ('ref4', 'd4170437')` and `('int', 1089), ('ref3', 'c41737')` — an attribute id
+(`0x440`, `0x441`) plus a reference that is identical in every block, so it names a type rather than a
+value. `ISO_2338_PARALLEL_PIN` holds only eight doubles in the whole object graph, and the `8.0` sits
+inside object `10` together with `200.0` and `15.0`, not in a separate parameter object. A dimension
+therefore points at an attribute id, and the value is stored in the object that owns the dimension,
+so the name-to-value edge needs an attribute-id table, not an object lookup.
+
 ## Workaround
 
 Treat the five pooled parts as approximate. The reader emits
