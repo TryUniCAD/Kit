@@ -172,7 +172,9 @@ and curve header pointers. The prototype's `envlp` decodes to
 `[184.50782059963194, 86.06680966899467, -154.4303300690026, -115.65227549271083]` and its
 `outline` to
 `[184.50782059963194, 1.0, 115.65227549271083, -154.4303300690026, 1.0, -86.06680966899467]`.
-The parser then stops at `0x14a` in the `local_sys` cache index lane.
+The parser then decodes the second plane prototype (`geom_id = 82`, `orient = 1`) and the first
+curve prototype (`crv_id = 87`, `type = 34`), and stops at `0x272` in the curve point array. The
+`local_sys` frame is a 4x3 matrix; the `0x10` byte is the one-byte 1.0 constant in that lane.
 
 Feature identity is split across a native id, a user-visible name, a type, a parent feature, and references.
 The data model needs all of these to rebuild a live tree.

@@ -27,6 +27,7 @@ from pathlib import Path
 
 KOneByteDouble = {
     0x0F: 0.0,
+    0x10: 1.0,
     0x18: 1.0,
 }
 
