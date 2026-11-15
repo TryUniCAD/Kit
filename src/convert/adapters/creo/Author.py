@@ -1134,16 +1134,16 @@ def ReplayOf(Definition: bytes) -> bytes:
 KLayerEntries = 4
 
 
-# layer entries carry feature ids the loader does not check against the list
-def LayerListTail(FeatureId: int) -> bytes:
+# the layer list names every feature the part declares so no id repeats
+def LayerListTail(FeatureIds: tuple[int, ...]) -> bytes:
     Payload = FieldValue(
         0,
         "layer_list",
-        b"\xf8" + CompactInt(KLayerEntries) + b"\xf7\x51\xfb",
+        b"\xf8" + CompactInt(len(FeatureIds)) + b"\xf7\x51\xfb",
     )
-    for IndexValue in range(KLayerEntries):
+    for IndexValue, FeatureId in enumerate(FeatureIds):
         First = IndexValue == 0
-        Payload += b"" if First else b"\xf7\x51"
+        Payload += b"\xf7\x51" if IndexValue == 1 else b""
         Payload += b"\xe2"
         if First:
             Payload += b"\xe0\x01feat_id\x00"
@@ -1169,7 +1169,7 @@ def AllFeaturPayload(Record: bytes, FeatureId: int) -> bytes:
     Payload += StructHeader("first_feat_ptr") + b"\xe3"
     Payload += Record
     Payload += StructHeader("next_feat_ptr") + b"\xe1"
-    Payload += LayerListTail(FeatureId)
+    Payload += LayerListTail((FeatureId,))
     return SectionValue("AllFeatur", Payload)
 
 
@@ -1226,7 +1226,7 @@ def DefaultAllFeatur() -> bytes:
     Payload += b"\xe3" + Right
     Payload += b"\xe3" + Csys
     Payload += b"\xe1"
-    Payload += LayerListTail(7)
+    Payload += LayerListTail((7, 5, 3, 11))
     return SectionValue("AllFeatur", Payload)
 
 

@@ -103,7 +103,7 @@ def Section() -> bytes:
         11, -5778, (-1,) * 252, 200000, 200001, 1000000000, 12345, 99, 0, 7, 3
     )
     Payload += b"\xE3" + Protrusion
-    Payload += b"\xE1" + Author.LayerListTail(7)
+    Payload += b"\xE1" + Author.LayerListTail((7, 5, 3, 11))
     return Author.SectionValue("AllFeatur", Payload)
 
 

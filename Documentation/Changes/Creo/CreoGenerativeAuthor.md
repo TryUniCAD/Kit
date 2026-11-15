@@ -1084,6 +1084,26 @@ readback: 7 features 9 params 1 bodies
 (no End line; second run identical)
 ```
 
+### A real defect the parse log exposed: the layer list repeated one feature
+
+`std.out` from a generative part carried a warning we had missed:
+
+```text
+Duplicate feat id removed from layer list id: 0
+```
+
+`Author.LayerListTail` emitted the caller's single feature id four times. The vendor's list names each feature
+once — `(7, 0, 0) (5, 0, 0) (3, 0, 0) (11, 0, 0)` — and places the selector `f7 51` once, after the first entry,
+rather than before each one. The emitter now takes the tuple of feature ids and matches that layout, byte for
+byte across the whole prefix:
+
+```text
+prefix equal: True
+```
+
+The part loads twice with no `dbg_err_crash`, and `std.out` now holds only the open command — the duplicate
+warnings are gone.
+
 Two further measurements came out of chasing that refusal.
 
 **`std.out` carries a parse path.** When Creo rejects a part it leaves the last records it read in
