@@ -133,10 +133,10 @@ def TestDimensions() -> None:
         assert Parameter.TextValue == ""
         assert Parameter.Measured == PytestLib.approx(1.3446183501864888)
         assert Parameter.Count == 2
-        assert len(Parameter.Gap) == 2
+        assert len(Parameter.GapBytes) == 2
         assert len(Parameter.ZeroRun) == 3
         assert len(Parameter.Reserved) == 20
-        assert len(Parameter.Tail) == 8
+        assert len(Parameter.TailBytes) == 8
 
 
 # sheet geometry and view composition must match what solidworks authored
