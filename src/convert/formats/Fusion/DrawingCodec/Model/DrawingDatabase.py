@@ -11,7 +11,7 @@ from convert.formats.Fusion.DrawingCodec.Dwg.Model.DwgFile import DwgFile
 # the loadable gate needs one place so no caller emits a database fusion rejects
 def CheckLoadable(Database: "DrawingDatabase") -> None:
     Frame = dict(Database.Model.SectionVars).get(KHeaderName)
-    if Frame is not None and FrameParts(Frame)[0] < 72:
+    if Frame is None or FrameParts(Frame)[0] < 72:
         raise ValueError(
             "Drawing databases need a header tail, so the database is refused"
         )
