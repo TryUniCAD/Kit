@@ -1,0 +1,19 @@
+# SOLIDWORKS construction process audit
+
+The research process harness installs `BuildAudit` before importing the builders
+or creating the shared schema registry. During imports, it records code-file
+opens made directly by the Python import loader and import-loader directory
+lookups. It also permits the schema registry to enumerate its exact definitions
+directory. Reads made by module bodies receive no filename-suffix exemption.
+
+`BeginBuild` closes the import phase. Every subsequent file open, directory read
+or subprocess launch raises `PermissionError`, including operations on paths
+ending in `.py` or `.pyc`. The metadata process uses this guard and closes its
+deliberate forbidden-file probe through a context manager if it unexpectedly
+succeeds.
+
+This audit measures the construction boundary; it does not prove that imported
+code contains no donor constants. Native dataflow records, source review and the
+separate replay scan remain necessary. Earlier suffix-permitting process
+evidence does not establish the stronger import-phase claim. Remote checks are
+pending; no local tests were run.
