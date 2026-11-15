@@ -58,6 +58,7 @@ It refuses native-only feature definitions or sketch geometry before writing, in
 Component, mate, mate-entity, sketch-entity and sketch-constraint kinds must be known nonnative values.
 Native enum values, `"native"` strings and unknown kind strings are refused even when their links or geometry objects are valid.
 Retained native payloads, opaque B-rep records, and explicit incomplete assembly references or transforms are also refused.
+Nonempty FreeCAD `external_documents` metadata is refused because its sidecars bypass parent qualification; see [metadata sidecars](../Changes/Commands/ExternalDocumentGuard.md).
 Retained source keys and binary metadata values are refused through nested containers and embedded documents; ordinary provenance text and digests remain eligible.
 Local B-rep, meshes, or bodies without a feature timeline are refused, including nested documents and local assembly geometry.
 Independent parameters do not supply missing feature history; parameter-only documents without geometry remain eligible.

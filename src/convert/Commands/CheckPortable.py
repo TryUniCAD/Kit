@@ -1,3 +1,6 @@
+from collections.abc import Mapping
+from typing import cast as CastValue
+
 from convert.Commands.CheckFeatures import CheckFeatures
 from convert.Commands.CheckRetained import CheckRetained
 from convert.Commands.Qualified.CheckGeometry import CheckGeometry
@@ -19,7 +22,17 @@ KInspectText = (
 # writer success must not qualify opaque records incomplete assemblies or retained source data
 def CheckPortable(Document: CadDocument) -> None:
     for PartValue in WalkDocuments(Document):
+        Freecad = PartValue.metadata.get("freecad")
         for RecordName, IsBlocked in (
+            (
+                "ExternalDocuments",
+                isinstance(Freecad, Mapping)
+                and bool(
+                    CastValue(Mapping[object, object], Freecad).get(
+                        "external_documents"
+                    )
+                ),
+            ),
             (
                 "UnqualifiedResearch",
                 PartValue.metadata.get("kit.research_read_status") == "unqualified",
