@@ -275,11 +275,38 @@ The ladder's extrude and sketch records follow it, but their field boundaries ar
 `FeatDefsDtm` stores one placement record per datum. The record grammar is decoded and emitted by
 `Author.DatumPlaneRecord`; the field table is in [the datum placement page](DatumPlacement.md).
 
-**A `FeatDefs` row is per feature, not a substitute.** Replacing the ladder's row (seven feature definitions)
-with our generated one (a single definition for feature `7`, two dimensions) reads back through our adapter as
-`7 features, 2 params, body 6 faces / volume 18482541.49` — but Creo answers with `dbg_err_crash()`. So the row
-has to describe **every** feature the part declares; it cannot be swapped for a one-feature version. A part with
-a body would therefore need a definition per feature in that row.
+**A `FeatDefs` row must describe every feature, and a definition needs its placement record.**
+
+Three measurements settle this. First, replacing the ladder's row (`5977` bytes, seven definitions) with our
+generated one-definition row reads back through our adapter as `7 features, 2 params` with the body intact
+(`6` faces, volume `18482541.49`) but Creo answers `dbg_err_crash()`. Second, emitting **one definition per
+feature** (`(7, 5, 3, 11, 67, 75, 74)`, `2319` bytes) still crashes, so the definition count is necessary but not
+sufficient. Third, editing a single dimension value **in place** in the ladder's own row — same length, one
+`value` field rewritten from `-201.7190851617055` to `-123.5` — loads twice with the body intact:
+
+```text
+ladder_same_len: 110065 bytes (unchanged length)
+readback params: [-123.5, -338.93815066863453, -86.06680966899467, -154.4303300690026]
+!15-Nov-27 12:27:07  End   C:\Mac\Home\Documents\creo-authored\ladder_same_len.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid        (2 of 2)
+```
+
+So a parameter can be authored into a part that has a body, and the crash is about what each definition
+*contains*, not about the row length or the edit itself. Comparing the two field sets shows the difference:
+
+| Field | Ladder definitions | Ours |
+| --- | --- | --- |
+| `place_rec_ptr` | struct | declared, but empty (`e1`) |
+| `local_sys` | 12 doubles | absent |
+| `trf_arr` | 1 element | absent |
+| `transf` | 12 doubles | absent |
+| `sub_feat_arr` | 1 element | absent |
+| `plcm_revnum`, `next_prop`, `cond_tbl_idx`, `comment`, `merge_info_ptr`, `state_ind`, `alumni_info` | present | absent |
+
+Our definition is ten flat fields (`id`, `symbol_key`, `model_type`, `group_info_ptr`, `place_rec_ptr`,
+`own_ref_id`, `orient`, `type`, `key`, `idx`) plus a `dimtab_ptr`. The ladder's nests `own_ref_id`, `orient`,
+`trf_arr`, `type`, `key`, `idx`, `transf` and the rest inside `place_rec_ptr`, which is the feature's placement
+record. Datum features tolerate the flat form — those parts load — and solid features do not.
 
 ### Where a Creo parameter lives: `FeatDefs` dimension records
 

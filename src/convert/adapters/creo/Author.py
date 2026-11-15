@@ -1284,14 +1284,12 @@ def CsysFeatureRecord(
     return Payload
 
 
-# a parameter is a dimension record so the part needs a feature defs row to carry one
-def DefaultFeatDefs(
+# a parameter is a dimension record so each declared feature needs its own definition block
+def FeatDefBlock(
+    FeatureId: int,
     DimensionValue: tuple[float, ...] = (100.0,),
-    FeatureId: int = 7,
 ) -> bytes:
-    Payload = StructHeader("Sld_FeatDefs") + b"\xe3"
-    Payload += StructHeader("feat_defs_949") + b"\xf8\x01\xf7\x02\xfb"
-    Payload += b"\xe2"
+    Payload = b"\xe2"
     Payload += FieldValue(1, "id", SignedInt(FeatureId))
     Payload += FieldValue(1, "symbol_key", SignedInt(-1))
     Payload += FieldValue(1, "model_type", SignedInt(2))
@@ -1317,4 +1315,19 @@ def DefaultFeatDefs(
         Payload += FieldValue(0, "dispdimattr", SignedInt(0))
         Payload += FieldValue(1, "dimattr", SignedIntArray((0,) * 7))
         Payload += b"\xf2"
+    return Payload
+
+
+# the row describes every feature the part declares so one block is written per feature
+def DefaultFeatDefs(
+    DimensionValue: tuple[float, ...] = (100.0,),
+    FeatureId: int = 7,
+    FeatureIds: tuple[int, ...] | None = None,
+) -> bytes:
+    Ids = FeatureIds if FeatureIds else (FeatureId,)
+    Payload = StructHeader("Sld_FeatDefs") + b"\xe3"
+    Payload += StructHeader("feat_defs_949")
+    Payload += b"\xf8" + CompactInt(len(Ids)) + b"\xf7\x02\xfb"
+    for Value in Ids:
+        Payload += FeatDefBlock(Value, DimensionValue)
     return Payload

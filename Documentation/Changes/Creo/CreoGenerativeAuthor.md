@@ -1025,13 +1025,35 @@ the solid that owns them.
 caller, including `AuthorBox`. It is repaired, and the surface record is still byte-identical to the ladder's
 first element (`409` bytes).
 
-### `FeatDefs` is per feature, so it cannot be swapped into a part with a body
+### A parameter can be authored into a part with a body, but a definition needs its placement record
 
-Replacing the ladder's `FeatDefs` (seven feature definitions) with our generated row (one definition, two
-dimensions) reads back through the adapter as `7 features, 2 params` **with the body intact** — `6` faces,
-volume `18482541.49` — but Creo answers `dbg_err_crash()`. The row must describe every feature the part
-declares, so a body-bearing part would need one definition per feature in that row, and our emitter currently
-writes one.
+`Author.DefaultFeatDefs` now takes `FeatureIds` and writes one definition block per feature. Measured against
+the datum-only control that loads (`fd_four`, `(7, 5, 3, 11)` with two dimensions each, read back as `4
+features, 8 params`, twice).
+
+Swapping the same per-feature row into the ladder — which has a real body — still fails. Two variants were run:
+
+| Candidate | Row | Creo |
+| --- | --- | --- |
+| `ladder_fd` | one definition (feature `7`) | `dbg_err_crash()` |
+| `ladder_fd7` | seven definitions, one per declared feature | `dbg_err_crash()` |
+
+So matching the definition count is necessary but not sufficient. What does work is editing a dimension
+**in place** in the ladder's own row: rewriting one `value` field from `-201.7190851617055` to `-123.5`, with
+the row length unchanged, loads twice with the body intact and reads back `-123.5`:
+
+```text
+ladder_same_len: 110065 bytes (unchanged length)
+readback params: [-123.5, -338.93815066863453, -86.06680966899467, -154.4303300690026]
+!15-Nov-26 12:27:07  End   C:\Mac\Home\Documents\creo-authored\ladder_same_len.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid        (2 of 2)
+```
+
+That isolates the remaining gap to the definitions' **content**. The ladder's definition nests `own_ref_id`,
+`orient`, `trf_arr`, `type`, `key`, `idx`, `transf`, `plcm_revnum`, `next_prop`, `cond_tbl_idx`, `comment`,
+`merge_info_ptr`, `state_ind`, `alumni_info` and `sub_feat_arr` inside `place_rec_ptr`, and carries
+`local_sys` (12 doubles) and `transf` (12 doubles). Ours emits ten flat fields and an empty `place_rec_ptr`.
+Datum features tolerate that; solid features do not.
 
 ### Dimensions are authored, counted and chosen
 
