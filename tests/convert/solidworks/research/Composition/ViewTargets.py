@@ -12,13 +12,13 @@ def HasViewTargets(ArchiveFile: SldprtArchive, CodecReg: object) -> bool:
     ModelRoot, _ = ReadProfiles(ArchiveFile, CodecReg)
     Entries = CastValue(list[dict[str, object]], ReadFields(ModelRoot)["f9f8"])
     Nodes = [Entry["o"] for Entry in Entries]
-    if len(Nodes) != 10 or len({id(Node) for Node in Nodes}) != 10:
+    if len(Nodes) != 10 or len({id(ViewNode) for ViewNode in Nodes}) != 10:
         return False
-    if any(getattr(Node, "cls", None) != "moView_c" for Node in Nodes):
+    if any(getattr(ViewNode, "cls", None) != "moView_c" for ViewNode in Nodes):
         return False
-    if [ReadFields(Node)["f360"] for Node in Nodes] != list(range(10)):
+    if [ReadFields(ViewNode)["f360"] for ViewNode in Nodes] != list(range(10)):
         return False
     Transforms = [
-        CastValue(dict[str, object], ReadFields(Node)["f368"]) for Node in Nodes
+        CastValue(dict[str, object], ReadFields(ViewNode)["f368"]) for ViewNode in Nodes
     ]
     return [Transform["has_matrix"] for Transform in Transforms] == [0, 0] + [1] * 8

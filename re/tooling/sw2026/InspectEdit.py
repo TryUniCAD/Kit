@@ -89,9 +89,9 @@ def metrics_match(row, expected):
     actual_center = measured.get("com", ())
     if len(actual_center) != 3 or len(expected["com"]) != 3:
         return False
-    pairs = [(measured.get(name), expected[name]) for name in ("volume", "area")]
-    pairs.extend(zip(actual_center, expected["com"], strict=True))
-    return all(actual is not None and math.isfinite(actual) and math.isfinite(target) and math.isclose(actual, target, rel_tol=5e-7, abs_tol=1e-15) for actual, target in pairs)
+    pairs = [(measured.get(name), expected[name], 0.0) for name in ("volume", "area")]
+    pairs.extend((actual, target, 1e-15) for actual, target in zip(actual_center, expected["com"], strict=True))
+    return all(actual is not None and math.isfinite(actual) and math.isfinite(target) and math.isclose(actual, target, rel_tol=5e-7, abs_tol=absolute) for actual, target, absolute in pairs)
 
 
 def main():
