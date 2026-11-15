@@ -3,6 +3,8 @@ from pathlib import Path as FilePath
 from shutil import which as FindProgram
 from subprocess import run as RunProcess
 
+from pytest import mark as TestMark
+
 from convert.adapters.Fusion.Authoring.MakeFusionDoc import MakeFusionDoc
 from convert.formats.Fusion.DocumentCodec.EmitDocument import EmitDocument
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
@@ -97,18 +99,23 @@ def CheckCliRound(TmpPath: FilePath) -> None:
     assert Source.read_bytes() == Original
 
 
-# writer usability refusal must occur before replacing an existing user destination
-def CheckCliPolicy(TmpPath: FilePath) -> None:
+# material and usability refusals must preserve user files at their respective writer boundaries
+@TestMark.parametrize("HasMaterials", (False, True))
+def CheckCliPolicy(HasMaterials: bool, TmpPath: FilePath) -> None:
     Source = TmpPath / "source.json"
-    Original = MakeFusionDoc(
+    Document = MakeFusionDoc(
         DocumentSpec(
             "CLI policy",
             "height",
             17.0,
-            ProfileKind="cuboid",
+            ProfileKind="cuboid" if HasMaterials else "rectangle",
             ConstrainRectangle=True,
         )
-    ).to_json()
+    )
+    Document.AssertValid()
+    assert Document.sketches and Document.feature_timeline
+    assert bool(Document.materials) is HasMaterials
+    Original = Document.to_json()
     _ = Source.write_text(Original)
     Target = TmpPath / "blocked.CATPart"
     _ = Target.write_bytes(b"existing output")
@@ -117,7 +124,15 @@ def CheckCliPolicy(TmpPath: FilePath) -> None:
     )
     assert Result.returncode == 1 and Result.stdout == ""
     Error = LoadJson(Result.stderr)
-    assert Error["details"]["code"] == "output_not_application_usable"
+    if HasMaterials:
+        assert Error["error"] == "ValueError"
+        assert Error["message"].endswith(
+            "does not support typed material density and color"
+        )
+        assert "details" not in Error
+    else:
+        assert "details" in Error, Error
+        assert Error["details"]["code"] == "output_not_application_usable"
     assert Target.read_bytes() == b"existing output"
     assert Source.read_text() == Original
     assert sorted(Value.name for Value in TmpPath.iterdir()) == [
