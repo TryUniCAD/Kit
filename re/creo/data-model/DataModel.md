@@ -331,6 +331,45 @@ mutually unrelated contents produces a section the solver cannot accept, which i
 edits reached from the other side — the row is tolerated where it is *inert* (a changed dimension, a flipped
 `verhor`, a rewired `pointid` that the solver re-derives) and refused where it must be *solved*.
 
+### The ORDER_DEBUG crashes were a duplicated section header
+
+Comparing an empty `VisibGeom` against the control's showed the section builders return a **complete section**,
+header line included, while `BuildContainer` writes `#<name>\n` itself:
+
+```text
+control empty VisibGeom: 31 bytes  e0 00 Sld_VisibGeom 00 e3 ...
+EmptyVisibGeom()       : 42 bytes  #VisibGeom\n e0 00 Sld_VisibGeom 00 e3 ...
+```
+
+`EmptyPartContainer` passed those values straight through, so every generated section carried its header twice.
+Fixed by stripping a leading header (`Author.StripSectionHeader`) before the container writes one.
+
+With that fixed, the earlier `ORDER_DEBUG` crashes disappear and the sections load **cleanly**:
+
+| Candidate | Replaces in the control | Creo |
+| --- | --- | --- |
+| `strip_VisibGeom` | `VisibGeom` (31-byte empty payload) | clean |
+| `strip_AllFeatur` | `AllFeatur` (1880) | clean |
+| `strip_FeatDefsDtm` | `FeatDefsDtm` (1428) | clean |
+| `strip_BasBasData` | `BasBasData` (351) | clean |
+| `gen_rows2` | **all 42 generated rows** | clean, 2 of 2 |
+
+So every one of the `42` rows the generative writer emits is accepted, together, with no `dbg_err_crash`. The
+earlier impression that our sections were individually suspect was an artifact of the duplicated header.
+
+**The remaining eleven rows need content, not just names.** Blanking them — replacing each with its bare
+`#<name>\n` line while keeping our 42 — is refused:
+
+```text
+all_blank: 21153 bytes, 53 rows replaced
+dbg_err_crash() ... ORDER_DEBUG  (x4)  then  cannot be retrieved
+```
+
+So `ND:0:Model_L05_PX:1`, `ND:0:UnitSystemDef_L03:1`, `ND:0:PDMTrail_L03:1`, `SolidPersistTable`,
+`SolidPrimdata`, `DispDataTable`, `THMB_IMG_MAIN`, `CGFPersistTable`, `IndentTag`, `FeatRefData` and the two
+free-space extents all carry load-bearing content. That is the exact extent of the container gap, and it is now
+much smaller than "the container cannot be generated".
+
 ### Three outcomes, not two, and the from-scratch container
 
 Every candidate in this session ended in one of **three** states, and earlier notes conflated the last two:

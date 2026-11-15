@@ -1056,6 +1056,40 @@ readback: 7 features 9 params 1 bodies
 (no End line; second run identical)
 ```
 
+### The `ORDER_DEBUG` crashes were a duplicated section header
+
+The section builders return a complete section, header included, and `BuildContainer` writes `#<name>\n` itself,
+so every generated section carried its header twice:
+
+```text
+control empty VisibGeom: 31 bytes  e0 00 Sld_VisibGeom 00 e3 ...
+EmptyVisibGeom()       : 42 bytes  #VisibGeom\n e0 00 Sld_VisibGeom 00 e3 ...
+```
+
+Fixed in `Author.StripSectionHeader`. The `dbg_err_crash` results in the previous section were an artifact of that
+duplication, not of the emitters. With the header stripped, each curated section replaces the control's and loads
+**cleanly** — `VisibGeom` (31-byte payload), `AllFeatur` (1880), `FeatDefsDtm` (1428), `BasBasData` (351) — and so
+does the whole set:
+
+```text
+gen_rows2: 29673 bytes, 42 generated rows
+!15-Nov-26 08:43:51  End ...  MT Part Solid        (2 of 2, no dbg_err_crash)
+```
+
+So all `42` rows the generative writer emits are accepted together. That is a real step: the container is no
+longer "unverified".
+
+**The eleven remaining rows need content.** Blanking them — bare `#<name>\n` in place, our 42 kept — is refused:
+
+```text
+all_blank: 21153 bytes, 53 rows replaced
+dbg_err_crash() ... ORDER_DEBUG  (x4)  then  cannot be retrieved
+```
+
+So the gap is exactly those eleven rows' content: the three `ND:*` tables, `SolidPersistTable`,
+`SolidPrimdata`, `DispDataTable`, `THMB_IMG_MAIN`, `CGFPersistTable`, `IndentTag`, `FeatRefData`, and the two
+free-space extents.
+
 ### Three outcomes, and what the generative container actually produces
 
 Earlier notes in this entry treated every non-clean result as a refusal. There are three distinct outcomes:

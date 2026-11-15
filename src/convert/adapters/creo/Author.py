@@ -132,6 +132,12 @@ def BuildContainer(
     return Header + KProductLine + TocHead + Rows + Payloads + b"#END_OF_UGC\n"
 
 
+# a section value may already carry its header line which the container must not duplicate
+def StripSectionHeader(NameText: str, Value: bytes) -> bytes:
+    Line = b"#" + NameText.encode("latin-1") + b"\n"
+    return Value[len(Line) :] if Value.startswith(Line) else Value
+
+
 # the feature chain is the minimum a part must declare
 def AuthorFeaturePayload(Features: tuple[tuple[int, int], ...]) -> bytes:
     Payload = StructHeader("Sld_Features") + b"\xe3"
@@ -840,7 +846,12 @@ def EmptyPartContainer(
 ) -> bytes:
     Bodies = EmptyPartSections(FeatureClasses)
     Bodies["VisibGeom"] = EmptyVisibGeom()
-    return BuildContainer(tuple(Bodies.items()), ModelName)
+    # the section builders already write the header line so the container must not add a second one
+    Stripped = {
+        NameText: StripSectionHeader(NameText, Value)
+        for NameText, Value in Bodies.items()
+    }
+    return BuildContainer(tuple(Stripped.items()), ModelName)
 
 
 # compact widths keep stored arrays small and aligned
