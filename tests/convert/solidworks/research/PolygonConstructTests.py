@@ -6,6 +6,19 @@ from pathlib import Path as FilePath
 from tests.convert.solidworks.research.PolygonProcess import RunPolygon
 
 
+# native origin identity must remain distinct from ordinary polygon point types
+def TestOriginFlag(TmpPath: FilePath) -> None:
+    Outcome = RunPolygon(Directory=TmpPath, Scenario="ring", Count=3, Depth=0.025)
+    assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
+    Report = LoadJson(Outcome.stdout)
+    assert Report["origin_flags"] & 1 == 1
+    assert Report["origin_type"] == 1
+    assert Report["origin_relations"] == 1
+    assert Report["origin_bytes"] > 0
+    assert Report["ordinary_origin_clear"]
+    assert Report["runtime_reads"] == []
+
+
 # variable topology must determine archive size without selecting recorded shapes
 def TestVariableN(TmpPath: FilePath) -> None:
     Sizes: list[int] = []

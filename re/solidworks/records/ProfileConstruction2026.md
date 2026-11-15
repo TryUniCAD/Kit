@@ -193,6 +193,13 @@ Its primary vtable `0x4d0ef510`, slot `+0x1ed8`, still returns zero, so ordinary
 Initializer `0x4c49b980` creates `sgPoint(sketch,1,0)`, makes it permanent, sets it to `(0,0,0)`, constructs an `sgLogG1Dim` of type `0x11` and appends that constraint
 The point remains the ordinary archive kind zero; sketch serializer `0x4c5916f0` assigns special kinds only to external points and `sgFramePt`
 Point constructor `0x4c490970` supplies `fe4=1`, its separate point type
+Initializer instruction `0x4c49b9c4` separately writes one to point runtime `+0x148`: the point starts at stack `rsp+0x160`, and the write is at `rsp+0x2a8`
+This is the decompiler's `local_40`, which overlaps the point object rather than being an unrelated local
+Serializer `0x4c58f910` tests `+0x148` at `0x4c58f98b` and stores its nonzero predicate in packed point flag bit zero
+The 2026 loader restores that bit to runtime `+0x148` at `0x4c5902ae` through `0x4c5902b7`
+`sgPointHandle::isOrigin` at `0x4c5fea60` invokes point virtual `+0xb0`, target `0x4b340ec0`, which tests `+0x148 == 1`
+The origin builder therefore sets `pflags & 1`, independently of `fe4=1`; ordinary polygon points keep the marker clear
+This corrects an omitted initializer mutation, without copying post-solver status or colour from a saved origin
 The constraint points to an actual `sgPointHandle` rather than a copied point index
 Its point reference count derives from that constraint reference, following `sgEntHandle::addConstraintReference` at `0x4c5bd330` and common increment `0x4c3e1510`
 `sgLogG1Dim` constructor `0x4c4103c0` and base `0x4c410070` supply constraint type `0x11`, `f90=2`, other zero status fields and `fa0=0xfffe`

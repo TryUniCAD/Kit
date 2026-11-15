@@ -392,6 +392,7 @@ def origin_profile(*, profile: Obj, plane: Obj, frame: PlaneFrame):
     graph = new_profile(profile=profile, plane=plane, frame=frame)
     profile["pd_f11c"] &= ~6
     point = ordinary_point(sketch=graph.sketch, position=(0.0, 0.0))
+    point["pflags"] |= 1
     point["fe4"] = 1
     point["f0c"] = 1
     points = NodeOrder(nodes=(point,))
