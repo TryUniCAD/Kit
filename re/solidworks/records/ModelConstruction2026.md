@@ -403,6 +403,23 @@ The PhotoView document-options record follows `0x4a3082c0`.
 The notebook follows `0x4a01d940`, its reset `0x4a023f30` and journal initialization
 `0x4a01d6b0`; the journal name is authored instead of copied from a localized resource.
 
+The journal's archive class schema is the format constant `0`, not the archive
+object helper's generic default `1`. The exact 2026 `slduiu.dll` exports
+`uoJournal_c::classuoJournal_c` at `0x4aef6660`; its `CRuntimeClass` word at
+offset `0x0c` contains four zero bytes. The class name pointer resolves to
+`uoJournal_c`, and its object-size word is `0x48`.
+The module SHA-256 is
+`025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7`.
+The constructor now supplies `schema=0` explicitly.
+This rule was located with a native loader observation, then proved statically:
+the parent-owned candidate trace `candidate-H3-schema.json`, SHA-256
+`78c581343341446555c9c02da5872ca3c6a08c665dcd9dc3eae2c9001f43e4dc`,
+observed runtime schema `0` versus file schema `1` at `swccu` relative address
+`0xa3a7`, followed by the nonversionable bad-schema exception path.
+It is a negative candidate result and not native acceptance.
+No saved document supplied the corrected value.
+See [runtime class schemas](../../../Documentation/Gotchas/Conversion/Solidworks/RuntimeClassSchemasDiffer.md).
+
 The part-specific density field `f1688` comes from `uiPartDoc_c` constructor
 `sldprtu` `0x33374980`.
 The base UI density virtual at slot `0x11c0` resolves to `0x3338a480` for that class;

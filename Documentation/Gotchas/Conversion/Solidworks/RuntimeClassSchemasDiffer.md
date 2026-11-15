@@ -1,0 +1,28 @@
+# Archive class schemas are not universally one
+
+## Expectation
+
+Every freshly constructed archive class can use the object helper's schema-one
+default because many native controls use that value.
+
+## Actual behavior
+
+The native 2026 loader rejected a generated `uoJournal_c` with file schema one:
+the registered runtime class requires schema zero and is not versionable.
+The loader reached its `badSchema` path before loading the model graph.
+The parent-owned `candidate-H3-schema.json` trace records this negative result.
+
+The shipped `slduiu.dll` independently proves zero at
+`uoJournal_c::classuoJournal_c`, preferred address `0x4aef6660`, offset `0x0c`.
+The [construction record](../../../../re/solidworks/records/ModelConstruction2026.md)
+records the binary and trace hashes.
+
+## Workaround
+
+Construct journals with `schema=0`. Determine each class schema from its registered
+native class metadata, including the versionable bit, rather than extrapolating
+from a document survey or codec round trips. A codec can round-trip a constructed
+class header that the target loader rejects.
+
+The corrected constant comes from the binary and live loader metadata, not a
+saved-file field. The complete candidate still requires native acceptance.
