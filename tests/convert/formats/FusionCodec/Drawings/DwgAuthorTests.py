@@ -136,7 +136,7 @@ def HeaderShorts(Model: DwgFile) -> tuple[list[int], int]:
 
 
 def TailPlaintext(Values: list[int]) -> tuple[int, int, int, int]:
-    Packed = b"".join(Value.to_bytes(2, "big") for Value in Values)
+    Packed = b"".join(Value.to_bytes(2, "little") for Value in Values)
     return UnpackFields("<HHHH", DecryptBytes(Packed))
 
 

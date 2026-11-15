@@ -1,4 +1,5 @@
 from struct import pack as PackFields
+from struct import unpack as UnpackFields
 
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.AuthorDwg import AuthorDwg
 from convert.formats.Fusion.DrawingCodec.Dwg.Header.HeaderFrame import (
@@ -10,6 +11,7 @@ from convert.formats.Fusion.DrawingCodec.Dwg.Header.ReadHeaderVars import (
     TypeHeader,
 )
 from convert.formats.Fusion.DrawingCodec.Dwg.Integrity.CrcSixteen import CrcSixteen
+from convert.formats.Fusion.DrawingCodec.Dwg.Integrity.TailCipher import DecryptBytes
 from convert.formats.Fusion.DrawingCodec.Dwg.Model.DwgFile import DwgFile
 from convert.formats.Fusion.DrawingCodec.Dwg.ReadDwgFile import ReadDwgFile
 from convert.formats.Fusion.DrawingCodec.Dwg.ReadDwgInventory import ReadInventory
@@ -50,12 +52,20 @@ def FlipTail(DataValue: bytes, Model: DwgFile) -> bytes:
     return RepairCrcMut(Tampered, AreaFinish)
 
 
+def TailPlaintext(TailBits: int, Width: int) -> tuple[int, int, int, int]:
+    Padding = Width - 72
+    Values = [(TailBits >> (Padding + 18 * (3 - Index))) & 0xFFFF for Index in range(4)]
+    Packed = b"".join(Value.to_bytes(2, "big") for Value in Values)
+    return UnpackFields("<HHHH", DecryptBytes(Packed))
+
+
 def TestTailTypes() -> None:
     Content, Model = Authored()
     DataValue = HeaderBytes(Content)
     Width, TailBits, _ = FrameParts(dict(Model.SectionVars)[KHeaderName])
-    assert Width >= 72
-    assert TailBits >> 72 == 0
+    assert 72 <= Width <= 80
+    assert TailBits < 1 << Width
+    assert TailPlaintext(TailBits, Width)[1:] == (1, 26, 0)
     HeaderVars, Frames = TypeHeader(DataValue, Model.FileHeader)
     assert HeaderVars.RecordFields
     assert dict(Frames)[KHeaderName] == dict(Model.SectionVars)[KHeaderName]
