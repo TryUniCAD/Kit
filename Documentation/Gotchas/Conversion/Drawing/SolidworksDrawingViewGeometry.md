@@ -10,13 +10,14 @@ positions, projection directions, outlines, and annotations.
 
 The recovered `swXmlContents/KeyWords` stream contains only a view name and the
 referenced model path. The sheet-format property contains only name, offset,
-width, height, and scale. The three geometry-bearing streams are binary
-serializations whose grammar is not recovered, so a reader cannot derive view
-placement or projected edges from them.
+width, height, and scale. View centres are recoverable from
+`Contents/DisplayLists` as described in
+[the position-record gotcha](SolidworksDrawingPositionRecords.md), but projected
+edges, hidden-line state, dimensions, annotations, and projection direction are
+not decoded.
 
-The SOLIDWORKS API exposes view position on `View.GetPosition()` at authoring
-time, but that value is not present in the XML metadata streams. A reader that
-reports positions by parsing the binary streams would be guessing.
+A reader that reports outlines or annotation geometry by parsing the remaining
+binary streams would be guessing.
 
 ## Workaround
 

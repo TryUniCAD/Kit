@@ -71,12 +71,13 @@ A single flag change is not a general operation converter.
 A `.SLDDRW` container can be read through
 `convert.adapters.solidworks.drawing.ReadDrawing`. It parses
 `swXmlContents/KeyWords` and `docProps/ISolidWorksInformation.xml` into document,
-sheet, view-name, model-path, reference, and note metadata. It does not decode
-view geometry from `Contents/Definition`, `Contents/DisplayLists`, or
-`Contents/VBLists`, and it does not register a drawing writer. The public
-`open_document` path still rejects drawing content, and
-`ReadDrawing(..., IncludeGeometry=True)` raises `SldprtFormatError` rather than
-returning a partial drawing.
+sheet, view-name, model-path, reference, and note metadata.
+`ReadDrawing(..., IncludePositions=True)` also recovers view centres from
+`Contents/DisplayLists`. Projected outlines, hidden-line state, dimensions,
+annotations, and projection direction remain unrecovered, and the module does
+not register a drawing writer. The public `open_document` path still rejects
+drawing content, and `ReadDrawing(..., IncludeGeometry=True)` raises
+`SldprtFormatError` rather than returning a partial drawing.
 
 See [the drawing reader change entry](../../Changes/Solidworks/SolidworksDrawingReader.md)
 and [the view-geometry gotcha](../../Gotchas/Conversion/Drawing/SolidworksDrawingViewGeometry.md).

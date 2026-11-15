@@ -1,7 +1,9 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace as ReplaceData
+import math as MathValue
 from pathlib import Path as FilePath
+import struct as Struct
 import xml.etree.ElementTree as XmlTree  # noqa: DUO107
 
 from convert.adapters.solidworks.container.Container import (
@@ -9,11 +11,13 @@ from convert.adapters.solidworks.container.Container import (
     SldprtFormatError,
 )
 from convert.adapters.solidworks.container.Format import (
+    DISPLAY_LISTS_STREAM as KDisplayStream,
     INFORMATION_STREAM as KInfoStream,
     KEYWORDS_STREAM as KKeyStream,
 )
 
 KSheetFormatProperty = "SW-All Sheet Format Data"
+KViewListProperty = "SW-Config-Model-View-Sheet-List"
 
 
 @dataclass(frozen=True, slots=True)
@@ -21,6 +25,8 @@ class DrawingView:
     Name: str
     ModelPath: str
     Description: str
+    PositionX: float | None = None
+    PositionY: float | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -182,8 +188,94 @@ def ReadNotes(RootValue: XmlTree.Element) -> tuple[str, ...]:
     )
 
 
+def Positions(DataValue: bytes) -> tuple[tuple[float, float], ...]:
+    Points: list[tuple[float, float]] = []
+    for Offset in range(0, len(DataValue) - 32):
+        XValue, YValue = Struct.unpack_from("<dd", DataValue, Offset)
+        ZValue = Struct.unpack_from("<d", DataValue, Offset + 16)[0]
+        WValue = Struct.unpack_from("<d", DataValue, Offset + 24)[0]
+        if not (0.0 < XValue < 1.0 and 0.0 < YValue < 1.0):
+            continue
+        if ZValue != 0.0 or WValue not in (1.0, 2.0):
+            continue
+        if (
+            Points
+            and MathValue.isclose(Points[-1][0], XValue, rel_tol=0.0, abs_tol=1e-09)
+            and MathValue.isclose(Points[-1][1], YValue, rel_tol=0.0, abs_tol=1e-09)
+        ):
+            continue
+        Points.append((XValue, YValue))
+    return tuple(Points)
+
+
+def ViewOrder(DataValue: bytes) -> tuple[tuple[str, str], ...]:
+    RootValue = XmlRoot(DataValue)
+    TextData = ""
+    for Element in RootValue.iter():
+        if LocalName(Element.tag) != "property":
+            continue
+        if Element.attrib.get("name") != KViewListProperty:
+            continue
+        TextData = TextValue(Element.find("{*}lpstr")) or TextValue(Element)
+        break
+    Tokens = TextData.split("@")
+    Result: list[tuple[str, str]] = []
+    for Index, Token in enumerate(Tokens):
+        if not Token.casefold().endswith((".sldprt", ".sldasm")):
+            continue
+        if Index + 2 >= len(Tokens):
+            raise SldprtFormatError("drawing view list is truncated")
+        SheetName, ViewName = Tokens[Index + 2], Tokens[Index + 1]
+        if not SheetName or not ViewName:
+            raise SldprtFormatError("drawing view list has an empty name")
+        Result.append((SheetName, ViewName))
+    return tuple(Result)
+
+
+def AttachPositions(
+    Sheets: tuple[DrawingSheet, ...],
+    Order: tuple[tuple[str, str], ...],
+    Points: tuple[tuple[float, float], ...],
+) -> tuple[DrawingSheet, ...]:
+    if not Order or len(Order) != len(Points):
+        raise SldprtFormatError("drawing view positions do not match the view list")
+    Index: dict[tuple[str, str], int] = {}
+    for PositionIndex, (SheetName, ViewName) in enumerate(Order):
+        ViewKey = (SheetName.casefold(), ViewName.casefold())
+        if ViewKey in Index:
+            raise SldprtFormatError("drawing view list repeats a view")
+        Index[ViewKey] = PositionIndex
+    SeenKeys: set[tuple[str, str]] = set()
+    NewSheets: list[DrawingSheet] = []
+    for SheetValue in Sheets:
+        NewViews: list[DrawingView] = []
+        for ViewValue in SheetValue.Views:
+            ViewKey = (SheetValue.Name.casefold(), ViewValue.Name.casefold())
+            Position = Index.get(ViewKey)
+            if Position is None:
+                raise SldprtFormatError("drawing view is missing from the view list")
+            XValue, YValue = Points[Position]
+            NewViews.append(ReplaceData(ViewValue, PositionX=XValue, PositionY=YValue))
+            SeenKeys.add(ViewKey)
+        NewSheets.append(ReplaceData(SheetValue, Views=tuple(NewViews)))
+    if SeenKeys != set(Index):
+        raise SldprtFormatError("drawing view list names an unknown view")
+    return tuple(NewSheets)
+
+
+def PositionSheets(
+    Sheets: tuple[DrawingSheet, ...], Information: bytes, Archive: SldprtArchive
+) -> tuple[DrawingSheet, ...]:
+    Display = Archive.get(KDisplayStream)
+    if Display is None:
+        raise SldprtFormatError(f"drawing is missing {KDisplayStream}")
+    return AttachPositions(Sheets, ViewOrder(Information), Positions(Display))
+
+
 def ReadDrawing(
-    Source: str | FilePath | bytes, IncludeGeometry: bool = False
+    Source: str | FilePath | bytes,
+    IncludeGeometry: bool = False,
+    IncludePositions: bool = False,
 ) -> DrawingData:
     if IncludeGeometry:
         raise SldprtFormatError(
@@ -211,6 +303,8 @@ def ReadDrawing(
     Sheets = ReadSheets(RootValue, SheetFormats(Information))
     if not Sheets:
         raise SldprtFormatError("drawing has no sheets")
+    if IncludePositions:
+        Sheets = PositionSheets(Sheets, Information, Archive)
     return DrawingData(
         NameValue,
         Sheets,

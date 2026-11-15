@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path as FilePath
+import struct as Struct
 
 import pytest as PytestLib
 
@@ -83,6 +84,66 @@ def TestNote() -> None:
     )
     DataValue = ReadDrawing(BlobValue)
     assert DataValue.Notes == ("  padded note  ",)
+
+
+# recovered view positions must match the locations used to author each view
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestPos() -> None:
+    Expected = {
+        "standard.SLDDRW": {
+            ("Sheet1", "Drawing View1"): (0.11, 0.23),
+            ("Sheet1", "Drawing View2"): (0.22, 0.11),
+            ("Sheet1", "Drawing View3"): (0.11, 0.23),
+            ("Sheet1", "Drawing View4"): (0.22, 0.23),
+        },
+        "minimal.SLDDRW": {
+            ("Sheet1", "Drawing View1"): (0.16, 0.16),
+            ("Sheet1", "Drawing View2"): (0.16, 0.25),
+        },
+        "angled.SLDDRW": {
+            ("Sheet1", "Drawing View1"): (0.12, 0.23),
+            ("Sheet1", "Drawing View2"): (0.24, 0.23),
+            ("Sheet1", "Drawing View3"): (0.12, 0.12),
+        },
+        "projected.SLDDRW": {
+            ("Sheet1", "Drawing View1"): (0.10, 0.15),
+            ("Sheet1", "Drawing View2"): (0.20, 0.15),
+        },
+        "multisheet.SLDDRW": {
+            ("Sheet1", "Drawing View1"): (0.11, 0.23),
+            ("Sheet2", "Drawing View2"): (0.16, 0.16),
+        },
+    }
+    for NameValue, PositionData in Expected.items():
+        DataValue = ReadDrawing(KDrawRoot / NameValue, IncludePositions=True)
+        Actual = {
+            (SheetValue.Name, ViewValue.Name): (
+                ViewValue.PositionX,
+                ViewValue.PositionY,
+            )
+            for SheetValue in DataValue.Sheets
+            for ViewValue in SheetValue.Views
+        }
+        assert set(Actual) == set(PositionData)
+        for KeyValue, ItemValue in PositionData.items():
+            assert Actual[KeyValue][0] == PytestLib.approx(ItemValue[0])
+            assert Actual[KeyValue][1] == PytestLib.approx(ItemValue[1])
+
+
+# a display list whose position records disagree with the view list must fail
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestPosNo() -> None:
+    SourcePath = KDrawRoot / "standard.SLDDRW"
+    SourceBytes = SourcePath.read_bytes()
+    Streams = SldprtArchive.from_bytes(SourceBytes).streams
+    Original = Streams["Contents/DisplayLists"]
+    Changed = Original.replace(Struct.pack("<d", 0.11), Struct.pack("<d", 5.0))
+    assert Changed != Original
+    BlobValue = BuildArchive(
+        {**Streams, "Contents/DisplayLists": Changed}, Template=SourceBytes
+    )
+    with PytestLib.raises(SldprtFormatError):
+        _ = ReadDrawing(BlobValue, IncludePositions=True)
 
 
 # requesting unavailable view geometry must fail instead of returning metadata

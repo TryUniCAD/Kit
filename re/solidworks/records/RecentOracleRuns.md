@@ -100,3 +100,20 @@ reader handling are recorded in
 saved `projected.SLDDRW`. Both views carry the parent model path in
 `swXmlContents/KeyWords`; the tracked copy is
 `re/solidworks/examples/Drawings/projected.SLDDRW`.
+
+### Recovered view positions
+
+The positions passed to `CreateDrawViewFromModelView3` and
+`CreateUnfoldedViewAt3` were recovered from `Contents/DisplayLists` and match the
+authored values exactly:
+
+```
+standard   View1 0.11,0.23  View2 0.22,0.11  View3 0.11,0.23  View4 0.22,0.23
+minimal    View1 0.16,0.16  View2 0.16,0.25
+angled     View1 0.12,0.23  View2 0.24,0.23  View3 0.12,0.12
+projected  View1 0.10,0.15  View2 0.20,0.15
+multisheet Sheet1 View1 0.11,0.23  Sheet2 View2 0.16,0.16
+```
+
+The pair layout, duplicate records, and fail-closed count check are recorded in
+[the position-record gotcha](../../Documentation/Gotchas/Conversion/Drawing/SolidworksDrawingPositionRecords.md).

@@ -20,9 +20,21 @@ as a sheet would fail a valid two-sheet drawing.
 `DrawingData` exposes `Name`, `Sheets`, `References`, `Notes`, and `SourcePath`.
 Each `DrawingSheet` carries `Name`, `PaperSize`, `ScaleNumerator`,
 `ScaleDenominator`, `WidthMetres`, `HeightMetres`, and its `DrawingView`
-records. Each view carries `Name`, `ModelPath`, and `Description`. `DrawingRef`
-carries `Name` and `Description`. Note text is returned exactly, including
-leading or trailing spaces.
+records. Each view carries `Name`, `ModelPath`, `Description`, and, when
+requested, `PositionX` and `PositionY` in metres. `DrawingRef` carries `Name`
+and `Description`. Note text is returned exactly, including leading or trailing
+spaces.
+
+`ReadDrawing(..., IncludePositions=True)` recovers view centres from
+`Contents/DisplayLists`. The stream stores each centre as a little-endian double
+pair followed by a zero Z value and a 1 or 2 record flag. Each view contributes
+two identical records 384 bytes apart, so consecutive duplicates are collapsed.
+The recovered positions are bound to views through the
+`SW-Config-Model-View-Sheet-List` property, not through `KeyWords` order, because
+a multi-sheet drawing can list its sheets and views in a different order. The
+reader requires the position count to equal the view-list count, every listed
+view to exist, and every parsed view to be listed; otherwise it raises
+`SldprtFormatError`.
 
 The reader accepts a file path, a `Path`, or raw container bytes. It is an
 explicit opt-in module: it is not registered as a conversion adapter and it is
@@ -39,17 +51,18 @@ print(drawing.Name, sheet.Name, sheet.ScaleNumerator, sheet.ScaleDenominator)
 print([view.ModelPath for view in sheet.Views])
 ```
 
-`ReadDrawing(..., IncludeGeometry=True)` raises `SldprtFormatError`. The geometry
-path is not implemented, so asking for it fails closed instead of returning a
-metadata-only value that a caller could mistake for a complete drawing.
+`ReadDrawing(..., IncludeGeometry=True)` raises `SldprtFormatError`. View
+centres are not a complete geometry path, so asking for geometry still fails
+closed instead of returning a value that a caller could mistake for a complete
+drawing. Request positions separately with `IncludePositions=True`.
 
 ## Limitations
 
 - this is a metadata reader only; `open_document` and `write_document` still
   reject `.SLDDRW` at `src/convert/adapters/solidworks/container/Format.py`
-- geometry is not decoded: `Contents/Definition`, `Contents/DisplayLists`, and
-  `Contents/VBLists` remain unrecovered, so view positions, projection
-  direction, outlines, dimensions, and annotations are not exposed
+- view centres are recovered, but projected outlines, hidden-line state,
+  dimensions, annotations, and projection direction are not; `Contents/Definition`
+  and `Contents/VBLists` remain largely unrecovered
 - a missing or inconsistent stream raises `SldprtFormatError` instead of
   returning a partial drawing
 - one sheet-format row is required per sheet name; an unmatched sheet fails
