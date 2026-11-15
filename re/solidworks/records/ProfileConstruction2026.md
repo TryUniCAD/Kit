@@ -60,8 +60,10 @@ This does not claim support for a neutral sketch that contains additional author
 ## Runtime schema audit
 
 The initial complete-file rejection exposed an unrelated class whose runtime schema is zero, so a generic schema-one assumption is unsafe
-This audit reads each named `CRuntimeClass` record from the locked DLL, checks its class-name pointer, and reads `m_wSchema` at record `+0xc` and factory pointer at `+0x10`
-Every header-emitting type constructed by the current sketch/extrusion path has the existing wire schema one
+This audit covers the 19 class types named by the sketch and dimension builder layer, including the allocated profile inputs
+It reads each named `CRuntimeClass` record from the locked DLL, checks its class-name pointer, and reads `m_wSchema` at record `+0xc` and factory pointer at `+0x10`
+Every audited type used with an emitted class header has the existing wire schema one
+Shared model, plane, metadata and container classes require their own audits and are outside this table
 The raw versionable runtime value is `0x80000001` for the listed model-DLL types and `1` for `suObList`
 These are per-class native metadata rules, not values fitted to a saved file
 
@@ -295,7 +297,9 @@ Its tested PR merge snapshot was `0d3d057f4eab945d708e12dbda3cfb0fadb9485d`
 The origin-node lifecycle mask was included
 At subsequent head `22a78891631498e176274289b2cafb00abc6b764`, [native job 132723081423](https://github.com/TryUniCAD/Kit/actions/runs/43684854129/job/132723081423) passed all six polygon cases, including the 65,537-line case, and reported 139 passes, 158 skips and one separate assembly-round-trip failure in 94.87 seconds
 Its assembly failure was `bad class ref 32512 at 297` for the A0/A1 assembly CMgr and linked streams
-The later naming and focused-directory repairs require current-head remote CI
+At head `ee2eed2e4732e995fb8b0a7b281b8834cdf9a7f6`, the naming and focused-directory gates passed, and [native job 132729524301](https://github.com/TryUniCAD/Kit/actions/runs/43687022248/job/132729524301) again passed all six polygon cases
+The job reported 139 passes, 158 skips and one separate assembly failure in 96.33 seconds
+The assembly CMgr repair advanced the controls to 12 of 14 identical streams; both remaining resolved-feature streams stopped at offset 635 because `moHistoryCompItemData_c` had no schema
 These process results establish container/archive construction and decoding, not native application acceptance, rebuild correctness or body measurements
 
 The first complete generated H3 candidate from parent revision `8e44d0eb5` was rejected during clean native opening
@@ -314,5 +318,5 @@ The later native schema probe `candidate-H3-schema.json`, SHA-256 `78c5813433414
 The probe accepted the preceding History, Biography, ISO and line-font manager schema-one records
 The shared definition repair uses exported native runtime-class metadata at `slduiu!0x4aef6660+0xc`, independently proving schema zero
 This isolates the first observed schema mismatch; it does not establish that later generated graph state is accepted
-The later naming and focused-directory repairs remain pending remote execution
+Further shared assembly repairs require their own remote execution evidence
 The success criteria remain unsatisfied until held-out generated files pass target opening, rebuild, geometry measurements, feature-tree inspection, and dimension editing between healthy controls

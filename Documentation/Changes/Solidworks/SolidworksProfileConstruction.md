@@ -45,7 +45,7 @@ The local inter-component-reference flag is now derived from the native update p
 Static native dataflow also closes local dependency-bit clearing, point-cleanup preservation and the status-to-colour mapping
 The actual solver status remains a required dependency rather than a value inferred from the constructor
 Native serializer keys identify entity `f38` as line type, independently from constraint status `f34` and sketch saved status `f128`
-The construction ledger now audits the native runtime schemas of every object type created by this path, including the inline-only logical constraint that emits no class header
+The construction ledger now audits the native runtime schemas of 19 class types named by the sketch and dimension builder layer, including the inline-only logical constraint that emits no class header
 The dimensional graph requires the explicit presentation input and completed shared model graph
 They do not change adapter capabilities
 See [the construction evidence](../../../re/solidworks/records/ProfileConstruction2026.md) for binary addresses, confidence labels, contracts, and remaining fields
@@ -67,7 +67,8 @@ The 65,537-line case subsequently passed in [native job 132723081423](https://gi
 It verifies dimension allocation and uses the shared `BuildAudit` guard before builder/schema imports, without a filename-suffix escape for direct data reads
 The process stages each own a focused module under `tests/convert/solidworks/research/Polygon/`, while the small program composition and subprocess entry point import their exact declarations
 Profile gotchas are grouped under `Documentation/Gotchas/Conversion/Solidworks/Profile/` to keep both parent directories within their file limits
-The later naming and directory repairs remain pending remote CI
+The naming and directory repairs passed at head `ee2eed2e4732e995fb8b0a7b281b8834cdf9a7f6`
+[Native job 132729524301](https://github.com/TryUniCAD/Kit/actions/runs/43687022248/job/132729524301) again passed all six polygon cases; its only failure was the next missing schema in inherited assembly resolved features
 The component sketch archive uses a seeded external profile owner and does not establish complete part-file acceptance
 Held-out native acceptance, rebuild, body measurements, and dimension edits remain unverified
 The first complete parent-generated H3 candidate failed native opening with an RPC error between two passing fresh controls
