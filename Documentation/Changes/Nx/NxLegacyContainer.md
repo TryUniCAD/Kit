@@ -1221,11 +1221,76 @@ table is understood and writable, and its container is written by `re/nx/tools/O
 record stream is not decoded, and NX 2506 cannot save this format, so the three corpus parts are the
 only samples that will ever exist here.
 
+## The object area is framed by a monotone index and a count prefixed table
+
+The record stream after the class and attribute frames is not a free-form byte stream. Every
+section that carries objects ends with a **section-relative entity index** followed by a
+**count-prefixed object table**, and the index bounds every object record:
+
+```text
+index[0] = 0
+index[1] = object_table_end - section_offset
+index[k] strictly increasing, index[-1] <= section_length
+count:u32 LE
+object_id[count]:u32 LE
+```
+
+the index is the unique strictly increasing run of little-endian words that starts at zero and whose
+second word equals the object table end. It is not word aligned: `wave_parent.prt` section 0 starts
+it at `0x1222`, `vise_screw.prt` section 0 at `0x31bf`, so the scan is byte aligned. The object table
+is `count` followed by `count` small class indices, not large object handles.
+
+records are then:
+
+```text
+record 0 = [object_table_end, section_offset + index[2])
+record k = [section_offset + index[k+1], section_offset + index[k+2])
+```
+
+measured across the three corpus parts, every section that has an index tiles exactly:
+
+```text
+part             section  index at   entries  count  records  object bytes
+wave_parent.prt        0    0x1222       236    233      234         49182
+wave_parent.prt        1    0xde32        49     24       47          1950
+wave_parent.prt        2    0xebde        24     23       22          1132
+wave_parent.prt        3    0xf3b4         4      3        2           184
+wave_parent.prt        4    0x10d58        81     80       79          2280
+flange.prt             0    0x3c08      1464   1461     1462         74247
+flange.prt             1    0x19955      350    160      348          6949
+flange.prt             2    0x1c503       60     59       58          1544
+flange.prt             3    0x1cf4e        3      2        1           259
+vise_screw.prt         0    0x31bf      1047   1044     1045         34599
+vise_screw.prt         1    0xe568       259    120      257          4574
+vise_screw.prt         2    0x105b8       95     94       93          2320
+vise_screw.prt         3    0x11416        3      2        1           170
+vise_screw.prt         4    0x13b82       57     56       55          1529
+```
+
+the first record of each section is the product frame, not an object: it begins
+`01 00 00 00 00 02 00 03 <u32 text length> "NX " product_text 00`, which is the same product frame
+the modern container uses. The remaining records begin with a uniform header:
+
+```text
+01 00 <u16 class> <u32 id> 14 00 ff ff 00 00 00 00 <u16 ...> ff ff <payload>
+```
+
+the `14 00` and `ff ff` words are constant, the `00 00 00 00` word is constant, and the u16 list is
+terminated by `ff ff`. The payload then carries the typed value stream already decoded for the name
+table and colour records.
+
+`LegacyObject.ReadIndex`, `ReadObjects` and `ReadRecords` implement this framing, and `ReadNx`
+reports `nx.legacy_object_sections`, `nx.legacy_object_count` and `nx.legacy_object_bytes`. The
+framing is what the earlier "count plus entry list" attempts were missing: the entries are not a
+fixed stride, they are bounded by the index, and the index is section relative rather than payload
+relative.
+
 ## Limits
 
 - The legacy payload writer is not implemented. This entry establishes the container, the class
-  table and the section headers; what is still undecoded is the body of a section after its class
-  frames, which holds the object records and the geometry. Authoring a part still needs that body.
+  table, the section headers and the object framing; what is still undecoded is the payload grammar
+  inside each object record, which holds the field values and the geometry. Authoring a part still
+  needs that payload grammar.
 - NX 2506 does not save this container, so no new samples can be generated; the three corpus parts
   are the whole evidence base, and `wave_parent.prt` did not yield the table at the anchor the other
   two use, so its layout differs.

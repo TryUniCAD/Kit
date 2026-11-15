@@ -36,6 +36,7 @@ from convert.adapters.nx.ExprSection import (
 )
 from convert.adapters.nx.ClassEntry import ClassLink, EntryParts, NameDigest
 from convert.adapters.nx.LegacySection import ReadSections
+from convert.adapters.nx.LegacyObject import ReadIndex, ReadObjects, ReadRecords
 from convert.adapters.nx.LegacyClasses import (
     ClassTableEnd,
     LegacyAttrs,
@@ -1267,3 +1268,51 @@ def TestNxSections() -> None:
     assert Sections[0].Offset == 4
     assert Sections[0].Length == len(PayloadBytes) - 12
     assert ReadSections(b"no sections at all") == ()
+
+
+# a legacy object area is framed by a monotone index and a count prefixed table
+def TestNxLegacyObject() -> None:
+    Platform = "Intel x86/Windows NT"
+    PartName = "authored.prt"
+    SectionBytes = (
+        b"OM\x01\x01"
+        + (7).to_bytes(4, "big")
+        + (0x25).to_bytes(4, "big")
+        + bytes(4)
+        + bytes([1, 2, 3])
+        + len(Platform).to_bytes(4, "little")
+        + Platform.encode("ascii")
+        + len(PartName).to_bytes(4, "little")
+        + PartName.encode("ascii")
+        + b"".join(Value.to_bytes(4, "little") for Value in (7, 1, 0, 3, 0, 0, 9, 9))
+    )
+    Offset = 4
+    BodyBase = Offset + len(SectionBytes)
+    ObjectEnd = BodyBase + 4 * 4 + 4 + 4 * 3
+    Entries = (0, ObjectEnd - Offset, ObjectEnd - Offset + 12, ObjectEnd - Offset + 24)
+    Records = b"a" * 12 + b"b" * 12 + b"c" * 12
+    Body = (
+        SectionBytes
+        + b"".join(Value.to_bytes(4, "little") for Value in Entries)
+        + len((1, 3, 5)).to_bytes(4, "little")
+        + b"".join(Value.to_bytes(4, "little") for Value in (1, 3, 5))
+        + Records
+    )
+    PayloadBytes = len(Body).to_bytes(4, "big") + Body
+    Sections = ReadSections(PayloadBytes)
+    assert len(Sections) == 1
+    Index = ReadIndex(PayloadBytes, Sections[0])
+    assert Index is not None
+    assert Index.Entries == Entries
+    assert Index.Count == 3
+    assert Index.ObjectEnd == ObjectEnd
+    assert ReadObjects(PayloadBytes, Index) == (1, 3, 5)
+    Bounds = ReadRecords(PayloadBytes, Sections[0], Index)
+    assert len(Bounds) == 2
+    assert Bounds[0].Offset == ObjectEnd
+    assert Bounds[0].Length == 12
+    assert Bounds[0].ObjectId == 1
+    assert Bounds[1].Offset == ObjectEnd + 12
+    assert Bounds[1].Length == 12
+    assert Bounds[1].ObjectId == 3
+    assert ReadIndex(b"no index at all", Sections[0]) is None

@@ -18,6 +18,11 @@ from convert.adapters.nx.LegacyClasses import (
     LegacyCodes,
     LegacyTable,
 )
+from convert.adapters.nx.LegacyObject import (
+    LegacyRecord,
+    ReadIndex,
+    ReadRecords,
+)
 from convert.adapters.nx.LegacySection import LegacySection, ReadSections
 from convert.adapters.nx.Geometry import ReadGeometry
 from convert.adapters.nx.Payload import NxPayload
@@ -133,7 +138,7 @@ def ReadNx(Source: KSourceType, Options: ReadOptions | None = None) -> CadDoc:
     if PartData is None:
         raise ValueError("NX part has no UG_PART payload")
     Payload = ReadPayload(PartData)
-    LegacyRecords, LegacyParts, LegacyMarks, LegacyFields = LegacyRead(
+    LegacyRecords, LegacyParts, LegacyMarks, LegacyFields, LegacyObjects = LegacyRead(
         PartData, ContainerName
     )
     Attributes = ParseAttributes(Streams)
@@ -167,7 +172,9 @@ def ReadNx(Source: KSourceType, Options: ReadOptions | None = None) -> CadDoc:
         "nx.attributes": Attributes,
         "nx.external_references": References,
         "nx.application_version": Version,
-        **LegacyMeta(LegacyRecords, LegacyParts, LegacyMarks, LegacyFields),
+        **LegacyMeta(
+            LegacyRecords, LegacyParts, LegacyMarks, LegacyFields, LegacyObjects
+        ),
     }
     DocValue = CadDoc(
         source=CadSource(
@@ -209,6 +216,7 @@ def LegacyMeta(
     Sections: tuple[LegacySection, ...],
     Marks: tuple[int, ...],
     Fields: tuple[LegacyAttribute, ...],
+    Objects: tuple[tuple[LegacyRecord, ...], ...],
 ) -> dict[str, object]:
     return {
         "nx.legacy_class_count": len(Records),
@@ -221,6 +229,11 @@ def LegacyMeta(
         "nx.legacy_section_versions": tuple(
             sorted({SectionValue.Version for SectionValue in Sections})
         ),
+        "nx.legacy_object_sections": len(Objects),
+        "nx.legacy_object_count": sum(len(Part) for Part in Objects),
+        "nx.legacy_object_bytes": sum(
+            RecordValue.Length for Part in Objects for RecordValue in Part
+        ),
     }
 
 
@@ -230,9 +243,10 @@ def LegacyRead(PartData: bytes, ContainerName: str) -> tuple[
     tuple[LegacySection, ...],
     tuple[int, ...],
     tuple[LegacyAttribute, ...],
+    tuple[tuple[LegacyRecord, ...], ...],
 ]:
     if ContainerName != "compound":
-        return ((), (), (), ())
+        return ((), (), (), (), ())
     try:
         Records = LegacyTable(PartData)
         Marks = LegacyCodes(PartData)
@@ -241,7 +255,14 @@ def LegacyRead(PartData: bytes, ContainerName: str) -> tuple[
         Records = ()
         Marks = ()
         Fields = ()
-    return (Records, ReadSections(PartData), Marks, Fields)
+    Sections = ReadSections(PartData)
+    Objects = tuple(
+        ReadRecords(PartData, SectionValue, IndexValue)
+        for SectionValue in Sections
+        for IndexValue in (ReadIndex(PartData, SectionValue),)
+        if IndexValue is not None
+    )
+    return (Records, Sections, Marks, Fields, Objects)
 
 
 # diagnostics keep legacy geometry omission visible instead of silently empty
