@@ -1,5 +1,6 @@
 let Sequence = 0
 let Dropped = 0
+let Phase = "armed"
 const Budget = 50000
 const Hooks = []
 const Scopes = new Map()
@@ -7,7 +8,7 @@ const Epochs = new Map()
 
 function emit(Value) {
   if (Sequence >= Budget) { Dropped++; return }
-  send({sequence: Sequence++, ...Value})
+  send({sequence: Sequence++, phase: Phase, ...Value})
 }
 
 function location(Address) {
@@ -24,12 +25,35 @@ function archive(Address) {
 }
 
 function sketch(Address) {
-  try { return {pointer: Address.toString(), saved_status: Address.add(0x128).readS32(), status: Address.add(0x12c).readS32(), flags: Address.add(0x188).readU32(), stamp: Address.add(0x56c).readU32()} }
+  try { return {pointer: Address.toString(), profile: Address.add(0x138).readPointer().toString(), saved_status: Address.add(0x128).readS32(), status: Address.add(0x12c).readS32(), flags: Address.add(0x188).readU32(), raw_f37c_u16: Address.add(0x37c).readU16(), runtime_f388: Address.add(0x388).readPointer().toString(), runtime_f3e0: Address.add(0x3e0).readPointer().toString(), stamp: Address.add(0x56c).readU32()} }
   catch (ErrorInfo) { return {pointer: Address.toString(), error: String(ErrorInfo)} }
 }
 
 function attach(Address, Handlers) {
   Hooks.push(Interceptor.attach(Address, Handlers))
+}
+
+function entity(Handle, Caller, Model) {
+  try {
+    const Sketch = Handle.add(0x10).readPointer()
+    const Index = Handle.add(0x18).readS32()
+    const Result = {handle: Handle.toString(), handle_vtable: location(Handle.readPointer()), sketch: Sketch.toString(), index: Index}
+    const PointCaller = Model.base.add(0x4c5043a9 - 0x4b140000)
+    const LineCaller = Model.base.add(0x4c502e43 - 0x4b140000)
+    const IsPoint = Caller.equals(PointCaller)
+    if ((!IsPoint && !Caller.equals(LineCaller)) || Index < 0 || Index >= 1000000) return {...Result, resolved: false}
+    const Array = Sketch.add(IsPoint ? 8 : 0x10).readPointer()
+    const Data = Array.add(8).readPointer()
+    const Address = Data.add(Index * (IsPoint ? 0x158 : 0xf0))
+    Object.assign(Result, {resolved: true, kind: IsPoint ? "point" : "line", pointer: Address.toString(), color: Address.add(0x30).readU32(), constraint_status: Address.add(0x34).readS32(), line_type: Address.add(0x38).readU32()})
+    if (IsPoint) Object.assign(Result, {point_type_u16: Address.add(0xe4).readU16(), xyz: [0xc8, 0xd0, 0xd8].map(Offset => Address.add(Offset).readDouble())})
+    return Result
+  } catch (ErrorInfo) { return {handle: Handle.toString(), error: String(ErrorInfo)} }
+}
+
+function header(Address) {
+  try { return {pointer: Address.toString(), update_stamp: Address.add(0x40).readU32(), body_stamp: Address.add(0x44).readU32(), update_time_i64: Address.add(0x48).readS64().toString()} }
+  catch (ErrorInfo) { return {pointer: Address.toString(), error: String(ErrorInfo)} }
 }
 
 function throwInfo(Address) {
@@ -56,14 +80,21 @@ function prefix(Address) {
 }
 
 rpc.exports = {
+  markphase(Value) {
+    if (typeof Value !== "string" || Value.length === 0 || Value.length > 120) throw new Error("one bounded phase label is required")
+    Phase = Value
+    emit({kind: "action-phase"})
+    return {phase: Phase}
+  },
   moduleidentity() {
-    return Process.enumerateModules().filter(Value => ["sldmodu.dll", "swccu.dll", "mfc140u.dll", "vcruntime140.dll", "vcruntime140_1.dll", "kernelbase.dll", "user32.dll"].includes(Value.name.toLowerCase())).map(Value => ({name: Value.name, path: Value.path, base: Value.base.toString(), size: Value.size}))
+    return Process.enumerateModules().filter(Value => ["sldmodu.dll", "swccu.dll", "sldarchiveu.dll", "mfc140u.dll", "vcruntime140.dll", "vcruntime140_1.dll", "kernelbase.dll", "user32.dll"].includes(Value.name.toLowerCase())).map(Value => ({name: Value.name, path: Value.path, base: Value.base.toString(), size: Value.size}))
   },
   activate() {
     if (Process.arch !== "x64" || Hooks.length !== 0) throw new Error("exactly one activation in an x64 target is required")
     const Model = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "sldmodu.dll")
     const Common = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "swccu.dll")
-    if (Model === undefined || Common === undefined) throw new Error("selected target modules are not loaded")
+    const Archive = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "sldarchiveu.dll")
+    if (Model === undefined || Common === undefined || Archive === undefined) throw new Error("selected target modules are not loaded")
     attach(Common.base.add(0xa3a7), {onEnter() {
       try {
         const Runtime = this.context.rax
@@ -118,8 +149,22 @@ rpc.exports = {
       onEnter(Args) { this.wrapper = Args[0]; this.object = this.wrapper.add(8).readPointer(); this.before = sketch(this.object); this.caller = location(this.returnAddress) },
       onLeave(ReturnValue) { emit({kind: "sketch-update", wrapper: this.wrapper.toString(), before: this.before, after: sketch(this.object), result: ReturnValue.toString(), caller: this.caller}) }
     })
+    attach(Model.base.add(0x4c5167d0 - 0x4b140000), {
+      onEnter(Args) { this.wrapper = Args[0]; this.object = this.wrapper.add(8).readPointer(); this.before = sketch(this.object); this.caller = location(this.returnAddress) },
+      onLeave(ReturnValue) { emit({kind: "sketch-coordinate-commit", wrapper: this.wrapper.toString(), before: this.before, after: sketch(this.object), changed_coordinate_count: ReturnValue.toUInt32(), raw_rax: ReturnValue.toString(), caller: this.caller}) }
+    })
+    attach(Model.base.add(0x4c549ab0 - 0x4b140000), {
+      onEnter(Args) {
+        this.object = Args[0]
+        this.before = sketch(this.object)
+        this.caller = location(this.returnAddress)
+        emit({kind: "sketch-whole-update-enter", before: this.before, transform: Args[1].toString(), result_pointer: Args[2].toString(), update_engine: Args[3].toString(), stack_i32: [this.context.rsp.add(0x28).readS32(), this.context.rsp.add(0x30).readS32()], constraint_balance: this.context.rsp.add(0x38).readPointer().toString(), tolerance_f64: this.context.rsp.add(0x40).readDouble(), tolerance_raw_u64: this.context.rsp.add(0x40).readU64().toString(16), caller: this.caller})
+      },
+      onLeave(ReturnValue) { emit({kind: "sketch-whole-update-leave", before: this.before, after: sketch(this.object), constrained_status: ReturnValue.toInt32(), raw_rax: ReturnValue.toString(), caller: this.caller}) }
+    })
     attach(Model.base.add(0x4c5077f0 - 0x4b140000), {
-      onEnter(Args) { emit({kind: "solver-status-map", handle: Args[0].toString(), raw_status: Args[1].toInt32(), drawing: Args[2].toInt32(), caller: location(this.returnAddress)}) }
+      onEnter(Args) { this.handle = Args[0]; this.caller_pointer = this.returnAddress; this.before = entity(this.handle, this.caller_pointer, Model); this.raw_status = Args[1].toInt32(); this.drawing = Args[2].toInt32() },
+      onLeave(ReturnValue) { emit({kind: "solver-status-map", handle: this.handle.toString(), raw_status: this.raw_status, drawing: this.drawing, mapped_status: ReturnValue.toInt32(), before: this.before, after_mapping_before_caller_resumes: entity(this.handle, this.caller_pointer, Model), caller: location(this.caller_pointer)}) }
     })
     attach(Model.base.add(0x4c0363c0 - 0x4b140000), {
       onEnter(Args) { this.object = Args[0]; this.status = Args[1].toInt32(); this.before = this.object.add(0xc).readU32(); this.caller = location(this.returnAddress) },
@@ -133,6 +178,12 @@ rpc.exports = {
       onEnter(Args) { this.object = Args[0]; this.arguments = [Args[1].toString(), Args[2].toString(), Args[3].toString()]; this.caller = location(this.returnAddress) },
       onLeave(ReturnValue) { emit({kind: "update-session-stamp", object: this.object.toString(), arguments: this.arguments, raw_rax_not_semantic_result: ReturnValue.toString(), caller: this.caller}) }
     })
+    for (const [Offset, Kind] of [[0x15350, "header-next-update-stamp"], [0x15340, "header-next-body-stamp"]]) {
+      attach(Archive.base.add(Offset), {
+        onEnter(Args) { this.object = Args[0]; this.before = header(this.object); this.caller = location(this.returnAddress) },
+        onLeave(ReturnValue) { emit({kind: Kind, before: this.before, after: header(this.object), returned_u32: ReturnValue.toUInt32(), caller: this.caller}) }
+      })
+    }
     const Seen = new Set()
     for (const Entry of Common.enumerateExports()) {
       if (!Entry.name.startsWith("??5su_CArchive@@") || Seen.has(Entry.address.toString())) continue

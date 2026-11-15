@@ -110,6 +110,8 @@ def main():
                 if identity["sha256"] != digest:
                     raise RuntimeError(f"loaded module image differs from the selected analysis target: {name}")
             record["hook_activation"] = script.exports_sync.activate()
+            if prepared is not None:
+                prepared["trace"] = script.exports_sync
         print(json.dumps({"ready": True, "pid": targets[0].pid, "realm": args.realm}), flush=True)
         if args.action_script is not None:
             record["action_path"] = str(args.action_script)

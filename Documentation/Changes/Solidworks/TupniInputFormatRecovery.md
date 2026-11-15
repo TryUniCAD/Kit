@@ -80,3 +80,21 @@ records capture and binary hashes, exact addresses, the rejected input and
 evidence limits. This is an observed, binary-backed format correction, not full
 instruction taint or a measured speedup. Clean acceptance of corrected generated
 files remains pending.
+
+The observer now passes its retained trace interface to an explicitly selected
+action. `AuthorPolygons.py` brackets native document creation, sketch/feature
+authoring, first explicit rebuild, save and close with phase events. It accepts
+one JSON job naming `specifications`, `output` and a known `control`; its source
+specifications contain at most three training models. It records actual native
+point/segment/relation counts and geometry, helper/input hashes, and controls
+before and after in the same instrumented process. These are training
+observations, not clean generated-file acceptance.
+
+Additional version-bound probes cover complete sketch updates, coordinate
+commit counts, mapped solver statuses and independent header update/body stamp
+allocation. The module manifest now also requires the exact archive module
+hash. A mapped status event is explicitly observed before its caller resumes;
+it does not claim the subsequent entity setter has executed. Runtime sketch
+cache pointers remain distinct from similarly numbered profile fields. The
+new capture results will be recorded after execution; no status or stamp value
+is inferred from instrumentation setup alone.
