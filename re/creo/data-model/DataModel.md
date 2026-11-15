@@ -401,6 +401,37 @@ That makes the next prerequisite a **reader** task, not a writer one: teach the 
 selector-plus-positional segment replay, then the profile's six point pairs are available and the aligned candidate
 can be built from real topology instead of sequential guesses.
 
+### The segment replay decodes, but the fix breaks the replay encoder
+
+The selector form was resolved by measurement. `f7 2f` names the field *after* the element's opener, so the
+element's first field is one before it: stepping back one field and skipping the following `e2` opener decodes the
+second segment correctly and makes the whole element parse to its last byte.
+
+```text
+with the fix:  nodes 678, consumed 3827 of 3827
+               pointid [[0, 1], [1, 2]]      dir [[-1, 0, 0], [0, 1, 0]]
+without:       nodes 765, consumed 3832 of 3827
+               pointid [[0, 1], []]          dir [[2, 0, 1]]
+```
+
+Segments three to six still do not decode — element five begins `e2 c0 80 02 …`, where `c0 80 02` is the
+three-byte compact form of `32770`, so the element is not a plain line record — but the first two are now exact.
+
+**The fix was reverted, because it changes emitted bytes.** `Author.ReplayPieces` derives every replay span from
+`StreamParser.ReadField`, so a parser that consumes one byte differently produces a different replay. With the fix
+the generated `AllFeatur` payload changed from `1876` to `1871` bytes and the 47-row generative part, previously
+clean, was refused:
+
+```text
+!15-Nov-26 12:13:48  Start C:\Mac\Home\Documents\creo-authored\gen_rows.prt     (no End)
+std.out: Sld_Features / first_feat_ptr / idtab_ptr / srf_id_tab_ptr
+```
+
+Reverted, `1876` returns and the part loads twice again (`12:19:08` and `12:24:23`, both `End` + `MT Part Solid`).
+So the decoder improvement is understood and reproducible but cannot be landed without re-deriving the replay, and
+that interaction is recorded in
+`Documentation/Gotchas/Conversion/CreoReplayDependsOnParse.md`.
+
 ### The sketch's segment replay could not be decoded reliably
 
 To test whether the sketch's *topology* is the remaining constraint, the vendor's six segment records were read out of

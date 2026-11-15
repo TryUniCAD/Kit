@@ -97,6 +97,32 @@ segment is fully declared, but the other five are selector-plus-positional (`f7 
 candidate therefore used sequential point pairs, which need not match the profile the body was built from — and that
 alone may explain the refusal.
 
+### The segment replay decodes, and the fix had to be reverted
+
+Resolving the sketch's segment replay was tried and measured. The selector `f7 2f` names the field *after* the
+element's opener, so the element's first field is one before it; stepping back one field and skipping the following
+`e2` opener decodes the second segment and makes the element parse exactly:
+
+```text
+with the fix:  nodes 678, consumed 3827 of 3827
+               pointid [[0, 1], [1, 2]]   dir [[-1, 0, 0], [0, 1, 0]]
+without:       nodes 765, consumed 3832 of 3827
+               pointid [[0, 1], []]       dir [[2, 0, 1]]
+```
+
+Segments three to six remain undecoded: element five starts `e2 c0 80 02 …`, and `c0 80 02` is the three-byte
+compact form of `32770`, so it is not a plain line record.
+
+**The fix was reverted because it changes the writer.** `Author.ReplayPieces` takes every replay span from
+`StreamParser.ReadField`, so one byte of different consumption produces a different replay: the generated
+`AllFeatur` payload moved from `1876` to `1871` bytes and the previously clean 47-row part was refused, with
+`std.out` stopping at `Sld_Features → first_feat_ptr → idtab_ptr → srf_id_tab_ptr`. Reverting restored `1876` and the
+part loads twice again (`12:19:08`, `12:24:23`, both `End` + `MT Part Solid`).
+
+The decoder fix is therefore understood and reproducible, but it cannot land alone: the replay encoder has to be
+derived independently of the reader before the parser can change. That interaction is recorded in
+[the replay gotcha](../../Gotchas/Conversion/CreoReplayDependsOnParse.md).
+
 ### Iterating with the trace: the outline is validated, the sketch is next
 
 `std.out` was used as a guide to fix the recorded records one at a time:
