@@ -92,6 +92,22 @@ def TestGeom() -> None:
         _ = ReadDrawing(KDrawRoot / "standard.SLDDRW", IncludeGeometry=True)
 
 
+# sheet format entries are not sheets and must not be decoded as ones
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestMulti() -> None:
+    DataValue = ReadDrawing(KDrawRoot / "multisheet.SLDDRW")
+    assert [ItemValue.Name for ItemValue in DataValue.Sheets] == ["Sheet2", "Sheet1"]
+    FirstValue, SecondValue = DataValue.Sheets
+    assert FirstValue.PaperSize == "12"
+    assert FirstValue.ScaleNumerator == PytestLib.approx(2.0)
+    assert FirstValue.ScaleDenominator == PytestLib.approx(1.0)
+    assert len(FirstValue.Views) == 1
+    assert SecondValue.PaperSize == "0"
+    assert SecondValue.WidthMetres == PytestLib.approx(0.2794)
+    assert len(SecondValue.Views) == 1
+    assert "multi sheet note" in DataValue.Notes
+
+
 # a truncated or inconsistent drawing archive must never be read partially
 @PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
 def TestFail() -> None:

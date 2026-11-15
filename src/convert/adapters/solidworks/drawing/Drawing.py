@@ -157,7 +157,7 @@ def ReadSheets(
     return tuple(
         ReadSheet(Element, Formats)
         for Element in RootValue.iter()
-        if LocalName(Element.tag) == "Sheet"
+        if LocalName(Element.tag) == "Sheet" and Element.attrib.get("Type") == "Sheet"
     )
 
 

@@ -13,6 +13,10 @@ The reader uses two streams:
   row for each sheet, which gives the paper width and height in metres plus the
   sheet scale
 
+A sheet element is only accepted when its `Type` is `Sheet`; the default
+template also emits a `Sheet Format` element with no format row, and treating it
+as a sheet would fail a valid two-sheet drawing.
+
 `DrawingData` exposes `Name`, `Sheets`, `References`, `Notes`, and `SourcePath`.
 Each `DrawingSheet` carries `Name`, `PaperSize`, `ScaleNumerator`,
 `ScaleDenominator`, `WidthMetres`, `HeightMetres`, and its `DrawingView`
@@ -51,10 +55,14 @@ metadata-only value that a caller could mistake for a complete drawing.
 - one sheet-format row is required per sheet name; an unmatched sheet fails
 - the scale comes from the sheet-format row when both fields are positive,
   otherwise from the `KeyWords` scale elements
+- `Notes` contains every `Note` element in `KeyWords`, which can include the
+  template title-block text as well as authored notes
+- sheet order follows the `KeyWords` element order, which is not guaranteed to
+  match the sheet tab order
 
 ## Verification
 
-`tests/convert/solidworks/drawing/SolidworksDrawingTests.py` reads three real
+`tests/convert/solidworks/drawing/SolidworksDrawingTests.py` reads four real
 drawings authored in SOLIDWORKS Design Premium 2026 SP5.2 and tracked under
 `re/solidworks/examples/Drawings/`:
 
@@ -64,7 +72,11 @@ drawings authored in SOLIDWORKS Design Premium 2026 SP5.2 and tracked under
 | `minimal.SLDDRW`  | `Draw2` | 2     | 2:1   |
 | `angled.SLDDRW`   | `Draw3` | 3     | 1:1   |
 
-All three use `Sheet1`, paper-size code `0`, and 0.2794 m by 0.2159 m. `TestOpen`
+The first three use `Sheet1`, paper-size code `0`, and 0.2794 m by 0.2159 m.
+`multisheet.SLDDRW` has `Sheet2` with paper code `12` and `Sheet1` with paper
+code `0`, each with one view and a `2:1` scale; it also carries the template
+title-block notes. `TestMulti` requires that the `Sheet Format` pseudo-entry is
+ignored and that both real sheets decode. `TestOpen`
 checks the document name and path, `TestSheet` checks sheet geometry, scale, view
 count, and referenced model, `TestText` checks the authored note and references,
 and `TestNote` verifies that padded note whitespace survives. `TestFail` removes

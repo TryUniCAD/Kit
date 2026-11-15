@@ -82,3 +82,13 @@ DRAWING_SAVED=...\standard.SLDDRW EXISTS=True READ_VIEWS=5
 views at 1:1. The files are tracked under `re/solidworks/examples/Drawings/`.
 The container stream list and reader behavior are documented in
 [the drawing reader change entry](../../Documentation/Changes/Solidworks/SolidworksDrawingReader.md).
+
+### Multi-sheet drawing
+
+`AuthorMultiSheet.vbs` created a two-sheet drawing in the same installation. The
+API reported `NEW_SHEET=True`, one view on `Sheet1`, one view on `Sheet2`, and a
+successful rebuild and save. The tracked copy is
+`re/solidworks/examples/Drawings/multisheet.SLDDRW`. It exposed a real
+`Sheet Format` keyword entry that is not a drawing sheet; the stream layout and
+reader handling are recorded in
+[the sheet-format gotcha](../../Documentation/Gotchas/Conversion/SolidworksSheetFormatKeyword.md).
