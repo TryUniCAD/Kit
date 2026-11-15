@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from collections.abc import Iterator, MutableMapping, Sequence
 from dataclasses import dataclass
-from math import isclose, isfinite, sqrt
+from math import fsum, isclose, isfinite, sqrt
 
 from Core import ArchiveError, Obj
 
@@ -39,6 +39,30 @@ class DerivedFields(MutableMapping):
 
     def __len__(self):
         return len(self.fields) + len(self.derived)
+
+
+class NodeOrder(Sequence):
+    def __init__(self, *, nodes):
+        self.nodes = tuple(nodes)
+        if any(not isinstance(node, Obj) for node in self.nodes):
+            raise ConstructionError("geometry arrays require Core.Obj nodes")
+        if len({id(node) for node in self.nodes}) != len(self.nodes):
+            raise ConstructionError("geometry arrays must not repeat a node identity")
+        self.positions = None
+
+    def __len__(self):
+        return len(self.nodes)
+
+    def __getitem__(self, key):
+        return self.nodes[key]
+
+    def index_of(self, *, node):
+        if self.positions is None:
+            self.positions = {id(value): index for index, value in enumerate(self.nodes)}
+        try:
+            return self.positions[id(node)]
+        except KeyError as error:
+            raise ConstructionError(f"{node.cls} is not in its owning geometry array") from error
 
 
 def _vector(*, value, size):
@@ -92,7 +116,7 @@ class PlaneFrame:
 
     def world_point(self, *, point):
         x, y = _vector(value=point, size=2)
-        return tuple(o + x * u + y * v for o, u, v in zip(self.origin, self.u, self.v, strict=True))
+        return _vector(value=(o + x * u + y * v for o, u, v in zip(self.origin, self.u, self.v, strict=True)), size=3)
 
 
 def frame_transform(*, frame: PlaneFrame):
@@ -169,14 +193,13 @@ def ordinary_point(*, sketch: Obj, position: Sequence[float]):
     return Obj("sgPoint", fields)
 
 
-def _node_index(*, nodes: Sequence[Obj], node: Obj):
-    for index, candidate in enumerate(nodes):
-        if candidate is node:
-            return index
-    raise ConstructionError(f"{node.cls} is not in its owning geometry array")
+def _node_index(*, nodes: NodeOrder, node: Obj):
+    if not isinstance(nodes, NodeOrder):
+        raise ConstructionError("geometry references require a shared immutable NodeOrder")
+    return nodes.index_of(node=node)
 
 
-def line_handle(*, sketch: Obj, line: Obj, lines: Sequence[Obj]):
+def line_handle(*, sketch: Obj, line: Obj, lines: NodeOrder):
     if sketch.cls != "sgSketch" or line.cls != "sgLine":
         raise ConstructionError("line handles require sgSketch and sgLine nodes")
     return Obj("sgLineHandle", DerivedFields(
@@ -188,7 +211,7 @@ def line_handle(*, sketch: Obj, line: Obj, lines: Sequence[Obj]):
     ))
 
 
-def ordinary_line(*, sketch: Obj, start: Obj, end: Obj, points: Sequence[Obj]):
+def ordinary_line(*, sketch: Obj, start: Obj, end: Obj, points: NodeOrder):
     if start is end or start.cls != "sgPoint" or end.cls != "sgPoint":
         raise ConstructionError("ordinary lines need two distinct sgPoint nodes")
     if start.get("_sketch") is not sketch or end.get("_sketch") is not sketch:
@@ -207,15 +230,13 @@ def ordinary_line(*, sketch: Obj, start: Obj, end: Obj, points: Sequence[Obj]):
 
 
 def counted_fields(*, collections, fields=None):
-    authored = {} if fields is None else dict(fields)
-    derived = {}
+    result = DerivedFields(fields=fields)
     for count_name, item_name in collections.items():
-        if item_name in authored or count_name in authored:
+        if item_name in result or count_name in result:
             raise ConstructionError(f"collection field overlaps {item_name}")
-        items = []
-        authored[item_name] = items
-        derived[count_name] = lambda values=items: len(values)
-    return DerivedFields(fields=authored, derived=derived)
+        result[item_name] = []
+        result.derived[count_name] = lambda name=item_name: len(result[name])
+    return result
 
 
 def empty_object_list():
@@ -280,12 +301,22 @@ class ProfileGraph:
     def line_count(self):
         return self.sketch["nlines"]
 
+    @property
+    def points(self):
+        return tuple(self.sketch.get("_point_nodes", ()))
+
+    @property
+    def lines(self):
+        return tuple(self.sketch.get("_line_nodes", ()))
+
 
 def new_profile(*, profile: Obj, plane: Obj, frame: PlaneFrame):
     if profile.cls != "moProfileFeature_c" or type(profile.get("f08")) is not int or profile["f08"] < 0:
         raise ConstructionError("profile must be an allocated moProfileFeature_c from the model factory")
     if plane.cls != "moCompRefPlane_c":
         raise ConstructionError("profile plane must be a moCompRefPlane_c reference node")
+    if not isinstance(frame, PlaneFrame):
+        raise ConstructionError("profile placement requires a PlaneFrame")
     if "pd_f80" in profile.f:
         raise ConstructionError("profile already owns a sketch")
     transform = frame_transform(frame=frame)
@@ -323,3 +354,98 @@ def new_profile(*, profile: Obj, plane: Obj, frame: PlaneFrame):
     }
     profile.f.update(fields)
     return ProfileGraph(profile=profile, sketch=sketch)
+
+
+def _orientation(*, a, b, c):
+    return (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0])
+
+
+def _on_segment(*, a, b, point):
+    return min(a[0], b[0]) <= point[0] <= max(a[0], b[0]) and min(a[1], b[1]) <= point[1] <= max(a[1], b[1])
+
+
+def _intersects(*, a, b, c, d):
+    signs = (
+        _orientation(a=a, b=b, c=c),
+        _orientation(a=a, b=b, c=d),
+        _orientation(a=c, b=d, c=a),
+        _orientation(a=c, b=d, c=b),
+    )
+    if not all(isfinite(value) for value in signs):
+        raise ConstructionError("polygon coordinates exceed finite orientation arithmetic")
+    first, second, third, fourth = signs
+    if ((first > 0 > second) or (second > 0 > first)) and ((third > 0 > fourth) or (fourth > 0 > third)):
+        return True
+    return (
+        (first == 0 and _on_segment(a=a, b=b, point=c))
+        or (second == 0 and _on_segment(a=a, b=b, point=d))
+        or (third == 0 and _on_segment(a=c, b=d, point=a))
+        or (fourth == 0 and _on_segment(a=c, b=d, point=b))
+    )
+
+
+def polygon_vertices(*, vertices):
+    points = tuple(_vector(value=point, size=2) for point in vertices)
+    count = len(points)
+    if not 3 <= count < 0x7FFFFFFF:
+        raise ConstructionError("closed polygons require at least three vertices within signed array limits")
+    if len(set(points)) != count:
+        raise ConstructionError("polygon vertices must be distinct, with closure represented by the final edge")
+    terms = [points[i][0] * points[(i + 1) % count][1] - points[(i + 1) % count][0] * points[i][1] for i in range(count)]
+    if not all(isfinite(value) for value in terms):
+        raise ConstructionError("polygon coordinates exceed finite area arithmetic")
+    area = fsum(terms)
+    if not isfinite(area) or area == 0:
+        raise ConstructionError("polygon area must be finite and nonzero")
+    for i, a in enumerate(points):
+        b = points[(i + 1) % count]
+        for j in range(i + 1, count):
+            if j == i + 1 or (i == 0 and j == count - 1):
+                continue
+            if _intersects(a=a, b=b, c=points[j], d=points[(j + 1) % count]):
+                raise ConstructionError("closed polygon edges must not intersect or touch away from shared endpoints")
+    return points
+
+
+def closed_profile(*, vertices, profile: Obj, plane: Obj, frame: PlaneFrame):
+    positions = polygon_vertices(vertices=vertices)
+    if not isinstance(frame, PlaneFrame):
+        raise ConstructionError("profile placement requires a PlaneFrame")
+    for position in positions:
+        frame.world_point(point=position)
+    graph = new_profile(profile=profile, plane=plane, frame=frame)
+    sketch = graph.sketch
+    points = NodeOrder(nodes=(ordinary_point(sketch=sketch, position=position) for position in positions))
+    lines = NodeOrder(nodes=(ordinary_line(sketch=sketch, start=point, end=points[(i + 1) % len(points)], points=points) for i, point in enumerate(points)))
+    for point in points:
+        del point.f["f0c"]
+        point.f = DerivedFields(fields=point.f, derived={"f0c": lambda node=point: _node_index(nodes=points, node=node) + 1})
+    for line in lines:
+        del line.f["f0c"]
+        del line.f["f08"]
+        line.f.derived["f0c"] = lambda node=line: _node_index(nodes=lines, node=node) + 1
+        line.f.derived["f08"] = lambda node=line: _node_index(nodes=lines, node=node) + 1
+        line["fd0"] = 1
+    for i, point in enumerate(points):
+        incident = (lines[0], lines[-1]) if i == 0 else (lines[i - 1], lines[i])
+        point["h1"] = line_handle(sketch=sketch, line=incident[0], lines=lines)
+        point["h2"] = line_handle(sketch=sketch, line=incident[1], lines=lines)
+        point.f.derived["fe8"] = lambda edges=incident: len(edges)
+        del point.f.fields["fe8"]
+    point_records = tuple({"kind": 0, "point": point.f} for point in points)
+    line_records = tuple({"flags": 0, "line": line.f} for line in lines)
+    del sketch.f["points"]
+    del sketch.f["lines"]
+    sketch.f.derived["points"] = lambda: point_records
+    sketch.f.derived["lines"] = lambda: line_records
+    del sketch.f["f130"]
+    sketch.f.derived["f130"] = lambda: len(lines) + 1
+    del sketch.f["f56c"]
+    sketch.f.derived["f56c"] = lambda: len(lines) + 1
+    counters = dict(sketch["f140"])
+    del counters["f08"]
+    del counters["f0c"]
+    sketch["f140"] = DerivedFields(fields=counters, derived={"f08": lambda: len(points) + 1, "f0c": lambda: len(lines) + 1})
+    sketch["_point_nodes"] = points
+    sketch["_line_nodes"] = lines
+    return graph
