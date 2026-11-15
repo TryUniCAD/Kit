@@ -42,6 +42,14 @@ The design writer emits a parametric sketch, an extrusion and a BRep body part f
 | `KitAuthoredCuboid`   | cuboid         | `kitCuboidLength` 20 mm | 1 | 24.0 | 24.0 |
 | `KitAuthoredFrustum`  | frustum 10 deg | `kitFrustumLength` 30 mm | 1 | 15.289388972035598 | 15.289388972034654 |
 
+Fusion also reports the authored sketch, feature and material on the frustum case:
+
+```
+material   Kit Generic Material
+features   adsk::fusion::ExtrudeFeature
+sketch     Kit Sketch, 1 curve, 1 profile, 2 points
+```
+
 The drawing side is parametric in the DWG: Fusion applies a sheet extent, a view scale and a view
 position that Kit writes, each verified with a one-input control.
 
