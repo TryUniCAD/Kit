@@ -28,6 +28,8 @@ The [transform schema gotcha](../../Gotchas/Conversion/Solidworks/ProvisionalTra
 records the active registry vocabulary found by remote construction.
 The [folder timestamp gotcha](../../Gotchas/Conversion/Solidworks/FolderFeatureCreationTimes.md)
 describes the separate native feature-constructor variant.
+The [test helper gotcha](../../Gotchas/Ci/CheckPrefixCollectsTests.md) records the
+repository's additional pytest collection prefix.
 
 ## Verification
 
