@@ -1453,6 +1453,17 @@ payload read as a little-endian u16 gives 15936, 15879, 15881, 1806, 2317, ..., 
 surface index. The u32 is therefore a tag or an offset into a table that is not the surface list,
 and the table that resolves it is still missing.
 
+The `42 ff` block at `MainDataStream` offset 12377 is not that table either. It is 6430 bytes, which
+is 90.6 bytes per face for the 71 `Reservoir` faces, but its contents do not read as per-face
+records. The block starts with `ff 22 0b 00 00`, a count of 2850, and the body is a run of repeated
+four-byte values (`00 00 9b fe` three times, `80 a5 04 ff` twice, `00 00 7d 26` three times, and so
+on). Read as little-endian u32 the values are 4271570944, 4278494592, 645726208, 3604742144,
+456632751, 0, 3806964300, ..., which are sentinel and denormal float patterns, not surface tags.
+Only 39 of the 1606 four-byte values fall in the surface-tag range 17..4495, and only 150 fall in
+0..55. Read as u16 the values are 0, 65179, 0, 65179, 0, 65179, 42368, 65284, ..., and 792 of 3212
+fall in 0..55, which is consistent with chance. The block is a run-length or bit-packed structure,
+not a face-to-surface table.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
