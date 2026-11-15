@@ -180,10 +180,10 @@ def CheckNewReason() -> None:
         "from pathlib import Path\n\nLegacyPath = Path\n",
         "KCallback = lambda Value: Value\n",
         "\n# nested scopes need coverage so local helpers cannot silently lose their purpose\n"
-        "def OuterCall():\n    def InnerCall():\n        return 1\n"
-        "    return InnerCall()\n",
+        + "def OuterCall():\n    def InnerCall():\n        return 1\n"
+        + "    return InnerCall()\n",
         "\n# callable behavior needs coverage so inline callbacks retain their ordering purpose\n"
-        "def OrderValues(Values):\n    return sorted(Values, key=lambda Value: -Value)\n",
+        + "def OrderValues(Values):\n    return sorted(Values, key=lambda Value: -Value)\n",
         "if True:\n    KResult = 1\n",
     ),
 )
