@@ -38,6 +38,7 @@ from convert.adapters.nx.ClassEntry import ClassLink, EntryParts, NameDigest
 from convert.adapters.nx.LegacySection import ReadSections
 from convert.adapters.nx.LegacyClasses import (
     ClassTableEnd,
+    LegacyCodes,
     LegacyTable,
     ReadFrame,
 )
@@ -1197,6 +1198,7 @@ def TestNxLegacy() -> None:
     assert ClassTableEnd(PayloadBytes, Records) == Start + len(
         Frame("UGS::OM::Meta", 1, "UGS::OM::RootObject", 55)
     ) + len(Frame("RM", 40, "UGS::RM_part", 100))
+    assert LegacyCodes(PayloadBytes) == (7, 9)
     assert ReadFrame(PayloadBytes, len(PayloadBytes) - 1) is None
     try:
         _ = LegacyTable(b"no classes here")

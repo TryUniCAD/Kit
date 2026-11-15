@@ -11,7 +11,11 @@ from convert.adapters.base.ProbeResult import ProbeResult
 from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.nx.CompoundReader import ReadCompound, ReadStreams
 from convert.adapters.nx.Format import KInfoValue
-from convert.adapters.nx.LegacyClasses import LegacyClass, LegacyTable
+from convert.adapters.nx.LegacyClasses import (
+    LegacyClass,
+    LegacyCodes,
+    LegacyTable,
+)
 from convert.adapters.nx.LegacySection import LegacySection, ReadSections
 from convert.adapters.nx.Geometry import ReadGeometry
 from convert.adapters.nx.Payload import NxPayload
@@ -127,7 +131,7 @@ def ReadNx(Source: KSourceType, Options: ReadOptions | None = None) -> CadDoc:
     if PartData is None:
         raise ValueError("NX part has no UG_PART payload")
     Payload = ReadPayload(PartData)
-    LegacyRecords, LegacyParts = LegacyRead(PartData, ContainerName)
+    LegacyRecords, LegacyParts, LegacyMarks = LegacyRead(PartData, ContainerName)
     Attributes = ParseAttributes(Streams)
     References = ParseReferences(Streams)
     Geometry = ReadGeometry(Payload, Settings)
@@ -159,7 +163,7 @@ def ReadNx(Source: KSourceType, Options: ReadOptions | None = None) -> CadDoc:
         "nx.attributes": Attributes,
         "nx.external_references": References,
         "nx.application_version": Version,
-        **LegacyMeta(LegacyRecords, LegacyParts),
+        **LegacyMeta(LegacyRecords, LegacyParts, LegacyMarks),
     }
     DocValue = CadDoc(
         source=CadSource(
@@ -197,11 +201,16 @@ def ReadNx(Source: KSourceType, Options: ReadOptions | None = None) -> CadDoc:
 
 # legacy metadata reports what could be decoded without touching the modern path
 def LegacyMeta(
-    Records: tuple[LegacyClass, ...], Sections: tuple[LegacySection, ...]
+    Records: tuple[LegacyClass, ...],
+    Sections: tuple[LegacySection, ...],
+    Marks: tuple[int, ...],
 ) -> dict[str, object]:
     return {
         "nx.legacy_class_count": len(Records),
         "nx.legacy_schema_count": len({ClassRecord.Schema for ClassRecord in Records}),
+        "nx.legacy_coded_classes": len(
+            [MarkValue for MarkValue in Marks if MarkValue != 0xFFFF]
+        ),
         "nx.legacy_section_count": len(Sections),
         "nx.legacy_section_versions": tuple(
             sorted({SectionValue.Version for SectionValue in Sections})
@@ -212,14 +221,16 @@ def LegacyMeta(
 # legacy payloads carry a class table and length prefixed object model sections
 def LegacyRead(
     PartData: bytes, ContainerName: str
-) -> tuple[tuple[LegacyClass, ...], tuple[LegacySection, ...]]:
+) -> tuple[tuple[LegacyClass, ...], tuple[LegacySection, ...], tuple[int, ...]]:
     if ContainerName != "compound":
-        return ((), ())
+        return ((), (), ())
     try:
         Records = LegacyTable(PartData)
+        Marks = LegacyCodes(PartData)
     except ValueError:
         Records = ()
-    return (Records, ReadSections(PartData))
+        Marks = ()
+    return (Records, ReadSections(PartData), Marks)
 
 
 # diagnostics keep legacy geometry omission visible instead of silently empty

@@ -65,21 +65,22 @@ def ReadFrame(Payload: bytes, Cursor: int) -> tuple[LegacyClass, int] | None:
     return (Record, TextEnd + KFrameTail)
 
 
-# the table starts at the first offset that frames cleanly and then continues
-def LegacyTable(Payload: bytes) -> tuple[LegacyClass, ...]:
-    Start = -1
+# the frame run starts at the first offset where two frames parse in a row
+def LegacyStart(Payload: bytes) -> int:
     for Cursor in range(0, len(Payload) - 3):
         if Payload[Cursor] != KRecordType:
             continue
         First = ReadFrame(Payload, Cursor)
         if First is None:
             continue
-        Second = ReadFrame(Payload, First[1])
-        if Second is not None:
-            Start = Cursor
-            break
-    if Start < 0:
-        raise ValueError("legacy NX payload does not carry a class table")
+        if ReadFrame(Payload, First[1]) is not None:
+            return Cursor
+    raise ValueError("legacy NX payload does not carry a class table")
+
+
+# the table starts at the first offset that frames cleanly and then continues
+def LegacyTable(Payload: bytes) -> tuple[LegacyClass, ...]:
+    Start = LegacyStart(Payload)
     Found: list[LegacyClass] = []
     Cursor = Start
     while Cursor < len(Payload):
@@ -91,20 +92,24 @@ def LegacyTable(Payload: bytes) -> tuple[LegacyClass, ...]:
     return tuple(Found)
 
 
+# each class carries a code stored as a little endian word before the frames
+def LegacyCodes(Payload: bytes) -> tuple[int, ...]:
+    Start = LegacyStart(Payload)
+    Records = LegacyTable(Payload)
+    TableAt = Start - 2 * len(Records)
+    if not Records or TableAt < 0:
+        raise ValueError("legacy NX payload does not carry class codes")
+    return tuple(
+        int.from_bytes(Payload[TableAt + 2 * Index : TableAt + 2 * Index + 2], "little")
+        for Index in range(len(Records))
+    )
+
+
 # the table is a run of frames and its extent ends at the first non frame byte
 def ClassTableEnd(Payload: bytes, Records: tuple[LegacyClass, ...]) -> int:
-    Start = -1
-    for Cursor in range(0, len(Payload) - 3):
-        if Payload[Cursor] != KRecordType:
-            continue
-        First = ReadFrame(Payload, Cursor)
-        if First is None:
-            continue
-        if ReadFrame(Payload, First[1]) is not None:
-            Start = Cursor
-            break
-    if Start < 0 or not Records:
+    if not Records:
         raise ValueError("legacy NX payload does not carry a class table")
+    Start = LegacyStart(Payload)
     Cursor = Start
     for _ in Records:
         Frame = ReadFrame(Payload, Cursor)
@@ -117,6 +122,8 @@ def ClassTableEnd(Payload: bytes, Records: tuple[LegacyClass, ...]) -> int:
 __all__ = [
     "ClassTableEnd",
     "LegacyClass",
+    "LegacyCodes",
+    "LegacyStart",
     "LegacyTable",
     "ReadFrame",
 ]

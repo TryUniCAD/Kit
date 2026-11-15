@@ -205,6 +205,35 @@ so the legacy payload reuses the modern section grammar with an explicit platfor
 version numbers, which makes an emitted legacy section a variant of the emitters Kit already has
 rather than a new format.
 
+## The body starts with a per-class code table stored in the file
+
+Immediately before the class frames, each section holds one little endian word per class:
+
+```text
+part             counts[3]   frames   codes   set      range     unset
+wave_parent.prt         98       98      98    97     37-97    1
+vise_screw.prt         192      192     192   191    77-191    1
+flange.prt             233      233     233   232    73-232    1
+```
+
+the table sits exactly `2 * counts[3]` bytes before the first frame in every part, and the two
+decodes agree on the count, so the layout is
+
+```text
+<u16 per-class code> x counts[3]    <type-6 class frames>    <type-7 attribute frames>   ...
+```
+
+the codes are not the frame values (0 of 98 and 0 of 192 match), and exactly one entry per file is
+`0xFFFF`, the same unset marker the modern writer's session table uses.
+
+That distinction is the point of this entry: in the modern container the per-class code is assigned
+by the loading session and validated, which is why a modern part cannot be authored here. In the
+legacy container the same kind of code is **stored in the file**, so a writer supplies it rather than
+asking the loader for it.
+
+`LegacyCodes(Payload)` reads that table, `nx.legacy_coded_classes` reports how many entries are set,
+and `TestNxLegacy` now pins the table alongside the frames.
+
 ## The body after the class frames is the same model in an older framing
 
 Walking section 1 past the class frames shows the body does not switch to an alien syntax. Each
