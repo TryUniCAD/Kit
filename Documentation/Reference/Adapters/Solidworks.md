@@ -91,6 +91,8 @@ The [oracle identity record](../../Changes/Solidworks/SolidworksOracleBuildIdent
 defines the executable build check used by clean inspection and retained tracing.
 The [process exit-status record](../../Changes/Solidworks/SolidworksOracleExitStatus.md)
 distinguishes observed termination codes from lost COM connections.
+The [native stage reports](../../Changes/Solidworks/SolidworksOracleStageReports.md)
+preserve open results when later measurement or cleanup fails.
 The fresh [model component constructors](../../Changes/Solidworks/SolidworksModelConstruction.md)
 and [metadata constructors](../../Changes/Solidworks/SolidworksMetadataConstruction.md)
 build research object graphs from authored semantics and native constructor rules.

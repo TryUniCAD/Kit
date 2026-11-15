@@ -194,12 +194,12 @@ class Sw:
             raise RuntimeError("NewDocument returned None")
         return m
 
-    def open(self, path, doctype=None):
+    def open(self, path, doctype=None, *, read_only=False):
         path = str(path)
         if doctype is None:
             doctype = DOC_ASSEMBLY if path.lower().endswith(".sldasm") else DOC_PART
         e, w = byref_long(), byref_long()
-        m = self.app.OpenDoc6(path, doctype, OPEN_SILENT, "", e, w)
+        m = self.app.OpenDoc6(path, doctype, OPEN_SILENT | (OPEN_READONLY if read_only else 0), "", e, w)
         return m, int(e.value), int(w.value)
 
     def close_doc(self, m):
@@ -278,24 +278,51 @@ def rebuild_errors(m):
     return what
 
 
-def measure(sw, path, rebuild=True):
+def measure(sw, path, rebuild=True, *, progress=None, read_only=False):
     rec = {"path": str(path), "session_diagnostics": list(sw.diagnostics)}
     t0 = time.time()
-    m, e, w = sw.open(path)
-    rec["open_errors"] = e
-    rec["open_warnings"] = w
-    rec["opened"] = m is not None
-    if m is None:
-        return rec
+    m = None
+
+    def checkpoint(stage):
+        rec["stage"] = stage
+        rec["seconds"] = round(time.time() - t0, 3)
+        rec["session_diagnostics"] = list(sw.diagnostics)
+        if progress is not None:
+            progress(stage, dict(rec))
+
     try:
+        checkpoint("open_start")
+        m, e, w = sw.open(path, read_only=read_only)
+        rec.update(open_errors=e, open_warnings=w, opened=m is not None)
+        checkpoint("open_return")
+        if m is None:
+            return rec
         if rebuild:
+            checkpoint("rebuild_start")
             rec["rebuilt"] = bool(m.ForceRebuild3(False))
+            checkpoint("rebuild_return")
+        checkpoint("status_start")
         rec["whats_wrong"] = rebuild_errors(m)
+        checkpoint("status_return")
+        checkpoint("bodies_start")
         rec["bodies"] = bodies(m)
+        checkpoint("bodies_return")
+        checkpoint("mass_start")
         rec["mass"] = mass(m)
+        checkpoint("mass_return")
+        checkpoint("features_start")
         rec["features"] = features(m)
+        checkpoint("features_return")
+    except Exception as error:
+        rec["failure_stage"] = rec.get("stage")
+        rec["measurement_exception"] = repr(error)
+        checkpoint("measurement_failed")
+        raise
     finally:
-        sw.close_doc(m)
+        if m is not None:
+            checkpoint("close_start")
+            sw.close_doc(m)
+            checkpoint("close_return")
     rec["session_diagnostics"] = list(sw.diagnostics)
     rec["seconds"] = round(time.time() - t0, 2)
     return rec

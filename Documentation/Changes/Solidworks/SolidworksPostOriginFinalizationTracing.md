@@ -17,7 +17,7 @@ The retained observation runner verifies module hashes before arming hooks.
 Use its existing `full` profile with a healthy native control before the generated candidate.
 The [controlled observation](../../../re/solidworks/v2026/evidence/TupniFinalizationReturned.json) showed that modified-state propagation and model finalization returned in the candidate.
 All 25 observed body-collection calls also returned.
-The process still terminated before native open completed.
+The process still terminated during the complete native measurement.
 The paired training control remained healthy with zero capture drops or script errors.
 These observations move the next question past finalization.
 They do not establish a body count from a raw return register.

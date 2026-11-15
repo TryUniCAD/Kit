@@ -1,0 +1,421 @@
+{
+  "status": "candidate exits with code one and zero collected bodies; original measurement stage unresolved",
+  "authority": "native-api-boundary-observation",
+  "instruction_taint": false,
+  "captures": [
+    {
+      "kind": "control",
+      "raw_capture": "ExitControl.json",
+      "raw_sha256": "e5b0894d56f1b73d01144102e6d392fc5a51454fe5f26f39d58a057b7676937f",
+      "script_sha256": "06c43a09e103a6fefa4622b91a6843c5f0e4bbc31aa95990c1825c6a93f190e9",
+      "prepare_sha256": "2eb514de7f042b2bc8ed2a0345a5b619df7472bea5fd8ff8b718dd770a1bd5f2",
+      "input_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "oracle_identity": {
+        "process_id": 13276,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "process_status_before_cleanup": {
+        "exit_code": 259,
+        "exit_code_hex": "0x103",
+        "still_active": true
+      },
+      "module_sha256": {
+        "KERNELBASE.dll": "218e41c3a47d2a13cc8177ec48370535ff29700aad71d506cf46b1660ec3d26c",
+        "USER32.dll": "9008b06071f1fe3b3ddf9bbd9097a062f2199aa29f736678feebd462c67a43b8",
+        "VCRUNTIME140.dll": "6d987d8cb2a47cff9c29c1fcbb853e7ef273c545f7d822728f7d2d448ca18758",
+        "VCRUNTIME140_1.dll": "f4d66bdd6789aaed53341dc3153655e0ef2a9201c3652400443896a592e795b6",
+        "mfc140u.dll": "88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1",
+        "SLDMFCU.dll": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+        "swccu.dll": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+        "sldarchiveu.dll": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+        "SLDMODU.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+        "sldmodu.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+        "sldmfcu.dll": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+      },
+      "counts": {
+        "hooks-ready": 1,
+        "archive-object-enter": 814,
+        "archive-class-schema": 133,
+        "archive-class-read": 814,
+        "archive-object-leave": 814,
+        "feature-constructor": 26,
+        "model-needs-update": 24,
+        "model-get-bodies-enter": 84,
+        "model-get-bodies-leave": 84,
+        "part-serialize-enter": 1,
+        "part-archive-helper": 498,
+        "part-version-fallback": 30,
+        "part-serialize-leave": 1,
+        "sketch-serialize-enter": 2,
+        "archive-primitive": 2596,
+        "archive-count": 17,
+        "sketch-serialize-leave": 2,
+        "model-modified-flag-enter": 3,
+        "model-modified-flag-leave": 3,
+        "header-next-update-stamp": 14,
+        "update-session-stamp": 14,
+        "sketch-whole-update-enter": 2,
+        "sketch-coordinate-commit": 2,
+        "sketch-update": 2,
+        "solver-status-map": 9,
+        "sketch-whole-update-leave": 2,
+        "header-next-body-stamp": 2,
+        "model-finalization-enter": 1,
+        "model-finalization-leave": 1
+      },
+      "output_count_histogram": {
+        "1": 54,
+        "0": 30
+      },
+      "output_count_errors": [],
+      "last_body_collections": [
+        {
+          "sequence": 5981,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x1f59e560",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106c333"
+          },
+          "output_count": 0
+        },
+        {
+          "sequence": 5983,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x1f59e560",
+          "raw_rax_not_semantic_result": "0x1",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x1072d3e"
+          },
+          "output_count": 1
+        },
+        {
+          "sequence": 5985,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x1f59e560",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106c333"
+          },
+          "output_count": 0
+        },
+        {
+          "sequence": 5987,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x1f59e560",
+          "raw_rax_not_semantic_result": "0x1",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xd32869"
+          },
+          "output_count": 1
+        },
+        {
+          "sequence": 5989,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x1f59e560",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106c333"
+          },
+          "output_count": 0
+        },
+        {
+          "sequence": 5991,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x1f59e560",
+          "raw_rax_not_semantic_result": "0x1",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          },
+          "output_count": 1
+        },
+        {
+          "sequence": 5993,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x1f59e560",
+          "raw_rax_not_semantic_result": "0x1",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          },
+          "output_count": 1
+        },
+        {
+          "sequence": 5995,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x1f59e560",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10604a0"
+          },
+          "output_count": 0
+        }
+      ],
+      "elapsed_seconds": 41.0,
+      "message_drops": 0,
+      "producer_statistics": {
+        "events": 5996,
+        "dropped": 0
+      },
+      "script_errors": [],
+      "detach_event": {
+        "reason": "application-requested",
+        "crash": null
+      },
+      "result": {
+        "opened": true,
+        "rebuilt": true,
+        "bodies": 1,
+        "mass": {
+          "volume": 8.000000000000001e-06,
+          "area": 0.0028,
+          "com": [
+            0.0,
+            0.0,
+            0.005
+          ],
+          "mass": 8.000000000000001e-06
+        },
+        "open_errors": 0,
+        "open_warnings": 0,
+        "whats_wrong": 0
+      },
+      "exception": null
+    },
+    {
+      "kind": "candidate",
+      "raw_capture": "ExitCandidate.json",
+      "raw_sha256": "bd278aad8e87ed93bf528aea59489c6f641f7910df649375f30c975b05534c09",
+      "script_sha256": "06c43a09e103a6fefa4622b91a6843c5f0e4bbc31aa95990c1825c6a93f190e9",
+      "prepare_sha256": "2eb514de7f042b2bc8ed2a0345a5b619df7472bea5fd8ff8b718dd770a1bd5f2",
+      "input_sha256": "3b68ad9e4d77c180b02cb59423aaa25be1d8b560d03b23470347055ffa03f03d",
+      "oracle_identity": {
+        "process_id": 9732,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "process_status_before_cleanup": {
+        "exit_code": 1,
+        "exit_code_hex": "0x1",
+        "still_active": false
+      },
+      "module_sha256": {
+        "KERNELBASE.dll": "218e41c3a47d2a13cc8177ec48370535ff29700aad71d506cf46b1660ec3d26c",
+        "USER32.dll": "9008b06071f1fe3b3ddf9bbd9097a062f2199aa29f736678feebd462c67a43b8",
+        "VCRUNTIME140_1.dll": "f4d66bdd6789aaed53341dc3153655e0ef2a9201c3652400443896a592e795b6",
+        "mfc140u.dll": "88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1",
+        "VCRUNTIME140.dll": "6d987d8cb2a47cff9c29c1fcbb853e7ef273c545f7d822728f7d2d448ca18758",
+        "SLDMFCU.dll": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+        "swccu.dll": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+        "sldarchiveu.dll": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+        "SLDMODU.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+        "sldmodu.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+        "sldmfcu.dll": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+      },
+      "counts": {
+        "hooks-ready": 1,
+        "archive-object-enter": 445,
+        "archive-class-schema": 72,
+        "archive-class-read": 445,
+        "archive-object-leave": 445,
+        "feature-constructor": 15,
+        "part-serialize-enter": 1,
+        "part-archive-helper": 381,
+        "part-version-fallback": 22,
+        "part-serialize-leave": 1,
+        "model-get-bodies-enter": 25,
+        "model-get-bodies-leave": 25,
+        "sketch-serialize-enter": 2,
+        "archive-primitive": 926,
+        "archive-count": 8,
+        "sketch-serialize-leave": 2,
+        "model-modified-flag-enter": 7,
+        "model-modified-flag-leave": 7,
+        "model-needs-update": 29,
+        "header-next-update-stamp": 13,
+        "update-session-stamp": 13,
+        "sketch-whole-update-enter": 1,
+        "sketch-coordinate-commit": 1,
+        "sketch-update": 1,
+        "solver-status-map": 1,
+        "sketch-whole-update-leave": 1,
+        "model-finalization-enter": 1,
+        "model-finalization-leave": 1
+      },
+      "output_count_histogram": {
+        "0": 25
+      },
+      "output_count_errors": [],
+      "last_body_collections": [
+        {
+          "sequence": 2877,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f43e0d0",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xb938da"
+          },
+          "output_count": 0
+        },
+        {
+          "sequence": 2879,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f43e0d0",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          },
+          "output_count": 0
+        },
+        {
+          "sequence": 2881,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f43e0d0",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          },
+          "output_count": 0
+        },
+        {
+          "sequence": 2883,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f43e0d0",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x45a254"
+          },
+          "output_count": 0
+        },
+        {
+          "sequence": 2885,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f43e0d0",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xd32869"
+          },
+          "output_count": 0
+        },
+        {
+          "sequence": 2887,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f43e0d0",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0xb938da"
+          },
+          "output_count": 0
+        },
+        {
+          "sequence": 2889,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f43e0d0",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x106ba6a"
+          },
+          "output_count": 0
+        },
+        {
+          "sequence": 2891,
+          "phase": "armed",
+          "kind": "model-get-bodies-leave",
+          "object": "0x2f43e0d0",
+          "raw_rax_not_semantic_result": "0x0",
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10604a0"
+          },
+          "output_count": 0
+        }
+      ],
+      "elapsed_seconds": 30.969000000011874,
+      "message_drops": 0,
+      "producer_statistics": null,
+      "script_errors": [],
+      "detach_event": {
+        "reason": "process-terminated",
+        "crash": null
+      },
+      "result": {
+        "opened": null,
+        "rebuilt": null,
+        "bodies": null,
+        "mass": null,
+        "open_errors": null,
+        "open_warnings": null,
+        "whats_wrong": null
+      },
+      "exception": "com_error(-2147023170, 'The remote procedure call failed.', None, None)"
+    }
+  ],
+  "limits": [
+    "Exit code does not identify the initiating cause",
+    "Native process queried before controller cleanup",
+    "No accepted generated output",
+    "Original capture did not persist individual measurement stages"
+  ]
+}

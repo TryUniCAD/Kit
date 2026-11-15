@@ -49,13 +49,17 @@ job `132788308932`, run `43706398170`. Strict typing failed on the newly added
 test helper imports and was corrected in `dcee1cf18`, whose checks remain pending.
 The generated `H3_scalene.SLDPRT`, SHA-256
 `3b68ad9e4d77c180b02cb59423aaa25be1d8b560d03b23470347055ffa03f03d`,
-still failed native `OpenDoc6` with RPC error `-2147023170` between two healthy
+still failed native measurement with RPC error `-2147023170` between two healthy
 original controls on executable build `34.5.2.0604`. Each control rebuilt one
 solid, volume `8.000000000000001e-6 m³`, area `0.0028 m²`, center `(0,0,0.005) m`,
 with zero open/rebuild/feature warnings or errors. The
 [negative measurement](../measurements/2026/FreshPartProfileOwnership.json)
 retains exact executable and artifact identity. Reference ownership was a real
 graph invariant, but this repair did not resolve the remaining native failure.
+The original aggregate helper did not preserve partial open/rebuild results,
+so it cannot identify the exact failed public API call. The subsequent staged
+measurement helper corrects this evidence gap; old open-specific attribution
+from a missing `opened` value is not established.
 
 The origin profile retains an explicit unresolved native update state. Fresh
 header update/body counters start at the native constructor seed 101; their

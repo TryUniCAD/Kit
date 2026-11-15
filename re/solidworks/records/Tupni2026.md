@@ -380,6 +380,36 @@ status from an application-controlled exit. Body collection now reads its actual
 output array count at `suPtrArray+0x10`, the signed loop bound used in the native
 finalization code. New results remain pending.
 
+The exit-status capture reports native process exit code `1`, queried before
+controller cleanup. All 25 candidate body-collection output arrays contain
+zero items; the healthy control observes both zero and one according to the
+collection filter and measures one final solid. No read errors occurred at the
+array-count field. Exit code 1 is not an observed NT unhandled-exception code,
+and does not identify the initiating native error.
+
+Independent inspection identifies the last body-collection caller inside
+`moPart` destruction: vtable slot 1 points to `0x4c1a1050`, which calls
+`0x4c1a0280`. The return at `0x4c1a04a0` continues at `0x4c1a04ab` into a
+constructor-owned map at model `+0x1430`. These cleanup observations do not
+identify the earlier reason for closing or rejecting the model.
+
+The old measurement helpers returned their records only after rebuild, queries
+and document cleanup. A later failure discarded earlier `opened` results.
+Earlier public-open attribution based only on an aggregate RPC exception is
+therefore unresolved. The helpers now preserve every stage and the first
+failure, with trace phases and partial records. The next native batch must
+establish which public API call actually fails before further writer changes.
+
+The separate model-feature-list hypothesis was refuted by 2026 code.
+`loadResolvedFeatures` at `0x4b588c90` reads the resolved roots through
+`suObList::Serialize` at `0x4b588f19`, inserts admitted features into model
+`f60` at `0x4b588feb` through `moNodeList_c::addNode`, merges at `0x4b588ff5`,
+and rebuilds its name map at `0x4b58904c`. Current feature `f2a8=0` does not
+select its omission predicate. Native saving intentionally empties the model
+child list while separately storing resolved features, then restores it.
+An empty Config-0 list is not a proven composer defect; `f78` is visual
+properties, not a missing parent link. No speculative linkage field was added.
+
 A new REA pseudocode request for the origin initializer returned no analysis:
 the Hopper bridge exceeded its startup timeout, and authenticated document
 cleanup was unavailable. That attempt supplies no native format finding.

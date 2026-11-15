@@ -486,6 +486,7 @@
   "finished_at": 1794740665.20016,
   "controls_healthy": true,
   "vendor_acceptance": "incomplete; geometry inspection alone does not prove editing or save/reopen",
-  "status": "rejected generated part between two healthy controls",
-  "raw_report_sha256": "d034a1bd429e803d522c5a5a72430e71ac2d36520cfc0caa6123925333b196db"
+  "status": "native measurement failed between healthy controls; original failing API stage unavailable",
+  "raw_report_sha256": "d034a1bd429e803d522c5a5a72430e71ac2d36520cfc0caa6123925333b196db",
+  "stage_attribution": "old aggregate harness discarded partial results; no open specific attribution from absent fields"
 }
