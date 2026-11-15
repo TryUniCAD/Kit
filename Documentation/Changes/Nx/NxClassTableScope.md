@@ -523,6 +523,24 @@ and the code is read at `2 * [[class + 0x30] + 0x98]` from `[writer + 0x30]`, a 
 per-class-id array that is `0xFFFF` in a fresh context and filled during the write. Its neighbouring
 `u16` is the next id's code, so the tail is not stored beside it.
 
+One structural fact about the tail did fall out: its **range is exactly the section's reference
+count**, in every part measured.
+
+```text
+part        references   classes   tail range
+dim40.prt           79       152    1..79
+var_sph.prt         79       151    1..79
+var_cyl.prt         83       152    1..83
+empty.prt           63       129    1..63
+```
+
+so the tail is a 1-based index into the reference table rather than a free byte. But it is not the
+index of the class's own schema (31 of 152), nor of any single position in the class's inheritance
+chain (best position, counting from the end, is 31 of 152 at offset 0 and falls off from there), and
+it is stable across parts with the same class set while moving when the set changes. The tail is
+therefore a session-assigned reference handle: structural, validated, and not derivable from the
+class list.
+
 ## Consequence
 
 The class table is a validated snapshot of the loader's own registry state. Two of its four fields
