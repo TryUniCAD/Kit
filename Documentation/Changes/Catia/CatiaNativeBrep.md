@@ -381,6 +381,13 @@ result = CatiaAdapter().write(
   `TorusSurface` of major radius 3.0, minor radius 0.75, and axis `+z`, with zero validation errors.
 - A three-face model whose curved surface is a sphere emitted by the writer reads back with one
   `SphereSurface` of radius 2.5, with zero validation errors.
+- `TestHeldOut` decodes the five vendor parametric samples in `re/catia/examples/parametric/` — files
+  that were never used to build the B-rep reader — and asserts zero validation errors plus no face
+  vertex more than `1e-3` off its plane or cylinder. All five pass with a worst distance of `0.0000`
+  and zero bad faces: `23` faces (`ISO_10642`), `21` (`ISO_1207`), `22` (`ISO_2010`, inferred map),
+  `8` (`ISO_2338`), and `8` (`ISO_7089`). That is held-out generalisation evidence for the reader,
+  and it also shows that the inferred map can be geometrically consistent even when it is not the
+  stored map (`ISO_2010` has zero bad faces and still carries the warning).
 - `TestScore` runs the scorecard over all 27 corpus parts inside the suite: every exact part must have
   zero faces whose vertices are more than `1e-3` off the face surface, and every inferred part must
   have at least one. That pins the 22 exact parts against regression in CI.

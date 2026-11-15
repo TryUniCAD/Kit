@@ -479,6 +479,34 @@ def TestScore() -> None:
             assert BadCount == 0, f"{PathValue.name} has {BadCount} bad faces"
 
 
+# this definition exists because a vendor sample is held out input
+def TestHeldOut() -> None:
+    for PathValue in sorted(KParametric.glob("*.CATPart")):
+        Archive = CfvTwoArchive.from_bytes(PathValue.read_bytes())
+        Model, _ = DecodeBrep(Archive)
+        assert Model is not None, PathValue.name
+        assert Model.validate(frozenset({"catia:body:1"})) == (), PathValue.name
+        Surfaces = {Value.id: Value for Value in Model.surfaces}
+        Vertices = {Value.id: Value for Value in Model.vertices}
+        Edges = {Value.id: Value for Value in Model.edges}
+        Loops = {Value.id: Value for Value in Model.loops}
+        Coedges = {Value.id: Value for Value in Model.coedges}
+        for FaceValue in Model.faces:
+            Surface = Surfaces[FaceValue.surface_id]
+            if not isinstance(Surface, (PlaneSurface, CylinderSurface)):
+                continue
+            for LoopId in FaceValue.loop_ids:
+                for CoedgeId in Loops[LoopId].coedge_ids:
+                    EdgeValue = Edges[Coedges[CoedgeId].edge_id]
+                    for VertexId in (
+                        EdgeValue.start_vertex_id,
+                        EdgeValue.end_vertex_id,
+                    ):
+                        assert (
+                            SurfaceDistance(Vertices[VertexId].point, Surface) <= 1e-3
+                        ), PathValue.name
+
+
 # this definition exists because a scorecard needs one surface distance
 def SurfaceDistance(
     Point: SpaceVector, Surface: PlaneSurface | CylinderSurface
