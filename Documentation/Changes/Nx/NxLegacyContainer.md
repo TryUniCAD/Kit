@@ -119,10 +119,60 @@ five-entry experiment that isolates it.
 What remains for a from-scratch part is the `UGII` payload itself, not the container and not the
 class table.
 
+## The legacy payload is a separate serialisation of the whole model
+
+Reading the payload header and the class records shows this is not a wrapper around the modern
+container, but an older serialisation with its own record stream:
+
+```text
+part             payload    version   0x14    0x16    0x18    0x1c   tail text block
+wave_parent.prt    71937         41     14   12964    7738      79   yes
+vise_screw.prt     82812         52     14   16356    7662      82   yes
+flange.prt        141768         53     14   17305    9912      82   no
+```
+
+header layout as measured, without claiming meanings for the fields that are still unknown:
+
+```text
+0x00  0d 01                 magic
+0x02  "UGII  "              signature
+0x08  u32                   version (41, 52, 53 across the three samples)
+0x0c  00 00 01 00           constant in all three
+0x10  u32                   0 in all three
+0x14  u16                   14 in all three
+0x16  u16                   12964 / 16356 / 17305
+0x18  u32                   7738 / 7662 / 9912
+0x1c  u32                   79 / 82 / 82
+0x20..0x60                  zero                       (then the record stream begins)
+```
+
+the class records follow the framing already decoded, as type-6 records inside that stream:
+
+```text
+06 0d 00 "UGS::OM::Meta"       01 00 00 00 13 00 "UGS::OM::RootObject"       37 00 00 00
+06 05 00 "COLOR"               01 00 00 00 0b 00 "COLOR_table"               e8 03 00 00
+06 06 00 "CUTTER"              05 00 00 00 0e 00 "CUTTER_display"            e8 03 00 00
+```
+
+and two of the three payloads end with an ASCII block:
+
+```text
+(Child) root: {
+		Class; ug_base_part;
+		};
+```
+
+so the legacy container holds a **second, independent serialisation of the object model**. Its class
+table is understood and writable, and its container is written by `re/nx/tools/OleWrite.py`, but its
+record stream is not decoded, and NX 2506 cannot save this format, so the three corpus parts are the
+only samples that will ever exist here.
+
 ## Limits
 
 - The legacy payload writer is not implemented. This entry establishes the container and the class
-  table; the `UGII` payload body is still carried from a source part.
+  table; the `UGII` record stream is a separate serialisation that is not decoded, so a legacy part
+  cannot be authored from nothing either. Authoring it would be a second reverse-engineering project
+  of the same size as the modern model, with three samples and no way to generate more.
 - NX 2506 does not save this container, so no new samples can be generated; the three corpus parts
   are the whole evidence base, and `wave_parent.prt` did not yield the table at the anchor the other
   two use, so its layout differs.
