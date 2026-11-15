@@ -616,6 +616,19 @@ circle dimension keeps a zero count while its private parameter retains one
 runtime connection. Later direct stores and final saved-state acceptance remain
 open; one display entry alone is not proof of a universal count
 
+The [arc-reference record](ArcDimensionReferences2026.md) separately follows the
+one geometry-reference increment after retained radial creation, its source
+temporary cleanup and optional value-index registration. The optional map uses
+only `h1` and a u16-widened index; direct no-map lookup returns full array
+indices. Neither lookup cardinality nor dimension lifetime count substitutes
+for entity wire `f20`. These rules remain bounded to the recorded local graph
+
+The [parameter lifecycle follow-up](RadialParameterLifecycle2026.md#null-tolerance-and-retained-parameter-ownership)
+closes the ordinary null tolerance through its constructor, append, retained
+naming and inspected update boundaries. It keeps that nullable pointer separate
+from the owned parameter and display backup definition. Later setters and final
+save behavior remain unproved
+
 ## Fresh radial display fields and later-mutation boundary
 
 `moDisplayRadialDim_c` has runtime-class record `0x4db03798`, size `0x1140`,

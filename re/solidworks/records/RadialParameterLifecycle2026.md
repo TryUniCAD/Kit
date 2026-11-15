@@ -32,7 +32,6 @@ from SOLIDWORKS 2026 SP05.2, build `34.5.2.0604`, unless explicitly qualified
 | ------------- | -------------------- | ------------------------------------------------------------------ |
 | `sldmodu.dll` | `0x4b140000`         | `569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e` |
 | `swccu.dll`   | `0x31a30000`         | `d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c` |
-| `swccu.dll`   | `0x31a30000`         | `d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c` |
 
 The binary hash was recomputed from the external licensed installation copy
 Direct read-only PE export/import/unwind inspection and instruction disassembly
@@ -230,6 +229,207 @@ The earlier rename helper `0x4c84aec0` and sketch override's driven-spline walk
 have no equation elements in the bounded graph; general equation registration
 and the optional all-configuration rebuild marking remain separate work
 
+## Null tolerance and retained parameter ownership
+
+This follow-up was performed on research head
+`b9a599fdc95f8f8aa6534343568ba6c9ca11bb49`
+The skill, CAD criteria, full instruction-book introduction, loader-analysis
+chapter and orchestration chapter were read again before the binary analysis
+The stopping conditions quoted above remain unchanged
+The model DLL hash was recomputed and matched the identity table
+No oracle or shared analysis project was opened
+
+### Field owners and constructor boundary
+
+| Field                    | Actual owner and type                                                   | Confirmed static rule                                                                                                  |
+| ------------------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Dimension `f28`          | `Dimension_c+0x28`, pointer to the newly constructed parameter          | Created through the length runtime class and connected once, as proved above                                           |
+| Dimension `f48`          | `Dimension_c+0x48`, nullable `moDimTolerance_c*`                        | Initialized null at `0x4c81f713`; it is separate from the parameter pointer and from any display backup tolerance      |
+| Parameter `f28`          | `moNode_c+0x28` within the parameter, integer flags                     | The same offset spelling does not make this a second pointer to the dimension's parameter                              |
+| Parameter `f48`          | Parameter-owned optional `moNodeName_c*` in the active parameter schema | Separate from dimension `f48`; the parameter constructor initializes it null at `0x4c19bb1c`                           |
+| Display runtime `+0xef8` | `moDimBackupDef_c*`                                                     | Runtime backup definition; a backup tolerance returned through its `+0x30` is a separate owner from `Dimension_c+0x48` |
+
+`sgDim` constructor `0x4c410070` calls the common dimension constructor and
+sets only the sketch/type/status members in its own region
+`sgValDim` constructor `0x4c411700` creates the parameter and assigns its value
+`sgValG1Dim` and `sgCircleDim` add their own handles/type state
+None of these constructors assigns a tolerance object to dimension `+0x48`
+There is no `moDimTolerance_c` construction in this bounded value-constructor
+chain, so a table of invented default tolerance members would be incorrect
+The ordinary radius/diameter authoring path supplies geometry/value/mode, not
+an authored tolerance object
+
+Value-array append `0x4c49aea0` transfers the entire value record, preserving
+the parameter pointer and the null tolerance
+Its source reset clears both parameter `+0x28` at `0x4c822073` and tolerance
+`+0x48` at `0x4c822064`
+The temporary dimension's subsequent destruction therefore does not release
+the retained parameter
+If an explicit tolerance had existed, the same transfer/reset distinction would
+matter, but that is not the stated null-tolerance construction
+
+The base dimension destructor demonstrates lifetime ownership independently:
+it loads its own `+0x48` at `0x4c81f7b1` and, when nonnull, invokes that
+object's deleting-destructor slot `+0x08` at `0x4c81f7c2`
+It separately releases its parameter through parameter virtual `+0x140` at
+`0x4c81f820`
+These are different objects and different release mechanisms
+
+### Actual getters and setter do not synthesize a tolerance
+
+The circle vtable `0x4cf79588`, installed by the constructor, binds these
+endpoints directly:
+
+| Actual circle slot | Target                                       | Rule                                                                                                                                           |
+| ------------------ | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `+0x250`           | `0x4b291fd0`, `Dimension_c::setDimTolerance` | Assign the supplied pointer to dimension `+0x48`; no allocation, copy, old-object destruction or reference-count operation occurs in this leaf |
+| `+0x258`           | `0x4b285770`, `Dimension_c::getDimTolerance` | Return dimension `+0x48` unchanged; null does not cause lazy construction                                                                      |
+| `+0xa0`            | `0x4b284b80`, parameter getter               | Resolve dimension `+0x28`; it does not return the tolerance                                                                                    |
+
+`moDimHandle_c::getDimTolerance` at `0x4c841fe0` resolves the actual dimension
+through virtual `+0x730` and tail-dispatches its `+0x258` at `0x4c842018`
+It returns null if the dimension itself is absent
+The actual ValG1 resolution remains the value-array lookup proved above
+
+`moDisplayDim_c::getDimTolerance`, `[0x4c87f4b0,0x4c87f4ff)`, has two
+existing-pointer routes and contains no constructor or allocation:
+
+- When backup flags at `backup+0x10` include bit `4`, display `+0xb64` lacks
+  bit `0x200`, and requested index is zero, it returns backup `+0x30` at
+  `0x4c87f4d0`
+- Otherwise it selects a valid display-handle array entry and tail-calls the
+  handle getter at `0x4c87f4f6`, or returns null for an absent/invalid entry
+
+Neither route implies that a display backup tolerance must be copied into the
+underlying value dimension
+The runtime backup definition itself is not evidence that dimension `f48`
+must be nonnull
+
+The explicit handle setter `0x4c84b810` resolves the actual dimension, enters
+guard helper `0x4c8df980`, and, when that guard admits the operation, calls
+actual dimension `+0x250` at `0x4c84b865` with the caller-supplied pointer
+Its optional nonzero propagation argument additionally calls helper
+`0x4c8dfb90` at `0x4c84b877`
+It does not construct a `moDimTolerance_c` itself
+The guard's general reentrancy/configuration semantics and nonzero propagation
+branch are outside the ordinary construction with no explicit tolerance setter
+The raw leaf alone does not establish a safe general replacement policy for an
+already owned nonnull tolerance
+
+### Retained naming and ordinary radial mode
+
+The retained local owner/naming sequence proved above preserves the parameter
+object rather than replacing it
+Owner assignment writes dimension `+0x40`; name-object assignment writes the
+parameter's `+0x18`; header allocation writes dimension `+0x50`
+The ordinary actual dispatches in that sequence do not call tolerance setter
+`+0x250`, a tolerance constructor or a tolerance copy routine
+The optional equation, spline and configuration notification boundaries retain
+their stated exclusions; this is not a whole-program no-write claim
+
+Actual circle radius/diameter operations are `0x4c431170` and `0x4c42f850`
+They compare current dimension `+0x80` before taking the conversion branch
+The forced ordinary radial display operation passes the mode it just queried,
+as proved in [RadialPresentationConstruction2026.md](RadialPresentationConstruction2026.md)
+Both circle methods therefore return before the parameter setter when this
+forced update repeats the existing mode
+No parameter replacement or tolerance allocation occurs at that boundary
+
+If the requested mode genuinely differs, the operations multiply the existing
+parameter value by `0.5` or `2.0`, change dimension `+0x80`, and invoke actual
+circle `+0x1b8`, common `Dimension_c::SetValue`, `0x4c81fe00`
+That method updates the existing length parameter through
+`moDoubleParameter_c::setValue`, `0x4c19cae0`
+The parameter setter writes value `+0x58`, clears alternate-value state
+`+0x68/+0x60`, and does not replace dimension `+0x28` or create a tolerance
+The actual length-parameter virtual `+0x508` used by the common setter resolves
+to the zero-return leaf `0x4b27cbe0`
+Broader model invalidation callbacks after a genuine mode change are not a
+proof of unchanged final save state; the repeat-current-mode construction
+branch does not execute that value-change body
+
+### Ordinary handle update preserves the precision precondition
+
+The base display update's call through actual handle `+0x568` is upstream of
+the tolerance update
+Actual ValG1 vtable `0x4d242c18` binds that slot to
+`moDimHandle_c::updateDimension`, `[0x4c84eb30,0x4c84ed8e)`
+This logical method spans three unwind fragments
+
+Its actual `+0x5f0` resolves the existing display through `0x4c842240`
+Actual radial display vtable `0x4d255be0` binds display `+0x900` to the
+zero-return leaf `0x4b27cbe0`
+Thus the test following `0x4c84eb7a` skips the geometry/external-reference
+mutation loop at `0x4c84eb82`
+The frozen-cache path is excluded by fresh handle `+0x118=0`; the remaining
+cache-replacement path is excluded by fresh `+0x100=null`
+The method reads handle `+0x150` at `0x4c84ecd7` but does not write it
+On this actual radial/null-cache path it leaves parameter and tolerance
+ownership unchanged
+
+The fresh sketch-handle constructor `0x4c83c360` stores zero into `+0x150`
+at `0x4c83c3d2`
+The ValG1 constructor calls it, and the ordinary display clone copies the
+handle rather than manufacturing a different precision-source state
+Consequently this upstream handle update does not invalidate the zero flag
+used in the next boundary
+Other handle setters or drawing/cache branches are not included
+
+### Common tolerance-update null branch
+
+The oracle owner identified calls to `moDisplayDim_c::updateDimTolerance`
+`0x4c89ff70` from base update `0x4c8a0a40` at `0x4c8a14f8` and
+`0x4c8a19fe`
+This pass inspected the tolerance helper itself, leaving the base engine body
+and its other finalization work with that owner
+
+**Confirmed static:** after its session, loaded-model, handle and owner/model
+guards, this helper calls `updatePrecisionFromModel` at `0x4c8a016f`
+It then calls the actual handle tolerance getter at `0x4c8a0187`, tests the
+result at `0x4c8a018f`, and branches directly to the return path at
+`0x4c8a0192` when the tolerance is null
+It does not allocate a replacement tolerance in that branch
+All the later tolerance-member mutations and configuration tolerance-data
+propagation require a nonnull tolerance
+
+The preceding precision call has an explicit bounded closure
+`updatePrecisionFromModel`, `0x4c8a3740`, conditionally calls precision helper
+`0x4c88a8e0` for the display's two model-precision flags
+That helper tests actual handle `+0x150` at `0x4c88a9b9` and, when zero,
+branches at `0x4c88a9c0` directly past the linked-display mutation body
+Together with the constructor and upstream-update proof, this excludes a hidden
+tolerance construction before the null check for the stated fresh local graph
+The helper's nonzero-`f150` linked-display branch remains outside this bound
+
+**Derived at these boundaries:** dimension `f48` remains null through local
+construction/append, actual retained naming, repeated-current-mode radial
+operations, the inspected ordinary handle update and these common tolerance
+update calls
+This is a composition of actual dispatch/guard rules, not a null value fitted
+to a saved stream
+It does not establish an arbitrary document's final tolerance or rule out
+another later explicit setter
+
+### Nullable wire and loader ownership
+
+The active dimension schema owns `xo("f48", "moDimTolerance_c")` separately
+from `xo("f28")`
+Ordinary non-DB store passes the address of dimension `+0x48` to the object
+writer at `0x4c829735`–`0x4c82973c`
+It does not construct a default tolerance when that pointer is null
+
+On load, the serializer reads the tolerance object reference at
+`0x4c829a93`
+If it is null, the null result is assigned to dimension `+0x48` at
+`0x4c829aed`; there is no fallback constructor at this field
+A nonnull result is type-checked against `moDimTolerance_c` at
+`0x4c829acf`–`0x4c829ae3` before assignment
+The special parameter predicate at virtual `+0x508` can discard a nonnull
+tolerance, but actual `moLengthParameter_c+0x508` is the zero-return target,
+so that special parameter branch is excluded here
+These observations prove the nullable field grammar and native assignment
+rule, not whole-document acceptance with a null tolerance
+
 ## Ordinary 2026 store/load behavior
 
 The active shared dimension definition is
@@ -377,6 +577,33 @@ These are digests and independently recorded rules, not vendor listings
 | Local entity `+0x20` getter                               | `[0x4b282e20,0x4b282e24)` | `07ad3a50b1c271e07fb57fb47d2f0e77f3342d41bfa410990cb1320a45035fb2` |
 | `swccu` base object serializer                            | `[0x31a3f030,0x31a3f0c9)` | `d064fda3876f5279a158324ef2252caeee3765c0638ff7c2afb4dbc333b3db77` |
 
+The tolerance follow-up adds these exact extents under the same model-module
+hash. The display tolerance getter includes both of its return routes, not
+only the first unwind fragment ending at `0x4c87f4d0`.
+
+| Method or role                                 | Range                     | SHA-256                                                            |
+| ---------------------------------------------- | ------------------------- | ------------------------------------------------------------------ |
+| Sketch dimension constructor                   | `[0x4c410070,0x4c4100da)` | `80556fbbf5f929fb73af7079c75c61a30e4ee08487e1396d17a3626790e41fc0` |
+| Value dimension constructor                    | `[0x4c411700,0x4c4117bc)` | `dcdfe1387ec329546476789c8237a46d051e9b1e786fb04b2501e0fee09314f4` |
+| Source dimension reset                         | `[0x4c822050,0x4c82207f)` | `7f27c4d16134dc15d80183e20a24970f3630fa90210afaa444518825fe51ac04` |
+| Base dimension destructor                      | `[0x4c81f790,0x4c81f843)` | `6ea4a3248310bbc4bb1ba25892a6f430f513275660e745fd38b726bec2593f80` |
+| Actual dimension parameter getter              | `[0x4b284b80,0x4b284b85)` | `cff2ef16c7ec552c1f7c9706cb926933e47de8667aaeb590d325e246c3669ef3` |
+| Actual dimension tolerance getter              | `[0x4b285770,0x4b285775)` | `96e0564330ddde703ca5de78f0c14ebad0d07f89bcc64eff5c4a8642c00177f9` |
+| Actual dimension tolerance setter              | `[0x4b291fd0,0x4b291fd5)` | `58c0d8574653534eb5bebc515d21eb11554e19995623c4d55ebb14385342ef4b` |
+| Handle tolerance getter                        | `[0x4c841fe0,0x4c84201f)` | `6275c37a0a28f5869d86ab2c71f28c31bdc37e2c58c78b54d082084c079a01da` |
+| Display tolerance getter                       | `[0x4c87f4b0,0x4c87f4ff)` | `7ec65b1f6ced78612c8c8493107fb815e389bda785f41c584b76b047e5fa568c` |
+| Explicit handle tolerance setter               | `[0x4c84b810,0x4c84b89c)` | `82833abb201857762f96b117f2718e39f9c6ed2104447a47bb8f3e1738a4c4c7` |
+| Existing display lookup from handle            | `[0x4c842240,0x4c84226a)` | `4666f6415a8371795f05dbffef59dbdcedd7fc9aadab19cab9f224bc240e8a14` |
+| Existing display lookup from sketch dimension  | `[0x4c41e610,0x4c41e694)` | `7c26cf9a5cf8d93b6c76e83bc2bbecdab153620f8289a2b409bd9a94a17d851b` |
+| Ordinary handle update, three unwind fragments | `[0x4c84eb30,0x4c84ed8e)` | `7085889c9aeecbc8f509346d7f8c65205fecb0ffd7a8ba158427b6716137898a` |
+| Model-precision wrapper                        | `[0x4c8a3740,0x4c8a377a)` | `624e1d54c4b6770a766d4cb6596ef9bb6dc28ee0cc663a2410365b8e212041ec` |
+| Precision helper, five unwind fragments        | `[0x4c88a8e0,0x4c88ac5a)` | `31422cd69a9857d88878bc30dbd07f7647e90a342813bbfaecb5e65572594ba1` |
+| Common display tolerance update                | `[0x4c89ff70,0x4c8a058b)` | `29d17836fe6a3e8bd76a2e982becd4822b5df1940b0fb809a87a84e57a466d16` |
+| Circle diameter-to-radius operation            | `[0x4c431170,0x4c4311e1)` | `af90bf6e617a7c5ffd72c368f3170179db40afcb0d5300093a05488a189ddeb3` |
+| Circle radius-to-diameter operation            | `[0x4c42f850,0x4c42f8c1)` | `8905cb0bd33e14f269b2de1d4a440ab2bd113b6320b6d94bba4ba9893e0766e3` |
+| Common dimension value setter                  | `[0x4c81fe00,0x4c820526)` | `ce31f2263e142b2844c66f79c5d09e7685ffe2cbc4febb47b92bef64d7411502` |
+| Existing double/length parameter value setter  | `[0x4c19cae0,0x4c19caef)` | `5094784a68ffdb32ea85b16cf61522c107a8996d235de5c044ef61cb29b5d0e1` |
+
 ## Remaining evidence and acceptance boundary
 
 The tracked fresh local lifecycle derives dimension counter zero, private
@@ -392,6 +619,12 @@ nodes is not recovered by this caller trace; retaining a constructor seed in
 this sequence does not establish a general ordering policy
 Later radial presentation updates and any subsequent direct dimension-counter
 stores must be accounted for before treating the tracked state as a final save
+The tolerance follow-up derives a null dimension tolerance only through its
+enumerated constructor, retained naming, repeated-current-mode, ordinary
+null-cache handle and null-tolerance update boundaries
+Nonzero precision-source handles, authored/shared tolerances, optional tolerance
+propagation, restore/display branches not named here and later explicit setters
+remain outside that result
 
 This pass added recorded knowledge only
 It neither implemented a radial writer nor inspected a held-out native stream

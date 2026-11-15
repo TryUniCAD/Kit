@@ -140,6 +140,9 @@ derive radius and diameter prefixes and separate runtime selectors from archive 
 They classify individual flag operations, rather than a universal saved flag word.
 The [radial parameter lifecycle](../../Changes/Solidworks/Inspection/SolidworksRadialParameterLifecycle.md)
 separates concrete reference-count methods, parameter connections and persistent IDs.
+The [radial construction boundaries](../../Changes/Solidworks/Inspection/SolidworksRadialConstructionBoundaries.md)
+separate geometry references, optional lookup indices, nullable tolerance and empty-list finalization.
+These bounded rules do not establish final saved curve state or native acceptance.
 The [bounded curve lifecycle observer](../../Changes/Solidworks/Inspection/SolidworksCurveLifecycleObservation.md)
 retains the point/arc state and independent counters needed for controlled
 training observations; its new snapshots await a native run.

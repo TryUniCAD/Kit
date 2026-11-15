@@ -2,8 +2,8 @@
 
 **Status: static construction rules only. No circle or arc writer or native acceptance is established.**
 
-This record closes the ordinary radial constructor's prefix assignment and a
-single mode flag. It extends the
+This record closes the ordinary radial constructor's prefix assignment, a
+single mode flag and the common finalizer's empty-attachment branch. It extends the
 [curve construction ledger](CurvedSketchConstruction2026.md), without treating
 constructor seeds as a complete saved display state.
 
@@ -14,6 +14,10 @@ The model module is `sldmodu.dll`, SHA-256
 preferred image base `0x4b140000`. The resource module is `sldresu.dll`, SHA-256
 `531cf5d1c913f60f707652f0ecae600313d0970f7e649dcadec64983c484e111`.
 These are the pinned 2026 SP05.2 images, not address translations from 2025.
+
+The separately inspected array constructor belongs to `swccu.dll`, SHA-256
+`d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c`,
+preferred image base `0x31a30000`.
 
 The existing private Ghidra 12.1.3 model database was opened with `-noanalysis`
 and `-readOnly`. Targeted decompilation was checked against the actual
@@ -115,6 +119,68 @@ the other ordered mutations and their native acceptance. In particular,
 neither constructor `0x80086` nor its final two OR operations prove that the
 whole persisted flag word is universal.
 
+## Common finalization with an empty attachment list
+
+The later radial engine call at `0x4c8dd9b5` dispatches display virtual
+`+0x310`. The actual radial vtable `0x4d255be0` binds it to the common method
+`[0x4c89c3c0,0x4c89ce34)`. This is a distinct boundary after the ordinary
+full-circle witness assignments. It cannot be omitted from an argument about
+which later operations can change those points.
+
+### Actual list owner and constructor
+
+The same actual vtable binds `+0x360` to the eight-byte getter
+`[0x4b286df0,0x4b286df8)`. Its complete operation is to return the pointer
+at the receiver's `+0xe48`. Here the receiver is a display, and its member is
+the attachment-point list. A public export name at the shared leaf address
+describes an unrelated model getter. That name does not change this call's
+receiver or field ownership.
+
+The position-taking common display constructor `0x4c86ede0` creates that list:
+
+| Boundary                  | Confirmed static operation                                                                                                               |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `0x4c86f351`–`0x4c86f36c` | Allocate `0x20` bytes and call the imported `su_CObArray` constructor when allocation succeeds                                           |
+| Import slot `0x4cd3d908`  | The model image's import descriptor identifies `swccu.dll!??0su_CObArray@@QEAA@XZ`; the pinned utility image resolves it to `0x31a3cb70` |
+| `0x31a3cb8f`              | Set the array's data pointer at `+0x08` to null                                                                                          |
+| `0x31a3cb93`/`0x31a3cb97` | Clear the capacity-related words and set the signed element count at `+0x10` to zero                                                     |
+| `0x4c86f373`–`0x4c86f384` | Install the derived `suObArray` and then `moAttachPointList_c` tables without adding an element                                          |
+| `0x4c86f38c`              | Store the list pointer in display `+0xe48`; the allocation-failure route stores null                                                     |
+
+These instructions establish an empty newly allocated list, not an arbitrary
+document's final list. Subsequent attachment insertion must be considered
+separately. In particular, model-handle array `+0x850`, dimension geometry
+references and this display attachment list are different owners.
+
+### Empty-list branch
+
+The finalizer first obtains the owner drawing view. On the fresh
+`display+0x30=null`, `display+0x40=null` branch, the owner-view helper returns
+null without entering a folder lookup. It then calls the actual `+0x360`
+getter at `0x4c89c43e`.
+
+| Reached state                      | Exact control flow                                                                          | Result at this boundary                                                 |
+| ---------------------------------- | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| List pointer is null               | `0x4c89c44b`/`0x4c89c44e`, then `0x4c89c450`–`0x4c89c452`                                   | Return one through the common epilogue                                  |
+| Valid list with element count zero | Load `list+0x10` at `0x4c89c475`; test at `0x4c89c47e`; branch `0x4c89c481` to `0x4c89cde9` | Return one without entering attachment processing or final invalidation |
+
+The only additional display dispatch before the zero-count test is `+0x3d0`
+at `0x4c89c464`. The actual radial target is
+`[0x4b28d150,0x4b28d163)`. It reads display flag bit `0x200` at `+0x3e0`
+and returns its Boolean value. It writes no member, allocates nothing and
+cannot populate the list.
+
+**Confirmed static at the stated branch:** with the fresh null owner and an
+empty list at entry, this common finalizer neither updates an attachment nor
+changes the radial witness points. Its return value one is a control result,
+not a rebuild, geometry or save acceptance measurement.
+
+This closes only this finalizer branch. The constructor's empty list must not
+be assumed to stay empty through every intervening helper. Other radial-engine
+calls, explicit attachment setters, restore processing and save-time updates
+still require their own rules. The two full-circle zero witnesses therefore
+remain bounded assignments, rather than claimed final saved values.
+
 ## Function fingerprints
 
 All model extents below are half-open and use the pinned model-module hash.
@@ -134,6 +200,15 @@ All model extents below are half-open and use the pinned model-module hash.
 | Diameter-to-radius operation                             | `[0x4c431170,0x4c4311e1)` | `af90bf6e617a7c5ffd72c368f3170179db40afcb0d5300093a05488a189ddeb3` |
 | Radius-to-diameter operation                             | `[0x4c42f850,0x4c42f8c1)` | `8905cb0bd33e14f269b2de1d4a440ab2bd113b6320b6d94bba4ba9893e0766e3` |
 | Instance-count flag leaf                                 | `[0x4c898ce0,0x4c898d01)` | `d1c0e21da87d20f5abf87dc74968238445add715ad09feb829b9bc8cb444b11d` |
+| Position-taking common display constructor               | `[0x4c86ede0,0x4c86f54c)` | `8578099b606653b94a334183a2a0ce7708c83a17e357628634477f414d61eebc` |
+| Actual display attachment-list getter                    | `[0x4b286df0,0x4b286df8)` | `f4e80a82e402c2f7f4f83e732393b8adcc4a474a9fc865154ae0f051e3704cda` |
+| Actual broken-area flag getter                           | `[0x4b28d150,0x4b28d163)` | `c2402b0571ada55d35f7378705181f55792213f64e0df1cf964d1ba93b06ee74` |
+| Owner drawing-view getter                                | `[0x4be791d0,0x4be79234)` | `80f6b5df6c5b53cea8cd2842806cf7d47b3980d93b840d99997b062ee2e94824` |
+| Common attachment finalizer                              | `[0x4c89c3c0,0x4c89ce34)` | `a0726cfc884c219b54eb3f393c346449b8c31b364c181ab6b2932a648788595a` |
+
+In the pinned utility module, the array constructor extent is
+`[0x31a3cb70,0x31a3cba3)`, SHA-256
+`5580430a6e5e71f4fe31a58d139fbcf55bfd7096954850435c6cb46d7aafb663`.
 
 ## Remaining obligations
 
@@ -142,7 +217,9 @@ boundary. The rest of that method has no later direct reference to its two
 witness members, but calls further helpers and virtual methods. That bounded
 negative observation does not prove their final saved values.
 
-Final tolerance ownership, remaining radial flags and placement fields, later
-update and restore behavior, and full curve source-lock/held-out acceptance
-remain open. No oracle launch, attachment, document mutation, local test,
+The [parameter lifecycle record](RadialParameterLifecycle2026.md) separately
+closes null tolerance at its retained naming and ordinary update boundaries.
+Later setters, remaining radial flags and placement fields, later update and
+restore behavior, and full curve source-lock/held-out acceptance remain open.
+No oracle launch, attachment, document mutation, local test,
 held-out stream inspection or writer implementation occurred for this finding.
