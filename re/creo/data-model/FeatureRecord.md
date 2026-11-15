@@ -137,6 +137,31 @@ So the mask set is validated content, not a redundant cache. Both natural genera
 all-clean (`-1`) and all-dirty (`0`). The bit-to-field assignment therefore has to be decoded, or a
 mask layout that the loader accepts has to be found, before `AllFeatur` can be generated.
 
+## The lane is not a plain value array
+
+Two further launches contradict the assumption that `cr_flags_xar` is a list of 252 integers whose
+values are the only thing that matters.
+
+| Candidate | Result |
+| --- | --- |
+| control bytes | loads |
+| first value `-1` → `-2`, one extra cleared bit, same token count | **loads** |
+| all `252` decoded values re-encoded canonically (`f6`, `f5 <n>`, `eb <4 bytes>`) | process exits, no `End`, no `dbg_err_crash` |
+
+So a single value change is tolerated, but re-encoding the *same* values with different tokens is not.
+The lane therefore carries meaning in its token stream, not only in the decoded integers. The most
+likely reading is that the `e4`/`e5`/`e6`/`e7` tokens are structural in this field — possibly
+terminators or run markers the loader interprets directly — and that our reader's repeat expansion is
+its own convention.
+
+That matters beyond this field: the "`252` slots" figure, and with it the comparison against the
+`.ddt` registry index `250`, are properties of our reader, not measured facts about the file. The
+hypothesis that the mask array is one slot per registered field is therefore **not supported**, and
+should not be used to size a generated array.
+
+What is established: the control's exact token stream loads, a one-value deviation with the same token
+count loads, and wholesale substitution does not.
+
 ## What the mask table is not
 
 Three measurements narrow it, and none of them match the obvious guesses.
