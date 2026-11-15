@@ -111,6 +111,9 @@ remains unfinished.
 The [suppression diagnostic](../../Changes/Solidworks/SolidworksSuppressionDiagnostic.md)
 observes a vendor intervention on copied research parts without counting the
 changed state as generated-output acceptance.
+The [configuration progress operation](../../Changes/Solidworks/SolidworksConfigurationProgress.md)
+derives the completed-history marker from the generated persistent-ID allocator.
+Its effect on native regeneration remains under measurement.
 The fresh [model component constructors](../../Changes/Solidworks/SolidworksModelConstruction.md)
 and [metadata constructors](../../Changes/Solidworks/SolidworksMetadataConstruction.md)
 build research object graphs from authored semantics and native constructor rules.

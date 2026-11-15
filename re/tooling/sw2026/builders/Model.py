@@ -598,6 +598,14 @@ def base_configuration_fields(
     return result.f
 
 
+def record_configuration_progress(*, configuration: Obj, allocator: PersistentIds) -> None:
+    if not isinstance(configuration, Obj) or configuration.cls not in ("moPartConfiguration_c", "moConfiguration_c"):
+        raise ArchiveError("configuration progress requires a concrete native configuration")
+    if not isinstance(allocator, PersistentIds) or allocator.next_id < 1:
+        raise ArchiveError("configuration progress requires an allocated owning model")
+    configuration.f["f85c"] = allocator.next_id - 1
+
+
 def configuration(
     *,
     name: str,

@@ -8,7 +8,7 @@ from Streams import StreamDoc, store_rooted
 from builders.Definition import definition_stream, part_definition
 from builders.Extrude import live_blind_extrusion
 from builders.Metadata import biography, fields, header, history, keywords, streams
-from builders.Model import body_feature, component_plane, logged_creation_time, model_feature, part_graph
+from builders.Model import body_feature, component_plane, logged_creation_time, model_feature, part_graph, record_configuration_progress
 from builders.Sketch import PlaneFrame, closed_profile, origin_profile
 from builders.Styles import detail_definitions
 from builders.Units import unit_table_profile
@@ -130,6 +130,7 @@ def construct_part(*, registry, document, provenance, presentation, target):
         design_intent=presentation["design_intent"], selected_leader=presentation["selected_leader"],
     )
     features = (*graph.system_features, origin_node, profile_node, extrusion_node)
+    record_configuration_progress(configuration=graph.configuration_manager["f360"], allocator=graph.allocator)
     config_data, state = store_config_state(StreamDoc("config", {"direct": 0}, [graph.part]), registry, 19000)
     resolved = StreamDoc("resolved", {"base": state.count, "context": {
         "model_compressed_stream": 1, "model_is_part": 1, "cmgr_f658": graph.configuration_manager["f658"],
