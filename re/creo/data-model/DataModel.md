@@ -316,6 +316,14 @@ The `value` nodes decode cleanly, and they match what the reader reports:
 which is exactly the reader's eight parameters (four values, each appearing twice), so the dimension path is
 understood end to end on the read side.
 
+**Both pieces are now solved for one dimension.** `re/creo/tools/AddRow.py` renames the control's reserved
+`157`-byte `EMPTY_SPACE_FOR_REUSE` row and writes a body into its region, so a section the part never had can be
+added without touching the directory tables (the rebuild is byte-identical run to run), and
+`Author.DefaultFeatDefs()` emits a `Sld_FeatDefs` row with one `dimtab_ptr` dimension. The part loads twice
+(`End` plus `MT Part Solid`) and the dimension reads back as `Creo dimension 0 = 100.0`.
+
+The earlier note about the two blockers is kept below because it explains why insertion looked impossible:
+
 Generating one is blocked on two separate pieces, not one:
 
 1. **the row has to exist first.** `Subset.Build` can only `Drop`, `Replace`, `KeepSpace` or `Blank` rows it

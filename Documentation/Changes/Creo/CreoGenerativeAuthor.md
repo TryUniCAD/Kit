@@ -932,6 +932,34 @@ So the drift is localised but not explained: record `74` mislabels its table byt
 while records `7`, `5`, `3`, `11`, `67`, `75` and the trailing one parse `311` or `278` slots. Distinguishing a
 vendor schema difference in the `917` records from a reader bug needs a second saved document.
 
+## A generated dimension loads
+
+The empty control reserves space it calls `EMPTY_SPACE_FOR_REUSE`, including a `157`-byte row. Renaming that
+row and writing a body into its region adds a section the part never had, without extending the directory
+tables — `re/creo/tools/AddRow.py`, and the rebuild is byte-identical run to run.
+
+With that, `Author.DefaultFeatDefs()` emits a `Sld_FeatDefs` row carrying one `dimtab_ptr` dimension, and the
+part loads:
+
+```text
+featdefs.prt: 81661 bytes, FeatDefs body 279 (reserved 157)
+  rows before 53, after 54
+  new rows: ['FeatDefs']
+!15-Nov-26 06:43:50  End   C:\Mac\Home\Documents\creo-authored\featdefs.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid
+```
+
+twice, and the dimension reads back through our own adapter:
+
+```text
+readback: 4 features 1 params [('Creo dimension 0', 100.0)]
+```
+
+So this is the first loadable authored part that carries a **parameter**: a generated dimension record, no
+donor bytes, accepted by Creo. It moves the parametric criterion from "no evidence" to "a dimension authored
+and read back" — while the part still has **no body**, so body count, volume and centre of mass remain
+unmeasured, and the 13 vendor rows are unchanged.
+
 ## Limits## Limits
 
 - The authored part contains only `AllFeatur` and `VisibGeom`. Creo rejects it as "not a valid PART

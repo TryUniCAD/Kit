@@ -1282,3 +1282,31 @@ def CsysFeatureRecord(
         ParentTable + b"\xf7" + CompactInt(60) + Tail,
     )
     return Payload
+
+
+# a parameter is a dimension record so the part needs a feature defs row to carry one
+def DefaultFeatDefs(DimensionValue: float = 100.0) -> bytes:
+    Payload = StructHeader("Sld_FeatDefs") + b"\xe3"
+    Payload += StructHeader("feat_defs_949") + b"\xf8\x01\xf7\x02\xfb"
+    Payload += b"\xe2"
+    Payload += FieldValue(1, "id", SignedInt(74))
+    Payload += FieldValue(1, "symbol_key", SignedInt(-1))
+    Payload += FieldValue(1, "model_type", SignedInt(2))
+    Payload += FieldValue(0, "group_info_ptr", b"\xe1")
+    Payload += FieldValue(0, "place_rec_ptr", b"\xe1")
+    Payload += FieldValue(1, "own_ref_id", SignedInt(-1))
+    Payload += FieldValue(1, "orient", SignedInt(0))
+    Payload += FieldValue(0, "type", b"\xe1")
+    Payload += FieldValue(1, "key", SignedInt(-1))
+    Payload += FieldValue(1, "idx", SignedInt(0))
+    Payload += FieldValue(0, "dimtab_ptr", b"\xf8\x01\xf7\x03\xfb")
+    Payload += b"\xe2"
+    Payload += FieldValue(1, "type", SignedInt(1))
+    Payload += FieldValue(2, "value", ScalarValue(DimensionValue))
+    Payload += FieldValue(1, "direct", SignedInt(-1))
+    Payload += FieldValue(2, "aux_value", ScalarValue(DimensionValue))
+    Payload += FieldValue(1, "ext_id", SignedInt(-1))
+    Payload += FieldValue(0, "dispdimattr", SignedInt(0))
+    Payload += FieldValue(1, "dimattr", SignedIntArray((0,) * 7))
+    Payload += b"\xf2\xf2\xf2"
+    return Payload
