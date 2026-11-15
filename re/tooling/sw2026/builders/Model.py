@@ -227,6 +227,13 @@ def component_reference(*, component: Obj | None = None) -> Obj:
     return Obj("moCompRef_c", component_reference_fields(component=component))
 
 
+def logged_creation_time(*, timestamps: Iterable[int]) -> int:
+    values = tuple(timestamps)
+    if any(type(value) is not int or not 0 <= value <= 0xFFFFFFFF for value in values):
+        raise ValueError("creation-log timestamps must fit native unsigned time32 fields")
+    return values[0] if values else 2592000
+
+
 def component_plane(
     *,
     plane: Obj,
@@ -669,6 +676,15 @@ def clear_model_update(*, model: Obj) -> None:
     if type(flags) is not int or not 0 <= flags <= 0xFFFFFFFF:
         raise ArchiveError("model update requires an initialized unsigned flag word")
     model.f["f0c"] = flags & 0xFFFD7FF8
+
+
+def mark_model_update(*, model: Obj) -> None:
+    if not isinstance(model, Obj) or model.cls not in ("moModel_c", "moPart_c"):
+        raise ArchiveError("positive model update is classified only for model and part owners")
+    flags = model.f.get("f0c")
+    if type(flags) is not int or not 0 <= flags <= 0xFFFFFFFF:
+        raise ArchiveError("model update requires an initialized unsigned flag word")
+    model.f["f0c"] = (flags & 0xFFFD7FF9) | 1
 
 
 def _part_collections() -> dict:

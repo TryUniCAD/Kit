@@ -7,6 +7,10 @@ part root from generated style/unit dependencies.
 Fresh system-folder and annotation-cabinet factories extend the same graph.
 The model update helper applies the proven zero-status flag mutation after native
 origin initialization; the origin sketch's unresolved solver state stays explicit.
+The positive update helper marks the serialized model flag independently of
+header stamps and completed body updates.
+Reference creation times derive from authored creation logs or the native
+absent-log sentinel, independently of feature FILETIME words.
 These additions do not enable the production writer.
 
 ## Use
@@ -44,6 +48,8 @@ The [codec initialization gotcha](../../Gotchas/Conversion/Solidworks/LazyCodecs
 records a lazy code import exposed by the strict remote audit.
 The [kernel behavior-version gotcha](../../Gotchas/Conversion/Solidworks/KernelBehaviourVersion.md)
 distinguishes the feature's compatibility behavior from the full kernel build.
+The [reference-time gotcha](../../Gotchas/Conversion/Solidworks/FeatureReferenceCreationTimes.md)
+requires component references to agree with their referenced node's creation log.
 
 ## Verification
 
@@ -55,5 +61,7 @@ directory enumeration and process launches during construction.
 The configuration/definition boundary passed remotely at commit `07b9ce403` in
 [run 43675419713](https://github.com/TryUniCAD/Kit/actions/runs/43675419713).
 That earlier run used a weaker suffix-based audit and establishes codec evidence
-only. The stricter audit and expanded component check await current-head verification.
+only. The stricter audit and expanded component check passed at `5b546278f` in
+[run 43681676456](https://github.com/TryUniCAD/Kit/actions/runs/43681676456),
+native-file job `132713453212`. This establishes the component/access boundary.
 No tests or CAD oracle operations ran locally for this change.
