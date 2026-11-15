@@ -58,6 +58,13 @@ print(drawing.Name, sheet.Name, sheet.ScaleNumerator, sheet.ScaleDenominator)
 print([view.ModelPath for view in sheet.Views])
 ```
 
+`ReadDrawing(..., IncludeEdges=True)` recovers model-space view edges from
+`Contents/VBLists`. Each view section is delimited by a UTF-16
+`model@Drawing ViewN` string. The first count of at least two before the next
+view name selects a block; edges start 20 bytes after that count and repeat every
+204 bytes as six doubles: start XYZ and end XYZ. Every parsed view must have a
+block, otherwise the read raises `SldprtFormatError`.
+
 `ReadDrawing(..., IncludeGeometry=True)` raises `SldprtFormatError`. View
 centres are not a complete geometry path, so asking for geometry still fails
 closed instead of returning a value that a caller could mistake for a complete
@@ -67,9 +74,11 @@ drawing. Request positions separately with `IncludePositions=True`.
 
 - this is a metadata reader only; `open_document` and `write_document` still
   reject `.SLDDRW` at `src/convert/adapters/solidworks/container/Format.py`
-- view centres are recovered, but projected outlines, hidden-line state,
-  dimensions, annotations, and projection direction are not; `Contents/Definition`
-  and `Contents/VBLists` remain largely unrecovered
+- view centres, sheet outline bounds, model bounds, and model-space edges are
+  recovered, but projected sheet-space edge polylines, hidden-line state,
+  dimensions, annotations, and projection direction are not
+- edge recovery is fail-closed: `minimal.SLDDRW` and `large.SLDDRW` do not expose
+  a complete per-view block and are rejected when edges are requested
 - a missing or inconsistent stream raises `SldprtFormatError` instead of
   returning a partial drawing
 - one sheet-format row is required per sheet name; an unmatched sheet fails

@@ -165,3 +165,19 @@ poly5b     center 0.0185,0.0135,0.0065 max 0.045,0.037,0.013   min -0.008,-0.010
 
 `TestModel` compares every recovered view against the part reader's B-rep
 bounding box.
+
+### Recovered model edges
+
+`Contents/VBLists` view sections are delimited by UTF-16
+`model@Drawing ViewN` strings. The first count of at least two before the next
+view name selects a block; edges start 20 bytes after the count and repeat every
+204 bytes as six doubles. The recovered counts match the API:
+
+```
+standard  View1 5  View2 7  View3 7  View4 12
+angled    View1 5  View2 7  View3 10
+projected View1 5  View2 7
+```
+
+`minimal` and `large` do not expose a complete block and are rejected when edges
+are requested.

@@ -338,6 +338,50 @@ def TestModel() -> None:
                     assert ActualValue == PytestLib.approx(ExpectedValue)
 
 
+# recovered model edges must match the vendor edge counts and first segment
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestEdge() -> None:
+    Expected = {
+        "standard.SLDDRW": {
+            "Drawing View1": (5, (0.019, 0.032, 0.009)),
+            "Drawing View2": (7, (0.042, 0.017, 0.009)),
+            "Drawing View3": (7, (0.042, 0.017, 0.009)),
+            "Drawing View4": (12, (0.042, 0.017, 0.009)),
+        },
+        "angled.SLDDRW": {
+            "Drawing View1": (5, (0.012, 0.037, 0.013)),
+            "Drawing View2": (7, (-0.008, 0.012, 0.013)),
+            "Drawing View3": (10, (0.012, 0.037, 0.013)),
+        },
+        "projected.SLDDRW": {
+            "Drawing View1": (5, (0.019, 0.032, 0.009)),
+            "Drawing View2": (7, (0.042, 0.017, 0.009)),
+        },
+    }
+    for NameValue, EdgeData in Expected.items():
+        DataValue = ReadDrawing(KDrawRoot / NameValue, IncludeEdges=True)
+        Actual = {
+            ViewValue.Name: ViewValue.Edges
+            for SheetValue in DataValue.Sheets
+            for ViewValue in SheetValue.Views
+        }
+        assert set(Actual) == set(EdgeData)
+        for ViewName, (CountValue, StartValue) in EdgeData.items():
+            Edges = Actual[ViewName]
+            assert len(Edges) == CountValue
+            assert Edges[0].Start.x == PytestLib.approx(StartValue[0])
+            assert Edges[0].Start.y == PytestLib.approx(StartValue[1])
+            assert Edges[0].Start.z == PytestLib.approx(StartValue[2])
+
+
+# a drawing without a complete edge block must fail instead of returning partial edges
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestEdgeNo() -> None:
+    for NameValue in ("minimal.SLDDRW", "large.SLDDRW"):
+        with PytestLib.raises(SldprtFormatError):
+            _ = ReadDrawing(KDrawRoot / NameValue, IncludeEdges=True)
+
+
 # a display list whose position records disagree with the view list must fail
 @PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
 def TestPosNo() -> None:

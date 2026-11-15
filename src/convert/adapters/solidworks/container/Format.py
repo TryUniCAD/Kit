@@ -63,6 +63,9 @@ KComponentTreeStream = "swXmlContents/COMPINSTANCETREE"
 KDisplayListsStream = "Contents/DisplayLists"
 
 # this binding exists because shared behavior needs one stable value
+KVBListsStream = "Contents/VBLists"
+
+# this binding exists because shared behavior needs one stable value
 KeywordsStream = "swXmlContents/KeyWords"
 
 # this binding exists because shared behavior needs one stable value
@@ -257,6 +260,9 @@ DIMENSION_SCALAR_HEADERS = KDimensionScalarHeaders
 
 # this binding exists because shared behavior needs one stable value
 DISPLAY_LISTS_STREAM = KDisplayListsStream
+
+# this binding exists because shared behavior needs one stable value
+VBLISTS_STREAM = KVBListsStream
 
 # this binding exists because shared behavior needs one stable value
 DRAWING_FORMAT_ID = KDrawingFormatId

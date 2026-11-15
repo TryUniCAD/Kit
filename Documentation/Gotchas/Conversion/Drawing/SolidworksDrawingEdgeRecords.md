@@ -26,10 +26,12 @@ the API points (`0.0005`, `-0.0235`, and so on) finds nothing.
 
 ## Workaround
 
-Use the API grammar to validate an eventual stream decoder, but do not assume
-the API points are stored verbatim. Recovering the stream requires the model
-coordinate records plus the view transform, neither of which is decoded yet.
-Keep drawing edge parsing out of production until that mapping is proven.
+`Contents/VBLists` stores model-space edges, not the view-local API points. Each
+view section is delimited by a UTF-16 `model@Drawing ViewN` string. The first
+count of at least two before the next view name selects a block; edges start 20
+bytes after that count and repeat every 204 bytes as six doubles: start XYZ and
+end XYZ. Require every parsed view to have a block and reject the drawing when
+one is missing. Do not assume the API points are stored verbatim.
 
 ## Evidence
 
@@ -43,4 +45,5 @@ DOUBLES=75
 ```
 
 The same run gave 105 doubles for a seven-edge view and 180 for a twelve-edge
-view, exactly 15 per edge.
+view, exactly 15 per edge. The stream blocks recover the same counts: 5, 7, 7,
+and 12 for the four standard views, and 5, 7, and 10 for the angled views.

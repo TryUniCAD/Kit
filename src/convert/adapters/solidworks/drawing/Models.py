@@ -13,6 +13,13 @@ class ViewBounds:
     Maximum: Vector3
 
 
+# frozen edge data keeps one recovered model segment explicit
+@dataclass(frozen=True, slots=True)
+class ViewEdge:
+    Start: Vector3
+    End: Vector3
+
+
 # frozen view data keeps recovered metadata safe to share between callers
 @dataclass(frozen=True, slots=True)
 class DrawingView:
@@ -26,6 +33,7 @@ class DrawingView:
     OutlineMaxX: float | None = None
     OutlineMaxY: float | None = None
     ModelBounds: ViewBounds | None = None
+    Edges: tuple[ViewEdge, ...] = ()
 
 
 # frozen sheet data keeps each sheet composition explicit and immutable

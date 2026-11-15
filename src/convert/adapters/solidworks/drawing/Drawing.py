@@ -17,6 +17,7 @@ from convert.adapters.solidworks.drawing.Models import (
     DrawingSheet,
     DrawingView,
 )
+from convert.adapters.solidworks.drawing.Edges import EdgeSheets
 from convert.adapters.solidworks.drawing.ViewBindings import PositionSheets
 
 KSheetFormatProperty = "SW-All Sheet Format Data"
@@ -171,6 +172,7 @@ def ReadDrawing(
     Source: str | FilePath | bytes,
     IncludeGeometry: bool = False,
     IncludePositions: bool = False,
+    IncludeEdges: bool = False,
 ) -> DrawingData:
     if IncludeGeometry:
         raise SldprtFormatError(
@@ -202,6 +204,8 @@ def ReadDrawing(
         Sheets = PositionSheets(
             Sheets, PropertyText(Information, KViewListProperty), Archive
         )
+    if IncludeEdges:
+        Sheets = EdgeSheets(Sheets, Archive)
     return DrawingData(
         NameValue,
         Sheets,
