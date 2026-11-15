@@ -95,6 +95,13 @@ def InspectResult(StreamData: dict[str, bytes]) -> dict[str, object]:
         "header_owner": Header["fec"],
         "users": [Entry["s"] for Entry in Header["f10"].f["items"]],
         "log_ids": [Entry["o"].f["f48"] for Entry in Header["f20"].f["items"]],
+        "log_names": {
+            NameValue: [
+                Entry["o"].f["f50"] for Entry in GetAttr(Record, "f")["f20"].f["items"]
+            ]
+            for NameValue, Record in Records.items()
+            if NameValue == "Header2" or NameValue.startswith("Contents/")
+        },
         "models": {
             NameValue: GetAttr(Record, "f")["fec"]
             for NameValue, Record in Records.items()

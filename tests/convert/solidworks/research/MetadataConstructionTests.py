@@ -27,7 +27,9 @@ KHeader: dict[str, object] = {
     "next_id": 100,
     "user_names": ["author α"],
     "company_names": ["authored organization"],
-    "revision_logs": [{"object_id": 0, "stamps": [KStamp]}],
+    "revision_logs": [
+        {"object_id": 0, "stamps": [KStamp], "name": "authored <part> & α"}
+    ],
     "created_at": 1700000000,
     "modified_at": 1700000100,
     "updated_at": 1700000050,
@@ -145,6 +147,14 @@ def TestMetadata() -> None:
         "Contents/Config-7-ModelHeader": 1
     }
     assert Small["log_ids"] == [0] and Large["log_ids"] == [0, 31]
+    assert Small["log_names"] == {
+        "Header2": ["authored <part> & α"],
+        "Contents/Config-7-ModelHeader": ["authored <part> & α"],
+    }
+    assert CastValue(dict[str, object], Large["log_names"])["Header2"] == [
+        "authored <part> & α",
+        "",
+    ]
     assert Small["users"] == ["author α"]
     assert Small["history_codes"] == [[1234567]]
     assert Large["history_codes"] == [[1234567, 1234570]]
@@ -173,6 +183,39 @@ def TestMetadata() -> None:
     ):
         assert LargeSizes[StreamName] > SmallSizes[StreamName]
         assert LargeHashes[StreamName] != SmallHashes[StreamName]
+
+
+# document renaming must reach persisted log ownership without changing unrelated provenance streams
+def TestLogNames() -> None:
+    Renamed = MakeInput()
+    DocumentName = "renamed " + "文" * 260 + " & <α>"
+    CastValue(dict[str, object], Renamed["keywords"])["name"] = DocumentName
+    ModelHeaders = CastValue(dict[str, dict[str, object]], Renamed["model_headers"])
+    Headers = [CastValue(dict[str, object], Renamed["header2"]), *ModelHeaders.values()]
+    for Header in Headers:
+        for Log in CastValue(list[dict[str, object]], Header["revision_logs"]):
+            Log["name"] = DocumentName
+    OriginalResult, RenamedResult = RunMetadata([MakeInput(), Renamed])
+    assert OriginalResult["read_blocked"] and RenamedResult["read_blocked"]
+    assert RenamedResult["name"] == DocumentName
+    assert RenamedResult["log_names"] == {
+        "Header2": [DocumentName],
+        "Contents/Config-7-ModelHeader": [DocumentName],
+    }
+    OriginalHashes = CastValue(dict[str, str], OriginalResult["hashes"])
+    RenamedHashes = CastValue(dict[str, str], RenamedResult["hashes"])
+    OriginalSizes = CastValue(dict[str, int], OriginalResult["sizes"])
+    RenamedSizes = CastValue(dict[str, int], RenamedResult["sizes"])
+    for StreamName in (
+        "Header2",
+        "Contents/Config-7-ModelHeader",
+        "swXmlContents/KeyWords",
+    ):
+        assert OriginalHashes[StreamName] != RenamedHashes[StreamName]
+        assert OriginalSizes[StreamName] < RenamedSizes[StreamName]
+    for StreamName in ("_MO_VERSION_19000/Biography", "_MO_VERSION_19000/History"):
+        assert OriginalHashes[StreamName] == RenamedHashes[StreamName]
+        assert OriginalSizes[StreamName] == RenamedSizes[StreamName]
 
 
 # unsupported vendor provenance must fail explicitly instead of being invented or silently discarded

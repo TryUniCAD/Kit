@@ -113,10 +113,9 @@ def header(*, next_id, user_names, company_names, revision_logs, created_at, mod
         for entry in entries:
             if entry["f0c"] >= len(users) or entry["f10"] >= len(companies):
                 raise ValueError("revision stamp index lies outside its header name table")
-        if text(value.get("name", ""), "revision log name"):
-            raise ValueError("nonempty moLogs_c.f50 semantics are not recovered")
+        log_name = text(value.get("name", ""), "revision log name")
         stamps = [Obj("moStamp_c", entry) for entry in entries]
-        logs.append(Obj("moLogs_c", {"n": len(stamps), "items": [{"o": s} for s in stamps], "f48": owner, "f50": ""}))
+        logs.append(Obj("moLogs_c", {"n": len(stamps), "items": [{"o": s} for s in stamps], "f48": owner, "f50": log_name}))
     if not logs:
         raise ValueError("fresh header construction requires an explicit revision log")
     if logs[0].f["items"][0]["o"].f["f18"] != created_at:
