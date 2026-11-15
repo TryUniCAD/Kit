@@ -452,7 +452,8 @@ free-space extents, and `AllFeatur`.
 
 ## AllFeatur
 
-`AllFeatur` is the last structural blocker. Its record schema is inventoried in
+`AllFeatur` is the last structural blocker, but its hardest field is now solved: `cr_flags_xar` accepts
+any non-empty generated lane. The record schema is inventoried in
 [the feature record page](../../../re/creo/data-model/FeatureRecord.md): 78 nodes for the first
 feature, `1620` bytes, of which `cr_flags_xar` alone is `402`.
 
@@ -530,11 +531,32 @@ lane_1a0: lane 471 bytes, AllFeatur payload -> 3547
 A hypothesised `0x1a0`-byte cap, inferred from the accessor family's `size(kind)` values, is disproved
 by the same launch.
 
-The values, not the encoding, are what remain. They cannot be omitted
-(`re/creo/tools/OmitMask.py`: `AllFeatur` `3478` → `1873`, no `End`), they are validated (all-`-1` and
-all-`0` both fail, one `-1` → `-2` loads), and they are **not a per-class constant**: class `923` has
-`252` slots in the empty control and `311` in the ladder, the ladder's count varies per feature
-(`311`, `278`, `0`), and its protrusion differs from its own datums at `195` of `252` slots. See
+The **values are immaterial**. `re/creo/tools/SlotBisect.py` rewrites the lane in every feature record
+with a generated all-clean vector through the shipped encoder, so each candidate is a well formed
+stream, and every one loads:
+
+| Candidate | AllFeatur bytes | Creo |
+| --- | ---: | --- |
+| no-op rewrite from the shipped encoder | 3478 | loads |
+| slots 126..251 cleaned, then 64, 32, 16, 8, 4 | 2853 → — | loads |
+| every slot `-1`, count 252 | 1908 | loads |
+| every slot `-1`, count 1 | — | loads |
+| single slot with value `0` | 1895 | loads |
+| every slot `-1`, count 0 | 1891 | fails |
+
+Neither the values nor the count carry meaning; the array only has to be non-empty. `Author.CleanFlagValue`
+(`f1 f8 01 f6`) and `Author.CleanFlagElements` (`f6`) emit that, and a control whose four lanes are
+replaced by exactly those loads with `End` and `MT Part Solid` (`AllFeatur` `3478` → `1895`).
+
+The field is still required — `re/creo/tools/OmitMask.py` removes it from all four records and the
+process exits.
+
+### Second correction
+
+Two earlier measurements in this entry — "every value `-1` fails" and "every value `0` fails" — were
+**flaky launches**. Creo in `-g:no_graphics` mode sometimes exits with no `End` line and no
+`dbg_err_crash`, which reads exactly like a rejection; the all-clean candidate failed once and loaded on
+retry. Silent exits are now treated as inconclusive. See
 [the mask lane gotcha](../../Gotchas/Conversion/CreoMaskLaneRequired.md).
 
 Three further measurements narrow the table without yielding the bit assignment:

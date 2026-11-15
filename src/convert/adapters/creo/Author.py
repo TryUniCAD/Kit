@@ -831,3 +831,17 @@ def SignedIntElements(Values: tuple[int, ...]) -> bytes:
 # the mask lane is a closed array behind a close token
 def FlagValue(Values: tuple[int, ...]) -> bytes:
     return b"\xf1" + SignedIntArray(Values)
+
+
+# one clean slot satisfies the loader and carries no vendor state
+KCleanFlagSlots = 1
+
+
+# the mask field only has to be a well formed non empty array
+def CleanFlagValue() -> bytes:
+    return FlagValue((-1,) * KCleanFlagSlots)
+
+
+# replay records carry the elements without the count the first one declared
+def CleanFlagElements() -> bytes:
+    return SignedIntElements((-1,) * KCleanFlagSlots)

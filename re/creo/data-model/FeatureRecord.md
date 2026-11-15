@@ -184,32 +184,57 @@ protrusion differs from its datums at `195` of `252` slots.
 So the vector is state derived from the document and from the feature, not a constant that can be read
 off a class. That is the remaining gap.
 
-## The values are required and validated
+## The values are immaterial
 
-Four substitutions were measured, one Creo launch each:
+This is the important result. `re/creo/tools/SlotBisect.py` rewrites the lane in **every** record with a
+generated all-clean vector, using the shipped encoder, so each candidate is a well formed stream:
 
-| Change | Result |
-| --- | --- |
-| control | loads |
-| one value `-1` → `-2` | loads |
-| every value `-1` | fails |
-| every value `0` | fails |
-| whole field removed from all four records | fails |
+| Candidate | AllFeatur bytes | Creo |
+| --- | ---: | --- |
+| no-op rewrite from the shipped encoder | 3478 | loads |
+| slots 126..251 all `-1` | 2853 | loads |
+| slots 64..251 all `-1` | — | loads |
+| slots 32..251 all `-1` | — | loads |
+| slots 16..251 all `-1` | — | loads |
+| slots 8..251 all `-1` | — | loads |
+| slots 4..251 all `-1` | — | loads |
+| slot 3 set to `-1` | 3478 | loads |
+| every slot `-1`, count 252 | 1908 | loads |
+| every slot `-1`, count 4 | 1899 | loads |
+| every slot `-1`, count 2 | — | loads |
+| every slot `-1`, count 1 | — | loads |
+| single slot with value `0` | 1895 | loads |
+| every slot `-1`, count 0 | 1891 | fails (twice) |
 
-The field removal used `re/creo/tools/OmitMask.py`, which takes `AllFeatur` from `3478` to `1873` bytes
-with no occurrence of the name left. So the loader has no default for the field, and it does not accept
-the two natural "no state" vectors.
+So neither the values nor the count carry meaning. Only one rule survives: the array must be
+**non-empty**. `Author.CleanFlagValue()` emits `f1 f8 01 f6` and `Author.CleanFlagElements()` emits
+`f6`, and a control whose four lanes are replaced by exactly those, `AllFeatur` `3478` → `1895` bytes,
+loads with `End` and `MT Part Solid`.
+
+### Two earlier claims withdrawn
+
+The retracted table said every value `-1` fails and every value `0` fails. Both were **flaky launches**.
+Creo in `-g:no_graphics` mode sometimes exits with no `End` line and no `dbg_err_crash`, which reads
+exactly like a rejection. The all-clean candidate failed on its first run and loaded on retry, and the
+count-0 candidate is the only one that failed twice. Every other candidate in the table above was
+confirmed by a launch that reported `End`.
+
+The field is still required, and that part is reproducible: `re/creo/tools/OmitMask.py` removes it from
+all four records (`AllFeatur` `3478` → `1873`, no occurrence of the name left) and the process exits.
+
+## What this means for the emitter
+
+The dominant field is solved. Record one writes `Author.CleanFlagValue()` and the replay records write
+`Author.CleanFlagElements()`, which is a rule rather than a captured table: one clean slot, no vendor
+values, no document specific length.
 
 ## What is needed
 
-The encoding is settled, so the emitter is a solved shape: read the values, hand them to
-`Author.FlagValue` for record one and `Author.SignedIntElements` for the replay records. What is missing
-is where the values come from.
+`cr_flags_xar` no longer blocks anything. The remaining work on `AllFeatur` is the other seventy-seven
+nodes of the feature record: `id`, `indep_attributes_arr`, `feat_type_ptr`, the choice scalars,
+`sect_name`, `idtab_ptr`, `body_geom_hdr`, the transform, and the trailing pointers. Most are `-1`, `0`
+or null, and the inventory above gives the value and span of every one, so they can be emitted field by
+field the way `BasBasData` and `FeatDefsDtm` now are.
 
-The remaining work is therefore a single, bounded reverse-engineering question: find what computes the
-vector. The `.ddt` registry route is closed — its 210 accessors all name parenthesised union members,
-while `cr_flags_xar` is a plain field at a compile-time struct offset — so the target is the code that
-fills the feature struct at load time, inside `xtop.exe`'s 219 MB `.text`.
-
-Until that is decoded, `AllFeatur` stays unauthored, and with it the whole authored part: it is the one
+Until that lands, `AllFeatur` stays unauthored, and with it the whole authored part: it is the one
 section that both our document validator and the vendor loader reject when absent.
