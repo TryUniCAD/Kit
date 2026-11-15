@@ -139,3 +139,52 @@ come only from the source document during a same-document rewrite.
 
 The synthetic integration test builds its container from code and does not
 ship a vendor `.prt` fixture.
+
+## Current head re-verification
+
+The production adapter was re-run on the control at the current head and the
+result was opened in a fresh NX 2506 process. The rewrite changes
+`NX_ReferenceSet` from `Empty` to `KitNX` and rebuilds the container.
+
+```text
+STATUS 0
+PART C:\Mac\Home\Documents\UniCAD\Kit\re\nx\oracle\kit_head_check.prt
+UNITS 1
+BODIES 1
+BODY 38459 True
+FEATURES 2
+FEATURE 38784 DATUM_CSYS False
+FEATURE 38785 BLOCK False
+EXPRESSIONS 6
+EXPRESSION p0 40.0
+EXPRESSION p1 30.0
+EXPRESSION p2 20.0
+EXPRESSION height 20.0
+EXPRESSION length 40.0
+EXPRESSION width 30.0
+VOLUME 23999.999999999996
+AREA 5200.0
+CENTROID [X=19.999999999999996,Y=15,Z=9.9999999999999982]
+MASS 0.18793536
+```
+
+The body, feature tree, expressions, volume, area, centroid, and mass match the
+control exactly, so the current writer is still vendor loadable and application
+usable.
+
+## Class table authoring
+
+The modern type registry is now written as well as read. `WriteRegistry`
+reproduces the class table byte for byte on five parts:
+
+```text
+wave_modern.prt   8072 bytes  identical
+flange_modern.prt 12539 bytes identical
+fresh_block.prt   7822 bytes  identical
+empty.prt         6399 bytes  identical
+dim40.prt         7822 bytes  identical
+```
+
+The two per-class fields are derivable: the first is the class's registration id
+plus one, and the second is the parent ordinal. The class table is therefore no
+longer carried from the source document.
