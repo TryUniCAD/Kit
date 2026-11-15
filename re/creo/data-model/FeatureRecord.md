@@ -480,6 +480,26 @@ with our own generated values was rejected twice:
 Six candidates now separate the cause: generated scalars, mask encoding and mask length are all ruled
 out, and only the mask *content across records* remains. See the table above.
 
+## The solid feature in the ladder
+
+Authoring a protrusion is the remaining geometry blocker, so the ladder's feature list was inventoried:
+
+| Feature id | Class | Note |
+| ---: | ---: | --- |
+| `7`, `5` | `923` | datum planes, definition then replay |
+| `3` | `923` | third plane, replay |
+| `11` | `979` | coordinate system, a definition with its own field set |
+| `67`, `75`, `74` | `917` | the solid-producing features |
+
+The ladder's `AllFeatur` is `7838` bytes against the empty control's `3478`, and the datum definition alone
+is `1648` bytes with `72` field headers, while the two datum replays carry none.
+
+This is the point where the work stops being an emitter task. A `917` record does not exist in the
+authored part at all, and its surfaces reference contours and topology that only a regenerated solid
+provides. Authoring it means the solid feature, its topology tables, and the surface set together — a
+different order of work from every section completed so far, none of which required the vendor to
+regenerate anything.
+
 ## What is needed
 
 The definition record is done and loadable. What remains is the **replay form**. A replay record is a
