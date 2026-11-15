@@ -15,8 +15,16 @@ no invalid constructor box as a neutral cache. The
 [bounds-state gotcha](../../Gotchas/Conversion/Solidworks/Archive/BoundingBoxSphereState.md)
 records why six corners or zero fill are insufficient.
 
-This is one closed record operation, with static parsing only. Its remote
-process coverage belongs with the completed assembly graph. Reference insertion,
+The same module constructs embedded ordinary native file definitions from an
+explicit authored reference path, document kind and creation time. Windows
+filename stems, native part/assembly categories and typed string handles follow
+native setters and serializers. Virtual, imported and PDM relationships are
+outside this initial profile. A separate helper constructs an explicit generated
+configuration-name/id pair or the native unset pair. No saved path, timestamp,
+configuration name or identifier is supplied as a default.
+
+These are closed initial record operations, with static parsing only. Their
+remote process coverage belongs with the completed assembly graph. Reference insertion,
 configuration ownership and placement have additional static dataflow evidence;
 unresolved external identity, option domains, solver and cache policy still
 prevent claiming a complete fresh assembly writer.

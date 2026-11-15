@@ -8,11 +8,12 @@ The [CAD success criteria](../../../Documentation/Reference/Operations/CadSucces
 
 This finding uses static metadata, constructor dataflow, exported accessors, and caller structure from the installed 2026 binaries. No execution trace or target-application measurement was collected by this component. Decompiled listings and analysis databases remain outside repository checkouts. No saved control supplied a constructor value or a default table.
 
-| Module        | SHA-256                                                            |
-| ------------- | ------------------------------------------------------------------ |
-| `sldmodu.dll` | `569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e` |
-| `sldmfcu.dll` | `af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735` |
-| `sldmgu.dll`  | `99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c` |
+| Module            | SHA-256                                                            |
+| ----------------- | ------------------------------------------------------------------ |
+| `sldmodu.dll`     | `569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e` |
+| `sldmfcu.dll`     | `af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735` |
+| `sldmgu.dll`      | `99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c` |
+| `sldarchiveu.dll` | `5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48` |
 
 ## Concrete class ownership
 
@@ -52,6 +53,14 @@ The exported named assembly constructor `0x4b67efe0`, taking a document name, `s
 
 The active common constructor creates `moRelMgr_c(owner=this)` and assigns `f9d0`. It also calls `moUnitComponent_c(model=this, filed_owner=this)` at `0x4c00e850` and assigns its result to `f990` at `0x4c00e85a`. Both allocations are on the common path. The default/runtime-factory constructor's null seeds therefore do not describe the completed named-construction owner graph.
 
+Named assembly construction also clears its initial update state. At
+`0x4b67f7e8`–`0x4b67f7f6`, the caller supplies zero status, propagation argument
+one and a null source to `moModel_c::setNeedsUpdate` at `0x4c0363c0`. The primary
+assembly vtable `0x4ce69b30` binds slot `+0xb8` to that same setter and slot
+`+0xc0` to node query `0x4c03e5e0`. Later authored operations have their own
+state transitions; the initial named assembly must not retain a loading
+constructor's flags merely because they share a base class.
+
 The hypothesis that an assembly root should use a chain as its self component is **refuted before implementation**. Actual named assembly construction uses the unit component. Chain components describe instance paths. The common model-field factory is separately owned in `Model.py`, with explicit concrete node, self component, units, detail definitions, and relation graph inputs; the fresh composition must supply the active constructor's actual owner links.
 
 The active constructor also assigns `moUnitsTable_c(1)` to user units at `f9b8`, while analysis units `f9c0` remain null at this stage. This is direct 2026 construction evidence, independent of the older-version loader branch. Explicit authored analysis-unit settings may require their separate creation path. The `suObList` pointer store at `sldmfcu.dll!0x3c8cceb0` passes the actual pointer to `WriteObject` without testing emptiness. Allocated empty active-constructor lists therefore cannot be equated to null on that store path. The common model factory's current null fields and native loader-created empty lists still need final graph-policy analysis.
@@ -60,20 +69,20 @@ The active constructor also assigns `moUnitsTable_c(1)` to user units at `f9b8`,
 
 Constructor seeds below describe initial allocation state. They are not universal saved-model constants or accepted neutral caches. Unknown semantics remain explicit and prevent claiming a complete fresh assembly profile.
 
-| Field or group                  | Classification                               | Static rule or initial state                                                      | Evidence and remaining work                                                                                                                                      |
-| ------------------------------- | -------------------------------------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `f14a0/f14d8`                   | Derived collections                          | Constructed empty string maps before authored assembly data exists                | Assembly constructor `0x4b67e710`; populate from actual semantic owners when those owners are recovered                                                          |
-| `f1a18/f1a20`                   | Derived bounds/cache state                   | Both pointers are allocated bounding-box objects by the end of construction       | `0x4b67e710`; compute actual bounds or prove an accepted neutral state, rather than omit them because the pointers were briefly cleared                          |
-| `f1560`                         | Derived counter, partial                     | Initial 0; browser-node insertion increments it once after reference construction | `0x4b6a7cf0`; ordinary insertion and deletion lifetime still need closure, so it is not equated to visible feature count                                         |
-| `f1570`                         | Derived solver result, partial               | Initial 0; stored through the native solve-status enum                            | Getter `0x4b69e140`, setter `0x4b6b7950`; enum domain and completed solve state unresolved                                                                       |
-| `f15a0`                         | Derived optional zone data                   | Initial null; native getter returns an object-array pointer                       | `getZoneArray` at `0x4b294eb0`; fresh absence requires the no-zone caller path                                                                                   |
-| `f1608`                         | Derived optional mirror data                 | Initial null; native getter returns mirror-assembly data                          | `getMirrorAssemblyData` at `0x4b299510`; authored mirror instances need their own construction graph                                                             |
-| `f18c8/f18e8`                   | Derived temporary collections                | Constructed empty object arrays for temporary fixed/grouped components            | Getters `0x4b2997d0`/`0x4b2997e0`; transient final-save treatment remains separate from initial allocation                                                       |
-| `f1710/f1718/f1720/f1708/f1738` | Derived replacement graph                    | Initial flag 0, null objects, empty map; replacement type seed -1                 | Constructor `0x4b67e710`; `f1718` getter `0x4b299550`, type getter/setter `0x4b299730`/`0x4b29dba0`; no authored replacement operation may invent linked records |
-| `f1940/f1948/f1990`             | Authored display option and derived lists    | X-ray toggle seed 0 and empty lists                                               | Getter/setter `0x4b298b80`/`0x4b29d900`; list population for enabled mode remains unresolved                                                                     |
-| `f1674`                         | Authored plane selection, derived identifier | Initial -1; use the generated active-plane id when a plane is selected            | Getter/setter `0x4b298b50`/`0x4b29d8d0`; absent-plane semantics require the corresponding caller                                                                 |
-| `f1a28`                         | Unresolved serialized state                  | Initial 1                                                                         | Constructor `0x4b67e710`; no semantic input or neutral-cache claim is made                                                                                       |
-| `f1300`                         | Derived model update bookkeeping             | Assembly does not take the conditional increment branch                           | Primary vtable `0x4ce69b30`, slot `0x16d8`, points to `0x4b27cbe0`, exactly a false return; header counters are separate                                         |
+| Field or group                  | Classification                               | Static rule or initial state                                                                                                   | Evidence and remaining work                                                                                                                                      |
+| ------------------------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `f14a0/f14d8`                   | Derived collections                          | Constructed empty string maps before authored assembly data exists                                                             | Assembly constructor `0x4b67e710`; populate from actual semantic owners when those owners are recovered                                                          |
+| `f1a18/f1a20`                   | Derived bounds/cache state                   | Both pointers are allocated bounding-box objects by the end of construction                                                    | `0x4b67e710`; compute actual bounds or prove an accepted neutral state, rather than omit them because the pointers were briefly cleared                          |
+| `f1560`                         | Derived counter, partial                     | Initial 0; common insertion increments it, and browser-node insertion adds another increment before calling that common helper | `0x4b6a0100` and `0x4b6a7cf0`; deletion lifetime still needs closure, so it is not equated to visible feature count                                              |
+| `f1570`                         | Derived solver result, partial               | Initial 0; stored through the native solve-status enum                                                                         | Getter `0x4b69e140`, setter `0x4b6b7950`; enum domain and completed solve state unresolved                                                                       |
+| `f15a0`                         | Derived optional zone data                   | Initial null; native getter returns an object-array pointer                                                                    | `getZoneArray` at `0x4b294eb0`; fresh absence requires the no-zone caller path                                                                                   |
+| `f1608`                         | Derived optional mirror data                 | Initial null; native getter returns mirror-assembly data                                                                       | `getMirrorAssemblyData` at `0x4b299510`; authored mirror instances need their own construction graph                                                             |
+| `f18c8/f18e8`                   | Derived temporary collections                | Constructed empty object arrays for temporary fixed/grouped components                                                         | Getters `0x4b2997d0`/`0x4b2997e0`; transient final-save treatment remains separate from initial allocation                                                       |
+| `f1710/f1718/f1720/f1708/f1738` | Derived replacement graph                    | Initial flag 0, null objects, empty map; replacement type seed -1                                                              | Constructor `0x4b67e710`; `f1718` getter `0x4b299550`, type getter/setter `0x4b299730`/`0x4b29dba0`; no authored replacement operation may invent linked records |
+| `f1940/f1948/f1990`             | Authored display option and derived lists    | X-ray toggle seed 0 and empty lists                                                                                            | Getter/setter `0x4b298b80`/`0x4b29d900`; list population for enabled mode remains unresolved                                                                     |
+| `f1674`                         | Authored plane selection, derived identifier | Initial -1; use the generated active-plane id when a plane is selected                                                         | Getter/setter `0x4b298b50`/`0x4b29d8d0`; absent-plane semantics require the corresponding caller                                                                 |
+| `f1a28`                         | Unresolved serialized state                  | Initial 1                                                                                                                      | Constructor `0x4b67e710`; no semantic input or neutral-cache claim is made                                                                                       |
+| `f1300`                         | Derived model update bookkeeping             | Assembly does not take the conditional increment branch                                                                        | Primary vtable `0x4ce69b30`, slot `0x16d8`, points to `0x4b27cbe0`, exactly a false return; header counters are separate                                         |
 
 The header update counter belongs to the actual header object. [ModelConstruction2026.md](ModelConstruction2026.md) records its independent increment and wall-clock timestamp rule. Neither header stamps nor assembly counters are derived from feature count alone.
 
@@ -85,7 +94,7 @@ The header update counter belongs to the actual header object. [ModelConstructio
 | Model `f9d0`                 | Derived relation ownership                             | Named construction supplies `moRelMgr_c(owner=this)`                                                                           | Shared constructor `0x4c00d8f0`; final save and authored relation population remain separate obligations                        |
 | Chain component `owner`      | Derived owner reference                                | Parameterized construction takes the filed owner and its runtime header index                                                  | Constructor `0x4b8277f0`; the archive schema expresses the owner as the corresponding model object                              |
 | Chain component `f20`        | Derived reference path                                 | A supplied path is reused through its owner cache or cloned according to the constructor option and path state                 | `0x4b8277f0`, clone `0x4c28c490`; do not reuse a part unit-component record                                                     |
-| Chain component `f30`        | Derived path bookkeeping, partial                      | Helper starts at 101 and adds virtual slot `0x16f8` from each linked path entry                                                | `0x4c291ca0`; concrete entry ownership and the virtual value's semantic role still require closure                              |
+| Chain component `f30`        | Derived path bookkeeping, partial                      | `(101 + sum(reference.f3f0 for reference in path)) & 0xffffffff`                                                               | `0x4c291ca0`; all three concrete reference vtables bind slot `0x16f8` to getter `0x4b541640`, reading `f3f0`                    |
 | Context chain `f40`          | Derived external context                               | Created from the referenced filed owner on the resolved-path branch, or for shrink-wrap ownership under its separate predicate | Constructor `0x4b827ab0`, helper `0x4be8bcd0`; full external-file construction remains unresolved                               |
 | Context chain `f48`          | Unresolved context state                               | Constructor seed 0                                                                                                             | `0x4b827ab0`; seed is not an authored enum mapping                                                                              |
 | Reference-chain `f08`        | Derived path records                                   | Allocate a typed empty `moExtFeatureList_c`, then populate actual semantic path entries                                        | Constructors `0x4c28c5d0`/`0x4c28c670`, list constructor `0x4bac8d60`                                                           |
@@ -98,18 +107,221 @@ The header update counter belongs to the actual header object. [ModelConstructio
 
 The similarly named self-reference path is a separate runtime object. Assembly `makeSelfReference` at `0x4b6aa230` constructs `moReferenceEmbedded_c` with the model as both target and owner and stores it at `+0x1568`. The part method at `0x4c1b8530` stores its analogous object at `+0x1570`. Constructor `0x4bbb73e0` retains the target model at `+0x560`. Neither method assigns the serialized self component at `+0x990`; a newly constructed default transform in this runtime path is not evidence for a saved placement cache.
 
+Component wrappers have a distinct ownership rule. `moCompRef_c` constructor
+`0x4b7e8250` invokes the incoming component's virtual `copy(0)` at
+`0x4b7e8313` and stores the returned component at wrapper `f58` at
+`0x4b7e8319`. The unit-component vtable `0x4ce9c4d0 + 0x158` targets
+`0x4b82ab30`, which allocates `0x28` bytes and invokes copy constructor
+`0x4b8280c0`. Chain-component vtable `0x4ce9c808 + 0x158` targets
+`0x4b82a9d0`, which allocates `0x40` bytes and invokes `0x4b827560`.
+Wrappers therefore receive separate component objects while preserving their
+actual model-owner relationships. Sharing the model's self-component object
+directly between wrapper `f58` slots does not reproduce this native constructor.
+This is static ownership evidence; it is not a measured explanation of a native
+heap failure. The [component-lifetime gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Model/PlaneReferencesOwnTheirComponents.md)
+records the corresponding model-construction repair.
+
 Ordinary insertion `0x4b6a7df0` calls `addReference`, then `onAddReference`; it accepts a target model, authored transform, referenced configuration name, and insertion options. It can preserve an explicit requested id by advancing the actual header allocator until that id is reached.
+
+The browser-node insertion overload at `0x4b6a7cf0` increments model `f1560`
+before calling common insertion helper `0x4b6a0100`. That helper increments
+the same member again. The successful browser-node path therefore contains two
+increments for one insertion request. This does not establish deletion behavior
+or a complete lifetime formula. The [insertion-counter gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/BrowserInsertionAdvancesReferenceCounterTwice.md)
+records why this counter must not be substituted for visible component count.
 
 `addReference` at `0x4b6854d0` constructs a `moReference_c` through helper `0x4bbb7ba0` when its internal-reference option is zero. The nonzero branch invokes `0x4bbb74c0`, which uses the same helper and installs the `moReferenceInternal_c` vtables. With a nonnull authored transform, helper `0x4bbb7ba0` creates a copy at reference `f360` and increments `f3f0` from its constructor seed. This closes the reference's initial placement owner; it does not justify copying that matrix into every configuration transform cache.
 
 `onAddReference` at `0x4b6ab9c0` reaches configuration insertion helper `0x4b8d4910`. That helper constructs a reference chain rooted in the reference's actual owning model, appends the concrete reference, constructs its chain component, and calls `moConfiguration_c::getOrAddObject` at `0x4b8d1400`. The configuration copies its selected `fc48` or `fc50` option record into a `moConfigObject_c`; selection depends on the concrete reference kind. The chain becomes contextual in that object's constructor. The actual configuration-name lookup supplies the referenced persistent configuration id. It then passes the name/id to config-object setter `0x4b8b2380` and reference setter `0x4bbcd7a0`. Header identity, external links, remaining option domains and context-dependent transforms are not replaced with captured values.
+
+## Reference update state after insertion
+
+The following rules belong to the hashed `sldmodu.dll` above. They are static
+constructor, caller and virtual-dispatch evidence. They are not execution traces
+or held-out acceptance results.
+
+Ordinary reference constructor helper `0x4bbb7ba0` seeds several stamps with 101. It constructs the `f3e8` time from calendar arguments
+`(1990, 1, 1, 0, 0, 0, -1)`. These are allocation seeds, not the completed
+insertion state. No host-time conversion of that constructor date is needed for
+the recovered ordinary insertion path.
+
+Insertion helper `0x4b6a0100` invokes the reference's virtual slot `+0x1ce0`.
+The ordinary reference vtable `0x4cf7a8b0` binds that slot to
+`moReference_c::setModelUpToDate` at `0x4bbcf680`.
+Its `+0x1cc0` call resolves the actual target model through helper
+`0x4bbc04e0`. When that model is present, the method replaces four stamp fields.
+The part-target rules below assume an attached target header.
+
+| Reference field | Classification                                        | Native source after insertion               | Part-target rule and evidence                                                                                                                             |
+| --------------- | ----------------------------------------------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `f3e0`          | Derived target update counter                         | Target virtual `+0x1030`                    | Target header `f40`; part slot targets `0x4bdac640`, which calls the header's current-update getter                                                       |
+| `f3e8`          | Derived target update time                            | Target virtual `+0x1248`                    | Target header `f48`; part slot targets `0x4bdac6a0`, which copies header member `+0x48`                                                                   |
+| `f3f4`          | Derived target geometry-change stamp                  | Target virtual `+0x19e0(0, visited_models)` | Target model `f1300`; part slot targets `0x4b5602e0`, which reads that member                                                                             |
+| `f3f8`          | Native literal for the part-target branch             | Target virtual `+0x19d8`                    | 101; part slot targets `0x4b55ff30`, which returns literal `0x65` without reading model state                                                             |
+| `f3f0`          | Derived placement stamp, separate from target updates | Reference constructor and placement setters | Constructor seed 101 becomes 102 when `0x4bbb7ba0` copies a nonnull supplied transform into `f360`; later placement operations need their own transitions |
+
+The part dispatches were read from primary vtable `0x4d1252d8`. The header's
+current-update getter has the global-per-header behavior recorded in
+[ModelConstruction2026.md](ModelConstruction2026.md). Insertion copies the target
+header's current timestamp without reading a clock itself. Timestamp provenance
+follows the header lifecycle. The native next-update method replaces header
+`f48` with wall time. The fresh writer must derive its corresponding header
+state from explicit authored inputs and documented transitions.
+
+Without a target header, getters `0x4bdac640` and `0x4bdac6a0` return 101 and
+-1 respectively. Those fallbacks do not establish a completed, attached-header
+reference state.
+
+Assembly targets have different geometry and transform dispatches.
+Assembly vtable `0x4ce69b30` binds `+0x19e0` to `0x4b55ff40` and
+`+0x19d8` to `0x4b55fdd0`. Both walk the reference set at model `f15e0`.
+Geometry aggregation starts with model `f1300` and recurses into available
+target models with a copied visited-model set. Transform aggregation reads each
+reference's `+0x16f8` placement stamp and uses a 101 sentinel branch.
+Neither branch is replaced with the part getter's literal.
+Reference-set membership, unresolved targets, repeated targets, traversal order
+and overflow remain obligations before a general neutral assembly formula is
+implemented.
+
+`setModelUpToDate` also updates optional bounds and clears selected runtime
+flags. Those effects remain separate from the four proved stamp assignments.
+This finding does not add a partial reference object or advertise a complete
+fresh component graph. The [reference-stamp gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ReferenceStampsCopyTargetState.md)
+records the construction consequence.
+
+## Reference-chain persistence and saved context
+
+Ordinary resolved chains do not universally serialize in mode 2. Their store
+eligibility also depends on runtime persistence and the enclosing component.
+All native addresses in this section belong to the hashed `sldmodu.dll`.
+
+| Member or operation     | Classification                                            | Recovered rule                                                                                                                    | Evidence and remaining boundary                                                                                                                        |
+| ----------------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Chain `f24`             | Derived path state                                        | New ordinary paths start at 0; pre-store normalization can select 2, including for zero resolved count or missing/deleted entries | Constructors `0x4c28c5d0`/`0x4c28c670`, predicate `0x4c293430`, setter `0x4c2946b0`, store `0x4b66e370`; these examples are not the complete predicate |
+| Chain runtime `+0x38`   | Derived manager membership, absent from the wire          | `isPersistent` means this pointer is nonnull                                                                                      | Getter `0x4c0ee630`; the identical exported implementation also has an unrelated bitmap-method name                                                    |
+| Chain runtime `+0x18`   | Derived actual model owner, mostly contextual on the wire | `get()` uses this owner's reference-chain manager at model `+0x7d0`                                                               | Getter/cache entry `0x4c28f5f0` and `0x4c28f3a0`; null owner and condition-dependent owner-presence fields remain distinct                             |
+| Chain `f20`             | Derived lifetime count, serialized i32                    | Manager acquisition increments it; a new standalone copy resets it to 0                                                           | `0x4c28f3a0` and copy constructor `0x4c28c490`; neither path length nor one global constant defines completed ownership                                |
+| Persistent registration | Derived runtime ownership                                 | Registration calls a helper that assigns the manager to chain `+0x38`                                                             | `0x4c2977d0`, assignment `0x4c29adeb`; no runtime pointer value is emitted                                                                             |
+| Context component store | Temporary native serialization context                    | With a nonnull chain owner, clear it when `(not persistent or owner.virtual_1a0()) and not condition_80000000`; restore afterward | `moContextChainComponent_c::Serialize`, `0x4c222af0`; the wrapper has no direct `f24` write, but its delegated chain store can normalize the mode      |
+
+The chain serializer's apparent bitmap predicate is an exported-function alias,
+not evidence that a chain needs bitmap-loaded state. Raw instructions at
+`0x4c0ee630` return whether member `+0x38` is nonnull.
+
+The pre-store predicate also returns true for a nonnull typed list with mode 0
+and resolved count `+0x14` equal to 0. This does not require a missing entry.
+Mode 1 has additional head-reference type and opened-owner branches.
+Missing or deleted entries therefore describe examples, not the full predicate.
+
+On the normal condition-zero store path, a chain with a runtime owner can pass
+through its persistent-manager membership. A context component can instead
+temporarily clear that runtime owner before invoking the base serializer.
+Its exact predicate is `owner != null and (chain.+0x38 == null or
+owner.virtual_1a0() != 0) and not hasCondition(0x80000000)`.
+The part vtable `0x4d1252d8` binds `+0x1a0` to literal-true getter
+`0x4b27e150`. The assembly vtable `0x4ce69b30` binds it to literal-false
+getter `0x4b27cbe0`. Thus a persistent chain can also have its owner cleared
+on the part-owner branch. The wrapper has no direct mode write, while delegated
+pre-store normalization can still change the chain's mode.
+Special archive conditions and helper contexts have additional branches.
+A store implementation must follow the actual enclosing graph and archive
+context. Replacing every live chain mode with 2 would hide that distinction.
+
+The contextual constructor at `0x4b827ab0` calls `0x4c28f330` after creating
+its external context record. Helper `0x4c28f330` only ensures that the typed
+feature list exists. It does not mark the chain unresolved or register it as
+persistent. Context component copies and manager-owned chains therefore require
+separate ownership accounting.
+
+External feature entries also depend on the archive owner.
+Constructor `0x4bac9340` takes the feature's actual filed owner for the embedded
+file definition. For an assembly reference, that identifies the assembly
+containing the reference, rather than the part referenced by `f3b0`.
+The entry's `f44` and typed-string `f38` come from that concrete feature's id
+and name. Serializer `0x4c178a30` refreshes them through `0x4bacafa0` when the
+reference is live. In the normal condition-zero branch, it retains `f50` only
+when the reference's owning model matches archive-helper owner `+0x30`.
+Cross-context and special-condition branches can emit null instead.
+
+These rules close specific constructor and store-context questions. Complete
+cache acquisition/release accounting, cross-context identity and generated
+component graphs remain active work. See the
+[chain-context gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ResolvedChainsDependOnStoreContext.md).
+
+## Authored file and configuration identity
+
+`file_definition(*, path_name: str, document_kind: str, created_at: int) -> dict`
+constructs the embedded `moSharedFileDef_c` mapping. It supports ordinary
+generated native part and assembly files. It requires an explicit output
+reference path and unsigned 32-bit authored document creation time. The caller
+supplies document kind `"part"` or `"assembly"`; a conflicting file extension
+fails. It does not read the referenced file, current directory or host clock.
+
+`sldarchiveu.dll!0x319fb380` constructs a fresh `moExtObject_c` and its shared
+file definition, passes the path to `0x31a01ae0`, copies a supplied creation
+time to shared member `+0x28`, and uses its boolean argument for virtual-file
+state. The ordinary `sldmodu.dll!0x4be8bcd0` caller passes false. The path setter
+uses Windows `_wsplitpath`, stores the filename stem at `+0x10` and the full
+supplied path at `+0x18`. Serializer `sldarchiveu.dll!0x319fe940` writes those
+strings through typed `moCStringHandle_c` objects in path-then-name order.
+
+Native category helper `sldarchiveu.dll!0x319fcbe0` maps `.sldprt` to 2 and
+`.sldasm` to 3. Independent model-kind helper `sldmodu.dll!0x4be8d7d0` returns
+the same categories from concrete runtime classes. These are format-domain
+values, not values fitted to saved files.
+
+| Embedded field | Classification and construction rule                                       | Static evidence                                                                               |
+| -------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `h18`          | Authored reference path in a fresh typed string handle                     | Path setter `0x31a01ae0`, serializer `0x319fe940`                                             |
+| `h10`          | Derived Windows filename stem in a fresh typed string handle               | Same setter and serializer; name getter `0x31a008b0`                                          |
+| `f20`          | Derived native document category: part 2, assembly 3                       | `0x319fcbe0`, model-kind helper `0x4be8d7d0`                                                  |
+| `f08/f38`      | Ordinary external file, not virtual: flag 0 and empty virtual-owner string | Shared constructor `0x319fb870`, ordinary caller `0x4be8bcd0`, virtual query `0x31a00860`     |
+| `f28`          | Explicit authored creation time of the referenced generated document       | Parameterized constructor `0x319fb380`, timestamp getter `0x31a00a30`                         |
+| `f40/f50`      | No imported-path or PDM relationship in this initial ordinary-file profile | Shared constructor `0x319fb870`; imported-path getter `0x31a00820`, PDM getter `0x31a009f0`   |
+| `f35`          | Constructor-zero additional byte; later role remains unresolved            | Constructor `0x319fb870` clears bytes `+0x34/+0x35`; serializer `0x319fe940` persists `+0x35` |
+
+All unqualified addresses in that table belong to `sldarchiveu.dll` except the
+explicit model-kind helper and ordinary caller in `sldmodu.dll`. The helper
+emits the evidenced initial ordinary-file state. It does not accept virtual,
+imported or PDM metadata, and does not claim the unresolved byte's full domain
+or every later save-time mutation.
+
+The emitted string handle has native schema `0x80000001`: getter
+`sldmfcu.dll!0x3c7c7a60`, descriptor `0x3ce6d0b0`, factory `0x3c7c6890`.
+The shared definition remains embedded as a mapping, so it does not introduce a
+redundant archive object. Future external-object and path-feature nodes also
+have concrete wire schema 1: `moExtObject_c` descriptor
+`sldarchiveu.dll!0x31a244d8`/factory `0x319fabc0`, and `moExtFeature_c`
+descriptor `sldmodu.dll!0x4daefdb0`/factory `0x4c1767f0`.
+
+`referenced_configuration(*, name: str | None, local_id: int | None) -> dict`
+constructs the embedded configuration-name/id pair. An explicit name requires
+the actual generated nonnegative local id. Passing both as `None` selects the
+native unset-constructor pair, empty name and id -1; a partial pair fails.
+Native default constructor `sldarchiveu.dll!0x319f5c90` constructs the empty
+CString and stores -1 at `0x319f5cb9`. Setter `0x31a08280` copies the supplied name to `+0x08`
+and id to `+0x10`. Ordinary insertion resolves the selected generated
+configuration by name before assigning its id. There is no fixed default
+configuration name/id table.
+
+External-object graph construction remains active. Native `connect` at
+`sldarchiveu.dll!0x319ff850` increments different counters for connection kinds
+1, 2 and 3. Accessors identify them as active users (`f48`, `0x319f7910`),
+external-context features (`f4c`, `0x319f78f0`) and part-to-base-assembly links
+(`f50`, `0x319f7900`). The reference-list index is `f78`, named by getter
+`0x319f8a70` and setter `0x319f9b90`. These require actual generated graph
+counts and list placement, not constructor seeds copied into every linked
+record. Last-modification and last-save times are separate members `f60/f70`,
+identified by getters `0x319f8b30`/`0x31a008a0`; their final lifecycle policy
+still needs closure.
 
 ## Computed geometric bounds
 
 The first implemented assembly construction operation is
 `bounding_box(*, minimum: Sequence[float], maximum: Sequence[float]) -> dict` in
 [`builders/Assembly.py`](../../tooling/sw2026/builders/Assembly.py). Inputs are
-finite three-coordinate axis-aligned bounds in the model's length unit, with
+finite three-coordinate axis-aligned bounds in the same native coordinate unit
+as the generated geometry, with
 `minimum[i] <= maximum[i]`. It returns the embedded `mgBBox_c.restore` field
 mapping. Coordinates and derived state that exceed finite archive doubles fail
 explicitly. This computes one record; it does not construct a usable assembly
@@ -155,6 +367,11 @@ completed assembly graph rather than through a prohibited isolated unit test.
 
 The `moConfig_c` runtime factory at `sldmfcu.dll!0x3c7c5ed0` invokes constructor `0x3c7c6010` with arguments `(2, 1, 1, 2, 0, 0)`. These are native constructor arguments, not values observed in a saved control. Their semantic enum domains are not all closed.
 
+Its emitted object header is independently bound to native metadata: runtime
+class getter `sldmfcu.dll!0x3c7c6300` returns descriptor `0x3ce6d080`, whose
+schema is `0x80000001` and whose factory is `0x3c7c5ed0`. The wire schema is 1;
+it is not inferred from another class's schema.
+
 | Serialized member         | Role                                                                                     | Native initial rule                                    |
 | ------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------ |
 | `f08/f0c/f10/f18/f20/f34` | Action, explode action, visibility, suppression, solving option, save-as-part preference | Copy the six constructor arguments                     |
@@ -166,8 +383,211 @@ The `moConfig_c` runtime factory at `sldmfcu.dll!0x3c7c5ed0` invokes constructor
 
 Getter bindings for those roles are recorded in [AssemblyArchive2026.md](AssemblyArchive2026.md). Fields `f1c/f24/f2c/f30/f78/f7c` are runtime-only in this version and are not added to the wire because their constructor initializes them. A fresh semantic option API still needs enum/domain and dependent-caller evidence.
 
+## Initial assembly configuration graph
+
+`initial_configuration(*, name: str, owner: Obj, local_id: int, date_code: int,
+parasolid_version: int, updated_at: int, description: str = "") -> Obj`
+constructs the initial `moConfiguration_c` graph from the actual generated
+assembly owner. It composes the separately recovered
+`Model.base_configuration_fields` on the actual new configuration node. The
+configuration id and time are explicit authored/generated inputs; the saved
+format field uses the target archive version from the shared factory, not the
+loading-constructor seed 2045. The owner must be an actual `moAssembly_c`.
+
+The active configuration-manager constructor `sldmodu.dll!0x4b8802f0` calls
+the explicit assembly-configuration constructor `0x4b8c4f30` at
+`0x4b880bea`. Before that call, it allocates two distinct `moConfig_c` objects
+and passes `(2,1,1,2,0,0)` to their imported constructors at
+`0x4b880b74` and `0x4b880bb8`. The constructor assigns those exact objects
+to `fc48/fc50`. This caller establishes the first-configuration profile; it
+does not depend only on the archive's loading factory or a saved control.
+
+The same manager constructs another option profile at `0x4b880c33`, then
+calls `moConfigObject_c::moConfigObject_c` at `0x4b880c68` with that profile,
+the actual configuration, and a null component. Constructor `0x4b8a5230`
+clones the options into its own `f08`. The manager calls the configuration's
+virtual `+0x1f90` at `0x4b880c78`; primary vtable `0x4cecc720` resolves it
+to `0x4b8c9450`, which inserts this componentless state into collection
+`fce8`. The initial collection therefore contains one default state, not zero
+states. The builder creates three distinct options nodes and does not alias
+either configuration profile with the options exclusively owned by this state.
+
+| Configuration field | Role and initial construction rule                     | Static evidence in hashed `sldmodu.dll`                                     |
+| ------------------- | ------------------------------------------------------ | --------------------------------------------------------------------------- |
+| `fc48/fc50`         | Separate initial component option profiles             | Manager calls `0x4b880b74/0x4b880bb8`; explicit constructor `0x4b8c4f30`    |
+| `fce8`              | One componentless default `moConfigObject_c` initially | Manager `0x4b880c33`–`0x4b880c78`; insertion `0x4b8c9450`                   |
+| `fca0/fca8`         | Optional visual-state pointers initialized null        | Explicit constructor `0x4b8c4f30`; later visual graphs remain separate work |
+| `fba8`              | Interference-result array initially null               | Active base constructor store `0x4bdbfe15`; `getInterObjArray` `0x4b287150` |
+| `fbb0`              | Excluded-component array initially null                | Store `0x4bdbfe1c`; `getExcludedCompArray` `0x4b286420`                     |
+| `fbc0`              | Initial exclude-components option false                | Store `0x4bdbfe2a`; getter `0x4b286fc0`, setter `0x4b292aa0`                |
+| `fbc4`              | Initial remember-exclusions option true                | Immediate-one store `0x4bdbfe31`; getter `0x4b286fd0`, setter `0x4b292ab0`  |
+| `fbc8`              | Clearance-result array initially null                  | Store `0x4bdbfe3c`; `getClearanceObjArray` `0x4b284c90`                     |
+| `fce0`              | Assembly mass-cache pointer initially null             | Explicit constructor `0x4b8c4f30`; no accepted final cache profile claimed  |
+
+The active base-constructor zero register is explicit: `xor ebx,ebx` at
+`0x4bdbf97b`, with no intervening assignment before the listed stores. The
+separate loading constructor `0x4bdbdd40` assigns the same five extra fields at
+`0x4bdbe490`–`0x4bdbe4b6`, using the zeroed `r15` and an immediate one for
+`fbc4`. This corroborates the values but is not substituted for active-owner
+construction evidence.
+
+The active base constructor also clears the configuration's node update
+flags. At `0x4bdbffdf`–`0x4bdbffed` it supplies `(0,1,null)` to
+`moNode_c::setNeedsUpdate` at `0x4c03ed90`. The zero-status branch applies
+`f0c &= 0xfffd7ff8` without the positive-status debug predicates. This
+configuration factory applies that transition after the shared feature fields.
+
+The assembly store path `0x4c221a20` temporarily changes `fc50.f18` to
+`normalized_suppression | (getSuppressedState(null) == 0)` before writing it,
+then restores the initial suppression. For this exact initial profile, active
+base construction creates an internal `moPartConfigObject_c` through
+`0x4bdc24d0`, whose `+0x0c` flag word is 1. Query `0x4bddae80` returns that
+word's low bit when the supplied concept is null. The OR operand is therefore
+zero, and the initial `fc50.f18` remains 2 on the wire. This internal part
+configuration object is not serialized as an extra standalone assembly node.
+Collection store helper `0x4b8c11d0` copies the initial state list when the
+configuration's parent pointer `f6a0` is null and writes its actual count and
+objects, including the componentless state. Neither store transition is
+replaced by a value observed in a saved assembly.
+
+| Initial component-state fields | Rule from constructor `0x4b8a5230`                                                              |
+| ------------------------------ | ----------------------------------------------------------------------------------------------- |
+| `f08/f10/f28`                  | Fresh cloned options, no concrete component, unset referenced-configuration pair                |
+| `f40/fc0/fc8`                  | Null visual and flexible-state pointers                                                         |
+| `f48.f08/f48.f28`              | Empty embedded featherweight-child array and initial stamp 101                                  |
+| `has_f140/has_f170`            | No allocated placement or alternate transform                                                   |
+| `f18/f20/f148`                 | Initial flags `0x111`, integer state 0, integer state 0                                         |
+| `f78/f118/fd0`                 | Empty serialized collections before any component or referencing relationship                   |
+| `f178/f190`                    | Constructor-empty string and false persisted boolean; complete later semantic roles remain open |
+
+Store helper `0x4b8ad480` retains the constructor's referenced-configuration
+pair when this state's component is null. Its temporary replacement path
+requires an actual component/reference/model and additional flexible-state
+predicates, so it does not invent a selected component configuration here.
+
+All rules in this section are **partial** static constructor/caller evidence.
+They are not native acceptance or general option-domain proof. The function
+represents the initial configuration graph only. It does not clone a later
+configuration, insert a component, supply mate states, or prove that initial
+caches remain valid after those operations. The next composition work must
+apply those operations' actual native transitions.
+
+Remote process coverage is implemented in
+`tests/convert/solidworks/research/AssemblyBuilderProcessTests.py` and its
+focused `Assembly/Build.py`, `Codec.py`, and `Report.py` helpers. It sends
+explicit semantic input to an isolated interpreter, enables the shared audit
+before builder imports, and enters its deny-all construction phase before
+calling the actual constructors and native codec. The owner is an actual new
+assembly node supplied through an explicit generated archive-map seed, rather
+than a copied source record. The initial configuration, generated unit self
+component and file-definition class are encoded, decoded with a fresh owner
+seed, and re-encoded with exact
+byte identity and no remaining tail. The file-definition wrapper is the native
+constructible `moSharedFileDef_c` class for this codec boundary only; the builder
+still returns the embedded mapping used by actual external records.
+
+The process checks that Unicode path/name growth changes the archive, the
+decoded name/id/time/category match authored input, the unit component's actual
+owner identity resolves, and three separate option objects survive serialization. It also
+checks explicit failures for unsupported inputs and denied runtime file access.
+This is configuration/file-record process coverage, not a complete generated
+assembly or native application acceptance. No local execution was performed.
+The measured remote outcome below covers the identified code revision.
+
+The first remote process run on head `224f4de8c1901f400dad7e0a6e423b2c9d58b22b`
+failed after successful configuration/file encoding, decoding and exact
+reencoding because the report incorrectly expected a serialized configuration
+`owner` field. [Native job 132797724161](https://github.com/TryUniCAD/Kit/actions/runs/43709486908/job/132797724161)
+reported 1 failed, 161 passed and 158 skipped. The repaired process checks the
+real unit-component owner wire edge instead; it does not modify the feature
+grammar or add a fake owner field. The
+[owner-context gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ConfigurationOwnersNeedModelContext.md)
+records that distinction. The same revision's name-policy and result-type
+findings are repaired in the process harness.
+
+[Native job 132799461617](https://github.com/TryUniCAD/Kit/actions/runs/43710059720/job/132799461617)
+then passed on code head `09a5df2e3dc94485e0bd3474a4675ac31412f258`,
+synthetic merge `018bad00246d84aa85a4471ba3de48ea47943236` over parent
+`4df250ce5baef01fa76bbc575304c688c0379b63`. The native suite reported
+**162 passed, 158 skipped in 70.05 seconds**, with both
+`AssemblyBuilderProcessTests.py` process cases passing. That establishes the
+guarded initial-record construction/codec boundary, Unicode archive growth,
+generated self-component owner reference, and rejected semantic requests.
+The separately passing source-assembly test still covers 14 exact streams
+across its two training controls. These are process and preservation results,
+not a generated complete assembly or vendor load/rebuild/mate-edit acceptance.
+
+## Header component activity count
+
+The header component-count search has a new **partial** caller lead. A bounded
+search that found no setter import must not be treated as proof that `fc4`
+is unused or always zero. The external licensed `doccplu.dll`, SHA-256
+`ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8`,
+imports `moHeader_c::setNumberOfComps` through IAT slot `0x1800530d0`.
+Its caller at `0x180012a7e` obtains a number through document virtual
+`+0x1368`, saves that result, obtains the model through virtual `+0x1300`,
+then obtains the header through model virtual `+0x11f0`. At `0x180012ad4`
+it passes the number to thunk `0x18004638f` and the header setter. This is
+actual static call/dataflow evidence; a direct-call-only IAT search misses the
+import thunk.
+
+A matching concrete `uiModelDoc_c` primary vtable at
+`slduiu.dll!0x4a645b78` binds `+0x1300` to `getModel` at `0x49789530`
+and `+0x1368` to `getNumberOfComps` at `0x48ee73c0`, which returns member
+`+0xb54`. That module's SHA-256 is
+`025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7`.
+Setter `0x497bb1d0` also has a direct store into an obtained header's `fc4`
+at `0x497bb269` under its document-state predicates. The setter also assigns
+the supplied count to UI member `+0xb54` at `0x497bb27b`.
+
+The count has a concrete configuration-side producer. The following bridge
+addresses belong to `sldappu.dll`, SHA-256
+`50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf`.
+Its `BaseDocModelContext_c` vtable `0x45f0a878` binds slot `+0x460` to
+`setNumberOfComps` at `0x458ef6e0`, which forwards to the owning UI document's
+virtual `+0x1360`. Slot `+0x468` binds the corresponding getter at
+`0x458ee7d0`, which forwards to UI virtual `+0x1368`. The concrete UI vtable
+above binds `+0x1360` to setter `0x497bb1d0`.
+
+In the hashed `sldmodu.dll`, configuration-controller function `0x4b8d3630`
+obtains the actual document context from its model through virtual `+0x11d0`.
+The normal branch at `0x4b8d3e6c`–`0x4b8d3e7b` passes the current
+configuration's `f4b0` to context virtual `+0x460`. A separate `f784 != 0`
+branch obtains shrink-wrap component information and passes that record's
+`+0x10` at `0x4b8d3e67`; the normal count must not be applied to this branch
+by analogy. Getter `moBaseConfiguration_c::getCurActiveCount` at
+`0x4b285670` independently identifies configuration `+0x4b0`.
+
+| Native count field or event                | Static rule                                                                                                    | Evidence in `sldmodu.dll`                                                                         |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Configuration `f4b0` before activation     | Initial constructor seed -1                                                                                    | Active base constructor `0x4bdbf820`; this is not a computed final count                          |
+| Start of full configuration reference walk | Reset the current configuration's activity count to 0 when visiting the model's embedded self reference        | Handler `0x4b8ce7f0`, reset at `0x4b8ce8b4`                                                       |
+| Reference event in nonzero walker mode     | Increment when that event's derived status is zero                                                             | `0x4b8cf045`; this mode first tests whether the referenced model is present                       |
+| Reference event in normal walker mode      | Increment once when its final status is zero                                                                   | `0x4b8cf6c7`; the embedded self event returns before this path                                    |
+| Suppression/graphics handling              | Status helper returns 1 for suppression state 0 or nonzero graphics state; other activation paths can return 0 | `0x4b8d6d90`; callers also have SpeedPak, virtual, filtering, zone and partial-context predicates |
+| Header `fc4` in the normal context path    | Copy the activity count through the document context/UI setter and later save-side header update               | `0x4b8d3e7b`, followed by the bridges and stores above                                            |
+
+For the actual visited events, the accumulation is a sum of one per non-self
+reference event whose completed handler status is zero. It is not a count of
+visible features or an allocator formula. The traversal's legal domain and
+full semantic reduction remain **partial**: inherited suppression,
+lightweight/viewer state, nested reference paths, special virtual/SpeedPak
+records, filtering and partial-open contexts still affect event selection or
+status. A rule over neutral assembly instances must close those predicates,
+then pass held-out native checks before the unsupported-component guard in
+`Metadata.header` can be lifted. No saved component count supplies a default.
+
+The similarly named `componentCountWalker` is a **refuted lead for this header
+producer**. Its vtable `0x4d0c7068` is constructed in
+`moModel_c::GetNumTessTriangles` at `0x4c013660`, where its grouped
+component multiplicities feed tessellation statistics. The name alone does
+not establish the header counter's role. The
+[activity-count gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/HeaderCountsFollowConfigurationActivity.md)
+records the distinction. These conclusions are static dataflow and loop
+evidence, not execution traces or target-application acceptance.
+
 ## Remaining construction work
 
 The unresolved work is concrete and active: complete ordinary component-reference construction; external file/header/configuration identity; context-dependent placement propagation; complete per-configuration option domains; solver state and common mate data; bounds-cache ownership and final visibility/explosion policy; and controlled native load/rebuild/edit acceptance with passing controls.
 
-Only the geometric-bounds record constructor is implemented here. A complete fresh assembly builder and native acceptance are not claimed. No local tests, builder imports, fixture reproductions, or CAD operations were run. The caller and loop conclusions are static evidence, not Tupni execution traces.
+The geometric-bounds, ordinary-file-definition, referenced-configuration, and initial assembly-configuration graph constructors are implemented here. A complete fresh assembly builder and native acceptance are not claimed. No local tests, builder imports, fixture reproductions, or CAD operations were run. The caller and loop conclusions are static evidence, not Tupni execution traces.
