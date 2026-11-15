@@ -63,6 +63,26 @@ all twelve last bytes recomputed with K = 70   OPEN_FAILED
 so the value is validated against something the countdown does not capture — the countdown is a
 correlate, not the rule. It stays carried, and only the label byte at offset 16 is generated.
 
+## The family is a contiguous block with a per-body descending id
+
+Dumping every record that shares the frame shows the block's full shape:
+
+```text
+dim40    12 records, table indices 19..30, ids 57 56 55 54 53 52 51 50 49 48 47 46
+var_two  12 records, table indices 32..43, ids 50 49 48 47 46 45 44 43 42 41 40 39
+         12 records, table indices 44..55, ids 39 38 37 36 35 34 33 32 31 30 29 28
+```
+
+so one record exists per object, the records sit in a contiguous run, the ids descend by one
+across the run, and a two body part has **two runs** whose ids overlap at 39. The counter's
+origin differs per run — 57, then 50, then 39 — and none of the candidates I could test
+(`last + index`, group-consistent shifts, single byte changes) is accepted by the loader.
+
+That makes the byte a per-body descending counter of unknown origin rather than a free label or
+an index into the object table: the ids are not table indices in `dim40`, and in `var_two` the
+coincidence that they fall inside the index range is explained by the runs' origins, not by a
+reference.
+
 ## Limits
 
 - The label's meaning is unknown; it is free, not derived.
