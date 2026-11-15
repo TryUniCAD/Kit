@@ -234,6 +234,28 @@ asking the loader for it.
 `LegacyCodes(Payload)` reads that table, `nx.legacy_coded_classes` reports how many entries are set,
 and `TestNxLegacy` now pins the table alongside the frames.
 
+## Nothing after the attribute frames is optional
+
+Section 1 of `wave_parent.prt` continues past the attribute frames with a 568 entry little endian
+u32 table, then an ASCII version block (`NX 3.0.2...`), then the object data up to the section end at
+`0xd9b0`. Zeroing each of those in place, so every offset and length stays valid, and loading the
+part:
+
+```text
+mutant        bytes zeroed        result
+zp_ctrl       none                bodies 1  volume 1000000.0000000002
+zp_table      0x109e..0x197e      OPEN_FAILED
+zp_text       0x197e..0x19c0      OPEN_FAILED
+zp_tail       0x197e..0xd9b0      OPEN_FAILED
+zp_attr       0x109e..0xd9b0      OPEN_FAILED
+```
+
+The control goes through the same container writer and loads with the source volume, so the failures
+are caused by the zeroed content, not by the rebuild. A legacy payload therefore has no optional
+tail: the table, the version block and the object data are all load bearing, and a minimal payload
+cannot be produced by omission. That is why no payload has been emitted for loading — the remaining
+work is to _generate_ the object data, not to trim a section down to something NX will still accept.
+
 ## The attribute frames are fully framed and tile consecutively
 
 The type-7 frame is the class frame with one extra length prefixed name and the same trailing value:
