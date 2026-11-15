@@ -52,18 +52,40 @@ KHeadPrefix = bytes.fromhex("0305020004050100")
 # needed so khead suffix stays a single named source for the nx adapter
 KHeadSuffix = bytes.fromhex("80d5021304050100010180d5021380d6020000")
 
-# needed so khead reserve stays a single named source for the nx adapter
-KHeadReserve = 43
+# needed so khead suffix tail stays a single named source for the nx adapter
+KHeadSuffixTail = bytes.fromhex("13040501000101")
+
+# needed so khead suffix end stays a single named source for the nx adapter
+KHeadSuffixEnd = bytes.fromhex("0000")
+
+
+# the head suffix names the next object id twice and the id after it once
+def HeadSuffix(NextId: int) -> bytes:
+    if not 0 < NextId < 0x10000:
+        raise ValueError("NX root head record next id is out of range")
+    Low = (NextId - 1) & 0xFF
+    return (
+        bytes([0x80, Low, 0x02])
+        + KHeadSuffixTail
+        + bytes([0x80, Low, 0x02, 0x13, 0x80, NextId & 0xFF, 0x02])
+        + KHeadSuffixEnd
+    )
 
 
 # the head record names the part and anchors the identity of the saved state
-def HeadRecord(PartText: bytes, Identity: bytes = KUnset) -> bytes:
+def HeadRecord(
+    PartText: bytes,
+    Identity: bytes = KUnset,
+    Suffix: bytes = KHeadSuffix,
+) -> bytes:
     if not PartText:
         raise ValueError("NX root head record requires a part text")
     if len(PartText) > 200:
         raise ValueError("NX root head record part text is too long")
-    if len(Identity) != 7:
-        raise ValueError("NX root head record identity must be seven bytes")
+    if len(Identity) not in (6, 7):
+        raise ValueError("NX root head record identity must be six or seven bytes")
+    if len(Suffix) != 19:
+        raise ValueError("NX root head record suffix must be nineteen bytes")
     return (
         KHeadTag
         + bytes([len(PartText) + 2])
@@ -72,7 +94,7 @@ def HeadRecord(PartText: bytes, Identity: bytes = KUnset) -> bytes:
         + KHeadPrefix
         + KAnchor
         + Identity
-        + KHeadSuffix
+        + Suffix
     )
 
 
@@ -140,16 +162,33 @@ def RecordsOf(SectionBody: bytes) -> tuple[int, list[int], list[bytes]]:
 
 
 # the head keeps the source identity because a saved pointer is document bound
+def HeadParts(Source: bytes) -> tuple[bytes, bytes]:
+    AnchorAt = Source.find(KAnchor)
+    if AnchorAt < 0:
+        raise ValueError("NX root head record carries no anchor")
+    Begin = AnchorAt + 3
+    for Position in range(Begin, len(Source) - 8):
+        if (
+            Source[Position] == 0x80
+            and Source[Position + 2] == 0x02
+            and Source[Position + 3] == 0x13
+            and Source[Position + 4 : Position + 8] == b"\x04\x05\x01\x00"
+        ):
+            return (Source[Begin:Position], Source[Position:])
+    raise ValueError("NX root head record carries no suffix")
+
+
+# the head keeps the source identity because a saved pointer is document bound
 def ReplaceHead(
     SectionBody: bytes, PartText: bytes, Identity: bytes | None = None
 ) -> bytes:
     TableAt, Starts, Records = RecordsOf(SectionBody)
     Source = Records[0]
-    AnchorAt = Source.find(KAnchor)
-    if AnchorAt < 0:
-        raise ValueError("NX root head record carries no anchor")
-    Saved = Identity if Identity is not None else Source[AnchorAt + 3 : AnchorAt + 10]
-    Emitted = HeadRecord(FitText(PartText, len(Source) - KHeadReserve), Saved)
+    Saved, Suffix = HeadParts(Source)
+    if Identity is not None:
+        Saved = Identity
+    Reserve = 36 + len(Saved)
+    Emitted = HeadRecord(FitText(PartText, len(Source) - Reserve), Saved, Suffix)
     Records[0] = Emitted if Emitted == Source else Source
     TableEnd = TableAt + 4 * len(Records)
     OrderCount = int(Struct.unpack_from("<I", SectionBody, TableEnd)[0])
@@ -196,6 +235,9 @@ __all__ = [
     "PairRecord",
     "AttributeRecord",
     "HeadRecord",
+    "HeadSuffix",
+    "HeadParts",
+    "KHeadSuffix",
     "KAnchor",
     "KRecordCount",
     "FitText",

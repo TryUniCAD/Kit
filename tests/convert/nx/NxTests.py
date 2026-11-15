@@ -54,6 +54,8 @@ from convert.adapters.nx.ObjectSection import (
     AttributeRecord,
     CarryId,
     HeadRecord,
+    HeadSuffix,
+    KHeadSuffix,
     LaneParts,
     LaneRecord,
     RenameView,
@@ -679,10 +681,16 @@ def CheckHeadRecord(PartText: bytes) -> None:
     else:
         raise AssertionError("head record accepted an empty text")
     try:
-        _ = HeadRecord(PartText, b"\xff" * 6)
+        _ = HeadRecord(PartText, b"\xff" * 5)
     except ValueError:
-        return
-    raise AssertionError("head record accepted a short identity")
+        pass
+    else:
+        raise AssertionError("head record accepted a short identity")
+    assert HeadRecord(PartText, b"\xff" * 6)[AnchorAt + 3 : AnchorAt + 9] == b"\xff" * 6
+    assert HeadSuffix(214) == KHeadSuffix
+    assert HeadSuffix(251) == bytes.fromhex(
+        "80fa021304050100010180fa021380fb020000"
+    )
 
 
 # the root head record is a tag a length prefixed text and a fixed tail

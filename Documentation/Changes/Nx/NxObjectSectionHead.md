@@ -64,13 +64,20 @@ guard, the object count reader and the zero-count guard.
 ## Limits
 
 - The head tail carries two variable length integers that differ per document
-  (`80 d5 02` for `empty.prt`, `fa 02` for a part with a body). Their bytes are not
-  validated individually: mutating any of them still loads.
-- They are not interchangeable as a whole. A generated head with the canonical
+  (`80 d5 02` for `empty.prt`, `fa 02` for a part with a body). `HeadSuffix` now
+  derives them from the next object id: the first two tokens name `next - 1` and the
+  third names `next`. `HeadSuffix(214)` reproduces `empty.prt`'s tail and
+  `HeadSuffix(251)` reproduces `const_box60.prt`'s tail byte for byte.
+- The identity is six bytes in `const_box60.prt` and `dim40.prt` and seven bytes in
+  `empty.prt`, `multi.prt` and `sweep.prt`. `HeadRecord` accepts either length and
+  `HeadParts` splits the source record at the suffix, so the head is re-emitted for
+  both shapes rather than carried.
+- The tail bytes are not validated individually: mutating any of them still loads.
+  They are not interchangeable as a whole. A generated head with the canonical
   body-less tail loads for `empty.prt`, `multi.prt`, `var_blank.prt` and `dim40.prt`
   but not for `const_box60.prt`, whose geometry was authored by Kit. A change to the
   record length is refused for every part with a body. So the record is emitted only
-  when the source already carries the canonical tail and the generated record keeps
-  that length; other shapes keep their source record.
+  when the generated record keeps the source length; other shapes keep their source
+  record.
 - The other 213 records, the class table and the identifiers are still carried from
   the source part, so no part is written without a source document yet.
