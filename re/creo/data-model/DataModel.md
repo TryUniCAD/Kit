@@ -352,6 +352,15 @@ before the raise fires: around offset `6347` the bytes are
 swallowed `e3 57 80 c8`, and the values `52`, `57`, `59`, `5b`, `5d` are object ids in an id-table, not
 doubles. So the raise is pointing at an alignment error upstream, not at a missing double lane.
 
+The selector convention was also checked, because the csys record showed a selector naming the field *before*
+the resumed value. The reader's convention is `Index = selector - 1`, and the alternative
+(`Index = selector`) is **wrong**: it drops the control from `4` features to `1` and the ladder from `7`
+features to `1`. So selectors are handled correctly and are not the alignment fault either.
+
+That leaves the id-table region unattributed. Scanning the section for `0xf7` bytes is not a valid
+measurement — the byte occurs inside ordinary values, and a naive scan reports "selectors" like `581633` —
+so the selectors have to be observed through the parser, not by byte search.
+
 Two sentinel lanes were tried and are **not** in the code because neither changed any measurement:
 `0xf6` (null) and `0xf5` (negated integer) inside a double lane. With and without them, the ladder's
 `AllFeatur` parses to `1007` nodes at `7838/7838`, and `SolidPersistTable`, `SolidPrimdata` and `VisibGeom`
