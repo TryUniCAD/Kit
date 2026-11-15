@@ -44,7 +44,7 @@ The [transform schema gotcha](../../Gotchas/Conversion/Solidworks/ProvisionalTra
 records the active registry vocabulary found by remote construction.
 The [folder timestamp gotcha](../../Gotchas/Conversion/Solidworks/FolderFeatureCreationTimes.md)
 describes the separate native feature-constructor variant.
-The [test helper gotcha](../../Gotchas/Ci/CheckPrefixCollectsTests.md) records the
+The [test helper gotcha](../../Gotchas/Ci/ProcessChecks/CheckPrefixCollectsTests.md) records the
 repository's additional pytest collection prefix.
 The [dimension id gotcha](../../Gotchas/Conversion/Solidworks/DimensionAndParameterIds.md)
 records the header allocator's separate object-field binding for feature dimensions.
