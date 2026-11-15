@@ -484,11 +484,19 @@ rather than per-feature content. Its length is not the field-definition count (e
 before the field, `252` slots; ladder: `33` and `311`), though both files start with the same four
 values.
 
-Name-based RE cannot reach it: `strings` finds `Sld_Features` and `first_feat_ptr` in
-`coreutils_sh.dll`, `metatoolsapi.dll` and `diagexport.dll`, which is why the container and linked list
-were tractable, but `cr_flags_xar` appears in none of the four local binaries. The loader reads the
-feature struct positionally through a compiled layout, so the masks have to be understood from the
-model-side consumers in the PRO/TOOLKIT and `xtop` modules, not from the container modules.
+Name-based RE cannot reach it from the container modules: `strings` finds `Sld_Features` and
+`first_feat_ptr` in `coreutils_sh.dll`, `metatoolsapi.dll` and `diagexport.dll`, which is why the
+container and the linked-list skeleton were tractable, but `cr_flags_xar` appears in none of them.
+
+It does appear in the model module. `xtop.exe` (326,650,848 bytes, at
+`Common Files\x86e_win64\obj\xtop.exe`) contains `cr_flags_xar` exactly once, at file offset
+`0xe7c2220`, inside an ordered pool of about 423 feature-field names that also contains
+`more_cr_flags`, `save_geoms`, `cvt_feat_dat`, and `-dummy_*` placeholders. `more_cr_flags` being a
+separate field means the mask state is split across at least two members.
+
+The module was copied outside every checkout (`~/Documents/creo-re-bin/xtop.exe`) and is researched
+only. The descriptor array pairing names with offsets, and the model code that reads those offsets, are
+recorded in [the feature struct page](../../../re/creo/loader/FeatureStruct.md).
 
 So `AllFeatur` remains unauthored, and with it the part, because it is the one section both our
 validator and the vendor loader reject when absent.

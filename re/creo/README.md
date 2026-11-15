@@ -1,5 +1,9 @@
 # Creo research
 
+## Pages
+
+- [Feature struct](loader/FeatureStruct.md) — the model module that owns `cr_flags_xar`
+
 ## State
 
 The PSB container is mapped well enough to list sections, inflate payloads, extract the native thumbnail, and retain exact source bytes.

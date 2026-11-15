@@ -163,9 +163,10 @@ list were tractable: those names are in the loader. `cr_flags_xar` appears in no
 binaries, so the loader reads the feature struct **positionally through a compiled layout** and the
 name only ever existed inside the stream.
 
-Decoding which bit gates which field therefore cannot be done by following the field name. It needs
-the model-side consumers of the feature struct, which live in the PRO/TOOLKIT and `xtop` modules rather
-than in the container modules present here.
+Decoding which bit gates which field therefore cannot be done in the container modules. The name does
+exist in the model module, and the field sits inside an ordered feature-field name pool there; the
+location, the neighbouring names (`more_cr_flags`, `save_geoms`, `-dummy_*`) and the next step are in
+[the feature struct page](../loader/FeatureStruct.md).
 
 ## What is needed
 
