@@ -358,6 +358,17 @@ the loader's own assignment is rejected. Since the registry identifiers are load
 numbers (`GetSerialNumber` returns a global counter), the file's values must agree with the
 serial state of the session that opens the part.
 
+A second mutant separates the two possible mechanisms: renaming one class to an unknown name of the
+same length, leaving every value in place.
+
+```text
+cls_rename.prt   UGS::OM::SaveAuditTrail -> UGS::OM::SaveAuditTraiX   OPEN_FAILED
+```
+
+so the loader **looks each name up in its own registry**, and an unknown name is rejected outright.
+The table must therefore name real classes, and the values must agree with what the loader computes
+for those classes.
+
 That closes the last route to a fabricated table: it cannot be permuted, computed from names, or
 shared between class sets. It can only be reproduced by the loader itself.
 
