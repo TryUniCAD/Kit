@@ -95,6 +95,13 @@ The [native stage reports](../../Changes/Solidworks/SolidworksOracleStageReports
 preserve open results when later measurement or cleanup fails.
 The [critical repair observer](../../Changes/Solidworks/SolidworksCriticalRepairTracing.md)
 tracks the current native rejection without establishing a serializer correction.
+The [minimal repair profile](../../Changes/Solidworks/SolidworksMinimalRepairProfile.md)
+limits instruction hooks to the confirmed application flag boundaries.
+The [matching open-mode action](../../Changes/Solidworks/SolidworksObserverModeComparison.md)
+separates writable inspection from the default read-only action.
+The [initial-frame observer](../../Changes/Solidworks/SolidworksInitialFrameObservation.md)
+records the template update target and native exception details.
+Its measurements require healthy controls and do not establish native acceptance.
 The fresh [model component constructors](../../Changes/Solidworks/SolidworksModelConstruction.md)
 and [metadata constructors](../../Changes/Solidworks/SolidworksMetadataConstruction.md)
 build research object graphs from authored semantics and native constructor rules.

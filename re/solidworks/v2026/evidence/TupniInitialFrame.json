@@ -1,0 +1,1136 @@
+{
+  "authority": "selected-native-boundary-observation",
+  "acceptance": false,
+  "source_commit": "e223a76315cbcd9396187c1a11dca1a68425b984",
+  "source_files": {
+    "re/tooling/tupni/Observe.py": "d9925581ad166b05df82575cd762da804c5300c9140cd58c450316e86e308e92",
+    "re/tooling/tupni/PrepareSolidworks.py": "2eb514de7f042b2bc8ed2a0345a5b619df7472bea5fd8ff8b718dd770a1bd5f2",
+    "re/tooling/tupni/ExerciseSolidworks.py": "3a49580204e57062f533b864371063b99d586b88d59dfa7efa1a35ed311e1093",
+    "re/tooling/tupni/ExerciseWritable.py": "b338c73fc4bad76eb7e715147eb6b9b9dbf16723658d62c43ec2ee15a7b6b73e",
+    "re/tooling/tupni/Solidworks2026.js": "3708efa268d7d15aa11a5ec0aaa7352b30ad70c7674a6dbd6c571487796f32c5",
+    "re/tooling/tupni/Solidworks2026Modules.json": "76c957466c4737e4dbbf473d6f80b5897fb792f45015c86eb0dcc917eb945431",
+    "re/tooling/sw2026/Swapp.py": "e95296d584a49dca273f46cc722d1b98d4ddff4accfca06e399758d5254af64d",
+    "re/tooling/sw2026/OracleIdentity.py": "705d1912d24a034b17560ae6fe613164ec40bf66cf81d3a4c19a0290c862bc8b"
+  },
+  "input_hashes_before": {
+    "H3_scalene.SLDPRT": "3b68ad9e4d77c180b02cb59423aaa25be1d8b560d03b23470347055ffa03f03d",
+    "L1_boss.SLDPRT": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57"
+  },
+  "input_hashes_after": {
+    "H3_scalene.SLDPRT": "3b68ad9e4d77c180b02cb59423aaa25be1d8b560d03b23470347055ffa03f03d",
+    "L1_boss.SLDPRT": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57"
+  },
+  "limitations": [
+    "The two application instruction hooks still terminate the writable candidate after the confirmed handler setter; open mode alone does not explain the earlier result difference",
+    "Native exception backtraces are provider output and require independent validation",
+    "System exceptions also occur in a healthy control; their presence alone does not identify a corrupt document",
+    "No generated document returned from OpenDoc6; no native acceptance is established"
+  ],
+  "runs": {
+    "repairControl": {
+      "raw_sha256": "103f49b2e285c1817e9b077ccb3193a150138bc26706caba9139332043cdd6f9",
+      "profile": "repair",
+      "hook_activation": {
+        "hooks": 2
+      },
+      "open_mode": "silent-writable-no-save",
+      "oracle_identity": {
+        "process_id": 6236,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [34, 5, 2, 604],
+        "expected_version": [34, 5, 2, 604],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "exception": null,
+      "measurement": {
+        "kind": "instrumented-native-document",
+        "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Stages\\inputs\\L1_boss.SLDPRT",
+        "revision": "34.5.2",
+        "stages": [
+          {
+            "stage": "open_start",
+            "time": 1794745187.488031
+          },
+          {
+            "stage": "open_return",
+            "time": 1794745198.9588397
+          },
+          {
+            "stage": "rebuild_start",
+            "time": 1794745199.0228386
+          },
+          {
+            "stage": "rebuild_return",
+            "time": 1794745200.0898488
+          },
+          {
+            "stage": "status_start",
+            "time": 1794745200.1829572
+          },
+          {
+            "stage": "status_return",
+            "time": 1794745200.4631906
+          },
+          {
+            "stage": "bodies_start",
+            "time": 1794745200.465158
+          },
+          {
+            "stage": "bodies_return",
+            "time": 1794745200.5140436
+          },
+          {
+            "stage": "mass_start",
+            "time": 1794745200.5160446
+          },
+          {
+            "stage": "mass_return",
+            "time": 1794745200.7194004
+          },
+          {
+            "stage": "features_start",
+            "time": 1794745200.7204068
+          },
+          {
+            "stage": "features_return",
+            "time": 1794745202.6791866
+          },
+          {
+            "stage": "close_start",
+            "time": 1794745202.680531
+          },
+          {
+            "stage": "close_return",
+            "time": 1794745202.9172726
+          }
+        ],
+        "session_diagnostics": [],
+        "stage": "close_return",
+        "seconds": 15.43,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "opened": true,
+        "rebuilt": true,
+        "whats_wrong": 0,
+        "bodies": 1,
+        "mass": {
+          "volume": 8.000000000000001e-6,
+          "area": 0.0028,
+          "com": [0.0, 0.0, 0.005],
+          "mass": 8.000000000000001e-6
+        },
+        "features": [
+          {
+            "name": "Comments",
+            "type": "CommentsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Favorites",
+            "type": "FavoriteFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "History",
+            "type": "HistoryFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Selection Sets",
+            "type": "SelectionSetFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sensors",
+            "type": "SensorFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Annotations",
+            "type": "DetailCabinet",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Surface Bodies",
+            "type": "SurfaceBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Solid Bodies",
+            "type": "SolidBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Lights and Cameras",
+            "type": "EnvFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Equations",
+            "type": "EqnFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sketch1",
+            "type": "ProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Sketch1@L1_boss.Part",
+                "value": 0.04
+              },
+              {
+                "name": "D2@Sketch1@L1_boss.Part",
+                "value": 0.02
+              }
+            ]
+          },
+          {
+            "name": "Boss-Extrude1",
+            "type": "Extrusion",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Boss-Extrude1@L1_boss.Part",
+                "value": 0.01
+              },
+              {
+                "name": "D1@Sketch1@L1_boss.Part",
+                "value": 0.04
+              },
+              {
+                "name": "D2@Sketch1@L1_boss.Part",
+                "value": 0.02
+              }
+            ]
+          }
+        ]
+      },
+      "dialogs": [],
+      "controller_diagnostics": [],
+      "process_status_before_cleanup": {
+        "exit_code": 259,
+        "exit_code_hex": "0x103",
+        "still_active": true,
+        "exit_code_hex_u32": "0x103"
+      },
+      "events_by_kind": {
+        "hooks-ready": 1,
+        "action-phase": 14
+      },
+      "selected_events": [],
+      "native_system_exception_count": 0,
+      "producer_statistics": {
+        "events": 15,
+        "dropped": 0
+      },
+      "script_errors": [],
+      "module_images": {
+        "KERNELBASE.dll": {
+          "sha256": "218e41c3a47d2a13cc8177ec48370535ff29700aad71d506cf46b1660ec3d26c",
+          "bytes": 6899064,
+          "pe_machine": "0xaa64"
+        },
+        "USER32.dll": {
+          "sha256": "9008b06071f1fe3b3ddf9bbd9097a062f2199aa29f736678feebd462c67a43b8",
+          "bytes": 2632672,
+          "pe_machine": "0xaa64"
+        },
+        "VCRUNTIME140.dll": {
+          "sha256": "6d987d8cb2a47cff9c29c1fcbb853e7ef273c545f7d822728f7d2d448ca18758",
+          "bytes": 203336,
+          "pe_machine": "0xaa64"
+        },
+        "VCRUNTIME140_1.dll": {
+          "sha256": "f4d66bdd6789aaed53341dc3153655e0ef2a9201c3652400443896a592e795b6",
+          "bytes": 53280,
+          "pe_machine": "0x8664"
+        },
+        "mfc140u.dll": {
+          "sha256": "88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1",
+          "bytes": 12118600,
+          "pe_machine": "0xaa64"
+        },
+        "sldappu.dll": {
+          "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf",
+          "bytes": 16519768,
+          "pe_machine": "0x8664"
+        },
+        "SLDMFCU.dll": {
+          "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+          "bytes": 8274520,
+          "pe_machine": "0x8664"
+        },
+        "swccu.dll": {
+          "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+          "bytes": 252504,
+          "pe_machine": "0x8664"
+        },
+        "sldarchiveu.dll": {
+          "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+          "bytes": 231512,
+          "pe_machine": "0x8664"
+        },
+        "SLDMODU.dll": {
+          "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "bytes": 46536280,
+          "pe_machine": "0x8664"
+        },
+        "sldmodu.dll": {
+          "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "bytes": 46536280,
+          "pe_machine": "0x8664"
+        },
+        "sldmfcu.dll": {
+          "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+          "bytes": 8274520,
+          "pe_machine": "0x8664"
+        }
+      }
+    },
+    "repairCandidate": {
+      "raw_sha256": "d07788df1502eb58984727a2ad9cf2971bc664c12d3ab5fdc4a9155ca986cd7f",
+      "profile": "repair",
+      "hook_activation": {
+        "hooks": 2
+      },
+      "open_mode": "silent-writable-no-save",
+      "oracle_identity": {
+        "process_id": 12624,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [34, 5, 2, 604],
+        "expected_version": [34, 5, 2, 604],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "exception": "com_error(-2147023170, 'The remote procedure call failed.', None, None)",
+      "measurement": {
+        "kind": "instrumented-native-document",
+        "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Stages\\inputs\\H3_scalene.SLDPRT",
+        "revision": "34.5.2",
+        "stages": [
+          {
+            "stage": "open_start",
+            "time": 1794745247.6907766
+          },
+          {
+            "stage": "measurement_failed",
+            "time": 1794745255.9958546
+          }
+        ],
+        "session_diagnostics": [],
+        "stage": "measurement_failed",
+        "seconds": 8.303,
+        "failure_stage": "open_start",
+        "measurement_exception": "com_error(-2147023170, 'The remote procedure call failed.', None, None)"
+      },
+      "dialogs": [],
+      "controller_diagnostics": [
+        {
+          "stage": "close_documents",
+          "error": "AttributeError('SldWorks.Application.34.CloseAllDocuments')"
+        },
+        {
+          "stage": "exit_application",
+          "error": "AttributeError('SldWorks.Application.34.ExitApp')"
+        }
+      ],
+      "process_status_before_cleanup": {
+        "exit_code": 1,
+        "exit_code_hex": "0x1",
+        "still_active": false,
+        "exit_code_hex_u32": "0x1"
+      },
+      "events_by_kind": {
+        "hooks-ready": 1,
+        "action-phase": 1,
+        "critical-repair-setter-handler": 1
+      },
+      "selected_events": [
+        {
+          "sequence": 2,
+          "phase": "open_start",
+          "kind": "critical-repair-setter-handler",
+          "thread": 12144,
+          "instruction": {
+            "module": "sldappu.dll",
+            "rva": "0x9818ca"
+          },
+          "application": "0x14002c510",
+          "fields": {
+            "raw_314": 0,
+            "raw_318": 0,
+            "critical_31c": 0,
+            "raw_320": 1
+          }
+        }
+      ],
+      "native_system_exception_count": 0,
+      "producer_statistics": null,
+      "script_errors": [],
+      "module_images": {
+        "KERNELBASE.dll": {
+          "sha256": "218e41c3a47d2a13cc8177ec48370535ff29700aad71d506cf46b1660ec3d26c",
+          "bytes": 6899064,
+          "pe_machine": "0xaa64"
+        },
+        "USER32.dll": {
+          "sha256": "9008b06071f1fe3b3ddf9bbd9097a062f2199aa29f736678feebd462c67a43b8",
+          "bytes": 2632672,
+          "pe_machine": "0xaa64"
+        },
+        "VCRUNTIME140.dll": {
+          "sha256": "6d987d8cb2a47cff9c29c1fcbb853e7ef273c545f7d822728f7d2d448ca18758",
+          "bytes": 203336,
+          "pe_machine": "0xaa64"
+        },
+        "VCRUNTIME140_1.dll": {
+          "sha256": "f4d66bdd6789aaed53341dc3153655e0ef2a9201c3652400443896a592e795b6",
+          "bytes": 53280,
+          "pe_machine": "0x8664"
+        },
+        "mfc140u.dll": {
+          "sha256": "88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1",
+          "bytes": 12118600,
+          "pe_machine": "0xaa64"
+        },
+        "sldappu.dll": {
+          "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf",
+          "bytes": 16519768,
+          "pe_machine": "0x8664"
+        },
+        "SLDMFCU.dll": {
+          "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+          "bytes": 8274520,
+          "pe_machine": "0x8664"
+        },
+        "swccu.dll": {
+          "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+          "bytes": 252504,
+          "pe_machine": "0x8664"
+        },
+        "sldarchiveu.dll": {
+          "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+          "bytes": 231512,
+          "pe_machine": "0x8664"
+        },
+        "SLDMODU.dll": {
+          "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "bytes": 46536280,
+          "pe_machine": "0x8664"
+        },
+        "sldmodu.dll": {
+          "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "bytes": 46536280,
+          "pe_machine": "0x8664"
+        },
+        "sldmfcu.dll": {
+          "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+          "bytes": 8274520,
+          "pe_machine": "0x8664"
+        }
+      }
+    },
+    "frameControl": {
+      "raw_sha256": "5aa7ef2e13a50df07edb3f38e9e9af902c0a9659c628730633e4e85ad4899969",
+      "profile": "frame",
+      "hook_activation": {
+        "hooks": 1
+      },
+      "open_mode": "silent-writable-no-save",
+      "oracle_identity": {
+        "process_id": 5712,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [34, 5, 2, 604],
+        "expected_version": [34, 5, 2, 604],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "exception": null,
+      "measurement": {
+        "kind": "instrumented-native-document",
+        "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Stages\\inputs\\L1_boss.SLDPRT",
+        "revision": "34.5.2",
+        "stages": [
+          {
+            "stage": "open_start",
+            "time": 1794745299.1890495
+          },
+          {
+            "stage": "open_return",
+            "time": 1794745310.4375849
+          },
+          {
+            "stage": "rebuild_start",
+            "time": 1794745310.441888
+          },
+          {
+            "stage": "rebuild_return",
+            "time": 1794745311.0349817
+          },
+          {
+            "stage": "status_start",
+            "time": 1794745311.0371258
+          },
+          {
+            "stage": "status_return",
+            "time": 1794745311.0400052
+          },
+          {
+            "stage": "bodies_start",
+            "time": 1794745311.0400052
+          },
+          {
+            "stage": "bodies_return",
+            "time": 1794745311.2824602
+          },
+          {
+            "stage": "mass_start",
+            "time": 1794745311.2824602
+          },
+          {
+            "stage": "mass_return",
+            "time": 1794745311.482943
+          },
+          {
+            "stage": "features_start",
+            "time": 1794745311.482943
+          },
+          {
+            "stage": "features_return",
+            "time": 1794745313.2656999
+          },
+          {
+            "stage": "close_start",
+            "time": 1794745313.2656999
+          },
+          {
+            "stage": "close_return",
+            "time": 1794745313.4669418
+          }
+        ],
+        "session_diagnostics": [],
+        "stage": "close_return",
+        "seconds": 14.28,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "opened": true,
+        "rebuilt": true,
+        "whats_wrong": 0,
+        "bodies": 1,
+        "mass": {
+          "volume": 8.000000000000001e-6,
+          "area": 0.0028,
+          "com": [0.0, 0.0, 0.005],
+          "mass": 8.000000000000001e-6
+        },
+        "features": [
+          {
+            "name": "Comments",
+            "type": "CommentsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Favorites",
+            "type": "FavoriteFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "History",
+            "type": "HistoryFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Selection Sets",
+            "type": "SelectionSetFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sensors",
+            "type": "SensorFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Annotations",
+            "type": "DetailCabinet",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Surface Bodies",
+            "type": "SurfaceBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Solid Bodies",
+            "type": "SolidBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Lights and Cameras",
+            "type": "EnvFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Equations",
+            "type": "EqnFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sketch1",
+            "type": "ProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Sketch1@L1_boss.Part",
+                "value": 0.04
+              },
+              {
+                "name": "D2@Sketch1@L1_boss.Part",
+                "value": 0.02
+              }
+            ]
+          },
+          {
+            "name": "Boss-Extrude1",
+            "type": "Extrusion",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Boss-Extrude1@L1_boss.Part",
+                "value": 0.01
+              },
+              {
+                "name": "D1@Sketch1@L1_boss.Part",
+                "value": 0.04
+              },
+              {
+                "name": "D2@Sketch1@L1_boss.Part",
+                "value": 0.02
+              }
+            ]
+          }
+        ]
+      },
+      "dialogs": [],
+      "controller_diagnostics": [],
+      "process_status_before_cleanup": {
+        "exit_code": 259,
+        "exit_code_hex": "0x103",
+        "still_active": true,
+        "exit_code_hex_u32": "0x103"
+      },
+      "events_by_kind": {
+        "hooks-ready": 1,
+        "action-phase": 14,
+        "initial-frame-enter": 1,
+        "native-exception": 79
+      },
+      "selected_events": [
+        {
+          "sequence": 2,
+          "phase": "open_start",
+          "kind": "initial-frame-enter",
+          "thread": 2708,
+          "template": "0xab55080",
+          "frame": "0x7108df80",
+          "document": "0x70e8cf80",
+          "make_visible_raw": 1,
+          "vtable": {
+            "module": "SLDWORKS.exe",
+            "rva": "0x1b848"
+          },
+          "target": {
+            "module": "SLDWORKS.exe",
+            "rva": "0x1680c"
+          },
+          "caller": {
+            "module": "sldappu.dll",
+            "rva": "0x7ec98c"
+          }
+        }
+      ],
+      "native_system_exception_count": 79,
+      "producer_statistics": {
+        "events": 95,
+        "dropped": 0
+      },
+      "script_errors": [],
+      "module_images": {
+        "KERNELBASE.dll": {
+          "sha256": "218e41c3a47d2a13cc8177ec48370535ff29700aad71d506cf46b1660ec3d26c",
+          "bytes": 6899064,
+          "pe_machine": "0xaa64"
+        },
+        "USER32.dll": {
+          "sha256": "9008b06071f1fe3b3ddf9bbd9097a062f2199aa29f736678feebd462c67a43b8",
+          "bytes": 2632672,
+          "pe_machine": "0xaa64"
+        },
+        "VCRUNTIME140.dll": {
+          "sha256": "6d987d8cb2a47cff9c29c1fcbb853e7ef273c545f7d822728f7d2d448ca18758",
+          "bytes": 203336,
+          "pe_machine": "0xaa64"
+        },
+        "VCRUNTIME140_1.dll": {
+          "sha256": "f4d66bdd6789aaed53341dc3153655e0ef2a9201c3652400443896a592e795b6",
+          "bytes": 53280,
+          "pe_machine": "0x8664"
+        },
+        "mfc140u.dll": {
+          "sha256": "88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1",
+          "bytes": 12118600,
+          "pe_machine": "0xaa64"
+        },
+        "sldappu.dll": {
+          "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf",
+          "bytes": 16519768,
+          "pe_machine": "0x8664"
+        },
+        "SLDMFCU.dll": {
+          "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+          "bytes": 8274520,
+          "pe_machine": "0x8664"
+        },
+        "swccu.dll": {
+          "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+          "bytes": 252504,
+          "pe_machine": "0x8664"
+        },
+        "sldarchiveu.dll": {
+          "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+          "bytes": 231512,
+          "pe_machine": "0x8664"
+        },
+        "SLDMODU.dll": {
+          "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "bytes": 46536280,
+          "pe_machine": "0x8664"
+        },
+        "sldmodu.dll": {
+          "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "bytes": 46536280,
+          "pe_machine": "0x8664"
+        },
+        "sldmfcu.dll": {
+          "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+          "bytes": 8274520,
+          "pe_machine": "0x8664"
+        }
+      }
+    },
+    "frameCandidate": {
+      "raw_sha256": "8e4faf0d37de5506e4db429e586201f8f45293e84589fd2f07a90baf93a157e0",
+      "profile": "frame",
+      "hook_activation": {
+        "hooks": 1
+      },
+      "open_mode": "silent-writable-no-save",
+      "oracle_identity": {
+        "process_id": 2284,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [34, 5, 2, 604],
+        "expected_version": [34, 5, 2, 604],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "exception": "com_error(-2147023170, 'The remote procedure call failed.', None, None)",
+      "measurement": {
+        "kind": "instrumented-native-document",
+        "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Stages\\inputs\\H3_scalene.SLDPRT",
+        "revision": "34.5.2",
+        "stages": [
+          {
+            "stage": "open_start",
+            "time": 1794745373.1993918
+          },
+          {
+            "stage": "measurement_failed",
+            "time": 1794745382.768393
+          }
+        ],
+        "session_diagnostics": [],
+        "stage": "measurement_failed",
+        "seconds": 9.569,
+        "failure_stage": "open_start",
+        "measurement_exception": "com_error(-2147023170, 'The remote procedure call failed.', None, None)"
+      },
+      "dialogs": [],
+      "controller_diagnostics": [
+        {
+          "stage": "close_documents",
+          "error": "AttributeError('SldWorks.Application.34.CloseAllDocuments')"
+        },
+        {
+          "stage": "exit_application",
+          "error": "AttributeError('SldWorks.Application.34.ExitApp')"
+        }
+      ],
+      "process_status_before_cleanup": {
+        "exit_code": -1073741819,
+        "exit_code_hex": "-0x3ffffffb",
+        "still_active": false,
+        "exit_code_hex_u32": "0xc0000005"
+      },
+      "events_by_kind": {
+        "hooks-ready": 1,
+        "action-phase": 1,
+        "initial-frame-enter": 1,
+        "native-exception": 69
+      },
+      "selected_events": [
+        {
+          "sequence": 2,
+          "phase": "open_start",
+          "kind": "initial-frame-enter",
+          "thread": 9104,
+          "template": "0x8f09c60",
+          "frame": "0x6feac680",
+          "document": "0x6fe52020",
+          "make_visible_raw": 1,
+          "vtable": {
+            "module": "SLDWORKS.exe",
+            "rva": "0x1b848"
+          },
+          "target": {
+            "module": "SLDWORKS.exe",
+            "rva": "0x1680c"
+          },
+          "caller": {
+            "module": "sldappu.dll",
+            "rva": "0x7ec98c"
+          }
+        },
+        {
+          "sequence": 71,
+          "phase": "open_start",
+          "kind": "native-exception",
+          "type": "access-violation",
+          "address": {
+            "module": "SLDMFCU.dll",
+            "rva": "0x45df0"
+          },
+          "memory": {
+            "operation": "read",
+            "address": "0xc"
+          },
+          "registers": {
+            "pc": "0x3c765df0",
+            "sp": "0x5fcea8",
+            "rax": "0x7025e4c8",
+            "rbx": "0x7025e430",
+            "rcx": "0x0",
+            "rdx": "0x1",
+            "rsi": "0x0",
+            "rdi": "0x0",
+            "rbp": "0x5fcfa9",
+            "r8": "0xb0009",
+            "r9": "0x0",
+            "r10": "0x1",
+            "r11": "0x34099420",
+            "r12": "0x6ff6df00",
+            "r13": "0x70213a80",
+            "r14": "0x70213a80",
+            "r15": "0x0"
+          },
+          "backtrace": [
+            {
+              "module": "SLDMFCU.dll",
+              "rva": "0x200a62"
+            },
+            {
+              "module": "SLDMODU.dll",
+              "rva": "0x10b473d"
+            },
+            {
+              "module": "SLDMODU.dll",
+              "rva": "0x456e72"
+            },
+            {
+              "module": "sldprtu.dll",
+              "rva": "0xf1e6e"
+            },
+            {
+              "module": "sldprtu.dll",
+              "rva": "0xebb45"
+            },
+            {
+              "module": "sldappu.dll",
+              "rva": "0x7eac16"
+            },
+            {
+              "module": "sldappu.dll",
+              "rva": "0x7ec98c"
+            },
+            {
+              "module": "sldappu.dll",
+              "rva": "0x4c0a6a"
+            },
+            {
+              "module": "sldappu.dll",
+              "rva": "0x4b33cd"
+            },
+            {
+              "module": "sldappu.dll",
+              "rva": "0x49d48b"
+            },
+            {
+              "module": "mfc140u.dll",
+              "rva": "0x68f059"
+            },
+            {
+              "module": "mfc140u.dll",
+              "rva": "0x68c96c"
+            },
+            {
+              "address": "0x5feae0",
+              "module": null
+            },
+            {
+              "address": "0x1e16c480",
+              "module": null
+            },
+            {
+              "module": "sldappu.dll",
+              "rva": "0xbd1f50"
+            },
+            {
+              "address": "0x1",
+              "module": null
+            }
+          ],
+          "backtrace_error": null,
+          "handled": false
+        }
+      ],
+      "native_system_exception_count": 68,
+      "producer_statistics": null,
+      "script_errors": [],
+      "module_images": {
+        "KERNELBASE.dll": {
+          "sha256": "218e41c3a47d2a13cc8177ec48370535ff29700aad71d506cf46b1660ec3d26c",
+          "bytes": 6899064,
+          "pe_machine": "0xaa64"
+        },
+        "USER32.dll": {
+          "sha256": "9008b06071f1fe3b3ddf9bbd9097a062f2199aa29f736678feebd462c67a43b8",
+          "bytes": 2632672,
+          "pe_machine": "0xaa64"
+        },
+        "VCRUNTIME140.dll": {
+          "sha256": "6d987d8cb2a47cff9c29c1fcbb853e7ef273c545f7d822728f7d2d448ca18758",
+          "bytes": 203336,
+          "pe_machine": "0xaa64"
+        },
+        "VCRUNTIME140_1.dll": {
+          "sha256": "f4d66bdd6789aaed53341dc3153655e0ef2a9201c3652400443896a592e795b6",
+          "bytes": 53280,
+          "pe_machine": "0x8664"
+        },
+        "mfc140u.dll": {
+          "sha256": "88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1",
+          "bytes": 12118600,
+          "pe_machine": "0xaa64"
+        },
+        "sldappu.dll": {
+          "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf",
+          "bytes": 16519768,
+          "pe_machine": "0x8664"
+        },
+        "SLDMFCU.dll": {
+          "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+          "bytes": 8274520,
+          "pe_machine": "0x8664"
+        },
+        "swccu.dll": {
+          "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+          "bytes": 252504,
+          "pe_machine": "0x8664"
+        },
+        "sldarchiveu.dll": {
+          "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+          "bytes": 231512,
+          "pe_machine": "0x8664"
+        },
+        "SLDMODU.dll": {
+          "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "bytes": 46536280,
+          "pe_machine": "0x8664"
+        },
+        "sldmodu.dll": {
+          "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "bytes": 46536280,
+          "pe_machine": "0x8664"
+        },
+        "sldmfcu.dll": {
+          "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+          "bytes": 8274520,
+          "pe_machine": "0x8664"
+        }
+      }
+    }
+  },
+  "input_hashes_unchanged": {
+    "H3_scalene.SLDPRT": true,
+    "L1_boss.SLDPRT": true
+  },
+  "auxiliary_paths_after": ["~$H3_scalene.SLDPRT"]
+}

@@ -18,13 +18,13 @@ The following observations bind to `sldappu.dll`, SHA-256
 `50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf`,
 16,519,768 bytes, preferred image base `0x453f0000`.
 
-| Site | Native observation | Confidence and limit |
-| --- | --- | --- |
-| `0x458a288a` | `auAm_c::apiOpenDoc` compares the 32-bit application member `+0x31c` with zero | Confirmed static instruction; runtime input result not yet traced |
-| `0x458a2897` | Nonzero selects an OR of `0x400000` into returned API error flags | Confirmed SDK mapping, not a format validator |
-| `0x457e3d86` | Writes one to `CAboutDlg+0x31c`, a different runtime object | Refuted application-flag interpretation; excluded from the repair observer |
-| `0x45d718ca` | An exception-handler-style path writes 32-bit one to application `RAX+0x31c` | Confirmed selected setter; the handler's initiating exception is unknown |
-| `0x45a29b50` | The latter path queries `uiEnvironment_c::getBOOL`, key `0x461`, default zero | Environment preference, not a recovered model validator |
+| Site         | Native observation                                                             | Confidence and limit                                                       |
+| ------------ | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------- |
+| `0x458a288a` | `auAm_c::apiOpenDoc` compares the 32-bit application member `+0x31c` with zero | Confirmed static instruction; runtime input result not yet traced          |
+| `0x458a2897` | Nonzero selects an OR of `0x400000` into returned API error flags              | Confirmed SDK mapping, not a format validator                              |
+| `0x457e3d86` | Writes one to `CAboutDlg+0x31c`, a different runtime object                    | Refuted application-flag interpretation; excluded from the repair observer |
+| `0x45d718ca` | An exception-handler-style path writes 32-bit one to application `RAX+0x31c`   | Confirmed selected setter; the handler's initiating exception is unknown   |
+| `0x45a29b50` | The latter path queries `uiEnvironment_c::getBOOL`, key `0x461`, default zero  | Environment preference, not a recovered model validator                    |
 
 Instruction decoding was repeated from the exact established boundaries.
 Arbitrary nearby byte offsets initially produced misaligned decoding and supply
@@ -44,12 +44,45 @@ different owner: `CAboutDlg` vtable `0x45ee5f38`, slot 96, points to
 Matching offsets and immediate values do not establish matching field ownership.
 The runner verifies the additional application module hash before hook activation.
 
-The underlying file-format validator is not identified yet.
 Neither a serialized-field change nor a writer default follows from these runtime
-application flags. New controlled captures are pending.
+application flags alone.
 
 The `repair` profile arms only these two instruction sites. Clean inspection
 returns the critical repair error, while earlier full profiles terminate the same
 candidate process with exit code 1. These observations do not prove the reason
 for the difference. The smaller profile reduces the instrumentation boundary;
 its behavior must be measured on both the control and the candidate.
+
+## Initial document update
+
+The 2026 application exception metadata localizes the selected catch-all handler
+to state 9, protected range `[0x45bdc975,0x45bdc98d)`, in the implementation at
+`0x45bdc480`. Its only call, at `0x45bdc986`, dispatches template slot `+0xf8`.
+The selected runtime template is `uiPartDocTemplate_c`, executable vtable RVA
+`0x1b848`. Its target RVA `0x1680c` is an import thunk for application method
+`uiModelDocTemplate_c::InitialUpdateFrame` at `0x45bda7b0`.
+
+The [controlled frame capture](../v2026/evidence/TupniInitialFrame.json) uses
+silent writable opening without a save request in every run. Both locked input
+hashes remain unchanged. The two-hook repair control opens and rebuilds cleanly;
+its candidate reaches the confirmed setter and exits with code 1. Matching the
+open mode therefore does not by itself remove the earlier outcome difference.
+
+The one-hook frame control also opens and rebuilds cleanly. It records 79
+handled system exceptions. Its candidate instead records an access violation at
+`SLDMFCU+0x45df0`, preferred address `0x3c765df0`, reading address `0xc` with
+`RCX=0`. The captured native exit status is signed `-1073741819`, unsigned
+`0xc0000005`. No document returns to the public open call.
+
+Static instruction checks corroborate the first part of the provider backtrace:
+the copy constructor `moVisualProperties_c(const moVisualProperties_c*)` at
+`0x3c9209e0` passes its null source to the leaf that reads `source+0xc` at
+`0x3c920a5d`. The caller at `0x4c1f4737` supplies the source previously returned
+by model virtual slot `+0x1040` at `0x4c1f46d0`. The copy path follows a missing
+peer-model visual record. The serialized ownership and required constructor
+state must be established before changing the builder.
+
+The system-exception backtraces also contain non-code values in the healthy
+control. No unvalidated frame is treated as a call-chain fact. No exception is
+suppressed or application preference changed. These are diagnostic captures,
+not generated-output acceptance.

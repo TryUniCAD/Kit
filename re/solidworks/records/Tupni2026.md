@@ -31,13 +31,13 @@ round trip does not resolve these questions.
 
 ## Adoption record
 
-| Step | Actual observation | Evidence class and limit |
-| --- | --- | --- |
-| Read primary method | Read field, loop, handler, constraint, aggregation and limitation sections of the CCS 2008 paper | Literature source; no target execution |
+| Step                  | Actual observation                                                                                                                                                              | Evidence class and limit                                                        |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Read primary method   | Read field, loop, handler, constraint, aggregation and limitation sections of the CCS 2008 paper                                                                                | Literature source; no target execution                                          |
 | Select trace boundary | 2026 archive cursor is at `su_CArchive+0x38`, end at `+0x40`, map counter at `+0x50`; target decompressed archive reads rather than treating compressed payloads as flat fields | Existing static binary evidence in [reverification](../v2026/Reverification.md) |
-| Check host route | REA exposed local/socket/barebone Frida device routes; this does not expose the Windows VM automatically | Tool availability only |
-| Check VM runtime | `platform.machine()` reported ARM64, pointer size 64-bit; `frida` was absent from its module search | Passive host report; executable architecture was not established by this string |
-| Select dependency | Official Frida release and PyPI metadata identify 17.26.3 Windows ARM64 builds | Version-pinned acquisition metadata; attachment not yet proven |
+| Check host route      | REA exposed local/socket/barebone Frida device routes; this does not expose the Windows VM automatically                                                                        | Tool availability only                                                          |
+| Check VM runtime      | `platform.machine()` reported ARM64, pointer size 64-bit; `frida` was absent from its module search                                                                             | Passive host report; executable architecture was not established by this string |
+| Select dependency     | Official Frida release and PyPI metadata identify 17.26.3 Windows ARM64 builds                                                                                                  | Version-pinned acquisition metadata; attachment not yet proven                  |
 
 The verified PyPI wheel candidate is
 `frida-17.26.3-cp37-abi3-win_arm64.whl`, SHA-256
@@ -129,8 +129,7 @@ script errors and a clean detach. The original control digest is
 `c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57`.
 Open errors, warnings, feature errors, feature warnings and dialogs were zero;
 the rebuilt solid had volume `8.000000000000001e-6 m³`, area `0.0028 m²` and
-center `(0,0,0.005) m`. Global and observed part archive-context versions were
-19000. The earlier exception-enabled configuration made this same original
+center `(0,0,0.005) m`. Global and observed part archive-context versions were 19000. The earlier exception-enabled configuration made this same original
 control fail. The experiment does not isolate which exception hook or exception
 handler caused the interference; both are now opt-in.
 
@@ -419,9 +418,19 @@ geometry. The [new measurement](../measurements/2026/FreshPartStages.json)
 does not retroactively establish the exact stage of older aggregate failures.
 
 The [critical repair record](CriticalRepair2026.md) maps the returned bit through
-the exact 2026 application DLL and identifies two selected setter sites to trace.
-The new full profile records those runtime words without changing preferences or
-writer fields. Controlled hook results remain pending.
+the exact 2026 application DLL. One selected setter is confirmed; a second,
+initially selected same-offset write belongs to an unrelated dialog and is
+excluded. The repair profile records the confirmed setter and API comparison
+without changing preferences or writer fields.
+
+The [matching-mode capture](../v2026/evidence/TupniInitialFrame.json) confirms
+clean original controls with the two-hook repair and one-hook frame profiles.
+The same candidate bytes still fail during public open. The frame capture
+localizes an access violation to a null source in the visual-properties copy
+constructor; static instruction inspection corroborates its immediate callers.
+Neither missing ordinary-sketch solve observations nor destructor-side body
+collection identifies this earlier failure. The owning serialized field and
+constructor state remain work for the shared builder.
 
 A new REA pseudocode request for the origin initializer returned no analysis:
 the Hopper bridge exceeded its startup timeout, and authenticated document

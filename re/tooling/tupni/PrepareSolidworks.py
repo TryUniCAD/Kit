@@ -33,7 +33,7 @@ def prepare():
                     try:
                         code = int(GetExitCodeProcess(process_handle))
                         identity["process_status_before_cleanup"] = {
-                            "exit_code": code, "exit_code_hex": hex(code),
+                            "exit_code": code, "exit_code_hex": hex(code & 0xFFFFFFFF),
                             "still_active": code == 259,
                         }
                     finally:
