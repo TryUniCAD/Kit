@@ -264,6 +264,11 @@ def AuthorGeometryPayload(
         ((0.0, 0.0, 1.0), (0.0, 0.0, ZMinValue)),
         ((0.0, 0.0, -1.0), (0.0, 0.0, ZMaxValue)),
     )
+    Extent = (
+        max(XMaxValue - XMinValue, YMaxValue - YMinValue, ZMaxValue - ZMinValue) / 2.0
+    )
+    Envelope = (Extent, Extent, -Extent, -Extent)
+    Outline = (Extent, 0.0, Extent, -Extent, 0.0, -Extent)
     Payload = StructHeader("Sld_VisGeom") + b"\xe3"
     Payload += StructHeader("active_geom") + b"\xe2"
     Payload += StructHeader("srf_array") + b"\xf8" + IntValue(len(Planes))
@@ -272,11 +277,21 @@ def AuthorGeometryPayload(
         Values = PlaneValues(NormalValue, OriginValue)
         if IndexValue == 0:
             Payload += PlaneDefine(
-                FirstGeomId + IndexValue, Values, FeatureId, FirstGeomId + 5
+                FirstGeomId + IndexValue,
+                Values,
+                FeatureId,
+                FirstGeomId + 5,
+                Envelope,
+                Outline,
             )
         else:
             Payload += PlaneReplay(
-                FirstGeomId + IndexValue, Values, FeatureId, FirstGeomId + 5
+                FirstGeomId + IndexValue,
+                Values,
+                FeatureId,
+                FirstGeomId + 5,
+                Envelope,
+                Outline,
             )
     return Payload
 

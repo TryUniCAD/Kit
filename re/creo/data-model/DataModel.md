@@ -426,6 +426,12 @@ The conventions, decoded from the ladder payload:
 | `frst_cntr_crv_hdr_ptr` | the surface's own id plus one, not `next_geom_ptr` |
 | `topol_ref_data` | `owner_feat_revnum`, `srf_flip_dat`, `list_id` `-5778`, `list_type` `98`, then `f2` |
 
+With those values replaced by a box's own envelope (`±extent`) the payload is still rejected: `geomv3`,
+six byte-faithful surface records with `feat_id 7` and geometry ids `1..6`, exits silently twice. So the
+record *shape* is right and the *content* is still not accepted, which points at what the record refers to
+rather than at how it is encoded: `frst_cntr_crv_hdr_ptr`, `topol_ref_data` and the `next_geom_ptr` chain
+all describe topology that a datum-only part does not have.
+
 Four details cost a byte comparison each: doubles inside these arrays use the compact scalar lanes and
 run compression; the close of the plane record belongs inside `frst_cntr_ptr`'s value; the contour header
 pointer is `geom_id + 1`; and `srf_prim_ptr(plane)` wraps `local_sys` rather than carrying its own data.
