@@ -208,7 +208,7 @@ def define_references(reg):
 
 
 def define_mates(reg):
-    for cls in ("moMateGroup_c", "moMateParent", "moMate", "moMateNGeoms_c", "moMate2Geoms_c", "moMateCoincident", "moMateParallel", "moMatePerpendicular", "moMateTangent"):
+    for cls in ("moMateGroup_c", "moMateParent", "moMate", "moMateNGeoms_c", "moMate2Geoms_c", "moMateCoincident", "moMateParallel", "moMatePerpendicular", "moMateTangent", "moMateDim_c", "moMateDistanceDim_c"):
         concept_vt(cls)
     reg.define("moMateGroup_c", [
         Version2026(), base("moModelFeature_c"),
@@ -237,6 +237,12 @@ def define_mates(reg):
     reg.define("moMate2Geoms_c", [base("moMateNGeoms_c")])
     for cls in ("moMateCoincident", "moMateParallel", "moMatePerpendicular", "moMateTangent"):
         reg.define(cls, [base("moMate2Geoms_c")])
+    reg.define("moMateDim_c", [
+        base("moMate2Geoms_c"), xo("f4b8", "moDisplayDim_c"), u16("f4c0"),
+    ])
+    reg.define("moMateDistanceDim_c", [
+        base("moMateDim_c"), u16("f4d8"), i32("f4dc"), i32("f4e0"), i32("f4f4"),
+    ])
     reg.define("moMateEntityHelpData_c", [
         u16("f10"), f64("f18"), f64("f20"), f64("f28"),
     ])
