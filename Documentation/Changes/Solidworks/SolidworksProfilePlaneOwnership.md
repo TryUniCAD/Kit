@@ -11,6 +11,7 @@ Each wrapper also requires its own component copy, as the [component ownership f
 The [profile construction ledger](../../../re/solidworks/records/ProfileConstruction2026.md#profile-plane-ownership) binds the adoption, replacement and destructor proof to the 2026 binary
 The factory records the owning profile as semantic metadata and rejects conflicting ownership before constructing another sketch
 That metadata is not a serialized native field
+The ledger also distinguishes origin repair admission, ordinary engine dispatch and the remaining native solve-scheduling question
 
 The focused process check now attempts conflicting adoption, constructs an origin with a separate wrapper, and checks the owner identities
 The process also retains the binary origin archive round trip and runtime file-read guard

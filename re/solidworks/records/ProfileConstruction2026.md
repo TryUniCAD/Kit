@@ -241,6 +241,29 @@ It is not a rule to clear the final part's update state after those operations
 The builder records the native subsequent `sgSketch::update` at `0x4c549ab0` as unresolved regeneration work
 Its `_requires_update` metadata is explicit and does not claim post-solver cache/status identity or an accepted origin graph
 
+### Origin repair and solve dispatch
+
+The post-load body at `0x4bb252e0` tests the feature's origin kind through virtual `+0x670`
+Origin vtable `0x4d0ef510` selects constant-one target `0x4b27e150`; ordinary profile vtable `0x4d0e8e80` selects constant-zero target `0x4b27cbe0`
+For an origin with a sketch, it calls `sgSketch::getOriginPointH` at `0x4bb26e31`
+The null result alone admits initializer `0x4c49b980` at call `0x4bb26e57`, return `0x4bb26e5c`
+A nonnull result takes branch `0x4bb26e3c`, deletes the temporary handle and skips the initializer
+The getter at `0x4c4b40e0` scans native point slots with stride `0x158` and calls each point's virtual `+0xb0` at `0x4c4b413a`
+The point target is the origin-marker predicate `0x4b340ec0`, so the packed marker controls this repair admission directly
+This closes the initializer/serializer/loader/getter dependency; it does not make point type one an alias for origin identity
+
+The ordinary profile engine body at `0x4c0dc6b0` validates its actual reference plane before reaching label `0x4c0dcb8d`
+That path calls `setSketchXforms` and then `sgSketch::update` at `0x4c0dccda`, return `0x4c0dccdf`
+There is no second profile `f0c` test between the admitted plane path and that solve
+This describes the body after engine admission, not a complete scheduling rule from a root dirty flag
+
+The profile needs-update override `0x4c0e07a0` first delegates to generic feature query `0x4bb4d610`, then tests its reference plane and block references
+The generic owner propagation requires owner virtual `+0x540` to return nonzero; the ordinary part target returns zero
+The separate below-update override `0x4c0e0970` reaches helper `0x4c707780`
+For the supported graph's absent derived-profile reference and sketch `f188=0`, branch `0x4c707878` returns zero at `0x4c708755`
+Null solver cache pointers and `_requires_update=True` therefore do not, by themselves, prove native solve scheduling
+Keep initializer repair, ordinary engine dispatch and final solver status as distinct lifecycle questions
+
 ## Sketch update dataflow
 
 This pass applies the field, loop, handler and constraint analysis described in [Tupni, sections 3.3–3.6](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tupni-ccs08.pdf)
