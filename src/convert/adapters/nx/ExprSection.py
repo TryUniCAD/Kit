@@ -24,6 +24,16 @@ KGroup = b"\x02\x02\x01\x02\x41\x00\x04\x0fDefault Group\x00"
 KRecord = b"\x02\x02\x04\x0fDefault Group\x00\x00\x3f\x00\x00"
 
 
+# a dimension part carries two default group tokens that do not vary
+KGroupPair = bytes.fromhex(
+    "0202010241040f44656661756c742047726f757000"
+) + bytes.fromhex("040f44656661756c742047726f757000")
+
+
+def GroupPair() -> bytes:
+    return KGroupPair
+
+
 # the preamble counts objects and carries a word at offset 48 for large shapes
 def ExprPreamble(Objects: int, Pointer: int, Extra: int = 0) -> bytes:
     if Objects < KObjects:
@@ -205,6 +215,7 @@ __all__ = [
     "ExprLayout",
     "ExprOrder",
     "ExprPreamble",
+    "GroupPair",
     "ExprObjectCount",
     "PlainSlotCount",
     "ValueSlotCount",

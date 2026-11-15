@@ -16,6 +16,7 @@ from convert.adapters.nx.ExprSection import (
     ExprLayout,
     ExprObjectCount,
     ExprPreamble,
+    GroupPair,
     PlainSlotCount,
     ValueSlotCount,
     ReadSlotHandle,
@@ -978,3 +979,14 @@ def TestNxPreamble() -> None:
     except ValueError:
         return
     raise AssertionError("preamble accepted fewer than six objects")
+
+
+# the default group pair is the same object in every expression section
+def TestNxGroup() -> None:
+    PairBytes = GroupPair()
+    assert len(PairBytes) == 37
+    assert PairBytes[:9] == bytes.fromhex("0202010241040f") + b"De"
+    assert PairBytes.count(b"Default Group") == 2
+    assert PairBytes == bytes.fromhex(
+        "0202010241040f44656661756c742047726f757000"
+    ) + bytes.fromhex("040f44656661756c742047726f757000")

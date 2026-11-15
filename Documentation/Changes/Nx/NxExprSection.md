@@ -302,6 +302,33 @@ empty.prt  empty_expr.prt  var_sph.prt  dim40.prt  var_two.prt   identical True
 ``` Both counts follow from the object count, which
 `ExprObjectCount` already gives, so the preamble is generated rather than carried.
 
+## The default group pair is constant, the group record is not
+
+Two of the objects a dimension part adds are decoded:
+
+```text
+02 02 01 02 41 04 0f "Default Group" 00 04 0f "Default Group" 00   37 bytes
+```
+
+`ExprSection.GroupPair()` emits it, and it is identical in `dim40` and `var_two`, so it is a
+constant rather than part data.
+
+The following record is **not** decoded. Its text list does not follow the value list:
+
+```text
+part             values              texts written
+dim40            40, 30, 20           40, 20
+dim50            50, 30, 20           50, 20
+dim60            60, 30, 20           60, 20
+const_box60      40, 30, 20           40, 20
+var_two          40,30,20,40,30,20    40, 30, 20
+```
+
+with a count byte one greater than the number of texts (`03` for two, `04` for three). The
+middle value is omitted for three dimensions and the whole first body is listed for six, so
+the selection rule is not "all", not "all but the last", and not "distinct". A composer that
+has to write this record cannot yet choose its contents.
+
 ## The writer-chosen layout
 
 `ExprSection.ExprLayout(Dimensions)` fixes the object order the writer will use, so the
