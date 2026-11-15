@@ -114,6 +114,16 @@ exactly 56 distinct values below 56. Scanning both streams at every offset with
 distinct values, returns no hit. That rules out a tag-difference array of face-to-surface references
 in `MainDataStream` and `SurfacicReps` as well.
 
+## The circle records pin only a few faces
+
+The `00 33 37` records do carry a face pair: every circle in `Reservoir` (78), `4784` (210), and
+`Pedal_Body` (391) has both index bytes below the face count. A circle whose partner is a plane face
+`p` gives a non-circular constraint on a cylinder face: a pooled cylinder must have radius equal to
+the circle radius and its axis must pass through the circle center. Counting faces that this pins
+uniquely gives `7` of the `55` faces that have any candidate cylinder in `Reservoir`, `0` of `79` in
+`4784`, and `5` of `208` in `Pedal_Body`. Most cylinders share a radius or an axis, so the
+constraint almost never resolves to one surface, and it cannot close the map.
+
 ## Workaround
 
 Treat the five pooled parts as approximate. The reader emits

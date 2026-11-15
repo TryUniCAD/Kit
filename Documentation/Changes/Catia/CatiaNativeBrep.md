@@ -173,6 +173,12 @@ in `Reservoir` (offset `29353`), not 71, so the face list is not a contiguous ru
 face-local layouts over the corpus finds no run reaching 90% of the face count for `4784`,
 `Pedal_Body`, or `Reservoir`; `re/catia/tooling/ProbeLinks.py` prints the candidates.
 
+The circle records do carry a face pair, and the pair can constrain a pooled surface without
+circularity: a circle whose partner is a plane face requires a cylinder face to have the circle's
+radius and an axis through the circle center. Measuring that constraint gives only `7` uniquely
+pinned faces of `55` candidates in `Reservoir`, `0` of `79` in `4784`, and `5` of `208` in
+`Pedal_Body`, so it sharpens the map without closing it.
+
 Neither topology streamer writes a surface: `CATCXEdge::Stream` (`0x1805471e0`) writes an edge count
 of `4` or `5`, the vertex records, then named records, and `CATCXLoop::Stream` jumps to
 `CATCXEdgeDomain::Stream` (`0x180548090`), which writes the location, an edge count, and per-edge
