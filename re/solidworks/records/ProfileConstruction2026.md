@@ -229,7 +229,7 @@ Runtime path coverage and target acceptance remain separate evidence
 | Dependency reset | `clearDependancyFlags` at `0x4c538d10` calls `0x4c5d3100`; for local handles it calls `0x4c3e2bd0(entity,0)` and `0x4c3e24a0(entity,0)` | The first masks `f56` with `0x3fff`; the second clears bit `0x8000`; constructor `f56=0` is unchanged | Closed static mutation for local geometry |
 | Point cleanup | `cleanOutSketchPoints` at `0x4c4a6e30` considers removal only when a permanent point is invisible, local and has degree zero | Polygon vertices have degree two; origin type one is visible because point vtable `0x4cdd2d48`, slot `+0x190`, targets `0x4c491cb0` and tests mask `0x138a02` | Closed preservation predicate |
 | Constraint validation tails | `0x4c4bbf40` iterates sketch `+0x58`; `0x4c4bbc60` examines offset dimensions and display dimensions | The current graph has empty block, offset and sketch-display collections; origin's one logical point constraint still requires its own validation and solver path | Closed empty loops; origin handler unresolved |
-| Modification stamp | `0x4c5195d0` adds the results of `0x4c5167d0` and `0x4c516600` to sketch `f56c`; update `0x4c549ab0` can add a further conditional increment from model-reference and temporary update results | The first helper counts finite solver point positions with any coordinate change at least `1e-8`; the second only updates 3D planes, absent here; the actual solved positions and other update results remain dependencies; insertion stamp remains separately derived as `1+n` | Unresolved conditional delta |
+| Modification stamp | `0x4c5195d0` adds the results of `0x4c5167d0` and `0x4c516600` to sketch `f56c`; update `0x4c549ab0` has a separate model-reference increment at `0x4c54ad3c` | The separate increment is excluded for the current local graphs by the branch proof below; the point helper still depends on finite solved coordinates and the plane helper has an empty bound; insertion stamp remains separately derived as `1+n` | Model-reference increment excluded; solver coordinate delta unresolved |
 | Pattern/spline/styled helpers | `0x4c46f1b0`, `0x4c5483f0` and `0x4c52f470` iterate their corresponding collections | Empty collections make these loops inactive for the polygon and origin inputs | Closed static loop bounds |
 
 The jump table at `0x4c507948` maps raw solver status eleven to sketch/entity status one, raw one or ten to two, raw three to three, and raw zero/four/five/eight/nine to four
@@ -237,6 +237,44 @@ The jump table at `0x4c507948` maps raw solver status eleven to sketch/entity st
 These are native branch rules, not evidence that a fresh free polygon or origin produced a particular solver result
 The final aggregator at `0x4c502b70` prioritizes invalid geometry, status four and status three, then returns one when any contributing entity is status one, otherwise two when a nonzero status was seen
 The `0x4c507b30` caller stores that aggregate in sketch `f12c`, except when its current state is the special mode seven
+
+### Local update branch and stamp boundary
+
+This proof uses static native control flow, independently of saved document values
+`sgSketch::hasExternalReferences` at `0x4b94f7e0`, called with `(1,0,0)` by update, first tests the derived-profile reference, then offsets, intersections, silhouettes and the geometry collections
+The current profiles have null `pd_f110`, empty non-point/line collections and local point/line entities
+For each point and line, `sgEntHandle::isExternal` at `0x4c5ce0c0` delegates to `0x4c3e2020`; the latter returns false when entity `+0x48` is null
+That pointer is the constructed `ext=None`
+The origin's local logical constraint does not appear as an additional external-reference case in this scanner
+The scanner therefore reaches its false return at `0x4b950303`
+
+Update's selector at `0x4c54a446` clears `f37c` and its transform-work flag when the external-reference predicate is false
+Tests at `0x4c54a537` and `0x4c54a543` then select the direct-solver target `0x4c54b10e` for both null and nonnull transform arguments
+If the separate cached-solver/drawing condition is true, it also selects the direct branch
+The alternate model-reference branch containing the explicit `f56c` increment at `0x4c54ad3c` is consequently unreachable for the current local graphs
+This excludes that one increment; it does not prove solver success, unchanged coordinates or an accepted final stamp
+
+The constructor at `0x4c495450` sets saved status one at `0x4c495cf8`, current status one at `0x4c495d02`, cached-solver pointers null at `0x4c495e8c` and `0x4c495ee9`, and initial stamp one at `0x4c4960bf`
+These are offsets relative to the `sgSketch` object, not its separate profile pointer at sketch `+0x138`
+The profile constructor `0x4c0ca780` initializes its own `+0x3e0` as integer `100000`; equal offset names do not make these fields aliases
+Both profile vtables, `0x4d0e8e80` and `0x4d0ef510`, use target `0x4c0d71d0` for virtual `+0x1ee8`; that target returns only a drawing-view owner, so the constructed part owner does not activate its drawing-view flag
+
+The point delta helper's skip cases are also explicit
+`isUniqueCirclePoint` at `0x4c5ff0a0` tests point type two, `isVertexPoint` at `0x4c5fff80` tests type thirteen, and the helper excludes type eighteen separately
+`getType` at `0x4c5fbff0` reads point `+0xe4`; it does not read `pflags`
+Polygon points use `fe4=0` and the origin point uses `fe4=1`, so neither graph skips its points through these type cases
+Their actual solved coordinates remain required evidence; a type rule alone cannot establish the changed-coordinate count returned by `0x4c5167d0`
+
+The exported update signature fixes the observation ABI
+On Windows x64, argument zero is the sketch in `rcx`, followed by transform in `rdx`, an `int*` in `r8`, and the update engine in `r9`
+At entry, stack slots `rsp+0x28` and `rsp+0x30` contain the two integer arguments, `rsp+0x38` the constraint-balance pointer, and `rsp+0x40` the final double
+The `sgConstrainedStatus_e` return is a signed 32-bit enum; instruction `0x4c54c4c0` moves it into `eax`
+The internal coordinate helper has no exported formal prototype, but instruction `0x4c517278` writes its counter with `mov eax,r12d` before return `0x4c5172c8`
+Its observed counter should therefore retain raw `rax` and a separate unsigned 32-bit interpretation; the decompiler's inferred `ulonglong` is not evidence of a wider counter
+
+The next requested observation arms hooks before first authoring/rebuild on unrelated free polygons with three, eight and eleven lines
+It records actual update entry/leave status and stamps, the coordinate helper's returned count, solver-commit deltas and point/line status-map entry/leave fields
+Those training observations remain distinct from the locked held-out generated-output acceptance gate
 
 Both polygon and origin graphs retain `_requires_update=True` until the remaining state rules are established
 

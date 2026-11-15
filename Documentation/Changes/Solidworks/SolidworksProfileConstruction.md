@@ -45,6 +45,7 @@ The local inter-component-reference flag is now derived from the native update p
 Static native dataflow also closes local dependency-bit clearing, point-cleanup preservation and the status-to-colour mapping
 The actual solver status remains a required dependency rather than a value inferred from the constructor
 Native serializer keys identify entity `f38` as line type, independently from constraint status `f34` and sketch saved status `f128`
+Further static control flow excludes the separate model-reference stamp increment for the supported local graphs; solver coordinate deltas and resulting statuses still require native observation
 The construction ledger now audits the native runtime schemas of 19 class types named by the sketch and dimension builder layer, including the inline-only logical constraint that emits no class header
 The dimensional graph requires the explicit presentation input and completed shared model graph
 They do not change adapter capabilities
@@ -54,6 +55,7 @@ The [leader-selection gotcha](../../../Documentation/Gotchas/Conversion/Solidwor
 The [unit-vector gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Profile/DefaultUnitVectorIsZero.md) records the native zero-vector constructor
 The [entity line-type gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Profile/EntityLineTypeField.md) records the adjacent fields' distinct roles
 The [process-program declaration gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Profile/ProcessProgramDeclarations.md) records the focused-file rule for generated test programs
+The [runtime-offset owner gotcha](../../Gotchas/Conversion/Solidworks/Profile/SketchAndProfileRuntimeOffsets.md) distinguishes sketch solver fields from equal offsets in the separate profile object
 The [base-tip gotcha](../../Gotchas/Ci/ProcessChecks/PullRequestBaseTip.md) records a stale PR base snapshot encountered during integration
 
 No local tests or oracle measurements were run
