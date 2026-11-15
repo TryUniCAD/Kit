@@ -724,7 +724,7 @@ def model_fields(
     detail_definitions: dict,
     document_units: Obj,
     analysis_units: Obj,
-    self_component: Obj,
+    self_component: Obj | None,
     relation_graph: Obj | None,
 ) -> dict:
     if not isinstance(node, Obj) or node.cls not in ("moPart_c", "moAssembly_c") or node.f:
@@ -733,10 +733,11 @@ def model_fields(
         raise ArchiveError("model construction requires generated detail definitions")
     if any(not isinstance(units, Obj) or units.cls != "moUnitsTable_c" for units in (document_units, analysis_units)):
         raise ArchiveError("model construction requires explicit native unit-table graphs")
-    if not isinstance(self_component, Obj) or self_component.cls not in ("moUnitComponent_c", "moChainComponent_c", "moContextChainComponent_c"):
-        raise ArchiveError("model construction requires a classified concrete self component")
-    if self_component.f.get("owner") is not node:
-        raise ArchiveError("the native self component must point to its actual model record")
+    if self_component is not None:
+        if not isinstance(self_component, Obj) or self_component.cls not in ("moUnitComponent_c", "moChainComponent_c", "moContextChainComponent_c"):
+            raise ArchiveError("model construction requires a classified concrete self component")
+        if self_component.f.get("owner") is not node:
+            raise ArchiveError("the native self component must point to its actual model record")
     if relation_graph is not None and (not isinstance(relation_graph, Obj) or relation_graph.cls != "moRelMgr_c" or relation_graph.f.get("owner") is not node):
         raise ArchiveError("the relation graph must belong to its actual model record")
     fields = concept_fields(name=name, allocator=allocator, node=node)
