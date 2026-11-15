@@ -20,6 +20,7 @@ def AssertPart(Report: dict[str, object], PointCount: int, DepthValue: float) ->
     assert Report["vendor_acceptance"] == "unverified"
     assert all(CastValue(dict[str, bool], Report["plane_ownership"]).values())
     assert Report["configuration_progress"] is True
+    assert Report["standard_views"] is True
     Linked = Streams["Contents/Config-0-ResolvedFeatures"]
     assert Linked["seeded_map_count"] == Linked["map_base"] == Report["map_count"]
 

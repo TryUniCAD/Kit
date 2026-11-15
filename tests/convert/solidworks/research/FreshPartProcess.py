@@ -38,6 +38,7 @@ KRoundTrip = ImportModule("RoundTrip")
 KCodecs = tuple(FindCodec(Value) for Value in ("utf-16-le", "utf-8", "latin-1"))
 
 from tests.convert.solidworks.research.Composition.PlaneOwners import ReadOwners
+from tests.convert.solidworks.research.Composition.ViewTargets import HasViewTargets
 from tests.convert.solidworks.research.Composition.ConfigurationProgress import (
     IsProgressValid,
 )
@@ -74,6 +75,7 @@ def BuildResult() -> dict[str, object]:
         "depth": Constructed.extrusion.depth,
         "plane_ownership": ReadOwners(Archive, KRegistry),
         "configuration_progress": IsProgressValid(Archive, KRegistry),
+        "standard_views": HasViewTargets(Archive, KRegistry),
         "module_reads": KAuditValue.ModuleReads,
         "denied_reads": KAuditValue.DeniedReads,
         "vendor_acceptance": "unverified",

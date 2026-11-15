@@ -5,6 +5,7 @@ from dataclasses import dataclass, field
 
 from Core import ArchiveError, Obj
 from builders.Visual import model_visual_properties
+from builders.Views import standard_views
 
 
 class PersistentIds:
@@ -816,7 +817,7 @@ def model_fields(
         "f1300": 101,
         "fd88": {"f260": 100, "n6c": 0, "atoms": [], "fa8": 0},
         "fd90": {"f80": 10000, "fe0": 0, "n": 0, "objects": []},
-        "f9f8": [{"o": None} for _ in range(10)],
+        "f9f8": standard_views(detail_standard=detail_definitions["f10"]),
         "fce8": 0x32,
         "fcec": 0x6C,
         "fd44": 10,

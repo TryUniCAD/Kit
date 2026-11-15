@@ -124,6 +124,9 @@ passes those checks with healthy controls and unchanged inputs. It remains
 research evidence; the public adapter still refuses writing.
 The [visible viewport inspector](../../Changes/Solidworks/Inspection/SolidworksNativeViewportInspection.md)
 captures the application's actual model view for separate visual inspection.
+The [standard-view constructor](../../Changes/Solidworks/SolidworksStandardViewConstruction.md)
+generates the missing canonical rotations from native constructor rules.
+Its new bytes still require controlled geometry and viewport measurements.
 The fresh [model component constructors](../../Changes/Solidworks/SolidworksModelConstruction.md)
 and [metadata constructors](../../Changes/Solidworks/SolidworksMetadataConstruction.md)
 build research object graphs from authored semantics and native constructor rules.
