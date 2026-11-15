@@ -1055,6 +1055,46 @@ reader's angular positions are a uniform refinement, not the stored tessellation
 grid is finer than the handle count in neither direction: the outer handles are 11 over 180 degrees
 (15-degree spacing) while the stored outer points are 20 over 360 degrees (18-degree spacing).
 
+## The float run is a circle traversal with bridge values between the points
+
+The 116 values are 20 distinct magnitudes, and most appear exactly six times: `-0.0` sixteen times,
+fourteen values six times, `-5.0`, `8.0`, and `5.0` four times, `-8.0` three times, and `1.0` once.
+That is a multiset of the grid, not a plain coordinate array.
+
+Reading the run as adjacent `(y, z)` pairs puts 53 of 115 pairs on a circle, and the pairs that land
+on a circle are exactly the grid points:
+
+```
+  0: (-7.6085, -2.4721) r=8.0000 ang=-162.00
+  3: (-6.4721, -4.7023) r=8.0000 ang=-144.00
+  6: (-5.0000, -0.0000) r=5.0000 ang=-180.00
+  8: (-4.7023, -6.4721) r=8.0000 ang=-126.00
+ 11: (-4.6194, -1.9134) r=5.0000 ang=-157.50
+ 14: (-3.5355, -3.5355) r=5.0000 ang=-135.00
+ 17: (-2.4721, -7.6085) r=8.0000 ang=-108.00
+ 20: (-1.9134, -4.6194) r=5.0000 ang=-112.50
+ 25: (-0.0000, -8.0000) r=8.0000 ang= -90.00
+ 28: ( 8.0000,  0.0000) r=8.0000 ang=   0.00
+ 34: ( 2.4721, -7.6085) r=8.0000 ang= -72.00
+ 37: ( 3.5355, -3.5355) r=5.0000 ang= -45.00
+```
+
+The outer angles step by 18 degrees and the inner by 22.5, so the on-circle pairs are the stored
+tessellation points. The pairs that miss are bridges: the odd-indexed ones are all of the form
+`(a, -a)` at 135 degrees, and the even-indexed ones mix an outer and an inner magnitude. So the run
+is a circle traversal with interleaved bridge values, and the bridge values are not coordinates.
+
+There are 53 on-circle pairs and 23 distinct points: 12 at radius 8 and 11 at radius 5. So the
+stored tessellation is 23 points per `x` plane, not the 20 + 16 that the full-circle angle steps
+would suggest, and the 76 handles map onto those 23 points at roughly 1.65 handles per point. The
+stored tessellation is coarser than the handle count, which is why the reader's 15-degree placement
+cannot be snapped onto it one-to-one.
+
+The layout is therefore not a per-circle `(y, z)` sequence with the `x` stored once per circle. The
+two 58-value halves are nearly identical (they differ only in the last three values, `1.0` in the
+first and `0.0` in the second), so the halves are the two `x` planes, but segmenting on the `x`
+values does not give all-8 or all-5 radii in either half. The bridge values are the missing piece.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
