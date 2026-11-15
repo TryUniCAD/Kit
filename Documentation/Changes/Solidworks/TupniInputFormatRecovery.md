@@ -131,3 +131,11 @@ working directory. The authoring action now inspects controls read-only through
 the previously successful retained-controller path and records the control
 digest. A second authoring setup also failed before creating a case; no solver
 rule is inferred from either failed control.
+
+The original control also failed with the previous exception instrumentation.
+Exception-function hooks and the process exception handler now require explicit
+`--exception-probes`; ordinary parser/status profiles install neither. This
+isolates the instrumentation during healthy-control checks. It does not suppress
+document errors: open/rebuild results, target termination, script failures and
+dialog records remain visible. The precise cause of the traced-control failure
+remains unproven until the reduced observation is compared with a healthy run.

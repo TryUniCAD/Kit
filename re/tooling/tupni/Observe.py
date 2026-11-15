@@ -34,6 +34,7 @@ def main():
     parser.add_argument("--event-budget", type=int, default=100000)
     parser.add_argument("--module-manifest", type=Path)
     parser.add_argument("--profile", choices=("full", "loader", "sketch"), default="full")
+    parser.add_argument("--exception-probes", action="store_true")
     parser.add_argument("--prepare-script", type=Path)
     parser.add_argument("--action-script", type=Path)
     parser.add_argument("--action-input", type=Path)
@@ -51,6 +52,7 @@ def main():
         "script_path": str(args.script), "script_sha256": hashlib.sha256(source).hexdigest(),
         "seconds_requested": args.seconds, "event_budget": args.event_budget,
         "profile": args.profile,
+        "exception_probes": args.exception_probes,
         "started_at": time.time(), "messages": [], "messages_dropped": 0,
         "attached": False, "detached": False,
     }
@@ -112,7 +114,7 @@ def main():
                 record["module_images"][name] = identity
                 if identity["sha256"] != digest:
                     raise RuntimeError(f"loaded module image differs from the selected analysis target: {name}")
-            record["hook_activation"] = script.exports_sync.activate(args.profile)
+            record["hook_activation"] = script.exports_sync.activate(args.profile, args.exception_probes)
             if prepared is not None:
                 prepared["trace"] = script.exports_sync
         print(json.dumps({"ready": True, "pid": targets[0].pid, "realm": args.realm}), flush=True)

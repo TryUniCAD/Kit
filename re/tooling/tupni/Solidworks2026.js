@@ -109,7 +109,7 @@ rpc.exports = {
   moduleidentity() {
     return Process.enumerateModules().filter(Value => ["sldmodu.dll", "swccu.dll", "sldarchiveu.dll", "sldmfcu.dll", "mfc140u.dll", "vcruntime140.dll", "vcruntime140_1.dll", "kernelbase.dll", "user32.dll"].includes(Value.name.toLowerCase())).map(Value => ({name: Value.name, path: Value.path, base: Value.base.toString(), size: Value.size}))
   },
-  activate(Profile = "full") {
+  activate(Profile = "full", ExceptionProbes = false) {
     if (Process.arch !== "x64" || Hooks.length !== 0) throw new Error("exactly one activation in an x64 target is required")
     if (!["full", "loader", "sketch"].includes(Profile)) throw new Error("a supported observation profile is required")
     const Model = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "sldmodu.dll")
@@ -163,6 +163,7 @@ rpc.exports = {
         emit({kind: "archive-class-schema", class_name: String.fromCharCode(...NameBytes.slice(0, End < 0 ? NameBytes.length : End)), runtime_schema: Runtime.add(12).readU32(), file_schema: this.context.rsp.add(0x28).readU32(), archive: archive(this.context.rbx), instruction: location(Common.base.add(0xa3a7))})
       } catch (ErrorInfo) { emit({kind: "archive-class-schema-error", error: String(ErrorInfo)}) }
     }})
+    if (ExceptionProbes) {
     const ThrowHooks = new Set()
     for (const Image of Process.enumerateModules().filter(Value => /^(mfc140u|vcruntime140|vcruntime140_1)\.dll$/i.test(Value.name))) {
       for (const Entry of Image.enumerateExports()) {
@@ -192,6 +193,7 @@ rpc.exports = {
       emit({kind: "native-exception", type: Details.type, address: location(Details.address), memory: Details.memory === undefined ? null : {operation: Details.memory.operation, address: Details.memory.address.toString()}, registers: Registers, backtrace: Frames, backtrace_error: BacktraceError, handled: false})
       return false
     })
+    }
     if (Profile !== "loader") {
     attach(Model.base.add(0x4c5916f0 - 0x4b140000), {
       onEnter(Args) {
@@ -276,7 +278,7 @@ rpc.exports = {
       onLeave(ReturnValue) { if (this.active) emit({kind: "archive-count", count: ReturnValue.toUInt32(), before: this.before, after: archive(this.archive), caller: this.caller}) }
     })
     }
-    emit({kind: "hooks-ready", architecture: Process.arch, profile: Profile, hook_count: Hooks.length, instruction_taint: false, absolute_stream_offsets: false})
+    emit({kind: "hooks-ready", architecture: Process.arch, profile: Profile, exception_probes: ExceptionProbes, hook_count: Hooks.length, instruction_taint: false, absolute_stream_offsets: false})
     return {hooks: Hooks.length}
   },
   statistics() { return {events: Sequence, dropped: Dropped} }
