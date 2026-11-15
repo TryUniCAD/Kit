@@ -6,7 +6,8 @@ A BL value follows, then fill bits from the `0x55` pattern.
 Every Fusion save writes that BL as zero, with the 2-bit `10` code.
 The ODA specification lists four unknown BS values at the end of the header variables.
 
-Kit reads these bits as `TailWidth` and `TailBits` and writes them back unchanged.
+Kit reads these bits as `TailWidth` and `TailBits` and, since the tail was solved, writes them from
+the header content instead of copying them.
 
 | DWG                                         | `TailWidth` | Four values                       | BL and fill |
 | ------------------------------------------- | ----------- | --------------------------------- | ----------- |
@@ -89,11 +90,69 @@ Their bits are evenly spread, and the four values show no relation to each other
 The values therefore behave like a keyed check over the header variables.
 Only Fusion's own code could show the key or the rule, and that code is out of scope.
 
+## The rule
+
+The four values are one encrypted 8-byte block, not four independent values.
+
+The plaintext is four little-endian shorts: a 16-bit checksum, the product code `1`, the writing
+version code, and zero. Fusion 2706.1.17 writes version code `26` for both `AC1027` and `AC1032`;
+seventeen of the twenty-two `AC1032` corpus saves use it too.
+The cipher is Blowfish with the standard constant table, so the P-array and the four S-boxes are the
+first 1042 words of the fractional part of pi.
+The 16-byte key is a constant in the `libacdb` data of `AcCoreConsole.app`, not a value taken from
+any document.
+The module that holds both is
+[`TailCipher`](../../../../../src/convert/formats/Fusion/DrawingCodec/Dwg/Integrity/TailCipher.py).
+Each encrypted short goes into the file as a 2-bit `00` prefix and the 16 bits big-endian, so the
+four shorts are 72 bits and the remaining bits of the 77 are the `0x55` fill.
+
+The checksum is the low 16 bits of a 32-bit sum. It runs from the first bit of the header area, which
+is the area size field, to the first bit of the tail. Each item is a CInt16 read with a 2-bit code in
+MSB-first order:
+
+| Code | Width | Value                       |
+| ---- | ----- | --------------------------- |
+| `00` | 16    | the 16 bits little-endian   |
+| `01` | 8     | the 8 bits                  |
+| `10` | 2     | `0`                         |
+| `11` | 2     | `0x100`                     |
+
+An item that runs past the end contributes nothing.
+The module that holds the sum is
+[`HeaderChecksum`](../../../../../src/convert/formats/Fusion/DrawingCodec/Dwg/Integrity/HeaderChecksum.py).
+
+Three details made the rule hard to see.
+
+* The 16-bit read is alignment dependent. At a zero bit offset the native reader uses a little-endian
+  `ldrh`; at any other offset it assembles the two bytes MSB-first. The checksum consumes both, so a
+  decoder that is fully big-endian or fully little-endian matches neither.
+* The sum is 24 bits in practice and only its low 16 bits are checked. Comparing a 32-bit sum against
+  the stored value hides the match.
+* The area size field in the header is the header bit size, while the sum ends at the tail. They are
+  different numbers; for one control the size is 6075 bits and the sum ends at bit 6707.
+
+## Evidence
+
+Kit's writer now computes the tail from the header content.
+Re-emitting a Fusion-saved header reproduces the stored bytes exactly for 54 of the 60 corpus saves:
+all 38 `AC1027` saves except `U9OwnShortsZeroPad`, and 17 of the 22 `AC1032` saves.
+
+The six that differ are the corpus rows with a non-standard tail, not writer mistakes:
+
+| Save                                  | Tail width | Why it differs                                       |
+| ------------------------------------- | ---------- | ---------------------------------------------------- |
+| `U9OwnShortsZeroPad`                  | 101        | Crafted with a fifth value, so its plaintext is not this block |
+| `U1SheetOnly`, `U3ThreeViews`, `U5SheetDimension` | 13 | Corpus rows whose tail region is not four shorts |
+| `V3ThreeViews`, `V5SheetDimension`    | 77         | The stored block does not decrypt to a plaintext with product `1` and version `26` |
+
+Fusion's own reader agrees with the computed values. A Kit-authored `AC1032` drawing whose header was
+computed and not copied opened in Fusion 2706.1.17 with three sheets, views `5, 4, 4` and one
+dimension, and Fusion applied an edit to it: a view scale of 4.0 became 2.0 and the document reported
+itself modified.
+
 ## What Kit does
 
-Kit cannot write values that Fusion accepts.
-Kit does not copy the values of a Fusion-saved file into an authored file.
-Kit's authored shell writes four full BS values taken from the version GUID of the drawing.
-A zero value becomes `0x5555`.
-The header writer fills the last byte with the low bits of `0x55`, which also writes the BL as zero.
-Fusion 2706.1.17 therefore does not open a DWG that Kit authors, as the [authored shell gotcha](FusionDrawingAuthoredShell.md) records.
+Kit writes the tail from the checksum and the cipher, and never copies a tail from a saved file.
+A version without a known version code raises `ValueError` instead of writing a guess.
+The [authored shell gotcha](FusionDrawingAuthoredShell.md) still applies to the pre-solved saves it
+records.

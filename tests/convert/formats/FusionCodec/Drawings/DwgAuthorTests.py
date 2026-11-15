@@ -1,5 +1,6 @@
 from collections import Counter
 from datetime import datetime as DateTime
+from struct import unpack as UnpackFields
 
 from pytest import raises as ExpectError
 
@@ -14,6 +15,7 @@ from convert.formats.Fusion.DrawingCodec.Dwg.Author.Spec.ViewDraft import ViewDr
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.Spec.ViewSource import ViewSource
 from convert.formats.Fusion.DrawingCodec.Dwg.EmitDwgFile import EmitDwgFile
 from convert.formats.Fusion.DrawingCodec.Dwg.Header.HeaderFrame import FrameParts
+from convert.formats.Fusion.DrawingCodec.Dwg.Integrity.TailCipher import DecryptBytes
 from convert.formats.Fusion.DrawingCodec.Dwg.Model.DwgFile import DwgFile
 from convert.formats.Fusion.DrawingCodec.Dwg.Model.DwgHandleRef import DwgHandleRef
 from convert.formats.Fusion.DrawingCodec.Dwg.Model.DwgRecord import DwgField, DwgRecord
@@ -133,14 +135,21 @@ def HeaderShorts(Model: DwgFile) -> tuple[list[int], int]:
     return Values, (TailBits & FillMask) ^ (0x55 & FillMask)
 
 
+def TailPlaintext(Values: list[int]) -> tuple[int, int, int, int]:
+    Packed = b"".join(Value.to_bytes(2, "big") for Value in Values)
+    return UnpackFields("<HHHH", DecryptBytes(Packed))
+
+
 def TestSaveShorts() -> None:
     Values, Mismatch = HeaderShorts(ReadBack(AuthorDwg(MakeDraft(KViews))))
-    assert Values == [0x6666, 0x6666, 0x7777, 0x8848]
     assert Mismatch == 0
+    assert TailPlaintext(Values)[1:] == (1, 26, 0)
     Model = ReadBack(
         AuthorDwg(MakeDraft(Version="00000000-0000-4000-8000-000000000000"))
     )
-    assert HeaderShorts(Model)[0] == [0x5555, 0x5555, 0x5555, 0x0040]
+    Values, Mismatch = HeaderShorts(Model)
+    assert Mismatch == 0
+    assert TailPlaintext(Values)[1:] == (1, 26, 0)
 
 
 def TestNewViews() -> None:
