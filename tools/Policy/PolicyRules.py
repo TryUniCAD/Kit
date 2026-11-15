@@ -22,6 +22,7 @@ KToolPathSet = frozenset(
         ".greptile/config.json",
         ".hoplite/settings.json",
         ".kiro/settings/mcp.json",
+        "Cli/KitCli/__main__.py",
         "pyproject.toml",
         "src/convert/__main__.py",
         "uv.lock",

@@ -12,6 +12,7 @@ Supervisor execution still requires Linux or macOS.
 The trusted research checkout remains arbitrary and explicit; research fixtures in CI additionally require the fixed repository-owned `ResearchCheckout` path.
 
 The wheel includes `KitCli`; package metadata, strict analyzers, compile caches, and security scans include the new source root.
+The path policy records only its exact ecosystem-required `Cli/KitCli/__main__.py` identity beside the existing SDK module entry point.
 Existing source runtime checks retain their original forbidden imports and two-package layout.
 Built-wheel isolated execution now imports the developer entry point and runs formats with external process imports and operations blocked.
 Research compatibility cases exercise the installed `kit` executable, the developer module, pinned reader receipts, controller and supervisor state, Windows interruption, and POSIX signal cleanup and fresh SDK identity.
