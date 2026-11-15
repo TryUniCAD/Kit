@@ -234,6 +234,28 @@ asking the loader for it.
 `LegacyCodes(Payload)` reads that table, `nx.legacy_coded_classes` reports how many entries are set,
 and `TestNxLegacy` now pins the table alongside the frames.
 
+## The object region has no fixed stride
+
+Two measurements bound how the object region can be walked, both over `0x19a0` to `0xd9b0` of
+`wave_parent.prt` section 1:
+
+```text
+byte agreement at a candidate period, sampled every 7 bytes
+  period 4     0.327      period 8     0.303      period 16    0.296
+  period 52    0.289      period 53    0.282      period 51    0.275
+
+gaps between successive 01 00 00 00 markers
+  285 403 115 11434 199 70 8 44 12 16 16 4 60 8 8 4 144 4 387 578
+```
+
+no period stands out, and the marker gaps are irregular across two orders of magnitude, so the region
+is a stream of variable length records rather than a table of fixed size entries. The `01 00 00 00`
+marker appears 279 times and is not a record delimiter at any stride.
+
+That is the precise reason this entry stops at the object layer: a walker for it needs the record
+grammar (header, id, length, field layout per class), and neither the stride nor the header can be
+inferred from the corpus without knowing the grammar that produced it.
+
 ## The object data is byte packed, not word aligned
 
 The object region of `wave_parent.prt` section 1, from `0x19a0` to the section end at `0xd9b0`, is
