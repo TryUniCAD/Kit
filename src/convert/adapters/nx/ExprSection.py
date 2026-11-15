@@ -56,9 +56,9 @@ def ExprOccupancyFrame(Dimensions: int, Continuations: int) -> tuple[bytes, byte
         raise ValueError("NX occupancy needs one to fifty dimensions")
     if not 0 <= Continuations <= 5 * Dimensions:
         raise ValueError("NX occupancy continuation count is out of range")
-    Map = OccupancyMap(Dimensions)
-    Opening = bytes([5 * Dimensions + 1, 0x01, Map + 1])
-    Trailing = bytes([5 * Dimensions + Continuations + 1, Map + 1])
+    MapSize = OccupancyMap(Dimensions)
+    Opening = bytes([5 * Dimensions + 1, 0x01, MapSize + 1])
+    Trailing = bytes([5 * Dimensions + Continuations + 1, MapSize + 1])
     return (Opening, Trailing)
 
 
