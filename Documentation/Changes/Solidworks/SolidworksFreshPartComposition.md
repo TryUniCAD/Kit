@@ -39,3 +39,16 @@ Candidate target metadata now uses the independently recovered 2026 date code
 
 See the [composition record](../../../re/solidworks/records/FreshPartComposition2026.md)
 for field ownership and evidence limits.
+
+## Clean vendor inspection
+
+`re/tooling/sw2026/InspectFresh.py job.json output.json` inspects generated
+research candidates between two native controls. The job names one `control`
+and a `files` list. Each document starts in a fresh goal-owned application
+process after the authorized oracle sweep. The report records source hashes,
+revision, process IDs, open errors and warnings, rebuild result, body count,
+mass properties, feature errors, handled dialogs and controller cleanup.
+Each stage is written immediately. It does not save the candidate or establish
+dimension-edit and save/reopen acceptance. An unhealthy control invalidates
+the batch. Native measurements are added only after execution.
+
