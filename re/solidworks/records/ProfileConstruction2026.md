@@ -19,6 +19,7 @@ Addresses use `sldmodu.dll` base `0x4b140000`, `sldmgu.dll` base `0x31dd0000`, a
 | Normal profile entity `dflt` | `0`, because normal `moProfileFeature_c` virtual `+0x1ed8` returns zero | Constructor `sldmodu 0x4c0ca780` installs vtable `0x4d0e8e80`; slot target `0x4b27cbe0`; entity predicate `0x4c3e22e0`; confirmed static |
 | Entity visibility | Layer `-1`, by-layer mask `31`, colour `0xffffffff`, line type `-1`, line width enum `-1`, visibility flags `3` | Entity constructor `sldmodu 0x4c3e1030` passes explicit arguments to `0x4c151050`; confirmed static |
 | Entity line width | `f06=0`, `f00=-1.0` | `sldmodu 0x4c3e1085` passes enum zero to `sldmfcu 0x3c84a8f0`; confirmed static |
+| Entity line type `f38` | Native constructor value one for the fresh branch; separate from constraint status `f34` | Serializer `0x4c583460` loads ASCII key `LineType` at `0x4d1c90b8` through instruction `0x4c58387a`, then reads `+0x38` at `0x4c5838a7` and emits u16 at `0x4c5838ae`; confirmed static |
 | Visibility line width | `f06=-1`, `f00=-1.0` | `sldmodu 0x4c3e10f2` passes enum minus one to the same constructor; confirmed static |
 | Deferred indices | Keep endpoint and handle targets as object references, resolve owning-array indices when the field is read for storage | Native point/line lookup and framing addresses in the polygon ledger; derived implementation |
 | Transform | Basis rows, authored translation, scale one, no perspective extension | `sldmgu 0x31e26880`, `0x31f09820`, `0x31e03ce0`; confirmed static |
@@ -187,7 +188,7 @@ Runtime path coverage and target acceptance remain separate evidence
 | Derived-profile predicate | `moProfileFeature_c::isDerived` at `0x4c0de380` requires nonnull profile-data `+0x110` before testing a derived reference | False from the constructed null pointer | Closed static dependency |
 | Constrained-status getter and setter | `0x4c53d2c0` reads sketch `+0x12c`, except for the session's special mode returning seven; setter `0x4b2a77c0` writes the supplied status to that field | Constructor state is known, but a complete post-solver status rule remains unproved | Unresolved post-update state |
 | Separate saved status | `getConstrainedSavedStatus` at `0x4b2a74f0` reads sketch `+0x128`; serializer `0x4c5916f0` emits `f12c` followed by `f128`; `saveSketch` at `0x4c5a6170` delegates to that serializer | The store path does not copy the solver aggregate into `f128`; constructor one is retained separately rather than treating the two statuses as aliases | Closed field distinction; other lifecycle writes remain separate |
-| Entity constraint state | `0x4c502b70` queries solver virtual `+0x218` for each point and line, then passes the result to `0x4c5077f0`; `setConstraintStatus` at `0x4c5d5370` writes entity `+0x34` | The solver result is a required dependency; constructor `f34=1` is not independent proof of its final value; this setter does not write `f38` | Unresolved solver dependency |
+| Entity constraint state | `0x4c502b70` queries solver virtual `+0x218` for each point and line, then passes the result to `0x4c5077f0`; `setConstraintStatus` at `0x4c5d5370` writes entity `+0x34` | The solver result is a required dependency; constructor `f34=1` is not independent proof of its final value; adjacent `f38` is line type, not another solver status | Unresolved solver dependency |
 | Entity colour | `setConstraintColor` at `0x4c5d5260` uses mapping `0x4c3e15b0`, then setter `0x4c3e29e0` writes entity `+0x30` | With the current `f54` mask, status one maps to colour five and status two maps to four; current `f30=5` matches status one, but does not prove the solver chose it | Closed mapping; final input unresolved |
 | Dependency reset | `clearDependancyFlags` at `0x4c538d10` calls `0x4c5d3100`; for local handles it calls `0x4c3e2bd0(entity,0)` and `0x4c3e24a0(entity,0)` | The first masks `f56` with `0x3fff`; the second clears bit `0x8000`; constructor `f56=0` is unchanged | Closed static mutation for local geometry |
 | Point cleanup | `cleanOutSketchPoints` at `0x4c4a6e30` considers removal only when a permanent point is invisible, local and has degree zero | Polygon vertices have degree two; origin type one is visible because point vtable `0x4cdd2d48`, slot `+0x190`, targets `0x4c491cb0` and tests mask `0x138a02` | Closed preservation predicate |
@@ -202,6 +203,26 @@ The final aggregator at `0x4c502b70` prioritizes invalid geometry, status four a
 The `0x4c507b30` caller stores that aggregate in sketch `f12c`, except when its current state is the special mode seven
 
 Both polygon and origin graphs retain `_requires_update=True` until the remaining state rules are established
+
+## Native boundary training observation
+
+The oracle owner supplied capture `ladder-L1-retained.json`, SHA-256 `cda33fba8a5c340f08f31ff96ff0faeea7f69d23ec1fce551baaff03ce06a1d0`
+Its authority is native API boundary observation, with `instruction_taint=false` and no absolute logical stream offsets
+It records 2,693 events, zero dropped events, zero script errors and successful detach
+The instrumented training control opened and rebuilt with one body and no reported errors or warnings
+This control result is not acceptance of a generated file
+
+The two sketch serializer calls observe constructor state on entry and loaded saved state on leave
+Those transitions are loader observations, not evidence that sketch update computed those saved values
+After loading, nine calls to status mapper `0x4c5077f0` observe one raw solver status one and eight raw statuses eleven
+The control contains two authored sketch dimensions, so these observations do not establish the free-polygon solver result for arbitrary N
+They do not supply constructor defaults or a captured modification stamp to the builder
+
+The first `0x4c5195d0` hook read its solver-wrapper argument as a sketch and therefore produced invalid sketch-field snapshots
+The actual sketch is the pointer at solver-wrapper `+8`, as the static decompile establishes
+Those snapshots are excluded from status and stamp conclusions
+The return value is a solver-success result, not the modification-stamp delta
+Whole-update entry and leave observations at `0x4c549ab0`, with the corrected inner signature, remain needed across unrelated free-polygon inputs
 
 ## Contracts
 
@@ -223,6 +244,7 @@ No local tests, imports, reproductions, or oracle calls were run
 The edited Python sources passed static AST syntax parsing without importing or executing them
 Process-boundary regression coverage executes remotely with the assembled builder
 `PolygonProcess.py` now constructs fresh profiles and dimensional graphs in an isolated subprocess, writes their binary object archives into a container, decodes them, verifies byte identity and reference identity, then edits and re-encodes the live forward parameter
+Its generated startup, input, construction, codec, reference, edit and report stages reside in separate focused modules; `PolygonProgram.py` composes their exact declarations
 The sketch component explicitly seeds its external profile owner in the archive map; it is not a complete part or a vendor-loadability check
 Its cases cover variable N, a 10,000-line ring, crossings, touches, vertical overlap, adjacent backtracking and valid collinear edges
 An additional 65,537-line case crosses the native handle threshold `0x777f` and endpoint threshold `0xffff`
@@ -232,11 +254,19 @@ This new width-boundary case has not been executed locally and requires remote C
 It checks actual decoded dimension IDs and leaves parameter node IDs at their constructor value `-1`
 The shared `BuildAudit` hook starts before builder/schema imports, permits actual import-loader code access and the bounded source-package/schema discovery needed during startup, then rejects runtime file access and child-process launches during construction
 
-At revision `77710bc3bc29bb4eca4a979177c587d56b3362ea`, [native CI job 132712770357](https://github.com/TryUniCAD/Kit/actions/runs/43681452018/job/132712770357) passed all five `PolygonConstructTests.py` cases, including the 10,000-line ring, invalid geometry, editable depth and allocation assertions
-The same job passed `FreshPartTests.py` and `LockedPartTests.py`
-Its overall result was one failure, 137 passes and 158 skips in 39.63 seconds because the separate model process attempted a lazy UTF-16 codec import after its audit guard began construction
-The origin-node lifecycle mask was included in that snapshot; the model codec repair is a shared dependency, and later-head CI remains pending
+For PR head `4cb6785739079d6ebe1b745a21a8e63e49862b2d`, [native CI job 132714706575](https://github.com/TryUniCAD/Kit/actions/runs/43682093985/job/132714706575) passed all five existing `PolygonConstructTests.py` cases, including the 10,000-line ring, invalid geometry, editable depth and allocation assertions
+The same job passed `FreshPartTests.py`, `LockedPartTests.py` and `ModelBuilderProcessTests.py`
+It reported 138 passes and 158 skips in 40.09 seconds, after the shared model codec initialization repair
+Its tested PR merge snapshot was `0d3d057f4eab945d708e12dbda3cfb0fadb9485d`
+The origin-node lifecycle mask was included; the later 65,537-line case and focused-module layout still require remote execution
 These process results establish container/archive construction and decoding, not native application acceptance, rebuild correctness or body measurements
+
+The first complete generated H3 candidate from parent revision `8e44d0eb5` was rejected during clean native opening
+Candidate SHA-256 is `0c66da89db4d8f8386f0e597e14f69a5dfd6b6c0d4e82ffdd88cf7277726121c`
+The oracle owner's `inspect-first.json`, SHA-256 `acf27f6dfdbefec4795bee97b93f0295d12a72d999fec4bcd2ab89d95cb15ddc`, records RPC failure `-2147023170` between two fresh, passing L1 training controls
+Both controls opened and rebuilt with no reported errors or warnings and one body
+This establishes a candidate failure, not its cause; the report does not isolate a profile, dimension, model or container defect
+Native fault-boundary recovery remains required before any generated-output acceptance claim
 It does not exempt arbitrary reads by filename suffix
 The sketch-info component test selects `ctx874=1`, so its external profile-owner reference is actually present in the encoded grammar and its identity assertion remains meaningful
 This coverage has only been syntax-checked locally and is pending its remote execution
