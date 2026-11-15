@@ -13,11 +13,8 @@ import adsk.fusion
 
 app = common.app
 here = Path(__file__).resolve().parent
-source = Path(
-    sys.argv[1]
-    if len(sys.argv) > 1
-    else str(here.parents[4] / "re/Fusion/Study/bodymodes-405fbd002680/mirror_xy.f3d")
-)
+plan = json.loads((here / "Out" / "Designs" / "BrepPlan.json").read_text())
+source = Path(plan["source"])
 target = here / "Out" / "Designs" / ("Brep" + source.stem + ".json")
 report = {"fusion_version": app.version, "source": source.name, "stage": "starting"}
 owned = []

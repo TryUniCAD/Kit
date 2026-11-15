@@ -86,13 +86,21 @@ reads; they are not parametric history.
 Kit reads the BRep journal of a Fusion-saved design and counts its topology entities. Fusion reports
 the same totals for the same file:
 
-| Source | Bodies | Faces | Edges | Vertices |
-| ------ | ------ | ----- | ----- | -------- |
-| Kit journal, `mirror_xy.f3d` | 3 `BodyNode` | 12 `FaceNode` | 24 `EdgeNode` | 16 `VertexNode` |
-| Fusion, same file | 2 bodies | 6 + 6 | 12 + 12 | 8 + 8 |
+| File | Kit journal | Fusion | Match |
+| ---- | ----------- | ------ | ----- |
+| `mirror_xy.f3d` | 12 face, 24 edge, 16 vertex | 2 bodies of 6, 12, 8 | yes |
+| `analytic.f3d` | 4 face, 2 edge, 2 vertex | sphere 1/0/0, torus 1/0/0, cone 2/2/2 | yes |
+| `shell_both.f3d` | 17 face, 36 edge, 24 vertex | 1 body of 11, 24, 16 | **no** |
 
-The extra `BodyNode` is the assembly root. Each body is a 24.0 cm³ box, and the journal header reports
-`FileVersion` 23200, `RootCount` 3, `Scale` 50.0 and tolerances of 1e-6 and 1e-10.
+The first two agree exactly. The third does not, and the reason is in the journal: `shell_both` carries
+3 `DeltaState` records and 266 entities for an `ActiveCount` of 195, so a count over every entity
+includes the pre-shell topology as well as the shelled result.
+
+The journal is a history, not a snapshot. A topology count has to be resolved through the state links
+before it can be compared with Fusion, and this record does not do that yet.
+
+The journal header reports `FileVersion` 23200, `RootCount` 3, `Scale` 50.0 and tolerances of 1e-6 and
+1e-10.
 
 ## C5 to C7. Loadable, usable, and measured
 
