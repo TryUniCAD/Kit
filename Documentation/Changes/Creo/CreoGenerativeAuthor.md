@@ -90,9 +90,23 @@ So both checksum columns are parsed into fields and are **not computed or valida
 `coreutils_sh.dll` at table-read time. That makes the second checksum unlikely to be the reason
 Creo rejects the authored file.
 
-`FUN_1800fbda0` then reads a binary tag section (`DAT_180205de0`) and decrypts it. The rejection
-"not a valid PART file" is therefore a model-layer check after the container parses, not a
-container-field check, and the authored file has no such model data.
+`FUN_1800fbda0` then reads a binary tag section. The Ghidra data at `DAT_180205de0` is the UTF-16
+string `AppendTOC`, so that path is an optional appended table, not the model payload. The
+rejection "not a valid PART file" is a model-layer check after the container parses.
+
+## Creo harness control
+
+The same launch path was run on the retained vendor empty control (research oracle, not shipped):
+
+```text
+!15-Nov-26 00:54:44  Start C:\Mac\Home\Documents\creo-authored\control.prt
+!LIGHT_FIX_MODEL_RMODE is 51
+!15-Nov-26 00:54:45  End   C:\Mac\Home\Documents\creo-authored\control.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid
+```
+
+No "not a valid PART file" line. So the harness and licensing work, and the rejection is specific to
+the authored content, not to the headless launch.
 
 ## Limits
 
