@@ -737,6 +737,8 @@ dev/tests/functional
 /cache/*
 /bin/*
 /cli/*
+!/Cli/KitCli/
+!/Cli/KitCli/*.py
 /components/com_banners/*
 /components/com_ajax/*
 /components/com_config/*
@@ -1142,3 +1144,5 @@ hs_err_pid*
 !.hoplite/settings.json
 
 /re/Fusion/External/cadmpeg/
+*.[dD][lL][lL]
+*.[dD][mM][gG]

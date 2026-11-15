@@ -13,6 +13,7 @@ license-files = ["LICENSE", "src/convert/adapters/solidworks/container/OpenSwxLi
 authors = [
     { name = "Odin Glynn-Martin" },
     { name = "Stephen Harcourt" },
+    { name = "James Harcourt" },
 ]
 keywords = [
     "cad",
@@ -39,11 +40,14 @@ dev = [
     "typing-extensions>=4.12",
 ]
 
+[project.scripts]
+kit = "KitCli.MainEntry:MainEntry"
+
 [project.entry-points."kit"]
 convert = "convert:convert"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/interchange", "src/convert"]
+packages = ["src/interchange", "src/convert", "Cli/KitCli"]
 
 [tool.hatch.build.targets.sdist]
 include = [
@@ -51,6 +55,7 @@ include = [
     "/README.md",
     "/pyproject.toml",
     "/src",
+    "/Cli",
     "/uv.lock",
 ]
 
@@ -91,7 +96,7 @@ dev = [
 [tool.ruff]
 target-version = "py311"
 line-length = 120
-src = ["src", "tests", "tools"]
+src = ["src", "Cli", "tests", "tools"]
 exclude = [".venv", "examples", "modules", "re", ".github/scripts"]
 force-exclude = true
 
@@ -119,15 +124,16 @@ enable_error_code = [
     "unused-awaitable",
 ]
 explicit_package_bases = true
-files = ["src", "tests", "tools"]
+files = ["src", "Cli", "tests", "tools"]
 exclude = '^(\.venv|examples|modules|re)/'
-mypy_path = ["src", "typings", ".", "re/tooling/ghidra/Generation"]
+mypy_path = ["src", "Cli", "typings", ".", "re/tooling/ghidra/Generation"]
 warn_unused_configs = true
 show_error_codes = true
 pretty = true
 
 [tool.pyright]
-include = ["src", "tests", "tools"]
+extraPaths = ["src", "Cli"]
+include = ["src", "Cli", "tests", "tools"]
 exclude = [".venv", "examples", "modules", "re", "tests/oracle"]
 ignore = ["re"]
 typeCheckingMode = "strict"
@@ -162,6 +168,8 @@ reportUnusedVariable = "error"
 exclude-newer = "7 days"
 environments = ["python_full_version >= '3.11.5'"]
 override-dependencies = [
+    "asteval>=1.0.9,<2",
+    "lxml>=6.1.0,<7",
     "click>=8.3.3,<8.5",
     "filelock==4.2.4",
     "mcp==1.30.0",
