@@ -126,6 +126,42 @@ def UnformatDouble(text: str) -> float:
     return struct.unpack(">d", raw[:8].ljust(8, b"\x00"))[0]
 
 
+def ReadCompactAt(data: bytes, position: int) -> tuple[int | None, int]:
+    if position >= len(data):
+        return None, position
+    first = data[position]
+    if first <= 0x7F:
+        return first, position + 1
+    if first <= 0xBF:
+        if position + 1 >= len(data):
+            return None, position
+        return ((first & 0x3F) << 8) | data[position + 1], position + 2
+    if first <= 0xDF:
+        if position + 2 >= len(data):
+            return None, position
+        return (
+            ((first & 0x1F) << 16) | (data[position + 1] << 8) | data[position + 2],
+            position + 3,
+        )
+    return None, position
+
+
+def PeekCount(data: bytes, position: int) -> int | None:
+    if position >= len(data):
+        return None
+    token = data[position]
+    if token == 0xF8:
+        count, _ = ReadCompactAt(data, position + 1)
+        return count
+    if token == 0xF9:
+        rows, position = ReadCompactAt(data, position + 1)
+        cols, _ = ReadCompactAt(data, position)
+        if rows is None or cols is None:
+            return None
+        return rows * cols
+    return None
+
+
 def ScanFields(data: bytes) -> list["FieldDef"]:
     fields: list[FieldDef] = []
     position = 0
@@ -140,7 +176,9 @@ def ScanFields(data: bytes) -> list["FieldDef"]:
                     and all(32 <= value < 127 for value in name)
                     and all(value in KNameChars for value in name)
                 ):
-                    fields.append(FieldDef(name.decode("latin-1"), type_id))
+                    field_def = FieldDef(name.decode("latin-1"), type_id)
+                    field_def.count = PeekCount(data, end + 1)
+                    fields.append(field_def)
                     position = end + 1
                     continue
         position += 1

@@ -190,7 +190,10 @@ The confirmed grammar is:
    or three times. `e1` also terminates a numeric array instead of being read as an
    integer. Cadmpeg records the same repeat meaning (`e5` emits two copies of the
    preceding value) and the same `e1` null token.
-8. Array-element field names such as `ref_geom[0]` and `ref_geom[1]` are distinct
+8. Array counts must be pre-scanned from every `e0 <type> <name> 00` definition site,
+   not learned lazily. The first use of a field can precede the definition that carries
+   its `f8`/`f9` header, so a lazily learned count consumes the wrong number of values.
+9. Array-element field names such as `ref_geom[0]` and `ref_geom[1]` are distinct
    entries in the global table, exactly like scalar field names. Dropping them shifts
    every later index, so the scanner accepts `[]` in a name. `VisibGeom` defines 74
    such fields; a filter without brackets recovers only 68 and desynchronises the
@@ -213,7 +216,7 @@ The parser wraps the field index to the enclosing structure's start when it runs
 the field table. That is what lets the recursive `layer_list` decode: after `back_layer_id` the
 next field is the nested `layer_list` again.
 
-The ladder's `AllFeatur` now decodes end-to-end as well: 1015 nodes. It exposes two further feature
+The ladder's `AllFeatur` now decodes end-to-end as well: 987 nodes. It exposes two further feature
 rows beyond the five datums: `id 75` (type 923, datum plane) and `id 74` (type 917, the additive
 section-sweep definition that cadmpeg calls the extrude class). The earlier stop at `0x130a` was a
 false blocker: a stored array count must not override a fresh `f8`/`f9` header at the same field.
@@ -223,13 +226,13 @@ Section coverage after the fixes:
 
 | Section | Empty control | Ladder |
 | --- | --- | --- |
-| `AllFeatur` | complete, 330 nodes | complete, 1015 nodes |
-| `FeatDefsDtm` | complete, 291 nodes | complete, 429 nodes |
+| `AllFeatur` | complete, 334 nodes | complete, 987 nodes |
+| `FeatDefsDtm` | complete, 292 nodes | complete, 432 nodes |
 | `NovisGeom` | complete, 3 nodes | complete, 39 nodes |
-| `BasicData` | complete, 797 nodes | complete, 811 nodes |
+| `BasicData` | complete, 838 nodes | complete, 915 nodes |
 | `SolidPrimdata` | complete, 40 nodes | complete, 143 nodes |
 | `FeatDefs` | section absent | stops at `0xd91`, 753 nodes |
-| `VisibGeom` | complete, 2 nodes | stops at `0x2f7`, 112 nodes |
+| `VisibGeom` | complete, 2 nodes | stops at `0x2f7`, 117 nodes |
 
 `FeatDefs` and `VisibGeom` stop on `0xfc`, which lies inside a `46 <tail7>` world double. The field
 index is therefore one or more fields out of step by that point, not hitting an unknown token. That

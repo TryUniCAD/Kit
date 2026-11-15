@@ -50,19 +50,21 @@ recursive `layer_list` decode.
 
 The rule that unblocked the ladder was that a stored array count must not override a fresh
 `f8`/`f9` header at the same field. The ladder's later rows then expose `id 75` (923) and `id 74`
-(917; cadmpeg's additive section-sweep / extrude class).
+(917; cadmpeg's additive section-sweep / extrude class). Array counts are also pre-scanned from
+every definition site, because the first use of a field can precede the definition that carries
+its `f8`/`f9` header.
 
 End-to-end section coverage:
 
 | Section | Empty control | Ladder |
 | --- | --- | --- |
-| `AllFeatur` | 330 nodes, complete | 1015 nodes, complete |
-| `FeatDefsDtm` | 291 nodes, complete | 429 nodes, complete |
+| `AllFeatur` | 334 nodes, complete | 987 nodes, complete |
+| `FeatDefsDtm` | 292 nodes, complete | 432 nodes, complete |
 | `NovisGeom` | 3 nodes, complete | 39 nodes, complete |
-| `BasicData` | 797 nodes, complete | 811 nodes, complete |
+| `BasicData` | 838 nodes, complete | 915 nodes, complete |
 | `SolidPrimdata` | 40 nodes, complete | 143 nodes, complete |
-| `FeatDefs` | section absent | 753 nodes, stops at `0xd91` |
-| `VisibGeom` | 2 nodes, complete | 112 nodes, stops at `0x2f7` |
+| `FeatDefs` | section absent | 830 nodes, stops at `0x1158` |
+| `VisibGeom` | 2 nodes, complete | 117 nodes, stops at `0x2f7` |
 
 `FeatDefsDtm` (`Sld_FeatDefsDtm`) also decodes the datum placement records. The first record is the
 `FRONT` datum with `id = 7`, `type = 515`, `offset = 1.0`, `geometry2_id = 8`, and
@@ -91,12 +93,12 @@ surface and `feat_id = 74` is the owning feature. Its `envlp` decodes to
 `[184.50782059963194, 86.06680966899467, -154.4303300690026, -115.65227549271083]` and its
 `outline` to
 `[184.50782059963194, 1.0, 115.65227549271083, -154.4303300690026, 1.0, -86.06680966899467]`.
-The parser now reaches `0x2f7` and 112 nodes through the plane and curve prototypes. The
+The parser now reaches `0x2f7` and 117 nodes through the plane and curve prototypes. The
 `local_sys` frame is a 4x3 matrix; the `0x10` byte is the one-byte 1.0 constant in that lane.
 
 ## Limits
 
-- `FeatDefs` stops at `0xd91` and `VisibGeom` at `0x2f7`. In both, the parser lands on an `0xfc`
+- `FeatDefs` stops at `0x1158` and `VisibGeom` at `0x2f7`. In both, the parser lands on an `0xfc`
   byte inside a `46 <tail7>` world double, which means the field index is one or more fields out of
   step at that record, not that the token is unknown.
 - `AllFeatur`, `FeatDefsDtm`, `NovisGeom`, `BasicData`, and `SolidPrimdata` decode end-to-end on
