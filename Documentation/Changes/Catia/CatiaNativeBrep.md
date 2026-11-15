@@ -324,10 +324,12 @@ result = CatiaAdapter().write(
   cone writer round trips now produce nine edges and one ten-coedge seam loop, and both still
   validate with zero errors.
 - The writer does not emit feature history, sketches, dimensions, or constraints.
-- A pooled plane whose trim carries no vector falls back to `BoundsNormal`, which can only return an
-  axis-aligned normal (`+X`, `+Y`, or `+Z`). A tilted plane's bounding box carries no normal
-  information, so the pooled plane deviations of `36` to `96` cannot be reduced from the record
-  alone: it needs the decoded map to know which faces are planes.
+- The `BoundsNormal` fallback never runs on this corpus: of `1036` plane faces across 27 parts, none
+  lacks a stored trim vector, so every plane normal comes from the file. The residual pooled-plane
+  error is placement, not orientation: only `1/75`, `15/295`, `0/48`, and `1/6` of the bad plane faces
+  on `4784`, `4876`, `Pedal_Body`, and `Reservoir` have a constant signed distance to their assigned
+  plane (a pure offset), and the rest have a varying distance, so their vertices fit no plane at all.
+  Changing the normal or the offset cannot reduce those.
 - Writer output is not byte-idempotent, and the difference is explained: a neutral model may declare
   more edges than the decoded form keeps (the box fixture declares 24, the reader returns 12), and
   `BuildSurf` writes one 11-byte curve record per edge, so a second write is 132 bytes smaller on the

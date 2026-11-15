@@ -185,14 +185,28 @@ count — the roster row is `54 <u32> 00 00 00`, so the byte appears inside unre
 
 ## A pooled plane's orientation cannot be recovered from its record alone
 
-`MakePlane` uses the stored trim vector when the face carries one. On a pooled part the inferred map
-can pair a cylinder-kind trim with a plane record, so `VectorValue` is `None` and the fallback
-`BoundsNormal` runs. That fallback returns `+X`, `+Y`, or `-Z` by picking the axis of the smallest
-bounding-box half-extent, so it can only produce an axis-aligned normal. A tilted plane's bounding box
-carries no normal information at all, which is why the pooled plane deviations reach `36` to `96` on
-parts whose exact-map peers sit at `0.0000`. The fix is not in the record: it needs the map to know
-which faces really are planes. Measured, not assumed: `BoundsNormal` output is one of six axis
-vectors for every plane record in the corpus.
+An earlier version of this note claimed the `BoundsNormal` fallback runs on pooled parts and produces
+axis-aligned normals. That is wrong, and the measurement is direct: across all 27 corpus parts there
+are `1036` plane faces and **none** of them lacks a stored trim vector, so `MakePlane` always takes the
+`VectorValue` branch and `BoundsNormal` never runs.
+
+So the plane normals used to score the pooled parts are the face's own stored normals. The residual
+error is placement, not orientation. Splitting the bad plane faces by their signed distances
+`(vertex - record centre) · normal`:
+
+```
+part          bad plane faces   constant signed distance   varying
+4784                75                    1                  74
+4876               295                   15                 280
+Pedal_Body          48                    0                  48
+Reservoir            6                    1                   5
+```
+
+a constant signed distance means the face is planar and parallel to the wrong record — a pure offset,
+which the map could still fix. The overwhelming majority have a *varying* distance, which means the
+face's placed vertices are not on the assigned plane at all. That is the handle-placement error, and
+it is circular: placement needs the surfaces, so a wrong surface produces vertices that fit no plane.
+Changing the plane normal or the plane offset therefore cannot reduce these deviations.
 
 ## A normal part save writes no linked-object list at all
 
