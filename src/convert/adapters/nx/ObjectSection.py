@@ -753,3 +753,39 @@ def RewriteNesting(SectionBody: bytes) -> bytes:
         if len(Canonical) == Finish - Begin:
             Section[Begin:Finish] = Canonical
     return bytes(Section)
+
+
+# the small mark record carries one marker byte and a free terminator
+KMarkFrame = bytes.fromhex("0202410038 0103 02".replace(" ", ""))
+KMarkValue = 0x82
+
+
+def MarkRecord(Record: bytes) -> bytes:
+    if len(Record) != 14 or Record[:8] != KMarkFrame:
+        raise ValueError("NX mark record has no known frame")
+    Payload = bytearray(Record[8:13])
+    if Payload.count(0x81) != 1:
+        raise ValueError("NX mark record does not carry one marker")
+    Payload[Payload.index(0x81)] = KMarkValue
+    return KMarkFrame + bytes(Payload) + b"\x01"
+
+
+# the marker and terminator are unvalidated so the writer normalises both
+def RewriteMarks(SectionBody: bytes) -> bytes:
+    Count = ObjectCount(SectionBody)
+    TableAt = TableStart(SectionBody, Count)
+    Starts = [
+        int(Struct.unpack_from("<I", SectionBody, TableAt + 4 * Index)[0])
+        for Index in range(Count)
+    ]
+    Stops = Starts[1:] + [len(SectionBody) - 12]
+    Section = bytearray(SectionBody)
+    for Begin, Finish in zip(Starts, Stops):
+        Record = bytes(SectionBody[Begin:Finish])
+        try:
+            Written = MarkRecord(Record)
+        except ValueError:
+            continue
+        if len(Written) == Finish - Begin:
+            Section[Begin:Finish] = Written
+    return bytes(Section)
