@@ -69,3 +69,14 @@ Tracing gotchas now live in a focused `Tracing/` subdirectory. Remote path
 policy identified 33 direct files in the SOLIDWORKS gotchas directory, above
 the unchanged limit of 32. Four tracing entries moved together and their links
 were updated; the directory limit and CI gate remain enabled.
+
+The first generated-file fault was narrowed through actual C++ exception
+observation and an instruction-site probe at the archive schema comparison.
+The probe identified `uoJournal_c` requiring schema zero. Static registered-class
+metadata corroborated this and found the same requirement for
+`su_CStringArray`; both fresh constructors were corrected. The
+[actual-use ledger](../../../re/solidworks/records/Tupni2026.md#first-recovered-rule-registered-class-schemas)
+records capture and binary hashes, exact addresses, the rejected input and
+evidence limits. This is an observed, binary-backed format correction, not full
+instruction taint or a measured speedup. Clean acceptance of corrected generated
+files remains pending.

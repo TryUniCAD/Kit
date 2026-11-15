@@ -40,3 +40,12 @@ results are reported in the PR. The
 selected all three new process checks and finished with 126 passed and 158
 unrelated unavailable-corpus skips. Later heads require fresh checks.
 Merge-queue acceptance and held-out vendor acceptance are separate obligations.
+
+## Class schema correction
+
+The native class audit found that `su_CStringArray` requires schema zero,
+although `suObList` and the concrete metadata `mo*` classes use wire schema one.
+Header user/company arrays now emit the binary-proven zero schema explicitly.
+The [construction record](../../../re/solidworks/records/MetadataConstruction2026.md)
+records exact getter/descriptor addresses and the image digest. Native
+acceptance of the combined corrected part remains pending.

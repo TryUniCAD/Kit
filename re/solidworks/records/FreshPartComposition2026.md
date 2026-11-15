@@ -2,6 +2,17 @@
 
 Status: research candidate, with no generated-output native acceptance yet.
 
+The base composition now includes twelve authored system folders and the
+annotation cabinet in addition to the three principal planes. Presentation
+requires an ordered `folder_names` mapping and `cabinet_name`; provenance supplies
+their creation time. The serialized root environment pointer aliases the same
+constructed environment feature. All nodes share one persistent-id allocator.
+System-node initialization clears their native pending flags while the model's
+pending state and unresolved user-feature/sketch lifecycle remain separate.
+The [model record](ModelConstruction2026.md) binds this extension to native
+folder callbacks and serializer fields. The complete candidate is still
+unaccepted until fresh vendor measurements pass.
+
 `builders.Part.construct_part` joins constructor-backed graphs without reading
 source CAD. It supports one ordinary closed polygon on a principal plane and a
 single one-direction blind boss with four live length/angle parameter chains.

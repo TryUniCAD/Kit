@@ -2,7 +2,10 @@ from __future__ import annotations
 
 from tests.convert.solidworks.research.ArchiveProcess import KRepoRoot, RunArchive
 
+# native assembly controls anchor source document compatibility without supplying writer defaults
 KCorpus = KRepoRoot / "re" / "solidworks" / "v2026" / "corpus" / "assemblies"
+
+# assembly loader dependencies must round trip together to expose cross stream context errors
 KStreams = (
     "Contents/CMgr",
     "Contents/Config-0",
@@ -14,6 +17,7 @@ KStreams = (
 )
 
 
+# assembly source preservation requires exact object round trips across every selected critical stream
 def TestAssembly() -> None:
     Outcome = RunArchive(str(KCorpus / "*.SLDASM"), ",".join(KStreams))
     assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr

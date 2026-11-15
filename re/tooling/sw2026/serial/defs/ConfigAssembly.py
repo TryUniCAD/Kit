@@ -4,7 +4,7 @@ from Core import ArchiveError
 from Dsl import base, cstr, emb, f64, i32, obj, u16, u32, u8, ver
 from Schema import If, Op, Scope, run_load, run_store
 from defs.ConfigPart import Cond, NCond, Norm, Present, Section
-from defs.ResolvedCore import CONCEPT_LW, FEATURE_XML, concept_vt, vt, xo
+from defs.ResolvedCore import CONCEPT_LW, FEATURE_XML, concept_vt, node_vt, vt, xo
 
 
 class Version2026(Op):
@@ -84,6 +84,21 @@ class WithCondition(Op):
             run_store(self.body, ar, scope, o)
         finally:
             ar.ctx["conditions"] = ar.ctx.get("conditions", 0) & ~self.mask
+
+
+class ReadContext(Op):
+    def __init__(self, key, body):
+        self.key, self.body = key, list(body)
+
+    def load(self, ar, scope, o):
+        ar.ctx[self.key] = 1
+        try:
+            run_load(self.body, ar, scope, o)
+        finally:
+            ar.ctx[self.key] = 0
+
+    def store(self, ar, scope, o):
+        run_store(self.body, ar, scope, o)
 
 
 def optional(kind, name, cls):
@@ -207,6 +222,31 @@ def define_references(reg):
         reg.define(cls, [base("moReference_c")])
 
 
+def define_history(reg):
+    for cls in ("moHistoryCompItemData_c", "moFavoriteCompItemData_c", "moSCCompItemData_c"):
+        node_vt(cls)
+    reg.define("moHistoryCompItemData_c", [
+        Version2026(), base("moNode_c"),
+        ReadContext("ctx8a0", [xo("f48", "moChainComponent_c")]),
+    ])
+    reg.define("moFavoriteCompItemData_c", [
+        Version2026(), base("moNode_c"), xo("f48", "moChainComponent_c"),
+    ])
+    reg.define("moSCCompItemData_c", [
+        Version2026(), base("moNode_c"),
+        xo("f48", "moCompXFormWrapper_c"), xo("f68", "moSmartComponentFeature_c"),
+        cstr("f58"), i32("f60"), xo("f50", "moCompXFormWrapper_c"),
+    ])
+
+
+def define_folders(reg):
+    concept_vt("moLiveSectionFolder_c")
+    reg.define("moLiveSectionFolder_c", [
+        Version2026(), base("moFolder_c"),
+        Norm("i32", "f378", lambda value, ar: int(value == 1)),
+    ])
+
+
 def define_mates(reg):
     for cls in ("moMateGroup_c", "moMateParent", "moMate", "moMateNGeoms_c", "moMate2Geoms_c", "moMateCoincident", "moMateParallel", "moMatePerpendicular", "moMateTangent", "moMateDim_c", "moMateDistanceDim_c"):
         concept_vt(cls)
@@ -291,5 +331,7 @@ def define(reg):
     define_root(reg)
     define_config(reg)
     define_references(reg)
+    define_history(reg)
+    define_folders(reg)
     define_mates(reg)
     define_cache_nodes(reg)

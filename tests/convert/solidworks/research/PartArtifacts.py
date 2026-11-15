@@ -8,6 +8,7 @@ from pathlib import Path as FilePath
 from typing import cast as CastValue
 
 
+# remote artifacts preserve exact generated files for independent native application inspection
 def SavePartOutput(
     NameValue: str, Request: dict[str, object], Report: dict[str, object]
 ) -> None:

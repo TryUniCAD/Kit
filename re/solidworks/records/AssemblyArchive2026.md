@@ -1,6 +1,6 @@
 # SOLIDWORKS 2026 assembly archive grammar
 
-Target-application acceptance is unproven. This work extends the research source-document codec; it does not construct a fresh assembly or establish vendor loadability, rebuild correctness, or mate editability. The first remote byte-identity run passed 10 of 14 load-critical streams across two training assemblies; CMgr remains misaligned and prevents resolved-feature parsing.
+Target-application acceptance is unproven. This work extends the research source-document codec; it does not construct a fresh assembly or establish vendor loadability, rebuild correctness, or mate editability. The third remote byte-identity run passed 12 of 14 load-critical streams across two training assemblies. Both CMgr streams are exact; resolved features advance through component history to an unregistered live-section folder. Its native grammar is recovered below and awaits reproduction.
 
 ## Authority and inputs
 
@@ -157,13 +157,35 @@ The distance-mate path also has native evidence: `moMateDim_c` at `0x4b669510` c
 
 None of these cache values is accepted as a fresh neutral value. Parsed values remain source-document inputs; native recomputation and fresh construction require independent evidence.
 
+## Component history and favorites
+
+The second remote run reaches `moHistoryCompItemData_c` in both resolved-feature streams. Its node base is established by native helper calls and raw vtable operands, independently of the class name and error offset. The following three recovered item classes all dispatch lightweight slot `0x4b8` to node serializer `0x4c17adf0` and resolved slot `0x4c0` to fieldless `0x4b27e120`. Their XML slot `0x3e8` is also fieldless. They do not inherit concept child-list bytes.
+
+| Owner                      | Wire rule for version 19000                                                                                                                        | Native evidence                                                        |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `moHistoryCompItemData_c`  | Node base, then chain-component object `f48`; during reading only, archive context `+0x8a0` is set to 1 for that object and cleared to 0 afterward | Serializer `0x4b645080`; base helper `0x4b645260`; vtable `0x4ce42360` |
+| `moFavoriteCompItemData_c` | Node base, then chain-component object `f48`                                                                                                       | Serializer `0x4b63d850`; base helper `0x4b63db50`; vtable `0x4ce34820` |
+| `moSCCompItemData_c`       | Node base, transform-wrapper object `f48`, smart-component-feature object `f68`, CString `f58`, i32 `f60`, transform-wrapper object `f50`          | Serializer `0x4c633150`; base helper `0x4c633600`; vtable `0x4d1d4c58` |
+
+The history helper switches from old base handling to `moNode_c::Serialize` at version `0x17e6`; the favorite helper switches at `0x140e`, and the smart-component helper at `0xcea`. All are on the node path at 19000. Native history and favorite pointer operators `0x4c2127c0`/`0x4c2141a0` use `moChainComponent_c` as their static class constraint. Transform-wrapper operators `0x4c264d30`/`0x4c268930` establish the two smart-component wrapper slots. Object payloads remain typed registry records, and an unsupported nonnull smart-component feature still fails with its actual missing class.
+
+The read context is a native read-side state mutation, not a serialized flag or an authored value. All listed fields remain source-document input. This recovery supplies no inferred native defaults or fresh assembly history builder.
+
+## Live-section folder
+
+`moLiveSectionFolder_c` serializer `sldmodu.dll!0x4beb1cb0` calls folder base `0x4beb1bc0`, then writes an i32 whose value is exactly `(byte member +0x378 == 1)`. The reader, from version `0xf5a`, reads an i32 and assigns the member from `(wire value == 1)`. The source-document codec retains the original wire witness through the existing normalization operation. It does not widen the native byte member into a guessed additional field.
+
+Its primary vtable `0x4d065bb0` uses concept lightweight `0x4c17a7b0`, concept resolved `0x4c17b570`, and feature XML `0x4bb2a650`. The constructor path independently proves that the resolved list exists: getter `0x4bead2d0` returns runtime descriptor `0x4dae8f10`; its factory `0x4bead1b0` calls live-section constructor `0x4beae1d0`, then folder constructor `0x4beae110`, feature default constructor `0x4bb38710`, and concept default constructor `0x4bda5800`. The latter allocates a node list at `0x4bda584b`/`0x4bda5861` and assigns member `+0x60` at `0x4bda5869`. This class therefore retains the concept list handler. Its constructor's flag seed is not treated as an accepted fresh-document default.
+
+The related `moLiveSectionData_c` body grammar is not registered by this correction. Its serializer at `0x4bfb7b10` includes native body archive operations; an encountered nonnull record remains an explicit unknown rather than an opaque body span.
+
 ## Tupni application and verification
 
 The [Tupni playbook](../../Playbook/Tupni.md) and [trace authority finding](../../../Documentation/Gotchas/Conversion/Solidworks/Tracing/TupniTraceAuthority.md) apply. This pass used static native dataflow to bind field operands to widths, loop bodies to counted record sequences, and call/vtable signatures to record ownership. It did not collect execution traces, taint a native input, or infer constants from fixture invariance.
 
 The new process-boundary test invokes the existing archive command in a subprocess, covering CMgr, Config-0, ModelHeader, ResolvedFeatures, Definition, Biography, and History across the two fixtures. It requires `14/14 streams round-trip with no tail across 2 files`. No fixture content is loaded by production code or used to generate a different model.
 
-Local checks are restricted to AST parsing and static formatting/lint. No local serializer invocation, imports, tests, fixture parsing, or CAD automation were executed. Remote CI result and exact reviewed head will be recorded after execution.
+Local checks are restricted to AST parsing and static formatting/lint. No local serializer invocation, imports, tests, fixture parsing, or CAD automation were executed. The exact remote results below remain distinct from target-application acceptance.
 
 Remaining work includes nonzero obsolete mate-manager records, additional mate/assembly subclasses, condition-specific callbacks, fresh assembly builders, held-out layouts, and controlled target-application acceptance. Missing grammar remains active work in the parent goal.
 
@@ -179,4 +201,16 @@ The next investigation checks the configuration constructor's child-list state a
 
 The initial hypothesis that a concept resolved vtable entry always emits a node list is **refuted**. Static constructor dataflow identifies the missing predicate: default `moConfiguration_c` constructor `0x4b8c4c00` calls base constructor `0x4bdbdd40`, which calls feature constructor `0x4bb38350` with child-list argument 0. That argument reaches concept constructor `0x4bda5770`. Instruction `0x4bda579f` clears member `+0x60`; the zero-argument branch at `0x4bda57bf` skips allocation. The concept resolved serializer reads this pointer at `0x4c17b5a1` and skips its store payload at `0x4c17b5b0` when null. Its read branch has the same pointer guard.
 
-The configuration wire handler therefore emits no resolved-list fields. Assembly model and mate feature lists retain their existing handlers. This correction follows constructor and reader/store predicates, not the numerical error offset. The first remote result establishes the preceding misalignment; the corrected current-head reproduction remains pending.
+The configuration wire handler therefore emits no resolved-list fields. Assembly model and mate feature lists retain their existing handlers. This correction follows constructor and reader/store predicates, not the numerical error offset. The second remote result below proves exact CMgr reproduction after this correction.
+
+## Second remote result
+
+[Native job 132725623286](https://github.com/TryUniCAD/Kit/actions/runs/43685701362/job/132725623286) ran PR 129 head `ab0676f2bec93bb852f32b43026fdcf9780e8fc8` using synthetic merge `451e928cf38efb46a94b5ea3f6bb27d8625d4b93` over parent `e34bd010e28429bc43e9e9d5a0e5fc5d42c73513`. The smoke step reported 1 failed, 138 passed, and 158 skipped in 46.08 seconds.
+
+Both CMgr streams now round-trip exactly with no tail: A0 contains 1,874 decoded bytes and map count 32; A1 contains 2,256 bytes and map count 40. The ten previously passing streams still pass. Both resolved-feature streams now fail at byte 635 with `no schema for moHistoryCompItemData_c`. Total: `12/14 streams round-trip with no tail across 2 files`. This isolates the next missing typed record after the constructor-based alignment repair. The component history/favorite/smart-component grammar above is the next static repair; its remote reproduction remains pending.
+
+## Third remote result
+
+[Native job 132730137666](https://github.com/TryUniCAD/Kit/actions/runs/43687231116/job/132730137666) ran PR 129 head `1f801dd939ae3237c67c0976191e049e2a6ecb6e` using synthetic merge `27c89a8eb47ae2e921a4371af3e993e9ace1edcc` over parent `fde9e219faff10fca615a5b50560e78c1730888d`. The smoke step reported 1 failed, 138 passed, and 158 skipped in 39.79 seconds.
+
+The twelve complete streams still round-trip exactly with no tail. Both resolved-feature parsers advance beyond the history item and now stop at unregistered `moLiveSectionFolder_c`, at byte 1,194 in A0 and byte 1,250 in A1. Total remains `12/14 streams round-trip with no tail across 2 files`. The new class boundary is evidence of parsing progress, not proof of a complete history-record round trip: storage was not reached after the later read failure. The folder correction above awaits the next remote reproduction.

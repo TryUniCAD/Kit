@@ -21,4 +21,4 @@ Require an explicit signed 32-bit presentation input while the semantic no-selec
 Do not substitute zero based on allocator behavior or saved controls
 The research builder fails on a missing input and makes no generated-document acceptance claim
 
-See [the constructor ledger](../../../../re/solidworks/records/ProfileConstruction2026.md) for the binary binding and remaining acceptance work
+See [the constructor ledger](../../../../../re/solidworks/records/ProfileConstruction2026.md) for the binary binding and remaining acceptance work

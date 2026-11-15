@@ -5,6 +5,7 @@ from pathlib import Path as FilePath
 from tests.convert.solidworks.research.ArchiveProcess import KCorpus, RunArchive
 
 
+# malformed input must produce structured diagnostics without a successful conversion claim
 def TestBadArchive(TmpPath: FilePath) -> None:
     SourcePath = KCorpus / "L1_boss.SLDPRT"
     BrokenPath = TmpPath / "Truncated.SLDPRT"
