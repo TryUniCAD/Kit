@@ -61,7 +61,7 @@ These are static operand and constructor observations, not constants inferred fr
 
 ## Configuration graph
 
-The serializer map identifies `0x4c221a20` as `moConfiguration_c`/`moDeformConfiguration_c`, despite misleading inferred `moMateGroup_c *` parameter types in one dump. Both concrete vtables use concept lightweight `0x4c17a7b0` and concept resolved `0x4c17b570`; they must not inherit the part configuration's empty resolved dispatch.
+The serializer map identifies `0x4c221a20` as `moConfiguration_c`/`moDeformConfiguration_c`, despite misleading inferred `moMateGroup_c *` parameter types in one dump. Both concrete vtables point to concept lightweight `0x4c17a7b0` and concept resolved `0x4c17b570`. The resolved method serializes a list only when the native member at `+0x60` is nonnull; the configuration constructor leaves that member null, so this dispatch emits no bytes for the configuration record.
 
 | Owner                            | Fields in wire order                                                        | Encoding and condition                                                                                               | Native evidence                                                                           |
 | -------------------------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
@@ -174,3 +174,9 @@ Remaining work includes nonzero obsolete mate-manager records, additional mate/a
 Both assembly Config-0 streams round-tripped exactly with no tail: A0 contained 24,828 decoded bytes and map count 103; A1 contained 25,338 bytes and map count 108. Both ModelHeader, Definition, Biography, and History streams also passed. Both CMgr streams failed with `bad class ref 32512 at 297`. Both resolved-feature checks stopped while deriving context from CMgr, before their own grammar was exercised. Total: `10/14 streams round-trip with no tail across 2 files`. This is an intermediate codec result, not target acceptance.
 
 The next investigation checks the configuration constructor's child-list state against the pointer guard in native concept resolved serialization, rather than inserting padding or fitting offsets.
+
+## Configuration child-list correction
+
+The initial hypothesis that a concept resolved vtable entry always emits a node list is **refuted**. Static constructor dataflow identifies the missing predicate: default `moConfiguration_c` constructor `0x4b8c4c00` calls base constructor `0x4bdbdd40`, which calls feature constructor `0x4bb38350` with child-list argument 0. That argument reaches concept constructor `0x4bda5770`. Instruction `0x4bda579f` clears member `+0x60`; the zero-argument branch at `0x4bda57bf` skips allocation. The concept resolved serializer reads this pointer at `0x4c17b5a1` and skips its store payload at `0x4c17b5b0` when null. Its read branch has the same pointer guard.
+
+The configuration wire handler therefore emits no resolved-list fields. Assembly model and mate feature lists retain their existing handlers. This correction follows constructor and reader/store predicates, not the numerical error offset. The first remote result establishes the preceding misalignment; the corrected current-head reproduction remains pending.

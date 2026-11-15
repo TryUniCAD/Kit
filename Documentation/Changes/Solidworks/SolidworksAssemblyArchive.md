@@ -8,4 +8,6 @@ The [field and evidence finding](../../../re/solidworks/records/AssemblyArchive2
 
 [Condition-bit mutations](../../Gotchas/Conversion/Solidworks/AssemblyConditionBits.md) records the native add/remove sequence used by a config-object list; it clears the named bit rather than restoring a previous mask.
 
+[Configuration child lists](../../Gotchas/Conversion/Solidworks/Archive/ConfigurationConceptChildList.md) records the constructor predicate behind a fieldless resolved dispatch. The first remote run passed 10 of 14 streams; both CMgr failures blocked their resolved-feature context reads. The predicate correction awaits current-head CI.
+
 This is a source-document research codec. It supplies no fresh assembly builder, no donor defaults, and no target-application acceptance claim. It rejects unsupported versions, unregistered classes, and identified unknown branches. Remote byte-identity verification is pending; only AST parsing and formatting checks were performed locally. Queue acceptance and vendor load/rebuild/mate-edit measurements remain unproven.
