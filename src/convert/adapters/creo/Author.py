@@ -1,0 +1,182 @@
+from __future__ import annotations
+
+from struct import pack as PackValue
+
+KProductLine = (
+    b"#Creo  TM  Version P-60-34  (c) 2019 by PTC Inc.  All Rights Reserved. 6.0.3.0\n"
+)
+KTocVersion = "1934"
+KTocKind = "9"
+KTocWidth = 81
+
+
+def IntValue(Value: int) -> bytes:
+    if 0 <= Value <= 0x7F:
+        return bytes((Value,))
+    if 0 <= Value <= 0x3FFF:
+        return bytes((0x80 | (Value >> 8), Value & 0xFF))
+    if 0 <= Value <= 0x1FFFFF:
+        return bytes((0xC0 | (Value >> 16), (Value >> 8) & 0xFF, Value & 0xFF))
+    return b"\xE8" + Value.to_bytes(3, "big")
+
+
+def DoubleValue(Value: float) -> bytes:
+    RawValue = PackValue(">d", Value)
+    if RawValue[0] == 0x40 and RawValue[7] == 0x00:
+        return b"\x46" + RawValue[1:8]
+    if RawValue[0] == 0xC0 and RawValue[7] == 0x00:
+        return b"\x2D" + RawValue[1:8]
+    return b"\x52" + RawValue
+
+
+def NameValue(NameText: str) -> bytes:
+    return b"\xE0\x01" + NameText.encode("latin-1") + b"\x00"
+
+
+def StructHeader(NameText: str) -> bytes:
+    return b"\xE0\x00" + NameText.encode("latin-1") + b"\x00"
+
+
+def TocRow(
+    NameText: str, OffsetValue: int, LengthValue: int, ExpandedValue: int
+) -> bytes:
+    RowText = (
+        f"{NameText} {OffsetValue:x} {LengthValue:x} {ExpandedValue:x} "
+        f"{KTocVersion} {KTocKind} -1 0000 0000"
+    )
+    return RowText.encode("ascii").ljust(KTocWidth - 1, b"#")[: KTocWidth - 1] + b"\n"
+
+
+def BuildContainer(Sections: tuple[tuple[str, bytes], ...]) -> bytes:
+    FirstLine = b"#UGC:2 PART 1934 1460 800 1 1 15 3700 2019344 00000000 \\"
+    HeaderBody = b"\n#- HOST\n#- LINK\n#- DBID\n#- REVS 0,\n#- RELL 0,\n"
+    HeaderBody += b"#- MACH _Windows\n#-END_OF_UGC_HEADER\n"
+    Header = FirstLine + HeaderBody
+    BaseValue = len(Header)
+    Header = Header.replace(b"00000000", f"{BaseValue:08x}".encode("ascii"), 1)
+    TocHead = (
+        f"#UGC_TOC 2 {len(Sections)} {KTocWidth} 17".encode("ascii")
+        .ljust(KTocWidth - 1, b"#")[: KTocWidth - 1]
+        + b"\n"
+    )
+    BodyStart = BaseValue + len(KProductLine) + len(TocHead) + KTocWidth * len(Sections)
+    Rows = b""
+    Payloads = b""
+    for NameText, PayloadValue in Sections:
+        SectionValue = b"#" + NameText.encode("latin-1") + b"\n" + PayloadValue
+        Relative = BodyStart + len(Payloads) - BaseValue
+        Rows += TocRow(NameText, Relative, len(SectionValue), len(PayloadValue))
+        Payloads += SectionValue
+    return Header + KProductLine + TocHead + Rows + Payloads
+
+
+def AuthorFeaturePayload(Features: tuple[tuple[int, int], ...]) -> bytes:
+    Payload = StructHeader("Sld_Features") + b"\xE3"
+    if not Features:
+        return Payload + StructHeader("first_feat_ptr") + b"\xE3"
+    Payload += StructHeader("first_feat_ptr") + b"\xE3"
+    for IndexValue, (FeatureValue, ClassValue) in enumerate(Features):
+        if IndexValue > 0:
+            Payload += StructHeader("next_feat_ptr") + b"\xE3"
+        Payload += NameValue("id") + IntValue(FeatureValue)
+        Payload += NameValue("type") + IntValue(ClassValue)
+    Payload += StructHeader("next_feat_ptr") + b"\x00"
+    return Payload
+
+
+def AuthorPart(Features: tuple[tuple[int, int], ...]) -> bytes:
+    Sections = (("AllFeatur", AuthorFeaturePayload(Features)),)
+    return BuildContainer(Sections)
+
+
+def PlaneValues(
+    NormalValue: tuple[float, float, float],
+    OriginValue: tuple[float, float, float],
+) -> tuple[float, ...]:
+    if NormalValue == (0.0, 1.0, 0.0):
+        Basis = ((1.0, 0.0, 0.0), (0.0, 0.0, -1.0))
+    elif NormalValue == (-0.0, 1.0, 0.0):
+        Basis = ((1.0, 0.0, 0.0), (0.0, 0.0, -1.0))
+    elif NormalValue == (1.0, 0.0, 0.0):
+        Basis = ((0.0, 1.0, 0.0), (0.0, 0.0, 1.0))
+    elif NormalValue == (-1.0, 0.0, 0.0):
+        Basis = ((0.0, 1.0, 0.0), (0.0, 0.0, -1.0))
+    elif NormalValue == (0.0, 0.0, 1.0):
+        Basis = ((1.0, 0.0, 0.0), (0.0, 1.0, 0.0))
+    else:
+        Basis = ((1.0, 0.0, 0.0), (0.0, -1.0, 0.0))
+    FirstValue, SecondValue = Basis
+    return (
+        *FirstValue,
+        *SecondValue,
+        *NormalValue,
+        *OriginValue,
+    )
+
+
+def PlaneDefine(GeomValue: int, Values: tuple[float, ...]) -> bytes:
+    Payload = NameValue("geom_id") + IntValue(GeomValue)
+    Payload += NameValue("geom_type") + IntValue(34)
+    Payload += NameValue("feat_id") + IntValue(74)
+    Payload += b"\xE0\x02envlp\x00\xF9" + IntValue(2) + IntValue(2)
+    Payload += b"".join(DoubleValue(Value) for Value in (0.0, 1.0, 1.0, 0.0))
+    Payload += b"\xE0\x02outline\x00\xF9" + IntValue(2) + IntValue(3)
+    Payload += b"".join(DoubleValue(Value) for Value in (0.0, 0.0, 1.0, 0.0, 1.0, 1.0))
+    Payload += b"\xE0\x02local_sys\x00\xF9" + IntValue(4) + IntValue(3)
+    Payload += b"".join(DoubleValue(Value) for Value in Values)
+    return Payload
+
+
+def PlaneReplay(GeomValue: int, Values: tuple[float, ...]) -> bytes:
+    Payload = b"\xE3" + IntValue(GeomValue) + IntValue(34) + IntValue(74)
+    Payload += b"\xF9" + IntValue(2) + IntValue(2)
+    Payload += b"".join(DoubleValue(Value) for Value in (0.0, 1.0, 1.0, 0.0))
+    Payload += b"\xF9" + IntValue(2) + IntValue(3)
+    Payload += b"".join(DoubleValue(Value) for Value in (0.0, 0.0, 1.0, 0.0, 1.0, 1.0))
+    Payload += b"\xF9" + IntValue(4) + IntValue(3)
+    Payload += b"".join(DoubleValue(Value) for Value in Values)
+    return Payload
+
+
+def AuthorGeometryPayload(
+    Minimum: tuple[float, float, float], Maximum: tuple[float, float, float]
+) -> bytes:
+    XMinValue, YMinValue, ZMinValue = Minimum
+    XMaxValue, YMaxValue, ZMaxValue = Maximum
+    Planes = (
+        ((-0.0, 1.0, 0.0), (0.0, YMaxValue, 0.0)),
+        ((0.0, 1.0, 0.0), (0.0, YMinValue, 0.0)),
+        ((1.0, 0.0, 0.0), (XMinValue, 0.0, 0.0)),
+        ((-1.0, 0.0, 0.0), (XMaxValue, 0.0, 0.0)),
+        ((0.0, 0.0, 1.0), (0.0, 0.0, ZMinValue)),
+        ((0.0, 0.0, -1.0), (0.0, 0.0, ZMaxValue)),
+    )
+    Payload = StructHeader("Sld_VisGeom") + b"\xE3"
+    Payload += StructHeader("active_geom") + b"\xE2"
+    Payload += StructHeader("srf_array") + b"\xF8" + IntValue(len(Planes))
+    Payload += b"\xF7" + IntValue(3) + b"\xFB\xE3"
+    for IndexValue, (NormalValue, OriginValue) in enumerate(Planes):
+        Values = PlaneValues(NormalValue, OriginValue)
+        if IndexValue == 0:
+            Payload += PlaneDefine(77 + IndexValue, Values)
+        else:
+            Payload += PlaneReplay(77 + IndexValue, Values)
+    return Payload
+
+
+def AuthorBox(
+    Minimum: tuple[float, float, float],
+    Maximum: tuple[float, float, float],
+    Features: tuple[tuple[int, int], ...] = (
+        (7, 923),
+        (5, 923),
+        (3, 923),
+        (11, 979),
+        (74, 917),
+    ),
+) -> bytes:
+    Sections = (
+        ("AllFeatur", AuthorFeaturePayload(Features)),
+        ("VisibGeom", AuthorGeometryPayload(Minimum, Maximum)),
+    )
+    return BuildContainer(Sections)

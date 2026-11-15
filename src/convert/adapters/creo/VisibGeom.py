@@ -74,6 +74,8 @@ def ReadDoubleAt(DataValue: bytes, Position: int) -> tuple[float | None, int]:
             struct.unpack(">d", LeadValue + DataValue[Position + 1 : Position + 8])[0],
             Position + 8,
         )
+    if TokenValue == 0x52:
+        return struct.unpack(">d", DataValue[Position + 1 : Position + 9])[0], Position + 9
     return None, Position
 
 
@@ -126,20 +128,22 @@ def FindValues(Nodes: list[StreamNode], Index: int, Name: str) -> tuple[float, .
 def ElementBoundaries(DataValue: bytes) -> dict[int, int]:
     Fields = ScanFields(DataValue)
     Names = [Field.name for Field in Fields]
-    if "srf_array" not in Names or "crv_array" not in Names:
+    if "srf_array" not in Names:
         return {}
     SrfIndex = Names.index("srf_array")
-    CrvIndex = Names.index("crv_array")
     GeomIndex = next(
         Index
         for Index, Name in enumerate(Names)
         if Name == "geom_id" and Index > SrfIndex
     )
-    CrvIdIndex = next(
-        Index
-        for Index, Name in enumerate(Names)
-        if Name == "crv_id" and Index > CrvIndex
-    )
+    CrvIdIndex: int | None = None
+    if "crv_array" in Names and "crv_id" in Names:
+        CrvIndex = Names.index("crv_array")
+        CrvIdIndex = next(
+            Index
+            for Index, Name in enumerate(Names)
+            if Name == "crv_id" and Index > CrvIndex
+        )
     Boundaries: dict[int, int] = {}
     for OffsetValue in range(len(DataValue) - 1):
         if DataValue[OffsetValue] != 0xE3:
@@ -150,7 +154,10 @@ def ElementBoundaries(DataValue: bytes) -> dict[int, int]:
         if AfterValue + 1 < len(DataValue) and DataValue[AfterValue + 1] == 0x4A:
             Width = 1 if DataValue[OffsetValue + 1] <= 0x7F else 2
             SecondValue = DataValue[OffsetValue + 1 + Width]
-            Boundaries[OffsetValue] = GeomIndex if SecondValue == 0x22 else CrvIdIndex
+            if SecondValue == 0x22:
+                Boundaries[OffsetValue] = GeomIndex
+            elif CrvIdIndex is not None:
+                Boundaries[OffsetValue] = CrvIdIndex
     if "lo_array" in Names and "lo_id" in Names:
         LoIndex = Names.index("lo_array")
         LoIdIndex = next(
@@ -266,7 +273,7 @@ def PlaneValue(Surface: CreoSurface) -> tuple[tuple[float, float, float], float]
     Values = Surface.local_system
     if len(Values) < 12:
         return None
-    NormalValue = Normalize((Values[2], Values[5], Values[8]))
+    NormalValue = Normalize((Values[6], Values[7], Values[8]))
     if NormalValue is None:
         return None
     OriginValue = (Values[9], Values[10], Values[11])

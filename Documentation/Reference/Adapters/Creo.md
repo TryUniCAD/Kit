@@ -59,7 +59,14 @@ bodies), and `creo.geometry_decoded` (still false).
 
 ## Writing
 
-The writer supports exact source replay only.
+Two paths exist.
+
+`src/convert/adapters/creo/Author.py` authors a new PSB from format knowledge: header, table of
+contents, `AllFeatur`, and a six-plane `VisibGeom`. `AuthorBox` produces a part whose volume and
+centroid round-trip through the reader. It has not been opened in Creo and omits the other sections
+a vendor part normally carries.
+
+For an existing document the writer supports exact source replay only.
 It requires the retained source bytes and verifies their digest before writing.
 It refuses a document without retained Creo source bytes.
 

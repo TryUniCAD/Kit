@@ -9,6 +9,7 @@ from convert import open_document as OpenDoc
 from convert import write_document as WriteDoc
 from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.creo.Adapter import CreoAdapter
+from convert.adapters.creo.Author import AuthorBox
 from convert.adapters.creo.CreoFormat import CreoFormat
 from convert.adapters.creo.Format import KFormatId
 from interchange.enums.EnumUnits import UnitSystem
@@ -192,6 +193,28 @@ def TestFeatureRows() -> None:
     assert DocumentValue.metadata["creo.logical_object_count"] == 0
     assert DocumentValue.metadata["creo.feature_history_decoded"] is False
     assert DocumentValue.metadata["creo.geometry_decoded"] is False
+
+
+def TestAuthoredBox() -> None:
+    AdapterValue = CreoAdapter()
+    DataValue = AuthorBox(
+        (0.0, 0.0, 0.0),
+        (100.0, 60.0, 40.0),
+    )
+    DocumentValue = AdapterValue.read(DataValue)
+    assert len(DocumentValue.feature_timeline) == 5
+    assert len(DocumentValue.bodies) == 1
+    BodyValue = DocumentValue.bodies[0]
+    assert BodyValue.topology.face_count == 6
+    assert BodyValue.topology.vertex_count == 8
+    VolumeValue = BodyValue.topology.volume
+    assert VolumeValue is not None
+    assert abs(VolumeValue - 240000.0) < 1e-6
+    CentroidValue = DocumentValue.metadata["creo.centroid"]
+    assert CentroidValue is not None
+    assert abs(CentroidValue[0] - 50.0) < 1e-9
+    assert abs(CentroidValue[1] - 30.0) < 1e-9
+    assert abs(CentroidValue[2] - 20.0) < 1e-9
 
 
 def TestReplay() -> None:
