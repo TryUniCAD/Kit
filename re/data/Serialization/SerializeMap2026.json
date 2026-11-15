@@ -1,4 +1,19 @@
 {
+ "ATL::CComModule": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6ad570",
+  "serialize_name": "FUN_3f6ad570"
+ },
+ "ATL::CComObject<cefAutoGenerateHandler>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f70f520",
+  "serialize_name": "FUN_3f70f520"
+ },
+ "ATL::CRegObject": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6ad680",
+  "serialize_name": "FUN_3f6ad680"
+ },
  "AngleDim_c": {
   "dll": "sldmodu",
   "serialize_addr": "4c8294c0",
@@ -80,6 +95,11 @@
   "serialize_name": "MFC140U.DLL::CCmdTarget::OnCmdMsg",
   "vtable": "3cc69578",
   "vtable_slots": 40
+ },
+ "CDocument::CDocumentAdapter": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f73b7b0",
+  "serialize_name": "FUN_3f73b7b0"
  },
  "CECConfigBtn": {
   "dll": "sldmfcu",
@@ -648,6 +668,11 @@
   "vtable": "3cb23110",
   "vtable_slots": 40
  },
+ "Chamfer_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18023eb30",
+  "serialize_name": "FUN_18023eb30"
+ },
  "ColorBorderedEditCtrl_c": {
   "dll": "sldmfcu",
   "serialize_addr": "3cab42c9",
@@ -675,6 +700,16 @@
   "serialize_name": "SLDARCHIVEU.DLL::ComponentReplaceData_c::Serialize",
   "vtable": "4d09e140",
   "vtable_slots": 17
+ },
+ "ComponentTreeJsonBuilder": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
+ "ComponentTreeJsonBuilderFlat": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
  },
  "Dimension_c": {
   "dll": "sldmodu",
@@ -710,6 +745,26 @@
   "serialize_name": "FUN_4c2161b0",
   "vtable": "4ce70f38",
   "vtable_slots": 23
+ },
+ "Fillet_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802701d0",
+  "serialize_name": "FUN_1802701d0"
+ },
+ "Global": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6252d0",
+  "serialize_name": "FUN_3f6252d0"
+ },
+ "GraphicsModelResolvedToGraphicsMateWalker_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
+ "GraphicsModelUpdateWalker_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
  },
  "IdArray_c": {
   "dll": "sldmodu",
@@ -760,6 +815,11 @@
   "vtable": "4d1b4c68",
   "vtable_slots": 40
  },
+ "PartialResolveGraphicsInstanceHelper_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
  "RefMgrIntPtrException": {
   "dll": "sldmfcu",
   "serialize_addr": "3cab4995",
@@ -774,12 +834,42 @@
   "vtable": "4d183e90",
   "vtable_slots": 6
  },
+ "ResolveAllGfxInstHelper_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
+ "SaveAsPreviousVersionCheckWalker_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
+ "SelectiveOpenGfxInstHelper_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
+ "SelectiveResolveGfxInstHelper_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
+ "Separated_s": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f60df90",
+  "serialize_name": "FUN_3f60df90"
+ },
  "SldMFCUtils::DesignLibrary::RegistryFilterHelper_c": {
   "dll": "sldmfcu",
   "serialize_addr": "3cab3cff",
   "serialize_name": "SWCCU.DLL::su_CObject::Serialize",
   "vtable": "3cc79bc8",
   "vtable_slots": 17
+ },
+ "SldMoInkStrokeAnalysis_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18014bac0",
+  "serialize_name": "FUN_18014bac0"
  },
  "ThreeDRadialOrDiameterDim_c": {
   "dll": "sldmodu",
@@ -809,6 +899,11 @@
   "vtable": "4cf38848",
   "vtable_slots": 17
  },
+ "VarFillet_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180271de0",
+  "serialize_name": "FUN_180271de0"
+ },
  "XMLStdioFile_c": {
   "dll": "sldmfcu",
   "serialize_addr": "3cab4c53",
@@ -822,6 +917,21 @@
   "serialize_name": "SWCCU.DLL::su_CObject::Serialize",
   "vtable": "3cc6da38",
   "vtable_slots": 17
+ },
+ "__asmuiZoomFitChecker_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
+ "__uiAsmviewComponentSearchWalker_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
+ "`public:_virtual_int___cdecl_uiAssemblyDoc_c::isTessellationValid(int*___ptr64,int*___ptr64)___ptr64'::__l8::assemTessellationValidator_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
  },
  "advStructMemberSortingInfo_c": {
   "dll": "sldmodu",
@@ -858,12 +968,147 @@
   "vtable": "4ce8d5a0",
   "vtable_slots": 20
  },
+ "amFindDocumentsToLightweightWalker": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
+ "applyRulesWalker": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
+ "asmDetailControl": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
+ "asmUiBridge_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6b2010",
+  "serialize_name": "FUN_3f6b2010"
+ },
+ "asmuiAddRecipeToRouteDoc_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f9cd260",
+  "serialize_name": "FUN_3f9cd260"
+ },
+ "asmuiCamMateValidator": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61fdb0",
+  "serialize_name": "FUN_3f61fdb0"
+ },
+ "asmuiComponentMoveCustomisation_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
+ "asmuiDistanceMateValidator": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61fdb0",
+  "serialize_name": "FUN_3f61fdb0"
+ },
+ "asmuiGearMateValidator": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61fdb0",
+  "serialize_name": "FUN_3f61fdb0"
+ },
+ "asmuiHingeMateValidator": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61fdb0",
+  "serialize_name": "FUN_3f61fdb0"
+ },
+ "asmuiLinearCouplerMateValidator": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61fdb0",
+  "serialize_name": "FUN_3f61fdb0"
+ },
+ "asmuiLockMateValidator": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61fdb0",
+  "serialize_name": "FUN_3f61fdb0"
+ },
+ "asmuiMateValidator": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f726040",
+  "serialize_name": "FUN_3f726040"
+ },
+ "asmuiMateValidatorManager_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f726050",
+  "serialize_name": "FUN_3f726050"
+ },
+ "asmuiPathMateValidator": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61fdb0",
+  "serialize_name": "FUN_3f61fdb0"
+ },
+ "asmuiProfileCenterMateValidator": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61fdb0",
+  "serialize_name": "FUN_3f61fdb0"
+ },
+ "asmuiRackPinionMateValidator": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61fdb0",
+  "serialize_name": "FUN_3f61fdb0"
+ },
+ "asmuiRecipeAdditionCustomiser_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5e7cb0",
+  "serialize_name": "uiAssemblyDoc_c::addAllCPointsToRoute"
+ },
+ "asmuiSimpleMateValidator": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61fdb0",
+  "serialize_name": "FUN_3f61fdb0"
+ },
+ "asmuiSliderMateValidator": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61fdb0",
+  "serialize_name": "FUN_3f61fdb0"
+ },
+ "asmuiSlotMateValidator": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61fdb0",
+  "serialize_name": "FUN_3f61fdb0"
+ },
+ "asmuiSymmetryMateValidator": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61fdb0",
+  "serialize_name": "FUN_3f61fdb0"
+ },
+ "asmuiUniversalJointMateValidator": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61fdb0",
+  "serialize_name": "FUN_3f61fdb0"
+ },
+ "asmuiWidthMateValidator": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61fdb0",
+  "serialize_name": "FUN_3f61fdb0"
+ },
+ "assemWalkerToSetMixedMode_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
  "atomDescnMapInitializer_c": {
   "dll": "sldmodu",
   "serialize_addr": "4cb9e799",
   "serialize_name": "SWCCU.DLL::su_CObject::Serialize",
   "vtable": "4d0c8b38",
   "vtable_slots": 17
+ },
+ "auAssemblyDoc_c::XDispatch": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f7c6aa0",
+  "serialize_name": "FUN_3f7c6aa0"
+ },
+ "auAssemblyDoc_c::XInternal": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f7c2740",
+  "serialize_name": "FUN_3f7c2740"
  },
  "bentRefArr": {
   "dll": "sldmodu",
@@ -977,12 +1222,27 @@
   "vtable": "4d026fc0",
   "vtable_slots": 17
  },
+ "componentCreationWalker_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
+ "componentDecalGetter_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
  "contourTrimData_c": {
   "dll": "sldmodu",
   "serialize_addr": "4c26cc00",
   "serialize_name": "FUN_4c26cc00",
   "vtable": "4d217358",
   "vtable_slots": 17
+ },
+ "convertImportedComponentsWalker_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
  },
  "cos_1LenDimHelper": {
   "dll": "sldmodu",
@@ -997,6 +1257,11 @@
   "serialize_name": "SLDMFCU.DLL::suObList::Serialize",
   "vtable": "4ced74a0",
   "vtable_slots": 18
+ },
+ "dimHitter": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
  },
  "dmConfigHeader_c": {
   "dll": "sldarchiveu",
@@ -1018,6 +1283,26 @@
   "serialize_name": "MFC140U.DLL::CStdioFile::GetPosition",
   "vtable": "3cc76068",
   "vtable_slots": 32
+ },
+ "edgeLimitObject_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802722c0",
+  "serialize_name": "FUN_1802722c0"
+ },
+ "edgeLimitPointObject_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180272440",
+  "serialize_name": "FUN_180272440"
+ },
+ "edgeParamsObject_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180272580",
+  "serialize_name": "FUN_180272580"
+ },
+ "edgeRadiusObject_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180272610",
+  "serialize_name": "FUN_180272610"
  },
  "endCapSortingInfo_c": {
   "dll": "sldmodu",
@@ -1047,6 +1332,26 @@
   "vtable": "4d2170d0",
   "vtable_slots": 20
  },
+ "faceParamsObject_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802726f0",
+  "serialize_name": "FUN_1802726f0"
+ },
+ "faceRadiusObject_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180272780",
+  "serialize_name": "FUN_180272780"
+ },
+ "featParamsObject_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802727d0",
+  "serialize_name": "FUN_1802727d0"
+ },
+ "featRadiusObject_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180272860",
+  "serialize_name": "FUN_180272860"
+ },
  "fileAccess": {
   "also": [
    {
@@ -1068,12 +1373,27 @@
   "vtable": "3cc6e128",
   "vtable_slots": 27
  },
+ "fillProxySerializationFeature_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802f4630",
+  "serialize_name": "FUN_1802f4630"
+ },
  "findFilePathByRules_c": {
   "dll": "sldmfcu",
   "serialize_addr": "3cab3cff",
   "serialize_name": "SWCCU.DLL::su_CObject::Serialize",
   "vtable": "3cc6e328",
   "vtable_slots": 17
+ },
+ "findReloadCompWalker": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
+ "findVisibleBodiesWalker_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
  },
  "folderCompRefsMapInitializer_c": {
   "dll": "sldmodu",
@@ -1369,12 +1689,27 @@
   "vtable": "4d217220",
   "vtable_slots": 20
  },
+ "getAssemblyDetailBBox": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
+ "getAssemblySTLdata": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
  "gradientBitmap_c": {
   "dll": "sldmfcu",
   "serialize_addr": "3cab4b33",
   "serialize_name": "MFC140U.DLL::CDC::SetAttribDC",
   "vtable": "3cc70770",
   "vtable_slots": 32
+ },
+ "graphicsModelConnectWalker_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
  },
  "gussetSortingInfo_c": {
   "dll": "sldmodu",
@@ -1411,12 +1746,117 @@
   "vtable": "4cdf2af8",
   "vtable_slots": 17
  },
+ "hsArcSegment_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180133250",
+  "serialize_name": "FUN_180133250"
+ },
+ "hsCircle_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180135bc0",
+  "serialize_name": "FUN_180135bc0"
+ },
+ "hsCompositeCurve_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801369a0",
+  "serialize_name": "FUN_1801369a0"
+ },
+ "hsCurve_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180139410",
+  "serialize_name": "FUN_180139410"
+ },
+ "hsDimond_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18013ebe0",
+  "serialize_name": "FUN_18013ebe0"
+ },
+ "hsEllipse_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18013f4b0",
+  "serialize_name": "FUN_18013f4b0"
+ },
+ "hsLineSegment_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180140230",
+  "serialize_name": "FUN_180140230"
+ },
+ "hsMultiCurve_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180139410",
+  "serialize_name": "FUN_180139410"
+ },
+ "hsPoint_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180146900",
+  "serialize_name": "FUN_180146900"
+ },
+ "hsRectangle_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18013ebe0",
+  "serialize_name": "FUN_18013ebe0"
+ },
+ "hsScribble_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801472c0",
+  "serialize_name": "FUN_1801472c0"
+ },
+ "hsSegmentedCurve_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801369a0",
+  "serialize_name": "FUN_1801369a0"
+ },
+ "hsShape_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180147d70",
+  "serialize_name": "FUN_180147d70"
+ },
+ "hsSketchEnts_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801483c0",
+  "serialize_name": "FUN_1801483c0"
+ },
+ "hsSketchFeatureEnts_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180148b10",
+  "serialize_name": "FUN_180148b10"
+ },
+ "hsSlot_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180149060",
+  "serialize_name": "FUN_180149060"
+ },
+ "hsSplineSegment_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18014a200",
+  "serialize_name": "FUN_18014a200"
+ },
+ "hsStroke_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18014bc50",
+  "serialize_name": "FUN_18014bc50"
+ },
+ "hsTriangle_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18014ccd0",
+  "serialize_name": "FUN_18014ccd0"
+ },
  "instEntry": {
   "dll": "sldmodu",
   "serialize_addr": "4cb9e799",
   "serialize_name": "SWCCU.DLL::su_CObject::Serialize",
   "vtable": "4ce8d960",
   "vtable_slots": 17
+ },
+ "isAnyModelLoadedWalker_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
+ "limitData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180272930",
+  "serialize_name": "FUN_180272930"
  },
  "localCleanoutSketchMidPointHelper_c": {
   "dll": "sldmodu",
@@ -1453,6 +1893,16 @@
   "vtable": "4cf5a528",
   "vtable_slots": 18
  },
+ "loopParamsObject_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180272b60",
+  "serialize_name": "FUN_180272b60"
+ },
+ "loopRadiusObject_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180272bf0",
+  "serialize_name": "FUN_180272bf0"
+ },
  "mConfigCosmeticThread": {
   "dll": "sldmodu",
   "serialize_addr": "4c2162f0",
@@ -1467,12 +1917,27 @@
   "vtable": "4cec9038",
   "vtable_slots": 17
  },
+ "magneticMateFinder_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
  "mateGroupList": {
   "dll": "sldmodu",
   "serialize_addr": "4cb9e799",
   "serialize_name": "SWCCU.DLL::su_CObject::Serialize",
   "vtable": "4d1f7ad0",
   "vtable_slots": 17
+ },
+ "mbBodyImportIDMaps_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1800f5d00",
+  "serialize_name": "FUN_1800f5d00"
+ },
+ "mcAssemblyDoc_c::XcatiaAssemblyDoc": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f94b670",
+  "serialize_name": "FUN_3f94b670"
  },
  "mcMachiningWrapperInterface": {
   "dll": "sldmodu",
@@ -2993,6 +3458,11 @@
   "vtable": "4ce81950",
   "vtable_slots": 18
  },
+ "moBEntDim_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180272c70",
+  "serialize_name": "FUN_180272c70"
+ },
  "moBEntRef_c": {
   "dll": "sldmodu",
   "serialize_addr": "4bba3780",
@@ -3125,6 +3595,11 @@
   "serialize_name": "SWCCU.DLL::su_CObject::Serialize",
   "vtable": "4ce86960",
   "vtable_slots": 17
+ },
+ "moBaseBody_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802fcb70",
+  "serialize_name": "FUN_1802fcb70"
  },
  "moBaseCellArea_c": {
   "dll": "sldmodu",
@@ -3399,6 +3874,16 @@
   "vtable": "4d0026a8",
   "vtable_slots": 22
  },
+ "moBendingData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180301010",
+  "serialize_name": "moBendingData_c::Serialize"
+ },
+ "moBending_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1803014d0",
+  "serialize_name": "moBending_c::Serialize"
+ },
  "moBillOfMaterials_c": {
   "dll": "sldmodu",
   "serialize_addr": "4c6e79a0",
@@ -3447,6 +3932,11 @@
   "serialize_name": "SWCCU.DLL::su_CObject::Serialize",
   "vtable": "4cf575f8",
   "vtable_slots": 18
+ },
+ "moBlendRefSurface_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180237060",
+  "serialize_name": "FUN_180237060"
  },
  "moBlend_c": {
   "dll": "sldmodu",
@@ -3994,6 +4484,11 @@
   "vtable": "4ce8b1e0",
   "vtable_slots": 40
  },
+ "moCavity_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180374db0",
+  "serialize_name": "FUN_180374db0"
+ },
  "moCellContent_c": {
   "dll": "sldmodu",
   "serialize_addr": "4bb78070",
@@ -4196,6 +4691,11 @@
   "serialize_name": "FUN_4bb78360",
   "vtable": "4d09cd30",
   "vtable_slots": 26
+ },
+ "moCombineBodies_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18024ef10",
+  "serialize_name": "FUN_18024ef10"
  },
  "moCommentExtraData_c": {
   "dll": "sldmodu",
@@ -5996,6 +6496,11 @@
   "vtable": "4d0304c8",
   "vtable_slots": 40
  },
+ "moCreateAssemFeat_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180349a20",
+  "serialize_name": "FUN_180349a20"
+ },
  "moCrossBreakData_c": {
   "dll": "sldmodu",
   "serialize_addr": "4ba49470",
@@ -6451,6 +6956,11 @@
   "vtable": "4d039a08",
   "vtable_slots": 17
  },
+ "moDebugDisplayRefWalker_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
  "moDecalManager_c": {
   "dll": "sldmodu",
   "serialize_addr": "4cb9e799",
@@ -6493,6 +7003,11 @@
   "vtable": "4d08cbb0",
   "vtable_slots": 40
  },
+ "moDefeature_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802fcde0",
+  "serialize_name": "FUN_1802fcde0"
+ },
  "moDeformCompFeature_c": {
   "dll": "sldmodu",
   "serialize_addr": "4b515690",
@@ -6528,12 +7043,57 @@
   "vtable": "4ceeee08",
   "vtable_slots": 26
  },
+ "moDeform_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802535c0",
+  "serialize_name": "FUN_1802535c0"
+ },
+ "moDelFaceData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18025c550",
+  "serialize_name": "moDelFaceData_c::Serialize"
+ },
+ "moDelFaceRefSurface_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801fb1a0",
+  "serialize_name": "FUN_1801fb1a0"
+ },
+ "moDelFaceSurfData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801fb260",
+  "serialize_name": "FUN_1801fb260"
+ },
+ "moDelFace_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18025c6b0",
+  "serialize_name": "moDelFace_c::Serialize"
+ },
+ "moDelHoleData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180262950",
+  "serialize_name": "FUN_180262950"
+ },
  "moDelHoleIdKeeper_c": {
   "dll": "sldmodu",
   "serialize_addr": "4cb9e799",
   "serialize_name": "SWCCU.DLL::su_CObject::Serialize",
   "vtable": "4cf57388",
   "vtable_slots": 18
+ },
+ "moDelHole_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802629f0",
+  "serialize_name": "FUN_1802629f0"
+ },
+ "moDeleteBodyData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18025b570",
+  "serialize_name": "moDeleteBodyData_c::Serialize"
+ },
+ "moDeleteBody_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18025b650",
+  "serialize_name": "moDeleteBody_c::Serialize"
  },
  "moDensityParameter_c": {
   "dll": "sldmodu",
@@ -7718,6 +8278,11 @@
   "vtable": "4d05c9e8",
   "vtable_slots": 40
  },
+ "moDome_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802647f0",
+  "serialize_name": "FUN_1802647f0"
+ },
  "moDoubleDim_c": {
   "dll": "sldmodu",
   "serialize_addr": "4c833f00",
@@ -7844,6 +8409,11 @@
   "vtable": "4cf6a070",
   "vtable_slots": 40
  },
+ "moDraft_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802daa40",
+  "serialize_name": "FUN_1802daa40"
+ },
  "moDrawItemHit_c": {
   "dll": "sldmodu",
   "serialize_addr": "4cb9e799",
@@ -7928,6 +8498,11 @@
   "vtable": "4d2dd910",
   "vtable_slots": 17
  },
+ "moEdgeDim_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180272cf0",
+  "serialize_name": "FUN_180272cf0"
+ },
  "moEdgeFaceSIdKeeper_c": {
   "dll": "sldmodu",
   "serialize_addr": "4c6d66f0",
@@ -7949,12 +8524,27 @@
   "vtable": "4d047908",
   "vtable_slots": 17
  },
+ "moEdgeMergeData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802beb40",
+  "serialize_name": "FUN_1802beb40"
+ },
+ "moEdgeMerge_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802bec00",
+  "serialize_name": "FUN_1802bec00"
+ },
  "moEdgeNote_c": {
   "dll": "sldmodu",
   "serialize_addr": "4c95f030",
   "serialize_name": "FUN_4c95f030",
   "vtable": "4d238d08",
   "vtable_slots": 40
+ },
+ "moEdgePair_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180207b20",
+  "serialize_name": "FUN_180207b20"
  },
  "moEdgeRefIdRep_c": {
   "dll": "sldmodu",
@@ -8019,6 +8609,11 @@
   "vtable": "4cf85270",
   "vtable_slots": 40
  },
+ "moEmboss_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802c6970",
+  "serialize_name": "FUN_1802c6970"
+ },
  "moEmptyFolder_c": {
   "dll": "sldmodu",
   "serialize_addr": "4beb1bc0",
@@ -8039,6 +8634,11 @@
   "serialize_name": "FUN_4bba8470",
   "vtable": "4cf72b40",
   "vtable_slots": 40
+ },
+ "moEndCap_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1803896a0",
+  "serialize_name": "FUN_1803896a0"
  },
  "moEndEdgeIdRep_c": {
   "dll": "sldmodu",
@@ -8376,6 +8976,16 @@
   "vtable": "4cf572f0",
   "vtable_slots": 18
  },
+ "moExtendRefSurfaceData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180216de0",
+  "serialize_name": "FUN_180216de0"
+ },
+ "moExtendRefSurface_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801fe070",
+  "serialize_name": "FUN_1801fe070"
+ },
  "moExtensionDimIndicator_c": {
   "dll": "sldmodu",
   "serialize_addr": "4c5a81c0",
@@ -8495,6 +9105,16 @@
   "vtable": "4ce7ce58",
   "vtable_slots": 40
  },
+ "moFaceBlendItemPair_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802d9aa0",
+  "serialize_name": "FUN_1802d9aa0"
+ },
+ "moFaceBlendItem_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802d9b10",
+  "serialize_name": "FUN_1802d9b10"
+ },
  "moFaceBlendSurfIdRep_c": {
   "dll": "sldmodu",
   "serialize_addr": "4bbaa6a0",
@@ -8523,12 +9143,22 @@
   "vtable": "4d178360",
   "vtable_slots": 33
  },
+ "moFaceFilletSIdKeeper_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802eb5c0",
+  "serialize_name": "moFaceFilletSIdKeeper_c::Serialize"
+ },
  "moFaceMultiBodySurfIdMap_c": {
   "dll": "sldmodu",
   "serialize_addr": "4cb9e799",
   "serialize_name": "SWCCU.DLL::su_CObject::Serialize",
   "vtable": "4cfe9ba0",
   "vtable_slots": 18
+ },
+ "moFacePair_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18023c710",
+  "serialize_name": "moFacePair_c::Serialize"
  },
  "moFacePtAxisData_c": {
   "dll": "sldmodu",
@@ -8578,6 +9208,11 @@
   "serialize_name": "SWCCU.DLL::su_CObject::Serialize",
   "vtable": "4d108ba8",
   "vtable_slots": 26
+ },
+ "moFaceToHeuristicEdges_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180207ba0",
+  "serialize_name": "FUN_180207ba0"
  },
  "moFaceVertexProjectionPointData_c": {
   "dll": "sldmodu",
@@ -8971,6 +9606,16 @@
   "vtable": "4d025c20",
   "vtable_slots": 40
  },
+ "moFillRefSurface_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802f4810",
+  "serialize_name": "FUN_1802f4810"
+ },
+ "moFilletCorner_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802ecea0",
+  "serialize_name": "FUN_1802ecea0"
+ },
  "moFilletSIdKeeper_c": {
   "dll": "sldmodu",
   "serialize_addr": "4bba9860",
@@ -8991,6 +9636,11 @@
   "serialize_name": "FUN_4bba9d20",
   "vtable": "4ce18938",
   "vtable_slots": 40
+ },
+ "moFindComponentsByNameWalker_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
  },
  "moFixedRefPlnData_c": {
   "dll": "sldmodu",
@@ -9013,12 +9663,37 @@
   "vtable": "3cc7d860",
   "vtable_slots": 17
  },
+ "moFlattenCurveData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18011e0b0",
+  "serialize_name": "FUN_18011e0b0"
+ },
+ "moFlattenFaceData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18011e130",
+  "serialize_name": "FUN_18011e130"
+ },
  "moFlattenSurfIdKeeper_c": {
   "dll": "sldmodu",
   "serialize_addr": "4cb9e799",
   "serialize_name": "SWCCU.DLL::su_CObject::Serialize",
   "vtable": "4cf57a58",
   "vtable_slots": 19
+ },
+ "moFlattenSurfaceData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18011e1b0",
+  "serialize_name": "FUN_18011e1b0"
+ },
+ "moFlattenSurface_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18011e5b0",
+  "serialize_name": "FUN_18011e5b0"
+ },
+ "moFlattenVertexData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18011e660",
+  "serialize_name": "FUN_18011e660"
  },
  "moFlattenedProfileFeature_c": {
   "dll": "sldmodu",
@@ -9096,6 +9771,16 @@
   "serialize_name": "FUN_4bba41f0",
   "vtable": "4cf72330",
   "vtable_slots": 40
+ },
+ "moFormToolCreatorData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802fa3f0",
+  "serialize_name": "FUN_1802fa3f0"
+ },
+ "moFormToolCreator_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802fa440",
+  "serialize_name": "FUN_1802fa440"
  },
  "moFormatHolder_c": {
   "dll": "sldmodu",
@@ -9559,6 +10244,16 @@
   "vtable": "4d09cef0",
   "vtable_slots": 40
  },
+ "moGrooveWeldFeatData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180151220",
+  "serialize_name": "FUN_180151220"
+ },
+ "moGrooveWeldFeat_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180150200",
+  "serialize_name": "FUN_180150200"
+ },
  "moGroundPlaneFolder_c": {
   "dll": "sldmodu",
   "serialize_addr": "4c224060",
@@ -9713,12 +10408,37 @@
   "vtable": "4cf64050",
   "vtable_slots": 40
  },
+ "moHSObject_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801465f0",
+  "serialize_name": "FUN_1801465f0"
+ },
  "moHWFSlotCenterAxisData_c": {
   "dll": "sldmodu",
   "serialize_addr": "4c275790",
   "serialize_name": "FUN_4c275790",
   "vtable": "4d161c88",
   "vtable_slots": 30
+ },
+ "moHandDimension_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18012e110",
+  "serialize_name": "FUN_18012e110"
+ },
+ "moHandSketchFeature_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18014f420",
+  "serialize_name": "FUN_18014f420"
+ },
+ "moHandSketchManager_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180141a00",
+  "serialize_name": "FUN_180141a00"
+ },
+ "moHandSketch_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18012f750",
+  "serialize_name": "FUN_18012f750"
  },
  "moHatchOverrideEntry_c": {
   "dll": "sldmodu",
@@ -9740,6 +10460,26 @@
   "serialize_name": "FUN_31a034f0",
   "vtable": "31a10990",
   "vtable_slots": 17
+ },
+ "moHealingData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1803057f0",
+  "serialize_name": "FUN_1803057f0"
+ },
+ "moHealingStepData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180305840",
+  "serialize_name": "FUN_180305840"
+ },
+ "moHealingStep_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1803058a0",
+  "serialize_name": "FUN_1803058a0"
+ },
+ "moHealing_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1803058f0",
+  "serialize_name": "FUN_1803058f0"
  },
  "moHelix_c": {
   "dll": "sldmodu",
@@ -9916,6 +10656,11 @@
   "vtable": "4d0a3ae0",
   "vtable_slots": 40
  },
+ "moHole_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180308830",
+  "serialize_name": "FUN_180308830"
+ },
  "moHotDeleteIndicator_c": {
   "dll": "sldmodu",
   "serialize_addr": "4bb93c20",
@@ -9972,6 +10717,21 @@
   "vtable": "4cdb0a60",
   "vtable_slots": 40
  },
+ "moImportCut_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1800e34c0",
+  "serialize_name": "FUN_1800e34c0"
+ },
+ "moImportedCurve_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180388880",
+  "serialize_name": "FUN_180388880"
+ },
+ "moImported_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802fd060",
+  "serialize_name": "FUN_1802fd060"
+ },
  "moInContextFeatHolder_c": {
   "dll": "sldmodu",
   "serialize_addr": "4b668130",
@@ -10014,12 +10774,22 @@
   "vtable": "4cf0d288",
   "vtable_slots": 40
  },
+ "moInsertAssembly_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1800e7890",
+  "serialize_name": "FUN_1800e7890"
+ },
  "moInsertedFeatureFolder_c": {
   "dll": "sldmodu",
   "serialize_addr": "4c633050",
   "serialize_name": "FUN_4c633050",
   "vtable": "4d1e4000",
   "vtable_slots": 40
+ },
+ "moInstanceCounterRefWalker_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
  },
  "moIntCurvePoint_c": {
   "dll": "sldmodu",
@@ -10062,6 +10832,11 @@
   "serialize_name": "FUN_4c6a29d0",
   "vtable": "4d037a70",
   "vtable_slots": 40
+ },
+ "moJoin_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180378890",
+  "serialize_name": "FUN_180378890"
  },
  "moJournalHit_c": {
   "dll": "sldmodu",
@@ -10770,6 +11545,11 @@
   "vtable": "4d153d38",
   "vtable_slots": 40
  },
+ "moLoopWithSide_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801bc350",
+  "serialize_name": "FUN_1801bc350"
+ },
  "moMBD3DPDFPublishCacheData_c": {
   "dll": "sldmodu",
   "serialize_addr": "4c224630",
@@ -10790,6 +11570,51 @@
   "serialize_name": "FUN_4bba41f0",
   "vtable": "4ce183d8",
   "vtable_slots": 40
+ },
+ "moMBimport_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1800f6160",
+  "serialize_name": "FUN_1800f6160"
+ },
+ "moMPLBySketchFaceSplitInfo_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18019c790",
+  "serialize_name": "FUN_18019c790"
+ },
+ "moMPLByVertexFaceSplitInfo_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18019c7c0",
+  "serialize_name": "thunk_FUN_18019c980"
+ },
+ "moMPLConstrElem": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18019c7d0",
+  "serialize_name": "FUN_18019c7d0"
+ },
+ "moMPLEdgeElem": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18019c910",
+  "serialize_name": "FUN_18019c910"
+ },
+ "moMPLFaceSplitInfo_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18019c980",
+  "serialize_name": "FUN_18019c980"
+ },
+ "moMPLSkSegElem": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18019ca10",
+  "serialize_name": "thunk_FUN_18019c7d0"
+ },
+ "moMPLStraddleFaceSplitInfo_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18019c7c0",
+  "serialize_name": "thunk_FUN_18019c980"
+ },
+ "moMPLVertexElem": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18019ca10",
+  "serialize_name": "thunk_FUN_18019c7d0"
  },
  "moMacroFeatEdgeIdRep_c": {
   "dll": "sldmodu",
@@ -11274,6 +12099,11 @@
   "vtable": "4d2c8fc0",
   "vtable_slots": 40
  },
+ "moMesh2Classic_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801147a0",
+  "serialize_name": "FUN_1801147a0"
+ },
  "moMesh::Body_c": {
   "dll": "sldmodu",
   "serialize_addr": "4b5ae450",
@@ -11427,6 +12257,26 @@
   "serialize_name": "FUN_4c2fbd60",
   "vtable": "4d178140",
   "vtable_slots": 33
+ },
+ "moMidRefSurfSIdKeeper_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180207c00",
+  "serialize_name": "FUN_180207c00"
+ },
+ "moMidRefSurface_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18023c890",
+  "serialize_name": "moMidRefSurface_c::Serialize"
+ },
+ "moMidSurfData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18023ccd0",
+  "serialize_name": "moMidSurfData_c::Serialize"
+ },
+ "moMidSurface_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18023a0f0",
+  "serialize_name": "FUN_18023a0f0"
  },
  "moMinPointDistData_c": {
   "dll": "sldmodu",
@@ -11645,12 +12495,32 @@
   "vtable": "4d0c70e0",
   "vtable_slots": 40
  },
+ "moMoldCoreCavitySolidsData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180174d10",
+  "serialize_name": "FUN_180174d10"
+ },
+ "moMoldCoreCavitySolids_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180174e40",
+  "serialize_name": "FUN_180174e40"
+ },
+ "moMoldPartingConnectedComponent_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801daa20",
+  "serialize_name": "FUN_1801daa20"
+ },
  "moMoldPartingGeomCornerEdgeIdRep_c": {
   "dll": "sldmodu",
   "serialize_addr": "4bba8700",
   "serialize_name": "FUN_4bba8700",
   "vtable": "4cf082c0",
   "vtable_slots": 40
+ },
+ "moMoldPartingGeomData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18017b720",
+  "serialize_name": "FUN_18017b720"
  },
  "moMoldPartingGeomEdgeIdRep_c": {
   "dll": "sldmodu",
@@ -11687,12 +12557,37 @@
   "vtable": "4cf715c8",
   "vtable_slots": 40
  },
+ "moMoldPartingGeom_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18017bf40",
+  "serialize_name": "FUN_18017bf40"
+ },
+ "moMoldPartingLineData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18019ca20",
+  "serialize_name": "FUN_18019ca20"
+ },
  "moMoldPartingLineSurfIdRep_c": {
   "dll": "sldmodu",
   "serialize_addr": "4bba8470",
   "serialize_name": "FUN_4bba8470",
   "vtable": "4cf6cb20",
   "vtable_slots": 40
+ },
+ "moMoldPartingLine_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18019cf40",
+  "serialize_name": "FUN_18019cf40"
+ },
+ "moMoldShutOffSrfData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801a9860",
+  "serialize_name": "FUN_1801a9860"
+ },
+ "moMoldShutOffSrf_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801a99c0",
+  "serialize_name": "FUN_1801a99c0"
  },
  "moMoldSrfBodyFolder_c": {
   "dll": "sldmodu",
@@ -11721,6 +12616,11 @@
   "serialize_name": "FUN_4bb19960",
   "vtable": "4d10f0a8",
   "vtable_slots": 40
+ },
+ "moMoveFace_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801cccc0",
+  "serialize_name": "FUN_1801cccc0"
  },
  "moMoveRefSurfData_c": {
   "dll": "sldmodu",
@@ -11883,6 +12783,11 @@
   "vtable": "4d08e930",
   "vtable_slots": 40
  },
+ "moNudge_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180310160",
+  "serialize_name": "FUN_180310160"
+ },
  "moNullAttribute_c": {
   "dll": "sldmodu",
   "serialize_addr": "4cb9e799",
@@ -11924,6 +12829,16 @@
   "serialize_name": "SWCCU.DLL::su_CObject::Serialize",
   "vtable": "4cf574b8",
   "vtable_slots": 19
+ },
+ "moOffsetRefSurface_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180218590",
+  "serialize_name": "FUN_180218590"
+ },
+ "moOffsetSurfData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180218670",
+  "serialize_name": "FUN_180218670"
  },
  "moOffsetThroughConstructionPlane_c": {
   "dll": "sldmodu",
@@ -12037,6 +12952,11 @@
   "vtable": "4d120a88",
   "vtable_slots": 40
  },
+ "moPLineDraft_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18037b250",
+  "serialize_name": "FUN_18037b250"
+ },
  "moPLineInterSurfIdRep_c": {
   "dll": "sldmodu",
   "serialize_addr": "4bba84c0",
@@ -12044,12 +12964,27 @@
   "vtable": "4cf6c878",
   "vtable_slots": 40
  },
+ "moPLineIntersect_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18037b340",
+  "serialize_name": "FUN_18037b340"
+ },
  "moPLineProjIdRep_c": {
   "dll": "sldmodu",
   "serialize_addr": "4bba8410",
   "serialize_name": "FUN_4bba8410",
   "vtable": "4cf060a0",
   "vtable_slots": 40
+ },
+ "moPLineProject_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18037b410",
+  "serialize_name": "FUN_18037b410"
+ },
+ "moPLineSIdKeeper_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180382440",
+  "serialize_name": "FUN_180382440"
  },
  "moPLineSilhIdRep_c": {
   "dll": "sldmodu",
@@ -12072,12 +13007,47 @@
   "vtable": "4d108848",
   "vtable_slots": 26
  },
+ "moPLine_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18037b4a0",
+  "serialize_name": "FUN_18037b4a0"
+ },
  "moPMarkRecord_c": {
   "dll": "sldmodu",
   "serialize_addr": "4bb1a840",
   "serialize_name": "FUN_4bb1a840",
   "vtable": "4d17e9a8",
   "vtable_slots": 17
+ },
+ "moPPBSurfaceWrapper_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180323f40",
+  "serialize_name": "moPPBSurfaceWrapper_c::makeIsoCurve"
+ },
+ "moPPGordonData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18031fed0",
+  "serialize_name": "moPPGordonData_c::getNumBoundaries"
+ },
+ "moPPGordonFeature_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18031af30",
+  "serialize_name": "FUN_18031af30"
+ },
+ "moPPThinPlateWrapperOwner_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180323f50",
+  "serialize_name": "moPPThinPlateWrapper_c::makeIsoCurve"
+ },
+ "moPPThinPlateWrapperUser_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180323f50",
+  "serialize_name": "moPPThinPlateWrapper_c::makeIsoCurve"
+ },
+ "moPPThinPlateWrapper_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180323f50",
+  "serialize_name": "moPPThinPlateWrapper_c::makeIsoCurve"
  },
  "moPSMeshToleranceHandler_c": {
   "dll": "sldmodu",
@@ -12233,6 +13203,16 @@
   "vtable": "4d1252d8",
   "vtable_slots": 40
  },
+ "moPartingDataNew_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801daae0",
+  "serialize_name": "FUN_1801daae0"
+ },
+ "moPartingLineWithSide_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801bc3e0",
+  "serialize_name": "FUN_1801bc3e0"
+ },
  "moPatternComponentInstance_c": {
   "dll": "sldmodu",
   "serialize_addr": "4c21b8c0",
@@ -12359,6 +13339,11 @@
   "vtable": "4cf60dd8",
   "vtable_slots": 19
  },
+ "moPlanarSurface_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18021deb0",
+  "serialize_name": "FUN_18021deb0"
+ },
  "moPlaneCSysAxisData_c": {
   "dll": "sldmodu",
   "serialize_addr": "4c26dca0",
@@ -12442,6 +13427,21 @@
   "serialize_name": "FUN_4c08b650",
   "vtable": "4d0cefd8",
   "vtable_slots": 40
+ },
+ "moPlasticsDesignFolder_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801b2ad0",
+  "serialize_name": "FUN_1801b2ad0"
+ },
+ "moPlasticsRegionFolder_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801b2ef0",
+  "serialize_name": "FUN_1801b2ef0"
+ },
+ "moPlasticsShell_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802db640",
+  "serialize_name": "FUN_1802db640"
  },
  "moPntCSysAxisData_c": {
   "dll": "sldmodu",
@@ -12800,6 +13800,16 @@
   "vtable": "4d0d3840",
   "vtable_slots": 22
  },
+ "moPunch_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18032df70",
+  "serialize_name": "FUN_18032df70"
+ },
+ "moPushPullFeature_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1803358b0",
+  "serialize_name": "FUN_1803358b0"
+ },
  "moQuadSurfIdRep_c": {
   "dll": "sldmodu",
   "serialize_addr": "4bba9d20",
@@ -12911,6 +13921,11 @@
   "serialize_name": "FUN_4bba8700",
   "vtable": "4cf03930",
   "vtable_slots": 40
+ },
+ "moRadiateRefSurface_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180172240",
+  "serialize_name": "FUN_180172240"
  },
  "moRadiateStartEdgeIdRep_c": {
   "dll": "sldmodu",
@@ -13710,6 +14725,26 @@
   "vtable": "4cd8cfb8",
   "vtable_slots": 17
  },
+ "moReplaceFace_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180336160",
+  "serialize_name": "FUN_180336160"
+ },
+ "moReplaceRefSurface_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180222090",
+  "serialize_name": "FUN_180222090"
+ },
+ "moReplaceSurfData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1800e3360",
+  "serialize_name": "moAutoFixManager_c::collapseIntoFolders"
+ },
+ "moReplaceSurfaceBody_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180222090",
+  "serialize_name": "FUN_180222090"
+ },
  "moReprAdvCusPropList_c": {
   "dll": "sldmodu",
   "serialize_addr": "4b2a2cd0",
@@ -13822,6 +14857,16 @@
   "vtable": "4cf571c0",
   "vtable_slots": 18
  },
+ "moRevolvRefSurf_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802234d0",
+  "serialize_name": "FUN_1802234d0"
+ },
+ "moRevolvSurfData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180223680",
+  "serialize_name": "FUN_180223680"
+ },
  "moRevolvedRadiusDim_c": {
   "dll": "sldmodu",
   "serialize_addr": "4c836f30",
@@ -13912,6 +14957,16 @@
   "serialize_name": "FUN_4bb7b320",
   "vtable": "4d09ce08",
   "vtable_slots": 28
+ },
+ "moRuledSrfFromEdgeData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801bc470",
+  "serialize_name": "FUN_1801bc470"
+ },
+ "moRuledSrfFromEdge_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801bc7a0",
+  "serialize_name": "FUN_1801bc7a0"
  },
  "moSCCompItemData_c": {
   "dll": "sldmodu",
@@ -14088,6 +15143,11 @@
   "vtable": "4cf6d5c0",
   "vtable_slots": 40
  },
+ "moSWQueryCollector_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f64d190",
+  "serialize_name": "FUN_3f64d190"
+ },
  "moSaveProfileSettings_c": {
   "dll": "sldmodu",
   "serialize_addr": "4cb9e799",
@@ -14108,6 +15168,11 @@
   "serialize_name": "CInteractionContextOutputData::~CInteractionContextOutputData",
   "vtable": "3cc8c4e0",
   "vtable_slots": 18
+ },
+ "moScale_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1803862e0",
+  "serialize_name": "FUN_1803862e0"
  },
  "moScalerDim_c": {
   "dll": "sldmodu",
@@ -14143,6 +15208,11 @@
   "serialize_name": "SWCCU.DLL::su_CObject::Serialize",
   "vtable": "4cf57738",
   "vtable_slots": 20
+ },
+ "moSculpt_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18010d070",
+  "serialize_name": "FUN_18010d070"
  },
  "moSectionAnnotationViewFeat_c": {
   "dll": "sldmodu",
@@ -14192,6 +15262,11 @@
   "serialize_name": "SWCCU.DLL::su_CObject::Serialize",
   "vtable": "4d2de170",
   "vtable_slots": 17
+ },
+ "moSectionFeature_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180341140",
+  "serialize_name": "FUN_180341140"
  },
  "moSectionLabelData_c": {
   "dll": "sldmfcu",
@@ -14305,6 +15380,11 @@
   "vtable": "4d162868",
   "vtable_slots": 23
  },
+ "moSegmentMesh_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180114950",
+  "serialize_name": "FUN_180114950"
+ },
  "moSegmentToFramePtMap_c": {
   "dll": "sldmodu",
   "serialize_addr": "4cb9e799",
@@ -14396,6 +15476,11 @@
   "vtable": "4d2ccc48",
   "vtable_slots": 40
  },
+ "moSewRefEdgePair_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180228be0",
+  "serialize_name": "FUN_180228be0"
+ },
  "moSewRefSurfIdKeeper_c": {
   "dll": "sldmodu",
   "serialize_addr": "4cb9e799",
@@ -14403,12 +15488,22 @@
   "vtable": "4cf577e0",
   "vtable_slots": 20
  },
+ "moSewRefSurface_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180228c70",
+  "serialize_name": "FUN_180228c70"
+ },
  "moShaftCut_c": {
   "dll": "sldmodu",
   "serialize_addr": "4c552110",
   "serialize_name": "FUN_4c552110",
   "vtable": "4d1c2e78",
   "vtable_slots": 40
+ },
+ "moShape_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180343bd0",
+  "serialize_name": "FUN_180343bd0"
  },
  "moSharedFileDef_c": {
   "dll": "sldarchiveu",
@@ -14445,6 +15540,11 @@
   "vtable": "4cf6d868",
   "vtable_slots": 40
  },
+ "moShell_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802db640",
+  "serialize_name": "FUN_1802db640"
+ },
  "moShrinkWrapAttachPoint_c": {
   "dll": "sldmodu",
   "serialize_addr": "4c278200",
@@ -14472,6 +15572,11 @@
   "serialize_name": "FUN_4c794030",
   "vtable": "4d21bb68",
   "vtable_slots": 40
+ },
+ "moSideCore_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801c9180",
+  "serialize_name": "FUN_1801c9180"
  },
  "moSideFace3IntSurfIdRep_c": {
   "dll": "sldmodu",
@@ -15460,12 +16565,27 @@
   "vtable": "4d1ede88",
   "vtable_slots": 40
  },
+ "moSplitItem_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180349aa0",
+  "serialize_name": "FUN_180349aa0"
+ },
+ "moSplitRefSurface_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180230d00",
+  "serialize_name": "FUN_180230d00"
+ },
  "moSplitReference_c": {
   "dll": "sldmodu",
   "serialize_addr": "4b673f00",
   "serialize_name": "FUN_4b673f00",
   "vtable": "4cf7c670",
   "vtable_slots": 40
+ },
+ "moSplit_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180349e40",
+  "serialize_name": "FUN_180349e40"
  },
  "moSplittedDisplayCellAreaAlongColumn_c": {
   "dll": "sldmodu",
@@ -15663,6 +16783,11 @@
   "vtable": "4d1f7b60",
   "vtable_slots": 40
  },
+ "moSurfCut_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1803578c0",
+  "serialize_name": "FUN_1803578c0"
+ },
  "moSurfExtCornerSurfIdRep_c": {
   "dll": "sldmodu",
   "serialize_addr": "4bba8470",
@@ -15683,6 +16808,16 @@
   "serialize_name": "FUN_4bba9c90",
   "vtable": "4cf075a0",
   "vtable_slots": 40
+ },
+ "moSurfFromMeshData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18012a640",
+  "serialize_name": "FUN_18012a640"
+ },
+ "moSurfFromMesh_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18012a740",
+  "serialize_name": "FUN_18012a740"
  },
  "moSurfIdKeeper_c": {
   "dll": "sldmodu",
@@ -16027,6 +17162,16 @@
   "vtable": "4cf57420",
   "vtable_slots": 18
  },
+ "moTangencyRefSurfaceData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180309ca0",
+  "serialize_name": "FUN_180309ca0"
+ },
+ "moTangencyRefSurface_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18035a8d0",
+  "serialize_name": "FUN_18035a8d0"
+ },
  "moTblHeaderItem_c": {
   "dll": "sldmodu",
   "serialize_addr": "4c6e80a0",
@@ -16342,6 +17487,11 @@
   "vtable": "3cc8d7c8",
   "vtable_slots": 40
  },
+ "moThicken_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18035b660",
+  "serialize_name": "FUN_18035b660"
+ },
  "moThinClosing3IntSurfIdRep_c": {
   "dll": "sldmodu",
   "serialize_addr": "4bba41f0",
@@ -16524,6 +17674,11 @@
   "vtable": "4cf57690",
   "vtable_slots": 20
  },
+ "moTrimRefSurface_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180360660",
+  "serialize_name": "FUN_180360660"
+ },
  "moTrimWireExtEdgeIdRep_c": {
   "dll": "sldmodu",
   "serialize_addr": "4bba8700",
@@ -16544,6 +17699,11 @@
   "serialize_name": "FUN_4bba41f0",
   "vtable": "4ce18128",
   "vtable_slots": 40
+ },
+ "moTubeBodyFeature_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802fdd00",
+  "serialize_name": "FUN_1802fdd00"
  },
  "moTwistDataForBiDirectionalSweep_c": {
   "dll": "sldmodu",
@@ -16601,6 +17761,11 @@
   "vtable": "4cf71dd0",
   "vtable_slots": 40
  },
+ "moUnTrimRefSurfData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180232060",
+  "serialize_name": "FUN_180232060"
+ },
  "moUnTrimRefSurfIdKeeper_c": {
   "dll": "sldmodu",
   "serialize_addr": "4cb9e799",
@@ -16608,12 +17773,22 @@
   "vtable": "4cf57888",
   "vtable_slots": 18
  },
+ "moUnTrimRefSurf_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180232230",
+  "serialize_name": "FUN_180232230"
+ },
  "moUnfoldedView": {
   "dll": "sldmodu",
   "serialize_addr": "4c9642d0",
   "serialize_name": "FUN_4c9642d0",
   "vtable": "4d2026d0",
   "vtable_slots": 40
+ },
+ "moUniqueBodyRef_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1800e8220",
+  "serialize_name": "FUN_1800e8220"
  },
  "moUnitComponent_c": {
   "dll": "sldmodu",
@@ -16706,6 +17881,11 @@
   "vtable": "4cf9b500",
   "vtable_slots": 17
  },
+ "moValidateSavedResultsWalker_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
  "moValueData_c": {
   "dll": "sldmodu",
   "serialize_addr": "4b9b4ad0",
@@ -16733,6 +17913,11 @@
   "serialize_name": "FUN_4c720030",
   "vtable": "4d206e88",
   "vtable_slots": 17
+ },
+ "moVertDim_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180272e20",
+  "serialize_name": "FUN_180272e20"
  },
  "moVertexDirection_c": {
   "dll": "sldmodu",
@@ -16930,6 +18115,21 @@
   "vtable": "4cf88ae8",
   "vtable_slots": 40
  },
+ "moVolSweepCut_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1803670a0",
+  "serialize_name": "FUN_1803670a0"
+ },
+ "moVolSweepRefSurface_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180233230",
+  "serialize_name": "FUN_180233230"
+ },
+ "moVolSweep_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1803670a0",
+  "serialize_name": "FUN_1803670a0"
+ },
  "moVolumeUserUnits_c": {
   "dll": "sldmfcu",
   "serialize_addr": "3c90cd30",
@@ -16950,6 +18150,11 @@
   "serialize_name": "FUN_4c964a70",
   "vtable": "4cefeb38",
   "vtable_slots": 17
+ },
+ "moWeldBeadFeat_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1803967f0",
+  "serialize_name": "FUN_1803967f0"
  },
  "moWeldBeadIndices_c": {
   "dll": "sldmodu",
@@ -17174,6 +18379,11 @@
   "serialize_name": "FUN_4bb31530",
   "vtable": "4cf5ab90",
   "vtable_slots": 17
+ },
+ "moWeld_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "18030a450",
+  "serialize_name": "FUN_18030a450"
  },
  "moWeldmentContours_c": {
   "dll": "sldmodu",
@@ -17455,6 +18665,11 @@
   "vtable": "4d1bd888",
   "vtable_slots": 18
  },
+ "moldLoopLink_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1801a9a30",
+  "serialize_name": "FUN_1801a9a30"
+ },
  "myDummyClass": {
   "dll": "sldmodu",
   "serialize_addr": "4cb9d36a",
@@ -17511,6 +18726,21 @@
   "vtable": "4cedab30",
   "vtable_slots": 17
  },
+ "pointParamsObject_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180272fa0",
+  "serialize_name": "FUN_180272fa0"
+ },
+ "pointRadiusObject_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180272ff0",
+  "serialize_name": "FUN_180272ff0"
+ },
+ "proxySerializationFeature_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180229300",
+  "serialize_name": "FUN_180229300"
+ },
  "pwSceneData_c": {
   "dll": "sldmodu",
   "serialize_addr": "4c20cdc0",
@@ -17524,6 +18754,11 @@
   "serialize_name": "FUN_4c20da00",
   "vtable": "4d027050",
   "vtable_slots": 17
+ },
+ "radiusObject_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180273040",
+  "serialize_name": "FUN_180273040"
  },
  "refEntry": {
   "dll": "sldmodu",
@@ -17552,6 +18787,11 @@
   "serialize_name": "FUN_4c389c00",
   "vtable": "4d1857e0",
   "vtable_slots": 17
+ },
+ "resolvedComponentCollector_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
  },
  "revolveSortingInfo_c": {
   "dll": "sldmodu",
@@ -19184,6 +20424,131 @@
   "vtable": "4d25a338",
   "vtable_slots": 17
  },
+ "std::_Func_impl_no_alloc<`private:_bool___cdecl_moSimplifyFastenersHelper_c::classifyThreadedFastener(moSimplifyFastenerData_c*___ptr64)___ptr64'::`2'::<lambda_1>,void,std::basic_string<char,std::char_traits<char>,std::allocator<char>_>_const&___ptr64,double,swTimer::Unit>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<`private:_bool___cdecl_moSimplifyFastenersHelper_c::classifyThreadedFastener(moSimplifyFastenerData_c*___ptr64)___ptr64'::`33'::<lambda_2>,void,std::basic_string<char,std::char_traits<char>,std::allocator<char>_>_const&___ptr64,double,swTimer::Unit>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<`private:_bool___cdecl_moSimplifyFastenersHelper_c::classifyThreadedFastener(moSimplifyFastenerData_c*___ptr64)___ptr64'::`40'::<lambda_3>,void,std::basic_string<char,std::char_traits<char>,std::allocator<char>_>_const&___ptr64,double,swTimer::Unit>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<`private:_bool___cdecl_moSimplifyFastenersHelper_c::createFastenerCosmeticThread(moSimplifyFastenerData_c*___ptr64)___ptr64'::`2'::<lambda_1>,void,std::basic_string<char,std::char_traits<char>,std::allocator<char>_>_const&___ptr64,double,swTimer::Unit>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<`private:_bool___cdecl_moSimplifyFastenersHelper_c::suppressNativeFastenerFeatures(moSimplifyFastenerData_c*___ptr64)___ptr64'::`19'::<lambda_1>,void,std::basic_string<char,std::char_traits<char>,std::allocator<char>_>_const&___ptr64,double,swTimer::Unit>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<`private:_bool___cdecl_moSimplifyFastenersHelper_c::suppressNativeFastenerFeatures(moSimplifyFastenerData_c*___ptr64)___ptr64'::`35'::<lambda_2>,void,std::basic_string<char,std::char_traits<char>,std::allocator<char>_>_const&___ptr64,double,swTimer::Unit>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<`private:_virtual_int___cdecl_uiInterferAsmDveDlg_c::iDoCollisionPreProcess(void)___ptr64'::`37'::<lambda_1>,int>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<`protected:_bool___cdecl_moSimplifyFastenersHelper_c::isThreadedFastener(moSimplifyFastenerData_c*___ptr64)___ptr64'::`2'::<lambda_1>,void,std::basic_string<char,std::char_traits<char>,std::allocator<char>_>_const&___ptr64,double,swTimer::Unit>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<`protected:_bool___cdecl_moSimplifyFastenersHelper_c::simplifyThreadedFastener(moSimplifyFastenerData_c*___ptr64)___ptr64'::`2'::<lambda_1>,void,std::basic_string<char,std::char_traits<char>,std::allocator<char>_>_const&___ptr64,double,swTimer::Unit>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<`protected:_void___cdecl_moSimplifyFastenersHelper_c::finalizeAssemblyViewUpdate(uiAssemblyDoc_c*___ptr64,moSimplifyFastenersResults_c*___ptr64)___ptr64'::`13'::<lambda_1>,void,std::basic_string<char,std::char_traits<char>,std::allocator<char>_>_const&___ptr64,double,swTimer::Unit>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<`public:_bool___cdecl_moSimplifyFastenersHelper_c::IsThreadedFastener(moSimplifyFastenerData_c*___ptr64)___ptr64'::`2'::<lambda_1>,void,std::basic_string<char,std::char_traits<char>,std::allocator<char>_>_const&___ptr64,double,swTimer::Unit>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<`public:_bool___cdecl_moSimplifyFastenersHelper_c::SimplifyAssemblyFasteners(moSimplifyFastenersResults_c*___ptr64)___ptr64'::`11'::<lambda_1>,void,std::basic_string<char,std::char_traits<char>,std::allocator<char>_>_const&___ptr64,double,swTimer::Unit>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<`public:_bool___cdecl_moSimplifyFastenersHelper_c::SimplifySelectedFasteners(moSimplifyFastenersResults_c*___ptr64)___ptr64'::`11'::<lambda_1>,void,std::basic_string<char,std::char_traits<char>,std::allocator<char>_>_const&___ptr64,double,swTimer::Unit>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<`public:_bool___cdecl_moSimplifyFastenersHelper_c::SimplifySpecifiedFasteners(moSimplifyFastenersResults_c*___ptr64)___ptr64'::`11'::<lambda_1>,void,std::basic_string<char,std::char_traits<char>,std::allocator<char>_>_const&___ptr64,double,swTimer::Unit>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<`public:_bool___cdecl_moSimplifyFastenersHelper_c::SimplifyThreadedFastener(moSimplifyFastenerData_c*___ptr64)___ptr64'::`2'::<lambda_1>,void,std::basic_string<char,std::char_traits<char>,std::allocator<char>_>_const&___ptr64,double,swTimer::Unit>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<`public:_class_std::basic_string<char,std::char_traits<char>,std::allocator<char>_>___cdecl_`public:_void___cdecl_swAutoGenerateFile::CreateAndOpenFile(wchar_t*___ptr64)___ptr64'::`2'::<lambda_1>::operator()(std::shared_ptr<Assembly>_const&___ptr64)const___ptr64'::`2'::<lambda_1>,void,std::shared_ptr<class_Assembly>_const&___ptr64,bool>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<std::_Binder<std::_Unforced,bool_(__cdecl_moSimplifyFastenersHelper_c::*)(moSimplifyFastenerData_c*___ptr64)___ptr64,moSimplifyFastenersHelper_c*___ptr64,std::_Ph<1>_const&___ptr64>,bool,moSimplifyFastenerData_c*___ptr64>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<std::_Binder<std::_Unforced,bool_(__cdecl_uiInterferBaseDveDlg_c::*)(int,int)___ptr64,uiInterferAsmDveDlg_c*___ptr64,std::_Ph<1>_const&___ptr64,std::_Ph<2>_const&___ptr64>,bool,int,int>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<std::_Binder<std::_Unforced,bool_(__cdecl_uiSaveAssemblyAsPartDvePage_c::*)(moChainComponent_c*___ptr64)___ptr64,uiSaveAssemblyAsPartDvePage_c*___ptr64,std::_Ph<1>_const&___ptr64>,bool,moChainComponent_c*___ptr64>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<std::_Binder<std::_Unforced,int_(__cdecl_uiMatePopupDlg::*)(void)___ptr64,uiMatePopupDlg*___ptr64>,int>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Func_impl_no_alloc<std::_Binder<std::_Unforced,void_(__cdecl_moChainComponent_c::*)(int)___ptr64,moComponentInstance_c*___ptr64&___ptr64,std::_Ph<1>_const&___ptr64>,void,int>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61ebe0",
+  "serialize_name": "FUN_3f61ebe0"
+ },
+ "std::_Generic_error_category": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f712c20",
+  "serialize_name": "FUN_3f712c20"
+ },
+ "std::_System_error_category": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f712c20",
+  "serialize_name": "FUN_3f712c20"
+ },
+ "std::codecvt_utf8<wchar_t,1114111,0>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5e7cb0",
+  "serialize_name": "uiAssemblyDoc_c::addAllCPointsToRoute"
+ },
+ "std::numpunct<char>": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f60df30",
+  "serialize_name": "FUN_3f60df30"
+ },
  "storeTransforms": {
   "dll": "sldmodu",
   "serialize_addr": "4cb9e799",
@@ -20286,6 +21651,11 @@
   "vtable": "4ce0ba88",
   "vtable_slots": 17
  },
+ "trimProxySerializationFeature_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180360a70",
+  "serialize_name": "FUN_180360a70"
+ },
  "ui3DInterconnectBetaLicDlg_c": {
   "dll": "sldmfcu",
   "serialize_addr": "3cab4911",
@@ -20293,12 +21663,32 @@
   "vtable": "3cc88418",
   "vtable_slots": 40
  },
+ "uiASMSLDPRTRefWalker_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
  "uiActiveXCtrl_c": {
   "dll": "sldmodu",
   "serialize_addr": "4cb9f653",
   "serialize_name": "MFC140U.DLL::CCmdTarget::OnCmdMsg",
   "vtable": "4cf00648",
   "vtable_slots": 40
+ },
+ "uiAdvancedMateDvePage_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6c9840",
+  "serialize_name": "FUN_3f6c9840"
+ },
+ "uiAssemblyDoc_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f74b470",
+  "serialize_name": "uiAssemblyDoc_c::OnCmdMsg"
+ },
+ "uiAssemblySelMan_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f69f7a0",
+  "serialize_name": "FUN_3f69f7a0"
  },
  "uiAutoCheckableBitmapButton_c": {
   "dll": "sldmfcu",
@@ -20349,6 +21739,11 @@
   "vtable": "3cb34468",
   "vtable_slots": 40
  },
+ "uiCheckAnyModelLoadedWalker_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
  "uiCheckableBitmapButton_c": {
   "dll": "sldmfcu",
   "serialize_addr": "3cab42c9",
@@ -20363,6 +21758,11 @@
   "vtable": "3cc85e18",
   "vtable_slots": 40
  },
+ "uiCountLWCompsOfSubassem_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
  "uiDialogHelpHyperLinkText_c": {
   "dll": "sldmfcu",
   "serialize_addr": "3cab42c9",
@@ -20376,6 +21776,11 @@
   "serialize_name": "MFC140U.DLL::CDialog::OnCmdMsg",
   "vtable": "3cc86630",
   "vtable_slots": 40
+ },
+ "uiDveNotify_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
  },
  "uiFadingFlyoutDlg_c": {
   "dll": "sldmfcu",
@@ -20447,6 +21852,11 @@
   "vtable": "3cc719c0",
   "vtable_slots": 17
  },
+ "uiLayoutDoc_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f74b470",
+  "serialize_name": "uiAssemblyDoc_c::OnCmdMsg"
+ },
  "uiListBoxEdit_c": {
   "dll": "sldmfcu",
   "serialize_addr": "3cab42c9",
@@ -20454,12 +21864,37 @@
   "vtable": "3cc71d38",
   "vtable_slots": 40
  },
+ "uiMateBaseDvePage_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6c9840",
+  "serialize_name": "FUN_3f6c9840"
+ },
+ "uiMateDlg_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6c9b30",
+  "serialize_name": "FUN_3f6c9b30"
+ },
+ "uiMatePopupDlg": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f61fda0",
+  "serialize_name": "uiRouteAppCtrl_c::getActiveRoute"
+ },
+ "uiMechanicalMateDvePage_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6c9840",
+  "serialize_name": "FUN_3f6c9840"
+ },
  "uiMfcDoc_c": {
   "dll": "sldmfcu",
   "serialize_addr": "3cab4ecf",
   "serialize_name": "MFC140U.DLL::COleDocument::OnCmdMsg",
   "vtable": "3cc72d40",
   "vtable_slots": 40
+ },
+ "uiMirSubTreeData_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5e7cb0",
+  "serialize_name": "uiAssemblyDoc_c::addAllCPointsToRoute"
  },
  "uiModelessDialog_c": {
   "dll": "sldmfcu",
@@ -20474,6 +21909,11 @@
   "serialize_name": "MFC140U.DLL::CCmdTarget::OnCmdMsg",
   "vtable": "3cc75b48",
   "vtable_slots": 40
+ },
+ "uiNameObj_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5e7de0",
+  "serialize_name": "uiAssemblyDoc_c::UpdatePatternProgressBar"
  },
  "uiNonMainframePopup_c": {
   "dll": "sldmfcu",
@@ -20496,6 +21936,11 @@
   "vtable": "3cc6d988",
   "vtable_slots": 21
  },
+ "uiPassiveBitmapSmartCompButton_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
  "uiPopup_c": {
   "dll": "sldmfcu",
   "serialize_addr": "3c87d9b0",
@@ -20509,6 +21954,16 @@
   "serialize_name": "MFC140U.DLL::CDialog::OnCmdMsg",
   "vtable": "3cc88888",
   "vtable_slots": 40
+ },
+ "uiRecipeAdditionCustomiser_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5e7cb0",
+  "serialize_name": "uiAssemblyDoc_c::addAllCPointsToRoute"
+ },
+ "uiSaveAssemblyAsPartSettings_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6a4400",
+  "serialize_name": "uiSaveAssemblyAsPartSettings_c::Serialize"
  },
  "uiScrollBar_c": {
   "dll": "sldmfcu",
@@ -20551,6 +22006,16 @@
   "serialize_name": "MFC140U.DLL::CCmdTarget::OnCmdMsg",
   "vtable": "3cc897f8",
   "vtable_slots": 40
+ },
+ "uiSpeedPakUpdateWalker": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
+ "uiStandardMateDvePage_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6c9840",
+  "serialize_name": "FUN_3f6c9840"
  },
  "uiStaticBase": {
   "dll": "sldmfcu",
@@ -20636,6 +22101,26 @@
   "vtable": "3cb2b8c0",
   "vtable_slots": 17
  },
+ "uoAssemblySimplifier_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3fb16850",
+  "serialize_name": "uoAssemblySimplifier_c::setCullable"
+ },
+ "uoDisplayDataWalker_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
+ "uoMateData_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f8a75e8",
+  "serialize_name": "FUN_3f8a75e8"
+ },
+ "uoMateEngine": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f8400",
+  "serialize_name": "uoCompPatData_c::setPropVisProps"
+ },
  "uoMaterialProperties": {
   "dll": "sldmfcu",
   "serialize_addr": "3cab3cff",
@@ -20649,6 +22134,11 @@
   "serialize_name": "SWCCU.DLL::su_CObject::Serialize",
   "vtable": "3cb2b830",
   "vtable_slots": 17
+ },
+ "uoMisalignedMateFolder_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6832b0",
+  "serialize_name": "FUN_3f6832b0"
  },
  "uoModelData_c": {
   "dll": "sldmodu",
@@ -20664,12 +22154,107 @@
   "vtable": "4d12c420",
   "vtable_slots": 17
  },
+ "uoSFManipCallback_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3fa32410",
+  "serialize_name": "FUN_3fa32410"
+ },
  "uoScene": {
   "dll": "sldmodu",
   "serialize_addr": "4c3bac60",
   "serialize_name": "FUN_4c3bac60",
   "vtable": "4d19d850",
   "vtable_slots": 17
+ },
+ "uoSelCavity_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6832b0",
+  "serialize_name": "FUN_3f6832b0"
+ },
+ "uoSelCompPattern_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6832b0",
+  "serialize_name": "FUN_3f6832b0"
+ },
+ "uoSelExplLine_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6832b0",
+  "serialize_name": "FUN_3f6832b0"
+ },
+ "uoSelExplStep_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6832b0",
+  "serialize_name": "FUN_3f6832b0"
+ },
+ "uoSelExplView_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6832b0",
+  "serialize_name": "FUN_3f6832b0"
+ },
+ "uoSelInContextFeatHolder_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6832b0",
+  "serialize_name": "FUN_3f6832b0"
+ },
+ "uoSelJoin_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6832b0",
+  "serialize_name": "FUN_3f6832b0"
+ },
+ "uoSelMateController_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6832b0",
+  "serialize_name": "FUN_3f6832b0"
+ },
+ "uoSelMateGroup_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6832b0",
+  "serialize_name": "FUN_3f6832b0"
+ },
+ "uoSelMultiMate_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6832b0",
+  "serialize_name": "FUN_3f6832b0"
+ },
+ "uoSelRECFolder_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6832b0",
+  "serialize_name": "FUN_3f6832b0"
+ },
+ "uoSelSmartFastener_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6832b0",
+  "serialize_name": "FUN_3f6832b0"
+ },
+ "uoSelSmartInsert_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6832b0",
+  "serialize_name": "FUN_3f6832b0"
+ },
+ "uoSelSpeedpak_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6832b0",
+  "serialize_name": "FUN_3f6832b0"
+ },
+ "uoSelWeld_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f6832b0",
+  "serialize_name": "FUN_3f6832b0"
+ },
+ "uoSelZone_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
+ },
+ "uoTboxBaseManipCallback_c": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5e7de0",
+  "serialize_name": "uiAssemblyDoc_c::UpdatePatternProgressBar"
+ },
+ "usersWithWriteAccessWalker": {
+  "dll": "sldasmu",
+  "serialize_addr": "3f5f0a20",
+  "serialize_name": "aiFastenerClassifier_c::~aiFastenerClassifier_c"
  },
  "utCharFormat_c": {
   "dll": "sldmfcu",
@@ -20755,6 +22340,16 @@
   "vtable": "4d1eb650",
   "vtable_slots": 17
  },
+ "vertexEdgesObject_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180273090",
+  "serialize_name": "vertexEdgesObject_c::Serialize"
+ },
+ "vertexObject_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "1802730a0",
+  "serialize_name": "vertexObject_c::Serialize"
+ },
  "visStateAttribute_c": {
   "dll": "sldvisualstateu",
   "serialize_addr": "3273fe30",
@@ -20779,6 +22374,11 @@
   "dll": "sldvisualstateu",
   "serialize_addr": "32742880",
   "serialize_name": "FUN_32742880"
+ },
+ "weldBeadSideData_c": {
+  "dll": "sldmopartu",
+  "serialize_addr": "180396ad0",
+  "serialize_name": "FUN_180396ad0"
  },
  "weldMemberSortingInfo_c": {
   "dll": "sldmodu",

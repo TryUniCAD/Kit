@@ -15,6 +15,7 @@ def load_resolved(data, reg, version=None):
     ar = Load(data, 1, reg, version)
     base = ar.prim("u32")
     ar.count = base
+    ar.base = base
     n = ar.count_value()
     roots = [ar.obj() for _ in range(n)]
     rest = ar.raw(ar.left())

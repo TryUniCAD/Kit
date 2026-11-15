@@ -45,33 +45,37 @@ def walk(v, path, out, seen, owner):
     out[(owner, path)].append(v)
 
 
-def load(name, data, reg):
-    kind, base = RoundTrip.PLANS[name]
+def load(name, data, reg, archive, plans):
+    kind, base = RoundTrip.plan(name, plans)
     if kind == "resolved":
-        return Streams.load_resolved(data, reg)[0]
+        return Streams.load_resolved(data, reg, 19000)[0]
     if kind == "custom":
-        return base[0](data, reg)[0]
-    return Streams.load_rooted(data, reg, base)[0]
+        return base[0](data, reg, 19000, archive=archive, name=name)[0]
+    return Streams.load_rooted(data, reg, base, 19000)[0]
 
 
 def main():
     pattern, name = sys.argv[1], sys.argv[2]
     reg = Classes.registry()
-    RoundTrip.PLANS.update(Classes.PLANS)
+    plans = {**RoundTrip.PLANS, **reg.plans}
     per = {}
     files = sorted(p for p in glob.glob(pattern) if not Path(p).name.startswith("~$"))
     for path in files:
-        data = SldprtArchive.open(path).get(name)
+        archive = SldprtArchive.open(path)
+        data = archive.get(name)
         if data is None:
-            continue
-        doc = load(name, data, reg)
+            raise ValueError(f"required stream is missing: {name} in {path}")
+        doc = load(name, data, reg, archive, plans)
+        if doc.tail:
+            raise ValueError(f"unread bytes in {name} in {path}: {len(doc.tail)}")
         out = collections.defaultdict(list)
         seen = set()
         for r in doc.roots:
             walk(r, "root", out, seen, "<stream>")
-        for k, x in doc.head.items():
-            out[("<head>", k)].append(x)
+        walk(doc.head, "head", out, seen, "<stream>")
         per[Path(path).stem] = out
+    if not per:
+        raise ValueError("no input files matched")
     keys = sorted({k for o in per.values() for k in o}, key=lambda k: (k[0], k[1]))
     rows = []
     for k in keys:
@@ -84,7 +88,7 @@ def main():
     for r in rows:
         v = r["values"]
         if r["distinct"] == 1:
-            print(f"{r['cls']}.{r['field']}  const  {v}")
+            print(f"{r['cls']}.{r['field']}  sample-invariant  {v}")
         else:
             print(f"{r['cls']}.{r['field']}  vary({r['distinct']})")
             for f, x in v.items():

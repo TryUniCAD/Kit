@@ -23,12 +23,13 @@ def main():
     arc = SldprtArchive.from_bytes(blob, src)
     names = [r.name for r in arc.records]
     files = []
-    full = out / "full_rebuilt.SLDPRT"
+    ext = src.suffix
+    full = out / f"full_rebuilt{ext}"
     full.write_bytes(BuildSldprt([(r.name, r.data) for r in arc.records], template=blob))
     files.append(win(full))
     for i, n in enumerate(names):
         keep = [(r.name, r.data) for r in arc.records if r.name != n]
-        p = out / f"drop_{i:02d}.SLDPRT"
+        p = out / f"drop_{i:02d}{ext}"
         p.write_bytes(BuildSldprt(keep, template=blob))
         files.append(win(p))
     (out / "names.json").write_text(json.dumps(names, indent=1))

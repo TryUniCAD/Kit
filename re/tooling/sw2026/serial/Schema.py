@@ -71,7 +71,11 @@ class Raw(Op):
         scope[self.name] = ar.raw(n)
 
     def store(self, ar, scope, o):
-        ar.raw(scope[self.name])
+        n = self.n(scope, ar) if callable(self.n) else self.n
+        data = scope[self.name]
+        if len(data) != n:
+            raise ArchiveError(f"{self.name} declares {n} bytes, got {len(data)}")
+        ar.raw(data)
 
 
 class Base(Op):
@@ -127,6 +131,9 @@ class Rep(Op):
         scope[self.name] = items
 
     def store(self, ar, scope, o):
+        n = self.count(scope, ar) if callable(self.count) else scope[self.count]
+        if len(scope[self.name]) != n:
+            raise ArchiveError(f"{self.name} declares {n} items, got {len(scope[self.name])}")
         for i, item in enumerate(scope[self.name]):
             sub = Scope(scope, i, item)
             run_store(self.body, ar, sub, o)
@@ -200,6 +207,7 @@ class Registry:
     def __init__(self):
         self.classes = {}
         self.tentative = set()
+        self.plans = {}
 
     def define(self, name, ops):
         if name in self.classes and name not in self.tentative:

@@ -19,9 +19,6 @@ def containers(reg):
     reg.define("su_CByteArray", [Cnt("n"), Raw("data", lambda s, ar: s["n"])])
 
 
-PLANS = {}
-
-
 def registry():
     reg = Registry()
     containers(reg)
@@ -34,7 +31,7 @@ def registry():
             mod = importlib.import_module(f"{pkg}.{info.name}")
             mod.define(reg)
             for k, v in getattr(mod, "PLANS", {}).items():
-                if k in PLANS:
+                if k in reg.plans:
                     raise ValueError(f"duplicate plan {k}")
-                PLANS[k] = v
+                reg.plans[k] = v
     return reg

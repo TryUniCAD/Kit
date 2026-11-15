@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from Dsl import Vgt, Vge, Vlt, i32, u16, u8, f64, obj, cstr, time32, emb
+from Dsl import Vgt, Vge, Vlt, i32, u16, u8, f64, obj, cstr, time32, emb, base
 
 
 def define(reg):
@@ -34,3 +34,4 @@ def define(reg):
         Vgt(0x3F12, [i32("f50")]),
     ])
     reg.define("mgBBox_c.restore", [f64(f"b{k}") for k in range(10)])
+    reg.define("moExtObjectList_c", [base("suObList")])

@@ -27,35 +27,37 @@ failure in a fresh instance, with a control, before you classify it.
 
 ## Result (pass 2 for the 18 retried streams, pass 1 for the rest)
 
-| stream | without it | class |
-| --- | --- | --- |
-| `Contents/CMgr` | SOLIDWORKS process dies (RPC failure); control after restart passes | **load-critical** |
-| `Contents/Config-0` | process dies; control passes | **load-critical** |
-| `Contents/Definition` | process dies; control passes | **load-critical** |
-| `_MO_VERSION_19000/Biography` | process dies; control passes | **load-critical** |
-| `_MO_VERSION_19000/History` | process dies; control passes | **load-critical** |
-| `Contents/Config-0-ModelHeader` | `OpenDoc6` returns a document with no `FirstFeature`; control passes | **load-critical** |
-| `Contents/Config-0-ResolvedFeatures` | opens with 0 errors but 0 bodies and volume 0 | **model-critical** |
-| `Header2` | opens, 1 body, 8e-6 m^3 | optional |
-| `Contents/Config-0-Partition` | opens, 1 body, 8e-6 m^3 | optional |
-| `Contents/Config-0-LWDATA` | opens, 1 body, 8e-6 m^3 | optional |
-| `Contents/DisplayLists` | opens, 1 body, 8e-6 m^3 | optional |
-| `Contents/CMgrHdr2`, `Contents/CusProps`, `Contents/CnfgObjs` | open, 1 body, 8e-6 m^3 | optional |
-| `Contents/3DExperienceExchange2`, `Contents/3DExperienceExchange_ConfigHeader`, `Contents/PMISemanticDataDB`, `Contents/eModelLic`, `Contents/OleItems`, `OleItemInformation/OLE_Item_Data` | open, 1 body, 8e-6 m^3 | optional |
-| `ModelStamps`, `_DL_VERSION_19000/DLUpdateStamp`, `Preview`, `PreviewPNG` | open, 1 body, 8e-6 m^3 | optional |
-| `SwDocContentMgr/SwDocContentMgrInfo`, `ThirdPty/*`, `ThirdPtyStore/VisualStates` | open, 1 body, 8e-6 m^3 | optional |
-| `[Content_Types].xml`, `_rels/.rels`, `docProps/*.xml`, `swXmlContents/Features`, `swXmlContents/KeyWords` | open, 1 body, 8e-6 m^3 | optional |
+| stream                                                                                                                                                                                      | without it                                                           | class              |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------------ |
+| `Contents/CMgr`                                                                                                                                                                             | SOLIDWORKS process dies (RPC failure); control after restart passes  | **load-critical**  |
+| `Contents/Config-0`                                                                                                                                                                         | process dies; control passes                                         | **load-critical**  |
+| `Contents/Definition`                                                                                                                                                                       | process dies; control passes                                         | **load-critical**  |
+| `_MO_VERSION_19000/Biography`                                                                                                                                                               | process dies; control passes                                         | **load-critical**  |
+| `_MO_VERSION_19000/History`                                                                                                                                                                 | process dies; control passes                                         | **load-critical**  |
+| `Contents/Config-0-ModelHeader`                                                                                                                                                             | `OpenDoc6` returns a document with no `FirstFeature`; control passes | **load-critical**  |
+| `Contents/Config-0-ResolvedFeatures`                                                                                                                                                        | opens with 0 errors but 0 bodies and volume 0                        | **model-critical** |
+| `Header2`                                                                                                                                                                                   | opens, 1 body, 8e-6 m^3                                              | optional           |
+| `Contents/Config-0-Partition`                                                                                                                                                               | opens, 1 body, 8e-6 m^3                                              | optional           |
+| `Contents/Config-0-LWDATA`                                                                                                                                                                  | opens, 1 body, 8e-6 m^3                                              | optional           |
+| `Contents/DisplayLists`                                                                                                                                                                     | opens, 1 body, 8e-6 m^3                                              | optional           |
+| `Contents/CMgrHdr2`, `Contents/CusProps`, `Contents/CnfgObjs`                                                                                                                               | open, 1 body, 8e-6 m^3                                               | optional           |
+| `Contents/3DExperienceExchange2`, `Contents/3DExperienceExchange_ConfigHeader`, `Contents/PMISemanticDataDB`, `Contents/eModelLic`, `Contents/OleItems`, `OleItemInformation/OLE_Item_Data` | open, 1 body, 8e-6 m^3                                               | optional           |
+| `ModelStamps`, `_DL_VERSION_19000/DLUpdateStamp`, `Preview`, `PreviewPNG`                                                                                                                   | open, 1 body, 8e-6 m^3                                               | optional           |
+| `SwDocContentMgr/SwDocContentMgrInfo`, `ThirdPty/*`, `ThirdPtyStore/VisualStates`                                                                                                           | open, 1 body, 8e-6 m^3                                               | optional           |
+| `[Content_Types].xml`, `_rels/.rels`, `docProps/*.xml`, `swXmlContents/Features`, `swXmlContents/KeyWords`                                                                                  | open, 1 body, 8e-6 m^3                                               | optional           |
 
 `full_rebuilt` opened with 0 errors, 1 body and 8e-6 m^3, so Kit's container writer reproduces a
 2026 container that SOLIDWORKS accepts.
 
 ## Consequence for the writer
 
-The minimum native part is these seven streams, each generated from the model:
+These seven streams were individually load-critical or model-critical:
 `Contents/CMgr`, `Contents/Config-0`, `Contents/Config-0-ModelHeader`,
 `Contents/Config-0-ResolvedFeatures`, `Contents/Definition`, `_MO_VERSION_19000/Biography`,
-`_MO_VERSION_19000/History`. "Optional" means only that SOLIDWORKS opens and rebuilds the part
-without the stream. A stream that carries model information (custom properties, appearances,
+`_MO_VERSION_19000/History`. The experiment removed one stream at a time. It did not prove
+that these seven streams alone are sufficient, or that individually optional streams can
+all be removed together. "Optional" means only that SOLIDWORKS opens and rebuilds this part
+with that one stream removed. A stream that carries model information (custom properties, appearances,
 display states, configurations) is still required when the neutral document has that
 information.
 

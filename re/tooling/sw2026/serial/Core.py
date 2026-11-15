@@ -77,7 +77,7 @@ class Load:
         return v
 
     def raw(self, n):
-        if self.p + n > len(self.b):
+        if n < 0 or self.p + n > len(self.b):
             raise ArchiveError(f"eof reading {n} bytes at {self.p}")
         v = self.b[self.p:self.p + n]
         self.p += n
