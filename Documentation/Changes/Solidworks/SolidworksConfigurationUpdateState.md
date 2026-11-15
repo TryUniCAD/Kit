@@ -22,3 +22,7 @@ Local verification is limited to syntax and source inspection; no local tests,
 CAD process or oracle operations run for this change. Remote CI evidence is
 reported in the PR. Native generated-model acceptance remains outstanding, and
 the production adapter remains read-only.
+
+The [managed-analysis gotcha](../../Gotchas/Ci/ProcessChecks/ManagedAnalysisCanRemainMissing.md)
+records the separate pending service result observed after the construction and
+compatibility checks passed. The requirement remains enabled.
