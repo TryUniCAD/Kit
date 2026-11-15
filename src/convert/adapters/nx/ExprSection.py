@@ -34,6 +34,21 @@ def GroupPair() -> bytes:
     return KGroupPair
 
 
+# the head tail names two ids that follow the last one for the object and dim counts
+def ExprHeadTail(Objects: int, Dimensions: int) -> bytes:
+    if Objects < 6 or Dimensions < 0:
+        raise ValueError("NX head tail needs at least six objects and no negative dims")
+    Following = Objects + Dimensions + 2
+    if Following > 0xFD:
+        raise ValueError("NX head tail ids must fit one byte")
+    return (
+        bytes([Following])
+        + bytes.fromhex("0213")
+        + bytes([Following + 1])
+        + bytes.fromhex("020000")
+    )
+
+
 # a group value is a length byte a text and a terminator
 KGroupHead = b"\x02\x02\x04\x0fDefault Group\x00"
 KGroupTail = bytes.fromhex("003f0000")

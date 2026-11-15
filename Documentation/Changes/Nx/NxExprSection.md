@@ -365,6 +365,42 @@ selection itself moves with something internal to the model that value or name e
 independently. So the group record's contents are model data that the writer cannot yet
 compute, and `ExprMiddle` cannot emit this object for an authored part.
 
+## The head tail is a function of the object and dimension counts
+
+The head object ends in seven bytes that name the two ids following the last one used:
+
+```text
+part             objects  dims  tail
+empty.prt            6      0   08 02 13 09 02 00 00
+empty_expr.prt       7      0   09 02 13 0a 02 00 00
+var_sph.prt         10      0   0c 02 13 0d 02 00 00
+var_cyl.prt         14      0   10 02 13 11 02 00 00
+multi.prt           14      0   10 02 13 11 02 00 00
+dim40.prt           24      3   1d 02 13 1e 02 00 00
+var_mid.prt         24      3   1d 02 13 1e 02 00 00
+var_big.prt         24      3   1d 02 13 1e 02 00 00
+const_box60.prt     24      3   1d 02 13 1e 02 00 00
+var_e4.prt          25      3   1e 02 13 1f 02 00 00
+var_two.prt         42      6   32 02 13 33 02 00 00
+```
+
+`ExprHeadTail(Objects, Dimensions)` emits `Objects + Dimensions + 2` and the next byte, and
+reproduces all eleven records exactly, plus the fixed six-object middle, whose constant tail
+is `ExprHeadTail(6, 0)`.
+
+Mutation showed the pair is not reconciled at load — setting the ids to `objects+1`,
+`objects+50`, and `1..N` together with an order array of `1..N` all load with bodies 1 and
+volume unchanged:
+
+```text
+hd_next.prt       objects+1, objects+2       bodies 1  volume 23999.999999999996
+hd_next_seq.prt   same ids, order 1..N       bodies 1  volume 23999.999999999996
+hd_far.prt        objects+50, objects+51     bodies 1  volume 23999.999999999996
+```
+
+so the field is free as well as derived: the formula matches the source and any consistent
+pair is accepted.
+
 ## The writer-chosen layout
 
 `ExprSection.ExprLayout(Dimensions)` fixes the object order the writer will use, so the

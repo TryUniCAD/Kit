@@ -15,6 +15,7 @@ from convert.adapters.nx.ExprSection import (
     ExprMiddle,
     ExprLayout,
     ExprObjectCount,
+    ExprHeadTail,
     ExprPreamble,
     GroupPair,
     GroupRecord,
@@ -1011,3 +1012,16 @@ def TestNxGroupList() -> None:
     except ValueError:
         return
     raise AssertionError("group record accepted an empty value")
+
+
+# the head tail names two ids that follow the last one
+def TestNxHeadTail() -> None:
+    assert ExprHeadTail(6, 0) == bytes.fromhex("08021309020000")
+    assert ExprHeadTail(24, 3) == bytes.fromhex("1d02131e020000")
+    assert ExprHeadTail(42, 6) == bytes.fromhex("32021333020000")
+    assert ExprHeadTail(25, 3) == bytes.fromhex("1e02131f020000")
+    try:
+        _ = ExprHeadTail(5, 0)
+    except ValueError:
+        return
+    raise AssertionError("head tail accepted fewer than six objects")
