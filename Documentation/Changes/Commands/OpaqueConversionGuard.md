@@ -15,6 +15,10 @@ or reference links without embedded documents or local body/mesh representations
 explicitly unresolved source/transform flags, and native-only or unresolved
 transform/constraint status. A reference with a complete embedded or local typed
 representation is not refused merely because its kind is `reference`.
+Both `part` and `reference` definitions require an embedded document, local
+body/mesh links, or a local child-instance graph. An unrepresented part is
+refused independently of its source path or resolution metadata. Empty local
+`assembly` definitions remain eligible; source paths remain provenance.
 Definitions that own local child instances also have an assembly representation,
 so root and subassembly `source_path` provenance remains valid. Each descendant
 is checked independently; owning a local graph does not waive missing-reference
@@ -76,3 +80,6 @@ execution; pinned formatting, typing, steering, and path checks pass locally.
 Root and subassembly provenance cases additionally verify complete JSON
 preservation at the root and inside component documents. Missing descendants
 still refuse publication for both missing and existing destinations.
+Unrepresented-part JSON cases cover absent provenance and resolution markers.
+Positive provenance cases retain actual embedded part documents and body links;
+empty local assemblies and fully represented two-level assemblies remain positive.

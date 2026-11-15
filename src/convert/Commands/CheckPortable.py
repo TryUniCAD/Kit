@@ -49,7 +49,7 @@ def CheckPortable(Document: CadDocument) -> None:
                 Definition.kind == ComponentKind.KNative
                 or Definition.attributes.get("source_resolved") is False
                 or (
-                    Definition.kind == ComponentKind.KReference
+                    Definition.kind in (ComponentKind.KPart, ComponentKind.KReference)
                     and not (
                         Definition.document_id
                         or Definition.body_ids

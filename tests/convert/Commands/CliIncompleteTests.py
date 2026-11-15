@@ -18,6 +18,7 @@ from tests.convert.Commands.WrapDocument import WrapDocument
         "NativeSurface",
         "MissingReference",
         "ExternalReference",
+        "UnrepresentedPart",
         "NativeComponent",
         "SourceUnresolved",
         "TransformUnresolved",
@@ -43,7 +44,9 @@ def CheckUnready(
 
 @TestMark.parametrize("IsNested", (False, True))
 @TestMark.parametrize("OwnerName", ("", "root", "subassembly"))
-@TestMark.parametrize("RecordKind", ("ResolvedReference", "ProvenanceOnly"))
+@TestMark.parametrize(
+    "RecordKind", ("ResolvedReference", "ProvenanceOnly", "EmptyAssembly")
+)
 def CheckResolved(
     IsNested: bool, OwnerName: str, RecordKind: str, TmpPath: FilePath
 ) -> None:

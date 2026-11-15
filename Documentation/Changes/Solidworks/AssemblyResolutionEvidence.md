@@ -4,6 +4,10 @@ SOLIDWORKS assembly component definitions now include the boolean attribute
 `source_resolved`. It is true for the root definition decoded from the assembly
 and for a component whose document was actually loaded. It is false for every
 other unloaded component, including components with cached display meshes.
+The attribute is emitted only when component resolution was enabled. A deliberate
+`resolve_components=False` read omits it instead of reporting deferred component
+loads as failed. `AsmDefinitions` defaults to enabled resolution for existing
+callers; the assembly reader passes its actual resolution setting explicitly.
 
 `source_path` remains provenance. A cached mesh, source filename, or local
 instance graph does not prove that an external component document was loaded.
@@ -22,6 +26,13 @@ the same explicit false attribute independently of native decoding.
 The native fixture uses partial decoding for inspection and can encounter an
 earlier strict-read or opaque-record refusal during conversion. It does not
 claim that the false-attribute guard is the sole native refusal reason.
+An additional real subprocess invokes the native SDK adapter with resolution
+deliberately disabled and verifies that every source-resolution flag is absent.
+
+This change does not recursively hydrate nested assembly projections. Even with
+a complete file tree, a returned nested neutral document can still contain an
+unrepresented part and remain ineligible for CLI conversion. Omitted evidence
+means deferred resolution, not qualification or complete component semantics.
 
 No local tests, decoding, or test collection were executed. Pinned formatting,
 type analysis and repository steering/path checks cover the change. Remote CI

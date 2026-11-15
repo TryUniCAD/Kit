@@ -10,11 +10,18 @@ Definitions now record `attributes.source_resolved`: the decoded root is true;
 other definitions are true only when their referenced document was actually
 loaded. Cached meshes do not change false to true. Source paths remain provenance
 and are not used to infer missing sources in constructed typed JSON documents.
+When `resolve_components=False` deliberately defers loading, the adapter omits
+the flag on all definitions. Treat omission as unknown/deferred rather than
+false. Nested assembly reads use this existing deferred policy; no recursive
+hydration is introduced here.
 
 Use `kit decode` to inspect these documents. The CLI conversion guard rejects
 explicit false flags, including within nested documents, while SDK inspection
 remains available. This evidence does not establish recovered feature semantics
 or target-application acceptance.
+An unrepresented part or reference is still refused by CLI conversion even
+without a false flag. A complete file tree alone does not make a partial nested
+neutral projection conversion-ready.
 
 See [the adapter](../../../src/convert/adapters/solidworks/core/Adapter.py),
 [the change entry](../../Changes/Solidworks/AssemblyResolutionEvidence.md), and

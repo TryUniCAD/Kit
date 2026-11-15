@@ -1,8 +1,11 @@
-from json import loads as LoadJson
+from json import dumps as DumpJson, loads as LoadJson
 from pathlib import Path as FilePath
+from subprocess import run as RunProcess
+from sys import executable as KPythonPath
 
 from pytest import mark as TestMark
 
+from interchange.document.models.DocumentModel import CadDocument
 from tests.convert.api.ApiTestPaths import KSamplePath
 from tests.convert.Commands.CliProcess import CliProcess
 
@@ -43,23 +46,25 @@ def CheckAsmSources(HasOutput: bool, TmpPath: FilePath) -> None:
     _ = Source.write_bytes(Original)
     Decoded = CliProcess(TmpPath, "decode", str(Source), "--partial")
     assert Decoded.returncode == 0, Decoded.stderr
-    Assembly = LoadJson(Decoded.stdout)["document"]["assembly"]
-    RootId = Assembly["root_definition_id"]
+    Assembly = CadDocument.from_json(
+        DumpJson(LoadJson(Decoded.stdout)["document"])
+    ).assembly
+    assert Assembly is not None
     RootDef = next(
         Definition
-        for Definition in Assembly["definitions"]
-        if Definition["id"] == RootId
+        for Definition in Assembly.definitions
+        if Definition.id == Assembly.root_definition_id
     )
-    assert RootDef["attributes"]["source_resolved"] is True
+    assert RootDef.attributes["source_resolved"] is True
     Unloaded = [
         Definition
-        for Definition in Assembly["definitions"]
-        if Definition["id"] != RootId
+        for Definition in Assembly.definitions
+        if Definition.id != Assembly.root_definition_id
     ]
-    assert Unloaded and Assembly["documents"] == []
+    assert Unloaded and not Assembly.documents
     assert all(
-        Definition["attributes"]["source_resolved"] is False
-        and Definition["document_id"] == ""
+        Definition.attributes["source_resolved"] is False
+        and Definition.document_id == ""
         for Definition in Unloaded
     )
     Target = TmpPath / "blocked.json"
@@ -73,3 +78,46 @@ def CheckAsmSources(HasOutput: bool, TmpPath: FilePath) -> None:
     assert Source.read_bytes() == Original and Target.exists() is HasOutput
     if HasOutput:
         assert Target.read_bytes() == b"existing output"
+
+
+def CheckDeferred(TmpPath: FilePath) -> None:
+    Fixture = (
+        KSamplePath.parents[1]
+        / "Single Turbo Dual Overhead Cam V8 - KDP - 2024"
+        / "ENSAMBLAJE DE SEGURO DE ARBOL DE LEVAS.SLDASM"
+    )
+    Source = TmpPath / "isolated.SLDASM"
+    Original = Fixture.read_bytes()
+    _ = Source.write_bytes(Original)
+    Result = RunProcess(
+        (
+            KPythonPath,
+            "-I",
+            "-c",
+            """from pathlib import Path as FilePath
+from sys import argv as ArgValues
+from convert.adapters.base.ReadOptions import ReadOptions
+from convert.adapters.solidworks.core.Adapter import SldprtAdapter
+Document = SldprtAdapter().read(
+    FilePath(ArgValues[1]),
+    ReadOptions(strict=False, values={"resolve_components": False, "discover_companions": False}),
+)
+print(Document.to_json())
+""",
+            str(Source),
+        ),
+        cwd=TmpPath,
+        check=False,
+        capture_output=True,
+        text=True,
+        timeout=90,
+    )
+    assert Result.returncode == 0, Result.stderr
+    Assembly = CadDocument.from_json(Result.stdout).assembly
+    assert Assembly is not None
+    assert len(Assembly.definitions) > 1 and not Assembly.documents
+    assert all(
+        "source_resolved" not in Definition.attributes
+        for Definition in Assembly.definitions
+    )
+    assert Source.read_bytes() == Original

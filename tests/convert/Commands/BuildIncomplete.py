@@ -15,10 +15,11 @@ def BuildIncomplete(RecordKind: str, OwnerName: str = "") -> CadDocument:
         "NativeComponent",
         "ResolvedReference",
         "ProvenanceOnly",
+        "UnrepresentedPart",
         "SourceUnresolved",
     ):
         Definition = Assembly.definitions[-1]
-        if RecordKind in ("MissingReference", "ExternalReference", "ProvenanceOnly"):
+        if RecordKind in ("MissingReference", "ExternalReference", "UnrepresentedPart"):
             Definition = ReplaceData(
                 Definition,
                 kind=(
@@ -28,7 +29,7 @@ def BuildIncomplete(RecordKind: str, OwnerName: str = "") -> CadDocument:
                 ),
                 document_id="",
                 body_ids=(),
-                source_path="missing.part",
+                source_path="" if RecordKind == "UnrepresentedPart" else "missing.part",
                 attributes=(
                     {"source_resolved": False}
                     if RecordKind == "ExternalReference"
@@ -39,10 +40,21 @@ def BuildIncomplete(RecordKind: str, OwnerName: str = "") -> CadDocument:
             Definition = ReplaceData(Definition, kind=ComponentKind.KNative)
         elif RecordKind == "SourceUnresolved":
             Definition = ReplaceData(Definition, attributes={"source_resolved": False})
+        elif RecordKind == "ProvenanceOnly":
+            Definition = ReplaceData(Definition, source_path="original.part")
         else:
             Definition = ReplaceData(Definition, kind=ComponentKind.KReference)
         Assembly = ReplaceData(
             Assembly, definitions=(*Assembly.definitions[:-1], Definition)
+        )
+    elif RecordKind == "EmptyAssembly":
+        Assembly = ReplaceData(
+            Assembly,
+            definitions=(Assembly.definitions[0],),
+            instances=(),
+            documents=(),
+            mate_entities=(),
+            mates=(),
         )
     elif RecordKind == "TransformUnresolved":
         Instance = ReplaceData(
