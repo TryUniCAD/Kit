@@ -8,16 +8,16 @@ They are not production conversion dependencies.
 
 ## Tool map
 
-| Location                           | Purpose                                       | Required context                       |
-| ---------------------------------- | --------------------------------------------- | -------------------------------------- |
-| `re/tooling/ghidra/`               | Static analysis and decompilation             | Exact binary hash and analysis project |
-| `re/tooling/windbg/`               | Runtime traces                                | Compatible debugger and vendor build   |
-| `re/tooling/harness/`              | Vendor measurement and sample creation        | Isolated licensed environment          |
-| `re/tooling/ProgramDecomposition/` | Recovered program organization and generation | Recorded grammar and generation inputs |
-| `re/binaries/`                     | Research binary evidence                      | License and provenance records         |
+| Location              | Purpose                                | Required context                       |
+| --------------------- | -------------------------------------- | -------------------------------------- |
+| `re/tooling/ghidra/`  | Static analysis and decompilation      | Exact binary hash and analysis project |
+| `re/tooling/windbg/`  | Runtime traces                         | Compatible debugger and vendor build   |
+| `re/tooling/harness/` | Vendor measurement and sample creation | Isolated licensed environment          |
+| `re/binaries/`        | External input verification            | Licensed installation and manifest     |
 
 Read each tool's source and setup guide before executing it.
 Do not assume that historical command paths match a new machine.
+Keep vendor software outside repository checkouts under the [research artifact policy](ResearchArtifacts.md).
 
 ## Ghidra workflow
 
@@ -73,7 +73,7 @@ Do not publish an unmeasured hypothesis as product support.
 ## Sources
 
 - [Research index](../../../re/README.md)
+- [Toolchain chapter of the instruction book](../../../re/Playbook/Toolchain.md)
 - [Ghidra setup](../../../re/tooling/ghidra/Setup.md)
 - [Runtime trace tool](../../../re/tooling/windbg/Multitrace.py)
 - [Serialization harness](../../../re/tooling/harness/Serialize.py)
-- [Program generation](../../../re/tooling/ProgramDecomposition/GeneratePrograms.py)

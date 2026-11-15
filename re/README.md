@@ -5,36 +5,32 @@ workspace described below retains its original structure. The imported
 [Fusion study](Fusion/README.md) contains the experimental Fusion decoder, saved
 captures and validation evidence, with its source history preserved.
 
-`Methodology.md` is the reusable playbook — read it first if your target is AutoCAD, CATIA, NX or
-Creo. The existing SOLIDWORKS directories provide the worked example that the playbook was
+**Start with [`Playbook/README.md`](Playbook/README.md)**, the reverse-engineering instruction book.
+Any agent tasked with reverse engineering a format must read it in full first, together with the
+[CAD success criteria](../Documentation/Reference/Operations/CadSuccessCriteria.md), which are
+mandatory. The book covers file anatomy, loader-DLL analysis with REA, generative corpora authored
+through vendor APIs, corpus correlation, writer models, the open-source toolchain, and per-vendor
+notes.
+
+`Methodology.md` is the short history of how SOLIDWORKS was cracked; where it and the playbook
+differ, the playbook wins. The existing SOLIDWORKS directories provide the worked example both were
 distilled from. `Fusion/` preserves a separate native-file study and its original commit history.
 
-## Size
+## Research inputs
 
-| part                                             | size           |
-| ------------------------------------------------ | -------------- |
-| Existing SOLIDWORKS workspace excluding binaries | **~7.3 MiB**   |
-| The four vendor DLLs in `re/binaries/`           | **~51.9 MiB**  |
-| Imported Fusion study and evidence               | **~278.1 MiB** |
-| `re/` total, including the Fusion import         | **~337.3 MiB** |
-
-The DLLs are **tracked**, deliberately, so that a cloud agent with no SOLIDWORKS install can run
-Ghidra against them. Read `binaries/README.md` for the licensing position before this repository is
-shared with anyone outside Parashell — they are unmodified proprietary Dassault Systèmes binaries
-from a licensed local install, and `binaries/Fetch.ps1` reproduces them from that install if you
-would rather not carry them.
-
-Within the SOLIDWORKS workspace, the bulk of the tracked bytes is machine-readable evidence: `re/data/` (~4.6 MB, dominated by the
-static container census and the traced object segmentations) and `re/solidworks/measurements/`
-(~1.1 MB of volume measurements). The prose is about 380 KB.
+Keep vendor software outside repository checkouts.
+CAD files, documents, independently authored tools, and recorded format knowledge belong in this workspace.
+Follow the [research artifact policy](../Documentation/Reference/Research/ResearchArtifacts.md).
+The [external input guide](binaries/README.md) describes licensed installation verification.
 
 ## Layout
 
 | directory     | what is in it                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Playbook/`   | The reverse-engineering instruction book: file anatomy, loader analysis with REA, generative corpora, corpus correlation, writer models, toolchain, techniques, shape catalogue, evidence rules, orchestration, vendor notes and checklists. Read `Playbook/README.md` first.                                                                                                                                                                                                                            |
 | `Fusion/`     | Imported experimental Fusion native-file decoder, capture tools, saved examples and audit reports; original source history and evidence bytes preserved. `examples/` holds the sample `.f3d` and `.f3z` files.                                                                                                                                                                                                                                                                                           |
 | `catia/`      | `examples/` holds the CATIA V5 `.CATPart` and `.CATProduct` samples. The two directories stay siblings so product reads find their parts.                                                                                                                                                                                                                                                                                                                                                                |
-| `binaries/`   | the four SOLIDWORKS DLLs every finding was derived from, plus `Manifest.json` (SHA-256 and version of each) and `Fetch.ps1` (re-copies them from a local install). Tracked. Read `binaries/README.md` first.                                                                                                                                                                                                                                                                                             |
+| `binaries/` | External installation manifest and verification helper. See `binaries/README.md`. |
 | `solidworks/` | the findings. Layered: `container/` (file framing + the signature table), `archive/` (the `su_CArchive` grammar, the reader's identity, object segmentation), `records/` (per-class field layouts), `features/` (extrude, revolve, sketch, arc, bodies), `corpus/` (what corpora exist and what each proves), `measurements/` (every volume measurement, with controls), `examples/` (the sample part, the V8 corpus and the gitignored `Random/` corpus), `Fixtures/donors/` (extracted donor streams). |
 | `tooling/`    | how the work was done and how to redo it: `ghidra/` (headless decompilation), `windbg/` (the cdb runtime trace), `harness/` (the COM measurement loop).                                                                                                                                                                                                                                                                                                                                                  |
 | `data/`       | the extracted tables and traced artefacts the findings cite: the 1000-entry signature table, the 2607-class `Serialize` map, the object segmentations, the class vocabulary.                                                                                                                                                                                                                                                                                                                             |
@@ -43,6 +39,7 @@ static container census and the traced object segmentations) and `re/solidworks/
 
 | you want to know                                                    | start at                                                           |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| how to reverse engineer any CAD format, step by step                | `Playbook/README.md`, then the chapter for your phase              |
 | how a `.SLDPRT` file is framed, and how to write a valid header     | `solidworks/container/README.md`                                   |
 | how objects are tagged inside a stream, and why byte edits renumber | `solidworks/archive/Grammar.md` §2, then `archive/Segmentation.md` |
 | what class owns a given byte                                        | `solidworks/records/Serialize.md`, then `data/SerializeMap.json`   |
@@ -73,13 +70,13 @@ Everything here was produced on Windows with PowerShell, `uv` for Python, a lice
 install, Ghidra 12.1.2 headless, and `cdbX64.exe` from the WinDbg MSIX package.
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File re\binaries\Fetch.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File re\binaries\Fetch.ps1 -VerifyOnly
 uv run python re\tooling\ghidra\Sigtable.py
 uv run python re\tooling\ghidra\Generation\SerializeMap.py
 uv run python re\tooling\ghidra\Validation\VerifyLayout.py
 ```
 
-The first re-fetches and verifies the binaries. The other three re-derive `data/SignatureTable.json`,
+The first verifies the external licensed installation. The other three re-derive `data/SignatureTable.json`,
 `data/SerializeMap.json` and `data/VerifyLayout.json` from the binaries plus the traced
 segmentations, and they rewrite those files in place — a clean `git diff` after running them is the
 cheapest end-to-end check that the recorded tables really do come out of the recorded bytes.
@@ -104,7 +101,10 @@ cheapest end-to-end check that the recorded tables really do come out of the rec
 
 ## Scope honesty
 
-The SOLIDWORKS work reads and _patches_ SOLIDWORKS streams. It does not serialise one from nothing. The
-container framing is fully inverted (any of 1000 file ids can be written with no donor); stream
-content still comes from a donor part of the right feature topology. `solidworks/README.md` states
-exactly where that line falls.
+The SOLIDWORKS work reads SOLIDWORKS streams. Kit does not write SOLIDWORKS files. The removed
+writer re-emitted typed recordings of saved streams with selected fields overridden, and typing
+every byte did not change where the values and offsets came from: one saved part of the right
+feature topology. Those families were recorded payloads, and donor content is banned from
+production output. `tools/Donors/CheckReplays.py` fails CI if `src` contains any recorded field
+operation or re-emission call. A generative serializer is the open work. `solidworks/README.md`
+and `solidworks/CorpusCoverage.md` state exactly where the line falls.

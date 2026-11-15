@@ -46,7 +46,6 @@ Complete ASD-STE100 and ISO/IEC/IEEE 2651x conformance remains unverified.
 - [SOLIDWORKS feature resolution](Reference/Adapters/SolidworksFeatures.md)
 - [FreeCAD adapter](Reference/Adapters/Freecad.md)
 - [CATIA adapter](Reference/Adapters/Catia.md)
-- [Siemens NX adapter](Reference/Adapters/Nx.md)
 - [JSON adapter and registry](Reference/Adapters/Json.md)
 
 Adapter registration does not prove complete format coverage.
@@ -58,7 +57,9 @@ Use the result procedure before making a product acceptance claim.
 - [Security boundaries](Reference/Operations/Security.md)
 - [Repository policy](Reference/Operations/Policy.md)
 - [Translation verification](Reference/Operations/Testing.md)
+- [CAD success criteria](Reference/Operations/CadSuccessCriteria.md)
 - [Research method](Reference/Research/Methodology.md)
+- [Reverse engineering instruction book](../re/Playbook/README.md)
 - [Fusion donor data ban](Reference/Research/FusionDonorBan.md)
 - [Research tools](Reference/Research/Tooling.md)
 - [Oracle evidence and fixtures](Reference/Research/Oracles.md)
