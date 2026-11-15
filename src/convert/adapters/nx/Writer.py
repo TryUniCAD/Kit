@@ -10,6 +10,7 @@ from convert.adapters.base.TransferContract import CapTransfer, TransferMode
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WritePolicy import GetDocumentCaps
 from convert.adapters.base.WriteResult import WriteResult
+from convert.adapters.nx.ClassTable import RewriteRegistry
 from convert.adapters.nx.CompoundReader import ReadCompound, ReadStreams
 from convert.adapters.nx.ExprValue import EncodeValue
 from convert.adapters.nx.GeometryEdit import ScaleBodyLength
@@ -121,6 +122,7 @@ def WriteNx(
         Overrides["UG_PART/UG_PART"] = AuthorSections(
             PartPayload(Overrides, Payload.data), HeadText(Target, DocValue)
         )
+    Overrides["UG_PART/UG_PART"] = RewriteRegistry(PartPayload(Overrides, Payload.data))
     DataValue = RebuildNative(Payload.data, Overrides)
     CheckOutput(DataValue, Payload.data)
     CheckSeals(DataValue)

@@ -239,6 +239,54 @@ def WriteRegistry(RegistryValue: Registry) -> bytes:
     )
 
 
+# the registry starts at the first declaration in the first section body
+def RegistryStart(BodyValue: bytes) -> int | None:
+    for Cursor in range(len(BodyValue) - 2):
+        Length = BodyValue[Cursor]
+        if 2 <= Length <= KNameCeilingLength and BodyValue[Cursor + 1 : Cursor + 2] == b"U":
+            if BodyValue[Cursor + 2 : Cursor + 3] == b"G":
+                return Cursor
+    return None
+
+
+# the registry extent ends where the member region stops parsing
+def RegistryEnd(BodyValue: bytes, RegistryValue: Registry, Start: int) -> int:
+    if not RegistryValue.Members:
+        return Start + len(WriteRegistry(RegistryValue))
+    Cursor = RegistryValue.Members[-1].Offset
+    _, Cursor = ReadName(BodyValue, Cursor)
+    _, Cursor = ReadToken(BodyValue, Cursor)
+    _, Cursor = ReadToken(BodyValue, Cursor)
+    return Cursor
+
+
+# rewriting the registry regenerates it from the parsed records in place
+def RewriteRegistry(Payload: bytes) -> bytes:
+    from convert.adapters.nx.PayloadBuild import ResizePayload
+    from convert.adapters.nx.PayloadReader import ReadPayload
+
+    Parsed = ReadPayload(Payload)
+    if Parsed.legacy or not Parsed.sections:
+        return Payload
+    Bodies = [
+        Payload[Section.body_offset : Section.body_offset + Section.size]
+        for Section in Parsed.sections
+    ]
+    First = Bodies[0]
+    Start = RegistryStart(First)
+    if Start is None:
+        return Payload
+    try:
+        RegistryValue = ReadRegistry(First, Start, len(First))
+    except ValueError:
+        return Payload
+    if not RegistryValue.Classes:
+        return Payload
+    EndValue = RegistryEnd(First, RegistryValue, Start)
+    Bodies[0] = First[:Start] + WriteRegistry(RegistryValue) + First[EndValue:]
+    return ResizePayload(Payload, Bodies)
+
+
 # needed so the registry types stay a single named source for the nx adapter
 __all__ = [
     "ClassRecord",
@@ -247,6 +295,9 @@ __all__ = [
     "ReadToken",
     "ReferenceRecord",
     "Registry",
+    "RegistryEnd",
+    "RegistryStart",
+    "RewriteRegistry",
     "WriteClasses",
     "WriteMembers",
     "WriteName",
