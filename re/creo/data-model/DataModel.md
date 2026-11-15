@@ -428,6 +428,24 @@ So the parser now takes a `Legacy` flag: the reader uses the new rules, and `Rep
 | `gen_rows.prt` | `26239` bytes, 47 rows, `End` + `MT Part Solid` twice (`12:26:42`, `12:27:59`) |
 | vendor `949` element | `3827` of `3827` bytes, `pointid [[0,1], [1,2]]` |
 
+### `attributes` sits between the fifth and sixth segment, and matching that is not enough either
+
+The vendor's `segtab_ptr` body interleaves the sibling `attributes` field: segments one to five, then
+`attributes (f0 08 f1 f7 3a)`, then segment six, then the element-level `dimtab_ptr`. Because the stream is
+positional that ordering matters, so `SketchDef.MeasuredSketch` now emits it in the same place.
+
+Measured with that ordering, the measured six-segment topology and the entity state:
+
+```text
+order949: 108680 bytes; element 4183
+readback: 7 features, 1 body
+!15-Nov-26 12:43:04  Start ...   (no End)
+std.out: Sld_FeatDefs / feat_defs_949 / gsec_ptr / gsec2d_ptr
+```
+
+the trace does not move. So three candidate causes are now excluded by measurement — segment topology, entity
+values, and section order — and the failure sits in the layout of the `gsec2d_ptr` record set itself.
+
 ### Entity values are inert, so only the record layout remains
 
 The `sketchswap` part — our prefix with the vendor's sketch tail, which loads — was edited in place at three

@@ -124,6 +124,22 @@ gen_rows.prt: 26239 bytes, 47 generated rows
 16 of 16 checks pass
 ```
 
+### Section order is measured and matched, and still refused
+
+The vendor's sketch interleaves its sibling `attributes` field between the fifth and sixth segment bodies
+(`… segment 5, attributes f0 08 f1 f7 3a, segment 6, dimtab_ptr`). Since the stream is positional that order
+matters, so the emitter now matches it. With the measured six-segment topology, the entity state and that ordering:
+
+```text
+order949: 108680 bytes; element 4183
+readback: 7 features, 1 body
+!15-Nov-26 12:43:04  Start ...        (no End)
+std.out: Sld_FeatDefs / feat_defs_949 / gsec_ptr / gsec2d_ptr
+```
+
+The trace does not move, so topology, entity values and section order are all excluded by measurement. The remaining
+requirement is the layout of the `gsec2d_ptr` record set, which is a field program rather than any one value.
+
 ### The entity graph's values are inert; only its layout matters
 
 Editing the loading `sketchswap` part in place inside `ent_tab` — `next_available_xid 8 → 7`, first `xid 0 → 3`,

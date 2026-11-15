@@ -654,10 +654,12 @@ def MeasuredSketch(EntityCount: int = 0) -> bytes:
     for IndexValue, (TypeValue, Dir, Points, ExtId, VerHor) in enumerate(
         KMeasuredSegments
     ):
+        # the vendor places attributes between the fifth and sixth segment bodies
+        if IndexValue == 5:
+            Payload += b"\xE0\x01attributes\x00\xF0\x08\xF1\xF7\x3A"
         Payload += MeasuredSegment(
             TypeValue, Dir, Points, ExtId, VerHor, IndexValue == 0
         )
-    Payload += b"\xE0\x01attributes\x00\xF0\x08\xF1\xF7\x3A"
     Payload += Author.StructHeader("dimtab_ptr") + b"\xF3\xF8\x04\xF7\x3E\xFB"
     for IndexValue, Value in enumerate(KDimensions):
         Payload += Dimension(Value, IndexValue)
