@@ -362,7 +362,18 @@ The same container without the authored `VisibGeom` row loads three times out of
 rejection is the geometry payload itself, not the rest of the part. That payload is six plane prototypes
 with a `local_sys` lane; it has never been accepted by the vendor in any candidate.
 
-So the write side now has two independent blocks, not one:
+The most plausible cause was that the surface prototypes carry `feat_id = 74`, a feature the authored part
+never contains. `AuthorGeometryPayload` now takes `FeatureId` and `FirstGeomId`, so the surfaces can be
+pointed at the datum that exists. Aligning them (`feat_id = 7`, geometry ids `1..6`) is also rejected:
+
+```text
+geomfeat: feat_id 7, geom ids 1..6
+!15-Nov-26 05:05:14  Start C:\Mac\Home\Documents\creo-authored\geomfeat.prt
+(no End line; repeated, second run identical)
+```
+
+So the reference mismatch was not the cause, and the payload itself is still wrong. The write side has two
+independent blocks, not one:
 
 | Block | What it needs |
 | --- | --- |

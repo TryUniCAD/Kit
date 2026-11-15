@@ -177,10 +177,12 @@ def PlaneValues(
 
 
 # the first array element must carry every field header
-def PlaneDefine(GeomValue: int, Values: tuple[float, ...]) -> bytes:
+def PlaneDefine(
+    GeomValue: int, Values: tuple[float, ...], FeatureId: int = 74
+) -> bytes:
     Payload = NameValue("geom_id") + IntValue(GeomValue)
     Payload += NameValue("geom_type") + IntValue(34)
-    Payload += NameValue("feat_id") + IntValue(74)
+    Payload += NameValue("feat_id") + IntValue(FeatureId)
     Payload += b"\xe0\x02envlp\x00\xf9" + IntValue(2) + IntValue(2)
     Payload += b"".join(DoubleValue(Value) for Value in (0.0, 1.0, 1.0, 0.0))
     Payload += b"\xe0\x02outline\x00\xf9" + IntValue(2) + IntValue(3)
@@ -191,8 +193,10 @@ def PlaneDefine(GeomValue: int, Values: tuple[float, ...]) -> bytes:
 
 
 # later array elements may not redeclare fields
-def PlaneReplay(GeomValue: int, Values: tuple[float, ...]) -> bytes:
-    Payload = b"\xe3" + IntValue(GeomValue) + IntValue(34) + IntValue(74)
+def PlaneReplay(
+    GeomValue: int, Values: tuple[float, ...], FeatureId: int = 74
+) -> bytes:
+    Payload = b"\xe3" + IntValue(GeomValue) + IntValue(34) + IntValue(FeatureId)
     Payload += b"\xf9" + IntValue(2) + IntValue(2)
     Payload += b"".join(DoubleValue(Value) for Value in (0.0, 1.0, 1.0, 0.0))
     Payload += b"\xf9" + IntValue(2) + IntValue(3)
@@ -204,7 +208,10 @@ def PlaneReplay(GeomValue: int, Values: tuple[float, ...]) -> bytes:
 
 # surfaces encode differently from features so they own a writer
 def AuthorGeometryPayload(
-    Minimum: tuple[float, float, float], Maximum: tuple[float, float, float]
+    Minimum: tuple[float, float, float],
+    Maximum: tuple[float, float, float],
+    FeatureId: int = 74,
+    FirstGeomId: int = 77,
 ) -> bytes:
     XMinValue, YMinValue, ZMinValue = Minimum
     XMaxValue, YMaxValue, ZMaxValue = Maximum
@@ -223,9 +230,9 @@ def AuthorGeometryPayload(
     for IndexValue, (NormalValue, OriginValue) in enumerate(Planes):
         Values = PlaneValues(NormalValue, OriginValue)
         if IndexValue == 0:
-            Payload += PlaneDefine(77 + IndexValue, Values)
+            Payload += PlaneDefine(FirstGeomId + IndexValue, Values, FeatureId)
         else:
-            Payload += PlaneReplay(77 + IndexValue, Values)
+            Payload += PlaneReplay(FirstGeomId + IndexValue, Values, FeatureId)
     return Payload
 
 
