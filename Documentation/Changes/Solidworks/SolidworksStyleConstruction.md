@@ -14,8 +14,11 @@ codes and malformed inputs fail closed. The two unit tables belong to separate
 document/user and analysis slots; default model length and angle use the user
 table.
 
-The new process checks build independent candidates from JSON with runtime
-filesystem access blocked, then serialize and read the entire style and unit
+The new process checks start the shared construction audit before builder
+imports. Importlib code reads and loader directory discovery are recorded;
+direct module data reads are rejected. Construction then blocks every file
+read, directory scan and subprocess. The checks build independent candidates
+from JSON, then serialize and read the entire style and unit
 graphs through the existing native record codecs. They vary text, language,
 counted exclusions, unit enums and unit-table shape. These are process-boundary
 checks, not vendor acceptance. Local verification is limited to static parsing,

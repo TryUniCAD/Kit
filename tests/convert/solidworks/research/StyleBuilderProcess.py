@@ -11,8 +11,13 @@ from sys import stdin as InputStream
 from typing import cast as CastValue
 
 KRepoRoot = FilePath(ArgValues[1])
+ImportPaths.insert(0, str(KRepoRoot))
 ImportPaths.insert(0, str(KRepoRoot / "re" / "tooling" / "sw2026" / "serial"))
 ImportPaths.insert(0, str(KRepoRoot / "re" / "tooling" / "sw2026"))
+KAuditValue = ImportModule(
+    "tests.convert.solidworks.research.ConstructionGuard"
+).BuildAudit(KRepoRoot / "re" / "tooling" / "sw2026" / "serial" / "defs")
+AddAuditHook(KAuditValue.InspectEvent)
 KStyles = ImportModule("builders.Styles")
 KUnits = ImportModule("builders.Units")
 KCore = ImportModule("Core")
@@ -20,14 +25,8 @@ KStreams = ImportModule("Streams")
 KRegistry = ImportModule("Classes").registry()
 KRequest = CastValue(list[dict[str, dict[str, object]]], LoadJson(InputStream.read()))
 KCodecs = tuple(FindCodec(Value) for Value in ("utf-16-le", "utf-8", "latin-1"))
-
-
-def DenyFiles(EventName: str, ArgsValue: tuple[object, ...]) -> None:
-    if EventName in ("open", "os.listdir", "os.scandir", "subprocess.Popen"):
-        raise PermissionError("style construction cannot access runtime files")
-
-
-AddAuditHook(DenyFiles)
+assert not KAuditValue.DeniedReads
+KAuditValue.BeginBuild()
 
 
 def FieldsOf(Record: object) -> dict[str, object]:
@@ -92,14 +91,18 @@ def InspectResult(InputData: dict[str, dict[str, object]]) -> dict[str, object]:
 
 def ProcessInput(InputData: dict[str, dict[str, object]]) -> dict[str, object]:
     Result: dict[str, object]
+    PriorDenied = len(KAuditValue.DeniedReads)
     try:
         Result = InspectResult(InputData)
     except ValueError as ErrorInfo:
         Result = {"error": str(ErrorInfo)}
+    assert len(KAuditValue.DeniedReads) == PriorDenied
     try:
-        _ = OpenFile("/style-donor-input.SLDPRT", "rb")
+        with OpenFile("/style-donor-input.SLDPRT", "rb"):
+            raise AssertionError("the construction guard permitted a file open")
     except PermissionError:
         Result["read_blocked"] = True
+    Result["import_reads"] = len(KAuditValue.ModuleReads)
     return Result
 
 

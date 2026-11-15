@@ -246,8 +246,11 @@ base/subtype fields; a decompiler's unrelated setter name is not field evidence.
 Static AST parsing, formatting, type checking and repository naming checks are
 the only local checks. No local tests, reproductions, collection, builder imports
 or target application operations have run. The process-boundary checks create
-independent child Python processes, block filesystem access after loading the
-codecs, build from authored JSON, encode/decode typed records and require exact
+independent child Python processes, activate the shared import audit before
+loading builders, record importlib code reads/directory discovery and reject
+direct module data access. After codecs and registry load, every file read,
+directory scan and subprocess is blocked. They build from authored JSON,
+encode/decode typed records and require exact
 wire round trips. They also vary text, language, exclusion counts and unit-table
 shape. They are scheduled through the existing remote workflow-quality native
 file-reading/writing step; no separate workflow or donor access is introduced.

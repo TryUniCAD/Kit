@@ -64,6 +64,7 @@ def TestStyleGraph() -> None:
     ]
     Small, Large = RunBuilders([MakeInput(), Changed])
     assert Small["read_blocked"] and Large["read_blocked"]
+    assert CastValue(int, Small["import_reads"]) > 0
     assert Small["standard"] == Large["standard"] == 1
     assert Small["font"] == Small["linear_font"] == "authored font α"
     assert Large["font"] == Large["linear_font"] == "authored alternative font 輪郭"
@@ -71,6 +72,10 @@ def TestStyleGraph() -> None:
     assert Small["exclusion_count"] == 0 and Large["exclusion_count"] == 2
     assert Large["exclusions"] == [{"s": "α"}, {"s": "longer authored exclusion"}]
     assert Small["task_count"] == Large["task_count"] == 5
+    assert Large["task_labels"] == [
+        {"s": Value}
+        for Value in ["description α", "high", "low", "finished", "reminder α"]
+    ]
     assert Small["cutlist"] == [
         "authored item",
         "authored description",
