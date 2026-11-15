@@ -44,7 +44,7 @@ def CheckUnready(
     )
 
 
-# complete typed assembly graphs must retain a usable conversion path
+# resolved placement graphs still need qualified assembly history while empty assemblies remain eligible
 @TestMark.parametrize("IsNested", (False, True))
 @TestMark.parametrize("OwnerName", ("", "root", "subassembly"))
 @TestMark.parametrize(
@@ -57,6 +57,9 @@ def CheckResolved(
     if IsNested:
         Document = WrapDocument(Document)
     Document.AssertValid()
+    if IsNested or RecordKind != "EmptyAssembly":
+        CheckJsonBlock(Document, "UnqualifiedAssembly", False, TmpPath)
+        return
     Source = TmpPath / "source.json"
     Original = Document.to_json()
     _ = Source.write_text(Original, encoding="utf-8")

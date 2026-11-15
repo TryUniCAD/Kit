@@ -44,6 +44,9 @@ def CheckKnownKinds(
     if IsNested:
         Document = WrapDocument(Document)
     Document.AssertValid()
+    if IsNested or RecordName in ("Component", "Mate", "MateEntity"):
+        CheckJsonBlock(Document, "UnqualifiedAssembly", False, TmpPath)
+        return
     Source = TmpPath / "source.json"
     Original = Document.to_json()
     _ = Source.write_text(Original, encoding="utf-8")

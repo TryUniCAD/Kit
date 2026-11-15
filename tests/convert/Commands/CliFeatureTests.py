@@ -75,6 +75,8 @@ def CheckSketchOnly(IsNested: bool, TmpPath: FilePath) -> None:
     Document.AssertValid()
     if IsNested:
         Document = WrapDocument(Document)
+        CheckJsonBlock(Document, "UnqualifiedAssembly", False, TmpPath)
+        return
     Source = TmpPath / "source.json"
     Original = Document.to_json()
     _ = Source.write_text(Original, encoding="utf-8")

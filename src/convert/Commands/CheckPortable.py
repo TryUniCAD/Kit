@@ -111,3 +111,6 @@ def CheckPortable(Document: CadDocument) -> None:
     CheckRetained(Document)
     for PartValue in WalkDocuments(Document):
         CheckGeometry(PartValue)
+    for PartValue in WalkDocuments(Document):
+        if PartValue.assembly is not None and PartValue.assembly.instances:
+            raise ValueError("UnqualifiedAssembly" + KInspectText)

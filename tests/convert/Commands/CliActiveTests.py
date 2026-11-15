@@ -52,6 +52,8 @@ def CheckActive(RecordKind: str, IsNested: bool, TmpPath: FilePath) -> None:
         assert Document.feature_timeline[0].order > Document.feature_timeline[-1].order
     if IsNested:
         Document = WrapDocument(Document)
+        CheckJsonBlock(Document, "UnqualifiedAssembly", False, TmpPath)
+        return
     Source = TmpPath / "source.json"
     Original = Document.to_json()
     _ = Source.write_text(Original, encoding="utf-8")
