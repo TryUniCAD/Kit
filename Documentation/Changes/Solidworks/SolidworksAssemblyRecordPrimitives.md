@@ -41,6 +41,14 @@ The [initial-state gotcha](../../Gotchas/Conversion/Solidworks/Archive/InitialAs
 explains why an assembly with no inserted components still owns one configuration
 state and three separate options allocations.
 
+The [header activity-count finding](../../../re/solidworks/records/AssemblyConstruction2026.md#header-component-activity-count)
+traces the configuration walk, document-context bridge and header store. The
+[activity-count gotcha](../../Gotchas/Conversion/Solidworks/Archive/HeaderCountsFollowConfigurationActivity.md)
+explains why neither a feature-count formula nor the initial configuration seed
+defines a completed header count. Full neutral-model traversal constraints remain
+unresolved; this finding does not expand the metadata constructor's supported
+component scope.
+
 Local verification is static syntax parsing, documentation formatting and diff
 validation only. No constructor imports, local tests, serializer reproductions
 or vendor operations ran. The remote process check now constructs the initial

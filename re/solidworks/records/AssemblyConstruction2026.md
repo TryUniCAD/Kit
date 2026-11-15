@@ -396,7 +396,7 @@ The separately passing source-assembly test still covers 14 exact streams
 across its two training controls. These are process and preservation results,
 not a generated complete assembly or vendor load/rebuild/mate-edit acceptance.
 
-## Remaining construction work
+## Header component activity count
 
 The header component-count search has a new **partial** caller lead. A bounded
 search that found no setter import must not be treated as proof that `fc4`
@@ -416,11 +416,56 @@ and `+0x1368` to `getNumberOfComps` at `0x48ee73c0`, which returns member
 `+0xb54`. That module's SHA-256 is
 `025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7`.
 Setter `0x497bb1d0` also has a direct store into an obtained header's `fc4`
-at `0x497bb269` under its document-state predicates. The selected dynamic
-document subtype, origin of the UI count, and whether the count includes
-subassemblies, repeated instances or hidden/suppressed entries still need
-closure. This does not justify `fc4 = len(visible_features)` or lifting the
-current metadata constructor's unsupported-component guard.
+at `0x497bb269` under its document-state predicates. The setter also assigns
+the supplied count to UI member `+0xb54` at `0x497bb27b`.
+
+The count has a concrete configuration-side producer. The following bridge
+addresses belong to `sldappu.dll`, SHA-256
+`50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf`.
+Its `BaseDocModelContext_c` vtable `0x45f0a878` binds slot `+0x460` to
+`setNumberOfComps` at `0x458ef6e0`, which forwards to the owning UI document's
+virtual `+0x1360`. Slot `+0x468` binds the corresponding getter at
+`0x458ee7d0`, which forwards to UI virtual `+0x1368`. The concrete UI vtable
+above binds `+0x1360` to setter `0x497bb1d0`.
+
+In the hashed `sldmodu.dll`, configuration-controller function `0x4b8d3630`
+obtains the actual document context from its model through virtual `+0x11d0`.
+The normal branch at `0x4b8d3e6c`–`0x4b8d3e7b` passes the current
+configuration's `f4b0` to context virtual `+0x460`. A separate `f784 != 0`
+branch obtains shrink-wrap component information and passes that record's
+`+0x10` at `0x4b8d3e67`; the normal count must not be applied to this branch
+by analogy. Getter `moBaseConfiguration_c::getCurActiveCount` at
+`0x4b285670` independently identifies configuration `+0x4b0`.
+
+| Native count field or event                | Static rule                                                                                                    | Evidence in `sldmodu.dll`                                                                         |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Configuration `f4b0` before activation     | Initial constructor seed -1                                                                                    | Active base constructor `0x4bdbf820`; this is not a computed final count                          |
+| Start of full configuration reference walk | Reset the current configuration's activity count to 0 when visiting the model's embedded self reference        | Handler `0x4b8ce7f0`, reset at `0x4b8ce8b4`                                                       |
+| Reference event in nonzero walker mode     | Increment when that event's derived status is zero                                                             | `0x4b8cf045`; this mode first tests whether the referenced model is present                       |
+| Reference event in normal walker mode      | Increment once when its final status is zero                                                                   | `0x4b8cf6c7`; the embedded self event returns before this path                                    |
+| Suppression/graphics handling              | Status helper returns 1 for suppression state 0 or nonzero graphics state; other activation paths can return 0 | `0x4b8d6d90`; callers also have SpeedPak, virtual, filtering, zone and partial-context predicates |
+| Header `fc4` in the normal context path    | Copy the activity count through the document context/UI setter and later save-side header update               | `0x4b8d3e7b`, followed by the bridges and stores above                                            |
+
+For the actual visited events, the accumulation is a sum of one per non-self
+reference event whose completed handler status is zero. It is not a count of
+visible features or an allocator formula. The traversal's legal domain and
+full semantic reduction remain **partial**: inherited suppression,
+lightweight/viewer state, nested reference paths, special virtual/SpeedPak
+records, filtering and partial-open contexts still affect event selection or
+status. A rule over neutral assembly instances must close those predicates,
+then pass held-out native checks before the unsupported-component guard in
+`Metadata.header` can be lifted. No saved component count supplies a default.
+
+The similarly named `componentCountWalker` is a **refuted lead for this header
+producer**. Its vtable `0x4d0c7068` is constructed in
+`moModel_c::GetNumTessTriangles` at `0x4c013660`, where its grouped
+component multiplicities feed tessellation statistics. The name alone does
+not establish the header counter's role. The
+[activity-count gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/HeaderCountsFollowConfigurationActivity.md)
+records the distinction. These conclusions are static dataflow and loop
+evidence, not execution traces or target-application acceptance.
+
+## Remaining construction work
 
 The unresolved work is concrete and active: complete ordinary component-reference construction; external file/header/configuration identity; context-dependent placement propagation; complete per-configuration option domains; solver state and common mate data; bounds-cache ownership and final visibility/explosion policy; and controlled native load/rebuild/edit acceptance with passing controls.
 
