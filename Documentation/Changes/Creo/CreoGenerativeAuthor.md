@@ -124,23 +124,37 @@ gen_rows.prt: 26239 bytes, 47 generated rows
 16 of 16 checks pass
 ```
 
-### The sketch declares six segments and its body carries five
+### The sketch's six segments decode; reproducing them does not load
 
-The region between the declared first segment and `attributes` is exactly `67` bytes, and four positional elements
-plus one trailing opener account for all of it:
+The earlier reading — that the body carried five elements for a declared six — was wrong: `attributes` is part of
+the element template and sits between the fifth and sixth bodies. The measured sketch is a closed rectangle over
+points `0..3` plus two construction lines over `4..7`:
 
-| Element | Bytes | `pointid` |
-| --- | ---: | --- |
-| 2 | 16 | `(1, 2)` |
-| 3 | 17 | `(2, 3)` |
-| 4 | 17 | `(3, 0)` |
-| 5 | 16 | `(4, 5)` |
-| trailing `e2` | 1 | — |
+| Segment | `type` | `pointid` | `verhor` |
+| --- | --- | --- | --- |
+| 1 | `2` | `(0, 1)` | `1` |
+| 2 | `2` | `(1, 2)` | `0` |
+| 3 | `2` | `(2, 3)` | `1` |
+| 4 | `2` | `(3, 0)` | `0` |
+| 5 | `32770` | `(4, 5)` | `1` |
+| 6 | `32770` | `(6, 7)` | `0` |
 
-Element five's `type` is `c0 80 02` — the three-byte compact form of `32770`, not `02` — and it has no
-`known_ent_info`. So the declared count of six, the five bodies present, and that anomalous type are an open
-discrepancy, and building an "aligned" sketch from four known pairs would encode the discrepancy instead of
-resolving it.
+`32770` is a real type value: a declared `save_entity_ptr(line)` record in the same file also carries
+`type = c0 80 02`, the three-byte compact form of `32770`.
+
+Emitting that exact topology (`SketchDef.BuildMeasured`, with `totalpointid 8`, the part's own `ent_outl` and the
+accepted class-`917` element) is still refused, at the same record as every other sketch candidate:
+
+```text
+measured949: 108158 bytes; element 3661
+readback: 7 features, 5 params, 1 body
+!15-Nov-26 12:32:40  Start ...        (no End)
+std.out: Sld_FeatDefs / feat_defs_949 / gsec_ptr / gsec2d_ptr
+```
+
+So segment topology is now excluded as the blocker. The requirement inside `gsec2d_ptr` is the solver's own state —
+`ent_tab`, `chains`, `bucket_xar`, `triples`, `p_saved_result` — which we emit as empty shells, and whose removal
+from the vendor element is refused.
 
 ### Iterating with the trace: the outline is validated, the sketch is next
 

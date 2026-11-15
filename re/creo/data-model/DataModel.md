@@ -428,27 +428,41 @@ So the parser now takes a `Legacy` flag: the reader uses the new rules, and `Rep
 | `gen_rows.prt` | `26239` bytes, 47 rows, `End` + `MT Part Solid` twice (`12:26:42`, `12:27:59`) |
 | vendor `949` element | `3827` of `3827` bytes, `pointid [[0,1], [1,2]]` |
 
-### The positional region carries five element bodies for a declared six
+### All six segments decode, and the sketch still is not the blocker
 
-The whole region between the declared first segment and `attributes` is `67` bytes and accounts for **four**
-positional elements, not five:
+The apparent shortfall of one element was a misreading: `attributes` is part of the element template and sits
+between the fifth and sixth bodies, so the array does carry six. The measured topology is
+
+| Segment | `type` | `dir` | `pointid` | `verhor` |
+| --- | --- | --- | --- | --- |
+| 1 | `2` | `-1 0 0` | `(0, 1)` | `1` |
+| 2 | `2` | `0 1 0` | `(1, 2)` | `0` |
+| 3 | `2` | `1 0 0` | `(2, 3)` | `1` |
+| 4 | `2` | `0 -1 0` | `(3, 0)` | `0` |
+| 5 | `32770` | `-1 0 0` | `(4, 5)` | `1` |
+| 6 | `32770` | `0 -1 0` | `(6, 7)` | `0` |
+
+a closed rectangle over points `0..3` plus two construction lines over `4..7`, with `verhor` alternating. `type`
+`32770` is a real value, not an artefact: a fully declared `save_entity_ptr(line)` record in the same file carries
+`type = c0 80 02` as well, and `c0 80 02` is the three-byte compact form of `32770`.
+
+**Emitting exactly that topology is still refused.** `re/creo/tools/SketchDef.BuildMeasured` writes the six
+segments with those types, directions, pairs and `verhor` values, `totalpointid 8`, the part's own `ent_outl`, and
+the accepted class-`917` element:
 
 ```text
-864: e2 | 02 00 01 00 | 01 02 | f6 00 00 f6 f6 05 | e2 | e2 00 f6      elem 2  (16 bytes)
-881: e2 | 02 01 00 e4 | 02 03 | f6 00 01 f6 f6 06 | e2 | e2 00 f6      elem 3  (17)
-898: e2 | 02 00 f6 00 | 03 00 | f6 00 00 f6 f6 07 | e2 | e2 00 f6      elem 4  (17)
-915: e2 | c0 80 02 f6 00 e4 | 04 05 | f6 00 01 f6 f6 00 | e2            elem 5  (16)
-930: e2                                                                 then attributes at 931
+measured949: 108158 bytes; element 3661
+readback: 7 features, 5 params, 1 body
+!15-Nov-26 12:32:40  Start ...   (no End)
+std.out: Sld_FeatDefs / feat_defs_949 / gsec_ptr / gsec2d_ptr
 ```
 
-`16 + 17 + 17 + 16 + 1 = 67`, so the arithmetic is exact and there is no room for a sixth body. Note also that
-element five's `type` is `c0 80 02`, the three-byte compact form of `32770`, where every other segment uses `02`;
-and its `known_ent_info` is absent, ending with a bare `e2` before `attributes`.
+Same trace stop as every other sketch candidate, so the missing requirement inside `gsec2d_ptr` is **not** segment
+topology. What remains there is the solver's own state — `ent_tab`, `chains`, `bucket_xar`, `triples` — which we
+emit as empty shells, and `p_saved_result`, whose deletion from the vendor element is refused.
 
-So `segtab_ptr` declares six elements while its body carries five, one of which uses a type form the writer has no
-evidence for. That is the state of the sketch decode: four segments are known `(0,1) (1,2) (2,3) (3,0)`, the fifth is
-`(4,5)` with an unexplained type, and the sixth is not present. Building an "aligned" sketch from that would encode
-the discrepancy rather than resolve it.
+The probe's topology is the retained part's own sketch and is research-only: it is never shipped, and it exists to
+show that reproducing the geometry does not make the element loadable.
 
 ### The sketch's segment replay could not be decoded reliably
 
