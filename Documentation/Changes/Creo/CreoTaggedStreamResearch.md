@@ -122,6 +122,19 @@ the extrude class `917`), while `FeatDefs` and `VisibGeom` yield 0 because they 
 boundaries without the `e3 f6 <class> e1` anchor. The row finder is additive and does not change
 the field parser.
 
+## Element mode
+
+`python3 re/creo/tools/TaggedStream.py <section.bin> --elements` adds the anchor-free splitter for
+geometry arrays. A boundary is a bare `e3` followed by a compact identifier, one byte, and the
+element `feat_id` byte (`0x4a`). It prints each span and then runs the parser with per-element
+schema resets.
+
+Measured on ladder `VisibGeom`: `srf_array` declares 6 elements and the splitter recovers 6
+(`82, 87, 89, 91, 93` plus the inline `77`); `crv_array` declares 12 and recovers 12 (`79, 80, 81,
+83, 84, 85, 86, 88, 90, 92, 94` plus the inline `78`). Feeding the 16 boundaries to the parser
+advances the boundary parse from `0x2f7` (117 nodes) to `0x928` (393 nodes). `FeatDefs` has no such
+boundaries; its `e3` bytes precede `e0`/`f7` definitions, so it needs a definition-tree parser.
+
 Field-level `e4`/`e5`/`e6` repeats resolve to the preceding logical value, `e1` terminates a numeric
 array, `0xfb` and `0xf0` act as value terminators, and a fresh `f8`/`f9` header overrides a stored
 array count. Each rule is additive: the empty control keeps its 330 `AllFeatur` nodes and the

@@ -102,6 +102,31 @@ identifier, so they are not discovered. `FeatDefs` and `VisibGeom` do not carry 
 (`… 62 e3 57 22 4a …` in `VisibGeom`). A second, anchor-free splitter is required for those
 sections.
 
+## Anchor-free element spans
+
+`--elements` adds that splitter for geometry arrays. An element boundary is a bare `e3` followed
+by a compact identifier, one byte, and the element's `feat_id` byte (`0x4a` here):
+
+```text
+plane: e3 52 22 4a 01 00 57   id 82, geom_type 34, feat_id 74
+curve: e3 4f 00 4a 01 f6      id 79, type 0, feat_id 74
+```
+
+Recovered spans match the array headers the section declares:
+
+| Array | Header count | Recovered |
+| --- | ---: | --- |
+| `srf_array` | 6 | 5 spans + inline `geom_id 77` = 6 (`82, 87, 89, 91, 93`) |
+| `crv_array` | 12 | 11 spans + inline `crv_id 78` = 12 (`79, 80, 81, 83, 84, 85, 86, 88, 90, 92, 94`) |
+
+Feeding those 16 boundaries to the parser as per-element schema resets advances the `VisibGeom`
+boundary parse from `0x2f7` (117 nodes) to `0x928` (393 nodes). It is not yet end of section; the
+next stop is a `body_array` element, which needs its own schema start.
+
+`FeatDefs` is not row-spanned this way at all. Its `e3` bytes are followed by `e0` or `f7`
+(definition closures and references), not by a geometry identifier. So `FeatDefs` needs a
+definition-tree parser, not a span splitter.
+
 ## Correct direction
 
 `e3` needs level tracking with per-level schema extents: a level records its element start, the

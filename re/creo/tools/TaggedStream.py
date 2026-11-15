@@ -192,8 +192,11 @@ def ScanFields(data: bytes) -> list["FieldDef"]:
 
 
 class Parser:
-    def __init__(self, data: bytes) -> None:
+    def __init__(
+        self, data: bytes, boundaries: dict[int, int] | None = None
+    ) -> None:
         self.reader = Reader(data)
+        self.boundaries = boundaries or {}
         self.nodes: list[Node] = []
         self.fields: list[FieldDef] = ScanFields(data)
         self.index = 0
@@ -391,6 +394,10 @@ class Parser:
                 self.index = self.structure_start[-1]
             if self.index < len(self.fields):
                 field_def = self.fields[self.index]
+                if token == 0xE3 and reader.pos in self.boundaries:
+                    reader.pos += 1
+                    self.index = self.boundaries[reader.pos - 1]
+                    field_def = self.fields[self.index]
                 node = self.ReadField(field_def)
                 self.index += 1
                 if field_def.name == "next_feat_ptr" and isinstance(node.value, Node):
@@ -475,6 +482,44 @@ def RootClass(data: bytes, position: int, limit: int) -> int | None:
     return None
 
 
+def ElementSpans(
+    data: bytes, feat_id: int = 0x4A
+) -> list[tuple[int, int, int]]:
+    starts: list[tuple[int, int]] = []
+    for offset, marker in enumerate(data):
+        if marker != 0xE3:
+            continue
+        ident, after = CompactAt(data, offset + 1)
+        if ident is None or after + 1 >= len(data):
+            continue
+        if data[after + 1] == feat_id:
+            starts.append((offset + 1, ident))
+    spans: list[tuple[int, int, int]] = []
+    for index, (start, ident) in enumerate(starts):
+        end = starts[index + 1][0] if index + 1 < len(starts) else len(data)
+        spans.append((start, end, ident))
+    return spans
+
+
+def ElementBoundaries(data: bytes) -> dict[int, int]:
+    fields = ScanFields(data)
+    names = [entry.name for entry in fields]
+    if "srf_array" not in names or "crv_array" not in names:
+        return {}
+    srf = names.index("srf_array")
+    crv = names.index("crv_array")
+    geom = next(i for i, name in enumerate(names) if name == "geom_id" and i > srf)
+    crv_id = next(i for i, name in enumerate(names) if name == "crv_id" and i > crv)
+    bounds: dict[int, int] = {}
+    for start, _end, _ident in ElementSpans(data):
+        width = 1 if data[start] <= 0x7F else 2
+        if start + width >= len(data):
+            continue
+        second = data[start + width]
+        bounds[start - 1] = geom if second == 0x22 else crv_id
+    return bounds
+
+
 def RowSpans(data: bytes) -> list[tuple[int, int, int, int]]:
     starts: list[tuple[int, int, int]] = []
     for offset in range(len(data)):
@@ -509,6 +554,18 @@ if __name__ == "__main__":
         body = SectionBody(path.read_bytes())
         for start, end, ident, root in RowSpans(body):
             print(f"{start:#06x}-{end:#06x} id={ident} root={root} bytes={end - start}")
+    elif len(sys.argv) > 2 and sys.argv[2] == "--elements":
+        body = SectionBody(path.read_bytes())
+        for start, end, ident in ElementSpans(body):
+            print(f"{start:#06x}-{end:#06x} id={ident} bytes={end - start}")
+        bounds = ElementBoundaries(body)
+        boundary_parser = Parser(body, bounds)
+        try:
+            boundary_parser.Run()
+            outcome = f"complete({len(boundary_parser.nodes)})"
+        except ValueError as ErrorInfo:
+            outcome = f"stop {boundary_parser.reader.pos:#x}: {ErrorInfo}"
+        print(f"# boundary parse: {len(bounds)} boundaries, {outcome}")
     elif len(sys.argv) > 2 and sys.argv[2] == "--trace":
         for position, index, name, type_id in parser.trace[-24:]:
             print(f"{position:#06x} field {index + 1:3d} {name} type {type_id:#04x}")

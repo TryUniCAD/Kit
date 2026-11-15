@@ -273,6 +273,17 @@ in the empty `AllFeatur` (`id 3` root 923, `id 11` root 979) and 8 in the ladder
 yield no spans because they use bare `e3` boundaries without `e3 f6 <class> e1`, so an
 anchor-free splitter is still required for those sections.
 
+`--elements` provides that splitter for geometry arrays: a boundary is a bare `e3`, a compact
+identifier, one byte, and the element `feat_id` byte. Recovered spans match the declared array
+counts exactly. `srf_array` declares 6 and yields `82, 87, 89, 91, 93` plus the inline `77`;
+`crv_array` declares 12 and yields `79, 80, 81, 83, 84, 85, 86, 88, 90, 92, 94` plus the inline
+`78`. Feeding the 16 boundaries to the parser as per-element schema resets advances the
+`VisibGeom` boundary parse from `0x2f7` (117 nodes) to `0x928` (393 nodes); the next stop is a
+`body_array` element that needs its own schema start.
+
+`FeatDefs` does not row-span at all: its `e3` bytes precede `e0`/`f7`, so it needs a
+definition-tree parser rather than a span splitter.
+
 ### Datum placement records
 
 `FeatDefsDtm` (`Sld_FeatDefsDtm`) decodes the datum placement records. The first record is the
