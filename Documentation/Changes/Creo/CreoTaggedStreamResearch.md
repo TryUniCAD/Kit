@@ -17,7 +17,8 @@ The confirmed grammar is recorded in
 - `f1`-`f4` close tokens may precede a value and pop structure levels first;
 - `f7 <id>` selects the id-th field of the global field table;
 - `f8 <count>` and `f9 <rows> <cols>` are part of the first definition of an array field, and
-  later records reuse the stored count;
+  later records reuse the stored count; a fresh `f8`/`f9` header at the same field replaces the
+  stored count;
 - `next_feat_ptr` restarts the field index at the feature schema's first field;
 - `e1` is null, `e2`/`e3` begin a structure, `e4`-`e7` repeat, `f5` negates, `f6` is -1, `fb`
   closes an array.
@@ -35,14 +36,31 @@ The tool accepts an extracted section body and skips a leading `#<name>\n` heade
 | File | Feature chain |
 | --- | --- |
 | `re/creo/oracle/empty/solid_start_part_mmks.prt` | `FRONT` (7), `TOP` (5), `RIGHT` (3), `DEFAULT_CSYS` (11, type 979) |
-| `re/creo/oracle/ladder/ladder1.prt.2` | the same four, plus `id 67` (type 923) |
+| `re/creo/oracle/ladder/ladder1.prt.2` | the same four, plus `id 67` (923), `id 75` (923), `id 74` (917) |
 
 The chain matches the model tree Creo shows for both files.
 
-The empty control's `AllFeatur` now decodes end-to-end, including the footer
-(`foot_first_feat_ptr = None`, `foot_layer_count = 0`) and the recursive `layer_list`
-(`feat_id` 7, 5, 3, 11). The parser wraps the field index to the enclosing structure's start when
-it runs past the end of the field table, which is what lets the recursive `layer_list` decode.
+Both controls' `AllFeatur` now decode end-to-end: 330 nodes for the empty control and 1015 for the
+ladder, including the footer (`foot_first_feat_ptr`, `foot_layer_count`) and the recursive
+`layer_list` (`feat_id` 7, 5, 3, 11 for the empty control). The parser wraps the field index to the
+enclosing structure's start when it runs past the end of the field table, which is what lets the
+recursive `layer_list` decode.
+
+The rule that unblocked the ladder was that a stored array count must not override a fresh
+`f8`/`f9` header at the same field. The ladder's later rows then expose `id 75` (923) and `id 74`
+(917; cadmpeg's additive section-sweep / extrude class).
+
+End-to-end section coverage:
+
+| Section | Empty control | Ladder |
+| --- | --- | --- |
+| `AllFeatur` | 330 nodes, complete | 1015 nodes, complete |
+| `FeatDefsDtm` | 291 nodes, complete | 429 nodes, complete |
+| `NovisGeom` | 3 nodes, complete | 39 nodes, complete |
+| `BasicData` | 797 nodes, complete | 811 nodes, complete |
+| `SolidPrimdata` | 40 nodes, complete | 143 nodes, complete |
+| `FeatDefs` | section absent | 753 nodes, stops at `0xd91` |
+| `VisibGeom` | 2 nodes, complete | 225 nodes, stops at `0x572` |
 
 `FeatDefsDtm` (`Sld_FeatDefsDtm`) also decodes the datum placement records. The first record is the
 `FRONT` datum with `id = 7`, `type = 515`, `offset = 1.0`, `geometry2_id = 8`, and
@@ -58,11 +76,10 @@ a square in homogeneous coordinates. The ladder's `ent_outl` decodes to
 `[186.8986780200836, -0.000125701882057086, 1.0, -156.82118748945425, -272.72085742045164, 1.0]`,
 a rectangle in the sketch plane.
 
-`FeatDefs` (`Sld_FeatDefs`) decodes the first feature definition, the ladder's extrude:
-`id = 66`, `type = 160`, `sub_type = -1`, `tool_type = 60001`, `index = 1`, and
-`max_text_len = 85`. `type = 160` is the feature definition type and `tool_type = 60001` is the
-extrude tool type. The parser stops at `0x3be` because the flat field-index approach does not
-handle the nested structures in `FeatDefs`.
+`FeatDefs` (`Sld_FeatDefs`) now reaches `0xd91` and 753 nodes. It begins at `Sld_FeatDefs`,
+counter `feat_defs_949`, and the first definition record (`id = 66`). The stop is an `0xfc` byte
+that sits inside a `46 <tail7>` world double, so the field index is out of step there rather than
+meeting an unknown token.
 
 `VisibGeom` (`Sld_VisGeom`) decodes the first geometry prototype, a plane surface:
 `geom_id = 77`, `geom_type = 34`, `feat_id = 74`, `orient = -1`, `boundary_type = 0`,
@@ -72,20 +89,16 @@ surface and `feat_id = 74` is the owning feature. Its `envlp` decodes to
 `[184.50782059963194, 86.06680966899467, -154.4303300690026, -115.65227549271083]` and its
 `outline` to
 `[184.50782059963194, 1.0, 115.65227549271083, -154.4303300690026, 1.0, -86.06680966899467]`.
-The parser then decodes the second plane prototype (`geom_id = 82`, `orient = 1`) and the first
-curve prototype (`crv_id = 87`, `type = 34`), and stops at `0x272` in the curve point array. The
+The parser now reaches `0x572` and 225 nodes through the plane and curve prototypes. The
 `local_sys` frame is a 4x3 matrix; the `0x10` byte is the one-byte 1.0 constant in that lane.
 
 ## Limits
 
-- The empty control's `AllFeatur` decodes end-to-end. The ladder's `AllFeatur` decodes the five
-  features and the footer prefix, then stops at `0x130a` on an `f8` array opener inside a scalar
-  lane. That byte is not a missing token: it is the point where the flat positional field-index
-  model is misaligned in the ladder's richer footer.
-- `FeatDefs` decodes the first feature definition, then stops at `0x3be` because the flat
-  field-index approach does not handle the nested structures.
-- `VisibGeom` decodes two plane prototypes and the first curve prototype, then stops at `0x272` in
-  the curve point array.
+- `FeatDefs` stops at `0xd91` and `VisibGeom` at `0x572`. In both, the parser lands on an `0xfc`
+  byte inside a `46 <tail7>` world double, which means the field index is one or more fields out of
+  step at that record, not that the token is unknown.
+- `AllFeatur`, `FeatDefsDtm`, `NovisGeom`, `BasicData`, and `SolidPrimdata` decode end-to-end on
+  both controls.
 - The parser is research code; it does not change the production adapter, which remains
   container-only.
 
@@ -94,25 +107,22 @@ curve prototype (`crv_id = 87`, `type = 34`), and stops at `0x272` in the curve 
 `python3 re/creo/tools/TaggedStream.py <section.bin> --trace` prints the last 24 field reads as
 `<offset> field <index> <name> type <type>`.
 
-Field-level `e4`/`e5`/`e6` repeats now resolve to the preceding logical value, and `e1` terminates
-a numeric array. With those rules the ladder's `AllFeatur` advances from `0x1065` (the former
-`owner_ind`/`e5` stop) to `0x130a`, where the next token is an array opener in a scalar lane. The
-empty control still decodes all four features and its footer unchanged, so the rules are additive.
+Field-level `e4`/`e5`/`e6` repeats resolve to the preceding logical value, `e1` terminates a numeric
+array, `0xfb` and `0xf0` act as value terminators, and a fresh `f8`/`f9` header overrides a stored
+array count. Each rule is additive: the empty control keeps its 330 `AllFeatur` nodes and the
+ladder grows from 389 to 1015.
 
-The remaining stop is the flat positional field-index model. The ladder footer defines
-`sorted`, `revnums`, `owner_type`, `owner_ind`, `ref_id`, and `owner_id` at `0x1336`, after the
-stream position that uses them, and `revnums` is a nested structure rather than a scalar. Reading
-those fields by a single advancing index therefore cannot stay aligned. Cadmpeg's public grammar
-labels `e3` a compound close or row terminator and `e2` an opener; the parser treats both as
-begins, which decodes the empty control but not the richer ladder footer. Reconciling the two is
-the next structural task.
+A direct experiment that swapped `e2`/`e3` to cadmpeg's reading (`e2` open, `e3` close) produced
+byte-identical node counts and stop offsets on both controls. The `e3` question is therefore not
+what blocks the current rows; it stays recorded as an open question.
 
 ## Verification
 
-- The empty control decodes four features and the ladder decodes five.
-- Field-level repeat resolution is additive: the empty control's 330 nodes are unchanged, and the
-  ladder advances from 389 to 461 nodes.
-- The CLI now accepts the extracted section body including its `#AllFeatur\n` header.
+- The empty control decodes four features and the ladder decodes seven.
+- The empty control's `AllFeatur` node count is unchanged at 330; the ladder advances from 389 to
+  1015 nodes and the five previously seen features keep their ids and types.
+- `FeatDefsDtm`, `NovisGeom`, `BasicData`, and `SolidPrimdata` are `complete` on both controls.
+- The CLI accepts the extracted section body including its `#<name>\n` header.
 - The feature ids and types match the model tree that Creo 2027.2 shows for both files.
 - The world-coordinate decode produces finite, ordered bounding boxes for both controls:
   the empty `ent_outl` is a symmetric square and the ladder `ent_outl` is a rectangle in the

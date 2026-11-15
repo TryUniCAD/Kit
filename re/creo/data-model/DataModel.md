@@ -279,12 +279,13 @@ The chain is a linked list: `first_feat_ptr` points at the first feature, and ea
 | File | Feature chain |
 | --- | --- |
 | `empty/solid_start_part_mmks.prt` | `FRONT` (id 7, type 923), `TOP` (5, 923), `RIGHT` (3, 923), `DEFAULT_CSYS` (11, 979) |
-| `ladder/ladder1.prt.2` | the same four, plus `id 67` (type 923) |
+| `ladder/ladder1.prt.2` | the same four, plus `id 67` (923), `id 75` (923), `id 74` (917) |
 
 The chain matches the model tree Creo shows for both files.
 Type `923` is a datum plane and type `979` is a coordinate system.
-The ladder's fifth feature is the sketch's datum plane; the sketch and extrude definitions live in
-`FeatDefs` (`Sld_FeatDefs`), not in `AllFeatur`.
+Type `917` is the additive section-sweep class that cadmpeg calls the extrude definition.
+The ladder's sketch and extrude definition still live in `FeatDefs` (`Sld_FeatDefs`), not in
+`AllFeatur`.
 
 The grammar that makes the chain decode is recorded in
 [the loader notes](../loader/Loader.md#tagged-stream-parser-status):

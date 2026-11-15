@@ -196,7 +196,7 @@ The parser decodes the full `AllFeatur` feature chain of both controls:
 | File | Features |
 | --- | --- |
 | `empty/solid_start_part_mmks.prt` | `FRONT` (7), `TOP` (5), `RIGHT` (3), `DEFAULT_CSYS` (11, type 979) |
-| `ladder/ladder1.prt.2` | the same four, plus `id 67` (type 923) |
+| `ladder/ladder1.prt.2` | the same four, plus `id 67` (923), `id 75` (923), `id 74` (917) |
 
 The empty control's `AllFeatur` now decodes end-to-end, including the footer. The footer is a
 structure with `foot_first_feat_ptr` and `foot_layer_count`; the empty control's footer is
@@ -208,25 +208,36 @@ The parser wraps the field index to the enclosing structure's start when it runs
 the field table. That is what lets the recursive `layer_list` decode: after `back_layer_id` the
 next field is the nested `layer_list` again.
 
-The ladder's `AllFeatur` decodes the five features and the footer prefix, then stops at `0x130a`
-on an `f8` array opener inside a scalar lane. That is not a missing token: it means the flat
-positional field-index model is misaligned in the ladder's richer footer. The empty control is
-unaffected.
+The ladder's `AllFeatur` now decodes end-to-end as well: 1015 nodes. It exposes two further feature
+rows beyond the five datums: `id 75` (type 923, datum plane) and `id 74` (type 917, the additive
+section-sweep definition that cadmpeg calls the extrude class). The earlier stop at `0x130a` was a
+false blocker: a stored array count must not override a fresh `f8`/`f9` header at the same field.
+With that rule the row stream stays aligned.
 
-The feature chain matches the model tree that Creo shows for both files.
-The parser stops inside the ladder `AllFeatur` footer, which uses a different field order
-(`misc_id_tab_ptr`, `misc_hist`, `parent_table`, `avail_feat_parents`, `dtm_id_tab`, revision
-records, `layer_list`).
-The footer is the next decode target, followed by `Sld_FeatDefs` in `FeatDefs`.
+Section coverage after the fixes:
 
-### Structural-token discrepancy
+| Section | Empty control | Ladder |
+| --- | --- | --- |
+| `AllFeatur` | complete, 330 nodes | complete, 1015 nodes |
+| `FeatDefsDtm` | complete, 291 nodes | complete, 429 nodes |
+| `NovisGeom` | complete, 3 nodes | complete, 39 nodes |
+| `BasicData` | complete, 797 nodes | complete, 811 nodes |
+| `SolidPrimdata` | complete, 40 nodes | complete, 143 nodes |
+| `FeatDefs` | section absent | stops at `0xd91`, 753 nodes |
+| `VisibGeom` | complete, 2 nodes | stops at `0x572`, 225 nodes |
+
+`FeatDefs` and `VisibGeom` stop on `0xfc`, which lies inside a `46 <tail7>` world double. The field
+index is therefore one or more fields out of step by that point, not hitting an unknown token. That
+is the next schema-alignment target.
+
+### Structural-token reading
 
 Cadmpeg's public PSB grammar (`docs/formats/creo_prt.md` section 2.2) labels `e3` a compound
 close or row terminator and `e2` a nested compound-body opener or continuation. The research
-parser treats both as begins. That reading still decodes the empty control exactly, but it cannot
-be the whole rule because a richer row reuses `e3` as a separator. Reconciling the two readings is
-the open structural work item; it must land before the ladder footer and `FeatDefs` rows can be
-trusted.
+parser still treats both as begins. A direct experiment that swapped the roles to `e2` open and
+`e3` close produced byte-identical node counts and stop offsets on both controls, so the `e3`
+question is not what blocks the current rows. It stays recorded as an open question rather than a
+settled rule.
 
 ### Datum placement records
 

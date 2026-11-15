@@ -252,6 +252,9 @@ class Parser:
 
     def ReadValue(self, type_id: int, count: int | None) -> object:
         reader = self.reader
+        if reader.pos < len(reader.data) and reader.data[reader.pos] in (0xFB, 0xF0):
+            reader.pos += 1
+            return None
         if reader.pos < len(reader.data) and reader.data[reader.pos] == 0xE1:
             reader.pos += 1
             return None
@@ -289,7 +292,11 @@ class Parser:
             node.value = Repeat(count)
             if self.nodes:
                 node.value = self.nodes[-1].value
-        elif field_def.count is not None and field_def.type_id != 0x00:
+        elif (
+            field_def.count is not None
+            and field_def.type_id != 0x00
+            and token not in (0xF8, 0xF9)
+        ):
             node.value = self.ReadArray(field_def.type_id, field_def.count)
         else:
             node.value = self.ReadValue(field_def.type_id, field_def.count)

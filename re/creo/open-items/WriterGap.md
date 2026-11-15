@@ -36,16 +36,18 @@ A neutral edit cannot be expressed by replaying the old bytes.
 | File | Feature chain |
 | --- | --- |
 | `empty/solid_start_part_mmks.prt` | `FRONT` (7), `TOP` (5), `RIGHT` (3), `DEFAULT_CSYS` (11, type 979) |
-| `ladder/ladder1.prt.2` | the same four, plus `id 67` (type 923) |
+| `ladder/ladder1.prt.2` | the same four, plus `id 67` (923), `id 75` (923), `id 74` (917) |
 
 The chain matches the model tree Creo shows.
 The grammar is recorded in [the loader notes](../loader/Loader.md#tagged-stream-parser-status).
-The empty control's `AllFeatur` now decodes end-to-end, including the footer
-(`foot_first_feat_ptr = None`, `foot_layer_count = 0`) and the recursive `layer_list`.
-The ladder's `AllFeatur` decodes the five features and the footer prefix, then stops at `0x130a`
-on an `f8` array opener inside a scalar lane, which identifies a field-index misalignment in the
-richer footer rather than a missing token. The empty control is unaffected.
-`FeatDefsDtm` decodes the datum placement records through `ent_outl`.
+Both controls' `AllFeatur` now decode end-to-end, including the footer
+(`foot_first_feat_ptr`, `foot_layer_count`) and the recursive `layer_list`. A stored array count
+must not override a fresh `f8`/`f9` header at the same field; with that rule the ladder's
+1015-node row stream stays aligned and exposes the extrude class `917`.
+`FeatDefsDtm`, `NovisGeom`, `BasicData`, and `SolidPrimdata` also decode end-to-end.
+`FeatDefs` reaches `0xd91` and `VisibGeom` reaches `0x572`; both stop on an `0xfc` byte inside a
+`46 <tail7>` world double, so the field index is out of step there rather than hitting an unknown
+token.
 
 ## World-coordinate double encoding
 
