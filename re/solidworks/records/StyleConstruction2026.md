@@ -1,7 +1,8 @@
 # SOLIDWORKS 2026 style and unit construction
 
 Status: **fresh standard-1 detail graph and unit constructors implemented;
-remote process checks pending; target acceptance unproven**. The graph contains
+three remote style process cases passed; combined CI and target acceptance
+remain incomplete**. The graph contains
 typed dimension, annotation, table, label, helper and Swift records. Unsupported
 standards fail closed. This research component constructs candidates for the
 parent model builder; it does not claim a usable native document. No source
@@ -268,6 +269,24 @@ encode/decode typed records and require exact
 wire round trips. They also vary text, language, exclusion counts and unit-table
 shape. They are scheduled through the existing remote workflow-quality native
 file-reading/writing step; no separate workflow or donor access is introduced.
+
+The first completed style codec check is
+[workflow-quality job 132707460142](https://github.com/TryUniCAD/Kit/actions/runs/43679709295/job/132707460142)
+on PR 126 head `9adead2e11e94f201dddb7fe75dd47593226f139`.
+Checkout used synthetic merge `e700702`, combining that head with parent
+`53c79e7394b8ec579cec799625575bf4d692c98d`. The log selected
+`StyleBuilderProcessTests.py` and all three cases passed: complete typed style
+graph/text/language variation, variable unit-table construction and unsupported
+input rejection. Each successful graph was encoded, decoded to typed records
+and encoded to identical bytes with imports audited and construction filesystem
+access blocked. These are actual remote Python process results, not native CAD
+execution traces.
+
+The whole smoke step reported 132 passed, 158 skipped and six failed in 34.42
+seconds. The six failures were inherited fresh/locked part adapter discovery
+and polygon harness checks. Other parent checks also remained red. This is
+component codec evidence, not a green parent or PR acceptance claim. Current-head
+CI and vendor acceptance must still pass after integration repairs.
 
 Remaining acceptance includes vendor load/rebuild/edit checks in the assembled
 document, the user-facing name and nonzero modes of GTol `f80`, non-1 standard
