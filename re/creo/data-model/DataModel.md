@@ -275,6 +275,45 @@ The ladder's extrude and sketch records follow it, but their field boundaries ar
 `FeatDefsDtm` stores one placement record per datum. The record grammar is decoded and emitted by
 `Author.DatumPlaneRecord`; the field table is in [the datum placement page](DatumPlacement.md).
 
+### `SolidPersistTable` and `SolidPrimdata` are display tables, not B-rep
+
+Both rows are Unix-compress streams (`1f 9d`) and both are ordinary token format once decompressed —
+`1125` bytes to `1788`, and `235` to `301`. Their contents:
+
+| Row | Root | Fields |
+| --- | --- | --- |
+| `SolidPersistTable` | `pgl_persist_table` | `table_id`, `srf_prim_data_refs`, `appdatakeysH`, `fontsH`, `linestylesH`, `colorrefsH`, `imagesH`, `texturesH`, `mrshadersH`, `appearancesH`, `surfpropsH`, `symbolsH`, `segmentsH`, `gpurefsH`, `segmentrefsH` |
+| `SolidPrimdata` | `pgl_primdata_group_table` | `pgl_primdata_groups_arr` → `pgl_primdata_group` → `segref_array` → `pgl_segref` → `p_seg_persistref` → `primdata_container` → `pgl_primdata` |
+
+So they are the **display pipeline's persistence state** — hash tables of style objects, GPU references,
+segments and LOD primdata groups — not the boundary representation. The B-rep is in `VisibGeom` and the
+feature records, both of which are already authored.
+
+The entries carry save-time state: object ids, `change_count` values (`29`, `26`, `14`, `13`), appdata rows
+named `COLOR_INDEX` and `__pgl_segment_id__`, and LOD values. In the datum-only control they still hold two
+segments and two primdata groups.
+
+**Both rows are required.** Dropping them is refused with an explicit message, as is dropping the display
+rows:
+
+```text
+nosolidtbl: 28275 bytes; rows 50; dropped SolidPersistTable, SolidPrimdata
+!%CE06:23:43  'nosolidtbl.prt' cannot be retrieved.
+
+nodisp: 28154 bytes; rows 49; dropped CGFPersistTable, DispDataTable, THMB_IMG_MAIN
+!%CE06:24:49  'nodisp.prt' cannot be retrieved.
+```
+
+That fits the earlier finding that only trailing rows (`IndentTag`, `FeatRefData`) may be dropped: the
+container's row set is otherwise fixed.
+
+**They cannot yet be re-emitted from a parsed tree.** `StreamParser` mis-decodes these tables because they
+use lanes it does not model: `t08` and `t09` integers appear where the parse reports floats like
+`9.215218961092862e-41`, and `id` reads back as `4294967295`. The parse still consumes exactly the row
+(it ends at `pos 1788 of 1788`), so the grammar is close, but the values are wrong and a byte-identical
+re-emit is not yet possible. Extending the parser with those two lanes is the prerequisite for treating
+these rows the way `FeatDefsDtm` was treated.
+
 ### The `ND:*` token tables
 
 The three `ND:*` rows are not display data and not simple shapes. Each decompresses to a `PSB_Tokens`

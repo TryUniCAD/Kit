@@ -618,6 +618,25 @@ auth4 part 29673 bytes from control 81539
 Two shortcuts were refused twice each first: a `979` replay carrying datum fields (`inplace4`) and a `923`
 replay carrying `id 11` (`inplace5`). The feature class is validated against the record's own fields.
 
+### The two "solid" rows are display tables
+
+`SolidPersistTable` and `SolidPrimdata` were the next candidates for decoding, on the assumption that they
+describe a body. They do not. Both are Unix-compress rows (`1f 9d`) that decompress to ordinary token format
+(`1125` to `1788`, `235` to `301`) and then read as the display pipeline's persistence state:
+
+- `pgl_persist_table` — hash tables of `fontsH`, `linestylesH`, `colorrefsH`, `imagesH`, `texturesH`,
+  `mrshadersH`, `appearancesH`, `surfpropsH`, `symbolsH`, `segmentsH`, `gpurefsH`, `segmentrefsH`
+- `pgl_primdata_group_table` — LOD groups of segment references and primdata containers
+
+So the boundary representation is in `VisibGeom` and the feature records, both already authored, and not in
+these rows. Both are still **required**: dropping them, or dropping `DispDataTable`, `CGFPersistTable` and
+`THMB_IMG_MAIN`, is refused with `cannot be retrieved`. That matches the earlier finding that only trailing
+rows (`IndentTag`, `FeatRefData`) may be dropped.
+
+They also cannot yet be re-emitted: `StreamParser` mis-decodes their `t08` and `t09` lanes — ids read back as
+`4294967295` and doubles as `9.2e-41` — although it consumes each row exactly. Extending the parser with
+those lanes is the prerequisite for treating them the way `FeatDefsDtm` was treated.
+
 ## What is left
 
 One vendor record: the csys (`619` bytes, class `979`). It is a replay of the first record's schema opened
