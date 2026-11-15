@@ -1,0 +1,58 @@
+from json import loads as LoadJson
+from pathlib import Path as FilePath
+
+from pytest import mark as TestMark
+
+from tests.convert.Commands.BuildIncomplete import BuildIncomplete
+from tests.convert.Commands.BuildNativeBrep import BuildNativeBrep
+from tests.convert.Commands.CheckJsonBlock import CheckJsonBlock
+from tests.convert.Commands.CliProcess import CliProcess
+from tests.convert.Commands.WrapDocument import WrapDocument
+
+
+@TestMark.parametrize(
+    "RecordKind",
+    (
+        "NativeCurve",
+        "NativePcurve",
+        "NativeSurface",
+        "MissingReference",
+        "ExternalReference",
+        "NativeComponent",
+        "SourceUnresolved",
+        "TransformUnresolved",
+        "NativeTransforms",
+        "NativeConstraints",
+    ),
+)
+@TestMark.parametrize("IsNested", (False, True))
+@TestMark.parametrize("HasOutput", (False, True))
+def CheckUnready(
+    RecordKind: str, IsNested: bool, HasOutput: bool, TmpPath: FilePath
+) -> None:
+    IsGeometry = RecordKind in ("NativeCurve", "NativePcurve", "NativeSurface")
+    Document = (
+        BuildNativeBrep(RecordKind) if IsGeometry else BuildIncomplete(RecordKind)
+    )
+    if IsNested:
+        Document = WrapDocument(Document)
+    CheckJsonBlock(
+        Document, RecordKind if IsGeometry else "IncompleteAssembly", HasOutput, TmpPath
+    )
+
+
+@TestMark.parametrize("IsNested", (False, True))
+def CheckResolved(IsNested: bool, TmpPath: FilePath) -> None:
+    Document = BuildIncomplete("ResolvedReference")
+    if IsNested:
+        Document = WrapDocument(Document)
+    Document.AssertValid()
+    Source = TmpPath / "source.json"
+    Original = Document.to_json()
+    _ = Source.write_text(Original, encoding="utf-8")
+    Target = TmpPath / "resolved.json"
+    Result = CliProcess(TmpPath, "convert", str(Source), str(Target), "--json")
+    assert Result.returncode == 0, Result.stderr
+    assert LoadJson(Result.stdout)["destination_format"] == "interchange.json"
+    assert LoadJson(Target.read_text(encoding="utf-8"))["assembly"]
+    assert Source.read_text(encoding="utf-8") == Original

@@ -1,26 +1,78 @@
+from interchange.assembly.AssemblyEnums import ComponentKind
+from interchange.brep.curves.BrepCurves import NativeCurve
+from interchange.brep.curves.BrepPcurves import NativePcurve
+from interchange.brep.surfaces.BrepSurfaces import NativeSurface
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.document.models.DocumentWalk import WalkDocuments
 from interchange.features.FeatureKinds import NativeFeature
 from interchange.geometry.models.GeometryCurves import NativeGeometry
 
+KInspectText = (
+    " records are not conversion-ready; use kit decode or kit research for inspection"
+)
+
 
 def CheckPortable(Document: CadDocument) -> None:
     for PartValue in WalkDocuments(Document):
-        if PartValue.metadata.get("kit.research_read_status") == "unqualified":
-            raise ValueError(
-                "UnqualifiedResearch documents are not conversion-ready; "
-                + "use kit decode or kit research for inspection"
-            )
-        for Feature in PartValue.FeatureTimeline:
-            if isinstance(Feature.definition, NativeFeature):
-                raise ValueError(
-                    "NativeFeature records are not conversion-ready; "
-                    + "use kit decode or kit research for inspection"
-                )
-        for Sketch in PartValue.Sketches:
-            for Entity in Sketch.Entities:
-                if isinstance(Entity.Geometry, NativeGeometry):
-                    raise ValueError(
-                        "NativeGeometry records are not conversion-ready; "
-                        + "use kit decode or kit research for inspection"
+        Problems = (
+            (
+                "UnqualifiedResearch",
+                PartValue.metadata.get("kit.research_read_status") == "unqualified",
+            ),
+            (
+                "NativeFeature",
+                any(
+                    isinstance(Feature.definition, NativeFeature)
+                    for Feature in PartValue.FeatureTimeline
+                ),
+            ),
+            (
+                "NativeGeometry",
+                any(
+                    isinstance(Entity.Geometry, NativeGeometry)
+                    for Sketch in PartValue.Sketches
+                    for Entity in Sketch.Entities
+                ),
+            ),
+            ("RetainedPayload", bool(PartValue.brep_payloads)),
+        )
+        for RecordName, IsBlocked in Problems:
+            if IsBlocked:
+                raise ValueError(RecordName + KInspectText)
+        Assembly = PartValue.assembly
+        if Assembly is not None and (
+            any(
+                Definition.kind == ComponentKind.KNative
+                or Definition.attributes.get("source_resolved") is False
+                or (
+                    (
+                        Definition.kind == ComponentKind.KReference
+                        or Definition.source_path
                     )
+                    and not (
+                        Definition.document_id
+                        or Definition.body_ids
+                        or Definition.mesh_ids
+                    )
+                )
+                for Definition in Assembly.definitions
+            )
+            or any(
+                Instance.attributes.get("transform_resolved") is False
+                for Instance in Assembly.instances
+            )
+            or any(
+                Assembly.attributes.get(FieldName)
+                in ("native-only", "native_only", "unresolved")
+                for FieldName in ("transform_status", "constraint_status")
+            )
+        ):
+            raise ValueError("IncompleteAssembly" + KInspectText)
+        if PartValue.brep is not None:
+            for Geometry in (
+                *PartValue.brep.curves,
+                *PartValue.brep.pcurves,
+                *PartValue.brep.surfaces,
+            ):
+                if isinstance(Geometry, (NativeCurve, NativePcurve, NativeSurface)):
+                    raise ValueError(type(Geometry).__name__ + KInspectText)
