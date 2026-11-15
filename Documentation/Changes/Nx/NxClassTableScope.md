@@ -550,9 +550,15 @@ the session and checked on load, so a writer cannot compute them for a class set
 seen. That is the wall, and it is a designed one rather than an unread one.
 
 Consequently `Writer.py` still requires a retained native document, and a part authored from a
-neutral document is not reachable through this format while the class table is mandatory and
-validated. Anything that made it reachable would have to carry loader-produced values, which is the
-donor data the project forbids.
+neutral document is not reachable **through this container** while the class table is mandatory and
+validated. Anything that made it reachable here would have to carry loader-produced values, which is
+the donor data the project forbids.
+
+That is a statement about the modern `SPLMSSTR` container, not about NX parts in general.
+`NxLegacyContainer.md` records that NX 2506 also opens the legacy OLE2 container, whose class table
+carries only the schema name, a per-schema constant, the class name and the registration-site
+`+0x34` value — none of the loader-produced fields — so a from-scratch write remains open on that
+path.
 
 ## Verification
 
