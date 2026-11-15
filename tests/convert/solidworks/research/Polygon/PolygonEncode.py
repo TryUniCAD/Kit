@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+# framing defects need a real binary container boundary to become observable
 KEncode = """
 Seed = ArchiveMap(2, {1: ('obj', Profile.profile)})
 Context = {'conditions': 0x2000, 'owner_is_drawing': 0, 'ctx874': 1}

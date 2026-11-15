@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+# real archive behavior needs warmed components before runtime access is sealed
 KLoad = """
 from Core import ArchiveMap, Load, Obj, Store
 from Classes import registry as GetRegistry

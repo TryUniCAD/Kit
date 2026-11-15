@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+# isolation needs the audit boundary before builder imports can inspect data
 KPaths = """
 import sys as SysValue
 from codecs import lookup as FindCodec

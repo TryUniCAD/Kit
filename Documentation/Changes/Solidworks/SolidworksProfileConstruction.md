@@ -69,6 +69,7 @@ The process stages each own a focused module under `tests/convert/solidworks/res
 Profile gotchas are grouped under `Documentation/Gotchas/Conversion/Solidworks/Profile/` to keep both parent directories within their file limits
 The naming and directory repairs passed at head `ee2eed2e4732e995fb8b0a7b281b8834cdf9a7f6`
 [Native job 132729524301](https://github.com/TryUniCAD/Kit/actions/runs/43687022248/job/132729524301) again passed all six polygon cases; its only failure was the next missing schema in inherited assembly resolved features
+The process declarations now include the mandatory rationale comments authorized for these checks; their code and embedded programs are unchanged
 The component sketch archive uses a seeded external profile owner and does not establish complete part-file acceptance
 Held-out native acceptance, rebuild, body measurements, and dimension edits remain unverified
 The first complete parent-generated H3 candidate failed native opening with an RPC error between two passing fresh controls

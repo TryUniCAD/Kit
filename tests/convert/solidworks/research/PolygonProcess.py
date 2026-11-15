@@ -6,9 +6,11 @@ from sys import executable as PythonExec
 
 from tests.convert.solidworks.research.Polygon.PolygonProgram import KProgram
 
+# startup needs a stable package root independent of the working directory
 KRepoRoot = FilePath(__file__).resolve().parents[4]
 
 
+# geometry validation needs process isolation from inherited interpreter state
 def RunPolygon(
     *, Directory: FilePath, Scenario: str, Count: int, Depth: float
 ) -> CompletedProcess[str]:

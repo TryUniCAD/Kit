@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+# independent decoding prevents emitted byte identity from hiding broken links
 KDecode = """
 SketchLoad = Load(Archive.require('Research/Sketch'), base=Seed.count, registry=Registry, version=19000, ctx=Context, seed=Seed)
 Sketch = SketchLoad.obj()
