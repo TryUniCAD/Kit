@@ -908,6 +908,28 @@ hypothesis, recorded in [the feature struct page](../../../re/creo/loader/Featur
 So `AllFeatur` remains unauthored, and with it the part, because it is the one section both our
 validator and the vendor loader reject when absent.
 
+## The reader defect behind the "unknown lanes" is identified
+
+Logging every field read inside the ladder's record `74` localises the drift. Around offset `6341` the bytes
+are a table of records — ids `57`, `59`, `5b`, `5d` with a counter `7, 6, 5, 4`, each opened by `e3` — but the
+parser labels them `fc_hist`, `save_geoms`, `transform` and `flags`, and then reads `cr_flags_xar` with **0**
+slots where every other record has `311` or `278`.
+
+The cause is a form the reader does not implement: a reference array declares its elements and closes
+immediately, and the records are written **inline after it**:
+
+```text
+f8 06  f7 1d  fb      <- array of 6, each element a record of field 0x1d, then close
+e3 <id> ...           <- the six inline records follow, opened by e3
+```
+
+The same form appears in the control's csys record, where `misc_id_tab_ptr` is `f8 01 f7 4d fb` followed by a
+bare `e3` whose owner was never identified. One mechanism therefore explains the empty mask, the "unknown
+double lanes" (`0x57`, `0x59`, `0x00`) that block the loud raise, and the stray `e3`.
+
+The fix is a parser change — after such an array, read `count` inline records of the named field's shape — and
+it is **not implemented**.
+
 ## Limits
 
 - The authored part contains only `AllFeatur` and `VisibGeom`. Creo rejects it as "not a valid PART
