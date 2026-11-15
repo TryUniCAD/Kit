@@ -1,6 +1,6 @@
 # SOLIDWORKS 2026 assembly archive codec
 
-The research archive codec now registers typed 2026 assembly, configuration, component reference, component history/favorite, mate, browser-cache, and mass-cache records. Assembly sections reuse the existing model serializer and class map. Counted records retain their order and object links; section lengths and collection lengths derive from the typed graph.
+The research archive codec now registers typed 2026 assembly, configuration, component reference, component history/favorite, live-section folder, mate, browser-cache, and mass-cache records. Assembly sections reuse the existing model serializer and class map. Counted records retain their order and object links; section lengths and collection lengths derive from the typed graph.
 
 Use `re/tooling/sw2026/serial/RoundTrip.py` with an assembly glob and explicit stream names in remote CI. `tests/convert/solidworks/research/AssemblyRoundTests.py` invokes that command as a subprocess and requires identical output with no unread tail for 14 streams across the two committed assembly parser controls.
 
@@ -12,4 +12,6 @@ The [field and evidence finding](../../../re/solidworks/records/AssemblyArchive2
 
 [History component read context](../../Gotchas/Conversion/Solidworks/Archive/HistoryComponentReadContext.md) explains why the history pointer changes archive state during reading without adding a flag to the wire or mutating the writer context.
 
-This is a source-document research codec. It supplies no fresh assembly builder, no donor defaults, and no target-application acceptance claim. It rejects unsupported versions, unregistered classes, and identified unknown branches. The latest component-history repair awaits remote verification; only AST parsing and formatting checks were performed locally. Queue acceptance and vendor load/rebuild/mate-edit measurements remain unproven.
+The third remote run still passes 12 of 14 streams and advances through component history to the missing live-section folder. That folder's recovered native schema includes its actual concept child list and an i32 normalization witness for a native byte flag. The folder repair awaits remote reproduction.
+
+This is a source-document research codec. It supplies no fresh assembly builder, no donor defaults, and no target-application acceptance claim. It rejects unsupported versions, unregistered classes, and identified unknown branches. Only AST parsing and formatting checks were performed locally. Queue acceptance and vendor load/rebuild/mate-edit measurements remain unproven.

@@ -239,6 +239,14 @@ def define_history(reg):
     ])
 
 
+def define_folders(reg):
+    concept_vt("moLiveSectionFolder_c")
+    reg.define("moLiveSectionFolder_c", [
+        Version2026(), base("moFolder_c"),
+        Norm("i32", "f378", lambda value, ar: int(value == 1)),
+    ])
+
+
 def define_mates(reg):
     for cls in ("moMateGroup_c", "moMateParent", "moMate", "moMateNGeoms_c", "moMate2Geoms_c", "moMateCoincident", "moMateParallel", "moMatePerpendicular", "moMateTangent", "moMateDim_c", "moMateDistanceDim_c"):
         concept_vt(cls)
@@ -324,5 +332,6 @@ def define(reg):
     define_config(reg)
     define_references(reg)
     define_history(reg)
+    define_folders(reg)
     define_mates(reg)
     define_cache_nodes(reg)
