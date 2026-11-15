@@ -1059,9 +1059,22 @@ references. The face body must be a separate record, and the trim record is the 
 data only.
 
 The face body is not in the face-outer-bound run either: those 71 rows at 27035..27603 are eight
-bytes each and byte-identical. The remaining candidate region is the `42 ff` block at
-12376..18807, which is 6431 bytes for 71 faces (about 90 bytes per face) and holds a `u32` count of
-2850 followed by 2850 `u16` values and 723 packed bytes. That region has not been decoded.
+bytes each and byte-identical. The `42 ff` block at 12376..18807 is also not the face-body table:
+it exists only in `Reservoir`. `Pedal_Body`, `4784`, and `4876` have no `42 ff` record with a
+plausible count at all, so a region that is absent from three of the five pooled parts cannot hold
+their face bodies.
+
+| Part | Faces | Handles | `42 ff` records |
+| --- | ---: | ---: | --- |
+| `Reservoir` | 71 | 1431 | one at 12376, count 2850 |
+| `Pedal_Body` | 338 | 2666 | none |
+| `4784` | 416 | 7200 | none |
+| `4876` | 870 | 11411 | none |
+
+So the face body record is not in the trim chain, the face-outer-bound run, or the `42 ff` block,
+and the header chain covers only the bodies. Locating it needs either a ground-truth file or a
+deeper trace of `ReadHeaderObjectAt` at `0x1800a56a0`, which is a 0x740-byte function with inline
+buffer reads and no calls to the `Read*` helpers.
 
 A constraint solver over the geometry does not converge. Treating each face as a variable over the
 surfaces of its planarity class, and each two-face handle group as a constraint that the two
