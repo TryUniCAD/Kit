@@ -633,22 +633,28 @@ these rows. Both are still **required**: dropping them, or dropping `DispDataTab
 `THMB_IMG_MAIN`, is refused with `cannot be retrieved`. That matches the earlier finding that only trailing
 rows (`IndentTag`, `FeatRefData`) may be dropped.
 
-They also cannot yet be re-emitted, and the cause is a reader defect rather than a missing type lane. An
-earlier revision of this entry said `StreamParser` mis-decodes `t08`/`t09`; that is wrong, both already decode
-as `CompactInt`. Instrumenting `SolidPrimdata` shows the divergence at offset `94`: `ReadDouble` does not
-recognise the double lane used by `lod_value`, so it takes a fallback that advances eight bytes and returns
-`None`, swallowing the next field's header. Everything after that is misread.
+They parse once one double lane is decoded. The divergence was at offset `94` of the decompressed
+`SolidPrimdata`: `lod_value` is encoded `2f 30 00` — the prefix `2f`, an ASCII decimal string, and a `00`
+terminator — so it is `0.0`. `ReadDouble` did not know that lane and its fallback advanced eight bytes,
+swallowing the next field's header, which is why `segref_array` read as the scalar `114` and
+`pgl_segref`/`p_seg_persistref` as single bytes.
 
-The fix is to make that fallback loud instead of silent, then decode the lane the LOD value uses. Note also
-that a byte-identical re-emit of a parsed vendor row is a recorded-payload replay, which the no-donor standard
-forbids in `src/`, so the useful output of parsing these rows is field semantics, not bytes.
+With the lane decoded, `SolidPrimdata` parses coherently: `30` nodes, consuming exactly `301` bytes,
+`lod_value` `0.0`, `segref_array` `[5]`, and records for the rest.
 
-### Parameters would need a section the empty control does not have
+Two limits were measured and are worth keeping:
 
-Reading back `0 params` is structural, not a bug: parameters come from the `FeatDefs` row
-(`Sld_FeatDefs` → `feat_defs_949` → … → dimension values), and the datum-only control has **no `FeatDefs`
-row at all** — only the ladder does (`5987` bytes). So the authored container cannot carry a dimension by
-editing a generated section; it would have to add a row that this part never had.
+- **The lane must be scoped.** Treating any `2f` as a decimal string drops the ladder from `8` parameters to
+  `0`, because the byte recurs in `FeatDefs` doubles with a different sense. The reader now takes the decimal
+  form only when the bytes up to a nearby `00` are digits or signs, and the control and ladder reads are
+  unchanged (`4` features; `7` features, `8` parameters, `6` faces, `12` edges, one solid, volume
+  `18482541.490319017`).
+- **The silent fallback stays.** Making it raise was tried and reverted: it surfaced two further unknown
+  lanes in the feature section (`0xf5`, `0x57`) and the ladder read `0` features instead of `7`. A loud raise
+  is only safe once those are decoded.
+
+Re-emitting these rows byte-identically is not the goal either — a parsed vendor row re-emitted is a recorded
+payload replay, which the no-donor standard forbids in `src/`.
 
 ### What the authored container reads back as
 

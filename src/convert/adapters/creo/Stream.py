@@ -208,6 +208,19 @@ class StreamParser:
         if FirstValue == 0x52:
             Reader.Position += 1
             return struct.unpack(">d", Reader.Take(8))[0]
+        if FirstValue == 0x2F:
+            TailValue = Reader.DataValue[Reader.Position + 1 : Reader.Position + 9]
+            StopValue = TailValue.find(b"\x00")
+            TextTail = TailValue[:StopValue] if StopValue >= 0 else b""
+            if TextTail and all(
+                ByteValue in b"0123456789+-." for ByteValue in TextTail
+            ):
+                Reader.Position += 1
+                TextValue = Reader.DataValue[
+                    Reader.Position : Reader.Position + len(TextTail)
+                ].decode("latin-1")
+                Reader.Position += len(TextTail) + 1
+                return float(TextValue)
         StartValue = Reader.Position
         while (
             Reader.Position < len(Reader.DataValue)
