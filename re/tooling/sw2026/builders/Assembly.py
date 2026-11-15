@@ -5,7 +5,7 @@ from math import isfinite, sqrt
 from ntpath import basename, splitext
 
 from Core import Obj
-from Model import base_configuration_fields, object_list
+from builders.Model import base_configuration_fields, object_list
 
 
 def bounding_box(*, minimum: Sequence[float], maximum: Sequence[float]) -> dict:

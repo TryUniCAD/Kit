@@ -351,7 +351,52 @@ configuration, insert a component, supply mate states, or prove that initial
 caches remain valid after those operations. The next composition work must
 apply those operations' actual native transitions.
 
+Remote process coverage is implemented in
+`tests/convert/solidworks/research/AssemblyBuilderProcessTests.py` and its
+focused `Assembly/Build.py`, `Codec.py`, and `Report.py` helpers. It sends
+explicit semantic input to an isolated interpreter, enables the shared audit
+before builder imports, and enters its deny-all construction phase before
+calling the actual constructors and native codec. The owner is an actual new
+assembly node supplied through an explicit generated archive-map seed, rather
+than a copied source record. The initial configuration and the file-definition
+class are encoded, decoded with a fresh owner seed, and re-encoded with exact
+byte identity and no remaining tail. The file-definition wrapper is the native
+constructible `moSharedFileDef_c` class for this codec boundary only; the builder
+still returns the embedded mapping used by actual external records.
+
+The process checks that Unicode path/name growth changes the archive, the
+decoded name/id/time/category match authored input, the actual owner identity
+resolves, and three separate option objects survive serialization. It also
+checks explicit failures for unsupported inputs and denied runtime file access.
+This is configuration/file-record process coverage, not a complete generated
+assembly or native application acceptance. No local execution was performed;
+the current remote revision's outcome is still pending.
+
 ## Remaining construction work
+
+The header component-count search has a new **partial** caller lead. A bounded
+search that found no setter import must not be treated as proof that `fc4`
+is unused or always zero. The external licensed `doccplu.dll`, SHA-256
+`ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8`,
+imports `moHeader_c::setNumberOfComps` through IAT slot `0x1800530d0`.
+Its caller at `0x180012a7e` obtains a number through document virtual
+`+0x1368`, saves that result, obtains the model through virtual `+0x1300`,
+then obtains the header through model virtual `+0x11f0`. At `0x180012ad4`
+it passes the number to thunk `0x18004638f` and the header setter. This is
+actual static call/dataflow evidence; a direct-call-only IAT search misses the
+import thunk.
+
+A matching concrete `uiModelDoc_c` primary vtable at
+`slduiu.dll!0x4a645b78` binds `+0x1300` to `getModel` at `0x49789530`
+and `+0x1368` to `getNumberOfComps` at `0x48ee73c0`, which returns member
+`+0xb54`. That module's SHA-256 is
+`025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7`.
+Setter `0x497bb1d0` also has a direct store into an obtained header's `fc4`
+at `0x497bb269` under its document-state predicates. The selected dynamic
+document subtype, origin of the UI count, and whether the count includes
+subassemblies, repeated instances or hidden/suppressed entries still need
+closure. This does not justify `fc4 = len(visible_features)` or lifting the
+current metadata constructor's unsupported-component guard.
 
 The unresolved work is concrete and active: complete ordinary component-reference construction; external file/header/configuration identity; context-dependent placement propagation; complete per-configuration option domains; solver state and common mate data; bounds-cache ownership and final visibility/explosion policy; and controlled native load/rebuild/edit acceptance with passing controls.
 

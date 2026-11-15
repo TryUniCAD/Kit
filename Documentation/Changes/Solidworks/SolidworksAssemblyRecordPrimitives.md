@@ -43,7 +43,16 @@ state and three separate options allocations.
 
 Local verification is static syntax parsing, documentation formatting and diff
 validation only. No constructor imports, local tests, serializer reproductions
-or vendor operations ran. Process-boundary coverage belongs with the completed
-assembly graph; isolated unit tests are prohibited. These primitives do not
+or vendor operations ran. The remote process check now constructs the initial
+configuration and ordinary file definition, encodes and decodes their real
+native object classes with an explicit generated owner-map seed, and requires
+complete consumption plus byte identity. It checks separate options allocation,
+owner identity, variable Unicode name/path lengths, saved version, configuration
+state, and invalid semantic inputs. The audit starts before builder imports and
+denies all file and directory access during construction and encoding; caught
+denials also fail the process. Current-revision execution remains pending.
+
+This boundary covers initial records, not the complete generated assembly graph.
+Isolated unit tests are prohibited. These primitives do not
 establish complete assembly generation, vendor loadability or held-out
 load/rebuild/mate-edit acceptance. The full CAD success criteria remain in force.
