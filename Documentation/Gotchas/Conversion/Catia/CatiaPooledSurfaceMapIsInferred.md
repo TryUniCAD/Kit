@@ -22,6 +22,11 @@ is matched to the cylinder surface with the edge circle radius, and the remainin
 least-used surface whose kind is compatible with the trim kind. The inferred map is total, so all 27
 corpus parts decode, but it is not the stored map.
 
+A plain index table is ruled out: every stream of `Reservoir` was scanned for a run of exactly
+`FaceCount` 8-bit or 16-bit little-endian values below the pool size that covers at least 85% of the
+pool, and no such run exists, so the reference is not an array of surface indices. It must be
+carried by the tag-difference reference encoding, like the object references in the OSMX graph.
+
 ## Workaround
 
 Treat the five pooled parts as approximate. The reader emits
