@@ -323,6 +323,13 @@ result = CatiaAdapter().write(
   round trips through this reader without reproducing the vendor header, roster, and trailer records,
   which is one more reason `vendor_loadable` stays false.
 - The writer reports `vendor_loadable=False` and `application_usable=False`.
+- The vendor blocker is a missing licence configuration, verified in the Parallels VM: CATIA
+  V5-6R2022 is installed (`CNEXT.exe` and
+  `C:\ProgramData\DassaultSystemes\CATEnv\CATIA_P3.V5-6R2022.B32.txt` are present), but there is no
+  `DSLicSrv.txt` next to `CNEXT.exe`, no `C:\ProgramData\Dassault Systemes\Licenses` directory, and no
+  licence line in the environment file, and launching `CNEXT.exe -direnv ...` leaves no process
+  running. Supplying a `DSLicSrv.txt` with the licence server, or setting `DSLICENSESERV`, is the
+  single prerequisite for the vendor checks.
 - CATIA acceptance is not measured because the local CATIA install has no license.
 
 ## Verification
