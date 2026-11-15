@@ -119,9 +119,32 @@ layout rules the author did not yet model:
   (`105a7 747 0 1934 1 -1 0000 0000` in the control), so a part has two tables;
 - the seventh column is `-1` for plain `kind 9` sections and `1` for compressed `kind a` sections.
 
-`Author.py` now emits `-1` for plain sections. The continuation table and the `#\n` separators are
-not yet authored, and the no-op rebuild still fails, so the geometry-replacement experiment is not
-yet conclusive.
+`Author.py` now emits `-1` for plain sections.
+
+## Geometry isolation experiments
+
+`VisibGeom` body zeroed in place, same length and directory (vendor model otherwise untouched):
+
+```text
+!%CE01:02:15 Could not retrieve part "...corrupt.prt".
+```
+
+So the vendor model validates `VisibGeom`; zeroing it fails the load.
+
+Authored `VisibGeom` appended to the vendor control and the directory row repointed to it, so no
+other byte or offset changes:
+
+```text
+!15-Nov-26 01:03:19  Start C:\Mac\Home\Documents\creo-authored\vg2.prt
+!%CI01:03:23  dbg_err_crash() - continuing from serious error (ORDER_DEBUG).
+```
+
+No "not a valid PART file" and no "cannot be retrieved", but also no "End" and no
+`MT Part Solid`, so the open did not complete. The authored geometry is therefore not proven
+valid, but the failure is now model-level rather than container-level.
+
+The `#\n` separators and the three-table `NEXT_TOC_ENTRY` chain (`0x31b` 32 rows, `0x10873` 22
+rows, `0x115a6` 128 rows in the control) are still not authored by `Author.py`.
 
 ## Limits
 
