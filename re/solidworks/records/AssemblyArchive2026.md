@@ -132,7 +132,7 @@ None of these cache values is accepted as a fresh neutral value. Parsed values r
 
 ## Tupni application and verification
 
-The [Tupni playbook](../../Playbook/Tupni.md) and [trace authority finding](../../../Documentation/Gotchas/Conversion/Solidworks/TupniTraceAuthority.md) apply. This pass used static native dataflow to bind field operands to widths, loop bodies to counted record sequences, and call/vtable signatures to record ownership. It did not collect execution traces, taint a native input, or infer constants from fixture invariance.
+The [Tupni playbook](../../Playbook/Tupni.md) and [trace authority finding](../../../Documentation/Gotchas/Conversion/Solidworks/Tracing/TupniTraceAuthority.md) apply. This pass used static native dataflow to bind field operands to widths, loop bodies to counted record sequences, and call/vtable signatures to record ownership. It did not collect execution traces, taint a native input, or infer constants from fixture invariance.
 
 The new process-boundary test invokes the existing archive command in a subprocess, covering CMgr, Config-0, ModelHeader, ResolvedFeatures, Definition, Biography, and History across the two fixtures. It requires `14/14 streams round-trip with no tail across 2 files`. No fixture content is loaded by production code or used to generate a different model.
 

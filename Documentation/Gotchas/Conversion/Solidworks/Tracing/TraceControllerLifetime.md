@@ -10,7 +10,7 @@ event, no archive reads. A visible process and successful native attachment did
 not establish running-object-table availability.
 
 The private capture is `.rescratch/sw26/tupni/ladder-L1-first.json`. The
-[usage ledger](../../../../re/solidworks/records/Tupni2026.md) records its outcome.
+[usage ledger](../../../../../re/solidworks/records/Tupni2026.md) records its outcome.
 
 Workaround: use the user's existing restart authorization, start the goal-owned
 application through the committed controller, and retain that controller in the

@@ -33,7 +33,7 @@ pointing to a private, pinned Frida installation, `--process SLDWORKS.exe`,
 The first successful identity observation used the x64 Python/Frida pair and
 Frida's native realm, reporting an x64 CAD process. Selecting the emulated realm
 on that client returned an explicit unsupported-OS error. The
-[architecture gotcha](../../Gotchas/Conversion/Solidworks/TraceHostAndTargetArchitectures.md)
+[architecture gotcha](../../Gotchas/Conversion/Solidworks/Tracing/TraceHostAndTargetArchitectures.md)
 records the distinction. `Solidworks2026.js` adds version-bound sketch/status,
 feature-provenance and archive-primitive observations; `--module-manifest`
 requires matching loaded-module disk hashes before hook activation.
@@ -46,7 +46,7 @@ errors, and closes it without saving. Initialization, the action and cleanup
 are included in total elapsed time, outside the bounded post-action window.
 The runner records preparation and action hashes, dialog handling and cleanup
 failures. The exercise never obtains a different application from the running
-object table. See the [controller lifetime finding](../../Gotchas/Conversion/Solidworks/TraceControllerLifetime.md).
+object table. See the [controller lifetime finding](../../Gotchas/Conversion/Solidworks/Tracing/TraceControllerLifetime.md).
 
 The retained-control run collected 2,693 native boundary events with no dropped
 events, script errors or dialogs. Its control rebuilt as one correct solid.
@@ -64,3 +64,8 @@ violation, with uncertain unwind frames. The observer now adds named C++ and
 MFC file/archive throw boundaries when exported, reports candidate MSVC type
 metadata without treating it as proved CAD grammar, and records the observed
 module images. It preserves setup failures and target termination.
+
+Tracing gotchas now live in a focused `Tracing/` subdirectory. Remote path
+policy identified 33 direct files in the SOLIDWORKS gotchas directory, above
+the unchanged limit of 32. Four tracing entries moved together and their links
+were updated; the directory limit and CI gate remain enabled.

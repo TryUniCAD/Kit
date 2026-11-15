@@ -62,4 +62,3 @@ mass properties, feature errors, handled dialogs and controller cleanup.
 Each stage is written immediately. It does not save the candidate or establish
 dimension-edit and save/reopen acceptance. An unhealthy control invalidates
 the batch. Native measurements are added only after execution.
-

@@ -126,7 +126,7 @@ events must not establish sketch state or semantic stamp values. The original
 capture also omitted the input hash and retained module runtime bases. Both
 are collected in subsequent runner revisions; the missing original identities
 are not retroactively claimed as captured. See the
-[argument-type gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/TraceArgumentTypes.md).
+[argument-type gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Tracing/TraceArgumentTypes.md).
 
 ### First generated-file inspection
 
