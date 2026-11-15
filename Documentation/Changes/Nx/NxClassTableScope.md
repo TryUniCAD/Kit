@@ -329,50 +329,51 @@ That is the reason this work stopped chasing the fifth class set: the emitter ne
 function of the class **name**, and that is what sixteen probes have failed to find,
 whether the increment turns out to be per class or per count.
 
-## The entry decodes as big-endian base-128 and is a per-class constant plus a set scalar
+## The table is a function of the class set, not of the part
 
-Three earlier conclusions in this entry were artefacts of decoding the entry **little-endian**. The
-correct convention is **most significant group first**, with bit 7 set on every group but the last:
+Decoding each entry as a run of **big-endian base-128 groups** (bit 7 set on every group but the
+last) gives readable records:
 
 ```text
 UGS::OM::RootObject        38 | 74 | b0 4b | a5 fe 91 1b | f6 79 | 02
                           56 | 116| 6219  | 79661211     | 15225 | 2
 UGS::OM::SaveAuditTrail    80 c9 78 | 60 | 94 9c 18 | 6a | a8 9e 41 | 01
-                           9464     | 96 | 331288   | 106| 659265   | 1
+                           9464     | 96 | 331288   |106| 659265   | 1
 ```
 
-With that decode, comparing parts that carry the same class set shows the table is per-class data
-and not part data:
+Read through the module's own class list (154 entries in `dim40.prt`), the table is **identical
+wherever the class set is the same**, and it moves whenever the set changes:
 
 ```text
-dim40 vs dim50   154 classes   153 of 154 entries identical
-dim40 vs var_two 154 classes   154 of 154 identical
-dim40 vs var_e4  154 classes   153 of 154 identical
-dim40 vs var_d9  154 classes   153 of 154 identical
+part        classes   entries identical to dim40   entries differing by one byte of -1
+dim50          154            154 of 154                        0
+var_two        154            154 of 154                        0
+var_e4         154            154 of 154                        0
+var_sph        153              1 of 153                      150 of 153
+var_cyl        161              1 of 154                        0
+empty          129              1 of 129                        0
+multi          129              1 of 129                        0
 ```
 
-and comparing parts whose class **count** differs shows every entry moving by the same small amount
-inside a single 7-bit group:
+so the table is a pure function of the class set — three different parts with the same set carry
+byte-identical tables, and a set one class smaller carries entries that differ by exactly one
+decrement in a single byte, for 150 of 153 classes.
+
+What does **not** hold is the stronger reading I first wrote: "entry = base(class) + K(set) in one
+group". Testing that against the decoded groups, the number of entries where exactly one group
+differs by exactly K is
 
 ```text
-part        classes   K      example: RootObject group 1
-dim40           154    0     116
-var_sph         153   -1     115
-var_cyl         161   +4     120
-empty           129  -16     100
-multi           129  -16     100
+var_sph   K = -1    91 of 150
+var_cyl   K = +4    33 of 135
+empty     K = -16    7 of 81
 ```
 
-so `entry(class, set) = base(class) + K(set)` in one group. A handful of classes move by larger
-amounts (`UGS::Facet::JT::Body`, some annotation parameter classes), so the law is not uniform, but
-it holds for the large majority.
+so the additive model fits the one-step change and degrades as the set difference grows; a single
+group delta is not the general rule. What is solid is the weaker statement above: the table is
+deterministic per class set and moves with it.
 
-That decode also explains the three retractions this entry carries. Decoding little-endian turns a
-`-1` in one group into a borrow that flips a run of high bits, which is what produced the "bit
-scatter" observation, the "not additive, 90 distinct deltas" measurement and the "constant plus
-increment is refuted" section. All three were decoding failures, not properties of the format.
-
-## The bases are not stored in any vendor module
+## The bases are not stored in any vendor module## The bases are not stored in any vendor module
 
 With the additive law in hand the per-class base became testable: for `dim40.prt` (K = 0) the stored
 entry **is** the base, so each base can be searched for verbatim.
