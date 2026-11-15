@@ -27,6 +27,12 @@ Creo measurement. So there is **no Creo-measured body count, volume, centre of m
 output**, and these acceptance criteria are not met. `Writer.py` therefore reports
 `mode=exact_native_roundtrip`, `vendor_loadable=False` and `application_usable=False`.
 
+**The verification host itself is now unavailable.** A `modelcheck.bat` run wedged the Windows guest agent, and the
+forced restart that followed left `prlctl exec` unable to open a session until someone signs in at the VM console
+— see [the Parallels gotcha](../../Gotchas/Conversion/ParallelsExecNeedsSignIn.md). So the last planned experiment
+(the generated element with the vendor's solver tables) is **unlaunched and unverified**, and no Creo evidence can
+be produced until the VM is signed into again.
+
 **There is no Creo-side measurement channel available here in either direction.** Trail replay does not execute,
 and ModelCHECK — the shipped batch analyser — retrieves the part (`MT Part Solid` in its own trail) and then never
 finishes: no report, no `std.out`, still running after 55 seconds. See
