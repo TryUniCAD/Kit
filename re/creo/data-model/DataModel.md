@@ -428,6 +428,53 @@ So the parser now takes a `Legacy` flag: the reader uses the new rules, and `Rep
 | `gen_rows.prt` | `26239` bytes, 47 rows, `End` + `MT Part Solid` twice (`12:26:42`, `12:27:59`) |
 | vendor `949` element | `3827` of `3827` bytes, `pointid [[0,1], [1,2]]` |
 
+### `ent_tab` and `chains` are mapped, and filling them does not load
+
+`ent_tab` is fully mapped from the vendor element:
+
+```text
+ent_tab  e3
+  next_available_xid   8
+  chains               f8 07 f7 66 fb        seven buckets
+    bucket              e2
+      bucket_index      <i>
+      bucket_xar        f8 <n> f7 68 fb      entries
+        entry           e3
+          ent_mode      0
+          entry_ptr(entity_entry)  e3
+            xid           <entity id>
+            ent_mode      0
+            start_vtx    -1 | vertex id
+            end_vtx      -1 | vertex id
+            center_vtx   -1
+            pers_attribs 0
+  ent_list             f4 05 f8 0c ...        twelve ids
+  vert_tab             f1 e3
+    next_available_xid 4
+    chains             f8 13 f7 74 fb        nineteen vertex records
+      { ent_ids, vertex_id, attribs }
+  chains               f8 13 ...             the vertex records again, positionally
+```
+
+the vendor's seven buckets hold eight entries (xids `0`–`7`), bucket `0` carrying two (`xid 0` with `-1` vertices,
+`xid 7` with `start_vtx 3`, `end_vtx 0`), and `vert_tab` carrying nineteen vertex records for eight points.
+
+**Emitting that shape with our own ids is refused.** `SketchDef.EntityState` writes seven buckets, one
+`entry_ptr(entity_entry)` per bucket with `xid i`, `start_vtx`/`end_vtx`/`center_vtx` `-1` and `pers_attribs 0`,
+threaded into the measured six-segment sketch:
+
+```text
+entities949: 108680 bytes; element 4183
+readback: 7 features, 5 params, 1 body
+!15-Nov-26 12:37:58  Start ...   (no End)
+std.out: Sld_FeatDefs / feat_defs_949 / gsec_ptr / gsec2d_ptr
+```
+
+the trace does not move at all, so presence of entity records is not what the loader is missing. Combined with the
+`sketchswap` result — our prefix plus the vendor's tail loads — the requirement is the **vendor's exact
+`unsolved_ptr` layout** (nested `ent_tab{chains, ent_list, vert_tab{chains}}`, then `chains`, then `bucket_xar`),
+not merely entity records in some arrangement.
+
 ### The generated prefix and the 917 element are accepted; only the sketch tail is not
 
 Splicing our element's prefix onto the vendor's sketch and solver tail — split at `gsec_ptr`, so no counts cross —

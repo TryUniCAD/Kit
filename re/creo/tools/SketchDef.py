@@ -146,7 +146,41 @@ def Relation(IndexValue: int, FirstPoint: int, SecondPoint: int) -> bytes:
     return Payload
 
 
-def SolverTables(PointCount: int) -> bytes:
+# the entity graph is one bucket per point with a single entry naming it
+def EntityState(Count: int) -> bytes:
+    Payload = Author.StructHeader("chains") + b"\xF8" + Author.CompactInt(Count)
+    Payload += b"\xF7\x66\xFB"
+    for IndexValue in range(Count):
+        Payload += b"\xE2"
+        if IndexValue == 0:
+            Payload += Author.FieldValue(1, "bucket_index", Author.SignedInt(0))
+            Payload += Author.StructHeader("bucket_xar") + b"\xF8\x00\xF7\x68\xFB"
+        else:
+            Payload += Author.SignedInt(IndexValue)
+            Payload += b"\xF8\x00\xF7\x68\xFB"
+        Payload += Author.StructHeader("ent_mode") + Author.SignedInt(0)
+        Payload += Author.StructHeader("entry_ptr(entity_entry)") + b"\xE3"
+        if IndexValue == 0:
+            Payload += Author.FieldValue(1, "xid", Author.SignedInt(IndexValue))
+        else:
+            Payload += Author.SignedInt(IndexValue)
+        if IndexValue == 0:
+            Payload += Author.FieldValue(1, "ent_mode", Author.SignedInt(0))
+            Payload += Author.FieldValue(1, "start_vtx", Author.SignedInt(-1))
+            Payload += Author.FieldValue(1, "end_vtx", Author.SignedInt(-1))
+            Payload += Author.FieldValue(1, "center_vtx", Author.SignedInt(-1))
+            Payload += Author.FieldValue(1, "pers_attribs", Author.SignedInt(0))
+        else:
+            Payload += Author.SignedInt(0)
+            Payload += Author.SignedInt(-1)
+            Payload += Author.SignedInt(-1)
+            Payload += Author.SignedInt(-1)
+            Payload += Author.SignedInt(0)
+        Payload += b"\xF2"
+    return Payload
+
+
+def SolverTables(PointCount: int, EntityCount: int = 0) -> bytes:
     Payload = Author.StructHeader("relat_ptr") + b"\xF4\x04\xF8\x08\xF7\x4A\xFB"
     for IndexValue in range(PointCount):
         Payload += Relation(IndexValue, IndexValue, (IndexValue + 1) % PointCount)
@@ -178,7 +212,7 @@ def SolverTables(PointCount: int) -> bytes:
     Payload += Author.StructHeader("bucket_xar") + b"\xF8\x00"
     Payload += Author.StructHeader("vert_tab") + b"\xF1\xE3"
     Payload += Author.FieldValue(1, "next_available_xid", Author.SignedInt(PointCount))
-    Payload += Author.StructHeader("chains") + b"\xF8\x00"
+    Payload += EntityState(EntityCount) if EntityCount else b""
     Payload += Author.StructHeader("skamp_ptr") + b"\xF3\xF8\x08\xF7\x7A\xFB"
     for IndexValue in range(PointCount):
         Payload += b"\xE2"
@@ -609,7 +643,7 @@ def MeasuredSegment(TypeValue: int, Dir: tuple[int, int, int], Points, ExtId: in
     return Payload
 
 
-def MeasuredSketch() -> bytes:
+def MeasuredSketch(EntityCount: int = 0) -> bytes:
     Payload = Author.StructHeader("gsec_ptr") + b"\xF8\x01\xF7\x2A\xFB"
     Payload += b"\xE2"
     Payload += Author.FieldValue(1, "type", Author.SignedInt(2))
@@ -628,11 +662,11 @@ def MeasuredSketch() -> bytes:
     for IndexValue, Value in enumerate(KDimensions):
         Payload += Dimension(Value, IndexValue)
         Payload += DimensionRef(IndexValue, (IndexValue + 1) % len(KMeasuredSegments))
-    Payload += SolverTables(8)
+    Payload += SolverTables(8, EntityCount)
     return Payload
 
 
-def BuildMeasured(Source: Path, Target: Path) -> bytes:
+def BuildMeasured(Source: Path, Target: Path, EntityCount: int = 0) -> bytes:
     DataValue = Source.read_bytes()
     Header = ReadHeader(DataValue)
     Element = b"\xE3"
@@ -661,7 +695,7 @@ def BuildMeasured(Source: Path, Target: Path) -> bytes:
     Element += b"\xE0\x09Structure_Invalid\x00" + Author.SignedInt(43981)
     Element += Author.StructHeader("copy_info_ptr") + b"\xF1\xE1"
     Element += Author.StructHeader("embed_info_ptr") + b"\xE1"
-    Element += MeasuredSketch()
+    Element += MeasuredSketch(EntityCount)
     Row = (
         Author.StructHeader("Sld_FeatDefs")
         + b"\xE3"

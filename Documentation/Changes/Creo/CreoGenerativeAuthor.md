@@ -124,6 +124,27 @@ gen_rows.prt: 26239 bytes, 47 generated rows
 16 of 16 checks pass
 ```
 
+### The entity graph is mapped, and filling it does not load
+
+`ent_tab` is now mapped field by field: `next_available_xid 8`, `chains` as seven buckets each with `bucket_index`,
+a variable-length `bucket_xar` and `entry_ptr(entity_entry)` (`xid`, `ent_mode`, `start_vtx`, `end_vtx`,
+`center_vtx`, `pers_attribs`), then `ent_list` (twelve ids), then a `vert_tab` holding `next_available_xid 4` and
+nineteen `{ent_ids, vertex_id, attribs}` records, then `chains` again carrying those records positionally. The
+vendor's seven buckets hold eight entries, bucket `0` with two of them.
+
+Emitting that shape from our own ids (`SketchDef.EntityState`, seven buckets with `xid i` and `-1` vertices, threaded
+into the measured six-segment sketch) is refused at the same record:
+
+```text
+entities949: 108680 bytes; element 4183
+readback: 7 features, 5 params, 1 body
+!15-Nov-26 12:37:58  Start ...        (no End)
+std.out: Sld_FeatDefs / feat_defs_949 / gsec_ptr / gsec2d_ptr
+```
+
+The trace does not move, so entity records are not what is missing. Together with `sketchswap` — our prefix plus the
+vendor's tail loads — the requirement is the vendor's exact `unsolved_ptr` layout, not the presence of entries.
+
 ### The generated definition is accepted except for its sketch tail
 
 Splitting our element at `gsec_ptr` and keeping the vendor's sketch and solver tail — so no element counts cross the
