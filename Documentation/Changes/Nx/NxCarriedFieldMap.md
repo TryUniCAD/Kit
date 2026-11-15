@@ -49,6 +49,33 @@ offset 12" is withdrawn — that conclusion came from one-byte flips and does no
 This is a methodological caution worth keeping: in this format, a byte that survives a single flip
 is not thereby a field the writer may choose.
 
+## Multi-byte rewrites confirm both families are validated
+
+The caution above says a single-byte flip proves nothing. Applying multi-byte rewrites to the 83
+byte `02 02 41 41` view records instead:
+
+```text
+matrix region 26..76 replaced with a different eight byte word, both records   OPEN_FAILED
+name token L2 -> L9, same length, both records                                  loads   bodies 0
+last four bytes zeroed, both records                                            OPEN_FAILED
+```
+
+so the view's matrix is validated against the record as a whole — the single-byte flips that loaded
+earlier changed bytes whose values are redundant until the matrix as a whole is consistent — and the
+only field the writer may choose is the name, which `RenameView` already supports.
+
+Both remaining carried families are therefore validated: the instance records refuse a tail or
+marker rewrite, the view records refuse a matrix rewrite, and neither yields a field that can be
+generated. Section 0's emission has reached its ceiling by this method:
+
+```text
+body-less part  346-347 differing bytes of 33,395-33,407
+body part       362 differing bytes of 36,694
+```
+
+raising it further needs either the semantics of these validated values or the class table, not more
+mutation.
+
 ## The REA retry, with the file on the host
 
 `pskernel.dll` was copied out of the NX 2506 installation inside the virtual machine to the host
