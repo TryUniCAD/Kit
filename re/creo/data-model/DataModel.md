@@ -147,6 +147,30 @@ The sample order and direction resolve trimming.
 `FeatDefs` carries feature definitions, placement records, outlines, dimensions, and saved section entities.
 `FeatDefsDtm` carries datum feature definitions.
 
+### Geometry prototypes
+
+`VisibGeom` (`Sld_VisGeom`) carries the geometry prototype records. The ladder's first record is a
+plane surface:
+
+```text
+geom_id = 77
+geom_type = 34
+feat_id = 74
+orient = -1
+boundary_type = 0
+next_geom_ptr = 82
+srf_prim_ptr(plane) = 48865
+frst_cntr_ptr = 108
+frst_cntr_crv_hdr_ptr = 105
+trv = 110
+next_cntr_ptr = 0
+```
+
+`geom_type = 34` is a plane surface, `feat_id = 74` is the owning feature, and `srf_prim_ptr(plane)`
+is the surface primitive pointer. `frst_cntr_ptr` and `frst_cntr_crv_hdr_ptr` are the first contour
+and curve header pointers. The parser stops at `0xbd` because the `outline` field uses the packed
+double encoding.
+
 Feature identity is split across a native id, a user-visible name, a type, a parent feature, and references.
 The data model needs all of these to rebuild a live tree.
 Copying a feature row without its references is not a feature.

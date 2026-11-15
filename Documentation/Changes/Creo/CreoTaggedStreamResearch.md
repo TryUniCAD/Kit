@@ -57,6 +57,13 @@ The parser now records an undecodable packed double as `RawDouble(<8 bytes>)` an
 extrude tool type. The parser stops at `0x3be` because the flat field-index approach does not
 handle the nested structures in `FeatDefs`.
 
+`VisibGeom` (`Sld_VisGeom`) decodes the first geometry prototype, a plane surface:
+`geom_id = 77`, `geom_type = 34`, `feat_id = 74`, `orient = -1`, `boundary_type = 0`,
+`next_geom_ptr = 82`, `srf_prim_ptr(plane) = 48865`, `frst_cntr_ptr = 108`,
+`frst_cntr_crv_hdr_ptr = 105`, `trv = 110`, and `next_cntr_ptr = 0`. `geom_type = 34` is a plane
+surface and `feat_id = 74` is the owning feature. The parser stops at `0xbd` because the `outline`
+field uses the packed double encoding.
+
 ## Limits
 
 - The empty control's `AllFeatur` decodes end-to-end. The ladder's `AllFeatur` decodes the five
@@ -66,7 +73,8 @@ handle the nested structures in `FeatDefs`.
   continues, so the rest of the section decodes.
 - `FeatDefs` decodes the first feature definition, then stops at `0x3be` because the flat
   field-index approach does not handle the nested structures.
-- `VisibGeom` geometry records are not decoded.
+- `VisibGeom` decodes the first geometry prototype, then stops at `0xbd` because the `outline`
+  field uses the packed double encoding.
 - The parser is research code; it does not change the production adapter, which remains
   container-only.
 
