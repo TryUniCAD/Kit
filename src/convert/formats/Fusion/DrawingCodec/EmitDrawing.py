@@ -38,7 +38,6 @@ def EmitDrawing(
         raise ValueError("Expected a typed Fusion drawing")
     CheckJoins(Value.Root, Value.Asset, Value.Database)
     CheckDatabase(Value.Segments, Value.Database)
-    CheckLoadable(Value)
     Payloads = DrawingPayloads(Value)
     Entries: list[PackageEntry] = []
     for SlotValue in Value.Layout:
@@ -51,6 +50,7 @@ def EmitDrawing(
         Entries.append(PackageEntry(SlotValue.Name, Payload, SlotValue.Layout))
     if Payloads:
         raise ValueError("Fusion drawing layout omits typed members")
+    CheckLoadable(Value)
     return EmitPackage(DrawingPackage(tuple(Entries)), CompressZstd)
 
 
