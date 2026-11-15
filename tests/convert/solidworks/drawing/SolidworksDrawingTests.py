@@ -22,6 +22,8 @@ from convert.adapters.solidworks.drawing.DefinitionView import (
     EncodeViewBlock,
     ViewBlock,
 )
+from convert.adapters.solidworks.drawing.WriterRecords import DefinitionRange
+from convert.adapters.solidworks.core.Native import ClassDecl
 
 # tracked drawings prove the reader against real solidworks authored sheets
 KDrawRoot = (
@@ -76,6 +78,19 @@ def TestValues() -> None:
         assert [Record.NameValue for Record in Records[1:]] == ["Unused"] * 9
         assert [Record.Index for Record in Records] == list(range(10))
         assert EncodeViewBlock(Records, TailValue) == ViewValue.Values
+
+
+# every tracked drawing must expose the placement block before the relation block
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestRange() -> None:
+    for NameValue in sorted(ItemValue.name for ItemValue in KDrawRoot.glob("*.SLDDRW")):
+        DataValue = SldprtArchive.open(KDrawRoot / NameValue).require(
+            "Contents/Definition"
+        )
+        Start, EndValue = DefinitionRange(DataValue)
+        assert 0 <= Start < EndValue <= len(DataValue)
+        assert DataValue[Start:].startswith(ClassDecl("moDrawingRefPlnData_c"))
+        assert DataValue[EndValue:].startswith(ClassDecl("moRelMgr_c"))
 
 
 # sheet geometry and view composition must match what solidworks authored
