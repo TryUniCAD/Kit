@@ -424,7 +424,7 @@ set-level component is **one integer**, not per-class data.
 `S` tracks the reference count (`refs - 79` matches `var_cyl` 4 and `empty` -16) with `var_sph` the
 one exception, where the reference count is unchanged but the class count fell by one.
 
-## The bases are not stored in any vendor module## The bases are not stored in any vendor module
+## The bases are not stored in any vendor module
 
 With the additive law in hand the per-class base became testable: for `dim40.prt` (K = 0) the stored
 entry **is** the base, so each base can be searched for verbatim.
@@ -485,13 +485,56 @@ for those classes.
 That closes the last route to a fabricated table: it cannot be permuted, computed from names, or
 shared between class sets. It can only be reproduced by the loader itself.
 
+## The table is mandatory and both undecoded fields are validated
+
+The entry decodes as `<prefix> <name digest> <layout digest> <tail>`, the name digest is derived
+(see `NxClassEntryLayout.md`), the layout digest is a registration-site constant, and the prefix's
+final byte plus the one-byte tail are the two fields left. Mutating them one bit at a time shows
+both are checked by the loader, and removing the table at all is refused:
+
+```text
+mutant                                     change                                   result
+mut_rebuild.prt      section 0 rebuilt through BuildSection, byte identical to source  bodies 1  volume 23999.999999999996
+mut_code.prt         152 code bytes flipped, one bit each                             OPEN_FAILED
+mut_tail.prt         152 tail bytes flipped, one bit each                             OPEN_FAILED
+mut_both.prt         both fields flipped                                              OPEN_FAILED
+mut_const.prt        every code byte forced to 0x74                                   OPEN_FAILED
+mut_noclass.prt      all 154 class declarations removed, pointer adjusted              OPEN_FAILED
+mut_halfclass.prt    first 80 class declarations kept, pointer adjusted                OPEN_FAILED
+```
+
+The control is byte-identical to the source body, so the mutation path is sound and every refusal
+above is caused by the field change. The class table is therefore **mandatory and exact**: it cannot
+be dropped, truncated, reordered, renamed, or have either remaining field altered.
+
+Neither field is a function of data the class list carries:
+
+```text
+tail == ordinal within parent, by registry id            9 of 152
+tail == ordinal within chain depth, by registry id       7 of 152
+tail == chain depth                                      4 of 152
+tail == class kind                                      10 of 152
+tail == attribute count                                  5 of 152
+tail == name or layout digest, byte or modulus           <= 8 of 152 for every combination tried
+layout digests shared by classes with different tails   14
+```
+
+and the code is read at `2 * [[class + 0x30] + 0x98]` from `[writer + 0x30]`, a dense two-byte
+per-class-id array that is `0xFFFF` in a fresh context and filled during the write. Its neighbouring
+`u16` is the next id's code, so the tail is not stored beside it.
+
 ## Consequence
 
-The class table cannot yet be computed: the increment is uniform and small, but the
-class constants and the offset rule are not derived, and no hash of the class name
-reproduces an entry. It is now known to be a per-class-set constant table rather than
-per-document data, which is what makes it cacheable and what would make a name to entry
-table sufficient if one were derivable.
+The class table is a validated snapshot of the loader's own registry state. Two of its four fields
+are now derived functions rather than carried bytes — the name digest from the inheritance chain, the
+layout digest from the registration site — but the per-class code and the tail byte are produced by
+the session and checked on load, so a writer cannot compute them for a class set the loader has not
+seen. That is the wall, and it is a designed one rather than an unread one.
+
+Consequently `Writer.py` still requires a retained native document, and a part authored from a
+neutral document is not reachable through this format while the class table is mandatory and
+validated. Anything that made it reachable would have to carry loader-produced values, which is the
+donor data the project forbids.
 
 ## Verification
 

@@ -353,9 +353,8 @@ The classes where the two do not coincide are those whose code is `>= 0x80` and 
 the 2048 entries sampled, so the table bytes there were never read; their codes came from the
 accessor and their tail field uses a wider encoding.
 
-## Original observation retained for context The other 60 are all of the shape where the last byte is `0x80..0x85`
-
-and the value is one higher (`0x80`/129, `0x81`/130, `0x83`/132, `0x84`/133, `0x85`/134), i.e. the
+The other classes are all of the shape where the last byte is `0x80..0x85` and the value is one
+higher (`0x80`/129, `0x81`/130, `0x83`/132, `0x84`/133, `0x85`/134), i.e. the
 same field with its high bit set and a one-off in my attribution — the log shows those classes
 reported with a neighbouring class's slot.
 
@@ -375,7 +374,7 @@ table read would give them directly, the same way the xxh32 detour gave the name
 
 ## Limits
 
-## Limits
-
 - `Writer.py` still requires a retained native document, and the class table is still carried.
-- The name digest, the 2-5 byte prefix and the tail are not derived, so no table can be emitted.
+- The prefix's per-class code and the tail byte are produced by the loader's session and validated on
+  load, so no table can be emitted. `NxClassTableScope.md` records the mutant matrix that establishes
+  this.
