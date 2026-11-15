@@ -11,16 +11,12 @@ from convert.adapters.solidworks.core.Native import (
     Serialized,
 )
 
-# the marker is needed because the record has no length prefix
 KFeatureMarker = bytes.fromhex("0a800100")
 
-# the block is needed because the timestamp is not aligned
 KFeatureBlock = bytes.fromhex("0c80000000000000")
 
-# the marker is needed because the name has no length prefix
 KReferenceMarker = bytes.fromhex("2e80")
 
-# the count is needed because the list has no terminator
 KReferenceCount = 1
 
 
