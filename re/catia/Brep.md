@@ -1033,7 +1033,37 @@ index shift of 0, 1, or 2 leaves 15 to 265 planarity mismatches, and the best sh
 through `4876` (the first mismatch is at index 63, where the surface sequence is shifted left by 1
 and then by 2). So the surface order is not the face order with duplicates removed.
 
-A constraint solver over that geometry does not converge. Treating each face as a variable over the
+## The face does write its surface reference, but not in the trim record
+
+`CATCXFace::Stream` at `0x54eba0` writes the reference explicitly. Its call sequence is:
+
+```
+WriteLinkedObjectsCount(stream, object, 1)   at 0x18054ebed
+WriteLinkedObjectsCount(stream, object, 1)   at 0x18054ec15
+WriteObject(stream, object, unknown, name, 0) at 0x18054ec53
+WriteObject(stream, object, unknown, name, 0) at 0x18054ecb8
+WriteShort                                    at 0x18054ecda
+WriteUChar                                    at 0x18054ed11
+```
+
+So a face streams two linked-object counts, two object references, a short, and a uchar. The
+surface is one of those two objects. `WriteLinkedObjectsCount` at `0x180071fb0` requires
+`0x18(stream) == 0xb` and `0x1c(stream) == 0x14`, and the read side
+`ReadLinkedObjectsCount` at `0x1800714d0` requires `0x18(stream) == 0xc` and `0x1c(stream) == 0x14`,
+so the pair is gated on a stream state the caller sets.
+
+That means the face body is not the trim record. The trim record starts with `01 <kind>` and is
+fully consumed by the kind, counts, total, vector, lengths, and handles, and the trim records are
+contiguous with no gap between them, so there is no room for a linked-object count and two object
+references. The face body must be a separate record, and the trim record is the face's boundary
+data only.
+
+The face body is not in the face-outer-bound run either: those 71 rows at 27035..27603 are eight
+bytes each and byte-identical. The remaining candidate region is the `42 ff` block at
+12376..18807, which is 6431 bytes for 71 faces (about 90 bytes per face) and holds a `u32` count of
+2850 followed by 2850 `u16` values and 723 packed bytes. That region has not been decoded.
+
+A constraint solver over the geometry does not converge. Treating each face as a variable over the
 surfaces of its planarity class, and each two-face handle group as a constraint that the two
 surfaces must share a vertex-table point, then running arc consistency to a fixed point, leaves 12
 of 71 `Reservoir` faces with a unique surface after four rounds. Adding the requirement that a
