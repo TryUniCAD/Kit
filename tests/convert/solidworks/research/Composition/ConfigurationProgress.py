@@ -10,7 +10,7 @@ KLoadRooted = ImportModule("Streams").load_rooted
 
 
 # current configuration state must agree with the independently stored native header counter
-def IsProgressCurrent(ArchiveFile: SldprtArchive, CodecReg: object) -> bool:
+def IsProgressValid(ArchiveFile: SldprtArchive, CodecReg: object) -> bool:
     HeaderDocu, HeaderReader = KLoadRooted(
         ArchiveFile.require("Header2"), CodecReg, 1, 19000
     )
