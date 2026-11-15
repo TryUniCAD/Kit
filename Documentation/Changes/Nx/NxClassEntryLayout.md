@@ -49,18 +49,55 @@ earlier claim that the prefix moves by `S(set) * 2^28` described the low bytes o
 and is superseded: what moves with the class set is the remaining 2-5 byte field, not the name
 digest.
 
-## The name digest
+## The name digest is xxh32 over a schema name, a class name and one dword
 
-The name digest is computed at load: it is not stored anywhere in the modules, appearing as bytes
-for only 2 of 152 classes and never near the class name. With 152 `(name, digest)` pairs available,
-these functions are excluded:
+Reading `OM_get_class_name_digest` at RVA `0x107030` identifies the algorithm outright. The
+function builds the xxh32 accumulator set from the published primes and then finalises it:
 
 ```text
-xxh32 seeds 0-16      murmur3-32 seeds 0-4     java 31-hash
-crc32 (and final-xor variant)                  xxh64 low and high halves, seeds 0-4
+mov dword ptr [rsp + 0x28], 0x24234428     acc1 = PRIME1 + PRIME2      (seed 0)
+mov dword ptr [rsp + 0x2c], 0x85ebca77     acc2 = PRIME2
+mov dword ptr [rsp + 0x30], 0             acc3 = seed
+mov dword ptr [rsp + 0x34], 0x61c8864f     acc4 = -PRIME1
+...
+rol ecx, 1 ; rol eax, 7 ; add ; rol 0xc ; rol 0x12     the xxh32 merge
+add ecx, 0x165667b1                        PRIME5 for the short-input path
 ```
 
-so the name digest is still underived. The prefix and the tail are the other two unknown fields.
+Those four constants are exactly xxh32's initial state at seed 0, and the fallback addition is
+`PRIME5`, so the function is stock xxh32. `HashXxh` in Kit reproduces it: `xxh32("")` is
+`0x02cc5d05`, which is why so many classes carry the layout digest `0x02cc5d05` — their layout is
+empty.
+
+The input is built by the feeder at RVA `0x1095f0`, which hashes three things in order:
+
+```text
+schema name   the string behind  Class* -> [inner + 0x28]
+class name    the string behind  Class* -> [class + 0x48]
+dword         [inner + 0x40]
+```
+
+read at runtime with `0x10bef0` as the string accessor and `0x66c40` as the inner accessor:
+
+```text
+class                    schema name            class name              dword   stored digest
+UGS::OM::RootObject      UGS::OM::Meta          UGS::OM::RootObject        1      fea54bb0
+UGS::RM_part             UGS::RM                UGS::RM_part            0x2f      e4f7c08f
+UGS::POINT               UGS::POINT             UGS::POINT              0x40      179c7e0e
+UGS::Solid::Body         UGS::Solid::Topol      UGS::Solid::Body        0x19      c814c221
+UGS::Sketch::Colors      UGS::Sketch::Colors    UGS::Sketch::Colors      0x05      d7283fc5
+```
+
+so the algorithm and the inputs are both identified, but the byte serialisation of that triple is
+still open: 48 variations — every permutation of the three, with and without NUL terminators, with
+1-byte and 4-byte length prefixes, and the dword little or big endian — reproduce none of the five
+stored digests. Something else is in the stream, or the dword is not the only scalar.
+
+## The prefix and the tail
+
+Those two fields remain unidentified.
+
+## Limits
 
 ## Limits
 
