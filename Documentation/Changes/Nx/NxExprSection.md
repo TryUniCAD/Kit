@@ -289,11 +289,17 @@ dim40.prt           24    0x13         19    0x04                4
 var_two.prt         42    0x25         37    0x07                7
 ```
 
-So `02 02 02 02 02 02 02`, then `objects - 5`, then `ceil(objects / 6)`, then a short run
-of `01` bytes, then the four byte version pointer. The run is **not** a constant: `empty`
-has four, while `dim40` and `empty_expr` have seven, so the tail of the preamble still
-carries something not yet identified and a composer cannot emit it from the object count
-alone. Both counts follow from the object count, which
+So `02 02 02 02 02 02 02`, then `objects - 5`, then `ceil(objects / 6)`, then the flag run,
+then the four byte version pointer. The run is four bytes for the six object shape and seven
+for every other, and the twenty-four and forty-two object shapes also carry a word at offset
+48 (`0x55c` and `0x611`), which the eight and ten object shapes leave zero.
+
+`ExprPreamble(Objects, Pointer, Extra)` emits it, and reproduces all five fixtures byte for
+byte:
+
+````text
+empty.prt  empty_expr.prt  var_sph.prt  dim40.prt  var_two.prt   identical True
+``` Both counts follow from the object count, which
 `ExprObjectCount` already gives, so the preamble is generated rather than carried.
 
 ## The writer-chosen layout
@@ -310,7 +316,7 @@ d >= 1       head descriptor names occupancy group group-record
 
 d = 3  24 objects   5 value   10 plain   3 record
 d = 6  42 objects  11 value   19 plain   6 record
-```
+````
 
 `TestNxLayout` asserts the layout length and kind counts agree with `ExprObjectCount`,
 `ValueSlotCount` and `PlainSlotCount` for one, two, three and six dimensions.

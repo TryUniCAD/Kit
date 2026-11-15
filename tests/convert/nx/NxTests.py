@@ -15,6 +15,7 @@ from convert.adapters.nx.ExprSection import (
     ExprMiddle,
     ExprLayout,
     ExprObjectCount,
+    ExprPreamble,
     PlainSlotCount,
     ValueSlotCount,
     ReadSlotHandle,
@@ -958,3 +959,22 @@ def TestNxLayout() -> None:
         assert Layout.count("value") == ValueSlotCount(Dimensions)
         assert Layout.count("plain") == PlainSlotCount(Dimensions)
         assert Layout.count("record") == Dimensions
+
+
+# the preamble counts objects then runs flags whose length depends on the shape
+def TestNxPreamble() -> None:
+    Small = ExprPreamble(6, 0x2E1)
+    assert Small[:7] == bytes([2]) * 7
+    assert Small[7:9] == bytes([1, 1])
+    assert Small[9:13] == bytes([1]) * 4
+    assert Small[13:17] == (0x2E1).to_bytes(4, "little")
+    Large = ExprPreamble(24, 0x40F, 0x55C)
+    assert Large[7:9] == bytes([24 - 5, 4])
+    assert Large[9:16] == bytes([1]) * 7
+    assert Large[16:20] == (0x40F).to_bytes(4, "little")
+    assert Large[48:52] == (0x55C).to_bytes(4, "little")
+    try:
+        _ = ExprPreamble(3, 1)
+    except ValueError:
+        return
+    raise AssertionError("preamble accepted fewer than six objects")

@@ -24,6 +24,28 @@ KGroup = b"\x02\x02\x01\x02\x41\x00\x04\x0fDefault Group\x00"
 KRecord = b"\x02\x02\x04\x0fDefault Group\x00\x00\x3f\x00\x00"
 
 
+# the preamble counts objects and carries a word at offset 48 for large shapes
+def ExprPreamble(Objects: int, Pointer: int, Extra: int = 0) -> bytes:
+    if Objects < KObjects:
+        raise ValueError("NX expression section needs at least six objects")
+    if not 0 < Pointer < 1 << 32:
+        raise ValueError("NX expression pointer must fit four bytes")
+    Groups = -(-Objects // KObjects)
+    Flags = 4 if Objects == KObjects else 7
+    Padding = bytearray(bytes(KZeros))
+    if Extra:
+        Padding[0x30 - 9 - Flags - 4 : 0x34 - 9 - Flags - 4] = Extra.to_bytes(
+            4, "little"
+        )
+    return (
+        bytes([2]) * 7
+        + bytes([Objects - 5, Groups])
+        + bytes([1]) * Flags
+        + Pointer.to_bytes(4, "little")
+        + bytes(Padding)
+    )
+
+
 # order entries are ids so the writer emits one through n
 def ExprOrder(Objects: int) -> bytes:
     if Objects < 1:
@@ -182,6 +204,7 @@ __all__ = [
     "Adopt",
     "ExprLayout",
     "ExprOrder",
+    "ExprPreamble",
     "ExprObjectCount",
     "PlainSlotCount",
     "ValueSlotCount",
