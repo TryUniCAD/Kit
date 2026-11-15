@@ -38,7 +38,13 @@ The probe records tool hashes, the refusal and before/after process sets.
 It uses no COM, document, dialog or cleanup operation.
 Pair its report with the exact oracle identity when recording native evidence.
 
-Verification so far includes source inspection, Python syntax parsing and scoped diff checking.
-The changed refusal, fresh-instance registration, dialog path and owned cleanup still require native observations.
+Verification includes source inspection, Python syntax parsing and scoped diff checking.
+The [native guard observation](../../../../re/solidworks/measurements/2026/OracleSessionGuard.json)
+recorded the refusal on executable `34.5.2.0604`.
+The same process creation identity and document metadata remained unchanged before and after the guard.
+Its two documents included one unsaved modified drawing.
+The probe's owned-process registry remained empty.
+
+Fresh-instance registration, dialog responses, graceful exit and forced timeout cleanup still require native observations.
 No local repository tests ran.
 This change adds no writer capability or geometry acceptance.

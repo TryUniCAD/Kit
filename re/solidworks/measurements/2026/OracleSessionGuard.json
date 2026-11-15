@@ -1,0 +1,105 @@
+{
+  "schema": "kit-sw2026-oracle-session-guard/1",
+  "authority": "controlled non-mutating native process-guard observation",
+  "source_revision": "e11035da20818da00f1936e87b24ebf57cc1b446",
+  "tool_files": {
+    "Swapp.py": {
+      "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c",
+      "bytes": 15278
+    },
+    "ProbeIdleGuard.py": {
+      "sha256": "d89d48aa0baa1b2a86669aaefd874e43ec440bd707ec2a211162d460d59fdb12",
+      "bytes": 2409
+    },
+    "OracleIdentity.py": {
+      "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "bytes": 4284
+    },
+    "AuthorCurves.py": {
+      "sha256": "ff43a80d935a8290e372e259fedac073d8c1f99d58012b8e4f0f1701b19de527",
+      "bytes": 47929
+    }
+  },
+  "oracle": {
+    "vm": "Windows 11",
+    "execution": "prlctl exec Windows 11 --current-user",
+    "com_progid": "SldWorks.Application.34",
+    "identity_before": {
+      "process_id": 4640,
+      "process_creation_filetime": 134392245191650332,
+      "file_version": "34.5.2.0604",
+      "file_version_words": [34, 5, 2, 604],
+      "expected_version": [34, 5, 2, 604],
+      "version_matches": true,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "bytes": 718936,
+      "pe_machine": "0x8664",
+      "revision": "34.5.2",
+      "visible": false,
+      "user_control": true,
+      "document_count": 2,
+      "unsaved_documents": 1,
+      "dirty_documents": 1
+    },
+    "identity_after": {
+      "process_id": 4640,
+      "process_creation_filetime": 134392245191650332,
+      "file_version": "34.5.2.0604",
+      "file_version_words": [34, 5, 2, 604],
+      "expected_version": [34, 5, 2, 604],
+      "version_matches": true,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "bytes": 718936,
+      "pe_machine": "0x8664",
+      "revision": "34.5.2",
+      "visible": false,
+      "user_control": true,
+      "document_count": 2,
+      "unsaved_documents": 1,
+      "dirty_documents": 1
+    },
+    "identity_unchanged": true,
+    "document_metadata_unchanged": true
+  },
+  "guard": {
+    "authority": "native process enumeration and non-mutating idle guard",
+    "started_at": 1794757580.6098695,
+    "expected_pid": 4640,
+    "tool_hashes": {
+      "ProbeIdleGuard.py": "d89d48aa0baa1b2a86669aaefd874e43ec440bd707ec2a211162d460d59fdb12",
+      "Swapp.py": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c"
+    },
+    "guard_refused": true,
+    "limitation": "no COM activation, document APIs, dialog handling or cleanup commands are exercised",
+    "before_pids": [4640],
+    "before_owned_pids": [],
+    "stage": "finished",
+    "guard_error": "existing SOLIDWORKS processes prevent a fresh oracle session: [4640]; no process was closed",
+    "after_pids": [4640],
+    "after_owned_pids": [],
+    "unchanged_process_set": true,
+    "finished_at": 1794757585.3253825
+  },
+  "raw_report_sha256": {
+    "SourceManifest.json": "dc20019e6dbe1f634fe4f7892d24f188d278582d4dbf2eed4c7469033936edff",
+    "GuardReport.json": "e95361a20e9bf3e4eb21300d539fa3613531281e795b8603d6779856065ac6b3",
+    "IdentityBefore.json": "c110d7b11e39520d77d71fd04ce4af7a7943c5bb399a4c7f7eb6bfc8388baa4e",
+    "IdentityAfter.json": "c110d7b11e39520d77d71fd04ce4af7a7943c5bb399a4c7f7eb6bfc8388baa4e"
+  },
+  "passed": true,
+  "coverage": [
+    "native tasklist enumeration",
+    "idle-guard refusal",
+    "empty owned-process registry",
+    "exact executable and process creation identity",
+    "before/after read-only document metadata"
+  ],
+  "not_exercised": [
+    "fresh application construction",
+    "owned dialog response",
+    "owned graceful exit",
+    "owned forced timeout cleanup",
+    "CAD feature acceptance"
+  ],
+  "privacy": "document titles and paths remain in private raw reports and are omitted here"
+}
