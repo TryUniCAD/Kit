@@ -357,7 +357,28 @@ the resumed value. The reader's convention is `Index = selector - 1`, and the al
 (`Index = selector`) is **wrong**: it drops the control from `4` features to `1` and the ladder from `7`
 features to `1`. So selectors are handled correctly and are not the alignment fault either.
 
-That leaves the id-table region unattributed. Scanning the section for `0xf7` bytes is not a valid
+Instrumenting the selector branch (offset, selector, resolved field name, type) answers part of this. The
+ladder's `AllFeatur` resolves **56** selectors and every one names a sensible field — `extnd_rev_tab`,
+`fc_hist`, `srf_id_tab_ptr`, `edg_id_tab_ptr`, `parent_table`, `bnd_type`, `crv_type`, `list_id`,
+`layer_list` — so the selector mechanism itself is sound and the resolved indices are not garbage.
+
+The field table is sound too, and an earlier guess of mine is wrong: the section contains exactly **149**
+`e0 <type> <name> 00` headers and the parser learns exactly `149` fields. It is not inventing headers from
+data. The ladder's records genuinely append fields — record one declares 71, and the solid records (`67`,
+`75`, `74`) add more — which is why the count is far above 71.
+
+What remains is a *type* mismatch rather than an index mismatch. In record `74`, which begins at `6267`,
+the field at `6347` is typed `t02` (double) but its bytes are an id table — `52 80 cb 00 e4 e3 57 80 c8
+07 00 e3 59 80 c8 06 00 …`, where `52`, `57`, `59` are ids — and that record's `cr_flags_xar` comes out
+with `0` slots while every other record has `311` or `278`. Reading those bytes as doubles is what makes the
+loud raise fire at `0x57`.
+
+So the defect is localised: the schema position reached in the solid records does not carry the type the
+vendor wrote there. That is either a genuine schema difference between record one and the appended fields, or
+a place where a selector resumes at the wrong field. Distinguishing those two needs a second saved document;
+with one file it cannot be settled, and guessing has already produced two wrong answers on this page.
+
+ Scanning the section for `0xf7` bytes is not a valid
 measurement — the byte occurs inside ordinary values, and a naive scan reports "selectors" like `581633` —
 so the selectors have to be observed through the parser, not by byte search.
 
