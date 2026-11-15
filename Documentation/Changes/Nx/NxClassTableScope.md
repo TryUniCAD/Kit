@@ -394,6 +394,36 @@ count moved by one while the reference count stayed at 79. So `K` is a function 
 1,202 more section-0 bytes) and `var_d9` (2,437 more) all carry `K = 0` because their class set is
 the same.
 
+## The prefix is a per-class base plus one set-level integer at bit 28
+
+Splitting each entry at its digest gives a prefix and a one-byte tail, and the prefix moves between
+class sets by an exact multiple of 2²⁸:
+
+```text
+dim40 - var_sph   prefix delta = 268435456 = 2^28      131 of 135 classes
+dim40 - var_cyl   changed bits dominated by bit 30     117 of 135 classes
+dim40 - empty     changed bits dominated by bit 32      75 of 114 classes
+```
+
+so
+
+```text
+prefix(class, set) = base(class) + S(set) * 2^28
+
+S(dim40)     =  0        (154 classes, 79 references)
+S(var_sph)   = -1        (153 classes, 79 references)
+S(var_cyl)   = +4        (161 classes, 83 references)
+S(empty)     = -16       (129 classes, 63 references)
+```
+
+The bit histograms are exactly what adding a small multiple at bit 28 produces: bit 28 flips for
+every class when S changes by 1, and the higher bits flip in proportion to carries. That replaces
+the earlier "K in one base-128 group" reading with a concrete field position, and it means the
+set-level component is **one integer**, not per-class data.
+
+`S` tracks the reference count (`refs - 79` matches `var_cyl` 4 and `empty` -16) with `var_sph` the
+one exception, where the reference count is unchanged but the class count fell by one.
+
 ## The bases are not stored in any vendor module## The bases are not stored in any vendor module
 
 With the additive law in hand the per-class base became testable: for `dim40.prt` (K = 0) the stored
