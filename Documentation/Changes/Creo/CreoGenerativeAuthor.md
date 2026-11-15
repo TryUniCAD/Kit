@@ -48,6 +48,21 @@ This change was made **without a Creo run** — the guest agent is still unreach
 47-row artifact is unverified. The verification that it replaces a contradiction with agreement is byte-level, not
 a load.
 
+### The swap halves are both refused, so the splice method is dead
+
+The guest came back (`prlctl exec` answered `nt authority\system` after a fresh start), so the pending experiment ran:
+
+| Candidate | Element | Creo |
+| --- | --- | --- |
+| `hybrid949` | our generated prefix + the vendor's solver tail | refused (`Start`, no `End`) |
+| `mirror949` | the vendor's prefix + our generated solver tail | refused (`Start`, no `End`) |
+| `full949` | ours throughout, with `Structure_Invalid` now present | refused (`Start`, no `End`) |
+
+Both halves are implicated, which means the splice cannot localise anything: the vendor's tail is written for
+`totalpointid 8` with six segments and eight relation/`skamp`/`triples` entries, while our prefix declares four points
+and four segments, so each hybrid references ids the other half never declares. The method is confounded by
+construction, and the next attempt must keep counts consistent within a single element.
+
 **The verification host is in a boot loop.** `prlctl capture` — the only way to see a headless guest — showed the
 Windows logo with a progressing spinner, then the VM began cycling `stopping`/`running` by itself and capture failed
 with `PRL_ERR_IO_STOPPED`. So it is not sitting at a sign-in screen; it needs a recovery action at the Parallels

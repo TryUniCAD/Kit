@@ -392,6 +392,25 @@ only the start and end markers — no model commands. So a second oracle cannot 
 
 Both are waiting on a Creo launch; the guest agent is still refusing sessions.
 
+### The splice experiment is confounded, and both halves are refused
+
+The plan was to isolate our prefix from our solver tail by splicing at `relat_ptr`. Both directions were built and
+launched on a working guest:
+
+| Candidate | Element | Creo |
+| --- | --- | --- |
+| `hybrid949` | our prefix + the vendor's solver tail | refused (Start, no `End`) |
+| `mirror949` | the vendor's prefix + our solver tail | refused (Start, no `End`) |
+
+Neither loads, so the splice cannot localise the fault — and the reason is visible in the artefacts: the vendor's
+tail is written for its own counts (`totalpointid 8`, six segments, eight relations, eight `skamp` and `triples`
+entries) while our prefix declares four points and four segments. A tail spliced across that boundary references ids
+its partner half never declares, so both hybrids are inconsistent by construction.
+
+That rules out the half-splicing method rather than answering the question. A useful next test has to keep the counts
+consistent *inside* one element — for instance a generated element that declares eight points and six segments with
+matching relation, `skamp` and `triples` counts — and compare that against the vendor's numbers.
+
 ### The generated prefix is name-complete except one record
 
 Splitting both elements at `relat_ptr` — where our generated solver tables begin — and comparing the declarations in
