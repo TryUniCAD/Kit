@@ -469,7 +469,64 @@ fields are not a fixed-size entry list.
 
 The type code is version-specific: the same colour kind is `80 a4` in `flange.prt` (v9) and `80 83` in
 `vise_screw.prt` (v8), so the value record is a versioned typed record and the v7 count-plus-entry-list
-grammar does not apply to it. The internal grammar after the two-byte type code is not yet decoded.
+grammar does not apply to it.
+
+## The colour record is three tagged components, and the palette is the 6x6x6 RGB cube
+
+The bytes after the two-byte type code are three fields, and each field is a one-byte tag followed by a
+value whose width the tag selects:
+
+```text
+tag 0x00  -> 0 value bytes  -> 0.0
+tag 0x01  -> 0 value bytes  -> 1.0
+tag 0x4f  -> 3 value bytes  -> 0.2 or 0.4
+tag 0x50  -> 3 value bytes  -> 0.6 or 0.8
+```
+
+The four three-byte values are fixed, and each maps to one component:
+
+```text
+0x4f e9 99 9a  -> 0.2
+0x4f f9 99 9a  -> 0.4
+0x50 03 33 33  -> 0.6
+0x50 09 99 9a  -> 0.8
+```
+
+so the record is a triple of components drawn from `{0.0, 0.2, 0.4, 0.6, 0.8, 1.0}`. The 216 colour
+entries are the 6x6x6 RGB cube, and the names follow the cube: `Background` is `01 01 01` (1,1,1),
+`White` is `01 01 50 09 99 9a` (1,1,0.8), `Yellow` is `50 09 99 9a 01 01` (0.8,1,1), `Green` is
+`01 50 09 99 9a 01` (1,0.8,1), and `Light Hard Yellow` is `01 01 00` (1,1,0).
+
+The v7 record stores the same three components as three IEEE-754 doubles, so the two versions are the
+same data in two encodings:
+
+```text
+v7  <u32 0><u16 0x47> <double r> <double g> <double b>      30 bytes
+v9  <u8 0x80><u8 type> <field r> <field g> <field b>        3 to 12 bytes
+```
+
+`Background` is `00 00 00 00 47 00` + `(1.0, 1.0, 1.0)` in v7 and `01 01 01` in v9, and `White` is
+`00 00 00 00 47 00` + `(1.0, 1.0, 0.8)` in v7 and `01 01 50 09 99 9a` in v9.
+
+Decoding every colour record in `flange.prt` with this rule and comparing it to the v7 doubles for the
+same name in `wave_parent.prt` gives 216 matches, 0 mismatches, 0 names missing and 1 undecoded (the
+`Black` record, whose boundary is the last colour entry and whose next tag-3 string is far away):
+
+```text
+flange colour records vs wave_parent v7 doubles:
+  match 216  mismatch 0  no v7 name 0  undecoded 1
+```
+
+`vise_screw.prt` gives 163 matches, 4 mismatches, 20 names absent from `wave_parent.prt` and 15
+undecoded. Two of the four mismatches are duplicate names (`Dark Hard Orange` and `Dark Blue Violet`
+each appear twice, and the v7 lookup takes the last while the v9 scan takes the first), and the other
+two (`Light Teal Green` and `Light Teal Cyan`) are adjacent entries whose values are swapped, so the
+name order differs between the two files.
+
+The 14 undecoded `vise_screw.prt` records are a different sub-kind: they carry five or six four-byte
+fields with tags outside `{0x00, 0x01, 0x4f, 0x50}` (`0x13`, `0x2f`, `0x30`, `0xbc`, `0xbf`, `0xdc`,
+`0xe5`), and their v7 counterparts are still three doubles, so the encoding for that sub-kind is not
+yet decoded.
 
 ## The entry size is not the class's attribute count, layout size or schema flag
 
