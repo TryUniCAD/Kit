@@ -63,6 +63,53 @@ It is not an extra serialized field.
 Callers must establish the native serialized child lists when composing the model.
 The zero geometry-cache state is constructor-backed, not oracle-proven rebuild neutrality.
 
+## Target feature provenance
+
+The owner-taking feature constructor `sldmodu` `0x4bb38350` obtains its date
+through import `0x4cd3d580`, which resolves to `sldutu` `su_getFullDateCode`
+at `0x3d0107b0`. That wrapper calls `su_getTaggedDateCode` at `0x3d014520`.
+The latter constructs a wide string from the binary's ANSI literal at
+`0x3d319248`: `$?153#548834?$2026306` followed by spaces.
+It trims trailing whitespace, takes the rightmost `length - 14` characters,
+then calls `_wtol`. The resulting tagged value is `2026306`.
+The full-date wrapper normalizes only values from `1` through `99999`, adding
+`2000000` below `9600` and `1900000` otherwise. It therefore returns
+`2026306` unchanged for this target.
+This is build metadata derived from a shipped binary, not a vendor-saved field.
+The builder continues to require date provenance explicitly from its caller.
+
+The imported string operations are MFC ordinals `14039` and `12600`.
+A passive x64 runtime copy resolves them to `0x180012e60` and `0x18003c210`.
+The former scans UTF-16 characters with `iswspace` and truncates the final
+whitespace run; the latter copies `n` UTF-16 characters starting at
+`length - n`, with negative `n` clamped to zero.
+The studied `mfc140u.dll` has SHA-256
+`fc9b1f94752d7080436824b480e83ba1ec930e3f7baa881f4e842b882e715cfc`.
+The `sldutu.dll` digest is
+`dbc147c10b658544e44a7c13d3ae656c26a0778e9241fe74d6ca9ecae8730933`.
+The default PE parser omitted these high ordinals and warned that its export
+budget was exceeded; the raw export-address table supplied their addresses.
+See the existing [symbol-budget gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/PeSymbolBudgets.md).
+
+The feature's Parasolid provenance follows a separate live-session rule.
+Import `sldmodu` `0x4cd3a378` resolves to `sldgcu` `0x439d3e40`, whose
+implementation `0x43e73730` reads the GCP environment's `0x27c` word.
+The environment constructor `sldgciParau` `0x32f95920` initially clears it.
+That initial zero is not the engine's established behavior version:
+`gci_StartEngine` at `0x33012950` calls
+`setSessionBehaviorUsingSWVersion(0, 0, ...)` at `0x330132e0`, then
+`PK_SESSION_ask_behaviour` through thunk `0x330a21c7`.
+On success it copies the result's word at offset `4` into environment `0x27c`
+at `0x3301338d`.
+The companion getter at `0x33014310` independently exposes that same result
+word. Its REA evidence id is
+`ev_ca4457ca262a70fa95d17d87837b42e3c2f8c203d7479c342689fac61ad210f4`;
+the module SHA-256 is
+`96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce`.
+The numeric kernel behavior version remains unresolved until the matching
+`pskernel.dll` implementation is inspected. It is not inferred from saved
+features, a marketing version, or the environment's pre-engine zero seed.
+
 ## Configuration construction
 
 `configuration_manager` accepts authored names, the current configuration index,
