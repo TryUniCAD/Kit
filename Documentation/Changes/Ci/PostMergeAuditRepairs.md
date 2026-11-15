@@ -6,7 +6,8 @@ The first complete audit of merged rationale revision `4b730a8ff92f2a63dfdf3c165
 reported two blocking security findings that its PR phase had deferred.
 The original results remain visible in [the audit run](https://github.com/TryUniCAD/Kit/actions/runs/43691519928).
 
-The optional signature-table compatibility input now passes through `ResolveTemp` before filesystem access.
+The raw optional signature-table compatibility input now passes directly through `ResolveTemp` before filesystem access.
+Home-directory expansion is not performed before containment validation.
 Its resolved path must remain inside the operating system's temporary root and outside the repository.
 The existing manifest digest comparison still verifies the licensed module's identity.
 Stage an authorized module in a task-owned temporary directory before setting `KIT_SOLIDWORKS_DLL`.
@@ -26,6 +27,8 @@ The original audit collected 4,585 tests and scheduled all of them afresh across
 Fifteen of its seventeen security checks passed; Python path analysis and the history secret scan failed.
 The exact failures are [the input-path finding](https://github.com/TryUniCAD/Kit/actions/runs/43691519928/job/132743056786)
 and [the historical expression](https://github.com/TryUniCAD/Kit/actions/runs/43691519928/job/132743056959).
+The [first containment revision](https://github.com/TryUniCAD/Kit/actions/runs/43693180993/job/132748611779)
+still expanded the untrusted path before the boundary; the final revision passes the raw string instead.
 
 Compatibility subprocess cases cover an outside-root input, a symlink escape, and a temporary file with an incorrect digest.
 These cases execute through the actual pytest compatibility command in remote CI.
@@ -34,4 +37,5 @@ The repaired revision must pass a fresh complete audit before it can be reported
 
 See the [pinned audit](PostMergeQueueAudit.md),
 [oracle boundary gotcha](../../Gotchas/Ci/Audits/ExternalOraclePath.md),
+[path expansion gotcha](../../Gotchas/Ci/Audits/PathExpansionBeforeBoundary.md),
 and [historical expression gotcha](../../Gotchas/Ci/Audits/HistoricalCodeExpression.md).

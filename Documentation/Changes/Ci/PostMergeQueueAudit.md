@@ -32,7 +32,7 @@ The initial inventory confirmed that all acceptance and heavy security jobs were
 Remote audit results are recorded in the audit PR and its workflow run.
 The first run found two blocking security findings, described in [the repair entry](PostMergeAuditRepairs.md).
 The follow-up audit selects the triggering push's immutable `github.sha`.
-That input includes source repair `28ab85d887da99edd2bff253e081dae2030728fb` and the complete audit harness.
+That input includes the input-boundary repairs and the complete audit harness.
 No tests ran locally.
 Any failed job leaves the audit incomplete until its cause is repaired and verified.
 

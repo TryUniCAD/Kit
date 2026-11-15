@@ -54,7 +54,7 @@ def LoadHostDll() -> bytes | None:
     if InputPath is None:
         return None
     assert InputPath, "KIT_SOLIDWORKS_DLL must name an external licensed module"
-    TargetPath = ResolveTemp(FilePath(InputPath).expanduser()).resolve(strict=True)
+    TargetPath = ResolveTemp(InputPath).resolve(strict=True)
     assert not TargetPath.is_relative_to(KRootInfo), TargetPath
     HostData = TargetPath.read_bytes()
     assert Hashlib.sha256(HostData).hexdigest() == RecordedHD()

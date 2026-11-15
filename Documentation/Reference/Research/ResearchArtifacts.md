@@ -27,6 +27,7 @@ Compatibility checks always compare the CAD corpus with the recorded format tabl
 Set `KIT_SOLIDWORKS_DLL` in an authorized environment to additionally compare the complete table with the external vendor module.
 Stage that licensed module in a task-owned directory beneath the operating system's temporary root before setting the variable.
 The compatibility check resolves paths through the temporary filesystem boundary and rejects symlinks that escape it.
+Supply the module's absolute path; the check does not expand home-directory notation.
 An explicitly configured missing file, path outside that boundary, repository-contained file, or mismatched digest fails verification.
 This restriction applies to the compatibility check's environment variable; research tools retain their documented external-input interface.
 
