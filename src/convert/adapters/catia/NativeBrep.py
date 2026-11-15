@@ -695,16 +695,22 @@ def AssignCorners(
         for Handle in ArityTwo
     }
     Assign: dict[int, int] = {}
-    UsedValues: set[int] = set()
 
-    # this callback exists because the most constrained handles must be assigned first
-    for Handle in sorted(ArityTwo, key=lambda Value: len(Candidates[Value])):
+    # this definition exists because greedy matching leaves valid corners unmatched
+    def CanMatchMut(Handle: int, SeenValues: set[int]) -> bool:
         for Index in Candidates[Handle]:
-            if Index not in UsedValues:
-                Assign[Handle] = Index
-                UsedValues.add(Index)
-                break
-    return {Handle: BrepValue.vertices[Index].point for Handle, Index in Assign.items()}
+            if Index in SeenValues:
+                continue
+            SeenValues.add(Index)
+            if Index not in Assign or CanMatchMut(Assign[Index], SeenValues):
+                Assign[Index] = Handle
+                return True
+        return False
+
+    # this callback exists because the most constrained handles must be tried first
+    for Handle in sorted(ArityTwo, key=lambda Value: len(Candidates[Value])):
+        _ = CanMatchMut(Handle, set())
+    return {Handle: BrepValue.vertices[Index].point for Index, Handle in Assign.items()}
 
 
 # this definition exists because arc handles must follow the stored edge order
