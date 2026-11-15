@@ -35,6 +35,7 @@ from convert.adapters.nx.ExprSection import (
     KMiddleLength as KExprMiddle,
 )
 from convert.adapters.nx.ClassEntry import ClassLink, EntryParts, NameDigest
+from convert.adapters.nx.LegacySection import ReadSections
 from convert.adapters.nx.LegacyClasses import (
     ClassTableEnd,
     LegacyTable,
@@ -1202,3 +1203,35 @@ def TestNxLegacy() -> None:
     except ValueError:
         return
     raise AssertionError("legacy parser accepted a payload without a class table")
+
+
+# a legacy payload holds length prefixed object model sections
+def TestNxSections() -> None:
+    def Build(VersionValue: int, PlatformText: str, PartText: str) -> bytes:
+        SectionBytes = (
+            b"OM\x01\x01"
+            + VersionValue.to_bytes(4, "big")
+            + (0x25).to_bytes(4, "big")
+            + bytes(4)
+            + bytes([1, 2, 3])
+            + len(PlatformText).to_bytes(4, "little")
+            + PlatformText.encode("ascii")
+            + len(PartText).to_bytes(4, "little")
+            + PartText.encode("ascii")
+            + b"".join(
+                Value.to_bytes(4, "little") for Value in (7, 1, 0, 3, 0, 0, 9, 9)
+            )
+        )
+        return len(SectionBytes).to_bytes(4, "big") + SectionBytes
+
+    PayloadBytes = Build(7, "Intel x86/Windows NT", "authored.prt") + bytes(8)
+    Sections = ReadSections(PayloadBytes)
+    assert len(Sections) == 1
+    assert Sections[0].Version == 7
+    assert Sections[0].KindValue == 0x25
+    assert Sections[0].Platform == "Intel x86/Windows NT"
+    assert Sections[0].PartName == "authored.prt"
+    assert Sections[0].Counts == (7, 1, 0, 3, 0, 0, 9, 9)
+    assert Sections[0].Offset == 4
+    assert Sections[0].Length == len(PayloadBytes) - 12
+    assert ReadSections(b"no sections at all") == ()

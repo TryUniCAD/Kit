@@ -160,6 +160,51 @@ empty.prt        SPLMSSTR          0         -             4        0
 Legacy geometry is still not decoded, so `bodies` stays zero for those parts; what is now read is the
 container, its streams, the attributes and the class table.
 
+## The payload is a run of length prefixed object model sections
+
+Walking the payload shows it is not an opaque record soup: each section starts with a big-endian
+length followed by the same `OM\x01\x01` magic the modern container uses, at an earlier version:
+
+```text
+part             payload version   sections   section versions   classes
+wave_parent.prt               41          5                  7        98
+vise_screw.prt                52          5                  8       192
+flange.prt                    53          4                  9       233
+```
+
+the header of each section, as measured:
+
+```text
+0x00  "OM\x01\x01"        magic
+0x04  u32 big endian     version (7, 8 or 9)
+0x08  u32 big endian     kind (0x21 for the oldest, 0x25 for the newer two)
+0x0c  u32 big endian     flags
+0x10  3 bytes            stamp
+0x13  u32 little endian  platform length
+0x17  platform           ascii, "Intel x86/Windows NT" or "x64/Windows NT"
+      u32 little endian  part name length
+      part name          ascii
+      8 x u32            counts
+```
+
+the counts are the cross check that the framing is right: `counts[3]` equals the number of type-6
+class frames parsed out of that same section, in every part — 98, 192 and 233.
+
+`src/convert/adapters/nx/LegacySection.py` parses it (`ReadSections`, `ReadSection`), `TestNxSections`
+pins the grammar on a constructed payload, and `ReadNx` reports `nx.legacy_section_count` and
+`nx.legacy_section_versions`:
+
+```text
+flange.prt       compound   4 sections   versions (9,)   233 classes
+vise_screw.prt   compound   5 sections   versions (8,)   192 classes
+wave_parent.prt  compound   5 sections   versions (7,)    98 classes
+dim40.prt        SPLMSSTR   0 sections   versions ()        0 classes
+```
+
+so the legacy payload reuses the modern section grammar with an explicit platform length and older
+version numbers, which makes an emitted legacy section a variant of the emitters Kit already has
+rather than a new format.
+
 ## The legacy payload is a separate serialisation of the whole model
 
 Reading the payload header and the class records shows this is not a wrapper around the modern
@@ -210,10 +255,9 @@ only samples that will ever exist here.
 
 ## Limits
 
-- The legacy payload writer is not implemented. This entry establishes the container and the class
-  table; the `UGII` record stream is a separate serialisation that is not decoded, so a legacy part
-  cannot be authored from nothing either. Authoring it would be a second reverse-engineering project
-  of the same size as the modern model, with three samples and no way to generate more.
+- The legacy payload writer is not implemented. This entry establishes the container, the class
+  table and the section headers; what is still undecoded is the body of a section after its class
+  frames, which holds the object records and the geometry. Authoring a part still needs that body.
 - NX 2506 does not save this container, so no new samples can be generated; the three corpus parts
   are the whole evidence base, and `wave_parent.prt` did not yield the table at the anchor the other
   two use, so its layout differs.
