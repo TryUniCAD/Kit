@@ -34,9 +34,11 @@ whose index varies per drawing, then the model name string.
 ## Workaround
 
 `DefinitionGrammar` parses and serializes the feature tree and model reference
-byte-exactly for all ten tracked drawings. The units table, sheet, view, and
-line style objects are not yet generated, so a from-scratch drawing still needs
-those objects.
+byte-exactly for all ten tracked drawings. `DefinitionObjects` parses and
+serializes the units table, sheet, view, and line style object blocks
+byte-exactly. The units table is 1,510 bytes and constant across drawings except
+for one class reference index. The object values are still raw bytes, so a
+from-scratch drawing still needs the value semantics.
 
 ## Evidence
 

@@ -257,3 +257,10 @@ tree and model reference byte-exactly for all ten tracked drawings. The feature
 tree holds 14 to 38 records; the model reference names `poly5a`, `poly5b`, or
 `poly5deep`. `renamed-ref.SLDDRW` replaced the model reference name with
 `poly5x` and SOLIDWORKS opened it with the same view position.
+
+### Definition object blocks
+
+`DefinitionObjects` parsed and re-serialized the units table, sheet, view, and
+line style object blocks byte-exactly for all ten tracked drawings. The units
+table holds 18 records and is 1,510 bytes; it differs across drawings only at
+one class reference index.

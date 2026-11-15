@@ -91,8 +91,10 @@ mistake for a complete drawing. Request positions separately with
 `DefinitionGrammar` parses and serializes the `Contents/Definition` feature tree
 and model reference byte-exactly. The feature tree is a sequence of name, stamp,
 action, and id records followed by a tail record. The model reference is a
-`moExtObjectList_c` with one `moExtObject_c` and one `moCStringHandle_c`. The
-units table, sheet, view, and line style objects are not yet generated.
+`moExtObjectList_c` with one `moExtObject_c` and one `moCStringHandle_c`. `DefinitionObjects` parses and serializes the units table, sheet, view, and line
+style object blocks byte-exactly. The units table is 1,510 bytes and constant
+across drawings except for one class reference index. The object values are
+still raw bytes, so a from-scratch drawing still needs the value semantics.
 
 `WriteDrawing(Source, Data)` rewrites the recovered view position and scale
 records in a source drawing container and returns a new container. It writes the
