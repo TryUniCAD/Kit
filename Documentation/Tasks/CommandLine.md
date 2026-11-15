@@ -65,6 +65,7 @@ Definitionless operations and native, imported, or unknown feature kinds are ref
 Each B-rep body must link to a local design body with a typed generating final feature.
 Final generators and their transitive feature dependencies must remain active; suppression in any configuration is refused conservatively for those body histories.
 Creation requires validated controls and an active declared profile reference; modifiers require generated inputs, and boolean combine requires two distinct generated operands.
+Creator contours currently support one finite positive-radius circle or a simple closed three/four-sided straight ring; member tags must match geometry, and more complex profiles remain inspection-only.
 Meshes are refused because their model has no typed ownership link to a generator; provenance and free-form ownership tags do not establish one.
 Use `kit decode` or the pinned research readers to inspect those unsupported semantics.
 It does not expose an option to bypass the output policy.

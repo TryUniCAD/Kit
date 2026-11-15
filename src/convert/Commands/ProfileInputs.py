@@ -1,19 +1,22 @@
 from collections.abc import Sequence
 
+from convert.Commands.IsClosedProfile import IsClosedProfile
 from interchange.geometry.models.Sketch import Sketch
 
 
 def ProfileInputs(Sketches: Sequence[Sketch]) -> set[str]:
     Profiles = set[str]()
     for SketchValue in Sketches:
-        if SketchValue.suppressed or not SketchValue.closed_profile_entity_ids:
+        if SketchValue.suppressed or len(SketchValue.closed_profile_entity_ids) != 1:
             continue
-        Entities = {
-            Entity.id for Entity in SketchValue.entities if not Entity.construction
-        }
-        if all(
-            Group and set(Group) <= Entities
-            for Group in SketchValue.closed_profile_entity_ids
-        ):
+        Entities = {Entity.id: Entity for Entity in SketchValue.entities}
+        if len(Entities) != len(SketchValue.entities):
+            continue
+        Group = SketchValue.closed_profile_entity_ids[0]
+        if not 1 <= len(Group) <= 4 or len(set(Group)) != len(Group):
+            continue
+        if any(EntityId not in Entities for EntityId in Group):
+            continue
+        if IsClosedProfile(tuple(Entities[EntityId] for EntityId in Group)):
             Profiles.add(SketchValue.id)
     return Profiles
