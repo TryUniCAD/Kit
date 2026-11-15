@@ -402,6 +402,34 @@ the hatch pattern names and the default style file. The entries are interleaved 
 value records (doubles, counts and small integers), so the stream is not a pure sequence of tagged
 values: the tag-3 strings are the name table, and the records between them are the values.
 
+## The entry size is not the class's attribute count, layout size or schema flag
+
+The two records whose entry size is known name six classes, and the class data does not separate
+them:
+
+```text
+record 0x206d, entry size 12
+  class 11  ACOM_parameter              value 1000  schema flag  2  attrs 81  layout 341
+  class  3  OM_save_audit_trail_entry   value  200  schema flag  1  attrs 11  layout  56
+  class 40  RM_int_record_area          value  900  schema flag 26  attrs  7  layout  44
+
+record 0x6384, entry size 10
+  class 182 (out of range)              -           -             -          -          -
+  class 20  OM_opt_pointer_value        value  338  schema flag  1  attrs  7  layout  48
+  class 21  RM_one_complex_record_area  value 1500  schema flag 26  attrs  7  layout  48
+```
+
+so none of the three candidates holds:
+
+- attribute count: class 40 has 7 attributes and entry size 12, class 20 has 7 attributes and entry
+  size 10
+- layout size: class 40 has layout 44 and entry size 12, class 20 has layout 48 and entry size 10
+- schema flag: class 3 has flag 1 and entry size 12, class 20 has flag 1 and entry size 10
+
+The entry size is therefore selected by something outside the class record, and the 34-byte record's
+first class (182) is out of range for the 98-class table, so the record may not be keyed by the
+section's class table at all.
+
 ## The value records are a count followed by fixed-size entries
 
 The `03 00 00 00` words between the name-table entries are counts. The first one, at 0x206d, is
