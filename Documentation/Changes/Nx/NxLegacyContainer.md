@@ -98,9 +98,31 @@ with the class names being the only values that must be the loader's own, and th
 the classes the part actually uses. The schema names and the `+0x34` values should still be written
 correctly — they are registration-site data — but they are no longer a gate.
 
+## The container can be written, and NX accepts it
+
+`re/nx/tools/OleWrite.py` writes an OLE2 file from a stream dictionary: 512 byte sectors, a mini
+stream and mini FAT for streams under 4096 bytes, the correct root CLSID, and a directory built as a
+balanced tree. Rebuilding every stream of each corpus part through it and loading the result:
+
+```text
+part              streams rebuilt   round trip   NX 2506
+flange.prt                  17 of 17   identical   bodies 1  volume 75385.625261497
+vise_screw.prt               6 of 6    identical   bodies 1  volume 1.7805678853189086
+wave_parent.prt              4 of 4    identical   bodies 1  volume 1000000.0000000002
+```
+
+The volumes match the originals exactly, so the container layer is written rather than copied: NX
+reads our container, our directory and our stream layout. The directory must be a balanced tree;
+`Documentation/Gotchas/Conversion/NxLegacyDirectoryTree.md` records that requirement and the
+five-entry experiment that isolates it.
+
+What remains for a from-scratch part is the `UGII` payload itself, not the container and not the
+class table.
+
 ## Limits
 
-- The legacy payload writer is not implemented. This entry establishes the class table only.
+- The legacy payload writer is not implemented. This entry establishes the container and the class
+  table; the `UGII` payload body is still carried from a source part.
 - NX 2506 does not save this container, so no new samples can be generated; the three corpus parts
   are the whole evidence base, and `wave_parent.prt` did not yield the table at the anchor the other
   two use, so its layout differs.
