@@ -98,31 +98,65 @@ The DLL and hash identities are recorded in
 addresses, not offsets inferred from control bytes. All header/log/stamp
 addresses in this table belong to `sldarchiveu.dll`.
 
-| Emitted fields              | Classification and formula                                                                                       | Binary evidence                                                                            | Remaining restriction                                                       |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- |
-| `f08`                       | derived input: allocator's next id; highest id is `f08 - 1`; native allocation increments and skips reserved ids | `0x31a05230`, `0x31a052d0`                                                                 | reserved-id policy belongs to the model allocator, not feature count        |
-| `f10/f18/f20`               | input names plus constructed log/stamp graph; list counts are lengths                                            | `0x31a049d0`, `0x31a03120`, `0x31a030b0`, `0x31a04da0`, `0x31a05420`                       | only authored identities and fresh status 0                                 |
-| log `f48/f50`               | input object id; empty string constructor seed                                                                   | constructors `0x31a02690`, `0x31a026e0`                                                    | log ownership beyond explicit ids and nonempty `f50` unresolved             |
-| stamp `f08/f0c/f10/f18/f20` | status 0, name-table indices, explicit time, explicit comment                                                    | constructor `0x31a02790`, default `0x31a02860`, serializer `0x31a048b0`                    | no other status domain recovered                                            |
-| `f40/f44`                   | derived input counters, initial native seeds 101/101                                                             | constructor `0x31a02580`, `0x31a02587`; mutations `0x31a04f20`, `0x31a05340`               | callers supply counters reflecting actual model operations                  |
-| `f48/f50/f70`               | volatile inputs: update/modification/creation timestamps                                                         | `0x31a025b4`, `0x31a034f0`, `0x31a05ec0`                                                   | full native save normalization still needs acceptance                       |
-| `fec`                       | derived `int(owner_model is present)`                                                                            | save instructions `0x31a03575`–`0x31a03586`                                                | separate owner context per stream                                           |
-| `fc4`                       | derived input component count, currently required 0                                                              | `0x31a05380`                                                                               | assembly reference state not constructed                                    |
-| `f7c/f80`                   | explicit license inputs, currently required 0                                                                    | `0x31a052a0`, `0x31a052b0`                                                                 | nonzero domains unresolved; must not clear prior provenance                 |
-| `f28/f30/f38/f88`           | constructor-null attachment, external-reference, self-reference and replaced-component lists                     | ctor `0x31a02540`; getters/creators `0x31a052c0`, `0x31a04d10`, `0x319f89d0`, `0x31a04d50` | no linked files, replacements or reference graphs in this profile           |
-| `bboxflag`                  | derived native pointer-presence seed 0                                                                           | ctor `0x31a025ec`, serializer `0x31a034f0`                                                 | empty cached bounds are a construction candidate, not proven neutral output |
-| `fcc/fd0/fd4`               | volatile previous-open seeds -1; current fields are also -1 on construction, so save falls back to previous      | ctor `0x31a0264b`–`0x31a0266b`, serializer `0x31a034f0`                                    | never copied session measurements                                           |
-| `f58/f60/f64/f68`           | constructor seeds 0 for lock, break counter, freeze and detachable state                                         | ctor `0x31a02540`; `0x31a058b0`, `0x31a062b0`, `0x31a04ba0`, `0x319f8780`, `0x319f9a30`    | initial profile only                                                        |
-| `f78/f98/fc0/fc8/fe8`       | constructor seeds 0; usage/icon enums, unknown flags/scalar and copied state                                     | ctor `0x31a02540`–`0x31a02670`; getters `0x319f8a70`, `0x31a056a0`, `0x31a05100`           | enum/flag domains and later state transitions unresolved                    |
-| `f9c/fa0/fa4/fa8/fac/fb0`   | constructor seeds 0; native add rule ORs flag 2/4/8/16/32 and increments corresponding count                     | `0x31a04a40`                                                                               | semantic category mapping and nonempty-model totals unresolved              |
-| `ff0/ff4/ff8/ffc/f100`      | constructor-zero external-reference summaries                                                                    | ctor `0x31a02540`; synchronization `0x31a06210`                                            | individual summary meanings unresolved                                      |
-| `f104/f108/f10c`            | constructor seeds 0 for visible-sketch, annotation and graphics state                                            | `0x31a06430`, `0x31a05f40`, `0x31a05f50`                                                   | final model-derived rules still required                                    |
+| Emitted fields              | Classification and formula                                                                                       | Binary evidence                                                                            | Remaining restriction                                                                      |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `f08`                       | derived input: allocator's next id; highest id is `f08 - 1`; native allocation increments and skips reserved ids | `0x31a05230`, `0x31a052d0`                                                                 | reserved-id policy belongs to the model allocator, not feature count                       |
+| `f10/f18/f20`               | input names plus constructed log/stamp graph; list counts are lengths                                            | `0x31a049d0`, `0x31a03120`, `0x31a030b0`, `0x31a04da0`, `0x31a05420`                       | only authored identities and fresh status 0                                                |
+| log `f48/f50`               | input object id; empty string constructor seed                                                                   | constructors `0x31a02690`, `0x31a026e0`                                                    | log ownership beyond explicit ids and nonempty `f50` unresolved                            |
+| stamp `f08/f0c/f10/f18/f20` | status 0, name-table indices, explicit time, explicit comment                                                    | constructor `0x31a02790`, default `0x31a02860`, serializer `0x31a048b0`                    | no other status domain recovered                                                           |
+| `f40/f44`                   | derived input counters, initial native seeds 101/101                                                             | constructor `0x31a02580`, `0x31a02587`; mutations `0x31a04f20`, `0x31a05340`               | callers supply counters reflecting actual model operations                                 |
+| `f48/f50/f70`               | volatile inputs: update/modification/creation timestamps                                                         | `0x31a025b4`, `0x31a034f0`, `0x31a05ec0`                                                   | full native save normalization still needs acceptance                                      |
+| `fec`                       | derived `int(owner_model is present)`                                                                            | save instructions `0x31a03575`–`0x31a03586`                                                | separate owner context per stream                                                          |
+| `fc4`                       | derived input component count, currently required 0                                                              | `0x31a05380`                                                                               | assembly reference state not constructed                                                   |
+| `f7c/f80`                   | explicit license inputs, currently required 0                                                                    | `0x31a052a0`, `0x31a052b0`                                                                 | nonzero domains unresolved; must not clear prior provenance                                |
+| `f28/f30/f38/f88`           | constructor-null attachment, external-reference, self-reference and replaced-component lists                     | ctor `0x31a02540`; getters/creators `0x31a052c0`, `0x31a04d10`, `0x319f89d0`, `0x31a04d50` | no linked files, replacements or reference graphs in this profile                          |
+| `bboxflag`                  | derived native pointer-presence seed 0                                                                           | ctor `0x31a025ec`, serializer `0x31a034f0`                                                 | empty cached bounds are a construction candidate, not proven neutral output                |
+| `fcc/fd0/fd4`               | volatile previous-open seeds -1; current fields are also -1 on construction, so save falls back to previous      | ctor `0x31a0264b`–`0x31a0266b`, serializer `0x31a034f0`                                    | never copied session measurements                                                          |
+| `f58/f60/f64/f68`           | constructor seeds 0 for lock, break counter, freeze and detachable state                                         | ctor `0x31a02540`; `0x31a058b0`, `0x31a062b0`, `0x31a04ba0`, `0x319f8780`, `0x319f9a30`    | initial profile only                                                                       |
+| `f78/f98/fc0/fc8/fe8`       | constructor seeds 0; usage/icon enums, unknown flags/scalar and copied state                                     | ctor `0x31a02540`–`0x31a02670`; getters `0x319f8a70`, `0x31a056a0`, `0x31a05100`           | enum/flag domains and later state transitions unresolved                                   |
+| `f9c/fa0/fa4/fa8/fac/fb0`   | constructor seeds 0; native add rule ORs a flag; 2/4/8/16/32 increment the corresponding count                   | `0x31a04a40`; removal `0x31a05920`                                                         | 2/4/8 are macro-feature categories below; 16/32 and the full mask domain remain unresolved |
+| `ff0/ff4/ff8/ffc/f100`      | constructor-zero external-reference summaries                                                                    | ctor `0x31a02540`; synchronization `0x31a06210`                                            | individual summary meanings unresolved                                                     |
+| `f104/f108/f10c`            | constructor seeds 0 for visible-sketch, annotation and graphics state                                            | `0x31a06430`, `0x31a05f40`, `0x31a05f50`                                                   | final model-derived rules still required                                                   |
 
 `sldutu.dll!ut_getUnsetTime` at `0x3d03ebb0` returns literal `0x278d00`.
 This utility fact is fully recovered, but does not justify using that sentinel
 as every generated document's modification time. The builder requires authored
 timestamps instead. None of the related ladder's invariant header values is
 treated as a new global constant.
+
+### Active content is not ordinary feature count
+
+The export at `sldarchiveu.dll!0x31a04a40` is named
+`moHeader_c::addActiveContentFlag(swActiveContentTypes_e)`. Flags 2, 4, 8,
+16 and 32 increment `fa0`, `fa4`, `fa8`, `fac` and `fb0`, respectively;
+the function ORs the supplied flag into `f9c`. Removal at `0x31a05920`
+decrements the matching counter and clears that bit only when its counter
+reaches zero. These are accumulated active-content counts, not the number of
+all ordinary sketch/extrude feature objects.
+
+The following caller classification comes from actual 2026 `sldmodu.dll`
+instructions. `moFeature_c::undelete` at `0x4bb53b20` first checks that the
+object is a `moMacroFeature_c`, obtains its owning model header, then calls
+`addActiveContentFlag` at `0x4bb53c31`. Its branch classification is:
+
+| Category | Native condition                                                      | Evidence                                     |
+| -------- | --------------------------------------------------------------------- | -------------------------------------------- |
+| 2        | macro feature's virtual slot `0xc60` returns true                     | call `0x4bb53c07`; selects 2 at `0x4bb53c11` |
+| 8        | preceding condition false and `moMacroFeature_c::isCOMFeature()` true | call `0x4bb53c1b`; selects 8 at `0x4bb53c20` |
+| 4        | both preceding conditions false                                       | selects 4 at `0x4bb53c29`                    |
+
+The primary macro-feature vtable is `0x4d0c4020`; its `0xc60` slot points to
+`0x4c005d40`, which returns `(macro.fcc8 >> 4) & 1`. That bit's authored
+semantic meaning remains unresolved. `isCOMFeature` is exported at
+`0x4b2bd490`. Deletion mirrors these branches in `moFeature_c::onDelete`
+at `0x4bb4e320`, with removal call `0x4bb4e420`. Legacy macro loading also
+adds these categories at `0x4bb24ca6` for file versions below `0x2fa4`.
+
+This recovers three categories without asserting a meaning for the native
+macro flag, inventing values for categories 16/32 or proving that no other
+subsystem contributes. The current constructor profile emits the initial
+zero-content seeds and does not construct active macro-content state. See the
+[counter gotcha](../../../Documentation/Gotchas/Solidworks/HeaderActiveContentCounts.md).
 
 ## Biography and history fields
 
@@ -170,6 +204,15 @@ No tests, reproductions, collection, imports of the builder or CAD operations
 were run locally. Local verification is restricted to static parsing and
 formatting. Remote PR CI supplies process-check evidence. Neither those checks
 nor source-control round trips establish vendor acceptance.
+
+The remote [workflow-quality smoke job](https://github.com/TryUniCAD/Kit/actions/runs/43673584432/job/132688748536)
+checked the PR merge of head `a0bac133eef1fba1ade4659e50caa52650e2bce9` into
+base `577a5127ace5234ca9d2fe4a7255715740c87b5d`. It selected all three metadata
+process checks and completed with **126 passed, 158 skipped in 19.55 seconds**.
+The skips are unrelated unavailable source corpora. The new metadata process
+checks passed and did not use those corpora. This is process-construction
+evidence, not a native application acceptance result; later PR heads require
+their own fresh remote checks and approvals.
 
 The next acceptance measurement requires the oracle owner to combine these
 records with generated model/configuration streams and validate a held-out

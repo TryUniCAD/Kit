@@ -20,6 +20,9 @@ Unsupported native-save flags, nonzero header license state, component reference
 unrecovered feature tags and multiple dissectable children fail closed.
 The [history cardinality gotcha](../../Gotchas/Solidworks/EmptyHistoryNeedsState.md)
 explains why these streams cannot share one empty-collection policy.
+The [active-content counter gotcha](../../Gotchas/Solidworks/HeaderActiveContentCounts.md)
+records that macro-content categories must not be derived from ordinary feature
+counts.
 
 This is a construction candidate, not a complete part/assembly writer or an
 accepted native document. Constructor seeds are distinct from final model state.
@@ -32,5 +35,8 @@ runtime file-access guard, input-dependent stream sets and lengths, byte-complet
 schema decoding/re-encoding, semantic graph values, Unicode XML and provenance
 rejections. No local tests, reproductions, collection or builder imports were
 run; local checks are static parsing and formatting only. Current-head remote
-results are reported in the PR. Merge-queue acceptance and held-out vendor
-acceptance are separate obligations.
+results are reported in the PR. The
+[initial remote smoke run](https://github.com/TryUniCAD/Kit/actions/runs/43673584432/job/132688748536)
+selected all three new process checks and finished with 126 passed and 158
+unrelated unavailable-corpus skips. Later heads require fresh checks.
+Merge-queue acceptance and held-out vendor acceptance are separate obligations.
