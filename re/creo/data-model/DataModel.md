@@ -347,6 +347,28 @@ compute from a record's own fields. The remaining rows split as:
 | `IndentTag`, `FeatRefData` | trailing sections | proven droppable |
 | two `EMPTY_SPACE_FOR_REUSE` | padding | filler |
 
+### Authored geometry is still rejected
+
+Retested now that `AllFeatur` is authored rather than vendor: the control rebuilt with 42 authored
+sections, where `AllFeatur`, `BasBasData`, `FeatDefsDtm` and 39 others are generated and `VisibGeom`
+carries `Author.AuthorGeometryPayload` for a `100 x 60 x 40` box, is rejected twice.
+
+```text
+geom42 sections 42 bytes 30506 VisibGeom 1372
+(no End line, no dbg_err_crash, exits twice)
+```
+
+The same container without the authored `VisibGeom` row loads three times out of three (`auth42`), so the
+rejection is the geometry payload itself, not the rest of the part. That payload is six plane prototypes
+with a `local_sys` lane; it has never been accepted by the vendor in any candidate.
+
+So the write side now has two independent blocks, not one:
+
+| Block | What it needs |
+| --- | --- |
+| schema payload | mask vector, `ND:*` token tables, `SolidPersistTable` |
+| geometry | a `VisibGeom` surface set and a solid feature that the loader accepts |
+
 ### Authored sections
 
 Forty-one of the fifty-four directory rows can be emitted from format knowledge and accepted by the

@@ -549,6 +549,13 @@ all 41 replaced loads three times out of three (`auth42.prt`, `29176` bytes agai
 `SolidPrimdata`, `DispDataTable`, `THMB_IMG_MAIN`, `CGFPersistTable`, the two `kind b` rows and the two
 free-space extents.
 
+## Authored geometry is still rejected
+
+With `AllFeatur` now generated, the control rebuilt with 42 authored sections and an authored
+`VisibGeom` box (`AuthorGeometryPayload`, `100 x 60 x 40`) is rejected twice. The same container without
+the authored `VisibGeom` row loads three times out of three, so the geometry payload is the cause and not
+the surrounding part. Its six plane prototypes with the `local_sys` lane have never been accepted.
+
 ## VisibGeom and the authored container
 
 `Author.EmptyVisibGeom()` emits the empty geometry form, `Sld_VisGeom` with an opened `active_geom` and
