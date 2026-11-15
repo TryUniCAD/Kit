@@ -57,9 +57,9 @@ def ExprOccupancyFrame(Dimensions: int, Continuations: int) -> tuple[bytes, byte
     if not 0 <= Continuations <= 5 * Dimensions:
         raise ValueError("NX occupancy continuation count is out of range")
     Map = OccupancyMap(Dimensions)
-    Head = bytes([5 * Dimensions + 1, 0x01, Map + 1])
+    Opening = bytes([5 * Dimensions + 1, 0x01, Map + 1])
     Trailing = bytes([5 * Dimensions + Continuations + 1, Map + 1])
-    return (Head, Trailing)
+    return (Opening, Trailing)
 
 
 def ExprOccupancy(Dimensions: int) -> bytes:
