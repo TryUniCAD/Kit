@@ -1,4 +1,5 @@
 from convert.Commands.CheckFeatures import CheckFeatures
+from convert.Commands.CheckMetadata import CheckMetadata
 from interchange.assembly.AssemblyEnums import ComponentKind
 from interchange.brep.curves.BrepCurves import NativeCurve
 from interchange.brep.curves.BrepPcurves import NativePcurve
@@ -88,3 +89,4 @@ def CheckPortable(Document: CadDocument) -> None:
                 if isinstance(Geometry, (NativeCurve, NativePcurve, NativeSurface)):
                     raise ValueError(type(Geometry).__name__ + KInspectText)
         CheckFeatures(PartValue)
+        CheckMetadata(PartValue.metadata)
