@@ -1056,6 +1056,28 @@ readback: 7 features 9 params 1 bodies
 (no End line; second run identical)
 ```
 
+### The last six rows are not derivable, and the from-scratch container stops there
+
+**`IndentTag` and `FeatRefData` are opaque blobs.** No token declarations, high entropy — `IndentTag` is
+**7.84 bits/byte** against `5.51` for `AllFeatur` and `5.21` for a decompressed `SolidPersistTable` — and an empty
+body is refused. With no readable structure there is no minimal form to emit; they use a codec this project has
+not identified.
+
+**`PSB_Tokens` needs content.** The three `ND:*` rows decompress to token streams rooted at `PSB_Tokens`, and all
+four minimal shapes — `e3 e2`, `e3`, `e3 f2`, and empty — are refused with `dbg_err_crash`. They hold the
+unit-system definition, the model definition and the PDM trailer.
+
+So `Author.EmptyPartContainer` emits `47` rows and `9963` bytes, and Creo still refuses it:
+
+```text
+from_scratch5: 9963 bytes
+!%CE09:04:41  '...from_scratch5.prt' cannot be retrieved.
+```
+
+The container is blocked by those six rows' content, and none of them carries geometry — so completing them would
+not produce a body either. The body itself remains blocked where the earlier entries left it: the class-949
+element's positional stream needs the vendor's exact 191-field program.
+
 ### Three more rows accept an empty body, and 47 rows now load cleanly
 
 The same experiment on the remaining display and bookkeeping rows:

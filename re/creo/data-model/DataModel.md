@@ -331,6 +331,46 @@ mutually unrelated contents produces a section the solver cannot accept, which i
 edits reached from the other side — the row is tolerated where it is *inert* (a changed dimension, a flipped
 `verhor`, a rewired `pointid` that the solver re-derives) and refused where it must be *solved*.
 
+### The last six rows are not derivable from format knowledge
+
+**`IndentTag` and `FeatRefData` are opaque.** Neither is a token stream: their payloads begin
+`e0 00 46 69 ...` and `e0 00 46 65 ...`, contain no `e0 <type> <name> 00` declarations, and their entropy is close
+to random:
+
+| Row | Bytes | Entropy | Token declarations |
+| --- | ---: | ---: | --- |
+| `AllFeatur` | 3478 | 5.51 bits/byte | many |
+| `SolidPersistTable` (decompressed) | 1788 | 5.21 | many |
+| `FeatRefData` | 142 | 6.56 | none |
+| `IndentTag` | 1350 | **7.84** | none |
+
+An empty body is refused for both (`dbg_err_crash`, then `cannot be retrieved`), and with no readable structure
+there is no minimal form to emit. They are stored with a codec or obfuscation this project has not identified.
+
+**`PSB_Tokens` needs content.** The three `ND:*` rows do decompress to token streams rooted at `PSB_Tokens`, so a
+minimal root is expressible, and every one was tried:
+
+| Shape | Creo |
+| --- | --- |
+| `PSB_Tokens` + `e3 e2` | `dbg_err_crash` |
+| `PSB_Tokens` + `e3` | `dbg_err_crash` |
+| `PSB_Tokens` + `e3 f2` | `dbg_err_crash` |
+| empty body | `dbg_err_crash` |
+
+They carry the unit-system definition, the model definition and the PDM trailer — content about the part's
+identity rather than about its geometry.
+
+**Result.** `Author.EmptyPartContainer` now emits `47` rows and `9963` bytes, and Creo still refuses it:
+
+```text
+from_scratch5: 9963 bytes
+!%CE09:04:41  '...from_scratch5.prt' cannot be retrieved.
+```
+
+So the container is blocked by those six rows' content: two opaque blobs and three identity tables. None of them
+holds geometry, so completing them would not produce a body; and the `949` element's positional stream still
+cannot be reproduced without the vendor's exact 191-field program.
+
 ### Three more rows accept an empty body
 
 The same one-row experiment on the remaining display and bookkeeping rows:
