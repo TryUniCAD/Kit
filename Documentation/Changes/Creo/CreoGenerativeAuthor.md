@@ -312,19 +312,34 @@ Each addition was measured with one Creo 2027.2 launch on the rebuilt control:
 | + `FeatDefsDtm` | model-load crash, no `End` |
 | + `BasBasData` | model-load crash, no `End` |
 
-`EmptyPartSections((923, 979, 917))` returns 38 bodies. Applied to the control container:
+## Model-defining scalars
+
+`BasBasData` is the one state section whose body cannot be empty. `Author.BasBasDataPayload` emits it
+field by field:
 
 ```text
-wrote 31305 bytes (control 81539)
-!15-Nov-26 01:48:10  End   C:\Mac\Home\Documents\creo-authored\auth39.prt
+tab_key, tab_key_struct(type 72), revnum_ptr(geom_revnum, cosm_revnum, insert_layer_id),
+layer_count, rel_part_eps, model_eps, fixed_model_eps, part_type, first_ent_id,
+outline, attrib_array, max_part_size, ref_part_tabs
+```
+
+It reproduces the control byte for byte except the 21-entry `attrib_array`, which is emitted as
+zeros rather than copied flag words. `first_ent_id` is a three-byte compact integer (`c7 e1 19` =
+`516377`) in the control, so the field consumes those bytes rather than ending before them.
+
+`EmptyPartSections((923, 979, 917))` now returns 39 bodies, including `BasBasData`. Applied to the
+control container:
+
+```text
+39 sections  31271 bytes (control 81539)
+!15-Nov-26 01:50:26  End   C:\Mac\Home\Documents\creo-authored\bb.prt
 !MT_CUST - Applied settings for mode # 1 : MT Part Solid
 ```
 
-So 38 of the 54 directory rows are authored and Creo accepts the result. Two plain sections remain
-load-bearing: `BasBasData` (model-defining scalars) and `FeatDefsDtm` (datum placement records).
-The other unauthored rows are the three compressed `ND:` sections, `SolidPersistTable`,
-`SolidPrimdata`, `DispDataTable`, `THMB_IMG_MAIN`, `CGFPersistTable`, the two `kind b` sections, and
-the two free-space extents.
+So 39 of the 54 directory rows are authored and Creo accepts the result. Only one plain section
+remains load-bearing: `FeatDefsDtm` (datum placement records). The other unauthored rows are the
+three compressed `ND:` sections, `SolidPersistTable`, `SolidPrimdata`, `DispDataTable`,
+`THMB_IMG_MAIN`, `CGFPersistTable`, the two `kind b` sections, and the two free-space extents.
 
 ## Limits
 

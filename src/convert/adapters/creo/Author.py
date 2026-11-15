@@ -6,6 +6,8 @@ KProductLine = (
     b"#Creo  TM  Version P-60-34  (c) 2019 by PTC Inc.  All Rights Reserved. 6.0.3.0\n"
 )
 KTocVersion = "1934"
+
+KDoublePrefix = {0x40: b"\x46", 0xC0: b"\x2D", 0x3F: b"\x28", 0xBF: b"\x4F"}
 KTocKind = "9"
 KTocWidth = 81
 
@@ -22,10 +24,16 @@ def IntValue(Value: int) -> bytes:
 
 def DoubleValue(Value: float) -> bytes:
     RawValue = PackValue(">d", Value)
-    if RawValue[0] == 0x40 and RawValue[7] == 0x00:
-        return b"\x46" + RawValue[1:8]
-    if RawValue[0] == 0xC0 and RawValue[7] == 0x00:
-        return b"\x2D" + RawValue[1:8]
+    if RawValue[0] in (0x40, 0xC0) and RawValue[7] == 0x00:
+        return KDoublePrefix[RawValue[0]] + RawValue[1:8]
+    return b"\x52" + RawValue
+
+
+def CompactDouble(Value: float) -> bytes:
+    RawValue = PackValue(">d", Value)
+    Prefix = KDoublePrefix.get(RawValue[0])
+    if Prefix is not None:
+        return Prefix + RawValue[1:8]
     return b"\x52" + RawValue
 
 
@@ -295,9 +303,14 @@ def FieldValue(TypeDigit: int, NameText: str, Value: bytes) -> bytes:
 
 
 def RefArrayValue(NameText: str, Count: int, Reference: int) -> bytes:
-    return (
-        FieldValue(0, NameText, b"\xF8" + IntValue(Count) + b"\xF7" + IntValue(Reference) + b"\xFB")
+    Payload = (
+        b"\xF8"
+        + IntValue(Count)
+        + b"\xF7"
+        + IntValue(Reference)
+        + b"\xFB"
     )
+    return FieldValue(0, NameText, Payload)
 
 
 def NeutralEmptyPayloads() -> dict[str, bytes]:
@@ -373,4 +386,96 @@ def MinimalSections() -> dict[str, bytes]:
 def EmptyPartSections(FeatureClasses: tuple[int, ...]) -> dict[str, bytes]:
     Bodies = AuthoredSections(FeatureClasses)
     Bodies.update(MinimalSections())
+    Bodies["BasBasData"] = DefaultBasBasData()
     return Bodies
+
+
+def ScalarValue(Value: float) -> bytes:
+    if Value == 0.0:
+        return b"\x18"
+    if Value == 1.0:
+        return b"\x0F"
+    if Value == -1.0:
+        return b"\x10"
+    return CompactDouble(Value)
+
+
+def RunValues(Values: tuple[float, ...]) -> bytes:
+    Payload = b""
+    IndexValue = 0
+    while IndexValue < len(Values):
+        Payload += ScalarValue(Values[IndexValue])
+        RunLength = 1
+        while (
+            IndexValue + RunLength < len(Values)
+            and Values[IndexValue + RunLength] == Values[IndexValue]
+        ):
+            RunLength += 1
+        Extra = RunLength - 1
+        if Extra == 1:
+            Payload += b"\xE4"
+        elif Extra == 2:
+            Payload += b"\xE5"
+        elif Extra == 3:
+            Payload += b"\xE6"
+        elif Extra > 3:
+            Payload += b"\xE7" + IntValue(Extra)
+        IndexValue += RunLength
+    return Payload
+
+
+def BasBasDataPayload(
+    GeomRevision: int,
+    CosmRevision: int,
+    LayerCount: int,
+    RelativeEpsilon: float,
+    ModelEpsilon: float,
+    PartType: int,
+    FirstEntityId: int,
+    Outline: tuple[float, ...],
+    Attributes: tuple[int, ...],
+    MaxPartSize: float,
+) -> bytes:
+    Payload = StructBegin("Sld_BasBasData")
+    Payload += FieldValue(1, "tab_key", b"\x00")
+    Payload += StructBegin("tab_key_struct")
+    Payload += FieldValue(4, "type", IntValue(72))
+    Payload += StructHeader("tab_key_ptr") + b"\xF8\x42"
+    Payload += StructHeader("cmprs_tabkey") + CloseValue(1)
+    Payload += b"\xE1"
+    Payload += b"\xE0\x01type\x00" + CloseValue(1) + IntValue(2)
+    Payload += StructBegin("revnum_ptr")
+    Payload += FieldValue(1, "geom_revnum", IntValue(GeomRevision))
+    Payload += FieldValue(1, "cosm_revnum", IntValue(CosmRevision))
+    Payload += b"\xE0\x01insert_layer_id\x00" + CloseValue(1) + b"\xF6"
+    Payload += FieldValue(1, "layer_count", IntValue(LayerCount))
+    Payload += FieldValue(2, "rel_part_eps", ScalarValue(RelativeEpsilon))
+    Payload += FieldValue(2, "model_eps", ScalarValue(ModelEpsilon))
+    Payload += FieldValue(1, "fixed_model_eps", IntValue(0))
+    Payload += FieldValue(1, "part_type", IntValue(PartType))
+    Payload += FieldValue(1, "first_ent_id", IntValue(FirstEntityId))
+    Payload += (
+        FieldValue(2, "outline", b"\xF9\x02\x03" + RunValues(Outline))
+    )
+    Payload += (
+        FieldValue(1, "attrib_array", b"\xF8" + IntValue(len(Attributes)))
+        + b"".join(IntValue(Value) for Value in Attributes)
+    )
+    Payload += FieldValue(2, "max_part_size", ScalarValue(MaxPartSize))
+    Payload += StructHeader("ref_part_tabs") + b"\xE3\xF2"
+    return SectionValue("BasBasData", Payload)
+
+
+def DefaultBasBasData() -> bytes:
+    return BasBasDataPayload(
+        124,
+        30,
+        1,
+        0.0012,
+        0.0,
+        1,
+        516377,
+        (0.0,) * 6,
+        (0,) * 21,
+        0.0,
+    )

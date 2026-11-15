@@ -28,11 +28,14 @@ the body source. Each row is one Creo 2027.2 launch:
 | + `FeatDefsDtm` | model-load crash, no `End` |
 | + `BasBasData` (with the rest) | model-load crash, no `End` |
 
-So 27 of the 31 plain sections are satisfied by an empty struct. Two are not.
+So 27 of the 31 plain sections are satisfied by an empty struct. Two are not, and both fail because
+they carry model identity rather than optional state:
 
-`BasBasData` carries the model-defining scalars (`part_type`, `first_ent_id`, `model_eps`,
-`outline`, `attrib_array`, `max_part_size`), and `FeatDefsDtm` carries the datum placement records
-that the reader already decodes. Those two must be authored with real content.
+- `BasBasData` holds the model-defining scalars (`part_type`, `first_ent_id`, `model_eps`,
+  `outline`, `attrib_array`, `max_part_size`). `Author.BasBasDataPayload` now emits it field by
+  field, and a control container with 39 authored rows loads.
+- `FeatDefsDtm` holds the datum placement records that the reader already decodes. It is still
+  unauthored and remains the last plain blocker.
 
 ## Consequence
 
@@ -40,11 +43,11 @@ The authoring burden is much smaller than the section count suggests. A part can
 
 - 11 grammar-authored bodies (`Author.AuthoredSections`);
 - 27 minimal struct bodies (`Author.MinimalSections`);
-- real `BasBasData` and `FeatDefsDtm`;
+- real `BasBasData` (`Author.BasBasDataPayload`) and `FeatDefsDtm`;
 - the remaining compressed, binary, and free-space rows.
 
-Measured: a control container with 38 of its 54 directory rows replaced by authored bodies loads in
-Creo 2027.2 with `End` and `MT Part Solid`, and drops from `81539` to `31305` bytes.
+Measured: a control container with 39 of its 54 directory rows replaced by authored bodies loads in
+Creo 2027.2 with `End` and `MT Part Solid`, and drops from `81539` to `31271` bytes.
 
 ## Workaround
 
