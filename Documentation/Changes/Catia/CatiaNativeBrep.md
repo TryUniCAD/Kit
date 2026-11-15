@@ -124,8 +124,13 @@ trim normal, and for every cylinder face the pooled cylinder that minimizes the 
 distance. One probe handle rejects a surface farther than `0.5` from the face before the full sum,
 and refinement runs two rounds for a pooled part with at most 400 faces and none for a larger one,
 because each round costs a full corner placement and the two largest pooled parts gain under 3%.
-Refinement drops the unsatisfied handles from 209 to 181 of 1431 on `Reservoir` and from 1923 to 792
-of 2666 on `Pedal_Body`; the map is still inferred, and the warning stays.
+Refinement now runs two rounds on every pooled part, including the two largest. Measured with the
+corpus scorecard, it drops the bad faces from `227/416` to `201/416` and the worst plane deviation from
+`66.04` to `47.12` on `4784`, and from `529/870` to `425/870` and `93.45` to `64.00` on `4876` and
+`4876_1`. The faces with exactly one candidate surface rise from `25/416` to `71/416` and from `29/870`
+to `88/870`. The cost is decode time: `4784` goes from `8.1s` to `21.1s` and `4876` from `29.3s` to
+about `65s`, because each round re-places every corner. The map is still inferred, and the warning
+stays.
 
 The warning now carries a measured confidence instead of a bare claim: `MapConfidence` counts, per
 face, how many surfaces of the same kind pass within `0.5` of the face's first placed handle, and the
@@ -382,8 +387,8 @@ result = CatiaAdapter().write(
 - `re/catia/tooling/Scorecard.py` measures every part against its own geometry: the worst distance
   from a face's vertices to that face's surface, and how many faces exceed `1e-3`. All 22 exact parts
   report `0` bad faces with a worst distance of `0.0000` (`0.0009` for the two `Nut_ISO_7040-M6`
-  files). The five inferred parts report bad faces `227/416` and worst `66.04` for `4784`,
-  `529/870` and `93.45` for `4876`/`4876_1`, `186/338` and `96.34` for `Pedal_Body`, and `22/71` and
+  files). The five inferred parts report bad faces `201/416` and worst `47.12` for `4784`,
+  `425/870` and `64.00` for `4876`/`4876_1`, `186/338` and `96.34` for `Pedal_Body`, and `22/71` and
   `36.00` for `Reservoir`. The scorecard also prints `V - E + F`, which is negative for every part
   because the decoded edges are tessellation polylines rather than B-rep edges.
 - The map refinement lowers the unsatisfied handles from 209/1431 to 181/1431 on `Reservoir` and

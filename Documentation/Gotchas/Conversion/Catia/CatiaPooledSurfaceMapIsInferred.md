@@ -78,10 +78,11 @@ prefix-plus-bytes form. Decoding `MainDataStream` with that rule and looking for
 tessellation snap, then re-picks each plane face's pooled plane by the summed distance of the face's
 handles from the plane through the surface center along the stored trim normal, and each cylinder
 face's pooled cylinder by the summed radial distance. One probe handle rejects a surface farther
-than `0.5`, and refinement runs two rounds only for pooled parts with at most 400 faces, because a
-round costs a full corner placement and the two largest parts gain under 3%. That drops the
-unsatisfied handles from 209 to 181 of 1431 on `Reservoir` and from 1923 to 792 of 2666 on
-`Pedal_Body`. The map is still inferred.
+than `0.5`, and refinement runs two rounds on every pooled part. Measured with the scorecard, that
+drops the bad faces from `227/416` to `201/416` and the worst deviation from `66.04` to `47.12` on
+`4784`, and from `529/870` to `425/870` and `93.45` to `64.00` on `4876`/`4876_1`. A round re-places
+every corner, so decode time rises from `8.1s` to `21.1s` on `4784` and from `29.3s` to about `65s`
+on `4876`. The map is still inferred.
 
 ## The out-of-range keys are ids, not names
 

@@ -416,10 +416,8 @@ def BestCyl(
 
 # this definition exists because the pooled map is inferred and can be sharpened
 def RefineMap(
-    BrepValue: BrepData, PoolValues: list[SurfaceRec], Rounds: int | None = None
+    BrepValue: BrepData, PoolValues: list[SurfaceRec], Rounds: int = 2
 ) -> tuple[SurfaceRec, ...]:
-    if Rounds is None:
-        Rounds = 2 if len(BrepValue.trims) <= 400 else 0
     Planes = [Value for Value in PoolValues if Value.kind == 0x32]
     Cylinders = CylPool(PoolValues)
     Current = list(BrepValue.surfaces)
