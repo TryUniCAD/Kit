@@ -1090,10 +1090,37 @@ would suggest, and the 76 handles map onto those 23 points at roughly 1.65 handl
 stored tessellation is coarser than the handle count, which is why the reader's 15-degree placement
 cannot be snapped onto it one-to-one.
 
+The bridge values are not midpoints or chords. For every gap between two consecutive grid pairs, the
+single value in between is the absolute `z` of the earlier point:
+
+| Gap | Point A | Between | `abs(z_A)` |
+| --- | --- | ---: | ---: |
+| 0 to 3 | `(-7.608, -2.472)` | 2.4721 | 2.4721 |
+| 3 to 6 | `(-6.472, -4.702)` | 4.7023 | 4.7023 |
+| 8 to 11 | `(-4.702, -6.472)` | 6.4721 | 6.4721 |
+| 11 to 14 | `(-4.619, -1.913)` | 1.9134 | 1.9134 |
+| 17 to 20 | `(-2.472, -7.608)` | 7.6085 | 7.6085 |
+| 20 to 23 | `(-1.913, -4.619)` | 4.6194 | 4.6194 |
+| 34 to 37 | `(2.472, -7.608)` | 7.6085 | 7.6085 |
+| 43 to 46 | `(4.702, -6.472)` | 6.4721 | 6.4721 |
+| 51 to 54 | `(7.608, -2.472)` | 2.4721 | 2.4721 |
+
+The midpoint of `A` and `B` is never the bridge value, and the chord length is never the bridge
+value either. So the record is `(y, z, abs(z))`, a three-value record, and the third value is the
+mirror of `z` across the axis. At axis crossings the record collapses to one or two values because
+`abs(z)` is zero or the neighbouring point shares the axis value, which is why the gap sequence is
+mostly 3 with runs of 1 and 2 at the `0`, `5`, and `8` crossings.
+
+The check is exact: 24 of the 25 three-value records have `third == abs(z)`, and the single
+exception is the record at index 54, `(8.0, 0.0, 1.0)`, where the third value is the `x` of the
+next plane rather than `abs(z)`. So the `x` is stored once at the plane boundary, and the record
+itself is `(y, z, abs(z))`.
+
 The layout is therefore not a per-circle `(y, z)` sequence with the `x` stored once per circle. The
 two 58-value halves are nearly identical (they differ only in the last three values, `1.0` in the
 first and `0.0` in the second), so the halves are the two `x` planes, but segmenting on the `x`
-values does not give all-8 or all-5 radii in either half. The bridge values are the missing piece.
+values does not give all-8 or all-5 radii in either half. The record is `(y, z, abs(z))`, and the
+`x` is not stored per record.
 
 ## Evidence
 
