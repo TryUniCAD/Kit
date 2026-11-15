@@ -44,6 +44,33 @@ That explains, after the fact, why 22 derivations of "name -> one big value" all
 such value. The table is a serialisation of small registry fields, and the class id in it is assigned
 by registration order at load rather than computed from the name.
 
+## No field behaves like a sequential class id
+
+With the registry API known, the 129 entries were split into their base-128 fields and each field
+index was tested for the shape a class id would have — small, and unique:
+
+```text
+field 0   129 values   16 below 256    89 distinct   min 4            max 531,946,195,134,471
+field 1   129 values   89 below 256    94 distinct   min 4            max 5,731,327,779
+field 2   129 values   75 below 256   106 distinct   min 1            max 761,326,338,412,426,118
+field 3   124 values   68 below 256   109 distinct   min 0            max 65,389,423,389,631
+```
+
+no field is small-and-unique across the table, so the class id is not carried as a bare integer in a
+fixed position. The sequences mix small counts with values in the 2^20 and 2^30 ranges, which is what a
+serialised record of mixed properties looks like:
+
+```text
+UGS::OM::RootObject            56, 100, 9648, 56917797, 15606, 2
+UGS::RM_part                   101, 103, 10143784975, 90, 112, 200
+UGS::OM::SaveAuditTrail        1713280, 96, 396820, 106, 1068840, 1
+UGS::Sketch::Colors            1651715, 111, 10513, 1041119, 40, 343
+```
+
+assigning those positions to the registry's properties needs the stores in
+`??0ClassRegistrant@OM@UGS@@QEAA@PEBDI...` at `0x180069fd0` matched against the serialiser, which is
+the next step and was not completed.
+
 ## Limits
 
 - The field layout inside an entry is not yet assigned; this entry only says the values are small.
