@@ -320,6 +320,16 @@ graphs, a crosshatch name, configuration names and version provenance.
 They do not read preferences, a saved part, a template or a field program.
 `part_graph` returns object references through `ModelGraph`; its system-feature
 tuple is separate from the part's fresh empty concept list.
+It now requires ordered authored `folder_names`, `cabinet_name` and `created_at`
+in addition to the existing part/plane/configuration metadata.
+The supported construction profile names all twelve classified folder classes;
+this is an explicit graph request, not a claim that every vendor template uses
+the same set or order.
+The returned `folders` mapping and `cabinet` retain their actual object identities.
+Its system-feature tuple follows the authored folder order, then the cabinet,
+then native principal-plane creation order `z/y/x`.
+The selected generic insertion order is authored; the automatic UI reordering
+callbacks are separate operations and are not silently approximated.
 Origin/profile construction and the separate resolved-stream composition remain
 required before this graph is a complete native part.
 
@@ -361,6 +371,34 @@ owner, allocator, version provenance and Unix-seconds creation time.
 object tuple, preserving pointer identity without a captured feature table.
 It does not invent a mandatory default-folder order.
 `detail_cabinet` constructs the separate annotation-cabinet model feature.
+
+Native folder `addToModel` callbacks use the owning model's slot `0xfd0`,
+`moConcept_c::addNewFeature` at `0x4bda66c0`, which assigns the owner, invokes
+the new-feature hook and delegates insertion through slot `0xfb8`.
+For a part that slot dispatches to `0x4c1c5040` as described above.
+The callbacks also bind model caches to the actual folder objects:
+
+| Folder         | Model slot | 2026 binding evidence               |
+| -------------- | ---------- | ----------------------------------- |
+| Environment    | `0x1e0`    | `0x4beb3ca0`; getter `0x4b2863b0`   |
+| Documents      | `0x1f0`    | `0x4beb3b90`; getter `0x4b285f80`   |
+| Comments       | `0x1f8`    | `0x4beb39d0`; getter `0x4b284d50`   |
+| Sensors        | `0x200`    | `0x4beb4240`; creation `0x4c016ab0` |
+| Favorites      | `0x218`    | `0x4b63e180`; creation `0x4c015bb0` |
+| Selection sets | `0x220`    | `0x4b641240`; creation `0x4c016a30` |
+| History        | `0x228`    | `0x4b6453c0`; creation `0x4c016260` |
+| Surface bodies | `0x1500`   | getter `0x4b289bd0`                 |
+| Solid bodies   | `0x1508`   | getter `0x4b2899f0`                 |
+
+Environment `f1e0` is serialized in the configuration graph. `part_graph` binds
+it to the same environment object also present in the system-feature tuple.
+The remaining cache relationships are retained as semantic pointer bindings,
+not invented archive-index fields. The relation-manager/equation-folder backlink
+also preserves the actual graph objects.
+System nodes receive the proven zero-status initialization mask, while the part
+retains its constructor's pending-update state until composition performs an
+explicit later operation. This does not complete origin solver state or body caches.
+See [system-folder bindings](../../../Documentation/Gotchas/Conversion/Solidworks/SystemFoldersHaveModelBindings.md).
 
 The folder base at `0x4beae110` calls the default feature constructor
 `0x4bb38710`, then assigns its owner.
@@ -420,6 +458,15 @@ It is a negative candidate result and not native acceptance.
 No saved document supplied the corrected value.
 See [runtime class schemas](../../../Documentation/Gotchas/Conversion/Solidworks/RuntimeClassSchemasDiffer.md).
 
+The owned-constructor class audit also checks every concrete model, folder,
+plane, configuration, self-component and display-data record against its exported
+registered class metadata. Those concrete records use wire schema `1`.
+The standalone `moCompRef_c` base is different: exported class metadata at
+`sldmodu` `0x4cf68440` has schema `0xffff` and a null create-object function.
+`component_reference` therefore fails closed. Its field initializer remains
+available for the base portion of concrete dimension and feature references;
+that base portion does not emit a standalone class header.
+
 The part-specific density field `f1688` comes from `uiPartDoc_c` constructor
 `sldprtu` `0x33374980`.
 The base UI density virtual at slot `0x11c0` resolves to `0x3338a480` for that class;
@@ -461,6 +508,11 @@ The repaired strict audit passed the actual subprocess/container boundary at
 `5b546278f` in [run 43681676456](https://github.com/TryUniCAD/Kit/actions/runs/43681676456),
 job `132713453212`. Both the native-file step and its enclosing policy job passed.
 This is component codec/access evidence, not native application acceptance.
+The expanded process check now also constructs the full requested base graph
+from generated style/unit dependencies, serializes Config and Resolved streams
+through one shared archive map, and verifies the environment alias and native
+self-component identity after decoding. It exercises zero/positive owner update
+flags through that file boundary. This expansion awaits its new remote result.
 The first strict-audit remote run at `236ccd510` correctly denied a lazy import
 of `encodings/utf_16_le.py` during Unicode string storage. The harness now resolves
 the native string codec names during its recorded initialization phase, before

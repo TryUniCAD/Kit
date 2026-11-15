@@ -5,6 +5,9 @@ configuration-manager graphs and part-definition streams from explicit inputs
 and 2026 constructor rules. They also construct principal planes and the base
 part root from generated style/unit dependencies.
 Fresh system-folder and annotation-cabinet factories extend the same graph.
+`part_graph` now accepts explicit folder names, cabinet name and creation time,
+returns their objects, and binds the serialized environment pointer to that same
+system node. Folder order is authored rather than copied from a template.
 The model update helper applies the proven zero-status flag mutation after native
 origin initialization; the origin sketch's unresolved solver state stays explicit.
 The positive update helper marks the serialized model flag independently of
@@ -55,6 +58,8 @@ The [reference-time gotcha](../../Gotchas/Conversion/Solidworks/FeatureReference
 requires component references to agree with their referenced node's creation log.
 The [runtime schema gotcha](../../Gotchas/Conversion/Solidworks/RuntimeClassSchemasDiffer.md)
 records the journal's nondefault class schema and the native rejection.
+The [system-folder binding gotcha](../../Gotchas/Conversion/Solidworks/SystemFoldersHaveModelBindings.md)
+records the model's required pointer relationships and the shared-stream alias.
 
 ## Verification
 

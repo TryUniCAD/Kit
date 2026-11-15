@@ -75,6 +75,19 @@ AuditGuard.BeginBuild()
 """
 
 
+KBaseImports = """
+from builders.Model import part_graph as NewPartGraph
+from builders.Model import clear_model_update as ClearModelUpdate
+from builders.Model import mark_model_update as MarkModelUpdate
+from builders.Styles import detail_definitions as NewDetails
+from builders.Units import unit_table_profile as NewUnits
+from defs.ConfigPart import load_config as LoadConfig
+from defs.ConfigPart import store_config_state as StoreConfigState
+from defs.ResolvedCore import load_resolved as LoadResolved
+from defs.ResolvedCore import store_resolved as StoreResolved
+"""
+
+
 KBuild = """
 ConfigNames = [NamePrefix + str(IndexValue) for IndexValue in range(CountCfg)]
 ManagerNode = NewManager(
@@ -160,6 +173,79 @@ StreamMap["Research/SystemFeatures"] = StoreRooted(
 """
 
 
+KBaseStyles = """
+BaseStyleData = NewDetails(
+    standard=1,
+    font_name=NamePrefix + "font",
+    line_style_name=NamePrefix + "line",
+    language_id=1033,
+    print_widths_m=tuple(0.0001 * (WidthIndex + 1) for WidthIndex in range(8)),
+    exclusion_names=(),
+    task_labels=tuple(NamePrefix + "task" + str(TaskIndex) for TaskIndex in range(5)),
+    cutlist_expressions=("part-id", "assembly-id", "weldment-id"),
+)
+BaseUserUnits = NewUnits(
+    length_unit="mm", angle_unit="degree", unit_system="mmgs", decimal_places=4
+)
+BaseAnalysisUnits = NewUnits(
+    length_unit="m", angle_unit="radian", unit_system="mks", decimal_places=6
+)
+"""
+
+
+KBaseGraph = """
+BaseGraph = NewPartGraph(
+    name=NamePrefix + "base part",
+    configuration_names=ConfigNames,
+    plane_names={AxisName: NamePrefix + AxisName for AxisName in ("z", "y", "x")},
+    folder_names={ClassName: NamePrefix + ClassName for ClassName in ClassNames},
+    cabinet_name=NamePrefix + "base annotations",
+    detail_definitions=BaseStyleData,
+    document_units=BaseUserUnits,
+    analysis_units=BaseAnalysisUnits,
+    hatch_name=NamePrefix + "hatch",
+    date_code=2026306,
+    parasolid_version=370108,
+    created_at=1700000000,
+    updated_at=1700000001,
+    retain_construction_flag=True,
+)
+"""
+
+
+KBaseLifecycle = """
+BaseFlagTrace = [BaseGraph.part["f0c"]]
+ClearModelUpdate(model=BaseGraph.part)
+BaseFlagTrace.append(BaseGraph.part["f0c"])
+MarkModelUpdate(model=BaseGraph.part)
+BaseFlagTrace.append(BaseGraph.part["f0c"])
+"""
+
+
+KBaseStreams = """
+BaseConfigBytes, BaseStoreMap = StoreConfigState(
+    StreamDoc("config", {"direct": 0}, [BaseGraph.part]), CodecReg, 19000
+)
+BaseContext = {
+    "model_compressed_stream": 1,
+    "model_is_part": 1,
+    "cmgr_f658": BaseGraph.configuration_manager["f658"],
+}
+BaseResolved = StreamDoc(
+    "resolved",
+    {"base": BaseStoreMap.count, "context": BaseContext},
+    list(BaseGraph.system_features),
+)
+StreamMap["Contents/Config-0"] = BaseConfigBytes
+StreamMap["Contents/Config-0-ResolvedFeatures"] = StoreResolved(
+    BaseResolved, CodecReg, 19000, seed=BaseStoreMap
+)
+StreamMap["Contents/CMgr"] = StoreRooted(
+    StreamDoc("rooted", {"base": 1}, [BaseGraph.configuration_manager]), CodecReg, 19000
+)
+"""
+
+
 KContainer = """
 BinaryFile = BuildContainer(StreamMap)
 ContainerFile = ArchiveFile.from_bytes(BinaryFile)
@@ -181,6 +267,56 @@ if (
     or StoreRooted(SystemDocu, CodecReg, 19000) != StreamMap["Research/SystemFeatures"]
 ):
     raise RuntimeError("system feature graph changed after decoding")
+"""
+
+
+KBaseLoad = """
+BaseConfigDocu, BaseConfigReader = LoadConfig(
+    ContainerFile.require("Contents/Config-0"), CodecReg, 19000
+)
+BaseLoadMap = BaseConfigReader.map_state()
+BaseResolvedDocu, BaseResolvedReader = LoadResolved(
+    ContainerFile.require("Contents/Config-0-ResolvedFeatures"),
+    CodecReg,
+    19000,
+    archive=ContainerFile,
+    name="Contents/Config-0-ResolvedFeatures",
+    seed=BaseLoadMap,
+)
+if BaseConfigDocu.tail or BaseConfigReader.left():
+    raise RuntimeError("base configuration has unread bytes")
+if BaseResolvedDocu.tail or BaseResolvedReader.left():
+    raise RuntimeError("base system graph has unread bytes")
+"""
+
+
+KBaseAliases = """
+BasePartRead = BaseConfigDocu.roots[0]
+BaseEnvRead = next(
+    NodeValue
+    for NodeValue in BaseResolvedDocu.roots
+    if NodeValue.cls == "moEnvFolder_c"
+)
+if BasePartRead["f1e0"] is not BaseEnvRead:
+    raise RuntimeError("the environment alias was lost across native streams")
+if BasePartRead["f990"]["owner"] is not BasePartRead:
+    raise RuntimeError("the native self-component alias was lost")
+"""
+
+
+KBaseCheck = """
+BaseConfigAgain, BaseStoreAgain = StoreConfigState(BaseConfigDocu, CodecReg, 19000)
+if BaseConfigAgain != BaseConfigBytes:
+    raise RuntimeError("base configuration changed after decoding")
+if (
+    StoreResolved(BaseResolvedDocu, CodecReg, 19000, seed=BaseStoreAgain)
+    != StreamMap["Contents/Config-0-ResolvedFeatures"]
+):
+    raise RuntimeError("base system stream changed after decoding")
+if not all(
+    NodeValue["owner"] is BaseGraph.part for NodeValue in BaseGraph.system_features
+):
+    raise RuntimeError("base construction lost native ownership")
 """
 
 
@@ -248,19 +384,45 @@ BuildReport.update(
 print(EncodeJson(BuildReport, ensure_ascii=True))
 """
 
+
+KBaseMetrics = """
+BuildReport.update(
+    {
+        "base_system_classes": [NodeValue.cls for NodeValue in BaseResolvedDocu.roots],
+        "base_system_ids": [NodeValue["f08"] for NodeValue in BaseResolvedDocu.roots],
+        "base_system_flags": [NodeValue["f0c"] for NodeValue in BaseResolvedDocu.roots],
+        "base_next_id": BaseGraph.next_persistent_id,
+        "base_map_count": BaseStoreMap.count,
+        "base_resolved_map_start": BaseResolvedDocu.head["base"],
+        "base_root_id": BasePartRead["f08"],
+        "base_root_flags": BasePartRead["f0c"],
+        "base_flag_trace": BaseFlagTrace,
+    }
+)
+"""
+
 KProgram = (
     KImports
     + KGuard
     + KNative
     + KBuilders
+    + KBaseImports
     + KCodec
     + KBuild
     + KPlanes
     + KFolders
     + KAnnotations
+    + KBaseStyles
+    + KBaseGraph
+    + KBaseLifecycle
+    + KBaseStreams
     + KContainer
+    + KBaseLoad
+    + KBaseAliases
+    + KBaseCheck
     + KCheck
     + KMetrics
+    + KBaseMetrics
     + KReport
 )
 

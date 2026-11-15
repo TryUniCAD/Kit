@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass, field
 
 from Core import ArchiveError, Obj
@@ -224,7 +224,7 @@ def component_reference_fields(*, component: Obj | None = None) -> dict:
 
 
 def component_reference(*, component: Obj | None = None) -> Obj:
-    return Obj("moCompRef_c", component_reference_fields(component=component))
+    raise ArchiveError("moCompRef_c is a nonserializable base; construct fields inside a concrete reference")
 
 
 def logged_creation_time(*, timestamps: Iterable[int]) -> int:
@@ -781,6 +781,8 @@ class ModelGraph:
     configuration_manager: Obj | None = None
     system_features: tuple[Obj, ...] = ()
     planes: dict[str, Obj] = field(default_factory=dict)
+    folders: dict[str, Obj] = field(default_factory=dict)
+    cabinet: Obj | None = None
 
     @property
     def next_persistent_id(self) -> int:
@@ -792,6 +794,8 @@ def part_graph(
     name: str,
     configuration_names: Iterable[str],
     plane_names: dict[str, str],
+    folder_names: Mapping[str, str],
+    cabinet_name: str,
     detail_definitions: dict,
     document_units: Obj,
     analysis_units: Obj,
@@ -799,8 +803,17 @@ def part_graph(
     date_code: int,
     parasolid_version: int,
     updated_at: int,
+    created_at: int,
     retain_construction_flag: bool,
 ) -> ModelGraph:
+    required_folders = {
+        "moCommentsFolder_c", "moDocsFolder_c", "moEnvFolder_c", "moEqnFolder_c",
+        "moFavoriteFolder_c", "moHistoryFolder_c", "moMaterialFolder_c",
+        "moNotesAreaFtrFolder_c", "moSelectionSetFolder_c", "moSensorFolder_c",
+        "moSolidBodyFolder_c", "moSurfaceBodyFolder_c",
+    }
+    if not isinstance(folder_names, Mapping) or set(folder_names) != required_folders:
+        raise ArchiveError("base part graphs require authored names for every classified system folder")
     allocator = PersistentIds()
     part = part_root(
         name=name, allocator=allocator, detail_definitions=detail_definitions,
@@ -811,12 +824,40 @@ def part_graph(
         owner=part, names=configuration_names, date_code=date_code,
         parasolid_version=parasolid_version, updated_at=updated_at,
     )
+    folders = {
+        cls: folder(
+            cls=cls, name=label, owner=part, allocator=allocator,
+            date_code=date_code, parasolid_version=parasolid_version,
+            created_at=created_at,
+        )
+        for cls, label in folder_names.items()
+    }
+    cabinet = detail_cabinet(
+        name=cabinet_name, owner=part, allocator=allocator,
+        date_code=date_code, parasolid_version=parasolid_version,
+    )
+    part.f["f1e0"] = folders["moEnvFolder_c"]
+    part.f["_folder_caches"] = {
+        "f1e0": folders["moEnvFolder_c"],
+        "f1f0": folders["moDocsFolder_c"],
+        "f1f8": folders["moCommentsFolder_c"],
+        "f200": folders["moSensorFolder_c"],
+        "f218": folders["moFavoriteFolder_c"],
+        "f220": folders["moSelectionSetFolder_c"],
+        "f228": folders["moHistoryFolder_c"],
+        "f1500": folders["moSurfaceBodyFolder_c"],
+        "f1508": folders["moSolidBodyFolder_c"],
+    }
     planes = principal_planes(
         names=plane_names, owner=part, allocator=allocator, date_code=date_code,
         parasolid_version=parasolid_version,
         retain_construction_flag=retain_construction_flag,
     )
+    system_features = (*folders.values(), cabinet, *planes.values())
+    for node in system_features:
+        node.f["f0c"] &= 0xFFFD7FF8
     return ModelGraph(
         part=part, allocator=allocator, configuration_manager=manager,
-        system_features=tuple(planes.values()), planes=planes,
+        system_features=system_features, planes=planes, folders=folders,
+        cabinet=cabinet,
     )
