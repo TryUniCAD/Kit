@@ -229,6 +229,15 @@ slot `0x4d8`; both ordinary child classes resolve that slot to `0x4b2fe0b0`,
 which only increments runtime reference count `0x10`.
 Neither callback advances header ids or stamps on those ordinary paths.
 
+The fresh part's update query follows an explicit constructor path too.
+Part vtable `0x4d1252d8` slot `0xc0` resolves to `0x4c1b8a60`.
+Model constructor `0x4c00edb0` writes qword `0x0c` at runtime offset `0x2b0`,
+so its upper word `0x2b4` is zero and the query's cached-update shortcut is
+absent. It calls node getter `0x4c03e5e0`, which returns `1` immediately when
+node `f0c` bit `1` is set. Derived-part traversal is reached only after a zero
+node result. This closes the pending constructor query for the fresh ordinary
+part; it does not prove completion of a rebuild or every cleared-state query.
+
 ## Header counter and save lifecycle
 
 Status: **partial — code-derived rules, without generated-header native acceptance**.
