@@ -53,7 +53,9 @@ The [unit-vector gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/De
 
 No local tests or oracle measurements were run
 The Python source passed static AST syntax parsing without imports or execution
-Remote CI remains pending
+All five polygon process cases passed in [native job 132712770357](https://github.com/TryUniCAD/Kit/actions/runs/43681452018/job/132712770357) at `77710bc3bc29bb4eca4a979177c587d56b3362ea`
+That job also passed complete fresh-part process construction, but its overall suite failed in the separate model codec initialization path
+That snapshot includes the origin-node lifecycle mask; current-head CI with the shared model codec repair remains pending
 New process integration coverage writes fresh sketch and blind-end object archives into a container, decodes them, checks reference and byte identity, then edits the live forward parameter and re-encodes it
 Its geometry cases include variable vertex counts, a 10,000-line ring, crossings, touches, vertical overlaps, backtracking and valid collinear vertices
 It verifies dimension allocation and uses the shared `BuildAudit` guard before builder/schema imports, without a filename-suffix escape for direct data reads

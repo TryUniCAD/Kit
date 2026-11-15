@@ -220,13 +220,18 @@ Null cached body has constructor/store/load evidence at `0x4c0ca000`, `0x4c25464
 
 No local tests, imports, reproductions, or oracle calls were run
 The edited Python sources passed static AST syntax parsing without importing or executing them
-Remote CI evidence will be recorded with the change
-The sweep change has not been executed locally; its process-boundary regression coverage must run remotely with the assembled builder
+Process-boundary regression coverage executes remotely with the assembled builder
 `PolygonProcess.py` now constructs fresh profiles and dimensional graphs in an isolated subprocess, writes their binary object archives into a container, decodes them, verifies byte identity and reference identity, then edits and re-encodes the live forward parameter
 The sketch component explicitly seeds its external profile owner in the archive map; it is not a complete part or a vendor-loadability check
 Its cases cover variable N, a 10,000-line ring, crossings, touches, vertical overlap, adjacent backtracking and valid collinear edges
 It checks actual decoded dimension IDs and leaves parameter node IDs at their constructor value `-1`
 The shared `BuildAudit` hook starts before builder/schema imports, permits actual import-loader code access and the bounded source-package/schema discovery needed during startup, then rejects runtime file access and child-process launches during construction
+
+At revision `77710bc3bc29bb4eca4a979177c587d56b3362ea`, [native CI job 132712770357](https://github.com/TryUniCAD/Kit/actions/runs/43681452018/job/132712770357) passed all five `PolygonConstructTests.py` cases, including the 10,000-line ring, invalid geometry, editable depth and allocation assertions
+The same job passed `FreshPartTests.py` and `LockedPartTests.py`
+Its overall result was one failure, 137 passes and 158 skips in 39.63 seconds because the separate model process attempted a lazy UTF-16 codec import after its audit guard began construction
+The origin-node lifecycle mask was included in that snapshot; the model codec repair is a shared dependency, and later-head CI remains pending
+These process results establish container/archive construction and decoding, not native application acceptance, rebuild correctness or body measurements
 It does not exempt arbitrary reads by filename suffix
 The sketch-info component test selects `ctx874=1`, so its external profile-owner reference is actually present in the encoded grammar and its identity assertion remains meaningful
 This coverage has only been syntax-checked locally and is pending its remote execution
