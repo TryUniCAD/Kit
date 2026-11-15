@@ -327,6 +327,17 @@ class CurveAuthor:
         self.rec.data["dimensions"] = self.dimensions
         self.rec.flush()
 
+    def created_sketch_feature(self):
+        matches = []
+        feature = self.get(self.model, "FirstFeature")
+        while feature is not None:
+            if str(self.get(feature, "GetTypeName2")) == "ProfileFeature":
+                matches.append(feature)
+            feature = self.get(feature, "GetNextFeature")
+        require(len(matches) == 1, "new part must contain exactly one authored 2D sketch feature")
+        require(self.get(matches[0], "GetSpecificFeature2") is not None, "authored profile has no specific sketch interface")
+        return matches[0]
+
     def build(self, case, session):
         template = str(self.get(self.app, "GetUserPreferenceStringValue", 8))
         self.model = self.get(self.app, "NewDocument", template, 0, 0, 0)
@@ -384,7 +395,7 @@ class CurveAuthor:
                 at = [item["center"][0] + item["radius"] * 1.7, item["center"][1] + item["radius"] * 1.3]
                 self.dimension(segment, item["role"], value, kind, at)
         self.get(manager, "InsertSketch", True)
-        sketch_feature = self.typed(self.sketch, "Feature")
+        sketch_feature = self.created_sketch_feature()
         self.set(sketch_feature, "Name", "CurveSketch")
         self.get(self.model, "ClearSelection2", True)
         require(bool(self.get(sketch_feature, "Select2", False, 0)), "extrusion sketch selection failed")

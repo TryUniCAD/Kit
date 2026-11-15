@@ -1,4 +1,4 @@
-# Obtain the sketch feature through its interface
+# Sketch feature casts do not guarantee mutation
 
 ## Expected
 
@@ -19,7 +19,10 @@ at the preference binding, so no later native failure is claimed.
 
 ## Workaround
 
-Query the same sketch object for its feature interface and record that cast as
-a native phase. Fail closed if the installed type library cannot provide it.
-Keep this separate from `IFeature.GetSpecificFeature2`, which retrieves the
-specific sketch interface from an existing feature.
+The proposed interface-query workaround was later exercised on both source controls.
+The query succeeded, but writing the returned feature's name failed with the native read-only-property error.
+A successful interface query therefore does not establish mutation support through that dispatch object.
+
+Use the [document traversal rule](SketchFeatureMutationNeedsDocumentTraversal.md)
+to obtain the actual history feature before naming or selecting it.
+`IFeature.GetSpecificFeature2` retrieves the specific sketch interface from that feature.
