@@ -12,7 +12,16 @@ identity and a healthy control remain required.
 
 This is a diagnostic intervention, not writer acceptance. Geometry obtained
 after an oracle changes suppression state does not count as generated-file
-success and cannot become donor output. Native execution is pending.
+success and cannot become donor output.
+
+The [controlled diagnostic](../../../re/solidworks/v2026/evidence/TupniUnsuppression.json)
+passes its original control. On the generated candidate, both explicit API
+unsuppression requests succeed, and rebuild produces one solid with volume
+`9.932000000000002e-6 m³`, area `0.003166276360558158 m²` and center
+`(0.006666666666666669, 0.007000000000000002, 0.0065) m`, without feature
+errors or warnings. Both input hashes remain unchanged. This confirms the
+diagnostic effect; native acceptance still requires a fresh generated file
+that regenerates without this intervention.
 
 The API describes [feature suppression actions](https://help.solidworks.com/2025/english/api/swconst/SolidWorks.Interop.swconst~SolidWorks.Interop.swconst.swFeatureSuppressionAction_e.html?id=e3d74be662f645ae8bcdec1c4eec3498)
 and [configuration scope](https://help.solidworks.com/2026/English/api/swconst/SOLIDWORKS.Interop.swconst~SOLIDWORKS.Interop.swconst.swInConfigurationOpts_e.html).

@@ -11,6 +11,13 @@ without open or rebuild errors, but its ordinary sketch and extrusion are
 suppressed and no body exists. Both original controls pass. The diagnostic
 vendor intervention is separate from generated-output acceptance.
 
+In the [controlled intervention](../v2026/evidence/TupniUnsuppression.json),
+the vendor API unsuppresses both features successfully and rebuilds one solid
+with the expected triangle-prism volume `9.932000000000002e-6 m³`, zero feature
+errors and no warnings. The original control remains healthy and both input
+hashes remain unchanged. That changed in-memory model is not a generated-file
+success and is never loaded by the writer.
+
 ## Native suppression rule
 
 `moBaseConfiguration_c::getSuppressedState(feature)` at `0x4bddae80` can apply

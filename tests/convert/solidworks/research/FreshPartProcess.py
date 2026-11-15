@@ -39,7 +39,7 @@ KCodecs = tuple(FindCodec(Value) for Value in ("utf-16-le", "utf-8", "latin-1"))
 
 from tests.convert.solidworks.research.Composition.PlaneOwners import ReadOwners
 from tests.convert.solidworks.research.Composition.ConfigurationProgress import (
-    ReadProgress,
+    IsProgressCurrent,
 )
 
 # explicit process input keeps generated values independent from local native files
@@ -73,7 +73,7 @@ def BuildResult() -> dict[str, object]:
         "lines": Constructed.extrusion.profile.line_count,
         "depth": Constructed.extrusion.depth,
         "plane_ownership": ReadOwners(Archive, KRegistry),
-        "configuration_progress": ReadProgress(Archive, KRegistry),
+        "configuration_progress": IsProgressCurrent(Archive, KRegistry),
         "module_reads": KAuditValue.ModuleReads,
         "denied_reads": KAuditValue.DeniedReads,
         "vendor_acceptance": "unverified",
