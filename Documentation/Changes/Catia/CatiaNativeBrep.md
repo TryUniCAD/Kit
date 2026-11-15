@@ -302,6 +302,11 @@ result = CatiaAdapter().write(
   object id, so `ISO_7089` objects `22`, `23`, and `24` hold `8.4`, `16.0`, and `1.6`, and
   `ISO_2338` object `52` holds `50.0` and object `75` holds `0.8`. The objects that carry a value
   also carry an attribute named `MAvalue`.
+- The attribute key is a single symbol byte: walking the blocks with that rule closes 1011 of 1023
+  blocks across the five parametric parts with every key inside the local symbol table
+  (362/362, 243/243, 246/246, 80/88, 80/84). The 12 exceptions are a distinct id-keyed variant
+  whose keys are consecutive integers `239..253` and whose entries carry only an int and a
+  reference, no double.
 
 ## Related information
 

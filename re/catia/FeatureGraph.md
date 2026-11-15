@@ -201,6 +201,32 @@ The remaining step is the name: the object's own name is not in its `7c 07` bloc
 `0xd7`/`0xe9` references in the parent blocks do not resolve against the `ea` object ids, so the
 name-to-object link is still open.
 
+## The attribute walker, pinned from the binary
+
+`CATOsmObjStream::ReadSpecAttribute` (`0x1800d9c90`) is traced end to end:
+
+- it peeks one byte with the helper at `0x180113360`, which reads a byte and then seeks back one, so
+  `0xfe` is a lookahead terminator for the attribute list rather than a value;
+- it then calls `this->[vtable 0x118]`; the `CATOsmObjStream` vtable (`??_7CATOsmObjStream@@6B@`,
+  `0x18024d568`) holds `0x18010f3b0` at that slot, which reads a 32-bit value into `&out` through
+  the `CATOmx` import at `0x18022b1f0`;
+- after that it reads two compact ints with `Min = 0x80`, `Max = 0x51`, `Extra = 0x14`, the same
+  constants the value reader uses.
+
+`CATWOmxBinaryStream::ReadInt` (`CATOmx.dll` `0x18004c0d0`) has two modes. When the stream mode
+field at `0x24` is `4` it reads a zig-zag varint: odd stored values decode as
+`~((stored - 1) >> 1)`, even ones as `stored >> 1`. Otherwise it reads a plain four-byte int.
+
+Decoding `7c 07` keys as a single symbol byte walks the block cleanly for almost every block.
+`OsmGraph.WalkStats` closes 1011 of 1023 blocks across the five parametric parts with every key
+inside the local symbol table: 362/362, 243/243, 246/246, 80/88, and 80/84. The 12 exceptions are a
+distinct block variant whose keys are consecutive integers just past the table end (`0xef..0xfd`,
+i.e. `239..253`), for example
+`ef 80 ca 0a 02 00 e8 d4 1a 37 fe fe` — an integer key, a `0x80`-escaped `u32`, and a reference,
+with no double. So the named attributes are symbol-keyed and the remaining variant is id-keyed, and
+the doubles that matter (`MAvalue`) are all in symbol-keyed blocks. The key side of the name link
+therefore only needs the object-to-name edge, not a different key encoding.
+
 ## Evidence
 
 - `src/convert/adapters/catia/Container.py` parses the OSMX symbol table.

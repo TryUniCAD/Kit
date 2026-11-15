@@ -223,6 +223,56 @@ def ObjectId(Segment: bytes) -> int:
     return struct.unpack_from("<I", Header, Cursor + 1)[0]
 
 
+def WalkBlock(Data: bytes, Start: int, Length: int) -> tuple[list[int], int, int]:
+    """Walk one 7c07 attribute block and return (keys, cursor, end)."""
+    Cursor = Start + 6
+    End = Start + Length
+    Keys: list[int] = []
+    while Cursor < End:
+        if Data[Cursor] == 0xFE:
+            Cursor += 1
+            continue
+        Keys.append(Data[Cursor])
+        Cursor += 1
+        while Cursor < End and Data[Cursor] != 0xFE:
+            Tag = Data[Cursor]
+            if Tag == 0xE6:
+                Cursor += 9
+            elif Tag == 0xE8:
+                Cursor += 4
+            elif Tag == 0xE9:
+                Cursor += 5
+            else:
+                Value, After = ReadPackInt(Data, Cursor, End)
+                Cursor = After if Value is not None else Cursor + 1
+        if Cursor < End and Data[Cursor] == 0xFE:
+            Cursor += 1
+    return (Keys, Cursor, End)
+
+
+def WalkStats(PathValue: Path) -> tuple[int, int, int]:
+    """Count attribute blocks whose single-byte key walk closes cleanly."""
+    Archive = CfvTwoArchive.from_bytes(PathValue.read_bytes())
+    Found = FindOsmx(Archive)
+    if Found is None:
+        return (0, 0, 0)
+    Data, Parsed = Found
+    Symbols = [Symbol.value for Symbol in Parsed.symbols]
+    Total = 0
+    Clean = 0
+    OutOfRange = 0
+    for Subtag, Start, Length in ParseRecords(Data, 104, Parsed.symbol_table_offset):
+        if Subtag != 0x07:
+            continue
+        Total += 1
+        Keys, Cursor, End = WalkBlock(Data, Start, Length)
+        if Cursor != End or any(Key >= len(Symbols) for Key in Keys):
+            OutOfRange += 1
+            continue
+        Clean += 1
+    return (Total, Clean, OutOfRange)
+
+
 def ExtractObjects(PathValue: Path) -> list[tuple[int, list[float]]]:
     Archive = CfvTwoArchive.from_bytes(PathValue.read_bytes())
     Found = FindOsmx(Archive)
@@ -311,6 +361,8 @@ def Main() -> None:
         print(f"  {Top}")
         print(f"  doubles={len(Values)} {sorted(set(round(V, 4) for V in Values))[:12]}")
         print(f"  objects={ExtractObjects(PathValue)[:8]}")
+        Total, Clean, Bad = WalkStats(PathValue)
+        print(f"  blocks={Total} clean={Clean} exceptions={Bad}")
 
 
 if __name__ == "__main__":
