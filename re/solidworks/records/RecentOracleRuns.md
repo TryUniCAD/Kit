@@ -264,3 +264,13 @@ tree holds 14 to 38 records; the model reference names `poly5a`, `poly5b`, or
 line style object blocks byte-exactly for all ten tracked drawings. The units
 table holds 18 records and is 1,510 bytes; it differs across drawings only at
 one class reference index.
+
+### Definition sheet and view values
+
+`DefinitionValues` decoded the `moDrSheet` and `moView_c` blocks into typed
+records and re-serialized them byte-exactly for all ten tracked drawings. The
+sheet record is `Sheet1` with scale `-2.0` and a count of `4`, `7`, `6`, `5`,
+`5`, `4`, `5`, `4`, or `4`. The view block holds ten slots: `*Full Sheet`
+followed by nine `Unused` slots with indices 0 to 9. The view payload is not
+eight-byte aligned; it starts with a one-byte prefix and carries two-byte and
+three-byte gaps.

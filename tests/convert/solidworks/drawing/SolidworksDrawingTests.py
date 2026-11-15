@@ -13,6 +13,13 @@ from convert.adapters.solidworks.container.Container import (
     SldprtFormatError,
 )
 from convert.adapters.solidworks.drawing import DrawingData, ReadDrawing, WriteDrawing
+from convert.adapters.solidworks.drawing.DefinitionObjects import ObjectBlocks
+from convert.adapters.solidworks.drawing.DefinitionValues import (
+    EncodeSheet,
+    EncodeViewBlock,
+    SheetRecordAt,
+    ViewBlock,
+)
 
 # tracked drawings prove the reader against real solidworks authored sheets
 KDrawRoot = (
@@ -39,6 +46,33 @@ def TestOpen() -> None:
         assert isinstance(DataValue, DrawingData)
         assert DataValue.Name == KExpected[NameValue][0]
         assert DataValue.SourcePath.endswith(NameValue)
+
+
+# the definition sheet and view blocks must decode to the authored values
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestValues() -> None:
+    Counts = {
+        "angled.SLDDRW": 6,
+        "minimal.SLDDRW": 5,
+        "standard.SLDDRW": 7,
+    }
+    for NameValue, CountValue in Counts.items():
+        DataValue = SldprtArchive.open(KDrawRoot / NameValue).require(
+            "Contents/Definition"
+        )
+        SheetValue = ObjectBlocks(DataValue, "moDrSheet", "moRefPlane_c")[0]
+        SheetRecord = SheetRecordAt(SheetValue.Values)
+        assert SheetRecord.NameValue == "Sheet1"
+        assert SheetRecord.Scale == PytestLib.approx(-2.0)
+        assert SheetRecord.Count == CountValue
+        assert EncodeSheet(SheetRecord)[2:] == SheetValue.Values[2:]
+        ViewValue = ObjectBlocks(DataValue, "moView_c", "moSketchBlockMgr_c")[0]
+        Records, TailValue = ViewBlock(ViewValue.Values)
+        assert len(Records) == 10
+        assert Records[0].NameValue == "*Full Sheet"
+        assert [Record.NameValue for Record in Records[1:]] == ["Unused"] * 9
+        assert [Record.Index for Record in Records] == list(range(10))
+        assert EncodeViewBlock(Records, TailValue) == ViewValue.Values
 
 
 # sheet geometry and view composition must match what solidworks authored
