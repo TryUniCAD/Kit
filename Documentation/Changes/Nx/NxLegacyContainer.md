@@ -71,6 +71,33 @@ made the modern table unemittable. What remains is the schema name, a per-schema
 name and the `+0x34` value, and that value is the descriptor immediate at the class's registration
 site, which is already extractable (slot `0x28`, 90 of 90 sites; see `NxClassRegistryApi.md`).
 
+## Only the class name is validated
+
+The legacy stream is stored in OLE2 sectors, so a same-length edit can be patched into the file
+without rewriting the container. Four copies of `flange.prt` were built that way and loaded:
+
+```text
+leg_control.prt   byte copy                                           bodies 1  volume 75385.625261497
+leg_value.prt     RootObject value 55 -> 54                            bodies 1  volume 75385.625261497
+leg_schema.prt    schema UGS::OM::Meta -> UGS::OM::MetX                bodies 1  volume 75385.625261497
+leg_rename.prt    class UGS::OM::RootObject -> UGS::OM::RootObjecX     OPEN_FAILED
+```
+
+so in this container the **class name is the only validated field**: the `+0x34` value can be altered
+and the schema name can be altered, and the part still loads with identical geometry. That is the
+opposite of the modern container, where a one-bit change to the per-class code or to the tail is
+rejected (see `NxClassTableScope.md`).
+
+For a writer this means the legacy class table can be emitted from the class list alone:
+
+```text
+0x06 <u16 len> <schema name> <u32 schema flag> <u16 len> <class name> <u32 value>
+```
+
+with the class names being the only values that must be the loader's own, and those are the names of
+the classes the part actually uses. The schema names and the `+0x34` values should still be written
+correctly — they are registration-site data — but they are no longer a gate.
+
 ## Limits
 
 - The legacy payload writer is not implemented. This entry establishes the class table only.
@@ -78,5 +105,6 @@ site, which is already extractable (slot `0x28`, 90 of 90 sites; see `NxClassReg
   are the whole evidence base, and `wave_parent.prt` did not yield the table at the anchor the other
   two use, so its layout differs.
 - `Writer.py` still raises for a neutral document. The modern container remains unwritable because
-  of the validated class table, and no part has been authored in either container yet.
+  of the validated class table, and no part has been authored in either container yet: what is
+  established here is that the legacy table is not a gate, not that the legacy payload is written.
 - `re/nx/examples/` holds these parts; nothing from it is copied into `src/`.
