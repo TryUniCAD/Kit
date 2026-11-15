@@ -1,6 +1,6 @@
 # Generated model visual properties in SOLIDWORKS 2026
 
-Status: shared research constructor implemented; native remeasurement pending.
+Status: generated visual state passes clean native opening; the part has no body.
 Production writing remains disabled. No saved appearance values or payloads are
 inputs to this constructor.
 
@@ -110,7 +110,23 @@ record and distinct profile ownership. Its existing strict construction boundary
 denies runtime file reads and process launches; linked stream maps and byte
 identity remain required. These checks run only in remote PR CI.
 
-Static syntax inspection is not native acceptance. The original null-source
-fault is measured evidence; the new graph still needs an independently generated
-artifact, controlled native opening, clean rebuild, geometry comparison and edit
-acceptance before it can be called correct.
+Head `60d01ec0de6937602c10980d6eddf6a43605cf7e` passed remote job
+`132812541055`: 149 policy checks, 163 native checks and 158 existing skips.
+Artifact `14160779989` binds to synthetic merge
+`d35a0b352abece4095b2843ec8c6cb673b2b71d1`, whose parents include that head.
+The new H3 candidate is 7,061 bytes, SHA-256
+`f3a2169124976ca55524bc83ef6c2f6c5825baea912900b411a9e5bfad8af079`.
+All eight modeled stream checks passed, the computed map counter is 71, and
+the complete-file ownership and strict runtime access checks passed.
+
+The [clean native measurement](../measurements/2026/FreshPartModelAppearance.json)
+opens that exact generated file and completes all fourteen measurement stages
+between two healthy original controls, on verified build `34.5.2.0604`.
+It reports zero open errors, warnings, rebuild errors and feature errors or
+warnings, with no dialogs or cleanup errors. Both locked inputs remain unchanged.
+
+The feature tree contains the named sketch and extrusion with depth `0.013 m`,
+but both are suppressed. Body count, volume and area are zero. This closes the
+specific null-source opening failure; it does not establish a geometric or
+editable generated part. Configuration state and native regeneration remain
+unfinished, and generated-output acceptance remains zero.

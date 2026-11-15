@@ -87,7 +87,10 @@ The display-state service's fallback at `0x327aad45` reads concept member
 model builder previously left this pointer null. The
 [visual construction record](VisualConstruction2026.md) now derives its owned
 visual object and mandatory material member from native default constructors.
-Generated native remeasurement is pending.
+The [next clean measurement](../measurements/2026/FreshPartModelAppearance.json)
+now opens the generated replacement without errors or warnings between healthy
+controls. Its sketch and extrusion are suppressed and body count is zero.
+The null-source opening defect is repaired; geometric acceptance is unfinished.
 
 The system-exception backtraces also contain non-code values in the healthy
 control. No unvalidated frame is treated as a call-chain fact. No exception is

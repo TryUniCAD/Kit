@@ -432,8 +432,11 @@ Neither missing ordinary-sketch solve observations nor destructor-side body
 collection identifies this earlier failure. The owning serialized field and
 constructor state are now recorded in [VisualConstruction2026.md](VisualConstruction2026.md).
 The shared model builder generates that owned graph from native constructor
-rules. Its new output still requires remote construction and controlled native
-remeasurement; the diagnostic trace does not establish the repair's acceptance.
+rules. The [new generated artifact measurement](../measurements/2026/FreshPartModelAppearance.json)
+passes clean native opening and a public rebuild with no errors or warnings.
+The original controls pass, but the generated sketch and extrusion are suppressed
+and no body exists. The next recovery boundary is configuration state; native
+generated-output acceptance remains zero.
 
 A new REA pseudocode request for the origin initializer returned no analysis:
 the Hopper bridge exceeded its startup timeout, and authenticated document

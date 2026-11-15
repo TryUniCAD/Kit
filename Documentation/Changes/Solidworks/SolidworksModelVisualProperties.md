@@ -12,7 +12,13 @@ saved file. The active registry's explicit presence flags describe constructor-n
 texture and shader children. Field order, constants and derived empty collections
 are documented in the [visual construction record](../../../re/solidworks/records/VisualConstruction2026.md).
 
-The existing complete-file process checks now inspect serialized model appearance
-and ownership after decoding. They run in remote PR CI only. The prior fault is
-captured with a healthy control; remote construction and native remeasurement of
-this revision remain pending. Production SOLIDWORKS writing remains disabled.
+The complete-file process checks inspect serialized model appearance and
+ownership after decoding. Remote job `132812541055` passed 149 policy checks,
+163 native checks and 158 existing skips. The independently generated replacement
+now opens and rebuilds without errors or warnings between two healthy controls
+on build `34.5.2.0604`; both locked inputs remain unchanged.
+
+The [native report](../../../re/solidworks/measurements/2026/FreshPartModelAppearance.json)
+also shows that the sketch and extrusion remain suppressed and no body exists.
+This repairs the specific opening fault; generated-output acceptance remains
+zero. Production SOLIDWORKS writing remains disabled.

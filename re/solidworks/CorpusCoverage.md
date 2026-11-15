@@ -1,6 +1,6 @@
 # FCStd to SOLIDWORKS corpus coverage
 
-Status: **no SOLIDWORKS output**. Kit reads SOLIDWORKS files and writes none. FCStd to SLDPRT or
+Status: **no production writing or accepted generated output**. Kit reads SOLIDWORKS files and writes none through its public adapter. FCStd to SLDPRT or
 SLDASM conversion raises `AdapterNotFoundError` for all 165 repository FCStd files. The writer
 measured below re-emitted one recorded vendor stream per family, so it was removed from production.
 See `Documentation/Changes/Solidworks/SolidworksRecordedPayloadRemoval.md`.
@@ -8,6 +8,18 @@ See `Documentation/Changes/Solidworks/SolidworksRecordedPayloadRemoval.md`.
 The figures below are the last audit of that removed writer. They record which source histories it
 accepted and which oracle checks it passed. They are research evidence for a generative serializer,
 not current capability.
+
+## Generative 2026 research
+
+The independent research composer generates fresh native containers and streams
+from neutral polygon and depth inputs without saved-stream inputs. This is not
+the public adapter and does not count toward the 165-file conversion target.
+
+The [latest controlled measurement](measurements/2026/FreshPartModelAppearance.json)
+opens the generated H3 part and rebuilds without errors or warnings between
+healthy original controls. Its sketch and extrusion are suppressed and it has
+zero bodies. Accepted generated outputs therefore remain **zero**; no native
+assembly or feature-family acceptance is established.
 
 ## Last audit of the removed writer
 
