@@ -448,23 +448,33 @@ three fields are derived. The closing count is 16 for `d = 3` but 34 for `d = 6`
 the same function of `d`, and the marker byte differs (`21` against `41`), so the closing count
 is not derived yet.
 
-A parts-with-more-dimensions fixture was attempted to test the closing count. A journal that
-commits a block and then a cylinder saved `var_d5.prt` with five expressions (`p0`..`p4`), but
-the cylinder builder refused every sizing call (`CylinderBuilder` has no `SetOriginAndSize`),
-and its two dimension expressions were left undriven: the part carries **26** objects, which is
-`6 + 6*3 + 2` — three dimensions plus two spares — and its occupancy object is byte identical
-to `dim40`'s. So the attempt produced spares rather than dimensions and gave no third point.
-
-The candidate rule for the closing count is `5d + count(fe) + 1`, which fits both measured
-objects exactly:
+A third data point was obtained by committing **three** block features in one journal
+(`var_d9.prt`, nine dimension expressions, 60 objects). Its occupancy object is 69 bytes, the
+same length as `var_two`'s, and it settles the two open fields:
 
 ```text
-d = 3   15 ids + 0 fe + 1 = 16    measured 16
-d = 6   30 ids + 3 fe + 1 = 34    measured 34
+part       d   objects  open  marker  close  ids  fe   map
+dim40      3        24  0x10  0x21    0x10   15   0   32
+var_two    6        42  0x1f  0x41    0x22   30   3   64
+var_d9     9        60  0x2e  0x41    0x32   45   4   64
 ```
 
-two points are a fit, not a derivation, and the marker byte (`21` against `41`) is still
-unexplained, so `ExprSection.ExprOccupancy(Dimensions)` returns the measured `d = 3` object,
+three relations now hold on all three parts, and the third was predicted before the fixture
+was measured:
+
+```text
+open    = 5d + 1                     16, 31, 46
+close   = 5d + count(fe) + 1         16, 34, 50   (predicted 50, measured 0x32 = 50)
+marker  = map + 1                    33 = 0x21, 65 = 0x41, 65 = 0x41
+map     = smallest power of two > 5d + 2     32, 64, 64
+```
+
+so the frame of the object is derived. What is **not** derived is where the `5d` ids land in
+the map and where the `fe` bytes go: `var_two` writes `43 44 45 46 47 48 fe 49 fe 4a 4b 4c`
+and `var_d9` writes four `fe` bytes at other positions, so the layout is hash-driven like the
+names lane.
+
+`ExprSection.ExprOccupancy(Dimensions)` returns the measured `d = 3` object,
 byte identical on every fixture that has one, and raises for any other count rather than
 extrapolating. That unblocks a three-dimension composer and nothing else.
 
