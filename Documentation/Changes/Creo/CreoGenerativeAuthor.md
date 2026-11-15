@@ -398,8 +398,28 @@ authored 923 array: 1037  csys tail still vendor-sourced: 351 bytes
 !MT_CUST - Applied settings for mode # 1 : MT Part Solid
 ```
 
-So `FeatDefsDtm`'s datum array is authored and accepted. The `feat_defs_979` csys field remains 351
-vendor-sourced bytes and is the last generated gap in the section.
+So `FeatDefsDtm`'s datum array is authored and accepted.
+
+The `feat_defs_979` csys record is now authored too. `Author.CsysReplay` reproduces its 351 bytes
+exactly, including the wider `place_instruction_ptrs` array (`f8 07`), the several instructions with
+distinct `geometry1_id` values, the inline `data(plin_info_ref_uv)`/`uv_val` declaration, and a
+transform of type `10` rather than `11`:
+
+```text
+ref 351 mine 351 equal True
+```
+
+`Author.DefaultFeatDefsDtm(Extent)` emits the whole section, and it is byte-identical to the control
+when given the control extent (`control-equal: True 1441 1441`). `EmptyPartSections` now includes it,
+so 40 bodies are authored:
+
+```text
+sections 40  bytes 31271  delta -50268
+!15-Nov-26 02:07:15  End   C:\Mac\Home\Documents\creo-authored\auth40.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid
+```
+
+`FeatDefsDtm` therefore has no vendor-sourced content.
 
 ## Limits
 

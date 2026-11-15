@@ -136,8 +136,45 @@ authored 923 array: 1037  csys tail still vendor-sourced: 351 bytes
 !MT_CUST - Applied settings for mode # 1 : MT Part Solid
 ```
 
-So the authored datum array is accepted with our own values. The `feat_defs_979` csys field is still
-351 vendor-sourced bytes, and it is the last content in the section that is not generated.
+So the authored datum array is accepted with our own values.
+
+## The `feat_defs_979` csys record
+
+The csys is a single-element array of class `53`, introduced by `e0 00 feat_defs_979 00 f2 f8 01 f7 35
+fb e3` and then replayed. It differs from a plane record in four ways:
+
+- it selects `id` explicitly with `f7 03`;
+- `place_instruction_ptrs` declares a wider array (`f8 07`), and it carries several instructions with
+  different `geometry1_id` values (`6`, `8`, `4`, `6`, `8`);
+- each instruction's `plin_info_arr` may declare a new field inline,
+  `e0 00 data(plin_info_ref_uv) 00 e3 e0 02 uv_val 00 f8 02 18 e4 f2` — a mid-array declaration that
+  is legal here because the record is last, so nothing after it reads through the shifted index;
+- the transform is type `10`, not `11`, and `ent_outl` is `18 e7 05` (six zeros).
+
+`Author.CsysReplay` reproduces it byte for byte:
+
+```text
+ref 351 mine 351 equal True
+```
+
+## Whole-section generation
+
+`Author.DefaultFeatDefsDtm(Extent)` emits the complete section: the `Sld_FeatDefsDtm` header, the
+`feat_defs_923` array with three records, and the `feat_defs_979` csys record.
+
+```text
+control-equal: True  1441 1441
+```
+
+With a non-control extent the section still loads:
+
+```text
+dtm12  bytes 31271  dtm 1428  control 1428  diff bytes 56
+!15-Nov-26 02:06:27  End   C:\Mac\Home\Documents\creo-authored\dtm12.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid
+```
+
+So `FeatDefsDtm` now has no vendor-sourced content.
 
 ## Next
 

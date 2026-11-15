@@ -387,6 +387,7 @@ def EmptyPartSections(FeatureClasses: tuple[int, ...]) -> dict[str, bytes]:
     Bodies = AuthoredSections(FeatureClasses)
     Bodies.update(MinimalSections())
     Bodies["BasBasData"] = DefaultBasBasData()
+    Bodies["FeatDefsDtm"] = DefaultFeatDefsDtm(254.33012701892218)
     return Bodies
 
 
@@ -600,3 +601,114 @@ def DatumPlaneReplay(
     Payload += RunValues(Outline)
     Payload += b"\xE1\xE1\xE1\xE3\xC0\xAB\xCD\xE1\xE1"
     return Payload
+
+
+def CsysReplay(
+    CsysId: int, Columns: tuple[tuple[float, ...], ...], Outline: tuple[float, ...]
+) -> bytes:
+    Frame = tuple(Value for Column in Columns for Value in Column)
+    Payload = b"\xE0\x00feat_defs_979\x00\xF2\xF8\x01\xF7\x35\xFB\xE3"
+    Payload += b"\xF7\x03" + IntValue(CsysId)
+    Payload += b"\xF6" + IntValue(2) + b"\xE1\xE3"
+    Payload += RunValues(Frame)
+    Payload += b"\xF6" + IntValue(0)
+    Payload += b"\xF8\x07\xF7\x0B\xFB\xE3"
+    Payload += b"\xF7\x0C\x84\xD8" + ScalarValue(0.0)
+    Payload += b"\xF6\xF6" + IntValue(6) + b"\xF6\x00\x00\x00\xE5"
+    Payload += b"\xF8\x02\xF7\x15\xFB\xE3"
+    Payload += b"\xF7\x16\x35"
+    Payload += b"\xE0\x00data(plin_info_ref_uv)\x00\xE3"
+    Payload += b"\xE0\x02uv_val\x00\xF8\x02\x18\xE4\xF2"
+    Payload += b"\xF7\x15\xE3" + IntValue(6)
+    Payload += b"\xF7\x1B\xE3\xF5\x64\x00\x18\xE4\xF1"
+    Payload += b"\xF7\x0B\xE3\x84\xD8\x18\xF6\xF6" + IntValue(8) + b"\xF6\x00\x00\x00\xE5"
+    Payload += b"\xF8\x02\xF7\x15\xFB\xE3\xF7\x16\x35\xF7\x36\xE3\x18\xE4"
+    Payload += b"\xE3" + IntValue(6)
+    Payload += b"\xF7\x1B\xE3\xF5\x64\x00\x18\xE4"
+    Payload += b"\xE3\x84\xD8\x18\xF6\xF6" + IntValue(4) + b"\xF6\x00\x00\x00\xE5"
+    Payload += b"\xF8\x02\xF7\x15\xFB\xE3\xF7\x16\x35\xF7\x36\xE3\x18\xE4"
+    Payload += b"\xE3" + IntValue(6)
+    Payload += b"\xF7\x1B\xE3\xF5\x64\x00\x18\xE4"
+    Payload += b"\xE3\x9D\x4C\x18\xF6\xF6" + IntValue(6) + b"\xF6\x00\x00\x00\xE5"
+    Payload += b"\xF8\x01\xF7\x15\xFB\xE3\xF7\x16" + IntValue(6)
+    Payload += b"\xE3\xF5\x64\x00\x18\xE4"
+    Payload += b"\xE3\x84\xF6\x2F\x08\x00\xF6\xF6\xF6\xF6\x00\x00\x00\xE5"
+    Payload += b"\xF8\x01\xF7\x15\xFB\xE3\xF7\x16" + IntValue(6)
+    Payload += b"\xE3\xF5\x64\x00\x18\xE4"
+    Payload += b"\xE3\x84\xF7\x48\x00\x00\xF6\xF6\xF6\xF6\x00\x00\x00\xE5"
+    Payload += b"\xF8\x01\xF7\x15\xFB\xE3\xF7\x16" + IntValue(6)
+    Payload += b"\xE3\xF5\x64\x00\x18\xE4"
+    Payload += b"\xE3\x9D\x55\x18\xF6\xF6" + IntValue(8) + b"\xF6\x00\x00\x00\xE5"
+    Payload += b"\xF8\x01\xF7\x15\xFB\xE3\xF7\x16" + IntValue(6)
+    Payload += b"\xE3\xF5\x64\x00\x18\xE4\xF2"
+    Payload += b"\xF7\x1F\xF8\x01\xF7\x1F\xFB\xE3\xF7\x20" + IntValue(10)
+    Payload += b"\xF6" + IntValue(0)
+    Payload += RunValues(Frame)
+    Payload += b"\xE1\xE1\xF6\xE1\xE1\xF6\xE1\xE1\xE3"
+    Payload += RunValues(Outline)
+    Payload += b"\xE1\xE1\xE1\xE3\xC0\xAB\xCD\xE1\xE1\xF3"
+    return Payload
+
+
+def FeatDefsDtmPayload(
+    Planes: tuple[tuple[int, int, int, tuple[tuple[float, ...], ...], tuple[float, ...], int], ...],
+    CsysId: int,
+    CsysColumns: tuple[tuple[float, ...], ...],
+    CsysOutline: tuple[float, ...],
+) -> bytes:
+    Payload = StructBegin("Sld_FeatDefsDtm")
+    Payload += FieldValue(
+        0,
+        "feat_defs_923",
+        b"\xF8" + IntValue(len(Planes)) + b"\xF7\x02\xFB",
+    )
+    for IndexValue, Plane in enumerate(Planes):
+        DatumId, Orient, Geometry2Id, Columns, Outline, InstructionType = Plane
+        if IndexValue == 0:
+            Payload += DatumPlaneRecord(
+                DatumId, Orient, Geometry2Id, Columns, Outline, InstructionType
+            )
+        else:
+            Payload += DatumPlaneReplay(
+                DatumId,
+                Orient,
+                Geometry2Id,
+                Columns,
+                Outline,
+                InstructionType,
+                b"\xF7\x02" if IndexValue == 1 else b"",
+            )
+    Payload += CsysReplay(CsysId, CsysColumns, CsysOutline)
+    return SectionValue("FeatDefsDtm", Payload)
+
+
+def DefaultFeatDefsDtm(Extent: float) -> bytes:
+    First = ((1.0, 0.0, 0.0, 0.0),) * 3
+    Second = (
+        (0.0, 1.0, 0.0, 0.0),
+        (0.0, 1.0, 1.0, 0.0),
+        (0.0, 0.0, 0.0, 0.0),
+    )
+    Third = (
+        (0.0, 0.0, 1.0, 1.0),
+        (0.0, 0.0, 0.0, 1.0),
+        (0.0, 0.0, 0.0, 0.0),
+    )
+    Front = (Extent, Extent, 0.0, -Extent, -Extent, 0.0)
+    Top = (Extent, 0.0, Extent, -Extent, 0.0, -Extent)
+    Right = (0.0, Extent, Extent, 0.0, -Extent, -Extent)
+    Csys = (
+        (1.0, 0.0, 0.0, 0.0, 0.0),
+        (1.0, 0.0, -1.0, 0.0, 0.0),
+        (0.0, 0.0),
+    )
+    return FeatDefsDtmPayload(
+        (
+            (7, 1, 8, First, Front, 515),
+            (5, 1, 6, Second, Top, 514),
+            (3, 1, 4, Third, Right, 513),
+        ),
+        11,
+        Csys,
+        (0.0,) * 6,
+    )
