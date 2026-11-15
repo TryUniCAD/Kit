@@ -48,6 +48,13 @@ This change was made **without a Creo run** — the guest agent is still unreach
 47-row artifact is unverified. The verification that it replaces a contradiction with agreement is byte-level, not
 a load.
 
+**The verification host is down and needs a console sign-in.** After a `modelcheck.bat` run wedged the guest
+agent, the VM then stuck in `stopping`, where `stop`, `stop --kill` and `reset` all refused; the stuck
+`prl_vm_app` process had to be terminated on the host before it would restart. It is `running` again but shows no
+IP address and refuses every exec session, so `hybrid949` is still **unlaunched**. See
+[the Parallels gotcha](../../Gotchas/Conversion/ParallelsExecNeedsSignIn.md). Nothing in this session can complete
+the missing step, which is a sign-in at the VM console.
+
 **The verification host itself is now unavailable.** A `modelcheck.bat` run wedged the Windows guest agent, and the
 forced restart that followed left `prlctl exec` unable to open a session until someone signs in at the VM console
 — see [the Parallels gotcha](../../Gotchas/Conversion/ParallelsExecNeedsSignIn.md). So the last planned experiment

@@ -22,6 +22,28 @@ The trigger is worth recording: a `modelcheck.bat` run wedged the guest agent (e
 all, while `prlctl list` still said `running`), and the forced restart that followed did not bring exec back
 without a sign-in.
 
+## The VM can also wedge in `stopping`, and `prlctl` cannot clear it
+
+After the agent wedged, `prlctl stop`, `prlctl stop --kill` and `prlctl reset` all refused with:
+
+```text
+Failed to stop the VM: Unable to complete the operation. This operation cannot be completed because
+"Windows 11" is in the "stopping" state.
+```
+
+and `prlctl list --all` kept reporting `stopping` indefinitely — the hypervisor process itself was stuck. Clearing it
+needed the host side:
+
+```text
+ps -Ao pid,etime,command | grep prl_vm_app      # the stuck process, 43 minutes old
+kill -9 <pid>                                    # VM then reports `stopped`
+prlctl start "Windows 11"
+```
+
+That restores the VM to `running`, but **not** to a working exec session: `prlctl list` still shows no IP address and
+both the default and `--current-user` sessions fail with `Unable to open new session`, which is consistent with
+Windows sitting at its sign-in screen with Parallels Tools not yet serving.
+
 ## Workaround
 
 Sign in to the Windows VM on the console (Parallels Desktop → the VM window), then `prlctl exec` works again.
