@@ -281,6 +281,28 @@ of id objects — and what remains is a less direct route, such as ids resolved 
 at load time or registered when a class is first instantiated. Either way it is loader-time data
 rather than a table this branch can read out of the module statically.
 
+## The modern field is a tag byte plus a width the tag selects
+
+Reading the first records of the migrated part's section 0 middle with exact boundaries:
+
+```text
+7f                      leading byte, 127
+12 "first_record_area"                 80 cf           tag 0x80, 1 value byte, 207
+1c "m_calculatorRegisterValues"        84 81 80 92     tag 0x84, 3 value bytes, 9601153
+0f "m_nextInstance"                    83 ef 80 92     tag 0x83, 3 value bytes, 9601263
+1d "m_savedAdvancedDisplayFacets"      83 f1 80 92     tag 0x83, 3 value bytes, 9601265
+14 "m_saveDisplayFacets"               83 ee 15        tag 0x83, 2 value bytes, 5614
+10 "m_cachedBodyBoxC"                  11              no tag, 1 byte, 17
+```
+
+so the field is `<tag><value>` where the tag selects the width, and the width is not
+`0x80 | (width - 1)`: tag `0x80` carries one byte, `0x83` carries two or three, `0x84` carries three.
+The three-byte values are sequential (`9601153`, `9601263`, `9601265`), which is the shape of an id
+rather than a measurement.
+
+The legacy object region does not use this encoding: it begins `6b 6f 6b 72` (`kokr`), not a tag byte,
+so the modern field grammar does not transfer to it. That is the limit of the differential.
+
 ## The differential has one shared name, and its two values are not the same quantity
 
 Comparing the two files by attribute name gives exactly one name present in both object regions:
