@@ -621,7 +621,8 @@ def CsysReplay(
     Payload += b"\xE0\x02uv_val\x00\xF8\x02\x18\xE4\xF2"
     Payload += b"\xF7\x15\xE3" + IntValue(6)
     Payload += b"\xF7\x1B\xE3\xF5\x64\x00\x18\xE4\xF1"
-    Payload += b"\xF7\x0B\xE3\x84\xD8\x18\xF6\xF6" + IntValue(8) + b"\xF6\x00\x00\x00\xE5"
+    Payload += b"\xF7\x0B\xE3\x84\xD8\x18\xF6\xF6"
+    Payload += IntValue(8) + b"\xF6\x00\x00\x00\xE5"
     Payload += b"\xF8\x02\xF7\x15\xFB\xE3\xF7\x16\x35\xF7\x36\xE3\x18\xE4"
     Payload += b"\xE3" + IntValue(6)
     Payload += b"\xF7\x1B\xE3\xF5\x64\x00\x18\xE4"
@@ -651,7 +652,9 @@ def CsysReplay(
 
 
 def FeatDefsDtmPayload(
-    Planes: tuple[tuple[int, int, int, tuple[tuple[float, ...], ...], tuple[float, ...], int], ...],
+    Planes: tuple[
+        tuple[int, int, int, tuple[tuple[float, ...], ...], tuple[float, ...], int], ...
+    ],
     CsysId: int,
     CsysColumns: tuple[tuple[float, ...], ...],
     CsysOutline: tuple[float, ...],
