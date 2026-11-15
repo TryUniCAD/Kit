@@ -123,3 +123,11 @@ instead of the original vendor-saved control used in earlier healthy oracle
 runs. This capture is discarded for inference; the cause of its process death
 is not attributed to redaction without further evidence. Subsequent oracle
 jobs explicitly identify the original control by its separate SHA-256.
+
+Response files use the standard `@path` argument form, with one complete
+argument per line. The runner records their digests and the actual working
+directory. This keeps Parallels commands short without changing the oracle's
+working directory. The authoring action now inspects controls read-only through
+the previously successful retained-controller path and records the control
+digest. A second authoring setup also failed before creating a case; no solver
+rule is inferred from either failed control.

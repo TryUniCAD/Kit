@@ -9,6 +9,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "sw2026"))
 
 import Author
 import Swapp
+from ExerciseSolidworks import exercise as inspect_control
 from InspectFresh import healthy
 
 
@@ -72,6 +73,7 @@ def exercise(path, prepared):
         "authority": "native-authoring-lifecycle-observation",
         "instruction_taint": False,
         "controls_share_instrumented_process": True,
+        "control": {"path": job["control"], "sha256": hashlib.sha256(Path(job["control"]).read_bytes()).hexdigest(), "read_only": True},
         "specifications_sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
         "author_helper_sha256": hashlib.sha256(Path(Author.__file__).read_bytes()).hexdigest(),
         "oracle_helper_sha256": hashlib.sha256(Path(Swapp.__file__).read_bytes()).hexdigest(),
@@ -81,14 +83,14 @@ def exercise(path, prepared):
     report = output / "Authoring.json"
     try:
         trace.markphase("control-before")
-        record["control_before"] = Swapp.measure(controller, job["control"])
+        record["control_before"] = inspect_control(Path(job["control"]), prepared)
         if not healthy(record["control_before"]):
             raise RuntimeError("instrumented authoring control failed before observation")
         for spec in cases:
             record["cases"].append(author_case(controller, trace, spec, output))
             report.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
         trace.markphase("control-after")
-        record["control_after"] = Swapp.measure(controller, job["control"])
+        record["control_after"] = inspect_control(Path(job["control"]), prepared)
         record["controls_healthy"] = healthy(record["control_after"])
         if not record["controls_healthy"]:
             raise RuntimeError("instrumented authoring control failed after observation")

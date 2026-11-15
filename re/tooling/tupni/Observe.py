@@ -23,7 +23,7 @@ def image_identity(path):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Capture bounded native research observations with an explicit Frida realm")
+    parser = argparse.ArgumentParser(description="Capture bounded native research observations with an explicit Frida realm", fromfile_prefix_chars="@")
     parser.add_argument("--frida-dir", type=Path, required=True)
     parser.add_argument("--process", required=True)
     parser.add_argument("--pid", type=int)
@@ -44,7 +44,8 @@ def main():
     sys.path.insert(0, str(args.frida_dir))
     record = {
         "authority": "native-api-boundary-observation", "instruction_taint": False,
-        "host": {"platform": platform.platform(), "machine": platform.machine()},
+        "host": {"platform": platform.platform(), "machine": platform.machine(), "working_directory": str(Path.cwd())},
+        "argument_files": [image_identity(Path(value[1:])) for value in sys.argv[1:] if value.startswith("@")],
         "frida_directory": str(args.frida_dir),
         "process_name": args.process, "pid_requested": args.pid, "realm": args.realm,
         "script_path": str(args.script), "script_sha256": hashlib.sha256(source).hexdigest(),
