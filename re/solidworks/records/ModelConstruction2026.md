@@ -413,7 +413,7 @@ Global getter `0x3c752350` reads the first word of version singleton
 `0x3ce97b90`, returned by `0x3c7522d0`.
 These are static routing rules; the generated candidate's actual version
 selection still needs the parent-owned native observation.
-See [part serialization dispatch](../../../Documentation/Gotchas/Conversion/Solidworks/PartSerializeDispatchUsesArchiveContext.md).
+See [part serialization dispatch](../../../Documentation/Gotchas/Conversion/Solidworks/Model/PartSerializeDispatchUsesArchiveContext.md).
 
 ### Shared and concrete fields
 
@@ -440,7 +440,7 @@ partitioned into `98` common and `34` part-only fields with no overlap.
 This is source-structure evidence, not a newly executed graph or native
 assembly acceptance. The existing subprocess check exercises `part_root`
 through this shared path when remote CI runs it.
-See [model offset ownership](../../../Documentation/Gotchas/Conversion/Solidworks/ModelOffsetsAreTypeSpecific.md).
+See [model offset ownership](../../../Documentation/Gotchas/Conversion/Solidworks/Model/ModelOffsetsAreTypeSpecific.md).
 
 `part_root` and `part_graph` construct the base part and its principal planes.
 They require generated detail definitions, explicit document and analysis unit
