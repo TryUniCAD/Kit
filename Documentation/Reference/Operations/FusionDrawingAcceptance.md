@@ -118,6 +118,19 @@ the reader tracks the file.
 | View position comes from `VIEWPORT.Center`     | [gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionDrawingViewPosition.md) |
 | Read-only uploads never save                   | [gotcha](../../Gotchas/Conversion/Fusion/Drawing/FusionPersonalReadOnlySave.md) |
 
+## Known limits from review
+
+Three limits were raised against this record and are accepted as limits, not fixed:
+
+| Limit | Effect |
+| ----- | ------ |
+| Opaque class tails | The DWG projection keeps common-only objects with opaque class tails, so the model is typed where Kit knows the class and opaque where it does not. C3 covers the typed portion. |
+| Nonparametric drawings | A drawing has no feature tree, so `EmitDrawing` emits a drawing that is not parametric. C4 is not met for drawings, and the writer does not refuse them. |
+| Authoring gate | `AuthorDwg` writes a placeholder header tail, and `BuildBundle` packages it, so the authoring path emits a drawing Fusion rejects instead of refusing. |
+
+The third limit is the one that matters most: the criteria say a writer that cannot make a field from
+format knowledge must refuse the input, and the authoring path does not refuse.
+
 ## What would change the verdict
 
 Either a document-level field that Fusion accepts in place of the integrity check, or an explicit
