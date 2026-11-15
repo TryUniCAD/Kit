@@ -35,8 +35,9 @@ def IntValue(Value: int) -> bytes:
 # geometry needs doubles emitted in the vendor compact form
 def DoubleValue(Value: float) -> bytes:
     RawValue = PackValue(">d", Value)
-    if RawValue[0] in (0x40, 0xC0) and RawValue[7] == 0x00:
-        return KDoublePrefix[RawValue[0]] + RawValue[1:8]
+    Prefix = KDoublePrefix.get(RawValue[0])
+    if Prefix is not None:
+        return Prefix + RawValue[1:]
     return b"\x52" + RawValue
 
 
@@ -178,31 +179,48 @@ def PlaneValues(
 
 # the first array element must carry every field header
 def PlaneDefine(
-    GeomValue: int, Values: tuple[float, ...], FeatureId: int = 74
+    GeomValue: int,
+    Values: tuple[float, ...],
+    FeatureId: int = 74,
+    NextGeomId: int = 82,
 ) -> bytes:
     Payload = NameValue("geom_id") + IntValue(GeomValue)
     Payload += NameValue("geom_type") + IntValue(34)
     Payload += NameValue("feat_id") + IntValue(FeatureId)
+    Payload += NameValue("orient") + SignedInt(-1)
+    Payload += NameValue("boundary_type") + SignedInt(0)
+    Payload += NameValue("next_geom_ptr") + SignedInt(NextGeomId)
     Payload += b"\xe0\x02envlp\x00\xf9" + IntValue(2) + IntValue(2)
-    Payload += b"".join(DoubleValue(Value) for Value in (0.0, 1.0, 1.0, 0.0))
+    Payload += b"".join(ScalarValue(Value) for Value in (0.0, 1.0, 1.0, 0.0))
     Payload += b"\xe0\x02outline\x00\xf9" + IntValue(2) + IntValue(3)
-    Payload += b"".join(DoubleValue(Value) for Value in (0.0, 0.0, 1.0, 0.0, 1.0, 1.0))
+    Payload += b"".join(ScalarValue(Value) for Value in (0.0, 0.0, 1.0, 0.0, 1.0, 1.0))
     Payload += b"\xe0\x02local_sys\x00\xf9" + IntValue(4) + IntValue(3)
-    Payload += b"".join(DoubleValue(Value) for Value in Values)
+    Payload += b"".join(ScalarValue(Value) for Value in Values)
     return Payload
 
 
 # later array elements may not redeclare fields
 def PlaneReplay(
-    GeomValue: int, Values: tuple[float, ...], FeatureId: int = 74
+    GeomValue: int,
+    Values: tuple[float, ...],
+    FeatureId: int = 74,
+    NextGeomId: int = 82,
 ) -> bytes:
-    Payload = b"\xe3" + IntValue(GeomValue) + IntValue(34) + IntValue(FeatureId)
+    Payload = (
+        b"\xe3"
+        + IntValue(GeomValue)
+        + IntValue(34)
+        + IntValue(FeatureId)
+        + SignedInt(-1)
+        + SignedInt(0)
+        + SignedInt(NextGeomId)
+    )
     Payload += b"\xf9" + IntValue(2) + IntValue(2)
-    Payload += b"".join(DoubleValue(Value) for Value in (0.0, 1.0, 1.0, 0.0))
+    Payload += b"".join(ScalarValue(Value) for Value in (0.0, 1.0, 1.0, 0.0))
     Payload += b"\xf9" + IntValue(2) + IntValue(3)
-    Payload += b"".join(DoubleValue(Value) for Value in (0.0, 0.0, 1.0, 0.0, 1.0, 1.0))
+    Payload += b"".join(ScalarValue(Value) for Value in (0.0, 0.0, 1.0, 0.0, 1.0, 1.0))
     Payload += b"\xf9" + IntValue(4) + IntValue(3)
-    Payload += b"".join(DoubleValue(Value) for Value in Values)
+    Payload += b"".join(ScalarValue(Value) for Value in Values)
     return Payload
 
 
@@ -230,9 +248,13 @@ def AuthorGeometryPayload(
     for IndexValue, (NormalValue, OriginValue) in enumerate(Planes):
         Values = PlaneValues(NormalValue, OriginValue)
         if IndexValue == 0:
-            Payload += PlaneDefine(FirstGeomId + IndexValue, Values, FeatureId)
+            Payload += PlaneDefine(
+                FirstGeomId + IndexValue, Values, FeatureId, FirstGeomId + 5
+            )
         else:
-            Payload += PlaneReplay(FirstGeomId + IndexValue, Values, FeatureId)
+            Payload += PlaneReplay(
+                FirstGeomId + IndexValue, Values, FeatureId, FirstGeomId + 5
+            )
     return Payload
 
 

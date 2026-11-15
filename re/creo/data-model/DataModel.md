@@ -372,8 +372,27 @@ geomfeat: feat_id 7, geom ids 1..6
 (no End line; repeated, second run identical)
 ```
 
-So the reference mismatch was not the cause, and the payload itself is still wrong. The write side has two
-independent blocks, not one:
+So the reference mismatch was not the cause. The vendor payload was then used as the reference for a
+byte comparison, and it exposed three defects in our emitter that are now fixed:
+
+| Defect | Vendor | Ours before |
+| --- | --- | --- |
+| missing fields | `orient`, `boundary_type`, `next_geom_ptr` after `feat_id` | absent |
+| compact double lane | `46`/`2d` prefix plus 7 payload bytes, any low byte | only when the low byte was zero, and it dropped it |
+| arrays | `18` for `0.0` and `0f` for `1.0` inside `envlp`, `outline`, `local_sys` | full 9-byte `52` doubles |
+
+With those fixed the payload matches the vendor **byte for byte for the first `138` bytes**, which covers
+the record header, `geom_id`, `geom_type`, `feat_id`, `orient`, `boundary_type`, `next_geom_ptr` and the
+`envlp` array introduction. The first difference is the first `envlp` value.
+
+That is meaningful: the structural divergence is gone. What remains is numeric — `envlp` in the vendor
+payload holds four real numbers (a parametric envelope) where we emit a `0,1,1,0` placeholder, and
+`outline` holds the trim coordinates.
+
+The corrected payload is still rejected (silent exit twice), so the values matter too, but the emitter is
+now structurally faithful rather than guesswork.
+
+The write side therefore has two independent blocks, not one:
 
 | Block | What it needs |
 | --- | --- |
