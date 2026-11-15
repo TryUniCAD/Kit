@@ -99,6 +99,24 @@ It also means a class table cannot be produced by static analysis of the modules
 the registration order of 1,178 class names spread across several modules, which is a property of a
 running NX session rather than of the binaries.
 
+## The entry framing is not plain base-128
+
+Walking the table by name lengths exposes a contradiction with the field reading used so far. The
+first entry's bytes are
+
+```text
+14  "UGS::OM::RootObject"  38 74 b0 4b a5 fe 91 1b f6 79 02  0d "UGS::RM_part" ...
+                            ^^ first entry byte, high bit clear
+```
+
+so `0x38` terminates a base-128 value, which would make the entry a one-byte value of 56 followed by
+unrelated bytes. That cannot be right, because the same bytes decode to the six field sequence
+`56, 100, 9648, 56917797, 15606, 2` under the loader used for every earlier measurement.
+
+The name length byte is also one greater than the name: `0x14` is 20 for a 19 character name. So the
+entry's framing has at least one convention I have not identified, and every field-level conclusion in
+this document inherits that uncertainty. Recording it here rather than building on it.
+
 ## Limits
 
 - The entry's field positions are not assigned to registry properties.
