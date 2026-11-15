@@ -82,4 +82,7 @@ preservation at the root and inside component documents. Missing descendants
 still refuse publication for both missing and existing destinations.
 Unrepresented-part JSON cases cover absent provenance and resolution markers.
 Positive provenance cases retain actual embedded part documents and body links;
-empty local assemblies and fully represented two-level assemblies remain positive.
+empty local assemblies and fully represented two-level assemblies were positive
+under this initial guard. Current eligibility follows the stricter
+[model history](ParametricModelGuard.md) and [placement](AssemblyPlacementGuard.md)
+requirements.

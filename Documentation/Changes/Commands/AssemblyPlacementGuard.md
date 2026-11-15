@@ -9,8 +9,9 @@ destination. The SDK and deterministic research tools are unchanged.
 
 Validation still checks descendants for opaque records, missing feature history,
 retained payloads, and invalid geometry before placement qualification. This keeps
-specific inspection diagnostics available. Empty local assemblies without placed
-instances and independently qualified standalone documents remain eligible.
+specific inspection diagnostics available. Independently qualified standalone
+documents remain eligible. Empty local assemblies also require model history;
+see [the complete model guard](ParametricModelGuard.md).
 
 Remote process cases cover resolved/provenance references, root/subassembly
 owners, nested documents, and absent/existing destinations. Existing nested

@@ -9,7 +9,8 @@ SDK state are refused with `UnqualifiedGeometry`. Validation requires Python 3.1
 Supported constrained rectangle sketches remain convertible. Unconstrained SDK
 circle and rectangle profiles, including ones with unrelated parameters, do not
 establish dimension-driven geometry. An extra inactive reference cannot qualify
-them. Body generation and parameter-only document behavior are unchanged.
+them. The later [complete model guard](ParametricModelGuard.md) also checks solid
+profiles and refuses parameter-only documents without model history.
 
 Remote process coverage includes literal circle/rectangle, missing contract,
 stale geometry, suppressed dimensions, and reference dimensions at root/nested

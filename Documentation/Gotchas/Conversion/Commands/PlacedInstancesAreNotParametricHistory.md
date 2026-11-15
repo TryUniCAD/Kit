@@ -7,8 +7,8 @@ can serialize that graph; native capability reports do not prove a live assembly
 feature history.
 
 The CLI refuses assemblies with placed instances, at any document depth, until
-placement history can be qualified. Empty local assemblies without instances
-remain eligible, subject to the other guards. Use `kit decode` or deterministic
+placement history can be qualified. Empty local assemblies also require model
+history under [the complete model guard](../../../Changes/Commands/ParametricModelGuard.md). Use `kit decode` or deterministic
 `kit research` for inspection. Converting child geometry independently does not
 establish acceptance for the assembled model.
 

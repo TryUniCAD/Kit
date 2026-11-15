@@ -11,8 +11,17 @@ def BuildSketchDims(RecordKind: str) -> CadDocument:
         "Sketch dimensions",
         "length",
         20.0,
-        ProfileKind="circle" if RecordKind == "Circle" else "rectangle",
-        ConstrainRectangle=RecordKind not in ("Circle", "Rectangle"),
+        ProfileKind=(
+            "extrusion"
+            if RecordKind == "Cylinder"
+            else (
+                "cuboid"
+                if RecordKind == "Cuboid"
+                else "circle" if RecordKind == "Circle" else "rectangle"
+            )
+        ),
+        ConstrainRectangle=RecordKind
+        not in ("Circle", "Rectangle", "Cylinder", "Cuboid"),
     )
     Document = MakeFusionDoc(SpecValue)
     if RecordKind == "NoContract":

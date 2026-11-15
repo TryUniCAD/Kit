@@ -10,7 +10,8 @@ The guard leaves public SDK serialization and `kit decode` inspection available.
 History presence does not establish completeness, parametric behavior, vendor loadability, or application acceptance.
 
 The process integration cases use a typed cylinder B-rep and a triangle mesh with and without parameters, at the root and inside an assembly.
-They also cover local assembly mesh references and parameter-only conversion.
+They also cover local assembly mesh references. Parameter-only documents are now
+refused under [the complete model guard](ParametricModelGuard.md).
 Refusal cases validate the input model, preserve source bytes and existing destinations, leave missing destinations absent, and retain successful inspection.
 The Fusion compatibility job already executes the command test directory, so no workflow change is required.
 

@@ -1,4 +1,3 @@
-from json import loads as LoadJson
 from pathlib import Path as FilePath
 
 from pytest import mark as TestMark
@@ -6,7 +5,6 @@ from pytest import mark as TestMark
 from tests.convert.Commands.BuildIncomplete import BuildIncomplete
 from tests.convert.Commands.BuildNativeBrep import BuildNativeBrep
 from tests.convert.Commands.CheckJsonBlock import CheckJsonBlock
-from tests.convert.Commands.CliProcess import CliProcess
 from tests.convert.Commands.WrapDocument import WrapDocument
 
 
@@ -44,7 +42,7 @@ def CheckUnready(
     )
 
 
-# resolved placement graphs still need qualified assembly history while empty assemblies remain eligible
+# resolved placement and empty assembly records cannot establish qualified model history
 @TestMark.parametrize("IsNested", (False, True))
 @TestMark.parametrize("OwnerName", ("", "root", "subassembly"))
 @TestMark.parametrize(
@@ -60,15 +58,7 @@ def CheckResolved(
     if IsNested or RecordKind != "EmptyAssembly":
         CheckJsonBlock(Document, "UnqualifiedAssembly", False, TmpPath)
         return
-    Source = TmpPath / "source.json"
-    Original = Document.to_json()
-    _ = Source.write_text(Original, encoding="utf-8")
-    Target = TmpPath / "resolved.json"
-    Result = CliProcess(TmpPath, "convert", str(Source), str(Target), "--json")
-    assert Result.returncode == 0, Result.stderr
-    assert LoadJson(Result.stdout)["destination_format"] == "interchange.json"
-    assert LoadJson(Target.read_text(encoding="utf-8")) == LoadJson(Original)
-    assert Source.read_text(encoding="utf-8") == Original
+    CheckJsonBlock(Document, "MissingFeatureHistory", False, TmpPath)
 
 
 # every assembly graph owner must resolve child references before conversion can publish

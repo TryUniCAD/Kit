@@ -3,7 +3,9 @@
 `kit convert` now requires local body or B-rep data to match an existing qualified Fusion authoring or native-state contract.
 Generic typed feature histories, including Boolean and bound-scale histories, are not geometry qualification by themselves.
 Without a supported regeneration contract they remain inspection-only while format research is unfinished.
-Bodyless parameters, sketches, and typed assembly graphs retain their existing boundaries; embedded geometry documents are checked separately.
+Embedded geometry documents are checked separately. Current sketch, parameter,
+and assembly eligibility also follows the stricter [model history](ParametricModelGuard.md)
+and [placement](AssemblyPlacementGuard.md) guards.
 
 The CLI uses the SDK's `CheckContract`, `MakeFusionDoc`, `ProjectNative` or `ProjectVendor`, and `EncodeDocument` validation.
 It regenerates the canonical graph and compares every semantic data field before invoking the selected writer.

@@ -1,4 +1,3 @@
-from dataclasses import replace as ReplaceData
 from json import loads as LoadJson
 from pathlib import Path as FilePath
 from shutil import which as FindProgram
@@ -65,12 +64,12 @@ def CheckCliConvert(TmpPath: FilePath) -> None:
     assert Source.read_bytes() == Original
 
 
-# the public cli must preserve supported cylinder authoring bytes across a native neutral roundtrip
+# the public cli must preserve dimension driven cuboid bytes across a native neutral roundtrip
 def CheckCliRound(TmpPath: FilePath) -> None:
     Source = TmpPath / "source.f3d"
     Original = EmitDocument(
         DocumentSpec(
-            "CLI cylinder", "height", 17.0, ProfileKind="extrusion", RadiusMm=12.0
+            "CLI cuboid", "height", 17.0, ProfileKind="cuboid", ConstrainRectangle=True
         )
     )
     _ = Source.write_bytes(Original)
@@ -101,12 +100,14 @@ def CheckCliRound(TmpPath: FilePath) -> None:
 # writer usability refusal must occur before replacing an existing user destination
 def CheckCliPolicy(TmpPath: FilePath) -> None:
     Source = TmpPath / "source.json"
-    Original = ReplaceData(
-        MakeFusionDoc(
-            DocumentSpec("CLI parameter", "height", 17.0, ProfileKind="parameter")
-        ),
-        materials=(),
-        metadata={},
+    Original = MakeFusionDoc(
+        DocumentSpec(
+            "CLI policy",
+            "height",
+            17.0,
+            ProfileKind="cuboid",
+            ConstrainRectangle=True,
+        )
     ).to_json()
     _ = Source.write_text(Original)
     Target = TmpPath / "blocked.CATPart"

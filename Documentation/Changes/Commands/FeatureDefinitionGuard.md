@@ -39,7 +39,10 @@ Prerequisite process cases add inputless, single-input, repeated-input, referenc
 The former two-generator Boolean serialization case now verifies geometry refusal, alongside a coincident-input cut with a retained nonempty B-rep.
 It is retained as regression coverage rather than treating declared operands as evaluated geometry.
 They validate input records before invoking the installed CLI, preserve sources and missing or existing destinations, and retain inspection.
-Positive cases preserve standalone and nested circle and rectangle sketch documents; existing Fusion round-trip and resolved assembly cases remain required.
+Initial positive cases preserved standalone and nested circle and rectangle sketches.
+Current eligibility follows the stricter [dimension and model history](ParametricModelGuard.md)
+and [assembly placement](AssemblyPlacementGuard.md) guards. Native roundtrip coverage
+uses a dimension-driven constrained cuboid.
 
 These checks identify missing or explicit unsupported representations.
 Typed definitions and generators do not establish losslessness, live parametric behavior, native loadability, or target-application acceptance.

@@ -13,7 +13,8 @@ def BuildInactive(RecordKind: str) -> CadDocument:
             "Active history",
             "height",
             20.0,
-            ProfileKind="circle" if RecordKind == "InactiveReference" else "extrusion",
+            ProfileKind="circle" if RecordKind == "InactiveReference" else "cuboid",
+            ConstrainRectangle=RecordKind != "InactiveReference",
         )
     )
     Features = list(Document.feature_timeline)

@@ -13,19 +13,18 @@ KGeometryError = (
 
 # typed records alone cannot establish that geometry matches its qualified sdk contract
 def CheckGeometry(Document: CadDocument) -> None:
-    if not Document.bodies and Document.brep is None:
-        if not Document.sketches:
-            return
-        if any(
-            not any(
-                Relation.driving
-                and not Relation.suppressed
-                and Relation.parameter_id in Sketch.parameter_ids
-                for Relation in Sketch.constraints
-            )
-            for Sketch in Document.sketches
-        ):
-            raise ValueError(KGeometryError)
+    if not Document.bodies and Document.brep is None and not Document.sketches:
+        return
+    if any(
+        not any(
+            Relation.driving
+            and not Relation.suppressed
+            and Relation.parameter_id in Sketch.parameter_ids
+            for Relation in Sketch.constraints
+        )
+        for Sketch in Document.sketches
+    ):
+        raise ValueError(KGeometryError)
     Contracts = [
         NameValue
         for NameValue in ("fusion.authoring", "fusion.native_state")

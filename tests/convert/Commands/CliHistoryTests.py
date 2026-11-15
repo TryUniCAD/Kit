@@ -1,4 +1,3 @@
-from json import loads as LoadJson
 from pathlib import Path as FilePath
 
 from pytest import mark as TestMark
@@ -8,7 +7,6 @@ from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from tests.convert.Commands.BuildHistory import BuildHistory
 from tests.convert.Commands.BuildHistoryAsm import BuildHistoryAsm
 from tests.convert.Commands.CheckJsonBlock import CheckJsonBlock
-from tests.convert.Commands.CliProcess import CliProcess
 from tests.convert.Commands.WrapDocument import WrapDocument
 
 
@@ -40,20 +38,13 @@ def CheckLocalMesh(IsNested: bool, HasOutput: bool, TmpPath: FilePath) -> None:
     CheckJsonBlock(Document, "MissingFeatureHistory", HasOutput, TmpPath)
 
 
-# parameter documents without local geometry must remain valid conversion inputs
-def CheckParamOnly(TmpPath: FilePath) -> None:
+# parameters without model history must remain inspectable without claiming conversion readiness
+@TestMark.parametrize("HasOutput", (False, True))
+def CheckParamOnly(HasOutput: bool, TmpPath: FilePath) -> None:
     Document = MakeFusionDoc(
         DocumentSpec("Parameter only", "height", 20.0, ProfileKind="parameter")
     )
     Document.AssertValid()
     assert Document.parameters and not Document.feature_timeline
     assert not Document.bodies and not Document.meshes and Document.brep is None
-    Source = TmpPath / "source.json"
-    Original = Document.to_json()
-    _ = Source.write_text(Original, encoding="utf-8")
-    Target = TmpPath / "parameter.json"
-    Result = CliProcess(TmpPath, "convert", str(Source), str(Target), "--json")
-    assert Result.returncode == 0, Result.stderr
-    assert LoadJson(Result.stdout)["destination_format"] == "interchange.json"
-    assert LoadJson(Target.read_text(encoding="utf-8"))["parameters"]
-    assert Source.read_text(encoding="utf-8") == Original
+    CheckJsonBlock(Document, "MissingFeatureHistory", HasOutput, TmpPath)
