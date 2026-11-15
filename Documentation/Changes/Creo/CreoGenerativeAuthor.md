@@ -1056,6 +1056,29 @@ readback: 7 features 9 params 1 bodies
 (no End line; second run identical)
 ```
 
+### Three more rows accept an empty body, and 47 rows now load cleanly
+
+The same experiment on the remaining display and bookkeeping rows:
+
+| Row | Generated body | Creo |
+| --- | --- | --- |
+| `CGFPersistTable` | empty | **clean** |
+| `THMB_IMG_MAIN` | empty | **clean** |
+| `EMPTY_SPACE_FOR_REUSE` (both extents) | empty | **clean** |
+| `DispDataTable` | empty | `dbg_err_crash`, then `End` |
+| `IndentTag` | empty | `dbg_err_crash`, then `cannot be retrieved` |
+| `FeatRefData` | empty | `dbg_err_crash`, then `cannot be retrieved` |
+
+Folded into `EmptyPartSections`, the writer now generates `47` of the `53` rows and the set loads cleanly twice:
+
+```text
+gen_rows4: 26245 bytes, 47 generated rows
+!15-Nov-26 09:01:13  End ...  MT Part Solid        (2 of 2, no dbg_err_crash)
+```
+
+The six rows still vendor-sourced are `DispDataTable`, `IndentTag`, `FeatRefData` and the three `PSB_Tokens`
+tables — `IndentTag` and `FeatRefData` being hard refusals when emptied, `DispDataTable` loading with an error.
+
 ### Two of the eleven rows accept an empty root record
 
 Replacing one vendor row at a time with a minimal root record, keeping the `42` generated rows:

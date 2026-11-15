@@ -331,6 +331,30 @@ mutually unrelated contents produces a section the solver cannot accept, which i
 edits reached from the other side — the row is tolerated where it is *inert* (a changed dimension, a flipped
 `verhor`, a rewired `pointid` that the solver re-derives) and refused where it must be *solved*.
 
+### Three more rows accept an empty body
+
+The same one-row experiment on the remaining display and bookkeeping rows:
+
+| Row | Generated body | Creo |
+| --- | --- | --- |
+| `CGFPersistTable` | empty | **clean** |
+| `THMB_IMG_MAIN` | empty | **clean** |
+| `EMPTY_SPACE_FOR_REUSE` (both extents) | empty | **clean** |
+| `DispDataTable` | empty | `dbg_err_crash`, then `End` |
+| `IndentTag` | empty | `dbg_err_crash`, then `cannot be retrieved` |
+| `FeatRefData` | empty | `dbg_err_crash`, then `cannot be retrieved` |
+
+So the container writer now emits `47` rows, and that set loads cleanly twice:
+
+```text
+gen_rows4: 26245 bytes, 47 generated rows
+!15-Nov-27 09:01:13  End ...  MT Part Solid        (2 of 2, no dbg_err_crash)
+```
+
+The six rows still vendor-sourced are `DispDataTable`, `IndentTag`, `FeatRefData` and the three `PSB_Tokens`
+tables. Note the ordering difference: `IndentTag` and `FeatRefData` are hard refusals when emptied, while
+`DispDataTable` merely errors and keeps loading — which fits it being display data.
+
 ### Which of the eleven rows accept a minimal record
 
 Each variant keeps the `42` generated rows and replaces one vendor row with a minimal root record, launched once:

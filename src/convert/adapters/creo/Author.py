@@ -509,6 +509,9 @@ def EmptyPartSections(FeatureClasses: tuple[int, ...]) -> dict[str, bytes]:
         "SolidPersistTable", DefaultPersistTable()
     )
     Bodies["SolidPrimdata"] = SectionValue("SolidPrimdata", DefaultPrimdataTable())
+    Bodies["CGFPersistTable"] = SectionValue("CGFPersistTable", b"")
+    Bodies["THMB_IMG_MAIN"] = SectionValue("THMB_IMG_MAIN", b"")
+    Bodies["EMPTY_SPACE_FOR_REUSE"] = SectionValue("EMPTY_SPACE_FOR_REUSE", b"")
     return Bodies
 
 
