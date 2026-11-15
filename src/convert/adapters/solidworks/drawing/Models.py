@@ -39,6 +39,7 @@ class DrawingView:
     OutlineMaxX: float | None = None
     OutlineMaxY: float | None = None
     ModelBounds: ViewBounds | None = None
+    ViewScale: float | None = None
     Edges: tuple[ViewEdge, ...] = ()
     Orientation: ViewOrientation | None = None
     SheetEdges: tuple[ViewEdge, ...] = ()

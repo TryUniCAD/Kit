@@ -21,32 +21,35 @@ from convert.adapters.solidworks.drawing.Models import (
 )
 from interchange import Vector3
 
-# the orientation record starts with a unit view direction
+# the scanner needs the direction width before it can reach the flag
 KDirectionLength = 24
 
-# a one byte flag follows the direction and selects the optional matrix
+# the flag decides whether a matrix follows so the scanner must read it first
 KFlagOffset = 24
 
-# a stored matrix is nine row major doubles
+# the matrix width lets the scanner skip it when the flag is set
 KMatrixLength = 72
 
-# the translation follows the matrix or the flag
+# the translation width keeps the trailing scale check aligned
 KTranslationLength = 24
 
-# the record ends with a unit scale double
+# the trailing scale confirms the record before it is trusted
 KScaleLength = 8
 
-# a unit vector is accepted within this tolerance
+# the longest record bounds the scan so the last record is not skipped
+KRecordLength = KDirectionLength + 1 + KMatrixLength + KTranslationLength + KScaleLength
+
+# binary noise rarely forms a unit vector so this tolerance rejects it
 KUnitTolerance = 1e-06
 
-# the record translation must match the negated rotated centre within this tolerance
+# the centre match separates view records from other unit vector records
 KCentreTolerance = 1e-06
 
-# the view name carries its creation index as a trailing integer
+# the creation index binds records because keyword order is not creation order
 KViewIndex = RegexLib.compile(r"(\d+)$")
 
 
-# a unit vector is required before a record can be considered an orientation
+# noise rejection needs a unit check before any record is accepted
 def IsUnit(Values: Sequence[float]) -> bool:
     return (
         abs(MathValue.sqrt(sum(ItemValue * ItemValue for ItemValue in Values)) - 1.0)
@@ -54,7 +57,7 @@ def IsUnit(Values: Sequence[float]) -> bool:
     )
 
 
-# a stored matrix must be a proper rotation before it can be trusted
+# a malformed matrix must be rejected before it can corrupt sheet edges
 def IsRotation(Values: tuple[float, ...]) -> bool:
     MatrixRows = (Values[0:3], Values[3:6], Values[6:9])
     if any((not IsUnit(RowValue) for RowValue in MatrixRows)):
@@ -82,7 +85,7 @@ def IsRotation(Values: tuple[float, ...]) -> bool:
     return abs(Determinant - 1.0) < KUnitTolerance
 
 
-# the record translation is the negated rotated model centre
+# the centre match is the only reliable way to identify view records
 def IsCentreMatch(
     Matrix: tuple[tuple[float, float, float], ...],
     Translation: tuple[float, float, float],
@@ -103,10 +106,10 @@ def IsCentreMatch(
     )
 
 
-# orientation records are recovered only when the translation matches the model centre
+# only centre matched records are returned so unrelated vectors are ignored
 def OrientRecords(DataValue: bytes, Centre: Vector3) -> tuple[ViewOrientation, ...]:
     Result: list[ViewOrientation] = []
-    for Offset in range(0, len(DataValue) - 200):
+    for Offset in range(0, len(DataValue) - KRecordLength + 1):
         Direction = Struct.unpack_from("<3d", DataValue, Offset)
         if not IsUnit(Direction):
             continue
@@ -144,7 +147,7 @@ def OrientRecords(DataValue: bytes, Centre: Vector3) -> tuple[ViewOrientation, .
     return tuple(Result)
 
 
-# the view name suffix is the creation index used to bind orientation records
+# the suffix is needed because keyword order does not follow creation order
 def ViewIndex(ViewName: str) -> int:
     Match = KViewIndex.search(ViewName)
     if Match is None:
@@ -152,17 +155,23 @@ def ViewIndex(ViewName: str) -> int:
     return int(Match.group(1))
 
 
-# sheet space edges are the model edges rotated into the view frame and scaled
+# callers need sheet space segments because model space edges cannot be drawn
 def SheetEdges(
-    ViewValue: DrawingView, Orientation: ViewOrientation, Scale: float
+    ViewValue: DrawingView, Orientation: ViewOrientation
 ) -> tuple[ViewEdge, ...]:
     Bounds = ViewValue.ModelBounds
-    if Bounds is None or ViewValue.PositionX is None or ViewValue.PositionY is None:
+    if (
+        Bounds is None
+        or ViewValue.PositionX is None
+        or ViewValue.PositionY is None
+        or ViewValue.ViewScale is None
+    ):
         raise SldprtFormatError("drawing view is missing placement data")
     Matrix = Orientation.Matrix
     Centre = (Bounds.Center.x, Bounds.Center.y, Bounds.Center.z)
     PositionX = ViewValue.PositionX
     PositionY = ViewValue.PositionY
+    Scale = ViewValue.ViewScale
 
     def Project(Point: Vector3) -> Vector3:
         Local = (Point.x - Centre[0], Point.y - Centre[1], Point.z - Centre[2])
@@ -182,7 +191,7 @@ def SheetEdges(
     )
 
 
-# orientation recovery needs the definition stream and one record per view
+# a missing or extra record must fail closed rather than guess a rotation
 def OrientSheets(
     Sheets: tuple[DrawingSheet, ...], Archive: SldprtArchive
 ) -> tuple[DrawingSheet, ...]:
@@ -209,7 +218,6 @@ def OrientSheets(
     Bound = {ViewValue.Name: Records[Index] for Index, ViewValue in enumerate(Ordered)}
     NewSheets: list[DrawingSheet] = []
     for SheetValue in Sheets:
-        Scale = SheetValue.ScaleNumerator / SheetValue.ScaleDenominator
         NewViews: list[DrawingView] = []
         for ViewValue in SheetValue.Views:
             Orientation = Bound[ViewValue.Name]
@@ -217,7 +225,7 @@ def OrientSheets(
                 ReplaceData(
                     ViewValue,
                     Orientation=Orientation,
-                    SheetEdges=SheetEdges(ViewValue, Orientation, Scale),
+                    SheetEdges=SheetEdges(ViewValue, Orientation),
                 )
             )
         NewSheets.append(ReplaceData(SheetValue, Views=tuple(NewViews)))

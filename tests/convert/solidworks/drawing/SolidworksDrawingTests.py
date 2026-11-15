@@ -382,7 +382,7 @@ def TestEdgeNo() -> None:
             _ = ReadDrawing(KDrawRoot / NameValue, IncludeEdges=True)
 
 
-# recovered view rotations must match the vendor view transforms
+# the vendor transform is the only independent check on the recovered rotation
 @PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
 def TestOrient() -> None:
     Expected = {
@@ -420,7 +420,7 @@ def TestOrient() -> None:
                 )
 
 
-# a single view drawing isolates each standard orientation record
+# one view drawings isolate each record so a wrong binding is visible
 @PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
 def TestOrientOne() -> None:
     Expected = {
@@ -458,7 +458,7 @@ def TestOrientOne() -> None:
         assert ViewValue.SheetEdges
 
 
-# sheet space edges must fill the recovered outline with one symmetric padding
+# the outline is the only independent check on the projected edges
 @PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
 def TestSheetEdge() -> None:
     for NameValue in (
@@ -500,7 +500,33 @@ def TestSheetEdge() -> None:
         assert len(Paddings) == 1
 
 
-# a drawing without a complete orientation record set must fail closed
+# the twin record is the only source of a custom view scale
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestScale() -> None:
+    DataValue = ReadDrawing(KDrawRoot / "scale3.SLDDRW", IncludeSheetEdges=True)
+    ViewValue = DataValue.Sheets[0].Views[0]
+    assert ViewValue.ViewScale == PytestLib.approx(3.0)
+    XValues = [
+        ItemValue
+        for EdgeValue in ViewValue.SheetEdges
+        for ItemValue in (EdgeValue.Start.x, EdgeValue.End.x)
+    ]
+    YValues = [
+        ItemValue
+        for EdgeValue in ViewValue.SheetEdges
+        for ItemValue in (EdgeValue.Start.y, EdgeValue.End.y)
+    ]
+    assert ViewValue.OutlineMinX is not None
+    assert ViewValue.OutlineMaxX is not None
+    assert ViewValue.OutlineMinY is not None
+    assert ViewValue.OutlineMaxY is not None
+    assert min(XValues) - ViewValue.OutlineMinX == PytestLib.approx(0.004318)
+    assert ViewValue.OutlineMaxX - max(XValues) == PytestLib.approx(0.004318)
+    assert min(YValues) >= ViewValue.OutlineMinY
+    assert max(YValues) <= ViewValue.OutlineMaxY
+
+
+# a missing record must fail closed rather than guess a rotation
 @PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
 def TestSheetNo() -> None:
     for NameValue in ("minimal.SLDDRW", "large.SLDDRW"):

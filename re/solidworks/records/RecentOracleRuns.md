@@ -208,3 +208,12 @@ Projecting the recovered model edges with that rule reproduces the typed C#
 and `coincident` with zero residual after rounding to nine decimals. The
 `multisheet` and `coincident` inactive-sheet views are not returned by
 `GetNextView`, so only their active-sheet views are compared.
+
+### Custom view scale
+
+`AuthorScale.vbs` set `View.ScaleDecimal = 3.0` on a single front view. The
+position pair stores `1.0` on the primary record and `3.0` on the twin, so the
+view scale is recovered from the twin rather than assumed to equal the 2:1 sheet
+scale. The recovered sheet edges match the typed C# `View.GetPolylines5` edges
+with zero residual after rounding to nine decimals, and the horizontal padding
+stays at 0.004318 m.

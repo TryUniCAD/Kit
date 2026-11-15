@@ -22,16 +22,19 @@ Each `DrawingSheet` carries `Name`, `PaperSize`, `ScaleNumerator`,
 `ScaleDenominator`, `WidthMetres`, `HeightMetres`, and its `DrawingView`
 records. Each view carries `Name`, `ModelPath`, `Description`, and, when
 requested, `PositionX` and `PositionY` in metres plus `OutlineMinX`,
-`OutlineMinY`, `OutlineMaxX`, `OutlineMaxY`, and `ModelBounds`. `DrawingRef` carries `Name`
+`OutlineMinY`, `OutlineMaxX`, `OutlineMaxY`, `ModelBounds`, and `ViewScale`.
+`DrawingRef` carries `Name`
 and `Description`. Note text is returned exactly, including leading or trailing
 spaces.
 
 `ReadDrawing(..., IncludePositions=True)` recovers view centres from
 `Contents/DisplayLists`. The stream stores each centre as a little-endian double
 pair followed by a zero Z value and a 1 or 2 record flag. Each view contributes
-two identical records 384 bytes apart; the reader consumes each pair once rather
-than collapsing equal coordinates, so two views that share a centre on different
-sheets keep two positions. The vendor view outline follows the primary record
+two records 384 bytes apart; the primary record carries a `1.0` marker and the
+twin carries the view scale, so a custom view scale is recovered from the twin
+rather than assumed to equal the sheet scale. The reader consumes each pair once
+rather than collapsing equal coordinates, so two views that share a centre on
+different sheets keep two positions. The vendor view outline follows the primary record
 37 bytes later as four doubles: minimum X, minimum Y, maximum X, and maximum Y.
 The cited model bounds follow 135 bytes after the primary pair as centre,
 maximum, and minimum triples in metres; `ViewBounds` exposes them as `Center`,
@@ -72,7 +75,7 @@ flag, an optional nine-double row-major rotation, a three-double translation,
 and a trailing `1.0`. The front view stores flag `0` and omits the identity
 matrix; the top, right, and isometric views store flag `1` and a matrix. The
 stored matrix is the sheet-to-model rotation, so the sheet position of a model
-point is `view_centre + scale * (R^T * (p - model_centre)).xy`. Records are kept
+point is `view_centre + ViewScale * (R^T * (p - model_centre)).xy`. Records are kept
 only when the translation equals the negated rotated model centre, and are bound
 to views by the trailing integer of the view name, which is the creation index.
 The reader requires one record per view and raises `SldprtFormatError`
