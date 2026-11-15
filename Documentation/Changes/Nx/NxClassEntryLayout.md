@@ -286,6 +286,22 @@ So the prefix's 16-bit value is filled into that structure _during_ the routine,
 where an entry hook can observe it, or it comes from somewhere else entirely. Reading it needs a
 mid-function observation, which is the trampoline problem the entry hook avoided.
 
+## A bounded memory scan of the writer context is also negative
+
+The entry trampoline was hardened: `VirtualQuery` is used to prove a range is committed and readable
+before any read, the callback never dereferences a class pointer, and the scan is gated on the
+157-entry pass. It then walked every pointer-sized field of the writer context and dumped 1 KiB from
+each readable target:
+
+```text
+writer invocations logged        7   (counts 52, 15, 157, 30, 17, 9, 24)
+memory blocks dumped from the 157 pass   50
+stored prefixes found in any of them     0 of 152
+```
+
+so the prefix is not present, in its stored form, in any structure the writer context references at
+its entry point. It is produced later, or it is derived from a value rather than copied.
+
 ## What is left
 
 The prefix and the tail. Hooking `0x1801445xx` during a `SaveAs` and logging the two blocks and the
