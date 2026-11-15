@@ -74,11 +74,21 @@ jobs:
           tests/Policy/ShardPlanTests.py
 
       - name: Exercise native file reading and writing
+        env:
+          SwResearchOutput: ${{ runner.temp }}/solidworks-construction
         run: >-
           uv run pytest
           tests/convert/solidworks
           tests/convert/formats/ParasolidTests.py
           tests/steering/RationaleCommentsTests.py
+
+      - name: Retain generated research candidates
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: solidworks-construction-${{ github.sha }}
+          path: ${{ runner.temp }}/solidworks-construction
+          if-no-files-found: error
+          retention-days: 14
 
   zizmor:
     if: >-
