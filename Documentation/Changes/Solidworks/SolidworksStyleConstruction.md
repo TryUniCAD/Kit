@@ -27,8 +27,15 @@ from JSON, then serialize and read the entire style and unit
 graphs through the existing native record codecs. They vary text, language,
 counted exclusions, unit enums and unit-table shape. These are process-boundary
 checks, not vendor acceptance. Local verification is limited to static parsing,
-formatting, type and naming checks. Remote execution evidence will be recorded
-after PR CI completes.
+formatting, type and naming checks.
+
+[Remote job 132707460142](https://github.com/TryUniCAD/Kit/actions/runs/43679709295/job/132707460142)
+passed all three style process cases on PR 126 head `9adead2e1`, using synthetic
+merge `e700702` with parent `53c79e739`. The complete typed style and variable
+unit tables encoded/decoded/re-encoded exactly under the audit guard. The whole
+step still had six inherited part/polygon failures, alongside 132 passes and
+158 skips. Parent and full PR acceptance were not green; subsequent current-head
+CI remains required.
 
 GTol helper `f80=0` is derived from the native GTol-data constructor and the
 actual data-to-helper projection, including its absent-data branch. Its
