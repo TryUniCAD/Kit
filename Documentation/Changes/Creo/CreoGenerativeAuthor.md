@@ -161,9 +161,28 @@ The rule that made it work: sections are physically sorted by offset and each ca
 follow-on gap bytes (`#\n` internally), so the stream must be copied by physical order rather than
 by table row order. `EMPTY_SPACE_FOR_REUSE` is a free-space extent, not a zero-length row.
 
-The replacement rebuild still needs a table emitter that reproduces this layout after a length
-change, and the third table's 128 rows currently drift, so the geometry-isolation run is not yet
-valid.
+The regenerating emitter now reproduces the control byte-for-byte (`81539` bytes) with all three
+tables rewritten. Rules found while matching the directory text:
+
+- column 7 is `-1` for kinds `9`, `11`, `b`; `2` for kind `12`; `1` otherwise;
+- `TOC 3` declares 128 rows but holds only 2 real rows; the other 126 are 80 `#` bytes plus newline;
+- the file ends with `#END_OF_UGC`.
+
+## Geometry isolation result
+
+With the emitter proven byte-identical, only `VisibGeom` was replaced by the authored payload and
+the sections after it shifted by the length delta. That candidate parses further than every earlier
+attempt:
+
+```text
+!15-Nov-26 01:11:39  Start C:\Mac\Home\Documents\creo-authored\swap.prt
+!%CI01:11:43  dbg_err_crash() - continuing from serious error (ORDER_DEBUG).
+```
+
+No `not a valid PART file`, no `cannot be retrieved`, but also no `End` line and no
+`MT Part Solid`. So the container and directory are now valid, and the failure has moved to model
+load. The authored `VisibGeom` payload is therefore rejected: the container rebuild is not the
+remaining problem, the authored geometry is.
 
 ## Limits
 
