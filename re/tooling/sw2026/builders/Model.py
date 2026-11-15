@@ -672,8 +672,8 @@ def relation_manager(*, owner: Obj) -> Obj:
 
 
 def clear_model_update(*, model: Obj) -> None:
-    if not isinstance(model, Obj) or model.cls not in ("moModel_c", "moPart_c"):
-        raise ArchiveError("zero-status model update is classified only for model and part owners")
+    if not isinstance(model, Obj) or model.cls not in ("moModel_c", "moPart_c", "moAssembly_c"):
+        raise ArchiveError("zero-status model update requires a classified model, part or assembly owner")
     flags = model.f.get("f0c")
     if type(flags) is not int or not 0 <= flags <= 0xFFFFFFFF:
         raise ArchiveError("model update requires an initialized unsigned flag word")

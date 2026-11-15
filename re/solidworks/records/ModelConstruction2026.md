@@ -252,6 +252,14 @@ authored insertion caller and notification's serialized effects remain
 **partial**. The existing `mark_model_update` helper does not assert that the
 configuration's separate rebuild query is true.
 
+The named assembly constructor also has a proven clear-state operation.
+Constructor `0x4b67efe0` supplies `(status=0, options=1, source=null)` at
+`0x4b67f7e8`–`0x4b67f7f6` to the same model wrapper `0x4c0363c0`.
+Its primary vtable `0x4ce69b30` resolves slot `0xb8` to that wrapper and
+`0xc0` to node getter `0x4c03e5e0`. `clear_model_update` therefore accepts
+an actual `moAssembly_c` for this constructor-backed operation. The separate
+positive-update helper's domain remains unchanged.
+
 ## Header counter and save lifecycle
 
 Status: **partial — code-derived rules, without generated-header native acceptance**.

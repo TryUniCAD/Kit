@@ -13,6 +13,8 @@ at offsets owned by assembly maps.
 The active new-model constructor proves unit-component and relation-manager
 ownership for both parts and assemblies; those factories now accept both roots.
 Loading-constructor null seeds remain distinct from active graph allocation.
+The shared zero-status helper also accepts assemblies, following the named
+assembly constructor's explicit call to the model clear-state wrapper.
 Typed list stores preserve nonnull empty pointers; explicit loader fixups
 establish absent-list regeneration only at the identified fields.
 Fresh configuration `f9a8` now carries the selected target archive version.
