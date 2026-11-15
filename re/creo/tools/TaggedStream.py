@@ -196,7 +196,7 @@ class Parser:
         self, data: bytes, boundaries: dict[int, int] | None = None
     ) -> None:
         self.reader = Reader(data)
-        self.boundaries = boundaries or {}
+        self.boundaries = boundaries
         self.nodes: list[Node] = []
         self.fields: list[FieldDef] = ScanFields(data)
         self.index = 0
@@ -205,6 +205,8 @@ class Parser:
         self.feature_start = 0
         self.structure_start: list[int] = []
         self.trace: list[tuple[int, int, str, int]] = []
+        if self.boundaries is None:
+            self.boundaries = ElementBoundaries(data)
 
     def ReadDouble(self, last: bool = False) -> object:
         reader = self.reader
@@ -517,6 +519,17 @@ def ElementBoundaries(data: bytes) -> dict[int, int]:
             continue
         second = data[start + width]
         bounds[start - 1] = geom if second == 0x22 else crv_id
+    if "lo_array" in names and "lo_id" in names:
+        lo = names.index("lo_array")
+        lo_id = next(i for i, name in enumerate(names) if name == "lo_id" and i > lo)
+        for offset, marker in enumerate(data):
+            if marker != 0xE3:
+                continue
+            ident, after = CompactAt(data, offset + 1)
+            if ident is None or after + 5 >= len(data):
+                continue
+            if data[after] == 0x82 and data[after + 2] == 0x82 and data[after + 4] == 0x4A:
+                bounds[offset] = lo_id
     return bounds
 
 

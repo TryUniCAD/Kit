@@ -64,7 +64,7 @@ End-to-end section coverage:
 | `BasicData` | 838 nodes, complete | 915 nodes, complete |
 | `SolidPrimdata` | 40 nodes, complete | 143 nodes, complete |
 | `FeatDefs` | section absent | 830 nodes, stops at `0x1158` |
-| `VisibGeom` | 2 nodes, complete | 117 nodes, stops at `0x2f7` |
+| `VisibGeom` | 2 nodes, complete | 502 nodes, complete |
 
 `FeatDefsDtm` (`Sld_FeatDefsDtm`) also decodes the datum placement records. The first record is the
 `FRONT` datum with `id = 7`, `type = 515`, `offset = 1.0`, `geometry2_id = 8`, and
@@ -131,9 +131,13 @@ schema resets.
 
 Measured on ladder `VisibGeom`: `srf_array` declares 6 elements and the splitter recovers 6
 (`82, 87, 89, 91, 93` plus the inline `77`); `crv_array` declares 12 and recovers 12 (`79, 80, 81,
-83, 84, 85, 86, 88, 90, 92, 94` plus the inline `78`). Feeding the 16 boundaries to the parser
-advances the boundary parse from `0x2f7` (117 nodes) to `0x928` (393 nodes). `FeatDefs` has no such
-boundaries; its `e3` bytes precede `e0`/`f7` definitions, so it needs a definition-tree parser.
+83, 84, 85, 86, 88, 90, 92, 94` plus the inline `78`); `lo_array` declares 6 and recovers 6
+(`96, 97, 98, 99, 100` plus the inline `95`). With the 21 boundaries applied as per-element schema
+resets the parser reaches section end: 502 nodes, reader at `0xb53` = section length. The decoded
+ids are coherent: six `geom_type` 34 planes, twelve `crv_id` values, six `lo_id` values.
+
+`FeatDefs` has no such boundaries; its `e3` bytes precede `e0`/`f7` definitions, so it needs a
+definition-tree parser.
 
 Field-level `e4`/`e5`/`e6` repeats resolve to the preceding logical value, `e1` terminates a numeric
 array, `0xfb` and `0xf0` act as value terminators, and a fresh `f8`/`f9` header overrides a stored

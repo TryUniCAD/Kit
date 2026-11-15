@@ -118,10 +118,13 @@ Recovered spans match the array headers the section declares:
 | --- | ---: | --- |
 | `srf_array` | 6 | 5 spans + inline `geom_id 77` = 6 (`82, 87, 89, 91, 93`) |
 | `crv_array` | 12 | 11 spans + inline `crv_id 78` = 12 (`79, 80, 81, 83, 84, 85, 86, 88, 90, 92, 94`) |
+| `lo_array` | 6 | 5 spans + inline `lo_id 95` = 6 (`96, 97, 98, 99, 100`) |
 
-Feeding those 16 boundaries to the parser as per-element schema resets advances the `VisibGeom`
-boundary parse from `0x2f7` (117 nodes) to `0x928` (393 nodes). It is not yet end of section; the
-next stop is a `body_array` element, which needs its own schema start.
+Feeding those 21 boundaries to the parser as per-element schema resets makes `VisibGeom` reach
+section end: 502 nodes, reader position `0xb53`, which equals the section length. The decoded ids
+are coherent: six `geom_type` 34 planes, twelve `crv_id` values, six `lo_id` values.
+
+`body_array` declares a single element, so its inline definition is already covered.
 
 `FeatDefs` is not row-spanned this way at all. Its `e3` bytes are followed by `e0` or `f7`
 (definition closures and references), not by a geometry identifier. So `FeatDefs` needs a

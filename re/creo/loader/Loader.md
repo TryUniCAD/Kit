@@ -232,7 +232,7 @@ Section coverage after the fixes:
 | `BasicData` | complete, 838 nodes | complete, 915 nodes |
 | `SolidPrimdata` | complete, 40 nodes | complete, 143 nodes |
 | `FeatDefs` | section absent | stops at `0xd91`, 753 nodes |
-| `VisibGeom` | complete, 2 nodes | stops at `0x2f7`, 117 nodes |
+| `VisibGeom` | complete, 2 nodes | complete, 502 nodes |
 
 `FeatDefs` and `VisibGeom` stop on `0xfc`, which lies inside a `46 <tail7>` world double. The field
 index is therefore one or more fields out of step by that point, not hitting an unknown token. That
@@ -277,9 +277,10 @@ anchor-free splitter is still required for those sections.
 identifier, one byte, and the element `feat_id` byte. Recovered spans match the declared array
 counts exactly. `srf_array` declares 6 and yields `82, 87, 89, 91, 93` plus the inline `77`;
 `crv_array` declares 12 and yields `79, 80, 81, 83, 84, 85, 86, 88, 90, 92, 94` plus the inline
-`78`. Feeding the 16 boundaries to the parser as per-element schema resets advances the
-`VisibGeom` boundary parse from `0x2f7` (117 nodes) to `0x928` (393 nodes); the next stop is a
-`body_array` element that needs its own schema start.
+`78`; `lo_array` declares 6 and yields `96, 97, 98, 99, 100` plus the inline `95`. With the 21
+boundaries applied as per-element schema resets, `VisibGeom` now reaches section end: 502 nodes,
+reader at `0xb53` = section length. The decoded ids are coherent: six `geom_type` 34 planes, twelve
+`crv_id` values, six `lo_id` values.
 
 `FeatDefs` does not row-span at all: its `e3` bytes precede `e0`/`f7`, so it needs a
 definition-tree parser rather than a span splitter.
