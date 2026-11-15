@@ -1013,6 +1013,26 @@ live: not in the face header, not in the trim record, and not in a tag array. Th
 possibility is that the writer deduplicates surfaces and the reader re-derives the map
 geometrically, which is why the pooled parts have fewer surfaces than faces.
 
+The load path confirms where the object table lives but not how a face finds its surface.
+`CATCGMStreamCGMImpl::Unserialize_ContentsFull` at `0x180063d30` registers each object with
+`QuickTagInsert` at `0x180016330`, creates it with `CreateObjectUnStream` at `0x1800519e0`, and
+unserializes it with `Unserialize_Object` at `0x180052220`. The container is `0x2b0(stream)` and its
+object table is `0x10(container)`. `MappingBufferIndexWithTag` at `0x180053180` maps a buffer index
+to a tag with a size of 6 for index `0x1fe` and 4 for index `0x209` and `0xbf..0xc1`, appending to
+the buffer at `0x470(stream)` and advancing `0x458(stream)`.
+
+`ReadLinkedObjectsCount` at `0x1800714d0` is called from `Unserialize_TrueContentsOfAnObject` at
+`0x180060a6d`, but only when the object version is at least `0x684`, and it throws unless
+`0x18(stream) == 0xc` and `0x1c(stream) == 0x14`. So the linked-object read is gated on stream state
+that the face path does not set.
+
+The surface list is also not a deduplication of the face list in any simple order. Collapsing
+adjacent equal planarity values in the face sequence gives 20, 110, 70, and 233 runs for
+`Reservoir`, `Pedal_Body`, `4784`, and `4876`, against 56, 314, 270, and 714 surfaces. A constant
+index shift of 0, 1, or 2 leaves 15 to 265 planarity mismatches, and the best shift changes partway
+through `4876` (the first mismatch is at index 63, where the surface sequence is shifted left by 1
+and then by 2). So the surface order is not the face order with duplicates removed.
+
 A constraint solver over that geometry does not converge. Treating each face as a variable over the
 surfaces of its planarity class, and each two-face handle group as a constraint that the two
 surfaces must share a vertex-table point, then running arc consistency to a fixed point, leaves 12
