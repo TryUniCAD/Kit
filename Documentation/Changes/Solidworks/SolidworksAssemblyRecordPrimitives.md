@@ -49,6 +49,13 @@ defines a completed header count. Full neutral-model traversal constraints remai
 unresolved; this finding does not expand the metadata constructor's supported
 component scope.
 
+The [reference-update finding](../../../re/solidworks/records/AssemblyConstruction2026.md#reference-update-state-after-insertion)
+closes the ordinary insertion call to the target model's update getters.
+Its [reference-stamp gotcha](../../Gotchas/Conversion/Solidworks/Archive/ReferenceStampsCopyTargetState.md)
+distinguishes constructor seeds, copied target state and placement stamps.
+Part-target rules are explicit. Nested assembly aggregation and complete fresh
+reference construction remain outside the implemented primitives.
+
 Local verification is static syntax parsing, documentation formatting and diff
 validation only. No constructor imports, local tests, serializer reproductions
 or vendor operations ran. The remote process check now constructs the initial

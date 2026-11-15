@@ -69,20 +69,20 @@ The active constructor also assigns `moUnitsTable_c(1)` to user units at `f9b8`,
 
 Constructor seeds below describe initial allocation state. They are not universal saved-model constants or accepted neutral caches. Unknown semantics remain explicit and prevent claiming a complete fresh assembly profile.
 
-| Field or group                  | Classification                               | Static rule or initial state                                                      | Evidence and remaining work                                                                                                                                      |
-| ------------------------------- | -------------------------------------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `f14a0/f14d8`                   | Derived collections                          | Constructed empty string maps before authored assembly data exists                | Assembly constructor `0x4b67e710`; populate from actual semantic owners when those owners are recovered                                                          |
-| `f1a18/f1a20`                   | Derived bounds/cache state                   | Both pointers are allocated bounding-box objects by the end of construction       | `0x4b67e710`; compute actual bounds or prove an accepted neutral state, rather than omit them because the pointers were briefly cleared                          |
-| `f1560`                         | Derived counter, partial                     | Initial 0; browser-node insertion increments it once after reference construction | `0x4b6a7cf0`; ordinary insertion and deletion lifetime still need closure, so it is not equated to visible feature count                                         |
-| `f1570`                         | Derived solver result, partial               | Initial 0; stored through the native solve-status enum                            | Getter `0x4b69e140`, setter `0x4b6b7950`; enum domain and completed solve state unresolved                                                                       |
-| `f15a0`                         | Derived optional zone data                   | Initial null; native getter returns an object-array pointer                       | `getZoneArray` at `0x4b294eb0`; fresh absence requires the no-zone caller path                                                                                   |
-| `f1608`                         | Derived optional mirror data                 | Initial null; native getter returns mirror-assembly data                          | `getMirrorAssemblyData` at `0x4b299510`; authored mirror instances need their own construction graph                                                             |
-| `f18c8/f18e8`                   | Derived temporary collections                | Constructed empty object arrays for temporary fixed/grouped components            | Getters `0x4b2997d0`/`0x4b2997e0`; transient final-save treatment remains separate from initial allocation                                                       |
-| `f1710/f1718/f1720/f1708/f1738` | Derived replacement graph                    | Initial flag 0, null objects, empty map; replacement type seed -1                 | Constructor `0x4b67e710`; `f1718` getter `0x4b299550`, type getter/setter `0x4b299730`/`0x4b29dba0`; no authored replacement operation may invent linked records |
-| `f1940/f1948/f1990`             | Authored display option and derived lists    | X-ray toggle seed 0 and empty lists                                               | Getter/setter `0x4b298b80`/`0x4b29d900`; list population for enabled mode remains unresolved                                                                     |
-| `f1674`                         | Authored plane selection, derived identifier | Initial -1; use the generated active-plane id when a plane is selected            | Getter/setter `0x4b298b50`/`0x4b29d8d0`; absent-plane semantics require the corresponding caller                                                                 |
-| `f1a28`                         | Unresolved serialized state                  | Initial 1                                                                         | Constructor `0x4b67e710`; no semantic input or neutral-cache claim is made                                                                                       |
-| `f1300`                         | Derived model update bookkeeping             | Assembly does not take the conditional increment branch                           | Primary vtable `0x4ce69b30`, slot `0x16d8`, points to `0x4b27cbe0`, exactly a false return; header counters are separate                                         |
+| Field or group                  | Classification                               | Static rule or initial state                                                               | Evidence and remaining work                                                                                                                                      |
+| ------------------------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `f14a0/f14d8`                   | Derived collections                          | Constructed empty string maps before authored assembly data exists                         | Assembly constructor `0x4b67e710`; populate from actual semantic owners when those owners are recovered                                                          |
+| `f1a18/f1a20`                   | Derived bounds/cache state                   | Both pointers are allocated bounding-box objects by the end of construction                | `0x4b67e710`; compute actual bounds or prove an accepted neutral state, rather than omit them because the pointers were briefly cleared                          |
+| `f1560`                         | Derived counter, partial                     | Initial 0; ordinary and browser-node insertion each increment after reference construction | `0x4b6a0100` and `0x4b6a7cf0`; deletion lifetime still needs closure, so it is not equated to visible feature count                                              |
+| `f1570`                         | Derived solver result, partial               | Initial 0; stored through the native solve-status enum                                     | Getter `0x4b69e140`, setter `0x4b6b7950`; enum domain and completed solve state unresolved                                                                       |
+| `f15a0`                         | Derived optional zone data                   | Initial null; native getter returns an object-array pointer                                | `getZoneArray` at `0x4b294eb0`; fresh absence requires the no-zone caller path                                                                                   |
+| `f1608`                         | Derived optional mirror data                 | Initial null; native getter returns mirror-assembly data                                   | `getMirrorAssemblyData` at `0x4b299510`; authored mirror instances need their own construction graph                                                             |
+| `f18c8/f18e8`                   | Derived temporary collections                | Constructed empty object arrays for temporary fixed/grouped components                     | Getters `0x4b2997d0`/`0x4b2997e0`; transient final-save treatment remains separate from initial allocation                                                       |
+| `f1710/f1718/f1720/f1708/f1738` | Derived replacement graph                    | Initial flag 0, null objects, empty map; replacement type seed -1                          | Constructor `0x4b67e710`; `f1718` getter `0x4b299550`, type getter/setter `0x4b299730`/`0x4b29dba0`; no authored replacement operation may invent linked records |
+| `f1940/f1948/f1990`             | Authored display option and derived lists    | X-ray toggle seed 0 and empty lists                                                        | Getter/setter `0x4b298b80`/`0x4b29d900`; list population for enabled mode remains unresolved                                                                     |
+| `f1674`                         | Authored plane selection, derived identifier | Initial -1; use the generated active-plane id when a plane is selected                     | Getter/setter `0x4b298b50`/`0x4b29d8d0`; absent-plane semantics require the corresponding caller                                                                 |
+| `f1a28`                         | Unresolved serialized state                  | Initial 1                                                                                  | Constructor `0x4b67e710`; no semantic input or neutral-cache claim is made                                                                                       |
+| `f1300`                         | Derived model update bookkeeping             | Assembly does not take the conditional increment branch                                    | Primary vtable `0x4ce69b30`, slot `0x16d8`, points to `0x4b27cbe0`, exactly a false return; header counters are separate                                         |
 
 The header update counter belongs to the actual header object. [ModelConstruction2026.md](ModelConstruction2026.md) records its independent increment and wall-clock timestamp rule. Neither header stamps nor assembly counters are derived from feature count alone.
 
@@ -126,6 +126,54 @@ Ordinary insertion `0x4b6a7df0` calls `addReference`, then `onAddReference`; it 
 `addReference` at `0x4b6854d0` constructs a `moReference_c` through helper `0x4bbb7ba0` when its internal-reference option is zero. The nonzero branch invokes `0x4bbb74c0`, which uses the same helper and installs the `moReferenceInternal_c` vtables. With a nonnull authored transform, helper `0x4bbb7ba0` creates a copy at reference `f360` and increments `f3f0` from its constructor seed. This closes the reference's initial placement owner; it does not justify copying that matrix into every configuration transform cache.
 
 `onAddReference` at `0x4b6ab9c0` reaches configuration insertion helper `0x4b8d4910`. That helper constructs a reference chain rooted in the reference's actual owning model, appends the concrete reference, constructs its chain component, and calls `moConfiguration_c::getOrAddObject` at `0x4b8d1400`. The configuration copies its selected `fc48` or `fc50` option record into a `moConfigObject_c`; selection depends on the concrete reference kind. The chain becomes contextual in that object's constructor. The actual configuration-name lookup supplies the referenced persistent configuration id. It then passes the name/id to config-object setter `0x4b8b2380` and reference setter `0x4bbcd7a0`. Header identity, external links, remaining option domains and context-dependent transforms are not replaced with captured values.
+
+## Reference update state after insertion
+
+The following rules belong to the hashed `sldmodu.dll` above. They are static
+constructor, caller and virtual-dispatch evidence. They are not execution traces
+or held-out acceptance results.
+
+Ordinary reference constructor helper `0x4bbb7ba0` seeds several stamps with 101. It constructs the `f3e8` time from calendar arguments
+`(1990, 1, 1, 0, 0, 0, -1)`. These are allocation seeds, not the completed
+insertion state. No host-time conversion of that constructor date is needed for
+the recovered ordinary insertion path.
+
+Insertion helper `0x4b6a0100` invokes the reference's virtual slot `+0x1ce0`.
+The ordinary reference vtable `0x4cf7a8b0` binds that slot to
+`moReference_c::setModelUpToDate` at `0x4bbcf680`.
+Its `+0x1cc0` call resolves the actual target model through helper
+`0x4bbc04e0`. When that model is present, the method replaces four stamp fields.
+
+| Reference field | Classification                                        | Native source after insertion               | Part-target rule and evidence                                                                                                                             |
+| --------------- | ----------------------------------------------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `f3e0`          | Derived target update counter                         | Target virtual `+0x1030`                    | Target header `f40`; part slot targets `0x4bdac640`, which calls the header's current-update getter                                                       |
+| `f3e8`          | Derived target update time                            | Target virtual `+0x1248`                    | Target header `f48`; part slot targets `0x4bdac6a0`, which copies header member `+0x48`                                                                   |
+| `f3f4`          | Derived target geometry-change stamp                  | Target virtual `+0x19e0(0, visited_models)` | Target model `f1300`; part slot targets `0x4b5602e0`, which reads that member                                                                             |
+| `f3f8`          | Native literal for the part-target branch             | Target virtual `+0x19d8`                    | 101; part slot targets `0x4b55ff30`, which returns literal `0x65` without reading model state                                                             |
+| `f3f0`          | Derived placement stamp, separate from target updates | Reference constructor and placement setters | Constructor seed 101 becomes 102 when `0x4bbb7ba0` copies a nonnull supplied transform into `f360`; later placement operations need their own transitions |
+
+The part dispatches were read from primary vtable `0x4d1252d8`. The header's
+current-update getter has the global-per-header behavior recorded in
+[ModelConstruction2026.md](ModelConstruction2026.md). The reference timestamp
+therefore comes from the actual target header's explicit authored time. It does
+not come from the host clock, instance count or a saved-control row.
+
+Assembly targets have different geometry and transform dispatches.
+Assembly vtable `0x4ce69b30` binds `+0x19e0` to `0x4b55ff40` and
+`+0x19d8` to `0x4b55fdd0`. Both walk the reference set at model `f15e0`.
+Geometry aggregation starts with model `f1300` and recurses into available
+target models with a copied visited-model set. Transform aggregation reads each
+reference's `+0x16f8` placement stamp and uses a 101 sentinel branch.
+Neither branch is replaced with the part getter's literal.
+Reference-set membership, unresolved targets, repeated targets, traversal order
+and overflow remain obligations before a general neutral assembly formula is
+implemented.
+
+`setModelUpToDate` also updates optional bounds and clears selected runtime
+flags. Those effects remain separate from the four proved stamp assignments.
+This finding does not add a partial reference object or advertise a complete
+fresh component graph. The [reference-stamp gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ReferenceStampsCopyTargetState.md)
+records the construction consequence.
 
 ## Authored file and configuration identity
 
