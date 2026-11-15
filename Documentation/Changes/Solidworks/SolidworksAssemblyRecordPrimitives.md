@@ -63,6 +63,11 @@ The [chain-context gotcha](../../Gotchas/Conversion/Solidworks/Archive/ResolvedC
 records why a decompiler alias or standalone-store rejection does not justify
 forcing every chain into an unresolved mode.
 
+The [insertion-counter gotcha](../../Gotchas/Conversion/Solidworks/Archive/BrowserInsertionAdvancesReferenceCounterTwice.md)
+records two native increments on one successful browser-node insertion path.
+This keeps model `f1560` separate from visible component and header activity
+counts. Its complete lifetime rule remains unfinished.
+
 Local verification is static syntax parsing, documentation formatting and diff
 validation only. No constructor imports, local tests, serializer reproductions
 or vendor operations ran. The remote process check now constructs the initial
