@@ -1,6 +1,9 @@
 from dataclasses import dataclass as MakeDataClass
 
 from convert.formats.Fusion.DrawingCodec.Dwg.EmitDwgFile import EmitDwgFile
+from convert.formats.Fusion.DrawingCodec.Dwg.Header.EmitHeaderVars import (
+    EmitHeaderVars,
+)
 from convert.formats.Fusion.DrawingCodec.Dwg.Header.HeaderFrame import (
     FrameParts,
     KHeaderName,
@@ -14,6 +17,13 @@ def CheckLoadable(Database: "DrawingDatabase") -> None:
     if Frame is None or FrameParts(Frame)[0] < 72:
         raise ValueError(
             "Drawing databases need a header tail, so the database is refused"
+        )
+    Model = Database.Model
+    if Model.HeaderBytes and (
+        EmitHeaderVars(Model.HeaderVars, Frame, Model.FileHeader) != Model.HeaderBytes
+    ):
+        raise ValueError(
+            "Drawing databases need a header that matches its tail, so the database is refused"
         )
     AppInfo = Database.Model.AppInfo
     if AppInfo is None:
