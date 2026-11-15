@@ -1083,6 +1083,24 @@ readback: 7 features 9 params 1 bodies
 (no End line; second run identical)
 ```
 
+### What a generative `949` element is missing, counted
+
+Diffing the ordered declarations of the vendor element against ours gives the first quantitative statement of the
+gap: `191` declarations on the vendor side, `305` on ours.
+
+**Three fields were typed wrongly**: `attributes`, `formula_ptr` and `qind` are `t01` in the vendor element and
+were emitted as `t00`. The declared type decides how the value is read, so that was a real defect; it is fixed in
+`SketchDef` and the element still parses through the reader.
+
+**Sixty-one vendor declarations are absent from ours** because we emit those sub-records as nulls. They are the
+solver's entity tables, not the sketch: `ent_tab` internals (`bucket_xar`, `entry_ptr(entity_entry)`, `xid`,
+`start_vtx`, `end_vtx`, `center_vtx`, `pers_attribs`, `ent_list`, `vert_tab`, `ent_ids`, `vertex_id`, `attribs`),
+`first_chain_ptr` internals (`quilt_id`, `plane_id`, `ref_planes`), `save_entity_ptr(line)`,
+`back_entity_ptr(line)`, `order_table`.
+
+Correcting the types is not sufficient — `typed949` is still refused, twice — so the gap is exactly those nulled
+tables, which hold the solver's *output*: the entity, vertex and chain graph derived from the constraints.
+
 ### The last six rows are not derivable, and the from-scratch container stops there
 
 **`IndentTag` and `FeatRefData` are opaque blobs.** No token declarations, high entropy — `IndentTag` is

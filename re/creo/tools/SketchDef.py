@@ -86,9 +86,9 @@ def Sketch() -> bytes:
     Payload += Author.StructHeader("dimtab_ptr") + b"\xF8\x04\xF7\x3E\xFB"
     for IndexValue, Value in enumerate(KDimensions):
         Payload += Dimension(Value, IndexValue)
-    Payload += Author.StructHeader("formula_ptr") + b"\xF8\x08"
+    Payload += b"\xE0\x01formula_ptr\x00\xF8\x08"
     Payload += b"".join(Author.SignedInt(IndexValue) for IndexValue in range(8))
-    Payload += Author.StructHeader("qind") + Author.SignedInt(-1)
+    Payload += b"\xE0\x01qind\x00" + Author.SignedInt(-1)
     Payload += Author.FieldValue(
         2, "fixed_origin", b"\xF8\x03" + Author.ScalarValue(0.0) + Author.ScalarValue(0.0)
     )
@@ -150,9 +150,9 @@ def SolverTables(PointCount: int) -> bytes:
     Payload = Author.StructHeader("relat_ptr") + b"\xF4\x04\xF8\x08\xF7\x4A\xFB"
     for IndexValue in range(PointCount):
         Payload += Relation(IndexValue, IndexValue, (IndexValue + 1) % PointCount)
-    Payload += Author.StructHeader("formula_ptr") + b"\xF8\x08"
+    Payload += b"\xE0\x01formula_ptr\x00\xF8\x08"
     Payload += b"".join(Author.SignedInt(IndexValue) for IndexValue in range(8))
-    Payload += Author.StructHeader("qind") + Author.SignedInt(-1)
+    Payload += b"\xE0\x01qind\x00" + Author.SignedInt(-1)
     Payload += Author.FieldValue(
         2,
         "fixed_origin",
@@ -286,7 +286,7 @@ def FullSketch() -> bytes:
     Payload += Author.StructHeader("segtab_ptr") + b"\xF8\x04\xF7\x2F\xFB"
     for IndexValue, (First, Second) in enumerate(KPoints):
         Payload += Segment(First, Second, 4 + IndexValue, IndexValue == 0)
-    Payload += Author.StructHeader("attributes") + b"\xF0\x08\xF1\xF7\x3A"
+    Payload += b"\xE0\x01attributes\x00\xF0\x08\xF1\xF7\x3A"
     Payload += Author.StructHeader("dimtab_ptr") + b"\xF3\xF8\x04\xF7\x3E\xFB"
     for IndexValue, Value in enumerate(KDimensions):
         Payload += Dimension(Value, IndexValue)

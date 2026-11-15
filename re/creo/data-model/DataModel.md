@@ -331,6 +331,33 @@ mutually unrelated contents produces a section the solver cannot accept, which i
 edits reached from the other side — the row is tolerated where it is *inert* (a changed dimension, a flipped
 `verhor`, a rewired `pointid` that the solver re-derives) and refused where it must be *solved*.
 
+### Diffing our generated element against the vendor's, declaration by declaration
+
+Comparing the ordered `e0 <type> <name> 00` declarations of both elements quantifies the gap for the first time:
+the vendor element has `191` declarations, our generated one `305`, and the differences are small and specific.
+
+**Three fields are declared with the wrong type.** The vendor types them `01` (integer families); we typed them
+`00` (record):
+
+| Field | Vendor | Ours (before fix) |
+| --- | --- | --- |
+| `attributes` | `t01` | `t00` |
+| `formula_ptr` | `t01` | `t00` |
+| `qind` | `t01` | `t00` |
+
+The declared type decides how the value is read, so this was a real defect and is now fixed in `SketchDef`.
+
+**Sixty-one declarations exist in the vendor element and not in ours**, because we emit those sub-records as
+nulls. They cluster in the solver's entity tables rather than in the sketch itself: `ent_tab` internals
+(`bucket_index`, `bucket_xar`, `ent_mode`, `entry_ptr(entity_entry)`, `xid`, `start_vtx`, `end_vtx`,
+`center_vtx`, `pers_attribs`, `ent_list`, `vert_tab`, `ent_ids`, `vertex_id`, `attribs`, `ent_id`),
+`first_chain_ptr` internals (`quilt_id`, `plane_id`, `plane_flip`, `ref_planes`), `save_entity_ptr(line)`,
+`back_entity_ptr(line)`, `order_table`, and `Structure_Invalid`.
+
+Fixing the three types is not enough — the part is still refused (`typed949`, no `End` line, twice) — so the
+remaining gap is exactly those nulled tables: a generative element needs its entity, vertex and chain tables
+populated, which is the sketch solver's output rather than its input.
+
 ### The last six rows are not derivable from format knowledge
 
 **`IndentTag` and `FeatRefData` are opaque.** Neither is a token stream: their payloads begin
