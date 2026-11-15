@@ -254,6 +254,43 @@ in, rather than something the loader derives. That is the first evidence that th
 recovered statically: each class's digest should sit, as a literal, at that class's registration
 site.
 
+## The digest is extractable from the modules by scanning registration sites
+
+The digest is a compile-time immediate. Every registration site contains
+
+```text
+c7 84 24 90 00 00 00 <digest LE>     mov dword ptr [rsp + 0x90], <digest>
+```
+
+immediately before the call that constructs the registrant, and the class name is the `rdx` value
+of that call. Scanning `libpart.dll` and `libsyss.dll` for that pattern and resolving the `rdx`
+`lea` against `.rdata` produces 590 `(name, digest)` pairs. Checked against the 135 digests read
+from a live registry:
+
+```text
+pairs extracted                                    590
+pairs that match the live registry                  35
+pairs that disagree with the live registry           0
+classes not present in the two modules scanned      100
+```
+
+**zero mismatches** across every pair that could be checked. The 100 misses are classes registered
+by modules that were not copied to the host (`Solid::*`, `UGS::POINT`, `LAYER_category`, and so on),
+not failures of the rule.
+
+So the class digest is not a runtime value at all: it is a constant compiled into the module that
+registers the class, and the rule that recovers it is
+
+```text
+find mov dword [rsp+0x90], imm
+follow forward to the next call
+take the string loaded into rdx  ->  class name
+take imm                        ->  class digest
+```
+
+That means the digest field of the class table is **statically derivable from vendor code** — not a
+document, not a live session — which is the first part of the table that is.
+
 ## What this means for a static writer
 
 The entry is a snapshot of **registry-derived per-class values**, one of which is the class digest.
