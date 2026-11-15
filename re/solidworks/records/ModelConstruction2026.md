@@ -79,6 +79,9 @@ The variable-table presence flag is false for the newly empty variable-control m
 The native save at `0x4c21ef40` calls `hasRefOrFeatCntrlbyVarTable` before emitting them.
 Manager `f658` starts zero; the resolved-feature stream context must derive from it,
 instead of forcing the corpus's saved value.
+The manager constructor finishes by calling `setNeedsUpdate(0,1,null)`;
+`0x4bb515c0` delegates to node routine `0x4c03ed90`, clearing update bits
+with mask `0xfffd7ff8`. This produces `f0c=0` from the fresh node state.
 Manager `f830` starts at the constructor's signed `-1` sentinel, written as an
 all-ones qword by both manager constructors; its saved unsigned low word is
 `0xffffffff`. No saved build-number value is used.
@@ -106,6 +109,78 @@ byte `f34c`, then compares its normal to the positive canonical axes with
 tolerance `1e-12` at `0x4cdf2b88`.
 The current constructor accepts exact canonical principal normals only.
 It does not guess a principal kind from a display name.
+
+## Principal-plane graph
+
+`principal_planes` takes names keyed by canonical positive normal axis and
+constructs actual plane and plane-data objects in native creation order.
+The 2026 `moModel_c::makeDefaultRefPlanes` at `0x4c02d830` passes these bases
+to the default-data constructor `0x4c2d9ba0`, all at the zero origin:
+
+| Normal | First basis | Second basis | Construction         |
+| ------ | ----------- | ------------ | -------------------- |
+| Z      | X           | Y            | cross product X × Y  |
+| Y      | X           | −Z           | cross product X × −Z |
+| X      | −Z          | Y            | cross product −Z × Y |
+
+The constructor computes the normal by crossing the bases.
+Its setter `0x4c2eaf80` calls `sldmgu` coordinate transform `0x31f21220`,
+then takes the inverse before storing the plane transform.
+The coordinate routine constructs rows from the first basis, normalized
+`(first × second) × first`, and normalized `first × second`.
+Matrix constructors `0x31e26c10` and `0x31e26880` establish the row storage.
+The inverse of the orthonormal zero-origin frame is its transpose.
+The builder computes those entries and omits the identity matrix for Z.
+
+Plane borders, display origin and optional references follow fresh constructor
+`0x4c2dadb0`: zero borders/origin, absent references, selector sentinels `-4`,
+`f5c=1`, and zero remaining option flags.
+The plane serializer `0x4c27b1b0` writes literal zero for the legacy byte.
+The geometry base follows `0x4c2ce5d0`.
+Creation calls `setBlankStatus(1,1,1)` at `0x4c2ceec0`; retaining constructor
+bit 4 depends on environment member `0x138`.
+The builder requires that boolean explicitly and never copies a saved flag.
+
+## Part-root graph
+
+`part_root` and `part_graph` construct the base part and its principal planes.
+They require generated detail definitions, explicit document and analysis unit
+graphs, a crosshatch name, configuration names and version provenance.
+They do not read preferences, a saved part, a template or a field program.
+`part_graph` returns object references through `ModelGraph`; its system-feature
+tuple is separate from the part's fresh empty concept list.
+Origin/profile construction and the separate resolved-stream composition remain
+required before this graph is a complete native part.
+
+The model constructor is `0x4c00edb0` and derived part constructor `0x4c19e7b0`.
+Every emitted root collection starts from their fresh containers and derives
+its serialized count from its elements.
+The following additional rules close their nonempty structural state:
+
+| Fields                 | Classification                   | Construction rule and 2026 evidence                                                                                                     |
+| ---------------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `f990`                 | derived self reference           | Fresh `moUnitComponent_c` points back to the part; getter `0x4c0254c0` returns this slot                                                |
+| `f9d0`                 | derived relation graph           | Fresh `moRelMgr_c`, constructor `0x4c366bd0`: empty relation/value lists, `ff4=f1b0=-1`, other stored scalars/string zero/empty         |
+| `f9b8/f9c0`            | authored unit graphs             | Document/user and analysis tables respectively; setters `0x4c031e20` and `0x4c0318c0` assign these exact slots                          |
+| `fd88`                 | constructor bookkeeping          | Atom manager `0x4bced920`: next id `f260=100`, empty atoms, zero flags                                                                  |
+| `fd90`                 | constructor bookkeeping          | Ghost manager `0x4bf03a90`: next id `f80=10000`, no objects or packed flags                                                             |
+| `fa98`                 | format/constructor state         | Save helper `0x4c22ec20` writes literal kind `2`; alias constructor `0x4b4c7a40` creates empty maps and markers `0xaaaaaaaa/0xbbbbbbbb` |
+| `fdb0`                 | constructor state                | `moTransRefPlaneData_c` constructor `0x4c6f3b30`: `1,1,0xff00,0xff,0x5f,0`                                                              |
+| `f1418`                | authored hatch/constructor state | Part constructor calls `gcXhatch_c` with authored name, angle zero, scale one, flags `0,0,1,-1,-1,0`                                    |
+| `f1588`                | derived empty display data       | `uoModelData_c` constructor `0x4c3ba670`: null light graph and zero flag                                                                |
+| `ff80/ff88`            | constructor state                | Model constructor writes `1000.0` and `1e-8` directly                                                                                   |
+| `has_f7f8`             | derived cache absence            | Native save checks `mgBBox_c::isSet`; an unset fresh box emits false, even though the runtime pointer exists                            |
+| `f784/f7a4`            | constructor state                | Fixed 16-byte fields are generated from the constructor's zero-initialized members, never read from a document                          |
+| `fce8/fcec/fd44/fd50`  | constructor state                | Model seeds `50,108,10,1`                                                                                                               |
+| `feb0/feb4`            | constructor state                | Model seeds `199,199`                                                                                                                   |
+| `f1104/f1128`          | constructor bookkeeping          | Model initializes both dimension-increment counters to `20`                                                                             |
+| `f1300/f18d8`          | constructor bookkeeping          | Model/part initialize update stamps to `101`                                                                                            |
+| root `f2c` bit `0x100` | storage state                    | Native lightweight save sets this bit before `0x4c17aa00`; other saved-state bits are not inferred from controls                        |
+
+The part's fresh node retains constructor `f0c=1`, requesting update.
+A completed native control's cleared update bit does not prove that constructor
+geometry has already been rebuilt.
+No empty atom, mass or bounding-box cache is reported as measured body geometry.
 
 ## Definition construction
 
@@ -144,9 +219,14 @@ different configuration counts and Unicode names from no input file, serializes
 both components into a generated container, decodes and re-emits each stream,
 checks object aliases and rejects runtime data-file reads through Python's audit hook.
 It deliberately keeps both vendor-acceptance flags false.
+Remote run [43675419713](https://github.com/TryUniCAD/Kit/actions/runs/43675419713)
+passed this configuration/definition process boundary at commit `07b9ce403`.
+The expanded principal-plane check and part-root additions await a new remote run.
+The audit hook is installed before builder imports and registry construction in
+the expanded check, rejecting data-file reads during those phases as well.
 
-Still required: the complete part root, native planes/origin/system features,
-full detail-style and unit construction, source-native round trips, held-out target
+Still required: complete origin/system-feature composition,
+full detail-style and unit construction, whole-part round trips, held-out target
 measurements, rebuild and dimension edits, and production promotion.
 No whole-part acceptance is established by these component constructors.
 
