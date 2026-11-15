@@ -228,6 +228,90 @@ The dominant field is solved. Record one writes `Author.CleanFlagValue()` and th
 `Author.CleanFlagElements()`, which is a rule rather than a captured table: one clean slot, no vendor
 values, no document specific length.
 
+## The list length is load-bearing, and records are authored in place
+
+The feature list cannot be truncated, and that is what defeated every two-record candidate:
+
+| Candidate | Records | Creo |
+| --- | --- | --- |
+| `fullgen` | control's four, generated tail | loads |
+| `twocontrol` | control's first two, `f2 e1` terminator | silent exit twice |
+| `twocontrol2` | control's first two, control's own end-of-list bytes | silent exit twice |
+| `twocontrol3` | control's first two, `f2` close + declared `e1` | silent exit twice |
+| `csyspair` | FRONT + csys, control bytes | silent exit twice |
+| `inplace1` | **our** record one, control records 2-4 | loads |
+| `inplace2` | **our** records 1-3, control csys | loads |
+| `inplace3` | **our** records 1-3, all-clean masks, our dates, control csys | loads, 2 of 2 |
+
+So a part must declare the same four features the rest of the container describes. A one-record section loads
+only because it never opens a second element. Authoring therefore replaces records **in place** rather than
+appending to the list.
+
+`Author.ReplayOf` derives each replay from its own definition, so records compose without a hand-written value
+list, and the boundary is the control's: `next_feat_ptr` declared once, `f2 e3` opening element two, a bare
+`e3` for elements three and four.
+
+### The mask values are not required
+
+`inplace3` carries **all-clean 252-slot masks in every record**, including both replays, and loads twice. That
+overturns the per-record bisect recorded below, which reported every replay mask validated. That bisect
+predates three emitter fixes — `fc_hist` hardcoded to `8` instead of `first_geom_id`, the array-strip test
+matching the `f7` byte inside a value, and hand-written replays — so its candidates were malformed in ways
+unrelated to their masks. No per-schema mask payload is needed.
+
+The lesson: a negative result on a self-built encoder only counts once the encoder is byte-exact.
+
+## The csys record is the last vendor record
+
+Record four (`0xaa9..0xd14`, `619` bytes, class `979`) is the only vendor-authored record left. It does not
+replay the datum schema positionally — it declares its own fields partway through and skips datum fields with
+`f7` selectors. Parsing it against the shared schema gives the field map:
+
+| Offset | Field | Value |
+| ---: | --- | --- |
+| `0` | `id` | `11` |
+| `1` | `indep_attributes_arr` | `[4097, 0, 0, 0]` |
+| `5` | `feat_type_ptr` | record |
+| `6` | `table_id` | `-1` |
+| `7` | `type` | `979` |
+| `9` | `feattype_key` | `e1` |
+| `10` | `form` | `0` |
+| `11` | `attributes` | `[0 x8, 16, 0, 0]` |
+| `17` | `placement` | `0` |
+| `18` | `intersection` | **`991`**, not `-1` |
+| `20` | `internal_udf_type` | `-1` |
+| `21` | `param_choice_ptr` | record |
+| `22`-`30` | the nine choice scalars | `0, 0, 0, -1, -1, -1, 0, 0, 0` |
+| `31` | `misc_choice` | **`[301989889, 2, 0, 0, 0, 0]`** |
+| `39` | `assoc_type` | `0` |
+| `40` | `comp_like_type` | `-1` |
+| `41` | `sect_name` | **null** (`e1`) — no name at all |
+| `42` | `idtab_ptr` | record |
+| `43` | `misc_id_tab_ptr` | **declared**: `f8 01 f7 4d fb` then `e3` |
+| `66` | `misc_hist` | **declared**: `f8 05` then `[12, 534, 0, -1, 500]`, `f2`, `f7 1f`, `e3` |
+| `91` | `save_geoms`, `transform`, `cr_flags_xar`, `cvt_feat_dat`, `feat_dates_ptr`, dates, `intrs_pairs_ptr`, `first_geom_id` | continuation |
+| `518` | `parent_table` | **declared**: `f8 03 03 05 07` = `[3, 5, 7]`, then `f7 28`, `e3`, `e2` |
+| `594` | `avail_feat_parents` | **declared**: `f8 03 03 05 07` = `[3, 5, 7]`, then `f7 3c` |
+
+So three things separate a csys from a datum plane, and all three are values: `intersection` is `991` rather
+than `-1`, `misc_choice` starts with `301989889` rather than `0`, and `sect_name` is null. The four
+declarations sit at three positions (two after `idtab_ptr`, one after `first_geom_id`, one after `hostid`),
+and each is followed by a `f7` selector — that is how the record skips datum fields it does not carry.
+Declaring fields is legal here because a record that declares a new field must be last in its array.
+
+### A class-979 record cannot be faked
+
+Two attempts to avoid decoding the csys failed, twice each:
+
+| Candidate | Record four | Result |
+| --- | --- | --- |
+| `inplace4` | a `979` replay carrying datum fields | silent exit twice |
+| `inplace5` | a `923` replay with `id` `11` | silent exit twice |
+
+So the fourth feature must be a real csys: the class is validated against the record's own fields, and a plane
+carrying the csys id is refused. The remaining question is the meaning of the four `f7` selectors.
+
+
 ## The definition record is authored
 
 `Author.DatumFeatureRecord(...)` emits record one from the inventory above, field by field, and it is

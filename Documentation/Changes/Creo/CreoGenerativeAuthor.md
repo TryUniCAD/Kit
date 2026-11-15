@@ -578,7 +578,19 @@ three emitter fixes (`fc_hist` hardcoded instead of `first_geom_id`; the array-s
 byte inside a value; replays hand-written rather than derived), so its candidates were malformed in ways
 unrelated to their masks. No per-schema mask payload is required.
 
-### What is left
+#### A class-979 record cannot be faked
+
+Two attempts to avoid decoding the csys failed twice each: a `979` replay carrying datum fields
+(`inplace4`) and a `923` replay carrying `id 11` (`inplace5`). The class is validated against the record's own
+fields, so the fourth feature must be a real csys.
+
+Parsing that record against the shared schema shows why it is not a positional replay: it carries only `43`
+bytes of datum-shaped values and then **declares** its own fields at three points — `misc_id_tab_ptr` and
+`misc_hist` after `idtab_ptr`, `parent_table` after `first_geom_id`, `avail_feat_parents` after `hostid` —
+skipping the datum fields it does not carry with `f7` selectors. Three values also differ from a plane:
+`intersection` is `991`, `misc_choice` starts with `301989889`, and `sect_name` is null.
+
+## What is left
 
 One vendor record: the csys (`619` bytes, class `979`). It is a replay of the first record's schema opened
 with `id 11`, `type 979`, `sect_name DEFAULT_CSYS`, and then it declares four fields of its own —
