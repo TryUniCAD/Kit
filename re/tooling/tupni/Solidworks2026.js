@@ -186,7 +186,7 @@ rpc.exports = {
       onLeave(ReturnValue) { if (this.active) emit({kind: "part-version-fallback", file_version: ReturnValue.toUInt32(), caller: this.caller}) }
     })
     }
-    attach(Common.base.add(0xa3a7), {onEnter() {
+    if (Profile !== "repair") attach(Common.base.add(0xa3a7), {onEnter() {
       try {
         const Runtime = this.context.rax
         const NameBytes = new Uint8Array(Runtime.readPointer().readByteArray(160))

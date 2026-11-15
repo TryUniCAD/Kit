@@ -27,5 +27,5 @@ def exercise(path, prepared):
             except Exception as error:
                 prepared["identity"].setdefault("stage_marker_errors", []).append({"stage": stage, "exception": repr(error)})
 
-    result.update(Swapp.measure(controller, path, progress=progress, read_only=True))
+    result.update(Swapp.measure(controller, path, progress=progress, read_only=prepared.get("read_only", True)))
     return result
