@@ -98,8 +98,8 @@ def BuildContainer(
             ChecksumValue(PayloadValue),
             0,
         )
-        Payloads += SectionValue
-    return Header + KProductLine + TocHead + Rows + Payloads
+        Payloads += SectionValue + b"#\n"
+    return Header + KProductLine + TocHead + Rows + Payloads + b"#END_OF_UGC\n"
 
 
 def AuthorFeaturePayload(Features: tuple[tuple[int, int], ...]) -> bytes:

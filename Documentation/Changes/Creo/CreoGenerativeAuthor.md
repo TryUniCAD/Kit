@@ -181,8 +181,26 @@ attempt:
 
 No `not a valid PART file`, no `cannot be retrieved`, but also no `End` line and no
 `MT Part Solid`. So the container and directory are now valid, and the failure has moved to model
-load. The authored `VisibGeom` payload is therefore rejected: the container rebuild is not the
-remaining problem, the authored geometry is.
+load. The authored `VisibGeom` payload is therefore rejected.
+
+Reverse swap: the authored container carrying the vendor `VisibGeom` body is rejected again:
+
+```text
+!%CE01:13:51 The file ...rev.prt is not a valid PART file.
+\```
+
+So the authored container is *also* not a valid model: a two-section part with only `AllFeatur`
+and `VisibGeom` is missing the model payload Creo requires. The isolation matrix is:
+
+| Container | Geometry | Creo result |
+| --- | --- | --- |
+| vendor (byte-identical rebuild) | vendor | loads (`End`, `MT Part Solid`) |
+| vendor (byte-identical rebuild) | authored | model-load crash |
+| authored (`Author.BuildContainer`) | vendor | not a valid PART file |
+| authored (`Author.BuildContainer`) | authored | not a valid PART file |
+
+Both halves still fail. Vendor loadability needs the real model sections, not just a valid
+directory.
 
 ## Limits
 
