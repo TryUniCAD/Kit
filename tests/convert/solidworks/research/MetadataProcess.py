@@ -119,7 +119,7 @@ def ProcessInput(InputData: dict[str, dict[str, object]]) -> dict[str, object]:
         Result = {"error": str(ErrorInfo)}
     try:
         with OpenFile("/metadata-donor-input.SLDPRT", "rb") as DonorStream:
-            DonorStream.read(1)
+            raise RuntimeError("forbidden donor open succeeded: " + DonorStream.name)
     except PermissionError:
         Result["read_blocked"] = True
     return Result
