@@ -314,7 +314,16 @@ Null cached body has constructor/store/load evidence at `0x4c0ca000`, `0x4c25464
 
 ## Verification
 
-No local tests, imports, reproductions, or oracle calls were run
+The [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md#stopping-conditions) define the stopping conditions:
+
+> There are two acceptable stopping conditions.
+> The first is success under every criterion on this page.
+> The second is the end of the available context.
+> Missing grammar is the work. It is not a blocker.
+
+The current research does not meet those product criteria; unresolved native graph state remains active work
+
+No local tests, builder/serializer imports, reproductions, or oracle calls were run
 The edited Python sources passed static AST syntax parsing without importing or executing them
 Process-boundary regression coverage executes remotely with the assembled builder
 `PolygonProcess.py` now constructs fresh profiles and dimensional graphs in an isolated subprocess, writes their binary object archives into a container, decodes them, verifies byte identity and reference identity, then edits and re-encodes the live forward parameter
@@ -338,6 +347,10 @@ Its assembly failure was `bad class ref 32512 at 297` for the A0/A1 assembly CMg
 At head `ee2eed2e4732e995fb8b0a7b281b8834cdf9a7f6`, the naming and focused-directory gates passed, and [native job 132729524301](https://github.com/TryUniCAD/Kit/actions/runs/43687022248/job/132729524301) again passed all six polygon cases
 The job reported 139 passes, 158 skips and one separate assembly failure in 96.33 seconds
 The assembly CMgr repair advanced the controls to 12 of 14 identical streams; both remaining resolved-feature streams stopped at offset 635 because `moHistoryCompItemData_c` had no schema
+After the shared history/live-section and external-input repairs, [native job 132749668250](https://github.com/TryUniCAD/Kit/actions/runs/43693750759/job/132749668250) passed at head `af38f10bdecd5dee77375d8cbad7a1f68ee66660`
+It reported 158 passes and 158 skips in 56.97 seconds, including `AssemblyRoundTests.py`, `FreshPartTests.py`, `LockedPartTests.py` and all six polygon cases
+The tested synthetic merge was `783db24c98580b609b434bfdab0210900d80acbd`
+Its generated construction artifact `14153212981` contains ten files, is 144,352 bytes, and has uploaded ZIP SHA-256 `6b3c5ee495570cef54ddec496eff349c83fae27d4e2d097c422fd6e31ec47c13`
 These process results establish container/archive construction and decoding, not native application acceptance, rebuild correctness or body measurements
 
 The first complete generated H3 candidate from parent revision `8e44d0eb5` was rejected during clean native opening
@@ -356,5 +369,5 @@ The later native schema probe `candidate-H3-schema.json`, SHA-256 `78c5813433414
 The probe accepted the preceding History, Biography, ISO and line-font manager schema-one records
 The shared definition repair uses exported native runtime-class metadata at `slduiu!0x4aef6660+0xc`, independently proving schema zero
 This isolates the first observed schema mismatch; it does not establish that later generated graph state is accepted
-Further shared assembly repairs require their own remote execution evidence
+Later documentation revisions require their own current-head CI and review evidence
 The success criteria remain unsatisfied until held-out generated files pass target opening, rebuild, geometry measurements, feature-tree inspection, and dimension editing between healthy controls
