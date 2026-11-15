@@ -24,7 +24,7 @@ KGroup = b"\x02\x02\x01\x02\x41\x00\x04\x0fDefault Group\x00"
 KRecord = b"\x02\x02\x04\x0fDefault Group\x00\x00\x3f\x00\x00"
 
 
-# the order array only needs each id once so the writer emits one to N
+# order entries are ids so the writer emits one through n
 def ExprOrder(Objects: int) -> bytes:
     if Objects < 1:
         raise ValueError("NX expression order needs at least one object")
