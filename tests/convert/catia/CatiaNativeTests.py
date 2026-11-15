@@ -9,6 +9,7 @@ from convert import open_document as OpenDoc
 from convert.adapters import WriteOptions
 from convert.adapters.catia.Adapter import CatiaAdapter, ReadCatia
 from convert.adapters.catia.Container import CfvTwoArchive, OsmxArchive
+from convert.adapters.catia.Parametric import AttributeValues, RelationNames
 from convert.adapters.catia.NativeBrep import (
     ArcOrder,
     BuildVertices,
@@ -477,6 +478,31 @@ def TestScore() -> None:
             assert BadCount > 0, PathValue.name
         else:
             assert BadCount == 0, f"{PathValue.name} has {BadCount} bad faces"
+
+
+# this definition exists because a parameter name needs one measured source
+def TestParamName() -> None:
+    for PathValue in sorted(KParametric.glob("*.CATPart")):
+        Archive = CfvTwoArchive.from_bytes(PathValue.read_bytes())
+        assert RelationNames(Archive) == ("LENGTH",), PathValue.name
+        assert len(AttributeValues(Archive)) > 200, PathValue.name
+    Washer = CfvTwoArchive.from_bytes(
+        (
+            KParametric / "ISO_7089_PLAIN_WASHER_GRADE_A_NORMAL_SERIES.CATPart"
+        ).read_bytes()
+    )
+    WasherNames = {Value.name for Value in AttributeValues(Washer)}
+    for Absent in ("d_dia", "d1", "d2", "h"):
+        assert Absent not in WasherNames, Absent
+    Screw = CfvTwoArchive.from_bytes(
+        (
+            KParametric / "ISO_1207_GRADE_A_SLOTTED_CHEESE_HEAD_SCREW.CATPart"
+        ).read_bytes()
+    )
+    Signatures = {
+        Value.values for Value in AttributeValues(Screw) if Value.name == "d_dia"
+    }
+    assert len(Signatures) > 1
 
 
 # this definition exists because a vendor sample is held out input

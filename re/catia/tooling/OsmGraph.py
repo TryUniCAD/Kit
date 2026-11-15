@@ -296,6 +296,51 @@ def ExtractObjects(PathValue: Path) -> list[tuple[int, list[float]]]:
     return Values
 
 
+def RelationFormulas(PathValue: Path) -> list[str]:
+    """Return the relation formulas stored as symbols, with the line ending removed."""
+    Archive = CfvTwoArchive.from_bytes(PathValue.read_bytes())
+    Found = FindOsmx(Archive)
+    if Found is None:
+        return []
+    return [
+        Symbol.strip()
+        for Symbol in AllSymbols(Archive)
+        if Symbol.count("#") and "(" in Symbol
+    ]
+
+
+def ParameterNames(PathValue: Path) -> list[str]:
+    """Return every name a relation formula takes as an input (`#In <name>`)."""
+    Names: list[str] = []
+    for Formula in RelationFormulas(PathValue):
+        for Piece in Formula.split("#In")[1:]:
+            Token = Piece.lstrip(" :").split(",")[0].split(")")[0].split(":")[0]
+            Token = Token.strip()
+            if Token and Token not in Names:
+                Names.append(Token)
+    return Names
+
+
+def AttributeSignatures(PathValue: Path, Wanted: set[str]) -> dict[str, set[tuple[str, ...]]]:
+    """Return, per attribute name, the distinct value signatures across its blocks."""
+    Archive = CfvTwoArchive.from_bytes(PathValue.read_bytes())
+    Found = FindOsmx(Archive)
+    if Found is None:
+        return {}
+    Data, Parsed = Found
+    Symbols = AllSymbols(Archive)
+    Result: dict[str, set[tuple[str, ...]]] = {}
+    for Subtag, Start, Length in ParseRecords(Data, 104, Parsed.symbol_table_offset):
+        if Subtag != 0x07:
+            continue
+        Child = Data.find(b"\x7c\x06", Start)
+        Limit = min(Length, (Child - Start) if Child >= 0 else Length)
+        for Name, Values in ParseAttributes(Data, Start, Limit, Symbols):
+            if Name in Wanted:
+                Result.setdefault(Name, set()).add(tuple(str(Value) for Value in Values))
+    return Result
+
+
 def Extract(PathValue: Path) -> tuple[list[str], dict[str, int]]:
     Archive = CfvTwoArchive.from_bytes(PathValue.read_bytes())
     Found = FindOsmx(Archive)

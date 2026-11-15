@@ -410,6 +410,15 @@ result = CatiaAdapter().write(
   and `_RepresentedBy`, and the 27 `CATPart` files still decode unchanged with the same five warnings.
   The assembly instance list itself is not extracted yet: those attributes do not appear in the
   product stream's `7c 07` blocks, so the tree is encoded in the `CATProdCont` payload.
+- A new `src/convert/adapters/catia/Parametric.py` reads the parametric side of a `CATPart`: it walks
+  the OSMX `7c` record tree, decodes each `7c 07` attribute block with the compact-int table, and
+  exposes `RelationNames` (the `#In` inputs of every relation formula) and `AttributeValues` (every
+  attribute with its decoded values). Measured: all five vendor parametric samples declare exactly one
+  relation input, `LENGTH`; `ISO_1207` names `d_dia`, `dk_nom_head_dia`, and `n_nom_Slot_Width`, and
+  the attribute blocks carry an integer id plus a reference and never a double, while the doubles live
+  in separate `MAvalue` objects. The washer's symbol table has no `d_dia`, `d1`, `d2`, or `h`, so the
+  ISO 7089 name-to-value map cannot be built from the file itself. `TestParamName` asserts all of this
+  over the five samples.
 - The OSMX symbol table reader now handles the extended length form (a zero length byte followed by
   a little-endian u32 length) and allows `\t`, `\n`, and `\r` in symbol values. The 27 corpus parts
   still decode with zero symbol-table failures, and the five parametric sample parts in
