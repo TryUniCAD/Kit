@@ -240,6 +240,31 @@ four byte block at `[rbp+0x50]` and the 16-bit table word are _additional parts 
 appends_. That means the prefix's leading bytes are assembled **by the caller** and simply pass
 through here — the store sites the plan targets would log bytes that the caller already computed.
 
+## The enclosing routine and its caller
+
+`0x180144560` is not a function entry: the routine that contains it starts at `0x180144100` and has
+exactly **one** caller, at `0x180141f63`. Reading from the real entry shows what it does first:
+
+```text
+0x180144121  cmp dword ptr [rcx + 0x2c], 0        a count of classes
+0x180144131  loop:
+0x180144135    mov rcx, qword ptr [rsi + rax]     每 class pointer
+0x180144161    call 0x180066c40                   the inner accessor
+0x180144180    compare and append to a vector at [rbx + 0x300]
+0x1801441c9  mov rdi, [rbx + 0x308] - [rbx + 0x300]
+0x1801441d7  sar rdi, 3                            divide by eight
+0x1801441db  mov [rbp + 0x48], edi                 the collected count
+0x180144206  mov [rcx + rax], dil                  first byte of a four byte field
+```
+
+so the routine first collects the classes into a vector and writes a **four byte count**, then walks
+the entries. The two-byte table read at `0x180144663` and the four byte block at `[rbp + 0x50]` come
+later, once per class.
+
+That orders the work: the prefix is produced by the per-class part of this routine, which begins
+after `0x180144651`, and the value it stores is read from `[rbx + 0x30]` at an index of
+`2 * [[r13 + 0x30] + 0x98]` — a per-session table, not a per-class constant this file can supply.
+
 ## What is left
 
 The prefix and the tail. Hooking `0x1801445xx` during a `SaveAs` and logging the two blocks and the
