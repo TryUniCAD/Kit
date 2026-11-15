@@ -36,10 +36,12 @@ records the header allocator's separate object-field binding for feature dimensi
 ## Verification
 
 Python syntax parsing completed for the research builders.
-The remote process check is prepared to construct different configuration counts,
-round-trip generated component streams through the container codec, preserve
-aliases and reject runtime data-file reads.
+The remote process check constructs different configuration counts and round-trips
+generated component streams through the container codec while preserving aliases.
+It records permitted code-loader reads during imports, then blocks file access,
+directory enumeration and process launches during construction.
 The configuration/definition boundary passed remotely at commit `07b9ce403` in
 [run 43675419713](https://github.com/TryUniCAD/Kit/actions/runs/43675419713).
-The expanded plane check and part-root additions await remote verification.
+That earlier run used a weaker suffix-based audit and establishes codec evidence
+only. The stricter audit and expanded component check await current-head verification.
 No tests or CAD oracle operations ran locally for this change.

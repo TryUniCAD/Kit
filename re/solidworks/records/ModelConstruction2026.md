@@ -265,16 +265,24 @@ It deliberately keeps both vendor-acceptance flags false.
 Remote run [43675419713](https://github.com/TryUniCAD/Kit/actions/runs/43675419713)
 passed this configuration/definition process boundary at commit `07b9ce403`.
 The expanded principal-plane check and part-root additions await a new remote run.
-The audit hook is installed before builder imports and registry construction in
-the expanded check, rejecting data-file reads during those phases as well.
+The original suffix-based audit allowed unrecorded reads whose filenames looked
+like code. It does not establish an unqualified zero-runtime-read claim.
+The current harness imports its trusted bootstrap and `ConstructionGuard` first,
+then installs `BuildAudit.InspectEvent` before builder imports and schema discovery.
+Permitted code-loader reads and directory scans are recorded in `ModuleReads`.
+`BeginBuild` ends that phase before any model or stream construction and blocks
+all covered file opens, directory enumeration and process-launch events.
+The result reports both recorded imports and actual denied attempts; the test
+also checks that the construction phase is active and the builder import was seen.
+This stricter audit awaits its current-head remote result.
 The expanded check also passes all twelve supported folder classes and the
 annotation cabinet through a separate generated stream in the container,
 then checks class identity, id allocation and recovered creation times.
 That actual subprocess/container test passed in
 [run 43677223605](https://github.com/TryUniCAD/Kit/actions/runs/43677223605)
 at `e26a6d095`; the workflow remained red because pytest separately collected
-its `Check*` assertion helpers as tests. Helper names and JSON-report typing
-were corrected for the next remote run.
+its `Check*` assertion helpers as tests. Helper names, JSON-report typing and the
+weaker audit were corrected for the next remote run.
 
 Still required: complete origin/system-feature composition,
 full detail-style and unit construction, whole-part round trips, held-out target

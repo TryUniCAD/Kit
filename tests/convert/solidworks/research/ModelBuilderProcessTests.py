@@ -31,6 +31,16 @@ def AssertSystems(Report: dict[str, object]) -> None:
     assert Times == [1700000000] * (len(Classes) - 1)
 
 
+def AssertAudit(Report: dict[str, object]) -> None:
+    ModulePaths = CastValue(list[str], Report["module_reads"])
+    assert ModulePaths
+    assert any(
+        "builders" in PathText and "Model" in PathText for PathText in ModulePaths
+    )
+    assert Report["audit_phase"] == "construction"
+    assert Report["runtime_reads"] == []
+
+
 def TestFreshGraphs(TmpPath: FilePath) -> None:
     Small = RunBuilders(TmpPath, 1, 1234.5, "first-")
     Large = RunBuilders(TmpPath, 7, 7654.25, "independent-構成-")
@@ -49,12 +59,11 @@ def TestFreshGraphs(TmpPath: FilePath) -> None:
     for Report in (First, Second):
         AssertPlanes(Report)
         AssertSystems(Report)
+        AssertAudit(Report)
     assert First["density_kg_m3"] == 1234.5
     assert Second["density_kg_m3"] == 7654.25
     assert First["journal_name"] == "first- journal"
     assert Second["journal_name"] == "independent-構成- journal"
-    assert First["runtime_reads"] == []
-    assert Second["runtime_reads"] == []
     assert (
         Second["stream_bytes"]["Contents/CMgr"] > First["stream_bytes"]["Contents/CMgr"]
     )

@@ -5,161 +5,259 @@ from subprocess import CompletedProcess, run as RunProcess
 from sys import executable as PythonExec
 
 KRepoRoot = FilePath(__file__).resolve().parents[4]
+
 KImports = """
-import json
-import sys
-from pathlib import Path
+from json import dumps as EncodeJson
+import sys as SystemLib
+from pathlib import Path as FilePath
 
-root = Path(sys.argv[1])
-count = int(sys.argv[2])
-density = float(sys.argv[3])
-prefix = sys.argv[4]
-sys.dont_write_bytecode = True
-sys.path.insert(0, str(root / 'src'))
-sys.path.insert(0, str(root / 're' / 'tooling' / 'sw2026'))
-sys.path.insert(0, str(root / 're' / 'tooling' / 'sw2026' / 'serial'))
-
+WorkRoot = FilePath(SystemLib.argv[1])
+CountCfg = int(SystemLib.argv[2])
+DensityVal = float(SystemLib.argv[3])
+NamePrefix = SystemLib.argv[4]
+SystemLib.dont_write_bytecode = True
+SystemLib.path.insert(0, str(WorkRoot))
+SystemLib.path.insert(0, str(WorkRoot / "src"))
+SystemLib.path.insert(0, str(WorkRoot / "re" / "tooling" / "sw2026"))
+SystemLib.path.insert(0, str(WorkRoot / "re" / "tooling" / "sw2026" / "serial"))
 """
+
 
 KGuard = """
-reads = []
+from tests.convert.solidworks.research.ConstructionGuard import BuildAudit
 
-def audit(event, args):
-    if event != 'open':
-        return
-    path, mode, flags = args
-    if not isinstance(path, (str, bytes)):
-        return
-    suffix = Path(path.decode() if isinstance(path, bytes) else path).suffix
-    if suffix in {'.py', '.pyc', '.so', '.dylib'}:
-        return
-    reads.append(str(path))
-    raise RuntimeError('runtime file access during fresh construction: ' + str(path))
-
+SchemaDir = WorkRoot / "re" / "tooling" / "sw2026" / "serial" / "defs"
+AuditGuard = BuildAudit(SchemaDir)
+SystemLib.addaudithook(AuditGuard.InspectEvent)
 """
 
-KLoad = """
-sys.addaudithook(audit)
-from Core import Obj
-from Classes import registry
-from Streams import StreamDoc, store_rooted, load_rooted
-from defs.Definition import load_definition, store_definition
-from builders.Model import configuration_manager, principal_planes, PersistentIds
-from builders.Model import relation_manager, system_folders, detail_cabinet
-from builders.Definition import part_definition, definition_stream
-from convert.adapters.solidworks.container.Container import build_sldprt, SldprtArchive
-reg = registry()
+
+KNative = """
+from Core import Obj as NativeObj
+from Classes import registry as NewRegistry
+from Streams import StreamDoc, store_rooted as StoreRooted, load_rooted as LoadRooted
 """
+
+
+KBuilders = """
+from defs.Definition import (
+    load_definition as LoadDefinition,
+    store_definition as StoreDefinition,
+)
+from builders.Model import (
+    configuration_manager as NewManager,
+    principal_planes as NewPlanes,
+    PersistentIds,
+)
+from builders.Model import (
+    relation_manager as NewRelations,
+    system_folders as NewFolders,
+    detail_cabinet as NewCabinet,
+)
+"""
+
+
+KCodec = """
+from builders.Definition import (
+    part_definition as NewPartDef,
+    definition_stream as WritePartDef,
+)
+from convert.adapters.solidworks.container.Container import (
+    build_sldprt as BuildContainer,
+    SldprtArchive as ArchiveFile,
+)
+
+CodecReg = NewRegistry()
+AuditGuard.BeginBuild()
+"""
+
 
 KBuild = """
-names = [prefix + str(index) for index in range(count)]
-manager = configuration_manager(
-    owner=Obj('moPart_c'), names=names, date_code=2026001,
-    parasolid_version=380, updated_at=1700000000,
+ConfigNames = [NamePrefix + str(IndexValue) for IndexValue in range(CountCfg)]
+ManagerNode = NewManager(
+    owner=NativeObj("moPart_c"),
+    names=ConfigNames,
+    date_code=2026001,
+    parasolid_version=380,
+    updated_at=1700000000,
 )
-definition = part_definition(
-    density_kg_m3=density, drafting_standard='moISO_c', detail_flags=(0, 3, 48),
-    tessellation=(20, 15, 3, False), system_preference_7a=False,
-    journal_name=prefix + ' journal',
+DocumentDef = NewPartDef(
+    density_kg_m3=DensityVal,
+    drafting_standard="moISO_c",
+    detail_flags=(0, 3, 48),
+    tessellation=(20, 15, 3, False),
+    system_preference_7a=False,
+    journal_name=NamePrefix + " journal",
 )
-streams = {
-    'Contents/CMgr': store_rooted(StreamDoc('rooted', {'base': 1}, [manager]), reg, 19000),
-    'Contents/Definition': definition_stream(registry=reg, document=definition),
+StreamMap = {
+    "Contents/CMgr": StoreRooted(
+        StreamDoc("rooted", {"base": 1}, [ManagerNode]), CodecReg, 19000
+    ),
+    "Contents/Definition": WritePartDef(registry=CodecReg, document=DocumentDef),
 }
 """
+
 
 KPlanes = """
-allocator = PersistentIds()
-planes = principal_planes(
-    names={axis: prefix + axis for axis in ('x', 'y', 'z')},
-    owner=Obj('moPart_c'), allocator=allocator, date_code=2026001,
-    parasolid_version=380, retain_construction_flag=True,
+IdAllocator = PersistentIds()
+PlaneNodes = NewPlanes(
+    names={AxisName: NamePrefix + AxisName for AxisName in ("x", "y", "z")},
+    owner=NativeObj("moPart_c"),
+    allocator=IdAllocator,
+    date_code=2026001,
+    parasolid_version=380,
+    retain_construction_flag=True,
 )
-streams['Research/PrincipalPlanes'] = store_rooted(
-    StreamDoc('rooted', {'base': 1}, list(planes.values())), reg, 19000,
+StreamMap["Research/PrincipalPlanes"] = StoreRooted(
+    StreamDoc("rooted", {"base": 1}, list(PlaneNodes.values())), CodecReg, 19000
 )
-next_plane_id = allocator.next_id
+NextPlaneId = IdAllocator.next_id
 """
 
-KSystems = """
-classes = (
-    'moCommentsFolder_c', 'moDocsFolder_c', 'moEnvFolder_c', 'moEqnFolder_c',
-    'moFavoriteFolder_c', 'moHistoryFolder_c', 'moMaterialFolder_c',
-    'moNotesAreaFtrFolder_c', 'moSelectionSetFolder_c', 'moSensorFolder_c',
-    'moSolidBodyFolder_c', 'moSurfaceBodyFolder_c',
+
+KFolders = """
+ClassNames = (
+    "moCommentsFolder_c",
+    "moDocsFolder_c",
+    "moEnvFolder_c",
+    "moEqnFolder_c",
+    "moFavoriteFolder_c",
+    "moHistoryFolder_c",
+    "moMaterialFolder_c",
+    "moNotesAreaFtrFolder_c",
+    "moSelectionSetFolder_c",
+    "moSensorFolder_c",
+    "moSolidBodyFolder_c",
+    "moSurfaceBodyFolder_c",
 )
-system_owner = Obj('moPart_c')
-system_owner.f['f9d0'] = relation_manager(owner=system_owner)
-folders = system_folders(
-    names={cls: prefix + cls for cls in classes}, owner=system_owner,
-    allocator=allocator, date_code=2026001, parasolid_version=380,
+SystemOwner = NativeObj("moPart_c")
+SystemOwner.f["f9d0"] = NewRelations(owner=SystemOwner)
+FolderNodes = NewFolders(
+    names={ClassName: NamePrefix + ClassName for ClassName in ClassNames},
+    owner=SystemOwner,
+    allocator=IdAllocator,
+    date_code=2026001,
+    parasolid_version=380,
     created_at=1700000000,
 )
-cabinet = detail_cabinet(name=prefix + 'annotations', owner=system_owner,
-    allocator=allocator, date_code=2026001, parasolid_version=380)
-streams['Research/SystemFeatures'] = store_rooted(
-    StreamDoc('rooted', {'base': 1}, [*folders, cabinet]), reg, 19000,
+"""
+
+
+KAnnotations = """
+CabinetNode = NewCabinet(
+    name=NamePrefix + "annotations",
+    owner=SystemOwner,
+    allocator=IdAllocator,
+    date_code=2026001,
+    parasolid_version=380,
+)
+StreamMap["Research/SystemFeatures"] = StoreRooted(
+    StreamDoc("rooted", {"base": 1}, [*FolderNodes, CabinetNode]), CodecReg, 19000
 )
 """
 
+
 KContainer = """
-blob = build_sldprt(streams)
-archive = SldprtArchive.from_bytes(blob)
-plane_doc, plane_ar = load_rooted(archive.require('Research/PrincipalPlanes'), reg, 1, 19000)
-if plane_doc.tail or store_rooted(plane_doc, reg, 19000) != streams['Research/PrincipalPlanes']:
-    raise RuntimeError('principal plane graph changed after decoding')
-system_doc, system_ar = load_rooted(archive.require('Research/SystemFeatures'), reg, 1, 19000)
-if system_doc.tail or store_rooted(system_doc, reg, 19000) != streams['Research/SystemFeatures']:
-    raise RuntimeError('system feature graph changed after decoding')
+BinaryFile = BuildContainer(StreamMap)
+ContainerFile = ArchiveFile.from_bytes(BinaryFile)
+PlaneDocu, PlaneReader = LoadRooted(
+    ContainerFile.require("Research/PrincipalPlanes"), CodecReg, 1, 19000
+)
+if (
+    PlaneDocu.tail
+    or PlaneReader.left()
+    or StoreRooted(PlaneDocu, CodecReg, 19000) != StreamMap["Research/PrincipalPlanes"]
+):
+    raise RuntimeError("principal plane graph changed after decoding")
+SystemDocu, SystemReader = LoadRooted(
+    ContainerFile.require("Research/SystemFeatures"), CodecReg, 1, 19000
+)
+if (
+    SystemDocu.tail
+    or SystemReader.left()
+    or StoreRooted(SystemDocu, CodecReg, 19000) != StreamMap["Research/SystemFeatures"]
+):
+    raise RuntimeError("system feature graph changed after decoding")
 """
+
 
 KCheck = """
-cmgr, ar = load_rooted(archive.require('Contents/CMgr'), reg, 1, 19000)
-doc, dar = load_definition(archive.require('Contents/Definition'), reg, 19000)
-decoded = cmgr.roots[0]
-configs = [entry['o'] for entry in decoded['f370']['items']]
-if cmgr.tail or doc.tail:
-    raise RuntimeError('fresh graph has unread bytes')
-if store_rooted(cmgr, reg, 19000) != streams['Contents/CMgr']:
-    raise RuntimeError('configuration graph changed after decoding')
-if store_definition(doc, reg, 19000) != streams['Contents/Definition']:
-    raise RuntimeError('document graph changed after decoding')
-if decoded['f360'] is not configs[0] or decoded['f368'] is not configs[0]:
-    raise RuntimeError('current configuration aliases were not preserved')
+ConfigDocu, ConfigReader = LoadRooted(
+    ContainerFile.require("Contents/CMgr"), CodecReg, 1, 19000
+)
+DefineDocu, DefineReader = LoadDefinition(
+    ContainerFile.require("Contents/Definition"), CodecReg, 19000
+)
+ManagerRead = ConfigDocu.roots[0]
+ConfigNodes = [EntryValue["o"] for EntryValue in ManagerRead["f370"]["items"]]
+if ConfigDocu.tail or DefineDocu.tail or ConfigReader.left() or DefineReader.left():
+    raise RuntimeError("fresh graph has unread bytes")
+if StoreRooted(ConfigDocu, CodecReg, 19000) != StreamMap["Contents/CMgr"]:
+    raise RuntimeError("configuration graph changed after decoding")
+if StoreDefinition(DefineDocu, CodecReg, 19000) != StreamMap["Contents/Definition"]:
+    raise RuntimeError("document graph changed after decoding")
+if (
+    ManagerRead["f360"] is not ConfigNodes[0]
+    or ManagerRead["f368"] is not ConfigNodes[0]
+):
+    raise RuntimeError("current configuration aliases were not preserved")
 """
 
-KReport = """
-report = {
-    'configuration_names': [config['f18']['f08'] for config in configs],
-    'configuration_ids': [config['f08'] for config in configs],
-    'next_configuration_id': decoded['f40c'],
-    'plane_ids': [plane['f08'] for plane in plane_doc.roots],
-    'plane_normals': [plane['f6f8']['normal'] for plane in plane_doc.roots],
-    'next_plane_id': next_plane_id,
-    'next_persistent_id': allocator.next_id,
-    'system_classes': [node.cls for node in system_doc.roots],
-    'system_ids': [node['f08'] for node in system_doc.roots],
-    'folder_times': [(((node['f2a4'] & 0xffffffff) << 32) | (node['f2a0'] & 0xffffffff)) // 10000000 - 11644473600 for node in system_doc.roots[:-1]],
-    'density_kg_m3': doc.head['f1688'],
-    'journal_name': doc.head['ffd8']['f18']['f08'],
-    'stream_bytes': {name: len(data) for name, data in streams.items()},
-    'container_bytes': len(blob),
-    'runtime_reads': reads,
-    'vendor_loadable': False,
-    'application_usable': False,
+
+KMetrics = """
+BuildReport = {
+    "configuration_names": [ConfigNode["f18"]["f08"] for ConfigNode in ConfigNodes],
+    "configuration_ids": [ConfigNode["f08"] for ConfigNode in ConfigNodes],
+    "next_configuration_id": ManagerRead["f40c"],
+    "plane_ids": [PlaneNode["f08"] for PlaneNode in PlaneDocu.roots],
+    "plane_normals": [PlaneNode["f6f8"]["normal"] for PlaneNode in PlaneDocu.roots],
+    "next_plane_id": NextPlaneId,
+    "next_persistent_id": IdAllocator.next_id,
+    "system_classes": [ModelNode.cls for ModelNode in SystemDocu.roots],
+    "system_ids": [ModelNode["f08"] for ModelNode in SystemDocu.roots],
+    "folder_times": [
+        ((ModelNode["f2a4"] & 4294967295) << 32 | ModelNode["f2a0"] & 4294967295)
+        // 10000000
+        - 11644473600
+        for ModelNode in SystemDocu.roots[:-1]
+    ],
 }
-print(json.dumps(report, ensure_ascii=True))
+"""
+
+
+KReport = """
+BuildReport.update(
+    {
+        "density_kg_m3": DefineDocu.head["f1688"],
+        "journal_name": DefineDocu.head["ffd8"]["f18"]["f08"],
+        "stream_bytes": {
+            StreamName: len(StreamData)
+            for (StreamName, StreamData) in StreamMap.items()
+        },
+        "container_bytes": len(BinaryFile),
+        "runtime_reads": AuditGuard.DeniedReads,
+        "vendor_loadable": False,
+        "application_usable": False,
+        "module_reads": AuditGuard.ModuleReads,
+        "audit_phase": "imports" if AuditGuard.Importing else "construction",
+    }
+)
+print(EncodeJson(BuildReport, ensure_ascii=True))
 """
 
 KProgram = (
     KImports
     + KGuard
-    + KLoad
+    + KNative
+    + KBuilders
+    + KCodec
     + KBuild
     + KPlanes
-    + KSystems
+    + KFolders
+    + KAnnotations
     + KContainer
     + KCheck
+    + KMetrics
     + KReport
 )
 
