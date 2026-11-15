@@ -1220,6 +1220,38 @@ records therefore do not use the normal path. `ReadHeaderObjectAt` dispatches on
 The V5R5 path reads a 21-byte header (`rdi + 0x15` bounds check), so the body records are V5R5
 headers and the size formula for that path is what the chain walk needs.
 
+## The V5R5 header layout
+
+`ReadHeaderObjectAt_V5R5` reads four 4-byte slots starting at the header offset, each carrying a
+one-byte value taken from the first byte of the slot, or from the third byte when the stream flag
+`0x20000` is set:
+
+```
+rax = byte at offset + 0;   if (flag) value = byte at offset + 3;  header[0x4]  = value
+rdx = offset + 4;
+rax = byte at offset + 4;   if (flag) value = byte at offset + 5;  header[0x4]  = value
+rdx = offset + 8;
+rax = byte at offset + 8;   if (flag) value = byte at offset + 11; header[0x10] = value
+rdx = offset + 12;
+rax = byte at offset + 12;  if (flag) value = byte at offset + 15; header[0x14] = value
+```
+
+and the next offset is the same formula as the normal path:
+
+```
+rdx = header[0x10];
+*arg_28 = rdx + offset;
+*next = header[0x14] + rdx + offset;
+```
+
+So the V5R5 size is `header[0x10] + header[0x14]`, the two one-byte values at slots `offset + 8` and
+`offset + 12`.
+
+Applying that to the first body at offset 8 gives `header[0x10] = byte at 16 = 0x00` and
+`header[0x14] = byte at 20 = 0x00`, so the formula gives 0, not 46. The header offset passed to the
+V5R5 path is therefore not the record start either, and the remaining unknown is the offset that
+`PositionHeaderObjectAt` passes after the five-byte marker.
+
 A constraint solver over the geometry does not converge. Treating each face as a variable over the
 surfaces of its planarity class, and each two-face handle group as a constraint that the two
 surfaces must share a vertex-table point, then running arc consistency to a fixed point, leaves 12
