@@ -2,11 +2,11 @@ from dataclasses import replace as ReplaceData
 
 from interchange.assembly.AssemblyEnums import ComponentKind
 from interchange.document.models.DocumentModel import CadDocument
-from tests.interchange.fixtures.AssemblyFixture import BuildAssembly
+from tests.convert.Commands.BuildTypedAsm import BuildTypedAsm
 
 
 def BuildIncomplete(RecordKind: str, OwnerName: str = "") -> CadDocument:
-    Document = BuildAssembly()
+    Document = BuildTypedAsm()
     assert Document.assembly is not None
     Assembly = Document.assembly
     if RecordKind in (
