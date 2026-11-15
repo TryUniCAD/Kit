@@ -56,6 +56,7 @@ The command always uses strict reading and `allow_carrier=False`.
 It also requires every capability transfer to be native; mixed transfers and intrinsic target-limitation carriers are refused before output publication.
 It refuses native-only feature definitions or sketch geometry before writing, including in nested components.
 Retained native payloads, opaque B-rep records, and explicit incomplete assembly references or transforms are also refused.
+Retained source keys and binary metadata values are refused through nested containers and embedded documents; ordinary provenance text and digests remain eligible.
 Local B-rep, meshes, or bodies without a feature timeline are refused, including nested documents and local assembly geometry.
 Independent parameters do not supply missing feature history; parameter-only documents without geometry remain eligible.
 Definitionless operations and native, imported, or unknown feature kinds are refused; a supported sketch reference cannot substitute for a typed generator of local geometry.
