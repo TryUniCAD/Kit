@@ -81,6 +81,7 @@ from builders.Model import clear_model_update as ClearModelUpdate
 from builders.Model import mark_model_update as MarkModelUpdate
 from builders.Styles import detail_definitions as NewDetails
 from builders.Units import unit_table_profile as NewUnits
+from builders.Metadata import header as NewHeader
 from defs.ConfigPart import load_config as LoadConfig
 from defs.ConfigPart import store_config_state as StoreConfigState
 from defs.ResolvedCore import load_resolved as LoadResolved
@@ -246,6 +247,40 @@ StreamMap["Contents/CMgr"] = StoreRooted(
 """
 
 
+KBaseRevision = """
+BaseStamp = {
+    "status": 0,
+    "user_index": 0,
+    "company_index": 0,
+    "timestamp": 1700000000,
+    "comment": NamePrefix + "created",
+}
+BaseLogs = [{"object_id": BaseGraph.part["f08"], "stamps": [BaseStamp]}]
+"""
+
+
+KBaseHeader = """
+BaseHeader = NewHeader(
+    next_id=BaseGraph.next_persistent_id,
+    user_names=(NamePrefix + "author",),
+    company_names=(NamePrefix + "company",),
+    revision_logs=BaseLogs,
+    created_at=1700000000,
+    modified_at=1700000001,
+    updated_at=1700000001,
+    model_present=True,
+    component_count=0,
+    update_stamp=101,
+    body_stamp=101,
+    license_flags=0,
+    license_type=0,
+)
+StreamMap["Contents/Config-0-ModelHeader"] = StoreRooted(
+    StreamDoc("rooted", {"base": 1}, [BaseHeader]), CodecReg, 19000
+)
+"""
+
+
 KContainer = """
 BinaryFile = BuildContainer(StreamMap)
 ContainerFile = ArchiveFile.from_bytes(BinaryFile)
@@ -272,7 +307,7 @@ if (
 
 KBaseLoad = """
 BaseConfigDocu, BaseConfigReader = LoadConfig(
-    ContainerFile.require("Contents/Config-0"), CodecReg, 19000
+    ContainerFile.require("Contents/Config-0"), CodecReg, 19000, archive=ContainerFile
 )
 BaseLoadMap = BaseConfigReader.map_state()
 BaseResolvedDocu, BaseResolvedReader = LoadResolved(
@@ -416,6 +451,8 @@ KProgram = (
     + KBaseGraph
     + KBaseLifecycle
     + KBaseStreams
+    + KBaseRevision
+    + KBaseHeader
     + KContainer
     + KBaseLoad
     + KBaseAliases
