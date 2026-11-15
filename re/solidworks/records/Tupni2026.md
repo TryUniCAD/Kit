@@ -212,6 +212,26 @@ repository checkouts in accordance with the research artifact policy. Their
 bytes and per-file digests are preserved in an external relocation manifest;
 only format conclusions and input identities remain in maintained research.
 
+### Corrected composition remains unaccepted
+
+Remote run `43693152389`, job `132747827486`, passed the complete native-file
+process suite on head `71f60bbfa5374ff7dae0cc87fb75eac62af6f821`. Artifact
+`14153605978` contains the corrected schema-zero classes and complete base graph.
+The constructor/process tree is identical to root head
+`97a247bf3f5e8887570b2856da3bc4e47f4549de`. Fresh `H3_scalene.SLDPRT` is
+6,960 bytes with SHA-256
+`edd138ebf4b9067ce106e947f4c1db988f49366eb697a8aa315af6df806f3b55`.
+
+Its clean native open still returned RPC failure `-2147023170`. The preceding
+control was healthy. The trailing control rebuilt correct geometry but its
+watchdog clicked native loading-progress windows, contaminating the batch.
+The [negative record](../measurements/2026/FreshPartSchemaFixed.json) retains
+this invalid-control outcome; it is not healthy-control acceptance evidence.
+The watchdog was repaired to preserve those observed progress windows without
+clicking and must be rechecked through actual native controls. A new fault-site
+capture on the corrected candidate is needed to identify the remaining loader
+failure. No corrected-file native acceptance is claimed.
+
 The first loader attempt activated 20 hooks after both loaded-module hashes
 matched. The action's running-object-table lookup failed with COM error
 `-2147221021`, `Operation unavailable`. Only the hooks-ready event was captured;

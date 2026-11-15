@@ -27,6 +27,7 @@ def inspect(path):
             controller.close()
             result["controller_diagnostics"] = controller.diagnostics
     result["dialogs"] = dismisser.log
+    result["progress_windows"] = dismisser.progress
     return result
 
 
