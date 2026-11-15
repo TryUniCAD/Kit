@@ -313,21 +313,27 @@ Two of the objects a dimension part adds are decoded:
 `ExprSection.GroupPair()` emits it, and it is identical in `dim40` and `var_two`, so it is a
 constant rather than part data.
 
-The following record is **not** decoded. Its text list does not follow the value list:
+The following record is **not** decoded. It opens `00 3f 00 00 01 <n>` and then lists
+NUL-terminated values, each prefixed by a tag byte: `04` for a driving dimension and `03`
+for a value that is carried but drives nothing. The count byte is the item count plus one,
+which holds on every fixture. What does not hold is the selection:
 
 ```text
-part             values              texts written
-dim40            40, 30, 20           40, 20
-dim50            50, 30, 20           50, 20
-dim60            60, 30, 20           60, 20
-const_box60      40, 30, 20           40, 20
-var_two          40,30,20,40,30,20    40, 30, 20
+part             exprs  items  count  values written
+var_sph            1      0      -    none
+var_cyl            2      1      02   "50"
+dim40              3      2      03   "40", "20"
+var_formula        3      2      03   "40", "20"
+var_named          3      2      03   "20", "40"
+var_e4             4      3      04   "40", "20", "5" (5 tagged 03)
+var_two            6      3      04   "40", "30", "20"
 ```
 
-with a count byte one greater than the number of texts (`03` for two, `04` for three). The
-middle value is omitted for three dimensions and the whole first body is listed for six, so
-the selection rule is not "all", not "all but the last", and not "distinct". A composer that
-has to write this record cannot yet choose its contents.
+`dim40`, `var_formula` and `var_named` hold the same three values and differ only in
+expression names, and `var_named` lists them in the **opposite** order, so the order is
+name-derived. The item count is `exprs - 1` for one to four expressions and then 3 for
+`var_two`'s six, so the count is not a function of the expression count either. Both the
+selection and its order are undecoded, so a composer cannot write this record yet.
 
 ## The writer-chosen layout
 
