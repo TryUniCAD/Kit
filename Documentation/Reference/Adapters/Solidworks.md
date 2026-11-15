@@ -133,6 +133,9 @@ also cover the later configuration/profile changes: three generated parts pass c
 depth edits, saving and fresh reopening at the recorded byte hashes.
 Their system material-folder labels change on saved-copy reopening, so full name preservation is not established.
 Initial-camera parity also remains unestablished.
+The [material-folder flag correction](../../Changes/Solidworks/SolidworksMaterialFolderFlagEncoding.md)
+now derives the current-format archive word from two fresh runtime Boolean states.
+Its changed bytes require new controlled measurements; the earlier evidence remains bound to its recorded hashes.
 The [later polygon interruption](../../Changes/Solidworks/Inspection/SolidworksControlledPolygonInterruption.md)
 records the earlier disconnected heptagon query and unavailable trailing control.
 That incomplete batch is not counted as a format crash; the subsequent controlled repeats passed.

@@ -423,7 +423,7 @@ def folder(
     if cls == "moSelectionSetFolder_c":
         result.f.update({"f3c0": object_list(), "f3e0": 1})
     if cls == "moMaterialFolder_c":
-        result.f.update({"f378": "", "flags380": 0})
+        result.f.update({"f378": "", "flags380": 0x80000000})
     if cls == "moNotesAreaFtrFolder_c":
         result.f.update({"f388": None, "f37c": 0, "f394": 0, "f378": 1, "f39c": 1})
     if cls in {"moSolidBodyFolder_c", "moSurfaceBodyFolder_c"}:

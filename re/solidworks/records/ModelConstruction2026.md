@@ -742,22 +742,22 @@ The builder derives those signed low/high 32-bit words from the authored time:
 `ticks = (unix_seconds + 11644473600) * 10000000`.
 This is volatile provenance, not a value copied from a saved folder.
 
-| Class                    | Constructor                     | Stored additions to the common feature fields                             |
-| ------------------------ | ------------------------------- | ------------------------------------------------------------------------- |
-| `moFolder_c` base        | `0x4beae110`                    | `f360=1`, `f370=0`                                                        |
-| `moCommentsFolder_c`     | `0x4beadcb0`                    | `f360=0`                                                                  |
-| `moDocsFolder_c`         | `0x4beadef0`                    | Base stored state                                                         |
-| `moEnvFolder_c`          | `0x4beadfb0`                    | Base stored state                                                         |
-| `moEqnFolder_c`          | `0x4be86710`                    | Owning model's relation manager; no additional stored payload             |
-| `moFavoriteFolder_c`     | `0x4b63c9a0`                    | Empty `f3c8/f3e8` arrays, `f408=1`                                        |
-| `moHistoryFolder_c`      | `0x4b644960`                    | Empty `f3c8` array                                                        |
-| `moMaterialFolder_c`     | `0x4beae310`                    | Empty material string, zero material flags                                |
-| `moNotesAreaFtrFolder_c` | `0x4bebdab0`, base `0x4bebd600` | Null `f388`, zero `f37c/f394`, `f378=f39c=1`                              |
-| `moSelectionSetFolder_c` | `0x4b6404b0`                    | Empty `f3c0` array, `f3e0=1`                                              |
-| `moSensorFolder_c`       | `0x4beae440`                    | Base stored state                                                         |
-| `moSolidBodyFolder_c`    | `0x4beae530`, base `0x4beadbc0` | `f360=0`, zero `f37c/f380`, null material/sort references                 |
-| `moSurfaceBodyFolder_c`  | `0x4beae570`, same base         | Same fresh body-folder state                                              |
-| `moDetailCabinet_c`      | `0x4ba2b850`                    | Model-feature base, empty `f368/f388/f3d8`, unit `f370/f378`, zero `f3f0` |
+| Class                    | Constructor                     | Stored additions to the common feature fields                                  |
+| ------------------------ | ------------------------------- | ------------------------------------------------------------------------------ |
+| `moFolder_c` base        | `0x4beae110`                    | `f360=1`, `f370=0`                                                             |
+| `moCommentsFolder_c`     | `0x4beadcb0`                    | `f360=0`                                                                       |
+| `moDocsFolder_c`         | `0x4beadef0`                    | Base stored state                                                              |
+| `moEnvFolder_c`          | `0x4beadfb0`                    | Base stored state                                                              |
+| `moEqnFolder_c`          | `0x4be86710`                    | Owning model's relation manager; no additional stored payload                  |
+| `moFavoriteFolder_c`     | `0x4b63c9a0`                    | Empty `f3c8/f3e8` arrays, `f408=1`                                             |
+| `moHistoryFolder_c`      | `0x4b644960`                    | Empty `f3c8` array                                                             |
+| `moMaterialFolder_c`     | `0x4beae310`                    | Empty material string, two false runtime flags, current wire word `0x80000000` |
+| `moNotesAreaFtrFolder_c` | `0x4bebdab0`, base `0x4bebd600` | Null `f388`, zero `f37c/f394`, `f378=f39c=1`                                   |
+| `moSelectionSetFolder_c` | `0x4b6404b0`                    | Empty `f3c0` array, `f3e0=1`                                                   |
+| `moSensorFolder_c`       | `0x4beae440`                    | Base stored state                                                              |
+| `moSolidBodyFolder_c`    | `0x4beae530`, base `0x4beadbc0` | `f360=0`, zero `f37c/f380`, null material/sort references                      |
+| `moSurfaceBodyFolder_c`  | `0x4beae570`, same base         | Same fresh body-folder state                                                   |
+| `moDetailCabinet_c`      | `0x4ba2b850`                    | Model-feature base, empty `f368/f388/f3d8`, unit `f370/f378`, zero `f3f0`      |
 
 Material assignment, equations, body membership and annotation contents require
 their own generated semantic subgraphs; these factories describe fresh empty
@@ -774,6 +774,15 @@ claimed to survive the save/reopen cycle. This observation does not classify a
 general material-title regeneration formula or establish material assignment.
 The [material-folder gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Model/MaterialFolderNameChangesOnSave.md)
 records the measured boundary separately from geometry and depth-edit success.
+
+The [material-folder construction record](MaterialFolderConstruction2026.md)
+separately recovers the current serializer's tagged Boolean word:
+`flags380 = 0x80000000 | int(runtime380 != 0) | (int(runtime384 != 0) << 1)`.
+Both fresh runtime flags are false, so the factory emits `0x80000000`.
+Its previous zero word selected the native loader's legacy-false branch.
+This corrects wire-state construction without claiming a cause or repair for
+the saved material-folder name change. The changed bytes still need their own
+controlled native measurements.
 
 ## Definition construction
 
