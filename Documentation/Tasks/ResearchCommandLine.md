@@ -89,8 +89,11 @@ kit research --root /path/to/KitPr94 supervisor --config Supervisor.json resume 
 ```
 
 The supervisor owns pools, claims, leases, retries, restart fencing, and configured worker dispatch.
-On Linux and macOS the CLI starts a separate research session and forwards interrupt, termination, and hangup signals.
+On Linux and macOS the CLI starts a separate research session and owns signal handling before spawning it.
+Interrupt, termination, hangup, quit, and user signals are forwarded; terminal suspension stops both launcher and child, and continuation resumes the child.
+Startup signals wait for the child reference, and continuation cancels a queued suspension.
 It waits for cleanup, preserves output and exit statuses, and terminates with the child's signal when that child is killed.
+An uncatchable launcher kill cannot be forwarded; use the existing research lease and recovery controls after forced termination.
 Supervisor contention retains status `4`.
 
 No production decode runner or model-provider registry is supplied by this bridge.

@@ -6,7 +6,11 @@ The installed `kit` entry point now composes the production commands with a sepa
 The SDK does not import developer packages or process modules.
 The normal CLI also leaves process modules unloaded until research is explicitly requested.
 
-On Linux and macOS the launcher forwards interrupt, termination, and hangup signals into its separate child session, waits for cleanup, and preserves exit codes or terminating signals.
+On Linux and macOS the launcher owns catchable signal handling before child creation, queues startup requests, and forwards interrupt, termination, hangup, quit, and user signals into its separate child session.
+Suspension stops the child with `SIGSTOP` before stopping the launcher, and continuation resumes the child.
+A continuation cancels a still-queued suspension so startup replay does not stop a job that has already resumed.
+The launcher waits for cleanup and preserves exit codes or terminating signals.
+Uncatchable launcher termination cannot be forwarded; existing research leases and recovery controls remain necessary after forced kills.
 Windows retains its existing interrupt wait and child exit-status behavior.
 Supervisor execution still requires Linux or macOS.
 The trusted research checkout remains arbitrary and explicit; research fixtures in CI additionally require the fixed repository-owned `ResearchCheckout` path.
@@ -25,3 +29,7 @@ Python checks covered the repaired launcher and changed modules; type checks tar
 Remote checks on the repaired head and merge candidate remain required before acceptance.
 The first repaired head exposed obsolete API metadata expectations for the console entry point and source distribution, plus implicit string concatenation in a new process fixture.
 The API compatibility cases now verify the installed developer entry point, retained SDK plugin, and exact wheel source roots; the fixture uses one literal accepted by strict typing.
+Subsequent review found a startup signal ownership gap, missing detached-session job control, and one remaining three-path bytecode cache restore list.
+The signal ownership context now restores prior handlers on spawn failure or completion, uses one dispatcher across child binding, and handles queued stop/continue requests.
+Remote process coverage pauses the actual subprocess constructor handoff, verifies cleanup after startup cancellation, checks both process states during suspension, and exercises quit and user signals.
+All bytecode save and restore path lists now include the same four source patterns.

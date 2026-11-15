@@ -196,6 +196,7 @@ jobs:
         with:
           path: |
             src/**/__pycache__
+            Cli/**/__pycache__
             tools/**/__pycache__
             tests/**/__pycache__
           key: queue-bytecode-${{ github.event.merge_group.base_sha || env.AuditSha }}

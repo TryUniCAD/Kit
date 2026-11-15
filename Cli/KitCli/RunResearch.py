@@ -10,7 +10,8 @@ def RunResearch(Options: CliOptions) -> NoReturn:
     from subprocess import Popen as StartProcess
 
     from KitCli.ExitResearch import ExitResearch
-    from KitCli.WaitResearch import WaitResearch
+    from KitCli.ResearchSignals import ResearchSignals
+    from KitCli.WaitResearchMut import WaitResearchMut
 
     if Options.ResearchRoot is None:
         raise ValueError("Research requires --root pointing to a trusted PR94 checkout")
@@ -40,7 +41,10 @@ def RunResearch(Options: CliOptions) -> NoReturn:
             raise ValueError("Set research --root once, before the tool name")
         Arguments = ["--root", str(RootPath), *Arguments]
     CommandArgs = [KPythonPath, str(ScriptPath), *Arguments]
-    with StartProcess(
-        CommandArgs, start_new_session=KPlatform != "win32"
-    ) as ChildProcess:
-        ExitResearch(WaitResearch(ChildProcess))
+    with ResearchSignals() as (ChildProcesses, PendingSignals):
+        with StartProcess(
+            CommandArgs, start_new_session=KPlatform != "win32"
+        ) as ChildProcess:
+            ChildProcesses.append(ChildProcess)
+            ReturnCode = WaitResearchMut(ChildProcess, PendingSignals)
+    ExitResearch(ReturnCode)

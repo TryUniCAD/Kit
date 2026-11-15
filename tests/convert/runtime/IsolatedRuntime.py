@@ -98,7 +98,7 @@ sys.argv[:] = ["convert", "research", "--root", str(output), "controller", "--he
 with redirect_stderr(io.StringIO()) as error_stream:
     assert SdkEntry() == 1
 assert "Run research with kit or python -m KitCli" in error_stream.getvalue()
-assert "KitCli.WaitResearch" not in sys.modules
+assert "KitCli.ResearchSignals" not in sys.modules
 adapters = {adapter.format_id for adapter in available_adapters()}
 assert adapters == {
     "catia.v5",

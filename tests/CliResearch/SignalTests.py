@@ -1,52 +1,32 @@
 from pathlib import Path as FilePath
-from signal import SIGINT, SIGTERM
+from signal import SIGTERM, Signals
 from subprocess import PIPE as KPipe, Popen as StartProcess
 from sys import executable as KPythonPath, platform as KPlatform
 from time import sleep as WaitSeconds
 
 from pytest import mark as TestMark
 
+from tests.CliResearch.PrepareSignal import PrepareSignal
+
 
 # direct launcher signals must reach the selected sdk process without losing cleanup or exit status
 @TestMark.skipif(KPlatform == "win32", reason="POSIX research signal propagation")
 @TestMark.parametrize(
-    "SignalNumber,HandleSignal,ExpectedCode",
-    ((SIGTERM, True, 37), (SIGINT, True, 37), (SIGTERM, False, -SIGTERM)),
+    "SignalName,HandleSignal,ExpectedCode",
+    (
+        ("SIGTERM", True, 37),
+        ("SIGINT", True, 37),
+        ("SIGHUP", True, 37),
+        ("SIGQUIT", True, 37),
+        ("SIGUSR1", True, 37),
+        ("SIGUSR2", True, 37),
+        ("SIGTERM", False, -SIGTERM),
+    ),
 )
 def CheckSignal(
-    SignalNumber: int, HandleSignal: bool, ExpectedCode: int, TmpPath: FilePath
+    SignalName: str, HandleSignal: bool, ExpectedCode: int, TmpPath: FilePath
 ) -> None:
-    RootPath = TmpPath / "Checkout"
-    (RootPath / ".git").mkdir(parents=True)
-    SdkPath = RootPath / "src/convert"
-    SdkPath.mkdir(parents=True)
-    _ = (SdkPath / "__init__.py").write_text("""
-# the child must identify its own selected checkout sdk
-KIdentity = "selected research sdk"
-""")
-    ToolPath = RootPath / "re/automation/Controller.py"
-    ToolPath.parent.mkdir(parents=True)
-    _ = ToolPath.write_text(
-        """from pathlib import Path
-from signal import SIGINT, SIGTERM, signal
-import sys
-import time
-sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
-from convert import KIdentity
-
-# interrupted research must finish cleanup before the launcher reports completion
-def Finish(Number, Frame):
-    Path(sys.argv[2]).write_text("cleaned")
-    raise SystemExit(37)
-if sys.argv[3] == "handled":
-    signal(SIGINT, Finish)
-    signal(SIGTERM, Finish)
-Path(sys.argv[1]).write_text(KIdentity)
-while True:
-    time.sleep(0.01)
-""",
-        encoding="utf-8",
-    )
+    RootPath = PrepareSignal(TmpPath)
     ReadyPath = TmpPath / "Ready"
     DonePath = TmpPath / "Done"
     with StartProcess(
@@ -74,7 +54,7 @@ while True:
                     break
                 WaitSeconds(0.01)
             assert ReadyPath.read_text() == "selected research sdk"
-            Launcher.send_signal(SignalNumber)
+            Launcher.send_signal(Signals[SignalName])
             _, ErrorText = Launcher.communicate(timeout=60)
             assert Launcher.returncode == ExpectedCode, ErrorText
             assert DonePath.exists() is HandleSignal
@@ -82,5 +62,6 @@ while True:
                 assert DonePath.read_text() == "cleaned"
         finally:
             if Launcher.poll() is None:
+                Launcher.send_signal(Signals["SIGCONT"])
                 Launcher.terminate()
             _ = Launcher.wait(timeout=30)
