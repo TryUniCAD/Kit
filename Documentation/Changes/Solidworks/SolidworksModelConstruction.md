@@ -5,6 +5,8 @@ configuration-manager graphs and part-definition streams from explicit inputs
 and 2026 constructor rules. They also construct principal planes and the base
 part root from generated style/unit dependencies.
 Fresh system-folder and annotation-cabinet factories extend the same graph.
+The model update helper applies the proven zero-status flag mutation after native
+origin initialization; the origin sketch's unresolved solver state stays explicit.
 These additions do not enable the production writer.
 
 ## Use

@@ -144,6 +144,21 @@ the environment's pre-engine zero seed.
 The builder still accepts an explicit version from the caller, so a different
 target or deliberately selected compatibility behavior requires its own provenance.
 
+## Post-origin owner update
+
+The native origin initializer `0x4c49b980` invokes zero-status update on the
+origin and then its owning model. Those receivers have different dispatch:
+origin vtable `0x4d0ef510` slot `0xb8` resolves to feature wrapper `0x4bb515c0`,
+whereas both model vtable `0x4d0c70e0` and part vtable `0x4d1252d8` resolve that
+slot to model wrapper `0x4c0363c0`.
+For arguments `(0, 1, null)`, the model wrapper skips its nonzero-status branch
+and tail-jumps node routine `0x4c03ed90`.
+The node zero-status path applies `f0c &= 0xfffd7ff8`.
+`clear_model_update(model=...)` implements precisely that operation for the two
+classified model classes. Composition calls it after constructing the origin.
+It does not establish the origin sketch's solver state or remove its unresolved
+update marker. The feature wrapper's virtual query path requires separate evidence.
+
 ## Configuration construction
 
 `configuration_manager` accepts authored names, the current configuration index,
