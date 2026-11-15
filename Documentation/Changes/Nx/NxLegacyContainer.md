@@ -205,6 +205,33 @@ so the legacy payload reuses the modern section grammar with an explicit platfor
 version numbers, which makes an emitted legacy section a variant of the emitters Kit already has
 rather than a new format.
 
+## The body after the class frames is the same model in an older framing
+
+Walking section 1 past the class frames shows the body does not switch to an alien syntax. Each
+class frame is followed by its four-byte value, and then a small number of **type-7 frames** declare
+individual attributes:
+
+```text
+07 <u16 schema length> <schema> <u32 flag> <u16 class length> <class> <u16 attribute length> <attribute> <payload>
+```
+
+present in all three parts, immediately after the class frames:
+
+```text
+part             type 7 frames   first four declarations
+wave_parent.prt              1   RM / RM_entity / first_record_area
+vise_screw.prt              14   UGS::RM / UGS::RM_part / m_legacyLineWidthConverted
+                                 UGS::RM / UGS::RM_entity / first_record_area
+                                 UGS::Annot::Dimension / UGS::Annot::MeasurementDimension / extracted_geoms
+                                 UGS::Annot::LeaderObject / UGS::Annot::LeaderObject / m_singleSidedDimArrowLength
+flange.prt                  13   the same four, then more annotation attributes
+```
+
+the attribute names are the ones the modern container carries in its schemas, so the legacy body is
+the same class and attribute model expressed with a different frame type and no digests. What is not
+yet decoded is the payload that follows each attribute name, and the object records that come after
+those attribute frames.
+
 ## The legacy payload is a separate serialisation of the whole model
 
 Reading the payload header and the class records shows this is not a wrapper around the modern
