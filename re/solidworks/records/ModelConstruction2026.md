@@ -247,6 +247,23 @@ The serializer evidence is REA
 `ev_99ce3579fb4002b5f0f926a20a8691b3b10de7c06da3b548f8649cdc37297589`.
 Its subject digest matches the manifest.
 
+The active filed-concept initializer `sldmodu` `0x4bda5a20` establishes the
+fresh header's provenance sequence when its create-header argument is nonzero.
+It constructs the header, obtains the root id through `getNewID`, creates and
+attaches a status-zero creation log, then assigns that log's `f50` from the
+authored document name. A supplied creation time other than `-1` replaces the
+head stamp time before `setCreationTime` runs. This closes the nonempty log
+name's constructor role; the metadata builder and its wire path must adopt
+the rule together before callers can provide that name.
+
+`moHeader_c::setCreationTime` at `0x31a05ec0` reads the first log's first stamp.
+If `f70 == -1`, it copies that timestamp to `f70`. If `f70` already equals the
+stamp time, it stores current wall time instead; otherwise it leaves `f70`
+unchanged. `resetCreationTime` at `0x31a05b30` optionally replaces that first
+stamp time and then copies it to `f70`. The fresh header constructor has
+`f70 == -1`, so the current explicit creation-time/first-stamp equality rule
+matches this initialization path. These calls do not advance either counter.
+
 | Operation                   | Rule                                                                                                                                                            | 2026 address |
 | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
 | Constructor                 | Seed independent update/body counters `f40/f44` with `101`; initialize `f48` through local calendar time `1990-01-01`, and `f50` through the unset-time utility | `0x31a02540` |
@@ -314,6 +331,29 @@ id `-1`, flags `1`, empty lists and absent optional chooser/visual objects.
 The mass record follows `0x4bc1d500` and `0x4bc1cc20`:
 zero mass scalars, identity principal axes and an invalid-cache flag.
 No zero mass value is reported as measured geometry.
+
+Configuration `f9a8` is the stored configuration-data version, not an immutable
+constructor default. The constructor's `0x7fd` seed is replaced on ordinary
+storage: base serializer `0x4c217e30` obtains the selected archive-helper version
+and falls back to `getCurrentFileVerion` only for zero. When
+`getOpenedModel()` returns a model, it assigns that version to `f9a8` and writes
+it. Only the branch without an opened model retains the previous `f9a8`.
+The assignment/write sequence is at `0x4c21846c` and following instructions;
+the load branch reads the wire word for archive versions above `0x7ff`.
+The shared getter at `0x4b285780` has several linker-folded names; its relevant
+export here is `moBaseConfiguration_c::getOpenedModel`, not the decompiler's
+mate-group owner label.
+
+Fresh part configurations require an actual owning part. Their stored version
+now derives from the same explicit target version used by the fresh feature
+base, `19000` in the supported profile. They no longer emit `2045`.
+The process check reads these words back from the generated CMgr stream for
+one and seven configurations. Remote execution and a new native candidate
+measurement are pending for this correction.
+The parent-owned failed native trace observed helper version `2045` despite
+global version `19000`; the healthy control observed both at `19000`.
+The exact loader transfer from `f9a8` remains under investigation.
+See [configuration versions](../../../Documentation/Gotchas/Conversion/Solidworks/Model/ConfigurationVersionChangesOnSave.md).
 
 The variable-table presence flag is false for the newly empty variable-control maps.
 The native save at `0x4c21ef40` calls `hasRefOrFeatCntrlbyVarTable` before emitting them.

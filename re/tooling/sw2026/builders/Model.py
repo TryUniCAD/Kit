@@ -519,6 +519,8 @@ def configuration(
     updated_at: int,
     description: str = "",
 ) -> Obj:
+    if not isinstance(owner, Obj) or owner.cls != "moPart_c":
+        raise ArchiveError("fresh part configurations require their actual part owner")
     if type(local_id) is not int or not 0 <= local_id < 0x7FFFFFFF:
         raise ValueError("configuration ids must be nonnegative signed integers")
     if type(updated_at) is not int or not 0 <= updated_at <= 0xFFFFFFFF:
@@ -563,7 +565,7 @@ def configuration(
         "f6a0": None,
         "f6a8": object_list(),
         "f528": object_list(),
-        "f9a8": 0x7FD,
+        "f9a8": result.f["f2b0"],
         "f96c": 1,
         "f660": None,
         "fa98": object_list(),
