@@ -530,8 +530,24 @@ Two incidental facts: the list terminator is a single `e1`, and the layer tail i
 the feature list — the control's tail declares four layer entries and the loader accepted it beside a
 one-feature list.
 
-`Author.LayerListTail` generates that tail, but the generated form is rejected (silent exit twice), so the
-129-byte tail remains the last vendor-sourced part of the section. The rule it carries is not yet known.
+The tail's rule is the **entry count**. `re/creo/tools/TailRule.py` varies one property at a time: a
+one-entry list is rejected twice, while four entries all carrying our own feature id `7` load. So the
+loader wants four layer entries and does not check their content against the feature list.
+
+`Author.LayerListTail` now emits `KLayerEntries = 4` entries and `Author.DefaultAllFeatur()` composes the
+whole section, which is fully generated:
+
+```text
+genall2: fully generated AllFeatur 1394 bytes, control section 3489
+genall2 identical to the accepted t4_same
+End + MT Part Solid, 3 loads out of 3
+```
+
+`Author.EmptyPartSections` now includes it, so 41 of the 54 rows are generated, and a rebuilt control with
+all 41 replaced loads three times out of three (`auth42.prt`, `29176` bytes against the control's
+`81539`). The rows still vendor-sourced are the three `ND:*` tables, `SolidPersistTable`,
+`SolidPrimdata`, `DispDataTable`, `THMB_IMG_MAIN`, `CGFPersistTable`, the two `kind b` rows and the two
+free-space extents.
 
 ## VisibGeom and the authored container
 

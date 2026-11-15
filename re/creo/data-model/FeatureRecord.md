@@ -388,27 +388,51 @@ Two useful facts fell out of it. The `next_feat_ptr` terminator is a single `e1`
 **not** checked against the feature list: the control's tail declares four layer entries for features
 `7`, `5`, `3` and `11`, and the loader accepted it beside a one-feature list.
 
-### The generated tail is not yet accepted
+### The tail rule: four entries, content free
 
-`Author.LayerListTail` emits the tail from `FeatureId`: a one-element `layer_list` referencing field
-`0x51`, one element of `feat_id`, `layer_id`, `back_layer_id`, then the `footer` with a null
-`foot_first_feat_ptr` and `foot_layer_count` zero. Its suffix matches the control exactly and its prefix
-differs only by the count and the three omitted elements, but the result is rejected:
+`re/creo/tools/TailRule.py` varies one property at a time. The rule is the **entry count**, not the
+content:
+
+| Variant | Result |
+| --- | --- |
+| one entry, our own feature id | silent exit twice |
+| four entries, all carrying our own feature id `7` | **loads** |
+
+So the loader wants four layer entries, and it does not check them against the feature list — the control
+declares ids `7`, `5`, `3` and `11` beside a one-feature list, and repeating `7` four times is equally
+accepted. `Author.LayerListTail` now emits `KLayerEntries = 4` entries with the caller's feature id, and
+`Author.DefaultAllFeatur()` composes the whole section.
+
+The section is therefore fully generated and accepted:
 
 ```text
-genall: fully generated AllFeatur 1376 bytes, control section 3489
-(no End line, no dbg_err_crash, process exits twice)
+genall2: fully generated AllFeatur 1394 bytes, control section 3489
+genall2 identical to the accepted t4_same: yes
+End + MT Part Solid, 3 loads out of 3
 ```
 
-So the tail carries its own validation rule, and it is the last vendor-sourced part of the section. It is
-129 bytes and fully dumped:
+The tail, for the record, is:
 
 ```text
 e0 00 layer_list 00 f8 04 f7 51 fb
 e2 e0 01 feat_id 00 07 e0 01 layer_id 00 00 e0 01 back_layer_id 00 00 f1
-f7 51 e2 05 00 00  e2 03 00 00  e2 0b 00 00
+f7 51 e2 07 00 00  f7 51 e2 07 00 00  f7 51 e2 07 00 00
 e0 00 footer 00 f2 e3  e0 00 foot_first_feat_ptr 00 e1  e0 01 foot_layer_count 00 00  f2
 ```
+
+### A container with 41 authored sections loads
+
+`Author.EmptyPartSections` now includes `DefaultAllFeatur`, so 41 of the 54 rows are generated, and a
+rebuilt control with all 41 replaced loads three times out of three:
+
+```text
+auth42 prt 29176 bytes, from control 81539
+!15-Nov-26 04:10:12  End   C:\Mac\Home\Documents\creo-authored\auth42.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid
+```
+
+The rows still vendor-sourced are the three `ND:*` token tables, `SolidPersistTable`, `SolidPrimdata`,
+`DispDataTable`, `THMB_IMG_MAIN`, `CGFPersistTable`, the two `kind b` rows and the two free-space extents.
 
 ### Oracle reliability
 

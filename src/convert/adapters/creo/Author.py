@@ -419,6 +419,7 @@ def EmptyPartSections(FeatureClasses: tuple[int, ...]) -> dict[str, bytes]:
     Bodies.update(MinimalSections())
     Bodies["BasBasData"] = DefaultBasBasData()
     Bodies["FeatDefsDtm"] = DefaultFeatDefsDtm(254.33012701892218)
+    Bodies["AllFeatur"] = DefaultAllFeatur()
     return Bodies
 
 
@@ -1045,14 +1046,32 @@ def DatumFeatureReplay(
     return Payload
 
 
-# the layer list and footer close the section and tolerate a shorter list
+# the loader wants four layer entries regardless of how many features exist
+KLayerEntries = 4
+
+
+# layer entries carry feature ids the loader does not check against the list
 def LayerListTail(FeatureId: int) -> bytes:
-    Payload = FieldValue(0, "layer_list", b"\xf8\x01\xf7\x51\xfb")
-    Payload += b"\xe2"
-    Payload += FieldValue(1, "feat_id", SignedInt(FeatureId))
-    Payload += FieldValue(1, "layer_id", SignedInt(0))
-    Payload += FieldValue(1, "back_layer_id", SignedInt(0))
-    Payload += b"\xf1"
+    Payload = FieldValue(
+        0,
+        "layer_list",
+        b"\xf8" + CompactInt(KLayerEntries) + b"\xf7\x51\xfb",
+    )
+    for IndexValue in range(KLayerEntries):
+        First = IndexValue == 0
+        Payload += b"" if First else b"\xf7\x51"
+        Payload += b"\xe2"
+        if First:
+            Payload += b"\xe0\x01feat_id\x00"
+        Payload += SignedInt(FeatureId)
+        if First:
+            Payload += b"\xe0\x01layer_id\x00"
+        Payload += SignedInt(0)
+        if First:
+            Payload += b"\xe0\x01back_layer_id\x00"
+        Payload += SignedInt(0)
+        if First:
+            Payload += b"\xf1"
     Payload += StructHeader("footer") + b"\xf2\xe3"
     Payload += StructHeader("foot_first_feat_ptr") + b"\xe1"
     Payload += FieldValue(1, "foot_layer_count", SignedInt(0))
@@ -1068,3 +1087,24 @@ def AllFeaturPayload(Record: bytes, FeatureId: int) -> bytes:
     Payload += StructHeader("next_feat_ptr") + b"\xe1"
     Payload += LayerListTail(FeatureId)
     return SectionValue("AllFeatur", Payload)
+
+
+# a datum only part needs one feature record and no replay records
+def DefaultAllFeatur() -> bytes:
+    Record = DatumFeatureRecord(
+        7,
+        923,
+        "FRONT",
+        8,
+        -5778,
+        (-1,) * 252,
+        200000,
+        200001,
+        1000000000,
+        12345,
+        99,
+        3,
+        1,
+        3,
+    )
+    return AllFeaturPayload(Record, 7)
