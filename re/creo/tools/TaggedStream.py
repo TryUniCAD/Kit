@@ -32,6 +32,14 @@ KOneByteDouble = {
 
 
 @dataclass
+class RawDouble:
+    data: bytes
+
+    def __repr__(self) -> str:
+        return f"RawDouble({self.data.hex()})"
+
+
+@dataclass
 class FieldDef:
     name: str
     type_id: int
@@ -91,8 +99,9 @@ def UnformatDouble(text: str) -> float:
     if not text:
         return 0.0
     if text[0] == "R":
-        raw = bytes.fromhex(text[1:])
-        return struct.unpack(">d", raw[:8].ljust(8, b"\x00"))[0]
+        text = text[1:]
+    if len(text) % 2:
+        text = "0" + text
     raw = bytes.fromhex(text)
     return struct.unpack(">d", raw[:8].ljust(8, b"\x00"))[0]
 
@@ -106,7 +115,7 @@ class Parser:
         self.stack: list[list[int]] = [[]]
         self.feature_start = 0
 
-    def ReadDouble(self) -> float:
+    def ReadDouble(self) -> object:
         reader = self.reader
         first = reader.data[reader.pos]
         if first in KOneByteDouble:
@@ -115,6 +124,8 @@ class Parser:
         if first == 0x52:
             reader.pos += 1
             return struct.unpack(">d", reader.take(8))[0]
+        if chr(first) not in "0123456789abcdefABCDEF":
+            return RawDouble(reader.take(8))
         start = reader.pos
         while reader.pos < len(reader.data) and chr(reader.data[reader.pos]) in "0123456789abcdefABCDEF":
             reader.pos += 1

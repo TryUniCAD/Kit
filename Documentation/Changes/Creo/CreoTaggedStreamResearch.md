@@ -47,8 +47,9 @@ The chain matches the model tree Creo shows for both files.
 ## Limits
 
 - The parser stops at the `AllFeatur` footer, which uses a different field order.
-- The parser stops at the `ent_outl` bounding-box matrix in `FeatDefsDtm`, which uses the packed
-  hex-nibble double encoding.
+- The `ent_outl` bounding-box matrix in `FeatDefsDtm` uses a packed encoding that is not yet
+  decoded. The parser records each undecodable double as `RawDouble(<8 bytes>)` and continues, so
+  the rest of `FeatDefsDtm` decodes.
 - `Sld_FeatDefs` in `FeatDefs` is not decoded.
 - `VisibGeom` geometry records are not decoded.
 - The parser is research code; it does not change the production adapter, which remains

@@ -231,7 +231,19 @@ The record is the parametric placement of the datum plane, not just a name.
 The parser stops at the `ent_outl` bounding-box matrix, which uses the packed hex-nibble double
 encoding. The `ugc_ieee_unformat_double` function reads a hex string where each byte's low nibble
 is a hex digit, and stores the bytes into the double buffer from the end backwards. The `0x0f`
-(0.0) and `0x18` (1.0) one-byte constants are handled by the caller, not the function. The
+(0.0) and `0x18` (1.0) one-byte constants are handled by the caller, not the function.
+
+The hex-string hypothesis is disproved for `ent_outl`. The first byte `0x46` is a valid hex digit
+(`F`), but the next byte `0x6f` is not, so the hex-string reader consumes one digit and then fails.
+The `ent_outl` bytes are therefore a packed encoding, not a hex string. The parser now records an
+undecodable double as `RawDouble(<8 bytes>)` and continues, so `FeatDefsDtm` decodes through
+`ent_outl` and reaches the next field (`max_text_len`). The packed encoding is the remaining
+blocker for the datum outline.
+
+The empty control's `ent_outl` is two 9-byte blobs separated by `0x18` (1.0):
+`46 6f ca 90 66 89 b9 7f e4` and `2d 6f ca 90 66 89 b9 7f e4`. The two blobs differ only in the
+first byte (`0x46` vs `0x2d`), which is consistent with a sign or direction flag. The array is
+2x3, so each blob likely packs three doubles into nine bytes. The
 `ent_outl` values are the next decoder target.
 
 ## Open questions

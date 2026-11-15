@@ -299,6 +299,13 @@ encoding. The `ugc_ieee_unformat_double` function reads a hex string where each 
 is a hex digit, and stores the bytes into the double buffer from the end backwards. The `0x0f`
 (0.0) and `0x18` (1.0) one-byte constants are handled by the caller, not the function.
 
+The hex-string hypothesis is disproved for `ent_outl`: `0x46` is a valid hex digit but `0x6f` is
+not, so the reader consumes one digit and fails. The bytes are a packed encoding. The parser now
+records an undecodable double as `RawDouble(<8 bytes>)` and continues, so `FeatDefsDtm` decodes
+through `ent_outl` to the next field. The empty control's `ent_outl` is two 9-byte blobs separated
+by `0x18` (1.0), differing only in the first byte (`0x46` vs `0x2d`), which is consistent with a
+sign or direction flag.
+
 ### Loader-confirmed record schemas
 
 The `metatoolsapi.dll` `CreoSerializer` exports give the authoritative field order and types for the
