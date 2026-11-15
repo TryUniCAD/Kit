@@ -493,24 +493,49 @@ differs from a plane at exactly two slots (`28`, `236`) in both files, while the
 differs at 195. See
 [the mask lane gotcha](../../Gotchas/Conversion/CreoMaskLaneRequired.md).
 
-The lane is neither value-driven nor size-driven. Six edits, one launch each:
+## The mask lane is decoded
 
-| edit | byte delta | result |
-| --- | ---: | --- |
-| control | 0 | loads |
-| first value `-1` → `-2` | +1 | loads |
-| repeats expanded explicitly, each copy reusing the previous value's token bytes | +57 | process exits, no `End` |
-| all `252` values re-encoded canonically | +68 | process exits, no `End` |
-| every value `-1` | −162 | `dbg_err_crash` |
-| every value `0` | −162 | `dbg_err_crash` |
+`cr_flags_xar` is a repeat-compressed array of signed 32-bit values. The encoding is fully decoded:
+`f1` then `f8 <count>` then run-compressed integers, with `00`–`7f` as-is, `80`–`bf`, `c0`–`df` and
+`e8`–`eb` for wider payloads, `f5` for negation, `f6` for `-1`, and `e4`/`e5`/`e6`/`e7` for repeats.
 
-So replacing the repeats with explicit copies of the same values fails, and so does re-encoding those
-values, while a one-byte length change succeeds. The accepted form is the control's token shape with
-limited freedom inside it.
+`Author.CompactInt`, `Author.SignedInt`, `Author.SignedIntArray`, `Author.SignedIntElements` and
+`Author.FlagValue` implement it, and they reproduce **every** lane in both retained controls exactly —
+thirteen lanes, definition and replay form:
 
-Consequently the `252` slot count is a property of our reader's repeat expansion rather than a measured
-file fact, and the `.ddt` index comparison is not evidence: the "one slot per registered field" idea is
-withdrawn.
+```text
+empty  rec0 252 slots 402 bytes identical True    ladder rec0 311 slots 462 bytes identical True
+empty  rec1 252 slots 398 bytes identical True    ladder rec4 311 slots 484 bytes identical True
+empty  rec2 252 slots 398 bytes identical True    ladder rec5 278 slots 385 bytes identical True
+empty  rec3 252 slots 392 bytes identical True    ladder rec7   0 slots   0 bytes identical True
+```
+
+Record one is `f1` plus `f8 count` plus elements; replay records are the elements only, which is exactly
+why they are four bytes shorter.
+
+### Correction
+
+An earlier revision of this entry recorded that the lane's token shape was load-bearing, because a
+`+57`-byte explicit expansion and a `+68`-byte canonical re-encode were both rejected. **Both candidates
+were malformed by my own encoder**: the expansion reused the wrong previous-token bytes, and the
+canonical form emitted `eb` where the control uses `ea` for a three-byte payload. With the encoder above,
+a value-preserving re-encode at `471` bytes loads:
+
+```text
+lane_1a0: lane 471 bytes, AllFeatur payload -> 3547
+!15-Nov-26 02:57:04  End   C:\Mac\Home\Documents\creo-authored\lane_1a0.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid
+```
+
+A hypothesised `0x1a0`-byte cap, inferred from the accessor family's `size(kind)` values, is disproved
+by the same launch.
+
+The values, not the encoding, are what remain. They cannot be omitted
+(`re/creo/tools/OmitMask.py`: `AllFeatur` `3478` → `1873`, no `End`), they are validated (all-`-1` and
+all-`0` both fail, one `-1` → `-2` loads), and they are **not a per-class constant**: class `923` has
+`252` slots in the empty control and `311` in the ladder, the ladder's count varies per feature
+(`311`, `278`, `0`), and its protrusion differs from its own datums at `195` of `252` slots. See
+[the mask lane gotcha](../../Gotchas/Conversion/CreoMaskLaneRequired.md).
 
 Three further measurements narrow the table without yielding the bit assignment:
 
@@ -519,10 +544,11 @@ Three further measurements narrow the table without yielding the bit assignment:
 | empty | 4 | `252` for all four |
 | ladder | 7 | `311` for the datum features and the protrusion, `278` twice, `0` once |
 
-Within a file the four datum features carry identical masks, so the table is per-file schema state
-rather than per-feature content. Its length is not the field-definition count (empty: `32` definitions
-before the field, `252` slots; ladder: `33` and `311`), though both files start with the same four
-values.
+The four datum features within a file carry identical vectors, but the length is neither per-file nor a
+function of the class alone: class `923` has `252` slots in the empty control and `311` in the ladder,
+and the ladder's own count varies per feature. Its length is also not the field-definition count (empty:
+`32` definitions before the field, `252` slots). Only the leading values coincide across the two
+documents.
 
 Name-based RE cannot reach it from the container modules: `strings` finds `Sld_Features` and
 `first_feat_ptr` in `coreutils_sh.dll`, `metatoolsapi.dll` and `diagexport.dll`, which is why the
@@ -541,8 +567,10 @@ The name pool is referenced from a table in the `.ddt` section: `cr_flags_xar` a
 `0x133db880`, records of stride `0xd0`, table extent `0x133ced60..0x133f40f0` with **734 entries**
 over **514 unique names**. `cr_flags_xar` is entry `250` and `more_cr_flags` entry `246`.
 
-That record carries only `{name pointer, 1}` and nothing else, so it is a name registry rather than a
-layout descriptor: it does not give the struct offsets, and it does not give the mask semantics. It does
+Records vary in how much they carry: many hold offset-like words at `+0x50` and `+0x80`, but
+`cr_flags_xar`'s record holds only `{name pointer, 1}` and nothing else. For this field the registry is
+therefore a name registry rather than a layout descriptor: it does not give the struct offset, and it
+does not give the mask semantics. It does
 put `cr_flags_xar` at index `250` against `252` slots in the empty control, which is a testable
 hypothesis, recorded in [the feature struct page](../../../re/creo/loader/FeatureStruct.md).
 

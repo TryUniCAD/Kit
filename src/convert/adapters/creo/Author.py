@@ -731,3 +731,58 @@ def EmptyPartContainer(
     Bodies = EmptyPartSections(FeatureClasses)
     Bodies["VisibGeom"] = EmptyVisibGeom()
     return BuildContainer(tuple(Bodies.items()), ModelName)
+
+
+def CompactInt(Value: int) -> bytes:
+    if Value < 0:
+        raise ValueError("CompactInt takes a non-negative value")
+    if Value <= 0x7F:
+        return bytes((Value,))
+    if Value <= 0x3FFF:
+        return bytes((0x80 | (Value >> 8), Value & 0xFF))
+    if Value <= 0x1FFFFF:
+        return bytes((0xC0 | (Value >> 16), (Value >> 8) & 0xFF, Value & 0xFF))
+    Width = max(1, (Value.bit_length() + 7) // 8)
+    return bytes((0xE7 + Width,)) + Value.to_bytes(Width, "big")
+
+
+def SignedInt(Value: int) -> bytes:
+    if Value == -1:
+        return b"\xF6"
+    if Value < 0:
+        return b"\xF5" + CompactInt(-Value)
+    return CompactInt(Value)
+
+
+def SignedIntArray(Values: tuple[int, ...]) -> bytes:
+    Payload = b"\xF8" + CompactInt(len(Values))
+    IndexValue = 0
+    while IndexValue < len(Values):
+        RunLength = 1
+        while (
+            IndexValue + RunLength < len(Values)
+            and Values[IndexValue + RunLength] == Values[IndexValue]
+        ):
+            RunLength += 1
+        Payload += SignedInt(Values[IndexValue])
+        Extra = RunLength - 1
+        if Extra == 1:
+            Payload += b"\xE4"
+        elif Extra == 2:
+            Payload += b"\xE5"
+        elif Extra == 3:
+            Payload += b"\xE6"
+        elif Extra > 3:
+            Payload += b"\xE7" + CompactInt(Extra)
+        IndexValue += RunLength
+    return Payload
+
+
+def SignedIntElements(Values: tuple[int, ...]) -> bytes:
+    Body = SignedIntArray(Values)
+    Count = len(b"\xF8" + CompactInt(len(Values)))
+    return Body[Count:]
+
+
+def FlagValue(Values: tuple[int, ...]) -> bytes:
+    return b"\xF1" + SignedIntArray(Values)

@@ -4,15 +4,15 @@
 
 `AllFeatur` (`Sld_Features`) is a singly linked list of feature records. The empty control holds four:
 the three datum planes `FRONT` 7, `TOP` 5, `RIGHT` 3 (all class `923`) and the coordinate system
-`DEFAULT_CSYS` 11 (class `979`).
+`DEFAULT_CSYS` 11 (class `979`). The ladder control holds seven more, including a protrusion
+(class `917`).
 
-The list is `first_feat_ptr` followed by `next_feat_ptr` links. The first record declares the schema
-inline; later records replay it positionally. That is the same mechanism as the datum placements, so
-the two rules already proven apply:
+The list is `first_feat_ptr` then `next_feat_ptr`. Record one declares the schema inline; later records
+replay it positionally, so two rules hold and both have been measured:
 
 - never re-declare a field mid-array, because a redefinition appends to the shared global field table
   and everything after the array then reads through a shifted index;
-- a record that must declare a new field can only be last.
+- a record that must declare a new field can only be last in its array.
 
 ## Field inventory
 
@@ -102,190 +102,114 @@ also shows where the size sits.
 
 Feature one occupies `1620` bytes and the whole section `3478`.
 
-## The blocker
+## The field that dominates the record
 
-One field is `402` of those bytes: `cr_flags_xar`. It is a compact-int array of 32-bit dirty masks,
-each word being `0xffffffff` with one or two bits cleared:
+`cr_flags_xar` is `402` of those `1620` bytes. Its lane is a repeat-compressed array of signed 32-bit
+values, and its encoding is now fully decoded (below). The values are the remaining unknown.
+
+## The lane encoding is decoded
+
+The lane is `f1` ``f8`` ``count`` then run-compressed signed integers:
+
+| form | meaning |
+| --- | --- |
+| `00`–`7f` | value `0`–`127` |
+| `80`–`bf` + 1 byte | value up to `0x3fff` |
+| `c0`–`df` + 2 bytes | value up to `0x1fffff` |
+| `e8`–`eb` + 1–4 bytes | payload of that width, smallest chosen |
+| `f5` + int | negation |
+| `f6` | `-1` |
+| `e4`/`e5`/`e6` | the previous value repeats 1/2/3 more times |
+| `e7` + int | the previous value repeats `n` more times |
+
+`Author.CompactInt`, `Author.SignedInt`, `Author.SignedIntArray`, `Author.SignedIntElements` and
+`Author.FlagValue` implement it. They reproduce **every** lane in both retained controls, definition and
+replay form, exactly:
 
 ```text
--1, -1, -1, -2049, -1, -1, -16777217, -1, -1048577, -1, -536870913, ...
+empty  rec0 252 slots 402 bytes  identical True
+empty  rec1 252 slots 398 bytes  identical True
+empty  rec2 252 slots 398 bytes  identical True
+empty  rec3 252 slots 392 bytes  identical True
+ladder rec0 311 slots 462 bytes  identical True
+ladder rec1 311 slots 458 bytes  identical True
+ladder rec2 311 slots 458 bytes  identical True
+ladder rec3 311 slots 452 bytes  identical True
+ladder rec4 311 slots 484 bytes  identical True
+ladder rec5 278 slots 385 bytes  identical True
+ladder rec6 278 slots 385 bytes  identical True
+ladder rec7   0 slots   0 bytes  identical True
+ladder rec8 311 slots 484 bytes  identical True
 ```
 
-`0xfffff7ff` clears bit 11, `0xfeffffff` clears bit 24, `0xffefffff` clears bit 20, and
-`0xdfffffff` clears bit 29. The array is one mask per feature field, but which bit belongs to which
-field, and why those particular bits are dirty in a fresh part, is not decoded.
+Record one's lane is `f1` plus `f8 count` plus the elements; replay lanes are the elements only, with no
+header and no count. That is why record one is 4 bytes longer than the others for the same values.
 
-Reproducing that array byte for byte from the control would be copying a captured table rather than
-generating it, so it is not implemented.
+### Retraction
 
-The array is `f1 f8 80 fc ...`: a close token, then a compact count of `252`, then the values. The
-values use the whole compact-integer vocabulary (`f6` 27 times, `eb` 23, `e4` 14, `ea` 11, `e5` 8), so
-`252` logical elements come from far fewer bytes than `417`.
-
-## The masks are load-critical
-
-Three substitutions were measured on the control, each with one Creo 2027.2 launch. The field spans
-`0x21c..0x3bd` and the splice was first checked to be an identity (`splice is identity: True`).
-
-| Substitution | Result |
-| --- | --- |
-| every one of the 252 masks set to `-1` | model-load crash, no `End` |
-| every mask set to `0` | model-load crash, no `End` |
-| identity (control bytes) | loads |
-
-So the mask set is validated content, not a redundant cache. Both natural generated defaults fail:
-all-clean (`-1`) and all-dirty (`0`). The bit-to-field assignment therefore has to be decoded, or a
-mask layout that the loader accepts has to be found, before `AllFeatur` can be generated.
-
-## The lane's token shape is load-bearing
-
-Six edits were measured on the same field, one Creo launch each. Two load, four do not:
-
-| Edit | Byte delta | Result |
-| --- | ---: | --- |
-| control | 0 | loads |
-| first value `-1` → `-2` (`f6` → `f5 02`) | +1 | loads |
-| explicit expansion of every `e4`/`e5`/`e6`/`e7` repeat, each copy reusing the previous value's own token bytes | +57 | process exits, no `End` |
-| all 252 decoded values re-encoded canonically | +68 | process exits, no `End` |
-| every value set to `-1` | −162 | `dbg_err_crash`, no `End` |
-| every value set to `0` | −162 | `dbg_err_crash`, no `End` |
-
-A further attempt changed a byte inside a `f5` negation token and is **void**: it edited the token
-structure rather than a value, so its result carries no information and is not listed above.
-
-Two conclusions follow, and both matter:
-
-- the lane is **not** governed by values alone — replacing the twelve repeats with explicit copies of
-  the same values, or re-encoding those same values, both fail;
-- it is **not** governed by byte length alone either — a one-byte length change is accepted.
-
-So the accepted form is the control's token shape with limited freedom inside it, and neither "generate
-by value" nor "generate by size" reproduces it.
-
-## The field cannot be omitted
-
-The obvious bypass — drop the field and let the loader default it — was measured and fails. The whole
-field was removed from all four records: record 0's header `e0 01 cr_flags_xar 00`, its `f1 f8 80 fc`
-array introduction, and its 398 element bytes, plus the 398-element runs in records 1, 2 and 3. The
-`AllFeatur` payload went from `3478` to `1873` bytes and contained no occurrence of the name.
+An earlier version of this page claimed the lane's *token shape* was load-bearing, on the strength of a
+`+57`-byte explicit expansion and a `+68`-byte canonical re-encode both being rejected. Both of those
+candidates were malformed by my own encoder — the expansion reused the wrong token bytes and the
+canonical form emitted `eb` where the control uses `ea` for three-byte payloads. With the encoder above,
+a value-preserving re-encode at `471` bytes is accepted:
 
 ```text
-omit_a: AllFeatur 3478 -> 1873
-no cr_flags_xar name left: True
-!15-Nov-26 02:40:09  Start C:\Mac\Home\Documents\creo-authored\omit_a.prt
-(no End line, no dbg_err_crash, process exits)
+lane_1a0: lane 471 bytes, AllFeatur payload -> 3547
+!15-Nov-26 02:57:04  End   C:\\Mac\\Home\\Documents\\creo-authored\\lane_1a0.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid
 ```
 
-So the field is required, and the loader is not filling a default for it.
+So the lane is not size-constrained and not token-shape-constrained. A `0x1a0`-byte cap was hypothesized
+from the accessor family's `size(kind)` values and is **disproved** by that same launch.
 
-## Replay records store only the element bytes
+## The values are not a per-class constant
 
-The four records do not carry the field the same way, and the difference is exact:
+An earlier version of this page also claimed the vector is a per-feature-class constant. That is only
+true of the datum features, and even then only of the leading slots:
 
-| Record | Bytes | Contents |
-| --- | ---: | --- |
-| 0 | `402` | `f1 f8 80 fc` then 398 bytes of elements, preceded by `e0 01 cr_flags_xar 00` |
-| 1 | `398` | elements only — no header, no array introduction |
-| 2 | `398` | elements only |
-| 3 | `392` | elements only |
+| Control | Feature | Class | Slots |
+| --- | --- | --- | ---: |
+| empty | 7, 5, 3 | `923` | 252 |
+| empty | 11 | `979` | 252 |
+| ladder | 7, 5, 3, 11, 67, and one more | `923`/`979`/`917` | 311 |
+| ladder | 75, 74 | — | 278 |
+| ladder | one feature | — | 0 |
 
-Record 1 begins `f6 e5 f5 88 01 ...`, which is exactly record 0's element run; the only difference is
-the missing four-byte introduction. So a replay record replays the *elements* of an array without
-re-declaring the array, and record 0 is the only one that carries the count.
+The same class `923` carries `252` slots in one document and `311` in the other, and within the ladder
+the count varies from feature to feature. The leading `252` values of the ladder's datum features are
+identical to the empty control's, so the lane behaves like an append-only per-field table that grows as
+the document's schema grows — but the *length* is per feature and per document, and the ladder's
+protrusion differs from its datums at `195` of `252` slots.
 
-## The vector is a per-class constant
+So the vector is state derived from the document and from the feature, not a constant that can be read
+off a class. That is the remaining gap.
 
-The masks are not per-document state. Measured across the two retained controls:
+## The values are required and validated
 
-| Comparison | Result |
+Four substitutions were measured, one Creo launch each:
+
+| Change | Result |
 | --- | --- |
-| empty control, features 7 / 5 / 3 (classes `923`) | identical to each other |
-| ladder, features 7 / 5 / 3 | identical to the empty control's |
-| empty control, four-feature vector vs ladder's first 252 entries | **identical** |
-| empty control feature 11 (csys, class `979`) vs a plane | differs at exactly 2 slots: `28` and `236` |
-| empty control feature 11 vs ladder feature 11 | the same two slots, same two values |
-| ladder protrusion (class `917`) vs a plane | differs at 195 of 252 slots |
+| control | loads |
+| one value `-1` → `-2` | loads |
+| every value `-1` | fails |
+| every value `0` | fails |
+| whole field removed from all four records | fails |
 
-Two unrelated documents — a datum-only empty part and a part with three datums, a csys and solid
-geometry — produce byte-identical datum masks, including the csys's two deviations. The ladder's
-vector is the empty control's 252 values followed by 59 more.
-
-So the vector is a function of the feature class, not of the model. For the class set `{923, 979}` it is
-a fixed 252-entry vector with one variant for the planes and one for the csys.
-
-That is precisely the shape of a **captured table**: the values are ordered schema data read back from
-vendor saves, not something a generator can compute. Emitting them from `src/` would be transcribing
-vendor bytes, which the repository standard forbids.
-
-## The lane is not a plain value array
-
-Two further launches contradict the assumption that `cr_flags_xar` is a list of 252 integers whose
-values are the only thing that matters.
-
-| Candidate | Result |
-| --- | --- |
-| control bytes | loads |
-| first value `-1` → `-2`, one extra cleared bit, same token count | **loads** |
-| all `252` decoded values re-encoded canonically (`f6`, `f5 <n>`, `eb <4 bytes>`) | process exits, no `End`, no `dbg_err_crash` |
-
-So a single value change is tolerated, but re-encoding the *same* values with different tokens is not.
-The lane therefore carries meaning in its token stream, not only in the decoded integers. The most
-likely reading is that the `e4`/`e5`/`e6`/`e7` tokens are structural in this field — possibly
-terminators or run markers the loader interprets directly — and that our reader's repeat expansion is
-its own convention.
-
-That matters beyond this field: the "`252` slots" figure, and with it the comparison against the
-`.ddt` registry index `250`, are properties of our reader, not measured facts about the file. The
-hypothesis that the mask array is one slot per registered field is therefore **not supported**, and
-should not be used to size a generated array.
-
-What is established: the control's exact token stream loads, a one-value deviation with the same token
-count loads, and wholesale substitution does not.
-
-## What the mask table is not
-
-Three measurements narrow it, and none of them match the obvious guesses.
-
-Slot count per file, and per feature within a file:
-
-| Control | Features | Slots per `cr_flags_xar` |
-| --- | ---: | --- |
-| empty | 4 | `252` for all four |
-| ladder | 7 | `311` for the datum features and the protrusion, `278` for two, `0` for one |
-
-Within a file the values are identical for the four datum features (`173` slots differ from `-1` in
-the empty control), so the table is per-file schema state, not per-feature content.
-
-Slot count is not the number of field definitions: the empty control defines `32` fields before its
-first `cr_flags_xar` and has `252` slots; the ladder defines `33` and has `311`. Both files begin with
-the same four values (`-1, -1, -1, -2049`), so the leading slots are stable while the length is not.
-
-## Why name-based RE does not reach it
-
-`cr_flags_xar` is not in the binaries we hold. `strings` finds `Sld_Features` and `first_feat_ptr` in
-`coreutils_sh.dll`, `metatoolsapi.dll` and `diagexport.dll`, which is why the container and the linked
-list were tractable: those names are in the loader. `cr_flags_xar` appears in none of the four local
-binaries, so the loader reads the feature struct **positionally through a compiled layout** and the
-name only ever existed inside the stream.
-
-Decoding which bit gates which field therefore cannot be done in the container modules. The name does
-exist in the model module, and the field sits inside an ordered feature-field name pool there; the
-location, the neighbouring names (`more_cr_flags`, `save_geoms`, `-dummy_*`) and the next step are in
-[the feature struct page](../loader/FeatureStruct.md).
+The field removal used `re/creo/tools/OmitMask.py`, which takes `AllFeatur` from `3478` to `1873` bytes
+with no occurrence of the name left. So the loader has no default for the field, and it does not accept
+the two natural "no state" vectors.
 
 ## What is needed
 
-The remaining question is a policy one, because the technical options are exhausted:
+The encoding is settled, so the emitter is a solved shape: read the values, hand them to
+`Author.FlagValue` for record one and `Author.SignedIntElements` for the replay records. What is missing
+is where the values come from.
 
-| Route | Status |
-| --- | --- |
-| omit the field | measured, fails |
-| all-clean (`-1`) or all-dirty (`0`) generated default | measured, both fail |
-| re-encode the same values with different tokens | measured, fails |
-| decode the bit semantics from the loader | no accessor exists (210 accessors cover only parenthesised union members); the consumer is at a compile-time struct offset in a 219 MB `.text` |
-| emit the per-class vector | would transcribe vendor saves, which the standard forbids |
+The remaining work is therefore a single, bounded reverse-engineering question: find what computes the
+vector. The `.ddt` registry route is closed — its 210 accessors all name parenthesised union members,
+while `cr_flags_xar` is a plain field at a compile-time struct offset — so the target is the code that
+fills the feature struct at load time, inside `xtop.exe`'s 219 MB `.text`.
 
-The per-class vector is stable across two documents, so it is *format-shaped* data rather than
-document-shaped data. But it is still copied, not computed. Until that distinction is resolved,
-`AllFeatur` stays unauthored, and with it the whole authored part: it is the one section that both our
-document validator and the vendor loader reject when absent.
+Until that is decoded, `AllFeatur` stays unauthored, and with it the whole authored part: it is the one
+section that both our document validator and the vendor loader reject when absent.
