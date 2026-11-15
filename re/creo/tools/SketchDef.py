@@ -59,8 +59,19 @@ def Segment(FirstPoint: int, SecondPoint: int, ExtId: int, Declare: bool) -> byt
     return Payload
 
 
-def Dimension(Value: float, ExtId: int, Sketch: bool = False) -> bytes:
+def Dimension(
+    Value: float, ExtId: int, Sketch: bool = False, Declare: bool = True
+) -> bytes:
     Payload = b"\xE2"
+    if not Declare:
+        Payload += Author.SignedInt(1)
+        Payload += Author.ScalarValue(Value)
+        Payload += Author.SignedInt(0)
+        Payload += Author.ScalarValue(1.0)
+        Payload += Author.SignedInt(ExtId)
+        Payload += b"\xE2\x00"
+        Payload += Author.SignedIntArray((0,) * 7)
+        return Payload
     Payload += Author.FieldValue(1, "type", Author.SignedInt(1))
     Payload += Author.FieldValue(2, "value", Author.ScalarValue(Value))
     Payload += Author.FieldValue(1, "direct", Author.SignedInt(0))
@@ -105,9 +116,23 @@ def Sketch() -> bytes:
     return Payload
 
 
-def DimensionRef(FirstPoint: int, SecondPoint: int) -> bytes:
-    Payload = Author.StructHeader("dim_ref") + b"\xF1\xF8\x02\xF7\x46\xFB"
+def DimensionRef(
+    FirstPoint: int, SecondPoint: int, Declare: bool = True
+) -> bytes:
+    if Declare:
+        Payload = Author.StructHeader("dim_ref") + b"\xF1\xF8\x02\xF7\x46\xFB"
+    else:
+        Payload = b"\xF1\xF8\x02\xF7\x46\xFB"
     Payload += b"\xE2"
+    if not Declare:
+        Payload += Author.SignedInt(1)
+        Payload += Author.SignedInt(4)
+        Payload += b"\xF8\x02" + Author.SignedInt(FirstPoint) + Author.SignedInt(SecondPoint)
+        Payload += b"\xF1\xF7\x46\xE2"
+        Payload += Author.SignedInt(-1)
+        Payload += Author.SignedInt(-1)
+        Payload += b"\xF8\x02" + Author.SignedInt(FirstPoint) + Author.SignedInt(SecondPoint)
+        return Payload
     Payload += Author.FieldValue(1, "item_id", Author.SignedInt(1))
     Payload += Author.FieldValue(1, "sense", Author.SignedInt(4))
     Payload += Author.FieldValue(

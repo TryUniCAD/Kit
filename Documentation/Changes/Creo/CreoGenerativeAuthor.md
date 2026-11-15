@@ -124,6 +124,21 @@ gen_rows.prt: 26239 bytes, 47 generated rows
 16 of 16 checks pass
 ```
 
+### The positional dimension form regresses, so `dimtab_ptr` is closed as value-level
+
+Emitting dimensions two to four positionally (declared once, then plain values, per-dimension `f3 f7 3e`) regresses the
+trace to `gsec2d_ptr` — measured twice:
+
+```text
+dim949g: 108287 bytes; element 3790
+std.out: gsec2d_ptr
+```
+
+reverting to the declared form restores `dimtab_ptr` (`dim949h`, `4105` bytes). So re-declaration is tolerated where
+the positional form is not, and what remains in that record is value-level only. `dimtab_ptr` is recorded as
+value-level and no longer iterated; `relat_ptr`, `formula_ptr`, `nsket_info` and `unsolved_ptr` have not yet been
+exercised.
+
 ### The dimension element read as a token stream
 
 Tokenising the vendor's first sketch dimension answers what the trace could not:

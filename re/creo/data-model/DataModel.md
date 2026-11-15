@@ -428,6 +428,31 @@ So the parser now takes a `Legacy` flag: the reader uses the new rules, and `Rep
 | `gen_rows.prt` | `26239` bytes, 47 rows, `End` + `MT Part Solid` twice (`12:26:42`, `12:27:59`) |
 | vendor `949` element | `3827` of `3827` bytes, `pointid [[0,1], [1,2]]` |
 
+### `dimtab_ptr` is closed as value-level
+
+Emitting dimensions two to four positionally — declared once, then plain values, closed with the per-dimension
+`f3 f7 3e` — **regresses** the trace:
+
+```text
+dim949g: 108287 bytes; element 3790
+two launches: std.out stops at gsec2d_ptr   (back from dimtab_ptr)
+```
+
+reverting to the declared form restores `dimtab_ptr`:
+
+```text
+dim949h: 108602 bytes; element 4105
+std.out: gsec2d_ptr / dimtab_ptr
+```
+
+so re-declaring each dimension is tolerated where the positional form is not, and every remaining candidate in this
+record is a value the tokeniser cannot tell from structure. Per the plan, `dimtab_ptr` is therefore recorded as
+**value-level** and this region is no longer iterated.
+
+The sketch now stands at: `segtab_ptr` passes with the two measured ordering rules, `dimtab_ptr` is reached and holds
+only value-level differences, and the records after it (`relat_ptr`, `formula_ptr`, `nsket_info`, `unsolved_ptr`) have
+not yet been exercised at all.
+
 ### The dimension element's token stream, read directly
 
 Tokenising the vendor's first sketch dimension settles two questions that the trace could not:
