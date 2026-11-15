@@ -1276,6 +1276,44 @@ The body records do not satisfy that either. The first body at offset 8 has `0x0
 therefore use neither the normal path nor the V5R5 path, which leaves
 `ReadHeaderObjectAt_SmallHeader` at `0x1800a7310`, selected by `0x2a(stream) & 0x10001`.
 
+`ReadHeaderObjectAt_SmallHeader` uses the same size formula as the other two paths:
+
+```
+rdx = header[0x10];
+*arg_28 = rdx + offset;
+*next = header[0x14] + rdx + offset;
+```
+
+and it starts with a one-byte tag whose high three bits must be `0xa0`:
+
+```
+r13 = *rsi;
+rdx = r13 + 1;
+rbx = byte at offset;
+*rsi = rdx;
+if ((rbx & 0xe0) != 0xa0) {
+    sub_1800a6520(...);
+}
+arg_0 = rbx & 0xf;
+```
+
+The body records do not satisfy that either: the first body at offset 8 starts with `0x04`, and
+`0x04 & 0xe0` is `0x00`, not `0xa0`. So none of the three header paths accepts the body records at
+the offsets the chain walk produces, which means the offsets themselves are wrong rather than the
+parsers.
+
+That points back at the chain start. `Unserialize_ContentsFull` initialises the walk with
+`0x110(stream)`, and for `Reservoir` the preamble is eight bytes, so the first offset is 8. But the
+first record at 8 is `04 04 fd ff ...`, which is not a header for any of the three paths. Either
+`0x110(stream)` is not 8 after the preamble, or the preamble is longer than eight bytes and the
+first header starts later.
+
+The SmallHeader tag check does match at offset 0: the first byte of the stream is `0xa3`, and
+`0xa3 & 0xe0` is `0xa0`. So the chain may start at 0 rather than 8, with the eight-byte preamble
+being the first record's payload rather than a separate preamble. The 2496 positions in `Reservoir`
+where `(byte & 0xe0) == 0xa0` start at 0, 2, 224, 225, 576, 578, 586, 596, 598, 606, 616, 636, 656,
+676, 678, 686, 696, 710, 716, 736, so the tag is common and the check alone does not pin the chain.
+
 A constraint solver over the geometry does not converge. Treating each face as a variable over the
 surfaces of its planarity class, and each two-face handle group as a constraint that the two
 surfaces must share a vertex-table point, then running arc consistency to a fixed point, leaves 12
