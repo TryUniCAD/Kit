@@ -104,17 +104,19 @@ def Sketch() -> bytes:
 
 def DimensionRef(FirstPoint: int, SecondPoint: int) -> bytes:
     Payload = Author.StructHeader("dim_ref") + b"\xF1\xF8\x02\xF7\x46\xFB"
-    for ItemId, Sense in ((1, 4), (-1, -1)):
-        Payload += b"\xE2"
-        Payload += Author.FieldValue(1, "item_id", Author.SignedInt(ItemId))
-        Payload += Author.FieldValue(1, "sense", Author.SignedInt(Sense))
-        Payload += Author.FieldValue(
-            1,
-            "point",
-            b"\xF8\x02"
-            + Author.SignedInt(FirstPoint)
-            + Author.SignedInt(SecondPoint),
-        )
+    Payload += b"\xE2"
+    Payload += Author.FieldValue(1, "item_id", Author.SignedInt(1))
+    Payload += Author.FieldValue(1, "sense", Author.SignedInt(4))
+    Payload += Author.FieldValue(
+        1,
+        "point",
+        b"\xF8\x02" + Author.SignedInt(FirstPoint) + Author.SignedInt(SecondPoint),
+    )
+    # the vendor selects the dim_ref schema for its second element instead of declaring it again
+    Payload += b"\xF1\xF7\x46\xE2"
+    Payload += Author.SignedInt(-1)
+    Payload += Author.SignedInt(-1)
+    Payload += b"\xF8\x02" + Author.SignedInt(FirstPoint) + Author.SignedInt(SecondPoint)
     return Payload
 
 
@@ -678,6 +680,8 @@ def MeasuredSketch(EntityCount: int = 0) -> bytes:
     for IndexValue, Value in enumerate(KDimensions):
         Payload += Dimension(Value, IndexValue)
         Payload += DimensionRef(IndexValue, (IndexValue + 1) % len(KMeasuredSegments))
+        # each sketch dimension closes its attribute, element and reference before the next
+        Payload += b"\xF3\xF7\x3E"
     Payload += SolverTables(8, EntityCount)
     return Payload
 

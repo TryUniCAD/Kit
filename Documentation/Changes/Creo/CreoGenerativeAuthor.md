@@ -124,6 +124,21 @@ gen_rows.prt: 26239 bytes, 47 generated rows
 16 of 16 checks pass
 ```
 
+### The sketch dimension table: two exclusions, one shape matched
+
+| Change | Trace stops at |
+| --- | --- |
+| `dispdimattr` as a struct (`e2`), `f2` close | regressed to `gsec2d_ptr` |
+| `dispdimattr` as a struct, `f3` close | regressed to `gsec2d_ptr` |
+| `dim_ref` second element selector-based (`f1 f7 46 e2 …`) | `dimtab_ptr`, element `4185` → `4105` bytes |
+
+`dispdimattr` is therefore a scalar here, and the vendor's `dim_ref` selects its schema for the second element instead
+of declaring it again — matched, element smaller, stop unchanged.
+
+Marker splices past `segtab_ptr` are also confounded: `sw2_attr` and `sw2_dim` stop at `gsec2d_ptr`, *earlier* than the
+fully generated `prog949` at `dimtab_ptr`, because splicing at `attributes` cuts a record our emitter interleaves
+inside the fifth segment body. So the generated candidate is the better instrument for this region.
+
 ### Two ordering rules, and the solver tables were never the blocker
 
 `std.out` was used as a progress meter. Two corrections to the sketch's record order each moved the stop one record

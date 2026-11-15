@@ -428,6 +428,32 @@ So the parser now takes a `Legacy` flag: the reader uses the new rules, and `Rep
 | `gen_rows.prt` | `26239` bytes, 47 rows, `End` + `MT Part Solid` twice (`12:26:42`, `12:27:59`) |
 | vendor `949` element | `3827` of `3827` bytes, `pointid [[0,1], [1,2]]` |
 
+### `dimtab_ptr` iteration: two exclusions and one matched shape
+
+Three measurements on the sketch's dimension table:
+
+| Change | Trace stops at |
+| --- | --- |
+| `dispdimattr` emitted as a struct (`e2`) with `f2` close | regressed to `gsec2d_ptr` |
+| `dispdimattr` as a struct with `f3` close | regressed to `gsec2d_ptr` |
+| `dim_ref`'s second element selector-based (`f1 f7 46 e2 …`) instead of re-declared | `dimtab_ptr` (unchanged), element `4185` to `4105` bytes |
+
+So `dispdimattr` is a scalar in this record, and the vendor's `dim_ref` does select its schema for the second element
+rather than declaring it again — which matches the shape and shrinks the element, without moving the stop.
+
+**Marker splices are confounded inside this element.** Re-running the bisect after the ordering fixes gives a worse
+result than the fully generated candidate:
+
+| Candidate | Trace stops at |
+| --- | --- |
+| `prog949` (all ours) | `dimtab_ptr` |
+| `sw2_attr` (vendor from `attributes`) | `gsec2d_ptr` |
+| `sw2_dim` (vendor from `dimtab_ptr`) | `gsec2d_ptr` |
+
+Splicing at `attributes` cuts a record that our emitter interleaves inside the fifth segment body, so the joined
+stream is not a consistent element at all. Past `segtab_ptr`, the generated candidate is the *better* instrument:
+splices only localise where the two byte streams happen to align.
+
 ### Two ordering rules move the trace two levels deeper
 
 Using `std.out` as a progress meter, two institutional details of the sketch had to be corrected, and each moved the
