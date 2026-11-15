@@ -73,7 +73,7 @@ def TestNewBundle() -> None:
     assert Drawing.Database is not None
     assert Drawing.Database.Model.DwgObjects
     Bundle = BuildBundle(SpecValue, Drawing, KDesignData)
-    with ExpectError(ValueError, match="cannot be made loadable"):
+    with ExpectError(ValueError, match="need a header tail"):
         _ = EmitDrawBundle(Bundle)
 
 

@@ -109,20 +109,12 @@ def AuxHeader(HandSeed: int, Moment: DwgDayTime) -> DwgRecord:
 # save shorts needs an explicit validity boundary so drawing objects retain valid ownership and reference relationships
 def SaveShorts(VersionGuid: str) -> DwgRecord:
     try:
-        Digits = UUID(VersionGuid.strip("{}")).bytes
+        UUID(VersionGuid.strip("{}"))
     except ValueError as Failure:
         raise ValueError(
             f"Authored DWG version GUID {VersionGuid!r} is malformed"
         ) from Failure
-    TailBits = 0
-    for Index in range(KShortCount):
-        ShortValue = (
-            int.from_bytes(Digits[2 * Index : 2 * Index + 2], "little") or KShortFill
-        )
-        TailBits = (TailBits << 18) | int.from_bytes(
-            ShortValue.to_bytes(2, "little"), "big"
-        )
-    return MakeFrame(18 * KShortCount, TailBits, b"")
+    return MakeFrame(0, 0, b"")
 
 
 # the rev history contract needs a shared interpretation so drawing objects retain valid ownership and reference relationships

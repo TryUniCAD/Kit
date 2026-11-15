@@ -40,9 +40,9 @@ from the model. Fusion 2706.1.17 opened it in 4.7 s and reported `841.0 x 594.0`
 
 ## Authoring gate
 
-`EmitDrawing` now refuses a drawing whose database carries Kit's own product entry in its `AppInfo`.
-That entry is what `AuthorDwg` writes, and a database Kit authored cannot be made loadable because the
-header tail is a placeholder.
+`EmitDrawing` now refuses a drawing whose database has no header tail, or whose product entry names
+Kit. `AuthorDwg` writes a draft with no tail at all, so the draft is structurally distinguishable from
+a Fusion save without reproducing the integrity check.
 
 ```
 EmitDrawing(BuildDrawing(MakeSpec(), authored_database))
@@ -52,17 +52,20 @@ ValueError: Authored drawing databases cannot be made loadable, so the drawing i
 The gate is at emission, so every path that writes a drawing is covered, including a bundle.
 `BuildBundle` still builds the model, so a caller can inspect an authored drawing; it cannot emit one.
 
-The match is the product entry, `name ="Kit"`, not any text that contains `Kit`, so a Fusion database
-whose metadata mentions Kit elsewhere still emits. A database with no application entry at all is
-refused too, because every Fusion save carries one.
+The tail check is the primary gate: a Fusion save carries 72 to 79 tail bits, and a draft carries only
+the padding, so a width below 72 is refused. The product entry, `name ="Kit"`, is a second check, and
+a database with no application entry is refused too.
+
+`AuthorDwg` no longer writes placeholder shorts. `SaveShorts` returns an empty frame, so the draft has
+no tail to mistake for a vendor value.
 
 A caller who rewrites the product entry to another name gets past the gate. That is a deliberate
 forgery of the metadata, not a path the authoring code takes, and the tail is still a placeholder.
 
 | Corpus                                   | Emitted | Refused |
 | ---------------------------------------- | ------- | ------- |
-| Fusion-saved drawings, product `Fusion Drawings` | 192 | 0 |
-| Research variants carrying Kit's product entry | 0 | 56 |
+| Fusion-saved drawings, 77-bit tail       | 187 | 0 |
+| Research drafts, no tail or Kit product  | 0 | 60 |
 
 ## Behavior
 
