@@ -1,24 +1,28 @@
 from __future__ import annotations
 
-from Core import Obj
-from Schema import Registry
-from defs.ConfigPart import load_config as LoadConfig
-from defs.ResolvedCore import load_resolved as LoadResolved
+from importlib import import_module as ImportModule
+from typing import cast as CastValue
 
 from convert.adapters.solidworks.container.Container import SldprtArchive
+
+# research schemas resolve after the child process establishes its explicit import paths
+KLoadConfig = ImportModule("defs.ConfigPart").load_config
+
+# resolved decoding must use the same initialized research modules as the child constructor
+KLoadResolved = ImportModule("defs.ResolvedCore").load_resolved
 
 
 # decoded profile relationships expose ownership defects that byte identity alone cannot detect
 def ReadProfiles(
-    ArchiveFile: SldprtArchive, CodecReg: Registry
-) -> tuple[Obj, list[Obj]]:
-    ConfigDocu, ConfigReader = LoadConfig(
+    ArchiveFile: SldprtArchive, CodecReg: object
+) -> tuple[object, list[object]]:
+    ConfigDocu, ConfigReader = KLoadConfig(
         ArchiveFile.require("Contents/Config-0"),
         CodecReg,
         19000,
         archive=ArchiveFile,
     )
-    ProfileDocu, ProfileReader = LoadResolved(
+    ProfileDocu, ProfileReader = KLoadResolved(
         ArchiveFile.require("Contents/Config-0-ResolvedFeatures"),
         CodecReg,
         19000,
@@ -33,8 +37,9 @@ def ReadProfiles(
         or ProfileReader.left()
     ):
         raise RuntimeError("constructed profile ownership has unread bytes")
-    return ConfigDocu.roots[0], [
+    return CastValue(object, ConfigDocu.roots[0]), [
         Feature
-        for Feature in ProfileDocu.roots
-        if Feature.cls in ("moOriginProfileFeature_c", "moProfileFeature_c")
+        for Feature in CastValue(list[object], ProfileDocu.roots)
+        if getattr(Feature, "cls", None)
+        in ("moOriginProfileFeature_c", "moProfileFeature_c")
     ]
