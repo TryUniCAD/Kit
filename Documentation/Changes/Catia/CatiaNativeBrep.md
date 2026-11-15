@@ -329,6 +329,13 @@ result = CatiaAdapter().write(
   box (`SurfacicReps` `631` -> `499`) and 11 bytes smaller on the cylinder. `MainDataStream` is
   byte-identical at `444` for the box. The geometry and the validation result are unchanged; only the
   edge count differs, because the reader normalises coedge pairs to one edge.
+- The three `30 04 04 fd ff` records are now measured instead of assumed constant. `r0` (span 47) and
+  `r1` (span 52) share a layout: `00 00 00 01`, one zero byte, five `f32`, a `u32` kind that is `3`
+  and `19` respectively in all 27 parts, and a constant 13-byte tail; `r1` adds `95 ff <u16> 00 00 00`.
+  The `u16` equals `(MainDataStream length - 199) mod 65536` for 26 of 27 parts (`Pedal_Body` is off by
+  `340`). The five floats vary per part and match no model metric (only `Reservoir` and `Washer_8`
+  happen to have the z half-extent as the fifth float). `re/catia/tooling/FdRecords.py` dumps and
+  checks them, so a vendor-saved comparison is one command away.
 - The writer's `MainDataStream` is not structurally identical to a vendor stream. Comparing the
   writer's box output with `Copper_Washer.CATPart` by marker counts gives: per-face
   `30 04 04 ff ff` blocks `6` in both; `30 04 04 fd ff` blocks `0` written against `3` in every
