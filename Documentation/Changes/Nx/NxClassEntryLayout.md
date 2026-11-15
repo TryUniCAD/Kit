@@ -119,9 +119,55 @@ and `xxh32(stream)` reproduces the stored digest for **152 of 152** classes.
 entry into prefix, layout digest and tail. `TestNxClassLink` pins three chains to their measured
 digests and checks the split of a real entry.
 
-## The prefix and the tail
+## The entry writer is located
 
-Those two fields remain unidentified.
+`OM_get_class_name_digest` has exactly one caller in `libsyss.dll`, and it sits 16 bytes from the
+only caller of `OM_get_class_layout_digest` that shares a function:
+
+```text
+0x1801446ca  call 0x180107030    OM_get_class_name_digest
+0x1801446cf  mov r15d, eax
+0x1801446d2  mov [rbp + 0x48], eax
+0x1801446d5  xor edx, edx
+0x1801446d7  mov rcx, r13
+0x1801446da  call 0x180106f90    OM_get_class_layout_digest
+0x1801446df  mov r14d, eax
+```
+
+so the routine at `0x1801445xx` is the **class-table entry writer**, and the surrounding stores show
+the entry's byte order:
+
+```text
+0x18014474e  mov [rcx + rax], r15b        first byte of the name digest
+0x18014475e  mov [rdx + rcx + 1], al      second
+0x18014476e  mov [rdx + rcx + 2], al      third
+0x18014477e  mov [rdx + rcx + 3], al      fourth
+0x180144782  add dword [rbx + 0x70], 4    advance the stream cursor
+```
+
+immediately before it, a **two byte value is read from a table**, not computed:
+
+```text
+0x180144651  mov rdx, [rbx + 0x30]        the table
+0x180144655  mov rax, [r13 + 0x30]
+0x180144659  movsxd rcx, dword [rax + 0x98]
+0x180144660  add rcx, rcx                 index times two
+0x180144663  movsx r8d, word [rdx + rcx]  a 16 bit per class value
+0x180144668  mov [rbp + 0x48], r8w
+```
+
+and earlier in the same routine a four byte block is written from `[rbp + 0x50]` when a flag at
+`[rbx + 0x18c] & 4` is clear. That accounts for the prefix being 2 to 5 bytes: the entry carries a
+variable-width leading field before the two digests.
+
+The prefix values themselves are consistent with a per-class table entry rather than a computed
+digest: `UGS::OM::RootObject` has `0x7438`, `UGS::RM_part` `0x7765` and `UGS::Solid::Body` `0x7b3d`,
+which rise with registration order across the table.
+
+## What is left
+
+The prefix and the tail. Hooking `0x1801445xx` during a `SaveAs` and logging the two blocks and the
+table read would give them directly, the same way the xxh32 detour gave the name digest.
 
 ## Limits
 
