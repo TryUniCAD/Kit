@@ -328,3 +328,49 @@ def AuthoredSections(FeatureClasses: tuple[int, ...]) -> dict[str, bytes]:
     Bodies.update(NeutralEmptyPayloads())
     Bodies["FeatDefsIndex"] = FeatureIndexPayload(FeatureClasses)
     return Bodies
+
+
+KMinimalStructs = (
+    ("BasicData", "Sld_BasicData"),
+    ("MdlStatus", "Sld_MdlStatus"),
+    ("FullMData", "Sld_FullData"),
+    ("LargeText", "Sld_LargeText"),
+    ("BasicText", "Sld_BasicText"),
+    ("Geomlists", "Sld_Geomlists"),
+    ("GeomDepen", "Sld_GeomDepend"),
+    ("DispCntrl", "Sld_DispCntrl"),
+    ("ActEntity", "Sld_Entities"),
+    ("NeuPrtSld", "Sld_NeutPart"),
+    ("DwgData", "Sld_DwgData"),
+    ("IdsGenInfoDb", "Sld_IdsGenInfoDb"),
+    ("ActDatums", "Sld_ActDatums"),
+    ("ModelView#0", "View"),
+    ("ModelView#1073741824", "View"),
+    ("ModelView#40", "View"),
+    ("ModelView#41", "View"),
+    ("ModelView#42", "View"),
+    ("ModelView#43", "View"),
+    ("ModelView#44", "View"),
+    ("ModelView#45", "View"),
+    ("ModelView#46", "View"),
+    ("ModelView#48", "View"),
+    ("ColorSchemeInfo", "color_scheme_ptr"),
+    ("ColorSchemeInfoNew", "color_scheme_ptr_new"),
+    ("THMB_IMG_INDX", "Thumbnail_indx_data"),
+    ("CGFMappingTable", "pgl_cgf_map_array"),
+)
+
+
+def MinimalSections() -> dict[str, bytes]:
+    return {
+        NameText: SectionValue(
+            NameText, StructBegin(StructName) + CloseValue(1)
+        )
+        for NameText, StructName in KMinimalStructs
+    }
+
+
+def EmptyPartSections(FeatureClasses: tuple[int, ...]) -> dict[str, bytes]:
+    Bodies = AuthoredSections(FeatureClasses)
+    Bodies.update(MinimalSections())
+    return Bodies

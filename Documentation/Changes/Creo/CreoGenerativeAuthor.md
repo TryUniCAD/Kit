@@ -293,6 +293,39 @@ The remaining 41 sections are not authored. The cheapest next targets, by measur
 | `MdlStatus` | 10301 | model status |
 | `SolidPersistTable` | 1148 stored | persistence table; Unix-compress payload |
 
+## Minimal state sections
+
+The large state sections accept an empty struct. `Author.MinimalSections()` emits
+`e0 00 <struct> 00 e3 f1` for 27 sections, and `Author.EmptyPartSections(FeatureClasses)` combines
+them with the eleven grammar-authored bodies.
+
+Each addition was measured with one Creo 2027.2 launch on the rebuilt control:
+
+| Minimal bodies added | Result |
+| --- | --- |
+| `BasicData`, `MdlStatus`, `FullMData`, `LargeText` | loads (`End`, `MT Part Solid`) |
+| + 10 `ModelView#*`, `ColorSchemeInfo`, `ColorSchemeInfoNew`, `THMB_IMG_INDX`, `CGFMappingTable` | loads |
+| + `BasicText`, `Geomlists` | loads |
+| + `GeomDepen`, `DispCntrl`, `ActEntity`, `NeuPrtSld` | loads |
+| + `DwgData`, `IdsGenInfoDb` | loads |
+| + `ActDatums` | loads |
+| + `FeatDefsDtm` | model-load crash, no `End` |
+| + `BasBasData` | model-load crash, no `End` |
+
+`EmptyPartSections((923, 979, 917))` returns 38 bodies. Applied to the control container:
+
+```text
+wrote 31305 bytes (control 81539)
+!15-Nov-26 01:48:10  End   C:\Mac\Home\Documents\creo-authored\auth39.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid
+```
+
+So 38 of the 54 directory rows are authored and Creo accepts the result. Two plain sections remain
+load-bearing: `BasBasData` (model-defining scalars) and `FeatDefsDtm` (datum placement records).
+The other unauthored rows are the three compressed `ND:` sections, `SolidPersistTable`,
+`SolidPrimdata`, `DispDataTable`, `THMB_IMG_MAIN`, `CGFPersistTable`, the two `kind b` sections, and
+the two free-space extents.
+
 ## Limits
 
 - The authored part contains only `AllFeatur` and `VisibGeom`. Creo rejects it as "not a valid PART
