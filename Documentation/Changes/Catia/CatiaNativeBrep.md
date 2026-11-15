@@ -145,6 +145,14 @@ exactly three times in every part regardless of face count. And no offset in `Ma
 decodes through `TagDifference.ReadTags` to `0..n-1` for `n = 6`, `12`, `56`, or `71`, so the
 linked-object list is per object with one surface entry rather than a body-wide array.
 
+The linked-object list is pinned: `CATCGMStreamImpl::ReadListOfLinkedObjects`
+(`CATGeometricObjects.dll` `0x1800717f0`) reads the named fields `#NBLinkObjs` and `^LinkObj` with
+four bytes per entry, and `CATCXFace::UnStream` (`0x18054eef0`) takes entry `1` as the surface. A
+face header is therefore at least nine bytes, which rules the eight-byte
+`30 04 04 ff ff e1 e1 e1` record out as a face header. No 71-record fixed-stride run of that shape
+exists in `Reservoir` at stride `9`, `13`, `17`, `21`, or `25`, and no `03 00 00 00` followed by
+three entries below the pool size exists anywhere in its `MainDataStream`.
+
 The reference encoding is now recovered from the binaries, though the header offset is not. A face
 takes its surface from the first entry of the linked-object list that the generic object header
 passes in, and `CATCXFace::UnStream` then calls `SkipRemainingLinkedObjectsToRead`. The list is read

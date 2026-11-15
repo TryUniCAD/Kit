@@ -39,9 +39,19 @@ in every part regardless of face count.
 
 A contiguous tag array is ruled out for the same reason the index table is: no offset in
 `MainDataStream` decodes, through `TagDifference.ReadTags`, to `0..n-1` for `n = 6`, `12`, `56`, or
-`71`. The linked-object list is therefore per object, with one surface entry, and recovering it needs
-the object header offset that `CATCXFace::UnStream` consumes — the one piece the disassembly has not
-yet yielded.
+`71`.
+
+The linked-object list itself is now pinned. `CATCGMStreamImpl::ReadListOfLinkedObjects`
+(`CATGeometricObjects.dll` `0x1800717f0`) gates on the stream version (`0x0d`, or `0x0c` with
+version `0x14`) and then reads two named stream fields: `#NBLinkObjs` (the count) and `^LinkObj`
+(the array), with four bytes per entry. `CATCXFace::UnStream` (`CATTopologicalObjects.dll`
+`0x18054eef0`) takes the object at list index `1` as the surface and adds entries from index `2` on
+to `CATCXOrientedFaces`. A face therefore needs a header of at least `1 + 2 * 4 = 9` bytes, which
+rules the eight-byte `30 04 04 ff ff e1 e1 e1` record out as the face header.
+
+Recorded searches for that header all failed on `Reservoir`: no run of 71 records with a
+count-then-four-byte-entry shape exists at a fixed stride `9`, `13`, `17`, `21`, or `25`, and no
+`03 00 00 00` followed by three entries below the pool size exists anywhere in `MainDataStream`.
 
 `RefineMap` sharpens the inferred map without changing its status. It places the handles without the
 tessellation snap, then re-picks each plane face's pooled plane by the summed distance of the face's
