@@ -4,7 +4,10 @@ from pathlib import Path as FilePath
 from inspect import currentframe as ReadFrame
 
 
+# construction evidence must distinguish grammar imports from forbidden donor file reads
 class BuildAudit:
+
+    # independent audit state prevents earlier construction runs from hiding later reads
     def __init__(self, SchemaDir: FilePath) -> None:
         super().__init__()
         self.SchemaDir = str(SchemaDir)
@@ -13,9 +16,11 @@ class BuildAudit:
         self.ModuleReads: list[str] = []
         self.DeniedReads: list[str] = []
 
+    # a strict construction phase separates permitted initialization from generated output inputs
     def BeginBuild(self) -> None:
         self.Importing = False
 
+    # runtime audit events reveal hidden file access during fresh native construction
     def InspectEvent(self, EventName: str, ArgsValue: tuple[object, ...]) -> None:
         if EventName not in (
             "open",

@@ -7,6 +7,7 @@ from tests.convert.solidworks.research.FreshPartInput import MakePartInput
 from tests.convert.solidworks.research.FreshPartRunner import RunFreshPart
 
 
+# shared structural assertions keep every constructed shape subject to the same evidence
 def AssertPart(Report: dict[str, object], PointCount: int, DepthValue: float) -> None:
     Streams = CastValue(dict[str, dict[str, object]], Report["streams"])
     assert len(Streams) == 8
@@ -21,6 +22,7 @@ def AssertPart(Report: dict[str, object], PointCount: int, DepthValue: float) ->
     assert Linked["seeded_map_count"] == Linked["map_base"] == Report["map_count"]
 
 
+# different topology sizes reveal fixed document payloads masquerading as model generation
 def TestFreshParts() -> None:
     Triangle = [[0.0, 0.0], [0.04, 0.0], [0.005, 0.03]]
     RingPoints = [

@@ -11,6 +11,7 @@ from sys import stdin as InputStream
 from typing import cast as CastValue
 from xml.etree.ElementTree import fromstring as ParseXml
 
+# audited metadata construction needs an explicit repository root without depending on ambient imports
 KRepoRoot = FilePath(ArgValues[1])
 ImportPaths.insert(0, str(KRepoRoot))
 ImportPaths.insert(0, str(KRepoRoot / "re" / "tooling" / "sw2026" / "serial"))
@@ -18,20 +19,33 @@ ImportPaths.insert(0, str(KRepoRoot / "re" / "tooling" / "sw2026"))
 
 from tests.convert.solidworks.research.ConstructionGuard import BuildAudit
 
+# construction purity must cover builder imports before any donor access can occur
 KAuditValue = BuildAudit(KRepoRoot / "re" / "tooling" / "sw2026" / "serial" / "defs")
 AddAuditHook(KAuditValue.InspectEvent)
 
+# the audited child must exercise the actual metadata builder rather than a surrogate
 KMetadata = ImportModule("builders.Metadata")
+
+# independent decoding must expose malformed metadata even when the constructor returns objects
 KLoadRooted = ImportModule("Streams").load_rooted
+
+# byte identity must expose information lost after metadata objects are decoded
 KStoreRooted = ImportModule("Streams").store_rooted
+
+# shared native class dispatch must be fixed before strict construction forbids directory reads
 KRegistry = ImportModule("Classes").registry()
+
+# authored requests must enter through process input rather than runtime fixture files
 KRequest = CastValue(list[dict[str, dict[str, object]]], LoadJson(InputStream.read()))
+
+# lazy codec discovery must finish before strict construction forbids every file read
 KCodecs = tuple(FindCodec(Value) for Value in ("utf-16-le", "utf-8", "latin-1"))
 
 
 KAuditValue.BeginBuild()
 
 
+# metadata construction must cross stream ownership boundaries using only explicit semantic inputs
 def BuildStreams(InputData: dict[str, dict[str, object]]) -> dict[str, bytes]:
     return CastValue(
         dict[str, bytes],
@@ -49,6 +63,7 @@ def BuildStreams(InputData: dict[str, dict[str, object]]) -> dict[str, bytes]:
     )
 
 
+# each generated archive must prove complete parsing and exact storage without leftover bytes
 def DecodeStreams(StreamData: dict[str, bytes]) -> dict[str, object]:
     Records: dict[str, object] = {}
     for StreamName, BlobValue in StreamData.items():
@@ -62,6 +77,7 @@ def DecodeStreams(StreamData: dict[str, bytes]) -> dict[str, object]:
     return Records
 
 
+# parent assertions need semantic observations rather than accepting successful serialization alone
 def InspectResult(StreamData: dict[str, bytes]) -> dict[str, object]:
     Records = DecodeStreams(StreamData)
     Header = GetAttr(Records["Header2"], "f")
@@ -111,6 +127,7 @@ def InspectResult(StreamData: dict[str, bytes]) -> dict[str, object]:
     }
 
 
+# invalid provenance and forbidden reads must remain observable across the subprocess boundary
 def ProcessInput(InputData: dict[str, dict[str, object]]) -> dict[str, object]:
     Result: dict[str, object]
     try:

@@ -7,8 +7,13 @@ from subprocess import run as RunProcess
 from sys import executable as PythonExec
 from typing import cast as CastValue
 
+# isolated subprocesses need an explicit repository anchor independent of the invoking directory
 KRepoRoot = FilePath(__file__).resolve().parents[4]
+
+# metadata purity must be exercised beyond the test interpreter boundary
 KProgram = FilePath(__file__).with_name("MetadataProcess.py")
+
+# authored revision identity prevents tests from relying on captured native provenance
 KStamp: dict[str, object] = {
     "status": 0,
     "user_index": 0,
@@ -16,6 +21,8 @@ KStamp: dict[str, object] = {
     "timestamp": 1700000000,
     "comment": "authored test revision",
 }
+
+# independent authored counters distinguish construction rules from saved document metadata
 KHeader: dict[str, object] = {
     "next_id": 100,
     "user_names": ["author α"],
@@ -31,6 +38,8 @@ KHeader: dict[str, object] = {
     "license_flags": 0,
     "license_type": 0,
 }
+
+# explicit nonnative build provenance prevents fabricated vendor save history from passing
 KHistory: dict[str, object] = {
     "states": [
         {
@@ -46,6 +55,8 @@ KHistory: dict[str, object] = {
     "cjk_saved": False,
     "cjk_warning": False,
 }
+
+# authored unicode names and references expose metadata escaping and graph ownership errors
 KKeywords: dict[str, object] = {
     "name": "authored <part> & α",
     "timestamp": 1700000100,
@@ -73,6 +84,7 @@ KKeywords: dict[str, object] = {
 }
 
 
+# independent request graphs prevent mutations in one compatibility case from contaminating another
 def MakeInput() -> dict[str, object]:
     InputData: dict[str, object] = {
         "header2": KHeader,
@@ -83,6 +95,7 @@ def MakeInput() -> dict[str, object]:
     return CopyValues(InputData)
 
 
+# growth across configurations logs and features must change only their dependent streams
 def LargerInput() -> dict[str, object]:
     InputData = MakeInput()
     Header = CastValue(dict[str, object], InputData["header2"])
@@ -109,6 +122,7 @@ def LargerInput() -> dict[str, object]:
     return InputData
 
 
+# a separate audited interpreter exposes runtime file dependencies hidden by in process calls
 def RunMetadata(Inputs: list[dict[str, object]]) -> list[dict[str, object]]:
     Outcome = RunProcess(
         [PythonExec, "-I", "-B", str(KProgram), str(KRepoRoot)],
@@ -122,6 +136,7 @@ def RunMetadata(Inputs: list[dict[str, object]]) -> list[dict[str, object]]:
     return CastValue(list[dict[str, object]], LoadJson(Outcome.stdout))
 
 
+# neutral semantic changes must survive encoding and decoding without unrelated metadata drift
 def TestMetadata() -> None:
     Small, Large = RunMetadata([MakeInput(), LargerInput()])
     assert Small["read_blocked"] and Large["read_blocked"]
@@ -160,6 +175,7 @@ def TestMetadata() -> None:
         assert LargeHashes[StreamName] != SmallHashes[StreamName]
 
 
+# unsupported vendor provenance must fail explicitly instead of being invented or silently discarded
 def TestProvenance() -> None:
     NativeSave = MakeInput()
     NativeSave["history"] = {
@@ -186,6 +202,7 @@ def TestProvenance() -> None:
     assert "provenance must not be cleared" in CastValue(str, Results[2]["error"])
 
 
+# revision indices must remain bound to the identities authored for their owning headers
 def TestStampNames() -> None:
     InputData = MakeInput()
     InputData["model_headers"] = {

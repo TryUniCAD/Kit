@@ -5,6 +5,7 @@ from types import ModuleType
 from typing import cast as CastValue
 
 
+# full archive decoding and byte identity expose field omissions in freshly constructed records
 def RoundTrip(
     Record: object, CodecModule: ModuleType, RegistryValue: object
 ) -> tuple[object, bytes]:

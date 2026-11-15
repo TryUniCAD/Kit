@@ -20,7 +20,7 @@ SOLIDWORKS. Claims marked PARTIAL or OPAQUE are called out as such.
 | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
 | `moCompFeature_c` is the feature tree: a fixed-stride array, one entry per tree node, carrying the `KeyWords` id | **CONFIRMED**, 51/51 corpus files           |
 | The `xx aa 70 6a` / `xx af 70 6a` "object-index noise" of report 2 §11 is a `u32` Unix `time_t`                  | **CONFIRMED**                               |
-| `ff ff 01 00` is `wNewClassTag` (`0xFFFF`) + `u16` schema; schema is 1 for every class in every corpus file      | **CONFIRMED**                               |
+| `ff ff` is `wNewClassTag` (`0xFFFF`), followed by the class's `u16` schema; the earlier universal-one claim is false | **CONFIRMED framing; REFUTED universal schema** |
 | The reader is not MFC's `CArchive`; it is SOLIDWORKS' own `su_CArchive`, exported by name from `swccu.dll`       | **CONFIRMED** (see `Windbg.md`)             |
 | `swXmlContents/KeyWords` starts with a `0x86` tag byte and uses CRLF, not a UTF-8 BOM                            | **CONFIRMED**, and a BOM crashes SOLIDWORKS |
 | boss ↔ cut is **not** selected by the tree flags word — it is opaque                                            | measured, corrects report 2 §7.2            |
@@ -62,11 +62,16 @@ confirmation is in `Windbg.md`; the tags are:
 | `<u16 t>` with `t & 0x8000 == 0`, `t != 0`            | object _reference_: object map index `t`                                                                   |
 | `7f ff` then `<u32>`                                  | `wBigObjectTag` escape for indices ≥ 0x7fff (not seen in this corpus)                                      |
 
-So the constant `CLASS_MARKER = ff ff 01 00` in `src/convert/adapters/solidworks/container/Format.py` is
-really `wNewClassTag` followed by **schema 1**. `probe_tags.py` scanned for `ff ff <any schema>`
-across seven representative files and found schema 1 for all 41–48 classes in each — so the
-existing 4-byte constant is safe for this SOLIDWORKS version, but it is a schema filter, not
-part of the marker.
+The historical `CLASS_MARKER = ff ff 01 00` combines `wNewClassTag` with a
+schema-one filter. The earlier seven-file survey did not establish a universal
+class schema. Exact 2026 native class metadata proves wire schema zero for
+`uoJournal_c` and `su_CStringArray`; a generated schema-one journal reached the
+loader's `badSchema` rejection. Versionable classes commonly register
+`0x80000001` and emit wire schema one. A native schema of `0xffff` denotes a
+nonserializable class and is not a value to replace with one. Recover each
+emitted class's schema from its runtime descriptor. See the
+[Tupni schema evidence](../v2026/evidence/TupniSchemaRejection.json) and
+[specific finding](../../../Documentation/Gotchas/Conversion/Solidworks/RuntimeClassSchemasDiffer.md).
 
 A class definition is emitted the first time an object of that class is written. Later objects of
 the same class carry only the 2-byte reference. **This is why features 2+ have no

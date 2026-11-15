@@ -24,7 +24,7 @@ function archive(Address) {
 }
 
 function sketch(Address) {
-  try { return {pointer: Address.toString(), status: Address.add(0x12c).readS32(), flags: Address.add(0x188).readU32(), stamp: Address.add(0x56c).readU32()} }
+  try { return {pointer: Address.toString(), saved_status: Address.add(0x128).readS32(), status: Address.add(0x12c).readS32(), flags: Address.add(0x188).readU32(), stamp: Address.add(0x56c).readU32()} }
   catch (ErrorInfo) { return {pointer: Address.toString(), error: String(ErrorInfo)} }
 }
 
@@ -32,15 +32,75 @@ function attach(Address, Handlers) {
   Hooks.push(Interceptor.attach(Address, Handlers))
 }
 
+function throwInfo(Address) {
+  try {
+    const Image = Process.getModuleByAddress(Address)
+    const Types = Image.base.add(Address.add(12).readS32())
+    const Count = Types.readS32()
+    if (Count < 0 || Count > 64) return {error: "implausible MSVC catchable-type count", count: Count}
+    const Names = []
+    for (let Index = 0; Index < Count; Index++) {
+      const Entry = Image.base.add(Types.add(4 + Index * 4).readS32())
+      const Descriptor = Image.base.add(Entry.add(4).readS32())
+      const Bytes = new Uint8Array(Descriptor.add(16).readByteArray(160))
+      const End = Bytes.indexOf(0)
+      Names.push(String.fromCharCode(...Bytes.slice(0, End < 0 ? Bytes.length : End)))
+    }
+    return {module: Image.name, rva: Address.sub(Image.base).toString(), candidate_msvc_type_names: Names}
+  } catch (ErrorInfo) { return {error: String(ErrorInfo)} }
+}
+
+function prefix(Address) {
+  try { return Array.from(new Uint8Array(Address.readByteArray(64))).map(Value => Value.toString(16).padStart(2, "0")).join("") }
+  catch (ErrorInfo) { return {error: String(ErrorInfo)} }
+}
+
 rpc.exports = {
   moduleidentity() {
-    return Process.enumerateModules().filter(Value => ["sldmodu.dll", "swccu.dll"].includes(Value.name.toLowerCase())).map(Value => ({name: Value.name, path: Value.path, base: Value.base.toString(), size: Value.size}))
+    return Process.enumerateModules().filter(Value => ["sldmodu.dll", "swccu.dll", "mfc140u.dll", "vcruntime140.dll", "vcruntime140_1.dll", "kernelbase.dll", "user32.dll"].includes(Value.name.toLowerCase())).map(Value => ({name: Value.name, path: Value.path, base: Value.base.toString(), size: Value.size}))
   },
   activate() {
     if (Process.arch !== "x64" || Hooks.length !== 0) throw new Error("exactly one activation in an x64 target is required")
     const Model = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "sldmodu.dll")
     const Common = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "swccu.dll")
     if (Model === undefined || Common === undefined) throw new Error("selected target modules are not loaded")
+    attach(Common.base.add(0xa3a7), {onEnter() {
+      try {
+        const Runtime = this.context.rax
+        const NameBytes = new Uint8Array(Runtime.readPointer().readByteArray(160))
+        const End = NameBytes.indexOf(0)
+        emit({kind: "archive-class-schema", class_name: String.fromCharCode(...NameBytes.slice(0, End < 0 ? NameBytes.length : End)), runtime_schema: Runtime.add(12).readU32(), file_schema: this.context.rsp.add(0x28).readU32(), archive: archive(this.context.rbx), instruction: location(Common.base.add(0xa3a7))})
+      } catch (ErrorInfo) { emit({kind: "archive-class-schema-error", error: String(ErrorInfo)}) }
+    }})
+    const ThrowHooks = new Set()
+    for (const Image of Process.enumerateModules().filter(Value => /^(mfc140u|vcruntime140|vcruntime140_1)\.dll$/i.test(Value.name))) {
+      for (const Entry of Image.enumerateExports()) {
+        if (!Entry.name.includes("CxxThrowException") && !Entry.name.includes("AfxThrowArchiveException") && !Entry.name.includes("AfxThrowFileException")) continue
+        if (ThrowHooks.has(Entry.address.toString())) continue
+        ThrowHooks.add(Entry.address.toString())
+        attach(Entry.address, {onEnter(Args) {
+          if (Entry.name.includes("CxxThrowException")) {
+            let Indirect = null
+            try { Indirect = prefix(Args[0].readPointer()) } catch (ErrorInfo) { Indirect = {error: String(ErrorInfo)} }
+            emit({kind: "cpp-throw", api: Entry.name, object: Args[0].toString(), throw_info: throwInfo(Args[1]), object_prefix_hex: prefix(Args[0]), indirect_object_prefix_hex: Indirect, caller: location(this.returnAddress)})
+          } else {
+            emit({kind: "mfc-throw", api: Entry.name, cause: Args[0].toInt32(), caller: location(this.returnAddress)})
+          }
+        }})
+      }
+    }
+    Process.setExceptionHandler(Details => {
+      const Registers = {}
+      for (const Name of ["pc", "sp", "rax", "rbx", "rcx", "rdx", "rsi", "rdi", "rbp", "r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15"]) {
+        if (Details.context[Name] !== undefined) Registers[Name] = Details.context[Name].toString()
+      }
+      let Frames = []
+      let BacktraceError = null
+      try { Frames = Thread.backtrace(Details.context, Backtracer.ACCURATE).map(location) }
+      catch (ErrorInfo) { BacktraceError = String(ErrorInfo) }
+      emit({kind: "native-exception", type: Details.type, address: location(Details.address), memory: Details.memory === undefined ? null : {operation: Details.memory.operation, address: Details.memory.address.toString()}, registers: Registers, backtrace: Frames, backtrace_error: BacktraceError, handled: false})
+      return false
+    })
     attach(Model.base.add(0x4c5916f0 - 0x4b140000), {
       onEnter(Args) {
         this.thread = Process.getCurrentThreadId()
@@ -55,8 +115,8 @@ rpc.exports = {
       }
     })
     attach(Model.base.add(0x4c5195d0 - 0x4b140000), {
-      onEnter(Args) { this.object = Args[0]; this.before = sketch(this.object); this.caller = location(this.returnAddress) },
-      onLeave(ReturnValue) { emit({kind: "sketch-update", before: this.before, after: sketch(this.object), result: ReturnValue.toString(), caller: this.caller}) }
+      onEnter(Args) { this.wrapper = Args[0]; this.object = this.wrapper.add(8).readPointer(); this.before = sketch(this.object); this.caller = location(this.returnAddress) },
+      onLeave(ReturnValue) { emit({kind: "sketch-update", wrapper: this.wrapper.toString(), before: this.before, after: sketch(this.object), result: ReturnValue.toString(), caller: this.caller}) }
     })
     attach(Model.base.add(0x4c5077f0 - 0x4b140000), {
       onEnter(Args) { emit({kind: "solver-status-map", handle: Args[0].toString(), raw_status: Args[1].toInt32(), drawing: Args[2].toInt32(), caller: location(this.returnAddress)}) }
@@ -71,7 +131,7 @@ rpc.exports = {
     })
     attach(Model.base.add(0x4c03a810 - 0x4b140000), {
       onEnter(Args) { this.object = Args[0]; this.arguments = [Args[1].toString(), Args[2].toString(), Args[3].toString()]; this.caller = location(this.returnAddress) },
-      onLeave(ReturnValue) { emit({kind: "update-session-stamp", object: this.object.toString(), arguments: this.arguments, result: ReturnValue.toString(), caller: this.caller}) }
+      onLeave(ReturnValue) { emit({kind: "update-session-stamp", object: this.object.toString(), arguments: this.arguments, raw_rax_not_semantic_result: ReturnValue.toString(), caller: this.caller}) }
     })
     const Seen = new Set()
     for (const Entry of Common.enumerateExports()) {

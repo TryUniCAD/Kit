@@ -20,7 +20,7 @@ Record the host, executable ABI, CAD ABI and selected instrumentation realm
 separately. Verify the realm's actual `Process.arch` and module bases in a small
 identity capture before installing archive hooks. Preserve failed setup evidence
 and catch dependency initialization errors inside the capture runner. The
-[usage ledger](../../../../re/solidworks/records/Tupni2026.md) records this case.
+[usage ledger](../../../../../re/solidworks/records/Tupni2026.md) records this case.
 
 The matching x64 Python/Frida pair rejected `realm=emulated` with an unsupported
 OS error. `realm=native` then attached, reported the x64 target modules and

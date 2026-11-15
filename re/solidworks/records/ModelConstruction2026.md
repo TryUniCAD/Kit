@@ -144,6 +144,28 @@ the environment's pre-engine zero seed.
 The builder still accepts an explicit version from the caller, so a different
 target or deliberately selected compatibility behavior requires its own provenance.
 
+## Feature-reference creation time
+
+`moFRData_c` construction at `0x4bb34370` takes its id from the feature and its
+time from `moLoggedNode_c::getCreationTime` at `0x4c03e070`.
+This is independent of feature FILETIME words `f2a0/f2a4`.
+The getter calls virtual slot `0x4f8`; for the ordinary profile feature this
+resolves to `0x4bb466a0`. Principal-plane primary vtable `0x4d16f278` resolves
+the same getter and its `0x500` slot to constant true.
+With that true slot, the getter returns the feature's runtime log pointer at `0x48`.
+When the log has stamps, the creation-time getter reads the first stamp's
+`moStamp_c::timestamp` through import `0x4cd356b8`.
+When no log or no stamp exists, it calls `ut_getUnsetTime` through
+`0x4cd3d590`. Export `sldutu` `0x3d03ebb0` returns `0x278d00`, or `2592000`.
+
+`logged_creation_time(timestamps=...)` implements that rule from ordered authored
+creation-log timestamps. `component_plane(created_at=...)` requires the resulting
+time to match the referenced node's actual log state.
+Composition must either emit the matching creation log or use the absent-log
+sentinel. Supplying the document's authored creation date only in the wrapper
+does not establish that relationship.
+See the [reference-time gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/FeatureReferenceCreationTimes.md).
+
 ## Post-origin owner update
 
 The native origin initializer `0x4c49b980` invokes zero-status update on the
@@ -158,6 +180,54 @@ The node zero-status path applies `f0c &= 0xfffd7ff8`.
 classified model classes. Composition calls it after constructing the origin.
 It does not establish the origin sketch's solver state or remove its unresolved
 update marker. The feature wrapper's virtual query path requires separate evidence.
+
+## Dirty flags and update stamps
+
+The positive node-update path under normal regeneration uses
+`f0c = (f0c & 0xfffd7ff9) | 1` in `0x4c03ed90`.
+For the classified model/part receiver, virtual slot `0x320` resolves to constant
+false leaf `0x4b27cbe0`, so its optional context-notification tail is not entered.
+Model wrapper `0x4c0363c0` only adds a sensor-folder notification when both the
+status is nonzero and the options argument has bit one set.
+The generic insertion routine `moConcept_c::addFeature` at `0x4bda62a0` uses
+status `0x0b`, options zero and the child as source when its dirty argument is
+nonzero. Thus that insertion branch skips the sensor notification.
+When the dirty argument is zero, it instead clears the child's update state and
+preserves the owner's prior low flag bit.
+`mark_model_update(model=...)` implements the positive serialized flag mutation
+for normal regeneration. It does not simulate debug-no-regeneration mode,
+sensor callbacks, feature insertion itself, or a completed body update.
+
+Stamp advancement is a separate operation, not an effect inferred from that
+flag mutation. `moModel_c::updateSessionStamp` at `0x4c03a810` calls
+`moHeader_c::getNextUpdateStamp` through import `0x4cd357f0` at `0x4c03a916`,
+then assigns the result to the active configuration's `f860` when one exists.
+The header getter at `sldarchiveu` `0x31a05350` increments header word `0x40`,
+stores current `su_CTime` at `0x48` and returns the new counter.
+The independent body-stamp getter `0x31a05340` increments header word `0x44`.
+The model wrapper returns void; its raw return register is not a semantic stamp.
+The model's `f1300` increments only when virtual slot `0x16d8` returns true;
+both classified model and part vtables resolve it to constant false.
+Feature `postUpdate` at `0x4c1ce660` can call
+`updateSessionStamp(owner, 1, -1)`, then helper `0x4bb4a4b0` writes the current
+stamp to feature `f29c` and obtains new `f2a0/f2a4` FILETIME words.
+Body stamps advance through separate `getNextBodyStamp` calls on actual body
+and regeneration paths. None of these counts is derived from visible feature count.
+The ordinary geometric command's complete insertion/post-update caller sequence
+and completed body/cache state remain unresolved; a flag helper does not close them.
+
+The part vtable overrides `addFeature` slot `0xfb8` with `0x4c1c5040`.
+For primary profile vtable `0x4d0e8e80` and extrusion vtable `0x4cf3d488`,
+its predicates `0xd18/0xd20/0xc48/0xd10` return false and `0x1450` returns true.
+The part override delegates the base insertion and updates runtime insertion
+cursor `0x58`; its special-folder branches do not apply to these two classes.
+The base callback `0x11a8` resolves to `0x4bdacc50`, which updates the feature
+name map and linked insertion list. The feature owner callback `0x1288` resolves
+to `0x4bb51930`, which leaves the already matching constructor owner unchanged.
+Its linked-list helpers `0x4c03d1c0` and `0x4c03e4c0` call the child connection
+slot `0x4d8`; both ordinary child classes resolve that slot to `0x4b2fe0b0`,
+which only increments runtime reference count `0x10`.
+Neither callback advances header ids or stamps on those ordinary paths.
 
 ## Configuration construction
 
@@ -250,6 +320,16 @@ graphs, a crosshatch name, configuration names and version provenance.
 They do not read preferences, a saved part, a template or a field program.
 `part_graph` returns object references through `ModelGraph`; its system-feature
 tuple is separate from the part's fresh empty concept list.
+It now requires ordered authored `folder_names`, `cabinet_name` and `created_at`
+in addition to the existing part/plane/configuration metadata.
+The supported construction profile names all twelve classified folder classes;
+this is an explicit graph request, not a claim that every vendor template uses
+the same set or order.
+The returned `folders` mapping and `cabinet` retain their actual object identities.
+Its system-feature tuple follows the authored folder order, then the cabinet,
+then native principal-plane creation order `z/y/x`.
+The selected generic insertion order is authored; the automatic UI reordering
+callbacks are separate operations and are not silently approximated.
 Origin/profile construction and the separate resolved-stream composition remain
 required before this graph is a complete native part.
 
@@ -292,6 +372,34 @@ object tuple, preserving pointer identity without a captured feature table.
 It does not invent a mandatory default-folder order.
 `detail_cabinet` constructs the separate annotation-cabinet model feature.
 
+Native folder `addToModel` callbacks use the owning model's slot `0xfd0`,
+`moConcept_c::addNewFeature` at `0x4bda66c0`, which assigns the owner, invokes
+the new-feature hook and delegates insertion through slot `0xfb8`.
+For a part that slot dispatches to `0x4c1c5040` as described above.
+The callbacks also bind model caches to the actual folder objects:
+
+| Folder         | Model slot | 2026 binding evidence               |
+| -------------- | ---------- | ----------------------------------- |
+| Environment    | `0x1e0`    | `0x4beb3ca0`; getter `0x4b2863b0`   |
+| Documents      | `0x1f0`    | `0x4beb3b90`; getter `0x4b285f80`   |
+| Comments       | `0x1f8`    | `0x4beb39d0`; getter `0x4b284d50`   |
+| Sensors        | `0x200`    | `0x4beb4240`; creation `0x4c016ab0` |
+| Favorites      | `0x218`    | `0x4b63e180`; creation `0x4c015bb0` |
+| Selection sets | `0x220`    | `0x4b641240`; creation `0x4c016a30` |
+| History        | `0x228`    | `0x4b6453c0`; creation `0x4c016260` |
+| Surface bodies | `0x1500`   | getter `0x4b289bd0`                 |
+| Solid bodies   | `0x1508`   | getter `0x4b2899f0`                 |
+
+Environment `f1e0` is serialized in the configuration graph. `part_graph` binds
+it to the same environment object also present in the system-feature tuple.
+The remaining cache relationships are retained as semantic pointer bindings,
+not invented archive-index fields. The relation-manager/equation-folder backlink
+also preserves the actual graph objects.
+System nodes receive the proven zero-status initialization mask, while the part
+retains its constructor's pending-update state until composition performs an
+explicit later operation. This does not complete origin solver state or body caches.
+See [system-folder bindings](../../../Documentation/Gotchas/Conversion/Solidworks/SystemFoldersHaveModelBindings.md).
+
 The folder base at `0x4beae110` calls the default feature constructor
 `0x4bb38710`, then assigns its owner.
 That constructor calls `GetSystemTimeAsFileTime`, whereas owner-taking geometric
@@ -333,6 +441,32 @@ The PhotoView document-options record follows `0x4a3082c0`.
 The notebook follows `0x4a01d940`, its reset `0x4a023f30` and journal initialization
 `0x4a01d6b0`; the journal name is authored instead of copied from a localized resource.
 
+The journal's archive class schema is the format constant `0`, not the archive
+object helper's generic default `1`. The exact 2026 `slduiu.dll` exports
+`uoJournal_c::classuoJournal_c` at `0x4aef6660`; its `CRuntimeClass` word at
+offset `0x0c` contains four zero bytes. The class name pointer resolves to
+`uoJournal_c`, and its object-size word is `0x48`.
+The module SHA-256 is
+`025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7`.
+The constructor now supplies `schema=0` explicitly.
+This rule was located with a native loader observation, then proved statically:
+the parent-owned candidate trace `candidate-H3-schema.json`, SHA-256
+`78c581343341446555c9c02da5872ca3c6a08c665dcd9dc3eae2c9001f43e4dc`,
+observed runtime schema `0` versus file schema `1` at `swccu` relative address
+`0xa3a7`, followed by the nonversionable bad-schema exception path.
+It is a negative candidate result and not native acceptance.
+No saved document supplied the corrected value.
+See [runtime class schemas](../../../Documentation/Gotchas/Conversion/Solidworks/RuntimeClassSchemasDiffer.md).
+
+The owned-constructor class audit also checks every concrete model, folder,
+plane, configuration, self-component and display-data record against its exported
+registered class metadata. Those concrete records use wire schema `1`.
+The standalone `moCompRef_c` base is different: exported class metadata at
+`sldmodu` `0x4cf68440` has schema `0xffff` and a null create-object function.
+`component_reference` therefore fails closed. Its field initializer remains
+available for the base portion of concrete dimension and feature references;
+that base portion does not emit a standalone class header.
+
 The part-specific density field `f1688` comes from `uiPartDoc_c` constructor
 `sldprtu` `0x33374980`.
 The base UI density virtual at slot `0x11c0` resolves to `0x3338a480` for that class;
@@ -370,7 +504,15 @@ Permitted code-loader reads and directory scans are recorded in `ModuleReads`.
 all covered file opens, directory enumeration and process-launch events.
 The result reports both recorded imports and actual denied attempts; the test
 also checks that the construction phase is active and the builder import was seen.
-This stricter audit awaits its current-head remote result.
+The repaired strict audit passed the actual subprocess/container boundary at
+`5b546278f` in [run 43681676456](https://github.com/TryUniCAD/Kit/actions/runs/43681676456),
+job `132713453212`. Both the native-file step and its enclosing policy job passed.
+This is component codec/access evidence, not native application acceptance.
+The expanded process check now also constructs the full requested base graph
+from generated style/unit dependencies, serializes Config and Resolved streams
+through one shared archive map, and verifies the environment alias and native
+self-component identity after decoding. It exercises zero/positive owner update
+flags through that file boundary. This expansion awaits its new remote result.
 The first strict-audit remote run at `236ccd510` correctly denied a lazy import
 of `encodings/utf_16_le.py` during Unicode string storage. The harness now resolves
 the native string codec names during its recorded initialization phase, before

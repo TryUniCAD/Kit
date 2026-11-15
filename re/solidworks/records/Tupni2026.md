@@ -2,8 +2,10 @@
 
 Status: adopted during the active 2026 native-writer investigation on
 2026-11-15 UTC. A native process-identity observation succeeded and detached.
-Archive/status capture is next. No completed instruction taint trace, newly
-generalized grammar or measured speedup is claimed yet.
+The first loader/status capture succeeded. A subsequent loader-site observation
+identified a rejected runtime class schema and led to two binary-backed schema
+corrections. No completed instruction taint trace, corrected native acceptance
+or measured speedup is claimed yet.
 
 The user requested both use of Tupni and a record suitable for future reverse
 engineering. The reusable procedure is in
@@ -88,6 +90,143 @@ refill epochs are reported; absolute logical stream offsets remain explicitly
 unknown. It supplies no instruction taint or full symbolic dependency engine.
 
 ## First capture obligations
+
+### Retained-controller control capture
+
+The fresh goal-owned controller opened training `L1_boss.SLDPRT` read-only on
+revision 34.5.2, rebuilt successfully and reported one solid, volume
+`8.000000000000001e-6 m³`, area `0.0028 m²`, center `(0,0,0.005) m`, zero open
+errors/warnings and zero feature/rebuild errors. No dialog or cleanup error was
+recorded. This was instrumentation of a vendor-authored training control, not
+acceptance of generated output.
+
+Capture `.rescratch/sw26/tupni/ladder-L1-retained.json` has SHA-256
+`cda33fba8a5c340f08f31ff96ff0faeea7f69d23ec1fce551baaff03ce06a1d0`,
+2,693 events, zero dropped messages, zero script errors and a clean detach.
+Total runner time was 74.218 seconds. The
+[retained summary](../v2026/evidence/TupniFirstControl.json) records identities,
+counts, loader state transitions and explicit interpretation gaps.
+
+Observed event counts were 26 feature constructors, 24 model dirty-state calls,
+two sketch serializer entries/leaves, 2,596 primitive calls, 17 count-reader
+calls, 14 update-session calls, two solver-wrapper updates, nine status-map
+calls and one hooks-ready event. Nested/forwarding primitives are calls, not
+2,596 independent fields. Every observed feature constructor independently
+corroborated date code 2026306 and kernel behavior 370108, previously recovered
+by static dataflow. They are runtime corroboration, not new Tupni discoveries.
+
+The origin sketch loaded current status 2, flags 0 and stamp 1; the constrained
+training sketch loaded current status 1, flags 0 and stamp 10. Both retained
+saved status 1. These are constructor-to-loaded-file transitions; none is a
+general saved-state or stamp formula. The training sketch includes two authored
+dimensions and is not a free polygon case.
+
+Two interpretation defects were found and repaired: the solver wrapper's first
+argument was misread as a sketch rather than following pointer `+0x8`, and raw
+RAX from void `moModel.updateSessionStamp` was labeled a result. The affected
+events must not establish sketch state or semantic stamp values. The original
+capture also omitted the input hash and retained module runtime bases. Both
+are collected in subsequent runner revisions; the missing original identities
+are not retroactively claimed as captured. See the
+[argument-type gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Tracing/TraceArgumentTypes.md).
+
+### First generated-file inspection
+
+Remote job `132715054038` on head
+`8e44d0eb5129e8ddffce92c49e59740c342d3f3a` passed 138 checks with 158 existing
+fixture-dependent skips and retained five candidate files in artifact
+`14149211309`. A clean native inspection of generated `H3_scalene.SLDPRT`
+failed at `OpenDoc6` with RPC error `-2147023170` between two healthy fresh
+training-control processes. The candidate is rejected. The
+[negative measurement](../measurements/2026/FreshPartFirst.json) records both
+controls and the candidate hash. A fault-location capture is the next use of
+the native observer; format or cache hypotheses remain unconfirmed.
+
+The first instrumented candidate capture completed with seven events: hooks
+ready, five system exceptions and one access violation in USER32 reading address
+`0x8`. Frida reported `process-terminated`; no feature constructor or sketch
+deserializer was reached. Capture
+`.rescratch/sw26/tupni/candidate-H3-first.json` has SHA-256
+`31ba472a3c00d8539f85a805bdf5c088df8c4f7aafbc148831d81fe677d6b625`.
+It retains input hash and runtime module bases. The requested accurate unwind
+produced non-code-looking entries around the C++ throws; these are not a proven
+call chain. Native exceptions were forwarded unchanged. The final UI fault does
+not identify the earlier file-format rejection. The next capture adds runtime
+C++ throw boundaries and MFC file/archive throw exports where named exports are
+available, records candidate MSVC exception types, and hashes those modules.
+
+The typed-throw capture identified an MFC `CArchiveException` pointer, whose
+native object prefix contains cause 7. Static inspection of the exact swccu
+image corroborates the schema-rejection path: `0x31a3a2d0` compares the runtime
+class's schema at `+0xc` (with the versionable bit removed) against the file
+schema, then rejects a non-versionable mismatch through `0x31a3a536` and passes
+cause 7 at `0x31a3a543`. The observed stack region contains its post-call address
+`0x31a3a54d`. Capture `.rescratch/sw26/tupni/candidate-H3-throws.json` has digest
+`3de7764a67a86a00f36e71369654c05e50416cc3ab1e9bd82e03af03e3691141`.
+This narrows the question to the rejected class/schema pair; it does not yet
+identify a correct emitted value. A read-only instruction-site probe at
+`swccu+0xa3a7` will record that pair. It remains a selected native observation,
+not full instruction-level input taint.
+
+### First recovered rule: registered class schemas
+
+The next actual instruction-site capture recorded the file schema and native
+`CRuntimeClass` schema immediately before their comparison. Five prior classes
+accepted wire schema one. `uoJournal_c` then presented file schema one against
+runtime schema zero, followed by the archive exception. Capture
+`.rescratch/sw26/tupni/candidate-H3-schema.json` has SHA-256
+`78c581343341446555c9c02da5872ca3c6a08c665dcd9dc3eae2c9001f43e4dc`.
+It contains 11 events over 65.25 seconds, no host message drops or script errors,
+and a process-terminated detach. Producer completion statistics are unavailable
+after target death, so complete event coverage is not claimed. The
+[sanitized evidence](../v2026/evidence/TupniSchemaRejection.json) retains input,
+script and module identities plus the observed class/schema pairs.
+
+Static metadata from the exact `slduiu.dll` independently confirms the rule:
+`uoJournal_c::classuoJournal_c` is at preferred address `0x4aef6660`, RVA
+`0x2056660` from preferred image base `0x48ea0000`. Its schema member at `+0x0c`
+is zero and is not versionable. Image SHA-256 is
+`025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7`.
+The constructor now explicitly supplies schema zero. This correction comes from
+the registered class and loader comparison, without copying a saved-file value.
+
+The trace invalidated the broader assumption that every generated class uses
+schema one. A follow-up static audit found `su_CStringArray` also requires zero:
+`swccu.dll` getter `0x31a3de90` returns descriptor `0x31a680c8`, whose member
+`+0x0c` is zero. The header string-array constructor now supplies zero.
+`suObList` requires one. Concrete model, profile, dimension, style and unit
+classes audited so far require one; abstract `moCompRef_c` has schema `0xffff`
+and a null factory, so the standalone factory refuses construction. Embedded
+base fields remain separate from an emitted runtime-class header.
+
+This is the first new reusable format correction obtained through the adopted
+Tupni workflow: observe the failing parser boundary, identify a constraint,
+explain it through native metadata, then apply the class-specific rule to every
+new instance. It is selected native instruction-site observation plus static
+dataflow, not the original paper's full instruction taint engine. Corrected
+files must still pass clean native inspection and unrelated inputs before
+writer acceptance. No speedup comparison has been measured.
+
+Private licensed modules and decompiler inputs were subsequently moved outside
+repository checkouts in accordance with the research artifact policy. Their
+bytes and per-file digests are preserved in an external relocation manifest;
+only format conclusions and input identities remain in maintained research.
+
+The first loader attempt activated 20 hooks after both loaded-module hashes
+matched. The action's running-object-table lookup failed with COM error
+`-2147221021`, `Operation unavailable`. Only the hooks-ready event was captured;
+there were zero parser, status, constructor or stamp observations. Capture
+`.rescratch/sw26/tupni/ladder-L1-first.json`, SHA-256
+`2782d6ad91ae7f37d6744a7864dfbde6488c85e0f2b3223169d44e353ba8af64`,
+records a clean detach, zero script errors and 8.297 seconds elapsed.
+This setup failure supports no format inference.
+
+The next attempt uses the user's explicit restart authorization and retains the
+new COM controller in the same Python process until native tracing detaches.
+`Observe.py --prepare-script PrepareSolidworks.py` records preparation identity,
+and `ExerciseSolidworks.py` uses that retained controller. The hook also reports
+sketch `f128` saved status separately from `f12c` current status. A constructor
+value or a live status transition must not be substituted for saved status.
 
 Use the existing 2026 training controls, not the polygon held-out source streams.
 Observe archive primitive calls and object dispatch with actual runtime module
