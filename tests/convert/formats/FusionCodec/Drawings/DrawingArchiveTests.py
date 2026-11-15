@@ -4,7 +4,6 @@ from pytest import raises as ExpectError
 
 from convert.formats.Fusion.DocumentCodec.Model.ParsedSegment import ParsedSegment
 from convert.formats.Fusion.DrawingCodec.EmitDrawing import EmitDrawing
-from convert.formats.Fusion.DrawingCodec.Model.DrawingDatabase import DrawingDatabase
 from convert.formats.Fusion.DrawingCodec.Model.FusionDrawing import FusionDrawing
 from convert.formats.Fusion.DrawingCodec.Model.PackageSlot import PackageSlot
 from convert.formats.Fusion.DrawingCodec.Package.DrawingPackage import DrawingPackage
@@ -124,6 +123,7 @@ def TestBadMembers() -> None:
     Longer = ReplaceValue(Drawing, Layout=Drawing.Layout + (Missing,))
     with ExpectError(ValueError, match="absent member"):
         _ = EmitDrawing(Longer, Replay.Compress)
+    assert Drawing.Database is not None
     Unnamed = ReplaceValue(Drawing.Database, FileName="Nested/ExtFile.dwg")
     with ExpectError(ValueError, match="database member"):
         _ = EmitDrawing(ReplaceValue(Drawing, Database=Unnamed), Replay.Compress)
@@ -137,6 +137,7 @@ def TestDwgJoin() -> None:
     (Serializer,) = ClassFields(Drawing, KFileClass)
     FileName = Serializer["persistedFileName"]
     assert isinstance(FileName, str) and FileName.startswith("ExtFile.")
+    assert Drawing.Database is not None
     Joined = ReplaceValue(Drawing.Database, FileName=FileName)
     with ExpectError(ValueError, match="omits typed members"):
         _ = EmitDrawing(ReplaceValue(Drawing, Database=Joined), Replay.Compress)
