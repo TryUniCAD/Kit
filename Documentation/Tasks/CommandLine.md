@@ -61,6 +61,7 @@ Retained native payloads, opaque B-rep records, and explicit incomplete assembly
 Retained source keys and binary metadata values are refused through nested containers and embedded documents; ordinary provenance text and digests remain eligible.
 Local B-rep, meshes, or bodies without a feature timeline are refused, including nested documents and local assembly geometry.
 Independent parameters do not supply missing feature history; parameter-only documents without geometry remain eligible.
+Each sketch requires a reference feature, including nested sketches; see [sketch history](../Changes/Commands/SketchHistoryGuard.md).
 Definitionless operations and native, imported, or unknown feature kinds are refused; a supported sketch reference cannot substitute for a typed generator of local geometry.
 Each B-rep body must link to a local design body with a typed generating final feature.
 Final generators and their transitive feature dependencies must remain active; suppression in any configuration is refused conservatively for those body histories.

@@ -42,7 +42,10 @@ def CheckPortable(Document: CadDocument) -> None:
                 "MissingFeatureHistory",
                 not PartValue.feature_timeline
                 and bool(
-                    PartValue.brep is not None or PartValue.meshes or PartValue.bodies
+                    PartValue.brep is not None
+                    or PartValue.meshes
+                    or PartValue.bodies
+                    or PartValue.sketches
                 ),
             ),
         ):
