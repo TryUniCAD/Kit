@@ -124,6 +124,25 @@ gen_rows.prt: 26239 bytes, 47 generated rows
 16 of 16 checks pass
 ```
 
+### Explicit attribute slots move the trace into `dispdimattr`
+
+A token comparison that consumes doubles and one-byte scalars as single values — instead of counting each byte — put
+the divergence inside the `dimattr` value rather than in the record's structure:
+
+| Emission | Trace stops at |
+| --- | --- |
+| `dimattr` run compressed | `dimtab_ptr` |
+| `dimattr` as seven explicit integers | **`dispdimattr`** |
+| seven integers behind an `f8 07` array intro | regressed to `dimtab_ptr` |
+
+```text
+dimattr2: 108621 bytes; element 4124
+std.out: gsec2d_ptr / dimtab_ptr / dispdimattr        (two launches)
+```
+
+So the slots are read positionally with no array introduction, and the earlier "value-level" verdict on this record was
+wrong in one respect: it was our run compression, which is a shape difference, not a value.
+
 ### Substituting the vendor's dimension elements is not a controlled experiment
 
 Replacing only the vendor's four dimension elements (`dimtab_ptr` to `relat_ptr`) inside the generated element stops at

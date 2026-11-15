@@ -77,12 +77,18 @@ def Dimension(
     Payload += Author.FieldValue(1, "direct", Author.SignedInt(0))
     Payload += Author.FieldValue(2, "aux_value", Author.ScalarValue(1.0))
     Payload += Author.FieldValue(1, "ext_id", Author.SignedInt(ExtId))
-    # the sketch stores this attribute as an empty struct with a trailing slot before dim_ref
+    # the sketch nests dimattr inside this struct and then carries one scalar before dim_ref
     Payload += Author.FieldValue(
-        0, "dispdimattr", b"\xE2\x00" if Sketch else Author.SignedInt(0)
+        0, "dispdimattr", b"\xE2" if Sketch else Author.SignedInt(0)
     )
-    Payload += Author.FieldValue(1, "dimattr", Author.SignedIntArray((0,) * 7))
-    Payload += b"\xF2" if not Sketch else b""
+    # the vendor writes every attribute slot explicitly rather than run compressing them
+    Payload += Author.FieldValue(
+        1, "dimattr", b"".join(Author.SignedInt(0) for _ in range(7))
+    )
+    if Sketch:
+        Payload += Author.SignedInt(0)
+    else:
+        Payload += b"\xF2"
     return Payload
 
 

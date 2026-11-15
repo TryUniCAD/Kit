@@ -428,6 +428,31 @@ So the parser now takes a `Legacy` flag: the reader uses the new rules, and `Rep
 | `gen_rows.prt` | `26239` bytes, 47 rows, `End` + `MT Part Solid` twice (`12:26:42`, `12:27:59`) |
 | vendor `949` element | `3827` of `3827` bytes, `pointid [[0,1], [1,2]]` |
 
+### Explicit attribute slots move the trace into `dispdimattr`
+
+Precise token comparison — with the tokeniser taught to consume doubles and one-byte scalars as single values —
+found the divergence at the `dimattr` value rather than at the record's structure:
+
+| Emission | Trace stops at |
+| --- | --- |
+| `dimattr` run-compressed (`00 e7 06`) | `dimtab_ptr` |
+| `dimattr` as seven explicit integers | **`dispdimattr`** |
+| the same, preceded by an `f8 07` array intro | regressed to `dimtab_ptr` |
+
+So the seven attribute slots are read as positional values with **no array introduction**, and writing them explicitly
+(not as a run) is what lets the loader reach the struct that contains them:
+
+```text
+dimattr2: 108621 bytes; element 4124
+std.out: gsec2d_ptr / dimtab_ptr / dispdimattr      (twice)
+
+dimattr3 (with f8 07): std.out stops at dimtab_ptr
+```
+
+That also explains the earlier value-level conclusion: the field was never a value mismatch, it was our run compression
+where the vendor writes a plain sequence — a shape difference the tokeniser could only show once it stopped counting
+double bytes as separate tokens.
+
 ### Splicing the vendor's dimension elements regresses the trace
 
 The isolating experiment was to substitute only the vendor's four dimension elements (`dimtab_ptr` to `relat_ptr`)
