@@ -41,10 +41,9 @@ def MatchRecordMut(SourceView: DrawingView, Index: PositionIndex) -> int:
         CreationIndex = ViewIndex(SourceView.Name) - 1
     except SldprtFormatError:
         CreationIndex = -1
-    return Index.Take(SourceView.PositionX, SourceView.PositionY, CreationIndex)
+    return Index.TakeRecord(SourceView.PositionX, SourceView.PositionY, CreationIndex)
 
 
-# supplied outline bounds must reach the output instead of the source outline
 def OutlineValues(
     ViewValue: DrawingView, DisplayRecord: DisplayView, Ratio: float
 ) -> tuple[float, float, float, float]:

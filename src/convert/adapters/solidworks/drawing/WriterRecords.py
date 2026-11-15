@@ -7,6 +7,7 @@ import struct as Struct
 from typing import Protocol
 
 from convert.adapters.solidworks.container.Container import SldprtFormatError
+from convert.adapters.solidworks.core.Native import ClassDecl
 from convert.adapters.solidworks.drawing.Positions import (
     KMaxCoordinate,
     KMaxScale,
@@ -17,6 +18,15 @@ from convert.adapters.solidworks.drawing.Positions import (
 
 # the record width bounds the scan so the last record is not skipped
 KViewRecordLength = 40
+
+# positions are matched within this tolerance so the index quantizes to it
+KPositionTolerance = 1e-09
+
+# the placement records live in this block so the scan stays bounded
+KDefinitionBlock = "moDrawingRefPlnData_c"
+
+# the placement block ends at this class so the scan stays bounded
+KDefinitionEnd = "moRelMgr_c"
 
 
 # callers need the offset and values together to rewrite in place
@@ -48,25 +58,44 @@ class PlacedRecord(Protocol):
     def PositionY(self) -> float: ...
 
 
+# a quantized key keeps position lookup constant while tolerating drift
+def PositionKey(XValue: float, YValue: float) -> tuple[int, int]:
+    return (round(XValue / KPositionTolerance), round(YValue / KPositionTolerance))
+
+
 # the index keeps coincident records in creation order and lookup constant
 class PositionIndex:
     def __init__(self, Records: Sequence[PlacedRecord]) -> None:
         super().__init__()
-        self.Buckets: dict[tuple[float, float], list[tuple[float, float, int]]] = {}
+        self.Buckets: dict[tuple[int, int], list[tuple[float, float, int]]] = {}
         for Index, Record in enumerate(Records):
-            self.Buckets.setdefault((Record.PositionX, Record.PositionY), []).append(
+            BucketKey = PositionKey(Record.PositionX, Record.PositionY)
+            self.Buckets.setdefault(BucketKey, []).append(
                 (Record.PositionX, Record.PositionY, Index)
             )
 
     def Candidates(
         self, XValue: float, YValue: float
     ) -> list[tuple[float, float, int]]:
-        return list(self.Buckets.get((XValue, YValue), ()))
+        BucketKey = PositionKey(XValue, YValue)
+        Result: list[tuple[float, float, int]] = []
+        for DeltaX in (-1, 0, 1):
+            for DeltaY in (-1, 0, 1):
+                for ItemValue in self.Buckets.get(
+                    (BucketKey[0] + DeltaX, BucketKey[1] + DeltaY), ()
+                ):
+                    if MathValue.isclose(
+                        ItemValue[0], XValue, rel_tol=0.0, abs_tol=KPositionTolerance
+                    ) and MathValue.isclose(
+                        ItemValue[1], YValue, rel_tol=0.0, abs_tol=KPositionTolerance
+                    ):
+                        Result.append(ItemValue)
+        return Result
 
-    def Contains(self, XValue: float, YValue: float) -> bool:
-        return (XValue, YValue) in self.Buckets
+    def IsContained(self, XValue: float, YValue: float) -> bool:
+        return bool(self.Candidates(XValue, YValue))
 
-    def Take(self, XValue: float, YValue: float, Preferred: int) -> int:
+    def TakeRecord(self, XValue: float, YValue: float, Preferred: int) -> int:
         Candidates = self.Candidates(XValue, YValue)
         if not Candidates:
             raise SldprtFormatError("source view has no matching record")
@@ -74,17 +103,29 @@ class PositionIndex:
             (ItemValue for ItemValue in Candidates if ItemValue[2] == Preferred),
             Candidates[0],
         )
-        self.Buckets[(XValue, YValue)].remove(Selected)
+        self.Buckets[PositionKey(Selected[0], Selected[1])].remove(Selected)
         return Selected[2]
+
+
+# the placement block bounds the scan so unrelated bytes cannot match
+def DefinitionRange(DataValue: bytes) -> tuple[int, int]:
+    Start = DataValue.find(ClassDecl(KDefinitionBlock))
+    if Start < 0:
+        raise SldprtFormatError("drawing definition placement block is missing")
+    EndValue = DataValue.find(ClassDecl(KDefinitionEnd), Start)
+    if EndValue < 0:
+        raise SldprtFormatError("drawing definition placement block is truncated")
+    return Start, EndValue
 
 
 # a definition record is kept only when a display record shares its position
 def DefinitionViews(
     DataValue: bytes, DisplayRecords: Sequence[PlacedRecord]
 ) -> tuple[DefinitionView, ...]:
+    Start, EndValue = DefinitionRange(DataValue)
     Index = PositionIndex(DisplayRecords)
     Result: list[DefinitionView] = []
-    for Offset in range(0, len(DataValue) - KViewRecordLength + 1):
+    for Offset in range(Start, EndValue - KViewRecordLength + 1):
         XValue, YValue = Struct.unpack_from("<dd", DataValue, Offset)
         if not (
             MathValue.isfinite(XValue)
@@ -100,7 +141,7 @@ def DefinitionViews(
             continue
         if MarkerValue != 1.0:
             continue
-        if not Index.Contains(XValue, YValue):
+        if not Index.IsContained(XValue, YValue):
             continue
         Result.append(DefinitionView(Offset, XValue, YValue, ScaleValue))
     return tuple(Result)

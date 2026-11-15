@@ -9,20 +9,21 @@ from convert.adapters.solidworks.core.Native import ReadSerialized, Serialized
 # the sheet record carries this fixed value before the empty string
 KSheetMarker = 4
 
-# the sheet record ends with six zero bytes before the count
+# the sheet record ends with six tail bytes before the count
 KSheetTail = 6
 
 
-# callers need the sheet name scale count and class reference as one value
+# callers need the sheet name scale count class reference and tail as one value
 @dataclass(frozen=True, slots=True)
 class SheetRecord:
     NameValue: str
     Scale: float
     Count: int
     ClassRef: int
+    TailValue: bytes
 
 
-# the class reference must survive a rewrite so the sheet keeps its type
+# the class reference and tail must survive a rewrite so the sheet keeps its type
 def SheetRecordAt(DataValue: bytes) -> SheetRecord:
     (ClassRef,) = Struct.unpack_from("<H", DataValue, 0)
     Offset = 2
@@ -38,13 +39,16 @@ def SheetRecordAt(DataValue: bytes) -> SheetRecord:
     EmptyValue, Offset = ReadSerialized(DataValue, Offset)
     if EmptyValue != "" or ZeroValue != 0 or Marker != KSheetMarker:
         raise SldprtFormatError("drawing sheet record is invalid")
+    TailValue = DataValue[Offset : Offset + KSheetTail]
     Offset += KSheetTail
     (Count,) = Struct.unpack_from("<H", DataValue, Offset)
-    return SheetRecord(NameValue, Scale, Count, ClassRef)
+    return SheetRecord(NameValue, Scale, Count, ClassRef, TailValue)
 
 
-# the writer needs the exact class reference and field order to stay valid
+# the writer needs the exact class reference tail and field order to stay valid
 def EncodeSheet(Record: SheetRecord) -> bytes:
+    if len(Record.TailValue) != KSheetTail:
+        raise SldprtFormatError("drawing sheet record tail is invalid")
     Output = bytearray()
     Output.extend(Struct.pack("<H", Record.ClassRef))
     Output.extend(Serialized(Record.NameValue))
@@ -52,6 +56,6 @@ def EncodeSheet(Record: SheetRecord) -> bytes:
     Output.extend(Struct.pack("<I", KSheetMarker))
     Output.extend(Struct.pack("<I", 0))
     Output.extend(Serialized(""))
-    Output.extend(bytes(KSheetTail))
+    Output.extend(Record.TailValue)
     Output.extend(Struct.pack("<H", Record.Count))
     return bytes(Output)
