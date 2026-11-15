@@ -44,9 +44,13 @@ next candidate, SHA-256
 `edd138ebf4b9067ce106e947f4c1db988f49366eb697a8aa315af6df806f3b55`,
 reaches the part root and throws archive cause five. A selected native trace
 shows its first section length being consumed as object-reference index 1883
-against read-map length three. The next question is the archive-context file
-version and modern/legacy serializer branch, before changing framing or map
-arithmetic. [Tupni usage](Tupni2026.md) retains the capture evidence and limits.
+against read-map length three. A subsequent loader-only capture records global
+file version 19000 but configuration archive-context version 2045. The native
+configuration constructor seeds 2045; its store path replaces that seed with
+the target archive version when the configuration has an opened owning model.
+The shared fresh configuration factory now computes the saved value from its
+owning model's target version. New remote generation and clean inspection are
+pending. [Tupni usage](Tupni2026.md) retains the capture evidence and limits.
 
 The original healthy-control identity is
 `c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57`.

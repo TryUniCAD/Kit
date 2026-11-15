@@ -38,7 +38,7 @@ def _metadata(*, registry, document, provenance, presentation, graph, features, 
     values = {
         "next_id": graph.next_persistent_id,
         "user_names": [provenance["author"]], "company_names": [provenance["company"]],
-        "revision_logs": [{"object_id": graph.part["f08"], "stamps": [stamp]}],
+        "revision_logs": [{"object_id": graph.part["f08"], "name": document["name"], "stamps": [stamp]}],
         "created_at": provenance["created_at"], "modified_at": provenance["modified_at"],
         "updated_at": provenance["modified_at"], "component_count": 0,
         "update_stamp": 101, "body_stamp": 101, "license_flags": 0, "license_type": 0,

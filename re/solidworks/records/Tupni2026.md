@@ -4,7 +4,9 @@ Status: adopted during the active 2026 native-writer investigation on
 2026-11-15 UTC. A native process-identity observation succeeded and detached.
 The first loader/status capture succeeded. A subsequent loader-site observation
 identified a rejected runtime class schema and led to two binary-backed schema
-corrections. No completed instruction taint trace, corrected native acceptance
+corrections. A later archive-context observation identified a constructor seed
+that the native configuration store path replaces with its target version.
+No completed instruction taint trace, corrected native acceptance
 or measured speedup is claimed yet.
 
 The user requested both use of Tupni and a record suitable for future reverse
@@ -90,6 +92,45 @@ refill epochs are reported; absolute logical stream offsets remain explicitly
 unknown. It supplies no instruction taint or full symbolic dependency engine.
 
 ## First capture obligations
+
+### Controlled loader profile and configuration version
+
+The original training control opened and rebuilt correctly with the seven-hook
+`loader` profile, exception interposition disabled and guest working directory
+`C:\`. Capture `.rescratch/sw26/tupni/loader-original-control-api-only.json`,
+SHA-256 `6f35d127bb555c47550b1790e7c189985abeef64a469558ed5c0746d635e798e`,
+contains 3,106 events over 65.156 seconds, zero producer or host drops, zero
+script errors and a clean detach. The original control digest is
+`c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57`.
+Open errors, warnings, feature errors, feature warnings and dialogs were zero;
+the rebuilt solid had volume `8.000000000000001e-6 m³`, area `0.0028 m²` and
+center `(0,0,0.005) m`. Global and observed part archive-context versions were
+19000. The earlier exception-enabled configuration made this same original
+control fail. The experiment does not isolate which exception hook or exception
+handler caused the interference; both are now opt-in.
+
+The same seven-hook profile on fresh candidate
+`edd138ebf4b9067ce106e947f4c1db988f49366eb697a8aa315af6df806f3b55`
+recorded global version 19000 but part archive-context version 2045. Capture
+`.rescratch/sw26/tupni/loader-candidate-H3-api-only.json`, SHA-256
+`29633910052d689c2f249763447f7419710cc3e3c080a76a13c49fccb9420d08`,
+contains 133 events over 59.796 seconds, zero host drops and zero script errors.
+The target terminated, so producer completion statistics are unavailable. The
+candidate remains rejected at native open with RPC error `-2147023170`.
+
+Static dataflow explains the mismatch: the base-configuration constructor seeds
+`f9a8=0x7fd`, while its store routine at `SLDMODU!0x4c217e30`, around
+`0x4c21846c`, writes the current archive-helper version (global fallback) when
+the configuration has an opened model. Part serialization at `0x4c229a60`
+selects modern length-framed sections only for context versions above `0xc7c`.
+The shared fresh configuration factory therefore takes the saved version from
+the actual owning model's target `f2b0`, 19000. This is a lifecycle-derived
+expression, not a value fitted to the control. See
+[the model evidence](ModelConstruction2026.md) and
+[the constructor/save gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Model/ConfigurationVersionChangesOnSave.md).
+The [sanitized comparison](../v2026/evidence/TupniConfigurationVersion.json)
+retains exact loaded-module identities and selected events. Remote generation
+and corrected native inspection remain pending; no accepted output is claimed.
 
 ### Retained-controller control capture
 

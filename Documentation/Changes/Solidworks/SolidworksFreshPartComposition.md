@@ -52,6 +52,9 @@ Complete composition now supplies authored names and creation time to the base
 graph's twelve system folders and annotation cabinet. The serialized root
 environment pointer and resolved-feature root alias the same new object. Both
 process input sizes use the complete graph. Native acceptance remains pending.
+The creation revision log also takes its name from the authored document name,
+following the filed-concept creation path; it is not an anonymous constructor
+seed or a name copied from a saved control.
 
 See the [composition record](../../../re/solidworks/records/FreshPartComposition2026.md)
 for field ownership and evidence limits.
