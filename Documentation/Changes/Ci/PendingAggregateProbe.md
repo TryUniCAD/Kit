@@ -10,6 +10,8 @@ Node startup has a separate bounded thirty-second allowance.
 The supervisor drains process output while waiting, then kills and reaps the child and joins its output reader.
 Process and reader cleanup each have a five-second limit.
 The production aggregate's polling budget and CI job timeout are unchanged.
+The output reader, pending-message observer, supervisor, and cleanup each own a focused module.
+Queue and handle mutators carry the required `Mut` suffix, and imports name their exact defining symbols.
 
 ## Cause and verification
 

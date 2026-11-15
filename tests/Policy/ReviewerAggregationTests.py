@@ -6,7 +6,7 @@ from pathlib import Path as FilePath
 
 import pytest as Pytest
 
-from tests.Policy.PendingProcess import WaitPending
+from tests.Policy.WaitPending import WaitPending
 
 # root path needs a stable location so repository automation resolves inputs independently of the caller working directory
 KRootPath = FilePath(__file__).resolve().parents[2]
