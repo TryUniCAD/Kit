@@ -65,7 +65,7 @@ def AssertBase(Report: dict[str, object]) -> None:
 
 
 # configuration measurements must distinguish the node transition from its embedded state and local identifier namespace
-def AssertConfigurations(Report: dict[str, object], Prefix: str, Count: int) -> None:
+def AssertConfigs(Report: dict[str, object], Prefix: str, Count: int) -> None:
     assert Report["configuration_names"] == [
         f"{Prefix}{Index}" for Index in range(Count)
     ]
@@ -84,8 +84,8 @@ def TestFreshGraphs(TmpPath: FilePath) -> None:
     assert Large.returncode == 0, Large.stdout + Large.stderr
     First = LoadJson(Small.stdout)
     Second = LoadJson(Large.stdout)
-    AssertConfigurations(First, "first-", 1)
-    AssertConfigurations(Second, "independent-構成-", 7)
+    AssertConfigs(First, "first-", 1)
+    AssertConfigs(Second, "independent-構成-", 7)
     for Report in (First, Second):
         AssertPlanes(Report)
         AssertSystems(Report)
