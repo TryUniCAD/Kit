@@ -61,14 +61,60 @@ Entries are variable-width and NUL-padded to 8 or 16 bytes (`save_geoms\0\0\0\0\
 not a fixed-stride array. The descriptor array that pairs each name with a type and an offset is
 elsewhere in `.rdata` and has to be found by cross-reference.
 
+## The descriptor table
+
+The name pool is referenced from a table in the `.ddt` section, which is present in the PE headers
+(`va 0x13eb7000`, raw `0x130aaa00`, size `0x4ee200`) and is not one of the standard sections.
+
+Locating it: the string `cr_flags_xar` sits at file offset `0xe7c2220`, which maps to virtual address
+`0x14e7c3a20` (image base `0x140000000`). The only 8-byte little-endian occurrence of that address in
+the whole file is at file offset `0x133db880`, inside `.ddt`.
+
+The records have a **stride of `0xd0` (208 bytes)** and the name pointer is the first field:
+
+| field | name | record offset |
+| --- | --- | ---: |
+| `more_cr_flags` | `0x133db540` | index 246 |
+| `save_geoms` | `0x133db7b0` | index 250 − 1 |
+| `cr_flags_xar` | `0x133db880` | index 250 |
+| `cvt_feat_dat` | `0x133db950` | index 251 |
+| `feat_dates_ptr` | `0x133dba20` | index 252 |
+| `comp_hist` | `0x133dbaf0` | index 253 |
+| `bkp_id_tab` | `0x133dbbc0` | index 254 |
+
+Walking the stride while the record stays valid gives the table extent
+`0x133ced60..0x133f40f0`: **734 entries** over **514 unique names** (`type` appears 13 times, `id` and
+`name` five times each, while `cr_flags_xar` appears exactly once).
+
+## What the table does not contain
+
+Each record holds only two non-zero words:
+
+```text
++0x00  name pointer
++0x04  1
+```
+
+Every other column is zero across all seven fields above. So this is a **name registry**, not a layout
+descriptor: it proves which field names the model module knows and fixes their order, but it carries no
+type and no struct offset.
+
+Two consequences:
+
+- the feature-struct offsets for `cr_flags_xar` and `more_cr_flags` are not in this table, so they have
+  to come from a parallel array or from the code that indexes the struct;
+- `cr_flags_xar`'s table index is `250`, and the empty control's mask array has `252` slots. That is
+  close enough to be worth testing as a hypothesis — one slot per registered field plus two — but it is
+  not established, and it does not explain why the ladder control's array has `311` slots.
+
 ## Next
 
 The path is now name-based again, in the module that owns the struct:
 
-1. find the descriptor array that references `cr_flags_xar` at `0xe7c2220` (a `.rdata` table of
-   `{name, type, offset}` records);
-2. read the offsets of `cr_flags_xar` and `more_cr_flags` in the feature struct;
-3. follow the model code that reads those offsets to learn which bit gates which field.
+1. find the feature-struct offsets of `cr_flags_xar` and `more_cr_flags`, which are not in the `.ddt`
+   name registry;
+2. follow the model code that reads those offsets to learn which bit gates which field;
+3. test the index hypothesis, `250` against `252` slots in the empty control.
 
 Step 1 needs a full analysis of a 326 MB PE. That is the remaining cost, and it is a different order of
 effort from the section-grammar work: not another emitter tweak.

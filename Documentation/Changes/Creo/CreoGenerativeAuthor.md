@@ -495,8 +495,16 @@ It does appear in the model module. `xtop.exe` (326,650,848 bytes, at
 separate field means the mask state is split across at least two members.
 
 The module was copied outside every checkout (`~/Documents/creo-re-bin/xtop.exe`) and is researched
-only. The descriptor array pairing names with offsets, and the model code that reads those offsets, are
-recorded in [the feature struct page](../../../re/creo/loader/FeatureStruct.md).
+only.
+
+The name pool is referenced from a table in the `.ddt` section: `cr_flags_xar` at file
+`0x133db880`, records of stride `0xd0`, table extent `0x133ced60..0x133f40f0` with **734 entries**
+over **514 unique names**. `cr_flags_xar` is entry `250` and `more_cr_flags` entry `246`.
+
+That record carries only `{name pointer, 1}` and nothing else, so it is a name registry rather than a
+layout descriptor: it does not give the struct offsets, and it does not give the mask semantics. It does
+put `cr_flags_xar` at index `250` against `252` slots in the empty control, which is a testable
+hypothesis, recorded in [the feature struct page](../../../re/creo/loader/FeatureStruct.md).
 
 So `AllFeatur` remains unauthored, and with it the part, because it is the one section both our
 validator and the vendor loader reject when absent.
