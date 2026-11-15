@@ -1,7 +1,21 @@
 # SOLIDWORKS 2026 archive byte identity
 
-Status: **failed instrument gate; no generated SOLIDWORKS output**.
+Status: **56/56 critical streams passed on eight redacted controls; no generated SOLIDWORKS output**.
 This record concerns source-stream representation only.
+
+## Successful remote run
+
+Head `8eb76d2b87b5a400f23360a7623a66cc773bc389` passed the
+[remote native-file job](https://github.com/TryUniCAD/Kit/actions/runs/43661634387/job/132652029522).
+The process test requires all seven critical streams for each of the eight
+controls: exact bytes, no unread tail, and no missing stream.
+The 56/56 assertion passed. The complete native-file job reported
+123 passed and 158 existing fixture-dependent skips in 27.54 seconds.
+The empty-input, missing-stream and truncated-container process checks also passed.
+
+This closes the instrument failures recorded below for that head.
+It does not establish fresh-document generation, arbitrary-profile support,
+assembly support, held-out evidence or target-application acceptance.
 
 ## Initial remote run
 
@@ -73,10 +87,10 @@ advanced to a sketch-block map and reported missing collection `f68` in
 `moRefIdToSketchBlockListMap_c.FUN_4c9080f0`.
 This is the same zero-count construction issue at another declared collection.
 The shared length operation now initializes zero-count collections instead of
-adding a separate empty-case patch for each family. A fresh remote run is required.
+adding a separate empty-case patch for each family. The successful run above
+confirms that repair for these controls.
 
-Rerun the same remote checks with the typed count and array.
-A successful follow-up must bind to its own exact head and keep
-the initial failure above as history.
+The successful remote run above binds the repair to its exact head and preserves
+these initial failures as history.
 This gate does not prove field semantics, unrelated-design constants, held-out
 generalization, neutral-model synthesis, or target-application acceptance.

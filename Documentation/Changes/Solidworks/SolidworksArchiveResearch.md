@@ -43,13 +43,17 @@ No local test execution or new vendor acceptance is claimed by this entry.
 The [initial remote measurement](../../../re/solidworks/measurements/ArchiveRoundTrip2026.md)
 recorded 48 of 56 exact critical-stream re-emissions.
 All eight configuration streams failed with a four-byte section deficit.
-That failure remains open until a later remote revision proves the repair.
+After the missing typed array and empty-collection repairs, head
+`8eb76d2b87b5a400f23360a7623a66cc773bc389` passed all 56 required stream
+round trips in the [remote native-file job](https://github.com/TryUniCAD/Kit/actions/runs/43661634387/job/132652029522).
 
 The [wire-state field table](../../../re/solidworks/records/ArchiveWireState2026.md)
 records the binary evidence and unresolved classification questions.
 The [header](../../../re/solidworks/records/HeaderConstruction2026.md) and
 [history](../../../re/solidworks/records/HistoryConstruction2026.md) studies add
 constructor-derived rules without promoting them as accepted writer defaults.
+The [polygon ledger](../../../re/solidworks/records/PolygonConstruction2026.md)
+records variable-topology construction rules and the remaining builder obligations.
 
 Oracle helpers now record failed feature queries and cleanup operations.
 Failure to set construction geometry or select system mass-property units is no
