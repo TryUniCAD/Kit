@@ -446,7 +446,7 @@ classes without creating a redundant archive object.
 
 | Field          | Classification                | Rule                                                                                               | 2026 evidence                                           |
 | -------------- | ----------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| Wrapper `f58`  | derived reference             | Unit component's owning part relationship                                                          | `0x4b7e8250`, unit component `0x4b8281a0`               |
+| Wrapper `f58`  | derived exclusive ownership   | A distinct unit-component copy retaining the same owning model                                      | `0x4b7e8250`, `0x4b82ab30`, copy constructor `0x4b8280c0` |
 | FRData `f00`   | derived id                    | Referenced plane's persistent id                                                                   | `0x4bb34370`                                            |
 | FRData `f08`   | volatile/input provenance     | Referenced node's creation time                                                                    | same constructor calling `0x4c03e070`                   |
 | Wrapper `ff8`  | derived conditional ownership | Null for an allocated plane; inline geometry is retained only when the referenced plane id is `-1` | `0x4b7e7980`                                            |
@@ -457,6 +457,27 @@ byte `f34c`, then compares its normal to the positive canonical axes with
 tolerance `1e-12` at `0x4cdf2b88`.
 The current constructor accepts exact canonical principal normals only.
 It does not guess a principal kind from a display name.
+
+Native ownership requires two separate object identities. The incoming-component
+constructor `0x4b7e8250` calls component virtual slot `0x158` with argument zero
+and stores the returned object at `f58`. For the unit-component primary vtable
+`0x4ce9c4d0`, that slot targets `0x4b82ab30`, which allocates `0x28` bytes and
+calls the copy constructor `0x4b8280c0`. The copy obtains the original model
+through its getter and creates its own model handle; the owning model remains
+the same object. The component-reference destructor `0x4b7ea4a0` directly calls
+the component's deleting destructor at vtable slot `8` with argument one.
+It does not decrement a shared component reference count.
+
+The profile plane wrapper is separately exclusive. Its setter `0x4c0e4b80`
+adopts the supplied pointer at profile-data offset `0x78` without retaining it.
+Replacement `0x4c0e2c30` directly deletes the previous wrapper before assigning
+the new one. Independent profile data must therefore receive separate
+`component_plane` results, even when they refer to the same principal plane.
+The factory now clones each fresh nonexternal unit component, while preserving
+its actual part or assembly owner. Null components remain supported for the
+default reference-base constructor. Other concrete component copy paths and
+external state fail closed until their construction semantics are implemented.
+See [exclusive reference ownership](../../../Documentation/Gotchas/Conversion/Solidworks/Model/PlaneReferencesOwnTheirComponents.md).
 
 ## Principal-plane graph
 

@@ -198,6 +198,12 @@ def unit_component(*, owner: Obj) -> Obj:
 def component_reference_fields(*, component: Obj | None = None) -> dict:
     if component is not None and not isinstance(component, Obj):
         raise TypeError("component references require an archive-object component")
+    if component is not None:
+        if component.cls != "moUnitComponent_c" or component.f.get("has_ext") != 0:
+            raise ArchiveError("fresh component references require a nonexternal unit component")
+        if set(component.f) != {"owner", "has_ext"}:
+            raise ArchiveError("unit-component copy state is outside the fresh constructor contract")
+        component = unit_component(owner=component.f["owner"])
     return {
         "f58": component,
         "f68": 0,

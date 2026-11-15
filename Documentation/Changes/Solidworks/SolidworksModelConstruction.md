@@ -35,6 +35,10 @@ The positive update helper marks the serialized model flag independently of
 header stamps and completed body updates.
 Reference creation times derive from authored creation logs or the native
 absent-log sentinel, independently of feature FILETIME words.
+Plane references now own distinct fresh unit-component copies, preserving the
+same model owner. Independent profiles must also receive distinct plane wrappers
+because their native setters adopt the supplied pointer and replacement deletes
+it directly. Unsupported component-copy states fail closed.
 The document journal explicitly uses native archive schema zero. A native loader
 trace exposed the mismatch, and the shipped class metadata independently proves
 the schema constant.
@@ -103,6 +107,9 @@ The [configuration-version gotcha](../../Gotchas/Conversion/Solidworks/Model/Con
 records why the constructor's legacy version is invalid as the fresh-save rule.
 The [body-stamp gotcha](../../Gotchas/Conversion/Solidworks/Model/BodyStampCountsAreNotBodyCounts.md)
 records the distinct native allocation paths observed for one final body.
+The [reference-ownership gotcha](../../Gotchas/Conversion/Solidworks/Model/PlaneReferencesOwnTheirComponents.md)
+records the separate exclusive lifetimes of profile plane wrappers and their
+component copies.
 Model gotchas now live under `Solidworks/Model/`, and process-check gotchas
 under `Ci/ProcessChecks/`, preserving the directory-density limit.
 
