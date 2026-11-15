@@ -88,10 +88,36 @@ UGS::Solid::Body         UGS::Solid::Topol      UGS::Solid::Body        0x19    
 UGS::Sketch::Colors      UGS::Sketch::Colors    UGS::Sketch::Colors      0x05      d7283fc5
 ```
 
-so the algorithm and the inputs are both identified, but the byte serialisation of that triple is
-still open: 48 variations — every permutation of the three, with and without NUL terminators, with
-1-byte and 4-byte length prefixes, and the dword little or big endian — reproduce none of the five
-stored digests. Something else is in the stream, or the dword is not the only scalar.
+48 hand-built variations of that triple reproduced none of the stored digests, because the triple is
+emitted **once per inheritance link**, not once per class. Hooking the update routine at RVA
+`0xe97d0` (patch the entry to a `ctypes` callback that records `(data, length)` and returns) and
+calling `OM_get_class_name_digest` shows the exact stream:
+
+```text
+UGS::OM::RootObject   "UGS::OM::Meta" "UGS::OM::MethodicObject" 01000000
+                      "UGS::OM::Meta" "UGS::OM::StorableObject" 01000000
+                      "UGS::OM::Meta" "UGS::OM::TaggedObject"   01000000
+                      "UGS::OM::Meta" "UGS::OM::RootObject"     01000000
+
+UGS::POINT            ... "UGS::OM::VersionedObject" 01000000
+                      "UGS::RM" "UGS::RM_entity"            2f000000
+                      "UGS::RM" "UGS::RM_displayable_entity" 2f000000
+                      "UGS::SO" "UGS::SO"                   12000000
+                      "UGS::POINT" "UGS::POINT"             40000000
+```
+
+so the digest is
+
+```text
+nameDigest = xxh32( for each link of the inheritance chain, root-most first:
+                        schema(link) ++ class(link) ++ u32(link) )
+```
+
+and `xxh32(stream)` reproduces the stored digest for **152 of 152** classes.
+
+`ClassEntry.NameDigest(Links)` implements it and `ClassEntry.EntryParts(Entry, Digest)` splits an
+entry into prefix, layout digest and tail. `TestNxClassLink` pins three chains to their measured
+digests and checks the split of a real entry.
 
 ## The prefix and the tail
 

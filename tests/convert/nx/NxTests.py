@@ -34,6 +34,7 @@ from convert.adapters.nx.ExprSection import (
     ValueSlot,
     KMiddleLength as KExprMiddle,
 )
+from convert.adapters.nx.ClassEntry import ClassLink, EntryParts, NameDigest
 from convert.adapters.nx.ObjectSection import (
     AttributeRecord,
     CarryId,
@@ -1120,3 +1121,38 @@ def TestNxCarry() -> None:
     except ValueError:
         return
     raise AssertionError("carry id accepted a block outside the block count")
+
+
+# the name digest is xxh32 over the chain schema class and kind triples
+def TestNxClassLink() -> None:
+    MetaSchema = "UGS::OM::Meta"
+    RootChain: tuple[ClassLink, ...] = (
+        ClassLink(MetaSchema, "UGS::OM::MethodicObject", 1),
+        ClassLink(MetaSchema, "UGS::OM::StorableObject", 1),
+        ClassLink(MetaSchema, "UGS::OM::TaggedObject", 1),
+        ClassLink(MetaSchema, "UGS::OM::RootObject", 1),
+    )
+    assert NameDigest(RootChain) == 0xFEA54BB0
+    PartChain: tuple[ClassLink, ...] = RootChain[:3] + (
+        ClassLink(MetaSchema, "UGS::OM::VersionedObject", 1),
+        ClassLink("UGS::RM", "UGS::RM_part", 47),
+    )
+    assert NameDigest(PartChain) == 0xE4F7C08F
+    PointChain: tuple[ClassLink, ...] = (
+        ClassLink(MetaSchema, "UGS::OM::MethodicObject", 1),
+        ClassLink(MetaSchema, "UGS::OM::StorableObject", 1),
+        ClassLink(MetaSchema, "UGS::OM::TaggedObject", 1),
+        ClassLink(MetaSchema, "UGS::OM::VersionedObject", 1),
+        ClassLink("UGS::RM", "UGS::RM_entity", 47),
+        ClassLink("UGS::RM", "UGS::RM_displayable_entity", 47),
+        ClassLink("UGS::SO", "UGS::SO", 18),
+        ClassLink("UGS::POINT", "UGS::POINT", 64),
+    )
+    assert NameDigest(PointChain) == 0x179C7E0E
+    Entry = bytes.fromhex("3874b04ba5fe911bf67902")
+    assert EntryParts(Entry, 0xFEA54BB0) == (bytes.fromhex("3874"), 0x79F61B91, 0x02)
+    try:
+        _ = NameDigest(())
+    except ValueError:
+        return
+    raise AssertionError("name digest accepted an empty chain")
