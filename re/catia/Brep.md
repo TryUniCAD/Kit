@@ -1116,6 +1116,10 @@ exception is the record at index 54, `(8.0, 0.0, 1.0)`, where the third value is
 next plane rather than `abs(z)`. So the `x` is stored once at the plane boundary, and the record
 itself is `(y, z, abs(z))`.
 
+The run is 38 records: `116 = 38 * 3 + 2`, and 38 is exactly half the 76 handles. So each record
+covers two handles, which is consistent with the corner structure where a vertex handle and the
+adjacent edge handle share a point.
+
 The layout is therefore not a per-circle `(y, z)` sequence with the `x` stored once per circle. The
 two 58-value halves are nearly identical (they differ only in the last three values, `1.0` in the
 first and `0.0` in the second), so the halves are the two `x` planes, but segmenting on the `x`
