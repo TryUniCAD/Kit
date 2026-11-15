@@ -15,6 +15,9 @@ assembly configuration node with its matching model owner. Concrete builders
 add their own option and component fields. The existing part configuration API
 and all `103` direct field rules are preserved by static AST comparison, split
 into `83` base and `20` part rules without executing the builders.
+The subsequent [configuration update-state correction](SolidworksConfigurationUpdateState.md)
+applies the active base constructor's explicit flag-clear operation separately
+from the embedded configuration object's state.
 The active new-model constructor proves unit-component and relation-manager
 ownership for both parts and assemblies; those factories now accept both roots.
 Loading-constructor null seeds remain distinct from active graph allocation.
