@@ -83,6 +83,36 @@ an index into the object table: the ids are not table indices in `dim40`, and in
 coincidence that they fall inside the index range is explained by the runs' origins, not by a
 reference.
 
+## The carry id is a function of the block count, the block ordinal and the record index
+
+The origin I could not explain is explained by counting **blocks**. Grouping the run in twelves
+gives one group per block feature, and each group has its own origin:
+
+```text
+dim40     1 block    1 group    K = 76
+var_two   2 blocks   2 groups   K = 82, 83
+var_d9    3 blocks   3 groups   K = 88, 89, 90
+```
+
+so with `B` blocks, block `g` and record index `i`:
+
+```text
+carry = 70 + 6 B + g - i
+```
+
+`ObjectSection.CarryId(Blocks, Block, Index)` emits it, and it reproduces the id byte of every
+record in every fixture that has the family — **12 of 12 parts**, including the two- and
+three-block ones:
+
+```text
+dim40 1 block: 57..46    var_two 2 blocks: 50..28 (39 twice)    var_d9 3 blocks: 43..10 (32 and 21 twice)
+```
+
+`RewriteLabels` now writes the carry id from that function instead of carrying it, so the record
+is emitted from fields. The bytes are unchanged because the source already obeys the rule, which
+also explains every refused mutant: the loader requires exactly these values, so `K = 70` and
+`K = 80` were refused because they are not `76`.
+
 ## Limits
 
 - The label's meaning is unknown; it is free, not derived.

@@ -796,7 +796,7 @@ KLabelFrame = bytes.fromhex("47040401c044040080810209")
 KLabelValue = 0
 
 
-def LabelRecord(Record: bytes) -> bytes:
+def LabelRecord(Record: bytes, Blocks: int, Block: int, Index: int) -> bytes:
     if (
         len(Record) != 21
         or Record[:2] != b"\x02\x02"
@@ -804,7 +804,8 @@ def LabelRecord(Record: bytes) -> bytes:
         or Record[4:16] != KLabelFrame
     ):
         raise ValueError("NX label record has no known frame")
-    return Record[:16] + bytes([KLabelValue]) + Record[17:]
+    Carry = CarryId(Blocks, Block, Index)
+    return Record[:16] + bytes([KLabelValue]) + Record[17:20] + bytes([Carry])
 
 
 # the label byte is free and sits before a validated id so only it is rewritten
@@ -816,13 +817,32 @@ def RewriteLabels(SectionBody: bytes) -> bytes:
         for Index in range(Count)
     ]
     Stops = Starts[1:] + [len(SectionBody) - 12]
+    Positions = [
+        Index
+        for Index, (Begin, Finish) in enumerate(zip(Starts, Stops))
+        if SectionBody[Begin:Finish][:2] == b"\x02\x02"
+        and SectionBody[Begin + 3] == 0
+        and SectionBody[Begin + 4 : Begin + 16] == KLabelFrame
+    ]
+    if not Positions or len(Positions) % 12:
+        return SectionBody
+    Blocks = len(Positions) // 12
     Section = bytearray(SectionBody)
-    for Begin, Finish in zip(Starts, Stops):
-        Record = bytes(SectionBody[Begin:Finish])
-        try:
-            Written = LabelRecord(Record)
-        except ValueError:
-            continue
+    for Ordinal, Index in enumerate(Positions):
+        Begin, Finish = Starts[Index], Stops[Index]
+        Written = LabelRecord(
+            bytes(SectionBody[Begin:Finish]), Blocks, Ordinal // 12, Index
+        )
         if len(Written) == Finish - Begin:
             Section[Begin:Finish] = Written
     return bytes(Section)
+
+
+# the carry id descends per block and shifts with the block count and ordinal
+def CarryId(Blocks: int, Block: int, Index: int) -> int:
+    if Blocks < 1 or not 0 <= Block < Blocks:
+        raise ValueError("NX carry id needs a block inside the block count")
+    Value = 70 + 6 * Blocks + Block - Index
+    if not 0 <= Value <= 0xFF:
+        raise ValueError("NX carry id must fit one byte")
+    return Value

@@ -36,6 +36,7 @@ from convert.adapters.nx.ExprSection import (
 )
 from convert.adapters.nx.ObjectSection import (
     AttributeRecord,
+    CarryId,
     HeadRecord,
     LaneParts,
     LaneRecord,
@@ -1105,3 +1106,17 @@ def TestNxMiddleDim() -> None:
     Order = Built[0x54 + 4 * 24 :]
     assert int.from_bytes(Order[0:4], "little") == 24
     assert int.from_bytes(Order[4:8], "little") == 1
+
+
+# the carry id descends per block and shifts with the block count and ordinal
+def TestNxCarry() -> None:
+    assert CarryId(1, 0, 19) == 57
+    assert CarryId(1, 0, 30) == 46
+    assert CarryId(2, 0, 32) == 50
+    assert CarryId(2, 1, 44) == 39
+    assert CarryId(3, 2, 69) == 21
+    try:
+        _ = CarryId(1, 1, 19)
+    except ValueError:
+        return
+    raise AssertionError("carry id accepted a block outside the block count")
