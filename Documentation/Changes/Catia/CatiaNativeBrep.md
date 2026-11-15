@@ -293,6 +293,13 @@ result = CatiaAdapter().write(
 - The inferred map decodes all five pooled parts: 71, 338, 416, 870, and 870 faces, each with a
   matching surface list and zero validation errors. The heuristic warning is present on exactly
   those five parts.
+- `re/catia/tooling/Scorecard.py` measures every part against its own geometry: the worst distance
+  from a face's vertices to that face's surface, and how many faces exceed `1e-3`. All 22 exact parts
+  report `0` bad faces with a worst distance of `0.0000` (`0.0009` for the two `Nut_ISO_7040-M6`
+  files). The five inferred parts report bad faces `227/416` and worst `66.04` for `4784`,
+  `529/870` and `93.45` for `4876`/`4876_1`, `186/338` and `96.34` for `Pedal_Body`, and `22/71` and
+  `36.00` for `Reservoir`. The scorecard also prints `V - E + F`, which is negative for every part
+  because the decoded edges are tessellation polylines rather than B-rep edges.
 - The map refinement lowers the unsatisfied handles from 209/1431 to 181/1431 on `Reservoir` and
   from 1923/2666 to 792/2666 on `Pedal_Body`. `4784`, `4876`, and `4876_1` keep the single-pass
   map because refinement is skipped above 400 faces.
