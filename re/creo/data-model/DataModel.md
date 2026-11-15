@@ -334,6 +334,19 @@ So the `ND:*` rows are **not derivable** from what we can decode. They are one m
 pattern as the mask vector: per-schema payload that a generator cannot compute from a record's own
 fields.
 
+They are also **load-bearing**: dropping all three, together with the two trailing `IndentTag` and
+`FeatRefData` rows and keeping the 41 authored sections, is rejected with an explicit message.
+
+```text
+nodrop: 41 authored sections, 5 rows dropped; 24852 bytes (control 81539)
+!15-Nov-26 05:22:02  End   C:\Mac\Home\Documents\creo-authored\nodrop.prt
+!%CE05:22:02 'nodrop.prt' cannot be retrieved.
+```
+
+So unlike `IndentTag` and `FeatRefData`, the `ND:*` rows cannot be dropped, and they cannot be replaced
+with a minimal form either (`dbg_err_crash`, earlier), and their content is not derivable. They have to be
+present, well formed, and carrying the vendor's own schema token data.
+
 That places them in the same category as the mask vector: structured schema payload that a generator cannot
 compute from a record's own fields. The remaining rows split as:
 
