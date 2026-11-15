@@ -35,10 +35,12 @@ acceptance oracle, never as part of a conversion.
 The design writer emits a parametric sketch, an extrusion and a BRep body part from a
 `DocumentSpec`, and Fusion reports the authored parameter and an exact body volume:
 
-| Case                  | Parameter        | Bodies | Volume cm³ (Fusion) | Volume cm³ (spec) |
-| --------------------- | ---------------- | ------ | ------------------- | ----------------- |
-| `KitAuthoredCylinder` | `kitLength` 40 mm | 1     | 19.634954084935366  | 19.634954084936208 |
-| `KitAuthoredHeldOut`  | `kitHeldOutLength` 27.5 mm | 1 | 5.5292030703178 | 5.529203070318037 |
+| Case                  | Profile        | Parameter        | Bodies | Volume cm³ (Fusion) | Volume cm³ (spec) |
+| --------------------- | -------------- | ---------------- | ------ | ------------------- | ----------------- |
+| `KitAuthoredCylinder` | extrusion      | `kitLength` 40 mm | 1     | 19.634954084935366  | 19.634954084936208 |
+| `KitAuthoredHeldOut`  | extrusion      | `kitHeldOutLength` 27.5 mm | 1 | 5.5292030703178 | 5.529203070318037 |
+| `KitAuthoredCuboid`   | cuboid         | `kitCuboidLength` 20 mm | 1 | 24.0 | 24.0 |
+| `KitAuthoredFrustum`  | frustum 10 deg | `kitFrustumLength` 30 mm | 1 | 15.289388972035598 | 15.289388972034654 |
 
 The drawing side is parametric in the DWG: Fusion applies a sheet extent, a view scale and a view
 position that Kit writes, each verified with a one-input control.

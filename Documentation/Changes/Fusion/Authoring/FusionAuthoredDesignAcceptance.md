@@ -27,12 +27,14 @@ mis-scaled extrusion or a dropped parameter fails the run instead of passing qui
 
 ## Recorded verification
 
-Two documents, built and opened on 2026-11-14 in Fusion 2706.1.17:
+Four documents, built and opened in Fusion 2706.1.17:
 
 | Case                    | Radius | Length | F3D bytes | Bodies | Volume cm³ (Fusion) | Volume cm³ (spec) | Error     |
 | ----------------------- | ------ | ------ | --------- | ------ | ------------------- | ----------------- | --------- |
 | `KitAuthoredCylinder`   | 12.5   | 40.0   | 84187     | 1      | 19.634954084935366  | 19.634954084936208 | 8.4e-13 |
 | `KitAuthoredHeldOut`    | 8.0    | 27.5   | 84225     | 1      | 5.5292030703178     | 5.529203070318037  | 2.4e-13 |
+| `KitAuthoredCuboid`     | cuboid 40 by 30 by 20 mm | 1 | 24.0 | 24.0 | 0 |
+| `KitAuthoredFrustum`    | frustum 10 deg, 10 mm base, 30 mm high | 1 | 15.289388972035598 | 15.289388972034654 | 9.4e-13 |
 
 Both opened with the authored parameter present and the authored names intact:
 
