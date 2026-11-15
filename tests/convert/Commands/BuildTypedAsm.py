@@ -11,7 +11,15 @@ def BuildTypedAsm() -> CadDocument:
     Document = BuildAssembly()
     assert Document.assembly is not None
     Assembly = Document.assembly
-    PartValue = MakeFusionDoc(DocumentSpec("Typed assembly part", "height", 20.0))
+    PartValue = MakeFusionDoc(
+        DocumentSpec(
+            "Typed assembly part",
+            "height",
+            20.0,
+            ProfileKind="cuboid",
+            ConstrainRectangle=True,
+        )
+    )
     return ReplaceData(
         Document,
         assembly=ReplaceData(

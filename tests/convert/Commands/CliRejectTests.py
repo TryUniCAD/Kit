@@ -77,7 +77,13 @@ def CheckBadFiles(TmpPath: FilePath) -> None:
     TypedSource = TmpPath / "typed.f3d"
     _ = TypedSource.write_bytes(
         EmitDocument(
-            DocumentSpec("CLI parameter", "height", 17.0, ProfileKind="parameter")
+            DocumentSpec(
+                "CLI cuboid",
+                "height",
+                17.0,
+                ProfileKind="cuboid",
+                ConstrainRectangle=True,
+            )
         )
     )
     Unknown = CliProcess(

@@ -26,7 +26,15 @@ KBadKinds = {
 def BuildBadStep(RecordKind: str) -> CadDocument:
     if RecordKind == "GenericStep":
         return BuildDocument()
-    Document = MakeFusionDoc(DocumentSpec("Incomplete feature", "height", 20.0))
+    Document = MakeFusionDoc(
+        DocumentSpec(
+            "Incomplete feature",
+            "height",
+            20.0,
+            ProfileKind="cuboid",
+            ConstrainRectangle=True,
+        )
+    )
     Feature = Document.feature_timeline[-1]
     Feature = ReplaceData(
         Feature,

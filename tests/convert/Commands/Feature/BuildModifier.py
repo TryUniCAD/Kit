@@ -10,7 +10,15 @@ from tests.convert.Commands.Feature.ModifierCases import KModifierSpecs
 
 # modifier qualification needs valid neutral documents with deliberately insufficient generative evidence
 def BuildModifier(RecordKind: str) -> CadDocument:
-    Document = MakeFusionDoc(DocumentSpec("Modifier prerequisites", "height", 20.0))
+    Document = MakeFusionDoc(
+        DocumentSpec(
+            "Modifier prerequisites",
+            "height",
+            20.0,
+            ProfileKind="cuboid",
+            ConstrainRectangle=True,
+        )
+    )
     if RecordKind in (
         "CombineInactive",
         "CombineBadOperation",

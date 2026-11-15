@@ -10,7 +10,7 @@ from tests.convert.Commands.BuildVariants import BuildVariants
 from tests.convert.Commands.CliProcess import CliProcess
 
 
-# user conversion must reject configuration carrier fallback before publishing a target archive
+# parameter only inputs must fail qualification before configuration carrier output can be considered
 @TestMark.parametrize("HasOutput", (False, True))
 def CheckCliCarrier(HasOutput: bool, TmpPath: FilePath) -> None:
     Document = BuildVariants()
@@ -25,9 +25,9 @@ def CheckCliCarrier(HasOutput: bool, TmpPath: FilePath) -> None:
         TmpPath, "convert", str(Source), str(Target), "--overwrite", "--json"
     )
     assert Result.returncode == 1 and Result.stdout == ""
-    Details = LoadJson(Result.stderr)["details"]
-    assert Details["code"] == "output_not_application_usable"
-    assert Details["carrier_reasons"]["configurations"] == "target_unsupported"
+    Error = LoadJson(Result.stderr)
+    assert Error["error"] == "ValueError"
+    assert "MissingFeatureHistory" in Error["message"]
     assert Source.read_text(encoding="utf-8") == Original
     assert Target.exists() is HasOutput
     if HasOutput:

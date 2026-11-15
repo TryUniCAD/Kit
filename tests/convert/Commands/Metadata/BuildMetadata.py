@@ -63,7 +63,15 @@ def BuildMetadata(RecordKind: str, FieldName: str = "Document") -> CadDocument:
     Document = (
         BuildTypedAsm()
         if FieldName == "Assembly"
-        else MakeFusionDoc(DocumentSpec("Typed metadata history", "height", 20.0))
+        else MakeFusionDoc(
+            DocumentSpec(
+                "Typed metadata history",
+                "height",
+                20.0,
+                ProfileKind="cuboid",
+                ConstrainRectangle=True,
+            )
+        )
     )
     if FieldName == "Document":
         return ReplaceData(Document, metadata={**Document.metadata, **Metadata})

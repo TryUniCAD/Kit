@@ -30,7 +30,17 @@ def CheckSourceLink(Layer: str, TmpPath: FilePath) -> None:
 # explicit destination symlinks must preserve their identity when publishing converted or decoded content
 def CheckTargetLink(TmpPath: FilePath) -> None:
     Source = TmpPath / "source.f3d"
-    _ = Source.write_bytes(EmitDocument(DocumentSpec("Linked target", "height", 17.0)))
+    _ = Source.write_bytes(
+        EmitDocument(
+            DocumentSpec(
+                "Linked target",
+                "height",
+                17.0,
+                ProfileKind="cuboid",
+                ConstrainRectangle=True,
+            )
+        )
+    )
     Stored = TmpPath / "object"
     _ = Stored.write_text("existing output")
     Target = TmpPath / "destination.json"

@@ -18,7 +18,15 @@ KCreatorCases = (
 
 # creator refusals must isolate unsupported prerequisites on an otherwise valid typed source
 def BuildCreator(RecordKind: str) -> CadDocument:
-    Document = MakeFusionDoc(DocumentSpec("Creator prerequisites", "height", 20.0))
+    Document = MakeFusionDoc(
+        DocumentSpec(
+            "Creator prerequisites",
+            "height",
+            20.0,
+            ProfileKind="cuboid",
+            ConstrainRectangle=True,
+        )
+    )
     Sketch = Document.sketches[0]
     Feature = Document.feature_timeline[-1]
     if RecordKind == "NoDependency":

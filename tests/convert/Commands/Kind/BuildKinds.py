@@ -14,7 +14,7 @@ def BuildKinds(RecordName: str, Variant: str) -> CadDocument:
         "Component": (ComponentKind.KPart, ComponentKind.KNative),
         "Mate": (MateKind.KCoincident, MateKind.KNative),
         "MateEntity": (MateEntityKind.KPlane, MateEntityKind.KNative),
-        "SketchEntity": (GeometryKind.KCircle, GeometryKind.KNative),
+        "SketchEntity": (GeometryKind.KPoint, GeometryKind.KNative),
         "SketchRelation": (ConstraintKind.KHorizontal, ConstraintKind.KNative),
     }[RecordName]
     KindValue = {
@@ -35,8 +35,6 @@ def BuildKinds(RecordName: str, Variant: str) -> CadDocument:
                 ProfileKind="cuboid",
                 ConstrainRectangle=True,
             )
-            if RecordName == "SketchRelation"
-            else DocumentSpec("Typed kind history", "height", 20.0)
         )
     )
     if RecordName == "Component":
