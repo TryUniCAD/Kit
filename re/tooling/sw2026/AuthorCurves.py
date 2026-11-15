@@ -91,14 +91,16 @@ class Recorder:
     def flush(self):
         write_json(self.path, self.data)
 
-    def call(self, label, function, *args, parameters=None):
+    def call(self, label, function, *args, parameters=None, **kwargs):
         self.data["stage"] = label
         entry = {"method": label, "arguments": safe_result(args) if parameters is None else parameters}
+        if kwargs:
+            entry["keyword_arguments"] = safe_result(kwargs)
         self.data["api_calls"].append(entry)
         self.flush()
         started = time.monotonic()
         try:
-            result = function(*args)
+            result = function(*args, **kwargs)
         except Exception as error:
             entry.update(error=repr(error), seconds=time.monotonic() - started)
             self.failure(error)
@@ -248,6 +250,17 @@ class CurveAuthor:
         self.dimensions = []
         self.dimension_objects = {}
         self.relations = []
+        self.interfaces = self.rec.call(
+            "load 2026 type library", self.sw.wc.gencache.EnsureModule,
+            "{83A33D31-27C5-11CE-BFD4-00400513BB57}", 0, 34, 0,
+            bForDemand=False,
+            parameters={"library": "{83A33D31-27C5-11CE-BFD4-00400513BB57}", "lcid": 0, "major": 34, "minor": 0, "demand": False},
+        )
+        self.rec.data["com_type_library"] = {
+            "guid": str(self.interfaces.CLSID), "lcid": self.interfaces.LCID,
+            "major": self.interfaces.MajorVersion, "minor": self.interfaces.MinorVersion,
+        }
+        self.rec.flush()
 
     def get(self, obj, name, *args):
         function = self.sw.invoke if args else self.sw.cv
@@ -260,7 +273,9 @@ class CurveAuthor:
 
     def typed(self, value, kind):
         try:
-            return self.rec.call("QueryInterface " + kind, self.sw.wc.CastTo, value, kind, parameters={"interface": kind})
+            target = getattr(self.interfaces, kind)
+            target = getattr(target, "default_interface", target)
+            return self.rec.call("QueryInterface " + kind, target, value, parameters={"interface": kind, "binding": "explicit registered 2026 type library"})
         except Exception as error:
             raise PendingCapability(f"type-library cast to {kind} is unavailable: {error!r}") from error
 
