@@ -308,6 +308,33 @@ from `-201.7190851617055` to `-123.5`, length unchanged, loads twice with the bo
 segment's `verhor` from `1` to `0` likewise loads twice. So the row's *values* are tolerated; what is refused is
 a row whose *structure* differs from what the rest of the model expects.
 
+### The definition index is not the blocker
+
+`FeatDefsIndex` is a separate row and it lists which definition classes exist:
+
+```text
+Sld_FeatDefsIndex
+  feat_defs_index   f8 04 83 9b 83 d3 83 b5 83 95 f1     [923, 979, 949, 917]
+```
+
+so the ladder declares four definition classes, and a row that drops the `949` table should also drop `949` from
+this list. That was tested — our generated `917` element alone, with the index rewritten to `[923, 979, 917]`
+(`index917`) — and it is refused twice as well. So the index is consistent bookkeeping, not the reason the
+`949` element is required.
+
+The `949` element therefore has to exist and has to carry a real definition. Its field map is now complete: 191
+declared headers, running `id`, `symbol_key`, `model_type`, `group_info_ptr`, `place_rec_ptr` (`local_sys`,
+`own_ref_id`, `orient`, `trf_arr`, `transf`, `plcm_revnum`, `next_prop`, `cond_tbl_idx`, `comment`,
+`merge_info_ptr`, `state_ind`, `alumni_info`), `sub_feat_arr` (one element with `id`, `type 160`, `sub_type`,
+`data(subft_indexnumber)`, `expl_state_ref`, `feat_outl_info`, the roll-back fields, `parchild_table`,
+`copy_info_ptr`, `embed_info_ptr`, `gsec_ptr`), and then inside `gsec_ptr` the sketch: `type`, `is_ref_gsec`,
+`name`, `gsec2d_ptr` holding `segtab_ptr` (six segments of eleven fields), `attributes`, `dimtab_ptr` with four
+dimensions and their `dim_ref` records, `relat_ptr` with `a`/`b`/`c`, `formula_ptr`, `qind`, `fixed_origin`,
+`anchor`, `location`, `nsket_info`, `unsolved_ptr`, `ent_tab`, `chains`, `bucket_xar`, `skamp_ptr`,
+`triples_ptr`, `rigid_chains_ptr`, `sket_pattern_info`, `gsec3d_ptr`, `first_chain_ptr`,
+`save_entity_ptr(line)`, `back_entity_ptr(line)`, `chains_info`, `refcoll_info`, `united_references`,
+`sec_orient_data`, `order_tab`, `p_saved_result` and `draft_setup_ptr`.
+
 ### Which class table can be generated, and which cannot
 
 Four rows were built from the ladder's `FeatDefs` row and launched twice each:

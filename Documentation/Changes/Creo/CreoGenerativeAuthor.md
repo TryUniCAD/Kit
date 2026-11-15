@@ -1043,6 +1043,18 @@ What the row does carry is the constraint solution: `relat_ptr` with `a`/`b`/`c`
 `formula_ptr` with eight indices. A writer can emit the segment fields, but not the points they reference
 without solving those constraints, which is what the sketch solver does.
 
+### The definition index is not the blocker, and the `949` field map is complete
+
+`FeatDefsIndex` is a separate row listing the definition classes that exist — `feat_defs_index` with
+`[923, 979, 949, 917]`. Dropping the `949` table should therefore also drop `949` from that list, and that was
+tested: our generated `917` element alone, with the index rewritten to `[923, 979, 917]` (`index917`), is refused
+twice as well. So the index is bookkeeping, not the cause.
+
+The whole `949` element is now mapped — 191 declared headers — through `sub_feat_arr` into `gsec_ptr` and its
+`gsec2d_ptr`/`segtab_ptr` sketch, with `dimtab_ptr`, `relat_ptr`, `formula_ptr`, `anchor`, `unsolved_ptr`,
+`ent_tab`, `chains`, `skamp_ptr`, `triples_ptr`, `rigid_chains_ptr`, `gsec3d_ptr`, `first_chain_ptr`,
+`save_entity_ptr(line)`, `chains_info`, `order_tab`, `p_saved_result` and `draft_setup_ptr` following.
+
 ### Only one of the two class tables can be generated
 
 Four rows were built from the ladder's `FeatDefs` and launched twice each:
