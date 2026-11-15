@@ -43,8 +43,11 @@ def CheckUnready(
 
 @TestMark.parametrize("IsNested", (False, True))
 @TestMark.parametrize("OwnerName", ("", "root", "subassembly"))
-def CheckResolved(IsNested: bool, OwnerName: str, TmpPath: FilePath) -> None:
-    Document = BuildIncomplete("ResolvedReference", OwnerName)
+@TestMark.parametrize("RecordKind", ("ResolvedReference", "ProvenanceOnly"))
+def CheckResolved(
+    IsNested: bool, OwnerName: str, RecordKind: str, TmpPath: FilePath
+) -> None:
+    Document = BuildIncomplete(RecordKind, OwnerName)
     if IsNested:
         Document = WrapDocument(Document)
     Document.AssertValid()

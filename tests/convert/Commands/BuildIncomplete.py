@@ -14,10 +14,11 @@ def BuildIncomplete(RecordKind: str, OwnerName: str = "") -> CadDocument:
         "ExternalReference",
         "NativeComponent",
         "ResolvedReference",
+        "ProvenanceOnly",
         "SourceUnresolved",
     ):
         Definition = Assembly.definitions[-1]
-        if RecordKind in ("MissingReference", "ExternalReference"):
+        if RecordKind in ("MissingReference", "ExternalReference", "ProvenanceOnly"):
             Definition = ReplaceData(
                 Definition,
                 kind=(
@@ -28,6 +29,11 @@ def BuildIncomplete(RecordKind: str, OwnerName: str = "") -> CadDocument:
                 document_id="",
                 body_ids=(),
                 source_path="missing.part",
+                attributes=(
+                    {"source_resolved": False}
+                    if RecordKind == "ExternalReference"
+                    else Definition.attributes
+                ),
             )
         elif RecordKind == "NativeComponent":
             Definition = ReplaceData(Definition, kind=ComponentKind.KNative)

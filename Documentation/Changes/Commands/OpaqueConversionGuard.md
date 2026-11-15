@@ -46,6 +46,9 @@ sources, positions, and constraints remain unresolved. See
 
 ## Verification
 
+Source paths alone are treated as provenance, including on typed leaf definitions.
+Unrepresented reference kinds and explicit unresolved markers retain refusal; process cases separately cover provenance-only success and marked external-source refusal.
+
 No local tests, decoding runs, or CAD applications were executed.
 Pinned Black, Pyright, and Mypy checks and the repository steering/path checks
 cover the changed source and process cases. Execution evidence belongs to remote

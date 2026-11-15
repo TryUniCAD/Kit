@@ -37,6 +37,13 @@ jobs:
       - name: Verify packaged native schema provenance
         run: uv run --no-sync --python 3.14 python re/Fusion/Reconstruction/EntityGraph/PromoteCatalog.py --check
 
+      - name: Exercise CLI conversion and inspection through process boundaries
+        run: >-
+          uv run --no-sync --python 3.14 pytest
+          -p no:cacheprovider
+          --numprocesses logical --dist load --maxschedchunk 1
+          tests/convert/Commands
+
       - name: Exercise native document, entity, material, and geometry archives
         run: >-
           uv run --no-sync --python 3.14 pytest
@@ -82,6 +89,5 @@ jobs:
           tests/convert/formats/FusionCodec/TSpline
           tests/convert/formats/FusionCodec/SavedCorpus
           tests/convert/api/Fusion
-          tests/convert/Commands
           tests/convert/api/ApiCatalogTests.py
           tests/convert/api/ApiFusionTests.py

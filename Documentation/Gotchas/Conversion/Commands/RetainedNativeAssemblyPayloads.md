@@ -19,6 +19,8 @@ while its actual representation is a local child-instance graph. Such owners
 need no separate embedded document or body/mesh link. The guard recognizes these
 local owners and still checks every descendant for missing links or explicit
 unresolved state.
+More generally, `source_path` alone is provenance rather than evidence of an unresolved dependency.
+The guard requires an unrepresented reference kind or an explicit unresolved marker; an otherwise valid typed definition is not rejected for its filename.
 
 Use `kit decode` or the deterministic research tools to inspect these artifacts
 while their semantics are recovered. The public SDK and CATIA reader are unchanged.
