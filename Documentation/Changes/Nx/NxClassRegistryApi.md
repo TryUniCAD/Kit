@@ -193,6 +193,28 @@ tail == id 0/135   tail == attrs 3/135   tail == superclass 1/135
 The 19 classes with a zero digest (for example `UGS::OM::RootObject`) carry no digest field at all,
 which is why their entries are shorter and why their windows never matched.
 
+## The digest is schema-derived, and not from the attribute names alone
+
+The class schema can be enumerated at runtime through `Class::GetAttributeCount`,
+`Class::GetAttribute(index)` and `Attribute::GetName`, which makes the digest testable:
+
+```text
+class                    digest      flat attributes
+UGS::OM::RootObject      00000000    34
+UGS::RM_part             c8705a25    32
+UGS::POINT               b5d4b94a    36
+UGS::OM::ObjectState     c7e30705    12
+UGS::Sketch::Colors      d7283fc5    33
+UGS::Solid::Body         011c21bb    40
+```
+
+Nine digest functions over the attribute-name lists — xxh32 at seeds 0/1/2, crc32, adler32, md5
+truncated little and big, sha1 truncated, blake2b-4 — across six separators, forward and reversed
+order, with and without the class name, in both latin-1 and UTF-16LE, match **none** of the five
+classes. So the digest covers more than the attribute names: types, sizes, offsets and flags are in
+the schema too, and `Attribute` exposes those as `GetType`, `GetSize`, `GetOffset`, `GetRTL`,
+`GetDimensions`.
+
 ## What this means for a static writer
 
 The entry is a snapshot of **registry-derived per-class values**, one of which is the class digest.
