@@ -16,6 +16,8 @@ from convert.adapters.nx.ExprSection import (
     ExprLayout,
     ExprObjectCount,
     ExprHeadTail,
+    ExprLane,
+    ReadLane,
     ExprPreamble,
     GroupPair,
     GroupRecord,
@@ -1025,3 +1027,22 @@ def TestNxHeadTail() -> None:
     except ValueError:
         return
     raise AssertionError("head tail accepted fewer than six objects")
+
+
+# the names lane places its tokens from the first slot and fills out the maps
+def TestNxLaneMap() -> None:
+    Labels = (b"\x8c\x00", b"\x8c\x01", b"\x8c\x02")
+    LaneBytes = ExprLane(Labels, bytes.fromhex("535455"))
+    assert len(LaneBytes) == 135
+    assert LaneBytes[0] == 4
+    assert b"EXP_lookup_exp" in LaneBytes
+    assert LaneBytes[-2:] == bytes.fromhex("0421")
+    assert ReadLane(LaneBytes) == (Labels, bytes.fromhex("535455"))
+    WideToken = ExprLane((b"\xe0\x66\x05\x90\xfd",), b"\x53")
+    assert len(WideToken) == 136
+    assert ReadLane(WideToken)[0] == (b"\xe0\x66\x05\x90\xfd",)
+    try:
+        _ = ExprLane(Labels, b"\x53")
+    except ValueError:
+        return
+    raise AssertionError("names lane accepted a value count mismatch")

@@ -414,6 +414,35 @@ token run, so it read zero labels from `empty_expr` and could not round-trip it.
 lane needs the token-width rule as well as the frame arithmetic, and the width is not yet
 derived.
 
+## The names lane is emitted with writer-chosen slots
+
+`ExprLane(Labels, Values)` and `ReadLane` now handle the slot map: a token's width comes from
+its lead byte (`8b` and `8c` two bytes, `c4` four, `e0` five), empty slots are `01`, the map
+runs `32 + count + sum(len(token) - 2)` bytes, the value map is 32 bytes, and the count byte
+opens and closes the record. Re-emitting dense placement reproduces eight of eleven fixtures
+byte for byte:
+
+```text
+identical     var_sph  var_cyl  dim40  var_mid  var_nmx  var_big  const_box60  var_two
+not identical empty_expr (slot 24)   multi (slots 0,1,26..31)   var_e4 (slot 29)
+```
+
+The three that differ are the ones whose source places slots by the name hash, so byte
+equality is the wrong test for them. Splitting uses the writer's own placement, so the test
+that matters is an NX load, and all eleven lanes were spliced into their parts and opened:
+
+```text
+wl_empty_expr   bodies 0                     wl_multi        bodies 0
+wl_var_sph      bodies 1  volume 523598.77    wl_var_cyl      bodies 1  volume 196349.54
+wl_dim40        bodies 1  volume 24000.0      wl_var_mid      bodies 1  volume  8800.0
+wl_var_nmx      bodies 1  volume 24000.0      wl_var_big      bodies 1  volume 125000.0
+wl_const_box60  bodies 1  volume 36000.0      wl_var_e4       bodies 1  volume 24000.0
+wl_var_two      bodies 2  volume 48000.0
+```
+
+so writer-chosen dense placement is accepted, including on the three parts whose source used
+hash placement.
+
 ## The head tail is a function of the object and dimension counts
 
 The head object ends in seven bytes that name the two ids following the last one used:

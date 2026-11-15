@@ -34,6 +34,72 @@ def GroupPair() -> bytes:
     return KGroupPair
 
 
+# the names lane is a slot map of tokens whose width the lead byte fixes
+KExpNames = b"\x0fEXP_lookup_exp\x11EXP_compare_exps\x10EXP_hash_string\x0dEXP_hash_exp"
+KLaneValueSlots = 32
+KLaneMapBase = 32
+KTokenWidths = {0x8B: 2, 0x8C: 2, 0xC4: 4, 0xE0: 5}
+
+
+def ReadLaneTokens(TokenArea: bytes) -> tuple[bytes, ...]:
+    Tokens: list[bytes] = []
+    Position = 0
+    while Position < len(TokenArea):
+        Marker = TokenArea[Position]
+        if Marker == 1:
+            Position += 1
+            continue
+        Width = KTokenWidths.get(Marker)
+        if Width is None or Position + Width > len(TokenArea):
+            raise ValueError("NX names lane label token is invalid")
+        Tokens.append(TokenArea[Position : Position + Width])
+        Position += Width
+    return tuple(Tokens)
+
+
+def ReadLane(Record: bytes) -> tuple[tuple[bytes, ...], bytes]:
+    if b"EXP_lookup_exp" not in Record:
+        raise ValueError("NX names lane has no known names")
+    Count = Record[0]
+    Split = Record.index(KExpNames) + len(KExpNames)
+    if Record[Split : Split + 2] != b"\x01\x21":
+        raise ValueError("NX names lane has no known split")
+    Middle = Record.index(b"\x21", Split + 2)
+    if Record[-2:] != bytes([Count, 0x21]):
+        raise ValueError("NX names lane has no known terminator")
+    Labels = ReadLaneTokens(Record[Split + 2 : Middle])
+    if len(Labels) != Count - 1:
+        raise ValueError("NX names lane label count disagrees with its head")
+    ValueArea = Record[Middle + 1 : len(Record) - 2]
+    Values = bytes(Sample for Sample in ValueArea if Sample != 0xFF)
+    return (Labels, Values)
+
+
+# the writer puts its tokens in one run from the first slot
+def ExprLane(Labels: tuple[bytes, ...], Values: bytes) -> bytes:
+    Count = len(Labels) + 1
+    if not 1 <= len(Labels) <= 0xFE:
+        raise ValueError("NX names lane needs one to 254 expressions")
+    if len(Values) != len(Labels):
+        raise ValueError("NX names lane needs one value byte per expression")
+    if len(Values) > KLaneValueSlots:
+        raise ValueError("NX names lane value map is full")
+    Tokens = b"".join(Labels)
+    for Token in Labels:
+        if len(Token) != KTokenWidths.get(Token[0]):
+            raise ValueError("NX names lane label token width is inconsistent")
+    Output = bytearray([Count])
+    Output.extend(KExpNames)
+    Output.extend(b"\x01\x21")
+    Output.extend(Tokens)
+    Output.extend(bytes([1]) * (KLaneMapBase + 2 - Count))
+    Output.extend(b"\x21")
+    Output.extend(Values)
+    Output.extend(b"\xff" * (KLaneValueSlots - len(Values)))
+    Output.extend([Count, 0x21])
+    return bytes(Output)
+
+
 # the head tail names two ids that follow the last one for the object and dim counts
 def ExprHeadTail(Objects: int, Dimensions: int) -> bytes:
     if Objects < 6 or Dimensions < 0:
