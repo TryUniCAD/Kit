@@ -1,7 +1,8 @@
 from __future__ import annotations
 
+from Core import ArchiveError
 from Dsl import Vgt, Vge, Vlt, ver, i32, u32, u8, f64, cstr, emb, base
-from Schema import If, Rep
+from Schema import Fn, If, Rep
 from defs.ResolvedCore import xo, obarray, concept_vt, Legacy, PARENT, Vin, has_condition
 
 
@@ -21,14 +22,22 @@ def rev_f818(s, ar):
     return ver(ar) >= 0x186 and not (has_condition(ar, 1) and not ar.ctx.get("ctx874", 0))
 
 
+def require_thin_revolve_version(ar, scope, o):
+    version = ver(ar)
+    if version != 19000:
+        raise ArchiveError(f"thin-revolve schemas require ordinary archive version 19000, got {version}")
+
+
 def define(reg):
     for c, p in (("moSingleSketchFeature_c", "moSketchedFeature_c"), ("moSketchedFeature_c", "moBodyFeature_c"),
                  ("moExtrusion_c", "moSingleSketchFeature_c"), ("moICE_c", "moExtrusion_c"), ("moCut_c", "moExtrusion_c"),
                  ("moRevolution_c", "moSingleSketchFeature_c"), ("moRevCut_c", "moRevolution_c"),
+                 ("moRevolutionThin_c", "moRevolution_c"), ("moRevCutThin_c", "moRevolutionThin_c"),
                  ("moBaseHoleWzd_c", "moSketchedFeature_c"), ("moHoleWzd_c", "moBaseHoleWzd_c"),
                  ("mo3DProfileFeature_c", "moProfileFeature_c")):
         PARENT[c] = p
-    for c in ("moCut_c", "moRevolution_c", "moRevCut_c", "moHoleWzd_c", "mo3DProfileFeature_c"):
+    for c in ("moCut_c", "moRevolution_c", "moRevCut_c", "moRevolutionThin_c", "moRevCutThin_c",
+              "moHoleWzd_c", "mo3DProfileFeature_c"):
         concept_vt(c)
     reg.define("mo3DProfileFeature_c", [base("moProfileFeature_c")])
     reg.define("moCut_c", [base("moExtrusion_c")])
@@ -47,6 +56,25 @@ def define(reg):
                [xo("f8d8", "moRevEndSpec_c"), i32("f8e0"), i32("f8e4")]),
             Vgt(0x3F04, [u8("f8e8")]),
         ])
+    reg.define("moRevolutionThin_c", [
+        Fn(require_thin_revolve_version, require_thin_revolve_version),
+        base("moRevolution_c"),
+        xo("f8f0", "moThinSpec_c"),
+    ])
+    reg.define("moRevCutThin_c", [base("moRevolutionThin_c")])
+    reg.define("moThinSpec_c", [
+        Fn(require_thin_revolve_version, require_thin_revolve_version),
+        xo("f08", "moDisplayDim_c"),
+        xo("f10", "moDisplayDim_c"),
+        i32("f2c"),
+        f64("f30"),
+        f64("f38"),
+        i32("f28"),
+        i32("f40"),
+        xo("f48", "moDisplayRadialDim_c"),
+        i32("f50"),
+        i32("f54"),
+    ])
     reg.define("moRevEndSpec_c", [
         i32("f08"),
         i32("f138"),

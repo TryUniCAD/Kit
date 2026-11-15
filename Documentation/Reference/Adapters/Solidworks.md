@@ -153,6 +153,9 @@ The [explicit oracle interface bindings](../../Changes/Solidworks/Inspection/Sol
 avoid automatic type discovery on child objects that reject `GetTypeInfo`.
 The [type-library inventory](../../Changes/Solidworks/Inspection/SolidworksTypeLibraryInventory.md)
 selects installed API declarations and enum constants without activating CAD.
+The [thin-revolve archive schemas](../../Changes/Solidworks/Inspection/SolidworksThinRevolveArchive.md)
+add three structural research classes with a version-19000 guard.
+Their constructors, native thin round trips and usable generated output remain unproved.
 The [approved-session handoff tool](../../Changes/Solidworks/Inspection/SolidworksApprovedSessionHandoff.md)
 closes an explicitly selected clean session after user authorization, while measurement guards continue to refuse existing processes.
 The [local curve and radial construction rules](../../Changes/Solidworks/SolidworksCurveReferenceConstruction.md)
