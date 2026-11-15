@@ -39,8 +39,9 @@ The reader returns a `CadDocument` with:
 - `FeatDefs` stored dimension values as `Parameter` records, linked to the single protrusion
   feature's `parameter_ids` when exactly one exists;
 - `VisibGeom` plane and curve prototypes as one `DesignBody`, with face and edge counts, per-face
-  records, and shell closure proven from the curve half-edge graph;
-- warnings that sketches and B-rep face geometry remain encoded.
+  records, shell closure proven from the curve half-edge graph, and volume and centre of mass
+  computed from the decoded plane frames;
+- warnings that sketches, curved trims, and open surfaces remain encoded.
 
 Feature rows are discovered from the tag anchors documented in
 [the compound-boundary gotcha](../../Gotchas/Conversion/CreoTaggedCompoundBoundary.md): a boundary
@@ -68,7 +69,7 @@ It keeps `vendor_loadable` and `application_usable` false because this path does
 ## Limits
 
 - No independent PSB writer.
-- Feature identity, stored dimension values, surface prototypes, compact `local_sys` frames, and identifier-proven shell closure: no sketches, no measured volume or centre of mass because replayed plane origins are not yet decoded.
+- Feature identity, stored dimension values, surface prototypes, compact `local_sys` frames, identifier-proven shell closure, and convex-polyhedron volume and centroid: no sketches, no curved trims, no non-convex shells.
 - No native geometry or B-rep decoding.
 - No assembly component resolution.
 - No drawing, format, section, or layout support.

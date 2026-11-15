@@ -12,6 +12,8 @@ from interchange.enums.EnumUnits import UnitSystem
 from interchange.enums.EnumValues import ParameterRole
 from interchange.enums.EnumValues import ValueKind
 from interchange.features.FeatureBody import DesignBody
+from interchange.geometry.models.BoundingBox import BoundingBox
+from interchange.geometry.models.VectorSpace import SpaceVector
 from interchange.payloads.PayloadRecord import BrepPayload
 from interchange.payloads.PayloadRoles import PayloadRole
 from interchange.records.RecordConfig import Configuration
@@ -36,6 +38,7 @@ from convert.adapters.creo.Records import ReadFeatureRows
 from convert.adapters.creo.Stream import ReadDimensions
 from convert.adapters.creo.VisibGeom import ReadGeometry
 from convert.adapters.creo.VisibGeom import ReadLogicalObjects
+from convert.adapters.creo.VisibGeom import ReadMassProperties
 from convert.adapters.creo.VisibGeom import ReadTopology
 from convert.adapters.creo.Toc import CreoEntry
 from convert.adapters.creo.Toc import ReadSection
@@ -327,6 +330,12 @@ def ReadDocument(
                 ),
             )
     TopologyValue = ReadTopology(CurveRows, len(SurfaceRows))
+    MassValue = ReadMassProperties(SurfaceRows)
+    BoundingValue = None
+    if MassValue.minimum is not None and MassValue.maximum is not None:
+        BoundingValue = BoundingBox(
+            SpaceVector(*MassValue.minimum), SpaceVector(*MassValue.maximum)
+        )
     BodyRecords: tuple[DesignBody, ...] = ()
     if SurfaceRows and FeatureRecords:
         FaceRecords = tuple(
@@ -363,6 +372,9 @@ def ReadDocument(
                     shell_count=TopologyValue.shell_count,
                     face_count=len(SurfaceRows),
                     edge_count=len(CurveRows),
+                    vertex_count=MassValue.vertex_count,
+                    volume=MassValue.volume,
+                    bounding_box=BoundingValue,
                     valid=TopologyValue.valid,
                 ),
                 provenance=Provenance(
@@ -383,7 +395,11 @@ def ReadDocument(
                         "creo.closed_loop_count": TopologyValue.closed_loop_count,
                         "creo.shell_count": TopologyValue.shell_count,
                         "creo.solid_count": TopologyValue.solid_count,
+            "creo.volume": MassValue.volume,
+            "creo.centroid": MassValue.centroid,
                         "creo.shell_closure_proven": TopologyValue.valid,
+                        "creo.volume": MassValue.volume,
+                        "creo.centroid": MassValue.centroid,
             "creo.logical_object_count": len(LogicalObjects),
                         "creo.logical_objects": tuple(
                             FreezeMapping(
@@ -423,6 +439,8 @@ def ReadDocument(
             "creo.shell_count": TopologyValue.shell_count,
             "creo.shell_closure_proven": TopologyValue.valid,
             "creo.solid_count": TopologyValue.solid_count,
+            "creo.volume": MassValue.volume,
+            "creo.centroid": MassValue.centroid,
             "creo.dimension_count": len(DimensionRows),
             "creo.feature_history_decoded": False,
             "creo.feature_row_count": len(FeatureRows),

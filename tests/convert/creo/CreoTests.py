@@ -178,7 +178,11 @@ def TestFeatureRows() -> None:
     assert BodyValue.topology.solid_count == 0
     assert BodyValue.topology.shell_count == 0
     assert BodyValue.topology.valid is False
+    assert BodyValue.topology.volume is None
+    assert BodyValue.topology.vertex_count == 0
     assert DocumentValue.metadata["creo.shell_closure_proven"] is False
+    assert DocumentValue.metadata["creo.volume"] is None
+    assert DocumentValue.metadata["creo.centroid"] is None
     Faces = BodyValue.attributes["creo.faces"]
     assert tuple(Face["id"] for Face in Faces) == ("creo:face:77",)
     assert Faces[0]["geom_type"] == 34

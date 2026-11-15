@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import math
 import struct
 
 from convert.adapters.creo.Stream import ReadCompactAt
@@ -31,6 +32,16 @@ class CreoCurve:
     points: tuple[float, ...]
     face_ids: tuple[int | None, int | None]
     next_curve_ids: tuple[int | None, int | None]
+
+
+@dataclass(frozen=True, slots=True)
+class CreoMassProperties:
+    volume: float | None
+    centroid: tuple[float, float, float] | None
+    minimum: tuple[float, float, float] | None
+    maximum: tuple[float, float, float] | None
+    vertex_count: int
+    valid: bool
 
 
 @dataclass(frozen=True, slots=True)
@@ -69,12 +80,12 @@ def ReadDoubleAt(DataValue: bytes, Position: int) -> tuple[float | None, int]:
 def DecodeLocalSystem(
     DataValue: bytes, Offset: int
 ) -> tuple[tuple[float, ...], int]:
-    if Offset >= len(DataValue) or DataValue[Offset] != 0xF9:
-        return (), Offset
-    _RowsValue, Position = ReadCompactAt(DataValue, Offset + 1)
-    _ColsValue, Position = ReadCompactAt(DataValue, Position)
+    Position = Offset
+    if Position < len(DataValue) and DataValue[Position] == 0xF9:
+        _RowsValue, Position = ReadCompactAt(DataValue, Position + 1)
+        _ColsValue, Position = ReadCompactAt(DataValue, Position)
     Values: list[float] = []
-    while len(Values) < 9 and Position < len(DataValue):
+    while len(Values) < 12 and Position < len(DataValue):
         TokenValue = DataValue[Position]
         if 0xE4 <= TokenValue <= 0xE6 and Values:
             Values.extend([Values[-1]] * (TokenValue - 0xE3))
@@ -87,7 +98,7 @@ def DecodeLocalSystem(
         Position = NextPosition
     if len(Values) < 9:
         return (), Position
-    return tuple(Values[:9]), Position
+    return tuple(Values[:12]), Position
 
 
 def NumberValues(Value: object) -> tuple[float, ...]:
@@ -211,6 +222,187 @@ def ReadGeometry(
                 )
             )
     return tuple(Surfaces), tuple(Curves)
+
+
+def Dot(
+    LeftValue: tuple[float, float, float],
+    RightValue: tuple[float, float, float],
+) -> float:
+    return (
+        LeftValue[0] * RightValue[0]
+        + LeftValue[1] * RightValue[1]
+        + LeftValue[2] * RightValue[2]
+    )
+
+
+def Cross(
+    LeftValue: tuple[float, float, float], RightValue: tuple[float, float, float]
+) -> tuple[float, float, float]:
+    return (
+        LeftValue[1] * RightValue[2] - LeftValue[2] * RightValue[1],
+        LeftValue[2] * RightValue[0] - LeftValue[0] * RightValue[2],
+        LeftValue[0] * RightValue[1] - LeftValue[1] * RightValue[0],
+    )
+
+
+def Sub(
+    LeftValue: tuple[float, float, float], RightValue: tuple[float, float, float]
+) -> tuple[float, float, float]:
+    return (
+        LeftValue[0] - RightValue[0],
+        LeftValue[1] - RightValue[1],
+        LeftValue[2] - RightValue[2],
+    )
+
+
+def Normalize(Value: tuple[float, float, float]) -> tuple[float, float, float] | None:
+    LengthValue = math.sqrt(Dot(Value, Value))
+    if LengthValue <= 1e-12:
+        return None
+    return (Value[0] / LengthValue, Value[1] / LengthValue, Value[2] / LengthValue)
+
+
+def PlaneValue(Surface: CreoSurface) -> tuple[tuple[float, float, float], float] | None:
+    Values = Surface.local_system
+    if len(Values) < 12:
+        return None
+    NormalValue = Normalize((Values[2], Values[5], Values[8]))
+    if NormalValue is None:
+        return None
+    OriginValue = (Values[9], Values[10], Values[11])
+    return NormalValue, Dot(NormalValue, OriginValue)
+
+
+def IntersectPlanes(
+    First: tuple[tuple[float, float, float], float],
+    Second: tuple[tuple[float, float, float], float],
+    Third: tuple[tuple[float, float, float], float],
+) -> tuple[float, float, float] | None:
+    NormalValue = Cross(First[0], Second[0])
+    DeterminantValue = Dot(NormalValue, Third[0])
+    if abs(DeterminantValue) <= 1e-12:
+        return None
+    CrossValue = Cross(Second[0], Third[0])
+    FirstScale = First[1] / DeterminantValue
+    SecondScale = Second[1] / DeterminantValue
+    ThirdScale = Third[1] / DeterminantValue
+    return (
+        FirstScale * CrossValue[0]
+        + SecondScale * Cross(Third[0], First[0])[0]
+        + ThirdScale * Cross(First[0], Second[0])[0],
+        FirstScale * CrossValue[1]
+        + SecondScale * Cross(Third[0], First[0])[1]
+        + ThirdScale * Cross(First[0], Second[0])[1],
+        FirstScale * CrossValue[2]
+        + SecondScale * Cross(Third[0], First[0])[2]
+        + ThirdScale * Cross(First[0], Second[0])[2],
+    )
+
+
+def ReadMassProperties(Surfaces: tuple[CreoSurface, ...]) -> CreoMassProperties:
+    Planes = [PlaneValue(Surface) for Surface in Surfaces]
+    Planes = [Plane for Plane in Planes if Plane is not None]
+    if len(Planes) < 4:
+        return CreoMassProperties(None, None, None, None, 0, False)
+    Framed = [
+        Surface for Surface in Surfaces if len(Surface.local_system) >= 12
+    ]
+    AverageOrigin = (
+        sum(Surface.local_system[9] for Surface in Framed) / len(Framed),
+        sum(Surface.local_system[10] for Surface in Framed) / len(Framed),
+        sum(Surface.local_system[11] for Surface in Framed) / len(Framed),
+    )
+    Oriented: list[tuple[tuple[float, float, float], float]] = []
+    for NormalValue, OffsetValue in Planes:
+        if Dot(NormalValue, AverageOrigin) - OffsetValue > 0.0:
+            Oriented.append(
+                (
+                    (-NormalValue[0], -NormalValue[1], -NormalValue[2]),
+                    -OffsetValue,
+                )
+            )
+        else:
+            Oriented.append((NormalValue, OffsetValue))
+    Vertices: list[tuple[float, float, float]] = []
+    for FirstIndex in range(len(Oriented)):
+        for SecondIndex in range(FirstIndex + 1, len(Oriented)):
+            for ThirdIndex in range(SecondIndex + 1, len(Oriented)):
+                PointValue = IntersectPlanes(
+                    Oriented[FirstIndex], Oriented[SecondIndex], Oriented[ThirdIndex]
+                )
+                if PointValue is None:
+                    continue
+                if all(
+                    Dot(NormalValue, PointValue) <= OffsetValue + 1e-6
+                    for NormalValue, OffsetValue in Oriented
+                ):
+                    if not any(
+                        math.dist(PointValue, Existing) < 1e-6 for Existing in Vertices
+                    ):
+                        Vertices.append(PointValue)
+    if len(Vertices) < 4:
+        return CreoMassProperties(None, None, None, None, len(Vertices), False)
+    MinimumValue = (
+        min(Vertex[0] for Vertex in Vertices),
+        min(Vertex[1] for Vertex in Vertices),
+        min(Vertex[2] for Vertex in Vertices),
+    )
+    MaximumValue = (
+        max(Vertex[0] for Vertex in Vertices),
+        max(Vertex[1] for Vertex in Vertices),
+        max(Vertex[2] for Vertex in Vertices),
+    )
+    VolumeTotal = 0.0
+    CentroidTotal = [0.0, 0.0, 0.0]
+    for NormalValue, OffsetValue in Oriented:
+        OnPlane = [
+            Vertex
+            for Vertex in Vertices
+            if abs(Dot(NormalValue, Vertex) - OffsetValue) < 1e-6
+        ]
+        if len(OnPlane) < 3:
+            continue
+        CenterValue = (
+            sum(Vertex[0] for Vertex in OnPlane) / len(OnPlane),
+            sum(Vertex[1] for Vertex in OnPlane) / len(OnPlane),
+            sum(Vertex[2] for Vertex in OnPlane) / len(OnPlane),
+        )
+        ReferenceValue = Sub(OnPlane[0], CenterValue)
+        Ordered = sorted(
+            OnPlane,
+            key=lambda Vertex: math.atan2(
+                Dot(Cross(ReferenceValue, Sub(Vertex, CenterValue)), NormalValue),
+                Dot(ReferenceValue, Sub(Vertex, CenterValue)),
+            ),
+        )
+        for IndexValue in range(1, len(Ordered) - 1):
+            First = Ordered[0]
+            Second = Ordered[IndexValue]
+            Third = Ordered[IndexValue + 1]
+            TetraVolume = Dot(First, Cross(Second, Third)) / 6.0
+            VolumeTotal += TetraVolume
+            CentroidTotal[0] += TetraVolume * (First[0] + Second[0] + Third[0]) / 4.0
+            CentroidTotal[1] += TetraVolume * (First[1] + Second[1] + Third[1]) / 4.0
+            CentroidTotal[2] += TetraVolume * (First[2] + Second[2] + Third[2]) / 4.0
+    if abs(VolumeTotal) <= 1e-9:
+        return CreoMassProperties(
+            None, None, MinimumValue, MaximumValue, len(Vertices), False
+        )
+    VolumeValue = abs(VolumeTotal)
+    SignValue = 1.0 if VolumeTotal > 0.0 else -1.0
+    CentroidValue = (
+        SignValue * CentroidTotal[0] / VolumeValue,
+        SignValue * CentroidTotal[1] / VolumeValue,
+        SignValue * CentroidTotal[2] / VolumeValue,
+    )
+    return CreoMassProperties(
+        VolumeValue,
+        CentroidValue,
+        MinimumValue,
+        MaximumValue,
+        len(Vertices),
+        True,
+    )
 
 
 def ReadTopology(
