@@ -28,6 +28,7 @@ The returned `ExtrusionGraph` retains those node references and reports its curr
 Missing handles, mismatched driving values and unsupported depth/draft inputs cause explicit construction errors
 Lengths below `1e-14` metres fail because the native dimension constructor clamps them to zero
 The shared `Model.py` factories supply the node and component-reference base fields
+Dimension allocation binds directly to serialized `f50`, using the shared field-aware allocator
 
 Display construction uses the native null-document constructor branch and explicit design-intent input
 It does not copy document annotation style or session preferences
@@ -48,4 +49,8 @@ The [unit-vector gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/De
 No local tests or oracle measurements were run
 The Python source passed static AST syntax parsing without imports or execution
 Remote CI remains pending
+New process integration coverage writes fresh sketch and blind-end object archives into a container, decodes them, checks reference and byte identity, then edits the live forward parameter and re-encodes it
+Its geometry cases include variable vertex counts, a 10,000-line ring, crossings, touches, vertical overlaps, backtracking and valid collinear vertices
+It verifies dimension allocation and rejects construction-time non-code file access or process launches
+The component sketch archive uses a seeded external profile owner and does not establish complete part-file acceptance
 Held-out native acceptance, rebuild, body measurements, and dimension edits remain unverified

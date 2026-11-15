@@ -246,7 +246,7 @@ def feature_dimension(*, feature: Obj, dimension_id: int, value: float, angular:
     del fields["refcount"]
     fields = DerivedFields(fields=fields, derived={"refcount": lambda: len(fields["_handles"])})
     dimension = Obj("AngleDim_c" if angular else "ParallelPlaneDistanceDim_c", fields)
-    dimension["f50"] = allocator.allocate(dimension)
+    allocator.allocate(dimension, field="f50")
     if angular:
         dimension["ff8"] = 1
     handle_fields = component_reference_fields(component=None)

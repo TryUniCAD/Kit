@@ -110,7 +110,7 @@ This constructs a new presentation choice; it does not preserve an imported docu
 | Parameter node `f08`, `f0c`, `f28`, `f2c`, `f20`, `f48` | Constructor state | Native node starts ID `-1`, flag `1`, mask `0x40000000`, secondary mask zero, empty string and null `f48`; parameter constructor `0x4c19baf0` calls flag routine `0x4c03ed90` with zero and clears `f0c` to zero |
 | Parameter runtime reference count | Derived, not serialized by the current node schema | Factory call through parameter `+0x4d8` targets `0x4b2fe0b0`, incrementing runtime `+0x10` only |
 | Parameter `f68` | Constant | Setter `0x4c19cae0` clears alternate-value flag `f68`; no `f60` alternate value is emitted |
-| Dimension `f50` | Derived | `setParameterName` at `0x4c821c40` requests the model header's new ID for a new named dimension; the shared allocator supplies this ID |
+| Dimension `f50` | Derived | `setParameterName` at `0x4c821c40` requests the model header's new ID for a new named dimension; `allocate(dimension, field="f50")` binds the shared allocator directly to this serialized field, without an extra node-ID proxy |
 | Dimension `refcount` | Derived | Constructor `0x4c81f6d0` starts runtime `+0x20=0`; handle constructor `0x4c83c220` invokes `addRef` at `0x4c8205e0`; serialization at `0x4c8295c0` writes `+0x20`; the field reads the constructed handle collection length |
 | Dimension `f48`, `f30`, `f54`, `f5c`, `f60`, `f68`, `has_f78` | Constructor state | Null tolerance and attachment pointers, zero design-table and mask fields, and no name-extension string from `0x4c81f6d0` |
 | Feature-dimension points and optional geometry | Constructor state | `0x4c389df0` creates three zero points and null vector, transform and optional point pointers; flags derive from those null pointers |
@@ -176,4 +176,10 @@ No local tests, imports, reproductions, or oracle calls were run
 The edited Python sources passed static AST syntax parsing without importing or executing them
 Remote CI evidence will be recorded with the change
 The sweep change has not been executed locally; its process-boundary regression coverage must run remotely with the assembled builder
+`PolygonProcess.py` now constructs fresh profiles and dimensional graphs in an isolated subprocess, writes their binary object archives into a container, decodes them, verifies byte identity and reference identity, then edits and re-encodes the live forward parameter
+The sketch component explicitly seeds its external profile owner in the archive map; it is not a complete part or a vendor-loadability check
+Its cases cover variable N, a 10,000-line ring, crossings, touches, vertical overlap, adjacent backtracking and valid collinear edges
+It checks actual decoded dimension IDs and leaves parameter node IDs at their constructor value `-1`
+An audit hook rejects non-code file access and process launches during construction
+This coverage has only been syntax-checked locally and is pending its remote execution
 The success criteria remain unsatisfied until held-out generated files pass target opening, rebuild, geometry measurements, feature-tree inspection, and dimension editing between healthy controls
