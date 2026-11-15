@@ -55,6 +55,8 @@ The report includes usability claims, transfers, dropped capabilities, external 
 The command always uses strict reading and `allow_carrier=False`.
 It refuses native-only feature definitions or sketch geometry before writing, including in nested components.
 Retained native payloads, opaque B-rep records, and explicit incomplete assembly references or transforms are also refused.
+Local B-rep, meshes, or bodies without a feature timeline are refused, including nested documents and local assembly geometry.
+Independent parameters do not supply missing feature history; parameter-only documents without geometry remain eligible.
 Use `kit decode` or the pinned research readers to inspect those unsupported semantics.
 It does not expose an option to bypass the output policy.
 An unsuccessful policy check preserves an existing destination through the SDK staging boundary.
