@@ -20,10 +20,10 @@ def CheckSignal(
     (RootPath / ".git").mkdir(parents=True)
     SdkPath = RootPath / "src/convert"
     SdkPath.mkdir(parents=True)
-    _ = (SdkPath / "__init__.py").write_text(
-        "\n# the child must identify its own selected checkout sdk\n"
-        'KIdentity = "selected research sdk"\n'
-    )
+    _ = (SdkPath / "__init__.py").write_text("""
+# the child must identify its own selected checkout sdk
+KIdentity = "selected research sdk"
+""")
     ToolPath = RootPath / "re/automation/Controller.py"
     ToolPath.parent.mkdir(parents=True)
     _ = ToolPath.write_text(

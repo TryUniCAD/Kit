@@ -23,3 +23,5 @@ No tests, reproductions, builds, or collection ran locally.
 Static checks passed with Black 26.10.1, Ruff 0.17.4, Pyright 1.1.414, mypy 2.4.1 with silent dependency following, Bandit 1.9.4, and Prettier 3.8.3.
 Python checks covered the repaired launcher and changed modules; type checks targeted the launcher, and Bandit covered its complete new source root with the unchanged repository rule set.
 Remote checks on the repaired head and merge candidate remain required before acceptance.
+The first repaired head exposed obsolete API metadata expectations for the console entry point and source distribution, plus implicit string concatenation in a new process fixture.
+The API compatibility cases now verify the installed developer entry point, retained SDK plugin, and exact wheel source roots; the fixture uses one literal accepted by strict typing.

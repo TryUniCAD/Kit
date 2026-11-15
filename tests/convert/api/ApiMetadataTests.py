@@ -5,7 +5,7 @@ import tomllib as TomlLib
 
 from convert import convert as ConvertLegacy
 from convert.api.ApiContext import KAdapterRegistry
-from convert.Commands.MainEntry import MainEntry
+from KitCli.MainEntry import MainEntry
 from tests.convert.api.ApiTestPaths import KRootPath
 
 
@@ -15,7 +15,7 @@ def CheckEntryPoint() -> None:
     assert [
         (ItemData.group, ItemData.name, ItemData.value) for ItemData in EntryPoints
     ] == [
-        ("console_scripts", "kit", "convert.Commands.MainEntry:MainEntry"),
+        ("console_scripts", "kit", "KitCli.MainEntry:MainEntry"),
         ("kit", "convert", "convert:convert"),
     ]
     assert (
@@ -36,7 +36,7 @@ def CheckMetadata() -> None:
     ProjectData = MetadataData["project"]
     assert ProjectData["name"] == "unicad-kit"
     assert ProjectData["entry-points"] == {"kit": {"convert": "convert:convert"}}
-    assert ProjectData["scripts"] == {"kit": "convert.Commands.MainEntry:MainEntry"}
+    assert ProjectData["scripts"] == {"kit": "KitCli.MainEntry:MainEntry"}
     assert "gui-scripts" not in ProjectData
     assert ProjectData["license"] == "MIT"
     assert ProjectData["license-files"] == [
@@ -52,7 +52,13 @@ def CheckMetadata() -> None:
         "/README.md",
         "/pyproject.toml",
         "/src",
+        "/Cli",
         "/uv.lock",
+    ]
+    assert MetadataData["tool"]["hatch"]["build"]["targets"]["wheel"]["packages"] == [
+        "src/interchange",
+        "src/convert",
+        "Cli/KitCli",
     ]
     ReadmeText = (KRootPath / ProjectData["readme"]).read_text(encoding="utf-8")
     for SuffixText in (".SLDPRT", ".SLDASM", ".FCStd", ".CATPart", ".CATProduct"):
