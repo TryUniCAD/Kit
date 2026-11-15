@@ -281,8 +281,13 @@ result = CatiaAdapter().write(
   validation errors.
 - A one-face two-loop model emitted by the writer reads back as one face with two loops, six edges,
   and six vertices, and zero validation errors.
+- A three-face model whose curved surface is a torus emitted by the writer reads back with one
+  `TorusSurface` of major radius 3.0, minor radius 0.75, and axis `+z`, with zero validation errors.
+- A three-face model whose curved surface is a sphere emitted by the writer reads back with one
+  `SphereSurface` of radius 2.5, with zero validation errors.
 - `tests/convert/catia/CatiaNativeTests.py` covers the corpus reader, the box writer round trip, the
-  cylinder writer round trip, the cone writer round trip, and the two-loop writer round trip.
+  cylinder writer round trip, the cone writer round trip, the torus writer round trip, the sphere
+  writer round trip, and the two-loop writer round trip.
 - The OSMX symbol table reader now handles the extended length form (a zero length byte followed by
   a little-endian u32 length) and allows `\t`, `\n`, and `\r` in symbol values. The 27 corpus parts
   still decode with zero symbol-table failures, and the five parametric sample parts in

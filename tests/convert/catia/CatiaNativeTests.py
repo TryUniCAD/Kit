@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import math
 import struct
+from dataclasses import replace
 from pathlib import Path
 
 from convert import open_document as OpenDoc
@@ -37,6 +38,8 @@ from interchange import (
     LineCurve,
     PlaneSurface,
     SpaceVector,
+    SphereSurface,
+    TorusSurface,
 )
 
 # this binding exists because shared behavior needs one stable value
@@ -616,6 +619,95 @@ def TestBrepCyl(TmpPath: Path) -> None:
     assert abs(CylinderValue.axis.z - 1.0) < 1e-4
     assert len(Restored.brep.loops) == 3
     assert sorted(len(Value.coedge_ids) for Value in Restored.brep.loops) == [4, 4, 10]
+    assert Restored.brep.validate(frozenset({"catia:body:1"})) == ()
+
+
+# this definition exists because focused behavior needs one stable owner
+def TestBrepTorus(TmpPath: Path) -> None:
+    Model = replace(
+        CylinderModel(),
+        surfaces=CylinderModel().surfaces[:2]
+        + (
+            TorusSurface(
+                "catia:surface:3",
+                SpaceVector(0.0, 0.0, 0.0),
+                SpaceVector(0.0, 0.0, 1.0),
+                SpaceVector(1.0, 0.0, 0.0),
+                3.0,
+                0.75,
+            ),
+        ),
+    )
+    assert Model.validate(frozenset({"catia:body:1"})) == ()
+    DocValue = CadDocument(
+        source=CadSource("catia.v5", "torus.CATPart", "0" * 64),
+        configurations=(),
+        parameters=(),
+        support_planes=(),
+        sketches=(),
+        selections=(),
+        feature_timeline=(),
+        bodies=(Body("catia:body:1", "Torus", ""),),
+        brep=Model,
+    )
+    Output = TmpPath / "torus.CATPart"
+    Result = CatiaAdapter().write(
+        DocValue,
+        Output,
+        WriteOptions(validate=False, values={"native_brep": True}),
+    )
+    assert Result.metadata["mode"] == "native_brep"
+    Restored = ReadCatia(Output)
+    assert Restored.brep is not None
+    TorusValue = next(
+        Value for Value in Restored.brep.surfaces if isinstance(Value, TorusSurface)
+    )
+    assert abs(TorusValue.major_radius - 3.0) < 1e-4
+    assert abs(TorusValue.minor_radius - 0.75) < 1e-4
+    assert abs(TorusValue.axis.z - 1.0) < 1e-4
+    assert Restored.brep.validate(frozenset({"catia:body:1"})) == ()
+
+
+# this definition exists because focused behavior needs one stable owner
+def TestBrepSphere(TmpPath: Path) -> None:
+    Model = replace(
+        CylinderModel(),
+        surfaces=CylinderModel().surfaces[:2]
+        + (
+            SphereSurface(
+                "catia:surface:3",
+                SpaceVector(0.0, 0.0, 0.0),
+                SpaceVector(0.0, 0.0, 1.0),
+                SpaceVector(1.0, 0.0, 0.0),
+                2.5,
+            ),
+        ),
+    )
+    assert Model.validate(frozenset({"catia:body:1"})) == ()
+    DocValue = CadDocument(
+        source=CadSource("catia.v5", "sphere.CATPart", "0" * 64),
+        configurations=(),
+        parameters=(),
+        support_planes=(),
+        sketches=(),
+        selections=(),
+        feature_timeline=(),
+        bodies=(Body("catia:body:1", "Sphere", ""),),
+        brep=Model,
+    )
+    Output = TmpPath / "sphere.CATPart"
+    Result = CatiaAdapter().write(
+        DocValue,
+        Output,
+        WriteOptions(validate=False, values={"native_brep": True}),
+    )
+    assert Result.metadata["mode"] == "native_brep"
+    Restored = ReadCatia(Output)
+    assert Restored.brep is not None
+    SphereValue = next(
+        Value for Value in Restored.brep.surfaces if isinstance(Value, SphereSurface)
+    )
+    assert abs(SphereValue.radius - 2.5) < 1e-4
     assert Restored.brep.validate(frozenset({"catia:body:1"})) == ()
 
 
