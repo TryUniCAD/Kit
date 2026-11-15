@@ -43,14 +43,14 @@ def AssertAudit(Report: dict[str, object]) -> None:
 
 def AssertBase(Report: dict[str, object]) -> None:
     Classes = CastValue(list[str], Report["base_system_classes"])
-    Ids = CastValue(list[int], Report["base_system_ids"])
+    NodeIds = CastValue(list[int], Report["base_system_ids"])
     assert len(Classes) == 16
     assert Classes[-3:] == ["moRefPlane_c"] * 3
     assert Classes[-4] == "moDetailCabinet_c"
     assert {"moEnvFolder_c", "moEqnFolder_c", "moSolidBodyFolder_c"} <= set(Classes)
     assert Report["base_root_id"] == 0
-    assert Ids == list(range(1, len(Classes) + 1))
-    assert Report["base_next_id"] == len(Ids) + 1
+    assert NodeIds == list(range(1, len(Classes) + 1))
+    assert Report["base_next_id"] == len(NodeIds) + 1
     assert Report["base_system_flags"] == [0] * len(Classes)
     assert Report["base_flag_trace"] == [1, 0, 1]
     assert Report["base_root_flags"] == 1
