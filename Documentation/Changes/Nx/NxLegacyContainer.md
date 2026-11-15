@@ -234,6 +234,29 @@ asking the loader for it.
 `LegacyCodes(Payload)` reads that table, `nx.legacy_coded_classes` reports how many entries are set,
 and `TestNxLegacy` now pins the table alongside the frames.
 
+## Attribute names are recoverable from the modules, their class grouping is not
+
+The suggested route was to rebuild per-class attribute lists from the vendor binaries. The first half
+works and the second half does not, both measured on `libpart.dll`:
+
+```text
+AddAttribute imports in libpart.dll                                   0
+class registrations via the registrant constructor                   1538
+attribute id initialisation sites  lea rdx, [name] ; call UString ctor
+names read at those sites           partitionMembershipProperty, piecePart, position, positionControl
+libpart exports whose name contains AttId                               1
+```
+
+so the module never imports `AddAttribute`: each attribute id is a static `UString` constructed from
+a literal, and those literals are readable at the call sites. What is missing is which class each
+one belongs to. The id objects are module internals, not exports, so the export table does not carry
+the class, and the initialisation sites are not adjacent to the class registrations in the sampled
+regions.
+
+Recovering that grouping is the remaining step of the suggested route, and it is a real one rather
+than a measurement: it needs the static initialiser ordering or the object layout of the id, neither
+of which this entry establishes.
+
 ## Class layout extents do not segment the object region
 
 The last untried prediction was that a record is the size of its class's attribute layout, so the
