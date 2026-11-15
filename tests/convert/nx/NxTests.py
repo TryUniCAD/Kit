@@ -13,6 +13,7 @@ from convert.adapters.nx.PayloadBuild import ResizePayload
 from convert.adapters.nx.Construction import ConstructMiddle, ObjectCount, Record
 from convert.adapters.nx.ExprSection import (
     ExprMiddle,
+    ExprLayout,
     ExprObjectCount,
     PlainSlotCount,
     ValueSlotCount,
@@ -946,3 +947,14 @@ def TestNxNest() -> None:
     assert NestingRecord(Segments) == Record
     Canonical = RewriteNesting(bytes(len(Record) - len(Record)) + Record)
     assert Canonical == Record.replace(b"\x11", b"\x03")
+
+
+# the writer chooses the object layout rather than reproducing the source order
+def TestNxLayout() -> None:
+    assert len(ExprLayout(0)) == 6
+    for Dimensions in (1, 2, 3, 6):
+        Layout = ExprLayout(Dimensions)
+        assert len(Layout) == ExprObjectCount(Dimensions)
+        assert Layout.count("value") == ValueSlotCount(Dimensions)
+        assert Layout.count("plain") == PlainSlotCount(Dimensions)
+        assert Layout.count("record") == Dimensions

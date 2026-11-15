@@ -77,6 +77,27 @@ def ValueSlotCount(Dimensions: int) -> int:
     return 2 * Dimensions - 1
 
 
+# a writer may choose the object order so the layout is fixed here once
+def ExprLayout(Dimensions: int) -> tuple[str, ...]:
+    if Dimensions < 0:
+        raise ValueError("NX dimension count must not be negative")
+    if Dimensions == 0:
+        return ("head", "descriptor", "names", "lane", "group", "record")
+    Layout: list[str] = [
+        "head",
+        "descriptor",
+        "names",
+        "occupancy",
+        "group",
+        "group-record",
+    ]
+    for _ in range(Dimensions - 1):
+        Layout.extend(["value", "plain", "plain", "value", "plain"])
+    Layout.extend(["value", "plain", "plain", "plain", "plain"])
+    Layout.extend(["record"] * Dimensions)
+    return tuple(Layout)
+
+
 def PlainSlotCount(Dimensions: int) -> int:
     if Dimensions < 1:
         raise ValueError("NX dimension count must be at least one")
@@ -150,6 +171,7 @@ def Adopt(SectionBody: bytes, Middle: bytes) -> bytes:
 
 __all__ = [
     "Adopt",
+    "ExprLayout",
     "ExprObjectCount",
     "PlainSlotCount",
     "ValueSlotCount",

@@ -246,3 +246,22 @@ class table.
   only five one-byte records (112 to 116) are tolerated when invalid, so 209 of
   214 records must be emitted correctly. Truncating the graph to 4, 20 or 100
   records, and mutating a class identifier in the header, are also refused.
+
+## The writer-chosen layout
+
+`ExprSection.ExprLayout(Dimensions)` fixes the object order the writer will use, so the
+composer does not have to reproduce the source's arrangement:
+
+```text
+d = 0        head descriptor names lane group record
+d >= 1       head descriptor names occupancy group group-record
+             then per dimension except the last: value plain plain value plain
+             then the last dimension:              value plain plain plain plain
+             then d records
+
+d = 3  24 objects   5 value   10 plain   3 record
+d = 6  42 objects  11 value   19 plain   6 record
+```
+
+`TestNxLayout` asserts the layout length and kind counts agree with `ExprObjectCount`,
+`ValueSlotCount` and `PlainSlotCount` for one, two, three and six dimensions.
