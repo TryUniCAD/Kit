@@ -375,8 +375,31 @@ introductions, with per-plane frames, and with per-plane frames and outlines. Th
 those were also malformed, because the byte range used as the csys tail was really element two, so
 they declared three elements and carried five.
 
-So the remaining difference is inside elements two and three, and the next probe is the leftover
-per-plane fields (`orient`, `geometry2_id`, `transf`, `trn_arr` type, `step_ids`).
+The remaining difference was structural. A second array element written in definition form re-declares
+every field, which appends those names to the shared global field table; everything after the array
+then reads through a shifted index, so the `feat_defs_979` record resolves to the wrong fields and the
+load crashes.
+
+`Author.DatumPlaneReplay` emits the replay form instead: no field headers, `f7 02` lead for element
+two, no lead for element three, and the control's field selectors. Both elements are byte-identical:
+
+```text
+element 2: ref 139 mine 139 equal True
+element 3: ref 123 mine 123 equal True
+```
+
+With the three authored elements and a datum extent of `200.0` rather than the control's
+`254.33012701892218`, 56 bytes differ and Creo loads the part:
+
+```text
+payload len 1428  control 1428  bytes that differ: 56
+authored 923 array: 1037  csys tail still vendor-sourced: 351 bytes
+!15-Nov-26 02:04:32  End   C:\Mac\Home\Documents\creo-authored\dtm11.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid
+```
+
+So `FeatDefsDtm`'s datum array is authored and accepted. The `feat_defs_979` csys field remains 351
+vendor-sourced bytes and is the last generated gap in the section.
 
 ## Limits
 

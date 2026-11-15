@@ -556,3 +556,47 @@ def DatumPlaneRecord(
     Payload += StructHeader("embed_info_ptr") + b"\xE1"
     Payload += CloseValue(1)
     return Payload
+
+
+def DatumPlaneReplay(
+    DatumId: int,
+    Orient: int,
+    Geometry2Id: int,
+    Columns: tuple[tuple[float, ...], ...],
+    Outline: tuple[float, ...],
+    InstructionType: int,
+    Lead: bytes = b"\xF7\x02",
+) -> bytes:
+    Frame = tuple(Value for Column in Columns for Value in Column)
+    Payload = Lead + b"\xE3"
+    Payload += IntValue(DatumId)
+    Payload += b"\xF6"
+    Payload += IntValue(2)
+    Payload += b"\xE1\xE3"
+    Payload += RunValues(Frame)
+    Payload += b"\xF6"
+    Payload += IntValue(Orient)
+    Payload += b"\xF8\x01\xF7\x0B\xFB\xE3"
+    Payload += b"\xF7\x0C" + IntValue(InstructionType)
+    Payload += ScalarValue(0.0)
+    Payload += b"\xF6\xF6\xF6"
+    Payload += IntValue(Geometry2Id)
+    Payload += b"\x00\x00"
+    Payload += b"\xC0\x80\x00\x00\xE4"
+    Payload += b"\xF8\x02\xF7\x15\xFB\xE3"
+    Payload += b"\xF7\x16" + IntValue(1)
+    Payload += b"\xF7\x17\xE3\xF5\x04"
+    Payload += IntValue(5)
+    Payload += ScalarValue(0.0)
+    Payload += b"\xE3" + IntValue(6)
+    Payload += b"\xF7\x1B\xE3\xF5\x64\x00"
+    Payload += ScalarValue(0.0)
+    Payload += b"\xE4"
+    Payload += b"\xF8\x01\xF7\x1F\xFB\xE3"
+    Payload += b"\xF7\x20" + IntValue(11)
+    Payload += b"\xF6" + IntValue(0)
+    Payload += RunValues(Frame)
+    Payload += b"\xE1\xE1\xF6\xE1\xE1\xF6\xE1\xE1\xE3"
+    Payload += RunValues(Outline)
+    Payload += b"\xE1\xE1\xE1\xE3\xC0\xAB\xCD\xE1\xE1"
+    return Payload

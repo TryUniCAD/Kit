@@ -107,9 +107,37 @@ The first three attempts were also invalid on their own account: the byte range 
 "`feat_defs_979` tail" was really the start of element two, so those candidates carried five
 elements under an `f8 03` count. Only the last two attempts spliced correctly.
 
-So the section needs the records, and the remaining difference is still inside elements two and
-three. Everything named above is now parameterised, so the next probe is the leftover per-plane
-fields (`orient`, `geometry2_id`, `transf`, `trn_arr` type, `step_ids`).
+## Elements two and three must be replays
+
+The remaining difference was structural, not a value. A second element written in definition form
+re-declares every field with `e0 <type> <name> 00`, which **appends those names to the shared global
+field table**. Everything after the array is then read through a shifted index, so the `feat_defs_979`
+record resolves to the wrong fields and the model load crashes.
+
+`Author.DatumPlaneReplay` emits the replay form: no field headers, a `f7 02` lead for element two, no
+lead for element three, and the field selectors the control uses (`f7 0c` type, `f7 16`, `f7 17`,
+`f7 1b`, `f7 20`). Both elements are now byte-identical to the control:
+
+```text
+element 2: ref 139 mine 139 equal True
+element 3: ref 123 mine 123 equal True
+```
+
+## Accepted by Creo
+
+With all three `feat_defs_923` elements authored and the datum extent set to `200.0` instead of the
+control's `254.33012701892218`, 56 bytes of the section differ and Creo still loads:
+
+```text
+payload len 1428  control 1428  bytes that differ from control: 56
+authored 923 array: 1037  csys tail still vendor-sourced: 351 bytes
+
+!15-Nov-26 02:04:32  End   C:\Mac\Home\Documents\creo-authored\dtm11.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid
+```
+
+So the authored datum array is accepted with our own values. The `feat_defs_979` csys field is still
+351 vendor-sourced bytes, and it is the last content in the section that is not generated.
 
 ## Next
 
