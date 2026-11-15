@@ -116,6 +116,39 @@ the builder is created from `NXOpen.Features.Chamfer.Null`, and `GetTargets` doe
 exist on it. `FirstOffset` is a string, so the offsets are set by text rather than by an
 expression object.
 
+## Entry length, and the correction to the length claim
+
+The insertion-ordinal test above reported that "every one changes length". That was measured on
+the number of base-128 fields, not on the entry's byte length, and it is wrong. Measured properly,
+decoding each entry as one little-endian base-128 integer:
+
+```text
+empty -> dim40 byte lengths, classes common to both
+  12 -> 12   57 classes
+  12 -> 13   35 classes
+  13 -> 13   13 classes
+  11 -> 11   12 classes
+```
+
+so **35 of 128 entries grow by one byte and 93 keep their length**, which is what a small
+increment on a large packed value looks like: a base-128 digit only carries when the top digit
+crosses 127. The earlier "every entry changes" statement is retracted.
+
+The value deltas also decompose into powers of two rather than being scattered:
+
+```text
+604462909807314587615232   16 classes   = 2^79 + 2^18
+604462909807314587648000    8 classes   = 2^79 + 2^18 + 2^15
+4722366482869645215744      5 classes
+2048                        4 classes    = 2^11
+262144                      3 classes    = 2^18
+```
+
+so the per-set change is a small set of bit positions, not a rehash. That is consistent with the
+entry being a packed value whose low bits carry a per-set counter, and it is the strongest
+evidence yet that the entry is structured rather than derived by hashing. The per-class constant
+is still not derived.
+
 ## The insertion-ordinal model is refuted
 
 The last derivation class worth testing was that an entry's changing value is the number of
