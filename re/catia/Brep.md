@@ -1076,6 +1076,65 @@ and the header chain covers only the bodies. Locating it needs either a ground-t
 deeper trace of `ReadHeaderObjectAt` at `0x1800a56a0`, which is a 0x740-byte function with inline
 buffer reads and no calls to the `Read*` helpers.
 
+## The stream is a chain of self-describing records
+
+`ReadHeaderObjectAt` computes the next offset from the header it just parsed. At `0x1800a5d3e` it
+stores the current offset, then at `0x1800a5d49` reads a dword at `0x10(header)`, at `0x1800a5d5b`
+reads a dword at `0x14(header)`, and at `0x1800a5d62` writes:
+
+```
+next = offset + header[0x10] + header[0x14]
+```
+
+So each header carries its own size, and the chain tiles the stream. The header struct fields are
+`+0` byte flags, `+2` word, `+4` dword, `+8` qword, `+0x10` dword, `+0x14` dword, `+0x18` word,
+`+0x19` byte, `+0x1a` byte.
+
+For `Reservoir` the chain is:
+
+| Offset | Size | Region |
+| ---: | ---: | --- |
+| 8 | 46 | body 1 |
+| 54 | 47 | body 2 |
+| 101 | 52 | body 3 |
+| 153 | 53 | body 4 |
+| 206 | 363 | two-bit block |
+| 569 | 11808 | coordinate table |
+| 12377 | 6430 | `42 ff` block |
+| 18807 | 8228 | trim chain |
+| 27035 | 568 | face-outer-bound run |
+| 27603 | 2170 | edge table |
+| 29773 | 1323 | vertex table |
+| 31096 | 60 | tail |
+
+The sizes sum to exactly 31156, the stream length, so the chain is complete and the twelve regions
+tile the stream with no gaps. That means the face bodies are not top-level records: they are inside
+one of these twelve regions, and the only region large enough to hold 71 face bodies with a
+linked-object count and two object references each is the 8228-byte trim chain (about 116 bytes per
+face).
+
+So the trim chain is the face-body region, and the trim record must be preceded by the linked-object
+data inside the same record. The trim record parser starts at `01 <kind>` and consumes the kind,
+counts, total, vector, lengths, and handles, so the linked-object data is either before the `01` or
+the `01` is itself the linked-object count. Neither reading has been confirmed.
+
+Reading the `01` as a linked-object count and the following bytes as an object reference does not
+work. Decoding the object index with the 4-bit varint from `ReadULongWithSign` and the tag with
+`ReadTagFromTagDifference` gives:
+
+```
+trim 0 at 18807: count 1 index 45343 sign 1 tag -1 next 18816
+trim 1 at 18857: tag difference width 16 is out of range
+trim 2 at 19020: count 1 index 559 sign 1 tag -1 next 19027
+trim 3 at 19046: count 1 index 1071 sign 1 tag -1 next 19054
+trim 4 at 19080: count 1 index 287 sign 1 tag -2 next 19085
+trim 5 at 19094: count 1 index 26671 sign 1 tag 12 next 19100
+```
+
+The indices are far too large for an object table of 130 objects, the tags are mostly `-1`, and the
+second record fails outright, so the `01` is not a linked-object count followed by an object
+reference.
+
 A constraint solver over the geometry does not converge. Treating each face as a variable over the
 surfaces of its planarity class, and each two-face handle group as a constraint that the two
 surfaces must share a vertex-table point, then running arc consistency to a fixed point, leaves 12
