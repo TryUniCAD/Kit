@@ -21,7 +21,9 @@ The confirmed grammar is recorded in
   stored count;
 - `next_feat_ptr` restarts the field index at the feature schema's first field;
 - `e1` is null, `e2`/`e3` begin a structure, `e4`-`e7` repeat, `f5` negates, `f6` is -1, `fb`
-  closes an array.
+  closes an array;
+- array-element names such as `ref_geom[0]` and `ref_geom[1]` are distinct global-table
+  entries, so dropping them shifts every later index.
 
 ## Use
 
@@ -60,7 +62,7 @@ End-to-end section coverage:
 | `BasicData` | 797 nodes, complete | 811 nodes, complete |
 | `SolidPrimdata` | 40 nodes, complete | 143 nodes, complete |
 | `FeatDefs` | section absent | 753 nodes, stops at `0xd91` |
-| `VisibGeom` | 2 nodes, complete | 225 nodes, stops at `0x572` |
+| `VisibGeom` | 2 nodes, complete | 112 nodes, stops at `0x2f7` |
 
 `FeatDefsDtm` (`Sld_FeatDefsDtm`) also decodes the datum placement records. The first record is the
 `FRONT` datum with `id = 7`, `type = 515`, `offset = 1.0`, `geometry2_id = 8`, and
@@ -89,12 +91,12 @@ surface and `feat_id = 74` is the owning feature. Its `envlp` decodes to
 `[184.50782059963194, 86.06680966899467, -154.4303300690026, -115.65227549271083]` and its
 `outline` to
 `[184.50782059963194, 1.0, 115.65227549271083, -154.4303300690026, 1.0, -86.06680966899467]`.
-The parser now reaches `0x572` and 225 nodes through the plane and curve prototypes. The
+The parser now reaches `0x2f7` and 112 nodes through the plane and curve prototypes. The
 `local_sys` frame is a 4x3 matrix; the `0x10` byte is the one-byte 1.0 constant in that lane.
 
 ## Limits
 
-- `FeatDefs` stops at `0xd91` and `VisibGeom` at `0x572`. In both, the parser lands on an `0xfc`
+- `FeatDefs` stops at `0xd91` and `VisibGeom` at `0x2f7`. In both, the parser lands on an `0xfc`
   byte inside a `46 <tail7>` world double, which means the field index is one or more fields out of
   step at that record, not that the token is unknown.
 - `AllFeatur`, `FeatDefsDtm`, `NovisGeom`, `BasicData`, and `SolidPrimdata` decode end-to-end on

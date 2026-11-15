@@ -31,6 +31,10 @@ KOneByteDouble = {
     0x18: 1.0,
 }
 
+KNameChars = frozenset(
+    b"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_()[] .:-+"
+)
+
 KStructural = frozenset(
     {0xE0, 0xE1, 0xE2, 0xE3, 0xF1, 0xF2, 0xF3, 0xF4, 0xF7, 0xF8, 0xF9, 0xFB}
 )
@@ -134,7 +138,7 @@ def ScanFields(data: bytes) -> list["FieldDef"]:
                 if (
                     name
                     and all(32 <= value < 127 for value in name)
-                    and all(chr(value).isalnum() or value in b"_()" for value in name)
+                    and all(value in KNameChars for value in name)
                 ):
                     fields.append(FieldDef(name.decode("latin-1"), type_id))
                     position = end + 1

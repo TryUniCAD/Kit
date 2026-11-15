@@ -45,7 +45,7 @@ Both controls' `AllFeatur` now decode end-to-end, including the footer
 must not override a fresh `f8`/`f9` header at the same field; with that rule the ladder's
 1015-node row stream stays aligned and exposes the extrude class `917`.
 `FeatDefsDtm`, `NovisGeom`, `BasicData`, and `SolidPrimdata` also decode end-to-end.
-`FeatDefs` reaches `0xd91` and `VisibGeom` reaches `0x572`; both stop on an `0xfc` byte inside a
+`FeatDefs` reaches `0xd91` and `VisibGeom` reaches `0x2f7`; both stop on an `0xfc` byte inside a
 `46 <tail7>` world double, so the field index is out of step there rather than hitting an unknown
 token.
 

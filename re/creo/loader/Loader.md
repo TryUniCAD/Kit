@@ -190,6 +190,11 @@ The confirmed grammar is:
    or three times. `e1` also terminates a numeric array instead of being read as an
    integer. Cadmpeg records the same repeat meaning (`e5` emits two copies of the
    preceding value) and the same `e1` null token.
+8. Array-element field names such as `ref_geom[0]` and `ref_geom[1]` are distinct
+   entries in the global table, exactly like scalar field names. Dropping them shifts
+   every later index, so the scanner accepts `[]` in a name. `VisibGeom` defines 74
+   such fields; a filter without brackets recovers only 68 and desynchronises the
+   later records.
 
 The parser decodes the full `AllFeatur` feature chain of both controls:
 
@@ -224,7 +229,7 @@ Section coverage after the fixes:
 | `BasicData` | complete, 797 nodes | complete, 811 nodes |
 | `SolidPrimdata` | complete, 40 nodes | complete, 143 nodes |
 | `FeatDefs` | section absent | stops at `0xd91`, 753 nodes |
-| `VisibGeom` | complete, 2 nodes | stops at `0x572`, 225 nodes |
+| `VisibGeom` | complete, 2 nodes | stops at `0x2f7`, 112 nodes |
 
 `FeatDefs` and `VisibGeom` stop on `0xfc`, which lies inside a `46 <tail7>` world double. The field
 index is therefore one or more fields out of step by that point, not hitting an unknown token. That
