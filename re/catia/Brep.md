@@ -1545,6 +1545,26 @@ therefore gives a partial face-to-surface map but not a unique one, because many
 cylinders share a radius (0.5, 1.0, 2.0, 2.5, 3.0, 7.5, 17.5, 19.0, 20.5, 22.0). The map still
 needs the PCurve surface tag or a controlled corpus.
 
+## The edge arity is a varint
+
+The edge row is `02 <arity> <handles>`, and the arity is a varint, not a single byte. When the byte
+is `0xff` the next four bytes are a little-endian u32 arity. `4876` has one such row at
+`MainDataStream` offset 198388: `02 ff fd 03 00 00` is arity 1021, followed by 1021 two-byte
+handles, and the next row starts at 200436. Reading the arity as a single byte breaks the table at
+row 1381 and leaves 642 of the 2023 edges unparsed. With the varint the table parses to the
+delimiter at 208174, then the second group (kind 2, 411 rows), then the vertex table (kind 6, 1624
+rows). The same varint is used by the group count and the vertex count.
+
+## The inferred map decodes all 27 parts
+
+With the varint and an inferred face-to-surface map, all 27 corpus parts decode and validate. The
+map is built from the `00 33 37` edge records: a plane face takes the plane surface whose center has
+the same offset along the trim normal as the edge circle centers, a cylinder face takes the cylinder
+surface with the edge circle radius, and the remaining faces take the least-used surface whose kind
+is compatible with the trim kind. The fallback count is 17/71 for `Reservoir`, 143/338 for
+`Pedal_Body`, 336/416 for `4784`, and 722/870 for `4876`, so the map is approximate for those parts.
+The reader marks them with `catia.brep.native_surface_map_heuristic`.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.

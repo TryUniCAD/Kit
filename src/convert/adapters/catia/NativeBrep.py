@@ -47,6 +47,23 @@ from interchange import (
 # this binding exists because shared behavior needs one stable value
 KBodyId = "catia:body:1"
 
+# this binding exists because shared behavior needs one stable value
+KTrimSurfaces = {
+    0x41: frozenset({0x34, 0x38}),
+    0x42: frozenset({0x33, 0x34, 0x38}),
+    0x43: frozenset({0x33, 0x34, 0x35, 0x38}),
+    0x44: frozenset({0x34}),
+    0x45: frozenset({0x34}),
+    0x46: frozenset({0x34}),
+    0x47: frozenset({0x33, 0x34, 0x35}),
+    0x4A: frozenset({0x32}),
+    0x4B: frozenset({0x32}),
+    0x4C: frozenset({0x32}),
+    0x4D: frozenset({0x32}),
+    0x4E: frozenset({0x32}),
+    0x4F: frozenset({0x32}),
+}
+
 
 # this definition exists because focused behavior needs one stable owner
 @dataclass(frozen=True, slots=True)
@@ -58,6 +75,7 @@ class BrepData:
     roster: tuple[VertRec, ...]
     width: int
     tessellation: tuple[tuple[float, float], ...] = ()
+    heuristic: bool = False
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -123,6 +141,123 @@ def ParseSurfaces(SourceData: bytes) -> list[SurfaceRec]:
 
 
 # this definition exists because focused behavior needs one stable owner
+def ParseEdgeCircles(
+    SourceData: bytes,
+) -> tuple[tuple[int, int, tuple[float, float, float], float], ...]:
+    Rows: list[tuple[int, int, tuple[float, float, float], float]] = []
+    Cursor = 0
+    Limit = len(SourceData) - 8
+    while Cursor <= Limit:
+        if SourceData[Cursor] == 0x60:
+            CountValue = SourceData[Cursor + 5]
+            if (
+                SourceData[Cursor + 6 : Cursor + 8] == b"\x00\x33"
+                and SourceData[Cursor + 8] == 0x37
+                and CountValue >= 18
+            ):
+                Data = SourceData[Cursor + 9 : Cursor + 9 + CountValue]
+                Center = struct.unpack_from(">3f", Data, 0)
+                Radius = abs(struct.unpack_from(">f", Data, 12)[0])
+                Rows.append((Data[-2], Data[-1], Center, Radius))
+                Cursor += 9 + CountValue
+                continue
+        if (
+            SourceData[Cursor : Cursor + 2] == b"\x00\x33"
+            and SourceData[Cursor + 2] == 0x37
+        ):
+            CountValue = SourceData[Cursor - 1]
+            if CountValue >= 18:
+                Data = SourceData[Cursor + 3 : Cursor + 3 + CountValue]
+                Center = struct.unpack_from(">3f", Data, 0)
+                Radius = abs(struct.unpack_from(">f", Data, 12)[0])
+                Rows.append((Data[-2], Data[-1], Center, Radius))
+                Cursor += 3 + CountValue
+                continue
+        Cursor += 1
+    return tuple(Rows)
+
+
+# this definition exists because focused behavior needs one stable owner
+def AssignSurfaces(
+    Surfaces: list[SurfaceRec],
+    Trims: tuple[TrimRec, ...],
+    SurfData: bytes,
+) -> tuple[SurfaceRec, ...]:
+    FaceCount = len(Trims)
+    Circles = ParseEdgeCircles(SurfData)
+    Cylinders: list[int] = []
+    Planes: list[int] = []
+    for Index, Value in enumerate(Surfaces):
+        if Value.kind == 0x33 and len(Value.params) >= 6:
+            Cylinders.append(Index)
+        elif Value.kind == 0x32:
+            Planes.append(Index)
+    Assigned: list[int | None] = [None] * FaceCount
+    Load: dict[int, int] = {}
+    for Face, TrimValue in enumerate(Trims):
+        if TrimValue.vector is None:
+            continue
+        Normal = Normalize(TrimValue.vector)
+        Offsets = [
+            sum(A * B for A, B in zip(Normal, Center))
+            for FaceA, FaceB, Center, _ in Circles
+            if Face in (FaceA, FaceB)
+        ]
+        if not Offsets:
+            continue
+        Best = None
+        BestError = 1e9
+        for Candidate in Planes:
+            Center = Surfaces[Candidate].bounds[:3]
+            Error = min(
+                abs(sum(A * B for A, B in zip(Normal, Center)) - Offset)
+                for Offset in Offsets
+            )
+            if Error < BestError - 1e-6:
+                BestError = Error
+                Best = Candidate
+        if Best is not None and BestError < 1e-2:
+            Assigned[Face] = Best
+            Load[Best] = Load.get(Best, 0) + 1
+    for Face, TrimValue in enumerate(Trims):
+        if Assigned[Face] is not None:
+            continue
+        if TrimValue.kind not in (0x42, 0x43, 0x47):
+            continue
+        Radii = [
+            Radius for FaceA, FaceB, _, Radius in Circles if Face in (FaceA, FaceB)
+        ]
+        if not Radii:
+            continue
+        Best = None
+        BestError = 1e9
+        for Candidate in Cylinders:
+            Radius = abs(Surfaces[Candidate].params[5])
+            Error = min(abs(Radius - Value) for Value in Radii)
+            if Error < BestError - 1e-6:
+                BestError = Error
+                Best = Candidate
+        if Best is not None and BestError < 1e-2:
+            Assigned[Face] = Best
+            Load[Best] = Load.get(Best, 0) + 1
+    for Face, TrimValue in enumerate(Trims):
+        if Assigned[Face] is not None:
+            continue
+        Allowed = KTrimSurfaces.get(TrimValue.kind, frozenset(KSurfaceKinds))
+        Candidates = [
+            Index for Index, Value in enumerate(Surfaces) if Value.kind in Allowed
+        ]
+        if not Candidates:
+            Candidates = list(range(len(Surfaces)))
+        Best = min(Candidates, key=lambda Value: Load.get(Value, 0))
+        Assigned[Face] = Best
+        Load[Best] = Load.get(Best, 0) + 1
+    if any(Value is None for Value in Assigned):
+        raise ValueError("surface assignment is incomplete")
+    return tuple(Surfaces[Value] for Value in Assigned if Value is not None)
+
+
+# this definition exists because focused behavior needs one stable owner
 def ParseBrep(Archive: CfvTwoArchive) -> BrepData:
     if not Archive.nested:
         raise ValueError("nested container is missing")
@@ -134,11 +269,6 @@ def ParseBrep(Archive: CfvTwoArchive) -> BrepData:
     Surfaces = ParseSurfaces(SurfData)
     Roster = ParseRoster(SurfData)
     FbbOffset, FaceCount = FindFbb(MainData)
-    if len(Surfaces) != FaceCount:
-        raise ValueError(
-            "surface count does not match the face count ("
-            + f"{len(Surfaces)} surfaces, {FaceCount} faces)"
-        )
     EdgeOffset = FbbOffset + 8 * FaceCount
     for Width in (1, 2, 3):
         try:
@@ -148,20 +278,27 @@ def ParseBrep(Archive: CfvTwoArchive) -> BrepData:
         except (IndexError, ValueError):
             continue
         if len(Trims) == FaceCount and len(Vertices) == len(Roster):
+            Heuristic = len(Surfaces) != FaceCount
+            FaceSurfaces = (
+                list(AssignSurfaces(Surfaces, Trims, SurfData))
+                if Heuristic
+                else Surfaces
+            )
             Radii = tuple(
                 abs(Value.params[5])
-                for Value in Surfaces
+                for Value in FaceSurfaces
                 if Value.kind == 0x33 and len(Value.params) >= 6
             )
             Tessellation = TessellationPoints(MainData, Radii) if Radii else ()
             return BrepData(
-                tuple(Surfaces),
+                tuple(FaceSurfaces),
                 Trims,
                 Edges,
                 Vertices,
                 Roster,
                 Width,
                 Tessellation,
+                Heuristic,
             )
     raise ValueError("topology spine is unsupported")
 
@@ -856,7 +993,7 @@ def DecodeBrep(
                 Severity.WARNING,
             ),
         )
-    return Model, (
+    Diagnostics = [
         Diagnostic(
             "catia.brep.native_decoded",
             "CATIA tessellation-derived topology and surface bounds were decoded.",
@@ -867,5 +1004,14 @@ def DecodeBrep(
                 "vertex_count": len(Model.vertices),
                 "surface_count": len(Model.surfaces),
             },
-        ),
-    )
+        )
+    ]
+    if BrepValue.heuristic:
+        Diagnostics.append(
+            Diagnostic(
+                "catia.brep.native_surface_map_heuristic",
+                "The face-to-surface map was inferred from edge circles and trim normals because the stored map was not located; geometry is approximate for this part.",
+                Severity.WARNING,
+            )
+        )
+    return Model, tuple(Diagnostics)

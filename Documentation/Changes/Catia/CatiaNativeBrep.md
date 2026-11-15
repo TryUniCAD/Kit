@@ -106,8 +106,25 @@ planarity sequence. For the five parts with fewer surfaces than faces, the surfa
 sequence is only a subsequence of the face planarity sequence, and that is not enough to order the
 list: a monotone surjection from faces to surfaces exists for `Reservoir` and `Pedal_Body` but is
 non-unique (12600 and 1.3e20 solutions), and does not exist at all for `4784`, `4876`, and `4876_1`.
-The reader still requires the two counts to match, because the face-to-surface reference is not
-decoded and planarity does not determine it.
+
+The reader now decodes those five parts with an inferred map instead of rejecting them. The map is
+built from the `00 33 37` edge records, which carry a face pair and the edge circle. A plane face is
+matched to the plane surface whose center has the same offset along the face's trim normal as the
+edge circle centers. A cylinder face is matched to the cylinder surface whose radius equals the edge
+circle radius. The remaining faces are matched to the least-used surface whose kind is compatible
+with the trim kind. The result is a total map, so all 27 corpus parts decode, but the map is
+inferred, not decoded: 17 of 71 `Reservoir` faces, 143 of 338 `Pedal_Body` faces, 336 of 416 `4784`
+faces, and 722 of 870 `4876` faces fall through to the least-used fallback. The reader emits a
+`catia.brep.native_surface_map_heuristic` warning for those parts, and their geometry is approximate.
+
+The correct map is the composition face -> loop -> edge -> PCurve -> surface. `CATCXFace::Stream`
+(`0x18054eba0`) writes only the loop count, the loops, `SurfaceOrientation`, and `IsInfinite`, and
+`CATCXBody::Stream` (`0x180542210`) writes three element groups with no face-to-surface array. The
+surface is named by the edge's `CATPCurveEquation`, whose Stream (`0x1800bf2b0` in
+`CATGeometricObjectsCGM.dll`) writes the linked-object count, the surface, four doubles, and two
+`CATMathFunctionGeneral` streams. The PCurve record is not located in `MainDataStream` or
+`SurfacicReps`: a scan for four doubles followed by a function domain byte and type gives no hits,
+and the concrete function class is caller-supplied, so the record has no fixed signature.
 
 The reference encoding is now recovered from the binaries, though the header offset is not. A face
 takes its surface from the first entry of the linked-object list that the generic object header
@@ -160,16 +177,18 @@ result = CatiaAdapter().write(
 
 ## Limits
 
-- The reader decodes 22 of 27 corpus parts. Five parts use a shared surface pool or an unsupported layout.
+- The reader decodes 27 of 27 corpus parts. Five parts use a shared surface pool, and their
+  face-to-surface map is inferred rather than decoded, so their geometry is approximate and they
+  carry a `catia.brep.native_surface_map_heuristic` warning.
 - Surface records in `SurfacicReps` are interleaved with curve records. The reader scans for the
   `00 33 <kind>` marker and validates each record instead of parsing contiguously, so the full
-  surface pool is recovered for every part. The five failing parts still fail because they have
-  fewer surfaces than faces and the face-to-surface reuse map is not decoded. The pooling is
-  entirely among non-planar faces: the planar face count equals the plane-surface count exactly in
-  every pooled part (13/13, 66/66, 91/91, 359/359, 359/359), and the deficit equals the non-planar
-  face count minus the non-planar surface count. Planes are never shared; cylinders, cones, spheres,
-  and tori are. The stream preambles carry payload lengths, not an object-header table, so the
-  object table is built at load time.
+  surface pool is recovered for every part. The five pooled parts have fewer surfaces than faces,
+  and the face-to-surface reuse map is not decoded. The pooling is entirely among non-planar faces:
+  the planar face count equals the plane-surface count exactly in every pooled part (13/13, 66/66,
+  91/91, 359/359, 359/359), and the deficit equals the non-planar face count minus the non-planar
+  surface count. Planes are never shared; cylinders, cones, spheres, and tori are. The stream
+  preambles carry payload lengths, not an object-header table, so the object table is built at load
+  time.
 - The handle-to-point map is not decoded. The reader's vertex positions are a structural
   approximation, so the decoded geometry is not the file's geometry even for the 22 parts that pass
   validation. The handle count exceeds the B-rep vertex count (`Reservoir` 1431 handles and 88
@@ -200,11 +219,15 @@ result = CatiaAdapter().write(
 
 ## Verification
 
-- `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
+- `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts with the exact map and 27 of 27 with the
+  inferred map.
 - `re/catia/tooling/BuildModel.py` validates every decoded model with zero errors.
-- The marker scan returns exactly the face count for all 22 passing parts and the full surface pool
-  for the five failing parts: 270, 714, 714, 314, and 56 records for `4784`, `4876`, `4876_1`,
+- The marker scan returns exactly the face count for all 22 exact parts and the full surface pool
+  for the five pooled parts: 270, 714, 714, 314, and 56 records for `4784`, `4876`, `4876_1`,
   `Pedal_Body`, and `Reservoir`.
+- The inferred map decodes all five pooled parts: 71, 338, 416, 870, and 870 faces, each with a
+  matching surface list and zero validation errors. The heuristic warning is present on exactly
+  those five parts.
 - A six-face box emitted by the writer reads back as six faces, twelve edges, and eight vertices
   with zero validation errors.
 - A three-face cylinder (two planes and one cylinder) emitted by the writer reads back as three

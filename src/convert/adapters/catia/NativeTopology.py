@@ -168,8 +168,8 @@ def ParseEdge(
         for _ in range(CountValue):
             if SourceData[Cursor] != 0x02:
                 raise ValueError("edge row is missing")
-            Arity = SourceData[Cursor + 1]
-            Cursor += 2
+            RowStart = Cursor
+            Arity, Cursor = Count(SourceData, Cursor + 1)
             Handles = tuple(
                 int.from_bytes(
                     SourceData[Cursor + Width * Index : Cursor + Width * (Index + 1)],
@@ -178,7 +178,7 @@ def ParseEdge(
                 for Index in range(Arity)
             )
             Cursor += Arity * Width
-            RowValues.append(EdgeRec(Arity, Handles, Cursor - Arity * Width - 2))
+            RowValues.append(EdgeRec(Arity, Handles, RowStart))
         if SourceData[Cursor : Cursor + 8] == KDelimiter:
             Cursor += 8
     return tuple(RowValues), Cursor

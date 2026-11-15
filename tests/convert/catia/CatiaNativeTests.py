@@ -9,6 +9,7 @@ from convert.adapters.catia.Adapter import CatiaAdapter, ReadCatia
 from convert.adapters.catia.Container import CfvTwoArchive
 from convert.adapters.catia.NativeBrep import (
     BuildVertices,
+    DecodeBrep,
     DecodeTessellation,
     LocalFrame,
     ParseBrep,
@@ -175,7 +176,19 @@ def TestBrepCorpus() -> None:
         assert DocValue.brep.faces
         assert DocValue.brep.edges
         assert DocValue.brep.vertices
-    assert Decoded >= 22
+    assert Decoded >= 27
+
+
+# this definition exists because focused behavior needs one stable owner
+def TestBrepHeuristicMap() -> None:
+    Archive = CfvTwoArchive.from_bytes((KCatparts / "Reservoir.CATPart").read_bytes())
+    Model, Diagnostics = DecodeBrep(Archive)
+    assert Model is not None
+    assert any(
+        Value.code == "catia.brep.native_surface_map_heuristic" for Value in Diagnostics
+    )
+    assert len(Model.faces) == 71
+    assert len(Model.surfaces) == 71
 
 
 # this definition exists because focused behavior needs one stable owner
