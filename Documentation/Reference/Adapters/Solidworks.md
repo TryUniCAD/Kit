@@ -158,6 +158,9 @@ add three structural research classes with a version-19000 guard.
 Their constructors, native thin round trips and usable generated output remain unproved.
 The [approved-session handoff tool](../../Changes/Solidworks/Inspection/SolidworksApprovedSessionHandoff.md)
 closes an explicitly selected clean session after user authorization, while measurement guards continue to refuse existing processes.
+The [host deadline supervisor](../../Changes/Solidworks/Inspection/SolidworksOracleHostDeadline.md)
+bounds one owned oracle transport with a host monotonic deadline and records guest state as unknown after a timeout.
+It does not cancel guest jobs, recover the VM or establish native acceptance.
 The [local curve and radial construction rules](../../Changes/Solidworks/SolidworksCurveReferenceConstruction.md)
 bound both native reference scans and distinguish circle-marker updates from
 ordinary polygon points. These static rules do not establish curve acceptance.
