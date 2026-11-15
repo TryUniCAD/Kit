@@ -56,9 +56,10 @@ the document or the session.
 
 ## Verification
 
-`TestNxClassTable` builds a synthetic registry with a reference list, two classes and one member,
-and asserts every field, the compact and wide token decodes, and the null token. The parser was run
-against the three corpus parts:
+`TestNxTypeReg` builds a synthetic registry with a reference list, two classes and one member,
+asserts every field, the compact and wide token decodes, the null token, and that
+`WriteRegistry(ReadRegistry(payload)) == payload`. The parser was run against the three corpus
+parts:
 
 ```text
 part             references  classes  members
@@ -66,6 +67,23 @@ wave_modern.prt          82      160        9
 flange_modern.prt       118      252       14
 fresh_block.prt          79      154       10
 ```
+
+The writer reproduces the class table byte for byte on five parts:
+
+```text
+part             region bytes  round trip
+wave_modern.prt          8072  identical
+flange_modern.prt       12539  identical
+fresh_block.prt          7822  identical
+empty.prt                6399  identical
+dim40.prt                7822  identical
+```
+
+Two writer details were needed for that. Wide tokens use the `a0` prefix with the high 16 bits in
+the low nibble, so `5001` is `a0 13 88` and `71001` is `a1 15 58`; the vendor never emits `90` in
+this registry. The class region terminator is not always `02`: `wave_modern.prt` ends it with `7f`
+and `empty.prt` with `77`, so the separator byte is carried through the registry rather than
+assumed.
 
 ## The storage code is the registration class id plus one
 

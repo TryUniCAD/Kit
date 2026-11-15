@@ -37,7 +37,12 @@ from convert.adapters.nx.ExprSection import (
 from convert.adapters.nx.ClassEntry import ClassLink, EntryParts, NameDigest
 from convert.adapters.nx.LegacySection import ReadSections
 from convert.adapters.nx.LegacyObject import ReadIndex, ReadObjects, ReadRecords
-from convert.adapters.nx.ClassTable import ReadRegistry, ReadToken
+from convert.adapters.nx.ClassTable import (
+    ReadRegistry,
+    ReadToken,
+    WriteRegistry,
+    WriteToken,
+)
 from convert.adapters.nx.LegacyClasses import (
     ClassTableEnd,
     LegacyAttrs,
@@ -1339,14 +1344,15 @@ def TestNxTypeReg() -> None:
             return bytes([Value])
         if Value <= 0x1000:
             return bytes([0x80 + (Value - 1) // 256, (Value - 1) % 256])
-        return bytes([0x90, (Value - 1) >> 8, (Value - 1) & 0xFF])
+        return bytes(
+            [0xA0 | ((Value - 1) >> 16), ((Value - 1) >> 8) & 0xFF, (Value - 1) & 0xFF]
+        )
 
     # needed so the registry test builds one declaration without repeating the length byte
     def NameBytes(TextValue: str) -> bytes:
         return bytes([len(TextValue) + 1]) + TextValue.encode("ascii")
 
     assert ReadToken(bytes([0x83, 0xE8]), 0) == (1001, 2)
-    assert ReadToken(bytes([0x90, 0x03, 0xE8]), 0) == (1001, 3)
     assert ReadToken(bytes([0xFF]), 0) == (None, 1)
     References = (
         NameBytes("UGS::OM::Meta")
@@ -1384,3 +1390,13 @@ def TestNxTypeReg() -> None:
     assert len(Registry.Members) == 1
     assert Registry.Members[0].Name == "first_record_area"
     assert Registry.Members[0].Owner == 28
+    assert WriteRegistry(Registry) == Payload
+
+
+# the registry writer reproduces the vendor token widths and the separator byte
+def TestNxTypeWrite() -> None:
+    assert WriteToken(5001) == bytes([0xA0, 0x13, 0x88])
+    assert WriteToken(71001) == bytes([0xA1, 0x15, 0x58])
+    assert WriteToken(None) == bytes([0xFF])
+    assert WriteToken(56) == bytes([56])
+    assert WriteToken(1001) == bytes([0x83, 0xE8])

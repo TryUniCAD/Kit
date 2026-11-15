@@ -65,6 +65,7 @@ class Registry:
     Classes: tuple[ClassRecord, ...]
     Members: tuple[MemberRecord, ...]
     End: int
+    Separator: int = KClassEnd
 
 
 # a token decodes to a value and the cursor after it or none for a null token
@@ -123,11 +124,13 @@ def ReadReferences(
 
 
 # the class region ends with a marker or one opaque separator before the members
-def ReadClasses(Payload: bytes, Cursor: int) -> tuple[tuple[ClassRecord, ...], int]:
+def ReadClasses(
+    Payload: bytes, Cursor: int
+) -> tuple[tuple[ClassRecord, ...], int, int]:
     Output: list[ClassRecord] = []
     while Cursor < len(Payload):
         if Payload[Cursor] == KClassEnd:
-            return tuple(Output), Cursor + 1
+            return tuple(Output), Cursor + 1, KClassEnd
         Start = Cursor
         try:
             NameValue, Cursor = ReadName(Payload, Cursor)
@@ -139,11 +142,11 @@ def ReadClasses(Payload: bytes, Cursor: int) -> tuple[tuple[ClassRecord, ...], i
             Cursor += 8
             Reference, Cursor = ReadToken(Payload, Cursor)
         except ValueError:
-            return tuple(Output), Start + 1
+            return tuple(Output), Start + 1, Payload[Start]
         Output.append(
             ClassRecord(Start, NameValue, Storage, BaseValue, Fingerprint, Reference)
         )
-    return tuple(Output), Cursor
+    return tuple(Output), Cursor, KClassEnd
 
 
 # the member region runs to the end of the registry and holds storage owner pairs
@@ -164,9 +167,76 @@ def ReadMembers(Payload: bytes, Cursor: int, EndValue: int) -> tuple[MemberRecor
 # the registry is the reference class and member regions in that order
 def ReadRegistry(Payload: bytes, Cursor: int, EndValue: int) -> Registry:
     References, Cursor = ReadReferences(Payload, Cursor)
-    Classes, Cursor = ReadClasses(Payload, Cursor)
+    Classes, Cursor, Separator = ReadClasses(Payload, Cursor)
     Members = ReadMembers(Payload, Cursor, EndValue)
-    return Registry(References, Classes, Members, EndValue)
+    return Registry(References, Classes, Members, EndValue, Separator)
+
+
+# a value encodes to the shortest token that carries it
+def WriteToken(Value: int | None) -> bytes:
+    if Value is None:
+        return bytes([KNullToken])
+    if Value < KDirectCeiling:
+        return bytes([Value])
+    if Value <= 0x1000:
+        return bytes([KCompactCeiling - 0x10 + (Value - 1) // 256, (Value - 1) % 256])
+    if Value <= 0x100000:
+        return bytes(
+            [0xA0 | ((Value - 1) >> 16), ((Value - 1) >> 8) & 0xFF, (Value - 1) & 0xFF]
+        )
+    raise ValueError(f"NX registry token value {Value} is out of range")
+
+
+# a declaration encodes as a length byte a name and a body the caller supplies
+def WriteName(NameValue: str) -> bytes:
+    Symbols = NameValue.encode("ascii")
+    if not 1 <= len(Symbols) < KNameCeilingLength:
+        raise ValueError(f"NX registry declaration name {NameValue!r} is out of range")
+    return bytes([len(Symbols) + 1]) + Symbols
+
+
+# the reference region is name code pairs followed by the end marker
+def WriteReferences(References: tuple[ReferenceRecord, ...]) -> bytes:
+    Output = bytearray()
+    for Entry in References:
+        Output += WriteName(Entry.Name)
+        Output.append(Entry.Code)
+    Output.append(KReferenceEnd)
+    return bytes(Output)
+
+
+# the class region is the four class tokens followed by the end marker
+def WriteClasses(Classes: tuple[ClassRecord, ...], Separator: int = KClassEnd) -> bytes:
+    Output = bytearray()
+    for Entry in Classes:
+        Output += WriteName(Entry.Name)
+        Output += WriteToken(Entry.Storage)
+        Output += WriteToken(Entry.Base)
+        if len(Entry.Fingerprint) != 8:
+            raise ValueError("NX class declaration needs an eight byte fingerprint")
+        Output += Entry.Fingerprint
+        Output += WriteToken(Entry.Reference)
+    Output.append(Separator)
+    return bytes(Output)
+
+
+# the member region is storage owner pairs with no terminator
+def WriteMembers(Members: tuple[MemberRecord, ...]) -> bytes:
+    Output = bytearray()
+    for Entry in Members:
+        Output += WriteName(Entry.Name)
+        Output += WriteToken(Entry.Storage)
+        Output += WriteToken(Entry.Owner)
+    return bytes(Output)
+
+
+# the registry encodes as its three regions in declaration order
+def WriteRegistry(RegistryValue: Registry) -> bytes:
+    return (
+        WriteReferences(RegistryValue.References)
+        + WriteClasses(RegistryValue.Classes, RegistryValue.Separator)
+        + WriteMembers(RegistryValue.Members)
+    )
 
 
 # needed so the registry types stay a single named source for the nx adapter
@@ -177,4 +247,10 @@ __all__ = [
     "ReadToken",
     "ReferenceRecord",
     "Registry",
+    "WriteClasses",
+    "WriteMembers",
+    "WriteName",
+    "WriteReferences",
+    "WriteRegistry",
+    "WriteToken",
 ]
