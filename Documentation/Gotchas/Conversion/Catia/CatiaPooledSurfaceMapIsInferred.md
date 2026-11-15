@@ -245,6 +245,41 @@ inside object `10` together with `200.0` and `15.0`, not in a separate parameter
 therefore points at an attribute id, and the value is stored in the object that owns the dimension,
 so the name-to-value edge needs an attribute-id table, not an object lookup.
 
+## The pool order is not correlated with the face order
+
+The natural streaming encoding would be "surfaces appear in first-use order", so the sequence of pool
+indices over the faces would be non-decreasing and would advance by at most one. That is testable as
+a reachability problem: `p[0] = 0`, `p[last] = m - 1`, `p[j+1]` is `p[j]` or `p[j] + 1`, and every
+face's surface kind is one its trim kind allows. It is infeasible on all four large pooled parts:
+
+```
+Reservoir   faces  71 pool  56   monotone-first-use feasible False
+Pedal_Body  faces 338 pool 314   monotone-first-use feasible False
+4784        faces 416 pool 270   monotone-first-use feasible False
+4876        faces 870 pool 714   monotone-first-use feasible False
+```
+
+The weaker form — surfaces grouped by kind, and first-use order only inside each kind — is infeasible
+too, on every part and every kind that has more than one determinate face:
+
+```
+Reservoir   0x32 faces 13 pool 13 True    0x34 faces  5 pool  9 False
+Pedal_Body  0x32 faces 54 pool 66 False   0x34 faces  9 pool 22 False
+4784        0x32 faces 83 pool 91 False   0x34 faces 14 pool 26 False
+4876        0x32 faces 335 pool 359 False 0x34 faces 18 pool 68 False
+```
+
+`Reservoir`'s one `True` is the degenerate case where face count equals pool count, which forces the
+identity order and therefore carries no information. So the pool order is unrelated to the face order
+in both forms, and an order-based decode is ruled out along with the index, permutation, and offset
+table forms.
+
+Fitting a plane through a face's own placed handles does not rescue the plane faces either: on
+`Reservoir` 10 of the 13 plane faces have exactly coplanar handles, but the residuals for the rest
+(`2.84`, `0.49`, `0.47`) show that the handles themselves are placed off their surface whenever the
+map is wrong, so the plane orientation and the handle placement are circularly dependent and geometry
+alone cannot break the loop.
+
 ## Workaround
 
 Treat the five pooled parts as approximate. The reader emits

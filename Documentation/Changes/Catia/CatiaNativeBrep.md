@@ -179,6 +179,14 @@ radius and an axis through the circle center. Measuring that constraint gives on
 pinned faces of `55` candidates in `Reservoir`, `0` of `79` in `4784`, and `5` of `208` in
 `Pedal_Body`, so it sharpens the map without closing it.
 
+An order-based decode is ruled out as well. If surfaces were written in first-use order, the pool
+index over the faces would be non-decreasing and advance by at most one; that reachability problem is
+infeasible on all four large pooled parts (`71/56`, `338/314`, `416/270`, `870/714`), and the weaker
+kind-grouped form is infeasible on every kind with more than one determinate face (`0x32` and `0x34`
+on all four). Fitting a plane through each face's own handles is only partially usable: `Reservoir`
+has 10 of 13 plane faces exactly coplanar, but the remaining residuals (`2.84`, `0.49`, `0.47`) are
+the handles being placed off-surface, so orientation and placement are circularly dependent.
+
 Neither topology streamer writes a surface: `CATCXEdge::Stream` (`0x1805471e0`) writes an edge count
 of `4` or `5`, the vertex records, then named records, and `CATCXLoop::Stream` jumps to
 `CATCXEdgeDomain::Stream` (`0x180548090`), which writes the location, an edge count, and per-edge
