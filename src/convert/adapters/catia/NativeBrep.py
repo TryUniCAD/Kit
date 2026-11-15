@@ -436,6 +436,64 @@ def RefineMap(
     return tuple(Current)
 
 
+# this definition exists because a pooling surface list needs one unique set
+def PoolOf(BrepValue: BrepData) -> list[SurfaceRec]:
+    PoolValues: list[SurfaceRec] = []
+    for Value in BrepValue.surfaces:
+        if all(Value.raw != Known.raw for Known in PoolValues):
+            PoolValues.append(Value)
+    return PoolValues
+
+
+# this definition exists because a measured map needs one count each
+def FaceCandidates(
+    TrimValue: TrimRec,
+    SurfaceValue: SurfaceRec,
+    PoolValues: list[SurfaceRec],
+    Point: tuple[float, float, float],
+) -> int:
+    if not TrimValue.handles:
+        return 0
+    Count = 0
+    for Candidate in PoolValues:
+        if Candidate.kind != SurfaceValue.kind:
+            continue
+        if Candidate.kind == 0x32:
+            if TrimValue.vector is None:
+                continue
+            Distance = SurfDist(Point, Candidate, TrimValue.vector)
+        elif Candidate.kind == 0x33 and len(Candidate.params) >= 6:
+            Params = Candidate.params
+            Distance = CylDist(
+                Point,
+                AxisFromCarrier(Params),
+                (Params[0], Params[1], Params[2]),
+                abs(Params[5]),
+            )
+        else:
+            continue
+        if Distance < KPoolProbe:
+            Count += 1
+    return Count
+
+
+# this definition exists because an inferred map needs a confidence count
+def MapConfidence(BrepValue: BrepData) -> tuple[int, int]:
+    PoolValues = PoolOf(BrepValue)
+    Positions = PlaceRough(BrepValue)
+    Unique = 0
+    for TrimValue, SurfaceValue in zip(BrepValue.trims, BrepValue.surfaces):
+        Handles = sorted(set(TrimValue.handles))
+        if not Handles:
+            continue
+        if (
+            FaceCandidates(TrimValue, SurfaceValue, PoolValues, Positions[Handles[0]])
+            == 1
+        ):
+            Unique += 1
+    return (Unique, len(BrepValue.trims))
+
+
 # this definition exists because refinement must not pay for the tessellation snap
 def PlaceRough(BrepValue: BrepData) -> dict[int, tuple[float, float, float]]:
     Usage, ArityTwo = CornerUsage(BrepValue)
@@ -1480,11 +1538,16 @@ def DecodeBrep(
         )
     ]
     if BrepValue.heuristic:
+        UniqueFaces, FaceCount = MapConfidence(BrepValue)
         Diagnostics.append(
             Diagnostic(
                 "catia.brep.native_surface_map_heuristic",
                 "The face-to-surface map was inferred from edge circles and trim normals because the stored map was not located; geometry is approximate for this part.",
                 Severity.WARNING,
+                attributes={
+                    "unique_faces": UniqueFaces,
+                    "face_count": FaceCount,
+                },
             )
         )
     return Model, tuple(Diagnostics)

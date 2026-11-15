@@ -127,6 +127,13 @@ because each round costs a full corner placement and the two largest pooled part
 Refinement drops the unsatisfied handles from 209 to 181 of 1431 on `Reservoir` and from 1923 to 792
 of 2666 on `Pedal_Body`; the map is still inferred, and the warning stays.
 
+The warning now carries a measured confidence instead of a bare claim: `MapConfidence` counts, per
+face, how many surfaces of the same kind pass within `0.5` of the face's first placed handle, and the
+diagnostic reports the faces with exactly one candidate. That number is `25/416` for `4784`,
+`29/870` for `4876` and `4876_1`, `57/338` for `Pedal_Body`, and `45/71` for `Reservoir`. It is the
+honest measure of how much of each pooled map is actually determined by geometry, and it is the
+target the controlled corpus has to lift to `FaceCount`.
+
 The correct map is the composition face -> loop -> edge -> PCurve -> surface. `CATCXFace::Stream`
 (`0x18054eba0`) writes only the loop count, the loops, `SurfaceOrientation`, and `IsInfinite`, and
 `CATCXBody::Stream` (`0x180542210`) writes three element groups with no face-to-surface array. The

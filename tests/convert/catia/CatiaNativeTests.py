@@ -197,6 +197,15 @@ def TestBrepHeur() -> None:
     )
     assert len(Model.faces) == 71
     assert len(Model.surfaces) == 71
+    Heuristic = next(
+        Value
+        for Value in Diagnostics
+        if Value.code == "catia.brep.native_surface_map_heuristic"
+    )
+    assert Heuristic.attributes["face_count"] == 71
+    UniqueFaces = Heuristic.attributes["unique_faces"]
+    assert isinstance(UniqueFaces, int)
+    assert 0 < UniqueFaces < 71
 
 
 # this definition exists because focused behavior needs one stable owner
