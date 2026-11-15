@@ -38,9 +38,14 @@ def application_identity(application):
 
 
 def active_identity():
+    import argparse
     import json
     import pythoncom
-    from win32com.client import GetActiveObject
+    from win32com.client import DispatchEx, GetActiveObject
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--existing-pid", type=int)
+    args = parser.parse_args()
 
     def value(obj, name):
         member = getattr(obj, name)
@@ -48,14 +53,26 @@ def active_identity():
 
     pythoncom.CoInitialize()
     try:
-        application = GetActiveObject("SldWorks.Application.34")
+        if args.existing_pid is None:
+            application = GetActiveObject("SldWorks.Application.34")
+        else:
+            from AuthorCurves import application_pids
+            if args.existing_pid not in application_pids():
+                raise RuntimeError("the explicitly selected preexisting process is absent")
+            application = DispatchEx("SldWorks.Application.34")
         identity = application_identity(application)
+        if args.existing_pid is not None and identity["process_id"] != args.existing_pid:
+            raise RuntimeError("versioned COM activation did not return the explicitly selected existing process")
         identity["revision"] = str(value(application, "RevisionNumber"))
+        identity["document_count"] = int(value(application, "GetDocumentCount"))
+        identity["visible"] = bool(value(application, "Visible"))
+        identity["user_control"] = bool(value(application, "UserControl"))
         documents = value(application, "GetDocuments") or []
         identity["documents"] = [
             {"title": str(value(document, "GetTitle")), "path": str(value(document, "GetPathName")), "dirty": bool(value(document, "GetSaveFlag"))}
             for document in documents
         ]
+        identity["inspection_scope"] = "application identity and document metadata only; no properties written or documents opened, created, saved or closed"
         print(json.dumps(identity))
     finally:
         pythoncom.CoUninitialize()

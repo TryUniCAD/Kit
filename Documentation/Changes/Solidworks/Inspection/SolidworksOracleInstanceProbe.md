@@ -23,3 +23,10 @@ last completed stage; unknown process ownership does not authorize cleanup.
 Verification at publication is Python syntax parsing and scoped diff checking.
 The exact installation's multi-instance behavior remains unverified until the
 owner's controlled probe. No local repository tests ran.
+
+`OracleIdentity.py --existing-pid PID` can inspect a specifically selected
+already-running process through versioned activation when it is absent from
+the active-object table. It requires that PID to exist beforehand and rejects
+a returned PID mismatch before reading document metadata. It records document
+count, title/path/save flags, visibility and user-control state. It changes no
+application property and opens, saves and closes no document or application.
