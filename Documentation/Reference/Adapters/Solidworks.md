@@ -127,6 +127,9 @@ captures the application's actual model view for separate visual inspection.
 The [standard-view constructor](../../Changes/Solidworks/SolidworksStandardViewConstruction.md)
 generates the missing canonical rotations from native constructor rules.
 Its new bytes still require controlled geometry and viewport measurements.
+The [controlled curve source authoring tool](../../Changes/Solidworks/Inspection/SolidworksCurveSourceAuthoring.md)
+prepares independent discovery and held-out inputs before curved-sketch writer
+implementation. Its native preflight and full-family lock remain pending.
 The fresh [model component constructors](../../Changes/Solidworks/SolidworksModelConstruction.md)
 and [metadata constructors](../../Changes/Solidworks/SolidworksMetadataConstruction.md)
 build research object graphs from authored semantics and native constructor rules.

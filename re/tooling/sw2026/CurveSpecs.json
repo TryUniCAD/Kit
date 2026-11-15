@@ -1,0 +1,731 @@
+{
+  "schema": "kit-sw2026-curve-source-specs/1",
+  "units": {
+    "length": "mm",
+    "angle": "degree",
+    "api_length": "m",
+    "api_angle": "radian"
+  },
+  "oracle": {
+    "progid": "SldWorks.Application.34",
+    "file_version_words": [34, 5, 2, 604],
+    "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "split_policy": {
+    "discovery": 24,
+    "heldout": 6,
+    "controls": 2,
+    "heldout_fraction": 0.2,
+    "heldout_native_stream_access": "forbidden during rule derivation and writer implementation",
+    "writer_start": "only after an owner-produced complete Lock.json, never from a subset run",
+    "source_provenance": "neutral design parameters only; no vendor streams, field programs or saved scalar tables"
+  },
+  "api_preflight": "not executed; any unsupported relation, dimension, geometry or read-back API prevents a lock",
+  "controls": [
+    {
+      "name": "ControlRectangle",
+      "split": "control",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 7.713,
+      "expected_bodies": 1,
+      "creation": "rectangle-control",
+      "dimension_kind": "radial",
+      "edit": {
+        "target": "depth",
+        "factor": 1.07
+      },
+      "profile": {
+        "kind": "rectangle",
+        "center_mm": [-7.391, 11.173],
+        "width_mm": 29.137,
+        "height_mm": 17.719
+      }
+    },
+    {
+      "name": "ControlCircle",
+      "split": "control",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 7.713,
+      "expected_bodies": 1,
+      "creation": "point-circle-control",
+      "dimension_kind": "diameter",
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.11
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [3.917, -5.139],
+        "radius_mm": 11.173
+      }
+    }
+  ],
+  "cases": [
+    {
+      "name": "D01CircleRadius",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 11.731,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.17
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [-3.719, 5.173],
+        "radius_mm": 0.017
+      }
+    },
+    {
+      "name": "D02CircleRadius",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 11.731,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.17
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [-3.719, 5.173],
+        "radius_mm": 0.173
+      }
+    },
+    {
+      "name": "D03CircleRadius",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 11.731,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.17
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [-3.719, 5.173],
+        "radius_mm": 1.731
+      }
+    },
+    {
+      "name": "D04CircleRadius",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 11.731,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.17
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [-3.719, 5.173],
+        "radius_mm": 7.391
+      }
+    },
+    {
+      "name": "D05CircleRadius",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 11.731,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.17
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [-3.719, 5.173],
+        "radius_mm": 17.237
+      }
+    },
+    {
+      "name": "D06CircleRadius",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 11.731,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.17
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [-3.719, 5.173],
+        "radius_mm": 73.913
+      }
+    },
+    {
+      "name": "D07CircleRadius",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 11.731,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.17
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [-3.719, 5.173],
+        "radius_mm": 173.217
+      }
+    },
+    {
+      "name": "D08CircleRadius",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 11.731,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.17
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [-3.719, 5.173],
+        "radius_mm": 1731.719
+      }
+    },
+    {
+      "name": "D09Arc17Ccw",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 7.139,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "depth",
+        "factor": 1.19
+      },
+      "profile": {
+        "kind": "segment",
+        "center_mm": [-5.137, 13.719],
+        "radius_mm": 19.731,
+        "start_deg": 23.719,
+        "sweep_deg": 17,
+        "direction": 1
+      }
+    },
+    {
+      "name": "D10Arc17Cw",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 7.139,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "depth",
+        "factor": 1.19
+      },
+      "profile": {
+        "kind": "segment",
+        "center_mm": [-5.137, 13.719],
+        "radius_mm": 19.731,
+        "start_deg": 23.719,
+        "sweep_deg": 17,
+        "direction": -1
+      }
+    },
+    {
+      "name": "D11Arc90Ccw",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 7.139,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "depth",
+        "factor": 1.19
+      },
+      "profile": {
+        "kind": "segment",
+        "center_mm": [-5.137, 13.719],
+        "radius_mm": 19.731,
+        "start_deg": 23.719,
+        "sweep_deg": 90,
+        "direction": 1
+      }
+    },
+    {
+      "name": "D12Arc90Cw",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 7.139,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "depth",
+        "factor": 1.19
+      },
+      "profile": {
+        "kind": "segment",
+        "center_mm": [-5.137, 13.719],
+        "radius_mm": 19.731,
+        "start_deg": 23.719,
+        "sweep_deg": 90,
+        "direction": -1
+      }
+    },
+    {
+      "name": "D13Arc180Ccw",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 7.139,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "depth",
+        "factor": 1.19
+      },
+      "profile": {
+        "kind": "segment",
+        "center_mm": [-5.137, 13.719],
+        "radius_mm": 19.731,
+        "start_deg": 23.719,
+        "sweep_deg": 180,
+        "direction": 1
+      }
+    },
+    {
+      "name": "D14Arc180Cw",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 7.139,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "depth",
+        "factor": 1.19
+      },
+      "profile": {
+        "kind": "segment",
+        "center_mm": [-5.137, 13.719],
+        "radius_mm": 19.731,
+        "start_deg": 23.719,
+        "sweep_deg": 180,
+        "direction": -1
+      }
+    },
+    {
+      "name": "D15Arc270Ccw",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 7.139,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "depth",
+        "factor": 1.19
+      },
+      "profile": {
+        "kind": "segment",
+        "center_mm": [-5.137, 13.719],
+        "radius_mm": 19.731,
+        "start_deg": 23.719,
+        "sweep_deg": 270,
+        "direction": 1
+      }
+    },
+    {
+      "name": "D16Arc270Cw",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 7.139,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "depth",
+        "factor": 1.19
+      },
+      "profile": {
+        "kind": "segment",
+        "center_mm": [-5.137, 13.719],
+        "radius_mm": 19.731,
+        "start_deg": 23.719,
+        "sweep_deg": 270,
+        "direction": -1
+      }
+    },
+    {
+      "name": "D17TopCircle",
+      "split": "discovery",
+      "plane": "top",
+      "reverse": false,
+      "depth_mm": 11.731,
+      "dimension_kind": "diameter",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.17
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [-7.391, 11.173],
+        "radius_mm": 13.719
+      }
+    },
+    {
+      "name": "D18RightCircle",
+      "split": "discovery",
+      "plane": "right",
+      "reverse": false,
+      "depth_mm": 11.731,
+      "dimension_kind": "diameter",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.17
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [17.391, -9.173],
+        "radius_mm": 5.731
+      }
+    },
+    {
+      "name": "D19Annulus",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 11.731,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "curve-1",
+        "factor": 0.91
+      },
+      "profile": {
+        "kind": "annulus",
+        "center_mm": [5.371, -7.193],
+        "radii_mm": [23.719, 11.137]
+      }
+    },
+    {
+      "name": "D20TwoCircles",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 11.731,
+      "dimension_kind": "radial",
+      "expected_bodies": 2,
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.17
+      },
+      "profile": {
+        "kind": "circles",
+        "circles": [
+          {
+            "center_mm": [-31.719, 7.193],
+            "radius_mm": 11.137
+          },
+          {
+            "center_mm": [29.173, -13.719],
+            "radius_mm": 7.391
+          }
+        ]
+      }
+    },
+    {
+      "name": "D21EightCircles",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 11.731,
+      "dimension_kind": "radial",
+      "expected_bodies": 8,
+      "edit": {
+        "target": "curve-5",
+        "factor": 1.13
+      },
+      "profile": {
+        "kind": "circles",
+        "circles": [
+          {
+            "center_mm": [-87.193, -23.719],
+            "radius_mm": 3.137
+          },
+          {
+            "center_mm": [-25.473999999999997, -23.719],
+            "radius_mm": 3.868
+          },
+          {
+            "center_mm": [36.245000000000005, -23.719],
+            "radius_mm": 4.599
+          },
+          {
+            "center_mm": [97.96400000000001, -23.719],
+            "radius_mm": 5.33
+          },
+          {
+            "center_mm": [-87.193, 33.418],
+            "radius_mm": 6.061
+          },
+          {
+            "center_mm": [-25.473999999999997, 33.418],
+            "radius_mm": 6.792
+          },
+          {
+            "center_mm": [36.245000000000005, 33.418],
+            "radius_mm": 7.523
+          },
+          {
+            "center_mm": [97.96400000000001, 33.418],
+            "radius_mm": 8.254
+          }
+        ]
+      }
+    },
+    {
+      "name": "D22ConstructionArc",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 11.731,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.17
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [-11.731, 7.391],
+        "radius_mm": 13.173,
+        "construction_arcs": [
+          {
+            "center_mm": [-11.731, 7.391],
+            "radius_mm": 19.137,
+            "start_deg": -37.193,
+            "sweep_deg": 213.719,
+            "direction": -1
+          }
+        ]
+      }
+    },
+    {
+      "name": "D23TangentCapsule",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 11.731,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.11
+      },
+      "profile": {
+        "kind": "capsule",
+        "center_mm": [7.193, -13.719],
+        "radius_mm": 5.137,
+        "center_spacing_mm": 31.719,
+        "rotation_deg": 0
+      }
+    },
+    {
+      "name": "D24NearFullArc",
+      "split": "discovery",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 0.173,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "depth",
+        "factor": 1.23
+      },
+      "profile": {
+        "kind": "segment",
+        "center_mm": [17.193, -23.719],
+        "radius_mm": 37.193,
+        "start_deg": 11.137,
+        "sweep_deg": 359.9,
+        "direction": 1
+      }
+    },
+    {
+      "name": "H01TranslatedDiameter",
+      "split": "heldout",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 17.293,
+      "dimension_kind": "diameter",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.17
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [-13.719, 29.113],
+        "radius_mm": 7.731
+      }
+    },
+    {
+      "name": "H02ReverseTopCircle",
+      "split": "heldout",
+      "plane": "top",
+      "reverse": true,
+      "depth_mm": 2.173,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "depth",
+        "factor": 1.23
+      },
+      "profile": {
+        "kind": "circle",
+        "center_mm": [29.379, -13.731],
+        "radius_mm": 23.591
+      }
+    },
+    {
+      "name": "H03ThinRightAnnulus",
+      "split": "heldout",
+      "plane": "right",
+      "reverse": false,
+      "depth_mm": 0.137,
+      "dimension_kind": "diameter",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "curve-1",
+        "factor": 0.91
+      },
+      "profile": {
+        "kind": "annulus",
+        "center_mm": [-11.137, -17.391],
+        "radii_mm": [19.731, 7.193]
+      }
+    },
+    {
+      "name": "H04ClockwiseSeamArc",
+      "split": "heldout",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 13.917,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.13
+      },
+      "profile": {
+        "kind": "segment",
+        "center_mm": [7.131, -23.173],
+        "radius_mm": 17.713,
+        "start_deg": -173,
+        "sweep_deg": 263,
+        "direction": -1
+      }
+    },
+    {
+      "name": "H05RotatedCapsule",
+      "split": "heldout",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 7.139,
+      "dimension_kind": "radial",
+      "expected_bodies": 1,
+      "edit": {
+        "target": "curve-0",
+        "factor": 1.11
+      },
+      "profile": {
+        "kind": "capsule",
+        "center_mm": [21.371, -5.193],
+        "radius_mm": 3.713,
+        "center_spacing_mm": 29.173,
+        "rotation_deg": 37
+      }
+    },
+    {
+      "name": "H06ReorderedIslands",
+      "split": "heldout",
+      "plane": "front",
+      "reverse": false,
+      "depth_mm": 1.971,
+      "dimension_kind": "radial",
+      "expected_bodies": 8,
+      "edit": {
+        "target": "curve-3",
+        "factor": 1.13
+      },
+      "profile": {
+        "kind": "circles",
+        "circles": [
+          {
+            "center_mm": [32.667, 38.233999999999995],
+            "radius_mm": 8.209
+          },
+          {
+            "center_mm": [-40.525999999999996, -29.137],
+            "radius_mm": 3.644
+          },
+          {
+            "center_mm": [-113.719, 38.233999999999995],
+            "radius_mm": 6.383
+          },
+          {
+            "center_mm": [105.86000000000001, 38.233999999999995],
+            "radius_mm": 9.122
+          },
+          {
+            "center_mm": [-113.719, -29.137],
+            "radius_mm": 2.731
+          },
+          {
+            "center_mm": [-40.525999999999996, 38.233999999999995],
+            "radius_mm": 7.296
+          },
+          {
+            "center_mm": [32.667, -29.137],
+            "radius_mm": 4.557
+          },
+          {
+            "center_mm": [105.86000000000001, -29.137],
+            "radius_mm": 5.47
+          }
+        ],
+        "construction_arcs": [
+          {
+            "center_mm": [11.137, 17.731],
+            "radius_mm": 31.193,
+            "start_deg": 179.713,
+            "sweep_deg": 137.193,
+            "direction": 1
+          }
+        ]
+      }
+    }
+  ]
+}
