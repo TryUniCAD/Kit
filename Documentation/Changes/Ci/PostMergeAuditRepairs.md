@@ -35,6 +35,10 @@ These cases execute through the actual pytest compatibility command in remote CI
 No tests ran locally.
 The repaired revision must pass a fresh complete audit before it can be reported green.
 
+All seventeen security jobs subsequently passed on `0469a67989e505afe6ac4c3e1932ec267f4bcad5`.
+Its full suite exposed the already documented aggregate startup race in one unchanged process probe.
+The [pending probe repair](PendingAggregateProbe.md) synchronizes on the real pending message and retains its two-second liveness check.
+
 See the [pinned audit](PostMergeQueueAudit.md),
 [oracle boundary gotcha](../../Gotchas/Ci/Audits/ExternalOraclePath.md),
 [path expansion gotcha](../../Gotchas/Ci/Audits/PathExpansionBeforeBoundary.md),
