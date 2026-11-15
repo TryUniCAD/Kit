@@ -201,6 +201,23 @@ scan so far treated that stream as a table of `00 33 <kind>` surface records; th
 name a surface per edge have to live in the same stream, and the region between the surface records
 is where to look next.
 
+## The gaps between surface records carry float frames, not references
+
+`SurfacicReps` is not a dense table: `Reservoir` has `7` nonzero gaps (`47, 94, 141, 235` bytes,
+658 bytes total) and `4784` has `6` (`47`, `3337`), measured between consecutive surface records.
+Decoding a 47-byte gap as little-endian `f32` after a four-byte prefix gives two frames of the form
+`(x, y, z, a, b, c)` with a shared point, for example
+
+```
+prefix 00 00 00 58
+(-20.9, -0.75, 44.75, 0.1047, 0.25, 1.0123)
+(-20.89, -0.75, 44.75, 0.3689, ...)
+```
+
+and the same values recur in separate gaps (`4f 8c a7 41` appears in three of them), so these are
+geometry samples of the neighbouring surface rather than per-face references. They do not contain a
+face index, and with only `7` gaps they cannot carry a map for `71` faces.
+
 ## Workaround
 
 Treat the five pooled parts as approximate. The reader emits
