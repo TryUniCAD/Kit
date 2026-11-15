@@ -1056,6 +1056,33 @@ readback: 7 features 9 params 1 bodies
 (no End line; second run identical)
 ```
 
+### Three outcomes, and what the generative container actually produces
+
+Earlier notes in this entry treated every non-clean result as a refusal. There are three distinct outcomes:
+
+| Outcome | Trail |
+| --- | --- |
+| clean load | `Start`, `End`, `MT Part Solid` |
+| load with error | `Start`, `dbg_err_crash() ... ORDER_DEBUG`, `End` |
+| refusal | `Start` and nothing else |
+
+`featdefs.prt` is a clean baseline. `Author.EmptyPartContainer` produces `42` rows and `9941` bytes against the
+control's `53` and `81539`; our adapter reads `4 features` from it, and Creo refuses it explicitly:
+
+```text
+!%CE08:29:55  '...from_scratch.prt' cannot be retrieved.
+```
+
+The eleven rows it lacks are the vendor-sourced set — the three `ND:*` tables, `SolidPersistTable`,
+`SolidPrimdata`, `DispDataTable`, `THMB_IMG_MAIN`, `CGFPersistTable`, `IndentTag`, `FeatRefData` and
+`EMPTY_SPACE_FOR_REUSE`.
+
+Replacing each curated section of the control in turn — `VisibGeom` (53 bytes), `AllFeatur` (1902),
+`FeatDefsDtm` (1454), `BasBasData` (375) — gives `dbg_err_crash` followed by `End` every time, and replacing all
+`42` rows at once gives the same `ORDER_DEBUG` crash. So the generated rows are parsed and kept with a consistency
+error rather than rejected outright, which is a more accurate statement of the write side than "refused" and is
+where a follow-up should begin: the check names itself.
+
 A deletion bisect was then run over the element's sub-records, each rebuilt and launched once:
 
 | Deleted | Bytes | Creo |

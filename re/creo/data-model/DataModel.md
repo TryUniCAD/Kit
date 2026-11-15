@@ -331,6 +331,42 @@ mutually unrelated contents produces a section the solver cannot accept, which i
 edits reached from the other side — the row is tolerated where it is *inert* (a changed dimension, a flipped
 `verhor`, a rewired `pointid` that the solver re-derives) and refused where it must be *solved*.
 
+### Three outcomes, not two, and the from-scratch container
+
+Every candidate in this session ended in one of **three** states, and earlier notes conflated the last two:
+
+| Outcome | Trail | Meaning |
+| --- | --- | --- |
+| clean load | `Start`, `End`, `MT Part Solid` | accepted |
+| load with error | `Start`, `dbg_err_crash() ... ORDER_DEBUG`, `End` | parsed and kept, with an internal consistency error |
+| refusal | `Start` and nothing | not retrieved |
+
+A baseline confirms the distinction: `featdefs.prt` loads clean. The distinction matters because several
+candidates recorded as "refused" actually loaded with `dbg_err_crash`, which means their content was accepted far
+enough to be kept.
+
+**The from-scratch container.** `Author.EmptyPartContainer` emits `42` rows and `9941` bytes against the control's
+`53` rows and `81539`. It is internally coherent — our adapter reads `4 features` from it — and Creo opens it and
+then refuses it with an explicit message:
+
+```text
+from_scratch: 9941 bytes, 42 rows
+!%CE08:29:55  '...from_scratch.prt' cannot be retrieved.
+```
+
+The eleven rows it lacks are exactly the vendor-sourced set: `ND:0:Model_L05_PX:1`, `ND:0:PDMTrail_L03:1`,
+`ND:0:UnitSystemDef_L03:1`, `SolidPersistTable`, `SolidPrimdata`, `DispDataTable`, `THMB_IMG_MAIN`,
+`CGFPersistTable`, `IndentTag`, `FeatRefData` and `EMPTY_SPACE_FOR_REUSE`.
+
+**Our generated rows are accepted only with an error.** Replacing each curated section of the control in turn,
+one at a time, gives `dbg_err_crash` every time — `VisibGeom` (53 bytes), `AllFeatur` (1902), `FeatDefsDtm` (1454)
+and `BasBasData` (375) — each followed by `End`, against a clean baseline. Replacing all `42` rows at once gives the
+same `ORDER_DEBUG` crash.
+
+So the generative writer's rows are parseable and structurally close, and each carries an ordering or reference
+error that Creo reports as `ORDER_DEBUG` rather than as a refusal. That is a more accurate description of the write
+side than "refused", and it is where a follow-up would start: the crash is a consistency check, and it names itself.
+
 ### Deletion bisect: every sub-record is load-bearing
 
 Seven sub-records of the vendor `949` element were deleted in turn, each rebuilt and launched once:
