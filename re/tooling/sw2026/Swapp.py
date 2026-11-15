@@ -141,6 +141,12 @@ def cv(obj, name, *args):
     return a
 
 
+def invoke(obj, name, *args):
+    wrapper = wc.dynamic.DumbDispatch(obj)
+    wrapper._FlagAsMethod(name)
+    return getattr(wrapper, name)(*args)
+
+
 def byref_long():
     return VARIANT(pythoncom.VT_BYREF | pythoncom.VT_I4, 0)
 
@@ -157,15 +163,25 @@ class Sw:
     def __init__(self, visible=False):
         pythoncom.CoInitialize()
         self.diagnostics = []
-        self.app = wc.DispatchEx(PROGID)
-        self.app.Visible = visible
-        self.app.UserControl = False
+        self.app = None
         try:
-            self.app.FrameState = 1
+            self.app = wc.DispatchEx(PROGID)
+            self.app.Visible = visible
+            self.app.UserControl = False
+            try:
+                self.app.FrameState = 1
+            except Exception as error:
+                self.diagnostics.append({"stage": "frame_state", "error": repr(error)})
+            self.revision = str(cv(self.app, "RevisionNumber"))
+            self.launches = 0
         except Exception as error:
-            self.diagnostics.append({"stage": "frame_state", "error": repr(error)})
-        self.revision = str(cv(self.app, "RevisionNumber"))
-        self.launches = 0
+            if self.app is not None:
+                self.close()
+            else:
+                self.diagnostics.append({"stage": "dispatch_failed", "error": "no owned COM interface returned; process ownership is unavailable"})
+                pythoncom.CoUninitialize()
+            error.add_note("oracle initialization cleanup: " + repr(self.diagnostics))
+            raise
 
     def close(self):
         try:
@@ -199,7 +215,7 @@ class Sw:
         if doctype is None:
             doctype = DOC_ASSEMBLY if path.lower().endswith(".sldasm") else DOC_PART
         e, w = byref_long(), byref_long()
-        m = self.app.OpenDoc6(path, doctype, OPEN_SILENT | (OPEN_READONLY if read_only else 0), "", e, w)
+        m = invoke(self.app, "OpenDoc6", path, doctype, OPEN_SILENT | (OPEN_READONLY if read_only else 0), "", e, w)
         return m, int(e.value), int(w.value)
 
     def close_doc(self, m):
@@ -210,7 +226,7 @@ class Sw:
 
     def save_as(self, m, path):
         e, w = byref_long(), byref_long()
-        ok = m.Extension.SaveAs3(str(path), 0, SAVE_SILENT, nothing(), nothing(), e, w)
+        ok = invoke(m.Extension, "SaveAs3", str(path), 0, SAVE_SILENT, nothing(), nothing(), e, w)
         return bool(ok), int(e.value), int(w.value)
 
 
@@ -245,7 +261,7 @@ def features(m):
         item = {"name": str(f.Name), "type": str(cv(f, "GetTypeName2"))}
         try:
             warning = byref_bool()
-            code = f.GetErrorCode2(warning)
+            code = invoke(f, "GetErrorCode2", warning)
             item["error"] = int(code) if not isinstance(code, tuple) else int(code[0])
             item["warning"] = bool(warning.value) if not isinstance(code, tuple) else bool(code[1])
         except Exception as error:

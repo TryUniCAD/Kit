@@ -250,7 +250,9 @@ class CurveAuthor:
         self.relations = []
 
     def get(self, obj, name, *args):
-        return self.rec.call(name, self.sw.cv, obj, name, *args, parameters=safe_result(args))
+        function = self.sw.invoke if args else self.sw.cv
+        parameters = {"values": safe_result(args), "dispatch_class": type(obj).__module__ + "." + type(obj).__name__, "binding": "untyped-method" if args else "property-or-zero-argument-method"}
+        return self.rec.call(name, function, obj, name, *args, parameters=parameters)
 
     def set(self, obj, name, value):
         self.rec.call("set " + name, setattr, obj, name, value, parameters={"value": value})
@@ -258,7 +260,7 @@ class CurveAuthor:
 
     def typed(self, value, kind):
         try:
-            return self.sw.wc.CastTo(value, kind)
+            return self.rec.call("QueryInterface " + kind, self.sw.wc.CastTo, value, kind, parameters={"interface": kind})
         except Exception as error:
             raise PendingCapability(f"type-library cast to {kind} is unavailable: {error!r}") from error
 
@@ -271,7 +273,7 @@ class CurveAuthor:
             return
         array = self.sw.VARIANT(self.sw.pythoncom.VT_ARRAY | self.sw.pythoncom.VT_DISPATCH, values)
         manager = self.get(self.sketch, "RelationManager")
-        relation = self.rec.call("ISketchRelationManager.AddRelation", self.sw.cv, manager, "AddRelation", array, kind, parameters={"entities": labels, "type": kind})
+        relation = self.rec.call("ISketchRelationManager.AddRelation", self.sw.invoke, manager, "AddRelation", array, kind, parameters={"entities": labels, "type": kind, "binding": "untyped-method"})
         if relation is None:
             raise PendingCapability(f"relation type {kind} returned no relation for {labels}")
         require(int(self.get(relation, "GetRelationType")) == kind, "native relation type differs from request")
@@ -362,7 +364,7 @@ class CurveAuthor:
                 at = [item["center"][0] + item["radius"] * 1.7, item["center"][1] + item["radius"] * 1.3]
                 self.dimension(segment, item["role"], value, kind, at)
         self.get(manager, "InsertSketch", True)
-        sketch_feature = self.get(self.sketch, "GetFeature")
+        sketch_feature = self.typed(self.sketch, "Feature")
         self.set(sketch_feature, "Name", "CurveSketch")
         self.get(self.model, "ClearSelection2", True)
         require(bool(self.get(sketch_feature, "Select2", False, 0)), "extrusion sketch selection failed")
@@ -625,7 +627,10 @@ def dispatch_job(directory, job, timeout):
         pid = identity.get("process_id")
         if pid and identity.get("version_matches") and identity.get("sha256") == job["oracle"]["executable_sha256"] and pid in application_pids():
             killed = subprocess.run(["taskkill", "/PID", str(pid), "/T", "/F"], capture_output=True, text=True, check=False)
-            record["forced_owned_process_cleanup"] = {"pid": pid, "exit_code": killed.returncode, "stdout": killed.stdout, "stderr": killed.stderr}
+            exited = wait_exit(pid)
+            record["forced_owned_process_cleanup"] = {"pid": pid, "exit_code": killed.returncode, "stdout": killed.stdout, "stderr": killed.stderr, "exit_confirmed": exited}
+            if not exited:
+                record.setdefault("cleanup_errors", []).append({"stage": "forced-owned-process-cleanup", "type": "EvidenceFailure", "error": "owned SOLIDWORKS process did not exit after termination"})
     write_json(record_path, record)
     return record
 

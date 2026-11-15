@@ -52,7 +52,11 @@ before a document is created or opened. Existing SOLIDWORKS processes prevent a
 new phase. Normal cleanup exits only the owned session. After an abnormal worker
 exit or timeout, the controller can terminate only a process whose recorded
 identity matches that phase's exact oracle. Forced cleanup does not turn a
-failure into a pass.
+failure into a pass, and the controller waits for confirmed process exit before
+continuing. Initialization errors after COM dispatch request cleanup through
+that owned interface and retain diagnostics on the original exception. If
+dispatch fails before returning an interface or identity, process ownership is
+unavailable; the tool cannot safely infer a PID or terminate an unrelated session.
 
 The input-dimension prompt preference is read before modification and restored
 in `finally`. Both changes are read back; the application setter returns no
@@ -106,6 +110,13 @@ and [relation filters](https://help.solidworks.com/2026/English/api/swconst/Soli
 Fixed centers, coincident endpoints, tangent joins, and equal arc lengths use
 their documented API enum values. Shared endpoint identity is recorded instead
 of adding a redundant coincidence constraint.
+
+The sketch feature is obtained by
+[querying its feature interface](../../../Gotchas/Conversion/Solidworks/Tracing/SketchFeaturesRequireInterfaceCast.md),
+with every cast recorded in the phase log. Calls that use explicit COM out
+variants use untyped dispatch to avoid
+[type-library wrapper drift](../../../Gotchas/Conversion/Solidworks/Tracing/TypeCastsChangeOutParameterBindings.md)
+after those casts. These binding corrections remain subject to native preflight.
 
 The 2026
 [dimension state enumeration](https://help.solidworks.com/2026/English/api/swconst/SOLIDWORKS.Interop.swconst~SOLIDWORKS.Interop.swconst.swDimensionDrivenState_e.html)
