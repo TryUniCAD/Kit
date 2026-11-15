@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from dataclasses import field as MakeField
 
 # three scalars are stored as single bytes because they dominate
-KOneByteDouble = {0x0F: 0.0, 0x10: 1.0, 0x18: 1.0}
+KOneByteDouble = {0x0F: 1.0, 0x10: -1.0, 0x18: 0.0}
 
 # field names are ascii so the scanner can reject noise early
 KNameBytes = frozenset(

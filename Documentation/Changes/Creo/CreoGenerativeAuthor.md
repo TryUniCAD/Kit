@@ -11,6 +11,28 @@ Read side: complete for the retained control. It decodes `7` features, `8` param
 one solid and volume `18482541.490319017`, and a no-op container rebuild of the `81539`-byte control is
 byte-identical.
 
+### A reader bug, found by comparing the vendor's raw bytes
+
+Chasing the `949` refusal through `local_sys` exposed a lane table that was simply wrong. The reader mapped
+
+```text
+KOneByteDouble = {0x0F: 0.0, 0x10: 1.0, 0x18: 1.0}
+```
+
+while the writer emits `0.0 -> 0x18`, `1.0 -> 0x0F` and `-1.0 -> 0x10` — so every single-byte double the writer
+produced decoded as a *different number*. The vendor's own bytes settle which side is right: the ladder's
+`local_sys` is `0f 18 e6 0f 18 10 18 e6`, which decodes to a proper rotation matrix only with `1.0, 0.0, 0.0, 0.0,
+0.0, 1.0, 0.0, -1.0, 0.0, 0.0, 0.0, 0.0`; with the old table it decodes to a constant run, which cannot be a frame.
+Likewise the ladder's `outline` becomes `(184.5078, 0.0, 115.6523, -154.4303, 0.0, -86.0668)` — a rectangle — instead
+of one with two `1.0` coordinates.
+
+Corrected to `{0x0F: 1.0, 0x10: -1.0, 0x18: 0.0}`. The retained control still reads `6` faces, `12` edges, one solid
+and volume `18482541.490319017`, `valid=True`, because its frames are decoded by `VisibGeom`'s own routine.
+
+**This does change an earlier claim.** `AuthorBox((0,0,0),(100,60,40))` round-trips as volume `80000.0` with `4`
+vertices under the corrected table, not `240000.0` with `8`. The old numbers were measured with the wrong lanes, so
+they described the bug rather than the geometry; the authored box was never accepted by Creo, and it still is not.
+
 The volume is not taken on trust from the reader's own plane intersection: the six surfaces also give three axis
 spans, and their product is the same number to six decimals (`338.938151 x 270.33 x 201.719085 = 18482541.490319`).
 `re/creo/tools/Verify.py` checks both, along with the rebuilds, the emitters and the writer's flags.

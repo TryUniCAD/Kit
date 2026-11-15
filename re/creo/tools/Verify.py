@@ -186,6 +186,19 @@ def CheckGeneratedPart() -> None:
     Check("definition index matches the control", Ours == Reference, Ours.hex(" "))
 
 
+def CheckLanes() -> None:
+    Rounds = []
+    for Value in (0.0, 1.0, -1.0):
+        Encoded = Author.ScalarValue(Value)
+        Decoded = StreamParser(Encoded).ReadDouble()
+        Rounds.append((Value, Encoded.hex(), Decoded))
+    Check(
+        "single byte doubles round trip",
+        all(Decoded == Value for Value, _Encoded, Decoded in Rounds),
+        " ".join(f"{Value}->{Encoded}->{Decoded}" for Value, Encoded, Decoded in Rounds),
+    )
+
+
 def CheckWriterFlags() -> None:
     Source = Path("src/convert/adapters/creo/Writer.py").read_text()
     Check(
@@ -209,6 +222,7 @@ def main() -> int:
     CheckEmitters()
     CheckReplay()
     CheckGeneratedPart()
+    CheckLanes()
     CheckWriterFlags()
     Width = max(len(Name) for Name, _, _ in KResults)
     for Name, Passed, Detail in KResults:
