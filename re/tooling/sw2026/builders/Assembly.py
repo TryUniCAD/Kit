@@ -5,6 +5,7 @@ from math import isfinite, sqrt
 from ntpath import basename, splitext
 
 from Core import Obj
+from Model import base_configuration_fields, object_list
 
 
 def bounding_box(*, minimum: Sequence[float], maximum: Sequence[float]) -> dict:
@@ -65,3 +66,70 @@ def referenced_configuration(*, name: str | None, local_id: int | None) -> dict:
     if type(local_id) is not int or not 0 <= local_id < 0x7FFFFFFF:
         raise ValueError("referenced configuration ids must identify an actual generated configuration")
     return {"f08": name, "f10": local_id}
+
+
+def _initial_configuration_options() -> Obj:
+    fields = {name: 0 for name in (
+        "f14", "f28", "f20", "f34", "f40", "f58", "f5c", "f60",
+        "f68", "f6c", "f70", "f74",
+    )}
+    fields.update({
+        "f08": 2, "f0c": 1, "f10": 1, "f18": 2,
+        "f38": 6, "f3c": 1, "f48": "", "f50": -1, "f64": -1,
+    })
+    return Obj("moConfig_c", fields)
+
+
+def _initial_component_configuration() -> Obj:
+    return Obj("moConfigObject_c", {
+        "f08": _initial_configuration_options(),
+        "f10": None,
+        "f28": referenced_configuration(name=None, local_id=None),
+        "f40": None,
+        "f48": {"f08": object_list(), "f28": 101},
+        "has_f140": 0,
+        "f78": object_list(),
+        "f18": 0x111,
+        "f20": 0,
+        "f148": 0,
+        "has_f170": 0,
+        "fc0": None,
+        "fc8": None,
+        "f178": "",
+        "f190": 0,
+        "f118": object_list(),
+        "fd0": object_list(),
+    })
+
+
+def initial_configuration(
+    *,
+    name: str,
+    owner: Obj,
+    local_id: int,
+    date_code: int,
+    parasolid_version: int,
+    updated_at: int,
+    description: str = "",
+) -> Obj:
+    result = Obj("moConfiguration_c")
+    fields = base_configuration_fields(
+        node=result, name=name, owner=owner, local_id=local_id,
+        date_code=date_code, parasolid_version=parasolid_version,
+        updated_at=updated_at, description=description,
+    )
+    fields["f0c"] &= 0xFFFD7FF8
+    fields.update({
+        "fc48": _initial_configuration_options(),
+        "fc50": _initial_configuration_options(),
+        "fca0": None,
+        "fca8": None,
+        "fce8": [{"o": _initial_component_configuration()}],
+        "fba8": None,
+        "fbb0": None,
+        "fbc0": 0,
+        "fbc4": 1,
+        "fbc8": None,
+        "fce0": None,
+    })
+    return result

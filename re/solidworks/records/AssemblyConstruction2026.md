@@ -246,6 +246,11 @@ completed assembly graph rather than through a prohibited isolated unit test.
 
 The `moConfig_c` runtime factory at `sldmfcu.dll!0x3c7c5ed0` invokes constructor `0x3c7c6010` with arguments `(2, 1, 1, 2, 0, 0)`. These are native constructor arguments, not values observed in a saved control. Their semantic enum domains are not all closed.
 
+Its emitted object header is independently bound to native metadata: runtime
+class getter `sldmfcu.dll!0x3c7c6300` returns descriptor `0x3ce6d080`, whose
+schema is `0x80000001` and whose factory is `0x3c7c5ed0`. The wire schema is 1;
+it is not inferred from another class's schema.
+
 | Serialized member         | Role                                                                                     | Native initial rule                                    |
 | ------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------ |
 | `f08/f0c/f10/f18/f20/f34` | Action, explode action, visibility, suppression, solving option, save-as-part preference | Copy the six constructor arguments                     |
@@ -257,8 +262,97 @@ The `moConfig_c` runtime factory at `sldmfcu.dll!0x3c7c5ed0` invokes constructor
 
 Getter bindings for those roles are recorded in [AssemblyArchive2026.md](AssemblyArchive2026.md). Fields `f1c/f24/f2c/f30/f78/f7c` are runtime-only in this version and are not added to the wire because their constructor initializes them. A fresh semantic option API still needs enum/domain and dependent-caller evidence.
 
+## Initial assembly configuration graph
+
+`initial_configuration(*, name: str, owner: Obj, local_id: int, date_code: int,
+parasolid_version: int, updated_at: int, description: str = "") -> Obj`
+constructs the initial `moConfiguration_c` graph from the actual generated
+assembly owner. It composes the separately recovered
+`Model.base_configuration_fields` on the actual new configuration node. The
+configuration id and time are explicit authored/generated inputs; the saved
+format field uses the target archive version from the shared factory, not the
+loading-constructor seed 2045. The owner must be an actual `moAssembly_c`.
+
+The active configuration-manager constructor `sldmodu.dll!0x4b8802f0` calls
+the explicit assembly-configuration constructor `0x4b8c4f30` at
+`0x4b880bea`. Before that call, it allocates two distinct `moConfig_c` objects
+and passes `(2,1,1,2,0,0)` to their imported constructors at
+`0x4b880b74` and `0x4b880bb8`. The constructor assigns those exact objects
+to `fc48/fc50`. This caller establishes the first-configuration profile; it
+does not depend only on the archive's loading factory or a saved control.
+
+The same manager constructs another option profile at `0x4b880c33`, then
+calls `moConfigObject_c::moConfigObject_c` at `0x4b880c68` with that profile,
+the actual configuration, and a null component. Constructor `0x4b8a5230`
+clones the options into its own `f08`. The manager calls the configuration's
+virtual `+0x1f90` at `0x4b880c78`; primary vtable `0x4cecc720` resolves it
+to `0x4b8c9450`, which inserts this componentless state into collection
+`fce8`. The initial collection therefore contains one default state, not zero
+states. The builder creates three distinct options nodes and does not alias
+either configuration profile with the options exclusively owned by this state.
+
+| Configuration field | Role and initial construction rule                     | Static evidence in hashed `sldmodu.dll`                                     |
+| ------------------- | ------------------------------------------------------ | --------------------------------------------------------------------------- |
+| `fc48/fc50`         | Separate initial component option profiles             | Manager calls `0x4b880b74/0x4b880bb8`; explicit constructor `0x4b8c4f30`    |
+| `fce8`              | One componentless default `moConfigObject_c` initially | Manager `0x4b880c33`–`0x4b880c78`; insertion `0x4b8c9450`                   |
+| `fca0/fca8`         | Optional visual-state pointers initialized null        | Explicit constructor `0x4b8c4f30`; later visual graphs remain separate work |
+| `fba8`              | Interference-result array initially null               | Active base constructor store `0x4bdbfe15`; `getInterObjArray` `0x4b287150` |
+| `fbb0`              | Excluded-component array initially null                | Store `0x4bdbfe1c`; `getExcludedCompArray` `0x4b286420`                     |
+| `fbc0`              | Initial exclude-components option false                | Store `0x4bdbfe2a`; getter `0x4b286fc0`, setter `0x4b292aa0`                |
+| `fbc4`              | Initial remember-exclusions option true                | Immediate-one store `0x4bdbfe31`; getter `0x4b286fd0`, setter `0x4b292ab0`  |
+| `fbc8`              | Clearance-result array initially null                  | Store `0x4bdbfe3c`; `getClearanceObjArray` `0x4b284c90`                     |
+| `fce0`              | Assembly mass-cache pointer initially null             | Explicit constructor `0x4b8c4f30`; no accepted final cache profile claimed  |
+
+The active base-constructor zero register is explicit: `xor ebx,ebx` at
+`0x4bdbf97b`, with no intervening assignment before the listed stores. The
+separate loading constructor `0x4bdbdd40` assigns the same five extra fields at
+`0x4bdbe490`–`0x4bdbe4b6`, using the zeroed `r15` and an immediate one for
+`fbc4`. This corroborates the values but is not substituted for active-owner
+construction evidence.
+
+The active base constructor also clears the configuration's node update
+flags. At `0x4bdbffdf`–`0x4bdbffed` it supplies `(0,1,null)` to
+`moNode_c::setNeedsUpdate` at `0x4c03ed90`. The zero-status branch applies
+`f0c &= 0xfffd7ff8` without the positive-status debug predicates. This
+configuration factory applies that transition after the shared feature fields.
+
+The assembly store path `0x4c221a20` temporarily changes `fc50.f18` to
+`normalized_suppression | (getSuppressedState(null) == 0)` before writing it,
+then restores the initial suppression. For this exact initial profile, active
+base construction creates an internal `moPartConfigObject_c` through
+`0x4bdc24d0`, whose `+0x0c` flag word is 1. Query `0x4bddae80` returns that
+word's low bit when the supplied concept is null. The OR operand is therefore
+zero, and the initial `fc50.f18` remains 2 on the wire. This internal part
+configuration object is not serialized as an extra standalone assembly node.
+Collection store helper `0x4b8c11d0` copies the initial state list when the
+configuration's parent pointer `f6a0` is null and writes its actual count and
+objects, including the componentless state. Neither store transition is
+replaced by a value observed in a saved assembly.
+
+| Initial component-state fields | Rule from constructor `0x4b8a5230`                                                              |
+| ------------------------------ | ----------------------------------------------------------------------------------------------- |
+| `f08/f10/f28`                  | Fresh cloned options, no concrete component, unset referenced-configuration pair                |
+| `f40/fc0/fc8`                  | Null visual and flexible-state pointers                                                         |
+| `f48.f08/f48.f28`              | Empty embedded featherweight-child array and initial stamp 101                                  |
+| `has_f140/has_f170`            | No allocated placement or alternate transform                                                   |
+| `f18/f20/f148`                 | Initial flags `0x111`, integer state 0, integer state 0                                         |
+| `f78/f118/fd0`                 | Empty serialized collections before any component or referencing relationship                   |
+| `f178/f190`                    | Constructor-empty string and false persisted boolean; complete later semantic roles remain open |
+
+Store helper `0x4b8ad480` retains the constructor's referenced-configuration
+pair when this state's component is null. Its temporary replacement path
+requires an actual component/reference/model and additional flexible-state
+predicates, so it does not invent a selected component configuration here.
+
+All rules in this section are **partial** static constructor/caller evidence.
+They are not native acceptance or general option-domain proof. The function
+represents the initial configuration graph only. It does not clone a later
+configuration, insert a component, supply mate states, or prove that initial
+caches remain valid after those operations. The next composition work must
+apply those operations' actual native transitions.
+
 ## Remaining construction work
 
 The unresolved work is concrete and active: complete ordinary component-reference construction; external file/header/configuration identity; context-dependent placement propagation; complete per-configuration option domains; solver state and common mate data; bounds-cache ownership and final visibility/explosion policy; and controlled native load/rebuild/edit acceptance with passing controls.
 
-Only the geometric-bounds, ordinary-file-definition and referenced-configuration record constructors are implemented here. A complete fresh assembly builder and native acceptance are not claimed. No local tests, builder imports, fixture reproductions, or CAD operations were run. The caller and loop conclusions are static evidence, not Tupni execution traces.
+The geometric-bounds, ordinary-file-definition, referenced-configuration, and initial assembly-configuration graph constructors are implemented here. A complete fresh assembly builder and native acceptance are not claimed. No local tests, builder imports, fixture reproductions, or CAD operations were run. The caller and loop conclusions are static evidence, not Tupni execution traces.
