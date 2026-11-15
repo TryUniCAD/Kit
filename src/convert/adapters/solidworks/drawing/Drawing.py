@@ -12,6 +12,7 @@ from convert.adapters.solidworks.container.Format import (
     INFORMATION_STREAM as KInfoStream,
     KEYWORDS_STREAM as KKeyStream,
 )
+
 KSheetFormatProperty = "SW-All Sheet Format Data"
 
 
@@ -110,9 +111,7 @@ def ReadView(Element: XmlTree.Element) -> DrawingView:
     ModelPath = TextValue(Element)
     if not ViewName or not ModelPath:
         raise SldprtFormatError("drawing sheet has an incomplete view")
-    return DrawingView(
-        ViewName, ModelPath, Element.attrib.get("Description", "")
-    )
+    return DrawingView(ViewName, ModelPath, Element.attrib.get("Description", ""))
 
 
 def ReadSheet(
