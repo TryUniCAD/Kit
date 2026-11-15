@@ -70,3 +70,11 @@ Dropping any single model section (`Notes`, `PipeInfos`) or the display group fa
 - [Required section set gotcha](../../Gotchas/Conversion/CreoRequiredSectionSet.md)
 - [Generative author](CreoGenerativeAuthor.md)
 - [Container findings](../../../re/creo/container/Container.md)
+
+## Correction
+
+`re/creo/tools/Subset.py` hardcoded the directory row's version field as `1934`, which is the control's value.
+The ladder control uses `2963`, so rebuilding it rewrote 174 bytes and was not byte-identical — the tool was
+correct only for the file it was developed on. The version is now carried through per row and both retained
+files round-trip byte-identically. See
+[the row version gotcha](../../Gotchas/Conversion/CreoRowVersionField.md).

@@ -36,6 +36,8 @@ class Row:
     expanded: int
     kind: str
     count: str
+    version: str
+    
     checksum_a: str
     checksum_b: str
     position: int
@@ -74,6 +76,8 @@ def ReadTable(DataValue: bytes, Position: int) -> Table:
                     int(Fields[3], 16),
                     Fields[5],
                     Fields[6],
+                    Fields[4],
+                    
                     Fields[7],
                     Fields[8],
                     Cursor,
@@ -86,7 +90,7 @@ def ReadTable(DataValue: bytes, Position: int) -> Table:
 def RowValue(RowData: Row) -> bytes:
     Text = (
         f"{RowData.name} {RowData.offset:x} {RowData.length:x} "
-        f"{RowData.expanded:x} {KVersion} {RowData.kind} {RowData.count} "
+        f"{RowData.expanded:x} {RowData.version} {RowData.kind} {RowData.count} "
         f"{RowData.checksum_a} {RowData.checksum_b}"
     )
     return Text.encode("ascii").ljust(KWidth - 1, b"#")[: KWidth - 1] + b"\n"
