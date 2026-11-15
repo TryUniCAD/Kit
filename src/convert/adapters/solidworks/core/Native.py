@@ -1,5 +1,10 @@
 from __future__ import annotations as Annotations
 from convert.adapters.solidworks.core.AxisSketchId import AxisSketchId
+from convert.adapters.solidworks.core.BoxFaces import HasBoxFaces
+from convert.adapters.solidworks.core.PolylineBrep import HasPolyBrep
+from convert.adapters.solidworks.core.PolylineParameters import HasPolyLoss
+from convert.adapters.solidworks.core.TriDepth import IsTriSource, RecoverTriDepth
+from convert.adapters.solidworks.core.UnitScale import MmFromMetres
 from collections.abc import Callable
 from dataclasses import dataclass as Dataclass, field as Field, replace as Replace
 import hashlib as Hashlib
@@ -148,6 +153,10 @@ from convert.adapters.solidworks.programs.resolved.circle.reverse.Program import
 from convert.adapters.solidworks.programs.resolved.polyline.fivepoint.Program import (
     EncodeProgram as EncodePolylineFiveProgram,
     PadFieldMap as PolylineFiveFieldMap,
+)
+from convert.adapters.solidworks.programs.resolved.polyline.threepoint.Program import (
+    EncodeProgram as EncodePolyTriProgram,
+    PadFieldMap as PolylineThreeFieldMap,
 )
 from convert.adapters.solidworks.programs.resolved.polyline.sixpoint.Program import (
     EncodeProgram as EncodePolylineSixProgram,
@@ -410,7 +419,7 @@ def ApplySketchMut(StateData: DecodeState, Feature: NativeFeature) -> None:
 
 
 # focused operation decoder preserves one native feature family
-def DecodeExtrude(
+def DecodePadMut(
     StateData: DecodeState, Feature: NativeFeature
 ) -> NativeOperation | None:
     Record = StateData.RecordById.get(Feature.object_id)
@@ -440,6 +449,27 @@ def DecodeExtrude(
     EndData = EndSpec(
         StateData.Resolved, OperationStart, OperationEnd, StateData.Classes
     )
+    Dimensions = Feature.dimensions
+    if len(Dimensions) == 1:
+        Recovered = RecoverTriDepth(
+            StateData.Resolved, StateData.LatestSketch, Dimensions[0]
+        )
+        if Recovered is not None:
+            Dimensions = (Recovered,)
+            NativeIndex = StateData.NativeIndexById[Feature.object_id]
+            StateData.NativeFeatures[NativeIndex] = Replace(
+                StateData.NativeFeatures[NativeIndex], dimensions=Dimensions
+            )
+        elif (
+            Feature.object_id == 32
+            and StateData.LatestSketch is not None
+            and StateData.LatestSketch.support_plane_id == 2
+            and EndData is not None
+            and EndData.direction_code == 0
+            and EndData.termination_code == 0
+            and IsTriSource(StateData.LatestSketch, Dimensions[0])
+        ):
+            raise SldprtFormatError("triangle depth witnesses are unsupported")
     Operation = NativeOperation(
         object_id=Feature.object_id,
         name=Feature.name,
@@ -451,7 +481,7 @@ def DecodeExtrude(
         native_offset=OperationStart,
         native_end=ClassRecordEnd(StateData.Resolved, StateData.Classes, OperationStart)
         or OperationEnd,
-        length_mm=DimensionValue(Feature.dimensions, "length"),
+        length_mm=DimensionValue(Dimensions, "length"),
         radius_mm=None,
         family_code=Family,
         operation_code=OperationCode,
@@ -462,7 +492,7 @@ def DecodeExtrude(
         selected_local_ids=(),
         native_stream=StateData.StreamName,
         depth_copies=DepthCopies(
-            StateData.Resolved, OperationOffset(Feature.dimensions, "length")
+            StateData.Resolved, OperationOffset(Dimensions, "length")
         ),
         mirrored_direction_offset=(
             EndData.mirrored_direction_offset if EndData else None
@@ -1045,7 +1075,7 @@ def DecodeOperation(
 ) -> NativeOperation | None:
     FeatureType = Feature.kind.casefold()
     if FeatureType == "extrusion":
-        return DecodeExtrude(StateData, Feature)
+        return DecodePadMut(StateData, Feature)
     if FeatureType in {"lpattern", "linearpattern"}:
         return DecodeLinear(StateData, Feature)
     if FeatureType in {"cirpattern", "circularpattern"}:
@@ -1178,6 +1208,7 @@ class NativeProfile:
     parameter_name: str | None = None
     dimension_kind: str | None = None
     start_angle_degrees: float | None = None
+    native_coordinates_mm: tuple[float, ...] | None = None
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -1889,7 +1920,10 @@ def HasVendorPart(DocData: CadDocument) -> bool:
     if not SourceObjects:
         return False
     AuthoredObjects = Canonical(SourceObjects, ObjectIds, DocData)
-    return BuildVendorTree(AuthoredObjects) is not None
+    try:
+        return BuildVendorTree(AuthoredObjects, DocData) is not None
+    except SldprtFormatError:
+        return False
 
 
 # native envelope assembly keeps optional vendor stream replacement independently testable
@@ -1994,7 +2028,7 @@ def EncodeNative(DocValue: CadDocument, ModelName: str) -> NativePart:
         )
     )
     Objects = (*BaseValue, *Authored)
-    VendorData = BuildVendorTree(Authored)
+    VendorData = VendorTree(Authored, DocValue)
     VendorResolved = VendorData.payload if VendorData is not None else None
     SourceKeywords = KeywordsPayload(
         DocValue,
@@ -2301,6 +2335,23 @@ def BuildCircleTree(
     )
 
 
+def PadSketch(DocData: CadDoc, PadId: str) -> Sketch | None:
+    Feature = next(
+        (ItemData for ItemData in DocData.feature_timeline if ItemData.id == PadId),
+        None,
+    )
+    if Feature is None or Feature.sketch_id is None:
+        return None
+    return next(
+        (
+            ItemData
+            for ItemData in DocData.sketches
+            if ItemData.id == Feature.sketch_id
+        ),
+        None,
+    )
+
+
 # polyline specialization isolates polygon profile serialization behavior
 def BuildPolyTree(
     SketchObject: WriteObject,
@@ -2309,17 +2360,31 @@ def BuildPolyTree(
     PolylineValue: tuple[tuple[float, float], ...] | None,
     DepthValue: float,
     EndCodes: tuple[int, int],
+    DocData: CadDoc,
 ) -> VendorResolved | None:
+    SketchData = PadSketch(DocData, PadObject.source_id)
     if (
         PolylineValue is None
+        or (not HasPolyBrep(DocData, PolylineValue, DepthValue))
+        or SketchData is None
+        or bool(SketchData.constraints)
+        or any((ItemData.construction or ItemData.fixed for ItemData in SketchData.entities))
         or EndCodes != (0, 0)
         or PlaneObjectId != 2
         or (PadObject.object_id != 32)
         or SketchObject.dimensions
+        or HasPolyLoss(DocData, PadObject.source_id)
     ):
         return None
     try:
-        if len(PolylineValue) == 5:
+        if len(PolylineValue) == 3:
+            PointsMetres = PolylinePoints(SketchObject, SourceMetres=True)
+            if PointsMetres is None:
+                return None
+            ProgramData = EncodePolyTriProgram(
+                PolylineThreeFieldMap(PolylineValue, DepthValue, PointsMetres)
+            )
+        elif len(PolylineValue) == 5:
             ProgramData = EncodePolylineFiveProgram(
                 PolylineFiveFieldMap(PolylineValue, DepthValue)
             )
@@ -2332,12 +2397,57 @@ def BuildPolyTree(
     except SldprtFormatError:
         return None
     HeaderStamps = KFrontBossHeaderStamps
-    Generation = KModernGeneration if len(PolylineValue) == 5 else 18000
+    Generation = KModernGeneration if len(PolylineValue) in {3, 5} else 18000
     return VendorResolved(ProgramData, HeaderStamps, Generation=Generation)
 
 
+def IsPolySketch(SketchData: Sketch) -> bool:
+    CountValue = len(SketchData.entities)
+    if CountValue not in {3, 5, 6}:
+        return False
+    Geometries = tuple(Entity.geometry for Entity in SketchData.entities)
+    if not all(isinstance(Geometry, LineGeom) for Geometry in Geometries):
+        return False
+    if SketchData.closed_profile_entity_ids:
+        return True
+    Lines = tuple(Geometry for Geometry in Geometries if isinstance(Geometry, LineGeom))
+    return all(
+        (
+            MathValue.isclose(
+                LineData.end.x, Lines[(Index + 1) % CountValue].start.x, abs_tol=1e-06
+            )
+            and MathValue.isclose(
+                LineData.end.y, Lines[(Index + 1) % CountValue].start.y, abs_tol=1e-06
+            )
+            for Index, LineData in enumerate(Lines)
+        )
+    )
+
+
+def IsTriCandidate(AuthoredObjs: tuple[_WriteObject, ...], DocData: CadDoc) -> bool:
+    if not any((ItemData.class_name == "moExtrusion_c" for ItemData in AuthoredObjs)):
+        return False
+    Matches = tuple(SketchData for SketchData in DocData.sketches if IsPolySketch(SketchData))
+    if not Matches:
+        return False
+    if any(len(SketchData.entities) == 3 for SketchData in Matches):
+        return True
+    return len(AuthoredObjs) == 2 and len(DocData.sketches) == 1
+
+
+def VendorTree(
+    AuthoredObjs: tuple[_WriteObject, ...], DocData: CadDoc
+) -> VendorResolved | None:
+    VendorData = BuildVendorTree(AuthoredObjs, DocData)
+    if VendorData is None and IsTriCandidate(AuthoredObjs, DocData):
+        raise SldprtFormatError("polyline history is unsupported")
+    return VendorData
+
+
 # this definition exists because focused behavior needs one stable owner
-def BuildVendorTree(AuthoredObjs: tuple[_WriteObject, ...]) -> VendorResolved | None:
+def BuildVendorTree(
+    AuthoredObjs: tuple[_WriteObject, ...], DocData: CadDoc
+) -> VendorResolved | None:
     if len(AuthoredObjs) != 2:
         return RouteVendorTree(AuthoredObjs)
     SketchObject, PadObject = AuthoredObjs
@@ -2391,7 +2501,13 @@ def BuildVendorTree(AuthoredObjs: tuple[_WriteObject, ...]) -> VendorResolved | 
             PadObject, PlaneObjectId, CircleValue, DepthValue, DirectionCode, EndCodes
         )
     return BuildPolyTree(
-        SketchObject, PadObject, PlaneObjectId, PolylineValue, DepthValue, EndCodes
+        SketchObject,
+        PadObject,
+        PlaneObjectId,
+        PolylineValue,
+        DepthValue,
+        EndCodes,
+        DocData,
     )
 
 
@@ -3652,12 +3768,7 @@ def PrincipalPlaneB(Planes: tuple[SupportPlane, ...]) -> dict[str, int]:
             if ObjectId in Claimed:
                 continue
             TargetNormal = Frame[3]
-            if all(
-                (
-                    MathValue.isclose(ItemData, 0.0, abs_tol=1e-09)
-                    for ItemData in OriginValue
-                )
-            ) and MathValue.isclose(
+            if all((ItemData == 0.0 for ItemData in OriginValue)) and (
                 abs(
                     sum(
                         (
@@ -3667,15 +3778,38 @@ def PrincipalPlaneB(Planes: tuple[SupportPlane, ...]) -> dict[str, int]:
                             )
                         )
                     )
-                ),
-                1.0,
-                rel_tol=0.0,
-                abs_tol=1e-09,
+                )
+                == 1.0
             ):
                 Result[Plane.id] = ObjectId
                 Claimed.add(ObjectId)
                 break
     return Result
+
+
+def IsExactFrame(Plane: SupportPlane, ObjectId: int) -> bool:
+    Frames = {
+        2: ((0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 0.0, 1.0)),
+        3: ((0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, -1.0), (0.0, 1.0, 0.0)),
+        4: ((0.0, 0.0, 0.0), (0.0, 0.0, -1.0), (0.0, 1.0, 0.0), (1.0, 0.0, 0.0)),
+    }
+    Frame = Frames.get(ObjectId)
+    if Frame is None:
+        return False
+    Transform = Plane.transform
+    return (
+        (Transform.origin.x, Transform.origin.y, Transform.origin.z) == Frame[0]
+        and (Transform.x_axis.x, Transform.x_axis.y, Transform.x_axis.z) == Frame[1]
+        and (Transform.y_axis.x, Transform.y_axis.y, Transform.y_axis.z) == Frame[2]
+        and (Transform.z_axis.x, Transform.z_axis.y, Transform.z_axis.z) == Frame[3]
+    )
+
+
+def HasExactPlanes(Planes: tuple[SupportPlane, ...]) -> bool:
+    ObjectIds = PrincipalPlaneB(Planes)
+    return len(ObjectIds) == len(Planes) and all(
+        IsExactFrame(Plane, ObjectIds[Plane.id]) for Plane in Planes
+    )
 
 
 # focused owner exists because vendor metadata needs string keys before nested values can cross the parser boundary
@@ -3754,6 +3888,7 @@ def HasFreeCadBox(
         or (len(BrepData.faces) != 6)
         or (len(BrepData.regions) != 1)
         or (len(BrepData.bodies) != 1)
+        or (not HasBoxFaces(DocData, LengthValue, WidthValue, HeightValue))
     ):
         return False
     ExpectedData = {
@@ -3916,6 +4051,65 @@ def HasCadCylBrep(DocData: CadDocument, RadiusValue: float, HeightValue: float) 
     )
 
 
+def HasAddBoxSchema(PathData: dict[str, Param], FeatureName: str) -> bool:
+    if any(ParamValue.role is not ParamRole.DRIVING for ParamValue in PathData.values()):
+        return False
+    Required = {
+        "Length": ValueKind.LENGTH,
+        "Width": ValueKind.LENGTH,
+        "Height": ValueKind.LENGTH,
+        "MapMode": ValueKind.INTEGER,
+        "MapPathParameter": ValueKind.NUMBER,
+        "MapReversed": ValueKind.BOOLEAN,
+        "Visibility": ValueKind.BOOLEAN,
+        "Refine": ValueKind.BOOLEAN,
+        "AttacherType": ValueKind.STRING,
+        "Label": ValueKind.STRING,
+        "Label2": ValueKind.STRING,
+    }
+    Optional = {
+        "Suppressed": (ValueKind.BOOLEAN, False),
+        "FuzzyTolerance": (ValueKind.NUMBER, -1.0),
+        "AttacherEngine": (ValueKind.STRING, "Engine 3D"),
+    }
+    if not set(Required) <= set(PathData) or not set(PathData) <= set(
+        Required
+    ) | set(Optional):
+        return False
+    for NameValue, KindValue in Required.items():
+        ParamValue = PathData[NameValue]
+        if ParamValue.value.kind is not KindValue:
+            return False
+        if NameValue in {"Length", "Width", "Height"}:
+            continue
+        if NameValue == "Refine":
+            if not IsFreecadParam(ParamValue, KindValue, True, Exact=True):
+                return False
+            continue
+        Expected = {
+            "MapMode": 0,
+            "MapPathParameter": 0.0,
+            "MapReversed": False,
+            "Visibility": True,
+            "AttacherType": "Attacher::AttachEngine3D",
+            "Label": FeatureName,
+            "Label2": "",
+        }[NameValue]
+        if not IsFreecadParam(
+            ParamValue,
+            KindValue,
+            Expected,
+            Exact=NameValue in {"MapPathParameter"},
+        ):
+            return False
+    for NameValue, (KindValue, Expected) in Optional.items():
+        if NameValue in PathData and not IsFreecadParam(
+            PathData[NameValue], KindValue, Expected, Exact=True
+        ):
+            return False
+    return True
+
+
 # focused continuation isolates the remaining native serialization phase
 def FinishBoxMut(
     PathData: dict[str, Param],
@@ -3944,6 +4138,10 @@ def FinishBoxMut(
                 MathValue.isfinite(ItemData) and ItemData > 0.0
                 for ItemData in (LengthValue, WidthValue, HeightValue)
             )
+        )
+        or (
+            DefinitionData.type_id == "PartDesign::AdditiveBox"
+            and not HasAddBoxSchema(PathData, FeatureData.name)
         )
         or not IsFreeCad(DefinitionData.object_data, "Placement")
         or (not IsFreeCad(DefinitionData.object_data, "AttachmentOffset"))
@@ -4029,7 +4227,7 @@ def FreeCadBoxMut(
     if (
         DocData.source.format_id.casefold() != "freecad.fcstd"
         or DocData.assembly is not None
-        or DocData.support_planes
+        or not HasExactPlanes(DocData.support_planes)
         or DocData.sketches
         or DocData.selections
         or (len(DocData.bodies) != 1)
@@ -5837,7 +6035,7 @@ def HasPolyline(
         return False
     if (
         PointsData is None
-        or len(PointsData) not in {5, 6}
+        or len(PointsData) not in {3, 5, 6}
         or len(PointsData) != len(SketchData.entities)
     ):
         return False
@@ -7632,11 +7830,18 @@ def FreeCadFeature(
 
 
 # this definition exists because focused behavior needs one stable owner
+def HasPadSchema(DocValue: CadDocument, Feature: FeatureStep) -> bool:
+    if DocValue.source.format_id.casefold() in {"freecad.fcstd", "solidworks.sldprt"}:
+        return True
+    NativeId = Feature.attributes.get("native_object_id")
+    return isinstance(NativeId, int) and not isinstance(NativeId, bool)
+
+
 def FreecadSingle(
     DocValue: CadDocument, Sketch: Sketch, Feature: FeatureStep
 ) -> WriteDimension | None:
     if (
-        DocValue.source.format_id.casefold() != "freecad.fcstd"
+        not HasPadSchema(DocValue, Feature)
         or DocValue.assembly is not None
         or DocValue.selections
         or (len(DocValue.sketches) != 1)
@@ -7687,11 +7892,23 @@ def FreecadSingle(
         or Definition.second_end_condition is not None
         or Definition.up_to_reference
         or Definition.second_up_to_reference
-        or (not IsParamValueA(Definition.second_length, 10.0, ValueKind.LENGTH))
-        or (not IsParamValueA(Definition.offset, 0.0, ValueKind.LENGTH))
-        or (not IsParamValueA(Definition.second_offset, 0.0, ValueKind.LENGTH))
-        or (not IsParamValueA(Definition.draft_angle, 0.0, ValueKind.ANGLE))
-        or (not IsParamValueA(Definition.second_draft_angle, 0.0, ValueKind.ANGLE))
+        or (
+            not IsParamValueA(
+                Definition.second_length, 10.0, ValueKind.LENGTH, Exact=True
+            )
+        )
+        or (not IsParamValueA(Definition.offset, 0.0, ValueKind.LENGTH, Exact=True))
+        or (
+            not IsParamValueA(
+                Definition.second_offset, 0.0, ValueKind.LENGTH, Exact=True
+            )
+        )
+        or (not IsParamValueA(Definition.draft_angle, 0.0, ValueKind.ANGLE, Exact=True))
+        or (
+            not IsParamValueA(
+                Definition.second_draft_angle, 0.0, ValueKind.ANGLE, Exact=True
+            )
+        )
         or (Definition.direction is None)
         or (SupportPlaneValue is None)
         or (
@@ -7736,8 +7953,9 @@ def FreecadSingle(
     Expected = {
         "AllowMultiFace": (ValueKind.BOOLEAN, True),
         "AlongSketchNormal": (ValueKind.BOOLEAN, True),
-        "Label": (ValueKind.STRING, None),
-        "Label2": (ValueKind.STRING, None),
+        "FuzzyTolerance": (ValueKind.NUMBER, -1.0),
+        "Label": (ValueKind.STRING, Feature.name),
+        "Label2": (ValueKind.STRING, ""),
         "Length": (ValueKind.LENGTH, Dimension.value_mm),
         "Length2": (ValueKind.LENGTH, 10.0),
         "Midplane": (ValueKind.BOOLEAN, Definition.symmetric),
@@ -7754,11 +7972,11 @@ def FreecadSingle(
         "UseCustomVector": (ValueKind.BOOLEAN, False),
         "Visibility": (ValueKind.BOOLEAN, True),
     }
-    if not set(Expected) <= set(Parameters):
+    if set(Expected) != set(Parameters):
         return None
     if any(
         (
-            not IsFreecadParam(Parameters[PathValue], KindValue, Value)
+            not IsFreecadParam(Parameters[PathValue], KindValue, Value, Exact=True)
             for PathValue, (KindValue, Value) in Expected.items()
         )
     ):
@@ -7889,6 +8107,7 @@ def IsFreecadParam(
     Param: Parameter,
     KindValue: ValueKind,
     Expected: object,
+    Exact: bool = False,
 ) -> bool:
     if Expected is not None and not isinstance(Expected, (str, int, float, bool)):
         return False
@@ -7897,10 +8116,11 @@ def IsFreecadParam(
         return False
     if Expected is None:
         return isinstance(Value.value, str)
+    Tolerance = 0.0 if Exact else 1e-10
     if KindValue is ValueKind.LENGTH:
         Dimension = ParamDimension(Param)
         return Dimension is not None and MathValue.isclose(
-            Dimension.value_mm, float(Expected), rel_tol=0.0, abs_tol=1e-10
+            Dimension.value_mm, float(Expected), rel_tol=0.0, abs_tol=Tolerance
         )
     if KindValue in {ValueKind.NUMBER, ValueKind.ANGLE}:
         return (
@@ -7908,7 +8128,7 @@ def IsFreecadParam(
             and isinstance(Value.value, (int, float))
             and MathValue.isfinite(float(Value.value))
             and MathValue.isclose(
-                float(Value.value), float(Expected), rel_tol=0.0, abs_tol=1e-10
+                float(Value.value), float(Expected), rel_tol=0.0, abs_tol=Tolerance
             )
         )
     return Value.value == Expected
@@ -7916,20 +8136,26 @@ def IsFreecadParam(
 
 # this definition exists because focused behavior needs one stable owner
 def IsParamValueA(
-    Value: ParamValue | None, Expected: float, KindValue: ValueKind
+    Value: ParamValue | None,
+    Expected: float,
+    KindValue: ValueKind,
+    Exact: bool = False,
 ) -> bool:
     if Value is None or Value.kind is not KindValue:
         return False
+    Tolerance = 0.0 if Exact else 1e-10
     Dimension = ParamDimension(Param("", "D1", Value))
     if KindValue is ValueKind.LENGTH:
         return Dimension is not None and MathValue.isclose(
-            Dimension.value_mm, Expected, rel_tol=0.0, abs_tol=1e-10
+            Dimension.value_mm, Expected, rel_tol=0.0, abs_tol=Tolerance
         )
     return (
         not isinstance(Value.value, bool)
         and isinstance(Value.value, (int, float))
         and MathValue.isfinite(float(Value.value))
-        and MathValue.isclose(float(Value.value), Expected, rel_tol=0.0, abs_tol=1e-10)
+        and MathValue.isclose(
+            float(Value.value), Expected, rel_tol=0.0, abs_tol=Tolerance
+        )
     )
 
 
@@ -7980,7 +8206,9 @@ def WriteCircle(SketchObject: _WriteObject) -> tuple[float, float, float] | None
 
 
 # this definition exists because focused behavior needs one stable owner
-def PolylinePoints(SketchObject: _WriteObject) -> tuple[tuple[float, float], ...] | None:
+def PolylinePoints(
+    SketchObject: _WriteObject, SourceMetres: bool = False
+) -> tuple[tuple[float, float], ...] | None:
     if SketchObject.kind != "Sketch" or not SketchObject.payload:
         return None
     MarkersData = list(ParseMarkers(SketchObject.payload, 0, len(SketchObject.payload)))
@@ -7988,9 +8216,39 @@ def PolylinePoints(SketchObject: _WriteObject) -> tuple[tuple[float, float], ...
     PolylineData = tuple(
         (ItemData for ItemData in ProfilesData if ItemData.kind == "polyline")
     )
-    if len(PolylineData) != 1 or len(PolylineData[0].coordinates) not in {10, 12}:
+    if len(PolylineData) != 1 or len(PolylineData[0].coordinates) not in {6, 10, 12}:
         return None
     CoordinateData = PolylineData[0].coordinates
+    if SourceMetres:
+        MetrePoints = tuple(
+            Marker.coordinates_metres
+            for Marker in MarkersData
+            if Marker.semantic == "point" and Marker.coordinates_metres is not None
+        )
+        Normalized = tuple(
+            Clean(round(Coordinate * KMillimetres, 12))
+            for Point in MetrePoints
+            for Coordinate in Point
+        )
+        if (
+            len(CoordinateData) != 6
+            or len(MetrePoints) != 3
+            or Normalized != CoordinateData
+        ):
+            return None
+        return MetrePoints
+    MetrePoints = tuple(
+        (
+            Marker.coordinates_metres
+            for Marker in MarkersData
+            if Marker.semantic == "point" and Marker.coordinates_metres is not None
+        )
+    )
+    if len(CoordinateData) in {10, 12} and len(MetrePoints) * 2 == len(CoordinateData):
+        return tuple(
+            (MmFromMetres(PointData[0]), MmFromMetres(PointData[1]))
+            for PointData in MetrePoints
+        )
     PointsData = tuple(
         (
             (CoordinateData[ItemIndex], CoordinateData[ItemIndex + 1])
@@ -8338,12 +8596,8 @@ def LineLoopPoints(
     ):
         return None
     if any(
-        (
-            not IsSamePoint(
-                EndData[ItemIndex], StartData[(ItemIndex + 1) % len(StartData)]
-            )
-            for ItemIndex in range(len(StartData))
-        )
+        EndData[ItemIndex] != StartData[(ItemIndex + 1) % len(StartData)]
+        for ItemIndex in range(len(StartData))
     ):
         return None
     return StartData
@@ -8394,7 +8648,7 @@ def EncodePolyMut(
     Consumed: set[str],
     LocalId: int,
 ) -> int | None:
-    if len(Selected) not in {5, 6} or not all(
+    if len(Selected) not in {3, 5, 6} or not all(
         Entity is not None and isinstance(Entity.geometry, LineGeom)
         for Entity in Selected
     ):
@@ -9001,7 +9255,11 @@ def NativeEnvelope(
     AnnotationViewVariant: str = "default",
     Generation: int = 18000,
 ) -> Mapping[str, bytes]:
-    if Generation not in {18000, KModernGeneration} or DocValue.assembly is not None and Generation == KModernGeneration:
+    if (
+        Generation not in {18000, KModernGeneration}
+        or DocValue.assembly is not None
+        and Generation == KModernGeneration
+    ):
         raise SldprtFormatError(f"unsupported native document generation {Generation}")
     ConfigName = next(
         (Config.name for Config in DocValue.configurations if Config.active),
@@ -9623,9 +9881,7 @@ def Biography(
         Output.extend(Serialized(PathValue))
         Output.extend(Struct.pack("<III", 3, 1162821632, 5))
     Output.extend(
-        Struct.pack(
-            "<9I", Generation, 2025268, 1, 9, ReleaseNumber, 2, 10, 0, 26200
-        )
+        Struct.pack("<9I", Generation, 2025268, 1, 9, ReleaseNumber, 2, 10, 0, 26200)
     )
     Output.extend(Serialized(""))
     Output.extend(Struct.pack("<HQI", 6153, Filetime, 1806331904))
@@ -9938,7 +10194,7 @@ def HasPadProof(
     DepthValue = PadObject.dimensions[0].value_mm
     ExpectedDepth = (
         (1, 1, 1, 1, -1, -1)
-        if PolylineValue is not None and len(PolylineValue) == 5
+        if PolylineValue is not None and len(PolylineValue) in {3, 5}
         else (1, 1, -1, -1, 1, 1)
     )
     ExpectedDims = tuple(
@@ -13603,6 +13859,19 @@ def CreatePoly(
     MarkerOffsets = tuple(
         EdgeData[EdgeIndex].offset for EdgeIndex in OrderedEdges
     ) + tuple(MarkersData[VertexIndex].offset for VertexIndex in OrderedVertices)
+    NativePoints = tuple(
+        MarkersData[VertexIndex].coordinates_metres for VertexIndex in OrderedVertices
+    )
+    NativeCoordinates = (
+        None
+        if any(PointData is None for PointData in NativePoints)
+        else tuple(
+            MmFromMetres(CoordinateValue)
+            for PointData in NativePoints
+            if PointData is not None
+            for CoordinateValue in PointData
+        )
+    )
     Profile = NativeProfile(
         "polyline",
         tuple(
@@ -13611,6 +13880,7 @@ def CreatePoly(
             for CoordinateValue in PointData
         ),
         MarkerOffsets,
+        native_coordinates_mm=NativeCoordinates,
     )
     return (Profile, MarkerOffsets)
 
@@ -14622,7 +14892,9 @@ Vector2 = VectorTwo
 _SKETCH_PLANE_ID_RELATIVE = KSketchPlaneIdRelative  # lgtm[py/unused-global-variable]
 
 # this binding exists because shared behavior needs one stable value
-_SKETCH_PLANE_REFERENCE_PREFIX = KSketchPlaneRefPrefix  # lgtm[py/unused-global-variable]
+_SKETCH_PLANE_REFERENCE_PREFIX = (
+    KSketchPlaneRefPrefix  # lgtm[py/unused-global-variable]
+)
 
 # this binding exists because shared behavior needs one stable value
 _SKETCH_PLANE_REFERENCE_TAG = KSketchPlaneRefTag  # lgtm[py/unused-global-variable]
@@ -14631,13 +14903,17 @@ _SKETCH_PLANE_REFERENCE_TAG = KSketchPlaneRefTag  # lgtm[py/unused-global-variab
 _SKETCH_PLANE_SCAN_BYTES = KSketchPlaneScanBytes  # lgtm[py/unused-global-variable]
 
 # this binding exists because shared behavior needs one stable value
-_SOLIDWORKS_CONFIGURATION_FLAGS = KSolidworksConfigFlags  # lgtm[py/unused-global-variable]
+_SOLIDWORKS_CONFIGURATION_FLAGS = (
+    KSolidworksConfigFlags  # lgtm[py/unused-global-variable]
+)
 
 # this binding exists because shared behavior needs one stable value
 _SOLIDWORKS_XML_NAMESPACE = KSolidworksXmlNamespace  # lgtm[py/unused-global-variable]
 
 # this binding exists because shared behavior needs one stable value
-_SURFACE_EXTRUSION_FEATURE_TYPES = KSurfaceExtrusionFeature  # lgtm[py/unused-global-variable]
+_SURFACE_EXTRUSION_FEATURE_TYPES = (
+    KSurfaceExtrusionFeature  # lgtm[py/unused-global-variable]
+)
 
 # this binding exists because shared behavior needs one stable value
 _SYSTEM_OBJECT_IDS = KSystemObjectIds  # lgtm[py/unused-global-variable]

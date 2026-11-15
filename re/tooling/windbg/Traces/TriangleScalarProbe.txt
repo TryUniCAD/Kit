@@ -1,0 +1,10 @@
+.symopt+0x4000
+.symopt-0x20000
+sxi 80090016
+sxi 80290410
+sxi e06d7363
+sxi e0434352
+bu swccu+0x4350 ".if (dwo(poi(@rcx+0x48)) == 0x6d) { .printf \"F long %x %x\\n\", poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp) }; gc"
+bu swccu+0x43b0 ".if (dwo(poi(@rcx+0x48)) == 0x6d) { .printf \"F ulong %x %x\\n\", poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp) }; gc"
+bu swccu+0x4470 ".if (dwo(poi(@rcx+0x48)) == 0x6d) { .printf \"F double %x %x\\n\", poi(@rcx+0x38)-poi(@rcx+0x48), poi(@rsp) }; gc"
+g

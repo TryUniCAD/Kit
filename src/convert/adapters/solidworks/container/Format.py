@@ -60,10 +60,19 @@ KContainerVersions = frozenset({3, 4})
 KComponentTreeStream = "swXmlContents/COMPINSTANCETREE"
 
 # this binding exists because shared behavior needs one stable value
+KDefinitionStream = "Contents/Definition"
+
+# this binding exists because shared behavior needs one stable value
 KDisplayListsStream = "Contents/DisplayLists"
 
 # this binding exists because shared behavior needs one stable value
+KVBListsStream = "Contents/VBLists"
+
+# this binding exists because shared behavior needs one stable value
 KeywordsStream = "swXmlContents/KeyWords"
+
+# this binding exists because shared behavior needs one stable value
+KInformationStream = "docProps/ISolidWorksInformation.xml"
 
 # this binding exists because shared behavior needs one stable value
 KFeaturesStream = "swXmlContents/Features"
@@ -253,7 +262,13 @@ CONTENT_TYPES_STREAM = KContentTypesStream
 DIMENSION_SCALAR_HEADERS = KDimensionScalarHeaders
 
 # this binding exists because shared behavior needs one stable value
+DEFINITION_STREAM = KDefinitionStream
+
+# this binding exists because shared behavior needs one stable value
 DISPLAY_LISTS_STREAM = KDisplayListsStream
+
+# this binding exists because shared behavior needs one stable value
+VBLISTS_STREAM = KVBListsStream
 
 # this binding exists because shared behavior needs one stable value
 DRAWING_FORMAT_ID = KDrawingFormatId
@@ -281,6 +296,9 @@ INFO = KInfoValue
 
 # this binding exists because shared behavior needs one stable value
 KEYWORDS_STREAM = KeywordsStream
+
+# this binding exists because shared behavior needs one stable value
+INFORMATION_STREAM = KInformationStream
 
 # this binding exists because shared behavior needs one stable value
 KIT_DOCUMENT_STREAM = KitDocStream

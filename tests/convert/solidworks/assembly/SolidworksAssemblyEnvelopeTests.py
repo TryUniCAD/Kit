@@ -2,6 +2,9 @@ from __future__ import annotations
 from dataclasses import replace as ReplaceData
 from io import BytesIO
 from pathlib import Path as FilePath
+
+import pytest as PytestLib
+from convert import open_document as OpenDocument
 from convert import write_document as WriteDocument
 from convert.adapters.solidworks.core.Adapter import (
     GeneratedB as GeneratedStreams,
@@ -21,16 +24,45 @@ from convert.adapters.solidworks.assembly.Assembly import (
 )
 from convert.adapters.solidworks.container.Container import SldprtArchive
 from interchange import (
-    Capability,
+    AssemblyData,
     CadDocument,
+    CadSource,
+    Capability,
+    ComponentKind,
+    Configuration,
     MateAlignment,
     MateKind,
     Matrix4 as MatrixFour,
     ParameterValue,
     frozen_mapping as FrozenMapping,
 )
+from interchange.assembly.ComponentDefinition import ComponentDef
+from interchange.assembly.ComponentDocument import ComponentDoc
+from interchange.assembly.ComponentInstance import ComponentInst
+from interchange.assembly.TransformMatrix import TransformMatrix
+from tests.convert.solidworks.core.SolidworksWriterTests import FreecadRPD
 from tests.interchange.assembly.AssemblyTests import (
     assembly_document as AssemblyDocument,
+)
+
+# tracked accented assembly proves nfc and nfd names resolve publicly
+KUnicodeAssembly = (
+    FilePath(__file__).resolve().parents[4]
+    / "re"
+    / "solidworks"
+    / "examples"
+    / "Single Turbo Dual Overhead Cam V8 - KDP - 2024"
+    / "ENSAMBLE 3_IZQUIERDO.SLDASM"
+)
+
+# largest tracked assembly needs a real read and rewrite acceptance check
+KHeadAssembly = (
+    FilePath(__file__).resolve().parents[4]
+    / "re"
+    / "solidworks"
+    / "examples"
+    / "Single Turbo Dual Overhead Cam V8 - KDP - 2024"
+    / "Cylinder Head Assy 1.SLDASM"
 )
 
 # centralizes shared evidence so every related assertion uses one value
@@ -236,6 +268,106 @@ def TestPABHNSP(TmpPath: FilePath) -> None:
 
 
 # keeps this focused behavior isolated so regressions remain immediately visible
+@PytestLib.mark.skipif(
+    not KUnicodeAssembly.is_file(), reason="unicode assembly corpus unavailable"
+)
+def TestASMUnicode(TmpPath: FilePath) -> None:
+    DocumentValue = OpenDocument(KUnicodeAssembly, include_brep=False)
+    assert DocumentValue.assembly is not None
+    assert DocumentValue.assembly.documents
+    assert not any(
+        (
+            ItemValue.code == "sldasm.component_source_missing"
+            for ItemValue in DocumentValue.diagnostics
+        )
+    )
+    OutputPath = TmpPath / KUnicodeAssembly.name
+    ResultInfo = WriteDocument(DocumentValue, OutputPath, allow_carrier=False)
+    assert ResultInfo.metadata["compatibility"] == "native-template"
+    assert ResultInfo.metadata["native_self_contained"] is True
+    assert ResultInfo.application_usable is True
+    assert ResultInfo.near_lossless is True
+
+
+@PytestLib.mark.skipif(
+    not KHeadAssembly.is_file(), reason="head assembly corpus unavailable"
+)
+def TestASMHead(TmpPath: FilePath) -> None:
+    DocumentValue = OpenDocument(KHeadAssembly, include_brep=False)
+    AssemblyValue = DocumentValue.assembly
+    assert AssemblyValue is not None
+    assert not any(
+        (
+            ItemValue.code == "sldasm.component_source_missing"
+            for ItemValue in DocumentValue.diagnostics
+        )
+    )
+    assert len(AssemblyValue.documents) == 11
+    assert len(AssemblyValue.instances) == 119
+    assert len(AssemblyValue.mates) == 240
+    OutputPath = TmpPath / KHeadAssembly.name
+    ResultInfo = WriteDocument(DocumentValue, OutputPath, allow_carrier=False)
+    assert ResultInfo.metadata["compatibility"] == "native-template"
+    assert ResultInfo.metadata["native_self_contained"] is True
+    assert ResultInfo.metadata["referenced_files_written"] == 11
+    assert ResultInfo.application_usable is True
+    assert ResultInfo.near_lossless is True
+    assert len(tuple(TmpPath.iterdir())) == 12
+    Restored = OpenDocument(OutputPath, include_brep=False)
+    assert Restored.assembly == AssemblyValue
+
+
+def TestASBBundle(TmpPath: FilePath) -> None:
+    PartValue = FreecadRPD()
+    RootValue = ComponentDef("definition:root", "Assembly", ComponentKind.KAssembly)
+    PartDef = ComponentDef(
+        "definition:part",
+        "Plate",
+        ComponentKind.KPart,
+        document_id="document:part",
+        body_ids=("body:1",),
+    )
+    InstanceValue = ComponentInst(
+        "instance:part", "Plate-1", PartDef.id, RootValue.id, TransformMatrix()
+    )
+    AssemblyValue = AssemblyData(
+        RootValue.id,
+        (RootValue, PartDef),
+        (InstanceValue,),
+        documents=(ComponentDoc("document:part", PartValue),),
+    )
+    DocValue = CadDocument(
+        source=CadSource("test.assembly", "memory", "1" * 64),
+        configurations=(Configuration("config:default", "Default", True),),
+        parameters=(),
+        support_planes=(),
+        sketches=(),
+        selections=(),
+        feature_timeline=(),
+        bodies=(),
+        capabilities=frozenset({Capability.KAssemblies, Capability.KComponentDocs}),
+        assembly=AssemblyValue,
+    )
+    OutputPath = TmpPath / "Plate.SLDASM"
+    ResultInfo = WriteDocument(DocValue, OutputPath, allow_carrier=False)
+    assert ResultInfo.vendor_loadable is True
+    assert ResultInfo.application_usable is True
+    assert ResultInfo.near_lossless is True
+    assert ResultInfo.metadata["compatibility"] == "native-assembly-with-kit-neutral"
+    assert ResultInfo.metadata["native_self_contained"] is True
+    assert ResultInfo.metadata["referenced_files_written"] == 1
+    Members = tuple(
+        PathValue for PathValue in TmpPath.iterdir() if PathValue != OutputPath
+    )
+    assert len(Members) == 1
+    assert Members[0].suffix.casefold() == ".sldprt"
+    assert SldprtArchive.open(Members[0]).streams
+    Restored = OpenDocument(OutputPath, include_brep=False)
+    assert Restored.assembly is not None
+    assert len(Restored.assembly.instances) == 1
+    assert len(Restored.assembly.definitions) == 2
+
+
 def TestICSWVL() -> None:
     SourceDoc = AssemblyDocument()
     Assembly = SourceDoc.assembly

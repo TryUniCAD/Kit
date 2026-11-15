@@ -11,6 +11,7 @@ from pathlib import Path as FilePath, PureWindowsPath
 import re as RegexLib
 import struct as Struct
 import tempfile as Tempfile
+import unicodedata as UnicodeData
 from types import MappingProxyType
 from typing import Mapping, Sequence, TypeGuard, cast as CastValue
 
@@ -4989,6 +4990,10 @@ def AsmDoc(
     return DocValue
 
 
+def FoldName(Value: str) -> str:
+    return UnicodeData.normalize("NFC", Value).casefold()
+
+
 # this definition exists because focused behavior needs one stable owner
 def ComponentFile(
     Label: str, Settings: ReadOptions
@@ -5006,7 +5011,7 @@ def ComponentFile(
     Result: Defaultdict[str, list[PathValue]] = Defaultdict(list)
     for FilePath in RootValue.rglob("*"):
         if FilePath.is_file() and FilePath.suffix.casefold() in FormatIdBySuffix:
-            Result[FilePath.name.casefold()].append(FilePath.resolve())
+            Result[FoldName(FilePath.name)].append(FilePath.resolve())
 
     # this callback exists because local behavior needs one focused transformation
     return {
@@ -5020,14 +5025,14 @@ def ResolvedPath(
     SourcePath: str, Index: dict[str, tuple[Path, ...]]
 ) -> PathValue | None:
     Native = PureWindowsPath(SourcePath)
-    Candidates = Index.get(Native.name.casefold(), ())
+    Candidates = Index.get(FoldName(Native.name), ())
     if not Candidates:
         return None
-    NativeParts = tuple((PartValue.casefold() for PartValue in Native.parts))
+    NativeParts = tuple((FoldName(PartValue) for PartValue in Native.parts))
 
     # this definition exists because focused behavior needs one stable owner
     def Score(Choice: Path) -> tuple[int, str]:
-        ChoiceParts = tuple((PartValue.casefold() for PartValue in Choice.parts))
+        ChoiceParts = tuple((FoldName(PartValue) for PartValue in Choice.parts))
         Matches = 0
         for LeftValue, Right in zip(reversed(NativeParts), reversed(ChoiceParts)):
             if LeftValue != Right:
@@ -6217,6 +6222,14 @@ def Parameters(Model: NativeModel) -> tuple[Param, ...]:
 
 # this definition exists because focused behavior needs one stable owner
 def DimensionParam(Dimension: NativeDimension) -> ParamValue:
+    if Dimension.kind == "instance_count":
+        return ParamValue(Dimension.value_mm, ValueKind.NUMBER, "")
+    if Dimension.native_value is not None and Dimension.kind == "angle":
+        return ParamValue(
+            MathValue.degrees(Dimension.native_value), ValueKind.ANGLE, "deg"
+        )
+    if Dimension.native_value is not None:
+        return ParamValue(Dimension.native_value * 1000.0, ValueKind.LENGTH, "mm")
     if Dimension.kind == "angle":
         return ParamValue(Dimension.value_mm, ValueKind.ANGLE, "deg")
     return ParamValue(Dimension.value_mm, ValueKind.LENGTH, "mm")
