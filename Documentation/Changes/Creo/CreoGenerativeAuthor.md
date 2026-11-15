@@ -637,6 +637,15 @@ They also cannot yet be re-emitted: `StreamParser` mis-decodes their `t08` and `
 `4294967295` and doubles as `9.2e-41` — although it consumes each row exactly. Extending the parser with
 those lanes is the prerequisite for treating them the way `FeatDefsDtm` was treated.
 
+### A reader limitation found on the way
+
+Checking those rows through the production path showed that `ReadSection` decompresses `SolidPersistTable`
+(`1788`) and `SolidPrimdata` (`301`) exactly, but **fails on `DispDataTable`** with
+`Creo compression code is outside the table`. The row's slice and magic are correct and `expanded` (`1138`)
+is larger than the stored `819`, so this is a decoder limitation, not a wrong offset. It is latent today
+because the display row is never consumed. See
+[the display-data decoder gotcha](../../Gotchas/Conversion/CreoDispDataDecoderLimit.md).
+
 ## What is left
 
 One vendor record: the csys (`619` bytes, class `979`). It is a replay of the first record's schema opened
