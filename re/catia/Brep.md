@@ -1496,6 +1496,32 @@ not tag tables either. The 63-byte stream is a header plus a handful of floats, 
 stream is a stream directory of UTF-16 names. Neither contains a table that maps the `60`/`54` u32
 values 2957..4536 to surfaces.
 
+## The surface reference is carried by the edge's PCurve
+
+The face record does not carry the surface. `CATCXFace::Stream` (`0x18054eba0`) writes only the loop
+count (`WriteLinkedObjectsCount`), each loop (`WriteObject`), `SurfaceOrientation` (`WriteShort` at
+`0xb0`) and `IsInfinite` (`WriteUChar`). `CATCXFace::UnStream` (`0x18054eef0`) reads the same four
+fields and nothing else. The body record does not carry it either: `CATCXBody::Stream`
+(`0x180542210`) writes three groups of elements (types 0, 1, 2) plus three group counts and two
+doubles, with no face-to-surface index array.
+
+The surface is reached through the edge. A `CATCXEdge` owns a `CATEdgeCurve` (the 3D curve) and two
+`CATPCurve`s (the 2D curves on the two adjacent faces' surfaces). The `CATPCurve` is the object that
+names the surface. In `CATGeometricObjects.dll` the concrete PCurve is `CATPCurveEquation`, and its
+factory `CreatePCurveEquation` takes a `CATSurface` argument:
+
+```
+?CreatePCurveEquation@CATGeoFactoryProtected@@QEAAPEAVCATPCurveEquation@@PEBVCATMathFunctionX@@0AEBVCrvLimits@@1PEAVCATSurface@@@Z
+?CreatePCurveEquation@CATGeoFactoryProtected@@QEAAPEAVCATPCurveEquation@@PEBVCATMathFunctionX@@0NNNNPEAVCATSurface@@@Z
+```
+
+So the face-to-surface map is the composition face -> loop -> edge -> PCurve -> surface, and the
+surface tag is written by the PCurve's Stream, not by the face or the body. The PCurve Stream is not
+in `CATTopologicalObjects.dll`; the `CATPCurveEquation` implementation is behind the
+`CATCGMExtGeoFactoryImpl` factory, whose `CreatePCurveEquationBasic` (`0x1800d7350`) is a
+`NoDefaultImplemention` stub, so the concrete Stream lives in a DLL that is not in the local set.
+Decoding it needs that DLL or a controlled corpus.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
