@@ -18,6 +18,7 @@ from convert.adapters.solidworks.drawing.Models import (
     DrawingView,
 )
 from convert.adapters.solidworks.drawing.Edges import EdgeSheets
+from convert.adapters.solidworks.drawing.Orientations import OrientSheets
 from convert.adapters.solidworks.drawing.ViewBindings import PositionSheets
 
 KSheetFormatProperty = "SW-All Sheet Format Data"
@@ -168,23 +169,25 @@ def PropertyText(DataValue: bytes, NameValue: str) -> str:
     return ""
 
 
+def OpenArchive(Source: str | FilePath | bytes) -> tuple[SldprtArchive, str]:
+    if isinstance(Source, bytes):
+        return SldprtArchive.from_bytes(Source, "drawing"), ""
+    PathValue = FilePath(Source).expanduser().resolve()
+    return SldprtArchive.open(PathValue), str(PathValue)
+
+
 def ReadDrawing(
     Source: str | FilePath | bytes,
     IncludeGeometry: bool = False,
     IncludePositions: bool = False,
     IncludeEdges: bool = False,
+    IncludeSheetEdges: bool = False,
 ) -> DrawingData:
     if IncludeGeometry:
         raise SldprtFormatError(
             "drawing view geometry is not supported; only sheet metadata is available"
         )
-    if isinstance(Source, bytes):
-        Archive = SldprtArchive.from_bytes(Source, "drawing")
-        SourcePath = ""
-    else:
-        PathValue = FilePath(Source).expanduser().resolve()
-        Archive = SldprtArchive.open(PathValue)
-        SourcePath = str(PathValue)
+    Archive, SourcePath = OpenArchive(Source)
     Keywords = Archive.get(KKeyStream)
     Information = Archive.get(KInfoStream)
     if Keywords is None:
@@ -200,12 +203,14 @@ def ReadDrawing(
     Sheets = ReadSheets(RootValue, SheetFormats(Information))
     if not Sheets:
         raise SldprtFormatError("drawing has no sheets")
-    if IncludePositions:
+    if IncludePositions or IncludeSheetEdges:
         Sheets = PositionSheets(
             Sheets, PropertyText(Information, KViewListProperty), Archive
         )
-    if IncludeEdges:
+    if IncludeEdges or IncludeSheetEdges:
         Sheets = EdgeSheets(Sheets, Archive)
+    if IncludeSheetEdges:
+        Sheets = OrientSheets(Sheets, Archive)
     return DrawingData(
         NameValue,
         Sheets,

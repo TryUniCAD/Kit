@@ -20,6 +20,12 @@ class ViewEdge:
     End: Vector3
 
 
+# frozen orientation data keeps the recovered view rotation explicit
+@dataclass(frozen=True, slots=True)
+class ViewOrientation:
+    Matrix: tuple[tuple[float, float, float], ...]
+
+
 # frozen view data keeps recovered metadata safe to share between callers
 @dataclass(frozen=True, slots=True)
 class DrawingView:
@@ -34,6 +40,8 @@ class DrawingView:
     OutlineMaxY: float | None = None
     ModelBounds: ViewBounds | None = None
     Edges: tuple[ViewEdge, ...] = ()
+    Orientation: ViewOrientation | None = None
+    SheetEdges: tuple[ViewEdge, ...] = ()
 
 
 # frozen sheet data keeps each sheet composition explicit and immutable

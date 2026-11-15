@@ -75,7 +75,9 @@ sheet, view-name, model-path, reference, and note metadata.
 `ReadDrawing(..., IncludePositions=True)` also recovers view centres, projected
 outline bounds, and model bounds from `Contents/DisplayLists`.
 `ReadDrawing(..., IncludeEdges=True)` recovers model-space view edges from
-`Contents/VBLists`. Projected outlines, hidden-line state, dimensions,
+`Contents/VBLists`. `ReadDrawing(..., IncludeSheetEdges=True)` also recovers the
+view orientation from `Contents/Definition` and projects those edges into sheet
+space. Projected outlines, hidden-line state, dimensions,
 annotations, and projection direction remain unrecovered, and the module does
 not register a drawing writer. The public `open_document` path still rejects
 drawing content, and `ReadDrawing(..., IncludeGeometry=True)` raises

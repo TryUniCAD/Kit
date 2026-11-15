@@ -65,18 +65,36 @@ view name selects a block; edges start 20 bytes after that count and repeat ever
 204 bytes as six doubles: start XYZ and end XYZ. Every parsed view must have a
 block, otherwise the read raises `SldprtFormatError`.
 
+`ReadDrawing(..., IncludeSheetEdges=True)` recovers sheet-space view edges. It
+implies `IncludePositions` and `IncludeEdges`, then reads the view orientation
+records from `Contents/Definition`. Each record is a unit direction, a one-byte
+flag, an optional nine-double row-major rotation, a three-double translation,
+and a trailing `1.0`. The front view stores flag `0` and omits the identity
+matrix; the top, right, and isometric views store flag `1` and a matrix. The
+stored matrix is the sheet-to-model rotation, so the sheet position of a model
+point is `view_centre + scale * (R^T * (p - model_centre)).xy`. Records are kept
+only when the translation equals the negated rotated model centre, and are bound
+to views by the trailing integer of the view name, which is the creation index.
+The reader requires one record per view and raises `SldprtFormatError`
+otherwise. `DrawingView.Orientation` exposes the matrix and
+`DrawingView.SheetEdges` exposes the projected segments.
+
 `ReadDrawing(..., IncludeGeometry=True)` raises `SldprtFormatError`. View
-centres are not a complete geometry path, so asking for geometry still fails
-closed instead of returning a value that a caller could mistake for a complete
-drawing. Request positions separately with `IncludePositions=True`.
+centres and sheet-space edges are not a complete geometry path, so asking for
+geometry still fails closed instead of returning a value that a caller could
+mistake for a complete drawing. Request positions separately with
+`IncludePositions=True` and sheet-space edges with `IncludeSheetEdges=True`.
 
 ## Limitations
 
 - this is a metadata reader only; `open_document` and `write_document` still
   reject `.SLDDRW` at `src/convert/adapters/solidworks/container/Format.py`
-- view centres, sheet outline bounds, model bounds, and model-space edges are
-  recovered, but projected sheet-space edge polylines, hidden-line state,
-  dimensions, annotations, and projection direction are not
+- view centres, sheet outline bounds, model bounds, model-space edges, view
+  orientation, and sheet-space edges are recovered, but hidden-line state,
+  dimensions, and annotations are not
+- sheet-space edges are the visible model edges projected into the view frame;
+  they are not the full display list, which also carries silhouettes and hidden
+  lines
 - edge recovery is fail-closed: `minimal.SLDDRW` and `large.SLDDRW` do not expose
   a complete per-view block and are rejected when edges are requested
 - a missing or inconsistent stream raises `SldprtFormatError` instead of

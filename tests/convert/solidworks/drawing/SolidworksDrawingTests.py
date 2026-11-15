@@ -382,6 +382,132 @@ def TestEdgeNo() -> None:
             _ = ReadDrawing(KDrawRoot / NameValue, IncludeEdges=True)
 
 
+# recovered view rotations must match the vendor view transforms
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestOrient() -> None:
+    Expected = {
+        "Drawing View1": ((1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 0.0, 1.0)),
+        "Drawing View2": (
+            (1.0, 0.0, 0.0),
+            (0.0, -3.5527136788005e-15, 1.0),
+            (0.0, -1.0, -3.5527136788005e-15),
+        ),
+        "Drawing View3": (
+            (-3.5527136788005e-15, 0.0, 1.0),
+            (0.0, 1.0, 0.0),
+            (-1.0, 0.0, -3.5527136788005e-15),
+        ),
+        "Drawing View4": (
+            (0.7071067811865464, -0.4082040559113551, 0.5773815451999837),
+            (0.0, 0.8165408118857499, 0.5772877120855426),
+            (-0.7071067811865488, -0.4082040559113538, 0.5773815451999819),
+        ),
+    }
+    DataValue = ReadDrawing(KDrawRoot / "standard.SLDDRW", IncludeSheetEdges=True)
+    Actual = {
+        ViewValue.Name: ViewValue.Orientation
+        for SheetValue in DataValue.Sheets
+        for ViewValue in SheetValue.Views
+    }
+    assert set(Actual) == set(Expected)
+    for ViewName, MatrixData in Expected.items():
+        Orientation = Actual[ViewName]
+        assert Orientation is not None
+        for RowIndex, RowData in enumerate(MatrixData):
+            for ColumnIndex, ItemValue in enumerate(RowData):
+                assert Orientation.Matrix[RowIndex][ColumnIndex] == PytestLib.approx(
+                    ItemValue, abs=1e-09
+                )
+
+
+# a single view drawing isolates each standard orientation record
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestOrientOne() -> None:
+    Expected = {
+        "orient-front.SLDDRW": (
+            (1.0, 0.0, 0.0),
+            (0.0, 1.0, 0.0),
+            (0.0, 0.0, 1.0),
+        ),
+        "orient-top.SLDDRW": (
+            (1.0, 0.0, 0.0),
+            (0.0, 0.0, 1.0),
+            (0.0, -1.0, 0.0),
+        ),
+        "orient-right.SLDDRW": (
+            (0.0, 0.0, 1.0),
+            (0.0, 1.0, 0.0),
+            (-1.0, 0.0, 0.0),
+        ),
+        "orient-iso.SLDDRW": (
+            (0.7071067811865464, -0.4082040559113551, 0.5773815451999837),
+            (0.0, 0.8165408118857499, 0.5772877120855426),
+            (-0.7071067811865488, -0.4082040559113538, 0.5773815451999819),
+        ),
+    }
+    for NameValue, MatrixData in Expected.items():
+        DataValue = ReadDrawing(KDrawRoot / NameValue, IncludeSheetEdges=True)
+        ViewValue = DataValue.Sheets[0].Views[0]
+        Orientation = ViewValue.Orientation
+        assert Orientation is not None
+        for RowIndex, RowData in enumerate(MatrixData):
+            for ColumnIndex, ItemValue in enumerate(RowData):
+                assert Orientation.Matrix[RowIndex][ColumnIndex] == PytestLib.approx(
+                    ItemValue, abs=1e-09
+                )
+        assert ViewValue.SheetEdges
+
+
+# sheet space edges must fill the recovered outline with one symmetric padding
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestSheetEdge() -> None:
+    for NameValue in (
+        "standard.SLDDRW",
+        "angled.SLDDRW",
+        "projected.SLDDRW",
+        "multisheet.SLDDRW",
+        "coincident.SLDDRW",
+    ):
+        DataValue = ReadDrawing(KDrawRoot / NameValue, IncludeSheetEdges=True)
+        Paddings: set[float] = set()
+        for SheetValue in DataValue.Sheets:
+            for ViewValue in SheetValue.Views:
+                assert ViewValue.SheetEdges
+                assert len(ViewValue.SheetEdges) == len(ViewValue.Edges)
+                XValues = [
+                    ItemValue
+                    for EdgeValue in ViewValue.SheetEdges
+                    for ItemValue in (EdgeValue.Start.x, EdgeValue.End.x)
+                ]
+                YValues = [
+                    ItemValue
+                    for EdgeValue in ViewValue.SheetEdges
+                    for ItemValue in (EdgeValue.Start.y, EdgeValue.End.y)
+                ]
+                assert ViewValue.OutlineMinX is not None
+                assert ViewValue.OutlineMinY is not None
+                assert ViewValue.OutlineMaxX is not None
+                assert ViewValue.OutlineMaxY is not None
+                assert min(XValues) >= ViewValue.OutlineMinX
+                assert max(XValues) <= ViewValue.OutlineMaxX
+                assert min(YValues) >= ViewValue.OutlineMinY
+                assert max(YValues) <= ViewValue.OutlineMaxY
+                LeftPad = min(XValues) - ViewValue.OutlineMinX
+                RightPad = ViewValue.OutlineMaxX - max(XValues)
+                assert LeftPad == PytestLib.approx(RightPad, abs=1e-09)
+                assert LeftPad == PytestLib.approx(0.004318, abs=1e-09)
+                Paddings.add(round(LeftPad, 9))
+        assert len(Paddings) == 1
+
+
+# a drawing without a complete orientation record set must fail closed
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestSheetNo() -> None:
+    for NameValue in ("minimal.SLDDRW", "large.SLDDRW"):
+        with PytestLib.raises(SldprtFormatError):
+            _ = ReadDrawing(KDrawRoot / NameValue, IncludeSheetEdges=True)
+
+
 # a display list whose position records disagree with the view list must fail
 @PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
 def TestPosNo() -> None:

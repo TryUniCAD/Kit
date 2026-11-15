@@ -60,6 +60,9 @@ KContainerVersions = frozenset({3, 4})
 KComponentTreeStream = "swXmlContents/COMPINSTANCETREE"
 
 # this binding exists because shared behavior needs one stable value
+KDefinitionStream = "Contents/Definition"
+
+# this binding exists because shared behavior needs one stable value
 KDisplayListsStream = "Contents/DisplayLists"
 
 # this binding exists because shared behavior needs one stable value
@@ -257,6 +260,9 @@ CONTENT_TYPES_STREAM = KContentTypesStream
 
 # this binding exists because shared behavior needs one stable value
 DIMENSION_SCALAR_HEADERS = KDimensionScalarHeaders
+
+# this binding exists because shared behavior needs one stable value
+DEFINITION_STREAM = KDefinitionStream
 
 # this binding exists because shared behavior needs one stable value
 DISPLAY_LISTS_STREAM = KDisplayListsStream

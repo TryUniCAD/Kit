@@ -181,3 +181,30 @@ projected View1 5  View2 7
 
 `minimal` and `large` do not expose a complete block and are rejected when edges
 are requested.
+
+### Recovered view orientation and sheet space edges
+
+`OracleOrient.cs` dumps `View.GetViewXform` for every view. The orientation
+record in `Contents/Definition` is a unit direction, a one-byte flag, an optional
+nine-double row-major rotation, a three-double translation, and a trailing
+`1.0`. The front view stores flag `0` and omits the identity matrix.
+
+`AuthorOrient.vbs` authored one-view drawings for `*Front`, `*Top`, `*Right`, and
+`*Isometric`; only the front drawing has no matrix record. The recovered
+matrices match `GetViewXform` for all four `standard.SLDDRW` views:
+
+```
+View1  identity
+View2  [[1,0,0],[0,0,1],[0,-1,0]]
+View3  [[0,0,1],[0,1,0],[-1,0,0]]
+View4  [[0.7071067811865464,-0.4082040559113551,0.5773815451999837],
+        [0.0,0.8165408118857499,0.5772877120855426],
+        [-0.7071067811865488,-0.4082040559113538,0.5773815451999819]]
+```
+
+The sheet position is `view_centre + scale * (R^T * (p - model_centre)).xy`.
+Projecting the recovered model edges with that rule reproduces the typed C#
+`View.GetPolylines5` edges for `standard`, `angled`, `projected`, `multisheet`,
+and `coincident` with zero residual after rounding to nine decimals. The
+`multisheet` and `coincident` inactive-sheet views are not returned by
+`GetNextView`, so only their active-sheet views are compared.
