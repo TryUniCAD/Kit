@@ -7,6 +7,9 @@ candidate role. The tool starts a visible SOLIDWORKS process, checks the exact
 before changing the view. It then selects an isometric view, zooms to fit and
 captures that view separately. Existing destinations are rejected and native
 geometry/feature status must be clean before capture.
+The report also queries the nine standard-view rotations and active camera
+orientation before and after the view change. An unavailable query retains its
+exception and does not become a canonical-orientation pass.
 
 The report retains stages, native status, geometry, feature tree, image hash and
 unchanged-input check. Use original controls around generated candidates.

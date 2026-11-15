@@ -10,6 +10,23 @@ import Swapp
 from OracleIdentity import application_identity
 
 
+def rotations(model):
+    result = {"standard": {}}
+    for index in range(1, 10):
+        try:
+            transform = model.GetStandardViewRotation(index)
+            result["standard"][str(index)] = list(Swapp.cv(transform, "ArrayData"))
+        except Exception as error:
+            result["standard"][str(index)] = {"exception": repr(error)}
+    try:
+        view = Swapp.cv(model, "ActiveView")
+        transform = Swapp.cv(view, "Orientation3")
+        result["active"] = list(Swapp.cv(transform, "ArrayData"))
+    except Exception as error:
+        result["active"] = {"exception": repr(error)}
+    return result
+
+
 def capture(path, bitmap, result, checkpoint):
     initial = bitmap.with_name(bitmap.stem + "_initial.bmp")
     if bitmap.exists() or initial.exists() or bitmap.suffix.casefold() != ".bmp":
@@ -49,6 +66,7 @@ def capture(path, bitmap, result, checkpoint):
                 raise RuntimeError("initial native viewport bitmap was not created")
             initial_data = initial.read_bytes()
             result.update(initial_bitmap=str(initial), initial_bitmap_sha256=hashlib.sha256(initial_data).hexdigest(), initial_bitmap_bytes=len(initial_data))
+            result["rotations_before"] = rotations(model)
             mark("initial_capture_return")
             mark("orient_start")
             model.ShowNamedView2("", 7)
@@ -63,6 +81,7 @@ def capture(path, bitmap, result, checkpoint):
                 raise RuntimeError("native viewport bitmap was not created")
             data = bitmap.read_bytes()
             result.update(bitmap_sha256=hashlib.sha256(data).hexdigest(), bitmap_bytes=len(data), bitmap_signature=data[:2].hex())
+            result["rotations_after"] = rotations(model)
         except Exception as error:
             result.update(exception=repr(error), failure_stage=result.get("stage", "oracle_setup"))
         finally:
