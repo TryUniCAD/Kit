@@ -336,13 +336,13 @@ result = CatiaAdapter().write(
   `340`). The five floats vary per part and match no model metric (only `Reservoir` and `Washer_8`
   happen to have the z half-extent as the fifth float). `re/catia/tooling/FdRecords.py` dumps and
   checks them, so a vendor-saved comparison is one command away.
-- The writer's `MainDataStream` is not structurally identical to a vendor stream. Comparing the
-  writer's box output with `Copper_Washer.CATPart` by marker counts gives: per-face
-  `30 04 04 ff ff` blocks `6` in both; `30 04 04 fd ff` blocks `0` written against `3` in every
-  vendor part; `54` roster rows `0` written against `12` in the washer; and the writer's
-  `01 02 ff` edge row appears once while the washer carries none in that form. The writer therefore
-  round trips through this reader without reproducing the vendor header, roster, and trailer records,
-  which is one more reason `vendor_loadable` stays false.
+- The writer's `MainDataStream` is not structurally identical to a vendor stream, and the difference is
+  now measured by parsed structure rather than raw byte counts: the writer's box emits one vertex table
+  with eight rows and eight roster rows, matching the vendor convention of one roster row per vertex
+  (`Washer_8` 8/8, `Nut_M6` 40/40, `Banjo` 50/50), and its per-face `30 04 04 ff ff` blocks match. The
+  remaining known gap is that it emits none of the three `30 04 04 fd ff` records. An earlier version
+  of this note claimed the writer also emitted no roster rows; that was a raw `0x54` byte count, not a
+  roster count, and it was wrong.
 - The writer reports `vendor_loadable=False` and `application_usable=False`.
 - No alternative vendor checker exists either. SOLIDWORKS is installed
   (`C:\Program Files\SOLIDWORKS Corp\SOLIDWORKS\SLDWORKS.exe`, plus eDrawings, Composer, and Flow
@@ -417,6 +417,9 @@ result = CatiaAdapter().write(
   and `_RepresentedBy`, and the 27 `CATPart` files still decode unchanged with the same five warnings.
   The assembly instance list itself is not extracted yet: those attributes do not appear in the
   product stream's `7c 07` blocks, so the tree is encoded in the `CATProdCont` payload.
+- The roster is one row per B-rep vertex, measured on all 27 corpus parts (`ParseRoster` row count
+  equals `ParseBrep(...).vertices` length). The writer honours the same rule, so its box output has
+  eight vertex rows and eight roster rows. `TestRoster` asserts the invariant over the corpus.
 - A new `src/convert/adapters/catia/Parametric.py` reads the parametric side of a `CATPart`: it walks
   the OSMX `7c` record tree, decodes each `7c 07` attribute block with the compact-int table, and
   exposes `RelationNames` (the `#In` inputs of every relation formula) and `AttributeValues` (every

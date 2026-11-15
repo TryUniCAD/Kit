@@ -9,12 +9,14 @@ from convert import open_document as OpenDoc
 from convert.adapters import WriteOptions
 from convert.adapters.catia.Adapter import CatiaAdapter, ReadCatia
 from convert.adapters.catia.Container import CfvTwoArchive, OsmxArchive
+from convert.adapters.catia.NativeTopology import ParseRoster
 from convert.adapters.catia.Parametric import AttributeValues, RelationNames
 from convert.adapters.catia.NativeBrep import (
     ArcOrder,
     BuildVertices,
     DecodeBrep,
     DecodeTess,
+    Largest,
     LocalFrame,
     ParseBrep,
 )
@@ -478,6 +480,16 @@ def TestScore() -> None:
             assert BadCount > 0, PathValue.name
         else:
             assert BadCount == 0, f"{PathValue.name} has {BadCount} bad faces"
+
+
+# this definition exists because a roster row must match one vertex
+def TestRoster() -> None:
+    for PathValue in sorted(KCatparts.glob("*.CATPart")):
+        Archive = CfvTwoArchive.from_bytes(PathValue.read_bytes())
+        Folder = Archive.nested[0]
+        SurfData = Archive.stream_bytes(Largest(Folder, "SurfacicReps"), Folder)
+        Model = ParseBrep(Archive)
+        assert len(ParseRoster(SurfData)) == len(Model.vertices), PathValue.name
 
 
 # this definition exists because a parameter name needs one measured source

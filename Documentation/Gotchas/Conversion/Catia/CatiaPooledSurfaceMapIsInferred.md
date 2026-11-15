@@ -166,12 +166,21 @@ where the length fields move.
 
 ## The writer does not reproduce the vendor stream skeleton
 
-Comparing the writer's box output with `Copper_Washer.CATPart` by marker counts shows the skeleton is
-incomplete: `30 04 04 ff ff` blocks match (`6`), but the writer emits no `30 04 04 fd ff` record
-against `3` in every vendor part, no `54` roster rows against `12` in the washer, and one `01 02 ff`
-edge row where the washer has none in that form. Our reader tolerates the difference because it only
-parses what the writer emits, so this is invisible to round trips and visible only against a vendor
-file. Any claim about vendor loadability has to account for it.
+Comparing the writer's box output with three vendor parts by parsed structure — not by raw byte counts,
+which is what an earlier version of this note used and got wrong:
+
+| file | `MainDataStream` | `SurfacicReps` | vertex tables | vertex rows | roster rows | `fd` records |
+| --- | --- | --- | --- | --- | --- | --- |
+| `Washer_8` (vendor) | 2202 | 666 | 1 | 8 | 8 | 3 |
+| `Nut_M6` (vendor) | 6121 | 3057 | 4 | 40 | 40 | 3 |
+| `Banjo` (vendor) | 8977 | 3795 | 3 | 50 | 50 | 3 |
+| writer `box` | 444 | 631 | 1 | 8 | 8 | 0 |
+
+The vertex table, the vertex rows, and the roster agree with the vendor convention (one roster row per
+vertex). The one known structural gap is that the writer emits none of the three `30 04 04 fd ff`
+records, whose layout and one derivable field are in
+[the fd record gotcha](CatiaFdRecordsCarryStreamLength.md). A raw `0x54` byte count is not a roster
+count — the roster row is `54 <u32> 00 00 00`, so the byte appears inside unrelated records too.
 
 ## A pooled plane's orientation cannot be recovered from its record alone
 
