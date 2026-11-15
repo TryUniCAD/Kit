@@ -234,6 +234,25 @@ asking the loader for it.
 `LegacyCodes(Payload)` reads that table, `nx.legacy_coded_classes` reports how many entries are set,
 and `TestNxLegacy` now pins the table alongside the frames.
 
+## The table after the attribute frames ends in sequential ids
+
+In `wave_parent.prt` section 1 the region between the class frames and the object data reads, in
+order:
+
+```text
+0x1068  "opt_att" then a u32 1
+0x1073  the single type-7 attribute frame, ending at 0x109e
+0x109e  a long run of small little endian words, mostly 1, with occasional 5, 6, 8, 12, 14, 29, 112
+0x1974  0x32 0x33 0x34 0x35 in sequence, so the run ends in consecutive ids
+0x197c  u32 1, then the tag 00 02 00 03, then a length prefixed string "NX 3.0.2.3"
+0x19a0  object data, starting 00 ff ff dc 54 c0 42 88 65 4b 40
+```
+
+the run is about 568 words and its tail is an increasing id sequence rather than the 0/1 flags the
+head carries, so it is a mixed structure rather than a flat flag array. `vise_screw.prt` and
+`flange.prt` do not carry that version string: their only `NX ` text is `NX ANSI Symbols`, so this
+boundary is version specific and comparing the three needs the run's tail rather than that string.
+
 ## Nothing after the attribute frames is optional
 
 Section 1 of `wave_parent.prt` continues past the attribute frames with a 568 entry little endian
