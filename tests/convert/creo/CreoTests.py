@@ -52,25 +52,38 @@ def BuildFeatureSample() -> bytes:
     BaseValue = len(Header)
     Header = Header.replace(b"00000000", f"{BaseValue:08x}".encode("ascii"), 1)
     Banner = b"#Creo  TM  Version 13.0 (c) 2026 by PTC Inc.\n"
-    TocHead = b"#UGC_TOC 2 2 81 17".ljust(80, b"#")[:80] + b"\n"
+    TocHead = b"#UGC_TOC 2 3 81 17".ljust(80, b"#")[:80] + b"\n"
     FeatureBody = (
         b"\xe3\x07\x00\x00\xe3\xf6\x83\x9b\xe1"
         + b"\x00" * 8
-        + b"\xe3\x05\x00\x00\xe3\xf6\x83\x9b\xe1"
+        + b"\xe3\x05\x00\x00\xe3\xf6\x83\x95\xe1"
         + b"\x00" * 8
     )
     Feature = b"#AllFeatur\n" + FeatureBody
-    Thumb = b"#THMB_IMG_MAIN\n\xff\xd8\xff\xd9"
-    BodyStart = BaseValue + len(Banner) + len(TocHead) + 162
-    RowList = TocRow(
-        "AllFeatur", BodyStart - BaseValue, len(Feature), len(FeatureBody)
-    ) + TocRow(
-        "THMB_IMG_MAIN",
-        BodyStart - BaseValue + len(Feature),
-        len(Thumb),
-        4,
+    DefinitionBody = (
+        b"\xe0\x02value\x00"
+        + b"\x2d\x69\x37\x02\xbe\xe2\x92\x0c"
+        + b"\xe0\x01dim_ref\x00\x07"
     )
-    return Header + Banner + TocHead + RowList + Feature + Thumb
+    Definition = b"#FeatDefs\n" + DefinitionBody
+    Thumb = b"#THMB_IMG_MAIN\n\xff\xd8\xff\xd9"
+    BodyStart = BaseValue + len(Banner) + len(TocHead) + 243
+    RowList = (
+        TocRow("AllFeatur", BodyStart - BaseValue, len(Feature), len(FeatureBody))
+        + TocRow(
+            "FeatDefs",
+            BodyStart - BaseValue + len(Feature),
+            len(Definition),
+            len(DefinitionBody),
+        )
+        + TocRow(
+            "THMB_IMG_MAIN",
+            BodyStart - BaseValue + len(Feature) + len(Definition),
+            len(Thumb),
+            4,
+        )
+    )
+    return Header + Banner + TocHead + RowList + Feature + Definition + Thumb
 
 
 def TestRead() -> None:
@@ -114,8 +127,21 @@ def TestFeatureRows() -> None:
     assert FirstValue.attributes["creo.root_class_label"] == "datum_plane"
     assert FirstValue.provenance is not None
     assert FirstValue.provenance.spans[0].stream == "AllFeatur"
+    SecondValue = DocumentValue.feature_timeline[1]
+    assert SecondValue.name == "Creo protrusion 5"
+    assert SecondValue.parameter_ids == ("creo:dimension:0",)
+    assert len(DocumentValue.parameters) == 1
+    ParameterValue = DocumentValue.parameters[0]
+    assert ParameterValue.id == "creo:dimension:0"
+    assert ParameterValue.name == "Creo dimension 0"
+    assert ParameterValue.value.value == -201.7190851617055
+    assert ParameterValue.owner_id == "creo:feature:5"
+    assert ParameterValue.provenance is not None
+    assert ParameterValue.provenance.spans[0].stream == "FeatDefs"
     assert DocumentValue.metadata["creo.feature_rows_decoded"] is True
     assert DocumentValue.metadata["creo.feature_row_count"] == 2
+    assert DocumentValue.metadata["creo.dimension_count"] == 1
+    assert DocumentValue.metadata["creo.parameters_decoded"] is True
     assert DocumentValue.metadata["creo.feature_history_decoded"] is False
     assert DocumentValue.metadata["creo.geometry_decoded"] is False
 

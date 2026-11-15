@@ -36,7 +36,9 @@ The reader returns a `CadDocument` with:
 - the retained source bytes and digest;
 - `AllFeatur` feature identity rows as `FeatureStep` records, each with the Creo feature id, root
   schema class, class label, and a provenance span into the `AllFeatur` section;
-- warnings that parameters, sketches, dimensions, and geometry remain encoded.
+- `FeatDefs` definition-site dimension values as `Parameter` records, linked to the single
+  protrusion feature's `parameter_ids` when exactly one exists;
+- warnings that positional replayed dimensions, sketches, and geometry remain encoded.
 
 Feature rows are discovered from the tag anchors documented in
 [the compound-boundary gotcha](../../Gotchas/Conversion/CreoTaggedCompoundBoundary.md): a boundary
@@ -48,9 +50,9 @@ outside the window.
 The reader does not report bodies, sketches, dimensions, or parameter values.
 Do not treat a successful read as native geometry coverage.
 
-Metadata reports `creo.feature_rows_decoded`, `creo.feature_row_count`,
-`creo.feature_history_decoded` (still false: no parameters or definitions), and
-`creo.geometry_decoded` (still false).
+Metadata reports `creo.feature_rows_decoded`, `creo.feature_row_count`, `creo.dimension_count`,
+`creo.parameters_decoded`, `creo.feature_history_decoded` (still false: no sketch or definition
+bodies), and `creo.geometry_decoded` (still false).
 
 ## Writing
 
@@ -64,7 +66,7 @@ It keeps `vendor_loadable` and `application_usable` false because this path does
 ## Limits
 
 - No independent PSB writer.
-- Feature identity only: no parameters, sketches, dimensions, or definitions.
+- Feature identity plus definition-site dimension values only: no sketches or geometry.
 - No native geometry or B-rep decoding.
 - No assembly component resolution.
 - No drawing, format, section, or layout support.

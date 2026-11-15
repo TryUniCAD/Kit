@@ -9,10 +9,16 @@ from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumDocument import Capability
 from interchange.enums.EnumDocument import Severity
 from interchange.enums.EnumUnits import UnitSystem
+from interchange.enums.EnumValues import ParameterRole
+from interchange.enums.EnumValues import ValueKind
 from interchange.payloads.PayloadRecord import BrepPayload
 from interchange.payloads.PayloadRoles import PayloadRole
 from interchange.records.RecordConfig import Configuration
 from interchange.records.RecordDiagnostic import Diagnostic
+from interchange.records.RecordParameter import Parameter
+from interchange.records.RecordParameter import ParameterValue
+from interchange.records.RecordProvenance import Provenance
+from interchange.records.RecordProvenance import ProvenanceSpan
 from interchange.records.RecordSource import CadSource
 from interchange.core.Common import FreezeMapping
 
@@ -25,6 +31,7 @@ from convert.adapters.creo.Format import KFormatId
 from convert.adapters.creo.Header import ReadHeader
 from convert.adapters.creo.Records import FeatureSteps
 from convert.adapters.creo.Records import ReadFeatureRows
+from convert.adapters.creo.Stream import ReadDimensions
 from convert.adapters.creo.Toc import CreoEntry
 from convert.adapters.creo.Toc import ReadSection
 from convert.adapters.creo.Toc import ReadToc
@@ -225,6 +232,70 @@ def ReadDocument(
             )
         else:
             FeatureRecords = FeatureSteps(FeatureRows)
+    DimensionRows = ()
+    ParameterRecords: tuple[Parameter, ...] = ()
+    DefinitionEntry = next(
+        (
+            EntryValue
+            for EntryValue in TocValue.entries
+            if EntryValue.name == "FeatDefs"
+        ),
+        None,
+    )
+    if DefinitionEntry is not None:
+        try:
+            DimensionRows = ReadDimensions(ReadSection(DataValue, DefinitionEntry))
+        except CreoFormat as ErrorInfo:
+            FeatureNotes = (
+                *FeatureNotes,
+                Diagnostic(
+                    "creo.dimensions_invalid",
+                    f"The FeatDefs section could not be decoded: {ErrorInfo}",
+                    severity=Severity.KWarning,
+                ),
+            )
+    ProtrusionIds = tuple(
+        FeatureValue.id
+        for FeatureValue in FeatureRecords
+        if FeatureValue.attributes.get("creo.root_class") == 917
+    )
+    OwnerId = ProtrusionIds[0] if len(ProtrusionIds) == 1 else ""
+    ParameterRecords = tuple(
+        Parameter(
+            id=f"creo:dimension:{IndexValue}",
+            name=f"Creo dimension {IndexValue}",
+            value=ParameterValue(Dimension.value, ValueKind.KNumber, UnitToken),
+            role=ParameterRole.KDriving,
+            owner_id=OwnerId,
+            provenance=Provenance(
+                KFormatId,
+                str(Dimension.reference) if Dimension.reference is not None else "",
+                spans=(
+                    ProvenanceSpan(
+                        "FeatDefs",
+                        Dimension.offset,
+                        Dimension.length,
+                        "dimension_value",
+                    ),
+                ),
+            ),
+            attributes=FreezeMapping(
+                {
+                    "creo.dimension_reference": Dimension.reference,
+                    "creo.dimension_index": IndexValue,
+                }
+            ),
+        )
+        for IndexValue, Dimension in enumerate(DimensionRows)
+    )
+    if OwnerId and ParameterRecords:
+        ParameterIds = tuple(Value.id for Value in ParameterRecords)
+        FeatureRecords = tuple(
+            Replace(FeatureValue, parameter_ids=ParameterIds)
+            if FeatureValue.id == OwnerId
+            else FeatureValue
+            for FeatureValue in FeatureRecords
+        )
     Diagnostics = (
         *Notes,
         *UnitNotes,
@@ -232,7 +303,7 @@ def ReadDocument(
         *FeatureNotes,
         Diagnostic(
             "creo.container_only",
-            "The PSB container, section directory, native thumbnail, and source bytes are decoded. Feature identity rows are decoded from AllFeatur tag anchors; parameters, sketches, dimensions, and geometry remain encoded, so no neutral body is claimed.",
+            "The PSB container, section directory, native thumbnail, source bytes, AllFeatur feature identity rows, and definition-site dimension values are decoded. Positional replayed dimensions, sketches, and geometry remain encoded, so no neutral body is claimed.",
             severity=Severity.KWarning,
         ),
     )
@@ -241,11 +312,13 @@ def ReadDocument(
             "adapter": KFormatId,
             "creo.base": HeaderValue.base,
             "creo.common_name": HeaderValue.common_name,
+            "creo.dimension_count": len(DimensionRows),
             "creo.feature_history_decoded": False,
             "creo.feature_row_count": len(FeatureRows),
             "creo.feature_rows_decoded": bool(FeatureRows),
             "creo.geometry_decoded": False,
             "creo.header_lines": HeaderValue.header_lines,
+            "creo.parameters_decoded": bool(ParameterRecords),
             "creo.kind": HeaderValue.kind,
             "creo.model_name": HeaderValue.model_name,
             "creo.product_version": HeaderValue.product_version,
@@ -277,7 +350,7 @@ def ReadDocument(
         configurations=(
             Configuration("creo:default", KDefaultConfiguration, active=True),
         ),
-        parameters=(),
+        parameters=ParameterRecords,
         support_planes=(),
         sketches=(),
         selections=(),
