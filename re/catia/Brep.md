@@ -1427,6 +1427,24 @@ first and `0.0` in the second), so the halves are the two `x` planes, but segmen
 values does not give all-8 or all-5 radii in either half. The record is `(y, z, abs(z))`, and the
 `x` is not stored per record.
 
+## The SurfacicReps tail is a reference table, not a face table
+
+After the last surface record the `SurfacicReps` stream continues with two record kinds. A `60`
+record is `60 <u32 offset> <u8 count> 00 33 <kind> <count bytes>`, with kind `0x36` carrying two
+bytes and kind `0x37` carrying eighteen. A `54` record is `54 <u32 offset> 00 00 00`, seven bytes,
+and the `54` records form a roster at the end of the stream.
+
+For `Reservoir` the tail holds 117 `60` records (39 of kind `0x36`, 78 of kind `0x37`) and 88 `54`
+roster entries. The `60` offsets are not surface-record starts: the first kind-`0x37` offsets are
+2957 and 2961, which fall inside the cone record at 2921, and the roster offsets 2947, 2953, 2979
+and 3036 also fall inside surface records. The kind-`0x36` offsets are consecutive (3144, 3145,
+3146, ...), so they index a table rather than name records.
+
+The counts do not match the face count either: `Reservoir` has 71 faces but 117 `60` records, and
+`Pedal_Body` has 338 faces but 298 kind-`0x36` records. The tail is therefore a reference table
+over surfaces and their control data, not the face-to-surface map. The map for the five pooled
+parts remains unresolved, and the reader still rejects them.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
