@@ -3,6 +3,7 @@ from dataclasses import fields as DataFields
 from dataclasses import is_dataclass as IsDataClass
 from typing import cast as CastValue
 
+from convert.Commands.CheckKinds import CheckKinds
 from interchange.document.models.DocumentModel import CadDocument
 
 KMetadataError = (
@@ -20,6 +21,7 @@ def CheckRetained(Document: CadDocument) -> None:
         if ValueId in VisitedIds:
             continue
         if IsDataClass(Value) and not isinstance(Value, type):
+            CheckKinds(Value)
             VisitedIds.add(ValueId)
             Pending.extend(
                 CastValue(object, getattr(Value, Field.name))

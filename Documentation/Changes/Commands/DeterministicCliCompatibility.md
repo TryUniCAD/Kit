@@ -25,8 +25,9 @@ The same checkout environment must be available to complete-suite CI jobs that
 execute these cases. The pin and CI configuration belong to the CLI PR; the
 tests verify receipt identity against that checkout's actual Git revision and
 SDK source digest.
-The compatibility pin is PR #94 revision `c1c3fcce5b8b67373113ec44ad5d122a52bd7260`,
-including the blind-boss direction correction after CLI implementation was separated.
+The compatibility pin is PR #94 revision `b86f30c7e41abdc3812ada795a193377f6ddd220`,
+including the blind-boss correction, direct-write safeguards, bounded session logs,
+and supervisor memory/resource headroom controls after CLI implementation was separated.
 The dedicated job is registered in the CI allowlist, and merge-group shards select the same checkout when they execute this suite.
 The Windows compatibility job runs pinned reader, rejection, and controller cases with the same checkout.
 Windows launches wait for the child and forward its exit status; Linux and macOS retain process replacement.
