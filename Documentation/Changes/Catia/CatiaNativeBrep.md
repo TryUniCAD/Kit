@@ -117,6 +117,16 @@ inferred, not decoded: 17 of 71 `Reservoir` faces, 143 of 338 `Pedal_Body` faces
 faces, and 722 of 870 `4876` faces fall through to the least-used fallback. The reader emits a
 `catia.brep.native_surface_map_heuristic` warning for those parts, and their geometry is approximate.
 
+After the first pass, `RefineMap` re-picks each face's surface: it places the handles without the
+tessellation snap, then for every plane face chooses the pooled plane that minimizes the summed
+distance of the face's own handles from the plane through the surface center along the face's stored
+trim normal, and for every cylinder face the pooled cylinder that minimizes the summed radial
+distance. One probe handle rejects a surface farther than `0.5` from the face before the full sum,
+and refinement runs two rounds for a pooled part with at most 400 faces and none for a larger one,
+because each round costs a full corner placement and the two largest pooled parts gain under 3%.
+Refinement drops the unsatisfied handles from 209 to 181 of 1431 on `Reservoir` and from 1923 to 792
+of 2666 on `Pedal_Body`; the map is still inferred, and the warning stays.
+
 The correct map is the composition face -> loop -> edge -> PCurve -> surface. `CATCXFace::Stream`
 (`0x18054eba0`) writes only the loop count, the loops, `SurfaceOrientation`, and `IsInfinite`, and
 `CATCXBody::Stream` (`0x180542210`) writes three element groups with no face-to-surface array. The
@@ -246,6 +256,12 @@ result = CatiaAdapter().write(
 - The inferred map decodes all five pooled parts: 71, 338, 416, 870, and 870 faces, each with a
   matching surface list and zero validation errors. The heuristic warning is present on exactly
   those five parts.
+- The map refinement lowers the unsatisfied handles from 209/1431 to 181/1431 on `Reservoir` and
+  from 1923/2666 to 792/2666 on `Pedal_Body`. `4784`, `4876`, and `4876_1` keep the single-pass
+  map because refinement is skipped above 400 faces.
+- A plain surface index table is ruled out: every stream of `Reservoir` was scanned for a run of
+  `FaceCount` 8-bit or 16-bit little-endian values below the pool size covering at least 85% of the
+  pool, and none exists.
 - A six-face box emitted by the writer reads back as six faces, twelve edges, and eight vertices
   with zero validation errors.
 - A three-face cylinder (two planes and one cylinder) emitted by the writer reads back as three

@@ -27,6 +27,15 @@ A plain index table is ruled out: every stream of `Reservoir` was scanned for a 
 pool, and no such run exists, so the reference is not an array of surface indices. It must be
 carried by the tag-difference reference encoding, like the object references in the OSMX graph.
 
+`RefineMap` sharpens the inferred map without changing its status. It places the handles without the
+tessellation snap, then re-picks each plane face's pooled plane by the summed distance of the face's
+handles from the plane through the surface center along the stored trim normal, and each cylinder
+face's pooled cylinder by the summed radial distance. One probe handle rejects a surface farther
+than `0.5`, and refinement runs two rounds only for pooled parts with at most 400 faces, because a
+round costs a full corner placement and the two largest parts gain under 3%. That drops the
+unsatisfied handles from 209 to 181 of 1431 on `Reservoir` and from 1923 to 792 of 2666 on
+`Pedal_Body`. The map is still inferred.
+
 ## Workaround
 
 Treat the five pooled parts as approximate. The reader emits

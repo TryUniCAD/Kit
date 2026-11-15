@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import math
 import struct
 
@@ -46,6 +46,9 @@ from interchange import (
 
 # this binding exists because shared behavior needs one stable value
 KBodyId = "catia:body:1"
+
+# this binding exists because one probe handle rejects a wrong pooled surface
+KPoolProbe = 0.5
 
 # this binding exists because shared behavior needs one stable value
 KTrimSurfaces = {
@@ -302,6 +305,159 @@ def AssignSurfaces(
     return tuple(Surfaces[Value] for Value in Assigned if Value is not None)
 
 
+# this definition exists because a pooled pool needs a distance to one surface only
+def SurfDist(
+    Point: tuple[float, float, float],
+    SurfaceValue: SurfaceRec,
+    Normal: tuple[float, float, float] | None,
+) -> float:
+    if SurfaceValue.kind == 0x32:
+        if Normal is None:
+            return math.inf
+        Origin = SurfaceValue.bounds[0:3]
+        return abs(
+            sum(Normal[Index] * (Point[Index] - Origin[Index]) for Index in range(3))
+        )
+    Params = SurfaceValue.params
+    if SurfaceValue.kind == 0x33 and len(Params) >= 6:
+        AxisValue = AxisFromCarrier(Params)
+        Delta = [Point[Index] - Params[Index] for Index in range(3)]
+        Along = sum(Delta[Index] * AxisValue[Index] for Index in range(3))
+        Radial = math.sqrt(max(0.0, sum(Value * Value for Value in Delta) - Along**2))
+        return abs(Radial - abs(Params[5]))
+    return math.inf
+
+
+# this definition exists because a pooled cylinder pool is scored many times
+def CylPool(
+    PoolValues: list[SurfaceRec],
+) -> list[
+    tuple[
+        SurfaceRec,
+        tuple[float, float, float],
+        tuple[float, float, float],
+        float,
+    ]
+]:
+    Cylinders: list[
+        tuple[
+            SurfaceRec,
+            tuple[float, float, float],
+            tuple[float, float, float],
+            float,
+        ]
+    ] = []
+    for Value in PoolValues:
+        if Value.kind != 0x33 or len(Value.params) < 6:
+            continue
+        Params = Value.params
+        Cylinders.append(
+            (
+                Value,
+                AxisFromCarrier(Params),
+                (Params[0], Params[1], Params[2]),
+                abs(Params[5]),
+            )
+        )
+    return Cylinders
+
+
+# this definition exists because a plane face needs the best matching pooled plane
+def BestPlane(
+    Positions: dict[int, tuple[float, float, float]],
+    TrimValue: TrimRec,
+    Planes: list[SurfaceRec],
+    KeepValue: SurfaceRec,
+) -> SurfaceRec:
+    Normal = TrimValue.vector
+    if Normal is None:
+        return KeepValue
+    Handles = sorted(set(TrimValue.handles))
+    BestCost: float | None = None
+    for Value in Planes:
+        if SurfDist(Positions[Handles[0]], Value, Normal) >= KPoolProbe:
+            continue
+        CostValue = sum(
+            SurfDist(Positions[Handle], Value, Normal) for Handle in Handles
+        )
+        if BestCost is None or CostValue < BestCost - 1e-9:
+            BestCost = CostValue
+            KeepValue = Value
+    return KeepValue
+
+
+# this definition exists because a cylinder face needs the best matching pooled cylinder
+def BestCyl(
+    Positions: dict[int, tuple[float, float, float]],
+    TrimValue: TrimRec,
+    Cylinders: list[
+        tuple[
+            SurfaceRec,
+            tuple[float, float, float],
+            tuple[float, float, float],
+            float,
+        ]
+    ],
+    KeepValue: SurfaceRec,
+) -> SurfaceRec:
+    Handles = sorted(set(TrimValue.handles))
+    BestCost: float | None = None
+    for Value, AxisValue, Center, Radius in Cylinders:
+        if CylDist(Positions[Handles[0]], AxisValue, Center, Radius) >= KPoolProbe:
+            continue
+        CostValue = sum(
+            CylDist(Positions[Handle], AxisValue, Center, Radius) for Handle in Handles
+        )
+        if BestCost is None or CostValue < BestCost - 1e-9:
+            BestCost = CostValue
+            KeepValue = Value
+    return KeepValue
+
+
+# this definition exists because the pooled map is inferred and can be sharpened
+def RefineMap(
+    BrepValue: BrepData, PoolValues: list[SurfaceRec], Rounds: int | None = None
+) -> tuple[SurfaceRec, ...]:
+    if Rounds is None:
+        Rounds = 2 if len(BrepValue.trims) <= 400 else 0
+    Planes = [Value for Value in PoolValues if Value.kind == 0x32]
+    Cylinders = CylPool(PoolValues)
+    Current = list(BrepValue.surfaces)
+    for _ in range(Rounds):
+        Positions = PlaceRough(replace(BrepValue, surfaces=tuple(Current)))
+        Updated = list(Current)
+        for FaceIndex, TrimValue in enumerate(BrepValue.trims):
+            KeepValue = Current[FaceIndex]
+            if KeepValue.kind == 0x32:
+                Updated[FaceIndex] = BestPlane(Positions, TrimValue, Planes, KeepValue)
+            elif KeepValue.kind == 0x33:
+                Updated[FaceIndex] = BestCyl(Positions, TrimValue, Cylinders, KeepValue)
+        Current = Updated
+    return tuple(Current)
+
+
+# this definition exists because refinement must not pay for the tessellation snap
+def PlaceRough(BrepValue: BrepData) -> dict[int, tuple[float, float, float]]:
+    Usage, ArityTwo = CornerUsage(BrepValue)
+    Positions = AssignCorners(BrepValue, Usage, ArityTwo)
+    PlaceArcMut(BrepValue, Usage, ArityTwo, Positions)
+    PlaceRestMut(BrepValue, Usage, Positions)
+    return Positions
+
+
+# this definition exists because a pooled cylinder needs a radial distance
+def CylDist(
+    Point: tuple[float, float, float],
+    AxisValue: tuple[float, float, float],
+    Center: tuple[float, float, float],
+    Radius: float,
+) -> float:
+    Delta = [Point[Index] - Center[Index] for Index in range(3)]
+    Along = sum(Delta[Index] * AxisValue[Index] for Index in range(3))
+    Radial = math.sqrt(max(0.0, sum(Value * Value for Value in Delta) - Along**2))
+    return abs(Radial - Radius)
+
+
 # this definition exists because focused behavior needs one stable owner
 def ParseBrep(Archive: CfvTwoArchive) -> BrepData:
     if not Archive.nested:
@@ -329,22 +485,27 @@ def ParseBrep(Archive: CfvTwoArchive) -> BrepData:
                 if Heuristic
                 else Surfaces
             )
-            Radii = tuple(
-                abs(Value.params[5])
-                for Value in FaceSurfaces
-                if Value.kind == 0x33 and len(Value.params) >= 6
-            )
-            Tessellation = TessPoints(MainData, Radii) if Radii else ()
-            return BrepData(
+            Provisional = BrepData(
                 tuple(FaceSurfaces),
                 Trims,
                 Edges,
                 Vertices,
                 Roster,
                 Width,
-                Tessellation,
+                (),
                 Heuristic,
             )
+            if Heuristic:
+                Provisional = replace(
+                    Provisional, surfaces=RefineMap(Provisional, Surfaces)
+                )
+            Radii = tuple(
+                abs(Value.params[5])
+                for Value in Provisional.surfaces
+                if Value.kind == 0x33 and len(Value.params) >= 6
+            )
+            Tessellation = TessPoints(MainData, Radii) if Radii else ()
+            return replace(Provisional, tessellation=Tessellation)
     raise ValueError("topology spine is unsupported")
 
 
