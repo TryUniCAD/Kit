@@ -124,6 +124,24 @@ gen_rows.prt: 26239 bytes, 47 generated rows
 16 of 16 checks pass
 ```
 
+### The entity graph's values are inert; only its layout matters
+
+Editing the loading `sketchswap` part in place inside `ent_tab` — `next_available_xid 8 → 7`, first `xid 0 → 3`,
+`vertex_id 0 → 5`, `pers_attribs 0 → 2`, one byte each — still loads:
+
+```text
+entswap_values: 108324 bytes (unchanged length)
+!15-Nov-26 12:41:18  End ...  MT Part Solid
+```
+
+So entity values are not validated, any more than a dimension's are. The earlier `entities949` failure was a
+**shape** failure: its buckets had empty `bucket_xar`, one entry each, no `ent_list` and no `vert_tab`.
+
+That changes what the write side needs. It does not need a sketch solver; it needs the record layout of
+`unsolved_ptr`, which the file declares by name — `ent_tab{next_available_xid, chains[7 buckets of bucket_index +
+bucket_xar[entry_mode, entry_ptr(entity_entry)]], ent_list, vert_tab{next_available_xid, chains[ent_ids, vertex_id,
+attribs]}}`, then the `unsolved_ptr`-level `chains`. Every value in that layout can be ours.
+
 ### The entity graph is mapped, and filling it does not load
 
 `ent_tab` is now mapped field by field: `next_available_xid 8`, `chains` as seven buckets each with `bucket_index`,

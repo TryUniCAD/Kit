@@ -428,6 +428,50 @@ So the parser now takes a `Legacy` flag: the reader uses the new rules, and `Rep
 | `gen_rows.prt` | `26239` bytes, 47 rows, `End` + `MT Part Solid` twice (`12:26:42`, `12:27:59`) |
 | vendor `949` element | `3827` of `3827` bytes, `pointid [[0,1], [1,2]]` |
 
+### Entity values are inert, so only the record layout remains
+
+The `sketchswap` part — our prefix with the vendor's sketch tail, which loads — was edited in place at three
+positions inside `ent_tab`, one byte each, and still loads:
+
+| Field | Change | Result |
+| --- | --- | --- |
+| `next_available_xid` | `8` to `7` | loads |
+| first `xid` | `0` to `3` | loads |
+| `vertex_id` | `0` to `5` | loads |
+| `pers_attribs` | `0` to `2` | loads |
+
+```text
+entswap_values: 108324 bytes (unchanged length)
+!15-Nov-26 12:41:18  End ...  MT Part Solid
+```
+
+So the entity graph's **values are not validated** any more than a dimension's are. `entities949` failed because its
+*shape* was invented — seven buckets with empty `bucket_xar`, one entry each, no `ent_list`, no `vert_tab` — not
+because the values were ours.
+
+That reframes the last requirement: the write side does not need a sketch solver, it needs the record **layout** of
+`unsolved_ptr`, which is declared in the file and can be emitted by name:
+
+```text
+unsolved_ptr        f1 e3
+  iges_file         e1
+  solve_version     01
+  ent_tab           e3
+    next_available_xid
+    chains          f8 07 f7 66 fb     seven buckets
+      bucket        e2 { bucket_index, bucket_xar[ ... ] }
+      bucket_xar    f8 <n> f7 68 fb     entry { ent_mode, entry_ptr(entity_entry) }
+      entry_ptr     e3 { xid, ent_mode, start_vtx, end_vtx, center_vtx, pers_attribs }
+    ent_list        f4 05 f8 0c ...    twelve ids
+    vert_tab        f1 e3
+      next_available_xid 04
+      chains        f8 13 f7 74 fb     { ent_ids, vertex_id, attribs }
+  chains            f8 13 f7 74 fb     the same vertex records positionally
+```
+
+The next attempt should emit exactly that nesting — names and close counts from the declarations, every id and vertex
+value ours — and the trace will say whether the layout is now right.
+
 ### `ent_tab` and `chains` are mapped, and filling them does not load
 
 `ent_tab` is fully mapped from the vendor element:
