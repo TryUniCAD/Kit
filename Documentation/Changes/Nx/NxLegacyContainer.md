@@ -281,6 +281,43 @@ of id objects — and what remains is a less direct route, such as ids resolved 
 at load time or registered when a class is first instantiated. Either way it is loader-time data
 rather than a table this branch can read out of the module statically.
 
+## The header is 15 bytes followed by exactly three typed entries
+
+Parsing the bytes after `kokr` as `<u32 id> <u16 type> <u16 flags> <u32 v1> <u32 v2>` entries of 16
+bytes, starting 15 bytes after the marker, gives the same three-entry table in every section:
+
+```text
+section 1  id 273 type 1 flags 0x000f v1 0x42c05939 v2 0x39876a0b
+           id 314 type 2 flags 0x000f v1 0x42c05951 v2 0x2dab048d
+           id 314 type 3 flags 0x000f v1 0x0000013b v2 0x00000003
+section 2  id  31 type 1 flags 0x000f v1 0x42c05939 v2 0x4c4a1338
+           id  32 type 2 flags 0x000f v1 0x42c05951 v2 0x64933446
+           id  33 type 3 flags 0x000f v1 0x00000022 v2 0x00000003
+section 3  id  37 type 1 flags 0x000f v1 0x42c05939 v2 0x17cb256e
+           id  38 type 2 flags 0x000f v1 0x42c05951 v2 0x16281ad2
+           id  38 type 3 flags 0x000f v1 0x00000027 v2 0x00000003
+section 4  id  43 type 1 flags 0x000f v1 0x42c05939 v2 0x66de6efe
+           id  63 type 2 flags 0x000f v1 0x42c05951 v2 0x75e16345
+           id  63 type 3 flags 0x000f v1 0x00000040 v2 0x00000003
+section 5  id 157 type 1 flags 0x000f v1 0x42c05939 v2 0x369aa4bb
+           id 310 type 2 flags 0x000f v1 0x42c05951 v2 0x1060de6c
+           id 392 type 3 flags 0x000f v1 0x00000189 v2 0x00000003
+```
+
+so the header is
+
+```text
+"kokr"  00 ff ff  <f32 96.1657>  <u32>
+```
+
+15 bytes, followed by exactly three 16-byte entries, and then the entry sequence breaks (the fourth
+candidate has `flags 0xffff` and `type 0xffff`). The type-1 `v1` is always `0x42c05939` (96.1743) and
+the type-2 `v1` is always `0x42c05951` (96.1745), so those two fields are constants of the format, not
+per-part data. The type-3 `v2` is always 3.
+
+That is the first record grammar in the legacy object region: a fixed 15-byte preamble, a fixed
+three-entry typed table, and then the object data.
+
 ## The object region starts with a fixed 27 byte header
 
 `kokr` is not a stray string: it occurs once per section, at the start of that section's object
