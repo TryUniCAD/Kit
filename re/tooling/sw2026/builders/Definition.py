@@ -42,7 +42,7 @@ def notebook(*, name: str) -> dict:
     if not isinstance(name, str) or not name or "\x00" in name:
         raise ValueError("journal names must be nonempty strings without null characters")
     return {
-        "f18": Obj("uoJournal_c", {"f08": name, "f10": 0, "f18": 0}),
+        "f18": Obj("uoJournal_c", {"f08": name, "f10": 0, "f18": 0}, schema=0),
         "f10": object_list(),
         "f28": 1,
         "f20": object_list(),

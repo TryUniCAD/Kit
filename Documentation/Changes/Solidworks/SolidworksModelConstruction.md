@@ -11,6 +11,9 @@ The positive update helper marks the serialized model flag independently of
 header stamps and completed body updates.
 Reference creation times derive from authored creation logs or the native
 absent-log sentinel, independently of feature FILETIME words.
+The document journal explicitly uses native archive schema zero. A native loader
+trace exposed the mismatch, and the shipped class metadata independently proves
+the schema constant.
 These additions do not enable the production writer.
 
 ## Use
@@ -50,6 +53,8 @@ The [kernel behavior-version gotcha](../../Gotchas/Conversion/Solidworks/KernelB
 distinguishes the feature's compatibility behavior from the full kernel build.
 The [reference-time gotcha](../../Gotchas/Conversion/Solidworks/FeatureReferenceCreationTimes.md)
 requires component references to agree with their referenced node's creation log.
+The [runtime schema gotcha](../../Gotchas/Conversion/Solidworks/RuntimeClassSchemasDiffer.md)
+records the journal's nondefault class schema and the native rejection.
 
 ## Verification
 
