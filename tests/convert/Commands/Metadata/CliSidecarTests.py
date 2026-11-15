@@ -1,15 +1,10 @@
-from dataclasses import replace as ReplaceData
 from json import loads as LoadJson
 from pathlib import Path as FilePath
 
 from pytest import mark as TestMark
 
-from convert.adapters.Fusion.Authoring.MakeFusionDoc import MakeFusionDoc
-from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
-from tests.convert.Commands.BuildHistory import BuildHistory
 from tests.convert.Commands.CliProcess import CliProcess
-from tests.convert.Commands.Sketch.BuildSketches import BuildSketches
-from tests.convert.Commands.WrapDocument import WrapDocument
+from tests.convert.Commands.Metadata.BuildSidecar import BuildSidecar
 
 
 # metadata sidecars must not escape conversion policy or alter existing companion files
@@ -24,27 +19,7 @@ def CheckSidecars(
     Suffix: str,
     TmpPath: FilePath,
 ) -> None:
-    Document = MakeFusionDoc(
-        DocumentSpec("Sidecar parent", "height", 20.0, ProfileKind="parameter")
-    )
-    Child = (
-        BuildHistory("Mesh", False)
-        if RecordKind == "Mesh"
-        else BuildSketches("Empty") if RecordKind == "Sketch" else Document
-    )
-    Child.AssertValid()
-    Document = ReplaceData(
-        Document,
-        metadata={
-            "freecad": {
-                "external_documents": [
-                    {"file": "child.FCStd", "document": Child.to_dict()}
-                ]
-            }
-        },
-    )
-    if IsNested:
-        Document = WrapDocument(Document)
+    Document = BuildSidecar(RecordKind, IsNested)
     Document.AssertValid()
     Source = TmpPath / "source.json"
     Original = Document.to_json()
