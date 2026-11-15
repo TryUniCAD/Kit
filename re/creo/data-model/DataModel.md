@@ -312,9 +312,27 @@ letter per serialised field rather than an opaque blob. If that holds, the table
 field list our own reader already decodes, which would make it the first remaining row with a generative
 path rather than a transcription.
 
-That is a hypothesis, not a result. The test is to enumerate the fields of an authored model in
-declaration order, map each of our type ids (`0`, `1`, `2`, `4`, `9`, `10`) to a letter, and compare the
-resulting string with the control's. It has not been run.
+That was a hypothesis, and it is now tested and rejected.
+
+| Enumeration over the control's sections | Count |
+| --- | --- |
+| field definition sites (`e0 <type> <name> 00`) | `1855` |
+| unique `(type, name)` pairs | `947` |
+| nodes produced by `StreamParser` | `42145` |
+| distinct type ids present | `8` |
+| letters in `type_har` | **`317`** |
+
+None of those enumerations yields `317`, and the parser over-produces badly on replay records, so the
+letter list cannot be produced by walking the fields we can decode. `317` is therefore not a count of the
+model's field declarations in any form we can enumerate; it is a token count for the vendor's own
+serialised `Model_L05_PX` object, which our reader never reconstructs.
+
+The same applies to the unit-system and PDM-trail tables, which carry `string_xar` entries naming vendor
+classes such as `ndmoddeps_j03::ModelDescriptor_J03`.
+
+So the `ND:*` rows are **not derivable** from what we can decode. They are one more instance of the same
+pattern as the mask vector: per-schema payload that a generator cannot compute from a record's own
+fields.
 
 That places them in the same category as the mask vector: structured schema payload that a generator cannot
 compute from a record's own fields. The remaining rows split as:
