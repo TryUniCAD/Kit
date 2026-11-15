@@ -331,6 +331,29 @@ mutually unrelated contents produces a section the solver cannot accept, which i
 edits reached from the other side — the row is tolerated where it is *inert* (a changed dimension, a flipped
 `verhor`, a rewired `pointid` that the solver re-derives) and refused where it must be *solved*.
 
+### `std.out` carries the parse path, and trail replay does not run here
+
+Creo keeps a second log beside the executable. `std.out` records the last records it was reading when a part was
+refused:
+
+```text
+mode rb file: C:\Mac\Home\Documents\creo-authored\trace1.prt
+Sld_FeatDefs
+ feat_defs_949
+  sub_feat_arr
+   (subft_indexnumber)
+```
+
+That locates the failure inside the generated element rather than leaving "refused" as the whole answer, and it is
+the instrument any continuation should use: clear `std.out`, launch, read the indented path. Caveat recorded in
+`Documentation/Gotchas/Conversion/CreoParseTraceInStdOut.md`: it is an unhandled exception, so the last path is the
+last record touched, not necessarily the broken one.
+
+**Trail replay does not execute in this installation.** A `replay.txt` written in trail format
+(`#PART`, `#RETRIEVE <file>`, `~ Command ProCmdModelSave`) sitting in the startup directory is not replayed at
+startup, and passing it as an argument (`parametric.exe -g:no_graphics replay.txt`) produces a trail containing
+only the start and end markers — no model commands. So a second oracle cannot be produced here by driving Creo.
+
 ### Emitting the entity tables structurally is not enough either
 
 The diff showed sixty-one declarations we were nulling. Emitting them as *structure* — `ent_tab` with

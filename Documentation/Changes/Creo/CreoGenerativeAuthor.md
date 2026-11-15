@@ -1083,6 +1083,28 @@ readback: 7 features 9 params 1 bodies
 (no End line; second run identical)
 ```
 
+Two further measurements came out of chasing that refusal.
+
+**`std.out` carries a parse path.** When Creo rejects a part it leaves the last records it read in
+`std.out` beside the executable:
+
+```text
+mode rb file: C:\Mac\Home\Documents\creo-authored\trace1.prt
+Sld_FeatDefs
+ feat_defs_949
+  sub_feat_arr
+   (subft_indexnumber)
+```
+
+That is the instrument to continue with — it locates the failure inside the element instead of leaving "refused"
+as the answer — subject to the caveat in
+[the gotcha](../../Gotchas/Conversion/CreoParseTraceInStdOut.md): it is an unhandled exception, so the last path
+is the last record touched, not necessarily the broken one.
+
+**Trail replay does not execute in this installation.** A `replay.txt` in trail format sitting in the startup
+directory is not replayed, and passing it as an argument yields a trail with only start and end markers. So a
+second oracle cannot be manufactured by driving Creo here; it has to come from a user save.
+
 Emitting those sixty-one declarations as *structure* rather than nulls — `ent_tab` with `bucket_index`, an empty
 `bucket_xar` array, `vert_tab`, an empty `chains` array, `first_chain_ptr` with `quilt_id`/`plane_id`/`plane_flip`
 and empty `ref_planes`, a `save_entity_ptr(line)` record, an empty `order_table` — is also refused (`ent949`, no
