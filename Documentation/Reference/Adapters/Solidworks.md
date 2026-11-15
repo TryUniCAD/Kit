@@ -163,6 +163,8 @@ closes an explicitly selected clean session after user authorization, while meas
 The [existing-session inventory](../../Changes/Solidworks/Inspection/Sessions/SolidworksExistingSessionInventory.md)
 attaches only to an active object and reads its identity and document metadata.
 It never activates, closes or terminates an application, process or license server.
+The [published inventory and selected handoff](../../../re/solidworks/measurements/2026/OracleExistingSessionInventory.json)
+record stable zero-document snapshots and a separate confirmed graceful exit, with observed licensing daemons retained.
 The [host deadline supervisor](../../Changes/Solidworks/Inspection/SolidworksOracleHostDeadline.md)
 bounds one owned oracle transport with a host monotonic deadline and records guest state as unknown after a timeout.
 It does not cancel guest jobs, recover the VM or establish native acceptance.
@@ -172,6 +174,9 @@ No candidate or healthy trailing control was measured, so no family lock or form
 The [next source preflight](../../../re/solidworks/measurements/2026/CurveSourcePreflight08ActivationFailure.json)
 failed both control activations before any candidate or runtime executable identity was obtained.
 The host transport ended normally with exit `2`; no deadline fired and no native acceptance follows.
+The [later annulus/capsule source preflight](../../Changes/Solidworks/Inspection/Relations/SolidworksCurveBindingPreflight.md)
+passes ten phases and 121 numeric checks between healthy controls, confirming the repaired native bindings.
+Its two-case selection establishes no full-family lock or Kit-written curve acceptance.
 The [local curve and radial construction rules](../../Changes/Solidworks/SolidworksCurveReferenceConstruction.md)
 bound both native reference scans and distinguish circle-marker updates from
 ordinary polygon points. These static rules do not establish curve acceptance.

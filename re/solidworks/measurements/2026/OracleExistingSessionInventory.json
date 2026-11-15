@@ -1,0 +1,350 @@
+{
+  "schema": "kit-sw2026-existing-session-inventory/1",
+  "status": "existing-session metadata inspection and selected clean handoff completed; no native CAD acceptance",
+  "scope": "application identity, document metadata, selected graceful exit and one subsequent process inventory snapshot only",
+  "raw_sources": {
+    "ExistingSessionAfterLicense01/Record.json": {
+      "bytes": 2232,
+      "sha256": "70ca9cc16d810bccccb95c2147d36078214b210e1bda667a787dca8af6aa5802",
+      "not_copied_into_publication": true
+    },
+    "CleanHandoffAfterLicense01/Record.json": {
+      "bytes": 811,
+      "sha256": "2300f813df19bf226b55ebe3af4c863540e03d3c3074fdc2983ef155ebbee2f7",
+      "not_copied_into_publication": true
+    },
+    "OracleRecoveryInventory02.Summary.json": {
+      "bytes": 420,
+      "sha256": "dd51559de952bc08e26b641cbafdacd2cd0ef04122e1744552b20df32c72c114",
+      "not_copied_into_publication": true
+    },
+    "OracleSessionToolsBa78/SourceManifest.json": {
+      "bytes": 787,
+      "sha256": "af3f4b6bad03ae36d70c8d9710327cb07fcc041dd68dcb0fa882f32a7067d9a8",
+      "not_copied_into_publication": true
+    },
+    "OracleSessionToolsBa78/InspectExistingSession.py": {
+      "bytes": 8081,
+      "sha256": "309fc445c58acee82c46a6c0521fe5775c90b9c5a9a046d4090de36e21bdd660",
+      "not_copied_into_publication": true
+    },
+    "OracleSessionToolsBa78/Swapp.py": {
+      "bytes": 15278,
+      "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c",
+      "not_copied_into_publication": true
+    },
+    "OracleSessionToolsBa78/OracleIdentity.py": {
+      "bytes": 4284,
+      "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "not_copied_into_publication": true
+    },
+    "OracleSessionToolsC7f3/SourceManifest.json": {
+      "bytes": 589,
+      "sha256": "998dfa344ad2eec91f9e9f57e020e7475251d13fe5e53a2e2ec417a6fed4f058",
+      "not_copied_into_publication": true
+    },
+    "OracleSessionToolsC7f3/CloseApprovedSession.py": {
+      "bytes": 3695,
+      "sha256": "db844b93a60f84daf27a3e3c1151c97862c5dc8c058b7cb543445975c5169c03",
+      "not_copied_into_publication": true
+    },
+    "OracleSessionToolsC7f3/Swapp.py": {
+      "bytes": 15278,
+      "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c",
+      "not_copied_into_publication": true
+    },
+    "OracleSessionToolsC7f3/OracleIdentity.py": {
+      "bytes": 4284,
+      "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "not_copied_into_publication": true
+    },
+    "ExistingSessionAfterLicense01.Host.json": {
+      "bytes": 7731,
+      "sha256": "ab4e09fdf3f745410aa36c216b6e5cd3bb86a54bc7acb692e1692906b351a6cd",
+      "not_copied_into_publication": true
+    },
+    "ExistingSessionAfterLicense01.Host.json.stdout.log": {
+      "bytes": 1773,
+      "sha256": "075231cb71b96de039068d5bc3c729f5b959e70072f2646de294ede59e8ae41d",
+      "not_copied_into_publication": true
+    },
+    "ExistingSessionAfterLicense01.Host.json.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "not_copied_into_publication": true
+    },
+    "CleanHandoffAfterLicense01.Host.json": {
+      "bytes": 8567,
+      "sha256": "0f37593ff90b766c76dd4f3e49598e4d25c0875341c6f00cf4c1c811962bb2ab",
+      "not_copied_into_publication": true
+    },
+    "CleanHandoffAfterLicense01.Host.json.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "not_copied_into_publication": true
+    },
+    "CleanHandoffAfterLicense01.Host.json.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "not_copied_into_publication": true
+    },
+    "OracleRecoveryInventory02.Host.json": {
+      "bytes": 2854,
+      "sha256": "1c65ec7662738d01d28efbc7241ea175a9ae027962e6069fe622d3f1ef2e0966",
+      "not_copied_into_publication": true
+    },
+    "OracleRecoveryInventory02.Host.json.stdout.log": {
+      "bytes": 7428,
+      "sha256": "3f99f7dceb34efc56c2dc36c2a118ac72ca96d457d1a1a37074ae13228b039e6",
+      "not_copied_into_publication": true
+    },
+    "OracleRecoveryInventory02.Host.json.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "not_copied_into_publication": true
+    }
+  },
+  "frozen_toolsets": {
+    "OracleSessionToolsBa78": {
+      "source_revision": "ba78e2935e87490c23b6a80173459314702a2965",
+      "used_files": {
+        "InspectExistingSession.py": {
+          "sha256": "309fc445c58acee82c46a6c0521fe5775c90b9c5a9a046d4090de36e21bdd660",
+          "bytes": 8081
+        },
+        "Swapp.py": {
+          "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c",
+          "bytes": 15278
+        },
+        "OracleIdentity.py": {
+          "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+          "bytes": 4284
+        }
+      },
+      "manifest_scope": "explicit existing-session read-only inventory and separately selected clean-session handoff; no licensing or VM recovery commands",
+      "used_script_hashes_independently_rechecked": true
+    },
+    "OracleSessionToolsC7f3": {
+      "source_revision": "c7f382eb75e37b667167bd9c8913bfacec39e0c6",
+      "used_files": {
+        "CloseApprovedSession.py": {
+          "sha256": "db844b93a60f84daf27a3e3c1151c97862c5dc8c058b7cb543445975c5169c03",
+          "bytes": 3695
+        },
+        "Swapp.py": {
+          "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c",
+          "bytes": 15278
+        },
+        "OracleIdentity.py": {
+          "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+          "bytes": 4284
+        }
+      },
+      "manifest_scope": "selected active-object-only clean session handoff; licensing and VM untouched",
+      "used_script_hashes_independently_rechecked": true
+    }
+  },
+  "observed_application_identity": {
+    "process_id": 6552,
+    "process_creation_filetime": 134392578850848098,
+    "executable": "SLDWORKS.exe",
+    "file_version": "34.5.2.0604",
+    "file_version_words": [34, 5, 2, 604],
+    "expected_version": [34, 5, 2, 604],
+    "version_matches": true,
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "bytes": 718936,
+    "pe_machine": "0x8664"
+  },
+  "birth_identity_preservation": "process creation FILETIME remains an exact Python integer in the published JSON; no floating-point conversion",
+  "existing_session_inspection": {
+    "source_revision": "ba78e2935e87490c23b6a80173459314702a2965",
+    "script_sha256": "309fc445c58acee82c46a6c0521fe5775c90b9c5a9a046d4090de36e21bdd660",
+    "progid": "SldWorks.Application.34",
+    "binding": "GetActiveObject only; no application activation",
+    "expected_pid": 6552,
+    "active_process_id": 6552,
+    "snapshots": [
+      {
+        "documents": [],
+        "complete": true,
+        "count_before": 0,
+        "count_after": 0
+      },
+      {
+        "documents": [],
+        "complete": true,
+        "count_before": 0,
+        "count_after": 0
+      }
+    ],
+    "documents_stable": true,
+    "native_identity_before_after_equal": true,
+    "recorded_native_identity_stable": true,
+    "application_pids_before": [6552],
+    "application_pids_after": [6552],
+    "application_pids_stable": true,
+    "failures": [],
+    "completed": true,
+    "metadata_probe_healthy_flag": true,
+    "healthy_flag_scope": "only the existing-session metadata probe, not opening, rebuilding or editing a CAD document",
+    "updated_utc": "2026-11-15T23:20:42.531481+00:00"
+  },
+  "selected_clean_handoff": {
+    "source_revision": "c7f382eb75e37b667167bd9c8913bfacec39e0c6",
+    "script_sha256": "db844b93a60f84daf27a3e3c1151c97862c5dc8c058b7cb543445975c5169c03",
+    "binding": "GetActiveObject only; no DispatchEx or reactivation",
+    "expected_pid": 6552,
+    "expected_creation_filetime": 134392578850848098,
+    "identity_matches_inspected_lifetime": true,
+    "documents": [],
+    "exit_requested": true,
+    "exit_confirmed": true,
+    "started_at_utc": "2026-11-15T23:22:27.500237+00:00",
+    "finished_at_utc": "2026-11-15T23:22:37.904531+00:00",
+    "force_termination_used": false,
+    "force_statement_authority": "frozen selected clean-handoff script and successful graceful-exit record; no forced-cleanup operation is part of this handoff",
+    "started_at": 1794784947.500237,
+    "finished_at": 1794784957.9045308
+  },
+  "post_handoff_inventory": {
+    "authority": "completed tasklist CSV plus owner summary, independently filtered during publication",
+    "observed_at": "2026-11-15T23:23:36.679826+00:00",
+    "scope": "historical snapshot after the selected exit, before later batches; not a current process-state assertion",
+    "checked_transient_process_names": [
+      "SLDWORKS.exe",
+      "python.exe",
+      "pythonw.exe",
+      "sldProcMon.exe",
+      "sldErrorReport.exe",
+      "WerFault.exe",
+      "WerFaultSecure.exe"
+    ],
+    "selected_transient_processes_observed": [],
+    "licensing_processes_observed": [
+      {
+        "name": "lmgrd.exe",
+        "process_id": 1604
+      },
+      {
+        "name": "lmgrd.exe",
+        "process_id": 7936
+      },
+      {
+        "name": "sw_d.exe",
+        "process_id": 4276
+      }
+    ],
+    "other_selected_vendor_background_processes_observed": [
+      {
+        "name": "sldworks_fs.exe",
+        "process_id": 3956
+      },
+      {
+        "name": "sldBgDwld.exe",
+        "process_id": 1612
+      }
+    ],
+    "owner_ready_for_fresh_batch_flag": true,
+    "ready_flag_scope": "bounded process hygiene observation, not CAD or licensing health",
+    "licensing_commands_issued": false,
+    "process_list_publication": "only the selected names/PIDs above are published; complete raw process list remains external",
+    "pid_scope": "process presence at this snapshot only; licensing/background process birth identities and health were not measured"
+  },
+  "host_operations": {
+    "ExistingSessionAfterLicense01": {
+      "status": "transport_exited",
+      "script_sha256": "9faab30994516cc28fdf6a5b64b1771f8fb14156143b6a7d5804c075703ee1fd",
+      "started_at": "2026-11-15T23:20:42.017348+00:00",
+      "finished_at": "2026-11-15T23:20:44.035859+00:00",
+      "started_monotonic_ns": 1334985833953916,
+      "finished_monotonic_ns": 1334987852477541,
+      "elapsed_ns": 2018523625,
+      "transport_pid": 34212,
+      "transport_returncode": 0,
+      "supervisor_exit_code": 0,
+      "transport_exit_confirmed": true,
+      "transport_live": false,
+      "guest_state_unknown": true,
+      "acceptance": false,
+      "automatic_guest_kill": false,
+      "automatic_vm_reset": false,
+      "automatic_retry": false,
+      "external_inventory_required_before_another_batch": false,
+      "elapsed_seconds": 2.018523625,
+      "monotonic_delta_recomputed": true,
+      "host_deadline_triggered": false,
+      "scope": "completed host transport observation; acceptance flag is not CAD acceptance"
+    },
+    "CleanHandoffAfterLicense01": {
+      "status": "transport_exited",
+      "script_sha256": "9faab30994516cc28fdf6a5b64b1771f8fb14156143b6a7d5804c075703ee1fd",
+      "started_at": "2026-11-15T23:22:27.600040+00:00",
+      "finished_at": "2026-11-15T23:22:39.698843+00:00",
+      "started_monotonic_ns": 1335091415452583,
+      "finished_monotonic_ns": 1335103514150000,
+      "elapsed_ns": 12098697417,
+      "transport_pid": 35087,
+      "transport_returncode": 0,
+      "supervisor_exit_code": 0,
+      "transport_exit_confirmed": true,
+      "transport_live": false,
+      "guest_state_unknown": true,
+      "acceptance": false,
+      "automatic_guest_kill": false,
+      "automatic_vm_reset": false,
+      "automatic_retry": false,
+      "external_inventory_required_before_another_batch": false,
+      "elapsed_seconds": 12.098697417,
+      "monotonic_delta_recomputed": true,
+      "host_deadline_triggered": false,
+      "scope": "completed host transport observation; acceptance flag is not CAD acceptance"
+    },
+    "OracleRecoveryInventory02": {
+      "status": "transport_exited",
+      "script_sha256": "9faab30994516cc28fdf6a5b64b1771f8fb14156143b6a7d5804c075703ee1fd",
+      "started_at": "2026-11-15T23:23:35.666957+00:00",
+      "finished_at": "2026-11-15T23:23:36.679826+00:00",
+      "started_monotonic_ns": 1335159481603458,
+      "finished_monotonic_ns": 1335160494498833,
+      "elapsed_ns": 1012895375,
+      "transport_pid": 35739,
+      "transport_returncode": 0,
+      "supervisor_exit_code": 0,
+      "transport_exit_confirmed": true,
+      "transport_live": false,
+      "guest_state_unknown": true,
+      "acceptance": false,
+      "automatic_guest_kill": false,
+      "automatic_vm_reset": false,
+      "automatic_retry": false,
+      "external_inventory_required_before_another_batch": false,
+      "elapsed_seconds": 1.012895375,
+      "monotonic_delta_recomputed": true,
+      "host_deadline_triggered": false,
+      "scope": "completed host transport observation; acceptance flag is not CAD acceptance"
+    }
+  },
+  "causal_limits": {
+    "licensing_cause_established": false,
+    "user_reported_correction": "context only; no private configuration or diagnostic cause is published",
+    "global_guest_health_established": false,
+    "transport_guest_state_flags": "generic unknown-state flags are retained from each host report; narrower application identity/exit observations have their own stated scope"
+  },
+  "acceptance": {
+    "existing_application_metadata_and_clean_management_completed": true,
+    "native_file_open_rebuild_or_edit_measured": false,
+    "source_preflight_acceptance_established": false,
+    "native_file_or_writer_acceptance_established": false,
+    "full_cad_goal_complete": false,
+    "production_adapter_read_only": true,
+    "later_live_batches_read_or_assessed": false
+  },
+  "publication": {
+    "selected_fields_only": true,
+    "raw_sources_unchanged": true,
+    "private_paths_full_argv_and_whole_process_lists_omitted": true,
+    "native_cad_bytes_or_vendor_software_published": false,
+    "oracle_vm_or_application_calls_during_publication": false
+  }
+}

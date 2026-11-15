@@ -24,5 +24,10 @@ This management operation establishes no CAD writer acceptance.
 
 The historical record predates the active-object-only attachment repair.
 That repair was verified by AST and static source inspection before its next
-native observation. No local product tests ran.
+native observation. The [later selected handoff](../../../../re/solidworks/measurements/2026/OracleExistingSessionInventory.json)
+now records zero documents and a confirmed graceful exit for the same exact
+process lifetime inspected by the read-only inventory tool. The current
+active-object-only handoff required no forced cleanup. Its subsequent bounded
+process inventory retained the observed licensing daemons and background services.
+No local product tests ran.
 The tool issues no license-server command, service command or VM recovery action.

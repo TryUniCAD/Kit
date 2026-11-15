@@ -50,8 +50,15 @@ independently confirms the four relation codes and the dangling, overdefining an
 The [specific gotcha](../../../Gotchas/Conversion/Solidworks/Tracing/SharedSketchPointsCanReuseRelations.md) preserves this distinction.
 The failed source run remains failed and is not an attributed format crash.
 
-The repair has only source inspection, AST and formatting validation before oracle use.
-No local product tests, CAD execution or held-out native stream inspection occurred during its implementation.
-The oracle owner must commit the tool, stage a new immutable toolset and measure annulus and capsule preflights with controls before starting another full source run.
+Implementation used source inspection, AST and formatting validation before oracle use.
+No local product tests, CAD execution or held-out native stream inspection occurred during implementation.
+The oracle owner then ran the committed tool in a new immutable toolset.
+The [controlled binding preflight](Relations/SolidworksCurveBindingPreflight.md)
+now passes annulus and capsule authoring, fresh reopening and driving edits,
+with ten healthy phases, 121 numeric checks and both controls before and after.
+The [complete metadata publication](../../../../re/solidworks/measurements/2026/CurveSourceBindingPreflight09.json)
+confirms the annulus's shared center identity in that new run only.
+Its edited dimensions were measured and discarded without saving.
+The two-case subset correctly produces no family lock or writer acceptance.
 The older frozen toolset and failed traces remain unchanged.
 Only a newly completed, healthy full-family run can create the source lock.

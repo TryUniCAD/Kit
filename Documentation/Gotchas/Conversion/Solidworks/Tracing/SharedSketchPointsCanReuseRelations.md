@@ -40,5 +40,12 @@ Write partial observations and per-request matches before raising so failures re
 Reject verification jobs without the new binding metadata rather than inferring bindings from old traces.
 
 The [binding change](../../../../Changes/Solidworks/Inspection/SolidworksCurveRelationBindings.md) describes the repaired harness.
-Its new behavior still requires controlled annulus and capsule measurements.
+The [new controlled preflight](../../../../Changes/Solidworks/Inspection/Relations/SolidworksCurveBindingPreflight.md)
+now records both annulus requests binding to point `[0, 2]` through distinct arcs
+`[0, 1]` and `[1, 2]`. One fixed relation retains both exact bindings across
+authoring, fresh reopening and a driving radius edit. This proves shared identity
+for that new run only. All ten phases and 121 numeric checks passed between
+healthy controls; the two-case subset still produces no full-family lock.
+The capsule likewise passes its shared-point and distinct segment-binding checks.
+These are source-authoring observations, not Kit-written curve acceptance.
 The failed full run, original traces and frozen tools remain preserved.

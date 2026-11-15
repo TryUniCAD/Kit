@@ -36,5 +36,16 @@ The [existing-session finding](../../../../Gotchas/Conversion/Solidworks/Tracing
 A successful exit establishes only a completed, stable health inventory for that observation interval.
 The snapshots are not an atomic document transaction.
 They do not establish license recovery, source correctness, or native CAD-file acceptance.
-Verification of this addition is limited to AST and static source inspection; it has not yet run against a live session.
-No local tests or CAD application calls were executed during preparation.
+The [published native inventory](../../../../../re/solidworks/measurements/2026/OracleExistingSessionInventory.json)
+binds inspector source `ba78e2935e87490c23b6a80173459314702a2965` to one actual
+2026 SP05.2 session with two complete zero-document snapshots and stable process,
+birth, executable version and hash. The host transport returned `0` in
+`2.018523625` seconds. A separately selected clean handoff then confirmed that
+exact process's graceful exit. The subsequent bounded process inventory retained
+the observed licensing daemons and other vendor background services.
+This is management evidence, not a licensing diagnosis or native-file acceptance.
+
+Preparation used AST and static source inspection; no local product tests ran.
+The oracle owner then ran the committed tool through current-user Parallels
+execution. Publication independently rechecked twenty original hashes, exact
+integer process identity, both empty snapshots and the separate graceful exit.
