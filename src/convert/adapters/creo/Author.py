@@ -1097,6 +1097,7 @@ def ReplayPieces(Definition: bytes) -> list[tuple[int, str, bytes]]:
     return Pieces
 
 
+# a replay is the pieces joined because callers also need them split by field
 def ReplayOf(Definition: bytes) -> bytes:
     return b"".join(Piece for _Index, _Name, Piece in ReplayPieces(Definition))
 
