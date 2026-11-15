@@ -25,7 +25,7 @@ constraints, or relations.
 
 The writer emits a native `V5_CFV2` CATPart from a neutral `BrepModel` when
 `WriteOptions(values={"native_brep": True})` is set.
-It supports plane and cylinder faces with one loop per face.
+It supports plane, cylinder, cone, sphere, and torus faces, and any number of loops per face.
 It reports `vendor_loadable=False` and `application_usable=False` because CATIA acceptance is not
 measured.
 

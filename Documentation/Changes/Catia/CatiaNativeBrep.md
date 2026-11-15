@@ -121,11 +121,18 @@ virtual method at vtable offset `0xc0`. The container is `0x2b0(stream)` and the
 
 The adapter also writes a native `V5_CFV2` CATPart from a neutral `BrepModel` when
 `WriteOptions(values={"native_brep": True})` is set.
-The writer supports plane and cylinder faces with one loop per face.
+The writer supports plane, cylinder, cone, sphere, and torus faces, and any number of loops per face.
 It computes every count, length, offset, and directory entry from the neutral model.
 A cylinder face is written as a 73-byte `0x33` surface record with the six-float carrier
 (origin, axis, radius) in big-endian `f32`, and its trim record carries no vector because the
-vector is a plane normal only.
+vector is a plane normal only. A cone is a 73-byte `0x34` record with the same six-float carrier
+where the last value is the half angle, a sphere is a 65-byte `0x35` record with a four-float
+carrier (center, radius), and a torus is a 77-byte `0x38` record with a seven-float carrier
+(center, axis, major radius, minor radius).
+
+A face with several loops is written as one trim record whose `counts[2]` is the loop count and
+whose length array holds one length per loop, with the handles concatenated in loop order. The
+reader's `Boundary` reconstructs one cycle per strip, so a two-loop face reads back as two loops.
 
 ## Usage
 
@@ -184,9 +191,9 @@ result = CatiaAdapter().write(
 - The reader reconstructs plane and cylinder geometry from bounds and trim vectors.
 - The reader does not decode feature records, sketches, dimensions,
   constraints, or relations.
-- The writer supports plane and cylinder faces with one loop per face. A cylinder face needs a seam
-  edge traversed in both directions to close its single loop, so the writer emits two distinct seam
-  edges between the same vertex pair.
+- The writer supports plane, cylinder, cone, sphere, and torus faces, and any number of loops per
+  face. A cylinder or cone face needs a seam edge traversed in both directions to close its single
+  loop, so the writer emits two distinct seam edges between the same vertex pair.
 - The writer does not emit feature history, sketches, dimensions, or constraints.
 - The writer reports `vendor_loadable=False` and `application_usable=False`.
 - CATIA acceptance is not measured because the local CATIA install has no license.
@@ -203,8 +210,13 @@ result = CatiaAdapter().write(
 - A three-face cylinder (two planes and one cylinder) emitted by the writer reads back as three
   faces, eight edges, and eight vertices, with one `CylinderSurface` of radius 2.5 and axis `+z`,
   and zero validation errors.
-- `tests/convert/catia/CatiaNativeTests.py` covers the corpus reader, the box writer round trip, and
-  the cylinder writer round trip.
+- A three-face truncated cone (two planes and one cone) emitted by the writer reads back as three
+  faces, eight edges, and eight vertices, with one `ConeSurface` of half angle `atan(1.0)`, and zero
+  validation errors.
+- A one-face two-loop model emitted by the writer reads back as one face with two loops, six edges,
+  and six vertices, and zero validation errors.
+- `tests/convert/catia/CatiaNativeTests.py` covers the corpus reader, the box writer round trip, the
+  cylinder writer round trip, the cone writer round trip, and the two-loop writer round trip.
 
 ## Related information
 

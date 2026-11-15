@@ -29,6 +29,7 @@ from interchange import (
     CadDocument,
     CadSource,
     CircleCurve,
+    ConeSurface,
     CylinderSurface,
     LineCurve,
     PlaneSurface,
@@ -395,4 +396,277 @@ def TestBrepCylinderWriter(TmpPath: Path) -> None:
     )
     assert abs(CylinderValue.radius - 2.5) < 1e-4
     assert abs(CylinderValue.axis.z - 1.0) < 1e-4
+    assert Restored.brep.validate(frozenset({"catia:body:1"})) == ()
+
+
+# this definition exists because focused behavior needs one stable owner
+def ConeModel() -> BrepModel:
+    BottomRadius = 2.0
+    TopRadius = 1.0
+    Height = 1.0
+    Points = [
+        SpaceVector(
+            BottomRadius * math.cos(math.pi / 2.0 * Step),
+            BottomRadius * math.sin(math.pi / 2.0 * Step),
+            0.0,
+        )
+        for Step in range(4)
+    ] + [
+        SpaceVector(
+            TopRadius * math.cos(math.pi / 2.0 * Step),
+            TopRadius * math.sin(math.pi / 2.0 * Step),
+            Height,
+        )
+        for Step in range(4)
+    ]
+    Vertices = tuple(
+        BrepVertex(f"catia:vertex:{Index + 1}", Point)
+        for Index, Point in enumerate(Points)
+    )
+    Curves: list[CircleCurve] = []
+    Edges: list[BrepEdge] = []
+    Coedges: list[BrepCoedge] = []
+
+    def AddEdge(Start: int, EndIndex: int, Center: SpaceVector, Radius: float) -> str:
+        CurveId = f"catia:curve:{len(Curves) + 1}"
+        Curves.append(
+            CircleCurve(
+                CurveId,
+                Center,
+                SpaceVector(0.0, 0.0, 1.0),
+                SpaceVector(1.0, 0.0, 0.0),
+                Radius,
+            )
+        )
+        EdgeId = f"catia:edge:{len(Edges) + 1}"
+        Edges.append(
+            BrepEdge(
+                EdgeId,
+                f"catia:vertex:{Start + 1}",
+                f"catia:vertex:{EndIndex + 1}",
+                CurveId,
+                0.0,
+                1.0,
+            )
+        )
+        CoedgeId = f"catia:coedge:{len(Coedges) + 1}"
+        Coedges.append(BrepCoedge(CoedgeId, EdgeId))
+        return CoedgeId
+
+    Bottom = [
+        AddEdge(Step, (Step + 1) % 4, SpaceVector(0.0, 0.0, 0.0), BottomRadius)
+        for Step in range(4)
+    ]
+    Top = [
+        AddEdge(
+            4 + Step,
+            4 + (Step + 1) % 4,
+            SpaceVector(0.0, 0.0, Height),
+            TopRadius,
+        )
+        for Step in range(4)
+    ]
+    Up = AddEdge(0, 4, SpaceVector(0.0, 0.0, 0.0), BottomRadius)
+    Down = AddEdge(4, 0, SpaceVector(0.0, 0.0, 0.0), BottomRadius)
+    Loops = (
+        BrepLoop("catia:loop:1", tuple(Bottom), outer=True),
+        BrepLoop("catia:loop:2", tuple(Top), outer=True),
+        BrepLoop(
+            "catia:loop:3", tuple(Bottom) + (Up,) + tuple(Top) + (Down,), outer=True
+        ),
+    )
+    Faces = (
+        BrepFace("catia:face:1", "catia:surface:1", ("catia:loop:1",)),
+        BrepFace("catia:face:2", "catia:surface:2", ("catia:loop:2",)),
+        BrepFace("catia:face:3", "catia:surface:3", ("catia:loop:3",)),
+    )
+    Surfaces = (
+        PlaneSurface(
+            "catia:surface:1",
+            SpaceVector(0.0, 0.0, 0.0),
+            SpaceVector(0.0, 0.0, -1.0),
+            SpaceVector(1.0, 0.0, 0.0),
+        ),
+        PlaneSurface(
+            "catia:surface:2",
+            SpaceVector(0.0, 0.0, Height),
+            SpaceVector(0.0, 0.0, 1.0),
+            SpaceVector(1.0, 0.0, 0.0),
+        ),
+        ConeSurface(
+            "catia:surface:3",
+            SpaceVector(0.0, 0.0, 0.0),
+            SpaceVector(0.0, 0.0, 1.0),
+            SpaceVector(1.0, 0.0, 0.0),
+            BottomRadius,
+            math.atan((BottomRadius - TopRadius) / Height),
+        ),
+    )
+    FaceUses = tuple(
+        BrepFaceUse(f"catia:face-use:{Index + 1}", FaceValue.id)
+        for Index, FaceValue in enumerate(Faces)
+    )
+    Shell = BrepShell(
+        "catia:shell:1", tuple(Value.id for Value in FaceUses), closed=True
+    )
+    ShellUse = BrepShellUse("catia:shell-use:1", Shell.id)
+    Region = BrepRegion("catia:region:1", (ShellUse.id,), solid=True)
+    BodyValue = BrepBody("catia:body:1", (Region.id,), design_body_id="catia:body:1")
+    return BrepModel(
+        curves=tuple(Curves),
+        surfaces=Surfaces,
+        vertices=Vertices,
+        edges=tuple(Edges),
+        coedges=tuple(Coedges),
+        loops=Loops,
+        faces=Faces,
+        face_uses=FaceUses,
+        shells=(Shell,),
+        shell_uses=(ShellUse,),
+        regions=(Region,),
+        bodies=(BodyValue,),
+    )
+
+
+# this definition exists because focused behavior needs one stable owner
+def TestBrepConeWriter(TmpPath: Path) -> None:
+    Model = ConeModel()
+    assert Model.validate(frozenset({"catia:body:1"})) == ()
+    DocValue = CadDocument(
+        source=CadSource("catia.v5", "cone.CATPart", "0" * 64),
+        configurations=(),
+        parameters=(),
+        support_planes=(),
+        sketches=(),
+        selections=(),
+        feature_timeline=(),
+        bodies=(Body("catia:body:1", "Cone", ""),),
+        brep=Model,
+    )
+    Output = TmpPath / "cone.CATPart"
+    Result = CatiaAdapter().write(
+        DocValue,
+        Output,
+        WriteOptions(validate=False, values={"native_brep": True}),
+    )
+    assert Result.metadata["mode"] == "native_brep"
+    Restored = ReadCatia(Output)
+    assert Restored.brep is not None
+    assert len(Restored.brep.faces) == 3
+    Kinds = [type(Value).__name__ for Value in Restored.brep.surfaces]
+    assert Kinds.count("ConeSurface") == 1
+    assert Kinds.count("PlaneSurface") == 2
+    ConeValue = next(
+        Value for Value in Restored.brep.surfaces if isinstance(Value, ConeSurface)
+    )
+    assert abs(ConeValue.half_angle - math.atan(1.0)) < 1e-4
+    assert Restored.brep.validate(frozenset({"catia:body:1"})) == ()
+
+
+# this definition exists because focused behavior needs one stable owner
+def TestBrepTwoLoopWriter(TmpPath: Path) -> None:
+    Points = [
+        SpaceVector(0.0, 0.0, 0.0),
+        SpaceVector(1.0, 0.0, 0.0),
+        SpaceVector(0.0, 1.0, 0.0),
+        SpaceVector(2.0, 0.0, 0.0),
+        SpaceVector(3.0, 0.0, 0.0),
+        SpaceVector(2.0, 1.0, 0.0),
+    ]
+    Vertices = tuple(
+        BrepVertex(f"catia:vertex:{Index + 1}", Point)
+        for Index, Point in enumerate(Points)
+    )
+    Curves: list[LineCurve] = []
+    Edges: list[BrepEdge] = []
+    Coedges: list[BrepCoedge] = []
+
+    def AddEdge(Start: int, EndIndex: int) -> str:
+        CurveId = f"catia:curve:{len(Curves) + 1}"
+        Curves.append(
+            LineCurve(
+                CurveId,
+                Points[Start],
+                SpaceVector(
+                    Points[EndIndex].x - Points[Start].x,
+                    Points[EndIndex].y - Points[Start].y,
+                    Points[EndIndex].z - Points[Start].z,
+                ),
+            )
+        )
+        EdgeId = f"catia:edge:{len(Edges) + 1}"
+        Edges.append(
+            BrepEdge(
+                EdgeId,
+                f"catia:vertex:{Start + 1}",
+                f"catia:vertex:{EndIndex + 1}",
+                CurveId,
+                0.0,
+                1.0,
+            )
+        )
+        CoedgeId = f"catia:coedge:{len(Coedges) + 1}"
+        Coedges.append(BrepCoedge(CoedgeId, EdgeId))
+        return CoedgeId
+
+    Outer = [AddEdge(0, 1), AddEdge(1, 2), AddEdge(2, 0)]
+    Inner = [AddEdge(3, 4), AddEdge(4, 5), AddEdge(5, 3)]
+    Loops = (
+        BrepLoop("catia:loop:1", tuple(Outer), outer=True),
+        BrepLoop("catia:loop:2", tuple(Inner), outer=False),
+    )
+    Faces = (
+        BrepFace("catia:face:1", "catia:surface:1", ("catia:loop:1", "catia:loop:2")),
+    )
+    Surfaces = (
+        PlaneSurface(
+            "catia:surface:1",
+            SpaceVector(0.0, 0.0, 0.0),
+            SpaceVector(0.0, 0.0, 1.0),
+            SpaceVector(1.0, 0.0, 0.0),
+        ),
+    )
+    FaceUses = (BrepFaceUse("catia:face-use:1", Faces[0].id),)
+    Shell = BrepShell("catia:shell:1", (FaceUses[0].id,), closed=True)
+    ShellUse = BrepShellUse("catia:shell-use:1", Shell.id)
+    Region = BrepRegion("catia:region:1", (ShellUse.id,), solid=True)
+    BodyValue = BrepBody("catia:body:1", (Region.id,), design_body_id="catia:body:1")
+    Model = BrepModel(
+        curves=tuple(Curves),
+        surfaces=Surfaces,
+        vertices=Vertices,
+        edges=tuple(Edges),
+        coedges=tuple(Coedges),
+        loops=Loops,
+        faces=Faces,
+        face_uses=FaceUses,
+        shells=(Shell,),
+        shell_uses=(ShellUse,),
+        regions=(Region,),
+        bodies=(BodyValue,),
+    )
+    assert Model.validate(frozenset({"catia:body:1"})) == ()
+    DocValue = CadDocument(
+        source=CadSource("catia.v5", "two.CATPart", "0" * 64),
+        configurations=(),
+        parameters=(),
+        support_planes=(),
+        sketches=(),
+        selections=(),
+        feature_timeline=(),
+        bodies=(Body("catia:body:1", "Two", ""),),
+        brep=Model,
+    )
+    Output = TmpPath / "two.CATPart"
+    Result = CatiaAdapter().write(
+        DocValue,
+        Output,
+        WriteOptions(validate=False, values={"native_brep": True}),
+    )
+    assert Result.metadata["mode"] == "native_brep"
+    Restored = ReadCatia(Output)
+    assert Restored.brep is not None
+    assert len(Restored.brep.faces) == 1
+    assert len(Restored.brep.faces[0].loop_ids) == 2
+    assert len(Restored.brep.loops) == 2
     assert Restored.brep.validate(frozenset({"catia:body:1"})) == ()
