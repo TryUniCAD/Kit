@@ -614,6 +614,26 @@ emits `next_feat_ptr` with `f2 e3`, and the terminator with `f2 e1`, matching th
 boundary. The two-datum control built that way is still refused (`twodatum5`, silent exit twice), so the
 boundary ordering was a real difference but not the only one.
 
+### The ladder's schema is not a subset of ours
+
+The next probe was to pair our record one with the ladder's own second-record bytes, which requires the two
+field lists to line up. They do not:
+
+```text
+ladder 71 fields, ours 73
+ladder is a subsequence of ours: False
+first divergence at 30: ladder `flags`, ours `cr_flags_xar`
+```
+
+So `ExtraSchema` did not reproduce the ladder's schema — a `flags`-shaped field sits at a different position,
+and the two lists differ in more places than the five names counted earlier. Pairing the ladder's replay
+bytes with our definition would therefore desynchronise from the first divergent field, and the probe cannot
+be built as planned.
+
+Establishing the ladder's exact field order is the prerequisite: extract all 71 names in order, compare them
+against ours position by position, and emit a variant that matches. That is a schema comparison plus an
+emitter variant, not a launch, and it is where the next attempt should begin.
+
 Progress made getting there is real: `fc_hist` was being written as a hardcoded `8` instead of
 `first_geom_id`, and the array-strip test was scanning for the `f7` **byte** anywhere in a value rather
 than for a real reference token, which wrongly kept the mask's `f8 80 fc` header.
