@@ -53,7 +53,11 @@ The gate is at emission, so every path that writes a drawing is covered, includi
 `BuildBundle` still builds the model, so a caller can inspect an authored drawing; it cannot emit one.
 
 The match is the product entry, `name ="Kit"`, not any text that contains `Kit`, so a Fusion database
-whose metadata mentions Kit elsewhere still emits.
+whose metadata mentions Kit elsewhere still emits. A database with no application entry at all is
+refused too, because every Fusion save carries one.
+
+A caller who rewrites the product entry to another name gets past the gate. That is a deliberate
+forgery of the metadata, not a path the authoring code takes, and the tail is still a placeholder.
 
 | Corpus                                   | Emitted | Refused |
 | ---------------------------------------- | ------- | ------- |

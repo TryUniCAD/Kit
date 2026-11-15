@@ -57,11 +57,14 @@ def EmitDrawing(
 # the authored database gate needs one place so no emitter packages a drawing fusion rejects
 def CheckLoadable(Value: FusionDrawing) -> None:
     Database = Value.Database
-    if Database is None or Database.Model.AppInfo is None:
+    if Database is None:
         return
-    if any(
-        'name ="Kit"' in Entry.TextValue for Entry in Database.Model.AppInfo.AppEntries
-    ):
+    AppInfo = Database.Model.AppInfo
+    if AppInfo is None:
+        raise ValueError(
+            "Drawing databases need an application entry, so the drawing is refused"
+        )
+    if any('name ="Kit"' in Entry.TextValue for Entry in AppInfo.AppEntries):
         raise ValueError(
             "Authored drawing databases cannot be made loadable, so the drawing is refused"
         )
