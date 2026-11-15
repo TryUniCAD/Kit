@@ -53,7 +53,8 @@ The parser now records an undecodable packed double as `RawDouble(<8 bytes>)` an
 
 ## Limits
 
-- The parser stops at the `AllFeatur` footer, which uses a different field order.
+- The empty control's `AllFeatur` decodes end-to-end. The ladder's `AllFeatur` decodes the five
+  features and the footer prefix, then stops in the sketch/extrude payload at `0x1061`.
 - The `ent_outl` bounding-box matrix in `FeatDefsDtm` uses a packed encoding that is not yet
   decoded. The parser records each undecodable double as `RawDouble(<8 bytes>)` and continues, so
   the rest of `FeatDefsDtm` decodes.
