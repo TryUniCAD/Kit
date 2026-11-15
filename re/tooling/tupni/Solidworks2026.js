@@ -97,7 +97,7 @@ function sketcharcs(Address) {
       const Flags = Arc.add(0x54).readU32()
       const Start = Arc.add(0xc8).readS32()
       const End = Arc.add(0xcc).readS32()
-      Result.slots.push({index: Index, permanent_marker: Arc.add(8).readU32(), creation_id: Arc.add(0xc).readS32(), raw_f54_u32: Flags, deleted: (Flags & 1) !== 0, color: Arc.add(0x30).readU32(), constraint_status: Arc.add(0x34).readS32(), start_point_index: Start, end_point_index: End, endpoint_indices_equal: Start === End, contour_admission_i32: Arc.add(0xd0).readS32(), flipped_i32: Arc.add(0xd4).readS32(), orientation_i32: Arc.add(0xd8).readS32(), center_point_index: Arc.add(0xdc).readS32(), normal_point_index: Arc.add(0xe0).readS32(), fillet_line_indices: [Arc.add(0xe4).readS32(), Arc.add(0xe8).readS32()], virtual_point_index: Arc.add(0xec).readS32()})
+      Result.slots.push({index: Index, permanent_marker: Arc.add(8).readU32(), creation_id: Arc.add(0xc).readS32(), raw_f54_u32: Flags, deleted: (Flags & 1) !== 0, color: Arc.add(0x30).readU32(), constraint_status: Arc.add(0x34).readS32(), start_point_index: Start, end_point_index: End, endpoint_indices_equal: Start === End, contour_admission_i32: Arc.add(0xd0).readS32(), flipped_i32: Arc.add(0xd4).readS32(), orientation_i32: Arc.add(0xd8).readS32(), center_point_index: Arc.add(0xdc).readS32(), raw_fe0_reference_i32: Arc.add(0xe0).readS32(), raw_fe4_fe8_references_i32: [Arc.add(0xe4).readS32(), Arc.add(0xe8).readS32()], raw_fec_reference_i32: Arc.add(0xec).readS32()})
       Result.scanned_count = Index + 1
       Result.completed_slots = Result.slots.length
     }

@@ -10,6 +10,8 @@ Arc records include endpoint and centre indices, orientation, topology fields,
 creation IDs, permanent markers and constraint status. Detailed point records
 include position, point type, role/centre use counts and their corresponding
 IDs/status. Line records retain the same ID and status observations. The
+arc's auxiliary `fe0/fe4/fe8/fec` references retain offset-based raw labels;
+their absent `-2` state does not establish positive-value array namespaces. The
 [curve construction ledger](../../../../re/solidworks/records/CurvedSketchConstruction2026.md)
 binds those runtime layouts to the pinned 2026 binary.
 
