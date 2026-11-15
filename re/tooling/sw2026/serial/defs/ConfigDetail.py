@@ -17,7 +17,8 @@ class Shadow(Op):
         scope[f"{self.field}#{self.tag}"] = ar.prim(self.kind)
 
     def store(self, ar, scope, o):
-        ar.prim(self.kind, scope[self.field])
+        key = f"{self.field}#{self.tag}"
+        ar.prim(self.kind, scope[key] if key in scope else scope[self.field])
 
 
 def has_cond(ar, mask):

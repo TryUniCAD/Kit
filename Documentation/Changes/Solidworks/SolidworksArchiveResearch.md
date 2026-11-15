@@ -40,7 +40,13 @@ Those fixtures are research inputs and are not generated writer output.
 The process checks in `tests/convert/solidworks/research/` require exact re-emission
 of every critical stream for all eight controls. Tests run in remote CI only.
 No local test execution or new vendor acceptance is claimed by this entry.
-Remote checks remain pending until the PR reports them.
+The [initial remote measurement](../../../re/solidworks/measurements/ArchiveRoundTrip2026.md)
+recorded 48 of 56 exact critical-stream re-emissions.
+All eight configuration streams failed with a four-byte section deficit.
+That failure remains open until a later remote revision proves the repair.
+
+The [wire-state field table](../../../re/solidworks/records/ArchiveWireState2026.md)
+records the binary evidence and unresolved classification questions.
 
 Assembly schemas, complete field classification, synthesis from a neutral document,
 held-out measurements, and production conversion remain unfinished.

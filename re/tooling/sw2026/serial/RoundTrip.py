@@ -91,6 +91,8 @@ def stream_roundtrip(archive, name, reg, plans):
             rec.update(tail_at=position, tail_ctx=hexctx(data, position))
     except Exception as error:
         rec["error"] = repr(error)
+        if hasattr(error, "details"):
+            rec["details"] = error.details
         rec["trace"] = traceback.format_exc(limit=6)
     return rec
 

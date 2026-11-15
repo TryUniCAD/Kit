@@ -60,7 +60,16 @@ class Section(Op):
         start = ar.p
         run_load(self.body, ar, scope, o)
         if ar.p - start != n:
-            raise ArchiveError(f"section type {self.kind} declares {n} bytes, schema read {ar.p - start} (ends at {ar.p}, expected {start + n})")
+            error = ArchiveError(f"section type {self.kind} declares {n} bytes, schema read {ar.p - start} (ends at {ar.p}, expected {start + n})")
+            fields = getattr(scope, "own", scope)
+            error.details = {
+                "fields": {key: value for key, value in fields.items() if isinstance(value, (int, float))},
+                "counts": {key: len(value) for key, value in fields.items() if isinstance(value, list)},
+                "section_start": start,
+                "cursor": ar.p,
+                "end_bytes": ar.b[max(start, start + n - 32):start + n].hex(),
+            }
+            raise error
 
     def store(self, ar, scope, o):
         at = len(ar.out)
@@ -82,8 +91,9 @@ class Present(Op):
 
     def store(self, ar, scope, o):
         on = self.field in getattr(scope, "own", scope)
-        ar.prim(self.kind, 1 if on else 0)
-        if on:
+        flag = scope.get(self.flag, 1 if on else 0)
+        ar.prim(self.kind, flag)
+        if flag != 0:
             run_store(self.body, ar, scope, o)
 
 
@@ -125,9 +135,10 @@ class ObjIf(Op):
 
     def store(self, ar, scope, o):
         v = getattr(scope, "own", scope).get(self.field)
-        ar.prim(self.kind, 0 if v is None else 1)
-        if v is not None:
-            ar.obj(v)
+        flag = scope.get(self.flag, 0 if v is None else 1)
+        ar.prim(self.kind, flag)
+        if flag != 0:
+            ar.obj(scope[self.field])
 
 
 class ObjShadow(Op):
@@ -138,7 +149,8 @@ class ObjShadow(Op):
         scope[f"{self.field}#{self.tag}"] = ar.obj()
 
     def store(self, ar, scope, o):
-        ar.obj(scope[self.field])
+        key = f"{self.field}#{self.tag}"
+        ar.obj(scope[key] if key in scope else scope[self.field])
 
 
 class PartOnly(Op):
@@ -173,6 +185,8 @@ class GhostCount(Op):
 class MassCaches(Op):
     def load(self, ar, scope, o):
         n = ar.prim("i32")
+        if not 0 <= n <= 2:
+            raise ArchiveError(f"unsupported mass cache count {n}")
         items = []
         for i in range(max(n, 0)):
             sub = Scope(scope, i)
@@ -182,7 +196,9 @@ class MassCaches(Op):
         scope["f1638"] = ar.prim("i32") if n > 1 else 0
 
     def store(self, ar, scope, o):
-        items = scope["f1628"][:2]
+        items = scope["f1628"]
+        if len(items) > 2:
+            raise ArchiveError(f"unsupported mass cache count {len(items)}")
         ar.prim("i32", len(items))
         for i, item in enumerate(items):
             ar.registry.run_store("moMassPropCache_c.Serialize", ar, Scope(scope, i, item), o)
@@ -193,6 +209,8 @@ class MassCaches(Op):
 class BBoxCache(Op):
     def load(self, ar, scope, o):
         n = ar.prim("i32")
+        if not 0 <= n <= 10_000_000:
+            raise ArchiveError(f"unsupported bounding box cache count {n}")
         items = []
         for _ in range(max(n, 0)):
             k = ar.prim("i32")
@@ -200,11 +218,12 @@ class BBoxCache(Op):
         scope["f1640"] = items
 
     def store(self, ar, scope, o):
-        items = [e for e in scope["f1640"] if e["k"] > 0 and e["o"] is not None]
+        items = scope["f1640"]
         ar.prim("i32", len(items))
         for e in items:
             ar.prim("i32", e["k"])
-            ar.obj(e["o"])
+            if e["k"] > 0:
+                ar.obj(e["o"])
 
 
 def model_header_direct(arc, name, reg):

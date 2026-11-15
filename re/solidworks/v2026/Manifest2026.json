@@ -65,6 +65,12 @@
    "file_version": "34.5.2.0604"
   },
   {
+   "name": "sldvisualstateu.dll",
+   "bytes": 1326168,
+   "sha256": "fb85d7921c52393e8bb847258b72d8cd006b37c118138c8260c6efe7dcc22c2c",
+   "file_version": "34.5.2.0604"
+  },
+  {
    "name": "sldworks.exe",
    "bytes": 718936,
    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
