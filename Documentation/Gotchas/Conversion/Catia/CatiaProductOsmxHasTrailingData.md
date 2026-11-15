@@ -22,9 +22,18 @@ the change all three `CATProduct` files parse their OSMX (`42`, `104`, and `41` 
 `ASMPRODUCT`, `_PartNumber`, `_Component`, `_Source`, and `_RepresentedBy`), and the 27 `CATPart`
 files still decode with the same five heuristic warnings.
 
-The assembly tree itself is still not extracted: the `_PartNumber` and `_Source` attributes do not
-appear in the `7c 07` blocks of the product stream, so the instance list is encoded in the
-`CATProdCont` payload rather than the attribute graph.
+The assembly tree itself is still not extracted. In `Tilton_Set.CATProduct` the product OSMX holds
+15 objects, `15` records each of `7c 05`, `7c 06`, `7c 07`, `7c 09`, and `7c 0a`, plus one each of
+`7c 04`, `7c 08`, `7c 0b`, and `7c 0c`. The attribute blocks are keyed by numbers up to `0x51` while
+the section holds only `42` symbols, so they use the same numeric attribute-id space as the CATPart
+early attributes.
+
+The instance data sits in the `7c 09` records, not the `7c 07` blocks. Every instance record begins
+`14 00 e5 2e 00 00 00 11 03 55 8c 3c 65 00 00 31 0c 67 0c 08 <reference> 00 00 02 <id> 07 00 00 00
+05 00 09 0<level> 00 00 00 00 0c ... 04 <parent> 08 0c 67 <child>`, where `0x0c` is the `_Source`
+symbol, `0x04` is `ASMPRODUCT`, `0x05` is the product name (`Tilton`), and the `0<level>` byte runs
+`02`, `03`, `04` across siblings. Decoding the tree means decoding that relation, which is a separate
+piece of work from the B-rep acceptance terms and cannot be vendor-verified in this environment.
 
 ## Evidence
 
