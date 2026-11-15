@@ -132,3 +132,22 @@ coincident  Sheet1 View1 0.11,0.23
 
 The 384-byte paired-record rule and the no fixed coordinate bound are recorded in
 [the position-record gotcha](../../Documentation/Gotchas/Conversion/Drawing/SolidworksDrawingPositionRecords.md).
+
+### Recovered view outlines
+
+`OraclePolylines.cs` compiled with the Windows .NET Framework `csc.exe` and ran
+under `prlctl exec --current-user`. `View.GetOutline` returned the projected
+bounds for every view, for example:
+
+```
+standard View1 0.058682,0.193682,0.161318,0.266318
+standard View2 0.168682,0.096682,0.271318,0.123318
+minimal  View1 0.108682,0.123682,0.211318,0.196318
+large    View1 1.048682,0.363682,1.151318,0.436318
+```
+
+Those four doubles are present in `Contents/DisplayLists` 37 bytes after the
+primary position record, and `TestBounds` compares the reader against them for
+all seven drawings. The late-bound VBScript failure and the typed C# workaround
+are recorded in
+[the outline API gotcha](../../Documentation/Gotchas/Conversion/Drawing/SolidworksDrawingOutlineApi.md).

@@ -21,7 +21,8 @@ as a sheet would fail a valid two-sheet drawing.
 Each `DrawingSheet` carries `Name`, `PaperSize`, `ScaleNumerator`,
 `ScaleDenominator`, `WidthMetres`, `HeightMetres`, and its `DrawingView`
 records. Each view carries `Name`, `ModelPath`, `Description`, and, when
-requested, `PositionX` and `PositionY` in metres. `DrawingRef` carries `Name`
+requested, `PositionX` and `PositionY` in metres plus `OutlineMinX`,
+`OutlineMinY`, `OutlineMaxX`, and `OutlineMaxY`. `DrawingRef` carries `Name`
 and `Description`. Note text is returned exactly, including leading or trailing
 spaces.
 
@@ -30,7 +31,9 @@ spaces.
 pair followed by a zero Z value and a 1 or 2 record flag. Each view contributes
 two identical records 384 bytes apart; the reader consumes each pair once rather
 than collapsing equal coordinates, so two views that share a centre on different
-sheets keep two positions. No one metre bound is applied, so a large sheet or an
+sheets keep two positions. The vendor view outline follows the primary record
+37 bytes later as four doubles: minimum X, minimum Y, maximum X, and maximum Y.
+Invalid or truncated bounds raise `SldprtFormatError`. No one metre bound is applied, so a large sheet or an
 off sheet centre is retained. The recovered positions are bound to views through the
 `SW-Config-Model-View-Sheet-List` property, not through `KeyWords` order, because
 a multi-sheet drawing can list its sheets and views in a different order. The

@@ -12,7 +12,7 @@ from convert.adapters.solidworks.container.Format import (
     PART_SUFFIX as KPartSuffix,
 )
 from convert.adapters.solidworks.drawing.Models import DrawingSheet, DrawingView
-from convert.adapters.solidworks.drawing.Positions import Positions
+from convert.adapters.solidworks.drawing.Positions import Positions, ViewPlacement
 
 
 # the vendor view list binds recovered centres to sheets without relying on xml order
@@ -35,7 +35,7 @@ def ViewOrder(TextData: str) -> tuple[tuple[str, str], ...]:
 def AttachPositions(
     Sheets: tuple[DrawingSheet, ...],
     Order: tuple[tuple[str, str], ...],
-    Points: tuple[tuple[float, float], ...],
+    Points: tuple[ViewPlacement, ...],
 ) -> tuple[DrawingSheet, ...]:
     if not Order or len(Order) != len(Points):
         raise SldprtFormatError("drawing view positions do not match the view list")
@@ -54,8 +54,18 @@ def AttachPositions(
             Position = Index.get(ViewKey)
             if Position is None:
                 raise SldprtFormatError("drawing view is missing from the view list")
-            XValue, YValue = Points[Position]
-            NewViews.append(ReplaceData(ViewValue, PositionX=XValue, PositionY=YValue))
+            Placement = Points[Position]
+            NewViews.append(
+                ReplaceData(
+                    ViewValue,
+                    PositionX=Placement.CenterX,
+                    PositionY=Placement.CenterY,
+                    OutlineMinX=Placement.LowerX,
+                    OutlineMinY=Placement.LowerY,
+                    OutlineMaxX=Placement.UpperX,
+                    OutlineMaxY=Placement.UpperY,
+                )
+            )
             SeenKeys.add(ViewKey)
         NewSheets.append(ReplaceData(SheetValue, Views=tuple(NewViews)))
     if SeenKeys != set(Index):

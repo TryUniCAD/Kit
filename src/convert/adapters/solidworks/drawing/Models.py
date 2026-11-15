@@ -11,6 +11,10 @@ class DrawingView:
     Description: str
     PositionX: float | None = None
     PositionY: float | None = None
+    OutlineMinX: float | None = None
+    OutlineMinY: float | None = None
+    OutlineMaxX: float | None = None
+    OutlineMaxY: float | None = None
 
 
 # frozen sheet data keeps each sheet composition explicit and immutable

@@ -137,6 +137,141 @@ def TestPos() -> None:
             assert Actual[KeyValue][1] == PytestLib.approx(ItemValue[1])
 
 
+# recovered outline bounds must match the vendor view bounding boxes
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestBounds() -> None:
+    Expected = {
+        "standard.SLDDRW": {
+            ("Sheet1", "Drawing View1"): (
+                0.058682,
+                0.193682,
+                0.161318,
+                0.266318,
+            ),
+            ("Sheet1", "Drawing View2"): (
+                0.168682,
+                0.096682,
+                0.271318,
+                0.123318,
+            ),
+            ("Sheet1", "Drawing View3"): (
+                0.096682,
+                0.193682,
+                0.123318,
+                0.266318,
+            ),
+            ("Sheet1", "Drawing View4"): (
+                0.176084020253553,
+                0.17669326688862,
+                0.263915979746447,
+                0.28330673311138,
+            ),
+        },
+        "minimal.SLDDRW": {
+            ("Sheet1", "Drawing View1"): (
+                0.108682,
+                0.123682,
+                0.211318,
+                0.196318,
+            ),
+            ("Sheet1", "Drawing View2"): (
+                0.108682,
+                0.228682,
+                0.211318,
+                0.271318,
+            ),
+        },
+        "angled.SLDDRW": {
+            ("Sheet1", "Drawing View1"): (
+                0.089182,
+                0.202182,
+                0.150818,
+                0.257818,
+            ),
+            ("Sheet1", "Drawing View2"): (
+                0.229182,
+                0.202182,
+                0.250818,
+                0.257818,
+            ),
+            ("Sheet1", "Drawing View3"): (
+                0.092347476220844,
+                0.0830225570756102,
+                0.147652523779156,
+                0.15697744292439,
+            ),
+        },
+        "projected.SLDDRW": {
+            ("Sheet1", "Drawing View1"): (
+                0.048682,
+                0.113682,
+                0.151318,
+                0.186318,
+            ),
+            ("Sheet1", "Drawing View2"): (
+                0.186682,
+                0.113682,
+                0.213318,
+                0.186318,
+            ),
+        },
+        "multisheet.SLDDRW": {
+            ("Sheet1", "Drawing View1"): (
+                0.058682,
+                0.193682,
+                0.161318,
+                0.266318,
+            ),
+            ("Sheet2", "Drawing View2"): (
+                0.108682,
+                0.146682,
+                0.211318,
+                0.173318,
+            ),
+        },
+        "large.SLDDRW": {
+            ("Sheet1", "Drawing View1"): (
+                1.048682,
+                0.363682,
+                1.151318,
+                0.436318,
+            ),
+        },
+        "coincident.SLDDRW": {
+            ("Sheet1", "Drawing View1"): (
+                0.058682,
+                0.193682,
+                0.161318,
+                0.266318,
+            ),
+            ("Sheet2", "Drawing View2"): (
+                0.058682,
+                0.216682,
+                0.161318,
+                0.243318,
+            ),
+        },
+    }
+    for NameValue, BoundsData in Expected.items():
+        DataValue = ReadDrawing(KDrawRoot / NameValue, IncludePositions=True)
+        Actual = {
+            (SheetValue.Name, ViewValue.Name): (
+                ViewValue.OutlineMinX,
+                ViewValue.OutlineMinY,
+                ViewValue.OutlineMaxX,
+                ViewValue.OutlineMaxY,
+            )
+            for SheetValue in DataValue.Sheets
+            for ViewValue in SheetValue.Views
+        }
+        assert set(Actual) == set(BoundsData)
+        for KeyValue, ItemValue in BoundsData.items():
+            for ActualValue, ExpectedValue in zip(
+                Actual[KeyValue], ItemValue, strict=True
+            ):
+                assert ActualValue == PytestLib.approx(ExpectedValue)
+
+
 # a display list whose position records disagree with the view list must fail
 @PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
 def TestPosNo() -> None:

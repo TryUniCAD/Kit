@@ -72,8 +72,8 @@ A `.SLDDRW` container can be read through
 `convert.adapters.solidworks.drawing.ReadDrawing`. It parses
 `swXmlContents/KeyWords` and `docProps/ISolidWorksInformation.xml` into document,
 sheet, view-name, model-path, reference, and note metadata.
-`ReadDrawing(..., IncludePositions=True)` also recovers view centres from
-`Contents/DisplayLists`. Projected outlines, hidden-line state, dimensions,
+`ReadDrawing(..., IncludePositions=True)` also recovers view centres and
+projected outline bounds from `Contents/DisplayLists`. Projected outlines, hidden-line state, dimensions,
 annotations, and projection direction remain unrecovered, and the module does
 not register a drawing writer. The public `open_document` path still rejects
 drawing content, and `ReadDrawing(..., IncludeGeometry=True)` raises

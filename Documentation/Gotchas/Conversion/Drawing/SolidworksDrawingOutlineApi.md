@@ -28,6 +28,11 @@ ground truth is required, or recover the display-list grammar directly. Do not
 treat an empty or unindexable late-bound result as proof that the view has no
 edges.
 
+A compiled C# dumper using `Type.GetTypeFromProgID` and reflection returns usable
+results. `View.GetOutline` then reports bounds such as
+`0.058682,0.193682,0.161318,0.266318`, and those exact four doubles appear 37
+bytes after the primary display-list position record.
+
 ## Evidence
 
 `OraclePolylines.vbs` and `OracleOutline.vbs` under the shared `.rescratch`
