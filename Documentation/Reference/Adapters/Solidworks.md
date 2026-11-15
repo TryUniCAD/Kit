@@ -86,7 +86,9 @@ into typed entries and styles, exposed as `DrawingData.Units` and
 `DrawingData.LineStyles`.
 Projected outlines, hidden-line state, dimensions,
 annotations, and projection direction remain unrecovered, and the module does
-not register a drawing writer. The public `open_document` path still rejects
+not register a drawing writer. The recovered dimension record layout is
+documented in
+[the dimension change entry](../../Changes/Solidworks/SolidworksDrawingDimensions.md). The public `open_document` path still rejects
 drawing content, and `ReadDrawing(..., IncludeGeometry=True)` raises
 `SldprtFormatError` rather than returning a partial drawing.
 
