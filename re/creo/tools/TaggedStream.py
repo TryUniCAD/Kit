@@ -44,6 +44,7 @@ class FieldDef:
     name: str
     type_id: int
     count: int | None = None
+    schema: list[int] = field(default_factory=list)
 
 
 @dataclass
@@ -106,12 +107,40 @@ def UnformatDouble(text: str) -> float:
     return struct.unpack(">d", raw[:8].ljust(8, b"\x00"))[0]
 
 
+def ScanFields(data: bytes) -> list["FieldDef"]:
+    fields: list[FieldDef] = []
+    position = 0
+    while position < len(data) - 2:
+        if data[position] == 0xE0:
+            type_id = data[position + 1]
+            end = data.find(b"\x00", position + 2)
+            if 0 < end and end - position < 60:
+                name = data[position + 2 : end]
+                if (
+                    name
+                    and all(32 <= value < 127 for value in name)
+                    and all(chr(value).isalnum() or value in b"_()" for value in name)
+                ):
+                    fields.append(FieldDef(name.decode("latin-1"), type_id))
+                    position = end + 1
+                    continue
+        position += 1
+    for index, field_def in enumerate(fields):
+        if field_def.type_id == 0x00:
+            end = index + 1
+            while end < len(fields) and fields[end].type_id != 0x00:
+                end += 1
+            field_def.schema = list(range(index + 1, end))
+    return fields
+
+
 class Parser:
     def __init__(self, data: bytes) -> None:
         self.reader = Reader(data)
         self.nodes: list[Node] = []
-        self.fields: list[FieldDef] = []
+        self.fields: list[FieldDef] = ScanFields(data)
         self.index = 0
+        self.definition_index = 0
         self.stack: list[list[int]] = [[]]
         self.feature_start = 0
         self.structure_start: list[int] = []
@@ -192,6 +221,8 @@ class Parser:
         for _ in range(count):
             if len(self.stack) > 1:
                 self.stack.pop()
+            if self.structure_start:
+                self.structure_start.pop()
 
     def ReadValue(self, type_id: int, count: int | None) -> object:
         reader = self.reader
@@ -241,12 +272,16 @@ class Parser:
                 reader.pos += 1
                 type_id = reader.byte()
                 name = reader.cstring()
-                field_def = FieldDef(name, type_id)
-                self.fields.append(field_def)
-                self.index = len(self.fields) - 1
+                if self.definition_index < len(self.fields):
+                    field_def = self.fields[self.definition_index]
+                else:
+                    field_def = FieldDef(name, type_id)
+                    self.fields.append(field_def)
+                self.definition_index += 1
+                self.index = self.definition_index - 1
                 self.stack[-1].append(self.index)
                 if name == "first_feat_ptr":
-                    self.feature_start = len(self.fields)
+                    self.feature_start = self.definition_index
                 node = self.ReadField(field_def)
                 self.index += 1
                 if name == "next_feat_ptr" and isinstance(node.value, Node):
