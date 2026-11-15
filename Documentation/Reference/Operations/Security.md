@@ -57,6 +57,11 @@ Follow [merge queue operations](../../../MergeQueue.md) for the current check ar
 Keep all applicable gates enabled.
 Do not suppress a finding merely to make a status green.
 
+## Development dependencies
+
+The development lock requires asteval 1.0.9 or later for the native memory sandbox escape.
+See the [asteval memory repair](../../Changes/Dependencies/AstevalNativeMemory.md) for the override and verification limits.
+
 ## Report a problem
 
 1. Preserve the affected revision and error evidence.
