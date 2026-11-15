@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from tests.convert.solidworks.research.ArchiveProcess import KCorpus, RunArchive
 
+# explicit critical streams prevent partial decoding from implying complete native coverage
 KStreams = (
     "Contents/CMgr",
     "Contents/Config-0",
@@ -13,6 +14,7 @@ KStreams = (
 )
 
 
+# native corpus coverage keeps recovered field grammars accountable to complete streams
 def TestArchive() -> None:
     Outcome = RunArchive(str(KCorpus / "*.SLDPRT"), ",".join(KStreams))
     assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr

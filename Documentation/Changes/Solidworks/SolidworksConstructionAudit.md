@@ -19,3 +19,8 @@ code contains no donor constants. Native dataflow records, source review and the
 separate replay scan remain necessary. Earlier suffix-permitting process
 evidence does not establish the stronger import-phase claim. Remote checks are
 pending; no local tests were run.
+
+The process harness declarations now carry the repository's required rationale
+comments, following explicit user authorization. This changes no audit or
+construction behavior. Static syntax and comment-policy checks were used;
+executable verification remains in remote CI.

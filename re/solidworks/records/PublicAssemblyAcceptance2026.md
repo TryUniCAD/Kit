@@ -1,8 +1,7 @@
 # Public FreeCAD assembly acceptance
 
-Status: source acquired and hash-locked; conversion and application acceptance
-are unfinished. There are no completed FreeCAD/SOLIDWORKS comparison screenshots
-at this revision.
+Status: source acquired, hash-locked and captured in FreeCAD; target conversion
+and application acceptance are unfinished. The SOLIDWORKS screenshot is pending.
 
 The user requires a large, independently published FreeCAD project, conversion
 of its assembly and parts into native SOLIDWORKS, and actual screenshots from
@@ -38,6 +37,32 @@ The unmodified files remain under the private research path
 `.rescratch/sw26/public-acceptance/ga3d-basicbot/`. Source bodies and constraints
 are not donor SOLIDWORKS data. Production writing must still compute every target
 byte from source semantics and documented format rules.
+
+## Actual FreeCAD observation
+
+FreeCAD 1.1.4, commit `4fd3bf320d9566a27e60069fc8387448aaa3a094`, opened
+the unchanged native root with the publisher's A2plus proxy modules. The
+[native report](../measurements/2026/PublicAssembly/FreecadSource.json) records
+34 document objects, ten component objects, native cached geometry, visibility
+and source dependency paths. The source SHA-256 was identical before and after
+inspection. No recompute or CAD save was performed.
+
+The [unedited application screenshot](../measurements/2026/PublicAssembly/FreecadSource.png)
+shows the complete cached machine assembly and its ten top-level components.
+Its SHA-256 is
+`c337fdcaf5de2fbe10a8f87626a28602e00f3c69ee3526048cdb6c99f1cd63fe`.
+The actual Qt screen capture used `QScreen.grabWindow(native-window-id)` after
+selecting the source's existing native subwindow. A widget capture omitted the
+OpenGL viewport and was rejected; see the
+[capture gotcha](../../../Documentation/Gotchas/Conversion/Freecad/NativeWindowCapture.md).
+
+These observations do not establish source rebuild health or full dependency
+expansion. The cached root contains seven solids and open surface groups;
+several component shapes report invalid through the native geometry checker.
+Their original state is preserved in the report. Source defects, missing
+parametric dependencies and conversion losses must be accounted for explicitly
+before any target acceptance claim. A complete visible source screenshot does
+not establish native SOLIDWORKS output.
 
 ## Required acceptance evidence
 

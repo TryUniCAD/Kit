@@ -5,6 +5,7 @@ from typing import cast as CastValue
 from tests.convert.solidworks.research.FreshPartInput import MakePartInput
 
 
+# held out authored inputs keep generalization evidence independent from training controls
 def LockedPartInput(RecordData: dict[str, object]) -> dict[str, object]:
     ModelSpec = CastValue(dict[str, object], RecordData["spec"])
     Features = CastValue(list[dict[str, object]], ModelSpec["ops"])

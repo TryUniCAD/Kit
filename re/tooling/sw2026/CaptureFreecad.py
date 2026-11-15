@@ -48,10 +48,33 @@ def main():
     (output / "FreecadSource.json").write_text(json.dumps(record, indent=2) + "\n")
 
     def capture():
+        area = window.findChild(QtWidgets.QMdiArea)
+        candidates = [item for item in area.subWindowList() if item.windowTitle().startswith(document.Label + " :")]
+        record["view_windows"] = [item.windowTitle() for item in area.subWindowList()]
+        if len(candidates) != 1:
+            record["capture_exception"] = f"expected one native source view, found {len(candidates)}"
+            (output / "FreecadSource.json").write_text(json.dumps(record, indent=2) + "\n")
+            App.closeDocument(document.Name)
+            QtWidgets.QApplication.instance().quit()
+            return
+        area.setActiveSubWindow(candidates[0])
+        window.show()
+        window.raise_()
+        window.activateWindow()
+        record["active_view_title"] = candidates[0].windowTitle()
+        Gui.activeDocument().activeView().viewAxonometric()
+        Gui.activeDocument().activeView().fitAll()
+        Gui.updateGui()
+        QtCore.QTimer.singleShot(1000, save_capture)
+
+    def save_capture():
         try:
             Gui.updateGui()
             path = output / "FreecadSource.png"
-            if not window.grab().save(str(path), "PNG"):
+            record["capture_api"] = "QScreen.grabWindow(native-window-id)"
+            record["native_window_id"] = int(window.winId())
+            Gui.activeDocument().activeView().saveImage(str(output / "FreecadViewport.png"), 1600, 1000, "Current")
+            if not window.screen().grabWindow(window.winId()).save(str(path), "PNG"):
                 raise RuntimeError("native FreeCAD window capture failed")
             record.update(screenshot_sha256=hashlib.sha256(path.read_bytes()).hexdigest(), source_sha256_after=hashlib.sha256(source.read_bytes()).hexdigest())
             (output / "FreecadSource.json").write_text(json.dumps(record, indent=2) + "\n")

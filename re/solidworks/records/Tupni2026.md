@@ -2,8 +2,10 @@
 
 Status: adopted during the active 2026 native-writer investigation on
 2026-11-15 UTC. A native process-identity observation succeeded and detached.
-The first loader/status capture also succeeded. No completed instruction taint trace, newly
-generalized grammar or measured speedup is claimed yet.
+The first loader/status capture succeeded. A subsequent loader-site observation
+identified a rejected runtime class schema and led to two binary-backed schema
+corrections. No completed instruction taint trace, corrected native acceptance
+or measured speedup is claimed yet.
 
 The user requested both use of Tupni and a record suitable for future reverse
 engineering. The reusable procedure is in
@@ -165,6 +167,50 @@ This narrows the question to the rejected class/schema pair; it does not yet
 identify a correct emitted value. A read-only instruction-site probe at
 `swccu+0xa3a7` will record that pair. It remains a selected native observation,
 not full instruction-level input taint.
+
+### First recovered rule: registered class schemas
+
+The next actual instruction-site capture recorded the file schema and native
+`CRuntimeClass` schema immediately before their comparison. Five prior classes
+accepted wire schema one. `uoJournal_c` then presented file schema one against
+runtime schema zero, followed by the archive exception. Capture
+`.rescratch/sw26/tupni/candidate-H3-schema.json` has SHA-256
+`78c581343341446555c9c02da5872ca3c6a08c665dcd9dc3eae2c9001f43e4dc`.
+It contains 11 events over 65.25 seconds, no host message drops or script errors,
+and a process-terminated detach. Producer completion statistics are unavailable
+after target death, so complete event coverage is not claimed. The
+[sanitized evidence](../v2026/evidence/TupniSchemaRejection.json) retains input,
+script and module identities plus the observed class/schema pairs.
+
+Static metadata from the exact `slduiu.dll` independently confirms the rule:
+`uoJournal_c::classuoJournal_c` is at preferred address `0x4aef6660`, RVA
+`0x2056660` from preferred image base `0x48ea0000`. Its schema member at `+0x0c`
+is zero and is not versionable. Image SHA-256 is
+`025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7`.
+The constructor now explicitly supplies schema zero. This correction comes from
+the registered class and loader comparison, without copying a saved-file value.
+
+The trace invalidated the broader assumption that every generated class uses
+schema one. A follow-up static audit found `su_CStringArray` also requires zero:
+`swccu.dll` getter `0x31a3de90` returns descriptor `0x31a680c8`, whose member
+`+0x0c` is zero. The header string-array constructor now supplies zero.
+`suObList` requires one. Concrete model, profile, dimension, style and unit
+classes audited so far require one; abstract `moCompRef_c` has schema `0xffff`
+and a null factory, so the standalone factory refuses construction. Embedded
+base fields remain separate from an emitted runtime-class header.
+
+This is the first new reusable format correction obtained through the adopted
+Tupni workflow: observe the failing parser boundary, identify a constraint,
+explain it through native metadata, then apply the class-specific rule to every
+new instance. It is selected native instruction-site observation plus static
+dataflow, not the original paper's full instruction taint engine. Corrected
+files must still pass clean native inspection and unrelated inputs before
+writer acceptance. No speedup comparison has been measured.
+
+Private licensed modules and decompiler inputs were subsequently moved outside
+repository checkouts in accordance with the research artifact policy. Their
+bytes and per-file digests are preserved in an external relocation manifest;
+only format conclusions and input identities remain in maintained research.
 
 The first loader attempt activated 20 hooks after both loaded-module hashes
 matched. The action's running-object-table lookup failed with COM error

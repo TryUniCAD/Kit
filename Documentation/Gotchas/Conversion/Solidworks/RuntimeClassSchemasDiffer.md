@@ -30,5 +30,10 @@ native class metadata, including the versionable bit, rather than extrapolating
 from a document survey or codec round trips. A codec can round-trip a constructed
 class header that the target loader rejects.
 
+The same static audit found `moCompRef_c` registered with schema `0xffff` and
+no create-object function at `sldmodu` `0x4cf68440`. It is a nonserializable base,
+so the standalone factory fails closed; concrete references still use its embedded
+field initializer.
+
 The corrected constant comes from the binary and live loader metadata, not a
 saved-file field. The complete candidate still requires native acceptance.
