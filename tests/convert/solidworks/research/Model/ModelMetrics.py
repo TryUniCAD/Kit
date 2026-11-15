@@ -5,6 +5,7 @@ KMetrics = """
 BuildReport = {
     "configuration_names": [ConfigNode["f18"]["f08"] for ConfigNode in ConfigNodes],
     "configuration_ids": [ConfigNode["f08"] for ConfigNode in ConfigNodes],
+    "configuration_versions": [ConfigNode["f9a8"] for ConfigNode in ConfigNodes],
     "next_configuration_id": ManagerRead["f40c"],
     "plane_ids": [PlaneNode["f08"] for PlaneNode in PlaneDocu.roots],
     "plane_normals": [PlaneNode["f6f8"]["normal"] for PlaneNode in PlaneDocu.roots],
