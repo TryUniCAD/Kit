@@ -1445,6 +1445,14 @@ The counts do not match the face count either: `Reservoir` has 71 faces but 117 
 over surfaces and their control data, not the face-to-surface map. The map for the five pooled
 parts remains unresolved, and the reader still rejects them.
 
+The u32 is not a fixed field index either. For `Reservoir` the relative offset inside the
+containing surface record takes the values 0, 1, 2, 3, 6, 20, 21, 28, 29, 32, 36, 37 and 44, and
+34 of the 117 offsets fall outside every surface record. The kind-`0x36` u32 values are not
+consecutive (3144, 3145, 3147, 3188, ...), so they are not table indices, and the kind-`0x36`
+payload read as a little-endian u16 gives 15936, 15879, 15881, 1806, 2317, ..., which is not a
+surface index. The u32 is therefore a tag or an offset into a table that is not the surface list,
+and the table that resolves it is still missing.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
