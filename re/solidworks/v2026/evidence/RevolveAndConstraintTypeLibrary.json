@@ -1,0 +1,3053 @@
+{
+  "authority": "installed SOLIDWORKS 2026 type-library metadata",
+  "tool_source_revision": "4559f8263ba28c9dad8cd2b1ee4c9696ee8d38b5",
+  "tool_script": "re/tooling/sw2026/InspectTypeLib.py",
+  "tool_script_sha256": "a49ec38dc1bc97b0074516f2e2a728eb44be26301e748451539f4fa356656302",
+  "application_launched_or_attached": false,
+  "selection_scope": "matching declared interface members and enum constants only, no referenced-interface flattening",
+  "queries": [
+    {
+      "source_report": "RevolveTypes.json",
+      "original_sha256": "fef52714d7beef250bd9219371bbf914b24c6b7b36cdb629c84628b03f15efb5",
+      "metadata": {
+        "path": "C:\\Program Files\\SOLIDWORKS Corp\\SOLIDWORKS\\sldworks.tlb",
+        "sha256": "e71e9834f3ca4de85a321b9147c6805b34808e36a8b48149ab6a14bb41a7d6f4",
+        "library": "(IID('{83A33D31-27C5-11CE-BFD4-00400513BB57}'), 0, 3, 34, 0, 8)",
+        "library_identity": {
+          "name": "SldWorks",
+          "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+          "locale_id": 0,
+          "system_kind": 3,
+          "major_version": 34,
+          "minor_version": 0,
+          "flags": 8
+        },
+        "tool": {
+          "path": "<oracle-staging>/InspectTypeLib.py",
+          "sha256": "a49ec38dc1bc97b0074516f2e2a728eb44be26301e748451539f4fa356656302",
+          "python_version": "3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 64 bit (AMD64)]"
+        },
+        "interface": "*Revolve*",
+        "method": "*",
+        "types": [
+          {
+            "name": "IRevolveFeatureData",
+            "guid": "{B7FFF613-B735-11D3-B981-001083029A97}",
+            "type_kind": 4,
+            "type_index": 233
+          },
+          {
+            "name": "ISurfRevolveFeatureData",
+            "guid": "{38D7F138-4403-4EB0-8E9E-7DAF6BA385CF}",
+            "type_kind": 4,
+            "type_index": 278
+          },
+          {
+            "name": "RevolveFeatureData",
+            "guid": "{B7FFF614-B735-11D3-B981-001083029A97}",
+            "type_kind": 5,
+            "type_index": 588
+          },
+          {
+            "name": "IRevolveFeatureData2",
+            "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+            "type_kind": 4,
+            "type_index": 670
+          },
+          {
+            "name": "RevolveFeatureData2",
+            "guid": "{AC3A7D68-1EA5-4FC8-A726-EFFD2319593B}",
+            "type_kind": 5,
+            "type_index": 671
+          },
+          {
+            "name": "SurfRevolveFeatureData",
+            "guid": "{69C9D6E8-3B00-48DD-BB69-5AD59C6D33E2}",
+            "type_kind": 5,
+            "type_index": 685
+          }
+        ],
+        "methods": [
+          {
+            "names": ["QueryInterface", "riid", "ppvObj"],
+            "member_id": 1610612736,
+            "invoke_kind": 1,
+            "arguments": "(((26, (29, 16777216)), 1, None), ((26, (26, 24)), 2, None))",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData",
+              "guid": "{B7FFF613-B735-11D3-B981-001083029A97}",
+              "type_kind": 4,
+              "type_index": 233
+            }
+          },
+          {
+            "names": ["AddRef"],
+            "member_id": 1610612737,
+            "invoke_kind": 1,
+            "arguments": "()",
+            "return_type": "(19, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData",
+              "guid": "{B7FFF613-B735-11D3-B981-001083029A97}",
+              "type_kind": 4,
+              "type_index": 233
+            }
+          },
+          {
+            "names": ["Release"],
+            "member_id": 1610612738,
+            "invoke_kind": 1,
+            "arguments": "()",
+            "return_type": "(19, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData",
+              "guid": "{B7FFF613-B735-11D3-B981-001083029A97}",
+              "type_kind": 4,
+              "type_index": 233
+            }
+          },
+          {
+            "names": ["GetRevolutionAngle", "Forward"],
+            "member_id": 1,
+            "invoke_kind": 1,
+            "arguments": "((11, 1, None),)",
+            "return_type": "(5, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData",
+              "guid": "{B7FFF613-B735-11D3-B981-001083029A97}",
+              "type_kind": 4,
+              "type_index": 233
+            }
+          },
+          {
+            "names": ["SetRevolutionAngle", "Forward", "Angle"],
+            "member_id": 2,
+            "invoke_kind": 1,
+            "arguments": "((11, 1, None), (5, 1, None))",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData",
+              "guid": "{B7FFF613-B735-11D3-B981-001083029A97}",
+              "type_kind": 4,
+              "type_index": 233
+            }
+          },
+          {
+            "names": ["GetWallThickness", "Forward"],
+            "member_id": 3,
+            "invoke_kind": 1,
+            "arguments": "((11, 1, None),)",
+            "return_type": "(5, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData",
+              "guid": "{B7FFF613-B735-11D3-B981-001083029A97}",
+              "type_kind": 4,
+              "type_index": 233
+            }
+          },
+          {
+            "names": ["SetWallThickness", "Forward", "WallThickness"],
+            "member_id": 4,
+            "invoke_kind": 1,
+            "arguments": "((11, 1, None), (5, 1, None))",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData",
+              "guid": "{B7FFF613-B735-11D3-B981-001083029A97}",
+              "type_kind": 4,
+              "type_index": 233
+            }
+          },
+          {
+            "names": ["Type"],
+            "member_id": 5,
+            "invoke_kind": 2,
+            "arguments": "()",
+            "return_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData",
+              "guid": "{B7FFF613-B735-11D3-B981-001083029A97}",
+              "type_kind": 4,
+              "type_index": 233
+            }
+          },
+          {
+            "names": ["Type"],
+            "member_id": 5,
+            "invoke_kind": 4,
+            "arguments": "((22, 1, None),)",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData",
+              "guid": "{B7FFF613-B735-11D3-B981-001083029A97}",
+              "type_kind": 4,
+              "type_index": 233
+            }
+          },
+          {
+            "names": ["ReverseDirection"],
+            "member_id": 6,
+            "invoke_kind": 2,
+            "arguments": "()",
+            "return_type": "(11, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData",
+              "guid": "{B7FFF613-B735-11D3-B981-001083029A97}",
+              "type_kind": 4,
+              "type_index": 233
+            }
+          },
+          {
+            "names": ["ReverseDirection"],
+            "member_id": 6,
+            "invoke_kind": 4,
+            "arguments": "((11, 1, None),)",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData",
+              "guid": "{B7FFF613-B735-11D3-B981-001083029A97}",
+              "type_kind": 4,
+              "type_index": 233
+            }
+          },
+          {
+            "names": ["IsBossFeature"],
+            "member_id": 7,
+            "invoke_kind": 1,
+            "arguments": "()",
+            "return_type": "(11, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData",
+              "guid": "{B7FFF613-B735-11D3-B981-001083029A97}",
+              "type_kind": 4,
+              "type_index": 233
+            }
+          },
+          {
+            "names": ["IsThinFeature"],
+            "member_id": 8,
+            "invoke_kind": 1,
+            "arguments": "()",
+            "return_type": "(11, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData",
+              "guid": "{B7FFF613-B735-11D3-B981-001083029A97}",
+              "type_kind": 4,
+              "type_index": 233
+            }
+          },
+          {
+            "names": ["QueryInterface", "riid", "ppvObj"],
+            "member_id": 1610612736,
+            "invoke_kind": 1,
+            "arguments": "(((26, (29, 16777216)), 1, None), ((26, (26, 24)), 2, None))",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "ISurfRevolveFeatureData",
+              "guid": "{38D7F138-4403-4EB0-8E9E-7DAF6BA385CF}",
+              "type_kind": 4,
+              "type_index": 278
+            }
+          },
+          {
+            "names": ["AddRef"],
+            "member_id": 1610612737,
+            "invoke_kind": 1,
+            "arguments": "()",
+            "return_type": "(19, 0, None)",
+            "declaring_type": {
+              "name": "ISurfRevolveFeatureData",
+              "guid": "{38D7F138-4403-4EB0-8E9E-7DAF6BA385CF}",
+              "type_kind": 4,
+              "type_index": 278
+            }
+          },
+          {
+            "names": ["Release"],
+            "member_id": 1610612738,
+            "invoke_kind": 1,
+            "arguments": "()",
+            "return_type": "(19, 0, None)",
+            "declaring_type": {
+              "name": "ISurfRevolveFeatureData",
+              "guid": "{38D7F138-4403-4EB0-8E9E-7DAF6BA385CF}",
+              "type_kind": 4,
+              "type_index": 278
+            }
+          },
+          {
+            "names": ["GetTypeInfoCount", "pctinfo"],
+            "member_id": 1610678272,
+            "invoke_kind": 1,
+            "arguments": "(((26, 23), 2, None),)",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "ISurfRevolveFeatureData",
+              "guid": "{38D7F138-4403-4EB0-8E9E-7DAF6BA385CF}",
+              "type_kind": 4,
+              "type_index": 278
+            }
+          },
+          {
+            "names": ["GetTypeInfo", "itinfo", "lcid", "pptinfo"],
+            "member_id": 1610678273,
+            "invoke_kind": 1,
+            "arguments": "((23, 1, None), (19, 1, None), ((26, (26, 24)), 2, None))",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "ISurfRevolveFeatureData",
+              "guid": "{38D7F138-4403-4EB0-8E9E-7DAF6BA385CF}",
+              "type_kind": 4,
+              "type_index": 278
+            }
+          },
+          {
+            "names": [
+              "GetIDsOfNames",
+              "riid",
+              "rgszNames",
+              "cNames",
+              "lcid",
+              "rgdispid"
+            ],
+            "member_id": 1610678274,
+            "invoke_kind": 1,
+            "arguments": "(((26, (29, 33554432)), 1, None), ((26, (26, 16)), 1, None), (23, 1, None), (19, 1, None), ((26, 3), 2, None))",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "ISurfRevolveFeatureData",
+              "guid": "{38D7F138-4403-4EB0-8E9E-7DAF6BA385CF}",
+              "type_kind": 4,
+              "type_index": 278
+            }
+          },
+          {
+            "names": [
+              "Invoke",
+              "dispidMember",
+              "riid",
+              "lcid",
+              "wFlags",
+              "pdispparams",
+              "pvarResult",
+              "pexcepinfo",
+              "puArgErr"
+            ],
+            "member_id": 1610678275,
+            "invoke_kind": 1,
+            "arguments": "((3, 1, None), ((26, (29, 33554432)), 1, None), (19, 1, None), (18, 1, None), ((26, (29, 33554560)), 1, None), ((26, 12), 2, None), ((26, (29, 33554688)), 2, None), ((26, 23), 2, None))",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "ISurfRevolveFeatureData",
+              "guid": "{38D7F138-4403-4EB0-8E9E-7DAF6BA385CF}",
+              "type_kind": 4,
+              "type_index": 278
+            }
+          },
+          {
+            "names": ["GetRevolutionAngle", "Forward"],
+            "member_id": 1,
+            "invoke_kind": 1,
+            "arguments": "((11, 1, None),)",
+            "return_type": "(5, 0, None)",
+            "declaring_type": {
+              "name": "ISurfRevolveFeatureData",
+              "guid": "{38D7F138-4403-4EB0-8E9E-7DAF6BA385CF}",
+              "type_kind": 4,
+              "type_index": 278
+            }
+          },
+          {
+            "names": ["SetRevolutionAngle", "Forward", "Angle"],
+            "member_id": 2,
+            "invoke_kind": 1,
+            "arguments": "((11, 1, None), (5, 1, None))",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "ISurfRevolveFeatureData",
+              "guid": "{38D7F138-4403-4EB0-8E9E-7DAF6BA385CF}",
+              "type_kind": 4,
+              "type_index": 278
+            }
+          },
+          {
+            "names": ["Type"],
+            "member_id": 3,
+            "invoke_kind": 2,
+            "arguments": "()",
+            "return_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "ISurfRevolveFeatureData",
+              "guid": "{38D7F138-4403-4EB0-8E9E-7DAF6BA385CF}",
+              "type_kind": 4,
+              "type_index": 278
+            }
+          },
+          {
+            "names": ["Type"],
+            "member_id": 3,
+            "invoke_kind": 4,
+            "arguments": "((22, 1, None),)",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "ISurfRevolveFeatureData",
+              "guid": "{38D7F138-4403-4EB0-8E9E-7DAF6BA385CF}",
+              "type_kind": 4,
+              "type_index": 278
+            }
+          },
+          {
+            "names": ["ReverseDirection"],
+            "member_id": 4,
+            "invoke_kind": 2,
+            "arguments": "()",
+            "return_type": "(11, 0, None)",
+            "declaring_type": {
+              "name": "ISurfRevolveFeatureData",
+              "guid": "{38D7F138-4403-4EB0-8E9E-7DAF6BA385CF}",
+              "type_kind": 4,
+              "type_index": 278
+            }
+          },
+          {
+            "names": ["ReverseDirection"],
+            "member_id": 4,
+            "invoke_kind": 4,
+            "arguments": "((11, 1, None),)",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "ISurfRevolveFeatureData",
+              "guid": "{38D7F138-4403-4EB0-8E9E-7DAF6BA385CF}",
+              "type_kind": 4,
+              "type_index": 278
+            }
+          },
+          {
+            "names": ["AccessSelections", "TopDoc", "Component"],
+            "member_id": 5,
+            "invoke_kind": 1,
+            "arguments": "((9, 1, None), (9, 1, None))",
+            "return_type": "(11, 0, None)",
+            "declaring_type": {
+              "name": "ISurfRevolveFeatureData",
+              "guid": "{38D7F138-4403-4EB0-8E9E-7DAF6BA385CF}",
+              "type_kind": 4,
+              "type_index": 278
+            }
+          },
+          {
+            "names": ["IAccessSelections", "TopDoc", "Component"],
+            "member_id": 6,
+            "invoke_kind": 1,
+            "arguments": "(((26, (29, 50333824)), 1, None), ((26, (29, 50337792)), 1, None))",
+            "return_type": "(11, 0, None)",
+            "declaring_type": {
+              "name": "ISurfRevolveFeatureData",
+              "guid": "{38D7F138-4403-4EB0-8E9E-7DAF6BA385CF}",
+              "type_kind": 4,
+              "type_index": 278
+            }
+          },
+          {
+            "names": ["ReleaseSelectionAccess"],
+            "member_id": 7,
+            "invoke_kind": 1,
+            "arguments": "()",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "ISurfRevolveFeatureData",
+              "guid": "{38D7F138-4403-4EB0-8E9E-7DAF6BA385CF}",
+              "type_kind": 4,
+              "type_index": 278
+            }
+          },
+          {
+            "names": ["QueryInterface", "riid", "ppvObj"],
+            "member_id": 1610612736,
+            "invoke_kind": 1,
+            "arguments": "(((26, (29, 16777216)), 1, None), ((26, (26, 24)), 2, None))",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["AddRef"],
+            "member_id": 1610612737,
+            "invoke_kind": 1,
+            "arguments": "()",
+            "return_type": "(19, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["Release"],
+            "member_id": 1610612738,
+            "invoke_kind": 1,
+            "arguments": "()",
+            "return_type": "(19, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["GetTypeInfoCount", "pctinfo"],
+            "member_id": 1610678272,
+            "invoke_kind": 1,
+            "arguments": "(((26, 23), 2, None),)",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["GetTypeInfo", "itinfo", "lcid", "pptinfo"],
+            "member_id": 1610678273,
+            "invoke_kind": 1,
+            "arguments": "((23, 1, None), (19, 1, None), ((26, (26, 24)), 2, None))",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": [
+              "GetIDsOfNames",
+              "riid",
+              "rgszNames",
+              "cNames",
+              "lcid",
+              "rgdispid"
+            ],
+            "member_id": 1610678274,
+            "invoke_kind": 1,
+            "arguments": "(((26, (29, 33554432)), 1, None), ((26, (26, 16)), 1, None), (23, 1, None), (19, 1, None), ((26, 3), 2, None))",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": [
+              "Invoke",
+              "dispidMember",
+              "riid",
+              "lcid",
+              "wFlags",
+              "pdispparams",
+              "pvarResult",
+              "pexcepinfo",
+              "puArgErr"
+            ],
+            "member_id": 1610678275,
+            "invoke_kind": 1,
+            "arguments": "((3, 1, None), ((26, (29, 33554432)), 1, None), (19, 1, None), (18, 1, None), ((26, (29, 33554560)), 1, None), ((26, 12), 2, None), ((26, (29, 33554688)), 2, None), ((26, 23), 2, None))",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["GetRevolutionAngle", "Forward"],
+            "member_id": 1,
+            "invoke_kind": 1,
+            "arguments": "((11, 1, None),)",
+            "return_type": "(5, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["SetRevolutionAngle", "Forward", "Angle"],
+            "member_id": 2,
+            "invoke_kind": 1,
+            "arguments": "((11, 1, None), (5, 1, None))",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["GetWallThickness", "Forward"],
+            "member_id": 3,
+            "invoke_kind": 1,
+            "arguments": "((11, 1, None),)",
+            "return_type": "(5, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["SetWallThickness", "Forward", "WallThickness"],
+            "member_id": 4,
+            "invoke_kind": 1,
+            "arguments": "((11, 1, None), (5, 1, None))",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["Type"],
+            "member_id": 5,
+            "invoke_kind": 2,
+            "arguments": "()",
+            "return_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["Type"],
+            "member_id": 5,
+            "invoke_kind": 4,
+            "arguments": "((22, 1, None),)",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["ReverseDirection"],
+            "member_id": 6,
+            "invoke_kind": 2,
+            "arguments": "()",
+            "return_type": "(11, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["ReverseDirection"],
+            "member_id": 6,
+            "invoke_kind": 4,
+            "arguments": "((11, 1, None),)",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["IsBossFeature"],
+            "member_id": 7,
+            "invoke_kind": 1,
+            "arguments": "()",
+            "return_type": "(11, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["IsThinFeature"],
+            "member_id": 8,
+            "invoke_kind": 1,
+            "arguments": "()",
+            "return_type": "(11, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["ThinWallType"],
+            "member_id": 9,
+            "invoke_kind": 2,
+            "arguments": "()",
+            "return_type": "(3, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["ThinWallType"],
+            "member_id": 9,
+            "invoke_kind": 4,
+            "arguments": "((3, 1, None),)",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["Merge"],
+            "member_id": 10,
+            "invoke_kind": 2,
+            "arguments": "()",
+            "return_type": "(11, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["Merge"],
+            "member_id": 10,
+            "invoke_kind": 4,
+            "arguments": "((11, 1, None),)",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["FeatureScope"],
+            "member_id": 11,
+            "invoke_kind": 2,
+            "arguments": "()",
+            "return_type": "(11, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["FeatureScope"],
+            "member_id": 11,
+            "invoke_kind": 4,
+            "arguments": "((11, 1, None),)",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["AutoSelect"],
+            "member_id": 12,
+            "invoke_kind": 2,
+            "arguments": "()",
+            "return_type": "(11, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["AutoSelect"],
+            "member_id": 12,
+            "invoke_kind": 4,
+            "arguments": "((11, 1, None),)",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["FeatureScopeBodies"],
+            "member_id": 13,
+            "invoke_kind": 2,
+            "arguments": "()",
+            "return_type": "(12, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["FeatureScopeBodies"],
+            "member_id": 13,
+            "invoke_kind": 4,
+            "arguments": "((12, 1, None),)",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["GetFeatureScopeBodiesCount"],
+            "member_id": 14,
+            "invoke_kind": 1,
+            "arguments": "()",
+            "return_type": "(3, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["IGetFeatureScopeBodies", "Count"],
+            "member_id": 15,
+            "invoke_kind": 1,
+            "arguments": "((3, 1, None),)",
+            "return_type": "((26, (29, 50332672)), 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["ISetFeatureScopeBodies", "Count", "BodyArr"],
+            "member_id": 16,
+            "invoke_kind": 1,
+            "arguments": "((3, 1, None), ((26, (26, (29, 50332672))), 1, None))",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["AccessSelections", "TopDoc", "Component"],
+            "member_id": 17,
+            "invoke_kind": 1,
+            "arguments": "((9, 1, None), (9, 1, None))",
+            "return_type": "(11, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["IAccessSelections", "TopDoc", "Component"],
+            "member_id": 18,
+            "invoke_kind": 1,
+            "arguments": "(((26, (29, 50333824)), 1, None), ((26, (29, 50337792)), 1, None))",
+            "return_type": "(11, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["ReleaseSelectionAccess"],
+            "member_id": 19,
+            "invoke_kind": 1,
+            "arguments": "()",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["Contours"],
+            "member_id": 20,
+            "invoke_kind": 2,
+            "arguments": "()",
+            "return_type": "(12, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["Contours"],
+            "member_id": 20,
+            "invoke_kind": 4,
+            "arguments": "((12, 1, None),)",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["GetContoursCount"],
+            "member_id": 21,
+            "invoke_kind": 1,
+            "arguments": "()",
+            "return_type": "(3, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["IGetContours", "Count"],
+            "member_id": 22,
+            "invoke_kind": 1,
+            "arguments": "((3, 1, None),)",
+            "return_type": "(9, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["ISetContours", "Count", "Contours"],
+            "member_id": 23,
+            "invoke_kind": 1,
+            "arguments": "((3, 1, None), ((26, 9), 1, None))",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["Axis"],
+            "member_id": 24,
+            "invoke_kind": 2,
+            "arguments": "()",
+            "return_type": "(9, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["Axis"],
+            "member_id": 24,
+            "invoke_kind": 4,
+            "arguments": "((9, 1, None),)",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["GetAxisType"],
+            "member_id": 25,
+            "invoke_kind": 1,
+            "arguments": "()",
+            "return_type": "(3, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["AssemblyFeatureScope"],
+            "member_id": 26,
+            "invoke_kind": 2,
+            "arguments": "()",
+            "return_type": "(11, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["AssemblyFeatureScope"],
+            "member_id": 26,
+            "invoke_kind": 4,
+            "arguments": "((11, 1, None),)",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["AutoSelectComponents"],
+            "member_id": 27,
+            "invoke_kind": 2,
+            "arguments": "()",
+            "return_type": "(11, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["AutoSelectComponents"],
+            "member_id": 27,
+            "invoke_kind": 4,
+            "arguments": "((11, 1, None),)",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["PropagateFeatureToParts"],
+            "member_id": 28,
+            "invoke_kind": 2,
+            "arguments": "()",
+            "return_type": "(11, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          },
+          {
+            "names": ["PropagateFeatureToParts"],
+            "member_id": 28,
+            "invoke_kind": 4,
+            "arguments": "((11, 1, None),)",
+            "return_type": "(24, 0, None)",
+            "declaring_type": {
+              "name": "IRevolveFeatureData2",
+              "guid": "{E055F0ED-DB3E-4528-A982-D66D289190A0}",
+              "type_kind": 4,
+              "type_index": 670
+            }
+          }
+        ],
+        "constants": [],
+        "scope": "Static installed type-library metadata; no CAD application launched or attached"
+      }
+    },
+    {
+      "source_report": "FeatureRevolve2.json",
+      "original_sha256": "f4a58c107149aad7c083ba0c10e0af121f823573ec990e2374149f48e3ffbeca",
+      "metadata": {
+        "path": "C:\\Program Files\\SOLIDWORKS Corp\\SOLIDWORKS\\sldworks.tlb",
+        "sha256": "e71e9834f3ca4de85a321b9147c6805b34808e36a8b48149ab6a14bb41a7d6f4",
+        "library": "(IID('{83A33D31-27C5-11CE-BFD4-00400513BB57}'), 0, 3, 34, 0, 8)",
+        "library_identity": {
+          "name": "SldWorks",
+          "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+          "locale_id": 0,
+          "system_kind": 3,
+          "major_version": 34,
+          "minor_version": 0,
+          "flags": 8
+        },
+        "tool": {
+          "path": "<oracle-staging>/InspectTypeLib.py",
+          "sha256": "a49ec38dc1bc97b0074516f2e2a728eb44be26301e748451539f4fa356656302",
+          "python_version": "3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 64 bit (AMD64)]"
+        },
+        "interface": "IFeatureManager",
+        "method": "FeatureRevolve2",
+        "types": [
+          {
+            "name": "IFeatureManager",
+            "guid": "{6B39655E-381B-4BD0-89F5-640D48593F15}",
+            "type_kind": 4,
+            "type_index": 131
+          }
+        ],
+        "methods": [
+          {
+            "names": [
+              "FeatureRevolve2",
+              "SingleDir",
+              "IsSolid",
+              "IsThin",
+              "IsCut",
+              "ReverseDir",
+              "BothDirectionUpToSameEntity",
+              "Dir1Type",
+              "Dir2Type",
+              "Dir1Angle",
+              "Dir2Angle",
+              "OffsetReverse1",
+              "OffsetReverse2",
+              "OffsetDistance1",
+              "OffsetDistance2",
+              "ThinType",
+              "ThinThickness1",
+              "ThinThickness2",
+              "Merge",
+              "UseFeatScope",
+              "UseAutoSelect"
+            ],
+            "member_id": 198,
+            "invoke_kind": 1,
+            "arguments": "((11, 1, None), (11, 1, None), (11, 1, None), (11, 1, None), (11, 1, None), (11, 1, None), (3, 1, None), (3, 1, None), (5, 1, None), (5, 1, None), (11, 1, None), (11, 1, None), (5, 1, None), (5, 1, None), (3, 1, None), (5, 1, None), (5, 1, None), (11, 1, None), (11, 1, None), (11, 1, None))",
+            "return_type": "((26, (29, 50337536)), 0, None)",
+            "declaring_type": {
+              "name": "IFeatureManager",
+              "guid": "{6B39655E-381B-4BD0-89F5-640D48593F15}",
+              "type_kind": 4,
+              "type_index": 131
+            }
+          }
+        ],
+        "constants": [],
+        "scope": "Static installed type-library metadata; no CAD application launched or attached"
+      }
+    },
+    {
+      "source_report": "ConstraintTypes.json",
+      "original_sha256": "48db068380f4bb79f4f58972ad6b820816b0a6b7fa3e57a49b3c98f028d7b270",
+      "metadata": {
+        "path": "C:\\Program Files\\SOLIDWORKS Corp\\SOLIDWORKS\\swconst.tlb",
+        "sha256": "f918998d27bf3a0d58b6de082c5a520edc852303bd772cb18458126fe9fddf38",
+        "library": "(IID('{4687F359-55D0-4CD3-B6CF-2EB42C11F989}'), 0, 3, 34, 0, 8)",
+        "library_identity": {
+          "name": "SwConst",
+          "guid": "{4687F359-55D0-4CD3-B6CF-2EB42C11F989}",
+          "locale_id": 0,
+          "system_kind": 3,
+          "major_version": 34,
+          "minor_version": 0,
+          "flags": 8
+        },
+        "tool": {
+          "path": "<oracle-staging>/InspectTypeLib.py",
+          "sha256": "a49ec38dc1bc97b0074516f2e2a728eb44be26301e748451539f4fa356656302",
+          "python_version": "3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 64 bit (AMD64)]"
+        },
+        "interface": "swConstraintType_e",
+        "method": "*",
+        "types": [
+          {
+            "name": "swConstraintType_e",
+            "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+            "type_kind": 0,
+            "type_index": 397
+          }
+        ],
+        "methods": [],
+        "constants": [
+          {
+            "names": ["swConstraintType_INVALIDCTYPE"],
+            "member_id": 1073741824,
+            "value": 0,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_DISTANCE"],
+            "member_id": 1073741825,
+            "value": 1,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ANGLE"],
+            "member_id": 1073741826,
+            "value": 2,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_RADIUS"],
+            "member_id": 1073741827,
+            "value": 3,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_HORIZONTAL"],
+            "member_id": 1073741828,
+            "value": 4,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_VERTICAL"],
+            "member_id": 1073741829,
+            "value": 5,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_TANGENT"],
+            "member_id": 1073741830,
+            "value": 6,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_PARALLEL"],
+            "member_id": 1073741831,
+            "value": 7,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_PERPENDICULAR"],
+            "member_id": 1073741832,
+            "value": 8,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_COINCIDENT"],
+            "member_id": 1073741833,
+            "value": 9,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_CONCENTRIC"],
+            "member_id": 1073741834,
+            "value": 10,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_SYMMETRIC"],
+            "member_id": 1073741835,
+            "value": 11,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ATMIDDLE"],
+            "member_id": 1073741836,
+            "value": 12,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ATINTERSECT"],
+            "member_id": 1073741837,
+            "value": 13,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_SAMELENGTH"],
+            "member_id": 1073741838,
+            "value": 14,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_DIAMETER"],
+            "member_id": 1073741839,
+            "value": 15,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_OFFSETEDGE"],
+            "member_id": 1073741840,
+            "value": 16,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_FIXED"],
+            "member_id": 1073741841,
+            "value": 17,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ARCANG90"],
+            "member_id": 1073741842,
+            "value": 18,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ARCANG180"],
+            "member_id": 1073741843,
+            "value": 19,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ARCANG270"],
+            "member_id": 1073741844,
+            "value": 20,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ARCANGTOP"],
+            "member_id": 1073741845,
+            "value": 21,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ARCANGBOTTOM"],
+            "member_id": 1073741846,
+            "value": 22,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ARCANGLEFT"],
+            "member_id": 1073741847,
+            "value": 23,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ARCANGRIGHT"],
+            "member_id": 1073741848,
+            "value": 24,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_HORIZPOINTS"],
+            "member_id": 1073741849,
+            "value": 25,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_VERTPOINTS"],
+            "member_id": 1073741850,
+            "value": 26,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_COLINEAR"],
+            "member_id": 1073741851,
+            "value": 27,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_CORADIAL"],
+            "member_id": 1073741852,
+            "value": 28,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_SNAPGRID"],
+            "member_id": 1073741853,
+            "value": 29,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_SNAPLENGTH"],
+            "member_id": 1073741854,
+            "value": 30,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_SNAPANGLE"],
+            "member_id": 1073741855,
+            "value": 31,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_USEEDGE"],
+            "member_id": 1073741856,
+            "value": 32,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ELLIPSEANG90"],
+            "member_id": 1073741857,
+            "value": 33,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ELLIPSEANG180"],
+            "member_id": 1073741858,
+            "value": 34,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ELLIPSEANG270"],
+            "member_id": 1073741859,
+            "value": 35,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ELLIPSEANGTOP"],
+            "member_id": 1073741860,
+            "value": 36,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ELLIPSEANGBOTTOM"],
+            "member_id": 1073741861,
+            "value": 37,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ELLIPSEANGLEFT"],
+            "member_id": 1073741862,
+            "value": 38,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ELLIPSEANGRIGHT"],
+            "member_id": 1073741863,
+            "value": 39,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ATPIERCE"],
+            "member_id": 1073741864,
+            "value": 40,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_DOUBLEDISTANCE"],
+            "member_id": 1073741865,
+            "value": 41,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_MERGEPOINTS"],
+            "member_id": 1073741866,
+            "value": 42,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ANGLE3P"],
+            "member_id": 1073741867,
+            "value": 43,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ARCLENGTH"],
+            "member_id": 1073741868,
+            "value": 44,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_NORMAL"],
+            "member_id": 1073741869,
+            "value": 45,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_NORMALPOINTS"],
+            "member_id": 1073741870,
+            "value": 46,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_SKETCHOFFSET"],
+            "member_id": 1073741871,
+            "value": 47,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ALONGX"],
+            "member_id": 1073741872,
+            "value": 48,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ALONGY"],
+            "member_id": 1073741873,
+            "value": 49,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ALONGZ"],
+            "member_id": 1073741874,
+            "value": 50,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ALONGXPOINTS"],
+            "member_id": 1073741875,
+            "value": 51,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ALONGYPOINTS"],
+            "member_id": 1073741876,
+            "value": 52,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ALONGZPOINTS"],
+            "member_id": 1073741877,
+            "value": 53,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_PARALLELYZ"],
+            "member_id": 1073741878,
+            "value": 54,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_PARALLELZX"],
+            "member_id": 1073741879,
+            "value": 55,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_INTERSECTION"],
+            "member_id": 1073741880,
+            "value": 56,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_PATTERNED"],
+            "member_id": 1073741881,
+            "value": 57,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ISOBYPOINT"],
+            "member_id": 1073741882,
+            "value": 58,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_SAMEISOPARAM"],
+            "member_id": 1073741883,
+            "value": 59,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_FITSPLINE"],
+            "member_id": 1073741884,
+            "value": 60,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_EQUALCURVATURE"],
+            "member_id": 1073741885,
+            "value": 61,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_EQUALTANGENT"],
+            "member_id": 1073741886,
+            "value": 62,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_TANGENTFACE"],
+            "member_id": 1073741887,
+            "value": 63,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ALONGX3D"],
+            "member_id": 1073741888,
+            "value": 64,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ALONGY3D"],
+            "member_id": 1073741889,
+            "value": 65,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ALONGXPOINTS3D"],
+            "member_id": 1073741890,
+            "value": 66,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_ALONGYPOINTS3D"],
+            "member_id": 1073741891,
+            "value": 67,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_TRACTION"],
+            "member_id": 1073741892,
+            "value": 68,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_BELTTRACTION"],
+            "member_id": 1073741893,
+            "value": 69,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_BLOCKFIXEDLOCK"],
+            "member_id": 1073741894,
+            "value": 70,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_BLOCKNORMALLOCK"],
+            "member_id": 1073741895,
+            "value": 71,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_BLOCKROTATELOCK"],
+            "member_id": 1073741896,
+            "value": 72,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_FAKESLOTCONSTRAINT"],
+            "member_id": 1073741897,
+            "value": 73,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_FIXEDSLOT"],
+            "member_id": 1073741898,
+            "value": 74,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_SAMESLOTS"],
+            "member_id": 1073741899,
+            "value": 75,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_LINEARPATTCNT"],
+            "member_id": 1073741900,
+            "value": 76,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_CIRCULARPATTCNT"],
+            "member_id": 1073741901,
+            "value": 77,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_RADIALOFFSET"],
+            "member_id": 1073741902,
+            "value": 78,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_PLANAROFFSET"],
+            "member_id": 1073741903,
+            "value": 79,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_EQUALCURV3DALIGN"],
+            "member_id": 1073741904,
+            "value": 80,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_FLANGEFACEDIST"],
+            "member_id": 1073741905,
+            "value": 81,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_CONICRHO"],
+            "member_id": 1073741906,
+            "value": 82,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_C3TOUCH"],
+            "member_id": 1073741907,
+            "value": 83,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_DOUBLEANGLE"],
+            "member_id": 1073741908,
+            "value": 84,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          },
+          {
+            "names": ["swConstraintType_SAMECURVELENGTH"],
+            "member_id": 1073741909,
+            "value": 85,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swConstraintType_e",
+              "guid": "{77E7ABFB-C9AA-4C6A-AC14-05F1AEC611AD}",
+              "type_kind": 0,
+              "type_index": 397
+            }
+          }
+        ],
+        "scope": "Static installed type-library metadata; no CAD application launched or attached"
+      }
+    },
+    {
+      "source_report": "RevolveConstants.json",
+      "original_sha256": "87366a78531d247664bcec39f5dccd2c0b1b6f582f89c10dcdd9ce214e5bb126",
+      "metadata": {
+        "path": "C:\\Program Files\\SOLIDWORKS Corp\\SOLIDWORKS\\swconst.tlb",
+        "sha256": "f918998d27bf3a0d58b6de082c5a520edc852303bd772cb18458126fe9fddf38",
+        "library": "(IID('{4687F359-55D0-4CD3-B6CF-2EB42C11F989}'), 0, 3, 34, 0, 8)",
+        "library_identity": {
+          "name": "SwConst",
+          "guid": "{4687F359-55D0-4CD3-B6CF-2EB42C11F989}",
+          "locale_id": 0,
+          "system_kind": 3,
+          "major_version": 34,
+          "minor_version": 0,
+          "flags": 8
+        },
+        "tool": {
+          "path": "<oracle-staging>/InspectTypeLib.py",
+          "sha256": "a49ec38dc1bc97b0074516f2e2a728eb44be26301e748451539f4fa356656302",
+          "python_version": "3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 64 bit (AMD64)]"
+        },
+        "interface": "*Revolve*",
+        "method": "*",
+        "types": [
+          {
+            "name": "swRevolveType_e",
+            "guid": "{5B9D8B74-3E23-446C-BDA2-7948BEA489DF}",
+            "type_kind": 0,
+            "type_index": 321
+          },
+          {
+            "name": "swRevolveOptions_e",
+            "guid": "{4004EF3F-85BA-47F1-AD96-0C0B44379BA4}",
+            "type_kind": 0,
+            "type_index": 400
+          }
+        ],
+        "methods": [],
+        "constants": [
+          {
+            "names": ["swRevolveTypeOneDirection"],
+            "member_id": 1073741824,
+            "value": 0,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swRevolveType_e",
+              "guid": "{5B9D8B74-3E23-446C-BDA2-7948BEA489DF}",
+              "type_kind": 0,
+              "type_index": 321
+            }
+          },
+          {
+            "names": ["swRevolveTypeMidPlane"],
+            "member_id": 1073741825,
+            "value": 1,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swRevolveType_e",
+              "guid": "{5B9D8B74-3E23-446C-BDA2-7948BEA489DF}",
+              "type_kind": 0,
+              "type_index": 321
+            }
+          },
+          {
+            "names": ["swRevolveTypeTwoDirection"],
+            "member_id": 1073741826,
+            "value": 2,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swRevolveType_e",
+              "guid": "{5B9D8B74-3E23-446C-BDA2-7948BEA489DF}",
+              "type_kind": 0,
+              "type_index": 321
+            }
+          },
+          {
+            "names": ["swRevolveTypeOneDirection360Degrees"],
+            "member_id": 1073741827,
+            "value": 3,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swRevolveType_e",
+              "guid": "{5B9D8B74-3E23-446C-BDA2-7948BEA489DF}",
+              "type_kind": 0,
+              "type_index": 321
+            }
+          },
+          {
+            "names": ["swRevolveTypeMidPlane360Degrees"],
+            "member_id": 1073741828,
+            "value": 4,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swRevolveType_e",
+              "guid": "{5B9D8B74-3E23-446C-BDA2-7948BEA489DF}",
+              "type_kind": 0,
+              "type_index": 321
+            }
+          },
+          {
+            "names": ["swRevolveTypeTwoDirection360Degrees"],
+            "member_id": 1073741829,
+            "value": 5,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swRevolveType_e",
+              "guid": "{5B9D8B74-3E23-446C-BDA2-7948BEA489DF}",
+              "type_kind": 0,
+              "type_index": 321
+            }
+          },
+          {
+            "names": ["swRevolveOptionsNone"],
+            "member_id": 1073741824,
+            "value": 0,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swRevolveOptions_e",
+              "guid": "{4004EF3F-85BA-47F1-AD96-0C0B44379BA4}",
+              "type_kind": 0,
+              "type_index": 400
+            }
+          },
+          {
+            "names": ["swAutoCloseSketch"],
+            "member_id": 1073741825,
+            "value": 1,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swRevolveOptions_e",
+              "guid": "{4004EF3F-85BA-47F1-AD96-0C0B44379BA4}",
+              "type_kind": 0,
+              "type_index": 400
+            }
+          }
+        ],
+        "scope": "Static installed type-library metadata; no CAD application launched or attached"
+      }
+    },
+    {
+      "source_report": "EndConditions.json",
+      "original_sha256": "1fc6c814842387b04c3bcdbb4a8da8ad4beb45bdcf4ec1bad7d8c8d8f6b4dd04",
+      "metadata": {
+        "path": "C:\\Program Files\\SOLIDWORKS Corp\\SOLIDWORKS\\swconst.tlb",
+        "sha256": "f918998d27bf3a0d58b6de082c5a520edc852303bd772cb18458126fe9fddf38",
+        "library": "(IID('{4687F359-55D0-4CD3-B6CF-2EB42C11F989}'), 0, 3, 34, 0, 8)",
+        "library_identity": {
+          "name": "SwConst",
+          "guid": "{4687F359-55D0-4CD3-B6CF-2EB42C11F989}",
+          "locale_id": 0,
+          "system_kind": 3,
+          "major_version": 34,
+          "minor_version": 0,
+          "flags": 8
+        },
+        "tool": {
+          "path": "<oracle-staging>/InspectTypeLib.py",
+          "sha256": "a49ec38dc1bc97b0074516f2e2a728eb44be26301e748451539f4fa356656302",
+          "python_version": "3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 64 bit (AMD64)]"
+        },
+        "interface": "swEndConditions*",
+        "method": "*",
+        "types": [
+          {
+            "name": "swEndConditions_e",
+            "guid": "{718284B5-F5D6-4239-A90C-89AAE86BDB91}",
+            "type_kind": 0,
+            "type_index": 102
+          }
+        ],
+        "methods": [],
+        "constants": [
+          {
+            "names": ["swEndCondBlind"],
+            "member_id": 1073741824,
+            "value": 0,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swEndConditions_e",
+              "guid": "{718284B5-F5D6-4239-A90C-89AAE86BDB91}",
+              "type_kind": 0,
+              "type_index": 102
+            }
+          },
+          {
+            "names": ["swEndCondThroughAll"],
+            "member_id": 1073741825,
+            "value": 1,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swEndConditions_e",
+              "guid": "{718284B5-F5D6-4239-A90C-89AAE86BDB91}",
+              "type_kind": 0,
+              "type_index": 102
+            }
+          },
+          {
+            "names": ["swEndCondThroughNext"],
+            "member_id": 1073741826,
+            "value": 2,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swEndConditions_e",
+              "guid": "{718284B5-F5D6-4239-A90C-89AAE86BDB91}",
+              "type_kind": 0,
+              "type_index": 102
+            }
+          },
+          {
+            "names": ["swEndCondUpToVertex"],
+            "member_id": 1073741827,
+            "value": 3,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swEndConditions_e",
+              "guid": "{718284B5-F5D6-4239-A90C-89AAE86BDB91}",
+              "type_kind": 0,
+              "type_index": 102
+            }
+          },
+          {
+            "names": ["swEndCondUpToSurface"],
+            "member_id": 1073741828,
+            "value": 4,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swEndConditions_e",
+              "guid": "{718284B5-F5D6-4239-A90C-89AAE86BDB91}",
+              "type_kind": 0,
+              "type_index": 102
+            }
+          },
+          {
+            "names": ["swEndCondOffsetFromSurface"],
+            "member_id": 1073741829,
+            "value": 5,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swEndConditions_e",
+              "guid": "{718284B5-F5D6-4239-A90C-89AAE86BDB91}",
+              "type_kind": 0,
+              "type_index": 102
+            }
+          },
+          {
+            "names": ["swEndCondMidPlane"],
+            "member_id": 1073741830,
+            "value": 6,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swEndConditions_e",
+              "guid": "{718284B5-F5D6-4239-A90C-89AAE86BDB91}",
+              "type_kind": 0,
+              "type_index": 102
+            }
+          },
+          {
+            "names": ["swEndCondUpToBody"],
+            "member_id": 1073741831,
+            "value": 7,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swEndConditions_e",
+              "guid": "{718284B5-F5D6-4239-A90C-89AAE86BDB91}",
+              "type_kind": 0,
+              "type_index": 102
+            }
+          },
+          {
+            "names": ["swEndCondThroughAllBoth"],
+            "member_id": 1073741832,
+            "value": 9,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swEndConditions_e",
+              "guid": "{718284B5-F5D6-4239-A90C-89AAE86BDB91}",
+              "type_kind": 0,
+              "type_index": 102
+            }
+          },
+          {
+            "names": ["swEndCondUpToSelection"],
+            "member_id": 1073741833,
+            "value": 10,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swEndConditions_e",
+              "guid": "{718284B5-F5D6-4239-A90C-89AAE86BDB91}",
+              "type_kind": 0,
+              "type_index": 102
+            }
+          },
+          {
+            "names": ["swEndCondUpToNext"],
+            "member_id": 1073741834,
+            "value": 11,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swEndConditions_e",
+              "guid": "{718284B5-F5D6-4239-A90C-89AAE86BDB91}",
+              "type_kind": 0,
+              "type_index": 102
+            }
+          }
+        ],
+        "scope": "Static installed type-library metadata; no CAD application launched or attached"
+      }
+    },
+    {
+      "source_report": "RelationFilters.json",
+      "original_sha256": "3e679ca1446cf329b110029a28a303e077caf50ca8fa0333dc2a876d8836ab46",
+      "metadata": {
+        "path": "C:\\Program Files\\SOLIDWORKS Corp\\SOLIDWORKS\\swconst.tlb",
+        "sha256": "f918998d27bf3a0d58b6de082c5a520edc852303bd772cb18458126fe9fddf38",
+        "library": "(IID('{4687F359-55D0-4CD3-B6CF-2EB42C11F989}'), 0, 3, 34, 0, 8)",
+        "library_identity": {
+          "name": "SwConst",
+          "guid": "{4687F359-55D0-4CD3-B6CF-2EB42C11F989}",
+          "locale_id": 0,
+          "system_kind": 3,
+          "major_version": 34,
+          "minor_version": 0,
+          "flags": 8
+        },
+        "tool": {
+          "path": "<oracle-staging>/InspectTypeLib.py",
+          "sha256": "a49ec38dc1bc97b0074516f2e2a728eb44be26301e748451539f4fa356656302",
+          "python_version": "3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 64 bit (AMD64)]"
+        },
+        "interface": "*RelationFilter*",
+        "method": "*",
+        "types": [
+          {
+            "name": "swSketchRelationFilterType_e",
+            "guid": "{52A8AC05-773D-4493-8B9C-D4E14C68BE45}",
+            "type_kind": 0,
+            "type_index": 389
+          }
+        ],
+        "methods": [],
+        "constants": [
+          {
+            "names": ["swAll"],
+            "member_id": 1073741824,
+            "value": 0,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swSketchRelationFilterType_e",
+              "guid": "{52A8AC05-773D-4493-8B9C-D4E14C68BE45}",
+              "type_kind": 0,
+              "type_index": 389
+            }
+          },
+          {
+            "names": ["swDangling"],
+            "member_id": 1073741825,
+            "value": 1,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swSketchRelationFilterType_e",
+              "guid": "{52A8AC05-773D-4493-8B9C-D4E14C68BE45}",
+              "type_kind": 0,
+              "type_index": 389
+            }
+          },
+          {
+            "names": ["swOverDefining"],
+            "member_id": 1073741826,
+            "value": 2,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swSketchRelationFilterType_e",
+              "guid": "{52A8AC05-773D-4493-8B9C-D4E14C68BE45}",
+              "type_kind": 0,
+              "type_index": 389
+            }
+          },
+          {
+            "names": ["swExternal"],
+            "member_id": 1073741827,
+            "value": 3,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swSketchRelationFilterType_e",
+              "guid": "{52A8AC05-773D-4493-8B9C-D4E14C68BE45}",
+              "type_kind": 0,
+              "type_index": 389
+            }
+          },
+          {
+            "names": ["swDefinedInContext"],
+            "member_id": 1073741828,
+            "value": 4,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swSketchRelationFilterType_e",
+              "guid": "{52A8AC05-773D-4493-8B9C-D4E14C68BE45}",
+              "type_kind": 0,
+              "type_index": 389
+            }
+          },
+          {
+            "names": ["swLocked"],
+            "member_id": 1073741829,
+            "value": 5,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swSketchRelationFilterType_e",
+              "guid": "{52A8AC05-773D-4493-8B9C-D4E14C68BE45}",
+              "type_kind": 0,
+              "type_index": 389
+            }
+          },
+          {
+            "names": ["swBroken"],
+            "member_id": 1073741830,
+            "value": 6,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swSketchRelationFilterType_e",
+              "guid": "{52A8AC05-773D-4493-8B9C-D4E14C68BE45}",
+              "type_kind": 0,
+              "type_index": 389
+            }
+          },
+          {
+            "names": ["swSelectedEntities"],
+            "member_id": 1073741831,
+            "value": 7,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swSketchRelationFilterType_e",
+              "guid": "{52A8AC05-773D-4493-8B9C-D4E14C68BE45}",
+              "type_kind": 0,
+              "type_index": 389
+            }
+          }
+        ],
+        "scope": "Static installed type-library metadata; no CAD application launched or attached"
+      }
+    },
+    {
+      "source_report": "ThinWallTypes.json",
+      "original_sha256": "c97b35cf00e4ac879d12aa48d74be8ec014c1357e49ff00827d22b8a6085a9f0",
+      "metadata": {
+        "path": "C:\\Program Files\\SOLIDWORKS Corp\\SOLIDWORKS\\swconst.tlb",
+        "sha256": "f918998d27bf3a0d58b6de082c5a520edc852303bd772cb18458126fe9fddf38",
+        "library": "(IID('{4687F359-55D0-4CD3-B6CF-2EB42C11F989}'), 0, 3, 34, 0, 8)",
+        "library_identity": {
+          "name": "SwConst",
+          "guid": "{4687F359-55D0-4CD3-B6CF-2EB42C11F989}",
+          "locale_id": 0,
+          "system_kind": 3,
+          "major_version": 34,
+          "minor_version": 0,
+          "flags": 8
+        },
+        "tool": {
+          "path": "<oracle-staging>/InspectTypeLib.py",
+          "sha256": "a49ec38dc1bc97b0074516f2e2a728eb44be26301e748451539f4fa356656302",
+          "python_version": "3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 64 bit (AMD64)]"
+        },
+        "interface": "*ThinWall*",
+        "method": "*",
+        "types": [
+          {
+            "name": "swThinWallType_e",
+            "guid": "{B67DD19E-47A6-440E-BA58-4D8F960AC6B9}",
+            "type_kind": 0,
+            "type_index": 257
+          }
+        ],
+        "methods": [],
+        "constants": [
+          {
+            "names": ["swThinWallOneDirection"],
+            "member_id": 1073741824,
+            "value": 0,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swThinWallType_e",
+              "guid": "{B67DD19E-47A6-440E-BA58-4D8F960AC6B9}",
+              "type_kind": 0,
+              "type_index": 257
+            }
+          },
+          {
+            "names": ["swThinWallOppDirection"],
+            "member_id": 1073741825,
+            "value": 1,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swThinWallType_e",
+              "guid": "{B67DD19E-47A6-440E-BA58-4D8F960AC6B9}",
+              "type_kind": 0,
+              "type_index": 257
+            }
+          },
+          {
+            "names": ["swThinWallMidPlane"],
+            "member_id": 1073741826,
+            "value": 2,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swThinWallType_e",
+              "guid": "{B67DD19E-47A6-440E-BA58-4D8F960AC6B9}",
+              "type_kind": 0,
+              "type_index": 257
+            }
+          },
+          {
+            "names": ["swThinWallTwoDirection"],
+            "member_id": 1073741827,
+            "value": 3,
+            "variable_kind": 2,
+            "variable_flags": 0,
+            "declared_type": "(22, 0, None)",
+            "declaring_type": {
+              "name": "swThinWallType_e",
+              "guid": "{B67DD19E-47A6-440E-BA58-4D8F960AC6B9}",
+              "type_kind": 0,
+              "type_index": 257
+            }
+          }
+        ],
+        "scope": "Static installed type-library metadata; no CAD application launched or attached"
+      }
+    }
+  ],
+  "private_path_redactions": [
+    {
+      "report": "RevolveTypes.json",
+      "field": "tool.path",
+      "original_utf8_sha256": "43fa308e90a9f8fe1f30e0771674db2e4262a2d9a7615d11cee8814573d54143",
+      "replacement": "<oracle-staging>/InspectTypeLib.py"
+    },
+    {
+      "report": "FeatureRevolve2.json",
+      "field": "tool.path",
+      "original_utf8_sha256": "43fa308e90a9f8fe1f30e0771674db2e4262a2d9a7615d11cee8814573d54143",
+      "replacement": "<oracle-staging>/InspectTypeLib.py"
+    },
+    {
+      "report": "ConstraintTypes.json",
+      "field": "tool.path",
+      "original_utf8_sha256": "43fa308e90a9f8fe1f30e0771674db2e4262a2d9a7615d11cee8814573d54143",
+      "replacement": "<oracle-staging>/InspectTypeLib.py"
+    },
+    {
+      "report": "RevolveConstants.json",
+      "field": "tool.path",
+      "original_utf8_sha256": "43fa308e90a9f8fe1f30e0771674db2e4262a2d9a7615d11cee8814573d54143",
+      "replacement": "<oracle-staging>/InspectTypeLib.py"
+    },
+    {
+      "report": "EndConditions.json",
+      "field": "tool.path",
+      "original_utf8_sha256": "43fa308e90a9f8fe1f30e0771674db2e4262a2d9a7615d11cee8814573d54143",
+      "replacement": "<oracle-staging>/InspectTypeLib.py"
+    },
+    {
+      "report": "RelationFilters.json",
+      "field": "tool.path",
+      "original_utf8_sha256": "43fa308e90a9f8fe1f30e0771674db2e4262a2d9a7615d11cee8814573d54143",
+      "replacement": "<oracle-staging>/InspectTypeLib.py"
+    },
+    {
+      "report": "ThinWallTypes.json",
+      "field": "tool.path",
+      "original_utf8_sha256": "43fa308e90a9f8fe1f30e0771674db2e4262a2d9a7615d11cee8814573d54143",
+      "replacement": "<oracle-staging>/InspectTypeLib.py"
+    }
+  ],
+  "prior_exact_query_core_fields_identical": {
+    "names": true,
+    "member_id": true,
+    "invoke_kind": true,
+    "arguments": true,
+    "return_type": true
+  },
+  "acceptance_scope": "API declaration evidence only; no native-file writer, geometry or source-family acceptance",
+  "native_revolve_writer_started": false
+}

@@ -48,8 +48,13 @@ Unsupported values are not coerced or replaced.
 
 Python AST parsing passed, and Black `26.5.1` formatted the private script.
 These checks did not import or execute the inspector.
-The wildcard and enum inventory paths have not yet been exercised against the installed Windows libraries.
-Fresh metadata capture remains pending and must record the actual library and tool identities.
+The [installed metadata capture](../../../../re/solidworks/v2026/evidence/RevolveAndConstraintTypeLibrary.json)
+now exercises seven exact, wildcard and enum selections on inspector source `4559f8263ba28c9dad8cd2b1ee4c9696ee8d38b5`.
+It records 76 member declarations across six revolve types, the twenty-argument `FeatureRevolve2` declaration and 117 enum constants across the selected enum types.
+Both installed libraries report version 34.0, with their actual file hashes retained.
+The five original exact-method fields match the earlier capture.
+Only the seven private staging-tool path values are replaced; original report hashes and replacement-path hashes are recorded.
+No proprietary libraries or generated wrappers are included.
 The earlier [exact-method evidence](../../../../re/solidworks/v2026/evidence/CurveAuthoringTypeLibrary.json) does not validate these new paths.
 Metadata describes API declarations; it does not establish serialized field ownership, writer correctness, geometry, or native file acceptance.
 The [SOLIDWORKS adapter](../../../Reference/Adapters/Solidworks.md) remains read-only.
