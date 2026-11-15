@@ -124,7 +124,7 @@ def TestBadMembers() -> None:
     Longer = ReplaceValue(Drawing, Layout=Drawing.Layout + (Missing,))
     with ExpectError(ValueError, match="absent member"):
         _ = EmitDrawing(Longer, Replay.Compress)
-    Unnamed = DrawingDatabase("Nested/ExtFile.dwg", b"AC1032")
+    Unnamed = ReplaceValue(Drawing.Database, FileName="Nested/ExtFile.dwg")
     with ExpectError(ValueError, match="database member"):
         _ = EmitDrawing(ReplaceValue(Drawing, Database=Unnamed), Replay.Compress)
 
@@ -137,10 +137,10 @@ def TestDwgJoin() -> None:
     (Serializer,) = ClassFields(Drawing, KFileClass)
     FileName = Serializer["persistedFileName"]
     assert isinstance(FileName, str) and FileName.startswith("ExtFile.")
-    Joined = DrawingDatabase(FileName, b"AC1032")
+    Joined = ReplaceValue(Drawing.Database, FileName=FileName)
     with ExpectError(ValueError, match="omits typed members"):
         _ = EmitDrawing(ReplaceValue(Drawing, Database=Joined), Replay.Compress)
-    Renamed = DrawingDatabase("ExtFile.dwg", b"AC1032")
+    Renamed = ReplaceValue(Drawing.Database, FileName="ExtFile.dwg")
     with ExpectError(ValueError, match="disagrees with its segment"):
         _ = EmitDrawing(ReplaceValue(Drawing, Database=Renamed), Replay.Compress)
     Package = ReadPackage(DataValue, Replay.Inflate)

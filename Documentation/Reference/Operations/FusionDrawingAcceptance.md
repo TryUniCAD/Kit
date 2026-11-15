@@ -34,10 +34,17 @@ acceptance oracle, never as part of a conversion.
 | Fusion-saved F2D drawing document re-emitted byte-exactly  | 248 of 248 |
 | Fusion-saved DWG header typed into parametric variables    | 60 of 60   |
 
-These are byte-preserving round trips, not a conversion. `ReadDrawing` keeps the embedded DWG as
-bytes and `EmitDrawing` writes them back, so the counts show that Kit does not damage a drawing it
-passes through. They do not show that Kit projects a drawing into an interchange model and rebuilds
-it, which is what C3 asks for. C3 is therefore **not met** for drawings.
+`ReadDrawing` projects the embedded DWG into the typed model and `EmitDrawing` rebuilds it from that
+model, so the counts are a conversion and not a replay. One drawing projects to 1993 typed objects.
+
+| Check                                                              | Result     |
+| ------------------------------------------------------------------ | ---------- |
+| F2D re-emitted byte-exactly through the typed DWG model             | 247 of 248 |
+| Typed `LAYOUT` edit, emitted from the model, opened in Fusion       | 841 by 594 mm, 4.7 s |
+
+The one F2D that does not round-trip is a research control with an empty database, which the reader
+now rejects. C3 is met for drawings through the DWG model, with the limit that the model is the DWG
+model and not a neutral interchange model.
 
 ## C4. Fully parametric
 

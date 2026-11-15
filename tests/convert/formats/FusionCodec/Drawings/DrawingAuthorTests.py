@@ -70,7 +70,9 @@ def TestNewBundle() -> None:
     Codec = ImportSkip("compression.zstd")
     Content = AuthorDwg(MakeDraft(KViews, (KDimension,)))
     SpecValue = MakeSpec()
-    Drawing = BuildDrawing(SpecValue, DrawingDatabase(KDatabaseName, Content))
+    Drawing = BuildDrawing(
+        SpecValue, DrawingDatabase(KDatabaseName, ReadDwgFile(Content))
+    )
     Bundle = BuildBundle(SpecValue, Drawing, KDesignData)
     Emitted = EmitDrawBundle(Bundle, Codec.compress)
 
@@ -91,9 +93,9 @@ def TestNewBundle() -> None:
 
 # the specification rejects contract needs boundary coverage so stored document relationships remain consistent
 def TestSpecRejects() -> None:
-    Database = DrawingDatabase(KDatabaseName, AuthorDwg(MakeDraft()))
+    Database = DrawingDatabase(KDatabaseName, ReadDwgFile(AuthorDwg(MakeDraft())))
     with ExpectError(ValueError, match="ExtFile"):
-        _ = BuildDrawing(MakeSpec(), DrawingDatabase("Drawing.dwg", Database.Content))
+        _ = BuildDrawing(MakeSpec(), DrawingDatabase("Drawing.dwg", Database.Model))
     Broken = ReplaceValue(KDesign, AssetId="NOT-A-GUID")
     with ExpectError(ValueError, match="GUID"):
         _ = BuildDrawing(ReplaceValue(MakeSpec(), Design=Broken), Database)
@@ -104,7 +106,7 @@ def TestSpecRejects() -> None:
 
 # the sheet paper contract needs boundary coverage so stored document relationships remain consistent
 def TestSheetPaper() -> None:
-    Database = DrawingDatabase(KDatabaseName, AuthorDwg(MakeDraft()))
+    Database = DrawingDatabase(KDatabaseName, ReadDwgFile(AuthorDwg(MakeDraft())))
     Larger = ReplaceValue(MakeSpec(), Sheet=SheetSpec("Kit Sheet", "A1 Landscape"))
     Sheet = BuildDrawing(Larger, Database).Sheet
     assert Sheet is not None
@@ -130,7 +132,7 @@ def TestRecordIds() -> None:
     )
     with ExpectError(ValueError, match="model source"):
         _ = PlanIds(0, 1, ())
-    Database = DrawingDatabase(KDatabaseName, AuthorDwg(MakeDraft()))
+    Database = DrawingDatabase(KDatabaseName, ReadDwgFile(AuthorDwg(MakeDraft())))
     Design = BuildDrawing(MakeSpec(), Database).Segments[0]
     assert isinstance(Design, ParsedSegment)
     Numbers = sorted({Record.ObjectId for Record in Design.Records})

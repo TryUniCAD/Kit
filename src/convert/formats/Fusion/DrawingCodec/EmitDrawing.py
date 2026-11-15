@@ -1,6 +1,7 @@
 from collections.abc import Callable
 from typing import cast as CastValue
 
+from convert.formats.Fusion.DrawingCodec.Dwg.EmitDwgFile import EmitDwgFile
 from convert.formats.Fusion.DrawingCodec.Manifest.EmitAsset import EmitAsset
 from convert.formats.Fusion.DrawingCodec.Manifest.EmitRoot import EmitRoot
 from convert.formats.Fusion.DrawingCodec.Model.CheckDatabase import CheckDatabase
@@ -60,7 +61,9 @@ def DrawingPayloads(Value: FusionDrawing) -> dict[str, bytes]:
         EmitSegments(Value.Asset, DrawingFolders(Value.Asset.Segments), Value.Segments)
     )
     if Value.Database is not None:
-        Active[KDatabaseFolder + Value.Database.FileName] = Value.Database.Content
+        Active[KDatabaseFolder + Value.Database.FileName] = EmitDwgFile(
+            Value.Database.Model
+        )
     if Value.Sheet is not None:
         Active[KSheetName] = EmitSheet(Value.Sheet)
     Parts = [
