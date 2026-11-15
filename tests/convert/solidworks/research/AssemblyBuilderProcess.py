@@ -24,6 +24,9 @@ AddAuditHook(KAuditValue.InspectEvent)
 # the actual fresh assembly implementation must participate in the audited process
 KAssembly = ImportModule("builders.Assembly")
 
+# assembly self components must use the shared model constructor and its proved owner domain
+KModel = ImportModule("builders.Model")
+
 # typed native objects and seeded archive maps must use the shared codec implementation
 KCore = ImportModule("Core")
 
@@ -54,10 +57,15 @@ KAuditValue.BeginBuild()
 
 # strict construction must expose forbidden reads even when builder code catches their exceptions
 def ProcessInput(InputData: dict[str, dict[str, object]]) -> dict[str, object]:
+    Result: dict[str, object]
     PriorDenied = len(KAuditValue.DeniedReads)
     try:
-        ConfigValue, FileValue = KBuildRecords(InputData, KAssembly, KCore)
-        Result = KInspectResult(*KRoundTrip(ConfigValue, FileValue, KCore, KRegistry))
+        ConfigValue, ComponentValue, FileValue = KBuildRecords(
+            InputData, KAssembly, KModel, KCore
+        )
+        Result = KInspectResult(
+            *KRoundTrip(ConfigValue, ComponentValue, FileValue, KCore, KRegistry)
+        )
     except ValueError as ErrorInfo:
         Result = {"error": str(ErrorInfo)}
     assert len(KAuditValue.DeniedReads) == PriorDenied

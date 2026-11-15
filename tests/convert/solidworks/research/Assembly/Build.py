@@ -9,14 +9,16 @@ from typing import cast as CastValue
 def BuildRecords(
     InputData: dict[str, dict[str, object]],
     BuilderModule: ModuleType,
+    ModelModule: ModuleType,
     CoreModule: ModuleType,
-) -> tuple[object, dict[str, object]]:
+) -> tuple[object, object, dict[str, object]]:
     OwnerValue = GetAttr(CoreModule, "Obj")("moAssembly_c")
     ConfigValue = GetAttr(BuilderModule, "initial_configuration")(
         owner=OwnerValue, **InputData["configuration"]
     )
+    ComponentValue = GetAttr(ModelModule, "unit_component")(owner=OwnerValue)
     FileValue = CastValue(
         dict[str, object],
         GetAttr(BuilderModule, "file_definition")(**InputData["file"]),
     )
-    return ConfigValue, FileValue
+    return ConfigValue, ComponentValue, FileValue

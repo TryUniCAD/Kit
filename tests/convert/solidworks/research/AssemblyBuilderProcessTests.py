@@ -46,7 +46,7 @@ def RunBuilders(Inputs: list[dict[str, dict[str, object]]]) -> list[dict[str, ob
 
 
 # longer authored identities exercise native string length transitions without introducing saved metadata
-def MakeChangedInput() -> dict[str, dict[str, object]]:
+def MakeVariant() -> dict[str, dict[str, object]]:
     Changed = CopyValues(KInput)
     Changed["configuration"]["name"] = "renamed " + "装" * 260
     Changed["configuration"][
@@ -62,12 +62,17 @@ def MakeChangedInput() -> dict[str, dict[str, object]]:
 
 
 # variable authored names must survive native string growth while owner and allocation identities remain valid
-def TestInitialConfigurationArchives() -> None:
-    Changed = MakeChangedInput()
+def TestGraph() -> None:
+    Changed = MakeVariant()
     Small, Large = RunBuilders([KInput, Changed])
     assert Small["read_blocked"] and Large["read_blocked"]
     assert CastValue(int, Small["import_reads"]) > 0
     assert all(Result["owner_identity"] for Result in (Small, Large))
+    assert (
+        Small["self_component_class"]
+        == Large["self_component_class"]
+        == "moUnitComponent_c"
+    )
     assert all(Result["componentless_default"] for Result in (Small, Large))
     assert [Result["distinct_profiles"] for Result in (Small, Large)] == [3, 3]
     assert Small["profile_schemas"] == Large["profile_schemas"] == [1, 1, 1]
@@ -89,7 +94,7 @@ def TestInitialConfigurationArchives() -> None:
 
 
 # invalid semantic requests must fail before an unsupported configuration or file identity reaches the archive
-def TestConstructionInputScope() -> None:
+def TestScope() -> None:
     WrongKind = CopyValues(KInput)
     WrongKind["file"]["document_kind"] = "assembly"
     PartialPath = CopyValues(KInput)

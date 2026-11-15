@@ -12,7 +12,11 @@ def ReadText(Value: object) -> str:
 
 # decoded graph observations expose allocation aliases and authored values lost at real archive boundaries
 def InspectResult(
-    ConfigValue: object, FileValue: object, OwnerValue: object, BlobValue: bytes
+    ConfigValue: object,
+    ComponentValue: object,
+    FileValue: object,
+    OwnerValue: object,
+    BlobValue: bytes,
 ) -> dict[str, object]:
     Fields = GetAttr(ConfigValue, "f")
     FileFields = GetAttr(FileValue, "f")
@@ -22,7 +26,8 @@ def InspectResult(
     return {
         "size": len(BlobValue),
         "hash": HashBytes(BlobValue).hexdigest(),
-        "owner_identity": Fields["owner"] is OwnerValue,
+        "owner_identity": GetAttr(ComponentValue, "f")["owner"] is OwnerValue,
+        "self_component_class": GetAttr(ComponentValue, "cls"),
         "name": ReadText(Fields["f18"].f["f08"]),
         "description": ReadText(Fields["f4a8"]),
         "local_id": Fields["f08"],

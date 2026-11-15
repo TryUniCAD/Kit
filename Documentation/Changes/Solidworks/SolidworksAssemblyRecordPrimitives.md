@@ -44,13 +44,20 @@ state and three separate options allocations.
 Local verification is static syntax parsing, documentation formatting and diff
 validation only. No constructor imports, local tests, serializer reproductions
 or vendor operations ran. The remote process check now constructs the initial
-configuration and ordinary file definition, encodes and decodes their real
+configuration, generated unit self component and ordinary file definition,
+encodes and decodes their real
 native object classes with an explicit generated owner-map seed, and requires
 complete consumption plus byte identity. It checks separate options allocation,
 owner identity, variable Unicode name/path lengths, saved version, configuration
 state, and invalid semantic inputs. The audit starts before builder imports and
 denies all file and directory access during construction and encoding; caught
 denials also fail the process. Current-revision execution remains pending.
+
+The first process revision failed in its reporting assertion because the
+standalone configuration grammar does not serialize the constructor's runtime
+owner field. The repaired check verifies the actual unit-component owner wire
+edge. The [owner-context gotcha](../../Gotchas/Conversion/Solidworks/Archive/ConfigurationOwnersNeedModelContext.md)
+records that failure and the correction; no extra archive field was added.
 
 This boundary covers initial records, not the complete generated assembly graph.
 Isolated unit tests are prohibited. These primitives do not
