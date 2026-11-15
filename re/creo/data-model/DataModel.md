@@ -709,6 +709,28 @@ The pattern is consistent with everything measured before: the row does not stor
 input **and** its solution (`p_saved_result`, `triples_ptr`), and a definition that has the segments and the
 dimensions but none of the relation or solve tables is not a model Creo will accept.
 
+### The definition index must name exactly the classes present
+
+The index is a declaration of which definition classes the part carries, and the two vendors agree on that rule:
+
+| Part | `feat_defs_index` | Has a `FeatDefs` row |
+| --- | --- | --- |
+| empty control | `[923, 979]` | no |
+| ladder | `[923, 979, 949, 917]` | yes |
+
+Our generator was emitting `[923, 979, 917]` while writing **no** `FeatDefs` row at all, which is an internal
+contradiction the loader can cross-check. The index is now derived from the classes that actually carry
+definitions, and for a datum-only part it is byte-identical to the control's:
+
+```text
+vendor index: e0 00 Sld_FeatDefsIndex 00 e3 e0 01 feat_defs_index 00 f8 02 83 9b 83 d3 f1
+ours        : e0 00 Sld_FeatDefsIndex 00 e3 e0 01 feat_defs_index 00 f8 02 83 9b 83 d3 f1
+identical   : True
+```
+
+`Author.EmptyPartSections` now defaults to `(923, 979)`, and a `917` class belongs in the list only once a
+`FeatDefs` row is generated to match it.
+
 ### The definition index is not the blocker
 
 `FeatDefsIndex` is a separate row and it lists which definition classes exist:

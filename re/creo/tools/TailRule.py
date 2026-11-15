@@ -83,7 +83,7 @@ Variants = {
 }
 
 for Name, TailValue in Variants.items():
-    Bodies = Author.EmptyPartSections((923, 979, 917))
+    Bodies = Author.EmptyPartSections((923, 979))
     Bodies["AllFeatur"] = Author.SectionValue("AllFeatur", Head() + TailValue)
     Target = Path.home() / "Documents/creo-authored" / f"{Name}.prt"
     Target.write_bytes(Subset.Build(Source, Header.base, set(), Bodies))

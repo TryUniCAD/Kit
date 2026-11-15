@@ -27,6 +27,23 @@ Creo measurement. So there is **no Creo-measured body count, volume, centre of m
 output**, and these acceptance criteria are not met. `Writer.py` therefore reports
 `mode=exact_native_roundtrip`, `vendor_loadable=False` and `application_usable=False`.
 
+### The generated definition index contradicted its own part
+
+The index declares which definition classes the part carries, and both vendors follow that rule: the empty
+control has `[923, 979]` and no `FeatDefs` row, the ladder has `[923, 979, 949, 917]` and one. Our generator was
+emitting `[923, 979, 917]` while writing no `FeatDefs` row — a contradiction the loader can cross-check. It is
+fixed: `Author.EmptyPartSections` defaults to `(923, 979)` and the index is now byte-identical to the control's:
+
+```text
+vendor index: ... f8 02 83 9b 83 d3 f1
+ours        : ... f8 02 83 9b 83 d3 f1
+identical   : True
+```
+
+This change was made **without a Creo run** — the guest agent is still unreachable — so the load of the corrected
+47-row artifact is unverified. The verification that it replaces a contradiction with agreement is byte-level, not
+a load.
+
 **The verification host itself is now unavailable.** A `modelcheck.bat` run wedged the Windows guest agent, and the
 forced restart that followed left `prlctl exec` unable to open a session until someone signs in at the VM console
 — see [the Parallels gotcha](../../Gotchas/Conversion/ParallelsExecNeedsSignIn.md). So the last planned experiment

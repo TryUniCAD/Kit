@@ -127,7 +127,7 @@ for Budget in (0x1A0, 0x19F, 0x1A1):
     Layers = dict(Payload=Payload)
     New = Intro + Expand(Tokens, Budget - 4)
     Total = Spans[0][0] + len(New) + (len(Payload) - Spans[0][1])
-    Bodies = Author.EmptyPartSections((923, 979, 917))
+    Bodies = Author.EmptyPartSections((923, 979))
     Bodies["AllFeatur"] = Author.SectionValue(
         "AllFeatur",
         Payload[: Spans[0][0]] + New + Payload[Spans[0][1] :],
@@ -140,7 +140,7 @@ for Budget in (0x1A0, 0x19F, 0x1A1):
 # Also change one lane in a way that cannot be a mere re-encode: keep the size the same but set the
 # declared element count one short, which tests whether the count is checked against the elements.
 Short = Lane[:3] + b"\xfb" + Elements
-Bodies = Author.EmptyPartSections((923, 979, 917))
+Bodies = Author.EmptyPartSections((923, 979))
 Bodies["AllFeatur"] = Author.SectionValue(
     "AllFeatur", Payload[: Spans[0][0]] + Short + Payload[Spans[0][1] :]
 )

@@ -25,7 +25,7 @@ from convert.adapters.creo import Author
 from convert.adapters.creo.Header import ReadHeader
 
 KControl = Path("re/creo/oracle/empty/solid_start_part_mmks.prt")
-KFeatureClasses = (923, 979, 917)
+KFeatureClasses = (923, 979)
 
 
 def Build(Source: Path, Target: Path) -> bytes:

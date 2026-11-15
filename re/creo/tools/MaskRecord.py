@@ -61,7 +61,7 @@ for IndexText in sys.argv[1:]:
     IndexValue = int(IndexText)
     Start, End, Defined = Spans[IndexValue]
     Out = Payload[:Start] + CleanLane(Defined) + Payload[End:]
-    Bodies = Author.EmptyPartSections((923, 979, 917))
+    Bodies = Author.EmptyPartSections((923, 979))
     Bodies["AllFeatur"] = Author.SectionValue("AllFeatur", Out)
     Name = f"maskrec{IndexValue + 1}"
     Target = Path.home() / "Documents/creo-authored" / f"{Name}.prt"

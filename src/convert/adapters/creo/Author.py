@@ -406,6 +406,7 @@ def EmptySectionPayloads() -> dict[str, bytes]:
 
 
 # the loader cross checks this index against the feature chain
+# the index names only classes that carry definitions so 917 appears with a feature defs row
 def FeatureIndexPayload(Classes: tuple[int, ...]) -> bytes:
     return SectionValue(
         "FeatDefsIndex",
@@ -499,7 +500,9 @@ def MinimalSections() -> dict[str, bytes]:
 
 
 # the datum only part is the smallest model creo will load
-def EmptyPartSections(FeatureClasses: tuple[int, ...]) -> dict[str, bytes]:
+def EmptyPartSections(
+    FeatureClasses: tuple[int, ...] = (923, 979),
+) -> dict[str, bytes]:
     Bodies = AuthoredSections(FeatureClasses)
     Bodies.update(MinimalSections())
     Bodies["BasBasData"] = DefaultBasBasData()

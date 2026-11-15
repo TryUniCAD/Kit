@@ -72,7 +72,7 @@ def Candidate(
             Author.FlagValue(Kept) if IndexValue == 0 else Author.SignedIntElements(Kept)
         )
         Out = Out[:Start] + Lane + Out[End:]
-    Bodies = Author.EmptyPartSections((923, 979, 917))
+    Bodies = Author.EmptyPartSections((923, 979))
     Bodies["AllFeatur"] = Author.SectionValue("AllFeatur", Out)
     Target = Path.home() / "Documents/creo-authored" / f"{NameText}.prt"
     Target.write_bytes(Subset.Build(Source, Header.base, set(), Bodies))

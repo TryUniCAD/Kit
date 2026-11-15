@@ -72,7 +72,7 @@ Variants = {
 }
 for Name, Ranges in Variants.items():
     New = Remove(Payload, Ranges)
-    Bodies = Author.EmptyPartSections((923, 979, 917))
+    Bodies = Author.EmptyPartSections((923, 979))
     Bodies["AllFeatur"] = Author.SectionValue("AllFeatur", New)
     Target = Path.home() / "Documents/creo-authored" / f"{Name}.prt"
     Result = Subset.Build(Source, Header.base, set(), Bodies)
