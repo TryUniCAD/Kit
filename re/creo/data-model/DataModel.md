@@ -540,7 +540,7 @@ With that fixed, the earlier `ORDER_DEBUG` crashes disappear and the sections lo
 | Candidate | Replaces in the control | Creo |
 | --- | --- | --- |
 | `strip_VisibGeom` | `VisibGeom` (31-byte empty payload) | clean |
-| `strip_AllFeatur` | `AllFeatur` (1880) | clean |
+| `strip_AllFeatur` | `AllFeatur` (1880 then, `1876` after the layer-list correction) | clean |
 | `strip_FeatDefsDtm` | `FeatDefsDtm` (1428) | clean |
 | `strip_BasBasData` | `BasBasData` (351) | clean |
 | `gen_rows2` | **all 42 generated rows** | clean, 2 of 2 |

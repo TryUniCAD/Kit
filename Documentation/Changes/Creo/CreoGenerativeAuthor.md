@@ -114,6 +114,7 @@ The probes live in `re/creo/tools/` and take no vendor bytes into `src/`:
 | `Class917.py` | a generated class-`917` definition element |
 | `SketchDef.py` | a generated sketch-bearing class-`949` element, reduced and complete |
 | `Rebuild.py` | rebuilds the 47-row generative part with one command; byte-deterministic |
+| `Verify.py` | the checkable ledger: rebuilds, reader counts, emitters, index — 11 checks, no Creo needed |
 
 Launching Creo 2027.2 in Parallels:
 
@@ -710,8 +711,9 @@ allfeat4: records 1199 135 135 223, payload 1880 vs control 3478
 !MT_CUST - Applied settings for mode # 1 : MT Part Solid
 ```
 
-two loads out of two, and `Author.DefaultAllFeatur` now emits exactly that section (`1880` bytes,
-byte-identical to the probe). The container with 41 authored sections loads with it:
+two loads out of two, and `Author.DefaultAllFeatur` then emitted exactly that section (`1880` bytes,
+byte-identical to the probe). It is `1876` bytes today: the layer-list correction below changed the tail, so the
+figure moved with it. The container with 41 authored sections loads with it:
 
 ```text
 auth4 part 29673 bytes from control 81539
@@ -1270,7 +1272,8 @@ EmptyVisibGeom()       : 42 bytes  #VisibGeom\n e0 00 Sld_VisibGeom 00 e3 ...
 
 Fixed in `Author.StripSectionHeader`. The `dbg_err_crash` results in the previous section were an artifact of that
 duplication, not of the emitters. With the header stripped, each curated section replaces the control's and loads
-**cleanly** — `VisibGeom` (31-byte payload), `AllFeatur` (1880), `FeatDefsDtm` (1428), `BasBasData` (351) — and so
+**cleanly** — `VisibGeom` (31-byte payload), `AllFeatur` (1880 at the time of that run, `1876` after the
+layer-list correction), `FeatDefsDtm` (1428), `BasBasData` (351) — and so
 does the whole set:
 
 ```text
