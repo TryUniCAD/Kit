@@ -2,7 +2,8 @@ from __future__ import annotations
 
 from collections.abc import Iterator, MutableMapping, Sequence
 from dataclasses import dataclass
-from math import fsum, isclose, isfinite, sqrt
+from fractions import Fraction
+from math import isclose, isfinite, sqrt
 
 from Core import ArchiveError, Obj
 
@@ -148,8 +149,8 @@ def entity_fields(*, sketch: Obj):
     if sketch.cls != "sgSketch":
         raise ConstructionError("entity owner must be sgSketch")
     profile = sketch.get("f138")
-    if not isinstance(profile, Obj) or profile.cls != "moProfileFeature_c" or sketch.get("f568") not in (-1, 0):
-        raise ConstructionError("entity constructors require an ordinary 2D moProfileFeature_c owner")
+    if not isinstance(profile, Obj) or profile.cls not in ("moProfileFeature_c", "moOriginProfileFeature_c") or sketch.get("f568") not in (-1, 0):
+        raise ConstructionError("entity constructors require an ordinary 2D profile owner")
     return {
         "_sketch": sketch,
         "f08": 0,
@@ -191,6 +192,33 @@ def ordinary_point(*, sketch: Obj, position: Sequence[float]):
         "ff0": 0,
     })
     return Obj("sgPoint", fields)
+
+
+def point_handle(*, sketch: Obj, point: Obj, points: NodeOrder):
+    if sketch.cls != "sgSketch" or point.cls != "sgPoint" or point.get("_sketch") is not sketch:
+        raise ConstructionError("point handles require a point owned by their sketch")
+    return Obj("sgPointHandle", DerivedFields(
+        fields={"_sketch": sketch, "_point": point, "f1c": -1, "f08": 0},
+        derived={
+            "idx": lambda: min(_node_index(nodes=points, node=point), 0x777F),
+            "f18": lambda: _node_index(nodes=points, node=point),
+        },
+    ))
+
+
+def dimension_fields():
+    return {
+        "refcount": 0,
+        "f28": None,
+        "f48": None,
+        "f50": -1,
+        "f30": 0,
+        "f54": 0,
+        "f5c": 0,
+        "f60": None,
+        "f68": 0,
+        "has_f78": 0,
+    }
 
 
 def _node_index(*, nodes: NodeOrder, node: Obj):
@@ -244,8 +272,8 @@ def empty_object_list():
 
 
 def new_sketch(*, profile: Obj):
-    if profile.cls != "moProfileFeature_c":
-        raise ConstructionError("fresh 2D sketches require moProfileFeature_c")
+    if profile.cls not in ("moProfileFeature_c", "moOriginProfileFeature_c"):
+        raise ConstructionError("fresh 2D sketches require an ordinary or origin profile")
     creation = {f"f{offset:02x}": 1 for offset in range(0x08, 0x40, 4)}
     creation["f40"] = 0
     dims = counted_fields(collections={
@@ -311,8 +339,8 @@ class ProfileGraph:
 
 
 def new_profile(*, profile: Obj, plane: Obj, frame: PlaneFrame):
-    if profile.cls != "moProfileFeature_c" or type(profile.get("f08")) is not int or profile["f08"] < 0:
-        raise ConstructionError("profile must be an allocated moProfileFeature_c from the model factory")
+    if profile.cls not in ("moProfileFeature_c", "moOriginProfileFeature_c") or type(profile.get("f08")) is not int or profile["f08"] < 0:
+        raise ConstructionError("profile must be an allocated ordinary or origin profile from the model factory")
     if plane.cls != "moCompRefPlane_c":
         raise ConstructionError("profile plane must be a moCompRefPlane_c reference node")
     if not isinstance(frame, PlaneFrame):
@@ -356,6 +384,34 @@ def new_profile(*, profile: Obj, plane: Obj, frame: PlaneFrame):
     return ProfileGraph(profile=profile, sketch=sketch)
 
 
+def origin_profile(*, profile: Obj, plane: Obj, frame: PlaneFrame):
+    if profile.cls != "moOriginProfileFeature_c":
+        raise ConstructionError("origin construction requires an allocated moOriginProfileFeature_c")
+    if frame.origin != (0.0, 0.0, 0.0):
+        raise ConstructionError("a document origin profile requires the semantic model origin")
+    graph = new_profile(profile=profile, plane=plane, frame=frame)
+    profile["pd_f11c"] &= ~6
+    point = ordinary_point(sketch=graph.sketch, position=(0.0, 0.0))
+    point["fe4"] = 1
+    point["f0c"] = 1
+    points = NodeOrder(nodes=(point,))
+    handle = point_handle(sketch=graph.sketch, point=point, points=points)
+    fields = dimension_fields()
+    fields.update({"_sketch": graph.sketch, "f80": 0x11, "f90": 2, "f94": 0, "f98": 0, "fa0": 0xFFFE, "fa4": 0, "h1": handle})
+    constraint = Obj("sgLogG1Dim", fields)
+    point["_constraints"] = (constraint,)
+    del point.f["f20"]
+    point.f = DerivedFields(fields=point.f, derived={"f20": lambda: len(point["_constraints"])})
+    graph.sketch["points"].append({"kind": 0, "point": point.f})
+    graph.sketch["dims"]["log_g1"].append({"d": constraint.f})
+    graph.sketch["f140"]["f08"] = 2
+    graph.sketch["_point_nodes"] = points
+    graph.sketch["_line_nodes"] = NodeOrder(nodes=())
+    graph.sketch["_origin_constraint"] = constraint
+    graph.sketch["_requires_update"] = True
+    return graph
+
+
 def _orientation(*, a, b, c):
     return (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0])
 
@@ -371,8 +427,6 @@ def _intersects(*, a, b, c, d):
         _orientation(a=c, b=d, c=a),
         _orientation(a=c, b=d, c=b),
     )
-    if not all(isfinite(value) for value in signs):
-        raise ConstructionError("polygon coordinates exceed finite orientation arithmetic")
     first, second, third, fourth = signs
     if ((first > 0 > second) or (second > 0 > first)) and ((third > 0 > fourth) or (fourth > 0 > third)):
         return True
@@ -384,6 +438,195 @@ def _intersects(*, a, b, c, d):
     )
 
 
+@dataclass(frozen=True, kw_only=True)
+class _SweepEdge:
+    index: int
+    start: tuple[Fraction, Fraction]
+    end: tuple[Fraction, Fraction]
+    slope: Fraction | None
+
+    def y_at(self, *, x):
+        if self.slope is None:
+            raise ConstructionError("vertical edges require the sweep range branch")
+        return self.start[1] + (x - self.start[0]) * self.slope
+
+
+@dataclass(eq=False, kw_only=True)
+class _SweepNode:
+    edge: _SweepEdge
+    parent: _SweepNode | None = None
+    left: _SweepNode | None = None
+    right: _SweepNode | None = None
+    height: int = 1
+
+
+class _SweepTree:
+    def __init__(self):
+        self.root = None
+        self.nodes = {}
+        self.x = Fraction(0)
+
+    def _height(self, *, node):
+        return 0 if node is None else node.height
+
+    def _refresh(self, *, node):
+        node.height = 1 + max(self._height(node=node.left), self._height(node=node.right))
+
+    def _replace(self, *, node, replacement):
+        if node.parent is None:
+            self.root = replacement
+        elif node.parent.left is node:
+            node.parent.left = replacement
+        else:
+            node.parent.right = replacement
+        if replacement is not None:
+            replacement.parent = node.parent
+
+    def _rotate(self, *, node, left):
+        pivot = node.right if left else node.left
+        if pivot is None:
+            raise ConstructionError("invalid sweep-tree rotation")
+        self._replace(node=node, replacement=pivot)
+        middle = pivot.left if left else pivot.right
+        if left:
+            node.right = middle
+            pivot.left = node
+        else:
+            node.left = middle
+            pivot.right = node
+        if middle is not None:
+            middle.parent = node
+        node.parent = pivot
+        self._refresh(node=node)
+        self._refresh(node=pivot)
+        return pivot
+
+    def _rebalance(self, *, node):
+        while node is not None:
+            self._refresh(node=node)
+            balance = self._height(node=node.left) - self._height(node=node.right)
+            if balance > 1:
+                if self._height(node=node.left.left) < self._height(node=node.left.right):
+                    self._rotate(node=node.left, left=True)
+                node = self._rotate(node=node, left=False)
+            elif balance < -1:
+                if self._height(node=node.right.right) < self._height(node=node.right.left):
+                    self._rotate(node=node.right, left=False)
+                node = self._rotate(node=node, left=True)
+            node = node.parent
+
+    def _key(self, *, edge):
+        return edge.y_at(x=self.x), edge.slope, edge.index
+
+    def insert(self, *, edge):
+        node = _SweepNode(edge=edge)
+        if self.root is None:
+            self.root = node
+        else:
+            parent = self.root
+            key = self._key(edge=edge)
+            while True:
+                left = key < self._key(edge=parent.edge)
+                child = parent.left if left else parent.right
+                if child is None:
+                    node.parent = parent
+                    if left:
+                        parent.left = node
+                    else:
+                        parent.right = node
+                    break
+                parent = child
+            self._rebalance(node=parent)
+        self.nodes[edge.index] = node
+        return node
+
+    def before(self, *, node):
+        if node.left is not None:
+            node = node.left
+            while node.right is not None:
+                node = node.right
+            return node
+        while node.parent is not None and node.parent.left is node:
+            node = node.parent
+        return node.parent
+
+    def after(self, *, node):
+        if node.right is not None:
+            node = node.right
+            while node.left is not None:
+                node = node.left
+            return node
+        while node.parent is not None and node.parent.right is node:
+            node = node.parent
+        return node.parent
+
+    def lower_y(self, *, y):
+        node, found = self.root, None
+        while node is not None:
+            if node.edge.y_at(x=self.x) >= y:
+                found = node
+                node = node.left
+            else:
+                node = node.right
+        return found
+
+    def remove(self, *, index):
+        node = self.nodes.pop(index)
+        if node.left is not None and node.right is not None:
+            following = self.after(node=node)
+            node.edge, following.edge = following.edge, node.edge
+            self.nodes[node.edge.index] = node
+            node = following
+        parent = node.parent
+        self._replace(node=node, replacement=node.left if node.left is not None else node.right)
+        self._rebalance(node=parent)
+
+
+def _reject_crossing(*, first, second, count):
+    if first is None or second is None or abs(first.index - second.index) in (1, count - 1):
+        return
+    if _intersects(a=first.start, b=first.end, c=second.start, d=second.end):
+        raise ConstructionError("closed polygon edges must not intersect or touch away from shared endpoints")
+
+
+def _sweep_ring(*, points):
+    count = len(points)
+    events = {}
+    for i, point in enumerate(points):
+        start, end = sorted((point, points[(i + 1) % count]))
+        vertical = start[0] == end[0]
+        edge = _SweepEdge(index=i, start=start, end=end, slope=None if vertical else (end[1] - start[1]) / (end[0] - start[0]))
+        beginning = events.setdefault(start[0], {"starts": [], "ends": [], "verticals": []})
+        if vertical:
+            beginning["verticals"].append(edge)
+        else:
+            beginning["starts"].append(edge)
+            events.setdefault(end[0], {"starts": [], "ends": [], "verticals": []})["ends"].append(edge)
+    tree = _SweepTree()
+    for x, event in sorted(events.items()):
+        tree.x = x
+        for edge in event["starts"]:
+            node = tree.insert(edge=edge)
+            before, after = tree.before(node=node), tree.after(node=node)
+            _reject_crossing(first=edge, second=None if before is None else before.edge, count=count)
+            _reject_crossing(first=edge, second=None if after is None else after.edge, count=count)
+        previous = None
+        for edge in sorted(event["verticals"], key=lambda item: item.start[1]):
+            if previous is not None and edge.start[1] <= previous.end[1]:
+                _reject_crossing(first=previous, second=edge, count=count)
+            if previous is None or edge.end[1] > previous.end[1]:
+                previous = edge
+            node = tree.lower_y(y=edge.start[1])
+            while node is not None and node.edge.y_at(x=x) <= edge.end[1]:
+                _reject_crossing(first=edge, second=node.edge, count=count)
+                node = tree.after(node=node)
+        for edge in event["ends"]:
+            node = tree.nodes[edge.index]
+            before, after = tree.before(node=node), tree.after(node=node)
+            _reject_crossing(first=None if before is None else before.edge, second=None if after is None else after.edge, count=count)
+            tree.remove(index=edge.index)
+
+
 def polygon_vertices(*, vertices):
     points = tuple(_vector(value=point, size=2) for point in vertices)
     count = len(points)
@@ -391,23 +634,21 @@ def polygon_vertices(*, vertices):
         raise ConstructionError("closed polygons require at least three vertices within signed array limits")
     if len(set(points)) != count:
         raise ConstructionError("polygon vertices must be distinct, with closure represented by the final edge")
-    terms = [points[i][0] * points[(i + 1) % count][1] - points[(i + 1) % count][0] * points[i][1] for i in range(count)]
-    if not all(isfinite(value) for value in terms):
-        raise ConstructionError("polygon coordinates exceed finite area arithmetic")
-    area = fsum(terms)
-    if not isfinite(area) or area == 0:
-        raise ConstructionError("polygon area must be finite and nonzero")
-    for i, a in enumerate(points):
-        b = points[(i + 1) % count]
-        for j in range(i + 1, count):
-            if j == i + 1 or (i == 0 and j == count - 1):
-                continue
-            if _intersects(a=a, b=b, c=points[j], d=points[(j + 1) % count]):
-                raise ConstructionError("closed polygon edges must not intersect or touch away from shared endpoints")
+    exact = tuple(tuple(Fraction(value) for value in point) for point in points)
+    area = sum(exact[i][0] * exact[(i + 1) % count][1] - exact[(i + 1) % count][0] * exact[i][1] for i in range(count))
+    if area == 0:
+        raise ConstructionError("polygon area must be nonzero")
+    for i, point in enumerate(exact):
+        before, after = exact[i - 1], exact[(i + 1) % count]
+        if _orientation(a=before, b=point, c=after) == 0 and not _on_segment(a=before, b=after, point=point):
+            raise ConstructionError("adjacent polygon edges must not overlap")
+    _sweep_ring(points=exact)
     return points
 
 
 def closed_profile(*, vertices, profile: Obj, plane: Obj, frame: PlaneFrame):
+    if profile.cls != "moProfileFeature_c":
+        raise ConstructionError("polygon construction requires an ordinary moProfileFeature_c")
     positions = polygon_vertices(vertices=vertices)
     if not isinstance(frame, PlaneFrame):
         raise ConstructionError("profile placement requires a PlaneFrame")

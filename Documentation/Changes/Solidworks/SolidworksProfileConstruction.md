@@ -1,4 +1,4 @@
-# SOLIDWORKS 2026 profile construction helpers
+# SOLIDWORKS 2026 profile construction
 
 The research builder constructs fresh polygon profile graphs from semantic vertices and constructor-backed format rules
 Endpoint and handle indexes derive from node references when the archive schema reads the fields
@@ -13,22 +13,37 @@ All helper inputs are keyword-only
 `new_sketch` constructs native empty sketch collections and managers
 `new_profile` binds that empty sketch to an already allocated profile feature and a plane-reference node
 `closed_profile` adds a validated closed ring with any number of at least three vertices
+`origin_profile` constructs the document origin's point and logical constraint graph
 `NodeOrder` keeps geometry references symbolic and computes its index map once when emission reads a field
 Counts derive from the current collections
+An exact rational sweep with a balanced active tree validates intersections in `O(n log n)` comparison work
+It rejects nonadjacent touches and adjacent backtracking overlaps while retaining the authored f64 coordinates
 
-`Extrude.py` constructs native blind end specifications from four supplied live display-dimension nodes
-It connects an allocated extrusion body feature to its profile
-It checks the authored depth against its driving length parameter
-The complete display-dimension factory remains unresolved
-Missing model handles or driving parameters cause explicit construction errors
+`Extrude.py` constructs native blind end specifications and their live dimensional graph
+`live_blind_extrusion` takes an allocated extrusion body feature, a constructed polygon profile, authored depth, shared ID allocator, design-intent boolean and explicit selected-leader presentation value
+It constructs two length parameters and two zero draft-angle parameters with names `D1` through `D4`
+Each parameter has its own feature dimension, local handle and display/text graph
+It attaches the native end specification and profile dependency to the feature
+The returned `ExtrusionGraph` retains those node references and reports its current forward parameter value
+Missing handles, mismatched driving values and unsupported depth/draft inputs cause explicit construction errors
+Lengths below `1e-14` metres fail because the native dimension constructor clamps them to zero
+The shared `Model.py` factories supply the node and component-reference base fields
+
+Display construction uses the native null-document constructor branch and explicit design-intent input
+It does not copy document annotation style or session preferences
+The native constructors do not initialize serialized `SelLeader`, so the builder requires that value and has no default
+A semantic no-selection value or independent neutral-value proof remains outstanding
 
 These helpers are intermediate research
 The vertex-only profile contract contains no authored sketch dimensions or constraints
 It does not preserve a source sketch that contains additional design intent
-The helpers do not yet produce a complete live extrusion from scalar depth alone
+The origin graph explicitly records that its post-constructor sketch update remains unresolved
+The dimensional graph requires the explicit presentation input and completed shared model graph
 They do not change adapter capabilities
 See [the construction evidence](../../../re/solidworks/records/ProfileConstruction2026.md) for binary addresses, confidence labels, contracts, and remaining fields
 The [instruction-boundary gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/DisassemblyEntryPoints.md) records a disassembly failure found during this work
+The [leader-selection gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/UninitializedDisplayLeaderSelection.md) records the unset serialized display field
+The [unit-vector gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/DefaultUnitVectorIsZero.md) records the native zero-vector constructor
 
 No local tests or oracle measurements were run
 The Python source passed static AST syntax parsing without imports or execution
