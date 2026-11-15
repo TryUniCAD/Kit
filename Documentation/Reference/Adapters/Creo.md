@@ -38,9 +38,9 @@ The reader returns a `CadDocument` with:
   schema class, class label, and a provenance span into the `AllFeatur` section;
 - `FeatDefs` stored dimension values as `Parameter` records, linked to the single protrusion
   feature's `parameter_ids` when exactly one exists;
-- `VisibGeom` plane and curve prototypes as one surface-grouping `DesignBody` with face and edge
-  counts and per-face records;
-- warnings that surface closure, shell topology, and sketches remain encoded.
+- `VisibGeom` plane and curve prototypes as one `DesignBody`, with face and edge counts, per-face
+  records, and shell closure proven from the curve half-edge graph;
+- warnings that sketches and B-rep face geometry remain encoded.
 
 Feature rows are discovered from the tag anchors documented in
 [the compound-boundary gotcha](../../Gotchas/Conversion/CreoTaggedCompoundBoundary.md): a boundary
@@ -68,7 +68,7 @@ It keeps `vendor_loadable` and `application_usable` false because this path does
 ## Limits
 
 - No independent PSB writer.
-- Feature identity, stored dimension values, and surface prototypes only: no sketches or proven solid topology.
+- Feature identity, stored dimension values, surface prototypes, and identifier-proven shell closure: no sketches, no measured volume or centre of mass.
 - No native geometry or B-rep decoding.
 - No assembly component resolution.
 - No drawing, format, section, or layout support.

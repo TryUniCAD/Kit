@@ -27,6 +27,17 @@ class CreoCurve:
     curve_type: int
     feature_id: int | None
     points: tuple[float, ...]
+    face_ids: tuple[int | None, int | None]
+    next_curve_ids: tuple[int | None, int | None]
+
+
+@dataclass(frozen=True, slots=True)
+class CreoTopology:
+    face_count: int
+    closed_loop_count: int
+    shell_count: int
+    solid_count: int
+    valid: bool
 
 
 @dataclass(frozen=True, slots=True)
@@ -138,9 +149,94 @@ def ReadGeometry(
                     FindNumber(Nodes, Index, "type") or 0,
                     FindNumber(Nodes, Index, "feat_id"),
                     FindValues(Nodes, Index, "crv_pnt_arr"),
+                    (
+                        FindNumber(Nodes, Index, "crv_hdr_geom_ptr[0]"),
+                        FindNumber(Nodes, Index, "crv_hdr_geom_ptr[1]"),
+                    ),
+                    (
+                        FindNumber(Nodes, Index, "next_crv_hdr_ptr[0]"),
+                        FindNumber(Nodes, Index, "next_crv_hdr_ptr[1]"),
+                    ),
                 )
             )
     return tuple(Surfaces), tuple(Curves)
+
+
+def ReadTopology(
+    Curves: tuple[CreoCurve, ...], SurfaceCount: int
+) -> CreoTopology:
+    ById = {Curve.curve_id: Curve for Curve in Curves}
+    FaceSlots: dict[int, list[tuple[int, int]]] = {}
+    SharedEdges = 0
+    for Curve in Curves:
+        Left, Right = Curve.face_ids
+        if Left is not None and Right is not None:
+            SharedEdges += 1
+        for Slot, FaceValue in enumerate(Curve.face_ids):
+            if FaceValue is not None:
+                FaceSlots.setdefault(FaceValue, []).append((Curve.curve_id, Slot))
+    ClosedLoops = 0
+    for FaceValue, Entries in FaceSlots.items():
+        StartValue = Entries[0]
+        CurrentValue = StartValue
+        Visited: set[tuple[int, int]] = set()
+        IsClosed = False
+        for _ in range(len(Entries) + 1):
+            if CurrentValue in Visited:
+                IsClosed = CurrentValue == StartValue
+                break
+            Visited.add(CurrentValue)
+            CurveValue = ById.get(CurrentValue[0])
+            if CurveValue is None:
+                break
+            NextValue = CurveValue.next_curve_ids[CurrentValue[1]]
+            if NextValue is None:
+                break
+            NextCurve = ById.get(NextValue)
+            if NextCurve is None:
+                break
+            if NextCurve.face_ids[0] == FaceValue:
+                NextSlot = 0
+            elif NextCurve.face_ids[1] == FaceValue:
+                NextSlot = 1
+            else:
+                break
+            CurrentValue = (NextValue, NextSlot)
+        if IsClosed:
+            ClosedLoops += 1
+    Adjacency: dict[int, set[int]] = {Face: set() for Face in FaceSlots}
+    for Curve in Curves:
+        Left, Right = Curve.face_ids
+        if Left is not None and Right is not None:
+            Adjacency.setdefault(Left, set()).add(Right)
+            Adjacency.setdefault(Right, set()).add(Left)
+    Components = 0
+    Seen: set[int] = set()
+    for Face in Adjacency:
+        if Face in Seen:
+            continue
+        Components += 1
+        Stack = [Face]
+        while Stack:
+            Current = Stack.pop()
+            if Current in Seen:
+                continue
+            Seen.add(Current)
+            Stack.extend(Adjacency.get(Current, ()))
+    IsSolid = (
+        SurfaceCount > 0
+        and ClosedLoops == len(FaceSlots)
+        and SharedEdges == len(Curves)
+        and Components > 0
+    )
+    ShellCount = Components if IsSolid else 0
+    return CreoTopology(
+        face_count=SurfaceCount,
+        closed_loop_count=ClosedLoops,
+        shell_count=ShellCount,
+        solid_count=ShellCount,
+        valid=IsSolid,
+    )
 
 
 def ReadLogicalObjects(DataValue: bytes) -> tuple[CreoLogicalObject, ...]:

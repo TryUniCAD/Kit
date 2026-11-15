@@ -36,6 +36,7 @@ from convert.adapters.creo.Records import ReadFeatureRows
 from convert.adapters.creo.Stream import ReadDimensions
 from convert.adapters.creo.VisibGeom import ReadGeometry
 from convert.adapters.creo.VisibGeom import ReadLogicalObjects
+from convert.adapters.creo.VisibGeom import ReadTopology
 from convert.adapters.creo.Toc import CreoEntry
 from convert.adapters.creo.Toc import ReadSection
 from convert.adapters.creo.Toc import ReadToc
@@ -325,6 +326,7 @@ def ReadDocument(
                     severity=Severity.KWarning,
                 ),
             )
+    TopologyValue = ReadTopology(CurveRows, len(SurfaceRows))
     BodyRecords: tuple[DesignBody, ...] = ()
     if SurfaceRows and FeatureRecords:
         FaceRecords = tuple(
@@ -357,8 +359,11 @@ def ReadDocument(
                 name="Creo surface body",
                 final_feature_id=FeatureRecords[-1].id,
                 topology=TopologyCounts(
+                    solid_count=TopologyValue.solid_count,
+                    shell_count=TopologyValue.shell_count,
                     face_count=len(SurfaceRows),
                     edge_count=len(CurveRows),
+                    valid=TopologyValue.valid,
                 ),
                 provenance=Provenance(
                     KFormatId,
@@ -375,6 +380,10 @@ def ReadDocument(
                         "creo.curves": CurveRecords,
                         "creo.surface_count": len(SurfaceRows),
                         "creo.curve_count": len(CurveRows),
+                        "creo.closed_loop_count": TopologyValue.closed_loop_count,
+                        "creo.shell_count": TopologyValue.shell_count,
+                        "creo.solid_count": TopologyValue.solid_count,
+                        "creo.shell_closure_proven": TopologyValue.valid,
             "creo.logical_object_count": len(LogicalObjects),
                         "creo.logical_objects": tuple(
                             FreezeMapping(
@@ -399,7 +408,7 @@ def ReadDocument(
         *FeatureNotes,
         Diagnostic(
             "creo.container_only",
-            "The PSB container, section directory, native thumbnail, source bytes, AllFeatur feature identity rows, stored dimension values, and VisibGeom surface/curve prototypes are decoded. Surface closure, topology, sketches, and B-rep shells remain encoded, so no solid body is claimed.",
+            "The PSB container, section directory, native thumbnail, source bytes, AllFeatur feature identity rows, stored dimension values, and VisibGeom surface/curve prototypes are decoded. Shell closure is proven from the curve half-edge graph when every face loop closes and every edge is shared. Sketches and B-rep face geometry remain encoded.",
             severity=Severity.KWarning,
         ),
     )
@@ -408,13 +417,17 @@ def ReadDocument(
             "adapter": KFormatId,
             "creo.base": HeaderValue.base,
             "creo.common_name": HeaderValue.common_name,
+            "creo.closed_loop_count": TopologyValue.closed_loop_count,
             "creo.curve_count": len(CurveRows),
             "creo.logical_object_count": len(LogicalObjects),
+            "creo.shell_count": TopologyValue.shell_count,
+            "creo.shell_closure_proven": TopologyValue.valid,
+            "creo.solid_count": TopologyValue.solid_count,
             "creo.dimension_count": len(DimensionRows),
             "creo.feature_history_decoded": False,
             "creo.feature_row_count": len(FeatureRows),
             "creo.feature_rows_decoded": bool(FeatureRows),
-            "creo.geometry_decoded": False,
+            "creo.geometry_decoded": TopologyValue.valid,
             "creo.surface_count": len(SurfaceRows),
             "creo.surface_prototypes_decoded": bool(SurfaceRows),
             "creo.header_lines": HeaderValue.header_lines,
