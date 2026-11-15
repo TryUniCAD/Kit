@@ -25,6 +25,9 @@ These additions do not enable the production writer.
 ## Use
 
 The modules are under `re/tooling/sw2026/builders/`.
+The process check keeps its generated construction, serialization, parsing,
+validation and reporting stages in focused files under
+`tests/convert/solidworks/research/Model/`.
 Use `PersistentIds` for ordinary model nodes and the configuration manager's
 separate local allocator for configurations.
 Provide version provenance, timestamps, document options and density explicitly.
@@ -90,4 +93,9 @@ the model process passed within its `134` passing tests.
 This evidence covers generated Config/Resolved streams, their shared archive
 map, environment/self-component aliases and the strict construction audit.
 It does not establish vendor loadability or application usability.
+The stage extraction preserved the exact `12,575`-character generated program,
+SHA-256 `23d3aeb06e82ede7468f7dae3ced1b789a0fcd059a30a9e0f04869b371160ecb`,
+by static string comparison. That comparison did not execute the child program.
+The [process-stage gotcha](../../Gotchas/Ci/ModelProcessStagesNeedFiles.md)
+records why short constants still need focused responsibility files.
 No tests or CAD oracle operations ran locally for this change.
