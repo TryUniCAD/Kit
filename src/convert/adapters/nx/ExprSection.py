@@ -342,13 +342,54 @@ def ExprMiddle(BaseOffset: int, Identity: bytes = KUnset) -> bytes:
             Order,
             Version,
             HeadBytes,
-            KDescriptorDim,
+            KDescriptor,
             KNames,
             KLane,
             KGroup,
             KRecord,
         )
     )
+
+
+# a dimension shape lays out a fixed head then slots then records
+def ExprMiddleDim(
+    BaseOffset: int,
+    Dimensions: int,
+    Identity: bytes,
+    Labels: tuple[bytes, ...],
+    Values: bytes,
+    GroupItems: tuple[bytes, ...],
+    Slots: tuple[bytes, ...],
+    Records: tuple[bytes, ...],
+    Extra: int = 0,
+) -> bytes:
+    if len(Identity) != 7:
+        raise ValueError("NX expression identity must be seven bytes")
+    Objects = KObjects + len(Slots) + len(Records)
+    HeadBytes = KHead + KAnchor + Identity + ExprHeadTail(Objects, Dimensions)
+    Parts: tuple[bytes, ...] = (
+        HeadBytes,
+        KDescriptorDim,
+        ExprLane(Labels, Values),
+        ExprOccupancy(Dimensions),
+        GroupPair(),
+        GroupRecord(GroupItems),
+        *Slots,
+        *Records,
+    )
+    TableAt = 0x54
+    Order = ExprOrder(Objects)
+    First = TableAt + 4 * Objects + len(Order) + len(VersionBlock())
+    Offsets: list[int] = []
+    Running = First
+    for Section in Parts:
+        Offsets.append(BaseOffset + Running)
+        Running += len(Section)
+    Table = b"".join(Offset.to_bytes(4, "little") for Offset in Offsets)
+    Pointer = BaseOffset + TableAt + 4 * Objects + len(Order)
+    Preamble = ExprPreamble(Objects, Pointer, Extra)
+    Padding = bytes(TableAt - len(Preamble))
+    return b"".join((Preamble, Padding, Table, Order, VersionBlock(), *Parts))
 
 
 # the section pointer field follows the part name and the eight section counts
@@ -360,12 +401,14 @@ def PointerOffset(SectionBody: bytes) -> int:
 
 
 # a generated middle replaces the source middle and refreshes the section pointer
-def Adopt(SectionBody: bytes, Middle: bytes) -> bytes:
+def Adopt(
+    SectionBody: bytes, Middle: bytes, MiddleLength: int = KMiddleLength
+) -> bytes:
     Offset = PointerOffset(SectionBody)
     Pointer = int(Struct.unpack_from("<I", SectionBody, Offset)[0])
     if not 0 < Pointer <= len(SectionBody):
         raise ValueError("NX section pointer is outside the section")
-    Start = Pointer - KMiddleLength
+    Start = Pointer - MiddleLength
     if Start <= 0:
         raise ValueError("NX expression section middle start is invalid")
     Authored = bytearray(SectionBody[:Start])
@@ -390,6 +433,7 @@ __all__ = [
     "SlotObject",
     "ValueSlot",
     "ExprMiddle",
+    "ExprMiddleDim",
     "KMiddleLength",
     "KObjects",
     "PointerOffset",

@@ -13,6 +13,7 @@ from convert.adapters.nx.PayloadBuild import ResizePayload
 from convert.adapters.nx.Construction import ConstructMiddle, ObjectCount, Record
 from convert.adapters.nx.ExprSection import (
     ExprMiddle,
+    ExprMiddleDim,
     ExprLayout,
     ExprObjectCount,
     ExprHeadTail,
@@ -1077,3 +1078,30 @@ def TestNxOccFrames() -> None:
     assert OccupancyFrame(3, 0) == (bytes.fromhex("100121"), bytes.fromhex("1021"))
     assert OccupancyFrame(6, 3) == (bytes.fromhex("1f0141"), bytes.fromhex("2241"))
     assert OccupancyMap(9) == 64
+
+
+# a dimension shape composes the nine objects between a fixed table and its records
+def TestNxMiddleDim() -> None:
+    LaneBytes = ExprLane(
+        (b"\x8c\x00", b"\x8c\x01", b"\x8c\x02"), bytes.fromhex("535455")
+    )
+    Slots = tuple(ValueSlot(40.0 + Index) for Index in range(5)) + tuple(
+        SlotObject(Index) for Index in range(10)
+    )
+    Built = ExprMiddleDim(
+        0x2F7,
+        3,
+        bytes(7),
+        (b"\x8c\x00", b"\x8c\x01", b"\x8c\x02"),
+        bytes.fromhex("535455"),
+        (b"40", b"20"),
+        Slots,
+        (b"\x01" * 48,) * 3,
+    )
+    assert len(LaneBytes) == 135
+    assert Built[0] == 2
+    assert len(Built) > 900
+    assert Built[0x54 : 0x54 + 4] == (0x2F7 + 0x149).to_bytes(4, "little")
+    Order = Built[0x54 + 4 * 24 :]
+    assert int.from_bytes(Order[0:4], "little") == 24
+    assert int.from_bytes(Order[4:8], "little") == 1

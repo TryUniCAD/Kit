@@ -430,37 +430,39 @@ const_box60.prt                346                  7              99.14%
 dim40.prt                      346                  7              99.14%
 ```
 
-## The middle layout is measured, but a composed middle does not load
+## The composed middle loads
 
-The offset arithmetic of a dimension-shape middle is now measured exactly on `dim40` and
+The offset arithmetic of a dimension-shape middle is measured exactly on `dim40` and
 `const_box60`:
 
 ```text
-0x00..0x53   preamble, ExprPreamble(objects, pointer, extra) then zero padding to 0x54
+0x00..0x53   preamble: ExprPreamble(objects, pointer, extra) then zero padding to 0x54
 0x54         object table, one absolute offset per object
 +4n          order array, count then one id per object
 +4+4n        version block, 49 bytes
 then         the objects
 ```
 
-a composer built on that arithmetic reproduces the middle's **length exactly** (1043 bytes for
-24 objects) and its **complete object table byte for byte**, which confirms the arithmetic. It
-does not load, though:
+`ExprSection.ExprMiddleDim(BaseOffset, Dimensions, Identity, Labels, Values, GroupItems,
+Slots, Records, Extra)` composes a dimension shape from the shipped functions, and it
+reproduces `dim40`'s middle exactly in **length** (1043 bytes) and in its **object table**,
+differing only in the order-array ids and the occupancy map placement — the two fields mutation
+showed to be free.
+
+Spliced into the section with the pointer updated, both parts open in NX 2506 with the expected
+geometry:
 
 ```text
-cx_dim40.prt        OPEN_FAILED
-cx_const_box60.prt  OPEN_FAILED
+cy_dim40.prt        bodies 1  volume 23999.999999999996
+cy_const_box60.prt  bodies 1  volume 36000.0
 ```
 
-the only bytes it differs from the source in are the 22 order-array ids (it emits `1..24`) and
-the occupancy map placement (it places ids densely). Both of those were individually shown to
-be free — `ord_seq` loaded with ids `1..24`, and `oc2_*` loaded with a dense map — but **the
-two are not free in combination**. So at least one of those two earlier conclusions is only
-true against the source's other half, and the composer cannot be finished by composing the two
-independently verified freedoms.
-
-That composer was removed rather than kept, since a function that produces a refused section is
-worse than none.
+An earlier attempt reported these as `OPEN_FAILED` and I recorded a "they do not compose"
+conclusion for the order ids and the occupancy map. That was wrong: the cause was `Adopt`,
+which located the middle as `pointer - 337` and so spliced at the wrong offset for a
+1043-byte middle. `Adopt` now takes the middle length, and the earlier mutants (`ix_p_both`,
+`ix_q_both_tail25`, `ix_r_rotdense`, `ix_t_both_tail52`) all load, which confirms the two
+freedoms really do compose.
 
 ## The occupancy object depends only on the dimension count
 
