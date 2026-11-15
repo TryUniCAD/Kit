@@ -61,10 +61,25 @@ bodies), and `creo.geometry_decoded` (still false).
 
 Two paths exist.
 
-`src/convert/adapters/creo/Author.py` authors a new PSB from format knowledge: header, table of
-contents, `AllFeatur`, and a six-plane `VisibGeom`. `AuthorBox` produces a part whose volume and
-centroid round-trip through the reader. It has not been opened in Creo and omits the other sections
-a vendor part normally carries.
+`src/convert/adapters/creo/Author.py` generates sections from format knowledge and, on the retained
+control's container, produces a part Creo 2027.2 accepts: a four-record `AllFeatur` with zero vendor bytes
+(three datum planes and a coordinate system, all authored) and a `FeatDefs` row carrying one dimension. Two
+candidates were opened in Creo with `-g:no_graphics`, each twice, and the trail records `End` and
+`MT Part Solid`:
+
+| Candidate | Authored | Creo |
+| --- | --- | --- |
+| `auth4` | 41 of 54 directory rows, fully generated `AllFeatur` | loads, 2 of 2 |
+| `featdefs` | 42 rows, plus generated `FeatDefs` with one dimension read back as `100.0` | loads, 2 of 2 |
+
+`AuthorBox` produces a six-plane `VisibGeom` whose volume and centroid round-trip through the reader, but a
+part carrying that `VisibGeom` is **not** accepted by Creo: six candidates exited with no `End` line. A
+class-`917` protrusion is not authored either — a record built from its 37 declared fields with null values is
+refused, as is a `917` replay carrying datum values.
+
+So the authored part contains features and one dimension and **no body**. There is no Creo-measured body
+count, volume, centre of mass or feature tree for authored output, and 13 of the 54 rows remain
+vendor-sourced because they were measured required.
 
 For an existing document the writer supports exact source replay only.
 It requires the retained source bytes and verifies their digest before writing.
@@ -75,7 +90,8 @@ It keeps `vendor_loadable` and `application_usable` false because this path does
 
 ## Limits
 
-- No independent PSB writer.
+- No body: authored output carries features and a dimension but no solid, and authored `VisibGeom` and `917`
+  records are refused by Creo, so no body count, volume, centre of mass or rebuild is measured.
 - Feature identity, stored dimension values, surface prototypes, compact `local_sys` frames, identifier-proven shell closure, and convex-polyhedron volume and centroid: no sketches, no curved trims, no non-convex shells.
 - No native geometry or B-rep decoding.
 - No assembly component resolution.
