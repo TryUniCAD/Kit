@@ -610,6 +610,24 @@ long form.
 
 The arithmetic that maps a component to its seven-byte payload is not yet decoded.
 
+## The long colour form is v8-only, and the modern format uses the decoded short form
+
+Searching each container for the two encodings of the same `0.2` component separates them by
+version. The seven-byte payload occurs only in the v8 file, while the three-byte field occurs in
+v9, v8 and the modern file:
+
+```text
+legacy v7    size     71937  long 0.2 payload=0  short 0.2 field=0    long 0.6 payload=0
+legacy v9    size    141768  long 0.2 payload=0  short 0.2 field=108  long 0.6 payload=0
+legacy v8    size     82812  long 0.2 payload=2  short 0.2 field=114  long 0.6 payload=1
+modern       size     70647  long 0.2 payload=0  short 0.2 field=110  long 0.6 payload=0
+```
+
+So the seven-byte payload is a v8-only encoding, and the modern format stores colours with the
+three-byte form that is already decoded and verified 216/216 against the v7 doubles. The undecoded
+seven-byte payload is therefore not on the path of a modern writer; it only affects reading the
+fourteen long records in one v8 file.
+
 The four records that decode but disagree with the v7 doubles are consistent with the same reading:
 each was changed to a different cube value (`Light Yellow Orange` 0.8 -> 1.0, `Dark Hard Orange`
 0.4 -> 0.6, `Light Teal Green` 0.4 -> 0.6, `Light Teal Cyan` 0.6 -> 0.4), so a modified colour that
