@@ -138,6 +138,8 @@ ordinary polygon points. These static rules do not establish curve acceptance.
 The [bounded curve lifecycle observer](../../Changes/Solidworks/Inspection/SolidworksCurveLifecycleObservation.md)
 retains the point/arc state and independent counters needed for controlled
 training observations; its new snapshots await a native run.
+The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
+can check process separation before changing any application or document state.
 The fresh [model component constructors](../../Changes/Solidworks/SolidworksModelConstruction.md)
 and [metadata constructors](../../Changes/Solidworks/SolidworksMetadataConstruction.md)
 build research object graphs from authored semantics and native constructor rules.
