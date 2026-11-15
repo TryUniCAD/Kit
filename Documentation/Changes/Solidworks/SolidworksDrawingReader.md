@@ -28,8 +28,10 @@ spaces.
 `ReadDrawing(..., IncludePositions=True)` recovers view centres from
 `Contents/DisplayLists`. The stream stores each centre as a little-endian double
 pair followed by a zero Z value and a 1 or 2 record flag. Each view contributes
-two identical records 384 bytes apart, so consecutive duplicates are collapsed.
-The recovered positions are bound to views through the
+two identical records 384 bytes apart; the reader consumes each pair once rather
+than collapsing equal coordinates, so two views that share a centre on different
+sheets keep two positions. No one metre bound is applied, so a large sheet or an
+off sheet centre is retained. The recovered positions are bound to views through the
 `SW-Config-Model-View-Sheet-List` property, not through `KeyWords` order, because
 a multi-sheet drawing can list its sheets and views in a different order. The
 reader requires the position count to equal the view-list count, every listed
@@ -77,31 +79,43 @@ drawing. Request positions separately with `IncludePositions=True`.
 
 ## Verification
 
-`tests/convert/solidworks/drawing/SolidworksDrawingTests.py` reads five real
+`tests/convert/solidworks/drawing/SolidworksDrawingTests.py` reads seven real
 drawings authored in SOLIDWORKS Design Premium 2026 SP5.2 and tracked under
 `re/solidworks/examples/Drawings/`:
 
-| Fixture           | Name    | Views | Scale |
-| ----------------- | ------- | ----- | ----- |
-| `standard.SLDDRW` | `Draw1` | 4     | 2:1   |
-| `minimal.SLDDRW`  | `Draw2` | 2     | 2:1   |
-| `angled.SLDDRW`   | `Draw3` | 3     | 1:1   |
+| Fixture             | Name    | Views | Scale |
+| ------------------- | ------- | ----- | ----- |
+| `standard.SLDDRW`   | `Draw1` | 4     | 2:1   |
+| `minimal.SLDDRW`    | `Draw2` | 2     | 2:1   |
+| `angled.SLDDRW`     | `Draw3` | 3     | 1:1   |
+| `projected.SLDDRW`  | `Draw2` | 2     | 2:1   |
+| `multisheet.SLDDRW` | `Draw1` | 1     | 2:1   |
+| `large.SLDDRW`      | `Draw1` | 1     | 2:1   |
+| `coincident.SLDDRW` | `Draw1` | 1     | 2:1   |
 
 The first three use `Sheet1`, paper-size code `0`, and 0.2794 m by 0.2159 m.
 `multisheet.SLDDRW` has `Sheet2` with paper code `12` and `Sheet1` with paper
-code `0`, each with one view and a `2:1` scale; it also carries the template
-title-block notes. `TestMulti` requires that the `Sheet Format` pseudo-entry is
-ignored and that both real sheets decode. `projected.SLDDRW` was authored by
-`re/tooling/harness/AuthorProjected.vbs` with a base view (`Type=7`) and a
-projected view (`Type=4`); both carry the parent model path, and `TestProj`
-requires both to decode. `TestOpen`
-checks the document name and path, `TestSheet` checks sheet geometry, scale, view
-count, and referenced model, `TestText` checks the authored note and references,
-and `TestNote` verifies that padded note whitespace survives. `TestFail` removes
-or corrupts each required stream and requires `SldprtFormatError`; `TestGeom`
-requires the geometry opt-in to fail; `TestWrite` confirms that the public
-document writer still rejects every drawing.
+code `0`; it also carries the template title-block notes. `projected.SLDDRW` was
+authored by `re/tooling/harness/AuthorProjected.vbs` with a base view (`Type=7`)
+and a projected view (`Type=4`); both carry the parent model path.
+`large.SLDDRW` places a view at 1.10 m, outside the reported sheet rectangle, and
+`coincident.SLDDRW` places the same centre on two sheets.
 
-The fixtures are outputs of the real SOLIDWORKS API. The authoring macro is
-`re/tooling/harness/AuthorDrawings.vbs`; its run is recorded in
+`TestOpen` checks the document name and path, `TestSheet` checks sheet geometry,
+scale, view count, and referenced model, `TestText` checks the authored note and
+references, and `TestNote` verifies that padded note whitespace survives.
+`TestMulti` requires the `Sheet Format` pseudo-entry to be ignored and both real
+sheets to decode; `TestProj` requires the base and projected views to decode.
+`TestPos` requires every recovered `PositionX` and `PositionY` to equal the
+authored location, including the 1.10 m center and the duplicated center across
+sheets. `TestPosNo` rewrites the position doubles so the count no longer matches
+the view list and requires `SldprtFormatError`. `TestFail` removes or corrupts
+each required stream and requires `SldprtFormatError`; `TestGeom` requires the
+geometry opt-in to fail; `TestWrite` confirms that the public document writer
+still rejects every drawing.
+
+The fixtures are outputs of the real SOLIDWORKS API. The authoring macros are
+`re/tooling/harness/AuthorDrawings.vbs`, `AuthorMultiSheet.vbs`,
+`AuthorProjected.vbs`, `AuthorLargeSheet.vbs`, and `AuthorCoincident.vbs`; their
+runs are recorded in
 [recent oracle runs](../../../re/solidworks/records/RecentOracleRuns.md).

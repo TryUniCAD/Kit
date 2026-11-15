@@ -117,3 +117,18 @@ multisheet Sheet1 View1 0.11,0.23  Sheet2 View2 0.16,0.16
 
 The pair layout, duplicate records, and fail-closed count check are recorded in
 [the position-record gotcha](../../Documentation/Gotchas/Conversion/Drawing/SolidworksDrawingPositionRecords.md).
+
+### Large and co-located view positions
+
+`AuthorLargeSheet.vbs` created a sheet with a view centre at `(1.10, 0.40)`
+metres and `AuthorCoincident.vbs` created two sheets whose views share the centre
+`(0.11, 0.23)`. The reader returns both positions exactly:
+
+```
+large       Sheet1 View1 1.10,0.40
+coincident  Sheet1 View1 0.11,0.23
+            Sheet2 View2 0.11,0.23
+```
+
+The 384-byte paired-record rule and the no fixed coordinate bound are recorded in
+[the position-record gotcha](../../Documentation/Gotchas/Conversion/Drawing/SolidworksDrawingPositionRecords.md).

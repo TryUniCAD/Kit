@@ -113,6 +113,13 @@ def TestPos() -> None:
             ("Sheet1", "Drawing View1"): (0.11, 0.23),
             ("Sheet2", "Drawing View2"): (0.16, 0.16),
         },
+        "large.SLDDRW": {
+            ("Sheet1", "Drawing View1"): (1.10, 0.40),
+        },
+        "coincident.SLDDRW": {
+            ("Sheet1", "Drawing View1"): (0.11, 0.23),
+            ("Sheet2", "Drawing View2"): (0.11, 0.23),
+        },
     }
     for NameValue, PositionData in Expected.items():
         DataValue = ReadDrawing(KDrawRoot / NameValue, IncludePositions=True)

@@ -17,12 +17,15 @@ pairs start at odd byte offsets.
 
 ## Workaround
 
-Scan every byte for a pair whose X and Y lie inside the plausible sheet range,
-whose Z is zero, and whose following flag is 1 or 2. Collapse only consecutive
-duplicates, preserving repeated positions that belong to different views. Bind
-the resulting positions to views through `SW-Config-Model-View-Sheet-List`, not
-through `KeyWords` order. Require the position count to equal the view-list
-count; otherwise raise `SldprtFormatError` instead of guessing.
+Scan every byte for a finite pair whose Z is zero and whose following flag is 1
+or 2. Accept a pair only when an identical pair occurs exactly 384 bytes later,
+then consume both records and emit one position. Do not collapse equal
+coordinates from different pairs, because distinct views can share a centre. Do
+not impose a one metre bound: a valid view centre can sit outside the reported
+sheet rectangle. Bind the resulting positions to views through
+`SW-Config-Model-View-Sheet-List`, not through `KeyWords` order. Require the
+position count to equal the view-list count; otherwise raise `SldprtFormatError`
+instead of guessing.
 
 ## Evidence
 
