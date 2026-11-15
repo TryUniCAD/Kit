@@ -31,6 +31,16 @@ only 26 of the 76 placed vertices land on the stored grid. The angular positions
 uniform refinement, not the stored tessellation, and the change entry keeps the geometry classified
 as a structural approximation.
 
+The tessellation points themselves are now decoded and exposed. `DecodeTessellation` finds the
+longest run of plausible floats in `MainDataStream`, skips the two-float header, and walks the
+`(y, z, abs(z))` records, keeping the pairs whose radius matches a cylinder radius from the surface
+records. For `Copper_Washer` that returns 41 points, all 41 on the 18-degree and 22.5-degree grid,
+with radii exactly 5 and 8. The points are exposed through `DecodeTessellation` and stored on
+`BrepData.tessellation`; they are not used for handle placement, because snapping the handles to
+them changed the planar-face deviation on `Washer_5`, `Washer_8`, and
+`Brake_bias_90_degree_coupler` from 0.0 to 2.65, 2.32, and 4.05. The placement therefore stays on
+the documented equal-spacing rule.
+
 Every placed handle satisfies all the surfaces of the faces that use it. Across the 22 decoded parts
 that is 4682 of 4682 handles on-surface, with zero exceptions. The plane-cone case covers 423 of the
 555 plane-cone handles; the other 132 are oblique sections (ellipse, parabola, hyperbola) and are

@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections import defaultdict
 from dataclasses import dataclass
 import math
+import struct
 
 from convert.adapters.catia.Container import CfvTwoArchive, CfvTwoFolder, CfvTwoStream
 from convert.adapters.catia.NativeSurface import (
@@ -56,6 +57,7 @@ class BrepData:
     vertices: tuple[VertRec, ...]
     roster: tuple[VertRec, ...]
     width: int
+    tessellation: tuple[tuple[float, float], ...] = ()
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -146,7 +148,21 @@ def ParseBrep(Archive: CfvTwoArchive) -> BrepData:
         except (IndexError, ValueError):
             continue
         if len(Trims) == FaceCount and len(Vertices) == len(Roster):
-            return BrepData(tuple(Surfaces), Trims, Edges, Vertices, Roster, Width)
+            Radii = tuple(
+                abs(Value.params[5])
+                for Value in Surfaces
+                if Value.kind == 0x33 and len(Value.params) >= 6
+            )
+            Tessellation = TessellationPoints(MainData, Radii) if Radii else ()
+            return BrepData(
+                tuple(Surfaces),
+                Trims,
+                Edges,
+                Vertices,
+                Roster,
+                Width,
+                Tessellation,
+            )
     raise ValueError("topology spine is unsupported")
 
 
@@ -296,6 +312,51 @@ def ArcPoint(
         Center[1] + Radius * (First[1] * Cosine + Second[1] * Sine),
         Center[2] + Radius * (First[2] * Cosine + Second[2] * Sine),
     )
+
+
+# this definition exists because focused behavior needs one stable owner
+def TessellationPoints(
+    SourceData: bytes, Radii: tuple[float, ...]
+) -> tuple[tuple[float, float], ...]:
+    BestCount = 0
+    BestStart = 0
+    for Start in range(4):
+        Cursor = Start
+        while Cursor + 4 <= len(SourceData):
+            Value = struct.unpack_from("<f", SourceData, Cursor)[0]
+            if not (math.isfinite(Value) and abs(Value) < 1e4):
+                Cursor += 4
+                continue
+            RunStart = Cursor
+            Count = 0
+            while Cursor + 4 <= len(SourceData):
+                Value = struct.unpack_from("<f", SourceData, Cursor)[0]
+                if not (math.isfinite(Value) and abs(Value) < 1e4):
+                    break
+                Cursor += 4
+                Count += 1
+            if Count > BestCount:
+                BestCount = Count
+                BestStart = RunStart
+    if BestCount < 8:
+        return ()
+    Values = [
+        struct.unpack_from("<f", SourceData, BestStart + 4 * Index)[0]
+        for Index in range(BestCount)
+    ]
+    Points: list[tuple[float, float]] = []
+    Cursor = 2
+    while Cursor + 1 < len(Values):
+        YValue = Values[Cursor]
+        ZValue = Values[Cursor + 1]
+        Radius = math.hypot(YValue, ZValue)
+        if any(abs(Radius - Candidate) < 1e-2 for Candidate in Radii):
+            Points.append((YValue, ZValue))
+        if Cursor + 2 < len(Values) and abs(abs(ZValue) - Values[Cursor + 2]) < 2e-3:
+            Cursor += 3
+        else:
+            Cursor += 2
+    return tuple(Points)
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -671,6 +732,23 @@ def BuildBrep(BrepValue: BrepData) -> BrepModel:
         regions=(Region,),
         bodies=(BodyValue,),
     )
+
+
+# this definition exists because focused behavior needs one stable owner
+def DecodeTessellation(Archive: CfvTwoArchive) -> tuple[tuple[float, float], ...]:
+    if not Archive.nested:
+        return ()
+    Folder = Archive.nested[0]
+    MainData = Archive.stream_bytes(Largest(Folder, "MainDataStream"), Folder)
+    SurfData = Archive.stream_bytes(Largest(Folder, "SurfacicReps"), Folder)
+    Radii = tuple(
+        abs(Value.params[5])
+        for Value in ParseSurfaces(SurfData)
+        if Value.kind == 0x33 and len(Value.params) >= 6
+    )
+    if not Radii:
+        return ()
+    return TessellationPoints(MainData, Radii)
 
 
 # this definition exists because focused behavior needs one stable owner

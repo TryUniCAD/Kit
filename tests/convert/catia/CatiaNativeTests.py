@@ -6,6 +6,8 @@ from pathlib import Path
 from convert import open_document as OpenDoc
 from convert.adapters import WriteOptions
 from convert.adapters.catia.Adapter import CatiaAdapter, ReadCatia
+from convert.adapters.catia.Container import CfvTwoArchive
+from convert.adapters.catia.NativeBrep import DecodeTessellation
 from interchange import (
     Body,
     BrepBody,
@@ -168,6 +170,27 @@ def TestBrepCorpus() -> None:
         assert DocValue.brep.edges
         assert DocValue.brep.vertices
     assert Decoded >= 22
+
+
+# this definition exists because focused behavior needs one stable owner
+def TestBrepTessellation() -> None:
+    Archive = CfvTwoArchive.from_bytes(
+        (KCatparts / "Copper_Washer.CATPart").read_bytes()
+    )
+    Points = DecodeTessellation(Archive)
+    assert len(Points) >= 40
+    Outer = {
+        round(8.0 * math.cos(math.radians(18.0 * Step)), 3) for Step in range(20)
+    } | {round(8.0 * math.sin(math.radians(18.0 * Step)), 3) for Step in range(20)}
+    Inner = {
+        round(5.0 * math.cos(math.radians(22.5 * Step)), 3) for Step in range(16)
+    } | {round(5.0 * math.sin(math.radians(22.5 * Step)), 3) for Step in range(16)}
+    for YValue, ZValue in Points:
+        Radius = math.hypot(YValue, ZValue)
+        assert abs(Radius - 8.0) < 1e-2 or abs(Radius - 5.0) < 1e-2
+        Table = Outer if abs(Radius - 8.0) < 1e-2 else Inner
+        assert round(abs(YValue), 3) in Table
+        assert round(abs(ZValue), 3) in Table
 
 
 # this definition exists because focused behavior needs one stable owner
