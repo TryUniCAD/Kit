@@ -71,7 +71,7 @@ def TestNewBundle() -> None:
         SpecValue, DrawingDatabase(KDatabaseName, ReadDwgFile(Content))
     )
     assert Drawing.Database is not None
-    assert Drawing.Database.Content == Content
+    assert Drawing.Database.Model.DwgObjects
     Bundle = BuildBundle(SpecValue, Drawing, KDesignData)
     with ExpectError(ValueError, match="cannot be made loadable"):
         _ = EmitDrawBundle(Bundle)
@@ -145,4 +145,4 @@ def SheetOrders(Design: ParsedSegment) -> list[object]:
 
 # shared read model setup keeps fixtures consistent so native document reconstruction failures identify the intended compatibility boundary
 def ReadModel(Database: DrawingDatabase) -> DwgFile:
-    return ReadDwgFile(Database.Content)
+    return Database.Model

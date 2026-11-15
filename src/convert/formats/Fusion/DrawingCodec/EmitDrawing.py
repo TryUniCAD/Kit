@@ -19,6 +19,7 @@ from convert.formats.Fusion.DrawingCodec.Model.DrawingNames import (
     KRootManifest,
     KSheetName,
 )
+from convert.formats.Fusion.DrawingCodec.Model.DrawingDatabase import CheckLoadable
 from convert.formats.Fusion.DrawingCodec.Model.FusionDrawing import FusionDrawing
 from convert.formats.Fusion.DrawingCodec.Package.DrawingPackage import DrawingPackage
 from convert.formats.Fusion.DrawingCodec.Package.EmitPackage import EmitPackage
@@ -50,24 +51,8 @@ def EmitDrawing(
         Entries.append(PackageEntry(SlotValue.Name, Payload, SlotValue.Layout))
     if Payloads:
         raise ValueError("Fusion drawing layout omits typed members")
-    CheckLoadable(Value)
+    CheckLoadable(Value.Database) if Value.Database is not None else None
     return EmitPackage(DrawingPackage(tuple(Entries)), CompressZstd)
-
-
-# the authored database gate needs one place so no emitter packages a drawing fusion rejects
-def CheckLoadable(Value: FusionDrawing) -> None:
-    Database = Value.Database
-    if Database is None:
-        return
-    AppInfo = Database.Model.AppInfo
-    if AppInfo is None:
-        raise ValueError(
-            "Drawing databases need an application entry, so the drawing is refused"
-        )
-    if any('name ="Kit"' in Entry.TextValue for Entry in AppInfo.AppEntries):
-        raise ValueError(
-            "Authored drawing databases cannot be made loadable, so the drawing is refused"
-        )
 
 
 # drawing payloads needs an explicit validity boundary so drawing members retain their sheet and model associations
