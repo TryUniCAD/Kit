@@ -265,6 +265,11 @@ the expanded check, rejecting data-file reads during those phases as well.
 The expanded check also passes all twelve supported folder classes and the
 annotation cabinet through a separate generated stream in the container,
 then checks class identity, id allocation and recovered creation times.
+That actual subprocess/container test passed in
+[run 43677223605](https://github.com/TryUniCAD/Kit/actions/runs/43677223605)
+at `e26a6d095`; the workflow remained red because pytest separately collected
+its `Check*` assertion helpers as tests. Helper names and JSON-report typing
+were corrected for the next remote run.
 
 Still required: complete origin/system-feature composition,
 full detail-style and unit construction, whole-part round trips, held-out target

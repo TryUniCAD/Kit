@@ -2,11 +2,12 @@ from __future__ import annotations
 
 from json import loads as LoadJson
 from pathlib import Path as FilePath
+from typing import cast as CastValue
 
 from tests.convert.solidworks.research.ModelBuilderProcess import RunBuilders
 
 
-def CheckPlanes(Report: dict[str, object]) -> None:
+def AssertPlanes(Report: dict[str, object]) -> None:
     assert Report["plane_ids"] == [0, 1, 2]
     assert Report["next_plane_id"] == 3
     assert Report["plane_normals"] == [
@@ -16,9 +17,9 @@ def CheckPlanes(Report: dict[str, object]) -> None:
     ]
 
 
-def CheckSystems(Report: dict[str, object]) -> None:
-    Classes = Report["system_classes"]
-    Times = Report["folder_times"]
+def AssertSystems(Report: dict[str, object]) -> None:
+    Classes = CastValue(list[str], Report["system_classes"])
+    Times = CastValue(list[int], Report["folder_times"])
     assert isinstance(Classes, list)
     assert isinstance(Times, list)
     assert Classes[-1] == "moDetailCabinet_c"
@@ -46,8 +47,8 @@ def TestFreshGraphs(TmpPath: FilePath) -> None:
     assert First["next_configuration_id"] == 1
     assert Second["next_configuration_id"] == 7
     for Report in (First, Second):
-        CheckPlanes(Report)
-        CheckSystems(Report)
+        AssertPlanes(Report)
+        AssertSystems(Report)
     assert First["density_kg_m3"] == 1234.5
     assert Second["density_kg_m3"] == 7654.25
     assert First["journal_name"] == "first- journal"
