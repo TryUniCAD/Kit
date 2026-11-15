@@ -73,9 +73,14 @@ uses the current clock. These integers are not file-version numbers.
 
 `moLogs_c` constructors `0x31a02690` and `0x31a026e0` begin with an empty
 `suObList`. The parameterized constructor takes the revision-log identifier;
-the default identifier is -1. Its `f50` string begins empty, but its semantic
-purpose remains unresolved. Log identifiers, stamp indices and header lists
-must be constructed together.
+the default identifier is -1. Its `f50` string begins empty. Active filed-concept
+construction at `sldmodu.dll!0x4bda5a20` then assigns the authored document name
+to the attached creation log's `+0x50` string. `moLogs_c::Serialize` at
+`sldarchiveu.dll!0x31a04830` writes that CString unconditionally after the list
+and identifier, and reads it back into the same member. The
+[metadata construction record](MetadataConstruction2026.md) accepts that explicit
+semantic name. Log identifiers, stamp indices and header lists must be
+constructed together; names for other log roles are not inferred.
 
 ## Remaining obligations
 
