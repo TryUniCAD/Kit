@@ -22,6 +22,12 @@ matrices as contiguous doubles or floats. Searching for the exact 9-double or
 9-float identity, top, and right matrices finds nothing. Their orientation is
 therefore not recoverable from the same record.
 
+Testing all 24 proper axis-aligned frames against the model bounds and sheet
+outline leaves four candidates per standard view. The candidates differ by
+180-degree rotations or reflections, so the projected bounding box is identical
+and the stream does not disambiguate them. The view name is generic and the
+referenced model view name is not stored.
+
 ## Workaround
 
 Recover sheet-space edges only for views whose matrix is present, and fail closed
