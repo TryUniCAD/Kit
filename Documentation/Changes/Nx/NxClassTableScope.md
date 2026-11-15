@@ -149,6 +149,36 @@ entry being a packed value whose low bits carry a per-set counter, and it is the
 evidence yet that the entry is structured rather than derived by hashing. The per-class constant
 is still not derived.
 
+## The entry is a per-class constant plus a small per-set increment
+
+XOR-ing each common class's decoded value between `empty.prt` and each other set scatters the
+changed bits widely, which is the signature of **carry propagation** from a small addition rather
+than a fixed counter field:
+
+```text
+empty vs dim40      bit 18: 58 classes   bit 79: 56   bit 80: 53   bit 16: 46   bit 20: 38
+empty vs var_sph    bit 16: 66 classes   bit 18: 59   bit 14: 58   bit 79: 56   bit 80: 53
+empty vs var_cyl    bit 16: 59 classes   bit 80: 59   bit 17: 58   bit 20: 57   bit 19: 56
+```
+
+a change confined to a fixed field would flip the same bits in every class. Hundreds of classes
+changing different bits is what adding a small number to values with arbitrary low bits produces.
+
+That agrees with the earlier per-set measurement (increments 16, 15 and 20) and closes the
+question of the entry's shape:
+
+```text
+entry(name, set) = constant(name) + increment(set)
+                   ^^^^^^^^^^^^^   ^^^^^^^^^^^^^^
+                   70-80 bits      16, 15, 20
+                   not derived     measured
+```
+
+so the table is computable exactly when `constant(name)` is, and that is the single remaining
+unknown. Twenty-one derivations of it are negative, and the packed reading above shows why they
+were all aimed at the wrong target: `constant(name)` need not be a hash at all, it can be an
+arbitrary per-class value that only the serialiser knows.
+
 ## The insertion-ordinal model is refuted
 
 The last derivation class worth testing was that an entry's changing value is the number of
