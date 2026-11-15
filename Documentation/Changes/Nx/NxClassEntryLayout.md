@@ -180,10 +180,27 @@ UGS::DWG_member_view_parameter 87 d0 80 83     2000          0x07d0 = 2000
 UGS::Attr::DAttributeDescriptionDepository a0 27 10 80 85  10000   0x2710 = 10000
 ```
 
-Statistically, the second byte equals `+0x34 & 0xff` for **62 of 68** three-byte prefixes and the
-leading byte is the value's high byte with bit 7 set. So the prefix is an encoding of the same
-per-class number the registration descriptor carries at slot 0x28 and the registrant exposes at
-`+0x34` — not a digest and not set-derived.
+Statistically, across the whole table:
+
+```text
+prefix length   classes   byte 0 == 0x80 | (r >> 8)   byte 1 == r & 0xff
+2                    19              0                        0
+3                    68             62                       62
+4                    51             39                       39
+5                    14              0                        0
+```
+
+so for the 119 classes with a 3 or 4 byte prefix, the first two bytes are the class's `+0x34` value
+with bit 7 set on the high byte, and the remaining one or two bytes follow. The 33 classes with a 2
+or 5 byte prefix do not follow that shape: their leading bytes encode `0x7438`, `0x7765`, `0x7465`
+for classes whose `+0x34` values are 55, 100 and 100, so those encode a larger number and the
+encoding of the leading field is not settled.
+
+## The tail byte
+
+The tail is one byte in all 152 classes, with values from 1 to 79 and no relation to the attribute
+count (5 of 152), the table index (2 of 152) or `GetCurrentSchemaVersion` (which returns -1 for
+class names). It is not derived.
 
 ## What is left
 
