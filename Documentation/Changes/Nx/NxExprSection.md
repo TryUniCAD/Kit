@@ -379,27 +379,40 @@ The lane's frame is decoded; its slot placement is not:
 <exprs + 1> 21                                    terminator repeating the head count
 ```
 
-The label map is `34 - count` one bytes of fill plus one token per expression, and the value
-map is 31 byte slots holding one byte per expression with `ff` everywhere else. Where each
-expression lands in those maps is hash-indexed, and that is visible directly:
+The label map is a **slot map**, not a token run followed by fill: a slot holds one `01`
+byte when empty and a token when occupied, and empty slots can precede occupied ones.
+Observed token widths are two bytes (`8b xx`, `8c xx`), four (`c4 71 97 78`) and five
+(`e0 66 05 90 fd`). The map's length is
 
 ```text
-part             exprs  head  label map  value slots
-empty_expr.prt       1     2         36  slot 24
-var_sph.prt          1     2         34  slot 0
-var_cyl.prt          2     3         35  slots 0, 1
-multi.prt            8     9         41  slots 0, 1, 26..30
-dim40.prt            3     4         36  slots 0, 1, 2
-var_e4.prt           4     5         40  slots 0, 1, 2, 29
-var_two.prt          6     7         39  slots 0..5
+label map length = 32 + count + sum(len(token) - 2)
 ```
 
-`empty_expr` puts its one value at slot 24 and `multi` splits its eight between 0, 1 and
-26 to 30, so the source's placement is a hash of the expression name. Mutation showed the
-indices are free — `8c 00` to `8c 05` and swapping two of them both load — so a writer may
-place its expressions at 0 upwards, which is what `var_two`, `dim40` and `var_cyl` already
-do. A names-lane emitter must therefore use writer-chosen indices plus the measured frame
-arithmetic, and cannot be validated by byte equality with `empty_expr` or `multi`.
+which holds on all seven fixtures — 36 for `dim40` (count 4, three two byte tokens), 36 for
+`empty_expr` (count 2, one four byte token), 41 for `multi` (count 9, eight two byte tokens),
+40 for `var_e4` (count 5, three two byte tokens and one five byte token). The value map is 31
+slots holding one byte per expression with `ff` elsewhere.
+
+Where each expression lands in those maps is hash-indexed, and that is visible directly:
+
+```text
+part             exprs  count  label map  value slots
+empty_expr.prt       1      2         36  slot 24, four byte token at 24
+var_sph.prt          1      2         34  slot 0
+var_cyl.prt          2      3         35  slots 0, 1
+multi.prt            8      9         41  slots 0, 1, 26..31
+dim40.prt            3      4         36  slots 0, 1, 2
+var_e4.prt           4      5         40  slots 0, 1, 2, 29
+var_two.prt          6      7         39  slots 0..5
+```
+
+so the source's placement is a hash of the expression name and the token width varies with it.
+Mutation showed the indices are free — `8c 00` to `8c 05` and swapping two both load — so a
+writer may place its expressions from slot 0, which is what `var_two`, `dim40`, `var_cyl` and
+`var_sph` already do. A lane emitter was attempted this turn and withdrawn: it assumed a dense
+token run, so it read zero labels from `empty_expr` and could not round-trip it. Emitting the
+lane needs the token-width rule as well as the frame arithmetic, and the width is not yet
+derived.
 
 ## The head tail is a function of the object and dimension counts
 
