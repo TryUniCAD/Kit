@@ -494,6 +494,23 @@ Authoring a protrusion is the remaining geometry blocker, so the ladder's featur
 The ladder's `AllFeatur` is `7838` bytes against the empty control's `3478`, and the datum definition alone
 is `1648` bytes with `72` field headers, while the two datum replays carry none.
 
+### The feature list declares its schema once
+
+Searching the ladder's `7838`-byte section for the literal `next_feat_ptr` returns **one** occurrence, at
+`0x684`. Every other record boundary is a replay, and `id` and `type` are likewise declared once in the
+first record and replayed afterwards.
+
+So the linked list follows the same rule as every array in this format: the first record declares the
+schema, later records carry values only. That has a direct consequence for authoring a solid feature:
+
+> a `917` protrusion cannot be appended to our authored part, because its fields are not in the schema
+> that our first record declares.
+
+To add one, the **first** record would have to declare the union of datum and protrusion fields, and every
+later record would then have to carry values for that wider schema — including the replay-only sections
+that currently carry datum values. In other words the authored feature section is not extensible by
+adding a record; it has to be rebuilt around the widest feature in the list.
+
 This is the point where the work stops being an emitter task. A `917` record does not exist in the
 authored part at all, and its surfaces reference contours and topology that only a regenerated solid
 provides. Authoring it means the solid feature, its topology tables, and the surface set together — a
