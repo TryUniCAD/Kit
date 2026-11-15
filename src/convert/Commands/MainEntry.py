@@ -1,6 +1,7 @@
 from collections.abc import Callable
 from json import dumps as DumpJson
-from sys import argv as ArgValues, stderr as ErrorStream
+import sys as System
+from sys import argv as ArgValues
 from typing import NoReturn
 
 from convert.adapters.base.UsabilityError import UsabilityError
@@ -32,7 +33,7 @@ def MainEntry(ResearchRunner: Callable[[CliOptions], NoReturn] | None = None) ->
     except BrokenPipeError:
         return 1
     except KeyboardInterrupt:
-        print("kit: interrupted", file=ErrorStream)
+        print("kit: interrupted", file=System.stderr)
         return 130
     except (
         OSError,
@@ -48,5 +49,5 @@ def MainEntry(ResearchRunner: Callable[[CliOptions], NoReturn] | None = None) ->
         }
         if isinstance(Error, UsabilityError):
             Details["details"] = Error.ToMapping()
-        print(DumpJson(Details, ensure_ascii=True), file=ErrorStream)
+        print(DumpJson(Details, ensure_ascii=True), file=System.stderr)
         return 1
