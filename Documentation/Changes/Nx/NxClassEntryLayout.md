@@ -320,7 +320,23 @@ UGS::OM::OldHashSet          80 aa 7a        92      122      0x7a   122
 UGS::Solid::Body             3d 7b         6510      123      0x7b   123
 ```
 
-Exact for **92 of 152** classes. The other 60 are all of the shape where the last byte is `0x80..0x85`
+Exact for **92 of 151** classes that have a real value (the 152nd reads `0xffff`, the invalid marker),
+and each class reports a single stable value — so the earlier "mis-attributed slots" reading was wrong:
+the values are per class and reproducible. Adding the two near misses:
+
+```text
+last byte == value            92
+last byte == value - 1        33   (values 128..134)
+last byte == value - 3        26   (values 137..143)
+total                        151
+```
+
+The growing offset with increasing value says my `2 * slot` index is mis-scaled for the larger
+entries rather than that the format changes: a table whose entries are wider than two bytes, or whose
+slot base differs, drifts exactly like this.
+
+## Original observation retained for context The other 60 are all of the shape where the last byte is `0x80..0x85`
+
 and the value is one higher (`0x80`/129, `0x81`/130, `0x83`/132, `0x84`/133, `0x85`/134), i.e. the
 same field with its high bit set and a one-off in my attribution — the log shows those classes
 reported with a neighbouring class's slot.
