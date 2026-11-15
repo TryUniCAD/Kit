@@ -164,6 +164,15 @@ at `+6` and `+7`, little- and big-endian 16-bit fields, and length pairs at `(+8
 `MainDataStream` is not a run of V5R5 object headers either — the file is on a newer header path
 where the length fields move.
 
+## The writer does not reproduce the vendor stream skeleton
+
+Comparing the writer's box output with `Copper_Washer.CATPart` by marker counts shows the skeleton is
+incomplete: `30 04 04 ff ff` blocks match (`6`), but the writer emits no `30 04 04 fd ff` record
+against `3` in every vendor part, no `54` roster rows against `12` in the washer, and one `01 02 ff`
+edge row where the washer has none in that form. Our reader tolerates the difference because it only
+parses what the writer emits, so this is invisible to round trips and visible only against a vendor
+file. Any claim about vendor loadability has to account for it.
+
 ## Workaround
 
 Treat the five pooled parts as approximate. The reader emits

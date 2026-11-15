@@ -305,6 +305,13 @@ result = CatiaAdapter().write(
   cone writer round trips now produce nine edges and one ten-coedge seam loop, and both still
   validate with zero errors.
 - The writer does not emit feature history, sketches, dimensions, or constraints.
+- The writer's `MainDataStream` is not structurally identical to a vendor stream. Comparing the
+  writer's box output with `Copper_Washer.CATPart` by marker counts gives: per-face
+  `30 04 04 ff ff` blocks `6` in both; `30 04 04 fd ff` blocks `0` written against `3` in every
+  vendor part; `54` roster rows `0` written against `12` in the washer; and the writer's
+  `01 02 ff` edge row appears once while the washer carries none in that form. The writer therefore
+  round trips through this reader without reproducing the vendor header, roster, and trailer records,
+  which is one more reason `vendor_loadable` stays false.
 - The writer reports `vendor_loadable=False` and `application_usable=False`.
 - CATIA acceptance is not measured because the local CATIA install has no license.
 
