@@ -81,6 +81,18 @@ that Kit writes, each verified with a one-input control, but a drawing has no fe
 driving dimension that rebuilds geometry. Those controls show that Kit writes the fields Fusion
 reads; they are not parametric history.
 
+## Parameter reader cross-check
+
+Kit reads the parameter records of a Fusion-saved design and Fusion reports the same expressions:
+
+| File | Kit reads | Fusion reports |
+| ---- | --------- | -------------- |
+| `mirror_xy.f3d` | `d1` `20 mm`, `d2` `0.0 deg` | `d1` `20 mm`, `d2` `0.0 deg` |
+| `analytic.f3d` | `d1` `360 deg`, `d2` `360 deg`, `d3` `360 deg` | the same three |
+
+Kit also reads records Fusion does not list as parameters, such as a pattern count and a mirror stitch
+tolerance, so its read is a superset of `Design.allParameters`.
+
 ## BRep reader cross-check
 
 Kit reads the BRep journal of a Fusion-saved design and counts its topology entities. Fusion reports

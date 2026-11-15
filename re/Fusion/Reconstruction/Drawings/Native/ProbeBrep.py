@@ -61,6 +61,12 @@ def run():
         )
     report["bodies"] = bodies
     report["features"] = root.features.count
+    report["parameters"] = {
+        common.safe(lambda index=index: design.allParameters.item(index).name): common.safe(
+            lambda index=index: design.allParameters.item(index).expression
+        )
+        for index in range(design.allParameters.count)
+    }
     report["status"] = "accepted"
 
 
