@@ -1,0 +1,898 @@
+{
+  "schema": 1,
+  "authority": "derived analysis of already completed native report; no CAD execution",
+  "source_revision": "b23e72c609caca0d0ca4acf871e9680a325f0548",
+  "synthetic_revision": "2179cb75a8501f83d78eacbdeb67f533a94246cc",
+  "original_native_report_sha256": "33e2af2cfed4f5cea5b66e543e72e7888449e16a2a0a6ba1cef8682f3c61ef2e",
+  "published_input_sha256": {
+    "NativeViewReport.json": "331fb53e631ba66609803b430c97dd149af3db8327bd64a9b75b1eedaa3360f2",
+    "Provenance.json": "1c48ae50582640923e20690b980e1185fdea7f1ff1cc8f69a800d4f351685c29",
+    "BaselineInputs.json": "ae55efc0bc5f71164bfecb0437fe2ead8ce9efdaadb4de69764d81598d4275e9",
+    "ImageManifest.json": "2e3559fd1f93da729fe7ac0ab05f59ffa10617b4996714a60951fb8402c4fbb6",
+    "Analyze.py": "e17d836df444d4dc716b31def6472a88d08c643709a0c8f66e4b92c47abd363f"
+  },
+  "measurement_window_utc": {
+    "started_at": "2026-11-15T21:08:38.743854+00:00",
+    "finished_at": "2026-11-15T21:11:53.248598+00:00"
+  },
+  "tolerances": {
+    "rotation_coefficient_absolute": 1e-12,
+    "relative_geometry": 1e-9,
+    "m3": 1e-15,
+    "m2": 1e-12,
+    "m": 1e-12,
+    "kg": 1e-15,
+    "depth_m_absolute": 1e-12,
+    "formula": "absolute difference <= max(absolute tolerance, relative tolerance * abs(expected)); rotation and depth use only absolute tolerance"
+  },
+  "counts": {
+    "rows": 5,
+    "controls": 2,
+    "generated_candidates": 3,
+    "distinct_process_ids": 5,
+    "numeric_standard_rotation_arrays": 90,
+    "numeric_active_transform_arrays": 10,
+    "published_pngs": 10
+  },
+  "all_rotation_arrays_finite_numeric_with_required_lengths": true,
+  "fresh_process_identity_distinct_per_row": true,
+  "native_job_digest_matches_original_job": true,
+  "native_inspector_digest_matches_staged_inspector": true,
+  "control_mass_properties_identical": true,
+  "all_rows_clean_with_one_body_and_unchanged_input": true,
+  "all_canonical_views_within_absolute_tolerance": true,
+  "all_post_selection_active_rotations_match_own_isometric": true,
+  "maximum_standard_view_absolute_difference_against_controls": 7.888609052210118e-31,
+  "candidate_baselines_and_neutral_geometry_within_tolerance": true,
+  "cases": [
+    {
+      "name": "ControlBefore",
+      "kind": "control",
+      "process_id": 6268,
+      "process_creation_filetime": 134392505233142156,
+      "source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "native_status": {
+        "opened": true,
+        "zero_open_errors": true,
+        "zero_open_warnings": true,
+        "rebuilt": true,
+        "one_body": true,
+        "features_clean_and_unsuppressed": true,
+        "no_recorded_exception_or_cleanup_error": true,
+        "no_controller_diagnostics": true,
+        "no_dialogs_or_progress_windows": true,
+        "initial_and_selected_bitmaps_saved": true,
+        "input_digest_unchanged": true,
+        "input_digest_matches_staged_manifest": true,
+        "exact_oracle_identity": true,
+        "completed_capture_stage": true
+      },
+      "native_status_passed": true,
+      "feature_count": 19,
+      "bodies": 1,
+      "measured_mass_properties": {
+        "volume": 8.000000000000001e-6,
+        "area": 0.0028,
+        "com": [0.0, 0.0, 0.005],
+        "mass": 8.000000000000001e-6
+      },
+      "canonical_view_parity": {
+        "before": {
+          "comparison": "each view against the same view from both controls, before and after selection",
+          "per_view_max_absolute_difference": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0,
+            "4": 0.0,
+            "5": 0.0,
+            "6": 0.0,
+            "7": 0.0,
+            "8": 0.0,
+            "9": 0.0
+          },
+          "maximum_absolute_difference": 0.0,
+          "within_tolerance": true
+        },
+        "after": {
+          "comparison": "each view against the same view from both controls, before and after selection",
+          "per_view_max_absolute_difference": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0,
+            "4": 0.0,
+            "5": 0.0,
+            "6": 0.0,
+            "7": 0.0,
+            "8": 0.0,
+            "9": 0.0
+          },
+          "maximum_absolute_difference": 0.0,
+          "within_tolerance": true
+        }
+      },
+      "standard_views_unchanged_by_selection_max_absolute_difference": 0.0,
+      "after_active_rotation_vs_own_isometric": {
+        "maximum_absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      "initial_active_rotation_vs_controls_max_absolute_difference": 0.0,
+      "initial_active_rotation_vs_identity_max_absolute_difference": 0.5150380749100181
+    },
+    {
+      "name": "H3_scalene",
+      "kind": "generated-heldout",
+      "process_id": 7224,
+      "process_creation_filetime": 134392505577661611,
+      "source_sha256": "0605bd78a63b6d7e25e05d5000d948e555a8c7f1157d41154436a437920e7c73",
+      "native_status": {
+        "opened": true,
+        "zero_open_errors": true,
+        "zero_open_warnings": true,
+        "rebuilt": true,
+        "one_body": true,
+        "features_clean_and_unsuppressed": true,
+        "no_recorded_exception_or_cleanup_error": true,
+        "no_controller_diagnostics": true,
+        "no_dialogs_or_progress_windows": true,
+        "initial_and_selected_bitmaps_saved": true,
+        "input_digest_unchanged": true,
+        "input_digest_matches_staged_manifest": true,
+        "exact_oracle_identity": true,
+        "completed_capture_stage": true
+      },
+      "native_status_passed": true,
+      "feature_count": 20,
+      "bodies": 1,
+      "measured_mass_properties": {
+        "volume": 9.932000000000002e-6,
+        "area": 0.003166276360558158,
+        "com": [0.006666666666666669, 0.007000000000000002, 0.0065],
+        "mass": 9.932000000000002e-6
+      },
+      "canonical_view_parity": {
+        "before": {
+          "comparison": "each view against the same view from both controls, before and after selection",
+          "per_view_max_absolute_difference": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 7.888609052210118e-31,
+            "4": 7.888609052210118e-31,
+            "5": 7.888609052210118e-31,
+            "6": 7.888609052210118e-31,
+            "7": 0.0,
+            "8": 0.0,
+            "9": 0.0
+          },
+          "maximum_absolute_difference": 7.888609052210118e-31,
+          "within_tolerance": true
+        },
+        "after": {
+          "comparison": "each view against the same view from both controls, before and after selection",
+          "per_view_max_absolute_difference": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 7.888609052210118e-31,
+            "4": 7.888609052210118e-31,
+            "5": 7.888609052210118e-31,
+            "6": 7.888609052210118e-31,
+            "7": 0.0,
+            "8": 0.0,
+            "9": 0.0
+          },
+          "maximum_absolute_difference": 7.888609052210118e-31,
+          "within_tolerance": true
+        }
+      },
+      "standard_views_unchanged_by_selection_max_absolute_difference": 0.0,
+      "after_active_rotation_vs_own_isometric": {
+        "maximum_absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      "initial_active_rotation_vs_controls_max_absolute_difference": 0.5150380749100181,
+      "initial_active_rotation_vs_identity_max_absolute_difference": 0.0,
+      "baseline_comparison": {
+        "volume": {
+          "measured": 9.932000000000002e-6,
+          "expected": 9.932000000000002e-6,
+          "absolute_difference": 0.0,
+          "tolerance": 9.932000000000003e-15,
+          "within_tolerance": true
+        },
+        "area": {
+          "measured": 0.003166276360558158,
+          "expected": 0.003166276360558158,
+          "absolute_difference": 0.0,
+          "tolerance": 3.166276360558158e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_m": [
+          {
+            "measured": 0.006666666666666669,
+            "expected": 0.006666666666666669,
+            "absolute_difference": 0.0,
+            "tolerance": 6.6666666666666695e-12,
+            "within_tolerance": true
+          },
+          {
+            "measured": 0.007000000000000002,
+            "expected": 0.007000000000000002,
+            "absolute_difference": 0.0,
+            "tolerance": 7.0000000000000025e-12,
+            "within_tolerance": true
+          },
+          {
+            "measured": 0.0065,
+            "expected": 0.0065,
+            "absolute_difference": 0.0,
+            "tolerance": 6.5e-12,
+            "within_tolerance": true
+          }
+        ],
+        "within_tolerance": true
+      },
+      "neutral_model_comparison": {
+        "volume": {
+          "measured": 9.932000000000002e-6,
+          "expected": 9.931999999999999e-6,
+          "absolute_difference": 3.3881317890172014e-21,
+          "tolerance": 9.932e-15,
+          "within_tolerance": true
+        },
+        "area": {
+          "measured": 0.003166276360558158,
+          "expected": 0.0031662763605581575,
+          "absolute_difference": 4.336808689942018e-19,
+          "tolerance": 3.1662763605581576e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_m": [
+          {
+            "measured": 0.006666666666666669,
+            "expected": 0.006666666666666667,
+            "absolute_difference": 1.734723475976807e-18,
+            "tolerance": 6.666666666666668e-12,
+            "within_tolerance": true
+          },
+          {
+            "measured": 0.007000000000000002,
+            "expected": 0.007,
+            "absolute_difference": 1.734723475976807e-18,
+            "tolerance": 7.000000000000001e-12,
+            "within_tolerance": true
+          },
+          {
+            "measured": 0.0065,
+            "expected": 0.0065,
+            "absolute_difference": 0.0,
+            "tolerance": 6.5e-12,
+            "within_tolerance": true
+          }
+        ],
+        "within_tolerance": true,
+        "mass_kg": {
+          "measured": 9.932000000000002e-6,
+          "expected": 9.931999999999999e-6,
+          "absolute_difference": 3.3881317890172014e-21,
+          "tolerance": 9.932e-15,
+          "within_tolerance": true
+        }
+      },
+      "extrusion_depth_readback_m": {
+        "measured": 0.013,
+        "expected": 0.013,
+        "absolute_difference": 0.0,
+        "tolerance": 1e-12,
+        "within_tolerance": true
+      }
+    },
+    {
+      "name": "H5_irregular",
+      "kind": "generated-heldout",
+      "process_id": 4692,
+      "process_creation_filetime": 134392505989837253,
+      "source_sha256": "0957e8ba435cd9dbbbe10b13a3742a26d8dc0c0d95689e38e4b93353c2120f6d",
+      "native_status": {
+        "opened": true,
+        "zero_open_errors": true,
+        "zero_open_warnings": true,
+        "rebuilt": true,
+        "one_body": true,
+        "features_clean_and_unsuppressed": true,
+        "no_recorded_exception_or_cleanup_error": true,
+        "no_controller_diagnostics": true,
+        "no_dialogs_or_progress_windows": true,
+        "initial_and_selected_bitmaps_saved": true,
+        "input_digest_unchanged": true,
+        "input_digest_matches_staged_manifest": true,
+        "exact_oracle_identity": true,
+        "completed_capture_stage": true
+      },
+      "native_status_passed": true,
+      "feature_count": 20,
+      "bodies": 1,
+      "measured_mass_properties": {
+        "volume": 1.31635e-5,
+        "area": 0.004932190747600379,
+        "com": [0.005411149516972432, 0.0033525658069662317, 0.0035],
+        "mass": 1.31635e-5
+      },
+      "canonical_view_parity": {
+        "before": {
+          "comparison": "each view against the same view from both controls, before and after selection",
+          "per_view_max_absolute_difference": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 7.888609052210118e-31,
+            "4": 7.888609052210118e-31,
+            "5": 7.888609052210118e-31,
+            "6": 7.888609052210118e-31,
+            "7": 0.0,
+            "8": 0.0,
+            "9": 0.0
+          },
+          "maximum_absolute_difference": 7.888609052210118e-31,
+          "within_tolerance": true
+        },
+        "after": {
+          "comparison": "each view against the same view from both controls, before and after selection",
+          "per_view_max_absolute_difference": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 7.888609052210118e-31,
+            "4": 7.888609052210118e-31,
+            "5": 7.888609052210118e-31,
+            "6": 7.888609052210118e-31,
+            "7": 0.0,
+            "8": 0.0,
+            "9": 0.0
+          },
+          "maximum_absolute_difference": 7.888609052210118e-31,
+          "within_tolerance": true
+        }
+      },
+      "standard_views_unchanged_by_selection_max_absolute_difference": 0.0,
+      "after_active_rotation_vs_own_isometric": {
+        "maximum_absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      "initial_active_rotation_vs_controls_max_absolute_difference": 0.5150380749100181,
+      "initial_active_rotation_vs_identity_max_absolute_difference": 0.0,
+      "baseline_comparison": {
+        "volume": {
+          "measured": 1.31635e-5,
+          "expected": 1.31635e-5,
+          "absolute_difference": 0.0,
+          "tolerance": 1.3163500000000002e-14,
+          "within_tolerance": true
+        },
+        "area": {
+          "measured": 0.004932190747600379,
+          "expected": 0.004932190747600379,
+          "absolute_difference": 0.0,
+          "tolerance": 4.932190747600379e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_m": [
+          {
+            "measured": 0.005411149516972432,
+            "expected": 0.005411149516972432,
+            "absolute_difference": 0.0,
+            "tolerance": 5.411149516972433e-12,
+            "within_tolerance": true
+          },
+          {
+            "measured": 0.0033525658069662317,
+            "expected": 0.003352565806966232,
+            "absolute_difference": 4.336808689942018e-19,
+            "tolerance": 3.3525658069662325e-12,
+            "within_tolerance": true
+          },
+          {
+            "measured": 0.0035,
+            "expected": 0.0035,
+            "absolute_difference": 0.0,
+            "tolerance": 3.5000000000000004e-12,
+            "within_tolerance": true
+          }
+        ],
+        "within_tolerance": true
+      },
+      "neutral_model_comparison": {
+        "volume": {
+          "measured": 1.31635e-5,
+          "expected": 1.31635e-5,
+          "absolute_difference": 0.0,
+          "tolerance": 1.3163500000000002e-14,
+          "within_tolerance": true
+        },
+        "area": {
+          "measured": 0.004932190747600379,
+          "expected": 0.0049321907476003795,
+          "absolute_difference": 8.673617379884035e-19,
+          "tolerance": 4.9321907476003796e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_m": [
+          {
+            "measured": 0.005411149516972432,
+            "expected": 0.005411149516972434,
+            "absolute_difference": 1.734723475976807e-18,
+            "tolerance": 5.4111495169724344e-12,
+            "within_tolerance": true
+          },
+          {
+            "measured": 0.0033525658069662317,
+            "expected": 0.0033525658069662326,
+            "absolute_difference": 8.673617379884035e-19,
+            "tolerance": 3.352565806966233e-12,
+            "within_tolerance": true
+          },
+          {
+            "measured": 0.0035,
+            "expected": 0.0035,
+            "absolute_difference": 0.0,
+            "tolerance": 3.5000000000000004e-12,
+            "within_tolerance": true
+          }
+        ],
+        "within_tolerance": true,
+        "mass_kg": {
+          "measured": 1.31635e-5,
+          "expected": 1.31635e-5,
+          "absolute_difference": 0.0,
+          "tolerance": 1.3163500000000002e-14,
+          "within_tolerance": true
+        }
+      },
+      "extrusion_depth_readback_m": {
+        "measured": 0.007,
+        "expected": 0.007,
+        "absolute_difference": 0.0,
+        "tolerance": 1e-12,
+        "within_tolerance": true
+      }
+    },
+    {
+      "name": "H7_irregular",
+      "kind": "generated-heldout",
+      "process_id": 4764,
+      "process_creation_filetime": 134392506352213897,
+      "source_sha256": "e9f9f23bae737109f03425040de1066ab267f212183ca55d7ec713f6f99ff000",
+      "native_status": {
+        "opened": true,
+        "zero_open_errors": true,
+        "zero_open_warnings": true,
+        "rebuilt": true,
+        "one_body": true,
+        "features_clean_and_unsuppressed": true,
+        "no_recorded_exception_or_cleanup_error": true,
+        "no_controller_diagnostics": true,
+        "no_dialogs_or_progress_windows": true,
+        "initial_and_selected_bitmaps_saved": true,
+        "input_digest_unchanged": true,
+        "input_digest_matches_staged_manifest": true,
+        "exact_oracle_identity": true,
+        "completed_capture_stage": true
+      },
+      "native_status_passed": true,
+      "feature_count": 20,
+      "bodies": 1,
+      "measured_mass_properties": {
+        "volume": 5.3796500000000006e-5,
+        "area": 0.009896349327158964,
+        "com": [
+          0.0014406699320587766, 0.006562595460051614, 0.008499999999999999
+        ],
+        "mass": 5.3796500000000006e-5
+      },
+      "canonical_view_parity": {
+        "before": {
+          "comparison": "each view against the same view from both controls, before and after selection",
+          "per_view_max_absolute_difference": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 7.888609052210118e-31,
+            "4": 7.888609052210118e-31,
+            "5": 7.888609052210118e-31,
+            "6": 7.888609052210118e-31,
+            "7": 0.0,
+            "8": 0.0,
+            "9": 0.0
+          },
+          "maximum_absolute_difference": 7.888609052210118e-31,
+          "within_tolerance": true
+        },
+        "after": {
+          "comparison": "each view against the same view from both controls, before and after selection",
+          "per_view_max_absolute_difference": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 7.888609052210118e-31,
+            "4": 7.888609052210118e-31,
+            "5": 7.888609052210118e-31,
+            "6": 7.888609052210118e-31,
+            "7": 0.0,
+            "8": 0.0,
+            "9": 0.0
+          },
+          "maximum_absolute_difference": 7.888609052210118e-31,
+          "within_tolerance": true
+        }
+      },
+      "standard_views_unchanged_by_selection_max_absolute_difference": 0.0,
+      "after_active_rotation_vs_own_isometric": {
+        "maximum_absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      "initial_active_rotation_vs_controls_max_absolute_difference": 0.5150380749100181,
+      "initial_active_rotation_vs_identity_max_absolute_difference": 0.0,
+      "baseline_comparison": {
+        "volume": {
+          "measured": 5.3796500000000006e-5,
+          "expected": 5.3796500000000006e-5,
+          "absolute_difference": 0.0,
+          "tolerance": 5.379650000000001e-14,
+          "within_tolerance": true
+        },
+        "area": {
+          "measured": 0.009896349327158964,
+          "expected": 0.009896349327158964,
+          "absolute_difference": 0.0,
+          "tolerance": 9.896349327158964e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_m": [
+          {
+            "measured": 0.0014406699320587766,
+            "expected": 0.001440669932058777,
+            "absolute_difference": 4.336808689942018e-19,
+            "tolerance": 1.4406699320587772e-12,
+            "within_tolerance": true
+          },
+          {
+            "measured": 0.006562595460051614,
+            "expected": 0.006562595460051613,
+            "absolute_difference": 8.673617379884035e-19,
+            "tolerance": 6.562595460051614e-12,
+            "within_tolerance": true
+          },
+          {
+            "measured": 0.008499999999999999,
+            "expected": 0.008499999999999999,
+            "absolute_difference": 0.0,
+            "tolerance": 8.5e-12,
+            "within_tolerance": true
+          }
+        ],
+        "within_tolerance": true
+      },
+      "neutral_model_comparison": {
+        "volume": {
+          "measured": 5.3796500000000006e-5,
+          "expected": 5.37965e-5,
+          "absolute_difference": 6.776263578034403e-21,
+          "tolerance": 5.37965e-14,
+          "within_tolerance": true
+        },
+        "area": {
+          "measured": 0.009896349327158964,
+          "expected": 0.009896349327158962,
+          "absolute_difference": 1.734723475976807e-18,
+          "tolerance": 9.896349327158962e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_m": [
+          {
+            "measured": 0.0014406699320587766,
+            "expected": 0.0014406699320587764,
+            "absolute_difference": 2.168404344971009e-19,
+            "tolerance": 1.4406699320587766e-12,
+            "within_tolerance": true
+          },
+          {
+            "measured": 0.006562595460051614,
+            "expected": 0.006562595460051614,
+            "absolute_difference": 0.0,
+            "tolerance": 6.5625954600516146e-12,
+            "within_tolerance": true
+          },
+          {
+            "measured": 0.008499999999999999,
+            "expected": 0.0085,
+            "absolute_difference": 1.734723475976807e-18,
+            "tolerance": 8.500000000000001e-12,
+            "within_tolerance": true
+          }
+        ],
+        "within_tolerance": true,
+        "mass_kg": {
+          "measured": 5.3796500000000006e-5,
+          "expected": 5.37965e-5,
+          "absolute_difference": 6.776263578034403e-21,
+          "tolerance": 5.37965e-14,
+          "within_tolerance": true
+        }
+      },
+      "extrusion_depth_readback_m": {
+        "measured": 0.017,
+        "expected": 0.017,
+        "absolute_difference": 0.0,
+        "tolerance": 1e-12,
+        "within_tolerance": true
+      }
+    },
+    {
+      "name": "ControlAfter",
+      "kind": "control",
+      "process_id": 1604,
+      "process_creation_filetime": 134392506783352633,
+      "source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "native_status": {
+        "opened": true,
+        "zero_open_errors": true,
+        "zero_open_warnings": true,
+        "rebuilt": true,
+        "one_body": true,
+        "features_clean_and_unsuppressed": true,
+        "no_recorded_exception_or_cleanup_error": true,
+        "no_controller_diagnostics": true,
+        "no_dialogs_or_progress_windows": true,
+        "initial_and_selected_bitmaps_saved": true,
+        "input_digest_unchanged": true,
+        "input_digest_matches_staged_manifest": true,
+        "exact_oracle_identity": true,
+        "completed_capture_stage": true
+      },
+      "native_status_passed": true,
+      "feature_count": 19,
+      "bodies": 1,
+      "measured_mass_properties": {
+        "volume": 8.000000000000001e-6,
+        "area": 0.0028,
+        "com": [0.0, 0.0, 0.005],
+        "mass": 8.000000000000001e-6
+      },
+      "canonical_view_parity": {
+        "before": {
+          "comparison": "each view against the same view from both controls, before and after selection",
+          "per_view_max_absolute_difference": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0,
+            "4": 0.0,
+            "5": 0.0,
+            "6": 0.0,
+            "7": 0.0,
+            "8": 0.0,
+            "9": 0.0
+          },
+          "maximum_absolute_difference": 0.0,
+          "within_tolerance": true
+        },
+        "after": {
+          "comparison": "each view against the same view from both controls, before and after selection",
+          "per_view_max_absolute_difference": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0,
+            "4": 0.0,
+            "5": 0.0,
+            "6": 0.0,
+            "7": 0.0,
+            "8": 0.0,
+            "9": 0.0
+          },
+          "maximum_absolute_difference": 0.0,
+          "within_tolerance": true
+        }
+      },
+      "standard_views_unchanged_by_selection_max_absolute_difference": 0.0,
+      "after_active_rotation_vs_own_isometric": {
+        "maximum_absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      "initial_active_rotation_vs_controls_max_absolute_difference": 0.0,
+      "initial_active_rotation_vs_identity_max_absolute_difference": 0.5150380749100181
+    }
+  ],
+  "images": [
+    {
+      "case": "ControlAfter",
+      "phase": "isometric_selected",
+      "png": "images/ControlAfter.png",
+      "png_sha256": "3d063a427f78124a7c43720e980b2c4db7ea9ff1d768a35b57322e0a270aef55",
+      "png_matches_staged_digest": true,
+      "png_dimensions": [960, 720],
+      "png_metadata_matches_manifest": true,
+      "bmp_digest_matches_native_report": true,
+      "bmp_length_matches_native_report": true,
+      "bmp_original_retained_external_only": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "initial",
+      "png": "images/ControlAfter_initial.png",
+      "png_sha256": "3fbb44b5f544de550bc8ada08b20f77e003b348f8207f9d67a737b141d51f71c",
+      "png_matches_staged_digest": true,
+      "png_dimensions": [960, 720],
+      "png_metadata_matches_manifest": true,
+      "bmp_digest_matches_native_report": true,
+      "bmp_length_matches_native_report": true,
+      "bmp_original_retained_external_only": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "isometric_selected",
+      "png": "images/ControlBefore.png",
+      "png_sha256": "3d063a427f78124a7c43720e980b2c4db7ea9ff1d768a35b57322e0a270aef55",
+      "png_matches_staged_digest": true,
+      "png_dimensions": [960, 720],
+      "png_metadata_matches_manifest": true,
+      "bmp_digest_matches_native_report": true,
+      "bmp_length_matches_native_report": true,
+      "bmp_original_retained_external_only": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "initial",
+      "png": "images/ControlBefore_initial.png",
+      "png_sha256": "3fbb44b5f544de550bc8ada08b20f77e003b348f8207f9d67a737b141d51f71c",
+      "png_matches_staged_digest": true,
+      "png_dimensions": [960, 720],
+      "png_metadata_matches_manifest": true,
+      "bmp_digest_matches_native_report": true,
+      "bmp_length_matches_native_report": true,
+      "bmp_original_retained_external_only": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "isometric_selected",
+      "png": "images/H3_scalene.png",
+      "png_sha256": "794c214e0127fa735f66d021f617610762d9dc8422cd893a945dcd4a8cdc6f3a",
+      "png_matches_staged_digest": true,
+      "png_dimensions": [960, 720],
+      "png_metadata_matches_manifest": true,
+      "bmp_digest_matches_native_report": true,
+      "bmp_length_matches_native_report": true,
+      "bmp_original_retained_external_only": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "initial",
+      "png": "images/H3_scalene_initial.png",
+      "png_sha256": "989c7fa683817a4f6e224464c48f10ad24bdc2c95c8030fbf1d5d36b6868048c",
+      "png_matches_staged_digest": true,
+      "png_dimensions": [960, 720],
+      "png_metadata_matches_manifest": true,
+      "bmp_digest_matches_native_report": true,
+      "bmp_length_matches_native_report": true,
+      "bmp_original_retained_external_only": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "isometric_selected",
+      "png": "images/H5_irregular.png",
+      "png_sha256": "fd13699b282d06742b9dc4b4a8d5983d87595d3d5abcd5530ad0f00a20eb6ea3",
+      "png_matches_staged_digest": true,
+      "png_dimensions": [960, 720],
+      "png_metadata_matches_manifest": true,
+      "bmp_digest_matches_native_report": true,
+      "bmp_length_matches_native_report": true,
+      "bmp_original_retained_external_only": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "initial",
+      "png": "images/H5_irregular_initial.png",
+      "png_sha256": "402357b166b505dfa67fa20ad91e8909b9d308e4baf873138ed024c1a4420d61",
+      "png_matches_staged_digest": true,
+      "png_dimensions": [960, 720],
+      "png_metadata_matches_manifest": true,
+      "bmp_digest_matches_native_report": true,
+      "bmp_length_matches_native_report": true,
+      "bmp_original_retained_external_only": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "isometric_selected",
+      "png": "images/H7_irregular.png",
+      "png_sha256": "9e4cdfa6b2a7792d4ac61b760c27a5956c82c5cec3c403f37aed21bcdf243c02",
+      "png_matches_staged_digest": true,
+      "png_dimensions": [960, 720],
+      "png_metadata_matches_manifest": true,
+      "bmp_digest_matches_native_report": true,
+      "bmp_length_matches_native_report": true,
+      "bmp_original_retained_external_only": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "initial",
+      "png": "images/H7_irregular_initial.png",
+      "png_sha256": "1da36d16b76abf949b83494e9898022ca717174ae92293cf31696ce480efd3a6",
+      "png_matches_staged_digest": true,
+      "png_dimensions": [960, 720],
+      "png_metadata_matches_manifest": true,
+      "bmp_digest_matches_native_report": true,
+      "bmp_length_matches_native_report": true,
+      "bmp_original_retained_external_only": true
+    }
+  ],
+  "all_published_images_match_recorded_bindings": true,
+  "visual_inspection": {
+    "authority": "oracle owner manual inspection of all ten staged PNGs, reported in task handoff and the conversion manifest",
+    "inspector": "oracle owner/root",
+    "completed_at": 1794777258.87637,
+    "images_inspected": 10,
+    "observations": {
+      "controls": "both initial captures show a nonempty cuboid with visible depth, both selected isometric captures show a nonempty cuboid",
+      "generated_initial": "all three show small nonempty front-facing polygons",
+      "generated_isometric": "all three show extrusion depth and side faces after standard view 7 and zoom",
+      "initial_camera_parity": "not established; candidates initially face front while controls have an oblique view"
+    },
+    "scope": "qualitative visual inspection only; native metric results supply geometry measurements",
+    "decoded_pixel_equality_independently_measured": false,
+    "publisher_independent_visual_inspection": false
+  },
+  "acceptance_boundaries": {
+    "full_cad_goal_complete": false,
+    "production_adapter_read_only": true,
+    "source_revision_and_three_identical_artifact_files_only": true,
+    "viewport_batch_dimension_edits_or_reopen": false,
+    "separate_depth_edit_save_reopen_batch_completed": true,
+    "depth_edit_factor": 1.25,
+    "sketch_dimension_edits_measured": false,
+    "curve_or_assembly_writer_acceptance": false,
+    "initial_active_camera_parity_claimed": false,
+    "full_feature_name_preservation": false,
+    "material_folder_label_normalized_on_reopen": true,
+    "material_folder_normalization_cause_established": false
+  },
+  "byte_equivalent_artifact": {
+    "head": "033b97679263fe31d7c4fb46899470be6c2923c5",
+    "artifact_id": 14180956560,
+    "run_id": 43761751165,
+    "job_id": 132957863450,
+    "artifact_name": "solidworks-construction-00d1f12ca6b516ee3b0559e90f46a2b67848d0d6",
+    "synthetic_merge": "00d1f12ca6b516ee3b0559e90f46a2b67848d0d6",
+    "parents": [
+      "e04e7b78699d3f567409937007b00b567620078a",
+      "033b97679263fe31d7c4fb46899470be6c2923c5"
+    ],
+    "tree": "62bda1e41a8baa2e03ed27ca54ed18e4b75cde4e",
+    "github_archive_sha256": "23c0872dd952788e629287404453b462a06091aa67d32d1fd9c385b7d02c60e0",
+    "archive_digest_authority": "GitHub artifact metadata; downloaded extracted files compared independently, archive zip not independently rehashed",
+    "archive_bytes": 148693,
+    "comparison": "full extracted file byte equality against the b23 staged files used for native measurements",
+    "files": [
+      {
+        "name": "H3_scalene.SLDPRT",
+        "sha256": "0605bd78a63b6d7e25e05d5000d948e555a8c7f1157d41154436a437920e7c73",
+        "bytes": 7618,
+        "byte_equal": true
+      },
+      {
+        "name": "H5_irregular.SLDPRT",
+        "sha256": "0957e8ba435cd9dbbbe10b13a3742a26d8dc0c0d95689e38e4b93353c2120f6d",
+        "bytes": 7687,
+        "byte_equal": true
+      },
+      {
+        "name": "H7_irregular.SLDPRT",
+        "sha256": "e9f9f23bae737109f03425040de1066ab267f212183ca55d7ec713f6f99ff000",
+        "bytes": 7782,
+        "byte_equal": true
+      }
+    ],
+    "scope": "three polygon part artifacts only; no native acceptance inferred from artifact equality alone"
+  },
+  "not_established": [
+    "initial active-camera parity with controls",
+    "other source revisions beyond three independently verified byte-identical artifacts",
+    "dimension edits or save/reopen in this viewport batch",
+    "full CAD goal completion",
+    "production SOLIDWORKS writing",
+    "curve or assembly writer acceptance",
+    "matrix byte identity or writer constants from captured rotations",
+    "independent decoded-pixel equality between BMP and PNG"
+  ]
+}

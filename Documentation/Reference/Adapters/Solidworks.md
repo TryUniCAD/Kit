@@ -128,9 +128,14 @@ The [standard-view constructor](../../Changes/Solidworks/SolidworksStandardViewC
 generates the missing canonical rotations from native constructor rules.
 The [canonical-view measurements](../../Changes/Solidworks/Inspection/SolidworksCanonicalViewMeasurements.md)
 confirm nine named rotations and visible selected-view depth for three polygon cases at their recorded source revision.
-Later configuration/profile changes and initial-camera parity require separate measurements.
+The [current polygon measurements](../../Changes/Solidworks/Inspection/SolidworksCurrentPolygonMeasurements.md)
+also cover the later configuration/profile changes: three generated parts pass controlled views,
+depth edits, saving and fresh reopening at the recorded byte hashes.
+Their system material-folder labels change on saved-copy reopening, so full name preservation is not established.
+Initial-camera parity also remains unestablished.
 The [later polygon interruption](../../Changes/Solidworks/Inspection/SolidworksControlledPolygonInterruption.md)
-records a disconnected heptagon query and unavailable trailing control, with acceptance withheld.
+records the earlier disconnected heptagon query and unavailable trailing control.
+That incomplete batch is not counted as a format crash; the subsequent controlled repeats passed.
 The [quaternion half-angle gotcha](../../Gotchas/Conversion/Solidworks/Model/QuaternionRotationUsesNegativeHalfAngle.md)
 records the native negative half-angle and the refuted positive-factor assumption.
 The [controlled curve source authoring tool](../../Changes/Solidworks/Inspection/SolidworksCurveSourceAuthoring.md)

@@ -17,5 +17,8 @@ The origin of the new session remains unverified.
 The heptagon observation is not counted as a format crash because no passing trailing control brackets it.
 
 Read this record separately from the successful earlier canonical-view batch.
-Later configuration and profile changes still require valid native measurements, dimension edits and saved-copy reopening.
+The [subsequent controlled measurements](SolidworksCurrentPolygonMeasurements.md)
+pass fresh geometry, viewport, depth-edit and saved-copy reopening checks for the three recorded candidate hashes.
+Those later results do not retroactively validate this interrupted batch or attribute its disconnection to the format.
+System material-folder name preservation and broader feature coverage remain unfinished.
 The production adapter remains read-only.

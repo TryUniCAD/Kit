@@ -1,0 +1,38 @@
+{
+  "head": "033b97679263fe31d7c4fb46899470be6c2923c5",
+  "artifact_id": 14180956560,
+  "run_id": 43761751165,
+  "job_id": 132957863450,
+  "artifact_name": "solidworks-construction-00d1f12ca6b516ee3b0559e90f46a2b67848d0d6",
+  "synthetic_merge": "00d1f12ca6b516ee3b0559e90f46a2b67848d0d6",
+  "parents": [
+    "e04e7b78699d3f567409937007b00b567620078a",
+    "033b97679263fe31d7c4fb46899470be6c2923c5"
+  ],
+  "tree": "62bda1e41a8baa2e03ed27ca54ed18e4b75cde4e",
+  "github_archive_sha256": "23c0872dd952788e629287404453b462a06091aa67d32d1fd9c385b7d02c60e0",
+  "archive_digest_authority": "GitHub artifact metadata; downloaded extracted files compared independently, archive zip not independently rehashed",
+  "archive_bytes": 148693,
+  "comparison": "full extracted file byte equality against the b23 staged files used for native measurements",
+  "files": [
+    {
+      "name": "H3_scalene.SLDPRT",
+      "sha256": "0605bd78a63b6d7e25e05d5000d948e555a8c7f1157d41154436a437920e7c73",
+      "bytes": 7618,
+      "byte_equal": true
+    },
+    {
+      "name": "H5_irregular.SLDPRT",
+      "sha256": "0957e8ba435cd9dbbbe10b13a3742a26d8dc0c0d95689e38e4b93353c2120f6d",
+      "bytes": 7687,
+      "byte_equal": true
+    },
+    {
+      "name": "H7_irregular.SLDPRT",
+      "sha256": "e9f9f23bae737109f03425040de1066ab267f212183ca55d7ec713f6f99ff000",
+      "bytes": 7782,
+      "byte_equal": true
+    }
+  ],
+  "scope": "three polygon part artifacts only; no native acceptance inferred from artifact equality alone"
+}

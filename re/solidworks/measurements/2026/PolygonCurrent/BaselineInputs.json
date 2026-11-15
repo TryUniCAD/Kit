@@ -1,0 +1,89 @@
+{
+  "source_job_sha256": "35abce0201b001b6229c06aac8a8a926074229705fd141e6baa1ae4012f0c04a",
+  "source_batch": "Edits0af",
+  "authority": "prior independent expected baseline metrics and neutral models; no held-out native source inspection",
+  "cases": [
+    {
+      "name": "H3_scalene",
+      "expected_baseline": {
+        "bodies": 1,
+        "volume": 9.932000000000002e-6,
+        "area": 0.003166276360558158,
+        "com": [0.006666666666666669, 0.007000000000000002, 0.0065]
+      },
+      "neutral_input": {
+        "name": "H3_scalene",
+        "configuration_name": "authored configuration",
+        "sketch_name": "Sketch1",
+        "extrusion_name": "Boss-Extrude1",
+        "origin_name": "Origin",
+        "plane_axis": "z",
+        "vertices_m": [
+          [-0.013, -0.007],
+          [0.029, -0.003],
+          [0.004, 0.031]
+        ],
+        "depth_m": 0.013,
+        "density_kg_m3": 1.0
+      }
+    },
+    {
+      "name": "H5_irregular",
+      "expected_baseline": {
+        "bodies": 1,
+        "volume": 1.31635e-5,
+        "area": 0.004932190747600379,
+        "com": [0.005411149516972432, 0.003352565806966232, 0.0035]
+      },
+      "neutral_input": {
+        "name": "H5_irregular",
+        "configuration_name": "authored configuration",
+        "sketch_name": "Sketch1",
+        "extrusion_name": "Boss-Extrude1",
+        "origin_name": "Origin",
+        "plane_axis": "z",
+        "vertices_m": [
+          [-0.023, -0.008],
+          [0.007, -0.021],
+          [0.036, -0.004],
+          [0.019, 0.028],
+          [-0.017, 0.019]
+        ],
+        "depth_m": 0.007,
+        "density_kg_m3": 1.0
+      }
+    },
+    {
+      "name": "H7_irregular",
+      "expected_baseline": {
+        "bodies": 1,
+        "volume": 5.3796500000000006e-5,
+        "area": 0.009896349327158964,
+        "com": [
+          0.001440669932058777, 0.006562595460051613, 0.008499999999999999
+        ]
+      },
+      "neutral_input": {
+        "name": "H7_irregular",
+        "configuration_name": "authored configuration",
+        "sketch_name": "Sketch1",
+        "extrusion_name": "Boss-Extrude1",
+        "origin_name": "Origin",
+        "plane_axis": "z",
+        "vertices_m": [
+          [-0.031, -0.006],
+          [-0.008, -0.025],
+          [0.02, -0.019],
+          [0.039, 0.007],
+          [0.021, 0.037],
+          [-0.013, 0.032],
+          [-0.036, 0.014]
+        ],
+        "depth_m": 0.017,
+        "density_kg_m3": 1.0
+      }
+    }
+  ],
+  "baseline_publication": "../CanonicalViews/BaselineInputs.json",
+  "baseline_publication_sha256": "0d06a23ef1cb652729c2010fb97bb4ef0e55ab34af7e261b83afd4d1fd7202a7"
+}

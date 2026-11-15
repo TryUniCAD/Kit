@@ -1,0 +1,34 @@
+{
+  "cases": [
+    {
+      "name": "ControlBefore",
+      "kind": "control",
+      "source": "external-inputs/NativeControl.SLDPRT",
+      "bitmap": "external-originals/ControlBefore.bmp"
+    },
+    {
+      "name": "H3_scalene",
+      "kind": "generated-heldout",
+      "source": "external-inputs/H3_scalene.SLDPRT",
+      "bitmap": "external-originals/H3_scalene.bmp"
+    },
+    {
+      "name": "H5_irregular",
+      "kind": "generated-heldout",
+      "source": "external-inputs/H5_irregular.SLDPRT",
+      "bitmap": "external-originals/H5_irregular.bmp"
+    },
+    {
+      "name": "H7_irregular",
+      "kind": "generated-heldout",
+      "source": "external-inputs/H7_irregular.SLDPRT",
+      "bitmap": "external-originals/H7_irregular.bmp"
+    },
+    {
+      "name": "ControlAfter",
+      "kind": "control",
+      "source": "external-inputs/NativeControl.SLDPRT",
+      "bitmap": "external-originals/ControlAfter.bmp"
+    }
+  ]
+}

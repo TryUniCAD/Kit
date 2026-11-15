@@ -490,13 +490,13 @@ state as the component-taking constructor, with a null component pointer.
 `component_reference_fields` exposes these fields for native derived handle
 classes without creating a redundant archive object.
 
-| Field          | Classification                | Rule                                                                                               | 2026 evidence                                           |
-| -------------- | ----------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| Wrapper `f58`  | derived exclusive ownership   | A distinct unit-component copy retaining the same owning model                                      | `0x4b7e8250`, `0x4b82ab30`, copy constructor `0x4b8280c0` |
-| FRData `f00`   | derived id                    | Referenced plane's persistent id                                                                   | `0x4bb34370`                                            |
-| FRData `f08`   | volatile/input provenance     | Referenced node's creation time                                                                    | same constructor calling `0x4c03e070`                   |
-| Wrapper `ff8`  | derived conditional ownership | Null for an allocated plane; inline geometry is retained only when the referenced plane id is `-1` | `0x4b7e7980`                                            |
-| Wrapper `f100` | derived principal-plane kind  | Principal positive X/Y/Z normals map to `1/2/3`; custom geometry maps to `0`                       | plane vtable `0x4d16f278 + 0x2130` targets `0x4c2d5750` |
+| Field          | Classification                | Rule                                                                                               | 2026 evidence                                             |
+| -------------- | ----------------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| Wrapper `f58`  | derived exclusive ownership   | A distinct unit-component copy retaining the same owning model                                     | `0x4b7e8250`, `0x4b82ab30`, copy constructor `0x4b8280c0` |
+| FRData `f00`   | derived id                    | Referenced plane's persistent id                                                                   | `0x4bb34370`                                              |
+| FRData `f08`   | volatile/input provenance     | Referenced node's creation time                                                                    | same constructor calling `0x4c03e070`                     |
+| Wrapper `ff8`  | derived conditional ownership | Null for an allocated plane; inline geometry is retained only when the referenced plane id is `-1` | `0x4b7e7980`                                              |
+| Wrapper `f100` | derived principal-plane kind  | Principal positive X/Y/Z normals map to `1/2/3`; custom geometry maps to `0`                       | plane vtable `0x4d16f278 + 0x2130` targets `0x4c2d5750`   |
 
 The native principal-kind routine first checks the plane's semantic type and
 byte `f34c`, then compares its normal to the positive canonical axes with
@@ -762,6 +762,18 @@ This is volatile provenance, not a value copied from a saved folder.
 Material assignment, equations, body membership and annotation contents require
 their own generated semantic subgraphs; these factories describe fresh empty
 instances. They do not claim accepted caches or full family coverage.
+
+The [current polygon measurements](../measurements/2026/PolygonCurrent/README.md)
+also bound the system-folder name behavior. In all three measured parts, the
+neutral presentation input names the empty material folder `authored material`.
+Initial inspection and the edit phase retain that name, but each saved copy
+reopens with `Material <not specified>` at the same feature-tree position.
+All twenty feature types and their order remain unchanged, as do the other
+feature names. The arbitrary incoming material-folder name therefore cannot be
+claimed to survive the save/reopen cycle. This observation does not classify a
+general material-title regeneration formula or establish material assignment.
+The [material-folder gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Model/MaterialFolderNameChangesOnSave.md)
+records the measured boundary separately from geometry and depth-edit success.
 
 ## Definition construction
 
