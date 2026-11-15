@@ -124,6 +124,24 @@ gen_rows.prt: 26239 bytes, 47 generated rows
 16 of 16 checks pass
 ```
 
+### The dimension element read as a token stream
+
+Tokenising the vendor's first sketch dimension answers what the trace could not:
+
+```text
+ 23 t00:dispdimattr
+ 24 open e2            the attribute is a struct
+ 25 t01:dimattr
+ 26 arr 7              seven attribute slots
+ 37 val 0x00           one unaccounted slot before the reference table
+ 38 t00:dim_ref
+ 40 arr 2
+ 41 sel 0x46           the second reference element is selected, not declared
+```
+
+Emitting that shape — empty struct plus trailing slot, selector-based second reference, per-dimension `f3 f7 3e` —
+is neutral: `dimtab_ptr` remains the stop and the element is unchanged in size (`4105` bytes).
+
 ### The sketch dimension table: two exclusions, one shape matched
 
 | Change | Trace stops at |

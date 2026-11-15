@@ -428,6 +428,35 @@ So the parser now takes a `Legacy` flag: the reader uses the new rules, and `Rep
 | `gen_rows.prt` | `26239` bytes, 47 rows, `End` + `MT Part Solid` twice (`12:26:42`, `12:27:59`) |
 | vendor `949` element | `3827` of `3827` bytes, `pointid [[0,1], [1,2]]` |
 
+### The dimension element's token stream, read directly
+
+Tokenising the vendor's first sketch dimension settles two questions that the trace could not:
+
+```text
+ 23 t00:dispdimattr
+ 24 open e2                     the attribute is a struct, not a scalar
+ 25 t01:dimattr
+ 26 arr 7                       seven attribute slots
+ 37 val 0x00                    an unaccounted slot before the reference table
+ 38 t00:dim_ref
+ 39 close1
+ 40 arr 2
+ 41 sel 0x46                    the reference table's second element is selector based
+```
+
+So `dispdimattr` is an **empty struct followed by one trailing value**, and `dim_ref`'s second element is selected
+rather than declared. Emitting both, with the per-dimension `f3 f7 3e`, is neutral:
+
+```text
+dim949e: 108602 bytes; element 4105
+!15-Nov-26 13:04:34  Start ...   (no End)
+std.out: Sld_FeatDefs / feat_defs_949 / gsec_ptr / gsec2d_ptr / dimtab_ptr
+```
+
+The emission is now closer to the measured token stream and the stop does not move, which means the remaining
+difference in this record is in the values the tokeniser cannot distinguish from structure — the `dimattr` slots and
+the reference ids — and those are exactly the values the loader has repeatedly been shown to ignore.
+
 ### `dimtab_ptr` iteration: two exclusions and one matched shape
 
 Three measurements on the sketch's dimension table:

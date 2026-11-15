@@ -59,16 +59,19 @@ def Segment(FirstPoint: int, SecondPoint: int, ExtId: int, Declare: bool) -> byt
     return Payload
 
 
-def Dimension(Value: float, ExtId: int) -> bytes:
+def Dimension(Value: float, ExtId: int, Sketch: bool = False) -> bytes:
     Payload = b"\xE2"
     Payload += Author.FieldValue(1, "type", Author.SignedInt(1))
     Payload += Author.FieldValue(2, "value", Author.ScalarValue(Value))
     Payload += Author.FieldValue(1, "direct", Author.SignedInt(0))
     Payload += Author.FieldValue(2, "aux_value", Author.ScalarValue(1.0))
     Payload += Author.FieldValue(1, "ext_id", Author.SignedInt(ExtId))
-    Payload += Author.FieldValue(0, "dispdimattr", Author.SignedInt(0))
+    # the sketch stores this attribute as an empty struct with a trailing slot before dim_ref
+    Payload += Author.FieldValue(
+        0, "dispdimattr", b"\xE2\x00" if Sketch else Author.SignedInt(0)
+    )
     Payload += Author.FieldValue(1, "dimattr", Author.SignedIntArray((0,) * 7))
-    Payload += b"\xF2"
+    Payload += b"\xF2" if not Sketch else b""
     return Payload
 
 
@@ -678,9 +681,9 @@ def MeasuredSketch(EntityCount: int = 0) -> bytes:
             Payload += b"\xE2" + Author.SignedInt(0) + Author.SignedInt(-1)
     Payload += Author.StructHeader("dimtab_ptr") + b"\xF3\xF8\x04\xF7\x3E\xFB"
     for IndexValue, Value in enumerate(KDimensions):
-        Payload += Dimension(Value, IndexValue)
+        Payload += Dimension(Value, IndexValue, Sketch=True)
         Payload += DimensionRef(IndexValue, (IndexValue + 1) % len(KMeasuredSegments))
-        # each sketch dimension closes its attribute, element and reference before the next
+        # the attribute struct the element and the reference are closed then dimtab is selected
         Payload += b"\xF3\xF7\x3E"
     Payload += SolverTables(8, EntityCount)
     return Payload
