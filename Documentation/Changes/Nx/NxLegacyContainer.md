@@ -402,6 +402,23 @@ the hatch pattern names and the default style file. The entries are interleaved 
 value records (doubles, counts and small integers), so the stream is not a pure sequence of tagged
 values: the tag-3 strings are the name table, and the records between them are the values.
 
+## The entry size is predicted by the bytes before the count
+
+The thirteen 34-byte records all share the same eight bytes immediately before their count, and the
+one 40-byte record does not:
+
+```text
+0x0206d  size 12  ad 86 95 2b b6 3f 00 00
+0x06384  size 10  00 00 04 00 00 00 00 00
+0x06452  size 10  00 00 04 00 00 00 00 00
+0x0651e  size 10  00 00 04 00 00 00 00 00
+...      size 10  00 00 04 00 00 00 00 00   (all thirteen)
+```
+
+so the entry size is a property of the record, not of the class: the `00 00 04 00 00 00 00 00`
+prefix selects 10-byte entries, and a double tail selects 12-byte entries. The prefix is the tail of
+the preceding value record, so the entry size is carried by the record that precedes the count.
+
 ## The entry size is not the class's attribute count, layout size or schema flag
 
 The two records whose entry size is known name six classes, and the class data does not separate
