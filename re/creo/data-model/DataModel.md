@@ -308,6 +308,34 @@ from `-201.7190851617055` to `-123.5`, length unchanged, loads twice with the bo
 segment's `verhor` from `1` to `0` likewise loads twice. So the row's *values* are tolerated; what is refused is
 a row whose *structure* differs from what the rest of the model expects.
 
+### The complete generated element is refused too
+
+`SketchDef.FullElement` extends the earlier attempt with the solver tables in the vendor's measured order:
+`dim_ref` inside both `dimtab_ptr` tables (`item_id`, `sense`, `point` pairs), `relat_ptr` with eight relations
+(`id`, `used`, `a[4]`, `b[4]`, `c[3]` doubles, `sign`, `idim`, `type`), `formula_ptr`, `qind`, `fixed_origin`,
+`anchor`, `location`, `nsket_info` (`scale`, `last_was_permanent`), `unsolved_ptr` (`iges_file`,
+`solve_version`, `ent_tab`), `skamp_ptr` with eight items, `triples_ptr` with eight `rel_id`/`eqn_id`/`skamp_id`
+triples, `rigid_chains_ptr`, `p_raw_pool`, `sket_pattern_info`, `gsec3d_ptr`, `first_chain_ptr`, `order_tab`,
+`p_saved_result` and `draft_setup_ptr`.
+
+```text
+full949: 108413 bytes; row 4325
+readback: 7 features 9 params 1 bodies
+(no End line; second run identical)
+```
+
+So the tables' **presence** is not enough either. What a real element carries and this one does not is their
+**consistency**: `relat_ptr` names relations over point ids, `dim_ref` binds each dimension to two points, and
+`triples_ptr`/`p_saved_result` record the solution that satisfies them. Emitting tables with plausible but
+mutually unrelated contents produces a section the solver cannot accept, which is the same conclusion the value
+edits reached from the other side — the row is tolerated where it is *inert* (a changed dimension, a flipped
+`verhor`, a rewired `pointid` that the solver re-derives) and refused where it must be *solved*.
+
+**Conclusion.** Authoring a body needs a constraint solver, not more field mapping: the `949` element has to be
+emitted together with a solution of its own relations, and the `917` element has to carry the revision graph that
+names the regenerated geometry. Field mapping is complete; the solver is the missing piece, and one worked
+example cannot be inverted into one.
+
 ### `VisibGeom` emitted one element opener too many
 
 Comparing the two payloads byte for byte showed a defect in `Author.AuthorGeometryPayload`. The array form is

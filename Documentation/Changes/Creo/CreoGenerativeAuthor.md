@@ -1043,6 +1043,30 @@ What the row does carry is the constraint solution: `relat_ptr` with `a`/`b`/`c`
 `formula_ptr` with eight indices. A writer can emit the segment fields, but not the points they reference
 without solving those constraints, which is what the sketch solver does.
 
+### The complete generated element is refused: the gap is a solver, not a field map
+
+`SketchDef.FullElement` adds every solver table the vendor's element carries, in its measured order: `dim_ref`
+inside both dimension tables, `relat_ptr` with eight relations (`a[4]`, `b[4]`, `c[3]`, `sign`, `idim`, `type`),
+`formula_ptr`, `nsket_info`, `unsolved_ptr` with its `ent_tab`, `skamp_ptr`, `triples_ptr`, `rigid_chains_ptr`,
+`sket_pattern_info`, `gsec3d_ptr`, `first_chain_ptr`, `order_tab`, `p_saved_result` and `draft_setup_ptr`.
+
+```text
+full949: 108413 bytes; row 4325
+readback: 7 features 9 params 1 bodies
+(no End line; second run identical)
+```
+
+Presence is not enough; **consistency** is what is missing. `relat_ptr` names relations over point ids, `dim_ref`
+binds each dimension to two points, and `triples_ptr`/`p_saved_result` hold the solution that satisfies them.
+Tables with plausible but unrelated contents are refused, while inert edits — a changed dimension, a flipped
+`verhor`, a rewired `pointid` — are accepted because the solver re-derives the geometry.
+
+So the write side is not blocked on knowledge of the format. Its field map is measured end to end: container,
+`AllFeatur`, `FeatDefs` class tables, `917` element, `949` element, `VisibGeom`. What a body additionally needs is
+a **constraint solver** that emits the `949` element together with the solution of its own relations, and a
+`917` revision graph naming the regenerated geometry. That is the software the format exists to describe, and it
+cannot be inverted from one worked example.
+
 ### A real bug in the emitted `VisibGeom`
 
 The array form is `srf_array` → `f8 06 f7 03 fb` with each element opening itself, and the emitter wrote the
