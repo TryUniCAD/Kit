@@ -67,6 +67,15 @@ forgery of the metadata, not a path the authoring code takes, and the tail is st
 | Fusion-saved drawings, 77-bit tail       | 187 | 0 |
 | Research drafts, no tail or Kit product  | 0 | 60 |
 
+The split is not a guess. The refused rows carry `name ="Kit"` and a tail of 5 or 13 bits, and the
+emitted rows carry `name ="Fusion Drawings"` and a 77-bit tail:
+
+```
+U1SheetOnly      tail= 13  product=<ProductInformation name ="Kit"
+K1SheetOnly      tail=  5  product=<ProductInformation name ="Kit"
+D1FreshLayout    tail= 77  product=<ProductInformation name ="Fusion Drawings"
+```
+
 ## Behavior
 
 | Case                                  | Before                    | After                          |
