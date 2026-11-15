@@ -88,3 +88,43 @@ A future writer must produce a fresh part with:
 - a healthy control before and after the candidate.
 
 No such result exists for this change.
+
+
+## Trail replay (corpus generation)
+
+The playbook asks for a ground-truth corpus produced through the vendor. Creo records every session as
+`trail.txt.N`, so replaying a trail would let us save parts without touching the UI. Three attempts were
+made.
+
+The option names exist in the binary:
+
+```text
+-uitrail
+-uitrailin
+-uitrailout
+```
+
+A hand-written trail was built from a recorded one:
+
+```text
+!trail file version No. 2952
+#PART
+#RETRIEVE
+\\Mac\Home\Documents\creo-authored\auth42.prt
+~ Command `ProCmdModelSave`
+```
+
+| Invocation | Result |
+| --- | --- |
+| `parametric.exe -g:no_graphics <trail>` | Creo starts, the argument is not treated as a trail; no replay |
+| `parametric.exe -g:no_graphics -uitrail <trail>` | Creo starts and exits with no recorded commands |
+| `parametric.exe -g:no_graphics -uitrailin <trail>` | same |
+
+In every case the new `trail.txt` holds only the session preamble, with no `#PART`, `#RETRIEVE` or model
+`Start` line, and no `auth42.prt.1` is written. So the option is recognised enough for Creo to start and
+exit, but the replay never executes the trail. Passing a UNC path may be the problem, or the trail needs
+the exact recorded preamble rather than the four-line form.
+
+Until that is solved the corpus step cannot be automated headlessly, which matters because the schema
+payload rows — the mask vector and the `ND:*` token tables — can only be shown to be model-derived or
+fixed by comparing several saved documents.
