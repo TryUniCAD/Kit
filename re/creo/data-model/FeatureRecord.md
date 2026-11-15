@@ -583,7 +583,25 @@ read diverges from the definition:
 - on a record opened with `e2` rather than `e3`, where the open token is the field's own first value, while
   an `e3` open needs no selection.
 
-`ReplayOf` models neither case, so it is close but not exact and the two-record question stays open.
+`ReplayOf` now models both, and is byte-exact:
+
+```text
+derived 535  control 537
+EXACT (control minus its f7 03 lead): True
+```
+
+The `917` question is still not answerable, because the two-record control built from that exact replay is
+refused:
+
+```text
+twodatum4: definition 1199 derived replay 133 section 1535
+!15-Nov-26 05:36:24  Start C:\Mac\Home\Documents\creo-authored\twodatum4.prt
+(no End line; second run identical)
+```
+
+So `ReplayOf` is faithful and the *assembly* is still wrong: a definition plus a byte-faithful replay does
+not produce a two-feature list. The difference must be in what surrounds the records — the `f7 03` lead,
+the `next_feat_ptr` values, or the ordering of the list — not in the replay bytes themselves.
 
 Progress made getting there is real: `fc_hist` was being written as a hardcoded `8` instead of
 `first_geom_id`, and the array-strip test was scanning for the `f7` **byte** anywhere in a value rather

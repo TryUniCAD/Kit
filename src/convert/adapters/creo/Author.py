@@ -1055,11 +1055,20 @@ def ReplayOf(Definition: bytes) -> bytes:
     Parser.ReadField = ReadField
     Parser.Run()
     Payload = b""
-    Seen: set[str] = set()
+    FirstIndex: dict[str, int] = {}
+    FirstValue: dict[str, bytes] = {}
     for Position, (NameText, Value) in enumerate(Spans, start=1):
-        if NameText in Seen:
-            Payload += b"\xf7" + CompactInt(Position)
-        Seen.add(NameText)
+        Selector = 0
+        if NameText in FirstIndex:
+            if not FirstValue[NameText]:
+                Selector = Position
+            elif FirstValue[NameText][:1] == b"\xe2":
+                Selector = FirstIndex[NameText]
+        else:
+            FirstIndex[NameText] = Position
+            FirstValue[NameText] = Value
+        if Selector:
+            Payload += b"\xf7" + CompactInt(Selector)
         if Value[:1] in (b"\xf1", b"\xf2"):
             Value = Value[1:]
         if Value[:1] == b"\xf8" and not HasReferenceToken(Value):
