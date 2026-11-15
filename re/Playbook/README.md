@@ -68,6 +68,8 @@ Supporting chapters:
   tool worth having, with what each is for in this loop.
 - [Techniques.md](Techniques.md) — concrete recipes: finding a float, cracking a checksum, recovering
   an enum's legal range, splitting a stream into objects, and more.
+- [Tupni.md](Tupni.md) — native input tracing, record and constraint recovery, cross-input
+  generalization, and the evidence limits of the first SOLIDWORKS application.
 - [ShapeCatalog.md](ShapeCatalog.md) — the catalogue of extreme, weird and pathological shapes,
   features, assemblies and drawings to generate.
 - [Evidence.md](Evidence.md) — how to record findings so the next agent can trust them.
