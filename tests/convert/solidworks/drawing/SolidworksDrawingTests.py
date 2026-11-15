@@ -678,6 +678,25 @@ def TestWriteOrder() -> None:
     assert Actual["Drawing View3"] == PytestLib.approx(0.11)
 
 
+# a renamed view must still receive the placement of its source record
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestWriteName() -> None:
+    SourceBytes = (KDrawRoot / "orient-front.SLDDRW").read_bytes()
+    DataValue = ReadDrawing(SourceBytes, IncludeSheetEdges=True)
+    ViewValue = DataValue.Sheets[0].Views[0]
+    NewView = ReplaceData(
+        ViewValue, Name="My View", PositionX=-0.05, PositionY=-0.02, ViewScale=1.5
+    )
+    NewData = ReplaceData(
+        DataValue, Sheets=(ReplaceData(DataValue.Sheets[0], Views=(NewView,)),)
+    )
+    BackValue = ReadDrawing(WriteDrawing(SourceBytes, NewData), IncludeSheetEdges=True)
+    BackView = BackValue.Sheets[0].Views[0]
+    assert BackView.PositionX == PytestLib.approx(-0.05)
+    assert BackView.PositionY == PytestLib.approx(-0.02)
+    assert BackView.ViewScale == PytestLib.approx(1.5)
+
+
 # a view count that does not match the source records must fail closed
 @PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
 def TestWriteNo() -> None:

@@ -235,3 +235,10 @@ written-standard  View1 0.05,0.1,1.5  View2 0.11,0.13,1.5
 `View.GetPolylines5` still returned the 75 edge doubles for the written front
 view. The writer is bounded to the recovered position and scale records; it
 retains the source document-level streams and does not change the orientation.
+
+### Written negative position and renamed view
+
+`WriteDrawing` rewrote the `orient-front.SLDDRW` view to `(-0.05, -0.02, 1.5)`
+and renamed the `Data` view to `My View`. SOLIDWORKS opened the written file and
+reported `GetXform=-0.05,-0.02,1.5`, so a view outside the sheet rectangle is
+accepted and the record is matched by the source position rather than the name.

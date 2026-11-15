@@ -91,11 +91,14 @@ mistake for a complete drawing. Request positions separately with
 `WriteDrawing(Source, Data)` rewrites the recovered view position and scale
 records in a source drawing container and returns a new container. It writes the
 `Contents/Definition` view record (`x`, `y`, `0.0`, scale, `1.0`) and the
-`Contents/DisplayLists` primary and twin records. It requires the source view
+`Contents/DisplayLists` primary and twin records, and shifts the sheet outline by
+the position delta. Records are matched to views by the source view position, so
+a renamed view still receives its own record. Negative positions are accepted
+because a view can sit outside the sheet rectangle. It requires the source view
 count to equal `Data` view count, every view to carry `PositionX`, `PositionY`,
-and `ViewScale`, and every value to be finite and in range; otherwise it raises
-`SldprtFormatError`. It does not generate the document-level streams, does not
-change the view orientation, and does not add or remove views.
+and `ViewScale`, and every value to be finite and inside the reader bounds;
+otherwise it raises `SldprtFormatError`. It does not generate the document-level
+streams, does not change the view orientation, and does not add or remove views.
 
 ## Limitations
 
