@@ -108,6 +108,23 @@ The Ender files add feature, geometry, display, and configuration sections.
 | `THMB_IMG_MAIN` | JPEG thumbnail | Confirmed JPEG marker |
 | `ModelView#<id>` | Saved views | Confirmed section; view record not found |
 
+## Directory rebuild
+
+`re/creo/tools/Subset.py` rebuilds a part from its own directory. With no edits the rebuild equals
+the control byte-for-byte (`81539` bytes), which fixes the layout rules:
+
+- sections are physically ordered, and each is followed by its own gap bytes, usually a literal
+  `#\n` line that is excluded from the stored length;
+- the directory is a chain of tables joined by `NEXT_TOC_ENTRY`; the link's offset is the next table
+  and the link's length is that table's size;
+- the first checksum column is `sum(stored body) & 0xffff`;
+- column 7 is `-1` for kinds `9`, `11`, `b` and free space, `2` for kind `12`, and `1` otherwise;
+- the file ends with `#END_OF_UGC`.
+
+Rebuilding with sections removed showed the vendor validates the whole set. Dropping the two table-3
+sections loads, but dropping any single model section, or blanking its body, fails. The measurements
+are in [the required section set gotcha](../../../Documentation/Gotchas/Conversion/CreoRequiredSectionSet.md).
+
 ## Current limits
 
 - No section is decoded into neutral geometry in this change.
@@ -120,4 +137,5 @@ The Ender files add feature, geometry, display, and configuration sections.
 - [Data model](DataModel.md)
 - [Oracle notes](../oracle/Oracle.md)
 - [Writer gap](../open-items/WriterGap.md)
+- [Section subset tool](../../../Documentation/Changes/Creo/CreoSectionSubsetTool.md)
 - [Adapter change entry](../../../Documentation/Changes/Creo/CreoPsbContainer.md)

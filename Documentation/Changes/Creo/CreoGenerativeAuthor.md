@@ -202,12 +202,41 @@ and `VisibGeom` is missing the model payload Creo requires. The isolation matrix
 Both halves still fail. Vendor loadability needs the real model sections, not just a valid
 directory.
 
+## Section-requirement bisection
+
+`re/creo/tools/Subset.py` was added to rebuild the vendor control from its own directory, rewriting
+every row, every `NEXT_TOC_ENTRY` link, and every section offset. Its no-op rebuild is byte-identical
+to the control (`81539` bytes), so the container is settled and the bisection is about section
+content, not layout.
+
+Each row below is one Creo 2027.2 launch on a rebuilt control:
+
+| Change | Creo result |
+| --- | --- |
+| none | loads: `End`, `MT Part Solid` |
+| drop `IndentTag`, `FeatRefData` | loads: `End`, `MT Part Solid` |
+| drop `Notes` | `'dropn.prt' cannot be retrieved` |
+| drop `PipeInfos` | `'droppipe.prt' cannot be retrieved` |
+| drop 21 display/view/thumbnail sections | `'dropdisp.prt' cannot be retrieved` |
+| drop `Notes` row, keep its extent and every offset | `'resnote.prt' cannot be retrieved` |
+| keep all rows, blank 8 text/display bodies | `Could not retrieve part` |
+| vendor container, authored `AllFeatur` only | model-load crash, no `End` |
+
+So the failure is not offset drift (the keep-space run preserves every absolute offset) and not one
+display family (a single 21-byte section is enough). Creo validates the whole section set, and the
+only proven-optional rows are the two trailing table-3 sections.
+
+A generative author therefore has to emit all 52 section extents with readable bodies. There is no
+minimal-part shortcut, and the two-section authored container is not a valid model regardless of how
+clean its directory is.
+
 ## Limits
 
 - The authored part contains only `AllFeatur` and `VisibGeom`. Creo rejects it as "not a valid PART
-  file", so the header, table-of-contents fields, section set, or section bodies are still
-  incomplete for the vendor. It has no `FeatDefs`, `BasicData`, or other sections a vendor part
-  normally carries.
+  file". The section set is the cause: Creo validates every model section, and the authored part
+  carries 2 of 52 extents.
+- Authored `AllFeatur` and authored `VisibGeom` are each rejected on their own when swapped into an
+  otherwise byte-identical vendor container, so both section bodies still need work.
 - Authored geometry has no curves, so shell closure is not proven and `solid_count` stays zero.
   Volume comes from the six plane half-spaces.
 - No Creo-measured acceptance exists for authored output.
@@ -218,4 +247,6 @@ directory.
 
 - [Creo adapter](../../Reference/Adapters/Creo.md)
 - [Mass properties change entry](CreoNeutralMassProperties.md)
+- [Section subset tool change entry](CreoSectionSubsetTool.md)
+- [Required section set gotcha](../../Gotchas/Conversion/CreoRequiredSectionSet.md)
 - [Reader change entries](../../Changes/Index.md)
