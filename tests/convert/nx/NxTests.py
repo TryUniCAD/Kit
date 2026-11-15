@@ -17,6 +17,8 @@ from convert.adapters.nx.ExprSection import (
     ExprObjectCount,
     ExprPreamble,
     GroupPair,
+    GroupRecord,
+    ReadGroupValues,
     PlainSlotCount,
     ValueSlotCount,
     ReadSlotHandle,
@@ -990,3 +992,22 @@ def TestNxGroup() -> None:
     assert PairBytes == bytes.fromhex(
         "0202010241040f44656661756c742047726f757000"
     ) + bytes.fromhex("040f44656661756c742047726f757000")
+
+
+# a group value is a length byte a text and a terminator
+def TestNxGroupList() -> None:
+    assert GroupRecord(()) == bytes.fromhex(
+        "0202040f"
+    ) + b"Default Group\x00" + bytes.fromhex("003f0000")
+    Single = GroupRecord((b"50",))
+    assert Single[-4:] == bytes.fromhex("04353000")
+    assert ReadGroupValues(Single) == (b"50",)
+    SeveralValues = GroupRecord((b"1", b"0.5"))
+    assert SeveralValues[-5:] == bytes.fromhex("05302e3500")
+    assert ReadGroupValues(SeveralValues) == (b"1", b"0.5")
+    assert ReadGroupValues(GroupRecord(())) == ()
+    try:
+        _ = GroupRecord((b"",))
+    except ValueError:
+        return
+    raise AssertionError("group record accepted an empty value")

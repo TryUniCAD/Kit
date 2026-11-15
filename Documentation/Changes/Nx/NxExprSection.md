@@ -313,27 +313,35 @@ Two of the objects a dimension part adds are decoded:
 `ExprSection.GroupPair()` emits it, and it is identical in `dim40` and `var_two`, so it is a
 constant rather than part data.
 
-The following record is **not** decoded. It opens `00 3f 00 00 01 <n>` and then lists
-NUL-terminated values, each prefixed by a tag byte: `04` for a driving dimension and `03`
-for a value that is carried but drives nothing. The count byte is the item count plus one,
-which holds on every fixture. What does not hold is the selection:
+The following record is decoded as a transport, not as a selection. It opens
+`00 3f 00 00 01 <n>` and then lists NUL-terminated values, each prefixed by a length byte
+equal to the text length plus two; the count byte is the item count plus one. A record with
+no items stops after `00 3f 00 00`:
 
 ```text
-part             exprs  items  count  values written
-var_sph            1      0      -    none
-var_cyl            2      1      02   "50"
-dim40              3      2      03   "40", "20"
-var_formula        3      2      03   "40", "20"
-var_named          3      2      03   "20", "40"
-var_e4             4      3      04   "40", "20", "5" (5 tagged 03)
-var_two            6      3      04   "40", "30", "20"
+02 02 04 0f "Default Group" 00 00 3f 00 00 01 03 04 34 30 00 04 32 30 00
+                                                        ^^ ^^^^^ ^^ ^^^^^
+                                                        |  "40"  |  "20"
+                                                        count    length 4 = 2 + 2
 ```
 
-`dim40`, `var_formula` and `var_named` hold the same three values and differ only in
-expression names, and `var_named` lists them in the **opposite** order, so the order is
-name-derived. The item count is `exprs - 1` for one to four expressions and then 3 for
-`var_two`'s six, so the count is not a function of the expression count either. Both the
-selection and its order are undecoded, so a composer cannot write this record yet.
+`ReadGroupValues` reads the list and `GroupRecord` writes it, reproducing all ten fixtures
+byte for byte:
+
+```text
+empty_expr.prt  0 items            var_e4.prt     3 items  40, 20, 5
+var_sph.prt     0 items            var_two.prt    3 items  40, 30, 20
+var_cyl.prt     1 item   50        const_box60    2 items  40, 20
+multi.prt       4 items  1 2 3 0.5 dim40          2 items  40, 20
+var_named.prt   2 items  20, 40    var_formula    2 items  40, 20
+```
+
+What is still not decoded is **which** values appear and in what order. `dim40`,
+`var_formula` and `var_named` hold the same three values and differ only in expression
+names, and `var_named` lists them in the opposite order, so the order is name-derived.
+The item count is `exprs - 1` for one to four expressions and then 3 for `var_two`'s six, so
+it is not a function of the expression count either. A composer can therefore emit the
+record once it knows the selection, but cannot choose the selection itself yet.
 
 ## The writer-chosen layout
 

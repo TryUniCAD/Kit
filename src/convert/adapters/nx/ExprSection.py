@@ -34,6 +34,49 @@ def GroupPair() -> bytes:
     return KGroupPair
 
 
+# a group value is a length byte a text and a terminator
+KGroupHead = b"\x02\x02\x04\x0fDefault Group\x00"
+KGroupTail = bytes.fromhex("003f0000")
+
+
+def ReadGroupValues(Record: bytes) -> tuple[bytes, ...]:
+    if not Record.startswith(KGroupHead):
+        raise ValueError("NX group record has no known head")
+    Prefix = len(KGroupHead) + len(KGroupTail)
+    if len(Record) == Prefix:
+        return ()
+    if len(Record) < Prefix + 2 or Record[Prefix] != 1:
+        raise ValueError("NX group record has no known value list")
+    Values: list[bytes] = []
+    Position = Prefix + 2
+    while Position < len(Record):
+        Width = Record[Position]
+        if Width < 3 or Position + Width > len(Record):
+            raise ValueError("NX group record value length is out of range")
+        if Record[Position + Width - 1] != 0:
+            raise ValueError("NX group record value is not terminated")
+        Values.append(Record[Position + 1 : Position + Width - 1])
+        Position += Width
+    return tuple(Values)
+
+
+def GroupRecord(Values: tuple[bytes, ...]) -> bytes:
+    Output = bytearray(KGroupHead + KGroupTail)
+    if not Values:
+        return bytes(Output)
+    Output.append(1)
+    if len(Values) > 0xFE:
+        raise ValueError("NX group record value count must fit one byte")
+    Output.append(len(Values) + 1)
+    for ValueText in Values:
+        if not ValueText or b"\x00" in ValueText or len(ValueText) > 0xFD:
+            raise ValueError("NX group record value must be a non empty text")
+        Output.append(len(ValueText) + 2)
+        Output.extend(ValueText)
+        Output.append(0)
+    return bytes(Output)
+
+
 # the preamble counts objects and carries a word at offset 48 for large shapes
 def ExprPreamble(Objects: int, Pointer: int, Extra: int = 0) -> bytes:
     if Objects < KObjects:
