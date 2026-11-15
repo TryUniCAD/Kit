@@ -582,6 +582,34 @@ revision graph over geometry that the kernel produced. That is consistent with e
 this class — a `917` replay carrying datum-shaped values is refused, and so is a `923` replay wearing the csys
 id.
 
+### Non-null fields do not help: the 917 needs the surfaces it names
+
+The nulled record left one question open — maybe the values were simply too thin. So the ladder's record `67`
+was used as the value template: its `2043` bytes of replay head plus all `37` declared fields with their real
+structure (`dtm_id_tab` `f2 f8 01 f7 4f fb e2`, `comp_hist` `f1 f8 01 f7 52 fb e2`, `component_ids`
+`f8 04 07 06 05 04 …`, `rev_info_arr` `f8 01 f7 66 fb e3`, `aggr_rev_info` `f1 e3 f7 66 …`), dropped into the
+proven four-record assembly in place of a generated fifth record, with our coordinate system before it and our
+generated `FeatDefs` alongside.
+
+```text
+solid917c: 5 records, 917 body from the ladder's own field values; section 3924
+!15-Nov-26 07:06:35  Start C:\Mac\Home\Documents\creo-authored\solid917c.prt
+(no End line; second run identical)
+```
+
+Even the vendor's own field values are refused when the record sits in our part. The reason is structural
+rather than a matter of values: record `67` references surfaces, and our `VisibGeom` is the control's empty
+one (`42` bytes, no surfaces). Authored surfaces are themselves refused — `geomfeat2`, six generated surface
+records in this same assembly, exits with no `End` line.
+
+So the dependency is circular and both directions are measured:
+
+> a `917` cannot load without the surfaces it names, and the surfaces cannot be authored ahead of the solid
+> that owns them.
+
+That is the boundary, and it is why field synthesis is the wrong tool here regardless of how the 37 fields are
+filled in.
+
 ### A 917 with every declared field nulled is refused
 
 `re/creo/tools/Protrusion.py` builds exactly that: the proven four-record assembly plus a `917` record made of a

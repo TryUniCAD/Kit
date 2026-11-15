@@ -1043,6 +1043,17 @@ ignored — the parametric path is generative, not a single hardcoded record.
 this part does not have, and Creo accepted it; tagging it with `7`, which the feature list declares, also loads
 and is the better formed output, so that is the default.
 
+### The 917 question is closed: it needs surfaces, and surfaces need the solid
+
+Filling the `37` fields with the ladder's own real structure did not help. Record `67`'s `2043` bytes were
+dropped into the proven four-record assembly with our coordinate system before it and our generated `FeatDefs`
+alongside; the part still exits with no `End` line, twice.
+
+The reason is structural, not a matter of values: record `67` references surfaces, and our `VisibGeom` is the
+control's empty one (`42` bytes). Authored surfaces are themselves refused (`geomfeat2`, six generated surface
+records, no `End` line). So a `917` cannot load without the surfaces it names, and the surfaces cannot be
+authored ahead of the solid that owns them.
+
 ### A 917 emitter with nulled fields is refused
 
 `re/creo/tools/Protrusion.py` composes the proven four-record section plus a `917` record built from record
