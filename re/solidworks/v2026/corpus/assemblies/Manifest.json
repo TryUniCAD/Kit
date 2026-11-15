@@ -1,0 +1,67 @@
+{
+  "provenance": "Kit-authored SOLIDWORKS 2026 SP05.2 controls; metadata redacted at equal encoded width; container rebuilt from the same source",
+  "acceptance": "Research parser fixtures only; not generated writer output or held-out vendor acceptance",
+  "kind": "assembly",
+  "records": [
+    {
+      "name": "A0_one.SLDASM",
+      "source_sha256": "54eb2475f10754077920339493ceeb3aba7caf226fcebfa2282293d2634e6d21",
+      "sha256": "66965b66e14bacb506b147fa354e6708aa207c7589efbf8e5f3d3fbe7cf453f8",
+      "revision": "34.5.2",
+      "source_save": [
+        true,
+        0,
+        0
+      ],
+      "source_components": [
+        "L1_boss-1"
+      ],
+      "source_mates": [],
+      "source_whats_wrong": 0,
+      "source_dialogs": []
+    },
+    {
+      "name": "A1_two.SLDASM",
+      "source_sha256": "bdd593786c4f6750c03d7c911d6a1b1a718f938c7d33c2f48d5bb94c03c36418",
+      "sha256": "594559a38ea2a077850a823e808ed7f79c559bfac743eab7c9ab4aa75cf252e4",
+      "revision": "34.5.2",
+      "source_save": [
+        true,
+        0,
+        0
+      ],
+      "source_components": [
+        "L1_boss-1",
+        "P0_plain-1"
+      ],
+      "source_mates": [
+        {
+          "selected": [
+            true,
+            true
+          ],
+          "ok": true,
+          "error": 1
+        },
+        {
+          "selected": [
+            true,
+            true
+          ],
+          "ok": true,
+          "error": 1
+        },
+        {
+          "selected": [
+            true,
+            true
+          ],
+          "ok": true,
+          "error": 1
+        }
+      ],
+      "source_whats_wrong": 0,
+      "source_dialogs": []
+    }
+  ]
+}

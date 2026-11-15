@@ -27,5 +27,15 @@ blocked, input-dependent topology and stream sizes, and byte-identical decoding
 and reserialization through the shared schema. No local tests were run. Exact
 remote and vendor results will be recorded after execution.
 
+Remote job `132709945228` on parent head `5b3972d4310785558edc132bbe44b1fc8556866c`
+passed both complete-part process checks, including the five locked neutral
+input shapes. The whole native-file job still failed one separate model-harness
+lazy-codec import, with 137 passed and 158 existing skips. The scoped preload
+repair is included. This establishes component codec/process behavior, not
+native application acceptance; the failed job uploaded no candidate artifact.
+Candidate target metadata now uses the independently recovered 2026 date code
+2026306 and kernel behavior version 370108, with binary provenance in the
+[model record](../../../re/solidworks/records/ModelConstruction2026.md).
+
 See the [composition record](../../../re/solidworks/records/FreshPartComposition2026.md)
 for field ownership and evidence limits.

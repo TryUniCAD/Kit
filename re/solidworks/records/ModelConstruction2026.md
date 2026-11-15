@@ -37,6 +37,21 @@ allocates that node. No synthetic `f08` field is needed on a dimension.
 Configuration construction does not consume a persistent id.
 The manager's own constructor leaves its ordinary node id at `-1`.
 
+Persistent allocation follows construction lifetime, including objects omitted
+by a conditional serializer. The from-end-spec constructor `0x4bad3e00`
+creates a role-19 parallel-plane-distance display dimension even when end type
+zero causes its serializer to omit that dimension.
+The parameter-naming routine `0x4c821c40` asks the owner model's virtual slot
+`0x1250` with argument zero before allocating `dimension.f50`.
+For `moPart_c`, vtable `0x4d1252d8` resolves that slot to
+`moModel_c::isViewerModel` at `0x4c02d7d0`.
+With argument zero, the result is `(~(model[0x2b0] >> 2)) & 1`.
+The model constructor `0x4c00edb0` writes `0x0c` at that offset, so an ordinary
+fresh part returns false and this naming path consumes the header id.
+The profile builder must retain the actual transient dimension object through
+allocation rather than add a numeric gap to the next-id counter.
+See the [transient-dimension gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/TransientDimensionsConsumeIds.md).
+
 ## Shared feature constructors
 
 The functions live in `re/tooling/sw2026/builders/Model.py`.
@@ -106,9 +121,43 @@ word. Its REA evidence id is
 `ev_ca4457ca262a70fa95d17d87837b42e3c2f8c203d7479c342689fac61ad210f4`;
 the module SHA-256 is
 `96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce`.
-The numeric kernel behavior version remains unresolved until the matching
-`pskernel.dll` implementation is inspected. It is not inferred from saved
-features, a marketing version, or the environment's pre-engine zero seed.
+The matching primary `pskernel.dll` has SHA-256
+`2a0b45e9778c42acaa9a955d4dd4826c8892ac3be08532b819778c7989c66969`.
+Its preferred image base is `0x180000000`; all kernel addresses below use that
+base, independently of an application's relocated runtime address.
+Normal successful engine startup derives feature behavior version `370108`:
+
+| Stage                        | Native rule                                                                                                   | Address                                                        |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Select behavior kind         | `setSessionBehaviorUsingSWVersion(0, 0, 0)` selects kind `0x64f1`                                             | `sldgciParau` `0x33016650`                                     |
+| Set kernel mode              | Kind `0x64f1` becomes internal mode `1`                                                                       | `PK_SESSION_set_behaviour` `0x1803ea470`; branch `0x1803eaba1` |
+| Select latest index          | Helper clears `ecx` and jumps to a leaf that returns `0x185` when `cl` is zero                                | `0x180a917b0` to `0x1814306d0`                                 |
+| Read behavior result         | Mode `1` reads table index `0x185` from base `0x184394ffc`; entry `0x184395610` is `370108`                   | `PK_SESSION_ask_behaviour` `0x1803e1600`; branch `0x1803e1a97` |
+| Establish feature provenance | Successful startup copies result word `4` to GCP environment `0x27c`; the feature constructor reads that word | `sldgciParau` `0x3301338d`, then the getter chain above        |
+
+The independent kernel-build leaf at `0x1814306f0` instead returns `3701250`.
+`PK_SESSION_ask_kernel_version` at `0x1803f7520` splits that full build number
+into its reported components. It is not the behavior-version value emitted by
+this feature-construction path.
+Neither number comes from a saved feature, an estimated marketing version, or
+the environment's pre-engine zero seed.
+The builder still accepts an explicit version from the caller, so a different
+target or deliberately selected compatibility behavior requires its own provenance.
+
+## Post-origin owner update
+
+The native origin initializer `0x4c49b980` invokes zero-status update on the
+origin and then its owning model. Those receivers have different dispatch:
+origin vtable `0x4d0ef510` slot `0xb8` resolves to feature wrapper `0x4bb515c0`,
+whereas both model vtable `0x4d0c70e0` and part vtable `0x4d1252d8` resolve that
+slot to model wrapper `0x4c0363c0`.
+For arguments `(0, 1, null)`, the model wrapper skips its nonzero-status branch
+and tail-jumps node routine `0x4c03ed90`.
+The node zero-status path applies `f0c &= 0xfffd7ff8`.
+`clear_model_update(model=...)` implements precisely that operation for the two
+classified model classes. Composition calls it after constructing the origin.
+It does not establish the origin sketch's solver state or remove its unresolved
+update marker. The feature wrapper's virtual query path requires separate evidence.
 
 ## Configuration construction
 
@@ -322,6 +371,11 @@ all covered file opens, directory enumeration and process-launch events.
 The result reports both recorded imports and actual denied attempts; the test
 also checks that the construction phase is active and the builder import was seen.
 This stricter audit awaits its current-head remote result.
+The first strict-audit remote run at `236ccd510` correctly denied a lazy import
+of `encodings/utf_16_le.py` during Unicode string storage. The harness now resolves
+the native string codec names during its recorded initialization phase, before
+`BeginBuild`; construction retains the same unconditional file-access ban.
+See [lazy codec imports](../../../Documentation/Gotchas/Conversion/Solidworks/LazyCodecsAfterAudit.md).
 The expanded check also passes all twelve supported folder classes and the
 annotation cabinet through a separate generated stream in the container,
 then checks class identity, id allocation and recovered creation times.

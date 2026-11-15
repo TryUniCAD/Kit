@@ -25,7 +25,7 @@ def MakePartInput(
             "originating_build_code": 2026001,
             "license_origin": 0,
         },
-        "target": {"date_code": 2026001, "parasolid_version": 380},
+        "target": {"date_code": 2026306, "parasolid_version": 370108},
         "presentation": {
             "plane_names": {"x": "Right Plane", "y": "Top Plane", "z": "Front Plane"},
             "units": {
