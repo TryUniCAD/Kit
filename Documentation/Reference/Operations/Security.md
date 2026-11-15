@@ -59,6 +59,9 @@ Do not suppress a finding merely to make a status green.
 
 ## Development dependencies
 
+The development lock requires asteval 1.0.9 or later to contain BaseException subclasses in the expression interpreter.
+See the [asteval exception repair](../../Changes/Dependencies/AstevalBaseExceptions.md) for the override and verification limits.
+
 The development lock requires lxml 6.1.0 or later for the external entity advisory.
 See the [lxml dependency repair](../../Changes/Dependencies/LxmlExternalEntities.md) for the override and verification limits.
 
