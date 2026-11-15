@@ -329,6 +329,38 @@ That is the reason this work stopped chasing the fifth class set: the emitter ne
 function of the class **name**, and that is what sixteen probes have failed to find,
 whether the increment turns out to be per class or per count.
 
+## The entry values are validated per name
+
+The entry framing is now delimited by the name lengths rather than by base-128 continuation
+bits, and it parses cleanly:
+
+```text
+<name length + 1> <name> <entry>
+```
+
+`dim40.prt` yields **154** entries with entry lengths 11 (19), 12 (69), 13 (51) and 14 (14),
+which totals exactly the table's extent. The base-128 reading used in the earlier probes
+concatenated the entry into one integer and is superseded; those probes were aimed at a value
+that does not exist.
+
+With real entry boundaries the decisive experiment became possible: swap the entries of two
+classes whose entries have the same length, so the table's size and every following offset are
+unchanged, and load the result.
+
+```text
+cls_swap.prt   UGS::OM::RootObject <-> UGS::RM_part entries exchanged (both 11 bytes)  OPEN_FAILED
+cls_ctrl.prt   identical rebuild of the same part, no swap                              bodies 1  volume 23999.999999999996
+```
+
+The control proves the rebuild path is sound, so the refusal is caused by the swap alone. The
+table's values are therefore **validated against their names**, and a table that does not match
+the loader's own assignment is rejected. Since the registry identifiers are load-order serial
+numbers (`GetSerialNumber` returns a global counter), the file's values must agree with the
+serial state of the session that opens the part.
+
+That closes the last route to a fabricated table: it cannot be permuted, computed from names, or
+shared between class sets. It can only be reproduced by the loader itself.
+
 ## Consequence
 
 The class table cannot yet be computed: the increment is uniform and small, but the
