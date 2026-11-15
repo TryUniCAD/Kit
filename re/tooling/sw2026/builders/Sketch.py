@@ -408,8 +408,35 @@ def origin_profile(*, profile: Obj, plane: Obj, frame: PlaneFrame):
     graph.sketch["_point_nodes"] = points
     graph.sketch["_line_nodes"] = NodeOrder(nodes=())
     graph.sketch["_origin_constraint"] = constraint
+    _bind_local_ref_flag(sketch=graph.sketch)
     graph.sketch["_requires_update"] = True
     return graph
+
+
+def _local_ref_flag(*, sketch: Obj):
+    if sketch["f138"].get("pd_f110") is not None:
+        raise ConstructionError("derived-profile reference state requires additional native update rules")
+    for name in ("points", "lines"):
+        field = "point" if name == "points" else "line"
+        if any(entry[field]["ext"] is not None for entry in sketch[name]):
+            raise ConstructionError("external sketch geometry requires additional native update rules")
+    for name in ("texts", "hatches", "arcs", "ellipses", "parabolas", "splines", "planes", "cylinders", "spheres", "cones", "parametric", "styled", "blocks", "silhouettes"):
+        if sketch[name]:
+            raise ConstructionError(f"reference-state inference is not established for {name}")
+    dims = sketch["dims"]
+    for name in ("val_g1", "val_g2", "val_g3", "offset_dims", "log_g2", "log_g3", "iso", "linear_patterns", "linear_patt_cons", "circular_patterns", "circular_patt_cons", "list_7c0", "list_9f0", "groups"):
+        if dims[name]:
+            raise ConstructionError(f"reference-state inference is not established for {name}")
+    for record in dims["log_g1"]:
+        handle = record["d"]["h1"]
+        if record["d"]["f80"] != 0x11 or not isinstance(handle, Obj) or handle.cls != "sgPointHandle" or handle["f1c"] != -1:
+            raise ConstructionError("logical-constraint reference state requires a constructed local origin constraint")
+    return 0
+
+
+def _bind_local_ref_flag(*, sketch: Obj):
+    del sketch.f["f188"]
+    sketch.f.derived["f188"] = lambda: _local_ref_flag(sketch=sketch)
 
 
 def _orientation(*, a, b, c):
@@ -689,4 +716,6 @@ def closed_profile(*, vertices, profile: Obj, plane: Obj, frame: PlaneFrame):
     sketch["f140"] = DerivedFields(fields=counters, derived={"f08": lambda: len(points) + 1, "f0c": lambda: len(lines) + 1})
     sketch["_point_nodes"] = points
     sketch["_line_nodes"] = lines
+    _bind_local_ref_flag(sketch=sketch)
+    sketch["_requires_update"] = True
     return graph
