@@ -1023,6 +1023,7 @@ def ReplayOf(Definition: bytes) -> bytes:
     Spans: list[bytes] = []
     Original = Parser.ReadField
 
+    # capturing spans is how the replay keeps the definition order
     def ReadField(Descriptor) -> object:
         Start = Parser.Reader.Position
         Node = Original(Descriptor)
