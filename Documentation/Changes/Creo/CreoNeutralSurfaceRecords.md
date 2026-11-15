@@ -43,8 +43,13 @@ and shell topology are not established.
 
 ## Limits
 
-- Prototype records only: no shared-edge topology, loop orientation, or shell closure, so the body
-  is a surface grouping and not a proven solid.
+- Prototype records only: no shared-edge topology, loop orientation, or shell closure in this
+  change. Shell closure is proven in the follow-up change entry.
+- `local_sys` is decoded with the exact compact lane (`0x0f`=1.0, `0x18`=0.0, `0x10`=-1.0,
+  `0xe4`-`0xe6` repeat). The ladder's first plane yields `u=(1,0,0)`, `v=(0,0,-1)`, `n=(0,1,0)`;
+  the empty FRONT datum yields the identity frame. Later prototype records replay positionally and
+  currently expose no `local_sys` node, so their plane origins remain unavailable and no volume is
+  computed.
 - The logical-object chain decodes (ladder: `95 -> 96 -> 97 -> 98 -> 99 -> 100 -> 0`), with two
   classes: three objects of type 700 (subtypes 751, 750, 752) and three of type 701 (755, 754,
   759), all owned by feature 74. The edge records that would join them into shells still arrive

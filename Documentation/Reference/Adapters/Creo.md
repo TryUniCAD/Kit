@@ -68,7 +68,7 @@ It keeps `vendor_loadable` and `application_usable` false because this path does
 ## Limits
 
 - No independent PSB writer.
-- Feature identity, stored dimension values, surface prototypes, and identifier-proven shell closure: no sketches, no measured volume or centre of mass.
+- Feature identity, stored dimension values, surface prototypes, compact `local_sys` frames, and identifier-proven shell closure: no sketches, no measured volume or centre of mass because replayed plane origins are not yet decoded.
 - No native geometry or B-rep decoding.
 - No assembly component resolution.
 - No drawing, format, section, or layout support.

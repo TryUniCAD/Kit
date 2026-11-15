@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import struct
 
 from convert.adapters.creo.Stream import ReadCompactAt
 from convert.adapters.creo.Stream import ScanFields
@@ -9,6 +10,7 @@ from convert.adapters.creo.Stream import StreamParser
 
 KPlaneType = 34
 KPrototypeWindow = 12
+KLocalConstants = {0x0F: 1.0, 0x18: 0.0, 0x10: -1.0}
 
 
 @dataclass(frozen=True, slots=True)
@@ -47,6 +49,45 @@ class CreoLogicalObject:
     object_subtype: int | None
     feature_id: int | None
     next_object_id: int | None
+
+
+def ReadDoubleAt(DataValue: bytes, Position: int) -> tuple[float | None, int]:
+    if Position >= len(DataValue):
+        return None, Position
+    TokenValue = DataValue[Position]
+    if TokenValue in KLocalConstants:
+        return KLocalConstants[TokenValue], Position + 1
+    if TokenValue in (0x2D, 0x46):
+        LeadValue = b"\x40" if TokenValue == 0x46 else b"\xC0"
+        return (
+            struct.unpack(">d", LeadValue + DataValue[Position + 1 : Position + 8])[0],
+            Position + 8,
+        )
+    return None, Position
+
+
+def DecodeLocalSystem(
+    DataValue: bytes, Offset: int
+) -> tuple[tuple[float, ...], int]:
+    if Offset >= len(DataValue) or DataValue[Offset] != 0xF9:
+        return (), Offset
+    _RowsValue, Position = ReadCompactAt(DataValue, Offset + 1)
+    _ColsValue, Position = ReadCompactAt(DataValue, Position)
+    Values: list[float] = []
+    while len(Values) < 9 and Position < len(DataValue):
+        TokenValue = DataValue[Position]
+        if 0xE4 <= TokenValue <= 0xE6 and Values:
+            Values.extend([Values[-1]] * (TokenValue - 0xE3))
+            Position += 1
+            continue
+        Value, NextPosition = ReadDoubleAt(DataValue, Position)
+        if Value is None:
+            break
+        Values.append(Value)
+        Position = NextPosition
+    if len(Values) < 9:
+        return (), Position
+    return tuple(Values[:9]), Position
 
 
 def NumberValues(Value: object) -> tuple[float, ...]:
@@ -121,6 +162,16 @@ def ElementBoundaries(DataValue: bytes) -> dict[int, int]:
     return Boundaries
 
 
+def FindLocalSystem(
+    Nodes: list[StreamNode], Index: int, DataValue: bytes
+) -> tuple[float, ...]:
+    for Node in Nodes[Index + 1 : Index + KPrototypeWindow]:
+        if Node.name == "local_sys":
+            Values, _EndValue = DecodeLocalSystem(DataValue, Node.offset)
+            return Values
+    return ()
+
+
 def ReadGeometry(
     DataValue: bytes,
 ) -> tuple[tuple[CreoSurface, ...], tuple[CreoCurve, ...]]:
@@ -139,7 +190,7 @@ def ReadGeometry(
                     FindNumber(Nodes, Index, "feat_id"),
                     FindValues(Nodes, Index, "envlp"),
                     FindValues(Nodes, Index, "outline"),
-                    FindValues(Nodes, Index, "local_sys"),
+                    FindLocalSystem(Nodes, Index, DataValue),
                 )
             )
         if Node.name == "crv_id" and isinstance(Node.value, int):
