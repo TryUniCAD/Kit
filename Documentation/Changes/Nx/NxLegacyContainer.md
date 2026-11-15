@@ -357,6 +357,21 @@ sentinels except in the first record. The two out-of-range ids are the open ques
 is a global class index and the section's table is a subset, or the block is not keyed by the
 section's class table.
 
+The block is v7-only. Scanning all three legacy containers for `<u8 1><u32 n>` followed by `n`
+records of stride 19 whose size field is 19 and whose offset-14 field is `0xffff` finds exactly one
+block, in `wave_parent.prt`, and none in `flange.prt` (v9) or `vise_screw.prt` (v8):
+
+```text
+wave_parent: 1 block  @0x1de3 n=12 ids=[0,2,3,5,6,9,45,46,70,70,196,197] subs=[0,0,0,0,0,0,0,0,1,2,0,0]
+flange:      0 blocks
+vise_screw:  0 blocks
+```
+
+so the record header and entry layout above are complete for the v7 container, and a v7 record can
+be emitted from the layout alone. The count-plus-entry-list records after the name table are a
+separate structure: a stride-34 scan for runs of `<u32 3>` finds no run of three or more, so those
+records are not a contiguous fixed-stride array and their framing is still open.
+
 After the block at 0x1ecc the object data continues as a tagged value stream, and the first value is
 the part filename:
 
