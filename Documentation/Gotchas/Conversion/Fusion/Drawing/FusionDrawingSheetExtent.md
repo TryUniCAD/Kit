@@ -31,6 +31,22 @@ Fusion reported  sheet_mm [841.0, 594.0]   views [5, 4, 4]   dimensions 1
 open             4.9 s
 ```
 
+## The sheet name does not follow the member either
+
+A third control changed only the member's `ActiveSheet` from `KitDrw Source 20261112114717` to
+`Kit Sheet Renamed`, with the DWG byte-identical.
+Fusion opened the drawing and reported the old name:
+
+```
+member written   Kit Sheet Renamed
+DWG database     unchanged
+Fusion reported  sheet name "KitDrw Source 20261112114717", 420.0 x 297.0, views [5, 4, 4]
+open             5.8 s
+```
+
+The name Fusion shows is the source document name, not the member value.
+The member is a mirror of the drawing, not the value Fusion reads.
+
 ## Workaround
 
 Change the `LAYOUT` object and re-emit the DWG.
@@ -47,11 +63,12 @@ so a layout edit keeps the document's own tail valid.
 | ----------------- | ------------------------- | --------------- | --------- | ---------- |
 | `C20SheetA1`      | member only, A3 to A1     | `[420.0, 297.0]` | `[5,4,4]` | 1          |
 | `C21LayoutA1`     | `LAYOUT` only, A3 to A1   | `[841.0, 594.0]` | `[5,4,4]` | 1          |
+| `C24SheetName`    | member name only          | `[420.0, 297.0]` | `[5,4,4]` | 1          |
 
 Both cases come from `D1FreshLayout` and were opened in local Fusion 2706.1.17.
 The builders are
-[`BuildSheetCase.py`](../../../../re/Fusion/Reconstruction/Drawings/ThirdParty/BuildSheetCase.py) and
-[`BuildLayoutCase.py`](../../../../re/Fusion/Reconstruction/Drawings/ThirdParty/BuildLayoutCase.py).
+[`BuildSheetNameCase.py`](../../../../re/Fusion/Reconstruction/Drawings/ThirdParty/BuildSheetNameCase.py)
+and [`BuildLayoutCase.py`](../../../../re/Fusion/Reconstruction/Drawings/ThirdParty/BuildLayoutCase.py).
 
 ## Limits
 

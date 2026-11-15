@@ -23,6 +23,12 @@ records the verdict per criterion with the measured numbers.
 | C10 generalization         | held-out design case and one-input drawing controls  |
 | C11 traceable knowledge    | five gotchas linked                                  |
 
+## Sheet name control
+
+A third control changed only the drawing member's `ActiveSheet` to `Kit Sheet Renamed` and left the
+DWG byte-identical. Fusion reported the old name, `KitDrw Source 20261112114717`, with the same
+420 by 297 mm sheet and views `[5, 4, 4]`. The member is a mirror, not the value Fusion reads.
+
 ## Behavior
 
 One data change: `ACDBASSOCINVENTORPERSSUBENTIDMANAGER.ManagerFlag` in the authored drawing defaults
