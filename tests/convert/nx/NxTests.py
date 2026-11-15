@@ -37,6 +37,7 @@ from convert.adapters.nx.ExprSection import (
 from convert.adapters.nx.ClassEntry import ClassLink, EntryParts, NameDigest
 from convert.adapters.nx.LegacySection import ReadSections
 from convert.adapters.nx.LegacyObject import ReadIndex, ReadObjects, ReadRecords
+from convert.adapters.nx.ClassTable import ReadRegistry, ReadToken
 from convert.adapters.nx.LegacyClasses import (
     ClassTableEnd,
     LegacyAttrs,
@@ -1327,3 +1328,59 @@ def TestNxFrame() -> None:
     assert Bounds[1].Length == 12
     assert Bounds[1].ObjectId == 3
     assert ReadIndex(b"no index at all", Sections[0]) is None
+
+
+# a modern type registry is a reference list a class region and a member region
+def TestNxTypeReg() -> None:
+
+    # needed so the registry test builds one token without repeating the width rules
+    def Token(Value: int) -> bytes:
+        if Value < 0x80:
+            return bytes([Value])
+        if Value <= 0x1000:
+            return bytes([0x80 + (Value - 1) // 256, (Value - 1) % 256])
+        return bytes([0x90, (Value - 1) >> 8, (Value - 1) & 0xFF])
+
+    # needed so the registry test builds one declaration without repeating the length byte
+    def NameBytes(TextValue: str) -> bytes:
+        return bytes([len(TextValue) + 1]) + TextValue.encode("ascii")
+
+    assert ReadToken(bytes([0x83, 0xE8]), 0) == (1001, 2)
+    assert ReadToken(bytes([0x90, 0x03, 0xE8]), 0) == (1001, 3)
+    assert ReadToken(bytes([0xFF]), 0) == (None, 1)
+    References = (
+        NameBytes("UGS::OM::Meta")
+        + bytes([2])
+        + NameBytes("UGS::RM")
+        + bytes([0x30])
+        + bytes([0x01])
+    )
+    Classes = (
+        NameBytes("UGS::OM::RootObject")
+        + Token(56)
+        + Token(120)
+        + bytes.fromhex("b04ba5fe911bf679")
+        + Token(2)
+        + NameBytes("UGS::RM_part")
+        + Token(101)
+        + Token(123)
+        + bytes.fromhex("8fc0f7e4255a70c8")
+        + Token(1)
+        + bytes([0x02])
+    )
+    Members = NameBytes("first_record_area") + Token(208) + Token(28)
+    Payload = References + Classes + Members
+    Registry = ReadRegistry(Payload, 0, len(Payload))
+    assert len(Registry.References) == 2
+    assert Registry.References[0].Name == "UGS::OM::Meta"
+    assert Registry.References[1].Code == 0x30
+    assert len(Registry.Classes) == 2
+    assert Registry.Classes[0].Name == "UGS::OM::RootObject"
+    assert Registry.Classes[0].Storage == 56
+    assert Registry.Classes[0].Fingerprint == bytes.fromhex("b04ba5fe911bf679")
+    assert Registry.Classes[0].Reference == 2
+    assert Registry.Classes[1].Name == "UGS::RM_part"
+    assert Registry.Classes[1].Storage == 101
+    assert len(Registry.Members) == 1
+    assert Registry.Members[0].Name == "first_record_area"
+    assert Registry.Members[0].Owner == 28

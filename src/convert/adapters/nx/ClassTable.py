@@ -1,0 +1,180 @@
+from __future__ import annotations as Annotations
+
+from dataclasses import dataclass as DataClass
+
+# a registry token is a variable width integer whose prefix selects its width
+KDirectCeiling = 0x80
+
+# needed so the compact token band stays a single named boundary
+KCompactCeiling = 0x90
+
+# needed so every wide token prefix is recognised in one place
+KWidePrefixes = frozenset({0x90, 0xF1} | set(range(0xA0, 0xB0)))
+
+# needed so a null token is distinguishable from a zero value
+KNullToken = 0xFF
+
+# needed so the reference region terminator stays a single named byte
+KReferenceEnd = 0x01
+
+# needed so the class region terminator stays a single named byte
+KClassEnd = 0x02
+
+# needed so the printable name floor stays a single named boundary
+KNameFloor = 0x20
+
+# needed so the printable name ceiling stays a single named boundary
+KNameCeiling = 0x7F
+
+# needed so a runaway declaration length cannot read past the payload
+KNameCeilingLength = 200
+
+
+# one reference declaration names a schema and carries a raw code byte
+@DataClass(frozen=True)
+class ReferenceRecord:
+    Offset: int
+    Name: str
+    Code: int
+
+
+# one class declaration carries storage base fingerprint and reference tokens
+@DataClass(frozen=True)
+class ClassRecord:
+    Offset: int
+    Name: str
+    Storage: int | None
+    Base: int | None
+    Fingerprint: bytes
+    Reference: int | None
+
+
+# one member declaration names a field and its storage and owner tokens
+@DataClass(frozen=True)
+class MemberRecord:
+    Offset: int
+    Name: str
+    Storage: int | None
+    Owner: int | None
+
+
+# the three regions of a modern type registry in declaration order
+@DataClass(frozen=True)
+class Registry:
+    References: tuple[ReferenceRecord, ...]
+    Classes: tuple[ClassRecord, ...]
+    Members: tuple[MemberRecord, ...]
+    End: int
+
+
+# a token decodes to a value and the cursor after it or none for a null token
+def ReadToken(Payload: bytes, Cursor: int) -> tuple[int | None, int]:
+    if Cursor >= len(Payload):
+        raise ValueError("NX registry token runs past the payload")
+    Prefix = Payload[Cursor]
+    if Prefix < KDirectCeiling:
+        return Prefix, Cursor + 1
+    if Prefix < KCompactCeiling:
+        if Cursor + 2 > len(Payload):
+            raise ValueError("NX compact token runs past the payload")
+        return (Prefix - KCompactCeiling + 0x10) * 256 + Payload[
+            Cursor + 1
+        ] + 1, Cursor + 2
+    if Prefix in KWidePrefixes:
+        if Cursor + 3 > len(Payload):
+            raise ValueError("NX wide token runs past the payload")
+        Value = (Payload[Cursor + 1] << 8) | Payload[Cursor + 2]
+        return ((Prefix & 0x0F) * 65536) + Value + 1, Cursor + 3
+    if Prefix == KNullToken:
+        return None, Cursor + 1
+    raise ValueError(f"NX registry token prefix {Prefix:#04x} is not a token")
+
+
+# a declaration is a length byte a name and a body the caller consumes
+def ReadName(Payload: bytes, Cursor: int) -> tuple[str, int]:
+    if Cursor >= len(Payload):
+        raise ValueError("NX registry declaration runs past the payload")
+    Length = Payload[Cursor]
+    if not 2 <= Length <= KNameCeilingLength:
+        raise ValueError(f"NX registry declaration length {Length} is out of range")
+    Symbols = Payload[Cursor + 1 : Cursor + Length]
+    if len(Symbols) != Length - 1:
+        raise ValueError("NX registry declaration name runs past the payload")
+    if not all(KNameFloor <= SymbolValue < KNameCeiling for SymbolValue in Symbols):
+        raise ValueError("NX registry declaration name is not printable ascii")
+    return Symbols.decode("ascii"), Cursor + Length
+
+
+# the reference region ends with a one byte marker and holds name code pairs
+def ReadReferences(
+    Payload: bytes, Cursor: int
+) -> tuple[tuple[ReferenceRecord, ...], int]:
+    Output: list[ReferenceRecord] = []
+    while Cursor < len(Payload):
+        if Payload[Cursor] == KReferenceEnd:
+            return tuple(Output), Cursor + 1
+        Start = Cursor
+        NameValue, Cursor = ReadName(Payload, Cursor)
+        if Cursor >= len(Payload):
+            raise ValueError("NX reference declaration has no code byte")
+        Output.append(ReferenceRecord(Start, NameValue, Payload[Cursor]))
+        Cursor += 1
+    raise ValueError("NX reference region has no end marker")
+
+
+# the class region ends with a marker or one opaque separator before the members
+def ReadClasses(Payload: bytes, Cursor: int) -> tuple[tuple[ClassRecord, ...], int]:
+    Output: list[ClassRecord] = []
+    while Cursor < len(Payload):
+        if Payload[Cursor] == KClassEnd:
+            return tuple(Output), Cursor + 1
+        Start = Cursor
+        try:
+            NameValue, Cursor = ReadName(Payload, Cursor)
+            Storage, Cursor = ReadToken(Payload, Cursor)
+            BaseValue, Cursor = ReadToken(Payload, Cursor)
+            Fingerprint = Payload[Cursor : Cursor + 8]
+            if len(Fingerprint) != 8:
+                raise ValueError("NX class declaration has no eight byte fingerprint")
+            Cursor += 8
+            Reference, Cursor = ReadToken(Payload, Cursor)
+        except ValueError:
+            return tuple(Output), Start + 1
+        Output.append(
+            ClassRecord(Start, NameValue, Storage, BaseValue, Fingerprint, Reference)
+        )
+    return tuple(Output), Cursor
+
+
+# the member region runs to the end of the registry and holds storage owner pairs
+def ReadMembers(Payload: bytes, Cursor: int, EndValue: int) -> tuple[MemberRecord, ...]:
+    Output: list[MemberRecord] = []
+    while Cursor < EndValue:
+        Start = Cursor
+        try:
+            NameValue, Cursor = ReadName(Payload, Cursor)
+            Storage, Cursor = ReadToken(Payload, Cursor)
+            Owner, Cursor = ReadToken(Payload, Cursor)
+        except ValueError:
+            break
+        Output.append(MemberRecord(Start, NameValue, Storage, Owner))
+    return tuple(Output)
+
+
+# the registry is the reference class and member regions in that order
+def ReadRegistry(Payload: bytes, Cursor: int, EndValue: int) -> Registry:
+    References, Cursor = ReadReferences(Payload, Cursor)
+    Classes, Cursor = ReadClasses(Payload, Cursor)
+    Members = ReadMembers(Payload, Cursor, EndValue)
+    return Registry(References, Classes, Members, EndValue)
+
+
+# needed so the registry types stay a single named source for the nx adapter
+__all__ = [
+    "ClassRecord",
+    "MemberRecord",
+    "ReadRegistry",
+    "ReadToken",
+    "ReferenceRecord",
+    "Registry",
+]
