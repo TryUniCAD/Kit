@@ -18,6 +18,7 @@ Write side: **partial, and not vendor-loadable for anything with geometry.** Wha
 | `auth4` / `fullgen` | 41 of 54 directory rows, including a fully generated four-record `AllFeatur` (zero vendor bytes) | loads, 2 of 2 |
 | `featdefs` | 42 rows, plus a generated `FeatDefs` carrying one dimension, read back as `Creo dimension 0 = 100.0` | loads, 2 of 2 |
 | `fd_two` | 42 rows, `FeatDefs` with **two** dimensions, read back as `100.0` and `42.5` | loads, 2 of 2 |
+| `fd_owner7` | as `fd_two`, with the dimension owned by feature `7` instead of a non-existent `74` | loads, 2 of 2 |
 
 Everything else fails. The authored part reads back as `4 features, 1 param, 0 bodies`, so there is **no
 body count, volume, centre of mass or dimension rebuild measured in Creo** and these acceptance criteria are
@@ -1037,6 +1038,10 @@ array count in the `f8 <count> f7 03 fb` introduction. Three facts are measured:
 
 So the dimension value is the one we choose rather than a constant, and the count is honoured rather than
 ignored — the parametric path is generative, not a single hardcoded record.
+
+`DefaultFeatDefs` takes the owning `FeatureId` too. The first versions tagged the record with `74`, a feature
+this part does not have, and Creo accepted it; tagging it with `7`, which the feature list declares, also loads
+and is the better formed output, so that is the default.
 
 ### A 917 emitter with nulled fields is refused
 

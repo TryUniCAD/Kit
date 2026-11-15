@@ -1285,11 +1285,14 @@ def CsysFeatureRecord(
 
 
 # a parameter is a dimension record so the part needs a feature defs row to carry one
-def DefaultFeatDefs(DimensionValue: tuple[float, ...] = (100.0,)) -> bytes:
+def DefaultFeatDefs(
+    DimensionValue: tuple[float, ...] = (100.0,),
+    FeatureId: int = 7,
+) -> bytes:
     Payload = StructHeader("Sld_FeatDefs") + b"\xe3"
     Payload += StructHeader("feat_defs_949") + b"\xf8\x01\xf7\x02\xfb"
     Payload += b"\xe2"
-    Payload += FieldValue(1, "id", SignedInt(74))
+    Payload += FieldValue(1, "id", SignedInt(FeatureId))
     Payload += FieldValue(1, "symbol_key", SignedInt(-1))
     Payload += FieldValue(1, "model_type", SignedInt(2))
     Payload += FieldValue(0, "group_info_ptr", b"\xe1")
