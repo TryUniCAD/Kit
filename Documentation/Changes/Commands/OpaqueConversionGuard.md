@@ -46,6 +46,8 @@ sources, positions, and constraints remain unresolved. See
 
 ## Verification
 
+Native inspection assertions reconstruct typed documents rather than treating [wire tuple tags](../../Gotchas/Ci/TypedDocumentWireTuples.md) as plain arrays.
+
 Source paths alone are treated as provenance, including on typed leaf definitions.
 Unrepresented reference kinds and explicit unresolved markers retain refusal; process cases separately cover provenance-only success and marked external-source refusal.
 

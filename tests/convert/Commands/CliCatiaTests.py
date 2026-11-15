@@ -1,8 +1,9 @@
-from json import loads as LoadJson
+from json import dumps as DumpJson, loads as LoadJson
 from pathlib import Path as FilePath
 
 from pytest import mark as TestMark
 
+from interchange.document.models.DocumentModel import CadDocument
 from tests.convert.Commands.CliProcess import CliProcess
 
 
@@ -37,10 +38,10 @@ def CheckCatiaFile(HasOutput: bool, IsExplicit: bool, TmpPath: FilePath) -> None
         assert Target.read_bytes() == b"existing output"
     Decoded = CliProcess(TmpPath, "decode", str(Source))
     assert Decoded.returncode == 0, Decoded.stderr
-    Document = LoadJson(Decoded.stdout)["document"]
-    assert Document["feature_timeline"] == [] and Document["brep_payloads"]
-    assert Document["assembly"]["documents"] == []
+    Document = CadDocument.from_json(DumpJson(LoadJson(Decoded.stdout)["document"]))
+    assert not Document.feature_timeline and Document.brep_payloads
+    assert Document.assembly is not None and not Document.assembly.documents
     assert any(
-        Diagnostic["code"] == "catia.product.component_sources_missing"
-        for Diagnostic in Document["diagnostics"]
+        Diagnostic.code == "catia.product.component_sources_missing"
+        for Diagnostic in Document.diagnostics
     )
