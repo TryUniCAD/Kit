@@ -18,9 +18,9 @@ intersection curve of their two faces: for a plane-cylinder pair that is a circl
 plane-cone pair whose plane is perpendicular to the cone axis that is also a circle, and the handles
 are spread at equal angles along the arc between the two endpoint vertices. The 1-face handles take
 the nearest satisfying vertex. That replaces the earlier `handle % len(vertices)` placeholder and
-makes the planar faces coplanar for the simple parts. It is still a structural approximation, not
-the native B-rep topology or geometry, because the angular positions are assumed equal-spaced, not
-the stored tessellation.
+makes the planar faces coplanar for the simple parts. The equal-spacing placement is then snapped
+onto the stored tessellation points in the part's local frame, so the final positions are the
+file's points where the tessellation is decoded.
 
 The stored tessellation angles are now measured, and they are not the assumed ones. The 116-float
 run at `226..690` in `Copper_Washer` `MainDataStream` contains only values from `8 * cos(18k)`,
@@ -35,11 +35,14 @@ The tessellation points themselves are now decoded and exposed. `DecodeTessellat
 longest run of plausible floats in `MainDataStream`, skips the two-float header, and walks the
 `(y, z, abs(z))` records, keeping the pairs whose radius matches a cylinder radius from the surface
 records. For `Copper_Washer` that returns 41 points, all 41 on the 18-degree and 22.5-degree grid,
-with radii exactly 5 and 8. The points are exposed through `DecodeTessellation` and stored on
-`BrepData.tessellation`; they are not used for handle placement, because snapping the handles to
-them changed the planar-face deviation on `Washer_5`, `Washer_8`, and
-`Brake_bias_90_degree_coupler` from 0.0 to 2.65, 2.32, and 4.05. The placement therefore stays on
-the documented equal-spacing rule.
+with radii exactly 5 and 8.
+
+The handles are then snapped onto those points in the part's local frame. The frame is derived from
+the dominant cylinder carrier axis, so a part whose cylinders run along `z` or `y` uses the matching
+perpendicular pair rather than the global `(y, z)`. Snapping in the global frame broke `Washer_5`,
+`Washer_8`, and `Brake_bias_90_degree_coupler` (planar deviation 0.0 to 2.65, 2.32, and 4.05)
+because their axes are `z`, `z`, and `z`/`y`. Snapping in the derived frame keeps every part at its
+previous deviation and puts all 76 `Copper_Washer` vertices on the stored grid, up from 26.
 
 Every placed handle satisfies all the surfaces of the faces that use it. Across the 22 decoded parts
 that is 4682 of 4682 handles on-surface, with zero exceptions. The plane-cone case covers 423 of the

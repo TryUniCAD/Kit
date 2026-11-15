@@ -360,6 +360,86 @@ def TessellationPoints(
 
 
 # this definition exists because focused behavior needs one stable owner
+def LocalFrame(
+    BrepValue: BrepData,
+) -> (
+    tuple[
+        tuple[float, float, float],
+        tuple[float, float, float],
+        tuple[float, float, float],
+    ]
+    | None
+):
+    Axes: dict[tuple[float, float, float], int] = {}
+    for SurfaceValue in BrepValue.surfaces:
+        if SurfaceValue.kind != 0x33 or len(SurfaceValue.params) < 6:
+            continue
+        AxisValue = AxisFromCarrier(SurfaceValue.params)
+        Key = (
+            round(AxisValue[0], 3),
+            round(AxisValue[1], 3),
+            round(AxisValue[2], 3),
+        )
+        Axes[Key] = Axes.get(Key, 0) + 1
+    if not Axes:
+        return None
+    AxisValue = Normalize(max(Axes, key=lambda Value: Axes[Value]))
+    Reference = (
+        Normalize((1.0, 0.0, 0.0))
+        if abs(AxisValue[0]) < 0.9
+        else Normalize((0.0, 1.0, 0.0))
+    )
+    Second = Normalize(
+        (
+            AxisValue[1] * Reference[2] - AxisValue[2] * Reference[1],
+            AxisValue[2] * Reference[0] - AxisValue[0] * Reference[2],
+            AxisValue[0] * Reference[1] - AxisValue[1] * Reference[0],
+        )
+    )
+    First = Normalize(
+        (
+            Second[1] * AxisValue[2] - Second[2] * AxisValue[1],
+            Second[2] * AxisValue[0] - Second[0] * AxisValue[2],
+            Second[0] * AxisValue[1] - Second[1] * AxisValue[0],
+        )
+    )
+    return First, Second, AxisValue
+
+
+# this definition exists because focused behavior needs one stable owner
+def SnapToTessellation(
+    BrepValue: BrepData, Positions: dict[int, tuple[float, float, float]]
+) -> None:
+    if not BrepValue.tessellation:
+        return
+    Frame = LocalFrame(BrepValue)
+    if Frame is None:
+        return
+    First, Second, AxisValue = Frame
+    for Handle, Point in Positions.items():
+        Along = sum(Point[Index] * AxisValue[Index] for Index in range(3))
+        FirstValue = sum(Point[Index] * First[Index] for Index in range(3))
+        SecondValue = sum(Point[Index] * Second[Index] for Index in range(3))
+        Radius = math.hypot(FirstValue, SecondValue)
+        Nearby = [
+            (FirstPoint, SecondPoint)
+            for FirstPoint, SecondPoint in BrepValue.tessellation
+            if abs(math.hypot(FirstPoint, SecondPoint) - Radius) < 1e-2
+        ]
+        if not Nearby:
+            continue
+        Best = min(
+            Nearby,
+            key=lambda Value: math.hypot(Value[0] - FirstValue, Value[1] - SecondValue),
+        )
+        Positions[Handle] = (
+            Best[0] * First[0] + Best[1] * Second[0] + Along * AxisValue[0],
+            Best[0] * First[1] + Best[1] * Second[1] + Along * AxisValue[1],
+            Best[0] * First[2] + Best[1] * Second[2] + Along * AxisValue[2],
+        )
+
+
+# this definition exists because focused behavior needs one stable owner
 def CornerPositions(
     BrepValue: BrepData,
 ) -> dict[int, tuple[float, float, float]]:
@@ -471,6 +551,7 @@ def CornerPositions(
                 Best = VertexRow.point
                 BestDistance = Distance
         Positions[Handle] = Best if Best is not None else BrepValue.vertices[0].point
+    SnapToTessellation(BrepValue, Positions)
     return Positions
 
 

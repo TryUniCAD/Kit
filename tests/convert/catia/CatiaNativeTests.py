@@ -7,7 +7,12 @@ from convert import open_document as OpenDoc
 from convert.adapters import WriteOptions
 from convert.adapters.catia.Adapter import CatiaAdapter, ReadCatia
 from convert.adapters.catia.Container import CfvTwoArchive
-from convert.adapters.catia.NativeBrep import DecodeTessellation
+from convert.adapters.catia.NativeBrep import (
+    BuildVertices,
+    DecodeTessellation,
+    LocalFrame,
+    ParseBrep,
+)
 from interchange import (
     Body,
     BrepBody,
@@ -191,6 +196,21 @@ def TestBrepTessellation() -> None:
         Table = Outer if abs(Radius - 8.0) < 1e-2 else Inner
         assert round(abs(YValue), 3) in Table
         assert round(abs(ZValue), 3) in Table
+    BrepValue = ParseBrep(Archive)
+    Vertices, _ = BuildVertices(BrepValue)
+    Frame = LocalFrame(BrepValue)
+    assert Frame is not None
+    First, Second, _ = Frame
+    OnGrid = 0
+    for VertexValue in Vertices:
+        Point = VertexValue.point
+        FirstValue = Point.x * First[0] + Point.y * First[1] + Point.z * First[2]
+        SecondValue = Point.x * Second[0] + Point.y * Second[1] + Point.z * Second[2]
+        Radius = math.hypot(FirstValue, SecondValue)
+        Table = Outer if abs(Radius - 8.0) < 1e-2 else Inner
+        if round(abs(FirstValue), 3) in Table and round(abs(SecondValue), 3) in Table:
+            OnGrid += 1
+    assert OnGrid == len(Vertices)
 
 
 # this definition exists because focused behavior needs one stable owner
