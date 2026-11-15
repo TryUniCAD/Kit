@@ -106,13 +106,13 @@ the same totals for the same file:
 
 The journal is a history, not a snapshot. `shell_both` carries 3 `DeltaState` records and 266 entities
 for an `ActiveCount` of 195, so a count over every entity includes the pre-shell topology as well as
-the shelled result. `ResolveLive` walks the bulletin boards in order and applies each change: an
-`OldRef` other than `-1` removes an entity, and a `NewRef` other than `-1` adds one. That yields 222
-live entities and the 11 faces, 24 edges and 16 vertices Fusion reports.
+the shelled result. `WalkStates` walks the delta-state chain from the active node and undoes each state, so its first
+`LiveState` is the live topology. That yields 195 live entities for an `ActiveCount` of 195 and the 11
+faces, 24 edges and 16 vertices Fusion reports.
 
-Across the corpus, 500 designs resolve through the boards and 39 do not, because their body history is
-a `PrismHistory` wrapping a `HistoryState` rather than a journal. That is a different representation
-and this record does not cover it.
+Across the corpus, `WalkStates` resolves 500 journals with no failures, and the live count equals
+`ActiveCount` in all 500. The other 39 designs have a `PrismHistory` wrapping a `HistoryState` rather
+than a journal, which is a different representation this record does not cover.
 
 The journal header reports `FileVersion` 23200, `RootCount` 3, `Scale` 50.0 and tolerances of 1e-6 and
 1e-10.

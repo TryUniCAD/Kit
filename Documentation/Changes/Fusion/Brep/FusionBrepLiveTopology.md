@@ -1,4 +1,4 @@
-# BRep live topology is resolved through the journal boards
+# BRep live topology is resolved by the existing state walk
 
 ## Problem
 
@@ -6,45 +6,41 @@ A BRep journal is a history, not a snapshot. Counting every entity in it overcou
 journal keeps the topology from before a feature as well as after it.
 
 `shell_both.f3d` carries 3 `DeltaState` records and 266 entities for an `ActiveCount` of 195. A count
-over every entity reports 17 faces, 36 edges and 24 vertices, while Fusion reports 11 faces, 24 edges
-and 16 vertices for the same file.
+over every entity reports 17 faces, 36 edges and 24 vertices, while Fusion reports 11, 24 and 16.
 
 ## Change
 
-`ResolveLive` walks the journal states in order and applies each bulletin change:
+No new resolver. `WalkStates` already walks the delta-state chain from the active node, undoes each
+state, and validates that the journal resolves to its initial header. Its first `LiveState` is the
+live topology at the active node.
 
-| Change        | Effect                    |
-| ------------- | ------------------------- |
-| `OldRef != -1` | remove that entity       |
-| `NewRef != -1` | add that entity          |
-| `NewRef == -1` | the entity is deleted    |
-
-The result is the set of live entity indices, which is what Fusion reports.
+An earlier draft of this change added a second resolver that applied the bulletin boards in physical
+order. That was wrong twice: the physical order is not chronological, because the latest state sits at
+node zero, and the set started empty, which dropped the ASM header at entity zero. The draft is
+removed and the existing validated walk is the only resolver.
 
 ## Behavior
 
-| File | Resolved | Fusion | Match |
-| ---- | -------- | ------ | ----- |
+| File | `WalkStates(...)[0]` | Fusion | Match |
+| ---- | -------------------- | ------ | ----- |
 | `mirror_xy.f3d` | 12 face, 24 edge, 16 vertex, 2 body | 2 bodies of 6, 12, 8 | yes |
 | `analytic.f3d` | 4 face, 2 edge, 2 vertex, 3 body | sphere 1/0/0, torus 1/0/0, cone 2/2/2 | yes |
 | `shell_both.f3d` | 11 face, 24 edge, 16 vertex, 1 body | 1 body of 11, 24, 16 | yes |
 
-`shell_both` resolves to 222 live entities, which is the 195 `ActiveCount` plus the entities the
-boards create after it.
-
 ## Verification
 
 The three files were opened in local Fusion 2706.1.17 with `ProbeBrep.py`, which imports the F3D and
-reports each body's face, edge and vertex counts. The resolved counts match all three.
+reports each body's face, edge and vertex counts. The walked counts match all three.
 
-Across the corpus, 500 designs resolve through the boards and 39 do not, because their body history is
-a `PrismHistory` wrapping a `HistoryState` rather than a journal. That is a different representation
-and this change does not cover it.
+Across the corpus, `WalkStates` resolves 500 journals with no failures, and the live count equals the
+journal's `ActiveCount` in all 500. That equality is the check that the walk is not over- or
+under-counting: `shell_both` resolves to 195 live entities for an `ActiveCount` of 195, where a count
+over every entity gives 266.
 
 ## Limits
 
-`ResolveLive` returns the live entity indices. It does not rebuild the topology graph, so a caller
-still has to read the entity records to know what each index is.
+`WalkStates` returns live entity indices and their versions. It does not rebuild the topology graph,
+so a caller still has to read the entity records to know what each index is.
 
-The 39 prism-history designs are not resolved. A caller that needs their topology has to read the
-prism model instead.
+The 39 corpus designs whose body history is a `PrismHistory` wrapping a `HistoryState` are not
+journals and are not covered.
