@@ -275,6 +275,37 @@ The ladder's extrude and sketch records follow it, but their field boundaries ar
 `FeatDefsDtm` stores one placement record per datum. The record grammar is decoded and emitted by
 `Author.DatumPlaneRecord`; the field table is in [the datum placement page](DatumPlacement.md).
 
+### The `ND:*` token tables
+
+The three `ND:*` rows are not display data and not simple shapes. Each decompresses to a `PSB_Tokens`
+record with four parallel arrays:
+
+| Field | Content |
+| --- | --- |
+| `format` | `0` |
+| `type_har` | one type letter per token (`77`, `79`, `70`, `81`, `67`, `73` …) |
+| `int_har` | one integer per token, including `-1` and `-2147483648` sentinels |
+| `double_xar` | doubles for the tokens that need them, null otherwise |
+| `string_xar` | identifiers such as `ndmoddeps_j03::ModelDescriptor_J03`, and in the model table the original part name |
+
+So they are **per-schema streaming tables**: a token list describing how the model's fields were
+serialised, with the vendor's own class identifiers in `string_xar`. Replacing one with a minimal
+`PSB_Tokens` root is rejected (`dbg_err_crash`), and the unwrapped sizes are `1662`, `907` and `1490`
+bytes.
+
+That puts them in the same category as the mask vector: structured schema payload that a generator cannot
+compute from a record's own fields. The remaining rows split as:
+
+| Row | Kind | Assessment |
+| --- | --- | --- |
+| `ND:0:Model_L05_PX:1`, `ND:0:UnitSystemDef_L03:1`, `ND:0:PDMTrail_L03:1` | schema token tables | vendor schema payload |
+| `SolidPersistTable`, `SolidPrimdata` | persistence tables | undecoded |
+| `DispDataTable` | display data | compressed, no decoder |
+| `THMB_IMG_MAIN` | JPEG thumbnail | image payload |
+| `CGFPersistTable` | gzip blob | opaque |
+| `IndentTag`, `FeatRefData` | trailing sections | proven droppable |
+| two `EMPTY_SPACE_FOR_REUSE` | padding | filler |
+
 ### Authored sections
 
 Forty-one of the fifty-four directory rows can be emitted from format knowledge and accepted by the
