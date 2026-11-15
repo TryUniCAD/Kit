@@ -5,6 +5,8 @@ configuration-manager graphs and part-definition streams from explicit inputs
 and 2026 constructor rules. They also construct principal planes and the base
 part root from generated style/unit dependencies.
 Fresh system-folder and annotation-cabinet factories extend the same graph.
+The model update helper applies the proven zero-status flag mutation after native
+origin initialization; the origin sketch's unresolved solver state stays explicit.
 These additions do not enable the production writer.
 
 ## Use
@@ -16,8 +18,9 @@ Provide version provenance, timestamps, document options and density explicitly.
 The [construction record](../../../re/solidworks/records/ModelConstruction2026.md)
 lists the APIs and binary evidence.
 The record also derives target date code `2026306` from the native tagged
-build string and its string-processing calls. Parasolid behavior provenance
-is traced to the kernel session query; its numeric result remains unresolved.
+build string and its string-processing calls. The kernel session query and its
+native table derive feature behavior version `370108` for normal successful
+startup on this target.
 
 ## Limits
 
@@ -39,6 +42,8 @@ The [transient dimension gotcha](../../Gotchas/Conversion/Solidworks/TransientDi
 explains why a native object omitted by storage can still advance that allocator.
 The [codec initialization gotcha](../../Gotchas/Conversion/Solidworks/LazyCodecsAfterAudit.md)
 records a lazy code import exposed by the strict remote audit.
+The [kernel behavior-version gotcha](../../Gotchas/Conversion/Solidworks/KernelBehaviourVersion.md)
+distinguishes the feature's compatibility behavior from the full kernel build.
 
 ## Verification
 
