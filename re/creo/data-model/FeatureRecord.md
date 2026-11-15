@@ -268,6 +268,49 @@ rejection is the mask **length**: the defining record's mask must have the same 
 records, because the replays carry elements only and inherit the shape. Length has to agree across the
 records of one section; the earlier all-one-slot control loaded because it changed all four together.
 
+## The replay record is authored too
+
+`Author.DatumFeatureReplay(...)` emits the replay form, and it reproduces both control replay records
+exactly:
+
+```text
+record1 definition identical: True 1601
+record2 replay     identical: True 537
+record3 replay     identical: True 537
+```
+
+The replay form is not a simple strip. Against the definition record it changes five things:
+
+| Change | Example |
+| --- | --- |
+| field headers dropped | `e0 01 id 00 07` becomes `07` |
+| leading close tokens dropped | `assoc_type` `f1 00` becomes `00`; `save_geoms` `f2 e3` becomes `e3` |
+| plain array counts dropped | `indep_attributes_arr` `f8 04 90 01 00 e5` becomes `90 01 00 e5` |
+| typed array intros dropped | `transform` `f9 04 03 0f 18 e5 ...` becomes `0f 18 e5 ...` |
+| field selectors added | `f7 03` leads record two; `f7 1e` and `f7 2b` sit before the duplicate names `fc_hist` and `p_body` |
+
+Two exceptions must be kept verbatim: reference arrays keep their count (`f8 01 f7 1d fb`,
+`f8 01 f7 2a fb`), and only the first replay carries the leading selector, which matches the datum
+plane array where element two has a lead and element three does not.
+
+`fc_hist` is `(FirstGeomId, 0, 0, 0)` rather than a constant: the control has `8` in the FRONT record and
+`6` in the TOP record, tracking `first_geom_id`.
+
+## Open: the fully authored section is still rejected
+
+Records one and two are structurally exact and load individually, but replacing all three plane records
+with our own generated values was rejected twice:
+
+| Candidate | Result |
+| --- | --- |
+| record one authored, our dates, all-clean mask | loads |
+| records one to three authored, our dates, descending revisions | silent exit twice |
+
+The difference is now only in generated values — `creat_date`, `regen_date`, `time`, `random_num`,
+`hostid` and `revnum` — or in a cross-record consistency rule that has not been identified. Per-record
+revision numbers of `3`, `2`, `1` were tried after `3`, `3`, `3` failed, so that is not the constraint
+either, or not the only one.
+
 ## What is needed
 
 The definition record is done and loadable. What remains is the **replay form**. A replay record is a

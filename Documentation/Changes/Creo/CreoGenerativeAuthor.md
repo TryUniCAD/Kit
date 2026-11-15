@@ -448,6 +448,25 @@ So the record body and its generated datetime and host fields are accepted. The 
 *length*: the defining record's slot count must match the replay records, which carry elements only. The
 earlier all-one-slot control loaded because it changed all four records together.
 
+## The replay record
+
+`Author.DatumFeatureReplay` emits the replay form and reproduces both control replay records exactly:
+
+```text
+record1 definition identical: True 1601
+record2 replay     identical: True 537
+record3 replay     identical: True 537
+```
+
+The replay is not a strip of the definition. It drops field headers, leading close tokens, plain array
+counts and typed array intros; it keeps reference arrays verbatim; it adds `f7 03` at the head of the
+first replay and `f7 1e` / `f7 2b` before the duplicate names `fc_hist` and `p_body`; and `fc_hist`
+carries `first_geom_id` rather than a constant.
+
+Replacing all three plane records with our own generated values is still rejected (silent exit, twice),
+with revisions `3/3/3` and `3/2/1` both failing. The remaining difference is generated values or an
+unidentified cross-record rule.
+
 ## VisibGeom and the authored container
 
 `Author.EmptyVisibGeom()` emits the empty geometry form, `Sld_VisGeom` with an opened `active_geom` and
