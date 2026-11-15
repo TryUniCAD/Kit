@@ -224,12 +224,12 @@ Runtime path coverage and target acceptance remain separate evidence
 | Derived-profile predicate | `moProfileFeature_c::isDerived` at `0x4c0de380` requires nonnull profile-data `+0x110` before testing a derived reference | False from the constructed null pointer | Closed static dependency |
 | Constrained-status getter and setter | `0x4c53d2c0` reads sketch `+0x12c`, except for the session's special mode returning seven; setter `0x4b2a77c0` writes the supplied status to that field | Constructor state is known, but a complete post-solver status rule remains unproved | Unresolved post-update state |
 | Separate saved status | `getConstrainedSavedStatus` at `0x4b2a74f0` reads sketch `+0x128`; serializer `0x4c5916f0` emits `f12c` followed by `f128`; `saveSketch` at `0x4c5a6170` delegates to that serializer | The store path does not copy the solver aggregate into `f128`; constructor one is retained separately rather than treating the two statuses as aliases | Closed field distinction; other lifecycle writes remain separate |
-| Entity constraint state | `0x4c502b70` queries solver virtual `+0x218` for each point and line, then passes the result to `0x4c5077f0`; `setConstraintStatus` at `0x4c5d5370` writes entity `+0x34` | The solver result is a required dependency; constructor `f34=1` is not independent proof of its final value; adjacent `f38` is line type, not another solver status | Unresolved solver dependency |
+| Entity constraint state | `0x4c502b70` queries solver virtual `+0x218` for each point and line, then passes the result to `0x4c5077f0`; `setConstraintStatus` at `0x4c5d5370` writes entity `+0x34` | The free-polygon authoring observation below reports raw eleven mapped to one for every point and line; adjacent `f38` is line type, not another solver status | Constructor and mapper rules corroborated on the three training graphs; generated-file execution remains unverified |
 | Entity colour | `setConstraintColor` at `0x4c5d5260` uses mapping `0x4c3e15b0`, then setter `0x4c3e29e0` writes entity `+0x30` | With the current `f54` mask, status one maps to colour five and status two maps to four; current `f30=5` matches status one, but does not prove the solver chose it | Closed mapping; final input unresolved |
 | Dependency reset | `clearDependancyFlags` at `0x4c538d10` calls `0x4c5d3100`; for local handles it calls `0x4c3e2bd0(entity,0)` and `0x4c3e24a0(entity,0)` | The first masks `f56` with `0x3fff`; the second clears bit `0x8000`; constructor `f56=0` is unchanged | Closed static mutation for local geometry |
 | Point cleanup | `cleanOutSketchPoints` at `0x4c4a6e30` considers removal only when a permanent point is invisible, local and has degree zero | Polygon vertices have degree two; origin type one is visible because point vtable `0x4cdd2d48`, slot `+0x190`, targets `0x4c491cb0` and tests mask `0x138a02` | Closed preservation predicate |
-| Constraint validation tails | `0x4c4bbf40` iterates sketch `+0x58`; `0x4c4bbc60` examines offset dimensions and display dimensions | The current graph has empty block, offset and sketch-display collections; origin's one logical point constraint still requires its own validation and solver path | Closed empty loops; origin handler unresolved |
-| Modification stamp | `0x4c5195d0` adds the results of `0x4c5167d0` and `0x4c516600` to sketch `f56c`; update `0x4c549ab0` can add a further conditional increment from model-reference and temporary update results | The first helper counts finite solver point positions with any coordinate change at least `1e-8`; the second only updates 3D planes, absent here; the actual solved positions and other update results remain dependencies; insertion stamp remains separately derived as `1+n` | Unresolved conditional delta |
+| Constraint validation tails | `0x4c4bbf40` iterates sketch `+0x58`; `0x4c4bbc60` examines offset dimensions and display dimensions | The current graph has empty block, offset and sketch-display collections; the origin's logical point constraint passes the local admission predicate below | Closed empty loops and origin admission predicate; full update and solver state unresolved |
+| Modification stamp | `0x4c5195d0` adds the results of `0x4c5167d0` and `0x4c516600` to sketch `f56c`; update `0x4c549ab0` has a separate model-reference increment at `0x4c54ad3c` | The separate increment is excluded for the current local graphs by the branch proof below; the three free-polygon training graphs retain their constructor-derived insertion stamp `1+n` through update, rebuild and save | Native increment rule and zero training coordinate deltas corroborated; generated-file execution remains unverified |
 | Pattern/spline/styled helpers | `0x4c46f1b0`, `0x4c5483f0` and `0x4c52f470` iterate their corresponding collections | Empty collections make these loops inactive for the polygon and origin inputs | Closed static loop bounds |
 
 The jump table at `0x4c507948` maps raw solver status eleven to sketch/entity status one, raw one or ten to two, raw three to three, and raw zero/four/five/eight/nine to four
@@ -238,7 +238,74 @@ These are native branch rules, not evidence that a fresh free polygon or origin 
 The final aggregator at `0x4c502b70` prioritizes invalid geometry, status four and status three, then returns one when any contributing entity is status one, otherwise two when a nonzero status was seen
 The `0x4c507b30` caller stores that aggregate in sketch `f12c`, except when its current state is the special mode seven
 
-Both polygon and origin graphs retain `_requires_update=True` until the remaining state rules are established
+### Origin logical-constraint admission
+
+The native origin initializer adds its logical constraint through `sgSketch::addToLogG1Array` at `0x4c4a2b90`
+That routine first calls validator `0x4c4bd420` and admits only return codes zero or ten
+Its destination is the logical-one array at sketch `+0x88`
+The constructed origin reaches return zero through the following static dependencies, independently of saved documents
+
+| Predicate | Native evidence | Constructed origin |
+| --- | --- | --- |
+| One real point handle | Logical-one vtable `0x4cedbd58`, slot `+0x3e8`, calls `0x4b27e150` and returns one; slot `+0x4a0` calls `0x4b285a00` and returns constraint `+0xa8` | The embedded handle refers to the origin point in its owning sketch |
+| Live, local, permanent point | `isDeleted` at `0x4c5cdd70` tests entity `f54` bit zero; `isPermanent` at `0x4c5cf300` uses `0x4c3e2320`, which tests `f54 & 3`; local-handle admission `0x4c4c08f0` returns one for handle kind zero and `f1c=-1` | Constructor `f54=4` is live and permanent; the handle is local and has the same sketch owner |
+| No underlying offset | `isUnderlyingOffset` at `0x4c5d0620` invokes point virtual `+0xa8`; point vtable `0x4cdd2d48` targets zero-return routine `0x4b27cbe0` | False without consulting session state |
+| Logical-type screening | `0x4c42b870` compares constraint `f80` with `0x11` at `0x4c42b89a` and branches to zero return `0x4c42bc0f` | Origin type seventeen passes this screening |
+| Point validity | Point-handle target `0x4c5ffa70` requires live local geometry, excludes point types two and nineteen, then tests point visibility through `0x4c5fffc0` | Origin `fe4=1` is permitted and visible; point virtual `+0x190`, target `0x4c491cb0`, tests visibility mask `0x138a02` |
+
+The point-validity helper has an additional session-dependent veto only when its external-neighbour collector returns a positive count
+Its callback `0x4c549650` delegates to `sgEntHandle::isExternal(1)`; this is not an ordinary point-degree count
+For the origin, all six curve arrays at sketch offsets `+0x10`, `+0x18`, `+0x28`, `+0x30`, `+0x38` and `+0x40` are empty
+Fallback collector `0x4c5fa7e0` therefore reaches `0x4c5fb597` with its accepted count zero
+When sketch runtime `+0x550` contains an adjacency helper, cached collector `0x4c1ecf60` tests the same six empty collections and reaches its explicit zero return at `0x4c1ed778`
+Neither route enters the session-dependent veto, so this conclusion does not require an assumed global option
+
+The validator's generic handle-valid branch reaches `0x4c4be821`; the one-handle count then selects zero return `0x4c4be914`
+This happens before its final virtual `+0x438` fallback
+That fallback is itself zero for logical-one constraints, which would produce validation code four if reached; a zero fallback alone is not proof of admission
+The logical-one loop in `validateAllConstraints` at `0x4c4e1120` removes a record only when this validator returns neither zero nor ten, so this predicate preserves the constructed origin constraint
+This closes the admission predicate, not every subsequent validation tail, solver operation, aggregate status or modification stamp
+
+### Local update branch and stamp boundary
+
+This proof uses static native control flow, independently of saved document values
+`sgSketch::hasExternalReferences` at `0x4b94f7e0`, called with `(1,0,0)` by update, first tests the derived-profile reference, then offsets, intersections, silhouettes and the geometry collections
+The current profiles have null `pd_f110`, empty non-point/line collections and local point/line entities
+For each point and line, `sgEntHandle::isExternal` at `0x4c5ce0c0` delegates to `0x4c3e2020`; the latter returns false when entity `+0x48` is null
+That pointer is the constructed `ext=None`
+The origin's local logical constraint does not appear as an additional external-reference case in this scanner
+The scanner therefore reaches its false return at `0x4b950303`
+
+Update's selector at `0x4c54a446` clears `f37c` and its transform-work flag when the external-reference predicate is false
+Tests at `0x4c54a537` and `0x4c54a543` then select the direct-solver target `0x4c54b10e` for both null and nonnull transform arguments
+If the separate cached-solver/drawing condition is true, it also selects the direct branch
+The alternate model-reference branch containing the explicit `f56c` increment at `0x4c54ad3c` is consequently unreachable for the current local graphs
+This excludes that one increment; it does not prove solver success, unchanged coordinates or an accepted final stamp
+
+The constructor at `0x4c495450` sets saved status one at `0x4c495cf8`, current status one at `0x4c495d02`, cached-solver pointers null at `0x4c495e8c` and `0x4c495ee9`, and initial stamp one at `0x4c4960bf`
+These are offsets relative to the `sgSketch` object, not its separate profile pointer at sketch `+0x138`
+The profile constructor `0x4c0ca780` initializes its own `+0x3e0` as integer `100000`; equal offset names do not make these fields aliases
+Both profile vtables, `0x4d0e8e80` and `0x4d0ef510`, use target `0x4c0d71d0` for virtual `+0x1ee8`; that target returns only a drawing-view owner, so the constructed part owner does not activate its drawing-view flag
+
+The point delta helper's skip cases are also explicit
+`isUniqueCirclePoint` at `0x4c5ff0a0` tests point type two, `isVertexPoint` at `0x4c5fff80` tests type thirteen, and the helper excludes type eighteen separately
+`getType` at `0x4c5fbff0` reads point `+0xe4`; it does not read `pflags`
+Polygon points use `fe4=0` and the origin point uses `fe4=1`, so neither graph skips its points through these type cases
+Their actual solved coordinates remain required evidence; a type rule alone cannot establish the changed-coordinate count returned by `0x4c5167d0`
+
+The exported update signature fixes the observation ABI
+On Windows x64, argument zero is the sketch in `rcx`, followed by transform in `rdx`, an `int*` in `r8`, and the update engine in `r9`
+At entry, stack slots `rsp+0x28` and `rsp+0x30` contain the two integer arguments, `rsp+0x38` the constraint-balance pointer, and `rsp+0x40` the final double
+The `sgConstrainedStatus_e` return is a signed 32-bit enum; instruction `0x4c54c4c0` moves it into `eax`
+The internal coordinate helper has no exported formal prototype, but instruction `0x4c517278` writes its counter with `mov eax,r12d` before return `0x4c5172c8`
+Its observed counter should therefore retain raw `rax` and a separate unsigned 32-bit interpretation; the decompiler's inferred `ulonglong` is not evidence of a wider counter
+
+The observation below arms hooks before authoring and first rebuild on unrelated free polygons with three, eight and eleven lines
+It records actual update entry/leave status and stamps, the coordinate helper's returned count, solver-commit deltas and point/line status-map entry/leave fields
+Those training observations remain distinct from the locked held-out generated-output acceptance gate
+
+Both polygon and origin graphs retain `_requires_update=True` while regeneration and origin first-solve work remain unresolved
+That metadata is not a serialized native update flag and does not establish that the target application will solve the emitted graph
 
 ## Native boundary training observation
 
@@ -258,7 +325,48 @@ The first `0x4c5195d0` hook read its solver-wrapper argument as a sketch and the
 The actual sketch is the pointer at solver-wrapper `+8`, as the static decompile establishes
 Those snapshots are excluded from status and stamp conclusions
 The return value is a solver-success result, not the modification-stamp delta
-Whole-update entry and leave observations at `0x4c549ab0`, with the corrected inner signature, remain needed across unrelated free-polygon inputs
+The free-polygon observation below supplies whole-update entry and leave events at `0x4c549ab0` with the corrected inner signature
+
+## Free polygon authoring and rebuild observation
+
+Capture `polygon-api-authoring.json` has SHA-256 `1561ff585126fe22975aec7ecdcf8fe07c92059bbf214c6e46c83aaf3ee2928d`
+It contains 8,543 events over 95.219 seconds, zero dropped events, zero script errors, successful detach and healthy original controls before and after the action
+Its script SHA-256 is `4d27876edf99675d854f0cf8deefa961ef93716102f2065b04f6e7ef6824a864`
+The loaded model DLL hash matches `569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e`
+This is native API-boundary observation with `instruction_taint=false`, not instruction-level taint tracking
+The oracle owner authored these three training cases after the family builder existed; they are not held-out generated-output acceptance
+
+Each case uses one irregular front-plane ring, `AddToDB=True`, no authored sketch relations and a native extrusion
+The API reports exactly `n` points and `n` segments, zero relations, one body, a successful rebuild and save result `(True,0,0)`
+Every line's end-point ID equals the next line's start-point ID, including closure; each of the `n` distinct point-ID pairs has degree two
+The positive native point-array raw and active counts independently equal `n`
+The captured zero-count snapshots omit their underlying array pointers and are excluded from empty-array conclusions
+
+| Training case | Shared point and line count | Author-close whole-update events | Explicit-rebuild regular-sketch events | Stamp before and after both updates and save |
+| --- | --- | --- | --- | --- |
+| `T3_free` | 3 | 3288–3297 | 3361–3370 | 4 |
+| `T8_free` | 8 | 4050–4069 | 4133–4152 | 9 |
+| `T11_free` | 11 | 5027–5052 | 5116–5141 | 12 |
+
+Both regular-sketch updates return status one in every case
+Across those six updates, all 88 point/line status-map events have raw status eleven and mapped status one; entity `f34=1` and colour five remain unchanged
+All six regular coordinate-commit calls return zero, and the complete update leaves saved status `f128=1`, current status `f12c=1`, `f188=0`, `f37c=0` and both observed runtime cache pointers null
+Save serializer entry and leave retain the same status and stamp values
+
+The stamp expression comes from native operations, not a table indexed by polygon size
+Constructor `0x4c495450` starts the stamp at one, and line-permanence routine `0x4c5d1740` increments it at instruction `0x4c5d1778`
+For the stated one-call-per-line sequence, insertion therefore contributes `n`
+The subsequent update adds coordinate, plane and optional 3D change counts through `0x4c5195d0`, plus the separate model-reference increment only on its alternate branch
+The supported local 2D graph excludes that alternate branch and has empty plane/3D work; the observed free-geometry coordinate deltas are zero
+Thus `stamp_final = 1 + n` is the existing constructor-and-update expression for this sequence, corroborated by the three native training graphs
+It is not a copied saved stamp, and these observations do not extend the zero-delta premise to constrained, external, 3D or edited geometry
+
+The three origin rebuilds each map one type-one point from raw status one to status two and colour four
+Their whole updates return two and retain saved status one, current status two and stamp one; all three coordinate-commit returns are zero
+Those origins were loaded from the native document template before the observed rebuild
+The capture does not observe the first solve inside fresh origin initializer `0x4c49b980`, nor a transition from constructor entity status one and colour five
+Fresh-origin final state and the emitted flags that actually cause its first update remain required native dataflow work
+The [lifecycle change entry](../../../Documentation/Changes/Solidworks/SolidworksFreePolygonLifecycle.md) states these limits
 
 ## Contracts
 
@@ -276,7 +384,16 @@ Null cached body has constructor/store/load evidence at `0x4c0ca000`, `0x4c25464
 
 ## Verification
 
-No local tests, imports, reproductions, or oracle calls were run
+The [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md#stopping-conditions) define the stopping conditions:
+
+> There are two acceptable stopping conditions.
+> The first is success under every criterion on this page.
+> The second is the end of the available context.
+> Missing grammar is the work. It is not a blocker.
+
+The current research does not meet those product criteria; unresolved native graph state remains active work
+
+No local tests, builder/serializer imports, reproductions, or oracle calls were run
 The edited Python sources passed static AST syntax parsing without importing or executing them
 Process-boundary regression coverage executes remotely with the assembled builder
 `PolygonProcess.py` now constructs fresh profiles and dimensional graphs in an isolated subprocess, writes their binary object archives into a container, decodes them, verifies byte identity and reference identity, then edits and re-encodes the live forward parameter
@@ -289,6 +406,8 @@ For that large case it checks the native `0x7fff` large-map tag and six-byte ref
 This width-boundary case was not executed locally
 It checks actual decoded dimension IDs and leaves parameter node IDs at their constructor value `-1`
 The shared `BuildAudit` hook starts before builder/schema imports, permits actual import-loader code access and the bounded source-package/schema discovery needed during startup, then rejects runtime file access and child-process launches during construction
+It does not exempt arbitrary reads by filename suffix
+The sketch-info component test selects `ctx874=1`, so its external profile-owner reference is actually present in the encoded grammar and its identity assertion remains meaningful
 
 For PR head `4cb6785739079d6ebe1b745a21a8e63e49862b2d`, [native CI job 132714706575](https://github.com/TryUniCAD/Kit/actions/runs/43682093985/job/132714706575) passed all five existing `PolygonConstructTests.py` cases, including the 10,000-line ring, invalid geometry, editable depth and allocation assertions
 The same job passed `FreshPartTests.py`, `LockedPartTests.py` and `ModelBuilderProcessTests.py`
@@ -300,6 +419,10 @@ Its assembly failure was `bad class ref 32512 at 297` for the A0/A1 assembly CMg
 At head `ee2eed2e4732e995fb8b0a7b281b8834cdf9a7f6`, the naming and focused-directory gates passed, and [native job 132729524301](https://github.com/TryUniCAD/Kit/actions/runs/43687022248/job/132729524301) again passed all six polygon cases
 The job reported 139 passes, 158 skips and one separate assembly failure in 96.33 seconds
 The assembly CMgr repair advanced the controls to 12 of 14 identical streams; both remaining resolved-feature streams stopped at offset 635 because `moHistoryCompItemData_c` had no schema
+After the shared history/live-section and external-input repairs, [native job 132749668250](https://github.com/TryUniCAD/Kit/actions/runs/43693750759/job/132749668250) passed at head `af38f10bdecd5dee77375d8cbad7a1f68ee66660`
+It reported 158 passes and 158 skips in 56.97 seconds, including `AssemblyRoundTests.py`, `FreshPartTests.py`, `LockedPartTests.py` and all six polygon cases
+The tested synthetic merge was `783db24c98580b609b434bfdab0210900d80acbd`
+Its generated construction artifact `14153212981` contains ten files, is 144,352 bytes, and has uploaded ZIP SHA-256 `6b3c5ee495570cef54ddec496eff349c83fae27d4e2d097c422fd6e31ec47c13`
 These process results establish container/archive construction and decoding, not native application acceptance, rebuild correctness or body measurements
 
 The first complete generated H3 candidate from parent revision `8e44d0eb5` was rejected during clean native opening
@@ -308,9 +431,6 @@ The oracle owner's `inspect-first.json`, SHA-256 `acf27f6dfdbefec4795bee97b93f02
 Both controls opened and rebuilt with no reported errors or warnings and one body
 This establishes a candidate failure, not its cause; the report does not isolate a profile, dimension, model or container defect
 Native fault-boundary recovery remains required before any generated-output acceptance claim
-It does not exempt arbitrary reads by filename suffix
-The sketch-info component test selects `ctx874=1`, so its external profile-owner reference is actually present in the encoded grammar and its identity assertion remains meaningful
-This coverage has only been syntax-checked locally and is pending its remote execution
 The oracle owner's subsequent `candidate-H3-first.json`, SHA-256 `31ba472a3c00d8539f85a805bdf5c088df8c4f7aafbc148831d81fe677d6b625`, records six native exceptions and no events from the configured feature-constructor or sketch-serializer hooks
 The owner-taking feature constructor `0x4bb38350` and the separate default constructor `0x4bb38710` are distinct observation boundaries; absence of one hook does not exclude every feature factory
 No invocation of the hooked sketch serializer was observed, so that capture does not isolate the owned profile-load rules or establish whether their generated state is correct
@@ -318,5 +438,5 @@ The later native schema probe `candidate-H3-schema.json`, SHA-256 `78c5813433414
 The probe accepted the preceding History, Biography, ISO and line-font manager schema-one records
 The shared definition repair uses exported native runtime-class metadata at `slduiu!0x4aef6660+0xc`, independently proving schema zero
 This isolates the first observed schema mismatch; it does not establish that later generated graph state is accepted
-Further shared assembly repairs require their own remote execution evidence
+Later documentation revisions require their own current-head CI and review evidence
 The success criteria remain unsatisfied until held-out generated files pass target opening, rebuild, geometry measurements, feature-tree inspection, and dimension editing between healthy controls

@@ -1,15 +1,13 @@
 from __future__ import annotations
 
-from builtins import getattr as GetAttr, open as OpenFile
+from builtins import open as OpenFile
 from codecs import lookup as FindCodec
-from hashlib import sha256 as HashBytes
 from importlib import import_module as ImportModule
 from json import dumps as DumpJson, loads as LoadJson
 from pathlib import Path as FilePath
 from sys import addaudithook as AddAuditHook, argv as ArgValues, path as ImportPaths
 from sys import stdin as InputStream
 from typing import cast as CastValue
-from xml.etree.ElementTree import fromstring as ParseXml
 
 # audited metadata construction needs an explicit repository root without depending on ambient imports
 KRepoRoot = FilePath(ArgValues[1])
@@ -26,119 +24,53 @@ AddAuditHook(KAuditValue.InspectEvent)
 # the audited child must exercise the actual metadata builder rather than a surrogate
 KMetadata = ImportModule("builders.Metadata")
 
-# independent decoding must expose malformed metadata even when the constructor returns objects
-KLoadRooted = ImportModule("Streams").load_rooted
-
-# byte identity must expose information lost after metadata objects are decoded
-KStoreRooted = ImportModule("Streams").store_rooted
+# real archive boundaries must expose malformed metadata rather than accepting constructed objects
+KStreams = ImportModule("Streams")
 
 # shared native class dispatch must be fixed before strict construction forbids directory reads
 KRegistry = ImportModule("Classes").registry()
+
+# focused construction keeps audited orchestration independent from individual stream creation details
+KBuildStreams = ImportModule(
+    "tests.convert.solidworks.research.MetadataProcessBuild"
+).BuildStreams
+
+# complete codec verification must finish before semantic observations can be accepted
+KDecodeStreams = ImportModule(
+    "tests.convert.solidworks.research.MetadataProcessCodec"
+).DecodeStreams
+
+# parent assertions need observations from decoded records instead of builder implementation details
+KInspectResult = ImportModule(
+    "tests.convert.solidworks.research.MetadataProcessReport"
+).InspectResult
 
 # authored requests must enter through process input rather than runtime fixture files
 KRequest = CastValue(list[dict[str, dict[str, object]]], LoadJson(InputStream.read()))
 
 # lazy codec discovery must finish before strict construction forbids every file read
 KCodecs = tuple(FindCodec(Value) for Value in ("utf-16-le", "utf-8", "latin-1"))
-
-
+assert not KAuditValue.DeniedReads
 KAuditValue.BeginBuild()
-
-
-# metadata construction must cross stream ownership boundaries using only explicit semantic inputs
-def BuildStreams(InputData: dict[str, dict[str, object]]) -> dict[str, bytes]:
-    return CastValue(
-        dict[str, bytes],
-        KMetadata.streams(
-            registry=KRegistry,
-            header2=KMetadata.header(**InputData["header2"]),
-            model_headers={
-                int(Index): KMetadata.header(**CastValue(dict[str, object], Values))
-                for Index, Values in InputData["model_headers"].items()
-            },
-            biography_record=KMetadata.biography(),
-            history_record=KMetadata.history(**InputData["history"]),
-            keywords_data=KMetadata.keywords(**InputData["keywords"]),
-        ),
-    )
-
-
-# each generated archive must prove complete parsing and exact storage without leftover bytes
-def DecodeStreams(StreamData: dict[str, bytes]) -> dict[str, object]:
-    Records: dict[str, object] = {}
-    for StreamName, BlobValue in StreamData.items():
-        if StreamName == "swXmlContents/KeyWords":
-            continue
-        DocValue, Archive = KLoadRooted(BlobValue, KRegistry, 1, 19000)
-        assert Archive.left() == 0 and not DocValue.tail
-        assert len(DocValue.roots) == 1
-        assert KStoreRooted(DocValue, KRegistry, 19000) == BlobValue
-        Records[StreamName] = DocValue.roots[0]
-    return Records
-
-
-# parent assertions need semantic observations rather than accepting successful serialization alone
-def InspectResult(StreamData: dict[str, bytes]) -> dict[str, object]:
-    Records = DecodeStreams(StreamData)
-    Header = GetAttr(Records["Header2"], "f")
-    History = GetAttr(Records["_MO_VERSION_19000/History"], "f")
-    XmlRoot = ParseXml(StreamData["swXmlContents/KeyWords"][1:])
-    return {
-        "sizes": {
-            NameValue: len(BlobValue) for NameValue, BlobValue in StreamData.items()
-        },
-        "hashes": {
-            NameValue: HashBytes(BlobValue).hexdigest()
-            for NameValue, BlobValue in StreamData.items()
-        },
-        "next_id": Header["f08"],
-        "header_owner": Header["fec"],
-        "users": [Entry["s"] for Entry in Header["f10"].f["items"]],
-        "log_ids": [Entry["o"].f["f48"] for Entry in Header["f20"].f["items"]],
-        "models": {
-            NameValue: GetAttr(Record, "f")["fec"]
-            for NameValue, Record in Records.items()
-            if NameValue.startswith("Contents/")
-        },
-        "biography_count": GetAttr(Records["_MO_VERSION_19000/Biography"], "f")["n"],
-        "history_codes": [
-            [Entry["st"]["f08"] for Entry in State["st"]["f38"].f["states"]]
-            for State in History["states"]
-        ],
-        "history_user_indices": [
-            State["st"]["f08"]["f0c"] for State in History["states"]
-        ],
-        "license_origin": History["f30"],
-        "name": XmlRoot.attrib["Name"],
-        "configs": [
-            XmlNode.attrib["id"] for XmlNode in XmlRoot.findall("Configuration")
-        ],
-        "features": [
-            XmlNode.attrib["Name"]
-            for XmlNode in XmlRoot
-            if XmlNode.tag != "Configuration"
-        ],
-        "dimensions": [XmlNode.text for XmlNode in XmlRoot.iter("Dimension")],
-        "children": [
-            XmlNode.attrib["DissectableChildren"]
-            for XmlNode in XmlRoot
-            if "DissectableChildren" in XmlNode.attrib
-        ],
-    }
 
 
 # invalid provenance and forbidden reads must remain observable across the subprocess boundary
 def ProcessInput(InputData: dict[str, dict[str, object]]) -> dict[str, object]:
     Result: dict[str, object]
+    PriorDenied = len(KAuditValue.DeniedReads)
     try:
-        Result = InspectResult(BuildStreams(InputData))
+        StreamData = KBuildStreams(InputData, KMetadata, KRegistry)
+        Records = KDecodeStreams(StreamData, KStreams, KRegistry)
+        Result = KInspectResult(StreamData, Records)
     except ValueError as ErrorInfo:
         Result = {"error": str(ErrorInfo)}
+    assert len(KAuditValue.DeniedReads) == PriorDenied
     try:
         with OpenFile("/metadata-donor-input.SLDPRT", "rb") as DonorStream:
             raise RuntimeError("forbidden donor open succeeded: " + DonorStream.name)
     except PermissionError:
         Result["read_blocked"] = True
+    Result["import_reads"] = len(KAuditValue.ModuleReads)
     return Result
 
 

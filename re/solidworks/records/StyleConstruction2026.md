@@ -288,6 +288,16 @@ and polygon harness checks. Other parent checks also remained red. This is
 component codec evidence, not a green parent or PR acceptance claim. Current-head
 CI and vendor acceptance must still pass after integration repairs.
 
+The next completed [native job 132709855431](https://github.com/TryUniCAD/Kit/actions/runs/43680498907/job/132709855431)
+on head `5aa861d1804485f982eb899f58b54db2211cdaf1` used synthetic merge
+`c876defde6c2f38a01e72af913df706abf7b45e8`. All three style cases passed again.
+The entire smoke step reported one failure, 137 passes and 158 skips in 59.79
+seconds. The remaining failure was the model builder process lazily importing
+`encodings/utf_16_le.py` after entering strict construction. The parent-owned
+repair initializes both UTF-16LE and Latin-1 codecs before `BeginBuild`;
+the strict no-file-access phase is unchanged. Fresh current-head CI and actual
+review approval are still required.
+
 Remaining acceptance includes vendor load/rebuild/edit checks in the assembled
 document, the user-facing name and nonzero modes of GTol `f80`, non-1 standard
 branches, optional populated GTol/datums and

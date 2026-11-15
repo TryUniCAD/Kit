@@ -23,7 +23,7 @@ def image_identity(path):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Capture bounded native research observations with an explicit Frida realm")
+    parser = argparse.ArgumentParser(description="Capture bounded native research observations with an explicit Frida realm", fromfile_prefix_chars="@")
     parser.add_argument("--frida-dir", type=Path, required=True)
     parser.add_argument("--process", required=True)
     parser.add_argument("--pid", type=int)
@@ -33,6 +33,8 @@ def main():
     parser.add_argument("--seconds", type=float, default=5.0)
     parser.add_argument("--event-budget", type=int, default=100000)
     parser.add_argument("--module-manifest", type=Path)
+    parser.add_argument("--profile", choices=("full", "loader", "sketch"), default="full")
+    parser.add_argument("--exception-probes", action="store_true")
     parser.add_argument("--prepare-script", type=Path)
     parser.add_argument("--action-script", type=Path)
     parser.add_argument("--action-input", type=Path)
@@ -43,11 +45,14 @@ def main():
     sys.path.insert(0, str(args.frida_dir))
     record = {
         "authority": "native-api-boundary-observation", "instruction_taint": False,
-        "host": {"platform": platform.platform(), "machine": platform.machine()},
+        "host": {"platform": platform.platform(), "machine": platform.machine(), "working_directory": str(Path.cwd())},
+        "argument_files": [image_identity(Path(value[1:])) for value in sys.argv[1:] if value.startswith("@")],
         "frida_directory": str(args.frida_dir),
         "process_name": args.process, "pid_requested": args.pid, "realm": args.realm,
         "script_path": str(args.script), "script_sha256": hashlib.sha256(source).hexdigest(),
         "seconds_requested": args.seconds, "event_budget": args.event_budget,
+        "profile": args.profile,
+        "exception_probes": args.exception_probes,
         "started_at": time.time(), "messages": [], "messages_dropped": 0,
         "attached": False, "detached": False,
     }
@@ -109,7 +114,9 @@ def main():
                 record["module_images"][name] = identity
                 if identity["sha256"] != digest:
                     raise RuntimeError(f"loaded module image differs from the selected analysis target: {name}")
-            record["hook_activation"] = script.exports_sync.activate()
+            record["hook_activation"] = script.exports_sync.activate(args.profile, args.exception_probes)
+            if prepared is not None:
+                prepared["trace"] = script.exports_sync
         print(json.dumps({"ready": True, "pid": targets[0].pid, "realm": args.realm}), flush=True)
         if args.action_script is not None:
             record["action_path"] = str(args.action_script)

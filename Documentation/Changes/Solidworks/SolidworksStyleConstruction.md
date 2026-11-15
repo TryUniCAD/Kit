@@ -37,6 +37,12 @@ step still had six inherited part/polygon failures, alongside 132 passes and
 158 skips. Parent and full PR acceptance were not green; subsequent current-head
 CI remains required.
 
+[Native job 132709855431](https://github.com/TryUniCAD/Kit/actions/runs/43680498907/job/132709855431)
+on head `5aa861d18` passed all three style cases again. The whole step had one
+model-process codec import failure, 137 passes and 158 skips. This revision
+adopts the parent's codec initialization repair before the strict audit phase;
+fresh full CI and current-head review remain required.
+
 GTol helper `f80=0` is derived from the native GTol-data constructor and the
 actual data-to-helper projection, including its absent-data branch. Its
 user-facing mode name and nonzero modes remain unresolved. Vendor loadability,

@@ -1,6 +1,6 @@
 # SOLIDWORKS 2026 assembly archive grammar
 
-Target-application acceptance is unproven. This work extends the research source-document codec; it does not construct a fresh assembly or establish vendor loadability, rebuild correctness, or mate editability. The third remote byte-identity run passed 12 of 14 load-critical streams across two training assemblies. Both CMgr streams are exact; resolved features advance through component history to an unregistered live-section folder. Its native grammar is recovered below and awaits reproduction.
+Target-application acceptance is unproven. This work extends the research source-document codec; it does not construct a fresh assembly or establish vendor loadability, rebuild correctness, or mate editability. The fourth remote run passed the complete 14-stream byte-identity process check across two training assemblies, including both resolved-feature streams. Two unrelated signature-table checks still failed in that run because their licensed binary dependency had been removed from the checkout.
 
 ## Authority and inputs
 
@@ -15,7 +15,7 @@ All native addresses below belong to the following 2026 modules, as recorded by 
 | `sldmodu.dll` | `569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e` |
 | `sldmfcu.dll` | `af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735` |
 
-Static evidence came from the existing private `assembly-serialize.c`, `assembly-core.c`, `assembly-config.c`, and `assembly-tail.c` dumps, plus read-only decompilation in isolated copies of the existing Ghidra projects. No shared database was changed. Decompiled vendor listings remain untracked. No native runtime or instruction trace was collected by this component.
+Static evidence came from the existing private `assembly-serialize.c`, `assembly-core.c`, `assembly-config.c`, and `assembly-tail.c` dumps, plus read-only decompilation in isolated copies of the existing Ghidra projects. No shared database was changed. Decompiled vendor listings remain outside repository checkouts under the research artifact policy. This finding records format facts without vendor code. No native runtime or instruction trace was collected by this component.
 
 The two controls are declared in `re/solidworks/v2026/corpus/assemblies/Manifest.json`: `A0_one.SLDASM` contains one component; `A1_two.SLDASM` contains two components and three recorded mate creation attempts. Read-only inspection of the authoring specification identifies two coincident mates and one distance mate. Both controls are parser training fixtures, not held-out generated output. Their saved values must not become builder defaults or donor data.
 
@@ -25,7 +25,7 @@ The schema requires format version `19000`. Older and future layouts fail explic
 
 Every scalar, string, transform, cache value, and object link in the tables below is **source input** for this source-document codec. Presence markers and normalization witnesses preserve the original wire representation. Collection lengths and section lengths are **derived bookkeeping**, recomputed from their typed records. No value from either control is classified as a universal constant or neutral fresh-model cache.
 
-The confidence of the new grammar is **partial — static native evidence**, pending remote corpus reproduction. A successful Kit object round trip can confirm the exercised encoding but remains separate from native execution and target-application acceptance.
+Complete parsing and exact storage of the 14 exercised streams are **confirmed by remote compatibility evidence**. Other branches and subclasses remain **partial — static native evidence**. A successful Kit object round trip confirms the exercised encoding and remains separate from native execution, held-out generalization, and target-application acceptance.
 
 ## Assembly root
 
@@ -214,3 +214,21 @@ Both CMgr streams now round-trip exactly with no tail: A0 contains 1,874 decoded
 [Native job 132730137666](https://github.com/TryUniCAD/Kit/actions/runs/43687231116/job/132730137666) ran PR 129 head `1f801dd939ae3237c67c0976191e049e2a6ecb6e` using synthetic merge `27c89a8eb47ae2e921a4371af3e993e9ace1edcc` over parent `fde9e219faff10fca615a5b50560e78c1730888d`. The smoke step reported 1 failed, 138 passed, and 158 skipped in 39.79 seconds.
 
 The twelve complete streams still round-trip exactly with no tail. Both resolved-feature parsers advance beyond the history item and now stop at unregistered `moLiveSectionFolder_c`, at byte 1,194 in A0 and byte 1,250 in A1. Total remains `12/14 streams round-trip with no tail across 2 files`. The new class boundary is evidence of parsing progress, not proof of a complete history-record round trip: storage was not reached after the later read failure. The folder correction above awaits the next remote reproduction.
+
+## Fourth remote result
+
+[Native job 132734160210](https://github.com/TryUniCAD/Kit/actions/runs/43688575142/job/132734160210) ran clean PR 129 head `913834f602ca2ce65fd8be1d5c69a0957fe7277e` using synthetic merge `061a797b82b73a548f6eaf711071cc5bd98c6a65` over parent `d8163fba85881722f3ccb9d897db8883e9f0fb46`. `AssemblyRoundTests.py` passed its subprocess exit-code assertion and its exact `14/14 streams round-trip with no tail across 2 files` assertion. Pytest captures successful subprocess output, so the job reports the passing test rather than repeating each stream diagnostic.
+
+| Stream                               | A0 one component | A1 two components |
+| ------------------------------------ | ---------------- | ----------------- |
+| `Contents/CMgr`                      | Exact, no tail   | Exact, no tail    |
+| `Contents/Config-0`                  | Exact, no tail   | Exact, no tail    |
+| `Contents/Config-0-ModelHeader`      | Exact, no tail   | Exact, no tail    |
+| `Contents/Config-0-ResolvedFeatures` | Exact, no tail   | Exact, no tail    |
+| `Contents/Definition`                | Exact, no tail   | Exact, no tail    |
+| `_MO_VERSION_19000/Biography`        | Exact, no tail   | Exact, no tail    |
+| `_MO_VERSION_19000/History`          | Exact, no tail   | Exact, no tail    |
+
+The whole smoke step reported 2 failed, 137 passed, and 158 skipped in 59.40 seconds. Both failures were in `SolidworksSignatureTableTests.py`, whose old setup required the removed `re/binaries/sldmfcu.dll`. No binary is restored by this component. The clean-main repair makes recorded format rows mandatory and verifies an external licensed binary separately when `KIT_SOLIDWORKS_DLL` is supplied; that repair is included in the next branch revision. This passing assembly check does not make the failed whole job green.
+
+The subsequent required rationale-comment update changes no executable syntax in the eight assembly, metadata, and style process files. Static AST equivalence, Black, and the scoped rationale checker passed locally. All test execution remains remote, and current-head CI and approval still require fresh evidence after the update.

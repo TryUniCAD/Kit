@@ -23,3 +23,13 @@ were unavailable and remain labelled as such. The type-library inspection was
 static. No tests ran locally, and no generated-output acceptance is claimed.
 
 The [adapter guide](../../Reference/Adapters/Solidworks.md) remains read-only.
+## Native progress windows
+
+The fresh-file inspector exposed a watchdog interference: an untitled native
+loading-progress window uses the dialog class and contains a Close control.
+The watchdog now considers only visible, enabled buttons and preserves the
+observed three-stage progress window without clicking it. These windows are
+recorded separately in `progress_windows`; actual dismissed warnings and errors
+still fail health checks. The contaminated batch is not accepted and requires
+complete repetition. See the
+[progress-window finding](../../Gotchas/Conversion/Solidworks/Tracing/ProgressWindowsAreNotWarnings.md).

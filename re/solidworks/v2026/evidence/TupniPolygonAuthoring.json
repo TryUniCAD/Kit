@@ -1,0 +1,1580 @@
+{
+  "authority": "native-authoring-lifecycle-observation",
+  "instruction_taint": false,
+  "generated_output_accepted": false,
+  "classification": "training observations, not held-out acceptance",
+  "capture_name": "polygon-api-authoring.json",
+  "capture_sha256": "1561ff585126fe22975aec7ecdcf8fe07c92059bbf214c6e46c83aaf3ee2928d",
+  "profile": "sketch",
+  "exception_probes": false,
+  "script_sha256": "4d27876edf99675d854f0cf8deefa961ef93716102f2065b04f6e7ef6824a864",
+  "prepare_sha256": "098ac49c429ea47d9a8f628cfb9f89303258d02015d8c23601d43e43bf11b8bb",
+  "action_sha256": "39181b8623736e804a090ae210edd87305ba5f8af02040ba9ae68321889ef023",
+  "specifications_sha256": "c260139af21db1a13f06ec5896394f3f889321597f95304429e27accde2b81cb",
+  "author_helper_sha256": "860525d39f4da77d495898969a89120064af91d8ffce0b30bdf0f1dd493742c6",
+  "oracle_helper_sha256": "e383591d7a1fc0d8cbe52bb68ed76f74f6e5fbcd668bf13724d792db6effdc0b",
+  "revision": "34.5.2",
+  "elapsed_seconds": 95.21899999998277,
+  "events": 8543,
+  "event_kinds": {
+    "hooks-ready": 1,
+    "action-phase": 21,
+    "archive-class-schema": 512,
+    "feature-constructor": 97,
+    "model-needs-update": 129,
+    "sketch-serialize-enter": 16,
+    "archive-primitive": 7364,
+    "archive-count": 46,
+    "sketch-serialize-leave": 16,
+    "header-next-update-stamp": 82,
+    "update-session-stamp": 82,
+    "sketch-whole-update-enter": 13,
+    "sketch-coordinate-commit": 13,
+    "sketch-update": 13,
+    "solver-status-map": 109,
+    "sketch-whole-update-leave": 13,
+    "header-next-body-stamp": 16
+  },
+  "producer_statistics": {
+    "events": 8543,
+    "dropped": 0
+  },
+  "host_drops": 0,
+  "script_errors": [],
+  "detach": {
+    "reason": "application-requested",
+    "crash": null
+  },
+  "loaded_modules": {
+    "swccu.dll": {
+      "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+      "bytes": 252504,
+      "pe_machine": "0x8664"
+    },
+    "sldarchiveu.dll": {
+      "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+      "bytes": 231512,
+      "pe_machine": "0x8664"
+    },
+    "sldmodu.dll": {
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "bytes": 46536280,
+      "pe_machine": "0x8664"
+    },
+    "sldmfcu.dll": {
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+      "bytes": 8274520,
+      "pe_machine": "0x8664"
+    }
+  },
+  "controls_healthy": true,
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "dialogs": [],
+  "controller_diagnostics": [],
+  "cases": [
+    {
+      "sha256": "0c886a30306225bf7b0b5d1d276ad137507f0a7b311c34e98ac2f79729321092",
+      "bytes": 55215,
+      "save": [
+        true,
+        0,
+        0
+      ],
+      "rebuilt": true,
+      "bodies": 1,
+      "mass": {
+        "volume": 5.559600000000003e-06,
+        "area": 0.002132149722235469,
+        "com": [
+          0.03,
+          0.024333333333333335,
+          0.00565
+        ],
+        "mass": 5.559600000000003e-06
+      },
+      "whats_wrong": 0,
+      "name": "T3_free",
+      "features_with_issues": [],
+      "sketches": [
+        {
+          "name": "Sketch1",
+          "point_count": 3,
+          "segment_count": 3,
+          "relation_filter": 0,
+          "relation_count": 0,
+          "relation_types": [],
+          "points_m": [
+            [
+              0.014,
+              0.011,
+              0.0
+            ],
+            [
+              0.047,
+              0.018,
+              0.0
+            ],
+            [
+              0.029,
+              0.044,
+              0.0
+            ]
+          ],
+          "point_records": [
+            {
+              "id": [
+                0,
+                1
+              ],
+              "xyz_m": [
+                0.014,
+                0.011,
+                0.0
+              ]
+            },
+            {
+              "id": [
+                1,
+                2
+              ],
+              "xyz_m": [
+                0.047,
+                0.018,
+                0.0
+              ]
+            },
+            {
+              "id": [
+                2,
+                3
+              ],
+              "xyz_m": [
+                0.029,
+                0.044,
+                0.0
+              ]
+            }
+          ],
+          "segment_records": [
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  0,
+                  1
+                ],
+                "xyz_m": [
+                  0.014,
+                  0.011,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  1,
+                  2
+                ],
+                "xyz_m": [
+                  0.047,
+                  0.018,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            },
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  1,
+                  2
+                ],
+                "xyz_m": [
+                  0.047,
+                  0.018,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  2,
+                  3
+                ],
+                "xyz_m": [
+                  0.029,
+                  0.044,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            },
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  2,
+                  3
+                ],
+                "xyz_m": [
+                  0.029,
+                  0.044,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  0,
+                  1
+                ],
+                "xyz_m": [
+                  0.014,
+                  0.011,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            }
+          ]
+        }
+      ],
+      "save_sketch_states": [
+        {
+          "sequence": 3381,
+          "phase": "T3_free:save",
+          "kind": "sketch-serialize-enter",
+          "thread": 1980,
+          "sketch": {
+            "pointer": "0x6f0cf690",
+            "profile": "0x2f48ba60",
+            "points": {
+              "raw_count": 1,
+              "active_count": 1,
+              "bounded_scan_complete": true
+            },
+            "saved_status": 1,
+            "status": 2,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "archive": {
+            "pointer": "0x2d7f8f90",
+            "buffer_start": "0x21eae040",
+            "cursor": "0x21eaf442",
+            "buffer_offset": "0x1402",
+            "buffer_end": "0x21fae040",
+            "map_count": 174,
+            "epoch": 0,
+            "logical_stream_offset": null
+          },
+          "caller": {
+            "module": "swccu.dll",
+            "rva": "0xaaa0"
+          }
+        },
+        {
+          "sequence": 3453,
+          "phase": "T3_free:save",
+          "kind": "sketch-serialize-leave",
+          "thread": 1980,
+          "sketch": {
+            "pointer": "0x6f0cf690",
+            "profile": "0x2f48ba60",
+            "points": {
+              "raw_count": 1,
+              "active_count": 1,
+              "bounded_scan_complete": true
+            },
+            "saved_status": 1,
+            "status": 2,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "archive": {
+            "pointer": "0x2d7f8f90",
+            "buffer_start": "0x21eae040",
+            "cursor": "0x21eaf636",
+            "buffer_offset": "0x15f6",
+            "buffer_end": "0x21fae040",
+            "map_count": 178,
+            "epoch": 0,
+            "logical_stream_offset": null
+          }
+        },
+        {
+          "sequence": 3454,
+          "phase": "T3_free:save",
+          "kind": "sketch-serialize-enter",
+          "thread": 1980,
+          "sketch": {
+            "pointer": "0x6f0d5da0",
+            "profile": "0x2f48c750",
+            "points": {
+              "raw_count": 3,
+              "active_count": 3,
+              "bounded_scan_complete": true
+            },
+            "saved_status": 1,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 4
+          },
+          "archive": {
+            "pointer": "0x2d7f8f90",
+            "buffer_start": "0x21eae040",
+            "cursor": "0x21eaf7d9",
+            "buffer_offset": "0x1799",
+            "buffer_end": "0x21fae040",
+            "map_count": 185,
+            "epoch": 0,
+            "logical_stream_offset": null
+          },
+          "caller": {
+            "module": "swccu.dll",
+            "rva": "0xaaa0"
+          }
+        },
+        {
+          "sequence": 3609,
+          "phase": "T3_free:save",
+          "kind": "sketch-serialize-leave",
+          "thread": 1980,
+          "sketch": {
+            "pointer": "0x6f0d5da0",
+            "profile": "0x2f48c750",
+            "points": {
+              "raw_count": 3,
+              "active_count": 3,
+              "bounded_scan_complete": true
+            },
+            "saved_status": 1,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 4
+          },
+          "archive": {
+            "pointer": "0x2d7f8f90",
+            "buffer_start": "0x21eae040",
+            "cursor": "0x21eafc01",
+            "buffer_offset": "0x1bc1",
+            "buffer_end": "0x21fae040",
+            "map_count": 194,
+            "epoch": 0,
+            "logical_stream_offset": null
+          }
+        }
+      ]
+    },
+    {
+      "sha256": "bb32c83af68d007cd6df095d6f4890c3c8da7fab8e60876cec72312d2ca71644",
+      "bytes": 61843,
+      "save": [
+        true,
+        0,
+        0
+      ],
+      "rebuilt": true,
+      "bodies": 1,
+      "mass": {
+        "volume": 1.0310237389144357e-05,
+        "area": 0.003089141887612063,
+        "com": [
+          0.03300084098190363,
+          0.02200119508877216,
+          0.0056500000000000005
+        ],
+        "mass": 1.0310237389144357e-05
+      },
+      "whats_wrong": 0,
+      "name": "T8_free",
+      "features_with_issues": [],
+      "sketches": [
+        {
+          "name": "Sketch1",
+          "point_count": 8,
+          "segment_count": 8,
+          "relation_filter": 0,
+          "relation_count": 0,
+          "relation_types": [],
+          "points_m": [
+            [
+              0.051648714228000006,
+              0.027221464958,
+              0.0
+            ],
+            [
+              0.040844854703000005,
+              0.035946124308999995,
+              0.0
+            ],
+            [
+              0.027752914939,
+              0.040740217663000004,
+              0.0
+            ],
+            [
+              0.017370278904,
+              0.030791897184,
+              0.0
+            ],
+            [
+              0.016981925041,
+              0.017515089347,
+              0.0
+            ],
+            [
+              0.023195177002,
+              0.004569558578,
+              0.0
+            ],
+            [
+              0.037459290549999996,
+              0.006073428477,
+              0.0
+            ],
+            [
+              0.048746844635,
+              0.013142219484,
+              0.0
+            ]
+          ],
+          "point_records": [
+            {
+              "id": [
+                0,
+                1
+              ],
+              "xyz_m": [
+                0.051648714228000006,
+                0.027221464958,
+                0.0
+              ]
+            },
+            {
+              "id": [
+                1,
+                2
+              ],
+              "xyz_m": [
+                0.040844854703000005,
+                0.035946124308999995,
+                0.0
+              ]
+            },
+            {
+              "id": [
+                2,
+                3
+              ],
+              "xyz_m": [
+                0.027752914939,
+                0.040740217663000004,
+                0.0
+              ]
+            },
+            {
+              "id": [
+                3,
+                4
+              ],
+              "xyz_m": [
+                0.017370278904,
+                0.030791897184,
+                0.0
+              ]
+            },
+            {
+              "id": [
+                4,
+                5
+              ],
+              "xyz_m": [
+                0.016981925041,
+                0.017515089347,
+                0.0
+              ]
+            },
+            {
+              "id": [
+                5,
+                6
+              ],
+              "xyz_m": [
+                0.023195177002,
+                0.004569558578,
+                0.0
+              ]
+            },
+            {
+              "id": [
+                6,
+                7
+              ],
+              "xyz_m": [
+                0.037459290549999996,
+                0.006073428477,
+                0.0
+              ]
+            },
+            {
+              "id": [
+                7,
+                8
+              ],
+              "xyz_m": [
+                0.048746844635,
+                0.013142219484,
+                0.0
+              ]
+            }
+          ],
+          "segment_records": [
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  0,
+                  1
+                ],
+                "xyz_m": [
+                  0.051648714228000006,
+                  0.027221464958,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  1,
+                  2
+                ],
+                "xyz_m": [
+                  0.040844854703000005,
+                  0.035946124308999995,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            },
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  1,
+                  2
+                ],
+                "xyz_m": [
+                  0.040844854703000005,
+                  0.035946124308999995,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  2,
+                  3
+                ],
+                "xyz_m": [
+                  0.027752914939,
+                  0.040740217663000004,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            },
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  2,
+                  3
+                ],
+                "xyz_m": [
+                  0.027752914939,
+                  0.040740217663000004,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  3,
+                  4
+                ],
+                "xyz_m": [
+                  0.017370278904,
+                  0.030791897184,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            },
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  3,
+                  4
+                ],
+                "xyz_m": [
+                  0.017370278904,
+                  0.030791897184,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  4,
+                  5
+                ],
+                "xyz_m": [
+                  0.016981925041,
+                  0.017515089347,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            },
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  4,
+                  5
+                ],
+                "xyz_m": [
+                  0.016981925041,
+                  0.017515089347,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  5,
+                  6
+                ],
+                "xyz_m": [
+                  0.023195177002,
+                  0.004569558578,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            },
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  5,
+                  6
+                ],
+                "xyz_m": [
+                  0.023195177002,
+                  0.004569558578,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  6,
+                  7
+                ],
+                "xyz_m": [
+                  0.037459290549999996,
+                  0.006073428477,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            },
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  6,
+                  7
+                ],
+                "xyz_m": [
+                  0.037459290549999996,
+                  0.006073428477,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  7,
+                  8
+                ],
+                "xyz_m": [
+                  0.048746844635,
+                  0.013142219484,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            },
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  7,
+                  8
+                ],
+                "xyz_m": [
+                  0.048746844635,
+                  0.013142219484,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  0,
+                  1
+                ],
+                "xyz_m": [
+                  0.051648714228000006,
+                  0.027221464958,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            }
+          ]
+        }
+      ],
+      "save_sketch_states": [
+        {
+          "sequence": 4163,
+          "phase": "T8_free:save",
+          "kind": "sketch-serialize-enter",
+          "thread": 1980,
+          "sketch": {
+            "pointer": "0x6f0bf070",
+            "profile": "0x2f48ba60",
+            "points": {
+              "raw_count": 1,
+              "active_count": 1,
+              "bounded_scan_complete": true
+            },
+            "saved_status": 1,
+            "status": 2,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "archive": {
+            "pointer": "0x2d97fc90",
+            "buffer_start": "0x509a040",
+            "cursor": "0x509b442",
+            "buffer_offset": "0x1402",
+            "buffer_end": "0x519a040",
+            "map_count": 174,
+            "epoch": 0,
+            "logical_stream_offset": null
+          },
+          "caller": {
+            "module": "swccu.dll",
+            "rva": "0xaaa0"
+          }
+        },
+        {
+          "sequence": 4235,
+          "phase": "T8_free:save",
+          "kind": "sketch-serialize-leave",
+          "thread": 1980,
+          "sketch": {
+            "pointer": "0x6f0bf070",
+            "profile": "0x2f48ba60",
+            "points": {
+              "raw_count": 1,
+              "active_count": 1,
+              "bounded_scan_complete": true
+            },
+            "saved_status": 1,
+            "status": 2,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "archive": {
+            "pointer": "0x2d97fc90",
+            "buffer_start": "0x509a040",
+            "cursor": "0x509b636",
+            "buffer_offset": "0x15f6",
+            "buffer_end": "0x519a040",
+            "map_count": 178,
+            "epoch": 0,
+            "logical_stream_offset": null
+          }
+        },
+        {
+          "sequence": 4236,
+          "phase": "T8_free:save",
+          "kind": "sketch-serialize-enter",
+          "thread": 1980,
+          "sketch": {
+            "pointer": "0x6f0bfc90",
+            "profile": "0x2f48e580",
+            "points": {
+              "raw_count": 8,
+              "active_count": 8,
+              "bounded_scan_complete": true
+            },
+            "saved_status": 1,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 9
+          },
+          "archive": {
+            "pointer": "0x2d97fc90",
+            "buffer_start": "0x509a040",
+            "cursor": "0x509b7d9",
+            "buffer_offset": "0x1799",
+            "buffer_end": "0x519a040",
+            "map_count": 185,
+            "epoch": 0,
+            "logical_stream_offset": null
+          },
+          "caller": {
+            "module": "swccu.dll",
+            "rva": "0xaaa0"
+          }
+        },
+        {
+          "sequence": 4586,
+          "phase": "T8_free:save",
+          "kind": "sketch-serialize-leave",
+          "thread": 1980,
+          "sketch": {
+            "pointer": "0x6f0bfc90",
+            "profile": "0x2f48e580",
+            "points": {
+              "raw_count": 8,
+              "active_count": 8,
+              "bounded_scan_complete": true
+            },
+            "saved_status": 1,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 9
+          },
+          "archive": {
+            "pointer": "0x2d97fc90",
+            "buffer_start": "0x509a040",
+            "cursor": "0x509c0f7",
+            "buffer_offset": "0x20b7",
+            "buffer_end": "0x519a040",
+            "map_count": 204,
+            "epoch": 0,
+            "logical_stream_offset": null
+          }
+        }
+      ]
+    },
+    {
+      "sha256": "d94ec062f854e4490ec8be5f5726dcd9890ec07ce4e6eb99c7338bf54d9ff7e8",
+      "bytes": 65892,
+      "save": [
+        true,
+        0,
+        0
+      ],
+      "rebuilt": true,
+      "bodies": 1,
+      "mass": {
+        "volume": 1.087710409220155e-05,
+        "area": 0.0032112747729455453,
+        "com": [
+          0.03300000000009861,
+          0.022000000000117155,
+          0.0056500000000000005
+        ],
+        "mass": 1.087710409220155e-05
+      },
+      "whats_wrong": 0,
+      "name": "T11_free",
+      "features_with_issues": [],
+      "sketches": [
+        {
+          "name": "Sketch1",
+          "point_count": 11,
+          "segment_count": 11,
+          "relation_filter": 0,
+          "relation_count": 0,
+          "relation_types": [],
+          "points_m": [
+            [
+              0.051648714228000006,
+              0.027221464958,
+              0.0
+            ],
+            [
+              0.043868150610000003,
+              0.034227769609,
+              0.0
+            ],
+            [
+              0.035646797694999996,
+              0.038894945523,
+              0.0
+            ],
+            [
+              0.024963445798,
+              0.040201028709,
+              0.0
+            ],
+            [
+              0.017681509010999998,
+              0.032119552714,
+              0.0
+            ],
+            [
+              0.016999841524,
+              0.022201601979,
+              0.0
+            ],
+            [
+              0.017558275271,
+              0.012348921684000001,
+              0.0
+            ],
+            [
+              0.024489226755,
+              0.003968727333,
+              0.0
+            ],
+            [
+              0.035238123940000005,
+              0.004907396859,
+              0.0
+            ],
+            [
+              0.043503875882000005,
+              0.009564708468,
+              0.0
+            ],
+            [
+              0.051402039287000004,
+              0.016343882165,
+              0.0
+            ]
+          ],
+          "point_records": [
+            {
+              "id": [
+                0,
+                1
+              ],
+              "xyz_m": [
+                0.051648714228000006,
+                0.027221464958,
+                0.0
+              ]
+            },
+            {
+              "id": [
+                1,
+                2
+              ],
+              "xyz_m": [
+                0.043868150610000003,
+                0.034227769609,
+                0.0
+              ]
+            },
+            {
+              "id": [
+                2,
+                3
+              ],
+              "xyz_m": [
+                0.035646797694999996,
+                0.038894945523,
+                0.0
+              ]
+            },
+            {
+              "id": [
+                3,
+                4
+              ],
+              "xyz_m": [
+                0.024963445798,
+                0.040201028709,
+                0.0
+              ]
+            },
+            {
+              "id": [
+                4,
+                5
+              ],
+              "xyz_m": [
+                0.017681509010999998,
+                0.032119552714,
+                0.0
+              ]
+            },
+            {
+              "id": [
+                5,
+                6
+              ],
+              "xyz_m": [
+                0.016999841524,
+                0.022201601979,
+                0.0
+              ]
+            },
+            {
+              "id": [
+                6,
+                7
+              ],
+              "xyz_m": [
+                0.017558275271,
+                0.012348921684000001,
+                0.0
+              ]
+            },
+            {
+              "id": [
+                7,
+                8
+              ],
+              "xyz_m": [
+                0.024489226755,
+                0.003968727333,
+                0.0
+              ]
+            },
+            {
+              "id": [
+                8,
+                9
+              ],
+              "xyz_m": [
+                0.035238123940000005,
+                0.004907396859,
+                0.0
+              ]
+            },
+            {
+              "id": [
+                9,
+                10
+              ],
+              "xyz_m": [
+                0.043503875882000005,
+                0.009564708468,
+                0.0
+              ]
+            },
+            {
+              "id": [
+                10,
+                11
+              ],
+              "xyz_m": [
+                0.051402039287000004,
+                0.016343882165,
+                0.0
+              ]
+            }
+          ],
+          "segment_records": [
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  0,
+                  1
+                ],
+                "xyz_m": [
+                  0.051648714228000006,
+                  0.027221464958,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  1,
+                  2
+                ],
+                "xyz_m": [
+                  0.043868150610000003,
+                  0.034227769609,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            },
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  1,
+                  2
+                ],
+                "xyz_m": [
+                  0.043868150610000003,
+                  0.034227769609,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  2,
+                  3
+                ],
+                "xyz_m": [
+                  0.035646797694999996,
+                  0.038894945523,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            },
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  2,
+                  3
+                ],
+                "xyz_m": [
+                  0.035646797694999996,
+                  0.038894945523,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  3,
+                  4
+                ],
+                "xyz_m": [
+                  0.024963445798,
+                  0.040201028709,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            },
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  3,
+                  4
+                ],
+                "xyz_m": [
+                  0.024963445798,
+                  0.040201028709,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  4,
+                  5
+                ],
+                "xyz_m": [
+                  0.017681509010999998,
+                  0.032119552714,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            },
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  4,
+                  5
+                ],
+                "xyz_m": [
+                  0.017681509010999998,
+                  0.032119552714,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  5,
+                  6
+                ],
+                "xyz_m": [
+                  0.016999841524,
+                  0.022201601979,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            },
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  5,
+                  6
+                ],
+                "xyz_m": [
+                  0.016999841524,
+                  0.022201601979,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  6,
+                  7
+                ],
+                "xyz_m": [
+                  0.017558275271,
+                  0.012348921684000001,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            },
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  6,
+                  7
+                ],
+                "xyz_m": [
+                  0.017558275271,
+                  0.012348921684000001,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  7,
+                  8
+                ],
+                "xyz_m": [
+                  0.024489226755,
+                  0.003968727333,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            },
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  7,
+                  8
+                ],
+                "xyz_m": [
+                  0.024489226755,
+                  0.003968727333,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  8,
+                  9
+                ],
+                "xyz_m": [
+                  0.035238123940000005,
+                  0.004907396859,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            },
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  8,
+                  9
+                ],
+                "xyz_m": [
+                  0.035238123940000005,
+                  0.004907396859,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  9,
+                  10
+                ],
+                "xyz_m": [
+                  0.043503875882000005,
+                  0.009564708468,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            },
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  9,
+                  10
+                ],
+                "xyz_m": [
+                  0.043503875882000005,
+                  0.009564708468,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  10,
+                  11
+                ],
+                "xyz_m": [
+                  0.051402039287000004,
+                  0.016343882165,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            },
+            {
+              "type": 0,
+              "start": {
+                "id": [
+                  10,
+                  11
+                ],
+                "xyz_m": [
+                  0.051402039287000004,
+                  0.016343882165,
+                  0.0
+                ]
+              },
+              "end": {
+                "id": [
+                  0,
+                  1
+                ],
+                "xyz_m": [
+                  0.051648714228000006,
+                  0.027221464958,
+                  0.0
+                ]
+              },
+              "endpoint_identity_complete": true
+            }
+          ]
+        }
+      ],
+      "save_sketch_states": [
+        {
+          "sequence": 5152,
+          "phase": "T11_free:save",
+          "kind": "sketch-serialize-enter",
+          "thread": 1980,
+          "sketch": {
+            "pointer": "0x6f0c14d0",
+            "profile": "0x2f48e580",
+            "points": {
+              "raw_count": 1,
+              "active_count": 1,
+              "bounded_scan_complete": true
+            },
+            "saved_status": 1,
+            "status": 2,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "archive": {
+            "pointer": "0x6ee65890",
+            "buffer_start": "0x5642040",
+            "cursor": "0x5643442",
+            "buffer_offset": "0x1402",
+            "buffer_end": "0x5742040",
+            "map_count": 174,
+            "epoch": 0,
+            "logical_stream_offset": null
+          },
+          "caller": {
+            "module": "swccu.dll",
+            "rva": "0xaaa0"
+          }
+        },
+        {
+          "sequence": 5224,
+          "phase": "T11_free:save",
+          "kind": "sketch-serialize-leave",
+          "thread": 1980,
+          "sketch": {
+            "pointer": "0x6f0c14d0",
+            "profile": "0x2f48e580",
+            "points": {
+              "raw_count": 1,
+              "active_count": 1,
+              "bounded_scan_complete": true
+            },
+            "saved_status": 1,
+            "status": 2,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 1
+          },
+          "archive": {
+            "pointer": "0x6ee65890",
+            "buffer_start": "0x5642040",
+            "cursor": "0x5643636",
+            "buffer_offset": "0x15f6",
+            "buffer_end": "0x5742040",
+            "map_count": 178,
+            "epoch": 0,
+            "logical_stream_offset": null
+          }
+        },
+        {
+          "sequence": 5225,
+          "phase": "T11_free:save",
+          "kind": "sketch-serialize-enter",
+          "thread": 1980,
+          "sketch": {
+            "pointer": "0x6f0bfc90",
+            "profile": "0x2f48fb10",
+            "points": {
+              "raw_count": 11,
+              "active_count": 11,
+              "bounded_scan_complete": true
+            },
+            "saved_status": 1,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 12
+          },
+          "archive": {
+            "pointer": "0x6ee65890",
+            "buffer_start": "0x5642040",
+            "cursor": "0x56437d9",
+            "buffer_offset": "0x1799",
+            "buffer_end": "0x5742040",
+            "map_count": 185,
+            "epoch": 0,
+            "logical_stream_offset": null
+          },
+          "caller": {
+            "module": "swccu.dll",
+            "rva": "0xaaa0"
+          }
+        },
+        {
+          "sequence": 5692,
+          "phase": "T11_free:save",
+          "kind": "sketch-serialize-leave",
+          "thread": 1980,
+          "sketch": {
+            "pointer": "0x6f0bfc90",
+            "profile": "0x2f48fb10",
+            "points": {
+              "raw_count": 11,
+              "active_count": 11,
+              "bounded_scan_complete": true
+            },
+            "saved_status": 1,
+            "status": 1,
+            "flags": 0,
+            "raw_f37c_u16": 0,
+            "runtime_f388": "0x0",
+            "runtime_f3e0": "0x0",
+            "stamp": 12
+          },
+          "archive": {
+            "pointer": "0x6ee65890",
+            "buffer_start": "0x5642040",
+            "cursor": "0x56443f1",
+            "buffer_offset": "0x23b1",
+            "buffer_end": "0x5742040",
+            "map_count": 210,
+            "epoch": 0,
+            "logical_stream_offset": null
+          }
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "No generalized saved-state formula is established by three observations",
+    "No generated output acceptance",
+    "Initial zero-count point snapshots did not distinguish null array identities",
+    "Line-index snapshots were added after this capture"
+  ],
+  "control_before": {
+    "revision": "34.5.2",
+    "opened": true,
+    "open_errors": 0,
+    "open_warnings": 0,
+    "rebuilt": true,
+    "bodies": 1,
+    "mass": {
+      "volume": 8.000000000000001e-06,
+      "area": 0.0028,
+      "com": [
+        0.0,
+        0.0,
+        0.005
+      ],
+      "mass": 8.000000000000001e-06
+    },
+    "whats_wrong": 0,
+    "features_with_issues": []
+  },
+  "control_after": {
+    "revision": "34.5.2",
+    "opened": true,
+    "open_errors": 0,
+    "open_warnings": 0,
+    "rebuilt": true,
+    "bodies": 1,
+    "mass": {
+      "volume": 8.000000000000001e-06,
+      "area": 0.0028,
+      "com": [
+        0.0,
+        0.0,
+        0.005
+      ],
+      "mass": 8.000000000000001e-06
+    },
+    "whats_wrong": 0,
+    "features_with_issues": []
+  }
+}
