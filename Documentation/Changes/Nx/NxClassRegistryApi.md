@@ -71,7 +71,39 @@ assigning those positions to the registry's properties needs the stores in
 `??0ClassRegistrant@OM@UGS@@QEAA@PEBDI...` at `0x180069fd0` matched against the serialiser, which is
 the next step and was not completed.
 
+## The class id is a runtime serial number, not a derived value
+
+Three accessors settle where the identifiers come from, read from the export table:
+
+```text
+?GetSerialNumber@ClassRegistrant@OM@UGS@@SAHXZ
+  0x18006e1c0  mov eax, dword ptr [rip + 0x682396]   ; a global counter
+  0x18006e1c7  ret
+
+?GetClassId@ClassRegistrant@OM@UGS@@QEBAHXZ
+  0x18003b0a0  mov rax, qword ptr [rcx + 0x28]       ; pointer to an int
+  0x18003b0a4  mov eax, dword ptr [rax]
+  0x18003b0a6  ret
+
+?GetClassDigest@ClassRegistrant@OM@UGS@@QEBAIXZ
+  0x18003b090  mov eax, dword ptr [rcx + 0xb0]       ; a per registrant dword
+  0x18003b096  ret
+```
+
+so an id is stored in a table pointed to from the registrant, a digest is a dword at `+0xb0`, and the
+registry keeps a **global serial counter**. Class ids are therefore assigned **at load, in registration
+order**, not computed from the name. That is the definitive answer to why 22 name-derived functions
+failed: the value is not a function of the name at all.
+
+It also means a class table cannot be produced by static analysis of the modules. Reproducing it needs
+the registration order of 1,178 class names spread across several modules, which is a property of a
+running NX session rather than of the binaries.
+
 ## Limits
+
+- The entry's field positions are not assigned to registry properties.
+- Because ids are load-order serial numbers, a table emitted from any source other than a live registry
+  would be correct only for the exact module set that produced it.
 
 - The field layout inside an entry is not yet assigned; this entry only says the values are small.
 - The registry's id assignment order has not been reproduced.
