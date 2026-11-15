@@ -57,6 +57,16 @@ records that it was rejected:
 So the authored bytes round-trip through this reader but are **not** vendor-loadable. No Creo body
 count, volume, or centre of mass exists for authored output.
 
+Two container bisection steps were measured, and both still fail:
+
+1. Replaced the short header with the vendor-shaped 70-byte header lines (`#- VERS`, `#- HOST`,
+   `#- UOBJ_ID`, `#- CMNM <len><name>`, `#-END_OF_UGC_HEADER`). The computed base became `0x2cc`,
+   the same value a vendor part reports. Creo still rejects with "not a valid PART file".
+2. Changed the table row's numeric column from `-1` to `1` and relaunched. Same rejection.
+
+The remaining differences are the section set (the authored file has only `AllFeatur` and
+`VisibGeom`) and the per-row checksum columns, which are still zero.
+
 ## Limits
 
 - The authored part contains only `AllFeatur` and `VisibGeom`. Creo rejects it as "not a valid PART

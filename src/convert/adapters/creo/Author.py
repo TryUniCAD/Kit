@@ -42,16 +42,32 @@ def TocRow(
 ) -> bytes:
     RowText = (
         f"{NameText} {OffsetValue:x} {LengthValue:x} {ExpandedValue:x} "
-        f"{KTocVersion} {KTocKind} -1 0000 0000"
+        f"{KTocVersion} {KTocKind} 1 0000 0000"
     )
     return RowText.encode("ascii").ljust(KTocWidth - 1, b"#")[: KTocWidth - 1] + b"\n"
 
 
-def BuildContainer(Sections: tuple[tuple[str, bytes], ...]) -> bytes:
+def HeaderLine(TextValue: str) -> bytes:
+    return TextValue.encode("latin-1").ljust(68, b" ")[:68] + b" \\\n"
+
+
+def BuildContainer(
+    Sections: tuple[tuple[str, bytes], ...], ModelName: str = "box.prt"
+) -> bytes:
     FirstLine = b"#UGC:2 PART 1934 1460 800 1 1 15 3700 2019344 00000000 \\"
-    HeaderBody = b"\n#- HOST\n#- LINK\n#- DBID\n#- REVS 0,\n#- RELL 0,\n"
-    HeaderBody += b"#- MACH _Windows\n#-END_OF_UGC_HEADER\n"
-    Header = FirstLine + HeaderBody
+    NameText = ModelName.encode("latin-1")
+    NameLength = f"{len(NameText):03x}"
+    HeaderBody = HeaderLine("#- VERS 0 0")
+    HeaderBody += HeaderLine("#- HOST")
+    HeaderBody += HeaderLine("#- LINK")
+    HeaderBody += HeaderLine("#- DBID")
+    HeaderBody += HeaderLine("#- REVS 0,")
+    HeaderBody += HeaderLine("#- RELL 0,")
+    HeaderBody += HeaderLine("#- UOBJ_ID 1 1 1")
+    HeaderBody += HeaderLine("#- MACH _Windows")
+    HeaderBody += HeaderLine("#- CMNM " + NameLength + ModelName)
+    HeaderBody += b"#-END_OF_UGC_HEADER\n"
+    Header = FirstLine + b"\n" + HeaderBody
     BaseValue = len(Header)
     Header = Header.replace(b"00000000", f"{BaseValue:08x}".encode("ascii"), 1)
     TocHead = (
