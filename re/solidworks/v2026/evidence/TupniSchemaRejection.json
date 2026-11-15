@@ -232,10 +232,11 @@
     "journal": {
       "class": "uoJournal_c",
       "wire_schema": 0,
-      "descriptor": "slduiu.dll+0xab6660",
+      "descriptor": "slduiu.dll+0x2056660",
       "preferred_address": "0x4aef6660",
       "member_offset": "0x0c",
-      "image_sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+      "image_sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+      "preferred_image_base": "0x48ea0000"
     },
     "string_array": {
       "class": "su_CStringArray",
