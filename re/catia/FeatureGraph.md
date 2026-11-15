@@ -120,6 +120,22 @@ The literal dimension values are not in the attribute block. A dimension attribu
 parameter object, and the parameter object holds the value. Decoding the parameter objects is the
 next step.
 
+## The parameter values are not in the attribute block
+
+A dimension attribute such as `d_dia` carries a two-byte value and an object reference, for example
+`8c d5 40 e9 d4 17 04 37 fe fe`. The `d5 40` is a tag plus a one-byte value, and `e9 d4 17 04 37` is
+a four-byte object reference. The literal diameter is not in the attribute block.
+
+The `7c 06` object header carries the object id and the part bounding box, not the parameter value:
+`7c 06 2a 00 00 00 01 00 38 39 ea 02 00 00 00 80 62 83 1b 2c 00 80 21 bb 23 43 80 05 66 9d 43 80
+c6 25 d0 3b 00 80 ff ff ff ff` has the same three floats (`163.73`, `314.8`, `0.00635`) in every
+object, so they are the part bounding box.
+
+The `7c 09` relation records and the `7c 0a` operand lists carry symbol references and small
+integers, not literal floats. A float scan of the `ISO_1207` object graph finds plausible dimension
+values (`1.95`, `2.0`, `1.45`, `1.7`, `8.0`, `8.75`, `2.05`, `4.0`, `2.25`, `0.25`, `2.54`), but the
+scan cannot attribute them to a named parameter. The parameter value encoding is the next step.
+
 ## Evidence
 
 - `src/convert/adapters/catia/Container.py` parses the OSMX symbol table.
