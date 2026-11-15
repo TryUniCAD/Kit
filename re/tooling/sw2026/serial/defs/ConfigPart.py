@@ -256,11 +256,16 @@ def load_config(data, reg, version=None, *, archive=None, name="Contents/Config-
 
 
 def store_config(doc, reg, version=None):
+    data, _ = store_config_state(doc, reg, version)
+    return data
+
+
+def store_config_state(doc, reg, version=None):
     ar = Store(1, reg, version, {"direct": doc.head["direct"]})
     for o in doc.roots:
         ar.obj(o)
     ar.raw(doc.tail)
-    return bytes(ar.out)
+    return bytes(ar.out), ar.map_state()
 
 
 PLANS = {"Contents/Config-0": ("custom", (load_config, store_config))}

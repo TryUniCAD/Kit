@@ -82,6 +82,10 @@ A future writer must derive each emitted structure from known format rules.
 The container, archive, configuration manager, definition, and resolved-feature codecs remain as its starting point.
 Do not present a carrier or a mode label as a completed translation.
 
+The [2026 archive map handoff](../../Changes/Solidworks/SolidworksArchiveMapHandoff.md)
+and [locked source controls](../../Changes/Solidworks/SolidworksOracleControls.md)
+extend the research instruments without establishing writer support.
+
 The [2026 archive research](../../Changes/Solidworks/SolidworksArchiveResearch.md)
 adds version-specific class schemas and a byte-identity checker under `re/`.
 Remote process checks use eight redacted, vendor-authored controls.

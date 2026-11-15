@@ -52,17 +52,32 @@ class ExtRef:
         return f"<ext {self.index}>"
 
 
+class ArchiveMap:
+    __slots__ = ("count", "table")
+
+    def __init__(self, count, table):
+        if count < 1 or any(index < 1 or index >= count for index in table):
+            raise ArchiveError("invalid archive map snapshot")
+        self.count = count
+        self.table = dict(table)
+
+
 class Load:
-    def __init__(self, data, base=1, registry=None, version=None, ctx=None):
+    def __init__(self, data, base=1, registry=None, version=None, ctx=None, *, seed=None):
+        if seed is not None and base != seed.count:
+            raise ArchiveError("archive map seed does not match the stream base")
         self.b = bytes(data)
         self.p = 0
         self.count = base
         self.base = base
-        self.table = {}
+        self.table = {} if seed is None else dict(seed.table)
         self.registry = registry
         self.version = version
         self.ctx = ctx or {}
         self.trace = []
+
+    def map_state(self):
+        return ArchiveMap(self.count, self.table)
 
     def left(self):
         return len(self.b) - self.p
@@ -175,15 +190,36 @@ class Load:
 
 
 class Store:
-    def __init__(self, base=1, registry=None, version=None, ctx=None):
+    def __init__(self, base=1, registry=None, version=None, ctx=None, *, seed=None):
+        if seed is not None and base != seed.count:
+            raise ArchiveError("archive map seed does not match the stream base")
         self.out = bytearray()
         self.count = base
         self.base = base
         self.classes = {}
         self.objects = {}
+        self.nodes = {}
+        if seed is not None:
+            for index, entry in seed.table.items():
+                if entry[0] == "class":
+                    self.classes[(entry[1], entry[2])] = index
+                elif entry[0] == "obj":
+                    node = entry[1]
+                    self.objects[id(node)] = index
+                    self.nodes[id(node)] = node
+                else:
+                    raise ArchiveError(f"unknown archive map entry {entry[0]!r}")
         self.registry = registry
         self.version = version
         self.ctx = ctx or {}
+
+    def map_state(self):
+        table = {index: ("class", name, schema) for (name, schema), index in self.classes.items()}
+        for key, index in self.objects.items():
+            if index in table:
+                raise ArchiveError(f"duplicate archive map index {index}")
+            table[index] = ("obj", self.nodes[key])
+        return ArchiveMap(self.count, table)
 
     def prim(self, kind, v):
         self.out += struct.pack(PRIMS[kind], v)
@@ -274,5 +310,6 @@ class Store:
             self.classes[ck] = self.count
             self.count += 1
         self.objects[key] = self.count
+        self.nodes[key] = o
         self.count += 1
         self.registry.store(self, o)

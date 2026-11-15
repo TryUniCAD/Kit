@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from Core import ArchiveError, Obj, Load, Store, BIG_TAG, BIG_CLASS, CLASS_TAG, NEW_CLASS, NULL_TAG
-from Streams import StreamDoc
+from Streams import StreamDoc, load_rooted
 from Dsl import Vgt, Vge, Vlt, ver, i32, u32, u16, i16, u8, f64, f32, cstr, emb, base, count
 from Schema import Op, If, Rep, run_load, run_store
 
@@ -206,14 +206,37 @@ def mbsm_present(ar):
     return bool(ar.ctx.get("model_is_part", 0) and ar.ctx.get("cmgr_f658", 0))
 
 
-def load_resolved(data, reg, version=None, *, archive=None, name=None):
-    ar = Load(data, 1, reg, version, dict(DOC_CTX))
+def document_context(archive, name, reg, version):
+    if archive is None:
+        return dict(DOC_CTX)
+    if name is None or not name.endswith("-ResolvedFeatures"):
+        raise ArchiveError("resolved stream requires its configuration name")
+    model_data = archive.require(name.removesuffix("-ResolvedFeatures"))
+    kind, value = Load(model_data, 1, reg, version).read_class()
+    if kind != "classdef" or value[0] not in ("moPart_c", "moAssembly_c"):
+        raise ArchiveError(f"unsupported resolved model root {kind}: {value!r}")
+    manager_doc, manager_ar = load_rooted(archive.require("Contents/CMgr"), reg, 1, version)
+    if manager_doc.tail or manager_ar.left():
+        raise ArchiveError("configuration manager has unread context data")
+    managers = [root for root in manager_doc.roots if isinstance(root, Obj) and root.cls == "moConfigurationMgr_c"]
+    if len(managers) != 1:
+        raise ArchiveError("resolved stream requires one configuration manager")
+    return {"model_compressed_stream": 1, "model_is_part": int(value[0] == "moPart_c"), "cmgr_f658": managers[0]["f658"]}
+
+
+def load_resolved(data, reg, version=None, *, archive=None, name=None, seed=None):
+    context = document_context(archive, name, reg, version)
+    ar = Load(data, 1, reg, version, context)
     head = ar.prim("u32")
     ar.count = head
     ar.base = head
+    if seed is not None:
+        if head != seed.count:
+            raise ArchiveError(f"resolved map base {head} differs from configuration map count {seed.count}")
+        ar.table = dict(seed.table)
     n = ar.count_value()
     roots = [XO("o").read(ar) for _ in range(n)]
-    hd = {"base": head, "n": n}
+    hd = {"base": head, "n": n, "context": context}
     if mbsm_present(ar):
         m = Obj(MBSM)
         reg.run_load(MBSM, ar, m.f, m)
@@ -222,8 +245,8 @@ def load_resolved(data, reg, version=None, *, archive=None, name=None):
     return StreamDoc("resolved", hd, roots, rest), ar
 
 
-def store_resolved(doc, reg, version=None):
-    ar = Store(doc.head["base"], reg, version, dict(DOC_CTX))
+def store_resolved(doc, reg, version=None, *, seed=None):
+    ar = Store(doc.head["base"], reg, version, dict(doc.head["context"]), seed=seed)
     ar.prim("u32", doc.head["base"])
     ar.count_value(len(doc.roots))
     for o in doc.roots:
