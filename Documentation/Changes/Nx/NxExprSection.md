@@ -276,6 +276,23 @@ class table.
   214 records must be emitted correctly. Truncating the graph to 4, 20 or 100
   records, and mutating a class identifier in the header, are also refused.
 
+## The preamble is two functions of the object count
+
+Comparing five fixtures, the first 24 bytes of the section middle are:
+
+```text
+part           objects  byte 7  objects-5  byte 8  ceil(objects/6)
+empty.prt            6    0x01          1    0x01                1
+empty_expr.prt       7    0x02          2    0x02                2
+var_sph.prt         10    0x05          5    0x02                2
+dim40.prt           24    0x13         19    0x04                4
+var_two.prt         42    0x25         37    0x07                7
+```
+
+So `02 02 02 02 02 02 02`, then `objects - 5`, then `ceil(objects / 6)`, then six `01`
+bytes, then the four byte version pointer. Both counts follow from the object count, which
+`ExprObjectCount` already gives, so the preamble is generated rather than carried.
+
 ## The writer-chosen layout
 
 `ExprSection.ExprLayout(Dimensions)` fixes the object order the writer will use, so the
