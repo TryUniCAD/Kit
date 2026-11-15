@@ -159,6 +159,37 @@ classified model classes. Composition calls it after constructing the origin.
 It does not establish the origin sketch's solver state or remove its unresolved
 update marker. The feature wrapper's virtual query path requires separate evidence.
 
+## Dirty flags and update stamps
+
+The positive node-update path under normal regeneration uses
+`f0c = (f0c & 0xfffd7ff9) | 1` in `0x4c03ed90`.
+For the classified model/part receiver, virtual slot `0x320` resolves to constant
+false leaf `0x4b27cbe0`, so its optional context-notification tail is not entered.
+Model wrapper `0x4c0363c0` only adds a sensor-folder notification when both the
+status is nonzero and the options argument has bit one set.
+The generic insertion routine `moConcept_c::addFeature` at `0x4bda62a0` uses
+status `0x0b`, options zero and the child as source when its dirty argument is
+nonzero. Thus that insertion branch skips the sensor notification.
+When the dirty argument is zero, it instead clears the child's update state and
+preserves the owner's prior low flag bit.
+`mark_model_update(model=...)` implements the positive serialized flag mutation
+for normal regeneration. It does not simulate debug-no-regeneration mode,
+sensor callbacks, feature insertion itself, or a completed body update.
+
+Stamp advancement is a separate operation, not an effect inferred from that
+flag mutation. `moModel_c::updateSessionStamp` at `0x4c03a810` calls
+`moHeader_c::getNextUpdateStamp` through import `0x4cd357f0` at `0x4c03a916`,
+then assigns the result to the active configuration's `f860` when one exists.
+The model's `f1300` increments only when virtual slot `0x16d8` returns true;
+both classified model and part vtables resolve it to constant false.
+Feature `postUpdate` at `0x4c1ce660` can call
+`updateSessionStamp(owner, 1, -1)`, then helper `0x4bb4a4b0` writes the current
+stamp to feature `f29c` and obtains new `f2a0/f2a4` FILETIME words.
+Body stamps advance through separate `getNextBodyStamp` calls on actual body
+and regeneration paths. None of these counts is derived from visible feature count.
+The ordinary geometric command's complete insertion/post-update caller sequence
+and completed body/cache state remain unresolved; a flag helper does not close them.
+
 ## Configuration construction
 
 `configuration_manager` accepts authored names, the current configuration index,
@@ -370,7 +401,10 @@ Permitted code-loader reads and directory scans are recorded in `ModuleReads`.
 all covered file opens, directory enumeration and process-launch events.
 The result reports both recorded imports and actual denied attempts; the test
 also checks that the construction phase is active and the builder import was seen.
-This stricter audit awaits its current-head remote result.
+The repaired strict audit passed the actual subprocess/container boundary at
+`5b546278f` in [run 43681676456](https://github.com/TryUniCAD/Kit/actions/runs/43681676456),
+job `132713453212`. Both the native-file step and its enclosing policy job passed.
+This is component codec/access evidence, not native application acceptance.
 The first strict-audit remote run at `236ccd510` correctly denied a lazy import
 of `encodings/utf_16_le.py` during Unicode string storage. The harness now resolves
 the native string codec names during its recorded initialization phase, before
