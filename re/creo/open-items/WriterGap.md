@@ -42,7 +42,7 @@ The chain matches the model tree Creo shows.
 The grammar is recorded in [the loader notes](../loader/Loader.md#tagged-stream-parser-status).
 The empty control's `AllFeatur` now decodes end-to-end, including the footer
 (`foot_first_feat_ptr = None`, `foot_layer_count = 0`) and the recursive `layer_list`.
-The ladder's `AllFeatur` decodes the five features and the footer prefix, then stops at `0x1061`
+The ladder's `AllFeatur` decodes the five features and the footer prefix, then stops at `0x1065`
 in the sketch/extrude payload.
 `FeatDefsDtm` decodes the datum placement records through `ent_outl`.
 

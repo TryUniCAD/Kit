@@ -80,7 +80,7 @@ curve prototype (`crv_id = 87`, `type = 34`), and stops at `0x272` in the curve 
 ## Limits
 
 - The empty control's `AllFeatur` decodes end-to-end. The ladder's `AllFeatur` decodes the five
-  features and the footer prefix, then stops in the sketch/extrude payload at `0x1061`.
+  features and the footer prefix, then stops in the sketch/extrude payload at `0x1065`.
 - `FeatDefs` decodes the first feature definition, then stops at `0x3be` because the flat
   field-index approach does not handle the nested structures.
 - `VisibGeom` decodes two plane prototypes and the first curve prototype, then stops at `0x272` in

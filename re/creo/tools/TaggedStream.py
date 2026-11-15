@@ -95,6 +95,8 @@ class Reader:
             return -self.compact_int()
         if first == 0xF6:
             return -1
+        if first == 0xE7:
+            return self.byte()
         if 0xE8 <= first <= 0xEB:
             count = first - 0xE7
             return int.from_bytes(self.take(count), "big")
