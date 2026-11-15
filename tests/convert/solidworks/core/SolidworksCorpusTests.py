@@ -242,6 +242,25 @@ def TestBoxFrame(TmpPath: FilePath) -> None:
         _ = WriteDocument(Changed, TmpPath / "FramedBox.SLDPRT", allow_carrier=False)
 
 
+# an open shell would be replaced by the solid pad
+@PytestLib.mark.skipif(
+    not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable"
+)
+def TestBoxShell(TmpPath: FilePath) -> None:
+    SourcePath = KAddBoxRoot / "AdditiveBox-1.1.4.FCStd"
+    DocumentValue = OpenDocument(SourcePath)
+    BrepValue = DocumentValue.brep
+    assert BrepValue is not None
+    RegionValue = ReplaceData(BrepValue.regions[0], solid=False)
+    Changed = ReplaceData(
+        DocumentValue,
+        brep=ReplaceData(BrepValue, regions=(RegionValue,)),
+    )
+    assert HasVendorPartEncoding(Changed) is False
+    with PytestLib.raises(ApplicationUsabilityError):
+        _ = WriteDocument(Changed, TmpPath / "ShellBox.SLDPRT", allow_carrier=False)
+
+
 # refine false changes authored cleanup so the older schema must decline
 @PytestLib.mark.skipif(
     not KAddBoxRoot.is_dir(), reason="additive box corpus unavailable"

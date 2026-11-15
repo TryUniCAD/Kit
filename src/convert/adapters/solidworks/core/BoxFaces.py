@@ -33,16 +33,19 @@ def HasBoxFaces(
     DocData: CadDocument, LengthValue: float, WidthValue: float, HeightValue: float
 ) -> bool:
     BrepData = DocData.brep
-    if BrepData is None or len(BrepData.curves) != 12 or len(BrepData.surfaces) != 6:
+    if (
+        BrepData is None
+        or len(BrepData.curves) != 12
+        or len(BrepData.surfaces) != 6
+        or (not BrepData.regions[0].solid)
+    ):
         return False
     if not all(
         (
             isinstance(ItemData, LineCurve) and IsAxisLine(ItemData.direction)
             for ItemData in BrepData.curves
         )
-    ) or any(
-        (not IsIdentity(ItemData.transform) for ItemData in BrepData.bodies)
-    ):
+    ) or any((not IsIdentity(ItemData.transform) for ItemData in BrepData.bodies)):
         return False
     VertexById = {ItemData.id: ItemData.point for ItemData in BrepData.vertices}
     CurveById = {ItemData.id: ItemData for ItemData in BrepData.curves}
