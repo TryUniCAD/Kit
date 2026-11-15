@@ -281,6 +281,33 @@ of id objects — and what remains is a less direct route, such as ids resolved 
 at load time or registered when a class is first instantiated. Either way it is loader-time data
 rather than a table this branch can read out of the module statically.
 
+## The object region starts with a fixed 27 byte header
+
+`kokr` is not a stray string: it occurs once per section, at the start of that section's object
+region, and the 27 bytes after it have three constant fields.
+
+```text
+marker   section   +7 (float)   +11 (u32)     +15 (u32)   +19          +23 (float)
+0x0019a0     1     96.1657      0x404b6588    273         01 00 0f 00  96.1743
+0x00df80     2     96.1657      0x0ec2029d     31         01 00 0f 00  96.1743
+0x00ecc4     3     96.1657      0x7a02dfa6     37         01 00 0f 00  96.1743
+0x00f3fa     4     96.1657      0x20b2da20     43         01 00 0f 00  96.1743
+0x011006     5     96.1657      0x77b0bf63    157         01 00 0f 00  96.1743
+```
+
+so the header is
+
+```text
+"kokr"  00 ff ff  <f32 96.1657>  <u32>  <u32>  01 00 0f 00  <f32 96.1743>
+```
+
+with the two floats and the `01 00 0f 00` word constant across all five sections, and the two
+middle words varying. The varying small integers (273, 31, 37, 43, 157) are the shape of a count or
+an id, not a measurement.
+
+`01 00 0f 00` is not a record delimiter: it occurs only twice in the whole 49168 byte object region
+(0x19b3 and 0x52a2), and the second occurrence is followed by a different structure.
+
 ## The modern tag grammar does not appear in the legacy payload
 
 The modern middle's `<tag><value>` grammar was then tested against the legacy payload, both in the
