@@ -227,6 +227,13 @@ def component_reference(*, component: Obj | None = None) -> Obj:
     return Obj("moCompRef_c", component_reference_fields(component=component))
 
 
+def logged_creation_time(*, timestamps: Iterable[int]) -> int:
+    values = tuple(timestamps)
+    if any(type(value) is not int or not 0 <= value <= 0xFFFFFFFF for value in values):
+        raise ValueError("creation-log timestamps must fit native unsigned time32 fields")
+    return values[0] if values else 2592000
+
+
 def component_plane(
     *,
     plane: Obj,
