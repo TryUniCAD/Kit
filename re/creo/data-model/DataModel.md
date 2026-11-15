@@ -367,6 +367,38 @@ The field table is sound too, and an earlier guess of mine is wrong: the section
 data. The ladder's records genuinely append fields — record one declares 71, and the solid records (`67`,
 `75`, `74`) add more — which is why the count is far above 71.
 
+### Record-by-record diff against the learned schema
+
+Counting, per record, how many fields the parser reads and how often the schema index jumps:
+
+| Record | Class | Fields read | Index jumps | Last index |
+| ---: | ---: | ---: | ---: | ---: |
+| `7` | `923` | `75` | `2` | `73` |
+| `5` | `923` | `75` | `2` | `73` |
+| `3` | `923` | `75` | `2` | `73` |
+| `11` | `979` | `79` | `8` | `73` |
+| `67` | `917` | **`315`** | `31` | `73` |
+| `75` | `917` | `75` | `2` | `73` |
+| `74` | `917` | **`311`** | **`71`** | **`148`** |
+
+Three facts fall out. The datum records all read `75` fields with two jumps — clean. Records `67` and `74`
+read `315` and `311` fields, numbers of the same size as a mask (`311` slots), and record `74`'s last index is
+`148` against a schema of `149`. Its node list contains `transform`, `flags` and `cr_flags_xar` **repeated**
+(`transform` twice, `flags` nine times, `cr_flags_xar` twice), which is what re-reading the same field range
+again and again looks like.
+
+So `67` and `74` carry long tables whose entries walk a *sub-range* of the schema repeatedly, and our parser
+labels each entry with those fields' names.
+
+The parse is nevertheless self-consistent about extent and identity: `AllFeatur` consumes `7838` of `7838`
+bytes, all seven feature ids come out (`7`, `5`, `3`, `11`, `67`, `75`, `74`) and six of the nine masks read
+`311` or `278` slots. So the record boundaries are right and the labels inside the `917` records are wrong.
+
+That is the precise state of the question: **not** a lost or duplicated record, but a mislabelled table inside
+the `917` records, with one mask (`record 74`, offset `6393`) short at `0` slots. Whether the vendor's `917`
+records legitimately carry a table at that position — in which case our schema names are simply not applicable
+there — or whether the reader enters it one field off cannot be decided from a single document.
+
 ### Retraction: that form is normal, and "fixing" it breaks VisibGeom
 
 The form was implemented — after `f8 <count> f7 <field> fb`, consume `<count>` `e3`-opened structures instead
