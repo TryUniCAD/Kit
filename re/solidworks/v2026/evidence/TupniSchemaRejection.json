@@ -1,0 +1,250 @@
+{
+  "authority": "selected-native-instruction-site-and-api-boundary-observation",
+  "instruction_taint": false,
+  "capture_sha256": "78c581343341446555c9c02da5872ca3c6a08c665dcd9dc3eae2c9001f43e4dc",
+  "revision": "34.5.2",
+  "input_sha256": "0c66da89db4d8f8386f0e597e14f69a5dfd6b6c0d4e82ffdd88cf7277726121c",
+  "input_bytes": 6190,
+  "script_sha256": "269351be96c134cb248170208b04ca491b057473c58bf5d9a44c952861e5b3ec",
+  "observed_modules": [
+    {
+      "name": "KERNELBASE.dll",
+      "base": "0x7ffc03420000",
+      "size": 6909952
+    },
+    {
+      "name": "USER32.dll",
+      "base": "0x7ffc07170000",
+      "size": 2633728
+    },
+    {
+      "name": "VCRUNTIME140.dll",
+      "base": "0x7ffbe3530000",
+      "size": 212992
+    },
+    {
+      "name": "VCRUNTIME140_1.dll",
+      "base": "0x7ffbe2bb0000",
+      "size": 73728
+    },
+    {
+      "name": "mfc140u.dll",
+      "base": "0x7ffb97c80000",
+      "size": 12181504
+    },
+    {
+      "name": "swccu.dll",
+      "base": "0x31a30000",
+      "size": 258048
+    },
+    {
+      "name": "SLDMODU.dll",
+      "base": "0x4b140000",
+      "size": 46923776
+    }
+  ],
+  "module_sha256": {
+    "KERNELBASE.dll": "218e41c3a47d2a13cc8177ec48370535ff29700aad71d506cf46b1660ec3d26c",
+    "USER32.dll": "9008b06071f1fe3b3ddf9bbd9097a062f2199aa29f736678feebd462c67a43b8",
+    "VCRUNTIME140.dll": "6d987d8cb2a47cff9c29c1fcbb853e7ef273c545f7d822728f7d2d448ca18758",
+    "VCRUNTIME140_1.dll": "f4d66bdd6789aaed53341dc3153655e0ef2a9201c3652400443896a592e795b6",
+    "mfc140u.dll": "88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1",
+    "swccu.dll": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+    "SLDMODU.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "sldmodu.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "event_count": 11,
+  "messages_dropped": 0,
+  "script_errors": [],
+  "target_detach": {
+    "reason": "process-terminated",
+    "crash": null
+  },
+  "elapsed_seconds": 65.25,
+  "schema_events": [
+    {
+      "sequence": 1,
+      "kind": "archive-class-schema",
+      "class_name": "moVersionHistory_c",
+      "runtime_schema": 2147483649,
+      "file_schema": 1,
+      "archive": {
+        "pointer": "0x7197d960",
+        "buffer_start": "0x71a470c0",
+        "cursor": "0x71a470d8",
+        "buffer_offset": "0x18",
+        "buffer_end": "0x71a47163",
+        "map_count": 1,
+        "epoch": 1,
+        "logical_stream_offset": null
+      },
+      "instruction": {
+        "module": "swccu.dll",
+        "rva": "0xa3a7"
+      }
+    },
+    {
+      "sequence": 2,
+      "kind": "archive-class-schema",
+      "class_name": "moDateCodeHistory_c",
+      "runtime_schema": 2147483649,
+      "file_schema": 1,
+      "archive": {
+        "pointer": "0x7197d960",
+        "buffer_start": "0x71a470c0",
+        "cursor": "0x71a47145",
+        "buffer_offset": "0x85",
+        "buffer_end": "0x71a47163",
+        "map_count": 3,
+        "epoch": 1,
+        "logical_stream_offset": null
+      },
+      "instruction": {
+        "module": "swccu.dll",
+        "rva": "0xa3a7"
+      }
+    },
+    {
+      "sequence": 3,
+      "kind": "archive-class-schema",
+      "class_name": "moBiography_c",
+      "runtime_schema": 2147483649,
+      "file_schema": 1,
+      "archive": {
+        "pointer": "0x7197d760",
+        "buffer_start": "0x71aa1960",
+        "cursor": "0x71aa1973",
+        "buffer_offset": "0x13",
+        "buffer_end": "0x71aa1977",
+        "map_count": 1,
+        "epoch": 1,
+        "logical_stream_offset": null
+      },
+      "instruction": {
+        "module": "swccu.dll",
+        "rva": "0xa3a7"
+      }
+    },
+    {
+      "sequence": 4,
+      "kind": "archive-class-schema",
+      "class_name": "moISO_c",
+      "runtime_schema": 2147483649,
+      "file_schema": 1,
+      "archive": {
+        "pointer": "0x7197dbe0",
+        "buffer_start": "0x71ac1970",
+        "cursor": "0x71ac19f5",
+        "buffer_offset": "0x85",
+        "buffer_end": "0x71ac1b4d",
+        "map_count": 1,
+        "epoch": 1,
+        "logical_stream_offset": null
+      },
+      "instruction": {
+        "module": "swccu.dll",
+        "rva": "0xa3a7"
+      }
+    },
+    {
+      "sequence": 5,
+      "kind": "archive-class-schema",
+      "class_name": "uiLineFontMgr_c",
+      "runtime_schema": 2147483649,
+      "file_schema": 1,
+      "archive": {
+        "pointer": "0x7197dbe0",
+        "buffer_start": "0x71ac1970",
+        "cursor": "0x71ac1a0e",
+        "buffer_offset": "0x9e",
+        "buffer_end": "0x71ac1b4d",
+        "map_count": 3,
+        "epoch": 1,
+        "logical_stream_offset": null
+      },
+      "instruction": {
+        "module": "swccu.dll",
+        "rva": "0xa3a7"
+      }
+    },
+    {
+      "sequence": 6,
+      "kind": "archive-class-schema",
+      "class_name": "uoJournal_c",
+      "runtime_schema": 0,
+      "file_schema": 1,
+      "archive": {
+        "pointer": "0x7197dbe0",
+        "buffer_start": "0x71ac1970",
+        "cursor": "0x71ac1a54",
+        "buffer_offset": "0xe4",
+        "buffer_end": "0x71ac1b4d",
+        "map_count": 5,
+        "epoch": 1,
+        "logical_stream_offset": null
+      },
+      "instruction": {
+        "module": "swccu.dll",
+        "rva": "0xa3a7"
+      }
+    },
+    {
+      "sequence": 7,
+      "kind": "cpp-throw",
+      "api": "_CxxThrowException",
+      "object": "0x5faee0",
+      "throw_info": {
+        "module": "mfc140u.dll",
+        "rva": "0x950a48",
+        "candidate_msvc_type_names": [
+          ".PEAVCArchiveException@@",
+          ".PEAVCException@@",
+          ".PEAVCObject@@",
+          ".PEAX"
+        ]
+      },
+      "object_prefix_hex": "e065977100000000feffffffffffffffe0659771000000000000000000000000e0db97710000000000000000000000006066ef4a000000004da5a33100000000",
+      "indirect_object_prefix_hex": "40e14098fb7f00000100000000000000070000000000000078e08971000000000000000000000000423833dd00c503806813a5310000000068b0781e00000000",
+      "caller": {
+        "module": "mfc140u.dll",
+        "rva": "0x68c8bc"
+      }
+    },
+    {
+      "sequence": 9,
+      "kind": "cpp-throw",
+      "api": "_CxxThrowException",
+      "object": "0x0",
+      "throw_info": {
+        "error": "Error: unable to find module containing 0x0"
+      },
+      "object_prefix_hex": "",
+      "indirect_object_prefix_hex": {
+        "error": "Error: access violation accessing 0x0"
+      },
+      "caller": {
+        "module": "doccplu.dll",
+        "rva": "0x4b866"
+      }
+    }
+  ],
+  "static_rule": {
+    "journal": {
+      "class": "uoJournal_c",
+      "wire_schema": 0,
+      "descriptor": "slduiu.dll+0xab6660",
+      "preferred_address": "0x4aef6660",
+      "member_offset": "0x0c",
+      "image_sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    },
+    "string_array": {
+      "class": "su_CStringArray",
+      "wire_schema": 0,
+      "descriptor_preferred_address": "0x31a680c8",
+      "getter_preferred_address": "0x31a3de90",
+      "member_offset": "0x0c",
+      "image_sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c"
+    }
+  },
+  "acceptance": "rejected original candidate; corrected generation and clean native acceptance pending"
+}

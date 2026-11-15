@@ -48,6 +48,23 @@ def main():
     (output / "FreecadSource.json").write_text(json.dumps(record, indent=2) + "\n")
 
     def capture():
+        area = window.findChild(QtWidgets.QMdiArea)
+        candidates = [item for item in area.subWindowList() if item.windowTitle().startswith(document.Label + " :")]
+        record["view_windows"] = [item.windowTitle() for item in area.subWindowList()]
+        if len(candidates) != 1:
+            record["capture_exception"] = f"expected one native source view, found {len(candidates)}"
+            (output / "FreecadSource.json").write_text(json.dumps(record, indent=2) + "\n")
+            App.closeDocument(document.Name)
+            QtWidgets.QApplication.instance().quit()
+            return
+        area.setActiveSubWindow(candidates[0])
+        record["active_view_title"] = candidates[0].windowTitle()
+        Gui.activeDocument().activeView().viewAxonometric()
+        Gui.activeDocument().activeView().fitAll()
+        Gui.updateGui()
+        QtCore.QTimer.singleShot(1000, save_capture)
+
+    def save_capture():
         try:
             Gui.updateGui()
             path = output / "FreecadSource.png"
