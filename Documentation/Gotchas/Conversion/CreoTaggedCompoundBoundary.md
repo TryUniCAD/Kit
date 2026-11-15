@@ -130,6 +130,12 @@ are coherent: six `geom_type` 34 planes, twelve `crv_id` values, six `lo_id` val
 (definition closures and references), not by a geometry identifier. So `FeatDefs` needs a
 definition-tree parser, not a span splitter.
 
+The FeatDefs stop at `0x1158` was not a token problem. The parser advanced a definition counter for
+every `e0` in the stream, but some `e0` definitions are consumed as values inside arrays or
+strings, so the counter lagged the scanned field table. At `0x112b` the stream redefines `list_id`
+while the counter pointed at `angle`, and the parse desynchronised. Mapping each `e0` byte offset
+to its scanned field index fixes it exactly; `FeatDefs` then decodes to section end (1482 nodes).
+
 ## Correct direction
 
 `e3` needs level tracking with per-level schema extents: a level records its element start, the

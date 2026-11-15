@@ -62,6 +62,7 @@ class FieldDef:
     type_id: int
     count: int | None = None
     schema: list[int] = field(default_factory=list)
+    offset: int = 0
 
 
 @dataclass
@@ -177,6 +178,7 @@ def ScanFields(data: bytes) -> list["FieldDef"]:
                     and all(value in KNameChars for value in name)
                 ):
                     field_def = FieldDef(name.decode("latin-1"), type_id)
+                    field_def.offset = position
                     field_def.count = PeekCount(data, end + 1)
                     fields.append(field_def)
                     position = end + 1
@@ -199,6 +201,9 @@ class Parser:
         self.boundaries = boundaries
         self.nodes: list[Node] = []
         self.fields: list[FieldDef] = ScanFields(data)
+        self.by_offset: dict[int, int] = {
+            entry.offset: index for index, entry in enumerate(self.fields)
+        }
         self.index = 0
         self.definition_index = 0
         self.stack: list[list[int]] = [[]]
@@ -357,15 +362,23 @@ class Parser:
         while reader.pos < len(reader.data):
             token = reader.data[reader.pos]
             if token == 0xE0:
+                start = reader.pos
                 reader.pos += 1
                 type_id = reader.byte()
                 name = reader.cstring()
-                if self.definition_index < len(self.fields):
+                known = self.by_offset.get(start)
+                if known is not None:
+                    field_def = self.fields[known]
+                    self.definition_index = known + 1
+                elif self.definition_index < len(self.fields):
                     field_def = self.fields[self.definition_index]
+                    self.definition_index += 1
                 else:
                     field_def = FieldDef(name, type_id)
+                    field_def.offset = start
+                    self.by_offset[start] = len(self.fields)
                     self.fields.append(field_def)
-                self.definition_index += 1
+                    self.definition_index = len(self.fields)
                 self.index = self.definition_index - 1
                 self.stack[-1].append(self.index)
                 if name == "first_feat_ptr":

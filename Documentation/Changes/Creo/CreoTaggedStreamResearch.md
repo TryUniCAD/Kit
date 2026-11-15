@@ -58,12 +58,12 @@ End-to-end section coverage:
 
 | Section | Empty control | Ladder |
 | --- | --- | --- |
-| `AllFeatur` | 334 nodes, complete | 987 nodes, complete |
+| `AllFeatur` | 334 nodes, complete | 989 nodes, complete |
 | `FeatDefsDtm` | 292 nodes, complete | 432 nodes, complete |
 | `NovisGeom` | 3 nodes, complete | 39 nodes, complete |
-| `BasicData` | 838 nodes, complete | 915 nodes, complete |
+| `BasicData` | 558 nodes, complete | 577 nodes, complete |
 | `SolidPrimdata` | 40 nodes, complete | 143 nodes, complete |
-| `FeatDefs` | section absent | 830 nodes, stops at `0x1158` |
+| `FeatDefs` | section absent | 1482 nodes, complete |
 | `VisibGeom` | 2 nodes, complete | 502 nodes, complete |
 
 `FeatDefsDtm` (`Sld_FeatDefsDtm`) also decodes the datum placement records. The first record is the
@@ -136,8 +136,11 @@ Measured on ladder `VisibGeom`: `srf_array` declares 6 elements and the splitter
 resets the parser reaches section end: 502 nodes, reader at `0xb53` = section length. The decoded
 ids are coherent: six `geom_type` 34 planes, twelve `crv_id` values, six `lo_id` values.
 
-`FeatDefs` has no such boundaries; its `e3` bytes precede `e0`/`f7` definitions, so it needs a
-definition-tree parser.
+`FeatDefs` has no such boundaries; its `e3` bytes precede `e0`/`f7` definitions. Its former
+`0x1158` stop was definition-index drift: the parser counted `e0` occurrences, but some definitions
+are consumed as values, so the counter lagged the field table and mapped later `e0` records to the
+wrong field. Each `e0` now maps to the exact scanned offset, and `FeatDefs` decodes end to end
+(1482 nodes). Every decoded section now consumes to its section length.
 
 Field-level `e4`/`e5`/`e6` repeats resolve to the preceding logical value, `e1` terminates a numeric
 array, `0xfb` and `0xf0` act as value terminators, and a fresh `f8`/`f9` header overrides a stored

@@ -226,17 +226,18 @@ Section coverage after the fixes:
 
 | Section | Empty control | Ladder |
 | --- | --- | --- |
-| `AllFeatur` | complete, 334 nodes | complete, 987 nodes |
+| `AllFeatur` | complete, 334 nodes | complete, 989 nodes |
 | `FeatDefsDtm` | complete, 292 nodes | complete, 432 nodes |
 | `NovisGeom` | complete, 3 nodes | complete, 39 nodes |
-| `BasicData` | complete, 838 nodes | complete, 915 nodes |
+| `BasicData` | complete, 558 nodes | complete, 577 nodes |
 | `SolidPrimdata` | complete, 40 nodes | complete, 143 nodes |
 | `FeatDefs` | section absent | stops at `0xd91`, 753 nodes |
 | `VisibGeom` | complete, 2 nodes | complete, 502 nodes |
 
-`FeatDefs` and `VisibGeom` stop on `0xfc`, which lies inside a `46 <tail7>` world double. The field
-index is therefore one or more fields out of step by that point, not hitting an unknown token. That
-is the next schema-alignment target.
+`FeatDefs` also reaches section end. Its former stop was a definition-index drift: the parser
+counted `e0` occurrences in the stream, but some definitions are consumed as values, so the counter
+fell behind the field table. Mapping each `e0` occurrence to its scanned offset now anchors the
+index exactly. Every decoded section consumes to its section length.
 
 ### Structural-token reading
 
