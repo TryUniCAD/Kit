@@ -336,12 +336,34 @@ multi.prt       4 items  1 2 3 0.5 dim40          2 items  40, 20
 var_named.prt   2 items  20, 40    var_formula    2 items  40, 20
 ```
 
-What is still not decoded is **which** values appear and in what order. `dim40`,
-`var_formula` and `var_named` hold the same three values and differ only in expression
-names, and `var_named` lists them in the opposite order, so the order is name-derived.
-The item count is `exprs - 1` for one to four expressions and then 3 for `var_two`'s six, so
-it is not a function of the expression count either. A composer can therefore emit the
-record once it knows the selection, but cannot choose the selection itself yet.
+What is still not decoded is **which** values appear and in what order. Two fixtures were
+made for this question — a block whose middle dimension alone was edited (`var_mid`, `p1`
+30 -> 11) and a block at different lengths (`var_big`, 100 x 50 x 25) — and both changed the
+selection, which rules out a fixed positional rule:
+
+```text
+part      p0, p1, p2   value slots (decoded)   items written
+dim40     40, 30, 20   40, 20, 30, 30, 40      40, 20             2 items
+var_nmx   40, 30, 20   30, 30, 40, 20, 40      40, 20             2 items
+var_named 40, 30, 20   20, 30, 40, 30, 40      20, 40             2 items
+var_mid   40, 11, 20   40, 20, 11, 11, 40      40, 11, 20         3 items
+var_big  100, 50, 25   50, 25, 100, 50, 100    50                 1 item
+var_two   6 values     40,20,30,30,60,100,...  40, 30, 20         3 items
+```
+
+Four readings are now excluded:
+
+- **positional** — `var_mid` lists all three where `dim40` lists two
+- **all values** — `var_big` lists only `50`
+- **value-order** — `var_nmx` and `dim40` hold the same values and names, and their value
+  slots are arranged differently (`40,20,30,30,40` against `30,30,40,20,40`)
+- **distinct slot values** — `var_mid` writes `11` while its slots hold `11` twice and `20`
+  once, and `var_big` omits `100` and `25` which its slots do hold
+
+Names do control the order when values agree (`var_named` reverses `dim40`), but the
+selection itself moves with something internal to the model that value or name edits change
+independently. So the group record's contents are model data that the writer cannot yet
+compute, and `ExprMiddle` cannot emit this object for an authored part.
 
 ## The writer-chosen layout
 
