@@ -4,10 +4,8 @@ from dataclasses import dataclass
 import struct as Struct
 
 from convert.adapters.solidworks.container.Container import SldprtFormatError
+from convert.adapters.solidworks.container.Format import CLASS_MARKER as KClassMarker
 from convert.adapters.solidworks.core.Native import ClassDecl, ReadClass
-
-# the class marker starts every object declaration
-KClassMarker = bytes.fromhex("ffff0100")
 
 # the units table ends where the unit component begins
 KUnitsEnd = "moUnitComponent_c"

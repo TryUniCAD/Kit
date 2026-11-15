@@ -650,11 +650,12 @@ def TestWriteView() -> None:
     assert BackView.OutlineMinX is not None
     assert BackView.OutlineMinY is not None
     Ratio = 3.0 / 2.0
+    Padding = 0.004318
     assert BackView.OutlineMinX == PytestLib.approx(
-        0.15 + (ViewValue.OutlineMinX - ViewValue.PositionX) * Ratio
+        0.15 + (ViewValue.OutlineMinX - ViewValue.PositionX + Padding) * Ratio - Padding
     )
     assert BackView.OutlineMinY == PytestLib.approx(
-        0.20 + (ViewValue.OutlineMinY - ViewValue.PositionY) * Ratio
+        0.20 + (ViewValue.OutlineMinY - ViewValue.PositionY + Padding) * Ratio - Padding
     )
 
 
