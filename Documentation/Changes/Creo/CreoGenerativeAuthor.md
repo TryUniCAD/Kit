@@ -365,8 +365,18 @@ Three reduced bodies were measured and all fail with a model-load crash and no `
 | `feat_defs_923` and `feat_defs_979` empty arrays | crash |
 | three definition-form plane records, no `feat_defs_979` | crash |
 
-So the record grammar is settled but the section still needs the `feat_defs_979` csys entry or the
-per-datum frames before Creo accepts it.
+The record grammar is settled and `DatumPlaneRecord` parameterises `Columns`, `Outline` and
+`InstructionType`, because the three planes differ in all three: the outline slot order rotates per
+plane and the second plane's instruction type is `514`, not `515`.
+
+Non-first array elements are positional replays introduced by `f7 02 e3`. Five further candidates
+were measured, and all crash: authored records with the vendor csys field, with `f7 02`
+introductions, with per-plane frames, and with per-plane frames and outlines. The first three of
+those were also malformed, because the byte range used as the csys tail was really element two, so
+they declared three elements and carried five.
+
+So the remaining difference is inside elements two and three, and the next probe is the leftover
+per-plane fields (`orient`, `geometry2_id`, `transf`, `trn_arr` type, `step_ids`).
 
 ## Limits
 

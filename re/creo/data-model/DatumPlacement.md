@@ -62,6 +62,25 @@ Two details matter for byte equality:
   the following zero. The record's frame is *not* a rotation matrix.
 - `ent_outl` reuses the same lane: `+E` then `e4`, `18`, `-E` then `e4`, `18`.
 
+## Array elements and per-plane values
+
+`feat_defs_923` is `f8 03 f7 02 fb`. The first element defines the schema; elements two and three
+are introduced by `f7 02 e3` and then replay the schema positionally, selecting only the fields whose
+width changes (`f7 0c`, `f7 16`, `f7 17`, `f7 1b`, `f7 20`, ...). A definition-form element after the
+first is therefore not equivalent, and the author must be able to emit replay form.
+
+Each of the three planes differs in more than its identifier:
+
+| Element | `id` | `local_sys` twelve slots | `ent_outl` six slots | instruction `type` |
+| --- | ---: | --- | --- | ---: |
+| 1 `FRONT` | 7 | `[1,0,0,0, 1,0,0,0, 1,0,0,0]` | `(+E, +E, 0, -E, -E, 0)` | 515 |
+| 2 `TOP` | 5 | `[0,1,0,0, 0,1,1,0, 0,0,0,0]` | `(+E, 0, +E, -E, 0, -E)` | 514 |
+| 3 `RIGHT` | 3 | `[0,0,1,1, 0,0,0,1, 0,0,0,0]` | `(0, +E, +E, 0, -E, -E)` | not yet confirmed |
+
+with `E = 254.33012701892218`. The outline slot order rotates per plane, so it is a parameter rather
+than a value derived from the extent. `Author.DatumPlaneRecord` therefore takes `Columns`, `Outline`
+and `InstructionType`.
+
 ## Measured results
 
 `Author.DatumPlaneRecord(7, 1, 8, ((1, 0, 0, 0),) * 3, 254.33012701892218)` reproduces the control's
@@ -79,9 +98,18 @@ Reduced `FeatDefsDtm` bodies are rejected, each measured with one Creo 2027.2 la
 | `feat_defs_923` empty array, one field | crash, no `End` |
 | `feat_defs_923` and `feat_defs_979` empty arrays | crash, no `End` |
 | three definition-form plane records, no `feat_defs_979` | crash, no `End` |
+| authored records 1-3 plus the vendor `feat_defs_979` field | crash, no `End` |
+| same, with `f7 02` element introductions | crash, no `End` |
+| same, with per-plane frames | crash, no `End` |
+| same, with per-plane frames and outlines | crash, no `End` |
 
-So the section needs the records, and the last attempt shows the csys entry or the per-datum frames
-still differ from what the loader wants.
+The first three attempts were also invalid on their own account: the byte range chosen as the
+"`feat_defs_979` tail" was really the start of element two, so those candidates carried five
+elements under an `f8 03` count. Only the last two attempts spliced correctly.
+
+So the section needs the records, and the remaining difference is still inside elements two and
+three. Everything named above is now parameterised, so the next probe is the leftover per-plane
+fields (`orient`, `geometry2_id`, `transf`, `trn_arr` type, `step_ids`).
 
 ## Next
 

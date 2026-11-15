@@ -489,10 +489,10 @@ def DatumPlaneRecord(
     Orient: int,
     Geometry2Id: int,
     Columns: tuple[tuple[float, ...], ...],
-    Extent: float,
+    Outline: tuple[float, ...],
+    InstructionType: int = 515,
 ) -> bytes:
     Frame = tuple(Value for Column in Columns for Value in Column)
-    Outline = (Extent, Extent, 0.0, -Extent, -Extent, 0.0)
     Payload = b"\xE3"
     Payload += FieldValue(1, "id", IntValue(DatumId))
     Payload += FieldValue(1, "symbol_key", b"\xF6")
@@ -504,7 +504,7 @@ def DatumPlaneRecord(
     Payload += FieldValue(1, "orient", IntValue(Orient))
     Payload += FieldValue(0, "place_instruction_ptrs", b"\xF8\x01\xF7\x0B\xFB")
     Payload += b"\xE3"
-    Payload += FieldValue(1, "type", IntValue(515))
+    Payload += FieldValue(1, "type", IntValue(InstructionType))
     Payload += FieldValue(2, "offset", ScalarValue(0.0))
     Payload += FieldValue(1, "dim_id", b"\xF6")
     Payload += FieldValue(1, "ref_id", b"\xF6")
