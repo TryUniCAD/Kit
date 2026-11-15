@@ -5,6 +5,42 @@
 Adds `src/convert/adapters/creo/Author.py`, the first generative Creo PSB writer. It authors a part
 from format knowledge only: no captured section bytes, no templates, and no donor file.
 
+## Current status
+
+Read side: complete for the retained control. It decodes `7` features, `8` parameters, `6` faces, `12` edges,
+one solid and volume `18482541.490319017`, and a no-op container rebuild of the `81539`-byte control is
+byte-identical.
+
+Write side: **partial, and not vendor-loadable for anything with geometry.** What Creo has accepted:
+
+| Candidate | What is authored | Creo |
+| --- | --- | --- |
+| `auth4` / `fullgen` | 41 of 54 directory rows, including a fully generated four-record `AllFeatur` (zero vendor bytes) | loads, 2 of 2 |
+| `featdefs` | 42 rows, plus a generated `FeatDefs` carrying one dimension, read back as `Creo dimension 0 = 100.0` | loads, 2 of 2 |
+
+Everything else fails. The authored part reads back as `4 features, 1 param, 0 bodies`, so there is **no
+body count, volume, centre of mass or dimension rebuild measured in Creo** and these acceptance criteria are
+not met. `Writer.py` therefore reports `mode=exact_native_roundtrip`, `vendor_loadable=False` and
+`application_usable=False`.
+
+The measured blocks, each with its evidence further down:
+
+- **body geometry.** A class-`917` record declares 37 fields of revision/reference bookkeeping
+  (`comp_hist`, `coll_refs_info`, `rev_info_arr`, `mdl_geom_rev`, `aggr_rev_info`), not a parametric
+  description. A structurally correct `917` with those fields nulled is refused, twice, as is a `917` replay
+  carrying datum values and a `923` replay carrying the csys id. Authored `VisibGeom` is refused as well, so
+  surfaces cannot precede the solid that owns them.
+- **13 required vendor rows.** Three `ND:*` token tables, `SolidPersistTable`, `SolidPrimdata`,
+  `DispDataTable`, `THMB_IMG_MAIN`, `CGFPersistTable`, two kind-`b` rows and two free-space extents. Dropping
+  them gives `cannot be retrieved`; the `ND:*` tables are also not derivable from our field enumeration and
+  not replaceable. `SolidPersistTable` and `SolidPrimdata` are display-pipeline state, not B-rep.
+- **`DispDataTable` does not decompress** with the current LZW decoder (`Creo compression code is outside the
+  table`), a latent limitation because display data is never consumed.
+
+The ground-truth corpus the playbook asks for does not exist: `re/creo/oracle/` holds two documents, and four
+`-uitrail` invocation shapes failed to make Creo replay a trail, so a corpus cannot be generated headlessly
+here.
+
 ## Behaviour
 
 `BuildContainer` writes the ASCII `#UGC:2` header, the `#- CMNM`/host lines, the product banner, the
@@ -18,6 +54,10 @@ feature's `id`/`type` pair, `next_feat_ptr` links, and a zero terminator.
 defines the schema (`geom_id`, `geom_type`, `feat_id`, `envlp`, `outline`, `local_sys`); the other
 five replay positionally after `e3 <id> 34 74` boundaries. `local_sys` is emitted as the twelve
 compact-lane slots that `DecodeLocalSystem` reads back.
+
+The surface record itself is byte-identical to the ladder control's first element (`409` bytes), but a part
+carrying authored `VisibGeom` is **not** accepted by Creo — every such candidate exits with no `End` line.
+The prototypes reference topology that a datum-only part does not have.
 
 `AuthorPart` and `AuthorBox` return the complete file bytes.
 
