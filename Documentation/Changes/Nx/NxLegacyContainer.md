@@ -313,6 +313,61 @@ The gaps are the object data sizes for each class, and they do not match the cla
 `RM_double_record_area` extent 48 with gap 448), so the gap is an instance size rather than the
 layout size.
 
+## The class index list is a directory, and the object data starts with a 12 record block
+
+The space after each class index is `ff` padding, not instance data:
+
+```text
+LAYER_category   idx 0x01a53  gap 64 bytes  all ff: True
+CSYSTEM          idx 0x01ab3  gap  0 bytes  all ff: True
+UGFONT_table     idx 0x01a97  gap 20 bytes  all ff: True
+COLOR_table      idx 0x01aaf  gap  0 bytes  all ff: True
+```
+
+so the class-index list is a directory with per-class padding, and the instance data is not
+interleaved with it.
+
+The object data begins at 0x1de3 with a block header and twelve length-prefixed records:
+
+```text
+header  01 0c 00 00 00          version 1, count 12
+record  <u16 size=19> <u32 a> <u32 b> <u32 c> <u16 0xffff> <u16 id> <u8 sub>
+```
+
+and the twelve records are
+
+```text
+ 0  a 0x000000d4  b 0x00000001  c 0x00000000  id   0  sub 0   OM_root_object
+ 1  a 0x7fffffff  b 0xffffffff  c 0xffffffff  id   2  sub 0   OM_save_audit_trail
+ 2  a 0x7fffffff  b 0x7fffffff  c 0x7fffffff  id   3  sub 0   OM_save_audit_trail_entry
+ 3  a 0x7fffffff  b 0x7fffffff  c 0x7fffffff  id   5  sub 0   LAYER_category
+ 4  a 0x7fffffff  b 0x7fffffff  c 0x7fffffff  id   6  sub 0   UGFONT_table
+ 5  a 0x7fffffff  b 0x7fffffff  c 0x7fffffff  id   9  sub 0   CUTTER_display
+ 6  a 0x7fffffff  b 0xffffffff  c 0xffffffff  id  45  sub 0   DISPLAY_random_color
+ 7  a 0x00000051  b 0xffffffff  c 0xffffffff  id  46  sub 0   DRAWINGS_root
+ 8  a 0x00000057  b 0x7fffffff  c 0x7fffffff  id  70  sub 1   RM_complex_record_area
+ 9  a 0x0000005c  b 0x7fffffff  c 0x7fffffff  id  70  sub 2   RM_complex_record_area
+10  a 0x00000051  b 0xffffffff  c 0xffffffff  id 196  sub 0   out of range
+11  a 0x00000051  b 0xffffffff  c 0xffffffff  id 197  sub 0   out of range
+```
+
+so the record id is a class index (ten of twelve resolve in the 98-class table), and the block is a
+per-class table. The `a` field is a small value or the sentinel `0x7fffffff`, and `b`/`c` are
+sentinels except in the first record. The two out-of-range ids are the open question: either the id
+is a global class index and the section's table is a subset, or the block is not keyed by the
+section's class table.
+
+After the block at 0x1ecc the object data continues as a tagged value stream, and the first value is
+the part filename:
+
+```text
+0x1ef6  03              tag 3
+0x1ef7  10 00 00 00     length 16
+0x1efb  "wave_parent.prt\0"
+```
+
+so the object region is a sequence of typed blocks and tagged values, not a single record grammar.
+
 ## The object data is a byte-packed id stream, not entries or length-prefixed records
 
 Walking the bytes after the third typed entry (0x19df in section 1) rules out both candidate
