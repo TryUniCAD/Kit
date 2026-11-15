@@ -383,6 +383,40 @@ The builder requires that boolean explicitly and never copies a saved flag.
 
 ## Part-root graph
 
+### Native archive dispatch
+
+The part's primary vtable `0x4d1252d8` has slot `0x10` at import thunk
+`0x4cb9e7a5`, slot `0x28` at `0x4c229a60`, and LW/RES slots
+`0x4b8/0x4c0` at `0x4c2309d0/0x4c2378b0`.
+The custom `su_CArchive::ReadObject` invokes slot `0x10`; the thunk reaches
+`swccu.dll` `su_CObject::Serialize(CArchive&)` at `0x31a3ba60`.
+That shared bridge unconditionally dispatches the actual object's slot `0x28`.
+REA evidence `ev_b15c2582b079c337879c95299e7ea4177f0844729d35f9cba8c4bf4a9846f2e8`
+has the manifest's `swccu.dll` subject hash.
+Both stages matter when choosing instrumentation sites.
+
+The part method reads the current archive helper's `0x7c0` version word,
+falling back to the global version getter only when it is zero.
+Versions above `0xc7c` dispatch the LW and RES section slots; older values use
+the legacy model method at `0x4c224e10`.
+Modern section helper `0x4c2114b0` consumes a four-byte length before the section
+body. Its known `0x80000/0x100000` section-skip conditions still consume that
+length. A section length interpreted as an object tag therefore requires
+checking the actual dispatch and archive context before changing map arithmetic.
+
+In the manifest's `sldmfcu.dll`, helper constructor `0x3c7a8e60` looks up its
+`su_CArchive*` in `moArchiveHelperObject_c::iMFCtoMOArchiveTable` and puts the
+resulting helper-object pointer at offset zero of its returned wrapper.
+It does not obtain that object through a fixed archive-member displacement.
+The `CArchive*` overload is `0x3c7a8e10`.
+Global getter `0x3c752350` reads the first word of version singleton
+`0x3ce97b90`, returned by `0x3c7522d0`.
+These are static routing rules; the generated candidate's actual version
+selection still needs the parent-owned native observation.
+See [part serialization dispatch](../../../Documentation/Gotchas/Conversion/Solidworks/PartSerializeDispatchUsesArchiveContext.md).
+
+### Shared and concrete fields
+
 `model_fields` initializes an actual preallocated, empty `moPart_c` or
 `moAssembly_c` object from the common model LW/RES wire ownership boundary.
 Its keyword inputs are `node`, `name`, `allocator`, `detail_definitions`,

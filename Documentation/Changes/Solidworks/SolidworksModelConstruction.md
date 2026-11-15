@@ -10,6 +10,8 @@ part or assembly object, with explicit self-component and relation ownership.
 `part_root` adds its part-only fields through the existing public interface.
 The shared helper does not infer an assembly subtype or populate part scalars
 at offsets owned by assembly maps.
+The record also maps the two-stage native serializer dispatch and the archive
+helper's map lookup, separating selected runtime version from intended target.
 `part_graph` now accepts explicit folder names, cabinet name and creation time,
 returns their objects, and binds the serialized environment pointer to that same
 system node. Folder order is authored rather than copied from a template.
@@ -79,6 +81,8 @@ The [modification-time gotcha](../../Gotchas/Conversion/Solidworks/HeaderModific
 records the conditional save-time sentinel rule.
 The [model offset gotcha](../../Gotchas/Conversion/Solidworks/ModelOffsetsAreTypeSpecific.md)
 records the boundary between shared model and concrete-root fields.
+The [serialization-dispatch gotcha](../../Gotchas/Conversion/Solidworks/PartSerializeDispatchUsesArchiveContext.md)
+records the native bridge and version-dependent section selection.
 
 ## Verification
 
