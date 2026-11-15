@@ -22,4 +22,6 @@ The first generated rotation exposed a sign error in the recovered constructor
 description. Direct binary inspection confirms that native axis-angle creation
 multiplies the angle by `-0.5`, not `+0.5`. The shared computation now uses that
 negative half-angle; the record retains the refuted assumption and exact native
-constant. Fresh numerical native parity remains pending.
+constant. The [negative-half-angle gotcha](../../Gotchas/Conversion/Solidworks/Model/QuaternionRotationUsesNegativeHalfAngle.md)
+explains why the actual native helper must replace the assumed convention.
+Fresh numerical native parity remains pending.
