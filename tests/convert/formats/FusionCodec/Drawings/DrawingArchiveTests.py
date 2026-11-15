@@ -150,7 +150,9 @@ def TestDwgJoin() -> None:
         _ = EmitDrawing(ReplaceValue(Drawing, Database=Renamed), Replay.Compress)
     Package = ReadPackage(DataValue, Replay.Inflate)
     Stray = PackageEntry(
-        "Documentation[Active]/Dwg.BlobParts/ExtFile.dwg", b"AC1032", KMemberLayout
+        "Documentation[Active]/Dwg.BlobParts/ExtFile.dwg",
+        AuthorDwg(MakeDraft()),
+        KMemberLayout,
     )
     Grown = EmitPackage(DrawingPackage(Package.Entries + (Stray,)), Replay.Compress)
     with ExpectError(ValueError, match="disagrees with its segment"):
