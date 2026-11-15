@@ -8,9 +8,10 @@ empty feature timeline.
 
 ## Behaviour
 
-A feature row is found at offset zero or immediately after a `0xe3` byte. From there the decoder
-reads a compact feature identifier and requires the root-schema anchor `e3 f6 <compact-class> e1`
-within the next 16 bytes. The class must be a known feature class:
+Feature rows are read by walking the decoded `first_feat_ptr`/`next_feat_ptr` chain and taking the
+first `id` and `type` after each link. If no chain is present, the decoder falls back to the row
+anchor: a row starts at offset zero or immediately after a `0xe3` byte and carries
+`e3 f6 <compact-class> e1` within the next 16 bytes. The class must be a known feature class:
 
 | Class | Label |
 | ---: | --- |
@@ -26,9 +27,8 @@ within the next 16 bytes. The class must be a known feature class:
 | 946 | `surface_merge` |
 | 979 | `coordinate_system` |
 
-Rows shorter than 16 bytes are rejected, which drops the six-byte false positives seen in the
-ladder control. The first feature can also be taken from its `e0 01 id 00` definition when its
-anchor falls outside the 16-byte window.
+Rows shorter than 16 bytes are rejected in the anchor fallback, which drops the six-byte false
+positives seen in the ladder control.
 
 Each record carries:
 
@@ -48,11 +48,20 @@ parameters, sketches, dimensions, or geometry are decoded.
 ## Limits
 
 - Identity and root class only. No parameter, sketch, dimension, or definition body.
-- Rows without an `e3 f6 <class> e1` anchor are not emitted except for the first feature.
+- The chain walk covers every linked feature; the anchor fallback is used only when no chain is
+  present.
 - The production writer is unchanged and still performs exact source replay only.
 - `vendor_loadable` and `application_usable` remain false.
 
 ## Verification
+
+Retained controls through the production adapter:
+
+```text
+empty  feature_timeline: 7 datum_plane, 5 datum_plane, 3 datum_plane, 11 coordinate_system
+ladder feature_timeline: 7 datum_plane, 5 datum_plane, 3 datum_plane, 11 coordinate_system,
+                         67 datum_plane, 75 datum_plane, 74 protrusion
+```
 
 `TestFeatureRows` in `tests/convert/creo/CreoTests.py` builds a synthetic part with a real
 `AllFeatur` section boundary and asserts:

@@ -9,6 +9,8 @@ from interchange.records.RecordProvenance import Provenance
 from interchange.records.RecordProvenance import ProvenanceSpan
 
 from convert.adapters.creo.Format import KFormatId
+from convert.adapters.creo.Stream import StreamNode
+from convert.adapters.creo.Stream import StreamParser
 
 KFeatureIdHeader = b"\xe0\x01id\x00"
 KFeatureAnchor = b"\xe3\xf6"
@@ -103,7 +105,48 @@ def DefinitionStarts(DataValue: bytes) -> list[tuple[int, int]]:
     return Starts
 
 
+def ChainRows(DataValue: bytes) -> tuple[CreoFeatureRow, ...]:
+    Nodes = StreamParser(DataValue).Run()
+    Pending: list[tuple[int, int, int | None]] = []
+    Current: tuple[int, int | None, int | None] | None = None
+    for Node in Nodes:
+        if Node.name in ("first_feat_ptr", "next_feat_ptr"):
+            if Current is not None and Current[1] is not None:
+                Pending.append((Current[0], Current[1], Current[2]))
+            if isinstance(Node.value, StreamNode):
+                Current = (Node.offset, None, None)
+            else:
+                Current = None
+            continue
+        if Current is None:
+            continue
+        if Current[1] is None and Node.name == "id" and isinstance(Node.value, int):
+            Current = (Current[0], Node.value, Current[2])
+        elif (
+            Current[1] is not None
+            and Current[2] is None
+            and Node.name == "type"
+            and isinstance(Node.value, int)
+        ):
+            Current = (Current[0], Current[1], Node.value)
+    if Current is not None and Current[1] is not None:
+        Pending.append((Current[0], Current[1], Current[2]))
+    Rows: list[CreoFeatureRow] = []
+    for IndexValue, (StartValue, FeatureValue, ClassValue) in enumerate(Pending):
+        if IndexValue + 1 < len(Pending):
+            EndValue = Pending[IndexValue + 1][0]
+        else:
+            EndValue = len(DataValue)
+        Rows.append(
+            CreoFeatureRow(FeatureValue, ClassValue, StartValue, EndValue - StartValue)
+        )
+    return tuple(Rows)
+
+
 def ReadFeatureRows(DataValue: bytes) -> tuple[CreoFeatureRow, ...]:
+    ChainValue = ChainRows(DataValue)
+    if ChainValue:
+        return ChainValue
     Starts = BoundaryStarts(DataValue)
     Rows: list[CreoFeatureRow] = []
     SeenIds: set[int] = set()
