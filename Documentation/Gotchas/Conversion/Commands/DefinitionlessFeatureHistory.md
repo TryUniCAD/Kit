@@ -21,5 +21,13 @@ The CLI requires the final generator and its complete dependency chain to be act
 Suppression in any configuration makes that feature inactive because no typed body-to-variant ownership contract is present.
 This does not reject unrelated inactive sketch references in documents without local geometry or require timeline tuples to be stored in feature order.
 
+A concrete definition alone also does not establish a generator.
+An inputless `CombineFeature`, for example, contains Boolean intent but no operands.
+The CLI now requires two distinct active generative inputs for combine and at least one active generative input for the supported bound-scale modifier.
+Sketch references do not count as generated operands.
+Supported creation definitions require their SDK-validated controls, declared profile entities, and an active sketch-reference dependency.
+Unknown definition-to-kind combinations and legacy creation definitions without that validation contract remain inspection-only.
+Legacy modifier records without concrete control validation also remain inspection-only; having an active parent does not qualify their unchecked dimensions or selections.
+
 Definitions and generator presence still require separate parametric and target-application acceptance evidence.
 See [the change entry](../../../Changes/Commands/FeatureDefinitionGuard.md).

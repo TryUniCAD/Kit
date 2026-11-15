@@ -4,6 +4,7 @@ from convert.adapters.Fusion.Authoring.MakeFusionDoc import MakeFusionDoc
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumFeatures import FeatureKind
+from interchange.features.FeatureKinds import CombineFeature
 from tests.interchange.fixtures.DocumentFixture import BuildDocument
 
 KBadKinds = {
@@ -29,7 +30,7 @@ def BuildBadStep(RecordKind: str) -> CadDocument:
         Feature,
         kind=KBadKinds[RecordKind],
         definition=(
-            Feature.definition
+            CombineFeature()
             if RecordKind in ("UnknownDefined", "NativeDefined", "ImportedDefined")
             else None
         ),
